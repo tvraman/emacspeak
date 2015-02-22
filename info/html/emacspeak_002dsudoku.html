@@ -1,206 +1,440 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-sudoku</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-sudoku">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-sudoku">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up" title="Emacspeak Commands">
-<link href="emacspeak_002dtable_002dui.html#emacspeak_002dtable_002dui" rel="next" title="emacspeak-table-ui">
-<link href="emacspeak_002dspeedbar.html#emacspeak_002dspeedbar" rel="prev" title="emacspeak-speedbar">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-sudoku</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-sudoku" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-sudoku" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
+  title="Emacspeak Commands" />
+  <link href=
+  "emacspeak_002dtable_002dui.html#emacspeak_002dtable_002dui" rel=
+  "next" title="emacspeak-table-ui" />
+  <link href="emacspeak_002dspeedbar.html#emacspeak_002dspeedbar"
+  rel="prev" title="emacspeak-speedbar" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dsudoku"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dtable_002dui.html#emacspeak_002dtable_002dui" accesskey="n" rel="next">emacspeak-table-ui</a>, Previous: <a href="emacspeak_002dspeedbar.html#emacspeak_002dspeedbar" accesskey="p" rel="prev">emacspeak-speedbar</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dsudoku-1"></a>
-<h3 class="section">11.62 emacspeak-sudoku</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dsudoku" id="emacspeak_002dsudoku"></a>
 
-<p>Commentary:
-Playing SuDoku using speech output.
-Written to discover what type of feedback one needs for  this
-task.
-See http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.html
-</p>
-<p>Automatically generated documentation
-for commands defined in module  emacspeak-sudoku.
-</p>
-<dl>
-<dt><a name="index-emacspeak_002dsudoku_002dboard_002dcolumns_002dsummarize"></a>Interactive Command: <strong>emacspeak-sudoku-board-columns-summarize</strong> <em>nil</em></dt>
-<dd><p>Summarize columns &mdash; speaks number of remaining cells.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dtable_002dui.html#emacspeak_002dtable_002dui"
+    accesskey="n" rel="next">emacspeak-table-ui</a>, Previous:
+    <a href="emacspeak_002dspeedbar.html#emacspeak_002dspeedbar"
+    accesskey="p" rel="prev">emacspeak-speedbar</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dsudoku-1" id="emacspeak_002dsudoku-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002dsudoku_002dboard_002ddistribution_002dsummarize"></a>Interactive Command: <strong>emacspeak-sudoku-board-distribution-summarize</strong> <em>nil</em></dt>
-<dd><p>Shows distribution of filled numbers.
-</p></dd></dl>
+  <h3 class="section">11.63 emacspeak-sudoku</h3>
 
-<dl>
-<dt><a name="index-emacspeak_002dsudoku_002dboard_002drows_002dsummarize"></a>Interactive Command: <strong>emacspeak-sudoku-board-rows-summarize</strong> <em>nil</em></dt>
-<dd><p>Summarize rows &mdash; speaks number of remaining cells.
-</p></dd></dl>
+  <p>Commentary: Playing SuDoku using speech output. Written to
+  discover what type of feedback one needs for this task. See
+  http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.html</p>
 
-<dl>
-<dt><a name="index-emacspeak_002dsudoku_002dboard_002dsub_002dsquares_002dsummarize"></a>Interactive Command: <strong>emacspeak-sudoku-board-sub-squares-summarize</strong> <em>nil</em></dt>
-<dd><p>Summarize sub-squares &mdash; speaks number of remaining cells.
-</p></dd></dl>
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak-sudoku.</p>
 
-<dl>
-<dt><a name="index-emacspeak_002dsudoku_002dboard_002dsummarizer"></a>Interactive Command: <strong>emacspeak-sudoku-board-summarizer</strong> <em>nil</em></dt>
-<dd><p>Dispatch to  appropriate summarizer.
-</p>
-<p>d   Number Distribution
-r   Row Distribution
-c   Column Distribution
-s   Sub-square Distribution.
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dsudoku_002dboard_002dcolumns_002dsummarize"
+    id=
+    "index-emacspeak_002dsudoku_002dboard_002dcolumns_002dsummarize">
+    </a>Interactive Command:
+    <strong>emacspeak-sudoku-board-columns-summarize</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dsudoku_002ddown_002dsub_002dsquare"></a>Interactive Command: <strong>emacspeak-sudoku-down-sub-square</strong> <em>nil</em></dt>
-<dd><p>Move to top-left corner of  sub-square below current one.
-</p></dd></dl>
+    <dd>
+      <p>Summarize columns &mdash; speaks number of remaining
+      cells.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dsudoku_002derase_002dcurrent_002dcolumn"></a>Interactive Command: <strong>emacspeak-sudoku-erase-current-column</strong> <em>nil</em></dt>
-<dd><p>Erase current column.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dsudoku_002dboard_002ddistribution_002dsummarize"
+    id=
+    "index-emacspeak_002dsudoku_002dboard_002ddistribution_002dsummarize">
+    </a>Interactive Command:
+    <strong>emacspeak-sudoku-board-distribution-summarize</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dsudoku_002derase_002dcurrent_002drow"></a>Interactive Command: <strong>emacspeak-sudoku-erase-current-row</strong> <em>nil</em></dt>
-<dd><p>Erase current row.
-</p></dd></dl>
+    <dd>
+      <p>Shows distribution of filled numbers.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dsudoku_002derase_002dcurrent_002dsub_002dsquare"></a>Interactive Command: <strong>emacspeak-sudoku-erase-current-sub-square</strong> <em>nil</em></dt>
-<dd><p>Erase current sub-square.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dsudoku_002dboard_002drows_002dsummarize"
+    id=
+    "index-emacspeak_002dsudoku_002dboard_002drows_002dsummarize"></a>Interactive
+    Command: <strong>emacspeak-sudoku-board-rows-summarize</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dsudoku_002dhint"></a>Interactive Command: <strong>emacspeak-sudoku-hint</strong> <em>nil</em></dt>
-<dd><p>Provide hint for current cell.
-</p></dd></dl>
+    <dd>
+      <p>Summarize rows &mdash; speaks number of remaining
+      cells.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dsudoku_002dhistory_002dpop"></a>Interactive Command: <strong>emacspeak-sudoku-history-pop</strong> <em>nil</em></dt>
-<dd><p>Pop saved state off stack and redraw board.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dsudoku_002dboard_002dsub_002dsquares_002dsummarize"
+    id=
+    "index-emacspeak_002dsudoku_002dboard_002dsub_002dsquares_002dsummarize">
+    </a>Interactive Command:
+    <strong>emacspeak-sudoku-board-sub-squares-summarize</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dsudoku_002dhistory_002dpush"></a>Interactive Command: <strong>emacspeak-sudoku-history-push</strong> <em>nil</em></dt>
-<dd><p>Push current state on to history stack.
-</p></dd></dl>
+    <dd>
+      <p>Summarize sub-squares &mdash; speaks number of remaining
+      cells.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dsudoku_002dhow_002dmany_002dremaining"></a>Interactive Command: <strong>emacspeak-sudoku-how-many-remaining</strong> <em>nil</em></dt>
-<dd><p>Speak number of remaining squares to fill.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dsudoku_002dboard_002dsummarizer" id=
+    "index-emacspeak_002dsudoku_002dboard_002dsummarizer"></a>Interactive
+    Command: <strong>emacspeak-sudoku-board-summarizer</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dsudoku_002dnext_002dsub_002dsquare"></a>Interactive Command: <strong>emacspeak-sudoku-next-sub-square</strong> <em>nil</em></dt>
-<dd><p>Move to top-left corner of next sub-square.
-</p></dd></dl>
+    <dd>
+      <p>Dispatch to appropriate summarizer.</p>
 
-<dl>
-<dt><a name="index-emacspeak_002dsudoku_002dprevious_002dsub_002dsquare"></a>Interactive Command: <strong>emacspeak-sudoku-previous-sub-square</strong> <em>nil</em></dt>
-<dd><p>Move to top-left corner of previous sub-square.
-</p></dd></dl>
+      <p>d Number Distribution r Row Distribution c Column
+      Distribution s Sub-square Distribution.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dsudoku_002dspeak_002dcurrent_002dcell_002dcoordinates"></a>Interactive Command: <strong>emacspeak-sudoku-speak-current-cell-coordinates</strong> <em>nil</em></dt>
-<dd><p>speak current cell coordinates.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dsudoku_002ddown_002dsub_002dsquare" id=
+    "index-emacspeak_002dsudoku_002ddown_002dsub_002dsquare"></a>Interactive
+    Command: <strong>emacspeak-sudoku-down-sub-square</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dsudoku_002dspeak_002dcurrent_002dcell_002dvalue"></a>Interactive Command: <strong>emacspeak-sudoku-speak-current-cell-value</strong> <em>nil</em></dt>
-<dd><p>Speak value in current cell.
-</p></dd></dl>
+    <dd>
+      <p>Move to top-left corner of sub-square below current
+      one.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dsudoku_002dspeak_002dcurrent_002dcolumn"></a>Interactive Command: <strong>emacspeak-sudoku-speak-current-column</strong> <em>nil</em></dt>
-<dd><p>Speak current column.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dsudoku_002derase_002dcurrent_002dcolumn"
+    id=
+    "index-emacspeak_002dsudoku_002derase_002dcurrent_002dcolumn"></a>Interactive
+    Command: <strong>emacspeak-sudoku-erase-current-column</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dsudoku_002dspeak_002dcurrent_002drow"></a>Interactive Command: <strong>emacspeak-sudoku-speak-current-row</strong> <em>nil</em></dt>
-<dd><p>Speak current row.
-</p></dd></dl>
+    <dd>
+      <p>Erase current column.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dsudoku_002dspeak_002dcurrent_002dsub_002dsquare"></a>Interactive Command: <strong>emacspeak-sudoku-speak-current-sub-square</strong> <em>nil</em></dt>
-<dd><p>Speak current sub-square.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dsudoku_002derase_002dcurrent_002drow" id=
+    "index-emacspeak_002dsudoku_002derase_002dcurrent_002drow"></a>Interactive
+    Command: <strong>emacspeak-sudoku-erase-current-row</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dsudoku_002dspeak_002dremaining_002din_002dcolumn"></a>Interactive Command: <strong>emacspeak-sudoku-speak-remaining-in-column</strong> <em>nil</em></dt>
-<dd><p>Speaks number of remaining cells in current column.
-</p></dd></dl>
+    <dd>
+      <p>Erase current row.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dsudoku_002dspeak_002dremaining_002din_002drow"></a>Interactive Command: <strong>emacspeak-sudoku-speak-remaining-in-row</strong> <em>nil</em></dt>
-<dd><p>Speaks number of remaining cells in current row.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dsudoku_002derase_002dcurrent_002dsub_002dsquare"
+    id=
+    "index-emacspeak_002dsudoku_002derase_002dcurrent_002dsub_002dsquare">
+    </a>Interactive Command:
+    <strong>emacspeak-sudoku-erase-current-sub-square</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dsudoku_002dspeak_002dremaining_002din_002dsub_002dsquare"></a>Interactive Command: <strong>emacspeak-sudoku-speak-remaining-in-sub-square</strong> <em>nil</em></dt>
-<dd><p>Speaks number of remaining cells in current sub-square.
-</p></dd></dl>
+    <dd>
+      <p>Erase current sub-square.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dsudoku_002dup_002dsub_002dsquare"></a>Interactive Command: <strong>emacspeak-sudoku-up-sub-square</strong> <em>nil</em></dt>
-<dd><p>Move to top-left corner of  sub-square above current one.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dsudoku_002dhint" id=
+    "index-emacspeak_002dsudoku_002dhint"></a>Interactive Command:
+    <strong>emacspeak-sudoku-hint</strong> <em>nil</em></dt>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dtable_002dui.html#emacspeak_002dtable_002dui" accesskey="n" rel="next">emacspeak-table-ui</a>, Previous: <a href="emacspeak_002dspeedbar.html#emacspeak_002dspeedbar" accesskey="p" rel="prev">emacspeak-speedbar</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+    <dd>
+      <p>Provide hint for current cell.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-emacspeak_002dsudoku_002dhistory_002dpop"
+    id="index-emacspeak_002dsudoku_002dhistory_002dpop"></a>Interactive
+    Command: <strong>emacspeak-sudoku-history-pop</strong>
+    <em>nil</em></dt>
 
+    <dd>
+      <p>Pop saved state off stack and redraw board.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-emacspeak_002dsudoku_002dhistory_002dpush"
+    id=
+    "index-emacspeak_002dsudoku_002dhistory_002dpush"></a>Interactive
+    Command: <strong>emacspeak-sudoku-history-push</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Push current state on to history stack.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dsudoku_002dhow_002dmany_002dremaining" id=
+    "index-emacspeak_002dsudoku_002dhow_002dmany_002dremaining"></a>Interactive
+    Command: <strong>emacspeak-sudoku-how-many-remaining</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak number of remaining squares to fill.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dsudoku_002dnext_002dsub_002dsquare" id=
+    "index-emacspeak_002dsudoku_002dnext_002dsub_002dsquare"></a>Interactive
+    Command: <strong>emacspeak-sudoku-next-sub-square</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Move to top-left corner of next sub-square.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dsudoku_002dprevious_002dsub_002dsquare"
+    id="index-emacspeak_002dsudoku_002dprevious_002dsub_002dsquare">
+    </a>Interactive Command:
+    <strong>emacspeak-sudoku-previous-sub-square</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Move to top-left corner of previous sub-square.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dsudoku_002dspeak_002dcurrent_002dcell_002dcoordinates"
+    id=
+    "index-emacspeak_002dsudoku_002dspeak_002dcurrent_002dcell_002dcoordinates">
+    </a>Interactive Command:
+    <strong>emacspeak-sudoku-speak-current-cell-coordinates</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>speak current cell coordinates.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dsudoku_002dspeak_002dcurrent_002dcell_002dvalue"
+    id=
+    "index-emacspeak_002dsudoku_002dspeak_002dcurrent_002dcell_002dvalue">
+    </a>Interactive Command:
+    <strong>emacspeak-sudoku-speak-current-cell-value</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak value in current cell.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dsudoku_002dspeak_002dcurrent_002dcolumn"
+    id=
+    "index-emacspeak_002dsudoku_002dspeak_002dcurrent_002dcolumn"></a>Interactive
+    Command: <strong>emacspeak-sudoku-speak-current-column</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak current column.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dsudoku_002dspeak_002dcurrent_002drow" id=
+    "index-emacspeak_002dsudoku_002dspeak_002dcurrent_002drow"></a>Interactive
+    Command: <strong>emacspeak-sudoku-speak-current-row</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak current row.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dsudoku_002dspeak_002dcurrent_002dsub_002dsquare"
+    id=
+    "index-emacspeak_002dsudoku_002dspeak_002dcurrent_002dsub_002dsquare">
+    </a>Interactive Command:
+    <strong>emacspeak-sudoku-speak-current-sub-square</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak current sub-square.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dsudoku_002dspeak_002dremaining_002din_002dcolumn"
+    id=
+    "index-emacspeak_002dsudoku_002dspeak_002dremaining_002din_002dcolumn">
+    </a>Interactive Command:
+    <strong>emacspeak-sudoku-speak-remaining-in-column</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speaks number of remaining cells in current column.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dsudoku_002dspeak_002dremaining_002din_002drow"
+    id=
+    "index-emacspeak_002dsudoku_002dspeak_002dremaining_002din_002drow">
+    </a>Interactive Command:
+    <strong>emacspeak-sudoku-speak-remaining-in-row</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speaks number of remaining cells in current row.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dsudoku_002dspeak_002dremaining_002din_002dsub_002dsquare"
+    id=
+    "index-emacspeak_002dsudoku_002dspeak_002dremaining_002din_002dsub_002dsquare">
+    </a>Interactive Command:
+    <strong>emacspeak-sudoku-speak-remaining-in-sub-square</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speaks number of remaining cells in current
+      sub-square.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dsudoku_002dup_002dsub_002dsquare" id=
+    "index-emacspeak_002dsudoku_002dup_002dsub_002dsquare"></a>Interactive
+    Command: <strong>emacspeak-sudoku-up-sub-square</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Move to top-left corner of sub-square above current
+      one.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dtable_002dui.html#emacspeak_002dtable_002dui"
+    accesskey="n" rel="next">emacspeak-table-ui</a>, Previous:
+    <a href="emacspeak_002dspeedbar.html#emacspeak_002dspeedbar"
+    accesskey="p" rel="prev">emacspeak-speedbar</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

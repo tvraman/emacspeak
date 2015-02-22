@@ -1,174 +1,326 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-diff-mode Options</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-diff-mode Options">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-diff-mode Options">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Customizations.html#Emacspeak-Customizations" rel="up" title="Emacspeak Customizations">
-<link href="emacspeak_002ddired-Options.html#emacspeak_002ddired-Options" rel="next" title="emacspeak-dired Options">
-<link href="emacspeak_002dcustom-Options.html#emacspeak_002dcustom-Options" rel="prev" title="emacspeak-custom Options">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-diff-mode Options</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-diff-mode Options" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-diff-mode Options" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Customizations.html#Emacspeak-Customizations" rel="up"
+  title="Emacspeak Customizations" />
+  <link href=
+  "emacspeak_002ddired-Options.html#emacspeak_002ddired-Options"
+  rel="next" title="emacspeak-dired Options" />
+  <link href=
+  "emacspeak_002dcustom-Options.html#emacspeak_002dcustom-Options"
+  rel="prev" title="emacspeak-custom Options" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002ddiff_002dmode-Options"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002ddired-Options.html#emacspeak_002ddired-Options" accesskey="n" rel="next">emacspeak-dired Options</a>, Previous: <a href="emacspeak_002dcustom-Options.html#emacspeak_002dcustom-Options" accesskey="p" rel="prev">emacspeak-custom Options</a>, Up: <a href="Emacspeak-Customizations.html#Emacspeak-Customizations" accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002ddiff_002dmode-Options-1"></a>
-<h3 class="section">12.13 emacspeak-diff-mode Options</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002ddiff_002dmode-Options" id=
+  "emacspeak_002ddiff_002dmode-Options"></a>
 
-<p>Commentary:
-DIFF-MODE  support.
-</p>
-<p>Automatically generated documentation
-for options defined in module  emacspeak-diff-mode.
-These options are customizable via Emacs&rsquo; Custom interface.
-</p>
-<dl>
-<dt><a name="index-User-Option-61"></a>Variable: <strong>User Option</strong> <em>emacspeak-diff-added-voice</em></dt>
-<dd><p>Personality used for diff-added
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002ddired-Options.html#emacspeak_002ddired-Options"
+    accesskey="n" rel="next">emacspeak-dired Options</a>, Previous:
+    <a href=
+    "emacspeak_002dcustom-Options.html#emacspeak_002dcustom-Options"
+    accesskey="p" rel="prev">emacspeak-custom Options</a>, Up:
+    <a href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations"
+    accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp;
+    [<a href="index.html#SEC_Contents" title="Table of contents"
+    rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002ddiff_002dmode-Options-1" id=
+  "emacspeak_002ddiff_002dmode-Options-1"></a>
 
-<dl>
-<dt><a name="index-User-Option-62"></a>Variable: <strong>User Option</strong> <em>emacspeak-diff-changed-voice</em></dt>
-<dd><p>Personality used for diff-changed
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-</p></dd></dl>
+  <h3 class="section">12.13 emacspeak-diff-mode Options</h3>
 
-<dl>
-<dt><a name="index-User-Option-63"></a>Variable: <strong>User Option</strong> <em>emacspeak-diff-context-voice</em></dt>
-<dd><p>Personality used for diff-context
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-</p></dd></dl>
+  <p>Commentary: DIFF-MODE support.</p>
 
-<dl>
-<dt><a name="index-User-Option-64"></a>Variable: <strong>User Option</strong> <em>emacspeak-diff-file-header-voice</em></dt>
-<dd><p>Personality used for diff-file-header
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-</p></dd></dl>
+  <p>Automatically generated documentation for options defined in
+  module emacspeak-diff-mode. These options are customizable via
+  Emacs&rsquo; Custom interface.</p>
 
-<dl>
-<dt><a name="index-User-Option-65"></a>Variable: <strong>User Option</strong> <em>emacspeak-diff-function-voice</em></dt>
-<dd><p>Personality used for diff-function
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-61" id=
+    "index-User-Option-61"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-diff-added-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-66"></a>Variable: <strong>User Option</strong> <em>emacspeak-diff-header-voice</em></dt>
-<dd><p>Personality used for diff-header
-This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for diff-added This personality uses
+      voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-67"></a>Variable: <strong>User Option</strong> <em>emacspeak-diff-hunk-header-voice</em></dt>
-<dd><p>Personality used for diff-hunk-header
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-62" id=
+    "index-User-Option-62"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-diff-changed-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-68"></a>Variable: <strong>User Option</strong> <em>emacspeak-diff-index-voice</em></dt>
-<dd><p>Personality used for diff-index
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for diff-changed This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-69"></a>Variable: <strong>User Option</strong> <em>emacspeak-diff-indicator-added-voice</em></dt>
-<dd><p>Personality used for diff-indicator-added
-This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-63" id=
+    "index-User-Option-63"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-diff-context-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-70"></a>Variable: <strong>User Option</strong> <em>emacspeak-diff-indicator-changed-voice</em></dt>
-<dd><p>Personality used for diff-indicator-changed
-This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for diff-context This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-71"></a>Variable: <strong>User Option</strong> <em>emacspeak-diff-indicator-removed-voice</em></dt>
-<dd><p>Personality used for diff-indicator-removed
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-64" id=
+    "index-User-Option-64"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-diff-file-header-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-72"></a>Variable: <strong>User Option</strong> <em>emacspeak-diff-nonexistent-voice</em></dt>
-<dd><p>Personality used for diff-nonexistent
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for diff-file-header This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-73"></a>Variable: <strong>User Option</strong> <em>emacspeak-diff-refine-added-voice</em></dt>
-<dd><p>Personality used for diff-refine-added
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-65" id=
+    "index-User-Option-65"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-diff-function-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-74"></a>Variable: <strong>User Option</strong> <em>emacspeak-diff-refine-change-voice</em></dt>
-<dd><p>Personality used for diff-refine-change
-This personality uses  voice-brighten-medium whose  effect can be changed globally by customizing voice-brighten-medium-settings.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for diff-function This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-75"></a>Variable: <strong>User Option</strong> <em>emacspeak-diff-refine-removed-voice</em></dt>
-<dd><p>Personality used for diff-refine-removed
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-66" id=
+    "index-User-Option-66"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-diff-header-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-76"></a>Variable: <strong>User Option</strong> <em>emacspeak-diff-removed-voice</em></dt>
-<dd><p>Personality used for diff-removed
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for diff-header This personality uses
+      voice-bolden-extra whose effect can be changed globally by
+      customizing voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002ddired-Options.html#emacspeak_002ddired-Options" accesskey="n" rel="next">emacspeak-dired Options</a>, Previous: <a href="emacspeak_002dcustom-Options.html#emacspeak_002dcustom-Options" accesskey="p" rel="prev">emacspeak-custom Options</a>, Up: <a href="Emacspeak-Customizations.html#Emacspeak-Customizations" accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+  <dl>
+    <dt><a name="index-User-Option-67" id=
+    "index-User-Option-67"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-diff-hunk-header-voice</em></dt>
 
+    <dd>
+      <p>Personality used for diff-hunk-header This personality
+      uses voice-bolden-medium whose effect can be changed globally
+      by customizing voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-68" id=
+    "index-User-Option-68"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-diff-index-voice</em></dt>
 
+    <dd>
+      <p>Personality used for diff-index This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-69" id=
+    "index-User-Option-69"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-diff-indicator-added-voice</em></dt>
+
+    <dd>
+      <p>Personality used for diff-indicator-added This personality
+      uses voice-annotate whose effect can be changed globally by
+      customizing voice-annotate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-70" id=
+    "index-User-Option-70"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-diff-indicator-changed-voice</em></dt>
+
+    <dd>
+      <p>Personality used for diff-indicator-changed This
+      personality uses voice-annotate whose effect can be changed
+      globally by customizing voice-annotate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-71" id=
+    "index-User-Option-71"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-diff-indicator-removed-voice</em></dt>
+
+    <dd>
+      <p>Personality used for diff-indicator-removed This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-72" id=
+    "index-User-Option-72"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-diff-nonexistent-voice</em></dt>
+
+    <dd>
+      <p>Personality used for diff-nonexistent This personality
+      uses voice-lighten-extra whose effect can be changed globally
+      by customizing voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-73" id=
+    "index-User-Option-73"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-diff-refine-added-voice</em></dt>
+
+    <dd>
+      <p>Personality used for diff-refine-added This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-74" id=
+    "index-User-Option-74"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-diff-refine-change-voice</em></dt>
+
+    <dd>
+      <p>Personality used for diff-refine-change This personality
+      uses voice-brighten-medium whose effect can be changed
+      globally by customizing voice-brighten-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-75" id=
+    "index-User-Option-75"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-diff-refine-removed-voice</em></dt>
+
+    <dd>
+      <p>Personality used for diff-refine-removed This personality
+      uses voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-76" id=
+    "index-User-Option-76"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-diff-removed-voice</em></dt>
+
+    <dd>
+      <p>Personality used for diff-removed This personality uses
+      voice-smoothen-extra whose effect can be changed globally by
+      customizing voice-smoothen-extra-settings.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002ddired-Options.html#emacspeak_002ddired-Options"
+    accesskey="n" rel="next">emacspeak-dired Options</a>, Previous:
+    <a href=
+    "emacspeak_002dcustom-Options.html#emacspeak_002dcustom-Options"
+    accesskey="p" rel="prev">emacspeak-custom Options</a>, Up:
+    <a href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations"
+    accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp;
+    [<a href="index.html#SEC_Contents" title="Table of contents"
+    rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

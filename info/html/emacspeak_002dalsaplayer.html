@@ -1,282 +1,522 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-alsaplayer</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-alsaplayer">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-alsaplayer">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up" title="Emacspeak Commands">
-<link href="emacspeak_002damark.html#emacspeak_002damark" rel="next" title="emacspeak-amark">
-<link href="dtk_002dunicode.html#dtk_002dunicode" rel="prev" title="dtk-unicode">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-alsaplayer</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-alsaplayer" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-alsaplayer" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
+  title="Emacspeak Commands" />
+  <link href="emacspeak_002damark.html#emacspeak_002damark" rel=
+  "next" title="emacspeak-amark" />
+  <link href="dtk_002dunicode.html#dtk_002dunicode" rel="prev"
+  title="dtk-unicode" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dalsaplayer"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002damark.html#emacspeak_002damark" accesskey="n" rel="next">emacspeak-amark</a>, Previous: <a href="dtk_002dunicode.html#dtk_002dunicode" accesskey="p" rel="prev">dtk-unicode</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dalsaplayer-1"></a>
-<h3 class="section">11.5 emacspeak-alsaplayer</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dalsaplayer" id=
+  "emacspeak_002dalsaplayer"></a>
 
-<p>Commentary:
-Defines a simple derived mode for interacting with
-alsaplayer.
-alsaplayer navigation commands  work via single keystrokes.
-</p>
-<p>Automatically generated documentation
-for commands defined in module  emacspeak-alsaplayer.
-</p>
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dadd_002dto_002dqueue"></a>Interactive Command: <strong>emacspeak-alsaplayer-add-to-queue</strong> <em>(resource)</em></dt>
-<dd><p>Add specified resource to queue.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href="emacspeak_002damark.html#emacspeak_002damark"
+    accesskey="n" rel="next">emacspeak-amark</a>, Previous:
+    <a href="dtk_002dunicode.html#dtk_002dunicode" accesskey="p"
+    rel="prev">dtk-unicode</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dalsaplayer-1" id=
+  "emacspeak_002dalsaplayer-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002damark_002dadd"></a>Interactive Command: <strong>emacspeak-alsaplayer-amark-add</strong> <em>(name &amp;optional prompt-position)</em></dt>
-<dd><p>Set AMark &lsquo;name&rsquo; at current position in current audio stream.
-Interactive prefix arg prompts for position.
-As the default, use current position.
-</p></dd></dl>
+  <h3 class="section">11.5 emacspeak-alsaplayer</h3>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002damark_002djump"></a>Interactive Command: <strong>emacspeak-alsaplayer-amark-jump</strong> <em>nil</em></dt>
-<dd><p>Jump to specified AMark.
-</p></dd></dl>
+  <p>Commentary: Defines a simple derived mode for interacting with
+  alsaplayer. alsaplayer navigation commands work via single
+  keystrokes.</p>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dbackward_002d10_002dseconds"></a>Interactive Command: <strong>emacspeak-alsaplayer-backward-10-seconds</strong> <em>nil</em></dt>
-<dd><p>Skip backward by  10 seconds.
-</p></dd></dl>
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak-alsaplayer.</p>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dbackward_002dminute"></a>Interactive Command: <strong>emacspeak-alsaplayer-backward-minute</strong> <em>(minutes)</em></dt>
-<dd><p>Skip backwards by  minutes.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dalsaplayer_002dadd_002dto_002dqueue" id=
+    "index-emacspeak_002dalsaplayer_002dadd_002dto_002dqueue"></a>Interactive
+    Command: <strong>emacspeak-alsaplayer-add-to-queue</strong>
+    <em>(resource)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dbackward_002dten_002dminutes"></a>Interactive Command: <strong>emacspeak-alsaplayer-backward-ten-minutes</strong> <em>(minutes)</em></dt>
-<dd><p>Skip backwards by  chunks of minutes.
-</p></dd></dl>
+    <dd>
+      <p>Add specified resource to queue.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dcd"></a>Interactive Command: <strong>emacspeak-alsaplayer-cd</strong> <em>(directory)</em></dt>
-<dd><p>Change default directory, and silence its pronunciation.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dalsaplayer_002damark_002dadd"
+    id=
+    "index-emacspeak_002dalsaplayer_002damark_002dadd"></a>Interactive
+    Command: <strong>emacspeak-alsaplayer-amark-add</strong>
+    <em>(name &amp;optional prompt-position)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dclear"></a>Interactive Command: <strong>emacspeak-alsaplayer-clear</strong> <em>nil</em></dt>
-<dd><p>Clear or resume alsaplayer
-</p></dd></dl>
+    <dd>
+      <p>Set AMark &lsquo;name&rsquo; at current position in
+      current audio stream. Interactive prefix arg prompts for
+      position. As the default, use current position.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dclip"></a>Interactive Command: <strong>emacspeak-alsaplayer-clip</strong> <em>(path start end)</em></dt>
-<dd><p>Invoke mp3splt to clip selected range.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dalsaplayer_002damark_002djump"
+    id=
+    "index-emacspeak_002dalsaplayer_002damark_002djump"></a>Interactive
+    Command: <strong>emacspeak-alsaplayer-amark-jump</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dfind_002dand_002dadd_002dto_002dqueue"></a>Interactive Command: <strong>emacspeak-alsaplayer-find-and-add-to-queue</strong> <em>(pattern)</em></dt>
-<dd><p>Find  specified resource and add to queue.
-</p></dd></dl>
+    <dd>
+      <p>Jump to specified AMark.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dforward_002d10_002dseconds"></a>Interactive Command: <strong>emacspeak-alsaplayer-forward-10-seconds</strong> <em>nil</em></dt>
-<dd><p>Skip forward by  seconds.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dalsaplayer_002dbackward_002d10_002dseconds"
+    id=
+    "index-emacspeak_002dalsaplayer_002dbackward_002d10_002dseconds">
+    </a>Interactive Command:
+    <strong>emacspeak-alsaplayer-backward-10-seconds</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dforward_002dminute"></a>Interactive Command: <strong>emacspeak-alsaplayer-forward-minute</strong> <em>(minutes)</em></dt>
-<dd><p>Skip forward by  minutes.
-</p></dd></dl>
+    <dd>
+      <p>Skip backward by 10 seconds.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dforward_002dten_002dminutes"></a>Interactive Command: <strong>emacspeak-alsaplayer-forward-ten-minutes</strong> <em>(minutes)</em></dt>
-<dd><p>Skip forward by  chunks of ten minutes.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dalsaplayer_002dbackward_002dminute" id=
+    "index-emacspeak_002dalsaplayer_002dbackward_002dminute"></a>Interactive
+    Command: <strong>emacspeak-alsaplayer-backward-minute</strong>
+    <em>(minutes)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dinfo"></a>Interactive Command: <strong>emacspeak-alsaplayer-info</strong> <em>nil</em></dt>
-<dd><p>Speak current path and copy it to kill ring.
-</p></dd></dl>
+    <dd>
+      <p>Skip backwards by minutes.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002djump"></a>Interactive Command: <strong>emacspeak-alsaplayer-jump</strong> <em>(track)</em></dt>
-<dd><p>Jump to specified track.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dalsaplayer_002dbackward_002dten_002dminutes"
+    id=
+    "index-emacspeak_002dalsaplayer_002dbackward_002dten_002dminutes">
+    </a>Interactive Command:
+    <strong>emacspeak-alsaplayer-backward-ten-minutes</strong>
+    <em>(minutes)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dlaunch"></a>Interactive Command: <strong>emacspeak-alsaplayer-launch</strong> <em>nil</em></dt>
-<dd><p>Launch Alsaplayer.
-user is placed in a buffer associated with the newly created
-Alsaplayer session.
-</p></dd></dl>
+    <dd>
+      <p>Skip backwards by chunks of minutes.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dmark_002dposition"></a>Interactive Command: <strong>emacspeak-alsaplayer-mark-position</strong> <em>nil</em></dt>
-<dd><p>Mark currently displayed position.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dalsaplayer_002dcd" id=
+    "index-emacspeak_002dalsaplayer_002dcd"></a>Interactive
+    Command: <strong>emacspeak-alsaplayer-cd</strong>
+    <em>(directory)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dmode"></a>Interactive Command: <strong>emacspeak-alsaplayer-mode</strong> <em>nil</em></dt>
-<dd><p>Major mode for alsaplayer interaction. 
-</p>
-<p>key             binding
-&mdash;             &mdash;&mdash;-
-</p>
-<p>ESC		Prefix Command
-SPC		emacspeak-alsaplayer-pause
-,		emacspeak-alsaplayer-backward-10-seconds
-.		emacspeak-alsaplayer-forward-10-seconds
-/		emacspeak-alsaplayer-speed
-&lt;		emacspeak-alsaplayer-backward-minute
-&gt;		emacspeak-alsaplayer-forward-minute
-?		emacspeak-alsaplayer-status
-A		emacspeak-alsaplayer-replace-queue
-J		emacspeak-alsaplayer-amark-jump
-M		emacspeak-alsaplayer-amark-add
-Q		emacspeak-alsaplayer-quit
-S		emacspeak-alsaplayer-stop
-[		emacspeak-alsaplayer-backward-ten-minutes
-]		emacspeak-alsaplayer-forward-ten-minutes
-a		emacspeak-alsaplayer-add-to-queue
-c		emacspeak-alsaplayer-clear
-d		emacspeak-alsaplayer-cd
-f		emacspeak-alsaplayer-find-and-add-to-queue
-g		emacspeak-alsaplayer-seek
-i		emacspeak-alsaplayer-info
-j		emacspeak-alsaplayer-jump
-l		emacspeak-alsaplayer-launch
-m		emacspeak-alsaplayer-mark-position
-n		emacspeak-alsaplayer-next
-o		other-window
-p		emacspeak-alsaplayer-previous
-q		bury-buffer
-r		emacspeak-alsaplayer-relative
-s		emacspeak-alsaplayer-start
-v		emacspeak-alsaplayer-volume
-w		emacspeak-alsaplayer-where
-x		emacspeak-alsaplayer-clip
-</p>
-<p>M-l		emacspeak-amark-load
-M-s		emacspeak-amark-save
-</p>
-<p>In addition to any hooks its parent mode &lsquo;special-mode&rsquo; might have run,
-this mode runs the hook &lsquo;emacspeak-alsaplayer-mode-hook&rsquo;, as the final step
-during initialization.
-</p></dd></dl>
+    <dd>
+      <p>Change default directory, and silence its
+      pronunciation.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dnext"></a>Interactive Command: <strong>emacspeak-alsaplayer-next</strong> <em>nil</em></dt>
-<dd><p>Next  alsaplayer
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dalsaplayer_002dclear" id=
+    "index-emacspeak_002dalsaplayer_002dclear"></a>Interactive
+    Command: <strong>emacspeak-alsaplayer-clear</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dpause"></a>Interactive Command: <strong>emacspeak-alsaplayer-pause</strong> <em>nil</em></dt>
-<dd><p>Pause or resume alsaplayer
-</p></dd></dl>
+    <dd>
+      <p>Clear or resume alsaplayer</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dprevious"></a>Interactive Command: <strong>emacspeak-alsaplayer-previous</strong> <em>nil</em></dt>
-<dd><p>Previous  alsaplayer
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dalsaplayer_002dclip" id=
+    "index-emacspeak_002dalsaplayer_002dclip"></a>Interactive
+    Command: <strong>emacspeak-alsaplayer-clip</strong> <em>(path
+    start end)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dquit"></a>Interactive Command: <strong>emacspeak-alsaplayer-quit</strong> <em>nil</em></dt>
-<dd><p>Quit  alsaplayer
-</p></dd></dl>
+    <dd>
+      <p>Invoke mp3splt to clip selected range.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002drelative"></a>Interactive Command: <strong>emacspeak-alsaplayer-relative</strong> <em>(offset)</em></dt>
-<dd><p>Relative seek  alsaplayer
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dalsaplayer_002dfind_002dand_002dadd_002dto_002dqueue"
+    id=
+    "index-emacspeak_002dalsaplayer_002dfind_002dand_002dadd_002dto_002dqueue">
+    </a>Interactive Command:
+    <strong>emacspeak-alsaplayer-find-and-add-to-queue</strong>
+    <em>(pattern)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dreplace_002dqueue"></a>Interactive Command: <strong>emacspeak-alsaplayer-replace-queue</strong> <em>(resource)</em></dt>
-<dd><p>Replace currently playing music.
-</p></dd></dl>
+    <dd>
+      <p>Find specified resource and add to queue.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dseek"></a>Interactive Command: <strong>emacspeak-alsaplayer-seek</strong> <em>(offset)</em></dt>
-<dd><p>Absolute seek  alsaplayer
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dalsaplayer_002dforward_002d10_002dseconds"
+    id=
+    "index-emacspeak_002dalsaplayer_002dforward_002d10_002dseconds">
+    </a>Interactive Command:
+    <strong>emacspeak-alsaplayer-forward-10-seconds</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dspeed"></a>Interactive Command: <strong>emacspeak-alsaplayer-speed</strong> <em>(setting)</em></dt>
-<dd><p>Set speed in alsaplayer.
-</p></dd></dl>
+    <dd>
+      <p>Skip forward by seconds.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dstart"></a>Interactive Command: <strong>emacspeak-alsaplayer-start</strong> <em>nil</em></dt>
-<dd><p>Start  alsaplayer
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dalsaplayer_002dforward_002dminute" id=
+    "index-emacspeak_002dalsaplayer_002dforward_002dminute"></a>Interactive
+    Command: <strong>emacspeak-alsaplayer-forward-minute</strong>
+    <em>(minutes)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dstatus"></a>Interactive Command: <strong>emacspeak-alsaplayer-status</strong> <em>nil</em></dt>
-<dd><p>Show alsaplayer status
-</p></dd></dl>
+    <dd>
+      <p>Skip forward by minutes.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dstop"></a>Interactive Command: <strong>emacspeak-alsaplayer-stop</strong> <em>nil</em></dt>
-<dd><p>Stop  alsaplayer
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dalsaplayer_002dforward_002dten_002dminutes"
+    id=
+    "index-emacspeak_002dalsaplayer_002dforward_002dten_002dminutes">
+    </a>Interactive Command:
+    <strong>emacspeak-alsaplayer-forward-ten-minutes</strong>
+    <em>(minutes)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dvolume"></a>Interactive Command: <strong>emacspeak-alsaplayer-volume</strong> <em>(setting)</em></dt>
-<dd><p>Set volume.
-</p></dd></dl>
+    <dd>
+      <p>Skip forward by chunks of ten minutes.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dalsaplayer_002dwhere"></a>Interactive Command: <strong>emacspeak-alsaplayer-where</strong> <em>nil</em></dt>
-<dd><p>Speak current position and copy it to kill ring.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dalsaplayer_002dinfo" id=
+    "index-emacspeak_002dalsaplayer_002dinfo"></a>Interactive
+    Command: <strong>emacspeak-alsaplayer-info</strong>
+    <em>nil</em></dt>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002damark.html#emacspeak_002damark" accesskey="n" rel="next">emacspeak-amark</a>, Previous: <a href="dtk_002dunicode.html#dtk_002dunicode" accesskey="p" rel="prev">dtk-unicode</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+    <dd>
+      <p>Speak current path and copy it to kill ring.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-emacspeak_002dalsaplayer_002djump" id=
+    "index-emacspeak_002dalsaplayer_002djump"></a>Interactive
+    Command: <strong>emacspeak-alsaplayer-jump</strong>
+    <em>(track)</em></dt>
 
+    <dd>
+      <p>Jump to specified track.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-emacspeak_002dalsaplayer_002dlaunch" id=
+    "index-emacspeak_002dalsaplayer_002dlaunch"></a>Interactive
+    Command: <strong>emacspeak-alsaplayer-launch</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Launch Alsaplayer. user is placed in a buffer associated
+      with the newly created Alsaplayer session.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dalsaplayer_002dmark_002dposition" id=
+    "index-emacspeak_002dalsaplayer_002dmark_002dposition"></a>Interactive
+    Command: <strong>emacspeak-alsaplayer-mark-position</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Mark currently displayed position.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dalsaplayer_002dmode" id=
+    "index-emacspeak_002dalsaplayer_002dmode"></a>Interactive
+    Command: <strong>emacspeak-alsaplayer-mode</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Major mode for alsaplayer interaction.</p>
+
+      <p>key binding &mdash; &mdash;&mdash;-</p>
+
+      <p>ESC Prefix Command SPC emacspeak-alsaplayer-pause ,
+      emacspeak-alsaplayer-backward-10-seconds .
+      emacspeak-alsaplayer-forward-10-seconds /
+      emacspeak-alsaplayer-speed &lt;
+      emacspeak-alsaplayer-backward-minute &gt;
+      emacspeak-alsaplayer-forward-minute ?
+      emacspeak-alsaplayer-status A
+      emacspeak-alsaplayer-replace-queue J
+      emacspeak-alsaplayer-amark-jump M
+      emacspeak-alsaplayer-amark-add Q emacspeak-alsaplayer-quit S
+      emacspeak-alsaplayer-stop [
+      emacspeak-alsaplayer-backward-ten-minutes ]
+      emacspeak-alsaplayer-forward-ten-minutes a
+      emacspeak-alsaplayer-add-to-queue c
+      emacspeak-alsaplayer-clear d emacspeak-alsaplayer-cd f
+      emacspeak-alsaplayer-find-and-add-to-queue g
+      emacspeak-alsaplayer-seek i emacspeak-alsaplayer-info j
+      emacspeak-alsaplayer-jump l emacspeak-alsaplayer-launch m
+      emacspeak-alsaplayer-mark-position n
+      emacspeak-alsaplayer-next o other-window p
+      emacspeak-alsaplayer-previous q bury-buffer r
+      emacspeak-alsaplayer-relative s emacspeak-alsaplayer-start v
+      emacspeak-alsaplayer-volume w emacspeak-alsaplayer-where x
+      emacspeak-alsaplayer-clip</p>
+
+      <p>M-l emacspeak-amark-load M-s emacspeak-amark-save</p>
+
+      <p>In addition to any hooks its parent mode
+      &lsquo;special-mode&rsquo; might have run, this mode runs the
+      hook &lsquo;emacspeak-alsaplayer-mode-hook&rsquo;, as the
+      final step during initialization.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dalsaplayer_002dnext" id=
+    "index-emacspeak_002dalsaplayer_002dnext"></a>Interactive
+    Command: <strong>emacspeak-alsaplayer-next</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Next alsaplayer</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dalsaplayer_002dpause" id=
+    "index-emacspeak_002dalsaplayer_002dpause"></a>Interactive
+    Command: <strong>emacspeak-alsaplayer-pause</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Pause or resume alsaplayer</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dalsaplayer_002dprevious" id=
+    "index-emacspeak_002dalsaplayer_002dprevious"></a>Interactive
+    Command: <strong>emacspeak-alsaplayer-previous</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Previous alsaplayer</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dalsaplayer_002dquit" id=
+    "index-emacspeak_002dalsaplayer_002dquit"></a>Interactive
+    Command: <strong>emacspeak-alsaplayer-quit</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Quit alsaplayer</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dalsaplayer_002drelative" id=
+    "index-emacspeak_002dalsaplayer_002drelative"></a>Interactive
+    Command: <strong>emacspeak-alsaplayer-relative</strong>
+    <em>(offset)</em></dt>
+
+    <dd>
+      <p>Relative seek alsaplayer</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dalsaplayer_002dreplace_002dqueue" id=
+    "index-emacspeak_002dalsaplayer_002dreplace_002dqueue"></a>Interactive
+    Command: <strong>emacspeak-alsaplayer-replace-queue</strong>
+    <em>(resource)</em></dt>
+
+    <dd>
+      <p>Replace currently playing music.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dalsaplayer_002dseek" id=
+    "index-emacspeak_002dalsaplayer_002dseek"></a>Interactive
+    Command: <strong>emacspeak-alsaplayer-seek</strong>
+    <em>(offset)</em></dt>
+
+    <dd>
+      <p>Absolute seek alsaplayer</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dalsaplayer_002dspeed" id=
+    "index-emacspeak_002dalsaplayer_002dspeed"></a>Interactive
+    Command: <strong>emacspeak-alsaplayer-speed</strong>
+    <em>(setting)</em></dt>
+
+    <dd>
+      <p>Set speed in alsaplayer.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dalsaplayer_002dstart" id=
+    "index-emacspeak_002dalsaplayer_002dstart"></a>Interactive
+    Command: <strong>emacspeak-alsaplayer-start</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Start alsaplayer</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dalsaplayer_002dstatus" id=
+    "index-emacspeak_002dalsaplayer_002dstatus"></a>Interactive
+    Command: <strong>emacspeak-alsaplayer-status</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Show alsaplayer status</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dalsaplayer_002dstop" id=
+    "index-emacspeak_002dalsaplayer_002dstop"></a>Interactive
+    Command: <strong>emacspeak-alsaplayer-stop</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Stop alsaplayer</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dalsaplayer_002dvolume" id=
+    "index-emacspeak_002dalsaplayer_002dvolume"></a>Interactive
+    Command: <strong>emacspeak-alsaplayer-volume</strong>
+    <em>(setting)</em></dt>
+
+    <dd>
+      <p>Set volume.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dalsaplayer_002dwhere" id=
+    "index-emacspeak_002dalsaplayer_002dwhere"></a>Interactive
+    Command: <strong>emacspeak-alsaplayer-where</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak current position and copy it to kill ring.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href="emacspeak_002damark.html#emacspeak_002damark"
+    accesskey="n" rel="next">emacspeak-amark</a>, Previous:
+    <a href="dtk_002dunicode.html#dtk_002dunicode" accesskey="p"
+    rel="prev">dtk-unicode</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

@@ -1,971 +1,1795 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-speak</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-speak">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-speak">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up" title="Emacspeak Commands">
-<link href="emacspeak_002dspeedbar.html#emacspeak_002dspeedbar" rel="next" title="emacspeak-speedbar">
-<link href="emacspeak_002dsounds.html#emacspeak_002dsounds" rel="prev" title="emacspeak-sounds">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-speak</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-speak" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-speak" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
+  title="Emacspeak Commands" />
+  <link href="emacspeak_002dspeedbar.html#emacspeak_002dspeedbar"
+  rel="next" title="emacspeak-speedbar" />
+  <link href="emacspeak_002dsounds.html#emacspeak_002dsounds" rel=
+  "prev" title="emacspeak-sounds" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dspeak"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dspeedbar.html#emacspeak_002dspeedbar" accesskey="n" rel="next">emacspeak-speedbar</a>, Previous: <a href="emacspeak_002dsounds.html#emacspeak_002dsounds" accesskey="p" rel="prev">emacspeak-sounds</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dspeak-1"></a>
-<h3 class="section">11.60 emacspeak-speak</h3>
-
-<p>Commentary:
-This module defines the core speech services used by emacspeak.
-It depends on the speech server interface modules
-It protects other parts of emacspeak
-from becoming dependent on the speech server modules
-</p>
-<p>Automatically generated documentation
-for commands defined in module  emacspeak-speak.
-</p>
-<dl>
-<dt><a name="index-emacspeak_002dblink_002dmatching_002dopen"></a>Interactive Command: <strong>emacspeak-blink-matching-open</strong> <em>nil</em></dt>
-<dd><p>Move cursor momentarily to the beginning of the sexp before point.
-Also display match context in minibuffer.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dcompletion_002dpick_002dcompletion"></a>Interactive Command: <strong>emacspeak-completion-pick-completion</strong> <em>nil</em></dt>
-<dd><p>Pick completion and return safely where we came from.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dcompletions_002dmove_002dto_002dcompletion_002dgroup"></a>Interactive Command: <strong>emacspeak-completions-move-to-completion-group</strong> <em>nil</em></dt>
-<dd><p>Move to group of choices beginning with character last
-typed. If no such group exists, then we try to search for that
-char, or dont move. 
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002ddial_002ddtk-1"></a>Interactive Command: <strong>emacspeak-dial-dtk</strong> <em>(number)</em></dt>
-<dd><p><kbd>C-e d t</kbd>
-</p>
-<p>Prompt for and dial a phone NUMBER with the Dectalk.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dexecute_002drepeatedly"></a>Interactive Command: <strong>emacspeak-execute-repeatedly</strong> <em>(command)</em></dt>
-<dd><p>Execute COMMAND repeatedly.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dgoto_002dpercent"></a>Interactive Command: <strong>emacspeak-goto-percent</strong> <em>(percent)</em></dt>
-<dd><p><kbd>C-e M-%</kbd>
-</p>
-<p>Move to end  PERCENT of buffer like in View mode.
-Display is centered at point.
-Also set the mark at the position where point was.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dmark_002dbackward_002dmark"></a>Interactive Command: <strong>emacspeak-mark-backward-mark</strong> <em>nil</em></dt>
-<dd><p><kbd>&lt;C-up&gt;</kbd>
-</p>
-<p>Cycle backward through the mark ring.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dowindow_002dnext_002dline-1"></a>Interactive Command: <strong>emacspeak-owindow-next-line</strong> <em>(count)</em></dt>
-<dd><p><kbd>ESC &lt;down&gt;</kbd>
-</p>
-<p>Move to the next line in the other window and speak it.
-Numeric prefix arg COUNT can specify number of lines to move.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dowindow_002dprevious_002dline-1"></a>Interactive Command: <strong>emacspeak-owindow-previous-line</strong> <em>(count)</em></dt>
-<dd><p><kbd>ESC &lt;up&gt;</kbd>
-</p>
-<p>Move to the next line in the other window and speak it.
-Numeric prefix arg COUNT specifies number of lines to move.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dowindow_002dscroll_002ddown-1"></a>Interactive Command: <strong>emacspeak-owindow-scroll-down</strong> <em>nil</em></dt>
-<dd><p><kbd>ESC &lt;prior&gt;</kbd>
-</p>
-<p>Scroll down  the window that command &lsquo;other-window&rsquo; would move to.
-Speak the window contents after scrolling.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dowindow_002dscroll_002dup-1"></a>Interactive Command: <strong>emacspeak-owindow-scroll-up</strong> <em>nil</em></dt>
-<dd><p><kbd>ESC &lt;next&gt;</kbd>
-</p>
-<p>Scroll up the window that command &lsquo;other-window&rsquo; would move to.
-Speak the window contents after scrolling.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dowindow_002dspeak_002dline"></a>Interactive Command: <strong>emacspeak-owindow-speak-line</strong> <em>nil</em></dt>
-<dd><p><kbd>ESC &lt;select&gt;</kbd>
-</p>
-<p>Speak the current line in the other window.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dread_002dnext_002dline-1"></a>Interactive Command: <strong>emacspeak-read-next-line</strong> <em>(&amp;optional arg)</em></dt>
-<dd><p><kbd>C-e &lt;down&gt;</kbd>
-</p>
-<p>Read next line, specified by an offset, without moving.
-Default is to read the next line. 
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dread_002dnext_002dword"></a>Interactive Command: <strong>emacspeak-read-next-word</strong> <em>(&amp;optional arg)</em></dt>
-<dd><p>Read next word, specified as a numeric  arg, without moving.
-Default is to read the next word. 
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dread_002dprevious_002dline-1"></a>Interactive Command: <strong>emacspeak-read-previous-line</strong> <em>(&amp;optional arg)</em></dt>
-<dd><p><kbd>C-e &lt;up&gt;</kbd>
-</p>
-<p>Read previous line, specified by an offset, without moving.
-Default is to read the previous line. 
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dread_002dprevious_002dword"></a>Interactive Command: <strong>emacspeak-read-previous-word</strong> <em>(&amp;optional arg)</em></dt>
-<dd><p>Read previous word, specified as a prefix arg, without moving.
-Default is to read the previous word. 
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dsearch"></a>Interactive Command: <strong>emacspeak-search</strong> <em>nil</em></dt>
-<dd><p><kbd>&lt;search&gt;</kbd>
-</p>
-<p>Call search defined in &lt;search&gt;.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dshell_002dcommand"></a>Interactive Command: <strong>emacspeak-shell-command</strong> <em>(command)</em></dt>
-<dd><p>Run shell command and speak its output.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dsilence"></a>Interactive Command: <strong>emacspeak-silence</strong> <em>nil</em></dt>
-<dd><p><kbd>&lt;silence&gt;</kbd>
-</p>
-<p>Silence is golden. Stop speech, and pause/resume any media
-streams.
-Runs &lsquo;emacspeak-silence-hook&rsquo; which can be used to configure
-which media players get silenced or paused/resumed.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dand_002dskip_002dextent_002dupto_002dchar"></a>Interactive Command: <strong>emacspeak-speak-and-skip-extent-upto-char</strong> <em>(char)</em></dt>
-<dd><p>Search forward from point until we hit char.
-Speak text between point and the char we hit.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dand_002dskip_002dextent_002dupto_002dthis_002dchar"></a>Interactive Command: <strong>emacspeak-speak-and-skip-extent-upto-this-char</strong> <em>nil</em></dt>
-<dd><p>Speak extent delimited by point and last character typed.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dbrowse_002dbuffer"></a>Interactive Command: <strong>emacspeak-speak-browse-buffer</strong> <em>(&amp;optional browse)</em></dt>
-<dd><p><kbd>C-e ,</kbd>
-</p>
-<p>Browse current buffer.
-Default is to speak chunk having current personality.
-Interactive prefix arg &lsquo;browse&rsquo;  repeatedly browses  through
-  chunks having same personality as the current text chunk.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dbuffer-1"></a>Interactive Command: <strong>emacspeak-speak-buffer</strong> <em>(&amp;optional arg)</em></dt>
-<dd><p><kbd>C-e b</kbd>
-</p>
-<p>Speak current buffer  contents.
-With prefix ARG, speaks the rest of the buffer from point.
-Negative prefix arg speaks from start of buffer to point.
- If voice lock mode is on, the paragraphs in the buffer are
-voice annotated first,  see command &lsquo;emacspeak-speak-voice-annotate-paragraphs&rsquo;.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dbuffer_002dfilename-1"></a>Interactive Command: <strong>emacspeak-speak-buffer-filename</strong> <em>(&amp;optional filename)</em></dt>
-<dd><p><kbd>C-e f</kbd>
-</p>
-<p>Speak name of file being visited in current buffer.
-Speak default directory if invoked in a dired buffer,
-or when the buffer is not visiting any file.
-Interactive prefix arg &lsquo;filename&rsquo; speaks only the final path
-component.
-The result is put in the kill ring for convenience.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dbuffer_002dinteractively"></a>Interactive Command: <strong>emacspeak-speak-buffer-interactively</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e B</kbd>
-</p>
-<p>Speak the start of, rest of, or the entire buffer.
-&rsquo;s&rsquo; to speak the start.
-&rsquo;r&rsquo; to speak the rest.
-any other key to speak entire buffer.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dchar-1"></a>Interactive Command: <strong>emacspeak-speak-char</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p><kbd>C-e c</kbd>
-</p>
-<p>Speak character under point.
-Pronounces character phonetically unless  called with a PREFIX arg.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dchar_002dname"></a>Interactive Command: <strong>emacspeak-speak-char-name</strong> <em>(char)</em></dt>
-<dd><p>tell me what this is
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dcompletions_002dif_002davailable"></a>Interactive Command: <strong>emacspeak-speak-completions-if-available</strong> <em>nil</em></dt>
-<dd><p>Speak completions if available.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dcontinuously"></a>Interactive Command: <strong>emacspeak-speak-continuously</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e RET</kbd>
-</p>
-<p>Speak a buffer continuously.
-First prompts using the minibuffer for the kind of action to
-perform after speaking each chunk.  E.G.  speak a line at a time
-etc.  Speaking commences at current buffer position.  Pressing
-C-g breaks out, leaving point on last chunk that
-was spoken.  Any other key continues to speak the buffer.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dcurrent_002dcolumn-1"></a>Interactive Command: <strong>emacspeak-speak-current-column</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e =</kbd>
-</p>
-<p>Speak the current column.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dcurrent_002dfield"></a>Interactive Command: <strong>emacspeak-speak-current-field</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e .</kbd>
-</p>
-<p>Speak current field.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dcurrent_002dkill-1"></a>Interactive Command: <strong>emacspeak-speak-current-kill</strong> <em>(count)</em></dt>
-<dd><p><kbd>C-e k</kbd>
-</p>
-<p>Speak the current kill entry.
-This is the text that will be yanked in by the next C-y.
-Prefix numeric arg, COUNT, specifies that the text that will be yanked as a
-result of a
-C-y  followed by count-1 M-y
-be spoken.
- The kill number that is spoken says what numeric prefix arg to give
-to command yank.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dcurrent_002dmark-1"></a>Interactive Command: <strong>emacspeak-speak-current-mark</strong> <em>(count)</em></dt>
-<dd><p><kbd>C-e C-@</kbd>
-</p>
-<p>Speak the line containing the mark.
-With no argument, speaks the
-line containing the mark&ndash;this is where &lsquo;exchange-point-and-mark&rsquo;
-C-x C-x would jump.  Numeric prefix arg &rsquo;COUNT&rsquo; speaks
-line containing mark &rsquo;n&rsquo; where &rsquo;n&rsquo; is one less than the number of
-times one has to jump using &lsquo;set-mark-command&rsquo; to get to this marked
-position.  The location of the mark is indicated by an aural highlight
-achieved by a change in voice personality.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dcurrent_002dpercentage-1"></a>Interactive Command: <strong>emacspeak-speak-current-percentage</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e %</kbd>
-</p>
-<p>Announce the percentage into the current buffer.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dcurrent_002dwindow"></a>Interactive Command: <strong>emacspeak-speak-current-window</strong> <em>nil</em></dt>
-<dd><p>Speak contents of current window.
-Speaks entire window irrespective of point.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002ddate_002das_002dseconds"></a>Interactive Command: <strong>emacspeak-speak-date-as-seconds</strong> <em>(time)</em></dt>
-<dd><p>Read time value as a human-readable string, return seconds.
-Seconds value is also placed in the kill-ring.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002ddisplay_002dchar"></a>Interactive Command: <strong>emacspeak-speak-display-char</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p>Display char under point using current speech display table.
-Behavior is the same as command &lsquo;emacspeak-speak-char&rsquo;
-bound to C-e c
-for characters in the range 0&ndash;127.
-Optional argument PREFIX  specifies that the character should be spoken phonetically.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dface_002dinterval_002dand_002dmove"></a>Interactive Command: <strong>emacspeak-speak-face-interval-and-move</strong> <em>nil</em></dt>
-<dd><p>Speaks region delimited by text in current face, and moves past the chunk.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dfront_002dof_002dbuffer"></a>Interactive Command: <strong>emacspeak-speak-front-of-buffer</strong> <em>nil</em></dt>
-<dd><p>Speak   the buffer from start to   point
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dheader_002dline"></a>Interactive Command: <strong>emacspeak-speak-header-line</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e SPC</kbd>
-</p>
-<p>Speak header line if set.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dhelp-1"></a>Interactive Command: <strong>emacspeak-speak-help</strong> <em>(&amp;optional arg)</em></dt>
-<dd><p><kbd>C-e h</kbd>
-</p>
-<p>Speak help buffer if one present.
-With prefix arg, speaks the rest of the buffer from point.
-Negative prefix arg speaks from start of buffer to point.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dhelp_002dinteractively"></a>Interactive Command: <strong>emacspeak-speak-help-interactively</strong> <em>nil</em></dt>
-<dd><p>Speak the start of, rest of, or the entire help.
-&rsquo;s&rsquo; to speak the start.
-&rsquo;r&rsquo; to speak the rest.
-any other key to speak entire help.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dhostname"></a>Interactive Command: <strong>emacspeak-speak-hostname</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e M-h</kbd>
-</p>
-<p>Speak host name.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dline-1"></a>Interactive Command: <strong>emacspeak-speak-line</strong> <em>(&amp;optional arg)</em></dt>
-<dd><p><kbd>C-e l</kbd>
-</p>
-<p>Speaks current line.  With prefix ARG, speaks the rest of the line
-from point.  Negative prefix optional arg speaks from start of line to
-point.  Voicifies if option &lsquo;voice-lock-mode&rsquo; is on.  Indicates
-indentation with a tone if audio indentation is in use.  Indicates
-position of point with an aural highlight if option
-&lsquo;emacspeak-show-point&rsquo; is turned on &ndash;see command
-&lsquo;emacspeak-show-point&rsquo; bound to M-x emacspeak-show-point.  Lines that
-start hidden blocks of text, e.g.  outline header lines, or header
-lines of blocks created by command &lsquo;emacspeak-hide-or-expose-block&rsquo;
-are indicated with auditory icon ellipses.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dline_002dinteractively"></a>Interactive Command: <strong>emacspeak-speak-line-interactively</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e L</kbd>
-</p>
-<p>Speak the start of, rest of, or the entire line.
-&rsquo;s&rsquo; to speak the start.
-&rsquo;r&rsquo; to speak the rest.
-any other key to speak entire line.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dline_002dnumber-1"></a>Interactive Command: <strong>emacspeak-speak-line-number</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e C-l</kbd>
-</p>
-<p>Print the current buffer line number and narrowed line number of point.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dline_002dset_002dcolumn_002dfilter"></a>Interactive Command: <strong>emacspeak-speak-line-set-column-filter</strong> <em>(filter)</em></dt>
-<dd><p><kbd>C-e |</kbd>
-</p>
-<p>Set up filter for selectively speaking or ignoring portions of lines.
-The filter is specified as a list of pairs.
-For example, to filter  columns 1 &ndash; 10 and 20 &ndash; 25,
-specify filter as
-((0 9) (20 25)). Filter settings are persisted across sessions.  A
-persisted filter is used as the default when prompting for a filter.
-This allows one to accumulate a set of filters for specific files like
-/var/adm/messages and /var/adm/maillog over time.
-Option emacspeak-speak-line-invert-filter determines
-the sense of the filter. 
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dload_002ddirectory_002dsettings"></a>Interactive Command: <strong>emacspeak-speak-load-directory-settings</strong> <em>(&amp;optional directory)</em></dt>
-<dd><p>Load a directory specific Emacspeak settings file.
-This is typically used to load up settings that are specific to
-an electronic book consisting of many files in the same
-directory.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dmessage_002dagain-1"></a>Interactive Command: <strong>emacspeak-speak-message-again</strong> <em>(&amp;optional from-message-cache)</em></dt>
-<dd><p><kbd>C-e a</kbd>
-</p>
-<p>Speak the last message from Emacs once again.
-The message is also placed in the kill ring for convenient yanking
-if &lsquo;emacspeak-speak-message-again-should-copy-to-kill-ring&rsquo; is set.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dmessage_002dat_002dtime"></a>Interactive Command: <strong>emacspeak-speak-message-at-time</strong> <em>(time message)</em></dt>
-<dd><p><kbd>C-e @</kbd>
-</p>
-<p>Set up ring-at-time to speak message at specified time.
-Provides simple stop watch functionality in addition to other things.
-See documentation for command run-at-time for details on time-spec.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dmicroseconds_002dsince_002depoch"></a>Interactive Command: <strong>emacspeak-speak-microseconds-since-epoch</strong> <em>(ms)</em></dt>
-<dd><p>Speaks time value specified as microseconds  since epoch, e.g. as from float-time.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dmilliseconds_002dsince_002depoch"></a>Interactive Command: <strong>emacspeak-speak-milliseconds-since-epoch</strong> <em>(ms)</em></dt>
-<dd><p>Speaks time value specified as milliseconds  since epoch, e.g. as from float-time.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dminibuffer"></a>Interactive Command: <strong>emacspeak-speak-minibuffer</strong> <em>(&amp;optional arg)</em></dt>
-<dd><p>Speak the minibuffer contents
- With prefix arg, speaks the rest of the buffer from point.
-Negative prefix arg speaks from start of buffer to point.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dminor_002dmode_002dline-1"></a>Interactive Command: <strong>emacspeak-speak-minor-mode-line</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e M</kbd>
-</p>
-<p>Speak the minor mode-information.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dmode_002dline-1"></a>Interactive Command: <strong>emacspeak-speak-mode-line</strong> <em>(&amp;optional buffer-info)</em></dt>
-<dd><p><kbd>C-e m</kbd>
-</p>
-<p>Speak the mode-line.
-Speaks header-line if that is set when called non-interactively.
-Interactive prefix arg speaks buffer info.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dnext_002dface_002dchunk"></a>Interactive Command: <strong>emacspeak-speak-next-face-chunk</strong> <em>nil</em></dt>
-<dd><p>Moves to the front of next chunk having current face.
-Speak that chunk after moving.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dnext_002dfield"></a>Interactive Command: <strong>emacspeak-speak-next-field</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e &gt;</kbd>
-</p>
-<p>Move to and speak next field.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dnext_002dpersonality_002dchunk"></a>Interactive Command: <strong>emacspeak-speak-next-personality-chunk</strong> <em>nil</em></dt>
-<dd><p>Moves to the front of next chunk having current personality.
-Speak that chunk after moving.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dnext_002dwindow-1"></a>Interactive Command: <strong>emacspeak-speak-next-window</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e C-n</kbd>
-</p>
-<p>Speak the next window.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dother_002dbuffer"></a>Interactive Command: <strong>emacspeak-speak-other-buffer</strong> <em>(buffer)</em></dt>
-<dd><p><kbd>C-e M-b</kbd>
-</p>
-<p>Speak specified buffer.
-Useful to listen to a buffer without switching  contexts.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dother_002dwindow-1"></a>Interactive Command: <strong>emacspeak-speak-other-window</strong> <em>(&amp;optional arg)</em></dt>
-<dd><p>Speak contents of &lsquo;other&rsquo; window.
-Speaks entire window irrespective of point.
-Semantics  of &lsquo;other&rsquo; is the same as for the builtin Emacs command
-&lsquo;other-window&rsquo;.
-Optional argument ARG  specifies &lsquo;other&rsquo; window to speak.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dpage-1"></a>Interactive Command: <strong>emacspeak-speak-page</strong> <em>(&amp;optional arg)</em></dt>
-<dd><p><kbd>C-e [</kbd>
-</p>
-<p>Speak a page.
-With prefix ARG, speaks rest of current page.
-Negative prefix arg will read from start of current page to point.
-If option  &lsquo;voice-lock-mode&rsquo; is on, then it will use any defined personality.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dpage_002dinteractively"></a>Interactive Command: <strong>emacspeak-speak-page-interactively</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e ]</kbd>
-</p>
-<p>Speak the start of, rest of, or the entire page.
-&rsquo;s&rsquo; to speak the start.
-&rsquo;r&rsquo; to speak the rest.
-any other key to speak entire page.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dparagraph-1"></a>Interactive Command: <strong>emacspeak-speak-paragraph</strong> <em>(&amp;optional arg)</em></dt>
-<dd><p><kbd>C-e { C-e p</kbd>
-</p>
-<p>Speak paragraph.
-With prefix arg, speaks rest of current paragraph.
-Negative prefix arg will read from start of current paragraph to point.
-If voice-lock-mode is on, then it will use any defined personality. 
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dparagraph_002dinteractively"></a>Interactive Command: <strong>emacspeak-speak-paragraph-interactively</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e P</kbd>
-</p>
-<p>Speak the start of, rest of, or the entire paragraph.
-&rsquo;s&rsquo; to speak the start.
-&rsquo;r&rsquo; to speak the rest.
-any other key to speak entire paragraph.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dpreceding_002dchar"></a>Interactive Command: <strong>emacspeak-speak-preceding-char</strong> <em>nil</em></dt>
-<dd><p>Speak character before point.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dpredefined_002dwindow-1"></a>Interactive Command: <strong>emacspeak-speak-predefined-window</strong> <em>(&amp;optional arg)</em></dt>
-<dd><p><kbd>C-e 9 C-e 8 C-e 7 C-e 6 C-e 5 C-e 4 C-e 3 C-e 2 C-e 1 C-e 0</kbd>
-</p>
-<p>Speak one of the first 10 windows on the screen.
-Speaks entire window irrespective of point.
-In general, you&rsquo;ll never have Emacs split the screen into more than
-two or three.
-Argument ARG determines the &rsquo;other&rsquo; window to speak.
-Semantics  of &lsquo;other&rsquo; is the same as for the builtin Emacs command
-&lsquo;other-window&rsquo;.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dprevious_002dface_002dchunk"></a>Interactive Command: <strong>emacspeak-speak-previous-face-chunk</strong> <em>nil</em></dt>
-<dd><p>Moves to the front of previous chunk having current face.
-Speak that chunk after moving.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dprevious_002dfield"></a>Interactive Command: <strong>emacspeak-speak-previous-field</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e &lt;</kbd>
-</p>
-<p>Move to previous field and speak it.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dprevious_002dpersonality_002dchunk"></a>Interactive Command: <strong>emacspeak-speak-previous-personality-chunk</strong> <em>nil</em></dt>
-<dd><p>Moves to the front of previous chunk having current personality.
-Speak that chunk after moving.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dprevious_002dwindow-1"></a>Interactive Command: <strong>emacspeak-speak-previous-window</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e C-p</kbd>
-</p>
-<p>Speak the previous window.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002drectangle-1"></a>Interactive Command: <strong>emacspeak-speak-rectangle</strong> <em>(start end)</em></dt>
-<dd><p><kbd>C-e R</kbd>
-</p>
-<p>Speak a rectangle of text.
-Rectangle is delimited by point and mark.
-When call from a program,
-arguments specify the START and END of the rectangle.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dregion-1"></a>Interactive Command: <strong>emacspeak-speak-region</strong> <em>(start end)</em></dt>
-<dd><p><kbd>C-e r</kbd>
-</p>
-<p>Speak region.
-Argument START  and END specify region to speak.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002drest_002dof_002dbuffer-1"></a>Interactive Command: <strong>emacspeak-speak-rest-of-buffer</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e n</kbd>
-</p>
-<p>Speak remainder of the buffer starting at point
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dseconds_002dsince_002depoch"></a>Interactive Command: <strong>emacspeak-speak-seconds-since-epoch</strong> <em>(seconds)</em></dt>
-<dd><p>Speaks time value specified as seconds  since epoch, e.g. as from float-time.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dsentence"></a>Interactive Command: <strong>emacspeak-speak-sentence</strong> <em>(&amp;optional arg)</em></dt>
-<dd><p>Speak current sentence.
-With prefix ARG, speaks the rest of the sentence  from point.
-Negative prefix arg speaks from start of sentence to point.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dset_002ddisplay_002dtable"></a>Interactive Command: <strong>emacspeak-speak-set-display-table</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p>Sets up buffer specific speech display table that controls how
-special characters are spoken. Interactive prefix argument causes
-setting to be global.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dset_002dmode_002dpunctuations"></a>Interactive Command: <strong>emacspeak-speak-set-mode-punctuations</strong> <em>(setting)</em></dt>
-<dd><p><kbd>C-e d m</kbd>
-</p>
-<p>Set punctuation mode for all buffers in current mode.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dsexp-1"></a>Interactive Command: <strong>emacspeak-speak-sexp</strong> <em>(&amp;optional arg)</em></dt>
-<dd><p>Speak current sexp.
-With prefix ARG, speaks the rest of the sexp  from point.
-Negative prefix arg speaks from start of sexp to point.
-If option  &lsquo;voice-lock-mode&rsquo; is on, then uses the personality.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dsexp_002dinteractively"></a>Interactive Command: <strong>emacspeak-speak-sexp-interactively</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e &quot;</kbd>
-</p>
-<p>Speak the start of, rest of, or the entire sexp.
-&rsquo;s&rsquo; to speak the start.
-&rsquo;r&rsquo; to speak the rest.
-any other key to speak entire sexp.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dshow_002dactive_002dnetwork_002dinterfaces"></a>Interactive Command: <strong>emacspeak-speak-show-active-network-interfaces</strong> <em>(&amp;optional address)</em></dt>
-<dd><p><kbd>C-e I</kbd>
-</p>
-<p>Shows all active network interfaces in the echo area.
-With interactive prefix argument ADDRESS it prompts for a
-specific interface and shows its address. The address is
-also copied to the kill ring for convenient yanking.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dskim_002dbuffer"></a>Interactive Command: <strong>emacspeak-speak-skim-buffer</strong> <em>nil</em></dt>
-<dd><p>Skim the current buffer  a paragraph at a time.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dskim_002dnext_002dparagraph"></a>Interactive Command: <strong>emacspeak-speak-skim-next-paragraph</strong> <em>nil</em></dt>
-<dd><p>Skim next paragraph.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dskim_002dparagraph"></a>Interactive Command: <strong>emacspeak-speak-skim-paragraph</strong> <em>nil</em></dt>
-<dd><p>Skim paragraph.
-Skimming a paragraph results in the speech speeding up after
-the first clause.
-Speech is scaled by the value of dtk-speak-skim-scale
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dspaces_002dat_002dpoint-1"></a>Interactive Command: <strong>emacspeak-speak-spaces-at-point</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e C-M-@</kbd>
-</p>
-<p>Speak the white space at point.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dspell_002dcurrent_002dword"></a>Interactive Command: <strong>emacspeak-speak-spell-current-word</strong> <em>nil</em></dt>
-<dd><p>Spell word at  point.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dtext_002drange"></a>Interactive Command: <strong>emacspeak-speak-text-range</strong> <em>(property)</em></dt>
-<dd><p>Speak text range identified by this PROPERTY.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dthis_002dface_002dchunk"></a>Interactive Command: <strong>emacspeak-speak-this-face-chunk</strong> <em>nil</em></dt>
-<dd><p>Speak chunk of text around point that has current face.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dthis_002dpersonality_002dchunk"></a>Interactive Command: <strong>emacspeak-speak-this-personality-chunk</strong> <em>nil</em></dt>
-<dd><p>Speak chunk of text around point that has current
-personality.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dtime-1"></a>Interactive Command: <strong>emacspeak-speak-time</strong> <em>(&amp;optional world)</em></dt>
-<dd><p><kbd>C-e t</kbd>
-</p>
-<p>Speak the time.
-Optional interactive prefix arg &lsquo;C-u&rsquo;invokes world clock.
-Timezone is specified using minibuffer completion.
-Second interactive prefix sets clock to new timezone.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dversion-1"></a>Interactive Command: <strong>emacspeak-speak-version</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e V</kbd>
-</p>
-<p>Announce version information for running emacspeak.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dvoice_002dannotate_002dparagraphs"></a>Interactive Command: <strong>emacspeak-speak-voice-annotate-paragraphs</strong> <em>nil</em></dt>
-<dd><p>Locate paragraphs and voice annotate the first word.
-Here, paragraph is taken to mean a chunk of text preceded by a blank line.
-Useful to do this before you listen to an entire buffer.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dwindow_002dinformation-1"></a>Interactive Command: <strong>emacspeak-speak-window-information</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e C-w</kbd>
-</p>
-<p>Speaks information about current window.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dword-1"></a>Interactive Command: <strong>emacspeak-speak-word</strong> <em>(&amp;optional arg)</em></dt>
-<dd><p><kbd>C-e w</kbd>
-</p>
-<p>Speak current word.
-With prefix ARG, speaks the rest of the word from point.
-Negative prefix arg speaks from start of word to point.
-If executed  on the same buffer position a second time, the word is
-spelt instead of being spoken.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dword_002dinteractively"></a>Interactive Command: <strong>emacspeak-speak-word-interactively</strong> <em>nil</em></dt>
-<dd><p>Speak the start of, rest of, or the entire word.
-&rsquo;s&rsquo; to speak the start.
-&rsquo;r&rsquo; to speak the rest.
-any other key to speak entire word.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dworld_002dclock"></a>Interactive Command: <strong>emacspeak-speak-world-clock</strong> <em>(zone &amp;optional set)</em></dt>
-<dd><p>Display current date and time  for specified zone.
-Optional second arg &lsquo;set&rsquo; sets the TZ environment variable as well.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dswitch_002dto_002dreference_002dbuffer"></a>Interactive Command: <strong>emacspeak-switch-to-reference-buffer</strong> <em>nil</em></dt>
-<dd><p>Switch back to buffer that generated completions.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dtoggle_002daction_002dmode"></a>Interactive Command: <strong>emacspeak-toggle-action-mode</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p>Toggle state of  Emacspeak  action mode.
-Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dtoggle_002daudio_002dindentation-1"></a>Interactive Command: <strong>emacspeak-toggle-audio-indentation</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p><kbd>C-e d i</kbd>
-</p>
-<p>Toggle state of  Emacspeak  audio indentation.
-Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result.
-Specifying the method of indentation as &lsquo;tones&rsquo;
-results in the Dectalk producing a tone whose length is a function of the
-line&rsquo;s indentation.  Specifying &lsquo;speak&rsquo;
-results in the number of initial spaces being spoken.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dtoggle_002dcharacter_002decho-1"></a>Interactive Command: <strong>emacspeak-toggle-character-echo</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p><kbd>C-e d k</kbd>
-</p>
-<p>Toggle state of  Emacspeak  character echo.
-Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dtoggle_002dcomint_002dautospeak"></a>Interactive Command: <strong>emacspeak-toggle-comint-autospeak</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p><kbd>C-e C-q</kbd>
-</p>
-<p>Toggle state of Emacspeak comint autospeak.
-When turned on, comint output is automatically spoken.  Turn this on if
-you want your shell to speak its results.  Interactive
-PREFIX arg means toggle the global default value, and then
-set the current local value to the result.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dtoggle_002dcomint_002doutput_002dmonitor"></a>Interactive Command: <strong>emacspeak-toggle-comint-output-monitor</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p><kbd>C-e o</kbd>
-</p>
-<p>Toggle state of Emacspeak comint monitor.
-When turned on, comint output is automatically spoken.  Turn this on if
-you want your shell to speak its results.  Interactive
-PREFIX arg means toggle the global default value, and then
-set the current local value to the result.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dtoggle_002dheader_002dline"></a>Interactive Command: <strong>emacspeak-toggle-header-line</strong> <em>nil</em></dt>
-<dd><p>Toggle Emacspeak&rsquo;s default header line.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dtoggle_002dline_002decho-1"></a>Interactive Command: <strong>emacspeak-toggle-line-echo</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p><kbd>C-e d l</kbd>
-</p>
-<p>Toggle state of  Emacspeak  line echo.
-Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dtoggle_002dmail_002dalert"></a>Interactive Command: <strong>emacspeak-toggle-mail-alert</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p><kbd>C-e M-m</kbd>
-</p>
-<p>Toggle state of  Emacspeak  mail alert.
-Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result.
-Turning on this option results in Emacspeak producing an auditory icon
-indicating the arrival  of new mail when displaying the mode line.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dtoggle_002dshow_002dpoint"></a>Interactive Command: <strong>emacspeak-toggle-show-point</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p><kbd>C-e C-d</kbd>
-</p>
-<p>Toggle state of  Emacspeak-show-point.
-Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dtoggle_002dspeak_002dline_002dinvert_002dfilter"></a>Interactive Command: <strong>emacspeak-toggle-speak-line-invert-filter</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p><kbd>C-e \</kbd>
-</p>
-<p>Toggle state of   how column filter is interpreted.
-Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dtoggle_002dspeak_002dmessages"></a>Interactive Command: <strong>emacspeak-toggle-speak-messages</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p><kbd>C-e q</kbd>
-</p>
-<p>Toggle the state of whether emacspeak echoes messages.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dtoggle_002dword_002decho-1"></a>Interactive Command: <strong>emacspeak-toggle-word-echo</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p><kbd>C-e d w</kbd>
-</p>
-<p>Toggle state of  Emacspeak  word echo.
-Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002duse_002dcustomized_002dblink_002dparen"></a>Interactive Command: <strong>emacspeak-use-customized-blink-paren</strong> <em>nil</em></dt>
-<dd><p>A customized blink-paren to speak  matching opening paren.
-We need to call this in case Emacs is anal and loads its own
-builtin blink-paren function which does not talk.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dvoiceify_002drectangle"></a>Interactive Command: <strong>emacspeak-voiceify-rectangle</strong> <em>(start end &amp;optional personality)</em></dt>
-<dd><p>Voicify the current rectangle.
-When calling from a program,arguments are
-START END personality
-Prompts for PERSONALITY  with completion when called interactively.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dvoiceify_002dregion"></a>Interactive Command: <strong>emacspeak-voiceify-region</strong> <em>(start end &amp;optional personality)</em></dt>
-<dd><p>Voicify the current region.
-When calling from a program,arguments are
-START END personality.
-Prompts for PERSONALITY  with completion when called interactively.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dzap_002dtts"></a>Interactive Command: <strong>emacspeak-zap-tts</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e d z</kbd>
-</p>
-<p>Send this command to the TTS directly.
-</p></dd></dl>
-
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dspeedbar.html#emacspeak_002dspeedbar" accesskey="n" rel="next">emacspeak-speedbar</a>, Previous: <a href="emacspeak_002dsounds.html#emacspeak_002dsounds" accesskey="p" rel="prev">emacspeak-sounds</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-
-
-
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dspeak" id="emacspeak_002dspeak"></a>
+
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dspeedbar.html#emacspeak_002dspeedbar" accesskey=
+    "n" rel="next">emacspeak-speedbar</a>, Previous: <a href=
+    "emacspeak_002dsounds.html#emacspeak_002dsounds" accesskey="p"
+    rel="prev">emacspeak-sounds</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dspeak-1" id="emacspeak_002dspeak-1"></a>
+
+  <h3 class="section">11.61 emacspeak-speak</h3>
+
+  <p>Commentary: This module defines the core speech services used
+  by emacspeak. It depends on the speech server interface modules
+  It protects other parts of emacspeak from becoming dependent on
+  the speech server modules</p>
+
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak-speak.</p>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dblink_002dmatching_002dopen"
+    id=
+    "index-emacspeak_002dblink_002dmatching_002dopen"></a>Interactive
+    Command: <strong>emacspeak-blink-matching-open</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Move cursor momentarily to the beginning of the sexp
+      before point. Also display match context in minibuffer.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dcompletion_002dpick_002dcompletion" id=
+    "index-emacspeak_002dcompletion_002dpick_002dcompletion"></a>Interactive
+    Command: <strong>emacspeak-completion-pick-completion</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Pick completion and return safely where we came from.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dcompletions_002dmove_002dto_002dcompletion_002dgroup"
+    id=
+    "index-emacspeak_002dcompletions_002dmove_002dto_002dcompletion_002dgroup">
+    </a>Interactive Command:
+    <strong>emacspeak-completions-move-to-completion-group</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Move to group of choices beginning with character last
+      typed. If no such group exists, then we try to search for
+      that char, or dont move.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002ddial_002ddtk-1" id=
+    "index-emacspeak_002ddial_002ddtk-1"></a>Interactive Command:
+    <strong>emacspeak-dial-dtk</strong> <em>(number)</em></dt>
+
+    <dd>
+      <p><kbd>C-e d t</kbd></p>
+
+      <p>Prompt for and dial a phone NUMBER with the Dectalk.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dexecute_002drepeatedly" id=
+    "index-emacspeak_002dexecute_002drepeatedly"></a>Interactive
+    Command: <strong>emacspeak-execute-repeatedly</strong>
+    <em>(command)</em></dt>
+
+    <dd>
+      <p>Execute COMMAND repeatedly.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dgoto_002dpercent" id=
+    "index-emacspeak_002dgoto_002dpercent"></a>Interactive Command:
+    <strong>emacspeak-goto-percent</strong> <em>(percent)</em></dt>
+
+    <dd>
+      <p><kbd>C-e M-%</kbd></p>
+
+      <p>Move to end PERCENT of buffer like in View mode. Display
+      is centered at point. Also set the mark at the position where
+      point was.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dmark_002dbackward_002dmark"
+    id="index-emacspeak_002dmark_002dbackward_002dmark"></a>Interactive
+    Command: <strong>emacspeak-mark-backward-mark</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>&lt;C-up&gt;</kbd></p>
+
+      <p>Cycle backward through the mark ring.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dowindow_002dnext_002dline-1"
+    id=
+    "index-emacspeak_002dowindow_002dnext_002dline-1"></a>Interactive
+    Command: <strong>emacspeak-owindow-next-line</strong>
+    <em>(count)</em></dt>
+
+    <dd>
+      <p><kbd>ESC &lt;down&gt;</kbd></p>
+
+      <p>Move to the next line in the other window and speak it.
+      Numeric prefix arg COUNT can specify number of lines to
+      move.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dowindow_002dprevious_002dline-1" id=
+    "index-emacspeak_002dowindow_002dprevious_002dline-1"></a>Interactive
+    Command: <strong>emacspeak-owindow-previous-line</strong>
+    <em>(count)</em></dt>
+
+    <dd>
+      <p><kbd>ESC &lt;up&gt;</kbd></p>
+
+      <p>Move to the next line in the other window and speak it.
+      Numeric prefix arg COUNT specifies number of lines to
+      move.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dowindow_002dscroll_002ddown-1"
+    id=
+    "index-emacspeak_002dowindow_002dscroll_002ddown-1"></a>Interactive
+    Command: <strong>emacspeak-owindow-scroll-down</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>ESC &lt;prior&gt;</kbd></p>
+
+      <p>Scroll down the window that command
+      &lsquo;other-window&rsquo; would move to. Speak the window
+      contents after scrolling.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dowindow_002dscroll_002dup-1"
+    id=
+    "index-emacspeak_002dowindow_002dscroll_002dup-1"></a>Interactive
+    Command: <strong>emacspeak-owindow-scroll-up</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>ESC &lt;next&gt;</kbd></p>
+
+      <p>Scroll up the window that command
+      &lsquo;other-window&rsquo; would move to. Speak the window
+      contents after scrolling.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dowindow_002dspeak_002dline"
+    id="index-emacspeak_002dowindow_002dspeak_002dline"></a>Interactive
+    Command: <strong>emacspeak-owindow-speak-line</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>ESC &lt;select&gt;</kbd></p>
+
+      <p>Speak the current line in the other window.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dread_002dnext_002dline-1" id=
+    "index-emacspeak_002dread_002dnext_002dline-1"></a>Interactive
+    Command: <strong>emacspeak-read-next-line</strong>
+    <em>(&amp;optional arg)</em></dt>
+
+    <dd>
+      <p><kbd>C-e &lt;down&gt;</kbd></p>
+
+      <p>Read next line, specified by an offset, without moving.
+      Default is to read the next line.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dread_002dnext_002dword" id=
+    "index-emacspeak_002dread_002dnext_002dword"></a>Interactive
+    Command: <strong>emacspeak-read-next-word</strong>
+    <em>(&amp;optional arg)</em></dt>
+
+    <dd>
+      <p>Read next word, specified as a numeric arg, without
+      moving. Default is to read the next word.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dread_002dprevious_002dline-1"
+    id=
+    "index-emacspeak_002dread_002dprevious_002dline-1"></a>Interactive
+    Command: <strong>emacspeak-read-previous-line</strong>
+    <em>(&amp;optional arg)</em></dt>
+
+    <dd>
+      <p><kbd>C-e &lt;up&gt;</kbd></p>
+
+      <p>Read previous line, specified by an offset, without
+      moving. Default is to read the previous line.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dread_002dprevious_002dword"
+    id="index-emacspeak_002dread_002dprevious_002dword"></a>Interactive
+    Command: <strong>emacspeak-read-previous-word</strong>
+    <em>(&amp;optional arg)</em></dt>
+
+    <dd>
+      <p>Read previous word, specified as a prefix arg, without
+      moving. Default is to read the previous word.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dsearch" id=
+    "index-emacspeak_002dsearch"></a>Interactive Command:
+    <strong>emacspeak-search</strong> <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>&lt;search&gt;</kbd></p>
+
+      <p>Call search defined in &lt;search&gt;.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dshell_002dcommand" id=
+    "index-emacspeak_002dshell_002dcommand"></a>Interactive
+    Command: <strong>emacspeak-shell-command</strong>
+    <em>(command)</em></dt>
+
+    <dd>
+      <p>Run shell command and speak its output.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dsilence" id=
+    "index-emacspeak_002dsilence"></a>Interactive Command:
+    <strong>emacspeak-silence</strong> <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>&lt;silence&gt;</kbd></p>
+
+      <p>Silence is golden. Stop speech, and pause/resume any media
+      streams. Runs &lsquo;emacspeak-silence-hook&rsquo; which can
+      be used to configure which media players get silenced or
+      paused/resumed.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dand_002dskip_002dextent_002dupto_002dchar"
+    id=
+    "index-emacspeak_002dspeak_002dand_002dskip_002dextent_002dupto_002dchar">
+    </a>Interactive Command:
+    <strong>emacspeak-speak-and-skip-extent-upto-char</strong>
+    <em>(char)</em></dt>
+
+    <dd>
+      <p>Search forward from point until we hit char. Speak text
+      between point and the char we hit.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dand_002dskip_002dextent_002dupto_002dthis_002dchar"
+    id=
+    "index-emacspeak_002dspeak_002dand_002dskip_002dextent_002dupto_002dthis_002dchar">
+    </a>Interactive Command:
+    <strong>emacspeak-speak-and-skip-extent-upto-this-char</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak extent delimited by point and last character
+      typed.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dbrowse_002dbuffer"
+    id=
+    "index-emacspeak_002dspeak_002dbrowse_002dbuffer"></a>Interactive
+    Command: <strong>emacspeak-speak-browse-buffer</strong>
+    <em>(&amp;optional browse)</em></dt>
+
+    <dd>
+      <p><kbd>C-e ,</kbd></p>
+
+      <p>Browse current buffer. Default is to speak chunk having
+      current personality. Interactive prefix arg
+      &lsquo;browse&rsquo; repeatedly browses through chunks having
+      same personality as the current text chunk.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dbuffer-1" id=
+    "index-emacspeak_002dspeak_002dbuffer-1"></a>Interactive
+    Command: <strong>emacspeak-speak-buffer</strong>
+    <em>(&amp;optional arg)</em></dt>
+
+    <dd>
+      <p><kbd>C-e b</kbd></p>
+
+      <p>Speak current buffer contents. With prefix ARG, speaks the
+      rest of the buffer from point. Negative prefix arg speaks
+      from start of buffer to point. If voice lock mode is on, the
+      paragraphs in the buffer are voice annotated first, see
+      command
+      &lsquo;emacspeak-speak-voice-annotate-paragraphs&rsquo;.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dbuffer_002dfilename-1" id=
+    "index-emacspeak_002dspeak_002dbuffer_002dfilename-1"></a>Interactive
+    Command: <strong>emacspeak-speak-buffer-filename</strong>
+    <em>(&amp;optional filename)</em></dt>
+
+    <dd>
+      <p><kbd>C-e f</kbd></p>
+
+      <p>Speak name of file being visited in current buffer. Speak
+      default directory if invoked in a dired buffer, or when the
+      buffer is not visiting any file. Interactive prefix arg
+      &lsquo;filename&rsquo; speaks only the final path component.
+      The result is put in the kill ring for convenience.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dbuffer_002dinteractively" id=
+    "index-emacspeak_002dspeak_002dbuffer_002dinteractively"></a>Interactive
+    Command: <strong>emacspeak-speak-buffer-interactively</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e B</kbd></p>
+
+      <p>Speak the start of, rest of, or the entire buffer.
+      &rsquo;s&rsquo; to speak the start. &rsquo;r&rsquo; to speak
+      the rest. any other key to speak entire buffer.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dchar-1" id=
+    "index-emacspeak_002dspeak_002dchar-1"></a>Interactive Command:
+    <strong>emacspeak-speak-char</strong> <em>(&amp;optional
+    prefix)</em></dt>
+
+    <dd>
+      <p><kbd>C-e c</kbd></p>
+
+      <p>Speak character under point. Pronounces character
+      phonetically unless called with a PREFIX arg.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dchar_002dname" id=
+    "index-emacspeak_002dspeak_002dchar_002dname"></a>Interactive
+    Command: <strong>emacspeak-speak-char-name</strong>
+    <em>(char)</em></dt>
+
+    <dd>
+      <p>tell me what this is</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dcompletions_002dif_002davailable"
+    id=
+    "index-emacspeak_002dspeak_002dcompletions_002dif_002davailable">
+    </a>Interactive Command:
+    <strong>emacspeak-speak-completions-if-available</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak completions if available.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dcontinuously" id=
+    "index-emacspeak_002dspeak_002dcontinuously"></a>Interactive
+    Command: <strong>emacspeak-speak-continuously</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e RET</kbd></p>
+
+      <p>Speak a buffer continuously. First prompts using the
+      minibuffer for the kind of action to perform after speaking
+      each chunk. E.G. speak a line at a time etc. Speaking
+      commences at current buffer position. Pressing C-g breaks
+      out, leaving point on last chunk that was spoken. Any other
+      key continues to speak the buffer.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dcurrent_002dcolumn-1" id=
+    "index-emacspeak_002dspeak_002dcurrent_002dcolumn-1"></a>Interactive
+    Command: <strong>emacspeak-speak-current-column</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e =</kbd></p>
+
+      <p>Speak the current column.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dcurrent_002dfield"
+    id=
+    "index-emacspeak_002dspeak_002dcurrent_002dfield"></a>Interactive
+    Command: <strong>emacspeak-speak-current-field</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e .</kbd></p>
+
+      <p>Speak current field.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dcurrent_002dkill-1"
+    id=
+    "index-emacspeak_002dspeak_002dcurrent_002dkill-1"></a>Interactive
+    Command: <strong>emacspeak-speak-current-kill</strong>
+    <em>(count)</em></dt>
+
+    <dd>
+      <p><kbd>C-e k</kbd></p>
+
+      <p>Speak the current kill entry. This is the text that will
+      be yanked in by the next C-y. Prefix numeric arg, COUNT,
+      specifies that the text that will be yanked as a result of a
+      C-y followed by count-1 M-y be spoken. The kill number that
+      is spoken says what numeric prefix arg to give to command
+      yank.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dcurrent_002dmark-1"
+    id=
+    "index-emacspeak_002dspeak_002dcurrent_002dmark-1"></a>Interactive
+    Command: <strong>emacspeak-speak-current-mark</strong>
+    <em>(count)</em></dt>
+
+    <dd>
+      <p><kbd>C-e C-@</kbd></p>
+
+      <p>Speak the line containing the mark. With no argument,
+      speaks the line containing the mark&ndash;this is where
+      &lsquo;exchange-point-and-mark&rsquo; C-x C-x would jump.
+      Numeric prefix arg &rsquo;COUNT&rsquo; speaks line containing
+      mark &rsquo;n&rsquo; where &rsquo;n&rsquo; is one less than
+      the number of times one has to jump using
+      &lsquo;set-mark-command&rsquo; to get to this marked
+      position. The location of the mark is indicated by an aural
+      highlight achieved by a change in voice personality.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dcurrent_002dpercentage-1" id=
+    "index-emacspeak_002dspeak_002dcurrent_002dpercentage-1"></a>Interactive
+    Command: <strong>emacspeak-speak-current-percentage</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e %</kbd></p>
+
+      <p>Announce the percentage into the current buffer.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dcurrent_002dwindow"
+    id=
+    "index-emacspeak_002dspeak_002dcurrent_002dwindow"></a>Interactive
+    Command: <strong>emacspeak-speak-current-window</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak contents of current window. Speaks entire window
+      irrespective of point.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002ddate_002das_002dseconds" id=
+    "index-emacspeak_002dspeak_002ddate_002das_002dseconds"></a>Interactive
+    Command: <strong>emacspeak-speak-date-as-seconds</strong>
+    <em>(time)</em></dt>
+
+    <dd>
+      <p>Read time value as a human-readable string, return
+      seconds. Seconds value is also placed in the kill-ring.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002ddisplay_002dchar"
+    id="index-emacspeak_002dspeak_002ddisplay_002dchar"></a>Interactive
+    Command: <strong>emacspeak-speak-display-char</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p>Display char under point using current speech display
+      table. Behavior is the same as command
+      &lsquo;emacspeak-speak-char&rsquo; bound to C-e c for
+      characters in the range 0&ndash;127. Optional argument PREFIX
+      specifies that the character should be spoken
+      phonetically.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dface_002dinterval_002dand_002dmove"
+    id=
+    "index-emacspeak_002dspeak_002dface_002dinterval_002dand_002dmove">
+    </a>Interactive Command:
+    <strong>emacspeak-speak-face-interval-and-move</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speaks region delimited by text in current face, and moves
+      past the chunk.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dfront_002dof_002dbuffer" id=
+    "index-emacspeak_002dspeak_002dfront_002dof_002dbuffer"></a>Interactive
+    Command: <strong>emacspeak-speak-front-of-buffer</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak the buffer from start to point</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dheader_002dline" id=
+    "index-emacspeak_002dspeak_002dheader_002dline"></a>Interactive
+    Command: <strong>emacspeak-speak-header-line</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e SPC</kbd></p>
+
+      <p>Speak header line if set.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dhelp-1" id=
+    "index-emacspeak_002dspeak_002dhelp-1"></a>Interactive Command:
+    <strong>emacspeak-speak-help</strong> <em>(&amp;optional
+    arg)</em></dt>
+
+    <dd>
+      <p><kbd>C-e h</kbd></p>
+
+      <p>Speak help buffer if one present. With prefix arg, speaks
+      the rest of the buffer from point. Negative prefix arg speaks
+      from start of buffer to point.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dhelp_002dinteractively" id=
+    "index-emacspeak_002dspeak_002dhelp_002dinteractively"></a>Interactive
+    Command: <strong>emacspeak-speak-help-interactively</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak the start of, rest of, or the entire help.
+      &rsquo;s&rsquo; to speak the start. &rsquo;r&rsquo; to speak
+      the rest. any other key to speak entire help.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dhostname" id=
+    "index-emacspeak_002dspeak_002dhostname"></a>Interactive
+    Command: <strong>emacspeak-speak-hostname</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e M-h</kbd></p>
+
+      <p>Speak host name.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dline-1" id=
+    "index-emacspeak_002dspeak_002dline-1"></a>Interactive Command:
+    <strong>emacspeak-speak-line</strong> <em>(&amp;optional
+    arg)</em></dt>
+
+    <dd>
+      <p><kbd>C-e l</kbd></p>
+
+      <p>Speaks current line. With prefix ARG, speaks the rest of
+      the line from point. Negative prefix optional arg speaks from
+      start of line to point. Voicifies if option
+      &lsquo;voice-lock-mode&rsquo; is on. Indicates indentation
+      with a tone if audio indentation is in use. Indicates
+      position of point with an aural highlight if option
+      &lsquo;emacspeak-show-point&rsquo; is turned on &ndash;see
+      command &lsquo;emacspeak-show-point&rsquo; bound to M-x
+      emacspeak-show-point. Lines that start hidden blocks of text,
+      e.g. outline header lines, or header lines of blocks created
+      by command &lsquo;emacspeak-hide-or-expose-block&rsquo; are
+      indicated with auditory icon ellipses.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dline_002dinteractively" id=
+    "index-emacspeak_002dspeak_002dline_002dinteractively"></a>Interactive
+    Command: <strong>emacspeak-speak-line-interactively</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e L</kbd></p>
+
+      <p>Speak the start of, rest of, or the entire line.
+      &rsquo;s&rsquo; to speak the start. &rsquo;r&rsquo; to speak
+      the rest. any other key to speak entire line.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dline_002dnumber-1"
+    id=
+    "index-emacspeak_002dspeak_002dline_002dnumber-1"></a>Interactive
+    Command: <strong>emacspeak-speak-line-number</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e C-l</kbd></p>
+
+      <p>Print the current buffer line number and narrowed line
+      number of point.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dline_002dset_002dcolumn_002dfilter"
+    id=
+    "index-emacspeak_002dspeak_002dline_002dset_002dcolumn_002dfilter">
+    </a>Interactive Command:
+    <strong>emacspeak-speak-line-set-column-filter</strong>
+    <em>(filter)</em></dt>
+
+    <dd>
+      <p><kbd>C-e |</kbd></p>
+
+      <p>Set up filter for selectively speaking or ignoring
+      portions of lines. The filter is specified as a list of
+      pairs. For example, to filter columns 1 &ndash; 10 and 20
+      &ndash; 25, specify filter as ((0 9) (20 25)). Filter
+      settings are persisted across sessions. A persisted filter is
+      used as the default when prompting for a filter. This allows
+      one to accumulate a set of filters for specific files like
+      /var/adm/messages and /var/adm/maillog over time. Option
+      emacspeak-speak-line-invert-filter determines the sense of
+      the filter.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dload_002ddirectory_002dsettings"
+    id=
+    "index-emacspeak_002dspeak_002dload_002ddirectory_002dsettings">
+    </a>Interactive Command:
+    <strong>emacspeak-speak-load-directory-settings</strong>
+    <em>(&amp;optional directory)</em></dt>
+
+    <dd>
+      <p>Load a directory specific Emacspeak settings file. This is
+      typically used to load up settings that are specific to an
+      electronic book consisting of many files in the same
+      directory.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dmessage_002dagain-1"
+    id=
+    "index-emacspeak_002dspeak_002dmessage_002dagain-1"></a>Interactive
+    Command: <strong>emacspeak-speak-message-again</strong>
+    <em>(&amp;optional from-message-cache)</em></dt>
+
+    <dd>
+      <p><kbd>C-e a</kbd></p>
+
+      <p>Speak the last message from Emacs once again. The message
+      is also placed in the kill ring for convenient yanking if
+      &lsquo;emacspeak-speak-message-again-should-copy-to-kill-ring&rsquo;
+      is set.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dmessage_002dat_002dtime" id=
+    "index-emacspeak_002dspeak_002dmessage_002dat_002dtime"></a>Interactive
+    Command: <strong>emacspeak-speak-message-at-time</strong>
+    <em>(time message)</em></dt>
+
+    <dd>
+      <p><kbd>C-e @</kbd></p>
+
+      <p>Set up ring-at-time to speak message at specified time.
+      Provides simple stop watch functionality in addition to other
+      things. See documentation for command run-at-time for details
+      on time-spec.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dmicroseconds_002dsince_002depoch"
+    id=
+    "index-emacspeak_002dspeak_002dmicroseconds_002dsince_002depoch">
+    </a>Interactive Command:
+    <strong>emacspeak-speak-microseconds-since-epoch</strong>
+    <em>(ms)</em></dt>
+
+    <dd>
+      <p>Speaks time value specified as microseconds since epoch,
+      e.g. as from float-time.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dmilliseconds_002dsince_002depoch"
+    id=
+    "index-emacspeak_002dspeak_002dmilliseconds_002dsince_002depoch">
+    </a>Interactive Command:
+    <strong>emacspeak-speak-milliseconds-since-epoch</strong>
+    <em>(ms)</em></dt>
+
+    <dd>
+      <p>Speaks time value specified as milliseconds since epoch,
+      e.g. as from float-time.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dminibuffer" id=
+    "index-emacspeak_002dspeak_002dminibuffer"></a>Interactive
+    Command: <strong>emacspeak-speak-minibuffer</strong>
+    <em>(&amp;optional arg)</em></dt>
+
+    <dd>
+      <p>Speak the minibuffer contents With prefix arg, speaks the
+      rest of the buffer from point. Negative prefix arg speaks
+      from start of buffer to point.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dminor_002dmode_002dline-1" id=
+    "index-emacspeak_002dspeak_002dminor_002dmode_002dline-1"></a>Interactive
+    Command: <strong>emacspeak-speak-minor-mode-line</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e M</kbd></p>
+
+      <p>Speak the minor mode-information.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dmode_002dline-1" id=
+    "index-emacspeak_002dspeak_002dmode_002dline-1"></a>Interactive
+    Command: <strong>emacspeak-speak-mode-line</strong>
+    <em>(&amp;optional buffer-info)</em></dt>
+
+    <dd>
+      <p><kbd>C-e m</kbd></p>
+
+      <p>Speak the mode-line. Speaks header-line if that is set
+      when called non-interactively. Interactive prefix arg speaks
+      buffer info.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dnext_002dface_002dchunk" id=
+    "index-emacspeak_002dspeak_002dnext_002dface_002dchunk"></a>Interactive
+    Command: <strong>emacspeak-speak-next-face-chunk</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Moves to the front of next chunk having current face.
+      Speak that chunk after moving.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dnext_002dfield" id=
+    "index-emacspeak_002dspeak_002dnext_002dfield"></a>Interactive
+    Command: <strong>emacspeak-speak-next-field</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e &gt;</kbd></p>
+
+      <p>Move to and speak next field.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dnext_002dpersonality_002dchunk"
+    id=
+    "index-emacspeak_002dspeak_002dnext_002dpersonality_002dchunk"></a>Interactive
+    Command:
+    <strong>emacspeak-speak-next-personality-chunk</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Moves to the front of next chunk having current
+      personality. Speak that chunk after moving.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dnext_002dwindow-1"
+    id=
+    "index-emacspeak_002dspeak_002dnext_002dwindow-1"></a>Interactive
+    Command: <strong>emacspeak-speak-next-window</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e C-n</kbd></p>
+
+      <p>Speak the next window.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dother_002dbuffer"
+    id="index-emacspeak_002dspeak_002dother_002dbuffer"></a>Interactive
+    Command: <strong>emacspeak-speak-other-buffer</strong>
+    <em>(buffer)</em></dt>
+
+    <dd>
+      <p><kbd>C-e M-b</kbd></p>
+
+      <p>Speak specified buffer. Useful to listen to a buffer
+      without switching contexts.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dother_002dwindow-1"
+    id=
+    "index-emacspeak_002dspeak_002dother_002dwindow-1"></a>Interactive
+    Command: <strong>emacspeak-speak-other-window</strong>
+    <em>(&amp;optional arg)</em></dt>
+
+    <dd>
+      <p>Speak contents of &lsquo;other&rsquo; window. Speaks
+      entire window irrespective of point. Semantics of
+      &lsquo;other&rsquo; is the same as for the builtin Emacs
+      command &lsquo;other-window&rsquo;. Optional argument ARG
+      specifies &lsquo;other&rsquo; window to speak.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dpage-1" id=
+    "index-emacspeak_002dspeak_002dpage-1"></a>Interactive Command:
+    <strong>emacspeak-speak-page</strong> <em>(&amp;optional
+    arg)</em></dt>
+
+    <dd>
+      <p><kbd>C-e [</kbd></p>
+
+      <p>Speak a page. With prefix ARG, speaks rest of current
+      page. Negative prefix arg will read from start of current
+      page to point. If option &lsquo;voice-lock-mode&rsquo; is on,
+      then it will use any defined personality.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dpage_002dinteractively" id=
+    "index-emacspeak_002dspeak_002dpage_002dinteractively"></a>Interactive
+    Command: <strong>emacspeak-speak-page-interactively</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e ]</kbd></p>
+
+      <p>Speak the start of, rest of, or the entire page.
+      &rsquo;s&rsquo; to speak the start. &rsquo;r&rsquo; to speak
+      the rest. any other key to speak entire page.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dparagraph-1" id=
+    "index-emacspeak_002dspeak_002dparagraph-1"></a>Interactive
+    Command: <strong>emacspeak-speak-paragraph</strong>
+    <em>(&amp;optional arg)</em></dt>
+
+    <dd>
+      <p><kbd>C-e { C-e p</kbd></p>
+
+      <p>Speak paragraph. With prefix arg, speaks rest of current
+      paragraph. Negative prefix arg will read from start of
+      current paragraph to point. If voice-lock-mode is on, then it
+      will use any defined personality.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dparagraph_002dinteractively" id=
+    "index-emacspeak_002dspeak_002dparagraph_002dinteractively"></a>Interactive
+    Command:
+    <strong>emacspeak-speak-paragraph-interactively</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e P</kbd></p>
+
+      <p>Speak the start of, rest of, or the entire paragraph.
+      &rsquo;s&rsquo; to speak the start. &rsquo;r&rsquo; to speak
+      the rest. any other key to speak entire paragraph.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dpreceding_002dchar"
+    id=
+    "index-emacspeak_002dspeak_002dpreceding_002dchar"></a>Interactive
+    Command: <strong>emacspeak-speak-preceding-char</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak character before point.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dpredefined_002dwindow-1" id=
+    "index-emacspeak_002dspeak_002dpredefined_002dwindow-1"></a>Interactive
+    Command: <strong>emacspeak-speak-predefined-window</strong>
+    <em>(&amp;optional arg)</em></dt>
+
+    <dd>
+      <p><kbd>C-e 9 C-e 8 C-e 7 C-e 6 C-e 5 C-e 4 C-e 3 C-e 2 C-e 1
+      C-e 0</kbd></p>
+
+      <p>Speak one of the first 10 windows on the screen. Speaks
+      entire window irrespective of point. In general, you&rsquo;ll
+      never have Emacs split the screen into more than two or
+      three. Argument ARG determines the &rsquo;other&rsquo; window
+      to speak. Semantics of &lsquo;other&rsquo; is the same as for
+      the builtin Emacs command &lsquo;other-window&rsquo;.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dprevious_002dface_002dchunk" id=
+    "index-emacspeak_002dspeak_002dprevious_002dface_002dchunk"></a>Interactive
+    Command: <strong>emacspeak-speak-previous-face-chunk</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Moves to the front of previous chunk having current face.
+      Speak that chunk after moving.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dprevious_002dfield"
+    id=
+    "index-emacspeak_002dspeak_002dprevious_002dfield"></a>Interactive
+    Command: <strong>emacspeak-speak-previous-field</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e &lt;</kbd></p>
+
+      <p>Move to previous field and speak it.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dprevious_002dpersonality_002dchunk"
+    id=
+    "index-emacspeak_002dspeak_002dprevious_002dpersonality_002dchunk">
+    </a>Interactive Command:
+    <strong>emacspeak-speak-previous-personality-chunk</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Moves to the front of previous chunk having current
+      personality. Speak that chunk after moving.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dprevious_002dwindow-1" id=
+    "index-emacspeak_002dspeak_002dprevious_002dwindow-1"></a>Interactive
+    Command: <strong>emacspeak-speak-previous-window</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e C-p</kbd></p>
+
+      <p>Speak the previous window.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002drectangle-1" id=
+    "index-emacspeak_002dspeak_002drectangle-1"></a>Interactive
+    Command: <strong>emacspeak-speak-rectangle</strong> <em>(start
+    end)</em></dt>
+
+    <dd>
+      <p><kbd>C-e R</kbd></p>
+
+      <p>Speak a rectangle of text. Rectangle is delimited by point
+      and mark. When call from a program, arguments specify the
+      START and END of the rectangle.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dregion-1" id=
+    "index-emacspeak_002dspeak_002dregion-1"></a>Interactive
+    Command: <strong>emacspeak-speak-region</strong> <em>(start
+    end)</em></dt>
+
+    <dd>
+      <p><kbd>C-e r</kbd></p>
+
+      <p>Speak region. Argument START and END specify region to
+      speak.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002drest_002dof_002dbuffer-1" id=
+    "index-emacspeak_002dspeak_002drest_002dof_002dbuffer-1"></a>Interactive
+    Command: <strong>emacspeak-speak-rest-of-buffer</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e n</kbd></p>
+
+      <p>Speak remainder of the buffer starting at point</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dseconds_002dsince_002depoch" id=
+    "index-emacspeak_002dspeak_002dseconds_002dsince_002depoch"></a>Interactive
+    Command: <strong>emacspeak-speak-seconds-since-epoch</strong>
+    <em>(seconds)</em></dt>
+
+    <dd>
+      <p>Speaks time value specified as seconds since epoch, e.g.
+      as from float-time.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dsentence" id=
+    "index-emacspeak_002dspeak_002dsentence"></a>Interactive
+    Command: <strong>emacspeak-speak-sentence</strong>
+    <em>(&amp;optional arg)</em></dt>
+
+    <dd>
+      <p>Speak current sentence. With prefix ARG, speaks the rest
+      of the sentence from point. Negative prefix arg speaks from
+      start of sentence to point.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dset_002ddisplay_002dtable" id=
+    "index-emacspeak_002dspeak_002dset_002ddisplay_002dtable"></a>Interactive
+    Command: <strong>emacspeak-speak-set-display-table</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p>Sets up buffer specific speech display table that controls
+      how special characters are spoken. Interactive prefix
+      argument causes setting to be global.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dset_002dmode_002dpunctuations"
+    id=
+    "index-emacspeak_002dspeak_002dset_002dmode_002dpunctuations"></a>Interactive
+    Command: <strong>emacspeak-speak-set-mode-punctuations</strong>
+    <em>(setting)</em></dt>
+
+    <dd>
+      <p><kbd>C-e d m</kbd></p>
+
+      <p>Set punctuation mode for all buffers in current mode.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dsexp-1" id=
+    "index-emacspeak_002dspeak_002dsexp-1"></a>Interactive Command:
+    <strong>emacspeak-speak-sexp</strong> <em>(&amp;optional
+    arg)</em></dt>
+
+    <dd>
+      <p>Speak current sexp. With prefix ARG, speaks the rest of
+      the sexp from point. Negative prefix arg speaks from start of
+      sexp to point. If option &lsquo;voice-lock-mode&rsquo; is on,
+      then uses the personality.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dsexp_002dinteractively" id=
+    "index-emacspeak_002dspeak_002dsexp_002dinteractively"></a>Interactive
+    Command: <strong>emacspeak-speak-sexp-interactively</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e "</kbd></p>
+
+      <p>Speak the start of, rest of, or the entire sexp.
+      &rsquo;s&rsquo; to speak the start. &rsquo;r&rsquo; to speak
+      the rest. any other key to speak entire sexp.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dshow_002dactive_002dnetwork_002dinterfaces"
+    id=
+    "index-emacspeak_002dspeak_002dshow_002dactive_002dnetwork_002dinterfaces">
+    </a>Interactive Command:
+    <strong>emacspeak-speak-show-active-network-interfaces</strong>
+    <em>(&amp;optional address)</em></dt>
+
+    <dd>
+      <p><kbd>C-e I</kbd></p>
+
+      <p>Shows all active network interfaces in the echo area. With
+      interactive prefix argument ADDRESS it prompts for a specific
+      interface and shows its address. The address is also copied
+      to the kill ring for convenient yanking.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dskim_002dbuffer" id=
+    "index-emacspeak_002dspeak_002dskim_002dbuffer"></a>Interactive
+    Command: <strong>emacspeak-speak-skim-buffer</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Skim the current buffer a paragraph at a time.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dskim_002dnext_002dparagraph" id=
+    "index-emacspeak_002dspeak_002dskim_002dnext_002dparagraph"></a>Interactive
+    Command: <strong>emacspeak-speak-skim-next-paragraph</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Skim next paragraph.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dskim_002dparagraph"
+    id=
+    "index-emacspeak_002dspeak_002dskim_002dparagraph"></a>Interactive
+    Command: <strong>emacspeak-speak-skim-paragraph</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Skim paragraph. Skimming a paragraph results in the speech
+      speeding up after the first clause. Speech is scaled by the
+      value of dtk-speak-skim-scale</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dspaces_002dat_002dpoint-1" id=
+    "index-emacspeak_002dspeak_002dspaces_002dat_002dpoint-1"></a>Interactive
+    Command: <strong>emacspeak-speak-spaces-at-point</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e C-M-@</kbd></p>
+
+      <p>Speak the white space at point.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dspell_002dcurrent_002dword" id=
+    "index-emacspeak_002dspeak_002dspell_002dcurrent_002dword"></a>Interactive
+    Command: <strong>emacspeak-speak-spell-current-word</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Spell word at point.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dtext_002drange" id=
+    "index-emacspeak_002dspeak_002dtext_002drange"></a>Interactive
+    Command: <strong>emacspeak-speak-text-range</strong>
+    <em>(property)</em></dt>
+
+    <dd>
+      <p>Speak text range identified by this PROPERTY.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dthis_002dface_002dchunk" id=
+    "index-emacspeak_002dspeak_002dthis_002dface_002dchunk"></a>Interactive
+    Command: <strong>emacspeak-speak-this-face-chunk</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak chunk of text around point that has current
+      face.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dthis_002dpersonality_002dchunk"
+    id=
+    "index-emacspeak_002dspeak_002dthis_002dpersonality_002dchunk"></a>Interactive
+    Command:
+    <strong>emacspeak-speak-this-personality-chunk</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak chunk of text around point that has current
+      personality.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dtime-1" id=
+    "index-emacspeak_002dspeak_002dtime-1"></a>Interactive Command:
+    <strong>emacspeak-speak-time</strong> <em>(&amp;optional
+    world)</em></dt>
+
+    <dd>
+      <p><kbd>C-e t</kbd></p>
+
+      <p>Speak the time. Optional interactive prefix arg
+      &lsquo;C-u&rsquo;invokes world clock. Timezone is specified
+      using minibuffer completion. Second interactive prefix sets
+      clock to new timezone.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dversion-1" id=
+    "index-emacspeak_002dspeak_002dversion-1"></a>Interactive
+    Command: <strong>emacspeak-speak-version</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e V</kbd></p>
+
+      <p>Announce version information for running emacspeak.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dvoice_002dannotate_002dparagraphs"
+    id=
+    "index-emacspeak_002dspeak_002dvoice_002dannotate_002dparagraphs">
+    </a>Interactive Command:
+    <strong>emacspeak-speak-voice-annotate-paragraphs</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Locate paragraphs and voice annotate the first word. Here,
+      paragraph is taken to mean a chunk of text preceded by a
+      blank line. Useful to do this before you listen to an entire
+      buffer.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dwindow_002dinformation-1" id=
+    "index-emacspeak_002dspeak_002dwindow_002dinformation-1"></a>Interactive
+    Command: <strong>emacspeak-speak-window-information</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e C-w</kbd></p>
+
+      <p>Speaks information about current window.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dword-1" id=
+    "index-emacspeak_002dspeak_002dword-1"></a>Interactive Command:
+    <strong>emacspeak-speak-word</strong> <em>(&amp;optional
+    arg)</em></dt>
+
+    <dd>
+      <p><kbd>C-e w</kbd></p>
+
+      <p>Speak current word. With prefix ARG, speaks the rest of
+      the word from point. Negative prefix arg speaks from start of
+      word to point. If executed on the same buffer position a
+      second time, the word is spelt instead of being spoken.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dword_002dinteractively" id=
+    "index-emacspeak_002dspeak_002dword_002dinteractively"></a>Interactive
+    Command: <strong>emacspeak-speak-word-interactively</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak the start of, rest of, or the entire word.
+      &rsquo;s&rsquo; to speak the start. &rsquo;r&rsquo; to speak
+      the rest. any other key to speak entire word.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dworld_002dclock" id=
+    "index-emacspeak_002dspeak_002dworld_002dclock"></a>Interactive
+    Command: <strong>emacspeak-speak-world-clock</strong> <em>(zone
+    &amp;optional set)</em></dt>
+
+    <dd>
+      <p>Display current date and time for specified zone. Optional
+      second arg &lsquo;set&rsquo; sets the TZ environment variable
+      as well.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dswitch_002dto_002dreference_002dbuffer"
+    id="index-emacspeak_002dswitch_002dto_002dreference_002dbuffer">
+    </a>Interactive Command:
+    <strong>emacspeak-switch-to-reference-buffer</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Switch back to buffer that generated completions.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dtoggle_002daction_002dmode"
+    id="index-emacspeak_002dtoggle_002daction_002dmode"></a>Interactive
+    Command: <strong>emacspeak-toggle-action-mode</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p>Toggle state of Emacspeak action mode. Interactive PREFIX
+      arg means toggle the global default value, and then set the
+      current local value to the result.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtoggle_002daudio_002dindentation-1" id=
+    "index-emacspeak_002dtoggle_002daudio_002dindentation-1"></a>Interactive
+    Command: <strong>emacspeak-toggle-audio-indentation</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p><kbd>C-e d i</kbd></p>
+
+      <p>Toggle state of Emacspeak audio indentation. Interactive
+      PREFIX arg means toggle the global default value, and then
+      set the current local value to the result. Specifying the
+      method of indentation as &lsquo;tones&rsquo; results in the
+      Dectalk producing a tone whose length is a function of the
+      line&rsquo;s indentation. Specifying &lsquo;speak&rsquo;
+      results in the number of initial spaces being spoken.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtoggle_002dcharacter_002decho-1" id=
+    "index-emacspeak_002dtoggle_002dcharacter_002decho-1"></a>Interactive
+    Command: <strong>emacspeak-toggle-character-echo</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p><kbd>C-e d k</kbd></p>
+
+      <p>Toggle state of Emacspeak character echo. Interactive
+      PREFIX arg means toggle the global default value, and then
+      set the current local value to the result.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtoggle_002dcomint_002dautospeak" id=
+    "index-emacspeak_002dtoggle_002dcomint_002dautospeak"></a>Interactive
+    Command: <strong>emacspeak-toggle-comint-autospeak</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p><kbd>C-e C-q</kbd></p>
+
+      <p>Toggle state of Emacspeak comint autospeak. When turned
+      on, comint output is automatically spoken. Turn this on if
+      you want your shell to speak its results. Interactive PREFIX
+      arg means toggle the global default value, and then set the
+      current local value to the result.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtoggle_002dcomint_002doutput_002dmonitor"
+    id=
+    "index-emacspeak_002dtoggle_002dcomint_002doutput_002dmonitor"></a>Interactive
+    Command:
+    <strong>emacspeak-toggle-comint-output-monitor</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p><kbd>C-e o</kbd></p>
+
+      <p>Toggle state of Emacspeak comint monitor. When turned on,
+      comint output is automatically spoken. Turn this on if you
+      want your shell to speak its results. Interactive PREFIX arg
+      means toggle the global default value, and then set the
+      current local value to the result.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dtoggle_002dheader_002dline"
+    id="index-emacspeak_002dtoggle_002dheader_002dline"></a>Interactive
+    Command: <strong>emacspeak-toggle-header-line</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Toggle Emacspeak&rsquo;s default header line.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dtoggle_002dline_002decho-1"
+    id="index-emacspeak_002dtoggle_002dline_002decho-1"></a>Interactive
+    Command: <strong>emacspeak-toggle-line-echo</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p><kbd>C-e d l</kbd></p>
+
+      <p>Toggle state of Emacspeak line echo. Interactive PREFIX
+      arg means toggle the global default value, and then set the
+      current local value to the result.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dtoggle_002dmail_002dalert" id=
+    "index-emacspeak_002dtoggle_002dmail_002dalert"></a>Interactive
+    Command: <strong>emacspeak-toggle-mail-alert</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p><kbd>C-e M-m</kbd></p>
+
+      <p>Toggle state of Emacspeak mail alert. Interactive PREFIX
+      arg means toggle the global default value, and then set the
+      current local value to the result. Turning on this option
+      results in Emacspeak producing an auditory icon indicating
+      the arrival of new mail when displaying the mode line.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dtoggle_002dshow_002dpoint" id=
+    "index-emacspeak_002dtoggle_002dshow_002dpoint"></a>Interactive
+    Command: <strong>emacspeak-toggle-show-point</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p><kbd>C-e C-d</kbd></p>
+
+      <p>Toggle state of Emacspeak-show-point. Interactive PREFIX
+      arg means toggle the global default value, and then set the
+      current local value to the result.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtoggle_002dspeak_002dline_002dinvert_002dfilter"
+    id=
+    "index-emacspeak_002dtoggle_002dspeak_002dline_002dinvert_002dfilter">
+    </a>Interactive Command:
+    <strong>emacspeak-toggle-speak-line-invert-filter</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p><kbd>C-e \</kbd></p>
+
+      <p>Toggle state of how column filter is interpreted.
+      Interactive PREFIX arg means toggle the global default value,
+      and then set the current local value to the result.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dtoggle_002dspeak_002dmessages"
+    id=
+    "index-emacspeak_002dtoggle_002dspeak_002dmessages"></a>Interactive
+    Command: <strong>emacspeak-toggle-speak-messages</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p><kbd>C-e q</kbd></p>
+
+      <p>Toggle the state of whether emacspeak echoes messages.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dtoggle_002dword_002decho-1"
+    id="index-emacspeak_002dtoggle_002dword_002decho-1"></a>Interactive
+    Command: <strong>emacspeak-toggle-word-echo</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p><kbd>C-e d w</kbd></p>
+
+      <p>Toggle state of Emacspeak word echo. Interactive PREFIX
+      arg means toggle the global default value, and then set the
+      current local value to the result.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002duse_002dcustomized_002dblink_002dparen"
+    id="index-emacspeak_002duse_002dcustomized_002dblink_002dparen">
+    </a>Interactive Command:
+    <strong>emacspeak-use-customized-blink-paren</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>A customized blink-paren to speak matching opening paren.
+      We need to call this in case Emacs is anal and loads its own
+      builtin blink-paren function which does not talk.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dvoiceify_002drectangle" id=
+    "index-emacspeak_002dvoiceify_002drectangle"></a>Interactive
+    Command: <strong>emacspeak-voiceify-rectangle</strong>
+    <em>(start end &amp;optional personality)</em></dt>
+
+    <dd>
+      <p>Voicify the current rectangle. When calling from a
+      program,arguments are START END personality Prompts for
+      PERSONALITY with completion when called interactively.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dvoiceify_002dregion" id=
+    "index-emacspeak_002dvoiceify_002dregion"></a>Interactive
+    Command: <strong>emacspeak-voiceify-region</strong> <em>(start
+    end &amp;optional personality)</em></dt>
+
+    <dd>
+      <p>Voicify the current region. When calling from a
+      program,arguments are START END personality. Prompts for
+      PERSONALITY with completion when called interactively.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dzap_002dtts" id=
+    "index-emacspeak_002dzap_002dtts"></a>Interactive Command:
+    <strong>emacspeak-zap-tts</strong> <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e d z</kbd></p>
+
+      <p>Send this command to the TTS directly.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dspeedbar.html#emacspeak_002dspeedbar" accesskey=
+    "n" rel="next">emacspeak-speedbar</a>, Previous: <a href=
+    "emacspeak_002dsounds.html#emacspeak_002dsounds" accesskey="p"
+    rel="prev">emacspeak-sounds</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

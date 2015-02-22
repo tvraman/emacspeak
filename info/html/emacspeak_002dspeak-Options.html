@@ -1,282 +1,481 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-speak Options</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-speak Options">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-speak Options">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Customizations.html#Emacspeak-Customizations" rel="up" title="Emacspeak Customizations">
-<link href="emacspeak_002dspeedbar-Options.html#emacspeak_002dspeedbar-Options" rel="next" title="emacspeak-speedbar Options">
-<link href="emacspeak_002dsounds-Options.html#emacspeak_002dsounds-Options" rel="prev" title="emacspeak-sounds Options">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-speak Options</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-speak Options" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-speak Options" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Customizations.html#Emacspeak-Customizations" rel="up"
+  title="Emacspeak Customizations" />
+  <link href=
+  "emacspeak_002dspeedbar-Options.html#emacspeak_002dspeedbar-Options"
+  rel="next" title="emacspeak-speedbar Options" />
+  <link href=
+  "emacspeak_002dsounds-Options.html#emacspeak_002dsounds-Options"
+  rel="prev" title="emacspeak-sounds Options" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dspeak-Options"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dspeedbar-Options.html#emacspeak_002dspeedbar-Options" accesskey="n" rel="next">emacspeak-speedbar Options</a>, Previous: <a href="emacspeak_002dsounds-Options.html#emacspeak_002dsounds-Options" accesskey="p" rel="prev">emacspeak-sounds Options</a>, Up: <a href="Emacspeak-Customizations.html#Emacspeak-Customizations" accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dspeak-Options-1"></a>
-<h3 class="section">12.52 emacspeak-speak Options</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dspeak-Options" id=
+  "emacspeak_002dspeak-Options"></a>
 
-<p>Commentary:
-This module defines the core speech services used by emacspeak.
-It depends on the speech server interface modules
-It protects other parts of emacspeak
-from becoming dependent on the speech server modules
-</p>
-<p>Automatically generated documentation
-for options defined in module  emacspeak-speak.
-These options are customizable via Emacs&rsquo; Custom interface.
-</p>
-<dl>
-<dt><a name="index-User-Option-241"></a>Variable: <strong>User Option</strong> <em>emacspeak-audio-indentation</em></dt>
-<dd><p>Option indicating if line indentation is cued.
-If non-nil , then speaking a line indicates its indentation.
-You can use  command &lsquo;emacspeak-toggle-audio-indentation&rsquo; bound
-to C-e d i to toggle this
-setting..
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dspeedbar-Options.html#emacspeak_002dspeedbar-Options"
+    accesskey="n" rel="next">emacspeak-speedbar Options</a>,
+    Previous: <a href=
+    "emacspeak_002dsounds-Options.html#emacspeak_002dsounds-Options"
+    accesskey="p" rel="prev">emacspeak-sounds Options</a>, Up:
+    <a href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations"
+    accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp;
+    [<a href="index.html#SEC_Contents" title="Table of contents"
+    rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dspeak-Options-1" id=
+  "emacspeak_002dspeak-Options-1"></a>
 
-<dl>
-<dt><a name="index-User-Option-242"></a>Variable: <strong>User Option</strong> <em>emacspeak-audio-indentation-method</em></dt>
-<dd><p>*Current technique used to cue indentation.  Default is
-&lsquo;speak&rsquo;.  You can specify &lsquo;tone&rsquo; for producing a beep
-indicating the indentation.  Automatically becomes local in
-any buffer where it is set.
-</p></dd></dl>
+  <h3 class="section">12.54 emacspeak-speak Options</h3>
 
-<dl>
-<dt><a name="index-User-Option-243"></a>Variable: <strong>User Option</strong> <em>emacspeak-character-echo</em></dt>
-<dd><p>If t, then emacspeak echoes characters  as you type.
-You can
-use C-e d k to toggle this
-setting.
-</p></dd></dl>
+  <p>Commentary: This module defines the core speech services used
+  by emacspeak. It depends on the speech server interface modules
+  It protects other parts of emacspeak from becoming dependent on
+  the speech server modules</p>
 
-<dl>
-<dt><a name="index-User-Option-244"></a>Variable: <strong>User Option</strong> <em>emacspeak-comint-autospeak</em></dt>
-<dd><p>Says if comint output is automatically spoken.
-You can use
-  &lsquo;emacspeak-toggle-comint-autospeak&lsquo; bound to
-  C-e C-q to toggle this
-setting.
-</p></dd></dl>
+  <p>Automatically generated documentation for options defined in
+  module emacspeak-speak. These options are customizable via
+  Emacs&rsquo; Custom interface.</p>
 
-<dl>
-<dt><a name="index-User-Option-245"></a>Variable: <strong>User Option</strong> <em>emacspeak-decoration-rule</em></dt>
-<dd><p>*Regular expressions to match lines that are purely
-decorative ascii.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-272" id=
+    "index-User-Option-272"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-audio-indentation</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-246"></a>Variable: <strong>User Option</strong> <em>emacspeak-horizontal-rule</em></dt>
-<dd><p>*Regular expression to match horizontal rules in ascii
-text.
-</p></dd></dl>
+    <dd>
+      <p>Option indicating if line indentation is cued. If non-nil
+      , then speaking a line indicates its indentation. You can use
+      command &lsquo;emacspeak-toggle-audio-indentation&rsquo;
+      bound to C-e d i to toggle this setting..</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-247"></a>Variable: <strong>User Option</strong> <em>emacspeak-line-echo</em></dt>
-<dd><p>If t, then emacspeak echoes lines as you type.
-You can use C-e d l to set this
-option.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-273" id=
+    "index-User-Option-273"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-audio-indentation-method</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-248"></a>Variable: <strong>User Option</strong> <em>emacspeak-mail-alert</em></dt>
-<dd><p>*Option to indicate cueing of new mail.
-If t, emacspeak will alert you about newly arrived mail
-with an auditory icon when
-displaying the mode line.
-You can use command
-&lsquo;emacspeak-toggle-mail-alert&rsquo; bound to
-C-e M-m to set this option.
-If you have online access to a voicemail drop, you can have a
-  voice-mail alert set up by specifying the location of the
-  voice-mail drop via custom option
-emacspeak-voicemail-spool-file.
-</p></dd></dl>
+    <dd>
+      <p>*Current technique used to cue indentation. Default is
+      &lsquo;speak&rsquo;. You can specify &lsquo;tone&rsquo; for
+      producing a beep indicating the indentation. Automatically
+      becomes local in any buffer where it is set.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-249"></a>Variable: <strong>User Option</strong> <em>emacspeak-mail-alert-interval</em></dt>
-<dd><p>Interval in seconds between mail alerts for the same pending
-  message.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-274" id=
+    "index-User-Option-274"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-character-echo</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-250"></a>Variable: <strong>User Option</strong> <em>emacspeak-mail-spool-file</em></dt>
-<dd><p>Mail spool file examined  to alert you about newly
-arrived mail.
-</p></dd></dl>
+    <dd>
+      <p>If t, then emacspeak echoes characters as you type. You
+      can use C-e d k to toggle this setting.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-251"></a>Variable: <strong>User Option</strong> <em>emacspeak-search</em></dt>
-<dd><p>Default search engine.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-275" id=
+    "index-User-Option-275"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-comint-autospeak</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-252"></a>Variable: <strong>User Option</strong> <em>emacspeak-silence-hook</em></dt>
-<dd><p>Functions run after emacspeak-silence is called.
-</p></dd></dl>
+    <dd>
+      <p>Says if comint output is automatically spoken. You can use
+      &lsquo;emacspeak-toggle-comint-autospeak&lsquo; bound to C-e
+      C-q to toggle this setting.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-253"></a>Variable: <strong>User Option</strong> <em>emacspeak-speak-directory-settings</em></dt>
-<dd><p>*Name of file that holds directory specific settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-276" id=
+    "index-User-Option-276"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-decoration-rule</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-254"></a>Variable: <strong>User Option</strong> <em>emacspeak-speak-embedded-url-pattern</em></dt>
-<dd><p>Pattern to recognize embedded URLs.
-</p></dd></dl>
+    <dd>
+      <p>*Regular expressions to match lines that are purely
+      decorative ascii.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-255"></a>Variable: <strong>User Option</strong> <em>emacspeak-speak-filter-persistent-store</em></dt>
-<dd><p>File where emacspeak filters are persisted.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-277" id=
+    "index-User-Option-277"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-horizontal-rule</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-256"></a>Variable: <strong>User Option</strong> <em>emacspeak-speak-line-column-filter</em></dt>
-<dd><p>*List that specifies columns to be filtered.
-The list when set holds pairs of start-col.end-col pairs
-that specifies the columns that should not be spoken.
-Each column contains a single character &ndash;this is inspired
-by cut -c on UNIX.
-</p></dd></dl>
+    <dd>
+      <p>*Regular expression to match horizontal rules in ascii
+      text.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-257"></a>Variable: <strong>User Option</strong> <em>emacspeak-speak-line-invert-filter</em></dt>
-<dd><p>Non-nil means the sense of &lsquo;filter&rsquo; is inverted when filtering
-columns in a line &ndash;see
-command emacspeak-speak-line-set-column-filter.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-278" id=
+    "index-User-Option-278"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-line-echo</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-258"></a>Variable: <strong>User Option</strong> <em>emacspeak-speak-load-directory-settings-quietly</em></dt>
-<dd><p>*User option that affects loading of directory specific settings.
-If set to T,Emacspeak will not prompt before loading
-directory specific settings.
-</p></dd></dl>
+    <dd>
+      <p>If t, then emacspeak echoes lines as you type. You can use
+      C-e d l to set this option.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-259"></a>Variable: <strong>User Option</strong> <em>emacspeak-speak-maximum-line-length</em></dt>
-<dd><p>*Threshold for determining &lsquo;long&rsquo; lines.
-Emacspeak will ask for confirmation before speaking lines
-that are longer than this length.  This is to avoid accidentally
-opening a binary file and torturing the speech synthesizer
-with a long string of gibberish.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-279" id=
+    "index-User-Option-279"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-mail-alert</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-260"></a>Variable: <strong>User Option</strong> <em>emacspeak-speak-message-again-should-copy-to-kill-ring</em></dt>
-<dd><p>If set, asking for last message will copy it to the kill ring.
-</p></dd></dl>
+    <dd>
+      <p>*Option to indicate cueing of new mail. If t, emacspeak
+      will alert you about newly arrived mail with an auditory icon
+      when displaying the mode line. You can use command
+      &lsquo;emacspeak-toggle-mail-alert&rsquo; bound to C-e M-m to
+      set this option. If you have online access to a voicemail
+      drop, you can have a voice-mail alert set up by specifying
+      the location of the voice-mail drop via custom option
+      emacspeak-voicemail-spool-file.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-261"></a>Variable: <strong>User Option</strong> <em>emacspeak-speak-messages</em></dt>
-<dd><p>*Option indicating if messages are spoken.  If nil,
-emacspeak will not speak messages as they are echoed to the
-message area.  You can use command
-&lsquo;emacspeak-toggle-speak-messages&rsquo; bound to
-C-e q.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-280" id=
+    "index-User-Option-280"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-mail-alert-interval</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-262"></a>Variable: <strong>User Option</strong> <em>emacspeak-speak-paragraph-personality</em></dt>
-<dd><p>*Personality used to mark start of paragraph.
-</p></dd></dl>
+    <dd>
+      <p>Interval in seconds between mail alerts for the same
+      pending message.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-263"></a>Variable: <strong>User Option</strong> <em>emacspeak-speak-space-regexp</em></dt>
-<dd><p>Pattern that matches white space.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-281" id=
+    "index-User-Option-281"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-mail-spool-file</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-264"></a>Variable: <strong>User Option</strong> <em>emacspeak-speak-time-format-string</em></dt>
-<dd><p>*Format string that specifies how the time should be spoken.
-See the documentation for function
-&lsquo;format-time-string&rsquo;
-</p></dd></dl>
+    <dd>
+      <p>Mail spool file examined to alert you about newly arrived
+      mail.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-265"></a>Variable: <strong>User Option</strong> <em>emacspeak-speak-zoneinfo-directory</em></dt>
-<dd><p>Directory containing timezone data.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-282" id=
+    "index-User-Option-282"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-search</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-266"></a>Variable: <strong>User Option</strong> <em>emacspeak-unspeakable-rule</em></dt>
-<dd><p>*Pattern to match lines of special chars.
-This is a regular expression that matches lines containing only
-non-alphanumeric characters.  emacspeak will generate a tone
-instead of speaking such lines when punctuation mode is set
-to some.
-</p></dd></dl>
+    <dd>
+      <p>Default search engine.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-267"></a>Variable: <strong>User Option</strong> <em>emacspeak-use-header-line</em></dt>
-<dd><p>Use default header line defined  by Emacspeak for buffers that
-dont customize the header.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-283" id=
+    "index-User-Option-283"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-silence-hook</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-268"></a>Variable: <strong>User Option</strong> <em>emacspeak-voicemail-spool-file</em></dt>
-<dd><p>Mail spool file examined  to alert you about newly
-arrived voicemail.
-</p></dd></dl>
+    <dd>
+      <p>Functions run after emacspeak-silence is called.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-269"></a>Variable: <strong>User Option</strong> <em>emacspeak-word-echo</em></dt>
-<dd><p>If t, then emacspeak echoes words as you type.
-You can use C-e d w to toggle this
-option.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-284" id=
+    "index-User-Option-284"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-speak-directory-settings</em></dt>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dspeedbar-Options.html#emacspeak_002dspeedbar-Options" accesskey="n" rel="next">emacspeak-speedbar Options</a>, Previous: <a href="emacspeak_002dsounds-Options.html#emacspeak_002dsounds-Options" accesskey="p" rel="prev">emacspeak-sounds Options</a>, Up: <a href="Emacspeak-Customizations.html#Emacspeak-Customizations" accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+    <dd>
+      <p>*Name of file that holds directory specific settings.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-285" id=
+    "index-User-Option-285"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-speak-embedded-url-pattern</em></dt>
 
+    <dd>
+      <p>Pattern to recognize embedded URLs.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-286" id=
+    "index-User-Option-286"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-speak-filter-persistent-store</em></dt>
+
+    <dd>
+      <p>File where emacspeak filters are persisted.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-287" id=
+    "index-User-Option-287"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-speak-line-column-filter</em></dt>
+
+    <dd>
+      <p>*List that specifies columns to be filtered. The list when
+      set holds pairs of start-col.end-col pairs that specifies the
+      columns that should not be spoken. Each column contains a
+      single character &ndash;this is inspired by cut -c on
+      UNIX.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-288" id=
+    "index-User-Option-288"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-speak-line-invert-filter</em></dt>
+
+    <dd>
+      <p>Non-nil means the sense of &lsquo;filter&rsquo; is
+      inverted when filtering columns in a line &ndash;see command
+      emacspeak-speak-line-set-column-filter.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-289" id=
+    "index-User-Option-289"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-speak-load-directory-settings-quietly</em></dt>
+
+    <dd>
+      <p>*User option that affects loading of directory specific
+      settings. If set to T,Emacspeak will not prompt before
+      loading directory specific settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-290" id=
+    "index-User-Option-290"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-speak-maximum-line-length</em></dt>
+
+    <dd>
+      <p>*Threshold for determining &lsquo;long&rsquo; lines.
+      Emacspeak will ask for confirmation before speaking lines
+      that are longer than this length. This is to avoid
+      accidentally opening a binary file and torturing the speech
+      synthesizer with a long string of gibberish.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-291" id=
+    "index-User-Option-291"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-speak-message-again-should-copy-to-kill-ring</em></dt>
+
+    <dd>
+      <p>If set, asking for last message will copy it to the kill
+      ring.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-292" id=
+    "index-User-Option-292"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-speak-messages</em></dt>
+
+    <dd>
+      <p>*Option indicating if messages are spoken. If nil,
+      emacspeak will not speak messages as they are echoed to the
+      message area. You can use command
+      &lsquo;emacspeak-toggle-speak-messages&rsquo; bound to C-e
+      q.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-293" id=
+    "index-User-Option-293"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-speak-paragraph-personality</em></dt>
+
+    <dd>
+      <p>*Personality used to mark start of paragraph.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-294" id=
+    "index-User-Option-294"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-speak-space-regexp</em></dt>
+
+    <dd>
+      <p>Pattern that matches white space.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-295" id=
+    "index-User-Option-295"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-speak-time-format-string</em></dt>
+
+    <dd>
+      <p>*Format string that specifies how the time should be
+      spoken. See the documentation for function
+      &lsquo;format-time-string&rsquo;</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-296" id=
+    "index-User-Option-296"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-speak-zoneinfo-directory</em></dt>
+
+    <dd>
+      <p>Directory containing timezone data.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-297" id=
+    "index-User-Option-297"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-unspeakable-rule</em></dt>
+
+    <dd>
+      <p>*Pattern to match lines of special chars. This is a
+      regular expression that matches lines containing only
+      non-alphanumeric characters. emacspeak will generate a tone
+      instead of speaking such lines when punctuation mode is set
+      to some.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-298" id=
+    "index-User-Option-298"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-use-header-line</em></dt>
+
+    <dd>
+      <p>Use default header line defined by Emacspeak for buffers
+      that dont customize the header.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-299" id=
+    "index-User-Option-299"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-voicemail-spool-file</em></dt>
+
+    <dd>
+      <p>Mail spool file examined to alert you about newly arrived
+      voicemail.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-300" id=
+    "index-User-Option-300"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-word-echo</em></dt>
+
+    <dd>
+      <p>If t, then emacspeak echoes words as you type. You can use
+      C-e d w to toggle this option.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dspeedbar-Options.html#emacspeak_002dspeedbar-Options"
+    accesskey="n" rel="next">emacspeak-speedbar Options</a>,
+    Previous: <a href=
+    "emacspeak_002dsounds-Options.html#emacspeak_002dsounds-Options"
+    accesskey="p" rel="prev">emacspeak-sounds Options</a>, Up:
+    <a href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations"
+    accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp;
+    [<a href="index.html#SEC_Contents" title="Table of contents"
+    rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

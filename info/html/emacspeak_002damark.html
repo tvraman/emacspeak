@@ -1,100 +1,155 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-amark</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-amark">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-amark">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up" title="Emacspeak Commands">
-<link href="emacspeak_002darc.html#emacspeak_002darc" rel="next" title="emacspeak-arc">
-<link href="emacspeak_002dalsaplayer.html#emacspeak_002dalsaplayer" rel="prev" title="emacspeak-alsaplayer">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-amark</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-amark" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-amark" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
+  title="Emacspeak Commands" />
+  <link href="emacspeak_002darc.html#emacspeak_002darc" rel="next"
+  title="emacspeak-arc" />
+  <link href=
+  "emacspeak_002dalsaplayer.html#emacspeak_002dalsaplayer" rel=
+  "prev" title="emacspeak-alsaplayer" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002damark"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002darc.html#emacspeak_002darc" accesskey="n" rel="next">emacspeak-arc</a>, Previous: <a href="emacspeak_002dalsaplayer.html#emacspeak_002dalsaplayer" accesskey="p" rel="prev">emacspeak-alsaplayer</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002damark-1"></a>
-<h3 class="section">11.6 emacspeak-amark</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002damark" id="emacspeak_002damark"></a>
 
-<p>Commentary:
-Structure emacspeak-amark holds a bookmark into an mp3 file
-path: fully qualified pathname  to file being marked
-name: Bookmark tag
-Position: time offset from start 
-</p>
-<p>This library will be used from emacspeak-m-player,
-emacspeak-alsaplayer and friends to set and jump to bookmarks.
-</p>
-<p>Automatically generated documentation
-for commands defined in module  emacspeak-amark.
-</p>
-<dl>
-<dt><a name="index-emacspeak_002damark_002dadd"></a>Interactive Command: <strong>emacspeak-amark-add</strong> <em>(path name position)</em></dt>
-<dd><p>Add an AMark to the buffer local list of AMarks. AMarks are
-bookmarks in audio content. If there is an existing amark of the
-given name, it is updated with path and position.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href="emacspeak_002darc.html#emacspeak_002darc"
+    accesskey="n" rel="next">emacspeak-arc</a>, Previous: <a href=
+    "emacspeak_002dalsaplayer.html#emacspeak_002dalsaplayer"
+    accesskey="p" rel="prev">emacspeak-alsaplayer</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002damark-1" id="emacspeak_002damark-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002damark_002dfind"></a>Interactive Command: <strong>emacspeak-amark-find</strong> <em>(name)</em></dt>
-<dd><p>Return matching AMark if found in buffer-local AMark list.
-</p></dd></dl>
+  <h3 class="section">11.6 emacspeak-amark</h3>
 
-<dl>
-<dt><a name="index-emacspeak_002damark_002dload"></a>Interactive Command: <strong>emacspeak-amark-load</strong> <em>nil</em></dt>
-<dd><p>Locate AMarks file from current directory, and load it.
-</p></dd></dl>
+  <p>Commentary: Structure emacspeak-amark holds a bookmark into an
+  mp3 file path: fully qualified pathname to file being marked
+  name: Bookmark tag Position: time offset from start</p>
 
-<dl>
-<dt><a name="index-emacspeak_002damark_002dsave"></a>Interactive Command: <strong>emacspeak-amark-save</strong> <em>nil</em></dt>
-<dd><p>Save buffer-local AMarks in current directory.
-</p></dd></dl>
+  <p>This library will be used from emacspeak-m-player,
+  emacspeak-alsaplayer and friends to set and jump to
+  bookmarks.</p>
 
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak-amark.</p>
 
+  <dl>
+    <dt><a name="index-emacspeak_002damark_002dadd" id=
+    "index-emacspeak_002damark_002dadd"></a>Interactive Command:
+    <strong>emacspeak-amark-add</strong> <em>(path name
+    position)</em></dt>
 
+    <dd>
+      <p>Add an AMark to the buffer local list of AMarks. AMarks
+      are bookmarks in audio content. If there is an existing amark
+      of the given name, it is updated with path and position.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-emacspeak_002damark_002dfind" id=
+    "index-emacspeak_002damark_002dfind"></a>Interactive Command:
+    <strong>emacspeak-amark-find</strong> <em>(name)</em></dt>
+
+    <dd>
+      <p>Return matching AMark if found in buffer-local AMark
+      list.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002damark_002dload" id=
+    "index-emacspeak_002damark_002dload"></a>Interactive Command:
+    <strong>emacspeak-amark-load</strong> <em>nil</em></dt>
+
+    <dd>
+      <p>Locate AMarks file from current directory, and load
+      it.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002damark_002dsave" id=
+    "index-emacspeak_002damark_002dsave"></a>Interactive Command:
+    <strong>emacspeak-amark-save</strong> <em>nil</em></dt>
+
+    <dd>
+      <p>Save buffer-local AMarks in current directory.</p>
+    </dd>
+  </dl>
 </body>
 </html>

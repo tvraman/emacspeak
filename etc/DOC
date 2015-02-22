@@ -986,6 +986,26 @@ emacspeak-dismal-sheet-summarizer-list
 
 ------------------------------------------------------------
 
+** emacspeak-elfeed-eww-entry-at-point Display current article in EWW. 
+
+------------------------------------------------------------
+
+** emacspeak-elfeed-filter-entry-at-point Display current article after filtering. 
+
+------------------------------------------------------------
+
+** emacspeak-elfeed-next-entry Move to next entry and speak it. 
+
+------------------------------------------------------------
+
+** emacspeak-elfeed-previous-entry Move to previous entry and speak it. 
+
+------------------------------------------------------------
+
+** emacspeak-elfeed-speak-entry-at-point Speak entry at point. 
+
+------------------------------------------------------------
+
 ** emacspeak-enriched-voiceify-faces Map base fonts to voices.
 Useful in voiceifying rich text. 
 
@@ -2078,6 +2098,7 @@ S t		emacspeak-librivox-search-title
 
 ** emacspeak-m-player Play specified resource using m-player.
 Optional prefix argument play-list interprets resource as a play-list.
+Second interactive prefix arg adds option -allow-dangerous-playlist-parsing to mplayer.
 Resource is a media resource or playlist containing media resources.
 The player is placed in a buffer in emacspeak-m-player-mode. 
 
@@ -2098,13 +2119,6 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
 
 ------------------------------------------------------------
 
-** emacspeak-m-player-add-reverb Add ladspa reverb filter.
-See option emacspeak-m-player-reverb-filter to customize reverb filter values.
-You need to use mplayer built with ladspa support, and have package 
-tap-reverb already installed. 
-
-------------------------------------------------------------
-
 ** emacspeak-m-player-alt-src-step Move within an ASF playlist. 
 
 ------------------------------------------------------------
@@ -2120,7 +2134,7 @@ As the default, use current position.
 ------------------------------------------------------------
 
 ** emacspeak-m-player-apply-reverb-preset Prompt for a predefined reverb preset and apply it if there is media playing.
-You need to use mplayer built with ladspa support, and have package 
+You need to use mplayer built with ladspa support, and have package
 tap-reverb already installed. 
 
 ------------------------------------------------------------
@@ -2170,6 +2184,13 @@ tap-reverb already installed.
 ------------------------------------------------------------
 
 ** emacspeak-m-player-double-speed Scale speed by 2.0 
+
+------------------------------------------------------------
+
+** emacspeak-m-player-edit-reverb Add ladspa reverb filter.
+See option emacspeak-m-player-reverb-filter to customize reverb filter values.
+You need to use mplayer built with ladspa support, and have package
+tap-reverb already installed. 
 
 ------------------------------------------------------------
 
@@ -2242,7 +2263,7 @@ L		emacspeak-m-player-load-file
 O		emacspeak-m-player-reset-options
 P		emacspeak-m-player-apply-reverb-preset
 Q		emacspeak-m-player-quit
-R		emacspeak-m-player-add-reverb
+R		emacspeak-m-player-edit-reverb
 S		emacspeak-amark-save
 [		emacspeak-m-player-slower
 ]		emacspeak-m-player-faster
@@ -2701,6 +2722,14 @@ except that the outline section is  spoken
 
 ------------------------------------------------------------
 
+** emacspeak-package-next-line Move to next line and speak it. 
+
+------------------------------------------------------------
+
+** emacspeak-package-previous-line Move to next line and speak it. 
+
+------------------------------------------------------------
+
 ** emacspeak-package-summarize-line Succinct Summary. 
 
 ------------------------------------------------------------
@@ -2788,21 +2817,15 @@ explicitly turn pronunciations on or off.
 
 ------------------------------------------------------------
 
-** emacspeak-backward-char	Key Sequence:C-b
-
- Backward-char redefined to speak char moved to.  
+** emacspeak-backward-char Backward-char redefined to speak char moved to.  
 
 ------------------------------------------------------------
 
-** emacspeak-forward-char	Key Sequence:C-f
-
- Forward-char redefined to speak char moved to.  
+** emacspeak-forward-char Forward-char redefined to speak char moved to.  
 
 ------------------------------------------------------------
 
-** emacspeak-self-insert-command	Key Sequence:SPC..~ €..ÿ
-
- Insert a character.
+** emacspeak-self-insert-command Insert a character.
 Speaks the character if emacspeak-character-echo is true.
 See  command emacspeak-toggle-word-echo bound to
 C-e d w.
@@ -4735,7 +4758,8 @@ instances.
 ** emacspeak-webutils-play-media-at-point	Key Sequence:C-e M-;
 
  Play media url under point.
-Optional interactive prefix arg `playlist-p' says to treat the link as a playlist.  
+Optional interactive prefix arg `playlist-p' says to treat the link as a playlist.
+ A second interactive prefix arg adds mplayer option -allow-dangerous-playlist-parsing 
 
 ------------------------------------------------------------
 
@@ -5306,11 +5330,6 @@ Extracted content is placed as a csv file in task.csv.
 
 ------------------------------------------------------------
 
-** emacspeak-wizards-google-hits Filter Google results after performing search to show just the
-hits. 
-
-------------------------------------------------------------
-
 ** emacspeak-wizards-google-transcode View Web through Google Transcoder. 
 
 ------------------------------------------------------------
@@ -5531,6 +5550,14 @@ term if needed.
 
 ** emacspeak-wizards-tramp-open-location Open specified tramp location.
 Location is specified by name. 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-tune-in-radio-browse Browse Tune-In Radio. 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-tune-in-radio-search Search Tune-In Radio. 
 
 ------------------------------------------------------------
 
@@ -5957,6 +5984,13 @@ personality at point is inaudible, and there is a cached value,
 then the original face->personality mapping is restored.  In
 either case, the buffer is refontified to have the new mapping
 take effect. 
+
+------------------------------------------------------------
+
+** emacspeak-wizards-google-hits Filter Google results after performing search to show just the
+hits.
+
+(fn) 
 
   
 

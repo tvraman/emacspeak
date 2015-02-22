@@ -1,215 +1,808 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Emacspeak Customizations</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Emacspeak Customizations">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Emacspeak Customizations">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="index.html#Top" rel="up" title="Top">
-<link href="cd_002dtool-Options.html#cd_002dtool-Options" rel="next" title="cd-tool Options">
-<link href="URL-Templates.html#URL-Templates" rel="prev" title="URL Templates">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  Emacspeak Customizations</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Emacspeak Customizations" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Emacspeak Customizations" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="index.html#Top" rel="up" title="Top" />
+  <link href="cd_002dtool-Options.html#cd_002dtool-Options" rel=
+  "next" title="cd-tool Options" />
+  <link href="URL-Templates.html#URL-Templates" rel="prev" title=
+  "URL Templates" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="Emacspeak-Customizations"></a>
-<div class="header">
-<p>
-Next: <a href="TTS-Servers.html#TTS-Servers" accesskey="n" rel="next">TTS Servers</a>, Previous: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="p" rel="prev">Emacspeak Commands</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
+<body lang="en" xml:lang="en">
+  <a name="Emacspeak-Customizations" id=
+  "Emacspeak-Customizations"></a>
 
-<a name="Emacspeak-Customizations-1"></a>
-<h2 class="chapter">12 Emacspeak Customizations</h2>
+  <div class="header">
+    <p>Next: <a href="TTS-Servers.html#TTS-Servers" accesskey="n"
+    rel="next">TTS Servers</a>, Previous: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="p" rel=
+    "prev">Emacspeak Commands</a>, Up: <a href="index.html#Top"
+    accesskey="u" rel="up">Top</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="Emacspeak-Customizations-1" id=
+  "Emacspeak-Customizations-1"></a>
 
-<p>This chapter is generated automatically from the source-level documentation.
-Any errors or corrections should be made to the source-level
-documentation.
-This chapter documents a total of 710 user customizable
-  options.
-</p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="cd_002dtool-Options.html#cd_002dtool-Options" accesskey="1">cd-tool Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="dtk_002dspeak-Options.html#dtk_002dspeak-Options" accesskey="2">dtk-speak Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="dtk_002dunicode-Options.html#dtk_002dunicode-Options" accesskey="3">dtk-unicode Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dadd_002dlog-Options.html#emacspeak_002dadd_002dlog-Options" accesskey="4">emacspeak-add-log Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dadvice-Options.html#emacspeak_002dadvice-Options" accesskey="5">emacspeak-advice Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dalsaplayer-Options.html#emacspeak_002dalsaplayer-Options" accesskey="6">emacspeak-alsaplayer Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dauctex-Options.html#emacspeak_002dauctex-Options" accesskey="7">emacspeak-auctex Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002daumix-Options.html#emacspeak_002daumix-Options" accesskey="8">emacspeak-aumix Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dbookshare-Options.html#emacspeak_002dbookshare-Options" accesskey="9">emacspeak-bookshare Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dcalendar-Options.html#emacspeak_002dcalendar-Options">emacspeak-calendar Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dcompile-Options.html#emacspeak_002dcompile-Options">emacspeak-compile Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dcustom-Options.html#emacspeak_002dcustom-Options">emacspeak-custom Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002ddiff_002dmode-Options.html#emacspeak_002ddiff_002dmode-Options">emacspeak-diff-mode Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002ddired-Options.html#emacspeak_002ddired-Options">emacspeak-dired Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002ddismal-Options.html#emacspeak_002ddismal-Options">emacspeak-dismal Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dentertain-Options.html#emacspeak_002dentertain-Options">emacspeak-entertain Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002deperiodic-Options.html#emacspeak_002deperiodic-Options">emacspeak-eperiodic Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002depub-Options.html#emacspeak_002depub-Options">emacspeak-epub Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002derc-Options.html#emacspeak_002derc-Options">emacspeak-erc Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002determ-Options.html#emacspeak_002determ-Options">emacspeak-eterm Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002deudc-Options.html#emacspeak_002deudc-Options">emacspeak-eudc Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002deww-Options.html#emacspeak_002deww-Options">emacspeak-eww Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dfeeds-Options.html#emacspeak_002dfeeds-Options">emacspeak-feeds Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dforms-Options.html#emacspeak_002dforms-Options">emacspeak-forms Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dgnus-Options.html#emacspeak_002dgnus-Options">emacspeak-gnus Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dhide-Options.html#emacspeak_002dhide-Options">emacspeak-hide Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dimenu-Options.html#emacspeak_002dimenu-Options">emacspeak-imenu Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dinfo-Options.html#emacspeak_002dinfo-Options">emacspeak-info Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dispell-Options.html#emacspeak_002dispell-Options">emacspeak-ispell Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002djabber-Options.html#emacspeak_002djabber-Options">emacspeak-jabber Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002djss-Options.html#emacspeak_002djss-Options">emacspeak-jss Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dkeymap-Options.html#emacspeak_002dkeymap-Options">emacspeak-keymap Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dkite-Options.html#emacspeak_002dkite-Options">emacspeak-kite Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dm_002dplayer-Options.html#emacspeak_002dm_002dplayer-Options">emacspeak-m-player Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dmadplay-Options.html#emacspeak_002dmadplay-Options">emacspeak-madplay Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dmake_002dmode-Options.html#emacspeak_002dmake_002dmode-Options">emacspeak-make-mode Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dmessage-Options.html#emacspeak_002dmessage-Options">emacspeak-message Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dmuse-Options.html#emacspeak_002dmuse-Options">emacspeak-muse Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dnpr-Options.html#emacspeak_002dnpr-Options">emacspeak-npr Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002docr-Options.html#emacspeak_002docr-Options">emacspeak-ocr Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dorg-Options.html#emacspeak_002dorg-Options">emacspeak-org Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002doutline-Options.html#emacspeak_002doutline-Options">emacspeak-outline Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dpcl_002dcvs-Options.html#emacspeak_002dpcl_002dcvs-Options">emacspeak-pcl-cvs Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dpersonality-Options.html#emacspeak_002dpersonality-Options">emacspeak-personality Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dpronounce-Options.html#emacspeak_002dpronounce-Options">emacspeak-pronounce Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dre_002dbuilder-Options.html#emacspeak_002dre_002dbuilder-Options">emacspeak-re-builder Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dremote-Options.html#emacspeak_002dremote-Options">emacspeak-remote Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dreplace-Options.html#emacspeak_002dreplace-Options">emacspeak-replace Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002drpm_002dspec-Options.html#emacspeak_002drpm_002dspec-Options">emacspeak-rpm-spec Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dsigbegone-Options.html#emacspeak_002dsigbegone-Options">emacspeak-sigbegone Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dsounds-Options.html#emacspeak_002dsounds-Options">emacspeak-sounds Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dspeak-Options.html#emacspeak_002dspeak-Options">emacspeak-speak Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dspeedbar-Options.html#emacspeak_002dspeedbar-Options">emacspeak-speedbar Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dtable_002dui-Options.html#emacspeak_002dtable_002dui-Options">emacspeak-table-ui Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dtnt-Options.html#emacspeak_002dtnt-Options">emacspeak-tnt Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002durl_002dtemplate-Options.html#emacspeak_002durl_002dtemplate-Options">emacspeak-url-template Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dvm-Options.html#emacspeak_002dvm-Options">emacspeak-vm Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dw3-Options.html#emacspeak_002dw3-Options">emacspeak-w3 Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dw3m-Options.html#emacspeak_002dw3m-Options">emacspeak-w3m Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dwe-Options.html#emacspeak_002dwe-Options">emacspeak-we Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dwebsearch-Options.html#emacspeak_002dwebsearch-Options">emacspeak-websearch Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dwebutils-Options.html#emacspeak_002dwebutils-Options">emacspeak-webutils Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dwizards-Options.html#emacspeak_002dwizards-Options">emacspeak-wizards Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dxml_002dshell-Options.html#emacspeak_002dxml_002dshell-Options">emacspeak-xml-shell Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dxslt-Options.html#emacspeak_002dxslt-Options">emacspeak-xslt Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak-Options.html#emacspeak-Options">emacspeak Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="voice_002dsetup-Options.html#voice_002dsetup-Options">voice-setup Options</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
+  <h2 class="chapter">12 Emacspeak Customizations</h2>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="TTS-Servers.html#TTS-Servers" accesskey="n" rel="next">TTS Servers</a>, Previous: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="p" rel="prev">Emacspeak Commands</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+  <p>This chapter is generated automatically from the source-level
+  documentation. Any errors or corrections should be made to the
+  source-level documentation. This chapter documents a total of 741
+  user customizable options.</p>
 
+  <table class="menu" border="0" cellspacing="0">
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "cd_002dtool-Options.html#cd_002dtool-Options" accesskey=
+      "1">cd-tool Options</a>:</td>
 
+      <td>&nbsp;&nbsp;</td>
 
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "dtk_002dspeak-Options.html#dtk_002dspeak-Options" accesskey=
+      "2">dtk-speak Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "dtk_002dunicode-Options.html#dtk_002dunicode-Options"
+      accesskey="3">dtk-unicode Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dadd_002dlog-Options.html#emacspeak_002dadd_002dlog-Options"
+      accesskey="4">emacspeak-add-log Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dadvice-Options.html#emacspeak_002dadvice-Options"
+      accesskey="5">emacspeak-advice Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dalsaplayer-Options.html#emacspeak_002dalsaplayer-Options"
+      accesskey="6">emacspeak-alsaplayer Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dauctex-Options.html#emacspeak_002dauctex-Options"
+      accesskey="7">emacspeak-auctex Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002daumix-Options.html#emacspeak_002daumix-Options"
+      accesskey="8">emacspeak-aumix Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dbookshare-Options.html#emacspeak_002dbookshare-Options"
+      accesskey="9">emacspeak-bookshare Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dcalendar-Options.html#emacspeak_002dcalendar-Options">
+      emacspeak-calendar Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dcompile-Options.html#emacspeak_002dcompile-Options">
+      emacspeak-compile Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dcustom-Options.html#emacspeak_002dcustom-Options">
+      emacspeak-custom Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002ddiff_002dmode-Options.html#emacspeak_002ddiff_002dmode-Options">
+      emacspeak-diff-mode Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002ddired-Options.html#emacspeak_002ddired-Options">
+      emacspeak-dired Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002ddismal-Options.html#emacspeak_002ddismal-Options">
+      emacspeak-dismal Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002delfeed-Options.html#emacspeak_002delfeed-Options">
+      emacspeak-elfeed Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dentertain-Options.html#emacspeak_002dentertain-Options">
+      emacspeak-entertain Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002deperiodic-Options.html#emacspeak_002deperiodic-Options">
+      emacspeak-eperiodic Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002depub-Options.html#emacspeak_002depub-Options">emacspeak-epub
+      Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002derc-Options.html#emacspeak_002derc-Options">emacspeak-erc
+      Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002determ-Options.html#emacspeak_002determ-Options">
+      emacspeak-eterm Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002deudc-Options.html#emacspeak_002deudc-Options">emacspeak-eudc
+      Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002deww-Options.html#emacspeak_002deww-Options">emacspeak-eww
+      Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dfeeds-Options.html#emacspeak_002dfeeds-Options">
+      emacspeak-feeds Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dforms-Options.html#emacspeak_002dforms-Options">
+      emacspeak-forms Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dgnus-Options.html#emacspeak_002dgnus-Options">emacspeak-gnus
+      Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dhide-Options.html#emacspeak_002dhide-Options">emacspeak-hide
+      Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dimenu-Options.html#emacspeak_002dimenu-Options">
+      emacspeak-imenu Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dinfo-Options.html#emacspeak_002dinfo-Options">emacspeak-info
+      Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dispell-Options.html#emacspeak_002dispell-Options">
+      emacspeak-ispell Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002djabber-Options.html#emacspeak_002djabber-Options">
+      emacspeak-jabber Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002djss-Options.html#emacspeak_002djss-Options">emacspeak-jss
+      Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dkeymap-Options.html#emacspeak_002dkeymap-Options">
+      emacspeak-keymap Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dkite-Options.html#emacspeak_002dkite-Options">emacspeak-kite
+      Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dm_002dplayer-Options.html#emacspeak_002dm_002dplayer-Options">
+      emacspeak-m-player Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dmadplay-Options.html#emacspeak_002dmadplay-Options">
+      emacspeak-madplay Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dmake_002dmode-Options.html#emacspeak_002dmake_002dmode-Options">
+      emacspeak-make-mode Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dmarkdown-Options.html#emacspeak_002dmarkdown-Options">
+      emacspeak-markdown Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dmessage-Options.html#emacspeak_002dmessage-Options">
+      emacspeak-message Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dmuse-Options.html#emacspeak_002dmuse-Options">emacspeak-muse
+      Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dnpr-Options.html#emacspeak_002dnpr-Options">emacspeak-npr
+      Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002docr-Options.html#emacspeak_002docr-Options">emacspeak-ocr
+      Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dorg-Options.html#emacspeak_002dorg-Options">emacspeak-org
+      Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002doutline-Options.html#emacspeak_002doutline-Options">
+      emacspeak-outline Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dpcl_002dcvs-Options.html#emacspeak_002dpcl_002dcvs-Options">
+      emacspeak-pcl-cvs Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dpersonality-Options.html#emacspeak_002dpersonality-Options">
+      emacspeak-personality Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dpronounce-Options.html#emacspeak_002dpronounce-Options">
+      emacspeak-pronounce Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dre_002dbuilder-Options.html#emacspeak_002dre_002dbuilder-Options">
+      emacspeak-re-builder Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dremote-Options.html#emacspeak_002dremote-Options">
+      emacspeak-remote Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dreplace-Options.html#emacspeak_002dreplace-Options">
+      emacspeak-replace Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002drpm_002dspec-Options.html#emacspeak_002drpm_002dspec-Options">
+      emacspeak-rpm-spec Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dsigbegone-Options.html#emacspeak_002dsigbegone-Options">
+      emacspeak-sigbegone Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dsounds-Options.html#emacspeak_002dsounds-Options">
+      emacspeak-sounds Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dspeak-Options.html#emacspeak_002dspeak-Options">
+      emacspeak-speak Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dspeedbar-Options.html#emacspeak_002dspeedbar-Options">
+      emacspeak-speedbar Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dtable_002dui-Options.html#emacspeak_002dtable_002dui-Options">
+      emacspeak-table-ui Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dtnt-Options.html#emacspeak_002dtnt-Options">emacspeak-tnt
+      Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002durl_002dtemplate-Options.html#emacspeak_002durl_002dtemplate-Options">
+      emacspeak-url-template Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dvm-Options.html#emacspeak_002dvm-Options">emacspeak-vm
+      Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dw3-Options.html#emacspeak_002dw3-Options">emacspeak-w3
+      Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dw3m-Options.html#emacspeak_002dw3m-Options">emacspeak-w3m
+      Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dwe-Options.html#emacspeak_002dwe-Options">emacspeak-we
+      Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dwebsearch-Options.html#emacspeak_002dwebsearch-Options">
+      emacspeak-websearch Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dwebutils-Options.html#emacspeak_002dwebutils-Options">
+      emacspeak-webutils Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dwizards-Options.html#emacspeak_002dwizards-Options">
+      emacspeak-wizards Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dxml_002dshell-Options.html#emacspeak_002dxml_002dshell-Options">
+      emacspeak-xml-shell Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dxslt-Options.html#emacspeak_002dxslt-Options">emacspeak-xslt
+      Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak-Options.html#emacspeak-Options">emacspeak
+      Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "voice_002dsetup-Options.html#voice_002dsetup-Options">voice-setup
+      Options</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+  </table>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href="TTS-Servers.html#TTS-Servers" accesskey="n"
+    rel="next">TTS Servers</a>, Previous: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="p" rel=
+    "prev">Emacspeak Commands</a>, Up: <a href="index.html#Top"
+    accesskey="u" rel="up">Top</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

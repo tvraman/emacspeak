@@ -1,144 +1,264 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-muse Options</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-muse Options">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-muse Options">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Customizations.html#Emacspeak-Customizations" rel="up" title="Emacspeak Customizations">
-<link href="emacspeak_002dnpr-Options.html#emacspeak_002dnpr-Options" rel="next" title="emacspeak-npr Options">
-<link href="emacspeak_002dmessage-Options.html#emacspeak_002dmessage-Options" rel="prev" title="emacspeak-message Options">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-muse Options</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-muse Options" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-muse Options" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Customizations.html#Emacspeak-Customizations" rel="up"
+  title="Emacspeak Customizations" />
+  <link href=
+  "emacspeak_002dnpr-Options.html#emacspeak_002dnpr-Options" rel=
+  "next" title="emacspeak-npr Options" />
+  <link href=
+  "emacspeak_002dmessage-Options.html#emacspeak_002dmessage-Options"
+  rel="prev" title="emacspeak-message Options" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dmuse-Options"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dnpr-Options.html#emacspeak_002dnpr-Options" accesskey="n" rel="next">emacspeak-npr Options</a>, Previous: <a href="emacspeak_002dmessage-Options.html#emacspeak_002dmessage-Options" accesskey="p" rel="prev">emacspeak-message Options</a>, Up: <a href="Emacspeak-Customizations.html#Emacspeak-Customizations" accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dmuse-Options-1"></a>
-<h3 class="section">12.38 emacspeak-muse Options</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dmuse-Options" id=
+  "emacspeak_002dmuse-Options"></a>
 
-<p>Commentary:
-Speech enable Muse
-</p>
-<p>Automatically generated documentation
-for options defined in module  emacspeak-muse.
-These options are customizable via Emacs&rsquo; Custom interface.
-</p>
-<dl>
-<dt><a name="index-User-Option-179"></a>Variable: <strong>User Option</strong> <em>emacspeak-muse-bad-link-personality</em></dt>
-<dd><p>Personality used for muse-bad-link-face
-This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dnpr-Options.html#emacspeak_002dnpr-Options"
+    accesskey="n" rel="next">emacspeak-npr Options</a>, Previous:
+    <a href=
+    "emacspeak_002dmessage-Options.html#emacspeak_002dmessage-Options"
+    accesskey="p" rel="prev">emacspeak-message Options</a>, Up:
+    <a href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations"
+    accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp;
+    [<a href="index.html#SEC_Contents" title="Table of contents"
+    rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dmuse-Options-1" id=
+  "emacspeak_002dmuse-Options-1"></a>
 
-<dl>
-<dt><a name="index-User-Option-180"></a>Variable: <strong>User Option</strong> <em>emacspeak-muse-emphasis-1-voice</em></dt>
-<dd><p>Personality used for muse-emphasis-1
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-</p></dd></dl>
+  <h3 class="section">12.40 emacspeak-muse Options</h3>
 
-<dl>
-<dt><a name="index-User-Option-181"></a>Variable: <strong>User Option</strong> <em>emacspeak-muse-emphasis-2-voice</em></dt>
-<dd><p>Personality used for muse-emphasis-2
-This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
-</p></dd></dl>
+  <p>Commentary: Speech enable Muse</p>
 
-<dl>
-<dt><a name="index-User-Option-182"></a>Variable: <strong>User Option</strong> <em>emacspeak-muse-emphasis-3-voice</em></dt>
-<dd><p>Personality used for muse-emphasis-3
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
-</p></dd></dl>
+  <p>Automatically generated documentation for options defined in
+  module emacspeak-muse. These options are customizable via
+  Emacs&rsquo; Custom interface.</p>
 
-<dl>
-<dt><a name="index-User-Option-183"></a>Variable: <strong>User Option</strong> <em>emacspeak-muse-header-1-voice</em></dt>
-<dd><p>Personality used for muse-header-1
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-210" id=
+    "index-User-Option-210"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-muse-bad-link-personality</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-184"></a>Variable: <strong>User Option</strong> <em>emacspeak-muse-header-2-voice</em></dt>
-<dd><p>Personality used for muse-header-2
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for muse-bad-link-face This personality
+      uses voice-bolden-and-animate whose effect can be changed
+      globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-185"></a>Variable: <strong>User Option</strong> <em>emacspeak-muse-header-3-voice</em></dt>
-<dd><p>Personality used for muse-header-3
-This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-211" id=
+    "index-User-Option-211"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-muse-emphasis-1-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-186"></a>Variable: <strong>User Option</strong> <em>emacspeak-muse-header-4-voice</em></dt>
-<dd><p>Personality used for muse-header-4
-This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for muse-emphasis-1 This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-187"></a>Variable: <strong>User Option</strong> <em>emacspeak-muse-header-5-voice</em></dt>
-<dd><p>Personality used for muse-header-5
-This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-212" id=
+    "index-User-Option-212"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-muse-emphasis-2-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-188"></a>Variable: <strong>User Option</strong> <em>emacspeak-muse-link-personality</em></dt>
-<dd><p>Personality used for muse-link-face
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for muse-emphasis-2 This personality uses
+      voice-lighten-medium whose effect can be changed globally by
+      customizing voice-lighten-medium-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-189"></a>Variable: <strong>User Option</strong> <em>emacspeak-muse-verbatim-personality</em></dt>
-<dd><p>Personality used for muse-verbatim-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-213" id=
+    "index-User-Option-213"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-muse-emphasis-3-voice</em></dt>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dnpr-Options.html#emacspeak_002dnpr-Options" accesskey="n" rel="next">emacspeak-npr Options</a>, Previous: <a href="emacspeak_002dmessage-Options.html#emacspeak_002dmessage-Options" accesskey="p" rel="prev">emacspeak-message Options</a>, Up: <a href="Emacspeak-Customizations.html#Emacspeak-Customizations" accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+    <dd>
+      <p>Personality used for muse-emphasis-3 This personality uses
+      voice-lighten-extra whose effect can be changed globally by
+      customizing voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-214" id=
+    "index-User-Option-214"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-muse-header-1-voice</em></dt>
 
+    <dd>
+      <p>Personality used for muse-header-1 This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-215" id=
+    "index-User-Option-215"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-muse-header-2-voice</em></dt>
+
+    <dd>
+      <p>Personality used for muse-header-2 This personality uses
+      voice-bolden-medium whose effect can be changed globally by
+      customizing voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-216" id=
+    "index-User-Option-216"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-muse-header-3-voice</em></dt>
+
+    <dd>
+      <p>Personality used for muse-header-3 This personality uses
+      voice-bolden-extra whose effect can be changed globally by
+      customizing voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-217" id=
+    "index-User-Option-217"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-muse-header-4-voice</em></dt>
+
+    <dd>
+      <p>Personality used for muse-header-4 This personality uses
+      voice-bolden-extra whose effect can be changed globally by
+      customizing voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-218" id=
+    "index-User-Option-218"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-muse-header-5-voice</em></dt>
+
+    <dd>
+      <p>Personality used for muse-header-5 This personality uses
+      voice-bolden-extra whose effect can be changed globally by
+      customizing voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-219" id=
+    "index-User-Option-219"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-muse-link-personality</em></dt>
+
+    <dd>
+      <p>Personality used for muse-link-face This personality uses
+      voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-220" id=
+    "index-User-Option-220"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-muse-verbatim-personality</em></dt>
+
+    <dd>
+      <p>Personality used for muse-verbatim-face This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dnpr-Options.html#emacspeak_002dnpr-Options"
+    accesskey="n" rel="next">emacspeak-npr Options</a>, Previous:
+    <a href=
+    "emacspeak_002dmessage-Options.html#emacspeak_002dmessage-Options"
+    accesskey="p" rel="prev">emacspeak-message Options</a>, Up:
+    <a href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations"
+    accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp;
+    [<a href="index.html#SEC_Contents" title="Table of contents"
+    rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

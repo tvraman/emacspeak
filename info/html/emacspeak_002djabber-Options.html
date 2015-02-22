@@ -1,193 +1,384 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-jabber Options</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-jabber Options">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-jabber Options">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Customizations.html#Emacspeak-Customizations" rel="up" title="Emacspeak Customizations">
-<link href="emacspeak_002djss-Options.html#emacspeak_002djss-Options" rel="next" title="emacspeak-jss Options">
-<link href="emacspeak_002dispell-Options.html#emacspeak_002dispell-Options" rel="prev" title="emacspeak-ispell Options">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-jabber Options</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-jabber Options" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-jabber Options" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Customizations.html#Emacspeak-Customizations" rel="up"
+  title="Emacspeak Customizations" />
+  <link href=
+  "emacspeak_002djss-Options.html#emacspeak_002djss-Options" rel=
+  "next" title="emacspeak-jss Options" />
+  <link href=
+  "emacspeak_002dispell-Options.html#emacspeak_002dispell-Options"
+  rel="prev" title="emacspeak-ispell Options" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002djabber-Options"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002djss-Options.html#emacspeak_002djss-Options" accesskey="n" rel="next">emacspeak-jss Options</a>, Previous: <a href="emacspeak_002dispell-Options.html#emacspeak_002dispell-Options" accesskey="p" rel="prev">emacspeak-ispell Options</a>, Up: <a href="Emacspeak-Customizations.html#Emacspeak-Customizations" accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002djabber-Options-1"></a>
-<h3 class="section">12.30 emacspeak-jabber Options</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002djabber-Options" id=
+  "emacspeak_002djabber-Options"></a>
 
-<p>Commentary:
-emacs-jabber.el implements a  jabber client for emacs
-emacs-jabber is hosted at sourceforge.
-I use emacs-jabber with my gmail.com account
-</p>
-<p>Automatically generated documentation
-for options defined in module  emacspeak-jabber.
-These options are customizable via Emacs&rsquo; Custom interface.
-</p>
-<dl>
-<dt><a name="index-User-Option-113"></a>Variable: <strong>User Option</strong> <em>emacspeak-jabber-activity-personality</em></dt>
-<dd><p>Personality used for jabber-activity-face
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002djss-Options.html#emacspeak_002djss-Options"
+    accesskey="n" rel="next">emacspeak-jss Options</a>, Previous:
+    <a href=
+    "emacspeak_002dispell-Options.html#emacspeak_002dispell-Options"
+    accesskey="p" rel="prev">emacspeak-ispell Options</a>, Up:
+    <a href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations"
+    accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp;
+    [<a href="index.html#SEC_Contents" title="Table of contents"
+    rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002djabber-Options-1" id=
+  "emacspeak_002djabber-Options-1"></a>
 
-<dl>
-<dt><a name="index-User-Option-114"></a>Variable: <strong>User Option</strong> <em>emacspeak-jabber-chat-error-voice</em></dt>
-<dd><p>Personality used for jabber-chat-error
-This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
-</p></dd></dl>
+  <h3 class="section">12.31 emacspeak-jabber Options</h3>
 
-<dl>
-<dt><a name="index-User-Option-115"></a>Variable: <strong>User Option</strong> <em>emacspeak-jabber-chat-prompt-foreign-voice</em></dt>
-<dd><p>Personality used for jabber-chat-prompt-foreign
-This personality uses  voice-brighten-medium whose  effect can be changed globally by customizing voice-brighten-medium-settings.
-</p></dd></dl>
+  <p>Commentary: emacs-jabber.el implements a jabber client for
+  emacs emacs-jabber is hosted at sourceforge. I use emacs-jabber
+  with my gmail.com account</p>
 
-<dl>
-<dt><a name="index-User-Option-116"></a>Variable: <strong>User Option</strong> <em>emacspeak-jabber-chat-prompt-local-voice</em></dt>
-<dd><p>Personality used for jabber-chat-prompt-local
-This personality uses  voice-smoothen-medium whose  effect can be changed globally by customizing voice-smoothen-medium-settings.
-</p></dd></dl>
+  <p>Automatically generated documentation for options defined in
+  module emacspeak-jabber. These options are customizable via
+  Emacs&rsquo; Custom interface.</p>
 
-<dl>
-<dt><a name="index-User-Option-117"></a>Variable: <strong>User Option</strong> <em>emacspeak-jabber-chat-prompt-system-voice</em></dt>
-<dd><p>Personality used for jabber-chat-prompt-system
-This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-117" id=
+    "index-User-Option-117"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-jabber-activity-personality</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-118"></a>Variable: <strong>User Option</strong> <em>emacspeak-jabber-chat-text-foreign-voice</em></dt>
-<dd><p>Personality used for jabber-chat-text-foreign
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for jabber-activity-face This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-119"></a>Variable: <strong>User Option</strong> <em>emacspeak-jabber-chat-text-local-voice</em></dt>
-<dd><p>Personality used for jabber-chat-text-local
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-118" id=
+    "index-User-Option-118"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-jabber-chat-error-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-120"></a>Variable: <strong>User Option</strong> <em>emacspeak-jabber-rare-time-personality</em></dt>
-<dd><p>Personality used for jabber-rare-time-face
-This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for jabber-chat-error This personality
+      uses voice-bolden-and-animate whose effect can be changed
+      globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-121"></a>Variable: <strong>User Option</strong> <em>emacspeak-jabber-roster-user-away-voice</em></dt>
-<dd><p>Personality used for jabber-roster-user-away
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-119" id=
+    "index-User-Option-119"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-jabber-chat-prompt-foreign-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-122"></a>Variable: <strong>User Option</strong> <em>emacspeak-jabber-roster-user-chatty-voice</em></dt>
-<dd><p>Personality used for jabber-roster-user-chatty
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for jabber-chat-prompt-foreign This
+      personality uses voice-brighten-medium whose effect can be
+      changed globally by customizing
+      voice-brighten-medium-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-123"></a>Variable: <strong>User Option</strong> <em>emacspeak-jabber-roster-user-dnd-voice</em></dt>
-<dd><p>Personality used for jabber-roster-user-dnd
-This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-120" id=
+    "index-User-Option-120"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-jabber-chat-prompt-local-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-124"></a>Variable: <strong>User Option</strong> <em>emacspeak-jabber-roster-user-error-voice</em></dt>
-<dd><p>Personality used for jabber-roster-user-error
-This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for jabber-chat-prompt-local This
+      personality uses voice-smoothen-medium whose effect can be
+      changed globally by customizing
+      voice-smoothen-medium-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-125"></a>Variable: <strong>User Option</strong> <em>emacspeak-jabber-roster-user-offline-voice</em></dt>
-<dd><p>Personality used for jabber-roster-user-offline
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-121" id=
+    "index-User-Option-121"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-jabber-chat-prompt-system-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-126"></a>Variable: <strong>User Option</strong> <em>emacspeak-jabber-roster-user-online-voice</em></dt>
-<dd><p>Personality used for jabber-roster-user-online
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for jabber-chat-prompt-system This
+      personality uses voice-brighten-extra whose effect can be
+      changed globally by customizing
+      voice-brighten-extra-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-127"></a>Variable: <strong>User Option</strong> <em>emacspeak-jabber-roster-user-xa-voice</em></dt>
-<dd><p>Personality used for jabber-roster-user-xa
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-122" id=
+    "index-User-Option-122"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-jabber-chat-text-foreign-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-128"></a>Variable: <strong>User Option</strong> <em>emacspeak-jabber-speak-presence-alerts</em></dt>
-<dd><p>Set to T if you want to hear presence alerts.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for jabber-chat-text-foreign This
+      personality uses voice-brighten whose effect can be changed
+      globally by customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-129"></a>Variable: <strong>User Option</strong> <em>emacspeak-jabber-title-large-voice</em></dt>
-<dd><p>Personality used for jabber-title-large
-This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-123" id=
+    "index-User-Option-123"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-jabber-chat-text-local-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-130"></a>Variable: <strong>User Option</strong> <em>emacspeak-jabber-title-medium-voice</em></dt>
-<dd><p>Personality used for jabber-title-medium
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for jabber-chat-text-local This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-131"></a>Variable: <strong>User Option</strong> <em>emacspeak-jabber-title-small-voice</em></dt>
-<dd><p>Personality used for jabber-title-small
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-124" id=
+    "index-User-Option-124"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-jabber-rare-time-personality</em></dt>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002djss-Options.html#emacspeak_002djss-Options" accesskey="n" rel="next">emacspeak-jss Options</a>, Previous: <a href="emacspeak_002dispell-Options.html#emacspeak_002dispell-Options" accesskey="p" rel="prev">emacspeak-ispell Options</a>, Up: <a href="Emacspeak-Customizations.html#Emacspeak-Customizations" accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+    <dd>
+      <p>Personality used for jabber-rare-time-face This
+      personality uses voice-animate-extra whose effect can be
+      changed globally by customizing
+      voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-125" id=
+    "index-User-Option-125"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-jabber-roster-user-away-voice</em></dt>
 
+    <dd>
+      <p>Personality used for jabber-roster-user-away This
+      personality uses voice-smoothen-extra whose effect can be
+      changed globally by customizing
+      voice-smoothen-extra-settings.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-126" id=
+    "index-User-Option-126"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-jabber-roster-user-chatty-voice</em></dt>
+
+    <dd>
+      <p>Personality used for jabber-roster-user-chatty This
+      personality uses voice-brighten whose effect can be changed
+      globally by customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-127" id=
+    "index-User-Option-127"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-jabber-roster-user-dnd-voice</em></dt>
+
+    <dd>
+      <p>Personality used for jabber-roster-user-dnd This
+      personality uses voice-lighten-medium whose effect can be
+      changed globally by customizing
+      voice-lighten-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-128" id=
+    "index-User-Option-128"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-jabber-roster-user-error-voice</em></dt>
+
+    <dd>
+      <p>Personality used for jabber-roster-user-error This
+      personality uses voice-bolden-and-animate whose effect can be
+      changed globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-129" id=
+    "index-User-Option-129"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-jabber-roster-user-offline-voice</em></dt>
+
+    <dd>
+      <p>Personality used for jabber-roster-user-offline This
+      personality uses voice-smoothen-extra whose effect can be
+      changed globally by customizing
+      voice-smoothen-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-130" id=
+    "index-User-Option-130"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-jabber-roster-user-online-voice</em></dt>
+
+    <dd>
+      <p>Personality used for jabber-roster-user-online This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-131" id=
+    "index-User-Option-131"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-jabber-roster-user-xa-voice</em></dt>
+
+    <dd>
+      <p>Personality used for jabber-roster-user-xa This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-132" id=
+    "index-User-Option-132"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-jabber-speak-presence-alerts</em></dt>
+
+    <dd>
+      <p>Set to T if you want to hear presence alerts.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-133" id=
+    "index-User-Option-133"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-jabber-title-large-voice</em></dt>
+
+    <dd>
+      <p>Personality used for jabber-title-large This personality
+      uses voice-bolden-extra whose effect can be changed globally
+      by customizing voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-134" id=
+    "index-User-Option-134"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-jabber-title-medium-voice</em></dt>
+
+    <dd>
+      <p>Personality used for jabber-title-medium This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-135" id=
+    "index-User-Option-135"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-jabber-title-small-voice</em></dt>
+
+    <dd>
+      <p>Personality used for jabber-title-small This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002djss-Options.html#emacspeak_002djss-Options"
+    accesskey="n" rel="next">emacspeak-jss Options</a>, Previous:
+    <a href=
+    "emacspeak_002dispell-Options.html#emacspeak_002dispell-Options"
+    accesskey="p" rel="prev">emacspeak-ispell Options</a>, Up:
+    <a href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations"
+    accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp;
+    [<a href="index.html#SEC_Contents" title="Table of contents"
+    rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

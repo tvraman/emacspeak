@@ -1,352 +1,654 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-bookshare</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-bookshare">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-bookshare">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up" title="Emacspeak Commands">
-<link href="emacspeak_002dbs.html#emacspeak_002dbs" rel="next" title="emacspeak-bs">
-<link href="emacspeak_002dbbc.html#emacspeak_002dbbc" rel="prev" title="emacspeak-bbc">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-bookshare</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-bookshare" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-bookshare" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
+  title="Emacspeak Commands" />
+  <link href="emacspeak_002dbs.html#emacspeak_002dbs" rel="next"
+  title="emacspeak-bs" />
+  <link href="emacspeak_002dbbc.html#emacspeak_002dbbc" rel="prev"
+  title="emacspeak-bbc" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dbookshare"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dbs.html#emacspeak_002dbs" accesskey="n" rel="next">emacspeak-bs</a>, Previous: <a href="emacspeak_002dbbc.html#emacspeak_002dbbc" accesskey="p" rel="prev">emacspeak-bbc</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dbookshare-1"></a>
-<h3 class="section">11.10 emacspeak-bookshare</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dbookshare" id=
+  "emacspeak_002dbookshare"></a>
 
-<p>Commentary:
-BOOKSHARE == http://www.bookshare.org provides book access to print-disabled users.
-It provides a simple Web  API http://developer.bookshare.org
-This module implements an Emacspeak Bookshare client.
-For now, users will need to get their own API key
-</p>
-<p>Automatically generated documentation
-for commands defined in module  emacspeak-bookshare.
-</p>
-<dl>
-<dt><a name="index-emacspeak_002dbookshare"></a>Interactive Command: <strong>emacspeak-bookshare</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e C-b</kbd>
-</p>
-<p>Bookshare  Interaction.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href="emacspeak_002dbs.html#emacspeak_002dbs"
+    accesskey="n" rel="next">emacspeak-bs</a>, Previous: <a href=
+    "emacspeak_002dbbc.html#emacspeak_002dbbc" accesskey="p" rel=
+    "prev">emacspeak-bbc</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dbookshare-1" id=
+  "emacspeak_002dbookshare-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002daction"></a>Interactive Command: <strong>emacspeak-bookshare-action</strong> <em>nil</em></dt>
-<dd><p>Call action specified by  invoking key.
-</p></dd></dl>
+  <h3 class="section">11.10 emacspeak-bookshare</h3>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dauthor_002dsearch"></a>Interactive Command: <strong>emacspeak-bookshare-author-search</strong> <em>(query &amp;optional category)</em></dt>
-<dd><p>Perform a Bookshare author search.
-Interactive prefix arg filters search by category.
-</p></dd></dl>
+  <p>Commentary: BOOKSHARE == http://www.bookshare.org provides
+  book access to print-disabled users. It provides a simple Web API
+  http://developer.bookshare.org This module implements an
+  Emacspeak Bookshare client. For now, users will need to get their
+  own API key</p>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dbrowse"></a>Interactive Command: <strong>emacspeak-bookshare-browse</strong> <em>nil</em></dt>
-<dd><p>Browse Bookshare.
-</p></dd></dl>
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak-bookshare.</p>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dbrowse_002dlatest"></a>Interactive Command: <strong>emacspeak-bookshare-browse-latest</strong> <em>nil</em></dt>
-<dd><p>Return latest books.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dbookshare" id=
+    "index-emacspeak_002dbookshare"></a>Interactive Command:
+    <strong>emacspeak-bookshare</strong> <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dbrowse_002dpopular"></a>Interactive Command: <strong>emacspeak-bookshare-browse-popular</strong> <em>(&amp;optional category)</em></dt>
-<dd><p>Browse popular books.
-Optional interactive prefix arg prompts for a category to use as a filter.
-</p></dd></dl>
+    <dd>
+      <p><kbd>C-e C-b</kbd></p>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002ddownload_002dbrf"></a>Interactive Command: <strong>emacspeak-bookshare-download-brf</strong> <em>(id target)</em></dt>
-<dd><p>Download Daisy format of specified book to target location.
-</p></dd></dl>
+      <p>Bookshare Interaction.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002ddownload_002dbrf_002dat_002dpoint"></a>Interactive Command: <strong>emacspeak-bookshare-download-brf-at-point</strong> <em>nil</em></dt>
-<dd><p>Download Braille version of book under point.
-Target location is generated from author and title.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dbookshare_002daction" id=
+    "index-emacspeak_002dbookshare_002daction"></a>Interactive
+    Command: <strong>emacspeak-bookshare-action</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002ddownload_002ddaisy"></a>Interactive Command: <strong>emacspeak-bookshare-download-daisy</strong> <em>(id target)</em></dt>
-<dd><p>Download Daisy format of specified book to target location.
-</p></dd></dl>
+    <dd>
+      <p>Call action specified by invoking key.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002ddownload_002ddaisy_002dat_002dpoint"></a>Interactive Command: <strong>emacspeak-bookshare-download-daisy-at-point</strong> <em>nil</em></dt>
-<dd><p>Download Daisy version of book under point.
-Target location is generated from author and title.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dbookshare_002dauthor_002dsearch" id=
+    "index-emacspeak_002dbookshare_002dauthor_002dsearch"></a>Interactive
+    Command: <strong>emacspeak-bookshare-author-search</strong>
+    <em>(query &amp;optional category)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002ddownload_002dinternal"></a>Interactive Command: <strong>emacspeak-bookshare-download-internal</strong> <em>(url target)</em></dt>
-<dd><p>Download content  to target location.
-</p></dd></dl>
+    <dd>
+      <p>Perform a Bookshare author search. Interactive prefix arg
+      filters search by category.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002deww"></a>Interactive Command: <strong>emacspeak-bookshare-eww</strong> <em>(directory)</em></dt>
-<dd><p>Render complete book using EWW if available.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dbookshare_002dbrowse" id=
+    "index-emacspeak_002dbookshare_002dbrowse"></a>Interactive
+    Command: <strong>emacspeak-bookshare-browse</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dexpand_002dat_002dpoint"></a>Interactive Command: <strong>emacspeak-bookshare-expand-at-point</strong> <em>nil</em></dt>
-<dd><p>Expand entry at point by retrieving metadata.
-Once retrieved, memoize to avoid multiple retrievals.
-</p></dd></dl>
+    <dd>
+      <p>Browse Bookshare.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dextract_002dand_002dview"></a>Interactive Command: <strong>emacspeak-bookshare-extract-and-view</strong> <em>(url)</em></dt>
-<dd><p>Extract content referred to by link under point, and render via the browser.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dbookshare_002dbrowse_002dlatest" id=
+    "index-emacspeak_002dbookshare_002dbrowse_002dlatest"></a>Interactive
+    Command: <strong>emacspeak-bookshare-browse-latest</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dextract_002dxml"></a>Interactive Command: <strong>emacspeak-bookshare-extract-xml</strong> <em>(url)</em></dt>
-<dd><p>Extract content referred to by link under point, and return an XML buffer.
-</p></dd></dl>
+    <dd>
+      <p>Return latest books.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dflush_002dlines"></a>Interactive Command: <strong>emacspeak-bookshare-flush-lines</strong> <em>(regexp)</em></dt>
-<dd><p>Flush lines matching regexp in Bookshare buffer.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dbookshare_002dbrowse_002dpopular" id=
+    "index-emacspeak_002dbookshare_002dbrowse_002dpopular"></a>Interactive
+    Command: <strong>emacspeak-bookshare-browse-popular</strong>
+    <em>(&amp;optional category)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dfulltext"></a>Interactive Command: <strong>emacspeak-bookshare-fulltext</strong> <em>(directory)</em></dt>
-<dd><p>Display fulltext contents of  book in specified directory.
-Useful for fulltext search in a book.
-</p></dd></dl>
+    <dd>
+      <p>Browse popular books. Optional interactive prefix arg
+      prompts for a category to use as a filter.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dfulltext_002dsearch"></a>Interactive Command: <strong>emacspeak-bookshare-fulltext-search</strong> <em>(query)</em></dt>
-<dd><p>Perform a Bookshare fulltext search.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dbookshare_002ddownload_002dbrf" id=
+    "index-emacspeak_002dbookshare_002ddownload_002dbrf"></a>Interactive
+    Command: <strong>emacspeak-bookshare-download-brf</strong>
+    <em>(id target)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dget_002dmore_002dresults"></a>Interactive Command: <strong>emacspeak-bookshare-get-more-results</strong> <em>nil</em></dt>
-<dd><p>Get next page of results for last query.
-</p></dd></dl>
+    <dd>
+      <p>Download Daisy format of specified book to target
+      location.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002did_002dsearch"></a>Interactive Command: <strong>emacspeak-bookshare-id-search</strong> <em>(query)</em></dt>
-<dd><p>Perform a Bookshare id search.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dbookshare_002ddownload_002dbrf_002dat_002dpoint"
+    id=
+    "index-emacspeak_002dbookshare_002ddownload_002dbrf_002dat_002dpoint">
+    </a>Interactive Command:
+    <strong>emacspeak-bookshare-download-brf-at-point</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002disbn_002dsearch"></a>Interactive Command: <strong>emacspeak-bookshare-isbn-search</strong> <em>(query)</em></dt>
-<dd><p>Perform a Bookshare isbn search.
-</p></dd></dl>
+    <dd>
+      <p>Download Braille version of book under point. Target
+      location is generated from author and title.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dlist_002dpreferences"></a>Interactive Command: <strong>emacspeak-bookshare-list-preferences</strong> <em>nil</em></dt>
-<dd><p>Return preference list.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dbookshare_002ddownload_002ddaisy" id=
+    "index-emacspeak_002dbookshare_002ddownload_002ddaisy"></a>Interactive
+    Command: <strong>emacspeak-bookshare-download-daisy</strong>
+    <em>(id target)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dmode"></a>Interactive Command: <strong>emacspeak-bookshare-mode</strong> <em>nil</em></dt>
-<dd><p>A Bookshare front-end for the Emacspeak desktop.
-</p>
-<p>The Emacspeak Bookshare front-end is launched by command
-emacspeak-bookshare bound to C-e C-b
-</p>
-<p>This command switches to a special buffer that has Bookshare
-commands bounds to single keystrokes&ndash; see the key-binding list at
-the end of this description. Use Emacs online help facility to
-look up help on these commands.
-</p>
-<p>emacspeak-bookshare-mode provides the necessary functionality to
-Search and download Bookshare material,
-Manage a local library of downloaded Bookshare content,
-And commands to easily read newer Daisy books from Bookshare.
-</p>
-<p>Here is a list of all emacspeak Bookshare commands along with their key-bindings:
-a Author Search
-A Author/Title Search
-t Title Search
-s Full Text Search
-d Date Search
-b Browse
-</p>
-<p>key             binding
-&mdash;             &mdash;&mdash;-
-</p>
-<p>RET		emacspeak-bookshare-toc-at-point
-ESC		Prefix Command
-SPC		emacspeak-bookshare-expand-at-point
-+		emacspeak-bookshare-action
-A		emacspeak-bookshare-action
-B		emacspeak-bookshare-download-brf-at-point
-C		emacspeak-bookshare-fulltext
-D		emacspeak-bookshare-download-daisy-at-point
-E		emacspeak-bookshare-eww
-I		emacspeak-bookshare-action
-P		emacspeak-bookshare-action
-S		emacspeak-bookshare-action
-U		emacspeak-bookshare-unpack-at-point
-V		emacspeak-bookshare-view-at-point
-[		backward-page
-]		forward-page
-a		emacspeak-bookshare-action
-b		emacspeak-bookshare-browse
-c		emacspeak-bookshare-toc-at-point
-d		emacspeak-bookshare-action
-e		emacspeak-epub
-f		emacspeak-bookshare-flush-lines
-i		emacspeak-bookshare-action
-j		next-line
-k		previous-line
-l .. m		emacspeak-bookshare-action
-p		emacspeak-bookshare-action
-q		bury-buffer
-s .. t		emacspeak-bookshare-action
-v		emacspeak-bookshare-view
-</p>
-<p>M-n		emacspeak-bookshare-next-result
-M-p		emacspeak-bookshare-previous-result
-</p>
-<p>In addition to any hooks its parent mode &lsquo;special-mode&rsquo; might have run,
-this mode runs the hook &lsquo;emacspeak-bookshare-mode-hook&rsquo;, as the final step
-during initialization.
-</p></dd></dl>
+    <dd>
+      <p>Download Daisy format of specified book to target
+      location.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dnext_002dresult"></a>Interactive Command: <strong>emacspeak-bookshare-next-result</strong> <em>nil</em></dt>
-<dd><p>Move to next result.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dbookshare_002ddownload_002ddaisy_002dat_002dpoint"
+    id=
+    "index-emacspeak_002dbookshare_002ddownload_002ddaisy_002dat_002dpoint">
+    </a>Interactive Command:
+    <strong>emacspeak-bookshare-download-daisy-at-point</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dperiodical_002dlist"></a>Interactive Command: <strong>emacspeak-bookshare-periodical-list</strong> <em>nil</em></dt>
-<dd><p>Return list of periodicals.
-</p></dd></dl>
+    <dd>
+      <p>Download Daisy version of book under point. Target
+      location is generated from author and title.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dprevious_002dresult"></a>Interactive Command: <strong>emacspeak-bookshare-previous-result</strong> <em>nil</em></dt>
-<dd><p>Move to previous result.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dbookshare_002ddownload_002dinternal" id=
+    "index-emacspeak_002dbookshare_002ddownload_002dinternal"></a>Interactive
+    Command: <strong>emacspeak-bookshare-download-internal</strong>
+    <em>(url target)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dset_002dpreference"></a>Interactive Command: <strong>emacspeak-bookshare-set-preference</strong> <em>(preference-id value)</em></dt>
-<dd><p>Set preference preference-id to value.
-</p></dd></dl>
+    <dd>
+      <p>Download content to target location.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dsign_002dout"></a>Interactive Command: <strong>emacspeak-bookshare-sign-out</strong> <em>nil</em></dt>
-<dd><p>Sign out, clearing password.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dbookshare_002deww" id=
+    "index-emacspeak_002dbookshare_002deww"></a>Interactive
+    Command: <strong>emacspeak-bookshare-eww</strong>
+    <em>(directory)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dsince_002dsearch"></a>Interactive Command: <strong>emacspeak-bookshare-since-search</strong> <em>(query &amp;optional category)</em></dt>
-<dd><p>Perform a Bookshare date  search.
-Optional interactive prefix arg filters by category.
-</p></dd></dl>
+    <dd>
+      <p>Render complete book using EWW if available.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dtitle_002dsearch"></a>Interactive Command: <strong>emacspeak-bookshare-title-search</strong> <em>(query &amp;optional category)</em></dt>
-<dd><p>Perform a Bookshare title search.
-Interactive prefix arg filters search by category.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dbookshare_002dexpand_002dat_002dpoint" id=
+    "index-emacspeak_002dbookshare_002dexpand_002dat_002dpoint"></a>Interactive
+    Command: <strong>emacspeak-bookshare-expand-at-point</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dtitle_002fauthor_002dsearch"></a>Interactive Command: <strong>emacspeak-bookshare-title/author-search</strong> <em>(query)</em></dt>
-<dd><p>Perform a Bookshare title/author  search.
-</p></dd></dl>
+    <dd>
+      <p>Expand entry at point by retrieving metadata. Once
+      retrieved, memoize to avoid multiple retrievals.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dtoc"></a>Interactive Command: <strong>emacspeak-bookshare-toc</strong> <em>(directory)</em></dt>
-<dd><p>View TOC for book in specified directory.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dbookshare_002dextract_002dand_002dview"
+    id="index-emacspeak_002dbookshare_002dextract_002dand_002dview">
+    </a>Interactive Command:
+    <strong>emacspeak-bookshare-extract-and-view</strong>
+    <em>(url)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dtoc_002dat_002dpoint"></a>Interactive Command: <strong>emacspeak-bookshare-toc-at-point</strong> <em>nil</em></dt>
-<dd><p>View TOC for book at point.
-Make sure it&rsquo;s downloaded and unpacked first.
-</p></dd></dl>
+    <dd>
+      <p>Extract content referred to by link under point, and
+      render via the browser.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dunpack_002dat_002dpoint"></a>Interactive Command: <strong>emacspeak-bookshare-unpack-at-point</strong> <em>nil</em></dt>
-<dd><p>Unpack downloaded content if necessary.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dbookshare_002dextract_002dxml"
+    id=
+    "index-emacspeak_002dbookshare_002dextract_002dxml"></a>Interactive
+    Command: <strong>emacspeak-bookshare-extract-xml</strong>
+    <em>(url)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002durl_002dexecutor"></a>Interactive Command: <strong>emacspeak-bookshare-url-executor</strong> <em>(url)</em></dt>
-<dd><p>Custom URL executor for use in Bookshare TOC.
-</p></dd></dl>
+    <dd>
+      <p>Extract content referred to by link under point, and
+      return an XML buffer.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dversion_002dhandler"></a>Interactive Command: <strong>emacspeak-bookshare-version-handler</strong> <em>(&amp;rest ignore)</em></dt>
-<dd><p>Do nothing and return nil.
-This function accepts any number of arguments, but ignores them.
-</p>
-<p>(fn &amp;rest IGNORE)
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dbookshare_002dflush_002dlines"
+    id=
+    "index-emacspeak_002dbookshare_002dflush_002dlines"></a>Interactive
+    Command: <strong>emacspeak-bookshare-flush-lines</strong>
+    <em>(regexp)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dview"></a>Interactive Command: <strong>emacspeak-bookshare-view</strong> <em>(directory)</em></dt>
-<dd><p>View book in specified directory.
-</p></dd></dl>
+    <dd>
+      <p>Flush lines matching regexp in Bookshare buffer.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dview_002dat_002dpoint"></a>Interactive Command: <strong>emacspeak-bookshare-view-at-point</strong> <em>nil</em></dt>
-<dd><p>View book at point.
-Make sure it&rsquo;s downloaded and unpacked first.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dbookshare_002dfulltext" id=
+    "index-emacspeak_002dbookshare_002dfulltext"></a>Interactive
+    Command: <strong>emacspeak-bookshare-fulltext</strong>
+    <em>(directory)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dbookshare_002dview_002dpage_002drange"></a>Interactive Command: <strong>emacspeak-bookshare-view-page-range</strong> <em>(url)</em></dt>
-<dd><p>Play pages in specified page range from URL.
-</p></dd></dl>
+    <dd>
+      <p>Display fulltext contents of book in specified directory.
+      Useful for fulltext search in a book.</p>
+    </dd>
+  </dl>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dbs.html#emacspeak_002dbs" accesskey="n" rel="next">emacspeak-bs</a>, Previous: <a href="emacspeak_002dbbc.html#emacspeak_002dbbc" accesskey="p" rel="prev">emacspeak-bbc</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dbookshare_002dfulltext_002dsearch" id=
+    "index-emacspeak_002dbookshare_002dfulltext_002dsearch"></a>Interactive
+    Command: <strong>emacspeak-bookshare-fulltext-search</strong>
+    <em>(query)</em></dt>
 
+    <dd>
+      <p>Perform a Bookshare fulltext search.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dbookshare_002dget_002dmore_002dresults"
+    id="index-emacspeak_002dbookshare_002dget_002dmore_002dresults">
+    </a>Interactive Command:
+    <strong>emacspeak-bookshare-get-more-results</strong>
+    <em>nil</em></dt>
 
+    <dd>
+      <p>Get next page of results for last query.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dbookshare_002did_002dsearch"
+    id=
+    "index-emacspeak_002dbookshare_002did_002dsearch"></a>Interactive
+    Command: <strong>emacspeak-bookshare-id-search</strong>
+    <em>(query)</em></dt>
+
+    <dd>
+      <p>Perform a Bookshare id search.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dbookshare_002disbn_002dsearch"
+    id=
+    "index-emacspeak_002dbookshare_002disbn_002dsearch"></a>Interactive
+    Command: <strong>emacspeak-bookshare-isbn-search</strong>
+    <em>(query)</em></dt>
+
+    <dd>
+      <p>Perform a Bookshare isbn search.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dbookshare_002dlist_002dpreferences" id=
+    "index-emacspeak_002dbookshare_002dlist_002dpreferences"></a>Interactive
+    Command: <strong>emacspeak-bookshare-list-preferences</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Return preference list.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dbookshare_002dmode" id=
+    "index-emacspeak_002dbookshare_002dmode"></a>Interactive
+    Command: <strong>emacspeak-bookshare-mode</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>A Bookshare front-end for the Emacspeak desktop.</p>
+
+      <p>The Emacspeak Bookshare front-end is launched by command
+      emacspeak-bookshare bound to C-e C-b</p>
+
+      <p>This command switches to a special buffer that has
+      Bookshare commands bounds to single keystrokes&ndash; see the
+      key-binding list at the end of this description. Use Emacs
+      online help facility to look up help on these commands.</p>
+
+      <p>emacspeak-bookshare-mode provides the necessary
+      functionality to Search and download Bookshare material,
+      Manage a local library of downloaded Bookshare content, And
+      commands to easily read newer Daisy books from Bookshare.</p>
+
+      <p>Here is a list of all emacspeak Bookshare commands along
+      with their key-bindings: a Author Search A Author/Title
+      Search t Title Search s Full Text Search d Date Search b
+      Browse</p>
+
+      <p>key binding &mdash; &mdash;&mdash;-</p>
+
+      <p>RET emacspeak-bookshare-toc-at-point ESC Prefix Command
+      SPC emacspeak-bookshare-expand-at-point +
+      emacspeak-bookshare-action A emacspeak-bookshare-action B
+      emacspeak-bookshare-download-brf-at-point C
+      emacspeak-bookshare-fulltext D
+      emacspeak-bookshare-download-daisy-at-point E
+      emacspeak-bookshare-eww I emacspeak-bookshare-action P
+      emacspeak-bookshare-action S emacspeak-bookshare-action U
+      emacspeak-bookshare-unpack-at-point V
+      emacspeak-bookshare-view-at-point [ backward-page ]
+      forward-page a emacspeak-bookshare-action b
+      emacspeak-bookshare-browse c emacspeak-bookshare-toc-at-point
+      d emacspeak-bookshare-action e emacspeak-epub f
+      emacspeak-bookshare-flush-lines i emacspeak-bookshare-action
+      j next-line k previous-line l .. m emacspeak-bookshare-action
+      p emacspeak-bookshare-action q bury-buffer s .. t
+      emacspeak-bookshare-action v emacspeak-bookshare-view</p>
+
+      <p>M-n emacspeak-bookshare-next-result M-p
+      emacspeak-bookshare-previous-result</p>
+
+      <p>In addition to any hooks its parent mode
+      &lsquo;special-mode&rsquo; might have run, this mode runs the
+      hook &lsquo;emacspeak-bookshare-mode-hook&rsquo;, as the
+      final step during initialization.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dbookshare_002dnext_002dresult"
+    id=
+    "index-emacspeak_002dbookshare_002dnext_002dresult"></a>Interactive
+    Command: <strong>emacspeak-bookshare-next-result</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Move to next result.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dbookshare_002dperiodical_002dlist" id=
+    "index-emacspeak_002dbookshare_002dperiodical_002dlist"></a>Interactive
+    Command: <strong>emacspeak-bookshare-periodical-list</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Return list of periodicals.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dbookshare_002dprevious_002dresult" id=
+    "index-emacspeak_002dbookshare_002dprevious_002dresult"></a>Interactive
+    Command: <strong>emacspeak-bookshare-previous-result</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Move to previous result.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dbookshare_002dset_002dpreference" id=
+    "index-emacspeak_002dbookshare_002dset_002dpreference"></a>Interactive
+    Command: <strong>emacspeak-bookshare-set-preference</strong>
+    <em>(preference-id value)</em></dt>
+
+    <dd>
+      <p>Set preference preference-id to value.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dbookshare_002dsign_002dout"
+    id="index-emacspeak_002dbookshare_002dsign_002dout"></a>Interactive
+    Command: <strong>emacspeak-bookshare-sign-out</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Sign out, clearing password.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dbookshare_002dsince_002dsearch" id=
+    "index-emacspeak_002dbookshare_002dsince_002dsearch"></a>Interactive
+    Command: <strong>emacspeak-bookshare-since-search</strong>
+    <em>(query &amp;optional category)</em></dt>
+
+    <dd>
+      <p>Perform a Bookshare date search. Optional interactive
+      prefix arg filters by category.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dbookshare_002dtitle_002dsearch" id=
+    "index-emacspeak_002dbookshare_002dtitle_002dsearch"></a>Interactive
+    Command: <strong>emacspeak-bookshare-title-search</strong>
+    <em>(query &amp;optional category)</em></dt>
+
+    <dd>
+      <p>Perform a Bookshare title search. Interactive prefix arg
+      filters search by category.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dbookshare_002dtitle_002fauthor_002dsearch"
+    id=
+    "index-emacspeak_002dbookshare_002dtitle_002fauthor_002dsearch">
+    </a>Interactive Command:
+    <strong>emacspeak-bookshare-title/author-search</strong>
+    <em>(query)</em></dt>
+
+    <dd>
+      <p>Perform a Bookshare title/author search.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dbookshare_002dtoc" id=
+    "index-emacspeak_002dbookshare_002dtoc"></a>Interactive
+    Command: <strong>emacspeak-bookshare-toc</strong>
+    <em>(directory)</em></dt>
+
+    <dd>
+      <p>View TOC for book in specified directory.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dbookshare_002dtoc_002dat_002dpoint" id=
+    "index-emacspeak_002dbookshare_002dtoc_002dat_002dpoint"></a>Interactive
+    Command: <strong>emacspeak-bookshare-toc-at-point</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>View TOC for book at point. Make sure it&rsquo;s
+      downloaded and unpacked first.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dbookshare_002dunpack_002dat_002dpoint" id=
+    "index-emacspeak_002dbookshare_002dunpack_002dat_002dpoint"></a>Interactive
+    Command: <strong>emacspeak-bookshare-unpack-at-point</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Unpack downloaded content if necessary.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dbookshare_002durl_002dexecutor" id=
+    "index-emacspeak_002dbookshare_002durl_002dexecutor"></a>Interactive
+    Command: <strong>emacspeak-bookshare-url-executor</strong>
+    <em>(url)</em></dt>
+
+    <dd>
+      <p>Custom URL executor for use in Bookshare TOC.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dbookshare_002dversion_002dhandler" id=
+    "index-emacspeak_002dbookshare_002dversion_002dhandler"></a>Interactive
+    Command: <strong>emacspeak-bookshare-version-handler</strong>
+    <em>(&amp;rest ignore)</em></dt>
+
+    <dd>
+      <p>Do nothing and return nil. This function accepts any
+      number of arguments, but ignores them.</p>
+
+      <p>(fn &amp;rest IGNORE)</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dbookshare_002dview" id=
+    "index-emacspeak_002dbookshare_002dview"></a>Interactive
+    Command: <strong>emacspeak-bookshare-view</strong>
+    <em>(directory)</em></dt>
+
+    <dd>
+      <p>View book in specified directory.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dbookshare_002dview_002dat_002dpoint" id=
+    "index-emacspeak_002dbookshare_002dview_002dat_002dpoint"></a>Interactive
+    Command: <strong>emacspeak-bookshare-view-at-point</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>View book at point. Make sure it&rsquo;s downloaded and
+      unpacked first.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dbookshare_002dview_002dpage_002drange" id=
+    "index-emacspeak_002dbookshare_002dview_002dpage_002drange"></a>Interactive
+    Command: <strong>emacspeak-bookshare-view-page-range</strong>
+    <em>(url)</em></dt>
+
+    <dd>
+      <p>Play pages in specified page range from URL.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href="emacspeak_002dbs.html#emacspeak_002dbs"
+    accesskey="n" rel="next">emacspeak-bs</a>, Previous: <a href=
+    "emacspeak_002dbbc.html#emacspeak_002dbbc" accesskey="p" rel=
+    "prev">emacspeak-bbc</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

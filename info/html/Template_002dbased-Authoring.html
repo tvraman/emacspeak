@@ -1,91 +1,130 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Template-based Authoring</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Template-based Authoring">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Template-based Authoring">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Structured-Editing.html#Structured-Editing" rel="up" title="Structured Editing">
-<link href="Maintaining-Structured-Data.html#Maintaining-Structured-Data" rel="next" title="Maintaining Structured Data">
-<link href="Outline-Editing.html#Outline-Editing" rel="prev" title="Outline Editing">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  Template-based Authoring</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Template-based Authoring" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Template-based Authoring" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Structured-Editing.html#Structured-Editing" rel="up"
+  title="Structured Editing" />
+  <link href=
+  "Maintaining-Structured-Data.html#Maintaining-Structured-Data"
+  rel="next" title="Maintaining Structured Data" />
+  <link href="Outline-Editing.html#Outline-Editing" rel="prev"
+  title="Outline Editing" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="Template_002dbased-Authoring"></a>
-<div class="header">
-<p>
-Next: <a href="Maintaining-Structured-Data.html#Maintaining-Structured-Data" accesskey="n" rel="next">Maintaining Structured Data</a>, Previous: <a href="Outline-Editing.html#Outline-Editing" accesskey="p" rel="prev">Outline Editing</a>, Up: <a href="Structured-Editing.html#Structured-Editing" accesskey="u" rel="up">Structured Editing</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="Template_002dbased-Authoring-1"></a>
-<h4 class="subsection">9.2.2 Template-based Authoring</h4>
+<body lang="en" xml:lang="en">
+  <a name="Template_002dbased-Authoring" id=
+  "Template_002dbased-Authoring"></a>
 
+  <div class="header">
+    <p>Next: <a href=
+    "Maintaining-Structured-Data.html#Maintaining-Structured-Data"
+    accesskey="n" rel="next">Maintaining Structured Data</a>,
+    Previous: <a href="Outline-Editing.html#Outline-Editing"
+    accesskey="p" rel="prev">Outline Editing</a>, Up: <a href=
+    "Structured-Editing.html#Structured-Editing" accesskey="u" rel=
+    "up">Structured Editing</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="Template_002dbased-Authoring-1" id=
+  "Template_002dbased-Authoring-1"></a>
 
-<p>Emacspeak supports two powerful template-based authoring subsystems that
-enable the user to quickly create and fill in templates.  <em> Dmacro</em>
-(short for &ldquo;dynamic macros&rdquo;) allows the user to define and invoke
-template-based macros that are specialized for creating different types
-of content.  For example, when programming in C, the user can invoke
-dynamic macros that insert skeletons of standard C constructs with a few
-keystrokes.  This form of editing has numerous advantages in creating
-consistently structured code when developing large software modules.
-Emacspeak speech-enables mode <em> dmacro</em> to provide succinct spoken
-feedback as templates are created and filled.  The user invokes <em>
-dmacro</em> via command <em> insert dmacro</em>, which is typically bound to a
-single key.  This results in a dialog where the user is prompted to
-pick one of the dynamic macros available in the current context.  If the
-users choice can be uniquely completed, that completion is spoken;
-otherwise, the list of possible completions based on the available
-partial input is spoken, accompanied by auditory icon <em> help</em>.
-</p>
-<p>An alternative template-editing facility is provided by mode  <em> tempo</em>
-This mode is designed to  be used in creating
-template-based editing tools for specific markup languages; a good
-example is mode <em> html-helper</em>,
-a  mode for creating and updating HTML documents for
-publishing on the WWW (see see <a href="Document-Authoring.html#Document-Authoring">Document Authoring</a>).
-</p>
+  <h4 class="subsection">9.2.2 Template-based Authoring</h4>
 
+  <p>Emacspeak supports two powerful template-based authoring
+  subsystems that enable the user to quickly create and fill in
+  templates. <em>Dmacro</em> (short for &ldquo;dynamic
+  macros&rdquo;) allows the user to define and invoke
+  template-based macros that are specialized for creating different
+  types of content. For example, when programming in C, the user
+  can invoke dynamic macros that insert skeletons of standard C
+  constructs with a few keystrokes. This form of editing has
+  numerous advantages in creating consistently structured code when
+  developing large software modules. Emacspeak speech-enables mode
+  <em>dmacro</em> to provide succinct spoken feedback as templates
+  are created and filled. The user invokes <em>dmacro</em> via
+  command <em>insert dmacro</em>, which is typically bound to a
+  single key. This results in a dialog where the user is prompted
+  to pick one of the dynamic macros available in the current
+  context. If the users choice can be uniquely completed, that
+  completion is spoken; otherwise, the list of possible completions
+  based on the available partial input is spoken, accompanied by
+  auditory icon <em>help</em>.</p>
 
-
+  <p>An alternative template-editing facility is provided by mode
+  <em>tempo</em> This mode is designed to be used in creating
+  template-based editing tools for specific markup languages; a
+  good example is mode <em>html-helper</em>, a mode for creating
+  and updating HTML documents for publishing on the WWW (see see
+  <a href="Document-Authoring.html#Document-Authoring">Document
+  Authoring</a>).</p>
 </body>
 </html>

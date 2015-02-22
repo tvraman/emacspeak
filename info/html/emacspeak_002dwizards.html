@@ -1,1051 +1,2158 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-wizards</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-wizards">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-wizards">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up" title="Emacspeak Commands">
-<link href="emacspeak_002dxml_002dshell.html#emacspeak_002dxml_002dshell" rel="next" title="emacspeak-xml-shell">
-<link href="emacspeak_002dwidget.html#emacspeak_002dwidget" rel="prev" title="emacspeak-widget">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-wizards</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-wizards" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-wizards" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
+  title="Emacspeak Commands" />
+  <link href=
+  "emacspeak_002dxml_002dshell.html#emacspeak_002dxml_002dshell"
+  rel="next" title="emacspeak-xml-shell" />
+  <link href="emacspeak_002dwidget.html#emacspeak_002dwidget" rel=
+  "prev" title="emacspeak-widget" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dwizards"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dxml_002dshell.html#emacspeak_002dxml_002dshell" accesskey="n" rel="next">emacspeak-xml-shell</a>, Previous: <a href="emacspeak_002dwidget.html#emacspeak_002dwidget" accesskey="p" rel="prev">emacspeak-widget</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dwizards-1"></a>
-<h3 class="section">11.79 emacspeak-wizards</h3>
-
-<p>Commentary:
-Contains various wizards for the Emacspeak desktop.
-</p>
-<p>Automatically generated documentation
-for commands defined in module  emacspeak-wizards.
-</p>
-<dl>
-<dt><a name="index-emacspeak_002dannotate_002dadd_002dannotation"></a>Interactive Command: <strong>emacspeak-annotate-add-annotation</strong> <em>(&amp;optional reset)</em></dt>
-<dd><p>Add annotation to the annotation working buffer.
-Prompt for annotation buffer if not already set.
-Interactive prefix arg &lsquo;reset&rsquo; prompts for the annotation
-buffer even if one is already set.
-Annotation is entered in a temporary buffer and the
-annotation is inserted into the working buffer when complete.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dclipboard_002dcopy"></a>Interactive Command: <strong>emacspeak-clipboard-copy</strong> <em>(start end &amp;optional prompt)</em></dt>
-<dd><p><kbd>C-e C-c</kbd>
-</p>
-<p>Copy contents of the region to the emacspeak clipboard.
-Previous contents of the clipboard will be overwritten.  The Emacspeak
-clipboard is a convenient way of sharing information between
-independent Emacspeak sessions running on the same or different
-machines.  Do not use this for sharing information within an Emacs
-session &ndash;Emacs&rsquo; register commands are far more efficient and
-light-weight.  Optional interactive prefix arg results in Emacspeak
-prompting for the clipboard file to use.
-Argument START and END specifies  region.
-Optional argument PROMPT  specifies whether we prompt for the name of a clipboard file.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dclipboard_002dpaste"></a>Interactive Command: <strong>emacspeak-clipboard-paste</strong> <em>(&amp;optional paste-table)</em></dt>
-<dd><p><kbd>C-e C-y</kbd>
-</p>
-<p>Yank contents of the Emacspeak clipboard at point.
-The Emacspeak clipboard is a convenient way of sharing information between
-independent Emacspeak sessions running on the same or different
-machines.  Do not use this for sharing information within an Emacs
-session &ndash;Emacs&rsquo; register commands are far more efficient and
-light-weight.  Optional interactive prefix arg pastes from
-the emacspeak table clipboard instead.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dcopy_002dcurrent_002dfile"></a>Interactive Command: <strong>emacspeak-copy-current-file</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e M-c</kbd>
-</p>
-<p>Copy file visited in current buffer to new location.
-Prompts for the new location and preserves modification time
-  when copying.  If location is a directory, the file is copied
-  to that directory under its current name ; if location names
-  a file in an existing directory, the specified name is
-  used.  Asks for confirmation if the copy will result in an
-  existing file being overwritten.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dcurl"></a>Interactive Command: <strong>emacspeak-curl</strong> <em>(url)</em></dt>
-<dd><p>Grab URL using Curl, and preview it with a browser .
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dcustomize"></a>Interactive Command: <strong>emacspeak-customize</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e C</kbd>
-</p>
-<p>Customize Emacspeak.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dcustomize_002dpersonal_002dsettings"></a>Interactive Command: <strong>emacspeak-customize-personal-settings</strong> <em>(file)</em></dt>
-<dd><p>Create a customization buffer for browsing and updating
-personal customizations.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dcvs_002dberlios_002dget_002dproject_002dsnapshot"></a>Interactive Command: <strong>emacspeak-cvs-berlios-get-project-snapshot</strong> <em>(project &amp;optional module)</em></dt>
-<dd><p>Grab CVS snapshot  of specified project from berlios.de.
-Ask for module name if prefix argument is given
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dcvs_002dget_002danonymous"></a>Interactive Command: <strong>emacspeak-cvs-get-anonymous</strong> <em>nil</em></dt>
-<dd><p>Get latest cvs snapshot of emacspeak.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dcvs_002dgnu_002dget_002dproject_002dsnapshot"></a>Interactive Command: <strong>emacspeak-cvs-gnu-get-project-snapshot</strong> <em>(project &amp;optional module)</em></dt>
-<dd><p>Grab CVS snapshot  of specified project from gnu.
-Ask for module name if prefix argument is given
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dcvs_002dsf_002dget_002dproject_002dsnapshot"></a>Interactive Command: <strong>emacspeak-cvs-sf-get-project-snapshot</strong> <em>(project &amp;optional module)</em></dt>
-<dd><p>Grab CVS snapshot  of specified project from sf.
-Ask for module name if prefix argument is given
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002demergency_002dtts_002drestart"></a>Interactive Command: <strong>emacspeak-emergency-tts-restart</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e &lt;insert&gt;</kbd>
-</p>
-<p>For use in an emergency.
-Will start TTS engine specified by
-emacspeak-emergency-tts-server.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dframe_002dlabel_002dor_002dswitch_002dto_002dlabelled_002dframe"></a>Interactive Command: <strong>emacspeak-frame-label-or-switch-to-labelled-frame</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p><kbd>C-e M-f</kbd>
-</p>
-<p>Switch to labelled frame.
-With optional PREFIX argument, label current frame.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dframe_002dread_002dframe_002dlabel"></a>Interactive Command: <strong>emacspeak-frame-read-frame-label</strong> <em>nil</em></dt>
-<dd><p>Read a frame label with completion.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dgenerate_002ddocumentation"></a>Interactive Command: <strong>emacspeak-generate-documentation</strong> <em>(filename)</em></dt>
-<dd><p>Generate docs for all emacspeak commands.
-Prompts for FILENAME in which to save the documentation.
-Warning! Contents of file filename will be overwritten.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dgenerate_002dtexinfo_002dcommand_002ddocumentation"></a>Interactive Command: <strong>emacspeak-generate-texinfo-command-documentation</strong> <em>(filename)</em></dt>
-<dd><p>Generate texinfo documentation  for all emacspeak
-commands  into file commands.texi.
-Warning! Contents of file commands.texi will be overwritten.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dgenerate_002dtexinfo_002doption_002ddocumentation"></a>Interactive Command: <strong>emacspeak-generate-texinfo-option-documentation</strong> <em>(filename)</em></dt>
-<dd><p>Generate texinfo documentation  for all emacspeak
-options  into file filename.
-Warning! Contents of file filename will be overwritten.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dkill_002dbuffer_002dquietly"></a>Interactive Command: <strong>emacspeak-kill-buffer-quietly</strong> <em>nil</em></dt>
-<dd><p>Kill current buffer without asking for confirmation.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dlearn_002demacs_002dmode"></a>Interactive Command: <strong>emacspeak-learn-emacs-mode</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e &lt;f1&gt; C-h C-l &lt;f1&gt; C-l &lt;help&gt; C-l</kbd>
-</p>
-<p>Helps you learn the keys.  You can press keys and hear what they do.
-To leave, press C-g.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dlink_002dcurrent_002dfile"></a>Interactive Command: <strong>emacspeak-link-current-file</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e M-l</kbd>
-</p>
-<p>Link (hard link) file visited in current buffer to new location.
-Prompts for the new location and preserves modification time
-  when linking.  If location is a directory, the file is copied
-  to that directory under its current name ; if location names
-  a file in an existing directory, the specified name is
-  used.  Signals an error if target already exists.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dlinks"></a>Interactive Command: <strong>emacspeak-links</strong> <em>(url)</em></dt>
-<dd><p>Launch links on  specified URL in a new terminal.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dlynx"></a>Interactive Command: <strong>emacspeak-lynx</strong> <em>(url)</em></dt>
-<dd><p>Launch lynx on  specified URL in a new terminal.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dnext_002dframe_002dor_002dbuffer"></a>Interactive Command: <strong>emacspeak-next-frame-or-buffer</strong> <em>(&amp;optional frame)</em></dt>
-<dd><p><kbd>&lt;C-right&gt;</kbd>
-</p>
-<p>Move to next buffer.
-With optional interactive prefix arg &lsquo;frame&rsquo;, move to next frame instead.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dprevious_002dframe_002dor_002dbuffer"></a>Interactive Command: <strong>emacspeak-previous-frame-or-buffer</strong> <em>(&amp;optional frame)</em></dt>
-<dd><p><kbd>&lt;C-left&gt;</kbd>
-</p>
-<p>Move to previous buffer.
-With optional interactive prefix arg &lsquo;frame&rsquo;, move to previous frame instead.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002droot"></a>Interactive Command: <strong>emacspeak-root</strong> <em>(&amp;optional cd)</em></dt>
-<dd><p><kbd>C-e C-r</kbd>
-</p>
-<p>Start a root shell or switch to one that already exists.
-Optional interactive prefix arg &lsquo;cd&rsquo; executes cd
-default-directory after switching.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dselect_002dthis_002dbuffer_002dnext_002ddisplay"></a>Interactive Command: <strong>emacspeak-select-this-buffer-next-display</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e &lt;C-right&gt;</kbd>
-</p>
-<p>Select this buffer as displayed in a &lsquo;next&rsquo; frame.
-See documentation for command
-&lsquo;emacspeak-select-this-buffer-other-window-display&rsquo; for the
-meaning of &lsquo;next&rsquo;.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dselect_002dthis_002dbuffer_002dother_002dwindow_002ddisplay"></a>Interactive Command: <strong>emacspeak-select-this-buffer-other-window-display</strong> <em>(&amp;optional arg)</em></dt>
-<dd><p>Switch  to this buffer as displayed in a different frame.  Emacs
-allows you to display the same buffer in multiple windows or
-frames.  These different windows can display different
-portions of the buffer.  This is equivalent to leaving a
-book open at places at once.  This command allows you to
-move to the places where you have left the book open.  The
-number used to invoke this command specifies which of the
-displays you wish to select.  Typically you will have two or
-at most three such displays open.  The current display is 0,
-the next is 1, and so on.  Optional argument ARG specifies
-the display to select.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dselect_002dthis_002dbuffer_002dprevious_002ddisplay"></a>Interactive Command: <strong>emacspeak-select-this-buffer-previous-display</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e &lt;C-left&gt;</kbd>
-</p>
-<p>Select this buffer as displayed in a &lsquo;previous&rsquo; window.
-See documentation for command
-&lsquo;emacspeak-select-this-buffer-other-window-display&rsquo; for the
-meaning of &lsquo;previous&rsquo;.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dshow_002dpersonality_002dat_002dpoint"></a>Interactive Command: <strong>emacspeak-show-personality-at-point</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e M-v</kbd>
-</p>
-<p>Show value of property personality (and possibly face)
-at point.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dshow_002dproperty_002dat_002dpoint"></a>Interactive Command: <strong>emacspeak-show-property-at-point</strong> <em>(&amp;optional property)</em></dt>
-<dd><p>Show value of PROPERTY at point.
-If optional arg property is not supplied, read it interactively.
-Provides completion based on properties that are of interest.
-If no property is set, show a message and exit.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dskip_002dblank_002dlines_002dbackward"></a>Interactive Command: <strong>emacspeak-skip-blank-lines-backward</strong> <em>nil</em></dt>
-<dd><p><kbd>&lt;S-up&gt;</kbd>
-</p>
-<p>Move backward  across blank lines.
-The line under point is   then spoken.
-Signals beginning  of buffer.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dskip_002dblank_002dlines_002dforward"></a>Interactive Command: <strong>emacspeak-skip-blank-lines-forward</strong> <em>nil</em></dt>
-<dd><p><kbd>&lt;S-down&gt;</kbd>
-</p>
-<p>Move forward across blank lines.
-The line under point is then spoken.
-Signals end of buffer.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dbrowse_002dlinux_002dhowto"></a>Interactive Command: <strong>emacspeak-speak-browse-linux-howto</strong> <em>(howto)</em></dt>
-<dd><p><kbd>C-e H</kbd>
-</p>
-<p>Browse a Linux Howto file.
-We cleanup underlining, and set up outline mode correctly.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dpopup_002dmessages"></a>Interactive Command: <strong>emacspeak-speak-popup-messages</strong> <em>nil</em></dt>
-<dd><p><kbd>C-h M &lt;f1&gt; M &lt;help&gt; M</kbd>
-</p>
-<p>Pop up messages buffer.
-If it is already selected then hide it and try to restore
-previous window configuration.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002drun_002dshell_002dcommand"></a>Interactive Command: <strong>emacspeak-speak-run-shell-command</strong> <em>(command &amp;optional read-as-csv)</em></dt>
-<dd><p><kbd>C-e !</kbd>
-</p>
-<p>Invoke shell COMMAND and display its output as a table. The
-results are placed in a buffer in Emacspeak&rsquo;s table browsing
-mode. Optional interactive prefix arg read-as-csv interprets the
-result as csv. . Use this for running shell commands that produce
-tabulated output. This command should be used for shell commands
-that produce tabulated output that works with Emacspeak&rsquo;s table
-recognizer. Verify this first by running the command in a shell
-and executing command &lsquo;emacspeak-table-display-table-in-region&rsquo;
-normally bound to C-e TAB.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dtelephone_002ddirectory"></a>Interactive Command: <strong>emacspeak-speak-telephone-directory</strong> <em>(&amp;optional edit)</em></dt>
-<dd><p>Lookup and display a phone number.
-With prefix arg, opens the phone book for editing.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dthis_002dbuffer_002dnext_002ddisplay-1"></a>Interactive Command: <strong>emacspeak-speak-this-buffer-next-display</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e &lt;right&gt;</kbd>
-</p>
-<p>Speak this buffer as displayed in a &lsquo;previous&rsquo; window.
-See documentation for command
-&lsquo;emacspeak-speak-this-buffer-other-window-display&rsquo; for the
-meaning of &lsquo;next&rsquo;.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dthis_002dbuffer_002dother_002dwindow_002ddisplay-1"></a>Interactive Command: <strong>emacspeak-speak-this-buffer-other-window-display</strong> <em>(&amp;optional arg)</em></dt>
-<dd><p><kbd>C-e /</kbd>
-</p>
-<p>Speak this buffer as displayed in a different frame.  Emacs
-allows you to display the same buffer in multiple windows or
-frames.  These different windows can display different
-portions of the buffer.  This is equivalent to leaving a
-book open at places at once.  This command allows you to
-listen to the places where you have left the book open.  The
-number used to invoke this command specifies which of the
-displays you wish to speak.  Typically you will have two or
-at most three such displays open.  The current display is 0,
-the next is 1, and so on.  Optional argument ARG specifies
-the display to speak.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dspeak_002dthis_002dbuffer_002dprevious_002ddisplay-1"></a>Interactive Command: <strong>emacspeak-speak-this-buffer-previous-display</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e &lt;left&gt;</kbd>
-</p>
-<p>Speak this buffer as displayed in a &lsquo;previous&rsquo; window.
-See documentation for command
-&lsquo;emacspeak-speak-this-buffer-other-window-display&rsquo; for the
-meaning of &lsquo;previous&rsquo;.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dssh_002dtts_002drestart"></a>Interactive Command: <strong>emacspeak-ssh-tts-restart</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e &lt;deletechar&gt; C-e &lt;delete&gt;</kbd>
-</p>
-<p>Restart specified ssh tts server.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dsudo"></a>Interactive Command: <strong>emacspeak-sudo</strong> <em>(command)</em></dt>
-<dd><p>SUDo command &ndash;run command as super user.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dsudo_002dedit"></a>Interactive Command: <strong>emacspeak-sudo-edit</strong> <em>(&amp;optional arg)</em></dt>
-<dd><p>Edit file as Root.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dswitch_002dto_002dprevious_002dbuffer"></a>Interactive Command: <strong>emacspeak-switch-to-previous-buffer</strong> <em>nil</em></dt>
-<dd><p>Switch to most recently used interesting buffer.
-Obsoleted by &lsquo;previous-buffer&rsquo; in Emacs 22
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dsymlink_002dcurrent_002dfile"></a>Interactive Command: <strong>emacspeak-symlink-current-file</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e M-s</kbd>
-</p>
-<p>Link (symbolic link) file visited in current buffer to new location.
-Prompts for the new location and preserves modification time
-  when linking.  If location is a directory, the file is copied
-  to that directory under its current name ; if location names
-  a file in an existing directory, the specified name is
-  used.  Signals an error if target already exists.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dview_002demacspeak_002ddoc"></a>Interactive Command: <strong>emacspeak-view-emacspeak-doc</strong> <em>nil</em></dt>
-<dd><p>Display a summary of all Emacspeak commands.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dview_002demacspeak_002dfaq"></a>Interactive Command: <strong>emacspeak-view-emacspeak-faq</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e F</kbd>
-</p>
-<p>Browse the Emacspeak FAQ.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dview_002demacspeak_002dnews"></a>Interactive Command: <strong>emacspeak-view-emacspeak-news</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e N</kbd>
-</p>
-<p>Display info on recent change to Emacspeak.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dview_002demacspeak_002dtips"></a>Interactive Command: <strong>emacspeak-view-emacspeak-tips</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e T</kbd>
-</p>
-<p>Browse  Emacspeak productivity tips.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dadd_002dautoload_002dcookies"></a>Interactive Command: <strong>emacspeak-wizards-add-autoload-cookies</strong> <em>(&amp;optional f)</em></dt>
-<dd><p>Add autoload cookies to file f.
-Default is to add autoload cookies to current file.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dbraille"></a>Interactive Command: <strong>emacspeak-wizards-braille</strong> <em>(s)</em></dt>
-<dd><p>Insert Braille string at point.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dbyte_002dcompile_002dcurrent_002dbuffer"></a>Interactive Command: <strong>emacspeak-wizards-byte-compile-current-buffer</strong> <em>nil</em></dt>
-<dd><p>byte compile current buffer
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dcleanup_002dshell_002dpath"></a>Interactive Command: <strong>emacspeak-wizards-cleanup-shell-path</strong> <em>nil</em></dt>
-<dd><p>Cleans up duplicates in shell path env variable.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dcomma_002dat_002dend_002dof_002dword"></a>Interactive Command: <strong>emacspeak-wizards-comma-at-end-of-word</strong> <em>nil</em></dt>
-<dd><p>Move to the end of current word and add a comma.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dcount_002dslides_002din_002dregion"></a>Interactive Command: <strong>emacspeak-wizards-count-slides-in-region</strong> <em>(start end)</em></dt>
-<dd><p>Count slides starting from point.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dcycle_002dbrowser"></a>Interactive Command: <strong>emacspeak-wizards-cycle-browser</strong> <em>nil</em></dt>
-<dd><p>Cycles through available browsers.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dcycle_002dto_002dnext_002dbuffer"></a>Interactive Command: <strong>emacspeak-wizards-cycle-to-next-buffer</strong> <em>nil</em></dt>
-<dd><p>Cycles to next buffer having same mode.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002ddisplay_002dpod_002das_002dmanpage"></a>Interactive Command: <strong>emacspeak-wizards-display-pod-as-manpage</strong> <em>(filename)</em></dt>
-<dd><p>Create a virtual manpage in Emacs from the Perl Online Documentation.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002ddvi_002ddisplay"></a>Interactive Command: <strong>emacspeak-wizards-dvi-display</strong> <em>nil</em></dt>
-<dd><p>Called to set up preview of an DVI file.
-Assumes we are in a buffer visiting a .DVI file.
-Previews those contents as text and nukes the buffer
-visiting the DVI file.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002ddvi_002dmode"></a>Interactive Command: <strong>emacspeak-wizards-dvi-mode</strong> <em>nil</em></dt>
-<dd><p>Major mode for browsing DVI files.
-</p>
-<p>DVI files  are converted to text and previewed using text mode.
-</p>
-<p>This mode runs the hook &lsquo;emacspeak-wizards-dvi-mode-hook&rsquo;, as the final step
-during initialization.
-</p>
-<p>key             binding
-&mdash;             &mdash;&mdash;-
-</p>
-</dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dedit_002dfile_002das_002droot"></a>Interactive Command: <strong>emacspeak-wizards-edit-file-as-root</strong> <em>nil</em></dt>
-<dd><p>Like &lsquo;ido-find-file, but automatically edit the file with
-root-privileges (using tramp/sudo), if the file is not writable by
-user.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dend_002dof_002dword"></a>Interactive Command: <strong>emacspeak-wizards-end-of-word</strong> <em>(arg)</em></dt>
-<dd><p>move to end of word
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002denumerate_002dmatching_002dcommands"></a>Interactive Command: <strong>emacspeak-wizards-enumerate-matching-commands</strong> <em>(pattern)</em></dt>
-<dd><p>Prompt for a string pattern and return list of commands whose names match pattern.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002denumerate_002dmatching_002dfaces"></a>Interactive Command: <strong>emacspeak-wizards-enumerate-matching-faces</strong> <em>(pattern)</em></dt>
-<dd><p>Enumerate  faces matching pattern.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002denumerate_002dobsolete_002dfaces"></a>Interactive Command: <strong>emacspeak-wizards-enumerate-obsolete-faces</strong> <em>nil</em></dt>
-<dd><p>utility function to enumerate old, obsolete maps that we have still  mapped to voices.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002denumerate_002duncovered_002dcommands"></a>Interactive Command: <strong>emacspeak-wizards-enumerate-uncovered-commands</strong> <em>(pattern)</em></dt>
-<dd><p>Enumerate unadvised commands matching pattern.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002denumerate_002dunmapped_002dfaces"></a>Interactive Command: <strong>emacspeak-wizards-enumerate-unmapped-faces</strong> <em>(&amp;optional pattern)</em></dt>
-<dd><p>Enumerate unmapped faces matching pattern.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002despeak_002dregion"></a>Interactive Command: <strong>emacspeak-wizards-espeak-region</strong> <em>(start end)</em></dt>
-<dd><p>Speak region using ESpeak polyglot wizard.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002despeak_002dstring"></a>Interactive Command: <strong>emacspeak-wizards-espeak-string</strong> <em>(string)</em></dt>
-<dd><p>Speak string in lang via ESpeak.
-Lang is obtained from property &lsquo;lang&rsquo; on string, or  via an interactive prompt.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002deww_002dbuffer_002dlist"></a>Interactive Command: <strong>emacspeak-wizards-eww-buffer-list</strong> <em>nil</em></dt>
-<dd><p>Display list of open EWW buffers.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dfind_002demacspeak_002dsource"></a>Interactive Command: <strong>emacspeak-wizards-find-emacspeak-source</strong> <em>nil</em></dt>
-<dd><p>Like find-file, but binds default-directory to emacspeak-directory.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dfind_002dfile_002das_002droot"></a>Interactive Command: <strong>emacspeak-wizards-find-file-as-root</strong> <em>nil</em></dt>
-<dd><p>Like &lsquo;ido-find-file, but automatically edit the file with
-root-privileges (using tramp/sudo), if the file is not writable by
-user.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dfind_002dgrep"></a>Interactive Command: <strong>emacspeak-wizards-find-grep</strong> <em>(glob pattern)</em></dt>
-<dd><p>Run compile using find and grep.
-Interactive  arguments specify filename pattern and search pattern.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dfind_002dlongest_002dline_002din_002dregion"></a>Interactive Command: <strong>emacspeak-wizards-find-longest-line-in-region</strong> <em>(start end)</em></dt>
-<dd><p>Find longest line in region.
-Moves to the longest line when called interactively.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dfind_002dlongest_002dparagraph_002din_002dregion"></a>Interactive Command: <strong>emacspeak-wizards-find-longest-paragraph-in-region</strong> <em>(start end)</em></dt>
-<dd><p>Find longest paragraph in region.
-Moves to the longest paragraph when called interactively.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dfind_002dshortest_002dline_002din_002dregion"></a>Interactive Command: <strong>emacspeak-wizards-find-shortest-line-in-region</strong> <em>(start end)</em></dt>
-<dd><p>Find shortest line in region.
-Moves to the shortest line when called interactively.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dfinder_002dfind"></a>Interactive Command: <strong>emacspeak-wizards-finder-find</strong> <em>(directory)</em></dt>
-<dd><p>Run find-dired on specified switches after prompting for the
-directory to where find is to be launched.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dfinder_002dmode"></a>Interactive Command: <strong>emacspeak-wizards-finder-mode</strong> <em>nil</em></dt>
-<dd><p>Emacspeak Finder
-</p>
-<p>This mode runs the hook &lsquo;emacspeak-wizards-finder-mode-hook&rsquo;, as the final step
-during initialization.
-</p>
-<p>key             binding
-&mdash;             &mdash;&mdash;-
-</p>
-</dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dfix_002dread_002donly_002dtext"></a>Interactive Command: <strong>emacspeak-wizards-fix-read-only-text</strong> <em>(start end)</em></dt>
-<dd><p>Nuke read-only property on text range.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dfix_002dtypo"></a>Interactive Command: <strong>emacspeak-wizards-fix-typo</strong> <em>(ext word correction)</em></dt>
-<dd><p>Search and replace  recursively in all files with extension &lsquo;ext&rsquo;
-for &lsquo;word&rsquo; and replace it with correction.
-Use with caution.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dgenerate_002dfinder"></a>Interactive Command: <strong>emacspeak-wizards-generate-finder</strong> <em>nil</em></dt>
-<dd><p>Generate a widget-enabled finder wizard.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dgenerate_002dvoice_002dsampler"></a>Interactive Command: <strong>emacspeak-wizards-generate-voice-sampler</strong> <em>(step)</em></dt>
-<dd><p>Generate a buffer that shows a sample line in all the ACSS settings
-for the current voice family.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dget_002dtable_002dcontent_002dfrom_002dfile"></a>Interactive Command: <strong>emacspeak-wizards-get-table-content-from-file</strong> <em>(file depth count)</em></dt>
-<dd><p>Extract table specified by depth and count from HTML
-content at file.
-Extracted content is sent to STDOUT.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dget_002dtable_002dcontent_002dfrom_002durl"></a>Interactive Command: <strong>emacspeak-wizards-get-table-content-from-url</strong> <em>(url depth count)</em></dt>
-<dd><p>Extract table specified by depth and count from HTML
-content at URL.
-Extracted content is placed as a csv file in task.csv.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dgoogle_002dhits"></a>Interactive Command: <strong>emacspeak-wizards-google-hits</strong> <em>nil</em></dt>
-<dd><p>Filter Google results after performing search to show just the
-hits.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dgoogle_002dtranscode"></a>Interactive Command: <strong>emacspeak-wizards-google-transcode</strong> <em>nil</em></dt>
-<dd><p>View Web through Google Transcoder.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dhow_002dmany_002dmatches"></a>Interactive Command: <strong>emacspeak-wizards-how-many-matches</strong> <em>(start end &amp;optional prefix)</em></dt>
-<dd><p>If you define a file local variable
-called &lsquo;emacspeak-occur-pattern&rsquo; that holds a regular expression
-that matches  lines of interest, you can use this command to conveniently
-run &lsquo;how-many&rsquo; to count  matching header lines.
-With interactive prefix arg, prompts for and remembers the file local pattern.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002di810_002ddisplay_002dstatus"></a>Interactive Command: <strong>emacspeak-wizards-i810-display-status</strong> <em>nil</em></dt>
-<dd><p>Show display status on thinkpads using i810switch.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002djs"></a>Interactive Command: <strong>emacspeak-wizards-js</strong> <em>nil</em></dt>
-<dd><p>Run JS in a comint sub-process.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dlacheck_002dbuffer_002dfile"></a>Interactive Command: <strong>emacspeak-wizards-lacheck-buffer-file</strong> <em>nil</em></dt>
-<dd><p>Run Lacheck on current buffer.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dload_002dcurrent_002dfile"></a>Interactive Command: <strong>emacspeak-wizards-load-current-file</strong> <em>nil</em></dt>
-<dd><p>load file into emacs
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dmove_002dand_002dspeak"></a>Interactive Command: <strong>emacspeak-wizards-move-and-speak</strong> <em>(command count)</em></dt>
-<dd><p>Speaks a chunk of text bounded by point and a target position.
-Target position is specified using a navigation command and a
-count that specifies how many times to execute that command
-first.  Point is left at the target position.  Interactively,
-command is specified by pressing the key that invokes the
-command.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dnext_002dbullet"></a>Interactive Command: <strong>emacspeak-wizards-next-bullet</strong> <em>nil</em></dt>
-<dd><p>Navigate to and speak next &lsquo;bullet&rsquo;.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dnext_002dinteractive_002ddefun"></a>Interactive Command: <strong>emacspeak-wizards-next-interactive-defun</strong> <em>nil</em></dt>
-<dd><p>Move point to the next interactive defun
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dnext_002dshell"></a>Interactive Command: <strong>emacspeak-wizards-next-shell</strong> <em>nil</em></dt>
-<dd><p>Switch to next shell.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002doccur_002dheader_002dlines"></a>Interactive Command: <strong>emacspeak-wizards-occur-header-lines</strong> <em>(start end &amp;optional prefix)</em></dt>
-<dd><p>If you define a file local variable called
-&lsquo;emacspeak-occur-pattern&rsquo; that holds a regular expression that
-matches header lines, you can use this command to conveniently
-run &lsquo;occur&rsquo; to find matching header lines. With prefix arg,
-prompts for and sets value of the file local pattern.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dpdf_002dopen"></a>Interactive Command: <strong>emacspeak-wizards-pdf-open</strong> <em>(filename &amp;optional ask-pwd)</em></dt>
-<dd><p>Open pdf file as text.
-Optional interactive prefix arg ask-pwd prompts for password.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dpopup_002dinput_002dbuffer"></a>Interactive Command: <strong>emacspeak-wizards-popup-input-buffer</strong> <em>(mode)</em></dt>
-<dd><p>Provide an input buffer in a specified mode.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dportfolio_002dquotes"></a>Interactive Command: <strong>emacspeak-wizards-portfolio-quotes</strong> <em>nil</em></dt>
-<dd><p>Bring up detailed stock quotes for portfolio specified by
-emacspeak-wizards-personal-portfolio.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dppp_002dtoggle"></a>Interactive Command: <strong>emacspeak-wizards-ppp-toggle</strong> <em>nil</em></dt>
-<dd><p>Bring up or bring down ppp.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dppt_002ddisplay"></a>Interactive Command: <strong>emacspeak-wizards-ppt-display</strong> <em>nil</em></dt>
-<dd><p>Called to set up preview of an PPT file.
-Assumes we are in a buffer visiting a .ppt file.
-Previews those contents as HTML and nukes the buffer
-visiting the ppt file.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dppt_002dmode"></a>Interactive Command: <strong>emacspeak-wizards-ppt-mode</strong> <em>nil</em></dt>
-<dd><p>Major mode for browsing PPT slides.
-</p>
-<p>PPT files  are converted to HTML and previewed using a browser.
-</p>
-<p>In addition to any hooks its parent mode &lsquo;text-mode&rsquo; might have run,
-this mode runs the hook &lsquo;emacspeak-wizards-ppt-mode-hook&rsquo;, as the final step
-during initialization.
-</p>
-<p>key             binding
-&mdash;             &mdash;&mdash;-
-</p>
-</dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dprevious_002dbullet"></a>Interactive Command: <strong>emacspeak-wizards-previous-bullet</strong> <em>nil</em></dt>
-<dd><p>Navigate to and speak previous &lsquo;bullet&rsquo;.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dprevious_002dshell"></a>Interactive Command: <strong>emacspeak-wizards-previous-shell</strong> <em>nil</em></dt>
-<dd><p>Switch to previous shell.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002drefresh_002dshell_002dhistory"></a>Interactive Command: <strong>emacspeak-wizards-refresh-shell-history</strong> <em>nil</em></dt>
-<dd><p>Refresh shell history from disk.
-This is for use in conjunction with bash to allow multiple emacs
-  shell buffers to   share history information.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002drivo"></a>Interactive Command: <strong>emacspeak-wizards-rivo</strong> <em>(when channel stop-time output directory)</em></dt>
-<dd><p>Rivo wizard.
-Prompts for relevant information and schedules a rivo job using
-  UNIX At scheduling facility.
-RIVO is implemented by rivo.pl &mdash;
- a Perl script  that can be used to launch streaming media and record
-   streaming media for  a specified duration.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002drpm_002dquery_002din_002ddired"></a>Interactive Command: <strong>emacspeak-wizards-rpm-query-in-dired</strong> <em>nil</em></dt>
-<dd><p>Run rpm -qi on current dired entry.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dshell"></a>Interactive Command: <strong>emacspeak-wizards-shell</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p>Run Emacs built-in &lsquo;shell&rsquo; command when not in a shell buffer, or when called with a prefix argument.
-When called from a shell buffer, switches to &lsquo;next&rsquo; shell buffer.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dshell_002dcommand_002don_002dcurrent_002dfile"></a>Interactive Command: <strong>emacspeak-wizards-shell-command-on-current-file</strong> <em>(command)</em></dt>
-<dd><p><kbd>C-e &amp;</kbd>
-</p>
-<p>Prompts for and runs shell command on current file.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dshell_002dtoggle"></a>Interactive Command: <strong>emacspeak-wizards-shell-toggle</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e &lt;f11&gt;</kbd>
-</p>
-<p>Switch to the shell buffer and cd to
- the directory of the current buffer.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dshow_002dcommentary"></a>Interactive Command: <strong>emacspeak-wizards-show-commentary</strong> <em>(&amp;optional file)</em></dt>
-<dd><p>Display commentary. Default is to display commentary from current buffer.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dshow_002denvironment_002dvariable"></a>Interactive Command: <strong>emacspeak-wizards-show-environment-variable</strong> <em>(v)</em></dt>
-<dd><p>Display value of specified environment variable.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dshow_002deval_002dresult"></a>Interactive Command: <strong>emacspeak-wizards-show-eval-result</strong> <em>(form)</em></dt>
-<dd><p><kbd>M-ESC :</kbd>
-</p>
-<p>Convenience command to pretty-print and view Lisp evaluation results.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dshow_002dface"></a>Interactive Command: <strong>emacspeak-wizards-show-face</strong> <em>(face)</em></dt>
-<dd><p>Show salient properties of specified face.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dshow_002dmemory_002dused"></a>Interactive Command: <strong>emacspeak-wizards-show-memory-used</strong> <em>nil</em></dt>
-<dd><p>Convenience command to view state of memory used in this session so far.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dspeak_002diso_002ddatetime"></a>Interactive Command: <strong>emacspeak-wizards-speak-iso-datetime</strong> <em>(iso)</em></dt>
-<dd><p>Make ISO date-time speech friendly.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dspot_002dwords"></a>Interactive Command: <strong>emacspeak-wizards-spot-words</strong> <em>(ext word)</em></dt>
-<dd><p>Searches recursively in all files with extension &lsquo;ext&rsquo;
-for &lsquo;word&rsquo; and displays hits in a compilation buffer.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dsqueeze_002dblanks"></a>Interactive Command: <strong>emacspeak-wizards-squeeze-blanks</strong> <em>(start end)</em></dt>
-<dd><p>Squeeze multiple blank lines in current buffer.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dsunrise_002dsunset"></a>Interactive Command: <strong>emacspeak-wizards-sunrise-sunset</strong> <em>(address &amp;optional arg)</em></dt>
-<dd><p>Display sunrise/sunset for specified address.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dswitch_002dshell"></a>Interactive Command: <strong>emacspeak-wizards-switch-shell</strong> <em>(direction)</em></dt>
-<dd><p>Switch to next/previous shell buffer.
-Direction specifies previous/next.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dterm"></a>Interactive Command: <strong>emacspeak-wizards-term</strong> <em>(create)</em></dt>
-<dd><p>Switch to an ansi-term buffer or create one.
-With prefix arg, always creates a new terminal.
-Otherwise cycles through existing terminals, creating the first
-term if needed.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dterminal"></a>Interactive Command: <strong>emacspeak-wizards-terminal</strong> <em>(program)</em></dt>
-<dd><p>Launch terminal and rename buffer appropriately.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dtex_002dtie_002dcurrent_002dword"></a>Interactive Command: <strong>emacspeak-wizards-tex-tie-current-word</strong> <em>(n)</em></dt>
-<dd><p>Tie the next n  words.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dthanks_002dmail_002dsignature"></a>Interactive Command: <strong>emacspeak-wizards-thanks-mail-signature</strong> <em>nil</em></dt>
-<dd><p>insert thanks , &ndash;Raman at the end of mail message
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dtoggle_002dmm_002ddd_002dyyyy_002ddate_002dpronouncer"></a>Interactive Command: <strong>emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer</strong> <em>nil</em></dt>
-<dd><p>Toggle pronunciation of mm-dd-yyyy dates.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dtoggle_002dyyyymmdd_002ddate_002dpronouncer"></a>Interactive Command: <strong>emacspeak-wizards-toggle-yyyymmdd-date-pronouncer</strong> <em>nil</em></dt>
-<dd><p>Toggle pronunciation of yyyymmdd  dates.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dtpctl_002ddisplay_002dstatus"></a>Interactive Command: <strong>emacspeak-wizards-tpctl-display-status</strong> <em>nil</em></dt>
-<dd><p>Show display status on thinkpads using tpctl.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dtramp_002dopen_002dlocation"></a>Interactive Command: <strong>emacspeak-wizards-tramp-open-location</strong> <em>(name)</em></dt>
-<dd><p>Open specified tramp location.
-Location is specified by name.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dunhex_002duri"></a>Interactive Command: <strong>emacspeak-wizards-unhex-uri</strong> <em>(uri)</em></dt>
-<dd><p>UnEscape URI
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dunits"></a>Interactive Command: <strong>emacspeak-wizards-units</strong> <em>nil</em></dt>
-<dd><p>Run units in a comint sub-process.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dvc_002dn"></a>Interactive Command: <strong>emacspeak-wizards-vc-n</strong> <em>nil</em></dt>
-<dd><p>Accelerator for VC viewer.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dvc_002dviewer"></a>Interactive Command: <strong>emacspeak-wizards-vc-viewer</strong> <em>(console)</em></dt>
-<dd><p>View contents of specified virtual console.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dvc_002dviewer_002dmode"></a>Interactive Command: <strong>emacspeak-wizards-vc-viewer-mode</strong> <em>nil</em></dt>
-<dd><p>Major mode for interactively viewing virtual console contents.
-</p>
-<p>key             binding
-&mdash;             &mdash;&mdash;-
-</p>
-<p>C-l		emacspeak-wizards-vc-viewer-refresh
-</p>
-<p>This mode runs the hook &lsquo;emacspeak-wizards-vc-viewer-mode-hook&rsquo;, as the final step
-during initialization.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dvc_002dviewer_002drefresh"></a>Interactive Command: <strong>emacspeak-wizards-vc-viewer-refresh</strong> <em>nil</em></dt>
-<dd><p>Refresh view of VC we&rsquo;re viewing.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dvi_002das_002dsu_002dfile"></a>Interactive Command: <strong>emacspeak-wizards-vi-as-su-file</strong> <em>(file)</em></dt>
-<dd><p>Launch sudo vi on specified file in a terminal.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dview_002dbuffers_002dfiltered_002dby_002dmode"></a>Interactive Command: <strong>emacspeak-wizards-view-buffers-filtered-by-mode</strong> <em>(mode)</em></dt>
-<dd><p>Display list of buffers filtered by specified mode.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dview_002dbuffers_002dfiltered_002dby_002dthis_002dmode"></a>Interactive Command: <strong>emacspeak-wizards-view-buffers-filtered-by-this-mode</strong> <em>nil</em></dt>
-<dd><p>Buffer menu filtered by  mode of current-buffer.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dview_002durl"></a>Interactive Command: <strong>emacspeak-wizards-view-url</strong> <em>nil</em></dt>
-<dd><p>Open a new buffer containing the contents of URL.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dvoice_002dsampler"></a>Interactive Command: <strong>emacspeak-wizards-voice-sampler</strong> <em>(personality)</em></dt>
-<dd><p>Read a personality  and apply it to the current line.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dvpn_002dtoggle"></a>Interactive Command: <strong>emacspeak-wizards-vpn-toggle</strong> <em>nil</em></dt>
-<dd><p>Bring up or bring down vpn.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dxl_002ddisplay"></a>Interactive Command: <strong>emacspeak-wizards-xl-display</strong> <em>nil</em></dt>
-<dd><p>Called to set up preview of an XL file.
-Assumes we are in a buffer visiting a .xls file.
-Previews those contents as HTML and nukes the buffer
-visiting the xls file.
-</p></dd></dl>
-
-<dl>
-<dt><a name="index-emacspeak_002dwizards_002dxl_002dmode"></a>Interactive Command: <strong>emacspeak-wizards-xl-mode</strong> <em>nil</em></dt>
-<dd><p>Major mode for browsing XL spreadsheets.
-</p>
-<p>XL Sheets are converted to HTML and previewed using a browser.
-</p>
-<p>In addition to any hooks its parent mode &lsquo;text-mode&rsquo; might have run,
-this mode runs the hook &lsquo;emacspeak-wizards-xl-mode-hook&rsquo;, as the final step
-during initialization.
-</p>
-<p>key             binding
-&mdash;             &mdash;&mdash;-
-</p>
-</dd></dl>
-
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dxml_002dshell.html#emacspeak_002dxml_002dshell" accesskey="n" rel="next">emacspeak-xml-shell</a>, Previous: <a href="emacspeak_002dwidget.html#emacspeak_002dwidget" accesskey="p" rel="prev">emacspeak-widget</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-
-
-
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dwizards" id="emacspeak_002dwizards"></a>
+
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dxml_002dshell.html#emacspeak_002dxml_002dshell"
+    accesskey="n" rel="next">emacspeak-xml-shell</a>, Previous:
+    <a href="emacspeak_002dwidget.html#emacspeak_002dwidget"
+    accesskey="p" rel="prev">emacspeak-widget</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dwizards-1" id=
+  "emacspeak_002dwizards-1"></a>
+
+  <h3 class="section">11.80 emacspeak-wizards</h3>
+
+  <p>Commentary: Contains various wizards for the Emacspeak
+  desktop.</p>
+
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak-wizards.</p>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dannotate_002dadd_002dannotation" id=
+    "index-emacspeak_002dannotate_002dadd_002dannotation"></a>Interactive
+    Command: <strong>emacspeak-annotate-add-annotation</strong>
+    <em>(&amp;optional reset)</em></dt>
+
+    <dd>
+      <p>Add annotation to the annotation working buffer. Prompt
+      for annotation buffer if not already set. Interactive prefix
+      arg &lsquo;reset&rsquo; prompts for the annotation buffer
+      even if one is already set. Annotation is entered in a
+      temporary buffer and the annotation is inserted into the
+      working buffer when complete.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dclipboard_002dcopy" id=
+    "index-emacspeak_002dclipboard_002dcopy"></a>Interactive
+    Command: <strong>emacspeak-clipboard-copy</strong> <em>(start
+    end &amp;optional prompt)</em></dt>
+
+    <dd>
+      <p><kbd>C-e C-c</kbd></p>
+
+      <p>Copy contents of the region to the emacspeak clipboard.
+      Previous contents of the clipboard will be overwritten. The
+      Emacspeak clipboard is a convenient way of sharing
+      information between independent Emacspeak sessions running on
+      the same or different machines. Do not use this for sharing
+      information within an Emacs session &ndash;Emacs&rsquo;
+      register commands are far more efficient and light-weight.
+      Optional interactive prefix arg results in Emacspeak
+      prompting for the clipboard file to use. Argument START and
+      END specifies region. Optional argument PROMPT specifies
+      whether we prompt for the name of a clipboard file.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dclipboard_002dpaste" id=
+    "index-emacspeak_002dclipboard_002dpaste"></a>Interactive
+    Command: <strong>emacspeak-clipboard-paste</strong>
+    <em>(&amp;optional paste-table)</em></dt>
+
+    <dd>
+      <p><kbd>C-e C-y</kbd></p>
+
+      <p>Yank contents of the Emacspeak clipboard at point. The
+      Emacspeak clipboard is a convenient way of sharing
+      information between independent Emacspeak sessions running on
+      the same or different machines. Do not use this for sharing
+      information within an Emacs session &ndash;Emacs&rsquo;
+      register commands are far more efficient and light-weight.
+      Optional interactive prefix arg pastes from the emacspeak
+      table clipboard instead.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dcopy_002dcurrent_002dfile" id=
+    "index-emacspeak_002dcopy_002dcurrent_002dfile"></a>Interactive
+    Command: <strong>emacspeak-copy-current-file</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e M-c</kbd></p>
+
+      <p>Copy file visited in current buffer to new location.
+      Prompts for the new location and preserves modification time
+      when copying. If location is a directory, the file is copied
+      to that directory under its current name ; if location names
+      a file in an existing directory, the specified name is used.
+      Asks for confirmation if the copy will result in an existing
+      file being overwritten.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dcurl" id=
+    "index-emacspeak_002dcurl"></a>Interactive Command:
+    <strong>emacspeak-curl</strong> <em>(url)</em></dt>
+
+    <dd>
+      <p>Grab URL using Curl, and preview it with a browser .</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dcustomize" id=
+    "index-emacspeak_002dcustomize"></a>Interactive Command:
+    <strong>emacspeak-customize</strong> <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e C</kbd></p>
+
+      <p>Customize Emacspeak.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dcustomize_002dpersonal_002dsettings" id=
+    "index-emacspeak_002dcustomize_002dpersonal_002dsettings"></a>Interactive
+    Command: <strong>emacspeak-customize-personal-settings</strong>
+    <em>(file)</em></dt>
+
+    <dd>
+      <p>Create a customization buffer for browsing and updating
+      personal customizations.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dcvs_002dberlios_002dget_002dproject_002dsnapshot"
+    id=
+    "index-emacspeak_002dcvs_002dberlios_002dget_002dproject_002dsnapshot">
+    </a>Interactive Command:
+    <strong>emacspeak-cvs-berlios-get-project-snapshot</strong>
+    <em>(project &amp;optional module)</em></dt>
+
+    <dd>
+      <p>Grab CVS snapshot of specified project from berlios.de.
+      Ask for module name if prefix argument is given</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dcvs_002dget_002danonymous" id=
+    "index-emacspeak_002dcvs_002dget_002danonymous"></a>Interactive
+    Command: <strong>emacspeak-cvs-get-anonymous</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Get latest cvs snapshot of emacspeak.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dcvs_002dgnu_002dget_002dproject_002dsnapshot"
+    id=
+    "index-emacspeak_002dcvs_002dgnu_002dget_002dproject_002dsnapshot">
+    </a>Interactive Command:
+    <strong>emacspeak-cvs-gnu-get-project-snapshot</strong>
+    <em>(project &amp;optional module)</em></dt>
+
+    <dd>
+      <p>Grab CVS snapshot of specified project from gnu. Ask for
+      module name if prefix argument is given</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dcvs_002dsf_002dget_002dproject_002dsnapshot"
+    id=
+    "index-emacspeak_002dcvs_002dsf_002dget_002dproject_002dsnapshot">
+    </a>Interactive Command:
+    <strong>emacspeak-cvs-sf-get-project-snapshot</strong>
+    <em>(project &amp;optional module)</em></dt>
+
+    <dd>
+      <p>Grab CVS snapshot of specified project from sf. Ask for
+      module name if prefix argument is given</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002demergency_002dtts_002drestart"
+    id=
+    "index-emacspeak_002demergency_002dtts_002drestart"></a>Interactive
+    Command: <strong>emacspeak-emergency-tts-restart</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e &lt;insert&gt;</kbd></p>
+
+      <p>For use in an emergency. Will start TTS engine specified
+      by emacspeak-emergency-tts-server.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dframe_002dlabel_002dor_002dswitch_002dto_002dlabelled_002dframe"
+    id=
+    "index-emacspeak_002dframe_002dlabel_002dor_002dswitch_002dto_002dlabelled_002dframe">
+    </a>Interactive Command:
+    <strong>emacspeak-frame-label-or-switch-to-labelled-frame</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p><kbd>C-e M-f</kbd></p>
+
+      <p>Switch to labelled frame. With optional PREFIX argument,
+      label current frame.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dframe_002dread_002dframe_002dlabel" id=
+    "index-emacspeak_002dframe_002dread_002dframe_002dlabel"></a>Interactive
+    Command: <strong>emacspeak-frame-read-frame-label</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Read a frame label with completion.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dgenerate_002ddocumentation"
+    id="index-emacspeak_002dgenerate_002ddocumentation"></a>Interactive
+    Command: <strong>emacspeak-generate-documentation</strong>
+    <em>(filename)</em></dt>
+
+    <dd>
+      <p>Generate docs for all emacspeak commands. Prompts for
+      FILENAME in which to save the documentation. Warning!
+      Contents of file filename will be overwritten.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgenerate_002dtexinfo_002dcommand_002ddocumentation"
+    id=
+    "index-emacspeak_002dgenerate_002dtexinfo_002dcommand_002ddocumentation">
+    </a>Interactive Command:
+    <strong>emacspeak-generate-texinfo-command-documentation</strong>
+    <em>(filename)</em></dt>
+
+    <dd>
+      <p>Generate texinfo documentation for all emacspeak commands
+      into file commands.texi. Warning! Contents of file
+      commands.texi will be overwritten.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgenerate_002dtexinfo_002doption_002ddocumentation"
+    id=
+    "index-emacspeak_002dgenerate_002dtexinfo_002doption_002ddocumentation">
+    </a>Interactive Command:
+    <strong>emacspeak-generate-texinfo-option-documentation</strong>
+    <em>(filename)</em></dt>
+
+    <dd>
+      <p>Generate texinfo documentation for all emacspeak options
+      into file filename. Warning! Contents of file filename will
+      be overwritten.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dkill_002dbuffer_002dquietly"
+    id=
+    "index-emacspeak_002dkill_002dbuffer_002dquietly"></a>Interactive
+    Command: <strong>emacspeak-kill-buffer-quietly</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Kill current buffer without asking for confirmation.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dlearn_002demacs_002dmode" id=
+    "index-emacspeak_002dlearn_002demacs_002dmode"></a>Interactive
+    Command: <strong>emacspeak-learn-emacs-mode</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e &lt;f1&gt; C-h C-l &lt;f1&gt; C-l &lt;help&gt;
+      C-l</kbd></p>
+
+      <p>Helps you learn the keys. You can press keys and hear what
+      they do. To leave, press C-g.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dlink_002dcurrent_002dfile" id=
+    "index-emacspeak_002dlink_002dcurrent_002dfile"></a>Interactive
+    Command: <strong>emacspeak-link-current-file</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e M-l</kbd></p>
+
+      <p>Link (hard link) file visited in current buffer to new
+      location. Prompts for the new location and preserves
+      modification time when linking. If location is a directory,
+      the file is copied to that directory under its current name ;
+      if location names a file in an existing directory, the
+      specified name is used. Signals an error if target already
+      exists.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dlinks" id=
+    "index-emacspeak_002dlinks"></a>Interactive Command:
+    <strong>emacspeak-links</strong> <em>(url)</em></dt>
+
+    <dd>
+      <p>Launch links on specified URL in a new terminal.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dlynx" id=
+    "index-emacspeak_002dlynx"></a>Interactive Command:
+    <strong>emacspeak-lynx</strong> <em>(url)</em></dt>
+
+    <dd>
+      <p>Launch lynx on specified URL in a new terminal.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dnext_002dframe_002dor_002dbuffer" id=
+    "index-emacspeak_002dnext_002dframe_002dor_002dbuffer"></a>Interactive
+    Command: <strong>emacspeak-next-frame-or-buffer</strong>
+    <em>(&amp;optional frame)</em></dt>
+
+    <dd>
+      <p><kbd>&lt;C-right&gt;</kbd></p>
+
+      <p>Move to next buffer. With optional interactive prefix arg
+      &lsquo;frame&rsquo;, move to next frame instead.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dprevious_002dframe_002dor_002dbuffer" id=
+    "index-emacspeak_002dprevious_002dframe_002dor_002dbuffer"></a>Interactive
+    Command: <strong>emacspeak-previous-frame-or-buffer</strong>
+    <em>(&amp;optional frame)</em></dt>
+
+    <dd>
+      <p><kbd>&lt;C-left&gt;</kbd></p>
+
+      <p>Move to previous buffer. With optional interactive prefix
+      arg &lsquo;frame&rsquo;, move to previous frame instead.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002droot" id=
+    "index-emacspeak_002droot"></a>Interactive Command:
+    <strong>emacspeak-root</strong> <em>(&amp;optional
+    cd)</em></dt>
+
+    <dd>
+      <p><kbd>C-e C-r</kbd></p>
+
+      <p>Start a root shell or switch to one that already exists.
+      Optional interactive prefix arg &lsquo;cd&rsquo; executes cd
+      default-directory after switching.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dselect_002dthis_002dbuffer_002dnext_002ddisplay"
+    id=
+    "index-emacspeak_002dselect_002dthis_002dbuffer_002dnext_002ddisplay">
+    </a>Interactive Command:
+    <strong>emacspeak-select-this-buffer-next-display</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e &lt;C-right&gt;</kbd></p>
+
+      <p>Select this buffer as displayed in a &lsquo;next&rsquo;
+      frame. See documentation for command
+      &lsquo;emacspeak-select-this-buffer-other-window-display&rsquo;
+      for the meaning of &lsquo;next&rsquo;.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dselect_002dthis_002dbuffer_002dother_002dwindow_002ddisplay"
+    id=
+    "index-emacspeak_002dselect_002dthis_002dbuffer_002dother_002dwindow_002ddisplay">
+    </a>Interactive Command:
+    <strong>emacspeak-select-this-buffer-other-window-display</strong>
+    <em>(&amp;optional arg)</em></dt>
+
+    <dd>
+      <p>Switch to this buffer as displayed in a different frame.
+      Emacs allows you to display the same buffer in multiple
+      windows or frames. These different windows can display
+      different portions of the buffer. This is equivalent to
+      leaving a book open at places at once. This command allows
+      you to move to the places where you have left the book open.
+      The number used to invoke this command specifies which of the
+      displays you wish to select. Typically you will have two or
+      at most three such displays open. The current display is 0,
+      the next is 1, and so on. Optional argument ARG specifies the
+      display to select.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dselect_002dthis_002dbuffer_002dprevious_002ddisplay"
+    id=
+    "index-emacspeak_002dselect_002dthis_002dbuffer_002dprevious_002ddisplay">
+    </a>Interactive Command:
+    <strong>emacspeak-select-this-buffer-previous-display</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e &lt;C-left&gt;</kbd></p>
+
+      <p>Select this buffer as displayed in a
+      &lsquo;previous&rsquo; window. See documentation for command
+      &lsquo;emacspeak-select-this-buffer-other-window-display&rsquo;
+      for the meaning of &lsquo;previous&rsquo;.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dshow_002dpersonality_002dat_002dpoint" id=
+    "index-emacspeak_002dshow_002dpersonality_002dat_002dpoint"></a>Interactive
+    Command: <strong>emacspeak-show-personality-at-point</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e M-v</kbd></p>
+
+      <p>Show value of property personality (and possibly face) at
+      point.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dshow_002dproperty_002dat_002dpoint" id=
+    "index-emacspeak_002dshow_002dproperty_002dat_002dpoint"></a>Interactive
+    Command: <strong>emacspeak-show-property-at-point</strong>
+    <em>(&amp;optional property)</em></dt>
+
+    <dd>
+      <p>Show value of PROPERTY at point. If optional arg property
+      is not supplied, read it interactively. Provides completion
+      based on properties that are of interest. If no property is
+      set, show a message and exit.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dskip_002dblank_002dlines_002dbackward" id=
+    "index-emacspeak_002dskip_002dblank_002dlines_002dbackward"></a>Interactive
+    Command: <strong>emacspeak-skip-blank-lines-backward</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>&lt;S-up&gt;</kbd></p>
+
+      <p>Move backward across blank lines. The line under point is
+      then spoken. Signals beginning of buffer.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dskip_002dblank_002dlines_002dforward" id=
+    "index-emacspeak_002dskip_002dblank_002dlines_002dforward"></a>Interactive
+    Command: <strong>emacspeak-skip-blank-lines-forward</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>&lt;S-down&gt;</kbd></p>
+
+      <p>Move forward across blank lines. The line under point is
+      then spoken. Signals end of buffer.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dbrowse_002dlinux_002dhowto" id=
+    "index-emacspeak_002dspeak_002dbrowse_002dlinux_002dhowto"></a>Interactive
+    Command: <strong>emacspeak-speak-browse-linux-howto</strong>
+    <em>(howto)</em></dt>
+
+    <dd>
+      <p><kbd>C-e H</kbd></p>
+
+      <p>Browse a Linux Howto file. We cleanup underlining, and set
+      up outline mode correctly.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dspeak_002dpopup_002dmessages"
+    id=
+    "index-emacspeak_002dspeak_002dpopup_002dmessages"></a>Interactive
+    Command: <strong>emacspeak-speak-popup-messages</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-h M &lt;f1&gt; M &lt;help&gt; M</kbd></p>
+
+      <p>Pop up messages buffer. If it is already selected then
+      hide it and try to restore previous window configuration.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002drun_002dshell_002dcommand" id=
+    "index-emacspeak_002dspeak_002drun_002dshell_002dcommand"></a>Interactive
+    Command: <strong>emacspeak-speak-run-shell-command</strong>
+    <em>(command &amp;optional read-as-csv)</em></dt>
+
+    <dd>
+      <p><kbd>C-e !</kbd></p>
+
+      <p>Invoke shell COMMAND and display its output as a table.
+      The results are placed in a buffer in Emacspeak&rsquo;s table
+      browsing mode. Optional interactive prefix arg read-as-csv
+      interprets the result as csv. . Use this for running shell
+      commands that produce tabulated output. This command should
+      be used for shell commands that produce tabulated output that
+      works with Emacspeak&rsquo;s table recognizer. Verify this
+      first by running the command in a shell and executing command
+      &lsquo;emacspeak-table-display-table-in-region&rsquo;
+      normally bound to C-e TAB.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dtelephone_002ddirectory" id=
+    "index-emacspeak_002dspeak_002dtelephone_002ddirectory"></a>Interactive
+    Command: <strong>emacspeak-speak-telephone-directory</strong>
+    <em>(&amp;optional edit)</em></dt>
+
+    <dd>
+      <p>Lookup and display a phone number. With prefix arg, opens
+      the phone book for editing.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dthis_002dbuffer_002dnext_002ddisplay-1"
+    id=
+    "index-emacspeak_002dspeak_002dthis_002dbuffer_002dnext_002ddisplay-1">
+    </a>Interactive Command:
+    <strong>emacspeak-speak-this-buffer-next-display</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e &lt;right&gt;</kbd></p>
+
+      <p>Speak this buffer as displayed in a &lsquo;previous&rsquo;
+      window. See documentation for command
+      &lsquo;emacspeak-speak-this-buffer-other-window-display&rsquo;
+      for the meaning of &lsquo;next&rsquo;.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dthis_002dbuffer_002dother_002dwindow_002ddisplay-1"
+    id=
+    "index-emacspeak_002dspeak_002dthis_002dbuffer_002dother_002dwindow_002ddisplay-1">
+    </a>Interactive Command:
+    <strong>emacspeak-speak-this-buffer-other-window-display</strong>
+    <em>(&amp;optional arg)</em></dt>
+
+    <dd>
+      <p><kbd>C-e /</kbd></p>
+
+      <p>Speak this buffer as displayed in a different frame. Emacs
+      allows you to display the same buffer in multiple windows or
+      frames. These different windows can display different
+      portions of the buffer. This is equivalent to leaving a book
+      open at places at once. This command allows you to listen to
+      the places where you have left the book open. The number used
+      to invoke this command specifies which of the displays you
+      wish to speak. Typically you will have two or at most three
+      such displays open. The current display is 0, the next is 1,
+      and so on. Optional argument ARG specifies the display to
+      speak.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeak_002dthis_002dbuffer_002dprevious_002ddisplay-1"
+    id=
+    "index-emacspeak_002dspeak_002dthis_002dbuffer_002dprevious_002ddisplay-1">
+    </a>Interactive Command:
+    <strong>emacspeak-speak-this-buffer-previous-display</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e &lt;left&gt;</kbd></p>
+
+      <p>Speak this buffer as displayed in a &lsquo;previous&rsquo;
+      window. See documentation for command
+      &lsquo;emacspeak-speak-this-buffer-other-window-display&rsquo;
+      for the meaning of &lsquo;previous&rsquo;.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dssh_002dtts_002drestart" id=
+    "index-emacspeak_002dssh_002dtts_002drestart"></a>Interactive
+    Command: <strong>emacspeak-ssh-tts-restart</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e &lt;deletechar&gt; C-e &lt;delete&gt;</kbd></p>
+
+      <p>Restart specified ssh tts server.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dsudo" id=
+    "index-emacspeak_002dsudo"></a>Interactive Command:
+    <strong>emacspeak-sudo</strong> <em>(command)</em></dt>
+
+    <dd>
+      <p>SUDo command &ndash;run command as super user.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dsudo_002dedit" id=
+    "index-emacspeak_002dsudo_002dedit"></a>Interactive Command:
+    <strong>emacspeak-sudo-edit</strong> <em>(&amp;optional
+    arg)</em></dt>
+
+    <dd>
+      <p>Edit file as Root.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dswitch_002dto_002dprevious_002dbuffer" id=
+    "index-emacspeak_002dswitch_002dto_002dprevious_002dbuffer"></a>Interactive
+    Command: <strong>emacspeak-switch-to-previous-buffer</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Switch to most recently used interesting buffer. Obsoleted
+      by &lsquo;previous-buffer&rsquo; in Emacs 22</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dsymlink_002dcurrent_002dfile"
+    id=
+    "index-emacspeak_002dsymlink_002dcurrent_002dfile"></a>Interactive
+    Command: <strong>emacspeak-symlink-current-file</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e M-s</kbd></p>
+
+      <p>Link (symbolic link) file visited in current buffer to new
+      location. Prompts for the new location and preserves
+      modification time when linking. If location is a directory,
+      the file is copied to that directory under its current name ;
+      if location names a file in an existing directory, the
+      specified name is used. Signals an error if target already
+      exists.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dview_002demacspeak_002ddoc"
+    id="index-emacspeak_002dview_002demacspeak_002ddoc"></a>Interactive
+    Command: <strong>emacspeak-view-emacspeak-doc</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Display a summary of all Emacspeak commands.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dview_002demacspeak_002dfaq"
+    id="index-emacspeak_002dview_002demacspeak_002dfaq"></a>Interactive
+    Command: <strong>emacspeak-view-emacspeak-faq</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e F</kbd></p>
+
+      <p>Browse the Emacspeak FAQ.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dview_002demacspeak_002dnews"
+    id=
+    "index-emacspeak_002dview_002demacspeak_002dnews"></a>Interactive
+    Command: <strong>emacspeak-view-emacspeak-news</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e N</kbd></p>
+
+      <p>Display info on recent change to Emacspeak.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dview_002demacspeak_002dtips"
+    id=
+    "index-emacspeak_002dview_002demacspeak_002dtips"></a>Interactive
+    Command: <strong>emacspeak-view-emacspeak-tips</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e T</kbd></p>
+
+      <p>Browse Emacspeak productivity tips.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dadd_002dautoload_002dcookies"
+    id=
+    "index-emacspeak_002dwizards_002dadd_002dautoload_002dcookies"></a>Interactive
+    Command:
+    <strong>emacspeak-wizards-add-autoload-cookies</strong>
+    <em>(&amp;optional f)</em></dt>
+
+    <dd>
+      <p>Add autoload cookies to file f. Default is to add autoload
+      cookies to current file.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dbraille" id=
+    "index-emacspeak_002dwizards_002dbraille"></a>Interactive
+    Command: <strong>emacspeak-wizards-braille</strong>
+    <em>(s)</em></dt>
+
+    <dd>
+      <p>Insert Braille string at point.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dbyte_002dcompile_002dcurrent_002dbuffer"
+    id=
+    "index-emacspeak_002dwizards_002dbyte_002dcompile_002dcurrent_002dbuffer">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-byte-compile-current-buffer</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>byte compile current buffer</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dcleanup_002dshell_002dpath"
+    id="index-emacspeak_002dwizards_002dcleanup_002dshell_002dpath">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-cleanup-shell-path</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Cleans up duplicates in shell path env variable.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dcomma_002dat_002dend_002dof_002dword"
+    id=
+    "index-emacspeak_002dwizards_002dcomma_002dat_002dend_002dof_002dword">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-comma-at-end-of-word</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Move to the end of current word and add a comma.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dcount_002dslides_002din_002dregion"
+    id=
+    "index-emacspeak_002dwizards_002dcount_002dslides_002din_002dregion">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-count-slides-in-region</strong>
+    <em>(start end)</em></dt>
+
+    <dd>
+      <p>Count slides starting from point.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dcycle_002dbrowser"
+    id=
+    "index-emacspeak_002dwizards_002dcycle_002dbrowser"></a>Interactive
+    Command: <strong>emacspeak-wizards-cycle-browser</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Cycles through available browsers.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dcycle_002dto_002dnext_002dbuffer"
+    id=
+    "index-emacspeak_002dwizards_002dcycle_002dto_002dnext_002dbuffer">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-cycle-to-next-buffer</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Cycles to next buffer having same mode.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002ddisplay_002dpod_002das_002dmanpage"
+    id=
+    "index-emacspeak_002dwizards_002ddisplay_002dpod_002das_002dmanpage">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-display-pod-as-manpage</strong>
+    <em>(filename)</em></dt>
+
+    <dd>
+      <p>Create a virtual manpage in Emacs from the Perl Online
+      Documentation.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002ddvi_002ddisplay"
+    id=
+    "index-emacspeak_002dwizards_002ddvi_002ddisplay"></a>Interactive
+    Command: <strong>emacspeak-wizards-dvi-display</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Called to set up preview of an DVI file. Assumes we are in
+      a buffer visiting a .DVI file. Previews those contents as
+      text and nukes the buffer visiting the DVI file.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002ddvi_002dmode" id=
+    "index-emacspeak_002dwizards_002ddvi_002dmode"></a>Interactive
+    Command: <strong>emacspeak-wizards-dvi-mode</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Major mode for browsing DVI files.</p>
+
+      <p>DVI files are converted to text and previewed using text
+      mode.</p>
+
+      <p>This mode runs the hook
+      &lsquo;emacspeak-wizards-dvi-mode-hook&rsquo;, as the final
+      step during initialization.</p>
+
+      <p>key binding &mdash; &mdash;&mdash;-</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dedit_002dfile_002das_002droot"
+    id=
+    "index-emacspeak_002dwizards_002dedit_002dfile_002das_002droot">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-edit-file-as-root</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Like &lsquo;ido-find-file, but automatically edit the file
+      with root-privileges (using tramp/sudo), if the file is not
+      writable by user.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dend_002dof_002dword" id=
+    "index-emacspeak_002dwizards_002dend_002dof_002dword"></a>Interactive
+    Command: <strong>emacspeak-wizards-end-of-word</strong>
+    <em>(arg)</em></dt>
+
+    <dd>
+      <p>move to end of word</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002denumerate_002dmatching_002dcommands"
+    id=
+    "index-emacspeak_002dwizards_002denumerate_002dmatching_002dcommands">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-enumerate-matching-commands</strong>
+    <em>(pattern)</em></dt>
+
+    <dd>
+      <p>Prompt for a string pattern and return list of commands
+      whose names match pattern.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002denumerate_002dmatching_002dfaces"
+    id=
+    "index-emacspeak_002dwizards_002denumerate_002dmatching_002dfaces">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-enumerate-matching-faces</strong>
+    <em>(pattern)</em></dt>
+
+    <dd>
+      <p>Enumerate faces matching pattern.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002denumerate_002dobsolete_002dfaces"
+    id=
+    "index-emacspeak_002dwizards_002denumerate_002dobsolete_002dfaces">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-enumerate-obsolete-faces</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>utility function to enumerate old, obsolete maps that we
+      have still mapped to voices.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002denumerate_002duncovered_002dcommands"
+    id=
+    "index-emacspeak_002dwizards_002denumerate_002duncovered_002dcommands">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-enumerate-uncovered-commands</strong>
+    <em>(pattern)</em></dt>
+
+    <dd>
+      <p>Enumerate unadvised commands matching pattern.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002denumerate_002dunmapped_002dfaces"
+    id=
+    "index-emacspeak_002dwizards_002denumerate_002dunmapped_002dfaces">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-enumerate-unmapped-faces</strong>
+    <em>(&amp;optional pattern)</em></dt>
+
+    <dd>
+      <p>Enumerate unmapped faces matching pattern.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002despeak_002dregion"
+    id=
+    "index-emacspeak_002dwizards_002despeak_002dregion"></a>Interactive
+    Command: <strong>emacspeak-wizards-espeak-region</strong>
+    <em>(start end)</em></dt>
+
+    <dd>
+      <p>Speak region using ESpeak polyglot wizard.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002despeak_002dstring"
+    id=
+    "index-emacspeak_002dwizards_002despeak_002dstring"></a>Interactive
+    Command: <strong>emacspeak-wizards-espeak-string</strong>
+    <em>(string)</em></dt>
+
+    <dd>
+      <p>Speak string in lang via ESpeak. Lang is obtained from
+      property &lsquo;lang&rsquo; on string, or via an interactive
+      prompt.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002deww_002dbuffer_002dlist" id=
+    "index-emacspeak_002dwizards_002deww_002dbuffer_002dlist"></a>Interactive
+    Command: <strong>emacspeak-wizards-eww-buffer-list</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Display list of open EWW buffers.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dfind_002demacspeak_002dsource"
+    id=
+    "index-emacspeak_002dwizards_002dfind_002demacspeak_002dsource">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-find-emacspeak-source</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Like find-file, but binds default-directory to
+      emacspeak-directory.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dfind_002dfile_002das_002droot"
+    id=
+    "index-emacspeak_002dwizards_002dfind_002dfile_002das_002droot">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-find-file-as-root</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Like &lsquo;ido-find-file, but automatically edit the file
+      with root-privileges (using tramp/sudo), if the file is not
+      writable by user.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dfind_002dgrep" id=
+    "index-emacspeak_002dwizards_002dfind_002dgrep"></a>Interactive
+    Command: <strong>emacspeak-wizards-find-grep</strong> <em>(glob
+    pattern)</em></dt>
+
+    <dd>
+      <p>Run compile using find and grep. Interactive arguments
+      specify filename pattern and search pattern.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dfind_002dlongest_002dline_002din_002dregion"
+    id=
+    "index-emacspeak_002dwizards_002dfind_002dlongest_002dline_002din_002dregion">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-find-longest-line-in-region</strong>
+    <em>(start end)</em></dt>
+
+    <dd>
+      <p>Find longest line in region. Moves to the longest line
+      when called interactively.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dfind_002dlongest_002dparagraph_002din_002dregion"
+    id=
+    "index-emacspeak_002dwizards_002dfind_002dlongest_002dparagraph_002din_002dregion">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-find-longest-paragraph-in-region</strong>
+    <em>(start end)</em></dt>
+
+    <dd>
+      <p>Find longest paragraph in region. Moves to the longest
+      paragraph when called interactively.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dfind_002dshortest_002dline_002din_002dregion"
+    id=
+    "index-emacspeak_002dwizards_002dfind_002dshortest_002dline_002din_002dregion">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-find-shortest-line-in-region</strong>
+    <em>(start end)</em></dt>
+
+    <dd>
+      <p>Find shortest line in region. Moves to the shortest line
+      when called interactively.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dfinder_002dfind"
+    id=
+    "index-emacspeak_002dwizards_002dfinder_002dfind"></a>Interactive
+    Command: <strong>emacspeak-wizards-finder-find</strong>
+    <em>(directory)</em></dt>
+
+    <dd>
+      <p>Run find-dired on specified switches after prompting for
+      the directory to where find is to be launched.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dfinder_002dmode"
+    id=
+    "index-emacspeak_002dwizards_002dfinder_002dmode"></a>Interactive
+    Command: <strong>emacspeak-wizards-finder-mode</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Emacspeak Finder</p>
+
+      <p>This mode runs the hook
+      &lsquo;emacspeak-wizards-finder-mode-hook&rsquo;, as the
+      final step during initialization.</p>
+
+      <p>key binding &mdash; &mdash;&mdash;-</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dfix_002dread_002donly_002dtext"
+    id=
+    "index-emacspeak_002dwizards_002dfix_002dread_002donly_002dtext">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-fix-read-only-text</strong>
+    <em>(start end)</em></dt>
+
+    <dd>
+      <p>Nuke read-only property on text range.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dfix_002dtypo" id=
+    "index-emacspeak_002dwizards_002dfix_002dtypo"></a>Interactive
+    Command: <strong>emacspeak-wizards-fix-typo</strong> <em>(ext
+    word correction)</em></dt>
+
+    <dd>
+      <p>Search and replace recursively in all files with extension
+      &lsquo;ext&rsquo; for &lsquo;word&rsquo; and replace it with
+      correction. Use with caution.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dgenerate_002dfinder" id=
+    "index-emacspeak_002dwizards_002dgenerate_002dfinder"></a>Interactive
+    Command: <strong>emacspeak-wizards-generate-finder</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Generate a widget-enabled finder wizard.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dgenerate_002dvoice_002dsampler"
+    id=
+    "index-emacspeak_002dwizards_002dgenerate_002dvoice_002dsampler">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-generate-voice-sampler</strong>
+    <em>(step)</em></dt>
+
+    <dd>
+      <p>Generate a buffer that shows a sample line in all the ACSS
+      settings for the current voice family.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dget_002dtable_002dcontent_002dfrom_002dfile"
+    id=
+    "index-emacspeak_002dwizards_002dget_002dtable_002dcontent_002dfrom_002dfile">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-get-table-content-from-file</strong>
+    <em>(file depth count)</em></dt>
+
+    <dd>
+      <p>Extract table specified by depth and count from HTML
+      content at file. Extracted content is sent to STDOUT.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dget_002dtable_002dcontent_002dfrom_002durl"
+    id=
+    "index-emacspeak_002dwizards_002dget_002dtable_002dcontent_002dfrom_002durl">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-get-table-content-from-url</strong>
+    <em>(url depth count)</em></dt>
+
+    <dd>
+      <p>Extract table specified by depth and count from HTML
+      content at URL. Extracted content is placed as a csv file in
+      task.csv.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dgoogle_002dtranscode" id=
+    "index-emacspeak_002dwizards_002dgoogle_002dtranscode"></a>Interactive
+    Command: <strong>emacspeak-wizards-google-transcode</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>View Web through Google Transcoder.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dhow_002dmany_002dmatches" id=
+    "index-emacspeak_002dwizards_002dhow_002dmany_002dmatches"></a>Interactive
+    Command: <strong>emacspeak-wizards-how-many-matches</strong>
+    <em>(start end &amp;optional prefix)</em></dt>
+
+    <dd>
+      <p>If you define a file local variable called
+      &lsquo;emacspeak-occur-pattern&rsquo; that holds a regular
+      expression that matches lines of interest, you can use this
+      command to conveniently run &lsquo;how-many&rsquo; to count
+      matching header lines. With interactive prefix arg, prompts
+      for and remembers the file local pattern.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002di810_002ddisplay_002dstatus"
+    id=
+    "index-emacspeak_002dwizards_002di810_002ddisplay_002dstatus"></a>Interactive
+    Command: <strong>emacspeak-wizards-i810-display-status</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Show display status on thinkpads using i810switch.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002djs" id=
+    "index-emacspeak_002dwizards_002djs"></a>Interactive Command:
+    <strong>emacspeak-wizards-js</strong> <em>nil</em></dt>
+
+    <dd>
+      <p>Run JS in a comint sub-process.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dlacheck_002dbuffer_002dfile"
+    id=
+    "index-emacspeak_002dwizards_002dlacheck_002dbuffer_002dfile"></a>Interactive
+    Command: <strong>emacspeak-wizards-lacheck-buffer-file</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Run Lacheck on current buffer.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dload_002dcurrent_002dfile" id=
+    "index-emacspeak_002dwizards_002dload_002dcurrent_002dfile"></a>Interactive
+    Command: <strong>emacspeak-wizards-load-current-file</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>load file into emacs</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dmove_002dand_002dspeak" id=
+    "index-emacspeak_002dwizards_002dmove_002dand_002dspeak"></a>Interactive
+    Command: <strong>emacspeak-wizards-move-and-speak</strong>
+    <em>(command count)</em></dt>
+
+    <dd>
+      <p>Speaks a chunk of text bounded by point and a target
+      position. Target position is specified using a navigation
+      command and a count that specifies how many times to execute
+      that command first. Point is left at the target position.
+      Interactively, command is specified by pressing the key that
+      invokes the command.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dnext_002dbullet"
+    id=
+    "index-emacspeak_002dwizards_002dnext_002dbullet"></a>Interactive
+    Command: <strong>emacspeak-wizards-next-bullet</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Navigate to and speak next &lsquo;bullet&rsquo;.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dnext_002dinteractive_002ddefun"
+    id=
+    "index-emacspeak_002dwizards_002dnext_002dinteractive_002ddefun">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-next-interactive-defun</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Move point to the next interactive defun</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dnext_002dshell"
+    id="index-emacspeak_002dwizards_002dnext_002dshell"></a>Interactive
+    Command: <strong>emacspeak-wizards-next-shell</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Switch to next shell.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002doccur_002dheader_002dlines"
+    id="index-emacspeak_002dwizards_002doccur_002dheader_002dlines">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-occur-header-lines</strong>
+    <em>(start end &amp;optional prefix)</em></dt>
+
+    <dd>
+      <p>If you define a file local variable called
+      &lsquo;emacspeak-occur-pattern&rsquo; that holds a regular
+      expression that matches header lines, you can use this
+      command to conveniently run &lsquo;occur&rsquo; to find
+      matching header lines. With prefix arg, prompts for and sets
+      value of the file local pattern.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dpdf_002dopen" id=
+    "index-emacspeak_002dwizards_002dpdf_002dopen"></a>Interactive
+    Command: <strong>emacspeak-wizards-pdf-open</strong>
+    <em>(filename &amp;optional ask-pwd)</em></dt>
+
+    <dd>
+      <p>Open pdf file as text. Optional interactive prefix arg
+      ask-pwd prompts for password.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dpopup_002dinput_002dbuffer"
+    id="index-emacspeak_002dwizards_002dpopup_002dinput_002dbuffer">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-popup-input-buffer</strong>
+    <em>(mode)</em></dt>
+
+    <dd>
+      <p>Provide an input buffer in a specified mode.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dportfolio_002dquotes" id=
+    "index-emacspeak_002dwizards_002dportfolio_002dquotes"></a>Interactive
+    Command: <strong>emacspeak-wizards-portfolio-quotes</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Bring up detailed stock quotes for portfolio specified by
+      emacspeak-wizards-personal-portfolio.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dppp_002dtoggle"
+    id="index-emacspeak_002dwizards_002dppp_002dtoggle"></a>Interactive
+    Command: <strong>emacspeak-wizards-ppp-toggle</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Bring up or bring down ppp.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dppt_002ddisplay"
+    id=
+    "index-emacspeak_002dwizards_002dppt_002ddisplay"></a>Interactive
+    Command: <strong>emacspeak-wizards-ppt-display</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Called to set up preview of an PPT file. Assumes we are in
+      a buffer visiting a .ppt file. Previews those contents as
+      HTML and nukes the buffer visiting the ppt file.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dppt_002dmode" id=
+    "index-emacspeak_002dwizards_002dppt_002dmode"></a>Interactive
+    Command: <strong>emacspeak-wizards-ppt-mode</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Major mode for browsing PPT slides.</p>
+
+      <p>PPT files are converted to HTML and previewed using a
+      browser.</p>
+
+      <p>In addition to any hooks its parent mode
+      &lsquo;text-mode&rsquo; might have run, this mode runs the
+      hook &lsquo;emacspeak-wizards-ppt-mode-hook&rsquo;, as the
+      final step during initialization.</p>
+
+      <p>key binding &mdash; &mdash;&mdash;-</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dprevious_002dbullet" id=
+    "index-emacspeak_002dwizards_002dprevious_002dbullet"></a>Interactive
+    Command: <strong>emacspeak-wizards-previous-bullet</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Navigate to and speak previous &lsquo;bullet&rsquo;.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dprevious_002dshell" id=
+    "index-emacspeak_002dwizards_002dprevious_002dshell"></a>Interactive
+    Command: <strong>emacspeak-wizards-previous-shell</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Switch to previous shell.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002drefresh_002dshell_002dhistory"
+    id=
+    "index-emacspeak_002dwizards_002drefresh_002dshell_002dhistory">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-refresh-shell-history</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Refresh shell history from disk. This is for use in
+      conjunction with bash to allow multiple emacs shell buffers
+      to share history information.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002drivo" id=
+    "index-emacspeak_002dwizards_002drivo"></a>Interactive Command:
+    <strong>emacspeak-wizards-rivo</strong> <em>(when channel
+    stop-time output directory)</em></dt>
+
+    <dd>
+      <p>Rivo wizard. Prompts for relevant information and
+      schedules a rivo job using UNIX At scheduling facility. RIVO
+      is implemented by rivo.pl &mdash; a Perl script that can be
+      used to launch streaming media and record streaming media for
+      a specified duration.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002drpm_002dquery_002din_002ddired"
+    id=
+    "index-emacspeak_002dwizards_002drpm_002dquery_002din_002ddired">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-rpm-query-in-dired</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Run rpm -qi on current dired entry.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dshell" id=
+    "index-emacspeak_002dwizards_002dshell"></a>Interactive
+    Command: <strong>emacspeak-wizards-shell</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p>Run Emacs built-in &lsquo;shell&rsquo; command when not in
+      a shell buffer, or when called with a prefix argument. When
+      called from a shell buffer, switches to &lsquo;next&rsquo;
+      shell buffer.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dshell_002dcommand_002don_002dcurrent_002dfile"
+    id=
+    "index-emacspeak_002dwizards_002dshell_002dcommand_002don_002dcurrent_002dfile">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-shell-command-on-current-file</strong>
+    <em>(command)</em></dt>
+
+    <dd>
+      <p><kbd>C-e &amp;</kbd></p>
+
+      <p>Prompts for and runs shell command on current file.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dshell_002dtoggle"
+    id=
+    "index-emacspeak_002dwizards_002dshell_002dtoggle"></a>Interactive
+    Command: <strong>emacspeak-wizards-shell-toggle</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e &lt;f11&gt;</kbd></p>
+
+      <p>Switch to the shell buffer and cd to the directory of the
+      current buffer.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dshow_002dcommentary" id=
+    "index-emacspeak_002dwizards_002dshow_002dcommentary"></a>Interactive
+    Command: <strong>emacspeak-wizards-show-commentary</strong>
+    <em>(&amp;optional file)</em></dt>
+
+    <dd>
+      <p>Display commentary. Default is to display commentary from
+      current buffer.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dshow_002denvironment_002dvariable"
+    id=
+    "index-emacspeak_002dwizards_002dshow_002denvironment_002dvariable">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-show-environment-variable</strong>
+    <em>(v)</em></dt>
+
+    <dd>
+      <p>Display value of specified environment variable.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dshow_002deval_002dresult" id=
+    "index-emacspeak_002dwizards_002dshow_002deval_002dresult"></a>Interactive
+    Command: <strong>emacspeak-wizards-show-eval-result</strong>
+    <em>(form)</em></dt>
+
+    <dd>
+      <p><kbd>M-ESC :</kbd></p>
+
+      <p>Convenience command to pretty-print and view Lisp
+      evaluation results.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dshow_002dface" id=
+    "index-emacspeak_002dwizards_002dshow_002dface"></a>Interactive
+    Command: <strong>emacspeak-wizards-show-face</strong>
+    <em>(face)</em></dt>
+
+    <dd>
+      <p>Show salient properties of specified face.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dshow_002dmemory_002dused" id=
+    "index-emacspeak_002dwizards_002dshow_002dmemory_002dused"></a>Interactive
+    Command: <strong>emacspeak-wizards-show-memory-used</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Convenience command to view state of memory used in this
+      session so far.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dspeak_002diso_002ddatetime"
+    id="index-emacspeak_002dwizards_002dspeak_002diso_002ddatetime">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-speak-iso-datetime</strong>
+    <em>(iso)</em></dt>
+
+    <dd>
+      <p>Make ISO date-time speech friendly.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dspot_002dwords"
+    id="index-emacspeak_002dwizards_002dspot_002dwords"></a>Interactive
+    Command: <strong>emacspeak-wizards-spot-words</strong> <em>(ext
+    word)</em></dt>
+
+    <dd>
+      <p>Searches recursively in all files with extension
+      &lsquo;ext&rsquo; for &lsquo;word&rsquo; and displays hits in
+      a compilation buffer.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dsqueeze_002dblanks" id=
+    "index-emacspeak_002dwizards_002dsqueeze_002dblanks"></a>Interactive
+    Command: <strong>emacspeak-wizards-squeeze-blanks</strong>
+    <em>(start end)</em></dt>
+
+    <dd>
+      <p>Squeeze multiple blank lines in current buffer.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dsunrise_002dsunset" id=
+    "index-emacspeak_002dwizards_002dsunrise_002dsunset"></a>Interactive
+    Command: <strong>emacspeak-wizards-sunrise-sunset</strong>
+    <em>(address &amp;optional arg)</em></dt>
+
+    <dd>
+      <p>Display sunrise/sunset for specified address.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dswitch_002dshell"
+    id=
+    "index-emacspeak_002dwizards_002dswitch_002dshell"></a>Interactive
+    Command: <strong>emacspeak-wizards-switch-shell</strong>
+    <em>(direction)</em></dt>
+
+    <dd>
+      <p>Switch to next/previous shell buffer. Direction specifies
+      previous/next.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dterm" id=
+    "index-emacspeak_002dwizards_002dterm"></a>Interactive Command:
+    <strong>emacspeak-wizards-term</strong> <em>(create)</em></dt>
+
+    <dd>
+      <p>Switch to an ansi-term buffer or create one. With prefix
+      arg, always creates a new terminal. Otherwise cycles through
+      existing terminals, creating the first term if needed.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dterminal" id=
+    "index-emacspeak_002dwizards_002dterminal"></a>Interactive
+    Command: <strong>emacspeak-wizards-terminal</strong>
+    <em>(program)</em></dt>
+
+    <dd>
+      <p>Launch terminal and rename buffer appropriately.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dtex_002dtie_002dcurrent_002dword"
+    id=
+    "index-emacspeak_002dwizards_002dtex_002dtie_002dcurrent_002dword">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-tex-tie-current-word</strong>
+    <em>(n)</em></dt>
+
+    <dd>
+      <p>Tie the next n words.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dthanks_002dmail_002dsignature"
+    id=
+    "index-emacspeak_002dwizards_002dthanks_002dmail_002dsignature">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-thanks-mail-signature</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>insert thanks , &ndash;Raman at the end of mail
+      message</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dtoggle_002dmm_002ddd_002dyyyy_002ddate_002dpronouncer"
+    id=
+    "index-emacspeak_002dwizards_002dtoggle_002dmm_002ddd_002dyyyy_002ddate_002dpronouncer">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Toggle pronunciation of mm-dd-yyyy dates.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dtoggle_002dyyyymmdd_002ddate_002dpronouncer"
+    id=
+    "index-emacspeak_002dwizards_002dtoggle_002dyyyymmdd_002ddate_002dpronouncer">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-toggle-yyyymmdd-date-pronouncer</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Toggle pronunciation of yyyymmdd dates.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dtpctl_002ddisplay_002dstatus"
+    id=
+    "index-emacspeak_002dwizards_002dtpctl_002ddisplay_002dstatus"></a>Interactive
+    Command:
+    <strong>emacspeak-wizards-tpctl-display-status</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Show display status on thinkpads using tpctl.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dtramp_002dopen_002dlocation"
+    id=
+    "index-emacspeak_002dwizards_002dtramp_002dopen_002dlocation"></a>Interactive
+    Command: <strong>emacspeak-wizards-tramp-open-location</strong>
+    <em>(name)</em></dt>
+
+    <dd>
+      <p>Open specified tramp location. Location is specified by
+      name.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dtune_002din_002dradio_002dbrowse"
+    id=
+    "index-emacspeak_002dwizards_002dtune_002din_002dradio_002dbrowse">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-tune-in-radio-browse</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Browse Tune-In Radio.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dtune_002din_002dradio_002dsearch"
+    id=
+    "index-emacspeak_002dwizards_002dtune_002din_002dradio_002dsearch">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-tune-in-radio-search</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Search Tune-In Radio.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dunhex_002duri" id=
+    "index-emacspeak_002dwizards_002dunhex_002duri"></a>Interactive
+    Command: <strong>emacspeak-wizards-unhex-uri</strong>
+    <em>(uri)</em></dt>
+
+    <dd>
+      <p>UnEscape URI</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dunits" id=
+    "index-emacspeak_002dwizards_002dunits"></a>Interactive
+    Command: <strong>emacspeak-wizards-units</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Run units in a comint sub-process.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dvc_002dn" id=
+    "index-emacspeak_002dwizards_002dvc_002dn"></a>Interactive
+    Command: <strong>emacspeak-wizards-vc-n</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Accelerator for VC viewer.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dvc_002dviewer" id=
+    "index-emacspeak_002dwizards_002dvc_002dviewer"></a>Interactive
+    Command: <strong>emacspeak-wizards-vc-viewer</strong>
+    <em>(console)</em></dt>
+
+    <dd>
+      <p>View contents of specified virtual console.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dvc_002dviewer_002dmode" id=
+    "index-emacspeak_002dwizards_002dvc_002dviewer_002dmode"></a>Interactive
+    Command: <strong>emacspeak-wizards-vc-viewer-mode</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Major mode for interactively viewing virtual console
+      contents.</p>
+
+      <p>key binding &mdash; &mdash;&mdash;-</p>
+
+      <p>C-l emacspeak-wizards-vc-viewer-refresh</p>
+
+      <p>This mode runs the hook
+      &lsquo;emacspeak-wizards-vc-viewer-mode-hook&rsquo;, as the
+      final step during initialization.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dvc_002dviewer_002drefresh" id=
+    "index-emacspeak_002dwizards_002dvc_002dviewer_002drefresh"></a>Interactive
+    Command: <strong>emacspeak-wizards-vc-viewer-refresh</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Refresh view of VC we&rsquo;re viewing.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dvi_002das_002dsu_002dfile" id=
+    "index-emacspeak_002dwizards_002dvi_002das_002dsu_002dfile"></a>Interactive
+    Command: <strong>emacspeak-wizards-vi-as-su-file</strong>
+    <em>(file)</em></dt>
+
+    <dd>
+      <p>Launch sudo vi on specified file in a terminal.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dview_002dbuffers_002dfiltered_002dby_002dmode"
+    id=
+    "index-emacspeak_002dwizards_002dview_002dbuffers_002dfiltered_002dby_002dmode">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-view-buffers-filtered-by-mode</strong>
+    <em>(mode)</em></dt>
+
+    <dd>
+      <p>Display list of buffers filtered by specified mode.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwizards_002dview_002dbuffers_002dfiltered_002dby_002dthis_002dmode"
+    id=
+    "index-emacspeak_002dwizards_002dview_002dbuffers_002dfiltered_002dby_002dthis_002dmode">
+    </a>Interactive Command:
+    <strong>emacspeak-wizards-view-buffers-filtered-by-this-mode</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Buffer menu filtered by mode of current-buffer.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dview_002durl" id=
+    "index-emacspeak_002dwizards_002dview_002durl"></a>Interactive
+    Command: <strong>emacspeak-wizards-view-url</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Open a new buffer containing the contents of URL.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dvoice_002dsampler"
+    id=
+    "index-emacspeak_002dwizards_002dvoice_002dsampler"></a>Interactive
+    Command: <strong>emacspeak-wizards-voice-sampler</strong>
+    <em>(personality)</em></dt>
+
+    <dd>
+      <p>Read a personality and apply it to the current line.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dvpn_002dtoggle"
+    id="index-emacspeak_002dwizards_002dvpn_002dtoggle"></a>Interactive
+    Command: <strong>emacspeak-wizards-vpn-toggle</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Bring up or bring down vpn.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dxl_002ddisplay"
+    id="index-emacspeak_002dwizards_002dxl_002ddisplay"></a>Interactive
+    Command: <strong>emacspeak-wizards-xl-display</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Called to set up preview of an XL file. Assumes we are in
+      a buffer visiting a .xls file. Previews those contents as
+      HTML and nukes the buffer visiting the xls file.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dxl_002dmode" id=
+    "index-emacspeak_002dwizards_002dxl_002dmode"></a>Interactive
+    Command: <strong>emacspeak-wizards-xl-mode</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Major mode for browsing XL spreadsheets.</p>
+
+      <p>XL Sheets are converted to HTML and previewed using a
+      browser.</p>
+
+      <p>In addition to any hooks its parent mode
+      &lsquo;text-mode&rsquo; might have run, this mode runs the
+      hook &lsquo;emacspeak-wizards-xl-mode-hook&rsquo;, as the
+      final step during initialization.</p>
+
+      <p>key binding &mdash; &mdash;&mdash;-</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dxml_002dshell.html#emacspeak_002dxml_002dshell"
+    accesskey="n" rel="next">emacspeak-xml-shell</a>, Previous:
+    <a href="emacspeak_002dwidget.html#emacspeak_002dwidget"
+    accesskey="p" rel="prev">emacspeak-widget</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

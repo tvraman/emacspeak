@@ -1,87 +1,135 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: dtk-unicode</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: dtk-unicode">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: dtk-unicode">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up" title="Emacspeak Commands">
-<link href="emacspeak_002dalsaplayer.html#emacspeak_002dalsaplayer" rel="next" title="emacspeak-alsaplayer">
-<link href="dtk_002dspeak.html#dtk_002dspeak" rel="prev" title="dtk-speak">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  dtk-unicode</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: dtk-unicode" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: dtk-unicode" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
+  title="Emacspeak Commands" />
+  <link href=
+  "emacspeak_002dalsaplayer.html#emacspeak_002dalsaplayer" rel=
+  "next" title="emacspeak-alsaplayer" />
+  <link href="dtk_002dspeak.html#dtk_002dspeak" rel="prev" title=
+  "dtk-speak" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="dtk_002dunicode"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dalsaplayer.html#emacspeak_002dalsaplayer" accesskey="n" rel="next">emacspeak-alsaplayer</a>, Previous: <a href="dtk_002dspeak.html#dtk_002dspeak" accesskey="p" rel="prev">dtk-speak</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="dtk_002dunicode-1"></a>
-<h3 class="section">11.4 dtk-unicode</h3>
+<body lang="en" xml:lang="en">
+  <a name="dtk_002dunicode" id="dtk_002dunicode"></a>
 
-<p>Commentary:
-</p>
-<p>This  Provides Unicode support to the speech layer.
-</p>
-<p>Automatically generated documentation
-for commands defined in module  dtk-unicode.
-</p>
-<dl>
-<dt><a name="index-dtk_002dunicode_002dcustomize_002dchar"></a>Interactive Command: <strong>dtk-unicode-customize-char</strong> <em>(char replacement)</em></dt>
-<dd><p>Add a custom replacement string for CHAR.
-</p>
-<p>When called interactively, CHAR defaults to the character after point.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dalsaplayer.html#emacspeak_002dalsaplayer"
+    accesskey="n" rel="next">emacspeak-alsaplayer</a>, Previous:
+    <a href="dtk_002dspeak.html#dtk_002dspeak" accesskey="p" rel=
+    "prev">dtk-speak</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="dtk_002dunicode-1" id="dtk_002dunicode-1"></a>
 
-<dl>
-<dt><a name="index-dtk_002dunicode_002duncustomize_002dchar"></a>Interactive Command: <strong>dtk-unicode-uncustomize-char</strong> <em>(char)</em></dt>
-<dd><p>Delete custom replacement for CHAR.
-</p>
-<p>When called interactively, CHAR defaults to the character after point.
-</p></dd></dl>
+  <h3 class="section">11.4 dtk-unicode</h3>
 
+  <p>Commentary:</p>
 
+  <p>This Provides Unicode support to the speech layer.</p>
 
+  <p>Automatically generated documentation for commands defined in
+  module dtk-unicode.</p>
 
+  <dl>
+    <dt><a name="index-dtk_002dunicode_002dcustomize_002dchar" id=
+    "index-dtk_002dunicode_002dcustomize_002dchar"></a>Interactive
+    Command: <strong>dtk-unicode-customize-char</strong> <em>(char
+    replacement)</em></dt>
+
+    <dd>
+      <p>Add a custom replacement string for CHAR.</p>
+
+      <p>When called interactively, CHAR defaults to the character
+      after point.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-dtk_002dunicode_002duncustomize_002dchar"
+    id="index-dtk_002dunicode_002duncustomize_002dchar"></a>Interactive
+    Command: <strong>dtk-unicode-uncustomize-char</strong>
+    <em>(char)</em></dt>
+
+    <dd>
+      <p>Delete custom replacement for CHAR.</p>
+
+      <p>When called interactively, CHAR defaults to the character
+      after point.</p>
+    </dd>
+  </dl>
 </body>
 </html>

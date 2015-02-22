@@ -1,251 +1,917 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Emacspeak Commands</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Emacspeak Commands">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Emacspeak Commands">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="index.html#Top" rel="up" title="Top">
-<link href="cd_002dtool.html#cd_002dtool" rel="next" title="cd-tool">
-<link href="Running-Terminal-Based-Applications.html#Running-Terminal-Based-Applications" rel="prev" title="Running Terminal Based Applications">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  Emacspeak Commands</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Emacspeak Commands" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Emacspeak Commands" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="index.html#Top" rel="up" title="Top" />
+  <link href="cd_002dtool.html#cd_002dtool" rel="next" title=
+  "cd-tool" />
+  <link href=
+  "Running-Terminal-Based-Applications.html#Running-Terminal-Based-Applications"
+  rel="prev" title="Running Terminal Based Applications" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="Emacspeak-Commands"></a>
-<div class="header">
-<p>
-Next: <a href="Emacspeak-Customizations.html#Emacspeak-Customizations" accesskey="n" rel="next">Emacspeak Customizations</a>, Previous: <a href="Running-Terminal-Based-Applications.html#Running-Terminal-Based-Applications" accesskey="p" rel="prev">Running Terminal Based Applications</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="Emacspeak-Commands-1"></a>
-<h2 class="chapter">11 Emacspeak Commands</h2>
+<body lang="en" xml:lang="en">
+  <a name="Emacspeak-Commands" id="Emacspeak-Commands"></a>
 
-<p>This chapter is generated automatically from the source-level documentation.
-Any errors or corrections should be made to the source-level
-documentation. This chapter documents a total of 1003
-commands.
-</p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="cd_002dtool.html#cd_002dtool" accesskey="1">cd-tool</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="dectalk_002dvoices.html#dectalk_002dvoices" accesskey="2">dectalk-voices</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="dtk_002dspeak.html#dtk_002dspeak" accesskey="3">dtk-speak</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="dtk_002dunicode.html#dtk_002dunicode" accesskey="4">dtk-unicode</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dalsaplayer.html#emacspeak_002dalsaplayer" accesskey="5">emacspeak-alsaplayer</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002damark.html#emacspeak_002damark" accesskey="6">emacspeak-amark</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002darc.html#emacspeak_002darc" accesskey="7">emacspeak-arc</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002daumix.html#emacspeak_002daumix" accesskey="8">emacspeak-aumix</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dbbc.html#emacspeak_002dbbc" accesskey="9">emacspeak-bbc</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dbookshare.html#emacspeak_002dbookshare">emacspeak-bookshare</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dbs.html#emacspeak_002dbs">emacspeak-bs</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dbuff_002dmenu.html#emacspeak_002dbuff_002dmenu">emacspeak-buff-menu</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dc.html#emacspeak_002dc">emacspeak-c</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dcalendar.html#emacspeak_002dcalendar">emacspeak-calendar</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dcompile.html#emacspeak_002dcompile">emacspeak-compile</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dcustom.html#emacspeak_002dcustom">emacspeak-custom</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002ddired.html#emacspeak_002ddired">emacspeak-dired</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002ddismal.html#emacspeak_002ddismal">emacspeak-dismal</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002decb.html#emacspeak_002decb">emacspeak-ecb</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dediff.html#emacspeak_002dediff">emacspeak-ediff</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002denriched.html#emacspeak_002denriched">emacspeak-enriched</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dentertain.html#emacspeak_002dentertain">emacspeak-entertain</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002deperiodic.html#emacspeak_002deperiodic">emacspeak-eperiodic</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002depub.html#emacspeak_002depub">emacspeak-epub</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002derc.html#emacspeak_002derc">emacspeak-erc</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002determ.html#emacspeak_002determ">emacspeak-eterm</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002deudc.html#emacspeak_002deudc">emacspeak-eudc</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002deww.html#emacspeak_002deww">emacspeak-eww</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dfeeds.html#emacspeak_002dfeeds">emacspeak-feeds</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dfiltertext.html#emacspeak_002dfiltertext">emacspeak-filtertext</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dfix_002dinteractive.html#emacspeak_002dfix_002dinteractive">emacspeak-fix-interactive</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dforms.html#emacspeak_002dforms">emacspeak-forms</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dgnus.html#emacspeak_002dgnus">emacspeak-gnus</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dgomoku.html#emacspeak_002dgomoku">emacspeak-gomoku</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dgoogle.html#emacspeak_002dgoogle">emacspeak-google</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dgridtext.html#emacspeak_002dgridtext">emacspeak-gridtext</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dhide.html#emacspeak_002dhide">emacspeak-hide</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dibuffer.html#emacspeak_002dibuffer">emacspeak-ibuffer</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dimenu.html#emacspeak_002dimenu">emacspeak-imenu</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dinfo.html#emacspeak_002dinfo">emacspeak-info</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002djabber.html#emacspeak_002djabber">emacspeak-jabber</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dkeymap.html#emacspeak_002dkeymap">emacspeak-keymap</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dlibrivox.html#emacspeak_002dlibrivox">emacspeak-librivox</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dm_002dplayer.html#emacspeak_002dm_002dplayer">emacspeak-m-player</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dmadplay.html#emacspeak_002dmadplay">emacspeak-madplay</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dman.html#emacspeak_002dman">emacspeak-man</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dmpg123.html#emacspeak_002dmpg123">emacspeak-mpg123</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dnpr.html#emacspeak_002dnpr">emacspeak-npr</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002docr.html#emacspeak_002docr">emacspeak-ocr</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dorg.html#emacspeak_002dorg">emacspeak-org</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002doutline.html#emacspeak_002doutline">emacspeak-outline</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dpackage.html#emacspeak_002dpackage">emacspeak-package</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dpianobar.html#emacspeak_002dpianobar">emacspeak-pianobar</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dpronounce.html#emacspeak_002dpronounce">emacspeak-pronounce</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dredefine.html#emacspeak_002dredefine">emacspeak-redefine</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dremote.html#emacspeak_002dremote">emacspeak-remote</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002drmail.html#emacspeak_002drmail">emacspeak-rmail</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dsolitaire.html#emacspeak_002dsolitaire">emacspeak-solitaire</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dsounds.html#emacspeak_002dsounds">emacspeak-sounds</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dspeak.html#emacspeak_002dspeak">emacspeak-speak</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dspeedbar.html#emacspeak_002dspeedbar">emacspeak-speedbar</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dsudoku.html#emacspeak_002dsudoku">emacspeak-sudoku</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dtable_002dui.html#emacspeak_002dtable_002dui">emacspeak-table-ui</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dtabulate.html#emacspeak_002dtabulate">emacspeak-tabulate</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dtapestry.html#emacspeak_002dtapestry">emacspeak-tapestry</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dtar.html#emacspeak_002dtar">emacspeak-tar</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dtetris.html#emacspeak_002dtetris">emacspeak-tetris</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dtnt.html#emacspeak_002dtnt">emacspeak-tnt</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002durl_002dtemplate.html#emacspeak_002durl_002dtemplate">emacspeak-url-template</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dview.html#emacspeak_002dview">emacspeak-view</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dvm.html#emacspeak_002dvm">emacspeak-vm</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dw3.html#emacspeak_002dw3">emacspeak-w3</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dw3m.html#emacspeak_002dw3m">emacspeak-w3m</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dwe.html#emacspeak_002dwe">emacspeak-we</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dwebsearch.html#emacspeak_002dwebsearch">emacspeak-websearch</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dwebspace.html#emacspeak_002dwebspace">emacspeak-webspace</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dwebutils.html#emacspeak_002dwebutils">emacspeak-webutils</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dwidget.html#emacspeak_002dwidget">emacspeak-widget</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dwizards.html#emacspeak_002dwizards">emacspeak-wizards</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dxml_002dshell.html#emacspeak_002dxml_002dshell">emacspeak-xml-shell</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dxslt.html#emacspeak_002dxslt">emacspeak-xslt</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak_002dzinf.html#emacspeak_002dzinf">emacspeak-zinf</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="emacspeak.html#emacspeak">emacspeak</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="flite_002dvoices.html#flite_002dvoices">flite-voices</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="voice_002dsetup.html#voice_002dsetup">voice-setup</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="URL-Templates.html#URL-Templates">URL Templates </a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
+  <div class="header">
+    <p>Next: <a href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations"
+    accesskey="n" rel="next">Emacspeak Customizations</a>,
+    Previous: <a href=
+    "Running-Terminal-Based-Applications.html#Running-Terminal-Based-Applications"
+    accesskey="p" rel="prev">Running Terminal Based
+    Applications</a>, Up: <a href="index.html#Top" accesskey="u"
+    rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents"
+    title="Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="Emacspeak-Commands-1" id="Emacspeak-Commands-1"></a>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="Emacspeak-Customizations.html#Emacspeak-Customizations" accesskey="n" rel="next">Emacspeak Customizations</a>, Previous: <a href="Running-Terminal-Based-Applications.html#Running-Terminal-Based-Applications" accesskey="p" rel="prev">Running Terminal Based Applications</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+  <h2 class="chapter">11 Emacspeak Commands</h2>
 
+  <p>This chapter is generated automatically from the source-level
+  documentation. Any errors or corrections should be made to the
+  source-level documentation. This chapter documents a total of
+  1012 commands.</p>
 
+  <table class="menu" border="0" cellspacing="0">
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "cd_002dtool.html#cd_002dtool" accesskey=
+      "1">cd-tool</a>:</td>
 
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "dectalk_002dvoices.html#dectalk_002dvoices" accesskey=
+      "2">dectalk-voices</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "dtk_002dspeak.html#dtk_002dspeak" accesskey=
+      "3">dtk-speak</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "dtk_002dunicode.html#dtk_002dunicode" accesskey=
+      "4">dtk-unicode</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dalsaplayer.html#emacspeak_002dalsaplayer"
+      accesskey="5">emacspeak-alsaplayer</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002damark.html#emacspeak_002damark" accesskey=
+      "6">emacspeak-amark</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002darc.html#emacspeak_002darc" accesskey=
+      "7">emacspeak-arc</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002daumix.html#emacspeak_002daumix" accesskey=
+      "8">emacspeak-aumix</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dbbc.html#emacspeak_002dbbc" accesskey=
+      "9">emacspeak-bbc</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dbookshare.html#emacspeak_002dbookshare">emacspeak-bookshare</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dbs.html#emacspeak_002dbs">emacspeak-bs</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dbuff_002dmenu.html#emacspeak_002dbuff_002dmenu">
+      emacspeak-buff-menu</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dc.html#emacspeak_002dc">emacspeak-c</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dcalendar.html#emacspeak_002dcalendar">emacspeak-calendar</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dcompile.html#emacspeak_002dcompile">emacspeak-compile</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dcustom.html#emacspeak_002dcustom">emacspeak-custom</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002ddired.html#emacspeak_002ddired">emacspeak-dired</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002ddismal.html#emacspeak_002ddismal">emacspeak-dismal</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002decb.html#emacspeak_002decb">emacspeak-ecb</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dediff.html#emacspeak_002dediff">emacspeak-ediff</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002delfeed.html#emacspeak_002delfeed">emacspeak-elfeed</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002denriched.html#emacspeak_002denriched">emacspeak-enriched</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dentertain.html#emacspeak_002dentertain">emacspeak-entertain</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002deperiodic.html#emacspeak_002deperiodic">emacspeak-eperiodic</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002depub.html#emacspeak_002depub">emacspeak-epub</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002derc.html#emacspeak_002derc">emacspeak-erc</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002determ.html#emacspeak_002determ">emacspeak-eterm</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002deudc.html#emacspeak_002deudc">emacspeak-eudc</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002deww.html#emacspeak_002deww">emacspeak-eww</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dfeeds.html#emacspeak_002dfeeds">emacspeak-feeds</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dfiltertext.html#emacspeak_002dfiltertext">emacspeak-filtertext</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dfix_002dinteractive.html#emacspeak_002dfix_002dinteractive">
+      emacspeak-fix-interactive</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dforms.html#emacspeak_002dforms">emacspeak-forms</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dgnus.html#emacspeak_002dgnus">emacspeak-gnus</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dgomoku.html#emacspeak_002dgomoku">emacspeak-gomoku</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dgoogle.html#emacspeak_002dgoogle">emacspeak-google</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dgridtext.html#emacspeak_002dgridtext">emacspeak-gridtext</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dhide.html#emacspeak_002dhide">emacspeak-hide</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dibuffer.html#emacspeak_002dibuffer">emacspeak-ibuffer</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dimenu.html#emacspeak_002dimenu">emacspeak-imenu</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dinfo.html#emacspeak_002dinfo">emacspeak-info</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002djabber.html#emacspeak_002djabber">emacspeak-jabber</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dkeymap.html#emacspeak_002dkeymap">emacspeak-keymap</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dlibrivox.html#emacspeak_002dlibrivox">emacspeak-librivox</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dm_002dplayer.html#emacspeak_002dm_002dplayer">emacspeak-m-player</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dmadplay.html#emacspeak_002dmadplay">emacspeak-madplay</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dman.html#emacspeak_002dman">emacspeak-man</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dmpg123.html#emacspeak_002dmpg123">emacspeak-mpg123</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dnpr.html#emacspeak_002dnpr">emacspeak-npr</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002docr.html#emacspeak_002docr">emacspeak-ocr</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dorg.html#emacspeak_002dorg">emacspeak-org</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002doutline.html#emacspeak_002doutline">emacspeak-outline</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dpackage.html#emacspeak_002dpackage">emacspeak-package</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dpianobar.html#emacspeak_002dpianobar">emacspeak-pianobar</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dpronounce.html#emacspeak_002dpronounce">emacspeak-pronounce</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dredefine.html#emacspeak_002dredefine">emacspeak-redefine</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dremote.html#emacspeak_002dremote">emacspeak-remote</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002drmail.html#emacspeak_002drmail">emacspeak-rmail</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dsolitaire.html#emacspeak_002dsolitaire">emacspeak-solitaire</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dsounds.html#emacspeak_002dsounds">emacspeak-sounds</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dspeak.html#emacspeak_002dspeak">emacspeak-speak</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dspeedbar.html#emacspeak_002dspeedbar">emacspeak-speedbar</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dsudoku.html#emacspeak_002dsudoku">emacspeak-sudoku</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dtable_002dui.html#emacspeak_002dtable_002dui">emacspeak-table-ui</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dtabulate.html#emacspeak_002dtabulate">emacspeak-tabulate</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dtapestry.html#emacspeak_002dtapestry">emacspeak-tapestry</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dtar.html#emacspeak_002dtar">emacspeak-tar</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dtetris.html#emacspeak_002dtetris">emacspeak-tetris</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dtnt.html#emacspeak_002dtnt">emacspeak-tnt</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002durl_002dtemplate.html#emacspeak_002durl_002dtemplate">
+      emacspeak-url-template</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dview.html#emacspeak_002dview">emacspeak-view</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dvm.html#emacspeak_002dvm">emacspeak-vm</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dw3.html#emacspeak_002dw3">emacspeak-w3</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dw3m.html#emacspeak_002dw3m">emacspeak-w3m</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dwe.html#emacspeak_002dwe">emacspeak-we</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dwebsearch.html#emacspeak_002dwebsearch">emacspeak-websearch</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dwebspace.html#emacspeak_002dwebspace">emacspeak-webspace</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dwebutils.html#emacspeak_002dwebutils">emacspeak-webutils</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dwidget.html#emacspeak_002dwidget">emacspeak-widget</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dwizards.html#emacspeak_002dwizards">emacspeak-wizards</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dxml_002dshell.html#emacspeak_002dxml_002dshell">
+      emacspeak-xml-shell</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dxslt.html#emacspeak_002dxslt">emacspeak-xslt</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak_002dzinf.html#emacspeak_002dzinf">emacspeak-zinf</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "emacspeak.html#emacspeak">emacspeak</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "flite_002dvoices.html#flite_002dvoices">flite-voices</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "voice_002dsetup.html#voice_002dsetup">voice-setup</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "URL-Templates.html#URL-Templates">URL Templates</a> :</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top"></td>
+    </tr>
+  </table>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations"
+    accesskey="n" rel="next">Emacspeak Customizations</a>,
+    Previous: <a href=
+    "Running-Terminal-Based-Applications.html#Running-Terminal-Based-Applications"
+    accesskey="p" rel="prev">Running Terminal Based
+    Applications</a>, Up: <a href="index.html#Top" accesskey="u"
+    rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents"
+    title="Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

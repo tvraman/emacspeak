@@ -1,96 +1,175 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Basic Usage</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Basic Usage">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Basic Usage">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="index.html#Top" rel="up" title="Top">
-<link href="Overview.html#Overview" rel="next" title="Overview">
-<link href="Configuring-and-Installing-Emacspeak.html#Configuring-and-Installing-Emacspeak" rel="prev" title="Configuring and Installing Emacspeak">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Basic
+  Usage</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Basic Usage" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Basic Usage" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="index.html#Top" rel="up" title="Top" />
+  <link href="Overview.html#Overview" rel="next" title=
+  "Overview" />
+  <link href=
+  "Configuring-and-Installing-Emacspeak.html#Configuring-and-Installing-Emacspeak"
+  rel="prev" title="Configuring and Installing Emacspeak" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="Basic-Usage"></a>
-<div class="header">
-<p>
-Next: <a href="Audio-Desktop.html#Audio-Desktop" accesskey="n" rel="next">Audio Desktop</a>, Previous: <a href="Installation.html#Installation" accesskey="p" rel="prev">Installation</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="Basic-Usage_002e"></a>
-<h2 class="chapter">5 Basic Usage.</h2>
+<body lang="en" xml:lang="en">
+  <a name="Basic-Usage" id="Basic-Usage"></a>
 
-<p>This chapter gives an overview of how to use Emacspeak.  Note: This
-documentation should be used in conjunction with the online Emacs info
-pages that extensively document Emacs itself.  These sections briefly
-describe the speech-enabling extensions.  However, they should not be
-considered a substitute for reading the Emacs manual.  How successfully
-you use Emacspeak will depend on how well you learn your Emacs.
-</p>
-<p>All Emacs navigation and editing commands have been speech enabled. 
-Thus, moving to the next or previous word, line or paragraph results in the text
-around point being spoken.  Exactly how much text is spoken is determined by
-the amount by which you moved.
-</p>
-<p>In addition, Emacspeak provides  basic reading functions that can be
-invoked to listen to chunks of text without moving.
-</p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="Overview.html#Overview" accesskey="1">Overview</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Basic Overview.
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="Working.html#Working" accesskey="2">Working</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Working in Emacspeak.
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="Reading.html#Reading" accesskey="3">Reading</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Reading chunks of information.
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="Speech-System.html#Speech-System" accesskey="4">Speech System</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Controlling Speech Output.
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="Voice_002dlock.html#Voice_002dlock" accesskey="5">Voice-lock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Audio Formatting.
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="Status-Information.html#Status-Information" accesskey="6">Status Information</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Speaking Status Information.
-</td></tr>
-</table>
+  <div class="header">
+    <p>Next: <a href="Audio-Desktop.html#Audio-Desktop" accesskey=
+    "n" rel="next">Audio Desktop</a>, Previous: <a href=
+    "Installation.html#Installation" accesskey="p" rel=
+    "prev">Installation</a>, Up: <a href="index.html#Top"
+    accesskey="u" rel="up">Top</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="Basic-Usage_002e" id="Basic-Usage_002e"></a>
 
+  <h2 class="chapter">5 Basic Usage.</h2>
 
+  <p>This chapter gives an overview of how to use Emacspeak. Note:
+  This documentation should be used in conjunction with the online
+  Emacs info pages that extensively document Emacs itself. These
+  sections briefly describe the speech-enabling extensions.
+  However, they should not be considered a substitute for reading
+  the Emacs manual. How successfully you use Emacspeak will depend
+  on how well you learn your Emacs.</p>
 
+  <p>All Emacs navigation and editing commands have been speech
+  enabled. Thus, moving to the next or previous word, line or
+  paragraph results in the text around point being spoken. Exactly
+  how much text is spoken is determined by the amount by which you
+  moved.</p>
 
+  <p>In addition, Emacspeak provides basic reading functions that
+  can be invoked to listen to chunks of text without moving.</p>
+
+  <table class="menu" border="0" cellspacing="0">
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "Overview.html#Overview" accesskey="1">Overview</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top">Basic Overview.</td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "Working.html#Working" accesskey="2">Working</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top">Working in Emacspeak.</td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "Reading.html#Reading" accesskey="3">Reading</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top">Reading chunks of
+      information.</td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "Speech-System.html#Speech-System" accesskey="4">Speech
+      System</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top">Controlling Speech Output.</td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "Voice_002dlock.html#Voice_002dlock" accesskey=
+      "5">Voice-lock</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top">Audio Formatting.</td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "Status-Information.html#Status-Information" accesskey=
+      "6">Status Information</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top">Speaking Status
+      Information.</td>
+    </tr>
+  </table>
 </body>
 </html>

@@ -1,328 +1,710 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-websearch</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-websearch">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-websearch">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up" title="Emacspeak Commands">
-<link href="emacspeak_002dwebspace.html#emacspeak_002dwebspace" rel="next" title="emacspeak-webspace">
-<link href="emacspeak_002dwe.html#emacspeak_002dwe" rel="prev" title="emacspeak-we">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-websearch</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-websearch" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-websearch" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
+  title="Emacspeak Commands" />
+  <link href="emacspeak_002dwebspace.html#emacspeak_002dwebspace"
+  rel="next" title="emacspeak-webspace" />
+  <link href="emacspeak_002dwe.html#emacspeak_002dwe" rel="prev"
+  title="emacspeak-we" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dwebsearch"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dwebspace.html#emacspeak_002dwebspace" accesskey="n" rel="next">emacspeak-webspace</a>, Previous: <a href="emacspeak_002dwe.html#emacspeak_002dwe" accesskey="p" rel="prev">emacspeak-we</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dwebsearch-1"></a>
-<h3 class="section">11.75 emacspeak-websearch</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dwebsearch" id=
+  "emacspeak_002dwebsearch"></a>
 
-<p>Commentary:
-This module provides utility functions for searching the WWW
-</p>
-<p>Automatically generated documentation
-for commands defined in module  emacspeak-websearch.
-</p>
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002daccessible_002dgoogle"></a>Interactive Command: <strong>emacspeak-websearch-accessible-google</strong> <em>(query &amp;optional options)</em></dt>
-<dd><p>Use Google Lite (Experimental).
-Optional prefix arg prompts for toolbelt options.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dwebspace.html#emacspeak_002dwebspace" accesskey=
+    "n" rel="next">emacspeak-webspace</a>, Previous: <a href=
+    "emacspeak_002dwe.html#emacspeak_002dwe" accesskey="p" rel=
+    "prev">emacspeak-we</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dwebsearch-1" id=
+  "emacspeak_002dwebsearch-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002damazon_002dsearch"></a>Interactive Command: <strong>emacspeak-websearch-amazon-search</strong> <em>nil</em></dt>
-<dd><p>Amazon search.
-</p></dd></dl>
+  <h3 class="section">11.76 emacspeak-websearch</h3>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dask_002djeeves"></a>Interactive Command: <strong>emacspeak-websearch-ask-jeeves</strong> <em>(query)</em></dt>
-<dd><p>Ask Jeeves for the answer.
-</p></dd></dl>
+  <p>Commentary: This module provides utility functions for
+  searching the WWW</p>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dbiblio_002dsearch"></a>Interactive Command: <strong>emacspeak-websearch-biblio-search</strong> <em>(query)</em></dt>
-<dd><p>Search Computer Science Bibliographies.
-</p></dd></dl>
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak-websearch.</p>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dblinkx_002dsearch"></a>Interactive Command: <strong>emacspeak-websearch-blinkx-search</strong> <em>(query)</em></dt>
-<dd><p>BlinkX RSS Generator.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002daccessible_002dgoogle" id=
+    "index-emacspeak_002dwebsearch_002daccessible_002dgoogle"></a>Interactive
+    Command: <strong>emacspeak-websearch-accessible-google</strong>
+    <em>(query &amp;optional options)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dciteseer_002dsearch"></a>Interactive Command: <strong>emacspeak-websearch-citeseer-search</strong> <em>(term)</em></dt>
-<dd><p>Perform a CiteSeer search. 
-</p></dd></dl>
+    <dd>
+      <p>Use Google Lite (Experimental). Optional prefix arg
+      prompts for toolbelt options.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dcompany_002dnews"></a>Interactive Command: <strong>emacspeak-websearch-company-news</strong> <em>(ticker &amp;optional prefix)</em></dt>
-<dd><p>Perform an company news lookup.
-Retrieves company news, research, profile, insider trades,  or upgrades/downgrades.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002damazon_002dsearch" id=
+    "index-emacspeak_002dwebsearch_002damazon_002dsearch"></a>Interactive
+    Command: <strong>emacspeak-websearch-amazon-search</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dcpan_002dsearch"></a>Interactive Command: <strong>emacspeak-websearch-cpan-search</strong> <em>(query)</em></dt>
-<dd><p>Search CPAN  Comprehensive Perl Archive Network   Site. 
-</p></dd></dl>
+    <dd>
+      <p>Amazon search.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dctan_002dsearch"></a>Interactive Command: <strong>emacspeak-websearch-ctan-search</strong> <em>(query)</em></dt>
-<dd><p>Search CTAN Comprehensive TeX Archive Network   Site. 
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dwebsearch_002dask_002djeeves"
+    id=
+    "index-emacspeak_002dwebsearch_002dask_002djeeves"></a>Interactive
+    Command: <strong>emacspeak-websearch-ask-jeeves</strong>
+    <em>(query)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002ddispatch"></a>Interactive Command: <strong>emacspeak-websearch-dispatch</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p><kbd>C-e ?</kbd>
-</p>
-<p>Press &lsquo;?&rsquo; to list available search engines.
-When using supported browsers,  this interface attempts to speak the most relevant information on the result page.
-</p></dd></dl>
+    <dd>
+      <p>Ask Jeeves for the answer.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002ddisplay_002dform"></a>Interactive Command: <strong>emacspeak-websearch-display-form</strong> <em>(form-markup)</em></dt>
-<dd><p>Display form specified by form-markup.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002dbiblio_002dsearch" id=
+    "index-emacspeak_002dwebsearch_002dbiblio_002dsearch"></a>Interactive
+    Command: <strong>emacspeak-websearch-biblio-search</strong>
+    <em>(query)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002debay_002dsearch"></a>Interactive Command: <strong>emacspeak-websearch-ebay-search</strong> <em>nil</em></dt>
-<dd><p>Ebay search.
-</p></dd></dl>
+    <dd>
+      <p>Search Computer Science Bibliographies.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dexchange_002drate_002dconvertor"></a>Interactive Command: <strong>emacspeak-websearch-exchange-rate-convertor</strong> <em>(conversion-spec)</em></dt>
-<dd><p>Currency convertor.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002dblinkx_002dsearch" id=
+    "index-emacspeak_002dwebsearch_002dblinkx_002dsearch"></a>Interactive
+    Command: <strong>emacspeak-websearch-blinkx-search</strong>
+    <em>(query)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dfoldoc_002dsearch"></a>Interactive Command: <strong>emacspeak-websearch-foldoc-search</strong> <em>(query)</em></dt>
-<dd><p>Perform a FolDoc search. 
-</p></dd></dl>
+    <dd>
+      <p>BlinkX RSS Generator.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dfreshmeat_002dsearch"></a>Interactive Command: <strong>emacspeak-websearch-freshmeat-search</strong> <em>(query)</em></dt>
-<dd><p>Search Freshmeat  Site. 
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002dciteseer_002dsearch" id=
+    "index-emacspeak_002dwebsearch_002dciteseer_002dsearch"></a>Interactive
+    Command: <strong>emacspeak-websearch-citeseer-search</strong>
+    <em>(term)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dgoogle"></a>Interactive Command: <strong>emacspeak-websearch-google</strong> <em>(query &amp;optional flag)</em></dt>
-<dd><p>Perform a Google search.
-First optional interactive prefix arg &lsquo;flag&rsquo; prompts for
-additional search options. Second interactive prefix arg is
-equivalent to hitting the I&rsquo;m Feeling Lucky button on
-Google. Uses customizable option
-&lsquo;emacspeak-websearch-google-results-only&rsquo; to determine if we show
-just results.
-</p></dd></dl>
+    <dd>
+      <p>Perform a CiteSeer search.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dgoogle_002dadvanced"></a>Interactive Command: <strong>emacspeak-websearch-google-advanced</strong> <em>nil</em></dt>
-<dd><p>Present Google advanced search form simplified for speech interaction.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002dcompany_002dnews" id=
+    "index-emacspeak_002dwebsearch_002dcompany_002dnews"></a>Interactive
+    Command: <strong>emacspeak-websearch-company-news</strong>
+    <em>(ticker &amp;optional prefix)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dgoogle_002dfeeling_002dlucky"></a>Interactive Command: <strong>emacspeak-websearch-google-feeling-lucky</strong> <em>(query)</em></dt>
-<dd><p>Do a I&rsquo;m Feeling Lucky Google search.
-</p></dd></dl>
+    <dd>
+      <p>Perform an company news lookup. Retrieves company news,
+      research, profile, insider trades, or
+      upgrades/downgrades.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dgoogle_002dmobile"></a>Interactive Command: <strong>emacspeak-websearch-google-mobile</strong> <em>(query)</em></dt>
-<dd><p>Google mobile search.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dwebsearch_002dcpan_002dsearch"
+    id=
+    "index-emacspeak_002dwebsearch_002dcpan_002dsearch"></a>Interactive
+    Command: <strong>emacspeak-websearch-cpan-search</strong>
+    <em>(query)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dgoogle_002dnews"></a>Interactive Command: <strong>emacspeak-websearch-google-news</strong> <em>nil</em></dt>
-<dd><p>Invoke Google News url template.
-</p></dd></dl>
+    <dd>
+      <p>Search CPAN Comprehensive Perl Archive Network Site.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dgoogle_002dsak"></a>Interactive Command: <strong>emacspeak-websearch-google-sak</strong> <em>(engine query)</em></dt>
-<dd><p>Perform a Google query against a specific index.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dwebsearch_002dctan_002dsearch"
+    id=
+    "index-emacspeak_002dwebsearch_002dctan_002dsearch"></a>Interactive
+    Command: <strong>emacspeak-websearch-ctan-search</strong>
+    <em>(query)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dgoogle_002dsearch_002din_002ddate_002drange"></a>Interactive Command: <strong>emacspeak-websearch-google-search-in-date-range</strong> <em>nil</em></dt>
-<dd><p>Use this from inside the calendar to do Google date-range searches.
-</p></dd></dl>
+    <dd>
+      <p>Search CTAN Comprehensive TeX Archive Network Site.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dgoogle_002dspecialize"></a>Interactive Command: <strong>emacspeak-websearch-google-specialize</strong> <em>(specialize query)</em></dt>
-<dd><p>Perform a specialized Google search. See the Google site for
-  what is possible here:
-https://www.google.com/options/specialsearches.html 
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dwebsearch_002ddispatch" id=
+    "index-emacspeak_002dwebsearch_002ddispatch"></a>Interactive
+    Command: <strong>emacspeak-websearch-dispatch</strong>
+    <em>(&amp;optional prefix)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dgoogle_002dusenet_002dadvanced"></a>Interactive Command: <strong>emacspeak-websearch-google-usenet-advanced</strong> <em>nil</em></dt>
-<dd><p>Present Google Usenet advanced search form simplified for speech interaction.
-</p></dd></dl>
+    <dd>
+      <p><kbd>C-e ?</kbd></p>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dgoogle_002dwith_002dtoolbelt"></a>Interactive Command: <strong>emacspeak-websearch-google-with-toolbelt</strong> <em>(query)</em></dt>
-<dd><p>Launch Google search with toolbelt.
-</p></dd></dl>
+      <p>Press &lsquo;?&rsquo; to list available search engines.
+      When using supported browsers, this interface attempts to
+      speak the most relevant information on the result page.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dgutenberg"></a>Interactive Command: <strong>emacspeak-websearch-gutenberg</strong> <em>(type query)</em></dt>
-<dd><p>Perform an Gutenberg search
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002ddisplay_002dform" id=
+    "index-emacspeak_002dwebsearch_002ddisplay_002dform"></a>Interactive
+    Command: <strong>emacspeak-websearch-display-form</strong>
+    <em>(form-markup)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dhelp"></a>Interactive Command: <strong>emacspeak-websearch-help</strong> <em>nil</em></dt>
-<dd><p>Displays key mapping used by Emacspeak Websearch.
-</p></dd></dl>
+    <dd>
+      <p>Display form specified by form-markup.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dmap_002dyahoo_002ddirections_002dsearch"></a>Interactive Command: <strong>emacspeak-websearch-map-yahoo-directions-search</strong> <em>(query &amp;optional map)</em></dt>
-<dd><p>Get driving directions from Yahoo.
-With optional interactive prefix arg MAP shows the location map instead.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dwebsearch_002debay_002dsearch"
+    id=
+    "index-emacspeak_002dwebsearch_002debay_002dsearch"></a>Interactive
+    Command: <strong>emacspeak-websearch-ebay-search</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dmerriam_002dwebster_002dsearch"></a>Interactive Command: <strong>emacspeak-websearch-merriam-webster-search</strong> <em>(query)</em></dt>
-<dd><p>Search the Merriam Webster Dictionary.
-</p></dd></dl>
+    <dd>
+      <p>Ebay search.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dnews_002dyahoo"></a>Interactive Command: <strong>emacspeak-websearch-news-yahoo</strong> <em>(query &amp;optional no-rss)</em></dt>
-<dd><p>Perform an Yahoo News search.
-Optional prefix arg no-rss scrapes information from HTML.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002dexchange_002drate_002dconvertor"
+    id=
+    "index-emacspeak_002dwebsearch_002dexchange_002drate_002dconvertor">
+    </a>Interactive Command:
+    <strong>emacspeak-websearch-exchange-rate-convertor</strong>
+    <em>(conversion-spec)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dopen_002ddirectory_002dsearch"></a>Interactive Command: <strong>emacspeak-websearch-open-directory-search</strong> <em>(query)</em></dt>
-<dd><p>Perform an Open Directory search
-</p></dd></dl>
+    <dd>
+      <p>Currency convertor.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dquotes_002dyahoo_002dsearch"></a>Interactive Command: <strong>emacspeak-websearch-quotes-yahoo-search</strong> <em>(query &amp;optional prefix)</em></dt>
-<dd><p>Perform a Quotes Yahoo .
-Default tickers to look up is taken from variable
-emacspeak-wizards-personal-portfolio.
-Default is to present the data in emacspeak&rsquo;s table browsing
-mode &ndash;optional interactive prefix arg
-causes data to be displayed as  a Web page.
-You can customize the defaults by setting variable
-emacspeak-websearch-quotes-yahoo-options to an appropriate string.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002dfoldoc_002dsearch" id=
+    "index-emacspeak_002dwebsearch_002dfoldoc_002dsearch"></a>Interactive
+    Command: <strong>emacspeak-websearch-foldoc-search</strong>
+    <em>(query)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002drecorded_002dbooks_002dsearch"></a>Interactive Command: <strong>emacspeak-websearch-recorded-books-search</strong> <em>nil</em></dt>
-<dd><p>Present advanced search form for recorded books.
-</p></dd></dl>
+    <dd>
+      <p>Perform a FolDoc search.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002drpm_002dfind"></a>Interactive Command: <strong>emacspeak-websearch-rpm-find</strong> <em>(query)</em></dt>
-<dd><p>Search RPM  catalog  site.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002dfreshmeat_002dsearch" id=
+    "index-emacspeak_002dwebsearch_002dfreshmeat_002dsearch"></a>Interactive
+    Command: <strong>emacspeak-websearch-freshmeat-search</strong>
+    <em>(query)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dsoftware_002dsearch"></a>Interactive Command: <strong>emacspeak-websearch-software-search</strong> <em>nil</em></dt>
-<dd><p>Search SourceForge, Freshmeat and other sites. 
-</p></dd></dl>
+    <dd>
+      <p>Search Freshmeat Site.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dsourceforge_002dsearch"></a>Interactive Command: <strong>emacspeak-websearch-sourceforge-search</strong> <em>(query)</em></dt>
-<dd><p>Search SourceForge Site. 
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dwebsearch_002dgoogle" id=
+    "index-emacspeak_002dwebsearch_002dgoogle"></a>Interactive
+    Command: <strong>emacspeak-websearch-google</strong> <em>(query
+    &amp;optional flag)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dswik_002dsearch"></a>Interactive Command: <strong>emacspeak-websearch-swik-search</strong> <em>(query)</em></dt>
-<dd><p>Search swik software community site.
-</p></dd></dl>
+    <dd>
+      <p>Perform a Google search. First optional interactive prefix
+      arg &lsquo;flag&rsquo; prompts for additional search options.
+      Second interactive prefix arg is equivalent to hitting the
+      I&rsquo;m Feeling Lucky button on Google. Uses customizable
+      option &lsquo;emacspeak-websearch-google-results-only&rsquo;
+      to determine if we show just results.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dusenet"></a>Interactive Command: <strong>emacspeak-websearch-usenet</strong> <em>(group &amp;optional prefix)</em></dt>
-<dd><p><kbd>C-e U</kbd>
-</p>
-<p>Prompt and browse a Usenet newsgroup.
-Optional interactive prefix arg results in prompting for a search term.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002dgoogle_002dadvanced" id=
+    "index-emacspeak_002dwebsearch_002dgoogle_002dadvanced"></a>Interactive
+    Command: <strong>emacspeak-websearch-google-advanced</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dusenet_002dsearch"></a>Interactive Command: <strong>emacspeak-websearch-usenet-search</strong> <em>(group)</em></dt>
-<dd><p>Search a Usenet newsgroup.
-</p></dd></dl>
+    <dd>
+      <p>Present Google advanced search form simplified for speech
+      interaction.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dw3c_002dsearch"></a>Interactive Command: <strong>emacspeak-websearch-w3c-search</strong> <em>(query)</em></dt>
-<dd><p>Search the W3C Site.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002dgoogle_002dfeeling_002dlucky"
+    id=
+    "index-emacspeak_002dwebsearch_002dgoogle_002dfeeling_002dlucky">
+    </a>Interactive Command:
+    <strong>emacspeak-websearch-google-feeling-lucky</strong>
+    <em>(query)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dweather"></a>Interactive Command: <strong>emacspeak-websearch-weather</strong> <em>(query)</em></dt>
-<dd><p>Get weather forecast for specified zip code.
-</p></dd></dl>
+    <dd>
+      <p>Do a I&rsquo;m Feeling Lucky Google search.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dwikipedia_002dsearch"></a>Interactive Command: <strong>emacspeak-websearch-wikipedia-search</strong> <em>(query)</em></dt>
-<dd><p>Search Wikipedia using Google.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002dgoogle_002dmobile" id=
+    "index-emacspeak_002dwebsearch_002dgoogle_002dmobile"></a>Interactive
+    Command: <strong>emacspeak-websearch-google-mobile</strong>
+    <em>(query)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dyahoo"></a>Interactive Command: <strong>emacspeak-websearch-yahoo</strong> <em>(query)</em></dt>
-<dd><p>Perform an Yahoo  search
-</p></dd></dl>
+    <dd>
+      <p>Google mobile search.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dyahoo_002dexchange_002drate_002dconvertor"></a>Interactive Command: <strong>emacspeak-websearch-yahoo-exchange-rate-convertor</strong> <em>(conversion-spec)</em></dt>
-<dd><p>Currency convertor.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dwebsearch_002dgoogle_002dnews"
+    id=
+    "index-emacspeak_002dwebsearch_002dgoogle_002dnews"></a>Interactive
+    Command: <strong>emacspeak-websearch-google-news</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwebsearch_002dyahoo_002dhistorical_002dchart"></a>Interactive Command: <strong>emacspeak-websearch-yahoo-historical-chart</strong> <em>(ticker &amp;optional as-html)</em></dt>
-<dd><p>Look up historical stock data.
-Optional second arg as-html processes the results as HTML rather than data.
-</p></dd></dl>
+    <dd>
+      <p>Invoke Google News url template.</p>
+    </dd>
+  </dl>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dwebspace.html#emacspeak_002dwebspace" accesskey="n" rel="next">emacspeak-webspace</a>, Previous: <a href="emacspeak_002dwe.html#emacspeak_002dwe" accesskey="p" rel="prev">emacspeak-we</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+  <dl>
+    <dt><a name="index-emacspeak_002dwebsearch_002dgoogle_002dsak"
+    id=
+    "index-emacspeak_002dwebsearch_002dgoogle_002dsak"></a>Interactive
+    Command: <strong>emacspeak-websearch-google-sak</strong>
+    <em>(engine query)</em></dt>
 
+    <dd>
+      <p>Perform a Google query against a specific index.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002dgoogle_002dsearch_002din_002ddate_002drange"
+    id=
+    "index-emacspeak_002dwebsearch_002dgoogle_002dsearch_002din_002ddate_002drange">
+    </a>Interactive Command:
+    <strong>emacspeak-websearch-google-search-in-date-range</strong>
+    <em>nil</em></dt>
 
+    <dd>
+      <p>Use this from inside the calendar to do Google date-range
+      searches.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002dgoogle_002dspecialize" id=
+    "index-emacspeak_002dwebsearch_002dgoogle_002dspecialize"></a>Interactive
+    Command: <strong>emacspeak-websearch-google-specialize</strong>
+    <em>(specialize query)</em></dt>
+
+    <dd>
+      <p>Perform a specialized Google search. See the Google site
+      for what is possible here:
+      https://www.google.com/options/specialsearches.html</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002dgoogle_002dusenet_002dadvanced"
+    id=
+    "index-emacspeak_002dwebsearch_002dgoogle_002dusenet_002dadvanced">
+    </a>Interactive Command:
+    <strong>emacspeak-websearch-google-usenet-advanced</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Present Google Usenet advanced search form simplified for
+      speech interaction.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002dgoogle_002dwith_002dtoolbelt"
+    id=
+    "index-emacspeak_002dwebsearch_002dgoogle_002dwith_002dtoolbelt">
+    </a>Interactive Command:
+    <strong>emacspeak-websearch-google-with-toolbelt</strong>
+    <em>(query)</em></dt>
+
+    <dd>
+      <p>Launch Google search with toolbelt.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwebsearch_002dgutenberg" id=
+    "index-emacspeak_002dwebsearch_002dgutenberg"></a>Interactive
+    Command: <strong>emacspeak-websearch-gutenberg</strong>
+    <em>(type query)</em></dt>
+
+    <dd>
+      <p>Perform an Gutenberg search</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwebsearch_002dhelp" id=
+    "index-emacspeak_002dwebsearch_002dhelp"></a>Interactive
+    Command: <strong>emacspeak-websearch-help</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Displays key mapping used by Emacspeak Websearch.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002dmap_002dyahoo_002ddirections_002dsearch"
+    id=
+    "index-emacspeak_002dwebsearch_002dmap_002dyahoo_002ddirections_002dsearch">
+    </a>Interactive Command:
+    <strong>emacspeak-websearch-map-yahoo-directions-search</strong>
+    <em>(query &amp;optional map)</em></dt>
+
+    <dd>
+      <p>Get driving directions from Yahoo. With optional
+      interactive prefix arg MAP shows the location map
+      instead.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002dmerriam_002dwebster_002dsearch"
+    id=
+    "index-emacspeak_002dwebsearch_002dmerriam_002dwebster_002dsearch">
+    </a>Interactive Command:
+    <strong>emacspeak-websearch-merriam-webster-search</strong>
+    <em>(query)</em></dt>
+
+    <dd>
+      <p>Search the Merriam Webster Dictionary.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwebsearch_002dnews_002dyahoo"
+    id=
+    "index-emacspeak_002dwebsearch_002dnews_002dyahoo"></a>Interactive
+    Command: <strong>emacspeak-websearch-news-yahoo</strong>
+    <em>(query &amp;optional no-rss)</em></dt>
+
+    <dd>
+      <p>Perform an Yahoo News search. Optional prefix arg no-rss
+      scrapes information from HTML.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002dopen_002ddirectory_002dsearch"
+    id=
+    "index-emacspeak_002dwebsearch_002dopen_002ddirectory_002dsearch">
+    </a>Interactive Command:
+    <strong>emacspeak-websearch-open-directory-search</strong>
+    <em>(query)</em></dt>
+
+    <dd>
+      <p>Perform an Open Directory search</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002dquotes_002dyahoo_002dsearch"
+    id=
+    "index-emacspeak_002dwebsearch_002dquotes_002dyahoo_002dsearch">
+    </a>Interactive Command:
+    <strong>emacspeak-websearch-quotes-yahoo-search</strong>
+    <em>(query &amp;optional prefix)</em></dt>
+
+    <dd>
+      <p>Perform a Quotes Yahoo . Default tickers to look up is
+      taken from variable emacspeak-wizards-personal-portfolio.
+      Default is to present the data in emacspeak&rsquo;s table
+      browsing mode &ndash;optional interactive prefix arg causes
+      data to be displayed as a Web page. You can customize the
+      defaults by setting variable
+      emacspeak-websearch-quotes-yahoo-options to an appropriate
+      string.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002drecorded_002dbooks_002dsearch"
+    id=
+    "index-emacspeak_002dwebsearch_002drecorded_002dbooks_002dsearch">
+    </a>Interactive Command:
+    <strong>emacspeak-websearch-recorded-books-search</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Present advanced search form for recorded books.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwebsearch_002drpm_002dfind"
+    id="index-emacspeak_002dwebsearch_002drpm_002dfind"></a>Interactive
+    Command: <strong>emacspeak-websearch-rpm-find</strong>
+    <em>(query)</em></dt>
+
+    <dd>
+      <p>Search RPM catalog site.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002dsoftware_002dsearch" id=
+    "index-emacspeak_002dwebsearch_002dsoftware_002dsearch"></a>Interactive
+    Command: <strong>emacspeak-websearch-software-search</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Search SourceForge, Freshmeat and other sites.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002dsourceforge_002dsearch" id=
+    "index-emacspeak_002dwebsearch_002dsourceforge_002dsearch"></a>Interactive
+    Command:
+    <strong>emacspeak-websearch-sourceforge-search</strong>
+    <em>(query)</em></dt>
+
+    <dd>
+      <p>Search SourceForge Site.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwebsearch_002dswik_002dsearch"
+    id=
+    "index-emacspeak_002dwebsearch_002dswik_002dsearch"></a>Interactive
+    Command: <strong>emacspeak-websearch-swik-search</strong>
+    <em>(query)</em></dt>
+
+    <dd>
+      <p>Search swik software community site.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwebsearch_002dusenet" id=
+    "index-emacspeak_002dwebsearch_002dusenet"></a>Interactive
+    Command: <strong>emacspeak-websearch-usenet</strong> <em>(group
+    &amp;optional prefix)</em></dt>
+
+    <dd>
+      <p><kbd>C-e U</kbd></p>
+
+      <p>Prompt and browse a Usenet newsgroup. Optional interactive
+      prefix arg results in prompting for a search term.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002dusenet_002dsearch" id=
+    "index-emacspeak_002dwebsearch_002dusenet_002dsearch"></a>Interactive
+    Command: <strong>emacspeak-websearch-usenet-search</strong>
+    <em>(group)</em></dt>
+
+    <dd>
+      <p>Search a Usenet newsgroup.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwebsearch_002dw3c_002dsearch"
+    id=
+    "index-emacspeak_002dwebsearch_002dw3c_002dsearch"></a>Interactive
+    Command: <strong>emacspeak-websearch-w3c-search</strong>
+    <em>(query)</em></dt>
+
+    <dd>
+      <p>Search the W3C Site.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwebsearch_002dweather" id=
+    "index-emacspeak_002dwebsearch_002dweather"></a>Interactive
+    Command: <strong>emacspeak-websearch-weather</strong>
+    <em>(query)</em></dt>
+
+    <dd>
+      <p>Get weather forecast for specified zip code.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002dwikipedia_002dsearch" id=
+    "index-emacspeak_002dwebsearch_002dwikipedia_002dsearch"></a>Interactive
+    Command: <strong>emacspeak-websearch-wikipedia-search</strong>
+    <em>(query)</em></dt>
+
+    <dd>
+      <p>Search Wikipedia using Google.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwebsearch_002dyahoo" id=
+    "index-emacspeak_002dwebsearch_002dyahoo"></a>Interactive
+    Command: <strong>emacspeak-websearch-yahoo</strong>
+    <em>(query)</em></dt>
+
+    <dd>
+      <p>Perform an Yahoo search</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002dyahoo_002dexchange_002drate_002dconvertor"
+    id=
+    "index-emacspeak_002dwebsearch_002dyahoo_002dexchange_002drate_002dconvertor">
+    </a>Interactive Command:
+    <strong>emacspeak-websearch-yahoo-exchange-rate-convertor</strong>
+    <em>(conversion-spec)</em></dt>
+
+    <dd>
+      <p>Currency convertor.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwebsearch_002dyahoo_002dhistorical_002dchart"
+    id=
+    "index-emacspeak_002dwebsearch_002dyahoo_002dhistorical_002dchart">
+    </a>Interactive Command:
+    <strong>emacspeak-websearch-yahoo-historical-chart</strong>
+    <em>(ticker &amp;optional as-html)</em></dt>
+
+    <dd>
+      <p>Look up historical stock data. Optional second arg as-html
+      processes the results as HTML rather than data.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dwebspace.html#emacspeak_002dwebspace" accesskey=
+    "n" rel="next">emacspeak-webspace</a>, Previous: <a href=
+    "emacspeak_002dwe.html#emacspeak_002dwe" accesskey="p" rel=
+    "prev">emacspeak-we</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

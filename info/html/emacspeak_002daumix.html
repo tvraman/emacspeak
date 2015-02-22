@@ -1,114 +1,187 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-aumix</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-aumix">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-aumix">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up" title="Emacspeak Commands">
-<link href="emacspeak_002dbbc.html#emacspeak_002dbbc" rel="next" title="emacspeak-bbc">
-<link href="emacspeak_002darc.html#emacspeak_002darc" rel="prev" title="emacspeak-arc">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-aumix</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-aumix" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-aumix" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
+  title="Emacspeak Commands" />
+  <link href="emacspeak_002dbbc.html#emacspeak_002dbbc" rel="next"
+  title="emacspeak-bbc" />
+  <link href="emacspeak_002darc.html#emacspeak_002darc" rel="prev"
+  title="emacspeak-arc" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002daumix"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dbbc.html#emacspeak_002dbbc" accesskey="n" rel="next">emacspeak-bbc</a>, Previous: <a href="emacspeak_002darc.html#emacspeak_002darc" accesskey="p" rel="prev">emacspeak-arc</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002daumix-1"></a>
-<h3 class="section">11.8 emacspeak-aumix</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002daumix" id="emacspeak_002daumix"></a>
 
-<p>Commentary:
-Provides an AUI to setting up the auditory display via AUMIX
-This module is presently Linux specific
-</p>
-<p>Automatically generated documentation
-for commands defined in module  emacspeak-aumix.
-</p>
-<dl>
-<dt><a name="index-emacspeak_002daumix"></a>Interactive Command: <strong>emacspeak-aumix</strong> <em>nil</em></dt>
-<dd><p>Setup output parameters of the auditory display.
- Launch this tool while you have auditory output on
-multiple channels playing so you can
-adjust the settings to your preference.  Hit q to quit when
-you are done.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href="emacspeak_002dbbc.html#emacspeak_002dbbc"
+    accesskey="n" rel="next">emacspeak-bbc</a>, Previous: <a href=
+    "emacspeak_002darc.html#emacspeak_002darc" accesskey="p" rel=
+    "prev">emacspeak-arc</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002daumix-1" id="emacspeak_002daumix-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002daumix_002dedit"></a>Interactive Command: <strong>emacspeak-aumix-edit</strong> <em>nil</em></dt>
-<dd><p>Edit aumix settings interactively. 
-Run command M-x emacspeak-aumix-reset
-after saving the settings to have them take effect.
-</p></dd></dl>
+  <h3 class="section">11.8 emacspeak-aumix</h3>
 
-<dl>
-<dt><a name="index-emacspeak_002daumix_002dreset"></a>Interactive Command: <strong>emacspeak-aumix-reset</strong> <em>nil</em></dt>
-<dd><p>Reset to default audio settings.
-</p></dd></dl>
+  <p>Commentary: Provides an AUI to setting up the auditory display
+  via AUMIX This module is presently Linux specific</p>
 
-<dl>
-<dt><a name="index-emacspeak_002daumix_002dvolume_002ddecrease"></a>Interactive Command: <strong>emacspeak-aumix-volume-decrease</strong> <em>(&amp;optional gain)</em></dt>
-<dd><p>Decrease overall volume. 
-</p></dd></dl>
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak-aumix.</p>
 
-<dl>
-<dt><a name="index-emacspeak_002daumix_002dvolume_002dincrease"></a>Interactive Command: <strong>emacspeak-aumix-volume-increase</strong> <em>(&amp;optional gain)</em></dt>
-<dd><p>Increase overall volume. 
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002daumix" id=
+    "index-emacspeak_002daumix"></a>Interactive Command:
+    <strong>emacspeak-aumix</strong> <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002daumix_002dwave_002ddecrease"></a>Interactive Command: <strong>emacspeak-aumix-wave-decrease</strong> <em>(&amp;optional gain)</em></dt>
-<dd><p>Decrease volume of wave output. 
-</p></dd></dl>
+    <dd>
+      <p>Setup output parameters of the auditory display. Launch
+      this tool while you have auditory output on multiple channels
+      playing so you can adjust the settings to your preference.
+      Hit q to quit when you are done.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002daumix_002dwave_002dincrease"></a>Interactive Command: <strong>emacspeak-aumix-wave-increase</strong> <em>(&amp;optional gain)</em></dt>
-<dd><p>Increase volume of wave output. 
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002daumix_002dedit" id=
+    "index-emacspeak_002daumix_002dedit"></a>Interactive Command:
+    <strong>emacspeak-aumix-edit</strong> <em>nil</em></dt>
 
+    <dd>
+      <p>Edit aumix settings interactively. Run command M-x
+      emacspeak-aumix-reset after saving the settings to have them
+      take effect.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-emacspeak_002daumix_002dreset" id=
+    "index-emacspeak_002daumix_002dreset"></a>Interactive Command:
+    <strong>emacspeak-aumix-reset</strong> <em>nil</em></dt>
 
+    <dd>
+      <p>Reset to default audio settings.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-emacspeak_002daumix_002dvolume_002ddecrease"
+    id=
+    "index-emacspeak_002daumix_002dvolume_002ddecrease"></a>Interactive
+    Command: <strong>emacspeak-aumix-volume-decrease</strong>
+    <em>(&amp;optional gain)</em></dt>
+
+    <dd>
+      <p>Decrease overall volume.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002daumix_002dvolume_002dincrease"
+    id=
+    "index-emacspeak_002daumix_002dvolume_002dincrease"></a>Interactive
+    Command: <strong>emacspeak-aumix-volume-increase</strong>
+    <em>(&amp;optional gain)</em></dt>
+
+    <dd>
+      <p>Increase overall volume.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002daumix_002dwave_002ddecrease"
+    id=
+    "index-emacspeak_002daumix_002dwave_002ddecrease"></a>Interactive
+    Command: <strong>emacspeak-aumix-wave-decrease</strong>
+    <em>(&amp;optional gain)</em></dt>
+
+    <dd>
+      <p>Decrease volume of wave output.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002daumix_002dwave_002dincrease"
+    id=
+    "index-emacspeak_002daumix_002dwave_002dincrease"></a>Interactive
+    Command: <strong>emacspeak-aumix-wave-increase</strong>
+    <em>(&amp;optional gain)</em></dt>
+
+    <dd>
+      <p>Increase volume of wave output.</p>
+    </dd>
+  </dl>
 </body>
 </html>

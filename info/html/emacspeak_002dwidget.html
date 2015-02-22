@@ -1,100 +1,171 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-widget</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-widget">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-widget">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up" title="Emacspeak Commands">
-<link href="emacspeak_002dwizards.html#emacspeak_002dwizards" rel="next" title="emacspeak-wizards">
-<link href="emacspeak_002dwebutils.html#emacspeak_002dwebutils" rel="prev" title="emacspeak-webutils">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-widget</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-widget" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-widget" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
+  title="Emacspeak Commands" />
+  <link href="emacspeak_002dwizards.html#emacspeak_002dwizards"
+  rel="next" title="emacspeak-wizards" />
+  <link href="emacspeak_002dwebutils.html#emacspeak_002dwebutils"
+  rel="prev" title="emacspeak-webutils" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dwidget"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dwizards.html#emacspeak_002dwizards" accesskey="n" rel="next">emacspeak-wizards</a>, Previous: <a href="emacspeak_002dwebutils.html#emacspeak_002dwebutils" accesskey="p" rel="prev">emacspeak-webutils</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dwidget-1"></a>
-<h3 class="section">11.78 emacspeak-widget</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dwidget" id="emacspeak_002dwidget"></a>
 
-<p>Commentary:
-This module implements the necessary extensions to provide talking
-widgets.
-</p>
-<p>Automatically generated documentation
-for commands defined in module  emacspeak-widget.
-</p>
-<dl>
-<dt><a name="index-emacspeak_002dwidget_002dbrowse_002dwidget_002dinteractively"></a>Interactive Command: <strong>emacspeak-widget-browse-widget-interactively</strong> <em>nil</em></dt>
-<dd><p>Allows you to browse a widget
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dwizards.html#emacspeak_002dwizards" accesskey=
+    "n" rel="next">emacspeak-wizards</a>, Previous: <a href=
+    "emacspeak_002dwebutils.html#emacspeak_002dwebutils" accesskey=
+    "p" rel="prev">emacspeak-webutils</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dwidget-1" id="emacspeak_002dwidget-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002dwidget_002dhelp"></a>Interactive Command: <strong>emacspeak-widget-help</strong> <em>nil</em></dt>
-<dd><p>Speak help for widget under point.
-</p></dd></dl>
+  <h3 class="section">11.79 emacspeak-widget</h3>
 
-<dl>
-<dt><a name="index-emacspeak_002dwidget_002dsummarize_002dparent"></a>Interactive Command: <strong>emacspeak-widget-summarize-parent</strong> <em>nil</em></dt>
-<dd><p>Summarize parent of widget at point.
-</p></dd></dl>
+  <p>Commentary: This module implements the necessary extensions to
+  provide talking widgets.</p>
 
-<dl>
-<dt><a name="index-emacspeak_002dwidget_002dsummarize_002dwidget_002dunder_002dpoint"></a>Interactive Command: <strong>emacspeak-widget-summarize-widget-under-point</strong> <em>(&amp;optional level)</em></dt>
-<dd><p>Summarize a widget if any under point.
-Optional interactive prefix specifies how many levels to go up from current
-widget before summarizing.
-</p></dd></dl>
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak-widget.</p>
 
-<dl>
-<dt><a name="index-emacspeak_002dwidget_002dupdate_002dfrom_002dminibuffer"></a>Interactive Command: <strong>emacspeak-widget-update-from-minibuffer</strong> <em>(point)</em></dt>
-<dd><p>Sets widget at point by invoking its prompter.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwidget_002dbrowse_002dwidget_002dinteractively"
+    id=
+    "index-emacspeak_002dwidget_002dbrowse_002dwidget_002dinteractively">
+    </a>Interactive Command:
+    <strong>emacspeak-widget-browse-widget-interactively</strong>
+    <em>nil</em></dt>
 
+    <dd>
+      <p>Allows you to browse a widget</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-emacspeak_002dwidget_002dhelp" id=
+    "index-emacspeak_002dwidget_002dhelp"></a>Interactive Command:
+    <strong>emacspeak-widget-help</strong> <em>nil</em></dt>
 
+    <dd>
+      <p>Speak help for widget under point.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwidget_002dsummarize_002dparent" id=
+    "index-emacspeak_002dwidget_002dsummarize_002dparent"></a>Interactive
+    Command: <strong>emacspeak-widget-summarize-parent</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Summarize parent of widget at point.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwidget_002dsummarize_002dwidget_002dunder_002dpoint"
+    id=
+    "index-emacspeak_002dwidget_002dsummarize_002dwidget_002dunder_002dpoint">
+    </a>Interactive Command:
+    <strong>emacspeak-widget-summarize-widget-under-point</strong>
+    <em>(&amp;optional level)</em></dt>
+
+    <dd>
+      <p>Summarize a widget if any under point. Optional
+      interactive prefix specifies how many levels to go up from
+      current widget before summarizing.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwidget_002dupdate_002dfrom_002dminibuffer"
+    id=
+    "index-emacspeak_002dwidget_002dupdate_002dfrom_002dminibuffer">
+    </a>Interactive Command:
+    <strong>emacspeak-widget-update-from-minibuffer</strong>
+    <em>(point)</em></dt>
+
+    <dd>
+      <p>Sets widget at point by invoking its prompter.</p>
+    </dd>
+  </dl>
 </body>
 </html>

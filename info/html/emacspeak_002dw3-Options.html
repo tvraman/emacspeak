@@ -1,111 +1,184 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-w3 Options</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-w3 Options">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-w3 Options">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Customizations.html#Emacspeak-Customizations" rel="up" title="Emacspeak Customizations">
-<link href="emacspeak_002dw3m-Options.html#emacspeak_002dw3m-Options" rel="next" title="emacspeak-w3m Options">
-<link href="emacspeak_002dvm-Options.html#emacspeak_002dvm-Options" rel="prev" title="emacspeak-vm Options">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-w3 Options</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-w3 Options" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-w3 Options" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Customizations.html#Emacspeak-Customizations" rel="up"
+  title="Emacspeak Customizations" />
+  <link href=
+  "emacspeak_002dw3m-Options.html#emacspeak_002dw3m-Options" rel=
+  "next" title="emacspeak-w3m Options" />
+  <link href=
+  "emacspeak_002dvm-Options.html#emacspeak_002dvm-Options" rel=
+  "prev" title="emacspeak-vm Options" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dw3-Options"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dw3m-Options.html#emacspeak_002dw3m-Options" accesskey="n" rel="next">emacspeak-w3m Options</a>, Previous: <a href="emacspeak_002dvm-Options.html#emacspeak_002dvm-Options" accesskey="p" rel="prev">emacspeak-vm Options</a>, Up: <a href="Emacspeak-Customizations.html#Emacspeak-Customizations" accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dw3-Options-1"></a>
-<h3 class="section">12.58 emacspeak-w3 Options</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dw3-Options" id=
+  "emacspeak_002dw3-Options"></a>
 
-<p>Commentary:
-Ensure that speech support for W3 gets installed and
-loaded correctly.
-The emacs W3 browser comes with builtin support for
-Emacspeak and ACSS
-</p>
-<p>Automatically generated documentation
-for options defined in module  emacspeak-w3.
-These options are customizable via Emacs&rsquo; Custom interface.
-</p>
-<dl>
-<dt><a name="index-User-Option-297"></a>Variable: <strong>User Option</strong> <em>emacspeak-w3-base-uri-pronunciation</em></dt>
-<dd><p>Custom pronunciation for base URIs in w3 buffers.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dw3m-Options.html#emacspeak_002dw3m-Options"
+    accesskey="n" rel="next">emacspeak-w3m Options</a>, Previous:
+    <a href=
+    "emacspeak_002dvm-Options.html#emacspeak_002dvm-Options"
+    accesskey="p" rel="prev">emacspeak-vm Options</a>, Up: <a href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations"
+    accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp;
+    [<a href="index.html#SEC_Contents" title="Table of contents"
+    rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dw3-Options-1" id=
+  "emacspeak_002dw3-Options-1"></a>
 
-<dl>
-<dt><a name="index-User-Option-298"></a>Variable: <strong>User Option</strong> <em>emacspeak-w3-create-imenu-index</em></dt>
-<dd><p>Create IMenu index by default.
-</p></dd></dl>
+  <h3 class="section">12.60 emacspeak-w3 Options</h3>
 
-<dl>
-<dt><a name="index-User-Option-299"></a>Variable: <strong>User Option</strong> <em>emacspeak-w3-lwp-request</em></dt>
-<dd><p>LWP Request command from perl LWP.
-</p></dd></dl>
+  <p>Commentary: Ensure that speech support for W3 gets installed
+  and loaded correctly. The emacs W3 browser comes with builtin
+  support for Emacspeak and ACSS</p>
 
-<dl>
-<dt><a name="index-User-Option-300"></a>Variable: <strong>User Option</strong> <em>emacspeak-w3-lynx-program</em></dt>
-<dd><p>Name of lynx executable
-</p></dd></dl>
+  <p>Automatically generated documentation for options defined in
+  module emacspeak-w3. These options are customizable via
+  Emacs&rsquo; Custom interface.</p>
 
-<dl>
-<dt><a name="index-User-Option-301"></a>Variable: <strong>User Option</strong> <em>emacspeak-w3-tidy-html</em></dt>
-<dd><p>Tidy HTML before rendering.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-328" id=
+    "index-User-Option-328"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-w3-base-uri-pronunciation</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-302"></a>Variable: <strong>User Option</strong> <em>emacspeak-w3-tidy-options</em></dt>
-<dd><p>Options to pass to tidy program
-</p></dd></dl>
+    <dd>
+      <p>Custom pronunciation for base URIs in w3 buffers.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-303"></a>Variable: <strong>User Option</strong> <em>emacspeak-w3-tidy-program</em></dt>
-<dd><p>Name of tidy executable
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-329" id=
+    "index-User-Option-329"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-w3-create-imenu-index</em></dt>
 
+    <dd>
+      <p>Create IMenu index by default.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-330" id=
+    "index-User-Option-330"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-w3-lwp-request</em></dt>
 
+    <dd>
+      <p>LWP Request command from perl LWP.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-331" id=
+    "index-User-Option-331"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-w3-lynx-program</em></dt>
+
+    <dd>
+      <p>Name of lynx executable</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-332" id=
+    "index-User-Option-332"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-w3-tidy-html</em></dt>
+
+    <dd>
+      <p>Tidy HTML before rendering.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-333" id=
+    "index-User-Option-333"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-w3-tidy-options</em></dt>
+
+    <dd>
+      <p>Options to pass to tidy program</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-334" id=
+    "index-User-Option-334"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-w3-tidy-program</em></dt>
+
+    <dd>
+      <p>Name of tidy executable</p>
+    </dd>
+  </dl>
 </body>
 </html>

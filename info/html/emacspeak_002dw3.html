@@ -1,170 +1,324 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-w3</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-w3">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-w3">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up" title="Emacspeak Commands">
-<link href="emacspeak_002dw3m.html#emacspeak_002dw3m" rel="next" title="emacspeak-w3m">
-<link href="emacspeak_002dvm.html#emacspeak_002dvm" rel="prev" title="emacspeak-vm">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-w3</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-w3" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-w3" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
+  title="Emacspeak Commands" />
+  <link href="emacspeak_002dw3m.html#emacspeak_002dw3m" rel="next"
+  title="emacspeak-w3m" />
+  <link href="emacspeak_002dvm.html#emacspeak_002dvm" rel="prev"
+  title="emacspeak-vm" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dw3"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dw3m.html#emacspeak_002dw3m" accesskey="n" rel="next">emacspeak-w3m</a>, Previous: <a href="emacspeak_002dvm.html#emacspeak_002dvm" accesskey="p" rel="prev">emacspeak-vm</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dw3-1"></a>
-<h3 class="section">11.72 emacspeak-w3</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dw3" id="emacspeak_002dw3"></a>
 
-<p>Commentary:
-Ensure that speech support for W3 gets installed and
-loaded correctly.
-The emacs W3 browser comes with builtin support for
-Emacspeak and ACSS
-</p>
-<p>Automatically generated documentation
-for commands defined in module  emacspeak-w3.
-</p>
-<dl>
-<dt><a name="index-emacspeak_002dw3_002dcurl_002durl_002dunder_002dpoint"></a>Interactive Command: <strong>emacspeak-w3-curl-url-under-point</strong> <em>nil</em></dt>
-<dd><p>Display contents of URL under point using Curl and W3.  The
-document is displayed in a separate buffer. 
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href="emacspeak_002dw3m.html#emacspeak_002dw3m"
+    accesskey="n" rel="next">emacspeak-w3m</a>, Previous: <a href=
+    "emacspeak_002dvm.html#emacspeak_002dvm" accesskey="p" rel=
+    "prev">emacspeak-vm</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dw3-1" id="emacspeak_002dw3-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002dw3_002dcustomize_002dbase_002duri_002dpronunciation"></a>Interactive Command: <strong>emacspeak-w3-customize-base-uri-pronunciation</strong> <em>nil</em></dt>
-<dd><p>Defines custom buffer local pronunciation for base URI.
-</p></dd></dl>
+  <h3 class="section">11.73 emacspeak-w3</h3>
 
-<dl>
-<dt><a name="index-emacspeak_002dw3_002ddo_002donclick"></a>Interactive Command: <strong>emacspeak-w3-do-onclick</strong> <em>nil</em></dt>
-<dd><p>Do  onclick action.
-</p></dd></dl>
+  <p>Commentary: Ensure that speech support for W3 gets installed
+  and loaded correctly. The emacs W3 browser comes with builtin
+  support for Emacspeak and ACSS</p>
 
-<dl>
-<dt><a name="index-emacspeak_002dw3_002djavascript_002dfollow_002dlink"></a>Interactive Command: <strong>emacspeak-w3-javascript-follow-link</strong> <em>nil</em></dt>
-<dd><p>Follow URL hidden inside a javascript link
-</p></dd></dl>
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak-w3.</p>
 
-<dl>
-<dt><a name="index-emacspeak_002dw3_002djump_002dto_002dsubmit"></a>Interactive Command: <strong>emacspeak-w3-jump-to-submit</strong> <em>nil</em></dt>
-<dd><p>Jump to next available submit button.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dw3_002dcurl_002durl_002dunder_002dpoint"
+    id=
+    "index-emacspeak_002dw3_002dcurl_002durl_002dunder_002dpoint"></a>Interactive
+    Command: <strong>emacspeak-w3-curl-url-under-point</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dw3_002dlynx_002durl_002dunder_002dpoint"></a>Interactive Command: <strong>emacspeak-w3-lynx-url-under-point</strong> <em>nil</em></dt>
-<dd><p>Display contents of URL under point using LYNX.  The
-document is displayed in a separate buffer. Note that the
-hyperlinks in that display are not active&ndash; this facility is
-present only to help me iron out the remaining problems with
-the table structure extraction code in W3.
-</p></dd></dl>
+    <dd>
+      <p>Display contents of URL under point using Curl and W3. The
+      document is displayed in a separate buffer.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dw3_002dnext_002dblock"></a>Interactive Command: <strong>emacspeak-w3-next-block</strong> <em>nil</em></dt>
-<dd><p>Move by block level displays.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dw3_002dcustomize_002dbase_002duri_002dpronunciation"
+    id=
+    "index-emacspeak_002dw3_002dcustomize_002dbase_002duri_002dpronunciation">
+    </a>Interactive Command:
+    <strong>emacspeak-w3-customize-base-uri-pronunciation</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dw3_002dnext_002ddoc_002delement"></a>Interactive Command: <strong>emacspeak-w3-next-doc-element</strong> <em>(&amp;optional count)</em></dt>
-<dd><p>Move forward  to the next document element.
-Optional interactive prefix argument COUNT
-specifies by how many eleemnts to move.
-</p></dd></dl>
+    <dd>
+      <p>Defines custom buffer local pronunciation for base
+      URI.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dw3_002dnext_002dparsed_002ditem"></a>Interactive Command: <strong>emacspeak-w3-next-parsed-item</strong> <em>nil</em></dt>
-<dd><p>Move to and speak next parsed item.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dw3_002ddo_002donclick" id=
+    "index-emacspeak_002dw3_002ddo_002donclick"></a>Interactive
+    Command: <strong>emacspeak-w3-do-onclick</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dw3_002dprevious_002ddoc_002delement"></a>Interactive Command: <strong>emacspeak-w3-previous-doc-element</strong> <em>(&amp;optional count)</em></dt>
-<dd><p>Move back  to the previous document element.
-Optional interactive prefix argument COUNT
-specifies by how many eleemnts to move.
-</p></dd></dl>
+    <dd>
+      <p>Do onclick action.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dw3_002dshow_002danchor_002dclass"></a>Interactive Command: <strong>emacspeak-w3-show-anchor-class</strong> <em>nil</em></dt>
-<dd><p>Display any class attributes set on corresponding anchor
-element. 
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dw3_002djavascript_002dfollow_002dlink" id=
+    "index-emacspeak_002dw3_002djavascript_002dfollow_002dlink"></a>Interactive
+    Command: <strong>emacspeak-w3-javascript-follow-link</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dw3_002dshow_002dhttp_002dheaders"></a>Interactive Command: <strong>emacspeak-w3-show-http-headers</strong> <em>nil</em></dt>
-<dd><p>Show HTTP headers using lwp-request
-</p></dd></dl>
+    <dd>
+      <p>Follow URL hidden inside a javascript link</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dw3_002dspeak_002dnext_002dblock"></a>Interactive Command: <strong>emacspeak-w3-speak-next-block</strong> <em>nil</em></dt>
-<dd><p>Move to next block and speak it.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dw3_002djump_002dto_002dsubmit"
+    id=
+    "index-emacspeak_002dw3_002djump_002dto_002dsubmit"></a>Interactive
+    Command: <strong>emacspeak-w3-jump-to-submit</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dw3_002dspeak_002dnext_002delement"></a>Interactive Command: <strong>emacspeak-w3-speak-next-element</strong> <em>nil</em></dt>
-<dd><p>Speak next document element.
-</p></dd></dl>
+    <dd>
+      <p>Jump to next available submit button.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dw3_002dspeak_002dthis_002delement"></a>Interactive Command: <strong>emacspeak-w3-speak-this-element</strong> <em>nil</em></dt>
-<dd><p>Speak document element under point.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dw3_002dlynx_002durl_002dunder_002dpoint"
+    id=
+    "index-emacspeak_002dw3_002dlynx_002durl_002dunder_002dpoint"></a>Interactive
+    Command: <strong>emacspeak-w3-lynx-url-under-point</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dw3_002dtoggle_002dtable_002dborders"></a>Interactive Command: <strong>emacspeak-w3-toggle-table-borders</strong> <em>nil</em></dt>
-<dd><p>Toggle drawing of W3 table borders
-</p></dd></dl>
+    <dd>
+      <p>Display contents of URL under point using LYNX. The
+      document is displayed in a separate buffer. Note that the
+      hyperlinks in that display are not active&ndash; this
+      facility is present only to help me iron out the remaining
+      problems with the table structure extraction code in W3.</p>
+    </dd>
+  </dl>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dw3m.html#emacspeak_002dw3m" accesskey="n" rel="next">emacspeak-w3m</a>, Previous: <a href="emacspeak_002dvm.html#emacspeak_002dvm" accesskey="p" rel="prev">emacspeak-vm</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+  <dl>
+    <dt><a name="index-emacspeak_002dw3_002dnext_002dblock" id=
+    "index-emacspeak_002dw3_002dnext_002dblock"></a>Interactive
+    Command: <strong>emacspeak-w3-next-block</strong>
+    <em>nil</em></dt>
 
+    <dd>
+      <p>Move by block level displays.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dw3_002dnext_002ddoc_002delement" id=
+    "index-emacspeak_002dw3_002dnext_002ddoc_002delement"></a>Interactive
+    Command: <strong>emacspeak-w3-next-doc-element</strong>
+    <em>(&amp;optional count)</em></dt>
 
+    <dd>
+      <p>Move forward to the next document element. Optional
+      interactive prefix argument COUNT specifies by how many
+      eleemnts to move.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dw3_002dnext_002dparsed_002ditem" id=
+    "index-emacspeak_002dw3_002dnext_002dparsed_002ditem"></a>Interactive
+    Command: <strong>emacspeak-w3-next-parsed-item</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Move to and speak next parsed item.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dw3_002dprevious_002ddoc_002delement" id=
+    "index-emacspeak_002dw3_002dprevious_002ddoc_002delement"></a>Interactive
+    Command: <strong>emacspeak-w3-previous-doc-element</strong>
+    <em>(&amp;optional count)</em></dt>
+
+    <dd>
+      <p>Move back to the previous document element. Optional
+      interactive prefix argument COUNT specifies by how many
+      eleemnts to move.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dw3_002dshow_002danchor_002dclass" id=
+    "index-emacspeak_002dw3_002dshow_002danchor_002dclass"></a>Interactive
+    Command: <strong>emacspeak-w3-show-anchor-class</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Display any class attributes set on corresponding anchor
+      element.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dw3_002dshow_002dhttp_002dheaders" id=
+    "index-emacspeak_002dw3_002dshow_002dhttp_002dheaders"></a>Interactive
+    Command: <strong>emacspeak-w3-show-http-headers</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Show HTTP headers using lwp-request</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dw3_002dspeak_002dnext_002dblock" id=
+    "index-emacspeak_002dw3_002dspeak_002dnext_002dblock"></a>Interactive
+    Command: <strong>emacspeak-w3-speak-next-block</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Move to next block and speak it.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dw3_002dspeak_002dnext_002delement" id=
+    "index-emacspeak_002dw3_002dspeak_002dnext_002delement"></a>Interactive
+    Command: <strong>emacspeak-w3-speak-next-element</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak next document element.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dw3_002dspeak_002dthis_002delement" id=
+    "index-emacspeak_002dw3_002dspeak_002dthis_002delement"></a>Interactive
+    Command: <strong>emacspeak-w3-speak-this-element</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak document element under point.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dw3_002dtoggle_002dtable_002dborders" id=
+    "index-emacspeak_002dw3_002dtoggle_002dtable_002dborders"></a>Interactive
+    Command: <strong>emacspeak-w3-toggle-table-borders</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Toggle drawing of W3 table borders</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href="emacspeak_002dw3m.html#emacspeak_002dw3m"
+    accesskey="n" rel="next">emacspeak-w3m</a>, Previous: <a href=
+    "emacspeak_002dvm.html#emacspeak_002dvm" accesskey="p" rel=
+    "prev">emacspeak-vm</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

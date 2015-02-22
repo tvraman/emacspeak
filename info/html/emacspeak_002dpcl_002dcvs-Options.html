@@ -1,109 +1,187 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-pcl-cvs Options</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-pcl-cvs Options">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-pcl-cvs Options">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Customizations.html#Emacspeak-Customizations" rel="up" title="Emacspeak Customizations">
-<link href="emacspeak_002dpersonality-Options.html#emacspeak_002dpersonality-Options" rel="next" title="emacspeak-personality Options">
-<link href="emacspeak_002doutline-Options.html#emacspeak_002doutline-Options" rel="prev" title="emacspeak-outline Options">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-pcl-cvs Options</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-pcl-cvs Options" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-pcl-cvs Options" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Customizations.html#Emacspeak-Customizations" rel="up"
+  title="Emacspeak Customizations" />
+  <link href=
+  "emacspeak_002dpersonality-Options.html#emacspeak_002dpersonality-Options"
+  rel="next" title="emacspeak-personality Options" />
+  <link href=
+  "emacspeak_002doutline-Options.html#emacspeak_002doutline-Options"
+  rel="prev" title="emacspeak-outline Options" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dpcl_002dcvs-Options"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dpersonality-Options.html#emacspeak_002dpersonality-Options" accesskey="n" rel="next">emacspeak-personality Options</a>, Previous: <a href="emacspeak_002doutline-Options.html#emacspeak_002doutline-Options" accesskey="p" rel="prev">emacspeak-outline Options</a>, Up: <a href="Emacspeak-Customizations.html#Emacspeak-Customizations" accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dpcl_002dcvs-Options-1"></a>
-<h3 class="section">12.43 emacspeak-pcl-cvs Options</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dpcl_002dcvs-Options" id=
+  "emacspeak_002dpcl_002dcvs-Options"></a>
 
-<p>Commentary:
-Speech-enabled CVS access via package pcl-cvs.el
-</p>
-<p>Automatically generated documentation
-for options defined in module  emacspeak-pcl-cvs.
-These options are customizable via Emacs&rsquo; Custom interface.
-</p>
-<dl>
-<dt><a name="index-User-Option-207"></a>Variable: <strong>User Option</strong> <em>emacspeak-cvs-filename-personality</em></dt>
-<dd><p>Personality used for cvs-filename-face
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dpersonality-Options.html#emacspeak_002dpersonality-Options"
+    accesskey="n" rel="next">emacspeak-personality Options</a>,
+    Previous: <a href=
+    "emacspeak_002doutline-Options.html#emacspeak_002doutline-Options"
+    accesskey="p" rel="prev">emacspeak-outline Options</a>, Up:
+    <a href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations"
+    accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp;
+    [<a href="index.html#SEC_Contents" title="Table of contents"
+    rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dpcl_002dcvs-Options-1" id=
+  "emacspeak_002dpcl_002dcvs-Options-1"></a>
 
-<dl>
-<dt><a name="index-User-Option-208"></a>Variable: <strong>User Option</strong> <em>emacspeak-cvs-handled-personality</em></dt>
-<dd><p>Personality used for cvs-handled-face
-This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
-</p></dd></dl>
+  <h3 class="section">12.45 emacspeak-pcl-cvs Options</h3>
 
-<dl>
-<dt><a name="index-User-Option-209"></a>Variable: <strong>User Option</strong> <em>emacspeak-cvs-header-personality</em></dt>
-<dd><p>Personality used for cvs-header-face
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-</p></dd></dl>
+  <p>Commentary: Speech-enabled CVS access via package
+  pcl-cvs.el</p>
 
-<dl>
-<dt><a name="index-User-Option-210"></a>Variable: <strong>User Option</strong> <em>emacspeak-cvs-marked-personality</em></dt>
-<dd><p>Personality used for cvs-marked-face
-This personality uses  voice-brighten-medium whose  effect can be changed globally by customizing voice-brighten-medium-settings.
-</p></dd></dl>
+  <p>Automatically generated documentation for options defined in
+  module emacspeak-pcl-cvs. These options are customizable via
+  Emacs&rsquo; Custom interface.</p>
 
-<dl>
-<dt><a name="index-User-Option-211"></a>Variable: <strong>User Option</strong> <em>emacspeak-cvs-msg-personality</em></dt>
-<dd><p>Personality used for cvs-msg-face
-This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-238" id=
+    "index-User-Option-238"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cvs-filename-personality</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-212"></a>Variable: <strong>User Option</strong> <em>emacspeak-cvs-need-action-personality</em></dt>
-<dd><p>Personality used for cvs-need-action-face
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for cvs-filename-face This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-239" id=
+    "index-User-Option-239"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-cvs-handled-personality</em></dt>
 
+    <dd>
+      <p>Personality used for cvs-handled-face This personality
+      uses voice-monotone-medium whose effect can be changed
+      globally by customizing voice-monotone-medium-settings.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-240" id=
+    "index-User-Option-240"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-cvs-header-personality</em></dt>
 
+    <dd>
+      <p>Personality used for cvs-header-face This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-241" id=
+    "index-User-Option-241"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-cvs-marked-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cvs-marked-face This personality uses
+      voice-brighten-medium whose effect can be changed globally by
+      customizing voice-brighten-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-242" id=
+    "index-User-Option-242"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-cvs-msg-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cvs-msg-face This personality uses
+      voice-monotone-medium whose effect can be changed globally by
+      customizing voice-monotone-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-243" id=
+    "index-User-Option-243"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cvs-need-action-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cvs-need-action-face This personality
+      uses voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
 </body>
 </html>

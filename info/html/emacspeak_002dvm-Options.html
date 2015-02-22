@@ -1,123 +1,211 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-vm Options</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-vm Options">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-vm Options">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Customizations.html#Emacspeak-Customizations" rel="up" title="Emacspeak Customizations">
-<link href="emacspeak_002dw3-Options.html#emacspeak_002dw3-Options" rel="next" title="emacspeak-w3 Options">
-<link href="emacspeak_002durl_002dtemplate-Options.html#emacspeak_002durl_002dtemplate-Options" rel="prev" title="emacspeak-url-template Options">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-vm Options</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-vm Options" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-vm Options" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Customizations.html#Emacspeak-Customizations" rel="up"
+  title="Emacspeak Customizations" />
+  <link href=
+  "emacspeak_002dw3-Options.html#emacspeak_002dw3-Options" rel=
+  "next" title="emacspeak-w3 Options" />
+  <link href=
+  "emacspeak_002durl_002dtemplate-Options.html#emacspeak_002durl_002dtemplate-Options"
+  rel="prev" title="emacspeak-url-template Options" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dvm-Options"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dw3-Options.html#emacspeak_002dw3-Options" accesskey="n" rel="next">emacspeak-w3 Options</a>, Previous: <a href="emacspeak_002durl_002dtemplate-Options.html#emacspeak_002durl_002dtemplate-Options" accesskey="p" rel="prev">emacspeak-url-template Options</a>, Up: <a href="Emacspeak-Customizations.html#Emacspeak-Customizations" accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dvm-Options-1"></a>
-<h3 class="section">12.57 emacspeak-vm Options</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dvm-Options" id=
+  "emacspeak_002dvm-Options"></a>
 
-<p>Automatically generated documentation
-for options defined in module  emacspeak-vm.
-These options are customizable via Emacs&rsquo; Custom interface.
-</p>
-<dl>
-<dt><a name="index-User-Option-288"></a>Variable: <strong>User Option</strong> <em>emacspeak-vm-cal2text</em></dt>
-<dd><p>Executable that converts calendar invitations    on
-  standard input to plain text.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dw3-Options.html#emacspeak_002dw3-Options"
+    accesskey="n" rel="next">emacspeak-w3 Options</a>, Previous:
+    <a href=
+    "emacspeak_002durl_002dtemplate-Options.html#emacspeak_002durl_002dtemplate-Options"
+    accesskey="p" rel="prev">emacspeak-url-template Options</a>,
+    Up: <a href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations"
+    accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp;
+    [<a href="index.html#SEC_Contents" title="Table of contents"
+    rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dvm-Options-1" id=
+  "emacspeak_002dvm-Options-1"></a>
 
-<dl>
-<dt><a name="index-User-Option-289"></a>Variable: <strong>User Option</strong> <em>emacspeak-vm-customize-mime-settings</em></dt>
-<dd><p>Non-nil will cause Emacspeak to configure VM mime
-settings to match what the author of Emacspeak uses.
-</p></dd></dl>
+  <h3 class="section">12.59 emacspeak-vm Options</h3>
 
-<dl>
-<dt><a name="index-User-Option-290"></a>Variable: <strong>User Option</strong> <em>emacspeak-vm-doc2text</em></dt>
-<dd><p>Executable that converts MSWord documents on standard input to plain
-text using wvText.
-</p></dd></dl>
+  <p>Automatically generated documentation for options defined in
+  module emacspeak-vm. These options are customizable via
+  Emacs&rsquo; Custom interface.</p>
 
-<dl>
-<dt><a name="index-User-Option-291"></a>Variable: <strong>User Option</strong> <em>emacspeak-vm-headers-strip-octals</em></dt>
-<dd><p>Specify whether non-ascii chars should be stripped when
-  speaking email headers.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-319" id=
+    "index-User-Option-319"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-vm-cal2text</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-292"></a>Variable: <strong>User Option</strong> <em>emacspeak-vm-pdf2text</em></dt>
-<dd><p>Executable that converts PDF on standard input to plain
-text using pdftotext.
-</p></dd></dl>
+    <dd>
+      <p>Executable that converts calendar invitations on standard
+      input to plain text.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-293"></a>Variable: <strong>User Option</strong> <em>emacspeak-vm-ppt2html</em></dt>
-<dd><p>Executable that converts MSPPT documents on standard input to HTML
- using xlhtml.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-320" id=
+    "index-User-Option-320"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-vm-customize-mime-settings</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-294"></a>Variable: <strong>User Option</strong> <em>emacspeak-vm-use-raman-settings</em></dt>
-<dd><p>Should VM  use the customizations used by the author of Emacspeak.
-</p></dd></dl>
+    <dd>
+      <p>Non-nil will cause Emacspeak to configure VM mime settings
+      to match what the author of Emacspeak uses.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-295"></a>Variable: <strong>User Option</strong> <em>emacspeak-vm-voice-lock-messages</em></dt>
-<dd><p>Set this to T if you want messages automatically voice locked.
-Note that some badly formed mime messages  cause trouble.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-321" id=
+    "index-User-Option-321"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-vm-doc2text</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-296"></a>Variable: <strong>User Option</strong> <em>emacspeak-vm-xls2html</em></dt>
-<dd><p>Executable that converts MSXL documents on standard input to HTML
- using xlhtml.
-</p></dd></dl>
+    <dd>
+      <p>Executable that converts MSWord documents on standard
+      input to plain text using wvText.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-322" id=
+    "index-User-Option-322"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-vm-headers-strip-octals</em></dt>
 
+    <dd>
+      <p>Specify whether non-ascii chars should be stripped when
+      speaking email headers.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-323" id=
+    "index-User-Option-323"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-vm-pdf2text</em></dt>
 
+    <dd>
+      <p>Executable that converts PDF on standard input to plain
+      text using pdftotext.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-324" id=
+    "index-User-Option-324"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-vm-ppt2html</em></dt>
+
+    <dd>
+      <p>Executable that converts MSPPT documents on standard input
+      to HTML using xlhtml.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-325" id=
+    "index-User-Option-325"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-vm-use-raman-settings</em></dt>
+
+    <dd>
+      <p>Should VM use the customizations used by the author of
+      Emacspeak.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-326" id=
+    "index-User-Option-326"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-vm-voice-lock-messages</em></dt>
+
+    <dd>
+      <p>Set this to T if you want messages automatically voice
+      locked. Note that some badly formed mime messages cause
+      trouble.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-327" id=
+    "index-User-Option-327"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-vm-xls2html</em></dt>
+
+    <dd>
+      <p>Executable that converts MSXL documents on standard input
+      to HTML using xlhtml.</p>
+    </dd>
+  </dl>
 </body>
 </html>

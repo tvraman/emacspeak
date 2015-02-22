@@ -1,94 +1,128 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: How It All Works.</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: How It All Works.">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: How It All Works.">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Voice-Lock.html#Voice-Lock" rel="up" title="Voice Lock">
-<link href="What-this-gives_002e.html#What-this-gives_002e" rel="next" title="What this gives.">
-<link href="Voice-Lock.html#Voice-Lock" rel="prev" title="Voice Lock">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: How It
+  All Works.</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: How It All Works." />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: How It All Works." />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Voice-Lock.html#Voice-Lock" rel="up" title=
+  "Voice Lock" />
+  <link href="What-this-gives_002e.html#What-this-gives_002e" rel=
+  "next" title="What this gives." />
+  <link href="Voice-Lock.html#Voice-Lock" rel="prev" title=
+  "Voice Lock" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="How-It-All-Works_002e"></a>
-<div class="header">
-<p>
-Next: <a href="What-this-gives_002e.html#What-this-gives_002e" accesskey="n" rel="next">What this gives.</a>, Up: <a href="Voice-Lock.html#Voice-Lock" accesskey="u" rel="up">Voice Lock</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="How-It-All-Works"></a>
-<h3 class="section">7.1 How It All Works</h3>
+<body lang="en" xml:lang="en">
+  <a name="How-It-All-Works_002e" id="How-It-All-Works_002e"></a>
 
-<p>Here is a brief explanation of the connection between
-&lsquo;<samp>voice-bolden</samp>&rsquo; and its associated &lsquo;<samp>voice-bolden-settings</samp>&rsquo;.
-</p>
+  <div class="header">
+    <p>Next: <a href=
+    "What-this-gives_002e.html#What-this-gives_002e" accesskey="n"
+    rel="next">What this gives.</a>, Up: <a href=
+    "Voice-Lock.html#Voice-Lock" accesskey="u" rel="up">Voice
+    Lock</a> &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="How-It-All-Works" id="How-It-All-Works"></a>
 
-<ol>
-<li> Voice  settings are initially in &lsquo;<samp>voice-bolden-settings</samp>&rsquo; which is a list
-of numbers.
+  <h3 class="section">7.1 How It All Works</h3>
 
-</li><li> That list of numbers needs to be translated to appropriate
-device-specific codes to send to the TTS engine.
+  <p>Here is a brief explanation of the connection between
+  &lsquo;<samp>voice-bolden</samp>&rsquo; and its associated
+  &lsquo;<samp>voice-bolden-settings</samp>&rsquo;.</p>
 
-</li><li> You do not want to do this translation <em>each</em> time you
-speak something.
+  <ol>
+    <li>Voice settings are initially in
+    &lsquo;<samp>voice-bolden-settings</samp>&rsquo; which is a
+    list of numbers.</li>
 
-</li><li> So when &lsquo;<samp>voice-bolden</samp>&rsquo; is defined, the definition happens in
-two steps:
-</li></ol>
+    <li>That list of numbers needs to be translated to appropriate
+    device-specific codes to send to the TTS engine.</li>
 
-<ul>
-<li> The list of settings is stored away in
-&lsquo;<samp>voice-bolden-settings</samp>&rsquo;,
-</li><li> A corresponding voice-name is generated &mdash;
-&lsquo;<samp>acss-a&lt;n&gt;-p&lt;n&gt;-r&lt;n&gt;-s&lt;n&gt;</samp>&rsquo; and the corresponding control codes to
-send to the device are stored away in a hash-table keyed by the above symbol.
+    <li>You do not want to do this translation <em>each</em> time
+    you speak something.</li>
 
-</li><li> Finally, &lsquo;<samp>voice-bolden</samp>&rsquo; is assigned the above symbol.
-</li></ul>
+    <li>So when &lsquo;<samp>voice-bolden</samp>&rsquo; is defined,
+    the definition happens in two steps:</li>
+  </ol>
 
+  <ul>
+    <li>The list of settings is stored away in
+    &lsquo;<samp>voice-bolden-settings</samp>&rsquo;,</li>
 
+    <li>A corresponding voice-name is generated &mdash;
+    &lsquo;<samp>acss-a&lt;n&gt;-p&lt;n&gt;-r&lt;n&gt;-s&lt;n&gt;</samp>&rsquo;
+    and the corresponding control codes to send to the device are
+    stored away in a hash-table keyed by the above symbol.</li>
 
-
+    <li>Finally, &lsquo;<samp>voice-bolden</samp>&rsquo; is
+    assigned the above symbol.</li>
+  </ul>
 </body>
 </html>

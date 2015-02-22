@@ -1,91 +1,148 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-xslt</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-xslt">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-xslt">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up" title="Emacspeak Commands">
-<link href="emacspeak_002dzinf.html#emacspeak_002dzinf" rel="next" title="emacspeak-zinf">
-<link href="emacspeak_002dxml_002dshell.html#emacspeak_002dxml_002dshell" rel="prev" title="emacspeak-xml-shell">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-xslt</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-xslt" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-xslt" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
+  title="Emacspeak Commands" />
+  <link href="emacspeak_002dzinf.html#emacspeak_002dzinf" rel=
+  "next" title="emacspeak-zinf" />
+  <link href=
+  "emacspeak_002dxml_002dshell.html#emacspeak_002dxml_002dshell"
+  rel="prev" title="emacspeak-xml-shell" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dxslt"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dzinf.html#emacspeak_002dzinf" accesskey="n" rel="next">emacspeak-zinf</a>, Previous: <a href="emacspeak_002dxml_002dshell.html#emacspeak_002dxml_002dshell" accesskey="p" rel="prev">emacspeak-xml-shell</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dxslt-1"></a>
-<h3 class="section">11.81 emacspeak-xslt</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dxslt" id="emacspeak_002dxslt"></a>
 
-<p>No Commentary
-</p>
-<p>Automatically generated documentation
-for commands defined in module  emacspeak-xslt.
-</p>
-<dl>
-<dt><a name="index-emacspeak_002dxslt_002dview"></a>Interactive Command: <strong>emacspeak-xslt-view</strong> <em>(style url)</em></dt>
-<dd><p>Browse URL with specified XSL style.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href="emacspeak_002dzinf.html#emacspeak_002dzinf"
+    accesskey="n" rel="next">emacspeak-zinf</a>, Previous: <a href=
+    "emacspeak_002dxml_002dshell.html#emacspeak_002dxml_002dshell"
+    accesskey="p" rel="prev">emacspeak-xml-shell</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dxslt-1" id="emacspeak_002dxslt-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002dxslt_002dview_002dfile"></a>Interactive Command: <strong>emacspeak-xslt-view-file</strong> <em>(style file)</em></dt>
-<dd><p>Transform &lsquo;file&rsquo; using &lsquo;style&rsquo; and preview via browse-url.
-</p></dd></dl>
+  <h3 class="section">11.82 emacspeak-xslt</h3>
 
-<dl>
-<dt><a name="index-emacspeak_002dxslt_002dview_002dregion"></a>Interactive Command: <strong>emacspeak-xslt-view-region</strong> <em>(style start end &amp;optional unescape-charent)</em></dt>
-<dd><p>Browse XML region with specified XSL style.
-</p></dd></dl>
+  <p>No Commentary</p>
 
-<dl>
-<dt><a name="index-emacspeak_002dxslt_002dview_002dxml"></a>Interactive Command: <strong>emacspeak-xslt-view-xml</strong> <em>(style url &amp;optional unescape-charent)</em></dt>
-<dd><p>Browse XML URL with specified XSL style.
-</p></dd></dl>
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak-xslt.</p>
 
+  <dl>
+    <dt><a name="index-emacspeak_002dxslt_002dview" id=
+    "index-emacspeak_002dxslt_002dview"></a>Interactive Command:
+    <strong>emacspeak-xslt-view</strong> <em>(style url)</em></dt>
 
+    <dd>
+      <p>Browse URL with specified XSL style.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-emacspeak_002dxslt_002dview_002dfile" id=
+    "index-emacspeak_002dxslt_002dview_002dfile"></a>Interactive
+    Command: <strong>emacspeak-xslt-view-file</strong> <em>(style
+    file)</em></dt>
 
+    <dd>
+      <p>Transform &lsquo;file&rsquo; using &lsquo;style&rsquo; and
+      preview via browse-url.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dxslt_002dview_002dregion" id=
+    "index-emacspeak_002dxslt_002dview_002dregion"></a>Interactive
+    Command: <strong>emacspeak-xslt-view-region</strong> <em>(style
+    start end &amp;optional unescape-charent)</em></dt>
+
+    <dd>
+      <p>Browse XML region with specified XSL style.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dxslt_002dview_002dxml" id=
+    "index-emacspeak_002dxslt_002dview_002dxml"></a>Interactive
+    Command: <strong>emacspeak-xslt-view-xml</strong> <em>(style
+    url &amp;optional unescape-charent)</em></dt>
+
+    <dd>
+      <p>Browse XML URL with specified XSL style.</p>
+    </dd>
+  </dl>
 </body>
 </html>

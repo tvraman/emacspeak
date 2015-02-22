@@ -1,233 +1,433 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-wizards Options</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-wizards Options">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-wizards Options">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Customizations.html#Emacspeak-Customizations" rel="up" title="Emacspeak Customizations">
-<link href="emacspeak_002dxml_002dshell-Options.html#emacspeak_002dxml_002dshell-Options" rel="next" title="emacspeak-xml-shell Options">
-<link href="emacspeak_002dwebutils-Options.html#emacspeak_002dwebutils-Options" rel="prev" title="emacspeak-webutils Options">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-wizards Options</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-wizards Options" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-wizards Options" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Customizations.html#Emacspeak-Customizations" rel="up"
+  title="Emacspeak Customizations" />
+  <link href=
+  "emacspeak_002dxml_002dshell-Options.html#emacspeak_002dxml_002dshell-Options"
+  rel="next" title="emacspeak-xml-shell Options" />
+  <link href=
+  "emacspeak_002dwebutils-Options.html#emacspeak_002dwebutils-Options"
+  rel="prev" title="emacspeak-webutils Options" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dwizards-Options"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dxml_002dshell-Options.html#emacspeak_002dxml_002dshell-Options" accesskey="n" rel="next">emacspeak-xml-shell Options</a>, Previous: <a href="emacspeak_002dwebutils-Options.html#emacspeak_002dwebutils-Options" accesskey="p" rel="prev">emacspeak-webutils Options</a>, Up: <a href="Emacspeak-Customizations.html#Emacspeak-Customizations" accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dwizards-Options-1"></a>
-<h3 class="section">12.63 emacspeak-wizards Options</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dwizards-Options" id=
+  "emacspeak_002dwizards-Options"></a>
 
-<p>Commentary:
-Contains various wizards for the Emacspeak desktop.
-</p>
-<p>Automatically generated documentation
-for options defined in module  emacspeak-wizards.
-These options are customizable via Emacs&rsquo; Custom interface.
-</p>
-<dl>
-<dt><a name="index-User-Option-318"></a>Variable: <strong>User Option</strong> <em>emacspeak-clipboard-file</em></dt>
-<dd><p>File used to save Emacspeak clipboard.
-The emacspeak clipboard provides a convenient mechanism for exchanging
-information between different Emacs sessions.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dxml_002dshell-Options.html#emacspeak_002dxml_002dshell-Options"
+    accesskey="n" rel="next">emacspeak-xml-shell Options</a>,
+    Previous: <a href=
+    "emacspeak_002dwebutils-Options.html#emacspeak_002dwebutils-Options"
+    accesskey="p" rel="prev">emacspeak-webutils Options</a>, Up:
+    <a href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations"
+    accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp;
+    [<a href="index.html#SEC_Contents" title="Table of contents"
+    rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dwizards-Options-1" id=
+  "emacspeak_002dwizards-Options-1"></a>
 
-<dl>
-<dt><a name="index-User-Option-319"></a>Variable: <strong>User Option</strong> <em>emacspeak-curl-cookie-store</em></dt>
-<dd><p>Cookie store used by Curl.
-</p></dd></dl>
+  <h3 class="section">12.65 emacspeak-wizards Options</h3>
 
-<dl>
-<dt><a name="index-User-Option-320"></a>Variable: <strong>User Option</strong> <em>emacspeak-cvs-local-directory</em></dt>
-<dd><p>Directory where we download the snapshot.
-</p></dd></dl>
+  <p>Commentary: Contains various wizards for the Emacspeak
+  desktop.</p>
 
-<dl>
-<dt><a name="index-User-Option-321"></a>Variable: <strong>User Option</strong> <em>emacspeak-cvs-local-directory-pattern</em></dt>
-<dd><p>Pattern from which name of local download directory is build.
- %s is replaced by the project name.
-</p></dd></dl>
+  <p>Automatically generated documentation for options defined in
+  module emacspeak-wizards. These options are customizable via
+  Emacs&rsquo; Custom interface.</p>
 
-<dl>
-<dt><a name="index-User-Option-322"></a>Variable: <strong>User Option</strong> <em>emacspeak-emergency-tts-server</em></dt>
-<dd><p>TTS server to use in an emergency.
-Set this to a TTS server that is known to work at all times.
-If you are debugging another speech server and that server
-gets wedged for some reason,
-you can use command emacspeak-emergency-tts-restart
-to get speech back using the reliable TTS server.
-It&rsquo;s useful to bind the above command to a convenient key.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-349" id=
+    "index-User-Option-349"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-clipboard-file</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-323"></a>Variable: <strong>User Option</strong> <em>emacspeak-speak-telephone-directory</em></dt>
-<dd><p>File holding telephone directory.
-This is just a text file, and we use grep to search it.
-</p></dd></dl>
+    <dd>
+      <p>File used to save Emacspeak clipboard. The emacspeak
+      clipboard provides a convenient mechanism for exchanging
+      information between different Emacs sessions.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-324"></a>Variable: <strong>User Option</strong> <em>emacspeak-speak-telephone-directory-command</em></dt>
-<dd><p>Command used to look up names in the telephone
-directory.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-350" id=
+    "index-User-Option-350"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-curl-cookie-store</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-325"></a>Variable: <strong>User Option</strong> <em>emacspeak-ssh-tts-server</em></dt>
-<dd><p>SSH TTS server to use by default.
-</p></dd></dl>
+    <dd>
+      <p>Cookie store used by Curl.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-326"></a>Variable: <strong>User Option</strong> <em>emacspeak-wizards-curl-program</em></dt>
-<dd><p>Name of curl executable.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-351" id=
+    "index-User-Option-351"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-cvs-local-directory</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-327"></a>Variable: <strong>User Option</strong> <em>emacspeak-wizards-dvi2txt-program</em></dt>
-<dd><p>Program for converting dvi  to txt.
-Set this to nil if you do not want to use the DVI wizard.
-</p></dd></dl>
+    <dd>
+      <p>Directory where we download the snapshot.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-328"></a>Variable: <strong>User Option</strong> <em>emacspeak-wizards-find-switches-that-need-quoting</em></dt>
-<dd><p>Find switches whose args need quoting.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-352" id=
+    "index-User-Option-352"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cvs-local-directory-pattern</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-329"></a>Variable: <strong>User Option</strong> <em>emacspeak-wizards-find-switches-widget</em></dt>
-<dd><p>Widget to get find switch.
-</p></dd></dl>
+    <dd>
+      <p>Pattern from which name of local download directory is
+      build. %s is replaced by the project name.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-330"></a>Variable: <strong>User Option</strong> <em>emacspeak-wizards-links-program</em></dt>
-<dd><p>Name of links executable.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-353" id=
+    "index-User-Option-353"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-emergency-tts-server</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-331"></a>Variable: <strong>User Option</strong> <em>emacspeak-wizards-linux-howto-directory</em></dt>
-<dd><p>Root  of Linux Howtos.
-</p></dd></dl>
+    <dd>
+      <p>TTS server to use in an emergency. Set this to a TTS
+      server that is known to work at all times. If you are
+      debugging another speech server and that server gets wedged
+      for some reason, you can use command
+      emacspeak-emergency-tts-restart to get speech back using the
+      reliable TTS server. It&rsquo;s useful to bind the above
+      command to a convenient key.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-332"></a>Variable: <strong>User Option</strong> <em>emacspeak-wizards-lynx-program</em></dt>
-<dd><p>Lynx executable.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-354" id=
+    "index-User-Option-354"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-speak-telephone-directory</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-333"></a>Variable: <strong>User Option</strong> <em>emacspeak-wizards-pdf-to-text-options</em></dt>
-<dd><p>options to Command for running pdftotext.
-</p></dd></dl>
+    <dd>
+      <p>File holding telephone directory. This is just a text
+      file, and we use grep to search it.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-334"></a>Variable: <strong>User Option</strong> <em>emacspeak-wizards-pdf-to-text-program</em></dt>
-<dd><p>Command for running pdftotext.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-355" id=
+    "index-User-Option-355"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-speak-telephone-directory-command</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-335"></a>Variable: <strong>User Option</strong> <em>emacspeak-wizards-personal-portfolio</em></dt>
-<dd><p>Set this to the stock tickers you want to check.
-Tickers are separated by white-space and are sorted in lexical
-order with duplicates removed.
-</p></dd></dl>
+    <dd>
+      <p>Command used to look up names in the telephone
+      directory.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-336"></a>Variable: <strong>User Option</strong> <em>emacspeak-wizards-ppthtml-program</em></dt>
-<dd><p>Program for converting PPT  to HTML.
-Set this to nil if you do not want to use the PPTHTML wizard.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-356" id=
+    "index-User-Option-356"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-ssh-tts-server</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-337"></a>Variable: <strong>User Option</strong> <em>emacspeak-wizards-quote-command</em></dt>
-<dd><p>Command for pulling up detailed stock quotes.
-this requires Perl module Finance::YahooQuote.
-</p></dd></dl>
+    <dd>
+      <p>SSH TTS server to use by default.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-338"></a>Variable: <strong>User Option</strong> <em>emacspeak-wizards-quote-row-filter</em></dt>
-<dd><p>Format used to filter rows.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-357" id=
+    "index-User-Option-357"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-wizards-curl-program</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-339"></a>Variable: <strong>User Option</strong> <em>emacspeak-wizards-spot-words-extension</em></dt>
-<dd><p>Default file extension  used when spotting words.
-</p></dd></dl>
+    <dd>
+      <p>Name of curl executable.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-340"></a>Variable: <strong>User Option</strong> <em>emacspeak-wizards-tramp-locations</em></dt>
-<dd><p>Tramp locations used by Emacspeak tramp wizard.
-Locations added here via custom can be opened using command
-emacspeak-wizards-tramp-open-location
-bound to M-x emacspeak-wizards-tramp-open-location.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-358" id=
+    "index-User-Option-358"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-wizards-dvi2txt-program</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-341"></a>Variable: <strong>User Option</strong> <em>emacspeak-wizards-vc-viewer-command</em></dt>
-<dd><p>Command line for dumping out virtual console.
-</p></dd></dl>
+    <dd>
+      <p>Program for converting dvi to txt. Set this to nil if you
+      do not want to use the DVI wizard.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-342"></a>Variable: <strong>User Option</strong> <em>emacspeak-wizards-vpn-end-command</em></dt>
-<dd><p>Command that brings down a   VPN connection.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-359" id=
+    "index-User-Option-359"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-wizards-find-switches-that-need-quoting</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-343"></a>Variable: <strong>User Option</strong> <em>emacspeak-wizards-vpn-start-command</em></dt>
-<dd><p>Command that brings up a VPN connection.
-</p></dd></dl>
+    <dd>
+      <p>Find switches whose args need quoting.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-344"></a>Variable: <strong>User Option</strong> <em>emacspeak-wizards-xlhtml-program</em></dt>
-<dd><p>Program for converting XL to HTML.
-Set this to nil if you do not want to use the XLHTML wizard.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-360" id=
+    "index-User-Option-360"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-wizards-find-switches-widget</em></dt>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dxml_002dshell-Options.html#emacspeak_002dxml_002dshell-Options" accesskey="n" rel="next">emacspeak-xml-shell Options</a>, Previous: <a href="emacspeak_002dwebutils-Options.html#emacspeak_002dwebutils-Options" accesskey="p" rel="prev">emacspeak-webutils Options</a>, Up: <a href="Emacspeak-Customizations.html#Emacspeak-Customizations" accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+    <dd>
+      <p>Widget to get find switch.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-361" id=
+    "index-User-Option-361"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-wizards-links-program</em></dt>
 
+    <dd>
+      <p>Name of links executable.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-362" id=
+    "index-User-Option-362"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-wizards-linux-howto-directory</em></dt>
+
+    <dd>
+      <p>Root of Linux Howtos.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-363" id=
+    "index-User-Option-363"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-wizards-lynx-program</em></dt>
+
+    <dd>
+      <p>Lynx executable.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-364" id=
+    "index-User-Option-364"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-wizards-pdf-to-text-options</em></dt>
+
+    <dd>
+      <p>options to Command for running pdftotext.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-365" id=
+    "index-User-Option-365"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-wizards-pdf-to-text-program</em></dt>
+
+    <dd>
+      <p>Command for running pdftotext.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-366" id=
+    "index-User-Option-366"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-wizards-personal-portfolio</em></dt>
+
+    <dd>
+      <p>Set this to the stock tickers you want to check. Tickers
+      are separated by white-space and are sorted in lexical order
+      with duplicates removed.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-367" id=
+    "index-User-Option-367"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-wizards-ppthtml-program</em></dt>
+
+    <dd>
+      <p>Program for converting PPT to HTML. Set this to nil if you
+      do not want to use the PPTHTML wizard.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-368" id=
+    "index-User-Option-368"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-wizards-quote-command</em></dt>
+
+    <dd>
+      <p>Command for pulling up detailed stock quotes. this
+      requires Perl module Finance::YahooQuote.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-369" id=
+    "index-User-Option-369"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-wizards-quote-row-filter</em></dt>
+
+    <dd>
+      <p>Format used to filter rows.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-370" id=
+    "index-User-Option-370"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-wizards-spot-words-extension</em></dt>
+
+    <dd>
+      <p>Default file extension used when spotting words.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-371" id=
+    "index-User-Option-371"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-wizards-tramp-locations</em></dt>
+
+    <dd>
+      <p>Tramp locations used by Emacspeak tramp wizard. Locations
+      added here via custom can be opened using command
+      emacspeak-wizards-tramp-open-location bound to M-x
+      emacspeak-wizards-tramp-open-location.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-372" id=
+    "index-User-Option-372"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-wizards-vc-viewer-command</em></dt>
+
+    <dd>
+      <p>Command line for dumping out virtual console.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-373" id=
+    "index-User-Option-373"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-wizards-vpn-end-command</em></dt>
+
+    <dd>
+      <p>Command that brings down a VPN connection.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-374" id=
+    "index-User-Option-374"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-wizards-vpn-start-command</em></dt>
+
+    <dd>
+      <p>Command that brings up a VPN connection.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-375" id=
+    "index-User-Option-375"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-wizards-xlhtml-program</em></dt>
+
+    <dd>
+      <p>Program for converting XL to HTML. Set this to nil if you
+      do not want to use the XLHTML wizard.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dxml_002dshell-Options.html#emacspeak_002dxml_002dshell-Options"
+    accesskey="n" rel="next">emacspeak-xml-shell Options</a>,
+    Previous: <a href=
+    "emacspeak_002dwebutils-Options.html#emacspeak_002dwebutils-Options"
+    accesskey="p" rel="prev">emacspeak-webutils Options</a>, Up:
+    <a href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations"
+    accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp;
+    [<a href="index.html#SEC_Contents" title="Table of contents"
+    rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

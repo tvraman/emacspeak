@@ -1,99 +1,211 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Emacs Packages</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Emacs Packages">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Emacs Packages">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="index.html#Top" rel="up" title="Top">
-<link href="Document-Authoring.html#Document-Authoring" rel="next" title="Document Authoring">
-<link href="Using-Online-Help.html#Using-Online-Help" rel="prev" title="Using Online Help">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Emacs
+  Packages</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Emacs Packages" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Emacs Packages" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="index.html#Top" rel="up" title="Top" />
+  <link href="Document-Authoring.html#Document-Authoring" rel=
+  "next" title="Document Authoring" />
+  <link href="Using-Online-Help.html#Using-Online-Help" rel="prev"
+  title="Using Online Help" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="Emacs-Packages"></a>
-<div class="header">
-<p>
-Next: <a href="Running-Terminal-Based-Applications.html#Running-Terminal-Based-Applications" accesskey="n" rel="next">Running Terminal Based Applications</a>, Previous: <a href="Using-Online-Help.html#Using-Online-Help" accesskey="p" rel="prev">Using Online Help</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="Emacs-Packages_002e"></a>
-<h2 class="chapter">9 Emacs Packages.</h2>
+<body lang="en" xml:lang="en">
+  <a name="Emacs-Packages" id="Emacs-Packages"></a>
 
-<p>Emacs &ndash; The extensible, self-documenting editor, derives its
-functionality from its powerful extension mechanism. This extension
-mechanism is used to implement many user-level applications such as mail
-readers, WWW browsers, software development environments and so on.
-This chapter gives directions on how to locate the right Emacs package
-for addressing specific tasks.  The chapter is organized into logical
-sections that each pertain to a specific class of tasks; in individual
-subsections within a section give a brief overview of particular Emacs
-packages that have been speech-enabled.
-</p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="Document-Authoring.html#Document-Authoring" accesskey="1">Document Authoring</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Document Authoring
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="Structured-Editing.html#Structured-Editing" accesskey="2">Structured Editing</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Structured Editing
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="Browsing-Structure.html#Browsing-Structure" accesskey="3">Browsing Structure</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Browsing Structure
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="Web-Browsing.html#Web-Browsing" accesskey="4">Web Browsing</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Web Browsing
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="Messaging.html#Messaging" accesskey="5">Messaging</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Messaging
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="Editing-Program-Source.html#Editing-Program-Source" accesskey="6">Editing Program Source</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Editing Program Source
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="Development-Environment.html#Development-Environment" accesskey="7">Development Environment</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Development Environment
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="Desktop-Management.html#Desktop-Management" accesskey="8">Desktop Management</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Desktop Management
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="Personal-Information-Management.html#Personal-Information-Management" accesskey="9">Personal Information Management</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Personal Information Management
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="Desktop-Applications.html#Desktop-Applications">Desktop Applications</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Desktop Applications
-</td></tr>
-</table>
+  <div class="header">
+    <p>Next: <a href=
+    "Running-Terminal-Based-Applications.html#Running-Terminal-Based-Applications"
+    accesskey="n" rel="next">Running Terminal Based
+    Applications</a>, Previous: <a href=
+    "Using-Online-Help.html#Using-Online-Help" accesskey="p" rel=
+    "prev">Using Online Help</a>, Up: <a href="index.html#Top"
+    accesskey="u" rel="up">Top</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="Emacs-Packages_002e" id="Emacs-Packages_002e"></a>
 
+  <h2 class="chapter">9 Emacs Packages.</h2>
 
+  <p>Emacs &ndash; The extensible, self-documenting editor, derives
+  its functionality from its powerful extension mechanism. This
+  extension mechanism is used to implement many user-level
+  applications such as mail readers, WWW browsers, software
+  development environments and so on. This chapter gives directions
+  on how to locate the right Emacs package for addressing specific
+  tasks. The chapter is organized into logical sections that each
+  pertain to a specific class of tasks; in individual subsections
+  within a section give a brief overview of particular Emacs
+  packages that have been speech-enabled.</p>
 
+  <table class="menu" border="0" cellspacing="0">
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "Document-Authoring.html#Document-Authoring" accesskey=
+      "1">Document Authoring</a>:</td>
 
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top">Document Authoring</td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "Structured-Editing.html#Structured-Editing" accesskey=
+      "2">Structured Editing</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top">Structured Editing</td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "Browsing-Structure.html#Browsing-Structure" accesskey=
+      "3">Browsing Structure</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top">Browsing Structure</td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "Web-Browsing.html#Web-Browsing" accesskey="4">Web
+      Browsing</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top">Web Browsing</td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "Messaging.html#Messaging" accesskey="5">Messaging</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top">Messaging</td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "Editing-Program-Source.html#Editing-Program-Source"
+      accesskey="6">Editing Program Source</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top">Editing Program Source</td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "Development-Environment.html#Development-Environment"
+      accesskey="7">Development Environment</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top">Development Environment</td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "Desktop-Management.html#Desktop-Management" accesskey=
+      "8">Desktop Management</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top">Desktop Management</td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "Personal-Information-Management.html#Personal-Information-Management"
+      accesskey="9">Personal Information Management</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top">Personal Information
+      Management</td>
+    </tr>
+
+    <tr>
+      <td align="left" valign="top">&bull; <a href=
+      "Desktop-Applications.html#Desktop-Applications">Desktop
+      Applications</a>:</td>
+
+      <td>&nbsp;&nbsp;</td>
+
+      <td align="left" valign="top">Desktop Applications</td>
+    </tr>
+  </table>
 </body>
 </html>

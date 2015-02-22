@@ -1,258 +1,612 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-google</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-google">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-google">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up" title="Emacspeak Commands">
-<link href="emacspeak_002dgridtext.html#emacspeak_002dgridtext" rel="next" title="emacspeak-gridtext">
-<link href="emacspeak_002dgomoku.html#emacspeak_002dgomoku" rel="prev" title="emacspeak-gomoku">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-google</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-google" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-google" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
+  title="Emacspeak Commands" />
+  <link href="emacspeak_002dgridtext.html#emacspeak_002dgridtext"
+  rel="next" title="emacspeak-gridtext" />
+  <link href="emacspeak_002dgomoku.html#emacspeak_002dgomoku" rel=
+  "prev" title="emacspeak-gomoku" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dgoogle"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dgridtext.html#emacspeak_002dgridtext" accesskey="n" rel="next">emacspeak-gridtext</a>, Previous: <a href="emacspeak_002dgomoku.html#emacspeak_002dgomoku" accesskey="p" rel="prev">emacspeak-gomoku</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dgoogle-1"></a>
-<h3 class="section">11.35 emacspeak-google</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dgoogle" id="emacspeak_002dgoogle"></a>
 
-<p>Commentary:
-There are a number of search tools that can be implemented on
-the Google search page &mdash; in a JS-powered browser, these
-show up as the Google tool-belt.
-This module implements a minor mode for use in Google result
-pages that enables these tools via single keyboard commands.
-Originally all options were available as tbs=p:v
-Now, some specialized searches, e.g. blog search are tbm=
-</p>
-<p>Automatically generated documentation
-for commands defined in module  emacspeak-google.
-</p>
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dshow_002dtoolbelt"></a>Interactive Command: <strong>emacspeak-google-show-toolbelt</strong> <em>nil</em></dt>
-<dd><p>Reload search page with toolbelt showing.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dgridtext.html#emacspeak_002dgridtext" accesskey=
+    "n" rel="next">emacspeak-gridtext</a>, Previous: <a href=
+    "emacspeak_002dgomoku.html#emacspeak_002dgomoku" accesskey="p"
+    rel="prev">emacspeak-gomoku</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dgoogle-1" id="emacspeak_002dgoogle-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dsign_002din"></a>Interactive Command: <strong>emacspeak-google-sign-in</strong> <em>nil</em></dt>
-<dd><p>Sign in to Google.
-</p></dd></dl>
+  <h3 class="section">11.36 emacspeak-google</h3>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dsign_002dout"></a>Interactive Command: <strong>emacspeak-google-sign-out</strong> <em>nil</em></dt>
-<dd><p>Sign out to Google.
-</p></dd></dl>
+  <p>Commentary: There are a number of search tools that can be
+  implemented on the Google search page &mdash; in a JS-powered
+  browser, these show up as the Google tool-belt. This module
+  implements a minor mode for use in Google result pages that
+  enables these tools via single keyboard commands. Originally all
+  options were available as tbs=p:v Now, some specialized searches,
+  e.g. blog search are tbm=</p>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change</strong> <em>nil</em></dt>
-<dd><p>Command to change values in the toolbelt and execute the query.
-</p></dd></dl>
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak-google.</p>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dShopping"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-Shopping</strong> <em>nil</em></dt>
-<dd><p>Change  Shopping in the currently active toolbelt.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dgoogle_002dshow_002dtoolbelt"
+    id=
+    "index-emacspeak_002dgoogle_002dshow_002dtoolbelt"></a>Interactive
+    Command: <strong>emacspeak-google-show-toolbelt</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dblog"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-blog</strong> <em>nil</em></dt>
-<dd><p>Change  blog in the currently active toolbelt.
-</p></dd></dl>
+    <dd>
+      <p>Reload search page with toolbelt showing.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-books</strong> <em>nil</em></dt>
-<dd><p>Change  books in the currently active toolbelt.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dgoogle_002dsign_002din" id=
+    "index-emacspeak_002dgoogle_002dsign_002din"></a>Interactive
+    Command: <strong>emacspeak-google-sign-in</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dformat"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-books-format</strong> <em>nil</em></dt>
-<dd><p>Change  books-format in the currently active toolbelt.
-</p></dd></dl>
+    <dd>
+      <p>Sign in to Google.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dtype"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-books-type</strong> <em>nil</em></dt>
-<dd><p>Change  books-type in the currently active toolbelt.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dgoogle_002dsign_002dout" id=
+    "index-emacspeak_002dgoogle_002dsign_002dout"></a>Interactive
+    Command: <strong>emacspeak-google-sign-out</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dviewability"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-books-viewability</strong> <em>nil</em></dt>
-<dd><p>Change  books-viewability in the currently active toolbelt.
-</p></dd></dl>
+    <dd>
+      <p>Sign out to Google.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-commercial</strong> <em>nil</em></dt>
-<dd><p>Change  commercial in the currently active toolbelt.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange" id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange"></a>Interactive
+    Command: <strong>emacspeak-google-toolbelt-change</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial_002dprices"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-commercial-prices</strong> <em>nil</em></dt>
-<dd><p>Change  commercial-prices in the currently active toolbelt.
-</p></dd></dl>
+    <dd>
+      <p>Command to change values in the toolbelt and execute the
+      query.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002ddate_002dfilter"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-date-filter</strong> <em>nil</em></dt>
-<dd><p>Change  date-filter in the currently active toolbelt.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dShopping"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dShopping">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-Shopping</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dforums"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-forums</strong> <em>nil</em></dt>
-<dd><p>Change  forums in the currently active toolbelt.
-</p></dd></dl>
+    <dd>
+      <p>Change Shopping in the currently active toolbelt.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dgroup_002ddiscussions"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-group-discussions</strong> <em>nil</em></dt>
-<dd><p>Change  group-discussions in the currently active toolbelt.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dblog"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dblog"></a>Interactive
+    Command: <strong>emacspeak-google-toolbelt-change-blog</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dimages"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-images</strong> <em>nil</em></dt>
-<dd><p>Change  images in the currently active toolbelt.
-</p></dd></dl>
+    <dd>
+      <p>Change blog in the currently active toolbelt.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002din_002ddepth"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-in-depth</strong> <em>nil</em></dt>
-<dd><p>Change  in-depth in the currently active toolbelt.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks"></a>Interactive
+    Command:
+    <strong>emacspeak-google-toolbelt-change-books</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dliteral"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-literal</strong> <em>nil</em></dt>
-<dd><p>Change  literal in the currently active toolbelt.
-</p></dd></dl>
+    <dd>
+      <p>Change books in the currently active toolbelt.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnews"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-news</strong> <em>nil</em></dt>
-<dd><p>Change  news in the currently active toolbelt.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dformat"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dformat">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-books-format</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnon_002dcommercial"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-non-commercial</strong> <em>nil</em></dt>
-<dd><p>Change  non-commercial in the currently active toolbelt.
-</p></dd></dl>
+    <dd>
+      <p>Change books-format in the currently active toolbelt.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dpatents"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-patents</strong> <em>nil</em></dt>
-<dd><p>Change  patents in the currently active toolbelt.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dtype"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dtype">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-books-type</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dplaces"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-places</strong> <em>nil</em></dt>
-<dd><p>Change  places in the currently active toolbelt.
-</p></dd></dl>
+    <dd>
+      <p>Change books-type in the currently active toolbelt.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecent"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-recent</strong> <em>nil</em></dt>
-<dd><p>Change  recent in the currently active toolbelt.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dviewability"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dbooks_002dviewability">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-books-viewability</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecipes"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-recipes</strong> <em>nil</em></dt>
-<dd><p>Change  recipes in the currently active toolbelt.
-</p></dd></dl>
+    <dd>
+      <p>Change books-viewability in the currently active
+      toolbelt.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dreviews"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-reviews</strong> <em>nil</em></dt>
-<dd><p>Change  reviews in the currently active toolbelt.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-commercial</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsocial"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-social</strong> <em>nil</em></dt>
-<dd><p>Change  social in the currently active toolbelt.
-</p></dd></dl>
+    <dd>
+      <p>Change commercial in the currently active toolbelt.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsort_002dby_002ddate"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-sort-by-date</strong> <em>nil</em></dt>
-<dd><p>Change  sort-by-date in the currently active toolbelt.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial_002dprices"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dcommercial_002dprices">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-commercial-prices</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dstructured_002dsnippets"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-structured-snippets</strong> <em>nil</em></dt>
-<dd><p>Change  structured-snippets in the currently active toolbelt.
-</p></dd></dl>
+    <dd>
+      <p>Change commercial-prices in the currently active
+      toolbelt.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-timeline</strong> <em>nil</em></dt>
-<dd><p>Change  timeline in the currently active toolbelt.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002ddate_002dfilter"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002ddate_002dfilter">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-date-filter</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dhigh"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-timeline-high</strong> <em>nil</em></dt>
-<dd><p>Change  timeline-high in the currently active toolbelt.
-</p></dd></dl>
+    <dd>
+      <p>Change date-filter in the currently active toolbelt.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dlow"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-timeline-low</strong> <em>nil</em></dt>
-<dd><p>Change  timeline-low in the currently active toolbelt.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dforums"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dforums">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-forums</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-video</strong> <em>nil</em></dt>
-<dd><p>Change  video in the currently active toolbelt.
-</p></dd></dl>
+    <dd>
+      <p>Change forums in the currently active toolbelt.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo_002dduration"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-video-duration</strong> <em>nil</em></dt>
-<dd><p>Change  video-duration in the currently active toolbelt.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dgroup_002ddiscussions"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dgroup_002ddiscussions">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-group-discussions</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dnot_002dvisited"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-web-history-not-visited</strong> <em>nil</em></dt>
-<dd><p>Change  web-history-not-visited in the currently active toolbelt.
-</p></dd></dl>
+    <dd>
+      <p>Change group-discussions in the currently active
+      toolbelt.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dvisited"></a>Interactive Command: <strong>emacspeak-google-toolbelt-change-web-history-visited</strong> <em>nil</em></dt>
-<dd><p>Change  web-history-visited in the currently active toolbelt.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dimages"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dimages">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-images</strong>
+    <em>nil</em></dt>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dgridtext.html#emacspeak_002dgridtext" accesskey="n" rel="next">emacspeak-gridtext</a>, Previous: <a href="emacspeak_002dgomoku.html#emacspeak_002dgomoku" accesskey="p" rel="prev">emacspeak-gomoku</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+    <dd>
+      <p>Change images in the currently active toolbelt.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002din_002ddepth"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002din_002ddepth">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-in-depth</strong>
+    <em>nil</em></dt>
 
+    <dd>
+      <p>Change in-depth in the currently active toolbelt.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dliteral"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dliteral">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-literal</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Change literal in the currently active toolbelt.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnews"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnews"></a>Interactive
+    Command: <strong>emacspeak-google-toolbelt-change-news</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Change news in the currently active toolbelt.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnon_002dcommercial"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dnon_002dcommercial">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-non-commercial</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Change non-commercial in the currently active
+      toolbelt.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dpatents"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dpatents">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-patents</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Change patents in the currently active toolbelt.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dplaces"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dplaces">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-places</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Change places in the currently active toolbelt.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecent"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecent">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-recent</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Change recent in the currently active toolbelt.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecipes"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002drecipes">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-recipes</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Change recipes in the currently active toolbelt.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dreviews"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dreviews">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-reviews</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Change reviews in the currently active toolbelt.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsocial"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsocial">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-social</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Change social in the currently active toolbelt.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsort_002dby_002ddate"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dsort_002dby_002ddate">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-sort-by-date</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Change sort-by-date in the currently active toolbelt.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dstructured_002dsnippets"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dstructured_002dsnippets">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-structured-snippets</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Change structured-snippets in the currently active
+      toolbelt.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-timeline</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Change timeline in the currently active toolbelt.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dhigh"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dhigh">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-timeline-high</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Change timeline-high in the currently active toolbelt.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dlow"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dtimeline_002dlow">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-timeline-low</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Change timeline-low in the currently active toolbelt.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo"></a>Interactive
+    Command:
+    <strong>emacspeak-google-toolbelt-change-video</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Change video in the currently active toolbelt.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo_002dduration"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dvideo_002dduration">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-video-duration</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Change video-duration in the currently active
+      toolbelt.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dnot_002dvisited"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dnot_002dvisited">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-web-history-not-visited</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Change web-history-not-visited in the currently active
+      toolbelt.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dvisited"
+    id=
+    "index-emacspeak_002dgoogle_002dtoolbelt_002dchange_002dweb_002dhistory_002dvisited">
+    </a>Interactive Command:
+    <strong>emacspeak-google-toolbelt-change-web-history-visited</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Change web-history-visited in the currently active
+      toolbelt.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dgridtext.html#emacspeak_002dgridtext" accesskey=
+    "n" rel="next">emacspeak-gridtext</a>, Previous: <a href=
+    "emacspeak_002dgomoku.html#emacspeak_002dgomoku" accesskey="p"
+    rel="prev">emacspeak-gomoku</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

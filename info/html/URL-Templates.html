@@ -1,479 +1,533 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: URL Templates</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: URL Templates">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: URL Templates">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up" title="Emacspeak Commands">
-<link href="Emacspeak-Customizations.html#Emacspeak-Customizations" rel="next" title="Emacspeak Customizations">
-<link href="voice_002dsetup.html#voice_002dsetup" rel="prev" title="voice-setup">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: URL
+  Templates</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: URL Templates" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: URL Templates" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
+  title="Emacspeak Commands" />
+  <link href=
+  "Emacspeak-Customizations.html#Emacspeak-Customizations" rel=
+  "next" title="Emacspeak Customizations" />
+  <link href="voice_002dsetup.html#voice_002dsetup" rel="prev"
+  title="voice-setup" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="URL-Templates"></a>
-<div class="header">
-<p>
-Previous: <a href="voice_002dsetup.html#voice_002dsetup" accesskey="p" rel="prev">voice-setup</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="URL-Templates-1"></a>
-<h3 class="section">11.86 URL Templates</h3>
+<body lang="en" xml:lang="en">
+  <a name="URL-Templates" id="URL-Templates"></a>
 
-<p>This section is generated automatically from the source-level documentation.
-Any errors or corrections should be made to the source-level
-documentation.
-This section documents a total of 94 URL Templates.
-</p>
-<p>All of these URL templates can be invoked via command
-  <kbd>M-x emacspeak-url-template-fetch</kbd> normally bound to
-  <kbd>C-e u</kbd>.
-This command prompts for the name of the template, and completion
-  is available via Emacs&rsquo; minibuffer completion.
-Each URL template carries out the following steps:
-</p><ul>
-<li> Prompt for the relevant information.
-</li><li> Fetch the resulting URL using an appropriate fetcher.
-</li><li> Set up the resulting resource with appropriate
-  customizations.
-</li></ul>
+  <div class="header">
+    <p>Previous: <a href="voice_002dsetup.html#voice_002dsetup"
+    accesskey="p" rel="prev">voice-setup</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="URL-Templates-1" id="URL-Templates-1"></a>
 
-<p>As an example, the URL templates for weather forecasts 
-prompts for a location and speaks the forecast. 
-</p>
-<p><kbd>Air Traffic Control</kbd>
-</p>
-<p>Find live streams for Air Traffic Control.
-</p>
-<p><kbd>Airport conditions</kbd>
-</p>
-<p>Display airport conditions from the FAA.
-</p>
-<p><kbd>Amazon Product Details By ASIN</kbd>
-</p>
-<p>Retrieve product details from Amazon by either ISBN or ASIN.
-</p>
-<p><kbd>Anonymize Google Search</kbd>
-</p>
-<p>Logout from Google to do an anonymous search.
-</p>
-<p><kbd>Archive News Search</kbd>
-</p>
-<p>Search Google Archive News.
-</p>
-<p><kbd>Ask Local Search</kbd>
-</p>
-<p>Ask Local Search.
-</p>
-<p><kbd>Ask Walking Directions</kbd>
-</p>
-<p>Walking directions from Ask.com
-</p>
-<p><kbd>BBC  iPlayer</kbd>
-</p>
-<p>BBC iPlayer
-</p>
-<p><kbd>BBC Genre Using IPlayer</kbd>
-</p>
-<p>BBC iPlayer Genre
-</p>
-<p><kbd>BBC Podcast Directory</kbd>
-</p>
-<p>BBC PodCast Directory
-</p>
-<p><kbd>BBC Program Guide</kbd>
-</p>
-<p>Display interactive BBC Program Guide.
-</p>
-<p><kbd>Baseball Game Index</kbd>
-</p>
-<p>Display baseball Play By Play.
-</p>
-<p><kbd>Baseball Play By Play</kbd>
-</p>
-<p>Display baseball Play By Play.
-</p>
-<p><kbd>Baseball scores</kbd>
-</p>
-<p>Display baseball scores.
-</p>
-<p><kbd>Baseball standings</kbd>
-</p>
-<p>Display MLB standings.
-</p>
-<p><kbd>Bing News</kbd>
-</p>
-<p>Bing News results as RSS feed.
-</p>
-<p><kbd>Bing Search</kbd>
-</p>
-<p>Bing results as RSS feed.
-</p>
-<p><kbd>CNN Content</kbd>
-</p>
-<p>Filter down to CNN  content area.
-</p>
-<p><kbd>CNN Market Data </kbd>
-</p>
-<p>CNN Money
-</p>
-<p><kbd>CNN technology </kbd>
-</p>
-<p>CNN Technology news.
-</p>
-<p><kbd>CNNPodCasts</kbd>
-</p>
-<p>List CNN Podcast media links.
-</p>
-<p><kbd>Dictionary Lookup</kbd>
-</p>
-<p>Dictionary Lookup
-</p>
-<p><kbd>Earthquakes</kbd>
-</p>
-<p>Show table of recent quakes.
-</p>
-<p><kbd>EmacsWiki Search</kbd>
-</p>
-<p>EmacsWiki Search
-</p>
-<p><kbd>Finance Google Portfolio</kbd>
-</p>
-<p>Download and display portfolio from Google Finance.
-</p>
-<p><kbd>Finance Google Search</kbd>
-</p>
-<p>Display content from Google Finance.
-</p>
-<p><kbd>Finance Google news</kbd>
-</p>
-<p>Display content from Google Finance.
-</p>
-<p><kbd>G3 Sourcer URL</kbd>
-</p>
-<p>Return Sourcerer URL.
-</p>
-<p><kbd>GCalendar Mobile</kbd>
-</p>
-<p>Google Calendar XHTML version.
-</p>
-<p><kbd>Geek Linux Daily</kbd>
-</p>
-<p>Play specified edition of Geek  Linux DailyShow
-</p>
-<p><kbd>GitHub Search</kbd>
-</p>
-<p>Perform a GitHub Search.
-</p>
-<p><kbd>Google API Search</kbd>
-</p>
-<p>Search Google APIDocs
-</p>
-<p><kbd>Google Image Search</kbd>
-</p>
-<p>Google Image Search
-</p>
-<p><kbd>Google Mobile Search</kbd>
-</p>
-<p>Google Mobile Search
-</p>
-<p><kbd>Google News Search</kbd>
-</p>
-<p>Search Google news.
-</p>
-<p><kbd>Google NewsPaper</kbd>
-</p>
-<p>Retrieve and speak Google News Overview.
-</p>
-<p><kbd>Google Print</kbd>
-</p>
-<p>Google Print Search
-</p>
-<p><kbd>Google Recent News Search</kbd>
-</p>
-<p>Search Google news.
-</p>
-<p><kbd>Google Scholar</kbd>
-</p>
-<p>Google Scholar Search
-</p>
-<p><kbd>Google Transcoder</kbd>
-</p>
-<p>Transcode site via Google.
-</p>
-<p><kbd>Google Webmaster Page Analysis</kbd>
-</p>
-<p>Page Analysis From Google Webmaster tools.
-</p>
-<p><kbd>Google topical  News</kbd>
-</p>
-<p>Display specified news feed.
-</p>
-<p><kbd>IToRSS</kbd>
-</p>
-<p>Pull RSS  feed corresponding to an ITunes Podcast.
-</p>
-<p><kbd>Linux Today News</kbd>
-</p>
-<p>Get news column from Linux Today.
-</p>
-<p><kbd>MLB Scorecard</kbd>
-</p>
-<p>Show MLB Scorecard.
-</p>
-<p><kbd>Market summary from Google</kbd>
-</p>
-<p>Display financial market summary.
-</p>
-<p><kbd>Mobile Finance Google Search</kbd>
-</p>
-<p>Display content from Google Finance.
-</p>
-<p><kbd>Money Content </kbd>
-</p>
-<p>CNN Content
-</p>
-<p><kbd>Multilingual dictionary via Google.</kbd>
-</p>
-<p>Translate word using Google.
-Source and target languages
-are specified as two-letter language codes, e.g. en|de translates
-from English to German
-</p>
-<p><kbd>NY Times Mobile</kbd>
-</p>
-<p>NYTimes Mobile Site
-</p>
-<p><kbd>NY Times RSS Feeds</kbd>
-</p>
-<p>Display browsable list of NY Times RSS Feeds.
-</p>
-<p><kbd>Official GoogleBlog Search</kbd>
-</p>
-<p>Search within all official Google blogs.
-</p>
-<p><kbd>Old Time Radio</kbd>
-</p>
-<p>This months Old Time Radio Programing
-</p>
-<p><kbd>On The Fly CSE</kbd>
-</p>
-<p>Build a CSE on the fly and  use it to search.
-</p>
-<p><kbd>PHC Prairie Home Companion</kbd>
-</p>
-<p>Play Prairie Home Companion
-</p>
-<p><kbd>Patent Search From Google</kbd>
-</p>
-<p>Perform patent search via Google
-</p>
-<p><kbd>PodCast CNet</kbd>
-</p>
-<p>Play Podcast from CNET
-</p>
-<p><kbd>Recent YouTube Results</kbd>
-</p>
-<p>YouTube Search Via Feeds
-</p>
-<p><kbd>Redhat Linux Show</kbd>
-</p>
-<p>Play specified edition of Redhat Linux Show
-</p>
-<p><kbd>Reuters Finance</kbd>
-</p>
-<p>Reuters Finance Lookup
-</p>
-<p><kbd>Seeking Alpha Stock Search</kbd>
-</p>
-<p>Seeking Alpha search.
-</p>
-<p><kbd>Sign in to Google</kbd>
-</p>
-<p>Login to Google.
-</p>
-<p><kbd>StreamWorld Radio</kbd>
-</p>
-<p>Play radio stream.
-See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations that use StreamTheWorld.
-</p>
-<p><kbd>Tech News From CNet</kbd>
-</p>
-<p>Display tech news from CNET
-</p>
-<p><kbd>Times Of India</kbd>
-</p>
-<p>Retrieve Times Of India.
-Set up URL rewrite rule to get print page.
-</p>
-<p><kbd>Translation Via Google</kbd>
-</p>
-<p>Translate a Web page using google. Source and target languages
-are specified as two-letter language codes, e.g. en|de translates
-from English to German.
-</p>
-<p><kbd>UPS Packages</kbd>
-</p>
-<p>Display package tracking information from UPS.
-</p>
-<p><kbd>Weather forecast from Weather Underground</kbd>
-</p>
-<p>Weather forecast from weather underground mobile.
-</p>
-<p><kbd>WordNet Search</kbd>
-</p>
-<p>Look up term in WordNet.
-</p>
-<p><kbd>Yahoo Business News</kbd>
-</p>
-<p>Retrieve and speak business  section from Yahoo Daily News.
-</p>
-<p><kbd>Yahoo Content By Content ID</kbd>
-</p>
-<p>Retrieve and speak news section from Yahoo Daily News.
-</p>
-<p><kbd>Yahoo DailyNews</kbd>
-</p>
-<p>Retrieve and speak DailyNewspage from  Yahoo Daily News.
-</p>
-<p><kbd>Yahoo Entertainment</kbd>
-</p>
-<p>Retrieve and speak Entertainment section from Yahoo Daily News.
-</p>
-<p><kbd>Yahoo Health</kbd>
-</p>
-<p>Retrieve and speak Health section from Yahoo Daily News.
-</p>
-<p><kbd>Yahoo Lifestyle</kbd>
-</p>
-<p>Yahoo Lifestyle News.
-</p>
-<p><kbd>Yahoo Oddly</kbd>
-</p>
-<p>Retrieve and speak Oddity section from Yahoo Daily News.
-</p>
-<p><kbd>Yahoo Politics</kbd>
-</p>
-<p>Retrieve and speak Politics section from Yahoo Daily News.
-</p>
-<p><kbd>Yahoo RSS Feeds</kbd>
-</p>
-<p>List Yahoo RSS Feeds.
-</p>
-<p><kbd>Yahoo SF Local</kbd>
-</p>
-<p>Retrieve and speak Local section from Yahoo Daily News.
-</p>
-<p><kbd>Yahoo Science</kbd>
-</p>
-<p>Retrieve and speak Science section from Yahoo Daily News.
-</p>
-<p><kbd>Yahoo Sports</kbd>
-</p>
-<p>Entertainment news from Yahoo.
-</p>
-<p><kbd>Yahoo Technology  News</kbd>
-</p>
-<p>Yahoo Technology News.
-</p>
-<p><kbd>Yahoo Top Stories</kbd>
-</p>
-<p>Retrieve and speak Top Stories  section from Yahoo Daily News.
-</p>
-<p><kbd>Yahoo World News</kbd>
-</p>
-<p>Yahoo World News.
-</p>
-<p><kbd>YouTube Results</kbd>
-</p>
-<p>YouTube Search Via Feeds
-</p>
-<p><kbd>ask search mobile</kbd>
-</p>
-<p>Mobile search using Ask.com
-</p>
-<p><kbd>fedex packages</kbd>
-</p>
-<p>Display package tracking information from Fedex.
-</p>
-<p><kbd>html5IRC</kbd>
-</p>
-<p>Show HTML5 IRC log.
-</p>
-<p><kbd>rss weather from wunderground</kbd>
-</p>
-<p>Pull RSS weather feed for specified state/city.
-</p>
-<p><kbd>sourceforge Download</kbd>
-</p>
-<p>Download specified file.
-</p>
-<p><kbd>sourceforge browse mirrors</kbd>
-</p>
-<p>Retrieve download page  at Sourceforge for specified project.
-</p>
-<p><kbd>sourceforge project</kbd>
-</p>
-<p>Open specified project page at SourceForge.
-</p>
-<p><kbd>w3c IRC Logs</kbd>
-</p>
-<p>Use this to pull up the
-archived  logs from the W3C IRC. You need to know the exact
-name of the channel.
-</p>
-<p><kbd>w3c Lists</kbd>
-</p>
-<p>Use this to pull up the
-archived  mail from the W3C list. You need to know the exact
-name of the list.
-</p>
-<hr>
-<div class="header">
-<p>
-Previous: <a href="voice_002dsetup.html#voice_002dsetup" accesskey="p" rel="prev">voice-setup</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+  <h3 class="section">11.87 URL Templates</h3>
 
+  <p>This section is generated automatically from the source-level
+  documentation. Any errors or corrections should be made to the
+  source-level documentation. This section documents a total of 97
+  URL Templates.</p>
 
+  <p>All of these URL templates can be invoked via command <kbd>M-x
+  emacspeak-url-template-fetch</kbd> normally bound to <kbd>C-e
+  u</kbd>. This command prompts for the name of the template, and
+  completion is available via Emacs&rsquo; minibuffer completion.
+  Each URL template carries out the following steps:</p>
 
+  <ul>
+    <li>Prompt for the relevant information.</li>
+
+    <li>Fetch the resulting URL using an appropriate fetcher.</li>
+
+    <li>Set up the resulting resource with appropriate
+    customizations.</li>
+  </ul>
+
+  <p>As an example, the URL templates for weather forecasts prompts
+  for a location and speaks the forecast.</p>
+
+  <p><kbd>Air Traffic Control</kbd></p>
+
+  <p>Find live streams for Air Traffic Control.</p>
+
+  <p><kbd>Airport conditions</kbd></p>
+
+  <p>Display airport conditions from the FAA.</p>
+
+  <p><kbd>Amazon Product Details By ASIN</kbd></p>
+
+  <p>Retrieve product details from Amazon by either ISBN or
+  ASIN.</p>
+
+  <p><kbd>Anonymize Google Search</kbd></p>
+
+  <p>Logout from Google to do an anonymous search.</p>
+
+  <p><kbd>Archive News Search</kbd></p>
+
+  <p>Search Google Archive News.</p>
+
+  <p><kbd>Ask Local Search</kbd></p>
+
+  <p>Ask Local Search.</p>
+
+  <p><kbd>Ask Walking Directions</kbd></p>
+
+  <p>Walking directions from Ask.com</p>
+
+  <p><kbd>BBC iPlayer</kbd></p>
+
+  <p>BBC iPlayer</p>
+
+  <p><kbd>BBC Genre Using IPlayer</kbd></p>
+
+  <p>BBC iPlayer Genre</p>
+
+  <p><kbd>BBC Podcast Directory</kbd></p>
+
+  <p>BBC PodCast Directory</p>
+
+  <p><kbd>BBC Program Guide</kbd></p>
+
+  <p>Display interactive BBC Program Guide.</p>
+
+  <p><kbd>Baseball Game Index</kbd></p>
+
+  <p>Display baseball Play By Play.</p>
+
+  <p><kbd>Baseball Play By Play</kbd></p>
+
+  <p>Display baseball Play By Play.</p>
+
+  <p><kbd>Baseball scores</kbd></p>
+
+  <p>Display baseball scores.</p>
+
+  <p><kbd>Baseball standings</kbd></p>
+
+  <p>Display MLB standings.</p>
+
+  <p><kbd>Bing News</kbd></p>
+
+  <p>Bing News results as RSS feed.</p>
+
+  <p><kbd>Bing Search</kbd></p>
+
+  <p>Bing results as RSS feed.</p>
+
+  <p><kbd>CNN Content</kbd></p>
+
+  <p>Filter down to CNN content area.</p>
+
+  <p><kbd>CNN Market Data</kbd></p>
+
+  <p>CNN Money</p>
+
+  <p><kbd>CNN technology</kbd></p>
+
+  <p>CNN Technology news.</p>
+
+  <p><kbd>CNNPodCasts</kbd></p>
+
+  <p>List CNN Podcast media links.</p>
+
+  <p><kbd>Dictionary Lookup</kbd></p>
+
+  <p>Dictionary Lookup</p>
+
+  <p><kbd>Earthquakes</kbd></p>
+
+  <p>Show table of recent quakes.</p>
+
+  <p><kbd>EmacsWiki Search</kbd></p>
+
+  <p>EmacsWiki Search</p>
+
+  <p><kbd>Finance Google Portfolio</kbd></p>
+
+  <p>Download and display portfolio from Google Finance.</p>
+
+  <p><kbd>Finance Google Search</kbd></p>
+
+  <p>Display content from Google Finance.</p>
+
+  <p><kbd>Finance Google news</kbd></p>
+
+  <p>Display content from Google Finance.</p>
+
+  <p><kbd>G3 Sourcer URL</kbd></p>
+
+  <p>Return Sourcerer URL.</p>
+
+  <p><kbd>GCalendar Mobile</kbd></p>
+
+  <p>Google Calendar XHTML version.</p>
+
+  <p><kbd>Geek Linux Daily</kbd></p>
+
+  <p>Play specified edition of Geek Linux DailyShow</p>
+
+  <p><kbd>GitHub Search</kbd></p>
+
+  <p>Perform a GitHub Search.</p>
+
+  <p><kbd>Google API Search</kbd></p>
+
+  <p>Search Google APIDocs</p>
+
+  <p><kbd>Google Image Search</kbd></p>
+
+  <p>Google Image Search</p>
+
+  <p><kbd>Google Mobile Search</kbd></p>
+
+  <p>Google Mobile Search</p>
+
+  <p><kbd>Google News Search</kbd></p>
+
+  <p>Search Google news.</p>
+
+  <p><kbd>Google NewsPaper</kbd></p>
+
+  <p>Retrieve and speak Google News Overview.</p>
+
+  <p><kbd>Google Print</kbd></p>
+
+  <p>Google Print Search</p>
+
+  <p><kbd>Google Recent News Search</kbd></p>
+
+  <p>Search Google news.</p>
+
+  <p><kbd>Google Scholar</kbd></p>
+
+  <p>Google Scholar Search</p>
+
+  <p><kbd>Google Transcoder</kbd></p>
+
+  <p>Transcode site via Google.</p>
+
+  <p><kbd>Google Webmaster Page Analysis</kbd></p>
+
+  <p>Page Analysis From Google Webmaster tools.</p>
+
+  <p><kbd>Google topical News</kbd></p>
+
+  <p>Display specified news feed.</p>
+
+  <p><kbd>IToRSS</kbd></p>
+
+  <p>Pull RSS feed corresponding to an ITunes Podcast.</p>
+
+  <p><kbd>Linux Today News</kbd></p>
+
+  <p>Get news column from Linux Today.</p>
+
+  <p><kbd>MLB Scorecard</kbd></p>
+
+  <p>Show MLB Scorecard.</p>
+
+  <p><kbd>Market summary from Google</kbd></p>
+
+  <p>Display financial market summary.</p>
+
+  <p><kbd>Mobile Finance Google Search</kbd></p>
+
+  <p>Display content from Google Finance.</p>
+
+  <p><kbd>Money Content</kbd></p>
+
+  <p>CNN Content</p>
+
+  <p><kbd>Multilingual dictionary via Google.</kbd></p>
+
+  <p>Translate word using Google. Source and target languages are
+  specified as two-letter language codes, e.g. en|de translates
+  from English to German</p>
+
+  <p><kbd>NY Times Mobile</kbd></p>
+
+  <p>NYTimes Mobile Site</p>
+
+  <p><kbd>NY Times RSS Feeds</kbd></p>
+
+  <p>Display browsable list of NY Times RSS Feeds.</p>
+
+  <p><kbd>Official GoogleBlog Search</kbd></p>
+
+  <p>Search within all official Google blogs.</p>
+
+  <p><kbd>Old Time Radio</kbd></p>
+
+  <p>This months Old Time Radio Programing</p>
+
+  <p><kbd>On The Fly CSE</kbd></p>
+
+  <p>Build a CSE on the fly and use it to search.</p>
+
+  <p><kbd>PHC Prairie Home Companion</kbd></p>
+
+  <p>Play Prairie Home Companion</p>
+
+  <p><kbd>Patent Search From Google</kbd></p>
+
+  <p>Perform patent search via Google</p>
+
+  <p><kbd>PodCast CNet</kbd></p>
+
+  <p>Play Podcast from CNET</p>
+
+  <p><kbd>RadioTime Browser</kbd></p>
+
+  <p>RadioTime Entry point.</p>
+
+  <p><kbd>RadioTime Search</kbd></p>
+
+  <p>RadioTime Search.</p>
+
+  <p><kbd>Recent YouTube Results</kbd></p>
+
+  <p>YouTube Search Via Feeds</p>
+
+  <p><kbd>Redhat Linux Show</kbd></p>
+
+  <p>Play specified edition of Redhat Linux Show</p>
+
+  <p><kbd>Reuters Finance</kbd></p>
+
+  <p>Reuters Finance Lookup</p>
+
+  <p><kbd>Seeking Alpha Stock Search</kbd></p>
+
+  <p>Seeking Alpha search.</p>
+
+  <p><kbd>Sign in to Google</kbd></p>
+
+  <p>Login to Google.</p>
+
+  <p><kbd>StreamWorld Radio</kbd></p>
+
+  <p>Play radio stream. See
+  http://www.cbsradio.com/streaming/index.html for a list of CBS
+  stations that use StreamTheWorld.</p>
+
+  <p><kbd>Tech News From CNet</kbd></p>
+
+  <p>Display tech news from CNET</p>
+
+  <p><kbd>Times Of India</kbd></p>
+
+  <p>Retrieve Times Of India. Set up URL rewrite rule to get print
+  page.</p>
+
+  <p><kbd>Translation Via Google</kbd></p>
+
+  <p>Translate a Web page using google. Source and target languages
+  are specified as two-letter language codes, e.g. en|de translates
+  from English to German.</p>
+
+  <p><kbd>TuneIn Radio</kbd></p>
+
+  <p>Translate StreamId to playable stream.</p>
+
+  <p><kbd>UPS Packages</kbd></p>
+
+  <p>Display package tracking information from UPS.</p>
+
+  <p><kbd>Weather forecast from Weather Underground</kbd></p>
+
+  <p>Weather forecast from weather underground mobile.</p>
+
+  <p><kbd>WordNet Search</kbd></p>
+
+  <p>Look up term in WordNet.</p>
+
+  <p><kbd>Yahoo Business News</kbd></p>
+
+  <p>Retrieve and speak business section from Yahoo Daily News.</p>
+
+  <p><kbd>Yahoo Content By Content ID</kbd></p>
+
+  <p>Retrieve and speak news section from Yahoo Daily News.</p>
+
+  <p><kbd>Yahoo DailyNews</kbd></p>
+
+  <p>Retrieve and speak DailyNewspage from Yahoo Daily News.</p>
+
+  <p><kbd>Yahoo Entertainment</kbd></p>
+
+  <p>Retrieve and speak Entertainment section from Yahoo Daily
+  News.</p>
+
+  <p><kbd>Yahoo Health</kbd></p>
+
+  <p>Retrieve and speak Health section from Yahoo Daily News.</p>
+
+  <p><kbd>Yahoo Lifestyle</kbd></p>
+
+  <p>Yahoo Lifestyle News.</p>
+
+  <p><kbd>Yahoo Oddly</kbd></p>
+
+  <p>Retrieve and speak Oddity section from Yahoo Daily News.</p>
+
+  <p><kbd>Yahoo Politics</kbd></p>
+
+  <p>Retrieve and speak Politics section from Yahoo Daily News.</p>
+
+  <p><kbd>Yahoo RSS Feeds</kbd></p>
+
+  <p>List Yahoo RSS Feeds.</p>
+
+  <p><kbd>Yahoo SF Local</kbd></p>
+
+  <p>Retrieve and speak Local section from Yahoo Daily News.</p>
+
+  <p><kbd>Yahoo Science</kbd></p>
+
+  <p>Retrieve and speak Science section from Yahoo Daily News.</p>
+
+  <p><kbd>Yahoo Sports</kbd></p>
+
+  <p>Entertainment news from Yahoo.</p>
+
+  <p><kbd>Yahoo Technology News</kbd></p>
+
+  <p>Yahoo Technology News.</p>
+
+  <p><kbd>Yahoo Top Stories</kbd></p>
+
+  <p>Retrieve and speak Top Stories section from Yahoo Daily
+  News.</p>
+
+  <p><kbd>Yahoo World News</kbd></p>
+
+  <p>Yahoo World News.</p>
+
+  <p><kbd>YouTube Results</kbd></p>
+
+  <p>YouTube Search Via Feeds</p>
+
+  <p><kbd>ask search mobile</kbd></p>
+
+  <p>Mobile search using Ask.com</p>
+
+  <p><kbd>fedex packages</kbd></p>
+
+  <p>Display package tracking information from Fedex.</p>
+
+  <p><kbd>html5IRC</kbd></p>
+
+  <p>Show HTML5 IRC log.</p>
+
+  <p><kbd>rss weather from wunderground</kbd></p>
+
+  <p>Pull RSS weather feed for specified state/city.</p>
+
+  <p><kbd>sourceforge Download</kbd></p>
+
+  <p>Download specified file.</p>
+
+  <p><kbd>sourceforge browse mirrors</kbd></p>
+
+  <p>Retrieve download page at Sourceforge for specified
+  project.</p>
+
+  <p><kbd>sourceforge project</kbd></p>
+
+  <p>Open specified project page at SourceForge.</p>
+
+  <p><kbd>w3c IRC Logs</kbd></p>
+
+  <p>Use this to pull up the archived logs from the W3C IRC. You
+  need to know the exact name of the channel.</p>
+
+  <p><kbd>w3c Lists</kbd></p>
+
+  <p>Use this to pull up the archived mail from the W3C list. You
+  need to know the exact name of the list.</p>
+  <hr />
+
+  <div class="header">
+    <p>Previous: <a href="voice_002dsetup.html#voice_002dsetup"
+    accesskey="p" rel="prev">voice-setup</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

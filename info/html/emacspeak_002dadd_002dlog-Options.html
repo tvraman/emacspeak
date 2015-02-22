@@ -1,115 +1,197 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-add-log Options</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-add-log Options">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-add-log Options">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Customizations.html#Emacspeak-Customizations" rel="up" title="Emacspeak Customizations">
-<link href="emacspeak_002dadvice-Options.html#emacspeak_002dadvice-Options" rel="next" title="emacspeak-advice Options">
-<link href="dtk_002dunicode-Options.html#dtk_002dunicode-Options" rel="prev" title="dtk-unicode Options">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-add-log Options</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-add-log Options" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-add-log Options" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Customizations.html#Emacspeak-Customizations" rel="up"
+  title="Emacspeak Customizations" />
+  <link href=
+  "emacspeak_002dadvice-Options.html#emacspeak_002dadvice-Options"
+  rel="next" title="emacspeak-advice Options" />
+  <link href="dtk_002dunicode-Options.html#dtk_002dunicode-Options"
+  rel="prev" title="dtk-unicode Options" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dadd_002dlog-Options"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dadvice-Options.html#emacspeak_002dadvice-Options" accesskey="n" rel="next">emacspeak-advice Options</a>, Previous: <a href="dtk_002dunicode-Options.html#dtk_002dunicode-Options" accesskey="p" rel="prev">dtk-unicode Options</a>, Up: <a href="Emacspeak-Customizations.html#Emacspeak-Customizations" accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dadd_002dlog-Options-1"></a>
-<h3 class="section">12.4 emacspeak-add-log Options</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dadd_002dlog-Options" id=
+  "emacspeak_002dadd_002dlog-Options"></a>
 
-<p>Commentary:
-Speech-enable Changelog mode
-</p>
-<p>Automatically generated documentation
-for options defined in module  emacspeak-add-log.
-These options are customizable via Emacs&rsquo; Custom interface.
-</p>
-<dl>
-<dt><a name="index-User-Option-16"></a>Variable: <strong>User Option</strong> <em>emacspeak-change-log-acknowledgement-voice</em></dt>
-<dd><p>Personality used for change-log-acknowledgement
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dadvice-Options.html#emacspeak_002dadvice-Options"
+    accesskey="n" rel="next">emacspeak-advice Options</a>,
+    Previous: <a href=
+    "dtk_002dunicode-Options.html#dtk_002dunicode-Options"
+    accesskey="p" rel="prev">dtk-unicode Options</a>, Up: <a href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations"
+    accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp;
+    [<a href="index.html#SEC_Contents" title="Table of contents"
+    rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dadd_002dlog-Options-1" id=
+  "emacspeak_002dadd_002dlog-Options-1"></a>
 
-<dl>
-<dt><a name="index-User-Option-17"></a>Variable: <strong>User Option</strong> <em>emacspeak-change-log-conditionals-voice</em></dt>
-<dd><p>Personality used for change-log-conditionals
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-</p></dd></dl>
+  <h3 class="section">12.4 emacspeak-add-log Options</h3>
 
-<dl>
-<dt><a name="index-User-Option-18"></a>Variable: <strong>User Option</strong> <em>emacspeak-change-log-email-voice</em></dt>
-<dd><p>Personality used for change-log-email
-This personality uses  voice-womanize-1 whose  effect can be changed globally by customizing voice-womanize-1-settings.
-</p></dd></dl>
+  <p>Commentary: Speech-enable Changelog mode</p>
 
-<dl>
-<dt><a name="index-User-Option-19"></a>Variable: <strong>User Option</strong> <em>emacspeak-change-log-file-voice</em></dt>
-<dd><p>Personality used for change-log-file
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-</p></dd></dl>
+  <p>Automatically generated documentation for options defined in
+  module emacspeak-add-log. These options are customizable via
+  Emacs&rsquo; Custom interface.</p>
 
-<dl>
-<dt><a name="index-User-Option-20"></a>Variable: <strong>User Option</strong> <em>emacspeak-change-log-function-voice</em></dt>
-<dd><p>Personality used for change-log-function
-This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-16" id=
+    "index-User-Option-16"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-change-log-acknowledgement-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-21"></a>Variable: <strong>User Option</strong> <em>emacspeak-change-log-list-voice</em></dt>
-<dd><p>Personality used for change-log-list
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for change-log-acknowledgement This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-22"></a>Variable: <strong>User Option</strong> <em>emacspeak-change-log-name-voice</em></dt>
-<dd><p>Personality used for change-log-name
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-17" id=
+    "index-User-Option-17"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-change-log-conditionals-voice</em></dt>
 
+    <dd>
+      <p>Personality used for change-log-conditionals This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-18" id=
+    "index-User-Option-18"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-change-log-email-voice</em></dt>
 
+    <dd>
+      <p>Personality used for change-log-email This personality
+      uses voice-womanize-1 whose effect can be changed globally by
+      customizing voice-womanize-1-settings.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-19" id=
+    "index-User-Option-19"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-change-log-file-voice</em></dt>
+
+    <dd>
+      <p>Personality used for change-log-file This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-20" id=
+    "index-User-Option-20"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-change-log-function-voice</em></dt>
+
+    <dd>
+      <p>Personality used for change-log-function This personality
+      uses voice-bolden-extra whose effect can be changed globally
+      by customizing voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-21" id=
+    "index-User-Option-21"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-change-log-list-voice</em></dt>
+
+    <dd>
+      <p>Personality used for change-log-list This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-22" id=
+    "index-User-Option-22"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-change-log-name-voice</em></dt>
+
+    <dd>
+      <p>Personality used for change-log-name This personality uses
+      voice-lighten-extra whose effect can be changed globally by
+      customizing voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
 </body>
 </html>

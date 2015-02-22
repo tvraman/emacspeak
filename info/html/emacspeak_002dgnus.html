@@ -1,89 +1,149 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-gnus</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-gnus">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-gnus">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up" title="Emacspeak Commands">
-<link href="emacspeak_002dgomoku.html#emacspeak_002dgomoku" rel="next" title="emacspeak-gomoku">
-<link href="emacspeak_002dforms.html#emacspeak_002dforms" rel="prev" title="emacspeak-forms">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-gnus</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-gnus" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-gnus" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
+  title="Emacspeak Commands" />
+  <link href="emacspeak_002dgomoku.html#emacspeak_002dgomoku" rel=
+  "next" title="emacspeak-gomoku" />
+  <link href="emacspeak_002dforms.html#emacspeak_002dforms" rel=
+  "prev" title="emacspeak-forms" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dgnus"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dgomoku.html#emacspeak_002dgomoku" accesskey="n" rel="next">emacspeak-gomoku</a>, Previous: <a href="emacspeak_002dforms.html#emacspeak_002dforms" accesskey="p" rel="prev">emacspeak-forms</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dgnus-1"></a>
-<h3 class="section">11.33 emacspeak-gnus</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dgnus" id="emacspeak_002dgnus"></a>
 
-<p>No Commentary
-</p>
-<p>Automatically generated documentation
-for commands defined in module  emacspeak-gnus.
-</p>
-<dl>
-<dt><a name="index-emacspeak_002dgnus_002dsummary_002dcatchup_002dquietly_002dand_002dexit"></a>Interactive Command: <strong>emacspeak-gnus-summary-catchup-quietly-and-exit</strong> <em>nil</em></dt>
-<dd><p>Catch up on all articles in current group.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dgomoku.html#emacspeak_002dgomoku" accesskey="n"
+    rel="next">emacspeak-gomoku</a>, Previous: <a href=
+    "emacspeak_002dforms.html#emacspeak_002dforms" accesskey="p"
+    rel="prev">emacspeak-forms</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dgnus-1" id="emacspeak_002dgnus-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002dgnus_002dsummary_002dhide_002dall_002dheaders"></a>Interactive Command: <strong>emacspeak-gnus-summary-hide-all-headers</strong> <em>nil</em></dt>
-<dd><p>Hide all headers in the article.
-Use this command if you don&rsquo;t want to listen to any article headers when
-reading news.
-</p></dd></dl>
+  <h3 class="section">11.34 emacspeak-gnus</h3>
 
-<dl>
-<dt><a name="index-emacspeak_002dgnus_002dsummary_002dshow_002dsome_002dheaders"></a>Interactive Command: <strong>emacspeak-gnus-summary-show-some-headers</strong> <em>nil</em></dt>
-<dd><p>Show only the important article headers,
-i.e. sender name, and subject.
-</p></dd></dl>
+  <p>No Commentary</p>
 
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak-gnus.</p>
 
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgnus_002dsummary_002dcatchup_002dquietly_002dand_002dexit"
+    id=
+    "index-emacspeak_002dgnus_002dsummary_002dcatchup_002dquietly_002dand_002dexit">
+    </a>Interactive Command:
+    <strong>emacspeak-gnus-summary-catchup-quietly-and-exit</strong>
+    <em>nil</em></dt>
 
+    <dd>
+      <p>Catch up on all articles in current group.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgnus_002dsummary_002dhide_002dall_002dheaders"
+    id=
+    "index-emacspeak_002dgnus_002dsummary_002dhide_002dall_002dheaders">
+    </a>Interactive Command:
+    <strong>emacspeak-gnus-summary-hide-all-headers</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Hide all headers in the article. Use this command if you
+      don&rsquo;t want to listen to any article headers when
+      reading news.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgnus_002dsummary_002dshow_002dsome_002dheaders"
+    id=
+    "index-emacspeak_002dgnus_002dsummary_002dshow_002dsome_002dheaders">
+    </a>Interactive Command:
+    <strong>emacspeak-gnus-summary-show-some-headers</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Show only the important article headers, i.e. sender name,
+      and subject.</p>
+    </dd>
+  </dl>
 </body>
 </html>

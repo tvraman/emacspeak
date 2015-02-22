@@ -1,95 +1,157 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-alsaplayer Options</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-alsaplayer Options">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-alsaplayer Options">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Customizations.html#Emacspeak-Customizations" rel="up" title="Emacspeak Customizations">
-<link href="emacspeak_002dauctex-Options.html#emacspeak_002dauctex-Options" rel="next" title="emacspeak-auctex Options">
-<link href="emacspeak_002dadvice-Options.html#emacspeak_002dadvice-Options" rel="prev" title="emacspeak-advice Options">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-alsaplayer Options</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-alsaplayer Options" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-alsaplayer Options" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Customizations.html#Emacspeak-Customizations" rel="up"
+  title="Emacspeak Customizations" />
+  <link href=
+  "emacspeak_002dauctex-Options.html#emacspeak_002dauctex-Options"
+  rel="next" title="emacspeak-auctex Options" />
+  <link href=
+  "emacspeak_002dadvice-Options.html#emacspeak_002dadvice-Options"
+  rel="prev" title="emacspeak-advice Options" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dalsaplayer-Options"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dauctex-Options.html#emacspeak_002dauctex-Options" accesskey="n" rel="next">emacspeak-auctex Options</a>, Previous: <a href="emacspeak_002dadvice-Options.html#emacspeak_002dadvice-Options" accesskey="p" rel="prev">emacspeak-advice Options</a>, Up: <a href="Emacspeak-Customizations.html#Emacspeak-Customizations" accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dalsaplayer-Options-1"></a>
-<h3 class="section">12.6 emacspeak-alsaplayer Options</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dalsaplayer-Options" id=
+  "emacspeak_002dalsaplayer-Options"></a>
 
-<p>Commentary:
-Defines a simple derived mode for interacting with
-alsaplayer.
-alsaplayer navigation commands  work via single keystrokes.
-</p>
-<p>Automatically generated documentation
-for options defined in module  emacspeak-alsaplayer.
-These options are customizable via Emacs&rsquo; Custom interface.
-</p>
-<dl>
-<dt><a name="index-User-Option-27"></a>Variable: <strong>User Option</strong> <em>emacspeak-alsaplayer-auditory-feedback</em></dt>
-<dd><p>Turn this on if you want spoken feedback and auditory icons from alsaplayer.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dauctex-Options.html#emacspeak_002dauctex-Options"
+    accesskey="n" rel="next">emacspeak-auctex Options</a>,
+    Previous: <a href=
+    "emacspeak_002dadvice-Options.html#emacspeak_002dadvice-Options"
+    accesskey="p" rel="prev">emacspeak-advice Options</a>, Up:
+    <a href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations"
+    accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp;
+    [<a href="index.html#SEC_Contents" title="Table of contents"
+    rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dalsaplayer-Options-1" id=
+  "emacspeak_002dalsaplayer-Options-1"></a>
 
-<dl>
-<dt><a name="index-User-Option-28"></a>Variable: <strong>User Option</strong> <em>emacspeak-alsaplayer-device</em></dt>
-<dd><p>Device to use for alsaplayer
-</p></dd></dl>
+  <h3 class="section">12.6 emacspeak-alsaplayer Options</h3>
 
-<dl>
-<dt><a name="index-User-Option-29"></a>Variable: <strong>User Option</strong> <em>emacspeak-alsaplayer-media-directory</em></dt>
-<dd><p>Directory to look for media files.
-</p></dd></dl>
+  <p>Commentary: Defines a simple derived mode for interacting with
+  alsaplayer. alsaplayer navigation commands work via single
+  keystrokes.</p>
 
-<dl>
-<dt><a name="index-User-Option-30"></a>Variable: <strong>User Option</strong> <em>emacspeak-alsaplayer-program</em></dt>
-<dd><p>Alsaplayer executable.
-</p></dd></dl>
+  <p>Automatically generated documentation for options defined in
+  module emacspeak-alsaplayer. These options are customizable via
+  Emacs&rsquo; Custom interface.</p>
 
+  <dl>
+    <dt><a name="index-User-Option-27" id=
+    "index-User-Option-27"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-alsaplayer-auditory-feedback</em></dt>
 
+    <dd>
+      <p>Turn this on if you want spoken feedback and auditory
+      icons from alsaplayer.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-28" id=
+    "index-User-Option-28"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-alsaplayer-device</em></dt>
 
+    <dd>
+      <p>Device to use for alsaplayer</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-29" id=
+    "index-User-Option-29"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-alsaplayer-media-directory</em></dt>
+
+    <dd>
+      <p>Directory to look for media files.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-30" id=
+    "index-User-Option-30"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-alsaplayer-program</em></dt>
+
+    <dd>
+      <p>Alsaplayer executable.</p>
+    </dd>
+  </dl>
 </body>
 </html>

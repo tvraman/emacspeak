@@ -1,121 +1,235 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-gomoku</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-gomoku">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-gomoku">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up" title="Emacspeak Commands">
-<link href="emacspeak_002dgoogle.html#emacspeak_002dgoogle" rel="next" title="emacspeak-google">
-<link href="emacspeak_002dgnus.html#emacspeak_002dgnus" rel="prev" title="emacspeak-gnus">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-gomoku</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-gomoku" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-gomoku" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
+  title="Emacspeak Commands" />
+  <link href="emacspeak_002dgoogle.html#emacspeak_002dgoogle" rel=
+  "next" title="emacspeak-google" />
+  <link href="emacspeak_002dgnus.html#emacspeak_002dgnus" rel=
+  "prev" title="emacspeak-gnus" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dgomoku"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dgoogle.html#emacspeak_002dgoogle" accesskey="n" rel="next">emacspeak-google</a>, Previous: <a href="emacspeak_002dgnus.html#emacspeak_002dgnus" accesskey="p" rel="prev">emacspeak-gnus</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dgomoku-1"></a>
-<h3 class="section">11.34 emacspeak-gomoku</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dgomoku" id="emacspeak_002dgomoku"></a>
 
-<p>No Commentary
-</p>
-<p>Automatically generated documentation
-for commands defined in module  emacspeak-gomoku.
-</p>
-<dl>
-<dt><a name="index-emacspeak_002dgomoku_002ddisplay_002dstatistics"></a>Interactive Command: <strong>emacspeak-gomoku-display-statistics</strong> <em>nil</em></dt>
-<dd><p>Display statistics from previous games
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dgoogle.html#emacspeak_002dgoogle" accesskey="n"
+    rel="next">emacspeak-google</a>, Previous: <a href=
+    "emacspeak_002dgnus.html#emacspeak_002dgnus" accesskey="p" rel=
+    "prev">emacspeak-gnus</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dgomoku-1" id="emacspeak_002dgomoku-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002dgomoku_002dgoto_002dx_002dy"></a>Interactive Command: <strong>emacspeak-gomoku-goto-x-y</strong> <em>(x y)</em></dt>
-<dd><p>Prompt for and go to that square.
-</p></dd></dl>
+  <h3 class="section">11.35 emacspeak-gomoku</h3>
 
-<dl>
-<dt><a name="index-emacspeak_002dgomoku_002dshow_002dcurrent_002dcolumn"></a>Interactive Command: <strong>emacspeak-gomoku-show-current-column</strong> <em>nil</em></dt>
-<dd><p>Aurally display current column
-</p></dd></dl>
+  <p>No Commentary</p>
 
-<dl>
-<dt><a name="index-emacspeak_002dgomoku_002dshow_002dcurrent_002dnegative_002ddiagonal"></a>Interactive Command: <strong>emacspeak-gomoku-show-current-negative-diagonal</strong> <em>nil</em></dt>
-<dd><p>Aurally display current negative sloped diagonal 
-</p></dd></dl>
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak-gomoku.</p>
 
-<dl>
-<dt><a name="index-emacspeak_002dgomoku_002dshow_002dcurrent_002dpositive_002ddiagonal"></a>Interactive Command: <strong>emacspeak-gomoku-show-current-positive-diagonal</strong> <em>nil</em></dt>
-<dd><p>Aurally display current positively sloped diagonal
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgomoku_002ddisplay_002dstatistics" id=
+    "index-emacspeak_002dgomoku_002ddisplay_002dstatistics"></a>Interactive
+    Command: <strong>emacspeak-gomoku-display-statistics</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dgomoku_002dshow_002dcurrent_002drow"></a>Interactive Command: <strong>emacspeak-gomoku-show-current-row</strong> <em>nil</em></dt>
-<dd><p>Aurally display current row
-</p></dd></dl>
+    <dd>
+      <p>Display statistics from previous games</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dgomoku_002dspeak_002demacs_002dprevious_002dmove"></a>Interactive Command: <strong>emacspeak-gomoku-speak-emacs-previous-move</strong> <em>nil</em></dt>
-<dd><p>Speak emacs&rsquo; previous move
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dgomoku_002dgoto_002dx_002dy"
+    id=
+    "index-emacspeak_002dgomoku_002dgoto_002dx_002dy"></a>Interactive
+    Command: <strong>emacspeak-gomoku-goto-x-y</strong> <em>(x
+    y)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dgomoku_002dspeak_002dhumans_002dprevious_002dmove"></a>Interactive Command: <strong>emacspeak-gomoku-speak-humans-previous-move</strong> <em>nil</em></dt>
-<dd><p>Speak human&rsquo; previous move
-</p></dd></dl>
+    <dd>
+      <p>Prompt for and go to that square.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dgomoku_002dspeak_002dnumber_002dof_002dmoves"></a>Interactive Command: <strong>emacspeak-gomoku-speak-number-of-moves</strong> <em>nil</em></dt>
-<dd><p>Speak number of moves so far
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgomoku_002dshow_002dcurrent_002dcolumn"
+    id="index-emacspeak_002dgomoku_002dshow_002dcurrent_002dcolumn">
+    </a>Interactive Command:
+    <strong>emacspeak-gomoku-show-current-column</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dgomoku_002dspeak_002dsquare"></a>Interactive Command: <strong>emacspeak-gomoku-speak-square</strong> <em>nil</em></dt>
-<dd><p>Speak coordinates and state of square at point
-</p></dd></dl>
+    <dd>
+      <p>Aurally display current column</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgomoku_002dshow_002dcurrent_002dnegative_002ddiagonal"
+    id=
+    "index-emacspeak_002dgomoku_002dshow_002dcurrent_002dnegative_002ddiagonal">
+    </a>Interactive Command:
+    <strong>emacspeak-gomoku-show-current-negative-diagonal</strong>
+    <em>nil</em></dt>
 
+    <dd>
+      <p>Aurally display current negative sloped diagonal</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgomoku_002dshow_002dcurrent_002dpositive_002ddiagonal"
+    id=
+    "index-emacspeak_002dgomoku_002dshow_002dcurrent_002dpositive_002ddiagonal">
+    </a>Interactive Command:
+    <strong>emacspeak-gomoku-show-current-positive-diagonal</strong>
+    <em>nil</em></dt>
 
+    <dd>
+      <p>Aurally display current positively sloped diagonal</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgomoku_002dshow_002dcurrent_002drow" id=
+    "index-emacspeak_002dgomoku_002dshow_002dcurrent_002drow"></a>Interactive
+    Command: <strong>emacspeak-gomoku-show-current-row</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Aurally display current row</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgomoku_002dspeak_002demacs_002dprevious_002dmove"
+    id=
+    "index-emacspeak_002dgomoku_002dspeak_002demacs_002dprevious_002dmove">
+    </a>Interactive Command:
+    <strong>emacspeak-gomoku-speak-emacs-previous-move</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak emacs&rsquo; previous move</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgomoku_002dspeak_002dhumans_002dprevious_002dmove"
+    id=
+    "index-emacspeak_002dgomoku_002dspeak_002dhumans_002dprevious_002dmove">
+    </a>Interactive Command:
+    <strong>emacspeak-gomoku-speak-humans-previous-move</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak human&rsquo; previous move</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dgomoku_002dspeak_002dnumber_002dof_002dmoves"
+    id=
+    "index-emacspeak_002dgomoku_002dspeak_002dnumber_002dof_002dmoves">
+    </a>Interactive Command:
+    <strong>emacspeak-gomoku-speak-number-of-moves</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak number of moves so far</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dgomoku_002dspeak_002dsquare"
+    id=
+    "index-emacspeak_002dgomoku_002dspeak_002dsquare"></a>Interactive
+    Command: <strong>emacspeak-gomoku-speak-square</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak coordinates and state of square at point</p>
+    </dd>
+  </dl>
 </body>
 </html>

@@ -1,122 +1,166 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Introduction</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Introduction">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Introduction">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="index.html#Top" rel="up" title="Top">
-<link href="Installation.html#Installation" rel="next" title="Installation">
-<link href="Credits.html#Credits" rel="prev" title="Credits">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  Introduction</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Introduction" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Introduction" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="index.html#Top" rel="up" title="Top" />
+  <link href="Installation.html#Installation" rel="next" title=
+  "Installation" />
+  <link href="Credits.html#Credits" rel="prev" title="Credits" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="Introduction"></a>
-<div class="header">
-<p>
-Next: <a href="Installation.html#Installation" accesskey="n" rel="next">Installation</a>, Previous: <a href="Announce.html#Announce" accesskey="p" rel="prev">Announce</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="Introduction-1"></a>
-<h2 class="chapter">3 Introduction</h2>
+<body lang="en" xml:lang="en">
+  <a name="Introduction" id="Introduction"></a>
 
-<p>Emacspeak provides a complete audio desktop 
-by speech-enabling all of Emacs.
-</p>
-<p>In the past, screen reading programs have allowed visually impaired
-users to get feedback using synthesized speech. Such programs have been
-commercially available for well over a decade. Most of them run on PC&rsquo;s
-under DOS, and these are now moving over to the Windows environment.
-However, screen-readers for the UNIX environment have been conspicuous
-in their absence.  Note that this is now changing with the availability
-of console-level Linux screenreaders such as <code>speakup</code>.  Such Linux
-screenreaders provide the same level of UNIX accessibility provided in
-the late 80&rsquo;s by PC terminal emulators running a DOS screenreader.  This
-means that most visually impaired computer users face the additional
-handicap of being DOS-impaired &mdash; a far more serious problem:-)
-</p>
-<p>Emacspeak is an emacs subsystem that provides complete speech access.
-It is <em>not</em> a screen-reader &mdash;rather, it is a complete user
-environment with built-in speech  feedback.  Emacspeak has a
-significant advantage; since it runs inside Emacs, a
-structure-sensitive, fully customizable environment, Emacspeak has more
-context-specific information about what it is speaking than its
-screenreader counterparts.  This is why Emacspeak is not a
-&ldquo;screenreader&rdquo;, it is a subsystem that produces speech output.  
-</p>
-<p>A Traditional screen-reader speaks the content of the screen, leaving it
-to the user to interpret the visual layout.  Emacspeak,
-on the other hand, treats speech as a first-class output modality; it
-speaks the information in a manner that is easy to comprehend when
-listening.
-</p>
+  <div class="header">
+    <p>Next: <a href="Installation.html#Installation" accesskey="n"
+    rel="next">Installation</a>, Previous: <a href=
+    "Announce.html#Announce" accesskey="p" rel="prev">Announce</a>,
+    Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="Introduction-1" id="Introduction-1"></a>
 
-<p>The basic concepts used by Emacspeak are simple; all interactive Emacs
-commands have been adapted to provide speech feedback.  Hence, you
-use Emacs as normal; Emacspeak works behind the scene to give
-audio feedback in addition to updating the screen.
-</p>
-<p>Emacspeak consists of a core speech system that provides speech and
-audio services to the rest of the Emacspeak desktop;
-application-specific extensions provide context-specific spoken feedback
-using these services.  Emacspeak currently comes with speech extensions
-for several popular Emacs subsystems and editing modes.  I would like to
-thank their respective authors for their wonderful work which makes
-Emacs more than a text editor<a name="DOCF1" href="#FOOT1"><sup>1</sup></a>..
-</p><div class="footnote">
-<hr>
-<h4 class="footnotes-heading">Footnotes</h4>
+  <h2 class="chapter">3 Introduction</h2>
 
-<h3><a name="FOOT1" href="#DOCF1">(1)</a></h3>
-<p>I have now been using Emacspeak
-under Linux as the only source of speech feedback since 1994.</p>
-</div>
-<hr>
-<div class="header">
-<p>
-Next: <a href="Installation.html#Installation" accesskey="n" rel="next">Installation</a>, Previous: <a href="Announce.html#Announce" accesskey="p" rel="prev">Announce</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+  <p>Emacspeak provides a complete audio desktop by speech-enabling
+  all of Emacs.</p>
 
+  <p>In the past, screen reading programs have allowed visually
+  impaired users to get feedback using synthesized speech. Such
+  programs have been commercially available for well over a decade.
+  Most of them run on PC&rsquo;s under DOS, and these are now
+  moving over to the Windows environment. However, screen-readers
+  for the UNIX environment have been conspicuous in their absence.
+  Note that this is now changing with the availability of
+  console-level Linux screenreaders such as <code>speakup</code>.
+  Such Linux screenreaders provide the same level of UNIX
+  accessibility provided in the late 80&rsquo;s by PC terminal
+  emulators running a DOS screenreader. This means that most
+  visually impaired computer users face the additional handicap of
+  being DOS-impaired &mdash; a far more serious problem:-)</p>
 
+  <p>Emacspeak is an emacs subsystem that provides complete speech
+  access. It is <em>not</em> a screen-reader &mdash;rather, it is a
+  complete user environment with built-in speech feedback.
+  Emacspeak has a significant advantage; since it runs inside
+  Emacs, a structure-sensitive, fully customizable environment,
+  Emacspeak has more context-specific information about what it is
+  speaking than its screenreader counterparts. This is why
+  Emacspeak is not a &ldquo;screenreader&rdquo;, it is a subsystem
+  that produces speech output.</p>
 
+  <p>A Traditional screen-reader speaks the content of the screen,
+  leaving it to the user to interpret the visual layout. Emacspeak,
+  on the other hand, treats speech as a first-class output
+  modality; it speaks the information in a manner that is easy to
+  comprehend when listening.</p>
+
+  <p>The basic concepts used by Emacspeak are simple; all
+  interactive Emacs commands have been adapted to provide speech
+  feedback. Hence, you use Emacs as normal; Emacspeak works behind
+  the scene to give audio feedback in addition to updating the
+  screen.</p>
+
+  <p>Emacspeak consists of a core speech system that provides
+  speech and audio services to the rest of the Emacspeak desktop;
+  application-specific extensions provide context-specific spoken
+  feedback using these services. Emacspeak currently comes with
+  speech extensions for several popular Emacs subsystems and
+  editing modes. I would like to thank their respective authors for
+  their wonderful work which makes Emacs more than a text
+  editor<a name="DOCF1" href="#FOOT1" id=
+  "DOCF1"><sup>1</sup></a>..</p>
+
+  <div class="footnote">
+    <hr />
+
+    <h4 class="footnotes-heading">Footnotes</h4>
+
+    <h3><a name="FOOT1" href="#DOCF1" id="FOOT1">(1)</a></h3>
+
+    <p>I have now been using Emacspeak under Linux as the only
+    source of speech feedback since 1994.</p>
+  </div>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href="Installation.html#Installation" accesskey="n"
+    rel="next">Installation</a>, Previous: <a href=
+    "Announce.html#Announce" accesskey="p" rel="prev">Announce</a>,
+    Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

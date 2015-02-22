@@ -1,243 +1,465 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-eww</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-eww">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-eww">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up" title="Emacspeak Commands">
-<link href="emacspeak_002dfeeds.html#emacspeak_002dfeeds" rel="next" title="emacspeak-feeds">
-<link href="emacspeak_002deudc.html#emacspeak_002deudc" rel="prev" title="emacspeak-eudc">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-eww</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-eww" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-eww" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
+  title="Emacspeak Commands" />
+  <link href="emacspeak_002dfeeds.html#emacspeak_002dfeeds" rel=
+  "next" title="emacspeak-feeds" />
+  <link href="emacspeak_002deudc.html#emacspeak_002deudc" rel=
+  "prev" title="emacspeak-eudc" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002deww"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dfeeds.html#emacspeak_002dfeeds" accesskey="n" rel="next">emacspeak-feeds</a>, Previous: <a href="emacspeak_002deudc.html#emacspeak_002deudc" accesskey="p" rel="prev">emacspeak-eudc</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002deww-1"></a>
-<h3 class="section">11.28 emacspeak-eww</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002deww" id="emacspeak_002deww"></a>
 
-<p>Commentary:
-EWW == Emacs Web Browser
-EWW is a light-weight Web browser built into Emacs 24.4.
-This module speech-enables EWW
-</p>
-<p>Automatically generated documentation
-for commands defined in module  emacspeak-eww.
-</p>
-<dl>
-<dt><a name="index-emacspeak_002deww_002dgoogle_002dknowledge_002dcard"></a>Interactive Command: <strong>emacspeak-eww-google-knowledge-card</strong> <em>nil</em></dt>
-<dd><p>Show just the knowledge card.
-Warning, this is fragile, and depends on a stable id for the
-  knowledge card.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href="emacspeak_002dfeeds.html#emacspeak_002dfeeds"
+    accesskey="n" rel="next">emacspeak-feeds</a>, Previous:
+    <a href="emacspeak_002deudc.html#emacspeak_002deudc" accesskey=
+    "p" rel="prev">emacspeak-eudc</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002deww-1" id="emacspeak_002deww-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002dmasquerade"></a>Interactive Command: <strong>emacspeak-eww-masquerade</strong> <em>nil</em></dt>
-<dd><p>Toggle masquerade state.
-</p></dd></dl>
+  <h3 class="section">11.29 emacspeak-eww</h3>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002dnext_002delement"></a>Interactive Command: <strong>emacspeak-eww-next-element</strong> <em>(el)</em></dt>
-<dd><p>Move forward to the next specified element.
-</p></dd></dl>
+  <p>Commentary: EWW == Emacs Web Browser EWW is a light-weight Web
+  browser built into Emacs 24.4. This module speech-enables EWW</p>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002dnext_002delement_002dfrom_002dhistory"></a>Interactive Command: <strong>emacspeak-eww-next-element-from-history</strong> <em>nil</em></dt>
-<dd><p>Uses element navigation history to decide where we jump.
-</p></dd></dl>
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak-eww.</p>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002dnext_002delement_002dlike_002dthis"></a>Interactive Command: <strong>emacspeak-eww-next-element-like-this</strong> <em>(element)</em></dt>
-<dd><p>Moves to next element like current.
-Prompts if content at point is enclosed by multiple elements.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002deww_002dgoogle_002dknowledge_002dcard" id=
+    "index-emacspeak_002deww_002dgoogle_002dknowledge_002dcard"></a>Interactive
+    Command: <strong>emacspeak-eww-google-knowledge-card</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002dnext_002dh"></a>Interactive Command: <strong>emacspeak-eww-next-h</strong> <em>(&amp;optional speak)</em></dt>
-<dd><p>Move forward to the next h.
-Optional interactive prefix arg speaks the structural unit.
-</p></dd></dl>
+    <dd>
+      <p>Show just the knowledge card. Warning, this is fragile,
+      and depends on a stable id for the knowledge card.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002dnext_002dh1"></a>Interactive Command: <strong>emacspeak-eww-next-h1</strong> <em>(&amp;optional speak)</em></dt>
-<dd><p>Move forward to the next h1.
-Optional interactive prefix arg speaks the structural unit.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002deww_002dmasquerade" id=
+    "index-emacspeak_002deww_002dmasquerade"></a>Interactive
+    Command: <strong>emacspeak-eww-masquerade</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002dnext_002dh2"></a>Interactive Command: <strong>emacspeak-eww-next-h2</strong> <em>(&amp;optional speak)</em></dt>
-<dd><p>Move forward to the next h2.
-Optional interactive prefix arg speaks the structural unit.
-</p></dd></dl>
+    <dd>
+      <p>Toggle masquerade state.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002dnext_002dh3"></a>Interactive Command: <strong>emacspeak-eww-next-h3</strong> <em>(&amp;optional speak)</em></dt>
-<dd><p>Move forward to the next h3.
-Optional interactive prefix arg speaks the structural unit.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002deww_002dnext_002delement" id=
+    "index-emacspeak_002deww_002dnext_002delement"></a>Interactive
+    Command: <strong>emacspeak-eww-next-element</strong>
+    <em>(el)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002dnext_002dli"></a>Interactive Command: <strong>emacspeak-eww-next-li</strong> <em>(&amp;optional speak)</em></dt>
-<dd><p>Move forward to the next li.
-Optional interactive prefix arg speaks the structural unit.
-</p></dd></dl>
+    <dd>
+      <p>Move forward to the next specified element.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002dnext_002dol"></a>Interactive Command: <strong>emacspeak-eww-next-ol</strong> <em>(&amp;optional speak)</em></dt>
-<dd><p>Move forward to the next ol.
-Optional interactive prefix arg speaks the structural unit.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002deww_002dnext_002delement_002dfrom_002dhistory"
+    id=
+    "index-emacspeak_002deww_002dnext_002delement_002dfrom_002dhistory">
+    </a>Interactive Command:
+    <strong>emacspeak-eww-next-element-from-history</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002dnext_002dp"></a>Interactive Command: <strong>emacspeak-eww-next-p</strong> <em>(&amp;optional speak)</em></dt>
-<dd><p>Move forward to the next p.
-Optional interactive prefix arg speaks the structural unit.
-</p></dd></dl>
+    <dd>
+      <p>Uses element navigation history to decide where we
+      jump.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002dnext_002dtable"></a>Interactive Command: <strong>emacspeak-eww-next-table</strong> <em>(&amp;optional speak)</em></dt>
-<dd><p>Move forward to the next table.
-Optional interactive prefix arg speaks the structural unit.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002deww_002dnext_002delement_002dlike_002dthis"
+    id=
+    "index-emacspeak_002deww_002dnext_002delement_002dlike_002dthis">
+    </a>Interactive Command:
+    <strong>emacspeak-eww-next-element-like-this</strong>
+    <em>(element)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002dnext_002dul"></a>Interactive Command: <strong>emacspeak-eww-next-ul</strong> <em>(&amp;optional speak)</em></dt>
-<dd><p>Move forward to the next ul.
-Optional interactive prefix arg speaks the structural unit.
-</p></dd></dl>
+    <dd>
+      <p>Moves to next element like current. Prompts if content at
+      point is enclosed by multiple elements.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002dprevious_002delement"></a>Interactive Command: <strong>emacspeak-eww-previous-element</strong> <em>(el)</em></dt>
-<dd><p>Move backward  to the previous  specified element.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002deww_002dnext_002dh" id=
+    "index-emacspeak_002deww_002dnext_002dh"></a>Interactive
+    Command: <strong>emacspeak-eww-next-h</strong>
+    <em>(&amp;optional speak)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002dprevious_002delement_002dfrom_002dhistory"></a>Interactive Command: <strong>emacspeak-eww-previous-element-from-history</strong> <em>nil</em></dt>
-<dd><p>Uses element navigation history to decide where we jump.
-</p></dd></dl>
+    <dd>
+      <p>Move forward to the next h. Optional interactive prefix
+      arg speaks the structural unit.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002dprevious_002delement_002dlike_002dthis"></a>Interactive Command: <strong>emacspeak-eww-previous-element-like-this</strong> <em>(element)</em></dt>
-<dd><p>Moves to next element like current.
-Prompts if content at point is enclosed by multiple elements.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002deww_002dnext_002dh1" id=
+    "index-emacspeak_002deww_002dnext_002dh1"></a>Interactive
+    Command: <strong>emacspeak-eww-next-h1</strong>
+    <em>(&amp;optional speak)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002dprevious_002dh"></a>Interactive Command: <strong>emacspeak-eww-previous-h</strong> <em>(&amp;optional speak)</em></dt>
-<dd><p>Move backward to the next h.
-Optional interactive prefix arg speaks the structural unit.
-</p></dd></dl>
+    <dd>
+      <p>Move forward to the next h1. Optional interactive prefix
+      arg speaks the structural unit.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002dprevious_002dh1"></a>Interactive Command: <strong>emacspeak-eww-previous-h1</strong> <em>(&amp;optional speak)</em></dt>
-<dd><p>Move backward to the next h1.
-Optional interactive prefix arg speaks the structural unit.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002deww_002dnext_002dh2" id=
+    "index-emacspeak_002deww_002dnext_002dh2"></a>Interactive
+    Command: <strong>emacspeak-eww-next-h2</strong>
+    <em>(&amp;optional speak)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002dprevious_002dh2"></a>Interactive Command: <strong>emacspeak-eww-previous-h2</strong> <em>(&amp;optional speak)</em></dt>
-<dd><p>Move backward to the next h2.
-Optional interactive prefix arg speaks the structural unit.
-</p></dd></dl>
+    <dd>
+      <p>Move forward to the next h2. Optional interactive prefix
+      arg speaks the structural unit.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002dprevious_002dh3"></a>Interactive Command: <strong>emacspeak-eww-previous-h3</strong> <em>(&amp;optional speak)</em></dt>
-<dd><p>Move backward to the next h3.
-Optional interactive prefix arg speaks the structural unit.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002deww_002dnext_002dh3" id=
+    "index-emacspeak_002deww_002dnext_002dh3"></a>Interactive
+    Command: <strong>emacspeak-eww-next-h3</strong>
+    <em>(&amp;optional speak)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002dprevious_002dli"></a>Interactive Command: <strong>emacspeak-eww-previous-li</strong> <em>(&amp;optional speak)</em></dt>
-<dd><p>Move backward to the next li.
-Optional interactive prefix arg speaks the structural unit.
-</p></dd></dl>
+    <dd>
+      <p>Move forward to the next h3. Optional interactive prefix
+      arg speaks the structural unit.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002dprevious_002dol"></a>Interactive Command: <strong>emacspeak-eww-previous-ol</strong> <em>(&amp;optional speak)</em></dt>
-<dd><p>Move backward to the next ol.
-Optional interactive prefix arg speaks the structural unit.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002deww_002dnext_002dli" id=
+    "index-emacspeak_002deww_002dnext_002dli"></a>Interactive
+    Command: <strong>emacspeak-eww-next-li</strong>
+    <em>(&amp;optional speak)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002dprevious_002dp"></a>Interactive Command: <strong>emacspeak-eww-previous-p</strong> <em>(&amp;optional speak)</em></dt>
-<dd><p>Move backward to the next p.
-Optional interactive prefix arg speaks the structural unit.
-</p></dd></dl>
+    <dd>
+      <p>Move forward to the next li. Optional interactive prefix
+      arg speaks the structural unit.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002dprevious_002dtable"></a>Interactive Command: <strong>emacspeak-eww-previous-table</strong> <em>(&amp;optional speak)</em></dt>
-<dd><p>Move backward to the next table.
-Optional interactive prefix arg speaks the structural unit.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002deww_002dnext_002dol" id=
+    "index-emacspeak_002deww_002dnext_002dol"></a>Interactive
+    Command: <strong>emacspeak-eww-next-ol</strong>
+    <em>(&amp;optional speak)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002dprevious_002dul"></a>Interactive Command: <strong>emacspeak-eww-previous-ul</strong> <em>(&amp;optional speak)</em></dt>
-<dd><p>Move backward to the next ul.
-Optional interactive prefix arg speaks the structural unit.
-</p></dd></dl>
+    <dd>
+      <p>Move forward to the next ol. Optional interactive prefix
+      arg speaks the structural unit.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002drestore"></a>Interactive Command: <strong>emacspeak-eww-restore</strong> <em>nil</em></dt>
-<dd><p>Restore buffer to pre-filtered canonical state.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002deww_002dnext_002dp" id=
+    "index-emacspeak_002deww_002dnext_002dp"></a>Interactive
+    Command: <strong>emacspeak-eww-next-p</strong>
+    <em>(&amp;optional speak)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002deww_002dspeak_002dthis_002delement"></a>Interactive Command: <strong>emacspeak-eww-speak-this-element</strong> <em>(element)</em></dt>
-<dd><p>Speaks  to next element like current.
-Uses most recently navigated structural unit.
-Otherwise, prompts if content at point is enclosed by multiple elements.
-</p></dd></dl>
+    <dd>
+      <p>Move forward to the next p. Optional interactive prefix
+      arg speaks the structural unit.</p>
+    </dd>
+  </dl>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dfeeds.html#emacspeak_002dfeeds" accesskey="n" rel="next">emacspeak-feeds</a>, Previous: <a href="emacspeak_002deudc.html#emacspeak_002deudc" accesskey="p" rel="prev">emacspeak-eudc</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+  <dl>
+    <dt><a name="index-emacspeak_002deww_002dnext_002dtable" id=
+    "index-emacspeak_002deww_002dnext_002dtable"></a>Interactive
+    Command: <strong>emacspeak-eww-next-table</strong>
+    <em>(&amp;optional speak)</em></dt>
 
+    <dd>
+      <p>Move forward to the next table. Optional interactive
+      prefix arg speaks the structural unit.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-emacspeak_002deww_002dnext_002dul" id=
+    "index-emacspeak_002deww_002dnext_002dul"></a>Interactive
+    Command: <strong>emacspeak-eww-next-ul</strong>
+    <em>(&amp;optional speak)</em></dt>
 
+    <dd>
+      <p>Move forward to the next ul. Optional interactive prefix
+      arg speaks the structural unit.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002deww_002dprevious_002delement"
+    id=
+    "index-emacspeak_002deww_002dprevious_002delement"></a>Interactive
+    Command: <strong>emacspeak-eww-previous-element</strong>
+    <em>(el)</em></dt>
+
+    <dd>
+      <p>Move backward to the previous specified element.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002deww_002dprevious_002delement_002dfrom_002dhistory"
+    id=
+    "index-emacspeak_002deww_002dprevious_002delement_002dfrom_002dhistory">
+    </a>Interactive Command:
+    <strong>emacspeak-eww-previous-element-from-history</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Uses element navigation history to decide where we
+      jump.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002deww_002dprevious_002delement_002dlike_002dthis"
+    id=
+    "index-emacspeak_002deww_002dprevious_002delement_002dlike_002dthis">
+    </a>Interactive Command:
+    <strong>emacspeak-eww-previous-element-like-this</strong>
+    <em>(element)</em></dt>
+
+    <dd>
+      <p>Moves to next element like current. Prompts if content at
+      point is enclosed by multiple elements.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002deww_002dprevious_002dh" id=
+    "index-emacspeak_002deww_002dprevious_002dh"></a>Interactive
+    Command: <strong>emacspeak-eww-previous-h</strong>
+    <em>(&amp;optional speak)</em></dt>
+
+    <dd>
+      <p>Move backward to the next h. Optional interactive prefix
+      arg speaks the structural unit.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002deww_002dprevious_002dh1" id=
+    "index-emacspeak_002deww_002dprevious_002dh1"></a>Interactive
+    Command: <strong>emacspeak-eww-previous-h1</strong>
+    <em>(&amp;optional speak)</em></dt>
+
+    <dd>
+      <p>Move backward to the next h1. Optional interactive prefix
+      arg speaks the structural unit.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002deww_002dprevious_002dh2" id=
+    "index-emacspeak_002deww_002dprevious_002dh2"></a>Interactive
+    Command: <strong>emacspeak-eww-previous-h2</strong>
+    <em>(&amp;optional speak)</em></dt>
+
+    <dd>
+      <p>Move backward to the next h2. Optional interactive prefix
+      arg speaks the structural unit.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002deww_002dprevious_002dh3" id=
+    "index-emacspeak_002deww_002dprevious_002dh3"></a>Interactive
+    Command: <strong>emacspeak-eww-previous-h3</strong>
+    <em>(&amp;optional speak)</em></dt>
+
+    <dd>
+      <p>Move backward to the next h3. Optional interactive prefix
+      arg speaks the structural unit.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002deww_002dprevious_002dli" id=
+    "index-emacspeak_002deww_002dprevious_002dli"></a>Interactive
+    Command: <strong>emacspeak-eww-previous-li</strong>
+    <em>(&amp;optional speak)</em></dt>
+
+    <dd>
+      <p>Move backward to the next li. Optional interactive prefix
+      arg speaks the structural unit.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002deww_002dprevious_002dol" id=
+    "index-emacspeak_002deww_002dprevious_002dol"></a>Interactive
+    Command: <strong>emacspeak-eww-previous-ol</strong>
+    <em>(&amp;optional speak)</em></dt>
+
+    <dd>
+      <p>Move backward to the next ol. Optional interactive prefix
+      arg speaks the structural unit.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002deww_002dprevious_002dp" id=
+    "index-emacspeak_002deww_002dprevious_002dp"></a>Interactive
+    Command: <strong>emacspeak-eww-previous-p</strong>
+    <em>(&amp;optional speak)</em></dt>
+
+    <dd>
+      <p>Move backward to the next p. Optional interactive prefix
+      arg speaks the structural unit.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002deww_002dprevious_002dtable"
+    id="index-emacspeak_002deww_002dprevious_002dtable"></a>Interactive
+    Command: <strong>emacspeak-eww-previous-table</strong>
+    <em>(&amp;optional speak)</em></dt>
+
+    <dd>
+      <p>Move backward to the next table. Optional interactive
+      prefix arg speaks the structural unit.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002deww_002dprevious_002dul" id=
+    "index-emacspeak_002deww_002dprevious_002dul"></a>Interactive
+    Command: <strong>emacspeak-eww-previous-ul</strong>
+    <em>(&amp;optional speak)</em></dt>
+
+    <dd>
+      <p>Move backward to the next ul. Optional interactive prefix
+      arg speaks the structural unit.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002deww_002drestore" id=
+    "index-emacspeak_002deww_002drestore"></a>Interactive Command:
+    <strong>emacspeak-eww-restore</strong> <em>nil</em></dt>
+
+    <dd>
+      <p>Restore buffer to pre-filtered canonical state.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002deww_002dspeak_002dthis_002delement" id=
+    "index-emacspeak_002deww_002dspeak_002dthis_002delement"></a>Interactive
+    Command: <strong>emacspeak-eww-speak-this-element</strong>
+    <em>(element)</em></dt>
+
+    <dd>
+      <p>Speaks to next element like current. Uses most recently
+      navigated structural unit. Otherwise, prompts if content at
+      point is enclosed by multiple elements.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href="emacspeak_002dfeeds.html#emacspeak_002dfeeds"
+    accesskey="n" rel="next">emacspeak-feeds</a>, Previous:
+    <a href="emacspeak_002deudc.html#emacspeak_002deudc" accesskey=
+    "p" rel="prev">emacspeak-eudc</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

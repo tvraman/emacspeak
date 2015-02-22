@@ -1,220 +1,414 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-kite Options</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-kite Options">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-kite Options">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Customizations.html#Emacspeak-Customizations" rel="up" title="Emacspeak Customizations">
-<link href="emacspeak_002dm_002dplayer-Options.html#emacspeak_002dm_002dplayer-Options" rel="next" title="emacspeak-m-player Options">
-<link href="emacspeak_002dkeymap-Options.html#emacspeak_002dkeymap-Options" rel="prev" title="emacspeak-keymap Options">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-kite Options</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-kite Options" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-kite Options" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Customizations.html#Emacspeak-Customizations" rel="up"
+  title="Emacspeak Customizations" />
+  <link href=
+  "emacspeak_002dm_002dplayer-Options.html#emacspeak_002dm_002dplayer-Options"
+  rel="next" title="emacspeak-m-player Options" />
+  <link href=
+  "emacspeak_002dkeymap-Options.html#emacspeak_002dkeymap-Options"
+  rel="prev" title="emacspeak-keymap Options" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dkite-Options"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dm_002dplayer-Options.html#emacspeak_002dm_002dplayer-Options" accesskey="n" rel="next">emacspeak-m-player Options</a>, Previous: <a href="emacspeak_002dkeymap-Options.html#emacspeak_002dkeymap-Options" accesskey="p" rel="prev">emacspeak-keymap Options</a>, Up: <a href="Emacspeak-Customizations.html#Emacspeak-Customizations" accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dkite-Options-1"></a>
-<h3 class="section">12.33 emacspeak-kite Options</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dkite-Options" id=
+  "emacspeak_002dkite-Options"></a>
 
-<p>Commentary:
-kite connects Emacs to browsers that support the webkit debugging protocol.
-You can use this to connect to a running Chrome
-Make sure to start chrome with the correct command-line flag: e.g., on Linux:
-google-chrome &ndash;remote-debugging-port=9222
-You can get  Emacs package kite from here:
-git clone git://github.com/jscheid/kite
-Make sure to first install the websocket package from elpa.
-This package speech-enables kite for Emacspeak users.
-This is what I use at present when developing/debugging ChromeVox.
-ChromeVox == http://google-axs-chrome.googlecode.com
-http://chromevox.com
-</p>
-<p>Automatically generated documentation
-for options defined in module  emacspeak-kite.
-These options are customizable via Emacs&rsquo; Custom interface.
-</p>
-<dl>
-<dt><a name="index-User-Option-144"></a>Variable: <strong>User Option</strong> <em>emacspeak-kite-boolean-voice</em></dt>
-<dd><p>Personality used for kite-boolean
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dm_002dplayer-Options.html#emacspeak_002dm_002dplayer-Options"
+    accesskey="n" rel="next">emacspeak-m-player Options</a>,
+    Previous: <a href=
+    "emacspeak_002dkeymap-Options.html#emacspeak_002dkeymap-Options"
+    accesskey="p" rel="prev">emacspeak-keymap Options</a>, Up:
+    <a href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations"
+    accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp;
+    [<a href="index.html#SEC_Contents" title="Table of contents"
+    rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dkite-Options-1" id=
+  "emacspeak_002dkite-Options-1"></a>
 
-<dl>
-<dt><a name="index-User-Option-145"></a>Variable: <strong>User Option</strong> <em>emacspeak-kite-console-prompt-personality</em></dt>
-<dd><p>Personality used for kite-console-prompt-face
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-</p></dd></dl>
+  <h3 class="section">12.34 emacspeak-kite Options</h3>
 
-<dl>
-<dt><a name="index-User-Option-146"></a>Variable: <strong>User Option</strong> <em>emacspeak-kite-loading-voice</em></dt>
-<dd><p>Personality used for kite-loading
-This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
-</p></dd></dl>
+  <p>Commentary: kite connects Emacs to browsers that support the
+  webkit debugging protocol. You can use this to connect to a
+  running Chrome Make sure to start chrome with the correct
+  command-line flag: e.g., on Linux: google-chrome
+  &ndash;remote-debugging-port=9222 You can get Emacs package kite
+  from here: git clone git://github.com/jscheid/kite Make sure to
+  first install the websocket package from elpa. This package
+  speech-enables kite for Emacspeak users. This is what I use at
+  present when developing/debugging ChromeVox. ChromeVox ==
+  http://google-axs-chrome.googlecode.com http://chromevox.com</p>
 
-<dl>
-<dt><a name="index-User-Option-147"></a>Variable: <strong>User Option</strong> <em>emacspeak-kite-log-debug-voice</em></dt>
-<dd><p>Personality used for kite-log-debug
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-</p></dd></dl>
+  <p>Automatically generated documentation for options defined in
+  module emacspeak-kite. These options are customizable via
+  Emacs&rsquo; Custom interface.</p>
 
-<dl>
-<dt><a name="index-User-Option-148"></a>Variable: <strong>User Option</strong> <em>emacspeak-kite-log-error-voice</em></dt>
-<dd><p>Personality used for kite-log-error
-This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-148" id=
+    "index-User-Option-148"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-kite-boolean-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-149"></a>Variable: <strong>User Option</strong> <em>emacspeak-kite-log-log-voice</em></dt>
-<dd><p>Personality used for kite-log-log
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for kite-boolean This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-150"></a>Variable: <strong>User Option</strong> <em>emacspeak-kite-log-warning-voice</em></dt>
-<dd><p>Personality used for kite-log-warning
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-149" id=
+    "index-User-Option-149"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-kite-console-prompt-personality</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-151"></a>Variable: <strong>User Option</strong> <em>emacspeak-kite-null-voice</em></dt>
-<dd><p>Personality used for kite-null
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for kite-console-prompt-face This
+      personality uses voice-brighten whose effect can be changed
+      globally by customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-152"></a>Variable: <strong>User Option</strong> <em>emacspeak-kite-number-voice</em></dt>
-<dd><p>Personality used for kite-number
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-150" id=
+    "index-User-Option-150"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-kite-loading-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-153"></a>Variable: <strong>User Option</strong> <em>emacspeak-kite-object-voice</em></dt>
-<dd><p>Personality used for kite-object
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for kite-loading This personality uses
+      voice-animate-extra whose effect can be changed globally by
+      customizing voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-154"></a>Variable: <strong>User Option</strong> <em>emacspeak-kite-property-name-voice</em></dt>
-<dd><p>Personality used for kite-property-name
-This personality uses  voice-smoothen-medium whose  effect can be changed globally by customizing voice-smoothen-medium-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-151" id=
+    "index-User-Option-151"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-kite-log-debug-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-155"></a>Variable: <strong>User Option</strong> <em>emacspeak-kite-proto-property-name-voice</em></dt>
-<dd><p>Personality used for kite-proto-property-name
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for kite-log-debug This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-156"></a>Variable: <strong>User Option</strong> <em>emacspeak-kite-quote-voice</em></dt>
-<dd><p>Personality used for kite-quote
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-152" id=
+    "index-User-Option-152"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-kite-log-error-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-157"></a>Variable: <strong>User Option</strong> <em>emacspeak-kite-stack-column-number-voice</em></dt>
-<dd><p>Personality used for kite-stack-column-number
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for kite-log-error This personality uses
+      voice-bolden-and-animate whose effect can be changed globally
+      by customizing voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-158"></a>Variable: <strong>User Option</strong> <em>emacspeak-kite-stack-error-message-voice</em></dt>
-<dd><p>Personality used for kite-stack-error-message
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-153" id=
+    "index-User-Option-153"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-kite-log-log-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-159"></a>Variable: <strong>User Option</strong> <em>emacspeak-kite-stack-error-type-voice</em></dt>
-<dd><p>Personality used for kite-stack-error-type
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for kite-log-log This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-160"></a>Variable: <strong>User Option</strong> <em>emacspeak-kite-stack-file-name-voice</em></dt>
-<dd><p>Personality used for kite-stack-file-name
-This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-154" id=
+    "index-User-Option-154"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-kite-log-warning-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-161"></a>Variable: <strong>User Option</strong> <em>emacspeak-kite-stack-function-name-voice</em></dt>
-<dd><p>Personality used for kite-stack-function-name
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for kite-log-warning This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-162"></a>Variable: <strong>User Option</strong> <em>emacspeak-kite-stack-line-number-voice</em></dt>
-<dd><p>Personality used for kite-stack-line-number
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-155" id=
+    "index-User-Option-155"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-kite-null-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-163"></a>Variable: <strong>User Option</strong> <em>emacspeak-kite-stack-pseudo-file-name-voice</em></dt>
-<dd><p>Personality used for kite-stack-pseudo-file-name
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for kite-null This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-164"></a>Variable: <strong>User Option</strong> <em>emacspeak-kite-string-voice</em></dt>
-<dd><p>Personality used for kite-string
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-156" id=
+    "index-User-Option-156"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-kite-number-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-165"></a>Variable: <strong>User Option</strong> <em>emacspeak-kite-undefined-voice</em></dt>
-<dd><p>Personality used for kite-undefined
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-</p></dd></dl>
+    <dd>
+      <p>Personality used for kite-number This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dm_002dplayer-Options.html#emacspeak_002dm_002dplayer-Options" accesskey="n" rel="next">emacspeak-m-player Options</a>, Previous: <a href="emacspeak_002dkeymap-Options.html#emacspeak_002dkeymap-Options" accesskey="p" rel="prev">emacspeak-keymap Options</a>, Up: <a href="Emacspeak-Customizations.html#Emacspeak-Customizations" accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+  <dl>
+    <dt><a name="index-User-Option-157" id=
+    "index-User-Option-157"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-kite-object-voice</em></dt>
 
+    <dd>
+      <p>Personality used for kite-object This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-158" id=
+    "index-User-Option-158"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-kite-property-name-voice</em></dt>
 
+    <dd>
+      <p>Personality used for kite-property-name This personality
+      uses voice-smoothen-medium whose effect can be changed
+      globally by customizing voice-smoothen-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-159" id=
+    "index-User-Option-159"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-kite-proto-property-name-voice</em></dt>
+
+    <dd>
+      <p>Personality used for kite-proto-property-name This
+      personality uses voice-smoothen-extra whose effect can be
+      changed globally by customizing
+      voice-smoothen-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-160" id=
+    "index-User-Option-160"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-kite-quote-voice</em></dt>
+
+    <dd>
+      <p>Personality used for kite-quote This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-161" id=
+    "index-User-Option-161"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-kite-stack-column-number-voice</em></dt>
+
+    <dd>
+      <p>Personality used for kite-stack-column-number This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-162" id=
+    "index-User-Option-162"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-kite-stack-error-message-voice</em></dt>
+
+    <dd>
+      <p>Personality used for kite-stack-error-message This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-163" id=
+    "index-User-Option-163"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-kite-stack-error-type-voice</em></dt>
+
+    <dd>
+      <p>Personality used for kite-stack-error-type This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-164" id=
+    "index-User-Option-164"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-kite-stack-file-name-voice</em></dt>
+
+    <dd>
+      <p>Personality used for kite-stack-file-name This personality
+      uses voice-lighten-medium whose effect can be changed
+      globally by customizing voice-lighten-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-165" id=
+    "index-User-Option-165"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-kite-stack-function-name-voice</em></dt>
+
+    <dd>
+      <p>Personality used for kite-stack-function-name This
+      personality uses voice-bolden-medium whose effect can be
+      changed globally by customizing
+      voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-166" id=
+    "index-User-Option-166"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-kite-stack-line-number-voice</em></dt>
+
+    <dd>
+      <p>Personality used for kite-stack-line-number This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-167" id=
+    "index-User-Option-167"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-kite-stack-pseudo-file-name-voice</em></dt>
+
+    <dd>
+      <p>Personality used for kite-stack-pseudo-file-name This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-168" id=
+    "index-User-Option-168"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-kite-string-voice</em></dt>
+
+    <dd>
+      <p>Personality used for kite-string This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-169" id=
+    "index-User-Option-169"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-kite-undefined-voice</em></dt>
+
+    <dd>
+      <p>Personality used for kite-undefined This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dm_002dplayer-Options.html#emacspeak_002dm_002dplayer-Options"
+    accesskey="n" rel="next">emacspeak-m-player Options</a>,
+    Previous: <a href=
+    "emacspeak_002dkeymap-Options.html#emacspeak_002dkeymap-Options"
+    accesskey="p" rel="prev">emacspeak-keymap Options</a>, Up:
+    <a href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations"
+    accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp;
+    [<a href="index.html#SEC_Contents" title="Table of contents"
+    rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

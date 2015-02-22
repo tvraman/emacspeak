@@ -1,293 +1,294 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up" title="Emacspeak Commands">
-<link href="flite_002dvoices.html#flite_002dvoices" rel="next" title="flite-voices">
-<link href="emacspeak_002dzinf.html#emacspeak_002dzinf" rel="prev" title="emacspeak-zinf">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
+  title="Emacspeak Commands" />
+  <link href="flite_002dvoices.html#flite_002dvoices" rel="next"
+  title="flite-voices" />
+  <link href="emacspeak_002dzinf.html#emacspeak_002dzinf" rel=
+  "prev" title="emacspeak-zinf" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak"></a>
-<div class="header">
-<p>
-Next: <a href="flite_002dvoices.html#flite_002dvoices" accesskey="n" rel="next">flite-voices</a>, Previous: <a href="emacspeak_002dzinf.html#emacspeak_002dzinf" accesskey="p" rel="prev">emacspeak-zinf</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak-1"></a>
-<h3 class="section">11.83 emacspeak</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak" id="emacspeak"></a>
 
-<p>Commentary:
-The complete audio desktop.
-</p>
-<p>Emacspeak extends Emacs to be a fully functional audio desktop.
-This is the main emacspeak module.
-It actually does very little:
-It loads the various parts of the system.
-</p>
-<p>Automatically generated documentation
-for commands defined in module  emacspeak.
-</p>
-<dl>
-<dt><a name="index-emacspeak"></a>Interactive Command: <strong>emacspeak</strong> <em>nil</em></dt>
-<dd><p>Starts the Emacspeak speech subsystem.  Use emacs as you
-normally would, emacspeak will provide you spoken feedback
-as you work.  Emacspeak also provides commands for having
-parts of the current buffer, the mode-line etc to be spoken.
-</p>
-<p>If you are hearing this description as a result of pressing
-C-h C-e you may want to press
-C-e s to stop speech, and then use the arrow keys to
-move around in the Help buffer to read the rest of this
-description, which includes a summary of all emacspeak
-keybindings.
-</p>
-<p>All emacspeak commands use C-e as a
-prefix key.  You can also set the state of the TTS engine  by
-using C-e d as a prefix.  Here is
-a summary of all emacspeak commands along with their
-bindings.  You need to precede the keystrokes listed below
-with C-e.
-</p>
-<p>Emacspeak also provides a fluent speech extension to the
-emacs terminal emulator (eterm).  Note: You need to use the
-term package that comes with emacs-19.29 and later.
-</p>
-<p>key             binding
-&mdash;             &mdash;&mdash;-
-</p>
-<p>C-@		emacspeak-speak-current-mark
-C-a		emacspeak-toggle-auditory-icons
-C-b		emacspeak-bookshare
-C-c		emacspeak-clipboard-copy
-C-d		emacspeak-toggle-show-point
-C-e		end-of-line
-TAB		emacspeak-table-display-table-in-region
-C-j		emacspeak-hide-speak-block-sans-prefix
-C-l		emacspeak-speak-line-number
-RET		emacspeak-speak-continuously
-C-n		emacspeak-speak-next-window
-C-o		emacspeak-ocr
-C-p		emacspeak-speak-previous-window
-C-q		emacspeak-toggle-comint-autospeak
-C-r		emacspeak-root
-C-s		tts-restart
-C-t		emacspeak-table-find-file
-C-u		emacspeak-feeds-browse
-C-v		view-mode
-C-w		emacspeak-speak-window-information
-C-y		emacspeak-clipboard-paste
-ESC		Prefix Command
-SPC		emacspeak-speak-header-line
-!		emacspeak-speak-run-shell-command
-&quot;		emacspeak-speak-sexp-interactively
-#		emacspeak-gridtext
-%		emacspeak-speak-current-percentage
-&amp;		emacspeak-wizards-shell-command-on-current-file
-&rsquo;		emacspeak-pianobar
-(		emacspeak-audio-setup
-)		emacspeak-sounds-select-theme
-,		emacspeak-speak-browse-buffer
-.		emacspeak-speak-current-field
-/		emacspeak-speak-this-buffer-other-window-display
-0 .. 9		emacspeak-speak-predefined-window
-:		emacspeak-m-player-shuffle
-;		emacspeak-multimedia
-&lt;		emacspeak-speak-previous-field
-=		emacspeak-speak-current-column
-&gt;		emacspeak-speak-next-field
-?		emacspeak-websearch-dispatch
-@		emacspeak-speak-message-at-time
-A		emacspeak-appt-repeat-announcement
-B		emacspeak-speak-buffer-interactively
-C		emacspeak-customize
-F		emacspeak-view-emacspeak-faq
-H		emacspeak-speak-browse-linux-howto
-I		emacspeak-speak-show-active-network-interfaces
-L		emacspeak-speak-line-interactively
-M		emacspeak-speak-minor-mode-line
-N		emacspeak-view-emacspeak-news
-P		emacspeak-speak-paragraph-interactively
-R		emacspeak-speak-rectangle
-T		emacspeak-view-emacspeak-tips
-U		emacspeak-websearch-usenet
-V		emacspeak-speak-version
-W		emacspeak-tapestry-select-window-by-name
-[		emacspeak-speak-page
-\		emacspeak-toggle-speak-line-invert-filter
-]		emacspeak-speak-page-interactively
-^		emacspeak-filtertext
-a		emacspeak-speak-message-again
-b		emacspeak-speak-buffer
-c		emacspeak-speak-char
-d		emacspeak-dtk-submap-command
-e		end-of-line
-f		emacspeak-speak-buffer-filename
-g		emacspeak-epub
-h		emacspeak-speak-help
-i		emacspeak-tabulate-region
-j		emacspeak-hide-or-expose-block
-k		emacspeak-speak-current-kill
-l		emacspeak-speak-line
-m		emacspeak-speak-mode-line
-n		emacspeak-speak-rest-of-buffer
-o		emacspeak-toggle-comint-output-monitor
-p		emacspeak-speak-paragraph
-q		emacspeak-toggle-speak-messages
-r		emacspeak-speak-region
-s		dtk-stop
-t		emacspeak-speak-time
-u		emacspeak-url-template-fetch
-v		view-register
-w		emacspeak-speak-word
-x		emacspeak-personal-keymap
-{		emacspeak-speak-paragraph
-|		emacspeak-speak-line-set-column-filter
-DEL		cd-tool
-&lt;C-left&gt;	emacspeak-select-this-buffer-previous-display
-&lt;C-right&gt;	emacspeak-select-this-buffer-next-display
-&lt;delete&gt;	emacspeak-ssh-tts-restart
-&lt;deletechar&gt;	emacspeak-ssh-tts-restart
-&lt;down&gt;		emacspeak-read-next-line
-&lt;f1&gt;		emacspeak-learn-emacs-mode
-&lt;f11&gt;		emacspeak-wizards-shell-toggle
-&lt;insert&gt;	emacspeak-emergency-tts-restart
-&lt;left&gt;		emacspeak-speak-this-buffer-previous-display
-&lt;right&gt;		emacspeak-speak-this-buffer-next-display
-&lt;up&gt;		emacspeak-read-previous-line
-</p>
-<p># a		emacspeak-gridtext-apply
-# l		emacspeak-gridtext-load
-# s		emacspeak-gridtext-save
-</p>
-<p>C-M-@		emacspeak-speak-spaces-at-point
-C-M-b		emacspeak-submit-bug
-C-M-k		kill-emacs
-C-M-r		emacspeak-eterm-remote-term
-M-%		emacspeak-goto-percent
-M-;		emacspeak-webutils-play-media-at-point
-M-a		emacspeak-set-auditory-icon-player
-M-b		emacspeak-speak-other-buffer
-M-c		emacspeak-copy-current-file
-M-d		emacspeak-pronounce-dispatch
-M-f		emacspeak-frame-label-or-switch-to-labelled-frame
-M-h		emacspeak-speak-hostname
-M-l		emacspeak-link-current-file
-M-m		emacspeak-toggle-mail-alert
-M-q		voice-setup-toggle-silence-personality
-M-r		emacspeak-remote-connect-to-server
-M-s		emacspeak-symlink-current-file
-M-t		emacspeak-tapestry-describe-tapestry
-M-u		emacspeak-feeds-add-feed
-M-v		emacspeak-show-personality-at-point
-M-w		emacspeak-toggle-which-function
-</p>
-<p>d C-d		dectalk
-d C-e		espeak
-d RET		dtk-set-chunk-separator-syntax
-d C-o		outloud
-d C-v		outloud-32
-d ESC		Prefix Command
-d SPC		dtk-toggle-splitting-on-white-space
-d ,		dtk-toggle-punctuation-mode
-d 0 .. d 9	dtk-set-predefined-speech-rate
-d A		dtk-async-server
-d C		dtk-toggle-allcaps-beep
-d L		dtk-local-server
-d N		dtk-set-next-language
-d P		dtk-set-previous-language
-d R		dtk-reset-state
-d S		dtk-set-language
-d V		tts-speak-version
-d a		dtk-add-cleanup-pattern
-d b		dtk-toggle-debug
-d c		dtk-toggle-capitalization
-d d		dtk-select-server
-d f		dtk-set-character-scale
-d i		emacspeak-toggle-audio-indentation
-d k		emacspeak-toggle-character-echo
-d l		emacspeak-toggle-line-echo
-d m		emacspeak-speak-set-mode-punctuations
-d n		dtk-toggle-speak-nonprinting-chars
-d o		dtk-toggle-strip-octals
-d p		dtk-set-punctuations
-d q		dtk-toggle-quiet
-d r		dtk-set-rate
-d s		dtk-toggle-split-caps
-d t		emacspeak-dial-dtk
-d v		voice-lock-mode
-d w		emacspeak-toggle-word-echo
-d z		emacspeak-zap-tts
-</p>
-<p>d C-M-b		tts-show-debug-buffer
-</p>
-<p>See the online documentation for individual commands and
-functions for details.   
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href="flite_002dvoices.html#flite_002dvoices"
+    accesskey="n" rel="next">flite-voices</a>, Previous: <a href=
+    "emacspeak_002dzinf.html#emacspeak_002dzinf" accesskey="p" rel=
+    "prev">emacspeak-zinf</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak-1" id="emacspeak-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002ddescribe_002demacspeak"></a>Interactive Command: <strong>emacspeak-describe-emacspeak</strong> <em>nil</em></dt>
-<dd><p><kbd>C-h C-e &lt;f1&gt; C-e &lt;help&gt; C-e</kbd>
-</p>
-<p>Give a brief overview of emacspeak.
-</p></dd></dl>
+  <h3 class="section">11.84 emacspeak</h3>
 
-<dl>
-<dt><a name="index-emacspeak_002dsubmit_002dbug"></a>Interactive Command: <strong>emacspeak-submit-bug</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e C-M-b</kbd>
-</p>
-<p>Function to submit a bug to the programs maintainer.
-</p></dd></dl>
+  <p>Commentary: The complete audio desktop.</p>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="flite_002dvoices.html#flite_002dvoices" accesskey="n" rel="next">flite-voices</a>, Previous: <a href="emacspeak_002dzinf.html#emacspeak_002dzinf" accesskey="p" rel="prev">emacspeak-zinf</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+  <p>Emacspeak extends Emacs to be a fully functional audio
+  desktop. This is the main emacspeak module. It actually does very
+  little: It loads the various parts of the system.</p>
 
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak.</p>
 
+  <dl>
+    <dt><a name="index-emacspeak" id=
+    "index-emacspeak"></a>Interactive Command:
+    <strong>emacspeak</strong> <em>nil</em></dt>
 
+    <dd>
+      <p>Starts the Emacspeak speech subsystem. Use emacs as you
+      normally would, emacspeak will provide you spoken feedback as
+      you work. Emacspeak also provides commands for having parts
+      of the current buffer, the mode-line etc to be spoken.</p>
+
+      <p>If you are hearing this description as a result of
+      pressing C-h C-e you may want to press C-e s to stop speech,
+      and then use the arrow keys to move around in the Help buffer
+      to read the rest of this description, which includes a
+      summary of all emacspeak keybindings.</p>
+
+      <p>All emacspeak commands use C-e as a prefix key. You can
+      also set the state of the TTS engine by using C-e d as a
+      prefix. Here is a summary of all emacspeak commands along
+      with their bindings. You need to precede the keystrokes
+      listed below with C-e.</p>
+
+      <p>Emacspeak also provides a fluent speech extension to the
+      emacs terminal emulator (eterm). Note: You need to use the
+      term package that comes with emacs-19.29 and later.</p>
+
+      <p>key binding &mdash; &mdash;&mdash;-</p>
+
+      <p>C-@ emacspeak-speak-current-mark C-a
+      emacspeak-toggle-auditory-icons C-b emacspeak-bookshare C-c
+      emacspeak-clipboard-copy C-d emacspeak-toggle-show-point C-e
+      end-of-line TAB emacspeak-table-display-table-in-region C-j
+      emacspeak-hide-speak-block-sans-prefix C-l
+      emacspeak-speak-line-number RET emacspeak-speak-continuously
+      C-n emacspeak-speak-next-window C-o emacspeak-ocr C-p
+      emacspeak-speak-previous-window C-q
+      emacspeak-toggle-comint-autospeak C-r emacspeak-root C-s
+      tts-restart C-t emacspeak-table-find-file C-u
+      emacspeak-feeds-browse C-v view-mode C-w
+      emacspeak-speak-window-information C-y
+      emacspeak-clipboard-paste ESC Prefix Command SPC
+      emacspeak-speak-header-line !
+      emacspeak-speak-run-shell-command "
+      emacspeak-speak-sexp-interactively # emacspeak-gridtext %
+      emacspeak-speak-current-percentage &amp;
+      emacspeak-wizards-shell-command-on-current-file &rsquo;
+      emacspeak-pianobar ( emacspeak-audio-setup )
+      emacspeak-sounds-select-theme , emacspeak-speak-browse-buffer
+      . emacspeak-speak-current-field /
+      emacspeak-speak-this-buffer-other-window-display 0 .. 9
+      emacspeak-speak-predefined-window :
+      emacspeak-m-player-shuffle ; emacspeak-multimedia &lt;
+      emacspeak-speak-previous-field =
+      emacspeak-speak-current-column &gt;
+      emacspeak-speak-next-field ? emacspeak-websearch-dispatch @
+      emacspeak-speak-message-at-time A
+      emacspeak-appt-repeat-announcement B
+      emacspeak-speak-buffer-interactively C emacspeak-customize F
+      emacspeak-view-emacspeak-faq H
+      emacspeak-speak-browse-linux-howto I
+      emacspeak-speak-show-active-network-interfaces L
+      emacspeak-speak-line-interactively M
+      emacspeak-speak-minor-mode-line N
+      emacspeak-view-emacspeak-news P
+      emacspeak-speak-paragraph-interactively R
+      emacspeak-speak-rectangle T emacspeak-view-emacspeak-tips U
+      emacspeak-websearch-usenet V emacspeak-speak-version W
+      emacspeak-tapestry-select-window-by-name [
+      emacspeak-speak-page \
+      emacspeak-toggle-speak-line-invert-filter ]
+      emacspeak-speak-page-interactively ^ emacspeak-filtertext a
+      emacspeak-speak-message-again b emacspeak-speak-buffer c
+      emacspeak-speak-char d emacspeak-dtk-submap-command e
+      end-of-line f emacspeak-speak-buffer-filename g
+      emacspeak-epub h emacspeak-speak-help i
+      emacspeak-tabulate-region j emacspeak-hide-or-expose-block k
+      emacspeak-speak-current-kill l emacspeak-speak-line m
+      emacspeak-speak-mode-line n emacspeak-speak-rest-of-buffer o
+      emacspeak-toggle-comint-output-monitor p
+      emacspeak-speak-paragraph q emacspeak-toggle-speak-messages r
+      emacspeak-speak-region s dtk-stop t emacspeak-speak-time u
+      emacspeak-url-template-fetch v view-register w
+      emacspeak-speak-word x emacspeak-personal-keymap {
+      emacspeak-speak-paragraph |
+      emacspeak-speak-line-set-column-filter DEL cd-tool
+      &lt;C-left&gt; emacspeak-select-this-buffer-previous-display
+      &lt;C-right&gt; emacspeak-select-this-buffer-next-display
+      &lt;delete&gt; emacspeak-ssh-tts-restart &lt;deletechar&gt;
+      emacspeak-ssh-tts-restart &lt;down&gt;
+      emacspeak-read-next-line &lt;f1&gt;
+      emacspeak-learn-emacs-mode &lt;f11&gt;
+      emacspeak-wizards-shell-toggle &lt;insert&gt;
+      emacspeak-emergency-tts-restart &lt;left&gt;
+      emacspeak-speak-this-buffer-previous-display &lt;right&gt;
+      emacspeak-speak-this-buffer-next-display &lt;up&gt;
+      emacspeak-read-previous-line</p>
+
+      <p># a emacspeak-gridtext-apply # l emacspeak-gridtext-load #
+      s emacspeak-gridtext-save</p>
+
+      <p>C-M-@ emacspeak-speak-spaces-at-point C-M-b
+      emacspeak-submit-bug C-M-k kill-emacs C-M-r
+      emacspeak-eterm-remote-term M-% emacspeak-goto-percent M-;
+      emacspeak-webutils-play-media-at-point M-a
+      emacspeak-set-auditory-icon-player M-b
+      emacspeak-speak-other-buffer M-c emacspeak-copy-current-file
+      M-d emacspeak-pronounce-dispatch M-f
+      emacspeak-frame-label-or-switch-to-labelled-frame M-h
+      emacspeak-speak-hostname M-l emacspeak-link-current-file M-m
+      emacspeak-toggle-mail-alert M-q
+      voice-setup-toggle-silence-personality M-r
+      emacspeak-remote-connect-to-server M-s
+      emacspeak-symlink-current-file M-t
+      emacspeak-tapestry-describe-tapestry M-u
+      emacspeak-feeds-add-feed M-v
+      emacspeak-show-personality-at-point M-w
+      emacspeak-toggle-which-function</p>
+
+      <p>d C-d dectalk d C-e espeak d RET
+      dtk-set-chunk-separator-syntax d C-o outloud d C-v outloud-32
+      d ESC Prefix Command d SPC
+      dtk-toggle-splitting-on-white-space d ,
+      dtk-toggle-punctuation-mode d 0 .. d 9
+      dtk-set-predefined-speech-rate d A dtk-async-server d C
+      dtk-toggle-allcaps-beep d L dtk-local-server d N
+      dtk-set-next-language d P dtk-set-previous-language d R
+      dtk-reset-state d S dtk-set-language d V tts-speak-version d
+      a dtk-add-cleanup-pattern d b dtk-toggle-debug d c
+      dtk-toggle-capitalization d d dtk-select-server d f
+      dtk-set-character-scale d i
+      emacspeak-toggle-audio-indentation d k
+      emacspeak-toggle-character-echo d l
+      emacspeak-toggle-line-echo d m
+      emacspeak-speak-set-mode-punctuations d n
+      dtk-toggle-speak-nonprinting-chars d o
+      dtk-toggle-strip-octals d p dtk-set-punctuations d q
+      dtk-toggle-quiet d r dtk-set-rate d s dtk-toggle-split-caps d
+      t emacspeak-dial-dtk d v voice-lock-mode d w
+      emacspeak-toggle-word-echo d z emacspeak-zap-tts</p>
+
+      <p>d C-M-b tts-show-debug-buffer</p>
+
+      <p>See the online documentation for individual commands and
+      functions for details.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002ddescribe_002demacspeak" id=
+    "index-emacspeak_002ddescribe_002demacspeak"></a>Interactive
+    Command: <strong>emacspeak-describe-emacspeak</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-h C-e &lt;f1&gt; C-e &lt;help&gt; C-e</kbd></p>
+
+      <p>Give a brief overview of emacspeak.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dsubmit_002dbug" id=
+    "index-emacspeak_002dsubmit_002dbug"></a>Interactive Command:
+    <strong>emacspeak-submit-bug</strong> <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e C-M-b</kbd></p>
+
+      <p>Function to submit a bug to the programs maintainer.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href="flite_002dvoices.html#flite_002dvoices"
+    accesskey="n" rel="next">flite-voices</a>, Previous: <a href=
+    "emacspeak_002dzinf.html#emacspeak_002dzinf" accesskey="p" rel=
+    "prev">emacspeak-zinf</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

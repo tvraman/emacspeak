@@ -1,82 +1,113 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Desktop Objects</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Desktop Objects">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Desktop Objects">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Audio-Desktop.html#Audio-Desktop" rel="up" title="Audio Desktop">
-<link href="Object-Oriented-Desktop.html#Object-Oriented-Desktop" rel="next" title="Object Oriented Desktop">
-<link href="Audio-Desktop.html#Audio-Desktop" rel="prev" title="Audio Desktop">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Desktop
+  Objects</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Desktop Objects" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Desktop Objects" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Audio-Desktop.html#Audio-Desktop" rel="up" title=
+  "Audio Desktop" />
+  <link href="Object-Oriented-Desktop.html#Object-Oriented-Desktop"
+  rel="next" title="Object Oriented Desktop" />
+  <link href="Audio-Desktop.html#Audio-Desktop" rel="prev" title=
+  "Audio Desktop" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="Desktop-Objects"></a>
-<div class="header">
-<p>
-Next: <a href="Object-Oriented-Desktop.html#Object-Oriented-Desktop" accesskey="n" rel="next">Object Oriented Desktop</a>, Up: <a href="Audio-Desktop.html#Audio-Desktop" accesskey="u" rel="up">Audio Desktop</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="Objects-Making-Up-The-Emacspeak-Desktop"></a>
-<h3 class="section">6.1 Objects Making Up The Emacspeak Desktop</h3>
+<body lang="en" xml:lang="en">
+  <a name="Desktop-Objects" id="Desktop-Objects"></a>
 
-<p>A &quot;buffer&quot; is the basic building block of the Emacs and
-hence the Emacspeak desktop.  Any information presented by
-Emacs is placed in a &quot;buffer&quot;.  For example, when perusing
-this manual within Emacs, the &quot;file&quot; containing the documentation is
-presented in a &quot;buffer&quot;.  All information objects such as
-WWW pages, email messages, output from user interaction with
-command-line shells etc., are presented by Emacs in
-individual &quot;buffers&quot;.
-</p>
+  <div class="header">
+    <p>Next: <a href=
+    "Object-Oriented-Desktop.html#Object-Oriented-Desktop"
+    accesskey="n" rel="next">Object Oriented Desktop</a>, Up:
+    <a href="Audio-Desktop.html#Audio-Desktop" accesskey="u" rel=
+    "up">Audio Desktop</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="Objects-Making-Up-The-Emacspeak-Desktop" id=
+  "Objects-Making-Up-The-Emacspeak-Desktop"></a>
 
-<p>Buffers provide a base level of user interaction;
-Emacs derives its power by allowing applications to
-specialize buffers to enable specific types of
-user-interaction that is optimized for 
-a specific class of information.
-</p>
+  <h3 class="section">6.1 Objects Making Up The Emacspeak
+  Desktop</h3>
 
+  <p>A "buffer" is the basic building block of the Emacs and hence
+  the Emacspeak desktop. Any information presented by Emacs is
+  placed in a "buffer". For example, when perusing this manual
+  within Emacs, the "file" containing the documentation is
+  presented in a "buffer". All information objects such as WWW
+  pages, email messages, output from user interaction with
+  command-line shells etc., are presented by Emacs in individual
+  "buffers".</p>
 
-
+  <p>Buffers provide a base level of user interaction; Emacs
+  derives its power by allowing applications to specialize buffers
+  to enable specific types of user-interaction that is optimized
+  for a specific class of information.</p>
 </body>
 </html>

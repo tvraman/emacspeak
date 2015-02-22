@@ -1,93 +1,153 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-xml-shell Options</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-xml-shell Options">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-xml-shell Options">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Customizations.html#Emacspeak-Customizations" rel="up" title="Emacspeak Customizations">
-<link href="emacspeak_002dxslt-Options.html#emacspeak_002dxslt-Options" rel="next" title="emacspeak-xslt Options">
-<link href="emacspeak_002dwizards-Options.html#emacspeak_002dwizards-Options" rel="prev" title="emacspeak-wizards Options">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-xml-shell Options</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-xml-shell Options" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-xml-shell Options" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Customizations.html#Emacspeak-Customizations" rel="up"
+  title="Emacspeak Customizations" />
+  <link href=
+  "emacspeak_002dxslt-Options.html#emacspeak_002dxslt-Options" rel=
+  "next" title="emacspeak-xslt Options" />
+  <link href=
+  "emacspeak_002dwizards-Options.html#emacspeak_002dwizards-Options"
+  rel="prev" title="emacspeak-wizards Options" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dxml_002dshell-Options"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dxslt-Options.html#emacspeak_002dxslt-Options" accesskey="n" rel="next">emacspeak-xslt Options</a>, Previous: <a href="emacspeak_002dwizards-Options.html#emacspeak_002dwizards-Options" accesskey="p" rel="prev">emacspeak-wizards Options</a>, Up: <a href="Emacspeak-Customizations.html#Emacspeak-Customizations" accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dxml_002dshell-Options-1"></a>
-<h3 class="section">12.64 emacspeak-xml-shell Options</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dxml_002dshell-Options" id=
+  "emacspeak_002dxml_002dshell-Options"></a>
 
-<p>Automatically generated documentation
-for options defined in module  emacspeak-xml-shell.
-These options are customizable via Emacs&rsquo; Custom interface.
-</p>
-<dl>
-<dt><a name="index-User-Option-345"></a>Variable: <strong>User Option</strong> <em>emacspeak-xml-shell-command</em></dt>
-<dd><p>Executable that provides the XML browser shell.
-Default is xmllint.
-If you want an XML Shell on steroids get XSH and use emacs custom to
-customize the default to be xsh.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dxslt-Options.html#emacspeak_002dxslt-Options"
+    accesskey="n" rel="next">emacspeak-xslt Options</a>, Previous:
+    <a href=
+    "emacspeak_002dwizards-Options.html#emacspeak_002dwizards-Options"
+    accesskey="p" rel="prev">emacspeak-wizards Options</a>, Up:
+    <a href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations"
+    accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp;
+    [<a href="index.html#SEC_Contents" title="Table of contents"
+    rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dxml_002dshell-Options-1" id=
+  "emacspeak_002dxml_002dshell-Options-1"></a>
 
-<dl>
-<dt><a name="index-User-Option-346"></a>Variable: <strong>User Option</strong> <em>emacspeak-xml-shell-hooks</em></dt>
-<dd><p>Start up hooks run after XML browser  process is started.
-</p></dd></dl>
+  <h3 class="section">12.66 emacspeak-xml-shell Options</h3>
 
-<dl>
-<dt><a name="index-User-Option-347"></a>Variable: <strong>User Option</strong> <em>emacspeak-xml-shell-options</em></dt>
-<dd><p>Command-line options for XML browse command.
-</p></dd></dl>
+  <p>Automatically generated documentation for options defined in
+  module emacspeak-xml-shell. These options are customizable via
+  Emacs&rsquo; Custom interface.</p>
 
-<dl>
-<dt><a name="index-User-Option-348"></a>Variable: <strong>User Option</strong> <em>emacspeak-xml-shell-xslt</em></dt>
-<dd><p>XSL transform to apply when displaying current node.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-376" id=
+    "index-User-Option-376"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-xml-shell-command</em></dt>
 
+    <dd>
+      <p>Executable that provides the XML browser shell. Default is
+      xmllint. If you want an XML Shell on steroids get XSH and use
+      emacs custom to customize the default to be xsh.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-377" id=
+    "index-User-Option-377"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-xml-shell-hooks</em></dt>
 
+    <dd>
+      <p>Start up hooks run after XML browser process is
+      started.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-378" id=
+    "index-User-Option-378"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-xml-shell-options</em></dt>
+
+    <dd>
+      <p>Command-line options for XML browse command.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-379" id=
+    "index-User-Option-379"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-xml-shell-xslt</em></dt>
+
+    <dd>
+      <p>XSL transform to apply when displaying current node.</p>
+    </dd>
+  </dl>
 </body>
 </html>

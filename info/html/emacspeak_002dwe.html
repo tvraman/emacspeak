@@ -1,341 +1,683 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-we</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-we">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-we">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up" title="Emacspeak Commands">
-<link href="emacspeak_002dwebsearch.html#emacspeak_002dwebsearch" rel="next" title="emacspeak-websearch">
-<link href="emacspeak_002dw3m.html#emacspeak_002dw3m" rel="prev" title="emacspeak-w3m">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-we</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-we" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-we" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
+  title="Emacspeak Commands" />
+  <link href="emacspeak_002dwebsearch.html#emacspeak_002dwebsearch"
+  rel="next" title="emacspeak-websearch" />
+  <link href="emacspeak_002dw3m.html#emacspeak_002dw3m" rel="prev"
+  title="emacspeak-w3m" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dwe"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dwebsearch.html#emacspeak_002dwebsearch" accesskey="n" rel="next">emacspeak-websearch</a>, Previous: <a href="emacspeak_002dw3m.html#emacspeak_002dw3m" accesskey="p" rel="prev">emacspeak-w3m</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dwe-1"></a>
-<h3 class="section">11.74 emacspeak-we</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dwe" id="emacspeak_002dwe"></a>
 
-<p>Commentary:
-we is for webedit
-Invoke XSLT to edit/transform Web pages before they get
-rendered.
-we makes emacspeak&rsquo;s webedit layer independent of a given
-Emacs web browser like W3 or W3M
-This module will use the abstraction provided by browse-url
-to handle Web pages.
-Module emacspeak-webutils provides the needed additional
-abstractions not already covered by browse-url
-</p>
-<p>Automatically generated documentation
-for commands defined in module  emacspeak-we.
-</p>
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dclass_002dfilter_002dand_002dfollow"></a>Interactive Command: <strong>emacspeak-we-class-filter-and-follow</strong> <em>(class url)</em></dt>
-<dd><p>Follow url and point, and filter the result by specified class.
-Class can be set locally for a buffer, and overridden with an
-interactive prefix arg. If there is a known rewrite url rule, that is
-used as well.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dwebsearch.html#emacspeak_002dwebsearch"
+    accesskey="n" rel="next">emacspeak-websearch</a>, Previous:
+    <a href="emacspeak_002dw3m.html#emacspeak_002dw3m" accesskey=
+    "p" rel="prev">emacspeak-w3m</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dwe-1" id="emacspeak_002dwe-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dclass_002dfilter_002dand_002dfollow_002dlink"></a>Interactive Command: <strong>emacspeak-we-class-filter-and-follow-link</strong> <em>(&amp;optional prompt)</em></dt>
-<dd><p>Follow url and point, and filter the result by specified class.
-Class can be set locally for a buffer, and overridden with an
-interactive prefix arg. If there is a known rewrite url rule, that is
-used as well.
-</p></dd></dl>
+  <h3 class="section">11.75 emacspeak-we</h3>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dcount_002dmatches"></a>Interactive Command: <strong>emacspeak-we-count-matches</strong> <em>(url locator)</em></dt>
-<dd><p>Count matches for locator  in Web page.
-</p></dd></dl>
+  <p>Commentary: we is for webedit Invoke XSLT to edit/transform
+  Web pages before they get rendered. we makes emacspeak&rsquo;s
+  webedit layer independent of a given Emacs web browser like W3 or
+  W3M This module will use the abstraction provided by browse-url
+  to handle Web pages. Module emacspeak-webutils provides the
+  needed additional abstractions not already covered by
+  browse-url</p>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dcount_002dnested_002dtables"></a>Interactive Command: <strong>emacspeak-we-count-nested-tables</strong> <em>(url)</em></dt>
-<dd><p>Count nested tables in Web page.
-</p></dd></dl>
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak-we.</p>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dcount_002dtables"></a>Interactive Command: <strong>emacspeak-we-count-tables</strong> <em>(url)</em></dt>
-<dd><p>Count  tables in Web page.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002dclass_002dfilter_002dand_002dfollow"
+    id=
+    "index-emacspeak_002dwe_002dclass_002dfilter_002dand_002dfollow">
+    </a>Interactive Command:
+    <strong>emacspeak-we-class-filter-and-follow</strong>
+    <em>(class url)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dextract_002dby_002dclass"></a>Interactive Command: <strong>emacspeak-we-extract-by-class</strong> <em>(class url &amp;optional speak)</em></dt>
-<dd><p>Extract elements having specified class attribute from HTML. Extracts
-specified elements from current WWW page and displays it in a separate
-buffer. Interactive use provides list of class values as completion.
-</p></dd></dl>
+    <dd>
+      <p>Follow url and point, and filter the result by specified
+      class. Class can be set locally for a buffer, and overridden
+      with an interactive prefix arg. If there is a known rewrite
+      url rule, that is used as well.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dextract_002dby_002dclass_002dlist"></a>Interactive Command: <strong>emacspeak-we-extract-by-class-list</strong> <em>(classes url &amp;optional speak)</em></dt>
-<dd><p>Extract elements having class specified in list &lsquo;classes&rsquo; from HTML.
-Extracts specified elements from current WWW page and displays it
-in a separate buffer.  Interactive use provides list of class
-values as completion. 
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002dclass_002dfilter_002dand_002dfollow_002dlink"
+    id=
+    "index-emacspeak_002dwe_002dclass_002dfilter_002dand_002dfollow_002dlink">
+    </a>Interactive Command:
+    <strong>emacspeak-we-class-filter-and-follow-link</strong>
+    <em>(&amp;optional prompt)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dextract_002dby_002did"></a>Interactive Command: <strong>emacspeak-we-extract-by-id</strong> <em>(id url &amp;optional speak)</em></dt>
-<dd><p>Extract elements having specified id attribute from HTML. Extracts
-specified elements from current WWW page and displays it in a separate
-buffer.
-Interactive use provides list of id values as completion.
-</p></dd></dl>
+    <dd>
+      <p>Follow url and point, and filter the result by specified
+      class. Class can be set locally for a buffer, and overridden
+      with an interactive prefix arg. If there is a known rewrite
+      url rule, that is used as well.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dextract_002dby_002did_002dlist"></a>Interactive Command: <strong>emacspeak-we-extract-by-id-list</strong> <em>(ids url &amp;optional speak)</em></dt>
-<dd><p>Extract elements having id specified in list &lsquo;ids&rsquo; from HTML.
-Extracts specified elements from current WWW page and displays it in a
-separate buffer. Interactive use provides list of id values as completion. 
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dwe_002dcount_002dmatches" id=
+    "index-emacspeak_002dwe_002dcount_002dmatches"></a>Interactive
+    Command: <strong>emacspeak-we-count-matches</strong> <em>(url
+    locator)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dextract_002dby_002dproperty"></a>Interactive Command: <strong>emacspeak-we-extract-by-property</strong> <em>(url &amp;optional speak)</em></dt>
-<dd><p>Interactively prompt for an HTML property, e.g. id or class,
-and provide a completion list of applicable  property values. Filter document by property that is specified.
-</p></dd></dl>
+    <dd>
+      <p>Count matches for locator in Web page.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dextract_002dby_002drole"></a>Interactive Command: <strong>emacspeak-we-extract-by-role</strong> <em>(role url &amp;optional speak)</em></dt>
-<dd><p>Extract elements having specified role attribute from HTML. Extracts
-specified elements from current WWW page and displays it in a separate
-buffer. Interactive use provides list of role values as completion.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002dcount_002dnested_002dtables" id=
+    "index-emacspeak_002dwe_002dcount_002dnested_002dtables"></a>Interactive
+    Command: <strong>emacspeak-we-count-nested-tables</strong>
+    <em>(url)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dextract_002did_002dlist_002dtext"></a>Interactive Command: <strong>emacspeak-we-extract-id-list-text</strong> <em>(ids url &amp;optional speak)</em></dt>
-<dd><p>Extract text nodes from elements having id specified in list &lsquo;ids&rsquo; from HTML.
-Extracts specified elements from current WWW page and displays it in a
-separate buffer. Interactive use provides list of id values as completion. 
-</p></dd></dl>
+    <dd>
+      <p>Count nested tables in Web page.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dextract_002did_002dtext"></a>Interactive Command: <strong>emacspeak-we-extract-id-text</strong> <em>(id url &amp;optional speak)</em></dt>
-<dd><p>Extract text nodes from elements having specified id attribute from HTML. Extracts
-specified elements from current WWW page and displays it in a separate
-buffer.
-Interactive use provides list of id values as completion.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dwe_002dcount_002dtables" id=
+    "index-emacspeak_002dwe_002dcount_002dtables"></a>Interactive
+    Command: <strong>emacspeak-we-count-tables</strong>
+    <em>(url)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dextract_002dmatching_002durls"></a>Interactive Command: <strong>emacspeak-we-extract-matching-urls</strong> <em>(pattern url &amp;optional speak)</em></dt>
-<dd><p>Extracts links whose URL matches pattern.
-</p></dd></dl>
+    <dd>
+      <p>Count tables in Web page.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dextract_002dmedia_002dstreams"></a>Interactive Command: <strong>emacspeak-we-extract-media-streams</strong> <em>(url &amp;optional speak)</em></dt>
-<dd><p>Extract links to media streams.
-operate on current web page when in a browser buffer; otherwise
- prompt for url.  Optional arg &lsquo;speak&rsquo; specifies if the result
- should be spoken automatically.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002dextract_002dby_002dclass" id=
+    "index-emacspeak_002dwe_002dextract_002dby_002dclass"></a>Interactive
+    Command: <strong>emacspeak-we-extract-by-class</strong>
+    <em>(class url &amp;optional speak)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dextract_002dmedia_002dstreams_002dunder_002dpoint"></a>Interactive Command: <strong>emacspeak-we-extract-media-streams-under-point</strong> <em>nil</em></dt>
-<dd><p>In browser buffers, extract media streams from url under point.
-</p></dd></dl>
+    <dd>
+      <p>Extract elements having specified class attribute from
+      HTML. Extracts specified elements from current WWW page and
+      displays it in a separate buffer. Interactive use provides
+      list of class values as completion.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dextract_002dnested_002dtable"></a>Interactive Command: <strong>emacspeak-we-extract-nested-table</strong> <em>(index url &amp;optional speak)</em></dt>
-<dd><p>Extract nested table specified by &lsquo;table-index&rsquo;. Default is to
-operate on current web page when in a browser buffer; otherwise
-prompt for URL. Optional arg &lsquo;speak&rsquo; specifies if the result should be
-spoken automatically.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002dextract_002dby_002dclass_002dlist"
+    id=
+    "index-emacspeak_002dwe_002dextract_002dby_002dclass_002dlist"></a>Interactive
+    Command: <strong>emacspeak-we-extract-by-class-list</strong>
+    <em>(classes url &amp;optional speak)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dextract_002dnested_002dtable_002dlist"></a>Interactive Command: <strong>emacspeak-we-extract-nested-table-list</strong> <em>(tables url &amp;optional speak)</em></dt>
-<dd><p>Extract specified list of tables from a Web page.
-</p></dd></dl>
+    <dd>
+      <p>Extract elements having class specified in list
+      &lsquo;classes&rsquo; from HTML. Extracts specified elements
+      from current WWW page and displays it in a separate buffer.
+      Interactive use provides list of class values as
+      completion.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dextract_002dprint_002dstreams"></a>Interactive Command: <strong>emacspeak-we-extract-print-streams</strong> <em>(url &amp;optional speak)</em></dt>
-<dd><p>Extract links to printable  streams.
-operate on current web page when in a browser buffer; otherwise
- prompt for url.  Optional arg &lsquo;speak&rsquo; specifies if the result
- should be spoken automatically.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dwe_002dextract_002dby_002did"
+    id=
+    "index-emacspeak_002dwe_002dextract_002dby_002did"></a>Interactive
+    Command: <strong>emacspeak-we-extract-by-id</strong> <em>(id
+    url &amp;optional speak)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dextract_002dtable_002dby_002dmatch"></a>Interactive Command: <strong>emacspeak-we-extract-table-by-match</strong> <em>(match url &amp;optional speak)</em></dt>
-<dd><p>Extract table containing  specified match.
- Optional arg url specifies the page to extract content from.
-</p></dd></dl>
+    <dd>
+      <p>Extract elements having specified id attribute from HTML.
+      Extracts specified elements from current WWW page and
+      displays it in a separate buffer. Interactive use provides
+      list of id values as completion.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dextract_002dtable_002dby_002dposition"></a>Interactive Command: <strong>emacspeak-we-extract-table-by-position</strong> <em>(position url &amp;optional speak)</em></dt>
-<dd><p>Extract table at specified position.
-Default is to extract from current page.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002dextract_002dby_002did_002dlist" id=
+    "index-emacspeak_002dwe_002dextract_002dby_002did_002dlist"></a>Interactive
+    Command: <strong>emacspeak-we-extract-by-id-list</strong>
+    <em>(ids url &amp;optional speak)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dextract_002dtables_002dby_002dmatch_002dlist"></a>Interactive Command: <strong>emacspeak-we-extract-tables-by-match-list</strong> <em>(match-list url &amp;optional speak)</em></dt>
-<dd><p>Extract specified  tables from a WWW page.
-Tables are specified by containing  match pattern
- found in the match list.
-</p></dd></dl>
+    <dd>
+      <p>Extract elements having id specified in list
+      &lsquo;ids&rsquo; from HTML. Extracts specified elements from
+      current WWW page and displays it in a separate buffer.
+      Interactive use provides list of id values as completion.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dextract_002dtables_002dby_002dposition_002dlist"></a>Interactive Command: <strong>emacspeak-we-extract-tables-by-position-list</strong> <em>(positions url &amp;optional speak)</em></dt>
-<dd><p>Extract specified list of nested tables from a WWW page.
-Tables are specified by their position in the list
- of nested tables found in the page.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002dextract_002dby_002dproperty" id=
+    "index-emacspeak_002dwe_002dextract_002dby_002dproperty"></a>Interactive
+    Command: <strong>emacspeak-we-extract-by-property</strong>
+    <em>(url &amp;optional speak)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dfollow_002dand_002dextract_002dmain"></a>Interactive Command: <strong>emacspeak-we-follow-and-extract-main</strong> <em>(&amp;optional speak)</em></dt>
-<dd><p>Follow URL, then extract role=main.
-</p></dd></dl>
+    <dd>
+      <p>Interactively prompt for an HTML property, e.g. id or
+      class, and provide a completion list of applicable property
+      values. Filter document by property that is specified.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dfollow_002dand_002dfilter_002dby_002did"></a>Interactive Command: <strong>emacspeak-we-follow-and-filter-by-id</strong> <em>(id)</em></dt>
-<dd><p>Follow url and point, and filter the result by specified id.
-Id can be set locally for a buffer, and overridden with an
-interactive prefix arg. If there is a known rewrite url rule, that is
-used as well.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002dextract_002dby_002drole" id=
+    "index-emacspeak_002dwe_002dextract_002dby_002drole"></a>Interactive
+    Command: <strong>emacspeak-we-extract-by-role</strong>
+    <em>(role url &amp;optional speak)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002djunk_002dby_002dclass"></a>Interactive Command: <strong>emacspeak-we-junk-by-class</strong> <em>(class url &amp;optional speak)</em></dt>
-<dd><p>Extract elements not having specified class attribute from HTML. Extracts
-specified elements from current WWW page and displays it in a separate
-buffer. Interactive use provides list of class values as completion.
-</p></dd></dl>
+    <dd>
+      <p>Extract elements having specified role attribute from
+      HTML. Extracts specified elements from current WWW page and
+      displays it in a separate buffer. Interactive use provides
+      list of role values as completion.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002djunk_002dby_002dclass_002dlist"></a>Interactive Command: <strong>emacspeak-we-junk-by-class-list</strong> <em>(classes url &amp;optional speak)</em></dt>
-<dd><p>Extract elements not having class specified in list &lsquo;classes&rsquo; from HTML.
-Extracts specified elements from current WWW page and displays it
-in a separate buffer.  Interactive use provides list of class
-values as completion. 
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002dextract_002did_002dlist_002dtext"
+    id=
+    "index-emacspeak_002dwe_002dextract_002did_002dlist_002dtext"></a>Interactive
+    Command: <strong>emacspeak-we-extract-id-list-text</strong>
+    <em>(ids url &amp;optional speak)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dstyle_002dfilter"></a>Interactive Command: <strong>emacspeak-we-style-filter</strong> <em>(style url &amp;optional speak)</em></dt>
-<dd><p>Extract elements matching specified style
-from HTML.  Extracts specified elements from current WWW
-page and displays it in a separate buffer.  Optional arg url
-specifies the page to extract contents  from.
-</p></dd></dl>
+    <dd>
+      <p>Extract text nodes from elements having id specified in
+      list &lsquo;ids&rsquo; from HTML. Extracts specified elements
+      from current WWW page and displays it in a separate buffer.
+      Interactive use provides list of id values as completion.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dtoggle_002dxsl_002dkeep_002dresult"></a>Interactive Command: <strong>emacspeak-we-toggle-xsl-keep-result</strong> <em>nil</em></dt>
-<dd><p>Toggle xsl keep result flag.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002dextract_002did_002dtext" id=
+    "index-emacspeak_002dwe_002dextract_002did_002dtext"></a>Interactive
+    Command: <strong>emacspeak-we-extract-id-text</strong> <em>(id
+    url &amp;optional speak)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002durl_002dexpand_002dand_002dexecute"></a>Interactive Command: <strong>emacspeak-we-url-expand-and-execute</strong> <em>nil</em></dt>
-<dd><p>Applies buffer-specific URL expander/executor function.
-</p></dd></dl>
+    <dd>
+      <p>Extract text nodes from elements having specified id
+      attribute from HTML. Extracts specified elements from current
+      WWW page and displays it in a separate buffer. Interactive
+      use provides list of id values as completion.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002durl_002drewrite_002dand_002dfollow"></a>Interactive Command: <strong>emacspeak-we-url-rewrite-and-follow</strong> <em>(&amp;optional prompt)</em></dt>
-<dd><p>Apply a url rewrite rule as specified in the current buffer
-before following link under point.  If no rewrite rule is
-defined, first prompt for one.  Rewrite rules are of the
-form &lsquo;(from to)&rsquo; where from and to are strings.  Typically, the
-rewrite rule is automatically set up by Emacspeak tools like
-websearch where a rewrite rule is known.  Rewrite rules are
-useful in jumping directly to the printer friendly version of an
-article for example.  Optional interactive prefix arg prompts for
-a rewrite rule even if one is already defined.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002dextract_002dmatching_002durls" id=
+    "index-emacspeak_002dwe_002dextract_002dmatching_002durls"></a>Interactive
+    Command: <strong>emacspeak-we-extract-matching-urls</strong>
+    <em>(pattern url &amp;optional speak)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dxpath_002dfilter_002dand_002dfollow"></a>Interactive Command: <strong>emacspeak-we-xpath-filter-and-follow</strong> <em>(&amp;optional prompt)</em></dt>
-<dd><p>Follow url and point, and filter the result by specified xpath.
-XPath can be set locally for a buffer, and overridden with an
-interactive prefix arg. If there is a known rewrite url rule, that is
-used as well.
-</p></dd></dl>
+    <dd>
+      <p>Extracts links whose URL matches pattern.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dxpath_002djunk_002dand_002dfollow"></a>Interactive Command: <strong>emacspeak-we-xpath-junk-and-follow</strong> <em>(&amp;optional prompt)</em></dt>
-<dd><p>Follow url and point, and filter the result by junking
-elements specified by xpath.
-XPath can be set locally for a buffer, and overridden with an
-interactive prefix arg. If there is a known rewrite url rule, that is
-used as well.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002dextract_002dmedia_002dstreams" id=
+    "index-emacspeak_002dwe_002dextract_002dmedia_002dstreams"></a>Interactive
+    Command: <strong>emacspeak-we-extract-media-streams</strong>
+    <em>(url &amp;optional speak)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dxsl_002dtoggle"></a>Interactive Command: <strong>emacspeak-we-xsl-toggle</strong> <em>nil</em></dt>
-<dd><p>Toggle  application of XSL transformations.
-</p></dd></dl>
+    <dd>
+      <p>Extract links to media streams. operate on current web
+      page when in a browser buffer; otherwise prompt for url.
+      Optional arg &lsquo;speak&rsquo; specifies if the result
+      should be spoken automatically.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dxslt_002dapply"></a>Interactive Command: <strong>emacspeak-we-xslt-apply</strong> <em>(xsl)</em></dt>
-<dd><p>Apply specified transformation to current Web page.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002dextract_002dmedia_002dstreams_002dunder_002dpoint"
+    id=
+    "index-emacspeak_002dwe_002dextract_002dmedia_002dstreams_002dunder_002dpoint">
+    </a>Interactive Command:
+    <strong>emacspeak-we-extract-media-streams-under-point</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dxslt_002dfilter"></a>Interactive Command: <strong>emacspeak-we-xslt-filter</strong> <em>(path url &amp;optional speak)</em></dt>
-<dd><p>Extract elements matching specified XPath path locator
-from Web page &ndash; default is the current page being viewed.
-</p></dd></dl>
+    <dd>
+      <p>In browser buffers, extract media streams from url under
+      point.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dxslt_002djunk"></a>Interactive Command: <strong>emacspeak-we-xslt-junk</strong> <em>(path url &amp;optional speak)</em></dt>
-<dd><p>Junk elements matching specified locator.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002dextract_002dnested_002dtable" id=
+    "index-emacspeak_002dwe_002dextract_002dnested_002dtable"></a>Interactive
+    Command: <strong>emacspeak-we-extract-nested-table</strong>
+    <em>(index url &amp;optional speak)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dwe_002dxslt_002dselect"></a>Interactive Command: <strong>emacspeak-we-xslt-select</strong> <em>(xsl)</em></dt>
-<dd><p>Select XSL transformation applied to Web pages before they are displayed .
-</p></dd></dl>
+    <dd>
+      <p>Extract nested table specified by
+      &lsquo;table-index&rsquo;. Default is to operate on current
+      web page when in a browser buffer; otherwise prompt for URL.
+      Optional arg &lsquo;speak&rsquo; specifies if the result
+      should be spoken automatically.</p>
+    </dd>
+  </dl>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dwebsearch.html#emacspeak_002dwebsearch" accesskey="n" rel="next">emacspeak-websearch</a>, Previous: <a href="emacspeak_002dw3m.html#emacspeak_002dw3m" accesskey="p" rel="prev">emacspeak-w3m</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002dextract_002dnested_002dtable_002dlist"
+    id=
+    "index-emacspeak_002dwe_002dextract_002dnested_002dtable_002dlist">
+    </a>Interactive Command:
+    <strong>emacspeak-we-extract-nested-table-list</strong>
+    <em>(tables url &amp;optional speak)</em></dt>
 
+    <dd>
+      <p>Extract specified list of tables from a Web page.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002dextract_002dprint_002dstreams" id=
+    "index-emacspeak_002dwe_002dextract_002dprint_002dstreams"></a>Interactive
+    Command: <strong>emacspeak-we-extract-print-streams</strong>
+    <em>(url &amp;optional speak)</em></dt>
 
+    <dd>
+      <p>Extract links to printable streams. operate on current web
+      page when in a browser buffer; otherwise prompt for url.
+      Optional arg &lsquo;speak&rsquo; specifies if the result
+      should be spoken automatically.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002dextract_002dtable_002dby_002dmatch"
+    id=
+    "index-emacspeak_002dwe_002dextract_002dtable_002dby_002dmatch">
+    </a>Interactive Command:
+    <strong>emacspeak-we-extract-table-by-match</strong> <em>(match
+    url &amp;optional speak)</em></dt>
+
+    <dd>
+      <p>Extract table containing specified match. Optional arg url
+      specifies the page to extract content from.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002dextract_002dtable_002dby_002dposition"
+    id=
+    "index-emacspeak_002dwe_002dextract_002dtable_002dby_002dposition">
+    </a>Interactive Command:
+    <strong>emacspeak-we-extract-table-by-position</strong>
+    <em>(position url &amp;optional speak)</em></dt>
+
+    <dd>
+      <p>Extract table at specified position. Default is to extract
+      from current page.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002dextract_002dtables_002dby_002dmatch_002dlist"
+    id=
+    "index-emacspeak_002dwe_002dextract_002dtables_002dby_002dmatch_002dlist">
+    </a>Interactive Command:
+    <strong>emacspeak-we-extract-tables-by-match-list</strong>
+    <em>(match-list url &amp;optional speak)</em></dt>
+
+    <dd>
+      <p>Extract specified tables from a WWW page. Tables are
+      specified by containing match pattern found in the match
+      list.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002dextract_002dtables_002dby_002dposition_002dlist"
+    id=
+    "index-emacspeak_002dwe_002dextract_002dtables_002dby_002dposition_002dlist">
+    </a>Interactive Command:
+    <strong>emacspeak-we-extract-tables-by-position-list</strong>
+    <em>(positions url &amp;optional speak)</em></dt>
+
+    <dd>
+      <p>Extract specified list of nested tables from a WWW page.
+      Tables are specified by their position in the list of nested
+      tables found in the page.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002dfollow_002dand_002dextract_002dmain"
+    id=
+    "index-emacspeak_002dwe_002dfollow_002dand_002dextract_002dmain">
+    </a>Interactive Command:
+    <strong>emacspeak-we-follow-and-extract-main</strong>
+    <em>(&amp;optional speak)</em></dt>
+
+    <dd>
+      <p>Follow URL, then extract role=main.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002dfollow_002dand_002dfilter_002dby_002did"
+    id=
+    "index-emacspeak_002dwe_002dfollow_002dand_002dfilter_002dby_002did">
+    </a>Interactive Command:
+    <strong>emacspeak-we-follow-and-filter-by-id</strong>
+    <em>(id)</em></dt>
+
+    <dd>
+      <p>Follow url and point, and filter the result by specified
+      id. Id can be set locally for a buffer, and overridden with
+      an interactive prefix arg. If there is a known rewrite url
+      rule, that is used as well.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwe_002djunk_002dby_002dclass"
+    id=
+    "index-emacspeak_002dwe_002djunk_002dby_002dclass"></a>Interactive
+    Command: <strong>emacspeak-we-junk-by-class</strong> <em>(class
+    url &amp;optional speak)</em></dt>
+
+    <dd>
+      <p>Extract elements not having specified class attribute from
+      HTML. Extracts specified elements from current WWW page and
+      displays it in a separate buffer. Interactive use provides
+      list of class values as completion.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002djunk_002dby_002dclass_002dlist" id=
+    "index-emacspeak_002dwe_002djunk_002dby_002dclass_002dlist"></a>Interactive
+    Command: <strong>emacspeak-we-junk-by-class-list</strong>
+    <em>(classes url &amp;optional speak)</em></dt>
+
+    <dd>
+      <p>Extract elements not having class specified in list
+      &lsquo;classes&rsquo; from HTML. Extracts specified elements
+      from current WWW page and displays it in a separate buffer.
+      Interactive use provides list of class values as
+      completion.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwe_002dstyle_002dfilter" id=
+    "index-emacspeak_002dwe_002dstyle_002dfilter"></a>Interactive
+    Command: <strong>emacspeak-we-style-filter</strong> <em>(style
+    url &amp;optional speak)</em></dt>
+
+    <dd>
+      <p>Extract elements matching specified style from HTML.
+      Extracts specified elements from current WWW page and
+      displays it in a separate buffer. Optional arg url specifies
+      the page to extract contents from.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002dtoggle_002dxsl_002dkeep_002dresult"
+    id=
+    "index-emacspeak_002dwe_002dtoggle_002dxsl_002dkeep_002dresult">
+    </a>Interactive Command:
+    <strong>emacspeak-we-toggle-xsl-keep-result</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Toggle xsl keep result flag.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002durl_002dexpand_002dand_002dexecute"
+    id=
+    "index-emacspeak_002dwe_002durl_002dexpand_002dand_002dexecute">
+    </a>Interactive Command:
+    <strong>emacspeak-we-url-expand-and-execute</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Applies buffer-specific URL expander/executor
+      function.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002durl_002drewrite_002dand_002dfollow"
+    id=
+    "index-emacspeak_002dwe_002durl_002drewrite_002dand_002dfollow">
+    </a>Interactive Command:
+    <strong>emacspeak-we-url-rewrite-and-follow</strong>
+    <em>(&amp;optional prompt)</em></dt>
+
+    <dd>
+      <p>Apply a url rewrite rule as specified in the current
+      buffer before following link under point. If no rewrite rule
+      is defined, first prompt for one. Rewrite rules are of the
+      form &lsquo;(from to)&rsquo; where from and to are strings.
+      Typically, the rewrite rule is automatically set up by
+      Emacspeak tools like websearch where a rewrite rule is known.
+      Rewrite rules are useful in jumping directly to the printer
+      friendly version of an article for example. Optional
+      interactive prefix arg prompts for a rewrite rule even if one
+      is already defined.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002dxpath_002dfilter_002dand_002dfollow"
+    id=
+    "index-emacspeak_002dwe_002dxpath_002dfilter_002dand_002dfollow">
+    </a>Interactive Command:
+    <strong>emacspeak-we-xpath-filter-and-follow</strong>
+    <em>(&amp;optional prompt)</em></dt>
+
+    <dd>
+      <p>Follow url and point, and filter the result by specified
+      xpath. XPath can be set locally for a buffer, and overridden
+      with an interactive prefix arg. If there is a known rewrite
+      url rule, that is used as well.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dwe_002dxpath_002djunk_002dand_002dfollow"
+    id=
+    "index-emacspeak_002dwe_002dxpath_002djunk_002dand_002dfollow"></a>Interactive
+    Command: <strong>emacspeak-we-xpath-junk-and-follow</strong>
+    <em>(&amp;optional prompt)</em></dt>
+
+    <dd>
+      <p>Follow url and point, and filter the result by junking
+      elements specified by xpath. XPath can be set locally for a
+      buffer, and overridden with an interactive prefix arg. If
+      there is a known rewrite url rule, that is used as well.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwe_002dxsl_002dtoggle" id=
+    "index-emacspeak_002dwe_002dxsl_002dtoggle"></a>Interactive
+    Command: <strong>emacspeak-we-xsl-toggle</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Toggle application of XSL transformations.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwe_002dxslt_002dapply" id=
+    "index-emacspeak_002dwe_002dxslt_002dapply"></a>Interactive
+    Command: <strong>emacspeak-we-xslt-apply</strong>
+    <em>(xsl)</em></dt>
+
+    <dd>
+      <p>Apply specified transformation to current Web page.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwe_002dxslt_002dfilter" id=
+    "index-emacspeak_002dwe_002dxslt_002dfilter"></a>Interactive
+    Command: <strong>emacspeak-we-xslt-filter</strong> <em>(path
+    url &amp;optional speak)</em></dt>
+
+    <dd>
+      <p>Extract elements matching specified XPath path locator
+      from Web page &ndash; default is the current page being
+      viewed.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwe_002dxslt_002djunk" id=
+    "index-emacspeak_002dwe_002dxslt_002djunk"></a>Interactive
+    Command: <strong>emacspeak-we-xslt-junk</strong> <em>(path url
+    &amp;optional speak)</em></dt>
+
+    <dd>
+      <p>Junk elements matching specified locator.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwe_002dxslt_002dselect" id=
+    "index-emacspeak_002dwe_002dxslt_002dselect"></a>Interactive
+    Command: <strong>emacspeak-we-xslt-select</strong>
+    <em>(xsl)</em></dt>
+
+    <dd>
+      <p>Select XSL transformation applied to Web pages before they
+      are displayed .</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dwebsearch.html#emacspeak_002dwebsearch"
+    accesskey="n" rel="next">emacspeak-websearch</a>, Previous:
+    <a href="emacspeak_002dw3m.html#emacspeak_002dw3m" accesskey=
+    "p" rel="prev">emacspeak-w3m</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

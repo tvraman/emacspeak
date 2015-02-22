@@ -1,441 +1,848 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-m-player</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-m-player">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-m-player">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up" title="Emacspeak Commands">
-<link href="emacspeak_002dmadplay.html#emacspeak_002dmadplay" rel="next" title="emacspeak-madplay">
-<link href="emacspeak_002dlibrivox.html#emacspeak_002dlibrivox" rel="prev" title="emacspeak-librivox">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-m-player</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-m-player" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-m-player" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
+  title="Emacspeak Commands" />
+  <link href="emacspeak_002dmadplay.html#emacspeak_002dmadplay"
+  rel="next" title="emacspeak-madplay" />
+  <link href="emacspeak_002dlibrivox.html#emacspeak_002dlibrivox"
+  rel="prev" title="emacspeak-librivox" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dm_002dplayer"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dmadplay.html#emacspeak_002dmadplay" accesskey="n" rel="next">emacspeak-madplay</a>, Previous: <a href="emacspeak_002dlibrivox.html#emacspeak_002dlibrivox" accesskey="p" rel="prev">emacspeak-librivox</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dm_002dplayer-1"></a>
-<h3 class="section">11.44 emacspeak-m-player</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dm_002dplayer" id=
+  "emacspeak_002dm_002dplayer"></a>
 
-<p>Commentary:
-Defines a simple derived mode for interacting with mplayer.
-mplayer  is a versatile media player capable of playing many
-streaming formats  and is especially useful for playing windows
-media (WMA) and streaming windows media (ASF) files.
-mplayer is available  on the WWW:
-RPM package
-http://mirrors.sctpc.com/dominik/linux/pkgs/mplayer/i586/mplayer-0.90pre5-2.i586.rpm
-You may need the  win32 codecs which can be downloaded from 
-http://ftp.lug.udel.edu/MPlayer/releases/w32codec-0.60.tar.bz2
-Mplayer FAQ at
-http://www.mplayerhq.hu/DOCS/faq.html
-Mplayer docs at 
-http://www.mplayerhq.hu/DOCS/
-</p>
-<p>Automatically generated documentation
-for commands defined in module  emacspeak-m-player.
-</p>
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer"></a>Interactive Command: <strong>emacspeak-m-player</strong> <em>(resource &amp;optional play-list)</em></dt>
-<dd><p>Play specified resource using m-player.
-Optional prefix argument play-list interprets resource as a play-list.
-Resource is a media resource or playlist containing media resources.
-The player is placed in a buffer in emacspeak-m-player-mode.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dmadplay.html#emacspeak_002dmadplay" accesskey=
+    "n" rel="next">emacspeak-madplay</a>, Previous: <a href=
+    "emacspeak_002dlibrivox.html#emacspeak_002dlibrivox" accesskey=
+    "p" rel="prev">emacspeak-librivox</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dm_002dplayer-1" id=
+  "emacspeak_002dm_002dplayer-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dadd_002dequalizer"></a>Interactive Command: <strong>emacspeak-m-player-add-equalizer</strong> <em>nil</em></dt>
-<dd><p>Add equalizer for next MPlayer invocation.
-</p>
-<p>Use arrow keys, page-up, page-down, home and end keys to
-  manipulate the values.
-Hit enter to finish setting the equalizer values.
-</p>
-<p>The Mplayer equalizer provides 10 bands, G0 &ndash; G9, see the
-  MPlayer man page for details.
-</p></dd></dl>
+  <h3 class="section">11.45 emacspeak-m-player</h3>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dadd_002dfilter"></a>Interactive Command: <strong>emacspeak-m-player-add-filter</strong> <em>nil</em></dt>
-<dd><p>Adds specified filter  to use for the next invocation of MPlayer.
-</p></dd></dl>
+  <p>Commentary: Defines a simple derived mode for interacting with
+  mplayer. mplayer is a versatile media player capable of playing
+  many streaming formats and is especially useful for playing
+  windows media (WMA) and streaming windows media (ASF) files.
+  mplayer is available on the WWW: RPM package
+  http://mirrors.sctpc.com/dominik/linux/pkgs/mplayer/i586/mplayer-0.90pre5-2.i586.rpm
+  You may need the win32 codecs which can be downloaded from
+  http://ftp.lug.udel.edu/MPlayer/releases/w32codec-0.60.tar.bz2
+  Mplayer FAQ at http://www.mplayerhq.hu/DOCS/faq.html Mplayer docs
+  at http://www.mplayerhq.hu/DOCS/</p>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dadd_002dreverb"></a>Interactive Command: <strong>emacspeak-m-player-add-reverb</strong> <em>nil</em></dt>
-<dd><p>Add ladspa reverb filter.
-See option emacspeak-m-player-reverb-filter to customize reverb filter values.
-You need to use mplayer built with ladspa support, and have package 
-tap-reverb already installed.
-</p></dd></dl>
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak-m-player.</p>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dalt_002dsrc_002dstep"></a>Interactive Command: <strong>emacspeak-m-player-alt-src-step</strong> <em>(step)</em></dt>
-<dd><p>Move within an ASF playlist.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dm_002dplayer" id=
+    "index-emacspeak_002dm_002dplayer"></a>Interactive Command:
+    <strong>emacspeak-m-player</strong> <em>(resource &amp;optional
+    play-list)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002damark_002dadd"></a>Interactive Command: <strong>emacspeak-m-player-amark-add</strong> <em>(name &amp;optional prompt-position)</em></dt>
-<dd><p>Set AMark &lsquo;name&rsquo; at current position in current audio stream.
-Interactive prefix arg prompts for position.
-As the default, use current position.
-</p></dd></dl>
+    <dd>
+      <p>Play specified resource using m-player. Optional prefix
+      argument play-list interprets resource as a play-list. Second
+      interactive prefix arg adds option
+      -allow-dangerous-playlist-parsing to mplayer. Resource is a
+      media resource or playlist containing media resources. The
+      player is placed in a buffer in emacspeak-m-player-mode.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002damark_002djump"></a>Interactive Command: <strong>emacspeak-m-player-amark-jump</strong> <em>nil</em></dt>
-<dd><p>Jump to specified AMark.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dadd_002dequalizer" id=
+    "index-emacspeak_002dm_002dplayer_002dadd_002dequalizer"></a>Interactive
+    Command: <strong>emacspeak-m-player-add-equalizer</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dapply_002dreverb_002dpreset"></a>Interactive Command: <strong>emacspeak-m-player-apply-reverb-preset</strong> <em>(preset)</em></dt>
-<dd><p>Prompt for a predefined reverb preset and apply it if there is media playing.
-You need to use mplayer built with ladspa support, and have package 
-tap-reverb already installed.
-</p></dd></dl>
+    <dd>
+      <p>Add equalizer for next MPlayer invocation.</p>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dbackward_002d10min"></a>Interactive Command: <strong>emacspeak-m-player-backward-10min</strong> <em>nil</em></dt>
-<dd><p>Move backward by ten minutes.
-</p></dd></dl>
+      <p>Use arrow keys, page-up, page-down, home and end keys to
+      manipulate the values. Hit enter to finish setting the
+      equalizer values.</p>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dbackward_002d10s"></a>Interactive Command: <strong>emacspeak-m-player-backward-10s</strong> <em>nil</em></dt>
-<dd><p>Move back by 10 seconds.
-</p></dd></dl>
+      <p>The Mplayer equalizer provides 10 bands, G0 &ndash; G9,
+      see the MPlayer man page for details.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dbackward_002d1min"></a>Interactive Command: <strong>emacspeak-m-player-backward-1min</strong> <em>nil</em></dt>
-<dd><p>Move back by 1 minute.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dadd_002dfilter" id=
+    "index-emacspeak_002dm_002dplayer_002dadd_002dfilter"></a>Interactive
+    Command: <strong>emacspeak-m-player-add-filter</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dbalance"></a>Interactive Command: <strong>emacspeak-m-player-balance</strong> <em>nil</em></dt>
-<dd><p>Set left/right balance.
-</p></dd></dl>
+    <dd>
+      <p>Adds specified filter to use for the next invocation of
+      MPlayer.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dbeginning_002dof_002dtrack"></a>Interactive Command: <strong>emacspeak-m-player-beginning-of-track</strong> <em>nil</em></dt>
-<dd><p>Move to beginning of track.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dalt_002dsrc_002dstep" id=
+    "index-emacspeak_002dm_002dplayer_002dalt_002dsrc_002dstep"></a>Interactive
+    Command: <strong>emacspeak-m-player-alt-src-step</strong>
+    <em>(step)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dbind_002daccelerator"></a>Interactive Command: <strong>emacspeak-m-player-bind-accelerator</strong> <em>(directory key)</em></dt>
-<dd><p>Binds key to invoke m-player  on specified directory.
-</p></dd></dl>
+    <dd>
+      <p>Move within an ASF playlist.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dclear_002dfilters"></a>Interactive Command: <strong>emacspeak-m-player-clear-filters</strong> <em>nil</em></dt>
-<dd><p>Clear all active filters
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002damark_002dadd" id=
+    "index-emacspeak_002dm_002dplayer_002damark_002dadd"></a>Interactive
+    Command: <strong>emacspeak-m-player-amark-add</strong>
+    <em>(name &amp;optional prompt-position)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dcommand"></a>Interactive Command: <strong>emacspeak-m-player-command</strong> <em>(key)</em></dt>
-<dd><p>Invoke MPlayer commands.
-</p></dd></dl>
+    <dd>
+      <p>Set AMark &lsquo;name&rsquo; at current position in
+      current audio stream. Interactive prefix arg prompts for
+      position. As the default, use current position.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dcustomize_002doptions"></a>Interactive Command: <strong>emacspeak-m-player-customize-options</strong> <em>nil</em></dt>
-<dd><p>Use Customize to manipulate MPlayer options.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002damark_002djump" id=
+    "index-emacspeak_002dm_002dplayer_002damark_002djump"></a>Interactive
+    Command: <strong>emacspeak-m-player-amark-jump</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002ddisplay_002dpercent"></a>Interactive Command: <strong>emacspeak-m-player-display-percent</strong> <em>nil</em></dt>
-<dd><p>Display current percentage.
-</p></dd></dl>
+    <dd>
+      <p>Jump to specified AMark.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002ddisplay_002dposition"></a>Interactive Command: <strong>emacspeak-m-player-display-position</strong> <em>nil</em></dt>
-<dd><p>Display current position in track and its length.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dapply_002dreverb_002dpreset"
+    id=
+    "index-emacspeak_002dm_002dplayer_002dapply_002dreverb_002dpreset">
+    </a>Interactive Command:
+    <strong>emacspeak-m-player-apply-reverb-preset</strong>
+    <em>(preset)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002ddouble_002dspeed"></a>Interactive Command: <strong>emacspeak-m-player-double-speed</strong> <em>nil</em></dt>
-<dd><p>Scale speed by 2.0
-</p></dd></dl>
+    <dd>
+      <p>Prompt for a predefined reverb preset and apply it if
+      there is media playing. You need to use mplayer built with
+      ladspa support, and have package tap-reverb already
+      installed.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dend_002dof_002dtrack"></a>Interactive Command: <strong>emacspeak-m-player-end-of-track</strong> <em>nil</em></dt>
-<dd><p>Move to beginning of track.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dbackward_002d10min" id=
+    "index-emacspeak_002dm_002dplayer_002dbackward_002d10min"></a>Interactive
+    Command: <strong>emacspeak-m-player-backward-10min</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dequalizer_002dcontrol"></a>Interactive Command: <strong>emacspeak-m-player-equalizer-control</strong> <em>(v)</em></dt>
-<dd><p>Manipulate values in specified vector using minibuffer.
-</p></dd></dl>
+    <dd>
+      <p>Move backward by ten minutes.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dfaster"></a>Interactive Command: <strong>emacspeak-m-player-faster</strong> <em>nil</em></dt>
-<dd><p>Speed up  playback.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dbackward_002d10s" id=
+    "index-emacspeak_002dm_002dplayer_002dbackward_002d10s"></a>Interactive
+    Command: <strong>emacspeak-m-player-backward-10s</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dforward_002d10min"></a>Interactive Command: <strong>emacspeak-m-player-forward-10min</strong> <em>nil</em></dt>
-<dd><p>Move forward by ten minutes.
-</p></dd></dl>
+    <dd>
+      <p>Move back by 10 seconds.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dforward_002d10s"></a>Interactive Command: <strong>emacspeak-m-player-forward-10s</strong> <em>nil</em></dt>
-<dd><p>Move forward by 10 seconds.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dbackward_002d1min" id=
+    "index-emacspeak_002dm_002dplayer_002dbackward_002d1min"></a>Interactive
+    Command: <strong>emacspeak-m-player-backward-1min</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dforward_002d1min"></a>Interactive Command: <strong>emacspeak-m-player-forward-1min</strong> <em>nil</em></dt>
-<dd><p>Move forward by 1 minute.
-</p></dd></dl>
+    <dd>
+      <p>Move back by 1 minute.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dget_002dlength"></a>Interactive Command: <strong>emacspeak-m-player-get-length</strong> <em>nil</em></dt>
-<dd><p>Display length of track in seconds.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dm_002dplayer_002dbalance" id=
+    "index-emacspeak_002dm_002dplayer_002dbalance"></a>Interactive
+    Command: <strong>emacspeak-m-player-balance</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dhalf_002dspeed"></a>Interactive Command: <strong>emacspeak-m-player-half-speed</strong> <em>nil</em></dt>
-<dd><p>Scale speed by 0.5.
-</p></dd></dl>
+    <dd>
+      <p>Set left/right balance.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dload"></a>Interactive Command: <strong>emacspeak-m-player-load</strong> <em>(resource &amp;optional append)</em></dt>
-<dd><p>Load specified resource into a running  m-player.
-Interactive prefix arg appends the new resource to what is playing.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dbeginning_002dof_002dtrack"
+    id=
+    "index-emacspeak_002dm_002dplayer_002dbeginning_002dof_002dtrack">
+    </a>Interactive Command:
+    <strong>emacspeak-m-player-beginning-of-track</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dload_002dfile"></a>Interactive Command: <strong>emacspeak-m-player-load-file</strong> <em>(f)</em></dt>
-<dd><p>Load specified file.
-</p></dd></dl>
+    <dd>
+      <p>Move to beginning of track.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dload_002dplaylist"></a>Interactive Command: <strong>emacspeak-m-player-load-playlist</strong> <em>(f)</em></dt>
-<dd><p>Load specified playlist file.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dbind_002daccelerator" id=
+    "index-emacspeak_002dm_002dplayer_002dbind_002daccelerator"></a>Interactive
+    Command: <strong>emacspeak-m-player-bind-accelerator</strong>
+    <em>(directory key)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dmode"></a>Interactive Command: <strong>emacspeak-m-player-mode</strong> <em>nil</em></dt>
-<dd><p>Major mode for m-player interaction. 
-</p>
-<p>key             binding
-&mdash;             &mdash;&mdash;-
-</p>
-<p>C-e		Prefix Command
-RET		emacspeak-m-player-load
-ESC		Prefix Command
-SPC		emacspeak-m-player-pause
-%		emacspeak-m-player-display-percent
-+		emacspeak-m-player-volume-up
-,		emacspeak-m-player-backward-10s
--		emacspeak-m-player-volume-down
-.		emacspeak-m-player-forward-10s
-&lt;		emacspeak-m-player-backward-1min
-=		emacspeak-m-player-volume-up
-&gt;		emacspeak-m-player-forward-1min
-?		emacspeak-m-player-display-position
-C		emacspeak-m-player-clear-filters
-L		emacspeak-m-player-load-file
-O		emacspeak-m-player-reset-options
-P		emacspeak-m-player-apply-reverb-preset
-Q		emacspeak-m-player-quit
-R		emacspeak-m-player-add-reverb
-S		emacspeak-amark-save
-[		emacspeak-m-player-slower
-]		emacspeak-m-player-faster
-a		emacspeak-m-player-amark-add
-b		emacspeak-m-player-balance
-c		emacspeak-m-player-slave-command
-e		emacspeak-m-player-add-equalizer
-f		emacspeak-m-player-add-filter
-g		emacspeak-m-player-seek-absolute
-j		emacspeak-m-player-amark-jump
-k		emacspeak-m-player-bind-accelerator
-l		emacspeak-m-player-get-length
-m		emacspeak-m-player-speak-mode-line
-n		emacspeak-m-player-next-track
-o		emacspeak-m-player-customize-options
-p		emacspeak-m-player-previous-track
-q		bury-buffer
-r		emacspeak-m-player-seek-relative
-s		emacspeak-m-player-scale-speed
-t		emacspeak-m-player-play-tracks-jump
-v		emacspeak-m-player-volume-change
-{		emacspeak-m-player-half-speed
-}		emacspeak-m-player-double-speed
-DEL		emacspeak-m-player-reset-speed
-&lt;down&gt;		emacspeak-m-player-forward-1min
-&lt;end&gt;		emacspeak-m-player-end-of-track
-&lt;home&gt;		emacspeak-m-player-beginning-of-track
-&lt;left&gt;		emacspeak-m-player-backward-10s
-&lt;next&gt;		emacspeak-m-player-forward-10min
-&lt;prior&gt;		emacspeak-m-player-backward-10min
-&lt;right&gt;		emacspeak-m-player-forward-10s
-&lt;up&gt;		emacspeak-m-player-backward-1min
-</p>
-<p>M-l		emacspeak-m-player-load-playlist
-</p>
-<p>C-e m		emacspeak-m-player-speak-mode-line
-</p>
-<p>In addition to any hooks its parent mode &lsquo;comint-mode&rsquo; might have run,
-this mode runs the hook &lsquo;emacspeak-m-player-mode-hook&rsquo;, as the final step
-during initialization.
-</p></dd></dl>
+    <dd>
+      <p>Binds key to invoke m-player on specified directory.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dnext_002dtrack"></a>Interactive Command: <strong>emacspeak-m-player-next-track</strong> <em>nil</em></dt>
-<dd><p>Move to next track.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dclear_002dfilters" id=
+    "index-emacspeak_002dm_002dplayer_002dclear_002dfilters"></a>Interactive
+    Command: <strong>emacspeak-m-player-clear-filters</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dpause"></a>Interactive Command: <strong>emacspeak-m-player-pause</strong> <em>nil</em></dt>
-<dd><p>Pause or unpause media player.
-</p></dd></dl>
+    <dd>
+      <p>Clear all active filters</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dplay_002dtracks_002djump"></a>Interactive Command: <strong>emacspeak-m-player-play-tracks-jump</strong> <em>(step)</em></dt>
-<dd><p>Move within the play tree.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dm_002dplayer_002dcommand" id=
+    "index-emacspeak_002dm_002dplayer_002dcommand"></a>Interactive
+    Command: <strong>emacspeak-m-player-command</strong>
+    <em>(key)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dplay_002dtree_002dup"></a>Interactive Command: <strong>emacspeak-m-player-play-tree-up</strong> <em>(step)</em></dt>
-<dd><p>Move within the play tree.
-</p></dd></dl>
+    <dd>
+      <p>Invoke MPlayer commands.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dprevious_002dtrack"></a>Interactive Command: <strong>emacspeak-m-player-previous-track</strong> <em>nil</em></dt>
-<dd><p>Move to previous track.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dcustomize_002doptions"
+    id="index-emacspeak_002dm_002dplayer_002dcustomize_002doptions">
+    </a>Interactive Command:
+    <strong>emacspeak-m-player-customize-options</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dquit"></a>Interactive Command: <strong>emacspeak-m-player-quit</strong> <em>nil</em></dt>
-<dd><p>Quit media player.
-</p></dd></dl>
+    <dd>
+      <p>Use Customize to manipulate MPlayer options.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dreset_002doptions"></a>Interactive Command: <strong>emacspeak-m-player-reset-options</strong> <em>nil</em></dt>
-<dd><p>Reset MPlayer options to initial defaults.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002ddisplay_002dpercent" id=
+    "index-emacspeak_002dm_002dplayer_002ddisplay_002dpercent"></a>Interactive
+    Command: <strong>emacspeak-m-player-display-percent</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dreset_002dspeed"></a>Interactive Command: <strong>emacspeak-m-player-reset-speed</strong> <em>nil</em></dt>
-<dd><p>Reset playing speed to normal.
-</p></dd></dl>
+    <dd>
+      <p>Display current percentage.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dscale_002dspeed"></a>Interactive Command: <strong>emacspeak-m-player-scale-speed</strong> <em>(factor)</em></dt>
-<dd><p>Scale speed by specified factor.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002ddisplay_002dposition" id=
+    "index-emacspeak_002dm_002dplayer_002ddisplay_002dposition"></a>Interactive
+    Command: <strong>emacspeak-m-player-display-position</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dseek_002dabsolute"></a>Interactive Command: <strong>emacspeak-m-player-seek-absolute</strong> <em>(position)</em></dt>
-<dd><p>Seek  to absolute specified position.
-</p></dd></dl>
+    <dd>
+      <p>Display current position in track and its length.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dseek_002drelative"></a>Interactive Command: <strong>emacspeak-m-player-seek-relative</strong> <em>(offset)</em></dt>
-<dd><p>Seek  by offset into stream from current position.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002ddouble_002dspeed" id=
+    "index-emacspeak_002dm_002dplayer_002ddouble_002dspeed"></a>Interactive
+    Command: <strong>emacspeak-m-player-double-speed</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dshuffle"></a>Interactive Command: <strong>emacspeak-m-player-shuffle</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e :</kbd>
-</p>
-<p>Launch M-Player with shuffle turned on.
-</p></dd></dl>
+    <dd>
+      <p>Scale speed by 2.0</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dslave_002dcommand"></a>Interactive Command: <strong>emacspeak-m-player-slave-command</strong> <em>(command)</em></dt>
-<dd><p>Dispatch slave command read from minibuffer.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dedit_002dreverb" id=
+    "index-emacspeak_002dm_002dplayer_002dedit_002dreverb"></a>Interactive
+    Command: <strong>emacspeak-m-player-edit-reverb</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dslower"></a>Interactive Command: <strong>emacspeak-m-player-slower</strong> <em>nil</em></dt>
-<dd><p>Slow down playback.
-</p></dd></dl>
+    <dd>
+      <p>Add ladspa reverb filter. See option
+      emacspeak-m-player-reverb-filter to customize reverb filter
+      values. You need to use mplayer built with ladspa support,
+      and have package tap-reverb already installed.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dspeak_002dmode_002dline"></a>Interactive Command: <strong>emacspeak-m-player-speak-mode-line</strong> <em>nil</em></dt>
-<dd><p>Speak mode line
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dend_002dof_002dtrack" id=
+    "index-emacspeak_002dm_002dplayer_002dend_002dof_002dtrack"></a>Interactive
+    Command: <strong>emacspeak-m-player-end-of-track</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002durl"></a>Interactive Command: <strong>emacspeak-m-player-url</strong> <em>(url)</em></dt>
-<dd><p>Call emacspeak-m-player with specified URL.
-</p></dd></dl>
+    <dd>
+      <p>Move to beginning of track.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dvolume_002dchange"></a>Interactive Command: <strong>emacspeak-m-player-volume-change</strong> <em>(offset)</em></dt>
-<dd><p>Change volume.
-A value of &lt;number&gt; changes volume by specified offset.
-A string of the form &lsquo;&lt;number&gt; 1&rsquo; sets volume as an absolute.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dequalizer_002dcontrol"
+    id="index-emacspeak_002dm_002dplayer_002dequalizer_002dcontrol">
+    </a>Interactive Command:
+    <strong>emacspeak-m-player-equalizer-control</strong>
+    <em>(v)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dvolume_002ddown"></a>Interactive Command: <strong>emacspeak-m-player-volume-down</strong> <em>nil</em></dt>
-<dd><p>Decrease volume.
-</p></dd></dl>
+    <dd>
+      <p>Manipulate values in specified vector using
+      minibuffer.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dvolume_002dup"></a>Interactive Command: <strong>emacspeak-m-player-volume-up</strong> <em>nil</em></dt>
-<dd><p>Increase volume.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dm_002dplayer_002dfaster" id=
+    "index-emacspeak_002dm_002dplayer_002dfaster"></a>Interactive
+    Command: <strong>emacspeak-m-player-faster</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dm_002dplayer_002dyoutube_002dplayer"></a>Interactive Command: <strong>emacspeak-m-player-youtube-player</strong> <em>(url)</em></dt>
-<dd><p>Use youtube-dl and mplayer to stream YouTube content.
-</p></dd></dl>
+    <dd>
+      <p>Speed up playback.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dmultimedia"></a>Interactive Command: <strong>emacspeak-multimedia</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e ;</kbd>
-</p>
-<p>Start or control Emacspeak multimedia player.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dforward_002d10min" id=
+    "index-emacspeak_002dm_002dplayer_002dforward_002d10min"></a>Interactive
+    Command: <strong>emacspeak-m-player-forward-10min</strong>
+    <em>nil</em></dt>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dmadplay.html#emacspeak_002dmadplay" accesskey="n" rel="next">emacspeak-madplay</a>, Previous: <a href="emacspeak_002dlibrivox.html#emacspeak_002dlibrivox" accesskey="p" rel="prev">emacspeak-librivox</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+    <dd>
+      <p>Move forward by ten minutes.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dforward_002d10s" id=
+    "index-emacspeak_002dm_002dplayer_002dforward_002d10s"></a>Interactive
+    Command: <strong>emacspeak-m-player-forward-10s</strong>
+    <em>nil</em></dt>
 
+    <dd>
+      <p>Move forward by 10 seconds.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dforward_002d1min" id=
+    "index-emacspeak_002dm_002dplayer_002dforward_002d1min"></a>Interactive
+    Command: <strong>emacspeak-m-player-forward-1min</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Move forward by 1 minute.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dget_002dlength" id=
+    "index-emacspeak_002dm_002dplayer_002dget_002dlength"></a>Interactive
+    Command: <strong>emacspeak-m-player-get-length</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Display length of track in seconds.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dhalf_002dspeed" id=
+    "index-emacspeak_002dm_002dplayer_002dhalf_002dspeed"></a>Interactive
+    Command: <strong>emacspeak-m-player-half-speed</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Scale speed by 0.5.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dm_002dplayer_002dload" id=
+    "index-emacspeak_002dm_002dplayer_002dload"></a>Interactive
+    Command: <strong>emacspeak-m-player-load</strong> <em>(resource
+    &amp;optional append)</em></dt>
+
+    <dd>
+      <p>Load specified resource into a running m-player.
+      Interactive prefix arg appends the new resource to what is
+      playing.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dload_002dfile" id=
+    "index-emacspeak_002dm_002dplayer_002dload_002dfile"></a>Interactive
+    Command: <strong>emacspeak-m-player-load-file</strong>
+    <em>(f)</em></dt>
+
+    <dd>
+      <p>Load specified file.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dload_002dplaylist" id=
+    "index-emacspeak_002dm_002dplayer_002dload_002dplaylist"></a>Interactive
+    Command: <strong>emacspeak-m-player-load-playlist</strong>
+    <em>(f)</em></dt>
+
+    <dd>
+      <p>Load specified playlist file.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dm_002dplayer_002dmode" id=
+    "index-emacspeak_002dm_002dplayer_002dmode"></a>Interactive
+    Command: <strong>emacspeak-m-player-mode</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Major mode for m-player interaction.</p>
+
+      <p>key binding &mdash; &mdash;&mdash;-</p>
+
+      <p>C-e Prefix Command RET emacspeak-m-player-load ESC Prefix
+      Command SPC emacspeak-m-player-pause %
+      emacspeak-m-player-display-percent +
+      emacspeak-m-player-volume-up ,
+      emacspeak-m-player-backward-10s -
+      emacspeak-m-player-volume-down .
+      emacspeak-m-player-forward-10s &lt;
+      emacspeak-m-player-backward-1min =
+      emacspeak-m-player-volume-up &gt;
+      emacspeak-m-player-forward-1min ?
+      emacspeak-m-player-display-position C
+      emacspeak-m-player-clear-filters L
+      emacspeak-m-player-load-file O
+      emacspeak-m-player-reset-options P
+      emacspeak-m-player-apply-reverb-preset Q
+      emacspeak-m-player-quit R emacspeak-m-player-edit-reverb S
+      emacspeak-amark-save [ emacspeak-m-player-slower ]
+      emacspeak-m-player-faster a emacspeak-m-player-amark-add b
+      emacspeak-m-player-balance c emacspeak-m-player-slave-command
+      e emacspeak-m-player-add-equalizer f
+      emacspeak-m-player-add-filter g
+      emacspeak-m-player-seek-absolute j
+      emacspeak-m-player-amark-jump k
+      emacspeak-m-player-bind-accelerator l
+      emacspeak-m-player-get-length m
+      emacspeak-m-player-speak-mode-line n
+      emacspeak-m-player-next-track o
+      emacspeak-m-player-customize-options p
+      emacspeak-m-player-previous-track q bury-buffer r
+      emacspeak-m-player-seek-relative s
+      emacspeak-m-player-scale-speed t
+      emacspeak-m-player-play-tracks-jump v
+      emacspeak-m-player-volume-change {
+      emacspeak-m-player-half-speed }
+      emacspeak-m-player-double-speed DEL
+      emacspeak-m-player-reset-speed &lt;down&gt;
+      emacspeak-m-player-forward-1min &lt;end&gt;
+      emacspeak-m-player-end-of-track &lt;home&gt;
+      emacspeak-m-player-beginning-of-track &lt;left&gt;
+      emacspeak-m-player-backward-10s &lt;next&gt;
+      emacspeak-m-player-forward-10min &lt;prior&gt;
+      emacspeak-m-player-backward-10min &lt;right&gt;
+      emacspeak-m-player-forward-10s &lt;up&gt;
+      emacspeak-m-player-backward-1min</p>
+
+      <p>M-l emacspeak-m-player-load-playlist</p>
+
+      <p>C-e m emacspeak-m-player-speak-mode-line</p>
+
+      <p>In addition to any hooks its parent mode
+      &lsquo;comint-mode&rsquo; might have run, this mode runs the
+      hook &lsquo;emacspeak-m-player-mode-hook&rsquo;, as the final
+      step during initialization.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dnext_002dtrack" id=
+    "index-emacspeak_002dm_002dplayer_002dnext_002dtrack"></a>Interactive
+    Command: <strong>emacspeak-m-player-next-track</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Move to next track.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dm_002dplayer_002dpause" id=
+    "index-emacspeak_002dm_002dplayer_002dpause"></a>Interactive
+    Command: <strong>emacspeak-m-player-pause</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Pause or unpause media player.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dplay_002dtracks_002djump"
+    id=
+    "index-emacspeak_002dm_002dplayer_002dplay_002dtracks_002djump">
+    </a>Interactive Command:
+    <strong>emacspeak-m-player-play-tracks-jump</strong>
+    <em>(step)</em></dt>
+
+    <dd>
+      <p>Move within the play tree.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dplay_002dtree_002dup" id=
+    "index-emacspeak_002dm_002dplayer_002dplay_002dtree_002dup"></a>Interactive
+    Command: <strong>emacspeak-m-player-play-tree-up</strong>
+    <em>(step)</em></dt>
+
+    <dd>
+      <p>Move within the play tree.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dprevious_002dtrack" id=
+    "index-emacspeak_002dm_002dplayer_002dprevious_002dtrack"></a>Interactive
+    Command: <strong>emacspeak-m-player-previous-track</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Move to previous track.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dm_002dplayer_002dquit" id=
+    "index-emacspeak_002dm_002dplayer_002dquit"></a>Interactive
+    Command: <strong>emacspeak-m-player-quit</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Quit media player.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dreset_002doptions" id=
+    "index-emacspeak_002dm_002dplayer_002dreset_002doptions"></a>Interactive
+    Command: <strong>emacspeak-m-player-reset-options</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Reset MPlayer options to initial defaults.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dreset_002dspeed" id=
+    "index-emacspeak_002dm_002dplayer_002dreset_002dspeed"></a>Interactive
+    Command: <strong>emacspeak-m-player-reset-speed</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Reset playing speed to normal.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dscale_002dspeed" id=
+    "index-emacspeak_002dm_002dplayer_002dscale_002dspeed"></a>Interactive
+    Command: <strong>emacspeak-m-player-scale-speed</strong>
+    <em>(factor)</em></dt>
+
+    <dd>
+      <p>Scale speed by specified factor.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dseek_002dabsolute" id=
+    "index-emacspeak_002dm_002dplayer_002dseek_002dabsolute"></a>Interactive
+    Command: <strong>emacspeak-m-player-seek-absolute</strong>
+    <em>(position)</em></dt>
+
+    <dd>
+      <p>Seek to absolute specified position.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dseek_002drelative" id=
+    "index-emacspeak_002dm_002dplayer_002dseek_002drelative"></a>Interactive
+    Command: <strong>emacspeak-m-player-seek-relative</strong>
+    <em>(offset)</em></dt>
+
+    <dd>
+      <p>Seek by offset into stream from current position.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dm_002dplayer_002dshuffle" id=
+    "index-emacspeak_002dm_002dplayer_002dshuffle"></a>Interactive
+    Command: <strong>emacspeak-m-player-shuffle</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e :</kbd></p>
+
+      <p>Launch M-Player with shuffle turned on.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dslave_002dcommand" id=
+    "index-emacspeak_002dm_002dplayer_002dslave_002dcommand"></a>Interactive
+    Command: <strong>emacspeak-m-player-slave-command</strong>
+    <em>(command)</em></dt>
+
+    <dd>
+      <p>Dispatch slave command read from minibuffer.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dm_002dplayer_002dslower" id=
+    "index-emacspeak_002dm_002dplayer_002dslower"></a>Interactive
+    Command: <strong>emacspeak-m-player-slower</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Slow down playback.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dspeak_002dmode_002dline"
+    id=
+    "index-emacspeak_002dm_002dplayer_002dspeak_002dmode_002dline"></a>Interactive
+    Command: <strong>emacspeak-m-player-speak-mode-line</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak mode line</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dm_002dplayer_002durl" id=
+    "index-emacspeak_002dm_002dplayer_002durl"></a>Interactive
+    Command: <strong>emacspeak-m-player-url</strong>
+    <em>(url)</em></dt>
+
+    <dd>
+      <p>Call emacspeak-m-player with specified URL.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dvolume_002dchange" id=
+    "index-emacspeak_002dm_002dplayer_002dvolume_002dchange"></a>Interactive
+    Command: <strong>emacspeak-m-player-volume-change</strong>
+    <em>(offset)</em></dt>
+
+    <dd>
+      <p>Change volume. A value of &lt;number&gt; changes volume by
+      specified offset. A string of the form &lsquo;&lt;number&gt;
+      1&rsquo; sets volume as an absolute.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dvolume_002ddown" id=
+    "index-emacspeak_002dm_002dplayer_002dvolume_002ddown"></a>Interactive
+    Command: <strong>emacspeak-m-player-volume-down</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Decrease volume.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dvolume_002dup" id=
+    "index-emacspeak_002dm_002dplayer_002dvolume_002dup"></a>Interactive
+    Command: <strong>emacspeak-m-player-volume-up</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Increase volume.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dyoutube_002dplayer" id=
+    "index-emacspeak_002dm_002dplayer_002dyoutube_002dplayer"></a>Interactive
+    Command: <strong>emacspeak-m-player-youtube-player</strong>
+    <em>(url)</em></dt>
+
+    <dd>
+      <p>Use youtube-dl and mplayer to stream YouTube content.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dmultimedia" id=
+    "index-emacspeak_002dmultimedia"></a>Interactive Command:
+    <strong>emacspeak-multimedia</strong> <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e ;</kbd></p>
+
+      <p>Start or control Emacspeak multimedia player.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dmadplay.html#emacspeak_002dmadplay" accesskey=
+    "n" rel="next">emacspeak-madplay</a>, Previous: <a href=
+    "emacspeak_002dlibrivox.html#emacspeak_002dlibrivox" accesskey=
+    "p" rel="prev">emacspeak-librivox</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

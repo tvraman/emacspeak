@@ -1,116 +1,203 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-tnt Options</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-tnt Options">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-tnt Options">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Customizations.html#Emacspeak-Customizations" rel="up" title="Emacspeak Customizations">
-<link href="emacspeak_002durl_002dtemplate-Options.html#emacspeak_002durl_002dtemplate-Options" rel="next" title="emacspeak-url-template Options">
-<link href="emacspeak_002dtable_002dui-Options.html#emacspeak_002dtable_002dui-Options" rel="prev" title="emacspeak-table-ui Options">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-tnt Options</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-tnt Options" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-tnt Options" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Customizations.html#Emacspeak-Customizations" rel="up"
+  title="Emacspeak Customizations" />
+  <link href=
+  "emacspeak_002durl_002dtemplate-Options.html#emacspeak_002durl_002dtemplate-Options"
+  rel="next" title="emacspeak-url-template Options" />
+  <link href=
+  "emacspeak_002dtable_002dui-Options.html#emacspeak_002dtable_002dui-Options"
+  rel="prev" title="emacspeak-table-ui Options" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dtnt-Options"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002durl_002dtemplate-Options.html#emacspeak_002durl_002dtemplate-Options" accesskey="n" rel="next">emacspeak-url-template Options</a>, Previous: <a href="emacspeak_002dtable_002dui-Options.html#emacspeak_002dtable_002dui-Options" accesskey="p" rel="prev">emacspeak-table-ui Options</a>, Up: <a href="Emacspeak-Customizations.html#Emacspeak-Customizations" accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dtnt-Options-1"></a>
-<h3 class="section">12.55 emacspeak-tnt Options</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dtnt-Options" id=
+  "emacspeak_002dtnt-Options"></a>
 
-<p>Commentary:
-Speech-enables TNT &ndash; the Emacs AOL Instant Messenger
-client 
-</p>
-<p>Automatically generated documentation
-for options defined in module  emacspeak-tnt.
-These options are customizable via Emacs&rsquo; Custom interface.
-</p>
-<dl>
-<dt><a name="index-User-Option-279"></a>Variable: <strong>User Option</strong> <em>emacspeak-tnt-autospeak</em></dt>
-<dd><p>True means messages in this chat session will be spoken
-automatically.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002durl_002dtemplate-Options.html#emacspeak_002durl_002dtemplate-Options"
+    accesskey="n" rel="next">emacspeak-url-template Options</a>,
+    Previous: <a href=
+    "emacspeak_002dtable_002dui-Options.html#emacspeak_002dtable_002dui-Options"
+    accesskey="p" rel="prev">emacspeak-table-ui Options</a>, Up:
+    <a href=
+    "Emacspeak-Customizations.html#Emacspeak-Customizations"
+    accesskey="u" rel="up">Emacspeak Customizations</a> &nbsp;
+    [<a href="index.html#SEC_Contents" title="Table of contents"
+    rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dtnt-Options-1" id=
+  "emacspeak_002dtnt-Options-1"></a>
 
-<dl>
-<dt><a name="index-User-Option-280"></a>Variable: <strong>User Option</strong> <em>emacspeak-tnt-buddy-list-active-personality</em></dt>
-<dd><p>Personality used for tnt-buddy-list-active-face
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-</p></dd></dl>
+  <h3 class="section">12.57 emacspeak-tnt Options</h3>
 
-<dl>
-<dt><a name="index-User-Option-281"></a>Variable: <strong>User Option</strong> <em>emacspeak-tnt-buddy-list-away-personality</em></dt>
-<dd><p>Personality used for tnt-buddy-list-away-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-</p></dd></dl>
+  <p>Commentary: Speech-enables TNT &ndash; the Emacs AOL Instant
+  Messenger client</p>
 
-<dl>
-<dt><a name="index-User-Option-282"></a>Variable: <strong>User Option</strong> <em>emacspeak-tnt-buddy-list-idle-personality</em></dt>
-<dd><p>Personality used for tnt-buddy-list-idle-face
-This personality uses  voice-smoothen-medium whose  effect can be changed globally by customizing voice-smoothen-medium-settings.
-</p></dd></dl>
+  <p>Automatically generated documentation for options defined in
+  module emacspeak-tnt. These options are customizable via
+  Emacs&rsquo; Custom interface.</p>
 
-<dl>
-<dt><a name="index-User-Option-283"></a>Variable: <strong>User Option</strong> <em>emacspeak-tnt-buddy-list-inactive-personality</em></dt>
-<dd><p>Personality used for tnt-buddy-list-inactive-face
-This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-310" id=
+    "index-User-Option-310"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-tnt-autospeak</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-284"></a>Variable: <strong>User Option</strong> <em>emacspeak-tnt-buddy-list-pounce-personality</em></dt>
-<dd><p>Personality used for tnt-buddy-list-pounce-face
-This personality uses  (quote ursula) whose  effect can be changed globally by customizing (quote ursula)-settings.
-</p></dd></dl>
+    <dd>
+      <p>True means messages in this chat session will be spoken
+      automatically.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-285"></a>Variable: <strong>User Option</strong> <em>emacspeak-tnt-my-name-personality</em></dt>
-<dd><p>Personality used for tnt-my-name-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-311" id=
+    "index-User-Option-311"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-tnt-buddy-list-active-personality</em></dt>
 
+    <dd>
+      <p>Personality used for tnt-buddy-list-active-face This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-312" id=
+    "index-User-Option-312"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-tnt-buddy-list-away-personality</em></dt>
 
+    <dd>
+      <p>Personality used for tnt-buddy-list-away-face This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-313" id=
+    "index-User-Option-313"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-tnt-buddy-list-idle-personality</em></dt>
+
+    <dd>
+      <p>Personality used for tnt-buddy-list-idle-face This
+      personality uses voice-smoothen-medium whose effect can be
+      changed globally by customizing
+      voice-smoothen-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-314" id=
+    "index-User-Option-314"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-tnt-buddy-list-inactive-personality</em></dt>
+
+    <dd>
+      <p>Personality used for tnt-buddy-list-inactive-face This
+      personality uses voice-monotone-medium whose effect can be
+      changed globally by customizing
+      voice-monotone-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-315" id=
+    "index-User-Option-315"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-tnt-buddy-list-pounce-personality</em></dt>
+
+    <dd>
+      <p>Personality used for tnt-buddy-list-pounce-face This
+      personality uses (quote ursula) whose effect can be changed
+      globally by customizing (quote ursula)-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-316" id=
+    "index-User-Option-316"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-tnt-my-name-personality</em></dt>
+
+    <dd>
+      <p>Personality used for tnt-my-name-face This personality
+      uses voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
 </body>
 </html>

@@ -1,307 +1,552 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-epub</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-epub">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-epub">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up" title="Emacspeak Commands">
-<link href="emacspeak_002derc.html#emacspeak_002derc" rel="next" title="emacspeak-erc">
-<link href="emacspeak_002deperiodic.html#emacspeak_002deperiodic" rel="prev" title="emacspeak-eperiodic">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-epub</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-epub" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-epub" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
+  title="Emacspeak Commands" />
+  <link href="emacspeak_002derc.html#emacspeak_002derc" rel="next"
+  title="emacspeak-erc" />
+  <link href="emacspeak_002deperiodic.html#emacspeak_002deperiodic"
+  rel="prev" title="emacspeak-eperiodic" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002depub"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002derc.html#emacspeak_002derc" accesskey="n" rel="next">emacspeak-erc</a>, Previous: <a href="emacspeak_002deperiodic.html#emacspeak_002deperiodic" accesskey="p" rel="prev">emacspeak-eperiodic</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002depub-1"></a>
-<h3 class="section">11.24 emacspeak-epub</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002depub" id="emacspeak_002depub"></a>
 
-<p>Commentary:
-In celebration of a million books and more to read from
-Google Books
-The EPubs format is slightly simpler than full Daisy &mdash;
-(see) emacspeak-daisy.el
-Since it only needs one level of indirection (no audio,
-therefore no smil). This module is consequently simpler than
-emacspeak-daisy.el.
-This module will eventually  implement the Google Books  API
-&mdash; probably by invoking the yet-to-be-written gbooks.el in emacs-g-client
-As we move to epub-3, this module will bring back audio layers etc., perhaps via a simplified smil implementation.
-</p>
-<p>Automatically generated documentation
-for commands defined in module  emacspeak-epub.
-</p>
-<dl>
-<dt><a name="index-emacspeak_002dcalibre_002dmode"></a>Interactive Command: <strong>emacspeak-calibre-mode</strong> <em>nil</em></dt>
-<dd><p>A Calibre Front-end.
-Letters do not insert themselves; instead, they are commands.
-</p>
-<p>key             binding
-&mdash;             &mdash;&mdash;-
-</p>
-<p>RET		emacspeak-epub-calibre-dired-at-point
-&lt;Return&gt;	emacspeak-epub-calibre-dired-at-point
-</p>
-<p>In addition to any hooks its parent mode &lsquo;special-mode&rsquo; might have run,
-this mode runs the hook &lsquo;emacspeak-calibre-mode-hook&rsquo;, as the final step
-during initialization.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href="emacspeak_002derc.html#emacspeak_002derc"
+    accesskey="n" rel="next">emacspeak-erc</a>, Previous: <a href=
+    "emacspeak_002deperiodic.html#emacspeak_002deperiodic"
+    accesskey="p" rel="prev">emacspeak-eperiodic</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002depub-1" id="emacspeak_002depub-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002depub"></a>Interactive Command: <strong>emacspeak-epub</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e g</kbd>
-</p>
-<p>EPub  Interaction.
-For detailed documentation, see M-x emacspeak-epub-mode
-</p></dd></dl>
+  <h3 class="section">11.25 emacspeak-epub</h3>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002dbookshelf_002dadd_002ddirectory"></a>Interactive Command: <strong>emacspeak-epub-bookshelf-add-directory</strong> <em>(directory &amp;optional recursive)</em></dt>
-<dd><p>Add EPubs found in specified directory to the bookshelf.
-Interactive prefix arg searches recursively in directory.
-</p></dd></dl>
+  <p>Commentary: In celebration of a million books and more to read
+  from Google Books The EPubs format is slightly simpler than full
+  Daisy &mdash; (see) emacspeak-daisy.el Since it only needs one
+  level of indirection (no audio, therefore no smil). This module
+  is consequently simpler than emacspeak-daisy.el. This module will
+  eventually implement the Google Books API &mdash; probably by
+  invoking the yet-to-be-written gbooks.el in emacs-g-client As we
+  move to epub-3, this module will bring back audio layers etc.,
+  perhaps via a simplified smil implementation.</p>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002dbookshelf_002dadd_002depub"></a>Interactive Command: <strong>emacspeak-epub-bookshelf-add-epub</strong> <em>(epub-file)</em></dt>
-<dd><p>Add epub file to current bookshelf.
-</p></dd></dl>
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak-epub.</p>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002dbookshelf_002dcalibre_002dauthor"></a>Interactive Command: <strong>emacspeak-epub-bookshelf-calibre-author</strong> <em>(pattern)</em></dt>
-<dd><p>Add results of an author search to current bookshelf.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dcalibre_002dmode" id=
+    "index-emacspeak_002dcalibre_002dmode"></a>Interactive Command:
+    <strong>emacspeak-calibre-mode</strong> <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002dbookshelf_002dcalibre_002dsearch"></a>Interactive Command: <strong>emacspeak-epub-bookshelf-calibre-search</strong> <em>(pattern)</em></dt>
-<dd><p>Add results of an title/author search to current bookshelf.
-</p></dd></dl>
+    <dd>
+      <p>A Calibre Front-end. Letters do not insert themselves;
+      instead, they are commands.</p>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002dbookshelf_002dcalibre_002dtitle"></a>Interactive Command: <strong>emacspeak-epub-bookshelf-calibre-title</strong> <em>(pattern)</em></dt>
-<dd><p>Add results of an title search to current bookshelf.
-</p></dd></dl>
+      <p>key binding &mdash; &mdash;&mdash;-</p>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002dbookshelf_002dclear"></a>Interactive Command: <strong>emacspeak-epub-bookshelf-clear</strong> <em>nil</em></dt>
-<dd><p>Clear all books from bookshelf.
-</p></dd></dl>
+      <p>RET emacspeak-epub-calibre-dired-at-point &lt;Return&gt;
+      emacspeak-epub-calibre-dired-at-point</p>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002dbookshelf_002dload"></a>Interactive Command: <strong>emacspeak-epub-bookshelf-load</strong> <em>nil</em></dt>
-<dd><p>Load bookshelf metadata from disk.
-</p></dd></dl>
+      <p>In addition to any hooks its parent mode
+      &lsquo;special-mode&rsquo; might have run, this mode runs the
+      hook &lsquo;emacspeak-calibre-mode-hook&rsquo;, as the final
+      step during initialization.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002dbookshelf_002dopen"></a>Interactive Command: <strong>emacspeak-epub-bookshelf-open</strong> <em>(bookshelf)</em></dt>
-<dd><p>Load bookshelf metadata from specified bookshelf.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002depub" id=
+    "index-emacspeak_002depub"></a>Interactive Command:
+    <strong>emacspeak-epub</strong> <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002dbookshelf_002dopen_002depub"></a>Interactive Command: <strong>emacspeak-epub-bookshelf-open-epub</strong> <em>(epub-file)</em></dt>
-<dd><p>Open epub file and add it to current bookshelf.
-</p></dd></dl>
+    <dd>
+      <p><kbd>C-e g</kbd></p>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002dbookshelf_002dredraw"></a>Interactive Command: <strong>emacspeak-epub-bookshelf-redraw</strong> <em>(&amp;optional author-first)</em></dt>
-<dd><p>Redraw Bookshelf.
-Optional interactive prefix arg author-first prints author at the
-  left.
-</p></dd></dl>
+      <p>EPub Interaction. For detailed documentation, see M-x
+      emacspeak-epub-mode</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002dbookshelf_002drefresh"></a>Interactive Command: <strong>emacspeak-epub-bookshelf-refresh</strong> <em>nil</em></dt>
-<dd><p>Refresh and redraw bookshelf.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002depub_002dbookshelf_002dadd_002ddirectory"
+    id=
+    "index-emacspeak_002depub_002dbookshelf_002dadd_002ddirectory"></a>Interactive
+    Command:
+    <strong>emacspeak-epub-bookshelf-add-directory</strong>
+    <em>(directory &amp;optional recursive)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002dbookshelf_002dremove_002ddirectory"></a>Interactive Command: <strong>emacspeak-epub-bookshelf-remove-directory</strong> <em>(directory &amp;optional recursive)</em></dt>
-<dd><p>Remove EPubs found in specified directory from the bookshelf.
-Interactive prefix arg searches recursively in directory.
-</p></dd></dl>
+    <dd>
+      <p>Add EPubs found in specified directory to the bookshelf.
+      Interactive prefix arg searches recursively in directory.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002dbookshelf_002dremove_002dthis_002dbook"></a>Interactive Command: <strong>emacspeak-epub-bookshelf-remove-this-book</strong> <em>nil</em></dt>
-<dd><p>Remove the book on current line from this bookshelf.
-No book files are deleted.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002depub_002dbookshelf_002dadd_002depub" id=
+    "index-emacspeak_002depub_002dbookshelf_002dadd_002depub"></a>Interactive
+    Command: <strong>emacspeak-epub-bookshelf-add-epub</strong>
+    <em>(epub-file)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002dbookshelf_002drename"></a>Interactive Command: <strong>emacspeak-epub-bookshelf-rename</strong> <em>(name &amp;optional overwrite)</em></dt>
-<dd><p>Saves current bookshelf to  specified name.
-Interactive prefix arg &lsquo;overwrite&rsquo; will overwrite existing file.
-</p></dd></dl>
+    <dd>
+      <p>Add epub file to current bookshelf.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002dbookshelf_002dsave"></a>Interactive Command: <strong>emacspeak-epub-bookshelf-save</strong> <em>nil</em></dt>
-<dd><p>Save bookshelf metadata.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002depub_002dbookshelf_002dcalibre_002dauthor"
+    id=
+    "index-emacspeak_002depub_002dbookshelf_002dcalibre_002dauthor">
+    </a>Interactive Command:
+    <strong>emacspeak-epub-bookshelf-calibre-author</strong>
+    <em>(pattern)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002dbrowse_002dfiles"></a>Interactive Command: <strong>emacspeak-epub-browse-files</strong> <em>(epub)</em></dt>
-<dd><p>Browse list of HTML files in an EPub.
-Useful if table of contents in toc.ncx is empty.
-</p></dd></dl>
+    <dd>
+      <p>Add results of an author search to current bookshelf.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002dcalibre_002ddired_002dat_002dpoint"></a>Interactive Command: <strong>emacspeak-epub-calibre-dired-at-point</strong> <em>nil</em></dt>
-<dd><p>Open directory containing current result.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002depub_002dbookshelf_002dcalibre_002dsearch"
+    id=
+    "index-emacspeak_002depub_002dbookshelf_002dcalibre_002dsearch">
+    </a>Interactive Command:
+    <strong>emacspeak-epub-bookshelf-calibre-search</strong>
+    <em>(pattern)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002dcalibre_002dresults"></a>Interactive Command: <strong>emacspeak-epub-calibre-results</strong> <em>nil</em></dt>
-<dd><p>Show most recent Calibre search results.
-</p></dd></dl>
+    <dd>
+      <p>Add results of an title/author search to current
+      bookshelf.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002ddelete"></a>Interactive Command: <strong>emacspeak-epub-delete</strong> <em>nil</em></dt>
-<dd><p>Delete EPub under point.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002depub_002dbookshelf_002dcalibre_002dtitle"
+    id=
+    "index-emacspeak_002depub_002dbookshelf_002dcalibre_002dtitle"></a>Interactive
+    Command:
+    <strong>emacspeak-epub-bookshelf-calibre-title</strong>
+    <em>(pattern)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002deww"></a>Interactive Command: <strong>emacspeak-epub-eww</strong> <em>(epub-file)</em></dt>
-<dd><p>Display entire book  using EWW from EPub in a buffer.
-Suitable for text searches.
-</p></dd></dl>
+    <dd>
+      <p>Add results of an title search to current bookshelf.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002dfulltext"></a>Interactive Command: <strong>emacspeak-epub-fulltext</strong> <em>(epub-file)</em></dt>
-<dd><p>Display fulltext from EPub in a buffer.
-Suitable for text searches.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002depub_002dbookshelf_002dclear"
+    id=
+    "index-emacspeak_002depub_002dbookshelf_002dclear"></a>Interactive
+    Command: <strong>emacspeak-epub-bookshelf-clear</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002dgoogle"></a>Interactive Command: <strong>emacspeak-epub-google</strong> <em>(query)</em></dt>
-<dd><p>Search for Epubs from Gooble Books.
-</p></dd></dl>
+    <dd>
+      <p>Clear all books from bookshelf.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002dgutenberg_002dcatalog"></a>Interactive Command: <strong>emacspeak-epub-gutenberg-catalog</strong> <em>(&amp;optional refresh)</em></dt>
-<dd><p>Open Gutenberg catalog.
-Fetch if needed, or if refresh is T.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002depub_002dbookshelf_002dload"
+    id=
+    "index-emacspeak_002depub_002dbookshelf_002dload"></a>Interactive
+    Command: <strong>emacspeak-epub-bookshelf-load</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002dgutenberg_002ddownload"></a>Interactive Command: <strong>emacspeak-epub-gutenberg-download</strong> <em>(book-id)</em></dt>
-<dd><p>Download specified EBook to local cache
-</p></dd></dl>
+    <dd>
+      <p>Load bookshelf metadata from disk.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002dmode"></a>Interactive Command: <strong>emacspeak-epub-mode</strong> <em>nil</em></dt>
-<dd><p>An EPub Front-end.
-Letters do not insert themselves; instead, they are commands.
-</p>
-<p>key             binding
-&mdash;             &mdash;&mdash;-
-</p>
-<p>C-a		emacspeak-epub-bookshelf-add-directory
-C-d		emacspeak-epub-bookshelf-remove-directory
-C-k		emacspeak-epub-delete
-C-l		emacspeak-epub-bookshelf-redraw
-RET		emacspeak-epub-open
-C-o		emacspeak-epub-bookshelf-open-epub
-C-x		Prefix Command
-ESC		Prefix Command
-/		emacspeak-epub-calibre-results
-A		emacspeak-epub-bookshelf-calibre-author
-C		emacspeak-epub-gutenberg-catalog
-G		emacspeak-epub-gutenberg-download
-S		emacspeak-epub-bookshelf-calibre-search
-T		emacspeak-epub-bookshelf-calibre-title
-a		emacspeak-epub-bookshelf-add-epub
-b		emacspeak-epub-bookshelf-open
-c		emacspeak-epub-bookshelf-clear
-d		emacspeak-epub-bookshelf-remove-this-book
-e		emacspeak-epub-eww
-f		emacspeak-epub-browse-files
-g		emacspeak-epub-google
-n		next-line
-o		emacspeak-epub-open
-p		previous-line
-r		emacspeak-epub-bookshelf-rename
-t		emacspeak-epub-fulltext
-&lt;return&gt;	emacspeak-epub-open
-</p>
-<p>M-s		emacspeak-epub-bookshelf-save
-</p>
-<p>C-x C-q		emacspeak-epub-bookshelf-refresh
-C-x C-s		emacspeak-epub-bookshelf-save
-</p>
-<p>In addition to any hooks its parent mode &lsquo;special-mode&rsquo; might have run,
-this mode runs the hook &lsquo;emacspeak-epub-mode-hook&rsquo;, as the final step
-during initialization.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002depub_002dbookshelf_002dopen"
+    id=
+    "index-emacspeak_002depub_002dbookshelf_002dopen"></a>Interactive
+    Command: <strong>emacspeak-epub-bookshelf-open</strong>
+    <em>(bookshelf)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002dnext"></a>Interactive Command: <strong>emacspeak-epub-next</strong> <em>nil</em></dt>
-<dd><p>Move to next book.
-</p></dd></dl>
+    <dd>
+      <p>Load bookshelf metadata from specified bookshelf.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002dopen"></a>Interactive Command: <strong>emacspeak-epub-open</strong> <em>(epub-file)</em></dt>
-<dd><p>Open specified Epub.
-Filename may need to  be shell-quoted when called from Lisp.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002depub_002dbookshelf_002dopen_002depub" id=
+    "index-emacspeak_002depub_002dbookshelf_002dopen_002depub"></a>Interactive
+    Command: <strong>emacspeak-epub-bookshelf-open-epub</strong>
+    <em>(epub-file)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002dprevious"></a>Interactive Command: <strong>emacspeak-epub-previous</strong> <em>nil</em></dt>
-<dd><p>Move to previous book.
-</p></dd></dl>
+    <dd>
+      <p>Open epub file and add it to current bookshelf.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002depub_002durl_002dexecutor"></a>Interactive Command: <strong>emacspeak-epub-url-executor</strong> <em>(url)</em></dt>
-<dd><p>Custom URL executor for use in EPub Mode.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002depub_002dbookshelf_002dredraw"
+    id=
+    "index-emacspeak_002depub_002dbookshelf_002dredraw"></a>Interactive
+    Command: <strong>emacspeak-epub-bookshelf-redraw</strong>
+    <em>(&amp;optional author-first)</em></dt>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002derc.html#emacspeak_002derc" accesskey="n" rel="next">emacspeak-erc</a>, Previous: <a href="emacspeak_002deperiodic.html#emacspeak_002deperiodic" accesskey="p" rel="prev">emacspeak-eperiodic</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+    <dd>
+      <p>Redraw Bookshelf. Optional interactive prefix arg
+      author-first prints author at the left.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002depub_002dbookshelf_002drefresh" id=
+    "index-emacspeak_002depub_002dbookshelf_002drefresh"></a>Interactive
+    Command: <strong>emacspeak-epub-bookshelf-refresh</strong>
+    <em>nil</em></dt>
 
+    <dd>
+      <p>Refresh and redraw bookshelf.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002depub_002dbookshelf_002dremove_002ddirectory"
+    id=
+    "index-emacspeak_002depub_002dbookshelf_002dremove_002ddirectory">
+    </a>Interactive Command:
+    <strong>emacspeak-epub-bookshelf-remove-directory</strong>
+    <em>(directory &amp;optional recursive)</em></dt>
+
+    <dd>
+      <p>Remove EPubs found in specified directory from the
+      bookshelf. Interactive prefix arg searches recursively in
+      directory.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002depub_002dbookshelf_002dremove_002dthis_002dbook"
+    id=
+    "index-emacspeak_002depub_002dbookshelf_002dremove_002dthis_002dbook">
+    </a>Interactive Command:
+    <strong>emacspeak-epub-bookshelf-remove-this-book</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Remove the book on current line from this bookshelf. No
+      book files are deleted.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002depub_002dbookshelf_002drename"
+    id=
+    "index-emacspeak_002depub_002dbookshelf_002drename"></a>Interactive
+    Command: <strong>emacspeak-epub-bookshelf-rename</strong>
+    <em>(name &amp;optional overwrite)</em></dt>
+
+    <dd>
+      <p>Saves current bookshelf to specified name. Interactive
+      prefix arg &lsquo;overwrite&rsquo; will overwrite existing
+      file.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002depub_002dbookshelf_002dsave"
+    id=
+    "index-emacspeak_002depub_002dbookshelf_002dsave"></a>Interactive
+    Command: <strong>emacspeak-epub-bookshelf-save</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Save bookshelf metadata.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002depub_002dbrowse_002dfiles" id=
+    "index-emacspeak_002depub_002dbrowse_002dfiles"></a>Interactive
+    Command: <strong>emacspeak-epub-browse-files</strong>
+    <em>(epub)</em></dt>
+
+    <dd>
+      <p>Browse list of HTML files in an EPub. Useful if table of
+      contents in toc.ncx is empty.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002depub_002dcalibre_002ddired_002dat_002dpoint"
+    id=
+    "index-emacspeak_002depub_002dcalibre_002ddired_002dat_002dpoint">
+    </a>Interactive Command:
+    <strong>emacspeak-epub-calibre-dired-at-point</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Open directory containing current result.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002depub_002dcalibre_002dresults"
+    id=
+    "index-emacspeak_002depub_002dcalibre_002dresults"></a>Interactive
+    Command: <strong>emacspeak-epub-calibre-results</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Show most recent Calibre search results.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002depub_002ddelete" id=
+    "index-emacspeak_002depub_002ddelete"></a>Interactive Command:
+    <strong>emacspeak-epub-delete</strong> <em>nil</em></dt>
+
+    <dd>
+      <p>Delete EPub under point.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002depub_002deww" id=
+    "index-emacspeak_002depub_002deww"></a>Interactive Command:
+    <strong>emacspeak-epub-eww</strong> <em>(epub-file)</em></dt>
+
+    <dd>
+      <p>Display entire book using EWW from EPub in a buffer.
+      Suitable for text searches.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002depub_002dfulltext" id=
+    "index-emacspeak_002depub_002dfulltext"></a>Interactive
+    Command: <strong>emacspeak-epub-fulltext</strong>
+    <em>(epub-file)</em></dt>
+
+    <dd>
+      <p>Display fulltext from EPub in a buffer. Suitable for text
+      searches.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002depub_002dgoogle" id=
+    "index-emacspeak_002depub_002dgoogle"></a>Interactive Command:
+    <strong>emacspeak-epub-google</strong> <em>(query)</em></dt>
+
+    <dd>
+      <p>Search for Epubs from Gooble Books.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002depub_002dgutenberg_002dcatalog" id=
+    "index-emacspeak_002depub_002dgutenberg_002dcatalog"></a>Interactive
+    Command: <strong>emacspeak-epub-gutenberg-catalog</strong>
+    <em>(&amp;optional refresh)</em></dt>
+
+    <dd>
+      <p>Open Gutenberg catalog. Fetch if needed, or if refresh is
+      T.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002depub_002dgutenberg_002ddownload" id=
+    "index-emacspeak_002depub_002dgutenberg_002ddownload"></a>Interactive
+    Command: <strong>emacspeak-epub-gutenberg-download</strong>
+    <em>(book-id)</em></dt>
+
+    <dd>
+      <p>Download specified EBook to local cache</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002depub_002dmode" id=
+    "index-emacspeak_002depub_002dmode"></a>Interactive Command:
+    <strong>emacspeak-epub-mode</strong> <em>nil</em></dt>
+
+    <dd>
+      <p>An EPub Front-end. Letters do not insert themselves;
+      instead, they are commands.</p>
+
+      <p>key binding &mdash; &mdash;&mdash;-</p>
+
+      <p>C-a emacspeak-epub-bookshelf-add-directory C-d
+      emacspeak-epub-bookshelf-remove-directory C-k
+      emacspeak-epub-delete C-l emacspeak-epub-bookshelf-redraw RET
+      emacspeak-epub-open C-o emacspeak-epub-bookshelf-open-epub
+      C-x Prefix Command ESC Prefix Command /
+      emacspeak-epub-calibre-results A
+      emacspeak-epub-bookshelf-calibre-author C
+      emacspeak-epub-gutenberg-catalog G
+      emacspeak-epub-gutenberg-download S
+      emacspeak-epub-bookshelf-calibre-search T
+      emacspeak-epub-bookshelf-calibre-title a
+      emacspeak-epub-bookshelf-add-epub b
+      emacspeak-epub-bookshelf-open c
+      emacspeak-epub-bookshelf-clear d
+      emacspeak-epub-bookshelf-remove-this-book e
+      emacspeak-epub-eww f emacspeak-epub-browse-files g
+      emacspeak-epub-google n next-line o emacspeak-epub-open p
+      previous-line r emacspeak-epub-bookshelf-rename t
+      emacspeak-epub-fulltext &lt;return&gt;
+      emacspeak-epub-open</p>
+
+      <p>M-s emacspeak-epub-bookshelf-save</p>
+
+      <p>C-x C-q emacspeak-epub-bookshelf-refresh C-x C-s
+      emacspeak-epub-bookshelf-save</p>
+
+      <p>In addition to any hooks its parent mode
+      &lsquo;special-mode&rsquo; might have run, this mode runs the
+      hook &lsquo;emacspeak-epub-mode-hook&rsquo;, as the final
+      step during initialization.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002depub_002dnext" id=
+    "index-emacspeak_002depub_002dnext"></a>Interactive Command:
+    <strong>emacspeak-epub-next</strong> <em>nil</em></dt>
+
+    <dd>
+      <p>Move to next book.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002depub_002dopen" id=
+    "index-emacspeak_002depub_002dopen"></a>Interactive Command:
+    <strong>emacspeak-epub-open</strong> <em>(epub-file)</em></dt>
+
+    <dd>
+      <p>Open specified Epub. Filename may need to be shell-quoted
+      when called from Lisp.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002depub_002dprevious" id=
+    "index-emacspeak_002depub_002dprevious"></a>Interactive
+    Command: <strong>emacspeak-epub-previous</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Move to previous book.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002depub_002durl_002dexecutor" id=
+    "index-emacspeak_002depub_002durl_002dexecutor"></a>Interactive
+    Command: <strong>emacspeak-epub-url-executor</strong>
+    <em>(url)</em></dt>
+
+    <dd>
+      <p>Custom URL executor for use in EPub Mode.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href="emacspeak_002derc.html#emacspeak_002derc"
+    accesskey="n" rel="next">emacspeak-erc</a>, Previous: <a href=
+    "emacspeak_002deperiodic.html#emacspeak_002deperiodic"
+    accesskey="p" rel="prev">emacspeak-eperiodic</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

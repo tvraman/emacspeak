@@ -1,90 +1,139 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-tapestry</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-tapestry">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-tapestry">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up" title="Emacspeak Commands">
-<link href="emacspeak_002dtar.html#emacspeak_002dtar" rel="next" title="emacspeak-tar">
-<link href="emacspeak_002dtabulate.html#emacspeak_002dtabulate" rel="prev" title="emacspeak-tabulate">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-tapestry</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-tapestry" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-tapestry" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
+  title="Emacspeak Commands" />
+  <link href="emacspeak_002dtar.html#emacspeak_002dtar" rel="next"
+  title="emacspeak-tar" />
+  <link href="emacspeak_002dtabulate.html#emacspeak_002dtabulate"
+  rel="prev" title="emacspeak-tabulate" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dtapestry"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dtar.html#emacspeak_002dtar" accesskey="n" rel="next">emacspeak-tar</a>, Previous: <a href="emacspeak_002dtabulate.html#emacspeak_002dtabulate" accesskey="p" rel="prev">emacspeak-tabulate</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dtapestry-1"></a>
-<h3 class="section">11.65 emacspeak-tapestry</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dtapestry" id="emacspeak_002dtapestry"></a>
 
-<p>No Commentary
-</p>
-<p>Automatically generated documentation
-for commands defined in module  emacspeak-tapestry.
-</p>
-<dl>
-<dt><a name="index-emacspeak_002dtapestry_002ddescribe_002dtapestry"></a>Interactive Command: <strong>emacspeak-tapestry-describe-tapestry</strong> <em>(&amp;optional details)</em></dt>
-<dd><p><kbd>C-e M-t</kbd>
-</p>
-<p>Describe the current layout of visible buffers in current frame.
-Use interactive prefix arg to get coordinate positions of the
-displayed buffers.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href="emacspeak_002dtar.html#emacspeak_002dtar"
+    accesskey="n" rel="next">emacspeak-tar</a>, Previous: <a href=
+    "emacspeak_002dtabulate.html#emacspeak_002dtabulate" accesskey=
+    "p" rel="prev">emacspeak-tabulate</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dtapestry-1" id=
+  "emacspeak_002dtapestry-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002dtapestry_002dselect_002dwindow_002dby_002dname"></a>Interactive Command: <strong>emacspeak-tapestry-select-window-by-name</strong> <em>(buffer-name)</em></dt>
-<dd><p><kbd>C-e W</kbd>
-</p>
-<p>Select window by the name of the buffer it displays.
-This is useful when using modes like ECB or the new GDB UI where
-  you want to preserve the window layout 
-but quickly switch to a window by name.
-</p></dd></dl>
+  <h3 class="section">11.66 emacspeak-tapestry</h3>
 
+  <p>No Commentary</p>
 
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak-tapestry.</p>
 
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtapestry_002ddescribe_002dtapestry" id=
+    "index-emacspeak_002dtapestry_002ddescribe_002dtapestry"></a>Interactive
+    Command: <strong>emacspeak-tapestry-describe-tapestry</strong>
+    <em>(&amp;optional details)</em></dt>
 
+    <dd>
+      <p><kbd>C-e M-t</kbd></p>
+
+      <p>Describe the current layout of visible buffers in current
+      frame. Use interactive prefix arg to get coordinate positions
+      of the displayed buffers.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtapestry_002dselect_002dwindow_002dby_002dname"
+    id=
+    "index-emacspeak_002dtapestry_002dselect_002dwindow_002dby_002dname">
+    </a>Interactive Command:
+    <strong>emacspeak-tapestry-select-window-by-name</strong>
+    <em>(buffer-name)</em></dt>
+
+    <dd>
+      <p><kbd>C-e W</kbd></p>
+
+      <p>Select window by the name of the buffer it displays. This
+      is useful when using modes like ECB or the new GDB UI where
+      you want to preserve the window layout but quickly switch to
+      a window by name.</p>
+    </dd>
+  </dl>
 </body>
 </html>

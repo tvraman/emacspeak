@@ -1,91 +1,140 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-npr</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-npr">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-npr">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up" title="Emacspeak Commands">
-<link href="emacspeak_002docr.html#emacspeak_002docr" rel="next" title="emacspeak-ocr">
-<link href="emacspeak_002dmpg123.html#emacspeak_002dmpg123" rel="prev" title="emacspeak-mpg123">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-npr</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-npr" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-npr" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
+  title="Emacspeak Commands" />
+  <link href="emacspeak_002docr.html#emacspeak_002docr" rel="next"
+  title="emacspeak-ocr" />
+  <link href="emacspeak_002dmpg123.html#emacspeak_002dmpg123" rel=
+  "prev" title="emacspeak-mpg123" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dnpr"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002docr.html#emacspeak_002docr" accesskey="n" rel="next">emacspeak-ocr</a>, Previous: <a href="emacspeak_002dmpg123.html#emacspeak_002dmpg123" accesskey="p" rel="prev">emacspeak-mpg123</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dnpr-1"></a>
-<h3 class="section">11.48 emacspeak-npr</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dnpr" id="emacspeak_002dnpr"></a>
 
-<p>Commentary:
-NPR == http://wwwnpr.org National Public Radio in the US
-It provides a simple Web  API http://www.npr.org/api/
-This module implements an Emacspeak Npr client.
-</p>
-<p>For now, users will need to get their own API key
-</p>
-<p>Automatically generated documentation
-for commands defined in module  emacspeak-npr.
-</p>
-<dl>
-<dt><a name="index-emacspeak_002dnpr_002dlisting"></a>Interactive Command: <strong>emacspeak-npr-listing</strong> <em>nil</em></dt>
-<dd><p>Display specified listing.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href="emacspeak_002docr.html#emacspeak_002docr"
+    accesskey="n" rel="next">emacspeak-ocr</a>, Previous: <a href=
+    "emacspeak_002dmpg123.html#emacspeak_002dmpg123" accesskey="p"
+    rel="prev">emacspeak-mpg123</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dnpr-1" id="emacspeak_002dnpr-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002dnpr_002dlisting_002durl_002dexecutor"></a>Interactive Command: <strong>emacspeak-npr-listing-url-executor</strong> <em>(url)</em></dt>
-<dd><p>Special executor for use in NPR  listings.
-</p></dd></dl>
+  <h3 class="section">11.49 emacspeak-npr</h3>
 
-<dl>
-<dt><a name="index-emacspeak_002dnpr_002dview"></a>Interactive Command: <strong>emacspeak-npr-view</strong> <em>(operation operand)</em></dt>
-<dd><p>View results as Atom.
-</p></dd></dl>
+  <p>Commentary: NPR == http://wwwnpr.org National Public Radio in
+  the US It provides a simple Web API http://www.npr.org/api/ This
+  module implements an Emacspeak Npr client.</p>
 
+  <p>For now, users will need to get their own API key</p>
 
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak-npr.</p>
 
+  <dl>
+    <dt><a name="index-emacspeak_002dnpr_002dlisting" id=
+    "index-emacspeak_002dnpr_002dlisting"></a>Interactive Command:
+    <strong>emacspeak-npr-listing</strong> <em>nil</em></dt>
 
+    <dd>
+      <p>Display specified listing.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dnpr_002dlisting_002durl_002dexecutor" id=
+    "index-emacspeak_002dnpr_002dlisting_002durl_002dexecutor"></a>Interactive
+    Command: <strong>emacspeak-npr-listing-url-executor</strong>
+    <em>(url)</em></dt>
+
+    <dd>
+      <p>Special executor for use in NPR listings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dnpr_002dview" id=
+    "index-emacspeak_002dnpr_002dview"></a>Interactive Command:
+    <strong>emacspeak-npr-view</strong> <em>(operation
+    operand)</em></dt>
+
+    <dd>
+      <p>View results as Atom.</p>
+    </dd>
+  </dl>
 </body>
 </html>

@@ -1,347 +1,677 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-eterm</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-eterm">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-eterm">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up" title="Emacspeak Commands">
-<link href="emacspeak_002deudc.html#emacspeak_002deudc" rel="next" title="emacspeak-eudc">
-<link href="emacspeak_002derc.html#emacspeak_002derc" rel="prev" title="emacspeak-erc">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-eterm</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-eterm" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-eterm" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
+  title="Emacspeak Commands" />
+  <link href="emacspeak_002deudc.html#emacspeak_002deudc" rel=
+  "next" title="emacspeak-eudc" />
+  <link href="emacspeak_002derc.html#emacspeak_002derc" rel="prev"
+  title="emacspeak-erc" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002determ"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002deudc.html#emacspeak_002deudc" accesskey="n" rel="next">emacspeak-eudc</a>, Previous: <a href="emacspeak_002derc.html#emacspeak_002derc" accesskey="p" rel="prev">emacspeak-erc</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002determ-1"></a>
-<h3 class="section">11.26 emacspeak-eterm</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002determ" id="emacspeak_002determ"></a>
 
-<p>Commentary:
-This module makes eterm talk.
-Eterm is the new terminal emulator for Emacs.
-Use of emacspeak with eterm really needs an info page.
-At present, the only documentation is the source level documentation.
-This module uses Control-t as an additional prefix key to allow the user
-To move around the terminal and have different parts spoken. 
-</p>
-<p>Automatically generated documentation
-for commands defined in module  emacspeak-eterm.
-</p>
-<dl>
-<dt><a name="index-emacspeak_002determ_002dcopy_002dregion_002dto_002dregister"></a>Interactive Command: <strong>emacspeak-eterm-copy-region-to-register</strong> <em>(&amp;rest rest)</em></dt>
-<dd><p>:around advice: &lsquo;ad-Advice-emacspeak-eterm-copy-region-to-register&rsquo;
-</p>
-<p>Copy text from terminal to an Emacs REGISTER.
-This copies  region delimited by the emacspeak eterm marker 
-set by command M-x emacspeak-eterm-set-marker and the 
-emacspeak eterm pointer to a register.
-</p>
-<p>(fn REGISTER)
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href="emacspeak_002deudc.html#emacspeak_002deudc"
+    accesskey="n" rel="next">emacspeak-eudc</a>, Previous: <a href=
+    "emacspeak_002derc.html#emacspeak_002derc" accesskey="p" rel=
+    "prev">emacspeak-erc</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002determ-1" id="emacspeak_002determ-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002ddefine_002dwindow"></a>Interactive Command: <strong>emacspeak-eterm-define-window</strong> <em>(id)</em></dt>
-<dd><p>Prompt for a window ID.
-The window is then define to be
-the rectangle delimited by point and eterm mark.  This is to
-be used when emacspeak is set to review mode inside an
-eterm.
-</p></dd></dl>
+  <h3 class="section">11.27 emacspeak-eterm</h3>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002ddescribe_002dwindow"></a>Interactive Command: <strong>emacspeak-eterm-describe-window</strong> <em>(id)</em></dt>
-<dd><p>Describe an eterm  window.
-Description indicates eterm window coordinates and whether it is stretchable
-</p></dd></dl>
+  <p>Commentary: This module makes eterm talk. Eterm is the new
+  terminal emulator for Emacs. Use of emacspeak with eterm really
+  needs an info page. At present, the only documentation is the
+  source level documentation. This module uses Control-t as an
+  additional prefix key to allow the user To move around the
+  terminal and have different parts spoken.</p>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dgoto_002dline"></a>Interactive Command: <strong>emacspeak-eterm-goto-line</strong> <em>(line)</em></dt>
-<dd><p>Move emacspeak eterm pointer to a specified LINE.
-</p></dd></dl>
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak-eterm.</p>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dkill_002dring_002dsave_002dregion"></a>Interactive Command: <strong>emacspeak-eterm-kill-ring-save-region</strong> <em>nil</em></dt>
-<dd><p>Copy text from terminal to kill ring.
-This copies  region delimited by the emacspeak eterm marker 
-set by command M-x emacspeak-eterm-set-marker and the 
-emacspeak eterm pointer.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002determ_002dcopy_002dregion_002dto_002dregister"
+    id=
+    "index-emacspeak_002determ_002dcopy_002dregion_002dto_002dregister">
+    </a>Interactive Command:
+    <strong>emacspeak-eterm-copy-region-to-register</strong>
+    <em>(&amp;rest rest)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dmaybe_002dsend_002draw"></a>Interactive Command: <strong>emacspeak-eterm-maybe-send-raw</strong> <em>nil</em></dt>
-<dd><p>Send a raw character through if in the terminal buffer.
-Execute end of line if
-in a non eterm buffer if executed via C-e C-e
-</p></dd></dl>
+    <dd>
+      <p>:around advice:
+      &lsquo;ad-Advice-emacspeak-eterm-copy-region-to-register&rsquo;</p>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dpaste_002dregister"></a>Interactive Command: <strong>emacspeak-eterm-paste-register</strong> <em>(&amp;rest rest)</em></dt>
-<dd><p>:around advice: &lsquo;ad-Advice-emacspeak-eterm-paste-register&rsquo;
-</p>
-<p>Paste contents of REGISTER at current location.
-If the specified register contains text, then that text is
-sent to the terminal as if it were typed by the user.
-</p>
-<p>(fn REGISTER)
-</p></dd></dl>
+      <p>Copy text from terminal to an Emacs REGISTER. This copies
+      region delimited by the emacspeak eterm marker set by command
+      M-x emacspeak-eterm-set-marker and the emacspeak eterm
+      pointer to a register.</p>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dpointer_002dbackward_002dword"></a>Interactive Command: <strong>emacspeak-eterm-pointer-backward-word</strong> <em>(count)</em></dt>
-<dd><p>Move the pointer backward  by words. 
-Interactive numeric prefix arg specifies number of words to move.
-Argument COUNT specifies number of words by which to move.
-</p></dd></dl>
+      <p>(fn REGISTER)</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dpointer_002ddown"></a>Interactive Command: <strong>emacspeak-eterm-pointer-down</strong> <em>(count)</em></dt>
-<dd><p>Move the pointer down a line.
-Argument COUNT specifies number of lines by which to move.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002determ_002ddefine_002dwindow"
+    id=
+    "index-emacspeak_002determ_002ddefine_002dwindow"></a>Interactive
+    Command: <strong>emacspeak-eterm-define-window</strong>
+    <em>(id)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dpointer_002dforward_002dword"></a>Interactive Command: <strong>emacspeak-eterm-pointer-forward-word</strong> <em>(count)</em></dt>
-<dd><p>Move the pointer forward by words. 
-Interactive numeric prefix arg specifies number of words to move.
-Argument COUNT specifies number of words by which to move.
-</p></dd></dl>
+    <dd>
+      <p>Prompt for a window ID. The window is then define to be
+      the rectangle delimited by point and eterm mark. This is to
+      be used when emacspeak is set to review mode inside an
+      eterm.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dpointer_002dleft"></a>Interactive Command: <strong>emacspeak-eterm-pointer-left</strong> <em>(count)</em></dt>
-<dd><p>Move the pointer left.
-Argument COUNT specifies number of columns by which to move.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002determ_002ddescribe_002dwindow"
+    id=
+    "index-emacspeak_002determ_002ddescribe_002dwindow"></a>Interactive
+    Command: <strong>emacspeak-eterm-describe-window</strong>
+    <em>(id)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dpointer_002dright"></a>Interactive Command: <strong>emacspeak-eterm-pointer-right</strong> <em>(count)</em></dt>
-<dd><p>Move the pointer right.
-Argument COUNT specifies number of columns by which to move.
-</p></dd></dl>
+    <dd>
+      <p>Describe an eterm window. Description indicates eterm
+      window coordinates and whether it is stretchable</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dpointer_002dto_002dbottom"></a>Interactive Command: <strong>emacspeak-eterm-pointer-to-bottom</strong> <em>nil</em></dt>
-<dd><p>Move the pointer to the bottom  of the screen.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002determ_002dgoto_002dline" id=
+    "index-emacspeak_002determ_002dgoto_002dline"></a>Interactive
+    Command: <strong>emacspeak-eterm-goto-line</strong>
+    <em>(line)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dpointer_002dto_002dcursor"></a>Interactive Command: <strong>emacspeak-eterm-pointer-to-cursor</strong> <em>nil</em></dt>
-<dd><p>Move the pointer to the cursor.
-</p></dd></dl>
+    <dd>
+      <p>Move emacspeak eterm pointer to a specified LINE.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dpointer_002dto_002dleft_002dedge"></a>Interactive Command: <strong>emacspeak-eterm-pointer-to-left-edge</strong> <em>nil</em></dt>
-<dd><p>Move the pointer to the right edge.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002determ_002dkill_002dring_002dsave_002dregion"
+    id=
+    "index-emacspeak_002determ_002dkill_002dring_002dsave_002dregion">
+    </a>Interactive Command:
+    <strong>emacspeak-eterm-kill-ring-save-region</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dpointer_002dto_002dnext_002dcolor_002dchange"></a>Interactive Command: <strong>emacspeak-eterm-pointer-to-next-color-change</strong> <em>(&amp;optional count)</em></dt>
-<dd><p>Move the eterm pointer to the next color change.
-This allows you to move between highlighted regions of the screen.
-Optional argument COUNT specifies how many changes to skip.
-</p></dd></dl>
+    <dd>
+      <p>Copy text from terminal to kill ring. This copies region
+      delimited by the emacspeak eterm marker set by command M-x
+      emacspeak-eterm-set-marker and the emacspeak eterm
+      pointer.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dpointer_002dto_002dprevious_002dcolor_002dchange"></a>Interactive Command: <strong>emacspeak-eterm-pointer-to-previous-color-change</strong> <em>(&amp;optional count)</em></dt>
-<dd><p>Move the eterm pointer to the next color change.
-This allows you to move between highlighted regions of the screen.
-Optional argument COUNT specifies how many changes to skip.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002determ_002dmaybe_002dsend_002draw" id=
+    "index-emacspeak_002determ_002dmaybe_002dsend_002draw"></a>Interactive
+    Command: <strong>emacspeak-eterm-maybe-send-raw</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dpointer_002dto_002dright_002dedge"></a>Interactive Command: <strong>emacspeak-eterm-pointer-to-right-edge</strong> <em>nil</em></dt>
-<dd><p>Move the pointer to the right edge.
-</p></dd></dl>
+    <dd>
+      <p>Send a raw character through if in the terminal buffer.
+      Execute end of line if in a non eterm buffer if executed via
+      C-e C-e</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dpointer_002dto_002dtop"></a>Interactive Command: <strong>emacspeak-eterm-pointer-to-top</strong> <em>nil</em></dt>
-<dd><p>Move the pointer to the top of the screen.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002determ_002dpaste_002dregister"
+    id=
+    "index-emacspeak_002determ_002dpaste_002dregister"></a>Interactive
+    Command: <strong>emacspeak-eterm-paste-register</strong>
+    <em>(&amp;rest rest)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dpointer_002dup"></a>Interactive Command: <strong>emacspeak-eterm-pointer-up</strong> <em>(count)</em></dt>
-<dd><p>Move the pointer up a line.
-Argument COUNT .specifies number of lines by which to move.
-</p></dd></dl>
+    <dd>
+      <p>:around advice:
+      &lsquo;ad-Advice-emacspeak-eterm-paste-register&rsquo;</p>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dremote_002dterm"></a>Interactive Command: <strong>emacspeak-eterm-remote-term</strong> <em>(host)</em></dt>
-<dd><p><kbd>C-e C-M-r</kbd>
-</p>
-<p>Start a terminal-emulator in a new buffer.
-</p></dd></dl>
+      <p>Paste contents of REGISTER at current location. If the
+      specified register contains text, then that text is sent to
+      the terminal as if it were typed by the user.</p>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dsearch_002dbackward"></a>Interactive Command: <strong>emacspeak-eterm-search-backward</strong> <em>nil</em></dt>
-<dd><p>Search backward on the terminal.
-</p></dd></dl>
+      <p>(fn REGISTER)</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dsearch_002dforward"></a>Interactive Command: <strong>emacspeak-eterm-search-forward</strong> <em>nil</em></dt>
-<dd><p>Search forward on the terminal.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002determ_002dpointer_002dbackward_002dword"
+    id=
+    "index-emacspeak_002determ_002dpointer_002dbackward_002dword"></a>Interactive
+    Command: <strong>emacspeak-eterm-pointer-backward-word</strong>
+    <em>(count)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dset_002dfilter_002dwindow"></a>Interactive Command: <strong>emacspeak-eterm-set-filter-window</strong> <em>(flag)</em></dt>
-<dd><p>Prompt for the id of a predefined window,
-and set the &lsquo;filter&rsquo; window to it.
-Non-nil interactive prefix arg &lsquo;unsets&rsquo; the filter window;
-this is equivalent to having the entire terminal as the filter window (this is
-what eterm starts up with).
-Setting the filter window results in emacspeak  only monitoring screen
-activity within the filter window.
-</p></dd></dl>
+    <dd>
+      <p>Move the pointer backward by words. Interactive numeric
+      prefix arg specifies number of words to move. Argument COUNT
+      specifies number of words by which to move.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dset_002dfocus_002dwindow"></a>Interactive Command: <strong>emacspeak-eterm-set-focus-window</strong> <em>(flag)</em></dt>
-<dd><p>Prompt for the id of a predefined window,
-and set the &lsquo;focus&rsquo; window to it.
-Non-nil interactive prefix arg &lsquo;unsets&rsquo; the focus window;
-this is equivalent to having the entire terminal as the focus window (this is
-what eterm starts up with).
-Setting the focus window results in emacspeak  monitoring screen
-and speaking that window upon seeing screen activity.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002determ_002dpointer_002ddown"
+    id="index-emacspeak_002determ_002dpointer_002ddown"></a>Interactive
+    Command: <strong>emacspeak-eterm-pointer-down</strong>
+    <em>(count)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dset_002dmarker"></a>Interactive Command: <strong>emacspeak-eterm-set-marker</strong> <em>nil</em></dt>
-<dd><p>Set Emacspeak eterm marker.
-This sets  the emacspeak eterm marker to the position pointed 
-to by the emacspeak eterm pointer.
-</p></dd></dl>
+    <dd>
+      <p>Move the pointer down a line. Argument COUNT specifies
+      number of lines by which to move.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dspeak_002dcursor"></a>Interactive Command: <strong>emacspeak-eterm-speak-cursor</strong> <em>nil</em></dt>
-<dd><p>Speak cursor position.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002determ_002dpointer_002dforward_002dword"
+    id="index-emacspeak_002determ_002dpointer_002dforward_002dword">
+    </a>Interactive Command:
+    <strong>emacspeak-eterm-pointer-forward-word</strong>
+    <em>(count)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dspeak_002dpointer"></a>Interactive Command: <strong>emacspeak-eterm-speak-pointer</strong> <em>nil</em></dt>
-<dd><p>Speak current pointer position.
-</p></dd></dl>
+    <dd>
+      <p>Move the pointer forward by words. Interactive numeric
+      prefix arg specifies number of words to move. Argument COUNT
+      specifies number of words by which to move.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dspeak_002dpointer_002dchar"></a>Interactive Command: <strong>emacspeak-eterm-speak-pointer-char</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p>Speak char under eterm pointer.
-Pronounces character phonetically unless  called with a PREFIX arg.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002determ_002dpointer_002dleft"
+    id="index-emacspeak_002determ_002dpointer_002dleft"></a>Interactive
+    Command: <strong>emacspeak-eterm-pointer-left</strong>
+    <em>(count)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dspeak_002dpointer_002dline"></a>Interactive Command: <strong>emacspeak-eterm-speak-pointer-line</strong> <em>nil</em></dt>
-<dd><p>Speak the line the pointer is on.
-</p></dd></dl>
+    <dd>
+      <p>Move the pointer left. Argument COUNT specifies number of
+      columns by which to move.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dspeak_002dpointer_002dword"></a>Interactive Command: <strong>emacspeak-eterm-speak-pointer-word</strong> <em>nil</em></dt>
-<dd><p>Speak the word  the pointer is on.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002determ_002dpointer_002dright"
+    id=
+    "index-emacspeak_002determ_002dpointer_002dright"></a>Interactive
+    Command: <strong>emacspeak-eterm-pointer-right</strong>
+    <em>(count)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dspeak_002dpredefined_002dwindow"></a>Interactive Command: <strong>emacspeak-eterm-speak-predefined-window</strong> <em>nil</em></dt>
-<dd><p>Speak a predefined eterm window between 1 and 10.
-</p></dd></dl>
+    <dd>
+      <p>Move the pointer right. Argument COUNT specifies number of
+      columns by which to move.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dspeak_002dscreen"></a>Interactive Command: <strong>emacspeak-eterm-speak-screen</strong> <em>(&amp;optional flag)</em></dt>
-<dd><p>Speak the screen.  Default is to speak from the emacspeak pointer  to point.
-Optional prefix arg FLAG causes region above
-the Emacspeak pointer to be spoken.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002determ_002dpointer_002dto_002dbottom" id=
+    "index-emacspeak_002determ_002dpointer_002dto_002dbottom"></a>Interactive
+    Command: <strong>emacspeak-eterm-pointer-to-bottom</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dspeak_002dwindow"></a>Interactive Command: <strong>emacspeak-eterm-speak-window</strong> <em>(id)</em></dt>
-<dd><p>Speak an eterm window.
-Argument ID specifies the window.
-</p></dd></dl>
+    <dd>
+      <p>Move the pointer to the bottom of the screen.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dtoggle_002dfilter_002dwindow"></a>Interactive Command: <strong>emacspeak-eterm-toggle-filter-window</strong> <em>nil</em></dt>
-<dd><p>Toggle active state of filter window.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002determ_002dpointer_002dto_002dcursor" id=
+    "index-emacspeak_002determ_002dpointer_002dto_002dcursor"></a>Interactive
+    Command: <strong>emacspeak-eterm-pointer-to-cursor</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dtoggle_002dfocus_002dwindow"></a>Interactive Command: <strong>emacspeak-eterm-toggle-focus-window</strong> <em>nil</em></dt>
-<dd><p>Toggle active state of focus window.
-</p></dd></dl>
+    <dd>
+      <p>Move the pointer to the cursor.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dtoggle_002dpointer_002dmode"></a>Interactive Command: <strong>emacspeak-eterm-toggle-pointer-mode</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p>Toggle emacspeak eterm pointer mode.
-With optional interactive prefix  arg, turn it on.
-When emacspeak eterm is in pointer mode, the eterm read pointer
-stays where it is rather than automatically moving to the terminal cursor when
-there is terminal activity.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002determ_002dpointer_002dto_002dleft_002dedge"
+    id=
+    "index-emacspeak_002determ_002dpointer_002dto_002dleft_002dedge">
+    </a>Interactive Command:
+    <strong>emacspeak-eterm-pointer-to-left-edge</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dtoggle_002dreview"></a>Interactive Command: <strong>emacspeak-eterm-toggle-review</strong> <em>nil</em></dt>
-<dd><p>Toggle state of eterm review. 
-In review mode, you can move around the terminal and listen to the contnets 
-without sending input to the terminal itself.
-</p></dd></dl>
+    <dd>
+      <p>Move the pointer to the right edge.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002determ_002dyank_002dwindow"></a>Interactive Command: <strong>emacspeak-eterm-yank-window</strong> <em>(id)</em></dt>
-<dd><p>Yank contents of  an eterm window at point.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002determ_002dpointer_002dto_002dnext_002dcolor_002dchange"
+    id=
+    "index-emacspeak_002determ_002dpointer_002dto_002dnext_002dcolor_002dchange">
+    </a>Interactive Command:
+    <strong>emacspeak-eterm-pointer-to-next-color-change</strong>
+    <em>(&amp;optional count)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dtoggle_002determ_002dautospeak"></a>Interactive Command: <strong>emacspeak-toggle-eterm-autospeak</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p>Toggle state of eterm autospeak.
-When eterm autospeak is turned on and the terminal is in line mode,
-all output to the terminal is automatically spoken. 
-  Interactive prefix arg means toggle  the global default value, and then set the
-  current local  value to the result. 
-</p></dd></dl>
+    <dd>
+      <p>Move the eterm pointer to the next color change. This
+      allows you to move between highlighted regions of the screen.
+      Optional argument COUNT specifies how many changes to
+      skip.</p>
+    </dd>
+  </dl>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002deudc.html#emacspeak_002deudc" accesskey="n" rel="next">emacspeak-eudc</a>, Previous: <a href="emacspeak_002derc.html#emacspeak_002derc" accesskey="p" rel="prev">emacspeak-erc</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002determ_002dpointer_002dto_002dprevious_002dcolor_002dchange"
+    id=
+    "index-emacspeak_002determ_002dpointer_002dto_002dprevious_002dcolor_002dchange">
+    </a>Interactive Command:
+    <strong>emacspeak-eterm-pointer-to-previous-color-change</strong>
+    <em>(&amp;optional count)</em></dt>
 
+    <dd>
+      <p>Move the eterm pointer to the next color change. This
+      allows you to move between highlighted regions of the screen.
+      Optional argument COUNT specifies how many changes to
+      skip.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002determ_002dpointer_002dto_002dright_002dedge"
+    id=
+    "index-emacspeak_002determ_002dpointer_002dto_002dright_002dedge">
+    </a>Interactive Command:
+    <strong>emacspeak-eterm-pointer-to-right-edge</strong>
+    <em>nil</em></dt>
 
+    <dd>
+      <p>Move the pointer to the right edge.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002determ_002dpointer_002dto_002dtop" id=
+    "index-emacspeak_002determ_002dpointer_002dto_002dtop"></a>Interactive
+    Command: <strong>emacspeak-eterm-pointer-to-top</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Move the pointer to the top of the screen.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002determ_002dpointer_002dup" id=
+    "index-emacspeak_002determ_002dpointer_002dup"></a>Interactive
+    Command: <strong>emacspeak-eterm-pointer-up</strong>
+    <em>(count)</em></dt>
+
+    <dd>
+      <p>Move the pointer up a line. Argument COUNT .specifies
+      number of lines by which to move.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002determ_002dremote_002dterm" id=
+    "index-emacspeak_002determ_002dremote_002dterm"></a>Interactive
+    Command: <strong>emacspeak-eterm-remote-term</strong>
+    <em>(host)</em></dt>
+
+    <dd>
+      <p><kbd>C-e C-M-r</kbd></p>
+
+      <p>Start a terminal-emulator in a new buffer.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002determ_002dsearch_002dbackward"
+    id=
+    "index-emacspeak_002determ_002dsearch_002dbackward"></a>Interactive
+    Command: <strong>emacspeak-eterm-search-backward</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Search backward on the terminal.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002determ_002dsearch_002dforward"
+    id=
+    "index-emacspeak_002determ_002dsearch_002dforward"></a>Interactive
+    Command: <strong>emacspeak-eterm-search-forward</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Search forward on the terminal.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002determ_002dset_002dfilter_002dwindow" id=
+    "index-emacspeak_002determ_002dset_002dfilter_002dwindow"></a>Interactive
+    Command: <strong>emacspeak-eterm-set-filter-window</strong>
+    <em>(flag)</em></dt>
+
+    <dd>
+      <p>Prompt for the id of a predefined window, and set the
+      &lsquo;filter&rsquo; window to it. Non-nil interactive prefix
+      arg &lsquo;unsets&rsquo; the filter window; this is
+      equivalent to having the entire terminal as the filter window
+      (this is what eterm starts up with). Setting the filter
+      window results in emacspeak only monitoring screen activity
+      within the filter window.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002determ_002dset_002dfocus_002dwindow" id=
+    "index-emacspeak_002determ_002dset_002dfocus_002dwindow"></a>Interactive
+    Command: <strong>emacspeak-eterm-set-focus-window</strong>
+    <em>(flag)</em></dt>
+
+    <dd>
+      <p>Prompt for the id of a predefined window, and set the
+      &lsquo;focus&rsquo; window to it. Non-nil interactive prefix
+      arg &lsquo;unsets&rsquo; the focus window; this is equivalent
+      to having the entire terminal as the focus window (this is
+      what eterm starts up with). Setting the focus window results
+      in emacspeak monitoring screen and speaking that window upon
+      seeing screen activity.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002determ_002dset_002dmarker" id=
+    "index-emacspeak_002determ_002dset_002dmarker"></a>Interactive
+    Command: <strong>emacspeak-eterm-set-marker</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Set Emacspeak eterm marker. This sets the emacspeak eterm
+      marker to the position pointed to by the emacspeak eterm
+      pointer.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002determ_002dspeak_002dcursor"
+    id="index-emacspeak_002determ_002dspeak_002dcursor"></a>Interactive
+    Command: <strong>emacspeak-eterm-speak-cursor</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak cursor position.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002determ_002dspeak_002dpointer"
+    id=
+    "index-emacspeak_002determ_002dspeak_002dpointer"></a>Interactive
+    Command: <strong>emacspeak-eterm-speak-pointer</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak current pointer position.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002determ_002dspeak_002dpointer_002dchar" id=
+    "index-emacspeak_002determ_002dspeak_002dpointer_002dchar"></a>Interactive
+    Command: <strong>emacspeak-eterm-speak-pointer-char</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p>Speak char under eterm pointer. Pronounces character
+      phonetically unless called with a PREFIX arg.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002determ_002dspeak_002dpointer_002dline" id=
+    "index-emacspeak_002determ_002dspeak_002dpointer_002dline"></a>Interactive
+    Command: <strong>emacspeak-eterm-speak-pointer-line</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak the line the pointer is on.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002determ_002dspeak_002dpointer_002dword" id=
+    "index-emacspeak_002determ_002dspeak_002dpointer_002dword"></a>Interactive
+    Command: <strong>emacspeak-eterm-speak-pointer-word</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak the word the pointer is on.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002determ_002dspeak_002dpredefined_002dwindow"
+    id=
+    "index-emacspeak_002determ_002dspeak_002dpredefined_002dwindow">
+    </a>Interactive Command:
+    <strong>emacspeak-eterm-speak-predefined-window</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak a predefined eterm window between 1 and 10.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002determ_002dspeak_002dscreen"
+    id="index-emacspeak_002determ_002dspeak_002dscreen"></a>Interactive
+    Command: <strong>emacspeak-eterm-speak-screen</strong>
+    <em>(&amp;optional flag)</em></dt>
+
+    <dd>
+      <p>Speak the screen. Default is to speak from the emacspeak
+      pointer to point. Optional prefix arg FLAG causes region
+      above the Emacspeak pointer to be spoken.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002determ_002dspeak_002dwindow"
+    id="index-emacspeak_002determ_002dspeak_002dwindow"></a>Interactive
+    Command: <strong>emacspeak-eterm-speak-window</strong>
+    <em>(id)</em></dt>
+
+    <dd>
+      <p>Speak an eterm window. Argument ID specifies the
+      window.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002determ_002dtoggle_002dfilter_002dwindow"
+    id="index-emacspeak_002determ_002dtoggle_002dfilter_002dwindow">
+    </a>Interactive Command:
+    <strong>emacspeak-eterm-toggle-filter-window</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Toggle active state of filter window.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002determ_002dtoggle_002dfocus_002dwindow" id=
+    "index-emacspeak_002determ_002dtoggle_002dfocus_002dwindow"></a>Interactive
+    Command: <strong>emacspeak-eterm-toggle-focus-window</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Toggle active state of focus window.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002determ_002dtoggle_002dpointer_002dmode" id=
+    "index-emacspeak_002determ_002dtoggle_002dpointer_002dmode"></a>Interactive
+    Command: <strong>emacspeak-eterm-toggle-pointer-mode</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p>Toggle emacspeak eterm pointer mode. With optional
+      interactive prefix arg, turn it on. When emacspeak eterm is
+      in pointer mode, the eterm read pointer stays where it is
+      rather than automatically moving to the terminal cursor when
+      there is terminal activity.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002determ_002dtoggle_002dreview"
+    id=
+    "index-emacspeak_002determ_002dtoggle_002dreview"></a>Interactive
+    Command: <strong>emacspeak-eterm-toggle-review</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Toggle state of eterm review. In review mode, you can move
+      around the terminal and listen to the contnets without
+      sending input to the terminal itself.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002determ_002dyank_002dwindow" id=
+    "index-emacspeak_002determ_002dyank_002dwindow"></a>Interactive
+    Command: <strong>emacspeak-eterm-yank-window</strong>
+    <em>(id)</em></dt>
+
+    <dd>
+      <p>Yank contents of an eterm window at point.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtoggle_002determ_002dautospeak" id=
+    "index-emacspeak_002dtoggle_002determ_002dautospeak"></a>Interactive
+    Command: <strong>emacspeak-toggle-eterm-autospeak</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p>Toggle state of eterm autospeak. When eterm autospeak is
+      turned on and the terminal is in line mode, all output to the
+      terminal is automatically spoken. Interactive prefix arg
+      means toggle the global default value, and then set the
+      current local value to the result.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href="emacspeak_002deudc.html#emacspeak_002deudc"
+    accesskey="n" rel="next">emacspeak-eudc</a>, Previous: <a href=
+    "emacspeak_002derc.html#emacspeak_002derc" accesskey="p" rel=
+    "prev">emacspeak-erc</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

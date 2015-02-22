@@ -1,374 +1,601 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: dtk-speak</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: dtk-speak">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: dtk-speak">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up" title="Emacspeak Commands">
-<link href="dtk_002dunicode.html#dtk_002dunicode" rel="next" title="dtk-unicode">
-<link href="dectalk_002dvoices.html#dectalk_002dvoices" rel="prev" title="dectalk-voices">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  dtk-speak</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: dtk-speak" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: dtk-speak" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
+  title="Emacspeak Commands" />
+  <link href="dtk_002dunicode.html#dtk_002dunicode" rel="next"
+  title="dtk-unicode" />
+  <link href="dectalk_002dvoices.html#dectalk_002dvoices" rel=
+  "prev" title="dectalk-voices" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="dtk_002dspeak"></a>
-<div class="header">
-<p>
-Next: <a href="dtk_002dunicode.html#dtk_002dunicode" accesskey="n" rel="next">dtk-unicode</a>, Previous: <a href="dectalk_002dvoices.html#dectalk_002dvoices" accesskey="p" rel="prev">dectalk-voices</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="dtk_002dspeak-1"></a>
-<h3 class="section">11.3 dtk-speak</h3>
+<body lang="en" xml:lang="en">
+  <a name="dtk_002dspeak" id="dtk_002dspeak"></a>
 
-<p>Commentary:
-Defines the TTS interface.
-</p>
-<p>Automatically generated documentation
-for commands defined in module  dtk-speak.
-</p>
-<dl>
-<dt><a name="index-dtk_002dadd_002dcleanup_002dpattern-1"></a>Interactive Command: <strong>dtk-add-cleanup-pattern</strong> <em>(&amp;optional delete)</em></dt>
-<dd><p><kbd>C-e d a</kbd>
-</p>
-<p>Add this pattern to the list of repeating patterns that
-are cleaned up.  Optional interactive prefix arg deletes
-this pattern if previously added.  Cleaning up repeated
-patterns results in emacspeak speaking the pattern followed
-by a repeat count instead of speaking all the characters
-making up the pattern.  Thus, by adding the repeating
-pattern &lsquo;.&rsquo; (this is already added by default) emacspeak
-will say &ldquo;aw fifteen dot&rdquo; when speaking the string
-&ldquo;...............&rdquo; instead of &ldquo;period period period period
-&rdquo;
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href="dtk_002dunicode.html#dtk_002dunicode"
+    accesskey="n" rel="next">dtk-unicode</a>, Previous: <a href=
+    "dectalk_002dvoices.html#dectalk_002dvoices" accesskey="p" rel=
+    "prev">dectalk-voices</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="dtk_002dspeak-1" id="dtk_002dspeak-1"></a>
 
-<dl>
-<dt><a name="index-dtk_002dasync_002dserver"></a>Interactive Command: <strong>dtk-async-server</strong> <em>(program)</em></dt>
-<dd><p><kbd>C-e d A</kbd>
-</p>
-<p>Select and start an async  speech server interactively.
-Async servers allow external programs like self-voicing Web browsers to use
-the Emacspeak TTS server abstraction.
-Argument PROGRAM specifies the speech server program.
-</p></dd></dl>
+  <h3 class="section">11.3 dtk-speak</h3>
 
-<dl>
-<dt><a name="index-dtk_002dlocal_002dserver"></a>Interactive Command: <strong>dtk-local-server</strong> <em>(program)</em></dt>
-<dd><p><kbd>C-e d L</kbd>
-</p>
-<p>Select and start an local  speech server interactively.
-Local server lets Emacspeak on a remote host connect back via SSH  port forwarding for instance.
-Argument PROGRAM specifies the speech server program.
-Port  defaults to  dtk-local-server-port
-</p></dd></dl>
+  <p>Commentary: Defines the TTS interface.</p>
 
-<dl>
-<dt><a name="index-dtk_002dpause-1"></a>Interactive Command: <strong>dtk-pause</strong> <em>nil</em></dt>
-<dd><p>Temporarily pause / resume speech.
-</p></dd></dl>
+  <p>Automatically generated documentation for commands defined in
+  module dtk-speak.</p>
 
-<dl>
-<dt><a name="index-dtk_002dreset_002dstate"></a>Interactive Command: <strong>dtk-reset-state</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e d R</kbd>
-</p>
-<p>Restore sanity to the Dectalk.
-Typically used after the Dectalk has been power   cycled.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-dtk_002dadd_002dcleanup_002dpattern-1" id=
+    "index-dtk_002dadd_002dcleanup_002dpattern-1"></a>Interactive
+    Command: <strong>dtk-add-cleanup-pattern</strong>
+    <em>(&amp;optional delete)</em></dt>
 
-<dl>
-<dt><a name="index-dtk_002dresume-1"></a>Interactive Command: <strong>dtk-resume</strong> <em>nil</em></dt>
-<dd><p>Resume paused speech.
-This command resumes  speech that has been suspended by executing
-command &lsquo;dtk-pause&rsquo; bound to M-x dtk-pause.
-If speech has not been paused,
-and option &lsquo;dtk-resume-should-toggle&rsquo; is set,
- then this command will pause ongoing speech.
-</p></dd></dl>
+    <dd>
+      <p><kbd>C-e d a</kbd></p>
 
-<dl>
-<dt><a name="index-dtk_002dselect_002dserver-1"></a>Interactive Command: <strong>dtk-select-server</strong> <em>(program &amp;optional device)</em></dt>
-<dd><p><kbd>C-e d d</kbd>
-</p>
-<p>Select a speech server interactively.
-Argument PROGRAM specifies the speech server program. When called
-interactively, The selected server is started
-immediately. Optional arg device sets up environment variable
-ALSA_DEFAULT to specified device before starting the server.
-</p></dd></dl>
+      <p>Add this pattern to the list of repeating patterns that
+      are cleaned up. Optional interactive prefix arg deletes this
+      pattern if previously added. Cleaning up repeated patterns
+      results in emacspeak speaking the pattern followed by a
+      repeat count instead of speaking all the characters making up
+      the pattern. Thus, by adding the repeating pattern
+      &lsquo;.&rsquo; (this is already added by default) emacspeak
+      will say &ldquo;aw fifteen dot&rdquo; when speaking the
+      string &ldquo;...............&rdquo; instead of &ldquo;period
+      period period period &rdquo;</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-dtk_002dset_002dcharacter_002dscale-1"></a>Interactive Command: <strong>dtk-set-character-scale</strong> <em>(factor &amp;optional prefix)</em></dt>
-<dd><p><kbd>C-e d f</kbd>
-</p>
-<p>Set scale FACTOR for   speech rate.
-Speech rate is scaled by this factor
-when speaking characters.
-Interactive PREFIX arg means set   the global default value, and then set the
-current local  value to the result.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-dtk_002dasync_002dserver" id=
+    "index-dtk_002dasync_002dserver"></a>Interactive Command:
+    <strong>dtk-async-server</strong> <em>(program)</em></dt>
 
-<dl>
-<dt><a name="index-dtk_002dset_002dchunk_002dseparator_002dsyntax-1"></a>Interactive Command: <strong>dtk-set-chunk-separator-syntax</strong> <em>(s)</em></dt>
-<dd><p><kbd>C-e d RET</kbd>
-</p>
-<p>Interactively set how text is split in chunks.
-See the Emacs documentation on syntax tables for details on how characters are
-classified into various syntactic classes.
-Argument S specifies the syntax class.
-</p></dd></dl>
+    <dd>
+      <p><kbd>C-e d A</kbd></p>
 
-<dl>
-<dt><a name="index-dtk_002dset_002dlanguage"></a>Interactive Command: <strong>dtk-set-language</strong> <em>(lang)</em></dt>
-<dd><p><kbd>C-e d S</kbd>
-</p>
-<p>Set language according to the argument lang.
-</p></dd></dl>
+      <p>Select and start an async speech server interactively.
+      Async servers allow external programs like self-voicing Web
+      browsers to use the Emacspeak TTS server abstraction.
+      Argument PROGRAM specifies the speech server program.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-dtk_002dset_002dnext_002dlanguage"></a>Interactive Command: <strong>dtk-set-next-language</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e d N</kbd>
-</p>
-<p>Switch to the next available language
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-dtk_002dlocal_002dserver" id=
+    "index-dtk_002dlocal_002dserver"></a>Interactive Command:
+    <strong>dtk-local-server</strong> <em>(program)</em></dt>
 
-<dl>
-<dt><a name="index-dtk_002dset_002dpredefined_002dspeech_002drate-1"></a>Interactive Command: <strong>dtk-set-predefined-speech-rate</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p><kbd>C-e d 9 C-e d 8 C-e d 7 C-e d 6 C-e d 5 C-e d 4 C-e d 3 C-e d 2 C-e d 1 C-e d 0</kbd>
-</p>
-<p>Set speech rate to one of nine predefined levels.
-Interactive PREFIX arg says to set the rate globally.
-Formula used is:
-rate = dtk-speech-rate-base + dtk-speech-rate-step * level.
-</p></dd></dl>
+    <dd>
+      <p><kbd>C-e d L</kbd></p>
 
-<dl>
-<dt><a name="index-dtk_002dset_002dpreferred_002dlanguage"></a>Interactive Command: <strong>dtk-set-preferred-language</strong> <em>(alias lang)</em></dt>
-<dd><p>Set the alias of the preferred language:
-For example if alias=&quot;en&quot; lang=&quot;en_GB&quot;,
-then the following call:
- dtk-set-language(&quot;en&quot;)
-will set &quot;en_GB&quot;.
-</p>
-</dd></dl>
+      <p>Select and start an local speech server interactively.
+      Local server lets Emacspeak on a remote host connect back via
+      SSH port forwarding for instance. Argument PROGRAM specifies
+      the speech server program. Port defaults to
+      dtk-local-server-port</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-dtk_002dset_002dprevious_002dlanguage"></a>Interactive Command: <strong>dtk-set-previous-language</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e d P</kbd>
-</p>
-<p>Switch to the previous available language
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-dtk_002dpause-1" id=
+    "index-dtk_002dpause-1"></a>Interactive Command:
+    <strong>dtk-pause</strong> <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-dtk_002dset_002dpunctuations-1"></a>Interactive Command: <strong>dtk-set-punctuations</strong> <em>(mode &amp;optional prefix)</em></dt>
-<dd><p><kbd>C-e d p</kbd>
-</p>
-<p>Set punctuation mode to MODE.
-Possible values are &lsquo;some&rsquo;, &lsquo;all&rsquo;, or &lsquo;none&rsquo;.
-Interactive PREFIX arg means set   the global default value, and then set the
-current local  value to the result.
-</p></dd></dl>
+    <dd>
+      <p>Temporarily pause / resume speech.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-dtk_002dset_002dpunctuations_002dto_002dall"></a>Interactive Command: <strong>dtk-set-punctuations-to-all</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p>Set punctuation  mode to all.
-Interactive PREFIX arg sets punctuation mode globally.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-dtk_002dreset_002dstate" id=
+    "index-dtk_002dreset_002dstate"></a>Interactive Command:
+    <strong>dtk-reset-state</strong> <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-dtk_002dset_002dpunctuations_002dto_002dsome"></a>Interactive Command: <strong>dtk-set-punctuations-to-some</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p>Set punctuation  mode to some.
-Interactive PREFIX arg sets punctuation mode globally.
-</p></dd></dl>
+    <dd>
+      <p><kbd>C-e d R</kbd></p>
 
-<dl>
-<dt><a name="index-dtk_002dset_002drate-1"></a>Interactive Command: <strong>dtk-set-rate</strong> <em>(rate &amp;optional prefix)</em></dt>
-<dd><p><kbd>C-e d r</kbd>
-</p>
-<p>Set speaking RATE for the tts.
-Interactive PREFIX arg means set   the global default value, and then set the
-current local  value to the result.
-</p></dd></dl>
+      <p>Restore sanity to the Dectalk. Typically used after the
+      Dectalk has been power cycled.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-dtk_002dstop-1"></a>Interactive Command: <strong>dtk-stop</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e s</kbd>
-</p>
-<p>Stop speech now.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-dtk_002dresume-1" id=
+    "index-dtk_002dresume-1"></a>Interactive Command:
+    <strong>dtk-resume</strong> <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-dtk_002dtoggle_002dallcaps_002dbeep-1"></a>Interactive Command: <strong>dtk-toggle-allcaps-beep</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p><kbd>C-e d C</kbd>
-</p>
-<p>Toggle allcaps-beep.
-when set, allcaps words  are  indicated by a
-short beep.  Interactive PREFIX arg means toggle the global default
-value, and then set the current local value to the result.
-Note that allcaps-beep is a very useful thing when programming.
-However it is irritating to have it on when reading documents.
-</p></dd></dl>
+    <dd>
+      <p>Resume paused speech. This command resumes speech that has
+      been suspended by executing command &lsquo;dtk-pause&rsquo;
+      bound to M-x dtk-pause. If speech has not been paused, and
+      option &lsquo;dtk-resume-should-toggle&rsquo; is set, then
+      this command will pause ongoing speech.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-dtk_002dtoggle_002dcapitalization-1"></a>Interactive Command: <strong>dtk-toggle-capitalization</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p><kbd>C-e d c</kbd>
-</p>
-<p>Toggle capitalization.
-when set, capitalization is indicated by a
-short beep.  Interactive PREFIX arg means toggle the global default
-value, and then set the current local value to the result.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-dtk_002dselect_002dserver-1" id=
+    "index-dtk_002dselect_002dserver-1"></a>Interactive Command:
+    <strong>dtk-select-server</strong> <em>(program &amp;optional
+    device)</em></dt>
 
-<dl>
-<dt><a name="index-dtk_002dtoggle_002ddebug"></a>Interactive Command: <strong>dtk-toggle-debug</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p><kbd>C-e d b</kbd>
-</p>
-<p>Toggle state of the debug FLAG.
-When debugging is on, you can switch to the buffer
-*speaker* to examine the output from the process
-that talks to the speech device by using command C-e d C-M-b.
-Note: *speaker* is a hidden buffer, ie it has a leading space in its name.
-</p></dd></dl>
+    <dd>
+      <p><kbd>C-e d d</kbd></p>
 
-<dl>
-<dt><a name="index-dtk_002dtoggle_002dpunctuation_002dmode"></a>Interactive Command: <strong>dtk-toggle-punctuation-mode</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p><kbd>C-e d ,</kbd>
-</p>
-<p>Toggle punctuation mode between &quot;some&quot; and &quot;all&quot;.
-Interactive PREFIX arg makes the new setting global.
-</p></dd></dl>
+      <p>Select a speech server interactively. Argument PROGRAM
+      specifies the speech server program. When called
+      interactively, The selected server is started immediately.
+      Optional arg device sets up environment variable ALSA_DEFAULT
+      to specified device before starting the server.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-dtk_002dtoggle_002dquiet-1"></a>Interactive Command: <strong>dtk-toggle-quiet</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p><kbd>C-e d q</kbd>
-</p>
-<p>Toggles state of  dtk-quiet.
-Turning on this switch silences speech.
-Optional interactive prefix arg causes this setting to become global.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-dtk_002dset_002dcharacter_002dscale-1" id=
+    "index-dtk_002dset_002dcharacter_002dscale-1"></a>Interactive
+    Command: <strong>dtk-set-character-scale</strong> <em>(factor
+    &amp;optional prefix)</em></dt>
 
-<dl>
-<dt><a name="index-dtk_002dtoggle_002dspeak_002dnonprinting_002dchars"></a>Interactive Command: <strong>dtk-toggle-speak-nonprinting-chars</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p><kbd>C-e d n</kbd>
-</p>
-<p>Toggle speak-nonprinting-chars.
-Switches behavior of how characters with the high bit set are handled.
-Interactive PREFIX arg means toggle the global default
-value, and then set the current local value to the result.
-</p></dd></dl>
+    <dd>
+      <p><kbd>C-e d f</kbd></p>
 
-<dl>
-<dt><a name="index-dtk_002dtoggle_002dsplit_002dcaps-1"></a>Interactive Command: <strong>dtk-toggle-split-caps</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p><kbd>C-e d s</kbd>
-</p>
-<p>Toggle split caps mode.
-Split caps mode is useful when reading
-Hungarian notation in program source code.  Interactive PREFIX arg
-means toggle the global default value, and then set the current local
-value to the result.
-</p></dd></dl>
+      <p>Set scale FACTOR for speech rate. Speech rate is scaled by
+      this factor when speaking characters. Interactive PREFIX arg
+      means set the global default value, and then set the current
+      local value to the result.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-dtk_002dtoggle_002dsplitting_002don_002dwhite_002dspace-1"></a>Interactive Command: <strong>dtk-toggle-splitting-on-white-space</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e d SPC</kbd>
-</p>
-<p>Toggle splitting of speech on white space.
-This affects the internal state of emacspeak that decides if we split
-text purely by clause boundaries, or also include
-whitespace.  By default, emacspeak sends a clause at a time
-to the speech device.  This produces fluent speech for
-normal use.  However in modes such as &lsquo;shell-mode&rsquo; and some
-programming language modes, clause markers appear
-infrequently, and this can result in large amounts of text
-being sent to the speech device at once, making the system
-unresponsive when asked to stop talking.  Splitting on white
-space makes emacspeak&rsquo;s stop command responsive.  However,
-when splitting on white space, the speech sounds choppy
-since the synthesizer is getting a word at a time.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-dtk_002dset_002dchunk_002dseparator_002dsyntax-1" id=
+    "index-dtk_002dset_002dchunk_002dseparator_002dsyntax-1"></a>Interactive
+    Command: <strong>dtk-set-chunk-separator-syntax</strong>
+    <em>(s)</em></dt>
 
-<dl>
-<dt><a name="index-dtk_002dtoggle_002dstrip_002doctals"></a>Interactive Command: <strong>dtk-toggle-strip-octals</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p><kbd>C-e d o</kbd>
-</p>
-<p>Toggle stripping of octals.
-Interactive prefix arg means
- toggle the global default value, and then set the current local
-value to the result.
-</p></dd></dl>
+    <dd>
+      <p><kbd>C-e d RET</kbd></p>
 
-<dl>
-<dt><a name="index-tts_002dcycle_002ddevice"></a>Interactive Command: <strong>tts-cycle-device</strong> <em>(&amp;optional restart)</em></dt>
-<dd><p>Cycle through available ALSA devices.
-Optional interactive prefix arg restarts current TTS server.
-</p></dd></dl>
+      <p>Interactively set how text is split in chunks. See the
+      Emacs documentation on syntax tables for details on how
+      characters are classified into various syntactic classes.
+      Argument S specifies the syntax class.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-tts_002drestart"></a>Interactive Command: <strong>tts-restart</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e C-s</kbd>
-</p>
-<p>Use this to nuke the currently running TTS server and restart it.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-dtk_002dset_002dlanguage" id=
+    "index-dtk_002dset_002dlanguage"></a>Interactive Command:
+    <strong>dtk-set-language</strong> <em>(lang)</em></dt>
 
-<dl>
-<dt><a name="index-tts_002dshow_002ddebug_002dbuffer"></a>Interactive Command: <strong>tts-show-debug-buffer</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e d C-M-b</kbd>
-</p>
-<p>Select TTS debugging buffer.
-</p></dd></dl>
+    <dd>
+      <p><kbd>C-e d S</kbd></p>
 
-<dl>
-<dt><a name="index-tts_002dspeak_002dversion"></a>Interactive Command: <strong>tts-speak-version</strong> <em>nil</em></dt>
-<dd><p><kbd>C-e d V</kbd>
-</p>
-<p>Speak version.
-</p></dd></dl>
+      <p>Set language according to the argument lang.</p>
+    </dd>
+  </dl>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="dtk_002dunicode.html#dtk_002dunicode" accesskey="n" rel="next">dtk-unicode</a>, Previous: <a href="dectalk_002dvoices.html#dectalk_002dvoices" accesskey="p" rel="prev">dectalk-voices</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+  <dl>
+    <dt><a name="index-dtk_002dset_002dnext_002dlanguage" id=
+    "index-dtk_002dset_002dnext_002dlanguage"></a>Interactive
+    Command: <strong>dtk-set-next-language</strong>
+    <em>nil</em></dt>
 
+    <dd>
+      <p><kbd>C-e d N</kbd></p>
 
+      <p>Switch to the next available language</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name=
+    "index-dtk_002dset_002dpredefined_002dspeech_002drate-1" id=
+    "index-dtk_002dset_002dpredefined_002dspeech_002drate-1"></a>Interactive
+    Command: <strong>dtk-set-predefined-speech-rate</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p><kbd>C-e d 9 C-e d 8 C-e d 7 C-e d 6 C-e d 5 C-e d 4 C-e d
+      3 C-e d 2 C-e d 1 C-e d 0</kbd></p>
+
+      <p>Set speech rate to one of nine predefined levels.
+      Interactive PREFIX arg says to set the rate globally. Formula
+      used is: rate = dtk-speech-rate-base + dtk-speech-rate-step *
+      level.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-dtk_002dset_002dpreferred_002dlanguage" id=
+    "index-dtk_002dset_002dpreferred_002dlanguage"></a>Interactive
+    Command: <strong>dtk-set-preferred-language</strong> <em>(alias
+    lang)</em></dt>
+
+    <dd>
+      <p>Set the alias of the preferred language: For example if
+      alias="en" lang="en_GB", then the following call:
+      dtk-set-language("en") will set "en_GB".</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-dtk_002dset_002dprevious_002dlanguage" id=
+    "index-dtk_002dset_002dprevious_002dlanguage"></a>Interactive
+    Command: <strong>dtk-set-previous-language</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e d P</kbd></p>
+
+      <p>Switch to the previous available language</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-dtk_002dset_002dpunctuations-1" id=
+    "index-dtk_002dset_002dpunctuations-1"></a>Interactive Command:
+    <strong>dtk-set-punctuations</strong> <em>(mode &amp;optional
+    prefix)</em></dt>
+
+    <dd>
+      <p><kbd>C-e d p</kbd></p>
+
+      <p>Set punctuation mode to MODE. Possible values are
+      &lsquo;some&rsquo;, &lsquo;all&rsquo;, or &lsquo;none&rsquo;.
+      Interactive PREFIX arg means set the global default value,
+      and then set the current local value to the result.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-dtk_002dset_002dpunctuations_002dto_002dall"
+    id=
+    "index-dtk_002dset_002dpunctuations_002dto_002dall"></a>Interactive
+    Command: <strong>dtk-set-punctuations-to-all</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p>Set punctuation mode to all. Interactive PREFIX arg sets
+      punctuation mode globally.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-dtk_002dset_002dpunctuations_002dto_002dsome" id=
+    "index-dtk_002dset_002dpunctuations_002dto_002dsome"></a>Interactive
+    Command: <strong>dtk-set-punctuations-to-some</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p>Set punctuation mode to some. Interactive PREFIX arg sets
+      punctuation mode globally.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-dtk_002dset_002drate-1" id=
+    "index-dtk_002dset_002drate-1"></a>Interactive Command:
+    <strong>dtk-set-rate</strong> <em>(rate &amp;optional
+    prefix)</em></dt>
+
+    <dd>
+      <p><kbd>C-e d r</kbd></p>
+
+      <p>Set speaking RATE for the tts. Interactive PREFIX arg
+      means set the global default value, and then set the current
+      local value to the result.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-dtk_002dstop-1" id=
+    "index-dtk_002dstop-1"></a>Interactive Command:
+    <strong>dtk-stop</strong> <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e s</kbd></p>
+
+      <p>Stop speech now.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-dtk_002dtoggle_002dallcaps_002dbeep-1" id=
+    "index-dtk_002dtoggle_002dallcaps_002dbeep-1"></a>Interactive
+    Command: <strong>dtk-toggle-allcaps-beep</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p><kbd>C-e d C</kbd></p>
+
+      <p>Toggle allcaps-beep. when set, allcaps words are indicated
+      by a short beep. Interactive PREFIX arg means toggle the
+      global default value, and then set the current local value to
+      the result. Note that allcaps-beep is a very useful thing
+      when programming. However it is irritating to have it on when
+      reading documents.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-dtk_002dtoggle_002dcapitalization-1" id=
+    "index-dtk_002dtoggle_002dcapitalization-1"></a>Interactive
+    Command: <strong>dtk-toggle-capitalization</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p><kbd>C-e d c</kbd></p>
+
+      <p>Toggle capitalization. when set, capitalization is
+      indicated by a short beep. Interactive PREFIX arg means
+      toggle the global default value, and then set the current
+      local value to the result.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-dtk_002dtoggle_002ddebug" id=
+    "index-dtk_002dtoggle_002ddebug"></a>Interactive Command:
+    <strong>dtk-toggle-debug</strong> <em>(&amp;optional
+    prefix)</em></dt>
+
+    <dd>
+      <p><kbd>C-e d b</kbd></p>
+
+      <p>Toggle state of the debug FLAG. When debugging is on, you
+      can switch to the buffer *speaker* to examine the output from
+      the process that talks to the speech device by using command
+      C-e d C-M-b. Note: *speaker* is a hidden buffer, ie it has a
+      leading space in its name.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-dtk_002dtoggle_002dpunctuation_002dmode" id=
+    "index-dtk_002dtoggle_002dpunctuation_002dmode"></a>Interactive
+    Command: <strong>dtk-toggle-punctuation-mode</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p><kbd>C-e d ,</kbd></p>
+
+      <p>Toggle punctuation mode between "some" and "all".
+      Interactive PREFIX arg makes the new setting global.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-dtk_002dtoggle_002dquiet-1" id=
+    "index-dtk_002dtoggle_002dquiet-1"></a>Interactive Command:
+    <strong>dtk-toggle-quiet</strong> <em>(&amp;optional
+    prefix)</em></dt>
+
+    <dd>
+      <p><kbd>C-e d q</kbd></p>
+
+      <p>Toggles state of dtk-quiet. Turning on this switch
+      silences speech. Optional interactive prefix arg causes this
+      setting to become global.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-dtk_002dtoggle_002dspeak_002dnonprinting_002dchars" id=
+    "index-dtk_002dtoggle_002dspeak_002dnonprinting_002dchars"></a>Interactive
+    Command: <strong>dtk-toggle-speak-nonprinting-chars</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p><kbd>C-e d n</kbd></p>
+
+      <p>Toggle speak-nonprinting-chars. Switches behavior of how
+      characters with the high bit set are handled. Interactive
+      PREFIX arg means toggle the global default value, and then
+      set the current local value to the result.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-dtk_002dtoggle_002dsplit_002dcaps-1" id=
+    "index-dtk_002dtoggle_002dsplit_002dcaps-1"></a>Interactive
+    Command: <strong>dtk-toggle-split-caps</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p><kbd>C-e d s</kbd></p>
+
+      <p>Toggle split caps mode. Split caps mode is useful when
+      reading Hungarian notation in program source code.
+      Interactive PREFIX arg means toggle the global default value,
+      and then set the current local value to the result.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-dtk_002dtoggle_002dsplitting_002don_002dwhite_002dspace-1"
+    id=
+    "index-dtk_002dtoggle_002dsplitting_002don_002dwhite_002dspace-1">
+    </a>Interactive Command:
+    <strong>dtk-toggle-splitting-on-white-space</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e d SPC</kbd></p>
+
+      <p>Toggle splitting of speech on white space. This affects
+      the internal state of emacspeak that decides if we split text
+      purely by clause boundaries, or also include whitespace. By
+      default, emacspeak sends a clause at a time to the speech
+      device. This produces fluent speech for normal use. However
+      in modes such as &lsquo;shell-mode&rsquo; and some
+      programming language modes, clause markers appear
+      infrequently, and this can result in large amounts of text
+      being sent to the speech device at once, making the system
+      unresponsive when asked to stop talking. Splitting on white
+      space makes emacspeak&rsquo;s stop command responsive.
+      However, when splitting on white space, the speech sounds
+      choppy since the synthesizer is getting a word at a time.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-dtk_002dtoggle_002dstrip_002doctals" id=
+    "index-dtk_002dtoggle_002dstrip_002doctals"></a>Interactive
+    Command: <strong>dtk-toggle-strip-octals</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p><kbd>C-e d o</kbd></p>
+
+      <p>Toggle stripping of octals. Interactive prefix arg means
+      toggle the global default value, and then set the current
+      local value to the result.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-tts_002dcycle_002ddevice" id=
+    "index-tts_002dcycle_002ddevice"></a>Interactive Command:
+    <strong>tts-cycle-device</strong> <em>(&amp;optional
+    restart)</em></dt>
+
+    <dd>
+      <p>Cycle through available ALSA devices. Optional interactive
+      prefix arg restarts current TTS server.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-tts_002drestart" id=
+    "index-tts_002drestart"></a>Interactive Command:
+    <strong>tts-restart</strong> <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e C-s</kbd></p>
+
+      <p>Use this to nuke the currently running TTS server and
+      restart it.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-tts_002dshow_002ddebug_002dbuffer" id=
+    "index-tts_002dshow_002ddebug_002dbuffer"></a>Interactive
+    Command: <strong>tts-show-debug-buffer</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e d C-M-b</kbd></p>
+
+      <p>Select TTS debugging buffer.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-tts_002dspeak_002dversion" id=
+    "index-tts_002dspeak_002dversion"></a>Interactive Command:
+    <strong>tts-speak-version</strong> <em>nil</em></dt>
+
+    <dd>
+      <p><kbd>C-e d V</kbd></p>
+
+      <p>Speak version.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href="dtk_002dunicode.html#dtk_002dunicode"
+    accesskey="n" rel="next">dtk-unicode</a>, Previous: <a href=
+    "dectalk_002dvoices.html#dectalk_002dvoices" accesskey="p" rel=
+    "prev">dectalk-voices</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

@@ -1,278 +1,576 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-table-ui</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-table-ui">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-table-ui">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up" title="Emacspeak Commands">
-<link href="emacspeak_002dtabulate.html#emacspeak_002dtabulate" rel="next" title="emacspeak-tabulate">
-<link href="emacspeak_002dsudoku.html#emacspeak_002dsudoku" rel="prev" title="emacspeak-sudoku">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-table-ui</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-table-ui" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-table-ui" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-Commands.html#Emacspeak-Commands" rel="up"
+  title="Emacspeak Commands" />
+  <link href="emacspeak_002dtabulate.html#emacspeak_002dtabulate"
+  rel="next" title="emacspeak-tabulate" />
+  <link href="emacspeak_002dsudoku.html#emacspeak_002dsudoku" rel=
+  "prev" title="emacspeak-sudoku" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dtable_002dui"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dtabulate.html#emacspeak_002dtabulate" accesskey="n" rel="next">emacspeak-tabulate</a>, Previous: <a href="emacspeak_002dsudoku.html#emacspeak_002dsudoku" accesskey="p" rel="prev">emacspeak-sudoku</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dtable_002dui-1"></a>
-<h3 class="section">11.63 emacspeak-table-ui</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dtable_002dui" id=
+  "emacspeak_002dtable_002dui"></a>
 
-<p>No Commentary
-</p>
-<p>Automatically generated documentation
-for commands defined in module  emacspeak-table-ui.
-</p>
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dcopy_002dcurrent_002delement_002dto_002dkill_002dring"></a>Interactive Command: <strong>emacspeak-table-copy-current-element-to-kill-ring</strong> <em>nil</em></dt>
-<dd><p>Copy current table element to kill ring.
-</p></dd></dl>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dtabulate.html#emacspeak_002dtabulate" accesskey=
+    "n" rel="next">emacspeak-tabulate</a>, Previous: <a href=
+    "emacspeak_002dsudoku.html#emacspeak_002dsudoku" accesskey="p"
+    rel="prev">emacspeak-sudoku</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dtable_002dui-1" id=
+  "emacspeak_002dtable_002dui-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dcopy_002dcurrent_002delement_002dto_002dregister"></a>Interactive Command: <strong>emacspeak-table-copy-current-element-to-register</strong> <em>(register)</em></dt>
-<dd><p>Copy current table element to specified register.
-</p></dd></dl>
+  <h3 class="section">11.64 emacspeak-table-ui</h3>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dcopy_002dto_002dclipboard"></a>Interactive Command: <strong>emacspeak-table-copy-to-clipboard</strong> <em>nil</em></dt>
-<dd><p>Copy table in current buffer to the table clipboard.
-Current buffer must be in emacspeak-table mode.
-</p></dd></dl>
+  <p>No Commentary</p>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002ddisplay_002dtable_002din_002dregion"></a>Interactive Command: <strong>emacspeak-table-display-table-in-region</strong> <em>(start end)</em></dt>
-<dd><p><kbd>C-e TAB</kbd>
-</p>
-<p>Recognize tabular data in current region and display it in table
-browsing mode in a a separate buffer.
-emacspeak table mode is designed to let you browse tabular data using
-all the power of the two-dimensional spatial layout while giving you
-sufficient contextual information.  The tables subdirectory of the
-emacspeak distribution contains some sample tables &ndash;these are the
-CalTrain schedules.  Execute command &lsquo;describe-mode&rsquo; bound to
-C-h m in a buffer that is in emacspeak table mode to read
-the documentation on the table browser.
-</p></dd></dl>
+  <p>Automatically generated documentation for commands defined in
+  module emacspeak-table-ui.</p>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dfind_002dcsv_002dfile"></a>Interactive Command: <strong>emacspeak-table-find-csv-file</strong> <em>(filename)</em></dt>
-<dd><p>Process a csv (comma separated values) file.
-The processed  data and presented using emacspeak table navigation. 
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtable_002dcopy_002dcurrent_002delement_002dto_002dkill_002dring"
+    id=
+    "index-emacspeak_002dtable_002dcopy_002dcurrent_002delement_002dto_002dkill_002dring">
+    </a>Interactive Command:
+    <strong>emacspeak-table-copy-current-element-to-kill-ring</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dfind_002dfile"></a>Interactive Command: <strong>emacspeak-table-find-file</strong> <em>(filename)</em></dt>
-<dd><p><kbd>C-e C-t</kbd>
-</p>
-<p>Open a file containing table data and display it in table mode.
-emacspeak table mode is designed to let you browse tabular data using
-all the power of the two-dimensional spatial layout while giving you
-sufficient contextual information.  The etc/tables subdirectory of the
-emacspeak distribution contains some sample tables &ndash;these are the
-CalTrain schedules.  Execute command &lsquo;describe-mode&rsquo; bound to
-C-h m in a buffer that is in emacspeak table mode to read
-the documentation on the table browser.
-</p></dd></dl>
+    <dd>
+      <p>Copy current table element to kill ring.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dget_002dentry_002dwith_002dheaders"></a>Interactive Command: <strong>emacspeak-table-get-entry-with-headers</strong> <em>(row column &amp;optional row-head-p col-head-p)</em></dt>
-<dd><p>Return   both row and column header and table element
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtable_002dcopy_002dcurrent_002delement_002dto_002dregister"
+    id=
+    "index-emacspeak_002dtable_002dcopy_002dcurrent_002delement_002dto_002dregister">
+    </a>Interactive Command:
+    <strong>emacspeak-table-copy-current-element-to-register</strong>
+    <em>(register)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dgoto"></a>Interactive Command: <strong>emacspeak-table-goto</strong> <em>(row column)</em></dt>
-<dd><p>Prompt for a table cell coordinates and jump to it.
-</p></dd></dl>
+    <dd>
+      <p>Copy current table element to specified register.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dgoto_002dbottom"></a>Interactive Command: <strong>emacspeak-table-goto-bottom</strong> <em>nil</em></dt>
-<dd><p>Goes to the bottom of the current column.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtable_002dcopy_002dto_002dclipboard" id=
+    "index-emacspeak_002dtable_002dcopy_002dto_002dclipboard"></a>Interactive
+    Command: <strong>emacspeak-table-copy-to-clipboard</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dgoto_002dleft"></a>Interactive Command: <strong>emacspeak-table-goto-left</strong> <em>nil</em></dt>
-<dd><p>Goes to the left of the current row.
-</p></dd></dl>
+    <dd>
+      <p>Copy table in current buffer to the table clipboard.
+      Current buffer must be in emacspeak-table mode.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dgoto_002dright"></a>Interactive Command: <strong>emacspeak-table-goto-right</strong> <em>nil</em></dt>
-<dd><p>Goes to the right of the current row.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtable_002ddisplay_002dtable_002din_002dregion"
+    id=
+    "index-emacspeak_002dtable_002ddisplay_002dtable_002din_002dregion">
+    </a>Interactive Command:
+    <strong>emacspeak-table-display-table-in-region</strong>
+    <em>(start end)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dgoto_002dtop"></a>Interactive Command: <strong>emacspeak-table-goto-top</strong> <em>nil</em></dt>
-<dd><p>Goes to the top of the current column.
-</p></dd></dl>
+    <dd>
+      <p><kbd>C-e TAB</kbd></p>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dnext_002dcolumn"></a>Interactive Command: <strong>emacspeak-table-next-column</strong> <em>(&amp;optional count)</em></dt>
-<dd><p>Move to the next column if possible
-</p></dd></dl>
+      <p>Recognize tabular data in current region and display it in
+      table browsing mode in a a separate buffer. emacspeak table
+      mode is designed to let you browse tabular data using all the
+      power of the two-dimensional spatial layout while giving you
+      sufficient contextual information. The tables subdirectory of
+      the emacspeak distribution contains some sample tables
+      &ndash;these are the CalTrain schedules. Execute command
+      &lsquo;describe-mode&rsquo; bound to C-h m in a buffer that
+      is in emacspeak table mode to read the documentation on the
+      table browser.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dnext_002drow"></a>Interactive Command: <strong>emacspeak-table-next-row</strong> <em>(&amp;optional count)</em></dt>
-<dd><p>Move to the next row if possible
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtable_002dfind_002dcsv_002dfile" id=
+    "index-emacspeak_002dtable_002dfind_002dcsv_002dfile"></a>Interactive
+    Command: <strong>emacspeak-table-find-csv-file</strong>
+    <em>(filename)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dpaste_002dfrom_002dclipboard"></a>Interactive Command: <strong>emacspeak-table-paste-from-clipboard</strong> <em>nil</em></dt>
-<dd><p>Paste the emacspeak table clipboard into the current buffer.
-Use the major  mode of this buffer to  decide what kind of table
-markup to use.
-</p></dd></dl>
+    <dd>
+      <p>Process a csv (comma separated values) file. The processed
+      data and presented using emacspeak table navigation.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dprevious_002dcolumn"></a>Interactive Command: <strong>emacspeak-table-previous-column</strong> <em>(&amp;optional count)</em></dt>
-<dd><p>Move to the previous column  if possible
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dtable_002dfind_002dfile" id=
+    "index-emacspeak_002dtable_002dfind_002dfile"></a>Interactive
+    Command: <strong>emacspeak-table-find-file</strong>
+    <em>(filename)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dprevious_002drow"></a>Interactive Command: <strong>emacspeak-table-previous-row</strong> <em>(&amp;optional count)</em></dt>
-<dd><p>Move to the previous row if possible
-</p></dd></dl>
+    <dd>
+      <p><kbd>C-e C-t</kbd></p>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dsearch"></a>Interactive Command: <strong>emacspeak-table-search</strong> <em>(&amp;optional what)</em></dt>
-<dd><p>Search the table for matching elements.  Interactively prompts for
-row or column to search and pattern to look for.    If there is a match, makes
-the matching cell current. When called from a program, &lsquo;what&rsquo; can
-  be either &lsquo;row&rsquo; or &lsquo;column&rsquo;.
-</p></dd></dl>
+      <p>Open a file containing table data and display it in table
+      mode. emacspeak table mode is designed to let you browse
+      tabular data using all the power of the two-dimensional
+      spatial layout while giving you sufficient contextual
+      information. The etc/tables subdirectory of the emacspeak
+      distribution contains some sample tables &ndash;these are the
+      CalTrain schedules. Execute command
+      &lsquo;describe-mode&rsquo; bound to C-h m in a buffer that
+      is in emacspeak table mode to read the documentation on the
+      table browser.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dsearch_002dcolumn"></a>Interactive Command: <strong>emacspeak-table-search-column</strong> <em>nil</em></dt>
-<dd><p>Search in current table column.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtable_002dget_002dentry_002dwith_002dheaders"
+    id=
+    "index-emacspeak_002dtable_002dget_002dentry_002dwith_002dheaders">
+    </a>Interactive Command:
+    <strong>emacspeak-table-get-entry-with-headers</strong>
+    <em>(row column &amp;optional row-head-p col-head-p)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dsearch_002dheaders"></a>Interactive Command: <strong>emacspeak-table-search-headers</strong> <em>nil</em></dt>
-<dd><p>Search the table row or column headers.  Interactively prompts for
-row or column to search and pattern to look for.  If there is a
-match, makes the matching row or column current.
-</p></dd></dl>
+    <dd>
+      <p>Return both row and column header and table element</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dsearch_002drow"></a>Interactive Command: <strong>emacspeak-table-search-row</strong> <em>nil</em></dt>
-<dd><p>Search in current table row.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dtable_002dgoto" id=
+    "index-emacspeak_002dtable_002dgoto"></a>Interactive Command:
+    <strong>emacspeak-table-goto</strong> <em>(row
+    column)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dselect_002dautomatic_002dspeaking_002dmethod"></a>Interactive Command: <strong>emacspeak-table-select-automatic-speaking-method</strong> <em>nil</em></dt>
-<dd><p>Interactively select the kind of automatic speech to produce when
-browsing table elements
-</p></dd></dl>
+    <dd>
+      <p>Prompt for a table cell coordinates and jump to it.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dsort_002don_002dcurrent_002dcolumn"></a>Interactive Command: <strong>emacspeak-table-sort-on-current-column</strong> <em>nil</em></dt>
-<dd><p>Sort table on current column. 
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dtable_002dgoto_002dbottom" id=
+    "index-emacspeak_002dtable_002dgoto_002dbottom"></a>Interactive
+    Command: <strong>emacspeak-table-goto-bottom</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement"></a>Interactive Command: <strong>emacspeak-table-speak-both-headers-and-element</strong> <em>nil</em></dt>
-<dd><p>Speak  both row and column header and table element
-</p></dd></dl>
+    <dd>
+      <p>Goes to the bottom of the current column.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dspeak_002dcolumn_002dfiltered"></a>Interactive Command: <strong>emacspeak-table-speak-column-filtered</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p>Speaks a table column after applying a specified column filter.
-Optional prefix arg prompts for a new filter.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dtable_002dgoto_002dleft" id=
+    "index-emacspeak_002dtable_002dgoto_002dleft"></a>Interactive
+    Command: <strong>emacspeak-table-goto-left</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement"></a>Interactive Command: <strong>emacspeak-table-speak-column-header-and-element</strong> <em>nil</em></dt>
-<dd><p>Speak  column header and table element
-</p></dd></dl>
+    <dd>
+      <p>Goes to the left of the current row.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dspeak_002dcoordinates"></a>Interactive Command: <strong>emacspeak-table-speak-coordinates</strong> <em>nil</em></dt>
-<dd><p>Speak current table coordinates.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dtable_002dgoto_002dright" id=
+    "index-emacspeak_002dtable_002dgoto_002dright"></a>Interactive
+    Command: <strong>emacspeak-table-goto-right</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dspeak_002dcurrent_002delement"></a>Interactive Command: <strong>emacspeak-table-speak-current-element</strong> <em>nil</em></dt>
-<dd><p>Speak current table element
-</p></dd></dl>
+    <dd>
+      <p>Goes to the right of the current row.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dspeak_002ddimensions"></a>Interactive Command: <strong>emacspeak-table-speak-dimensions</strong> <em>nil</em></dt>
-<dd><p>Speak current table dimensions.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dtable_002dgoto_002dtop" id=
+    "index-emacspeak_002dtable_002dgoto_002dtop"></a>Interactive
+    Command: <strong>emacspeak-table-goto-top</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dspeak_002drow_002dfiltered"></a>Interactive Command: <strong>emacspeak-table-speak-row-filtered</strong> <em>(&amp;optional prefix)</em></dt>
-<dd><p>Speaks a table row after applying a specified row filter.
-Optional prefix arg prompts for a new filter.
-</p></dd></dl>
+    <dd>
+      <p>Goes to the top of the current column.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dspeak_002drow_002dheader_002dand_002delement"></a>Interactive Command: <strong>emacspeak-table-speak-row-header-and-element</strong> <em>nil</em></dt>
-<dd><p>Speak  row header and table element
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dtable_002dnext_002dcolumn" id=
+    "index-emacspeak_002dtable_002dnext_002dcolumn"></a>Interactive
+    Command: <strong>emacspeak-table-next-column</strong>
+    <em>(&amp;optional count)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dui_002dfilter_002dload"></a>Interactive Command: <strong>emacspeak-table-ui-filter-load</strong> <em>(file)</em></dt>
-<dd><p>Load saved filter settings.
-</p></dd></dl>
+    <dd>
+      <p>Move to the next column if possible</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dui_002dfilter_002dsave"></a>Interactive Command: <strong>emacspeak-table-ui-filter-save</strong> <em>(file)</em></dt>
-<dd><p>Save out filter settings.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dtable_002dnext_002drow" id=
+    "index-emacspeak_002dtable_002dnext_002drow"></a>Interactive
+    Command: <strong>emacspeak-table-next-row</strong>
+    <em>(&amp;optional count)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dtable_002dview_002dcsv_002dbuffer"></a>Interactive Command: <strong>emacspeak-table-view-csv-buffer</strong> <em>(&amp;optional buffer-name)</em></dt>
-<dd><p>Process a csv (comma separated values) data.
-The processed  data and presented using emacspeak table navigation. 
-</p></dd></dl>
+    <dd>
+      <p>Move to the next row if possible</p>
+    </dd>
+  </dl>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dtabulate.html#emacspeak_002dtabulate" accesskey="n" rel="next">emacspeak-tabulate</a>, Previous: <a href="emacspeak_002dsudoku.html#emacspeak_002dsudoku" accesskey="p" rel="prev">emacspeak-sudoku</a>, Up: <a href="Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel="up">Emacspeak Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtable_002dpaste_002dfrom_002dclipboard"
+    id="index-emacspeak_002dtable_002dpaste_002dfrom_002dclipboard">
+    </a>Interactive Command:
+    <strong>emacspeak-table-paste-from-clipboard</strong>
+    <em>nil</em></dt>
 
+    <dd>
+      <p>Paste the emacspeak table clipboard into the current
+      buffer. Use the major mode of this buffer to decide what kind
+      of table markup to use.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-emacspeak_002dtable_002dprevious_002dcolumn"
+    id=
+    "index-emacspeak_002dtable_002dprevious_002dcolumn"></a>Interactive
+    Command: <strong>emacspeak-table-previous-column</strong>
+    <em>(&amp;optional count)</em></dt>
 
+    <dd>
+      <p>Move to the previous column if possible</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dtable_002dprevious_002drow"
+    id="index-emacspeak_002dtable_002dprevious_002drow"></a>Interactive
+    Command: <strong>emacspeak-table-previous-row</strong>
+    <em>(&amp;optional count)</em></dt>
+
+    <dd>
+      <p>Move to the previous row if possible</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dtable_002dsearch" id=
+    "index-emacspeak_002dtable_002dsearch"></a>Interactive Command:
+    <strong>emacspeak-table-search</strong> <em>(&amp;optional
+    what)</em></dt>
+
+    <dd>
+      <p>Search the table for matching elements. Interactively
+      prompts for row or column to search and pattern to look for.
+      If there is a match, makes the matching cell current. When
+      called from a program, &lsquo;what&rsquo; can be either
+      &lsquo;row&rsquo; or &lsquo;column&rsquo;.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dtable_002dsearch_002dcolumn"
+    id=
+    "index-emacspeak_002dtable_002dsearch_002dcolumn"></a>Interactive
+    Command: <strong>emacspeak-table-search-column</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Search in current table column.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dtable_002dsearch_002dheaders"
+    id=
+    "index-emacspeak_002dtable_002dsearch_002dheaders"></a>Interactive
+    Command: <strong>emacspeak-table-search-headers</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Search the table row or column headers. Interactively
+      prompts for row or column to search and pattern to look for.
+      If there is a match, makes the matching row or column
+      current.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dtable_002dsearch_002drow" id=
+    "index-emacspeak_002dtable_002dsearch_002drow"></a>Interactive
+    Command: <strong>emacspeak-table-search-row</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Search in current table row.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtable_002dselect_002dautomatic_002dspeaking_002dmethod"
+    id=
+    "index-emacspeak_002dtable_002dselect_002dautomatic_002dspeaking_002dmethod">
+    </a>Interactive Command:
+    <strong>emacspeak-table-select-automatic-speaking-method</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Interactively select the kind of automatic speech to
+      produce when browsing table elements</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtable_002dsort_002don_002dcurrent_002dcolumn"
+    id=
+    "index-emacspeak_002dtable_002dsort_002don_002dcurrent_002dcolumn">
+    </a>Interactive Command:
+    <strong>emacspeak-table-sort-on-current-column</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Sort table on current column.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement"
+    id=
+    "index-emacspeak_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement">
+    </a>Interactive Command:
+    <strong>emacspeak-table-speak-both-headers-and-element</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak both row and column header and table element</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtable_002dspeak_002dcolumn_002dfiltered"
+    id=
+    "index-emacspeak_002dtable_002dspeak_002dcolumn_002dfiltered"></a>Interactive
+    Command: <strong>emacspeak-table-speak-column-filtered</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p>Speaks a table column after applying a specified column
+      filter. Optional prefix arg prompts for a new filter.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement"
+    id=
+    "index-emacspeak_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement">
+    </a>Interactive Command:
+    <strong>emacspeak-table-speak-column-header-and-element</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak column header and table element</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtable_002dspeak_002dcoordinates" id=
+    "index-emacspeak_002dtable_002dspeak_002dcoordinates"></a>Interactive
+    Command: <strong>emacspeak-table-speak-coordinates</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak current table coordinates.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtable_002dspeak_002dcurrent_002delement"
+    id=
+    "index-emacspeak_002dtable_002dspeak_002dcurrent_002delement"></a>Interactive
+    Command: <strong>emacspeak-table-speak-current-element</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak current table element</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtable_002dspeak_002ddimensions" id=
+    "index-emacspeak_002dtable_002dspeak_002ddimensions"></a>Interactive
+    Command: <strong>emacspeak-table-speak-dimensions</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak current table dimensions.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtable_002dspeak_002drow_002dfiltered" id=
+    "index-emacspeak_002dtable_002dspeak_002drow_002dfiltered"></a>Interactive
+    Command: <strong>emacspeak-table-speak-row-filtered</strong>
+    <em>(&amp;optional prefix)</em></dt>
+
+    <dd>
+      <p>Speaks a table row after applying a specified row filter.
+      Optional prefix arg prompts for a new filter.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtable_002dspeak_002drow_002dheader_002dand_002delement"
+    id=
+    "index-emacspeak_002dtable_002dspeak_002drow_002dheader_002dand_002delement">
+    </a>Interactive Command:
+    <strong>emacspeak-table-speak-row-header-and-element</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak row header and table element</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtable_002dui_002dfilter_002dload" id=
+    "index-emacspeak_002dtable_002dui_002dfilter_002dload"></a>Interactive
+    Command: <strong>emacspeak-table-ui-filter-load</strong>
+    <em>(file)</em></dt>
+
+    <dd>
+      <p>Load saved filter settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtable_002dui_002dfilter_002dsave" id=
+    "index-emacspeak_002dtable_002dui_002dfilter_002dsave"></a>Interactive
+    Command: <strong>emacspeak-table-ui-filter-save</strong>
+    <em>(file)</em></dt>
+
+    <dd>
+      <p>Save out filter settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dtable_002dview_002dcsv_002dbuffer" id=
+    "index-emacspeak_002dtable_002dview_002dcsv_002dbuffer"></a>Interactive
+    Command: <strong>emacspeak-table-view-csv-buffer</strong>
+    <em>(&amp;optional buffer-name)</em></dt>
+
+    <dd>
+      <p>Process a csv (comma separated values) data. The processed
+      data and presented using emacspeak table navigation.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dtabulate.html#emacspeak_002dtabulate" accesskey=
+    "n" rel="next">emacspeak-tabulate</a>, Previous: <a href=
+    "emacspeak_002dsudoku.html#emacspeak_002dsudoku" accesskey="p"
+    rel="prev">emacspeak-sudoku</a>, Up: <a href=
+    "Emacspeak-Commands.html#Emacspeak-Commands" accesskey="u" rel=
+    "up">Emacspeak Commands</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

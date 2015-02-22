@@ -1,140 +1,177 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Outline Editing</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Outline Editing">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Outline Editing">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Structured-Editing.html#Structured-Editing" rel="up" title="Structured Editing">
-<link href="Template_002dbased-Authoring.html#Template_002dbased-Authoring" rel="next" title="Template-based Authoring">
-<link href="Structured-Editing.html#Structured-Editing" rel="prev" title="Structured Editing">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Outline
+  Editing</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Outline Editing" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Outline Editing" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Structured-Editing.html#Structured-Editing" rel="up"
+  title="Structured Editing" />
+  <link href=
+  "Template_002dbased-Authoring.html#Template_002dbased-Authoring"
+  rel="next" title="Template-based Authoring" />
+  <link href="Structured-Editing.html#Structured-Editing" rel=
+  "prev" title="Structured Editing" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="Outline-Editing"></a>
-<div class="header">
-<p>
-Next: <a href="Template_002dbased-Authoring.html#Template_002dbased-Authoring" accesskey="n" rel="next">Template-based Authoring</a>, Up: <a href="Structured-Editing.html#Structured-Editing" accesskey="u" rel="up">Structured Editing</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="Outline-Editing-1"></a>
-<h4 class="subsection">9.2.1 Outline Editing</h4>
+<body lang="en" xml:lang="en">
+  <a name="Outline-Editing" id="Outline-Editing"></a>
 
-<p>All of the various outline editing interfaces on the Emacs desktop
-allow the user to <em> hide</em> or <em> show</em>
-the contents at the different levels of a possibly nested tree
-structure.
-   Components of this tree structure can be
-manipulated as a unit, e.g.,
-entire subtrees can be deleted or copied.
-Outline editing thus provides an efficient means of obtaining quick
-overviews of a document.
-</p>
-<p>The visual interface displays such hidden content as a series of
-ellipses following the visible outline heading.  Emacspeak produces
-auditory icon <em> ellipses</em> when
-speaking such outline headings.
-</p>
-<p>The basic <em> outline mode</em> allows the user to specify the syntax
-and level of outline header lines as a regular expression.  This
-simple technique can be used to advantage in the structured navigation
-of large electronic texts such as those available on the Internet from
-online book projects such as project Gutenberg and the Internet
-Wiretap.  For example, when this feature is activated while reading
-the electronic text of a Shakespearean play, the different acts can be
-recognized as separate nodes in the logical structure of the document.
-The user can then hide the document body with a single keystroke,
-navigate the outline headings to find a particular act, and have that
-portion rendered either visually or aurally.  Hiding an outline level
-produces auditory icon <em> close-object</em>; exposing a hidden level
-produces auditory icon <em> open-object</em>.
-For details on using mode <code>outline</code>, see the relevant section of
-the online Emacs info manual.
-</p>
-<p>The basic outline facility described above is applicable to all
-content being edited or browsed on the Emacspeak desktop.  In
-addition, Emacspeak has  other specialized outline editing
-modes such as  <em> folding mode</em> that provide extended
-outlining facilities.  In mode
-<em> folding</em>, the user can create
-(possibly nested) <em> folds</em> &mdash; logical containers of content
-that are delimited by a special <em> fold mark</em>.  The fold mark is
-typically a text string that is chosen based on the type of content
-that is being manipulated.  Thus, when <em> folding</em> a C~program
-source file, fold marks are created from C~comments.  The user can
-<em> open</em> or <em> close</em> any or all folds in a document, and
-these actions
-are accompanied by auditory icons <em> open-object</em>
-and <em> close-object</em>.  By entering a fold, all editing actions are
-restricted to the contents of that fold; this proves a simple yet
-convenient way of constraining editing actions such as search and
-replace to specific portions of large documents.
-Folds can be manipulated as a unit and can be deleted, copied or moved.
-</p>
-<p>Mode <em> folding</em> proves especially effective in maintaining large
-software modules.  The technique can be used to advantage by creating
-folds for different sections in a module and by further placing each
-function appearing in a particular %
-section in a fold of its
-own.  Complex functions can themselves be folded into sections where
-each section reflects a different stage in the algorithm implemented
-by that function.  Thus, the technique of folding can be used as an
-effective aid in <em> literate</em> programming.  I typically write
-software modules by first creating an outline structure using folds
-that reflect the various components of that module. Next, I populate
-each fold with the function signatures and documentation for the
-functions in each section.  When I am satisfied with the overall
-architecture of the module, I fill in the function skeletons with
-actual program code.  This technique is used extensively in
-maintaining  the  Emacspeak code base.
-</p>
+  <div class="header">
+    <p>Next: <a href=
+    "Template_002dbased-Authoring.html#Template_002dbased-Authoring"
+    accesskey="n" rel="next">Template-based Authoring</a>, Up:
+    <a href="Structured-Editing.html#Structured-Editing" accesskey=
+    "u" rel="up">Structured Editing</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="Outline-Editing-1" id="Outline-Editing-1"></a>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="Template_002dbased-Authoring.html#Template_002dbased-Authoring" accesskey="n" rel="next">Template-based Authoring</a>, Up: <a href="Structured-Editing.html#Structured-Editing" accesskey="u" rel="up">Structured Editing</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+  <h4 class="subsection">9.2.1 Outline Editing</h4>
 
+  <p>All of the various outline editing interfaces on the Emacs
+  desktop allow the user to <em>hide</em> or <em>show</em> the
+  contents at the different levels of a possibly nested tree
+  structure. Components of this tree structure can be manipulated
+  as a unit, e.g., entire subtrees can be deleted or copied.
+  Outline editing thus provides an efficient means of obtaining
+  quick overviews of a document.</p>
 
+  <p>The visual interface displays such hidden content as a series
+  of ellipses following the visible outline heading. Emacspeak
+  produces auditory icon <em>ellipses</em> when speaking such
+  outline headings.</p>
 
+  <p>The basic <em>outline mode</em> allows the user to specify the
+  syntax and level of outline header lines as a regular expression.
+  This simple technique can be used to advantage in the structured
+  navigation of large electronic texts such as those available on
+  the Internet from online book projects such as project Gutenberg
+  and the Internet Wiretap. For example, when this feature is
+  activated while reading the electronic text of a Shakespearean
+  play, the different acts can be recognized as separate nodes in
+  the logical structure of the document. The user can then hide the
+  document body with a single keystroke, navigate the outline
+  headings to find a particular act, and have that portion rendered
+  either visually or aurally. Hiding an outline level produces
+  auditory icon <em>close-object</em>; exposing a hidden level
+  produces auditory icon <em>open-object</em>. For details on using
+  mode <code>outline</code>, see the relevant section of the online
+  Emacs info manual.</p>
+
+  <p>The basic outline facility described above is applicable to
+  all content being edited or browsed on the Emacspeak desktop. In
+  addition, Emacspeak has other specialized outline editing modes
+  such as <em>folding mode</em> that provide extended outlining
+  facilities. In mode <em>folding</em>, the user can create
+  (possibly nested) <em>folds</em> &mdash; logical containers of
+  content that are delimited by a special <em>fold mark</em>. The
+  fold mark is typically a text string that is chosen based on the
+  type of content that is being manipulated. Thus, when
+  <em>folding</em> a C~program source file, fold marks are created
+  from C~comments. The user can <em>open</em> or <em>close</em> any
+  or all folds in a document, and these actions are accompanied by
+  auditory icons <em>open-object</em> and <em>close-object</em>. By
+  entering a fold, all editing actions are restricted to the
+  contents of that fold; this proves a simple yet convenient way of
+  constraining editing actions such as search and replace to
+  specific portions of large documents. Folds can be manipulated as
+  a unit and can be deleted, copied or moved.</p>
+
+  <p>Mode <em>folding</em> proves especially effective in
+  maintaining large software modules. The technique can be used to
+  advantage by creating folds for different sections in a module
+  and by further placing each function appearing in a particular %
+  section in a fold of its own. Complex functions can themselves be
+  folded into sections where each section reflects a different
+  stage in the algorithm implemented by that function. Thus, the
+  technique of folding can be used as an effective aid in
+  <em>literate</em> programming. I typically write software modules
+  by first creating an outline structure using folds that reflect
+  the various components of that module. Next, I populate each fold
+  with the function signatures and documentation for the functions
+  in each section. When I am satisfied with the overall
+  architecture of the module, I fill in the function skeletons with
+  actual program code. This technique is used extensively in
+  maintaining the Emacspeak code base.</p>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href=
+    "Template_002dbased-Authoring.html#Template_002dbased-Authoring"
+    accesskey="n" rel="next">Template-based Authoring</a>, Up:
+    <a href="Structured-Editing.html#Structured-Editing" accesskey=
+    "u" rel="up">Structured Editing</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>
