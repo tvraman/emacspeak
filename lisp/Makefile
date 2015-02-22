@@ -260,7 +260,8 @@ emacspeak-xref.elc \
 emacspeak-xml-shell.elc \
 emacspeak-xslide.elc  \
 emacspeak-xslt.elc \
-emacspeak-xslt-process.elc   \
+emacspeak-xslt-process.elc   
+
 ADDON_OBJECTS= tapestry.elc   stack-f.elc  xml-parse.elc toy-braille.elc tetris.elc
 
 OBJECTS = $(DTK_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS) $(ADDON_OBJECTS)

@@ -103,7 +103,6 @@
     ("emacspeak-entertain"  . nil )
     ("emacspeak-erc"  . ("erc-prepare"))
     ("emacspeak-emms" . ("emms-prepare"))
-    ("emacspeak-zinf" . nil)
     ("emacspeak-eshell"  . ("eshell-prepare") )
     ("emacspeak-eterm"  . nil )
     ("emacspeak-eudc"  . ("eudc-prepare"))
