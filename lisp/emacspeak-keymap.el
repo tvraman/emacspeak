@@ -58,6 +58,12 @@
 (defun emacspeak-keymap-command-p (s)
   "Check if `s' is suitable to be bound to a key."
   (or (commandp s) (keymapp s)))
+(defun emacspeak-keymap-bindings-update (keymap bindings)
+  "Update keymap with specified list of bindings."
+  (loop
+   for binding in bindings
+        do
+  (define-key keymap (car binding) (cdr binding))))
 
 (define-widget 'ems-interactive-command 'restricted-sexp
   "An interactive command."
@@ -111,7 +117,7 @@
   "Emacspeak personal keymap")
 
 (define-prefix-command 'emacspeak-personal-keymap   'emacspeak-personal-keymap)
-;;;###autoload
+
 (defcustom emacspeak-personal-keys nil
   "*Specifies personal key bindings for the audio desktop.
 Bindings specified here are available on prefix key C-e x
@@ -142,7 +148,7 @@ field in the customization buffer.  You can use the notation
   "Emacspeak personal-ctlx keymap")
 
 (define-prefix-command 'emacspeak-personal-ctlx-keymap   'emacspeak-personal-ctlx-keymap)
-;;;###autoload
+
 (defcustom emacspeak-personal-ctlx-keys nil
   "*Specifies personal-ctlx key bindings for the audio desktop.
 Bindings specified here are available on prefix key C-e x
@@ -182,7 +188,7 @@ field in the customization buffer.  You can use the notation
   "Emacspeak super keymap")
 
 (define-prefix-command 'emacspeak-super-keymap   'emacspeak-super-keymap)
-;;;###autoload
+
 (defcustom emacspeak-super-keys nil
   "*Specifies super key bindings for the audio desktop.
 You can turn the right `windows menu' keys on your Linux PC keyboard into a `super' key
@@ -225,7 +231,7 @@ field in the customization buffer.  You can use the notation
   "Emacspeak alt keymap")
 
 (define-prefix-command 'emacspeak-alt-keymap   'emacspeak-alt-keymap)
-;;;###autoload
+
 (defcustom emacspeak-alt-keys nil
   "*Specifies alt key bindings for the audio desktop.
 You can turn the `Pause' key  on your Linux PC keyboard into a `alt' key
@@ -269,7 +275,7 @@ field in the customization buffer.  You can use the notation
   "Emacspeak hyper keymap")
 
 (define-prefix-command 'emacspeak-hyper-keymap   'emacspeak-hyper-keymap)
-;;;###autoload
+
 (defcustom emacspeak-hyper-keys nil
   "*Specifies hyper key bindings for the audio desktop. Emacs can
 use the `hyper' key as a modifier key. You can turn the `windows'
@@ -304,18 +310,10 @@ function keys. "
 (define-key emacspeak-hyper-keymap " " 'emacspeak-webspace)
 ;;}}}
 ;;{{{ helper: emacspeak-keymap-update
-;;;###autoload
+
 (defun emacspeak-keymap-update (keymap binding)
   "Update keymap with specified binding."
   (define-key keymap (first binding) (second binding)))
-
-;;;###autoload
-(defun emacspeak-keymap-bindings-update (keymap bindings)
-  "Update keymap with specified list of bindings."
-  (loop
-   for binding in bindings
-        do
-  (define-key keymap (car binding) (cdr binding))))
 
 ;;}}}
 ;;{{{  The Emacspeak key  bindings.
