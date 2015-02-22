@@ -55,9 +55,17 @@
 ;;}}}
 ;;{{{ Custom Widget Types:
 
+;;;###autoload
 (defun emacspeak-keymap-command-p (s)
   "Check if `s' is suitable to be bound to a key."
   (or (commandp s) (keymapp s)))
+
+
+;;;###autoload
+(defun emacspeak-keymap-update (keymap binding)
+  "Update keymap with specified binding."
+  (define-key keymap (first binding) (second binding)))
+
 (defun emacspeak-keymap-bindings-update (keymap bindings)
   "Update keymap with specified list of bindings."
   (loop
@@ -82,6 +90,13 @@
                 widget))
   :value 'ignore
   :tag "Interactive Command")
+
+
+;;;###autoload
+(defun emacspeak-keymap-update (keymap binding)
+  "Update keymap with specified binding."
+  (define-key keymap (first binding) (second binding)))
+
 ;;}}}
 ;;{{{  variables:
 
@@ -308,13 +323,6 @@ function keys. "
 (global-set-key "\C-x@h"
                 'emacspeak-hyper-keymap)
 (define-key emacspeak-hyper-keymap " " 'emacspeak-webspace)
-;;}}}
-;;{{{ helper: emacspeak-keymap-update
-
-(defun emacspeak-keymap-update (keymap binding)
-  "Update keymap with specified binding."
-  (define-key keymap (first binding) (second binding)))
-
 ;;}}}
 ;;{{{  The Emacspeak key  bindings.
 
