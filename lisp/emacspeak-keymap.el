@@ -165,11 +165,11 @@ field in the customization buffer.  You can use the notation
 (define-prefix-command 'emacspeak-personal-ctlx-keymap   'emacspeak-personal-ctlx-keymap)
 
 (defcustom emacspeak-personal-ctlx-keys nil
-  "*Specifies personal-ctlx key bindings for the audio desktop.
-Bindings specified here are available on prefix key C-e x
+  "*Specifies personal-ctlx key bindings for use with C-e C-x for the audio desktop.
+Bindings specified here are available on prefix key C-e C-x
 for example, if you bind
-`s' to command emacspeak-emergency-tts-restart
-then that command will be available on key C-e x s
+`C-s' to command emacspeak-emergency-tts-restart
+then that command will be available on key C-e  C-x C-s
 
 The value of this variable is an association list. The car
 of each element specifies a key sequence. The cdr specifies
