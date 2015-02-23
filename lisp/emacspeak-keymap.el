@@ -63,7 +63,7 @@
 ;;;###autoload
 (defun emacspeak-keymap-update (keymap binding)
   "Update keymap with specified binding."
-  (define-key keymap (first binding) (second binding)))
+  (define-key keymap (kbd (first binding)) (second binding)))
 
 (defun emacspeak-keymap-bindings-update (keymap bindings)
   "Update keymap with specified list of bindings."
