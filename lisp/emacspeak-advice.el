@@ -2690,6 +2690,47 @@ Produce auditory icons if possible."
   (let ((emacspeak-speak-messages nil))
     ad-do-it))
 ;;}}}
+;;{{{ Asking Questions:
+
+(defadvice yes-or-no-p (before emacspeak pre act comp)
+  "Play auditory icon."
+  (emacspeak-auditory-icon 'ask-question))
+
+
+(defadvice yes-or-no-p (after emacspeak pre act comp)
+  "Play auditory icon."
+  (cond
+   (ad-return-value
+    (emacspeak-auditory-icon 'yes-answer))
+   (t (emacspeak-auditory-icon 'no-answer))))
+
+(defadvice ask-user-about-lock (before emacspeak pre act comp)
+  "Play auditory icon."
+  (emacspeak-auditory-icon 'ask-short-question))
+
+
+(defadvice ask-user-about-lock (after emacspeak pre act comp)
+  "Play auditory icon."
+  (cond
+   (ad-return-value (emacspeak-auditory-icon 'y-answer))
+   (t (emacspeak-auditory-icon 'n-answer))))
+
+(defadvice y-or-n-p (before emacspeak pre act comp)
+  "Play auditory icon."
+  (emacspeak-auditory-icon 'ask-short-question))
+
+(defadvice y-or-n-p (after emacspeak pre act comp)
+  "Play auditory icon."
+  (cond
+   (ad-return-value (emacspeak-auditory-icon 'y-answer))
+   (t (emacspeak-auditory-icon 'n-answer))))
+
+
+
+;;}}}
+
+
+;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 
