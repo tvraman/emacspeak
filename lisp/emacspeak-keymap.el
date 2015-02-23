@@ -63,7 +63,7 @@
 ;;;###autoload
 (defun emacspeak-keymap-update (keymap binding)
   "Update keymap with specified binding."
-  (define-key keymap (kbd (first binding)) (second binding)))
+  (define-key keymap  (first binding) (second binding)))
 
 (defun emacspeak-keymap-bindings-update (keymap bindings)
   "Update keymap with specified list of bindings."
@@ -91,9 +91,7 @@
   :tag "Interactive Command")
 
 ;;;###autoload
-(defun emacspeak-keymap-update (keymap binding)
-  "Update keymap with specified binding."
-  (define-key keymap (first binding) (second binding)))
+
 
 ;;}}}
 ;;{{{  variables:
@@ -385,7 +383,7 @@ relief."
   (load-library "emacspeak-keymap"))
 
 ;;}}}
-;;{{{ Create a keymap that users can put personal commands
+;;{{{ Create a personal keymap for c-e x
 
 ;;; Adding keys using custom:
 (defvar  emacspeak-personal-keymap nil
@@ -398,16 +396,17 @@ relief."
 Bindings specified here are available on prefix key C-e x
 for example, if you bind
 `s' to command emacspeak-emergency-tts-restart
-then that command will be available on key C-e x s
+then that command will be available on key C-e x s.
 
-The value of this variable is an association list. The car
-of each element specifies a key sequence. The cdr specifies
-an interactive command that the key sequence executes. To
-enter a key with a modifier, type C-q followed by the
-desired modified keystroke. For example, to enter C-s
-(Control s) as the key to be bound, type C-q C-s in the key
-field in the customization buffer.  You can use the notation
-[f1], [f2], etc., to specify function keys. "
+KEYS should be a string constant in the format used for saving
+keyboard macros (see `edmacro-mode').
+
+Command is an interactive command or a prefix-command that can be
+bound to a key. 
+
+The value of this variable is an association list. The car of
+each element specifies a key sequence. The cdr specifies an
+interactive command that the key sequence executes."
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Personal Keymap"
@@ -419,6 +418,12 @@ field in the customization buffer.  You can use the notation
            (emacspeak-keymap-bindings-update emacspeak-personal-keymap val)
            (set-default sym val)))
 
+
+(define-key  emacspeak-keymap "x" 'emacspeak-personal-keymap)
+(define-key  emacspeak-keymap "\C-x" 'emacspeak-personal-ctlx-keymap)
+;;}}}
+;;{{{ Create personal ctl-x map 
+
 (defvar  emacspeak-personal-ctlx-keymap nil
   "Emacspeak personal-ctlx keymap")
 
@@ -429,16 +434,16 @@ field in the customization buffer.  You can use the notation
 Bindings specified here are available on prefix key C-e C-x
 for example, if you bind
 `C-s' to command emacspeak-emergency-tts-restart
-then that command will be available on key C-e  C-x C-s
+then that command will be available on key C-e  C-x C-s.
+KEYS should be a string constant in the format used for saving
+keyboard macros (see `edmacro-mode').
 
-The value of this variable is an association list. The car
-of each element specifies a key sequence. The cdr specifies
-an interactive command that the key sequence executes. To
-enter a key with a modifier, type C-q followed by the
-desired modified keystroke. For example, to enter C-s
-(Control s) as the key to be bound, type C-q C-s in the key
-field in the customization buffer.  You can use the notation
-[f1], [f2], etc., to specify function keys. "
+Command is an interactive command or a prefix-command that can be
+bound to a key. 
+
+The value of this variable is an association list. The car of
+each element specifies a key sequence. The cdr specifies an
+interactive command that the key sequence executes."
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Personal-Ctlx Keymap"
@@ -450,8 +455,6 @@ field in the customization buffer.  You can use the notation
            (emacspeak-keymap-bindings-update emacspeak-personal-ctlx-keymap val)
            (set-default sym val)))
 
-(define-key  emacspeak-keymap "x" 'emacspeak-personal-keymap)
-(define-key  emacspeak-keymap "\C-x" 'emacspeak-personal-ctlx-keymap)
 ;;}}}
 ;;{{{ Create a super keymap that users can put personal commands
 
@@ -471,16 +474,16 @@ on Linux by having it emit the sequence `C-x@s'.
 Bindings specified here are available on prefix key `super'
 for example, if you bind
 `s' to command emacspeak-emergency-tts-restart
-then that command will be available on key `super  s'
+then that command will be available on key `super  s'.
+KEYS should be a string constant in the format used for saving
+keyboard macros (see `edmacro-mode').
 
-The value of this variable is an association list. The car
-of each element specifies a key sequence. The cdr specifies
-an interactive command that the key sequence executes. To
-enter a key with a modifier, type C-q followed by the
-desired modified keystroke. For example, to enter C-s
-(Control s) as the key to be bound, type C-q C-s in the key
-field in the customization buffer.  You can use the notation
-[f1], [f2], etc., to specify function keys. "
+Command is an interactive command or a prefix-command that can be
+bound to a key. 
+
+The value of this variable is an association list. The car of
+each element specifies a key sequence. The cdr specifies an
+interactive command that the key sequence executes."
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Super Keymap"
@@ -517,14 +520,15 @@ for example, if you bind
 `s' to command emacspeak-emergency-tts-restart
 then that command will be available on key `ALT  s'
 
-The value of this variable is an association list. The car
-of each element specifies a key sequence. The cdr specifies
-an interactive command that the key sequence executes. To
-enter a key with a modifier, type C-q followed by the
-desired modified keystroke. For example, to enter C-s
-(Control s) as the key to be bound, type C-q C-s in the key
-field in the customization buffer.  You can use the notation
-[f1], [f2], etc., to specify function keys. "
+KEYS should be a string constant in the format used for saving
+keyboard macros (see `edmacro-mode').
+
+Command is an interactive command or a prefix-command that can be
+bound to a key. 
+
+The value of this variable is an association list. The car of
+each element specifies a key sequence. The cdr specifies an
+interactive command that the key sequence executes."
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Alt Keymap"
@@ -560,14 +564,15 @@ Bindings specified here are available on prefix key `hyper' for
 example, if you bind `b' to command `bbdb ' then that command
 will be available on key `hyper b'.
 
+KEYS should be a string constant in the format used for saving
+keyboard macros (see `edmacro-mode').
+
+Command is an interactive command or a prefix-command that can be
+bound to a key. 
+
 The value of this variable is an association list. The car of
 each element specifies a key sequence. The cdr specifies an
-interactive command that the key sequence executes. To enter a
-key with a modifier, type C-q followed by the desired modified
-keystroke. For example, to enter C-s (Control s) as the key to be
-bound, type C-q C-s in the key field in the customization
-buffer. You can use the notation [f1], [f2], etc., to specify
-function keys. "
+interactive command that the key sequence executes."
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Hyper Keys"
