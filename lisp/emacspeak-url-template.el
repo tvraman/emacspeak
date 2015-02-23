@@ -275,7 +275,7 @@ dont-url-encode if true then url arguments are not url-encoded "
   'emacspeak-speak-read-date-year/month/date)
  #'(lambda ()
      (declare (special emacspeak-we-url-executor))
-      (setq emacspeak-we-url-executor
+     (setq emacspeak-we-url-executor
            'emacspeak-url-template-iplayer-player))
  "BBC iPlayer"
  #'(lambda (url)
@@ -1432,7 +1432,7 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations tha
 
 ;;}}}
 ;;{{{ TuneIn: streamId->URL
-; "http://stream.radiotime.com/listen.stream?streamIds=4299203"wget  -O t 
+                                        ; "http://stream.radiotime.com/listen.stream?streamIds=4299203"wget  -O t 
 (emacspeak-url-template-define
  "TuneIn Radio"
  "http://stream.radiotime.com/listen.stream?streamIds=%s"

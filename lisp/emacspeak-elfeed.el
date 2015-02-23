@@ -57,10 +57,10 @@
 
 (voice-setup-add-map
  '(
-    (elfeed-search-date-face  voice-smoothen)
-    (elfeed-search-title-face voice-bolden)
-    (elfeed-search-feed-face voice-animate)
-    (elfeed-search-tag-face voice-lighten)))
+   (elfeed-search-date-face  voice-smoothen)
+   (elfeed-search-title-face voice-bolden)
+   (elfeed-search-feed-face voice-animate)
+   (elfeed-search-tag-face voice-lighten)))
 
 ;;}}}
 ;;{{{ Advice interactive commands:
@@ -69,12 +69,12 @@
  for f in
  '(
    elfeed-apply-hooks-now elfeed-search-browse-url elfeed-show-entry elfeed-show-visit
-   elfeed-update-feed elfeed-update elfeed-show-refresh
-   elfeed-search-update--force elfeed-search-update elfeed-search-untag-all-unread
-   elfeed-search-untag-all elfeed-search-tag-all-unread elfeed-search-tag-all
-   elfeed-search-show-entry elfeed-load-opml elfeed-export-opml
-   elfeed-db-compact elfeed-add-feed 
-   )
+                          elfeed-update-feed elfeed-update elfeed-show-refresh
+                          elfeed-search-update--force elfeed-search-update elfeed-search-untag-all-unread
+                          elfeed-search-untag-all elfeed-search-tag-all-unread elfeed-search-tag-all
+                          elfeed-search-show-entry elfeed-load-opml elfeed-export-opml
+                          elfeed-db-compact elfeed-add-feed 
+                          )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -94,24 +94,21 @@
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-speak-line)))))
 
-
 (defadvice elfeed (after emacspeak pre act  comp)
-   "Emacspeak setup."
-   (when (ems-interactive-p)
-     (emacspeak-auditory-icon 'open-object)))
-
+  "Emacspeak setup."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)))
 
 (defadvice elfeed-kill-buffer (after emacspeak pre act  comp)
-   "Provide auditory feedback."
-   (when (ems-interactive-p)
-     (emacspeak-auditory-icon 'close-object)
-     (emacspeak-speak-mode-line)))
-
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line)))
 
 (defadvice elfeed-search-yank (after emacspeak pre act  comp)
-   "Provide auditory feedback."
-   (when (ems-interactive-p)
-     (emacspeak-auditory-icon 'yank-object)))   
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'yank-object)))   
 
 ;;}}}
 ;;{{{ Helpers:
@@ -172,7 +169,6 @@
      (entry (elfeed-untag  entry 'unread)
             (eww link))
      (t (message "No link under point.")))))
-  
 
 ;;}}}
 

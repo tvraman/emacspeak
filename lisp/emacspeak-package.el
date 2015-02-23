@@ -71,7 +71,7 @@
       (emacspeak-auditory-icon 'deselect-object))
      (t (emacspeak-auditory-icon 'item)))
     (put-text-property 0 (length name)
-                           'personality voice-bolden-medium name)
+                       'personality voice-bolden-medium name)
     (dtk-speak-and-echo  (concat name ": "desc))))
 
 (defun emacspeak-package-next-line ()

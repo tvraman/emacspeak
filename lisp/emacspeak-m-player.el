@@ -334,7 +334,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
            ((and play-list  (listp play-list)(< 4   (car play-list)))
             (nconc options (list "-allow-dangerous-playlist-parsing" "-playlist" resource)))
            ( playlist-p
-            (nconc options (list "-playlist" resource)))
+             (nconc options (list "-playlist" resource)))
            (file-list (nconc options file-list))
            (t
             (nconc options (list resource)))))

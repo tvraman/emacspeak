@@ -100,44 +100,44 @@
  for f in
  '(
    markdown-backward-paragraph markdown-cycle
-   markdown-enter-key
-   markdown-beginning-of-block
-   markdown-beginning-of-defun
-   markdown-demote markdown-demote-list-item
-   markdown-end-of-block markdown-end-of-block-element
-   markdown-insert-footnote markdown-insert-code
-   markdown-insert-bold markdown-insert-blockquote
-   markdown-forward-paragraph markdown-footnote-goto-text
-   markdown-end-of-defun
-   markdown-insert-gfm-code-block
-   markdown-insert-header
-   markdown-insert-header-atx-1
-   markdown-insert-header-atx-2
-   markdown-insert-header-atx-3
-   markdown-insert-header-atx-4
-   markdown-insert-header-atx-5
-   markdown-insert-header-atx-6
-   markdown-insert-header-dwim
-   markdown-insert-header-setext-1
-   markdown-insert-header-setext-2
-   markdown-insert-header-setext-dwim
-   markdown-insert-hr
-   markdown-insert-image
-   markdown-insert-italic
-   markdown-insert-link
-   markdown-insert-list-item
-   markdown-insert-pre
-   markdown-insert-reference-image
-   markdown-insert-reference-link-dwim
-   markdown-insert-uri
-   markdown-insert-wiki-link
-   markdown-jump
-   markdown-move-down markdown-move-list-item-down
-   markdown-move-list-item-up markdown-move-up
-   markdown-next-link markdown-previous-link
-   markdown-promote markdown-promote-list-item
-   markdown-reference-goto-definition
-   )
+                               markdown-enter-key
+                               markdown-beginning-of-block
+                               markdown-beginning-of-defun
+                               markdown-demote markdown-demote-list-item
+                               markdown-end-of-block markdown-end-of-block-element
+                               markdown-insert-footnote markdown-insert-code
+                               markdown-insert-bold markdown-insert-blockquote
+                               markdown-forward-paragraph markdown-footnote-goto-text
+                               markdown-end-of-defun
+                               markdown-insert-gfm-code-block
+                               markdown-insert-header
+                               markdown-insert-header-atx-1
+                               markdown-insert-header-atx-2
+                               markdown-insert-header-atx-3
+                               markdown-insert-header-atx-4
+                               markdown-insert-header-atx-5
+                               markdown-insert-header-atx-6
+                               markdown-insert-header-dwim
+                               markdown-insert-header-setext-1
+                               markdown-insert-header-setext-2
+                               markdown-insert-header-setext-dwim
+                               markdown-insert-hr
+                               markdown-insert-image
+                               markdown-insert-italic
+                               markdown-insert-link
+                               markdown-insert-list-item
+                               markdown-insert-pre
+                               markdown-insert-reference-image
+                               markdown-insert-reference-link-dwim
+                               markdown-insert-uri
+                               markdown-insert-wiki-link
+                               markdown-jump
+                               markdown-move-down markdown-move-list-item-down
+                               markdown-move-list-item-up markdown-move-up
+                               markdown-next-link markdown-previous-link
+                               markdown-promote markdown-promote-list-item
+                               markdown-reference-goto-definition
+                               )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -146,13 +146,12 @@
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
-
 (loop
  for f in
  '(
    markdown-check-refs markdown-check-change-for-wiki-link
-   markdown-export markdown-export-and-preview
-                   markdown-indent-region markdown-blockquote-region)
+                       markdown-export markdown-export-and-preview
+                       markdown-indent-region markdown-blockquote-region)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -160,8 +159,6 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)
        (emacspeak-speak-line)))))
-
-
 
 (loop
  for f in

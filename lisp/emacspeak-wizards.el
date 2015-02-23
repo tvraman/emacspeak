@@ -3533,7 +3533,6 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
   (let ((name   "RadioTime  Browser"))
     (emacspeak-url-template-open (emacspeak-url-template-get name))))
 
-
 ;;;###autoload
 (defun emacspeak-wizards-tune-in-radio-search  ()
   "Search Tune-In Radio."

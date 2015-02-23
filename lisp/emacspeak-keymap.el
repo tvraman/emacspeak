@@ -60,7 +60,6 @@
   "Check if `s' is suitable to be bound to a key."
   (or (commandp s) (keymapp s)))
 
-
 ;;;###autoload
 (defun emacspeak-keymap-update (keymap binding)
   "Update keymap with specified binding."
@@ -70,8 +69,8 @@
   "Update keymap with specified list of bindings."
   (loop
    for binding in bindings
-        do
-  (define-key keymap (car binding) (cdr binding))))
+   do
+   (define-key keymap (car binding) (cdr binding))))
 
 (define-widget 'ems-interactive-command 'restricted-sexp
   "An interactive command."
@@ -90,7 +89,6 @@
                 widget))
   :value 'ignore
   :tag "Interactive Command")
-
 
 ;;;###autoload
 (defun emacspeak-keymap-update (keymap binding)
@@ -189,7 +187,6 @@ field in the customization buffer.  You can use the notation
   :set #'(lambda (sym val)
            (emacspeak-keymap-bindings-update emacspeak-personal-ctlx-keymap val)
            (set-default sym val)))
-
 
 (define-key  emacspeak-keymap "x" 'emacspeak-personal-keymap)
 (define-key  emacspeak-keymap "\C-x" 'emacspeak-personal-ctlx-keymap)
