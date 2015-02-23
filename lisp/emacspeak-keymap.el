@@ -129,7 +129,7 @@
 
 (loop for binding in
       '(
-        ( " " customize-group)
+        ("SPC" customize-group)
         ( "B" customize-browse)
         ( "G" customize-group)
         ( "M" emacspeak-speak-popup-messages)
@@ -155,7 +155,7 @@
         (  "\C-a" emacspeak-toggle-auditory-icons )
         ("\M-\;" emacspeak-webutils-play-media-at-point (&optional  playlist-p))
         ( "\M-f" emacspeak-frame-label-or-switch-to-labelled-frame )
-        (" " emacspeak-speak-header-line)
+        ("SPC" emacspeak-speak-header-line)
         ("!" emacspeak-speak-run-shell-command)
         ("'" emacspeak-speak-sexp)
         ("#" emacspeak-gridtext)
