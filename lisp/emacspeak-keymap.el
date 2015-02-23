@@ -419,7 +419,10 @@ interactive command that the key sequence executes."
            (ems-interactive-command :tag "Command")))
   :set #'(lambda (sym val)
            (emacspeak-keymap-bindings-update emacspeak-personal-keymap val)
-           (set-default sym val)))
+           (set-default sym
+                        (sort
+                         val
+                         #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
 
 (define-key  emacspeak-keymap "x" 'emacspeak-personal-keymap)
@@ -456,7 +459,10 @@ interactive command that the key sequence executes."
            (ems-interactive-command :tag "Command")))
   :set #'(lambda (sym val)
            (emacspeak-keymap-bindings-update emacspeak-personal-ctlx-keymap val)
-           (set-default sym val)))
+           (set-default sym
+                        (sort
+                         val
+                         #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
 ;;}}}
 ;;{{{ Create a super keymap that users can put personal commands
@@ -496,7 +502,10 @@ interactive command that the key sequence executes."
            (ems-interactive-command :tag "Command")))
   :set #'(lambda (sym val)
            (emacspeak-keymap-bindings-update emacspeak-super-keymap  val)
-           (set-default sym val)))
+           (set-default sym
+                        (sort
+                         val
+                         #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
 (global-set-key "\C-x@s"
                 'emacspeak-super-keymap)
@@ -540,8 +549,11 @@ interactive command that the key sequence executes."
            (key-sequence :tag "Key")
            (ems-interactive-command :tag "Command")))
   :set #'(lambda (sym val)
-          (emacspeak-keymap-bindings-update emacspeak-alt-keymap val)
-          (set-default sym val)))
+           (emacspeak-keymap-bindings-update emacspeak-alt-keymap val)
+           (set-default sym
+                        (sort
+                         val
+                         #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
 (global-set-key "\C-x@a"
                 'emacspeak-alt-keymap)
@@ -585,7 +597,10 @@ interactive command that the key sequence executes."
            (ems-interactive-command :tag "Command")))
   :set #'(lambda (sym val)
            (emacspeak-keymap-bindings-update emacspeak-hyper-keymap val)
-           (set-default sym val)))
+           (set-default sym
+                        (sort
+                         val
+                         #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
 (global-set-key "\C-x@h"
                 'emacspeak-hyper-keymap)
