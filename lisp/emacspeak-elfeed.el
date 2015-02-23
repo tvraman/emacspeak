@@ -132,9 +132,9 @@
          (tags (elfeed-entry-tags e)))
     (dtk-speak title)
     (when (memq 'unread tags) (emacspeak-auditory-icon 'unmodified-object))
-    (when (memq 'read tags) (emacspeak-auditory-icon 'select-object))
-    (when (memq 'seen  tags) (emacspeak-auditory-icon 'modified-object))
-    (when (memq 'unread  tags) (emacspeak-auditory-icon 'iten))
+    (when (memq 'read tags) (emacspeak-auditory-icon 'modified-object))
+    (when (memq 'seen  tags) (emacspeak-auditory-icon 'mark-object))
+    (emacspeak-auditory-icon 'iten)
     (elfeed-tag e 'seen)))
 
 ;;}}}
