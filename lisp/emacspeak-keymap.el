@@ -70,7 +70,7 @@
   (loop
    for binding in bindings
    do
-   (define-key keymap (car binding) (cdr binding))))
+   (define-key keymap (kbd (car binding)) (cdr binding))))
 
 (define-widget 'ems-interactive-command 'restricted-sexp
   "An interactive command."
@@ -122,204 +122,6 @@
 (define-key emacspeak-keymap "e" 'end-of-line)
 (define-key emacspeak-keymap "\C-e" 'end-of-line)
 
-;;}}}
-;;{{{ Create a keymap that users can put personal commands
-
-;;; Adding keys using custom:
-(defvar  emacspeak-personal-keymap nil
-  "Emacspeak personal keymap")
-
-(define-prefix-command 'emacspeak-personal-keymap   'emacspeak-personal-keymap)
-
-(defcustom emacspeak-personal-keys nil
-  "*Specifies personal key bindings for the audio desktop.
-Bindings specified here are available on prefix key C-e x
-for example, if you bind
-`s' to command emacspeak-emergency-tts-restart
-then that command will be available on key C-e x s
-
-The value of this variable is an association list. The car
-of each element specifies a key sequence. The cdr specifies
-an interactive command that the key sequence executes. To
-enter a key with a modifier, type C-q followed by the
-desired modified keystroke. For example, to enter C-s
-(Control s) as the key to be bound, type C-q C-s in the key
-field in the customization buffer.  You can use the notation
-[f1], [f2], etc., to specify function keys. "
-  :group 'emacspeak
-  :type '(repeat
-          :tag "Emacspeak Personal Keymap"
-          (cons
-           :tag "Key Binding"
-           (key-sequence :tag "Key")
-           (ems-interactive-command :tag "Command")))
-  :set #'(lambda (sym val)
-           (emacspeak-keymap-bindings-update emacspeak-personal-keymap val)
-           (set-default sym val)))
-
-(defvar  emacspeak-personal-ctlx-keymap nil
-  "Emacspeak personal-ctlx keymap")
-
-(define-prefix-command 'emacspeak-personal-ctlx-keymap   'emacspeak-personal-ctlx-keymap)
-
-(defcustom emacspeak-personal-ctlx-keys nil
-  "*Specifies personal-ctlx key bindings for use with C-e C-x for the audio desktop.
-Bindings specified here are available on prefix key C-e C-x
-for example, if you bind
-`C-s' to command emacspeak-emergency-tts-restart
-then that command will be available on key C-e  C-x C-s
-
-The value of this variable is an association list. The car
-of each element specifies a key sequence. The cdr specifies
-an interactive command that the key sequence executes. To
-enter a key with a modifier, type C-q followed by the
-desired modified keystroke. For example, to enter C-s
-(Control s) as the key to be bound, type C-q C-s in the key
-field in the customization buffer.  You can use the notation
-[f1], [f2], etc., to specify function keys. "
-  :group 'emacspeak
-  :type '(repeat
-          :tag "Emacspeak Personal-Ctlx Keymap"
-          (cons
-           :tag "Key Binding"
-           (key-sequence :tag "Key")
-           (ems-interactive-command :tag "Command")))
-  :set #'(lambda (sym val)
-           (emacspeak-keymap-bindings-update emacspeak-personal-ctlx-keymap val)
-           (set-default sym val)))
-
-(define-key  emacspeak-keymap "x" 'emacspeak-personal-keymap)
-(define-key  emacspeak-keymap "\C-x" 'emacspeak-personal-ctlx-keymap)
-;;}}}
-;;{{{ Create a super keymap that users can put personal commands
-
-;;; I use the right windows menu key for super
-;;on
-;;; Adding keys using custom:
-(defvar  emacspeak-super-keymap nil
-  "Emacspeak super keymap")
-
-(define-prefix-command 'emacspeak-super-keymap   'emacspeak-super-keymap)
-
-(defcustom emacspeak-super-keys nil
-  "*Specifies super key bindings for the audio desktop.
-You can turn the right `windows menu' keys on your Linux PC keyboard into a `super' key
-on Linux by having it emit the sequence `C-x@s'.
-
-Bindings specified here are available on prefix key `super'
-for example, if you bind
-`s' to command emacspeak-emergency-tts-restart
-then that command will be available on key `super  s'
-
-The value of this variable is an association list. The car
-of each element specifies a key sequence. The cdr specifies
-an interactive command that the key sequence executes. To
-enter a key with a modifier, type C-q followed by the
-desired modified keystroke. For example, to enter C-s
-(Control s) as the key to be bound, type C-q C-s in the key
-field in the customization buffer.  You can use the notation
-[f1], [f2], etc., to specify function keys. "
-  :group 'emacspeak
-  :type '(repeat
-          :tag "Emacspeak Super Keymap"
-          (cons
-           :tag "Key Binding"
-           (key-sequence :tag "Key")
-           (ems-interactive-command :tag "Command")))
-  :set #'(lambda (sym val)
-           (emacspeak-keymap-bindings-update emacspeak-super-keymap  val)
-           (set-default sym val)))
-
-(global-set-key "\C-x@s"
-                'emacspeak-super-keymap)
-
-;;}}}
-;;{{{ Create a alt keymap that users can put personal commands
-
-;;; I use the "pause" key to produce C-x@a -- which gives alt-
-;;on
-;;; Adding keys using custom:
-(defvar  emacspeak-alt-keymap nil
-  "Emacspeak alt keymap")
-
-(define-prefix-command 'emacspeak-alt-keymap   'emacspeak-alt-keymap)
-
-(defcustom emacspeak-alt-keys nil
-  "*Specifies alt key bindings for the audio desktop.
-You can turn the `Pause' key  on your Linux PC keyboard into a `alt' key
-on Linux by having it emit the sequence `C-x@a'.
-
-Bindings specified here are available on prefix key `alt'
-(not to be confused with alt==meta)
-for example, if you bind
-`s' to command emacspeak-emergency-tts-restart
-then that command will be available on key `ALT  s'
-
-The value of this variable is an association list. The car
-of each element specifies a key sequence. The cdr specifies
-an interactive command that the key sequence executes. To
-enter a key with a modifier, type C-q followed by the
-desired modified keystroke. For example, to enter C-s
-(Control s) as the key to be bound, type C-q C-s in the key
-field in the customization buffer.  You can use the notation
-[f1], [f2], etc., to specify function keys. "
-  :group 'emacspeak
-  :type '(repeat
-          :tag "Emacspeak Alt Keymap"
-          (cons
-           :tag "Key Binding"
-           (key-sequence :tag "Key")
-           (ems-interactive-command :tag "Command")))
-  :set #'(lambda (sym val)
-          (emacspeak-keymap-bindings-update emacspeak-alt-keymap val)
-          (set-default sym val)))
-
-(global-set-key "\C-x@a"
-                'emacspeak-alt-keymap)
-
-;;}}}
-;;{{{ Create a hyper keymap that users can put personal commands
-
-;;; I use the windows key for hyper
-;;on
-;;; Adding keys using custom:
-(defvar  emacspeak-hyper-keymap nil
-  "Emacspeak hyper keymap")
-
-(define-prefix-command 'emacspeak-hyper-keymap   'emacspeak-hyper-keymap)
-
-(defcustom emacspeak-hyper-keys nil
-  "*Specifies hyper key bindings for the audio desktop. Emacs can
-use the `hyper' key as a modifier key. You can turn the `windows'
-keys on your Linux PC keyboard into a `hyper' key on Linux by
-having it emit the sequence `C-x@h'.
-
-Bindings specified here are available on prefix key `hyper' for
-example, if you bind `b' to command `bbdb ' then that command
-will be available on key `hyper b'.
-
-The value of this variable is an association list. The car of
-each element specifies a key sequence. The cdr specifies an
-interactive command that the key sequence executes. To enter a
-key with a modifier, type C-q followed by the desired modified
-keystroke. For example, to enter C-s (Control s) as the key to be
-bound, type C-q C-s in the key field in the customization
-buffer. You can use the notation [f1], [f2], etc., to specify
-function keys. "
-  :group 'emacspeak
-  :type '(repeat
-          :tag "Emacspeak Hyper Keys"
-          (cons
-           :tag "Key Binding"
-           (key-sequence :tag "Key")
-           (ems-interactive-command :tag "Command")))
-  :set #'(lambda (sym val)
-           (emacspeak-keymap-bindings-update emacspeak-hyper-keymap val)
-           (set-default sym val)))
-
-(global-set-key "\C-x@h"
-                'emacspeak-hyper-keymap)
-(define-key emacspeak-hyper-keymap " " 'emacspeak-webspace)
 ;;}}}
 ;;{{{  The Emacspeak key  bindings.
 
@@ -582,6 +384,204 @@ relief."
   "Load emacspeak-keymap module."
   (load-library "emacspeak-keymap"))
 
+;;}}}
+;;{{{ Create a keymap that users can put personal commands
+
+;;; Adding keys using custom:
+(defvar  emacspeak-personal-keymap nil
+  "Emacspeak personal keymap")
+
+(define-prefix-command 'emacspeak-personal-keymap   'emacspeak-personal-keymap)
+
+(defcustom emacspeak-personal-keys nil
+  "*Specifies personal key bindings for the audio desktop.
+Bindings specified here are available on prefix key C-e x
+for example, if you bind
+`s' to command emacspeak-emergency-tts-restart
+then that command will be available on key C-e x s
+
+The value of this variable is an association list. The car
+of each element specifies a key sequence. The cdr specifies
+an interactive command that the key sequence executes. To
+enter a key with a modifier, type C-q followed by the
+desired modified keystroke. For example, to enter C-s
+(Control s) as the key to be bound, type C-q C-s in the key
+field in the customization buffer.  You can use the notation
+[f1], [f2], etc., to specify function keys. "
+  :group 'emacspeak
+  :type '(repeat
+          :tag "Emacspeak Personal Keymap"
+          (cons
+           :tag "Key Binding"
+           (key-sequence :tag "Key")
+           (ems-interactive-command :tag "Command")))
+  :set #'(lambda (sym val)
+           (emacspeak-keymap-bindings-update emacspeak-personal-keymap val)
+           (set-default sym val)))
+
+(defvar  emacspeak-personal-ctlx-keymap nil
+  "Emacspeak personal-ctlx keymap")
+
+(define-prefix-command 'emacspeak-personal-ctlx-keymap   'emacspeak-personal-ctlx-keymap)
+
+(defcustom emacspeak-personal-ctlx-keys nil
+  "*Specifies personal-ctlx key bindings for use with C-e C-x for the audio desktop.
+Bindings specified here are available on prefix key C-e C-x
+for example, if you bind
+`C-s' to command emacspeak-emergency-tts-restart
+then that command will be available on key C-e  C-x C-s
+
+The value of this variable is an association list. The car
+of each element specifies a key sequence. The cdr specifies
+an interactive command that the key sequence executes. To
+enter a key with a modifier, type C-q followed by the
+desired modified keystroke. For example, to enter C-s
+(Control s) as the key to be bound, type C-q C-s in the key
+field in the customization buffer.  You can use the notation
+[f1], [f2], etc., to specify function keys. "
+  :group 'emacspeak
+  :type '(repeat
+          :tag "Emacspeak Personal-Ctlx Keymap"
+          (cons
+           :tag "Key Binding"
+           (key-sequence :tag "Key")
+           (ems-interactive-command :tag "Command")))
+  :set #'(lambda (sym val)
+           (emacspeak-keymap-bindings-update emacspeak-personal-ctlx-keymap val)
+           (set-default sym val)))
+
+(define-key  emacspeak-keymap "x" 'emacspeak-personal-keymap)
+(define-key  emacspeak-keymap "\C-x" 'emacspeak-personal-ctlx-keymap)
+;;}}}
+;;{{{ Create a super keymap that users can put personal commands
+
+;;; I use the right windows menu key for super
+;;on
+;;; Adding keys using custom:
+(defvar  emacspeak-super-keymap nil
+  "Emacspeak super keymap")
+
+(define-prefix-command 'emacspeak-super-keymap   'emacspeak-super-keymap)
+
+(defcustom emacspeak-super-keys nil
+  "*Specifies super key bindings for the audio desktop.
+You can turn the right `windows menu' keys on your Linux PC keyboard into a `super' key
+on Linux by having it emit the sequence `C-x@s'.
+
+Bindings specified here are available on prefix key `super'
+for example, if you bind
+`s' to command emacspeak-emergency-tts-restart
+then that command will be available on key `super  s'
+
+The value of this variable is an association list. The car
+of each element specifies a key sequence. The cdr specifies
+an interactive command that the key sequence executes. To
+enter a key with a modifier, type C-q followed by the
+desired modified keystroke. For example, to enter C-s
+(Control s) as the key to be bound, type C-q C-s in the key
+field in the customization buffer.  You can use the notation
+[f1], [f2], etc., to specify function keys. "
+  :group 'emacspeak
+  :type '(repeat
+          :tag "Emacspeak Super Keymap"
+          (cons
+           :tag "Key Binding"
+           (key-sequence :tag "Key")
+           (ems-interactive-command :tag "Command")))
+  :set #'(lambda (sym val)
+           (emacspeak-keymap-bindings-update emacspeak-super-keymap  val)
+           (set-default sym val)))
+
+(global-set-key "\C-x@s"
+                'emacspeak-super-keymap)
+
+;;}}}
+;;{{{ Create a alt keymap that users can put personal commands
+
+;;; I use the "pause" key to produce C-x@a -- which gives alt-
+;;on
+;;; Adding keys using custom:
+(defvar  emacspeak-alt-keymap nil
+  "Emacspeak alt keymap")
+
+(define-prefix-command 'emacspeak-alt-keymap   'emacspeak-alt-keymap)
+
+(defcustom emacspeak-alt-keys nil
+  "*Specifies alt key bindings for the audio desktop.
+You can turn the `Pause' key  on your Linux PC keyboard into a `alt' key
+on Linux by having it emit the sequence `C-x@a'.
+
+Bindings specified here are available on prefix key `alt'
+(not to be confused with alt==meta)
+for example, if you bind
+`s' to command emacspeak-emergency-tts-restart
+then that command will be available on key `ALT  s'
+
+The value of this variable is an association list. The car
+of each element specifies a key sequence. The cdr specifies
+an interactive command that the key sequence executes. To
+enter a key with a modifier, type C-q followed by the
+desired modified keystroke. For example, to enter C-s
+(Control s) as the key to be bound, type C-q C-s in the key
+field in the customization buffer.  You can use the notation
+[f1], [f2], etc., to specify function keys. "
+  :group 'emacspeak
+  :type '(repeat
+          :tag "Emacspeak Alt Keymap"
+          (cons
+           :tag "Key Binding"
+           (key-sequence :tag "Key")
+           (ems-interactive-command :tag "Command")))
+  :set #'(lambda (sym val)
+          (emacspeak-keymap-bindings-update emacspeak-alt-keymap val)
+          (set-default sym val)))
+
+(global-set-key "\C-x@a"
+                'emacspeak-alt-keymap)
+
+;;}}}
+;;{{{ Create a hyper keymap that users can put personal commands
+
+;;; I use the windows key for hyper
+;;on
+;;; Adding keys using custom:
+(defvar  emacspeak-hyper-keymap nil
+  "Emacspeak hyper keymap")
+
+(define-prefix-command 'emacspeak-hyper-keymap   'emacspeak-hyper-keymap)
+
+(defcustom emacspeak-hyper-keys nil
+  "*Specifies hyper key bindings for the audio desktop. Emacs can
+use the `hyper' key as a modifier key. You can turn the `windows'
+keys on your Linux PC keyboard into a `hyper' key on Linux by
+having it emit the sequence `C-x@h'.
+
+Bindings specified here are available on prefix key `hyper' for
+example, if you bind `b' to command `bbdb ' then that command
+will be available on key `hyper b'.
+
+The value of this variable is an association list. The car of
+each element specifies a key sequence. The cdr specifies an
+interactive command that the key sequence executes. To enter a
+key with a modifier, type C-q followed by the desired modified
+keystroke. For example, to enter C-s (Control s) as the key to be
+bound, type C-q C-s in the key field in the customization
+buffer. You can use the notation [f1], [f2], etc., to specify
+function keys. "
+  :group 'emacspeak
+  :type '(repeat
+          :tag "Emacspeak Hyper Keys"
+          (cons
+           :tag "Key Binding"
+           (key-sequence :tag "Key")
+           (ems-interactive-command :tag "Command")))
+  :set #'(lambda (sym val)
+           (emacspeak-keymap-bindings-update emacspeak-hyper-keymap val)
+           (set-default sym val)))
+
+(global-set-key "\C-x@h"
+                'emacspeak-hyper-keymap)
+(define-key emacspeak-hyper-keymap " " 'emacspeak-webspace)
 ;;}}}
 (provide 'emacspeak-keymap)
 
