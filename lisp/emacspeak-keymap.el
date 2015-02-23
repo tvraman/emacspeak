@@ -63,7 +63,7 @@
 ;;;###autoload
 (defun emacspeak-keymap-update (keymap binding)
   "Update keymap with specified binding."
-  (define-key keymap  (first binding) (second binding)))
+  (define-key keymap  (kbd (first binding)) (second binding)))
 
 (defun emacspeak-keymap-bindings-update (keymap bindings)
   "Update keymap with specified list of bindings."
@@ -253,17 +253,17 @@
         ("w" emacspeak-speak-word)
         ("{" emacspeak-speak-paragraph)
         ("|" emacspeak-speak-line-set-column-filter)
-        ([(control left)] emacspeak-select-this-buffer-previous-display)
-        ([(control right)] emacspeak-select-this-buffer-next-display)
-        ([left] emacspeak-speak-this-buffer-previous-display)
-        ([down] emacspeak-read-next-line)
-        ([right] emacspeak-speak-this-buffer-next-display)
-        ([up]  emacspeak-read-previous-line)
-        ([f1] emacspeak-learn-emacs-mode)
-        ([f11] emacspeak-wizards-shell-toggle)
-        ([insert] emacspeak-emergency-tts-restart)
-        ([delete] emacspeak-ssh-tts-restart)
-        ([(deletechar)] emacspeak-ssh-tts-restart)
+        ("<C-<left>" emacspeak-select-this-buffer-previous-display)
+        ("<C-<right>" emacspeak-select-this-buffer-next-display)
+        ("<left>" emacspeak-speak-this-buffer-previous-display)
+        ("<down>" emacspeak-read-next-line)
+        ("<right>" emacspeak-speak-this-buffer-next-display)
+        ("<up>"  emacspeak-read-previous-line)
+        ("<f1>" emacspeak-learn-emacs-mode)
+        ("<f11>" emacspeak-wizards-shell-toggle)
+        ("<insert>" emacspeak-emergency-tts-restart)
+        ("<delete>" emacspeak-ssh-tts-restart)
+        ("<(deletechar>" emacspeak-ssh-tts-restart)
         ("\M-%" emacspeak-goto-percent)
         )
       do

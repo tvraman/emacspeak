@@ -75,9 +75,9 @@ instead of the modeline."
 (add-hook 'w3m-display-hook 'emacspeak-webutils-run-post-process-hook)
 
 (define-key w3m-mode-map "x" 'emacspeak-we-xsl-map)
-(define-key w3m-mode-map [M-tab] 'w3m-previous-anchor)
-(define-key w3m-mode-map [(shift tab)] 'w3m-previous-anchor)
-(define-key w3m-mode-map [tab] 'w3m-next-anchor)
+(define-key w3m-mode-map (kbd "M-<tab>") 'w3m-previous-anchor)
+(define-key w3m-mode-map (kbd "S-<tab>") 'w3m-previous-anchor)
+(define-key w3m-mode-map (kbd "<tab>") 'w3m-next-anchor)
 (define-key w3m-mode-map [down] 'next-line)
 (define-key w3m-mode-map [up] 'previous-line)
 (define-key w3m-mode-map [right] 'emacspeak-forward-char)
