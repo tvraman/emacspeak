@@ -1,4 +1,4 @@
-;;; emacspeak-keymap.el --- Setup all keymaps and keybindings provided by Emacspeak
+;;; emacspeak-keymap.el --- Setup  keymaps and keybindings provided by Emacspeak
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Module for setting up emacspeak keybindings
@@ -75,7 +75,8 @@
 (define-widget 'ems-interactive-command 'restricted-sexp
   "An interactive command."
   :completions
-  (apply-partially #'completion-table-with-predicate obarray 'emacspeak-keymap-command-p 'strict)
+  (apply-partially #'completion-table-with-predicate
+                   obarray 'emacspeak-keymap-command-p 'strict)
   :prompt-value 'widget-field-prompt-value
   :prompt-internal 'widget-symbol-prompt-internal
   :prompt-match 'emacspeak-keymap-command-p
@@ -84,7 +85,8 @@
   :match-alternatives '(emacspeak-keymap-command-p)
   :validate (lambda (widget)
               (unless (emacspeak-keymap-command-p (widget-value widget))
-                (widget-put widget :error (format "Invalid interactive command : %S"
+                (widget-put widget :error
+                            (format "Invalid interactive command : %S"
                                                   (widget-value widget)))
                 widget))
   :value 'ignore
@@ -314,14 +316,15 @@
       do
       (emacspeak-keymap-update emacspeak-dtk-submap binding))
 
-(dotimes (i 10) (define-key emacspeak-dtk-submap   (format "%s" i )   'dtk-set-predefined-speech-rate ))
+(dotimes (i 10)
+  (define-key emacspeak-dtk-submap
+    (format "%s" i )   'dtk-set-predefined-speech-rate ))
 
 ;;; Put these in the global map:
 (global-set-key [(shift left)] 'previous-buffer)
 (global-set-key [(shift right)] 'next-buffer)
 (global-set-key [(control left)] 'emacspeak-previous-frame-or-buffer)
 (global-set-key [(control right)] 'emacspeak-next-frame-or-buffer)
-                                        ;(global-set-key [pause] 'tts-cycle-device)
 (global-set-key [(control down)] 'pop-to-mark-command)
 (global-set-key [(control up)] 'emacspeak-mark-backward-mark)
 (global-set-key [(shift up)] 'emacspeak-skip-blank-lines-backward)
@@ -427,19 +430,19 @@ interactive command that the key sequence executes."
 (defvar  emacspeak-personal-ctlx-keymap nil
   "Emacspeak personal-ctlx keymap")
 
-(define-prefix-command 'emacspeak-personal-ctlx-keymap   'emacspeak-personal-ctlx-keymap)
+(define-prefix-command 'emacspeak-personal-ctlx-keymap
+  'emacspeak-personal-ctlx-keymap)
 
 (defcustom emacspeak-personal-ctlx-keys nil
-  "*Specifies personal-ctlx key bindings for use with C-e C-x for the audio desktop.
-Bindings specified here are available on prefix key C-e C-x
-for example, if you bind
-`C-s' to command emacspeak-emergency-tts-restart
-then that command will be available on key C-e  C-x C-s.
-KEYS should be a string constant in the format used for saving
-keyboard macros (see `edmacro-mode').
+  "*Specifies personal-ctlx key bindings for use with C-e C-x for
+the audio desktop. Bindings specified here are available on
+prefix key C-e C-x for example, if you bind `C-s' to command
+emacspeak-emergency-tts-restart then that command will be
+available on key C-e C-x C-s. KEYS should be a string constant in
+the format used for saving keyboard macros (see `edmacro-mode').
 
 Command is an interactive command or a prefix-command that can be
-bound to a key. 
+bound to a key.
 
 The value of this variable is an association list. The car of
 each element specifies a key sequence. The cdr specifies an
@@ -467,23 +470,23 @@ interactive command that the key sequence executes."
 (define-prefix-command 'emacspeak-super-keymap   'emacspeak-super-keymap)
 
 (defcustom emacspeak-super-keys nil
-  "*Specifies super key bindings for the audio desktop.
-You can turn the right `windows menu' keys on your Linux PC keyboard into a `super' key
-on Linux by having it emit the sequence `C-x@s'.
+  "*Specifies super key bindings for the audio desktop. You can
+turn the right `windows menu' keys on your Linux PC keyboard into
+a `super' key on Linux by having it emit the sequence `C-x@s'.
 
-Bindings specified here are available on prefix key `super'
-for example, if you bind
-`s' to command emacspeak-emergency-tts-restart
-then that command will be available on key `super  s'.
-KEYS should be a string constant in the format used for saving
-keyboard macros (see `edmacro-mode').
+Bindings specified here are available on prefix key `super' for
+example, if you bind `s' to command
+emacspeak-emergency-tts-restart then that command will be
+available on key `super s'. KEYS should be a string constant in
+the format used for saving keyboard macros (see `edmacro-mode').
 
 Command is an interactive command or a prefix-command that can be
-bound to a key. 
+bound to a key.
 
 The value of this variable is an association list. The car of
 each element specifies a key sequence. The cdr specifies an
 interactive command that the key sequence executes."
+
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Super Keymap"
