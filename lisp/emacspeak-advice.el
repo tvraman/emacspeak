@@ -2713,6 +2713,10 @@ Produce auditory icons if possible."
    (ad-return-value (emacspeak-auditory-icon 'y-answer))
    (t (emacspeak-auditory-icon 'n-answer))))
 
+(defadvice ask-user-about-lock-help (after emacspeak pre act comp)
+  "Play auditory icon."
+  (emacspeak-auditory-icon 'help))
+
 (defadvice y-or-n-p (before emacspeak pre act comp)
   "Play auditory icon."
   (emacspeak-auditory-icon 'ask-short-question))
@@ -2722,8 +2726,6 @@ Produce auditory icons if possible."
   (cond
    (ad-return-value (emacspeak-auditory-icon 'y-answer))
    (t (emacspeak-auditory-icon 'n-answer))))
-
-;;}}}
 
 ;;}}}
 (provide 'emacspeak-advice)
