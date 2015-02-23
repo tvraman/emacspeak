@@ -832,7 +832,7 @@ Letters do not insert themselves; instead, they are commands.
         ("p" previous-line)
         ("r" emacspeak-epub-bookshelf-rename)
         ("t" emacspeak-epub-fulltext)
-        ([return] emacspeak-epub-open)
+        ("RET" emacspeak-epub-open)
         )
       do
       (emacspeak-keymap-update emacspeak-epub-mode-map k))
