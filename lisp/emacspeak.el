@@ -245,7 +245,6 @@ speech-enabling extensions."
 (emacspeak-do-package-setup "package"'emacspeak-package)
 (emacspeak-do-package-setup "pcl-cvs" 'emacspeak-pcl-cvs)
 (emacspeak-do-package-setup "pcvs" 'emacspeak-pcl-cvs)
-(emacspeak-do-package-setup "psgml" 'emacspeak-psgml)
 (emacspeak-do-package-setup "python" 'emacspeak-python)
 (emacspeak-do-package-setup "python-mode" 'emacspeak-py)
 (emacspeak-do-package-setup "re-builder" 'emacspeak-re-builder)
