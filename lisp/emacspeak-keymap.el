@@ -217,7 +217,7 @@
         ("M-a" emacspeak-set-auditory-icon-player)
         ("M-b" emacspeak-speak-other-buffer)
         ("M-c" emacspeak-copy-current-file)
-        ("\M-d" emacspeak-pronounce-dispatch)
+        ("M-d" emacspeak-pronounce-dispatch)
         ("M-h" emacspeak-speak-hostname)
         ("M-l" emacspeak-link-current-file)
         ("M-m" emacspeak-toggle-mail-alert)

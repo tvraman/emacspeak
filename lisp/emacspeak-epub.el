@@ -819,7 +819,7 @@ Letters do not insert themselves; instead, they are commands.
         ("\C-o" emacspeak-epub-bookshelf-open-epub)
         ("\C-x\C-q" emacspeak-epub-bookshelf-refresh)
         ("\C-x\C-s" emacspeak-epub-bookshelf-save)
-        ("\M-s" emacspeak-epub-bookshelf-save)
+        ("M-s" emacspeak-epub-bookshelf-save)
         ("a" emacspeak-epub-bookshelf-add-epub)
         ("b" emacspeak-epub-bookshelf-open)
         ("c" emacspeak-epub-bookshelf-clear)

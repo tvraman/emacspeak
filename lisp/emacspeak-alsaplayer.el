@@ -596,8 +596,8 @@ As the default, use current position."
         ("m" emacspeak-alsaplayer-mark-position)
         ("M" emacspeak-alsaplayer-amark-add)
         ("J" emacspeak-alsaplayer-amark-jump)
-        ("\M-s" emacspeak-amark-save)
-        ("\M-l" emacspeak-amark-load)
+        ("M-s" emacspeak-amark-save)
+        ("M-l" emacspeak-amark-load)
         ("w" emacspeak-alsaplayer-where)
         ("x" emacspeak-alsaplayer-clip)
         ("." emacspeak-alsaplayer-forward-10-seconds)
@@ -665,4 +665,3 @@ emacspeak-silence-hook."
 ;;; end: 
 
 ;;}}}
-

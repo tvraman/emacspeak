@@ -295,9 +295,9 @@ session."
 (when (boundp 'jabber-chat-mode-map)
   (loop for k in
         '(
-          ("\M-n" emacspeak-jabber-chat-next-message)
-          ("\M-p" emacspeak-jabber-chat-previous-message)
-          ("\M- " emacspeak-jabber-chat-speak-this-message))
+          ("M-n" emacspeak-jabber-chat-next-message)
+          ("M-p" emacspeak-jabber-chat-previous-message)
+          ("M- " emacspeak-jabber-chat-speak-this-message))
         do
         (emacspeak-keymap-update  jabber-chat-mode-map k)))
 
