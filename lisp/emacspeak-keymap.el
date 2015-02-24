@@ -338,10 +338,9 @@
 ;;{{{ emacspeak under X windows
 
 ;;; Get hyper, alt and super like on the console:
-(global-set-key [67108908] 'emacspeak-alt-keymap)
-(global-set-key  [67108903] 'emacspeak-super-keymap)
-(global-set-key [67108923] 'emacspeak-hyper-keymap)
-                                        ;(global-set-key [67108910]  'esc-map)
+(global-set-key (kbd "C-,") 'emacspeak-alt-keymap)
+(global-set-key  (kbd "C-'") 'emacspeak-super-keymap)
+(global-set-key  (kbd "C-;") 'emacspeak-hyper-keymap)
 ;;; Our very own silence key on the console
 ;;; I use the Windows key.
 (global-set-key '[silence] 'emacspeak-silence)
