@@ -398,7 +398,7 @@
           ("M-S-<right>" org-shiftmetaright)
           ("M-S-RET" org-insert-todo-heading)
           ("\C-e" emacspeak-prefix-command)
-          ("\C-j" org-insert-heading)
+          ("C-j" org-insert-heading)
           ("M-n" org-next-item)
           ("M-p" org-previous-item)
           )
