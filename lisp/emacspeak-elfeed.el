@@ -128,7 +128,7 @@
          (title (elfeed-entry-title e))
          (tags (elfeed-entry-tags e)))
     (dtk-speak title)
-    (when (memq 'unread tags) (emacspeak-auditory-icon 'unmodified-object))
+    ;(when (memq 'unread tags) (emacspeak-auditory-icon 'unmodified-object))
     (when (memq 'read tags) (emacspeak-auditory-icon 'modified-object))
     (when (memq 'seen  tags) (emacspeak-auditory-icon 'mark-object))
     (emacspeak-auditory-icon 'iten)
