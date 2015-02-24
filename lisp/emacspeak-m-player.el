@@ -590,8 +590,8 @@ A string of the form `<number> 1' sets volume as an absolute."
   (interactive)
   (emacspeak-m-player-dispatch
    (format "balance %s"
-           (read-from-minibuffer "Balance: "))))
-;;; Would be nice to be able to pass in args in a non-interactive call.
+           (read-from-minibuffer "Balance -- Between -1 and 1:"))))
+
 ;;;###autoload
 (defun emacspeak-m-player-slave-command (command)
   "Dispatch slave command read from minibuffer."
