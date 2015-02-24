@@ -79,7 +79,7 @@
         ("q" emacspeak-kill-buffer-quietly)
         ("x" emacspeak-table-copy-current-element-to-register)
         ("w" emacspeak-table-copy-current-element-to-kill-ring)
-        ("\t" emacspeak-table-next-column)
+        ("TAB" emacspeak-table-next-column)
         ( "S-<tab>" emacspeak-table-previous-column)
         ("j" emacspeak-table-goto)
         ("<up>"  emacspeak-table-previous-row)
