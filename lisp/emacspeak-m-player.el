@@ -696,6 +696,18 @@ A string of the form `<number> 1' sets volume as an absolute."
   (search-forward "INS"))
 
 ;;}}}
+;;{{{ Reset Options:
+
+(defun emacspeak-m-player-reset-options ()
+  "Reset MPlayer options to initial defaults."
+  (interactive)
+  (declare (special emacspeak-m-player-default-options
+                    emacspeak-m-player-options))
+  (setq emacspeak-m-player-options
+        emacspeak-m-player-default-options)
+  (message "Reset options."))
+
+;;}}}
 ;;{{{ equalizer
 
 (defconst emacspeak-m-player-equalizer (make-vector 10 0)
@@ -767,15 +779,6 @@ Interactive prefix arg `reset' starts with all filters set to 0."
                                           (if reset  (make-vector 10 0)
                                             emacspeak-m-player-equalizer)))))
    (t (message "No stream playing at present."))))
-
-(defun emacspeak-m-player-reset-options ()
-  "Reset MPlayer options to initial defaults."
-  (interactive)
-  (declare (special emacspeak-m-player-default-options
-                    emacspeak-m-player-options))
-  (setq emacspeak-m-player-options
-        emacspeak-m-player-default-options)
-  (message "Reset options."))
 
 ;;}}}
 ;;{{{ keys
