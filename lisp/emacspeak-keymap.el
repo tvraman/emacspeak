@@ -197,7 +197,7 @@
         ("\C-d" emacspeak-toggle-show-point)
         ("\C-i" emacspeak-table-display-table-in-region)
         ("C-j" emacspeak-hide-speak-block-sans-prefix)
-        ("\C-l" emacspeak-speak-line-number)
+        ("C-l" emacspeak-speak-line-number)
         ("\C-m"  emacspeak-speak-continuously)
         ("\C-n" emacspeak-speak-next-window )
         ("\C-o" emacspeak-ocr )
