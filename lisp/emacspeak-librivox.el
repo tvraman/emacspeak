@@ -131,7 +131,7 @@
         '(
           ("\C-m" emacspeak-librivox-open-rss)
           ("S" emacspeak-librivox-searcher)
-          ([C-return] emacspeak-librivox-play)
+          ("c-RET" emacspeak-librivox-play)
           ("P" emacspeak-librivox-play)
           ("u" emacspeak-librivox-open-url)
           ("F" emacspeak-librivox-fetch-catalog)
