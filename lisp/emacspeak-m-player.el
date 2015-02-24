@@ -701,17 +701,34 @@ A string of the form `<number> 1' sets volume as an absolute."
 (defconst emacspeak-m-player-equalizer (make-vector 10 0)
   "Vector holding equalizer settings.")
 
+(defconst  emacspeak-m-player-equalizer-bands 
+  ["31.25 Hz"
+   "62.50 Hz"
+   "125.00 Hz"
+   "250.00 Hz"
+   "500.00 Hz"
+   "1.00 kHz"
+   "2.00 kHz"
+   "4.00 kHz"
+   "8.00 kHz"
+   "16.00 kHz"]
+  "Center frequencies for the 10 equalizer bands in MPlayer.")
+
 (defun emacspeak-m-player-equalizer-control (v)
   "Manipulate values in specified vector using minibuffer.
 Applies  the resulting value at each step."
   (interactive)
+  (declare (special emacspeak-m-player-equalizer-bands))
   (let ((column 0)
         (key nil)
         (result  (mapconcat #'number-to-string v  ":"))
         (continue t))
+    ;;; First, apply the default 
     (emacspeak-m-player-dispatch (format "af_add equalizer=%s" result))
     (while  continue
-      (setq key  (read-key-sequence (format "G%s:%s" column (aref v column))))
+      (setq key
+            (read-key-sequence (format "G%s:%s (%s)" column (aref v column)
+                                       (aref emacspeak-m-player-equalizer-bands column))))
       (cond
        ((equal key [left])
         (setq column (% (+ 9  column) 10)))
