@@ -764,7 +764,7 @@ The Mplayer equalizer provides 10 bands, G0 -- G9, see the
 (declaim (special emacspeak-m-player-mode-map))
 (loop for k in
       '(
-        (" " emacspeak-m-player-pause)
+        ("SPC" emacspeak-m-player-pause)
         ("+" emacspeak-m-player-volume-up)
         ("," emacspeak-m-player-backward-10s)
         ("-" emacspeak-m-player-volume-down)
