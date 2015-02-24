@@ -666,6 +666,7 @@ A string of the form `<number> 1' sets volume as an absolute."
 
 (defconst emacspeak-m-player-filters
   '("hrtf" "sweep" "extrastereo" "volnorm" "surround"
+    "ladspa=bs2b:bs2b:1000:11"
     "bs2b=cmoy" "bs2b=jmeier" "bs2b")
   "Table of useful MPlayer filters.")
 
