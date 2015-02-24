@@ -698,7 +698,7 @@ A string of the form `<number> 1' sets volume as an absolute."
 ;;}}}
 ;;{{{ equalizer
 
-(defvar emacspeak-m-player-equalizer (make-vector 10 12)
+(defconst emacspeak-m-player-equalizer (make-vector 10 0)
   "Vector holding equalizer settings.")
 
 (defun emacspeak-m-player-equalizer-control (v)
@@ -739,22 +739,16 @@ A string of the form `<number> 1' sets volume as an absolute."
      v  ":")))
 
 (defun emacspeak-m-player-add-equalizer ()
-  "Add equalizer for next MPlayer invocation.
-
-Use arrow keys, page-up, page-down, home and end keys to
-  manipulate the values.
-Hit enter to finish setting the equalizer values.
-
-The Mplayer equalizer provides 10 bands, G0 -- G9, see the
-  MPlayer man page for details."
+  "Add equalizer to playing stream."
   (interactive)
-  (declare (special emacspeak-m-player-equalizer
-                    emacspeak-m-player-options))
-  (setq emacspeak-m-player-options
-        (append emacspeak-m-player-options
-                (list "-af"
-                      (format "equalizer=%s"
-                              (emacspeak-m-player-equalizer-control emacspeak-m-player-equalizer))))))
+  (declare (special emacspeak-m-player-process
+                    emacspeak-m-player-equalizer))
+  (cond
+   ((eq 'run  (process-status emacspeak-m-player-process))
+    (emacspeak-m-player-dispatch (format "af_add equalizer=%s" 
+                              (emacspeak-m-player-equalizer-control emacspeak-m-player-equalizer))))
+   (t (message "No stream playing at present."))))
+
 (defun emacspeak-m-player-reset-options ()
   "Reset MPlayer options to initial defaults."
   (interactive)
