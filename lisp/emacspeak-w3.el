@@ -192,7 +192,7 @@
           ("T"  emacspeak-webutils-jump-to-title-in-content)
           ("y" emacspeak-we-url-rewrite-and-follow)
           ("z" emacspeak-w3-speak-next-block)
-          ([C-Return] emacspeak-webutils-open-in-other-browser))
+          ("C-RET" emacspeak-webutils-open-in-other-browser))
         do
         (emacspeak-keymap-update w3-mode-map binding))
   (w3-masquerade-stub 1 "Mozilla" "5.0"))
