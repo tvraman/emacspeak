@@ -94,7 +94,7 @@
         ("\C-f" emacspeak-table-next-column)
         ("r" emacspeak-table-speak-row-header-and-element )
         ("c" emacspeak-table-speak-column-header-and-element)
-        (" " emacspeak-table-speak-current-element)
+        ("SPC" emacspeak-table-speak-current-element)
         ("b" emacspeak-table-speak-both-headers-and-element)
         ("." emacspeak-table-speak-coordinates)
         ("=" emacspeak-table-speak-dimensions)

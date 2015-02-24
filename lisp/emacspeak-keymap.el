@@ -276,7 +276,7 @@
 
 (loop for binding in
       '(
-        (" " dtk-toggle-splitting-on-white-space)
+        ("SPC" dtk-toggle-splitting-on-white-space)
         ("C" dtk-toggle-allcaps-beep)
         ("R" dtk-reset-state)
         ("V" tts-speak-version)

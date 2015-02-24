@@ -618,7 +618,7 @@ As the default, use current position."
          emacspeak-alsaplayer-seek)
         ("j" emacspeak-alsaplayer-jump)
         ("l" emacspeak-alsaplayer-launch)
-        (" "
+        ("SPC"
          emacspeak-alsaplayer-pause)
         ("n"
          emacspeak-alsaplayer-next)
