@@ -64,7 +64,7 @@
 ;;; alt keymap
 (setq emacspeak-alt-keys
       '(
-        ("SPC " . emacspeak-wizards-cycle-to-next-buffer)
+        ("C-i " . emacspeak-wizards-cycle-to-next-buffer)
         ("T" . emacspeak-wizards-tune-in-radio-search)
         ("a" . emacspeak-feeds-atom-display)
         ("b" . emacspeak-bookshare)
