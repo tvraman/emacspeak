@@ -10,7 +10,7 @@
 (setq emacspeak-personal-keys
       '(
         ("3" . emacspeak-wizards-cycle-browser)
-        ("<BACKSPACE>" . desktop-clear)
+        ("<DEL>" . desktop-clear)
         ("=" . emacspeak-wizards-find-longest-line-in-region)
         ("e" . emacspeak-we-xsl-map)
         ("h" . emacspeak-wizards-how-many-matches)
