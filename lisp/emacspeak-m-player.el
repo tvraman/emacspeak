@@ -91,10 +91,15 @@ This is set to nil when playing Internet  streams.")
 
 (defsubst emacspeak-m-player-mode-line ()
   "Meaningful mode-line."
+  (declare (special emacspeak-m-player-process))
+  (cond
+   ((eq 'run (process-status emacspeak-m-player-process))
   (let ((info (emacspeak-m-player-get-position)))
     (format "%s: %s"
             (first info)
             (second info))))
+   (t (message "Process MPlayer not running.")))
+  )
 
 (defun emacspeak-m-player-speak-mode-line ()
   "Speak mode line"
