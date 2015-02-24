@@ -94,10 +94,10 @@ This is set to nil when playing Internet  streams.")
   (declare (special emacspeak-m-player-process))
   (cond
    ((eq 'run (process-status emacspeak-m-player-process))
-  (let ((info (emacspeak-m-player-get-position)))
-    (format "%s: %s"
-            (first info)
-            (second info))))
+    (let ((info (emacspeak-m-player-get-position)))
+      (format "%s: %s"
+              (first info)
+              (second info))))
    (t (message "Process MPlayer not running.")))
   )
 
@@ -701,7 +701,7 @@ A string of the form `<number> 1' sets volume as an absolute."
 (defconst emacspeak-m-player-equalizer (make-vector 10 0)
   "Vector holding equalizer settings.")
 
-(defconst  emacspeak-m-player-equalizer-bands 
+(defconst  emacspeak-m-player-equalizer-bands
   ["31.25 Hz"
    "62.50 Hz"
    "125.00 Hz"
@@ -723,7 +723,7 @@ Applies  the resulting value at each step."
         (key nil)
         (result  (mapconcat #'number-to-string v  ":"))
         (continue t))
-    ;;; First, apply the default 
+    ;;; First, apply the default
     (emacspeak-m-player-dispatch (format "af_add equalizer=%s" result))
     (while  continue
       (setq key
@@ -753,15 +753,19 @@ Applies  the resulting value at each step."
       (emacspeak-m-player-dispatch (format "af_cmdline equalizer %s" result)))
     result))
 
-(defun emacspeak-m-player-add-equalizer ()
-  "Add equalizer to playing stream."
-  (interactive)
+(defun emacspeak-m-player-add-equalizer (&optional reset)
+  "Add equalizer to playing stream.
+Equalizer is applied as each change is made, and the final effect set by pressing RET.
+Interactive prefix arg `reset' starts with all filters set to 0."
+  (interactive "P")
   (declare (special emacspeak-m-player-process
                     emacspeak-m-player-equalizer))
   (cond
    ((eq 'run  (process-status emacspeak-m-player-process))
-    (emacspeak-m-player-dispatch (format "af_add equalizer=%s" 
-                              (emacspeak-m-player-equalizer-control emacspeak-m-player-equalizer))))
+    (emacspeak-m-player-dispatch (format "af_add equalizer=%s"
+                                         (emacspeak-m-player-equalizer-control
+                                          (if reset  (make-vector 10 0)
+                                            emacspeak-m-player-equalizer)))))
    (t (message "No stream playing at present."))))
 
 (defun emacspeak-m-player-reset-options ()
