@@ -702,41 +702,39 @@ A string of the form `<number> 1' sets volume as an absolute."
   "Vector holding equalizer settings.")
 
 (defun emacspeak-m-player-equalizer-control (v)
-  "Manipulate values in specified vector using minibuffer."
+  "Manipulate values in specified vector using minibuffer.
+Applies  the resulting value at each step."
   (interactive)
   (let ((column 0)
         (key nil)
+        (result  (mapconcat #'number-to-string v  ":"))
         (continue t))
+    (emacspeak-m-player-dispatch (format "af_add equalizer=%s" result))
     (while  continue
-      (setq key  (read-key-sequence
-                  (format "G%s:%s" column (aref v column))))
+      (setq key  (read-key-sequence (format "G%s:%s" column (aref v column))))
       (cond
        ((equal key [left])
         (setq column (% (+ 9  column) 10)))
        ((equal key [right])
         (setq column (% (1+ column) 10)))
        ((equal key [up])
-        (aset v   column
-              (min 12 (1+ (aref v column)))))
+        (aset v   column (min 12 (1+ (aref v column)))))
        ((equal key [down])
-        (aset v   column
-              (max -12 (1- (aref v column)))))
+        (aset v   column (max -12 (1- (aref v column)))))
        ((equal key [prior])
-        (aset v   column
-              (min 12 (+ 4  (aref v column)))))
+        (aset v   column (min 12 (+ 4  (aref v column)))))
        ((equal key [next])
-        (aset v   column
-              (max -12 (- (aref v column)  4))))
+        (aset v   column (max -12 (- (aref v column)  4))))
        ((equal key [home])
         (aset v   column 12))
        ((equal key [end])
         (aset v   column -12))
        ((equal key "\C-g") (error "Did not change equalizer."))
-       ((equal key "\C-m")
-        (setq continue nil))))
-    (mapconcat
-     #'(lambda (value) (format "%d" value))
-     v  ":")))
+       ((equal key "\C-m") (setq continue nil))
+       (t (message "Invalid key")))
+      (setq result (mapconcat #'number-to-string v  ":"))
+      (emacspeak-m-player-dispatch (format "af_cmdline equalizer %s" result)))
+    result))
 
 (defun emacspeak-m-player-add-equalizer ()
   "Add equalizer to playing stream."
