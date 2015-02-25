@@ -518,18 +518,19 @@ This variable is buffer-local.")
 (define-prefix-command  'emacspeak-google-command
   'emacspeak-google-keymap)
 
-(loop for k in
-      '(
-        ("." emacspeak-google-toolbelt-change)("." emacspeak-google-toolbelt-change)
-        ("A" emacspeak-google-sign-in)
-        ("a" emacspeak-google-sign-out)
-        ("c" emacspeak-webutils-google-extract-from-cache)
-        ("g" emacspeak-websearch-google)
-        ("l" emacspeak-webutils-google-who-links-to-this-page)
-        ("s" emacspeak-webutils-google-similar-to-this-page)
-        )
-      do
-      (emacspeak-keymap-update emacspeak-google-keymap k))
+(loop
+ for k in
+ '(
+   ("." emacspeak-google-toolbelt-change)("." emacspeak-google-toolbelt-change)
+   ("A" emacspeak-google-sign-in)
+   ("a" emacspeak-google-sign-out)
+   ("c" emacspeak-webutils-google-extract-from-cache)
+   ("g" emacspeak-websearch-google)
+   ("l" emacspeak-webutils-google-who-links-to-this-page)
+   ("s" emacspeak-webutils-google-similar-to-this-page)
+   )
+ do
+ (emacspeak-keymap-update emacspeak-google-keymap k))
 
 ;;}}}
 ;;{{{ Advice GMaps:
