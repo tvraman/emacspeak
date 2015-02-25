@@ -106,7 +106,7 @@ node -- speak the entire node."
       (emacspeak-speak-buffer ))
      (t (emacspeak-speak-line)))))
 (loop for f in
-      '(info-display-manual Info-select-node)
+      '(info-display-manual Info-select-node Info-goto-node)
       do
       (eval
        `(defadvice ,f (after emacspeak pre act)
@@ -115,6 +115,7 @@ emacspeak-info-select-node-speak-chunk"
           (emacspeak-info-visit-node))))
 
 (defadvice info (after emacspeak pre act)
+
   "Cue user that info is up."
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'help)
@@ -158,6 +159,17 @@ and then cue the next selected buffer."
   (when (ems-interactive-p )
     (emacspeak-speak-line)))
 
+(defun emacspeak-info-wizard (node-spec )
+  "Read a node spec from the minibuffer and launch
+Info-goto-node.
+See documentation for command `Info-goto-node' for details on
+node-spec."
+  (interactive
+   (list
+    (read-from-minibuffer "Node: " "(")))
+  (Info-goto-node node-spec)
+  (emacspeak-info-visit-node))
+
 ;;}}}
 ;;{{{ Speak header line if hidden
 
@@ -186,17 +198,7 @@ and then cue the next selected buffer."
 ;;}}}
 ;;{{{ info wizard
 ;;;###autoload
-(defun emacspeak-info-wizard (node-spec )
-  "Read a node spec from the minibuffer and launch
-Info-goto-node.
-See documentation for command `Info-goto-node' for details on
-node-spec."
-  (interactive
-   (list
-    (read-from-minibuffer "Node: "
-                          "(")))
-  (Info-goto-node node-spec)
-  (emacspeak-info-visit-node))
+
 
 ;;}}}
 
