@@ -1,14 +1,14 @@
-(augment-load-path "emms" "emms")
+(augment-load-path "emms/lisp" "emms")
 (require 'emms-setup)
-(require 'emms-volume)
 (emms-all)
 (emms-default-players)
-(setq emms-source-file-default-directory "~/mp3/")
+(setq emms-source-file-default-directory "~/audio/music")
 (define-prefix-command 'emms-prefix-command  'emms-prefix-map "EMMS")
 (loop for key in
       '(
-        ([left] emms-seek-backward)
-        ([right] ems-seek-forward)
+	("b" emms-browser)
+        ("<left>" emms-seek-backward)
+        ("<right>" ems-seek-forward)
         ("\C-b" emms-seek-backward)
         ("\C-f" emms-seek-forward)
          
@@ -33,3 +33,5 @@
       do
     (emacspeak-keymap-update emms-prefix-map key))
 (setq emms-player-list'(emms-player-mplayer-playlist emms-player-mplayer))
+(require 'emms-info-libtag)
+(setq emms-info-functions '(emms-info-libtag))
