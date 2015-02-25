@@ -81,7 +81,9 @@
         ("?" search-backward)
         ("y" emacspeak-webspace-yank-link)
         ("n" forward-button)
-        ("p" backward-button))
+        ("p" backward-button)
+        ("f" forward-button)
+        ("b" backward-button))
       do
       (emacspeak-keymap-update emacspeak-webspace-mode-map k))
 
