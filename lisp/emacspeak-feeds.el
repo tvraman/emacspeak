@@ -351,7 +351,8 @@ Argument `feed' is a feed structure (label url type)."
        (insert (format "%d\t" position))
        (insert-text-button
         (emacspeak-webutils-html-string (cdr (assoc 'title f)))
-        'link  (cdr (assoc 'url f))
+        'link  (cdr (assoc 'link f))
+        'url  (cdr (assoc 'url f))
         'type 'emacspeak-feeds-feed-button)
        (insert "\n")
        (setq start (point))
