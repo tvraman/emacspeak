@@ -129,22 +129,22 @@
 
 (loop for binding in
       '(
-        ("SPC" customize-group)
         ( "B" customize-browse)
         ( "G" customize-group)
         ( "M" emacspeak-speak-popup-messages)
-        ( "V" customize-variable)
         ( "M-F" find-function-at-point)
         ( "M-V" find-variable-at-point)
         ( "M-f" find-function)
         ( "M-k" find-function-on-key)
         ( "M-v" find-variable)
+        ( "V" customize-variable)
         ("C-e"   emacspeak-describe-emacspeak)
-        ("<tab>" emacspeak-info-wizard)
-        ("M-i" info-display-manual)
         ("C-l" emacspeak-learn-emacs-mode)
         ("C-m" man)
         ("C-s" customize-saved)
+        ("M-i" info-display-manual)
+        ("SPC" customize-group)
+        ("TAB" emacspeak-info-wizard)
         )
       do
       (emacspeak-keymap-update help-map binding))
