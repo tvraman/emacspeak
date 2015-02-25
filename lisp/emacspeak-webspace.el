@@ -107,9 +107,11 @@
   (let ((button (button-at (point))))
     (cond
      (button (emacspeak-auditory-icon 'yank-object)
-             (kill-new
-              (or (second (button-get button 'feed))
-                  (button-get button 'link))))
+             (message "%s"
+                      (kill-new
+                       (or (second (button-get button 'feed))
+                           (button-get button 'link)
+                           (button-get button 'url)))))
      (t (error "No link under point")))))
 
 (defadvice gfeeds-view (around emacspeak pre act comp)
