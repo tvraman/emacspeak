@@ -834,7 +834,6 @@ Interactive prefix arg `reset' starts with all filters set to 0."
    ("f" emacspeak-m-player-add-filter)
    ("g" emacspeak-m-player-seek-absolute)
    ("j" emacspeak-m-player-amark-jump)
-   ("k"emacspeak-m-player-bind-accelerator)
    ("l" emacspeak-m-player-get-length)
    ("m" emacspeak-m-player-speak-mode-line)
    ("n" emacspeak-m-player-next-track)
