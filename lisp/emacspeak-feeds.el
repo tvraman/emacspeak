@@ -327,8 +327,23 @@ Argument `feed' is a feed structure (label url type)."
 
 (define-button-type 'emacspeak-feeds-feed-button
   'follow-link t
-  'link nil)
+  'action 'emacspeak-feeds-feed-button-action 
+  'link nil ;site url 
+  'url nil; site url
+)
 
+(defun emacspeak-feeds-feed-button-action (button)
+  "Open feed associated with this button."
+  (let ((url (button-get button 'url))
+        (link (button-get button 'link)))
+    (cond
+     ( (zerop (length url)) ; missing feed url 
+       (browse-url (button-get button 'link)))
+     ((string-match "atom" url)
+        (emacspeak-feeds-atom-display url))
+     ((string-match "rss" url)
+        (emacspeak-feeds-rss-display url))
+     (t (emacspeak-feeds-rss-display url)))))
 ;;;###autoload
 (defun emacspeak-feeds-find-feeds (query)
   "Browse feeds matching specified query."
