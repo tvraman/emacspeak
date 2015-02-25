@@ -166,7 +166,9 @@ See documentation for command `Info-goto-node' for details on
 node-spec."
   (interactive
    (list
-    (read-from-minibuffer "Node: " "(")))
+    (format "(%s)"
+            (completing-read "Node: "
+                             (info--manual-names nil)))))
   (Info-goto-node node-spec)
   (emacspeak-info-visit-node))
 
