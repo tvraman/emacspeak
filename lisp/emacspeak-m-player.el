@@ -735,13 +735,21 @@ Applies  the resulting value at each step."
         (key nil)
         (result  (mapconcat #'number-to-string v  ":"))
         (continue t))
-    ;;; First, apply the default
+;;; First, apply the default
+    (emacspeak-m-player-dispatch "af_del equalizer")
     (emacspeak-m-player-dispatch (format "af_add equalizer=%s" result))
     (while  continue
       (setq key
             (read-key-sequence (format "G%s:%s (%s)" column (aref v column)
                                        (aref emacspeak-m-player-equalizer-bands column))))
       (cond
+       ((equal key "e")
+        (aset
+         v column 
+         (read-number
+          (format
+           "Value for G%s:%s (%s)"
+           column (aref v column) (aref emacspeak-m-player-equalizer-bands column)))))
        ((equal key [left])
         (setq column (% (+ 9  column) 10)))
        ((equal key [right])
@@ -759,7 +767,9 @@ Applies  the resulting value at each step."
        ((equal key [end])
         (aset v   column -12))
        ((equal key "\C-g") (error "Did not change equalizer."))
-       ((equal key "\C-m") (setq continue nil))
+       ((equal key "\C-m")
+        (setq emacspeak-m-player-equalizer-bands v)
+        (setq continue nil))
        (t (message "Invalid key")))
       (setq result (mapconcat #'number-to-string v  ":"))
       (emacspeak-m-player-dispatch (format "af_cmdline equalizer %s" result)))
