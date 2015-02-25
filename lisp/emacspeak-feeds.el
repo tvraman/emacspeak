@@ -341,9 +341,12 @@ Argument `feed' is a feed structure (label url type)."
        (browse-url (button-get button 'link)))
      ((string-match "atom" url)
         (emacspeak-feeds-atom-display url))
+     ((string-match "blogspot" url)
+        (emacspeak-feeds-atom-display url))
      ((string-match "rss" url)
         (emacspeak-feeds-rss-display url))
      (t (emacspeak-feeds-rss-display url)))))
+
 ;;;###autoload
 (defun emacspeak-feeds-find-feeds (query)
   "Browse feeds matching specified query."
