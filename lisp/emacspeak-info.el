@@ -166,9 +166,10 @@ See documentation for command `Info-goto-node' for details on
 node-spec."
   (interactive
    (list
-    (format "(%s)"
-            (completing-read "Node: "
-                             (info--manual-names nil)))))
+    (let ((completion-ignore-case t))
+      (completing-read "Node: "
+                       (Info-build-node-completions
+                        (completing-read "File: " (info--manual-names nil)))))))
   (Info-goto-node node-spec)
   (emacspeak-info-visit-node))
 

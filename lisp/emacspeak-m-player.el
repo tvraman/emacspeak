@@ -768,7 +768,7 @@ Applies  the resulting value at each step."
         (aset v   column -12))
        ((equal key "\C-g") (error "Did not change equalizer."))
        ((equal key "\C-m")
-        (setq emacspeak-m-player-equalizer-bands v)
+        (setq emacspeak-m-player-equalizer v)
         (setq continue nil))
        (t (message "Invalid key")))
       (setq result (mapconcat #'number-to-string v  ":"))
