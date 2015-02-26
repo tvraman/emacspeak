@@ -553,27 +553,28 @@ b Browse
 
 (declaim (special emacspeak-bookshare-mode-map))
 
-(loop for a in
-      '(
-        ("+" emacspeak-bookshare-get-more-results)
-        ("P" emacspeak-bookshare-list-preferences)
-        ("S" emacspeak-bookshare-set-preference)
-        ("a" emacspeak-bookshare-author-search)
-        ("t" emacspeak-bookshare-title-search)
-        ("s" emacspeak-bookshare-fulltext-search)
-        ("SPC" emacspeak-bookshare-action)
-        ("A" emacspeak-bookshare-title/author-search)
-        ("d" emacspeak-bookshare-since-search)
-        ("p" emacspeak-bookshare-browse-popular)
-        ("l" emacspeak-bookshare-browse-latest)
-        ("i" emacspeak-bookshare-isbn-search)
-        ("I" emacspeak-bookshare-id-search)
-        ("m" emacspeak-bookshare-periodical-list)
-        )
+(loop
+ for a in
+ '(
+   ("SPC" emacspeak-bookshare-action)
+   ("+" emacspeak-bookshare-get-more-results)
+   ("A" emacspeak-bookshare-title/author-search)
+   ("I" emacspeak-bookshare-id-search)
+   ("P" emacspeak-bookshare-list-preferences)
+   ("S" emacspeak-bookshare-set-preference)
+   ("a" emacspeak-bookshare-author-search)
+   ("d" emacspeak-bookshare-since-search)
+   ("i" emacspeak-bookshare-isbn-search)
+   ("l" emacspeak-bookshare-browse-latest)
+   ("m" emacspeak-bookshare-periodical-list)
+   ("p" emacspeak-bookshare-browse-popular)
+   ("s" emacspeak-bookshare-fulltext-search)
+   ("t" emacspeak-bookshare-title-search)
+   )
       do
       (progn
         (emacspeak-bookshare-action-set (first a) (second a))
-        (define-key emacspeak-bookshare-mode-map (first a) 'emacspeak-bookshare-action)))
+        (define-key emacspeak-bookshare-mode-map (kbd (first a)) 'emacspeak-bookshare-action)))
 
 ;;}}}
 ;;{{{ Bookshare XML  handlers:

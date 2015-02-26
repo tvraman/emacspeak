@@ -1,0 +1,91 @@
+[$ include( catfile( get_setting("dir_templates"), "tpl_header.html") ) $]
+
+<form action="add_a_channel.html" method="post" style="margin:0">
+<input type="hidden" name="letter" value="[$ param('letter') || 0 $]" />
+<input type="submit" name="add" value="Subscribe to the Channels I've Checked Below" />
+
+<br/>
+<table>
+ [$ # load our matching channel letter, defaulting with 0.
+    load_channels_by_letter( param('letter') || 0 );
+    my @channel_list = get_sorted_channels_list("title", "data");
+    foreach my $channel (@channel_list) { to_browser(qq{
+<tr >
+<td >
+<input type="checkbox" name="add_urls" value="$channel->{xmlurl}" />
+</td>
+<td  align="left">
+<a href="$channel->{htmlurl}" >
+<strong>
+$channel->{title}
+</strong>
+</a>
+</td>
+<td>
+$channel->{description}
+</td>
+<td >
+<a href="$channel->{xmlurl}" >
+RSS
+</a>
+</td>
+</tr>
+    }) }
+    # and spit it out.
+    $OUT = send_to_browser;
+ $]
+</table>
+
+<!-- show our letter navigation bar. -->
+<table cellspacing="2" cellpadding="0" border="0" align="center">
+<tr>
+<td align="center">
+<small>
+  [$ # figure out the next and previous letters
+     my $letter = param('letter') || 0;
+     my $letter_prev = chr(ord(lc($letter)) - 1);
+     my $letter_next = chr(ord(lc($letter)) + 1);
+     if ($letter eq "a") { $letter_prev = "0"; }
+     if ($letter eq "z") { $letter_next = "0"; }
+     if ($letter eq "0") { $letter_prev = "z"; $letter_next = "a"; }
+     $OUT .= qq{ 
+<a href="add_a_channel.html?letter=$letter_prev">
+&lt;&lt;
+</a>
+ };
+    # loop through each letter.
+    foreach my $letter_nav ( "0", "a" .. "z" ) {
+       my $letter_nav_uc = uc($letter_nav);
+       if ($letter_nav eq "0" and $letter_nav ne $letter) { $OUT .= qq{ 
+<a href="add_a_channel.html?letter=$letter_nav">
+#
+</a>
+ }; }
+       elsif ($letter_nav eq "0" and $letter_nav eq $letter) { $OUT .= qq{ 
+<strong>
+#
+</strong>
+ }; }
+       elsif ($letter_nav eq $letter) { $OUT .= qq{
+<strong>
+$letter_nav_uc
+</strong>
+}; }
+       else { $OUT .= qq{ 
+<a href="add_a_channel.html?letter=$letter_nav">
+$letter_nav_uc
+</a>
+ }; }
+    }
+   $OUT .= qq{ 
+<a href="add_a_channel.html?letter=$letter_next">
+&gt;&gt;
+</a>
+ };
+  $]
+</small>
+</td>
+</tr>
+</table>
+</form>
+[$ include( catfile( get_setting("dir_templates"), "tpl_footer.html") ) $]
