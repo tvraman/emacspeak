@@ -142,7 +142,7 @@
         ("C-l" emacspeak-learn-emacs-mode)
         ("C-m" man)
         ("C-s" customize-saved)
-        ("M-i" info-display-manual)
+        ("C-r" info-display-manual)
         ("SPC" customize-group)
         ("TAB" emacspeak-info-wizard)
         )
