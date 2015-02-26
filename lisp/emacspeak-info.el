@@ -158,7 +158,7 @@ and then cue the next selected buffer."
   "Speak the line. "
   (when (ems-interactive-p )
     (emacspeak-speak-line)))
-
+;;;###autoload
 (defun emacspeak-info-wizard (node-spec )
   "Read a node spec from the minibuffer and launch
 Info-goto-node.
@@ -167,9 +167,11 @@ node-spec."
   (interactive
    (list
     (let ((completion-ignore-case t))
+      (info-initialize)
       (completing-read "Node: "
                        (Info-build-node-completions
-                        (completing-read "File: " (info--manual-names nil)))))))
+                        (completing-read "File: " (info--manual-names nil)
+                                         nil t))))))
   (Info-goto-node node-spec)
   (emacspeak-info-visit-node))
 
