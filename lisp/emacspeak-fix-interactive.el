@@ -149,7 +149,7 @@ use the minibuffer."
   t)
 
 ;;; inline function for use from other modules:
-
+;;;###autoload
 (defun  emacspeak-fix-interactive-command-if-necessary (command)
   "Fix command if necessary."
   (when (emacspeak-should-i-fix-interactive-p  command)
