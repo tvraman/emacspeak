@@ -611,6 +611,19 @@ A string of the form `<number> 1' sets volume as an absolute."
       (message   "%s"
                  (or result "Waiting")))))
 
+
+(defun emacspeak-m-player-delete-filter (filter)
+  "Delete filter."
+  (interactive
+   (list
+    (read-from-minibuffer "Delete filter: ")))
+  (with-current-buffer (process-buffer emacspeak-m-player-process)
+    (let* (
+           (result (emacspeak-m-player-dispatch (format "af_del %s" filter))))
+      (when result
+        (setq result (replace-regexp-in-string  "^ans_" "" result)))
+      (message   "%s" (or result "Waiting")))))
+
 ;;;###autoload
 (defun emacspeak-m-player-display-percent ()
   "Display current percentage."
@@ -830,6 +843,7 @@ Interactive prefix arg `reset' starts with all filters set to 0."
    ("a" emacspeak-m-player-amark-add)
    ("b" emacspeak-m-player-balance)
    ("c" emacspeak-m-player-slave-command)
+   ("d" emacspeak-m-player-delete-filter)
    ("e" emacspeak-m-player-add-equalizer)
    ("f" emacspeak-m-player-add-filter)
    ("g" emacspeak-m-player-seek-absolute)
