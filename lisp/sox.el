@@ -266,9 +266,9 @@
 
 (defun sox-show-timestamp ()
   "Show timestamp   in stream."
+  (interactive)
   (unless (process-live-p (sox-context-play sox-context))
     (error "Not playing stream."))
-  (interactive)
   (declare (special sox-context))
   (message
    "%.2f"
