@@ -160,18 +160,19 @@
   (loop
    for k in
    '(
+     ("." sox-show-timestamp)
+     ("C-k" sox-delete-effect-at-point)
      ("E" sox-add-effect)
+     ("RET" sox-edit-effect-at-point)
      ("e" sox-set-effect)
      ("f" sox-open-file)
      ("g" sox-refresh)
+     ("k" sox-stop)
      ("p" sox-play)
      ("s" sox-save)
-     ("k" sox-stop)
-     ("\C-k" sox-delete-effect-at-point)
-     ("RET" sox-edit-effect-at-point)
      )
    do
-   (define-key sox-mode-map (first k) (second k))))
+   (define-key sox-mode-map (kbd (first k)) (second k))))
 
 ;;}}}
 ;;{{{ Top-level Context:
@@ -242,6 +243,8 @@
   "Play sound from current context."
   (interactive)
   (declare (special sox-context sox-play))
+  (when (process-live-p (sox-context-play sox-context))
+    (error "Already playing stream."))
   (setf (sox-context-start-time sox-context) (current-time))
   (setf (sox-context-play sox-context)(sox-action sox-context
                                                   sox-play)))
@@ -250,15 +253,28 @@
   "Stop currently playing  sound from current context."
   (interactive)
   (declare (special sox-context))
+  (unless (process-live-p (sox-context-play sox-context))
+    (error "Not playing stream."))
   (setf (sox-context-stop-time sox-context) (current-time))
   (delete-process (sox-context-play sox-context))
   (message
-   "%s"
+   "%.2f"
    (time-to-seconds
     (time-subtract
      (sox-context-stop-time sox-context)
      (sox-context-start-time sox-context)))))
 
+(defun sox-show-timestamp ()
+  "Show timestamp   in stream."
+  (unless (process-live-p (sox-context-play sox-context))
+    (error "Not playing stream."))
+  (interactive)
+  (declare (special sox-context))
+  (message
+   "%.2f"
+   (time-to-seconds
+    (time-subtract (current-time) (sox-context-start-time sox-context)))))
+)
 (defun sox-save(save-file)
   "Save context to  file after prompting."
   (interactive "FSave File: ")
