@@ -801,7 +801,7 @@ Argument OUTPUT is the newly arrived output."
               (called-interactively-p 'interactive)
             (interactive-p))
         (emacspeak-auditory-icon (if ,switch 'on 'off))
-        (message "Turned %s %s  %s."
+        (dtk-speak-and-echo "Turned %s %s  %s."
                  (if ,switch "on" "off" )
                  ',switch
                  (if prefix "" " locally"))))))
