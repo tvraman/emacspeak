@@ -274,7 +274,7 @@
    "%.2f"
    (time-to-seconds
     (time-subtract (current-time) (sox-context-start-time sox-context)))))
-)
+
 (defun sox-save(save-file)
   "Save context to  file after prompting."
   (interactive "FSave File: ")
