@@ -168,7 +168,7 @@
      ("s" sox-save)
      ("k" sox-stop)
      ("\C-k" sox-delete-effect-at-point)
-     ((kbd "RET") sox-edit-effect-at-point)
+     ("RET" sox-edit-effect-at-point)
      )
    do
    (define-key sox-mode-map (first k) (second k))))
