@@ -1013,7 +1013,8 @@ end:\n\n")
            (key-description "")
            (commentary nil)
            (this-module (find-lisp-object-file-name f 'defun))
-           (source-file nil))
+           (source-file nil)
+           (module nil))
         (when this-module
           (setq source-file (locate-library this-module ))
           (setq this-module
