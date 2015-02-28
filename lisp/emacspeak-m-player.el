@@ -690,7 +690,8 @@ A string of the form `<number> 1' sets volume as an absolute."
   (declare (special emacspeak-m-player-process))
   (let ((filter-name
          (completing-read "Filter:"
-                          emacspeak-m-player-filters)))
+                          emacspeak-m-player-filters
+                          nil nil)))
     (when (process-live-p  emacspeak-m-player-process)
       (emacspeak-m-player-dispatch (format "af_add %s" filter-name)))))
 
