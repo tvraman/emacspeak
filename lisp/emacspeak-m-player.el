@@ -858,6 +858,7 @@ Interactive prefix arg `reset' starts with all filters set to 0."
    ("r" emacspeak-m-player-seek-relative)
    ("s" emacspeak-m-player-scale-speed)
    ("t" emacspeak-m-player-play-tracks-jump)
+   ("u" emacspeak-m-player-url)
    ("v" emacspeak-m-player-volume-change)
    ("{" emacspeak-m-player-half-speed)
    ("}" emacspeak-m-player-double-speed)
