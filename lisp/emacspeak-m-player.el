@@ -612,12 +612,11 @@ A string of the form `<number> 1' sets volume as an absolute."
       (message   "%s"
                  (or result "Waiting")))))
 
-
 (defun emacspeak-m-player-delete-filter (filter)
   "Delete filter."
   (interactive
    (list
-    (read-from-minibuffer "Delete filter: ")))
+    (completing-read "Filter:" emacspeak-m-player-filters nil nil)))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
     (let* (
            (result (emacspeak-m-player-dispatch (format "af_del %s" filter))))
@@ -760,7 +759,7 @@ Applies  the resulting value at each step."
       (cond
        ((equal key "e")
         (aset
-         v column 
+         v column
          (read-number
           (format
            "Value for G%s:%s (%s)"
