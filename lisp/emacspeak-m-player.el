@@ -191,7 +191,8 @@ on a specific directory."
    ((and (stringp key) (string= ";" key))
     (pop-to-buffer (process-buffer emacspeak-m-player-process))
     (emacspeak-speak-mode-line))
-   (t (call-interactively (lookup-key emacspeak-m-player-mode-map key)))))
+   (t (call-interactively
+       (or (lookup-key emacspeak-m-player-mode-map key) 'undefined)))))
 
 (defvar  emacspeak-m-player-playlist-pattern
   (concat
