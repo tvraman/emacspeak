@@ -87,13 +87,12 @@
               (unless (emacspeak-keymap-command-p (widget-value widget))
                 (widget-put widget :error
                             (format "Invalid interactive command : %S"
-                                                  (widget-value widget)))
+                                    (widget-value widget)))
                 widget))
   :value 'ignore
   :tag "Interactive Command")
 
 ;;;###autoload
-
 
 ;;}}}
 ;;{{{  variables:
@@ -418,7 +417,6 @@ interactive command that the key sequence executes."
                         (sort
                          val
                          #'(lambda (a b) (string-lessp (car a) (car b)))))))
-
 
 (define-key  emacspeak-keymap "x" 'emacspeak-personal-keymap)
 (define-key  emacspeak-keymap "\C-x" 'emacspeak-personal-ctlx-keymap)

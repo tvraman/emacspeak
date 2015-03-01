@@ -608,7 +608,8 @@ A string of the form `<number> 1' sets volume as an absolute."
                           " "))))
            (result (emacspeak-m-player-dispatch (format "%s %s" command args))))
       (when result
-        (setq result (replace-regexp-in-string  "^ans_" "" result)))
+        (setq result (replace-regexp-in-string  "^ans_" "" result))
+        (setq result (replace-regexp-in-string  "_" " " result)))
       (message   "%s"
                  (or result "Waiting")))))
 
@@ -621,7 +622,8 @@ A string of the form `<number> 1' sets volume as an absolute."
     (let* (
            (result (emacspeak-m-player-dispatch (format "af_del %s" filter))))
       (when result
-        (setq result (replace-regexp-in-string  "^ans_" "" result)))
+        (setq result (replace-regexp-in-string  "^ans_" "" result))
+        (setq result (replace-regexp-in-string  "_" " " result)))
       (message   "%s" (or result "Waiting")))))
 
 ;;;###autoload

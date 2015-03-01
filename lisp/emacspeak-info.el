@@ -204,7 +204,6 @@ node-spec."
 ;;{{{ info wizard
 ;;;###autoload
 
-
 ;;}}}
 
 (provide  'emacspeak-info)

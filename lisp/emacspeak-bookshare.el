@@ -571,10 +571,10 @@ b Browse
    ("s" emacspeak-bookshare-fulltext-search)
    ("t" emacspeak-bookshare-title-search)
    )
-      do
-      (progn
-        (emacspeak-bookshare-action-set (first a) (second a))
-        (define-key emacspeak-bookshare-mode-map (kbd (first a)) 'emacspeak-bookshare-action)))
+ do
+ (progn
+   (emacspeak-bookshare-action-set (first a) (second a))
+   (define-key emacspeak-bookshare-mode-map (kbd (first a)) 'emacspeak-bookshare-action)))
 
 ;;}}}
 ;;{{{ Bookshare XML  handlers:

@@ -330,7 +330,7 @@ Argument `feed' is a feed structure (label url type)."
   'action 'emacspeak-feeds-feed-button-action 
   'link nil ;site url 
   'url nil; site url
-)
+  )
 
 (defun emacspeak-feeds-feed-button-action (button)
   "Open feed associated with this button."
@@ -340,11 +340,11 @@ Argument `feed' is a feed structure (label url type)."
      ( (zerop (length url)) ; missing feed url 
        (browse-url (button-get button 'link)))
      ((string-match "atom" url)
-        (emacspeak-feeds-atom-display url))
+      (emacspeak-feeds-atom-display url))
      ((string-match "blogspot" url)
-        (emacspeak-feeds-atom-display url))
+      (emacspeak-feeds-atom-display url))
      ((string-match "rss" url)
-        (emacspeak-feeds-rss-display url))
+      (emacspeak-feeds-rss-display url))
      (t (emacspeak-feeds-rss-display url)))))
 
 ;;;###autoload
