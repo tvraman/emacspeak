@@ -520,7 +520,7 @@ element. "
       (setq emacspeak-we-url-rewrite-rule rule))))
 
 ;;}}}
-;;{{{ fix bug in W3 under emacs 21
+;;{{{ fix bug in W3 under newer emacsuns
 
 (defadvice w3-nasty-disgusting-http-equiv-handling (around fix-bug pre act comp)
   (let ((emacspeak-use-auditory-icons nil))

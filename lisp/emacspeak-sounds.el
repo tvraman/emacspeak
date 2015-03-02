@@ -262,8 +262,7 @@ Do not set this by hand;
                                (emacspeak-get-sound-filename sound-name ))))
 
 ;;}}}
-;;{{{  native player (emacs 21)
-
+;;{{{  native player (
 ;;;###autoload
 (defun emacspeak-native-auditory-icon (sound-name)
   "Play auditory icon using native Emacs player."

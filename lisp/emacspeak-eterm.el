@@ -168,11 +168,7 @@ Useful when eterm is in review mode.")
     (define-key term-raw-map
       (concat emacspeak-eterm-prefix emacspeak-eterm-prefix) 'emacspeak-eterm-maybe-send-raw)
     (define-key emacspeak-eterm-keymap emacspeak-eterm-raw-prefix
-      term-raw-map)
-;;; handle emacs 21 wierdness 
-    (local-unset-key "\eO")
-    (local-unset-key "\e[")
-    ))
+      term-raw-map)))
 
 ;;}}}
 ;;{{{  voice definitions  for eterm  highlight, underline etc
