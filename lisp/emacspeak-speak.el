@@ -1388,33 +1388,6 @@ Alert the user only if mail has arrived since this time in the
   message."
   :type 'integer
   :group 'emacspeak-speak)
-(unless (fboundp 'time-add )
-  (defun time-add (t1 t2) ;;; for pre emacs 21.4
-    "Add two time values.  One should represent a time difference."
-    (let ((high (car t1))
-          (low (if (consp (cdr t1)) (nth 1 t1) (cdr t1)))
-          (micro (if (numberp (car-safe (cdr-safe (cdr t1))))
-                     (nth 2 t1)
-                   0))
-          (high2 (car t2))
-          (low2 (if (consp (cdr t2)) (nth 1 t2) (cdr t2)))
-          (micro2 (if (numberp (car-safe (cdr-safe (cdr t2))))
-                      (nth 2 t2)
-                    0)))
-      ;; Add
-      (setq micro (+ micro micro2))
-      (setq low (+ low low2))
-      (setq high (+ high high2))
-
-      ;; Normalize
-      ;; `/' rounds towards zero while `mod' returns a positive number,
-      ;; so we can't rely on (= a (+ (* 100 (/ a 100)) (mod a 100))).
-      (setq low (+ low (/ micro 1000000) (if (< micro 0) -1 0)))
-      (setq micro (mod micro 1000000))
-      (setq high (+ high (/ low 65536) (if (< low 0) -1 0)))
-      (setq low (logand low 65535))
-
-      (list high low micro))))
 (defsubst  emacspeak-mail-alert-user-p (f)
   "Predicate to check if we need to play an alert for the specified spool."
   (declare (special emacspeak-mail-last-alerted-time
