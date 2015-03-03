@@ -2,4 +2,4 @@
 (load-library "elfeed")
 
     ;; Run once an hour
-    (run-at-time t (* 60 60) #'elfeed-update)
+(setq my-elfeed-timer (run-at-time t (* 60 60) #'elfeed-update))
