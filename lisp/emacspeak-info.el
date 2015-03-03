@@ -107,7 +107,7 @@ node -- speak the entire node."
 
 (loop
  for f in
-      '(info-display-manual Info-select-node Info-goto-node info-emacs-manual)
+      '(info info-display-manual Info-select-node Info-goto-node info-emacs-manual)
       do
       (eval
        `(defadvice ,f (after emacspeak pre act)
@@ -115,12 +115,7 @@ node -- speak the entire node."
 emacspeak-info-select-node-speak-chunk"
           (emacspeak-info-visit-node))))
 
-(defadvice info (after emacspeak pre act)
 
-  "Cue user that info is up."
-  (when (ems-interactive-p )
-    (emacspeak-auditory-icon 'help)
-    (emacspeak-speak-line)))
 
 (defadvice Info-scroll-up (after emacspeak pre act)
   "Speak the screenful."
