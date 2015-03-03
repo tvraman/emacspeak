@@ -99,14 +99,15 @@ node -- speak the entire node."
   (let ((dtk-stop-immediately t ))
     (emacspeak-auditory-icon 'select-object)
     (cond
-     ((eq emacspeak-info-select-node-speak-chunk
-          'screenfull)
+     ((eq emacspeak-info-select-node-speak-chunk 'screenfull)
       (emacspeak-info-speak-current-window))
      ((eq emacspeak-info-select-node-speak-chunk 'node)
       (emacspeak-speak-buffer ))
      (t (emacspeak-speak-line)))))
-(loop for f in
-      '(info-display-manual Info-select-node Info-goto-node)
+
+(loop
+ for f in
+      '(info-display-manual Info-select-node Info-goto-node info-emacs-manual)
       do
       (eval
        `(defadvice ,f (after emacspeak pre act)
