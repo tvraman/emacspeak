@@ -171,6 +171,13 @@
      (t (message "No link under point.")))))
 
 ;;}}}
+;;{{{ Silence warnings/errors 
+
+(defadvice elfeed-update-feed (around emacspeak pre act comp)
+  "Silence messages."
+  (let ((emacspeak-speak-messages nil)
+        (emacspeak-speak-errors nil))
+    ad-do-it))
 
 ;;}}}
 ;;{{{ Set things up
