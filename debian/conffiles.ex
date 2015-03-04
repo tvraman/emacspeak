@@ -1,1 +1,0 @@
- /etc/emacspeak/emacspeak.conf
