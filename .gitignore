@@ -1,3 +1,12 @@
 *.elc
 *.o
 *.so
+# ignore generated files:
+README
+etc/emacspeak.sh
+lisp/emacspeak-cus-load.el
+lisp/emacspeak-finder-inf.el
+lisp/emacspeak-loaddefs.el
+lisp/g-client/g-cus-load.el
+lisp/g-client/g-loaddefs.el
+
