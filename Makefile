@@ -148,7 +148,6 @@ IGUIDE=install-guide/*.html install-guide/*.sgml
 TABLE_SAMPLES=etc/tables/*.tab etc/tables/*.dat etc/tables/*.html
 FORMS =etc/forms/*.el
 MEDIA=media
-SHOUTCAST=shoutcast
 ECI=servers/linux-outloud
 PYLIB=servers/python
 PYFILES=servers/python/*.py
