@@ -53,7 +53,7 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
-;;{{{ Map Faces to voices 
+;;{{{ Map Faces to voices
 
 (voice-setup-add-map
  '(
@@ -73,7 +73,7 @@
                           elfeed-search-update--force elfeed-search-update elfeed-search-untag-all-unread
                           elfeed-search-untag-all elfeed-search-tag-all-unread elfeed-search-tag-all
                           elfeed-search-show-entry elfeed-load-opml elfeed-export-opml
-                          elfeed-db-compact elfeed-add-feed 
+                          elfeed-db-compact elfeed-add-feed
                           )
  do
  (eval
@@ -108,7 +108,7 @@
 (defadvice elfeed-search-yank (after emacspeak pre act  comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'yank-object)))   
+    (emacspeak-auditory-icon 'yank-object)))
 
 ;;}}}
 ;;{{{ Helpers:
@@ -119,7 +119,7 @@
   (let ((index  (- (line-number-at-pos (point)) elfeed-search--offset)))
     (cond
      ((>= index 0) (nth index elfeed-search-entries))
-     (t (error "No entry at point.")))))    
+     (t (error "No entry at point.")))))
 
 (defun emacspeak-elfeed-speak-entry-at-point ()
   "Speak entry at point."
@@ -171,13 +171,15 @@
      (t (message "No link under point.")))))
 
 ;;}}}
-;;{{{ Silence warnings/errors 
-
-(defadvice elfeed-update-feed (around emacspeak pre act comp)
-  "Silence messages."
-  (let ((emacspeak-speak-messages nil)
-        (emacspeak-speak-errors nil))
-    ad-do-it))
+;;{{{ Silence warnings/errors
+(loop
+ for f in
+ '(elfeed-update-feed elfeed-handle-parse-error  elfeed-handle-http-error)
+ do
+ (eval
+  `(defadvice  ,f (around emacspeak pre act comp)
+     "Silence messages."
+     (ems-with-errors-silenced ad-do-it))))
 
 ;;}}}
 ;;{{{ Set things up
