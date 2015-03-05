@@ -178,7 +178,7 @@
  do
  (eval
   `(defadvice  ,f (around emacspeak pre act comp)
-     "Silence messages."
+     "Silence messages and errors."
      (ems-with-errors-silenced ad-do-it))))
 
 ;;}}}
