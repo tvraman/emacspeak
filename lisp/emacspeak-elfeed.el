@@ -186,7 +186,8 @@
 
 (defadvice elfeed-search-mode (after emacspeak pre act comp)
   "Set up Emacspeak commands."
-  (declare (special elfeed-search-mode-map))
+  (declare (special elfeed-search-mode-map goal-column))
+  (setq goal-column 11) ; place point on entry title
   (define-key elfeed-search-mode-map "n" 'emacspeak-elfeed-next-entry)
   (define-key elfeed-search-mode-map "p" 'emacspeak-elfeed-previous-entry)
   (define-key elfeed-search-mode-map "." 'emacspeak-elfeed-filter-entry-at-point)
