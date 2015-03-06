@@ -1,0 +1,84 @@
+* Emacspeak Development Is Moving To Github 
+** Summary: 
+
+Emacspeak development is moving from [[http://emacspeak.googlecode.com][Google Code Hosting]] to [[https://github.com/tvraman/emacspeak][Github]].
+If you have been running from the SVN repository, I recommend you
+switch to the Github version by executing:
+
+: git clone https://github.com/tvraman/emacspeak.git
+: make config
+: make -j
+  - If using Outloud TTS:
+:  cd servers/linux-outloud  &&  make
+  - If using Espeak TTS:
+:  cd servers/linux-espeak && make
+  - After this,  all you should need to stay up to date is a periodic 
+: git pull; make config; make 
+
+
+** A Brief History 
+
+  - The first five years of Emacspeak development used a local RCS repository on my home machine (1994 --1999).
+  - The first few releases of Emacspeak were distributed through the Web site and FTP server  at Digital Research; they were also mirrored at Cornell.
+  - After moving to Adobe Systems in the fall of 1995, Emacspeak was
+    distributed exclusively through my Web page on the Cornell CS Department Web
+    server, which also hosted my personal Web site.
+  - In 2000, I created [[http://emacspeak.sf.net][Emacspeak On SourceForge]]
+  and used that site for both hosting the Emacspeak source code as well as the Web site --- coincidentally, I lost the ability to update my Web site at [[http://www.cs.cornell.edu/home/raman][Cornell CS]] around the same time.
+  - Over time it became harder and harder to publish new Emacspeak
+    releases through the SourceForge interface. Luckily, Google Code
+    Hosting came along a few months after I joined Google, and moving
+    the source code repository to [[http://emacspeak.googlecode.com/svn/trunk][Google Code SVN]] was a no-brainer.
+  - My friend and colleague Fitz helped me migrate the 5+ years of CVS history to SVN; this meant that the source code repository on Google Code also recorded all of the development history that had been built up on Sourceforge.
+  - Now, it's time to move to Github. I've been using Git for most of
+    my work the last few years, but was simply too lazy to move
+    Emacspeak development from SVN to Git on GoogleCode.
+  - But over time, the advantages present in Github have increased ---
+    primary among these --- a rich set of Emacs tools that have been
+    written to leverage the Github API.
+  - The Github Web site itself is fairly heavy-weight in terms of its
+    use of scripting, i.e. performing all operations through the
+    [[http://github.com][github.com]] Web site from within Emacs is fairly unpleasant.  But
+    the afore-mentioned Github API makes this a non-issue at this
+    point with respect to the type of work-flow I prefer.
+  - So this week, I did the work to migrate Emacspeak development to
+    [[https://github.com/tvraman/emacspeak][Emacspeak On Github]].
+
+** Status Of Migration 
+
+  - With help  from some of the kind folk at Google Code Hosting, I've successfully migrated the source code repository  including all release tags to Github.
+  - I am now checking in changes into Github; the SVN repository on Google Code Hosting  is now frozen, and I do not plan to make any commits there.
+  - I presently have no immediate plans to start using features of
+    Github like the Issue Tracker; for now we will continue to use the
+    Emacspeak mailing list which has served us well for 20 years.
+  - I have also taken this opportunity to prune out legacy portions of the Emacspeak codebase  by moving  modules to _obsolete_ at each level of the directory tree.
+  - Since starting the [[http://emacspeak.blogspot.com][Emacspeak Blog]] in late 2005, I have published a sequence of articles describing Emacspeak features and usage patterns  via 
+  that blog; I felt that having these articles for local reference made
+  a useful supplement to the emacspeak online documentation. Toward this
+  end, I have downloaded all articles published so far and checked in
+  both XML and HTML versions into sub-directory _blogs_.
+  - Note that newer articles are also available as .org files under sub-directory _announcements_.
+
+** Next Steps 
+
+  - I  still need to  learn how to do software releases on Github.
+  
+
+
+
+*Share And Enjoy!*
+
+#+TITLE: Emacspeak Development Is Moving To Github 
+#+DATE: <2015-03-06 Fri>
+#+AUTHOR: raman
+#+EMAIL: raman@raman-glaptop
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
+#+OPTIONS: e:t email:nil f:t inline:t num:t p:nil pri:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t toc:nil todo:t |:t
+#+CREATOR: Emacs 25.0.50.1 (Org mode 8.2.10)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
