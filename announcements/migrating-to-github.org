@@ -1,5 +1,4 @@
-* Emacspeak Development Is Moving To GitHub 
-** Summary: 
+* Summary: 
 
 Emacspeak development is moving from [[http://emacspeak.googlecode.com][Google Code Hosting]] to [[https://github.com/tvraman/emacspeak][GitHub]].
 If you have been running from the SVN repository, I recommend you
@@ -16,7 +15,7 @@ switch to the GitHub version by executing:
 : git pull; make config; make 
 
 
-** A Brief History 
+* A Brief History 
 
   - The first five years of Emacspeak development used a local RCS repository on my home machine (1994 --1999).
   - The first few releases of Emacspeak were distributed through the Web site and FTP server  at Digital Research; they were also mirrored at Cornell.
@@ -44,7 +43,7 @@ switch to the GitHub version by executing:
   - So this week, I did the work to migrate Emacspeak development to
     [[https://github.com/tvraman/emacspeak][Emacspeak On GitHub]].
 
-** Status Of Migration 
+* Status Of Migration 
 
   - With help  from some of the kind folk at Google Code Hosting, I've successfully migrated the source code repository  including all release tags to GitHub.
   - I am now checking in changes into GitHub; the SVN repository on Google Code Hosting  is now frozen, and I do not plan to make any commits there.
@@ -59,7 +58,7 @@ switch to the GitHub version by executing:
   both XML and HTML versions into sub-directory _blogs_.
   - Note that newer articles are also available as .org files under sub-directory _announcements_.
 
-** Next Steps 
+* Next Steps 
 
   - I  still need to  learn how to do software releases on GitHub.
   
