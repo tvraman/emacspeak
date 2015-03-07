@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Emacspeak Development Is Moving To GitHub</title>
-<!-- 2015-03-07 Sat 07:56 -->
+<!-- 2015-03-07 Sat 08:12 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="raman" />
@@ -176,24 +176,28 @@ git pull; make config; make
 </div>
 </div>
 
-
 <div id="outline-container-sec-2" class="outline-2">
 <h2 id="sec-2"><span class="section-number-2">2</span> A Brief History</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
-<li>The first five years of Emacspeak development used a local RCS repository on my home machine (1994 &#x2013;1999).
+<li>The first five years of Emacspeak development used a local RCS
+repository on my home machine (1994 &#x2013;1999).
 </li>
-<li>The first few releases of Emacspeak were distributed through the Web site and FTP server  at Digital Research; they were also mirrored at Cornell.
+<li>The first few releases of Emacspeak were distributed through the
+Web site and FTP server at Digital Research; they were also
+mirrored at Cornell.
 </li>
 <li>After moving to Adobe Systems in the fall of 1995, Emacspeak was
-distributed exclusively through my Web page on the Cornell CS Department Web
-server, which also hosted my personal Web site.
+distributed exclusively through my Web page on the Cornell CS
+Department Web server, which also hosted my personal Web site.
 </li>
 <li>In 2000, I created <a href="http://emacspeak.sf.net">Emacspeak On SourceForge</a>
 </li>
 </ul>
 <p>
-and used that site for both hosting the Emacspeak source code as well as the Web site &#x2014; coincidentally, I lost the ability to update my Web site at <a href="http://www.cs.cornell.edu/home/raman">Cornell CS</a> around the same time.
+and used that site for both hosting the Emacspeak source code as
+well as the Web site &#x2014; coincidentally, I lost the ability to
+update my Web site at <a href="http://www.cs.cornell.edu/home/raman">Cornell CS</a> around the same time.
 </p>
 <ul class="org-ul">
 <li>Over time it became harder and harder to publish new Emacspeak
@@ -201,21 +205,33 @@ releases through the SourceForge interface. Luckily, Google Code
 Hosting came along a few months after I joined Google, and moving
 the source code repository to <a href="http://emacspeak.googlecode.com/svn/trunk">Google Code SVN</a> was a no-brainer.
 </li>
-<li>My friend and colleague Fitz helped me migrate the 5+ years of CVS history to SVN; this meant that the source code repository on Google Code also recorded all of the development history that had been built up on Sourceforge.
+<li>My friend and colleague Fitz helped me migrate the 5+ years of CVS
+history to SVN; this meant that the source code repository on
+Google Code also recorded all of the development history that had
+been built up on Sourceforge.
 </li>
 <li>Now, it's time to move to GitHub. I've been using Git for most of
 my work the last few years, but was simply too lazy to move
 Emacspeak development from SVN to Git on GoogleCode.
 </li>
-<li>But over time, the advantages present in GitHub have increased &#x2014;
-primary among these &#x2014; a rich set of Emacs tools that have been
-written to leverage the GitHub API.
+<li>But over time, the advantages present in Git as a source control
+system and GitHub as a hosting service have increased &#x2014; primary
+among these &#x2014; a rich set of Emacs tools that have been written
+to leverage the GitHub API.
 </li>
+<li>For Git integration in Emacs, my personal preference is package
+Magit available through Elpa &#x2014;
+</li>
+</ul>
+<pre class="example">
+M-x package-install magit in Emacs.
+</pre>
+<ul class="org-ul">
 <li>The GitHub Web site itself is fairly heavy-weight in terms of its
 use of scripting, i.e. performing all operations through the
 <a href="http://github.com">github.com</a> Web site from within Emacs is fairly unpleasant.  But
 the afore-mentioned GitHub API makes this a non-issue at this
-point with respect to the type of work-flow I prefer.
+point with respect to the type of workflow I prefer.
 </li>
 <li>So this week, I did the work to migrate Emacspeak development to
 <a href="https://github.com/tvraman/emacspeak">Emacspeak On GitHub</a>.
@@ -228,26 +244,30 @@ point with respect to the type of work-flow I prefer.
 <h2 id="sec-3"><span class="section-number-2">3</span> Status Of Migration</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
-<li>With help  from some of the kind folk at Google Code Hosting, I've successfully migrated the source code repository  including all release tags to GitHub.
+<li>With help from some of the kind folk at Google Code Hosting, I've
+successfully migrated the source code repository including all
+release tags to GitHub.
 </li>
-<li>I am now checking in changes into GitHub; the SVN repository on Google Code Hosting  is now frozen, and I do not plan to make any commits there.
+<li>I am now checking in changes into GitHub; the SVN repository on
+Google Code Hosting is now frozen, and I do not plan to make any
+commits there.
 </li>
 <li>I presently have no immediate plans to start using features of
 GitHub like the Issue Tracker; for now we will continue to use the
 Emacspeak mailing list which has served us well for 20 years.
 </li>
-<li>I have also taken this opportunity to prune out legacy portions of the Emacspeak codebase  by moving  modules to <span class="underline">obsolete</span> at each level of the directory tree.
+<li>I have also taken this opportunity to prune out legacy portions of
+the Emacspeak codebase by moving modules to <span class="underline">obsolete</span> at each
+level of the directory tree.
 </li>
-<li>Since starting the <a href="http://emacspeak.blogspot.com">Emacspeak Blog</a> in late 2005, I have published a sequence of articles describing Emacspeak features and usage patterns  via 
+<li>Since starting the <a href="http://emacspeak.blogspot.com">Emacspeak Blog</a> in late 2005, I have published a
+sequence of articles describing Emacspeak features and usage
+patterns; I felt that having these articles for local reference
+made a useful supplement to the emacspeak online
+documentation. Toward this end, I have downloaded all articles
+published so far and checked in both XML and HTML versions into
+sub-directory <span class="underline">blogs</span>.
 </li>
-</ul>
-<p>
-that blog; I felt that having these articles for local reference made
-a useful supplement to the emacspeak online documentation. Toward this
-end, I have downloaded all articles published so far and checked in
-both XML and HTML versions into sub-directory <span class="underline">blogs</span>.
-</p>
-<ul class="org-ul">
 <li>Note that newer articles are also available as .org files under sub-directory <span class="underline">announcements</span>.
 </li>
 </ul>
@@ -258,7 +278,7 @@ both XML and HTML versions into sub-directory <span class="underline">blogs</spa
 <h2 id="sec-4"><span class="section-number-2">4</span> Next Steps</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
-<li>I  still need to  learn how to do software releases on GitHub.
+<li>I still need to learn how to do software releases on GitHub.
 </li>
 </ul>
 
@@ -274,7 +294,7 @@ both XML and HTML versions into sub-directory <span class="underline">blogs</spa
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-03-06 Fri&gt;</span></span></p>
 <p class="author">Author: raman</p>
-<p class="date">Created: 2015-03-07 Sat 07:56</p>
+<p class="date">Created: 2015-03-07 Sat 08:12</p>
 <p class="creator">Emacs 25.0.50.1 (Org mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
