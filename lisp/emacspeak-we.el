@@ -1157,6 +1157,7 @@ and provide a completion list of applicable  property values. Filter document by
  (eval
   `(defadvice   ,f (around emacspeak pre act comp)
      "Silence messages while this function executes"
+     (delcare (special emacspeak-speak-messages))
      (let ((emacspeak-speak-messages nil))
        ad-do-it))))
 
