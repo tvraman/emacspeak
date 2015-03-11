@@ -47,20 +47,13 @@ g-utils.elc \
 g.elc \
 gblogger.elc \
 org2blogger.elc \
-gcal.elc \
-gcontacts.elc \
-gdocs.elc \
 gfeeds.elc \
 gf.elc \
 gphoto.elc \
 gweb.elc \
 gmaps.elc \
 gm-nnir.elc \
-gtube.elc \
-gsheet.elc
 
-
-all:g-loaddefs.el g-cus-load.el  ${OBJECTS}
 
 
 # How to compile
@@ -68,8 +61,10 @@ all:g-loaddefs.el g-cus-load.el  ${OBJECTS}
 	$(EMACS) $(BATCH)  $(DEPS)  $(COMPILE) $<
 
 # }}}
-# {{{build time target: config
-
+# {{{build time target: config, all
+all: g-loaddefs.el 
+	make config 
+	make $(OBJECTS)
 config: g-cus-load.el
 
 force:
@@ -94,10 +89,6 @@ gweb.elc: gweb.el g-utils.elc
 gf.elc: gf.el g-utils.elc
 gmaps.elc: gmaps.el g-utils.elc
 gm-nnir.elc: gm-nnir.el 
-gcal.elc: gcal.el g-app.elc
-gcontacts.elc: gcontacts.el
-gdocs.elc: gdocs.el g-app.elc
-gnotebook.elc: gnotebook.el g-app.elc
 gblogger.elc: gblogger.el g-app.elc 
 org2blogger.elc: org2blogger.el gblogger.elc
 
