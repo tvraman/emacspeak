@@ -174,7 +174,8 @@
 ;;{{{ Silence warnings/errors
 (loop
  for f in
- '(elfeed-update-feed elfeed-handle-parse-error  elfeed-handle-http-error)
+ '(elfeed-update-feed elfeed-handle-parse-error  elfeed-handle-http-error
+                      elfeed-unjam elfeed-update)
  do
  (eval
   `(defadvice  ,f (around emacspeak pre act comp)
