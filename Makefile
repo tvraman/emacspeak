@@ -1,4 +1,3 @@
-# $Id$
 # $Author: tv.raman.tv $
 # Description:  Makefile for Emacspeak
 # Keywords: Emacspeak,  TTS,Makefile
@@ -7,8 +6,6 @@
 # LCD Archive Entry:
 # emacspeak| T. V. Raman |raman@cs.cornell.edu
 # A speech interface to Emacs |
-# $Date: 2007-06-23 10:16:54 -0700 (Sat, 23 Jun 2007) $ |
-#  $Revision: 4659 $ |
 # Location undetermined
 #
 
@@ -210,7 +207,7 @@ info:
 
 README: force
 	@rm -f README
-	@echo "Emacspeak  Revision `svnversion .`" > $(ID)
+	@echo "Emacspeak  Revision " > $(ID)
 	@echo "Distribution created by `whoami` on `hostname`" >> $(ID)
 	@echo "Unpack the  distribution And type make config " >> $(ID)
 	@echo "Then type make" >> $(ID)
