@@ -326,9 +326,6 @@ release: #supply LABEL=NN.NN
 	mv  emacspeak.tar.bz2 ../; \
 	cd .. ; \
 	/bin/rm -rf release ; \
-	rm -f emacspeak.spec ; \
-sed "s@<version>@$(LABEL)@g" \
-	emacspeak.spec.in > emacspeak.spec
 	@echo "Prepared Emacspeak-$(LABEL) in emacspeak.tar.bz2"
 
 # }}}
