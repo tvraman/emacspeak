@@ -813,7 +813,7 @@ specified pronunciation dictionary key."
       (and
        (= 40 (length sha))
        (string-match "[0-9a-f]+" sha))
-    (format "sha: %s " (substring sha 0 5))))
+    (format "sha: %s " (substring sha 0 6))))
 
 (defvar emacspeak-pronounce-uuid-pattern
   (concat 
