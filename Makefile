@@ -204,10 +204,10 @@ info:
 
 # }}}
 # {{{  Maintainance targets tar  dist
-
+GITVERSION=$(shell git show HEAD | head -1  | cut -b 8- )
 README: force
 	@rm -f README
-	@echo "Emacspeak  Revision " > $(ID)
+	@echo "Emacspeak  Revision $(GITVERSION)" > $(ID)
 	@echo "Distribution created by `whoami` on `hostname`" >> $(ID)
 	@echo "Unpack the  distribution And type make config " >> $(ID)
 	@echo "Then type make" >> $(ID)
