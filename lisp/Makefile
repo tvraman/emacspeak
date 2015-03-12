@@ -1,4 +1,3 @@
-# $Id$
 # $Author: tv.raman.tv $
 # Description:  Makefile for Emacspeak
 # Keywords: Emacspeak, Dectalk, Makefile
@@ -15,7 +14,7 @@
 # }}}
 # {{{ Copyright:
 
-#Copyright (C) 1995 -- 2003, T. V. Raman
+#Copyright (C) 1995 -- 2015, T. V. Raman
 
 # Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 # All Rights Reserved.
@@ -48,7 +47,7 @@ byte-compile-warnings t)'
 DEPS=-l $(SRC)/lisp/emacspeak-load-path.el \
 -l $(SRC)/lisp/emacspeak-loaddefs.el \
 -l $(SRC)/lisp/emacspeak-cus-load.el \
- -l $(SRC)/lisp/g-client/g-load-path.el
+-l $(SRC)/lisp/g-client/g-load-path.el
 
 COMPILE =  -f batch-byte-compile
 # How to compile
@@ -60,33 +59,31 @@ COMPILE =  -f batch-byte-compile
 #The various modules:
 DTK_OBJECTS = acss-structure.elc \
 dtk-speak.elc		dectalk-voices.elc\
-plain-voices.elc \
+plain-voices.elc espeak-voices.elc \
 outloud-voices.elc multispeech-voices.elc mac-voices.elc\
-espeak-voices.elc dtk-interp.elc dtk-unicode.elc
+dtk-interp.elc dtk-unicode.elc
 
 SPEAK_OBJECTS =   \
-	emacspeak-speak.elc  \
-        emacspeak-actions.elc \
-	voice-setup.elc \
-	emacspeak-personality.elc \
-        emacspeak-pronounce.elc \
-	emacspeak-sounds.elc
+emacspeak-speak.elc  \
+emacspeak-actions.elc \
+voice-setup.elc \
+emacspeak-personality.elc \
+emacspeak-pronounce.elc \
+emacspeak-sounds.elc
 
 CORE_OBJECTS =  \
-	emacspeak.elc \
-	emacspeak-setup.elc \
-	emacspeak-advice.elc\
-	emacspeak-keymap.elc\
-	emacspeak-fix-interactive.elc\
+emacspeak.elc \
+emacspeak-setup.elc \
+emacspeak-advice.elc\
+emacspeak-keymap.elc\
+emacspeak-fix-interactive.elc\
 emacspeak-re-builder.elc \
-	emacspeak-redefine.elc\
-	emacspeak-replace.elc \
-        emacspeak-table.elc \
-        emacspeak-table-ui.elc \
-	emacspeak-tabulate.elc \
-cd-tool.elc \
+emacspeak-redefine.elc\
+emacspeak-replace.elc \
+emacspeak-table.elc \
+emacspeak-table-ui.elc \
+emacspeak-tabulate.elc \
 amixer.elc \
-nm.elc \
 emacspeak-add-log.elc \
 emacspeak-alsaplayer.elc \
 emacspeak-amark.elc \
@@ -261,7 +258,8 @@ emacspeak-xslide.elc  \
 emacspeak-xslt.elc \
 emacspeak-xslt-process.elc   
 
-ADDON_OBJECTS= tapestry.elc   stack-f.elc  xml-parse.elc toy-braille.elc tetris.elc
+ADDON_OBJECTS= tapestry.elc   stack-f.elc  xml-parse.elc \
+toy-braille.elc tetris.elc cd-tool.elc nm.elc
 
 OBJECTS = $(DTK_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS) $(ADDON_OBJECTS)
 # }}}
