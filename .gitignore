@@ -1,4 +1,5 @@
 *.elc
+*.info
 *.el~
 *.o
 *.so
