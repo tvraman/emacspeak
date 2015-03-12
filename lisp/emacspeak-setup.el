@@ -100,30 +100,22 @@ pronunciation dictionaries are stored. ")
 (defconst emacspeak-codename
   "NiceDog"
   "Code name of present release.")
+(defsubst emacspeak-setup-get-revision ()
+  "Get SHA checksum of current revision that is suitable for spoken output."
+  (let ((default-directory emacspeak-directory))
+  (if (and (executable-find "git")
+           (file-exists-p (expand-file-name ".git"  emacspeak-directory)))
+        (substring 
+         (shell-command-to-string  "git show HEAD | head -1 | cut -b 8- ")
+         0 6)
+        "")))
 
 ;;;###autoload
 (defconst emacspeak-version
   (format
    "41.0 %s:  %s"
    emacspeak-codename
-   (cond
-    ((file-exists-p emacspeak-readme-file)
-     (let ((buffer (find-file-noselect emacspeak-readme-file))
-           (revision nil))
-       (save-current-buffer
-         (set-buffer buffer)
-         (goto-char (point-min))
-         (setq revision
-               (format "Revision %s"
-                       (or
-                        (nth 2 (split-string
-                                (buffer-substring-no-properties
-                                 (line-beginning-position)
-                                 (line-end-position))))
-                        "unknown"))))
-       (kill-buffer buffer)
-       revision))
-    (t "")))
+   (emacspeak-setup-get-revision))
   "Version number for Emacspeak.")
 
 ;;}}}
