@@ -238,7 +238,7 @@ config:
 # We install both  elisp sources and the resulting .elc files
 
 install:
-	$(MAKE) config SRC=$(libdir)
+	$(MAKE) config 
 	  $(INSTALL)  -d $(DESTDIR)$(libparentdir)
 	  $(INSTALL) -d $(DESTDIR)$(libdir)
 	  $(INSTALL) -d $(DESTDIR)$(libdir)/lisp
