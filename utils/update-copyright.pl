@@ -2,9 +2,9 @@
 #$Id$
 #Update Copyright notice
 #
-
-my $old = "1995 -- 2007, T. V. Raman";
-my $new = "1995 -- 2011, T. V. Raman";
+# change $new  before applying.
+my $old = "1995 -- 2015, T. V. Raman";
+my $new = "1995 -- 2015, T. V. Raman";
 
 while (<>) {
     s/$old/$new/o;
