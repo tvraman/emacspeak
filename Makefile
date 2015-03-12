@@ -297,28 +297,20 @@ clean:
 #label  releases when ready
 LABEL=
 MSG="Releasing ${LABEL}"
-
+# update this rule later to tag the release
 label: $(DISTFILES)
 	rm -f lisp/emacspeak-loaddefs.el lisp/cus-load.el
 
 release: #supply LABEL=NN.NN
-	$(MAKE) label LABEL=$(LABEL) MSG="Releasing version ${LABEL}"
 	$(MAKE) dist
-	mkdir release; \
-	mv emacspeak.tar release; \
-	cd release; \
-	mkdir emacspeak-$(LABEL); \
-	cd emacspeak-$(LABEL); \
+	mkdir emacspeak-${LABEL}; \
+cd emacspeak-${LABEL} ;\
 	tar xvf ../emacspeak.tar ; \
-	chmod 644 emacspeak-finder-inf.el ;\
-	cd ..; \
-	rm -f emacspeak.tar ; \
-	tar cvf emacspeak.tar emacspeak-$(LABEL); \
-	bzip2  -9 emacspeak.tar; \
-	mv  emacspeak.tar.bz2 ../; \
-	cd .. ; \
-	/bin/rm -rf release ; \
-	@echo "Prepared Emacspeak-$(LABEL) in emacspeak.tar.bz2"
+	rm -f ../emacspeak.tar ; \
+cd .. ;\
+	tar cvfj emacspeak-${LABEL}.tar.bz2 emacspeak-$(LABEL); \
+	/bin/rm -rf emacspeak-${LABEL} ;\
+	echo "Prepared release in emacspeak-${LABEL}.tar.bz2" 
 
 # }}}
 # {{{list distfiles to stdout
