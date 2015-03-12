@@ -100,6 +100,7 @@ pronunciation dictionaries are stored. ")
 (defconst emacspeak-codename
   "NiceDog"
   "Code name of present release.")
+;;;###autoload
 (defsubst emacspeak-setup-get-revision ()
   "Get SHA checksum of current revision that is suitable for spoken output."
   (let ((default-directory emacspeak-directory))
