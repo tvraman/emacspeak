@@ -167,7 +167,6 @@ servers/outloud  servers/ssh-outloud servers/32-outloud \
 servers/tts-lib.tcl \
 servers/cloud* servers/speech-server
 ELISP = lisp/*.el \
-emacspeak-pkg.el \
 lisp/g-client \
 lisp/Makefile
 TEMPLATES = etc/emacspeak.sh.def etc/Makefile
@@ -215,8 +214,7 @@ README: force
 
 force:
 
-EXCLUDES=--exclude='*/CVS' --exclude='*/.svn' \
---exclude='*.o' --exclude='*.so' --exclude='*/.libs'
+EXCLUDES=--exclude='.git' --exclude='*.o' --exclude='*.so' --exclude='*/.libs'
 
 tar:
 	make ${ID}
@@ -303,8 +301,6 @@ MSG="Releasing ${LABEL}"
 
 label: $(DISTFILES)
 	rm -f lisp/emacspeak-loaddefs.el lisp/cus-load.el
-	svn commit  -m "${MSG}"
-	svn cp https://emacspeak.googlecode.com/svn/trunk https://emacspeak.googlecode.com/svn/tags/release-${LABEL}
 
 release: #supply LABEL=NN.NN
 	$(MAKE) label LABEL=$(LABEL) MSG="Releasing version ${LABEL}"
