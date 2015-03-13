@@ -172,7 +172,6 @@ speech-enabling extensions."
 (emacspeak-do-package-setup "diff-mode" 'emacspeak-diff-mode )
 (emacspeak-do-package-setup "dired" 'emacspeak-dired )
 (emacspeak-do-package-setup "dismal" 'emacspeak-dismal)
-(emacspeak-do-package-setup "dictation" 'emacspeak-dictation)
 (emacspeak-do-package-setup "dictionary" 'emacspeak-dictionary)
 (emacspeak-do-package-setup "dmacro" 'emacspeak-dmacro)
 (emacspeak-do-package-setup "doctor" 'emacspeak-entertain)
