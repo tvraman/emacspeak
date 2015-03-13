@@ -251,8 +251,6 @@ emacspeak-wizards.elc  \
 emacspeak-xref.elc \
 emacspeak-xml-shell.elc \
 emacspeak-xslt.elc \
-emacspeak-xslt-process.elc   
-
 ADDON_OBJECTS= tapestry.elc   stack-f.elc  xml-parse.elc \
 toy-braille.elc tetris.elc cd-tool.elc nm.elc
 
@@ -495,7 +493,7 @@ emacspeak-wizards.elc: emacspeak-wizards.el dtk-speak.elc voice-setup.elc
 emacspeak-xref.elc: emacspeak-xref.el dtk-speak.elc
 emacspeak-xml-shell.elc: emacspeak-xml-shell.el dtk-speak.elc voice-setup.elc
 emacspeak-xslt.elc: emacspeak-xslt.el
-emacspeak-xslt-process.elc: emacspeak-xslt-process.el dtk-speak.elc voice-setup.elc
+
 emacspeak.elc: emacspeak.el
 emacspeak-setup.elc: emacspeak-setup.el
 loaddefs: emacspeak-loaddefs.elc

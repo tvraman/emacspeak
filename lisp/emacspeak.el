@@ -264,7 +264,6 @@ speech-enabling extensions."
 (emacspeak-do-package-setup "tcl" 'emacspeak-tcl)
 (emacspeak-do-package-setup "tdtd" 'emacspeak-tdtd)
 (emacspeak-do-package-setup "xref" 'emacspeak-xref)
-(emacspeak-do-package-setup "xslt-process" 'emacspeak-xslt-process)
 (emacspeak-do-package-setup "tempo" 'emacspeak-tempo)
 (emacspeak-do-package-setup "term" 'emacspeak-eterm )
 (emacspeak-do-package-setup "eudc" 'emacspeak-eudc )
