@@ -95,7 +95,6 @@ emacspeak-arc.elc \
 emacspeak-auctex.elc \
 emacspeak-autoload.el \
 emacspeak-aumix.elc \
-emacspeak-babel.elc \
 emacspeak-bbc.elc \
 emacspeak-bbdb.elc \
 emacspeak-bibtex.elc \
@@ -328,7 +327,6 @@ emacspeak-arc.elc: emacspeak-arc.el dtk-speak.elc voice-setup.elc
 emacspeak-auctex.elc: emacspeak-auctex.el dtk-speak.elc voice-setup.elc
 emacspeak-aumix.elc: emacspeak-aumix.el dtk-speak.elc voice-setup.elc
 emacspeak-autoload.elc: emacspeak-autoload.el
-emacspeak-babel.elc: emacspeak-babel.el dtk-speak.elc voice-setup.elc
 emacspeak-bbc.elc: emacspeak-bbc.el dtk-speak.elc voice-setup.elc
 emacspeak-bbdb.elc: emacspeak-bbdb.el dtk-speak.elc voice-setup.elc
 emacspeak-bibtex.elc: emacspeak-bibtex.el dtk-speak.elc voice-setup.elc
