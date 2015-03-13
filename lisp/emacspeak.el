@@ -298,8 +298,8 @@ speech-enabling extensions."
 ;;{{{  Submit bugs
 
 (defconst emacspeak-bug-address
-  "raman@cs.cornell.edu"
-  "Address of the maintainer of this package.")
+  "emacspeak@cs.vassar.edu"
+  "Address for bug reports and questions.")
 
 (defun emacspeak-submit-bug ()
   "Function to submit a bug to the programs maintainer."
