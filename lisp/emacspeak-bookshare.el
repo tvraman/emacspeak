@@ -60,7 +60,7 @@
 (require 'emacspeak-we)
 (require 'emacspeak-webutils)
 (require 'emacspeak-xslt)
-(require 'xml-parse)
+
 (require 'xml)
 (require 'derived)
 ;;}}}
@@ -257,7 +257,7 @@ Argument id specifies content. Argument fmt = 0 for Braille, 1
                  nil shell-command-switch
                  command)
    (goto-char (point-min))
-   (read-xml)))
+   (xml-parse-region (point-min) (point-max))))
 (defvar emacspeak-bookshare-last-action-uri nil
   "Cache last API call URI.")
 
@@ -317,7 +317,7 @@ Optional argument 'no-auth says we dont need a user auth."
 
 (defvar emacspeak-bookshare-categories nil
   "Cached list of categories.")
-
+;;;todo: Update xml-tag* calls 
 (defun emacspeak-bookshare-categories ()
   "Return memoized list of categories."
   (declare (special emacspeak-bookshare-categories))
@@ -330,10 +330,10 @@ Optional argument 'no-auth says we dont need a user auth."
             "reference/category/list" "" 'no-auth)))
       (setq result (xml-tag-child result  "category"))
       (setq result (xml-tag-child result "list"))
-      (setq result (xml-tag-children result))
+      (setq result (xml-node-children result))
       (setq result
             (remove-if-not
-             #'(lambda (c) (string= "result" (xml-tag-name c)))
+             #'(lambda (c) (string= "result" (xml-node-name c)))
              result))
       (loop for r in result
             collect
@@ -629,11 +629,11 @@ b Browse
             ,(intern (format "emacspeak-bookshare-%s-handler" container))
             (element)
           "Process children silently."
-          (mapc #'emacspeak-bookshare-apply-handler (xml-tag-children element)))))
+          (mapc #'emacspeak-bookshare-apply-handler (xml-node-children element)))))
 
 (defsubst emacspeak-bookshare-apply-handler (element)
   "Lookup and apply installed handler."
-  (let* ((tag (xml-tag-name element))
+  (let* ((tag (xml-node-name element))
          (handler  (emacspeak-bookshare-handler-get tag)))
     (cond
      ((and handler (fboundp handler))
@@ -643,18 +643,18 @@ b Browse
 
 (defun emacspeak-bookshare-bookshare-handler (response)
   "Handle Bookshare response."
-  (unless (string-equal (xml-tag-name response) "bookshare")
+  (unless (string-equal (xml-node-name response) "bookshare")
     (error "Does not look like a Bookshare response."))
-  (mapc 'emacspeak-bookshare-apply-handler (xml-tag-children response)))
+  (mapc 'emacspeak-bookshare-apply-handler (xml-node-children response)))
 
 (defalias 'emacspeak-bookshare-version-handler 'ignore)
 
 (defun emacspeak-bookshare-recurse (tree)
   "Recurse down tree."
-  (insert (format "Begin %s:\n" (xml-tag-name tree)))
-  (mapc #'emacspeak-bookshare-apply-handler (xml-tag-children tree))
-  (insert (format "\nEnd %s\n" (xml-tag-name tree))))
-
+  (insert (format "Begin %s:\n" (xml-node-name tree)))
+  (mapc #'emacspeak-bookshare-apply-handler (xml-node-children tree))
+  (insert (format "\nEnd %s\n" (xml-node-name tree))))
+;;;todo: update xml-tag-*
 (defun emacspeak-bookshare-messages-handler (messages)
   "Handle messages element."
   (declare (special emacspeak-bookshare-last-action-uri))
@@ -685,13 +685,12 @@ b Browse
 
 (defun emacspeak-bookshare-display-setting (result)
   "Display user setting result."
-  (mapc #'emacspeak-bookshare-apply-handler (xml-tag-children
-                                             result)))
+  (mapc #'emacspeak-bookshare-apply-handler (xml-node-children result)))
 
 (defun emacspeak-bookshare-result-handler (result)
   "Handle result element in Bookshare response."
   (insert "\n")
-  (let* ((children (xml-tag-children result))
+  (let* ((children (xml-node-children result))
          (start (point))
          (id (second (assoc "id" children)))
          (title (second (assoc "title" children)))
@@ -763,14 +762,14 @@ b Browse
             (element)
           ,(format "Handle leaf-level element  %s. " e)
           (insert (format "%s:\t" ,e))
-          (mapc #'insert (xml-tag-children  element))
+          (mapc #'insert (xml-node-children  element))
           (insert "\n"))))
 
 (defun emacspeak-bookshare-metadata-handler (metadata)
   "Handle metadata element."
   (declare (special emacspeak-bookshare-metadata-filtered-elements))
   (let*
-      ((children (xml-tag-children metadata))
+      ((children (xml-node-children metadata))
        (available
         (remove-if-not
          #'(lambda (c)
