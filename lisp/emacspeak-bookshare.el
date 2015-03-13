@@ -317,6 +317,17 @@ Optional argument 'no-auth says we dont need a user auth."
 
 (defvar emacspeak-bookshare-categories nil
   "Cached list of categories.")
+
+;;;temporary definition
+(defun xml-tag-child (tag name)
+  "Return the first child matching NAME, of an xml-parse'd XML TAG."
+  (catch 'found
+    (let ((children (xml-node-children tag)))
+      (while children
+        (if (string-equal name (xml-node-name (car children)))
+            (throw 'found (car children)))
+        (setq children (cdr children))))))
+
 ;;;todo: Update xml-tag* calls 
 (defun emacspeak-bookshare-categories ()
   "Return memoized list of categories."
