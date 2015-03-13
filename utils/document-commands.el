@@ -209,7 +209,6 @@
     ("emacspeak-wizards"  . nil )
                                         ;("emacspeak-wrolo"  . ("wrolo"))
     ("emacspeak-xml-shell"  . nil )
-    ("emacspeak-xslt-process"  . nil )
     ("outloud-voices"  . nil )
     ("regexp-opt"  . nil )
     ("tapestry"  . nil )
