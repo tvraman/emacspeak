@@ -196,7 +196,6 @@ emacspeak-npr.elc \
 emacspeak-nxml.elc \
 emacspeak-outline.elc \
 emacspeak-package.elc \
-emacspeak-pcl-cvs.elc \
 emacspeak-perl.elc \
 emacspeak-php-mode.elc \
 emacspeak-pianobar.elc \
@@ -432,7 +431,6 @@ emacspeak-org.elc: emacspeak-org.el dtk-speak.elc
 emacspeak-outline.elc: emacspeak-outline.el dtk-speak.elc voice-setup.elc
 emacspeak-ocr.elc: emacspeak-ocr.el dtk-speak.elc voice-setup.elc
 emacspeak-package.elc: emacspeak-package.el dtk-speak.elc
-emacspeak-pcl-cvs.elc: emacspeak-pcl-cvs.el dtk-speak.elc voice-setup.elc
 emacspeak-perl.elc: emacspeak-perl.el dtk-speak.elc voice-setup.elc
 emacspeak-php-mode.elc: emacspeak-php-mode.el dtk-speak.elc voice-setup.elc
 emacspeak-pianobar.elc: emacspeak-pianobar.el dtk-speak.elc voice-setup.elc
