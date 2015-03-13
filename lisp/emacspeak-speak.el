@@ -1902,9 +1902,9 @@ Seconds value is also placed in the kill-ring."
     result))
 
 ;;;###autoload
-(defun emacspeak-speak-version ()
+(defun emacspeak-speak-version (&optional update)
   "Announce version information for running emacspeak."
-  (interactive)
+  (interactive "P")
   (declare (special emacspeak-version 
                     emacspeak-sounds-directory emacspeak-use-auditory-icons))
   (let ((signature "This is  Emacspeak  "))
@@ -1913,7 +1913,9 @@ Seconds value is also placed in the kill-ring."
       (start-process "mp3" nil "mplayer"
                      (expand-file-name "emacspeak.mp3" emacspeak-sounds-directory)))
     (tts-with-punctuations 'some
-                           (dtk-speak-and-echo (concat signature emacspeak-version)))))
+                           (dtk-speak-and-echo (concat signature 
+(if update (emacspeak-setup-get-revision)
+emacspeak-version))))))
 
 ;;;###autoload
 (defun emacspeak-speak-current-kill (count)
