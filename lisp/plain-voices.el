@@ -1,5 +1,4 @@
 ;;; plain-voices.el --- Define various device independent voices in terms of Plain codes.
-;;; $Id: plain-voices.el 6959 2011-04-01 15:39:52Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Module to set up Plain voices and personalities
 ;;; Keywords: Voice, Personality, Plain
