@@ -69,7 +69,7 @@
 ;;}}}
 ;;{{{ define a derived mode for m-player interaction
 (defconst  emacspeak-media-shortcuts-directory
-  (expand-file-name "media/" emacspeak-directory)
+  (expand-file-name "media/radio" emacspeak-directory)
   "*Directory where we organize  mp3  libraries and media shortcuts. ")
 
 (defvar emacspeak-m-player-process nil
