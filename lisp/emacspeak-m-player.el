@@ -579,7 +579,7 @@ necessary."
 ;;;###autoload
 (defun emacspeak-m-player-volume-change (value)
   "Change volume to specified absolute value."
-  (interactive"sChange Volume By:")
+  (interactive"sChange Volume to:")
   (emacspeak-m-player-dispatch
    (format "volume %s, 1" value)))
 
