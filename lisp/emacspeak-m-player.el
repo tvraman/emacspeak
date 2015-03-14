@@ -577,13 +577,11 @@ necessary."
   (interactive)
   (emacspeak-m-player-dispatch "volume -1"))
 ;;;###autoload
-(defun emacspeak-m-player-volume-change (offset)
-  "Change volume.
-A value of <number> changes volume by specified offset.
-A string of the form `<number> 1' sets volume as an absolute."
+(defun emacspeak-m-player-volume-change (value)
+  "Change volume to specified absolute value."
   (interactive"sChange Volume By:")
   (emacspeak-m-player-dispatch
-   (format "volume %s" offset)))
+   (format "volume %s, 1" value)))
 
 ;;;###autoload
 (defun emacspeak-m-player-balance ()
