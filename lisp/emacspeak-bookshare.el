@@ -16,7 +16,7 @@
 ;;}}}
 ;;{{{  Copyright:
 
-;;;Copyright (C) 1995 -- 2015, T. V. Raman
+;;;Copyright (C) 1995 -- 2011, T. V. Raman
 ;;; Copyright (c) 1994, 1995 by Digital Equipment Corporation.
 ;;; All Rights Reserved.
 ;;;
@@ -257,11 +257,7 @@ Argument id specifies content. Argument fmt = 0 for Braille, 1
                  nil shell-command-switch
                  command)
    (goto-char (point-min))
-<<<<<<< .merge_file_gedc2l
    (read-xml)))
-=======
-   (libxml-parse-xml-region (point-min) (point-max))))
->>>>>>> .merge_file_2PSGAl
 (defvar emacspeak-bookshare-last-action-uri nil
   "Cache last API call URI.")
 
@@ -322,22 +318,6 @@ Optional argument 'no-auth says we dont need a user auth."
 (defvar emacspeak-bookshare-categories nil
   "Cached list of categories.")
 
-<<<<<<< .merge_file_gedc2l
-=======
-;;;temporary definition
-(defun xml-node-child (node name)
-  "Return the first child matching NAME, of an xml-parse'd XML node."
-  (catch 'found
-    (let ((children (xml-node-children node)))
-      (while children
-        (if  
-            (and (listp (car children))
-                 (equal name (xml-node-name (car children))))
-            (throw 'found (car children)))
-        (setq children (cdr children))))))
-
-;;;todo: Update xml-tag* calls 
->>>>>>> .merge_file_2PSGAl
 (defun emacspeak-bookshare-categories ()
   "Return memoized list of categories."
   (declare (special emacspeak-bookshare-categories))
