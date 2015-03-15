@@ -59,7 +59,7 @@
 ;;;Emacspeak should not be run on versions of Emacs older than
 ;;;Emacs 21,
 ;;; And preferably only run on Emacs 22.
-;;; This version of Emacspeak is only tested on Emacs 22.
+;;; This version of Emacspeak is only tested on Emacs 24 and later.
 
 ;;
 ;;; Code:
