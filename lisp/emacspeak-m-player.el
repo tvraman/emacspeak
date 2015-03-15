@@ -662,7 +662,8 @@ necessary."
     (when result
       (setq result (replace-regexp-in-string  "^ans_" "" result))
       (setq result (replace-regexp-in-string  "_" " " result)))
-    (message   "%s" (or result "Waiting"))))
+    (dtk-speak-and-echo   
+(format "%s" (or result "Waiting")))))
 
 (defun emacspeak-m-player-load-file(f)
   "Load specified file."
