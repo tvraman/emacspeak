@@ -305,11 +305,11 @@ The player is placed in a buffer in emacspeak-m-player-mode."
    (list
     (emacspeak-m-player-read-resource)
     current-prefix-arg))
-  (declare (special  default-directory
-                     emacspeak-m-player-file-list emacspeak-m-player-current-directory
-                     ido-work-directory-list emacspeak-media-directory-regexp
-                     emacspeak-media-shortcuts-directory emacspeak-m-player-process
-                     emacspeak-m-player-program emacspeak-m-player-options))
+  (declare (special 
+            emacspeak-m-player-file-list emacspeak-m-player-current-directory
+            ido-work-directory-list emacspeak-media-directory-regexp
+            emacspeak-media-shortcuts-directory emacspeak-m-player-process
+            emacspeak-m-player-program emacspeak-m-player-options))
   (when (and emacspeak-m-player-process
              (eq 'run (process-status emacspeak-m-player-process))
              (y-or-n-p "Stop currently playing music? "))
