@@ -139,12 +139,16 @@ Default is to search All Mail when not on a group."
       (gnus-group-make-nnir-group
        nil                              ; no extra parms needed
        `(nnir-specs (nnir-query-spec (query  ,q)))))
-     (t                                 ; "Search All Mail
+     ((eq 'nnimap (first gnus-select-method)) ; "Search All Mail
       (gnus-group-make-nnir-group
        nil                              ; no extra parms needed
        `(nnir-specs 
          (nnir-query-spec (query ,q))
-         (nnir-group-spec ("nnimap:gmail" ("[Gmail]/All Mail")))))))))
+         (nnir-group-spec
+          (
+           ,(format "nnimap:%s" (second gnus-select-method))
+           ("[Gmail]/All Mail"))))))
+     (t (error "Dont know how to find default nnimap group")))))
 
 ;;;###autoload
 (defun gm-nnir-group-make-gmail-group ()
