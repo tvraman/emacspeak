@@ -1,0 +1,83 @@
+
+* Geography
+** Estonia 								      :drill:
+
+What is the capital city of Estonia?
+
+*** The Answer
+
+Tallinn.
+
+
+* Drill questions
+** Level 0 							      :drill:
+
+What does level 0 mean in drill  
+
+*** The Answer
+
+You completely forgot the item
+
+** Level 1							      :drill:
+
+What does level 1 mean in drill  
+
+
+*** The Answer
+
+Even after seeing the answer it took a while to sink in.
+
+** Level 2							      :drill:
+
+What is Level 2 in drill?
+
+*** Answer
+
+After seeing the answer, you remembered it.
+
+** Level 3							      :drill:
+
+What is Level 3 in drill?
+
+*** Answer
+
+It took you awhile, but you finally remembered.
+
+** Level 4 							      :drill:
+
+What is Level 4 in drill?
+
+*** Answer
+
+After a little bit of thought you remembered.
+
+** Level 5 							      :drill:
+
+What is Level 5 in drill?
+
+*** Answer
+
+You remembered the item really easily.
+
+
+* emacs
+
+** progn 							      :drill:
+
+How does progn work?
+
+*** Answer
+
+(progn BODY...)
+Eval BODY forms sequentially and return value of last one.
+
+
+** Rectangle mark mode						      :drill:
+
+How do you activate rectangle mark mode
+
+*** Answer
+
+With c-x space
+
+

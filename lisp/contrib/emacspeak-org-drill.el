@@ -5,7 +5,7 @@
 ;;; Keywords: Emacspeak, org org-drill
 ;;{{{  Copyright:
 
-;;; Copyright (C) 1995 -- 2015, T. V. Raman
+;;; Copyright (C) 2015, Bart Bunting
 ;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
@@ -25,6 +25,18 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
+;;{{{  LCD Archive entry:
+
+;;; LCD Archive Entry:
+;;; emacspeak-org-drill| Bart Bunting |bart@bunting.net.au
+;;; A speech interface to org-drill |
+;;; $Date: 2015-03-17 09:26:40 -0700 (Sat, 22 Mar 2008) $ |
+;;;  $Revision:  $ |
+;;; Location undetermined
+;;;
+
+;;}}}
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  Introduction:
@@ -52,7 +64,7 @@
 ;;}}}
 
 (defadvice org-drill-presentation-prompt (around emacspeak pre act comp)
-  "Read out the question and Silence messages while this function executes.  Otherwise emacspeak will read out the timer as it ticks up."
+  "Read out the previously saved question and Silence messages while this function executes.  Otherwise emacspeak will read out the timer as it ticks up."
   (emacspeak-auditory-icon 'ask-question)
   (let ((emacspeak-speak-messages nil))
     (emacspeak-org-drill-log "org-drill-presentation-prompt start")
@@ -62,6 +74,7 @@
     (emacspeak-org-drill-log "org-drill-presentation-prompt end")))
 
 (defadvice org-drill-present-simple-card (around emacspeak pre act comp)
+  "Save the question away in a buffer and variable for use later"
   (let ((emacspeak-speak-messages nil))
     (emacspeak-org-drill-log "org-drill-present-simple-card start")
     (save-excursion
@@ -100,12 +113,13 @@
 
 
 (defadvice org-drill-present-default-answer (around emacspeak pre act comp)
-  "Present the answer and provide ability to review answer"
+  "Present the answer and provide ability to review answer.  To review answer press e at the answer prompt, this places you in a recursive edit buffer where you can review the answer.  Hit c-m-c to exit."
   (emacspeak-auditory-icon 'help)
   (emacspeak-org-drill-log "org-drill-present-default-answer start")
   (save-excursion
     (let ((emacspeak-speak-messages nil))
       (cond
+       ; This is a special case that we currently don't use.
        (drill-answer
 	(emacspeak-org-drill-log ("in drill-answer clause of cond"))
 	(with-replaced-entry-text
@@ -114,6 +128,7 @@
 	 (prog1
 	     (funcall reschedule-fn)
 	   (setq drill-answer nil))))
+       ; This is the code path that is used currently
        (t
 	(emacspeak-org-drill-log "in t clause of cond")
 	(org-drill-hide-subheadings-if 'org-drill-entry-p)
