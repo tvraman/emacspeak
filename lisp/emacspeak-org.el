@@ -130,27 +130,29 @@
 ;;}}}
 ;;{{{ Structure Navigation:
 
-(loop for f in
-      '(org-mark-ring-goto org-mark-ring-push
-                           org-forward-heading-same-level org-backward-heading-same-level
-                           org-next-link org-previous-link org-open-at-point
-                           org-goto  org-goto-ret
-                           org-goto-left org-goto-right
-                           org-goto-quit
-                           org-next-item org-previous-item
-                           org-metaleft org-metaright org-metaup org-metadown
-                           org-meta-return
-                           org-shiftmetaleft org-shiftmetaright org-shiftmetaup org-shiftmetadown
-                           org-mark-element org-mark-subtree
-                           org-agenda-forward-block org-agenda-backward-block
-                           )
-      do
-      (eval
-       `(defadvice ,f(after emacspeak pre act comp)
-          "Provide spoken feedback."
-          (when (ems-interactive-p )
-            (emacspeak-speak-line)
-            (emacspeak-auditory-icon 'large-movement)))))
+(loop 
+ for f in
+ '(org-mark-ring-goto org-mark-ring-push
+                      org-next-visible-heading org-previous-visible-heading
+                      org-forward-heading-same-level org-backward-heading-same-level
+                      org-next-link org-previous-link org-open-at-point
+                      org-goto  org-goto-ret
+                      org-goto-left org-goto-right
+                      org-goto-quit
+                      org-next-item org-previous-item
+                      org-metaleft org-metaright org-metaup org-metadown
+                      org-meta-return
+                      org-shiftmetaleft org-shiftmetaright org-shiftmetaup org-shiftmetadown
+                      org-mark-element org-mark-subtree
+                      org-agenda-forward-block org-agenda-backward-block
+                      )
+ do
+ (eval
+  `(defadvice ,f(after emacspeak pre act comp)
+     "Provide spoken feedback."
+     (when (ems-interactive-p )
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'large-movement)))))
 
 (defadvice org-cycle-list-bullet (after emacspeak pre act comp)
   "Provide spoken feedback."
