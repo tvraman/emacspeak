@@ -91,10 +91,9 @@
   (define-key package-menu-mode-map " " 'emacspeak-package-summarize-line)
   (define-key package-menu-mode-map "n" 'emacspeak-package-next-line)
   (define-key package-menu-mode-map "p" 'emacspeak-package-previous-line)
-  (unless emacspeak-wizards-yyyymmdd-date-pronounce
-    (emacspeak-wizards-toggle-yyyymmdd-date-pronouncer))
-  (unless emacspeak-wizards-yyyymmdd-date-pronounce
-    (emacspeak-wizards-toggle-yyyymmdd-date-pronouncer)))
+  (emacspeak-pronounce-add-buffer-local-dictionary-entry
+       emacspeak-pronounce-date-yyyymmdd-pattern
+       (cons 're-search-forward 'emacspeak-pronounce-yyyymmdd-date)))
 
 (add-hook 'package-menu-mode-hook 'emacspeak-package-mode-hook)
 
