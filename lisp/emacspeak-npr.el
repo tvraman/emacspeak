@@ -43,7 +43,7 @@
 
 ;;; Commentary:
 ;;; NPR == http://wwwnpr.org National Public Radio in the US
-;;; It provides a simple Web  API http://www.npr.org/api/
+;;; It provides a simple Web  API http://www.npr.org/api/index
 ;;; This module implements an Emacspeak Npr client.
 
 ;;; For now, users will need to get their own API key
