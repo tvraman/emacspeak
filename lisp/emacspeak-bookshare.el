@@ -553,7 +553,7 @@ b Browse
 ;;{{{ Bookshare XML  handlers:
 
 (defvar emacspeak-bookshare-handler-table
-  (make-hash-table :test #'equal)
+  (make-hash-table :test #'eq)
   "Table of handlers for processing  Bookshare response elements.")
 
 (defsubst emacspeak-bookshare-handler-set (element handler)
@@ -574,21 +574,23 @@ b Browse
     periodical list page num-pages limit result)
   "Bookshare response elements for which we have explicit handlers.")
 
-(loop for e in emacspeak-bookshare-response-elements
-      do
-      (emacspeak-bookshare-handler-set
-       e
-       (intern (format "emacspeak-bookshare-%s-handler" (symbol-name e)))))
+(loop
+ for e in emacspeak-bookshare-response-elements
+ do
+ (emacspeak-bookshare-handler-set
+  e
+  (intern (format "emacspeak-bookshare-%s-handler" (symbol-name e)))))
 
-(loop for container in
-      '(book list periodical user)
-      do
-      (eval
-       `(defun
-            ,(intern (format "emacspeak-bookshare-%s-handler" (symbol-name container)))
-            (element)
-          "Process children silently."
-          (mapc #'emacspeak-bookshare-apply-handler (dom-children element)))))
+(loop
+ for container in
+ '(book list periodical user)
+ do
+ (eval
+  `(defun
+       ,(intern (format "emacspeak-bookshare-%s-handler" (symbol-name container)))
+       (element)
+     "Process children silently."
+     (mapc #'emacspeak-bookshare-apply-handler (dom-children element)))))
 
 (defsubst emacspeak-bookshare-apply-handler (element)
   "Lookup and apply installed handler."
@@ -604,7 +606,7 @@ b Browse
   "Handle Bookshare response."
   (unless (eq (dom-tag response) 'bookshare)
     (error "Does not look like a Bookshare response."))
-  (mapc 'emacspeak-bookshare-apply-handler (dom-children response)))
+  (mapc #'emacspeak-bookshare-apply-handler (dom-children response)))
 
 (defalias 'emacspeak-bookshare-version-handler 'ignore)
 
@@ -614,12 +616,11 @@ b Browse
   (mapc #'emacspeak-bookshare-apply-handler (dom-children tree))
   (insert (format "\nEnd %s\n" (dom-tag tree))))
 
-
 (defun emacspeak-bookshare-messages-handler (messages)
   "Handle messages element."
   (declare (special emacspeak-bookshare-last-action-uri))
   (let ((start (point)))
-    (mapc #'insert(dom-text   (dom-child-by-tag messages "string")))
+    (mapc #'insert(dom-text   (dom-child-by-tag messages 'string)))
     (insert "\t")
     (insert
      (mapconcat
