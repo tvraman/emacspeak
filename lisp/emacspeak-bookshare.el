@@ -46,6 +46,8 @@
 ;;; It provides a simple Web  API http://developer.bookshare.org
 ;;; This module implements an Emacspeak Bookshare client.
 ;;; For now, users will need to get their own API key
+;;; This version needs Emacs with libxml2 support
+;;; You need Emacs 24.1 or higher.
 
 ;;; Code:
 ;;}}}
@@ -60,7 +62,7 @@
 (require 'emacspeak-we)
 (require 'emacspeak-webutils)
 (require 'emacspeak-xslt)
-(require 'dom) ; Emacs 25
+(require 'dom) ; Cloned from Emacs 25
 (require 'xml)
 (require 'derived)
 ;;}}}
@@ -115,29 +117,6 @@ This is used by the various Bookshare view commands to display
           (function :tag "Your own function"))
   :version "37"
   :group 'emacspeak-bookshare)
-
-;;}}}
-;;{{{ XML helper:
-
-;;; cloned from xml.el in emacs 24
-(defun xml-substitute-numeric-entities (string)
-  "Substitute SGML numeric entities by their respective utf characters.
-This function replaces numeric entities in the input STRING and
-returns the modified string.  For example \"&#42;\" gets replaced
-by \"*\"."
-  (if (and string (stringp string))
-      (let ((start 0))
-        (while (string-match "&#\\([0-9]+\\);" string start)
-          (condition-case nil
-              (setq string (replace-match
-                            (string (read (substring string
-                                                     (match-beginning 1)
-                                                     (match-end 1))))
-                            nil nil string))
-            (error nil))
-          (setq start (1+ (match-beginning 0))))
-        string)
-    nil))
 
 ;;}}}
 ;;{{{ Variables:
