@@ -2,7 +2,13 @@ Emacspeak News --History Of User-Visible Changes
 $Id$
 Author: T. V. Raman <tv.raman.tv@gmail.com>
 
-* Emacspeak 42 -- Emacspeak 40 User Visible Changes 
+
+* Emacspeak 42 -- Emacspeak 40 User Visible Changes
+
+** Emacspeak  Now Requires Emacs 24.1 Or Later
+
+Emacspeak 42 now requires Emacs 24.1 or later.
+
 ** emacspeak-elfeed.el:
 
 Speech-enables package elfeed, a powerful feed-reader for Emacs.
