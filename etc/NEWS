@@ -26,6 +26,9 @@ Provides a large number of reverb presets using  Ladspa plugin tap-reverb.
 
 Directory realaudio -- the directory containing streaming media presets has now been renamed to _media_.
 Realaudio is now legacy and all code in Emacspeak had been updated a few years ago to use _mplayer_ to play media streams; this renaming is purely cosmetic.
+Also overhauled set of links in media directory.
+Finally, emacspeak-multimedia defaults to prompting  for shortcuts in media/radio unless the current directory itself contains media.
+
 ** Tune-In: Search And Browse Radio Stations
 
 emacspeak-url-template now defines templates for searching and browsing tune-in radio stations. Interactive commands 
