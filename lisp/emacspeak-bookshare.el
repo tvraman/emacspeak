@@ -72,7 +72,7 @@
 (defgroup emacspeak-bookshare nil
   "Bookshare Access on the Complete Audio Desktop."
   :group 'emacspeak)
-;;;###autoload 
+;;;###autoload
 (defcustom emacspeak-bookshare-api-key nil
   "Web API  key for this application.
 See http://developer.bookshare.org/docs for details on how to get
@@ -169,15 +169,15 @@ with X-password HTTP header for use with Curl."
         (md5 emacspeak-bookshare-password-cache))
   (format "-H 'X-password: %s'" emacspeak-bookshare-md5-cached-token))
 
-(defsubst emacspeak-bookshare-rest-endpoint (operation operand &optional no-auth)
+(defsubst emacspeak-bookshare-rest-endpoint (operation operand &optional noauth)
   "Return  URL  end point for specified operation.
-Optional argument `no-auth' says no user auth needed."
+Optional argument `noauth' says no user auth needed."
   (declare (special emacspeak-bookshare-api-base emacspeak-bookshare-user-id))
   (format "%s/%s/%s/%s?api_key=%s"
           emacspeak-bookshare-api-base
           operation
           operand
-          (if no-auth
+          (if noauth
               ""
             (format "for/%s" emacspeak-bookshare-user-id))
           emacspeak-bookshare-api-key))
@@ -282,7 +282,7 @@ Optional argument 'no-auth says we dont need a user auth."
 (defsubst emacspeak-bookshare-generate-target (author title)
   "Generate a suitable filename target."
   (declare (special emacspeak-bookshare-downloads-directory))
-  (expand-file-name 
+  (expand-file-name
    (replace-regexp-in-string
     "[ _&\'\":()\;]+" "-"
     (format "%s-%s.zip" author title))
@@ -319,7 +319,7 @@ Optional argument 'no-auth says we dont need a user auth."
    (setq
     emacspeak-bookshare-categories
     (let ((result
-           (dom-by-tag 
+           (dom-by-tag
             (emacspeak-bookshare-api-call "reference/category/list" "" 'no-auth)
             'result)))
       (loop
@@ -519,7 +519,7 @@ Search and download Bookshare material,
 Manage a local library of downloaded Bookshare content,
 And commands to easily read newer Daisy books from Bookshare.
 
-Here is a list of all emacspeak Bookshare commands along with their key-bindings:
+Here is a list of all emacspeak Bookshare commands  with their key-bindings:
 a Author Search
 A Author/Title Search
 t Title Search
@@ -583,9 +583,9 @@ b Browse
 
 (defvar emacspeak-bookshare-response-elements
   '(bookshare version metadata messages string
-            book user string downloads-remaining
-    id name value editable
-    periodical list page num-pages limit result)
+              book user string downloads-remaining
+              id name value editable
+              periodical list page num-pages limit result)
   "Bookshare response elements for which we have explicit handlers.")
 
 (loop
@@ -667,9 +667,9 @@ b Browse
   "Handle result element in Bookshare response."
   (insert "\n")
   (cond
-   ((dom-child-by-tag result 'editable) ;handle settings 
+   ((dom-child-by-tag result 'editable) ;handle settings
     (emacspeak-bookshare-display-setting result))
-   (t ;Book Result 
+   (t ;Book Result
     (let ((start (point))
           (id (dom-text (dom-child-by-tag result 'id)))
           (title (emacspeak-bookshare-dom-clean-text result 'title))
@@ -678,12 +678,12 @@ b Browse
           (target nil)
           (face nil)
           (icon nil))
-      (unless ; We found a meaningful author or title 
+      (unless ; We found a meaningful author or title
           (and (zerop (length title)) (zerop (length author)))
         (setq
          directory (emacspeak-bookshare-generate-directory author title)
          target (emacspeak-bookshare-generate-target author title))
-        ;Render result with formatted properties 
+                                        ;Render result with formatted properties
         (cond
          ((file-exists-p directory)
           (setq face 'highlight
@@ -706,12 +706,12 @@ b Browse
 
 (defvar emacspeak-bookshare-metadata-filtered-elements
   '(author bookshare-id brf content-id
-    daisy images download-format title)
+           daisy images download-format title)
   "Elements in Bookshare Metadata that we filter.")
 
 (defvar emacspeak-bookshare-leaf-elements
   '(string downloads-remaining
-        id name value editable)
+           id name value editable)
   "Leaf level elements, just print element name: children.")
 
 (loop
@@ -738,7 +738,7 @@ b Browse
                (member (dom-tag c)
                        emacspeak-bookshare-metadata-filtered-elements))
            children)))
-    ;;; First render generic metadata items to display 
+    ;;; First render generic metadata items to display
     (mapc
      #'(lambda (child)
          (let ((start (point)))
@@ -757,7 +757,7 @@ b Browse
       display
       #'(lambda (a b )
           (string-lessp (symbol-name (car a)) (symbol-name (car b))))))
-    ; Show availability:
+                                        ; Show availability:
     (insert
      (format "Available: %s"
              (mapconcat #'dom-text available " ")))))
@@ -1145,7 +1145,7 @@ Make sure it's downloaded and unpacked first."
 (defcustom emacspeak-bookshare-html-to-text-command
   "lynx -dump -stdin"
   "Command to convert html to text on stdin."
-  
+
   :type '(choice
           (const :tag "lynx"  "lynx -dump -stdin")
           (const "html2text" "html2text"))
