@@ -253,7 +253,7 @@ emacspeak-xml-shell.elc \
 emacspeak-xslt.elc
 
 ADDON_OBJECTS = \
-tapestry.elc   stack-f.elc  xml-parse.elc \
+tapestry.elc   stack-f.elc  dom.elc \
 toy-braille.elc tetris.elc cd-tool.elc nm.elc
 
 OBJECTS = $(DTK_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  $(ADDON_OBJECTS)
