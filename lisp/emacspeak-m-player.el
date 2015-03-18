@@ -281,6 +281,7 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
    (t (directory-files  directory 'full emacspeak-media-extensions))))
 (defsubst emacspeak-m-player-read-resource ()
   "Read resource from minibuffer with contextual smarts."
+(declare (special ido-work-directory-list))
   (let ((completion-ignore-case t)
         (emacspeak-speak-messages nil)
         (read-file-name-completion-ignore-case t)
