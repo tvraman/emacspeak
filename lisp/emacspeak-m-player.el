@@ -905,7 +905,7 @@ arg `reset' starts with all filters set to 0."
 ;;{{{ YouTube Player
 
 (defcustom emacspeak-m-player-youtube-dl
-  "/usr/local/bin/youtube-dl"
+  (executable-find "youtube-dl")
   "YouTube download tool"
   :type 'string
   :group 'emacspeak-m-player)
