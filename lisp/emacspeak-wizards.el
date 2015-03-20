@@ -935,9 +935,11 @@ To leave, press \\[keyboard-quit]."
                       t)
                      ((string-equal (find-lisp-object-file-name a 'defun)
                                     (find-lisp-object-file-name b 'defun))
-                      (string-lessp a b))
+                      (string-lessp (symbol-name a)
+ (symbol-name b)))
                      (t nil)))))
     commands))
+
 ;;;###autoload
 (defun emacspeak-generate-documentation (filename)
   "Generate docs for all emacspeak commands.
