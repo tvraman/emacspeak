@@ -878,7 +878,7 @@ To leave, press \\[keyboard-quit]."
 ;;{{{  Generate documentation:
 (defsubst ems-variable-symbol-file (o)
   "Locate file that defines a variable."
-  (find-lisp-object-file-name  o 'defvar))
+  (symbol-file  o 'defvar))
 
 (defsubst emacspeak-list-emacspeak-options ()
   "List all Emacspeak customizable options."
@@ -917,24 +917,24 @@ To leave, press \\[keyboard-quit]."
          (when
              (and (fboundp f)
                   (commandp f)
-                  (not (string-match "ad-Advice" (symbol-name f)))
-                  (not (string-match "ad-Orig" (symbol-name f)))
-                  (or (string-match "emacspeak" (symbol-name f))
-                      (string-match "cd-tool" (symbol-name f))
-                      (string-match "tts" (symbol-name f))
-                      (string-match "voice-setup" (symbol-name f))
-                      (string-match "dtk" (symbol-name f))))
+                  (not (string-match "^ad-Advice" (symbol-name f)))
+                  (not (string-match "^ad-Orig" (symbol-name f)))
+                  (or (string-match "^emacspeak" (symbol-name f))
+                      (string-match "^cd-tool" (symbol-name f))
+                      (string-match "^tts" (symbol-name f))
+                      (string-match "^voice-setup" (symbol-name f))
+                      (string-match "^dtk" (symbol-name f))))
            (push f commands))))
     (setq commands
           (sort commands
                 #'(lambda (a b )
                     (cond
                      ((string-lessp
-                       (find-lisp-object-file-name a 'defun)
-                       (find-lisp-object-file-name b 'defun))
+                       (symbol-file  a 'defun)
+                       (symbol-file b 'defun))
                       t)
-                     ((string-equal (find-lisp-object-file-name a 'defun)
-                                    (find-lisp-object-file-name b 'defun))
+                     ((string-equal (symbol-file a 'defun)
+                                    (symbol-file b 'defun))
                       (string-lessp (symbol-name a)
  (symbol-name b)))
                      (t nil)))))
@@ -1014,7 +1014,7 @@ end:\n\n")
           ((key (where-is-internal f))
            (key-description "")
            (commentary nil)
-           (this-module (find-lisp-object-file-name f 'defun))
+           (this-module (symbol-file f 'defun))
            (source-file nil)
            (module nil))
         (when this-module
