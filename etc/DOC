@@ -673,7 +673,7 @@ Search and download Bookshare material,
 Manage a local library of downloaded Bookshare content,
 And commands to easily read newer Daisy books from Bookshare.
 
-Here is a list of all emacspeak Bookshare commands along with their key-bindings:
+Here is a list of all emacspeak Bookshare commands  with their key-bindings:
 a Author Search
 A Author/Title Search
 t Title Search
@@ -1201,7 +1201,6 @@ o		emacspeak-epub-open
 p		previous-line
 r		emacspeak-epub-bookshelf-rename
 t		emacspeak-epub-fulltext
-<return>	emacspeak-epub-open
 
 M-s		emacspeak-epub-bookshelf-save
 
@@ -1382,9 +1381,7 @@ Argument COUNT .specifies number of lines by which to move.
 
 ------------------------------------------------------------
 
-** emacspeak-eterm-remote-term	Key Sequence:C-e C-M-r
-
- Start a terminal-emulator in a new buffer. 
+** emacspeak-eterm-remote-term Start a terminal-emulator in a new buffer. 
 
 ------------------------------------------------------------
 
@@ -2061,12 +2058,20 @@ RET		emacspeak-librivox-open-rss
 F		emacspeak-librivox-fetch-catalog
 P		emacspeak-librivox-play
 S		emacspeak-librivox-searcher
+c		Prefix Command
 u		emacspeak-librivox-open-url
-<C-return>	emacspeak-librivox-play
+
+c -		Prefix Command
 
 S a		emacspeak-librivox-search-author
 S g		emacspeak-librivox-search-genre
 S t		emacspeak-librivox-search-title
+
+c - R		Prefix Command
+
+c - R E		Prefix Command
+
+c - R E T	emacspeak-librivox-play
 
  
 
@@ -2096,22 +2101,17 @@ S t		emacspeak-librivox-search-title
 
 ------------------------------------------------------------
 
-** emacspeak-m-player Play specified resource using m-player.
-Optional prefix argument play-list interprets resource as a play-list.
-Second interactive prefix arg adds option -allow-dangerous-playlist-parsing to mplayer.
+** emacspeak-m-player Play specified resource using m-player.  Optional prefix argument
+play-list interprets resource as a play-list.  Second interactive
+prefix arg adds option -allow-dangerous-playlist-parsing to mplayer.
 Resource is a media resource or playlist containing media resources.
 The player is placed in a buffer in emacspeak-m-player-mode. 
 
 ------------------------------------------------------------
 
-** emacspeak-m-player-add-equalizer Add equalizer for next MPlayer invocation.
-
-Use arrow keys, page-up, page-down, home and end keys to
-  manipulate the values.
-Hit enter to finish setting the equalizer values.
-
-The Mplayer equalizer provides 10 bands, G0 -- G9, see the
-  MPlayer man page for details. 
+** emacspeak-m-player-add-equalizer Add equalizer to playing stream.  Equalizer is applied as each change
+is made, and the final effect set by pressing RET.  Interactive prefix
+arg `reset' starts with all filters set to 0. 
 
 ------------------------------------------------------------
 
@@ -2175,6 +2175,10 @@ tap-reverb already installed.
 
 ------------------------------------------------------------
 
+** emacspeak-m-player-delete-filter Delete filter. 
+
+------------------------------------------------------------
+
 ** emacspeak-m-player-display-percent Display current percentage. 
 
 ------------------------------------------------------------
@@ -2198,7 +2202,8 @@ tap-reverb already installed.
 
 ------------------------------------------------------------
 
-** emacspeak-m-player-equalizer-control Manipulate values in specified vector using minibuffer. 
+** emacspeak-m-player-equalizer-control Manipulate values in specified vector using minibuffer.
+Applies  the resulting value at each step. 
 
 ------------------------------------------------------------
 
@@ -2245,7 +2250,6 @@ Interactive prefix arg appends the new resource to what is playing.
 key             binding
 ---             -------
 
-C-e		Prefix Command
 RET		emacspeak-m-player-load
 ESC		Prefix Command
 SPC		emacspeak-m-player-pause
@@ -2270,11 +2274,11 @@ S		emacspeak-amark-save
 a		emacspeak-m-player-amark-add
 b		emacspeak-m-player-balance
 c		emacspeak-m-player-slave-command
+d		emacspeak-m-player-delete-filter
 e		emacspeak-m-player-add-equalizer
 f		emacspeak-m-player-add-filter
 g		emacspeak-m-player-seek-absolute
 j		emacspeak-m-player-amark-jump
-k		emacspeak-m-player-bind-accelerator
 l		emacspeak-m-player-get-length
 m		emacspeak-m-player-speak-mode-line
 n		emacspeak-m-player-next-track
@@ -2284,6 +2288,7 @@ q		bury-buffer
 r		emacspeak-m-player-seek-relative
 s		emacspeak-m-player-scale-speed
 t		emacspeak-m-player-play-tracks-jump
+u		emacspeak-m-player-url
 v		emacspeak-m-player-volume-change
 {		emacspeak-m-player-half-speed
 }		emacspeak-m-player-double-speed
@@ -2298,8 +2303,6 @@ DEL		emacspeak-m-player-reset-speed
 <up>		emacspeak-m-player-backward-1min
 
 M-l		emacspeak-m-player-load-playlist
-
-C-e m		emacspeak-m-player-speak-mode-line
 
 
 
@@ -2375,9 +2378,7 @@ during initialization.
 
 ------------------------------------------------------------
 
-** emacspeak-m-player-volume-change Change volume.
-A value of <number> changes volume by specified offset.
-A string of the form `<number> 1' sets volume as an absolute. 
+** emacspeak-m-player-volume-change Change volume to specified absolute value. 
 
 ------------------------------------------------------------
 
@@ -3825,7 +3826,11 @@ s   Sub-square Distribution.
 
 ------------------------------------------------------------
 
-** emacspeak-table-copy-current-element-to-register Copy current table element to specified register. 
+** emacspeak-table-copy-current-element-to-register :around advice: `ad-Advice-emacspeak-table-copy-current-element-to-register'
+
+Copy current table element to specified register.
+
+(fn REGISTER) 
 
 ------------------------------------------------------------
 
@@ -4683,6 +4688,8 @@ ESC		Prefix Command
 <		beginning-of-buffer
 >		end-of-buffer
 ?		search-backward
+b		backward-button
+f		forward-button
 n		forward-button
 p		backward-button
 q		bury-buffer
@@ -4954,15 +4961,13 @@ With optional interactive prefix arg `frame', move to previous frame instead.
 
 ------------------------------------------------------------
 
-** emacspeak-root	Key Sequence:C-e C-r
-
- Start a root shell or switch to one that already exists.
+** emacspeak-root Start a root shell or switch to one that already exists.
 Optional interactive prefix arg `cd' executes cd
 default-directory after switching. 
 
 ------------------------------------------------------------
 
-** emacspeak-select-this-buffer-next-display	Key Sequence:C-e <C-right>
+** emacspeak-select-this-buffer-next-display	Key Sequence:C-e <C-<right>
 
  Select this buffer as displayed in a `next' frame.
 See documentation for command
@@ -4985,7 +4990,7 @@ the display to select.
 
 ------------------------------------------------------------
 
-** emacspeak-select-this-buffer-previous-display	Key Sequence:C-e <C-left>
+** emacspeak-select-this-buffer-previous-display	Key Sequence:C-e <C-<left>
 
  Select this buffer as displayed in a `previous' window.
 See documentation for command
@@ -5024,9 +5029,7 @@ Signals end of buffer.
 
 ------------------------------------------------------------
 
-** emacspeak-speak-browse-linux-howto	Key Sequence:C-e H
-
- Browse a Linux Howto file.
+** emacspeak-speak-browse-linux-howto Browse a Linux Howto file.
 We cleanup underlining, and set up outline mode correctly. 
 
 ------------------------------------------------------------
@@ -5092,7 +5095,7 @@ meaning of `previous'.
 
 ------------------------------------------------------------
 
-** emacspeak-ssh-tts-restart	Key Sequence:C-e <deletechar> C-e <delete>
+** emacspeak-ssh-tts-restart	Key Sequence:C-e <delete> C-e <(deletechar>
 
  Restart specified ssh tts server. 
 
@@ -5747,7 +5750,6 @@ C-n		emacspeak-speak-next-window
 C-o		emacspeak-ocr
 C-p		emacspeak-speak-previous-window
 C-q		emacspeak-toggle-comint-autospeak
-C-r		emacspeak-root
 C-s		tts-restart
 C-t		emacspeak-table-find-file
 C-u		emacspeak-feeds-browse
@@ -5780,7 +5782,6 @@ A		emacspeak-appt-repeat-announcement
 B		emacspeak-speak-buffer-interactively
 C		emacspeak-customize
 F		emacspeak-view-emacspeak-faq
-H		emacspeak-speak-browse-linux-howto
 I		emacspeak-speak-show-active-network-interfaces
 L		emacspeak-speak-line-interactively
 M		emacspeak-speak-minor-mode-line
@@ -5822,10 +5823,10 @@ x		emacspeak-personal-keymap
 {		emacspeak-speak-paragraph
 |		emacspeak-speak-line-set-column-filter
 DEL		cd-tool
-<C-left>	emacspeak-select-this-buffer-previous-display
-<C-right>	emacspeak-select-this-buffer-next-display
+<(deletechar>	emacspeak-ssh-tts-restart
+<C-<left>	emacspeak-select-this-buffer-previous-display
+<C-<right>	emacspeak-select-this-buffer-next-display
 <delete>	emacspeak-ssh-tts-restart
-<deletechar>	emacspeak-ssh-tts-restart
 <down>		emacspeak-read-next-line
 <f1>		emacspeak-learn-emacs-mode
 <f11>		emacspeak-wizards-shell-toggle
@@ -5841,7 +5842,6 @@ DEL		cd-tool
 C-M-@		emacspeak-speak-spaces-at-point
 C-M-b		emacspeak-submit-bug
 C-M-k		kill-emacs
-C-M-r		emacspeak-eterm-remote-term
 M-%		emacspeak-goto-percent
 M-;		emacspeak-webutils-play-media-at-point
 M-a		emacspeak-set-auditory-icon-player

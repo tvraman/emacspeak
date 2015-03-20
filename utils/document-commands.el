@@ -42,7 +42,6 @@
 (defvar emacspeak-modules-dependency-alist
   '(
     ("emacspeak-load-path.el"  . nil )
-("emacspeak-loaddefs" . nil)
     ("emacspeak-setup.el"  . nil )
     ("emacspeak-sounds"  . nil )
     ("emacspeak-speak"  . nil )
