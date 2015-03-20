@@ -554,7 +554,7 @@ any buffer where it is set."
 
 (make-variable-buffer-local
  'emacspeak-audio-indentation-method)
-
+;;;###autoload
 (ems-generate-switcher ' emacspeak-toggle-audio-indentation
                          'emacspeak-audio-indentation
                          "Toggle state of  Emacspeak  audio indentation.
