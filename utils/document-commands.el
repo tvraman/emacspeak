@@ -1,4 +1,3 @@
-;;;$Id$
 ;;; Description: Generate commands.texi
 ;;; Load all emacspeak modules and write commands.texi
 
@@ -28,14 +27,6 @@
                 (debug-on-error t))
         (setq load-path (cons path (delete path load-path)))))))
 
-(defsubst augment-auto-mode-alist (ext mode)
-  "Add to auto-mode-alist."
-  (declare (special auto-mode-alist))
-  (setq auto-mode-alist
-        (cons
-         (cons ext mode)
-         auto-mode-alist)))
-
 (defsubst load-library-if-available (lib)
   "Load a library only if it is around"
   (condition-case nil
@@ -46,13 +37,12 @@
         t)
        (t (message "Could not locate library %s" lib)
           nil))
-    (error (message
-            "Error loading %s"
-            lib))))
+    (error (message "Error loading %s" lib))))
 (require 'parse-time)
 (defvar emacspeak-modules-dependency-alist
   '(
     ("emacspeak-load-path.el"  . nil )
+("emacspeak-loaddefs" . nil)
     ("emacspeak-setup.el"  . nil )
     ("emacspeak-sounds"  . nil )
     ("emacspeak-speak"  . nil )
@@ -69,7 +59,6 @@
     ("emacspeak-arc" . ("arc-mode"))
     ("emacspeak-auctex" . ("auctex-prepare"))
     ("emacspeak-aumix" . nil)
-    ("emacspeak-babel" . ("babel"))
     ("emacspeak-bbdb". ("bbdb-prepare"))
     ("emacspeak-bbc" . nil)
     ("emacspeak-bibtex" . ("bibtex"))
@@ -127,9 +116,7 @@
     ("emacspeak-gud"  . nil )
     ("emacspeak-hide"  . nil )
     ("emacspeak-hideshow"  . nil )
-                                        ;("emacspeak-hyperbole"  . ("hyperbole-prepare"))
     ("emacspeak-ibuffer"  . nil )
-    ("emacspeak-iswitchb" . nil)
     ("emacspeak-ido" . nil)
     ("emacspeak-imenu"  . nil )
     ("emacspeak-info"  . ("info"))
@@ -137,7 +124,6 @@
     ("emacspeak-eclim"  . ("eclim-prepare"))
     ("emacspeak-jde"  . ("jde-prepare"))
     ("emacspeak-keymap"  . nil )
-    ("emacspeak-kotl"  . nil )
     ("emacspeak-make-mode"  . nil )
     ("emacspeak-man"  . ("man") )
     ("emacspeak-message"  . nil )
@@ -153,13 +139,10 @@
     ("emacspeak-nxml-mode" . ("nxml-prepare"))
     ("emacspeak-ocr"  . nil )
     ("emacspeak-org" . ("org"))
-    ("emacspeak-oo-browser"  . nil )
     ("emacspeak-outline"  . nil )
-    ("emacspeak-pcl-cvs"  . nil )
     ("emacspeak-pianobar" . nil)
     ("emacspeak-perl"  . nil )
     ("emacspeak-pronounce"  . nil )
-    ("emacspeak-psgml"  . ("psgml-prepare"))
     ("emacspeak-python"  . ("python-mode"))
     ("emacspeak-py"  . ("python-mode"))
     ("emacspeak-re-builder"  . nil )
