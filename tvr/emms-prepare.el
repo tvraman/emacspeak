@@ -2,7 +2,7 @@
 (require 'emms-setup)
 (emms-all)
 (emms-default-players)
-(setq emms-source-file-default-directory "~/audio/music")
+(setq emms-source-file-default-directory "~/mp3")
 (define-prefix-command 'emms-prefix-command  'emms-prefix-map "EMMS")
 (loop for key in
       '(
@@ -35,3 +35,4 @@
 (setq emms-player-list'(emms-player-mplayer-playlist emms-player-mplayer))
 (require 'emms-info-libtag)
 (setq emms-info-functions '(emms-info-libtag))
+(global-set-key "\C-x@h;" 'emms-prefix-command)
