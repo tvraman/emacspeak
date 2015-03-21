@@ -52,13 +52,15 @@
 ;;}}}
 ;;{{{ Load All Modules
 ;;; Setup load-path
+(defvar self-document-lisp-directory 
+  (expand-file-name "../lisp" (file-name-directory load-file-name))
+  "Elisp directory")
+
 (add-to-list
  'load-path
- (expand-file-name "../lisp" (file-name-directory load-file-name)))
-(load-library "emacspeak-setup")
-
+ self-document-lisp-directory)
 (defvar self-document-files
-  (directory-files  emacspeak-lisp-directory 'full ".elc$")
+  (directory-files  self-document-lisp-directory 'full ".elc$")
   "List of elisp modules  to document.")
 
 (defvar self-document-command-map
@@ -68,6 +70,8 @@
 (defun self-document-load-modules ()
   "Load all modules"
   (declare (special self-document-files))
+  (load-library "emacspeak-setup")
+(load-library "emacspeak-loaddefs")
   (mapc #'load self-document-files))
 
 (defconst self-document-patterns 
