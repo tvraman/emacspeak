@@ -47,6 +47,7 @@
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
+(require 'regexp-opt)
 
 ;;}}}
 ;;{{{ Load All Modules
@@ -57,8 +58,8 @@
 (load-library "emacspeak-setup")
 
 (defvar self-document-files
-  (directory-files  emacspeak-lisp-directory 'full ".el$" 'sort)
-  "List of .el source files to document.")
+  (directory-files  emacspeak-lisp-directory 'full ".elc$")
+  "List of elisp modules  to document.")
 
 (defvar self-document-command-map
   (make-hash-table :test #'equal)
@@ -67,7 +68,8 @@
 (defun self-document-load-modules ()
   "Load all modules"
   (declare (special self-document-files))
-  (mapc #'load-file self-document-files))
+  (mapc #'load self-document-files))
+
 (defconst self-document-patterns 
   (concat "^"
           (regexp-opt
@@ -94,27 +96,34 @@
   "Map command to its defining module."
   (declare (special self-document-command-map))
   (when (self-document-command-p f)
-    (let* ((file (find-lisp-object-file-name f 'defun))
+    (let* ((file (locate-library (symbol-file f 'defun)))
            (entries (gethash file self-document-command-map)))
+      (when (null file) (print f))
+;(when (string-match "^emacspeak-bookshare" (symbol-name f)) (print f))
       (cond
        ((null entries)                  ; new
         (puthash file (list f) self-document-command-map))
        (t                               ;Add to entries
-        (push f entries)
-(puthash  file entries self-document-command-map))))))
+        (setq entries (append entries (list f)))
+        (puthash  file entries self-document-command-map))))))
 
 (defun self-document-build-command-map()
   "Build a map of module names to commands."
   (mapatoms #'self-document-map-command ))
 
 ;;; Simple test:
-(self-document-build-command-map)
-(maphash 
-#'(lambda (f cmd-list)
-(print f)
-(print (length cmd-list))
-(print cmd-list))
-self-document-command-map)
+(defun self-document-load-test ()
+  "Dump out command map in /tmp"
+  (let ((output (find-file-noselect (make-temp-file "self-command-map"))))
+    (self-document-build-command-map)
+    (with-current-buffer output 
+      (maphash 
+       #'(lambda (f cmd-list)
+           (insert (format "Module: %s Count: %d\n" f (length cmd-list))))
+       self-document-command-map)
+      (save-buffer))))
+
+(self-document-load-test)
 
 ;;}}}
 ;;{{{ Document Commands In A Module
