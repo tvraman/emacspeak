@@ -52,7 +52,7 @@
 ;;}}}
 ;;{{{ Load All Modules
 ;;; Setup load-path
-(defvar self-document-lisp-directory 
+(defvar self-document-lisp-directory
   (expand-file-name "../lisp" (file-name-directory load-file-name))
   "Elisp directory")
 (add-to-list 'load-path self-document-lisp-directory)
@@ -70,16 +70,18 @@
   (declare (special self-document-files))
   (load-library "emacspeak-setup")
   (load-library "emacspeak-loaddefs")
-  (mapc #'load self-document-files))
+  (condition-case nil
+      (mapc #'load self-document-files)
+    (error nil)))
 
-(defconst self-document-patterns 
+(defconst self-document-patterns
   (concat "^"
           (regexp-opt
-   '("emacspeak" "cd-tool" "tts" 
-   "voice-setup" "dtk" "amixer" )))
+           '("emacspeak" "cd-tool" "tts"
+             "voice-setup" "dtk" "amixer" )))
   "Patterns to match command names.")
 
-(defconst self-document-advice-patterns 
+(defconst self-document-advice-patterns
   (concat "^"
           (regexp-opt '("ad-Advice" "ad-Orig" )))
   "Patterns to match advice generated functions.")
@@ -98,16 +100,17 @@
   "Map command to its defining module."
   (declare (special self-document-command-map))
   (when (self-document-command-p f)
-    (let* ((file (locate-library (symbol-file f 'defun)))
-           (entries (gethash file self-document-command-map)))
-      (when (null file) (print f))
-;(when (string-match "^emacspeak-bookshare" (symbol-name f)) (print f))
-      (cond
-       ((null entries)                  ; new
-        (puthash file (list f) self-document-command-map))
-       (t                               ;Add to entries
-        (push f entries)
-        (puthash  file entries self-document-command-map))))))
+    (let ((file  (symbol-file f 'defun))
+          (entries nil))
+      (when file 
+        (setq file (locate-library file))
+        (setq entries (gethash file self-document-command-map))
+        (cond
+         ((null entries)                ; new
+          (puthash file (list f) self-document-command-map))
+         (t                             ;Add to entries
+          (push f entries)
+          (puthash  file entries self-document-command-map)))))))
 
 (defun self-document-build-command-map()
   "Build a map of module names to commands."
@@ -116,13 +119,16 @@
 ;;; Simple test:
 (defun self-document-load-test ()
   "Dump out command map in /tmp"
+  (setq debug-on-error t)
   (let ((output (find-file-noselect (make-temp-file "self-command-map"))))
-(self-document-load-modules)
+    (self-document-load-modules)
     (self-document-build-command-map)
-    (with-current-buffer output 
-      (maphash 
+    (with-current-buffer output
+      (maphash
        #'(lambda (f cmd-list)
-           (insert (format "Module: %s Count: %d\n" f (length cmd-list))))
+           (insert (format "Module: %s Count: %d\n" 
+                           (file-name-nondirectory f)
+                           (length cmd-list))))
        self-document-command-map)
       (save-buffer))))
 
@@ -134,7 +140,7 @@
 ;;}}}
 ;;{{{ Iterate over all modules
 
-                ;;}}}
+;;}}}
 (provide 'self-document)
 ;;{{{ end of file
 
@@ -143,4 +149,4 @@
 ;;; byte-compile-dynamic: t
 ;;; end:
 
-                ;;}}}
+;;}}}
