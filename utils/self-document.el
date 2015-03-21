@@ -55,10 +55,8 @@
 (defvar self-document-lisp-directory 
   (expand-file-name "../lisp" (file-name-directory load-file-name))
   "Elisp directory")
+(add-to-list 'load-path self-document-lisp-directory)
 
-(add-to-list
- 'load-path
- self-document-lisp-directory)
 (defvar self-document-files
   (directory-files  self-document-lisp-directory 'full ".elc$")
   "List of elisp modules  to document.")
@@ -71,7 +69,7 @@
   "Load all modules"
   (declare (special self-document-files))
   (load-library "emacspeak-setup")
-(load-library "emacspeak-loaddefs")
+  (load-library "emacspeak-loaddefs")
   (mapc #'load self-document-files))
 
 (defconst self-document-patterns 
@@ -108,7 +106,7 @@
        ((null entries)                  ; new
         (puthash file (list f) self-document-command-map))
        (t                               ;Add to entries
-        (setq entries (append entries (list f)))
+        (push f entries)
         (puthash  file entries self-document-command-map))))))
 
 (defun self-document-build-command-map()
@@ -119,6 +117,7 @@
 (defun self-document-load-test ()
   "Dump out command map in /tmp"
   (let ((output (find-file-noselect (make-temp-file "self-command-map"))))
+(self-document-load-modules)
     (self-document-build-command-map)
     (with-current-buffer output 
       (maphash 
