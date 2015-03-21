@@ -68,21 +68,26 @@
   "Load all modules"
   (declare (special self-document-files))
   (mapc #'load-file self-document-files))
+(defconst self-document-patterns 
+  (concat "^"
+          (regexp-opt
+   '("emacspeak" "cd-tool" "tts" 
+   "voice-setup" "dtk" "amixer" )))
+  "Patterns to match command names.")
+
+(defconst self-document-advice-patterns 
+  (concat "^"
+          (regexp-opt '("ad-Advice" "ad-Orig" )))
+  "Patterns to match advice generated functions.")
 
 (defsubst self-document-command-p (f)
   "Predicate to check if  this command it to be documented."
+  (declare (special self-document-patterns))
   (let ((fn (symbol-name f)))
     (when
         (and (fboundp f) (commandp f)
-             (not (string-match "^ad-Advice" fn))
-             (not (string-match "^ad-Orig" fn))
-             (or
-              (string-match "^emacspeak" fn)
-              (string-match "^cd-tool" fn)
-              (string-match "^tts" fn)
-              (string-match "^voice-setup" fn)
-              (string-match "^dtk" fn)
-              (string-match "^amixer" fn)))
+             (not (string-match self-document-advice-patterns fn))
+             (string-match self-document-patterns fn))
       f)))
 
 (defun self-document-map-command (f)
