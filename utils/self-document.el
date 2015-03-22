@@ -51,6 +51,7 @@
 
 ;;}}}
 ;;{{{ Load All Modules
+(defstruct self-document name commands options)
 ;;; Setup load-path
 (defvar self-document-lisp-directory
   (expand-file-name "../lisp" (file-name-directory load-file-name))
@@ -61,7 +62,7 @@
   (directory-files  self-document-lisp-directory 'full ".elc$")
   "List of elisp modules  to document.")
 
-(defvar self-document-command-map
+(defvar self-document-map
   (make-hash-table :test #'equal)
   "Maps modules to commands they define.")
 
@@ -69,9 +70,12 @@
   "Load all modules"
   (declare (special self-document-files))
   (load-library "emacspeak-setup")
-  (load-library "emacspeak-loaddefs")
+  ;(load-library "emacspeak-loaddefs")
   (condition-case nil
-      (mapc #'load self-document-files)
+      (mapc #'load
+            (remove-if
+             #'(lambda (f) (string-match "loaddefs" f))
+self-document-files))
     (error nil)))
 
 (defconst self-document-patterns
@@ -96,25 +100,54 @@
              (string-match self-document-patterns fn))
       f)))
 
-(defun self-document-map-command (f)
-  "Map command to its defining module."
-  (declare (special self-document-command-map))
-  (when (self-document-command-p f)
-    (let ((file  (symbol-file f 'defun))
-          (entries nil))
-      (when file 
-        (setq file (locate-library file))
-        (setq entries (gethash file self-document-command-map))
-        (cond
-         ((null entries)                ; new
-          (puthash file (list f) self-document-command-map))
-         (t                             ;Add to entries
-          (push f entries)
-          (puthash  file entries self-document-command-map)))))))
+(defconst self-document-option-pattern
+  (concat "^"
+          (regexp-opt '("emacspeak" "cd-tool" "dtk" "voice" "tts")))
+  "Pattern that matches options we document.")
 
-(defun self-document-build-command-map()
+(defsubst self-document-option-p (o)
+  "Predicate to test if we document this option."
+  (declare (special self-document-option-pattern))
+  (when 
+  (and (symbolp o)
+       (get o 'custom-type)
+       (string-match self-document-option-pattern (symbol-name o)))
+  o))
+
+(defun self-document-map-command (f)
+  "Map this command symbol."
+  (declare (special self-document-map))
+  (let ((file  (symbol-file f 'defun))
+        (entry nil))
+    (when file
+      (setq file (locate-library file))
+      (setq entry  (gethash file self-document-map))
+      (when entry (push f (self-document-commands  entry))))))
+
+(defun self-document-map-option (f)
+  "Map this option symbol."
+  (declare (special self-document-map))
+  (let ((file  (symbol-file f 'defvar))
+        (entry nil))
+    (when file
+      (setq file (locate-library file))
+      (setq entry  (gethash file self-document-map))
+      (when entry (push f (self-document-options  entry))))))
+
+(defun self-document-map-symbol (f)
+  "Map command and options to its defining module."
+  (declare (special self-document-map))
+  (cond
+   ((self-document-command-p f) (self-document-map-command f))
+   ((self-document-option-p f) (self-document-map-option f))))
+
+(defun self-document-build-map()
   "Build a map of module names to commands."
-  (mapatoms #'self-document-map-command ))
+  ;;; initialize table
+  (loop
+   for f in self-document-files do
+   (puthash f (make-self-document :name f) self-document-map))
+  (mapatoms #'self-document-map-symbol ))
 
 ;;; Simple test:
 (defun self-document-load-test ()
@@ -122,14 +155,15 @@
   (setq debug-on-error t)
   (let ((output (find-file-noselect (make-temp-file "self-command-map"))))
     (self-document-load-modules)
-    (self-document-build-command-map)
+    (self-document-build-map)
     (with-current-buffer output
       (maphash
-       #'(lambda (f cmd-list)
-           (insert (format "Module: %s Count: %d\n" 
+       #'(lambda (f self)
+           (insert (format "Module: %s Commands: %d Options: %d\n"
                            (file-name-nondirectory f)
-                           (length cmd-list))))
-       self-document-command-map)
+                           (length (self-document-commands self))
+                           (length (self-document-options self)))))
+       self-document-map)
       (save-buffer))))
 
 (self-document-load-test)
