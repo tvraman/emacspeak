@@ -72,7 +72,7 @@
   (load-library "emacspeak-setup")
   ;(load-library "emacspeak-loaddefs")
   (condition-case nil
-      (mapc #'load
+      (mapc #'load-file
             (remove-if
              #'(lambda (f) (string-match "loaddefs" f))
 self-document-files))
@@ -130,8 +130,10 @@ self-document-files))
   (declare (special self-document-map))
   (let ((file  (symbol-file f 'defvar))
         (entry nil))
-    (when file
-      (setq file (locate-library file))
+    (unless file (setq file "Misc"))
+    (when (and file (not (string-match "loaddefs" file)))
+      (setq file
+            (or (locate-library file) "Misc"))
       (setq entry  (gethash file self-document-map))
       (when entry (push f (self-document-options  entry))))))
 
@@ -145,6 +147,7 @@ self-document-files))
 (defun self-document-build-map()
   "Build a map of module names to commands."
   ;;; initialize table
+  (puthash "Misc" (make-self-document :name "Misc") self-document-map)
   (loop
    for f in self-document-files do
    (puthash f (make-self-document :name f) self-document-map))
