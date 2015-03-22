@@ -70,12 +70,12 @@
   "Load all modules"
   (declare (special self-document-files))
   (load-library "emacspeak-setup")
-  ;(load-library "emacspeak-loaddefs")
+                                        ;(load-library "emacspeak-loaddefs")
   (condition-case nil
       (mapc #'load-file
             (remove-if
              #'(lambda (f) (string-match "loaddefs" f))
-self-document-files))
+             self-document-files))
     (error nil)))
 
 (defconst self-document-patterns
@@ -108,19 +108,21 @@ self-document-files))
 (defsubst self-document-option-p (o)
   "Predicate to test if we document this option."
   (declare (special self-document-option-pattern))
-  (when 
-  (and (symbolp o)
-       (get o 'custom-type)
-       (string-match self-document-option-pattern (symbol-name o)))
-  o))
+  (when
+      (and (symbolp o)
+           (get o 'custom-type)
+           (string-match self-document-option-pattern (symbol-name o)))
+    o))
 
 (defun self-document-map-command (f)
   "Map this command symbol."
   (declare (special self-document-map))
   (let ((file  (symbol-file f 'defun))
         (entry nil))
+    (unless file (setq file "Misc"))
     (when (and file (not (string-match "loaddefs" file)))
-      (setq file (locate-library file))
+      (setq file
+            (or (locate-library file) "Misc"))
       (setq entry  (gethash file self-document-map))
       (unless entry (message "%s: Entry not found for file %s" f file))
       (when entry (push f (self-document-commands  entry))))))
@@ -170,7 +172,7 @@ self-document-files))
        self-document-map)
       (save-buffer))))
 
-;(self-document-load-test)
+                                        ;(self-document-load-test)
 
 ;;}}}
 ;;{{{ Document Commands In A Module
