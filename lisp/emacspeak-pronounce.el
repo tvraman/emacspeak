@@ -353,7 +353,7 @@ Optional argument FILENAME specifies the dictionary file."
 
 (make-variable-buffer-local ' emacspeak-pronounce-yank-word-point)
 ;;;###autoload
-(defsubst emacspeak-pronounce-yank-word ()
+(defun emacspeak-pronounce-yank-word ()
   "Yank word at point into minibuffer."
   (interactive)
   (declare (special emacspeak-pronounce-yank-word-point

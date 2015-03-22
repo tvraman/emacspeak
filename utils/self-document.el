@@ -119,9 +119,11 @@ self-document-files))
   (declare (special self-document-map))
   (let ((file  (symbol-file f 'defun))
         (entry nil))
+    (unless file (message "%s defining file not found." f))
     (when file
       (setq file (locate-library file))
       (setq entry  (gethash file self-document-map))
+      (unless entry (message "%s: Entry not found for file %s" f file))
       (when entry (push f (self-document-commands  entry))))))
 
 (defun self-document-map-option (f)
