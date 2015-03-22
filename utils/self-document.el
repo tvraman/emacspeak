@@ -119,8 +119,7 @@ self-document-files))
   (declare (special self-document-map))
   (let ((file  (symbol-file f 'defun))
         (entry nil))
-    (unless file (message "%s defining file not found." f))
-    (when file
+    (when (and file (not (string-match "loaddefs" file)))
       (setq file (locate-library file))
       (setq entry  (gethash file self-document-map))
       (unless entry (message "%s: Entry not found for file %s" f file))
@@ -168,7 +167,7 @@ self-document-files))
        self-document-map)
       (save-buffer))))
 
-(self-document-load-test)
+;(self-document-load-test)
 
 ;;}}}
 ;;{{{ Document Commands In A Module
