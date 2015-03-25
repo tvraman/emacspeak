@@ -113,7 +113,8 @@
 (defsubst self-document-option-p (o)
   "Predicate to test if we document this option."
   (declare (special self-document-option-pattern))
-  (when (and (symbolp o) (get o 'custom-type)
+  (when (and ; (boundp o)
+             (custom-variable-p o)
              (string-match self-document-option-pattern (symbol-name o)))
 4    (incf self-document-option-count)
     o))
