@@ -62,7 +62,7 @@
 (defvar self-document-files
   (remove-if
    #'(lambda (f) (string-match "load" f))
-   (directory-files  self-document-lisp-directory 'full ".elc$"))
+   (directory-files  self-document-lisp-directory nil ".elc$"))
   "List of elisp modules  to document.")
 
 (defvar self-document-map
@@ -86,10 +86,6 @@
              "outlout" "dectalk"
              "voice-setup" "dtk" "amixer" )))
   "Patterns to match command names.")
-
-(defconst self-document-advice-patterns
-  (concat "^" (regexp-opt '("ad-Advice" "ad-Orig" )))
-  "Patterns to match advice generated functions.")
 
 (defsubst self-document-command-p (f)
   "Predicate to check if  this command it to be documented."
@@ -121,7 +117,7 @@
         (entry nil))
     (unless file (setq file "Miscellaneous"))
     (when (and file (not (string-match "loaddefs" file)))
-      (setq file (or (locate-library file) "Miscellaneous"))
+      (setq file (file-name-nondirectory file ))
       (setq entry  (gethash file self-document-map))
       (unless entry (message "%s: Entry not found for file %s" f file))
       (when entry (push f (self-document-commands  entry))))))
@@ -133,7 +129,7 @@
         (entry nil))
     (unless file (setq file "Miscellaneous"))
     (when (and file (not (string-match "loaddefs" file)))
-      (setq file (or (locate-library file) "Miscellaneous"))
+      (setq file (file-name-nondirectory file)))
       (setq entry  (gethash file self-document-map))
       (when entry (push f (self-document-options  entry))))))
 
