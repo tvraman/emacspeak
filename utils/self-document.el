@@ -129,7 +129,7 @@
         (entry nil))
     (unless file (setq file "Miscellaneous"))
     (when (and file (not (string-match "loaddefs" file)))
-      (setq file (file-name-nondirectory file)))
+      (setq file (file-name-nondirectory file))
       (setq entry  (gethash file self-document-map))
       (when entry (push f (self-document-options  entry))))))
 
