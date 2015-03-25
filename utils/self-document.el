@@ -169,6 +169,12 @@
                            (file-name-nondirectory f)
                            (length (self-document-commands self))
                            (length (self-document-options self))))
+           (insert
+            (format "Commands: \n%s\n"
+                    (mapconcat #'symbol-name (self-document-commands self) "\n")))
+           (insert
+            (format "Options: \n%s\n"
+                    (mapconcat #'symbol-name (self-document-options self) "\n")))
            (incf c-count (length (self-document-commands self)))
            (incf o-count (length (self-document-options self))))
        self-document-map)
