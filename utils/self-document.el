@@ -75,6 +75,9 @@
   "Load all modules"
   (declare (special self-document-files))
   (load-library "emacspeak-setup")
+  (load-library "emacspeak-loaddefs")
+  (load-library "emacspeak-cus-load")
+  (message "Looping through files")
   (condition-case nil
       (mapc #'load-file self-document-files)
     (error nil)))
@@ -117,7 +120,8 @@
         (entry nil))
     (unless file (setq file "Miscellaneous"))
     (when (and file (not (string-match "loaddefs" file)))
-      (setq file (file-name-nondirectory file ))
+      (setq file
+            (file-name-sans-extension(file-name-nondirectory file )))
       (setq entry  (gethash file self-document-map))
       (unless entry (message "%s: Entry not found for file %s" f file))
       (when entry (push f (self-document-commands  entry))))))
@@ -129,7 +133,8 @@
         (entry nil))
     (unless file (setq file "Miscellaneous"))
     (when (and file (not (string-match "loaddefs" file)))
-      (setq file (file-name-nondirectory file))
+      (setq file
+            (file-name-sans-extension(file-name-nondirectory file)))
       (setq entry  (gethash file self-document-map))
       (when entry (push f (self-document-options  entry))))))
 
@@ -141,12 +146,13 @@
 
 (defun self-document-build-map()
   "Build a map of module names to commands."
-  ;;; initialize table
+;;; initialize table
   (puthash "Miscellaneous"
            (make-self-document :name "Miscellaneous") self-document-map)
   (loop
    for f in self-document-files do
-   (puthash f (make-self-document :name f) self-document-map))
+   (let ((module (file-name-sans-extension f)))
+     (puthash module (make-self-document :name module) self-document-map)))
   (mapatoms #'self-document-map-symbol ))
 
 ;;; Simple test:
@@ -161,10 +167,9 @@
     (with-current-buffer output
       (maphash
        #'(lambda (f self)
-           (insert (format "Module: %s Commands: %d Options: %d\n"
-                           (file-name-nondirectory f)
-                           (length (self-document-commands self))
-                           (length (self-document-options self))))
+           (insert
+            (format "Module: %s Commands: %d Options: %d\n"
+                    f (length (self-document-commands self)) (length (self-document-options self))))
            (insert
             (format "Commands: \n%s\n"
                     (mapconcat #'symbol-name (self-document-commands self) "\n")))
