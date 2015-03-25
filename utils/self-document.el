@@ -78,8 +78,9 @@
   (load-library "emacspeak-setup")
   (load-library "emacspeak-loaddefs")
   (load-library "emacspeak-cus-load")
+  (require 'emacspeak-wizards)
   (condition-case nil
-      (mapc #'load-library self-document-files)
+        (mapc #'load-library self-document-files)
     (error nil))
   )
 
@@ -114,9 +115,9 @@
   "Predicate to test if we document this option."
   (declare (special self-document-option-pattern))
   (when (and ; (boundp o)
-             (custom-variable-p o)
-             (string-match self-document-option-pattern (symbol-name o)))
-4    (incf self-document-option-count)
+         (custom-variable-p o)
+         (string-match self-document-option-pattern (symbol-name o)))
+    4    (incf self-document-option-count)
     o))
 
 (defun self-document-map-command (f)
@@ -130,7 +131,6 @@
       (setq entry  (gethash file self-document-map))
       (unless entry (message "%s: Entry not found for file %s" f file))
       (when entry (push f (self-document-commands  entry))))))
-  
 
 
 (defun self-document-map-option (f)
@@ -177,14 +177,16 @@
       (maphash
        #'(lambda (f self)
            (insert
-            (format "Module: %s Commands: %d Options: %d\n"
+            (format "\fModule: %s Commands: %d Options: %d\n"
                     f (length (self-document-commands self)) (length (self-document-options self))))
-           (insert
-            (format "Commands: \n%s\n"
-                    (mapconcat #'symbol-name (self-document-commands self) "\n")))
-           (insert
-            (format "Options: \n%s\n"
-                    (mapconcat #'symbol-name (self-document-options self) "\n")))
+           (unless (zerop (length (self-document-commands self)))
+             (insert
+              (format "Commands: \n%s\n"
+                      (mapconcat #'symbol-name (self-document-commands self) "\n"))))
+           (unless (zerop (length (self-document-options self)))
+             (insert
+              (format "Options: \n%s\n"
+                      (mapconcat #'symbol-name (self-document-options self) "\n"))))
            (incf c-count (length (self-document-commands self)))
            (incf o-count (length (self-document-options self))))
        self-document-map)
