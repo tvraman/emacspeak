@@ -1717,7 +1717,8 @@ Signals beginning  of buffer."
   (term-char-mode)
   (emacspeak-auditory-icon 'open-object))
 
-(defcustom emacspeak-wizards-curl-program "curl"
+(defcustom emacspeak-wizards-curl-program
+  (executable-find "curl")
   "Name of curl executable."
   :type 'string
   :group 'emacspeak-wizards)
