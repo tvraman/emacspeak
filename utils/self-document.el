@@ -51,11 +51,12 @@
 
 ;;}}}
 ;;{{{ Load All Modules
-(defstruct self-document name commands options)
+
 ;;; Setup load-path
 (defvar self-document-lisp-directory
   (expand-file-name "../lisp" (file-name-directory load-file-name))
   "Elisp directory")
+
 (add-to-list 'load-path self-document-lisp-directory)
 
 (defvar self-document-files
@@ -64,7 +65,9 @@
 
 (defvar self-document-map
   (make-hash-table :test #'equal)
-  "Maps modules to commands they define.")
+  "Maps modules to commands and options they define.")
+
+(defstruct self-document name commands options)
 
 (defun self-document-load-modules ()
   "Load all modules"
@@ -82,27 +85,26 @@
   (concat "^"
           (regexp-opt
            '("emacspeak" "cd-tool" "tts"
+             "outlout" "dectalk"
              "voice-setup" "dtk" "amixer" )))
   "Patterns to match command names.")
 
 (defconst self-document-advice-patterns
-  (concat "^"
-          (regexp-opt '("ad-Advice" "ad-Orig" )))
+  (concat "^" (regexp-opt '("ad-Advice" "ad-Orig" )))
   "Patterns to match advice generated functions.")
 
 (defsubst self-document-command-p (f)
   "Predicate to check if  this command it to be documented."
   (declare (special self-document-patterns))
   (let ((fn (symbol-name f)))
-    (when
-        (and (fboundp f) (commandp f)
-             (not (string-match self-document-advice-patterns fn))
-             (string-match self-document-patterns fn))
+    (when (and (fboundp f) (commandp f)
+               (string-match self-document-patterns fn))
       f)))
 
 (defconst self-document-option-pattern
   (concat "^"
-          (regexp-opt '("emacspeak" "cd-tool" "dtk" "voice" "tts")))
+          (regexp-opt '("emacspeak" "cd-tool" "dtk" "voice"
+                        "amixer" "outloud" "dectalk" "tts")))
   "Pattern that matches options we document.")
 
 (defsubst self-document-option-p (o)
@@ -119,10 +121,9 @@
   (declare (special self-document-map))
   (let ((file  (symbol-file f 'defun))
         (entry nil))
-    (unless file (setq file "Misc"))
+    (unless file (setq file "Miscellaneous"))
     (when (and file (not (string-match "loaddefs" file)))
-      (setq file
-            (or (locate-library file) "Misc"))
+      (setq file (or (locate-library file) "Miscellaneous"))
       (setq entry  (gethash file self-document-map))
       (unless entry (message "%s: Entry not found for file %s" f file))
       (when entry (push f (self-document-commands  entry))))))
@@ -132,24 +133,23 @@
   (declare (special self-document-map))
   (let ((file  (symbol-file f 'defvar))
         (entry nil))
-    (unless file (setq file "Misc"))
+    (unless file (setq file "Miscellaneous"))
     (when (and file (not (string-match "loaddefs" file)))
-      (setq file
-            (or (locate-library file) "Misc"))
+      (setq file (or (locate-library file) "Miscellaneous"))
       (setq entry  (gethash file self-document-map))
       (when entry (push f (self-document-options  entry))))))
 
 (defun self-document-map-symbol (f)
   "Map command and options to its defining module."
   (declare (special self-document-map))
-  (cond
-   ((self-document-command-p f) (self-document-map-command f))
-   ((self-document-option-p f) (self-document-map-option f))))
+  (when (self-document-command-p f) (self-document-map-command f))
+  (when (self-document-option-p f) (self-document-map-option f)))
 
 (defun self-document-build-map()
   "Build a map of module names to commands."
   ;;; initialize table
-  (puthash "Misc" (make-self-document :name "Misc") self-document-map)
+  (puthash "Miscellaneous"
+           (make-self-document :name "Miscellaneous") self-document-map)
   (loop
    for f in self-document-files do
    (puthash f (make-self-document :name f) self-document-map))
@@ -159,7 +159,9 @@
 (defun self-document-load-test ()
   "Dump out command map in /tmp"
   (setq debug-on-error t)
-  (let ((output (find-file-noselect (make-temp-file "self-command-map"))))
+  (let ((output (find-file-noselect (make-temp-file "self-command-map")))
+        (c-count 0)
+        (o-count 0))
     (self-document-load-modules)
     (self-document-build-map)
     (with-current-buffer output
@@ -168,11 +170,12 @@
            (insert (format "Module: %s Commands: %d Options: %d\n"
                            (file-name-nondirectory f)
                            (length (self-document-commands self))
-                           (length (self-document-options self)))))
+                           (length (self-document-options self))))
+           (incf c-count (length (self-document-commands self)))
+           (incf o-count (length (self-document-options self))))
        self-document-map)
+      (insert (format "Commands: %d Options: %d\n" c-count o-count))
       (save-buffer))))
-
-                                        ;(self-document-load-test)
 
 ;;}}}
 ;;{{{ Document Commands In A Module
