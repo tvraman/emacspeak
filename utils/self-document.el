@@ -74,13 +74,13 @@
 (defun self-document-load-modules ()
   "Load all modules"
   (declare (special self-document-files))
-  (load-library "emacspeak-setup")
+  (load-library "emacspeak-load-path")
   (load-library "emacspeak-loaddefs")
   (load-library "emacspeak-cus-load")
-  (message "Looping through files")
   (condition-case nil
-      (mapc #'load-file self-document-files)
-    (error nil)))
+      (mapc #'load-library self-document-files)
+    (error nil))
+  )
 
 (defconst self-document-patterns
   (concat "^"
@@ -89,6 +89,8 @@
              "outlout" "dectalk"
              "voice-setup" "dtk" "amixer" )))
   "Patterns to match command names.")
+(defvar self-document-command-count 0
+  "Global count of commands.")
 
 (defsubst self-document-command-p (f)
   "Predicate to check if  this command it to be documented."
@@ -96,6 +98,7 @@
   (let ((fn (symbol-name f)))
     (when (and (fboundp f) (commandp f)
                (string-match self-document-patterns fn))
+      (incf self-document-command-count)
       f)))
 
 (defconst self-document-option-pattern
@@ -103,14 +106,15 @@
           (regexp-opt '("emacspeak" "cd-tool" "dtk" "voice"
                         "amixer" "outloud" "dectalk" "tts")))
   "Pattern that matches options we document.")
+(defvar self-document-option-count 0
+  "Global count of options.")
 
 (defsubst self-document-option-p (o)
   "Predicate to test if we document this option."
   (declare (special self-document-option-pattern))
-  (when
-      (and (symbolp o)
-           (get o 'custom-type)
-           (string-match self-document-option-pattern (symbol-name o)))
+  (when (and (symbolp o) (get o 'custom-type)
+             (string-match self-document-option-pattern (symbol-name o)))
+4    (incf self-document-option-count)
     o))
 
 (defun self-document-map-command (f)
@@ -119,12 +123,13 @@
   (let ((file  (symbol-file f 'defun))
         (entry nil))
     (unless file (setq file "Miscellaneous"))
-    (when (and file (not (string-match "loaddefs" file)))
-      (setq file
-            (file-name-sans-extension(file-name-nondirectory file )))
+    (when file
+      (setq file (file-name-sans-extension(file-name-nondirectory file )))
       (setq entry  (gethash file self-document-map))
       (unless entry (message "%s: Entry not found for file %s" f file))
       (when entry (push f (self-document-commands  entry))))))
+  
+
 
 (defun self-document-map-option (f)
   "Map this option symbol."
@@ -132,9 +137,8 @@
   (let ((file  (symbol-file f 'defvar))
         (entry nil))
     (unless file (setq file "Miscellaneous"))
-    (when (and file (not (string-match "loaddefs" file)))
-      (setq file
-            (file-name-sans-extension(file-name-nondirectory file)))
+    (when file
+      (setq file (file-name-sans-extension(file-name-nondirectory file)))
       (setq entry  (gethash file self-document-map))
       (when entry (push f (self-document-options  entry))))))
 
@@ -165,6 +169,9 @@
     (self-document-load-modules)
     (self-document-build-map)
     (with-current-buffer output
+      (insert
+       (format "Global Counts: Commands: %d Options: %d\n"
+               self-document-command-count self-document-option-count))
       (maphash
        #'(lambda (f self)
            (insert
