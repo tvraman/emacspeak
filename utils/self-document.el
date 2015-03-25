@@ -75,6 +75,7 @@
   "Load all modules"
   (declare (special self-document-files))
   (load-library "emacspeak-load-path")
+  (load-library "emacspeak-setup")
   (load-library "emacspeak-loaddefs")
   (load-library "emacspeak-cus-load")
   (condition-case nil
