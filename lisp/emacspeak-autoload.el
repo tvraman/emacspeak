@@ -63,7 +63,7 @@ Emacspeak.")
 Emacspeak.")
 
 ;;}}}
-;;{{{ generate autoloadms
+;;{{{ generate autoloads
 
 (defvar emacspeak-update-autoloads-from-directories
   (cond

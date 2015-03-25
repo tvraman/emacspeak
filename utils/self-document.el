@@ -60,7 +60,9 @@
 (add-to-list 'load-path self-document-lisp-directory)
 
 (defvar self-document-files
-  (directory-files  self-document-lisp-directory 'full ".elc$")
+  (remove-if
+   #'(lambda (f) (string-match "load" f))
+   (directory-files  self-document-lisp-directory 'full ".elc$"))
   "List of elisp modules  to document.")
 
 (defvar self-document-map
@@ -73,12 +75,8 @@
   "Load all modules"
   (declare (special self-document-files))
   (load-library "emacspeak-setup")
-                                        ;(load-library "emacspeak-loaddefs")
   (condition-case nil
-      (mapc #'load-file
-            (remove-if
-             #'(lambda (f) (string-match "loaddefs" f))
-             self-document-files))
+      (mapc #'load-file self-document-files)
     (error nil)))
 
 (defconst self-document-patterns
