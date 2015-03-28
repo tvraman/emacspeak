@@ -113,10 +113,10 @@
 (defsubst self-document-option-p (o)
   "Predicate to test if we document this option."
   (declare (special self-document-option-pattern))
-  (when (and ; (boundp o)
+  (when (and 
          (custom-variable-p o)
          (string-match self-document-option-pattern (symbol-name o)))
-    4    (cl-incf self-document-option-count)
+        (cl-incf self-document-option-count)
     o))
 
 (defun self-document-map-command (f)
@@ -138,11 +138,11 @@
   (let ((file  (symbol-file f 'defvar))
         (entry nil))
     (unless file (setq file "emacspeak"))
+    (when (string-match "loaddefs" file) (setq file "emacspeak"))
     (when file
       (setq file (file-name-sans-extension(file-name-nondirectory file)))
       (setq entry  (gethash file self-document-map))
       (when entry (push f (self-document-options  entry))))))
-
 (defun self-document-map-symbol (f)
   "Map command and options to its defining module."
   (declare (special self-document-map))
