@@ -58,12 +58,13 @@
   "Elisp directory")
 
 (add-to-list 'load-path self-document-lisp-directory)
+(add-to-list 'load-path (expand-file-name "g-client" self-document-lisp-directory))
 (add-to-list 'load-path
              (expand-file-name "../../site-lisp"
                                (file-name-directory load-file-name)))
 
 (defvar self-document-files
-  (directory-files  self-document-lisp-directory nil ".elc$")
+  (mapcar #'file-name-nondirectory(directory-files-recursively  self-document-lisp-directory  ".elc$"))
   "List of elisp modules  to document.")
 
 (defvar self-document-map
@@ -87,7 +88,8 @@
           (regexp-opt
            '("emacspeak" "cd-tool" "tts"
              "outlout" "dectalk"
-             "voice-setup" "dtk" "amixer" )))
+             "voice-setup" "dtk" "amixer"
+             "g-" "gm-" "g-app" "gfeed" "gweb" "gmap" "gblogger" "gphoto")))
   "Patterns to match command names.")
 (defvar self-document-command-count 0
   "Global count of commands.")
@@ -103,8 +105,10 @@
 
 (defconst self-document-option-pattern
   (concat "^"
-          (regexp-opt '("emacspeak" "cd-tool" "dtk" "voice"
-                        "amixer" "outloud" "dectalk" "tts")))
+          (regexp-opt
+           '("emacspeak" "cd-tool" "dtk" "voice"
+             "amixer" "outloud" "dectalk" "tts"
+             "g-" "gm-" "gfeeds" "g-app"  "gweb" "gmap" "gblogger" "gphoto")))
   "Pattern that matches options we document.")
 
 (defvar self-document-option-count 0

@@ -52,7 +52,6 @@
 ;;; Loads in authentication module and sets up per-service
 ;;modules:
 ;;; gmaps: Google Maps 
-;;; Google Calendar: gcal
 ;;; ...
 
 ;;}}}
@@ -70,8 +69,6 @@
 
 (load-library "g-loaddefs")
 (load-library "g-cus-load")
-(add-hook 'calendar-load-hook
-          'gcal-emacs-calendar-setup)
 
 ;;}}}
 (provide 'g)
