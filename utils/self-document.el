@@ -45,8 +45,8 @@
 ;;}}}
 ;;{{{  Required modules
 
-(require 'cl)
-(declaim  (optimize  (safety 0) (speed 3)))
+(require 'cl-lib)
+
 (require 'regexp-opt)
 
 ;;}}}
@@ -67,14 +67,14 @@
   (make-hash-table :test #'equal)
   "Maps modules to commands and options they define.")
 
-(defstruct self-document name commands options)
+(cl-defstruct self-document name commands options)
 
 (defun self-document-load-modules ()
   "Load all modules"
   (declare (special self-document-files))
   (load-library "emacspeak-load-path")
   (load-library "emacspeak-setup")
-  (loop
+  (cl-loop
    for f in  self-document-files do
    (condition-case nil
        (load-library f)
@@ -98,7 +98,7 @@
   (let ((fn (symbol-name f)))
     (when (and (fboundp f) (commandp f)
                (string-match self-document-patterns fn))
-      (incf self-document-command-count)
+      (cl-incf self-document-command-count)
       f)))
 
 (defconst self-document-option-pattern
@@ -115,7 +115,7 @@
   (when (and ; (boundp o)
          (custom-variable-p o)
          (string-match self-document-option-pattern (symbol-name o)))
-    4    (incf self-document-option-count)
+    4    (cl-incf self-document-option-count)
     o))
 
 (defun self-document-map-command (f)
@@ -153,7 +153,7 @@
 ;;; initialize table
   (puthash "Miscellaneous"
            (make-self-document :name "Miscellaneous") self-document-map)
-  (loop
+  (cl-loop
    for f in self-document-files do
    (let ((module (file-name-sans-extension f)))
      (puthash module (make-self-document :name module) self-document-map)))
@@ -185,8 +185,8 @@
              (insert
               (format "Options: \n%s\n"
                       (mapconcat #'symbol-name (self-document-options self) "\n"))))
-           (incf c-count (length (self-document-commands self)))
-           (incf o-count (length (self-document-options self))))
+           (cl-incf c-count (length (self-document-commands self)))
+           (cl-incf o-count (length (self-document-options self))))
        self-document-map)
       (insert (format "Commands: %d Options: %d\n" c-count o-count))
       (save-buffer))))
