@@ -66,7 +66,8 @@
 (defun emacspeak-2048-push-state ()
   "Push current game state on stack."
   (interactive)
-  (declare (special emacspeak-2048-game-stack))
+  (declare (special emacspeak-2048-game-stack
+                    *2048-board* *2048-score* *2048-rows* *2048-columns*))
   (push
    (make-emacspeak-2048-game-state
     :board (copy-sequence *2048-board*)
@@ -80,7 +81,8 @@
 (defun emacspeak-2048-pop-state ()
   "Reset state from stack."
   (interactive)
-  (declare (special emacspeak-2048-game-stack))
+  (declare (special emacspeak-2048-game-stack
+                    *2048-board* *2048-score* *2048-rows* *2048-columns*))
   (cond
    ((null emacspeak-2048-game-stack) (error "No saved  states."))
    (t
@@ -183,6 +185,7 @@
 (defun emacspeak-2048-randomize-game (&optional count)
   "Puts game in a randomized new state."
   (interactive "nCount: ")
+  (declare (special *2048-board*))
   (loop
    for i from 0 to 15 do
    (cond
