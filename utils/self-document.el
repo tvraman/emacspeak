@@ -126,6 +126,7 @@
     (unless file (setq file "Miscellaneous"))
     (when file
       (setq file (file-name-sans-extension(file-name-nondirectory file )))
+      (when (string-match "loaddefs" file) (setq file "emacspeak"))
       (setq entry  (gethash file self-document-map))
       (unless entry (message "%s: Entry not found for file %s" f file))
       (when entry (push f (self-document-commands  entry))))))
