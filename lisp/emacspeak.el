@@ -53,17 +53,16 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'dtk-speak)
 (require 'emacspeak-sounds)
-
+(require 'emacspeak-fix-interactive)
 ;;}}}
 ;;{{{ autoloads
-
-(load-library "emacspeak-loaddefs")
-(load-library "emacspeak-cus-load")
-(load-library "g-loaddefs")
-(load-library "g-client/g-cus-load")
-
+(unless noninteractive
+  (load-library "emacspeak-loaddefs")
+  (load-library "emacspeak-cus-load")
+  (load-library "g-loaddefs")
+  (load-library "g-client/g-cus-load")
+  )
 ;;}}}
 ;;{{{  Customize groups
 

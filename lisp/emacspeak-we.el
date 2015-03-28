@@ -911,6 +911,13 @@ specifies the page to extract contents  from."
 
 ;;}}}
 ;;{{{ xpath  filter
+;;;###autoload
+(defcustom emacspeak-we-recent-xpath-filter
+  "//p|//ol|//ul|//dl|//h1|//h2|//h3|//h4|//h5|//h6|//blockquote|//div"
+  "Caches most recently used xpath filter.
+Can be customized to set up initial default."
+  :type 'string
+  :group 'emacspeak-we)
 
 (defvar emacspeak-we-xpath-filter-history 
   (list
@@ -926,13 +933,8 @@ specifies the page to extract contents  from."
 urls.")
 
 (make-variable-buffer-local 'emacspeak-we-xpath-filter)
-;;;###autoload
-(defcustom emacspeak-we-recent-xpath-filter
-  "//p|//ol|//ul|//dl|//h1|//h2|//h3|//h4|//h5|//h6|//blockquote|//div"
-  "Caches most recently used xpath filter.
-Can be customized to set up initial default."
-  :type 'string
-  :group 'emacspeak-we)
+
+
 ;;;###autoload
 (defcustom emacspeak-we-paragraphs-xpath-filter
   "//p"
