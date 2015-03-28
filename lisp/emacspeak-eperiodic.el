@@ -118,11 +118,14 @@
   (emacspeak-speak-line)
   (emacspeak-auditory-icon 'large-movement))
 (declaim (special eperiodic-mode-map))
-(define-key eperiodic-mode-map " " 'emacspeak-eperiodic-speak-current-element)
-(define-key  eperiodic-mode-map "x" 'emacspeak-eperiodic-goto-property-section)
-(define-key eperiodic-mode-map "n" 'emacspeak-eperiodic-next-line)
-(define-key eperiodic-mode-map "p" 'emacspeak-eperiodic-previous-line)
-(define-key eperiodic-mode-map "l" 'emacspeak-eperiodic-play-description)
+(when (boundp 'eperiodic-mode-map)
+  (define-key eperiodic-mode-map " " 'emacspeak-eperiodic-speak-current-element)
+  (define-key  eperiodic-mode-map "x" 'emacspeak-eperiodic-goto-property-section)
+  (define-key eperiodic-mode-map "n" 'emacspeak-eperiodic-next-line)
+  (define-key eperiodic-mode-map "p" 'emacspeak-eperiodic-previous-line)
+  (define-key eperiodic-mode-map "l"
+    'emacspeak-eperiodic-play-description)
+  )
 ;;}}}
 ;;{{{  listen off the web:
 (defcustom emacspeak-eperiodic-media-location 
