@@ -219,12 +219,13 @@
 
 ;;}}}
 ;;{{{ Bind additional interactive commands
-(loop for k in
+(when (boundp 'ein:notebook-mode-map)
+  (loop for k in
       '(
         ("\C-c." emacspeak-ein-speak-current-cell)
         )
       do
-      (emacspeak-keymap-update ein:notebook-mode-map k))
+      (emacspeak-keymap-update ein:notebook-mode-map k)))
 
 ;;}}}
 (provide 'emacspeak-ein)
