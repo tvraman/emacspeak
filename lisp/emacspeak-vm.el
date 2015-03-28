@@ -45,7 +45,7 @@
 ;;}}}
 ;;{{{ requires
 (require 'emacspeak-preamble)
-
+(require  'vm "vm" 'no-error)
 ;;}}}
 ;;{{{ voice locking:
 
@@ -279,20 +279,6 @@ Then speak the screenful. "
   (interactive)
   (emacspeak-execute-repeatedly 'forward-paragraph ))
 
-(declaim (special vm-mode-map))
-(eval-when (load)
-  (load-library "vm-vars")
-  )
-
-(declaim (special vm-mode-map))
-(define-key vm-mode-map "\M-\C-m" 'widget-button-press)
-(define-key vm-mode-map "y" 'emacspeak-vm-yank-header)
-(define-key vm-mode-map "\M-\t" 'emacspeak-vm-next-button)
-(define-key vm-mode-map  "j" 'emacspeak-hide-or-expose-all-blocks)
-(define-key vm-mode-map  "\M-g" 'vm-goto-message)
-(define-key vm-mode-map "J" 'vm-discard-cached-data)
-(define-key vm-mode-map "." 'emacspeak-vm-browse-message)
-(define-key vm-mode-map "'" 'emacspeak-speak-rest-of-buffer)
 ;;}}}
 ;;{{{  deleting and killing
 
@@ -389,17 +375,26 @@ Then speak the screenful. "
 
 ;;}}}
 ;;{{{  Keybindings:
-(declaim  (special vm-mode-map
-                   global-map
-                   emacspeak-prefix
-                   emacspeak-keymap))
-(define-key vm-mode-map "\M-c" 'emacspeak-vm-catch-up-all-messages)
-(define-key vm-mode-map "\M-j" 'emacspeak-vm-locate-subject-line)
-(define-key vm-mode-map "," 'emacspeak-vm-speak-message)
-(define-key vm-mode-map "\M-l" 'emacspeak-vm-speak-labels)
-(define-key vm-mode-map
-  (concat emacspeak-prefix "m")
-  'emacspeak-vm-mode-line)
+(when (boundp 'vm-mode-map)
+  (declaim  (special
+             vm-mode-map
+             global-map emacspeak-prefix emacspeak-keymap))  
+  (define-key vm-mode-map "\M-\C-m" 'widget-button-press)
+  (define-key vm-mode-map "y" 'emacspeak-vm-yank-header)
+  (define-key vm-mode-map "\M-\t" 'emacspeak-vm-next-button)
+  (define-key vm-mode-map  "j" 'emacspeak-hide-or-expose-all-blocks)
+  (define-key vm-mode-map  "\M-g" 'vm-goto-message)
+  (define-key vm-mode-map "J" 'vm-discard-cached-data)
+  (define-key vm-mode-map "." 'emacspeak-vm-browse-message)
+  (define-key vm-mode-map "'" 'emacspeak-speak-rest-of-buffer)
+  (define-key vm-mode-map "\M-c" 'emacspeak-vm-catch-up-all-messages)
+  (define-key vm-mode-map "\M-j" 'emacspeak-vm-locate-subject-line)
+  (define-key vm-mode-map "," 'emacspeak-vm-speak-message)
+  (define-key vm-mode-map "\M-l" 'emacspeak-vm-speak-labels)
+  (define-key vm-mode-map
+    (concat emacspeak-prefix "m")
+    'emacspeak-vm-mode-line)
+  )
 ;;}}}
 ;;{{{ advise searching:
 (defadvice vm-isearch-forward (around emacspeak pre act comp)
@@ -661,7 +656,7 @@ text using wvText."
   :type 'string
   :group 'emacspeak-vm)
 
-(defsubst emacspeak-vm-add-mime-convertor (convertor)
+(defun emacspeak-vm-add-mime-convertor (convertor)
   "Helper to add a convertor specification."
   (declare (special vm-mime-type-converter-alist))
   (unless
@@ -711,7 +706,7 @@ text using wvText."
         vm-mime-base64-decoder-program "base64-decode")
   t)
 
-(when emacspeak-vm-customize-mime-settings
+(when (and (featurep 'vm )emacspeak-vm-customize-mime-settings)
   (emacspeak-vm-customize-mime-settings))
 
 ;;}}}

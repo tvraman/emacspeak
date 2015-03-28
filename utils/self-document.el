@@ -58,6 +58,9 @@
   "Elisp directory")
 
 (add-to-list 'load-path self-document-lisp-directory)
+(add-to-list 'load-path 
+             (expand-file-name "../../site-lisp"
+                               (file-name-directory load-file-name)))
 
 (defvar self-document-files
    (directory-files  self-document-lisp-directory nil ".elc$")
@@ -72,15 +75,12 @@
 (defun self-document-load-modules ()
   "Load all modules"
   (declare (special self-document-files))
+  (package-initialize)
   (load-library "emacspeak-load-path")
   (load-library "emacspeak-setup")
   (cl-loop
    for f in  self-document-files do
-   (condition-case nil
-       (load-library f)
-     (error (message "Error: %s" f))))
-  
-  )
+   (load-library f)))
 
 (defconst self-document-patterns
   (concat "^"

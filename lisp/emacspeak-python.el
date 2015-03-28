@@ -48,9 +48,9 @@
 
 ;;}}}
 ;;{{{  Required modules
-
+(require 'cl)
 (require 'emacspeak-preamble)
-
+(require 'python "python" 'no-error)
 ;;}}}
 ;;{{{ Advice interactive commands:
 

@@ -38,16 +38,11 @@
 (require 'emacspeak-webutils)
 (require 'emacspeak-we)
 (require 'easymenu)
-(require 'emacspeak-m-player)
 (require 'custom)
-(eval-when-compile
-  (condition-case nil
-      (require 'w3m)
-    (require 'w3m-util)
-    (error nil)))
-(eval-when (load)
-  (require 'w3m-util)
-  (require 'w3m-form))
+(require 'w3m "w3m" 'noerror)
+(require 'w3m-util "w3m-util" 'noerror)
+
+(require 'w3m-form "w3m-form" 'noerror)
 
 ;;}}}
 ;;{{{  custom
@@ -67,36 +62,34 @@ instead of the modeline."
 
 ;;}}}
 ;;{{{ keybindings
-
-(declaim (special w3m-mode-map
-                  emacspeak-prefix))
-(define-key w3m-mode-map emacspeak-prefix 'emacspeak-prefix-command)
-
 (add-hook 'w3m-display-hook 'emacspeak-webutils-run-post-process-hook)
-
-(define-key w3m-mode-map "x" 'emacspeak-we-xsl-map)
-(define-key w3m-mode-map (kbd "M-<tab>") 'w3m-previous-anchor)
-(define-key w3m-mode-map (kbd "S-<tab>") 'w3m-previous-anchor)
-(define-key w3m-mode-map (kbd "<tab>") 'w3m-next-anchor)
-(define-key w3m-mode-map [down] 'next-line)
-(define-key w3m-mode-map [up] 'previous-line)
-(define-key w3m-mode-map [right] 'emacspeak-forward-char)
-(define-key w3m-mode-map [left] 'emacspeak-backward-char)
-(define-key w3m-mode-map "j" 'emacspeak-webutils-jump-to-title-in-content)
-(define-key w3m-mode-map "l" 'emacspeak-webutils-play-media-at-point)
-(define-key w3m-mode-map "\C-t" 'emacspeak-webutils-transcode-current-url-via-google)
-(define-key w3m-mode-map "\M-t" 'emacspeak-webutils-transcode-via-google)
+(when (boundp 'w3m-mode-map)
+  (declaim (special w3m-mode-map
+                    emacspeak-prefix))
+  (define-key w3m-mode-map emacspeak-prefix 'emacspeak-prefix-command)
+  (define-key w3m-mode-map "x" 'emacspeak-we-xsl-map)
+  (define-key w3m-mode-map (kbd "M-<tab>") 'w3m-previous-anchor)
+  (define-key w3m-mode-map (kbd "S-<tab>") 'w3m-previous-anchor)
+  (define-key w3m-mode-map (kbd "<tab>") 'w3m-next-anchor)
+  (define-key w3m-mode-map [down] 'next-line)
+  (define-key w3m-mode-map [up] 'previous-line)
+  (define-key w3m-mode-map [right] 'emacspeak-forward-char)
+  (define-key w3m-mode-map [left] 'emacspeak-backward-char)
+  (define-key w3m-mode-map "j" 'emacspeak-webutils-jump-to-title-in-content)
+  (define-key w3m-mode-map "l" 'emacspeak-webutils-play-media-at-point)
+  (define-key w3m-mode-map "\C-t" 'emacspeak-webutils-transcode-current-url-via-google)
+  (define-key w3m-mode-map "\M-t" 'emacspeak-webutils-transcode-via-google)
                                         ; Moved keybindings to avoid conflict with emacs org mode
                                         ; Avoid use of C-g on request of Raman due to concerns of misuse/confusion
                                         ; because C-g used for emacs quit 
                                         ; Moved google related operations to C-cg prefix, with exception of 
                                         ; google transcode operations, which are left as they were on C-t 
                                         ; and M-t. TX
-(define-key w3m-mode-map "\C-cgg" 'emacspeak-webutils-google-on-this-site)
-(define-key w3m-mode-map "\C-cgx" 'emacspeak-webutils-google-extract-from-cache)
-(define-key w3m-mode-map "\C-cgl" 'emacspeak-webutils-google-similar-to-this-page)
-(define-key w3m-mode-map (kbd "<C-return>") 'emacspeak-webutils-open-in-other-browser)
-
+  (define-key w3m-mode-map "\C-cgg" 'emacspeak-webutils-google-on-this-site)
+  (define-key w3m-mode-map "\C-cgx" 'emacspeak-webutils-google-extract-from-cache)
+  (define-key w3m-mode-map "\C-cgl" 'emacspeak-webutils-google-similar-to-this-page)
+  (define-key w3m-mode-map (kbd "<C-return>") 'emacspeak-webutils-open-in-other-browser)
+  )
 ;;}}}
 ;;{{{ helpers
 

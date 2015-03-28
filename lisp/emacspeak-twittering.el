@@ -55,7 +55,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-
+(require 'twittering-mode "twittering-mode" 'no-error )
 ;;}}}
 ;;{{{ Map->Voice Mappings:
 
@@ -205,11 +205,13 @@
             (goto-char (next-single-property-change (point) 'uri))))
     (setq  url (get-text-property (point)  'uri))
     (and url (browse-url url))))
-(declaim (special twittering-mode-map))
-(define-key twittering-mode-map "." 'emacspeak-twittering-jump-to-following-url)
-(define-key twittering-mode-map "," 'emacspeak-twittering-speak-this-tweet)
-(define-key twittering-mode-map "?" 'twittering-search)
 
+(when (boundp 'twittering-mode-map)
+  (declaim (special twittering-mode-map))
+  (define-key twittering-mode-map "." 'emacspeak-twittering-jump-to-following-url)
+  (define-key twittering-mode-map "," 'emacspeak-twittering-speak-this-tweet)
+  (define-key twittering-mode-map "?" 'twittering-search)
+  )
 ;;}}}
 (provide 'emacspeak-twittering)
 ;;{{{ end of file

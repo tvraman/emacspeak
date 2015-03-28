@@ -49,8 +49,10 @@
 ;;}}}
 ;;{{{  Required modules
 ;;; Code:
+(require 'cl)
 (require 'emacspeak-preamble)
 (require 'stack-f)
+(require 'sudoku "sudoku" 'no-error)
 ;;}}}
 ;;{{{ Define additional speak commands:
 
@@ -439,9 +441,9 @@ See
         ("r" emacspeak-sudoku-speak-current-row)
         ("c" emacspeak-sudoku-speak-current-column)
         ("s" emacspeak-sudoku-speak-current-sub-square)
-        ("M-s" emacspeak-sudoku-erase-current-sub-square)
-        ("M-r" emacspeak-sudoku-erase-current-row)
-        ("M-c" emacspeak-sudoku-erase-current-column)
+        ("\M-s" emacspeak-sudoku-erase-current-sub-square)
+        ("\M-r" emacspeak-sudoku-erase-current-row)
+        ("\M-c" emacspeak-sudoku-erase-current-column)
         (","  emacspeak-sudoku-board-summarizer)
         ("m" emacspeak-sudoku-history-push)
         ("M" emacspeak-sudoku-history-pop)

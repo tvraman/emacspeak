@@ -39,8 +39,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{ required modules
-
+(require 'cl)
 (require 'emacspeak-preamble)
+(require 'mpg123 "mpg123" 'no-error)
 ;;}}}
 ;;{{{  Introduction:
 
