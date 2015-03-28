@@ -58,12 +58,12 @@
   "Elisp directory")
 
 (add-to-list 'load-path self-document-lisp-directory)
-(add-to-list 'load-path 
+(add-to-list 'load-path
              (expand-file-name "../../site-lisp"
                                (file-name-directory load-file-name)))
 
 (defvar self-document-files
-   (directory-files  self-document-lisp-directory nil ".elc$")
+  (directory-files  self-document-lisp-directory nil ".elc$")
   "List of elisp modules  to document.")
 
 (defvar self-document-map
@@ -106,6 +106,7 @@
           (regexp-opt '("emacspeak" "cd-tool" "dtk" "voice"
                         "amixer" "outloud" "dectalk" "tts")))
   "Pattern that matches options we document.")
+
 (defvar self-document-option-count 0
   "Global count of options.")
 
@@ -123,7 +124,7 @@
   (declare (special self-document-map))
   (let ((file  (symbol-file f 'defun))
         (entry nil))
-    (unless file (setq file "Miscellaneous"))
+    (unless file (setq file "emacspeak"))
     (when file
       (setq file (file-name-sans-extension(file-name-nondirectory file )))
       (when (string-match "loaddefs" file) (setq file "emacspeak"))
@@ -131,13 +132,12 @@
       (unless entry (message "%s: Entry not found for file %s" f file))
       (when entry (push f (self-document-commands  entry))))))
 
-
 (defun self-document-map-option (f)
   "Map this option symbol."
   (declare (special self-document-map))
   (let ((file  (symbol-file f 'defvar))
         (entry nil))
-    (unless file (setq file "Miscellaneous"))
+    (unless file (setq file "emacspeak"))
     (when file
       (setq file (file-name-sans-extension(file-name-nondirectory file)))
       (setq entry  (gethash file self-document-map))
@@ -152,8 +152,6 @@
 (defun self-document-build-map()
   "Build a map of module names to commands."
 ;;; initialize table
-  (puthash "Miscellaneous"
-           (make-self-document :name "Miscellaneous") self-document-map)
   (cl-loop
    for f in self-document-files do
    (let ((module (file-name-sans-extension f)))
