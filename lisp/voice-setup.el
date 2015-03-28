@@ -221,9 +221,10 @@
 
 (defun voice-setup-add-map (fv-alist )
   "Sets up face to voice mapping given in fv-alist."
-  (loop for fv in fv-alist
-        do
-        (voice-setup-map-face (first fv) (second fv))))
+  (loop
+   for fv in fv-alist
+   do
+   (voice-setup-map-face (first fv) (second fv))))
 
 ;;}}}
 ;;{{{  special form defvoice
