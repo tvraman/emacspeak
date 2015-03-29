@@ -162,6 +162,17 @@
      (puthash module (make-self-document :name module) self-document-map)))
   (mapatoms #'self-document-map-symbol ))
 
+
+
+;;}}}
+;;{{{ Document Commands In A Module
+
+;;}}}
+;;{{{ Iterate over all modules
+
+;;}}}
+;;{{{ Tests:
+
 ;;; Simple test:
 (defun self-document-load-test ()
   "Dump out command map in /tmp"
@@ -193,12 +204,6 @@
        self-document-map)
       (insert (format "Commands: %d Options: %d\n" c-count o-count))
       (save-buffer))))
-
-;;}}}
-;;{{{ Document Commands In A Module
-
-;;}}}
-;;{{{ Iterate over all modules
 
 ;;}}}
 (provide 'self-document)
