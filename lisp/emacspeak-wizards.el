@@ -936,7 +936,7 @@ To leave, press \\[keyboard-quit]."
                      ((string-equal (symbol-file a 'defun)
                                     (symbol-file b 'defun))
                       (string-lessp (symbol-name a)
- (symbol-name b)))
+                                    (symbol-name b)))
                      (t nil)))))
     commands))
 

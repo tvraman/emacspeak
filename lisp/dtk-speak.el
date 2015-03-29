@@ -803,9 +803,9 @@ Argument OUTPUT is the newly arrived output."
         (emacspeak-auditory-icon (if ,switch 'on 'off))
         (dtk-speak-and-echo
          (format "Turned %s %s  %s."
-                            (if ,switch "on" "off" )
-                            ',switch
-                            (if prefix "" " locally")))))))
+                 (if ,switch "on" "off" )
+                 ',switch
+                 (if prefix "" " locally")))))))
 
 ;;}}}
 ;;{{{  sending commands

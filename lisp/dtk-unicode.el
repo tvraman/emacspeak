@@ -192,7 +192,6 @@ charsets returned by operations such as `find-charset-region'."
     (with-charset-priority charsets
                            (memq (char-charset char) charsets)))
   )
-    
 
 (defsubst dtk-unicode-char-untouched-p (char)
   "Return t if char is a member of one of the charsets in dtk-unicode-untouched-charsets."

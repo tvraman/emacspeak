@@ -186,7 +186,7 @@ Argument BODY specifies forms to execute."
 (defmacro ems-with-errors-silenced  (&rest body)
   "Evaluate body  after temporarily silencing auditory error feedback."
   `(let ((emacspeak-speak-errors nil)
-(emacspeak-speak-messages nil))
+         (emacspeak-speak-messages nil))
      ,@body))
 
 ;;}}}
@@ -1914,8 +1914,8 @@ Seconds value is also placed in the kill-ring."
                      (expand-file-name "emacspeak.mp3" emacspeak-sounds-directory)))
     (tts-with-punctuations 'some
                            (dtk-speak-and-echo (concat signature 
-(if update (emacspeak-setup-get-revision)
-emacspeak-version))))))
+                                                       (if update (emacspeak-setup-get-revision)
+                                                         emacspeak-version))))))
 
 ;;;###autoload
 (defun emacspeak-speak-current-kill (count)

@@ -1387,17 +1387,17 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
              (emacspeak-vc-get-version-id))))
 
 (loop 
-for f in
-      '(vc-dir-next-line vc-dir-previous-line
-                         vc-dir-next-directory vc-dir-previous-directory
-                         )
-      do
-      (eval
-       `(defadvice ,f (after emacspeak-pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p )
-            (emacspeak-speak-line)
-            (emacspeak-auditory-icon 'select-object)))))
+ for f in
+ '(vc-dir-next-line vc-dir-previous-line
+                    vc-dir-next-directory vc-dir-previous-directory
+                    )
+ do
+ (eval
+  `(defadvice ,f (after emacspeak-pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p )
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'select-object)))))
 
 (defadvice vc-dir-mark-file (after emacspeak-pre act comp)
   "Provide auditory feedback."

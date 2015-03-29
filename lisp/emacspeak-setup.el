@@ -104,12 +104,12 @@ pronunciation dictionaries are stored. ")
 (defsubst emacspeak-setup-get-revision ()
   "Get SHA checksum of current revision that is suitable for spoken output."
   (let ((default-directory emacspeak-directory))
-  (if (and (executable-find "git")
-           (file-exists-p (expand-file-name ".git"  emacspeak-directory)))
+    (if (and (executable-find "git")
+             (file-exists-p (expand-file-name ".git"  emacspeak-directory)))
         (substring 
          (shell-command-to-string  "git show HEAD | head -1 | cut -b 8- ")
          0 6)
-        "")))
+      "")))
 
 ;;;###autoload
 (defconst emacspeak-version

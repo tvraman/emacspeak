@@ -107,15 +107,13 @@ node -- speak the entire node."
 
 (loop
  for f in
-      '(info info-display-manual Info-select-node Info-goto-node info-emacs-manual)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act)
-          " Speak the selected node based on setting of
+ '(info info-display-manual Info-select-node Info-goto-node info-emacs-manual)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act)
+     " Speak the selected node based on setting of
 emacspeak-info-select-node-speak-chunk"
-          (emacspeak-info-visit-node))))
-
-
+     (emacspeak-info-visit-node))))
 
 (defadvice Info-scroll-up (after emacspeak pre act)
   "Speak the screenful."

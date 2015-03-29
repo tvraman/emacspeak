@@ -98,7 +98,6 @@ This is set to nil when playing Internet  streams.")
        (concat (first info) ":" (second info)))))
    (t (message "Process MPlayer not running."))))
 
-
 (defun emacspeak-m-player-speak-mode-line ()
   "Speak mode line"
   (interactive)
@@ -281,7 +280,7 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
    (t (directory-files  directory 'full emacspeak-media-extensions))))
 (defsubst emacspeak-m-player-read-resource ()
   "Read resource from minibuffer with contextual smarts."
-(declare (special ido-work-directory-list))
+  (declare (special ido-work-directory-list))
   (let ((completion-ignore-case t)
         (emacspeak-speak-messages nil)
         (read-file-name-completion-ignore-case t)
@@ -639,7 +638,7 @@ necessary."
   (interactive
    (list
     (completing-read "Filter:" emacspeak-m-player-filters nil nil)))
-(declare (special emacspeak-m-player-filters))
+  (declare (special emacspeak-m-player-filters))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
     (let* (
            (result (emacspeak-m-player-dispatch (format "af_del %s" filter))))
@@ -659,7 +658,6 @@ necessary."
   (interactive)
   (emacspeak-m-player-dispatch "get_time_length")
   (accept-process-output))
-
 
 (defconst emacspeak-m-player-display-cmd
   "get_time_pos\nget_percent_pos\nget_time_length\nget_file_name\n"
@@ -692,9 +690,6 @@ necessary."
       (tts-with-punctuations 'some
                              (dtk-speak (apply #'concat result))))
      (t (dtk-speak-and-echo "Waiting")))))
-
-
-
 
 (defun emacspeak-m-player-load-file(f)
   "Load specified file."
@@ -1191,7 +1186,7 @@ tap-reverb already installed."
   (let ((setting (assoc preset emacspeak-m-player-tap-reverb-presets))
         (ladspa (getenv "LADSPA_PATH"))
         (filter-spec nil)
-(filter nil))
+        (filter nil))
     (unless (process-live-p emacspeak-m-player-process)
       (error "No media playing  currently."))
     (unless ladspa

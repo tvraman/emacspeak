@@ -139,8 +139,8 @@ Summarize the form to welcome the user. "
 
 (declaim (special eudc-mode-map))
 (when (boundp 'eudc-mode-map)
-(define-key eudc-mode-map "m" 'emacspeak-eudc-send-mail)
-)
+  (define-key eudc-mode-map "m" 'emacspeak-eudc-send-mail)
+  )
 ;;}}}
 ;;{{{ voiceify values in results 
 

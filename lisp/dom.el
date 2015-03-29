@@ -51,8 +51,8 @@
 (defun dom-non-text-children (node)
   "Return all non-text-node children of NODE."
   (cl-loop for child in (dom-children node)
-	   unless (stringp child)
-	   collect child))
+           unless (stringp child)
+           collect child))
 
 (defun dom-set-attributes (node attributes)
   "Set the attributes of NODE to ATTRIBUTES."
@@ -64,7 +64,7 @@
   (setq node (dom-ensure-node node))
   (let ((old (assoc attribute (cadr node))))
     (if old
-	(setcdr old value)
+        (setcdr old value)
       (setcar (cdr node) (nconc (cadr node) (list (cons attribute value)))))))
 
 (defmacro dom-attr (node attr)
@@ -83,8 +83,8 @@ A typical attribute is `href'."
    (mapcar
     (lambda (elem)
       (if (stringp elem)
-	  elem
-	(dom-texts elem separator)))
+          elem
+        (dom-texts elem separator)))
     (dom-children node))
    (or separator " ")))
 
@@ -96,21 +96,21 @@ A typical attribute is `href'."
   "Return elements in DOM that is of type TAG.
 A name is a symbol like `td'."
   (let ((matches (cl-loop for child in (dom-children dom)
-			  for matches = (and (not (stringp child))
-					     (dom-by-tag child tag))
-			  when matches
-			  append matches)))
+                          for matches = (and (not (stringp child))
+                                             (dom-by-tag child tag))
+                          when matches
+                          append matches)))
     (if (equal (dom-tag dom) tag)
-	(cons dom matches)
+        (cons dom matches)
       matches)))
 
 (defun dom-strings (dom)
   "Return elements in DOM that are strings."
   (cl-loop for child in (dom-children dom)
-	   if (stringp child)
-	   collect child
-	   else
-	   append (dom-strings child)))
+           if (stringp child)
+           collect child
+           else
+           append (dom-strings child)))
 
 (defun dom-by-class (dom match)
   "Return elements in DOM that have a class name that matches regexp MATCH."
@@ -128,15 +128,15 @@ A name is a symbol like `td'."
   "Find elements matching MATCH (a regexp) in ATTRIBUTE.
 ATTRIBUTE would typically be `class', `id' or the like."
   (let ((matches (cl-loop for child in (dom-children dom)
-			  for matches = (and (not (stringp child))
-					     (dom-elements child attribute
-							   match))
-			  when matches
-			  append matches))
-	(attr (dom-attr dom attribute)))
+                          for matches = (and (not (stringp child))
+                                             (dom-elements child attribute
+                                                           match))
+                          when matches
+                          append matches))
+        (attr (dom-attr dom attribute)))
     (if (and attr
-	     (string-match match attr))
-	(cons dom matches)
+             (string-match match attr))
+        (cons dom matches)
       matches)))
 
 (defun dom-parent (dom node)
@@ -145,20 +145,20 @@ ATTRIBUTE would typically be `class', `id' or the like."
       dom
     (let ((result nil))
       (dolist (elem (dom-children dom))
-	(when (and (not result)
-		   (not (stringp elem)))
-	  (setq result (dom-parent elem node))))
+        (when (and (not result)
+                   (not (stringp elem)))
+          (setq result (dom-parent elem node))))
       result)))
 
 (defun dom-previous-sibling (dom node)
   (when-let (parent (dom-parent dom node))
-    (let ((siblings (dom-children parent))
-	  (previous nil))
-      (while siblings
-	(when (eq (cadr siblings) node)
-	  (setq previous (car siblings)))
-	(pop siblings))
-      previous)))
+            (let ((siblings (dom-children parent))
+                  (previous nil))
+              (while siblings
+                (when (eq (cadr siblings) node)
+                  (setq previous (car siblings)))
+                (pop siblings))
+              previous)))
 
 (defun dom-node (tag &optional attributes &rest children)
   "Return a DOM node with TAG and ATTRIBUTES."
@@ -177,16 +177,16 @@ If BEFORE is nil, make CHILD NODE's first child."
   (setq node (dom-ensure-node node))
   (let ((children (dom-children node)))
     (when (and before
-	       (not (memq before children)))
+               (not (memq before children)))
       (error "%s does not exist as a child" before))
     (let ((pos (if before
-		   (cl-position before children)
-		 0)))
+                   (cl-position before children)
+                 0)))
       (if (zerop pos)
-	  ;; First child.
-	  (setcdr (cdr node) (cons child (cddr node)))
-	(setcdr (nthcdr (1- pos) children)
-		(cons child (nthcdr pos children))))))
+          ;; First child.
+          (setcdr (cdr node) (cons child (cddr node)))
+        (setcdr (nthcdr (1- pos) children)
+                (cons child (nthcdr pos children))))))
   node)
 
 (defun dom-ensure-node (node)
@@ -205,36 +205,36 @@ white-space."
   (let ((column (current-column)))
     (insert (format "(%S " (dom-tag dom)))
     (let* ((attr (dom-attributes dom))
-	   (times (length attr))
-	   (column (1+ (current-column))))
+           (times (length attr))
+           (column (1+ (current-column))))
       (if (null attr)
-	  (insert "nil")
-	(insert "(")
-	(dolist (elem attr)
-	  (insert (format "(%S . %S)" (car elem) (cdr elem)))
-	  (if (zerop (cl-decf times))
-	      (insert ")")
-	    (insert "\n" (make-string column ? ))))))
+          (insert "nil")
+        (insert "(")
+        (dolist (elem attr)
+          (insert (format "(%S . %S)" (car elem) (cdr elem)))
+          (if (zerop (cl-decf times))
+              (insert ")")
+            (insert "\n" (make-string column ? ))))))
     (let* ((children (if remove-empty
-			 (cl-remove-if
-			  (lambda (child)
-			    (and (stringp child)
-				 (string-match "\\`[\n\r\t  ]*\\'" child)))
-			  (dom-children dom))
-		       (dom-children dom)))
-	   (times (length children)))
+                         (cl-remove-if
+                          (lambda (child)
+                            (and (stringp child)
+                                 (string-match "\\`[\n\r\t  ]*\\'" child)))
+                          (dom-children dom))
+                       (dom-children dom)))
+           (times (length children)))
       (if (null children)
-	  (insert ")")
-	(insert "\n" (make-string (1+ column) ? ))
-	(dolist (child children)
-	  (if (stringp child)
-	      (if (or (not remove-empty)
-		      (not (string-match "\\`[\n\r\t  ]*\\'" child)))
-		  (insert (format "%S" child)))
-	    (dom-pp child remove-empty))
-	  (if (zerop (cl-decf times))
-	      (insert ")")
-	    (insert "\n" (make-string (1+ column) ? ))))))))
+          (insert ")")
+        (insert "\n" (make-string (1+ column) ? ))
+        (dolist (child children)
+          (if (stringp child)
+              (if (or (not remove-empty)
+                      (not (string-match "\\`[\n\r\t  ]*\\'" child)))
+                  (insert (format "%S" child)))
+            (dom-pp child remove-empty))
+          (if (zerop (cl-decf times))
+              (insert ")")
+            (insert "\n" (make-string (1+ column) ? ))))))))
 
 (provide 'dom)
 

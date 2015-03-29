@@ -934,7 +934,6 @@ urls.")
 
 (make-variable-buffer-local 'emacspeak-we-xpath-filter)
 
-
 ;;;###autoload
 (defcustom emacspeak-we-paragraphs-xpath-filter
   "//p"
