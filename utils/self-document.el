@@ -181,7 +181,6 @@
       (replace-match "" nil nil))
     (buffer-string)))
 
-
 (defun self-document-commentary (self)
   "Return Commentary"
   (let ((lmc
@@ -210,7 +209,12 @@
 
 (defun self-document-option (o)
   "Document this option."
-  (insert (format "%s\n" o)))
+  (let ((doc (sd-texinfo-escape
+              (documentation-property  o 'variable-documentation))))
+    (insert (format "\n\n@defvar {User Option} %s\n" o))
+    (insert (format "%s\n" (or doc  "Not Documented")))
+    (insert "\n@end defvar\n\n")))
+
 
 (defun self-document-module-options (self)
   "Document options for this module."
@@ -238,8 +242,6 @@
          (sd-texinfo-escape (documentation c))
        "Not Documented"))
     (insert "\n@end deffn\n\n")))
-
-
 
 (defun self-document-module-commands (self)
   "Document commands for this module."
