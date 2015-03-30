@@ -210,9 +210,14 @@
   "Generate documentation for all modules."
   (declare (special self-document-map))
   (setq debug-on-error t)
-  (let ((output (find-file-noselect "docs.texi")))
+  (let ((output (find-file-noselect "docs.texi"))
+        (keys nil))
     (self-document-load-modules)
     (self-document-build-map)
+    (setq keys
+          (sort
+           (cl-loop for k being  the hash-keys of self-document-map collect k)
+           #'string-lessp))
     (with-current-buffer output
       (texinfo-mode)
       (insert
@@ -222,8 +227,8 @@
 This chapter documents a total of %d commands and %d options.\n\n"
         self-document-command-count self-document-option-count ))
       (cl-loop
-       for v being the hash-values of self-document-map  do
-       (self-document-module v))
+       for k in keys do
+       (self-document-module (gethash k self-document-map)))
       (texinfo-all-menus-update)
       (shell-command-on-region          ; squeeze blanks
        (point-min) (point-max)
