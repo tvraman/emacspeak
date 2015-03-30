@@ -167,6 +167,32 @@
 ;;}}}
 ;;{{{ Document Commands In A Module
 
+
+(defun self-document-commentary (self) 
+  "Return Commentary"
+(lm-commentary (substring (locate-library (self-document-name self)) 0 -1)))
+
+(defun self-document-module-preamble (self)
+  "Generate preamble for module documentation."
+  (let ((lmc (self-document-commentary self))
+         ))
+(setq commentary (lm-commentary source-file))
+            (when commentary
+              (setq commentary (ems-cleanup-commentary commentary)))
+            (insert
+             (format
+              "\n@node %s\n@section %s\n\n\n"
+              module module ))
+            (insert
+             (format "\n\n%s\n\n"
+                     (or commentary "No Commentary")))
+            (insert
+             (format
+              "Automatically generated documentation
+for commands defined in module  %s.\n\n"
+              module)))
+)
+
 (defun self-document-module (self)
   "Generate documentation for commands and options in a module."
   (insert
