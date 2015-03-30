@@ -225,7 +225,7 @@
 
 (defun self-document-command (c)
   "Document this command."
-  (let ((key (where-is-internal f))
+  (let ((key (where-is-internal c))
         (keys nil))
     (insert (format "\n\n@deffn {Interactive Command} %s  %s\n"
                     c (help-function-arglist c t)))
@@ -234,8 +234,8 @@
       (insert (format "@kbd{%s}\n\n" keys)))
     (insert
      (if
-         (documentation f)
-         (sd-texinfo-escape (documentation f))
+         (documentation c)
+         (sd-texinfo-escape (documentation c))
        "Not Documented"))
     (insert "\n@end deffn\n\n")))
 
@@ -245,7 +245,7 @@
   "Document commands for this module."
   (let ((name (self-document-name self))
         (commands  nil))
-    (insert (format "@subsection %s Options\n\n" name))
+    (insert (format "@subsection %s Commands\n\n" name))
     (setq commands
           (sort
            (self-document-commands self)
@@ -254,9 +254,6 @@
 
 (defun self-document-module (self)
   "Generate documentation for commands and options in a module."
-  (insert
-   (format "@c Documentation for module %s\n"
-           (self-document-name self)))
   (self-document-module-preamble self)
   (self-document-module-commands self)
   (self-document-module-options self))
