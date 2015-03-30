@@ -47,6 +47,7 @@
 
 (require 'cl-lib)
 (require 'lisp-mnt)
+(require 'texnfo-upd)
 (require 'regexp-opt)
 
 ;;}}}
@@ -194,18 +195,50 @@
   (let ((name (self-document-name self))
         (lmc (self-document-commentary self)))
     (insert (format "\n@node %s\n@section %s\n\n\n" name name))
-    (insert (format "\n\n%s\n\n" (or lmc "No Commentary")))
-    ))
+    (insert (format "\n\n%s\n\n" lmc))))
+
+(defun self-document-option (o)
+  "Document this option."
+  (insert (format "%s\n" o)))
+
+(defun self-document-module-options (self)
+  "Document options for this module."
+  (let ((name (self-document-name self))
+        (options  nil))
+    (insert (format "@subsection %s Options\n\n" name))
+    (setq options
+          (sort
+           (self-document-options self)
+           #'(lambda (a b) (string-lessp (symbol-name a) (symbol-name b)))))
+    (mapc #'self-document-option options)))
+
+(defun self-document-command (c)
+  "Document this command."
+  (insert (format "%s\n" c)))
+
+(defun self-document-module-commands (self)
+  "Document commands for this module."
+  (let ((name (self-document-name self))
+        (commands  nil))
+    (insert (format "@subsection %s Options\n\n" name))
+    (setq commands
+          (sort
+           (self-document-commands self)
+           #'(lambda (a b) (string-lessp (symbol-name a) (symbol-name b)))))
+    (mapc #'self-document-command commands)))
 
 (defun self-document-module (self)
   "Generate documentation for commands and options in a module."
   (insert
    (format "@c Documentation for module %s\n"
            (self-document-name self)))
-  (self-document-module-preamble self))
+  (self-document-module-preamble self)
+  (self-document-module-commands self)
+  (self-document-module-options self))
 
 ;;}}}
 ;;{{{ Iterate over all modules
+
 (defun self-document-all-modules()
   "Generate documentation for all modules."
   (declare (special self-document-map))
@@ -234,6 +267,7 @@ This chapter documents a total of %d commands and %d options.\n\n"
        (point-min) (point-max)
        "cat -s" (current-buffer) 'replace)
       (save-buffer))))
+
 ;;}}}
 ;;{{{ Tests:
 
