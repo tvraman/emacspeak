@@ -20,7 +20,7 @@ The manual is divided into the following chapters.
 * Using Online Help: Using Online Help.
 * Emacs Packages:  Emacs Packages.
 * Running Terminal Based Applications: Running Terminal Based Applications.
-* Emacspeak Commands:  Emacspeak Commands.
+* Emacspeak Commands And Options:  Emacspeak Commands And Options.
 * Emacspeak Customizations:  Emacspeak Customizations.
 * TTS Servers:  TTS Servers.
 * Acknowledgments: Acknowledgments.
