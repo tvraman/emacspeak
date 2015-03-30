@@ -167,13 +167,18 @@
 ;;}}}
 ;;{{{ Document Commands In A Module
 
+(defun self-document-module (self)
+  "Generate documentation for commands and options in a module."
+  (insert
+   (format "@c Documentation for module %s\n"
+           (self-document-name self))))
+
 ;;}}}
 ;;{{{ Iterate over all modules
 
 ;;}}}
 ;;{{{ Tests:
 
-;;; Simple test:
 (defun self-document-load-test ()
   "Dump out command map in /tmp"
   (setq debug-on-error t)
@@ -203,6 +208,28 @@
            (cl-incf o-count (length (self-document-options self))))
        self-document-map)
       (insert (format "Commands: %d Options: %d\n" c-count o-count))
+      (save-buffer))))
+
+
+(defun self-document-module-test ()
+  "Test documentation generator."
+  (declare (special self-document-map))
+  (setq debug-on-error t)
+  (let ((output (find-file-noselect (make-temp-file "doc" nil ".texi"))))
+    (self-document-load-modules)
+    (self-document-build-map)
+    (with-current-buffer output
+      (insert
+       (format
+        "@node Emacspeak Commands And Options \n@chapter Emacspeak Commands And Options \n\n
+This chapter is generated automatically from the source-level documentation.
+ This chapter documents a total of %d
+commands and %d options.\n\n"
+        self-document-command-count self-document-option-count ))
+      (maphash
+       #'(lambda (k v)
+(self-document-module v))
+       self-document-map)
       (save-buffer))))
 
 ;;}}}

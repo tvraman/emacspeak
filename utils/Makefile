@@ -1,5 +1,8 @@
+tests: module-test 
 
-tests: load-test 
+module-test: self-document.elc
+	emacs -batch -q -l self-document.elc -f self-document-module-test
+
 load-test: self-document.elc
 	emacs -batch -q -l self-document.elc -f self-document-load-test
 
