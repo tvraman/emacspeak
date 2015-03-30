@@ -1,3 +1,6 @@
+all: 
+	emacs -batch -q -l self-document.el -f self-document-all-modules
+
 tests: module-test 
 
 module-test: self-document.elc

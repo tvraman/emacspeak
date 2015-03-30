@@ -187,7 +187,7 @@
           (substring (locate-library (self-document-name self)) 0 -1))))
     (if lmc
         (setq lmc (sd-cleanup-commentary lmc))
-      "")))
+      "No Commentary")))
 
 (defun self-document-module-preamble (self)
   "Generate preamble for module documentation."
@@ -206,7 +206,29 @@
 
 ;;}}}
 ;;{{{ Iterate over all modules
-
+(defun self-document-all-modules()
+  "Generate documentation for all modules."
+  (declare (special self-document-map))
+  (setq debug-on-error t)
+  (let ((output (find-file-noselect "docs.texi")))
+    (self-document-load-modules)
+    (self-document-build-map)
+    (with-current-buffer output
+      (texinfo-mode)
+      (insert
+       (format
+        "@node Emacspeak Commands And Options \n
+@chapter Emacspeak Commands And Options \n\n
+This chapter documents a total of %d commands and %d options.\n\n"
+        self-document-command-count self-document-option-count ))
+      (cl-loop
+       for v being the hash-values of self-document-map  do
+       (self-document-module v))
+      (texinfo-all-menus-update)
+      (shell-command-on-region          ; squeeze blanks
+       (point-min) (point-max)
+       "cat -s" (current-buffer) 'replace)
+      (save-buffer))))
 ;;}}}
 ;;{{{ Tests:
 
@@ -251,15 +273,13 @@
     (with-current-buffer output
       (insert
        (format
-        "@node Emacspeak Commands And Options \n@chapter Emacspeak Commands And Options \n\n
-This chapter is generated automatically from the source-level documentation.
- This chapter documents a total of %d
-commands and %d options.\n\n"
+        "@node Emacspeak Commands And Options \n
+@chapter Emacspeak Commands And Options \n\n
+This chapter documents a total of %d commands and %d options.\n\n"
         self-document-command-count self-document-option-count ))
-      (maphash
-       #'(lambda (k v)
-           (self-document-module v))
-       self-document-map)
+      (cl-loop
+       for v being the hash-values of self-document-map  do
+       (self-document-module v))
       (save-buffer))))
 
 ;;}}}
