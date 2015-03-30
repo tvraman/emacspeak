@@ -42,8 +42,8 @@ notice are preserved on all copies.
 @include online-help.texi
 @include packages.texi
 @include eterm.texi
-@c @include commands.texi
-@c @include options.texi
+          @include docs.texi
+
 @include tts-server.texi
 @include acknowledge.texi
 @c trailer

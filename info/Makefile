@@ -17,10 +17,10 @@ info: emacspeak.texi introducing-emacspeak.texi turning-twenty.texi
 	$(MAKEINFO) emacspeak.texi
 	$(MAKEINFO) introducing-emacspeak.texi
 	$(MAKEINFO) turning-twenty.texi
-.PHONY: commands.texi 
+.PHONY: docs.texi 
 
-commands.texi: 
-	$(EMACS) -batch -q -l ../utils/document-commands.el
+docs.texi: 
+	$(EMACS) -batch -q -l ../utils/self-document.el -f self-document-all-modules
 	rm -f *.info* emacspeak.html
 	make
 	make htm
