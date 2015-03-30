@@ -46,7 +46,7 @@
 ;;{{{  Required modules
 
 (require 'cl-lib)
-
+(require 'lisp-mnt)
 (require 'regexp-opt)
 
 ;;}}}
@@ -168,36 +168,46 @@
 ;;{{{ Document Commands In A Module
 
 
+(defsubst sd-cleanup-commentary (commentary )
+  "Cleanup commentary."
+  (with-temp-buffer 
+    (insert commentary)
+    (goto-char (point-min))
+    (flush-lines "{{{")
+    (goto-char (point-min))
+    (flush-lines "}}}")
+    (goto-char (point-min))
+    (delete-blank-lines)
+    (goto-char (point-min))
+    (while (re-search-forward "^;+ ?" nil t)
+      (replace-match "" nil nil))
+    (buffer-string)))
+
 (defun self-document-commentary (self) 
   "Return Commentary"
-(lm-commentary (substring (locate-library (self-document-name self)) 0 -1)))
+  (let ((lmc
+         (lm-commentary
+          (substring (locate-library (self-document-name self)) 0 -1))))
+    (if lmc
+      (setq lmc (sd-cleanup-commentary lmc))
+      "")))
 
 (defun self-document-module-preamble (self)
   "Generate preamble for module documentation."
-  (let ((lmc (self-document-commentary self))
-         ))
-(setq commentary (lm-commentary source-file))
-            (when commentary
-              (setq commentary (ems-cleanup-commentary commentary)))
-            (insert
-             (format
-              "\n@node %s\n@section %s\n\n\n"
-              module module ))
-            (insert
-             (format "\n\n%s\n\n"
-                     (or commentary "No Commentary")))
-            (insert
-             (format
-              "Automatically generated documentation
-for commands defined in module  %s.\n\n"
-              module)))
-)
+  (let ((name (self-document-name self))
+        (lmc (self-document-commentary self)))
+    (insert (format "\n@node %s\n@section %s\n\n\n" name name))
+    (insert (format "\n\n%s\n\n" (or lmc "No Commentary")))
+    (insert
+     (format
+      "Automatically generated documentation for  module  %s.\n\n" name))))
 
 (defun self-document-module (self)
   "Generate documentation for commands and options in a module."
   (insert
    (format "@c Documentation for module %s\n"
-           (self-document-name self))))
+           (self-document-name self)))
+  (self-document-module-preamble self))
 
 ;;}}}
 ;;{{{ Iterate over all modules
