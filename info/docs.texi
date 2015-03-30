@@ -1,4 +1,3 @@
-
 @node Emacspeak Commands And Options 
 
 @chapter Emacspeak Commands And Options 

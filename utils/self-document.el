@@ -276,6 +276,7 @@
            (cl-loop for k being  the hash-keys of self-document-map collect k)
            #'string-lessp))
     (with-current-buffer output
+      (erase-buffer)
       (texinfo-mode)
       (insert
        (format

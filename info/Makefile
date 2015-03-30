@@ -37,7 +37,7 @@ uninstall:
 		install-info --delete $(infodir)/*.info /etc/info-dir; \
 	fi
 	rm -f $(infodir)/*.info*
-emacspeak.info: emacspeak.texi
+emacspeak.info: *.texi 
 	makeinfo --force -o emacspeak.info emacspeak.texi
 
 introducing-emacspeak.info: introducing-emacspeak.texi
