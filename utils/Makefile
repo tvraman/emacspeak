@@ -1,4 +1,6 @@
-test: self-document.elc
+
+tests: load-test 
+load-test: self-document.elc
 	emacs -batch -q -l self-document.elc -f self-document-load-test
 
 self-document.elc: self-document.el
