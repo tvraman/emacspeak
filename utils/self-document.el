@@ -117,10 +117,10 @@
 (defsubst self-document-option-p (o)
   "Predicate to test if we document this option."
   (declare (special self-document-option-pattern))
-  (when (and 
+  (when (and
          (custom-variable-p o)
          (string-match self-document-option-pattern (symbol-name o)))
-        (cl-incf self-document-option-count)
+    (cl-incf self-document-option-count)
     o))
 
 (defun self-document-map-command (f)
@@ -162,15 +162,12 @@
      (puthash module (make-self-document :name module) self-document-map)))
   (mapatoms #'self-document-map-symbol ))
 
-
-
 ;;}}}
 ;;{{{ Document Commands In A Module
 
-
 (defsubst sd-cleanup-commentary (commentary )
   "Cleanup commentary."
-  (with-temp-buffer 
+  (with-temp-buffer
     (insert commentary)
     (goto-char (point-min))
     (flush-lines "{{{")
@@ -183,13 +180,13 @@
       (replace-match "" nil nil))
     (buffer-string)))
 
-(defun self-document-commentary (self) 
+(defun self-document-commentary (self)
   "Return Commentary"
   (let ((lmc
          (lm-commentary
           (substring (locate-library (self-document-name self)) 0 -1))))
     (if lmc
-      (setq lmc (sd-cleanup-commentary lmc))
+        (setq lmc (sd-cleanup-commentary lmc))
       "")))
 
 (defun self-document-module-preamble (self)
@@ -198,9 +195,7 @@
         (lmc (self-document-commentary self)))
     (insert (format "\n@node %s\n@section %s\n\n\n" name name))
     (insert (format "\n\n%s\n\n" (or lmc "No Commentary")))
-    (insert
-     (format
-      "Automatically generated documentation for  module  %s.\n\n" name))))
+    ))
 
 (defun self-document-module (self)
   "Generate documentation for commands and options in a module."
@@ -246,7 +241,6 @@
       (insert (format "Commands: %d Options: %d\n" c-count o-count))
       (save-buffer))))
 
-
 (defun self-document-module-test ()
   "Test documentation generator."
   (declare (special self-document-map))
@@ -264,7 +258,7 @@ commands and %d options.\n\n"
         self-document-command-count self-document-option-count ))
       (maphash
        #'(lambda (k v)
-(self-document-module v))
+           (self-document-module v))
        self-document-map)
       (save-buffer))))
 
