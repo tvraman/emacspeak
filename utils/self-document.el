@@ -181,6 +181,7 @@
       (replace-match "" nil nil))
     (buffer-string)))
 
+
 (defun self-document-commentary (self)
   "Return Commentary"
   (let ((lmc
@@ -189,6 +190,16 @@
     (if lmc
         (setq lmc (sd-cleanup-commentary lmc))
       "No Commentary")))
+
+(defsubst sd-texinfo-escape (string)
+  "Escape texinfo special chars"
+  (when string
+    (with-temp-buffer
+      (insert string)
+      (goto-char (point-min))
+      (while (re-search-forward "[{}@]" nil t)
+        (replace-match "@\\&"))
+      (buffer-string))))
 
 (defun self-document-module-preamble (self)
   "Generate preamble for module documentation."
@@ -214,7 +225,21 @@
 
 (defun self-document-command (c)
   "Document this command."
-  (insert (format "%s\n" c)))
+  (let ((key (where-is-internal f))
+        (keys nil))
+    (insert (format "\n\n@deffn {Interactive Command} %s  %s\n"
+                    c (help-function-arglist c t)))
+    (when key
+      (setq keys (sd-texinfo-escape (mapconcat #'key-description key " ")))
+      (insert (format "@kbd{%s}\n\n" keys)))
+    (insert
+     (if
+         (documentation f)
+         (sd-texinfo-escape (documentation f))
+       "Not Documented"))
+    (insert "\n@end deffn\n\n")))
+
+
 
 (defun self-document-module-commands (self)
   "Document commands for this module."
