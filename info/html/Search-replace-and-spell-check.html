@@ -1,166 +1,212 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Search replace and spell check</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Search replace and spell check">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Search replace and spell check">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Document-Authoring.html#Document-Authoring" rel="up" title="Document Authoring">
-<link href="Structured-Editing.html#Structured-Editing" rel="next" title="Structured Editing">
-<link href="Creating-Well_002dformatted-Documents.html#Creating-Well_002dformatted-Documents" rel="prev" title="Creating Well-formatted Documents">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Search
+  replace and spell check</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Search replace and spell check" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Search replace and spell check" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Document-Authoring.html#Document-Authoring" rel="up"
+  title="Document Authoring" />
+  <link href="Structured-Editing.html#Structured-Editing" rel=
+  "next" title="Structured Editing" />
+  <link href=
+  "Creating-Well_002dformatted-Documents.html#Creating-Well_002dformatted-Documents"
+  rel="prev" title="Creating Well-formatted Documents" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="Search-replace-and-spell-check"></a>
-<div class="header">
-<p>
-Previous: <a href="Creating-Well_002dformatted-Documents.html#Creating-Well_002dformatted-Documents" accesskey="p" rel="prev">Creating Well-formatted Documents</a>, Up: <a href="Document-Authoring.html#Document-Authoring" accesskey="u" rel="up">Document Authoring</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="Searching_002c-Replacing_002c-And-Spell-Checking"></a>
-<h4 class="subsection">9.1.2 Searching, Replacing, And Spell Checking</h4>
+<body lang="en" xml:lang="en">
+  <a name="Search-replace-and-spell-check" id=
+  "Search-replace-and-spell-check"></a>
 
-<p>Incremental search, a process by which the system prompts the user for a
-search string and moves the selection to the next available match while
-allowing the user to add more characters to the search string, is the
-search technique of choice among most Emacs users.  As the system
-successively finds each match and provides the user the option of
-continuing the search.  Incremental search is a more complex instance of
-traditional search interaction because in addition to either stopping or
-continuing the search, the user can modify the current search in a
-number of ways including specifying a longer (or shorter)
-search string.
-</p>
-<p>All of the user commands available during incremental search are
-documented in the online Emacs info manual.  These are speech-enabled by
-Emacspeak to provide spoken prompts as the dialog begins; auditory
-icons indicate a search hit or search miss as the search progresses.
-Along with auditory icons <em>search-hit</em> and <em>search-miss</em> the
-user also hears the current line spoken, and in the case of a search
-hit, the matching text is <em>aurally</em> highlighted by using the
-standard audio formatting technique of changing voice characteristic.
-This feedback proves extremely effective when the search pattern appears
-several times on a single line; the user is unambiguously cued to the
-current match.
-</p>
+  <div class="header">
+    <p>Previous: <a href=
+    "Creating-Well_002dformatted-Documents.html#Creating-Well_002dformatted-Documents"
+    accesskey="p" rel="prev">Creating Well-formatted Documents</a>,
+    Up: <a href="Document-Authoring.html#Document-Authoring"
+    accesskey="u" rel="up">Document Authoring</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="Searching_002c-Replacing_002c-And-Spell-Checking" id=
+  "Searching_002c-Replacing_002c-And-Spell-Checking"></a>
 
-<p>Search and replace actions are an extension to the basic
-conversational gestures of  a search dialog.
-In addition to specifying a search string,
-the user also specifies a replacement string.
-On the Emacspeak desktop, this functionality is provided by
-command <em>query-replace</em>.  The
-speech-enabled version of this interaction prompts the user for the
-search and replacement texts.  The 
-auditory feedback during the interactive search and replacement
-process parallels that described in the case of incremental search.
-Audio formatting to indicate the occurrence that is about to be
-replaced proves an effective means of avoiding erroneous modifications
-to the text being edited.  As an example, consider using command <em>
-  query-replace</em> to locate and replace the second occurrence of 
-  <b>foo</b> with <b>bar</b> in the text
-</p> 
-<p>&lsquo;<samp>Do not change this fool, but change this food.</samp>&rsquo;
-</p> 
-<p>When the search matches the first occurrence of <b>foo</b>
- in word <em>fool</em>, the aural highlighting helps the user in
- answering &ldquo;no&rdquo; in response to question &ldquo;should this occurrence be
- replaced&rdquo;.  In addition to allowing the user to supply a
- simple &ldquo;yes or no&rdquo; answer for each match, command <em>
-   query-replace</em> also allows the user to specify a number of other
- valid answers as described  in the online Emacs documentation.
-</p>
+  <h4 class="subsection">9.1.2 Searching, Replacing, And Spell
+  Checking</h4>
 
-<a name="Spell-Checking"></a>
-<h4 class="unnumberedsubsubsec">Spell Checking</h4>
+  <p>Incremental search, a process by which the system prompts the
+  user for a search string and moves the selection to the next
+  available match while allowing the user to add more characters to
+  the search string, is the search technique of choice among most
+  Emacs users. As the system successively finds each match and
+  provides the user the option of continuing the search.
+  Incremental search is a more complex instance of traditional
+  search interaction because in addition to either stopping or
+  continuing the search, the user can modify the current search in
+  a number of ways including specifying a longer (or shorter)
+  search string.</p>
 
-<p>A more complex instance of conversational gesture &ldquo;search and
-replace&rdquo; is exhibited by standard spell checking dialogues.  Spell
-checking differs from the search and replace dialog described above
-in that the search and replacement text is guessed by the system based
-on an available dictionary.  Words that are not found in the
-dictionary are flagged as potential spelling errors, and the system
-offers an interactive search and replace dialog for each of these
-possible errors.  During this dialog, the system successively selects
-each occurrence of the possibly erroneous word and offers a set of
-possible replacements.  Unlike in the case of simple search and
-replace, more than one possible replacement string is offered, since a
-potential spelling error can be corrected by more than one word
-appearing in the dictionary.
-</p>
-<p>In the visual interface, such spell checking dialogues are realized by
-displaying the available choices in a pop-up window
-and allowing the user to pick a correction
-Once a correction is selected, the user is offered the choice of
-interactively  replacing the erroneous word with the correction.
-</p>
-<p>The spell checking interface on the Emacspeak desktop is speech-enabled
-to provide fluent auditory feedback.  The visual interface parallels
-that described above and is provided by package <code>ispell</code> which is
-part of the standard Emacs distribution.  Emacspeak provides a spoken 
-prompt that is composed of the line
-containing the possibly erroneous word (which is aurally highlighted to
-set it apart from the rest of the text on that line) and the available
-corrections.  Each correction is prefixed with a number that the user
-can use to select it.  Once a correction is selected, the interaction
-continues with the query and replace interaction described earlier.  The
-speech interface to the spell checker is as fluent as the visual
-interface.  Notice that Emacspeak users do not need to concern
-themselves with the details of the visual display such as &ldquo;the
-corrections are displayed in a window at the top of the screen&rdquo;.
-</p>
+  <p>All of the user commands available during incremental search
+  are documented in the online Emacs info manual. These are
+  speech-enabled by Emacspeak to provide spoken prompts as the
+  dialog begins; auditory icons indicate a search hit or search
+  miss as the search progresses. Along with auditory icons
+  <em>search-hit</em> and <em>search-miss</em> the user also hears
+  the current line spoken, and in the case of a search hit, the
+  matching text is <em>aurally</em> highlighted by using the
+  standard audio formatting technique of changing voice
+  characteristic. This feedback proves extremely effective when the
+  search pattern appears several times on a single line; the user
+  is unambiguously cued to the current match.</p>
 
-<p>In addition to the standard spell checker described above, newer
-versions of Emacs include an &ldquo;on-the-fly&rdquo; spell checker that flags
-erroneous words as they are typed.
-Emacspeak speech-enables package <code>flyspell</code> so that such erroneous
-words are aurally highlighted.
-</p><hr>
-<div class="header">
-<p>
-Previous: <a href="Creating-Well_002dformatted-Documents.html#Creating-Well_002dformatted-Documents" accesskey="p" rel="prev">Creating Well-formatted Documents</a>, Up: <a href="Document-Authoring.html#Document-Authoring" accesskey="u" rel="up">Document Authoring</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+  <p>Search and replace actions are an extension to the basic
+  conversational gestures of a search dialog. In addition to
+  specifying a search string, the user also specifies a replacement
+  string. On the Emacspeak desktop, this functionality is provided
+  by command <em>query-replace</em>. The speech-enabled version of
+  this interaction prompts the user for the search and replacement
+  texts. The auditory feedback during the interactive search and
+  replacement process parallels that described in the case of
+  incremental search. Audio formatting to indicate the occurrence
+  that is about to be replaced proves an effective means of
+  avoiding erroneous modifications to the text being edited. As an
+  example, consider using command <em>query-replace</em> to locate
+  and replace the second occurrence of <b>foo</b> with <b>bar</b>
+  in the text</p>
 
+  <p>&lsquo;<samp>Do not change this fool, but change this
+  food.</samp>&rsquo;</p>
 
+  <p>When the search matches the first occurrence of <b>foo</b> in
+  word <em>fool</em>, the aural highlighting helps the user in
+  answering &ldquo;no&rdquo; in response to question &ldquo;should
+  this occurrence be replaced&rdquo;. In addition to allowing the
+  user to supply a simple &ldquo;yes or no&rdquo; answer for each
+  match, command <em>query-replace</em> also allows the user to
+  specify a number of other valid answers as described in the
+  online Emacs documentation.</p><a name="Spell-Checking" id=
+  "Spell-Checking"></a>
 
+  <h4 class="unnumberedsubsubsec">Spell Checking</h4>
+
+  <p>A more complex instance of conversational gesture
+  &ldquo;search and replace&rdquo; is exhibited by standard spell
+  checking dialogues. Spell checking differs from the search and
+  replace dialog described above in that the search and replacement
+  text is guessed by the system based on an available dictionary.
+  Words that are not found in the dictionary are flagged as
+  potential spelling errors, and the system offers an interactive
+  search and replace dialog for each of these possible errors.
+  During this dialog, the system successively selects each
+  occurrence of the possibly erroneous word and offers a set of
+  possible replacements. Unlike in the case of simple search and
+  replace, more than one possible replacement string is offered,
+  since a potential spelling error can be corrected by more than
+  one word appearing in the dictionary.</p>
+
+  <p>In the visual interface, such spell checking dialogues are
+  realized by displaying the available choices in a pop-up window
+  and allowing the user to pick a correction Once a correction is
+  selected, the user is offered the choice of interactively
+  replacing the erroneous word with the correction.</p>
+
+  <p>The spell checking interface on the Emacspeak desktop is
+  speech-enabled to provide fluent auditory feedback. The visual
+  interface parallels that described above and is provided by
+  package <code>ispell</code> which is part of the standard Emacs
+  distribution. Emacspeak provides a spoken prompt that is composed
+  of the line containing the possibly erroneous word (which is
+  aurally highlighted to set it apart from the rest of the text on
+  that line) and the available corrections. Each correction is
+  prefixed with a number that the user can use to select it. Once a
+  correction is selected, the interaction continues with the query
+  and replace interaction described earlier. The speech interface
+  to the spell checker is as fluent as the visual interface. Notice
+  that Emacspeak users do not need to concern themselves with the
+  details of the visual display such as &ldquo;the corrections are
+  displayed in a window at the top of the screen&rdquo;.</p>
+
+  <p>In addition to the standard spell checker described above,
+  newer versions of Emacs include an &ldquo;on-the-fly&rdquo; spell
+  checker that flags erroneous words as they are typed. Emacspeak
+  speech-enables package <code>flyspell</code> so that such
+  erroneous words are aurally highlighted.</p>
+  <hr />
+
+  <div class="header">
+    <p>Previous: <a href=
+    "Creating-Well_002dformatted-Documents.html#Creating-Well_002dformatted-Documents"
+    accesskey="p" rel="prev">Creating Well-formatted Documents</a>,
+    Up: <a href="Document-Authoring.html#Document-Authoring"
+    accesskey="u" rel="up">Document Authoring</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

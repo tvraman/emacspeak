@@ -1,117 +1,155 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Controlling Echo</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Controlling Echo">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Controlling Echo">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Speech-System.html#Speech-System" rel="up" title="Speech System">
-<link href="Speech-Output-Control.html#Speech-Output-Control" rel="next" title="Speech Output  Control">
-<link href="Speech-System.html#Speech-System" rel="prev" title="Speech System">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  Controlling Echo</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Controlling Echo" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Controlling Echo" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Speech-System.html#Speech-System" rel="up" title=
+  "Speech System" />
+  <link href="Speech-Output-Control.html#Speech-Output-Control"
+  rel="next" title="Speech Output Control" />
+  <link href="Speech-System.html#Speech-System" rel="prev" title=
+  "Speech System" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="Controlling-Echo"></a>
-<div class="header">
-<p>
-Next: <a href="Speech-Output-Control.html#Speech-Output-Control" accesskey="n" rel="next">Speech Output  Control</a>, Up: <a href="Speech-System.html#Speech-System" accesskey="u" rel="up">Speech System</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="Character_002c-Word-And-Line-Echo_002e"></a>
-<h4 class="subsection">5.4.1 Character, Word And Line Echo.</h4>
+<body lang="en" xml:lang="en">
+  <a name="Controlling-Echo" id="Controlling-Echo"></a>
 
-<a name="index-line-echo"></a>
-<a name="index-character-echo"></a>
-<a name="index-word-echo"></a>
+  <div class="header">
+    <p>Next: <a href=
+    "Speech-Output-Control.html#Speech-Output-Control" accesskey=
+    "n" rel="next">Speech Output Control</a>, Up: <a href=
+    "Speech-System.html#Speech-System" accesskey="u" rel=
+    "up">Speech System</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="Character_002c-Word-And-Line-Echo_002e" id=
+  "Character_002c-Word-And-Line-Echo_002e"></a>
 
-<p>By default, Emacspeak speaks characters as they are typed &ndash;this is
-called character echo; Words are spoken as they are completed &ndash;this is
-called word echo.  Emacspeak can also optionally speak each line as it
-is typed &ndash;this is called line echo.
-</p>
-<p>Character, word and line echo can be toggled &ndash;either in the current
-buffer&ndash; or for all buffers (globally).
-To toggle the specific echo functionality for all buffers, precede the
-specific command with <kbd>C-u</kbd>.
-Note that in the documentation below, this use of <kbd>C-u</kbd> is indicated 
-using the common Emacs terminology of <em>prefix arg</em> or
-<em>interactive prefix arg</em>.
-</p>
-<dl compact="compact">
-<dd><a name="index-emacspeak_002dtoggle_002dcharacter_002decho"></a>
-<a name="index-control-e-d-k"></a>
-</dd>
-<dt><kbd><kbd>control e d k </kbd></kbd></dt>
-<dd><p>emacspeak-toggle-character-echo
- Toggle state of  Emacspeak  character echo.
-Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result.
-</p>
+  <h4 class="subsection">5.4.1 Character, Word And Line
+  Echo.</h4><a name="index-line-echo" id="index-line-echo"></a>
+  <a name="index-character-echo" id="index-character-echo"></a>
+  <a name="index-word-echo" id="index-word-echo"></a>
 
-<a name="index-emacspeak_002dtoggle_002dword_002decho"></a>
-<a name="index-control-e-d-w"></a>
- 
-</dd>
-<dt><kbd><kbd> control e d w </kbd></kbd></dt>
-<dd><p>emacspeak-toggle-word-echo
- Toggle state of  Emacspeak  word echo.
-Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result.
-</p>
+  <p>By default, Emacspeak speaks characters as they are typed
+  &ndash;this is called character echo; Words are spoken as they
+  are completed &ndash;this is called word echo. Emacspeak can also
+  optionally speak each line as it is typed &ndash;this is called
+  line echo.</p>
 
-<a name="index-emacspeak_002dtoggle_002dline_002decho"></a>
-<a name="index-control-e-d-l"></a>
- 
-</dd>
-<dt><kbd><kbd> control e d l </kbd></kbd></dt>
-<dd><p>emacspeak-toggle-line-echo
- Toggle state of  Emacspeak  line echo.
-Interactive PREFIX arg means toggle  the global default value, and then set the
-current local  value to the result.
-</p></dd>
-</dl>
+  <p>Character, word and line echo can be toggled &ndash;either in
+  the current buffer&ndash; or for all buffers (globally). To
+  toggle the specific echo functionality for all buffers, precede
+  the specific command with <kbd>C-u</kbd>. Note that in the
+  documentation below, this use of <kbd>C-u</kbd> is indicated
+  using the common Emacs terminology of <em>prefix arg</em> or
+  <em>interactive prefix arg</em>.</p>
 
+  <dl compact="compact">
+    <dd><a name="index-emacspeak_002dtoggle_002dcharacter_002decho"
+    id="index-emacspeak_002dtoggle_002dcharacter_002decho"></a>
+    <a name="index-control-e-d-k" id=
+    "index-control-e-d-k"></a></dd>
 
+    <dt><kbd><kbd>control e d k</kbd></kbd></dt>
 
+    <dd>
+      <p>emacspeak-toggle-character-echo Toggle state of Emacspeak
+      character echo. Interactive PREFIX arg means toggle the
+      global default value, and then set the current local value to
+      the result.</p><a name=
+      "index-emacspeak_002dtoggle_002dword_002decho" id=
+      "index-emacspeak_002dtoggle_002dword_002decho"></a> <a name=
+      "index-control-e-d-w" id="index-control-e-d-w"></a>
+    </dd>
 
+    <dt><kbd><kbd>control e d w</kbd></kbd></dt>
+
+    <dd>
+      <p>emacspeak-toggle-word-echo Toggle state of Emacspeak word
+      echo. Interactive PREFIX arg means toggle the global default
+      value, and then set the current local value to the
+      result.</p><a name=
+      "index-emacspeak_002dtoggle_002dline_002decho" id=
+      "index-emacspeak_002dtoggle_002dline_002decho"></a> <a name=
+      "index-control-e-d-l" id="index-control-e-d-l"></a>
+    </dd>
+
+    <dt><kbd><kbd>control e d l</kbd></kbd></dt>
+
+    <dd>
+      <p>emacspeak-toggle-line-echo Toggle state of Emacspeak line
+      echo. Interactive PREFIX arg means toggle the global default
+      value, and then set the current local value to the
+      result.</p>
+    </dd>
+  </dl>
 </body>
 </html>

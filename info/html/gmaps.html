@@ -1,232 +1,364 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: gmaps</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: gmaps">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: gmaps">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" rel="up" title="Emacspeak Commands And Options">
-<link href="gphoto.html#gphoto" rel="next" title="gphoto">
-<link href="gm_002dnnir.html#gm_002dnnir" rel="prev" title="gm-nnir">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  gmaps</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: gmaps" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: gmaps" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+  rel="up" title="Emacspeak Commands And Options" />
+  <link href="gphoto.html#gphoto" rel="next" title="gphoto" />
+  <link href="gm_002dnnir.html#gm_002dnnir" rel="prev" title=
+  "gm-nnir" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="gmaps"></a>
-<div class="header">
-<p>
-Next: <a href="gphoto.html#gphoto" accesskey="n" rel="next">gphoto</a>, Previous: <a href="gm_002dnnir.html#gm_002dnnir" accesskey="p" rel="prev">gm-nnir</a>, Up: <a href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="gmaps-1"></a>
-<h3 class="section">11.197 gmaps</h3>
+<body lang="en" xml:lang="en">
+  <a name="gmaps" id="gmaps"></a>
 
-<p>No Commentary
-</p>
-<a name="gmaps-Commands"></a>
-<h4 class="subsection">11.197.1 gmaps Commands</h4>
+  <div class="header">
+    <p>Next: <a href="gphoto.html#gphoto" accesskey="n" rel=
+    "next">gphoto</a>, Previous: <a href=
+    "gm_002dnnir.html#gm_002dnnir" accesskey="p" rel=
+    "prev">gm-nnir</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="gmaps-1" id="gmaps-1"></a>
 
-<dl>
-<dt><a name="index-gmaps"></a>Interactive Command: <strong>gmaps</strong> <em>(&amp;rest rest)</em></dt>
-<dd><p>:around advice: &lsquo;ad-Advice-gmaps&rsquo;
-</p>
-<p>Google Maps Interaction.
-</p>
-<p>(fn)
-</p></dd></dl>
+  <h3 class="section">11.197 gmaps</h3>
 
-<dl>
-<dt><a name="index-gmaps_002dbicycling_002ddirections"></a>Interactive Command: <strong>gmaps-bicycling-directions</strong> <em>(&amp;rest rest)</em></dt>
-<dd><p>:around advice: &lsquo;ad-Advice-gmaps-bicycling-directions&rsquo;
-</p>
-<p>Biking directions from Google Maps.
-</p>
-<p>(fn ORIGIN DESTINATION)
-</p></dd></dl>
+  <p>No Commentary</p><a name="gmaps-Commands" id=
+  "gmaps-Commands"></a>
 
-<dl>
-<dt><a name="index-gmaps_002ddirections"></a>Interactive Command: <strong>gmaps-directions</strong> <em>(origin destination mode)</em></dt>
-<dd><p>Display  directions obtained from Google Maps.
-</p></dd></dl>
+  <h4 class="subsection">11.197.1 gmaps Commands</h4>
 
-<dl>
-<dt><a name="index-gmaps_002ddriving_002ddirections"></a>Interactive Command: <strong>gmaps-driving-directions</strong> <em>(&amp;rest rest)</em></dt>
-<dd><p>:around advice: &lsquo;ad-Advice-gmaps-driving-directions&rsquo;
-</p>
-<p>Driving directions from Google Maps.
-</p>
-<p>(fn ORIGIN DESTINATION)
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-gmaps" id="index-gmaps"></a>Interactive
+    Command: <strong>gmaps</strong> <em>(&amp;rest rest)</em></dt>
 
-<dl>
-<dt><a name="index-gmaps_002dmode"></a>Interactive Command: <strong>gmaps-mode</strong> <em>nil</em></dt>
-<dd><p>A Google Maps front-end for the Emacspeak desktop.
-</p>
-<p>In addition to any hooks its parent mode &lsquo;special-mode&rsquo; might have run,
-this mode runs the hook &lsquo;gmaps-mode-hook&rsquo;, as the final step
-during initialization.
-</p>
-<p>key             binding
-&mdash;             &mdash;&mdash;-
-</p>
-<p>TAB		forward-button
-ESC		Prefix Command
-SPC		gmaps-place-details
-[		backward-page
-]		forward-page
-b		gmaps-bicycling-directions
-c		gmaps-set-current-location
-d		gmaps-driving-directions
-f		gmaps-set-current-filter
-n		gmaps-places-nearby
-r		gmaps-set-current-radius
-s		gmaps-places-search
-t		gmaps-transit-directions
-w		gmaps-walking-directions
-</p>
-<p>M-i		backward-button
-</p>
-</dd></dl>
+    <dd>
+      <p>:around advice: &lsquo;ad-Advice-gmaps&rsquo;</p>
 
-<dl>
-<dt><a name="index-gmaps_002dplace_002ddetails"></a>Interactive Command: <strong>gmaps-place-details</strong> <em>(&amp;rest rest)</em></dt>
-<dd><p>:around advice: &lsquo;ad-Advice-gmaps-place-details&rsquo;
-</p>
-<p>Display details for place at point.
-Insert reviews if already displaying details.
-</p>
-<p>(fn)
-</p></dd></dl>
+      <p>Google Maps Interaction.</p>
 
-<dl>
-<dt><a name="index-gmaps_002dplace_002dreviews"></a>Interactive Command: <strong>gmaps-place-reviews</strong> <em>nil</em></dt>
-<dd><p>Display reviews for place at point.
-Place details need to have been expanded first.
-</p></dd></dl>
+      <p>(fn)</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-gmaps_002dplaces_002dnearby"></a>Interactive Command: <strong>gmaps-places-nearby</strong> <em>(&amp;rest rest)</em></dt>
-<dd><p>:around advice: &lsquo;ad-Advice-gmaps-places-nearby&rsquo;
-</p>
-<p>Find places near current location.
-Uses default radius. optional interactive prefix arg clears any active filters.
-</p>
-<p>(fn &amp;optional CLEAR-FILTER)
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-gmaps_002dbicycling_002ddirections" id=
+    "index-gmaps_002dbicycling_002ddirections"></a>Interactive
+    Command: <strong>gmaps-bicycling-directions</strong>
+    <em>(&amp;rest rest)</em></dt>
 
-<dl>
-<dt><a name="index-gmaps_002dplaces_002dsearch"></a>Interactive Command: <strong>gmaps-places-search</strong> <em>(&amp;rest rest)</em></dt>
-<dd><p>:around advice: &lsquo;ad-Advice-gmaps-places-search&rsquo;
-</p>
-<p>Perform a places search.
-Use this only if you dont know the locality  of the place you&rsquo;re looking for.
-Optional  prefix arg clears any active filters.
-</p>
-<p>(fn QUERY &amp;optional CLEAR-FILTER)
-</p></dd></dl>
+    <dd>
+      <p>:around advice:
+      &lsquo;ad-Advice-gmaps-bicycling-directions&rsquo;</p>
 
-<dl>
-<dt><a name="index-gmaps_002dset_002dcurrent_002dfilter"></a>Interactive Command: <strong>gmaps-set-current-filter</strong> <em>(&amp;optional all)</em></dt>
-<dd><p>Set up filter in current buffer.
-Optional interactive prefix arg prompts for all filter fields.
-</p></dd></dl>
+      <p>Biking directions from Google Maps.</p>
 
-<dl>
-<dt><a name="index-gmaps_002dset_002dcurrent_002dlocation"></a>Interactive Command: <strong>gmaps-set-current-location</strong> <em>(&amp;rest rest)</em></dt>
-<dd><p>:around advice: &lsquo;ad-Advice-gmaps-set-current-location&rsquo;
-</p>
-<p>Set current location.
-</p>
-<p>(fn ADDRESS)
-</p></dd></dl>
+      <p>(fn ORIGIN DESTINATION)</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-gmaps_002dset_002dcurrent_002dradius"></a>Interactive Command: <strong>gmaps-set-current-radius</strong> <em>(&amp;rest rest)</em></dt>
-<dd><p>:around advice: &lsquo;ad-Advice-gmaps-set-current-radius&rsquo;
-</p>
-<p>Set current radius
-</p>
-<p>(fn RADIUS)
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-gmaps_002ddirections" id=
+    "index-gmaps_002ddirections"></a>Interactive Command:
+    <strong>gmaps-directions</strong> <em>(origin destination
+    mode)</em></dt>
 
-<dl>
-<dt><a name="index-gmaps_002dtransit_002ddirections"></a>Interactive Command: <strong>gmaps-transit-directions</strong> <em>(&amp;rest rest)</em></dt>
-<dd><p>:around advice: &lsquo;ad-Advice-gmaps-transit-directions&rsquo;
-</p>
-<p>Transit directions from Google Maps.
-</p>
-<p>(fn ORIGIN DESTINATION)
-</p></dd></dl>
+    <dd>
+      <p>Display directions obtained from Google Maps.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-gmaps_002dwalking_002ddirections"></a>Interactive Command: <strong>gmaps-walking-directions</strong> <em>(&amp;rest rest)</em></dt>
-<dd><p>:around advice: &lsquo;ad-Advice-gmaps-walking-directions&rsquo;
-</p>
-<p>Walking directions from Google Maps.
-</p>
-<p>(fn ORIGIN DESTINATION)
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-gmaps_002ddriving_002ddirections" id=
+    "index-gmaps_002ddriving_002ddirections"></a>Interactive
+    Command: <strong>gmaps-driving-directions</strong>
+    <em>(&amp;rest rest)</em></dt>
 
-<a name="gmaps-Options"></a>
-<h4 class="subsection">11.197.2 gmaps Options</h4>
+    <dd>
+      <p>:around advice:
+      &lsquo;ad-Advice-gmaps-driving-directions&rsquo;</p>
 
-<dl>
-<dt><a name="index-User-Option-860"></a>Variable: <strong>User Option</strong> <em>gmaps-places-key</em></dt>
-<dd><p>Places API  key &mdash; goto  https://code.google.com/apis/console to get one.
-</p>
-</dd></dl>
+      <p>Driving directions from Google Maps.</p>
 
-<dl>
-<dt><a name="index-User-Option-861"></a>Variable: <strong>User Option</strong> <em>gweb-my-address</em></dt>
-<dd><p>Location address. Setting this updates gweb-my-location coordinates  via geocoding.
-</p>
-</dd></dl>
+      <p>(fn ORIGIN DESTINATION)</p>
+    </dd>
+  </dl>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="gphoto.html#gphoto" accesskey="n" rel="next">gphoto</a>, Previous: <a href="gm_002dnnir.html#gm_002dnnir" accesskey="p" rel="prev">gm-nnir</a>, Up: <a href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+  <dl>
+    <dt><a name="index-gmaps_002dmode" id=
+    "index-gmaps_002dmode"></a>Interactive Command:
+    <strong>gmaps-mode</strong> <em>nil</em></dt>
 
+    <dd>
+      <p>A Google Maps front-end for the Emacspeak desktop.</p>
 
+      <p>In addition to any hooks its parent mode
+      &lsquo;special-mode&rsquo; might have run, this mode runs the
+      hook &lsquo;gmaps-mode-hook&rsquo;, as the final step during
+      initialization.</p>
 
+      <p>key binding &mdash; &mdash;&mdash;-</p>
+
+      <p>TAB forward-button ESC Prefix Command SPC
+      gmaps-place-details [ backward-page ] forward-page b
+      gmaps-bicycling-directions c gmaps-set-current-location d
+      gmaps-driving-directions f gmaps-set-current-filter n
+      gmaps-places-nearby r gmaps-set-current-radius s
+      gmaps-places-search t gmaps-transit-directions w
+      gmaps-walking-directions</p>
+
+      <p>M-i backward-button</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-gmaps_002dplace_002ddetails" id=
+    "index-gmaps_002dplace_002ddetails"></a>Interactive Command:
+    <strong>gmaps-place-details</strong> <em>(&amp;rest
+    rest)</em></dt>
+
+    <dd>
+      <p>:around advice:
+      &lsquo;ad-Advice-gmaps-place-details&rsquo;</p>
+
+      <p>Display details for place at point. Insert reviews if
+      already displaying details.</p>
+
+      <p>(fn)</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-gmaps_002dplace_002dreviews" id=
+    "index-gmaps_002dplace_002dreviews"></a>Interactive Command:
+    <strong>gmaps-place-reviews</strong> <em>nil</em></dt>
+
+    <dd>
+      <p>Display reviews for place at point. Place details need to
+      have been expanded first.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-gmaps_002dplaces_002dnearby" id=
+    "index-gmaps_002dplaces_002dnearby"></a>Interactive Command:
+    <strong>gmaps-places-nearby</strong> <em>(&amp;rest
+    rest)</em></dt>
+
+    <dd>
+      <p>:around advice:
+      &lsquo;ad-Advice-gmaps-places-nearby&rsquo;</p>
+
+      <p>Find places near current location. Uses default radius.
+      optional interactive prefix arg clears any active
+      filters.</p>
+
+      <p>(fn &amp;optional CLEAR-FILTER)</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-gmaps_002dplaces_002dsearch" id=
+    "index-gmaps_002dplaces_002dsearch"></a>Interactive Command:
+    <strong>gmaps-places-search</strong> <em>(&amp;rest
+    rest)</em></dt>
+
+    <dd>
+      <p>:around advice:
+      &lsquo;ad-Advice-gmaps-places-search&rsquo;</p>
+
+      <p>Perform a places search. Use this only if you dont know
+      the locality of the place you&rsquo;re looking for. Optional
+      prefix arg clears any active filters.</p>
+
+      <p>(fn QUERY &amp;optional CLEAR-FILTER)</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-gmaps_002dset_002dcurrent_002dfilter" id=
+    "index-gmaps_002dset_002dcurrent_002dfilter"></a>Interactive
+    Command: <strong>gmaps-set-current-filter</strong>
+    <em>(&amp;optional all)</em></dt>
+
+    <dd>
+      <p>Set up filter in current buffer. Optional interactive
+      prefix arg prompts for all filter fields.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-gmaps_002dset_002dcurrent_002dlocation" id=
+    "index-gmaps_002dset_002dcurrent_002dlocation"></a>Interactive
+    Command: <strong>gmaps-set-current-location</strong>
+    <em>(&amp;rest rest)</em></dt>
+
+    <dd>
+      <p>:around advice:
+      &lsquo;ad-Advice-gmaps-set-current-location&rsquo;</p>
+
+      <p>Set current location.</p>
+
+      <p>(fn ADDRESS)</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-gmaps_002dset_002dcurrent_002dradius" id=
+    "index-gmaps_002dset_002dcurrent_002dradius"></a>Interactive
+    Command: <strong>gmaps-set-current-radius</strong>
+    <em>(&amp;rest rest)</em></dt>
+
+    <dd>
+      <p>:around advice:
+      &lsquo;ad-Advice-gmaps-set-current-radius&rsquo;</p>
+
+      <p>Set current radius</p>
+
+      <p>(fn RADIUS)</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-gmaps_002dtransit_002ddirections" id=
+    "index-gmaps_002dtransit_002ddirections"></a>Interactive
+    Command: <strong>gmaps-transit-directions</strong>
+    <em>(&amp;rest rest)</em></dt>
+
+    <dd>
+      <p>:around advice:
+      &lsquo;ad-Advice-gmaps-transit-directions&rsquo;</p>
+
+      <p>Transit directions from Google Maps.</p>
+
+      <p>(fn ORIGIN DESTINATION)</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-gmaps_002dwalking_002ddirections" id=
+    "index-gmaps_002dwalking_002ddirections"></a>Interactive
+    Command: <strong>gmaps-walking-directions</strong>
+    <em>(&amp;rest rest)</em></dt>
+
+    <dd>
+      <p>:around advice:
+      &lsquo;ad-Advice-gmaps-walking-directions&rsquo;</p>
+
+      <p>Walking directions from Google Maps.</p>
+
+      <p>(fn ORIGIN DESTINATION)</p>
+    </dd>
+  </dl><a name="gmaps-Options" id="gmaps-Options"></a>
+
+  <h4 class="subsection">11.197.2 gmaps Options</h4>
+
+  <dl>
+    <dt><a name="index-User-Option-860" id=
+    "index-User-Option-860"></a>Variable: <strong>User
+    Option</strong> <em>gmaps-places-key</em></dt>
+
+    <dd>
+      <p>Places API key &mdash; goto
+      https://code.google.com/apis/console to get one.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-861" id=
+    "index-User-Option-861"></a>Variable: <strong>User
+    Option</strong> <em>gweb-my-address</em></dt>
+
+    <dd>
+      <p>Location address. Setting this updates gweb-my-location
+      coordinates via geocoding.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href="gphoto.html#gphoto" accesskey="n" rel=
+    "next">gphoto</a>, Previous: <a href=
+    "gm_002dnnir.html#gm_002dnnir" accesskey="p" rel=
+    "prev">gm-nnir</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

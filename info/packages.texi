@@ -77,18 +77,6 @@ through the source efficiently. In addition, Emacspeak's core
 @b{voice-lock} facilities are used to produce audio formatted output
 --this helps you spot errors quickly.
 
-@unnumberedsec Related Packages
-
-@menu
- * emacspeak-c:: emacspeak-c
- * emacspeak-perl:: emacspeak-perl
- * emacspeak-tcl:: emacspeak-tcl
- * emacspeak-python:: emacspeak-python
- * emacspeak-jde:: emacspeak-jde
- * emacspeak-make-mode:: emacspeak-make-mode
- * emacspeak-sql:: emacspeak-sql
-@end menu
-
 @node Development Environment
 @section Development Environment
 
@@ -98,17 +86,6 @@ Emacs provides a rich set of software development tools that can be
 combined to create powerful Integrated Development Environments (IDE).
 These IDEs are speech-enabled by Emacspeak to provide a versatile and
 powerful environment for eyes-free software development.
-@unnumberedsec Related Packages
-
-@menu
- * emacspeak-compile:: emacspeak-compile
- * emacspeak-ediff:: emacspeak-ediff
- * emacspeak-gud:: emacspeak-gud
- * emacspeak-jde:: emacspeak-jde
- * emacspeak-speedbar:: emacspeak-speedbar
- * emacspeak-imenu:: emacspeak-imenu
-@end menu
-
 @node Desktop Management
 @section Desktop Management
 
@@ -123,33 +100,11 @@ documents and applications open at the same time, the Emacspeak desktop
 provides
 a powerful collection of desktop management tools designed to help the
 user easily locate objects that pertain to a given task.
-@unnumberedsec Related Packages
-
-@menu
- * emacspeak-buff-menu.el:: emacspeak-buff-menu.el
- * emacspeak-dired.el:: emacspeak-dired.el
- * emacspeak-view-process.el:: emacspeak-view-process.el
- * emacspeak-tar.el:: emacspeak-tar.el
- * emacspeak-arc.el:: emacspeak-arc.el
- * emacspeak-bookmark.el:: emacspeak-bookmark.el
- * emacspeak-custom.el:: emacspeak-custom.el
- * emacspeak-winring.el:: emacspeak-winring.el
- * emacspeak-finder.el:: emacspeak-finder.el
-@end menu
 
 @node Personal Information Management
 @section Personal Information Management
 This section describes speech-enabled tools designed to aid in personal
 information management such as maintaining a daily calendar.
-
-@unnumberedsec Related Packages
-
-@menu
- * emacspeak-calendar:: emacspeak-calendar
- * emacspeak-bbdb:: emacspeak-bbdb
- * emacspeak-bookmark:: emacspeak-bookmark
-@end menu
-
 @node Desktop Applications
 @section Desktop Applications
 

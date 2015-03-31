@@ -1,248 +1,288 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Miscellaneous</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Miscellaneous">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Miscellaneous">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Speech-System.html#Speech-System" rel="up" title="Speech System">
-<link href="Voice_002dlock.html#Voice_002dlock" rel="next" title="Voice-lock">
-<link href="Speech-Output-Control.html#Speech-Output-Control" rel="prev" title="Speech Output  Control">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  Miscellaneous</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Miscellaneous" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Miscellaneous" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Speech-System.html#Speech-System" rel="up" title=
+  "Speech System" />
+  <link href="Voice_002dlock.html#Voice_002dlock" rel="next" title=
+  "Voice-lock" />
+  <link href="Speech-Output-Control.html#Speech-Output-Control"
+  rel="prev" title="Speech Output Control" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="Miscellaneous"></a>
-<div class="header">
-<p>
-Previous: <a href="Speech-Output-Control.html#Speech-Output-Control" accesskey="p" rel="prev">Speech Output  Control</a>, Up: <a href="Speech-System.html#Speech-System" accesskey="u" rel="up">Speech System</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="Miscellaneous-Speech-Commands"></a>
-<h4 class="subsection">5.4.3 Miscellaneous Speech Commands</h4>
+<body lang="en" xml:lang="en">
+  <a name="Miscellaneous" id="Miscellaneous"></a>
 
+  <div class="header">
+    <p>Previous: <a href=
+    "Speech-Output-Control.html#Speech-Output-Control" accesskey=
+    "p" rel="prev">Speech Output Control</a>, Up: <a href=
+    "Speech-System.html#Speech-System" accesskey="u" rel=
+    "up">Speech System</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="Miscellaneous-Speech-Commands" id=
+  "Miscellaneous-Speech-Commands"></a>
 
-<p>Speech can be stopped using command <code>dtk-stop</code>
-&ndash;though in normal use, 
-the action of moving the cursor will stop ongoing speech. Speech can
-also be paused and resumed.
-The speech server can be stopped and restarted for cases where the user
-wants to switch to a different server &ndash;or in the rare case to nuke a
-runaway speech server.
-</p>
+  <h4 class="subsection">5.4.3 Miscellaneous Speech Commands</h4>
 
-<dl compact="compact">
-<dd>
-<a name="index-dtk_002dstop"></a>
-<a name="index-pause-control-e-s"></a>
- 
-</dd>
-<dt><kbd><kbd>Control e s</kbd></kbd></dt>
-<dd><p>dtk-stop
- Stop speech now.
-</p>
+  <p>Speech can be stopped using command <code>dtk-stop</code>
+  &ndash;though in normal use, the action of moving the cursor will
+  stop ongoing speech. Speech can also be paused and resumed. The
+  speech server can be stopped and restarted for cases where the
+  user wants to switch to a different server &ndash;or in the rare
+  case to nuke a runaway speech server.</p>
 
-<a name="index-dtk_002dpause"></a>
-<a name="index-control-e-p"></a>
- 
-</dd>
-<dt><kbd><kbd> control e p </kbd></kbd></dt>
-<dd><p>dtk-pause
- Pause ongoing speech.
-The speech can be resumed with command &lsquo;dtk-resume&rsquo;
-normally bound to C-e SPC.  Pausing speech is useful when one needs to
-perform a few actions before continuing to read a large document.  Emacspeak
-gives you speech feedback as usual once speech has been paused.  &lsquo;dtk-resume&rsquo;
-continues the interrupted speech irrespective of the buffer
-in which it is executed.
-Optional PREFIX arg flushes any previously paused speech.
-</p>
+  <dl compact="compact">
+    <dd><a name="index-dtk_002dstop" id="index-dtk_002dstop"></a>
+    <a name="index-pause-control-e-s" id=
+    "index-pause-control-e-s"></a></dd>
 
-<a name="index-dtk_002dresume"></a>
-<a name="index-control-e-SPACE"></a>
- 
-</dd>
-<dt><kbd><kbd> control e SPACE </kbd></kbd></dt>
-<dd><p>dtk-resume
- Resume paused speech.
-This command resumes  speech that has been suspended by executing
-command &lsquo;dtk-pause&rsquo; bound to C-e p.
-If speech has not been paused,
-and variable &lsquo;dtk-resume-should-toggle&rsquo; is t
- then this command will pause ongoing speech.
-</p>
+    <dt><kbd><kbd>Control e s</kbd></kbd></dt>
 
-<a name="index-dtk_002dtoggle_002dquiet"></a>
-<a name="index-control-e-d-q"></a>
- 
-</dd>
-<dt><kbd><kbd> control e d q </kbd></kbd></dt>
-<dd><p>dtk-toggle-quiet
- Toggle state of the speech device between being quiet and talkative.
-Useful if you want to continue using an Emacs session that has
-emacspeak loaded but wish to make the speech shut up.
-Optional argument PREFIX specifies whether speech is turned off in the current buffer or in all buffers.
-</p>
+    <dd>
+      <p>dtk-stop Stop speech now.</p><a name="index-dtk_002dpause"
+      id="index-dtk_002dpause"></a> <a name="index-control-e-p" id=
+      "index-control-e-p"></a>
+    </dd>
 
+    <dt><kbd><kbd>control e p</kbd></kbd></dt>
 
-<a name="index-dtk_002demergency_002drestart"></a>
-<a name="index-control-e-control-s"></a>
- 
-</dd>
-<dt><kbd><kbd> control e control s </kbd></kbd></dt>
-<dd><p>dtk-emergency-restart
- Use this to nuke the currently running dtk server and restart it.
-Useful if you want to switch to another synthesizer while emacspeak is
-running.  Also useful for emergency stopping of speech.
-</p>
+    <dd>
+      <p>dtk-pause Pause ongoing speech. The speech can be resumed
+      with command &lsquo;dtk-resume&rsquo; normally bound to C-e
+      SPC. Pausing speech is useful when one needs to perform a few
+      actions before continuing to read a large document. Emacspeak
+      gives you speech feedback as usual once speech has been
+      paused. &lsquo;dtk-resume&rsquo; continues the interrupted
+      speech irrespective of the buffer in which it is executed.
+      Optional PREFIX arg flushes any previously paused
+      speech.</p><a name="index-dtk_002dresume" id=
+      "index-dtk_002dresume"></a> <a name="index-control-e-SPACE"
+      id="index-control-e-SPACE"></a>
+    </dd>
 
-</dd>
-</dl>
+    <dt><kbd><kbd>control e SPACE</kbd></kbd></dt>
 
+    <dd>
+      <p>dtk-resume Resume paused speech. This command resumes
+      speech that has been suspended by executing command
+      &lsquo;dtk-pause&rsquo; bound to C-e p. If speech has not
+      been paused, and variable
+      &lsquo;dtk-resume-should-toggle&rsquo; is t then this command
+      will pause ongoing speech.</p><a name=
+      "index-dtk_002dtoggle_002dquiet" id=
+      "index-dtk_002dtoggle_002dquiet"></a> <a name=
+      "index-control-e-d-q" id="index-control-e-d-q"></a>
+    </dd>
 
-<p>Finally, here are the remaining commands available via the TTS related
-keymap <kbd>C-e d</kbd>.
-</p>
-<dl compact="compact">
-<dd>
-<a name="index-dtk_002dadd_002dcleanup_002dpattern"></a>
-<a name="index-control-e-d-a"></a>
- 
-</dd>
-<dt><kbd><kbd> control e d a </kbd></kbd></dt>
-<dd><p>dtk-add-cleanup-pattern
- Add this pattern to the list of repeating patterns that are cleaned up.
-Optional interactive prefix arg deletes  this pattern if
-previously added.  Cleaning up repeated patterns results in emacspeak
-speaking the pattern followed by a repeat count instead of speaking
-all the characters making up the pattern.  Thus, by adding the
-repeating pattern &lsquo;.&rsquo; (this is already added by default) emacspeak
-will say &ldquo;aw fifteen dot&rdquo; when speaking the string
-&ldquo;...............&rdquo; instead of &ldquo;period period period period &rdquo;.
-</p>
+    <dt><kbd><kbd>control e d q</kbd></kbd></dt>
 
+    <dd>
+      <p>dtk-toggle-quiet Toggle state of the speech device between
+      being quiet and talkative. Useful if you want to continue
+      using an Emacs session that has emacspeak loaded but wish to
+      make the speech shut up. Optional argument PREFIX specifies
+      whether speech is turned off in the current buffer or in all
+      buffers.</p><a name="index-dtk_002demergency_002drestart" id=
+      "index-dtk_002demergency_002drestart"></a> <a name=
+      "index-control-e-control-s" id=
+      "index-control-e-control-s"></a>
+    </dd>
 
+    <dt><kbd><kbd>control e control s</kbd></kbd></dt>
 
-<a name="index-dtk_002dselect_002dserver"></a>
-<a name="index-control-e-d-d"></a>
- 
-</dd>
-<dt><kbd><kbd> control e d d </kbd></kbd></dt>
-<dd><p>dtk-select-server
- Select a speech server interactively.
-This will be the server that is used when you next call either
-M-x dtk-initialize or C-e C-s.
-Argument PROGRAM specifies the speech server program.
-</p>
+    <dd>
+      <p>dtk-emergency-restart Use this to nuke the currently
+      running dtk server and restart it. Useful if you want to
+      switch to another synthesizer while emacspeak is running.
+      Also useful for emergency stopping of speech.</p>
+    </dd>
+  </dl>
 
-<a name="index-dtk_002dtoggle_002dsplitting_002don_002dwhite_002dspace"></a>
-<a name="index-control-e-d-SPACE"></a>
- 
-</dd>
-<dt><kbd><kbd> control e d SPACE </kbd></kbd></dt>
-<dd><p>dtk-toggle-splitting-on-white-space
- Toggle splitting of speech on white space.
-This affects the internal state of emacspeak that decides if we split
-text purely by clause boundaries, or also include
-whitespace.  By default, emacspeak sends a clause at a time
-to the speech device.  This produces fluent speech for
-normal use.  However in modes such as &lsquo;shell-mode&rsquo; and some
-programming language modes, clause markers appear
-infrequently, and this can result in large amounts of text
-being sent to the speech device at once, making the system
-unresponsive when asked to stop talking.  Splitting on white
-space makes emacspeak&rsquo;s stop command responsive.  However,
-when splitting on white space, the speech sounds choppy
-since the synthesizer is getting a word at a time.
-</p>
+  <p>Finally, here are the remaining commands available via the TTS
+  related keymap <kbd>C-e d</kbd>.</p>
 
+  <dl compact="compact">
+    <dd><a name="index-dtk_002dadd_002dcleanup_002dpattern" id=
+    "index-dtk_002dadd_002dcleanup_002dpattern"></a> <a name=
+    "index-control-e-d-a" id="index-control-e-d-a"></a></dd>
 
-<a name="index-dtk_002dset_002dchunk_002dseparator_002dsyntax"></a>
-<a name="index-control-e-d-RETURN"></a>
- 
-</dd>
-<dt><kbd><kbd> control e d RETURN </kbd></kbd></dt>
-<dd><p>dtk-set-chunk-separator-syntax
- Interactively set how text is split in chunks.
-See the Emacs documentation on syntax tables for details on how characters are
-classified into various syntactic classes.
-Argument S specifies the syntax class.
-</p>
+    <dt><kbd><kbd>control e d a</kbd></kbd></dt>
 
-<a name="index-emacspeak_002ddial_002ddtk"></a>
-<a name="index-control-e-d-t"></a>
- 
-</dd>
-<dt><kbd><kbd> control e d t </kbd></kbd></dt>
-<dd><p>emacspeak-dial-dtk
- Prompt for and dial a phone NUMBER with the Dectalk.
-</p>
+    <dd>
+      <p>dtk-add-cleanup-pattern Add this pattern to the list of
+      repeating patterns that are cleaned up. Optional interactive
+      prefix arg deletes this pattern if previously added. Cleaning
+      up repeated patterns results in emacspeak speaking the
+      pattern followed by a repeat count instead of speaking all
+      the characters making up the pattern. Thus, by adding the
+      repeating pattern &lsquo;.&rsquo; (this is already added by
+      default) emacspeak will say &ldquo;aw fifteen dot&rdquo; when
+      speaking the string &ldquo;...............&rdquo; instead of
+      &ldquo;period period period period &rdquo;.</p><a name=
+      "index-dtk_002dselect_002dserver" id=
+      "index-dtk_002dselect_002dserver"></a> <a name=
+      "index-control-e-d-d" id="index-control-e-d-d"></a>
+    </dd>
 
-<a name="index-emacspeak_002ddtk_002dspeak_002dversion"></a>
-<a name="index-control-e-d-cap-V"></a>
- 
-</dd>
-<dt><kbd><kbd> control e d  cap V  </kbd></kbd></dt>
-<dd><p>emacspeak-dtk-speak-version
- Use this to find out which version of the TTS firmware you are running.
-</p>
+    <dt><kbd><kbd>control e d d</kbd></kbd></dt>
 
-<a name="index-emacspeak_002dzap_002ddtk"></a>
-<a name="index-control-e-d-z"></a>
- 
-</dd>
-<dt><kbd><kbd> control e d z </kbd></kbd></dt>
-<dd><p>emacspeak-zap-dtk
- Send this command to the TTS engine  directly.
-</p>
-</dd>
-</dl>
+    <dd>
+      <p>dtk-select-server Select a speech server interactively.
+      This will be the server that is used when you next call
+      either M-x dtk-initialize or C-e C-s. Argument PROGRAM
+      specifies the speech server program.</p><a name=
+      "index-dtk_002dtoggle_002dsplitting_002don_002dwhite_002dspace"
+      id=
+      "index-dtk_002dtoggle_002dsplitting_002don_002dwhite_002dspace"></a>
+      <a name="index-control-e-d-SPACE" id=
+      "index-control-e-d-SPACE"></a>
+    </dd>
 
-<hr>
-<div class="header">
-<p>
-Previous: <a href="Speech-Output-Control.html#Speech-Output-Control" accesskey="p" rel="prev">Speech Output  Control</a>, Up: <a href="Speech-System.html#Speech-System" accesskey="u" rel="up">Speech System</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+    <dt><kbd><kbd>control e d SPACE</kbd></kbd></dt>
 
+    <dd>
+      <p>dtk-toggle-splitting-on-white-space Toggle splitting of
+      speech on white space. This affects the internal state of
+      emacspeak that decides if we split text purely by clause
+      boundaries, or also include whitespace. By default, emacspeak
+      sends a clause at a time to the speech device. This produces
+      fluent speech for normal use. However in modes such as
+      &lsquo;shell-mode&rsquo; and some programming language modes,
+      clause markers appear infrequently, and this can result in
+      large amounts of text being sent to the speech device at
+      once, making the system unresponsive when asked to stop
+      talking. Splitting on white space makes emacspeak&rsquo;s
+      stop command responsive. However, when splitting on white
+      space, the speech sounds choppy since the synthesizer is
+      getting a word at a time.</p><a name=
+      "index-dtk_002dset_002dchunk_002dseparator_002dsyntax" id=
+      "index-dtk_002dset_002dchunk_002dseparator_002dsyntax"></a>
+      <a name="index-control-e-d-RETURN" id=
+      "index-control-e-d-RETURN"></a>
+    </dd>
 
+    <dt><kbd><kbd>control e d RETURN</kbd></kbd></dt>
 
+    <dd>
+      <p>dtk-set-chunk-separator-syntax Interactively set how text
+      is split in chunks. See the Emacs documentation on syntax
+      tables for details on how characters are classified into
+      various syntactic classes. Argument S specifies the syntax
+      class.</p><a name="index-emacspeak_002ddial_002ddtk" id=
+      "index-emacspeak_002ddial_002ddtk"></a> <a name=
+      "index-control-e-d-t" id="index-control-e-d-t"></a>
+    </dd>
+
+    <dt><kbd><kbd>control e d t</kbd></kbd></dt>
+
+    <dd>
+      <p>emacspeak-dial-dtk Prompt for and dial a phone NUMBER with
+      the Dectalk.</p><a name=
+      "index-emacspeak_002ddtk_002dspeak_002dversion" id=
+      "index-emacspeak_002ddtk_002dspeak_002dversion"></a> <a name=
+      "index-control-e-d-cap-V" id="index-control-e-d-cap-V"></a>
+    </dd>
+
+    <dt><kbd><kbd>control e d cap V</kbd></kbd></dt>
+
+    <dd>
+      <p>emacspeak-dtk-speak-version Use this to find out which
+      version of the TTS firmware you are running.</p><a name=
+      "index-emacspeak_002dzap_002ddtk" id=
+      "index-emacspeak_002dzap_002ddtk"></a> <a name=
+      "index-control-e-d-z" id="index-control-e-d-z"></a>
+    </dd>
+
+    <dt><kbd><kbd>control e d z</kbd></kbd></dt>
+
+    <dd>
+      <p>emacspeak-zap-dtk Send this command to the TTS engine
+      directly.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Previous: <a href=
+    "Speech-Output-Control.html#Speech-Output-Control" accesskey=
+    "p" rel="prev">Speech Output Control</a>, Up: <a href=
+    "Speech-System.html#Speech-System" accesskey="u" rel=
+    "up">Speech System</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

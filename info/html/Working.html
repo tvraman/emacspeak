@@ -1,124 +1,172 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Working</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Working">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Working">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Basic-Usage.html#Basic-Usage" rel="up" title="Basic Usage">
-<link href="Reading.html#Reading" rel="next" title="Reading">
-<link href="Overview.html#Overview" rel="prev" title="Overview">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  Working</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Working" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Working" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Basic-Usage.html#Basic-Usage" rel="up" title=
+  "Basic Usage" />
+  <link href="Reading.html#Reading" rel="next" title="Reading" />
+  <link href="Overview.html#Overview" rel="prev" title=
+  "Overview" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="Working"></a>
-<div class="header">
-<p>
-Next: <a href="Reading.html#Reading" accesskey="n" rel="next">Reading</a>, Previous: <a href="Overview.html#Overview" accesskey="p" rel="prev">Overview</a>, Up: <a href="Basic-Usage.html#Basic-Usage" accesskey="u" rel="up">Basic Usage</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="Working-In-Emacs-Buffers_002e"></a>
-<h3 class="section">5.2 Working In Emacs Buffers.</h3>
+<body lang="en" xml:lang="en">
+  <a name="Working" id="Working"></a>
 
-<p>While typing in an Emacs buffer, hitting space  speaks  the recently typed
-word.  I use  completion all the time; so Emacspeak will speak the
-completion just inserted as well as the next possible completion.
-In Emacs, use <code>load-library ret completion ret</code> for loading
-the completion package.  
-</p>
-<p>The standard Emacs prompting functions have also been speech-enabled.
-Emacs prompts with available lists of completions in response to partial
-input wherever appropriate &mdash;all forms of completion provide speech
-feedback.
-</p>
-<p>In addition, Emacspeak provides a number of commands for reading portions of the current buffer,
-getting status information, and modifying Emacspeak&rsquo;s state.
-</p>
-<p>All of the commands are documented in the subsequent sections.
-They can be classified into types:
-</p>
-<ul>
-<li> Emacspeak commands for listening to chunks of information.  The names
- of these commands all start with the common prefix
- <code>emacspeak-speak-</code>.  All Emacspeak commands are bound to the
- keymap <var>emacspeak-keymap</var> and are accessed with the key
- <kbd>Control e</kbd><a name="DOCF2" href="#FOOT2"><sup>2</sup></a>.  Thus,
- the Emacspeak command <em>emacspeak-speak-line</em> is bound to <kbd>l</kbd> in
- keymap <var>emacspeak-keymap</var> and can be accessed with the keystroke
- <kbd>Control-e l</kbd>.  If for some reason you wish to use some key other
- than <kbd>control-e</kbd> as the common keyboard prefix for all Emacspeak
- commands, set the variable <var>emacspeak-prefix</var>.
-</li><li> 
-The second category of commands provided by Emacspeak manipulate the state of the speech device.
- The names of these commands start with the common prefix <code>dtk-</code> and are bound in keymap
-<var>emacspeak-dtk-submap</var>.
- You can access these commands via the prefix <kbd>Control-e d</kbd><a name="DOCF3" href="#FOOT3"><sup>3</sup></a>.
-Thus, the command <em>dtk-set-rate</em> is bound to <kbd>r</kbd>
- in keymap <var>emacspeak-dtk-submap</var> and can be executed by
-pressing <kbd>Control e d r</kbd>.
-</li></ul>
+  <div class="header">
+    <p>Next: <a href="Reading.html#Reading" accesskey="n" rel=
+    "next">Reading</a>, Previous: <a href="Overview.html#Overview"
+    accesskey="p" rel="prev">Overview</a>, Up: <a href=
+    "Basic-Usage.html#Basic-Usage" accesskey="u" rel="up">Basic
+    Usage</a> &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="Working-In-Emacs-Buffers_002e" id=
+  "Working-In-Emacs-Buffers_002e"></a>
 
-<p>Emacs has extensive online help; so does emacspeak. 
- Please use it.
-</p>
-<p>This info manual is only to get you started.
-You can get a summary of Emacspeak&rsquo;s features by pressing <kbd>Control-h Control-e</kbd>
-</p>
-<div class="footnote">
-<hr>
-<h4 class="footnotes-heading">Footnotes</h4>
+  <h3 class="section">5.2 Working In Emacs Buffers.</h3>
 
-<h3><a name="FOOT2" href="#DOCF2">(2)</a></h3>
-<p>Control e is mnemonic for Emacspeak.</p>
-<h3><a name="FOOT3" href="#DOCF3">(3)</a></h3>
-<p>d is mnemonic for Dectalk.</p>
-</div>
-<hr>
-<div class="header">
-<p>
-Next: <a href="Reading.html#Reading" accesskey="n" rel="next">Reading</a>, Previous: <a href="Overview.html#Overview" accesskey="p" rel="prev">Overview</a>, Up: <a href="Basic-Usage.html#Basic-Usage" accesskey="u" rel="up">Basic Usage</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+  <p>While typing in an Emacs buffer, hitting space speaks the
+  recently typed word. I use completion all the time; so Emacspeak
+  will speak the completion just inserted as well as the next
+  possible completion. In Emacs, use <code>load-library ret
+  completion ret</code> for loading the completion package.</p>
 
+  <p>The standard Emacs prompting functions have also been
+  speech-enabled. Emacs prompts with available lists of completions
+  in response to partial input wherever appropriate &mdash;all
+  forms of completion provide speech feedback.</p>
 
+  <p>In addition, Emacspeak provides a number of commands for
+  reading portions of the current buffer, getting status
+  information, and modifying Emacspeak&rsquo;s state.</p>
 
+  <p>All of the commands are documented in the subsequent sections.
+  They can be classified into types:</p>
+
+  <ul>
+    <li>Emacspeak commands for listening to chunks of information.
+    The names of these commands all start with the common prefix
+    <code>emacspeak-speak-</code>. All Emacspeak commands are bound
+    to the keymap <var>emacspeak-keymap</var> and are accessed with
+    the key <kbd>Control e</kbd><a name="DOCF2" href="#FOOT2" id=
+    "DOCF2"><sup>2</sup></a>. Thus, the Emacspeak command
+    <em>emacspeak-speak-line</em> is bound to <kbd>l</kbd> in
+    keymap <var>emacspeak-keymap</var> and can be accessed with the
+    keystroke <kbd>Control-e l</kbd>. If for some reason you wish
+    to use some key other than <kbd>control-e</kbd> as the common
+    keyboard prefix for all Emacspeak commands, set the variable
+    <var>emacspeak-prefix</var>.</li>
+
+    <li>The second category of commands provided by Emacspeak
+    manipulate the state of the speech device. The names of these
+    commands start with the common prefix <code>dtk-</code> and are
+    bound in keymap <var>emacspeak-dtk-submap</var>. You can access
+    these commands via the prefix <kbd>Control-e d</kbd><a name=
+    "DOCF3" href="#FOOT3" id="DOCF3"><sup>3</sup></a>. Thus, the
+    command <em>dtk-set-rate</em> is bound to <kbd>r</kbd> in
+    keymap <var>emacspeak-dtk-submap</var> and can be executed by
+    pressing <kbd>Control e d r</kbd>.</li>
+  </ul>
+
+  <p>Emacs has extensive online help; so does emacspeak. Please use
+  it.</p>
+
+  <p>This info manual is only to get you started. You can get a
+  summary of Emacspeak&rsquo;s features by pressing <kbd>Control-h
+  Control-e</kbd></p>
+
+  <div class="footnote">
+    <hr />
+
+    <h4 class="footnotes-heading">Footnotes</h4>
+
+    <h3><a name="FOOT2" href="#DOCF2" id="FOOT2">(2)</a></h3>
+
+    <p>Control e is mnemonic for Emacspeak.</p>
+
+    <h3><a name="FOOT3" href="#DOCF3" id="FOOT3">(3)</a></h3>
+
+    <p>d is mnemonic for Dectalk.</p>
+  </div>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href="Reading.html#Reading" accesskey="n" rel=
+    "next">Reading</a>, Previous: <a href="Overview.html#Overview"
+    accesskey="p" rel="prev">Overview</a>, Up: <a href=
+    "Basic-Usage.html#Basic-Usage" accesskey="u" rel="up">Basic
+    Usage</a> &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

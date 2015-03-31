@@ -1,170 +1,214 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Context-Sensitive Interaction</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Context-Sensitive Interaction">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Context-Sensitive Interaction">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Audio-Desktop.html#Audio-Desktop" rel="up" title="Audio Desktop">
-<link href="Voice-Lock.html#Voice-Lock" rel="next" title="Voice Lock">
-<link href="Object-Oriented-Desktop.html#Object-Oriented-Desktop" rel="prev" title="Object Oriented Desktop">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  Context-Sensitive Interaction</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Context-Sensitive Interaction" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Context-Sensitive Interaction" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Audio-Desktop.html#Audio-Desktop" rel="up" title=
+  "Audio Desktop" />
+  <link href="Voice-Lock.html#Voice-Lock" rel="next" title=
+  "Voice Lock" />
+  <link href="Object-Oriented-Desktop.html#Object-Oriented-Desktop"
+  rel="prev" title="Object Oriented Desktop" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="Context_002dSensitive-Interaction"></a>
-<div class="header">
-<p>
-Previous: <a href="Object-Oriented-Desktop.html#Object-Oriented-Desktop" accesskey="p" rel="prev">Object Oriented Desktop</a>, Up: <a href="Audio-Desktop.html#Audio-Desktop" accesskey="u" rel="up">Audio Desktop</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="Emacspeak-Specializes-Aural-Interaction"></a>
-<h3 class="section">6.3 Emacspeak Specializes Aural Interaction</h3>
+<body lang="en" xml:lang="en">
+  <a name="Context_002dSensitive-Interaction" id=
+  "Context_002dSensitive-Interaction"></a>
 
-<p>The content-specific user interaction described above is a
-very powerful feature of Emacs, and this is where Emacspeak
-derives its power.  Traditionally, the ability to create
-buffers specialized for working with specific content-types
-has been used by the Emacs community to develop versatile
-programming environments, messaging applications such as
-mail and news readers, and authoring environments.  The
-clean design present in all of these Emacs extensions in
-terms of separating application functionality from the
-user-interface, combined with the availability of the entire
-source code making up these packages under the open-source
-model has laid the ground-work for developing Emacspeak as
-a versatile aural counterpart to the product of years of
-software engineering that has been invested by the Emacs
-community.  In short, Emacspeak would not exist in its
-present shape or form without this prior effort.
-</p>
-<a name="Audio-Formatted-Output"></a>
-<h4 class="subsection">6.3.1 Audio Formatted Output</h4>
+  <div class="header">
+    <p>Previous: <a href=
+    "Object-Oriented-Desktop.html#Object-Oriented-Desktop"
+    accesskey="p" rel="prev">Object Oriented Desktop</a>, Up:
+    <a href="Audio-Desktop.html#Audio-Desktop" accesskey="u" rel=
+    "up">Audio Desktop</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="Emacspeak-Specializes-Aural-Interaction" id=
+  "Emacspeak-Specializes-Aural-Interaction"></a>
 
-<p>Emacspeak takes advantage of the content-specific knowledge
-available within specialized buffers to produce &quot;audio
-formatted&quot; output designed to optimize user interaction.
-A basic consequence of the above is &quot;voice locking&quot; in
-specialized modes; a more interesting consequence is the
-implementation of Aural Cascading Style Sheets (ACSS) in
-conjunction with the Emacs W3 browser.
-</p>
-<a name="Structured-Navigation_003a"></a>
-<h4 class="subsection">6.3.2 Structured Navigation:</h4>
+  <h3 class="section">6.3 Emacspeak Specializes Aural
+  Interaction</h3>
 
-<p>Emacspeak  also exploits content-specific knowledge to provide
-structured navigation of different types of 
-electronic content. In many cases, such structured
-navigation is an extension of what Emacs provides by
-default; in other cases, 
-Emacspeak implements the necessary extensions to provide the
-level of structural navigation needed to work efficiently in
-an eyes-free environment.
-</p>
+  <p>The content-specific user interaction described above is a
+  very powerful feature of Emacs, and this is where Emacspeak
+  derives its power. Traditionally, the ability to create buffers
+  specialized for working with specific content-types has been used
+  by the Emacs community to develop versatile programming
+  environments, messaging applications such as mail and news
+  readers, and authoring environments. The clean design present in
+  all of these Emacs extensions in terms of separating application
+  functionality from the user-interface, combined with the
+  availability of the entire source code making up these packages
+  under the open-source model has laid the ground-work for
+  developing Emacspeak as a versatile aural counterpart to the
+  product of years of software engineering that has been invested
+  by the Emacs community. In short, Emacspeak would not exist in
+  its present shape or form without this prior effort.</p><a name=
+  "Audio-Formatted-Output" id="Audio-Formatted-Output"></a>
 
-<p>Notable among such structured navigation is Emacs&rsquo; powerful outline
-feature. Notice for example, that the Emacspeak FAQ (reached via command
-<code>emacspeak-view-emacspeak-faq</code> bound to <kbd>C-e F</kbd>) takes
-advantage of Emacs&rsquo; outline mode to allow you to easily move through the
-various sections.  An example of content-sensitive navigation is
-provided by the imenu package which dynamically creates a &quot;table of
-contents&quot; based on the content that is being displayed in a given
-buffer.
-</p>
-<a name="Navigating-The-Desktop"></a>
-<h4 class="subsection">6.3.3 Navigating The Desktop</h4>
+  <h4 class="subsection">6.3.1 Audio Formatted Output</h4>
 
-<p>In addition to navigating individual information objects,
-the Emacspeak environment provides speech-enabled navigation
-of the various buffers that are currently open on the
-Emacspeak desktop via Emacs&rsquo; built-in list-buffers feature.
-Emacs&rsquo; dired  &ndash;directory editor&ndash; for browsing the file
-system, along with the new speedbar package 
-that combines features from dired and imenu round off the
-suite of navigational tools.
-</p>
-<a name="Everything-Is-Searchable_003a"></a>
-<h4 class="subsection">6.3.4 Everything Is Searchable:</h4>
+  <p>Emacspeak takes advantage of the content-specific knowledge
+  available within specialized buffers to produce "audio formatted"
+  output designed to optimize user interaction. A basic consequence
+  of the above is "voice locking" in specialized modes; a more
+  interesting consequence is the implementation of Aural Cascading
+  Style Sheets (ACSS) in conjunction with the Emacs W3
+  browser.</p><a name="Structured-Navigation_003a" id=
+  "Structured-Navigation_003a"></a>
 
-<p>Emacs derives one final advantage from using buffers as the basic
-building block for the entire desktop.  Every Emacs buffer is searchable
-via a uniform and powerful search interface.  Emacs&rsquo; incremental search
-works efficiently and consistently to enable you locate &quot;objects&quot; of
-interest either within a given document or to locate a given object from
-among the various objects that are currently open on the Emacspeak
-desktop.  This is <b>very powerful</b> &ndash;where a GUI user is typically
-limited to quickly locating an object from a relatively small collection
-&ndash;the size of the collection being a direct function of available
-display real-estate&ndash; the Emacspeak user can typically work with a far
-larger collection of objects.  This is well-suited to the eyes-free
-environment, where display real-estate has no meaning; so bringing up a
-list of currently open buffers and performing an incremental search to
-locate a specific buffer is just as efficient independent of whether you
-have a few dozen or a few hundred buffers open.
-</p>
-<p>To illustrate the above, my typical working Emacs session
-lasts between two and three weeks&ndash; over that time I
-typically accumulate several hundred open buffers holding a
-large variety of content ranging from program source code to
-email messages and WWW pages.
-</p>
-<p>Ubiquitous search in the eyes-free environment is critical&ndash; as a
-comparison, when using a conventional, purely visual WWW browser, users
-have no means of easily &quot;searching&quot; for say the &quot;submit&quot; button on a WWW
-page.  This inability is a minor annoyance in visual interaction, and
-the typical mouse-enabled user <b>never</b> uses the find dialog to find a
-submit button&ndash; it is simply more efficient to point at the submit
-button given the eye&rsquo;s ability to quickly scan the two-dimensional
-display.  This luxury is absent in an eyes-free environment; as a
-consequence, blind users confronted by the combination of a visual
-interface and screen-reader are typically limited to either tabbing
-through all the controls on a WWW page, or using the sub-optimal find
-dialog.
-</p><hr>
-<div class="header">
-<p>
-Previous: <a href="Object-Oriented-Desktop.html#Object-Oriented-Desktop" accesskey="p" rel="prev">Object Oriented Desktop</a>, Up: <a href="Audio-Desktop.html#Audio-Desktop" accesskey="u" rel="up">Audio Desktop</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+  <h4 class="subsection">6.3.2 Structured Navigation:</h4>
 
+  <p>Emacspeak also exploits content-specific knowledge to provide
+  structured navigation of different types of electronic content.
+  In many cases, such structured navigation is an extension of what
+  Emacs provides by default; in other cases, Emacspeak implements
+  the necessary extensions to provide the level of structural
+  navigation needed to work efficiently in an eyes-free
+  environment.</p>
 
+  <p>Notable among such structured navigation is Emacs&rsquo;
+  powerful outline feature. Notice for example, that the Emacspeak
+  FAQ (reached via command
+  <code>emacspeak-view-emacspeak-faq</code> bound to <kbd>C-e
+  F</kbd>) takes advantage of Emacs&rsquo; outline mode to allow
+  you to easily move through the various sections. An example of
+  content-sensitive navigation is provided by the imenu package
+  which dynamically creates a "table of contents" based on the
+  content that is being displayed in a given buffer.</p><a name=
+  "Navigating-The-Desktop" id="Navigating-The-Desktop"></a>
 
+  <h4 class="subsection">6.3.3 Navigating The Desktop</h4>
+
+  <p>In addition to navigating individual information objects, the
+  Emacspeak environment provides speech-enabled navigation of the
+  various buffers that are currently open on the Emacspeak desktop
+  via Emacs&rsquo; built-in list-buffers feature. Emacs&rsquo;
+  dired &ndash;directory editor&ndash; for browsing the file
+  system, along with the new speedbar package that combines
+  features from dired and imenu round off the suite of navigational
+  tools.</p><a name="Everything-Is-Searchable_003a" id=
+  "Everything-Is-Searchable_003a"></a>
+
+  <h4 class="subsection">6.3.4 Everything Is Searchable:</h4>
+
+  <p>Emacs derives one final advantage from using buffers as the
+  basic building block for the entire desktop. Every Emacs buffer
+  is searchable via a uniform and powerful search interface.
+  Emacs&rsquo; incremental search works efficiently and
+  consistently to enable you locate "objects" of interest either
+  within a given document or to locate a given object from among
+  the various objects that are currently open on the Emacspeak
+  desktop. This is <b>very powerful</b> &ndash;where a GUI user is
+  typically limited to quickly locating an object from a relatively
+  small collection &ndash;the size of the collection being a direct
+  function of available display real-estate&ndash; the Emacspeak
+  user can typically work with a far larger collection of objects.
+  This is well-suited to the eyes-free environment, where display
+  real-estate has no meaning; so bringing up a list of currently
+  open buffers and performing an incremental search to locate a
+  specific buffer is just as efficient independent of whether you
+  have a few dozen or a few hundred buffers open.</p>
+
+  <p>To illustrate the above, my typical working Emacs session
+  lasts between two and three weeks&ndash; over that time I
+  typically accumulate several hundred open buffers holding a large
+  variety of content ranging from program source code to email
+  messages and WWW pages.</p>
+
+  <p>Ubiquitous search in the eyes-free environment is
+  critical&ndash; as a comparison, when using a conventional,
+  purely visual WWW browser, users have no means of easily
+  "searching" for say the "submit" button on a WWW page. This
+  inability is a minor annoyance in visual interaction, and the
+  typical mouse-enabled user <b>never</b> uses the find dialog to
+  find a submit button&ndash; it is simply more efficient to point
+  at the submit button given the eye&rsquo;s ability to quickly
+  scan the two-dimensional display. This luxury is absent in an
+  eyes-free environment; as a consequence, blind users confronted
+  by the combination of a visual interface and screen-reader are
+  typically limited to either tabbing through all the controls on a
+  WWW page, or using the sub-optimal find dialog.</p>
+  <hr />
+
+  <div class="header">
+    <p>Previous: <a href=
+    "Object-Oriented-Desktop.html#Object-Oriented-Desktop"
+    accesskey="p" rel="prev">Object Oriented Desktop</a>, Up:
+    <a href="Audio-Desktop.html#Audio-Desktop" accesskey="u" rel=
+    "up">Audio Desktop</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

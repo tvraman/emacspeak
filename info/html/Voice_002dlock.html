@@ -1,115 +1,146 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Voice-lock</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Voice-lock">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Voice-lock">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Basic-Usage.html#Basic-Usage" rel="up" title="Basic Usage">
-<link href="Status-Information.html#Status-Information" rel="next" title="Status Information">
-<link href="Miscellaneous.html#Miscellaneous" rel="prev" title="Miscellaneous">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  Voice-lock</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Voice-lock" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Voice-lock" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Basic-Usage.html#Basic-Usage" rel="up" title=
+  "Basic Usage" />
+  <link href="Status-Information.html#Status-Information" rel=
+  "next" title="Status Information" />
+  <link href="Miscellaneous.html#Miscellaneous" rel="prev" title=
+  "Miscellaneous" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="Voice_002dlock"></a>
-<div class="header">
-<p>
-Next: <a href="Status-Information.html#Status-Information" accesskey="n" rel="next">Status Information</a>, Previous: <a href="Speech-System.html#Speech-System" accesskey="p" rel="prev">Speech System</a>, Up: <a href="Basic-Usage.html#Basic-Usage" accesskey="u" rel="up">Basic Usage</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="Voice-Lock-Mode"></a>
-<h3 class="section">5.5 Voice Lock Mode</h3>
+<body lang="en" xml:lang="en">
+  <a name="Voice_002dlock" id="Voice_002dlock"></a>
 
+  <div class="header">
+    <p>Next: <a href="Status-Information.html#Status-Information"
+    accesskey="n" rel="next">Status Information</a>, Previous:
+    <a href="Speech-System.html#Speech-System" accesskey="p" rel=
+    "prev">Speech System</a>, Up: <a href=
+    "Basic-Usage.html#Basic-Usage" accesskey="u" rel="up">Basic
+    Usage</a> &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="Voice-Lock-Mode" id="Voice-Lock-Mode"></a>
 
+  <h3 class="section">5.5 Voice Lock Mode</h3>
 
-<p>The status of voice lock mode can be toggled on and off by issuing the
-command <kbd>C-e d v (M-x voice-lock-mode)</kbd>. With a prefix arg, this
-function applies globally; otherwise, it is local to the current
-buffer. To have voice lock mode activated automatically when Emacspeak
-starts, include the following code in your <samp>.emacs</samp> file:
-</p>
-<div class="lisp">
-<pre class="lisp">(add-hook 'emacs-lisp-mode-hook
+  <p>The status of voice lock mode can be toggled on and off by
+  issuing the command <kbd>C-e d v (M-x voice-lock-mode)</kbd>.
+  With a prefix arg, this function applies globally; otherwise, it
+  is local to the current buffer. To have voice lock mode activated
+  automatically when Emacspeak starts, include the following code
+  in your <samp>.emacs</samp> file:</p>
+
+  <div class="lisp">
+    <pre class="lisp">
+(add-hook 'emacs-lisp-mode-hook
 'turn-on-voice-lock)
-</pre></div>
+</pre>
+  </div>
 
-<p>Alternatively, Emacspeak can be set to enable voice lock automatically
-in all of the major modes that support it. To do so, insert the
-following statement into your Emacs initialization file:
-</p>
-<div class="lisp">
-<pre class="lisp">(global-voice-lock-mode t)
-</pre></div>
+  <p>Alternatively, Emacspeak can be set to enable voice lock
+  automatically in all of the major modes that support it. To do
+  so, insert the following statement into your Emacs initialization
+  file:</p>
 
-<p>Note that the list of major modes in which
-<code>global-voice-lock-mode</code> will provide automatic activation is
-specified in the variable <var>voice-lock-global-modes</var>
-See <a href="Voice-Lock.html#Voice-Lock">Voice Lock</a>.
-</p>
+  <div class="lisp">
+    <pre class="lisp">
+(global-voice-lock-mode t)
+</pre>
+  </div>
 
+  <p>Note that the list of major modes in which
+  <code>global-voice-lock-mode</code> will provide automatic
+  activation is specified in the variable
+  <var>voice-lock-global-modes</var> See <a href=
+  "Voice-Lock.html#Voice-Lock">Voice Lock</a>.</p>
 
-<p>The characteristics of the different voice personalities deployed by
-voice lock mode vary according to the capabilities of the speech
-synthesizer. The definitions applicable to the Dectalk family of
-synthesizers are contained in <samp>dtk-voices.el</samp>, which is supplied
-as part of the Emacspeak distribution.
-</p>
+  <p>The characteristics of the different voice personalities
+  deployed by voice lock mode vary according to the capabilities of
+  the speech synthesizer. The definitions applicable to the Dectalk
+  family of synthesizers are contained in
+  <samp>dtk-voices.el</samp>, which is supplied as part of the
+  Emacspeak distribution.</p>
 
-
-<p>Using voice lock mode, Emacspeak also supports many of the aural style
-properties defined in level 2 of the World Wide Web Consortium&rsquo;s
-Cascading Style Sheet specification (see
-<code>http://www.w3.org/TR/REC-CSS2/</code>. Thus, when Emacspeak is running
-in conjunction with a cooperating user agent, such as William Perry&rsquo;s
-Emacspeak/W3 web browser, the rendering of HTML documents can be
-regulated by style sheets. Examples of style rules which employ the
-CSS audio properties can be found in the default style sheet which is
-supplied in the Emacs/W3 distribution.
-</p>
-
-
-
-
-
-
+  <p>Using voice lock mode, Emacspeak also supports many of the
+  aural style properties defined in level 2 of the World Wide Web
+  Consortium&rsquo;s Cascading Style Sheet specification (see
+  <code>http://www.w3.org/TR/REC-CSS2/</code>. Thus, when Emacspeak
+  is running in conjunction with a cooperating user agent, such as
+  William Perry&rsquo;s Emacspeak/W3 web browser, the rendering of
+  HTML documents can be regulated by style sheets. Examples of
+  style rules which employ the CSS audio properties can be found in
+  the default style sheet which is supplied in the Emacs/W3
+  distribution.</p>
 </body>
 </html>
