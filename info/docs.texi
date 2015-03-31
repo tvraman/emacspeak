@@ -13677,7 +13677,14 @@ Use eflite TTS server.
 @node g
 @section g
 
-### g: No Commentary
+Commentary:
+Top-level bootstrap module for Google Client.
+Loads in authentication module and sets up per-service
+modules:
+gmaps: Google Maps 
+gweb: Google Web Search
+gblogger: Blogger
+gphoto: Google Photos 
 
 @subsection g Commands
 
@@ -13686,7 +13693,9 @@ Use eflite TTS server.
 @node g-app
 @section g-app
 
-### g-app: No Commentary
+Commentary:
+Common Code  For Google Apps
+Used by modules like gphoto, gblogger etc.
 
 @subsection g-app Commands
 
@@ -13722,7 +13731,10 @@ View feed using auth credentials in auth-handle.
 @node g-auth
 @section g-auth
 
-### g-auth: No Commentary
+Commentary:
+Google Auth using Curl
+Implements an authentication component for use in Google
+Clients -- see http://code.google.com/apis/accounts/AuthForInstalledApps.html
 
 @subsection g-auth Commands
 
@@ -13736,7 +13748,9 @@ Google account  address.
 @node g-utils
 @section g-utils
 
-### g-utils: No Commentary
+Commentary:
+Common Code  e.g. helper functions.
+Used by modules like gphoto, gblogger etc.
 
 @subsection g-utils Commands
 
@@ -13798,7 +13812,10 @@ XSLT Processor.
 @node gblogger
 @section gblogger
 
-### gblogger: No Commentary
+Commentary:
+Simple wrapper using Curl to post/edit Blogger.com Blogs
+posts are edited as XML
+nxml-mode is highly recommend and will be used if available.
 
 @subsection gblogger Commands
 
@@ -13862,7 +13879,8 @@ Password for authenticating to reader account.
 @node gf
 @section gf
 
-### gf: No Commentary
+Commentary:
+Explore Freebase graph search results
 
 @subsection gf Commands
 
@@ -13871,7 +13889,8 @@ Password for authenticating to reader account.
 @node gfeeds
 @section gfeeds
 
-### gfeeds: No Commentary
+Commentary:
+Fast feed access from Google for use in Emacs
 
 @subsection gfeeds Commands
 
@@ -13900,7 +13919,9 @@ Customize this to point to your Web location.
 @node gm-nnir
 @section gm-nnir
 
-### gm-nnir: No Commentary
+Commentary:
+Makes search GMail more convenient.
+IMap search operators, GMail search extensions.
 
 @subsection gm-nnir Commands
 
@@ -13920,7 +13941,8 @@ Default is to search All Mail when not on a group.
 @node gmaps
 @section gmaps
 
-### gmaps: No Commentary
+Commentary:
+Implements the Google Maps API
 
 @subsection gmaps Commands
 
@@ -14066,7 +14088,9 @@ Location address. Setting this updates gweb-my-location coordinates  via geocodi
 @node gphoto
 @section gphoto
 
-### gphoto: No Commentary
+Commentary:
+Emacs client for accessing Picasa --- Google Photo Albums
+See  http://code.google.com/apis/picasaweb/overview.html
 
 @subsection gphoto Commands
 
@@ -14166,7 +14190,10 @@ Password for authenticating to Picasa account.
 @node gweb
 @section gweb
 
-### gweb: No Commentary
+Commentary:
+Provide Google services --- such as search, search-based completion etc.
+For use from within Emacs tools.
+This is meant to be fast and efficient --- and uses WebAPIs as opposed to HTML  scraping.
 
 @subsection gweb Commands
 
