@@ -42,11 +42,11 @@
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{  Introduction
-
+;;; Commentary:
 ;;; In a running emacspeak session,
 ;;;nuke the running server and start talking to a remote speech server,
 ;;;after prompting for host and port
-
+;;; Code:
 ;;}}}
 ;;{{{  User customizations
 ;;;###autoload

@@ -38,8 +38,11 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;;; Commentary:
 ;;;Inspired by finder.el
 ;;; Not to be loaded at runtime.
+;;; Code:
+
 ;;{{{ requires
 (require 'cl)
 (require 'finder)

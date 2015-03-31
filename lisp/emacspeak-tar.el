@@ -44,9 +44,9 @@
 (require 'tar-mode)
 ;;}}}
 ;;{{{  Introduction 
-
+;;; Commentary:
 ;;;Auditory interface to tar mode
-
+;;; Code:
 ;;}}}
 ;;{{{ Helpers
 

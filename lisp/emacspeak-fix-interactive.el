@@ -44,7 +44,7 @@
 (require 'advice)
 (require 'dtk-speak)
 ;;{{{  Introduction:
-
+;;; Commentary:
 ;;; Emacs commands that use the 'interactive spec
 ;;; to read interactive arguments are a problem for Emacspeak.
 ;;;  This is because the prompting for the arguments is done from C
@@ -54,15 +54,7 @@
 ;;; This module defines a function that solves this problem.
 ;;; emacspeak-fix-commands-that-use-interactive needs to be called
 ;;; To speech enable such functions.
-
-;;; XEmacs update:
-;;; XEmacs does (interactive) better--
-;;; in its case most of the code letters to interactive
-;;; make it back to the elisp layer.
-;;; The exception to this appear to be the code letters for
-;;; reading characters and key sequences
-;;; i.e. "c" and "k"
-
+;;; Code:
 ;;}}}
 ;;{{{  functions that are  fixed.
 

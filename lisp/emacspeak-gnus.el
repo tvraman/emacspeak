@@ -39,11 +39,11 @@
 
 ;;{{{  Introduction:
 
-;;; Commentary
+;;; Commentary:
 
 ;;; This module advices gnus to speak. 
 ;;; Updating support in 2014 (Emacspeak is nearly 20 years old)
-
+;;; Code:
 ;;}}}
 ;;{{{ requires
 (require 'cl)

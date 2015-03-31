@@ -38,9 +38,9 @@
 ;;}}}
 
 ;;{{{  Introduction
-
+;;; Commentary:
 ;;; advice for posting message commands
-
+;;; Code:
 ;;}}}
 ;;{{{ requires
 (require 'emacspeak-preamble)

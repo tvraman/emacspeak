@@ -43,9 +43,9 @@
 
 ;;}}}
 ;;{{{  Introduction:
-
+;;; Commentary:
 ;;; Provide additional advice to forms-mode 
-
+;;; Code:
 ;;}}}
 ;;{{{  custom
 (defgroup emacspeak-forms nil

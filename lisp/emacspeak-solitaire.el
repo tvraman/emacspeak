@@ -44,9 +44,9 @@
 (require 'solitaire)
 ;;}}}
 ;;{{{  Introduction 
-
+;;; Commentary:
 ;;; Auditory interface to solitaire
-
+;;; Code:
 ;;}}}
 ;;{{{  Communicate state
 

@@ -38,9 +38,9 @@
 ;;}}}
 
 ;;{{{  Introduction:
-
+;;; Commentary:
 ;;; Provide additional advice to tcl-mode 
-
+;;; Code:
 ;;}}}
 ;;{{{ requires
 (require 'emacspeak-preamble)

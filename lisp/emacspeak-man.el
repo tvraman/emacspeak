@@ -38,9 +38,9 @@
 ;;}}}
 
 ;;{{{  Introduction:
-
+;;; Commentary:
 ;;; Provide additional advice to man-mode 
-
+;;; Code:
 ;;; Code:
 
 ;;}}}

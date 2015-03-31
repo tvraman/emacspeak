@@ -38,7 +38,7 @@
 ;;}}}
 ;;{{{  Introduction:
 
-;;;Commentary:
+;;; Commentary:
 
 ;;; This module defines the emacspeak keybindings.
 

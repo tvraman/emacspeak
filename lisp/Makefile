@@ -221,7 +221,6 @@ sox.elc \
 emacspeak-sql.elc \
 emacspeak-supercite.elc \
 emacspeak-sudoku.elc \
-emacspeak-swbuff.elc \
 emacspeak-etable.elc \
 emacspeak-tapestry.elc \
 emacspeak-tar.elc \
@@ -460,7 +459,6 @@ emacspeak-sql.elc: emacspeak-sql.el dtk-speak.elc voice-setup.elc
 sox.elc: sox.el 
 emacspeak-supercite.elc: emacspeak-supercite.el dtk-speak.elc voice-setup.elc
 emacspeak-sudoku.elc: emacspeak-sudoku.el dtk-speak.elc
-emacspeak-swbuff.elc: emacspeak-swbuff.el dtk-speak.elc voice-setup.elc
 emacspeak-table-ui.elc: emacspeak-table-ui.el emacspeak-tabulate.elc  \
 emacspeak-table.elc
 emacspeak-table.elc: emacspeak-table.el

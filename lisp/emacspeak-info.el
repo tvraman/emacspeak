@@ -37,9 +37,9 @@
 
 ;;}}}
 ;;{{{ Introduction:
-
+;;; Commentary:
 ;;; This module extends and customizes the Emacs info reader.
-
+;;; Code:
 ;;}}}
 ;;{{{ requires
 (require 'emacspeak-preamble)

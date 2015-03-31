@@ -44,9 +44,9 @@
 (require 'gomoku)
 ;;}}}
 ;;{{{  Introduction 
-
+;;; Commentary:
 ;;; Auditory interface to gomoku
-
+;;; Code:
 ;;}}}
 ;;{{{ helper functions
 

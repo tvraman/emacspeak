@@ -39,9 +39,10 @@
 
 
 ;;{{{  Introduction:
+;;; Commentary:
 ;;; This module is a simple table recognizer.
 ;;; Can recognize the columns in tabulated output, e.g. ps, ls output
-
+;;; Code:
 ;;}}}
 ;;{{{ requires
 (require 'emacspeak-preamble)

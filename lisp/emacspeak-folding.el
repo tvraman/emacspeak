@@ -41,14 +41,14 @@
 
 ;;}}}
 ;;{{{  Introduction:
-
+;;; Commentary:
 ;;; Folding mode turns emacs into a folding editor.
 ;;; Folding mode is what I use: 
 ;;; emacs 19 comes with similar packages, e.g. allout.el
 ;;; This module defines some advice forms that make folding mode a pleasure to use.
 ;;; Think of a fold as a container. 
 ;;; 
-
+;;; Code:
 ;;}}}
 ;;{{{ Advice
 

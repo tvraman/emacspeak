@@ -43,10 +43,10 @@
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{  Introduction
-
-;;; Speech mspools --a package that lets you monitor
+;;; Commentary:
+;;; Speech-enable  mspools --a package that lets you monitor
 ;;; multiple maildrops
-
+;;; Code:
 ;;}}}
 ;;{{{ advice
 

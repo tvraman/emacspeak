@@ -43,9 +43,9 @@
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{ Introduction:
-
+;;; Commentary:
 ;;; speech-enable rpm-spec-mode --part of Emacs 21 on RH 7.3
-
+;;; Code:
 ;;}}}
 ;;{{{ Advice insertion commands:
 

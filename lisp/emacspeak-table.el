@@ -38,10 +38,10 @@
 ;;}}}
 
 ;;{{{  Introduction
-
+;;; Commentary:
 ;;; Implements a module that provides a high level interface to
 ;;; tabulated information.
-
+;;; Code:
 ;;}}}
 ;;{{{ requires
 (require 'emacspeak-preamble)

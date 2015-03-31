@@ -45,9 +45,9 @@
 (require 'imenu)
 ;;}}}
 ;;{{{  Introduction
-
+;;; Commentary:
 ;;; Speech enable imenu and provide other useful navigation commands.
-
+;;; Code:
 ;;}}}
 ;;{{{  variables
 

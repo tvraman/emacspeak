@@ -38,9 +38,9 @@
 ;;}}}
 
 ;;{{{  Introduction
-
+;;; Commentary:
 ;;; emacspeak extensions to rmail
-
+;;; Code:
 ;;}}}
 ;;{{{ requires
 (require 'emacspeak-preamble)

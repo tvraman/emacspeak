@@ -42,11 +42,11 @@
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{  Introduction
-
+;;; Commentary:
 ;;;Speech enable Java IDE.
 ;;; The Java IDE --JDE-- can be found at 
 ;;;http://sunsite.auc.dk/jde/
-
+;;; Code:
 ;;}}}
 ;;{{{ voice lock 
 

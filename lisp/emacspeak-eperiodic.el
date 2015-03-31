@@ -39,11 +39,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  Introduction:
-
+;;; Commentary:
 ;;; eperiodic produces an interactive periodic table of elements
 ;;; and can be found at 
 ;;; http://vegemite.chem.nottingham.ac.uk/~matt/emacs/eperiodic.el
-
+;;; Code:
 ;;}}}
 ;;{{{ required modules
 

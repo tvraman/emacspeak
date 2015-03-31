@@ -38,9 +38,9 @@
 ;;}}}
 
 ;;{{{  Introduction
-
+;;; Commentary:
 ;;; User interface to tables
-
+;;; Code:
 ;;}}}
 ;;{{{ requires
 (require 'emacspeak-preamble)

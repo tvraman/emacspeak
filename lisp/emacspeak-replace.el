@@ -44,9 +44,9 @@
 
 ;;}}}
 ;;{{{  Introduction:
-
+;;; Commentary:
 ;;; This module causes emacs' replacement functions to use voice locking
-
+;;; Code:
 ;;}}}
 ;;{{{  define personalities
 

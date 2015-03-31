@@ -44,7 +44,7 @@
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{  Introduction:
-
+;;; Commentary:
 ;;; Sawfish is a Gnome and KDE compliant window manager.
 ;;; It is the window manager I use and is fully configurable
 ;;; via Lisp.

@@ -38,9 +38,9 @@
 ;;}}}
 
 ;;{{{  Introduction
-
+;;; Commentary:
 ;;; Map standard faces such as bold and italic to voices.
-
+;;; Code:
 ;;}}}
 ;;{{{ requires
 (require 'emacspeak-preamble)

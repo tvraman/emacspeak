@@ -38,9 +38,9 @@
 ;;}}}
 
 ;;{{{  Introduction:
-
+;;; Commentary:
 ;;; Provide additional advice to ease debugger interaction with gud
-
+;;; Code:
 ;;}}}
 ;;{{{ requires
 (require 'emacspeak-preamble)

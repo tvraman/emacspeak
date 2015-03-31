@@ -43,7 +43,7 @@
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{  Introduction:
-
+;;; Commentary:
 ;;; It is often useful  to view the results of filtering
 ;;; large amounts of text.;;; Typically you do this with
 ;;; various combinations of grep and friends.
@@ -58,7 +58,7 @@
 ;;; unfiltered text
 ;;; D: Provides commands for saving results from
 ;;; intermediate filters.
-
+;;; Code:
 ;;}}}
 ;;{{{  structures 
 

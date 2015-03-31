@@ -41,7 +41,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;{{{  Introduction:
-
+;;; Commentary:
 ;;; This module redefines a few vital functions,
 ;;; since advising them won't help.
 ;;; Convention used:
@@ -52,7 +52,7 @@
 ;;; In the case of backward-char, forward-char, and self-insert-command
 ;;; mere redefinition of the function will not do:
 ;;; We will need to bind the new functions explicitly to the keys.
-
+;;; Code:
 ;;}}}
 ;;{{{ requires
 (require 'emacspeak-preamble)
