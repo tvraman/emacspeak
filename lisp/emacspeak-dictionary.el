@@ -43,10 +43,10 @@
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{  Introduction:
-
+;;; Commentary:
 ;;; Speech-enables emacs client for accessing dictionary
 ;;; server at dict.org:2628
-
+;;; Code:
 ;;}}}
 ;;{{{ Advice interactive commands to speak.
 (defadvice dictionary (after emacspeak pre act comp)

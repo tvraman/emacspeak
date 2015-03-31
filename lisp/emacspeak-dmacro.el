@@ -42,10 +42,10 @@
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{  Introduction:
-
+;;; Commentary:
 ;;; Provide additional advice to dmacro.
 ;;; dmacro is used to write code rapidly and consistently. 
-
+;;; Code:
 ;;}}}
 
 ;;{{{  advice:

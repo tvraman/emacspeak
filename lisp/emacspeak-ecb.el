@@ -44,10 +44,10 @@
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{  Introduction:
-
+;;; Commentary:
 ;;; The ECB is an Emacs Class Browser.
 ;;; This module speech-enables ECB
-
+;;; Code:
 ;;}}}
 ;;{{{  advice interactive commands
 
