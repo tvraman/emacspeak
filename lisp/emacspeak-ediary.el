@@ -39,10 +39,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  Introduction:
-
+;;; Commentary:
 ;;; ediary is a special mode for editing your.diary file.
 ;;; This module speech-enables ediary
-
+;;; Code:
 ;;}}}
 ;;{{{ required modules
 

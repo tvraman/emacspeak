@@ -38,9 +38,9 @@
 ;;}}}
 
 ;;{{{  Introduction
-
+;;; Commentary:
 ;;; emacspeak extensions to voiceify rich  text.
-
+;;; Code:
 ;;}}}
 ;;{{{ required modules
 (require 'emacspeak-preamble)
