@@ -47,8 +47,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Commentary:
 ;;{{{  introduction
-
+;;; Commentary:
 ;;; See http://code.google.com/apis/documents/overview.html
+;;; Needs updating to V3 API.
 ;;;Basic Design:
 ;;; Use gdocs-doclist to get a list of documents,
 ;;; When invoked with a prefix argument, it will prompt for a search term.
@@ -56,7 +57,8 @@
 ;;; And use the edit-media URL to edit the content.
 ;;;
 ;;; The following functions publish the contents of the current
-;;; buffer as a new Google doc:
+
+;;; Code:;;; buffer as a new Google doc:
 ;;; gdocs-publish-from-org (converts org to HTML, then
 ;;; publishes. Function org-infile-export-plist will be used to get
 ;;; metadata from the org-mode source buffer)

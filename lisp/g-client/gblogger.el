@@ -47,11 +47,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Commentary:
 ;;{{{  introduction
-
+;;; Commentary:
 ;;; Simple wrapper using Curl to post/edit Blogger.com Blogs
 ;;; posts are edited as XML
 ;;;nxml-mode is highly recommend and will be used if available.
-
+;;; Code:
 ;;;Usage:
 ;;; gblogger-blog -- Show feed of current user's blogs
 ;;; gblogger-new-entry -- Create a new post

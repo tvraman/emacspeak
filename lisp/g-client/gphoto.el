@@ -45,12 +45,12 @@
 
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; Commentary:
-;;{{{  introduction
 
+;;{{{  introduction
+;;; Commentary:
 ;;; Emacs client for accessing Picasa --- Google Photo Albums
 ;;; See  http://code.google.com/apis/picasaweb/overview.html
-
+;;; Code:
 ;;}}}
 ;;{{{  Required modules
 

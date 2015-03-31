@@ -45,12 +45,12 @@
 
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; Commentary:
-;;{{{  introduction
 
+;;{{{  introduction
+;;; Commentary:
 ;;; Makes search GMail more convenient.
 ;;; IMap search operators, GMail search extensions.
-
+;;; Code:
 ;;}}}
 ;;{{{  Required modules
 

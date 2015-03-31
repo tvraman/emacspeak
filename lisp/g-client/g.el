@@ -45,15 +45,16 @@
 
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; Commentary:
 ;;{{{  introduction
-
+;;; Commentary:
 ;;; Top-level bootstrap module for Google Client.
 ;;; Loads in authentication module and sets up per-service
 ;;modules:
 ;;; gmaps: Google Maps 
-;;; ...
-
+;;; gweb: Google Web Search
+;;; gblogger: Blogger
+;;; gphoto: Google Photos 
+;;; Code:
 ;;}}}
 ;;{{{ customizations:
 

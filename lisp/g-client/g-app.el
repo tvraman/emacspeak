@@ -1,7 +1,7 @@
 ;;; g-app.el --- Google Client APP methods
 ;;;$Id$
 ;;; $Author: raman $
-;;; Description:  Google Client APP
+;;; Description:  Google Client App
 ;;; Keywords: Google   Atom API, Google Services
 ;;{{{  LCD Archive entry:
 
@@ -45,12 +45,11 @@
 
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; Commentary:
 ;;{{{  introduction
-
-;;; Common Code  For APP
+;;; Commentary:
+;;; Common Code  For Google Apps
 ;;; Used by modules like gphoto, gblogger etc.
-
+;;; Code:
 ;;}}}
 ;;{{{  Required modules
 

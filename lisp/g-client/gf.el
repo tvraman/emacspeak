@@ -46,9 +46,10 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;{{{  introduction
-;;; Commentary:
-;;; Explore Freebase graph search results
 
+;;; Commentary:
+;;; Explore Freebase graph search results
+;;; Code:
 ;;; Documentation: https://developers.google.com/freebase/v1/search-overview
 ;;}}}
 ;;{{{  Required modules

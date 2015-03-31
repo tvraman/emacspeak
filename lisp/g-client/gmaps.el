@@ -45,11 +45,11 @@
 
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; Commentary:
+
 ;;{{{  introduction
-
+;;; Commentary:
 ;;; Implements the Google Maps API
-
+;;; Code:
 ;;}}}
 ;;{{{  Required modules
 

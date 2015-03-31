@@ -45,10 +45,11 @@
 
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; Commentary:
 ;;{{{  introduction
 
+;;; Commentary:
 ;;; Fast feed access from Google for use in Emacs
+;;; Code:
 
 ;;}}}
 ;;{{{  Required modules
