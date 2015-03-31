@@ -39,9 +39,9 @@
 
 
 ;;{{{  Introduction
-
+;;; Commentary:
 ;;; emacspeak extensions to speak window widnow layouts 
-
+;;; Code:
 ;;}}}
 ;;{{{ requires
 (require 'emacspeak-preamble)

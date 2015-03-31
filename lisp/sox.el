@@ -39,17 +39,19 @@
 
 ;;{{{  introduction
 
-;;; Commentary: This module defines a convenient speech-enabled
+;;; Commentary:
+;;; This module defines a convenient speech-enabled
 ;;; interface for editting mp3 and wav files using SoX.
 ;;;
-;;; Launching this module creates a special interaction buffer
+;;; Launching M-x sox  creates a special interaction buffer
 ;;; that provides single keystroke commands for editing and
 ;;; applying effects to a selected sound file. For adding mp3
 ;;; support to sox,
 ;;;
- ;;; sudo apt-get libsox-fmt-mp3 install
+;;; sudo apt-get libsox-fmt-mp3 install
 ;;;
 ;;; This module can be used independent of Emacspeak.
+;;; Code:
 
 ;;}}}
 ;;{{{  Required modules

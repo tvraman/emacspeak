@@ -148,6 +148,7 @@ This chapter documents a total of 1094 commands and 895 options.
 * emacspeak-ruby::
 * emacspeak-sawfish::
 * emacspeak-ses::
+* emacspeak-setup::
 * emacspeak-sgml-mode::
 * emacspeak-sh-script::
 * emacspeak-sigbegone::
@@ -158,7 +159,6 @@ This chapter documents a total of 1094 commands and 895 options.
 * emacspeak-sql::
 * emacspeak-sudoku::
 * emacspeak-supercite::
-* emacspeak-swbuff::
 * emacspeak-table::
 * emacspeak-table-ui::
 * emacspeak-tabulate::
@@ -713,13 +713,6 @@ dtk-speech-rate-base  +  dtk-speech-rate-step*level.
 
 @defvar {User Option} dtk-speech-server-program
 Local speech server script.
-
-@end defvar
-
-@defvar {User Option} dtk-startup-hook
-List of hooks to be run after starting up the speech server.
-Set things like speech rate, punctuation mode etc in this
-hook.
 
 @end defvar
 
@@ -2982,6 +2975,18 @@ This personality uses  voice-brighten-medium whose  effect can be changed global
 
 @end defvar
 
+@defvar {User Option} emacspeak-twittering-uri-personality
+Personality used for twittering-uri-face
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-twittering-username-personality
+Personality used for twittering-username-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-underline-voice
 Personality used for underline
 This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
@@ -3147,6 +3152,108 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @defvar {User Option} emacspeak-voice-lock-warning-personality
 Personality used for font-lock-warning-face
 This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-anchor-voice
+Personality used for w3m-anchor
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-arrived-anchor-voice
+Personality used for w3m-arrived-anchor
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-bold-voice
+Personality used for w3m-bold
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-current-anchor-voice
+Personality used for w3m-current-anchor
+This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-form-button-pressed-voice
+Personality used for w3m-form-button-pressed
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-form-button-voice
+Personality used for w3m-form-button
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-form-voice
+Personality used for w3m-form
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-header-line-location-content-voice
+Personality used for w3m-header-line-location-content
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-header-line-location-title-voice
+Personality used for w3m-header-line-location-title
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-history-current-url-voice
+Personality used for w3m-history-current-url
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-image-voice
+Personality used for w3m-image
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-insert-voice
+Personality used for w3m-insert
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-italic-voice
+Personality used for w3m-italic
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-strike-through-voice
+Personality used for w3m-strike-through
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-tab-selected-voice
+Personality used for w3m-tab-selected
+This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-tab-unselected-voice
+Personality used for w3m-tab-unselected
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-underline-voice
+Personality used for w3m-underline
+This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
 
 @end defvar
 
@@ -4535,44 +4642,6 @@ Options passed to Unix builtin `file' command.
 
 Commentary:
 emacspeak extensions to the dismal spreadsheet. 
-Dismal can be found at ftp://cs.nyu.edu/pub/local/fox/dismal
-emacspeak-dismal.el --- Speech enable Dismal -- An Emacs Spreadsheet program
-$Id$
-$Author: tv.raman.tv $ 
-Description: spread sheet extension
-Keywords:emacspeak, audio interface to emacs spread sheets
-
-LCD Archive Entry:
-emacspeak| T. V. Raman |raman@cs.cornell.edu
-A speech interface to Emacs |
-$Date: 2008-06-21 10:50:41 -0700 (Sat, 21 Jun 2008) $ |
- $Revision: 4532 $ | 
-Location undetermined
-
-Copyright (C) 1995 -- 2015, T. V. Raman 
-Copyright (c) 1995 by T. V. Raman  
-All Rights Reserved. 
-
-This file is not part of GNU Emacs, but the same permissions apply.
-
-GNU Emacs is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2, or (at your option)
-any later version.
-
-GNU Emacs is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with GNU Emacs; see the file COPYING.  If not, write to
-the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
-
-
-
-emacspeak extensions to the dismal spreadsheet. 
-Dismal can be found at ftp://cs.nyu.edu/pub/local/fox/dismal
 
 @subsection emacspeak-dismal Commands
 
@@ -4941,7 +5010,10 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @node emacspeak-eperiodic
 @section emacspeak-eperiodic
 
-### emacspeak-eperiodic: No Commentary
+Commentary:
+eperiodic produces an interactive periodic table of elements
+and can be found at 
+http://vegemite.chem.nottingham.ac.uk/~matt/emacs/eperiodic.el
 
 @subsection emacspeak-eperiodic Commands
 
@@ -5406,7 +5478,9 @@ This module makes ESS speak.
 @node emacspeak-etable
 @section emacspeak-etable
 
-### emacspeak-etable: No Commentary
+Commentary:
+table.el provides rich table editing for emacs.
+this module speech-enables table.el
 
 @subsection emacspeak-etable Commands
 
@@ -5862,7 +5936,8 @@ Set to nil if you want EWW to load images.
 @node emacspeak-facemenu
 @section emacspeak-facemenu
 
-### emacspeak-facemenu: No Commentary
+Commentary:
+Map standard faces such as bold and italic to voices.
 
 @subsection emacspeak-facemenu Commands
 
@@ -5948,7 +6023,21 @@ XSL stylesheet used for viewing RSS Feeds.
 @node emacspeak-filtertext
 @section emacspeak-filtertext
 
-### emacspeak-filtertext: No Commentary
+Commentary:
+It is often useful  to view the results of filtering
+large amounts of text.;;; Typically you do this with
+various combinations of grep and friends.
+When doing so it requires explicit effort to not destroy
+the original text being filtered.
+This module provides a textfilter utility that:
+A) Copies over the selected text to a special filtertext
+buffer
+B) Implements a filtertext mode for that buffer that
+allows easy application of filters
+C: Provides commands for reverting to the original
+unfiltered text
+D: Provides commands for saving results from
+intermediate filters.
 
 @subsection emacspeak-filtertext Commands
 
@@ -6004,7 +6093,9 @@ This module speech enables find-func
 @node emacspeak-finder
 @section emacspeak-finder
 
-### emacspeak-finder: No Commentary
+Commentary:
+Inspired by finder.el
+Not to be loaded at runtime.
 
 @subsection emacspeak-finder Commands
 
@@ -6013,7 +6104,16 @@ This module speech enables find-func
 @node emacspeak-fix-interactive
 @section emacspeak-fix-interactive
 
-### emacspeak-fix-interactive: No Commentary
+Commentary:
+Emacs commands that use the 'interactive spec
+to read interactive arguments are a problem for Emacspeak.
+ This is because the prompting for the arguments is done from C
+See (callint.c) in the Emacs sources.
+Advicing the various input functions,
+e.g. read-file-name therefore will not help.
+This module defines a function that solves this problem.
+emacspeak-fix-commands-that-use-interactive needs to be called
+To speech enable such functions.
 
 @subsection emacspeak-fix-interactive Commands
 
@@ -6112,7 +6212,12 @@ This module speech enables flyspell.
 @node emacspeak-folding
 @section emacspeak-folding
 
-### emacspeak-folding: No Commentary
+Commentary:
+Folding mode turns emacs into a folding editor.
+Folding mode is what I use: 
+emacs 19 comes with similar packages, e.g. allout.el
+This module defines some advice forms that make folding mode a pleasure to use.
+Think of a fold as a container. 
 
 @subsection emacspeak-folding Commands
 
@@ -6121,7 +6226,8 @@ This module speech enables flyspell.
 @node emacspeak-forms
 @section emacspeak-forms
 
-### emacspeak-forms: No Commentary
+Commentary:
+Provide additional advice to forms-mode 
 
 @subsection emacspeak-forms Commands
 
@@ -6203,7 +6309,9 @@ for inclusion in documents.
 @node emacspeak-gnus
 @section emacspeak-gnus
 
-### emacspeak-gnus: No Commentary
+Commentary:
+This module advices gnus to speak. 
+Updating support in 2014 (Emacspeak is nearly 20 years old)
 
 @subsection emacspeak-gnus Commands
 
@@ -6250,7 +6358,8 @@ GO-MODE ==  Go Language support in emacs
 @node emacspeak-gomoku
 @section emacspeak-gomoku
 
-### emacspeak-gomoku: No Commentary
+Commentary:
+Auditory interface to gomoku
 
 @subsection emacspeak-gomoku Commands
 
@@ -6510,7 +6619,8 @@ Package gtags interfaces Emacs to this tool.
 @node emacspeak-gud
 @section emacspeak-gud
 
-### emacspeak-gud: No Commentary
+Commentary:
+Provide additional advice to ease debugger interaction with gud
 
 @subsection emacspeak-gud Commands
 
@@ -6607,7 +6717,8 @@ the entire list.
 @node emacspeak-imenu
 @section emacspeak-imenu
 
-### emacspeak-imenu: No Commentary
+Commentary:
+Speech enable imenu and provide other useful navigation commands.
 
 @subsection emacspeak-imenu Commands
 
@@ -6633,7 +6744,8 @@ Speak contents of sections automatically if set.
 @node emacspeak-info
 @section emacspeak-info
 
-### emacspeak-info: No Commentary
+Commentary:
+This module extends and customizes the Emacs info reader.
 
 @subsection emacspeak-info Commands
 
@@ -6832,7 +6944,10 @@ This personality uses  voice-lighten whose  effect can be changed globally by cu
 @node emacspeak-jde
 @section emacspeak-jde
 
-### emacspeak-jde: No Commentary
+Commentary:
+Speech enable Java IDE.
+The Java IDE --JDE-- can be found at 
+http://sunsite.auc.dk/jde/
 
 @subsection emacspeak-jde Commands
 
@@ -7059,7 +7174,8 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 @node emacspeak-keymap
 @section emacspeak-keymap
 
-### emacspeak-keymap: No Commentary
+Commentary:
+This module defines the emacspeak keybindings.
 
 @subsection emacspeak-keymap Commands
 
@@ -7872,7 +7988,8 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @node emacspeak-man
 @section emacspeak-man
 
-### emacspeak-man: No Commentary
+Commentary:
+Provide additional advice to man-mode 
 
 @subsection emacspeak-man Commands
 
@@ -8062,7 +8179,8 @@ This personality uses  voice-bolden-and-animate whose  effect can be changed glo
 @node emacspeak-message
 @section emacspeak-message
 
-### emacspeak-message: No Commentary
+Commentary:
+advice for posting message commands
 
 @subsection emacspeak-message Commands
 
@@ -8159,7 +8277,9 @@ Speak title of the current song.
 @node emacspeak-mspools
 @section emacspeak-mspools
 
-### emacspeak-mspools: No Commentary
+Commentary:
+Speech-enable  mspools --a package that lets you monitor
+multiple maildrops
 
 @subsection emacspeak-mspools Commands
 
@@ -8321,7 +8441,9 @@ Npr user Id.
 @node emacspeak-nxml
 @section emacspeak-nxml
 
-### emacspeak-nxml: No Commentary
+Commentary:
+nxml-mode is a new XML mode for emacs by James Clark.
+ http://www.thaiopensource.com/download/
 
 @subsection emacspeak-nxml Commands
 
@@ -9248,7 +9370,17 @@ This personality uses  voice-lock-overlay-3 whose  effect can be changed globall
 @node emacspeak-redefine
 @section emacspeak-redefine
 
-### emacspeak-redefine: No Commentary
+Commentary:
+This module redefines a few vital functions,
+since advising them won't help.
+Convention used:
+To redefine function fn:
+The original function will be renamed to Orig-fn.
+A new function called emacspeak-fn will be defined.
+ Finally, we will fset fn to emacspeak-fn
+In the case of backward-char, forward-char, and self-insert-command
+mere redefinition of the function will not do:
+We will need to bind the new functions explicitly to the keys.
 
 @subsection emacspeak-redefine Commands
 
@@ -9285,7 +9417,10 @@ documents  possible via a table of contents buffer.
 @node emacspeak-remote
 @section emacspeak-remote
 
-### emacspeak-remote: No Commentary
+Commentary:
+In a running emacspeak session,
+nuke the running server and start talking to a remote speech server,
+after prompting for host and port
 
 @subsection emacspeak-remote Commands
 
@@ -9342,7 +9477,8 @@ mode.
 @node emacspeak-replace
 @section emacspeak-replace
 
-### emacspeak-replace: No Commentary
+Commentary:
+This module causes emacs' replacement functions to use voice locking
 
 @subsection emacspeak-replace Commands
 
@@ -9357,7 +9493,8 @@ that is being replaced.
 @node emacspeak-rmail
 @section emacspeak-rmail
 
-### emacspeak-rmail: No Commentary
+Commentary:
+emacspeak extensions to rmail
 
 @subsection emacspeak-rmail Commands
 
@@ -9388,7 +9525,8 @@ rpm.
 @node emacspeak-rpm-spec
 @section emacspeak-rpm-spec
 
-### emacspeak-rpm-spec: No Commentary
+Commentary:
+speech-enable rpm-spec-mode --part of Emacs 21 on RH 7.3
 
 @subsection emacspeak-rpm-spec Commands
 
@@ -9443,7 +9581,14 @@ Provide additional advice to Ruby mode
 @node emacspeak-sawfish
 @section emacspeak-sawfish
 
-### emacspeak-sawfish: No Commentary
+Commentary:
+Sawfish is a Gnome and KDE compliant window manager.
+It is the window manager I use and is fully configurable
+via Lisp.
+sawfish.el is an emacs package for interacting with the
+sawfish window manager.
+This module speech-enables sawfish interaction from
+Emacs
 
 @subsection emacspeak-sawfish Commands
 
@@ -9485,10 +9630,38 @@ Summarize current cell.
 
 @subsection emacspeak-ses Options
 
+@node emacspeak-setup
+@section emacspeak-setup
+
+Commentary:
+Entry point for Emacspeak.
+
+@subsection emacspeak-setup Commands
+
+@subsection emacspeak-setup Options
+
+@defvar {User Option} dectalk-default-speech-rate
+*Default speech rate at which TTS is started. 
+
+@end defvar
+
+@defvar {User Option} dtk-startup-hook
+List of hooks to be run after starting up the speech server.
+Set things like speech rate, punctuation mode etc in this
+hook.
+
+@end defvar
+
+@defvar {User Option} outloud-default-speech-rate
+Default speech rate for outloud.
+
+@end defvar
+
 @node emacspeak-sgml-mode
 @section emacspeak-sgml-mode
 
-### emacspeak-sgml-mode: No Commentary
+Commentary:
+emacspeak extensions to sgml mode
 
 @subsection emacspeak-sgml-mode Commands
 
@@ -9523,7 +9696,8 @@ This personality uses  voice-smoothen-extra whose  effect can be changed globall
 @node emacspeak-solitaire
 @section emacspeak-solitaire
 
-### emacspeak-solitaire: No Commentary
+Commentary:
+Auditory interface to solitaire
 
 @subsection emacspeak-solitaire Commands
 
@@ -10842,19 +11016,12 @@ Speech-enable supercite.
 
 @subsection emacspeak-supercite Options
 
-@node emacspeak-swbuff
-@section emacspeak-swbuff
-
-### emacspeak-swbuff: No Commentary
-
-@subsection emacspeak-swbuff Commands
-
-@subsection emacspeak-swbuff Options
-
 @node emacspeak-table
 @section emacspeak-table
 
-### emacspeak-table: No Commentary
+Commentary:
+Implements a module that provides a high level interface to
+tabulated information.
 
 @subsection emacspeak-table Commands
 
@@ -10863,7 +11030,8 @@ Speech-enable supercite.
 @node emacspeak-table-ui
 @section emacspeak-table-ui
 
-### emacspeak-table-ui: No Commentary
+Commentary:
+User interface to tables
 
 @subsection emacspeak-table-ui Commands
 
@@ -11054,7 +11222,9 @@ Personality for speaking row headers
 @node emacspeak-tabulate
 @section emacspeak-tabulate
 
-### emacspeak-tabulate: No Commentary
+Commentary:
+This module is a simple table recognizer.
+Can recognize the columns in tabulated output, e.g. ps, ls output
 
 @subsection emacspeak-tabulate Commands
 
@@ -11097,7 +11267,8 @@ but quickly switch to a window by name.
 @node emacspeak-tar
 @section emacspeak-tar
 
-### emacspeak-tar: No Commentary
+Commentary:
+Auditory interface to tar mode
 
 @subsection emacspeak-tar Commands
 
@@ -11118,7 +11289,8 @@ Speak size of file current entry
 @node emacspeak-tcl
 @section emacspeak-tcl
 
-### emacspeak-tcl: No Commentary
+Commentary:
+Provide additional advice to tcl-mode 
 
 @subsection emacspeak-tcl Commands
 
@@ -11140,7 +11312,11 @@ this module speech-enables tdtd
 @node emacspeak-tempo
 @section emacspeak-tempo
 
-### emacspeak-tempo: No Commentary
+Commentary:
+tempo.el provides the
+infrastructure  for building up templates.
+This is used by html-helper-mode to allow for easy writing of HTML
+This module extends Emacspeak to provide fluent spoken feedback
 
 @subsection emacspeak-tempo Commands
 
@@ -11149,7 +11325,8 @@ this module speech-enables tdtd
 @node emacspeak-tetris
 @section emacspeak-tetris
 
-### emacspeak-tetris: No Commentary
+Commentary:
+Speech-enables tetris.
 
 @subsection emacspeak-tetris Commands
 
@@ -11241,18 +11418,6 @@ Speak tweet under point.
 @end deffn
 
 @subsection emacspeak-twittering Options
-
-@defvar {User Option} emacspeak-twittering-uri-personality
-Personality used for twittering-uri-face
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-twittering-username-personality
-Personality used for twittering-username-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
 
 @node emacspeak-url-template
 @section emacspeak-url-template
@@ -11551,112 +11716,10 @@ Preview this buffer in w3m.
 
 @subsection emacspeak-w3m Options
 
-@defvar {User Option} emacspeak-w3m-anchor-voice
-Personality used for w3m-anchor
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-arrived-anchor-voice
-Personality used for w3m-arrived-anchor
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-bold-voice
-Personality used for w3m-bold
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-current-anchor-voice
-Personality used for w3m-current-anchor
-This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-form-button-pressed-voice
-Personality used for w3m-form-button-pressed
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-form-button-voice
-Personality used for w3m-form-button
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-form-voice
-Personality used for w3m-form
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-header-line-location-content-voice
-Personality used for w3m-header-line-location-content
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-header-line-location-title-voice
-Personality used for w3m-header-line-location-title
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-history-current-url-voice
-Personality used for w3m-history-current-url
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-image-voice
-Personality used for w3m-image
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-insert-voice
-Personality used for w3m-insert
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-italic-voice
-Personality used for w3m-italic
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
 @defvar {User Option} emacspeak-w3m-speak-titles-on-switch
 Speak the document title when switching between w3m buffers.
 If non-nil, switching between w3m buffers will speak the title
 instead of the modeline.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-strike-through-voice
-Personality used for w3m-strike-through
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-tab-selected-voice
-Personality used for w3m-tab-selected
-This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-tab-unselected-voice
-Personality used for w3m-tab-unselected
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-underline-voice
-Personality used for w3m-underline
-This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
 
 @end defvar
 
@@ -14453,7 +14516,7 @@ Apply first female voice.
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 96 URL Templates.
+This section documents a total of 97 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -14578,6 +14641,10 @@ Display content from Google Finance.
 @kbd{Finance Google news}
 
 Display content from Google Finance.
+
+@kbd{G3 Sourcer URL}
+
+Return Sourcerer URL.
 
 @kbd{GCalendar Mobile}
 

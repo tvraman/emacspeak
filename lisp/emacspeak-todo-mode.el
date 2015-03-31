@@ -43,11 +43,11 @@
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{ Introduction:
-
+;;; Commentary:
 ;;; todo-mode (part of Emacs 21) provides todo-lists that can be
 ;;; integrated with the Emacs calendar.
 ;;; This module speech-enables tood-mode
-
+;;; Code:
 ;;}}}
 ;;{{{  Advice interactive commands:
 

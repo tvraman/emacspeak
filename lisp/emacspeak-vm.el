@@ -39,9 +39,11 @@
 ;;}}}
 
 ;;{{{  Introduction:
+
+;;; Commentary:
 ;;; This module extends the mail reader vm.
 ;;; Uses voice locking for message headers and cited messages
-
+;;; Code:
 ;;}}}
 ;;{{{ requires
 (require 'emacspeak-preamble)

@@ -43,13 +43,13 @@
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{  Introduction
-
+;;; Commentary:
 ;;; window configurations in emacs are very useful 
 ;;; you can display the same file in different windows,
 ;;;and have diffrent portions of the file displayed.
 ;;; winring allows you to manage window configurations,
 ;;; and this module speech-enables it.
-
+;;; Code:
 ;;}}}
 ;;{{{ Advice commands
 
