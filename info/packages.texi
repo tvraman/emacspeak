@@ -35,20 +35,6 @@ information --these are distinct from the tools described in
 @ref{Structured Editing}, in that they are typically used for working
 with content that is read-only e.g., online documentation.
 
-@unnumberedsec Related Packages
-
-@menu
-* Web Browsing:: Web Browsing
-*  emacspeak-w3:: emacspeak-w3
-*  emacspeak-w3m:: emacspeak-w3m
-*  emacspeak-info:: emacspeak-info
-*  emacspeak-man:: emacspeak-man
-*  emacspeak-table-ui:: emacspeak-table-ui
-*  emacspeak-tabulate:: emacspeak-tabulate
-*  emacspeak-view:: emacspeak-view
-@end menu
-
-
 @include web-browsing.texi
 
 @node Messaging
