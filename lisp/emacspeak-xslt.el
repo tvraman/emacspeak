@@ -39,12 +39,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
-
+;;; Commentary:
 ;;; libxml and libxsl are XML libraries for GNOME.
 ;;; xsltproc is a  xslt processor using libxsl
 ;;; this module defines routines for applying xsl transformations
 ;;; using xsltproc
-
+;;; Code:
 ;;}}}
 ;;{{{  Required modules
 

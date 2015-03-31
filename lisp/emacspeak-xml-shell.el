@@ -39,13 +39,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
-
+;;; Commentary:
 ;;; Use xmllint from package libxml2 to implement 
 ;;; an XML browser.
 ;;; Uses the interactive shell provided by xmllint to do the hard
 ;;; work.
 ;;; Results of traversal are transformed  using xsltproc from libxslt 
-
+;;; Code:
 ;;}}}
 ;;{{{  Required modules
 
