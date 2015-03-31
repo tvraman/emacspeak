@@ -56,17 +56,6 @@ integrate smoothly with the messaging applications described here; this
 means that you do not need to re-learn a new set of
 work habits when dealing with content in your messaging application.
 
-@unnumberedsec Related Packages
-
-@menu
- * emacspeak-bbdb:: emacspeak-bbdb
- * emacspeak-gnus:: emacspeak-gnus
- * emacspeak-message:: emacspeak-message
- * emacspeak-rmail:: emacspeak-rmail
- * emacspeak-vm:: emacspeak-vm
- * emacspeak-supercite:: emacspeak-supercite
- * emacspeak-mspools:: emacspeak-mspools
-@end menu
 
 @node Editing Code
 @section Editing Code
@@ -343,12 +332,3 @@ Customize Emacspeak OCR settings.
  @dfn{describe-mode}
 Describe OCR mode.
 @end table
-
-@unnumberedsec Related Packages
-
-@menu
- * emacspeak-calc:: emacspeak-calc
- * emacspeak-dismal:: emacspeak-dismal
- * emacspeak-remote:: emacspeak-remote
- * emacspeak-entertain:: emacspeak-entertain
-@end menu
