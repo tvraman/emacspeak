@@ -80,6 +80,7 @@
 ;;{{{  Introduction
 ;;; Commentary:
 ;;; emacspeak extensions to the dismal spreadsheet. 
+;;; Code:
 ;;; Dismal can be found at ftp://cs.nyu.edu/pub/local/fox/dismal
 ;;; emacspeak-dismal.el --- Speech enable Dismal -- An Emacs Spreadsheet program
 ;;; $Id$
