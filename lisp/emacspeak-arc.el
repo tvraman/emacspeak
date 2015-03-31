@@ -43,9 +43,10 @@
 (require 'arc-mode)
 ;;}}}
 ;;{{{  Introduction 
-
+;;; Commentary:
 ;;;Auditory interface to archive mode
-
+;;; This lets Emacs manipulate package files such as .zip and .jar files.
+;;; Code:
 ;;}}}
 ;;{{{ Helpers
 

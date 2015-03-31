@@ -38,11 +38,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  Introduction:
-
+;;; Commentary:
 ;;; Browse the kill ring using 
 ;;;browse-kill-ring.el - interactively insert items from kill-ring (by Colin Walters)
-;;;http://www.cis.ohio-state.edu/~walters/browse-kill-ring.el
-
+;;; Code:
 ;;}}}
 ;;{{{ required modules
 

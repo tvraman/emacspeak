@@ -41,7 +41,8 @@
 
 ;;{{{  introduction
 
-;;; Commentary: BBC: http://www.bbc.co.uk This module uses
+;;; Commentary: 
+;;; BBC: http://www.bbc.co.uk This module uses
 ;;; publicly available REST APIs to implement a native Emacs
 ;;; client for browsing and listening to BBC programs.
 
@@ -53,7 +54,7 @@
 ;;; The result of the above conversion gives a Web page with a
 ;;; set of links,
 ;;; We hand the link to the raw stream  to mplayer.
-
+;;; Code:
 ;;}}}
 ;;{{{  Required modules
 

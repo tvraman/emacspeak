@@ -41,9 +41,10 @@
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{  Introduction:
-
-;;; Provide additional advice to auctex
-
+;;; Commentary:
+;;; Speech-enables the AucTeX package.
+;;; AucTeX, now available from ELPA, has been my authoring environment of choice for writing LaTeX since 1991.
+;;; Code:
 ;;}}}
 ;;{{{ voice locking:
 

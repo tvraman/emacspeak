@@ -41,9 +41,9 @@
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{  Introduction
-
+;;; Commentary:
 ;;; Speech extensions for bibtex mode.
-
+;;; Code:
 ;;}}}
 ;;{{{ Advice navigation commands
 

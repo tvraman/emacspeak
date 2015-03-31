@@ -39,9 +39,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  Introduction 
-
-;;;Advice buffer menu commands
-
+;;; Commentary:
+;;; Speech-enable buffer-menus.
+;;; Code:
 ;;}}}
 ;;{{{  Required modules
 

@@ -378,7 +378,14 @@ Commentary:
 @node dtk-interp
 @section dtk-interp
 
-### dtk-interp: No Commentary
+Commentary:
+All requests to the speech server are factored out into
+this module.
+These calls are declared here as defsubst so they are
+inlined by the byte compiler.
+This  keeps the code efficient,
+but gives us the flexibility to call out to different
+speech servers.
 
 @subsection dtk-interp Commands
 
@@ -3723,7 +3730,9 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 @node emacspeak-arc
 @section emacspeak-arc
 
-### emacspeak-arc: No Commentary
+Commentary:
+Auditory interface to archive mode
+This lets Emacs manipulate package files such as .zip and .jar files.
 
 @subsection emacspeak-arc Commands
 
@@ -3748,7 +3757,9 @@ Speak the size of the file on current line
 @node emacspeak-auctex
 @section emacspeak-auctex
 
-### emacspeak-auctex: No Commentary
+Commentary:
+Speech-enables the AucTeX package.
+AucTeX, now available from ELPA, has been my authoring environment of choice for writing LaTeX since 1991.
 
 @subsection emacspeak-auctex Commands
 
@@ -3822,7 +3833,19 @@ ALSA sound controller used to restore settings.
 @node emacspeak-bbc
 @section emacspeak-bbc
 
-### emacspeak-bbc: No Commentary
+Commentary: 
+BBC: http://www.bbc.co.uk This module uses
+publicly available REST APIs to implement a native Emacs
+client for browsing and listening to BBC programs.
+
+See http://www.bbc.co.uk/programmes/developers
+The BBC API helps locate a PID for a given program stream.
+That PID is converted to a streamable URL via the convertor:
+http://www.iplayerconverter.co.uk/convert.aspx
+Conversion: http://www.iplayerconverter.co.uk/convert.aspx?pid=%s
+The result of the above conversion gives a Web page with a
+set of links,
+We hand the link to the raw stream  to mplayer.
 
 @subsection emacspeak-bbc Commands
 
@@ -3842,7 +3865,9 @@ Launch BBC Interaction for specified Genre.
 @node emacspeak-bbdb
 @section emacspeak-bbdb
 
-### emacspeak-bbdb: No Commentary
+Commentary:
+Speech-enables BBDB.
+I have used BBDB to manage email address and contact information since 1991.
 
 @subsection emacspeak-bbdb Commands
 
@@ -3851,7 +3876,8 @@ Launch BBC Interaction for specified Genre.
 @node emacspeak-bibtex
 @section emacspeak-bibtex
 
-### emacspeak-bibtex: No Commentary
+Commentary:
+Speech extensions for bibtex mode.
 
 @subsection emacspeak-bibtex Commands
 
@@ -3860,7 +3886,8 @@ Launch BBC Interaction for specified Genre.
 @node emacspeak-bookmark
 @section emacspeak-bookmark
 
-### emacspeak-bookmark: No Commentary
+Commentary:
+Speech enable bookmarks
 
 @subsection emacspeak-bookmark Commands
 
@@ -4157,7 +4184,9 @@ Name of bookshare  XSL transform.
 @node emacspeak-browse-kill-ring
 @section emacspeak-browse-kill-ring
 
-### emacspeak-browse-kill-ring: No Commentary
+Commentary:
+Browse the kill ring using 
+browse-kill-ring.el - interactively insert items from kill-ring (by Colin Walters)
 
 @subsection emacspeak-browse-kill-ring Commands
 
@@ -4180,7 +4209,8 @@ Speak information about this buffer
 @node emacspeak-buff-menu
 @section emacspeak-buff-menu
 
-### emacspeak-buff-menu: No Commentary
+Commentary:
+Speech-enable buffer-menus.
 
 @subsection emacspeak-buff-menu Commands
 

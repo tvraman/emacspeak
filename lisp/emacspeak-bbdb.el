@@ -42,9 +42,10 @@
 (require 'emacspeak-preamble)
 ;;}}}
 ;;{{{  Introduction:
-
-;;; Provide additional advice to bbdb
-
+;;; Commentary:
+;;; Speech-enables BBDB.
+;;; I have used BBDB to manage email address and contact information since 1991.
+;;; Code:
 ;;}}}
 ;;{{{ personalities 
 

@@ -39,19 +39,18 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{ introduction
-
+;;; Commentary:
 ;;; All requests to the speech server are factored out into
 ;;; this module.
 ;;; These calls are declared here as defsubst so they are
 ;;; inlined by the byte compiler.
-;;; This preserves the same level of efficiency as before,
+;;; This  keeps the code efficient,
 ;;; but gives us the flexibility to call out to different
 ;;; speech servers.
 
+;;; Code:
 ;;}}}
 ;;{{{ requires
-
-;;;Code:
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))

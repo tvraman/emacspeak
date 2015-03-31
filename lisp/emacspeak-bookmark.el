@@ -44,9 +44,9 @@
 
 ;;}}}
 ;;{{{  Introduction 
-
+;;; Commentary:
 ;;; Speech enable bookmarks
-
+;;; Code:
 ;;}}}
 ;;{{{  bookmarks
 (defadvice bookmark-set (after emacspeak pre act)
