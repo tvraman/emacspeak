@@ -13498,7 +13498,12 @@ Augments it by displaying the alt text and the transcript.
 @node emacspeak-xml-shell
 @section emacspeak-xml-shell
 
-### emacspeak-xml-shell: No Commentary
+Commentary:
+Use xmllint from package libxml2 to implement 
+an XML browser.
+Uses the interactive shell provided by xmllint to do the hard
+work.
+Results of traversal are transformed  using xsltproc from libxslt 
 
 @subsection emacspeak-xml-shell Commands
 
@@ -13591,7 +13596,11 @@ This module speech-enables xref
 @node emacspeak-xslt
 @section emacspeak-xslt
 
-### emacspeak-xslt: No Commentary
+Commentary:
+libxml and libxsl are XML libraries for GNOME.
+xsltproc is a  xslt processor using libxsl
+this module defines routines for applying xsl transformations
+using xsltproc
 
 @subsection emacspeak-xslt Commands
 
