@@ -5,12 +5,17 @@
 Emacs -- The extensible, self-documenting editor, derives its
 functionality from its powerful extension mechanism. This extension
 mechanism is used to implement many user-level applications such as mail
-readers, WWW browsers, software development environments and so on.
+readersweb browsers, software development environments and so on.
 This chapter gives directions on how to locate the right Emacs package
 for addressing specific tasks. The chapter is organized into logical
 sections that each pertain to a specific class of tasks; in individual
 subsections within a section give a brief overview of particular Emacs
 packages that have been speech-enabled.
+
+For a categorized list of speech-enabled applications on theEmacspeak desktop, see 
+@url{http://emacspeak.sf.net/applications.html}.
+In Emacs 24 and later, you can use Emacs'  builtin package manager  to install and update packages.
+
 
 @menu
 * Document Authoring::

@@ -183,12 +183,11 @@
 
 (defun self-document-commentary (self)
   "Return Commentary"
-  (let ((lmc
-         (lm-commentary
-          (substring (locate-library (self-document-name self)) 0 -1))))
+  (let* ((name (self-document-name self))
+         (lmc (lm-commentary (substring (locate-library name) 0 -1))))
     (if lmc
         (setq lmc (sd-cleanup-commentary lmc))
-      "No Commentary")))
+      (format "### %s: No Commentary\n" name))))
 
 (defsubst sd-texinfo-escape (string)
   "Escape texinfo special chars"
@@ -215,7 +214,6 @@
     (insert (format "%s\n" (or doc  "Not Documented")))
     (insert "\n@end defvar\n\n")))
 
-
 (defun self-document-module-options (self)
   "Document options for this module."
   (let ((name (self-document-name self))
@@ -240,7 +238,7 @@
      (if
          (documentation c)
          (sd-texinfo-escape (documentation c))
-       "Not Documented"))
+       (format "### %s: Not Documented\n" f)))
     (insert "\n@end deffn\n\n")))
 
 (defun self-document-module-commands (self)
