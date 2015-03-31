@@ -44,11 +44,11 @@
 (require 'cus-edit)
 ;;}}}
 ;;{{{  Introduction
-
+;;; Commentary:
 ;;;Advise custom to speak.
 ;;; most of the work is actually done by emacspeak-widget.el
 ;;; which speech-enables the widget libraries.
-
+;;; Code:
 ;;}}}
 
 ;;{{{ advice

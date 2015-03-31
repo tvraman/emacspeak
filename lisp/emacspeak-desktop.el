@@ -39,9 +39,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;{{{  introduction
-
+;;; Commentary:
 ;;; advice desktop package
-
+;;; Code:
 ;;}}}
 ;;{{{  Required modules
 

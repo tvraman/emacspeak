@@ -38,13 +38,13 @@
 ;;}}}
 
 ;;{{{  Introduction:
-
+;;; Commentary:
 ;;; This module extends the Emacs Calculator.
 ;;; Extensions are minimal.
 ;;; We force a calc-load-everything,
 ;;; And use an after advice on this function
 ;;; To fix all of calc's interactive functions
-
+;;; Code:
 ;;}}}
 ;;{{{ required modules
 (require 'emacspeak-preamble)

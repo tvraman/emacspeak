@@ -37,11 +37,11 @@
 
 ;;}}}
 ;;{{{  Introduction:
-
+;;; Commentary:
 ;;; This module speech enables the Emacs Calendar.
 ;;; Speech enabling is not the same as speaking the screen:
-;;; This is an excellent example of this.
-
+;;; This is an excellent example of the advantages of speech-enabled  interaction.
+;;; Code:
 ;;}}}
 ;;{{{ required modules
 ;;; Code:
