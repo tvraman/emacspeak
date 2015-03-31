@@ -1,6 +1,4 @@
 @c $Id$
-@node Structured Editing
-@section Structured Editing And Templates
 
 Editing documents based on the inherent structure present in the
 electronic encoding can be very efficient when using spoken

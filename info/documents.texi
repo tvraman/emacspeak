@@ -1,6 +1,4 @@
 @c $Id$
-@node Document Authoring
-@section Document Authoring 
 
 The Emacspeak environment provides a rich collection of structured
 document authoring tools.  These are well-suited for working in an

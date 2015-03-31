@@ -13,32 +13,39 @@ subsections within a section give a brief overview of particular Emacs
 packages that have been speech-enabled.
 
 @menu
-* Document Authoring:: Document Authoring
-* Structured Editing:: Structured Editing
-* Browsing Structure:: Browsing Structure
-* Web Browsing:: Web Browsing
-* Messaging:: Messaging
-* Editing Program Source:: Editing Program Source
-* Development Environment:: Development Environment
-* Desktop Management:: Desktop Management
-* Personal Information Management:: Personal Information Management
-* Desktop Applications:: Desktop Applications
-@end  menu
+* Document Authoring::
+* Structured Editing::
+* Browsing Structure:: Browsing Structure.  Browsing Structure.  Browsing Structure
+* Web Browsing::
+* Messaging:: Messaging.        Messaging.        Messaging
+* Editing Program Source:: Editing Program Source.  Editing Program Source.  Editing Program Source
+* Development Environment:: Development Environment.  Development Environment.  Development Environment
+* Desktop Management:: Desktop Management.  Desktop Management.  Desktop Management
+* Personal Information Management:: Personal Information Management.  Personal Information Management.  Personal Information Management
+* Desktop Applications:: Desktop Applications.  Desktop Applications.  Desktop Applications
+@end menu
+@node Document Authoring
+@section Document Authoring 
 
 @include documents.texi
+@node Structured Editing
+@section Structured Editing And Templates
+
 @include structure.texi
 @node Browsing Structure
-@section Browsing Structured Information
+@section Browsing Structure
 
 This section describes packages that allow you to browse structured
 information --these are distinct from the tools described in
 @ref{Structured Editing}, in that they are typically used for working
 with content that is read-only e.g., online documentation.
+@node Web Browsing
+@section Web Browsing.
 
 @include web-browsing.texi
 
 @node Messaging
-@section Electronic Messaging Applications
+@section Messaging
 
 Working with messaging applications involves both authoring and browsing
 content.
@@ -61,7 +68,7 @@ work habits when dealing with content in your messaging application.
 @end menu
 
 @node Editing Program Source
-@section Editing Program Source Code
+@section Editing Program Source 
 
 Files containing program source code form a very specific class of
 @b{structured} documents.
@@ -93,7 +100,7 @@ through the source efficiently. In addition, Emacspeak's core
 @end menu
 
 @node Development Environment
-@section Software Development Environment
+@section  Development Environment
 
 In addition to providing specialized editing modes for creating and
 maintaining program source,
