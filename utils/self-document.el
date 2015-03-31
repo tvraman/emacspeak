@@ -211,7 +211,9 @@
   (let ((doc (sd-texinfo-escape
               (documentation-property  o 'variable-documentation))))
     (insert (format "\n\n@defvar {User Option} %s\n" o))
-    (insert (format "%s\n" (or doc  "Not Documented")))
+    (insert (format "%s\n"
+                    (or doc
+                        (format "###%s: Not Documented\n" o))))
     (insert "\n@end defvar\n\n")))
 
 (defun self-document-module-options (self)
