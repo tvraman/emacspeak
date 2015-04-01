@@ -4,8 +4,13 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
 * Emacspeak 42 -- Emacspeak 40 User Visible Changes
+** Updated Info Manual 
 
-** Emacspeak  Now Requires Emacs 24.1 Or Later
+The code that auto-generates documentation for Emacspeak packages has
+been completely re-written.
+
+  ** Emacspeak Now Requires Emacs 24.1 
+
 
 Emacspeak 42 now requires Emacs 24.1 or later.
 
