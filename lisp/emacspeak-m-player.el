@@ -278,6 +278,7 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
    ((fboundp 'directory-files-recursively)
     (directory-files-recursively directory emacspeak-media-extensions))
    (t (directory-files  directory 'full emacspeak-media-extensions))))
+
 (defsubst emacspeak-m-player-read-resource ()
   "Read resource from minibuffer with contextual smarts."
   (declare (special ido-work-directory-list))
