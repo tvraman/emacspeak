@@ -23,9 +23,6 @@ info: emacspeak.texi introducing-emacspeak.texi turning-twenty.texi
 docs.texi: 
 	$(EMACS) -batch -q -l ../utils/self-document.el -f self-document-all-modules
 
-options.texi:  
-	$(EMACS) -batch -q -l ../utils/document-commands.el
-
 install: emacspeak.info turning-twenty.info
 	if test  -x /sbin/install-info ; then \
 		install-info emacspeak.info /etc/info-dir; \
@@ -37,7 +34,7 @@ uninstall:
 		install-info --delete $(infodir)/*.info /etc/info-dir; \
 	fi
 	rm -f $(infodir)/*.info*
-emacspeak.info: *.texi 
+emacspeak.info: 
 	makeinfo --force -o emacspeak.info emacspeak.texi
 
 introducing-emacspeak.info: introducing-emacspeak.texi
