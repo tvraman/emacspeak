@@ -65,7 +65,9 @@
                                (file-name-directory load-file-name)))
 
 (defvar self-document-files
-  (mapcar #'file-name-nondirectory(directory-files-recursively  self-document-lisp-directory  ".elc$"))
+  (append
+   (directory-files self-document-lisp-directory nil ".elc$")
+   (directory-files (expand-file-name "g-client" self-document-lisp-directory) nil ".elc$"))
   "List of elisp modules  to document.")
 
 (defvar self-document-map
