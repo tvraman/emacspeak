@@ -55,7 +55,7 @@
 (require 'voice-setup)
 (require 'dtk-speak)
 (require 'widget)
-(require 'wid-edit)
+(require 'wid-edit "wid-edit" 'no-error)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 (require 'emacspeak-webutils)
