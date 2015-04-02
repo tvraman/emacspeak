@@ -48,6 +48,7 @@ emacspeak.dvi:		emacspeak.texi
 	rm -f 	emacspeak.cp  emacspeak.fn  emacspeak.ky  emacspeak.pg  emacspeak.tp  emacspeak.vr 	\
 		emacspeak.cps emacspeak.fns emacspeak.kys emacspeak.pgs emacspeak.tps emacspeak.vrs	\
 		emacspeak.log emacspeak.toc emacspeak.aux
+pdf: emacspeak.pdf
 
 emacspeak.pdf:		emacspeak.texi
 	$(PDFTEX) emacspeak.texi
