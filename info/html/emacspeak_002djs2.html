@@ -1,289 +1,173 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
-
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
-  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
-  "text/css" />
+<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
+<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-js2</title>
 
-  <title>Emacspeak User’s Manual –2nd Edition.:
-  emacspeak-js2</title>
-  <meta name="description" content=
-  "Emacspeak User’s Manual –2nd Edition.: emacspeak-js2" />
-  <meta name="keywords" content=
-  "Emacspeak User’s Manual –2nd Edition.: emacspeak-js2" />
-  <meta name="resource-type" content="document" />
-  <meta name="distribution" content="global" />
-  <meta name="Generator" content="makeinfo" />
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <link href="index.html#Top" rel="start" title="Top" />
-  <link href="Concept-Index.html#Concept-Index" rel="index" title=
-  "Concept Index" />
-  <link href="index.html#SEC_Contents" rel="contents" title=
-  "Table of Contents" />
-  <link href=
-  "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
-  rel="up" title="Emacspeak Commands And Options" />
-  <link href="emacspeak_002djss.html#emacspeak_002djss" rel="next"
-  title="emacspeak-jss" />
-  <link href="emacspeak_002djde.html#emacspeak_002djde" rel="prev"
-  title="emacspeak-jde" />
-  <style type="text/css">
-/*<![CDATA[*/
-  <!--
-  a.summary-letter {text-decoration: none}
-  blockquote.smallquotation {font-size: smaller}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  div.indentedblock {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
-  div.smalldisplay {margin-left: 3.2em}
-  div.smallexample {margin-left: 3.2em}
-  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-  div.smalllisp {margin-left: 3.2em}
-  kbd {font-style:oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  pre.smalldisplay {font-family: inherit; font-size: smaller}
-  pre.smallexample {font-size: smaller}
-  pre.smallformat {font-family: inherit; font-size: smaller}
-  pre.smalllisp {font-size: smaller}
-  span.nocodebreak {white-space:nowrap}
-  span.nolinebreak {white-space:nowrap}
-  span.roman {font-family:serif; font-weight:normal}
-  span.sansserif {font-family:sans-serif; font-weight:normal}
-  ul.no-bullet {list-style: none}
-  -->
-  /*]]>*/
-  </style>
-  <style type="text/css">
-/*<![CDATA[*/
-  body {
-  background-color: #FFFFFF;
-  color: #000000;
-  }
-  :link { color: #0000FF }
-  :visited { color: #800080 }
-  :active { color: #FF0000 }
-  /*]]>*/
-  </style>
+<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-js2">
+<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-js2">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" rel="up" title="Emacspeak Commands And Options">
+<link href="emacspeak_002djss.html#emacspeak_002djss" rel="next" title="emacspeak-jss">
+<link href="emacspeak_002djde.html#emacspeak_002djde" rel="prev" title="emacspeak-jde">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
 
-<body lang="en" xml:lang="en">
-  <a name="emacspeak_002djs2" id="emacspeak_002djs2"></a>
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="emacspeak_002djs2"></a>
+<div class="header">
+<p>
+Next: <a href="emacspeak_002djss.html#emacspeak_002djss" accesskey="n" rel="next">emacspeak-jss</a>, Previous: <a href="emacspeak_002djde.html#emacspeak_002djde" accesskey="p" rel="prev">emacspeak-jde</a>, Up: <a href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="emacspeak_002djs2-1"></a>
+<h3 class="section">11.99 emacspeak-js2</h3>
 
-  <div class="header">
-    <p>Next: <a href="emacspeak_002djss.html#emacspeak_002djss"
-    accesskey="n" rel="next">emacspeak-jss</a>, Previous: <a href=
-    "emacspeak_002djde.html#emacspeak_002djde" accesskey="p" rel=
-    "prev">emacspeak-jde</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
-    accesskey="u" rel="up">Emacspeak Commands And Options</a>
-    &nbsp; [<a href="index.html#SEC_Contents" title=
-    "Table of contents" rel="contents">Contents</a>][<a href=
-    "Concept-Index.html#Concept-Index" title="Index" rel=
-    "index">Index</a>]</p>
-  </div>
-  <hr />
-  <a name="emacspeak_002djs2-1" id="emacspeak_002djs2-1"></a>
+<p>Commentary:
+JS2-mode http://js2-mode.googlecode.com/svn/trunk
+is a new, powerful Emacs mode for working with JavaScript.
+This module speech-enables js2.
+</p>
+<a name="emacspeak_002djs2-Commands"></a>
+<h4 class="subsection">11.99.1 emacspeak-js2 Commands</h4>
 
-  <h3 class="section">11.99 emacspeak-js2</h3>
+<a name="emacspeak_002djs2-Options"></a>
+<h4 class="subsection">11.99.2 emacspeak-js2 Options</h4>
 
-  <p>Commentary: JS2-mode http://js2-mode.googlecode.com/svn/trunk
-  is a new, powerful Emacs mode for working with JavaScript. This
-  module speech-enables js2.</p><a name=
-  "emacspeak_002djs2-Commands" id="emacspeak_002djs2-Commands"></a>
+<dl>
+<dt><a name="index-User-Option-482"></a>Variable: <strong>User Option</strong> <em>emacspeak-js2-error-voice</em></dt>
+<dd><p>Personality used for js2-error
+This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
+</p>
+</dd></dl>
 
-  <h4 class="subsection">11.99.1 emacspeak-js2
-  Commands</h4><a name="emacspeak_002djs2-Options" id=
-  "emacspeak_002djs2-Options"></a>
+<dl>
+<dt><a name="index-User-Option-483"></a>Variable: <strong>User Option</strong> <em>emacspeak-js2-external-variable-voice</em></dt>
+<dd><p>Personality used for js2-external-variable
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+</p>
+</dd></dl>
 
-  <h4 class="subsection">11.99.2 emacspeak-js2 Options</h4>
+<dl>
+<dt><a name="index-User-Option-484"></a>Variable: <strong>User Option</strong> <em>emacspeak-js2-function-param-voice</em></dt>
+<dd><p>Personality used for js2-function-param
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+</p>
+</dd></dl>
 
-  <dl>
-    <dt><a name="index-User-Option-482" id=
-    "index-User-Option-482"></a>Variable: <strong>User
-    Option</strong> <em>emacspeak-js2-error-voice</em></dt>
+<dl>
+<dt><a name="index-User-Option-485"></a>Variable: <strong>User Option</strong> <em>emacspeak-js2-instance-member-voice</em></dt>
+<dd><p>Personality used for js2-instance-member
+This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
+</p>
+</dd></dl>
 
-    <dd>
-      <p>Personality used for js2-error This personality uses
-      voice-bolden-extra whose effect can be changed globally by
-      customizing voice-bolden-extra-settings.</p>
-    </dd>
-  </dl>
+<dl>
+<dt><a name="index-User-Option-486"></a>Variable: <strong>User Option</strong> <em>emacspeak-js2-jsdoc-html-tag-delimiter-voice</em></dt>
+<dd><p>Personality used for js2-jsdoc-html-tag-delimiter
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+</p>
+</dd></dl>
 
-  <dl>
-    <dt><a name="index-User-Option-483" id=
-    "index-User-Option-483"></a>Variable: <strong>User
-    Option</strong>
-    <em>emacspeak-js2-external-variable-voice</em></dt>
+<dl>
+<dt><a name="index-User-Option-487"></a>Variable: <strong>User Option</strong> <em>emacspeak-js2-jsdoc-html-tag-name-voice</em></dt>
+<dd><p>Personality used for js2-jsdoc-html-tag-name
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+</p>
+</dd></dl>
 
-    <dd>
-      <p>Personality used for js2-external-variable This
-      personality uses voice-animate whose effect can be changed
-      globally by customizing voice-animate-settings.</p>
-    </dd>
-  </dl>
+<dl>
+<dt><a name="index-User-Option-488"></a>Variable: <strong>User Option</strong> <em>emacspeak-js2-jsdoc-tag-voice</em></dt>
+<dd><p>Personality used for js2-jsdoc-tag
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+</p>
+</dd></dl>
 
-  <dl>
-    <dt><a name="index-User-Option-484" id=
-    "index-User-Option-484"></a>Variable: <strong>User
-    Option</strong>
-    <em>emacspeak-js2-function-param-voice</em></dt>
+<dl>
+<dt><a name="index-User-Option-489"></a>Variable: <strong>User Option</strong> <em>emacspeak-js2-jsdoc-type-voice</em></dt>
+<dd><p>Personality used for js2-jsdoc-type
+This personality uses  voice-smoothen-medium whose  effect can be changed globally by customizing voice-smoothen-medium-settings.
+</p>
+</dd></dl>
 
-    <dd>
-      <p>Personality used for js2-function-param This personality
-      uses voice-lighten-extra whose effect can be changed globally
-      by customizing voice-lighten-extra-settings.</p>
-    </dd>
-  </dl>
+<dl>
+<dt><a name="index-User-Option-490"></a>Variable: <strong>User Option</strong> <em>emacspeak-js2-jsdoc-value-voice</em></dt>
+<dd><p>Personality used for js2-jsdoc-value
+This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
+</p>
+</dd></dl>
 
-  <dl>
-    <dt><a name="index-User-Option-485" id=
-    "index-User-Option-485"></a>Variable: <strong>User
-    Option</strong>
-    <em>emacspeak-js2-instance-member-voice</em></dt>
+<dl>
+<dt><a name="index-User-Option-491"></a>Variable: <strong>User Option</strong> <em>emacspeak-js2-magic-paren-voice</em></dt>
+<dd><p>Personality used for js2-magic-paren
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+</p>
+</dd></dl>
 
-    <dd>
-      <p>Personality used for js2-instance-member This personality
-      uses voice-lighten-medium whose effect can be changed
-      globally by customizing voice-lighten-medium-settings.</p>
-    </dd>
-  </dl>
+<dl>
+<dt><a name="index-User-Option-492"></a>Variable: <strong>User Option</strong> <em>emacspeak-js2-private-function-call-voice</em></dt>
+<dd><p>Personality used for js2-private-function-call
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+</p>
+</dd></dl>
 
-  <dl>
-    <dt><a name="index-User-Option-486" id=
-    "index-User-Option-486"></a>Variable: <strong>User
-    Option</strong>
-    <em>emacspeak-js2-jsdoc-html-tag-delimiter-voice</em></dt>
+<dl>
+<dt><a name="index-User-Option-493"></a>Variable: <strong>User Option</strong> <em>emacspeak-js2-private-member-voice</em></dt>
+<dd><p>Personality used for js2-private-member
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+</p>
+</dd></dl>
 
-    <dd>
-      <p>Personality used for js2-jsdoc-html-tag-delimiter This
-      personality uses voice-smoothen whose effect can be changed
-      globally by customizing voice-smoothen-settings.</p>
-    </dd>
-  </dl>
+<dl>
+<dt><a name="index-User-Option-494"></a>Variable: <strong>User Option</strong> <em>emacspeak-js2-warning-voice</em></dt>
+<dd><p>Personality used for js2-warning
+This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+</p>
+</dd></dl>
 
-  <dl>
-    <dt><a name="index-User-Option-487" id=
-    "index-User-Option-487"></a>Variable: <strong>User
-    Option</strong>
-    <em>emacspeak-js2-jsdoc-html-tag-name-voice</em></dt>
+<hr>
+<div class="header">
+<p>
+Next: <a href="emacspeak_002djss.html#emacspeak_002djss" accesskey="n" rel="next">emacspeak-jss</a>, Previous: <a href="emacspeak_002djde.html#emacspeak_002djde" accesskey="p" rel="prev">emacspeak-jde</a>, Up: <a href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 
-    <dd>
-      <p>Personality used for js2-jsdoc-html-tag-name This
-      personality uses voice-bolden-medium whose effect can be
-      changed globally by customizing
-      voice-bolden-medium-settings.</p>
-    </dd>
-  </dl>
 
-  <dl>
-    <dt><a name="index-User-Option-488" id=
-    "index-User-Option-488"></a>Variable: <strong>User
-    Option</strong> <em>emacspeak-js2-jsdoc-tag-voice</em></dt>
 
-    <dd>
-      <p>Personality used for js2-jsdoc-tag This personality uses
-      voice-bolden-medium whose effect can be changed globally by
-      customizing voice-bolden-medium-settings.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-User-Option-489" id=
-    "index-User-Option-489"></a>Variable: <strong>User
-    Option</strong> <em>emacspeak-js2-jsdoc-type-voice</em></dt>
-
-    <dd>
-      <p>Personality used for js2-jsdoc-type This personality uses
-      voice-smoothen-medium whose effect can be changed globally by
-      customizing voice-smoothen-medium-settings.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-User-Option-490" id=
-    "index-User-Option-490"></a>Variable: <strong>User
-    Option</strong> <em>emacspeak-js2-jsdoc-value-voice</em></dt>
-
-    <dd>
-      <p>Personality used for js2-jsdoc-value This personality uses
-      voice-lighten-medium whose effect can be changed globally by
-      customizing voice-lighten-medium-settings.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-User-Option-491" id=
-    "index-User-Option-491"></a>Variable: <strong>User
-    Option</strong> <em>emacspeak-js2-magic-paren-voice</em></dt>
-
-    <dd>
-      <p>Personality used for js2-magic-paren This personality uses
-      voice-lighten whose effect can be changed globally by
-      customizing voice-lighten-settings.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-User-Option-492" id=
-    "index-User-Option-492"></a>Variable: <strong>User
-    Option</strong>
-    <em>emacspeak-js2-private-function-call-voice</em></dt>
-
-    <dd>
-      <p>Personality used for js2-private-function-call This
-      personality uses voice-smoothen-extra whose effect can be
-      changed globally by customizing
-      voice-smoothen-extra-settings.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-User-Option-493" id=
-    "index-User-Option-493"></a>Variable: <strong>User
-    Option</strong>
-    <em>emacspeak-js2-private-member-voice</em></dt>
-
-    <dd>
-      <p>Personality used for js2-private-member This personality
-      uses voice-lighten-extra whose effect can be changed globally
-      by customizing voice-lighten-extra-settings.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-User-Option-494" id=
-    "index-User-Option-494"></a>Variable: <strong>User
-    Option</strong> <em>emacspeak-js2-warning-voice</em></dt>
-
-    <dd>
-      <p>Personality used for js2-warning This personality uses
-      voice-bolden-and-animate whose effect can be changed globally
-      by customizing voice-bolden-and-animate-settings.</p>
-    </dd>
-  </dl>
-  <hr />
-
-  <div class="header">
-    <p>Next: <a href="emacspeak_002djss.html#emacspeak_002djss"
-    accesskey="n" rel="next">emacspeak-jss</a>, Previous: <a href=
-    "emacspeak_002djde.html#emacspeak_002djde" accesskey="p" rel=
-    "prev">emacspeak-jde</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
-    accesskey="u" rel="up">Emacspeak Commands And Options</a>
-    &nbsp; [<a href="index.html#SEC_Contents" title=
-    "Table of contents" rel="contents">Contents</a>][<a href=
-    "Concept-Index.html#Concept-Index" title="Index" rel=
-    "index">Index</a>]</p>
-  </div>
 </body>
 </html>
