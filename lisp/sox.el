@@ -41,7 +41,7 @@
 
 ;;; Commentary:
 ;;; This module defines a convenient speech-enabled
-;;; interface for editting mp3 and wav files using SoX.
+;;; interface for editing mp3 and wav files using SoX.
 ;;;
 ;;; Launching M-x sox  creates a special interaction buffer
 ;;; that provides single keystroke commands for editing and

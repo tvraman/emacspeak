@@ -348,7 +348,7 @@ document is displayed in a separate buffer. "
 (defun emacspeak-w3-next-doc-element (&optional count)
   "Move forward  to the next document element.
 Optional interactive prefix argument COUNT
-specifies by how many eleemnts to move."
+specifies by how many elements to move."
   (interactive "P")
   (cond
    ((null count)
@@ -372,7 +372,7 @@ implemented. ")))
 (defun emacspeak-w3-previous-doc-element (&optional count)
   "Move back  to the previous document element.
 Optional interactive prefix argument COUNT
-specifies by how many eleemnts to move."
+specifies by how many elements to move."
   (interactive "P")
   (cond
    ((null count)

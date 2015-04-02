@@ -676,7 +676,7 @@ Suitable for text searches."
 
 ;;;###autoload
 (defun emacspeak-epub-google (query)
-  "Search for Epubs from Gooble Books."
+  "Search for Epubs from Google Books."
   (interactive "sGoogle Books Query: ")
   (declare (special emacspeak-epub-google-search-template))
   (emacspeak-feeds-atom-display

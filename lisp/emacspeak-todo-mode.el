@@ -46,7 +46,7 @@
 ;;; Commentary:
 ;;; todo-mode (part of Emacs 21) provides todo-lists that can be
 ;;; integrated with the Emacs calendar.
-;;; This module speech-enables tood-mode
+;;; This module speech-enables todo-mode
 ;;; Code:
 ;;}}}
 ;;{{{  Advice interactive commands:

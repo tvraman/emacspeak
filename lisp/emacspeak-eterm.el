@@ -542,7 +542,7 @@ Use command \\[emacspeak-eterm-toggle-review].")
 
 (defun emacspeak-eterm-toggle-review ()
   "Toggle state of eterm review. 
-In review mode, you can move around the terminal and listen to the contnets 
+In review mode, you can move around the terminal and listen to the contents 
 without sending input to the terminal itself."
   (interactive)
   (declare (special emacspeak-eterm-review-p 

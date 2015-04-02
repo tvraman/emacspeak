@@ -529,7 +529,7 @@ Emacspeak provided fairly light-weight but efficient access to
 all of the electronic books I had on my local disk — Emacs'
 strengths with respect to browsing textual documents meant that I
 needed to build little that was specific to Emacspeak. The late
-90's saw the arival of Daisy as an XML-based format for
+90's saw the arrival of Daisy as an XML-based format for
 accessible electronic books. The last decade has seen the rapid
 convergence to @strong{epub} as a distribution format of choice for
 electronic books. Emacspeak provides interaction modes that make
@@ -569,7 +569,7 @@ auditory interface.
 
 Starting from a tight code, eval, test form of iterative
 programming as encouraged by Lisp. Applied to languages like
-Python and Ruby to explorative computational tools such as R for
+Python and Ruby to exploratory computational tools such as R for
 data analysis and SQL for database interaction, the Emacspeak
 Audio Desktop has come to encompass a collection of rich
 computational tools that provide an efficient eyes-free
@@ -689,7 +689,7 @@ Notice that the above implementation hard-wires the CGI parameter
 names used by a given Web application into the code implemented
 in module @strong{emacspeak-websearch}. REST as a design pattern had not
 yet been recognized, leave alone formalized, and module
-@strong{emacspeak-websearch} was initially decryed as being fragile.
+@strong{emacspeak-websearch} was initially criticized as being fragile.
 
 However, over time, the CGI parameter names remained fixed — the
  only things that have required updating in the Emacspeak

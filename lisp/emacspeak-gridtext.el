@@ -44,7 +44,7 @@
 
 ;;; Emacspeak's table browsing mode allows one to
 ;;; efficiently access  content that is tabular in nature.
-;;; That module also provides functions for infering table
+;;; That module also provides functions for inferring table
 ;;; structure where possible.
 ;;; Often, such structure is hard to infer automatically
 ;;; --but might be known to the user 

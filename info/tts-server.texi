@@ -48,7 +48,7 @@
         requests, these are processed @emph{immediately}.
 
         The above design allows the Emacspeak TTS server to be
-        @emph{highly} responsive; Cleint applications can queue large
+        @emph{highly} responsive; Client applications can queue large
         amounts of text (typically queued a clause at a time to
         achieve the best prosody), ask the TTS server to start speaking,
         and interrupt the spoken output at any time.

@@ -1,99 +1,1006 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-org</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-org">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-org">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" rel="up" title="Emacspeak Commands And Options">
-<link href="emacspeak_002doutline.html#emacspeak_002doutline" rel="next" title="emacspeak-outline">
-<link href="emacspeak_002docr.html#emacspeak_002docr" rel="prev" title="emacspeak-ocr">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User’s Manual –2nd Edition.:
+  emacspeak-org</title>
+  <meta name="description" content=
+  "Emacspeak User’s Manual –2nd Edition.: emacspeak-org" />
+  <meta name="keywords" content=
+  "Emacspeak User’s Manual –2nd Edition.: emacspeak-org" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+  rel="up" title="Emacspeak Commands And Options" />
+  <link href="emacspeak_002doutline.html#emacspeak_002doutline"
+  rel="next" title="emacspeak-outline" />
+  <link href="emacspeak_002docr.html#emacspeak_002docr" rel="prev"
+  title="emacspeak-ocr" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dorg"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002doutline.html#emacspeak_002doutline" accesskey="n" rel="next">emacspeak-outline</a>, Previous: <a href="emacspeak_002docr.html#emacspeak_002docr" accesskey="p" rel="prev">emacspeak-ocr</a>, Up: <a href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dorg-1"></a>
-<h3 class="section">11.122 emacspeak-org</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dorg" id="emacspeak_002dorg"></a>
 
-<p>Commentary:
-Speech-enable org &mdash;
- Org allows you to keep organized notes and todo lists.
-Homepage: http://www.astro.uva.nl/~dominik/Tools/org/
-or http://orgmode.org/
-</p>
-<a name="emacspeak_002dorg-Commands"></a>
-<h4 class="subsection">11.122.1 emacspeak-org Commands</h4>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002doutline.html#emacspeak_002doutline" accesskey=
+    "n" rel="next">emacspeak-outline</a>, Previous: <a href=
+    "emacspeak_002docr.html#emacspeak_002docr" accesskey="p" rel=
+    "prev">emacspeak-ocr</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dorg-1" id="emacspeak_002dorg-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002dorg_002dbookmark"></a>Interactive Command: <strong>emacspeak-org-bookmark</strong> <em>(&amp;optional goto)</em></dt>
-<dd><p>Bookmark from org.
-</p></dd></dl>
+  <h3 class="section">11.122 emacspeak-org</h3>
 
-<dl>
-<dt><a name="index-emacspeak_002dorg_002dpopup_002dinput"></a>Interactive Command: <strong>emacspeak-org-popup-input</strong> <em>nil</em></dt>
-<dd><p>Pops up an org input area.
-</p></dd></dl>
+  <p>Commentary: Speech-enable org — Org allows you to keep
+  organized notes and todo lists. Homepage:
+  http://www.astro.uva.nl/~dominik/Tools/org/ or
+  http://orgmode.org/</p><a name="emacspeak_002dorg-Commands" id=
+  "emacspeak_002dorg-Commands"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002dorg_002dtable_002dspeak_002dcurrent_002delement"></a>Interactive Command: <strong>emacspeak-org-table-speak-current-element</strong> <em>nil</em></dt>
-<dd><p>echoes current table element
-</p></dd></dl>
+  <h4 class="subsection">11.122.1 emacspeak-org Commands</h4>
 
-<a name="emacspeak_002dorg-Options"></a>
-<h4 class="subsection">11.122.2 emacspeak-org Options</h4>
+  <dl>
+    <dt><a name="index-emacspeak_002dorg_002dbookmark" id=
+    "index-emacspeak_002dorg_002dbookmark"></a>Interactive Command:
+    <strong>emacspeak-org-bookmark</strong> <em>(&amp;optional
+    goto)</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-704"></a>Variable: <strong>User Option</strong> <em>emacspeak-org-bookmark-key</em></dt>
-<dd><p>Key of template used for capturing  hot list.
-</p>
-</dd></dl>
+    <dd>
+      <p>Bookmark from org.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-emacspeak_002dorg_002dpopup_002dinput" id=
+    "index-emacspeak_002dorg_002dpopup_002dinput"></a>Interactive
+    Command: <strong>emacspeak-org-popup-input</strong>
+    <em>nil</em></dt>
 
+    <dd>
+      <p>Pops up an org input area.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dorg_002dtable_002dspeak_002dcurrent_002delement"
+    id=
+    "index-emacspeak_002dorg_002dtable_002dspeak_002dcurrent_002delement">
+    </a>Interactive Command:
+    <strong>emacspeak-org-table-speak-current-element</strong>
+    <em>nil</em></dt>
 
+    <dd>
+      <p>echoes current table element</p>
+    </dd>
+  </dl><a name="emacspeak_002dorg-Options" id=
+  "emacspeak_002dorg-Options"></a>
+
+  <h4 class="subsection">11.122.2 emacspeak-org Options</h4>
+
+  <dl>
+    <dt><a name="index-User-Option-637" id=
+    "index-User-Option-637"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-org-agenda-calendar-event-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-agenda-calendar-event This
+      personality uses voice-animate-extra whose effect can be
+      changed globally by customizing
+      voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-638" id=
+    "index-User-Option-638"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-org-agenda-calendar-sexp-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-agenda-calendar-sexp This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-639" id=
+    "index-User-Option-639"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-org-agenda-column-dateline-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-agenda-column-dateline This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-640" id=
+    "index-User-Option-640"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-agenda-diary-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-agenda-diary This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-641" id=
+    "index-User-Option-641"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-org-agenda-dimmed-todo-personality</em></dt>
+
+    <dd>
+      <p>Personality used for org-agenda-dimmed-todo-face This
+      personality uses voice-smoothen-medium whose effect can be
+      changed globally by customizing
+      voice-smoothen-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-642" id=
+    "index-User-Option-642"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-agenda-done-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-agenda-done This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-643" id=
+    "index-User-Option-643"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-org-agenda-filter-category-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-agenda-filter-category This
+      personality uses voice-lighten-extra whose effect can be
+      changed globally by customizing
+      voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-644" id=
+    "index-User-Option-644"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-org-agenda-filter-tags-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-agenda-filter-tags This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-645" id=
+    "index-User-Option-645"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-org-agenda-restriction-lock-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-agenda-restriction-lock This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-646" id=
+    "index-User-Option-646"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-org-agenda-structure-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-agenda-structure This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-647" id=
+    "index-User-Option-647"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-archived-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-archived This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-648" id=
+    "index-User-Option-648"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-beamer-tag-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-beamer-tag This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-649" id=
+    "index-User-Option-649"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-org-block-background-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-block-background This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-650" id=
+    "index-User-Option-650"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-block-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-block This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-651" id=
+    "index-User-Option-651"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-bookmark-key</em></dt>
+
+    <dd>
+      <p>Key of template used for capturing hot list.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-652" id=
+    "index-User-Option-652"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-checkbox-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-checkbox This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-653" id=
+    "index-User-Option-653"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-clock-overlay-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-clock-overlay This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-654" id=
+    "index-User-Option-654"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-code-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-code This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-655" id=
+    "index-User-Option-655"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-column-title-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-column-title This personality
+      uses voice-lighten-extra whose effect can be changed globally
+      by customizing voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-656" id=
+    "index-User-Option-656"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-column-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-column This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-657" id=
+    "index-User-Option-657"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-date-selected-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-date-selected This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-658" id=
+    "index-User-Option-658"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-date-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-date This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-659" id=
+    "index-User-Option-659"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-default-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-default This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-660" id=
+    "index-User-Option-660"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-org-document-info-keyword-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-document-info-keyword This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-661" id=
+    "index-User-Option-661"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-document-info-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-document-info This personality
+      uses voice-bolden-medium whose effect can be changed globally
+      by customizing voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-662" id=
+    "index-User-Option-662"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-org-document-title-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-document-title This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-663" id=
+    "index-User-Option-663"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-done-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-done This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-664" id=
+    "index-User-Option-664"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-drawer-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-drawer This personality uses
+      voice-smoothen-medium whose effect can be changed globally by
+      customizing voice-smoothen-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-665" id=
+    "index-User-Option-665"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-ellipsis-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-ellipsis This personality uses
+      voice-smoothen-extra whose effect can be changed globally by
+      customizing voice-smoothen-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-666" id=
+    "index-User-Option-666"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-footnote-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-footnote This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-667" id=
+    "index-User-Option-667"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-formula-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-formula This personality uses
+      voice-animate-extra whose effect can be changed globally by
+      customizing voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-668" id=
+    "index-User-Option-668"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-org-habit-alert-future-personality</em></dt>
+
+    <dd>
+      <p>Personality used for org-habit-alert-future-face This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-669" id=
+    "index-User-Option-669"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-org-habit-alert-personality</em></dt>
+
+    <dd>
+      <p>Personality used for org-habit-alert-face This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-670" id=
+    "index-User-Option-670"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-org-habit-clear-future-personality</em></dt>
+
+    <dd>
+      <p>Personality used for org-habit-clear-future-face This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-671" id=
+    "index-User-Option-671"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-org-habit-clear-personality</em></dt>
+
+    <dd>
+      <p>Personality used for org-habit-clear-face This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-672" id=
+    "index-User-Option-672"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-org-habit-overdue-future-personality</em></dt>
+
+    <dd>
+      <p>Personality used for org-habit-overdue-future-face This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-673" id=
+    "index-User-Option-673"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-org-habit-overdue-personality</em></dt>
+
+    <dd>
+      <p>Personality used for org-habit-overdue-face This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-674" id=
+    "index-User-Option-674"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-org-habit-ready-future-personality</em></dt>
+
+    <dd>
+      <p>Personality used for org-habit-ready-future-face This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-675" id=
+    "index-User-Option-675"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-org-habit-ready-personality</em></dt>
+
+    <dd>
+      <p>Personality used for org-habit-ready-face This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-676" id=
+    "index-User-Option-676"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-headline-done-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-headline-done This personality
+      uses voice-monotone-medium whose effect can be changed
+      globally by customizing voice-monotone-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-677" id=
+    "index-User-Option-677"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-hide-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-hide This personality uses
+      voice-smoothen-extra whose effect can be changed globally by
+      customizing voice-smoothen-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-678" id=
+    "index-User-Option-678"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-indent-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-indent This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-679" id=
+    "index-User-Option-679"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-inlinetask-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-inlinetask This personality uses
+      voice-smoothen-extra whose effect can be changed globally by
+      customizing voice-smoothen-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-680" id=
+    "index-User-Option-680"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-org-latex-and-export-specials-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-latex-and-export-specials This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-681" id=
+    "index-User-Option-681"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-level-1-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-level-1 This personality uses
+      voice-bolden-medium whose effect can be changed globally by
+      customizing voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-682" id=
+    "index-User-Option-682"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-level-2-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-level-2 This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-683" id=
+    "index-User-Option-683"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-level-3-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-level-3 This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-684" id=
+    "index-User-Option-684"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-level-4-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-level-4 This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-685" id=
+    "index-User-Option-685"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-level-5-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-level-5 This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-686" id=
+    "index-User-Option-686"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-level-6-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-level-6 This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-687" id=
+    "index-User-Option-687"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-level-7-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-level-7 This personality uses
+      voice-lighten-medium whose effect can be changed globally by
+      customizing voice-lighten-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-688" id=
+    "index-User-Option-688"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-level-8-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-level-8 This personality uses
+      voice-lighten-extra whose effect can be changed globally by
+      customizing voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-689" id=
+    "index-User-Option-689"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-link-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-link This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-690" id=
+    "index-User-Option-690"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-meta-line-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-meta-line This personality uses
+      voice-smoothen-medium whose effect can be changed globally by
+      customizing voice-smoothen-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-691" id=
+    "index-User-Option-691"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-org-property-value-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-property-value This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-692" id=
+    "index-User-Option-692"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-org-scheduled-previously-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-scheduled-previously This
+      personality uses voice-lighten-medium whose effect can be
+      changed globally by customizing
+      voice-lighten-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-693" id=
+    "index-User-Option-693"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-org-scheduled-today-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-scheduled-today This personality
+      uses voice-bolden-extra whose effect can be changed globally
+      by customizing voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-694" id=
+    "index-User-Option-694"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-scheduled-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-scheduled This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-695" id=
+    "index-User-Option-695"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-sexp-date-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-sexp-date This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-696" id=
+    "index-User-Option-696"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-org-special-keyword-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-special-keyword This personality
+      uses voice-lighten-extra whose effect can be changed globally
+      by customizing voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-697" id=
+    "index-User-Option-697"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-table-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-table This personality uses
+      voice-bolden-medium whose effect can be changed globally by
+      customizing voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-698" id=
+    "index-User-Option-698"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-tag-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-tag This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-699" id=
+    "index-User-Option-699"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-target-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-target This personality uses
+      voice-bolden-medium whose effect can be changed globally by
+      customizing voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-700" id=
+    "index-User-Option-700"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-time-grid-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-time-grid This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-701" id=
+    "index-User-Option-701"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-todo-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-todo This personality uses
+      voice-bolden-and-animate whose effect can be changed globally
+      by customizing voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-702" id=
+    "index-User-Option-702"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-org-upcoming-deadline-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-upcoming-deadline This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-703" id=
+    "index-User-Option-703"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-verbatim-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-verbatim This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-704" id=
+    "index-User-Option-704"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-warning-voice</em></dt>
+
+    <dd>
+      <p>Personality used for org-warning This personality uses
+      voice-bolden-and-animate whose effect can be changed globally
+      by customizing voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002doutline.html#emacspeak_002doutline" accesskey=
+    "n" rel="next">emacspeak-outline</a>, Previous: <a href=
+    "emacspeak_002docr.html#emacspeak_002docr" accesskey="p" rel=
+    "prev">emacspeak-ocr</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

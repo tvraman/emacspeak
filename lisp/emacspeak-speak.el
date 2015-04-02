@@ -935,7 +935,7 @@ rather than speak it.")
 With prefix ARG, speaks the rest of the word from point.
 Negative prefix arg speaks from start of word to point.
 If executed  on the same buffer position a second time, the word is
-spelt instead of being spoken."
+spelled out  instead of being spoken."
   (interactive "P")
   (declare (special emacspeak-speak-last-spoken-word-position))
   (when (listp arg) (setq arg (car arg )))

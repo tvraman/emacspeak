@@ -226,7 +226,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  "http://www.oldtimeradioprograms.com"
  nil
  nil
- "This months Old Time Radio Programing"
+ "This months Old Time Radio Programming"
  #'(lambda (url)
      (emacspeak-we-extract-nested-table-list
       (list 2 3 )

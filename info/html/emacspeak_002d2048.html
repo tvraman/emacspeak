@@ -1,105 +1,177 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-2048</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-2048">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-2048">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" rel="up" title="Emacspeak Commands And Options">
-<link href="emacspeak_002dactions.html#emacspeak_002dactions" rel="next" title="emacspeak-actions">
-<link href="emacspeak.html#emacspeak" rel="prev" title="emacspeak">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User’s Manual –2nd Edition.:
+  emacspeak-2048</title>
+  <meta name="description" content=
+  "Emacspeak User’s Manual –2nd Edition.: emacspeak-2048" />
+  <meta name="keywords" content=
+  "Emacspeak User’s Manual –2nd Edition.: emacspeak-2048" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+  rel="up" title="Emacspeak Commands And Options" />
+  <link href="emacspeak_002dactions.html#emacspeak_002dactions"
+  rel="next" title="emacspeak-actions" />
+  <link href="emacspeak.html#emacspeak" rel="prev" title=
+  "emacspeak" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002d2048"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dactions.html#emacspeak_002dactions" accesskey="n" rel="next">emacspeak-actions</a>, Previous: <a href="emacspeak.html#emacspeak" accesskey="p" rel="prev">emacspeak</a>, Up: <a href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002d2048-1"></a>
-<h3 class="section">11.11 emacspeak-2048</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002d2048" id="emacspeak_002d2048"></a>
 
-<p>Commentary:
-Speech-enable 2048 Game
-</p>
-<a name="emacspeak_002d2048-Commands"></a>
-<h4 class="subsection">11.11.1 emacspeak-2048 Commands</h4>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dactions.html#emacspeak_002dactions" accesskey=
+    "n" rel="next">emacspeak-actions</a>, Previous: <a href=
+    "emacspeak.html#emacspeak" accesskey="p" rel=
+    "prev">emacspeak</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002d2048-1" id="emacspeak_002d2048-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002d2048_002dpop_002dstate"></a>Interactive Command: <strong>emacspeak-2048-pop-state</strong> <em>nil</em></dt>
-<dd><p>Reset state from stack.
-</p></dd></dl>
+  <h3 class="section">11.11 emacspeak-2048</h3>
 
-<dl>
-<dt><a name="index-emacspeak_002d2048_002dpush_002dstate"></a>Interactive Command: <strong>emacspeak-2048-push-state</strong> <em>nil</em></dt>
-<dd><p>Push current game state on stack.
-</p></dd></dl>
+  <p>Commentary: Speech-enable 2048 Game</p><a name=
+  "emacspeak_002d2048-Commands" id=
+  "emacspeak_002d2048-Commands"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002d2048_002drandomize_002dgame"></a>Interactive Command: <strong>emacspeak-2048-randomize-game</strong> <em>(&amp;optional count)</em></dt>
-<dd><p>Puts game in a randomized new state.
-</p></dd></dl>
+  <h4 class="subsection">11.11.1 emacspeak-2048 Commands</h4>
 
-<dl>
-<dt><a name="index-emacspeak_002d2048_002dscore"></a>Interactive Command: <strong>emacspeak-2048-score</strong> <em>nil</em></dt>
-<dd><p>Show total on board.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002d2048_002dpop_002dstate" id=
+    "index-emacspeak_002d2048_002dpop_002dstate"></a>Interactive
+    Command: <strong>emacspeak-2048-pop-state</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002d2048_002dspeak_002dboard"></a>Interactive Command: <strong>emacspeak-2048-speak-board</strong> <em>nil</em></dt>
-<dd><p>Speak board.
-</p></dd></dl>
+    <dd>
+      <p>Reset state from stack.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002d2048_002dspeak_002dtransposed_002dboard"></a>Interactive Command: <strong>emacspeak-2048-speak-transposed-board</strong> <em>nil</em></dt>
-<dd><p>Speak board column-wise.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002d2048_002dpush_002dstate" id=
+    "index-emacspeak_002d2048_002dpush_002dstate"></a>Interactive
+    Command: <strong>emacspeak-2048-push-state</strong>
+    <em>nil</em></dt>
 
-<a name="emacspeak_002d2048-Options"></a>
-<h4 class="subsection">11.11.2 emacspeak-2048 Options</h4>
+    <dd>
+      <p>Push current game state on stack.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-emacspeak_002d2048_002drandomize_002dgame"
+    id=
+    "index-emacspeak_002d2048_002drandomize_002dgame"></a>Interactive
+    Command: <strong>emacspeak-2048-randomize-game</strong>
+    <em>(&amp;optional count)</em></dt>
 
+    <dd>
+      <p>Puts game in a randomized new state.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-emacspeak_002d2048_002dscore" id=
+    "index-emacspeak_002d2048_002dscore"></a>Interactive Command:
+    <strong>emacspeak-2048-score</strong> <em>nil</em></dt>
 
+    <dd>
+      <p>Show total on board.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002d2048_002dspeak_002dboard" id=
+    "index-emacspeak_002d2048_002dspeak_002dboard"></a>Interactive
+    Command: <strong>emacspeak-2048-speak-board</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak board.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002d2048_002dspeak_002dtransposed_002dboard"
+    id=
+    "index-emacspeak_002d2048_002dspeak_002dtransposed_002dboard"></a>Interactive
+    Command: <strong>emacspeak-2048-speak-transposed-board</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Speak board column-wise.</p>
+    </dd>
+  </dl><a name="emacspeak_002d2048-Options" id=
+  "emacspeak_002d2048-Options"></a>
+
+  <h4 class="subsection">11.11.2 emacspeak-2048 Options</h4>
 </body>
 </html>

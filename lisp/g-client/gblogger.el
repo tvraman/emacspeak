@@ -185,7 +185,7 @@ from the server.")
 
 ;;;###autoload
 (defun gblogger-edit-entry (url)
-  "Retrieve entry and prepare it for editting.
+  "Retrieve entry and prepare it for editing.
 The retrieved entry is placed in a buffer ready for editing.
 `url' is the URL of the entry."
   (interactive
@@ -253,7 +253,7 @@ The retrieved entry is placed in a buffer ready for editing.
 
 ;;;###autoload
 (defun gblogger-add-label (label)
-  "Adds labels to gblogger entry being editted."
+  "Adds labels to gblogger entry being edited."
   (interactive "sLabel: ")
   (save-excursion
     (goto-char (point-min))

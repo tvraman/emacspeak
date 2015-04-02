@@ -174,7 +174,7 @@ Archiving is useful when synchronizing feeds across multiple machines."
            emacspeak-feeds-archive-file))
 
 ;;;###autoload
-(defun emacspeak-feeds-restoere-feeds ()
+(defun emacspeak-feeds-restore-feeds ()
   "Restore list of subscribed fees from  personal resource directory.
 Archiving is useful when synchronizing feeds across multiple machines."
   (interactive)

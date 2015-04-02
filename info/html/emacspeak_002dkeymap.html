@@ -1,197 +1,270 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-keymap</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-keymap">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-keymap">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" rel="up" title="Emacspeak Commands And Options">
-<link href="emacspeak_002dkite.html#emacspeak_002dkite" rel="next" title="emacspeak-kite">
-<link href="emacspeak_002djss.html#emacspeak_002djss" rel="prev" title="emacspeak-jss">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User’s Manual –2nd Edition.:
+  emacspeak-keymap</title>
+  <meta name="description" content=
+  "Emacspeak User’s Manual –2nd Edition.: emacspeak-keymap" />
+  <meta name="keywords" content=
+  "Emacspeak User’s Manual –2nd Edition.: emacspeak-keymap" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+  rel="up" title="Emacspeak Commands And Options" />
+  <link href="emacspeak_002dkite.html#emacspeak_002dkite" rel=
+  "next" title="emacspeak-kite" />
+  <link href="emacspeak_002djss.html#emacspeak_002djss" rel="prev"
+  title="emacspeak-jss" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dkeymap"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dkite.html#emacspeak_002dkite" accesskey="n" rel="next">emacspeak-kite</a>, Previous: <a href="emacspeak_002djss.html#emacspeak_002djss" accesskey="p" rel="prev">emacspeak-jss</a>, Up: <a href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dkeymap-1"></a>
-<h3 class="section">11.101 emacspeak-keymap</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dkeymap" id="emacspeak_002dkeymap"></a>
 
-<p>Commentary:
-This module defines the emacspeak keybindings.
-</p>
-<a name="emacspeak_002dkeymap-Commands"></a>
-<h4 class="subsection">11.101.1 emacspeak-keymap Commands</h4>
+  <div class="header">
+    <p>Next: <a href="emacspeak_002dkite.html#emacspeak_002dkite"
+    accesskey="n" rel="next">emacspeak-kite</a>, Previous: <a href=
+    "emacspeak_002djss.html#emacspeak_002djss" accesskey="p" rel=
+    "prev">emacspeak-jss</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dkeymap-1" id="emacspeak_002dkeymap-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002dkeymap_002dchoose_002dnew_002demacspeak_002dprefix"></a>Interactive Command: <strong>emacspeak-keymap-choose-new-emacspeak-prefix</strong> <em>(prefix-key)</em></dt>
-<dd><p>Interactively select a new prefix key to use for all emacspeak
-commands.  The default is to use &lsquo;C-e&rsquo;  This command
-lets you switch the prefix to something else.  This is a useful thing
-to do if you run emacspeak on a remote machine from inside a terminal
-that is running inside a local emacspeak session.  You can have the
-remote emacspeak use a different control key to give your fingers some
-relief.
-</p></dd></dl>
+  <h3 class="section">11.101 emacspeak-keymap</h3>
 
-<a name="emacspeak_002dkeymap-Options"></a>
-<h4 class="subsection">11.101.2 emacspeak-keymap Options</h4>
+  <p>Commentary: This module defines the emacspeak
+  keybindings.</p><a name="emacspeak_002dkeymap-Commands" id=
+  "emacspeak_002dkeymap-Commands"></a>
 
-<dl>
-<dt><a name="index-User-Option-570"></a>Variable: <strong>User Option</strong> <em>emacspeak-alt-keys</em></dt>
-<dd><p>*Specifies alt key bindings for the audio desktop.
-You can turn the &lsquo;Pause&rsquo; key  on your Linux PC keyboard into a &lsquo;alt&rsquo; key
-on Linux by having it emit the sequence &lsquo;C-x@a&rsquo;.
-</p>
-<p>Bindings specified here are available on prefix key &lsquo;alt&rsquo;
-(not to be confused with alt==meta)
-for example, if you bind
-&lsquo;s&rsquo; to command emacspeak-emergency-tts-restart
-then that command will be available on key &lsquo;ALT  s&rsquo;
-</p>
-<p>KEYS should be a string constant in the format used for saving
-keyboard macros (see &lsquo;edmacro-mode&rsquo;).
-</p>
-<p>Command is an interactive command or a prefix-command that can be
-bound to a key. 
-</p>
-<p>The value of this variable is an association list. The car of
-each element specifies a key sequence. The cdr specifies an
-interactive command that the key sequence executes.
-</p>
-</dd></dl>
+  <h4 class="subsection">11.101.1 emacspeak-keymap Commands</h4>
 
-<dl>
-<dt><a name="index-User-Option-571"></a>Variable: <strong>User Option</strong> <em>emacspeak-hyper-keys</em></dt>
-<dd><p>*Specifies hyper key bindings for the audio desktop. Emacs can
-use the &lsquo;hyper&rsquo; key as a modifier key. You can turn the &lsquo;windows&rsquo;
-keys on your Linux PC keyboard into a &lsquo;hyper&rsquo; key on Linux by
-having it emit the sequence &lsquo;C-x@h&rsquo;.
-</p>
-<p>Bindings specified here are available on prefix key &lsquo;hyper&rsquo; for
-example, if you bind &lsquo;b&rsquo; to command &lsquo;bbdb &rsquo; then that command
-will be available on key &lsquo;hyper b&rsquo;.
-</p>
-<p>KEYS should be a string constant in the format used for saving
-keyboard macros (see &lsquo;edmacro-mode&rsquo;).
-</p>
-<p>Command is an interactive command or a prefix-command that can be
-bound to a key. 
-</p>
-<p>The value of this variable is an association list. The car of
-each element specifies a key sequence. The cdr specifies an
-interactive command that the key sequence executes.
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dkeymap_002dchoose_002dnew_002demacspeak_002dprefix"
+    id=
+    "index-emacspeak_002dkeymap_002dchoose_002dnew_002demacspeak_002dprefix">
+    </a>Interactive Command:
+    <strong>emacspeak-keymap-choose-new-emacspeak-prefix</strong>
+    <em>(prefix-key)</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-572"></a>Variable: <strong>User Option</strong> <em>emacspeak-personal-ctlx-keys</em></dt>
-<dd><p>*Specifies personal-ctlx key bindings for use with C-e C-x for
-the audio desktop. Bindings specified here are available on
-prefix key C-e C-x for example, if you bind &lsquo;C-s&rsquo; to command
-emacspeak-emergency-tts-restart then that command will be
-available on key C-e C-x C-s. KEYS should be a string constant in
-the format used for saving keyboard macros (see &lsquo;edmacro-mode&rsquo;).
-</p>
-<p>Command is an interactive command or a prefix-command that can be
-bound to a key.
-</p>
-<p>The value of this variable is an association list. The car of
-each element specifies a key sequence. The cdr specifies an
-interactive command that the key sequence executes.
-</p>
-</dd></dl>
+    <dd>
+      <p>Interactively select a new prefix key to use for all
+      emacspeak commands. The default is to use ‘C-e’ This command
+      lets you switch the prefix to something else. This is a
+      useful thing to do if you run emacspeak on a remote machine
+      from inside a terminal that is running inside a local
+      emacspeak session. You can have the remote emacspeak use a
+      different control key to give your fingers some relief.</p>
+    </dd>
+  </dl><a name="emacspeak_002dkeymap-Options" id=
+  "emacspeak_002dkeymap-Options"></a>
 
-<dl>
-<dt><a name="index-User-Option-573"></a>Variable: <strong>User Option</strong> <em>emacspeak-personal-keys</em></dt>
-<dd><p>*Specifies personal key bindings for the audio desktop.
-Bindings specified here are available on prefix key C-e x
-for example, if you bind
-&lsquo;s&rsquo; to command emacspeak-emergency-tts-restart
-then that command will be available on key C-e x s.
-</p>
-<p>KEYS should be a string constant in the format used for saving
-keyboard macros (see &lsquo;edmacro-mode&rsquo;).
-</p>
-<p>Command is an interactive command or a prefix-command that can be
-bound to a key. 
-</p>
-<p>The value of this variable is an association list. The car of
-each element specifies a key sequence. The cdr specifies an
-interactive command that the key sequence executes.
-</p>
-</dd></dl>
+  <h4 class="subsection">11.101.2 emacspeak-keymap Options</h4>
 
-<dl>
-<dt><a name="index-User-Option-574"></a>Variable: <strong>User Option</strong> <em>emacspeak-super-keys</em></dt>
-<dd><p>*Specifies super key bindings for the audio desktop. You can
-turn the right &lsquo;windows menu&rsquo; keys on your Linux PC keyboard into
-a &lsquo;super&rsquo; key on Linux by having it emit the sequence &lsquo;C-x@s&rsquo;.
-</p>
-<p>Bindings specified here are available on prefix key &lsquo;super&rsquo; for
-example, if you bind &lsquo;s&rsquo; to command
-emacspeak-emergency-tts-restart then that command will be
-available on key &lsquo;super s&rsquo;. KEYS should be a string constant in
-the format used for saving keyboard macros (see &lsquo;edmacro-mode&rsquo;).
-</p>
-<p>Command is an interactive command or a prefix-command that can be
-bound to a key.
-</p>
-<p>The value of this variable is an association list. The car of
-each element specifies a key sequence. The cdr specifies an
-interactive command that the key sequence executes.
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-503" id=
+    "index-User-Option-503"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-alt-keys</em></dt>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dkite.html#emacspeak_002dkite" accesskey="n" rel="next">emacspeak-kite</a>, Previous: <a href="emacspeak_002djss.html#emacspeak_002djss" accesskey="p" rel="prev">emacspeak-jss</a>, Up: <a href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+    <dd>
+      <p>*Specifies alt key bindings for the audio desktop. You can
+      turn the ‘Pause’ key on your Linux PC keyboard into a ‘alt’
+      key on Linux by having it emit the sequence ‘C-x@a’.</p>
 
+      <p>Bindings specified here are available on prefix key ‘alt’
+      (not to be confused with alt==meta) for example, if you bind
+      ‘s’ to command emacspeak-emergency-tts-restart then that
+      command will be available on key ‘ALT s’</p>
 
+      <p>KEYS should be a string constant in the format used for
+      saving keyboard macros (see ‘edmacro-mode’).</p>
 
+      <p>Command is an interactive command or a prefix-command that
+      can be bound to a key.</p>
+
+      <p>The value of this variable is an association list. The car
+      of each element specifies a key sequence. The cdr specifies
+      an interactive command that the key sequence executes.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-504" id=
+    "index-User-Option-504"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-hyper-keys</em></dt>
+
+    <dd>
+      <p>*Specifies hyper key bindings for the audio desktop. Emacs
+      can use the ‘hyper’ key as a modifier key. You can turn the
+      ‘windows’ keys on your Linux PC keyboard into a ‘hyper’ key
+      on Linux by having it emit the sequence ‘C-x@h’.</p>
+
+      <p>Bindings specified here are available on prefix key
+      ‘hyper’ for example, if you bind ‘b’ to command ‘bbdb ’ then
+      that command will be available on key ‘hyper b’.</p>
+
+      <p>KEYS should be a string constant in the format used for
+      saving keyboard macros (see ‘edmacro-mode’).</p>
+
+      <p>Command is an interactive command or a prefix-command that
+      can be bound to a key.</p>
+
+      <p>The value of this variable is an association list. The car
+      of each element specifies a key sequence. The cdr specifies
+      an interactive command that the key sequence executes.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-505" id=
+    "index-User-Option-505"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-personal-ctlx-keys</em></dt>
+
+    <dd>
+      <p>*Specifies personal-ctlx key bindings for use with C-e C-x
+      for the audio desktop. Bindings specified here are available
+      on prefix key C-e C-x for example, if you bind ‘C-s’ to
+      command emacspeak-emergency-tts-restart then that command
+      will be available on key C-e C-x C-s. KEYS should be a string
+      constant in the format used for saving keyboard macros (see
+      ‘edmacro-mode’).</p>
+
+      <p>Command is an interactive command or a prefix-command that
+      can be bound to a key.</p>
+
+      <p>The value of this variable is an association list. The car
+      of each element specifies a key sequence. The cdr specifies
+      an interactive command that the key sequence executes.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-506" id=
+    "index-User-Option-506"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-personal-keys</em></dt>
+
+    <dd>
+      <p>*Specifies personal key bindings for the audio desktop.
+      Bindings specified here are available on prefix key C-e x for
+      example, if you bind ‘s’ to command
+      emacspeak-emergency-tts-restart then that command will be
+      available on key C-e x s.</p>
+
+      <p>KEYS should be a string constant in the format used for
+      saving keyboard macros (see ‘edmacro-mode’).</p>
+
+      <p>Command is an interactive command or a prefix-command that
+      can be bound to a key.</p>
+
+      <p>The value of this variable is an association list. The car
+      of each element specifies a key sequence. The cdr specifies
+      an interactive command that the key sequence executes.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-507" id=
+    "index-User-Option-507"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-super-keys</em></dt>
+
+    <dd>
+      <p>*Specifies super key bindings for the audio desktop. You
+      can turn the right ‘windows menu’ keys on your Linux PC
+      keyboard into a ‘super’ key on Linux by having it emit the
+      sequence ‘C-x@s’.</p>
+
+      <p>Bindings specified here are available on prefix key
+      ‘super’ for example, if you bind ‘s’ to command
+      emacspeak-emergency-tts-restart then that command will be
+      available on key ‘super s’. KEYS should be a string constant
+      in the format used for saving keyboard macros (see
+      ‘edmacro-mode’).</p>
+
+      <p>Command is an interactive command or a prefix-command that
+      can be bound to a key.</p>
+
+      <p>The value of this variable is an association list. The car
+      of each element specifies a key sequence. The cdr specifies
+      an interactive command that the key sequence executes.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href="emacspeak_002dkite.html#emacspeak_002dkite"
+    accesskey="n" rel="next">emacspeak-kite</a>, Previous: <a href=
+    "emacspeak_002djss.html#emacspeak_002djss" accesskey="p" rel=
+    "prev">emacspeak-jss</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>
