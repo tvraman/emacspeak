@@ -25,15 +25,15 @@ docs.texi:
 
 install: emacspeak.info turning-twenty.info
 	if test  -x /sbin/install-info ; then \
-		install-info emacspeak.info /etc/info-dir; \
+		install-info *.info /etc/info-dir; \
 	fi
 	$(INSTALL)  -m 644 *.info* $(DESTDIR)$(infodir)
 
 uninstall:
 	if test  -e /sbin/install-info ; then \
-		install-info --delete $(infodir)/*.info /etc/info-dir; \
+		install-info --delete $(infodir)/emacspeak.info* /etc/info-dir; \
 	fi
-	rm -f $(infodir)/*.info*
+	rm -f $(infodir)/emacspeak.info*
 emacspeak.info: 
 	makeinfo --force -o emacspeak.info emacspeak.texi
 
@@ -49,7 +49,6 @@ emacspeak.dvi:		emacspeak.texi
 		emacspeak.cps emacspeak.fns emacspeak.kys emacspeak.pgs emacspeak.tps emacspeak.vrs	\
 		emacspeak.log emacspeak.toc emacspeak.aux
 
-
 emacspeak.pdf:		emacspeak.texi
 	$(PDFTEX) emacspeak.texi
 	$(PDFTEX) emacspeak.texi	
@@ -62,8 +61,6 @@ emacspeak.pdf:		emacspeak.texi
 
 print: emacspeak.dvi
 	dvips emacspeak.dvi
-
-.phony: html
 
 htm: emacspeak.texi 
 	makeinfo -o html  --html  emacspeak.texi
