@@ -55,7 +55,7 @@
 (require 'voice-setup)
 (require 'dtk-speak)
 (require 'widget)
-(require 'wid-edit "wid-edit" 'no-error)
+(require 'wid-edit)
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 (require 'emacspeak-webutils)
@@ -703,8 +703,10 @@ widget before summarizing."
 ;;{{{ voice widgets 
 
 (define-widget 'voice  'menu-choice
+  "Widget for selecting a voice."
   :help-echo "Voice selector"
-  "Widget for selecting a voice.")
+  )
+
 (define-widget 'personality 'item
   "Individual voice in a voice selector.")
 ;;; We rely on dectalk-voice-table as our default voice table.
