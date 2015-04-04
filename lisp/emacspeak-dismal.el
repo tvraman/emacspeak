@@ -415,51 +415,42 @@ emacspeak-dismal-sheet-summarizer-list"
 Checked by emacspeak specific dis-mode-hooks entry.")
 
 (add-hook 'dis-mode-hooks
-          (function
-           (lambda nil
-             (declare (special dismal-saved-variables))
-             (unless emacspeak-dismal-already-customized-dismal
-               (setq emacspeak-dismal-already-customized-dismal t)
-               (push 'emacspeak-dismal-sheet-summarizer-list
-                     dismal-saved-variables)
-               (push 'emacspeak-dismal-row-summarizer-list
-                     dismal-saved-variables)
-               (push 'emacspeak-dismal-col-summarizer-list
-                     dismal-saved-variables)))))
+          #'(lambda nil
+              (declare (special dismal-saved-variables dismal-mode-map))
+              (define-key dismal-map (concat emacspeak-prefix "e")
+                'dis-last-column)
+              (define-key dismal-mode-map emacspeak-prefix 'emacspeak-prefix-command)
+              (unless emacspeak-dismal-already-customized-dismal
+                (setq emacspeak-dismal-already-customized-dismal t)
+                (push 'emacspeak-dismal-sheet-summarizer-list
+                      dismal-saved-variables)
+                (push 'emacspeak-dismal-row-summarizer-list
+                      dismal-saved-variables)
+                (push 'emacspeak-dismal-col-summarizer-list
+                      dismal-saved-variables))))
 
-(declaim (special dismal-map))
-(eval-when (load))
 
-;;; this assumes emacspeak-prefix is C-e
-;;; and function-key-prefix is M-[
-(add-hook 'dis-mode-hooks
-          (function
-           (lambda nil
-             (declare (special dismal-map emacspeak-prefix))
-             (local-unset-key "\M-[")
-             (local-unset-key emacspeak-prefix)
-             (define-key dismal-map (concat emacspeak-prefix "e")
-               'dis-last-column)
-             (define-key dismal-map  "," 'emacspeak-dismal-display-cell-expression)
-             (define-key dismal-map  "."
-               'emacspeak-dismal-display-cell-value)
-             (define-key dismal-map "R"
-               'emacspeak-dismal-display-cell-with-row-header)
-             (define-key dismal-map "S"
-               'emacspeak-dismal-sheet-summarize)
-             (define-key dismal-map "C"
-               'emacspeak-dismal-display-cell-with-col-header)
-             (define-key dismal-map "\M-m"
-               'emacspeak-dismal-row-summarize)
-             (define-key dismal-map '[up]
-               'emacspeak-dismal-backward-row-and-summarize)
-             (define-key dismal-map '[down]
-               'emacspeak-dismal-forward-row-and-summarize)
-             (define-key dismal-map '[left]
-               'emacspeak-dismal-backward-col-and-summarize)
-             (define-key dismal-map '[right]
-               'emacspeak-dismal-forward-col-and-summarize)
-             )))
+
+
+(add-hook
+ 'dis-mode-hooks
+ #'(lambda nil
+     (declare (special dismal-map emacspeak-prefix))
+     (local-unset-key "\M-[")
+     (local-unset-key emacspeak-prefix)
+     (define-key dismal-mode-map emacspeak-prefix 'emacspeak-prefix-command)
+     (define-key dismal-map (concat emacspeak-prefix "e")
+       'dis-last-column)
+     (define-key dismal-map  "," 'emacspeak-dismal-display-cell-expression)
+     (define-key dismal-map  "." 'emacspeak-dismal-display-cell-value)
+     (define-key dismal-map "R" 'emacspeak-dismal-display-cell-with-row-header)
+     (define-key dismal-map "S" 'emacspeak-dismal-sheet-summarize)
+     (define-key dismal-map "C" 'emacspeak-dismal-display-cell-with-col-header)
+     (define-key dismal-map "\M-m" 'emacspeak-dismal-row-summarize)
+     (define-key dismal-map '[up] 'emacspeak-dismal-backward-row-and-summarize)
+     (define-key dismal-map '[down] 'emacspeak-dismal-forward-row-and-summarize)
+     (define-key dismal-map '[left] 'emacspeak-dismal-backward-col-and-summarize)
+     (define-key dismal-map '[right] 'emacspeak-dismal-forward-col-and-summarize)))
 
 ;;}}}
 ;;{{{  Advice some commands. 
