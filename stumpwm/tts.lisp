@@ -45,7 +45,7 @@
 (in-package :stumpwm)
 ;;; { Settings
 
-(defvar *emacspeak* "/home/raman/emacs/lisp/emacspeak/"
+(defvar *emacspeak* "/usr/share/emacs/site-lisp/emacspeak/"
   "Root of Emacspeak installation.")
 
 (defvar *tts-process* nil
