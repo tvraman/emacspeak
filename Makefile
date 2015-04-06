@@ -137,6 +137,7 @@ CP=cp
 
 # source files to distribute
 ID = README
+STUMPWM=stumpwm
 TABLE_SAMPLES=etc/tables/*.tab etc/tables/*.dat etc/tables/*.html
 FORMS =etc/forms/*.el
 MEDIA=media
@@ -180,7 +181,7 @@ INFO = info/Makefile info/*.texi info/add-css.pl
 XSL=xsl
 DISTFILES =${ELISP}  ${TEMPLATES}     $(TCL_PROGRAMS) ${XSL} \
 ${OUTLOUD} ${DTKTTS} ${ESPEAK} \
-${INFO}  ${NEWS} ${MISC} Makefile
+${STUMPWM} ${INFO}  ${NEWS} ${MISC} Makefile
 
 # }}}
 # {{{  User level targets emacspeak info 
@@ -218,7 +219,7 @@ EXCLUDES=--exclude='.git' --exclude='*.o' --exclude='*.so' --exclude='*/.libs'
 tar:
 	make ${ID}
 	tar cvf  emacspeak.tar $(EXCLUDES) $(DISTFILES)   $(ID) \
-			 ${TABLE_SAMPLES} ${MEDIA}  ${FORMS} \
+			  ${TABLE_SAMPLES} ${MEDIA}  ${FORMS} \
 	${SOUNDS}
 
 dist: $(DISTFILES)
@@ -265,6 +266,8 @@ install:
 	chmod -R go+rX  $(DESTDIR)$(libdir)/sounds
 	$(CP) -r $(MEDIA) $(DESTDIR)$(libdir)
 	chmod -R go+rX  $(DESTDIR)$(libdir)/media
+	$(CP) -r $(STUMPWM) $(DESTDIR)$(libdir)
+	chmod -R go+rX  $(DESTDIR)$(libdir)/stumpwm	
 	$(INSTALL) -d $(DESTDIR)$(libdir)/etc/forms
 	$(INSTALL)  -m 0644 $(FORMS) $(DESTDIR)$(libdir)/etc/forms
 	$(INSTALL) -d $(DESTDIR)$(libdir)/etc/tables
