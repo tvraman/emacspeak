@@ -455,6 +455,7 @@ functions for details.   "
   (require 'emacspeak-redefine)
   (require 'emacspeak-replace)
   (require 'emacspeak-advice)
+  (require 'emacspeak-info)
   (emacspeak-play-startup-icon)
   (emacspeak-sounds-define-theme-if-necessary emacspeak-sounds-default-theme)
   (when emacspeak-pronounce-load-pronunciations-on-startup
