@@ -291,6 +291,7 @@ This chapter documents a total of %d commands and %d options.\n\n"
        (self-document-module (gethash k self-document-map)))
       (emacspeak-url-template-generate-texinfo-documentation (current-buffer))
       (texinfo-all-menus-update)
+      (flush-lines "^Commentary: *$" (point-min) (point-max))
       (shell-command-on-region          ; squeeze blanks
        (point-min) (point-max)
        "cat -s" (current-buffer) 'replace)

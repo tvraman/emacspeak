@@ -221,7 +221,6 @@ This chapter documents a total of 1094 commands and 895 options.
 @node acss-structure
 @section acss-structure
 
-Commentary:
 The CSS Speech Style Sheet specification defines a number of
 abstract device independent voice properties.
 A setting conforming to the CSS speech specification can be
@@ -262,7 +261,6 @@ See module dectalk-voices.el to see how voices are defined.
 @node amixer
 @section amixer
 
-Commentary:
 Provide an emacs front-end to amixer.
 amixer is part of ALSA
 
@@ -283,7 +281,6 @@ Card number to control.
 @node cd-tool
 @section cd-tool
 
-Commentary:
 Provide an emacs front-end to cdtool.
 cdtool can be obtained as an rpm
 check using rpmfind
@@ -330,7 +327,6 @@ cap C   Save clip to disk
 @node congrats
 @section congrats
 
-Commentary:
 CONGRATS ==  Convert Graphics To Sound
 I first implemented this idea in late   1988 for my final year project at IIT Bombay.
 A scaled-down version of this project was submitted to the John Hopkins  National Search  in 1991
@@ -348,7 +344,6 @@ you could listen to a curve in terms of Cartesian or Polar coordinates.
 @node dectalk-voices
 @section dectalk-voices
 
-Commentary:
 This module defines the various voices used in voice-lock mode.
 This module is Dectalk specific.
 
@@ -369,8 +364,6 @@ Select Dectalk TTS server.
 @node dom
 @section dom
 
-Commentary:
-
 @subsection dom Commands
 
 @subsection dom Options
@@ -378,7 +371,6 @@ Commentary:
 @node dtk-interp
 @section dtk-interp
 
-Commentary:
 All requests to the speech server are factored out into
 this module.
 These calls are declared here as defsubst so they are
@@ -394,7 +386,6 @@ speech servers.
 @node dtk-speak
 @section dtk-speak
 
-Commentary:
 Defines the TTS interface.
 
 @subsection dtk-speak Commands
@@ -735,8 +726,6 @@ Particularly useful for web browsing.
 @node dtk-unicode
 @section dtk-unicode
 
-Commentary:
-
 This  Provides Unicode support to the speech layer.
 
 @subsection dtk-unicode Commands
@@ -779,7 +768,6 @@ themselves, e.g., when using an Asian language.
 @node emacspeak
 @section emacspeak
 
-Commentary:
 The complete audio desktop.
 
 Emacspeak extends Emacs to be a fully functional audio desktop.
@@ -2573,18 +2561,6 @@ This personality uses  voice-brighten-medium whose  effect can be changed global
 
 @end defvar
 
-@defvar {User Option} emacspeak-twittering-uri-personality
-Personality used for twittering-uri-face
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-twittering-username-personality
-Personality used for twittering-username-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
 @defvar {User Option} emacspeak-underline-voice
 Personality used for underline
 This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
@@ -2929,7 +2905,6 @@ Auth lifetime.
 @node emacspeak-2048
 @section emacspeak-2048
 
-Commentary:
 Speech-enable 2048 Game
 
 @subsection emacspeak-2048 Commands
@@ -2963,7 +2938,6 @@ Speak board column-wise.
 @node emacspeak-actions
 @section emacspeak-actions
 
-Commentary:
 Define mode-specific  actions.
 Actions are defined by adding them to hook
 emacspeak-<mode-name>-actions-hook
@@ -2975,7 +2949,6 @@ emacspeak-<mode-name>-actions-hook
 @node emacspeak-add-log
 @section emacspeak-add-log
 
-Commentary:
 Speech-enable Changelog mode
 
 @subsection emacspeak-add-log Commands
@@ -3027,7 +3000,6 @@ This personality uses  voice-lighten-extra whose  effect can be changed globally
 @node emacspeak-advice
 @section emacspeak-advice
 
-Commentary:
 This module defines the advice forms for making the core of Emacs speak
 Advice forms that are specific to Emacs subsystems do not belong here!
 I violate this at present by advising completion comint and
@@ -3071,7 +3043,6 @@ Advice untabify to change non-breaking space chars to space.
 @node emacspeak-alsaplayer
 @section emacspeak-alsaplayer
 
-Commentary:
 Defines a simple derived mode for interacting with
 alsaplayer.
 alsaplayer navigation commands  work via single keystrokes.
@@ -3275,7 +3246,6 @@ Alsaplayer executable.
 @node emacspeak-amark
 @section emacspeak-amark
 
-Commentary:
 Structure emacspeak-amark holds a bookmark into an mp3 file
 path: fully qualified pathname  to file being marked
 name: Bookmark tag
@@ -3309,7 +3279,6 @@ Save buffer-local AMarks in current directory.
 @node emacspeak-analog
 @section emacspeak-analog
 
-Commentary:
 Speech-enables package analog --convenient log analyzer 
 
 @subsection emacspeak-analog Commands
@@ -3349,7 +3318,6 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @node emacspeak-ansi-color
 @section emacspeak-ansi-color
 
-Commentary:
 Module ansi-color (bundled with Emacs 21)
 handles ansi escape sequences and turns them into
 appropriate faces.
@@ -3363,7 +3331,6 @@ This module maps ansi codes to the appropriate voices.
 @node emacspeak-apt-sources
 @section emacspeak-apt-sources
 
-Commentary:
 This module speech-enables apt-sources.el
 that is included in the debian-el package
 and provides a major mode for editing
@@ -3376,7 +3343,6 @@ APT's sources.list file.
 @node emacspeak-apt-utils
 @section emacspeak-apt-utils
 
-Commentary:
 This module speech-enables apt-utils.el
 that is included in the debian-el package
 and provides a nice interface to searching and browsing
@@ -3435,7 +3401,6 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 @node emacspeak-arc
 @section emacspeak-arc
 
-Commentary:
 Auditory interface to archive mode
 This lets Emacs manipulate package files such as .zip and .jar files.
 
@@ -3462,7 +3427,6 @@ Speak the size of the file on current line
 @node emacspeak-auctex
 @section emacspeak-auctex
 
-Commentary:
 Speech-enables the AucTeX package.
 AucTeX, now available from ELPA, has been my authoring environment of choice for writing LaTeX since 1991.
 
@@ -3473,7 +3437,6 @@ AucTeX, now available from ELPA, has been my authoring environment of choice for
 @node emacspeak-aumix
 @section emacspeak-aumix
 
-Commentary:
 Provides an AUI to setting up the auditory display via AUMIX
 This module is presently Linux specific
 
@@ -3538,7 +3501,6 @@ ALSA sound controller used to restore settings.
 @node emacspeak-bbc
 @section emacspeak-bbc
 
-Commentary: 
 BBC: http://www.bbc.co.uk This module uses
 publicly available REST APIs to implement a native Emacs
 client for browsing and listening to BBC programs.
@@ -3570,7 +3532,6 @@ Launch BBC Interaction for specified Genre.
 @node emacspeak-bbdb
 @section emacspeak-bbdb
 
-Commentary:
 Speech-enables BBDB.
 I have used BBDB to manage email address and contact information since 1991.
 
@@ -3581,7 +3542,6 @@ I have used BBDB to manage email address and contact information since 1991.
 @node emacspeak-bibtex
 @section emacspeak-bibtex
 
-Commentary:
 Speech extensions for bibtex mode.
 
 @subsection emacspeak-bibtex Commands
@@ -3591,7 +3551,6 @@ Speech extensions for bibtex mode.
 @node emacspeak-bookmark
 @section emacspeak-bookmark
 
-Commentary:
 Speech enable bookmarks
 
 @subsection emacspeak-bookmark Commands
@@ -3601,7 +3560,6 @@ Speech enable bookmarks
 @node emacspeak-bookshare
 @section emacspeak-bookshare
 
-Commentary:
 BOOKSHARE == http://www.bookshare.org
 provides book access to print-disabled users.
 It provides a simple Web  API http://developer.bookshare.org
@@ -3889,7 +3847,6 @@ Name of bookshare  XSL transform.
 @node emacspeak-browse-kill-ring
 @section emacspeak-browse-kill-ring
 
-Commentary:
 Browse the kill ring using 
 browse-kill-ring.el - interactively insert items from kill-ring (by Colin Walters)
 
@@ -3900,7 +3857,6 @@ browse-kill-ring.el - interactively insert items from kill-ring (by Colin Walter
 @node emacspeak-bs
 @section emacspeak-bs
 
-Commentary:
 speech-enable bs.el -- an alternative to Emacs' default  list-buffers
 
 @subsection emacspeak-bs Commands
@@ -3914,7 +3870,6 @@ Speak information about this buffer
 @node emacspeak-buff-menu
 @section emacspeak-buff-menu
 
-Commentary:
 Speech-enable buffer-menus.
 
 @subsection emacspeak-buff-menu Commands
@@ -3940,7 +3895,6 @@ Speak the name of the buffer on this line
 @node emacspeak-c
 @section emacspeak-c
 
-Commentary:
 Make some of C and C++ mode more emacspeak friendly
 Works with both boring c-mode
 and the excellent cc-mode
@@ -3956,7 +3910,6 @@ Speak the C semantics of this line.
 @node emacspeak-calc
 @section emacspeak-calc
 
-Commentary:
 This module extends the Emacs Calculator.
 Extensions are minimal.
 We force a calc-load-everything,
@@ -3970,7 +3923,6 @@ To fix all of calc's interactive functions
 @node emacspeak-calculator
 @section emacspeak-calculator
 
-Commentary:
 Speech enable desktop calculator 
 
 @subsection emacspeak-calculator Commands
@@ -3980,7 +3932,6 @@ Speech enable desktop calculator
 @node emacspeak-calendar
 @section emacspeak-calendar
 
-Commentary:
 This module speech enables the Emacs Calendar.
 Speech enabling is not the same as speaking the screen:
 This is an excellent example of the advantages of speech-enabled  interaction.
@@ -4012,7 +3963,6 @@ Personality to use when showing marked calendar entries.
 @node emacspeak-cedet
 @section emacspeak-cedet
 
-Commentary: 
 CEDET consists of speedbar semantic ede and friends.
 This module speech enables new functionality in semantic,
 senator and friends
@@ -4024,8 +3974,6 @@ senator and friends
 @node emacspeak-checkdoc
 @section emacspeak-checkdoc
 
-Commentary:
-
 Speech-enable checkdoc.el
 
 @subsection emacspeak-checkdoc Commands
@@ -4035,7 +3983,6 @@ Speech-enable checkdoc.el
 @node emacspeak-cmuscheme
 @section emacspeak-cmuscheme
 
-Commentary:
 speech-enable scheme support 
 
 @subsection emacspeak-cmuscheme Commands
@@ -4045,7 +3992,6 @@ speech-enable scheme support
 @node emacspeak-company
 @section emacspeak-company
 
-Commentary:
 COMPANY -mode: Complete Anything Support for emacs.
 This module provides an Emacspeak Company Front-end,
 And advices the needed interactive commands in Company.
@@ -4057,7 +4003,6 @@ And advices the needed interactive commands in Company.
 @node emacspeak-compile
 @section emacspeak-compile
 
-Commentary:
 This module makes compiling code from inside Emacs speech friendly.
 It is an example of how a little amount of code can make Emacspeak even better.
 
@@ -4102,7 +4047,6 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 @node emacspeak-cperl
 @section emacspeak-cperl
 
-Commentary:
 Provide additional advice to CPerl mode 
 
 @subsection emacspeak-cperl Commands
@@ -4112,7 +4056,6 @@ Provide additional advice to CPerl mode
 @node emacspeak-custom
 @section emacspeak-custom
 
-Commentary:
 Advise custom to speak.
 most of the work is actually done by emacspeak-widget.el
 which speech-enables the widget libraries.
@@ -4142,7 +4085,6 @@ Pattern that identifies toolbar section.
 @node emacspeak-dbus
 @section emacspeak-dbus
 
-Commentary:
 Set up Emacspeak to respond to DBus notifications
 
 @subsection emacspeak-dbus Commands
@@ -4152,7 +4094,6 @@ Set up Emacspeak to respond to DBus notifications
 @node emacspeak-desktop
 @section emacspeak-desktop
 
-Commentary:
 advice desktop package
 
 @subsection emacspeak-desktop Commands
@@ -4162,7 +4103,6 @@ advice desktop package
 @node emacspeak-dictionary
 @section emacspeak-dictionary
 
-Commentary:
 Speech-enables emacs client for accessing dictionary
 server at dict.org:2628
 
@@ -4173,7 +4113,6 @@ server at dict.org:2628
 @node emacspeak-diff-mode
 @section emacspeak-diff-mode
 
-Commentary:
 DIFF-MODE  support.
 
 @subsection emacspeak-diff-mode Commands
@@ -4183,7 +4122,6 @@ DIFF-MODE  support.
 @node emacspeak-dired
 @section emacspeak-dired
 
-Commentary:
 This module speech enables dired.
 It reduces the amount of speech you hear:
 Typically you hear the file names as you move through the dired buffer
@@ -4238,7 +4176,6 @@ Options passed to Unix builtin `file' command.
 @node emacspeak-dismal
 @section emacspeak-dismal
 
-Commentary:
 emacspeak extensions to the dismal spreadsheet. 
 
 @subsection emacspeak-dismal Commands
@@ -4318,7 +4255,6 @@ Personality used for speaking cell values in summaries.
 @node emacspeak-dmacro
 @section emacspeak-dmacro
 
-Commentary:
 Provide additional advice to dmacro.
 dmacro is used to write code rapidly and consistently. 
 
@@ -4329,7 +4265,6 @@ dmacro is used to write code rapidly and consistently.
 @node emacspeak-ecb
 @section emacspeak-ecb
 
-Commentary:
 The ECB is an Emacs Class Browser.
 This module speech-enables ECB
 
@@ -4372,7 +4307,6 @@ Do shift return in ECB tree browser.
 @node emacspeak-eclim
 @section emacspeak-eclim
 
-Commentary:
 ECLIM ==  Eclipse/Vim integration.
 http://www.eclim.org turns Eclipse into a headless server that can be called from other programs.
 Package Emacs-Eclim connects Emacs to Eclim.
@@ -4385,7 +4319,6 @@ Package emacspeak-eclim speech-enables emacs-eclim.
 @node emacspeak-ediary
 @section emacspeak-ediary
 
-Commentary:
 ediary is a special mode for editing your.diary file.
 This module speech-enables ediary
 
@@ -4396,7 +4329,6 @@ This module speech-enables ediary
 @node emacspeak-ediff
 @section emacspeak-ediff
 
-Commentary:
 Ediff provides a nice visual interface to diff. ;;;Comparing and
 patching files is easy with ediff when you can see the screen.
 This module provides Emacspeak extensions to work fluently
@@ -4418,7 +4350,6 @@ Speak the current difference
 @node emacspeak-ein
 @section emacspeak-ein
 
-Commentary:
 EIN ==  Emacs IPython Notebook
 You can install package EIN via ELPA
 This module speech-enables EIN
@@ -4482,7 +4413,6 @@ This personality uses  voice-smoothen whose  effect can be changed globally by c
 @node emacspeak-elfeed
 @section emacspeak-elfeed
 
-Commentary:
 ELFEED ==  Feed Reader for Emacs.
 Install from elpa
 M-x package-install  elfeed
@@ -4538,7 +4468,6 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @node emacspeak-emms
 @section emacspeak-emms
 
-Commentary:
 Speech-enables EMMS --- the Emacs equivalent of XMMS
 See
 http://savannah.gnu.org/project/emms
@@ -4557,7 +4486,6 @@ Speak current track.
 @node emacspeak-enriched
 @section emacspeak-enriched
 
-Commentary:
 emacspeak extensions to voiceify rich  text.
 
 @subsection emacspeak-enriched Commands
@@ -4572,7 +4500,6 @@ Useful in voiceifying rich text.
 @node emacspeak-entertain
 @section emacspeak-entertain
 
-Commentary:
 Auditory interface to misc games
 
 @subsection emacspeak-entertain Commands
@@ -4608,7 +4535,6 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @node emacspeak-eperiodic
 @section emacspeak-eperiodic
 
-Commentary:
 eperiodic produces an interactive periodic table of elements
 and can be found at 
 http://vegemite.chem.nottingham.ac.uk/~matt/emacs/eperiodic.el
@@ -4723,7 +4649,6 @@ This personality uses  voice-bolden-and-animate whose  effect can be changed glo
 @node emacspeak-epub
 @section emacspeak-epub
 
-Commentary:
 In celebration of a million books and more to read from
 Google Books
 The EPubs format is slightly simpler than full Daisy ---
@@ -4853,7 +4778,7 @@ Suitable for text searches.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-google  (query)
-Search for Epubs from Gooble Books.
+Search for Epubs from Google Books.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-epub-gutenberg-catalog  (&optional refresh)
@@ -4966,7 +4891,6 @@ Directory under which we store Epubs.
 @node emacspeak-erc
 @section emacspeak-erc
 
-Commentary:
 erc.el is a modern Emacs client for IRC including color
 and font locking support. 
 erc.el - an Emacs IRC client (by Alexander L. Belikoff)
@@ -5029,7 +4953,6 @@ Speak all things said if t.
 @node emacspeak-eshell
 @section emacspeak-eshell
 
-Commentary:
 EShell is a shell implemented entirely in Emacs Lisp.
 It is part of emacs 21 --and can also be used under
 Emacs 20.
@@ -5048,7 +4971,6 @@ personalities.
 @node emacspeak-espn
 @section emacspeak-espn
 
-Commentary:
 ESPN ==  ESPN Sport Network.
 API:   http://developer.espn.com/overview
 Get yourself an API key and set it via custom.
@@ -5065,7 +4987,6 @@ Web API  key for this application.
 @node emacspeak-ess
 @section emacspeak-ess
 
-Commentary:
 ESS == Emacs Speaks Statistics
 This module makes ESS speak.
 
@@ -5076,7 +4997,6 @@ This module makes ESS speak.
 @node emacspeak-etable
 @section emacspeak-etable
 
-Commentary:
 table.el provides rich table editing for emacs.
 this module speech-enables table.el
 
@@ -5091,7 +5011,6 @@ Speak current cell.
 @node emacspeak-eterm
 @section emacspeak-eterm
 
-Commentary:
 This module makes eterm talk.
 Eterm is the new terminal emulator for Emacs.
 Use of emacspeak with eterm really needs an info page.
@@ -5308,7 +5227,7 @@ there is terminal activity.
 
 @deffn {Interactive Command} emacspeak-eterm-toggle-review  nil
 Toggle state of eterm review. 
-In review mode, you can move around the terminal and listen to the contnets 
+In review mode, you can move around the terminal and listen to the contents 
 without sending input to the terminal itself.
 @end deffn
 
@@ -5354,7 +5273,6 @@ Personality to indicate terminal underlining.
 @node emacspeak-eudc
 @section emacspeak-eudc
 
-Commentary:
 EUDC --Emacs Universal Directory Client 
 provides a unified interface to directory servers
 e.g. ldap servers
@@ -5376,7 +5294,6 @@ Personality t use for voiceifying attribute values.
 @node emacspeak-eww
 @section emacspeak-eww
 
-Commentary:
 EWW == Emacs Web Browser
 EWW is a light-weight Web browser built into Emacs 24.4.
 This module speech-enables EWW
@@ -5534,7 +5451,6 @@ Set to nil if you want EWW to load images.
 @node emacspeak-facemenu
 @section emacspeak-facemenu
 
-Commentary:
 Map standard faces such as bold and italic to voices.
 
 @subsection emacspeak-facemenu Commands
@@ -5544,7 +5460,6 @@ Map standard faces such as bold and italic to voices.
 @node emacspeak-feeds
 @section emacspeak-feeds
 
-Commentary:
 This module provides Feeds support for Emacspeak
 
 @subsection emacspeak-feeds Commands
@@ -5587,7 +5502,7 @@ Lookup feed URL for a site and browse result.
 Display OPML feed.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-feeds-restoere-feeds  nil
+@deffn {Interactive Command} emacspeak-feeds-restore-feeds  nil
 Restore list of subscribed fees from  personal resource directory.
 Archiving is useful when synchronizing feeds across multiple machines.
 @end deffn
@@ -5621,7 +5536,6 @@ XSL stylesheet used for viewing RSS Feeds.
 @node emacspeak-filtertext
 @section emacspeak-filtertext
 
-Commentary:
 It is often useful  to view the results of filtering
 large amounts of text.;;; Typically you do this with
 various combinations of grep and friends.
@@ -5670,7 +5584,6 @@ Revert to original text.
 @node emacspeak-find-dired
 @section emacspeak-find-dired
 
-Commentary:
 find-dired is an emacs package for using UNIX find from emacs.
 this module speech-enables find-dired
 
@@ -5681,7 +5594,6 @@ this module speech-enables find-dired
 @node emacspeak-find-func
 @section emacspeak-find-func
 
-Commentary:
 This module speech enables find-func
 
 @subsection emacspeak-find-func Commands
@@ -5691,7 +5603,6 @@ This module speech enables find-func
 @node emacspeak-finder
 @section emacspeak-finder
 
-Commentary:
 Inspired by finder.el
 Not to be loaded at runtime.
 
@@ -5702,7 +5613,6 @@ Not to be loaded at runtime.
 @node emacspeak-fix-interactive
 @section emacspeak-fix-interactive
 
-Commentary:
 Emacs commands that use the 'interactive spec
 to read interactive arguments are a problem for Emacspeak.
  This is because the prompting for the arguments is done from C
@@ -5730,7 +5640,6 @@ Fix all commands loaded from a specified module.
 @node emacspeak-flycheck
 @section emacspeak-flycheck
 
-Commentary:
 FLYCHECK == On-the-fly checking.
 
 @subsection emacspeak-flycheck Commands
@@ -5800,7 +5709,6 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 @node emacspeak-flyspell
 @section emacspeak-flyspell
 
-Commentary:
 This module speech enables flyspell.
 
 @subsection emacspeak-flyspell Commands
@@ -5810,7 +5718,6 @@ This module speech enables flyspell.
 @node emacspeak-folding
 @section emacspeak-folding
 
-Commentary:
 Folding mode turns emacs into a folding editor.
 Folding mode is what I use: 
 emacs 19 comes with similar packages, e.g. allout.el
@@ -5824,7 +5731,6 @@ Think of a fold as a container.
 @node emacspeak-forms
 @section emacspeak-forms
 
-Commentary:
 Provide additional advice to forms-mode 
 
 @subsection emacspeak-forms Commands
@@ -5869,7 +5775,6 @@ Personality for read-write fields.
 @node emacspeak-ftf
 @section emacspeak-ftf
 
-Commentary:
 FTF ==  find-things-fast
 Package ftf --- find-things-fast -- is available from the marmalade emacs package archive
 
@@ -5880,7 +5785,6 @@ Package ftf --- find-things-fast -- is available from the marmalade emacs packag
 @node emacspeak-generic
 @section emacspeak-generic
 
-Commentary:
 This module speech-enables generic.el so that modes
 defined using  define-generic-mode get voice locking
 support. Examples include apache-generic-mode and
@@ -5893,7 +5797,6 @@ friends defined in generic-x.el
 @node emacspeak-gnuplot
 @section emacspeak-gnuplot
 
-Commentary:
 This module speech-enables gnuplot-mode
 an Emacs add-on that enables fluent interaction with
 gnuplot.
@@ -5907,7 +5810,6 @@ for inclusion in documents.
 @node emacspeak-gnus
 @section emacspeak-gnus
 
-Commentary:
 This module advices gnus to speak. 
 Updating support in 2014 (Emacspeak is nearly 20 years old)
 
@@ -5946,7 +5848,6 @@ Pronunciation mode to use for gnus buffers.
 @node emacspeak-go-mode
 @section emacspeak-go-mode
 
-Commentary:
 GO-MODE ==  Go Language support in emacs
 
 @subsection emacspeak-go-mode Commands
@@ -5956,7 +5857,6 @@ GO-MODE ==  Go Language support in emacs
 @node emacspeak-gomoku
 @section emacspeak-gomoku
 
-Commentary:
 Auditory interface to gomoku
 
 @subsection emacspeak-gomoku Commands
@@ -6006,7 +5906,6 @@ Speak coordinates and state of square at point
 @node emacspeak-google
 @section emacspeak-google
 
-Commentary:
 There are a number of search tools that can be implemented on
 the Google search page --- in a JS-powered browser, these
 show up as the Google tool-belt.
@@ -6162,7 +6061,6 @@ Change  web-history-visited in the currently active toolbelt.
 @node emacspeak-gridtext
 @section emacspeak-gridtext
 
-Commentary:
 Emacspeak's table browsing mode allows one to
 efficiently access  content that is tabular in nature.
 That module also provides functions for inferring table
@@ -6205,7 +6103,6 @@ Save out grid settings.
 @node emacspeak-gtags
 @section emacspeak-gtags
 
-Commentary:
 GTAGS ==  Emacs support for GNU global.
 GNU  global implements  a modern tags solution
 Package gtags interfaces Emacs to this tool.
@@ -6217,7 +6114,6 @@ Package gtags interfaces Emacs to this tool.
 @node emacspeak-gud
 @section emacspeak-gud
 
-Commentary:
 Provide additional advice to ease debugger interaction with gud
 
 @subsection emacspeak-gud Commands
@@ -6227,7 +6123,6 @@ Provide additional advice to ease debugger interaction with gud
 @node emacspeak-hide
 @section emacspeak-hide
 
-Commentary:
 Flexible hide and show for emacspeak.
 This module allows one to easily hide or expose
 blocks of lines starting with a common prefix.
@@ -6272,7 +6167,6 @@ Personality used to identify header lines of blocks.
 @node emacspeak-hideshow
 @section emacspeak-hideshow
 
-Commentary:
 speech-enable hideshow.el
 
 @subsection emacspeak-hideshow Commands
@@ -6282,7 +6176,6 @@ speech-enable hideshow.el
 @node emacspeak-ibuffer
 @section emacspeak-ibuffer
 
-Commentary:
 speech-enable ibuffer.el
 this is an alternative to buffer-menu
 
@@ -6297,7 +6190,6 @@ Speak information about this buffer
 @node emacspeak-ido
 @section emacspeak-ido
 
-Commentary:
 speech-enable ido.el
 This is an interesting task since most of the value-add
 provided by package ido.el  is visual feedback.
@@ -6315,7 +6207,6 @@ the entire list.
 @node emacspeak-imenu
 @section emacspeak-imenu
 
-Commentary:
 Speech enable imenu and provide other useful navigation commands.
 
 @subsection emacspeak-imenu Commands
@@ -6342,7 +6233,6 @@ Speak contents of sections automatically if set.
 @node emacspeak-info
 @section emacspeak-info
 
-Commentary:
 This module extends and customizes the Emacs info reader.
 
 @subsection emacspeak-info Commands
@@ -6373,7 +6263,6 @@ node -- speak the entire node.
 @node emacspeak-ispell
 @section emacspeak-ispell
 
-Commentary:
 This module speech enables ispell.
 Implementation note: This is hard because of how  ispell.el is written
 Namely, all of the work is done by one huge hairy function.
@@ -6397,7 +6286,6 @@ many available corrections.
 @node emacspeak-jabber
 @section emacspeak-jabber
 
-Commentary:
 emacs-jabber.el implements a  jabber client for emacs
 emacs-jabber is hosted at sourceforge.
 I use emacs-jabber with my gmail.com account
@@ -6542,7 +6430,6 @@ This personality uses  voice-lighten whose  effect can be changed globally by cu
 @node emacspeak-jde
 @section emacspeak-jde
 
-Commentary:
 Speech enable Java IDE.
 The Java IDE --JDE-- can be found at 
 http://sunsite.auc.dk/jde/
@@ -6614,7 +6501,6 @@ This personality uses  voice-brighten-medium whose  effect can be changed global
 @node emacspeak-js2
 @section emacspeak-js2
 
-Commentary:
 JS2-mode http://js2-mode.googlecode.com/svn/trunk
 is a new, powerful Emacs mode for working with JavaScript.
 This module speech-enables js2.
@@ -6704,7 +6590,6 @@ This personality uses  voice-bolden-and-animate whose  effect can be changed glo
 @node emacspeak-jss
 @section emacspeak-jss
 
-Commentary:
 jss connects Emacs to browsers that support the webkit debugging protocol.
 You can use this to connect to a running Chrome or Firefox.
 Make sure to start chrome with the correct command-line flag: e.g., on Linux:
@@ -6772,7 +6657,6 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 @node emacspeak-keymap
 @section emacspeak-keymap
 
-Commentary:
 This module defines the emacspeak keybindings.
 
 @subsection emacspeak-keymap Commands
@@ -6893,7 +6777,6 @@ interactive command that the key sequence executes.
 @node emacspeak-kite
 @section emacspeak-kite
 
-Commentary:
 kite connects Emacs to browsers that support the webkit debugging protocol.
 You can use this to connect to a running Chrome
 Make sure to start chrome with the correct command-line flag: e.g., on Linux:
@@ -7045,7 +6928,6 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 @node emacspeak-kmacro
 @section emacspeak-kmacro
 
-Commentary:
 speech-enables kmacro --- a kbd macro interface
 
 @subsection emacspeak-kmacro Commands
@@ -7055,7 +6937,6 @@ speech-enables kmacro --- a kbd macro interface
 @node emacspeak-librivox
 @section emacspeak-librivox
 
-Commentary:
 LIBRIVOX == http://wwwlibrivox.org Free Audio Books
 It provides a simple Web  API http://wiki.librivox.org/index.php/LibriVoxAPI
 This module implements an Emacspeak Librivox client.
@@ -7135,7 +7016,6 @@ Location where we cache  librivox data.
 @node emacspeak-m-player
 @section emacspeak-m-player
 
-Commentary:
 Defines a simple derived mode for interacting with mplayer.
 mplayer  is a versatile media player capable of playing many
 streaming formats  and is especially useful for playing windows
@@ -7481,7 +7361,6 @@ on a specific directory.
 @node emacspeak-madplay
 @section emacspeak-madplay
 
-Commentary:
 Defines a simple derived mode for interacting with
 madplay.
 madplay navigation commands  work via single keystrokes.
@@ -7541,7 +7420,6 @@ sets up madplay to pipe output to alsa.
 @node emacspeak-magit
 @section emacspeak-magit
 
-Commentary:
 MAGIT ==  Git interface in Emacs
 git clone git://github.com/magit/magit.git
 
@@ -7552,7 +7430,6 @@ git clone git://github.com/magit/magit.git
 @node emacspeak-make-mode
 @section emacspeak-make-mode
 
-Commentary:
 This module speech enables make-mode
 
 @subsection emacspeak-make-mode Commands
@@ -7586,7 +7463,6 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @node emacspeak-man
 @section emacspeak-man
 
-Commentary:
 Provide additional advice to man-mode 
 
 @subsection emacspeak-man Commands
@@ -7604,7 +7480,6 @@ Speak current section
 @node emacspeak-markdown
 @section emacspeak-markdown
 
-Commentary:
 MARKDOWN ==  Light-weight markup.
 This module speech-enables markdown.el
 
@@ -7777,7 +7652,6 @@ This personality uses  voice-bolden-and-animate whose  effect can be changed glo
 @node emacspeak-message
 @section emacspeak-message
 
-Commentary:
 advice for posting message commands
 
 @subsection emacspeak-message Commands
@@ -7792,7 +7666,6 @@ Pronunciation mode to use for message buffers.
 @node emacspeak-metapost
 @section emacspeak-metapost
 
-Commentary:
 Speech-enables metapost mode.
 metapost is a powerful drawing package
 typically installed as mpost by modern TeX
@@ -7805,7 +7678,6 @@ installations.
 @node emacspeak-midge
 @section emacspeak-midge
 
-Commentary:
 This module speech enables  midge.
 Midge is a MIDI composer/editor tool.
 From the package README file:
@@ -7825,7 +7697,6 @@ http://www.dmriley.demon.co.uk/code/midge/
 @node emacspeak-mpg123
 @section emacspeak-mpg123
 
-Commentary:
 This module speech-enables  MPG123
 MPG123 is an MP3 player.
 
@@ -7875,7 +7746,6 @@ Speak title of the current song.
 @node emacspeak-mspools
 @section emacspeak-mspools
 
-Commentary:
 Speech-enable  mspools --a package that lets you monitor
 multiple maildrops
 
@@ -7886,7 +7756,6 @@ multiple maildrops
 @node emacspeak-muse
 @section emacspeak-muse
 
-Commentary:
 Speech enable Muse
 
 @subsection emacspeak-muse Commands
@@ -7962,7 +7831,6 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 @node emacspeak-net-utils
 @section emacspeak-net-utils
 
-Commentary:
 This module speech enables net-utils
 
 @subsection emacspeak-net-utils Commands
@@ -7972,7 +7840,6 @@ This module speech enables net-utils
 @node emacspeak-newsticker
 @section emacspeak-newsticker
 
-Commentary:
 Newsticker provides a continuously updating newsticker using
 RSS
 Provides functionality similar to amphetadesk --but in pure elisp
@@ -8002,7 +7869,6 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 @node emacspeak-npr
 @section emacspeak-npr
 
-Commentary:
 NPR == http://wwwnpr.org National Public Radio in the US
 It provides a simple Web  API http://www.npr.org/api/index
 This module implements an Emacspeak Npr client.
@@ -8039,7 +7905,6 @@ Npr user Id.
 @node emacspeak-nxml
 @section emacspeak-nxml
 
-Commentary:
 nxml-mode is a new XML mode for emacs by James Clark.
  http://www.thaiopensource.com/download/
 
@@ -8276,7 +8141,6 @@ This personality uses  voice-bolden-and-animate whose  effect can be changed glo
 @node emacspeak-ocr
 @section emacspeak-ocr
 
-Commentary:
 This module defines Emacspeak front-end to OCR.
 This module assumes that sane is installed and working
 for image acquisition,
@@ -8542,7 +8406,6 @@ will be placed.
 @node emacspeak-org
 @section emacspeak-org
 
-Commentary:
 Speech-enable org ---
  Org allows you to keep organized notes and todo lists.
 Homepage: http://www.astro.uva.nl/~dominik/Tools/org/
@@ -8974,7 +8837,6 @@ This personality uses  voice-bolden-and-animate whose  effect can be changed glo
 @node emacspeak-outline
 @section emacspeak-outline
 
-Commentary:
 Provide additional advice to outline-mode
 
 @subsection emacspeak-outline Commands
@@ -9014,7 +8876,6 @@ sections.
 @node emacspeak-package
 @section emacspeak-package
 
-Commentary:
 PACKAGE == package.el
 Manage Emacs packages.
 This module speech-enables package.el with a few convenience commands.
@@ -9038,7 +8899,6 @@ Succinct Summary.
 @node emacspeak-perl
 @section emacspeak-perl
 
-Commentary:
 Provide additional advice to perl-mode 
 
 @subsection emacspeak-perl Commands
@@ -9048,7 +8908,6 @@ Provide additional advice to perl-mode
 @node emacspeak-personality
 @section emacspeak-personality
 
-Commentary:
 This module defines a personality interface for implementing voice
 lock via font lock.
 
@@ -9088,7 +8947,6 @@ Append means place corresponding personality at the end.
 @node emacspeak-php-mode
 @section emacspeak-php-mode
 
-Commentary:
 speech-enable php-mode.el (available from sourceforge project
 php-mode)
 
@@ -9099,7 +8957,6 @@ php-mode)
 @node emacspeak-pianobar
 @section emacspeak-pianobar
 
-Commentary:
 PIANOBAR ==  Pandora Client for Emacs
 
 pianobar git://github.com/PromyLOPh/pianobar.git
@@ -9135,7 +8992,6 @@ Switch to one of the  presets.
 @node emacspeak-proced
 @section emacspeak-proced
 
-Commentary:
 PROCED ==  Process Editor
 A new Task Manager for Emacs.
 Proced is part of emacs 23.
@@ -9179,7 +9035,6 @@ Speak field at specified column --- defaults to current column.
 @node emacspeak-pronounce
 @section emacspeak-pronounce
 
-Commentary:
 This module implements user customizable pronunciation dictionaries
 for emacspeak. Custom pronunciations can be defined per file, per
 directory and/or per major mode. Emacspeak maintains a persistent
@@ -9295,7 +9150,6 @@ applied.
 @node emacspeak-py
 @section emacspeak-py
 
-Commentary:
 This speech-enables python-mode available on sourceforge
 
 @subsection emacspeak-py Commands
@@ -9314,7 +9168,6 @@ If already at the beginning then move to previous block.
 @node emacspeak-python
 @section emacspeak-python
 
-Commentary:
 This speech-enables python-mode bundled with Emacs
 
 @subsection emacspeak-python Commands
@@ -9333,7 +9186,6 @@ If already at the beginning then move to previous block.
 @node emacspeak-re-builder
 @section emacspeak-re-builder
 
-Commentary: 
 Speech-enable re-builder.
 Will be used to advantage in efficiently setting up outline
 regexp wizards
@@ -9371,7 +9223,6 @@ This personality uses  voice-lock-overlay-3 whose  effect can be changed globall
 @node emacspeak-redefine
 @section emacspeak-redefine
 
-Commentary:
 This module redefines a few vital functions,
 since advising them won't help.
 Convention used:
@@ -9406,7 +9257,6 @@ Speech flushes as you type.
 @node emacspeak-reftex
 @section emacspeak-reftex
 
-Commentary:
 This module speech-enables refteex --
 reftex is a minor mode that makes navigation of TeX
 documents  possible via a table of contents buffer.
@@ -9418,7 +9268,6 @@ documents  possible via a table of contents buffer.
 @node emacspeak-remote
 @section emacspeak-remote
 
-Commentary:
 In a running emacspeak session,
 nuke the running server and start talking to a remote speech server,
 after prompting for host and port
@@ -9478,7 +9327,6 @@ mode.
 @node emacspeak-replace
 @section emacspeak-replace
 
-Commentary:
 This module causes emacs' replacement functions to use voice locking
 
 @subsection emacspeak-replace Commands
@@ -9494,7 +9342,6 @@ that is being replaced.
 @node emacspeak-rmail
 @section emacspeak-rmail
 
-Commentary:
 emacspeak extensions to rmail
 
 @subsection emacspeak-rmail Commands
@@ -9512,7 +9359,6 @@ Summarize current message
 @node emacspeak-rpm
 @section emacspeak-rpm
 
-Commentary:
 This module speech-enables rpm.el
 rpm.el can be downloaded from
 http://www.uni-karlsruhe.de/~Detlev.Zundel/download/rpm.el
@@ -9526,7 +9372,6 @@ rpm.
 @node emacspeak-rpm-spec
 @section emacspeak-rpm-spec
 
-Commentary:
 speech-enable rpm-spec-mode --part of Emacs 21 on RH 7.3
 
 @subsection emacspeak-rpm-spec Commands
@@ -9572,7 +9417,6 @@ This personality uses  voice-smoothen whose  effect can be changed globally by c
 @node emacspeak-ruby
 @section emacspeak-ruby
 
-Commentary:
 Provide additional advice to Ruby mode 
 
 @subsection emacspeak-ruby Commands
@@ -9582,7 +9426,6 @@ Provide additional advice to Ruby mode
 @node emacspeak-sawfish
 @section emacspeak-sawfish
 
-Commentary:
 Sawfish is a Gnome and KDE compliant window manager.
 It is the window manager I use and is fully configurable
 via Lisp.
@@ -9598,7 +9441,6 @@ Emacs
 @node emacspeak-ses
 @section emacspeak-ses
 
-Commentary:
 ses implements a simple spread sheet and is part of Emacs
 21.4
 This module speech-enables ses
@@ -9634,7 +9476,6 @@ Summarize current cell.
 @node emacspeak-setup
 @section emacspeak-setup
 
-Commentary:
 Entry point for Emacspeak.
 
 @subsection emacspeak-setup Commands
@@ -9661,7 +9502,6 @@ Default speech rate for outloud.
 @node emacspeak-sgml-mode
 @section emacspeak-sgml-mode
 
-Commentary:
 emacspeak extensions to sgml mode
 
 @subsection emacspeak-sgml-mode Commands
@@ -9671,7 +9511,6 @@ emacspeak extensions to sgml mode
 @node emacspeak-sh-script
 @section emacspeak-sh-script
 
-Commentary:
 This module speech-enables sh-script.el 
 
 @subsection emacspeak-sh-script Commands
@@ -9681,7 +9520,6 @@ This module speech-enables sh-script.el
 @node emacspeak-sigbegone
 @section emacspeak-sigbegone
 
-Commentary:
 Speech-enables package sigbegone --voiceify sigs in email and news
 
 @subsection emacspeak-sigbegone Commands
@@ -9697,7 +9535,6 @@ This personality uses  voice-smoothen-extra whose  effect can be changed globall
 @node emacspeak-solitaire
 @section emacspeak-solitaire
 
-Commentary:
 Auditory interface to solitaire
 
 @subsection emacspeak-solitaire Commands
@@ -9719,7 +9556,6 @@ Speak coordinates of current position
 @node emacspeak-sounds
 @section emacspeak-sounds
 
-Commentary:
 This module provides the interface for generating auditory icons in emacspeak.
 Design goal:
 1) Auditory icons should be used to provide additional feedback,
@@ -9828,7 +9664,6 @@ Name of play executable from SoX
 @node emacspeak-speak
 @section emacspeak-speak
 
-Commentary:
 This module defines the core speech services used by emacspeak.
 It depends on the speech server interface modules
 It protects other parts of emacspeak
@@ -10471,7 +10306,7 @@ Speak current word.
 With prefix ARG, speaks the rest of the word from point.
 Negative prefix arg speaks from start of word to point.
 If executed  on the same buffer position a second time, the word is
-spelt instead of being spoken.
+spelled out  instead of being spoken.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-word-interactively  nil
@@ -10820,7 +10655,6 @@ option.
 @node emacspeak-speedbar
 @section emacspeak-speedbar
 
-Commentary:
 This module advises speedbar.el for use with Emacs.  The
 latest speedbar can be obtained from
 ftp://ftp.ultranet.com/pub/zappo/ This module ensures
@@ -10880,7 +10714,6 @@ Personality used for speedbar tags
 @node emacspeak-sql
 @section emacspeak-sql
 
-Commentary:
 This module speech enables sql-mode--
 available from
 http://paddington.ic.uva.nl/public/sql-modes.zip
@@ -10895,7 +10728,6 @@ interactively evaluate SQL expressions.
 @node emacspeak-sudoku
 @section emacspeak-sudoku
 
-Commentary:
 Playing SuDoku using speech output.
 Written to discover what type of feedback one needs for  this
 task.
@@ -11010,7 +10842,6 @@ Move to top-left corner of  sub-square above current one.
 @node emacspeak-supercite
 @section emacspeak-supercite
 
-Commentary:
 Speech-enable supercite.
 
 @subsection emacspeak-supercite Commands
@@ -11020,7 +10851,6 @@ Speech-enable supercite.
 @node emacspeak-table
 @section emacspeak-table
 
-Commentary:
 Implements a module that provides a high level interface to
 tabulated information.
 
@@ -11031,7 +10861,6 @@ tabulated information.
 @node emacspeak-table-ui
 @section emacspeak-table-ui
 
-Commentary:
 User interface to tables
 
 @subsection emacspeak-table-ui Commands
@@ -11223,7 +11052,6 @@ Personality for speaking row headers
 @node emacspeak-tabulate
 @section emacspeak-tabulate
 
-Commentary:
 This module is a simple table recognizer.
 Can recognize the columns in tabulated output, e.g. ps, ls output
 
@@ -11242,7 +11070,6 @@ in the white-space.
 @node emacspeak-tapestry
 @section emacspeak-tapestry
 
-Commentary:
 emacspeak extensions to speak window widnow layouts 
 
 @subsection emacspeak-tapestry Commands
@@ -11269,7 +11096,6 @@ but quickly switch to a window by name.
 @node emacspeak-tar
 @section emacspeak-tar
 
-Commentary:
 Auditory interface to tar mode
 
 @subsection emacspeak-tar Commands
@@ -11291,7 +11117,6 @@ Speak size of file current entry
 @node emacspeak-tcl
 @section emacspeak-tcl
 
-Commentary:
 Provide additional advice to tcl-mode 
 
 @subsection emacspeak-tcl Commands
@@ -11301,7 +11126,6 @@ Provide additional advice to tcl-mode
 @node emacspeak-tdtd
 @section emacspeak-tdtd
 
-Commentary:
 tdtd is an emacs package for authoring and maintaining
 XML and SGML DTDs
 tdtd is at http://www.mulberrytech.com/tdtd/index.html
@@ -11314,7 +11138,6 @@ this module speech-enables tdtd
 @node emacspeak-tempo
 @section emacspeak-tempo
 
-Commentary:
 tempo.el provides the
 infrastructure  for building up templates.
 This is used by html-helper-mode to allow for easy writing of HTML
@@ -11327,7 +11150,6 @@ This module extends Emacspeak to provide fluent spoken feedback
 @node emacspeak-tetris
 @section emacspeak-tetris
 
-Commentary:
 Speech-enables tetris.
 
 @subsection emacspeak-tetris Commands
@@ -11381,7 +11203,6 @@ Speak current position
 @node emacspeak-texinfo
 @section emacspeak-texinfo
 
-Commentary:
 This module speech enables net-texinfo mode
 
 @subsection emacspeak-texinfo Commands
@@ -11391,7 +11212,6 @@ This module speech enables net-texinfo mode
 @node emacspeak-todo-mode
 @section emacspeak-todo-mode
 
-Commentary:
 todo-mode (part of Emacs 21) provides todo-lists that can be
 integrated with the Emacs calendar.
 This module speech-enables todo-mode
@@ -11403,7 +11223,6 @@ This module speech-enables todo-mode
 @node emacspeak-twittering
 @section emacspeak-twittering
 
-Commentary:
  module twittering-mode.el  is found on  the emacs wiki
 This module speech-enables twittering-mode which works using
  oauth for authentication.
@@ -11424,10 +11243,21 @@ Speak tweet under point.
 
 @subsection emacspeak-twittering Options
 
+@defvar {User Option} emacspeak-twittering-uri-personality
+Personality used for twittering-uri-face
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-twittering-username-personality
+Personality used for twittering-username-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
 @node emacspeak-url-template
 @section emacspeak-url-template
 
-Commentary:
 It is often useful to have ``parametrized hot list entries''
 i.e., hotlist entries  that are ``templates'' for the
 actual URL.
@@ -11479,7 +11309,6 @@ Default city/state for weather forecasts
 @node emacspeak-view
 @section emacspeak-view
 
-Commentary:
 Provide additional advice to view-mode
 
 @subsection emacspeak-view Commands
@@ -11493,7 +11322,6 @@ Moves current line to top of window
 @node emacspeak-vm
 @section emacspeak-vm
 
-Commentary:
 This module extends the mail reader vm.
 Uses voice locking for message headers and cited messages
 
@@ -11592,7 +11420,6 @@ Executable that converts MSXL documents on standard input to HTML
 @node emacspeak-w3
 @section emacspeak-w3
 
-Commentary:
 Ensure that speech support for W3 gets installed and
 loaded correctly.
 The emacs W3 browser comes with builtin support for
@@ -11636,7 +11463,7 @@ Move by block level displays.
 @deffn {Interactive Command} emacspeak-w3-next-doc-element  (&optional count)
 Move forward  to the next document element.
 Optional interactive prefix argument COUNT
-specifies by how many eleemnts to move.
+specifies by how many elements to move.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-next-parsed-item  nil
@@ -11646,7 +11473,7 @@ Move to and speak next parsed item.
 @deffn {Interactive Command} emacspeak-w3-previous-doc-element  (&optional count)
 Move back  to the previous document element.
 Optional interactive prefix argument COUNT
-specifies by how many eleemnts to move.
+specifies by how many elements to move.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-w3-show-anchor-class  nil
@@ -11714,8 +11541,6 @@ Name of tidy executable
 @node emacspeak-w3m
 @section emacspeak-w3m
 
-Commentary:
-
 @subsection emacspeak-w3m Commands
 
 @deffn {Interactive Command} emacspeak-w3m-preview-this-buffer  nil
@@ -11734,7 +11559,6 @@ instead of the modeline.
 @node emacspeak-wdired
 @section emacspeak-wdired
 
-Commentary:
 Speech-enable wdired to permit in-place renaming of groups of files.
 
 @subsection emacspeak-wdired Commands
@@ -11744,7 +11568,6 @@ Speech-enable wdired to permit in-place renaming of groups of files.
 @node emacspeak-we
 @section emacspeak-we
 
-Commentary:
 we is for webedit
 Invoke XSLT to edit/transform Web pages before they get
 rendered.
@@ -12023,7 +11846,6 @@ Nil means no transform is used.
 @node emacspeak-websearch
 @section emacspeak-websearch
 
-Commentary:
 This module provides utility functions for searching the WWW
 
 @subsection emacspeak-websearch Commands
@@ -12259,7 +12081,6 @@ Specify whether we use secure connections for Google search.
 @node emacspeak-webspace
 @section emacspeak-webspace
 
-Commentary:
 WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
 
 @subsection emacspeak-webspace Commands
@@ -12355,7 +12176,6 @@ Yank link under point into kill ring.
 @node emacspeak-webutils
 @section emacspeak-webutils
 
-Commentary:
 This module provides common Web utilities for emacspeak.
 This is to avoid duplication of code between emacspeak-w3.el
 and emacspeak-w3m.el
@@ -12419,7 +12239,6 @@ Entities to unescape when treating badly escaped XML.
 @node emacspeak-widget
 @section emacspeak-widget
 
-Commentary:
 This module implements the necessary extensions to provide talking
 widgets.
 
@@ -12452,7 +12271,6 @@ Sets widget at point by invoking its prompter.
 @node emacspeak-windmove
 @section emacspeak-windmove
 
-Commentary:
 Package  windmove (bundled with Emacs 21)
 provides commands for navigating to windows based on
 relative position.
@@ -12464,7 +12282,6 @@ relative position.
 @node emacspeak-winring
 @section emacspeak-winring
 
-Commentary:
 window configurations in emacs are very useful 
 you can display the same file in different windows,
 and have different  portions of the file displayed.
@@ -12478,7 +12295,6 @@ and this module speech-enables it.
 @node emacspeak-wizards
 @section emacspeak-wizards
 
-Commentary:
 Contains various wizards for the Emacspeak desktop.
 
 @subsection emacspeak-wizards Commands
@@ -13475,7 +13291,6 @@ Set this to nil if you do not want to use the XLHTML wizard.
 @node emacspeak-woman
 @section emacspeak-woman
 
-Commentary:
 WOMAN ==  Man pages implemented in Emacs Lisp
 
 @subsection emacspeak-woman Commands
@@ -13485,7 +13300,6 @@ WOMAN ==  Man pages implemented in Emacs Lisp
 @node emacspeak-xkcd
 @section emacspeak-xkcd
 
-Commentary:
 XKCD ==  emacs-xkcd
 View XKCD comics in Emacs.
 Speech enables package emacs-xkcd
@@ -13498,7 +13312,6 @@ Augments it by displaying the alt text and the transcript.
 @node emacspeak-xml-shell
 @section emacspeak-xml-shell
 
-Commentary:
 Use xmllint from package libxml2 to implement 
 an XML browser.
 Uses the interactive shell provided by xmllint to do the hard
@@ -13584,7 +13397,6 @@ XSL transform to apply when displaying current node.
 @node emacspeak-xref
 @section emacspeak-xref
 
-Commentary:
 XREF ==  Cross-references in source code.
 This is part of Emacs 25.
 This module speech-enables xref
@@ -13596,7 +13408,6 @@ This module speech-enables xref
 @node emacspeak-xslt
 @section emacspeak-xslt
 
-Commentary:
 libxml and libxsl are XML libraries for GNOME.
 xsltproc is a  xslt processor using libxsl
 this module defines routines for applying xsl transformations
@@ -13653,7 +13464,6 @@ work around.
 @node espeak-voices
 @section espeak-voices
 
-Commentary:
 This module defines the various voices used in voice-lock mode.
 This module is Espeak specific.
 
@@ -13677,7 +13487,6 @@ Use eflite TTS server.
 @node g
 @section g
 
-Commentary:
 Top-level bootstrap module for Google Client.
 Loads in authentication module and sets up per-service
 modules:
@@ -13693,7 +13502,6 @@ gphoto: Google Photos
 @node g-app
 @section g-app
 
-Commentary:
 Common Code  For Google Apps
 Used by modules like gphoto, gblogger etc.
 
@@ -13731,7 +13539,6 @@ View feed using auth credentials in auth-handle.
 @node g-auth
 @section g-auth
 
-Commentary:
 Google Auth using Curl
 Implements an authentication component for use in Google
 Clients -- see http://code.google.com/apis/accounts/AuthForInstalledApps.html
@@ -13748,7 +13555,6 @@ Google account  address.
 @node g-utils
 @section g-utils
 
-Commentary:
 Common Code  e.g. helper functions.
 Used by modules like gphoto, gblogger etc.
 
@@ -13812,7 +13618,6 @@ XSLT Processor.
 @node gblogger
 @section gblogger
 
-Commentary:
 Simple wrapper using Curl to post/edit Blogger.com Blogs
 posts are edited as XML
 nxml-mode is highly recommend and will be used if available.
@@ -13820,7 +13625,7 @@ nxml-mode is highly recommend and will be used if available.
 @subsection gblogger Commands
 
 @deffn {Interactive Command} gblogger-add-label  (label)
-Adds labels to gblogger entry being editted.
+Adds labels to gblogger entry being edited.
 @end deffn
 
 @deffn {Interactive Command} gblogger-atom-display  (feed-url)
@@ -13836,7 +13641,7 @@ Delete item at specified edit URL.
 @end deffn
 
 @deffn {Interactive Command} gblogger-edit-entry  (url)
-Retrieve entry and prepare it for editting.
+Retrieve entry and prepare it for editing.
 The retrieved entry is placed in a buffer ready for editing.
 `url' is the URL of the entry.
 @end deffn
@@ -13879,7 +13684,6 @@ Password for authenticating to reader account.
 @node gf
 @section gf
 
-Commentary:
 Explore Freebase graph search results
 
 @subsection gf Commands
@@ -13889,7 +13693,6 @@ Explore Freebase graph search results
 @node gfeeds
 @section gfeeds
 
-Commentary:
 Fast feed access from Google for use in Emacs
 
 @subsection gfeeds Commands
@@ -13919,7 +13722,6 @@ Customize this to point to your Web location.
 @node gm-nnir
 @section gm-nnir
 
-Commentary:
 Makes search GMail more convenient.
 IMap search operators, GMail search extensions.
 
@@ -13941,7 +13743,6 @@ Default is to search All Mail when not on a group.
 @node gmaps
 @section gmaps
 
-Commentary:
 Implements the Google Maps API
 
 @subsection gmaps Commands
@@ -14088,7 +13889,6 @@ Location address. Setting this updates gweb-my-location coordinates  via geocodi
 @node gphoto
 @section gphoto
 
-Commentary:
 Emacs client for accessing Picasa --- Google Photo Albums
 See  http://code.google.com/apis/picasaweb/overview.html
 
@@ -14190,7 +13990,6 @@ Password for authenticating to Picasa account.
 @node gweb
 @section gweb
 
-Commentary:
 Provide Google services --- such as search, search-based completion etc.
 For use from within Emacs tools.
 This is meant to be fast and efficient --- and uses WebAPIs as opposed to HTML  scraping.
@@ -14212,7 +14011,6 @@ Display News Search results  in a browser.
 @node mac-voices
 @section mac-voices
 
-Commentary:
 This module defines the various voices used in voice-lock mode.
 This module is Apple Mac specific.
 
@@ -14223,7 +14021,6 @@ This module is Apple Mac specific.
 @node multispeech-voices
 @section multispeech-voices
 
-Commentary:
 This module defines the various voices used in voice-lock mode.
 This module is Multispeech specific.
 
@@ -14252,7 +14049,6 @@ This module is Multispeech specific.
 @node outloud-voices
 @section outloud-voices
 
-Commentary:
 This module defines the various voices used in voice-lock mode.
 This module is IBM ViaVoice Outloud specific.
 
@@ -14263,7 +14059,6 @@ This module is IBM ViaVoice Outloud specific.
 @node plain-voices
 @section plain-voices
 
-Commentary:
 This module defines the various voices used in voice-lock mode.
 This module is Plain  i.e. suitable for a device  for which you haven't yet implemented appropriate voice-locking controls
 
@@ -14274,7 +14069,6 @@ This module is Plain  i.e. suitable for a device  for which you haven't yet impl
 @node sox
 @section sox
 
-Commentary:
 This module defines a convenient speech-enabled
 interface for editing mp3 and wav files using SoX.
 
@@ -14294,7 +14088,6 @@ This module can be used independent of Emacspeak.
 @node stack-f
 @section stack-f
 
-Commentary:
 The stack is implemented as a linked list with a tag 'STACK
 as the first element.  All entries and removals are done using
 destructive functions.
@@ -14315,8 +14108,6 @@ destructive functions.
 @node tetris
 @section tetris
 
-Commentary:
-
 @subsection tetris Commands
 
 @subsection tetris Options
@@ -14324,7 +14115,6 @@ Commentary:
 @node toy-braille
 @section toy-braille
 
-Commentary:
 This is a bit of toy code to write in braille.
 
 To try this, load this file (`M-x load-file path/to/toy-braille.el'), then do:
@@ -14359,7 +14149,6 @@ References:
 @node voice-setup
 @section voice-setup
 
-Commentary:
 A voice is to audio as a font is to a visual display.
 A personality is to audio as a face is to a visual display.
 
@@ -14576,7 +14365,7 @@ Apply first female voice.
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 97 URL Templates.
+This section documents a total of 96 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -14702,10 +14491,6 @@ Display content from Google Finance.
 
 Display content from Google Finance.
 
-@kbd{G3 Sourcer URL}
-
-Return Sourcerer URL.
-
 @kbd{GCalendar Mobile}
 
 Google Calendar XHTML version.
@@ -14807,7 +14592,7 @@ Search within all official Google blogs.
 
 @kbd{Old Time Radio}
 
-This months Old Time Radio Programing
+This months Old Time Radio Programming
 
 @kbd{On The Fly CSE}
 
