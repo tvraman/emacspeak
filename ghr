@@ -1,0 +1,10 @@
+#!/bin/sh
+#Upload a release to github
+# $1 tagname $2 filename asset (tar.bz2)
+. ${HOME}/.github_token
+export PATH=$PATH:$GOPATH/bin
+github-release release --user tvraman --repo emacspeak \
+--tag $1 --name "Release $1 " 
+
+github-release upload --user tvraman --repo emacspeak \
+--tag $1 --name $2 --file $2
