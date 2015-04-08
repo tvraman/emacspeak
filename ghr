@@ -9,5 +9,8 @@ github-release release --user tvraman --repo emacspeak \
 
 github-release upload --user tvraman --repo emacspeak \
 --tag $1 --name $2 --file $2
+github-release upload --user tvraman --repo emacspeak \
+--tag $1 --name News-$2 --file ./etc/NEWS
+
 echo "Released $1"
 echo "Download URL: https://github.com/tvraman/emacspeak/releases/download/$1/$2"
