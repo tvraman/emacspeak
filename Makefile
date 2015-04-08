@@ -300,11 +300,8 @@ clean:
 #label  releases when ready
 LABEL=
 MSG="Releasing ${LABEL}"
-# update this rule later to tag the release
-label: $(DISTFILES)
-	rm -f lisp/emacspeak-loaddefs.el lisp/cus-load.el
-
 release: #supply LABEL=NN.NN
+	git tag -a  ${LABEL} -m "Tagging release with ${LABEL}"
 	$(MAKE) dist
 	mkdir emacspeak-${LABEL}; \
 cd emacspeak-${LABEL} ;\

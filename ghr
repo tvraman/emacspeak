@@ -1,6 +1,7 @@
 #!/bin/sh
 #Upload a release to github
-# $1 tagname $2 filename asset (tar.bz2)
+#Usage:  $1 tagname $2 filename asset (tar.bz2)
+
 . ${HOME}/.github_token
 export PATH=$PATH:$GOPATH/bin
 github-release release --user tvraman --repo emacspeak \
@@ -8,3 +9,5 @@ github-release release --user tvraman --repo emacspeak \
 
 github-release upload --user tvraman --repo emacspeak \
 --tag $1 --name $2 --file $2
+echo "Released $1"
+echo "Download URL: https://github.com/tvraman/emacspeak/releases/download/$1/$2"
