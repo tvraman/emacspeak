@@ -3,7 +3,7 @@ $Id$
 Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
-* Emacspeak 42 -- Emacspeak 40 User Visible Changes
+* Emacspeak 42 -- Emacspeak 42 User Visible Changes
 ** Updated Info Manual 
 
 The code that auto-generates documentation for Emacspeak packages has
@@ -13,6 +13,7 @@ been completely re-written.
 
 
 Emacspeak 42 now requires Emacs 24.1 or later.
+Specifically, you need an Emacs that is built with libxml2 support for using packages like emacspeak-bookshare.
 
 ** emacspeak-elfeed.el:
 
@@ -42,6 +43,7 @@ emacspeak-wizards-tune-in-radio-browse and emacspeak-wizards-tune-in-radio-searc
 ** emacspeak-markdown.el:
 
 Speech-enable markdown-mode.
+
 ** realaudio/radio 
 
 Updated all BBC  playlists to mp3/m3u files 
@@ -75,5 +77,3 @@ formerly available in emacspeak-alsaplayer
 ** Better Support For Display  Property 
 
 Handles more cases of property _display_.
-
-
