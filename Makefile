@@ -302,6 +302,7 @@ LABEL=
 MSG="Releasing ${LABEL}"
 release: #supply LABEL=NN.NN
 	git tag -a  ${LABEL} -m "Tagging release with ${LABEL}"
+	git push --tags
 	$(MAKE) dist
 	mkdir emacspeak-${LABEL}; \
 cd emacspeak-${LABEL} ;\
@@ -310,7 +311,8 @@ cd emacspeak-${LABEL} ;\
 cd .. ;\
 	tar cvfj emacspeak-${LABEL}.tar.bz2 emacspeak-$(LABEL); \
 	/bin/rm -rf emacspeak-${LABEL} ;\
-	echo "Prepared release in emacspeak-${LABEL}.tar.bz2" 
+	echo "Prepared release in emacspeak-${LABEL}.tar.bz2"
+	./ghr ${LABEL} "emacspeak-${LABEL}.tar.bz2"
 
 # }}}
 # {{{list distfiles to stdout
