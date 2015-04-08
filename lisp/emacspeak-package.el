@@ -61,7 +61,7 @@
   "Succinct Summary."
   (interactive)
   (let* ((entry   (get-text-property (point) 'tabulated-list-entry))
-         (name (first (aref entry 0)))
+         (name (copy-sequence (first (aref entry 0))))
          (desc (aref entry 4))
          (state (aref entry 2)))
     (cond
