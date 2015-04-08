@@ -82,6 +82,13 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-buffer)))
 
+(defun emacspeak-xkcd-open-explanation-browser ()
+  "Open explanation of current xkcd in default browser"
+  (interactive)
+  (browse-url (concat "http://www.explainxkcd.com/wiki/index.php/"
+                                      (number-to-string xkcd-cur))))
+(when (boundp 'xkcd-mode-map)
+  (define-key xkcd-mode-map "e" 'emacspeak-xkcd-open-explanation-browser))
 (provide 'emacspeak-xkcd)
 ;;{{{ end of file
 
