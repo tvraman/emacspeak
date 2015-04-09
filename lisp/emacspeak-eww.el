@@ -56,15 +56,10 @@
 (eval-when-compile (require 'eww "eww" 'no-error))
 
 (eval-when-compile (require 'emacspeak-feeds "emacspeak-feeds" 'no-error))
-
 (require 'emacspeak-preamble)
-
 (require 'emacspeak-we)
-
 (require 'emacspeak-webutils)
-
 (require 'emacspeak-google)
-
 (require 'xml)
 ;;}}}
 ;;{{{ Compatibility Helpers:
