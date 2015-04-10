@@ -1,166 +1,245 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Configuring and Installing Emacspeak</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Configuring and Installing Emacspeak">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Configuring and Installing Emacspeak">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Installation.html#Installation" rel="up" title="Installation">
-<link href="Basic-Usage.html#Basic-Usage" rel="next" title="Basic Usage">
-<link href="Quick-Installation.html#Quick-Installation" rel="prev" title="Quick Installation">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  Configuring and Installing Emacspeak</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Configuring and Installing Emacspeak" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Configuring and Installing Emacspeak" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Installation.html#Installation" rel="up" title=
+  "Installation" />
+  <link href="Basic-Usage.html#Basic-Usage" rel="next" title=
+  "Basic Usage" />
+  <link href="Quick-Installation.html#Quick-Installation" rel=
+  "prev" title="Quick Installation" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="Configuring-and-Installing-Emacspeak"></a>
-<div class="header">
-<p>
-Previous: <a href="Quick-Installation.html#Quick-Installation" accesskey="p" rel="prev">Quick Installation</a>, Up: <a href="Installation.html#Installation" accesskey="u" rel="up">Installation</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="Configuring-and-Installing-Emacspeak-1"></a>
-<h3 class="section">4.3 Configuring and Installing Emacspeak</h3>
+<body lang="en" xml:lang="en">
+  <a name="Configuring-and-Installing-Emacspeak" id=
+  "Configuring-and-Installing-Emacspeak"></a>
 
-<p>Note: You need a current version of GNU Emacs 
-  for using newer versions of Emacspeak.
-</p>
-<p>The speech server for the Dectalk is written in TclX.  (For example, see the
-source file <samp>dtk-exp</samp>).  
-</p><ul>
-<li> Decide where you want the Emacspeak elisp files.  Most Unix packages are
-unpacked and compiled in one directory, and then the executable,
-documentation, and data files are installed in the appropriate system
-directories.  
+  <div class="header">
+    <p>Previous: <a href=
+    "Quick-Installation.html#Quick-Installation" accesskey="p" rel=
+    "prev">Quick Installation</a>, Up: <a href=
+    "Installation.html#Installation" accesskey="u" rel=
+    "up">Installation</a> &nbsp; [<a href="index.html#SEC_Contents"
+    title="Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="Configuring-and-Installing-Emacspeak-1" id=
+  "Configuring-and-Installing-Emacspeak-1"></a>
 
+  <h3 class="section">4.3 Configuring and Installing Emacspeak</h3>
 
-<p>Once you have decided on the appropriate directory, make it if necessary
-and unpack the distribution <code>.tar</code> file there. 
-</p>
-</li><li> Look through the introductory section of the Makefile to see if you need
-to edit it for your site.
-</li><li> Check the directory prefix for installation.  The default is <samp>/usr/local</samp>,
-so <samp>.info</samp> files go to <samp>/usr/local/info</samp> and the executable
-file goes to <samp>/usr/local/bin</samp>.  To change this, edit the line
-defining <var>PREFIX</var>.
-</li></ul>
+  <p>Note: You need a current version of GNU Emacs for using newer
+  versions of Emacspeak.</p>
 
-<p>Configure the source files by typing &lsquo;<samp>make config</samp>&rsquo;.  At this point
-you can check that the  speech server is correctly configured by typing
-</p><div class="example">
-<pre class="example">tcl dtk-exp
-</pre></div>
-<p>(assuming you are using the Dectalk Express).  You should hear the
-Dectalk speak and get a TCL prompt if everything is okay.
-</p>
-<p>If you&rsquo;re feeling paranoid, you can perform a couple of additional tests
-at this point. Execute the following commands in the running tcl session
-you just started above.  (Most users will not need to do this; it is a
-sanity check and is useful in tracking problems, especially if you find
-emacspeak beginning to talk and then immediately fall silent.)
-</p>
-<ul>
-<li> <div class="example">
-<pre class="example">q &quot;this is a test.&quot;
+  <p>The speech server for the Dectalk is written in TclX. (For
+  example, see the source file <samp>dtk-exp</samp>).</p>
+
+  <ul>
+    <li>Decide where you want the Emacspeak elisp files. Most Unix
+    packages are unpacked and compiled in one directory, and then
+    the executable, documentation, and data files are installed in
+    the appropriate system directories.
+
+      <p>Once you have decided on the appropriate directory, make
+      it if necessary and unpack the distribution <code>.tar</code>
+      file there.</p>
+    </li>
+
+    <li>Look through the introductory section of the Makefile to
+    see if you need to edit it for your site.</li>
+
+    <li>Check the directory prefix for installation. The default is
+    <samp>/usr/local</samp>, so <samp>.info</samp> files go to
+    <samp>/usr/local/info</samp> and the executable file goes to
+    <samp>/usr/local/bin</samp>. To change this, edit the line
+    defining <var>PREFIX</var>.</li>
+  </ul>
+
+  <p>Configure the source files by typing &lsquo;<samp>make
+  config</samp>&rsquo;. At this point you can check that the speech
+  server is correctly configured by typing</p>
+
+  <div class="example">
+    <pre class="example">
+tcl dtk-exp
+</pre>
+  </div>
+
+  <p>(assuming you are using the Dectalk Express). You should hear
+  the Dectalk speak and get a TCL prompt if everything is okay.</p>
+
+  <p>If you&rsquo;re feeling paranoid, you can perform a couple of
+  additional tests at this point. Execute the following commands in
+  the running tcl session you just started above. (Most users will
+  not need to do this; it is a sanity check and is useful in
+  tracking problems, especially if you find emacspeak beginning to
+  talk and then immediately fall silent.)</p>
+
+  <ul>
+    <li>
+      <div class="example">
+        <pre class="example">
+q "this is a test."
 d
-</pre></div>
+</pre>
+      </div>You should hear the Dectalk speak the text.
+    </li>
 
-You should hear the Dectalk speak  the text.
-</li><li> &lsquo;<samp>s</samp>&rsquo;
- The above command stops speech.
- You should see a TCL prompt when you execute it.
-  If things appear to hang when you execute &lsquo;<samp>s</samp>&rsquo;
-  i.e. you don&rsquo;t see a TCL prompt
-<ol>
-<li> The serial cable connecting your speech device is flaky
-</li><li> Your serial port is flaky
-</li><li> The stty settings on the port are incorrect for your system
-</li></ol>
- 
-<p>In the case of incorrect stty settings please report the problem.  The
-following UNIX command can be used to report the stty settings:
-</p><div class="example">
-<pre class="example">stty -a &lt; serial_port
-</pre></div>
+    <li>&lsquo;<samp>s</samp>&rsquo; The above command stops
+    speech. You should see a TCL prompt when you execute it. If
+    things appear to hang when you execute
+    &lsquo;<samp>s</samp>&rsquo; i.e. you don&rsquo;t see a TCL
+    prompt
 
-</li></ul>
+      <ol>
+        <li>The serial cable connecting your speech device is
+        flaky</li>
 
-<p>Quit this TCL
-session by typing <kbd>C-D</kbd>.
-</p>
-<p>Next, compile the elisp files by typing 
-</p><div class="example">
-<pre class="example">make emacspeak
-</pre></div>
-<p>Finally, install the documentation and executable files by typing 
-</p><div class="example">
-<pre class="example">make PREFIX=&lt;prefix&gt; install 
-</pre></div>
+        <li>Your serial port is flaky</li>
 
-<p>The speech server program and/or output port can also be specified at run time by 
-setting the shell environment variables <var>DTK_PROGRAM</var> and <var>DTK_PORT</var>.
-Examples: If using <code>csh</code> or <code>tcsh</code> 
-</p><div class="example">
-<pre class="example">setenv DTK_PROGRAM &quot;dtk-exp&quot;
-</pre></div>
-<p>if using <code>sh</code> or <code>bash</code>
-</p><div class="example">
-<pre class="example">DTK_PROGRAM=dtk-exp
+        <li>The stty settings on the port are incorrect for your
+        system</li>
+      </ol>
+
+      <p>In the case of incorrect stty settings please report the
+      problem. The following UNIX command can be used to report the
+      stty settings:</p>
+
+      <div class="example">
+        <pre class="example">
+stty -a &lt; serial_port
+</pre>
+      </div>
+    </li>
+  </ul>
+
+  <p>Quit this TCL session by typing <kbd>C-D</kbd>.</p>
+
+  <p>Next, compile the elisp files by typing</p>
+
+  <div class="example">
+    <pre class="example">
+make emacspeak
+</pre>
+  </div>
+
+  <p>Finally, install the documentation and executable files by
+  typing</p>
+
+  <div class="example">
+    <pre class="example">
+make PREFIX=&lt;prefix&gt; install 
+</pre>
+  </div>
+
+  <p>The speech server program and/or output port can also be
+  specified at run time by setting the shell environment variables
+  <var>DTK_PROGRAM</var> and <var>DTK_PORT</var>. Examples: If
+  using <code>csh</code> or <code>tcsh</code></p>
+
+  <div class="example">
+    <pre class="example">
+setenv DTK_PROGRAM "dtk-exp"
+</pre>
+  </div>
+
+  <p>if using <code>sh</code> or <code>bash</code></p>
+
+  <div class="example">
+    <pre class="example">
+DTK_PROGRAM=dtk-exp
 export DTK_PROGRAM
-</pre></div>
-<p>Similarly,
-</p><div class="example">
-<pre class="example">DTK_PORT=/dev/ttyS0
-</pre></div>
+</pre>
+  </div>
 
-<p>You can always set these variables from a running Emacs session by
-executing
-the Emacs setenv command.
-</p>
-<hr>
-<div class="header">
-<p>
-Previous: <a href="Quick-Installation.html#Quick-Installation" accesskey="p" rel="prev">Quick Installation</a>, Up: <a href="Installation.html#Installation" accesskey="u" rel="up">Installation</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+  <p>Similarly,</p>
 
+  <div class="example">
+    <pre class="example">
+DTK_PORT=/dev/ttyS0
+</pre>
+  </div>
 
+  <p>You can always set these variables from a running Emacs
+  session by executing the Emacs setenv command.</p>
+  <hr />
 
+  <div class="header">
+    <p>Previous: <a href=
+    "Quick-Installation.html#Quick-Installation" accesskey="p" rel=
+    "prev">Quick Installation</a>, Up: <a href=
+    "Installation.html#Installation" accesskey="u" rel=
+    "up">Installation</a> &nbsp; [<a href="index.html#SEC_Contents"
+    title="Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

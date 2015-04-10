@@ -1,138 +1,188 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Add-ons</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Add-ons">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Add-ons">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Web-Browsing.html#Web-Browsing" rel="up" title="Web Browsing">
-<link href="Conclusion.html#Conclusion" rel="next" title="Conclusion">
-<link href="emacs_002dw3.html#emacs_002dw3" rel="prev" title="emacs-w3">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  Add-ons</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Add-ons" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Add-ons" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Web-Browsing.html#Web-Browsing" rel="up" title=
+  "Web Browsing" />
+  <link href="Conclusion.html#Conclusion" rel="next" title=
+  "Conclusion" />
+  <link href="emacs_002dw3.html#emacs_002dw3" rel="prev" title=
+  "emacs-w3" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="Add_002dons"></a>
-<div class="header">
-<p>
-Next: <a href="Conclusion.html#Conclusion" accesskey="n" rel="next">Conclusion</a>, Previous: <a href="emacs_002dw3.html#emacs_002dw3" accesskey="p" rel="prev">emacs-w3</a>, Up: <a href="Web-Browsing.html#Web-Browsing" accesskey="u" rel="up">Web Browsing</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="Add_002dons-1"></a>
-<h4 class="subsection">9.4.4 Add-ons</h4>
+<body lang="en" xml:lang="en">
+  <a name="Add_002dons" id="Add_002dons"></a>
 
-<p>Some of these are emacspeak specific, some are not.  You can usually
-tell by the name.
-</p>
-<a name="emacspeak-url-template"></a><a name="emacspeak-url-template-1"></a>
-<h3 class="heading">emacspeak url template</h3>
+  <div class="header">
+    <p>Next: <a href="Conclusion.html#Conclusion" accesskey="n"
+    rel="next">Conclusion</a>, Previous: <a href=
+    "emacs_002dw3.html#emacs_002dw3" accesskey="p" rel=
+    "prev">emacs-w3</a>, Up: <a href=
+    "Web-Browsing.html#Web-Browsing" accesskey="u" rel="up">Web
+    Browsing</a> &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="Add_002dons-1" id="Add_002dons-1"></a>
 
-<p>I love this package.  Since changing my primary browser to emacs/w3 I
-have really been giving the <code>url-template</code> package a workout.  The
-<code>url-template</code> package contains templates that prompt you for
-information to supply to various sites to retrieve information without
-all the fuss of having to go to the site and navigate it.  One really
-nice thing about url-templates is the fact that they need not be web
-pages.  Media streams can also be made into url-templates.  
-</p>
-<p>The way to get to the templates is with the command <kbd>C-e u</kbd>.  A <tt class="key">TAB</tt> at
-the prompt will give you a list of the available templates.  You
-should go now and have a look at the info manual section on
-See <a href="URL-Templates.html#URL-Templates">URL Templates</a>,  and read it.  I&rsquo;ll wait here.
-</p>
-<p>By the way, the ones I find most useful are the &ldquo;Google Hits&rdquo;,
-&ldquo;emacswiki search&rdquo; &ldquo;NPR On Demand&rdquo; and &ldquo;Weather forecast from Weather
-Underground&rdquo;.
-</p>
-<a name="emacspeak-atom-and-emacspeak-rss"></a>
-<h3 class="heading">emacspeak atom and emacspeak rss</h3>
+  <h4 class="subsection">9.4.4 Add-ons</h4>
 
-<a name="rss"></a><p>These are fairly simple rss and atom browsers for the emacspeak
-desktop.  Using the Customize interface you add feeds in the form of
-titles and urls.  Then you call the readers with <kbd>C-e C-u</kbd> for rss
-feeds and use <kbd>M-x emacspeak-atom-browse</kbd> for atom feeds.  There is also
-emacspeak support for newsticker, an rss / atom reader that is a part
-of emacs 22, but I have never used it.
-</p>
-<p>I personally use See <a href="http://www.gnu.org/software/emacs/manual/html_node/gnus/index.html#Top">(gnus)gnus</a>, for rss feeds but setting gnus up for only that
-purpose is like hunting rabbits with a bazooka. 
-</p>
-<a name="emacspeak-websearch"></a>
-<h3 class="heading">emacspeak websearch</h3>
+  <p>Some of these are emacspeak specific, some are not. You can
+  usually tell by the name.</p><a name="emacspeak-url-template" id=
+  "emacspeak-url-template"></a><a name="emacspeak-url-template-1"
+  id="emacspeak-url-template-1"></a>
 
-<p><code>emacspeak-websearch</code> provides more search options than you can shake a
-stick at.  <code>emacspeak-websearch</code> provides search for dictionaries, news
-sites, software sites, google tools, weather, currency converter and
-much more.  It can be accessed with the keystroke <kbd>C-e ?</kbd>.  At the
-prompt, you can enter another question mark to get a list of the
-available search options.  You will then be prompted for the necessary
-information.  One of the nice things about this package is that, when
-using w3 it attempts to jump to and read the most relevant information
-on the result page.
-</p>
-<p>See <a href="emacspeak_002dwebsearch.html#emacspeak_002dwebsearch">emacspeak-websearch</a>,
-for more information.
-</p>
-<a name="bmk_002dmgr"></a><a name="bmk_002dmgr-1"></a>
-<h3 class="heading">bmk-mgr</h3>
+  <h3 class="heading">emacspeak url template</h3>
 
-<p>This is a newcomer to the emacspeak world.  In the interest of full
-disclosure, I am the one that wrote the emacspeak module that makes
-this package accessible.  It is a bookmarks manager that works with
-both emacs/w3 and emacs-w3m.  As of the writing of this document there
-are still some issues, especially when using it on emacs version 22,
-but those are being worked on.  I think this is a good solution to the
-problem of emacs/w3 not having bookmarks functionality and providing
-one central bookmark location for those who regularly use both
-browsers.  See
-<a href="http://www.emacswiki.org/cgi-bin/wiki/EmacsBmkMgr">http://www.emacswiki.org/cgi-bin/wiki/EmacsBmkMgr</a>, for more
-information.
-</p>
-<hr>
-<div class="header">
-<p>
-Next: <a href="Conclusion.html#Conclusion" accesskey="n" rel="next">Conclusion</a>, Previous: <a href="emacs_002dw3.html#emacs_002dw3" accesskey="p" rel="prev">emacs-w3</a>, Up: <a href="Web-Browsing.html#Web-Browsing" accesskey="u" rel="up">Web Browsing</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+  <p>I love this package. Since changing my primary browser to
+  emacs/w3 I have really been giving the <code>url-template</code>
+  package a workout. The <code>url-template</code> package contains
+  templates that prompt you for information to supply to various
+  sites to retrieve information without all the fuss of having to
+  go to the site and navigate it. One really nice thing about
+  url-templates is the fact that they need not be web pages. Media
+  streams can also be made into url-templates.</p>
 
+  <p>The way to get to the templates is with the command <kbd>C-e
+  u</kbd>. A <tt class="key">TAB</tt> at the prompt will give you a
+  list of the available templates. You should go now and have a
+  look at the info manual section on See <a href=
+  "URL-Templates.html#URL-Templates">URL Templates</a>, and read
+  it. I&rsquo;ll wait here.</p>
 
+  <p>By the way, the ones I find most useful are the &ldquo;Google
+  Hits&rdquo;, &ldquo;emacswiki search&rdquo; &ldquo;NPR On
+  Demand&rdquo; and &ldquo;Weather forecast from Weather
+  Underground&rdquo;.</p><a name="emacspeak-atom-and-emacspeak-rss"
+  id="emacspeak-atom-and-emacspeak-rss"></a>
 
+  <h3 class="heading">emacspeak atom and emacspeak rss</h3><a name=
+  "rss" id="rss"></a>
+
+  <p>These are fairly simple rss and atom browsers for the
+  emacspeak desktop. Using the Customize interface you add feeds in
+  the form of titles and urls. Then you call the readers with
+  <kbd>C-e C-u</kbd> for rss feeds and use <kbd>M-x
+  emacspeak-atom-browse</kbd> for atom feeds. There is also
+  emacspeak support for newsticker, an rss / atom reader that is a
+  part of emacs 22, but I have never used it.</p>
+
+  <p>I personally use See <a href=
+  "http://www.gnu.org/software/emacs/manual/html_node/gnus/index.html#Top">
+  (gnus)gnus</a>, for rss feeds but setting gnus up for only that
+  purpose is like hunting rabbits with a bazooka.</p><a name=
+  "emacspeak-websearch" id="emacspeak-websearch"></a>
+
+  <h3 class="heading">emacspeak websearch</h3>
+
+  <p><code>emacspeak-websearch</code> provides more search options
+  than you can shake a stick at. <code>emacspeak-websearch</code>
+  provides search for dictionaries, news sites, software sites,
+  google tools, weather, currency converter and much more. It can
+  be accessed with the keystroke <kbd>C-e ?</kbd>. At the prompt,
+  you can enter another question mark to get a list of the
+  available search options. You will then be prompted for the
+  necessary information. One of the nice things about this package
+  is that, when using w3 it attempts to jump to and read the most
+  relevant information on the result page.</p>
+
+  <p>See <a href=
+  "emacspeak_002dwebsearch.html#emacspeak_002dwebsearch">emacspeak-websearch</a>,
+  for more information.</p><a name="bmk_002dmgr" id=
+  "bmk_002dmgr"></a><a name="bmk_002dmgr-1" id="bmk_002dmgr-1"></a>
+
+  <h3 class="heading">bmk-mgr</h3>
+
+  <p>This is a newcomer to the emacspeak world. In the interest of
+  full disclosure, I am the one that wrote the emacspeak module
+  that makes this package accessible. It is a bookmarks manager
+  that works with both emacs/w3 and emacs-w3m. As of the writing of
+  this document there are still some issues, especially when using
+  it on emacs version 22, but those are being worked on. I think
+  this is a good solution to the problem of emacs/w3 not having
+  bookmarks functionality and providing one central bookmark
+  location for those who regularly use both browsers. See <a href=
+  "http://www.emacswiki.org/cgi-bin/wiki/EmacsBmkMgr">http://www.emacswiki.org/cgi-bin/wiki/EmacsBmkMgr</a>,
+  for more information.</p>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href="Conclusion.html#Conclusion" accesskey="n"
+    rel="next">Conclusion</a>, Previous: <a href=
+    "emacs_002dw3.html#emacs_002dw3" accesskey="p" rel=
+    "prev">emacs-w3</a>, Up: <a href=
+    "Web-Browsing.html#Web-Browsing" accesskey="u" rel="up">Web
+    Browsing</a> &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

@@ -1,134 +1,216 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-speedbar</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-speedbar">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-speedbar">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" rel="up" title="Emacspeak Commands And Options">
-<link href="emacspeak_002dsql.html#emacspeak_002dsql" rel="next" title="emacspeak-sql">
-<link href="emacspeak_002dspeak.html#emacspeak_002dspeak" rel="prev" title="emacspeak-speak">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-speedbar</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-speedbar" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-speedbar" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+  rel="up" title="Emacspeak Commands And Options" />
+  <link href="emacspeak_002dsql.html#emacspeak_002dsql" rel="next"
+  title="emacspeak-sql" />
+  <link href="emacspeak_002dspeak.html#emacspeak_002dspeak" rel=
+  "prev" title="emacspeak-speak" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dspeedbar"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dsql.html#emacspeak_002dsql" accesskey="n" rel="next">emacspeak-sql</a>, Previous: <a href="emacspeak_002dspeak.html#emacspeak_002dspeak" accesskey="p" rel="prev">emacspeak-speak</a>, Up: <a href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dspeedbar-1"></a>
-<h3 class="section">11.151 emacspeak-speedbar</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dspeedbar" id="emacspeak_002dspeedbar"></a>
 
-<p>Commentary:
-This module advises speedbar.el for use with Emacs.  The
-latest speedbar can be obtained from
-ftp://ftp.ultranet.com/pub/zappo/ This module ensures
-that speedbar works smoothly outside a windowing system
-in addition to speech enabling all interactive
-commands. Emacspeak also adds an Emacspeak environment
-specific entry point to speedbar
-&ndash;emacspeak-speedbar-goto-speedbar&ndash; and binds this
-</p>
-<a name="emacspeak_002dspeedbar-Commands"></a>
-<h4 class="subsection">11.151.1 emacspeak-speedbar Commands</h4>
+  <div class="header">
+    <p>Next: <a href="emacspeak_002dsql.html#emacspeak_002dsql"
+    accesskey="n" rel="next">emacspeak-sql</a>, Previous: <a href=
+    "emacspeak_002dspeak.html#emacspeak_002dspeak" accesskey="p"
+    rel="prev">emacspeak-speak</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dspeedbar-1" id=
+  "emacspeak_002dspeedbar-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002dspeedbar_002dclick"></a>Interactive Command: <strong>emacspeak-speedbar-click</strong> <em>nil</em></dt>
-<dd><p>Does the equivalent of the mouse click from the keyboard
-</p></dd></dl>
+  <h3 class="section">11.151 emacspeak-speedbar</h3>
 
-<dl>
-<dt><a name="index-emacspeak_002dspeedbar_002dgoto_002dspeedbar"></a>Interactive Command: <strong>emacspeak-speedbar-goto-speedbar</strong> <em>nil</em></dt>
-<dd><p>Switch to the speedbar
-</p></dd></dl>
+  <p>This module advises speedbar.el for use with Emacs. The latest
+  speedbar can be obtained from ftp://ftp.ultranet.com/pub/zappo/
+  This module ensures that speedbar works smoothly outside a
+  windowing system in addition to speech enabling all interactive
+  commands. Emacspeak also adds an Emacspeak environment specific
+  entry point to speedbar
+  &ndash;emacspeak-speedbar-goto-speedbar&ndash; and binds
+  this</p><a name="emacspeak_002dspeedbar-Commands" id=
+  "emacspeak_002dspeedbar-Commands"></a>
 
-<a name="emacspeak_002dspeedbar-Options"></a>
-<h4 class="subsection">11.151.2 emacspeak-speedbar Options</h4>
+  <h4 class="subsection">11.151.1 emacspeak-speedbar Commands</h4>
 
-<dl>
-<dt><a name="index-User-Option-766"></a>Variable: <strong>User Option</strong> <em>emacspeak-speedbar-button-personality</em></dt>
-<dd><p>personality used for speedbar buttons
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dspeedbar_002dclick" id=
+    "index-emacspeak_002dspeedbar_002dclick"></a>Interactive
+    Command: <strong>emacspeak-speedbar-click</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-767"></a>Variable: <strong>User Option</strong> <em>emacspeak-speedbar-default-personality</em></dt>
-<dd><p>Default personality used in speedbar buffers
-</p>
-</dd></dl>
+    <dd>
+      <p>Does the equivalent of the mouse click from the
+      keyboard</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-768"></a>Variable: <strong>User Option</strong> <em>emacspeak-speedbar-directory-personality</em></dt>
-<dd><p>Speedbar personality for directory buttons
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dspeedbar_002dgoto_002dspeedbar" id=
+    "index-emacspeak_002dspeedbar_002dgoto_002dspeedbar"></a>Interactive
+    Command: <strong>emacspeak-speedbar-goto-speedbar</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-769"></a>Variable: <strong>User Option</strong> <em>emacspeak-speedbar-file-personality</em></dt>
-<dd><p>Personality used for file buttons
-</p>
-</dd></dl>
+    <dd>
+      <p>Switch to the speedbar</p>
+    </dd>
+  </dl><a name="emacspeak_002dspeedbar-Options" id=
+  "emacspeak_002dspeedbar-Options"></a>
 
-<dl>
-<dt><a name="index-User-Option-770"></a>Variable: <strong>User Option</strong> <em>emacspeak-speedbar-highlight-personality</em></dt>
-<dd><p>Personality used for for speedbar highlight.
-</p>
-</dd></dl>
+  <h4 class="subsection">11.151.2 emacspeak-speedbar Options</h4>
 
-<dl>
-<dt><a name="index-User-Option-771"></a>Variable: <strong>User Option</strong> <em>emacspeak-speedbar-selected-personality</em></dt>
-<dd><p>Personality used to indicate speedbar selection
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-764" id=
+    "index-User-Option-764"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-speedbar-button-personality</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-772"></a>Variable: <strong>User Option</strong> <em>emacspeak-speedbar-tag-personality</em></dt>
-<dd><p>Personality used for speedbar tags
-</p>
-</dd></dl>
+    <dd>
+      <p>personality used for speedbar buttons</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-765" id=
+    "index-User-Option-765"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-speedbar-default-personality</em></dt>
 
+    <dd>
+      <p>Default personality used in speedbar buffers</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-766" id=
+    "index-User-Option-766"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-speedbar-directory-personality</em></dt>
 
+    <dd>
+      <p>Speedbar personality for directory buttons</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-767" id=
+    "index-User-Option-767"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-speedbar-file-personality</em></dt>
+
+    <dd>
+      <p>Personality used for file buttons</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-768" id=
+    "index-User-Option-768"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-speedbar-highlight-personality</em></dt>
+
+    <dd>
+      <p>Personality used for for speedbar highlight.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-769" id=
+    "index-User-Option-769"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-speedbar-selected-personality</em></dt>
+
+    <dd>
+      <p>Personality used to indicate speedbar selection</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-770" id=
+    "index-User-Option-770"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-speedbar-tag-personality</em></dt>
+
+    <dd>
+      <p>Personality used for speedbar tags</p>
+    </dd>
+  </dl>
 </body>
 </html>

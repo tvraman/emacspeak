@@ -1,288 +1,362 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacs-w3m</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacs-w3m">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacs-w3m">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Web-Browsing.html#Web-Browsing" rel="up" title="Web Browsing">
-<link href="emacs_002dw3.html#emacs_002dw3" rel="next" title="emacs-w3">
-<link href="Intro.html#Intro" rel="prev" title="Intro">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacs-w3m</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacs-w3m" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacs-w3m" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Web-Browsing.html#Web-Browsing" rel="up" title=
+  "Web Browsing" />
+  <link href="emacs_002dw3.html#emacs_002dw3" rel="next" title=
+  "emacs-w3" />
+  <link href="Intro.html#Intro" rel="prev" title="Intro" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacs_002dw3m"></a>
-<div class="header">
-<p>
-Next: <a href="emacs_002dw3.html#emacs_002dw3" accesskey="n" rel="next">emacs-w3</a>, Previous: <a href="Intro.html#Intro" accesskey="p" rel="prev">Intro</a>, Up: <a href="Web-Browsing.html#Web-Browsing" accesskey="u" rel="up">Web Browsing</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacs_002dw3m-1"></a>
-<h4 class="subsection">9.4.2 emacs-w3m</h4>
+<body lang="en" xml:lang="en">
+  <a name="emacs_002dw3m" id="emacs_002dw3m"></a>
 
-<p>emacs-w3m is a front-end, written in emacs lisp, to the text-based web
-browser w3m.  It supports tables, images, and all major web protocols.
-It is also fully supported in emacspeak.
-</p>
-<a name="emacs_002dw3m-advantages"></a>
-<h3 class="heading">emacs-w3m advantages</h3>
+  <div class="header">
+    <p>Next: <a href="emacs_002dw3.html#emacs_002dw3" accesskey="n"
+    rel="next">emacs-w3</a>, Previous: <a href="Intro.html#Intro"
+    accesskey="p" rel="prev">Intro</a>, Up: <a href=
+    "Web-Browsing.html#Web-Browsing" accesskey="u" rel="up">Web
+    Browsing</a> &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacs_002dw3m-1" id="emacs_002dw3m-1"></a>
 
-<p>The main advantage of emacs-w3m is speed.  The rendering of web pages
-is done with the external program w3m.  which is written in c, so it
-is fast.  It also seems not to choke on some web pages like the
-alternative, emacs/w3.
-</p>
-<p>Another big advantage to emacs-w3m is that it is under active
-development.  Problems seem to be fixed soon after they come to the
-attention of the developers and are available very quickly as long as
-you are willing to use the cvs version.
-</p>
-<p>For those who have limited sight as opposed to no sight at all,
-emacs-w3m displays all graphics within its own buffer.  This might be
-a misconfiguration on my part, but there are some images that open in
-an external window when opened from emacs/w3.  
-</p>
-<p>I can also say that I cannot remember a page that wouldn&rsquo;t render in
-emacs-w3m.  This is not something I can say about emacs/w3.
-</p>
-<a name="emacs_002dw3m-disadvantages"></a>
-<h3 class="heading">emacs-w3m disadvantages</h3>
+  <h4 class="subsection">9.4.2 emacs-w3m</h4>
 
-<p>Taken by itself, the disadvantages of using w3m are few.  Long periods
-between releases can be seen by some to be a disadvantage although the
-alternative browser&rsquo;s time between releases is now several years, I
-believe.  
-</p>
-<p>With hardware or software that support multiple voices, such as IBM&rsquo;s
-Via Voice, one can allow differences in speech to indicate differences
-in document text.  For example, headings can be spoken in a voice with
-a lower pitch, links in a higher voice.  The voices in emacs-w3m are
-much more limited than those in emacs/w3 and not all textual
-attributes can be indicated.  As of the writing of this document, <code>pre</code>
-tags and the like cannot be indicated.  It has been within the last
-few months that italic text support has been added.
-</p>
-<p>Another disadvantage is the fact that the rendering in emacs-w3m is
-done by the external process, w3m.  Since w3m is written in C, it is
-not as easily customizable from within the community of emacs users.
-Code written in emacs lisp can be substituted for code in a running
-emacs instance, something that is not possible in C.
-</p>
-<p>A further disadvantage is the lack of table navigation, i.e. the
-ability to move from cell to cell in a table to more easily understand
-the information presented.  Linearizing the table is available but
-sometimes it is difficult to keep the meanings of the columns in your
-head to discern the meaning.  Maybe it is just me.
-</p>
-<p>A disadvantage shared between the browsers is the lack of support for
-javascript.  Many sites use javascript for links to the next page,
-such as Reuters web site.  This can sometimes be worked around using
-the google transcoder.  See See <a href="#w3m_002dtranscode">below</a>, for more
-information.
-</p>
-<a name="emacs_002dw3m-native-functions"></a>
-<h3 class="heading">emacs-w3m native functions</h3>
+  <p>emacs-w3m is a front-end, written in emacs lisp, to the
+  text-based web browser w3m. It supports tables, images, and all
+  major web protocols. It is also fully supported in
+  emacspeak.</p><a name="emacs_002dw3m-advantages" id=
+  "emacs_002dw3m-advantages"></a>
 
-<p>This part of the document is not meant to replace the
-<code>describe-mode</code> information available via the <kbd>C-h m</kbd>
-keystroke or the emacs-w3m info manual.  This is by no means an
-exhaustive list of available commands.
-</p>
-<p>emacs-w3m has considerable functionality and many features that
-make browsing more efficient and convenient.  Below are many of the
-functions that are native to emacs-w3m.
-</p>
-<p><kbd>Cap S</kbd> will query for a search term.  By default, the search engine used
-is google.  This can be changed with a prefix command.  To see the
-available engines, after hitting <kbd>C-u Cap S</kbd>, when it asks for the engine
-hit <tt class="key">TAB</tt> to get a list of available completions.  Tab completion of
-partial words works here as well.  For example, hitting &ldquo;y&rdquo; and then
-<tt class="key">TAB</tt> will complete to the word &ldquo;yahoo&rdquo;.
-</p>
-<p>Form navigation can be achieved with the right and left brackets.
-This is useful for times where you want to go to the input field on a
-web page without having to tab through the links.  Google is a good
-example of where this would be useful.  The right bracket moves point
-to the next form, and the left bracket moves to the previous, wrapping
-around at the ends of the buffer.
-</p>
-<p>While in a form, using <kbd>C-c C-c</kbd> will submit the form with no need to
-tab around looking for the &ldquo;Submit&rdquo; button.
-</p>
-<a name="emacspeak-specific-functions-for-emacs_002dw3m"></a>
-<h3 class="heading">emacspeak specific functions for emacs-w3m</h3>
+  <h3 class="heading">emacs-w3m advantages</h3>
 
-<p>Many extensions have been written by the emacspeak community to expand
-emacs-w3m and make it more accessible.  Below are those extensions.
-</p>
-<p>While being a variable and not a function, the variable
-<code>emacspeak-w3m-speak-titles-on-switch</code> makes emacs-w3m more friendly.
-It tells emacspeak to speak the document title when switching between
-emacs-w3m buffers.  The default, <code>nil</code>, will speak the mode line.  This
-is the same behavior seen in all other buffers.  This speaking of the
-document title is more descriptive than just hearing <code>*w3m*&lt;4&gt;</code>.  This
-variable can be customized in the usual ways, either in your <samp>.emacs</samp>
-file or via the <code>Customize</code> interface.  If you do set this variable,
-reading the mode line can still be achieved with <kbd>C-e m</kbd>.
-</p>
-<p>The <kbd>j</kbd> command will jump to the first occurrence of the title in the
-document.  Each time you use this command in succession, it will jump
-to the next occurrence of the title.  This is very convenient for web
-pages that have the title show up in multiple places in the document.
-The web site for The Register is a good example of this.
-</p>
-<p>The <kbd>l</kbd> command uses the default media player to play the media stream
-at point.  I believe this is set to <code>emacspeak-m-player</code> by default.
-While beyond the scope of this document to describe the installation
-of mplayer, I would highly advise using this media player.  With the
-correct codecs installed, mplayer will play everything you will find,
-I believe, with one convenient player that does not require a GUI.
-</p>
-<a name="w3m_002dtranscode"></a><p><kbd>C-t</kbd> will run the current page through the google transcoder.  The
-transcoder is very useful to the users of screen readers as it takes
-care of formatting issues like tables.  While not usually a problem,
-There is a function to linearize tables in emacs-w3m, but it is not
-always successful.  You can reverse this command by giving a prefix
-argument.
-</p>
-<p><kbd>M-t</kbd> runs the url under point through the transcoder.  This command can
-be reversed by giving a prefix argument.
-</p>
-<p>Extensions have been written to take advantage of much of the google
-functionality.  The following describes how to access many of these
-extensions.  
-</p>
-<p><kbd>C-c C-g</kbd> will search the current web site with google.
-</p>
-<p><kbd>C-c C-x</kbd> will extract the current page from the google cache.  A prefix
-argument will extract the url under point from the cache.  This is
-useful if, for instance, a site is down for one reason or another and
-you absolutely must have the information.
-</p>
-<p><kbd>C-c C-l</kbd> will find pages similar to the current page.  This is just
-like the &ldquo;similar&rdquo; link at the end of a google search result.
-</p>
-<p><kbd>C-c C-r</kbd> will browse the rss link under point.  One reason this might
-be useful is to first try out the rss feed before you configure your
-rss reader to subscribe to the feed.  For a easy to use rss reader,
-see the section below on See <a href="Add_002dons.html#rss"><code>emacspeak-rss</code></a>.
-</p>
-<p>The letter <kbd>x</kbd> is the prefix key for the xsl transforms.  xslt is
-some powerful ju-ju.  It takes a web page and does all kinds of cool
-things with it.  These things are listed below.
-</p>
-<p>The command <kbd>x a</kbd> will apply an xsl transformation to the current
-page.  one particularly useful transform is to linearize tables.  This
-takes the tables and formats them linearly down the page as if they
-were paragraphs instead of table cells.  This command can be more
-easily applied with the <kbd>x l</kbd> command.
-</p>
-<p>If you want to always have tables linearized, use the <kbd>x a</kbd> command and
-type <kbd>linearize <span class="key">TAB</span></kbd> and then the <kbd>x o</kbd> to toggle xsl on.  This will
-linearize the tables in every subsequently visited page for this
-session.  While it seems possible to make this happen automatically in
-emacs/w3, I do not believe this is currently possible in emacs-w3m.
-A noticeable increase in speed can be seen in emacs/w3 by turning xslt
-on and using <code>sort-tables</code> or <code>linearize-tables</code>.  This
-eliminates the need for the browser to render nested tables.  Since
-speed is not such an issue with emacs-w3m, I don&rsquo;t bother turning on
-xslt for the session.
-</p>
-<p>The <kbd>x b</kbd> command will add a &ldquo;submit&rdquo; button to forms that do not have
-one such as the one on the emacswiki web site .  Submitting forms can be more
-easily achieved with <kbd>C-c C-c</kbd>.
-</p>
-<p>If on a google search page, the <kbd>x h</kbd> command will give you only the
-search hits.  An easier way of getting the same results is to use the
-<code>url-template</code> &ldquo;Google Hits&rdquo; which returns the same results.  Another
-advantage of using the <code>url-template</code> is that it can be done from
-anywhere, not just in an emacs-w3m buffer.  
-See <a href="Add_002dons.html#emacspeak-url-template">emacspeak-url-template</a>, for more
-information. 
-</p>
-<p>The <kbd>x t</kbd> command sorts the tables.  It takes the nested tables and
-unnests them.  While sometimes useful, this is not nearly as useful as
-the same function in emacs/w3.  While doing the same thing, emacs/w3
-has the capability of allowing the user to navigate the tables cell by
-cell.  
-</p>
-<a name="emacs_002dw3m-tips-and-tricks"></a>
-<h3 class="heading">emacs-w3m tips and tricks</h3>
+  <p>The main advantage of emacs-w3m is speed. The rendering of web
+  pages is done with the external program w3m. which is written in
+  c, so it is fast. It also seems not to choke on some web pages
+  like the alternative, emacs/w3.</p>
 
-<p>One issue that might need work is that, by default, when tabbing over
-links in emacs-w3m the url of the link is spoken.  There are several
-ways to deal with this.  
-</p>
-<p>One solution, actually two but they accomplish the same result, is to
-include the following code in the <samp>~/.emacs-w3m</samp> file:
-</p>
-<div class="lisp">
-<pre class="lisp">(remove-hook 'w3m-after-cursor-move-hook
+  <p>Another big advantage to emacs-w3m is that it is under active
+  development. Problems seem to be fixed soon after they come to
+  the attention of the developers and are available very quickly as
+  long as you are willing to use the cvs version.</p>
+
+  <p>For those who have limited sight as opposed to no sight at
+  all, emacs-w3m displays all graphics within its own buffer. This
+  might be a misconfiguration on my part, but there are some images
+  that open in an external window when opened from emacs/w3.</p>
+
+  <p>I can also say that I cannot remember a page that
+  wouldn&rsquo;t render in emacs-w3m. This is not something I can
+  say about emacs/w3.</p><a name="emacs_002dw3m-disadvantages" id=
+  "emacs_002dw3m-disadvantages"></a>
+
+  <h3 class="heading">emacs-w3m disadvantages</h3>
+
+  <p>Taken by itself, the disadvantages of using w3m are few. Long
+  periods between releases can be seen by some to be a disadvantage
+  although the alternative browser&rsquo;s time between releases is
+  now several years, I believe.</p>
+
+  <p>With hardware or software that support multiple voices, such
+  as IBM&rsquo;s Via Voice, one can allow differences in speech to
+  indicate differences in document text. For example, headings can
+  be spoken in a voice with a lower pitch, links in a higher voice.
+  The voices in emacs-w3m are much more limited than those in
+  emacs/w3 and not all textual attributes can be indicated. As of
+  the writing of this document, <code>pre</code> tags and the like
+  cannot be indicated. It has been within the last few months that
+  italic text support has been added.</p>
+
+  <p>Another disadvantage is the fact that the rendering in
+  emacs-w3m is done by the external process, w3m. Since w3m is
+  written in C, it is not as easily customizable from within the
+  community of emacs users. Code written in emacs lisp can be
+  substituted for code in a running emacs instance, something that
+  is not possible in C.</p>
+
+  <p>A further disadvantage is the lack of table navigation, i.e.
+  the ability to move from cell to cell in a table to more easily
+  understand the information presented. Linearizing the table is
+  available but sometimes it is difficult to keep the meanings of
+  the columns in your head to discern the meaning. Maybe it is just
+  me.</p>
+
+  <p>A disadvantage shared between the browsers is the lack of
+  support for javascript. Many sites use javascript for links to
+  the next page, such as Reuters web site. This can sometimes be
+  worked around using the google transcoder. See See <a href=
+  "#w3m_002dtranscode">below</a>, for more information.</p><a name=
+  "emacs_002dw3m-native-functions" id=
+  "emacs_002dw3m-native-functions"></a>
+
+  <h3 class="heading">emacs-w3m native functions</h3>
+
+  <p>This part of the document is not meant to replace the
+  <code>describe-mode</code> information available via the <kbd>C-h
+  m</kbd> keystroke or the emacs-w3m info manual. This is by no
+  means an exhaustive list of available commands.</p>
+
+  <p>emacs-w3m has considerable functionality and many features
+  that make browsing more efficient and convenient. Below are many
+  of the functions that are native to emacs-w3m.</p>
+
+  <p><kbd>Cap S</kbd> will query for a search term. By default, the
+  search engine used is google. This can be changed with a prefix
+  command. To see the available engines, after hitting <kbd>C-u Cap
+  S</kbd>, when it asks for the engine hit <tt class="key">TAB</tt>
+  to get a list of available completions. Tab completion of partial
+  words works here as well. For example, hitting &ldquo;y&rdquo;
+  and then <tt class="key">TAB</tt> will complete to the word
+  &ldquo;yahoo&rdquo;.</p>
+
+  <p>Form navigation can be achieved with the right and left
+  brackets. This is useful for times where you want to go to the
+  input field on a web page without having to tab through the
+  links. Google is a good example of where this would be useful.
+  The right bracket moves point to the next form, and the left
+  bracket moves to the previous, wrapping around at the ends of the
+  buffer.</p>
+
+  <p>While in a form, using <kbd>C-c C-c</kbd> will submit the form
+  with no need to tab around looking for the &ldquo;Submit&rdquo;
+  button.</p><a name=
+  "emacspeak-specific-functions-for-emacs_002dw3m" id=
+  "emacspeak-specific-functions-for-emacs_002dw3m"></a>
+
+  <h3 class="heading">emacspeak specific functions for
+  emacs-w3m</h3>
+
+  <p>Many extensions have been written by the emacspeak community
+  to expand emacs-w3m and make it more accessible. Below are those
+  extensions.</p>
+
+  <p>While being a variable and not a function, the variable
+  <code>emacspeak-w3m-speak-titles-on-switch</code> makes emacs-w3m
+  more friendly. It tells emacspeak to speak the document title
+  when switching between emacs-w3m buffers. The default,
+  <code>nil</code>, will speak the mode line. This is the same
+  behavior seen in all other buffers. This speaking of the document
+  title is more descriptive than just hearing
+  <code>*w3m*&lt;4&gt;</code>. This variable can be customized in
+  the usual ways, either in your <samp>.emacs</samp> file or via
+  the <code>Customize</code> interface. If you do set this
+  variable, reading the mode line can still be achieved with
+  <kbd>C-e m</kbd>.</p>
+
+  <p>The <kbd>j</kbd> command will jump to the first occurrence of
+  the title in the document. Each time you use this command in
+  succession, it will jump to the next occurrence of the title.
+  This is very convenient for web pages that have the title show up
+  in multiple places in the document. The web site for The Register
+  is a good example of this.</p>
+
+  <p>The <kbd>l</kbd> command uses the default media player to play
+  the media stream at point. I believe this is set to
+  <code>emacspeak-m-player</code> by default. While beyond the
+  scope of this document to describe the installation of mplayer, I
+  would highly advise using this media player. With the correct
+  codecs installed, mplayer will play everything you will find, I
+  believe, with one convenient player that does not require a
+  GUI.</p><a name="w3m_002dtranscode" id="w3m_002dtranscode"></a>
+
+  <p><kbd>C-t</kbd> will run the current page through the google
+  transcoder. The transcoder is very useful to the users of screen
+  readers as it takes care of formatting issues like tables. While
+  not usually a problem, There is a function to linearize tables in
+  emacs-w3m, but it is not always successful. You can reverse this
+  command by giving a prefix argument.</p>
+
+  <p><kbd>M-t</kbd> runs the url under point through the
+  transcoder. This command can be reversed by giving a prefix
+  argument.</p>
+
+  <p>Extensions have been written to take advantage of much of the
+  google functionality. The following describes how to access many
+  of these extensions.</p>
+
+  <p><kbd>C-c C-g</kbd> will search the current web site with
+  google.</p>
+
+  <p><kbd>C-c C-x</kbd> will extract the current page from the
+  google cache. A prefix argument will extract the url under point
+  from the cache. This is useful if, for instance, a site is down
+  for one reason or another and you absolutely must have the
+  information.</p>
+
+  <p><kbd>C-c C-l</kbd> will find pages similar to the current
+  page. This is just like the &ldquo;similar&rdquo; link at the end
+  of a google search result.</p>
+
+  <p><kbd>C-c C-r</kbd> will browse the rss link under point. One
+  reason this might be useful is to first try out the rss feed
+  before you configure your rss reader to subscribe to the feed.
+  For a easy to use rss reader, see the section below on See
+  <a href=
+  "Add_002dons.html#rss"><code>emacspeak-rss</code></a>.</p>
+
+  <p>The letter <kbd>x</kbd> is the prefix key for the xsl
+  transforms. xslt is some powerful ju-ju. It takes a web page and
+  does all kinds of cool things with it. These things are listed
+  below.</p>
+
+  <p>The command <kbd>x a</kbd> will apply an xsl transformation to
+  the current page. one particularly useful transform is to
+  linearize tables. This takes the tables and formats them linearly
+  down the page as if they were paragraphs instead of table cells.
+  This command can be more easily applied with the <kbd>x l</kbd>
+  command.</p>
+
+  <p>If you want to always have tables linearized, use the <kbd>x
+  a</kbd> command and type <kbd>linearize <span class=
+  "key">TAB</span></kbd> and then the <kbd>x o</kbd> to toggle xsl
+  on. This will linearize the tables in every subsequently visited
+  page for this session. While it seems possible to make this
+  happen automatically in emacs/w3, I do not believe this is
+  currently possible in emacs-w3m. A noticeable increase in speed
+  can be seen in emacs/w3 by turning xslt on and using
+  <code>sort-tables</code> or <code>linearize-tables</code>. This
+  eliminates the need for the browser to render nested tables.
+  Since speed is not such an issue with emacs-w3m, I don&rsquo;t
+  bother turning on xslt for the session.</p>
+
+  <p>The <kbd>x b</kbd> command will add a &ldquo;submit&rdquo;
+  button to forms that do not have one such as the one on the
+  emacswiki web site . Submitting forms can be more easily achieved
+  with <kbd>C-c C-c</kbd>.</p>
+
+  <p>If on a google search page, the <kbd>x h</kbd> command will
+  give you only the search hits. An easier way of getting the same
+  results is to use the <code>url-template</code> &ldquo;Google
+  Hits&rdquo; which returns the same results. Another advantage of
+  using the <code>url-template</code> is that it can be done from
+  anywhere, not just in an emacs-w3m buffer. See <a href=
+  "Add_002dons.html#emacspeak-url-template">emacspeak-url-template</a>,
+  for more information.</p>
+
+  <p>The <kbd>x t</kbd> command sorts the tables. It takes the
+  nested tables and unnests them. While sometimes useful, this is
+  not nearly as useful as the same function in emacs/w3. While
+  doing the same thing, emacs/w3 has the capability of allowing the
+  user to navigate the tables cell by cell.</p><a name=
+  "emacs_002dw3m-tips-and-tricks" id=
+  "emacs_002dw3m-tips-and-tricks"></a>
+
+  <h3 class="heading">emacs-w3m tips and tricks</h3>
+
+  <p>One issue that might need work is that, by default, when
+  tabbing over links in emacs-w3m the url of the link is spoken.
+  There are several ways to deal with this.</p>
+
+  <p>One solution, actually two but they accomplish the same
+  result, is to include the following code in the
+  <samp>~/.emacs-w3m</samp> file:</p>
+
+  <div class="lisp">
+    <pre class="lisp">
+(remove-hook 'w3m-after-cursor-move-hook
      #'w3m-print-this-url)
-</pre></div>
+</pre>
+  </div>
 
-<p>Or, this code in the .emacs file
-</p>
-<div class="lisp">
-<pre class="lisp">(add-hook 'w3m-after-cursor-move-hook 
-	  (lambda ()
-	    (emacspeak-speak-messages nil)))
-</pre></div>
+  <p>Or, this code in the .emacs file</p>
 
-<p>Both of these solutions, as far as the user can see, seem to be
-equivalent.  They differ only in where they are placed.
-</p>
-<p>The other solution is to leave things as they are.  Some users mention
-that they find it helpful to have the url spoken and, if they want the
-text of the link spoken they use <kbd>C-e l</kbd>.  As with everything else
-in emacs, it is completely up to you to decide what is best.
-</p>
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacs_002dw3.html#emacs_002dw3" accesskey="n" rel="next">emacs-w3</a>, Previous: <a href="Intro.html#Intro" accesskey="p" rel="prev">Intro</a>, Up: <a href="Web-Browsing.html#Web-Browsing" accesskey="u" rel="up">Web Browsing</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+  <div class="lisp">
+    <pre class="lisp">
+(add-hook 'w3m-after-cursor-move-hook 
+          (lambda ()
+            (emacspeak-speak-messages nil)))
+</pre>
+  </div>
 
+  <p>Both of these solutions, as far as the user can see, seem to
+  be equivalent. They differ only in where they are placed.</p>
 
+  <p>The other solution is to leave things as they are. Some users
+  mention that they find it helpful to have the url spoken and, if
+  they want the text of the link spoken they use <kbd>C-e l</kbd>.
+  As with everything else in emacs, it is completely up to you to
+  decide what is best.</p>
+  <hr />
 
+  <div class="header">
+    <p>Next: <a href="emacs_002dw3.html#emacs_002dw3" accesskey="n"
+    rel="next">emacs-w3</a>, Previous: <a href="Intro.html#Intro"
+    accesskey="p" rel="prev">Intro</a>, Up: <a href=
+    "Web-Browsing.html#Web-Browsing" accesskey="u" rel="up">Web
+    Browsing</a> &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>
