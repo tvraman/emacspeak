@@ -5,6 +5,8 @@
 
 . ${HOME}/.github_token
 export PATH=$PATH:$GOPATH/bin
+AText="./announcements/ANNOUNCE-$1.txt"
+AHtml="./announcements/ANNOUNCE-$1.html"
 
 #first, tag this release 
 github-release release --tag $1 --name "Release $1 " 
@@ -13,13 +15,11 @@ github-release upload --tag $1 --name $2 --file $2
 
 # Upload the latest NEWS   into releases 
 github-release upload --tag $1 --name News-$2 --file ./etc/NEWS
+# Final releases contain  an announcement file.
+
+test -f ${AText} &&  github-release upload --tag $1 --name $AText --file $AText
+test -f ${AHtml} &&  github-release upload --tag $1 --name $AHtml --file $AHtml
 
 echo "Released $1"
 echo "Download URL: https://github.com/tvraman/emacspeak/releases/download/$1/$2"
 
-# Final releases contain  an announcement file.
-AText="./announcements/ANNOUNCE-$1.txt"
-AHtml="./announcements/ANNOUNCE-$1.html"
-
-test -f ${AText} &&  github-release upload --tag $1 --name $AText --file $AText
-test -f ${AHtml} &&  github-release upload --tag $1 --name $AHtml --file $AHtml
