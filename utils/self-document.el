@@ -59,7 +59,9 @@
   "Elisp directory")
 
 (add-to-list 'load-path self-document-lisp-directory)
-(add-to-list 'load-path (expand-file-name "g-client" self-document-lisp-directory))
+(add-to-list
+ 'load-path
+ (expand-file-name "g-client" self-document-lisp-directory))
 (add-to-list 'load-path
              (expand-file-name "../../site-lisp"
                                (file-name-directory load-file-name)))
@@ -67,7 +69,8 @@
 (defvar self-document-files
   (append
    (directory-files self-document-lisp-directory nil ".elc$")
-   (directory-files (expand-file-name "g-client" self-document-lisp-directory) nil ".elc$"))
+   (directory-files (expand-file-name "g-client" self-document-lisp-directory)
+                    nil ".elc$"))
   "List of elisp modules  to document.")
 
 (defvar self-document-map
@@ -156,10 +159,6 @@
   (when (self-document-command-p f) (self-document-map-command f))
   (when (self-document-option-p f) (self-document-map-option f)))
 
-(defun self-document-build-map()
-  "Build a map of module names to commands."
-
-
 (defun sd-cleanup-commentary (commentary )
   "Cleanup commentary."
   (with-temp-buffer
@@ -182,11 +181,14 @@
         (setq lmc (sd-cleanup-commentary lmc)))))
 
 ;;; initialize table
+(defun self-document-build-map()
+  "Build a map of module names to commands."
   (cl-loop
    for f in self-document-files do
    (let ((module (file-name-sans-extension f)))
-     (puthash module (make-self-document :name module
-                                         :commentary (sd-get-commentary module))
+     (puthash module
+              (make-self-document :name module
+                                  :commentary (sd-get-commentary module))
               self-document-map)))
   (mapatoms #'self-document-map-symbol ))
 
@@ -208,9 +210,9 @@
   (let ((name (self-document-name self))
         (lmc (self-document-commentary self)))
     (insert (format "\n@node %s\n@section %s\n\n\n" name name))
-    (insert (format "\n\n%s\n\n" 
-(or lmc
-    (format "### %s: No Commentary\n" name))))))
+    (insert (format "\n\n%s\n\n"
+                    (or lmc
+                        (format "### %s: No Commentary\n" name))))))
 
 (defun self-document-option (o)
   "Document this option."
@@ -323,16 +325,21 @@ This chapter documents a total of %d commands and %d options.\n\n"
       (maphash
        #'(lambda (f self)
            (insert
-            (format "\fModule: %s Commands: %d Options: %d\n"
-                    f (length (self-document-commands self)) (length (self-document-options self))))
+            (format
+             "\fModule: %s Commands: %d Options: %d\n"
+             f
+             (length (self-document-commands self))
+             (length (self-document-options self))))
            (unless (zerop (length (self-document-commands self)))
              (insert
               (format "Commands: \n%s\n"
-                      (mapconcat #'symbol-name (self-document-commands self) "\n"))))
+                      (mapconcat #'symbol-name (self-document-commands self)
+                                 "\n"))))
            (unless (zerop (length (self-document-options self)))
              (insert
               (format "Options: \n%s\n"
-                      (mapconcat #'symbol-name (self-document-options self) "\n"))))
+                      (mapconcat #'symbol-name (self-document-options self)
+                                 "\n"))))
            (cl-incf c-count (length (self-document-commands self)))
            (cl-incf o-count (length (self-document-options self))))
        self-document-map)
