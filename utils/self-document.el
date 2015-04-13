@@ -81,13 +81,17 @@
 
 (defun self-document-load-modules ()
   "Load all modules"
-  (declare (special self-document-files))
-  (package-initialize)
-  (load-library "emacspeak-load-path")
-  (load-library "emacspeak-setup")
-  (cl-loop
-   for f in  self-document-files do
-   (load-library f)))
+  (declare (special self-document-files
+                    dtk-quiet emacspeak-startup-hook dtk-startup-hook))
+  (let ((emacspeak-startup-hook nil)
+        (dtk-startup-hook nil)
+        (dtk-quiet nil))
+    (package-initialize)
+    (load-library "emacspeak-load-path")
+    (load-library "emacspeak-setup")
+    (cl-loop
+     for f in  self-document-files do
+     (load-library f))))
 
 (defconst self-document-patterns
   (concat "^"
