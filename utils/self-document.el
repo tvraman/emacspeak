@@ -79,6 +79,9 @@
 
 (cl-defstruct self-document name commentary commands options)
 
+
+
+
 (defun self-document-load-modules ()
   "Load all modules"
   (declare (special self-document-files emacspeak-play-emacspeak-startup-icon
@@ -88,7 +91,7 @@
         (emacspeak-play-emacspeak-startup-icon nil)
         (emacspeak-speak-messages nil)
         (dtk-startup-hook nil)
-        (dtk-quiet nil))
+        (dtk-quiet t))
     (package-initialize)
     (load-library "emacspeak-load-path")
     (load-library "emacspeak-setup")
