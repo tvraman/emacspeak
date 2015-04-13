@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1098 commands and 895 options.
+This chapter documents a total of 1095 commands and 895 options.
 
 @menu
 * acss-structure::
@@ -984,51 +984,6 @@ Give a brief overview of emacspeak.
 @kbd{C-e C-M-b}
 
 Function to submit a bug to the programs maintainer.
-@end deffn
-
-@deffn {Interactive Command} plain-TeX-mode  [Arg list not available until function definition is loaded.]
-Major mode for editing files of input for plain TeX.
-Makes $ and @} display the characters they match.
-Makes " insert `` when it seems to be the beginning of a quotation,
-and '' when it appears to be the end; it inserts " only after a \.
-
-Use M-x tex-region to run TeX on the current region, plus a "header"
-copied from the top of the file (containing macro definitions, etc.),
-running TeX under a special subshell.  M-x tex-buffer does the whole buffer.
-M-x tex-file saves the buffer and then processes the file.
-M-x tex-print prints the .dvi file made by any of these.
-M-x tex-view previews the .dvi file made by any of these.
-M-x tex-bibtex-file runs bibtex on the file of the current buffer.
-
-Use M-x tex-validate-buffer to check buffer for paragraphs containing
-mismatched $'s or braces.
-
-Special commands:
-
-Uses keymap `plain-tex-mode-map', which is not currently defined.
-
-Mode variables:
-tex-run-command
-	Command string used by M-x tex-region or M-x tex-buffer.
-tex-directory
-	Directory in which to create temporary files for TeX jobs
-	run by M-x tex-region or M-x tex-buffer.
-tex-dvi-print-command
-	Command string used by M-x tex-print to print a .dvi file.
-tex-alt-dvi-print-command
-	Alternative command string used by M-x tex-print (when given a prefix
-	argument) to print a .dvi file.
-tex-dvi-view-command
-	Command string used by M-x tex-view to preview a .dvi file.
-tex-show-queue-command
-	Command string used by M-x tex-show-print-queue to show the print
-	queue that M-x tex-print put your job on.
-
-Entering Plain-tex mode runs the hook `text-mode-hook', then the hook
-`tex-mode-hook', and finally the hook `plain-tex-mode-hook'.  When the
-special subshell is initiated, the hook `tex-shell-hook' is run.
-
-(fn)
 @end deffn
 
 @subsection emacspeak Options
@@ -14078,10 +14033,6 @@ This module is Plain  i.e. suitable for a device  for which you haven't yet impl
 
 @subsection plain-voices Commands
 
-@deffn {Interactive Command} plain  nil
-Select Plain TTS server.
-@end deffn
-
 @subsection plain-voices Options
 
 @node sox
@@ -14371,7 +14322,7 @@ Apply first female voice.
 @node URL Templates 
 @section  URL Templates
 
-This section documents a total of 97 URL Templates.
+This section documents a total of 96 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -14496,10 +14447,6 @@ Display content from Google Finance.
 @b{Finance Google news}
 
 Display content from Google Finance.
-
-@b{G3 Sourcer URL}
-
-Return Sourcerer URL.
 
 @b{GCalendar Mobile}
 
