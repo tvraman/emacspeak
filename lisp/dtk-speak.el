@@ -1547,8 +1547,10 @@ This is setup on a per engine basis.")
                                         ; exact match
    ((string-match "^espeak$" tts-name) (espeak-configure-tts))
    ((string-match "^eflite$" tts-name) (flite-configure-tts))
-   ((string-match "^log-server$" tts-name) t) ; use previous configuration
-                                        ; generic configure
+   ((string-match "^log-server$" tts-name)
+    (plain-configure-tts)
+    t)
+   ;;; generic configure
    (t (plain-configure-tts)))
   (when
       (or 

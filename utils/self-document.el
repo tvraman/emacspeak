@@ -79,20 +79,15 @@
 
 (cl-defstruct self-document name commentary commands options)
 
-
-
-(set-default 'dtk-quiet t)
-(set-default 'emacspeak-speak-messages nil)
 (defun self-document-load-modules ()
   "Load all modules"
   (declare (special self-document-files emacspeak-play-emacspeak-startup-icon
                     dtk-quiet emacspeak-speak-messages
                     emacspeak-startup-hook dtk-startup-hook))
-  (let ((emacspeak-startup-hook nil)
-        (emacspeak-play-emacspeak-startup-icon nil)
-        (dtk-startup-hook nil))
+  (let ((emacspeak-play-emacspeak-startup-icon nil))
     (package-initialize)
     (load-library "emacspeak-load-path")
+    (load-library "plain-voices")
     (load-library "emacspeak-setup")
     (cl-loop
      for f in  self-document-files do
