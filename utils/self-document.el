@@ -193,16 +193,6 @@
 ;;}}}
 ;;{{{ Document Commands In A Module
 
-
-
-(defun self-document-get-commentary (self)
-  "Return Commentary"
-  (let* ((name (self-document-name self))
-         (lmc (lm-commentary (substring (locate-library name) 0 -1))))
-    (if lmc
-        (setq lmc (sd-cleanup-commentary lmc))
-      (format "### %s: No Commentary\n" name))))
-
 (defun sd-texinfo-escape (string)
   "Escape texinfo special chars"
   (when string
@@ -216,9 +206,11 @@
 (defun self-document-module-preamble (self)
   "Generate preamble for module documentation."
   (let ((name (self-document-name self))
-        (lmc (self-document-get-commentary self)))
+        (lmc (self-document-commentary self)))
     (insert (format "\n@node %s\n@section %s\n\n\n" name name))
-    (insert (format "\n\n%s\n\n" lmc))))
+    (insert (format "\n\n%s\n\n" 
+(or lmc
+    (format "### %s: No Commentary\n" name))))))
 
 (defun self-document-option (o)
   "Document this option."
@@ -270,9 +262,13 @@
 
 (defun self-document-module (self)
   "Generate documentation for commands and options in a module."
-  (self-document-module-preamble self)
-  (self-document-module-commands self)
-  (self-document-module-options self))
+;;; Only generate in non-degenerate case
+  (when (or (self-document-commentary self)
+            (> 0 (length (self-document-commands self)))
+            (> 0 (length (self-document-options self))))
+    (self-document-module-preamble self)
+    (self-document-module-commands self)
+    (self-document-module-options self)))
 
 ;;}}}
 ;;{{{ Iterate over all modules
