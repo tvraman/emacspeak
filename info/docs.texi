@@ -703,6 +703,13 @@ Local speech server script.
 
 @end defvar
 
+@defvar {User Option} dtk-startup-hook
+List of hooks to be run after starting up the speech server.
+Set things like speech rate, punctuation mode etc in this
+hook.
+
+@end defvar
+
 @defvar {User Option} dtk-use-tones
 Allow tones to be turned off.
 
@@ -9492,13 +9499,6 @@ Entry point for Emacspeak.
 
 @defvar {User Option} dectalk-default-speech-rate
 *Default speech rate at which TTS is started. 
-
-@end defvar
-
-@defvar {User Option} dtk-startup-hook
-List of hooks to be run after starting up the speech server.
-Set things like speech rate, punctuation mode etc in this
-hook.
 
 @end defvar
 

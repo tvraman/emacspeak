@@ -96,7 +96,8 @@
     (load-library "emacspeak-setup")
     (cl-loop
      for f in  self-document-files do
-     (load-library f))))
+     (unless (string-match "emacspeak-setup" f)
+     (load-library f)))))
 
 (defconst self-document-patterns
   (concat "^"
