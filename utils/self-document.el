@@ -81,7 +81,8 @@
 
 
 
-
+(set-default 'dtk-quiet t)
+    (set-default 'emacspeak-speak-messages nil)
 (defun self-document-load-modules ()
   "Load all modules"
   (declare (special self-document-files emacspeak-play-emacspeak-startup-icon
