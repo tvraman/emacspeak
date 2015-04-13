@@ -1550,9 +1550,7 @@ resources."
    "@node URL Templates \n@section  URL Templates\n\n")
   (insert
    (format
-    "This section is generated automatically from the source-level documentation.
-Any errors or corrections should be made to the source-level
-documentation.
+    "
 This section documents a total of %d URL Templates.\n\n"
     (hash-table-count emacspeak-url-template-table)))
   (insert
@@ -1570,21 +1568,21 @@ Each URL template carries out the following steps:
   customizations.
 @end itemize
 
-As an example, the URL templates for weather forecasts 
+As an example, the URL template for weather forecasts 
 prompts for a location and speaks the forecast. \n\n"
     (mapconcat #'key-description
                (where-is-internal
                 'emacspeak-url-template-fetch)
                " ")))
-  (let ((keys
-         (sort
-          (loop for key being the hash-keys of emacspeak-url-template-table
-                collect key)
+  (let
+      ((keys
+        (sort
+          (loop for k being the hash-keys of emacspeak-url-template-table collect k) 
           'string-lessp)))
-    (loop for key in keys
-          do
-          (insert
-           (format "@kbd{%s}\n\n" key))
+    (loop
+     for key in keys do
+     (insert
+           (format "@b{%s}\n\n" key))
           (insert
            (emacspeak-url-template-documentation
             (emacspeak-url-template-get key)))

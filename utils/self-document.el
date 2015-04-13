@@ -274,6 +274,7 @@
 
 ;;}}}
 ;;{{{ Iterate over all modules
+(declare-function emacspeak-url-template-generate-texinfo-documentation (buffer))
 
 (defun self-document-all-modules()
   "Generate documentation for all modules."
