@@ -183,7 +183,7 @@
       (replace-match "" nil nil))
     (buffer-string)))
 
-(defun self-document-commentary (self)
+(defun self-document-get-commentary (self)
   "Return Commentary"
   (let* ((name (self-document-name self))
          (lmc (lm-commentary (substring (locate-library name) 0 -1))))
@@ -204,7 +204,7 @@
 (defun self-document-module-preamble (self)
   "Generate preamble for module documentation."
   (let ((name (self-document-name self))
-        (lmc (self-document-commentary self)))
+        (lmc (self-document-get-commentary self)))
     (insert (format "\n@node %s\n@section %s\n\n\n" name name))
     (insert (format "\n\n%s\n\n" lmc))))
 
@@ -242,7 +242,7 @@
      (if
          (documentation c)
          (sd-texinfo-escape (documentation c))
-       (format "### %s: Not Documented\n" f)))
+       (format "### %s: Not Documented\n" c)))
     (insert "\n@end deffn\n\n")))
 
 (defun self-document-module-commands (self)
