@@ -14322,9 +14322,6 @@ Apply first female voice.
 @node URL Templates 
 @section  URL Templates
 
-This section is generated automatically from the source-level documentation.
-Any errors or corrections should be made to the source-level
-documentation.
 This section documents a total of 97 URL Templates.
 
 All of these URL templates can be invoked via command
@@ -14340,403 +14337,403 @@ Each URL template carries out the following steps:
   customizations.
 @end itemize
 
-As an example, the URL templates for weather forecasts 
+As an example, the URL template for weather forecasts 
 prompts for a location and speaks the forecast. 
 
-@kbd{Air Traffic Control}
+@b{Air Traffic Control}
 
 Find live streams for Air Traffic Control.
 
-@kbd{Airport conditions}
+@b{Airport conditions}
 
 Display airport conditions from the FAA.
 
-@kbd{Amazon Product Details By ASIN}
+@b{Amazon Product Details By ASIN}
 
 Retrieve product details from Amazon by either ISBN or ASIN.
 
-@kbd{Anonymize Google Search}
+@b{Anonymize Google Search}
 
 Logout from Google to do an anonymous search.
 
-@kbd{Archive News Search}
+@b{Archive News Search}
 
 Search Google Archive News.
 
-@kbd{Ask Local Search}
+@b{Ask Local Search}
 
 Ask Local Search.
 
-@kbd{Ask Walking Directions}
+@b{Ask Walking Directions}
 
 Walking directions from Ask.com
 
-@kbd{BBC  iPlayer}
+@b{BBC  iPlayer}
 
 BBC iPlayer
 
-@kbd{BBC Genre Using IPlayer}
+@b{BBC Genre Using IPlayer}
 
 BBC iPlayer Genre
 
-@kbd{BBC Podcast Directory}
+@b{BBC Podcast Directory}
 
 BBC PodCast Directory
 
-@kbd{BBC Program Guide}
+@b{BBC Program Guide}
 
 Display interactive BBC Program Guide.
 
-@kbd{Baseball Game Index}
+@b{Baseball Game Index}
 
 Display baseball Play By Play.
 
-@kbd{Baseball Play By Play}
+@b{Baseball Play By Play}
 
 Display baseball Play By Play.
 
-@kbd{Baseball scores}
+@b{Baseball scores}
 
 Display baseball scores.
 
-@kbd{Baseball standings}
+@b{Baseball standings}
 
 Display MLB standings.
 
-@kbd{Bing News}
+@b{Bing News}
 
 Bing News results as RSS feed.
 
-@kbd{Bing Search}
+@b{Bing Search}
 
 Bing results as RSS feed.
 
-@kbd{CNN Content}
+@b{CNN Content}
 
 Filter down to CNN  content area.
 
-@kbd{CNN Market Data }
+@b{CNN Market Data }
 
 CNN Money
 
-@kbd{CNN technology }
+@b{CNN technology }
 
 CNN Technology news.
 
-@kbd{CNNPodCasts}
+@b{CNNPodCasts}
 
 List CNN Podcast media links.
 
-@kbd{Dictionary Lookup}
+@b{Dictionary Lookup}
 
 Dictionary Lookup
 
-@kbd{Earthquakes}
+@b{Earthquakes}
 
 Show table of recent quakes.
 
-@kbd{EmacsWiki Search}
+@b{EmacsWiki Search}
 
 EmacsWiki Search
 
-@kbd{Finance Google Portfolio}
+@b{Finance Google Portfolio}
 
 Download and display portfolio from Google Finance.
 
-@kbd{Finance Google Search}
+@b{Finance Google Search}
 
 Display content from Google Finance.
 
-@kbd{Finance Google news}
+@b{Finance Google news}
 
 Display content from Google Finance.
 
-@kbd{G3 Sourcer URL}
+@b{G3 Sourcer URL}
 
 Return Sourcerer URL.
 
-@kbd{GCalendar Mobile}
+@b{GCalendar Mobile}
 
 Google Calendar XHTML version.
 
-@kbd{Geek Linux Daily}
+@b{Geek Linux Daily}
 
 Play specified edition of Geek  Linux DailyShow
 
-@kbd{GitHub Search}
+@b{GitHub Search}
 
 Perform a GitHub Search.
 
-@kbd{Google API Search}
+@b{Google API Search}
 
 Search Google APIDocs
 
-@kbd{Google Image Search}
+@b{Google Image Search}
 
 Google Image Search
 
-@kbd{Google Mobile Search}
+@b{Google Mobile Search}
 
 Google Mobile Search
 
-@kbd{Google News Search}
+@b{Google News Search}
 
 Search Google news.
 
-@kbd{Google NewsPaper}
+@b{Google NewsPaper}
 
 Retrieve and speak Google News Overview.
 
-@kbd{Google Print}
+@b{Google Print}
 
 Google Print Search
 
-@kbd{Google Recent News Search}
+@b{Google Recent News Search}
 
 Search Google news.
 
-@kbd{Google Scholar}
+@b{Google Scholar}
 
 Google Scholar Search
 
-@kbd{Google Transcoder}
+@b{Google Transcoder}
 
 Transcode site via Google.
 
-@kbd{Google Webmaster Page Analysis}
+@b{Google Webmaster Page Analysis}
 
 Page Analysis From Google Webmaster tools.
 
-@kbd{Google topical  News}
+@b{Google topical  News}
 
 Display specified news feed.
 
-@kbd{IToRSS}
+@b{IToRSS}
 
 Pull RSS  feed corresponding to an ITunes Podcast.
 
-@kbd{Linux Today News}
+@b{Linux Today News}
 
 Get news column from Linux Today.
 
-@kbd{MLB Scorecard}
+@b{MLB Scorecard}
 
 Show MLB Scorecard.
 
-@kbd{Market summary from Google}
+@b{Market summary from Google}
 
 Display financial market summary.
 
-@kbd{Mobile Finance Google Search}
+@b{Mobile Finance Google Search}
 
 Display content from Google Finance.
 
-@kbd{Money Content }
+@b{Money Content }
 
 CNN Content
 
-@kbd{Multilingual dictionary via Google.}
+@b{Multilingual dictionary via Google.}
 
 Translate word using Google.
 Source and target languages
 are specified as two-letter language codes, e.g. en|de translates
 from English to German
 
-@kbd{NY Times Mobile}
+@b{NY Times Mobile}
 
 NYTimes Mobile Site
 
-@kbd{NY Times RSS Feeds}
+@b{NY Times RSS Feeds}
 
 Display browsable list of NY Times RSS Feeds.
 
-@kbd{Official GoogleBlog Search}
+@b{Official GoogleBlog Search}
 
 Search within all official Google blogs.
 
-@kbd{Old Time Radio}
+@b{Old Time Radio}
 
 This months Old Time Radio Programming
 
-@kbd{On The Fly CSE}
+@b{On The Fly CSE}
 
 Build a CSE on the fly and  use it to search.
 
-@kbd{PHC Prairie Home Companion}
+@b{PHC Prairie Home Companion}
 
 Play Prairie Home Companion
 
-@kbd{Patent Search From Google}
+@b{Patent Search From Google}
 
 Perform patent search via Google
 
-@kbd{PodCast CNet}
+@b{PodCast CNet}
 
 Play Podcast from CNET
 
-@kbd{RadioTime  Browser}
+@b{RadioTime  Browser}
 
 RadioTime Entry point.
 
-@kbd{RadioTime  Search}
+@b{RadioTime  Search}
 
 RadioTime Search.
 
-@kbd{Recent YouTube Results}
+@b{Recent YouTube Results}
 
 YouTube Search Via Feeds
 
-@kbd{Redhat Linux Show}
+@b{Redhat Linux Show}
 
 Play specified edition of Redhat Linux Show
 
-@kbd{Reuters Finance}
+@b{Reuters Finance}
 
 Reuters Finance Lookup
 
-@kbd{Seeking Alpha Stock Search}
+@b{Seeking Alpha Stock Search}
 
 Seeking Alpha search.
 
-@kbd{Sign in to Google}
+@b{Sign in to Google}
 
 Login to Google.
 
-@kbd{StreamWorld Radio}
+@b{StreamWorld Radio}
 
 Play radio stream.
 See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations that use StreamTheWorld.
 
-@kbd{Tech News From CNet}
+@b{Tech News From CNet}
 
 Display tech news from CNET
 
-@kbd{Times Of India}
+@b{Times Of India}
 
 Retrieve Times Of India.
 Set up URL rewrite rule to get print page.
 
-@kbd{Translation Via Google}
+@b{Translation Via Google}
 
 Translate a Web page using google. Source and target languages
 are specified as two-letter language codes, e.g. en|de translates
 from English to German.
 
-@kbd{TuneIn Radio}
+@b{TuneIn Radio}
 
 Translate StreamId to playable stream.
 
-@kbd{UPS Packages}
+@b{UPS Packages}
 
 Display package tracking information from UPS.
 
-@kbd{Weather forecast from Weather Underground}
+@b{Weather forecast from Weather Underground}
 
 Weather forecast from weather underground mobile.
 
-@kbd{WordNet Search}
+@b{WordNet Search}
 
 Look up term in WordNet.
 
-@kbd{Yahoo Business News}
+@b{Yahoo Business News}
 
 Retrieve and speak business  section from Yahoo Daily News.
 
-@kbd{Yahoo Content By Content ID}
+@b{Yahoo Content By Content ID}
 
 Retrieve and speak news section from Yahoo Daily News.
 
-@kbd{Yahoo DailyNews}
+@b{Yahoo DailyNews}
 
 Retrieve and speak DailyNewspage from  Yahoo Daily News.
 
-@kbd{Yahoo Entertainment}
+@b{Yahoo Entertainment}
 
 Retrieve and speak Entertainment section from Yahoo Daily News.
 
-@kbd{Yahoo Health}
+@b{Yahoo Health}
 
 Retrieve and speak Health section from Yahoo Daily News.
 
-@kbd{Yahoo Lifestyle}
+@b{Yahoo Lifestyle}
 
 Yahoo Lifestyle News.
 
-@kbd{Yahoo Oddly}
+@b{Yahoo Oddly}
 
 Retrieve and speak Oddity section from Yahoo Daily News.
 
-@kbd{Yahoo Politics}
+@b{Yahoo Politics}
 
 Retrieve and speak Politics section from Yahoo Daily News.
 
-@kbd{Yahoo RSS Feeds}
+@b{Yahoo RSS Feeds}
 
 List Yahoo RSS Feeds.
 
-@kbd{Yahoo SF Local}
+@b{Yahoo SF Local}
 
 Retrieve and speak Local section from Yahoo Daily News.
 
-@kbd{Yahoo Science}
+@b{Yahoo Science}
 
 Retrieve and speak Science section from Yahoo Daily News.
 
-@kbd{Yahoo Sports}
+@b{Yahoo Sports}
 
 Entertainment news from Yahoo.
 
-@kbd{Yahoo Technology  News}
+@b{Yahoo Technology  News}
 
 Yahoo Technology News.
 
-@kbd{Yahoo Top Stories}
+@b{Yahoo Top Stories}
 
 Retrieve and speak Top Stories  section from Yahoo Daily News.
 
-@kbd{Yahoo World News}
+@b{Yahoo World News}
 
 Yahoo World News.
 
-@kbd{YouTube Results}
+@b{YouTube Results}
 
 YouTube Search Via Feeds
 
-@kbd{ask search mobile}
+@b{ask search mobile}
 
 Mobile search using Ask.com
 
-@kbd{fedex packages}
+@b{fedex packages}
 
 Display package tracking information from Fedex.
 
-@kbd{html5IRC}
+@b{html5IRC}
 
 Show HTML5 IRC log.
 
-@kbd{rss weather from wunderground}
+@b{rss weather from wunderground}
 
 Pull RSS weather feed for specified state/city.
 
-@kbd{sourceforge Download}
+@b{sourceforge Download}
 
 Download specified file.
 
-@kbd{sourceforge browse mirrors}
+@b{sourceforge browse mirrors}
 
 Retrieve download page  at Sourceforge for specified project.
 
-@kbd{sourceforge project}
+@b{sourceforge project}
 
 Open specified project page at SourceForge.
 
-@kbd{w3c IRC Logs}
+@b{w3c IRC Logs}
 
 Use this to pull up the
 archived  logs from the W3C IRC. You need to know the exact
 name of the channel.
 
-@kbd{w3c Lists}
+@b{w3c Lists}
 
 Use this to pull up the
 archived  mail from the W3C list. You need to know the exact

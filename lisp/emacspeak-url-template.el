@@ -102,10 +102,12 @@
 
 (defvar emacspeak-url-template-table (make-hash-table :test 'equal)
   "Stores URL templates. ")
+
 (defun emacspeak-url-template-set (key ut)
   "Add  specified template to key. "
   (declare (special emacspeak-url-template-table))
   (setf (gethash key emacspeak-url-template-table ) ut))
+
 ;;;###autoload
 (defun emacspeak-url-template-get (key)
   "Lookup key and return corresponding template. "
@@ -165,27 +167,23 @@ dont-url-encode if true then url arguments are not url-encoded "
   "Save out url templates."
   (interactive
    (list
-    (read-file-name "Save URL templates to file: "
-                    emacspeak-resource-directory)))
+    (read-file-name "Save URL templates to: " emacspeak-resource-directory)))
   (declare (special emacspeak-resource-directory))
   (let ((print-level nil)
         (print-length nil)
         (buffer (find-file-noselect
-                 (expand-file-name file
-                                   emacspeak-resource-directory))))
-    (save-current-buffer
-      (set-buffer buffer)
+                 (expand-file-name file emacspeak-resource-directory))))
+    (with-current-buffer buffer
       (setq buffer-undo-list t)
       (erase-buffer)
-      (loop for key being the hash-keys of
-            emacspeak-url-template-table
-            do
-            (insert
-             (format
-              "\n(setf
+      (loop
+       for key being the hash-keys of emacspeak-url-template-table do
+       (insert
+        (format
+         "\n(setf
  (gethash %s emacspeak-url-template-table)\n %s)"
-              (prin1-to-string key)
-              (prin1-to-string (emacspeak-url-template-get key)))))
+         (prin1-to-string key)
+         (prin1-to-string (emacspeak-url-template-get key)))))
       (basic-save-buffer)
       (kill-buffer buffer))))
 
