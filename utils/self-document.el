@@ -82,7 +82,7 @@
 
 
 (set-default 'dtk-quiet t)
-    (set-default 'emacspeak-speak-messages nil)
+(set-default 'emacspeak-speak-messages nil)
 (defun self-document-load-modules ()
   "Load all modules"
   (declare (special self-document-files emacspeak-play-emacspeak-startup-icon
@@ -90,9 +90,7 @@
                     emacspeak-startup-hook dtk-startup-hook))
   (let ((emacspeak-startup-hook nil)
         (emacspeak-play-emacspeak-startup-icon nil)
-        (emacspeak-speak-messages nil)
-        (dtk-startup-hook nil)
-        (dtk-quiet t))
+        (dtk-startup-hook nil))
     (package-initialize)
     (load-library "emacspeak-load-path")
     (load-library "emacspeak-setup")
