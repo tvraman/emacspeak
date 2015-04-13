@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1094 commands and 895 options.
+This chapter documents a total of 1095 commands and 895 options.
 
 @menu
 * acss-structure::
@@ -191,7 +191,6 @@ This chapter documents a total of 1094 commands and 895 options.
 * emacspeak-xref::
 * emacspeak-xslt::
 * espeak-voices::
-* flite-voices::
 * g::
 * g-app::
 * g-auth::
@@ -205,13 +204,10 @@ This chapter documents a total of 1094 commands and 895 options.
 * gweb::
 * mac-voices::
 * multispeech-voices::
-* nm::
-* org2blogger::
 * outloud-voices::
 * plain-voices::
 * sox::
 * stack-f::
-* tapestry::
 * tetris::
 * toy-braille::
 * voice-setup::
@@ -2558,6 +2554,18 @@ Hook to run after starting emacspeak.
 @defvar {User Option} emacspeak-term-underline-voice
 Personality used for term-underline
 This personality uses  voice-brighten-medium whose  effect can be changed globally by customizing voice-brighten-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-twittering-uri-personality
+Personality used for twittering-uri-face
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-twittering-username-personality
+Personality used for twittering-username-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
 
 @end defvar
 
@@ -11243,18 +11251,6 @@ Speak tweet under point.
 
 @subsection emacspeak-twittering Options
 
-@defvar {User Option} emacspeak-twittering-uri-personality
-Personality used for twittering-uri-face
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-twittering-username-personality
-Personality used for twittering-username-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
 @node emacspeak-url-template
 @section emacspeak-url-template
 
@@ -13307,6 +13303,10 @@ Augments it by displaying the alt text and the transcript.
 
 @subsection emacspeak-xkcd Commands
 
+@deffn {Interactive Command} emacspeak-xkcd-open-explanation-browser  nil
+Open explanation of current xkcd in default browser
+@end deffn
+
 @subsection emacspeak-xkcd Options
 
 @node emacspeak-xml-shell
@@ -13470,19 +13470,6 @@ This module is Espeak specific.
 @subsection espeak-voices Commands
 
 @subsection espeak-voices Options
-
-@node flite-voices
-@section flite-voices
-
-### flite-voices: No Commentary
-
-@subsection flite-voices Commands
-
-@deffn {Interactive Command} tts-eflite  nil
-Use eflite TTS server.
-@end deffn
-
-@subsection flite-voices Options
 
 @node g
 @section g
@@ -14028,24 +14015,6 @@ This module is Multispeech specific.
 
 @subsection multispeech-voices Options
 
-@node nm
-@section nm
-
-### nm: No Commentary
-
-@subsection nm Commands
-
-@subsection nm Options
-
-@node org2blogger
-@section org2blogger
-
-### org2blogger: No Commentary
-
-@subsection org2blogger Commands
-
-@subsection org2blogger Options
-
 @node outloud-voices
 @section outloud-voices
 
@@ -14095,15 +14064,6 @@ destructive functions.
 @subsection stack-f Commands
 
 @subsection stack-f Options
-
-@node tapestry
-@section tapestry
-
-### tapestry: No Commentary
-
-@subsection tapestry Commands
-
-@subsection tapestry Options
 
 @node tetris
 @section tetris
@@ -14365,7 +14325,7 @@ Apply first female voice.
 This section is generated automatically from the source-level documentation.
 Any errors or corrections should be made to the source-level
 documentation.
-This section documents a total of 96 URL Templates.
+This section documents a total of 97 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -14490,6 +14450,10 @@ Display content from Google Finance.
 @kbd{Finance Google news}
 
 Display content from Google Finance.
+
+@kbd{G3 Sourcer URL}
+
+Return Sourcerer URL.
 
 @kbd{GCalendar Mobile}
 
