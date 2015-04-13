@@ -74,7 +74,7 @@
   (make-hash-table :test #'equal)
   "Maps modules to commands and options they define.")
 
-(cl-defstruct self-document name commands options)
+(cl-defstruct self-document name commentary commands options)
 
 (defun self-document-load-modules ()
   "Load all modules"
@@ -97,7 +97,7 @@
 (defvar self-document-command-count 0
   "Global count of commands.")
 
-(defsubst self-document-command-p (f)
+(defun self-document-command-p (f)
   "Predicate to check if  this command it to be documented."
   (declare (special self-document-patterns))
   (let ((fn (symbol-name f)))
@@ -117,7 +117,7 @@
 (defvar self-document-option-count 0
   "Global count of options.")
 
-(defsubst self-document-option-p (o)
+(defun self-document-option-p (o)
   "Predicate to test if we document this option."
   (declare (special self-document-option-pattern))
   (when (and
@@ -158,17 +158,9 @@
 
 (defun self-document-build-map()
   "Build a map of module names to commands."
-;;; initialize table
-  (cl-loop
-   for f in self-document-files do
-   (let ((module (file-name-sans-extension f)))
-     (puthash module (make-self-document :name module) self-document-map)))
-  (mapatoms #'self-document-map-symbol ))
 
-;;}}}
-;;{{{ Document Commands In A Module
 
-(defsubst sd-cleanup-commentary (commentary )
+(defun sd-cleanup-commentary (commentary )
   "Cleanup commentary."
   (with-temp-buffer
     (insert commentary)
@@ -183,6 +175,26 @@
       (replace-match "" nil nil))
     (buffer-string)))
 
+(defun sd-get-commentary (name)
+  "Get commentary for named module"
+  (let ((lmc (lm-commentary (substring (locate-library name) 0 -1))))
+    (if lmc
+        (setq lmc (sd-cleanup-commentary lmc)))))
+
+;;; initialize table
+  (cl-loop
+   for f in self-document-files do
+   (let ((module (file-name-sans-extension f)))
+     (puthash module (make-self-document :name module
+                                         :commentary (sd-get-commentary module))
+              self-document-map)))
+  (mapatoms #'self-document-map-symbol ))
+
+;;}}}
+;;{{{ Document Commands In A Module
+
+
+
 (defun self-document-get-commentary (self)
   "Return Commentary"
   (let* ((name (self-document-name self))
@@ -191,7 +203,7 @@
         (setq lmc (sd-cleanup-commentary lmc))
       (format "### %s: No Commentary\n" name))))
 
-(defsubst sd-texinfo-escape (string)
+(defun sd-texinfo-escape (string)
   "Escape texinfo special chars"
   (when string
     (with-temp-buffer
