@@ -81,9 +81,12 @@
 
 (defun self-document-load-modules ()
   "Load all modules"
-  (declare (special self-document-files
-                    dtk-quiet emacspeak-startup-hook dtk-startup-hook))
+  (declare (special self-document-files emacspeak-play-emacspeak-startup-icon
+                    dtk-quiet emacspeak-speak-messages
+                    emacspeak-startup-hook dtk-startup-hook))
   (let ((emacspeak-startup-hook nil)
+        (emacspeak-play-emacspeak-startup-icon nil)
+        (emacspeak-speak-messages nil)
         (dtk-startup-hook nil)
         (dtk-quiet nil))
     (package-initialize)
