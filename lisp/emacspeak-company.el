@@ -43,7 +43,7 @@
 ;;; Commentary:
 ;;; COMPANY -mode: Complete Anything Support for emacs.
 ;;; This module provides an Emacspeak Company Front-end,
-;;; And advices the needed interactive commands in Company.
+;;; And advises the needed interactive commands in Company.
 
 ;;}}}
 ;;{{{  Required modules

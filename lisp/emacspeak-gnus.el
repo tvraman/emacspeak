@@ -41,7 +41,7 @@
 
 ;;; Commentary:
 
-;;; This module advices gnus to speak. 
+;;; This module advises gnus to speak. 
 ;;; Updating support in 2014 (Emacspeak is nearly 20 years old)
 ;;; Code:
 ;;}}}

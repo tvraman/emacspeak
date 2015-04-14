@@ -3997,7 +3997,7 @@ speech-enable scheme support
 
 COMPANY -mode: Complete Anything Support for emacs.
 This module provides an Emacspeak Company Front-end,
-And advices the needed interactive commands in Company.
+And advises the needed interactive commands in Company.
 
 @subsection emacspeak-company Commands
 
@@ -5620,7 +5620,7 @@ Emacs commands that use the 'interactive spec
 to read interactive arguments are a problem for Emacspeak.
  This is because the prompting for the arguments is done from C
 See (callint.c) in the Emacs sources.
-Advicing the various input functions,
+Advising the various input functions,
 e.g. read-file-name therefore will not help.
 This module defines a function that solves this problem.
 emacspeak-fix-commands-that-use-interactive needs to be called
@@ -5813,7 +5813,7 @@ for inclusion in documents.
 @node emacspeak-gnus
 @section emacspeak-gnus
 
-This module advices gnus to speak. 
+This module advises gnus to speak. 
 Updating support in 2014 (Emacspeak is nearly 20 years old)
 
 @subsection emacspeak-gnus Commands
@@ -11225,7 +11225,7 @@ This module speech-enables twittering-mode which works using
 Note: As of Thu Sep  2 08:11:25 PDT 2010
 twit.el is broken.
 
-Advices interactive functions to speak
+Advises interactive functions to speak
 
 @subsection emacspeak-twittering Commands
 

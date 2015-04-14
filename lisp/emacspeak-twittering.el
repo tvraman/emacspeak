@@ -47,7 +47,7 @@
 ;;; Note: As of Thu Sep  2 08:11:25 PDT 2010
 ;;; twit.el is broken.
 
-;;; Advices interactive functions to speak
+;;; Advises interactive functions to speak
 
 ;;}}}
 ;;{{{  Required modules

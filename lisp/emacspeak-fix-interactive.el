@@ -49,7 +49,7 @@
 ;;; to read interactive arguments are a problem for Emacspeak.
 ;;;  This is because the prompting for the arguments is done from C
 ;;; See (callint.c) in the Emacs sources.
-;;; Advicing the various input functions,
+;;; Advising the various input functions,
 ;;; e.g. read-file-name therefore will not help.
 ;;; This module defines a function that solves this problem.
 ;;; emacspeak-fix-commands-that-use-interactive needs to be called
@@ -78,7 +78,7 @@
    (stringp (second (interactive-form  sym)))))
 
 (defun emacspeak-fix-commands-that-use-interactive ()
-  "Auto advices interactive commands to speak prompts."
+  "Auto advises interactive commands to speak prompts."
   (mapatoms 'emacspeak-fix-interactive-command-if-necessary ))
 
 ;;}}}
