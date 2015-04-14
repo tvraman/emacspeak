@@ -33,7 +33,7 @@
 ;;;   sunsite.unc.edu /pub/Linux/apps/sound/cdrom/cli
 ;;; This module also provides the ability to play or save
 ;;; clips from a CD if you have cdda2wav installed.
-;;; cdda2wav is a cd to wav converter.
+;;; cdda2wav is a cd to wav convertor.
 ;;;
 ;;; Code:
 ;;}}}
