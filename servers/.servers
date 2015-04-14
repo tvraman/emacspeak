@@ -16,4 +16,8 @@ espeak
 ssh-32-outloud
 mac
 plain
-log-server
+log-plain
+log-dtk
+log-espeak
+log-mac
+log-outloud
