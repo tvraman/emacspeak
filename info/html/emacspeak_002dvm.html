@@ -1,185 +1,318 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<link rel="http://www.w3.org/StyleSheets/Core/Modernist" type="text/css"> 
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-vm</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-vm">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-vm">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" rel="up" title="Emacspeak Commands And Options">
-<link href="emacspeak_002dw3.html#emacspeak_002dw3" rel="next" title="emacspeak-w3">
-<link href="emacspeak_002dview.html#emacspeak_002dview" rel="prev" title="emacspeak-view">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User’s Manual –2nd Edition.:
+  emacspeak-vm</title>
+  <meta name="description" content=
+  "Emacspeak User’s Manual –2nd Edition.: emacspeak-vm" />
+  <meta name="keywords" content=
+  "Emacspeak User’s Manual –2nd Edition.: emacspeak-vm" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+  rel="up" title="Emacspeak Commands And Options" />
+  <link href="emacspeak_002dw3.html#emacspeak_002dw3" rel="next"
+  title="emacspeak-w3" />
+  <link href="emacspeak_002dview.html#emacspeak_002dview" rel=
+  "prev" title="emacspeak-view" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dvm"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dw3.html#emacspeak_002dw3" accesskey="n" rel="next">emacspeak-w3</a>, Previous: <a href="emacspeak_002dview.html#emacspeak_002dview" accesskey="p" rel="prev">emacspeak-view</a>, Up: <a href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dvm-1"></a>
-<h3 class="section">11.169 emacspeak-vm</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dvm" id="emacspeak_002dvm"></a>
 
-<p>This module extends the mail reader vm.
-Uses voice locking for message headers and cited messages
-</p>
-<a name="emacspeak_002dvm-Commands"></a>
-<h4 class="subsection">11.169.1 emacspeak-vm Commands</h4>
+  <div class="header">
+    <p>Next: <a href="emacspeak_002dw3.html#emacspeak_002dw3"
+    accesskey="n" rel="next">emacspeak-w3</a>, Previous: <a href=
+    "emacspeak_002dview.html#emacspeak_002dview" accesskey="p" rel=
+    "prev">emacspeak-view</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dvm-1" id="emacspeak_002dvm-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002dvm_002dbrowse_002dmessage"></a>Interactive Command: <strong>emacspeak-vm-browse-message</strong> <em>nil</em></dt>
-<dd><p>Browse an email message &ndash;read it paragraph at a time. 
-</p></dd></dl>
+  <h3 class="section">11.169 emacspeak-vm</h3>
 
-<dl>
-<dt><a name="index-emacspeak_002dvm_002dcatch_002dup_002dall_002dmessages"></a>Interactive Command: <strong>emacspeak-vm-catch-up-all-messages</strong> <em>nil</em></dt>
-<dd><p>Mark all messages in folder to be deleted. Use with caution.
-</p></dd></dl>
+  <p>This module extends the mail reader vm. Uses voice locking for
+  message headers and cited messages</p><a name=
+  "emacspeak_002dvm-Commands" id="emacspeak_002dvm-Commands"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002dvm_002dlocate_002dsubject_002dline"></a>Interactive Command: <strong>emacspeak-vm-locate-subject-line</strong> <em>nil</em></dt>
-<dd><p>Locates the subject line in a message being read.
-Useful when you&rsquo;re reading a message
-that has been forwarded multiple times.
-</p></dd></dl>
+  <h4 class="subsection">11.169.1 emacspeak-vm Commands</h4>
 
-<dl>
-<dt><a name="index-emacspeak_002dvm_002dmode_002dline"></a>Interactive Command: <strong>emacspeak-vm-mode-line</strong> <em>nil</em></dt>
-<dd><p>VM mode line information. 
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dvm_002dbrowse_002dmessage" id=
+    "index-emacspeak_002dvm_002dbrowse_002dmessage"></a>Interactive
+    Command: <strong>emacspeak-vm-browse-message</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dvm_002dnext_002dbutton"></a>Interactive Command: <strong>emacspeak-vm-next-button</strong> <em>(n)</em></dt>
-<dd><p>Move point to N buttons forward.
-If N is negative, move backward instead.
-</p></dd></dl>
+    <dd>
+      <p>Browse an email message –read it paragraph at a time.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dvm_002dspeak_002dlabels"></a>Interactive Command: <strong>emacspeak-vm-speak-labels</strong> <em>nil</em></dt>
-<dd><p>Speak a message&rsquo;s labels
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dvm_002dcatch_002dup_002dall_002dmessages"
+    id=
+    "index-emacspeak_002dvm_002dcatch_002dup_002dall_002dmessages"></a>Interactive
+    Command: <strong>emacspeak-vm-catch-up-all-messages</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dvm_002dspeak_002dmessage"></a>Interactive Command: <strong>emacspeak-vm-speak-message</strong> <em>nil</em></dt>
-<dd><p>Move point to the message body.
-</p></dd></dl>
+    <dd>
+      <p>Mark all messages in folder to be deleted. Use with
+      caution.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dvm_002dyank_002dheader"></a>Interactive Command: <strong>emacspeak-vm-yank-header</strong> <em>nil</em></dt>
-<dd><p>Yank specified header into kill ring.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dvm_002dlocate_002dsubject_002dline" id=
+    "index-emacspeak_002dvm_002dlocate_002dsubject_002dline"></a>Interactive
+    Command: <strong>emacspeak-vm-locate-subject-line</strong>
+    <em>nil</em></dt>
 
-<a name="emacspeak_002dvm-Options"></a>
-<h4 class="subsection">11.169.2 emacspeak-vm Options</h4>
+    <dd>
+      <p>Locates the subject line in a message being read. Useful
+      when you’re reading a message that has been forwarded
+      multiple times.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-760"></a>Variable: <strong>User Option</strong> <em>emacspeak-vm-cal2text</em></dt>
-<dd><p>Executable that converts calendar invitations    on
-  standard input to plain text.
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dvm_002dmode_002dline" id=
+    "index-emacspeak_002dvm_002dmode_002dline"></a>Interactive
+    Command: <strong>emacspeak-vm-mode-line</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-761"></a>Variable: <strong>User Option</strong> <em>emacspeak-vm-customize-mime-settings</em></dt>
-<dd><p>Non-nil will cause Emacspeak to configure VM mime
-settings to match what the author of Emacspeak uses.
-</p>
-</dd></dl>
+    <dd>
+      <p>VM mode line information.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-762"></a>Variable: <strong>User Option</strong> <em>emacspeak-vm-doc2text</em></dt>
-<dd><p>Executable that converts MSWord documents on standard input to plain
-text using wvText.
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dvm_002dnext_002dbutton" id=
+    "index-emacspeak_002dvm_002dnext_002dbutton"></a>Interactive
+    Command: <strong>emacspeak-vm-next-button</strong>
+    <em>(n)</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-763"></a>Variable: <strong>User Option</strong> <em>emacspeak-vm-headers-strip-octals</em></dt>
-<dd><p>Specify whether non-ascii chars should be stripped when
-  speaking email headers.
-</p>
-</dd></dl>
+    <dd>
+      <p>Move point to N buttons forward. If N is negative, move
+      backward instead.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-764"></a>Variable: <strong>User Option</strong> <em>emacspeak-vm-pdf2text</em></dt>
-<dd><p>Executable that converts PDF on standard input to plain
-text using pdftotext.
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dvm_002dspeak_002dlabels" id=
+    "index-emacspeak_002dvm_002dspeak_002dlabels"></a>Interactive
+    Command: <strong>emacspeak-vm-speak-labels</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-765"></a>Variable: <strong>User Option</strong> <em>emacspeak-vm-ppt2html</em></dt>
-<dd><p>Executable that converts MSPPT documents on standard input to HTML
- using xlhtml.
-</p>
-</dd></dl>
+    <dd>
+      <p>Speak a message’s labels</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-766"></a>Variable: <strong>User Option</strong> <em>emacspeak-vm-use-raman-settings</em></dt>
-<dd><p>Should VM  use the customizations used by the author of Emacspeak.
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dvm_002dspeak_002dmessage" id=
+    "index-emacspeak_002dvm_002dspeak_002dmessage"></a>Interactive
+    Command: <strong>emacspeak-vm-speak-message</strong>
+    <em>nil</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-767"></a>Variable: <strong>User Option</strong> <em>emacspeak-vm-voice-lock-messages</em></dt>
-<dd><p>Set this to T if you want messages automatically voice locked.
-Note that some badly formed mime messages  cause trouble.
-</p>
-</dd></dl>
+    <dd>
+      <p>Move point to the message body.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-768"></a>Variable: <strong>User Option</strong> <em>emacspeak-vm-xls2html</em></dt>
-<dd><p>Executable that converts MSXL documents on standard input to HTML
- using xlhtml.
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dvm_002dyank_002dheader" id=
+    "index-emacspeak_002dvm_002dyank_002dheader"></a>Interactive
+    Command: <strong>emacspeak-vm-yank-header</strong>
+    <em>nil</em></dt>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dw3.html#emacspeak_002dw3" accesskey="n" rel="next">emacspeak-w3</a>, Previous: <a href="emacspeak_002dview.html#emacspeak_002dview" accesskey="p" rel="prev">emacspeak-view</a>, Up: <a href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+    <dd>
+      <p>Yank specified header into kill ring.</p>
+    </dd>
+  </dl><a name="emacspeak_002dvm-Options" id=
+  "emacspeak_002dvm-Options"></a>
 
+  <h4 class="subsection">11.169.2 emacspeak-vm Options</h4>
 
+  <dl>
+    <dt><a name="index-User-Option-777" id=
+    "index-User-Option-777"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-vm-cal2text</em></dt>
 
+    <dd>
+      <p>Executable that converts calendar invitations on standard
+      input to plain text.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-778" id=
+    "index-User-Option-778"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-vm-customize-mime-settings</em></dt>
+
+    <dd>
+      <p>Non-nil will cause Emacspeak to configure VM mime settings
+      to match what the author of Emacspeak uses.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-779" id=
+    "index-User-Option-779"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-vm-doc2text</em></dt>
+
+    <dd>
+      <p>Executable that converts MSWord documents on standard
+      input to plain text using wvText.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-780" id=
+    "index-User-Option-780"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-vm-headers-strip-octals</em></dt>
+
+    <dd>
+      <p>Specify whether non-ascii chars should be stripped when
+      speaking email headers.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-781" id=
+    "index-User-Option-781"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-vm-pdf2text</em></dt>
+
+    <dd>
+      <p>Executable that converts PDF on standard input to plain
+      text using pdftotext.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-782" id=
+    "index-User-Option-782"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-vm-ppt2html</em></dt>
+
+    <dd>
+      <p>Executable that converts MSPPT documents on standard input
+      to HTML using xlhtml.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-783" id=
+    "index-User-Option-783"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-vm-use-raman-settings</em></dt>
+
+    <dd>
+      <p>Should VM use the customizations used by the author of
+      Emacspeak.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-784" id=
+    "index-User-Option-784"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-vm-voice-lock-messages</em></dt>
+
+    <dd>
+      <p>Set this to T if you want messages automatically voice
+      locked. Note that some badly formed mime messages cause
+      trouble.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-785" id=
+    "index-User-Option-785"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-vm-xls2html</em></dt>
+
+    <dd>
+      <p>Executable that converts MSXL documents on standard input
+      to HTML using xlhtml.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href="emacspeak_002dw3.html#emacspeak_002dw3"
+    accesskey="n" rel="next">emacspeak-w3</a>, Previous: <a href=
+    "emacspeak_002dview.html#emacspeak_002dview" accesskey="p" rel=
+    "prev">emacspeak-view</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

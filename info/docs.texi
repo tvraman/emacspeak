@@ -14314,7 +14314,7 @@ Apply first female voice.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 85 URL Templates.
+This section documents a total of 71 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -14561,12 +14561,6 @@ Display tech news from CNET
 Retrieve Times Of India.
 Set up URL rewrite rule to get print page.
 
-@b{Translation Via Google}
-
-Translate a Web page using google. Source and target languages
-are specified as two-letter language codes, e.g. en|de translates
-from English to German.
-
 @b{TuneIn Radio}
 
 Translate StreamId to playable stream.
@@ -14587,61 +14581,9 @@ Look up term in WordNet.
 
 Retrieve and speak business section from Yahoo Daily News.
 
-@b{Yahoo Content By Content ID}
-
-Retrieve and speak news section from Yahoo Daily News.
-
-@b{Yahoo DailyNews}
-
-Retrieve and speak DailyNewspage from Yahoo Daily News.
-
-@b{Yahoo Entertainment}
-
-Retrieve and speak Entertainment section from Yahoo Daily News.
-
-@b{Yahoo Health}
-
-Retrieve and speak Health section from Yahoo Daily News.
-
-@b{Yahoo Lifestyle}
-
-Yahoo Lifestyle News.
-
-@b{Yahoo Oddly}
-
-Retrieve and speak Oddity section from Yahoo Daily News.
-
-@b{Yahoo Politics}
-
-Retrieve and speak Politics section from Yahoo Daily News.
-
 @b{Yahoo RSS Feeds}
 
 List Yahoo RSS Feeds.
-
-@b{Yahoo SF Local}
-
-Retrieve and speak Local section from Yahoo Daily News.
-
-@b{Yahoo Science}
-
-Retrieve and speak Science section from Yahoo Daily News.
-
-@b{Yahoo Sports}
-
-Entertainment news from Yahoo.
-
-@b{Yahoo Technology News}
-
-Yahoo Technology News.
-
-@b{Yahoo Top Stories}
-
-Retrieve and speak Top Stories section from Yahoo Daily News.
-
-@b{Yahoo World News}
-
-Yahoo World News.
 
 @b{YouTube Results}
 

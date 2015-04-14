@@ -442,11 +442,14 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
  "http://seekingalpha.com/search/?cx=001514237567335583750%%3Acdhc2yeo2ko&cof=FORID%%3A11%%3BNB%%3A1&q=%s"
  (list "Company:")
  nil
- "Seeking Alpha search.")
+ "Seeking Alpha search."
+ 
+ #'(lambda (url)
+     (emacspeak-we-extract-by-id "content_section" url 'speak))
+ )
 
 ;;}}}
 ;;; pull google finance search results via the transcoder
-
 
 (emacspeak-url-template-define
  "Mobile Finance Google Search"
@@ -528,17 +531,6 @@ http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
 Source and target languages
 are specified as two-letter language codes, e.g. en|de translates
 from English to German")
-
-(emacspeak-url-template-define
- "Translation Via Google"
- "http://translate.google.com/translate_c?hl=en&langpair=%s&u=%s"
- (list
-  "Translate from|To:"
-  "URI: ")
- nil
- "Translate a Web page using google. Source and target languages
-are specified as two-letter language codes, e.g. en|de translates
-from English to German.")
 
 ;;}}}
 ;;{{{ dictionary.com:
@@ -685,57 +677,7 @@ from English to German.")
      (emacspeak-pronounce-add-buffer-local-dictionary-entry
       "http://rss.news.yahoo.com/rss/" ""))
  "List Yahoo RSS Feeds."
- #'(lambda (url)
-     (emacspeak-we-xslt-filter
-      "//a[not(contains(@href,\"url\"))and contains(@href, \"rss\") ]"
-      url 'speak)))
-
-(defun emacspeak-url-template-yahoo-news-processor (url)
-  "Process and speak Yahoo news."
-  (declare (special emacspeak-web-post-process-hook))
-  (add-hook 'emacspeak-web-post-process-hook
-            #'(lambda nil
-                (declare (special emacspeak-we-url-rewrite-rule
-                                  emacspeak-we-class-filter))
-                (setq emacspeak-we-class-filter "article"
-                      emacspeak-we-url-rewrite-rule
-                      '("$" "&printer=1"))
-                (emacspeak-speak-buffer)))
-  (emacspeak-we-xslt-filter
-   "//*[@id=\"ynmain\"]"
-   url))
-
-(emacspeak-url-template-define
- "Yahoo DailyNews"
- "http://dailynews.yahoo.com/"
- nil
- nil
- "Retrieve and speak DailyNewspage from Yahoo Daily News."
- 'emacspeak-url-template-yahoo-news-processor)
-
-(emacspeak-url-template-define
- "Yahoo Politics"
- "http://dailynews.yahoo.com/news?tmpl=index2&cid=703"
- nil
- nil
- "Retrieve and speak Politics section from Yahoo Daily News."
- 'emacspeak-url-template-yahoo-news-processor)
-
-(emacspeak-url-template-define
- "Yahoo Entertainment"
- "http://dailynews.yahoo.com/news?tmpl=index2&cid=762"
- nil
- nil
- "Retrieve and speak Entertainment section from Yahoo Daily News."
- 'emacspeak-url-template-yahoo-news-processor)
-
-(emacspeak-url-template-define
- "Yahoo Sports"
- "http://dailynews.yahoo.com/news?tmpl=index2&cid=755"
- nil
- nil
- "Entertainment news from Yahoo."
- 'emacspeak-url-template-yahoo-news-processor)
+ #'emacspeak-feeds-rss-display)
 
 (emacspeak-url-template-define
  "Yahoo Business News"
@@ -743,79 +685,8 @@ from English to German.")
  nil
  nil
  "Retrieve and speak business section from Yahoo Daily News."
- 'emacspeak-url-template-yahoo-news-processor)
-
-(emacspeak-url-template-define
- "Yahoo Science"
- "http://dailynews.yahoo.com/news?tmpl=index2&cid=753"
- nil
- nil
- "Retrieve and speak Science section from Yahoo Daily News."
- 'emacspeak-url-template-yahoo-news-processor)
-
-(emacspeak-url-template-define
- "Yahoo SF Local"
- "http://dailynews.yahoo.com/news?tmpl=index2&cid=390"
- nil
- nil
- "Retrieve and speak Local section from Yahoo Daily News."
- 'emacspeak-url-template-yahoo-news-processor)
-
-(emacspeak-url-template-define
- "Yahoo Content By Content ID"
- "http://dailynews.yahoo.com/news?tmpl=index2&cid=%s"
- (list "Content ID: ")
- nil
- "Retrieve and speak news section from Yahoo Daily News."
- 'emacspeak-url-template-yahoo-news-processor)
-
-(emacspeak-url-template-define
- "Yahoo Top Stories"
- "http://dailynews.yahoo.com/news?tmpl=index2&cid=716"
- nil
- nil
- "Retrieve and speak Top Stories section from Yahoo Daily News."
- 'emacspeak-url-template-yahoo-news-processor)
-
-(emacspeak-url-template-define
- "Yahoo Health"
- "http://dailynews.yahoo.com/news?tmpl=index2&cid=751"
- nil
- nil
- "Retrieve and speak Health section from Yahoo Daily News."
- 'emacspeak-url-template-yahoo-news-processor)
-
-(emacspeak-url-template-define
- "Yahoo Oddly"
- "http://dailynews.yahoo.com/news?tmpl=index2&cid=757"
- nil
- nil
- "Retrieve and speak Oddity section from Yahoo Daily News."
- 'emacspeak-url-template-yahoo-news-processor)
-
-(emacspeak-url-template-define
- "Yahoo Technology News"
- "http://dailynews.yahoo.com/news?tmpl=index2&cid=738"
- nil
- nil
- "Yahoo Technology News."
- 'emacspeak-url-template-yahoo-news-processor)
-
-(emacspeak-url-template-define
- "Yahoo Lifestyle"
- "http://dailynews.yahoo.com/news?tmpl=index2&cid=811"
- nil
- nil
- "Yahoo Lifestyle News."
- 'emacspeak-url-template-yahoo-news-processor)
-
-(emacspeak-url-template-define
- "Yahoo World News"
- "http://dailynews.yahoo.com/news?tmpl=index2&cid=959"
- nil
- nil
- "Yahoo World News."
- 'emacspeak-url-template-yahoo-news-processor)
+ #'(lambda (url)
+     (emacspeak-we-extract-by-role "main" url 'speak)))
 
 ;;}}}
 ;;{{{ w3c
@@ -1124,6 +995,8 @@ name of the list.")
            (list "$" "&prtPage=1")))
  "Retrieve Times Of India.
 Set up URL rewrite rule to get print page."
+ #'(lambda (url)
+     (emacspeak-we-extract-by-id "content" url 'speak))
  )
 
 ;;}}}
@@ -1195,9 +1068,12 @@ Set up URL rewrite rule to get print page."
 
 (emacspeak-url-template-define
  "WordNet Search"
- "http://wordnet.princeton.edu/perl/webwn?s=%s"
+ "http://wordnetweb.princeton.edu/perl/webwn?s=%s&o1=1&o8=1&o0=1&sub=Search+WordNet"
  (list "WordNet Define: ")
- 'emacspeak-speak-buffer
+ #'(lambda ()
+     (search-forward "(gloss)")
+     (forward-line 1)
+     (emacspeak-speak-rest-of-buffer))
  "Look up term in WordNet.")
 
 ;;}}}
