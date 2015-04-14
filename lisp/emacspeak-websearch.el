@@ -1337,34 +1337,34 @@ Results"
    'emacspeak-speak-line))
 
 ;;}}}
-;;{{{ Exchange rate convertor
+;;{{{ Exchange rate converter
 
-(emacspeak-websearch-set-searcher 'exchange-rate-convertor
-                                  'emacspeak-websearch-exchange-rate-convertor)
+(emacspeak-websearch-set-searcher 'exchange-rate-converter
+                                  'emacspeak-websearch-exchange-rate-converter)
 
-(emacspeak-websearch-set-key ?X 'exchange-rate-convertor)
+(emacspeak-websearch-set-key ?X 'exchange-rate-converter)
 
 (defvar emacspeak-websearch-exchange-rate-form
-  (expand-file-name "xml-forms/exchange-rate-convertor.xml"
+  (expand-file-name "xml-forms/exchange-rate-converter.xml"
                     emacspeak-lisp-directory)
   "Form for performing currency conversion.")
 
-(defvar emacspeak-websearch-exchange-rate-convertor-uri
+(defvar emacspeak-websearch-exchange-rate-converter-uri
   "http://www.xe.com/ucc/convert.cgi?Amount=1&From=%s&To=%s&submit=Perform+Conversion"
   "URI template  for currency conversion.")
 
 ;;;###autoload
-(defun emacspeak-websearch-exchange-rate-convertor (conversion-spec)
-  "Currency convertor."
+(defun emacspeak-websearch-exchange-rate-converter (conversion-spec)
+  "Currency converter."
   (interactive
    (list
     (read-from-minibuffer
      "Currency Convertor: FROM|TO:")))
-  (declare (special emacspeak-websearch-exchange-rate-convertor-uri))
+  (declare (special emacspeak-websearch-exchange-rate-converter-uri))
   (let ((fields (split-string conversion-spec "|"))
         (url nil))
     (setq url
-          (format emacspeak-websearch-exchange-rate-convertor-uri
+          (format emacspeak-websearch-exchange-rate-converter-uri
                   (upcase (first fields))
                   (upcase (second fields))))
     (emacspeak-we-extract-table-by-match
@@ -1372,27 +1372,27 @@ Results"
      url 'speak)))
 
 ;;}}}
-;;{{{ Yahoo Exchange rate convertor
+;;{{{ Yahoo Exchange rate converter
 
-(emacspeak-websearch-set-searcher 'y-exchange-rate-convertor
-                                  'emacspeak-websearch-yahoo-exchange-rate-convertor)
+(emacspeak-websearch-set-searcher 'y-exchange-rate-converter
+                                  'emacspeak-websearch-yahoo-exchange-rate-converter)
 
-(emacspeak-websearch-set-key ?x 'y-exchange-rate-convertor)
+(emacspeak-websearch-set-key ?x 'y-exchange-rate-converter)
 
-(defvar emacspeak-websearch-yahoo-exchange-rate-convertor-uri
+(defvar emacspeak-websearch-yahoo-exchange-rate-converter-uri
   "http://download.finance.yahoo.com/d/quotes.csv?s=%s=X&f=sl1d1t1ba&e=.csv"
   "URI template  for currency conversion.")
 
 ;;;###autoload
-(defun emacspeak-websearch-yahoo-exchange-rate-convertor (conversion-spec)
-  "Currency convertor."
+(defun emacspeak-websearch-yahoo-exchange-rate-converter (conversion-spec)
+  "Currency converter."
   (interactive
    (list
     (read-from-minibuffer
      "Currency Convertor: FromTo:")))
-  (declare (special emacspeak-websearch-yahoo-exchange-rate-convertor-uri))
+  (declare (special emacspeak-websearch-yahoo-exchange-rate-converter-uri))
   (let* ((url 
-          (format emacspeak-websearch-yahoo-exchange-rate-convertor-uri
+          (format emacspeak-websearch-yahoo-exchange-rate-converter-uri
                   (upcase  conversion-spec)))
          (buffer (url-retrieve-synchronously url)))
     (save-excursion

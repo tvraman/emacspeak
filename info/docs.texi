@@ -284,7 +284,7 @@ or from its home site at
   sunsite.unc.edu /pub/Linux/apps/sound/cdrom/cli
 This module also provides the ability to play or save
 clips from a CD if you have cdda2wav installed.
-cdda2wav is a cd to wav convertor.
+cdda2wav is a cd to wav converter.
 
 @subsection cd-tool Commands
 
@@ -3522,7 +3522,7 @@ client for browsing and listening to BBC programs.
 
 See http://www.bbc.co.uk/programmes/developers
 The BBC API helps locate a PID for a given program stream.
-That PID is converted to a streamable URL via the convertor:
+That PID is converted to a streamable URL via the converter:
 http://www.iplayerconverter.co.uk/convert.aspx
 Conversion: http://www.iplayerconverter.co.uk/convert.aspx?pid=%s
 The result of the above conversion gives a Web page with a
@@ -11895,8 +11895,8 @@ Display form specified by form-markup.
 Ebay search.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-exchange-rate-convertor  (conversion-spec)
-Currency convertor.
+@deffn {Interactive Command} emacspeak-websearch-exchange-rate-converter  (conversion-spec)
+Currency converter.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-foldoc-search  (query)
@@ -12035,8 +12035,8 @@ Search Wikipedia using Google.
 Perform an Yahoo  search
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-yahoo-exchange-rate-convertor  (conversion-spec)
-Currency convertor.
+@deffn {Interactive Command} emacspeak-websearch-yahoo-exchange-rate-converter  (conversion-spec)
+Currency converter.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-yahoo-historical-chart  (ticker &optional as-html)
