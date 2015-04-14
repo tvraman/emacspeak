@@ -9536,11 +9536,11 @@ Auditory interface to solitaire
 @subsection emacspeak-solitaire Commands
 
 @deffn {Interactive Command} emacspeak-solitaire-show-column  nil
-Display current row auditorallly
+Display current row auditorally
 @end deffn
 
 @deffn {Interactive Command} emacspeak-solitaire-show-row  nil
-Display current row auditorallly
+Display current row auditorally
 @end deffn
 
 @deffn {Interactive Command} emacspeak-solitaire-speak-coordinates  nil

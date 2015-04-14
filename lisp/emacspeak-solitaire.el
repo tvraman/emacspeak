@@ -80,7 +80,7 @@
 (defsubst emacspeak-solitaire-hole () (dtk-tone 800 50 ))
 
 (defun emacspeak-solitaire-show-row ()
-  "Display current row auditorallly"
+  "Display current row auditorally"
   (interactive)
   (save-excursion
     (beginning-of-line )
@@ -101,7 +101,7 @@
     (dtk-force)))
 
 (defun emacspeak-solitaire-show-column ()
-  "Display current row auditorallly"
+  "Display current row auditorally"
   (interactive)
   (save-excursion
     (let ((row (emacspeak-solitaire-current-row))
