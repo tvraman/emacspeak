@@ -14322,7 +14322,7 @@ Apply first female voice.
 @node URL Templates 
 @section  URL Templates
 
-This section documents a total of 96 URL Templates.
+This section documents a total of 90 URL Templates.
 
 All of these URL templates can be invoked via command
   @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -14355,18 +14355,6 @@ Retrieve product details from Amazon by either ISBN or ASIN.
 @b{Anonymize Google Search}
 
 Logout from Google to do an anonymous search.
-
-@b{Archive News Search}
-
-Search Google Archive News.
-
-@b{Ask Local Search}
-
-Ask Local Search.
-
-@b{Ask Walking Directions}
-
-Walking directions from Ask.com
 
 @b{BBC  iPlayer}
 
@@ -14543,17 +14531,9 @@ NYTimes Mobile Site
 
 Display browsable list of NY Times RSS Feeds.
 
-@b{Official GoogleBlog Search}
-
-Search within all official Google blogs.
-
 @b{Old Time Radio}
 
 This months Old Time Radio Programming
-
-@b{On The Fly CSE}
-
-Build a CSE on the fly and  use it to search.
 
 @b{PHC Prairie Home Companion}
 
@@ -14694,10 +14674,6 @@ Yahoo World News.
 @b{YouTube Results}
 
 YouTube Search Via Feeds
-
-@b{ask search mobile}
-
-Mobile search using Ask.com
 
 @b{fedex packages}
 

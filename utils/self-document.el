@@ -81,10 +81,10 @@
 
 (defun self-document-load-modules ()
   "Load all modules"
-  (declare (special self-document-files emacspeak-play-emacspeak-startup-icon
-                    dtk-quiet emacspeak-speak-messages
-                    emacspeak-startup-hook dtk-startup-hook))
-  (let ((emacspeak-play-emacspeak-startup-icon nil))
+  (declare (special dtk-program
+                    self-document-files emacspeak-play-emacspeak-startup-icon))
+  (let ((emacspeak-play-emacspeak-startup-icon nil)
+        (dtk-program "log-plain"))
     (package-initialize)
     (load-library "emacspeak-load-path")
     (load-library "plain-voices")
