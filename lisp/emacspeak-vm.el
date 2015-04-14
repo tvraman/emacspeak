@@ -570,7 +570,7 @@ If N is negative, move backward instead."
   "Customization settings for VM used by the author of
 Emacspeak."
   (declare (special
-            vm-mime-charset-convertor-alist
+            vm-mime-charset-converter-alist
             vm-mime-default-face-charsets
             vm-frame-per-folder
             vm-frame-per-composition
@@ -589,7 +589,7 @@ Emacspeak."
             vm-confirm-new-folders
             vm-move-after-deleting
             emacspeak-vm-voice-lock-messages))
-  (setq vm-mime-charset-convertor-alist
+  (setq vm-mime-charset-converter-alist
         '(
           ("utf-8" "iso-8859-1" "iconv -f utf-8 -t iso-8859-1")
           )
@@ -658,16 +658,16 @@ text using wvText."
   :type 'string
   :group 'emacspeak-vm)
 
-(defun emacspeak-vm-add-mime-convertor (convertor)
-  "Helper to add a convertor specification."
-  (declare (special vm-mime-type-convertor-alist))
+(defun emacspeak-vm-add-mime-converter (converter)
+  "Helper to add a converter specification."
+  (declare (special vm-mime-type-converter-alist))
   (unless
       (find-if
        #'(lambda  (i)
-           (string-equal (car i) (car convertor)))
-       vm-mime-type-convertor-alist)
-    (push   convertor
-            vm-mime-type-convertor-alist)))
+           (string-equal (car i) (car converter)))
+       vm-mime-type-converter-alist)
+    (push   converter
+            vm-mime-type-converter-alist)))
 
 (defun emacspeak-vm-customize-mime-settings ()
   "Customize VM mime settings."
@@ -680,23 +680,23 @@ text using wvText."
                     vm-mime-base64-encoder-program
                     vm-mime-base64-decoder-program
                     vm-mime-attachment-auto-type-alist
-                    vm-mime-type-convertor-alist
+                    vm-mime-type-converter-alist
                     emacspeak-vm-pdf2text
                     emacspeak-vm-ppt2html
                     emacspeak-vm-xls2html
                     emacspeak-vm-doc2text
                     emacspeak-vm-cal2text))
-  (emacspeak-vm-add-mime-convertor
+  (emacspeak-vm-add-mime-converter
    (list "text/calendar" "text/plain" emacspeak-vm-cal2text))
-  (emacspeak-vm-add-mime-convertor
+  (emacspeak-vm-add-mime-converter
    (list "application/pdf" "text/plain"
          emacspeak-vm-pdf2text))
-  (emacspeak-vm-add-mime-convertor
+  (emacspeak-vm-add-mime-converter
    (list "application/vnd.ms-excel" "text/html"
          emacspeak-vm-xls2html))
-  (emacspeak-vm-add-mime-convertor
+  (emacspeak-vm-add-mime-converter
    (list "application/vnd.ms-powerpoint" "text/html" emacspeak-vm-ppt2html))
-  (emacspeak-vm-add-mime-convertor
+  (emacspeak-vm-add-mime-converter
    (list "application/msword" "text/plain" emacspeak-vm-doc2text))
   (setq vm-preview-lines nil
         vm-infer-mime-types t

@@ -48,7 +48,7 @@
 
 ;;; See http://www.bbc.co.uk/programmes/developers
 ;;; The BBC API helps locate a PID for a given program stream.
-;;; That PID is converted to a streamable URL via the convertor:
+;;; That PID is converted to a streamable URL via the converter:
 ;;; http://www.iplayerconverter.co.uk/convert.aspx
 ;;;Conversion: http://www.iplayerconverter.co.uk/convert.aspx?pid=%s
 ;;; The result of the above conversion gives a Web page with a
@@ -74,7 +74,7 @@
   "http://www.bbc.co.uk/%s/programmes/schedules/%s%s.json"
   "URL template for pulling schedules as json.")
 
-(defvar emacspeak-bbc-iplayer-convertor
+(defvar emacspeak-bbc-iplayer-converter
   "http://www.iplayerconverter.co.uk/convert.aspx?pid=%s"
   "REST API for converting IPlayer program-id to  stream.")
 
@@ -275,7 +275,7 @@ Interactive prefix arg filters  content by genre."
 
 (defun emacspeak-bbc-iplayer-button-action (button)
   "Play program  refered to by this button."
-  (declare (special emacspeak-bbc-iplayer-convertor))
+  (declare (special emacspeak-bbc-iplayer-converter))
   (add-hook
    'emacspeak-web-post-process-hook
    #'(lambda nil
@@ -286,7 +286,7 @@ Interactive prefix arg filters  content by genre."
         (t (message "Could not find media link."))))
    'at-end)
   (browse-url
-   (format emacspeak-bbc-iplayer-convertor (button-get button 'pid))))
+   (format emacspeak-bbc-iplayer-converter (button-get button 'pid))))
 
 ;;}}}
 (provide 'emacspeak-bbc)

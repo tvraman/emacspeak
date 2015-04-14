@@ -232,20 +232,20 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 ;;}}}
 ;;{{{ BBC iPlayer
-;;; convertor is here:
+;;; converter is here:
 ;;; http://www.iplayerconverter.co.uk/convert.aspx
 ;;;Conversion: http://www.iplayerconverter.co.uk/convert.aspx?pid=%s
 ;;; This used to work, but now gives a 403:
 ;;; "http://www.iplayerconverter.co.uk/pid/%s/r/stream.aspx"
 ;;; So now we need to open a Web page and click a link (sad)
 
-(defvar emacspeak-url-template-iplayer-convertor
+(defvar emacspeak-url-template-iplayer-converter
   "http://www.iplayerconverter.co.uk/convert.aspx?pid=%s"
   "Template for generating persistent realplayer URL for iplayer content.")
 
 (defun emacspeak-url-template-iplayer-player (cid)
   "Take a cid particle, and opens player page."
-  (declare (special emacspeak-url-template-iplayer-convertor))
+  (declare (special emacspeak-url-template-iplayer-converter))
   (add-hook
    'emacspeak-web-post-process-hook
    #'(lambda nil
@@ -256,7 +256,7 @@ dont-url-encode if true then url arguments are not url-encoded "
         (t (message "Could not find media link."))))
    'at-end)
   (browse-url
-   (format emacspeak-url-template-iplayer-convertor (substring cid 4))))
+   (format emacspeak-url-template-iplayer-converter (substring cid 4))))
 
 ;;; See http://www.bbc.co.uk/programmes/developers
 ;;; for how to obtain xml schedules
