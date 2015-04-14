@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1095 commands and 895 options.
+This chapter documents a total of 1093 commands and 895 options.
 
 @menu
 * acss-structure::
@@ -2561,6 +2561,18 @@ Hook to run after starting emacspeak.
 @defvar {User Option} emacspeak-term-underline-voice
 Personality used for term-underline
 This personality uses  voice-brighten-medium whose  effect can be changed globally by customizing voice-brighten-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-twittering-uri-personality
+Personality used for twittering-uri-face
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-twittering-username-personality
+Personality used for twittering-username-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
 
 @end defvar
 
@@ -9536,11 +9548,11 @@ Auditory interface to solitaire
 @subsection emacspeak-solitaire Commands
 
 @deffn {Interactive Command} emacspeak-solitaire-show-column  nil
-Display current row auditorally
+Audio format current column.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-solitaire-show-row  nil
-Display current row auditorally
+Audio format current row.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-solitaire-speak-coordinates  nil
@@ -11239,18 +11251,6 @@ Speak tweet under point.
 
 @subsection emacspeak-twittering Options
 
-@defvar {User Option} emacspeak-twittering-uri-personality
-Personality used for twittering-uri-face
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-twittering-username-personality
-Personality used for twittering-username-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
 @node emacspeak-url-template
 @section emacspeak-url-template
 
@@ -11863,10 +11863,6 @@ Ask Jeeves for the answer.
 Search Computer Science Bibliographies.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-blinkx-search  (query)
-BlinkX RSS Generator.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-websearch-citeseer-search  (term)
 Perform a CiteSeer search. 
 @end deffn
@@ -11927,10 +11923,6 @@ Present Google advanced search form simplified for speech interaction.
 
 @deffn {Interactive Command} emacspeak-websearch-google-feeling-lucky  (query)
 Do a I'm Feeling Lucky Google search.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-google-mobile  (query)
-Google mobile search.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-google-news  nil

@@ -299,29 +299,6 @@ When using supported browsers,  this interface attempts to speak the most releva
       (emacspeak-webutils-post-process "citations found" 'emacspeak-speak-line)))))
 
 ;;}}}
-;;{{{ BlinkX
-
-(emacspeak-websearch-set-searcher 'blinkx
-                                  'emacspeak-websearch-blinkx-search)
-
-(emacspeak-websearch-set-key ?B 'blinkx)
-
-(defvar emacspeak-websearch-blinkx-uri
-  "http://emea-store.blinkx.com/redirectors/SmartFeed.php?max=50&channel=reuters+revs+fox+webvideo+theonenetwork+verdictoncars+londontv+totalvid+inthebox+transmission+ifilms2+cspan+cspan2+bbcxml+bloomberg+cnn+itv+msnbc+forbes+podcast&siteId=3&oId=2100-1032-5793745&ontId=1023&lop=nl.ex&q="
-  "URI to search  BlinkX for broadcasts.")
-
-;;;###autoload
-(defun emacspeak-websearch-blinkx-search (query)
-  "BlinkX RSS Generator."
-  (interactive
-   (list
-    (emacspeak-websearch-read-query "Search Online Broadcasts for: ")))
-  (declare (special emacspeak-websearch-blinkx-uri))
-  (emacspeak-feeds-rss-display
-   (concat  emacspeak-websearch-blinkx-uri
-            (emacspeak-url-encode query))))
-
-;;}}}
 ;;{{{ FolDoc
 
 (emacspeak-websearch-set-searcher 'foldoc
@@ -995,31 +972,6 @@ https://www.google.com/options/specialsearches.html "
   (interactive)
   (declare (special emacspeak-websearch-google-advanced-form))
   (emacspeak-websearch-display-form emacspeak-websearch-google-advanced-form))
-
-;;}}}
-;;{{{ google mobile
-(emacspeak-websearch-set-searcher 'google-mobile
-                                  'emacspeak-websearch-google-mobile)
-
-(emacspeak-websearch-set-key ?\; 'google-mobile)
-
-(defvar emacspeak-websearch-google-mobile-uri
-  "https://www.google.com/xhtml?q="
-  "Google mobile search.")
-
-;;;###autoload
-(defun emacspeak-websearch-google-mobile (query)
-  "Google mobile search."
-  (interactive
-   (list
-    (gweb-google-autocomplete "Google Mobile: ")))
-  (declare (special emacspeak-websearch-google-mobile-uri))
-  (browse-url
-   (concat emacspeak-websearch-google-mobile-uri
-           (emacspeak-url-encode query)))
-  (emacspeak-webutils-post-process
-   query
-   'emacspeak-speak-rest-of-buffer))
 
 ;;}}}
 ;;{{{ Google News
