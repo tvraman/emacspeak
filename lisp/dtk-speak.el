@@ -1539,19 +1539,18 @@ This is setup on a per engine basis.")
   (cond
                                         ;viavoice outloud family 
    ((string-match "outloud" tts-name) (outloud-configure-tts))
-                                        ;all dectalks
+;;;all dectalks
    ((string-match "dtk-" tts-name) (dectalk-configure-tts))
    ((string-match "^multispeech$" tts-name) (multispeech-configure-tts))
-                                        ;exact match
-   ((string-match "^mac$" tts-name) (mac-configure-tts))
+   ((string-match "mac$" tts-name) (mac-configure-tts))
    ((string-match "espeak$" tts-name) (espeak-configure-tts))
    ((string-match "^eflite$" tts-name) (flite-configure-tts))
-   ;;; generic configure
+;;; generic configure
    (t (plain-configure-tts)))
   (when
       (or 
        (string-match "^ssh" tts-name)   ;remote server
-       (string-match "^cloud" tts-name)
+       (string-match "^cloud" tts-name) ; cloud 
        (string-match "^log" tts-name))
     (setq emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon))
   (load-library "voice-setup")
