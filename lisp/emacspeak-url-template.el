@@ -698,8 +698,6 @@ from English to German.")
 ;;}}}
 ;;{{{ Google Archive Search
 
-
-
 (emacspeak-url-template-define
  "IToRSS"
  "http://feedflipper.net/convert.php?feed=%s"
@@ -947,7 +945,7 @@ name of the list.")
  "CNN Technology news."
  #'(lambda (url)
      (emacspeak-we-xslt-filter "//article"
-      url 'speak)))
+                               url 'speak)))
 
 (emacspeak-url-template-define
  "CNN Market Data "
@@ -1490,16 +1488,16 @@ prompts for a location and speaks the forecast. \n\n"
   (let
       ((keys
         (sort
-          (loop for k being the hash-keys of emacspeak-url-template-table collect k) 
-          'string-lessp)))
+         (loop for k being the hash-keys of emacspeak-url-template-table collect k) 
+         'string-lessp)))
     (loop
      for key in keys do
      (insert
-           (format "@b{%s}\n\n" key))
-          (insert
-           (emacspeak-url-template-documentation
-            (emacspeak-url-template-get key)))
-          (insert "\n\n"))))
+      (format "@b{%s}\n\n" key))
+     (insert
+      (emacspeak-url-template-documentation
+       (emacspeak-url-template-get key)))
+     (insert "\n\n"))))
 
 ;;}}}
 (provide 'emacspeak-url-template)

@@ -429,9 +429,6 @@ Checked by emacspeak specific dis-mode-hooks entry.")
                 (push 'emacspeak-dismal-col-summarizer-list
                       dismal-saved-variables))))
 
-
-
-
 (add-hook
  'dis-mode-hooks
  #'(lambda nil
