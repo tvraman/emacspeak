@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1093 commands and 895 options.
+This chapter documents a total of 1064 commands and 890 options.
 
 @menu
 * acss-structure::
@@ -11891,10 +11891,6 @@ When using supported browsers,  this interface attempts to speak the most releva
 Display form specified by form-markup.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-ebay-search  nil
-Ebay search.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-websearch-exchange-rate-converter  (conversion-spec)
 Currency converter.
 @end deffn
@@ -11917,20 +11913,12 @@ Google. Uses customizable option
 just results.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-google-advanced  nil
-Present Google advanced search form simplified for speech interaction.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-websearch-google-feeling-lucky  (query)
 Do a I'm Feeling Lucky Google search.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-google-news  nil
 Invoke Google News url template.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-google-sak  (engine query)
-Perform a Google query against a specific index.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-google-search-in-date-range  nil
@@ -11943,10 +11931,6 @@ Perform a specialized Google search. See the Google site for
 https://www.google.com/options/specialsearches.html 
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-google-usenet-advanced  nil
-Present Google Usenet advanced search form simplified for speech interaction.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-websearch-google-with-toolbelt  (query)
 Launch Google search with toolbelt.
 @end deffn
@@ -11957,11 +11941,6 @@ Perform an Gutenberg search
 
 @deffn {Interactive Command} emacspeak-websearch-help  nil
 Displays key mapping used by Emacspeak Websearch.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-map-yahoo-directions-search  (query &optional map)
-Get driving directions from Yahoo.
-With optional interactive prefix arg MAP shows the location map instead.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-merriam-webster-search  (query)
@@ -11977,25 +11956,6 @@ Optional prefix arg no-rss scrapes information from HTML.
 Perform an Open Directory search
 @end deffn
 
-@deffn {Interactive Command} emacspeak-websearch-quotes-yahoo-search  (query &optional prefix)
-Perform a Quotes Yahoo .
-Default tickers to look up is taken from variable
-emacspeak-wizards-personal-portfolio.
-Default is to present the data in emacspeak's table browsing
-mode --optional interactive prefix arg
-causes data to be displayed as  a Web page.
-You can customize the defaults by setting variable
-emacspeak-websearch-quotes-yahoo-options to an appropriate string.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-recorded-books-search  nil
-Present advanced search form for recorded books.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-rpm-find  (query)
-Search RPM  catalog  site.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-websearch-software-search  nil
 Search SourceForge, Freshmeat and other sites. 
 @end deffn
@@ -12006,21 +11966,6 @@ Search SourceForge Site.
 
 @deffn {Interactive Command} emacspeak-websearch-swik-search  (query)
 Search swik software community site.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-usenet  (group &optional prefix)
-@kbd{C-e U}
-
-Prompt and browse a Usenet newsgroup.
-Optional interactive prefix arg results in prompting for a search term.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-usenet-search  (group)
-Search a Usenet newsgroup.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-websearch-w3c-search  (query)
-Search the W3C Site.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-websearch-weather  (query)
@@ -12350,25 +12295,6 @@ Create a customization buffer for browsing and updating
 personal customizations.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-cvs-berlios-get-project-snapshot  (project &optional module)
-Grab CVS snapshot  of specified project from berlios.de.
-Ask for module name if prefix argument is given
-@end deffn
-
-@deffn {Interactive Command} emacspeak-cvs-get-anonymous  nil
-Get latest cvs snapshot of emacspeak.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-cvs-gnu-get-project-snapshot  (project &optional module)
-Grab CVS snapshot  of specified project from gnu.
-Ask for module name if prefix argument is given
-@end deffn
-
-@deffn {Interactive Command} emacspeak-cvs-sf-get-project-snapshot  (project &optional module)
-Grab CVS snapshot  of specified project from sf.
-Ask for module name if prefix argument is given
-@end deffn
-
 @deffn {Interactive Command} emacspeak-emergency-tts-restart  nil
 @kbd{C-e <insert>}
 
@@ -12386,24 +12312,6 @@ With optional PREFIX argument, label current frame.
 
 @deffn {Interactive Command} emacspeak-frame-read-frame-label  nil
 Read a frame label with completion.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-generate-documentation  (filename)
-Generate docs for all emacspeak commands.
-Prompts for FILENAME in which to save the documentation.
-Warning! Contents of file filename will be overwritten.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-generate-texinfo-command-documentation  (filename)
-Generate texinfo documentation  for all emacspeak
-commands  into file commands.texi.
-Warning! Contents of file commands.texi will be overwritten.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-generate-texinfo-option-documentation  (filename)
-Generate texinfo documentation  for all emacspeak
-options  into file filename.
-Warning! Contents of file filename will be overwritten.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-kill-buffer-quietly  nil
@@ -12448,12 +12356,6 @@ With optional interactive prefix arg `frame', move to next frame instead.
 
 Move to previous buffer.
 With optional interactive prefix arg `frame', move to previous frame instead.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-root  (&optional cd)
-Start a root shell or switch to one that already exists.
-Optional interactive prefix arg `cd' executes cd
-default-directory after switching.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-select-this-buffer-next-display  nil
@@ -12516,11 +12418,6 @@ Signals beginning  of buffer.
 Move forward across blank lines.
 The line under point is then spoken.
 Signals end of buffer.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-speak-browse-linux-howto  (howto)
-Browse a Linux Howto file.
-We cleanup underlining, and set up outline mode correctly.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-speak-popup-messages  nil
@@ -12590,14 +12487,6 @@ meaning of `previous'.
 Restart specified ssh tts server.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-sudo  (command)
-SUDo command --run command as super user.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-sudo-edit  (&optional arg)
-Edit file as Root.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-switch-to-previous-buffer  nil
 Switch to most recently used interesting buffer.
 Obsoleted by `previous-buffer' in Emacs 22
@@ -12612,16 +12501,6 @@ Prompts for the new location and preserves modification time
   to that directory under its current name ; if location names
   a file in an existing directory, the specified name is
   used.  Signals an error if target already exists.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-view-emacspeak-doc  nil
-Display a summary of all Emacspeak commands.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-view-emacspeak-faq  nil
-@kbd{C-e F}
-
-Browse the Emacspeak FAQ.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-view-emacspeak-news  nil
@@ -12691,12 +12570,6 @@ during initialization.
 key             binding
 ---             -------
 
-@end deffn
-
-@deffn {Interactive Command} emacspeak-wizards-edit-file-as-root  nil
-Like `ido-find-file, but automatically edit the file with
-root-privileges (using tramp/sudo), if the file is not writable by
-user.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-end-of-word  (arg)
@@ -12825,10 +12698,6 @@ run `how-many' to count  matching header lines.
 With interactive prefix arg, prompts for and remembers the file local pattern.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-wizards-i810-display-status  nil
-Show display status on thinkpads using i810switch.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-wizards-js  nil
 Run JS in a comint sub-process.
 @end deffn
@@ -12882,10 +12751,6 @@ Provide an input buffer in a specified mode.
 @deffn {Interactive Command} emacspeak-wizards-portfolio-quotes  nil
 Bring up detailed stock quotes for portfolio specified by
 emacspeak-wizards-personal-portfolio.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-wizards-ppp-toggle  nil
-Bring up or bring down ppp.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-ppt-display  nil
@@ -13025,10 +12890,6 @@ Toggle pronunciation of mm-dd-yyyy dates.
 Toggle pronunciation of yyyymmdd  dates.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-wizards-tpctl-display-status  nil
-Show display status on thinkpads using tpctl.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-wizards-tramp-open-location  (name)
 Open specified tramp location.
 Location is specified by name.
@@ -13094,10 +12955,6 @@ Open a new buffer containing the contents of URL.
 Read a personality  and apply it to the current line.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-wizards-vpn-toggle  nil
-Bring up or bring down vpn.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-wizards-xl-display  nil
 Called to set up preview of an XL file.
 Assumes we are in a buffer visiting a .xls file.
@@ -13130,17 +12987,6 @@ information between different Emacs sessions.
 
 @defvar {User Option} emacspeak-curl-cookie-store
 Cookie store used by Curl.
-
-@end defvar
-
-@defvar {User Option} emacspeak-cvs-local-directory
-Directory where we download the snapshot.
-
-@end defvar
-
-@defvar {User Option} emacspeak-cvs-local-directory-pattern
-Pattern from which name of local download directory is build.
- %s is replaced by the project name.
 
 @end defvar
 
@@ -13198,11 +13044,6 @@ Name of links executable.
 
 @end defvar
 
-@defvar {User Option} emacspeak-wizards-linux-howto-directory
-Root  of Linux Howtos.
-
-@end defvar
-
 @defvar {User Option} emacspeak-wizards-lynx-program
 Lynx executable.
 
@@ -13257,16 +13098,6 @@ bound to M-x emacspeak-wizards-tramp-open-location.
 
 @defvar {User Option} emacspeak-wizards-vc-viewer-command
 Command line for dumping out virtual console.
-
-@end defvar
-
-@defvar {User Option} emacspeak-wizards-vpn-end-command
-Command that brings down a   VPN connection.
-
-@end defvar
-
-@defvar {User Option} emacspeak-wizards-vpn-start-command
-Command that brings up a VPN connection.
 
 @end defvar
 

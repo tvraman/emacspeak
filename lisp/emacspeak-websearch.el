@@ -324,76 +324,6 @@ When using supported browsers,  this interface attempts to speak the most releva
    'emacspeak-speak-line))
 
 ;;}}}
-;;{{{ quotes from yahoo
-
-(emacspeak-websearch-set-searcher 'quotes-yahoo
-                                  'emacspeak-websearch-quotes-yahoo-search)
-
-(emacspeak-websearch-set-key ?q 'quotes-yahoo)
-
-(defvar emacspeak-websearch-quotes-yahoo-uri
-  "http://finance.yahoo.com/q?s="
-  "*URI for launching a Yahoo Quotes  search.")
-
-(defvar emacspeak-websearch-quotes-csv-yahoo-uri
-  "http://quote.yahoo.com/d/quotes.csv?f=snl1d1t1c1p2va2bapomwerr1dyj1x&s="
-  "*URI for launching a Yahoo Quotes  search.
-See http://www.gummy-stuff.org/Yahoo-data.htm and Perl module Finance::Yahoo")
-
-(defvar emacspeak-websearch-quotes-yahoo-options
-  "&d=v1"
-  "*Additional default options to pass to Yahoo.")
-
-(defvar emacspeak-websearch-curl-program "curl"
-  "Name of curl executable")
-
-;;;###autoload
-(defun emacspeak-websearch-quotes-yahoo-search (query &optional prefix)
-  "Perform a Quotes Yahoo .
-Default tickers to look up is taken from variable
-emacspeak-wizards-personal-portfolio.
-Default is to present the data in emacspeak's table browsing
-mode --optional interactive prefix arg
-causes data to be displayed as  a Web page.
-You can customize the defaults by setting variable
-emacspeak-websearch-quotes-yahoo-options to an appropriate string."
-  (interactive
-   (list
-    (emacspeak-websearch-read-query "Lookup quotes: "
-                                    emacspeak-wizards-personal-portfolio
-                                    emacspeak-wizards-personal-portfolio)
-    current-prefix-arg))
-  (declare (special emacspeak-websearch-quotes-yahoo-uri
-                    emacspeak-wizards-personal-portfolio
-                    emacspeak-websearch-quotes-yahoo-options
-                    emacspeak-websearch-curl-program
-                    emacspeak-websearch-quotes-csv-yahoo-uri))
-  (cond
-   ((null prefix)
-    (let ((uri (concat emacspeak-websearch-quotes-csv-yahoo-uri
-                       (emacspeak-url-encode (format "%s" query))))
-          (results "*quotes-table*")
-          (process nil))
-;;; nuke old results if any
-      (when (get-buffer results )
-        (kill-buffer results))
-      (setq process
-            (start-process   "lynx"
-                             results
-                             emacspeak-websearch-curl-program
-                             "--silent"
-                             uri))
-      (set-process-sentinel process 'emacspeak-websearch-view-csv-data)))
-   (t
-    (browse-url
-     (concat emacspeak-websearch-quotes-yahoo-uri
-             (emacspeak-url-encode query)
-             emacspeak-websearch-quotes-yahoo-options))
-    (emacspeak-webutils-post-process
-     "Symbol"
-     'emacspeak-speak-line))))
-
-;;}}}
 ;;{{{ Lookup company news at Yahoo
 
 (emacspeak-websearch-set-searcher 'company-news
@@ -531,22 +461,6 @@ Optional second arg as-html processes the results as HTML rather than data."
         (emacspeak-webutils-post-process
          "Open"
          'emacspeak-speak-line)))))
-
-;;}}}
-;;{{{  usenet
-
-(emacspeak-websearch-set-searcher 'dejanews
-                                  'emacspeak-websearch-usenet-search)
-
-(emacspeak-websearch-set-key ?D 'dejanews)
-
-;;;###autoload
-(defun emacspeak-websearch-usenet-search (group)
-  "Search a Usenet newsgroup."
-  (interactive
-   (list
-    (read-from-minibuffer "Newsgroup search: ")))
-  (emacspeak-websearch-usenet group 'search))
 
 ;;}}}
 ;;{{{ source forge
@@ -834,7 +748,7 @@ Optional prefix arg prompts for toolbelt options."
          (format emacspeak-websearch-accessible-google-url query)
          'speak)))))
 
-;;;###autoload 
+;;;###autoload
 (defun emacspeak-websearch-google-with-toolbelt (query)
   "Launch Google search with toolbelt."
   (interactive (list (gweb-google-autocomplete "AGoogle: ")))
@@ -895,85 +809,6 @@ https://www.google.com/options/specialsearches.html "
     'emacspeak-websearch-google-search-in-date-range))
 
 ;;}}}
-;;{{{ Google Swiss Army Knife:
-(emacspeak-websearch-set-searcher 'google-sak
-                                  'emacspeak-websearch-google-sak)
-
-(emacspeak-websearch-set-key ?\' 'google-sak )
-(defvar emacspeak-websearch-google-images
-  "http://images.google.com/images?hl=en&ie=UTF-8&q="
-  "URI for Google Image Search.")
-
-(defvar emacspeak-websearch-google-news-uri
-  "http://groups.google.com/grphp?hl=en&ie=UTF-8&q="
-  "URI for Google News search.")
-
-(defvar emacspeak-websearch-froogle-uri
-  "http://froogle.google.com/frghp?hl=en&ie=UTF-8&q="
-  "URI for Google Froogle.")
-(defvar emacspeak-websearch-google-html-maps-uri
-  "http://maps.google.com/?output=html&hl=en&ie=UTF-8&f=q&q="
-  "URI for Google Maps using plain HTML.")
-
-(defvar emacspeak-websearch-google-scholar-uri
-  "http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&num=25&q="
-  "URI for Google Scholar search.")
-
-(defvar emacspeak-websearch-google-books-uri
-  "http://books.google.com/books?btnG=Search+Books&hl=en&q="
-  "URI for Google Book Search.")
-
-(defvar emacspeak-websearch-google-videos-uri
-  "http://video.google.com/videofeed?type=search&q="
-  "URI for Google Video search.")
-
-(defvar emacspeak-websearch-google-launch-uris
-  (list
-   (cons 'web (emacspeak-websearch-google-uri))
-   (cons 'images  emacspeak-websearch-google-images)
-   (cons 'news emacspeak-websearch-google-news-uri)
-   (cons 'froogle emacspeak-websearch-froogle-uri)
-   (cons 'books emacspeak-websearch-google-books-uri)
-   (cons 'scholar emacspeak-websearch-google-scholar-uri)
-   (cons 'maps emacspeak-websearch-google-html-maps-uri)
-   (cons 'videos emacspeak-websearch-google-videos-uri))
-  "Association list of Google search URIs.")
-
-;;;###autoload
-(defun emacspeak-websearch-google-sak(engine query)
-  "Perform a Google query against a specific index."
-  (interactive
-   (list
-    (completing-read "Engine: "
-                     emacspeak-websearch-google-launch-uris)
-    (gweb-google-autocomplete "Google for: ")))
-  (declare (special emacspeak-websearch-read-query))
-  (browse-url
-   (concat (cdr (assq engine
-                      emacspeak-websearch-google-launch-uris))
-           (emacspeak-url-encode query))))
-
-;;}}}
-;;{{{ google advanced search
-
-(emacspeak-websearch-set-searcher 'google-advanced
-                                  'emacspeak-websearch-google-advanced)
-
-(emacspeak-websearch-set-key ?. 'google-advanced)
-
-(defvar emacspeak-websearch-google-advanced-form
-  (expand-file-name "xml-forms/google-advanced.xml"
-                    emacspeak-lisp-directory)
-  "Markup for Google advanced search form.")
-
-;;;###autoload
-(defun emacspeak-websearch-google-advanced ()
-  "Present Google advanced search form simplified for speech interaction."
-  (interactive)
-  (declare (special emacspeak-websearch-google-advanced-form))
-  (emacspeak-websearch-display-form emacspeak-websearch-google-advanced-form))
-
-;;}}}
 ;;{{{ Google News
 
 (emacspeak-websearch-set-searcher 'google-news
@@ -988,26 +823,6 @@ https://www.google.com/options/specialsearches.html "
   (let ((name "Google News Search"))
     (emacspeak-url-template-open
      (emacspeak-url-template-get name))))
-
-;;}}}
-;;{{{  advanced usenet search
-
-(emacspeak-websearch-set-searcher 'google-usenet-advanced
-                                  'emacspeak-websearch-google-usenet-advanced)
-
-(emacspeak-websearch-set-key ?u 'google-usenet-advanced)
-
-(defvar emacspeak-websearch-google-usenet-advanced-form
-  (expand-file-name "xml-forms/google-usenet-advanced.xml"
-                    emacspeak-lisp-directory)
-  "Usenet advanced search from google.")
-
-;;;###autoload
-(defun emacspeak-websearch-google-usenet-advanced ()
-  "Present Google Usenet advanced search form simplified for speech interaction."
-  (interactive)
-  (declare (special emacspeak-websearch-google-usenet-advanced-form))
-  (emacspeak-websearch-display-form emacspeak-websearch-google-usenet-advanced-form))
 
 ;;}}}
 ;;{{{  Ask Jeeves
@@ -1030,78 +845,6 @@ https://www.google.com/options/specialsearches.html "
    (concat emacspeak-websearch-jeeves-uri
            (emacspeak-url-encode query)))
   (emacspeak-webutils-post-process query 'emacspeak-speak-line))
-
-;;}}}
-;;{{{ Driving directions from Yahoo
-
-(emacspeak-websearch-set-searcher 'map-yahoo-directions
-                                  'emacspeak-websearch-map-yahoo-directions-search)
-(emacspeak-websearch-set-key ?m 'map-yahoo-directions)
-
-(defvar emacspeak-websearch-map-yahoo-directions-uri
-  "http://maps.yahoo.com/py/ddResults.py?Pyt=Tmap&doit=1&newname=&newdesc=&Get+Directions=Get+Directions&textonly=1"
-  "URI for getting driving directions from Yahoo.")
-
-(defvar emacspeak-websearch-map-yahoomaps-uri
-  "http://maps.yahoo.com/py/maps.py?Pyt=Tmap&Get%A0Map=Get+Map&"
-  "URI for obtaining location maps.")
-
-(defsubst emacspeak-websearch-map-yahoomaps-get-location ()
-  "Convenience function for prompting and constructing the route component."
-  (concat
-   (format "&addr=%s"
-           (emacspeak-url-encode
-            (read-from-minibuffer "Street Address: ")))
-   (format "&csz=%s"
-           (emacspeak-url-encode
-            (read-from-minibuffer "City/State or Zip:")))))
-
-(defsubst emacspeak-websearch-map-yahoo-directions-get-locations ()
-  "Convenience function for prompting and constructing the route component."
-  (concat
-   (format "&newaddr=%s"
-           (emacspeak-url-encode
-            (read-from-minibuffer "Start Address: ")))
-   (format "&newcsz=%s"
-           (emacspeak-url-encode
-            (read-from-minibuffer "City/State or Zip:")))
-   (format "&newtaddr=%s"
-           (emacspeak-url-encode
-            (read-from-minibuffer "Destination Address: ")))
-   (format "&newtcsz=%s"
-           (emacspeak-url-encode
-            (read-from-minibuffer "City/State or Zip:")))))
-
-;;;###autoload
-(defun emacspeak-websearch-map-yahoo-directions-search (query
-                                                        &optional map)
-  "Get driving directions from Yahoo.
-With optional interactive prefix arg MAP shows the location map instead."
-  (interactive
-   (list
-    (if current-prefix-arg
-        (emacspeak-websearch-map-yahoomaps-get-location)
-      (emacspeak-websearch-map-yahoo-directions-get-locations))
-    current-prefix-arg))
-  (declare (special emacspeak-websearch-map-yahoo-directions-uri
-                    emacspeak-xslt-use-wget-to-download
-                    emacspeak-websearch-map-yahoomaps-uri))
-  (let ((emacspeak-xslt-use-wget-to-download t))
-    (cond
-     (map
-      (browse-url
-       (concat
-        emacspeak-websearch-map-yahoomaps-uri
-        query))
-      (emacspeak-webutils-post-process
-       "Nearby"
-       'emacspeak-speak-line))
-     (t
-      (emacspeak-we-extract-table-by-match "Start"
-                                           (concat
-                                            emacspeak-websearch-map-yahoo-directions-uri
-                                            query)
-                                           'speak)))))
 
 ;;}}}
 ;;{{{  news yahoo
@@ -1175,52 +918,6 @@ Optional prefix arg no-rss scrapes information from HTML."
    'emacspeak-speak-line))
 
 ;;}}}
-;;{{{ RPMFind
-
-(emacspeak-websearch-set-searcher 'rpm-find
-                                  'emacspeak-websearch-rpm-find)
-
-(emacspeak-websearch-set-key 18 'rpm-find)
-
-(defvar emacspeak-websearch-rpm-find-uri
-  "http://rpmfind.net/linux/rpm2html/search.php?query="
-  "*URI for RPM  Site search")
-
-;;;###autoload
-(defun emacspeak-websearch-rpm-find (query)
-  "Search RPM  catalog  site."
-  (interactive
-   (list
-    (emacspeak-websearch-read-query "Find RPM: ")))
-  (declare (special emacspeak-websearch-rpm-find-uri))
-  (browse-url
-   (concat emacspeak-websearch-rpm-find-uri
-           (emacspeak-url-encode query)))
-  (emacspeak-webutils-post-process
-   query
-   'emacspeak-speak-line))
-
-;;}}}
-;;{{{  Recorded books
-
-(emacspeak-websearch-set-searcher 'recorded-books
-                                  'emacspeak-websearch-recorded-books-search)
-
-                                        ;(emacspeak-websearch-set-key ?r 'recorded-books)
-
-(defvar emacspeak-websearch-recorded-books-advanced-form
-  (expand-file-name "xml-forms/recorded-books-advanced.xml"
-                    emacspeak-lisp-directory)
-  "Search form for finding recorded books.")
-
-;;;###autoload
-(defun emacspeak-websearch-recorded-books-search ()
-  "Present advanced search form for recorded books."
-  (interactive)
-  (declare (special emacspeak-websearch-recorded-books-advanced-form))
-  (emacspeak-websearch-display-form emacspeak-websearch-recorded-books-advanced-form))
-
-;;}}}
 ;;{{{ Merriam Webster
 
 (emacspeak-websearch-set-searcher 'merriam-webster
@@ -1269,31 +966,6 @@ Optional prefix arg no-rss scrapes information from HTML."
    'speak))
 
 ;;}}}
-;;{{{ W3C
-
-(emacspeak-websearch-set-searcher 'w3c
-                                  'emacspeak-websearch-w3c-search)
-(emacspeak-websearch-set-key ?W 'w3c)
-
-(defvar emacspeak-websearch-w3c-search-uri
-  "http://search.w3.org/Member/cgi-bin/query?mss=simple&pg=q&what=web&filter=all&fmt=."
-  "URI for searching the member area of the W3C site.")
-
-;;;###autoload
-(defun emacspeak-websearch-w3c-search (query)
-  "Search the W3C Site."
-  (interactive
-   (list (emacspeak-websearch-read-query "Search W3C site: ")))
-  (declare (special emacspeak-websearch-w3c-search-uri))
-  (browse-url
-   (concat emacspeak-websearch-w3c-search-uri
-           "&q="
-           (emacspeak-url-encode query)))
-  (emacspeak-webutils-post-process
-   "match"
-   'emacspeak-speak-line))
-
-;;}}}
 ;;{{{ wikipedia
 
 (emacspeak-websearch-set-searcher 'wikipedia
@@ -1306,8 +978,8 @@ Optional prefix arg no-rss scrapes information from HTML."
   "Search Wikipedia using Google."
   (interactive
    (list (emacspeak-websearch-read-query "Search Wikipedia: ")))
-  
-  
+
+
   (emacspeak-websearch-google
    (emacspeak-url-encode (format "site:wikipedia.org %s"query))))
 
@@ -1391,7 +1063,7 @@ Results"
     (read-from-minibuffer
      "Currency Convertor: FromTo:")))
   (declare (special emacspeak-websearch-yahoo-exchange-rate-converter-uri))
-  (let* ((url 
+  (let* ((url
           (format emacspeak-websearch-yahoo-exchange-rate-converter-uri
                   (upcase  conversion-spec)))
          (buffer (url-retrieve-synchronously url)))
@@ -1426,26 +1098,6 @@ Results"
   (browse-url emacspeak-websearch-amazon-search-form))
 
 ;;}}}
-;;{{{ Shopping at ebay
-
-(emacspeak-websearch-set-searcher 'ebay-search
-                                  'emacspeak-websearch-ebay-search)
-
-(emacspeak-websearch-set-key 5 'ebay-search)
-
-(defvar emacspeak-websearch-ebay-search-form
-  (expand-file-name "xml-forms/ebay-search.xml"
-                    emacspeak-lisp-directory)
-  "Form for Ebay store search.")
-
-;;;###autoload
-(defun emacspeak-websearch-ebay-search ()
-  "Ebay search."
-  (interactive)
-  (declare (special emacspeak-websearch-ebay-search-form))
-  (emacspeak-websearch-display-form emacspeak-websearch-ebay-search-form))
-
-;;}}}
 ;;{{{  site-specific search tools
 
 ;;; Load site-specific searchers
@@ -1454,49 +1106,6 @@ Results"
   (load-library "emacspeak-w3search"))
 
 ;;}}}
-;;{{{ Browse usenet
-
-(defvar emacspeak-usenet-feeds-uri
-  "http://groups.google.com/group/%s/feed/rss_v2_0_msgs.xml"
-  "RSS Feed from Google for Usenet groups.")
-
-(defvar emacspeak-usenet-uri
-  "http://groups.google.com/group/"
-  "URI to open a group on Usenet archive.")
-;;;###autoload
-(defun emacspeak-websearch-usenet (group &optional prefix)
-  "Prompt and browse a Usenet newsgroup.
-Optional interactive prefix arg results in prompting for a search term."
-  (interactive
-   (list
-    (read-from-minibuffer "Newsgroup: ")
-    current-prefix-arg))
-  (declare (special emacspeak-usenet-uri
-                    emacspeak-usenet-feeds-uri))
-  (let ((url nil))
-    (cond
-     (prefix                            ;search
-      (setq url
-            (format
-             "%s%s/search?group=%s&q=%s&qt_g=1&searchnow=Search+this+group&num=%s&scoring=d"
-             emacspeak-usenet-uri
-             group group
-             (emacspeak-url-encode
-              (read-from-minibuffer
-               (format "Search %s for:" group)))
-             emacspeak-websearch-google-number-of-results))
-      (emacspeak-webutils-without-xsl
-       (browse-url  url)
-       (emacspeak-webutils-post-process
-        "Sort by"
-        'emacspeak-speak-line)))
-     (t                                 ;browse
-      (setq url
-            (format emacspeak-usenet-feeds-uri group))
-      (emacspeak-feeds-rss-display url)))))
-
-;;}}}
-
 ;;}}}
 (provide 'emacspeak-websearch)
 ;;{{{ end of file
