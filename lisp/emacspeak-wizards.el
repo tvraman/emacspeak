@@ -3534,7 +3534,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
   "Browse Tune-In Radio."
   (interactive)
   (require 'emacspeak-url-template)
-  (let ((name   "RadioTime  Browser"))
+  (let ((name   "RadioTime Browser"))
     (emacspeak-url-template-open (emacspeak-url-template-get name))))
 
 ;;;###autoload
@@ -3542,7 +3542,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
   "Search Tune-In Radio."
   (interactive)
   (require 'emacspeak-url-template)
-  (let ((name   "RadioTime  Search"))
+  (let ((name   "RadioTime Search"))
     (emacspeak-url-template-open (emacspeak-url-template-get name))))
 ;;}}}
 
