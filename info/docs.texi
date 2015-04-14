@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1064 commands and 890 options.
+This chapter documents a total of 1063 commands and 890 options.
 
 @menu
 * acss-structure::
@@ -12696,10 +12696,6 @@ called `emacspeak-occur-pattern' that holds a regular expression
 that matches  lines of interest, you can use this command to conveniently
 run `how-many' to count  matching header lines.
 With interactive prefix arg, prompts for and remembers the file local pattern.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-wizards-js  nil
-Run JS in a comint sub-process.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-wizards-lacheck-buffer-file  nil

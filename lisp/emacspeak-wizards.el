@@ -732,7 +732,8 @@ the emacspeak table clipboard instead."
                clipboard-file))))
 
 ;;}}}
-;;{{{ utilities
+;;{{{ Emacs Dev utilities
+
 ;;;###autoload
 (defun emacspeak-wizards-show-eval-result (form)
   "Convenience command to pretty-print and view Lisp evaluation results."
@@ -826,6 +827,7 @@ emacspeak-emergency-tts-server."
 
 ;;}}}
 ;;{{{ customization wizard
+
 ;;;###autoload
 (defun emacspeak-customize-personal-settings (file)
   "Create a customization buffer for browsing and updating
@@ -979,6 +981,7 @@ Signals beginning  of buffer."
 
 ;;}}}
 ;;{{{  launch lynx
+
 (defcustom emacspeak-wizards-links-program "links"
   "Name of links executable."
   :type 'file
@@ -1090,6 +1093,7 @@ Signals beginning  of buffer."
 
 ;;}}}
 ;;{{{ table wizard
+
 (defvar emacspeak-etc-directory
   (expand-file-name  "etc/" emacspeak-directory)
   "Directory containing miscellaneous files  for Emacspeak.")
@@ -1150,6 +1154,7 @@ Extracted content is sent to STDOUT."
 
 ;;}}}
 ;;{{{ view url:
+
 ;;;###autoload
 (defun emacspeak-wizards-view-url ()
   "Open a new buffer containing the contents of URL."
@@ -1497,7 +1502,9 @@ visiting the DVI file."
  'emacspeak-wizards-dvi-mode)
 
 ;;}}}
-;;{{{ detailed quotes
+;;{{{
+
+Stock quotes  Portfolio
 (defcustom emacspeak-wizards-quote-command
   (expand-file-name "quotes.pl"
                     emacspeak-etc-directory)
@@ -1710,7 +1717,7 @@ directory to where find is to be launched."
     (emacspeak-speak-line)))
 
 ;;}}}
-;;{{{ alternate between w3 and w3m
+;;{{{ Cycle among available browsers
 
 (defvar emacspeak-wizards-available-browsers
   (delq nil
@@ -1835,6 +1842,7 @@ prompts for and sets value of the file local pattern."
 
 ;;}}}
 ;;{{{   Switching buffers, killing buffers etc
+
 ;;;###autoload
 (defun emacspeak-switch-to-previous-buffer  ()
   "Switch to most recently used interesting buffer.
@@ -2027,7 +2035,7 @@ Use with caution."
 (define-key  emacspeak-wizards-vc-viewer-mode-map "\C-l" 'emacspeak-wizards-vc-viewer-refresh)
 
 ;;}}}
-;;{{{ google hits
+;;{{{ google Transcoder
 
 ;;;###autoload
 (defun emacspeak-wizards-google-transcode ()
@@ -2320,23 +2328,6 @@ dates.")
   (emacspeak-speak-mode-line))
 
 ;;}}}
-;;{{{ JS wizard
-
-;;;###autoload
-(defun emacspeak-wizards-js ()
-  "Run JS in a comint sub-process."
-  (interactive)
-  (let ((process-environment '("PAGER=cat")))
-    (make-comint "js" "js"))
-  (switch-to-buffer "*js*")
-  (emacspeak-auditory-icon 'select-object)
-  (goto-char (point-max))
-  (unless emacspeak-comint-autospeak
-    (emacspeak-toggle-comint-autospeak))
-  (emacspeak-speak-mode-line))
-
-;;}}}
-
 ;;{{{ rivo
 
 (defvar emacspeak-wizards-rivo-program
@@ -2510,24 +2501,24 @@ Default is to add autoload cookies to current file."
   (or f (setq f (buffer-file-name)))
   (let ((buffer (find-file-noselect f))
         (count 0))
-    (with-current-buffer buffer 
-     (goto-char (point-min))
-     (unless (eq major-mode'emacs-lisp-mode)
-       (error "Not an Emacs Lisp file."))
-     (goto-char (point-min))
-     (condition-case nil
-         (while    (not (eobp))
-           (re-search-forward "^ *(interactive")
-           (beginning-of-defun)
-           (forward-line -1)
-           (unless (looking-at emacspeak-autoload-cookie-pattern)
-             (incf count)
-             (forward-line 1)
-             (beginning-of-line)
-             (insert
-              (format "%s\n"emacspeak-autoload-cookie-pattern)))
-           (end-of-defun))
-       (error "Added %d autoload cookies." count)))))
+    (with-current-buffer buffer
+      (goto-char (point-min))
+      (unless (eq major-mode'emacs-lisp-mode)
+        (error "Not an Emacs Lisp file."))
+      (goto-char (point-min))
+      (condition-case nil
+          (while    (not (eobp))
+            (re-search-forward "^ *(interactive")
+            (beginning-of-defun)
+            (forward-line -1)
+            (unless (looking-at emacspeak-autoload-cookie-pattern)
+              (incf count)
+              (forward-line 1)
+              (beginning-of-line)
+              (insert
+               (format "%s\n"emacspeak-autoload-cookie-pattern)))
+            (end-of-defun))
+        (error "Added %d autoload cookies." count)))))
 
 ;;}}}
 ;;{{{ mail signature:
@@ -2582,6 +2573,7 @@ Default is to add autoload cookies to current file."
 
 ;;}}}
 ;;{{{ Bullet navigation
+
 ;;;###autoload
 (defun emacspeak-wizards-next-bullet ()
   "Navigate to and speak next `bullet'."
@@ -2887,7 +2879,6 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
   (let ((name   "RadioTime Search"))
     (emacspeak-url-template-open (emacspeak-url-template-get name))))
 ;;}}}
-
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
