@@ -341,41 +341,6 @@ dont-url-encode if true then url arguments are not url-encoded "
         "id-summary-chart" url 'speak))))
 
 ;;}}}
-;;{{{ google CSE :
-
-(emacspeak-url-template-define
- "Official GoogleBlog Search"
- "http://www.google.com/cse?q=%s&loading=1&cref=%s"
- (list
-  "GoogleBlog Search: "
-  #'(lambda nil
-      (emacspeak-url-template-make-cse
-       "http://www.google.com/reader/public/subscriptions/user/10949413115399023739/label/officialgoogleblogs-all")))
- nil
- "Search within all official Google blogs."
- #'(lambda (url)
-     (emacspeak-we-extract-by-class "g" url 'speak)))
-(defsubst emacspeak-url-template-make-cse (meta-url)
-  "Builds up a CSE url for specified meta-url."
-  (format
-   "http://www.google.com/cse/tools/makecse?url=%s"
-   meta-url))
-
-(emacspeak-url-template-define
- "On The Fly CSE"
- "http://www.google.com/cse?q=%s&loading=1&cref=%s&nojs=1"
- (list
-  "Search This CSE: "
-  #'(lambda nil
-      (emacspeak-url-template-make-cse
-       (read-from-minibuffer
-        "Feed URL to build CSE for: "))))
- nil
- "Build a CSE on the fly and  use it to search."
- #'(lambda (url)
-     (emacspeak-we-extract-by-class "g" url 'speak)))
-
-;;}}}
 ;;{{{ utils:
 
 (defun emacspeak-url-template-setup-content-filter ()
@@ -733,17 +698,7 @@ from English to German.")
 ;;}}}
 ;;{{{ Google Archive Search
 
-(emacspeak-url-template-define
- "Archive News Search"
- "http://news.google.com/archivesearch?hl=en&sa=N&q=%s"
- (list "Archive News Search: ")
- #'(lambda nil
-     (search-forward "Results" nil t)
-     (emacspeak-speak-line))
- "Search Google Archive News."
- #'(lambda (url)
-     (emacspeak-webutils-without-xsl
-      (browse-url url))))
+
 
 (emacspeak-url-template-define
  "IToRSS"
@@ -988,17 +943,10 @@ name of the list.")
  "CNN technology "
  "http://www.cnn.com/TECH/"
  nil
- #'(lambda nil
-     (declare (special emacspeak-we-class-filter))
-     (setq emacspeak-we-class-filter "cnnStoryContent"))
+ nil
  "CNN Technology news."
  #'(lambda (url)
-     (emacspeak-we-extract-by-class-list
-      (list
-       "cnnSectT2s"
-       "cnnSectT2head"
-       "cnnSectBoxHeadW"
-       "cnnSectBox")
+     (emacspeak-we-xslt-filter "//article"
       url 'speak)))
 
 (emacspeak-url-template-define
@@ -1314,39 +1262,6 @@ Set up URL rewrite rule to get print page."
  nil
  "Reuters Finance Lookup")
 
-;;}}}
-;;{{{ ask
-
-(emacspeak-url-template-define
- "ask search mobile"
- "http://mobile.ask.com/web.jsp?fi_what=%s&fi_Search=Search&form=web"
- (list "Ask Mobile Search: ")
- #'(lambda nil
-     (search-forward "results")
-     (emacspeak-speak-rest-of-buffer))
- "Mobile search using Ask.com")
-
-(emacspeak-url-template-define
- "Ask Walking Directions"
- "http://mobile.ask.com/dd.jsp?fi_st_addr=%s&fi_end_addr=%s&fi_method=Walk&form=dd"
- (list "Start Address: "
-       "End Address: ")
- #'(lambda()
-     (search-forward "Time:")
-     (beginning-of-line)
-     (emacspeak-speak-rest-of-buffer))
- "Walking directions from Ask.com")
-
-(emacspeak-url-template-define
- "Ask Local Search"
- "http://mobile.ask.com/local.jsp?fi_what=%s&fi_where=%s&fi_Search=Search&form=local)"
- (list "Find: "
-       "Near: ")
- #'(lambda nil
-     (search-forward "Sort")
-     (forward-line 1)
-     (emacspeak-speak-rest-of-buffer))
- "Ask Local Search.")
 ;;}}}
 ;;{{{  wordnet
 
