@@ -2732,6 +2732,108 @@ This personality uses  voice-bolden-and-animate whose  effect can be changed glo
 
 @end defvar
 
+@defvar {User Option} emacspeak-w3m-anchor-voice
+Personality used for w3m-anchor
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-arrived-anchor-voice
+Personality used for w3m-arrived-anchor
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-bold-voice
+Personality used for w3m-bold
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-current-anchor-voice
+Personality used for w3m-current-anchor
+This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-form-button-pressed-voice
+Personality used for w3m-form-button-pressed
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-form-button-voice
+Personality used for w3m-form-button
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-form-voice
+Personality used for w3m-form
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-header-line-location-content-voice
+Personality used for w3m-header-line-location-content
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-header-line-location-title-voice
+Personality used for w3m-header-line-location-title
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-history-current-url-voice
+Personality used for w3m-history-current-url
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-image-voice
+Personality used for w3m-image
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-insert-voice
+Personality used for w3m-insert
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-italic-voice
+Personality used for w3m-italic
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-strike-through-voice
+Personality used for w3m-strike-through
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-tab-selected-voice
+Personality used for w3m-tab-selected
+This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-tab-unselected-voice
+Personality used for w3m-tab-unselected
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-underline-voice
+Personality used for w3m-underline
+This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-warning-voice
 Personality used for warning
 This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
@@ -4921,11 +5023,15 @@ To move around the terminal and have different parts spoken.
 
 @subsection emacspeak-eterm Commands
 
-@deffn {Interactive Command} emacspeak-eterm-copy-region-to-register  (register)
+@deffn {Interactive Command} emacspeak-eterm-copy-region-to-register  (&rest rest)
+:around advice: `ad-Advice-emacspeak-eterm-copy-region-to-register'
+
 Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
 emacspeak eterm pointer to a register.
+
+(fn REGISTER)
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-define-window  (id)
@@ -4958,10 +5064,14 @@ Execute end of line if
 in a non eterm buffer if executed via C-e C-e
 @end deffn
 
-@deffn {Interactive Command} emacspeak-eterm-paste-register  (register)
+@deffn {Interactive Command} emacspeak-eterm-paste-register  (&rest rest)
+:around advice: `ad-Advice-emacspeak-eterm-paste-register'
+
 Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
 sent to the terminal as if it were typed by the user.
+
+(fn REGISTER)
 @end deffn
 
 @deffn {Interactive Command} emacspeak-eterm-pointer-backward-word  (count)
@@ -11145,7 +11255,7 @@ This personality uses  voice-smoothen whose  effect can be changed globally by c
 @section emacspeak-url-template
 
 It is often useful to have ``parametrized hot list entries''
-i.e., hotlist entries  that are ``templates'' for the
+i.e., hotlist entries that are ``templates'' for the
 actual URL.
 The user provides values for the parametrized portions
 of the URL e.g. the date.
@@ -11165,7 +11275,7 @@ Optional interactive prefix arg displays documentation for specified resource.
 @end deffn
 
 @deffn {Interactive Command} emacspeak-url-template-help  nil
-Display documentation for  a URL template.
+Display documentation for a URL template.
 Use Emacs completion to obtain a list of available
 resources.
 @end deffn
@@ -11435,112 +11545,10 @@ Preview this buffer in w3m.
 
 @subsection emacspeak-w3m Options
 
-@defvar {User Option} emacspeak-w3m-anchor-voice
-Personality used for w3m-anchor
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-arrived-anchor-voice
-Personality used for w3m-arrived-anchor
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-bold-voice
-Personality used for w3m-bold
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-current-anchor-voice
-Personality used for w3m-current-anchor
-This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-form-button-pressed-voice
-Personality used for w3m-form-button-pressed
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-form-button-voice
-Personality used for w3m-form-button
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-form-voice
-Personality used for w3m-form
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-header-line-location-content-voice
-Personality used for w3m-header-line-location-content
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-header-line-location-title-voice
-Personality used for w3m-header-line-location-title
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-history-current-url-voice
-Personality used for w3m-history-current-url
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-image-voice
-Personality used for w3m-image
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-insert-voice
-Personality used for w3m-insert
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-italic-voice
-Personality used for w3m-italic
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
 @defvar {User Option} emacspeak-w3m-speak-titles-on-switch
 Speak the document title when switching between w3m buffers.
 If non-nil, switching between w3m buffers will speak the title
 instead of the modeline.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-strike-through-voice
-Personality used for w3m-strike-through
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-tab-selected-voice
-Personality used for w3m-tab-selected
-This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-tab-unselected-voice
-Personality used for w3m-tab-unselected
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-underline-voice
-Personality used for w3m-underline
-This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
 
 @end defvar
 
@@ -14312,24 +14320,24 @@ Apply first female voice.
 @end defvar
 
 @node URL Templates 
-@section  URL Templates
+@section URL Templates
 
-This section documents a total of 90 URL Templates.
+This section documents a total of 85 URL Templates.
 
 All of these URL templates can be invoked via command
-  @kbd{M-x emacspeak-url-template-fetch} normally bound to
-  @kbd{C-e u}.
+ @kbd{M-x emacspeak-url-template-fetch} normally bound to
+ @kbd{C-e u}.
 This command prompts for the name of the template, and completion
-  is available via Emacs' minibuffer completion.
+ is available via Emacs' minibuffer completion.
 Each URL template carries out the following steps:
 @itemize @bullet
 @item Prompt for the relevant information.
 @item Fetch the resulting URL using an appropriate fetcher.
 @item Set up the resulting resource with appropriate
-  customizations.
+ customizations.
 @end itemize
 
-As an example, the URL template for weather forecasts 
+As an example, the URL template for weather forecasts
 prompts for a location and speaks the forecast. 
 
 @b{Air Traffic Control}
@@ -14348,10 +14356,6 @@ Retrieve product details from Amazon by either ISBN or ASIN.
 
 Logout from Google to do an anonymous search.
 
-@b{BBC  iPlayer}
-
-BBC iPlayer
-
 @b{BBC Genre Using IPlayer}
 
 BBC iPlayer Genre
@@ -14363,6 +14367,10 @@ BBC PodCast Directory
 @b{BBC Program Guide}
 
 Display interactive BBC Program Guide.
+
+@b{BBC iPlayer}
+
+BBC iPlayer
 
 @b{Baseball Game Index}
 
@@ -14390,7 +14398,7 @@ Bing results as RSS feed.
 
 @b{CNN Content}
 
-Filter down to CNN  content area.
+Filter down to CNN content area.
 
 @b{CNN Market Data }
 
@@ -14416,10 +14424,6 @@ Show table of recent quakes.
 
 EmacsWiki Search
 
-@b{Finance Google Portfolio}
-
-Download and display portfolio from Google Finance.
-
 @b{Finance Google Search}
 
 Display content from Google Finance.
@@ -14434,23 +14438,15 @@ Google Calendar XHTML version.
 
 @b{Geek Linux Daily}
 
-Play specified edition of Geek  Linux DailyShow
+Play specified edition of Geek Linux DailyShow
 
 @b{GitHub Search}
 
 Perform a GitHub Search.
 
-@b{Google API Search}
-
-Search Google APIDocs
-
 @b{Google Image Search}
 
 Google Image Search
-
-@b{Google Mobile Search}
-
-Google Mobile Search
 
 @b{Google News Search}
 
@@ -14459,10 +14455,6 @@ Search Google news.
 @b{Google NewsPaper}
 
 Retrieve and speak Google News Overview.
-
-@b{Google Print}
-
-Google Print Search
 
 @b{Google Recent News Search}
 
@@ -14480,17 +14472,13 @@ Transcode site via Google.
 
 Page Analysis From Google Webmaster tools.
 
-@b{Google topical  News}
+@b{Google topical News}
 
 Display specified news feed.
 
 @b{IToRSS}
 
-Pull RSS  feed corresponding to an ITunes Podcast.
-
-@b{Linux Today News}
-
-Get news column from Linux Today.
+Pull RSS feed corresponding to an ITunes Podcast.
 
 @b{MLB Scorecard}
 
@@ -14506,7 +14494,7 @@ Display content from Google Finance.
 
 @b{Money Content }
 
-CNN Content
+CNN Money Content
 
 @b{Multilingual dictionary via Google.}
 
@@ -14539,11 +14527,11 @@ Perform patent search via Google
 
 Play Podcast from CNET
 
-@b{RadioTime  Browser}
+@b{RadioTime Browser}
 
 RadioTime Entry point.
 
-@b{RadioTime  Search}
+@b{RadioTime Search}
 
 RadioTime Search.
 
@@ -14570,7 +14558,7 @@ Login to Google.
 @b{StreamWorld Radio}
 
 Play radio stream.
-See http://www.cbsradio.com/streaming/index.html for a list of CBS  stations that use StreamTheWorld.
+See http://www.cbsradio.com/streaming/index.html for a list of CBS stations that use StreamTheWorld.
 
 @b{Tech News From CNet}
 
@@ -14605,7 +14593,7 @@ Look up term in WordNet.
 
 @b{Yahoo Business News}
 
-Retrieve and speak business  section from Yahoo Daily News.
+Retrieve and speak business section from Yahoo Daily News.
 
 @b{Yahoo Content By Content ID}
 
@@ -14613,7 +14601,7 @@ Retrieve and speak news section from Yahoo Daily News.
 
 @b{Yahoo DailyNews}
 
-Retrieve and speak DailyNewspage from  Yahoo Daily News.
+Retrieve and speak DailyNewspage from Yahoo Daily News.
 
 @b{Yahoo Entertainment}
 
@@ -14651,13 +14639,13 @@ Retrieve and speak Science section from Yahoo Daily News.
 
 Entertainment news from Yahoo.
 
-@b{Yahoo Technology  News}
+@b{Yahoo Technology News}
 
 Yahoo Technology News.
 
 @b{Yahoo Top Stories}
 
-Retrieve and speak Top Stories  section from Yahoo Daily News.
+Retrieve and speak Top Stories section from Yahoo Daily News.
 
 @b{Yahoo World News}
 
@@ -14685,7 +14673,7 @@ Download specified file.
 
 @b{sourceforge browse mirrors}
 
-Retrieve download page  at Sourceforge for specified project.
+Retrieve download page at Sourceforge for specified project.
 
 @b{sourceforge project}
 
@@ -14694,12 +14682,12 @@ Open specified project page at SourceForge.
 @b{w3c IRC Logs}
 
 Use this to pull up the
-archived  logs from the W3C IRC. You need to know the exact
+archived logs from the W3C IRC. You need to know the exact
 name of the channel.
 
 @b{w3c Lists}
 
 Use this to pull up the
-archived  mail from the W3C list. You need to know the exact
+archived mail from the W3C list. You need to know the exact
 name of the list.
 
