@@ -1561,9 +1561,9 @@ This is setup on a per engine basis.")
 ;;;###autoload
 (defun dtk-select-server (program &optional device)
   "Select a speech server interactively.
-Argument PROGRAM specifies the speech server program. When called
-interactively, The selected server is started
-immediately. Optional arg device sets up environment variable
+When called interactively, restarts speech server.
+Argument PROGRAM specifies the speech server program. 
+ Optional arg device sets up environment variable
 ALSA_DEFAULT to specified device before starting the server."
   (interactive
    (list
@@ -1585,7 +1585,7 @@ ALSA_DEFAULT to specified device before starting the server."
     (when (file-exists-p (expand-file-name ssh-server emacspeak-servers-directory))
       (setq emacspeak-ssh-tts-server ssh-server)
       (setq-default emacspeak-ssh-tts-server ssh-server))
-    (when (ems-interactive-p )
+    (when (called-interactively-p  'interactive)
       (dtk-initialize))))
 
 (defcustom tts-device-list (list "default")
