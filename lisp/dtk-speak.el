@@ -929,14 +929,6 @@ value, and then set the current local value to the result.
 Note that allcaps-beep is a very useful thing when programming.
 However it is irritating to have it on when reading documents.")
 
-(ems-generate-switcher 'dtk-toggle-debug
-                       'dtk-debug
-                       "Toggle state of the debug FLAG.
-When debugging is on, you can switch to the buffer
-*speaker* to examine the output from the process
-that talks to the speech device by using command \\[tts-show-debug-buffer].
-Note: *speaker* is a hidden buffer, ie it has a leading space in its name.")
-
 ;;;###autoload
 (defun dtk-set-punctuations  (mode &optional prefix )
   "Set punctuation mode to MODE.

@@ -289,7 +289,6 @@
         ("\C-o" outloud)
         ("\C-v" outloud-32)
         ("a" dtk-add-cleanup-pattern)
-        ("b" dtk-toggle-debug)
         ("c" dtk-toggle-capitalization)
         ("d" dtk-select-server)
         ("f" dtk-set-character-scale)
