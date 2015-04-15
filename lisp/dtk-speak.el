@@ -721,7 +721,6 @@ Arguments START and END specify region to speak."
 (defsubst dtk-stop ()
   "Stop speech now."
   (interactive)
-  (declare (special dtk-speaker-process))
   (dtk-interp-stop))
 
 (defsubst dtk-reset-default-voice()
