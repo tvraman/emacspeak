@@ -3259,6 +3259,11 @@ which media players get silenced or paused/resumed."
     (mapcar 'car (network-interface-list)))
   "Used when prompting for an interface to query.")
 
+(defsubst ems-get-active-network-interfaces  ()
+  "Return  names of active network interfaces."
+  (when (fboundp 'network-interface-list)
+    (mapconcat #'car (network-interface-list) " ")))
+
 (defsubst ems-get-ip-address  (&optional dev)
   "get the IP-address for device DEV "
   (format-network-address
@@ -3268,10 +3273,7 @@ which media players get silenced or paused/resumed."
           (completing-read "Device: "
                            (split-string (ems-get-active-network-interfaces)) nil t )))) t))
 
-(defsubst ems-get-active-network-interfaces  ()
-  "Return  names of active network interfaces."
-  (when (fboundp 'network-interface-list)
-    (mapconcat #'car (network-interface-list) " ")))
+
 
 ;;}}}
 ;;{{{ Show active network interfaces

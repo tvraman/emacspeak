@@ -1856,8 +1856,7 @@ only speak upto the first ctrl-m."
           (mode dtk-punctuation-mode)
           (split-caps dtk-split-caps)
           (voice-lock voice-lock-mode ))
-      (save-current-buffer
-        (set-buffer dtk-scratch-buffer )
+      (with-current-buffer dtk-scratch-buffer 
         (setq buffer-undo-list t)
         (let ((inhibit-read-only t))
           (erase-buffer)
