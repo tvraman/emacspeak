@@ -276,7 +276,6 @@
         ("A" dtk-async-server)
         ("C" dtk-toggle-allcaps-beep)
         ("L" dtk-local-server)
-        ("M-C-b" tts-show-debug-buffer)
         ("N" dtk-set-next-language)
         ("P" dtk-set-previous-language)
         ("R" dtk-reset-state)

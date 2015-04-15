@@ -1690,28 +1690,20 @@ Port  defaults to  dtk-local-server-port"
 ;;}}}
 ;;{{{  initialize the speech process
 
-(defvar dtk-debug nil
-  "Set this to t if you want to debug the synthesizer server.")
-(make-variable-buffer-local 'dtk-debug)
-
 (defvar dtk-speak-server-initialized nil
   "Records if the server is initialized.")
 
-(defvar tts-debug-buffer " *speaker*"
-  "Buffer holding speech server debug output.")
-
 (defun  dtk-initialize ()
   "Initialize speech system."
-  (declare (special dtk-program tts-debug-buffer 
-                    dtk-speaker-process  dtk-debug
-                    dtk-speak-server-initialized
+  (declare (special dtk-program  
+                    dtk-speaker-process dtk-speak-server-initialized
                     dtk-startup-hook emacspeak-servers-directory))
   (let ((new-process nil)
         (process-connection-type  nil))
     (setq new-process
           (apply 'start-process
                  "speaker"
-                 (and dtk-debug tts-debug-buffer)
+                 nil
                  (expand-file-name dtk-program emacspeak-servers-directory)
                  dtk-program-args))
     (setq dtk-speak-server-initialized
@@ -1739,11 +1731,6 @@ Port  defaults to  dtk-local-server-port"
   (dtk-initialize ))
 
 ;;;###autoload
-(defun tts-show-debug-buffer ()
-  "Select TTS debugging buffer."
-  (interactive)
-  (declare (special tts-debug-buffer))
-  (switch-to-buffer tts-debug-buffer))
 
 ;;}}}
 ;;{{{  interactively select how text is split:
