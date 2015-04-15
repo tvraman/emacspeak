@@ -704,9 +704,7 @@ Arguments START and END specify region to speak."
    (t (dtk-interp-queue (buffer-substring start end  )))))
 
                                         ;Force the speech.
-(defsubst dtk-force ()
-  "Cause server to process all queued requests."
-  (dtk-interp-speak))
+(defalias 'dtk-force 'dtk-interp-speak)
 
                                         ;Write out the string to the tts via TCLSH.
                                         ;No quoting is done, if want to quote the text, see dtk-speak
