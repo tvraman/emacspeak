@@ -1543,6 +1543,7 @@ This is setup on a per engine basis.")
    ((string-match "^eflite$" tts-name) (flite-configure-tts))
 ;;; generic configure
    (t (plain-configure-tts)))
+  (dtk-interp-sync)
   (when
       (or 
        (string-match "^ssh" tts-name)   ;remote server

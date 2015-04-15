@@ -163,9 +163,7 @@ pronunciation dictionaries are stored. ")
 (defun emacspeak-tts-startup-hook ()
   "Default hook function run after TTS is started."
   (declare (special tts-default-speech-rate))
-  (tts-configure-synthesis-setup)
-  (dtk-set-rate tts-default-speech-rate t)
-  (dtk-interp-sync))
+  (tts-configure-synthesis-setup))
 
 (add-hook 'dtk-startup-hook 'emacspeak-tts-startup-hook)
 
