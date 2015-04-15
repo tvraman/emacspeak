@@ -443,9 +443,9 @@ and option `dtk-resume-should-toggle' is set,
 @kbd{C-e d d}
 
 Select a speech server interactively.
-Argument PROGRAM specifies the speech server program. When called
-interactively, The selected server is started
-immediately. Optional arg device sets up environment variable
+When called interactively, restarts speech server.
+Argument PROGRAM specifies the speech server program. 
+ Optional arg device sets up environment variable
 ALSA_DEFAULT to specified device before starting the server.
 @end deffn
 
