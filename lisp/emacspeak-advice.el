@@ -2691,12 +2691,6 @@ Produce auditory icons if possible."
     (emacspeak-auditory-icon 'task-done)))
 
 ;;}}}
-;;{{{ Managing packages:
-(defadvice package-menu-execute(around emacspeak pre act comp)
-  "Silence messages while installing packages. "
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it))
-;;}}}
 ;;{{{ Asking Questions:
 
 (defadvice yes-or-no-p (before emacspeak pre act comp)

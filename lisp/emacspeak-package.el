@@ -104,6 +104,20 @@
 (add-hook 'package-menu-mode-hook 'emacspeak-package-mode-hook)
 
 ;;}}}
+;;{{{ Managing packages:
+
+(defadvice package-menu-execute(around emacspeak pre act comp)
+  "Silence messages while installing packages. "
+  (let ((emacspeak-speak-messages nil))
+    ad-do-it))
+
+
+(defadvice package-menu--perform-transaction (around emacspeak pre act comp)
+  "Silence messages."
+(lexical-let ((emacspeak-speak-messages nil))
+  ad-do-it))
+
+;;}}}
 (provide 'emacspeak-package)
 ;;{{{ end of file
 
