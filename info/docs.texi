@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1063 commands and 890 options.
+This chapter documents a total of 1062 commands and 890 options.
 
 @menu
 * acss-structure::
@@ -557,16 +557,6 @@ short beep.  Interactive PREFIX arg means toggle the global default
 value, and then set the current local value to the result.
 @end deffn
 
-@deffn {Interactive Command} dtk-toggle-debug  (&optional prefix)
-@kbd{C-e d b}
-
-Toggle state of the debug FLAG.
-When debugging is on, you can switch to the buffer
-*speaker* to examine the output from the process
-that talks to the speech device by using command C-e d C-M-b.
-Note: *speaker* is a hidden buffer, ie it has a leading space in its name.
-@end deffn
-
 @deffn {Interactive Command} dtk-toggle-punctuation-mode  (&optional prefix)
 @kbd{C-e d ,}
 
@@ -949,7 +939,6 @@ d R		dtk-reset-state
 d S		dtk-set-language
 d V		tts-speak-version
 d a		dtk-add-cleanup-pattern
-d b		dtk-toggle-debug
 d c		dtk-toggle-capitalization
 d d		dtk-select-server
 d f		dtk-set-character-scale
