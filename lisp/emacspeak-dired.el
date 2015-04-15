@@ -49,6 +49,7 @@
 ;;{{{  required packages
 
 ;;; Code:
+(require 'cl)
 (require 'emacspeak-preamble)
 (require 'desktop)
 (require 'dired)
