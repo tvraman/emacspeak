@@ -706,7 +706,6 @@ Arguments START and END specify region to speak."
                                         ;Force the speech.
 (defsubst dtk-force ()
   "Cause server to process all queued requests."
-  (declare (special dtk-speaker-process))
   (dtk-interp-speak))
 
                                         ;Write out the string to the tts via TCLSH.
