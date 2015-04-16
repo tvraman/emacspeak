@@ -123,8 +123,7 @@
 
 (defsubst dtk-interp-speak ()
   (declare (special dtk-speaker-process))
-  (process-send-string dtk-speaker-process
-                       "d\n"))
+  (process-send-string dtk-speaker-process "d\n"))
 
 ;;}}}
 ;;{{{ say
