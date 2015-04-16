@@ -162,7 +162,6 @@ pronunciation dictionaries are stored. ")
 ;;;###autoload
 (defun emacspeak-tts-startup-hook ()
   "Default hook function run after TTS is started."
-  (declare (special tts-default-speech-rate))
   (tts-configure-synthesis-setup))
 
 (add-hook 'dtk-startup-hook 'emacspeak-tts-startup-hook)
@@ -174,8 +173,7 @@ pronunciation dictionaries are stored. ")
                     header-line-format
                     emacspeak-header-line-format))
   (when emacspeak-use-header-line
-    (setq header-line-format
-          emacspeak-header-line-format)))
+    (setq header-line-format emacspeak-header-line-format)))
 
 (defun emacspeak-tvr-startup-hook ()
   "Emacspeak startup hook that I use."
