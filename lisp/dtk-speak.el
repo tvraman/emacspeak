@@ -1795,27 +1795,27 @@ only speak upto the first ctrl-m."
                     dtk-split-caps
                     emacspeak-pronounce-pronunciation-table
                     selective-display ))
-                                        ; ensure text is a  string
+;;; ensure text is a  string
   (unless (stringp text) (setq text (format "%s" text)))
-                                        ; ensure  the process  is live
+;;; ensure  the process  is live
   (unless (or (eq 'run (process-status dtk-speaker-process ))
               (eq 'open (process-status dtk-speaker-process )))
     (dtk-initialize))
-                                        ; If you dont want me to talk,
-                                        ;or my server is not
-                                        ;running, I will remain silent.
-                                        ; Do nothing if text is ""
+;;; If you dont want me to talk,or my server is not running, 
+;;; I will remain silent.
+;;; I also do nothing if text is nil or ""
   (unless
-      (or dtk-quiet (null text)
-          (string-equal text "") (not dtk-speak-server-initialized))
-                                        ; flush previous speech if asked to
+      (or dtk-quiet (not dtk-speak-server-initialized)
+          (null text) (string-equal text "") )
+;;; flush previous speech if asked to
     (when dtk-stop-immediately (dtk-stop ))
     (dtk-interp-sync)
     (when selective-display
       (let ((ctrl-m (string-match "\015" text )))
         (and ctrl-m (setq text (substring  text 0 ctrl-m ))
              (emacspeak-auditory-icon 'ellipses))))
-    (let ((inhibit-point-motion-hooks t)
+    (let ((inhibit-point-motion-hooks t) ;snapshot relevant state
+          (inhibit-read-only t)
           (deactivate-mark nil)
           (invisibility-spec buffer-invisibility-spec)
           (syntax-table (syntax-table ))
@@ -1835,32 +1835,30 @@ only speak upto the first ctrl-m."
           (mode dtk-punctuation-mode)
           (split-caps dtk-split-caps)
           (voice-lock voice-lock-mode ))
-      (with-current-buffer dtk-scratch-buffer 
+      (with-current-buffer dtk-scratch-buffer
         (setq buffer-undo-list t)
-        (let ((inhibit-read-only t))
-          (erase-buffer)
-                                        ; inherit environment
-          (setq buffer-invisibility-spec invisibility-spec
-                dtk-chunk-separator-syntax inherit-chunk-separator-syntax
-                dtk-speaker-process inherit-speaker-process
-                dtk-speech-rate speech-rate
-                emacspeak-use-auditory-icons use-auditory-icons
-                dtk-punctuation-mode mode
-                dtk-split-caps split-caps
-                dtk-speak-nonprinting-chars
-                inherit-speak-nonprinting-chars
-                tts-strip-octals inherit-strip-octals
-                voice-lock-mode voice-lock)
-          (set-syntax-table syntax-table )
-          (set-buffer-multibyte inherit-enable-multibyte-characters)
-          (insert  text)
-          (delete-invisible-text)
-          (when pronunciation-table
-            (tts-apply-pronunciations
-             pronunciation-table))
-          (dtk-unicode-replace-chars mode)
-          (dtk-handle-repeating-patterns mode)
-          (dtk-quote mode))
+        (erase-buffer)
+;;; inherit environment
+        (setq buffer-invisibility-spec invisibility-spec
+              dtk-chunk-separator-syntax inherit-chunk-separator-syntax
+              dtk-speaker-process inherit-speaker-process
+              dtk-speech-rate speech-rate
+              emacspeak-use-auditory-icons use-auditory-icons
+              dtk-punctuation-mode mode
+              dtk-split-caps split-caps
+              dtk-speak-nonprinting-chars
+              inherit-speak-nonprinting-chars
+              tts-strip-octals inherit-strip-octals
+              voice-lock-mode voice-lock)
+        (set-syntax-table syntax-table )
+        (set-buffer-multibyte inherit-enable-multibyte-characters)
+        (insert  text)
+        (delete-invisible-text)
+        (when pronunciation-table
+          (tts-apply-pronunciations pronunciation-table))
+        (dtk-unicode-replace-chars mode)
+        (dtk-handle-repeating-patterns mode)
+        (dtk-quote mode)
         (goto-char (point-min))
         (skip-syntax-forward inherit-chunk-separator-syntax)
         (while (and (not (eobp))
