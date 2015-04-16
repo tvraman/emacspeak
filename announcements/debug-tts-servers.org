@@ -1,0 +1,45 @@
+* HowTo: Log TTS Server Output To Aid In TTS Server Development
+
+This is mostly of interest to developers of Emacspeak speech servers.
+This article outlines how one can log TTS server output to a file.
+The loggeds record all commands send by Emacspeak to the TTS server.
+It is best to generate the logs in an Emacs session that is separate
+from the Emacs session where you are developping your code.
+This keeps the logs short, and makes isolating problems much easier.
+
+** How It Works
+
+The _emacspeak/servers_ directory now contains _log_<tts-name>_
+servers for the various supported speech servers.  When selected,
+these /log-speech/ servers produce no speech output; instead, they
+output the speech server commands received from Emacspeak to a file in
+_/tmp_ named _tts-log-$$_.
+Once you're done logging, you can examine this file  from the primary Emacs session.
+** Typical Workflow
+
+Assume you want to see the speech-server commands sent by Emacs when you perform a specific action, in this instance, pressing _C-e m_ to execute command _emacspeak-speak-mode-line_.
+
+  1. In  a separate Linux  console or X-Window, launch Emacs with Emacspeak loaded --- this is  separate from your primary Emacs session.
+  2. In this Emacs session, use _C-e d d_ (command _dtk-select-server_) and select _log-<tts-name>_ as the speech server, where _tts-name_ corresponds to the speech engine you're testing.
+  3. Emacspeak will now start the logging server, and fall silent; all  commands sent by Emacspeak to the speech-server will be logged to a file in _/tmp_.
+  4. Press _C-e m_ -- to produce the log output you want to see.
+  5. Use command _emacspeak-emergency-tts-restart  to get speech back.
+  6. Open a _dired_ buffer on _/tmp_, press _s_ to sort files by date, and find your generated log output at the top of the list.
+  7. Note: It is useful to configure your default speech engine via  Custom -- see user option  _emacspeak-emergency-tts-server_.   It provides a quick-fire means to get speech back if you ever switch to a speech-server that fails for some reason.
+*Share And Enjoy*
+
+
+#+TITLE: HowTo: Log TTS Server Output To Aid In TTS Server Development
+#+DATE: <2015-04-15 Wed>
+#+AUTHOR: raman
+#+EMAIL: ramangoogle.com
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
+#+OPTIONS: e:t email:nil f:t inline:t num:t p:nil pri:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t toc:nil todo:t |:t
+#+CREATOR: Emacs 25.0.50.1 (Org mode 8.2.10)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
