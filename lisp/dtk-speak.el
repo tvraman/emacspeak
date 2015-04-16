@@ -1528,7 +1528,7 @@ This is setup on a per engine basis.")
                                         ;viavoice outloud family 
    ((string-match "outloud" tts-name) (outloud-configure-tts))
 ;;;all dectalks
-   ((string-match "dtk-" tts-name) (dectalk-configure-tts))
+   ((string-match "dtk" tts-name) (dectalk-configure-tts))
    ((string-match "^multispeech$" tts-name) (multispeech-configure-tts))
    ((string-match "mac$" tts-name) (mac-configure-tts))
    ((string-match "espeak$" tts-name) (espeak-configure-tts))
