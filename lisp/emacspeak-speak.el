@@ -1576,16 +1576,13 @@ Interactive prefix arg speaks buffer info."
                      emacspeak-mail-alert mode-line-format ))
   (force-mode-line-update)
   (ems-sync-mode-punctuation-setting major-mode)
-  (emacspeak-dtk-sync)
   (when   emacspeak-mail-alert (emacspeak-mail-alert-user))
   (cond
    ((and header-line-format (not (ems-interactive-p )))
     (emacspeak-speak-header-line))
    (buffer-info (emacspeak-speak-buffer-info))
    (t
-    (dtk-stop)
-    (let ((dtk-stop-immediately nil )
-          (global-info (format-mode-line global-mode-string))
+    (let ((global-info (format-mode-line global-mode-string))
           (frame-info (emacspeak-get-voicefied-frame-info (selected-frame)))
           (recursion-info (emacspeak-get-voicefied-recursion-info  (recursion-depth)))
           (dir-info (when (or (eq major-mode 'shell-mode)
