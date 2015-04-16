@@ -196,6 +196,8 @@ Optional second arg watch-pattern specifies line of output to
               (string-match "\\(audio\\)\\|\\(mp3\\)" (expand-file-name default-directory))
               default-directory
             emacspeak-alsaplayer-media-directory))))))
+  (declare (special emacspeak-media-directory-regexp
+                    ido-work-directory-list))
   (emacspeak-alsaplayer-send-command
    (format "--enqueue %s"
            (shell-quote-wildcard-pattern

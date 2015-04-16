@@ -75,6 +75,7 @@
 
 (defadvice view-mode (after emacspeak pre act comp)
   "Announce what happened"
+  (declare (special view-mode-map))
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-load-directory-settings)

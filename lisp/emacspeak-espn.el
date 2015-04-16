@@ -58,7 +58,8 @@
 ;;{{{ Customizations:
 
 (defgroup emacspeak-espn nil
-  "ESPN API Client.")
+  "ESPN API Client."
+  :group 'emacspeak)
 
 (defcustom emacspeak-espn-api-key nil
   "Web API  key for this application."

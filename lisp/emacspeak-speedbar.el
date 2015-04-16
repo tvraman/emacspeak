@@ -236,20 +236,20 @@ An automatically updating speedbar consumes resources.")
 
 ;;}}}
 ;;{{{  hooks
-(declaim (special speedbar-key-map))
+(declaim (special speedbar-mode-map))
 (eval-when (load)
   )
 (defun emacspeak-speedbar-enter-hook ()
   "Actions taken when we enter the Speedbar"
-  (declare (special speedbar-key-map
+  (declare (special speedbar-mode-map
                     speedbar-hide-button-brackets-flag))
   (dtk-set-punctuations 'all)
   (setq speedbar-hide-button-brackets-flag t)
-  (define-key speedbar-key-map "f"
+  (define-key speedbar-mode-map "f"
     'emacspeak-speedbar-click)
-                                        ;(define-key speedbar-key-map "\M-n"
+                                        ;(define-key speedbar-mode-map "\M-n"
                                         ;'emacspeak-speedbar-forward)
-                                        ;(define-key speedbar-key-map "\M-p"
+                                        ;(define-key speedbar-mode-map "\M-p"
                                         ;'emacspeak-speedbar-backward)
   )
 

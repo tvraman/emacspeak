@@ -49,7 +49,7 @@
 ;;{{{ required modules
 
 (require 'emacspeak-preamble)
-
+(require 'apt-utils nil 'no-error)
 ;;}}}
 ;;{{{  Initial setup
 
