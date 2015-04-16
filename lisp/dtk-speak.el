@@ -1806,7 +1806,7 @@ only speak upto the first ctrl-m."
 ;;; I also do nothing if text is nil or ""
   (unless
       (or dtk-quiet (not dtk-speak-server-initialized)
-          (null text) (zerop (length text)) (string-match "^[\s]+$" text))
+          (null text) (zerop (length text)))
 ;;; flush previous speech if asked to
     (when dtk-stop-immediately (dtk-stop ))
     (dtk-interp-sync)
