@@ -1489,7 +1489,7 @@ indicating the arrival  of new mail when displaying the mode line.")
   "Return voicefied version of this recursive-depth level."
   (declare (special emacspeak-voicefied-recursion-info))
   (cond
-   ((zerop level) "")
+   ((zerop level) nil)
    (t 
     (let ((result (gethash level emacspeak-voicefied-recursion-info)))
       (or result
@@ -1508,7 +1508,7 @@ indicating the arrival  of new mail when displaying the mode line.")
   "Return voicefied version of this frame name."
   (declare (special emacspeak-voicefied-frame-info))
   (cond
-   ((= (length (frame-list)) 1) " ")
+   ((= (length (frame-list)) 1) nil)
    (t
     (let ((frame-name (frame-parameter frame 'name))
           (frame-info nil))
@@ -1581,7 +1581,7 @@ Interactive prefix arg speaks buffer info."
    ((and header-line-format (not (ems-interactive-p )))
     (emacspeak-speak-header-line))
    (buffer-info (emacspeak-speak-buffer-info))
-   (t
+   (t                                   ; main branch
     (let ((global-info (format-mode-line global-mode-string))
           (frame-info (emacspeak-get-voicefied-frame-info (selected-frame)))
           (recursion-info (emacspeak-get-voicefied-recursion-info  (recursion-depth)))
@@ -1599,19 +1599,19 @@ Interactive prefix arg speaks buffer info."
                            'personality voice-bolden-medium global-info)
         (tts-with-punctuations
          'all
-         (dtk-speak
-          (concat
-           dir-info
-           (emacspeak-get-voicefied-buffer-name (buffer-name))
-           (when line-number-mode
-             (format "line %d" (emacspeak-get-current-line-number)))
-           (when column-number-mode
-             (format "Column %d" (current-column)))
-           (emacspeak-get-voicefied-mode-name mode-name)
-           (emacspeak-get-current-percentage-verbously)
-           global-info
-           frame-info
-           recursion-info)))))))))
+                               (dtk-speak
+                                (concat
+                                 dir-info
+                                 (emacspeak-get-voicefied-buffer-name (buffer-name))
+                                 (when line-number-mode
+                                   (format "line %d" (emacspeak-get-current-line-number)))
+                                 (when column-number-mode
+                                   (format "Column %d" (current-column)))
+                                 (emacspeak-get-voicefied-mode-name mode-name)
+                                 (emacspeak-get-current-percentage-verbously)
+                                 global-info
+                                 frame-info
+                                 recursion-info)))))))))
 
 (defun emacspeak-speak-current-buffer-name ()
   "Speak name of current buffer."

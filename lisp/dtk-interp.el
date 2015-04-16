@@ -71,20 +71,17 @@
 
 (defmacro tts-with-punctuations (setting &rest body)
   "Safely set punctuation mode for duration of body form."
-  `(progn
-     (declare (special dtk-punctuation-mode))
-     (let    ((save-punctuation-mode dtk-punctuation-mode))
-       (unwind-protect
-           (progn
-             (unless (eq ,setting save-punctuation-mode)
-               (dtk-interp-set-punctuations ,setting)
-               (setq dtk-punctuation-mode ,setting))
-             ,@body
-             (dtk-force))
-         (unless (eq  ,setting  save-punctuation-mode)
-           (setq dtk-punctuation-mode save-punctuation-mode)
-           (dtk-interp-set-punctuations ,setting))
-         (dtk-force)))))
+  `(let    ((save-punctuation-mode dtk-punctuation-mode))
+     (unwind-protect
+         (unless (eq ,setting save-punctuation-mode)
+           (dtk-interp-set-punctuations ,setting)
+           (setq dtk-punctuation-mode ,setting))
+       ,@body
+       (dtk-force)
+       (unless (eq  ,setting  save-punctuation-mode)
+         (setq dtk-punctuation-mode save-punctuation-mode)
+         (dtk-interp-set-punctuations ,setting))
+       (dtk-force))))
 
 ;;}}}
 ;;{{{ silence
