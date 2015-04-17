@@ -274,8 +274,8 @@
             (> 0 (length (self-document-commands self)))
             (> 0 (length (self-document-options self))))
     (self-document-module-preamble self)
-    (self-document-module-commands self)
-    (self-document-module-options self)))
+    (when (self-document-commands self) (self-document-module-commands self))
+    (when (self-document-options self)(self-document-module-options self))))
 
 ;;}}}
 ;;{{{ Iterate over all modules
