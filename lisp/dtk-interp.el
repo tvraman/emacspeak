@@ -260,23 +260,6 @@
   (process-send-string dtk-speaker-process "tts_reset \n"))
 
 ;;}}}
-;;{{{ pause
-
-(defsubst dtk-interp-pause ()
-  (declare (special dtk-speaker-process))
-  (process-send-string dtk-speaker-process
-                       "tts_pause\n"))
-
-;;}}}
-;;{{{ resume
-
-(defsubst dtk-interp-resume ()
-  (declare (special dtk-speaker-process))
-  (process-send-string dtk-speaker-process
-                       "\n"))
-
-;;}}}
-
 (provide 'dtk-interp)
 ;;{{{  local variables
 

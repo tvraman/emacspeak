@@ -1004,55 +1004,6 @@ Typically used after the Dectalk has been power   cycled."
   (dtk-interp-say-version))
 
 ;;}}}
-;;{{{  pause and resume
-(defvar dtk-paused nil
-  "Records if speech has been paused.")
-
-;;;###autoload
-(defun dtk-pause ()
-  "Temporarily pause / resume speech."
-  (interactive)
-  (declare (special dtk-paused))
-  (cond
-   ((not dtk-paused)
-    (dtk-interp-pause)
-    (setq dtk-paused t)
-    (emacspeak-auditory-icon 'button))
-   (t
-    (setq dtk-paused nil)
-    (dtk-interp-resume))))
-
-;;;###autoload
-(defcustom dtk-resume-should-toggle t
-  "*T means `dtk-resume' acts as a toggle."
-  :type 'boolean
-  :group 'tts)
-
-;;;###autoload
-(defun dtk-resume ()
-  "Resume paused speech.
-This command resumes  speech that has been suspended by executing
-command `dtk-pause' bound to \\[dtk-pause].
-If speech has not been paused,
-and option `dtk-resume-should-toggle' is set,
- then this command will pause ongoing speech."
-  (interactive)
-  (declare (special dtk-speaker-process
-                    dtk-resume-should-toggle
-                    dtk-paused))
-  (cond
-   ((and dtk-resume-should-toggle
-         (not dtk-paused))
-    (dtk-pause))
-   ((and (not dtk-paused)
-         (not dtk-resume-should-toggle))
-    (dtk-speak "No speech to resume."))
-
-   (t (dtk-interp-resume)
-      (emacspeak-auditory-icon 'button)
-      (setq dtk-paused nil))))
-
-;;}}}
 ;;{{{  Internal variables:
 
 (defvar dtk-stop-immediately t
