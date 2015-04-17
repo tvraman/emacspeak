@@ -189,8 +189,6 @@ and return the results in a newly created buffer.
   This uses XSLT processor xsltproc available as
 part of the libxslt package."
   (declare (special emacspeak-xslt-program
-                    emacspeak-xslt-use-wget-to-download
-                    modification-flag
                     emacspeak-xslt-keep-errors))
   (let ((result (get-buffer-create " *xslt result*"))
         (command nil)
@@ -202,23 +200,14 @@ part of the libxslt package."
                                    (cdr pair)))
                        params
                        " "))))
-    (if emacspeak-xslt-use-wget-to-download
-        (setq command (format
-                       "wget -U mozilla -q -O - '%s' | %s %s    --html --novalid %s '%s' %s"
-                       url
-                       emacspeak-xslt-program
-                       (or parameters "")
-                       xsl "-"
-                       (unless emacspeak-xslt-keep-errors " 2>/dev/null ")))
-      (setq command
-            (format
-             "%s %s    --html --novalid %s '%s' %s"
-             emacspeak-xslt-program
-             (or parameters "")
-             xsl url
-             (unless emacspeak-xslt-keep-errors " 2>/dev/null "))))
-    (save-current-buffer
-      (set-buffer result)
+    (setq command
+          (format
+           "%s %s    --html --novalid %s '%s' %s"
+           emacspeak-xslt-program
+           (or parameters "")
+           xsl url
+           (unless emacspeak-xslt-keep-errors " 2>/dev/null ")))
+    (with-current-buffer result 
       (kill-all-local-variables)
       (erase-buffer)
       (setq buffer-undo-list t)
