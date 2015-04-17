@@ -86,36 +86,21 @@
 ;;}}}
 ;;{{{ silence keepalive
 
-(defadvice jabber-xml-resolve-namespace-prefixes(around emacspeak pre act comp)
-  "Silence messages."
-  (let ((emacspeak-speak-messages  nil))
-    ad-do-it))
-
-(defadvice jabber-fsm-handle-sentinel (around emacspeak pre act comp)
-  "silence messages."
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it))
-(loop for f in
-      '(jabber-keepalive-do
-        jabber-process-roster
-        jabber-keepalive-got-response)
-      do
-      (eval
-       `(defadvice ,f (around emacspeak pre act comp)
-          "Silence keepalive messages."
-          (let ((emacspeak-speak-messages nil))
-            ad-do-it
-            ad-return-value))))
+(loop
+ for f in
+ '(
+   image-type jabber-chat-with jabber-chat-with-jid-at-point
+   jabber-keepalive-do jabber-fsm-handle-sentinel jabber-xml-resolve-namespace-prefixes
+   jabber-process-roster jabber-keepalive-got-response)
+ do
+ (eval
+  `(defadvice ,f (around emacspeak pre act comp)
+     "Silence  messages."
+     (ems-with-messages-silenced ad-do-it
+                                 ad-return-value))))
 
 ;;}}}
-;;{{{  silence image type errors
 
-(defadvice image-type (around emacspeak pre act comp)
-  (let ((emacspeak-speak-messages nil)
-        (emacspeak-use-auditory-icons nil))
-    ad-do-it))
-
-;;}}}
 ;;{{{ jabber activity:
 
 (defadvice jabber-activity-switch-to (after emacspeak pre act comp)
@@ -132,16 +117,7 @@
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)))
 
-(loop for f in
-      '(jabber-chat-with
-        jabber-chat-with-jid-at-point)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Silence keepalive messages."
-          (when (ems-interactive-p )
-            (emacspeak-auditory-icon 'open-object)
-            (emacspeak-speak-mode-line)))))
+
 
 ;;}}}
 ;;{{{ alerts
