@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1061 commands and 889 options.
+This chapter documents a total of 1055 commands and 880 options.
 
 @menu
 * acss-structure::
@@ -110,7 +110,6 @@ This chapter documents a total of 1061 commands and 889 options.
 * emacspeak-kmacro::
 * emacspeak-librivox::
 * emacspeak-m-player::
-* emacspeak-madplay::
 * emacspeak-magit::
 * emacspeak-make-mode::
 * emacspeak-man::
@@ -401,24 +400,11 @@ Argument PROGRAM specifies the speech server program.
 Port  defaults to  dtk-local-server-port
 @end deffn
 
-@deffn {Interactive Command} dtk-pause  nil
-Temporarily pause / resume speech.
-@end deffn
-
 @deffn {Interactive Command} dtk-reset-state  nil
 @kbd{C-e d R}
 
 Restore sanity to the Dectalk.
 Typically used after the Dectalk has been power   cycled.
-@end deffn
-
-@deffn {Interactive Command} dtk-resume  nil
-Resume paused speech.
-This command resumes  speech that has been suspended by executing
-command `dtk-pause' bound to M-x dtk-pause.
-If speech has not been paused,
-and option `dtk-resume-should-toggle' is set,
- then this command will pause ongoing speech.
 @end deffn
 
 @deffn {Interactive Command} dtk-select-server  (program &optional device)
@@ -634,11 +620,6 @@ with a repeat count.
 
 @defvar {User Option} dtk-local-engine
 Engine we use  for our local TTS  server.
-
-@end defvar
-
-@defvar {User Option} dtk-resume-should-toggle
-*T means `dtk-resume' acts as a toggle.
 
 @end defvar
 
@@ -3420,11 +3401,6 @@ ALSA sound controller used to restore settings.
 
 @end defvar
 
-@defvar {User Option} emacspeak-aumix-multichannel-capable-p
-*Set to T if the sound card is capable of mixing multiple channels of audio.
-
-@end defvar
-
 @defvar {User Option} emacspeak-aumix-reset-options
 *Option to pass to aumix for resetting to default values.
 
@@ -3954,18 +3930,6 @@ Jump to custom group when in a customization buffer.
 @deffn {Interactive Command} emacspeak-custom-goto-toolbar  nil
 Jump to custom toolbar when in a customization buffer.
 @end deffn
-
-@subsection emacspeak-custom Options
-
-@defvar {User Option} emacspeak-custom-group-regexp
-Pattern identifying start of custom group.
-
-@end defvar
-
-@defvar {User Option} emacspeak-custom-toolbar-regexp
-Pattern that identifies toolbar section.
-
-@end defvar
 
 @node emacspeak-dbus
 @section emacspeak-dbus
@@ -5992,13 +5956,6 @@ Goto the previous index position in current buffer
 Speak upto start of next index entry
 @end deffn
 
-@subsection emacspeak-imenu Options
-
-@defvar {User Option} emacspeak-imenu-autospeak
-Speak contents of sections automatically if set.
-
-@end defvar
-
 @node emacspeak-info
 @section emacspeak-info
 
@@ -7110,65 +7067,6 @@ YouTube download tool
 @defvar {User Option} emacspeak-media-location-bindings
 *Map specific key sequences to launching MPlayer accelerators
 on a specific directory.
-
-@end defvar
-
-@node emacspeak-madplay
-@section emacspeak-madplay
-
-Defines a simple derived mode for interacting with
-madplay.
-madplay navigation commands  work via single keystrokes.
-
-@subsection emacspeak-madplay Commands
-
-@deffn {Interactive Command} emacspeak-madplay  (resource)
-Play specified resource using madplay.
-Resource is an  MP3 file or directory containing mp3 files.
-The player is placed in a buffer in emacspeak-madplay-mode.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-madplay-madplay-call-command  nil
-Call appropriate madplay command.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-madplay-madplay-command  (char)
-Execute Madplay command.
-@end deffn
-
-@deffn {Interactive Command} emacspeak-madplay-mode  nil
-Major mode for madplay interaction. 
-
-key             binding
----             -------
-
-+		emacspeak-madplay-madplay-call-command
--		emacspeak-madplay-madplay-call-command
-b		emacspeak-madplay-madplay-call-command
-f		emacspeak-madplay-madplay-call-command
-o		emacspeak-madplay
-p .. q		emacspeak-madplay-madplay-call-command
-s .. t		emacspeak-madplay-madplay-call-command
-<left>		emacspeak-aumix-wave-decrease
-<right>		emacspeak-aumix-wave-increase
-
-In addition to any hooks its parent mode `special-mode' might have run,
-this mode runs the hook `emacspeak-madplay-mode-hook', as the final step
-during initialization.
-@end deffn
-
-@subsection emacspeak-madplay Options
-
-@defvar {User Option} emacspeak-madplay-media-directory
-Directory to look for media files.
-
-@end defvar
-
-@defvar {User Option} emacspeak-madplay-program
-Script to invoke madplay.
-Emacspeak comes with a sample amadplay script in etc/amadplay
-  that 
-sets up madplay to pipe output to alsa.
 
 @end defvar
 
@@ -10240,11 +10138,6 @@ with a long string of gibberish.
 
 @end defvar
 
-@defvar {User Option} emacspeak-speak-message-again-should-copy-to-kill-ring
-If set, asking for last message will copy it to the kill ring.
-
-@end defvar
-
 @defvar {User Option} emacspeak-speak-messages
 *Option indicating if messages are spoken.  If nil,
 emacspeak will not speak messages as they are echoed to the
@@ -10903,13 +10796,6 @@ Save out url templates.
 @end deffn
 
 @subsection emacspeak-url-template Options
-
-@defvar {User Option} emacspeak-url-template-google-calendar-uri
-URI for accessing mobile version of Google Calendar.
-Google Apps users should set this to
-http://www.google.com/calendar/a/<my-corp>/m?output=xhtml
-
-@end defvar
 
 @defvar {User Option} emacspeak-url-template-weather-city-state
 Default city/state for weather forecasts
@@ -13666,7 +13552,7 @@ Apply first female voice.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 71 URL Templates.
+This section documents a total of 70 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -13775,10 +13661,6 @@ Display content from Google Finance.
 @b{Finance Google news}
 
 Display content from Google Finance.
-
-@b{GCalendar Mobile}
-
-Google Calendar XHTML version.
 
 @b{Geek Linux Daily}
 
