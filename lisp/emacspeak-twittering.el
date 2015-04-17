@@ -179,17 +179,12 @@
       '(twittering-get-and-render-timeline
         twittering-http-default-sentinel
         twittering-http-post-default-sentinel
-        twittering-retrieve-single-tweet-sentinel)
+        twittering-http-get-default-sentinel twittering-retrieve-single-tweet-sentinel)
       do
       (eval
        `(defadvice ,f  (around emacspeak pre act comp)
           "Silence spoken messages while twitter is updating."
-          (let ((emacspeak-speak-messages nil)) ad-do-it))))
-
-(defadvice twittering-http-get-default-sentinel (around emacspeak pre act comp)
-  "Silence spoken messages while twitter is updating."
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it))
+          (ems-with-messages-silenced ad-do-it))))
 
 ;;}}}
 ;;{{{ additional interactive comand

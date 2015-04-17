@@ -248,43 +248,34 @@ ARGS specifies additional arguments to SPEAKER if any."
 
 (defmacro emacspeak-webutils-without-xsl (&rest body)
   "Execute body with XSL turned off."
-  `(progn
-     (declare (special emacspeak-we-xsl-p))
-     (when emacspeak-we-xsl-p
-       (setq emacspeak-we-xsl-p nil)
-       (add-hook 'emacspeak-web-post-process-hook
-                 #'(lambda ()
-                     (declare (special emacspeak-we-xsl-p))
-                     (setq emacspeak-we-xsl-p t))
-                 'append))
-     ,@body))
+     `(lexical-let ((emacspeak-we-xsl-p t)) ,@body))
 
 (defmacro emacspeak-webutils-with-xsl-environment (style params options  &rest body)
-  "Execute body with XSL turned on
+  "Set up render environment  with XSL turned on
 and xsl environment specified by style, params and options."
   `(progn
      (add-hook
-      'emacspeak-web-post-process-hook
+      'emacspeak-web-post-process-hook ;restore previous environment 
       (eval
-       `(function
-         (lambda ()
-           (declare (special emacspeak-we-xsl-p emacspeak-we-xsl-transform
+       `#'(lambda ()
+            (declare (special emacspeak-we-xsl-p emacspeak-we-xsl-transform
                              emacspeak-xslt-options emacspeak-we-xsl-params))
            (setq emacspeak-we-xsl-p ,emacspeak-we-xsl-p
                  emacspeak-xslt-options ,emacspeak-xslt-options
                  emacspeak-we-xsl-transform ,emacspeak-we-xsl-transform
-                 emacspeak-we-xsl-params (quote ,emacspeak-we-xsl-params)))))
+                 emacspeak-we-xsl-params (quote ,emacspeak-we-xsl-params))))
       'append)
-     (setq emacspeak-we-xsl-p t
-           emacspeak-xslt-options ,options
-           emacspeak-we-xsl-transform ,style
-           emacspeak-we-xsl-params ,params)
-     (condition-case nil
-         (progn ,@body)
-       (error (setq emacspeak-we-xsl-p ,emacspeak-we-xsl-p
-                    emacspeak-xslt-options ,emacspeak-xslt-options
-                    emacspeak-we-xsl-transform ,emacspeak-we-xsl-transform
-                    emacspeak-we-xsl-params ,emacspeak-we-xsl-params)))))
+      (lexical-let ((emacspeak-we-xsl-p t)
+           (emacspeak-xslt-options ,options)
+           (emacspeak-we-xsl-transform ,style)
+           (emacspeak-we-xsl-params ,params))
+     ;(condition-case nil
+          ,@body
+       ;(error (setq emacspeak-we-xsl-p ,emacspeak-we-xsl-p
+                    ;emacspeak-xslt-options ,emacspeak-xslt-options
+                    ;emacspeak-we-xsl-transform ,emacspeak-we-xsl-transform
+                    ;emacspeak-we-xsl-params ,emacspeak-we-xsl-params
+                    )))
 
 ;;}}}
 ;;{{{ variables

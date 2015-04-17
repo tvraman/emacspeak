@@ -108,14 +108,12 @@
 
 (defadvice package-menu-execute(around emacspeak pre act comp)
   "Silence messages while installing packages. "
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it))
+  (ems-with-messages-silenced ad-do-it))
 
 
 (defadvice package-menu--perform-transaction (around emacspeak pre act comp)
   "Silence messages."
-(lexical-let ((emacspeak-speak-messages nil))
-  ad-do-it))
+(ems-with-messages-silenced ad-do-it))
 
 ;;}}}
 (provide 'emacspeak-package)
