@@ -713,7 +713,7 @@ Arguments START and END specify region to speak."
                     dtk-quiet))
   (unless dtk-quiet
     (when dtk-speak-server-initialized
-      (dtk-interp-dispatch string ))))
+      (dtk-interp-say string ))))
 
 ;;;###autoload
 (defsubst dtk-stop ()

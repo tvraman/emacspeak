@@ -130,21 +130,10 @@
 
 (defsubst dtk-interp-say (string)
   (declare (special dtk-speaker-process))
-  (process-send-string dtk-speaker-process
-                       (format  "tts_say { %s}\n"
-                                string )))
+  (process-send-string dtk-speaker-process (format  "tts_say { %s}\n" string )))
 
 ;;}}}
-;;{{{ dispatch
 
-;;;synonym for above in current server:
-(defsubst dtk-interp-dispatch (string)
-  (declare (special dtk-speaker-process))
-  (process-send-string dtk-speaker-process
-                       (format  "tts_say { %s}\n"
-                                string )))
-
-;;}}}
 ;;{{{ stop
 
 (defsubst dtk-interp-stop ()
