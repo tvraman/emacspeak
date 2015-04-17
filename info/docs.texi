@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1061 commands and 890 options.
+This chapter documents a total of 1061 commands and 889 options.
 
 @menu
 * acss-structure::
@@ -13250,13 +13250,6 @@ Options passed to xsltproc.
 
 @defvar {User Option} emacspeak-xslt-program
 Name of XSLT transformation engine.
-
-@end defvar
-
-@defvar {User Option} emacspeak-xslt-use-wget-to-download
-Set to T if you want to avoid URL downloader bugs in libxml2.
-There is a bug that bites when using Yahoo Maps that wget can
-work around.
 
 @end defvar
 
