@@ -539,13 +539,6 @@ element. "
   "silence spoken messages."
   (let ((emacspeak-speak-messages nil))
     ad-do-it))
-
-;; (defadvice url-http-wait-for-headers-change-function
-;;   (around emacspeak pre act comp)
-;;   "silence spoken messages."
-;;   (let ((emacspeak-speak-messages nil))
-;;     ad-do-it))
-
 ;;}}}
 ;;{{{ backward compatibility
 
