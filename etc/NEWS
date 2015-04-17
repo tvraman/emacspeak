@@ -19,6 +19,9 @@ Specifically, you need an Emacs that is built with libxml2 support for using pac
 
 Speech-enables package elfeed, a powerful feed-reader for Emacs.
 
+** CSound Generated 3D Theme
+
+Emacspeak 42 includes a 3D auditory icon theme generated using CSound.
 
 ** sox.el Audacious --- Audio WorkBench For Emacspeak 
 
