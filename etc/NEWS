@@ -77,3 +77,8 @@ formerly available in emacspeak-alsaplayer
 ** Better Support For Display  Property 
 
 Handles more cases of property _display_.
+
+
+** Logging Support For TTS Servers 
+
+Updated support for logging output from TTS servers -- see  http://emacspeak.blogspot.com/2015/04/howto-log-speech-server-output-to-aid.html
