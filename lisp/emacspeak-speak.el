@@ -2476,10 +2476,8 @@ message area.  You can use command
 ;;}}}
 ;;{{{  Speak the last message again:
 
-(defcustom emacspeak-speak-message-again-should-copy-to-kill-ring t
-  "If set, asking for last message will copy it to the kill ring."
-  :type 'boolean
-  :group 'emacspeak-speak)
+(defvar emacspeak-speak-message-again-should-copy-to-kill-ring t
+  "If set, asking for last message will copy it to the kill ring.")
 
 ;;;###autoload
 (defun emacspeak-speak-message-again (&optional from-message-cache)

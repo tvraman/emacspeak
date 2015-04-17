@@ -121,10 +121,10 @@
 
 ;;}}}
 ;;{{{  Navigation
-(defcustom emacspeak-imenu-autospeak nil
-  "Speak contents of sections automatically if set."
-  :type 'boolean
-  :group 'emacspeak-imenu)
+(defvar emacspeak-imenu-autospeak nil
+  "Speak contents of sections automatically if set.")
+  
+  
 
 ;;;###autoload
 (defun emacspeak-imenu-goto-next-index-position ()

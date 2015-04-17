@@ -377,21 +377,6 @@ dont-url-encode if true then url arguments are not url-encoded "
 ;;}}}
 ;;{{{ Calendar Mobile:
 
-(defcustom emacspeak-url-template-google-calendar-uri
-  "http://www.google.com/calendar/m?output=xhtml&pli=1"
-  "URI for accessing mobile version of Google Calendar.
-Google Apps users should set this to
-http://www.google.com/calendar/a/<my-corp>/m?output=xhtml"
-  :type 'string
-  :group 'emacspeak-url-template)
-
-(emacspeak-url-template-define
- "GCalendar Mobile"
- emacspeak-url-template-google-calendar-uri
- nil
- 'emacspeak-speak-buffer
- "Google Calendar XHTML version.")
-
 ;;}}}
 ;;{{{ google patent search:
 
