@@ -683,7 +683,7 @@ just results."
                     emacspeak-websearch-google-results-only
                     emacspeak-websearch-google-options emacspeak-websearch-google-number-of-results))
   (setq emacspeak-google-toolbelt nil)
-  (let ((toolbelt (emacspeak-google-toolbelt))
+  (lexical-let ((toolbelt (emacspeak-google-toolbelt))
         (add-toolbelt (and flag  (consp flag) (= 4 (car flag))))
         (lucky (and flag  (consp flag) (= 16 (car flag)))))
     (emacspeak-webutils-cache-google-query query)
@@ -691,7 +691,7 @@ just results."
     (if lucky
         (emacspeak-webutils-autospeak)
       (emacspeak-webutils-post-process "Results" 'emacspeak-speak-line))
-    (let ((search-url
+    (lexical-let ((search-url
            (concat
             (emacspeak-websearch-google-uri)
             query
