@@ -266,14 +266,13 @@ and xsl environment specified by style, params and options."
      (add-hook
       'emacspeak-web-post-process-hook
       (eval
-       `(function
-         (lambda ()
-           (declare (special emacspeak-we-xsl-p emacspeak-we-xsl-transform
-                             emacspeak-xslt-options emacspeak-we-xsl-params))
-           (setq emacspeak-we-xsl-p ,emacspeak-we-xsl-p
-                 emacspeak-xslt-options ,emacspeak-xslt-options
-                 emacspeak-we-xsl-transform ,emacspeak-we-xsl-transform
-                 emacspeak-we-xsl-params (quote ,emacspeak-we-xsl-params)))))
+       `#'(lambda ()
+            (declare (special emacspeak-we-xsl-p emacspeak-we-xsl-transform
+                              emacspeak-xslt-options emacspeak-we-xsl-params))
+            (setq emacspeak-we-xsl-p ,emacspeak-we-xsl-p
+                  emacspeak-xslt-options ,emacspeak-xslt-options
+                  emacspeak-we-xsl-transform ,emacspeak-we-xsl-transform
+                  emacspeak-we-xsl-params (quote ,emacspeak-we-xsl-params))))
       'append)
      (setq emacspeak-we-xsl-p t
            emacspeak-xslt-options ,options
