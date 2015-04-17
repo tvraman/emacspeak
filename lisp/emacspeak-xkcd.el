@@ -54,6 +54,15 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
+;;{{{ Fix error when loading images on the console:
+(defadvice xkcd-insert-image (around emacspeak pre act comp)
+  "no-Op on console"
+  (cond
+   ((not window-system) t)
+   (t ad-do-it)))
+
+;;}}}
+
 ;;; Eventually move this to the emacs-xkcd package if possible.
 
 (defvar xkcd-transcript nil
