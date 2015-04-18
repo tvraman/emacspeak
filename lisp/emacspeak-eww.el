@@ -451,12 +451,17 @@ Retain previously set punctuations  mode."
 
 (defadvice eww-display-html (before emacspeak pre act comp)
   "Apply XSLT transform if requested."
+  (declare (special emacspeak-web-pre-process-hook))
   (let ((orig (point)))
-    (when (and emacspeak-we-xsl-p emacspeak-we-xsl-transform)
-      (emacspeak-xslt-region
-       emacspeak-we-xsl-transform (point) (point-max)
-       emacspeak-we-xsl-params))
+    (cond
+     (emacspeak-web-pre-process-hook (emacspeak-webutils-run-pre-process-hook))
+   ((and emacspeak-we-xsl-p emacspeak-we-xsl-transform)
+    (emacspeak-xslt-region
+     emacspeak-we-xsl-transform (point) (point-max)
+     emacspeak-we-xsl-params)
+    ))
     (goto-char orig)))
+  
 
 ;;}}}
 ;;{{{ DOM Structure In Rendered Buffer:

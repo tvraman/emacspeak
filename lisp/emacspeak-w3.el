@@ -711,20 +711,21 @@ HTML."
     (emacspeak-we-build-id-cache)
     (emacspeak-we-build-class-cache)
     (emacspeak-we-build-role-cache))
-  (when (and emacspeak-we-xsl-p
-             emacspeak-we-xsl-transform
-             (not  (string-match "temp" (buffer-name))))
+  (cond
+   (emacspeak-web-pre-process-hook (emacspeak-webutils-run-pre-process-hook))
+   ((and emacspeak-we-xsl-p
+         emacspeak-we-xsl-transform
+         (not  (string-match "temp" (buffer-name))))
     (emacspeak-xslt-region
      emacspeak-we-xsl-transform
-     (point-min)
-     (point-max)
+     (point-min) (point-max)
      emacspeak-we-xsl-params)
     (emacspeak-we-build-id-cache)
     (emacspeak-we-build-class-cache)
     (when emacspeak-we-xsl-keep-result
       (clone-buffer
        (format "xslt-%s"
-               (buffer-name))))))
+               (buffer-name)))))))
 
 ;;}}}
 ;;{{{ fix css bug:
