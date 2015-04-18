@@ -50,7 +50,6 @@
 
 (require 'emacspeak-preamble)
 (require 'emacspeak-webutils)
-
 ;;}}}
 ;;{{{  xslt Environment:
 
@@ -313,7 +312,7 @@ part of the libxslt package."
                     emacspeak-xslt-directory))
   (add-to-list
    'emacspeak-web-pre-process-hook
-   (emacspeak-we-make-xsl-transformer style))
+   (emacspeak-webutils-make-xsl-transformer style))
    (browse-url url))
 
 ;;;###autoload

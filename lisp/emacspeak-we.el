@@ -171,11 +171,6 @@ Nil means no transform is used. "
   "Clean up bogus Unicode chars for magic quotes."
   :type 'boolean
   :group 'emacspeak-we)
-(defun emacspeak-we-make-xsl-transformer  (xsl &optional params)
-  "Return a function that can be attached to emacspeak-web-pre-process-hook to apply required xslt transform."
-  (eval
-   `#'(lambda ()
-       (emacspeak-xslt-region ,xsl (point) (point-max) ',params))))
 
 ;;;###autoload
 (defun emacspeak-we-xslt-apply (xsl)
@@ -184,7 +179,7 @@ Nil means no transform is used. "
   (emacspeak-webutils-browser-check)
   (add-to-list
    'emacspeak-web-pre-process-hook
-   (emacspeak-we-make-xsl-transformer  xsl))
+   (emacspeak-webutils-make-xsl-transformer  xsl))
    (browse-url (funcall emacspeak-webutils-current-url)))
 
 ;;;###autoload
@@ -276,7 +271,7 @@ from Web page -- default is the current page being viewed."
     (when speak (emacspeak-webutils-autospeak))
     (add-to-list
      'emacspeak-web-pre-process-hook
-     (emacspeak-we-make-xsl-transformer emacspeak-we-xsl-filter params))
+     (emacspeak-webutils-make-xsl-transformer emacspeak-we-xsl-filter params))
      (browse-url url)))
 
 ;;;###autoload
@@ -293,7 +288,7 @@ from Web page -- default is the current page being viewed."
     (when speak (emacspeak-webutils-autospeak))
     (add-to-list
      'emacspeak-web-pre-process-hook
-     (emacspeak-we-make-xsl-transformer emacspeak-we-xsl-junk params))
+     (emacspeak-webutils-make-xsl-transformer emacspeak-we-xsl-junk params))
      (browse-url url)))
 
 (defcustom emacspeak-we-media-stream-suffixes
