@@ -2112,11 +2112,11 @@ Produce an auditory icon if possible."
 (defsubst emacspeak-isearch-setup()
   "Setup emacspeak environment for isearch."
   (emacspeak-auditory-icon 'open-object)
-  (ems-with-messages-silenced
-  (dtk-speak "I-Search: ")))
+  (setq emacspeak-speak-messages t)
+  (dtk-speak "I-Search: "))
 
 (defsubst emacspeak-isearch-teardown()
-  "Teardown emacspeak environment for isearch."
+  "Teardown emacspeak environment for isearch."mmm
   (emacspeak-auditory-icon 'close-object))
 
 (add-hook 'isearch-mode-hook 'emacspeak-isearch-setup)
