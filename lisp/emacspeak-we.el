@@ -547,11 +547,10 @@ Tables are specified by containing  match pattern
     (add-hook
      'emacspeak-web-post-process-hook
      (eval
-      `(function
-        (lambda nil
-          (declare (special  emacspeak-we-buffer-class-cache))
-          (setq emacspeak-we-buffer-class-cache
-                ',(copy-sequence values))))))
+      `#'(lambda nil
+           (declare (special  emacspeak-we-buffer-class-cache))
+           (setq emacspeak-we-buffer-class-cache
+                 ',(copy-sequence values)))))
     (kill-buffer content)))
 
 (defvar emacspeak-we-buffer-id-cache nil
@@ -573,11 +572,10 @@ Tables are specified by containing  match pattern
     (add-hook
      'emacspeak-web-post-process-hook
      (eval
-      `(function
-        (lambda nil
+      `#'(lambda nil
           (declare (special  emacspeak-we-buffer-id-cache))
           (setq emacspeak-we-buffer-id-cache
-                ',(copy-sequence values))))))
+                ',(copy-sequence values)))))
     (kill-buffer content)))
 
 (defvar emacspeak-we-buffer-role-cache nil
@@ -599,11 +597,10 @@ Tables are specified by containing  match pattern
     (add-hook
      'emacspeak-web-post-process-hook
      (eval
-      `(function
-        (lambda nil
-          (declare (special  emacspeak-we-buffer-role-cache))
-          (setq emacspeak-we-buffer-role-cache
-                ',(copy-sequence values))))))
+      `#'(lambda nil
+           (declare (special  emacspeak-we-buffer-role-cache))
+           (setq emacspeak-we-buffer-role-cache
+                 ',(copy-sequence values)))))
     (kill-buffer content)))
 
 ;;;###autoload
