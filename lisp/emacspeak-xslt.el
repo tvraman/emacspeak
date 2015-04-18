@@ -311,11 +311,10 @@ part of the libxslt package."
     (read-string "URL: " (browse-url-url-at-point))))
   (declare (special emacspeak-xslt-options
                     emacspeak-xslt-directory))
-  (emacspeak-webutils-with-xsl-environment
-   style
-   nil
-   emacspeak-xslt-options
-   (browse-url url)))
+  (add-to-list
+   'emacspeak-web-pre-process-hook
+   (emacspeak-we-make-xsl-transformer style))
+   (browse-url url))
 
 ;;;###autoload
 (defun emacspeak-xslt-view-xml (style url &optional unescape-charent)
