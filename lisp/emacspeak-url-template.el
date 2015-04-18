@@ -277,10 +277,10 @@ dont-url-encode if true then url arguments are not url-encoded "
            'emacspeak-url-template-iplayer-player))
  "BBC iPlayer"
  #'(lambda (url)
-     (emacspeak-webutils-with-xsl-environment
-      (expand-file-name "bbc-iplayer.xsl" emacspeak-xslt-directory)
-      nil emacspeak-xslt-options
-      (browse-url url))))
+     (add-to-list
+      'emacspeak-web-pre-process-hook
+      (emacspeak-webutils-make-xsl-transformer(expand-file-name "bbc-iplayer.xsl" emacspeak-xslt-directory)))
+      (browse-url url)))
 
 (emacspeak-url-template-define
  "BBC Genre Using IPlayer"
@@ -291,10 +291,10 @@ dont-url-encode if true then url arguments are not url-encoded "
      (setq emacspeak-we-url-executor 'emacspeak-url-template-iplayer-player))
  "BBC iPlayer Genre"
  #'(lambda (url)
-
-     (emacspeak-webutils-with-xsl-environment
-      (expand-file-name "bbc-iplayer.xsl" emacspeak-xslt-directory)
-      nil emacspeak-xslt-options
+(add-to-list
+ 'emacspeak-web-pre-process-hook
+     (emacspeak-webutils-make-xsl-transformer
+      (expand-file-name "bbc-iplayer.xsl" emacspeak-xslt-directory)))
       (browse-url url)))
  'dont-url-encode)
 
