@@ -2100,27 +2100,31 @@ Produce an auditory icon if possible."
 (declaim (special isearch-mode-map
                   minibuffer-local-isearch-map emacspeak-prefix))
 
-(define-key
-  minibuffer-local-isearch-map emacspeak-prefix 'emacspeak-prefix-command)
+(define-key minibuffer-local-isearch-map
+  emacspeak-prefix 'emacspeak-prefix-command)
 (define-key isearch-mode-map emacspeak-prefix 'emacspeak-prefix-command)
 (define-key isearch-mode-map "\M-m" 'isearch-exit)
 ;;; ISearch setup/teardown
 
-;;; temporarily silence messages,
+;;; Silence messages during isearch,
 ;;; Produce auditory icon
 
 (defsubst emacspeak-isearch-setup()
   "Setup emacspeak environment for isearch."
+  (declare (special emacspeak-speak-messages))
   (emacspeak-auditory-icon 'open-object)
   (setq emacspeak-speak-messages t)
   (dtk-speak "I-Search: "))
 
 (defsubst emacspeak-isearch-teardown()
   "Teardown emacspeak environment for isearch."mmm
+  (declare (special emacspeak-speak-messages))
+  (setq emacspeak-speak-messages t)
   (emacspeak-auditory-icon 'close-object))
 
 (add-hook 'isearch-mode-hook 'emacspeak-isearch-setup)
 (add-hook 'isearch-mode-end-hook 'emacspeak-isearch-teardown)
+(add-hook 'isearch-mode-end-hook-quit 'emacspeak-isearch-teardown)
 
 ;;; Advice isearch-search to speak
 
