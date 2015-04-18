@@ -92,12 +92,31 @@
       (emacspeak-keymap-update  emacspeak-web-prefix k))
 
 ;;}}}
+;;{{{ web-pre-process
+
+;;;###autoload
+(defvar emacspeak-web-pre-process-hook nil
+  "Pre-process hook -- to be used for XSL preprocessing etc.")
+
+(defsubst emacspeak-webutils-run-pre-process-hook (&rest ignore)
+  "Run web pre process hook."
+  (declare (special emacspeak-web-pre-process-hook))
+  (when     emacspeak-web-pre-process-hook
+    (condition-case nil
+        (let ((inhibit-read-only t))
+          (run-hooks  'emacspeak-web-pre-process-hook))
+      ((debug error)  (message "Caught error  in pre-process hook.")
+       (setq emacspeak-web-pre-process-hook nil)))
+    (setq emacspeak-web-pre-process-hook nil)))
+
+;;}}}
 ;;{{{ web-post-process
 
 ;;;###autoload
 (defvar emacspeak-web-post-process-hook nil
   "Set locally to a  site specific post processor.
 Note that the Web browser should reset this hook after using it.")
+
 (defsubst emacspeak-webutils-run-post-process-hook (&rest ignore)
   "Use web post process hook."
   (declare (special emacspeak-web-post-process-hook))
