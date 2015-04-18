@@ -684,35 +684,38 @@ just results."
                     emacspeak-websearch-google-options emacspeak-websearch-google-number-of-results))
   (setq emacspeak-google-toolbelt nil)
   (lexical-let ((toolbelt (emacspeak-google-toolbelt))
-        (add-toolbelt (and flag  (consp flag) (= 4 (car flag))))
-        (lucky (and flag  (consp flag) (= 16 (car flag)))))
+                (search-url nil)
+                (add-toolbelt (and flag  (consp flag) (= 4 (car flag))))
+                (lucky (and flag  (consp flag) (= 16 (car flag)))))
     (emacspeak-webutils-cache-google-query query)
     (emacspeak-webutils-cache-google-toolbelt toolbelt)
     (if lucky
         (emacspeak-webutils-autospeak)
       (emacspeak-webutils-post-process "Results" 'emacspeak-speak-line))
-    (lexical-let ((search-url
-           (concat
-            (emacspeak-websearch-google-uri)
-            query
-            (format "&num=%s%s"         ; acumulate options
-                    emacspeak-websearch-google-number-of-results
-                    (or emacspeak-websearch-google-options ""))
-            (when lucky
-              (concat
-               "&btnI="
-               (emacspeak-url-encode "I'm Feeling Lucky"))))))
-      (cond
-       (add-toolbelt (emacspeak-google-toolbelt-change))
-       (lucky (browse-url search-url))
-       (emacspeak-websearch-google-results-only
-        (emacspeak-we-extract-by-id-list
-         '( "rhs" "center_col" "nav")
-         search-url 'speak))
-       (t (emacspeak-webutils-with-xsl-environment
-           (expand-file-name "default.xsl" emacspeak-xslt-directory)
-           nil emacspeak-xslt-options
-           (browse-url search-url)))))))
+    (setq search-url
+          (concat
+           (emacspeak-websearch-google-uri)
+           query
+           (format "&num=%s%s"          ; acumulate options
+                   emacspeak-websearch-google-number-of-results
+                   (or emacspeak-websearch-google-options ""))
+           (when lucky
+             (concat
+              "&btnI="
+              (emacspeak-url-encode "I'm Feeling Lucky")))))
+    (cond
+     (add-toolbelt (emacspeak-google-toolbelt-change))
+     (lucky (browse-url search-url))
+     (emacspeak-websearch-google-results-only
+      (emacspeak-we-extract-by-id-list
+       '( "rhs" "center_col" "nav")
+       search-url 'speak))
+     (t
+      (add-to-list
+       'emacspeak-web-pre-process-hook
+       (emacspeak-webutils-make-xsl-transformer
+        (expand-file-name "default.xsl" emacspeak-xslt-directory)))
+      (browse-url search-url)))))
 
 ;;{{{ IMFA
 

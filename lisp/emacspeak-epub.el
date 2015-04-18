@@ -242,10 +242,10 @@
          (emacspeak-speak-rest-of-buffer))
      'at-end)
     (with-current-buffer content
-      (emacspeak-webutils-with-xsl-environment
-       style nil
-       "--nonet --novalid"; options
-       (browse-url-of-buffer)))))
+      (add-to-list
+       'emacspeak-web-pre-process-hook
+      (emacspeak-webutils-make-xsl-transformer style ))
+       (browse-url-of-buffer))))
 
 (defvar emacspeak-epub-files-command
   (format "%s -1 %%s | grep \.html*$ | sort" emacspeak-epub-zip-info)
