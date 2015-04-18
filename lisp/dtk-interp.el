@@ -250,7 +250,7 @@
   (declare (special dtk-speaker-process))
   (process-send-string
    dtk-speaker-process
-   (format "tts_set_punctuations %s\n" mode)))
+   (format "tts_set_punctuations %s\nd\n" mode)))
 
 ;;}}}
 ;;{{{ reset
