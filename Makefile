@@ -287,6 +287,12 @@ uninstall:
 #the complete build
 all: emacspeak
 
+#clean, config and build
+q:
+	make clean
+	make config 
+	make -j
+
 # }}}
 # {{{  user level target-- clean
 
