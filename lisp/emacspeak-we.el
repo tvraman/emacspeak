@@ -59,6 +59,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+
 (require 'emacspeak-xslt)
 (require 'emacspeak-webutils)
 
@@ -170,17 +171,21 @@ Nil means no transform is used. "
   "Clean up bogus Unicode chars for magic quotes."
   :type 'boolean
   :group 'emacspeak-we)
+(defun emacspeak-we-make-xsl-transformer  (xsl &optional params)
+  "Return a function that can be attached to emacspeak-web-pre-process-hook to apply required xslt transform."
+  (eval
+   `#'(lambda ()
+       (emacspeak-xslt-region ,xsl (point) (point-max) ',params))))
 
 ;;;###autoload
 (defun emacspeak-we-xslt-apply (xsl)
   "Apply specified transformation to current Web page."
   (interactive (list (emacspeak-xslt-read)))
   (emacspeak-webutils-browser-check)
-  (emacspeak-webutils-with-xsl-environment
-   xsl
-   nil
-   emacspeak-xslt-options
-   (browse-url (funcall emacspeak-webutils-current-url))))
+  (add-to-list
+   'emacspeak-web-pre-process-hook
+   (emacspeak-we-make-xsl-transformer  xsl))
+   (browse-url (funcall emacspeak-webutils-current-url)))
 
 ;;;###autoload
 (defun emacspeak-we-xslt-select (xsl)
@@ -269,11 +274,10 @@ from Web page -- default is the current page being viewed."
   (lexical-let ((params (emacspeak-xslt-params-from-xpath  path url)))
     (when emacspeak-we-filters-rename-buffer(emacspeak-webutils-rename-buffer (format "Filtered %s" path)))
     (when speak (emacspeak-webutils-autospeak))
-    (emacspeak-webutils-with-xsl-environment
-     emacspeak-we-xsl-filter
-     params
-     emacspeak-xslt-options             ;options
-     (browse-url url))))
+    (add-to-list
+     'emacspeak-web-pre-process-hook
+     (emacspeak-we-make-xsl-transformer emacspeak-we-xsl-filter params))
+     (browse-url url)))
 
 ;;;###autoload
 (defun emacspeak-we-xslt-junk (path    url &optional speak)
@@ -284,15 +288,13 @@ from Web page -- default is the current page being viewed."
     (emacspeak-webutils-read-url)
     (ems-interactive-p )))
   (declare (special emacspeak-we-xsl-junk ))
-  (let ((params (emacspeak-xslt-params-from-xpath  path url)))
-    (emacspeak-webutils-rename-buffer
-     (format "Filtered %s" path))
+  (lexical-let ((params (emacspeak-xslt-params-from-xpath  path url)))
+    (emacspeak-webutils-rename-buffer (format "Filtered %s" path))
     (when speak (emacspeak-webutils-autospeak))
-    (emacspeak-webutils-with-xsl-environment
-     emacspeak-we-xsl-junk
-     params
-     emacspeak-xslt-options
-     (browse-url url))))
+    (add-to-list
+     'emacspeak-web-pre-process-hook
+     (emacspeak-we-make-xsl-transformer emacspeak-we-xsl-junk params))
+     (browse-url url)))
 
 (defcustom emacspeak-we-media-stream-suffixes
   (list
