@@ -1645,8 +1645,9 @@ Interactive prefix arg speaks buffer info."
        (t                               ;process modeline
         (unless (and buffer-read-only (buffer-modified-p))
                                         ; avoid pathological case
-          (when (and buffer-file-name  (buffer-modified-p)) (dtk-tone 950 100))
-          (when buffer-read-only (dtk-tone 250 100)))
+          (when (and buffer-file-name  (buffer-modified-p))
+  (dtk-tone 950 100 'force))
+          (when buffer-read-only (dtk-tone 250 100 'force)))
         (put-text-property 0 (length global-info)
                            'personality voice-bolden-medium global-info)
         (tts-with-punctuations
