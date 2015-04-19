@@ -664,15 +664,10 @@ Optional second arg as-html processes the results as HTML rather than data."
 
 ;;;###autoload
 (defun emacspeak-websearch-google (query &optional flag)
-  "Perform a Google search.
-First optional interactive prefix arg `flag' prompts for
-additional search options. Second interactive prefix arg is
-equivalent to hitting the I'm Feeling Lucky button on
-Google. "
-  (interactive
-   (list
-    (gweb-google-autocomplete)
-    current-prefix-arg))
+  "Perform a Google search.  First optional interactive prefix arg
+`flag' prompts for additional search options. Second interactive
+prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
+  (interactive (list (gweb-google-autocomplete) current-prefix-arg))
   (declare (special emacspeak-google-query emacspeak-google-toolbelt
                     emacspeak-websearch-google-options emacspeak-websearch-google-number-of-results))
   (setq emacspeak-google-toolbelt nil)
