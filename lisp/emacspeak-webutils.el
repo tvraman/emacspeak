@@ -119,7 +119,9 @@ Note that the Web browser should reset this hook after using it.")
 
 (defsubst emacspeak-webutils-run-post-process-hook (&rest ignore)
   "Use web post process hook."
-  (declare (special emacspeak-web-post-process-hook))
+  (declare (special emacspeak-web-post-process-hook
+                    emacspeak-web-pre-process-hook))
+  (setq emacspeak-web-pre-process-hook nil) ;clear  pre-process hook
   (when     emacspeak-web-post-process-hook
     (condition-case nil
         (let ((inhibit-read-only t))
