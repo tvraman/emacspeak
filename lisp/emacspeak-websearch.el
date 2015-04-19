@@ -635,10 +635,6 @@ Optional second arg as-html processes the results as HTML rather than data."
   "Number of results to return from google search."
   :type 'number
   :group 'emacspeak-websearch)
-(defcustom emacspeak-websearch-google-results-only t
-  "Specify if we show just results or the complete Google page."
-  :type  'boolean
-  :group 'emacspeak-websearch)
 
 (defvar emacspeak-websearch-google-uri-template
   "www.google.com/search?source=hp&q="
@@ -672,15 +668,12 @@ Optional second arg as-html processes the results as HTML rather than data."
 First optional interactive prefix arg `flag' prompts for
 additional search options. Second interactive prefix arg is
 equivalent to hitting the I'm Feeling Lucky button on
-Google. Uses customizable option
-`emacspeak-websearch-google-results-only' to determine if we show
-just results."
+Google. "
   (interactive
    (list
     (gweb-google-autocomplete)
     current-prefix-arg))
   (declare (special emacspeak-google-query emacspeak-google-toolbelt
-                    emacspeak-websearch-google-results-only
                     emacspeak-websearch-google-options emacspeak-websearch-google-number-of-results))
   (setq emacspeak-google-toolbelt nil)
   (lexical-let ((toolbelt (emacspeak-google-toolbelt))
@@ -706,16 +699,10 @@ just results."
     (cond
      (add-toolbelt (emacspeak-google-toolbelt-change))
      (lucky (browse-url search-url))
-     (emacspeak-websearch-google-results-only
+     (t                                 ; always just show results
       (emacspeak-we-extract-by-id-list
        '( "rhs" "center_col" "nav")
-       search-url 'speak))
-     (t
-      (add-to-list
-       'emacspeak-web-pre-process-hook
-       (emacspeak-webutils-make-xsl-transformer
-        (expand-file-name "default.xsl" emacspeak-xslt-directory)))
-      (browse-url search-url)))))
+       search-url 'speak)))))
 
 ;;{{{ IMFA
 
