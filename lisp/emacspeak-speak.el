@@ -1646,8 +1646,8 @@ Interactive prefix arg speaks buffer info."
         (unless (and buffer-read-only (buffer-modified-p))
                                         ; avoid pathological case
           (when (and buffer-file-name  (buffer-modified-p))
-  (dtk-tone 950 100 'force))
-          (when buffer-read-only (dtk-tone 250 100 'force)))
+  (dtk-tone 950 100 ))
+          (when buffer-read-only (dtk-tone 250 100 )))
         (put-text-property 0 (length global-info)
                            'personality voice-bolden-medium global-info)
         (tts-with-punctuations
@@ -1665,6 +1665,7 @@ Interactive prefix arg speaks buffer info."
            global-info
            frame-info
            recursion-info)))))))))
+
 
 (defun emacspeak-speak-current-buffer-name ()
   "Speak name of current buffer."
