@@ -277,7 +277,8 @@ dont-url-encode if true then url arguments are not url-encoded "
            'emacspeak-url-template-iplayer-player))
  "BBC iPlayer"
  #'(lambda (url)
-      (emacspeak-xslt-view
+     (emacspeak-webutils-autospeak)
+      (emacspeak-xslt-view-xml
        (expand-file-name "bbc-iplayer.xsl" emacspeak-xslt-directory) url))
  'dont-url-encode)
 
@@ -290,7 +291,8 @@ dont-url-encode if true then url arguments are not url-encoded "
      (setq emacspeak-we-url-executor 'emacspeak-url-template-iplayer-player))
  "BBC iPlayer Genre"
  #'(lambda (url)
-      (emacspeak-xslt-view
+     (emacspeak-webutils-autospeak)
+      (emacspeak-xslt-view-xml
        (expand-file-name "bbc-iplayer.xsl" emacspeak-xslt-directory) url))
  'dont-url-encode)
 

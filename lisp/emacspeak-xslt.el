@@ -235,14 +235,12 @@ part of the libxslt package."
                     emacspeak-xslt-keep-errors))
   (let ((result (get-buffer-create " *xslt result*"))
         (command nil)
-        (parameters (when params
-                      (mapconcat
-                       #'(lambda (pair)
-                           (format "--param %s %s "
-                                   (car pair)
-                                   (cdr pair)))
-                       params
-                       " "))))
+        (parameters
+         (when params
+           (mapconcat
+            #'(lambda (pair)
+                (format "--param %s %s " (car pair) (cdr pair)))
+            params " "))))
       (setq command
             (format
              "%s %s --novalid %s '%s' %s"
