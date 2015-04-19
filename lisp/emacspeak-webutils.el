@@ -285,6 +285,9 @@ ARGS specifies additional arguments to SPEAKER if any."
                  'append))
      ,@body))
 
+(make-obsolete 'emacspeak-webutils-with-xsl-environment
+               "Use emacspeak-web-pre-process-hook to set up a  transformer function instead."
+               "42.0")
 (defmacro emacspeak-webutils-with-xsl-environment (style params options  &rest body)
   "Execute body with XSL turned on
 and xsl environment specified by style, params and options."
