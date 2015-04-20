@@ -1643,14 +1643,16 @@ Interactive prefix arg speaks buffer info."
       (cond
        ((stringp mode-line-format) (dtk-speak mode-line-format ))
        (t                               ;process modeline
-        (put-text-property 0 (length global-info)
-                           'personality voice-bolden-medium global-info)
+        (unless (zerop (length global-info))
+          (put-text-property 0 (length global-info)
+                           'personality voice-bolden-medium global-info))
         (tts-with-punctuations
          'all
-         (unless (and buffer-read-only (buffer-modified-p)) ; avoid pathological case
+         (unless (and buffer-read-only
+                      (buffer-modified-p))  ; avoid pathological case
           (when (and buffer-file-name  (buffer-modified-p))
             (dtk-tone 650 35 'force))
-          (when buffer-read-only (dtk-tone 250 50 'force  )))
+          (when buffer-read-only (dtk-tone 250 50 'force)))
          (dtk-speak
           (concat
            dir-info
@@ -1661,9 +1663,7 @@ Interactive prefix arg speaks buffer info."
              (format "Column %d" (current-column)))
            (emacspeak-get-voicefied-mode-name mode-name)
            (emacspeak-get-current-percentage-verbously)
-           global-info
-           frame-info
-           recursion-info)))))))))
+           global-info frame-info recursion-info)))))))))
 
 
 (defun emacspeak-speak-current-buffer-name ()
