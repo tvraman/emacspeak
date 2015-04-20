@@ -1651,8 +1651,8 @@ Interactive prefix arg speaks buffer info."
          (unless (and buffer-read-only
                       (buffer-modified-p))  ; avoid pathological case
           (when (and buffer-file-name  (buffer-modified-p))
-            (dtk-tone 650 35 'force))
-          (when buffer-read-only (dtk-tone 250 50 'force)))
+            (emacspeak-auditory-icon 'modified-object))
+          (when buffer-read-only (emacspeak-auditory-icon 'unmodified-object)))
          (dtk-speak
           (concat
            dir-info
