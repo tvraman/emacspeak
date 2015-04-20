@@ -139,6 +139,7 @@
 
 (defun tts-speak-list (lines)
   "Speak an arbitrary number of lines."
+  (tts-stop)
   (mapc 'tts-queue lines)
   (tts-force))
 
