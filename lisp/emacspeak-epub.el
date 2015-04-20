@@ -225,8 +225,7 @@
   (let ((base (emacspeak-epub-base epub))
         (content nil)
         (default-process-coding-system (cons 'utf-8 'utf-8))
-        (coding-system-for-read 'utf-8)
-        )
+        (coding-system-for-read 'utf-8))
     (unless (string-match (format "^%s" base) element)
       (setq element (concat base element)))
     (setq content (emacspeak-epub-get-contents epub element))
@@ -242,10 +241,9 @@
          (emacspeak-speak-rest-of-buffer))
      'at-end)
     (with-current-buffer content
-      (add-to-list
-       'emacspeak-web-pre-process-hook
-      (emacspeak-webutils-make-xsl-transformer style ))
-       (browse-url-of-buffer))))
+       (emacspeak-webutils-with-xsl-environment 
+style  nil nil 
+       (browse-url-of-buffer)))))
 
 (defvar emacspeak-epub-files-command
   (format "%s -1 %%s | grep \.html*$ | sort" emacspeak-epub-zip-info)

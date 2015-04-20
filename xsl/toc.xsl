@@ -83,7 +83,6 @@ Description: Generate Table of contents
 
 <!--
 Local Variables:
-mode: xae
 sgml-indent-step: 2
 sgml-indent-data: t
 sgml-set-face: nil
