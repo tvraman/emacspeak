@@ -2140,6 +2140,7 @@ Produce an auditory icon if possible."
            (- (point) (length isearch-string ))
          (+ (point) (length isearch-string )))
        voice-bolden
+       (dtk-stop)
        (dtk-speak
         (buffer-substring
          (line-beginning-position)
