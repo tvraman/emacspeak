@@ -204,7 +204,8 @@ proc p {sound} {
 
 proc beep_initialize {} {
     global tts
-    if {[file executable /usr/bin/beep]} {
+    if {[file executable /usr/bin/sox]} {
+        puts stderr "Using SoX"
         set tts(beep) 1
     }
 }
@@ -213,7 +214,8 @@ proc beep {{freq 523} {length 100} {repeat 1} {delay 10}} {
     global tts
     if {[info exists tts(beep)]
         && $tts(beep) == 1}  {
-        exec beep -f $freq -l $length -r $repeat -d $delay &
+        set l  [expr $length / 100.0]
+        exec play -q -n synth $l sin $freq
     }
 }
 
