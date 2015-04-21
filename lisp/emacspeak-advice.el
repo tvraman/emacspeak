@@ -1740,7 +1740,8 @@ the newly created blank line."
        (cond
         (emacspeak-line-echo (emacspeak-speak-line ))
         (t(when dtk-stop-immediately (dtk-stop))
-          (dtk-tone 225 120 'force )))))))
+          (dtk-tone 225 75 'force )))))))
+
 (loop
  for f in
  '(keyboard-quit keyboard-escape-quit)

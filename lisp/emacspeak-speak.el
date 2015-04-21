@@ -914,7 +914,7 @@ are indicated with auditory icon ellipses."
          ((string-equal ""  line)
           (dtk-tone 250   75 'force))
          ((string-match  emacspeak-speak-space-regexp  line) ;only white space
-          (dtk-tone 300   120 'force))
+          (dtk-tone 300   75 'force))
          ((and (not (eq 'all dtk-punctuation-mode))
                (string-match  emacspeak-horizontal-rule line))
           (dtk-tone 350   100 t))
