@@ -225,6 +225,7 @@
   (let ((base (emacspeak-epub-base epub))
         (content nil)
         (emacspeak-xslt-options "--nonet --novalid")
+        (emacspeak-we-xsl-p nil)
         (default-process-coding-system (cons 'utf-8 'utf-8))
         (coding-system-for-read 'utf-8))
     (unless (string-match (format "^%s" base) element)
@@ -242,8 +243,7 @@
          (emacspeak-speak-rest-of-buffer))
      'at-end)
     (with-current-buffer content
-       (emacspeak-xslt-region
-style   (point-min) (point-max))
+       (emacspeak-xslt-region style   (point-min) (point-max))
        (browse-url-of-buffer))))       
        
 
