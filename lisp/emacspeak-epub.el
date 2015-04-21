@@ -243,8 +243,9 @@
          (emacspeak-speak-rest-of-buffer))
      'at-end)
     (with-current-buffer content
-       (emacspeak-xslt-region style   (point-min) (point-max))
-       (browse-url-of-buffer))))       
+       (when style
+        (emacspeak-xslt-region style   (point-min) (point-max)))
+       (browse-url-of-buffer))))
        
 
 (defvar emacspeak-epub-files-command
