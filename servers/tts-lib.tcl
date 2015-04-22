@@ -225,6 +225,7 @@ proc beep {{freq 523} {length 100}} {
 proc tts_selftest {} {
      loop i 1 10 {
      q "This is test $i. "
+         t [expr 440 +10*$i]
      }
      d
 }
