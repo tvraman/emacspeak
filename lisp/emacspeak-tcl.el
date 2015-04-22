@@ -119,27 +119,21 @@ is a Tcl expression, and the last argument is Tcl commands.")
 
 ;;}}}
 ;;{{{  Advice electric insertion to talk:
-(unless (and (boundp 'post-self-insert-hook)
-             post-self-insert-hook
-             (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
-  (defadvice tcl-electric-hash (after emacspeak pre act comp )
+
+(defadvice tcl-electric-hash (after emacspeak pre act comp )
     "Speak what you inserted."
     (when (ems-interactive-p )
-      (emacspeak-speak-this-char last-input-event))))
-(unless (and (boundp 'post-self-insert-hook)
-             post-self-insert-hook
-             (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
-  (defadvice tcl-electric-char (after emacspeak pre act comp )
+      (emacspeak-speak-this-char last-input-event)))
+
+(defadvice tcl-electric-char (after emacspeak pre act comp )
     "Speak what you inserted."
     (when (ems-interactive-p )
-      (emacspeak-speak-this-char last-input-event))))
-(unless (and (boundp 'post-self-insert-hook)
-             post-self-insert-hook
-             (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
-  (defadvice tcl-electric-brace (after emacspeak pre act comp )
+      (emacspeak-speak-this-char last-input-event)))
+
+(defadvice tcl-electric-brace (after emacspeak pre act comp )
     "Speak what you inserted."
     (when (ems-interactive-p )
-      (emacspeak-speak-this-char last-input-event))))
+      (emacspeak-speak-this-char last-input-event)))
 
 ;;}}}
 ;;{{{  Actions in the tcl mode buffer:
