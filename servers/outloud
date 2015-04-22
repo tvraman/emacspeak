@@ -135,7 +135,7 @@ proc t  {{pitch 440} {duration 50}} {
         b $pitch $duration
         return ""
     }
-    service
+    #service
 }
 
 proc sh  {{duration 50}} {
