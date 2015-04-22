@@ -379,6 +379,7 @@ tts_initialize
 set tts(speech_rate)  225
 set tts(say_rate) [round \
                        [expr $tts(speech_rate) * $tts(char_factor)]]
+beep_initialize
 set tts(input) stdin
 if {[info exists server_p]} {
     set tts(input) sock0
