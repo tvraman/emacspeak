@@ -162,6 +162,12 @@ proc s {} {
 
 proc t  {{pitch 440} {duration 50}} {
     global tts queue
+    global tts queue
+    if {$tts(beep)} { 
+        b $pitch $duration
+        return ""
+    }
+    #otherwise, use dtk builtin tones 
     set tone "\[:to $pitch $duration\]"
     set queue($tts(q_tail)) [list t $tone]
     incr tts(q_tail)
@@ -278,6 +284,10 @@ proc speech_task {} {
                 set text  [lindex $event 1]
                 puts -nonewline  $tts(write) "\[:i r 1 _.]$text\[_.] "
                 set retval [tts_get_acknowledgement ]
+            }
+            b {
+                lvarpop event 
+                eval beep $event
             }
             a {
                 set sound [lindex $event 1]
