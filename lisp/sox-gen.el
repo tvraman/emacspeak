@@ -54,16 +54,14 @@
 (require 'sox)
 
 ;;}}}
-;;{{{ Sound Generators:
-(defun sox-gen-cmd (cmd &optional tempo speed)
+;;{{{ Generator:
+
+(defun sox-gen-cmd (cmd)
   "Play specified command."
-  (start-process
-   "Shell" "*sox*" shell-file-name shell-command-switch 
-   (concat cmd
-           (when tempo (format " tempo %s" tempo))
-           (when speed (format " speed %s" speed))
-           ;" 2>&1 > /dev/null &"
-           )))
+  (start-process "Shell" "*sox*" shell-file-name shell-command-switch cmd))
+
+;;}}}
+;;{{{ Chime:
 
 (defconst sox-chime-cmd
   "play -q -n synth -j 3 sin %3 sin %-2 sin %-5 sin %-9 \
@@ -74,7 +72,14 @@
 (defun sox-chime (&optional tempo speed)
   "Play chime --- optional args tempo and speed default to 1."
   (declare (special sox-chime-cmd))
-  (sox-gen-cmd sox-chime-cmd tempo speed))
+  (sox-gen-cmd
+   (concat 
+   sox-chime-cmd
+   (when tempo (format " tempo %s" tempo))
+           (when speed (format " speed %s" speed)))))
+
+;;}}}
+;;{{{ Guitar Chord:
 
 (defconst sox-guitar-chord-cmd
   "play -q -n synth pl G2 pl B2 pl D3 pl G3 pl D4 pl G4 \
@@ -84,7 +89,44 @@
 (defun sox-guitar-chord (&optional tempo speed)
   "Play a guitar chord"
   (declare (special sox-guitar-chord-cmd))
-  (sox-gen-cmd sox-guitar-chord-cmd tempo speed))
+  (sox-gen-cmd
+   (concat
+    sox-guitar-chord-cmd
+    (when tempo (format " tempo %s" tempo))
+    (when speed (format " speed %s" speed)))))
+
+;;}}}
+;;{{{ Sin:
+
+(defconst sox-sin-cmd
+  "play -q -n synth  %s sin %s "
+"Command-line that produces a simple sine wave..")
+
+(defun sox-sin (length freq &rest args)
+  "Play sine wave specified by length and freq.
+Freq can be specified as a frequency, note (%nn) or frequency range.
+Remaining args specify additional commandline args."
+  (declare (special sox-sin-cmd))
+  (sox-gen-cmd
+   (concat
+   (format sox-sin-cmd length freq)
+   (mapconcat #'identity args " "))))
+
+;;}}}
+;;{{{ Pluck:
+
+(defconst sox-pluck-cmd
+  "play -q -n synth  %s pluck %s "
+"Command-line that produces a simple plucke.")
+
+(defun sox-pluck (length freq &rest args)
+  "Play plucke  specified by length and freq.
+Freq can be specified as a frequency, note (%nn) or frequency range."
+  (declare (special sox-pluck-cmd))
+  (sox-gen-cmd
+   (concat 
+   (format sox-pluck-cmd length freq)
+   (mapconcat #'identity args " "))))
 
 ;;}}}
 (provide 'sox-gen)
