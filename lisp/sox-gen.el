@@ -57,12 +57,13 @@
 ;;{{{ Sound Generators:
 (defun sox-gen-cmd (cmd &optional tempo speed)
   "Play specified command."
-  (shell-command
-   (concat
-    cmd
-    (when tempo (format " tempo %s" tempo))
-    (when speed (format " speed %s" speed))
-    " 2>&1 > /dev/null &")))
+  (start-process
+   "Shell" "*sox*" shell-file-name shell-command-switch 
+   (concat cmd
+           (when tempo (format " tempo %s" tempo))
+           (when speed (format " speed %s" speed))
+           ;" 2>&1 > /dev/null &"
+           )))
 
 (defconst sox-chime-cmd
   "play -q -n synth -j 3 sin %3 sin %-2 sin %-5 sin %-9 \
