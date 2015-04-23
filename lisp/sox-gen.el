@@ -61,39 +61,19 @@
   (start-process "Shell" "*sox*" shell-file-name shell-command-switch cmd))
 
 ;;}}}
-;;{{{ Chime:
+;;{{{ synth:
 
-(defconst sox-chime-cmd
-  "play -q -n synth -j 3 sin %3 sin %-2 sin %-5 sin %-9 \
-                   sin %-14 sin %-21 fade h .01 2 1.5 delay \
-                   1.3 1 .76 .54 .27 remix - fade h 0 2.7 2.5 norm -1"
-"Command-line that produces a simple chime.")
+(defconst sox-synth-cmd
+  "play -q -n synth %s "
+"Invoke synth generation.")
 
-(defun sox-chime (&optional tempo speed)
-  "Play chime --- optional args tempo and speed default to 1."
-  (declare (special sox-chime-cmd))
-  (sox-gen-cmd
-   (concat 
-   sox-chime-cmd
-   (when tempo (format " tempo %s" tempo))
-           (when speed (format " speed %s" speed)))))
-
-;;}}}
-;;{{{ Guitar Chord:
-
-(defconst sox-guitar-chord-cmd
-  "play -q -n synth pl G2 pl B2 pl D3 pl G3 pl D4 pl G4 \
-                   delay 0 .05 .1 .15 .2 .25 remix - fade 0 4 .1 norm -1"
-  "Play a guitar chord.")
-
-(defun sox-guitar-chord (&optional tempo speed)
-  "Play a guitar chord"
-  (declare (special sox-guitar-chord-cmd))
+(defun sox-synth (length  &rest args)
+  "Call synth with length and args."
+  (declare (special sox-synth-cmd))
   (sox-gen-cmd
    (concat
-    sox-guitar-chord-cmd
-    (when tempo (format " tempo %s" tempo))
-    (when speed (format " speed %s" speed)))))
+   (format sox-synth-cmd length)
+   (mapconcat #'identity args " "))))
 
 ;;}}}
 ;;{{{ Sin:
@@ -127,6 +107,41 @@ Freq can be specified as a frequency, note (%nn) or frequency range."
    (concat 
    (format sox-pluck-cmd length freq)
    (mapconcat #'identity args " "))))
+
+;;}}}
+;;{{{ Chime:
+
+(defconst sox-chime-cmd
+  "play -q -n synth -j 3 sin %3 sin %-2 sin %-5 sin %-9 \
+                   sin %-14 sin %-21 fade h .01 2 1.5 delay \
+                   1.3 1 .76 .54 .27 remix - fade h 0 2.7 2.5 norm -1"
+"Command-line that produces a simple chime.")
+
+(defun sox-chime (&optional tempo speed)
+  "Play chime --- optional args tempo and speed default to 1."
+  (declare (special sox-chime-cmd))
+  (sox-gen-cmd
+   (concat 
+   sox-chime-cmd
+   (when tempo (format " tempo %s" tempo))
+           (when speed (format " speed %s" speed)))))
+
+;;}}}
+;;{{{ Guitar Chord:
+
+(defconst sox-guitar-chord-cmd
+  "play -q -n synth pl G2 pl B2 pl D3 pl G3 pl D4 pl G4 \
+                   delay 0 .05 .1 .15 .2 .25 remix - fade 0 4 .1 norm -1"
+  "Play a guitar chord.")
+
+(defun sox-guitar-chord (&optional tempo speed)
+  "Play a guitar chord"
+  (declare (special sox-guitar-chord-cmd))
+  (sox-gen-cmd
+   (concat
+    sox-guitar-chord-cmd
+    (when tempo (format " tempo %s" tempo))
+    (when speed (format " speed %s" speed)))))
 
 ;;}}}
 (provide 'sox-gen)
