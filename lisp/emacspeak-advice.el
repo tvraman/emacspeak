@@ -739,7 +739,7 @@ Produce an auditory icon if possible."
 
 (defadvice read-char-choice(before emacspeak pre act comp)
   "Speak the prompt"
-  (let ((prommmmpt (ad-get-arg 0))
+  (let ((prompt (ad-get-arg 0))
         (chars (ad-get-arg 1)))
     (tts-with-punctuations
      'all
@@ -2108,20 +2108,13 @@ Produce an auditory icon if possible."
 (define-key isearch-mode-map "\M-m" 'isearch-exit)
 ;;; ISearch setup/teardown
 
-;;; Silence messages during isearch,
 ;;; Produce auditory icon
-
 (defsubst emacspeak-isearch-setup()
   "Setup emacspeak environment for isearch."
-  (declare (special emacspeak-speak-messages))
-  (emacspeak-auditory-icon 'open-object)
-  (setq emacspeak-speak-messages t)
-  (dtk-speak "I-Search: "))
+  (emacspeak-auditory-icon 'open-object))
 
 (defsubst emacspeak-isearch-teardown()
-  "Teardown emacspeak environment for isearch."mmm
-  (declare (special emacspeak-speak-messages))
-  (setq emacspeak-speak-messages t)
+  "Teardown emacspeak environment for isearch."
   (emacspeak-auditory-icon 'close-object))
 
 (add-hook 'isearch-mode-hook 'emacspeak-isearch-setup)
@@ -2142,7 +2135,6 @@ Produce an auditory icon if possible."
            (- (point) (length isearch-string ))
          (+ (point) (length isearch-string )))
        voice-bolden
-       (dtk-stop)
        (dtk-speak
         (buffer-substring
          (line-beginning-position)
