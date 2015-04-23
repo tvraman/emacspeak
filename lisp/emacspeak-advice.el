@@ -585,8 +585,8 @@ see option emacspeak-untabify-fixes-non-breaking-space."
 (defadvice momentary-string-display (around emacspeak pre act comp)
   "Provide spoken feedback."
   (lexical-let ((emacspeak-speak-messages nil)
-        (msg (ad-get-arg 0))
-        (exit (ad-get-arg 2)))
+                (msg (ad-get-arg 0))
+                (exit (ad-get-arg 2)))
     (dtk-speak
      (format "%s %s"
              msg
@@ -769,7 +769,7 @@ Produce an auditory icon if possible."
    (completions-annotations voice-annotate)
    (completions-common-part voice-monotone)
    (completions-first-difference voice-brighten)))
-(loop 
+(loop
  for f in
  '(minibuffer-complete-word minibuffer-complete)
  do
@@ -791,7 +791,7 @@ Produce an auditory icon if possible."
       (t ad-do-it))
      ad-return-value)))
 
-(loop 
+(loop
  for f in
  '(lisp-complete-symbol complete-symbol widget-complete)
  do
@@ -817,7 +817,7 @@ Produce an auditory icon if possible."
 (defadvice complete (around emacspeak pre act comp)
   "Say what you completed."
   (lexical-let ((emacspeak-speak-messages nil)
-        (emacspeak-last-message nil))
+                (emacspeak-last-message nil))
     ad-do-it
     (when (ems-interactive-p )
       (dtk-speak
@@ -964,7 +964,7 @@ Produce an auditory icon if possible."
  emacspeak-pronounce-uuid-pattern
  (cons 're-search-forward
        'emacspeak-pronounce-uuid))
-(loop 
+(loop
  for mode in
  '(conf-space-mode conf-unix-mode conf-mode)
  do
@@ -976,7 +976,7 @@ Produce an auditory icon if possible."
 
 (add-hook 'shell-mode-hook 'emacspeak-pronounce-refresh-pronunciations)
 
-(loop 
+(loop
  for f in
  '(shell-command shell-dirstack-message)
  do
@@ -984,7 +984,7 @@ Produce an auditory icon if possible."
   `(defadvice ,f (around emacspeak pre act comp)
      "Silence messages"
      (ems-with-messages-silenced
-       ad-do-it))))
+      ad-do-it))))
 
 (add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)
 
@@ -1108,7 +1108,7 @@ Produce an auditory icon if possible."
           'rear-sticky nil)))
       (when (and
              comint-last-output-start
-             emacspeak-comint-autospeak 
+             emacspeak-comint-autospeak
              (or monitor (eq (window-buffer) buffer)))
         (emacspeak-speak-region comint-last-output-start (point )))
       ad-return-value)))
@@ -1280,7 +1280,7 @@ process PID's current working directory.
 
 Turning on Ditrack-Procfs mode automatically turns off
 Shell-Dirtrack mode; turning it off does not re-enable it."
-  nil "DirTrack" nil 
+  nil "DirTrack" nil
   (if (not dirtrack-procfs-mode)
       (remove-hook 'comint-preoutput-filter-functions #'emacspeak-shell-dirtrack-procfs t)
     (add-hook 'comint-preoutput-filter-functions #'emacspeak-shell-dirtrack-procfs nil t)
@@ -1386,7 +1386,7 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
     (message "Checked in version %s "
              (emacspeak-vc-get-version-id))))
 
-(loop 
+(loop
  for f in
  '(vc-dir-next-line vc-dir-previous-line
                     vc-dir-next-directory vc-dir-previous-directory
@@ -1432,7 +1432,7 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
 ;;}}}
 ;;{{{ composing mail
 
-(loop 
+(loop
  for f in
  '(mail mail-other-window mail-other-frame )
  do
@@ -1443,7 +1443,7 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
      (save-excursion
        (goto-char (point-min))
        (emacspeak-speak-line)))))
-(loop 
+(loop
  for f in
  '(mail-text mail-subject mail-cc mail-bcc
              mail-to mail-reply-to mail-fcc)
@@ -1479,7 +1479,7 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
   (when (ems-interactive-p )
     (message "Displayed mode help in help window")
     (emacspeak-auditory-icon 'help)))
-(loop 
+(loop
  for f in
  '(describe-bindings describe-prefix-bindings)
  do
@@ -1642,7 +1642,7 @@ Indicate change of selection with an auditory icon
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'button)))
 
-;;; Silence help for help 
+;;; Silence help for help
 (defadvice help-window-display-message (around emacspeak pre act comp)
   (ems-with-messages-silenced ad-do-it))
 
@@ -1676,7 +1676,7 @@ Indicate change of selection with an auditory icon
         (alt-regexp "C-x @ a")
         (super-regexp "C-x @ s"))
     (condition-case nil
-        (with-temp-buffer 
+        (with-temp-buffer
           (setq buffer-undo-list t)
           (setq case-fold-search nil)
           (erase-buffer)
@@ -1789,8 +1789,8 @@ Provide an auditory icon if possible."
   (cond
    ((ems-interactive-p )
     (lexical-let ((dtk-quiet t)
-          (emacspeak-speak-messages nil)
-          (emacspeak-use-auditory-icons nil))
+                  (emacspeak-speak-messages nil)
+                  (emacspeak-use-auditory-icons nil))
       ad-do-it)
     (message "Executed macro. ")
     (emacspeak-auditory-icon 'task-done))
@@ -1837,7 +1837,7 @@ Provide an auditory icon if possible."
     (message "Upcased region containing %s lines"
              (count-lines (region-beginning)
                           (region-end)))))
-(loop 
+(loop
  for f in
  '(narrow-to-region narrow-to-page)
  do
@@ -1945,7 +1945,7 @@ Provide an auditory icon if possible."
   "Provide auditory feedback."
   (when (ems-interactive-p )
     (message "Aborting recursive edit")))
-(loop 
+(loop
  for f in
  '(undo undo-only)
  do
@@ -1988,7 +1988,7 @@ Provide an auditory icon if possible."
           (dtk-speak msg)
         (emacspeak-auditory-icon 'close-object)))))
 
-(loop 
+(loop
  for f in
  '(tooltip-show-help-non-mode tooltip-sho)
  do
@@ -2111,10 +2111,13 @@ Produce an auditory icon if possible."
 ;;; Produce auditory icon
 (defsubst emacspeak-isearch-setup()
   "Setup emacspeak environment for isearch."
-  (emacspeak-auditory-icon 'open-object))
+  (emacspeak-auditory-icon 'open-object)
+  (setq emacspeak-speak-messages nil)
+  (dtk-speak "I-Search: "))
 
 (defsubst emacspeak-isearch-teardown()
   "Teardown emacspeak environment for isearch."
+  (setq emacspeak-speak-messages t)
   (emacspeak-auditory-icon 'close-object))
 
 (add-hook 'isearch-mode-hook 'emacspeak-isearch-setup)
@@ -2127,12 +2130,12 @@ Produce an auditory icon if possible."
   (cond
    ((null isearch-success) (emacspeak-auditory-icon 'search-miss))
    (t
+    (emacspeak-auditory-icon 'search-hit)
     (save-excursion
       (ems-set-personality-temporarily
        (point) isearch-other-end voice-bolden
        (dtk-speak
-        (buffer-substring (line-beginning-position) (line-end-position)))))
-    (emacspeak-auditory-icon 'search-hit))))
+        (buffer-substring (line-beginning-position) (line-end-position))))))))
 
 (defadvice isearch-delete-char (after emacspeak pre act comp)
   "Speak the search hit.
@@ -2530,8 +2533,8 @@ Produce auditory icons if possible."
       ((ems-interactive-p )
        (ems-with-messages-silenced
         ad-do-it
-         (emacspeak-auditory-icon 'task-done)
-         (message "Displayed lint results in other window. ")))
+        (emacspeak-auditory-icon 'task-done)
+        (message "Displayed lint results in other window. ")))
       (t ad-do-it))
      ad-return-value)))
 
@@ -2555,7 +2558,7 @@ Produce auditory icons if possible."
 
 (defadvice push-button (after emacspeak pre act comp)
   "Produce auditory icon."
-  (when  (ems-interactive-p ) 
+  (when  (ems-interactive-p )
     (emacspeak-auditory-icon 'push-button)
     (emacspeak-speak-line)))
 
