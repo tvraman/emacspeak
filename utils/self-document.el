@@ -99,7 +99,7 @@
           (regexp-opt
            '("emacspeak" "cd-tool" "tts"
              "outlout" "dectalk"
-             "voice-setup" "dtk" "amixer"
+             "voice-setup" "dtk" "amixer" "sox-"
              "g-" "gm-" "g-app" "gfeed" "gweb" "gmap" "gblogger" "gphoto")))
   "Patterns to match command names.")
 (defvar self-document-command-count 0
@@ -118,7 +118,7 @@
   (concat "^"
           (regexp-opt
            '("emacspeak" "cd-tool" "dtk" "voice"
-             "amixer" "outloud" "dectalk" "tts"
+             "sox-" "amixer" "outloud" "dectalk" "tts"
              "g-" "gm-" "gfeeds" "g-app"  "gweb" "gmap" "gblogger" "gphoto")))
   "Pattern that matches options we document.")
 

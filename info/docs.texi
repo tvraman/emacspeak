@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1055 commands and 879 options.
+This chapter documents a total of 1066 commands and 881 options.
 
 @menu
 * acss-structure::
@@ -13287,6 +13287,84 @@ support to sox,
 sudo apt-get libsox-fmt-mp3 install
 
 This module can be used independent of Emacspeak.
+
+@subsection sox Commands
+
+@deffn {Interactive Command} sox-add-effect  (name)
+Adds  effect at the end of the effect list
+@end deffn
+
+@deffn {Interactive Command} sox-delete-effect-at-point  (&rest rest)
+:around advice: `ad-Advice-sox-delete-effect-at-point'
+
+Delete effect at point.
+
+(fn)
+@end deffn
+
+@deffn {Interactive Command} sox-edit-effect-at-point  nil
+Edit effect at point.
+@end deffn
+
+@deffn {Interactive Command} sox-mode  nil
+An audio workbench for the Emacspeak desktop.
+
+In addition to any hooks its parent mode `special-mode' might have run,
+this mode runs the hook `sox-mode-hook', as the final step
+during initialization.
+
+key             binding
+---             -------
+
+@end deffn
+
+@deffn {Interactive Command} sox-open-file  (&rest rest)
+:around advice: `ad-Advice-sox-open-file'
+
+Open specified snd-file on the Audio Workbench.
+
+(fn SND-FILE)
+@end deffn
+
+@deffn {Interactive Command} sox-play  nil
+Play sound from current context.
+@end deffn
+
+@deffn {Interactive Command} sox-refresh  (&rest rest)
+:around advice: `ad-Advice-sox-refresh'
+
+Redraw Audio Workbench.
+
+(fn)
+@end deffn
+
+@deffn {Interactive Command} sox-save  (save-file)
+Save context to  file after prompting.
+@end deffn
+
+@deffn {Interactive Command} sox-set-effect  (name)
+Set effect.
+@end deffn
+
+@deffn {Interactive Command} sox-show-timestamp  nil
+Show timestamp   in stream.
+@end deffn
+
+@deffn {Interactive Command} sox-stop  nil
+Stop currently playing  sound from current context.
+@end deffn
+
+@subsection sox Options
+
+@defvar {User Option} sox-edit
+Location of SoX utility.
+
+@end defvar
+
+@defvar {User Option} sox-play
+Location of play from SoX utility.
+
+@end defvar
 
 @node sox-gen
 @section sox-gen

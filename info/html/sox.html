@@ -105,6 +105,176 @@
 
   <p>sudo apt-get libsox-fmt-mp3 install</p>
 
-  <p>This module can be used independent of Emacspeak.</p>
+  <p>This module can be used independent of Emacspeak.</p><a name=
+  "sox-Commands" id="sox-Commands"></a>
+
+  <h4 class="subsection">11.201.1 sox Commands</h4>
+
+  <dl>
+    <dt><a name="index-sox_002dadd_002deffect" id=
+    "index-sox_002dadd_002deffect"></a>Interactive Command:
+    <strong>sox-add-effect</strong> <em>(name)</em></dt>
+
+    <dd>
+      <p>Adds effect at the end of the effect list</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-sox_002ddelete_002deffect_002dat_002dpoint"
+    id=
+    "index-sox_002ddelete_002deffect_002dat_002dpoint"></a>Interactive
+    Command: <strong>sox-delete-effect-at-point</strong>
+    <em>(&amp;rest rest)</em></dt>
+
+    <dd>
+      <p>:around advice: ‘ad-Advice-sox-delete-effect-at-point’</p>
+
+      <p>Delete effect at point.</p>
+
+      <p>(fn)</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-sox_002dedit_002deffect_002dat_002dpoint"
+    id="index-sox_002dedit_002deffect_002dat_002dpoint"></a>Interactive
+    Command: <strong>sox-edit-effect-at-point</strong>
+    <em>nil</em></dt>
+
+    <dd>
+      <p>Edit effect at point.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-sox_002dmode" id=
+    "index-sox_002dmode"></a>Interactive Command:
+    <strong>sox-mode</strong> <em>nil</em></dt>
+
+    <dd>
+      <p>An audio workbench for the Emacspeak desktop.</p>
+
+      <p>In addition to any hooks its parent mode ‘special-mode’
+      might have run, this mode runs the hook ‘sox-mode-hook’, as
+      the final step during initialization.</p>
+
+      <p>key binding — ——-</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-sox_002dopen_002dfile" id=
+    "index-sox_002dopen_002dfile"></a>Interactive Command:
+    <strong>sox-open-file</strong> <em>(&amp;rest rest)</em></dt>
+
+    <dd>
+      <p>:around advice: ‘ad-Advice-sox-open-file’</p>
+
+      <p>Open specified snd-file on the Audio Workbench.</p>
+
+      <p>(fn SND-FILE)</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-sox_002dplay" id=
+    "index-sox_002dplay"></a>Interactive Command:
+    <strong>sox-play</strong> <em>nil</em></dt>
+
+    <dd>
+      <p>Play sound from current context.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-sox_002drefresh" id=
+    "index-sox_002drefresh"></a>Interactive Command:
+    <strong>sox-refresh</strong> <em>(&amp;rest rest)</em></dt>
+
+    <dd>
+      <p>:around advice: ‘ad-Advice-sox-refresh’</p>
+
+      <p>Redraw Audio Workbench.</p>
+
+      <p>(fn)</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-sox_002dsave" id=
+    "index-sox_002dsave"></a>Interactive Command:
+    <strong>sox-save</strong> <em>(save-file)</em></dt>
+
+    <dd>
+      <p>Save context to file after prompting.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-sox_002dset_002deffect" id=
+    "index-sox_002dset_002deffect"></a>Interactive Command:
+    <strong>sox-set-effect</strong> <em>(name)</em></dt>
+
+    <dd>
+      <p>Set effect.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-sox_002dshow_002dtimestamp" id=
+    "index-sox_002dshow_002dtimestamp"></a>Interactive Command:
+    <strong>sox-show-timestamp</strong> <em>nil</em></dt>
+
+    <dd>
+      <p>Show timestamp in stream.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-sox_002dstop" id=
+    "index-sox_002dstop"></a>Interactive Command:
+    <strong>sox-stop</strong> <em>nil</em></dt>
+
+    <dd>
+      <p>Stop currently playing sound from current context.</p>
+    </dd>
+  </dl><a name="sox-Options" id="sox-Options"></a>
+
+  <h4 class="subsection">11.201.2 sox Options</h4>
+
+  <dl>
+    <dt><a name="index-User-Option-850" id=
+    "index-User-Option-850"></a>Variable: <strong>User
+    Option</strong> <em>sox-edit</em></dt>
+
+    <dd>
+      <p>Location of SoX utility.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-851" id=
+    "index-User-Option-851"></a>Variable: <strong>User
+    Option</strong> <em>sox-play</em></dt>
+
+    <dd>
+      <p>Location of play from SoX utility.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href="sox_002dgen.html#sox_002dgen" accesskey="n"
+    rel="next">sox-gen</a>, Previous: <a href=
+    "plain_002dvoices.html#plain_002dvoices" accesskey="p" rel=
+    "prev">plain-voices</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>
