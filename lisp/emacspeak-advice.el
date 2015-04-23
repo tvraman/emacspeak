@@ -2122,7 +2122,6 @@ Produce an auditory icon if possible."
 (add-hook 'isearch-mode-end-hook-quit 'emacspeak-isearch-teardown)
 
 ;;; Advice isearch-search to speak
-
 (defadvice isearch-search (after emacspeak pre act comp)
   "Speak the search hit."
   (cond
@@ -2130,15 +2129,9 @@ Produce an auditory icon if possible."
    (t
     (save-excursion
       (ems-set-personality-temporarily
-       (point)
-       (if isearch-forward
-           (- (point) (length isearch-string ))
-         (+ (point) (length isearch-string )))
-       voice-bolden
+       (point) isearch-other-end voice-bolden
        (dtk-speak
-        (buffer-substring
-         (line-beginning-position)
-         (line-end-position)))))
+        (buffer-substring (line-beginning-position) (line-end-position)))))
     (emacspeak-auditory-icon 'search-hit))))
 
 (defadvice isearch-delete-char (after emacspeak pre act comp)
