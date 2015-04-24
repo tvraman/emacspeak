@@ -191,14 +191,14 @@
   (forward-line 4)
   (emacspeak-auditory-icon 'select-object)
   (emacspeak-speak-line))
-(defadvice jabber-connect-all (after emacspeak pre act comp)
-  "switch to roster so we give it a chance to update."
-  (when (ems-interactive-p)
-    (switch-to-buffer jabber-roster-buffer)))
-(defadvice jabber-roster-update (around emacspeak    pre act  comp)
-  "Make this operation a No-Op unless the roster is visible."
-  (when (get-buffer-window-list jabber-roster-buffer)
-    ad-do-it))
+;; (defadvice jabber-connect-all (after emacspeak pre act comp)
+;;   "switch to roster so we give it a chance to update."
+;;   (when (ems-interactive-p)
+;;     (switch-to-buffer jabber-roster-buffer)))
+;; (defadvice jabber-roster-update (around emacspeak    pre act  comp)
+;;   "Make this operation a No-Op unless the roster is visible."
+;;   (when (get-buffer-window-list jabber-roster-buffer)
+;;     ad-do-it))
 
 ;; (defadvice jabber-display-roster (around emacspeak    pre act  comp)
 ;;   "Make this operation a No-Op unless called interactively."
