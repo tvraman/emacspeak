@@ -1572,7 +1572,9 @@ Argument PROGRAM specifies the speech server program."
      (or dtk-servers-alist
          (tts-setup-servers-alist))
      nil
-     t  )))
+     t
+     nil nil
+     dtk-program)))
   (declare (special    dtk-servers-alist
                        dtk-async-server-process emacspeak-servers-directory ))
   (when (and
@@ -1621,7 +1623,9 @@ Port  defaults to  dtk-local-server-port"
      (or dtk-servers-alist
          (tts-setup-servers-alist))
      nil
-     t  )))
+     t
+     nil nil 
+     dtk-program)))
   (declare (special    dtk-servers-alist dtk-local-server-port
                        dtk-local-server-process emacspeak-servers-directory ))
   (when (and
