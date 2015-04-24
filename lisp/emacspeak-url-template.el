@@ -436,23 +436,12 @@ dont-url-encode if true then url arguments are not url-encoded "
 ;;}}}
 ;;; pull google finance search results via the transcoder
 
-(emacspeak-url-template-define
- "Mobile Finance Google Search"
- "http://finance.google.com/finance?q=%s"
- (list "Finance Search: ")
- #'(lambda nil
-     (call-interactively 'emacspeak-imenu-goto-next-index-position))
- "Display content from Google Finance."
- #'(lambda (url)
-     (browse-url
-      (format emacspeak-webutils-google-transcoder-url
-              (emacspeak-url-encode
-               url)))))
+
 (emacspeak-url-template-define
  "Finance Google Search"
  "http://finance.google.com/finance?q=%s"
  (list "Finance Search: ")
- nil
+ 'emacspeak-speak-buffer
  "Display content from Google Finance."
  )
 
