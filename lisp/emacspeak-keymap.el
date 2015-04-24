@@ -273,7 +273,6 @@
 (loop for binding in
       '(
         ("," dtk-toggle-punctuation-mode)
-        ("A" dtk-async-server)
         ("C" dtk-toggle-allcaps-beep)
         ("L" dtk-local-server)
         ("N" dtk-set-next-language)

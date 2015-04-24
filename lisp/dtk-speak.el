@@ -1556,38 +1556,10 @@ Optional interactive prefix arg restarts current TTS server."
       (message "ALSA_DEFAULT: %s" tts-device)
       (when current-prefix-arg (tts-restart))))))
 
-(defvar dtk-async-server-process nil
-  "Process handle to async server.")
 
-;;;###autoload
-(defun dtk-async-server (program)
-  "Select and start an async  speech server interactively.
-Async servers allow external programs like self-voicing Web browsers to use
-the Emacspeak TTS server abstraction.
-Argument PROGRAM specifies the speech server program."
-  (interactive
-   (list
-    (completing-read
-     "Select speech server:"
-     (or dtk-servers-alist
-         (tts-setup-servers-alist))
-     nil
-     t
-     nil nil
-     dtk-program)))
-  (declare (special    dtk-servers-alist
-                       dtk-async-server-process emacspeak-servers-directory ))
-  (when (and
-         dtk-async-server-process
-         (eq 'run (process-status dtk-async-server-process)))
-    (kill-process dtk-async-server-process))
-  (setq dtk-async-server-process
-        (start-process
-         "AsyncTTS"
-         "*AsyncTTS*"
-         (executable-find "python")
-         (expand-file-name "python/HTTPSpeaker.py" emacspeak-servers-directory)
-         program)))
+
+
+
 
 ;;;###autoload
 (defvar dtk-local-server-process nil

@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1066 commands and 881 options.
+This chapter documents a total of 1065 commands and 881 options.
 
 @menu
 * acss-structure::
@@ -381,15 +381,6 @@ pattern `.' (this is already added by default) emacspeak
 will say ``aw fifteen dot'' when speaking the string
 ``...............'' instead of ``period period period period
 ''
-@end deffn
-
-@deffn {Interactive Command} dtk-async-server  (program)
-@kbd{C-e d A}
-
-Select and start an async  speech server interactively.
-Async servers allow external programs like self-voicing Web browsers to use
-the Emacspeak TTS server abstraction.
-Argument PROGRAM specifies the speech server program.
 @end deffn
 
 @deffn {Interactive Command} dtk-local-server  (program)
@@ -887,7 +878,6 @@ d C-v		outloud-32
 d SPC		dtk-toggle-splitting-on-white-space
 d ,		dtk-toggle-punctuation-mode
 d 0 .. d 9	dtk-set-predefined-speech-rate
-d A		dtk-async-server
 d C		dtk-toggle-allcaps-beep
 d L		dtk-local-server
 d N		dtk-set-next-language
@@ -13629,7 +13619,7 @@ Apply first female voice.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 70 URL Templates.
+This section documents a total of 69 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -13790,10 +13780,6 @@ Show MLB Scorecard.
 @b{Market summary from Google}
 
 Display financial market summary.
-
-@b{Mobile Finance Google Search}
-
-Display content from Google Finance.
 
 @b{Money Content }
 
