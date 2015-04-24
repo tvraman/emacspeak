@@ -248,7 +248,9 @@
                     c (help-function-arglist c t)))
     (when key
       (setq keys (sd-texinfo-escape (mapconcat #'key-description key " ")))
-      (insert (format "@kbd{%s}\n\n" keys)))
+      (insert (format "@kbd{%s}\n\n" keys))
+      (insert (format "@kindex %s\n" keys)))
+    (insert (format "@findex %s\n\n" c))
     (insert
      (if
          (documentation c)
