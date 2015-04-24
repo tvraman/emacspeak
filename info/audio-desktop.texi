@@ -1,7 +1,7 @@
 @c $Id$
 @node Audio Desktop
 @chapter The Emacspeak Audio Desktop.
-
+@cindex Audio Desktop
 
 This chapter describes the Emacspeak audio desktop and gives tips and
 tricks for making use of many of Emacs' powerful features.
@@ -47,6 +47,7 @@ personal productivity.
 
 @node Desktop Objects
 @section Objects Making Up The Emacspeak Desktop
+@cindex Desktop Objects
 
 A "buffer" is the basic building block of the Emacs and
 hence the Emacspeak desktop.  Any information presented by
@@ -66,6 +67,7 @@ a specific class of information.
 
 @node Object Oriented Desktop
 @section An Object-Oriented Desktop
+@cindex Object-Oriented Desktop 
 
 The basic "buffer object" 
 can be specialized by Emacs applications to provide optimal
@@ -83,6 +85,8 @@ documents and so on.
 
 @node Context-Sensitive Interaction
 @section Emacspeak Specializes Aural Interaction
+
+@cindex Context-Sensitive Interaction
 
 The content-specific user interaction described above is a
 very powerful feature of Emacs, and this is where Emacspeak
@@ -103,15 +107,20 @@ present shape or form without this prior effort.
 
 @subsection Audio Formatted Output 
 
+@cindex Audio Formatting 
+
 Emacspeak takes advantage of the content-specific knowledge
 available within specialized buffers to produce "audio
 formatted" output designed to optimize user interaction.
 A basic consequence of the above is "voice locking" in
 specialized modes; a more interesting consequence is the
 implementation of Aural Cascading Style Sheets (ACSS) in
-conjunction with the Emacs W3 browser.
+conjunction with the Emacs EWW and W3 Web browsers.
 
 @subsection Structured Navigation:
+
+@cindex Structured Navigation 
+
 
 Emacspeak  also exploits content-specific knowledge to provide
 structured navigation of different types of 
@@ -127,12 +136,20 @@ Notable among such structured navigation is Emacs' powerful outline
 feature. Notice for example, that the Emacspeak FAQ (reached via command
 @code{emacspeak-view-emacspeak-faq} bound to @kbd{C-e F}) takes
 advantage of Emacs' outline mode to allow you to easily move through the
-various sections.  An example of content-sensitive navigation is
-provided by the imenu package which dynamically creates a "table of
-contents" based on the content that is being displayed in a given
-buffer.
+various sections.  
+
+An example of content-sensitive navigation is provided by the imenu
+package which dynamically creates a "table of contents" based on the
+content that is being displayed in a given buffer.  Emacs @dfn{Selective
+Display} lets one easily hide and expose portions of a buffer based on
+indentation --- this feature can be used to advantage when working with
+program source code.
+
 
 @subsection  Navigating The Desktop
+
+
+@cindex Desktop Navigation 
 
 In addition to navigating individual information objects,
 the Emacspeak environment provides speech-enabled navigation
@@ -144,6 +161,9 @@ that combines features from dired and imenu round off the
 suite of navigational tools.
 
 @subsection  Everything Is Searchable:
+
+@cindex Searching
+@cindex Finding 
 
 Emacs derives one final advantage from using buffers as the basic
 building block for the entire desktop.  Every Emacs buffer is searchable

@@ -2,6 +2,8 @@
 @node Emacs Packages
 @chapter Emacs Packages.
 
+@cindex Emacs Packages 
+
 Emacs -- The extensible, self-documenting editor, derives its
 functionality from its powerful extension mechanism. This extension
 mechanism is used to implement many user-level applications such as mail
@@ -33,6 +35,8 @@ In Emacs 24 and later, you can use Emacs'  builtin package manager  to install a
 @node Document Authoring
 @section Document Authoring 
 
+@cindex Document Authoring 
+
 @include documents.texi
 @node Structured Editing
 @section Structured Editing And Templates
@@ -41,17 +45,23 @@ In Emacs 24 and later, you can use Emacs'  builtin package manager  to install a
 @node Browsing Structure
 @section Browsing Structure
 
+
+@cindex Browsing Structure
+
 This section describes packages that allow you to browse structured
 information --these are distinct from the tools described in
 @ref{Structured Editing}, in that they are typically used for working
 with content that is read-only e.g., online documentation.
 @node Web Browsing
 @section Web Browsing.
+@cindex Web Browsing 
 
 @include web-browsing.texi
 
 @node Messaging
 @section Messaging
+
+@cindex Messaging 
 
 Working with messaging applications involves both authoring and browsing
 content.
@@ -64,6 +74,8 @@ work habits when dealing with content in your messaging application.
 
 @node Editing Code
 @section Editing Code
+
+@cindex Programming 
 
 Files containing program source code form a very specific class of
 @b{structured} documents.
@@ -85,6 +97,9 @@ through the source efficiently. In addition, Emacspeak's core
 @node Development Environment
 @section Development Environment
 
+
+cindex Software Development 
+
 In addition to providing specialized editing modes for creating and
 maintaining program source,
 Emacs provides a rich set of software development tools that can be
@@ -93,6 +108,8 @@ These IDEs are speech-enabled by Emacspeak to provide a versatile and
 powerful environment for eyes-free software development.
 @node Desktop Management
 @section Desktop Management
+
+@cindex Desktop 
 
 Emacs provides an integrated environment for performing all of ones
 day-to-day computing tasks ranging from electronic messaging to software
@@ -108,10 +125,15 @@ user easily locate objects that pertain to a given task.
 
 @node Personal Information Management
 @section Personal Information Management
+
+@cindex Personal Information Management 
+
 This section describes speech-enabled tools designed to aid in personal
 information management such as maintaining a daily calendar.
 @node Desktop Applications
 @section Desktop Applications
+
+@cindex Desktop Applications 
 
 @subsection Spread Sheets
 

@@ -2,6 +2,8 @@
 @node Using Online Help
 @chapter Using Online Help With Emacspeak.
 
+@cindex Online Help
+
 Emacs provides an extensive online help system for helping you learn 
 about various aspects of using Emacs. Emacspeak provides online help for
 its various extensions using this same help system.
