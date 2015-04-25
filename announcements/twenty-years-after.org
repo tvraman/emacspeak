@@ -1,0 +1,28 @@
+* Emacspeak Was Released Twenty Years Ago Today
+
+The more things change, the more they remain the same.
+
+Emacspeak was released 20 years ago on April 25, 1995 with [[http://emacspeak.sourceforge.net/releases/release-3.0.html][this
+announcement]]. The Emacspeak mailing list itself did not exist in its
+present form --- note that the original announcement talks about a
+mailing list at DEC CRL.  When Greg started the mailing list at
+Vassar, we seeded the list from some/all of the messages from the
+archive for the mailing list at DEC.e
+
+
+#+TITLE: twenty-years-after
+#+DATE: <2015-04-25 Sat>
+#+AUTHOR: raman
+#+EMAIL: raman@google.com
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
+#+OPTIONS: e:t email:nil f:t inline:t num:t p:nil pri:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t toc:nil todo:t |:t
+#+CREATOR: Emacs 25.0.50.1 (Org mode 8.2.10)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+
+
