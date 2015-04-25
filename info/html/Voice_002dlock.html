@@ -97,21 +97,11 @@
   <p>The status of voice lock mode can be toggled on and off by
   issuing the command <kbd>C-e d v (M-x voice-lock-mode)</kbd>.
   With a prefix arg, this function applies globally; otherwise, it
-  is local to the current buffer. To have voice lock mode activated
-  automatically when Emacspeak starts, include the following code
-  in your <samp>.emacs</samp> file:</p>
-
-  <div class="lisp">
-    <pre class="lisp">
-(add-hook 'emacs-lisp-mode-hook
-'turn-on-voice-lock)
-</pre>
-  </div>
-
-  <p>Alternatively, Emacspeak can be set to enable voice lock
-  automatically in all of the major modes that support it. To do
-  so, insert the following statement into your Emacs initialization
-  file:</p>
+  is local to the current buffer. Voice-lock is turned on
+  automatically when Emacspeak is started. Alternatively, Emacspeak
+  can be set to enable voice lock automatically in all of the major
+  modes that support it. To do so, insert the following statement
+  into your Emacs initialization file:</p>
 
   <div class="lisp">
     <pre class="lisp">
@@ -125,22 +115,24 @@
   <var>voice-lock-global-modes</var> See <a href=
   "Voice-Lock.html#Voice-Lock">Voice Lock</a>.</p>
 
-  <p>The characteristics of the different voice personalities
-  deployed by voice lock mode vary according to the capabilities of
-  the speech synthesizer. The definitions applicable to the Dectalk
+  <p>The characteristics of the different voice personalities used
+  by voice lock mode vary according to the capabilities of the
+  speech synthesizer. The definitions applicable to the Dectalk
   family of synthesizers are contained in
-  <samp>dtk-voices.el</samp>, which is supplied as part of the
-  Emacspeak distribution.</p>
+  <samp>dectalk-voices.el</samp>, which is supplied as part of the
+  Emacspeak distribution. The Emacspeak distribution also contains
+  voice definitions for many other synthesizers.</p>
 
   <p>Using voice lock mode, Emacspeak also supports many of the
   aural style properties defined in level 2 of the World Wide Web
   Consortium&rsquo;s Cascading Style Sheet specification (see
-  <code>http://www.w3.org/TR/REC-CSS2/</code>. Thus, when Emacspeak
-  is running in conjunction with a cooperating user agent, such as
-  William Perry&rsquo;s Emacspeak/W3 web browser, the rendering of
-  HTML documents can be regulated by style sheets. Examples of
-  style rules which employ the CSS audio properties can be found in
-  the default style sheet which is supplied in the Emacs/W3
-  distribution.</p>
+  <a href=
+  "http://www.w3.org/TR/REC-CSS2/">http://www.w3.org/TR/REC-CSS2/</a>.
+  Thus, when Emacspeak is running in conjunction with a cooperating
+  user agent, such as William Perry&rsquo;s Emacspeak/W3 web
+  browser, the rendering of HTML documents can be regulated by
+  style sheets. Examples of style rules which employ the CSS audio
+  properties can be found in the default style sheet which is
+  supplied in the Emacs/W3 distribution.</p>
 </body>
 </html>

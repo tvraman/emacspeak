@@ -100,27 +100,30 @@
   <p>Here are the quick installation instructions. See the next
   section for detailed installation instructions.</p>
 
-  <p>Prepackaged RPM files are available on the Emacspeak site.
-  Packages for other Linux distributions such as Debian typically
+  <p>Packages for Linux distributions such as Debian typically
   become available on the WWW a few days after a new version is
   released. The instructions below are for building and installing
   Emacspeak from the source distribution.</p>
 
   <ul>
-    <li>Type &lsquo;<samp>make config</samp>&rsquo; to configure
-    the sources for your site.</li>
+    <li>Obtain the source code &mdash; either by downloading the
+    tar.bz2 file for the latest release &mdash; or by cloning the
+    git repository. &lsquo;<samp>git clone
+    https://github.com/tvraman/emacspeak</samp>&rsquo;</li>
+
+    <li>Change to the <code>emacspeak</code> directory. Type
+    &lsquo;<samp>make config</samp>&rsquo; to configure the
+    sources.</li>
 
     <li>Type &lsquo;<samp>make</samp>&rsquo; to compile the
     files.</li>
 
-    <li>Install the system by typing &lsquo;<samp>make
-    install</samp>&rsquo;</li>
+    <li>Install Emacspeak system-wide by typing &lsquo;<samp>sudo
+    make install</samp>&rsquo;</li>
 
-    <li>Run it by doing one of:
+    <li>Run it by doing
 
       <ul>
-        <li>&lsquo;<samp>emacspeak</samp>&rsquo;</li>
-
         <li>Add the line
 
           <div class="example">

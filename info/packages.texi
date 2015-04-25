@@ -98,7 +98,7 @@ through the source efficiently. In addition, Emacspeak's core
 @section Development Environment
 
 
-cindex Software Development 
+@cindex Software Development 
 
 In addition to providing specialized editing modes for creating and
 maintaining program source,
