@@ -430,8 +430,7 @@
          (if (= (point-min) (point-max))
              (message  "No appointments are currently displayed")
            (dtk-speak (buffer-string )))))
-     (t (message "You have no appointments "))))
-  (emacspeak-dtk-sync))
+     (t (dtk-speak-and-echo "You have no appointments ")))))
 
 ;;}}}
 
