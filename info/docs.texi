@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1065 commands and 881 options.
+This chapter documents a total of 1070 commands and 883 options.
 
 @menu
 * acss-structure::
@@ -10166,6 +10166,16 @@ Entry point for Emacspeak.
 
 @end defvar
 
+@defvar {User Option} espeak-default-speech-rate
+Default speech rate for eSpeak.
+
+@end defvar
+
+@defvar {User Option} mac-default-speech-rate
+Default speech rate for mac.
+
+@end defvar
+
 @defvar {User Option} outloud-default-speech-rate
 Default speech rate for outloud.
 
@@ -14890,6 +14900,17 @@ Name of XSLT transformation engine.
 This module defines the various voices used in voice-lock mode.
 This module is Espeak specific.
 
+@subsection espeak-voices Commands
+
+@deffn {Interactive Command} espeak  nil
+@kbd{C-e d C-e}
+
+@kindex C-e d C-e
+@findex espeak
+
+Start ESpeak engine.
+@end deffn
+
 @node g
 @section g
 
@@ -15512,6 +15533,26 @@ This module is Multispeech specific.
 This module defines the various voices used in voice-lock mode.
 This module is IBM ViaVoice Outloud specific.
 
+@subsection outloud-voices Commands
+
+@deffn {Interactive Command} outloud  nil
+@kbd{C-e d C-o}
+
+@kindex C-e d C-o
+@findex outloud
+
+Select Outloud server.
+@end deffn
+
+@deffn {Interactive Command} outloud-32  nil
+@kbd{C-e d C-v}
+
+@kindex C-e d C-v
+@findex outloud-32
+
+Select 32-Outloud server.
+@end deffn
+
 @node plain-voices
 @section plain-voices
 
@@ -15724,6 +15765,21 @@ via defvoice can be customized via custom see the
 documentation for defvoice.
 
 @subsection voice-setup Commands
+
+@deffn {Interactive Command} voice-lock-mode  (&optional arg)
+@kbd{C-e d v}
+
+@kindex C-e d v
+@findex voice-lock-mode
+
+Toggle voice lock mode.
+@end deffn
+
+@deffn {Interactive Command} voice-lock-toggle  nil
+@findex voice-lock-toggle
+
+Interactively toggle voice lock.
+@end deffn
 
 @deffn {Interactive Command} voice-setup-list-voices  (pattern)
 @findex voice-setup-list-voices

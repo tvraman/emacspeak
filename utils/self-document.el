@@ -92,16 +92,19 @@
     (cl-loop
      for f in  self-document-files do
      (unless (string-match "emacspeak-setup" f)
-     (load-library f)))))
+       (load-library f)))))
 
 (defconst self-document-patterns
   (concat "^"
           (regexp-opt
-           '("emacspeak" "cd-tool" "tts"
-             "outlout" "dectalk"
-             "voice-setup" "dtk" "amixer" "sox-"
-             "g-" "gm-" "g-app" "gfeed" "gweb" "gmap" "gblogger" "gphoto")))
+           '("amixer" "cd-tool"
+             "dectalk" "dtk" "espeak" "mac-"
+             "emacspeak"
+             "g-" "g-app" "gblogger" "gfeed" "gm-" "gmap" "gphoto" "gweb"
+             "outloud" "sox-"   "tts" "voice-")))
+
   "Patterns to match command names.")
+
 (defvar self-document-command-count 0
   "Global count of commands.")
 
@@ -114,23 +117,15 @@
       (cl-incf self-document-command-count)
       f)))
 
-(defconst self-document-option-pattern
-  (concat "^"
-          (regexp-opt
-           '("emacspeak" "cd-tool" "dtk" "voice"
-             "sox-" "amixer" "outloud" "dectalk" "tts"
-             "g-" "gm-" "gfeeds" "g-app"  "gweb" "gmap" "gblogger" "gphoto")))
-  "Pattern that matches options we document.")
-
 (defvar self-document-option-count 0
   "Global count of options.")
 
 (defun self-document-option-p (o)
   "Predicate to test if we document this option."
-  (declare (special self-document-option-pattern))
+  (declare (special self-document-patterns))
   (when (and
          (custom-variable-p o)
-         (string-match self-document-option-pattern (symbol-name o)))
+         (string-match self-document-patterns (symbol-name o)))
     (cl-incf self-document-option-count)
     o))
 
