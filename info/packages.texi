@@ -7,7 +7,7 @@
 Emacs -- The extensible, self-documenting editor, derives its
 functionality from its powerful extension mechanism. This extension
 mechanism is used to implement many user-level applications such as mail
-readersweb browsers, software development environments and so on.
+readers, web browsers, software development environments and so on.
 This chapter gives directions on how to locate the right Emacs package
 for addressing specific tasks. The chapter is organized into logical
 sections that each pertain to a specific class of tasks; in individual
@@ -140,7 +140,7 @@ information management such as maintaining a daily calendar.
 Spreadsheet applications present a two dimensional view of structured data
 where the field values are (possibly) mutually dependent. On the Emacspeak
 desktop, a speech-enabled spreadsheet application can be used to manipulate
-such data-driven documents%
+such data-driven documents
 ranging from simple cheque books and expense
 reports to complex investment portfolios. Where the traditional visual
 interface to spreadsheets is typically independent of the semantics of the

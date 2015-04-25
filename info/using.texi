@@ -44,15 +44,14 @@ text editor; indeed, it can more aptly be characterized as a true
 
 
 
-Emacspeak implements a special minor mode, known as ``voice lock
-mode'' (@pxref{Voice-lock}) which uses distinct speech characteristics
-to provide aural highlighting of specific textual constructs, such as
-comments in program code, quoted strings and reserved words
-@xref{ Voice Lock}. This facility is further extended when Emacspeak is
-used with the W3 World Wide Web browser, to enable the semantic and
+Emacspeak implements a special minor mode, known as ``voice lock mode''
+(@pxref{Voice-lock}) which uses distinct speech characteristics to
+provide aural highlighting of specific textual constructs, such as
+comments in program code, quoted strings and reserved words @xref{ Voice
+Lock}. This facility is further extended when Emacspeak is used with the
+@code{EWW} and @code{W3} Web browsers, to enable the semantic and
 structural distinctions captured by the HTML markup to be communicated
-efficiently @xref{Web
-Browsing}.
+efficiently @xref{Web Browsing}.
 
 
 
@@ -114,7 +113,7 @@ They can be classified into types:
  The second category of commands provided by Emacspeak manipulate the state of the speech device.
  The names of these commands start with the common prefix @code{dtk-} and are bound in keymap
 @var{emacspeak-dtk-submap}.
- You can access these commands via the prefix @kbd{Control-e d}@footnote{d is mnemonic for Dectalk.}.
+ You can access these commands via the prefix @kbd{Control-e d}@footnote{Historically, d was  mnemonic for Dectalk; note that nothing in Emacspeak is DECTalk specific.}.
 Thus, the command @dfn{dtk-set-rate} is bound to @kbd{r}
  in keymap @var{emacspeak-dtk-submap} and can be executed by
 pressing @kbd{Control e d r}.
@@ -168,7 +167,7 @@ emacspeak-speak-line
 With prefix ARG, speaks the rest of the line
 from point.  Negative prefix optional arg speaks from start of line
   to point.  Voicifies if option `voice-lock-mode' is on.  Indicates
-  indentation with a tone if audio indentation is in use.  Indicates
+  indentation with a tone or a spoken cue if audio indentation is in use.  Indicates
   position of point with an aural highlight if option
   `emacspeak-show-point' is turned on --see command `emacspeak-show-point'
   bound to M-x emacspeak-show-point.
@@ -236,6 +235,7 @@ With prefix ARG, speaks the rest of the buffer from point.
 Negative prefix arg speaks from start of buffer to point.
  If voice lock mode is on, the paragraphs in the buffer are
 voice annotated first,  see command `emacspeak-speak-voice-annotate-paragraphs'.
+This provides the auditory equivalent of @emph{dropped caps} from visual typography.
 
 @findex  emacspeak-speak-rest-of-buffer
  @kindex  control e n 
@@ -385,7 +385,7 @@ emacspeak-speak-sexp
  Speak current sexp.
 With prefix ARG, speaks the rest of the sexp  from point.
 Negative prefix arg speaks from start of sexp to point.
-If option  `voice-lock-mode' is on, then uses the personality.
+
 
 @findex  emacspeak-speak-spaces-at-point
  @kindex  control e meta control @@ 
@@ -407,14 +407,7 @@ emacspeak-speak-spaces-at-point
 The status of voice lock mode can be toggled on and off by issuing the
 command @kbd{C-e d v (M-x voice-lock-mode)}. With a prefix arg, this
 function applies globally; otherwise, it is local to the current
-buffer. To have voice lock mode activated automatically when Emacspeak
-starts, include the following code in your @file{.emacs} file:
-
-@lisp
-(add-hook 'emacs-lisp-mode-hook
-'turn-on-voice-lock)
-@end lisp
-
+buffer.  Voice-lock is turned on automatically when Emacspeak is started.
 Alternatively, Emacspeak can be set to enable voice lock automatically
 in all of the major modes that support it. To do so, insert the
 following statement into your Emacs initialization file:
@@ -430,18 +423,16 @@ specified in the variable @var{voice-lock-global-modes}
 
 
 
-The characteristics of the different voice personalities deployed by
+The characteristics of the different voice personalities used by
 voice lock mode vary according to the capabilities of the speech
 synthesizer. The definitions applicable to the Dectalk family of
-synthesizers are contained in @file{dtk-voices.el}, which is supplied
-as part of the Emacspeak distribution.
-
-
+synthesizers are contained in @file{dectalk-voices.el}, which is supplied
+as part of the Emacspeak distribution. The Emacspeak distribution also contains voice definitions for   many other synthesizers.
 
 Using voice lock mode, Emacspeak also supports many of the aural style
 properties defined in level 2 of the World Wide Web Consortium's
 Cascading Style Sheet specification (see
-@code{http://www.w3.org/TR/REC-CSS2/}. Thus, when Emacspeak is running
+@url{http://www.w3.org/TR/REC-CSS2/}. Thus, when Emacspeak is running
 in conjunction with a cooperating user agent, such as William Perry's
 Emacspeak/W3 web browser, the rendering of HTML documents can be
 regulated by style sheets. Examples of style rules which employ the
@@ -481,6 +472,13 @@ emacspeak-speak-mode-line
 @item @kbd{ control e  cap M  }
 emacspeak-speak-minor-mode-line
  Speak the minor mode-information.
+
+@findex  emacspeak-speak-header-line
+ @kindex  control e SPC 
+ 
+@item @kbd{ control e SPC }
+emacspeak-speak-header-line
+ Speak the header-line.
 
 
 @findex  emacspeak-speak-window-information

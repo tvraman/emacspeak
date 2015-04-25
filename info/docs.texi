@@ -14897,8 +14897,7 @@ Name of XSLT transformation engine.
 @node espeak-voices
 @section espeak-voices
 
-This module defines the various voices used in voice-lock mode.
-This module is Espeak specific.
+This module defines the various voices used in voice-lock mode by the ESpeak TTS engine.
 
 @subsection espeak-voices Commands
 
@@ -15518,8 +15517,7 @@ Display News Search results  in a browser.
 @node mac-voices
 @section mac-voices
 
-This module defines the various voices used in voice-lock mode.
-This module is Apple Mac specific.
+This module defines the various voices used in voice-lock mode by Mac TTS.
 
 @node multispeech-voices
 @section multispeech-voices

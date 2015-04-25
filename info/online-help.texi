@@ -1,8 +1,9 @@
 @c $Id$
 @node Using Online Help
 @chapter Using Online Help With Emacspeak.
-
 @cindex Online Help
+
+
 
 Emacs provides an extensive online help system for helping you learn 
 about various aspects of using Emacs. Emacspeak provides online help for
@@ -80,11 +81,8 @@ standard Emacspeak commands.
 buffer containing the Emacspeak FAQ, a list of frequently asked
 questions about Emacspeak together with their answers.
 
-@item @kbd{C-e C-h} @code{emacspeak-learn-mode} enters a mode in which
+@item @kbd{C-e <F1>} @code{emacspeak-learn-mode} enters a mode in which
 the function of every key that you type is spoken; this mode can be
 terminated with the @kbd{C-g} @code{keyboard-quit} command.
 
-@item @kbd{M-x emacspeak-generate-documentation} prompts for the name
-of a file in which it saves an automatically generated summary of all
-Emacspeak commands.
 @end itemize

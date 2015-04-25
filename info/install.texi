@@ -22,9 +22,7 @@ Emacspeak is available on the Internet at:
 @item WWW
  http://emacspeak.sf.net
 @item WWW
- http://www.cs.cornell.edu/home/raman/emacspeak/
- @item FTP
-   ftp://ftp.cs.cornell.edu/pub/raman/emacspeak
+ https://github.com/tvraman/emacspeak
 @item Mail List
 emacspeak@@cs.vassar.edu
 @item List Request
@@ -32,7 +30,7 @@ emacspeak-request@@cs.vassar.edu
 @end table
 
  The Emacspeak mailing list is maintained by Greg E. Priest-Dorman.  If you are using Emacspeak,
-you can join the list by sending mail to
+you should join the list by sending mail to
 the request address.
 
 @node Quick Installation
@@ -43,33 +41,32 @@ Here are the quick installation instructions.
 See the next section for detailed installation instructions.
 
 
-Prepackaged RPM files are available on the Emacspeak site.
-Packages for other Linux distributions such as Debian typically become
+
+Packages for  Linux distributions such as Debian typically become
 available on the WWW a few days after a new version is released.
 The instructions below are for building and installing Emacspeak from
 the source distribution.
 
 @itemize @bullet
+@item 
+Obtain the source code --- either by downloading the tar.bz2 file for the latest release --- or by cloning the git repository.
+@samp{git clone https://github.com/tvraman/emacspeak}
 @item
- Type @samp{make config} to configure the sources for your site.
+Change to the @code{emacspeak} directory.
+ Type @samp{make config} to configure the sources.
 @item
  Type @samp{make} to compile the files.
-@item Install the system by typing 
-@samp{make install}
+@item Install Emacspeak system-wide  by typing 
+@samp{sudo make install}
 @item
- Run it by doing one of:
+ Run it by doing 
 @itemize @bullet
-@item @samp{emacspeak}
-  
 @item
 Add the line
 @example
 (load-file "<emacspeak-dir>/lisp/emacspeak-setup.el")
 @end example
 to the top of your .emacs file.
-@item
- 
-
 @end itemize
 In the above, @code{<emacspeak-dir>} refers to the directory where you unpacked
 the sources. 
@@ -92,7 +89,7 @@ directories.
 
 
 Once you have decided on the appropriate directory, make it if necessary
-and unpack the distribution @code{.tar} file there. 
+and unpack the distribution @code{.tar.bz2} file there. 
 
 @item Look through the introductory section of the Makefile to see if you need
 to edit it for your site.
@@ -104,8 +101,8 @@ defining @var{PREFIX}.
 
 Configure the source files by typing @samp{make config}.  At this point
 you can check that the  speech server is correctly configured by typing
-@example
-tcl dtk-exp
+@example 
+ @samp{./servers/dtk-exp}
 @end example
 @noindent (assuming you are using the Dectalk Express).  You should hear the
 Dectalk speak and get a TCL prompt if everything is okay.
@@ -114,7 +111,7 @@ If you're feeling paranoid, you can perform a couple of additional tests
 at this point. Execute the following commands in the running tcl session
 you just started above.  (Most users will not need to do this; it is a
 sanity check and is useful in tracking problems, especially if you find
-emacspeak beginning to talk and then immediately fall silent.)
+emacspeak begin to talk and then immediately fall silent.)
 
 @itemize @bullet
 @item
@@ -148,7 +145,7 @@ session by typing @kbd{C-D}.
 
 Next, compile the elisp files by typing 
 @example
-make emacspeak
+make 
 @end example
 Finally, install the documentation and executable files by typing 
 @example
