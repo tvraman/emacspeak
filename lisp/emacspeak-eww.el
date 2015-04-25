@@ -200,6 +200,7 @@
      ("A" eww-view-dom-having-attribute)
      ("C" eww-view-dom-having-class)
      ("C-e" emacspeak-prefix-command)
+     ("C-o" emacspeak-feeds-opml-display)
      ("E" eww-view-dom-having-elements)
      ("G" emacspeak-google-command)
      ("I" eww-view-dom-having-id)
