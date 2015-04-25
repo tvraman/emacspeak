@@ -31,13 +31,13 @@
 ;;{{{  Introduction:
 
 ;;; Commentary:
-;;; This module defines the various voices used in voice-lock mode.
-;;; This module is Espeak specific.
+;;; This module defines the various voices used in voice-lock mode by the ESpeak TTS engine.
 
+;;; Code:
 ;;}}}
 ;;{{{ Required modules
 
-;;; Code:
+
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'acss-structure)

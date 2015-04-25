@@ -42,8 +42,8 @@
 ;;{{{  Introduction:
 
 ;;; Commentary:
-;;; This module defines the various voices used in voice-lock mode.
-;;; This module is Apple Mac specific.
+;;; This module defines the various voices used in voice-lock mode by Mac TTS.
+
 ;;; Code:
 
 ;;}}}
