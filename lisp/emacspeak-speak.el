@@ -3288,7 +3288,7 @@ which media players get silenced or paused/resumed."
 ;;}}}
 ;;{{{ Search
 
-(defcustom emacspeak-search 'emacspeak-websearch-google
+(defcustom emacspeak-search 'emacspeak-websearch-accessible-google
   "Default search engine."
   :type 'function
   :group 'emacspeak)
