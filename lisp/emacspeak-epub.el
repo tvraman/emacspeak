@@ -243,10 +243,9 @@
          (emacspeak-speak-rest-of-buffer))
      'at-end)
     (with-current-buffer content
-       (when style
+      (when style
         (emacspeak-xslt-region style   (point-min) (point-max)))
-       (browse-url-of-buffer))))
-       
+      (browse-url-of-buffer))))
 
 (defvar emacspeak-epub-files-command
   (format "%s -1 %%s | grep \.html*$ | sort" emacspeak-epub-zip-info)

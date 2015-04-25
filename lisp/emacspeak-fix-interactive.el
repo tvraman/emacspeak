@@ -181,7 +181,7 @@ Memoizes call in emacspeak-load-history-pointer to memoize this call. "
   (declare (special load-history emacspeak-load-history-pointer))
   (unless (eq emacspeak-load-history-pointer load-history)
     (lexical-let ((lh load-history)
-          (emacspeak-speak-messages nil))
+                  (emacspeak-speak-messages nil))
 ;;; cdr down lh till we hit emacspeak-load-history-pointer
       (while (and lh
                   (not (eq lh emacspeak-load-history-pointer)))

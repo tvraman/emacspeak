@@ -615,7 +615,7 @@ Argument COMPLEMENT  is the complement of separator."
               (null text) (string-equal  text "")
               (and (listp voice) (memq 'inaudible voice)))
 ;;; ensure text is a  string
-  (unless (stringp text) (setq text (format "%s" text)))
+    (unless (stringp text) (setq text (format "%s" text)))
     (dtk-interp-queue-code
      (cond
       ((symbolp voice)
@@ -1555,11 +1555,6 @@ Optional interactive prefix arg restarts current TTS server."
       (setenv "ALSA_DEFAULT" tts-device)
       (message "ALSA_DEFAULT: %s" tts-device)
       (when current-prefix-arg (tts-restart))))))
-
-
-
-
-
 
 ;;;###autoload
 (defvar dtk-local-server-process nil

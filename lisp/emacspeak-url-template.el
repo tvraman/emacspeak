@@ -278,8 +278,8 @@ dont-url-encode if true then url arguments are not url-encoded "
  "BBC iPlayer"
  #'(lambda (url)
      (emacspeak-webutils-autospeak)
-      (emacspeak-xslt-view-xml
-       (expand-file-name "bbc-iplayer.xsl" emacspeak-xslt-directory) url))
+     (emacspeak-xslt-view-xml
+      (expand-file-name "bbc-iplayer.xsl" emacspeak-xslt-directory) url))
  'dont-url-encode)
 
 (emacspeak-url-template-define
@@ -292,11 +292,9 @@ dont-url-encode if true then url arguments are not url-encoded "
  "BBC iPlayer Genre"
  #'(lambda (url)
      (emacspeak-webutils-autospeak)
-      (emacspeak-xslt-view-xml
-       (expand-file-name "bbc-iplayer.xsl" emacspeak-xslt-directory) url))
+     (emacspeak-xslt-view-xml
+      (expand-file-name "bbc-iplayer.xsl" emacspeak-xslt-directory) url))
  'dont-url-encode)
-
-
 
 ;;}}}
 ;;{{{ bbc
@@ -435,7 +433,6 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 ;;}}}
 ;;; pull google finance search results via the transcoder
-
 
 (emacspeak-url-template-define
  "Finance Google Search"

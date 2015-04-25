@@ -121,19 +121,19 @@ is a Tcl expression, and the last argument is Tcl commands.")
 ;;{{{  Advice electric insertion to talk:
 
 (defadvice tcl-electric-hash (after emacspeak pre act comp )
-    "Speak what you inserted."
-    (when (ems-interactive-p )
-      (emacspeak-speak-this-char last-input-event)))
+  "Speak what you inserted."
+  (when (ems-interactive-p )
+    (emacspeak-speak-this-char last-input-event)))
 
 (defadvice tcl-electric-char (after emacspeak pre act comp )
-    "Speak what you inserted."
-    (when (ems-interactive-p )
-      (emacspeak-speak-this-char last-input-event)))
+  "Speak what you inserted."
+  (when (ems-interactive-p )
+    (emacspeak-speak-this-char last-input-event)))
 
 (defadvice tcl-electric-brace (after emacspeak pre act comp )
-    "Speak what you inserted."
-    (when (ems-interactive-p )
-      (emacspeak-speak-this-char last-input-event)))
+  "Speak what you inserted."
+  (when (ems-interactive-p )
+    (emacspeak-speak-this-char last-input-event)))
 
 ;;}}}
 ;;{{{  Actions in the tcl mode buffer:

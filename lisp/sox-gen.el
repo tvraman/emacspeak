@@ -65,22 +65,22 @@
 
 (defconst sox-synth-cmd
   "play -q -n synth %s "
-"Invoke synth generation.")
+  "Invoke synth generation.")
 
 (defun sox-synth (length  &rest args)
   "Call synth with length and args."
   (declare (special sox-synth-cmd))
   (sox-gen-cmd
    (concat
-   (format sox-synth-cmd length)
-   (mapconcat #'identity args " "))))
+    (format sox-synth-cmd length)
+    (mapconcat #'identity args " "))))
 
 ;;}}}
 ;;{{{ Sin:
 
 (defconst sox-sin-cmd
   "play -q -n synth  %s sin %s "
-"Command-line that produces a simple sine wave..")
+  "Command-line that produces a simple sine wave..")
 
 (defun sox-sin (length freq &rest args)
   "Play sine wave specified by length and freq.
@@ -89,15 +89,15 @@ Remaining args specify additional commandline args."
   (declare (special sox-sin-cmd))
   (sox-gen-cmd
    (concat
-   (format sox-sin-cmd length freq)
-   (mapconcat #'identity args " "))))
+    (format sox-sin-cmd length freq)
+    (mapconcat #'identity args " "))))
 
 ;;}}}
 ;;{{{ Pluck:
 
 (defconst sox-pluck-cmd
   "play -q -n synth  %s pluck %s "
-"Command-line that produces a simple plucke.")
+  "Command-line that produces a simple plucke.")
 
 (defun sox-pluck (length freq &rest args)
   "Play plucke  specified by length and freq.
@@ -105,8 +105,8 @@ Freq can be specified as a frequency, note (%nn) or frequency range."
   (declare (special sox-pluck-cmd))
   (sox-gen-cmd
    (concat 
-   (format sox-pluck-cmd length freq)
-   (mapconcat #'identity args " "))))
+    (format sox-pluck-cmd length freq)
+    (mapconcat #'identity args " "))))
 
 ;;}}}
 ;;{{{ Chime:
@@ -115,16 +115,16 @@ Freq can be specified as a frequency, note (%nn) or frequency range."
   "play -q -n synth -j 3 sin %3 sin %-2 sin %-5 sin %-9 \
                    sin %-14 sin %-21 fade h .01 2 1.5 delay \
                    1.3 1 .76 .54 .27 remix - fade h 0 2.7 2.5 norm -1"
-"Command-line that produces a simple chime.")
+  "Command-line that produces a simple chime.")
 
 (defun sox-chime (&optional tempo speed)
   "Play chime --- optional args tempo and speed default to 1."
   (declare (special sox-chime-cmd))
   (sox-gen-cmd
    (concat 
-   sox-chime-cmd
-   (when tempo (format " tempo %s" tempo))
-           (when speed (format " speed %s" speed)))))
+    sox-chime-cmd
+    (when tempo (format " tempo %s" tempo))
+    (when speed (format " speed %s" speed)))))
 
 ;;}}}
 ;;{{{ Guitar Chord:

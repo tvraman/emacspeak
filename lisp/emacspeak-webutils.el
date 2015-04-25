@@ -137,7 +137,7 @@ Note that the Web browser should reset this hook after using it.")
   "Return a function that can be attached to emacspeak-web-pre-process-hook to apply required xslt transform."
   (eval
    `#'(lambda ()
-       (emacspeak-xslt-region ,xsl (point) (point-max) ',params))))
+        (emacspeak-xslt-region ,xsl (point) (point-max) ',params))))
 ;;;###autoload
 (defcustom emacspeak-webutils-charent-alist
   '(("&lt;" . "<")

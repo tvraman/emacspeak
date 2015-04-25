@@ -180,7 +180,7 @@ Nil means no transform is used. "
   (add-to-list
    'emacspeak-web-pre-process-hook
    (emacspeak-webutils-make-xsl-transformer  xsl))
-   (browse-url (funcall emacspeak-webutils-current-url)))
+  (browse-url (funcall emacspeak-webutils-current-url)))
 
 ;;;###autoload
 (defun emacspeak-we-xslt-select (xsl)
@@ -272,7 +272,7 @@ from Web page -- default is the current page being viewed."
     (add-to-list
      'emacspeak-web-pre-process-hook
      (emacspeak-webutils-make-xsl-transformer emacspeak-we-xsl-filter params))
-     (browse-url url)))
+    (browse-url url)))
 
 ;;;###autoload
 (defun emacspeak-we-xslt-junk (path    url &optional speak)
@@ -289,7 +289,7 @@ from Web page -- default is the current page being viewed."
     (add-to-list
      'emacspeak-web-pre-process-hook
      (emacspeak-webutils-make-xsl-transformer emacspeak-we-xsl-junk params))
-     (browse-url url)))
+    (browse-url url)))
 
 (defcustom emacspeak-we-media-stream-suffixes
   (list
@@ -570,9 +570,9 @@ Tables are specified by containing  match pattern
      'emacspeak-web-post-process-hook
      (eval
       `#'(lambda nil
-          (declare (special  emacspeak-we-buffer-id-cache))
-          (setq emacspeak-we-buffer-id-cache
-                ',(copy-sequence values)))))
+           (declare (special  emacspeak-we-buffer-id-cache))
+           (setq emacspeak-we-buffer-id-cache
+                 ',(copy-sequence values)))))
     (kill-buffer content)))
 
 (defvar emacspeak-we-buffer-role-cache nil
@@ -763,11 +763,11 @@ separate buffer. Interactive use provides list of id values as completion. "
     (emacspeak-webutils-read-url)
     current-prefix-arg))
   (lexical-let ((filter
-         (mapconcat
-          #'(lambda  (c)
-              (format "(@id=\"%s\")" c))
-          ids
-          " or ")))
+                 (mapconcat
+                  #'(lambda  (c)
+                      (format "(@id=\"%s\")" c))
+                  ids
+                  " or ")))
     (emacspeak-we-xslt-filter
      (format "//*[%s]" filter)
      url

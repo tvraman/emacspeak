@@ -630,7 +630,7 @@ instead of the modeline."
   "Apply requested transform if any before displaying the HTML. "
   (cond
    (emacspeak-web-pre-process-hook (emacspeak-webutils-run-pre-process-hook))
-  ((and emacspeak-we-xsl-p emacspeak-we-xsl-transform)
+   ((and emacspeak-we-xsl-p emacspeak-we-xsl-transform)
     (emacspeak-xslt-region
      emacspeak-we-xsl-transform
      (point-min) (point-max)

@@ -241,13 +241,13 @@ part of the libxslt package."
             #'(lambda (pair)
                 (format "--param %s %s " (car pair) (cdr pair)))
             params " "))))
-      (setq command
-            (format
-             "%s %s --novalid %s '%s' %s"
-             emacspeak-xslt-program
-             (or parameters "")
-             xsl url
-             (unless emacspeak-xslt-keep-errors " 2>/dev/null ")))
+    (setq command
+          (format
+           "%s %s --novalid %s '%s' %s"
+           emacspeak-xslt-program
+           (or parameters "")
+           xsl url
+           (unless emacspeak-xslt-keep-errors " 2>/dev/null ")))
     (save-current-buffer
       (set-buffer result)
       (kill-all-local-variables)
@@ -311,7 +311,7 @@ part of the libxslt package."
   (add-to-list
    'emacspeak-web-pre-process-hook
    (emacspeak-webutils-make-xsl-transformer style))
-   (browse-url url))
+  (browse-url url))
 
 ;;;###autoload
 (defun emacspeak-xslt-view-xml (style url &optional unescape-charent)

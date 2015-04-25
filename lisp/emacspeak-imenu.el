@@ -123,8 +123,6 @@
 ;;{{{  Navigation
 (defvar emacspeak-imenu-autospeak nil
   "Speak contents of sections automatically if set.")
-  
-  
 
 ;;;###autoload
 (defun emacspeak-imenu-goto-next-index-position ()

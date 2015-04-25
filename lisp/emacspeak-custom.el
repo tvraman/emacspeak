@@ -209,7 +209,7 @@
 (defvar emacspeak-custom-group-regexp
   "^/-"
   "Pattern identifying start of custom group.")
-  
+
 ;;;###autoload
 (defun emacspeak-custom-goto-group ()
   "Jump to custom group when in a customization buffer."
@@ -225,7 +225,7 @@
 (defvar emacspeak-custom-toolbar-regexp
   "^Operate on everything in this buffer:"
   "Pattern that identifies toolbar section.")
-  
+
 ;;;###autoload
 (defun emacspeak-custom-goto-toolbar ()
   "Jump to custom toolbar when in a customization buffer."

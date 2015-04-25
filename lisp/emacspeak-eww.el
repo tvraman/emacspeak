@@ -456,13 +456,12 @@ Retain previously set punctuations  mode."
   (let ((orig (point)))
     (cond
      (emacspeak-web-pre-process-hook (emacspeak-webutils-run-pre-process-hook))
-   ((and emacspeak-we-xsl-p emacspeak-we-xsl-transform)
-    (emacspeak-xslt-region
-     emacspeak-we-xsl-transform (point) (point-max)
-     emacspeak-we-xsl-params)
-    ))
+     ((and emacspeak-we-xsl-p emacspeak-we-xsl-transform)
+      (emacspeak-xslt-region
+       emacspeak-we-xsl-transform (point) (point-max)
+       emacspeak-we-xsl-params)
+      ))
     (goto-char orig)))
-  
 
 ;;}}}
 ;;{{{ DOM Structure In Rendered Buffer:

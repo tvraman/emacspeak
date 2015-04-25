@@ -90,8 +90,8 @@
  for f in
  '(
    image-type jabber-chat-with jabber-chat-with-jid-at-point
-   jabber-keepalive-do jabber-fsm-handle-sentinel jabber-xml-resolve-namespace-prefixes
-   jabber-process-roster jabber-keepalive-got-response)
+              jabber-keepalive-do jabber-fsm-handle-sentinel jabber-xml-resolve-namespace-prefixes
+              jabber-process-roster jabber-keepalive-got-response)
  do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
@@ -116,8 +116,6 @@
   "Produce auditory icon."
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)))
-
-
 
 ;;}}}
 ;;{{{ alerts

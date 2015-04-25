@@ -230,14 +230,14 @@ Argument BODY specifies forms to execute."
 (defmacro ems-with-errors-silenced  (&rest body)
   "Evaluate body  after temporarily silencing auditory error feedback."
   `(let ((emacspeak-speak-errors nil)
-                 (emacspeak-use-auditory-icons nil)
-                 (emacspeak-speak-messages nil))
+         (emacspeak-use-auditory-icons nil)
+         (emacspeak-speak-messages nil))
      ,@body))
 
 (defmacro ems-with-messages-silenced  (&rest body)
   "Evaluate body  after temporarily silencing auditory error feedback."
   `(let ((emacspeak-speak-messages nil)
-                 (emacspeak-use-auditory-icons nil))
+         (emacspeak-use-auditory-icons nil))
      ,@body))
 
 ;;}}}
@@ -1645,14 +1645,14 @@ Interactive prefix arg speaks buffer info."
        (t                               ;process modeline
         (unless (zerop (length global-info))
           (put-text-property 0 (length global-info)
-                           'personality voice-bolden-medium global-info))
+                             'personality voice-bolden-medium global-info))
         (tts-with-punctuations
          'all
          (unless (and buffer-read-only
                       (buffer-modified-p))  ; avoid pathological case
-          (when (and buffer-file-name  (buffer-modified-p))
-            (emacspeak-auditory-icon 'modified-object))
-          (when buffer-read-only (emacspeak-auditory-icon 'unmodified-object)))
+           (when (and buffer-file-name  (buffer-modified-p))
+             (emacspeak-auditory-icon 'modified-object))
+           (when buffer-read-only (emacspeak-auditory-icon 'unmodified-object)))
          (dtk-speak
           (concat
            dir-info
@@ -1664,7 +1664,6 @@ Interactive prefix arg speaks buffer info."
            (emacspeak-get-voicefied-mode-name mode-name)
            (emacspeak-get-current-percentage-verbously)
            global-info frame-info recursion-info)))))))))
-
 
 (defun emacspeak-speak-current-buffer-name ()
   "Speak name of current buffer."

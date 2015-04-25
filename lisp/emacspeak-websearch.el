@@ -964,7 +964,6 @@ Optional prefix arg no-rss scrapes information from HTML."
   (interactive
    (list (emacspeak-websearch-read-query "Search Wikipedia: ")))
 
-
   (emacspeak-websearch-google
    (emacspeak-url-encode (format "site:wikipedia.org %s"query))))
 
