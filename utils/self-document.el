@@ -42,6 +42,9 @@
 ;;; Commentary:
 
 ;;; Generate documentation for Emacspeak command and options.
+
+;;; Code:
+
 ;;}}}
 ;;{{{  Required modules
 
@@ -54,7 +57,7 @@
 ;;{{{ Load All Modules
 
 ;;; Setup load-path
-(defvar self-document-lisp-directory
+(defconst self-document-lisp-directory
   (expand-file-name "../lisp" (file-name-directory load-file-name))
   "Elisp directory")
 
@@ -62,11 +65,11 @@
 (add-to-list
  'load-path
  (expand-file-name "g-client" self-document-lisp-directory))
-(add-to-list 'load-path
-             (expand-file-name "../../site-lisp"
-                               (file-name-directory load-file-name)))
+(add-to-list
+ 'load-path
+ (expand-file-name "../../site-lisp" (file-name-directory load-file-name)))
 
-(defvar self-document-files
+(defconst self-document-files
   (append
    (directory-files self-document-lisp-directory nil ".elc$")
    (directory-files (expand-file-name "g-client" self-document-lisp-directory)
@@ -85,13 +88,15 @@
                     self-document-files emacspeak-play-emacspeak-startup-icon))
   (let ((emacspeak-play-emacspeak-startup-icon nil)
         (dtk-program "log-null"))
-    (package-initialize)
+    (package-initialize) ; bootstrap emacs package system
+    ;;; Bootstrap Emacspeak
     (load-library "emacspeak-load-path")
     (load-library "plain-voices")
     (load-library "emacspeak-setup")
+;;; Load all Emacspeak modules:
     (cl-loop
      for f in  self-document-files do
-     (unless (string-match "emacspeak-setup" f)
+     (unless (string-match "emacspeak-setup" f) ; avoid loading setup twice :
        (load-library f)))))
 
 (defconst self-document-patterns
@@ -111,11 +116,10 @@
 (defun self-document-command-p (f)
   "Predicate to check if  this command it to be documented."
   (declare (special self-document-patterns))
-  (let ((fn (symbol-name f)))
-    (when (and (fboundp f) (commandp f)
-               (string-match self-document-patterns fn))
-      (cl-incf self-document-command-count)
-      f)))
+  (when (and (fboundp f) (commandp f)
+             (string-match self-document-patterns (symbol-name f)))
+    (cl-incf self-document-command-count)
+    f))
 
 (defvar self-document-option-count 0
   "Global count of options.")
@@ -130,11 +134,11 @@
     o))
 
 (defun self-document-map-command (f)
-  "Map this command symbol."
+  "Add this  this command symbol to our map."
   (declare (special self-document-map))
   (let ((file  (symbol-file f 'defun))
         (entry nil))
-    (unless file (setq file "emacspeak"))
+    (unless file (setq file "emacspeak")) ; capture orphans if any 
     (when file
       (setq file (file-name-sans-extension(file-name-nondirectory file )))
       (when (string-match "loaddefs" file) (setq file "emacspeak"))
@@ -143,16 +147,17 @@
       (when entry (push f (self-document-commands  entry))))))
 
 (defun self-document-map-option (f)
-  "Map this option symbol."
+  "Add this option symbol to our map."
   (declare (special self-document-map))
   (let ((file  (symbol-file f 'defvar))
         (entry nil))
-    (unless file (setq file "emacspeak"))
+    (unless file (setq file "emacspeak")); capture orphans if any
     (when (string-match "loaddefs" file) (setq file "emacspeak"))
     (when file
       (setq file (file-name-sans-extension(file-name-nondirectory file)))
       (setq entry  (gethash file self-document-map))
       (when entry (push f (self-document-options  entry))))))
+
 (defun self-document-map-symbol (f)
   "Map command and options to its defining module."
   (declare (special self-document-map))
@@ -182,7 +187,7 @@
 
 ;;; initialize table
 (defun self-document-build-map()
-  "Build a map of module names to commands."
+  "Build a map of module names to commands and options."
   (cl-loop
    for f in self-document-files do
    (let ((module (file-name-sans-extension f)))
@@ -276,6 +281,7 @@
 
 ;;}}}
 ;;{{{ Iterate over all modules
+
 (declare-function emacspeak-url-template-generate-texinfo-documentation (buffer))
 
 (defun self-document-all-modules()
