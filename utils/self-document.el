@@ -84,7 +84,7 @@
   (declare (special dtk-program
                     self-document-files emacspeak-play-emacspeak-startup-icon))
   (let ((emacspeak-play-emacspeak-startup-icon nil)
-        (dtk-program "log-plain"))
+        (dtk-program "log-null"))
     (package-initialize)
     (load-library "emacspeak-load-path")
     (load-library "plain-voices")
