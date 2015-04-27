@@ -98,29 +98,9 @@
   (when (ems-interactive-p )
     (emacspeak-speak-line)))
 
-(defadvice imenu-go-find-at-position (around emacspeak pre act comp)
-  "Provide auditory feedback"
-  (cond
-   ((ems-interactive-p )
-    (push-mark)
-    ad-do-it
-    (emacspeak-auditory-icon 'large-movement)
-    (ems-set-personality-temporarily (point) (1+ (point))
-                                     voice-animate
-                                     (emacspeak-speak-line)))
-   (t ad-do-it))
-  ad-return-value)
-
-(defadvice imenu-go--back (after emacspeak pre act comp)
-  "Provide auditory feedback"
-  (when (ems-interactive-p )
-    (emacspeak-auditory-icon 'large-movement)
-    (ems-set-personality-temporarily (point) (1+ (point))
-                                     voice-animate
-                                     (emacspeak-speak-line))))
-
 ;;}}}
 ;;{{{  Navigation
+
 (defvar emacspeak-imenu-autospeak nil
   "Speak contents of sections automatically if set.")
 
@@ -134,6 +114,7 @@
   (let ((position (point))
         (guess 0)
         (target (point-max)))
+    (unless imenu--index-alist (imenu--make-index-alist 'no-error))
     (unless emacspeak-imenu-flattened-index-alist
       (setq emacspeak-imenu-flattened-index-alist
             (emacspeak-imenu-flatten-index-alist
@@ -169,6 +150,7 @@
   (let ((position (point))
         (guess 0)
         (target (point-min)))
+    (unless imenu--index-alist (imenu--make-index-alist 'no-error))
     (unless emacspeak-imenu-flattened-index-alist
       (setq emacspeak-imenu-flattened-index-alist
             (emacspeak-imenu-flatten-index-alist
@@ -205,10 +187,14 @@
 
 ;;}}}
 ;;{{{ bind keys
-(define-key emacspeak-keymap "\M-i" 'imenu)
-(define-key emacspeak-keymap  "\M-p" 'emacspeak-imenu-goto-previous-index-position)
-(define-key emacspeak-keymap "\M-n" 'emacspeak-imenu-goto-next-index-position)
-(define-key emacspeak-keymap "\M- " 'emacspeak-imenu-speak-this-section)
+
+(defun emacspeak-imenu-setup-keys ()
+  "Set up imenu keys"
+  (define-key emacspeak-keymap "\M-i" 'imenu)
+  (define-key emacspeak-keymap  "\M-p" 'emacspeak-imenu-goto-previous-index-position)
+  (define-key emacspeak-keymap "\M-n" 'emacspeak-imenu-goto-next-index-position)
+  (define-key emacspeak-keymap "\M- " 'emacspeak-imenu-speak-this-section))
+(emacspeak-imenu-setup-keys)
 
 ;;}}}
 ;;{{{ customize settings
