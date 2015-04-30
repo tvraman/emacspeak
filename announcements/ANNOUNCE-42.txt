@@ -1,0 +1,253 @@
+#    -*- mode: org -*-
+
+*               Emacspeak-42.0 (AnswerDog) Unleashed!
+               **  For Immediate Release:
+
+San Jose, Calif., (May 1, 2015)
+    Emacspeak:  Redefining Accessibility In The Era Of Internet  Computing 
+    --Zero cost of upgrades/downgrades makes priceless software affordable!
+
+Emacspeak Inc (NASDOG: ESPK) --http://emacspeak.sf.net--
+announces the immediate world-wide availability of Emacspeak 42.0
+(AnswerDog) --a powerful audio desktop for leveraging today's
+evolving data, social and service-oriented Internet cloud.
+
+** Investors Note:
+
+
+With several prominent tweeters expanding coverage of
+_#emacspeak_, NASDOG: ESPK has now been consistently trading over
+the social net at levels close to that once attained by DogCom
+high-fliers—and as of May 2015 is trading at levels close to
+that achieved by once better known stocks in the tech sector.
+
+** What Is It?
+Emacspeak is a fully functional audio desktop that provides
+complete eyes-free access to all major 32 and 64 bit operating
+environments. By seamlessly blending live access to all aspects
+of the Internet such as Web-surfing, blogging, social computing
+and electronic messaging into the audio desktop, Emacspeak
+enables speech access to local and remote information with a
+consistent and well-integrated user interface. A rich suite of
+task-oriented tools provides efficient speech-enabled access to
+the evolving service-oriented social Internet cloud.
+
+** Major Enhancements:
+  
+ 
+  - Emacs EWW: Consume Web content efficiently.   🕷
+  - Updated Info manual 🕮
+  - SoX integration for generating auditory feedback ℗
+  - Speech-enabled Elfeed, an Emacs Feed Reader 🗞
+  - CSound generated 3d Auditory Icons ⟀
+  - Audacious --- An Audio Workbench using SoX   🝧
+  - Audio presets for MPlayer using Ladspa filters ♮
+  - emacspeak-url-templates: Smart Web access.  ♅
+  - Integrated TuneIn Radio search, browse and play 📻
+  - emacspeak-websearch.el Find things fast. ♁
+  - Calibre integration for searching and viewing epub 📚 📔
+  - Complete anything via company integration  ∁
+  - Emacs 24.4: Supports all new features in Emacs 24.4. 🌚
+  - And a lot more than wil fit this margin. …
+
+** Establishing Liberty, Equality And Freedom:
+
+
+  Never a toy system, Emacspeak is voluntarily bundled with all
+major Linux distributions. Though designed to be modular,
+distributors have freely chosen to bundle the fully integrated
+system without any undue pressure—a documented success for
+the integrated innovation embodied by Emacspeak. As the system
+evolves, both upgrades and downgrades continue to be available at
+the same zero-cost to all users. The integrity of the Emacspeak
+codebase is ensured by the reliable and secure Linux platform
+used to develop and distribute the software.
+
+Extensive studies have shown that thanks to these features, users
+consider Emacspeak to be absolutely priceless. Thanks to this
+wide-spread user demand, the present version remains   priceless
+as ever—it is being made available at the same zero-cost as
+previous releases.
+
+At the same time, Emacspeak continues to innovate in the area of
+eyes-free social interaction and carries forward the
+well-established Open Source tradition of introducing user
+interface features that eventually show up in luser environments.
+
+On this theme, when once challenged by a proponent of a crash-prone
+but well-marketed mousetrap with the assertion "Emacs is a system from
+the 70's", the creator of Emacspeak evinced surprise at the unusual
+candor manifest in the assertion that it would take popular
+idiot-proven interfaces until the year 2070 to catch up to where the
+Emacspeak audio desktop is today. Industry experts welcomed this
+refreshing breath of Courage Certainty and Clarity (CCC) at a time
+when users are reeling from the Fear Uncertainty and Doubt (FUD)
+unleashed by complex software systems backed by even more convoluted
+press releases.
+
+** Independent Test Results:
+
+
+Independent test results have proven that unlike some modern (and
+not so modern) software, Emacspeak can be safely uninstalled without
+adversely affecting the continued performance of the computer. These
+same tests also revealed that once uninstalled, the user stopped
+functioning altogether. Speaking with Aster Labrador, the creator of
+Emacspeak once pointed out that these results re-emphasize the
+user-centric design of Emacspeak; "It is the user --and not the
+computer-- that stops functioning when Emacspeak is uninstalled!".
+
+*** Note from Aster,Bubbles and Tilden:
+
+
+UnDoctored Videos Inc. is looking for volunteers to star in a
+video demonstrating such complete user failure.
+
+** Obtaining Emacspeak:
+
+
+Emacspeak can be downloaded from GitHub  --see
+https://github.com/tvraman/emacspeak  you can visit 
+Emacspeak on the WWW at http://emacspeak.sf.net.  You can subscribe
+to the emacspeak mailing list emacspeak@cs.vassar.edu by sending
+mail to the list request address
+emacspeak-request@cs.vassar.edu. The
+[[http://emacspeak.blogspot.com][Emacspeak Blog]] is a good source
+ for news about recent enhancements and how to use them.
+
+The latest development snapshot of Emacspeak is always available via
+Git  from GitHub  at 
+[[https://github.com/tvraman/emacspeak][Emacspeak GitHub ]].
+
+** History:
+
+Emacspeak 42.0 while moving to GitHub from Google Code continues to
+innovate in the areas of auditory user interfaces and efficient,
+light-weight Internet access.  Emacspeak 41.0 continues to improve
+upon the desire to provide not just equal, but superior access —
+technology when correctly implemented can significantly enhance the
+human ability. Emacspeak 40.0 goes back to Web basics by enabling
+[[http://emacspeak.blogspot.com/2013/11/reading-web-content-efficiently.html][efficient access]] to large amounts of readable Web content. Emacspeak
+39.0 continues the Emacspeak tradition of increasing the breadth of
+user tasks that are covered without introducing unnecessary
+bloatware. Emacspeak 38.0 is the latest in a series of award-winning
+releases from Emacspeak Inc. Emacspeak 37.0 continues the tradition of
+delivering robust software as reflected by its code-name. Emacspeak
+36.0 enhances the audio desktop with many new tools including full
+EPub support --- hence the name EPubDog. Emacspeak 35.0 is all about
+teaching a new dog old tricks --- and is aptly code-named HeadDog in
+honor of our new Press/Analyst contact. emacspeak-34.0 (AKA Bubbles)
+established a new beach-head with respect to rapid task completion in
+an eyes-free environment. Emacspeak-33.0 AKA StarDog brings
+unparalleled cloud access to the audio desktop. Emacspeak 32.0 AKA
+LuckyDog continues to innovate via open technologies for better
+access. Emacspeak 31.0 AKA TweetDog --- adds tweeting to the Emacspeak
+desktop. Emacspeak 30.0 AKA SocialDog brings the Social Web to the
+audio desktop—you cant but be social if you speak! Emacspeak
+29.0—AKAAbleDog—is a testament to the resilliance and innovation
+embodied by Open Source software—it would not exist without the
+thriving Emacs community that continues to ensure that Emacs remains
+one of the premier user environments despite perhaps also being one of
+the oldest. Emacspeak 28.0—AKA PuppyDog—exemplifies the rapid pace of
+development evinced by Open Source software. Emacspeak 27.0—AKA
+FastDog—is the latest in a sequence of upgrades that make previous
+releases obsolete and downgrades unnecessary. Emacspeak 26—AKA
+LeadDog—continues the tradition of introducing innovative access
+solutions that are unfettered by the constraints inherent in
+traditional adaptive technologies. Emacspeak 25 —AKA ActiveDog
+—re-activates open, unfettered access to online
+information. Emacspeak-Alive —AKA LiveDog —enlivens open, unfettered
+information access with a series of live updates that once again
+demonstrate the power and agility of open source software
+development. Emacspeak 23.0 -- AKA Retriever—went the extra mile in
+fetching full access. Emacspeak 22.0 —AKA GuideDog —helps users
+navigate the Web more effectively than ever before. Emacspeak 21.0
+—AKA PlayDog —continued the Emacspeak tradition of relying on enhanced
+productivity to liberate users. Emacspeak-20.0 —AKA LeapDog —continues
+the long established GNU/Emacs tradition of integrated innovation to
+create a pleasurable computing environment for eyes-free
+interaction. emacspeak-19.0 --AKA WorkDog-- is designed to enhance
+user productivity at work and leisure. Emacspeak-18.0 --code named
+GoodDog-- continued the Emacspeak tradition of enhancing user
+productivity and thereby reducing total cost of
+ownership. Emacspeak-17.0 --code named HappyDog-- enhances user
+productivity by exploiting today's evolving WWW
+standards. Emacspeak-16.0 --code named CleverDog-- the follow-up to
+SmartDog-- continued the tradition of working better, faster,
+smarter. Emacspeak-15.0 --code named SmartDog--followed up on TopDog
+as the next in a continuing a series of award-winning audio desktop
+releases from Emacspeak Inc. Emacspeak-14.0 --code named TopDog--was
+the first release of this millennium. Emacspeak-13.0 --codenamed
+YellowLab-- was the closing release of the
+20th. century. Emacspeak-12.0 --code named GoldenDog-- began
+leveraging the evolving semantic WWW to provide task-oriented speech
+access to Webformation. Emacspeak-11.0 --code named Aster-- went the
+final step in making Linux a zero-cost Internet access solution for
+blind and visually impaired users. Emacspeak-10.0 --(AKA
+Emacspeak-2000) code named WonderDog-- continued the tradition of
+award-winning software releases designed to make eyes-free computing a
+productive and pleasurable experience. Emacspeak-9.0 --(AKA
+Emacspeak 99) code named BlackLab-- continued to innovate in the areas
+of speech interaction and interactive accessibility. Emacspeak-8.0
+--(AKA Emacspeak-98++) code named BlackDog-- was a major upgrade to
+the speech output extension to Emacs.
+
+Emacspeak-95 (code named Illinois) was released as OpenSource on
+the Internet in May 1995 as the first complete speech interface
+to UNIX workstations. The subsequent release, Emacspeak-96 (code
+named Egypt) made available in May 1996 provided significant
+enhancements to the interface. Emacspeak-97 (Tennessee) went
+further in providing a true audio desktop. Emacspeak-98
+integrated Internetworking into all aspects of the audio desktop
+to provide the first fully interactive speech-enabled WebTop.
+
+** About Emacspeak:
+
+
+Originally based at Cornell (NY)
+http://www.cs.cornell.edu/home/raman --home to Auditory User
+Interfaces (AUI) on the WWW-- Emacspeak is now maintained on
+GitHub --[[https://github.com/tvraman/emacspeak]] —and
+Sourceforge —http://emacspeak.sf.net. The system is mirrored
+world-wide by an international network of software archives and
+bundled voluntarily with all major Linux distributions. On
+Monday, April 12, 1999, Emacspeak became part of the
+Smithsonian's Permanent Research Collection on Information
+Technology at the Smithsonian's National Museum of American
+History.
+
+The Emacspeak mailing list is archived at Vassar --the home of the
+Emacspeak mailing list-- thanks to Greg Priest-Dorman, and provides a
+valuable knowledge base for new users.
+
+** Press/Analyst Contact: Tilden Labrador
+
+Going forward, Tilden acknowledges his exclusive monopoly on
+setting the direction of the Emacspeak Audio Desktop, and
+promises to exercise this freedom to innovate and her resulting
+power responsibly (as before) in the interest of all dogs.
+
+**About This Release:
+------------------
+
+Windows-Free (WF) is a favorite battle-cry of The League Against
+Forced Fenestration (LAFF).  --see
+http://www.usdoj.gov/atr/cases/f3800/msjudgex.htm for details on
+the ill-effects of Forced Fenestration.
+
+CopyWrite )C( Aster and Hubbell Labrador. All Writes Reserved.
+HeadDog (DM), LiveDog (DM), GoldenDog (DM), BlackDog (DM) etc., are Registered
+Dogmarks of Aster,  Hubbell  and Tilden Labrador.  All other dogs belong to
+their respective owners.
+
+#+TITLE:     Emacspeak 42.0—AnswerDog—Unleashed!
+#+AUTHOR:    T.V Raman
+#+EMAIL:     tv.raman.tv@gmail.com#+DATE:      2009-11-25 Wed
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:nil skip:nil d:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+
