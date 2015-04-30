@@ -98,7 +98,7 @@ pronunciation dictionaries are stored. ")
 
 ;;;###autoload
 (defconst emacspeak-codename
-  "NiceDog"
+  "AnswerDog"
   "Code name of present release.")
 ;;;###autoload
 (defsubst emacspeak-setup-get-revision ()
@@ -114,7 +114,7 @@ pronunciation dictionaries are stored. ")
 ;;;###autoload
 (defconst emacspeak-version
   (format
-   "41.0 %s:  %s"
+   "42.0 %s:  %s"
    emacspeak-codename
    (emacspeak-setup-get-revision))
   "Version number for Emacspeak.")
