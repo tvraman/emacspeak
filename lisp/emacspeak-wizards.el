@@ -2889,8 +2889,8 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
 (defun emacspeak-wizards-yq-query (symbols)
   "Return select query  for specified list of symbols."
   (let ((qt "select * from yahoo.finance.quotes where symbol in (\"%s\")")
-        (symbol-string (mapconcat #'identity  symbols "\",\"")))
-    (emacspeak-url-encode (format qt symbol-string))))
+        (tickers-string (mapconcat #'identity  symbols "\",\"")))
+    (emacspeak-url-encode (format qt tickers-string))))
 
 (defun emacspeak-wizards-yq-url (symbols)
   "Return query url."
@@ -2946,26 +2946,72 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
            StockExchange
            PercentChange)
   "List of headers we care about.")
+
 (defun emacspeak-wizards-yq-filter (r)
   "Only keep fields we care about."
   (declare (special emacspeak-wizards-yq-headers))
   (remove-if-not
    #'(lambda  (q) (member (car q) emacspeak-wizards-yq-headers))
    r))
+(defun emacspeak-wizards-yq-get-quotes (symbols)
+  "Return results from yahoo."
+  (g-json-lookup
+   "query.results.quote"
+   (g-json-get-result
+    (format
+     "%s  %s '%s'"
+     g-curl-program g-curl-common-options
+     (emacspeak-wizards-yq-url symbols)))))
 
 (defun emacspeak-wizards-yq-results (symbols)
-  "Get results from json response."
-  (mapcar
-   ;;; keep fields we care about for each result
-   #'emacspeak-wizards-yq-filter             
-   (g-json-lookup "query.results.quote"
-                  (g-json-get-result
-                   (format
-                    "%s  %s '%s'"
-                    g-curl-program g-curl-common-options
-                    (emacspeak-wizards-yq-url symbols))))))
+  "Get results from json response.
+Returns a list of lists, one list per ticker."
+   ;;;; keep fields we care about for each result
+  (let ((results (emacspeak-wizards-yq-get-quotes symbols)))
+  (cond
+   ((= 1 (length symbols)) ;wrap singleton in a list 
+    (list (emacspeak-wizards-yq-filter  results)))
+  (t
+   (loop for r across results
+   collect (emacspeak-wizards-yq-filter r))))))
 
+(defun emacspeak-wizards-yq-result-row (r)
+  "Takes a list corresponding to a quote, and returns a vector sorted per headers."
+  (declare (special emacspeak-wizards-yq-headers))
+  (let ((row (make-vector (length r) nil)))
+    (loop
+     for h in emacspeak-wizards-yq-headers
+     and index from 0 do
+     (aset row index
+           (cdr (assoc h r))))
+    row))
 
+(defun emacspeak-wizards-yq-table (symbols)
+  "Turn result list from YQL into a table."
+  (declaim (special emacspeak-wizards-yq-headers))
+  (let ((table (make-vector (1+ (length symbols)) nil))
+        (results (emacspeak-wizards-yq-results symbols)))
+    (aset table 0 (apply 'vector
+                         (mapcar #'symbol-name emacspeak-wizards-yq-headers)))
+    (loop
+     for r in results
+     and index from 1 do
+     (aset  table index
+            (emacspeak-wizards-yq-result-row r)))
+        (emacspeak-table-make-table table)))
+
+(defun emacspeak-wizards-yql-quotes ()
+  "Display quotes using YQL API.
+Symbols are taken from emacspeak-wizards-personal-portfolio."
+  (interactive)
+  (declare (special emacspeak-wizards-personal-portfolio))
+  (unless emacspeak-wizards-personal-portfolio (error "Customize emacspeak-wizards-personal-portfolio first"))
+  (let ((tickers (split-string emacspeak-wizards-personal-portfolio)))
+    (emacspeak-table-prepare-table-buffer
+     (emacspeak-wizards-yq-table tickers)
+     (get-buffer-create "*YQL*"))
+    (switch-to-buffer "*YQL*")))
+    
 ;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
