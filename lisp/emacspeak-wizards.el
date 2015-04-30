@@ -1502,9 +1502,7 @@ visiting the DVI file."
  'emacspeak-wizards-dvi-mode)
 
 ;;}}}
-;;{{{
-
-Stock quotes  Portfolio
+;;{{{ Stock quotes  Portfolio
 (defcustom emacspeak-wizards-quote-command
   (expand-file-name "quotes.pl"
                     emacspeak-etc-directory)
@@ -2877,6 +2875,97 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
   (require 'emacspeak-url-template)
   (let ((name   "RadioTime Search"))
     (emacspeak-url-template-open (emacspeak-url-template-get name))))
+;;}}}
+;;{{{ yahoo Quotes:
+
+
+(defconst emacspeak-wizards-yq-base
+  (concat
+   "http://query.yahooapis.com/v1/public/yql?"
+   "&env=http%3A%2F%2Fdatatables.org%2Falltables.env&format=json"
+   "&q=")
+  "REST-end-point for Yahoo Quotes API.")
+
+(defun emacspeak-wizards-yq-query (symbols)
+  "Return select query  for specified list of symbols."
+  (let ((qt "select * from yahoo.finance.quotes where symbol in (\"%s\")")
+        (symbol-string (mapconcat #'identity  symbols "\",\"")))
+    (emacspeak-url-encode (format qt symbol-string))))
+
+(defun emacspeak-wizards-yq-url (symbols)
+  "Return query url."
+  (declare (special emacspeak-wizards-yq-base))
+  (concat emacspeak-wizards-yq-base (emacspeak-wizards-yq-query symbols)))
+
+(defconst emacspeak-wizards-yq-headers
+  '(symbol Ask
+           AverageDailyVolume
+           Bid
+           BookValue
+           Change_PercentChange
+           Change
+           Currency
+           LastTradeDate
+           EarningsShare
+           EPSEstimateCurrentYear
+           EPSEstimateNextYear
+           EPSEstimateNextQuarter
+           DaysLow
+           DaysHigh
+           YearLow
+           YearHigh
+           MarketCapitalization
+           EBITDA
+           ChangeFromYearLow
+           PercentChangeFromYearLow
+           ChangeFromYearHigh
+           PercebtChangeFromYearHigh
+
+           LastTradePriceOnly
+           DaysRange
+           FiftydayMovingAverage
+           TwoHundreddayMovingAverage
+           ChangeFromTwoHundreddayMovingAverage
+           PercentChangeFromTwoHundreddayMovingAverage
+           ChangeFromFiftydayMovingAverage
+           PercentChangeFromFiftydayMovingAverage
+           Name
+           Open
+           PreviousClose
+           ChangeinPercent
+           PriceSales
+           PriceBook
+           PERatio
+           PEGRatio
+           Symbol
+           ShortRatio
+           LastTradeTime
+           OneyrTargetPrice
+           Volume
+           YearRange
+           StockExchange
+           PercentChange)
+  "List of headers we care about.")
+(defun emacspeak-wizards-yq-filter (r)
+  "Only keep fields we care about."
+  (declare (special emacspeak-wizards-yq-headers))
+  (remove-if-not
+   #'(lambda  (q) (member (car q) emacspeak-wizards-yq-headers))
+   r))
+
+(defun emacspeak-wizards-yq-results (symbols)
+  "Get results from json response."
+  (mapcar
+   ;;; keep fields we care about for each result
+   #'emacspeak-wizards-yq-filter             
+   (g-json-lookup "query.results.quote"
+                  (g-json-get-result
+                   (format
+                    "%s  %s '%s'"
+                    g-curl-program g-curl-common-options
+                    (emacspeak-wizards-yq-url symbols))))))
+
+
 ;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
