@@ -13,7 +13,7 @@ EMACS=emacs
 
 all: emacspeak.info  introducing-emacspeak.info turning-twenty.info
 
-info: emacspeak.texi introducing-emacspeak.texi turning-twenty.texi
+info: emacspeak.texi introducing-emacspeak.texi turning-twenty.texi docs.texi
 	$(MAKEINFO) emacspeak.texi
 	$(MAKEINFO) introducing-emacspeak.texi
 	$(MAKEINFO) turning-twenty.texi
