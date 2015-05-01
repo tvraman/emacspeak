@@ -7,10 +7,10 @@ San Jose, Calif., (May 1, 2015)
     Emacspeak:  Redefining Accessibility In The Era Of Internet  Computing 
     --Zero cost of upgrades/downgrades makes priceless software affordable!
 
-Emacspeak Inc (NASDOG: ESPK) --http://emacspeak.sf.net--
-announces the immediate world-wide availability of Emacspeak 42.0
-(AnswerDog) --a powerful audio desktop for leveraging today's
-evolving data, social and service-oriented Internet cloud.
+Emacspeak Inc (NASDOG: ESPK) --http://emacspeak.sf.net-- announces the
+immediate world-wide availability of [[https://github.com/tvraman/emacspeak/releases/download/42.0/emacspeak-42.0.tar.bz2][Emacspeak 42.0]] (AnswerDog) --a
+powerful audio desktop for leveraging today's evolving data, social
+and service-oriented Internet cloud.
 
 ** Investors Note:
 
