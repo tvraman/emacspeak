@@ -2997,8 +2997,19 @@ Returns a list of lists, one list per ticker."
      (aset  table index
             (emacspeak-wizards-yq-result-row r)))
     (emacspeak-table-make-table table)))
-(defconst  emacspeak-wizards-yql-row-filter nil
-  "YQL Row filter.")
+(defcustom emacspeak-wizards-yql-row-filter
+  '(31 " bid " 3
+      "giving it a P/E ratio of " 37
+      " and a market cap of " 17 "at earning of " 9 " per share. "
+      "The intra-day range was " 13  " - " 14 
+      ", and the 52 week range is " 44 ". ")
+  "Format used to filter rows."
+  :type '(repeat
+          (choice :tag "Entry"
+                  (integer :tag "Column Number:")
+                  (string :tag "Text: ")))
+  :group 'emacspeak-wizards)
+
 (defun emacspeak-wizards-yql-quotes ()
   "Display quotes using YQL API.
 Symbols are taken from emacspeak-wizards-personal-portfolio."
