@@ -94,7 +94,7 @@
      column)))
 
 (defsubst emacspeak-table-current-element (table)
-  (emacspeak-table-this-element table 
+          (emacspeak-table-this-element table 
                                 (emacspeak-table-current-row table )
                                 (emacspeak-table-current-column table)))
 

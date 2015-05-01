@@ -246,7 +246,8 @@ specifies the filter"
   (interactive)
   (declare (special emacspeak-table ))
   (and (boundp 'emacspeak-table)
-       (dtk-speak-and-echo (emacspeak-table-current-element emacspeak-table))))
+       (dtk-speak
+        (format "%s" (emacspeak-table-current-element emacspeak-table)))))
 
 (defun emacspeak-table-speak-row-header-and-element ()
   "Speak  row header and table element"
@@ -258,7 +259,7 @@ specifies the filter"
                            (emacspeak-table-row-header-element emacspeak-table
                                                                (emacspeak-table-current-row emacspeak-table )))))
          (put-text-property 0 (length head) 'face 'italic head)
-         (dtk-speak-and-echo
+         (dtk-speak
           (concat head
                   (format " %s"
                           (emacspeak-table-current-element emacspeak-table)))))))
@@ -274,7 +275,7 @@ specifies the filter"
                                                                   (emacspeak-table-current-column emacspeak-table )))))
          (put-text-property 0 (length head)
                             'face 'italic head)
-         (dtk-speak-and-echo
+         (dtk-speak
           (concat head
                   (format " %s"
                           (emacspeak-table-current-element emacspeak-table)))))))
@@ -299,7 +300,7 @@ specifies the filter"
          (put-text-property 0 (length column-head)
                             'personality
                             emacspeak-table-column-header-personality column-head)
-         (dtk-speak-and-echo
+         (dtk-speak
           (concat row-head" "  column-head
                   (format " %s"
                           (emacspeak-table-current-element
@@ -767,6 +768,7 @@ browsing table elements"
    (t(emacspeak-table-move-right emacspeak-table count )
      (emacspeak-table-synchronize-display)
      (funcall emacspeak-table-speak-element))))
+
 ;;;###autoload
 (defun emacspeak-table-previous-column (&optional count)
   "Move to the previous column  if possible"
