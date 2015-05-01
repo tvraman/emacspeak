@@ -14,7 +14,7 @@ github-release release --tag $1 --name "Release $1 "
 github-release upload --tag $1 --name $2 --file $2
 
 # Upload the latest NEWS   into releases 
-github-release upload --tag $1 --name News-$2 --file ./etc/NEWS
+github-release upload --tag $1 --name News-$1 --file ./etc/NEWS
 
 # Final releases contain  an announcement file.
 test -f ${AText} &&  github-release upload --tag $1 --name $AText --file $AText
