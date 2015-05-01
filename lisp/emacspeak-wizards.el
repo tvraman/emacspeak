@@ -2997,7 +2997,8 @@ Returns a list of lists, one list per ticker."
      (aset  table index
             (emacspeak-wizards-yq-result-row r)))
     (emacspeak-table-make-table table)))
-
+(defconst  emacspeak-wizards-yql-row-filter nil
+  "YQL Row filter.")
 (defun emacspeak-wizards-yql-quotes ()
   "Display quotes using YQL API.
 Symbols are taken from emacspeak-wizards-personal-portfolio."
