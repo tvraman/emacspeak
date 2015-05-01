@@ -2998,11 +2998,11 @@ Returns a list of lists, one list per ticker."
             (emacspeak-wizards-yq-result-row r)))
     (emacspeak-table-make-table table)))
 (defcustom emacspeak-wizards-yql-row-filter
-  '(31 " bid " 3
-      "giving it a P/E ratio of " 37
-      " and a market cap of " 17 "at earning of " 9 " per share. "
-      "The intra-day range was " 13  " - " 14 
-      ", and the 52 week range is " 44 ". ")
+  '(31 " bid " 3 
+" in range " 13  " - " 14  " with volume " 43 ". "
+       " PE is "37
+      " for a market cap of " 17 "at earning of " 9 " per share. "
+      "the 52 week range is " 44 ". ")
   "Format used to filter rows."
   :type '(repeat
           (choice :tag "Entry"
