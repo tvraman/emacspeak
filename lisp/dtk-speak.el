@@ -1806,7 +1806,7 @@ only speak upto the first ctrl-m."
   "Speak message and echo it to the message area."
   (let ((emacspeak-speak-messages nil))
     (dtk-speak message) 
-    (message message)))
+    (message "%s" message)))
 
 (defun dtk-speak-list (text &optional group-count)
   "Speak a  list of strings.
