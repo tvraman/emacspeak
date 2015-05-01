@@ -1502,68 +1502,6 @@ visiting the DVI file."
  'emacspeak-wizards-dvi-mode)
 
 ;;}}}
-;;{{{ Stock quotes  Portfolio
-(defcustom emacspeak-wizards-quote-command
-  (expand-file-name "quotes.pl"
-                    emacspeak-etc-directory)
-  "Command for pulling up detailed stock quotes.
-this requires Perl module Finance::YahooQuote."
-  :type 'file
-  :group 'emacspeak-wizards)
-(defcustom emacspeak-wizards-quote-row-filter
-  '(1 " closed at " 2
-      "giving it a P/E ratio of " 16
-      " and a market cap of " 20 "at earning of " 15 " per share. "
-      "The intra-day range was " 13
-      ", and the 52 week range is " 14 ". ")
-  "Format used to filter rows."
-  :type '(repeat
-          (choice :tag "Entry"
-                  (integer :tag "Column Number:")
-                  (string :tag "Text: ")))
-  :group 'emacspeak-wizards)
-
-(defcustom emacspeak-wizards-personal-portfolio ""
-  "Set this to the stock tickers you want to check.
-Tickers are separated by white-space and are sorted in lexical
-order with duplicates removed."
-  :type 'string
-  :group 'emacspeak-wizards
-  :initialize  'custom-initialize-reset
-  :set
-  #'(lambda (sym val)
-      (set-default
-       sym
-       (mapconcat
-        #'identity
-        (remove-duplicates
-         (sort (split-string val)#'string-lessp) :test #'string=)
-        "\n"))))
-
-;;;###autoload
-(defun emacspeak-wizards-portfolio-quotes ()
-  "Bring up detailed stock quotes for portfolio specified by
-emacspeak-wizards-personal-portfolio."
-  (interactive)
-  (declare (special emacspeak-wizards-personal-portfolio emacspeak-table-speak-element
-                    emacspeak-wizards-quote-command emacspeak-wizards-quote-row-filter))
-  (when  (get-buffer "Portfolio") (kill-buffer  (get-buffer "Portfolio")))
-  (let ((temp-file (make-temp-file  "quotes" nil ".csv")))
-    (shell-command
-     (format
-      "echo '%s' | perl %s > %s"
-      emacspeak-wizards-personal-portfolio
-      emacspeak-wizards-quote-command temp-file))
-    (emacspeak-table-find-csv-file temp-file)
-    (setq emacspeak-table-speak-row-filter emacspeak-wizards-quote-row-filter
-          emacspeak-table-speak-element 'emacspeak-table-speak-row-filtered)
-    (setq tab-width 12)
-    (rename-buffer "Portfolio" 'unique)
-    (goto-char (point-min))
-    (call-interactively 'emacspeak-table-next-row)
-    (delete-file temp-file)))
-
-;;}}}
 ;;{{{ find wizard
 
 (define-derived-mode emacspeak-wizards-finder-mode  fundamental-mode
@@ -2875,8 +2813,24 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
   (let ((name   "RadioTime Search"))
     (emacspeak-url-template-open (emacspeak-url-template-get name))))
 ;;}}}
-;;{{{ yahoo Quotes:
-
+;;{{{ YQL: Stock Quotes 
+;;;###autoload
+(defcustom emacspeak-wizards-personal-portfolio ""
+  "Set this to the stock tickers you want to check.
+Tickers are separated by white-space and are sorted in lexical
+order with duplicates removed."
+  :type 'string
+  :group 'emacspeak-wizards
+  :initialize  'custom-initialize-reset
+  :set
+  #'(lambda (sym val)
+      (set-default
+       sym
+       (mapconcat
+        #'identity
+        (remove-duplicates
+         (sort (split-string val)#'string-lessp) :test #'string=)
+        "\n"))))
 (defconst emacspeak-wizards-yq-base
   (concat
    "http://query.yahooapis.com/v1/public/yql?"
@@ -3009,7 +2963,7 @@ Returns a list of lists, one list per ticker."
                   (integer :tag "Column Number:")
                   (string :tag "Text: ")))
   :group 'emacspeak-wizards)
-
+;;;###autoload
 (defun emacspeak-wizards-yql-quotes ()
   "Display quotes using YQL API.
 Symbols are taken from emacspeak-wizards-personal-portfolio."
