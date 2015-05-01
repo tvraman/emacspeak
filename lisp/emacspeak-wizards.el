@@ -1558,7 +1558,6 @@ emacspeak-wizards-personal-portfolio."
     (setq emacspeak-table-speak-row-filter emacspeak-wizards-quote-row-filter
           emacspeak-table-speak-element 'emacspeak-table-speak-row-filtered)
     (setq tab-width 12)
-
     (rename-buffer "Portfolio" 'unique)
     (goto-char (point-min))
     (call-interactively 'emacspeak-table-next-row)
@@ -2878,7 +2877,6 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
 ;;}}}
 ;;{{{ yahoo Quotes:
 
-
 (defconst emacspeak-wizards-yq-base
   (concat
    "http://query.yahooapis.com/v1/public/yql?"
@@ -2968,12 +2966,12 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
 Returns a list of lists, one list per ticker."
    ;;;; keep fields we care about for each result
   (let ((results (emacspeak-wizards-yq-get-quotes symbols)))
-  (cond
-   ((= 1 (length symbols)) ;wrap singleton in a list 
-    (list (emacspeak-wizards-yq-filter  results)))
-  (t
-   (loop for r across results
-   collect (emacspeak-wizards-yq-filter r))))))
+    (cond
+     ((= 1 (length symbols)) ;wrap singleton in a list
+      (list (emacspeak-wizards-yq-filter  results)))
+     (t
+      (loop for r across results
+            collect (emacspeak-wizards-yq-filter r))))))
 
 (defun emacspeak-wizards-yq-result-row (r)
   "Takes a list corresponding to a quote, and returns a vector sorted per headers."
@@ -2998,7 +2996,7 @@ Returns a list of lists, one list per ticker."
      and index from 1 do
      (aset  table index
             (emacspeak-wizards-yq-result-row r)))
-        (emacspeak-table-make-table table)))
+    (emacspeak-table-make-table table)))
 
 (defun emacspeak-wizards-yql-quotes ()
   "Display quotes using YQL API.
@@ -3006,12 +3004,19 @@ Symbols are taken from emacspeak-wizards-personal-portfolio."
   (interactive)
   (declare (special emacspeak-wizards-personal-portfolio))
   (unless emacspeak-wizards-personal-portfolio (error "Customize emacspeak-wizards-personal-portfolio first"))
+  (when  (get-buffer "*YQL*") (kill-buffer  (get-buffer "*YQL*")))
   (let ((tickers (split-string emacspeak-wizards-personal-portfolio)))
     (emacspeak-table-prepare-table-buffer
      (emacspeak-wizards-yq-table tickers)
      (get-buffer-create "*YQL*"))
+    (setq emacspeak-table-speak-row-filter emacspeak-wizards-yql-row-filter
+          emacspeak-table-speak-element 'emacspeak-table-speak-row-filtered)
+    (setq tab-width 2)
+    (rename-buffer "*YQL*" 'unique)
+    (goto-char (point-min))
+    (call-interactively 'emacspeak-table-next-row)
     (switch-to-buffer "*YQL*")))
-    
+
 ;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
