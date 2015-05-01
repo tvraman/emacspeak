@@ -58,6 +58,9 @@
 
 ;;}}}
 ;;{{{ Forward Declarations:
+(defvar emacspeak-websearch-curl-program
+  (executable-find "curl")
+  "Curl executable.")
 
 (defvar emacspeak-xslt-directory)
 (defvar emacspeak-wizards-personal-portfolio)
