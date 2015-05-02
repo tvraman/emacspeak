@@ -2813,12 +2813,12 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
   (let ((name   "RadioTime Search"))
     (emacspeak-url-template-open (emacspeak-url-template-get name))))
 ;;}}}
-;;{{{ YQL: Stock Quotes 
+;;{{{ YQL: Stock Quotes
 ;;;###autoload
 (defcustom emacspeak-wizards-personal-portfolio ""
   "Set this to the stock tickers you want to check.
-Tickers are separated by white-space and are sorted in lexical
-order with duplicates removed."
+Tickers are separated by white-space and are automatically sorted in lexical
+order with duplicates removed  when saving."
   :type 'string
   :group 'emacspeak-wizards
   :initialize  'custom-initialize-reset
@@ -2831,7 +2831,8 @@ order with duplicates removed."
         (remove-duplicates
          (sort (split-string val)#'string-lessp) :test #'string=)
         "\n"))))
-(defconst emacspeak-wizards-yq-base
+
+(defvar emacspeak-wizards-yq-base
   (concat
    "http://query.yahooapis.com/v1/public/yql?"
    "&env=http%3A%2F%2Fdatatables.org%2Falltables.env&format=json"
@@ -2839,7 +2840,7 @@ order with duplicates removed."
   "REST-end-point for Yahoo Quotes API.")
 
 (defun emacspeak-wizards-yq-query (symbols)
-  "Return select query  for specified list of symbols."
+  "Return YQL select statement for specified list of symbols."
   (let ((qt "select * from yahoo.finance.quotes where symbol in (\"%s\")")
         (tickers-string (mapconcat #'identity  symbols "\",\"")))
     (emacspeak-url-encode (format qt tickers-string))))
@@ -2905,6 +2906,7 @@ order with duplicates removed."
   (remove-if-not
    #'(lambda  (q) (memq (car q) emacspeak-wizards-yq-headers))
    r))
+
 (defun emacspeak-wizards-yq-get-quotes (symbols)
   "Return results from yahoo."
   (g-json-lookup
@@ -2937,36 +2939,42 @@ Returns a list of lists, one list per ticker."
      (aset row index
            (cdr (assoc h r))))
     row))
+(defvar emacspeak-wizards-yq-headers-row
+  (apply 'vector
+         (mapcar #'symbol-name emacspeak-wizards-yq-headers))
+  "Vector to use as header row.")
 
 (defun emacspeak-wizards-yq-table (symbols)
-  "Turn result list from YQL into a table."
-  (declaim (special emacspeak-wizards-yq-headers))
+  "Turn result list from YQL into an Emacspeak  table."
+  (declare (special emacspeak-wizards-yq-headers
+                    emacspeak-wizards-yq-headers-row))
   (let ((table (make-vector (1+ (length symbols)) nil))
         (results (emacspeak-wizards-yq-results symbols)))
-    (aset table 0 (apply 'vector
-                         (mapcar #'symbol-name emacspeak-wizards-yq-headers)))
+    (aset table 0 emacspeak-wizards-yq-headers-row)
     (loop
      for r in results
      and index from 1 do
      (aset  table index
             (emacspeak-wizards-yq-result-row r)))
     (emacspeak-table-make-table table)))
+
 (defcustom emacspeak-wizards-yql-row-filter
   '(31 " ask  " 1 
-" in range " 13  " - " 14  " with volume " 43 ". "
+       " day  range is " 13  " - " 14  " with volume " 43 ". "
        " PE is "37
-      " for a market cap of " 17 "at earning of " 9 " per share. "
-      "the 52 week range is " 44 ". ")
-  "Format used to filter rows."
+       " for a market cap of " 17 "at earning of " 9 " per share. "
+       "the 52 week range is " 44 ". ")
+  "Template used to audio-format  rows."
   :type '(repeat
           (choice :tag "Entry"
                   (integer :tag "Column Number:")
                   (string :tag "Text: ")))
   :group 'emacspeak-wizards)
+
 ;;;###autoload
 (defun emacspeak-wizards-yql-quotes ()
   "Display quotes using YQL API.
-Symbols are taken from emacspeak-wizards-personal-portfolio."
+Symbols are taken from `emacspeak-wizards-personal-portfolio'."
   (interactive)
   (declare (special emacspeak-wizards-personal-portfolio))
   (unless emacspeak-wizards-personal-portfolio (error "Customize emacspeak-wizards-personal-portfolio first"))
@@ -2977,11 +2985,11 @@ Symbols are taken from emacspeak-wizards-personal-portfolio."
      (get-buffer-create "*YQL*"))
     (setq emacspeak-table-speak-row-filter emacspeak-wizards-yql-row-filter
           emacspeak-table-speak-element 'emacspeak-table-speak-row-filtered)
-    (setq tab-width 2)
     (rename-buffer "*YQL*" 'unique)
     (goto-char (point-min))
-    (call-interactively 'emacspeak-table-next-row)
-    (switch-to-buffer "*YQL*")))
+    (switch-to-buffer "*YQL*")
+    (setq tab-width 2)
+    (call-interactively 'emacspeak-table-next-row)))
 
 ;;}}}
 (provide 'emacspeak-wizards)
