@@ -2815,9 +2815,9 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
 ;;}}}
 ;;{{{ YQL: Stock Quotes
 ;;;###autoload
-(defcustom emacspeak-wizards-personal-portfolio ""
+(defcustom emacspeak-wizards-personal-portfolio "goog aapl fb amzn"
   "Set this to the stock tickers you want to check.
-Tickers are separated by white-space and are automatically sorted in lexical
+Default is GAFA. Tickers are separated by white-space and are automatically sorted in lexical
 order with duplicates removed  when saving."
   :type 'string
   :group 'emacspeak-wizards
