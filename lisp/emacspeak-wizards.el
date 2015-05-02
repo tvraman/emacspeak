@@ -2903,7 +2903,7 @@ order with duplicates removed."
   "Only keep fields we care about."
   (declare (special emacspeak-wizards-yq-headers))
   (remove-if-not
-   #'(lambda  (q) (member (car q) emacspeak-wizards-yq-headers))
+   #'(lambda  (q) (memq (car q) emacspeak-wizards-yq-headers))
    r))
 (defun emacspeak-wizards-yq-get-quotes (symbols)
   "Return results from yahoo."
@@ -2952,7 +2952,7 @@ Returns a list of lists, one list per ticker."
             (emacspeak-wizards-yq-result-row r)))
     (emacspeak-table-make-table table)))
 (defcustom emacspeak-wizards-yql-row-filter
-  '(31 " bid " 3 
+  '(31 " ask  " 1 
 " in range " 13  " - " 14  " with volume " 43 ". "
        " PE is "37
       " for a market cap of " 17 "at earning of " 9 " per share. "
