@@ -175,10 +175,7 @@ proc t  {{pitch 440} {duration 50}} {
 }
 
 proc sh  {{duration 50}} {
-    global tts queue
-    set silence "\[_<$duration>\]"
-    set queue($tts(q_tail)) [list t $silence]
-    incr tts(q_tail)
+    c "  \[_<$duration>\] "
     return ""
 }
 
