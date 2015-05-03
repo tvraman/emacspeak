@@ -2960,7 +2960,7 @@ Returns a list of lists, one list per ticker."
     (emacspeak-table-make-table table)))
 
 (defcustom emacspeak-wizards-yql-row-filter
-  '(31 " ask  " 1 
+  '(31 " ask  " 1
        " day  range is " 13  " - " 14  " with volume " 43 ". "
        " PE is "37
        " for a market cap of " 17 "at earning of " 9 " per share. "
@@ -2993,7 +2993,7 @@ Symbols are taken from `emacspeak-wizards-personal-portfolio'."
     (call-interactively 'emacspeak-table-next-row)))
 
 ;;}}}
-;;{{{ YQL: Weather 
+;;{{{ YQL: Weather
 
 (defconst emacspeak-wizards-yql-weather-base
   "http://query.yahooapis.com/v1/public/yql?q=select+*+from+weather.forecast+where+location%%3D%s&format=json"
@@ -3013,41 +3013,55 @@ Symbols are taken from `emacspeak-wizards-personal-portfolio'."
      "%s  %s '%s'"
      g-curl-program g-curl-common-options
      (emacspeak-wizards-yql-weather-url zip)))))
-(defconst emacspeak-wizards-yql-weather-headers
-  '(day date high low text)
-  "Headers for weather forecast.")
 (defvar emacspeak-wizards-yql-weather-header-row
-  (apply 'vector emacspeak-wizards-yql-weather-headers)
+  '[day date low high text]
   "Vector used as table header row.")
+
 (defun emacspeak-wizards-yql-weather-row (result)
   "Convert result list into a sorted row."
-  (declare (special emacspeak-wizards-yql-weather-headers))
-  (let ((row (make-vector (length emacspeak-wizards-yql-weather-headers) nil)))
+  (declare (special emacspeak-wizards-yql-weather-header-row))
+  (let ((row (make-vector (length emacspeak-wizards-yql-weather-header-row) nil)))
     (loop
-         for h across emacspeak-wizards-yql-weather-header-row
-         and index from 0 do
-         (aset row index (assoc h result)))
+     for h across emacspeak-wizards-yql-weather-header-row
+     and index from 0 do
+     (aset row index (cdr(assoc h result))))
     row))
 
-         
+(defcustom emacspeak-wizards-yql-weather-filter
+  '(0 1 4 " range " 2 "-" 3)
+  "Template used to audio-format  weather."
+  :type '(repeat
+          (choice :tag "Entry"
+                  (integer :tag "Column Number:")
+                  (string :tag "Text: ")))
+  :group 'emacspeak-wizards)
+
 (defun emacspeak-wizards-yql-weather (zip)
-  "Return weather forecast table."
-  (interactive "sZip: ")
-  (declare (special emacspeak-wizards-yql-weather-headers
-                    emacspeak-wizards-yql-weather-header-row))
+  "Display weather forecast table."
+  (interactive
+   (list
+    (read-from-minibuffer "State/City:"
+                          emacspeak-url-template-weather-city-state)))
+  (declare (special emacspeak-wizards-yql-weather-header-row
+                    emacspeak-url-template-weather-city-stateemacspeak-wizards-yql-weather-filter))
   (let* ((buff (format "*Weather %s*" zip))
          (result (emacspeak-wizards-yql-weather-results zip))
          (table (make-vector (1+ (length result)) nil)))
     (aset table  0 emacspeak-wizards-yql-weather-header-row)
     (loop
      for  r across result
-     and i from 0 do 
+     and i from 1 do
      (aset table i (emacspeak-wizards-yql-weather-row  r)))
     (emacspeak-table-prepare-table-buffer
-     table
+     (emacspeak-table-make-table table)
      (get-buffer-create buff))
     (goto-char (point-min))
-    (switch-to-buffer buff)))
+
+    (setq emacspeak-table-speak-row-filter emacspeak-wizards-yql-weather-filter
+          emacspeak-table-speak-element 'emacspeak-table-speak-row-filtered)
+    (switch-to-buffer buff)
+    (setq tab-width 2)
+    (call-interactively 'emacspeak-table-next-row)))
 
 ;;}}}
 (provide 'emacspeak-wizards)
