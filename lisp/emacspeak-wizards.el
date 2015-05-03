@@ -2814,6 +2814,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
     (emacspeak-url-template-open (emacspeak-url-template-get name))))
 ;;}}}
 ;;{{{ YQL: Stock Quotes
+
 ;;;###autoload
 (defcustom emacspeak-wizards-personal-portfolio "goog aapl fb amzn"
   "Set this to the stock tickers you want to check.
@@ -2990,6 +2991,63 @@ Symbols are taken from `emacspeak-wizards-personal-portfolio'."
     (switch-to-buffer "*YQL*")
     (setq tab-width 2)
     (call-interactively 'emacspeak-table-next-row)))
+
+;;}}}
+;;{{{ YQL: Weather 
+
+(defconst emacspeak-wizards-yql-weather-base
+  "http://query.yahooapis.com/v1/public/yql?q=select+*+from+weather.forecast+where+location%%3D%s&format=json"
+  "REST End-Point for weather by zip-code.")
+
+(defun emacspeak-wizards-yql-weather-url (zip)
+  "Return end-point for retrieving weather forecast."
+  (declare (special emacspeak-wizards-yql-weather-base ))
+  (format emacspeak-wizards-yql-weather-base zip))
+
+(defun emacspeak-wizards-yql-weather-results (zip)
+  "Get weather results."
+  (g-json-lookup
+   "query.results..channel.item.forecast"
+   (g-json-get-result
+    (format
+     "%s  %s '%s'"
+     g-curl-program g-curl-common-options
+     (emacspeak-wizards-yql-weather-url zip)))))
+(defconst emacspeak-wizards-yql-weather-headers
+  '(day date high low text)
+  "Headers for weather forecast.")
+(defvar emacspeak-wizards-yql-weather-header-row
+  (apply 'vector emacspeak-wizards-yql-weather-headers)
+  "Vector used as table header row.")
+(defun emacspeak-wizards-yql-weather-row (result)
+  "Convert result list into a sorted row."
+  (declare (special emacspeak-wizards-yql-weather-headers))
+  (let ((row (make-vector (length emacspeak-wizards-yql-weather-headers) nil)))
+    (loop
+         for h across emacspeak-wizards-yql-weather-header-row
+         and index from 0 do
+         (aset row index (assoc h result)))
+    row))
+
+         
+(defun emacspeak-wizards-yql-weather (zip)
+  "Return weather forecast table."
+  (interactive "sZip: ")
+  (declare (special emacspeak-wizards-yql-weather-headers
+                    emacspeak-wizards-yql-weather-header-row))
+  (let* ((buff (format "*Weather %s*" zip))
+         (result (emacspeak-wizards-yql-weather-results zip))
+         (table (make-vector (1+ (length result)) nil)))
+    (aset table  0 emacspeak-wizards-yql-weather-header-row)
+    (loop
+     for  r across result
+     and i from 0 do 
+     (aset table i (emacspeak-wizards-yql-weather-row  r)))
+    (emacspeak-table-prepare-table-buffer
+     table
+     (get-buffer-create buff))
+    (goto-char (point-min))
+    (switch-to-buffer buff)))
 
 ;;}}}
 (provide 'emacspeak-wizards)
