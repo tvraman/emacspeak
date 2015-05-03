@@ -2937,12 +2937,11 @@ Returns a list of lists, one list per ticker."
     (loop
      for h in emacspeak-wizards-yq-headers
      and index from 0 do
-     (aset row index
-           (cdr (assoc h r))))
+     (aset row index (cdr (assoc h r))))
     row))
+
 (defvar emacspeak-wizards-yq-headers-row
-  (apply 'vector
-         (mapcar #'symbol-name emacspeak-wizards-yq-headers))
+  (apply 'vector (mapcar #'symbol-name emacspeak-wizards-yq-headers))
   "Vector to use as header row.")
 
 (defun emacspeak-wizards-yq-table (symbols)
@@ -2955,8 +2954,7 @@ Returns a list of lists, one list per ticker."
     (loop
      for r in results
      and index from 1 do
-     (aset  table index
-            (emacspeak-wizards-yq-result-row r)))
+     (aset  table index (emacspeak-wizards-yq-result-row r)))
     (emacspeak-table-make-table table)))
 
 (defcustom emacspeak-wizards-yql-row-filter
@@ -2979,16 +2977,18 @@ Symbols are taken from `emacspeak-wizards-personal-portfolio'."
   (interactive)
   (declare (special emacspeak-wizards-personal-portfolio))
   (unless emacspeak-wizards-personal-portfolio (error "Customize emacspeak-wizards-personal-portfolio first"))
-  (when  (get-buffer "*YQL*") (kill-buffer  (get-buffer "*YQL*")))
-  (let ((tickers (split-string emacspeak-wizards-personal-portfolio)))
+  
+  (let ((tickers (split-string emacspeak-wizards-personal-portfolio))
+        (buff "*YQL Quotes*"))
+    (when  (get-buffer "*YQL*") (kill-buffer  (get-buffer "*YQL*")))
     (emacspeak-table-prepare-table-buffer
      (emacspeak-wizards-yq-table tickers)
-     (get-buffer-create "*YQL*"))
+     (get-buffer-create buff))
     (setq emacspeak-table-speak-row-filter emacspeak-wizards-yql-row-filter
           emacspeak-table-speak-element 'emacspeak-table-speak-row-filtered)
-    (rename-buffer "*YQL*" 'unique)
+    (rename-buffer buff 'unique)
     (goto-char (point-min))
-    (switch-to-buffer "*YQL*")
+    (switch-to-buffer buff)
     (setq tab-width 2)
     (call-interactively 'emacspeak-table-next-row)))
 
@@ -3007,12 +3007,13 @@ Symbols are taken from `emacspeak-wizards-personal-portfolio'."
 (defun emacspeak-wizards-yql-weather-results (zip)
   "Get weather results."
   (g-json-lookup
-   "query.results..channel.item.forecast"
+   "query.results.channel.item.forecast"
    (g-json-get-result
     (format
      "%s  %s '%s'"
      g-curl-program g-curl-common-options
      (emacspeak-wizards-yql-weather-url zip)))))
+
 (defvar emacspeak-wizards-yql-weather-header-row
   '[day date low high text]
   "Vector used as table header row.")
@@ -3056,7 +3057,6 @@ Symbols are taken from `emacspeak-wizards-personal-portfolio'."
      (emacspeak-table-make-table table)
      (get-buffer-create buff))
     (goto-char (point-min))
-
     (setq emacspeak-table-speak-row-filter emacspeak-wizards-yql-weather-filter
           emacspeak-table-speak-element 'emacspeak-table-speak-row-filtered)
     (switch-to-buffer buff)
