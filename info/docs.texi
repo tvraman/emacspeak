@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1071 commands and 884 options.
+This chapter documents a total of 1071 commands and 883 options.
 
 @menu
 * acss-structure::
@@ -14260,13 +14260,6 @@ Optional interactive prefix arg ask-pwd prompts for password.
 Provide an input buffer in a specified mode.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-wizards-portfolio-quotes  nil
-@findex emacspeak-wizards-portfolio-quotes
-
-Bring up detailed stock quotes for portfolio specified by
-emacspeak-wizards-personal-portfolio.
-@end deffn
-
 @deffn {Interactive Command} emacspeak-wizards-ppt-display  nil
 @findex emacspeak-wizards-ppt-display
 
@@ -14581,7 +14574,13 @@ key             binding
 @findex emacspeak-wizards-yql-quotes
 
 Display quotes using YQL API.
-Symbols are taken from emacspeak-wizards-personal-portfolio.
+Symbols are taken from `emacspeak-wizards-personal-portfolio'.
+@end deffn
+
+@deffn {Interactive Command} emacspeak-wizards-yql-weather  (zip)
+@findex emacspeak-wizards-yql-weather
+
+Display weather forecast table.
 @end deffn
 
 @subsection emacspeak-wizards Options
@@ -14669,25 +14668,14 @@ Command for running pdftotext.
 
 @defvar {User Option} emacspeak-wizards-personal-portfolio
 Set this to the stock tickers you want to check.
-Tickers are separated by white-space and are sorted in lexical
-order with duplicates removed.
+Default is GAFA. Tickers are separated by white-space and are automatically sorted in lexical
+order with duplicates removed  when saving.
 
 @end defvar
 
 @defvar {User Option} emacspeak-wizards-ppthtml-program
 Program for converting PPT  to HTML.
 Set this to nil if you do not want to use the PPTHTML wizard.
-
-@end defvar
-
-@defvar {User Option} emacspeak-wizards-quote-command
-Command for pulling up detailed stock quotes.
-this requires Perl module Finance::YahooQuote.
-
-@end defvar
-
-@defvar {User Option} emacspeak-wizards-quote-row-filter
-Format used to filter rows.
 
 @end defvar
 
@@ -14716,7 +14704,12 @@ Set this to nil if you do not want to use the XLHTML wizard.
 @end defvar
 
 @defvar {User Option} emacspeak-wizards-yql-row-filter
-Format used to filter rows.
+Template used to audio-format  rows.
+
+@end defvar
+
+@defvar {User Option} emacspeak-wizards-yql-weather-filter
+Template used to audio-format  weather.
 
 @end defvar
 
