@@ -3028,7 +3028,7 @@ Symbols are taken from `emacspeak-wizards-personal-portfolio'."
     row))
 
 (defcustom emacspeak-wizards-yql-weather-filter
-  '(0 1 4 " range " 2 "-" 3)
+  '(0 1 4  2 "-" 3)
   "Template used to audio-format  weather."
   :type '(repeat
           (choice :tag "Entry"
