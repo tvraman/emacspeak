@@ -143,9 +143,9 @@
 
 (defcustom  emacspeak-eww-masquerade-as
   (format "User-Agent: %s %s %s\r\n"
-          "Mozilla/5.0 (X11; Linux x86_64)"
-          "AppleWebKit/537.36 (KHTML, like Gecko)"
-          "Chrome/42.0.1964.2 Safari/537.36")
+           "Mozilla/5.0 (X11; Linux i686 (x86_64)) "
+           "AppleWebKit/537.36 (KHTML, like Gecko) "
+           "Chrome/42.0.2311.135 Safari/537.36")
   "User Agent string that is  sent when masquerading is on."
   :type 'string
   :group 'emacspeak-eww)
