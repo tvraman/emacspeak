@@ -2959,10 +2959,10 @@ Returns a list of lists, one list per ticker."
 
 (defcustom emacspeak-wizards-yql-row-filter
   '(31 " ask  " 1
-       " day  range is " 13  " - " 14  " with volume " 43 ". "
+       " trading between   " 13  " and  " 14  " with volume " 43 
        " PE is "37
-       " for a market cap of " 17 "at earning of " 9 " per share. "
-       "the 52 week range is " 44 ". ")
+       " for a market cap of " 17 "at earning of " 9 " per share "
+       "the 52 week range is " 44 )
   "Template used to audio-format  rows."
   :type '(repeat
           (choice :tag "Entry"
