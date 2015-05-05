@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1071 commands and 883 options.
+This chapter documents a total of 1070 commands and 881 options.
 
 @menu
 * acss-structure::
@@ -11947,12 +11947,6 @@ C-h m in a buffer that is in emacspeak table mode to read
 the documentation on the table browser.
 @end deffn
 
-@deffn {Interactive Command} emacspeak-table-get-entry-with-headers  (row column &optional row-head-p col-head-p)
-@findex emacspeak-table-get-entry-with-headers
-
-Return   both row and column header and table element
-@end deffn
-
 @deffn {Interactive Command} emacspeak-table-goto  (row column)
 @findex emacspeak-table-goto
 
@@ -12125,18 +12119,6 @@ Save out filter settings.
 Process a csv (comma separated values) data.
 The processed  data and presented using emacspeak table navigation. 
 @end deffn
-
-@subsection emacspeak-table-ui Options
-
-@defvar {User Option} emacspeak-table-column-header-personality
-personality for speaking column headers.
-
-@end defvar
-
-@defvar {User Option} emacspeak-table-row-header-personality
-Personality for speaking row headers
-
-@end defvar
 
 @node emacspeak-tabulate
 @section emacspeak-tabulate

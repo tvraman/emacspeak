@@ -123,8 +123,8 @@ Here is a short description of the special commands provided in this mode.
 
 The next four commands help you move to the edges of the table:
 
-R               emacspeak-table-goto-right
-L               emacspeak-table-goto-left
+E               emacspeak-table-goto-right
+A               emacspeak-table-goto-left
 B               emacspeak-table-goto-bottom
 T               emacspeak-table-goto-top
 
@@ -171,7 +171,10 @@ spoken.Entries are numbered starting with 0.  Thus, when working with a table
 having 8 columns, a row filter of ( 1 2 3) will speak only entries 1 2 and 3.
 Use the sample tables in etc/tables   to familiarize yourself with this
 feature. Note that you can intersperse meaningful strings in the list that
-specifies the filter"
+specifies the filter.
+
+Full List Of Keybindings:
+\\{emacspeak-table-keymap}"
   (declare (special emacspeak-table-keymap))
   (use-local-map emacspeak-table-keymap)
   (set (make-local-variable 'voice-lock-mode) t)
