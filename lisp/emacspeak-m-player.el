@@ -951,13 +951,15 @@ emacspeak-silence-hook."
 Interactive prefix arg prompts for position.
 As the default, use current position."
   (interactive "sAMark Name:\nP")
-  (let ((position (emacspeak-m-player-get-position)))
-    (emacspeak-amark-add
-     (second position) ;file-name
+  (let* ((position (emacspeak-m-player-get-position))
+         (file-name (second position)))
+    (when file-name
+      (emacspeak-amark-add
+     file-name ;file-name
      name; mark name
      (cond
       (prompt-position (read-number "Position: "))
-      (t (first position))))
+      (t (first position)))))
     (message "Added Amark %s" name)))
 
 (defsubst ems-file-index (name file-list)
