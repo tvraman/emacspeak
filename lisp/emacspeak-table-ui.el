@@ -241,7 +241,7 @@ Full List Of Keybindings:
   "Speak  row header and table element"
   (interactive)
   (declare (special emacspeak-table))
-  (unless (boundp 'emacspeak-table) (error "No table here"))
+  (assert  (boundp 'emacspeak-table) nil "No table here")
   (let ((element (emacspeak-table-current-element emacspeak-table))
         (head
          (format
@@ -275,7 +275,7 @@ Full List Of Keybindings:
   "Speak  both row and column header and table element"
   (interactive)
   (declare (special emacspeak-table))
-  (unless (boundp 'emacspeak-table) (error "No table here"))
+  (assert  (boundp 'emacspeak-table) nil "No table here")
   (let ((element (emacspeak-table-current-element emacspeak-table))
         (col-head
          (format
@@ -300,7 +300,7 @@ Full List Of Keybindings:
 (defsubst emacspeak-table-get-entry-with-headers  (row column &optional row-head-p col-head-p)
   "Return table element. Optional args specify  if we return any headers."
   (declare (special emacspeak-table))
-  (unless (boundp 'emacspeak-table) (error "No table here "))
+  (assert  (boundp 'emacspeak-table) nil "No table here")
   (let ((col-head nil)
         (row-head nil))
     (when row-head-p
@@ -1076,24 +1076,19 @@ table markup.")
   "Copy table in current buffer to the table clipboard.
 Current buffer must be in emacspeak-table mode."
   (interactive)
-  (declare (special emacspeak-table-clipboard
-                    emacspeak-table))
-  (unless (eq major-mode 'emacspeak-table-mode)
-    (error
-     "emacspeak-table-copy-to-clipboard can be used only in
-emacspeak-table-mode. "))
-  (cond
-   ((boundp 'emacspeak-table)
-    (setq emacspeak-table-clipboard emacspeak-table)
-    (message "Copied current table to emacspeak table clipboard."))
-   (t (error "Cannot find table in current buffer"))))
+  (declare (special emacspeak-table-clipboard emacspeak-table))
+  (assert (eq   major-mode 'emacspeak-table-mode)  nil "Not in table mode.")
+  (assert  (boundp 'emacspeak-table) nil "No table here")
+  (setq emacspeak-table-clipboard emacspeak-table)
+  (message "Copied current table to emacspeak table clipboard."))
+   
 
 (defun emacspeak-table-paste-from-clipboard ()
   "Paste the emacspeak table clipboard into the current buffer.
 Use the major  mode of this buffer to  decide what kind of table
 markup to use."
   (interactive)
-  (declare (special emacspeak-table-clipboard emacspeak-table))
+  (declare (special emacspeak-table-clipboard))
   (let ((mode  major-mode)
         (markup nil)
         (table (emacspeak-table-elements emacspeak-table-clipboard))
@@ -1107,28 +1102,30 @@ markup to use."
         (col-separator nil))
     (cond
      (read-only (error "Cannot paste into read only buffer."))
-     (t (setq markup  (emacspeak-table-markup-get-table mode))
-        (setq table-start (emacspeak-table-markup-table-start markup)
-              table-end (emacspeak-table-markup-table-end markup)
-              row-start (emacspeak-table-markup-row-start markup)
-              row-end (emacspeak-table-markup-row-end markup)
-              col-start (emacspeak-table-markup-col-start markup)
-              col-end (emacspeak-table-markup-col-end markup)
-              col-separator (emacspeak-table-markup-col-separator markup))
-        (insert (format "%s" table-start))
-        (loop for row across table
-              do
-              (insert (format "%s" row-start))
-              (let ((current 0)
-                    (final (length row)))
-                (loop for column across row
-                      do
-                      (insert (format "%s %s %s"
-                                      col-start column col-end  ))
-                      (incf current)
-                      (unless (= current final)
-                        (insert (format "%s" col-separator)))))              (insert (format "%s" row-end)))
-        (insert (format "%s" table-end))))))
+     (t
+      (setq markup  (emacspeak-table-markup-get-table mode))
+      (setq table-start (emacspeak-table-markup-table-start markup)
+            table-end (emacspeak-table-markup-table-end markup)
+            row-start (emacspeak-table-markup-row-start markup)
+            row-end (emacspeak-table-markup-row-end markup)
+            col-start (emacspeak-table-markup-col-start markup)
+            col-end (emacspeak-table-markup-col-end markup)
+            col-separator (emacspeak-table-markup-col-separator markup))
+      (insert (format "%s" table-start))
+      (loop for row across table
+            do
+            (insert (format "%s" row-start))
+            (let
+                ((current 0)
+                 (final (length row)))
+              (loop
+               for column across row do
+               (insert (format "%s %s %s"
+                               col-start column col-end  ))
+               (incf current)
+               (unless (= current final)
+                 (insert (format "%s" col-separator)))))              (insert (format "%s" row-end)))
+      (insert (format "%s" table-end))))))
 
 ;;}}}
 
@@ -1140,8 +1137,7 @@ markup to use."
   (interactive )
   (declare (special major-mode emacspeak-table
                     emacspeak-table-speak-row-filter))
-  (unless (eq major-mode  'emacspeak-table-mode )
-    (error "This command should be used in emacspeak table mode."))
+  (assert (eq major-mode  'emacspeak-table-mode ) nil "Not in table mode.")
   (let* ((column  (emacspeak-table-current-column emacspeak-table))
          (row-filter emacspeak-table-speak-row-filter)
          (elements
