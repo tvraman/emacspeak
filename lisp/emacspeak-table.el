@@ -38,12 +38,15 @@
 ;;}}}
 
 ;;{{{  Introduction
+
 ;;; Commentary:
 ;;; Implements a module that provides a high level interface to
 ;;; tabulated information.
 ;;; Code:
+
 ;;}}}
 ;;{{{ requires
+
 (require 'emacspeak-preamble)
 
 ;;}}}
@@ -67,18 +70,16 @@
 ;;;###autoload
 (defun emacspeak-table-make-table (elements)
   "Construct a table object from elements."
-  (assert (vectorp elements) t
-          "Elements should be a vector of vectors" )
+  (assert (vectorp elements) t "Elements should be a vector of vectors" )
   (let ((table (cons-emacspeak-table :elements elements ))
         (row-h (make-vector (length  elements ) nil))
         (index 0))
-    (setf (emacspeak-table-column-header table ) (aref elements 0))
-    (loop for element across  elements 
-          do 
-          (assert (vectorp element) t
-                  "Row %s is not a vector" index)
-          (aset row-h index (aref element 0))
-          (incf index ))
+    (setf (emacspeak-table-column-header table ) (aref elements 0)) ;first row
+    (loop
+     for element across  elements do 
+     (assert (vectorp element) t "Row %s is not a vector" index)
+     (aset row-h index (aref element 0)) ; build column 0
+     (incf index ))
     (setf (emacspeak-table-row-header table) row-h)
     (setf (emacspeak-table-current-row table) 0)
     (setf (emacspeak-table-current-column table) 0)
@@ -89,9 +90,7 @@
 
 (defsubst emacspeak-table-this-element (table row column)
   (let ((elements (emacspeak-table-elements  table)))
-    (aref
-     (aref elements row)
-     column)))
+    (aref (aref elements row) column)))
 
 (defsubst emacspeak-table-current-element (table)
           (emacspeak-table-this-element table 
@@ -106,11 +105,10 @@
       ((elements (emacspeak-table-elements table ))
        (result (make-vector (length elements) nil))
        (index 0))
-    (loop for row across elements 
-          do
-          (aset result index
-                (aref row column))
-          (incf index))
+    (loop
+     for row across elements do
+     (aset result index (aref row column))
+     (incf index))
     result))
 
 (defsubst emacspeak-table-num-rows (table)
@@ -122,8 +120,8 @@
 (defsubst emacspeak-table-column-header-element (table column)
   (aref (emacspeak-table-column-header table) column))
 
-(defsubst emacspeak-table-row-header-element (table column)
-  (aref (emacspeak-table-row-header table) column))
+(defsubst emacspeak-table-row-header-element (table row)
+  (aref (emacspeak-table-row-header table) row))
 
 ;;}}}
 ;;{{{  enumerators
@@ -131,7 +129,8 @@
 (defun emacspeak-table-enumerate-rows (table callback &rest callback-args)
   "Enumerates the rows of a table.
 Calls callback once per row."
-  (loop for row across (emacspeak-table-elements table)
+  (loop
+   for row across (emacspeak-table-elements table)
         collect
         (apply callback row callback-args )))
 
@@ -139,7 +138,8 @@ Calls callback once per row."
   "Enumerate columns of a table.
 Calls callback once per column."
   (let ((elements (emacspeak-table-elements table )))
-    (loop for column   from 0 to (1- (length   elements))
+    (loop
+     for column   from 0 to (1- (length   elements))
           collect
           (apply callback
                  (emacspeak-table-this-column table column)
@@ -157,11 +157,14 @@ Calls callback once per column."
                  (emacspeak-table-num-columns  table)))
         (count   (emacspeak-table-num-columns table))
         (found nil))
-    (loop for   i from 0   to count
-          and column = next then (% (incf column) count)
-          if  (funcall predicate  pattern
-                       (emacspeak-table-this-element table  index column))
-          do (setq found t )
+    (loop
+     for   i from 0   to count
+     and column = next then (% (incf column) count)
+     if
+     (funcall predicate  pattern
+              (emacspeak-table-this-element table  index column))
+          do
+          (setq found t )
           until found
           finally return (and found column))))
 
@@ -184,6 +187,7 @@ Calls callback once per column."
 
 ;;}}}
 ;;{{{  Moving point:
+
 (defun emacspeak-table-goto-cell (table row column)
   "Move to a cell of the table"
   (let  ((row-count (emacspeak-table-num-rows table))
