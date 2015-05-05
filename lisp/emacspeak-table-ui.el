@@ -308,32 +308,28 @@ specifies the filter"
 
 (defsubst emacspeak-table-get-entry-with-headers  (row column &optional row-head-p col-head-p)
   "Return table element. Optional args specify  if we return any headers."
-  (interactive)
-  (declare (special emacspeak-table
-                    emacspeak-table-column-header-personality
-                    emacspeak-table-row-header-personality))
-  (and (boundp 'emacspeak-table)
-       (let ((column-head (format "%s"
-                                  (emacspeak-table-column-header-element emacspeak-table column)))
-             (row-head (format "%s"
-                               (emacspeak-table-row-header-element
-                                emacspeak-table row))))
-         (and row-head-p
-              (put-text-property 0 (length row-head)
-                                 'face 'italic
-                                 row-head))
-         (and col-head-p
-              (put-text-property 0 (length column-head)
-                                 'personality
-                                 emacspeak-table-column-header-personality column-head))
-         (concat
-          (if row-head-p
-              row-head
-            "")
-          " "
-          (if col-head-p column-head  "")
-          (format " %s"
-                  (emacspeak-table-this-element emacspeak-table row column))))))
+  (declare (special emacspeak-table))
+  (unless (boundp 'emacspeak-table) (error "No table here "))
+  (let ((col-head nil)
+        (row-head nil))
+    (when row-head-p
+      (setq row-head
+            (format "%s"
+                    (emacspeak-table-row-header-element emacspeak-table row)))
+      (put-text-property 0 (length row-head)
+                         'face 'italic row-head))
+    (when  col-head-p
+      (setq col-head
+            (format
+             "%s"
+             (emacspeak-table-column-header-element emacspeak-table column)))
+      (put-text-property
+       0 (length col-head)
+       'face 'bold col-head))
+    (dtk-speak-and-echo
+     (concat
+      row-head " " col-head " "
+      (format " %s" (emacspeak-table-this-element emacspeak-table row column))))))
 
 (defvar emacspeak-table-speak-row-filter nil
   "Template specifying how a row is filtered before it is spoken.")
