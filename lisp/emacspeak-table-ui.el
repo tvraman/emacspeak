@@ -587,7 +587,7 @@ The processed  data is presented using emacspeak table navigation. "
 ;;;###autoload
 (defun emacspeak-table-view-csv-buffer (&optional buffer-name)
   "Process a csv (comma separated values) data.
-The processed  data and presented using emacspeak table navigation. "
+The processed  data is  presented using emacspeak table navigation. "
   (interactive)
   (or buffer-name
       (setq buffer-name (current-buffer)))
