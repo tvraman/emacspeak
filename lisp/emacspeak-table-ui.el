@@ -485,8 +485,7 @@ Optional prefix arg prompts for a new filter."
                                                       &optional filename)
   "Prepare tabular data."
   (declare (special emacspeak-table positions ))
-  (save-current-buffer
-    (set-buffer buffer)
+  (with-current-buffer buffer
     (let ((i 0)
           (j 0)
           (count 0)
@@ -497,33 +496,31 @@ Optional prefix arg prompts for a new filter."
       (setq buffer-undo-list t)
       (erase-buffer)
       (set (make-local-variable 'emacspeak-table) table)
-      (set (make-local-variable 'positions)
-           (make-hash-table))
+      (set (make-local-variable 'positions) (make-hash-table))
       (when filename (setq buffer-file-name filename))
       (setq count (1-  (emacspeak-table-num-columns table)))
-      (loop for row across (emacspeak-table-elements table)
-            do
-            (loop for element across row
-                  do
-                  (setf
-                   (gethash
-                    (intern (format "element:%s:%s" i j ))
-                    positions)
-                   (point))
-                  (insert
-                   (format "%s%s"
-                           (emacspeak-table-this-element table i j )
-                           (if (=  j count)
-                               "\n"
-                             "\t")))
-                  (put-text-property column-start (point)
-                                     'column j)
-                  (setq column-start (point))
-                  (incf j))
-            (setq j 0)
-            (put-text-property row-start (point) 'row i)
-            (setq row-start (point))
-            (incf i))
+      (loop
+       for row across (emacspeak-table-elements table) do
+       (loop
+        for element across row do
+         (puthash
+          (intern (format "element:%s:%s" i j ))  ; compute key 
+          (point) ; insertion point  is the value 
+          positions)
+        (insert
+         (format "%s%s"
+                 (emacspeak-table-this-element table i j )
+                 (if (=  j count)
+                     "\n"
+                   "\t")))
+        (put-text-property column-start (point)
+                           'column j)
+        (setq column-start (point))
+        (incf j))
+       (setq j 0)
+       (put-text-property row-start (point) 'row i)
+       (setq row-start (point))
+       (incf i))
       (emacspeak-table-mode)))
   (switch-to-buffer buffer)
   (emacspeak-table-goto-cell emacspeak-table 0 0)
