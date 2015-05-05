@@ -578,7 +578,7 @@ the documentation on the table browser."
 ;;;###autoload
 (defun emacspeak-table-find-csv-file (filename)
   "Process a csv (comma separated values) file.
-The processed  data and presented using emacspeak table navigation. "
+The processed  data is presented using emacspeak table navigation. "
   (interactive "FFind CSV file: ")
   (let  ((buffer (find-file-noselect filename)))
     (emacspeak-table-view-csv-buffer buffer)

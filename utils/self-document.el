@@ -245,7 +245,8 @@
   (let ((key (where-is-internal c))
         (keys nil))
     (insert (format "\n\n@deffn {Interactive Command} %s  %s\n"
-                    c (help-function-arglist c t)))
+                    c
+                    (or (help-function-arglist c t) " ")))
     (when key
       (setq keys (sd-texinfo-escape (mapconcat #'key-description key " ")))
       (insert (format "@kbd{%s}\n\n" keys))
