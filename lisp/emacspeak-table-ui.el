@@ -340,12 +340,51 @@ specifies the filter"
 
 (make-variable-buffer-local 'emacspeak-table-speak-row-filter)
 
+(defun emacspeak-table-handle-row-filter-token  (token)
+  "Handle a single token in an Emacspeak table row/column formater."
+  (let ((value nil))
+    (cond
+     ((stringp token) (format "%s" token))
+     ((numberp token)
+      (setq value
+            (emacspeak-table-get-entry-with-headers
+             (emacspeak-table-current-row emacspeak-table) token))
+      (put-text-property
+       0 (length value)
+       'face 'bold  value)
+      value)
+     ((and (listp token) (numberp (first token)) (numberp (second token )))
+      (setq value
+            (emacspeak-table-get-entry-with-headers
+             (first token) (second token)))
+      (put-text-property 0 (length value) 'face 'bold value)
+      value)
+     ((and (symbolp (first token)) (fboundp  (first token)))
+;;; applying a function:
+      (setq value
+            (funcall
+             (first token) ;;; get args 
+             (cond
+              ((and
+                (= 2 (length token)) (numberp (second token)))
+               (emacspeak-table-get-entry-with-headers
+                (emacspeak-table-current-row emacspeak-table)
+                (second token)))
+              ((and
+                (= 3 (length token))
+                (numberp (second token))
+                (numberp (third token)))
+               (emacspeak-table-get-entry-with-headers
+                (second token) (third token))))))
+      (put-text-property 0 (length value) 'face 'bold  value)
+      value)
+     (t  (format "%s" token)))))
+
 (defun emacspeak-table-speak-row-filtered  (&optional prefix)
   "Speaks a table row after applying a specified row filter.
 Optional prefix arg prompts for a new filter."
   (interactive "P")
-  (declare (special emacspeak-table-speak-row-filter
-                    emacspeak-table))
+  (declare (special emacspeak-table-speak-row-filter emacspeak-table))
   (and emacspeak-table-speak-row-filter(push emacspeak-table-speak-row-filter minibuffer-default))
   (unless (and  emacspeak-table-speak-row-filter
                 (listp emacspeak-table-speak-row-filter)
@@ -363,54 +402,7 @@ Optional prefix arg prompts for a new filter."
      emacspeak-table-speak-row-filter))
   (dtk-speak-and-echo
    (mapconcat
-    #'(lambda (token)
-        (let ((value nil))
-          (cond
-           ((stringp token)
-            (format "%s" token))
-           ((numberp token)
-            (setq value
-                  (emacspeak-table-get-entry-with-headers
-                   (emacspeak-table-current-row emacspeak-table)
-                   token))
-            (put-text-property
-             0 (length value)
-             'face 'bold  value)
-            value)
-           ((and
-             (listp token)
-             (numberp (first token))
-             (numberp (second token )))
-            (setq value
-                  (emacspeak-table-get-entry-with-headers
-                   (first token)
-                   (second token)))
-            (put-text-property
-             0 (length value)
-             'face 'bold value)
-            value)
-           ((and
-             (symbolp (first token))
-             (fboundp  (first token)))
-            (setq value
-                  (funcall
-                   (first token)
-                   (cond
-                    ((and
-                      (= 2 (length token)) (numberp (second token)))
-                     (emacspeak-table-get-entry-with-headers
-                      (emacspeak-table-current-row emacspeak-table)
-                      (second token)))
-                    ((and
-                      (= 3 (length token))
-                      (numberp (second token))
-                      (numberp (third token)))
-                     (emacspeak-table-get-entry-with-headers
-                      (second token) (third token))))))
-            (put-text-property 0 (length value)
-                               'face 'bold  value)
-            value)
-           (t  (format "%s" token)))))
+    #'emacspeak-table-handle-row-filter-token
     emacspeak-table-speak-row-filter
     " ")))
 
