@@ -15,6 +15,7 @@
 
 ;;}}}
 ;;{{{  Copyright:
+
 ;;;Copyright (C) 1995 -- 2015, T. V. Raman
 ;;; Copyright (c) 1995 by T. V. Raman
 ;;; All Rights Reserved.
@@ -38,31 +39,16 @@
 ;;}}}
 
 ;;{{{  Introduction
+
 ;;; Commentary:
 ;;; User interface to tables
 ;;; Code:
+
 ;;}}}
 ;;{{{ requires
+
 (require 'emacspeak-preamble)
 (require 'emacspeak-table)
-
-;;}}}
-;;{{{ define personalities
-
-(defgroup emacspeak-table nil
-  "Table browsing on the Emacspeak desktop."
-  :group 'emacspeak
-  :prefix "emacspeak-table-")
-
-(defcustom emacspeak-table-column-header-personality voice-smoothen
-  "personality for speaking column headers."
-  :type 'symbol
-  :group 'emacspeak-table)
-
-(defcustom emacspeak-table-row-header-personality voice-bolden
-  "Personality for speaking row headers"
-  :type 'symbol
-  :group 'emacspeak-table)
 
 ;;}}}
 ;;{{{  emacspeak table mode
@@ -252,23 +238,24 @@ specifies the filter"
 (defun emacspeak-table-speak-row-header-and-element ()
   "Speak  row header and table element"
   (interactive)
-  (declare (special emacspeak-table
-                    emacspeak-table-row-header-personality))
-  (and (boundp 'emacspeak-table)
-       (let ((head (format "%s"
-                           (emacspeak-table-row-header-element emacspeak-table
-                                                               (emacspeak-table-current-row emacspeak-table )))))
-         (put-text-property 0 (length head) 'face 'italic head)
+  (declare (special emacspeak-table))
+  (unless (boundp 'emacspeak-table) (error "No table here"))
+  (let ((element (emacspeak-table-current-element emacspeak-table))
+        (head
+         (format
+          "%s"
+          (emacspeak-table-row-header-element
+           emacspeak-table
+           (emacspeak-table-current-row emacspeak-table )))))
+    (put-text-property 0 (length head) 'face 'italic head)
          (dtk-speak
           (concat head
-                  (format " %s"
-                          (emacspeak-table-current-element emacspeak-table)))))))
+                  (format " %s" element)))))
 
 (defun emacspeak-table-speak-column-header-and-element ()
   "Speak  column header and table element"
   (interactive)
-  (declare (special emacspeak-table
-                    emacspeak-table-column-header-personality))
+  (declare (special emacspeak-table))
   (and (boundp 'emacspeak-table)
        (let ((head (format "%s"
                            (emacspeak-table-column-header-element emacspeak-table
@@ -283,28 +270,28 @@ specifies the filter"
 (defun emacspeak-table-speak-both-headers-and-element ()
   "Speak  both row and column header and table element"
   (interactive)
-  (declare (special emacspeak-table
-                    emacspeak-table-column-header-personality
-                    emacspeak-table-row-header-personality))
-  (and (boundp 'emacspeak-table)
-       (let ((column-head (format "%s"
-                                  (emacspeak-table-column-header-element emacspeak-table
-                                                                         (emacspeak-table-current-column emacspeak-table ))))
-             (row-head (format "%s"
-                               (emacspeak-table-row-header-element emacspeak-table
-                                                                   (emacspeak-table-current-row emacspeak-table )))))
-         (put-text-property 0 (length row-head)
-                            'face
-                            'italic
-                            row-head)
-         (put-text-property 0 (length column-head)
-                            'personality
-                            emacspeak-table-column-header-personality column-head)
-         (dtk-speak
-          (concat row-head" "  column-head
-                  (format " %s"
-                          (emacspeak-table-current-element
-                           emacspeak-table)))))))
+  (declare (special emacspeak-table))
+  (unless (boundp 'emacspeak-table) (error "No table here"))
+  (let ((element (emacspeak-table-current-element emacspeak-table))
+        (col-head
+         (format
+          "%s"
+          (emacspeak-table-column-header-element
+           emacspeak-table
+           (emacspeak-table-current-column emacspeak-table ))))
+        (row-head
+         (format
+          "%s"
+          (emacspeak-table-row-header-element
+           emacspeak-table
+           (emacspeak-table-current-row emacspeak-table )))))
+    (put-text-property
+     0 (length row-head) 'face 'italic row-head)
+    (put-text-property
+     0 (length col-head) 'face 'bold col-head)
+    (dtk-speak
+     (concat row-head " " col-head
+             (format " %s" element)))))
 
 (defsubst emacspeak-table-get-entry-with-headers  (row column &optional row-head-p col-head-p)
   "Return table element. Optional args specify  if we return any headers."
