@@ -307,7 +307,7 @@ specifies the filter"
                            emacspeak-table)))))))
 
 (defsubst emacspeak-table-get-entry-with-headers  (row column &optional row-head-p col-head-p)
-  "Return   both row and column header and table element"
+  "Return table element. Optional args specify  if we return any headers."
   (interactive)
   (declare (special emacspeak-table
                     emacspeak-table-column-header-personality
