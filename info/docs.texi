@@ -11928,7 +11928,7 @@ the documentation on the table browser.
 @findex emacspeak-table-find-csv-file
 
 Process a csv (comma separated values) file.
-The processed  data and presented using emacspeak table navigation. 
+The processed  data is presented using emacspeak table navigation. 
 @end deffn
 
 @deffn {Interactive Command} emacspeak-table-find-file  (filename)
@@ -12117,7 +12117,7 @@ Save out filter settings.
 @findex emacspeak-table-view-csv-buffer
 
 Process a csv (comma separated values) data.
-The processed  data and presented using emacspeak table navigation. 
+The processed  data is  presented using emacspeak table navigation. 
 @end deffn
 
 @node emacspeak-tabulate
