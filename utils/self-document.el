@@ -244,7 +244,7 @@
   "Document this command."
   (let ((key (where-is-internal c))
         (keys nil))
-    (insert (format "\n\n@deffn {Interactive Command} %s  %s\n"
+    (insert (format "\n\n@deffn {Command} %s  %s\n"
                     c
                     (or (help-function-arglist c t) " ")))
     (when key

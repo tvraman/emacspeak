@@ -27,7 +27,7 @@
 
 ;;; Commentary:
 ;;; Provide an emacs front-end to amixer.
-;;;amixer is part of ALSA
+;;;amixer is part of ALSA.
 
 ;;; Code:
 
