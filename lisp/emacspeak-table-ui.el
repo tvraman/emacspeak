@@ -411,6 +411,39 @@ Optional prefix arg prompts for a new filter."
 
 (make-variable-buffer-local 'emacspeak-table-speak-column-filter)
 
+(defun emacspeak-table-handle-column-filter-token (token)
+  "Handle token from column filter."
+  (let ((value nil))
+  (cond
+   ((stringp token) token)
+   ((numberp token)
+    (emacspeak-table-get-entry-with-headers
+     token
+     (emacspeak-table-current-column emacspeak-table)))
+   ((and (listp token)
+         (numberp (first token))
+         (numberp (second token )))
+    (emacspeak-table-get-entry-with-headers (first token) (second token)))
+   ((and (symbolp (first token)) (fboundp  (first token)))
+;;; applying a function:
+    (setq value
+          (funcall
+           (first token) ;;; get args 
+           (cond
+            ((and
+              (= 2 (length token)) (numberp (second token)))
+             (emacspeak-table-get-entry-with-headers
+              (second token)
+              (emacspeak-table-current-column emacspeak-table)))
+            ((and
+              (= 3 (length token))
+              (numberp (second token))
+              (numberp (third token)))
+             (emacspeak-table-get-entry-with-headers
+              (second token) (third token))))))
+    (put-text-property 0 (length value) 'face 'bold  value)
+    value)   
+   (t  (format "%s" token)))))
 (defun emacspeak-table-speak-column-filtered  (&optional prefix)
   "Speaks a table column after applying a specified column filter.
 Optional prefix arg prompts for a new filter."
@@ -424,23 +457,7 @@ Optional prefix arg prompts for a new filter."
           (read-minibuffer "Specify column filter as a list: " "(")))
   (dtk-speak-and-echo
    (mapconcat
-    #'(lambda (token)
-        (cond
-         ((stringp token) token)
-         ((numberp token)
-          (emacspeak-table-get-entry-with-headers
-           token
-           (emacspeak-table-current-column emacspeak-table)))
-         ((and (listp token)
-               (numberp (first token))
-               (numberp (second token )))
-          (emacspeak-table-get-entry-with-headers
-           (first token)
-           (second token)))
-         ((and (symbolp (first token))
-               (fboundp  (first token)))
-          (eval token))
-         (t  (format "%s" token))))
+    #'emacspeak-table-handle-column-filter-token
     emacspeak-table-speak-column-filter
     " ")))
 
