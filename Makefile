@@ -178,7 +178,7 @@ etc/ocr-client.pl \
 etc/emacspeak.xpm etc/emacspeak.jpg
 
 INFO = info/Makefile info/*.texi info/add-css.pl
-XSL=xsl
+XSL=xsl lisp/g-client/*.xsl
 DISTFILES =${ELISP}  ${TEMPLATES}     $(TCL_PROGRAMS) ${XSL} \
 ${OUTLOUD} ${DTKTTS} ${ESPEAK} \
 ${STUMPWM} ${INFO}  ${NEWS} ${MISC} Makefile
