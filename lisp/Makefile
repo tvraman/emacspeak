@@ -510,6 +510,7 @@ elint:
 
 clean:
 	rm -f *.elc  emacspeak-loaddefs.el emacspeak-cus-load.el
+	cd g-client && make clean 
 
 # }}}
 # {{{ end of file

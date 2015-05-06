@@ -168,7 +168,7 @@ servers/outloud  servers/ssh-outloud servers/32-outloud \
 servers/tts-lib.tcl \
 servers/cloud* servers/log* servers/speech-server
 ELISP = lisp/*.el \
-lisp/g-client \
+lisp/g-client/*.el \
 lisp/Makefile
 TEMPLATES = etc/emacspeak.sh.def etc/Makefile
 MISC=etc/extract-table.pl etc/last-log.pl \
@@ -214,7 +214,8 @@ README: force
 
 force:
 
-EXCLUDES=--exclude='.git' --exclude='*.o' --exclude='*.so' --exclude='*/.libs'
+EXCLUDES= --exclude='.git' \
+--exclude='*.elc' --exclude='*.o' --exclude='*.so' --exclude='*/.libs'
 
 tar:
 	make ${ID}
