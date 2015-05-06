@@ -138,7 +138,7 @@ CP=cp
 # source files to distribute
 ID = README
 STUMPWM=stumpwm
-TABLE_SAMPLES=etc/tables/*.tab etc/tables/*.dat etc/tables/*.html
+TABLE_SAMPLES=etc/tables/*.tab 
 FORMS =etc/forms/*.el
 MEDIA=media
 ECI=servers/linux-outloud
