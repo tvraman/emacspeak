@@ -167,8 +167,7 @@ servers/mac \
 servers/outloud  servers/ssh-outloud servers/32-outloud \
 servers/tts-lib.tcl \
 servers/cloud* servers/log* servers/speech-server
-ELISP = lisp/*.el \
-lisp/g-client/*.el lisp/g-client/*.el.in \
+ELISP = lisp/*.el lisp/g-client \
 lisp/Makefile
 TEMPLATES = etc/emacspeak.sh.def etc/Makefile
 MISC=etc/extract-table.pl etc/last-log.pl \
@@ -178,7 +177,7 @@ etc/ocr-client.pl \
 etc/emacspeak.xpm etc/emacspeak.jpg
 
 INFO = info/Makefile info/*.texi info/add-css.pl
-XSL=xsl lisp/g-client/*.xsl
+XSL=xsl 
 DISTFILES =${ELISP}  ${TEMPLATES}     $(TCL_PROGRAMS) ${XSL} \
 ${OUTLOUD} ${DTKTTS} ${ESPEAK} \
 ${STUMPWM} ${INFO}  ${NEWS} ${MISC} Makefile
