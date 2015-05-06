@@ -168,7 +168,7 @@ servers/outloud  servers/ssh-outloud servers/32-outloud \
 servers/tts-lib.tcl \
 servers/cloud* servers/log* servers/speech-server
 ELISP = lisp/*.el \
-lisp/g-client/*.el \
+lisp/g-client/*.el lisp/g-client/*.el.in \
 lisp/Makefile
 TEMPLATES = etc/emacspeak.sh.def etc/Makefile
 MISC=etc/extract-table.pl etc/last-log.pl \
