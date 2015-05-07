@@ -1138,28 +1138,23 @@ markup to use."
   (let* ((column  (emacspeak-table-current-column emacspeak-table))
          (row-head   nil)
          (row-filter emacspeak-table-speak-row-filter)
-         (elements nil)
+         (rows (append
+                (emacspeak-table-elements emacspeak-table) nil))
          (sorted-table nil)
-         (sorted-list nil)
+         (sorted-row-list nil)
          (buffer(get-buffer-create  (format "sorted-on-%d" column ))))
-    (setq elements (loop
-                    for e across (emacspeak-table-elements emacspeak-table)
-                    collect e))
-    (setq row-head (pop elements)) ;;; header does not play in sort
-    (setq  elements
+    (setq row-head (pop rows)) ;;; header does not play in sort
+    (setq  rows
            (remove-if
             #'(lambda (row)
                 (null (aref row column)))
-            elements))
+            rows))
     (setq
-     sorted-list
+     sorted-row-list
      (sort
-      elements
+      rows
       #'(lambda (x y)
-          
           (cond
-           ((or (null (aref x column))
-                (null (aref y column))) nil)
            ((and (numberp (read  (aref x column)))
                  (numberp (read  (aref y column))))
             (< (read  (aref x column))
@@ -1171,11 +1166,11 @@ markup to use."
            (t (string-lessp
                (format "%s" (aref x column))
                (format "%s" (aref y column))))))))
-    (push row-head sorted-list)
-    (setq sorted-table (make-vector (length sorted-list) nil))
+    (push row-head sorted-row-list)
+    (setq sorted-table (make-vector (length sorted-row-list) nil))
     (loop
-     for i from 0 to (1- (length sorted-list)) do
-     (aset sorted-table i (nth i sorted-list)))
+     for i from 0 to (1- (length sorted-row-list)) do
+     (aset sorted-table i (nth i sorted-row-list)))
     (emacspeak-table-prepare-table-buffer
      (emacspeak-table-make-table  sorted-table) buffer)
     (switch-to-buffer buffer)
