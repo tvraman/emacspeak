@@ -1143,9 +1143,14 @@ markup to use."
          (sorted-list nil)
          (buffer(get-buffer-create  (format "sorted-on-%d" column ))))
     (setq elements (loop
-           for e across (emacspeak-table-elements emacspeak-table)
-           collect e))
-    (setq row-head (pop elements)) ;;; header does not play in sort 
+                    for e across (emacspeak-table-elements emacspeak-table)
+                    collect e))
+    (setq row-head (pop elements)) ;;; header does not play in sort
+    (setq  elements
+           (remove-if
+            #'(lambda (row)
+                (null (aref row column)))
+            elements))
     (setq
      sorted-list
      (sort
@@ -1155,10 +1160,10 @@ markup to use."
           (cond
            ((or (null (aref x column))
                 (null (aref y column))) nil)
-           ((and (numberp (read-from-string  (aref x column)))
-                 (numberp (read-from-string  (aref y column))))
-            (< (read-from-string  (aref x column))
-               (read-from-string  (aref y column))))
+           ((and (numberp (read  (aref x column)))
+                 (numberp (read  (aref y column))))
+            (< (read  (aref x column))
+               (read  (aref y column))))
            ((and (stringp  (aref x column))
                  (stringp (aref y column)))
             (string-lessp (aref x column)
