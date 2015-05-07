@@ -1175,7 +1175,8 @@ markup to use."
      (emacspeak-table-make-table  sorted-table) buffer)
     (switch-to-buffer buffer)
     (setq emacspeak-table-speak-row-filter row-filter)
-    (emacspeak-speak-mode-line)))
+    (emacspeak-table-goto  0 column)
+    (call-interactively #'emacspeak-table-next-row)))
 
 ;;}}}
 ;;{{{  persistent store
