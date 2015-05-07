@@ -1136,39 +1136,45 @@ markup to use."
                     emacspeak-table-speak-row-filter))
   (assert (eq major-mode  'emacspeak-table-mode ) nil "Not in table mode.")
   (let* ((column  (emacspeak-table-current-column emacspeak-table))
+         (row-head   nil)
          (row-filter emacspeak-table-speak-row-filter)
-         (elements
-          (loop for e across (emacspeak-table-elements emacspeak-table)
-                collect e))
+         (elements nil)
          (sorted-table nil)
          (sorted-list nil)
          (buffer(get-buffer-create  (format "sorted-on-%d" column ))))
-    (setq sorted-list
-          (sort
-           elements
-           #'(lambda (x y)
-               (cond
-                ((and (numberp (read (aref x column)))
-                      (numberp (read (aref y column))))
-                 (< (read (aref x column))
-                    (read (aref y column))))
-                ((and (stringp  (aref x column))
-                      (stringp (aref y column)))
-                 (string-lessp (aref x column)
-                               (aref y column)))
-                (t (string-lessp
-                    (format "%s" (aref x column))
-                    (format "%s" (aref y column))))))))
+    (setq elements (loop
+           for e across (emacspeak-table-elements emacspeak-table)
+           collect e))
+    (setq row-head (pop elements)) ;;; header does not play in sort 
+    (setq
+     sorted-list
+     (sort
+      elements
+      #'(lambda (x y)
+          
+          (cond
+           ((or (null (aref x column))
+                (null (aref y column))) nil)
+           ((and (numberp (read-from-string  (aref x column)))
+                 (numberp (read-from-string  (aref y column))))
+            (< (read-from-string  (aref x column))
+               (read-from-string  (aref y column))))
+           ((and (stringp  (aref x column))
+                 (stringp (aref y column)))
+            (string-lessp (aref x column)
+                          (aref y column)))
+           (t (string-lessp
+               (format "%s" (aref x column))
+               (format "%s" (aref y column))))))))
+    (push row-head sorted-list)
     (setq sorted-table (make-vector (length sorted-list) nil))
-    (loop for i from 0 to (1- (length sorted-list))
-          do
-          (aset sorted-table i (nth i sorted-list)))
+    (loop
+     for i from 0 to (1- (length sorted-list)) do
+     (aset sorted-table i (nth i sorted-list)))
     (emacspeak-table-prepare-table-buffer
-     (emacspeak-table-make-table  sorted-table)
-     buffer)
-    (save-current-buffer
-      (set-buffer buffer)
-      (setq emacspeak-table-speak-row-filter row-filter))
+     (emacspeak-table-make-table  sorted-table) buffer)
+    (switch-to-buffer buffer)
+    (setq emacspeak-table-speak-row-filter row-filter)
     (emacspeak-speak-mode-line)))
 
 ;;}}}
