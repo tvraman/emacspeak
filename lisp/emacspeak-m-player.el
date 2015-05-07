@@ -953,14 +953,15 @@ As the default, use current position."
   (interactive "sAMark Name:\nP")
   (let* ((position (emacspeak-m-player-get-position))
          (file-name (second position)))
-    (when file-name
+    (when
+        (and file-name  (not (zerop (length file-name))))
       (emacspeak-amark-add
      file-name ;file-name
      name; mark name
      (cond
       (prompt-position (read-number "Position: "))
-      (t (first position)))))
-    (message "Added Amark %s" name)))
+      (t (first position))))
+    (message "Added Amark %s in %s" name file-name))))
 
 (defsubst ems-file-index (name file-list)
   "Return index of name in file-list."
