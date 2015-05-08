@@ -260,7 +260,7 @@ session."
   (interactive)
   (unless (eq major-mode 'jabber-chat-mode)
     (error "Not in a Jabber chat buffer."))
-  (beginning-of-line)
+  (forward-line 0)
   (re-search-backward "^\\["nil t)
   (let ((extent (emacspeak-jabber-chat-speak-this-message)))
     (emacspeak-auditory-icon 'large-movement)
