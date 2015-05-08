@@ -564,10 +564,6 @@ see option emacspeak-untabify-fixes-non-breaking-space."
 (loop
  for f in
  '(
-   minibuf-isearch-next minibuf-isearch-prev
-                        minibuf-isearch-prev-multi minibuf-isearch-next-multi
-   minibuf-isearch-backward-reverse minibuf-isearch-backward
-   minibuf-isearch-fullback
    next-history-element previous-history-element
                         next-line-or-history-element previous-line-or-history-element
                         previous-matching-history-element next-matching-history-element)
