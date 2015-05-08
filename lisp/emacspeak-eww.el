@@ -50,17 +50,16 @@
 ;;{{{ Required modules
 
 (require 'cl)
-
 (declaim (optimize (safety 0) (speed 3)))
 
 (eval-when-compile (require 'eww "eww" 'no-error))
-
+(require 'dom)
 (eval-when-compile (require 'emacspeak-feeds "emacspeak-feeds" 'no-error))
 (require 'emacspeak-preamble)
 (require 'emacspeak-we)
 (require 'emacspeak-webutils)
 (require 'emacspeak-google)
-(require 'xml)
+;(require 'xml)
 ;;}}}
 ;;{{{ Compatibility Helpers:
 
@@ -552,17 +551,58 @@ Retain previously set punctuations  mode."
   (declare (special eww-element-cache eww-id-cache
                     eww-role-cache eww-class-cache emacspeak-eww-cache-updated))
   (when (listp dom) ; build cache
-    (let ((id (xml-get-attribute-or-nil dom 'id))
-          (class (xml-get-attribute-or-nil dom 'class))
-          (role (xml-get-attribute-or-nil dom 'role))
-          (el (symbol-name (xml-node-name dom)))
-          (children (xml-node-children dom)))
+    (let ((id (dom-attr dom 'id))
+          (class (dom-attr dom 'class))
+          (role (dom-attr dom 'role))
+          (el (symbol-name (dom-tag dom)))
+          (children (dom-children dom)))
       (when id (pushnew id eww-id-cache))
       (when class (pushnew class eww-class-cache))
       (when role (pushnew role eww-role-cache))
       (when el (pushnew el eww-element-cache))
       (when children (mapc #'eww-update-cache children)))
     (setq emacspeak-eww-cache-updated t)))
+
+;;}}}
+;;{{{  Filterring Inspired by dom.el:
+
+(defun dom-by-tag-list (dom tag-list)
+  "Return elements in DOM that is of type appearing in tag-list.
+A tag is a symbol like `td'."
+  (let ((matches (cl-loop for child in (dom-children dom)
+			  for matches = (and (not (stringp child))
+					     (dom-by-tags child tag-list))
+			  when matches
+			  append matches)))
+    (if (member (dom-tag dom) tag-list)
+	(cons dom matches)
+      matches)))
+(defun dom-elements-by-matchlist (dom attribute match-list)
+  "Find elements matching match-list (a list of regexps) in ATTRIBUTE.
+ATTRIBUTE would typically be `class', `id' or the like."
+  (let ((matches
+         (cl-loop for child in (dom-children dom)
+                  for matches = (and (not (stringp child))
+                                     (dom-elements child attribute match))
+                  when matches
+                  append matches))
+	(attr (dom-attr dom attribute)))
+    (if (and attr
+	     (find-if #'(lambda (match) (string-match match attr)) match-list))
+	(cons dom matches)
+      matches)))
+
+(defun dom-by-id-list (dom match-list)
+  "Return elements in DOM that have an ID that matches regexp MATCH."
+  (dom-elements-by-matchlist dom 'id match-list))
+
+(defun dom-by-class-list (dom match-list)
+  "Return elements in DOM that have a class name that matches regexp MATCH."
+  (dom-elements-by-matchlist dom 'class match-list))
+
+(defun dom-by-role-list (dom match-list)
+  "Return elements in DOM that have a role name that matches regexp MATCH."
+  (dom-elements-by-matchlist dom 'role match-list))
 
 ;;}}}
 ;;{{{ Filter DOM:
@@ -578,6 +618,7 @@ Retain previously set punctuations  mode."
     (a . eww-tag-a))
   "Customize shr rendering for EWW.")
 
+
 (defun eww-dom-keep-if (dom predicate)
   "Return filtered DOM  keeping nodes that match  predicate.
  Predicate receives the node to test."
@@ -589,10 +630,10 @@ Retain previously set punctuations  mode."
            (delq nil
                  (mapcar
                   #'(lambda (node) (eww-dom-keep-if node predicate))
-                  (xml-node-children dom)))))
+                  (dom-children dom)))))
       (when filtered
-        (push (xml-node-attributes dom) filtered)
-        (push (xml-node-name dom) filtered))))))
+        (push (dom-attributes dom) filtered)
+        (push (dom-tag dom) filtered))))))
 
 (defun eww-dom-remove-if (dom predicate)
   "Return filtered DOM  dropping  nodes that match  predicate.
@@ -605,10 +646,10 @@ Retain previously set punctuations  mode."
         ((filtered
           (delq nil
                 (mapcar #'(lambda (node) (eww-dom-remove-if  node predicate))
-                        (xml-node-children dom)))))
+                        (dom-children dom)))))
       (when filtered
-        (push (xml-node-attributes dom) filtered)
-        (push (xml-node-name dom) filtered))))))
+        (push (dom-attributes dom) filtered)
+        (push (dom-tag dom) filtered))))))
 
 (defun eww-attribute-list-tester (attr-list)
   "Return predicate that tests for attr=value from members of
@@ -622,7 +663,7 @@ attr-value list for use as a DOM filter."
            do
            (setq attr (first pair)
                  value (second pair))
-           (setq found (string= (xml-get-attribute node attr) value)))
+           (setq found (string= (dom-attr  node attr) value)))
           (when found node)))))
 
 (defun eww-attribute-tester (attr value)
@@ -630,14 +671,14 @@ attr-value list for use as a DOM filter."
   (eval
    `#'(lambda (node)
         (when
-            (string= (xml-get-attribute node (quote ,attr)) ,value) node))))
+            (string= (dom-attr node (quote ,attr)) ,value) node))))
 
 (defun eww-elements-tester (element-list)
   "Return predicate that tests for presence of element in element-list
 for use as a DOM filter."
   (eval
    `#'(lambda (node)
-        (when (memq (xml-node-name node) (quote ,element-list)) node))))
+        (when (memq (dom-tag node) (quote ,element-list)) node))))
 
 (defun emacspeak-eww-view-helper  (filtered-dom)
   "View helper called by various filtering viewers."
@@ -677,24 +718,20 @@ for use as a DOM filter."
 
 (defun eww-view-dom-having-id (multi)
   "Display DOM filtered by specified id=value test.
-Optional interactive arg `multi' prompts for multiple classes."
+Optional interactive arg `multi' prompts for multiple ids."
   (interactive "P")
   (emacspeak-eww-prepare-eww)
-  (let
-      ((dom
-        (eww-dom-keep-if
+  (let ((dom
+         (dom-by-id-list
          (emacspeak-eww-current-dom)
-         (eww-attribute-list-tester
-          (if multi
-              (loop
-               for i in (ems-eww-read-list 'ems-eww-read-id)
-               collect (list 'id i))
-            (list (list 'id (ems-eww-read-id))))))))
+         (if multi
+             (ems-eww-read-list 'ems-eww-read-id)
+              (list (ems-eww-read-id))))))
     (when dom (emacspeak-eww-view-helper dom))))
 
 (defun eww-view-dom-not-having-id (multi)
   "Display DOM filtered by specified nodes not passing  id=value test.
-Optional interactive arg `multi' prompts for multiple classes."
+Optional interactive arg `multi' prompts for multiple ids."
   (interactive "P")
   (emacspeak-eww-prepare-eww)
   (let ((dom
@@ -771,14 +808,11 @@ Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
   (emacspeak-eww-prepare-eww)
   (let ((dom
-         (eww-dom-keep-if
+         (dom-by-class-list
           (emacspeak-eww-current-dom)
-          (eww-attribute-list-tester
-           (if multi
-               (loop
-                for c in (ems-eww-read-list 'ems-eww-read-class)
-                collect (list 'class c))
-             (list (list 'class (ems-eww-read-class))))))))
+          (if multi
+              (ems-eww-read-list 'ems-eww-read-class)
+             (list  (ems-eww-read-class))))))
     (when dom (emacspeak-eww-view-helper dom))))
 
 (defun eww-view-dom-not-having-class (multi)
@@ -810,14 +844,11 @@ Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
   (emacspeak-eww-prepare-eww)
   (let ((dom
-         (eww-dom-keep-if
+         (dom-by-role-list
           (emacspeak-eww-current-dom)
-          (eww-attribute-list-tester
-           (if multi
-               (loop
-                for r in (ems-eww-read-list 'ems-eww-read-role)
-                collect (list 'role r))
-             (list (list 'role (ems-eww-read-role))))))))
+          (if multi
+              (ems-eww-read-list 'ems-eww-read-role)
+               (list (ems-eww-read-role))))))
     (when dom (emacspeak-eww-view-helper dom))))
 
 (defun eww-view-dom-not-having-role (multi)
@@ -849,12 +880,11 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (interactive "P")
   (emacspeak-eww-prepare-eww)
   (let ((dom
-         (eww-dom-keep-if
-          (emacspeak-eww-current-dom)
-          (eww-elements-tester
-           (if multi
+         (dom-by-tag-list
+         (emacspeak-eww-current-dom)
+         (if multi
                (ems-eww-read-list 'ems-eww-read-element)
-             (list  (ems-eww-read-element)))))))
+             (list  (ems-eww-read-element))))))
     (cond
      (dom (emacspeak-eww-view-helper dom))
      (t (message "Filtering failed.")))))
