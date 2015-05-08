@@ -2813,6 +2813,42 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
   (let ((name   "RadioTime Search"))
     (emacspeak-url-template-open (emacspeak-url-template-get name))))
 ;;}}}
+;;{{{ Generic YQL Implementation:
+
+(defvar yql-public-base
+  (concat 
+   "http://query.yahooapis.com/v1/public/yql?"
+   "format=json"
+   "&q=")
+  "REST end-point for YQL public APIs that returns JSON." )
+
+(defun yql-filter (headers result-row)
+  "Filter out fields we dont care about."
+  (remove-if-not
+   #'(lambda  (r) (memq (car r) headers))
+   result-row))
+
+(defun yql-result-row (headers result-row)
+  "Takes a list corresponding to a result, and returns a vector sorted per headers."
+  (let ((row (make-vector (length result-row) nil)))
+    (loop
+     for h across headers
+     and index from 0 do
+     (aset row index (cdr (assoc h result-row))))
+    row))
+
+(defun yql-table (header-row tokens)
+  "Turn result list from YQL into an Emacspeak  table."
+  (let ((table (make-vector (1+ (length tokens)) nil))
+        (results (emacspeak-wizards-yq-results tokens)))
+    (aset table 0 header-row)
+    (loop
+     for r in results
+     and index from 1 do
+     (aset  table index (yql-result-row r)))
+    (emacspeak-table-make-table table)))
+
+;;}}}
 ;;{{{ YQL: Stock Quotes
 
 ;;;###autoload
@@ -2836,7 +2872,8 @@ order with duplicates removed  when saving."
 (defvar emacspeak-wizards-yq-base
   (concat
    "http://query.yahooapis.com/v1/public/yql?"
-   "&env=http%3A%2F%2Fdatatables.org%2Falltables.env&format=json"
+   "&env=http%3A%2F%2Fdatatables.org%2Falltables.env"
+   "&format=json"
    "&q=")
   "REST-end-point for Yahoo Quotes API.")
 
@@ -2849,7 +2886,7 @@ order with duplicates removed  when saving."
 (defun emacspeak-wizards-yq-url (symbols)
   "Return query url."
   (declare (special emacspeak-wizards-yq-base))
-  (concat emacspeak-wizards-yq-base (emacspeak-wizards-yq-query symbols)))
+  (concat emacspeak-wizards-yq-base (emacspeak-wizards-yq-query symbols))) ;
 
 (defconst emacspeak-wizards-yq-headers
   '(symbol Ask
@@ -2921,8 +2958,8 @@ order with duplicates removed  when saving."
 (defun emacspeak-wizards-yq-results (symbols)
   "Get results from json response.
 Returns a list of lists, one list per ticker."
-   ;;;; keep fields we care about for each result
   (let ((results (emacspeak-wizards-yq-get-quotes symbols)))
+    ;;; keep fields we care about for each result
     (cond
      ((= 1 (length symbols)) ;wrap singleton in a list
       (list (emacspeak-wizards-yq-filter  results)))
