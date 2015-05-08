@@ -209,7 +209,7 @@ Assumes that `dired-listing-switches' contains  -l"
                       "modified at"
                       "name")))
     (save-excursion
-      (beginning-of-line)
+      (forward-line 0)
       (skip-syntax-forward " ")
       (while (and fields
                   (not (eolp)))

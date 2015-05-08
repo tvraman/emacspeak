@@ -137,7 +137,7 @@
     (let ((symbol (ad-get-arg 0)))
       (emacspeak-auditory-icon 'open-object)
       (search-forward (custom-unlispify-tag-name symbol))
-      (beginning-of-line)
+      (forward-line 0)
       (emacspeak-speak-line))))
 
 (defadvice customize-apropos (after emacspeak pre act comp)
@@ -145,7 +145,7 @@
   (when (ems-interactive-p )
     (let ((symbol (ad-get-arg 0)))
       (emacspeak-auditory-icon 'open-object)
-      (beginning-of-line)
+      (forward-line 0)
       (emacspeak-speak-line))))
 
 (defadvice customize-variable (after emacspeak pre act comp)
@@ -154,7 +154,7 @@
     (let ((symbol (ad-get-arg 0)))
       (emacspeak-auditory-icon 'open-object)
       (search-forward (custom-unlispify-tag-name symbol))
-      (beginning-of-line)
+      (forward-line 0)
       (emacspeak-speak-line))))
 
 (defadvice Custom-goto-parent (after emacspeak pre act comp)

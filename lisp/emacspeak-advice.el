@@ -451,7 +451,7 @@ the words that were capitalized."
     (let (thisblank singleblank)
       (save-match-data
         (save-excursion
-          (beginning-of-line)
+          (forward-line 0)
           (setq thisblank (looking-at "[ \t]*$"))
           ;; Set singleblank if there is just one blank line here.
           (setq singleblank

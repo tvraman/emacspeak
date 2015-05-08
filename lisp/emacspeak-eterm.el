@@ -393,7 +393,7 @@ Argument COUNT specifies number of columns by which to move."
   (declare (special emacspeak-eterm-pointer ))
   (save-excursion
     (goto-char emacspeak-eterm-pointer )
-    (beginning-of-line)
+    (forward-line 0)
     (set-marker emacspeak-eterm-pointer (point ))
     (when (ems-interactive-p )
       (dtk-stop)
@@ -750,7 +750,7 @@ Argument ETERM-WINDOW specifies a predefined eterm window."
                      (buffer-substring start (point))
                      lines)
                     (forward-line 1)
-                    (beginning-of-line)
+                    (forward-line 0)
                     (forward-char (car top-left))
                     (setq start (point)))
                   (setq lines (nreverse lines ))
@@ -759,7 +759,7 @@ Argument ETERM-WINDOW specifies a predefined eterm window."
                (left-stretch
                 (let  ((lines nil))
                   (goto-char start )
-                  (beginning-of-line)
+                  (forward-line 0)
                   (setq start (point))
                   (while (< start end )
                     (forward-char (car bottom-right ))
@@ -767,7 +767,8 @@ Argument ETERM-WINDOW specifies a predefined eterm window."
                      (buffer-substring start (point ))
                      lines)
                     (forward-line 1)
-                    (beginning-of-line)
+                    (forward-line 0)
+
                     (setq start (point)))
                   (setq lines (nreverse lines ))
                   (mapconcat 'identity
