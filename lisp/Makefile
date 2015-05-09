@@ -252,7 +252,7 @@ emacspeak-xml-shell.elc \
 emacspeak-xslt.elc
 
 ADDON_OBJECTS = \
-tapestry.elc   stack-f.elc  dom.elc \
+tapestry.elc   stack-f.elc  dom.elc dom-addons.elc \
 toy-braille.elc tetris.elc cd-tool.elc nm.elc
 
 OBJECTS = $(DTK_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  $(ADDON_OBJECTS)
@@ -371,7 +371,8 @@ emacspeak-ess.elc: emacspeak-ess.el dtk-speak.elc voice-setup.elc
 emacspeak-eterm.elc: emacspeak-eterm.el dtk-speak.elc voice-setup.elc
 emacspeak-eudc.elc: emacspeak-eudc.el dtk-speak.elc voice-setup.elc
 dom.elc: dom.el
-emacspeak-eww.elc: emacspeak-eww.el dom.elc dtk-speak.elc voice-setup.elc
+dom-addons.elc: dom-addons.el dom.elc
+emacspeak-eww.elc: emacspeak-eww.el dom.elc dom-addons.elc dtk-speak.elc voice-setup.elc
 emacspeak-facemenu.elc: emacspeak-facemenu.el dtk-speak.elc voice-setup.elc
 emacspeak-feeds.elc: emacspeak-feeds.el emacspeak-webutils.elc dtk-speak.elc
 emacspeak-filtertext.elc: emacspeak-filtertext.el dtk-speak.elc voice-setup.elc

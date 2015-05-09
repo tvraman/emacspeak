@@ -54,6 +54,7 @@
 
 (eval-when-compile (require 'eww "eww" 'no-error))
 (require 'dom)
+(require 'dom-addons)
 (eval-when-compile (require 'emacspeak-feeds "emacspeak-feeds" 'no-error))
 (require 'emacspeak-preamble)
 (require 'emacspeak-we)
@@ -562,47 +563,6 @@ Retain previously set punctuations  mode."
       (when el (pushnew el eww-element-cache))
       (when children (mapc #'eww-update-cache children)))
     (setq emacspeak-eww-cache-updated t)))
-
-;;}}}
-;;{{{  Filterring Inspired by dom.el:
-
-(defun dom-by-tag-list (dom tag-list)
-  "Return elements in DOM that is of type appearing in tag-list.
-A tag is a symbol like `td'."
-  (let ((matches (cl-loop for child in (dom-children dom)
-			  for matches = (and (not (stringp child))
-					     (dom-by-tags child tag-list))
-			  when matches
-			  append matches)))
-    (if (member (dom-tag dom) tag-list)
-	(cons dom matches)
-      matches)))
-(defun dom-elements-by-matchlist (dom attribute match-list)
-  "Find elements matching match-list (a list of regexps) in ATTRIBUTE.
-ATTRIBUTE would typically be `class', `id' or the like."
-  (let ((matches
-         (cl-loop for child in (dom-children dom)
-                  for matches = (and (not (stringp child))
-                                     (dom-elements child attribute match))
-                  when matches
-                  append matches))
-	(attr (dom-attr dom attribute)))
-    (if (and attr
-	     (find-if #'(lambda (match) (string-match match attr)) match-list))
-	(cons dom matches)
-      matches)))
-
-(defun dom-by-id-list (dom match-list)
-  "Return elements in DOM that have an ID that matches regexp MATCH."
-  (dom-elements-by-matchlist dom 'id match-list))
-
-(defun dom-by-class-list (dom match-list)
-  "Return elements in DOM that have a class name that matches regexp MATCH."
-  (dom-elements-by-matchlist dom 'class match-list))
-
-(defun dom-by-role-list (dom match-list)
-  "Return elements in DOM that have a role name that matches regexp MATCH."
-  (dom-elements-by-matchlist dom 'role match-list))
 
 ;;}}}
 ;;{{{ Filter DOM:
