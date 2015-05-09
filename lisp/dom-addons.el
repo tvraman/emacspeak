@@ -57,14 +57,17 @@
 (defun dom-by-tag-list (dom tag-list)
   "Return elements in DOM that is of type appearing in tag-list.
 A tag is a symbol like `td'."
-  (let ((matches (cl-loop for child in (dom-children dom)
-			  for matches = (and (not (stringp child))
-					     (dom-by-tags child tag-list))
-			  when matches
-			  append matches)))
+  (let ((matches
+         (cl-loop
+          for child in (dom-children dom)
+          for matches =
+          (and (not (stringp child))
+               (dom-by-tag-list child tag-list))
+          when matches append matches)))
     (if (member (dom-tag dom) tag-list)
-	(cons dom matches)
+        (cons dom matches)
       matches)))
+
 (defun dom-elements-by-matchlist (dom attribute match-list)
   "Find elements matching match-list (a list of regexps) in ATTRIBUTE.
 ATTRIBUTE would typically be `class', `id' or the like."
@@ -76,10 +79,10 @@ ATTRIBUTE would typically be `class', `id' or the like."
            (not (stringp child))
            (dom-elements-by-matchlist child attribute match-list))
           when matches append matches))
-	(attr (dom-attr dom attribute)))
+        (attr (dom-attr dom attribute)))
     (if (and attr
-	     (find-if #'(lambda (match) (string-match match attr)) match-list))
-	(cons dom matches)
+             (find-if #'(lambda (match) (string-match match attr)) match-list))
+        (cons dom matches)
       matches)))
 
 (defun dom-by-id-list (dom match-list)
