@@ -212,7 +212,7 @@
      ("M-3" emacspeak-eww-previous-h3)
      ("M-a" eww-view-dom-not-having-attribute)
      ("M-c" eww-view-dom-not-having-class)
-     ("M-e" eww-view-dom-not-having-element-list)
+     ("M-e" eww-view-dom-not-having-elements)
      ("M-i" eww-view-dom-not-having-id)
      ("M-r" eww-view-dom-not-having-role)
      ("N" emacspeak-eww-next-element-from-history)
@@ -609,7 +609,7 @@ Retain previously set punctuations  mode."
                         (dom-children dom)))))
       (when filtered
         (push (dom-attributes dom) filtered)
-        (push (dom-tag dom) filtered))))))
+        (push (dom-tag dom) filtered) filtered)))))
 
 (defun eww-attribute-list-tester (attr-list)
   "Return predicate that tests for attr=value from members of
@@ -848,7 +848,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
      (dom (emacspeak-eww-view-helper dom))
      (t (message "Filtering failed.")))))
 
-(defun eww-view-dom-not-having-element-list (multi)
+(defun eww-view-dom-not-having-elements (multi)
   "Display DOM filtered by specified nodes not passing   el list.
 Optional interactive prefix arg `multi' prompts for multiple elements."
   (interactive "P")
@@ -856,11 +856,10 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (let ((dom
          (eww-dom-remove-if
           (emacspeak-eww-current-dom)
-          (eww-elements-tester
-           (if multi
+          (if multi
                (ems-eww-read-list 'ems-eww-read-element)
-             (list (intern (ems-eww-read-element))))))))
-    (when dom (emacspeak-eww-view-helper dom))))
+             (list  (ems-eww-read-element))))))
+    (when dom (emacspeak-eww-view-helper  dom 'dont-map ))))
 
 (defun emacspeak-eww-restore ()
   "Restore buffer to pre-filtered canonical state."

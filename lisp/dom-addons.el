@@ -97,6 +97,38 @@ ATTRIBUTE would typically be `class', `id' or the like."
   "Return elements in DOM that have a role name that matches regexp MATCH."
   (dom-elements-by-matchlist dom 'role match-list))
 
+
+;;; Complements 
+
+(defun dom-by-tag-complement (dom tag)
+  "Return elements in DOM that are complement  of type TAG.
+Subtrees not matching tag are pruned.
+A name is a symbol like `td'."
+  (let ((matches
+         (cl-loop
+          for child in (dom-children dom)
+          for matches =
+          (and (not (stringp child))
+               (dom-by-tag-complement child tag))
+          when matches append matches)))
+    (if (not (equal (dom-tag dom) tag))
+	(cons dom matches)
+      matches)))
+
+(defun dom-by-tag-list-complement (dom tag-list)
+  "Return elements in DOM that are complement of type appearing in tag-list.
+A tag is a symbol like `td'."
+  (let ((matches
+         (cl-loop
+          for child in (dom-children dom)
+          for matches =
+          (and (not (stringp child))
+               (dom-by-tag-list-complement child tag-list))
+          when matches append matches)))
+    (if (not (member (dom-tag dom) tag-list))
+        (cons dom matches)
+      matches)))
+
 ;;}}}
 (provide 'dom-addons)
 ;;{{{ end of file
