@@ -99,6 +99,7 @@ ATTRIBUTE would typically be `class', `id' or the like."
 
 
 ;;; Complements 
+;;; These next two functions are not used -- need fixing.
 
 (defun dom-by-tag-complement (dom tag)
   "Return elements in DOM that are complement  of type TAG.
@@ -109,6 +110,7 @@ A name is a symbol like `td'."
           for child in (dom-children dom)
           for matches =
           (and (not (stringp child))
+               (not (equal (dom-tag dom) tag))
                (dom-by-tag-complement child tag))
           when matches append matches)))
     (if (not (equal (dom-tag dom) tag))
