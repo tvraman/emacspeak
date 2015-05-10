@@ -640,7 +640,7 @@ for use as a DOM filter."
    `#'(lambda (node)
         (when (memq (dom-tag node) (quote ,element-list)) node))))
 
-(defun emacspeak-eww-view-helper  (filtered-dom)
+(defun emacspeak-eww-view-helper  (filtered-dom &optional dont-map)
   "View helper called by various filtering viewers."
   (declare (special emacspeak-eww-rename-result-buffer eww-shr-render-functions ))
   (let ((emacspeak-eww-rename-result-buffer nil)
@@ -649,7 +649,9 @@ for use as a DOM filter."
     (eww-save-history)
     (erase-buffer)
     (goto-char (point-min))
-    (mapcar #'shr-insert-document filtered-dom)
+    (if dont-map
+        (shr-insert-document filtered-dom)
+      (mapcar #'shr-insert-document filtered-dom))
     (set-buffer-modified-p nil)
     (goto-char (point-min))
     (setq buffer-read-only t))
@@ -702,7 +704,7 @@ Optional interactive arg `multi' prompts for multiple ids."
                 for i in (ems-eww-read-list 'ems-eww-read-id)
                 collect (list 'id i))
              (list (list 'id (ems-eww-read-id))))))))
-    (when dom (emacspeak-eww-view-helper dom))))
+    (when dom (emacspeak-eww-view-helper dom 'dont-map))))
 
 (defun ems-eww-read-attribute-and-value ()
   "Read attr-value pair and return as a list."
@@ -752,7 +754,7 @@ Optional interactive arg `multi' prompts for multiple classes."
            (if multi
                (ems-eww-read-list 'ems-eww-read-attribute-and-value)
              (list  (ems-eww-read-attribute-and-value)))))))
-    (when dom (emacspeak-eww-view-helper dom))))
+    (when dom (emacspeak-eww-view-helper dom 'dont-map))))
 
 (defsubst ems-eww-read-class ()
   "Return class value read from minibuffer."
@@ -788,7 +790,7 @@ Optional interactive arg `multi' prompts for multiple classes."
                 for c in (ems-eww-read-list 'ems-eww-read-class)
                 collect (list 'class c))
              (list (list 'class (ems-eww-read-class))))))))
-    (when dom (emacspeak-eww-view-helper dom))))
+    (when dom (emacspeak-eww-view-helper   dom 'dont-map))))
 
 (defsubst ems-eww-read-role ()
   "Return role value read from minibuffer."
@@ -825,7 +827,7 @@ Optional interactive arg `multi' prompts for multiple classes."
                 for r in (ems-eww-read-list 'ems-eww-read-role)
                 collect (list 'role r))
              (list (list 'role (ems-eww-read-role))))))))
-    (when dom (emacspeak-eww-view-helper dom))))
+    (when dom (emacspeak-eww-view-helper dom 'dont-map))))
 
 (defsubst ems-eww-read-element ()
   "Return element  value read from minibuffer."
@@ -856,9 +858,10 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (let ((dom
          (eww-dom-remove-if
           (emacspeak-eww-current-dom)
-          (if multi
+          (eww-elements-tester
+           (if multi
                (ems-eww-read-list 'ems-eww-read-element)
-             (list  (ems-eww-read-element))))))
+             (list  (ems-eww-read-element)))))))
     (when dom (emacspeak-eww-view-helper  dom 'dont-map ))))
 
 (defun emacspeak-eww-restore ()
