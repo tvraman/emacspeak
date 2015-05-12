@@ -317,10 +317,9 @@ Full List Of Keybindings:
       (put-text-property
        0 (length col-head)
        'face 'bold col-head))
-    (dtk-speak-and-echo
-     (concat
-      row-head " " col-head " "
-      (format " %s" (emacspeak-table-this-element emacspeak-table row column))))))
+    (concat
+     row-head " " col-head " "
+     (format " %s" (emacspeak-table-this-element emacspeak-table row column)))))
 
 (defvar emacspeak-table-speak-row-filter nil
   "Template specifying how a row is filtered before it is spoken.")
