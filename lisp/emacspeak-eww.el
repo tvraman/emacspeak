@@ -90,6 +90,13 @@
        , (format "Return eww-current-%s." name)
          ,(intern (format "eww-current-%s" name)))))))
 
+;;; Emacs 25 only for now:
+
+(defun emacspeak-eww-set-dom (dom)
+  "Set this as the DOM  for this buffer."
+  (assert (boundp 'eww-data) nil "Not a EWW rendered page.")
+  (plist-put eww-data :dom dom))
+
 ;;}}}
 ;;{{{ Inline Helpers:
 
@@ -650,6 +657,7 @@ for use as a DOM filter."
     (erase-buffer)
     (goto-char (point-min))
     (shr-insert-document filtered-dom)
+    (emacspeak-eww-set-dom filtered-dom)
     (set-buffer-modified-p nil)
     (goto-char (point-min))
     (setq buffer-read-only t))
