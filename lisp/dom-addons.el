@@ -52,6 +52,11 @@
 (require 'dom)
 
 ;;}}}
+;;{{{ Additional helpers:
+(defsubst dom-html-from-nodes (nodes)
+  "Make up an HTML DOM having nodes as children."
+  (apply #'dom-node 'html nil nodes))
+;;}}}
 ;;{{{  Filterring Inspired by dom.el:
 
 (defun dom-by-tag-list (dom tag-list)

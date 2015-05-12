@@ -700,8 +700,7 @@ Optional interactive arg `multi' prompts for multiple ids."
              (ems-eww-read-list 'ems-eww-read-id)
                (ems-eww-read-id))))
     (setq dom (funcall filter dom id))
-    (setq dom (apply #'dom-node 'html nil dom))
-    (when dom (emacspeak-eww-view-helper dom))))
+    (when dom (emacspeak-eww-view-helper (dom-html-from-nodes dom)))))
 
 (defun eww-view-dom-not-having-id (multi)
   "Display DOM filtered by specified nodes not passing  id=value test.
@@ -753,8 +752,7 @@ Optional interactive arg `multi' prompts for multiple classes."
            (if multi
                (ems-eww-read-list 'ems-eww-read-attribute-and-value)
              (list  (ems-eww-read-attribute-and-value)))))))
-    (setq dom (apply #'dom-node 'html nil dom))
-    (when dom (emacspeak-eww-view-helper dom))))
+    (when dom (emacspeak-eww-view-helper (dom-html-from-nodes dom)))))
 
 (defun eww-view-dom-not-having-attribute (multi)
   "Display DOM filtered by specified nodes not passing  attribute=value test.
@@ -788,8 +786,7 @@ Optional interactive arg `multi' prompts for multiple classes."
                     (ems-eww-read-list 'ems-eww-read-class)
                   (ems-eww-read-class))))
     (setq dom (funcall filter dom class))
-    (setq dom (apply #'dom-node 'html nil dom))
-    (when dom (emacspeak-eww-view-helper dom))))
+    (when dom (emacspeak-eww-view-helper (dom-html-from-nodes dom)))))
 
 (defun eww-view-dom-not-having-class (multi)
   "Display DOM filtered by specified nodes not passing   class=value test.
@@ -825,8 +822,7 @@ Optional interactive arg `multi' prompts for multiple classes."
               (ems-eww-read-list 'ems-eww-read-role)
               (ems-eww-read-role))))
     (setq dom (funcall filter dom role))
-    (setq dom (apply #'dom-node 'html nil dom))
-    (when dom (emacspeak-eww-view-helper dom))))
+    (when dom (emacspeak-eww-view-helper (dom-html-from-nodes dom)))))
 
 (defun eww-view-dom-not-having-role (multi)
   "Display DOM filtered by specified  nodes not passing   role=value test.
@@ -862,9 +858,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
                  (ems-eww-read-list 'ems-eww-read-element)
                (ems-eww-read-element))))
     (setq dom (funcall filter dom tag))
-    (setq dom (apply #'dom-node 'html nil dom))
     (cond
-     (dom (emacspeak-eww-view-helper dom))
+     (dom (emacspeak-eww-view-helper (dom-html-from-nodes dom)))
      (t (message "Filtering failed.")))))
 
 (defun eww-view-dom-not-having-elements (multi)
