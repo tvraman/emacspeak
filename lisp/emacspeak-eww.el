@@ -640,7 +640,7 @@ for use as a DOM filter."
    `#'(lambda (node)
         (when (memq (dom-tag node) (quote ,element-list)) node))))
 
-(defun emacspeak-eww-view-helper  (filtered-dom &optional dont-map)
+(defun emacspeak-eww-view-helper  (filtered-dom)
   "View helper called by various filtering viewers."
   (declare (special emacspeak-eww-rename-result-buffer eww-shr-render-functions ))
   (let ((emacspeak-eww-rename-result-buffer nil)
@@ -649,9 +649,7 @@ for use as a DOM filter."
     (eww-save-history)
     (erase-buffer)
     (goto-char (point-min))
-    (if dont-map
-        (shr-insert-document filtered-dom)
-      (mapcar #'shr-insert-document filtered-dom))
+    (shr-insert-document filtered-dom)
     (set-buffer-modified-p nil)
     (goto-char (point-min))
     (setq buffer-read-only t))
@@ -688,6 +686,7 @@ Optional interactive arg `multi' prompts for multiple ids."
              (ems-eww-read-list 'ems-eww-read-id)
                (ems-eww-read-id))))
     (setq dom (funcall filter dom id))
+    (setq dom (apply #'dom-node 'html nil dom))
     (when dom (emacspeak-eww-view-helper dom))))
 
 (defun eww-view-dom-not-having-id (multi)
@@ -704,7 +703,7 @@ Optional interactive arg `multi' prompts for multiple ids."
                 for i in (ems-eww-read-list 'ems-eww-read-id)
                 collect (list 'id i))
              (list (list 'id (ems-eww-read-id))))))))
-    (when dom (emacspeak-eww-view-helper dom 'dont-map))))
+    (when dom (emacspeak-eww-view-helper dom))))
 
 (defun ems-eww-read-attribute-and-value ()
   "Read attr-value pair and return as a list."
@@ -740,6 +739,7 @@ Optional interactive arg `multi' prompts for multiple classes."
            (if multi
                (ems-eww-read-list 'ems-eww-read-attribute-and-value)
              (list  (ems-eww-read-attribute-and-value)))))))
+    (setq dom (apply #'dom-node 'html nil dom))
     (when dom (emacspeak-eww-view-helper dom))))
 
 (defun eww-view-dom-not-having-attribute (multi)
@@ -754,7 +754,7 @@ Optional interactive arg `multi' prompts for multiple classes."
            (if multi
                (ems-eww-read-list 'ems-eww-read-attribute-and-value)
              (list  (ems-eww-read-attribute-and-value)))))))
-    (when dom (emacspeak-eww-view-helper dom 'dont-map))))
+    (when dom (emacspeak-eww-view-helper dom))))
 
 (defsubst ems-eww-read-class ()
   "Return class value read from minibuffer."
@@ -774,6 +774,7 @@ Optional interactive arg `multi' prompts for multiple classes."
                     (ems-eww-read-list 'ems-eww-read-class)
                   (ems-eww-read-class))))
     (setq dom (funcall filter dom class))
+    (setq dom (apply #'dom-node 'html nil dom))
     (when dom (emacspeak-eww-view-helper dom))))
 
 (defun eww-view-dom-not-having-class (multi)
@@ -790,7 +791,7 @@ Optional interactive arg `multi' prompts for multiple classes."
                 for c in (ems-eww-read-list 'ems-eww-read-class)
                 collect (list 'class c))
              (list (list 'class (ems-eww-read-class))))))))
-    (when dom (emacspeak-eww-view-helper   dom 'dont-map))))
+    (when dom (emacspeak-eww-view-helper   dom))))
 
 (defsubst ems-eww-read-role ()
   "Return role value read from minibuffer."
@@ -810,6 +811,7 @@ Optional interactive arg `multi' prompts for multiple classes."
               (ems-eww-read-list 'ems-eww-read-role)
               (ems-eww-read-role))))
     (setq dom (funcall filter dom role))
+    (setq dom (apply #'dom-node 'html nil dom))
     (when dom (emacspeak-eww-view-helper dom))))
 
 (defun eww-view-dom-not-having-role (multi)
@@ -827,7 +829,7 @@ Optional interactive arg `multi' prompts for multiple classes."
                 for r in (ems-eww-read-list 'ems-eww-read-role)
                 collect (list 'role r))
              (list (list 'role (ems-eww-read-role))))))))
-    (when dom (emacspeak-eww-view-helper dom 'dont-map))))
+    (when dom (emacspeak-eww-view-helper dom))))
 
 (defsubst ems-eww-read-element ()
   "Return element  value read from minibuffer."
@@ -846,6 +848,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
                  (ems-eww-read-list 'ems-eww-read-element)
                (ems-eww-read-element))))
     (setq dom (funcall filter dom tag))
+    (setq dom (apply #'dom-node 'html nil dom))
     (cond
      (dom (emacspeak-eww-view-helper dom))
      (t (message "Filtering failed.")))))
@@ -862,7 +865,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
            (if multi
                (ems-eww-read-list 'ems-eww-read-element)
              (list  (ems-eww-read-element)))))))
-    (when dom (emacspeak-eww-view-helper  dom 'dont-map ))))
+    (when dom (emacspeak-eww-view-helper  dom))))
 
 (defun emacspeak-eww-restore ()
   "Restore buffer to pre-filtered canonical state."
