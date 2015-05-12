@@ -682,12 +682,12 @@ for use as a DOM filter."
 Optional interactive arg `multi' prompts for multiple ids."
   (interactive "P")
   (emacspeak-eww-prepare-eww)
-  (let ((dom
-         (dom-by-id-list
-         (emacspeak-eww-current-dom)
-         (if multi
+  (let ((dom (emacspeak-eww-current-dom))
+        (filter (if multi #'dom-by-id-list #'dom-by-id))
+        (id  (if multi
              (ems-eww-read-list 'ems-eww-read-id)
-              (list (ems-eww-read-id))))))
+               (ems-eww-read-id))))
+    (setq dom (funcall filter dom id))
     (when dom (emacspeak-eww-view-helper dom))))
 
 (defun eww-view-dom-not-having-id (multi)
@@ -768,12 +768,12 @@ Optional interactive arg `multi' prompts for multiple classes."
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
   (emacspeak-eww-prepare-eww)
-  (let ((dom
-         (dom-by-class-list
-          (emacspeak-eww-current-dom)
-          (if multi
-              (ems-eww-read-list 'ems-eww-read-class)
-             (list  (ems-eww-read-class))))))
+  (let ((dom  (emacspeak-eww-current-dom))
+        (filter (if multi #'dom-by-class-list #'dom-by-class))
+        (class  (if multi
+                    (ems-eww-read-list 'ems-eww-read-class)
+                  (ems-eww-read-class))))
+    (setq dom (funcall filter dom class))
     (when dom (emacspeak-eww-view-helper dom))))
 
 (defun eww-view-dom-not-having-class (multi)
@@ -804,12 +804,12 @@ Optional interactive arg `multi' prompts for multiple classes."
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
   (emacspeak-eww-prepare-eww)
-  (let ((dom
-         (dom-by-role-list
-          (emacspeak-eww-current-dom)
-          (if multi
+  (let ((dom (emacspeak-eww-current-dom))
+        (filter  (if #'dom-by-role-list #'dom-by-role))
+        (role  (if multi
               (ems-eww-read-list 'ems-eww-read-role)
-               (list (ems-eww-read-role))))))
+              (ems-eww-read-role))))
+    (setq dom (funcall filter dom role))
     (when dom (emacspeak-eww-view-helper dom))))
 
 (defun eww-view-dom-not-having-role (multi)
@@ -840,12 +840,12 @@ Optional interactive arg `multi' prompts for multiple classes."
 Optional interactive prefix arg `multi' prompts for multiple elements."
   (interactive "P")
   (emacspeak-eww-prepare-eww)
-  (let ((dom
-         (dom-by-tag-list
-         (emacspeak-eww-current-dom)
-         (if multi
-               (ems-eww-read-list 'ems-eww-read-element)
-             (list  (ems-eww-read-element))))))
+  (let ((dom (emacspeak-eww-current-dom))
+        (filter  (if multi #'dom-by-tag-list #'dom-by-tag))
+        (tag (if multi
+                 (ems-eww-read-list 'ems-eww-read-element)
+               (ems-eww-read-element))))
+    (setq dom (funcall filter dom tag))
     (cond
      (dom (emacspeak-eww-view-helper dom))
      (t (message "Filtering failed.")))))
