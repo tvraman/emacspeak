@@ -92,6 +92,9 @@ ATTRIBUTE would typically be `class', `id' or the like."
 (defun dom-by-class-list (dom match-list)
   "Return elements in DOM that have a class name that matches regexp MATCH."
   (dom-elements-by-matchlist dom 'class match-list))
+(defun dom-by-role (dom match)
+  "Return elements in DOM that have a role name that matches regexp MATCH."
+  (dom-elements dom 'role match))
 
 (defun dom-by-role-list (dom match-list)
   "Return elements in DOM that have a role name that matches regexp MATCH."
