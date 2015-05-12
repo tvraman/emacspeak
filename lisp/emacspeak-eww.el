@@ -90,12 +90,18 @@
        , (format "Return eww-current-%s." name)
          ,(intern (format "eww-current-%s" name)))))))
 
-;;; Emacs 25 only for now:
-
-(defun emacspeak-eww-set-dom (dom)
-  "Set this as the DOM  for this buffer."
-  (assert (boundp 'eww-data) nil "Not a EWW rendered page.")
-  (plist-put eww-data :dom dom))
+(cond
+ ((boundp 'eww-data)
+  (defun emacspeak-eww-set-dom (dom)
+    "Set this as the DOM  for this buffer."
+    (assert (boundp 'eww-data) nil "Not a EWW rendered page.")
+    (plist-put eww-data :dom dom)))
+ (t ;;; emacs 24
+  (defun emacspeak-eww-set-dom (dom)
+    "Set this as the DOM  for this buffer."
+    (declare (special eww-current-dom))
+    (setq eww-current-dom dom))
+  ))
 
 ;;}}}
 ;;{{{ Inline Helpers:
