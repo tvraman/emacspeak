@@ -90,18 +90,28 @@
        , (format "Return eww-current-%s." name)
          ,(intern (format "eww-current-%s" name)))))))
 
-(cond
- ((boundp 'eww-data)
-  (defun emacspeak-eww-set-dom (dom)
-    "Set this as the DOM  for this buffer."
-    (assert (boundp 'eww-data) nil "Not a EWW rendered page.")
-    (plist-put eww-data :dom dom)))
- (t ;;; emacs 24
-  (defun emacspeak-eww-set-dom (dom)
-    "Set this as the DOM  for this buffer."
-    (declare (special eww-current-dom))
-    (setq eww-current-dom dom))
-  ))
+(loop
+ for name in
+ '(title url source dom)
+ do
+ (cond
+  ((boundp 'eww-data)
+   (eval
+    `(defun
+         ,(intern (format "emacspeak-eww-set-%s" name)) (value)
+       , (format "Set eww-current-%s." name)
+       (assert (boundp 'eww-data) nil "Not a EWW rendered page.")
+       (plist-put eww-data
+                  ,(intern (format ":%s" name))
+                  value))))
+  (t ;;; emacs 24
+   (eval
+    `(defun 
+         ,(intern (format "emacspeak-eww-set-%s" name)) (value)
+       , (format "Set eww-current-%s." name)
+       (setq ,(intern (format "eww-current-%s" name)) value))))))
+         
+  
 
 ;;}}}
 ;;{{{ Inline Helpers:
@@ -657,6 +667,8 @@ for use as a DOM filter."
   "View helper called by various filtering viewers."
   (declare (special emacspeak-eww-rename-result-buffer eww-shr-render-functions ))
   (let ((emacspeak-eww-rename-result-buffer nil)
+        (url (emacspeak-eww-current-url))
+        (title  (format "%s: Filtered" (emacspeak-eww-current-title)))
         (inhibit-read-only t)
         (shr-external-rendering-functions eww-shr-render-functions))
     (eww-save-history)
@@ -664,6 +676,8 @@ for use as a DOM filter."
     (goto-char (point-min))
     (shr-insert-document filtered-dom)
     (emacspeak-eww-set-dom filtered-dom)
+    (emacspeak-eww-set-url url)
+    (emacspeak-eww-set-title title)
     (set-buffer-modified-p nil)
     (goto-char (point-min))
     (setq buffer-read-only t))
