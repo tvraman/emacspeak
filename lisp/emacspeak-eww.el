@@ -60,7 +60,7 @@
 (require 'emacspeak-we)
 (require 'emacspeak-webutils)
 (require 'emacspeak-google)
-;(require 'xml)
+                                        ;(require 'xml)
 ;;}}}
 ;;{{{ Compatibility Helpers:
 
@@ -100,18 +100,18 @@
     `(defun
          ,(intern (format "emacspeak-eww-set-%s" name)) (value)
        , (format "Set eww-current-%s." name)
-       (assert (boundp 'eww-data) nil "Not a EWW rendered page.")
-       (plist-put eww-data
-                  ,(intern (format ":%s" name))
-                  value))))
+         (assert (boundp 'eww-data) nil "Not a EWW rendered page.")
+         (plist-put eww-data
+                    ,(intern (format ":%s" name))
+                    value))))
   (t ;;; emacs 24
    (eval
-    `(defun 
+    `(defun
          ,(intern (format "emacspeak-eww-set-%s" name)) (value)
        , (format "Set eww-current-%s." name)
-       (setq ,(intern (format "eww-current-%s" name)) value))))))
-         
-  
+         (setq ,(intern (format "eww-current-%s" name)) value))))))
+
+
 
 ;;}}}
 ;;{{{ Inline Helpers:
@@ -166,9 +166,9 @@
 
 (defcustom  emacspeak-eww-masquerade-as
   (format "User-Agent: %s %s %s\r\n"
-           "Mozilla/5.0 (X11; Linux i686 (x86_64)) "
-           "AppleWebKit/537.36 (KHTML, like Gecko) "
-           "Chrome/42.0.2311.135 Safari/537.36")
+          "Mozilla/5.0 (X11; Linux i686 (x86_64)) "
+          "AppleWebKit/537.36 (KHTML, like Gecko) "
+          "Chrome/42.0.2311.135 Safari/537.36")
   "User Agent string that is  sent when masquerading is on."
   :type 'string
   :group 'emacspeak-eww)
@@ -601,7 +601,6 @@ Retain previously set punctuations  mode."
     (a . eww-tag-a))
   "Customize shr rendering for EWW.")
 
-
 (defun eww-dom-keep-if (dom predicate)
   "Return filtered DOM  keeping nodes that match  predicate.
  Predicate receives the node to test."
@@ -714,7 +713,7 @@ Optional interactive arg `multi' prompts for multiple ids."
   (let ((dom (emacspeak-eww-current-dom))
         (filter (if multi #'dom-by-id-list #'dom-by-id))
         (id  (if multi
-             (ems-eww-read-list 'ems-eww-read-id)
+                 (ems-eww-read-list 'ems-eww-read-id)
                (ems-eww-read-id))))
     (setq dom (funcall filter dom id))
     (when dom (emacspeak-eww-view-helper (dom-html-from-nodes dom
@@ -734,7 +733,7 @@ Optional interactive arg `multi' prompts for multiple ids."
                 for i in (ems-eww-read-list 'ems-eww-read-id)
                 collect (list 'id i))
              (list (list 'id (ems-eww-read-id))))))))
-    (when dom (emacspeak-eww-view-helper dom))))
+    (when dom (emacspeak-eww-view-helper (dom-html-add-base dom)))))
 
 (defun ems-eww-read-attribute-and-value ()
   "Read attr-value pair and return as a list."
@@ -785,7 +784,7 @@ Optional interactive arg `multi' prompts for multiple classes."
            (if multi
                (ems-eww-read-list 'ems-eww-read-attribute-and-value)
              (list  (ems-eww-read-attribute-and-value)))))))
-    (when dom (emacspeak-eww-view-helper dom))))
+    (when dom (emacspeak-eww-view-helper (dom-html-add-base dom)))))
 
 (defsubst ems-eww-read-class ()
   "Return class value read from minibuffer."
@@ -822,7 +821,7 @@ Optional interactive arg `multi' prompts for multiple classes."
                 for c in (ems-eww-read-list 'ems-eww-read-class)
                 collect (list 'class c))
              (list (list 'class (ems-eww-read-class))))))))
-    (when dom (emacspeak-eww-view-helper   dom))))
+    (when dom (emacspeak-eww-view-helper   (dom-html-add-base dom)))))
 
 (defsubst ems-eww-read-role ()
   "Return role value read from minibuffer."
@@ -839,8 +838,8 @@ Optional interactive arg `multi' prompts for multiple classes."
   (let ((dom (emacspeak-eww-current-dom))
         (filter  (if #'dom-by-role-list #'dom-by-role))
         (role  (if multi
-              (ems-eww-read-list 'ems-eww-read-role)
-              (ems-eww-read-role))))
+                   (ems-eww-read-list 'ems-eww-read-role)
+                 (ems-eww-read-role))))
     (setq dom (funcall filter dom role))
     (when dom (emacspeak-eww-view-helper (dom-html-from-nodes dom
                                                               (emacspeak-eww-current-url))))))
@@ -860,7 +859,7 @@ Optional interactive arg `multi' prompts for multiple classes."
                 for r in (ems-eww-read-list 'ems-eww-read-role)
                 collect (list 'role r))
              (list (list 'role (ems-eww-read-role))))))))
-    (when dom (emacspeak-eww-view-helper dom))))
+    (when dom (emacspeak-eww-view-helper (dom-html-add-base dom)))))
 
 (defsubst ems-eww-read-element ()
   "Return element  value read from minibuffer."
@@ -896,7 +895,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
            (if multi
                (ems-eww-read-list 'ems-eww-read-element)
              (list  (ems-eww-read-element)))))))
-    (when dom (emacspeak-eww-view-helper  dom))))
+    (when dom (emacspeak-eww-view-helper  (dom-html-add-base dom)))))
 
 (defun emacspeak-eww-restore ()
   "Restore buffer to pre-filtered canonical state."

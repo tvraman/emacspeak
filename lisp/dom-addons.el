@@ -60,7 +60,12 @@
         (list 'base (list (cons 'href base))
               dom)
       dom)))
-  
+
+
+(defsubst dom-html-add-base (dom base)
+  "Add base to dom."
+        (list 'base (list (cons 'href base)) dom))
+      
 ;;}}}
 ;;{{{  Filterring Inspired by dom.el:
 
