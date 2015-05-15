@@ -60,7 +60,7 @@
         (list 'base (list (cons 'href base))
               dom)
       dom)))
-  ))
+  
 ;;}}}
 ;;{{{  Filterring Inspired by dom.el:
 
