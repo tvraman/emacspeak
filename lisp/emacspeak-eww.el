@@ -1123,7 +1123,39 @@ Warning, this is fragile, and depends on a stable id for the
 (define-key emacspeak-google-keymap "k" 'emacspeak-eww-google-knowledge-card)
 (define-key emacspeak-google-keymap "e" 'emacspeak-eww-masquerade)
 ;;}}}
+;;{{{ Speech-enable EWW buffer list:
 
+(defadvice eww-list-buffers (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-line)))
+
+(defadvice eww-buffer-kill (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-line)))
+
+(defadvice eww-buffer-select (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-mode-line)
+    (emacspeak-auditory-icon 'open-object)))
+
+(loop
+ for f in
+ '(eww-buffer-show-next eww-buffer-show-previous)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-speak-line)))))
+
+;;}}}
 (provide 'emacspeak-eww)
 ;;{{{ end of file
 
