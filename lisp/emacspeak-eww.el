@@ -1125,17 +1125,25 @@ Warning, this is fragile, and depends on a stable id for the
 ;;}}}
 ;;{{{ Speech-enable EWW buffer list:
 
+(defsubst emacspeak-eww-speak-buffer-line ()
+  "Speak EWW buffer line."
+  (assert (eq major-mode 'eww-buffers-mode) nil "Not in an EWW buffer listing.")
+  (let ((buffer (get-text-property (line-beginning-position) 'eww-buffer)))
+    (if buffer 
+  (dtk-speak (buffer-name buffer))
+  (message "Cant find an EWW buffer for this line. "))))
+
 (defadvice eww-list-buffers (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
-    (emacspeak-speak-line)))
+    (emacspeak-eww-speak-buffer-line)))
 
 (defadvice eww-buffer-kill (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-line)))
+    (emacspeak-eww-speak-buffer-line)))
 
 (defadvice eww-buffer-select (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -1153,7 +1161,7 @@ Warning, this is fragile, and depends on a stable id for the
      "Provide auditory feedback."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
-       (emacspeak-speak-line)))))
+       (emacspeak-eww-speak-buffer-line)))))
 
 ;;}}}
 (provide 'emacspeak-eww)
