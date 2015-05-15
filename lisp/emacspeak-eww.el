@@ -230,6 +230,7 @@
      ("J" emacspeak-eww-next-element-like-this)
      ("K" emacspeak-eww-previous-element-like-this)
      ("M-SPC" emacspeak-eww-speak-this-element)
+     ("M-0" emacspeak-eww-previous-h)
      ("M-1" emacspeak-eww-previous-h1)
      ("M-2" emacspeak-eww-previous-h2)
      ("M-3" emacspeak-eww-previous-h3)
