@@ -717,7 +717,8 @@ Optional interactive arg `multi' prompts for multiple ids."
              (ems-eww-read-list 'ems-eww-read-id)
                (ems-eww-read-id))))
     (setq dom (funcall filter dom id))
-    (when dom (emacspeak-eww-view-helper (dom-html-from-nodes dom)))))
+    (when dom (emacspeak-eww-view-helper (dom-html-from-nodes dom
+                                                              (emacspeak-eww-current-url))))))
 
 (defun eww-view-dom-not-having-id (multi)
   "Display DOM filtered by specified nodes not passing  id=value test.
@@ -769,7 +770,8 @@ Optional interactive arg `multi' prompts for multiple classes."
            (if multi
                (ems-eww-read-list 'ems-eww-read-attribute-and-value)
              (list  (ems-eww-read-attribute-and-value)))))))
-    (when dom (emacspeak-eww-view-helper (dom-html-from-nodes dom)))))
+    (when dom (emacspeak-eww-view-helper (dom-html-from-nodes dom
+                                                              (emacspeak-eww-current-url))))))
 
 (defun eww-view-dom-not-having-attribute (multi)
   "Display DOM filtered by specified nodes not passing  attribute=value test.
@@ -803,7 +805,8 @@ Optional interactive arg `multi' prompts for multiple classes."
                     (ems-eww-read-list 'ems-eww-read-class)
                   (ems-eww-read-class))))
     (setq dom (funcall filter dom class))
-    (when dom (emacspeak-eww-view-helper (dom-html-from-nodes dom)))))
+    (when dom (emacspeak-eww-view-helper (dom-html-from-nodes dom
+                                                              (emacspeak-eww-current-url))))))
 
 (defun eww-view-dom-not-having-class (multi)
   "Display DOM filtered by specified nodes not passing   class=value test.
@@ -839,7 +842,8 @@ Optional interactive arg `multi' prompts for multiple classes."
               (ems-eww-read-list 'ems-eww-read-role)
               (ems-eww-read-role))))
     (setq dom (funcall filter dom role))
-    (when dom (emacspeak-eww-view-helper (dom-html-from-nodes dom)))))
+    (when dom (emacspeak-eww-view-helper (dom-html-from-nodes dom
+                                                              (emacspeak-eww-current-url))))))
 
 (defun eww-view-dom-not-having-role (multi)
   "Display DOM filtered by specified  nodes not passing   role=value test.
@@ -876,7 +880,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
                (ems-eww-read-element))))
     (setq dom (funcall filter dom tag))
     (cond
-     (dom (emacspeak-eww-view-helper (dom-html-from-nodes dom)))
+     (dom (emacspeak-eww-view-helper (dom-html-from-nodes dom
+                                                          (emacspeak-eww-current-url))))
      (t (message "Filtering failed.")))))
 
 (defun eww-view-dom-not-having-elements (multi)
