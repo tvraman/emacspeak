@@ -1,5 +1,5 @@
 ;;{{{ Emacs initialization file for Raman:
-;;; $Id$
+;;; $Id: emacs-startup.el 7753 2012-05-06 22:43:52Z tv.raman.tv $
 ;;; Segre March 22 1991
 ;;; July 15, 2001 finally cutting over to custom.
 ;;; August 12, 2007: Cleaned up for Emacs 22
@@ -13,6 +13,12 @@
   "Directory where we keep personal libraries")
 ;;}}}
 ;;{{{ helper functions:
+(defmacro csetq (variable value)
+  `(funcall (or (get ',variable 'custom-set) 'set-default) ',variable ,value))
+;;; Usage:
+(csetq tool-bar-mode nil)
+(csetq menu-bar-mode nil)
+
 (defsubst augment-load-path (path &optional library whence at-end)
   "add directory to load path.
 Path is resolved relative to `whence' which defaults to emacs-personal-library."
@@ -137,11 +143,10 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 ;;; personal functions and advice
        "my-functions"
 ;;; Mail readers:
-       "vm-prepare"
+       "vm-prepare" "gm-smtp"
        "gnus-prepare"
        "bbdb-prepare"
-       
-       "smtpmail" "sigbegone"
+        "sigbegone"
 ;;; Web Browsers:
        "w3-prepare" ;"w3m-prepare" 
        "auctex-prepare" "nxml-prepare"
@@ -163,6 +168,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     ;;}}}
     ))                                  ; end defun
 ;;{{{  start it up
+
 (add-hook
  #'after-init-hook
  #'(lambda ()
@@ -175,7 +181,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (initialize-completions)
      (shell-command "aplay ~/cues/highbells.au")
      (message "Successfully initialized Emacs")))
-
 (start-up-my-emacs)
 (when (file-exists-p custom-file) (load-file custom-file))
 (setq warning-suppress-types nil)
