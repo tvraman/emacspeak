@@ -55,6 +55,7 @@
 ;;{{{ Additional helpers:
 (defsubst dom-html-from-nodes (nodes &optional base)
   "Make up an HTML DOM having nodes as children."
+  (message "%d nodes" (length nodes))
   (let ((dom (apply #'dom-node 'html nil nodes)))
     (if base
         `(base ((href.  ,base)) ,dom)
