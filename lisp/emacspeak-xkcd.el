@@ -52,6 +52,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'json)
 
 ;;}}}
 ;;{{{ Fix error when loading images on the console:
