@@ -20,8 +20,7 @@ page.open(target, function(status) {
     } else {
         result = page.evaluate(function () {
             var r = document;
-            return r.getElementById('kno-result').innerHTML +
-                r.getElementById('res').innerHTML  ;
+            return r.getElementById('res').innerHTML  ;
         });
         try {
             console.log('');
