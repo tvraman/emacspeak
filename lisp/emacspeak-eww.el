@@ -214,7 +214,6 @@
      ("*" eww-add-bookmark)
      ("," emacspeak-eww-previous-h)
      ("." emacspeak-eww-next-h)
-     ("/" search-forward)
      ("1" emacspeak-eww-next-h1)
      ("2" emacspeak-eww-next-h2)
      ("3" emacspeak-eww-next-h3)
