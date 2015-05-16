@@ -11,6 +11,7 @@ This chapter documents a total of 1070 commands and 881 options.
 * congrats::
 * dectalk-voices::
 * dom::
+* dom-addons::
 * dtk-interp::
 * dtk-speak::
 * dtk-unicode::
@@ -208,6 +209,7 @@ This chapter documents a total of 1070 commands and 881 options.
 * sox::
 * sox-gen::
 * stack-f::
+* subr-x::
 * tetris::
 * toy-braille::
 * voice-setup::
@@ -359,6 +361,11 @@ Select Dectalk TTS server.
 
 @node dom
 @section dom
+
+@node dom-addons
+@section dom-addons
+
+Useful additional functions for dom.el
 
 @node dtk-interp
 @section dtk-interp
@@ -15672,6 +15679,16 @@ This module can be used independent of Emacspeak.
 The stack is implemented as a linked list with a tag 'STACK
 as the first element.  All entries and removals are done using
 destructive functions.
+
+@node subr-x
+@section subr-x
+
+Less commonly used functions that complement basic APIs, often implemented in
+C code (like hash-tables and strings), and are not eligible for inclusion
+in subr.el.
+
+Do not document these functions in the lispref.
+http://lists.gnu.org/archive/html/emacs-devel/2014-01/msg01006.html
 
 @node tetris
 @section tetris
