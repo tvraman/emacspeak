@@ -111,8 +111,6 @@
        , (format "Set eww-current-%s." name)
          (setq ,(intern (format "eww-current-%s" name)) value))))))
 
-
-
 ;;}}}
 ;;{{{ Inline Helpers:
 
@@ -218,6 +216,7 @@
      ("2" emacspeak-eww-next-h2)
      ("3" emacspeak-eww-next-h3)
      ("=" dtk-toggle-punctuation-mode)
+     ("/" emacspeak-eww-filter-map)
      ("?" emacspeak-webutils-google-similar-to-this-page)
      ("A" eww-view-dom-having-attribute)
      ("C" eww-view-dom-having-class)
@@ -1128,9 +1127,9 @@ Warning, this is fragile, and depends on a stable id for the
   "Speak EWW buffer line."
   (assert (eq major-mode 'eww-buffers-mode) nil "Not in an EWW buffer listing.")
   (let ((buffer (get-text-property (line-beginning-position) 'eww-buffer)))
-    (if buffer 
-  (dtk-speak (buffer-name buffer))
-  (message "Cant find an EWW buffer for this line. "))))
+    (if buffer
+        (dtk-speak (buffer-name buffer))
+      (message "Cant find an EWW buffer for this line. "))))
 
 (defadvice eww-list-buffers (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -1161,6 +1160,18 @@ Warning, this is fragile, and depends on a stable id for the
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-eww-speak-buffer-line)))))
+
+;;}}}
+;;{{{  EWW Filtering shortcuts:
+
+(define-prefix-command 'emacspeak-eww-filter-map )
+(declaim (special emacspeak-eww-filter-map))
+(loop for binding in
+      '(
+        
+        )
+      do
+      (emacspeak-keymap-update emacspeak-eww-filter-map binding))
 
 ;;}}}
 (provide 'emacspeak-eww)
