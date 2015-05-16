@@ -56,16 +56,14 @@
 (defsubst dom-html-from-nodes (nodes &optional base)
   "Make up an HTML DOM having nodes as children."
   (let ((dom (apply #'dom-node 'html nil nodes)))
-    (if base 
-        (list 'base (list (cons 'href base))
-              dom)
+    (if base
+        `(base ((href.  ,base)) ,dom)
       dom)))
-
 
 (defsubst dom-html-add-base (dom base)
   "Add base to dom."
-        (list 'base (list (cons 'href base)) dom))
-      
+  `(base ((href . ,base)) ,dom))
+
 ;;}}}
 ;;{{{  Filterring Inspired by dom.el:
 
@@ -114,10 +112,6 @@ ATTRIBUTE would typically be `class', `id' or the like."
 (defun dom-by-role-list (dom match-list)
   "Return elements in DOM that have a role name that matches regexp MATCH."
   (dom-elements-by-matchlist dom 'role match-list))
-
-
-
-
 
 ;;}}}
 (provide 'dom-addons)
