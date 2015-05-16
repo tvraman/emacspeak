@@ -62,6 +62,8 @@
 (require 'dtk-unicode)
 (eval-when-compile
   (require 'shell)
+  (require 'calendar)
+  (require 'which-func)
   )
 
 ;;}}}

@@ -76,6 +76,7 @@
 (require 'emacspeak-speak)
 (require 'emacspeak-sounds)
 (require 'ansi-color)
+(eval-when-compile (require 'which-func))
 ;;}}}
 ;;{{{ Forward Declarations:
 (defvar emacspeak-prefix)
