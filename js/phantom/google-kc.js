@@ -3,6 +3,7 @@ var page = require('webpage').create(),
     system = require('system'),
     url='http://www.google.com/search?source=hp&num=25&q=',
     q='emacspeak';
+
 page.settings.userAgent  =
      "Mozilla/5.0 (Linux; Intel  )" +
     "AppleWebKit/537.36 (KHTML, like Gecko) " +
@@ -13,6 +14,7 @@ if (system.args.length > 1) {
 }
                                                        
 var target = url + q;
+
 page.open(target, function(status) {
     var result;
     if (status !== 'success') {
