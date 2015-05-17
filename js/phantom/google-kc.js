@@ -20,7 +20,7 @@ page.open(target, function(status) {
     } else {
         result = page.evaluate(function () {
             var r = document;
-          return r.getElementById('kno-result').innerHTML;
+            return (new XMLSerializer()).serializeToString(r.getElementById('rhs'))  ;
         });
         try {
             console.log('');
