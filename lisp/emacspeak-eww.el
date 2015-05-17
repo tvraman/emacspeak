@@ -511,6 +511,17 @@ Retain previously set punctuations  mode."
         (when (memq (quote ,tag) '(h1 h2 h3))
           (put-text-property start end 'h 'eww-tag)))))))
 
+
+(defadvice  shr-generic (around emacspeak pre act comp)
+  "Add article markers."
+  (let ((start (point)))
+    ad-do-it
+    (when (eq (dom-tag (ad-get-arg 0)) 'article)
+      (let ((start (if (char-equal (following-char) ?\n)
+                     (min (point-max) (1+ start) )start))
+          (end (if (> (point) start) (1- (point)) (point))))
+        (put-text-property start end 'article 'eww-tag)))))
+
 ;;}}}
 ;;{{{ Advice readable
 (defadvice eww-readable (around emacspeak pre act comp)
