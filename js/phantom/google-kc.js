@@ -5,25 +5,27 @@ var page = require('webpage').create(),
     q='emacspeak';
 
 page.settings.userAgent  =
-     "Mozilla/5.0 (Linux; Intel  )" +
+    "Mozilla/5.0 (Linux; Intel  )" +
     "AppleWebKit/537.36 (KHTML, like Gecko) " +
     "Chrome/36.0.1944.0 Safari/537.36";
 
 if (system.args.length > 1) {
     q = Array.prototype.slice.call(system.args, 1);
 }
-                                                       
+
 var target = url + q;
 
-page.open(target, function(status) {
+var _eCallBack = function () {
+    var r = document;
+    return (new XMLSerializer()).serializeToString(r.getElementById('rhs'))  ;
+}
+
+var _pCallBack = function(status) {
     var result;
     if (status !== 'success') {
         console.log('Error: Unable to access network!');
     } else {
-        result = page.evaluate(function () {
-            var r = document;
-            return (new XMLSerializer()).serializeToString(r.getElementById('rhs'))  ;
-        });
+        result = page.evaluate(_eCallBack);
         try {
             console.log('');
             console.log(result);
@@ -32,4 +34,6 @@ page.open(target, function(status) {
         }
     }
     phantom.exit();
-});
+}
+
+page.open(target, _pCallBack);
