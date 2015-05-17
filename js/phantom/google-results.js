@@ -20,7 +20,7 @@ page.open(target, function(status) {
     } else {
         result = page.evaluate(function () {
             var r = document;
-            return r.getElementById('res').innerHTML  ;
+            return (new XMLSerializer()).serializeToString(r.getElementById('res'))  ;
         });
         try {
             console.log('');
