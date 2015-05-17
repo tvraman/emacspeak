@@ -78,7 +78,7 @@ A tag is a symbol like `td'."
           (and (not (stringp child))
                (dom-by-tag-list child tag-list))
           when matches append matches)))
-    (if (member (dom-tag dom) tag-list)
+    (if (memq (dom-tag dom) tag-list)
         (cons dom matches)
       matches)))
 
