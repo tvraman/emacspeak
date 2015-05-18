@@ -512,15 +512,7 @@ Retain previously set punctuations  mode."
           (put-text-property start end 'h 'eww-tag)))))))
 
 
-(defadvice  shr-generic (around emacspeak pre act comp)
-  "Add article markers."
-  (let ((start (point)))
-    ad-do-it
-    (when (eq (dom-tag (ad-get-arg 0)) 'article)
-      (let ((start (if (char-equal (following-char) ?\n)
-                     (min (point-max) (1+ start) )start))
-          (end (if (> (point) start) (1- (point)) (point))))
-        (put-text-property start end 'article 'eww-tag)))))
+
 
 ;;}}}
 ;;{{{ Advice readable
@@ -599,7 +591,11 @@ Retain previously set punctuations  mode."
 
 ;;}}}
 ;;{{{ Filter DOM:
-
+(defun emacspeak-eww-tag-article (dom)
+  "Tag article, then render."
+  (let ((start (point)))
+    (shr-generic dom)
+        (put-text-property start (point) 'article 'eww-tag)))
 (defvar eww-shr-render-functions
   '((title . eww-tag-title)
     (form . eww-tag-form)
