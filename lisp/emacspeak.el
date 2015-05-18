@@ -135,6 +135,12 @@ speech-enabling extensions."
         (locate-library
          ,(format "%s" package))))))
 
+
+;;; DocView
+(eval-after-load "doc-view"
+(add-hook 'doc-view-mode-hook #'doc-view-open-text))
+
+
 ;;}}}
 ;;{{{ Setup package extensions
 
