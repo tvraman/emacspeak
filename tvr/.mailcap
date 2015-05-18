@@ -1,0 +1,5 @@
+video/*; mplayer -vo null -slave %s
+application/pdf; pdftotext -layout %s
+application/atom+xml; xsltproc /usr/local/share/emacs/site-lisp/emacspeak/xsl/legacy-atom.xsl %s
+application/rss+xml; xsltproc /usr/local/share/emacs/site-lisp/emacspeak/xsl/rss.xsl %s
+application/xhtml+xml; xsltproc /usr/local/share/emacs/site-lisp/emacspeak/xsl/identity.xsl %s
