@@ -596,8 +596,10 @@ Retain previously set punctuations  mode."
   (let ((start (point)))
     (shr-generic dom)
         (put-text-property start (point) 'article 'eww-tag)))
+
 (defvar eww-shr-render-functions
-  '((title . eww-tag-title)
+  '((article . emacspeak-eww-tag-article)
+    (title . eww-tag-title)
     (form . eww-tag-form)
     (input . eww-tag-input)
     (textarea . eww-tag-textarea)
