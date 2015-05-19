@@ -137,8 +137,8 @@ speech-enabling extensions."
 
 
 ;;; DocView
-(eval-after-load "doc-view"
-(add-hook 'doc-view-mode-hook #'doc-view-open-text))
+(eval-after-load 'doc-view
+   `(add-hook 'doc-view-mode-hook 'doc-view-open-text))
 
 
 ;;}}}

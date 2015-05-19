@@ -164,8 +164,7 @@ use the minibuffer."
          (not (eq 'byte-compile-obsolete
                   (get (cdr item) 'byte-compile)))
          (commandp (cdr item))
-         (emacspeak-fix-interactive-command-if-necessary (cdr
-                                                          item))))
+         (emacspeak-fix-interactive-command-if-necessary (cdr item))))
   (when (ems-interactive-p )
     (message "Fixed interactive commands defined in module %s" module)))
 
