@@ -97,7 +97,7 @@ pronunciation dictionaries are stored. ")
   "README file from where we get SVN revision number.")
 
 ;;;###autoload
-(defconst emacspeak-codename
+(defvar emacspeak-codename
   "AnswerDog"
   "Code name of present release.")
 ;;;###autoload
@@ -112,7 +112,7 @@ pronunciation dictionaries are stored. ")
       "")))
 
 ;;;###autoload
-(defconst emacspeak-version
+(defvar emacspeak-version
   (format
    "42.0 %s:  %s"
    emacspeak-codename
