@@ -1030,27 +1030,24 @@ Use command  `dtk-set-punctuations' bound to
 (defun tts-setup-servers-alist ()
   "Sets up tts servers alist from file servers/.servers.
 File .servers is expected to contain name of one server per
-no line --with no white space."
-  (declare (special emacspeak-servers-directory
-                    dtk-servers-alist))
+ line --with no white space."
+  (declare (special emacspeak-servers-directory dtk-servers-alist))
   (let ((result nil)
-        (start nil)
         (scratch (get-buffer-create " *servers*"))
-        (this nil))
+        (this nil)
+        (servers (expand-file-name ".servers" emacspeak-servers-directory)))
     (save-current-buffer
       (set-buffer scratch)
       (setq buffer-undo-list t)
       (erase-buffer)
-      (insert-file-contents
-       (expand-file-name ".servers"
-                         emacspeak-servers-directory))
+      (insert-file-contents servers)
       (goto-char (point-min))
       (while (not (eobp))
-        (setq start (point))
         (unless
             (looking-at  "^#")
-          (end-of-line)
-          (setq this (buffer-substring-no-properties start (point)))
+          (setq this
+                (buffer-substring-no-properties
+                 (line-beginning-position) (line-end-position)))
           (push this result))
         (forward-line 1)))
     (setq dtk-servers-alist result)))
