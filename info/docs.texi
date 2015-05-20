@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1070 commands and 881 options.
+This chapter documents a total of 1068 commands and 881 options.
 
 @menu
 * acss-structure::
@@ -13143,12 +13143,6 @@ Currency converter.
 Perform a FolDoc search. 
 @end deffn
 
-@deffn {Command} emacspeak-websearch-freshmeat-search  (query)
-@findex emacspeak-websearch-freshmeat-search
-
-Search Freshmeat  Site. 
-@end deffn
-
 @deffn {Command} emacspeak-websearch-google  (query &optional flag)
 @findex emacspeak-websearch-google
 
@@ -13230,12 +13224,6 @@ Search SourceForge, Freshmeat and other sites.
 @findex emacspeak-websearch-sourceforge-search
 
 Search SourceForge Site. 
-@end deffn
-
-@deffn {Command} emacspeak-websearch-swik-search  (query)
-@findex emacspeak-websearch-swik-search
-
-Search swik software community site.
 @end deffn
 
 @deffn {Command} emacspeak-websearch-weather  (query)
