@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1068 commands and 881 options.
+This chapter documents a total of 1067 commands and 881 options.
 
 @menu
 * acss-structure::
@@ -13123,12 +13123,6 @@ Search CTAN Comprehensive TeX Archive Network   Site.
 
  Press `?' to list available search engines.
 When using supported browsers,  this interface attempts to speak the most relevant information on the result page.
-@end deffn
-
-@deffn {Command} emacspeak-websearch-display-form  (form-markup)
-@findex emacspeak-websearch-display-form
-
-Display form specified by form-markup.
 @end deffn
 
 @deffn {Command} emacspeak-websearch-exchange-rate-converter  (conversion-spec)
