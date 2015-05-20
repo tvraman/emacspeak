@@ -185,44 +185,6 @@ When using supported browsers,  this interface attempts to speak the most releva
 ;;}}}
 ;;{{{ websearch utilities
 
-;;{{{ display form
-
-(emacspeak-websearch-set-searcher 'display-form
-                                  'emacspeak-websearch-display-form)
-
-(emacspeak-websearch-set-key ?/ 'display-form)
-
-(defun emacspeak-websearch-display-form (form-markup)
-  "Display form specified by form-markup."
-  (interactive
-   (list
-    (let ((emacspeak-speak-messages nil))
-      (emacspeak-pronounce-define-local-pronunciation
-       (expand-file-name "xml-forms"
-                         emacspeak-lisp-directory)
-       " xml forms ")
-      (read-file-name "Display Form: "
-                      (expand-file-name "xml-forms/" emacspeak-lisp-directory)))))
-  (declare (special emacspeak-we-xsl-p
-                    emacspeak-web-post-process-hook
-                    emacspeak-lisp-directory))
-  (let ((buffer (get-buffer-create " *search-form*"))
-        (emacspeak-we-xsl-p nil))
-    (save-excursion
-      (set-buffer buffer)
-      (erase-buffer)
-      (kill-all-local-variables)
-      (insert-file-contents  form-markup)
-      (add-hook 'emacspeak-web-post-process-hook
-                #'(lambda ()
-                    (goto-char (point-min))
-                    (widget-forward 1)
-                    (emacspeak-auditory-icon 'open-object)
-                    (emacspeak-widget-summarize (widget-at (point)))))
-      (browse-url-of-buffer)
-      (kill-buffer buffer))))
-
-;;}}}
 ;;{{{ Computer Science Bibliography
 
 (emacspeak-websearch-set-searcher 'biblio
