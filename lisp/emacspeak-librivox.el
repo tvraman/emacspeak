@@ -135,23 +135,19 @@
 
 (defun emacspeak-librivox-display-book (book position)
   "Render book results."
-  (insert "<h2>"
-          (format "%s. %s "
-                  position (g-json-get 'title book))
-          "</h2>\n")
-  (insert "<table><tr>\n")
-  (insert
-   (format "<td><a href='%s'>Listen (RSS)</a></td>\n"
-           (g-json-get 'url_rss book)))
-  (insert
-   (format "<td><a href='%s'>Download</a></td>\n"
-           (g-json-get 'url_download book)))
-  (insert "</tr></table>\n\n")
-  (emacspeak-librivox-display-authors (g-json-get 'authors book))
-  (insert "<p>"
-          (g-json-get 'description book)
-          "</p>\n\n")
-  )
+  (let ((title (g-json-get 'title book))
+        (rss (g-json-get 'url_rss book))
+        (zip (g-json-get 'url_zip_file book))
+        (time (g-json-get 'totaltime book))
+        (desc (g-json-get 'description book)))
+    (insert  (format "<h2>%s. %s</h2>\n\n" position title))
+    (insert "<table><tr>\n")
+    (when rss (insert (format "<td><a href='%s'>Listen (RSS)</a></td>\n" rss)))
+    (when zip (insert (format "<td><a href='%s'>Download</a></td>\n" zip)))
+    (when time (insert (format "<td>Time: %s</td>\n" time)))
+    (insert "</tr></table>\n\n")
+    (emacspeak-librivox-display-authors (g-json-get 'authors book))
+    (when desc (insert "<p>" desc "</p>\n\n"))))
 
 (defun emacspeak-librivox-search (pattern &optional page-title)
   "Search for books.
@@ -160,7 +156,6 @@ Argument `pattern' is of the form:
 `title=pattern' Search by title.
 ^all Browse books.
 Optional arg `page-title' specifies page title."
-  (interactive "sPattern: ")
   (or page-title (setq page-title pattern))
   (let* ((url
           (emacspeak-librivox-audiobooks-uri
@@ -181,7 +176,17 @@ Optional arg `page-title' specifies page title."
          do
          (emacspeak-librivox-display-book b i))
         (browse-url-of-buffer)))))
+;;;###autoload
+(defun emacspeak-librivox-search-by-genre (genre)
+  "Search by genre.
+Both exact and partial matches for `genre'."
+  (interactive "sGenre: ")
+  (emacspeak-librivox-search
+   (format "genre=%s"
+           (emacspeak-url-encode genre))
+   (format "Search For Genre: %s" genre)))
 
+;;;###autoload
 (defun emacspeak-librivox-search-by-author (author)
   "Search by author.
 Both exact and partial matches for `author'."
@@ -191,6 +196,7 @@ Both exact and partial matches for `author'."
            (emacspeak-url-encode author))
    (format "Search For Author: %s" author)))
 
+;;;###autoload
 (defun emacspeak-librivox-search-by-title (title)
   "Search by title.
 Both exact and partial matches for `title'."
