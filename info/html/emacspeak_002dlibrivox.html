@@ -99,30 +99,13 @@
 
   <h3 class="section">11.105 emacspeak-librivox</h3>
 
-  <p>LIBRIVOX == http://wwwlibrivox.org Free Audio Books API Info:
+  <p>LIBRIVOX == http://www.librivox.org Free Audio Books API Info:
   https://librivox.org/api/info It provides a simple Web API This
   module implements an Emacspeak Librivox client.</p><a name=
   "emacspeak_002dlibrivox-Commands" id=
   "emacspeak_002dlibrivox-Commands"></a>
 
   <h4 class="subsection">11.105.1 emacspeak-librivox Commands</h4>
-
-  <dl>
-    <dt><a name="index-emacspeak_002dlibrivox_002dsearch" id=
-    "index-emacspeak_002dlibrivox_002dsearch"></a>Command:
-    <strong>emacspeak-librivox-search</strong> <em>(pattern
-    &amp;optional page-title)</em></dt>
-
-    <dd>
-      <a name="index-emacspeak_002dlibrivox_002dsearch-1" id=
-      "index-emacspeak_002dlibrivox_002dsearch-1"></a>
-
-      <p>Search for books. Argument &lsquo;pattern&rsquo; is of the
-      form: &lsquo;author=pattern&rsquo; Search by author.
-      &lsquo;title=pattern&rsquo; Search by title. Optional arg
-      &lsquo;page-title&rsquo; specifies page title.</p>
-    </dd>
-  </dl>
 
   <dl>
     <dt><a name=
@@ -145,6 +128,24 @@
 
   <dl>
     <dt><a name=
+    "index-emacspeak_002dlibrivox_002dsearch_002dby_002dgenre" id=
+    "index-emacspeak_002dlibrivox_002dsearch_002dby_002dgenre"></a>Command:
+    <strong>emacspeak-librivox-search-by-genre</strong>
+    <em>(genre)</em></dt>
+
+    <dd>
+      <a name=
+      "index-emacspeak_002dlibrivox_002dsearch_002dby_002dgenre-1"
+      id=
+      "index-emacspeak_002dlibrivox_002dsearch_002dby_002dgenre-1"></a>
+
+      <p>Search by genre. Both exact and partial matches for
+      &lsquo;genre&rsquo;.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
     "index-emacspeak_002dlibrivox_002dsearch_002dby_002dtitle" id=
     "index-emacspeak_002dlibrivox_002dsearch_002dby_002dtitle"></a>Command:
     <strong>emacspeak-librivox-search-by-title</strong>
@@ -158,19 +159,6 @@
 
       <p>Search by title. Both exact and partial matches for
       &lsquo;title&rsquo;.</p>
-    </dd>
-  </dl><a name="emacspeak_002dlibrivox-Options" id=
-  "emacspeak_002dlibrivox-Options"></a>
-
-  <h4 class="subsection">11.105.2 emacspeak-librivox Options</h4>
-
-  <dl>
-    <dt><a name="index-User-Option-524" id=
-    "index-User-Option-524"></a>Variable: <strong>User
-    Option</strong> <em>emacspeak-librivox-directory</em></dt>
-
-    <dd>
-      <p>Location where we cache librivox data.</p>
     </dd>
   </dl>
 </body>
