@@ -43,8 +43,6 @@ relevant tables bubble to the top.
   
   <xsl:include href="identity.xsl"/>
   <xsl:include href="object.xsl"/>
-  <xsl:include href="auto-rss-discover.xsl"/>
-  <!--<xsl:include href="auto-atom-discover.xsl"/>-->
   <!-- { html body  -->
 <xsl:template match="script|meta|link|//div[@style='display:none']"/>
 <xsl:template match="iframe">
@@ -77,8 +75,6 @@ Embedded IFrame</a>
   <xsl:template match="body">
     <body>
       <xsl:apply-templates select="@*"/>
-      <xsl:call-template name="generate-rss"/>
-      <!--<xsl:call-template name="generate-atom"/>-->
       <xsl:variable name="i" select="//table//table"/>
       <xsl:if test="count($i)  &gt; 0">
 <p>
