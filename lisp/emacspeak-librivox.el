@@ -167,7 +167,6 @@ Optional arg `page-title' specifies page title."
                    "%s  %s '%s'"
                    g-curl-program g-curl-common-options url)))
          (books (g-json-get 'books result)))
-    (assert books nil "No books found.")
     (unless books (message "No results."))
     (when books
       (with-temp-buffer

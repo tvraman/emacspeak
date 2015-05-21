@@ -134,7 +134,10 @@
   (interactive)
   (emacspeak-eww-prepare-eww)
   (let ((alt (dom-alternate-links (emacspeak-eww-current-dom))))
-    (with-temp-buffer
+    (cond
+     ((null alt) (message "No alternate links."))
+     (t
+      (with-temp-buffer
       (insert "<table><th>Type</th><th>URL</th></tr>\n")
       (loop
        for a in alt do
@@ -150,7 +153,7 @@
                 (dom-attr a 'href)))
        (insert "</tr>\n"))
       (insert "</table>\n")
-      (browse-url-of-buffer))))
+      (browse-url-of-buffer))))))
     
                
        do
