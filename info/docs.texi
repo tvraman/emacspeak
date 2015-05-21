@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1061 commands and 881 options.
+This chapter documents a total of 1061 commands and 880 options.
 
 @menu
 * acss-structure::
@@ -7465,21 +7465,18 @@ This module implements an Emacspeak Librivox client.
 
 @subsection emacspeak-librivox Commands
 
-@deffn {Command} emacspeak-librivox-search  (pattern &optional page-title)
-@findex emacspeak-librivox-search
-
-Search for books. 
-Argument `pattern' is of the form:
-`author=pattern' Search by author.
-`title=pattern' Search by title.
-Optional arg `page-title' specifies page title.
-@end deffn
-
 @deffn {Command} emacspeak-librivox-search-by-author  (author)
 @findex emacspeak-librivox-search-by-author
 
 Search by author.
 Both exact and partial matches for `author'.
+@end deffn
+
+@deffn {Command} emacspeak-librivox-search-by-genre  (genre)
+@findex emacspeak-librivox-search-by-genre
+
+Search by genre.
+Both exact and partial matches for `genre'.
 @end deffn
 
 @deffn {Command} emacspeak-librivox-search-by-title  (title)
@@ -7488,13 +7485,6 @@ Both exact and partial matches for `author'.
 Search by title.
 Both exact and partial matches for `title'.
 @end deffn
-
-@subsection emacspeak-librivox Options
-
-@defvar {User Option} emacspeak-librivox-directory
-Location where we cache  librivox data.
-
-@end defvar
 
 @node emacspeak-m-player
 @section emacspeak-m-player
