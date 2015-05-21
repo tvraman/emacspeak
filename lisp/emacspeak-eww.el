@@ -133,7 +133,8 @@
   "Display Link tags of type rel."
   (interactive)
   (emacspeak-eww-prepare-eww)
-  (let ((alt (dom-alternate-links (emacspeak-eww-current-dom))))
+  (let ((alt (dom-alternate-links (emacspeak-eww-current-dom)))
+        (base (emacspeak-eww-current-url)))
     (cond
      ((null alt) (message "No alternate links."))
      (t
@@ -149,8 +150,8 @@
                     (dom-attr a 'media))))
        (insert
         (format "<td><a href='%s'>%s</td>\n"
-                (dom-attr a 'href)
-                (dom-attr a 'href)))
+                (shr-expand-url (dom-attr a 'href) base)
+                (shr-expand-url (dom-attr a 'href) base)))
        (insert "</tr>\n"))
       (insert "</table>\n")
       (browse-url-of-buffer))))))
