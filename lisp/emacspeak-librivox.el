@@ -58,22 +58,6 @@
 (require 'g-utils)
 
 ;;}}}
-;;{{{ Customizations
-
-(defgroup emacspeak-librivox nil
-  "Librivox Access on the Complete Audio Desktop."
-  :group 'emacspeak)
-
-(defcustom emacspeak-librivox-directory
-  (expand-file-name "librivox"
-                    emacspeak-resource-directory)
-  "Location where we cache  librivox data.")
-
-(defvar emacspeak-librivox-catalog-location
-  (expand-file-name "catalog.csv" emacspeak-librivox-directory)
-  "Location where we cache the Librivox catalog.")
-
-;;}}}
 ;;{{{ Variables:
 
 (defvar emacspeak-librivox-buffer-name

@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1067 commands and 881 options.
+This chapter documents a total of 1061 commands and 881 options.
 
 @menu
 * acss-structure::
@@ -7459,90 +7459,34 @@ speech-enables kmacro --- a kbd macro interface
 @section emacspeak-librivox
 
 LIBRIVOX == http://wwwlibrivox.org Free Audio Books
-It provides a simple Web  API http://wiki.librivox.org/index.php/LibriVoxAPI
+API Info: https://librivox.org/api/info
+It provides a simple Web  API
 This module implements an Emacspeak Librivox client.
 
 @subsection emacspeak-librivox Commands
 
-@deffn {Command} emacspeak-librivox   
-@findex emacspeak-librivox
+@deffn {Command} emacspeak-librivox-search  (pattern &optional page-title)
+@findex emacspeak-librivox-search
 
-Librivox Library Of Free Audio Books.
+Search for books. 
+Argument `pattern' is of the form:
+`author=pattern' Search by author.
+`title=pattern' Search by title.
+Optional arg `page-title' specifies page title.
 @end deffn
 
-@deffn {Command} emacspeak-librivox-fetch-catalog   
-@findex emacspeak-librivox-fetch-catalog
+@deffn {Command} emacspeak-librivox-search-by-author  (author)
+@findex emacspeak-librivox-search-by-author
 
-Fetch catalog to our cache location.
+Search by author.
+Both exact and partial matches for `author'.
 @end deffn
 
-@deffn {Command} emacspeak-librivox-mode   
-@findex emacspeak-librivox-mode
+@deffn {Command} emacspeak-librivox-search-by-title  (title)
+@findex emacspeak-librivox-search-by-title
 
-A Librivox front-end for the Emacspeak Audio Desktop.
-
-In addition to any hooks its parent mode `emacspeak-table-mode' might have run,
-this mode runs the hook `emacspeak-librivox-mode-hook', as the final step
-during initialization.
-
-key             binding
----             -------
-
-RET		emacspeak-librivox-open-rss
-F		emacspeak-librivox-fetch-catalog
-P		emacspeak-librivox-play
-S		emacspeak-librivox-searcher
-c		Prefix Command
-u		emacspeak-librivox-open-url
-
-c -		Prefix Command
-
-S a		emacspeak-librivox-search-author
-S g		emacspeak-librivox-search-genre
-S t		emacspeak-librivox-search-title
-
-c - R		Prefix Command
-
-c - R E		Prefix Command
-
-c - R E T	emacspeak-librivox-play
-
-@end deffn
-
-@deffn {Command} emacspeak-librivox-open-rss   
-@findex emacspeak-librivox-open-rss
-
-Open RSS  link for current Librivox book.
-@end deffn
-
-@deffn {Command} emacspeak-librivox-open-url   
-@findex emacspeak-librivox-open-url
-
-Open Librivox URL  for current Librivox book.
-@end deffn
-
-@deffn {Command} emacspeak-librivox-play   
-@findex emacspeak-librivox-play
-
-Play current book as a playlist.
-@end deffn
-
-@deffn {Command} emacspeak-librivox-search-author  (pattern)
-@findex emacspeak-librivox-search-author
-
-Search in catalog for Author 1.
-@end deffn
-
-@deffn {Command} emacspeak-librivox-search-genre  (pattern)
-@findex emacspeak-librivox-search-genre
-
-Search in catalog for genre.
-@end deffn
-
-@deffn {Command} emacspeak-librivox-search-title  (pattern)
-@findex emacspeak-librivox-search-title
-
-Search in catalog for title.
+Search by title.
+Both exact and partial matches for `title'.
 @end deffn
 
 @subsection emacspeak-librivox Options
