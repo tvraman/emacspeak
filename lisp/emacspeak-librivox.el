@@ -165,32 +165,52 @@
           "</p>\n\n")
   )
 
-(defun emacspeak-librivox-search-by-author (author)
-  "Search by author.
-Both exact and partial matches for `author'."
-  (interactive "sAuthor: ")
+(defun emacspeak-librivox-search (pattern &optional page-title)
+  "Search for books. 
+Argument `pattern' is of the form:
+`author=pattern' Search by author.
+`title=pattern' Search by title.
+Optional arg `page-title' specifies page title."
+  (interactive "sPattern: ")
+  (or page-title (setq page-title pattern))
   (let* ((url 
           (emacspeak-librivox-audiobooks-uri
-           (format "author=%s"
-                   (emacspeak-url-encode author))))
+           pattern))
          (result (g-json-get-result
                   (format
                    "%s  %s '%s'"
                    g-curl-program g-curl-common-options url)))
          (books (g-json-get 'books result)))
+    (assert books nil "No books found.")
     (when books
       (with-temp-buffer
-        (insert "<title>Author Search For " author "</title>")
-                
+        (insert "<title>" page-title "</title>\n")
         (loop
          for b across books
          do
          (emacspeak-librivox-display-book b))
         (browse-url-of-buffer)))))
+  
+(defun emacspeak-librivox-search-by-author (author)
+  "Search by author.
+Both exact and partial matches for `author'."
+  (interactive "sAuthor: ")
+  (emacspeak-librivox-search
+   (format "author=%s"
+           (emacspeak-url-encode author))
+   (format "Search For Author: %s" author)))
+
+
+(defun emacspeak-librivox-search-by-title (title)
+  "Search by title.
+Both exact and partial matches for `title'."
+  (interactive "sTitle: ")
+  (emacspeak-librivox-search
+   (format "title=%s"
+           (emacspeak-url-encode title))
+   (format "Search For Title: %s" title)))
 
 ;;}}}
-
-
 (provide 'emacspeak-librivox)
 ;;{{{ end of file
 
