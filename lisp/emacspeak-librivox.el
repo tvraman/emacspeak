@@ -55,8 +55,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'emacspeak-table-ui)
-(require 'derived)
+(require 'g-utils)
 
 ;;}}}
 ;;{{{ Customizations
@@ -77,16 +76,10 @@
 ;;}}}
 ;;{{{ Variables:
 
-(defvar emacspeak-librivox-curl-program (executable-find "curl")
-  "Curl executable.")
-
-(defvar emacspeak-librivox-curl-common-options
-  " --silent "
-  "Common Curl options for Librivox. ")
-
 (defvar emacspeak-librivox-buffer-name
   "*Librivox Interaction*"
   "Name of Librivox interaction buffer.")
+
 ;;}}}
 ;;{{{ API:
 
@@ -106,19 +99,20 @@
 ;; * limit (default is 50)
 ;;   * offset
 
-(defsubst emacspeak-librivox-audiobooks-base ()
-  "Base URI for audiobooks."
+(defsubst emacspeak-librivox-audiobooks-uri (pattern)
+  "Search URI for audiobooks."
   (declare (special emacspeak-librivox-api-base))
-  (concat emacspeak-librivox-api-base "audiobooks"))
+  (concat emacspeak-librivox-api-base "audiobooks?format=json&" pattern))
+
 ;;; Audio Tracks API:
 ;;; Params:
 ;; * id - of track itself
 ;; * project_id - all tracks for project
 
-(defsubst emacspeak-librivox-audiotracks-base ()
+(defsubst emacspeak-librivox-audiotracks-base (pattern)
   "Base URI for audiotracks."
   (declare (special emacspeak-librivox-api-base))
-  (concat emacspeak-librivox-api-base "audiotracks"))
+  (concat emacspeak-librivox-api-base "audiotracks?format=json&" pattern))
 
 ;;; Simple Authors API:
 ;;; Params:
@@ -132,15 +126,67 @@
 
 ;;}}}
 ;;{{{ Search Commands:
+
+(defsubst emacspeak-librivox-display-author (author)
+  "Display single author."
+  (insert 
+            (format "%s, " (g-json-get 'last_name author))
+            (format "%s " (g-json-get 'first_name author))
+            (format "(%s -- %s \n" (g-json-get 'dob author) (g-json-get 'dod author))
+            "<br/>"))
+
+(defun emacspeak-librivox-display-authors (authors)
+  "Display authors."
+  (insert "\n\n<p>\n")
+  (cond
+   ((= (length authors)1)
+    (emacspeak-librivox-display-author (aref authors 0)))
+   (t
+    (loop
+     for a across authors
+     do
+     (emacspeak-librivox-display-author a))))
+  (insert "</p>\n\n"))
+
+(defun emacspeak-librivox-display-book (book)
+  "Render book results."
+  (insert "<h1>" (g-json-get 'title book) "</h1>\n")
+  (insert "<table><tr>\n")
+  (insert
+   (format "<td><a href='%s'>Listen (RSS)</a></td>\n"
+           (g-json-get 'url_rss book)))
+  (insert
+   (format "<td><a href='%s'>Download</a></td>\n"
+           (g-json-get 'url_download book)))
+  (insert "</tr></table>\n\n")
+  (emacspeak-librivox-display-authors (g-json-get 'authors book))
+  (insert "<p>"
+          (g-json-get 'description book)
+          "</p>\n\n")
+  )
+
 (defun emacspeak-librivox-search-by-author (author)
   "Search by author.
 Both exact and partial matches for `author'."
   (interactive "sAuthor: ")
-  (emacspeak-xslt-view-xml
-     (expand-file-name "librivox-books.xsl" emacspeak-xslt-directory)
-     (concat
-      (emacspeak-librivox-audiobooks-base)
-      (format "/author/%s" author))))
+  (let* ((url 
+          (emacspeak-librivox-audiobooks-uri
+           (format "author=%s"
+                   (emacspeak-url-encode author))))
+         (result (g-json-get-result
+                  (format
+                   "%s  %s '%s'"
+                   g-curl-program g-curl-common-options url)))
+         (books (g-json-get 'books result)))
+    (when books
+      (with-temp-buffer
+        (insert "<title>Author Search For " author "</title>")
+                
+        (loop
+         for b across books
+         do
+         (emacspeak-librivox-display-book b))
+        (browse-url-of-buffer)))))
 
 ;;}}}
 
