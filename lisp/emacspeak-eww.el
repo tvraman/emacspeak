@@ -127,6 +127,38 @@
   (emacspeak-pronounce-toggle-use-of-dictionaries t))
 
 ;;}}}
+;;{{{ Viewing Page metadata: meta, links
+
+(defun emacspeak-eww-links-rel ()
+  "Display Link tags of type rel."
+  (interactive)
+  (emacspeak-eww-prepare-eww)
+  (let ((alt (dom-alternate-links (emacspeak-eww-current-dom))))
+    (with-temp-buffer
+      (insert "<table><th>Type</th><th>URL</th></tr>\n")
+      (loop
+       for a in alt do
+       (insert "<tr>")
+       (insert
+        (format "<td>%s</td>\n"
+                (or (dom-attr a 'title)
+                    (dom-attr a 'type)
+                    (dom-attr a 'media))))
+       (insert
+        (format "<td><a href='%s'>%s</td>\n"
+                (dom-attr a 'href)
+                (dom-attr a 'href)))
+       (insert "</tr>\n"))
+      (insert "</table>\n")
+      (browse-url-of-buffer))))
+    
+               
+       do
+       (
+
+)
+
+;;}}}
 ;;{{{ Setup EWW Initialization:
 
 ;;; Inform emacspeak-webutils about EWW:
@@ -237,6 +269,7 @@
      ("M-e" eww-view-dom-not-having-elements)
      ("M-i" eww-view-dom-not-having-id)
      ("M-r" eww-view-dom-not-having-role)
+     ("L" emacspeak-eww-links-rel)
      ("N" emacspeak-eww-next-element-from-history)
      ("O" emacspeak-eww-previous-li)
      ("P" emacspeak-eww-previous-element-from-history)

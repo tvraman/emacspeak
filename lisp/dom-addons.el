@@ -53,6 +53,14 @@
 
 ;;}}}
 ;;{{{ Additional helpers:
+(defsubst dom-alternate-links (dom)
+  "Return link elements specifying rel=alternate."
+  (remove-if-not
+   #'(lambda (l) (equal "alternate"
+                        (dom-attr l 'rel)))
+   (dom-by-tag dom 'link)))
+
+
 (defsubst dom-html-from-nodes (nodes &optional base)
   "Make up an HTML DOM having nodes as children."
   (message "%d nodes" (length nodes))

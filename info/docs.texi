@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1061 commands and 880 options.
+This chapter documents a total of 1062 commands and 880 options.
 
 @menu
 * acss-structure::
@@ -5681,6 +5681,12 @@ This module speech-enables EWW
 Show just the knowledge card.
 Warning, this is fragile, and depends on a stable id for the
   knowledge card.
+@end deffn
+
+@deffn {Command} emacspeak-eww-links-rel   
+@findex emacspeak-eww-links-rel
+
+Display Link tags of type rel.
 @end deffn
 
 @deffn {Command} emacspeak-eww-masquerade   
