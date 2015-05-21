@@ -43,7 +43,8 @@
 
 ;;; Commentary:
 ;;; LIBRIVOX == http://wwwlibrivox.org Free Audio Books
-;;; It provides a simple Web  API http://wiki.librivox.org/index.php/LibriVoxAPI
+;;; API Info: https://librivox.org/api/info
+;;; It provides a simple Web  API
 ;;; This module implements an Emacspeak Librivox client.
 
 ;;; Code:
@@ -72,6 +73,7 @@
 (defvar emacspeak-librivox-catalog-location
   (expand-file-name "catalog.csv" emacspeak-librivox-directory)
   "Location where we cache the Librivox catalog.")
+
 ;;}}}
 ;;{{{ Variables:
 
@@ -82,33 +84,54 @@
   " --silent "
   "Common Curl options for Librivox. ")
 
-(defvar emacspeak-librivox-api-base
-  "http://librivox.org/newcatalog/"
-  "Base REST end-point for Librivox API  access.")
 (defvar emacspeak-librivox-buffer-name
   "*Librivox Interaction*"
   "Name of Librivox interaction buffer.")
+;;}}}
+;;{{{ API:
+
+(defvar emacspeak-librivox-api-base
+  "https://librivox.org/api/feed/"
+  "Base REST end-point for Librivox API  access.")
+
+;;; audiobooks:
+;;; Params from API Documentation:
+
+;; * id - fetches a single record
+;; * since - takes a UNIX timestamp; returns all projects cataloged since that time
+;; * author - all records by that author last name
+;; * title - all matching titles
+;; * genre - all projects of the matching genre
+;; * extended - =1 will return the full set of data about the project
+;; * limit (default is 50)
+;;   * offset
+
+(defsubst emacspeak-librivox-audiobooks-base ()
+  "Base URI for audiobooks."
+  (declare (special emacspeak-librivox-api-base))
+  (concat emacspeak-librivox-api-base "audiobooks"))
+;;; Audio Tracks API:
+;;; Params:
+;; * id - of track itself
+;; * project_id - all tracks for project
+
+(defsubst emacspeak-librivox-audiotracks-base ()
+  "Base URI for audiotracks."
+  (declare (special emacspeak-librivox-api-base))
+  (concat emacspeak-librivox-api-base "audiotracks"))
+
+;;; Simple Authors API:
+;;; Params:
+;; * id - of author
+;; * last_name - exact match
+
+(defsubst emacspeak-librivox-authors-base ()
+  "Base URI for authors."
+  (declare (special emacspeak-librivox-api-base))
+  (concat emacspeak-librivox-api-base "authors"))
 
 ;;}}}
-;;{{{ Helpers:
 
-(defun emacspeak-librivox-fetch-catalog ()
-  "Fetch catalog to our cache location."
-  (interactive)
-  (declare (special emacspeak-librivox-api-base
-                    emacspeak-librivox-catalog-location))
-  (let ((dir  (file-name-directory emacspeak-librivox-catalog-location)))
-    (unless (file-exists-p dir)
-      (make-directory dir 'parents)))
-  (shell-command
-   (format "%s %s %s > %s 2>/dev/null"
-           emacspeak-librivox-curl-program
-           emacspeak-librivox-curl-common-options
-           "https://catalog.librivox.org/csv.php"
-           emacspeak-librivox-catalog-location))
-  (emacspeak-auditory-icon 'task-done))
-
-;;}}}
 (provide 'emacspeak-librivox)
 ;;{{{ Librivox Mode:
 
