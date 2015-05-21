@@ -3,91 +3,11 @@ $Id$
 Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
-* Emacspeak 42 -- Emacspeak 42 User Visible Changes
+* Emacspeak 43 -- Emacspeak 43 User Visible Changes
+** emacspeak-librivox:
 
-** Updated Info Manual 
+Implements the new Librivox API
+** emacspeak-eww:
 
-The code that auto-generates documentation for Emacspeak packages has
-been completely re-written.
-** Emacspeak And SoX
-
-Emacspeak now uses the SoX package if available to produce tones. 
-Emacspeak previously used either /usr/bin/beep or the alternative provided by emacspeak/etc/beep (if installed to /usr/bin) to produce tones.
-This also means that we no longer need to install package siggen to get tones.
-  
-** Emacspeak Now Requires Emacs 24.1 
-
-
-Emacspeak 42 now requires Emacs 24.1 or later.
-Specifically, you need an Emacs that is built with libxml2 support for using packages like emacspeak-bookshare.
-
-** emacspeak-elfeed.el:
-
-Speech-enables package elfeed, a powerful feed-reader for Emacs.
-
-** CSound Generated 3D Theme
-
-Emacspeak 42 includes a 3D auditory icon theme generated using CSound.
-
-** sox.el Audacious --- Audio WorkBench For Emacspeak 
-
-Module sox.el implements a light-weight Emacs UI to create Audacious --- An Audio Workbench for  the Emacspeak Desktop.
-
-** emacspeak-m-player.el
-
-Provides a large number of reverb presets using  Ladspa plugin tap-reverb.
-
-** Directory realaudio renamed to  media 
-
-Directory realaudio -- the directory containing streaming media presets has now been renamed to _media_.
-Realaudio is now legacy and all code in Emacspeak had been updated a few years ago to use _mplayer_ to play media streams; this renaming is purely cosmetic.
-Also overhauled set of links in media directory.
-Finally, emacspeak-multimedia defaults to prompting  for shortcuts in media/radio unless the current directory itself contains media.
-
-** Tune-In: Search And Browse Radio Stations
-
-emacspeak-url-template now defines templates for searching and browsing tune-in radio stations. Interactive commands 
-emacspeak-wizards-tune-in-radio-browse and emacspeak-wizards-tune-in-radio-search can be bound to convenient shortcut keys to invoke this functionality.
-
-** emacspeak-markdown.el:
-
-Speech-enable markdown-mode.
-
-** realaudio/radio 
-
-Updated all BBC  playlists to mp3/m3u files 
-Note that Windows Media (.asx) is no longer supported by the BBC  after Dec 31, 2014.
-
-** emacspeak-xref.el: Speech-Enable xref.el  
-
-Navigating cross-references in source code.
-
-
-** emacspeak-package.el
-
-Enhancements for package.el
-
-** EWW Web Support: Emacspeak-eww
-   
-Enhanced support for EWW, including structured navigation.
-
-** Emacs 25 Support
-
-Speech-enables Emacs 25 features.
-
-
-** AMark Support For M-Player
-
-You can now mark positions in  an mplayer stream and return to it
-later.
-This brings the same functionality to emacspeak-m-player that was
-formerly available in emacspeak-alsaplayer 
-
-** Better Support For Display  Property 
-
-Handles more cases of property _display_.
-
-
-** Logging Support For TTS Servers 
-
-Updated support for logging output from TTS servers -- see  http://emacspeak.blogspot.com/2015/04/howto-log-speech-server-output-to-aid.html
+Better filtering: filter by elements, class, roles and attributes.
+History navigating through nested filter invocations works.
