@@ -10,17 +10,17 @@
   <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
   "text/css" />
 
-  <title>Emacspeak User’s Manual –2nd Edition.:
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
   emacspeak-librivox</title>
   <meta name="description" content=
-  "Emacspeak User’s Manual –2nd Edition.: emacspeak-librivox" />
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-librivox" />
   <meta name="keywords" content=
-  "Emacspeak User’s Manual –2nd Edition.: emacspeak-librivox" />
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-librivox" />
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
   <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
+  "text/html; charset=us-ascii" />
   <link href="index.html#Top" rel="start" title="Top" />
   <link href="Concept-Index.html#Concept-Index" rel="index" title=
   "Concept Index" />
@@ -99,162 +99,65 @@
 
   <h3 class="section">11.105 emacspeak-librivox</h3>
 
-  <p>LIBRIVOX == http://wwwlibrivox.org Free Audio Books It
-  provides a simple Web API
-  http://wiki.librivox.org/index.php/LibriVoxAPI This module
-  implements an Emacspeak Librivox client.</p><a name=
+  <p>LIBRIVOX == http://wwwlibrivox.org Free Audio Books API Info:
+  https://librivox.org/api/info It provides a simple Web API This
+  module implements an Emacspeak Librivox client.</p><a name=
   "emacspeak_002dlibrivox-Commands" id=
   "emacspeak_002dlibrivox-Commands"></a>
 
   <h4 class="subsection">11.105.1 emacspeak-librivox Commands</h4>
 
   <dl>
-    <dt><a name="index-emacspeak_002dlibrivox" id=
-    "index-emacspeak_002dlibrivox"></a>Command:
-    <strong>emacspeak-librivox</strong></dt>
+    <dt><a name="index-emacspeak_002dlibrivox_002dsearch" id=
+    "index-emacspeak_002dlibrivox_002dsearch"></a>Command:
+    <strong>emacspeak-librivox-search</strong> <em>(pattern
+    &amp;optional page-title)</em></dt>
 
     <dd>
-      <a name="index-emacspeak_002dlibrivox-1" id=
-      "index-emacspeak_002dlibrivox-1"></a>
+      <a name="index-emacspeak_002dlibrivox_002dsearch-1" id=
+      "index-emacspeak_002dlibrivox_002dsearch-1"></a>
 
-      <p>Librivox Library Of Free Audio Books.</p>
+      <p>Search for books. Argument &lsquo;pattern&rsquo; is of the
+      form: &lsquo;author=pattern&rsquo; Search by author.
+      &lsquo;title=pattern&rsquo; Search by title. Optional arg
+      &lsquo;page-title&rsquo; specifies page title.</p>
     </dd>
   </dl>
 
   <dl>
     <dt><a name=
-    "index-emacspeak_002dlibrivox_002dfetch_002dcatalog" id=
-    "index-emacspeak_002dlibrivox_002dfetch_002dcatalog"></a>Command:
-    <strong>emacspeak-librivox-fetch-catalog</strong></dt>
+    "index-emacspeak_002dlibrivox_002dsearch_002dby_002dauthor" id=
+    "index-emacspeak_002dlibrivox_002dsearch_002dby_002dauthor"></a>Command:
+    <strong>emacspeak-librivox-search-by-author</strong>
+    <em>(author)</em></dt>
 
     <dd>
       <a name=
-      "index-emacspeak_002dlibrivox_002dfetch_002dcatalog-1" id=
-      "index-emacspeak_002dlibrivox_002dfetch_002dcatalog-1"></a>
+      "index-emacspeak_002dlibrivox_002dsearch_002dby_002dauthor-1"
+      id=
+      "index-emacspeak_002dlibrivox_002dsearch_002dby_002dauthor-1">
+      </a>
 
-      <p>Fetch catalog to our cache location.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-emacspeak_002dlibrivox_002dmode" id=
-    "index-emacspeak_002dlibrivox_002dmode"></a>Command:
-    <strong>emacspeak-librivox-mode</strong></dt>
-
-    <dd>
-      <a name="index-emacspeak_002dlibrivox_002dmode-1" id=
-      "index-emacspeak_002dlibrivox_002dmode-1"></a>
-
-      <p>A Librivox front-end for the Emacspeak Audio Desktop.</p>
-
-      <p>In addition to any hooks its parent mode
-      ‘emacspeak-table-mode’ might have run, this mode runs the
-      hook ‘emacspeak-librivox-mode-hook’, as the final step during
-      initialization.</p>
-
-      <p>key binding — ——-</p>
-
-      <p>RET emacspeak-librivox-open-rss F
-      emacspeak-librivox-fetch-catalog P emacspeak-librivox-play S
-      emacspeak-librivox-searcher c Prefix Command u
-      emacspeak-librivox-open-url</p>
-
-      <p>c - Prefix Command</p>
-
-      <p>S a emacspeak-librivox-search-author S g
-      emacspeak-librivox-search-genre S t
-      emacspeak-librivox-search-title</p>
-
-      <p>c - R Prefix Command</p>
-
-      <p>c - R E Prefix Command</p>
-
-      <p>c - R E T emacspeak-librivox-play</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-emacspeak_002dlibrivox_002dopen_002drss" id=
-    "index-emacspeak_002dlibrivox_002dopen_002drss"></a>Command:
-    <strong>emacspeak-librivox-open-rss</strong></dt>
-
-    <dd>
-      <a name="index-emacspeak_002dlibrivox_002dopen_002drss-1" id=
-      "index-emacspeak_002dlibrivox_002dopen_002drss-1"></a>
-
-      <p>Open RSS link for current Librivox book.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-emacspeak_002dlibrivox_002dopen_002durl" id=
-    "index-emacspeak_002dlibrivox_002dopen_002durl"></a>Command:
-    <strong>emacspeak-librivox-open-url</strong></dt>
-
-    <dd>
-      <a name="index-emacspeak_002dlibrivox_002dopen_002durl-1" id=
-      "index-emacspeak_002dlibrivox_002dopen_002durl-1"></a>
-
-      <p>Open Librivox URL for current Librivox book.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-emacspeak_002dlibrivox_002dplay" id=
-    "index-emacspeak_002dlibrivox_002dplay"></a>Command:
-    <strong>emacspeak-librivox-play</strong></dt>
-
-    <dd>
-      <a name="index-emacspeak_002dlibrivox_002dplay-1" id=
-      "index-emacspeak_002dlibrivox_002dplay-1"></a>
-
-      <p>Play current book as a playlist.</p>
+      <p>Search by author. Both exact and partial matches for
+      &lsquo;author&rsquo;.</p>
     </dd>
   </dl>
 
   <dl>
     <dt><a name=
-    "index-emacspeak_002dlibrivox_002dsearch_002dauthor" id=
-    "index-emacspeak_002dlibrivox_002dsearch_002dauthor"></a>Command:
-    <strong>emacspeak-librivox-search-author</strong>
-    <em>(pattern)</em></dt>
+    "index-emacspeak_002dlibrivox_002dsearch_002dby_002dtitle" id=
+    "index-emacspeak_002dlibrivox_002dsearch_002dby_002dtitle"></a>Command:
+    <strong>emacspeak-librivox-search-by-title</strong>
+    <em>(title)</em></dt>
 
     <dd>
       <a name=
-      "index-emacspeak_002dlibrivox_002dsearch_002dauthor-1" id=
-      "index-emacspeak_002dlibrivox_002dsearch_002dauthor-1"></a>
+      "index-emacspeak_002dlibrivox_002dsearch_002dby_002dtitle-1"
+      id=
+      "index-emacspeak_002dlibrivox_002dsearch_002dby_002dtitle-1"></a>
 
-      <p>Search in catalog for Author 1.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-emacspeak_002dlibrivox_002dsearch_002dgenre"
-    id=
-    "index-emacspeak_002dlibrivox_002dsearch_002dgenre"></a>Command:
-    <strong>emacspeak-librivox-search-genre</strong>
-    <em>(pattern)</em></dt>
-
-    <dd>
-      <a name="index-emacspeak_002dlibrivox_002dsearch_002dgenre-1"
-      id="index-emacspeak_002dlibrivox_002dsearch_002dgenre-1"></a>
-
-      <p>Search in catalog for genre.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-emacspeak_002dlibrivox_002dsearch_002dtitle"
-    id=
-    "index-emacspeak_002dlibrivox_002dsearch_002dtitle"></a>Command:
-    <strong>emacspeak-librivox-search-title</strong>
-    <em>(pattern)</em></dt>
-
-    <dd>
-      <a name="index-emacspeak_002dlibrivox_002dsearch_002dtitle-1"
-      id="index-emacspeak_002dlibrivox_002dsearch_002dtitle-1"></a>
-
-      <p>Search in catalog for title.</p>
+      <p>Search by title. Both exact and partial matches for
+      &lsquo;title&rsquo;.</p>
     </dd>
   </dl><a name="emacspeak_002dlibrivox-Options" id=
   "emacspeak_002dlibrivox-Options"></a>

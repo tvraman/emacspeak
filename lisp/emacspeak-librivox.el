@@ -1,3 +1,4 @@
+
 ;;; emacspeak-librivox.el --- Speech-enabled  LIBRIVOX API client
 ;;; $Id: emacspeak-librivox.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
@@ -113,11 +114,11 @@
 
 (defsubst emacspeak-librivox-display-author (author)
   "Display single author."
-  (insert 
-            (format "%s, " (g-json-get 'last_name author))
-            (format "%s " (g-json-get 'first_name author))
-            (format "(%s -- %s \n" (g-json-get 'dob author) (g-json-get 'dod author))
-            "<br/>"))
+  (insert
+   (format "%s, " (g-json-get 'last_name author))
+   (format "%s " (g-json-get 'first_name author))
+   (format "(%s -- %s \n" (g-json-get 'dob author) (g-json-get 'dod author))
+   "<br/>"))
 
 (defun emacspeak-librivox-display-authors (authors)
   "Display authors."
@@ -132,9 +133,12 @@
      (emacspeak-librivox-display-author a))))
   (insert "</p>\n\n"))
 
-(defun emacspeak-librivox-display-book (book)
+(defun emacspeak-librivox-display-book (book position)
   "Render book results."
-  (insert "<h1>" (g-json-get 'title book) "</h1>\n")
+  (insert "<h2>"
+          (format "%s. %s "
+                  position (g-json-get 'title book))
+          "</h2>\n")
   (insert "<table><tr>\n")
   (insert
    (format "<td><a href='%s'>Listen (RSS)</a></td>\n"
@@ -150,14 +154,15 @@
   )
 
 (defun emacspeak-librivox-search (pattern &optional page-title)
-  "Search for books. 
+  "Search for books.
 Argument `pattern' is of the form:
 `author=pattern' Search by author.
 `title=pattern' Search by title.
+^all Browse books.
 Optional arg `page-title' specifies page title."
   (interactive "sPattern: ")
   (or page-title (setq page-title pattern))
-  (let* ((url 
+  (let* ((url
           (emacspeak-librivox-audiobooks-uri
            pattern))
          (result (g-json-get-result
@@ -169,12 +174,14 @@ Optional arg `page-title' specifies page title."
     (when books
       (with-temp-buffer
         (insert "<title>" page-title "</title>\n")
+        (insert "<h1>" page-title "</h1>\n")
         (loop
          for b across books
+         and i from 1
          do
-         (emacspeak-librivox-display-book b))
+         (emacspeak-librivox-display-book b i))
         (browse-url-of-buffer)))))
-  
+
 (defun emacspeak-librivox-search-by-author (author)
   "Search by author.
 Both exact and partial matches for `author'."
@@ -183,7 +190,6 @@ Both exact and partial matches for `author'."
    (format "author=%s"
            (emacspeak-url-encode author))
    (format "Search For Author: %s" author)))
-
 
 (defun emacspeak-librivox-search-by-title (title)
   "Search by title.
