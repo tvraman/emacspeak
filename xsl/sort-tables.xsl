@@ -44,7 +44,7 @@ relevant tables bubble to the top.
   <xsl:include href="identity.xsl"/>
   <xsl:include href="object.xsl"/>
   <!-- { html body  -->
-<xsl:template match="script|meta|link|//div[@style='display:none']"/>
+<xsl:template match="script|//div[@style='display:none']"/>
 <xsl:template match="iframe">
   <a>
 <xsl:attribute name="href">
