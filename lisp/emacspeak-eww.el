@@ -518,8 +518,7 @@ Retain previously set punctuations  mode."
      ((and emacspeak-we-xsl-p emacspeak-we-xsl-transform)
       (emacspeak-xslt-region
        emacspeak-we-xsl-transform (point) (point-max)
-       emacspeak-we-xsl-params)
-      ))
+       emacspeak-we-xsl-params)))
     (goto-char orig)))
 
 ;;}}}
