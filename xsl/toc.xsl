@@ -15,7 +15,7 @@ Description: Generate Table of contents
   <xsl:include href="identity.xsl"/>
   <!-- {nuke these elements. --> 
   
-  <xsl:template match="script|meta|link"/>
+  <xsl:template match="script"/>
   
   <!-- } -->
   <!-- {contents  --> 

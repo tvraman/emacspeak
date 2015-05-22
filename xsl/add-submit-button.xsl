@@ -20,7 +20,7 @@ button so that one can submit such forms without Javascript.
   <xsl:include href="identity.xsl"/>
   <!-- {nuke these elements. --> 
   
-  <xsl:template match="script|meta|link"/>
+  <xsl:template match="script"/>
   <xsl:template match="form">
     <xsl:element name="form">
       <xsl:apply-templates select="@*"/>
