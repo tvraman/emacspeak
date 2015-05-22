@@ -155,12 +155,6 @@
        (insert "</tr>\n"))
       (insert "</table>\n")
       (browse-url-of-buffer))))))
-    
-               
-       do
-       (
-
-)
 
 ;;}}}
 ;;{{{ Setup EWW Initialization:
