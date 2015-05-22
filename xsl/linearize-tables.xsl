@@ -18,7 +18,7 @@ into a paragraph.
   <xsl:include href="identity.xsl"/>
   <!-- {nuke these elements. --> 
   
-  <xsl:template match="script|meta|link"/>
+  <xsl:template match="script"/>
   
   <!-- } -->
   <!-- {listify tables --> 

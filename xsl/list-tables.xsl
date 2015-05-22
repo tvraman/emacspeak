@@ -16,7 +16,7 @@ Description: List tables  by turning each row into a list.
   <xsl:include href="identity.xsl"/>
   <!-- {nuke these elements. --> 
   
-  <xsl:template match="script|meta|link"/>
+  <xsl:template match="script"/>
   <xsl:template match="/">
     <xsl:apply-templates/>
   </xsl:template>
