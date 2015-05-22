@@ -168,6 +168,7 @@ Optional arg `page-title' specifies page title."
                    g-curl-program g-curl-common-options url)))
          (books (g-json-get 'books result)))
     (unless books (message "No results."))
+    (emacspeak-auditory-icon 'task-done)
     (when books
       (with-temp-buffer
         (insert "<title>" page-title "</title>\n")
