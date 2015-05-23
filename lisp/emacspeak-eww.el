@@ -139,22 +139,22 @@
      ((null alt) (message "No alternate links."))
      (t
       (with-temp-buffer
-      (insert "<table><th>Type</th><th>URL</th></tr>\n")
-      (loop
-       for a in alt do
-       (insert "<tr>")
-       (insert
-        (format "<td>%s</td>\n"
-                (or (dom-attr a 'title)
-                    (dom-attr a 'type)
-                    (dom-attr a 'media))))
-       (insert
-        (format "<td><a href='%s'>%s</td>\n"
-                (shr-expand-url (dom-attr a 'href) base)
-                (shr-expand-url (dom-attr a 'href) base)))
-       (insert "</tr>\n"))
-      (insert "</table>\n")
-      (browse-url-of-buffer))))))
+        (insert "<table><th>Type</th><th>URL</th></tr>\n")
+        (loop
+         for a in alt do
+         (insert "<tr>")
+         (insert
+          (format "<td>%s</td>\n"
+                  (or (dom-attr a 'title)
+                      (dom-attr a 'type)
+                      (dom-attr a 'media))))
+         (insert
+          (format "<td><a href='%s'>%s</td>\n"
+                  (shr-expand-url (dom-attr a 'href) base)
+                  (shr-expand-url (dom-attr a 'href) base)))
+         (insert "</tr>\n"))
+        (insert "</table>\n")
+        (browse-url-of-buffer))))))
 
 ;;}}}
 ;;{{{ Setup EWW Initialization:
@@ -400,9 +400,12 @@ Retain previously set punctuations  mode."
 
 (defun emacspeak-eww-after-render-hook ()
   "Setup Emacspeak for rendered buffer. "
-  (let ((title (emacspeak-eww-current-title)))
+  (let ((title (emacspeak-eww-current-title))
+        (alt (dom-alternate-links (emacspeak-eww-current-dom))))
     (when (= 0 (length title)) (setq title "EWW: Untitled"))
     (when emacspeak-eww-rename-result-buffer (rename-buffer title 'unique))
+    (when alt
+      (put-text-property 0 2 'auditory-icon 'mark-object  header-line-format))
     (cond
      (emacspeak-web-post-process-hook (emacspeak-webutils-run-post-process-hook))
      (t (emacspeak-speak-mode-line)))))
@@ -543,9 +546,6 @@ Retain previously set punctuations  mode."
         (when (memq (quote ,tag) '(h1 h2 h3))
           (put-text-property start end 'h 'eww-tag)))))))
 
-
-
-
 ;;}}}
 ;;{{{ Advice readable
 (defadvice eww-readable (around emacspeak pre act comp)
@@ -627,7 +627,7 @@ Retain previously set punctuations  mode."
   "Tag article, then render."
   (let ((start (point)))
     (shr-generic dom)
-        (put-text-property start (point) 'article 'eww-tag)))
+    (put-text-property start (point) 'article 'eww-tag)))
 
 (defvar eww-shr-render-functions
   '((article . emacspeak-eww-tag-article)
@@ -1209,7 +1209,7 @@ Warning, this is fragile, and depends on a stable id for the
 (declaim (special emacspeak-eww-filter-map))
 (loop for binding in
       '(
-        
+
         )
       do
       (emacspeak-keymap-update emacspeak-eww-filter-map binding))
