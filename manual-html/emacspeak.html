@@ -1,0 +1,4445 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
+  "text/css" />
+
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+  rel="up" title="Emacspeak Commands And Options" />
+  <link href="emacspeak_002d2048.html#emacspeak_002d2048" rel=
+  "next" title="emacspeak-2048" />
+  <link href="dtk_002dunicode.html#dtk_002dunicode" rel="prev"
+  title="dtk-unicode" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
+</head>
+
+<body lang="en" xml:lang="en">
+  <a name="emacspeak" id="emacspeak"></a>
+
+  <div class="header">
+    <p>Next: <a href="emacspeak_002d2048.html#emacspeak_002d2048"
+    accesskey="n" rel="next">emacspeak-2048</a>, Previous: <a href=
+    "dtk_002dunicode.html#dtk_002dunicode" accesskey="p" rel=
+    "prev">dtk-unicode</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak-1" id="emacspeak-1"></a>
+
+  <h3 class="section">11.11 emacspeak</h3>
+
+  <p>The complete audio desktop.</p>
+
+  <p>Emacspeak extends Emacs to be a fully functional audio
+  desktop. This is the main emacspeak module. It actually does very
+  little: It loads the various parts of the system.</p><a name=
+  "emacspeak-Commands" id="emacspeak-Commands"></a>
+
+  <h4 class="subsection">11.11.1 emacspeak Commands</h4>
+
+  <dl>
+    <dt><a name="index-emacspeak" id="index-emacspeak"></a>Command:
+    <strong>emacspeak</strong></dt>
+
+    <dd>
+      <a name="index-emacspeak-1" id="index-emacspeak-1"></a>
+
+      <p>Starts the Emacspeak speech subsystem. Use emacs as you
+      normally would, emacspeak will provide you spoken feedback as
+      you work. Emacspeak also provides commands for having parts
+      of the current buffer, the mode-line etc to be spoken.</p>
+
+      <p>If you are hearing this description as a result of
+      pressing C-h C-e you may want to press C-e s to stop speech,
+      and then use the arrow keys to move around in the Help buffer
+      to read the rest of this description, which includes a
+      summary of all emacspeak keybindings.</p>
+
+      <p>All emacspeak commands use C-e as a prefix key. You can
+      also set the state of the TTS engine by using C-e d as a
+      prefix. Here is a summary of all emacspeak commands along
+      with their bindings. You need to precede the keystrokes
+      listed below with C-e.</p>
+
+      <p>Emacspeak also provides a fluent speech extension to the
+      emacs terminal emulator (eterm). Note: You need to use the
+      term package that comes with emacs-19.29 and later.</p>
+
+      <p>key binding &mdash; &mdash;&mdash;-</p>
+
+      <p>C-@ emacspeak-speak-current-mark C-a
+      emacspeak-toggle-auditory-icons C-b emacspeak-bookshare C-c
+      emacspeak-clipboard-copy C-d emacspeak-toggle-show-point C-e
+      end-of-line TAB emacspeak-table-display-table-in-region C-j
+      emacspeak-hide-speak-block-sans-prefix C-l
+      emacspeak-speak-line-number RET emacspeak-speak-continuously
+      C-n emacspeak-speak-next-window C-o emacspeak-ocr C-p
+      emacspeak-speak-previous-window C-q
+      emacspeak-toggle-comint-autospeak C-s tts-restart C-t
+      emacspeak-table-find-file C-u emacspeak-feeds-browse C-v
+      view-mode C-w emacspeak-speak-window-information C-x
+      emacspeak-personal-ctlx-keymap C-y emacspeak-clipboard-paste
+      ESC Prefix Command SPC emacspeak-speak-header-line !
+      emacspeak-speak-run-shell-command "
+      emacspeak-speak-sexp-interactively # emacspeak-gridtext %
+      emacspeak-speak-current-percentage &amp;
+      emacspeak-wizards-shell-command-on-current-file &rsquo;
+      emacspeak-pianobar ( emacspeak-audio-setup )
+      emacspeak-sounds-select-theme , emacspeak-speak-browse-buffer
+      . emacspeak-speak-current-field /
+      emacspeak-speak-this-buffer-other-window-display 0 .. 9
+      emacspeak-speak-predefined-window :
+      emacspeak-m-player-shuffle ; emacspeak-multimedia &lt;
+      emacspeak-speak-previous-field =
+      emacspeak-speak-current-column &gt;
+      emacspeak-speak-next-field ? emacspeak-websearch-dispatch @
+      emacspeak-speak-message-at-time A
+      emacspeak-appt-repeat-announcement B
+      emacspeak-speak-buffer-interactively C emacspeak-customize F
+      emacspeak-view-emacspeak-faq I
+      emacspeak-speak-show-active-network-interfaces L
+      emacspeak-speak-line-interactively M
+      emacspeak-speak-minor-mode-line N
+      emacspeak-view-emacspeak-news P
+      emacspeak-speak-paragraph-interactively R
+      emacspeak-speak-rectangle T emacspeak-view-emacspeak-tips U
+      emacspeak-websearch-usenet V emacspeak-speak-version W
+      emacspeak-tapestry-select-window-by-name [
+      emacspeak-speak-page \
+      emacspeak-toggle-speak-line-invert-filter ]
+      emacspeak-speak-page-interactively ^ emacspeak-filtertext a
+      emacspeak-speak-message-again b emacspeak-speak-buffer c
+      emacspeak-speak-char d emacspeak-dtk-submap-command e
+      end-of-line f emacspeak-speak-buffer-filename g
+      emacspeak-epub h emacspeak-speak-help i
+      emacspeak-tabulate-region j emacspeak-hide-or-expose-block k
+      emacspeak-speak-current-kill l emacspeak-speak-line m
+      emacspeak-speak-mode-line n emacspeak-speak-rest-of-buffer o
+      emacspeak-toggle-comint-output-monitor p
+      emacspeak-speak-paragraph q emacspeak-toggle-speak-messages r
+      emacspeak-speak-region s dtk-stop t emacspeak-speak-time u
+      emacspeak-url-template-fetch v view-register w
+      emacspeak-speak-word x emacspeak-personal-keymap {
+      emacspeak-speak-paragraph |
+      emacspeak-speak-line-set-column-filter DEL cd-tool
+      &lt;(deletechar&gt; emacspeak-ssh-tts-restart
+      &lt;C-&lt;left&gt;
+      emacspeak-select-this-buffer-previous-display
+      &lt;C-&lt;right&gt; emacspeak-select-this-buffer-next-display
+      &lt;delete&gt; emacspeak-ssh-tts-restart &lt;down&gt;
+      emacspeak-read-next-line &lt;f1&gt;
+      emacspeak-learn-emacs-mode &lt;f11&gt;
+      emacspeak-wizards-shell-toggle &lt;insert&gt;
+      emacspeak-emergency-tts-restart &lt;left&gt;
+      emacspeak-speak-this-buffer-previous-display &lt;right&gt;
+      emacspeak-speak-this-buffer-next-display &lt;up&gt;
+      emacspeak-read-previous-line</p>
+
+      <p># a emacspeak-gridtext-apply # l emacspeak-gridtext-load #
+      s emacspeak-gridtext-save</p>
+
+      <p>C-M-@ emacspeak-speak-spaces-at-point C-M-b
+      emacspeak-submit-bug C-M-k kill-emacs M-%
+      emacspeak-goto-percent M-;
+      emacspeak-webutils-play-media-at-point M-a
+      emacspeak-set-auditory-icon-player M-b
+      emacspeak-speak-other-buffer M-c emacspeak-copy-current-file
+      M-d emacspeak-pronounce-dispatch M-f
+      emacspeak-frame-label-or-switch-to-labelled-frame M-h
+      emacspeak-speak-hostname M-l emacspeak-link-current-file M-m
+      emacspeak-toggle-mail-alert M-q
+      voice-setup-toggle-silence-personality M-r
+      emacspeak-remote-connect-to-server M-s
+      emacspeak-symlink-current-file M-t
+      emacspeak-tapestry-describe-tapestry M-u
+      emacspeak-feeds-add-feed M-v
+      emacspeak-show-personality-at-point M-w
+      emacspeak-toggle-which-function</p>
+
+      <p>d C-d dectalk d C-e espeak d RET
+      dtk-set-chunk-separator-syntax d C-o outloud d C-v outloud-32
+      d SPC dtk-toggle-splitting-on-white-space d ,
+      dtk-toggle-punctuation-mode d 0 .. d 9
+      dtk-set-predefined-speech-rate d C dtk-toggle-allcaps-beep d
+      L dtk-local-server d N dtk-set-next-language d P
+      dtk-set-previous-language d R dtk-reset-state d S
+      dtk-set-language d V tts-speak-version d a
+      dtk-add-cleanup-pattern d c dtk-toggle-capitalization d d
+      dtk-select-server d f dtk-set-character-scale d i
+      emacspeak-toggle-audio-indentation d k
+      emacspeak-toggle-character-echo d l
+      emacspeak-toggle-line-echo d m
+      emacspeak-speak-set-mode-punctuations d n
+      dtk-toggle-speak-nonprinting-chars d o
+      dtk-toggle-strip-octals d p dtk-set-punctuations d q
+      dtk-toggle-quiet d r dtk-set-rate d s dtk-toggle-split-caps d
+      t emacspeak-dial-dtk d v voice-lock-mode d w
+      emacspeak-toggle-word-echo d z emacspeak-zap-tts</p>
+
+      <p>See the online documentation for individual commands and
+      functions for details.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002ddescribe_002demacspeak" id=
+    "index-emacspeak_002ddescribe_002demacspeak"></a>Command:
+    <strong>emacspeak-describe-emacspeak</strong></dt>
+
+    <dd>
+      <p><kbd>C-h C-e &lt;f1&gt; C-e &lt;help&gt;
+      C-e</kbd></p><a name=
+      "index-C_002dh-C_002de-_003cf1_003e-C_002de-_003chelp_003e-C_002de"
+      id=
+      "index-C_002dh-C_002de-_003cf1_003e-C_002de-_003chelp_003e-C_002de"></a>
+      <a name="index-emacspeak_002ddescribe_002demacspeak-1" id=
+      "index-emacspeak_002ddescribe_002demacspeak-1"></a>
+
+      <p>Give a brief overview of emacspeak.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dsubmit_002dbug" id=
+    "index-emacspeak_002dsubmit_002dbug"></a>Command:
+    <strong>emacspeak-submit-bug</strong></dt>
+
+    <dd>
+      <p><kbd>C-e C-M-b</kbd></p><a name=
+      "index-C_002de-C_002dM_002db" id=
+      "index-C_002de-C_002dM_002db"></a> <a name=
+      "index-emacspeak_002dsubmit_002dbug-1" id=
+      "index-emacspeak_002dsubmit_002dbug-1"></a>
+
+      <p>Function to submit a bug to the programs maintainer.</p>
+    </dd>
+  </dl><a name="emacspeak-Options" id="emacspeak-Options"></a>
+
+  <h4 class="subsection">11.11.2 emacspeak Options</h4>
+
+  <dl>
+    <dt><a name="index-User-Option-16" id=
+    "index-User-Option-16"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-Buffer-menu-buffer-voice</em></dt>
+
+    <dd>
+      <p>Personality used for Buffer-menu-buffer This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-17" id=
+    "index-User-Option-17"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-apt-utils-broken-personality</em></dt>
+
+    <dd>
+      <p>Personality used for apt-utils-broken-face This
+      personality uses voice-bolden-and-animate whose effect can be
+      changed globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-18" id=
+    "index-User-Option-18"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-apt-utils-description-personality</em></dt>
+
+    <dd>
+      <p>Personality used for apt-utils-description-face This
+      personality uses voice-smoothen-extra whose effect can be
+      changed globally by customizing
+      voice-smoothen-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-19" id=
+    "index-User-Option-19"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-apt-utils-field-contents-personality</em></dt>
+
+    <dd>
+      <p>Personality used for apt-utils-field-contents-face This
+      personality uses voice-lighten-extra whose effect can be
+      changed globally by customizing
+      voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-20" id=
+    "index-User-Option-20"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-apt-utils-field-keyword-personality</em></dt>
+
+    <dd>
+      <p>Personality used for apt-utils-field-keyword-face This
+      personality uses voice-animate-extra whose effect can be
+      changed globally by customizing
+      voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-21" id=
+    "index-User-Option-21"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-apt-utils-normal-package-personality</em></dt>
+
+    <dd>
+      <p>Personality used for apt-utils-normal-package-face This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-22" id=
+    "index-User-Option-22"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-apt-utils-version-personality</em></dt>
+
+    <dd>
+      <p>Personality used for apt-utils-version-face This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-23" id=
+    "index-User-Option-23"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-apt-utils-virtual-package-personality</em></dt>
+
+    <dd>
+      <p>Personality used for apt-utils-virtual-package-face This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-24" id=
+    "index-User-Option-24"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-bold-italic-voice</em></dt>
+
+    <dd>
+      <p>Personality used for bold-italic This personality uses
+      voice-bolden-and-animate whose effect can be changed globally
+      by customizing voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-25" id=
+    "index-User-Option-25"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-bold-voice</em></dt>
+
+    <dd>
+      <p>Personality used for bold This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-26" id=
+    "index-User-Option-26"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-button-voice</em></dt>
+
+    <dd>
+      <p>Personality used for button This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-27" id=
+    "index-User-Option-27"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-c-annotation-personality</em></dt>
+
+    <dd>
+      <p>Personality used for c-annotation-face This personality
+      uses voice-annotate whose effect can be changed globally by
+      customizing voice-annotate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-28" id=
+    "index-User-Option-28"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-calendar-today-voice</em></dt>
+
+    <dd>
+      <p>Personality used for calendar-today This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-29" id=
+    "index-User-Option-29"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-comint-highlight-input-voice</em></dt>
+
+    <dd>
+      <p>Personality used for comint-highlight-input This
+      personality uses voice-bolden-medium whose effect can be
+      changed globally by customizing
+      voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-30" id=
+    "index-User-Option-30"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-comint-highlight-prompt-voice</em></dt>
+
+    <dd>
+      <p>Personality used for comint-highlight-prompt This
+      personality uses voice-monotone-medium whose effect can be
+      changed globally by customizing
+      voice-monotone-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-31" id=
+    "index-User-Option-31"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-completions-annotations-voice</em></dt>
+
+    <dd>
+      <p>Personality used for completions-annotations This
+      personality uses voice-annotate whose effect can be changed
+      globally by customizing voice-annotate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-32" id=
+    "index-User-Option-32"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-completions-common-part-voice</em></dt>
+
+    <dd>
+      <p>Personality used for completions-common-part This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-33" id=
+    "index-User-Option-33"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-completions-first-difference-voice</em></dt>
+
+    <dd>
+      <p>Personality used for completions-first-difference This
+      personality uses voice-brighten whose effect can be changed
+      globally by customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-34" id=
+    "index-User-Option-34"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-custom-button-mouse-voice</em></dt>
+
+    <dd>
+      <p>Personality used for custom-button-mouse This personality
+      uses voice-bolden-medium whose effect can be changed globally
+      by customizing voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-35" id=
+    "index-User-Option-35"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-custom-button-pressed-unraised-voice</em></dt>
+
+    <dd>
+      <p>Personality used for custom-button-pressed-unraised This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-36" id=
+    "index-User-Option-36"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-custom-button-pressed-voice</em></dt>
+
+    <dd>
+      <p>Personality used for custom-button-pressed This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-37" id=
+    "index-User-Option-37"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-custom-button-unraised-voice</em></dt>
+
+    <dd>
+      <p>Personality used for custom-button-unraised This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-38" id=
+    "index-User-Option-38"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-custom-button-voice</em></dt>
+
+    <dd>
+      <p>Personality used for custom-button This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-39" id=
+    "index-User-Option-39"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-custom-changed-voice</em></dt>
+
+    <dd>
+      <p>Personality used for custom-changed This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-40" id=
+    "index-User-Option-40"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-custom-comment-tag-voice</em></dt>
+
+    <dd>
+      <p>Personality used for custom-comment-tag This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-41" id=
+    "index-User-Option-41"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-custom-comment-voice</em></dt>
+
+    <dd>
+      <p>Personality used for custom-comment This personality uses
+      voice-monotone-medium whose effect can be changed globally by
+      customizing voice-monotone-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-42" id=
+    "index-User-Option-42"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-custom-documentation-voice</em></dt>
+
+    <dd>
+      <p>Personality used for custom-documentation This personality
+      uses voice-brighten-medium whose effect can be changed
+      globally by customizing voice-brighten-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-43" id=
+    "index-User-Option-43"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-custom-face-tag-voice</em></dt>
+
+    <dd>
+      <p>Personality used for custom-face-tag This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-44" id=
+    "index-User-Option-44"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-custom-group-tag-1-voice</em></dt>
+
+    <dd>
+      <p>Personality used for custom-group-tag-1 This personality
+      uses voice-lighten-medium whose effect can be changed
+      globally by customizing voice-lighten-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-45" id=
+    "index-User-Option-45"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-custom-group-tag-voice</em></dt>
+
+    <dd>
+      <p>Personality used for custom-group-tag This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-46" id=
+    "index-User-Option-46"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-custom-invalid-voice</em></dt>
+
+    <dd>
+      <p>Personality used for custom-invalid This personality uses
+      voice-animate-extra whose effect can be changed globally by
+      customizing voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-47" id=
+    "index-User-Option-47"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-custom-link-voice</em></dt>
+
+    <dd>
+      <p>Personality used for custom-link This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-48" id=
+    "index-User-Option-48"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-custom-modified-voice</em></dt>
+
+    <dd>
+      <p>Personality used for custom-modified This personality uses
+      voice-lighten-medium whose effect can be changed globally by
+      customizing voice-lighten-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-49" id=
+    "index-User-Option-49"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-custom-rogue-voice</em></dt>
+
+    <dd>
+      <p>Personality used for custom-rogue This personality uses
+      voice-bolden-and-animate whose effect can be changed globally
+      by customizing voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-50" id=
+    "index-User-Option-50"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-custom-saved-voice</em></dt>
+
+    <dd>
+      <p>Personality used for custom-saved This personality uses
+      voice-smoothen-extra whose effect can be changed globally by
+      customizing voice-smoothen-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-51" id=
+    "index-User-Option-51"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-custom-set-voice</em></dt>
+
+    <dd>
+      <p>Personality used for custom-set This personality uses
+      voice-smoothen-medium whose effect can be changed globally by
+      customizing voice-smoothen-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-52" id=
+    "index-User-Option-52"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-custom-state-voice</em></dt>
+
+    <dd>
+      <p>Personality used for custom-state This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-53" id=
+    "index-User-Option-53"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-custom-variable-button-voice</em></dt>
+
+    <dd>
+      <p>Personality used for custom-variable-button This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-54" id=
+    "index-User-Option-54"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-custom-variable-tag-voice</em></dt>
+
+    <dd>
+      <p>Personality used for custom-variable-tag This personality
+      uses voice-bolden-medium whose effect can be changed globally
+      by customizing voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-55" id=
+    "index-User-Option-55"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-diary-personality</em></dt>
+
+    <dd>
+      <p>Personality used for diary-face This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-56" id=
+    "index-User-Option-56"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-diff-added-voice</em></dt>
+
+    <dd>
+      <p>Personality used for diff-added This personality uses
+      voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-57" id=
+    "index-User-Option-57"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-diff-changed-voice</em></dt>
+
+    <dd>
+      <p>Personality used for diff-changed This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-58" id=
+    "index-User-Option-58"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-diff-context-voice</em></dt>
+
+    <dd>
+      <p>Personality used for diff-context This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-59" id=
+    "index-User-Option-59"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-diff-file-header-voice</em></dt>
+
+    <dd>
+      <p>Personality used for diff-file-header This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-60" id=
+    "index-User-Option-60"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-diff-function-voice</em></dt>
+
+    <dd>
+      <p>Personality used for diff-function This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-61" id=
+    "index-User-Option-61"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-diff-header-voice</em></dt>
+
+    <dd>
+      <p>Personality used for diff-header This personality uses
+      voice-bolden-extra whose effect can be changed globally by
+      customizing voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-62" id=
+    "index-User-Option-62"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-diff-hunk-header-voice</em></dt>
+
+    <dd>
+      <p>Personality used for diff-hunk-header This personality
+      uses voice-bolden-medium whose effect can be changed globally
+      by customizing voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-63" id=
+    "index-User-Option-63"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-diff-index-voice</em></dt>
+
+    <dd>
+      <p>Personality used for diff-index This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-64" id=
+    "index-User-Option-64"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-diff-indicator-added-voice</em></dt>
+
+    <dd>
+      <p>Personality used for diff-indicator-added This personality
+      uses voice-annotate whose effect can be changed globally by
+      customizing voice-annotate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-65" id=
+    "index-User-Option-65"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-diff-indicator-changed-voice</em></dt>
+
+    <dd>
+      <p>Personality used for diff-indicator-changed This
+      personality uses voice-annotate whose effect can be changed
+      globally by customizing voice-annotate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-66" id=
+    "index-User-Option-66"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-diff-indicator-removed-voice</em></dt>
+
+    <dd>
+      <p>Personality used for diff-indicator-removed This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-67" id=
+    "index-User-Option-67"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-diff-nonexistent-voice</em></dt>
+
+    <dd>
+      <p>Personality used for diff-nonexistent This personality
+      uses voice-lighten-extra whose effect can be changed globally
+      by customizing voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-68" id=
+    "index-User-Option-68"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-diff-refine-added-voice</em></dt>
+
+    <dd>
+      <p>Personality used for diff-refine-added This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-69" id=
+    "index-User-Option-69"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-diff-refine-change-voice</em></dt>
+
+    <dd>
+      <p>Personality used for diff-refine-change This personality
+      uses voice-brighten-medium whose effect can be changed
+      globally by customizing voice-brighten-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-70" id=
+    "index-User-Option-70"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-diff-refine-removed-voice</em></dt>
+
+    <dd>
+      <p>Personality used for diff-refine-removed This personality
+      uses voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-71" id=
+    "index-User-Option-71"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-diff-removed-voice</em></dt>
+
+    <dd>
+      <p>Personality used for diff-removed This personality uses
+      voice-smoothen-extra whose effect can be changed globally by
+      customizing voice-smoothen-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-72" id=
+    "index-User-Option-72"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-dired-directory-voice</em></dt>
+
+    <dd>
+      <p>Personality used for dired-directory This personality uses
+      voice-bolden-medium whose effect can be changed globally by
+      customizing voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-73" id=
+    "index-User-Option-73"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-dired-flagged-voice</em></dt>
+
+    <dd>
+      <p>Personality used for dired-flagged This personality uses
+      voice-animate-extra whose effect can be changed globally by
+      customizing voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-74" id=
+    "index-User-Option-74"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-dired-header-voice</em></dt>
+
+    <dd>
+      <p>Personality used for dired-header This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-75" id=
+    "index-User-Option-75"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-dired-ignored-voice</em></dt>
+
+    <dd>
+      <p>Personality used for dired-ignored This personality uses
+      voice-lighten-extra whose effect can be changed globally by
+      customizing voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-76" id=
+    "index-User-Option-76"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-dired-mark-voice</em></dt>
+
+    <dd>
+      <p>Personality used for dired-mark This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-77" id=
+    "index-User-Option-77"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-dired-marked-voice</em></dt>
+
+    <dd>
+      <p>Personality used for dired-marked This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-78" id=
+    "index-User-Option-78"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-dired-perm-write-voice</em></dt>
+
+    <dd>
+      <p>Personality used for dired-perm-write This personality
+      uses voice-lighten-extra whose effect can be changed globally
+      by customizing voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-79" id=
+    "index-User-Option-79"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-dired-symlink-voice</em></dt>
+
+    <dd>
+      <p>Personality used for dired-symlink This personality uses
+      voice-animate-extra whose effect can be changed globally by
+      customizing voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-80" id=
+    "index-User-Option-80"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-dired-warning-voice</em></dt>
+
+    <dd>
+      <p>Personality used for dired-warning This personality uses
+      voice-animate-extra whose effect can be changed globally by
+      customizing voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-81" id=
+    "index-User-Option-81"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-ediff-current-diff-A-voice</em></dt>
+
+    <dd>
+      <p>Personality used for ediff-current-diff-A This personality
+      uses voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-82" id=
+    "index-User-Option-82"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-ediff-current-diff-Ancestor-voice</em></dt>
+
+    <dd>
+      <p>Personality used for ediff-current-diff-Ancestor This
+      personality uses voice-lighten-extra whose effect can be
+      changed globally by customizing
+      voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-83" id=
+    "index-User-Option-83"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-ediff-current-diff-B-voice</em></dt>
+
+    <dd>
+      <p>Personality used for ediff-current-diff-B This personality
+      uses voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-84" id=
+    "index-User-Option-84"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-ediff-current-diff-C-voice</em></dt>
+
+    <dd>
+      <p>Personality used for ediff-current-diff-C This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-85" id=
+    "index-User-Option-85"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-ediff-even-diff-A-voice</em></dt>
+
+    <dd>
+      <p>Personality used for ediff-even-diff-A This personality
+      uses voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-86" id=
+    "index-User-Option-86"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-ediff-even-diff-Ancestor-voice</em></dt>
+
+    <dd>
+      <p>Personality used for ediff-even-diff-Ancestor This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-87" id=
+    "index-User-Option-87"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-ediff-even-diff-B-voice</em></dt>
+
+    <dd>
+      <p>Personality used for ediff-even-diff-B This personality
+      uses voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-88" id=
+    "index-User-Option-88"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-ediff-even-diff-C-voice</em></dt>
+
+    <dd>
+      <p>Personality used for ediff-even-diff-C This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-89" id=
+    "index-User-Option-89"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-ediff-fine-diff-A-voice</em></dt>
+
+    <dd>
+      <p>Personality used for ediff-fine-diff-A This personality
+      uses voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-90" id=
+    "index-User-Option-90"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-ediff-fine-diff-Ancestor-voice</em></dt>
+
+    <dd>
+      <p>Personality used for ediff-fine-diff-Ancestor This
+      personality uses voice-lighten-extra whose effect can be
+      changed globally by customizing
+      voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-91" id=
+    "index-User-Option-91"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-ediff-fine-diff-B-voice</em></dt>
+
+    <dd>
+      <p>Personality used for ediff-fine-diff-B This personality
+      uses voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-92" id=
+    "index-User-Option-92"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-ediff-fine-diff-C-voice</em></dt>
+
+    <dd>
+      <p>Personality used for ediff-fine-diff-C This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-93" id=
+    "index-User-Option-93"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-ediff-odd-diff-A-voice</em></dt>
+
+    <dd>
+      <p>Personality used for ediff-odd-diff-A This personality
+      uses voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-94" id=
+    "index-User-Option-94"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-ediff-odd-diff-Ancestor-voice</em></dt>
+
+    <dd>
+      <p>Personality used for ediff-odd-diff-Ancestor This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-95" id=
+    "index-User-Option-95"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-ediff-odd-diff-B-voice</em></dt>
+
+    <dd>
+      <p>Personality used for ediff-odd-diff-B This personality
+      uses voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-96" id=
+    "index-User-Option-96"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-ediff-odd-diff-C-voice</em></dt>
+
+    <dd>
+      <p>Personality used for ediff-odd-diff-C This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-97" id=
+    "index-User-Option-97"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-erc-action-personality</em></dt>
+
+    <dd>
+      <p>Personality used for erc-action-face This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-98" id=
+    "index-User-Option-98"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-erc-bold-personality</em></dt>
+
+    <dd>
+      <p>Personality used for erc-bold-face This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-99" id=
+    "index-User-Option-99"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-erc-dangerous-host-personality</em></dt>
+
+    <dd>
+      <p>Personality used for erc-dangerous-host-face This
+      personality uses voice-brighten-extra whose effect can be
+      changed globally by customizing
+      voice-brighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-100" id=
+    "index-User-Option-100"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-erc-direct-msg-personality</em></dt>
+
+    <dd>
+      <p>Personality used for erc-direct-msg-face This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-101" id=
+    "index-User-Option-101"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-erc-error-personality</em></dt>
+
+    <dd>
+      <p>Personality used for erc-error-face This personality uses
+      voice-bolden-and-animate whose effect can be changed globally
+      by customizing voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-102" id=
+    "index-User-Option-102"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-erc-input-personality</em></dt>
+
+    <dd>
+      <p>Personality used for erc-input-face This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-103" id=
+    "index-User-Option-103"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-erc-inverse-personality</em></dt>
+
+    <dd>
+      <p>Personality used for erc-inverse-face This personality
+      uses voice-lighten-extra whose effect can be changed globally
+      by customizing voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-104" id=
+    "index-User-Option-104"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-erc-keyword-personality</em></dt>
+
+    <dd>
+      <p>Personality used for erc-keyword-face This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-105" id=
+    "index-User-Option-105"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-erc-notice-personality</em></dt>
+
+    <dd>
+      <p>Personality used for erc-notice-face This personality uses
+      (quote inaudible) whose effect can be changed globally by
+      customizing (quote inaudible)-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-106" id=
+    "index-User-Option-106"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-erc-pal-personality</em></dt>
+
+    <dd>
+      <p>Personality used for erc-pal-face This personality uses
+      voice-animate-extra whose effect can be changed globally by
+      customizing voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-107" id=
+    "index-User-Option-107"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-erc-prompt-personality</em></dt>
+
+    <dd>
+      <p>Personality used for erc-prompt-face This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-108" id=
+    "index-User-Option-108"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-erc-underline-personality</em></dt>
+
+    <dd>
+      <p>Personality used for erc-underline-face This personality
+      uses voice-brighten-medium whose effect can be changed
+      globally by customizing voice-brighten-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-109" id=
+    "index-User-Option-109"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-eshell-ls-archive-personality</em></dt>
+
+    <dd>
+      <p>Personality used for eshell-ls-archive-face This
+      personality uses voice-lighten-extra whose effect can be
+      changed globally by customizing
+      voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-110" id=
+    "index-User-Option-110"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-eshell-ls-archive-voice</em></dt>
+
+    <dd>
+      <p>Personality used for eshell-ls-archive This personality
+      uses voice-lighten-extra whose effect can be changed globally
+      by customizing voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-111" id=
+    "index-User-Option-111"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-eshell-ls-backup-personality</em></dt>
+
+    <dd>
+      <p>Personality used for eshell-ls-backup-face This
+      personality uses voice-monotone-medium whose effect can be
+      changed globally by customizing
+      voice-monotone-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-112" id=
+    "index-User-Option-112"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-eshell-ls-backup-voice</em></dt>
+
+    <dd>
+      <p>Personality used for eshell-ls-backup This personality
+      uses voice-monotone-medium whose effect can be changed
+      globally by customizing voice-monotone-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-113" id=
+    "index-User-Option-113"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-eshell-ls-clutter-personality</em></dt>
+
+    <dd>
+      <p>Personality used for eshell-ls-clutter-face This
+      personality uses voice-smoothen-extra whose effect can be
+      changed globally by customizing
+      voice-smoothen-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-114" id=
+    "index-User-Option-114"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-eshell-ls-clutter-voice</em></dt>
+
+    <dd>
+      <p>Personality used for eshell-ls-clutter This personality
+      uses voice-smoothen-extra whose effect can be changed
+      globally by customizing voice-smoothen-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-115" id=
+    "index-User-Option-115"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-eshell-ls-directory-personality</em></dt>
+
+    <dd>
+      <p>Personality used for eshell-ls-directory-face This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-116" id=
+    "index-User-Option-116"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-eshell-ls-directory-voice</em></dt>
+
+    <dd>
+      <p>Personality used for eshell-ls-directory This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-117" id=
+    "index-User-Option-117"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-eshell-ls-executable-personality</em></dt>
+
+    <dd>
+      <p>Personality used for eshell-ls-executable-face This
+      personality uses voice-animate-extra whose effect can be
+      changed globally by customizing
+      voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-118" id=
+    "index-User-Option-118"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-eshell-ls-executable-voice</em></dt>
+
+    <dd>
+      <p>Personality used for eshell-ls-executable This personality
+      uses voice-animate-extra whose effect can be changed globally
+      by customizing voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-119" id=
+    "index-User-Option-119"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-eshell-ls-missing-personality</em></dt>
+
+    <dd>
+      <p>Personality used for eshell-ls-missing-face This
+      personality uses voice-brighten whose effect can be changed
+      globally by customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-120" id=
+    "index-User-Option-120"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-eshell-ls-missing-voice</em></dt>
+
+    <dd>
+      <p>Personality used for eshell-ls-missing This personality
+      uses voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-121" id=
+    "index-User-Option-121"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-eshell-ls-product-personality</em></dt>
+
+    <dd>
+      <p>Personality used for eshell-ls-product-face This
+      personality uses voice-lighten-medium whose effect can be
+      changed globally by customizing
+      voice-lighten-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-122" id=
+    "index-User-Option-122"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-eshell-ls-product-voice</em></dt>
+
+    <dd>
+      <p>Personality used for eshell-ls-product This personality
+      uses voice-lighten-medium whose effect can be changed
+      globally by customizing voice-lighten-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-123" id=
+    "index-User-Option-123"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-eshell-ls-readonly-personality</em></dt>
+
+    <dd>
+      <p>Personality used for eshell-ls-readonly-face This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-124" id=
+    "index-User-Option-124"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-eshell-ls-readonly-voice</em></dt>
+
+    <dd>
+      <p>Personality used for eshell-ls-readonly This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-125" id=
+    "index-User-Option-125"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-eshell-ls-special-personality</em></dt>
+
+    <dd>
+      <p>Personality used for eshell-ls-special-face This
+      personality uses voice-lighten-extra whose effect can be
+      changed globally by customizing
+      voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-126" id=
+    "index-User-Option-126"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-eshell-ls-special-voice</em></dt>
+
+    <dd>
+      <p>Personality used for eshell-ls-special This personality
+      uses voice-lighten-extra whose effect can be changed globally
+      by customizing voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-127" id=
+    "index-User-Option-127"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-eshell-ls-symlink-personality</em></dt>
+
+    <dd>
+      <p>Personality used for eshell-ls-symlink-face This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-128" id=
+    "index-User-Option-128"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-eshell-ls-symlink-voice</em></dt>
+
+    <dd>
+      <p>Personality used for eshell-ls-symlink This personality
+      uses voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-129" id=
+    "index-User-Option-129"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-eshell-ls-unreadable-personality</em></dt>
+
+    <dd>
+      <p>Personality used for eshell-ls-unreadable-face This
+      personality uses voice-monotone-medium whose effect can be
+      changed globally by customizing
+      voice-monotone-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-130" id=
+    "index-User-Option-130"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-eshell-ls-unreadable-voice</em></dt>
+
+    <dd>
+      <p>Personality used for eshell-ls-unreadable This personality
+      uses voice-monotone-medium whose effect can be changed
+      globally by customizing voice-monotone-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-131" id=
+    "index-User-Option-131"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-eshell-prompt-personality</em></dt>
+
+    <dd>
+      <p>Personality used for eshell-prompt-face This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-132" id=
+    "index-User-Option-132"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-eshell-prompt-voice</em></dt>
+
+    <dd>
+      <p>Personality used for eshell-prompt This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-133" id=
+    "index-User-Option-133"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-eww-form-checkbox-voice</em></dt>
+
+    <dd>
+      <p>Personality used for eww-form-checkbox This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-134" id=
+    "index-User-Option-134"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-eww-form-select-voice</em></dt>
+
+    <dd>
+      <p>Personality used for eww-form-select This personality uses
+      voice-annotate whose effect can be changed globally by
+      customizing voice-annotate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-135" id=
+    "index-User-Option-135"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-eww-form-submit-voice</em></dt>
+
+    <dd>
+      <p>Personality used for eww-form-submit This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-136" id=
+    "index-User-Option-136"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-eww-form-text-voice</em></dt>
+
+    <dd>
+      <p>Personality used for eww-form-text This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-137" id=
+    "index-User-Option-137"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-fixed-pitch-voice</em></dt>
+
+    <dd>
+      <p>Personality used for fixed-pitch This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-138" id=
+    "index-User-Option-138"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-flyspell-incorrect-voice</em></dt>
+
+    <dd>
+      <p>Personality used for flyspell-incorrect This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-139" id=
+    "index-User-Option-139"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-gnus-cite-1-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-cite-1 This personality uses
+      voice-bolden-medium whose effect can be changed globally by
+      customizing voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-140" id=
+    "index-User-Option-140"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-gnus-cite-10-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-cite-10 This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-141" id=
+    "index-User-Option-141"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-gnus-cite-11-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-cite-11 This personality uses
+      voice-lighten-extra whose effect can be changed globally by
+      customizing voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-142" id=
+    "index-User-Option-142"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-gnus-cite-2-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-cite-2 This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-143" id=
+    "index-User-Option-143"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-gnus-cite-3-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-cite-3 This personality uses
+      voice-lighten-extra whose effect can be changed globally by
+      customizing voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-144" id=
+    "index-User-Option-144"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-gnus-cite-4-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-cite-4 This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-145" id=
+    "index-User-Option-145"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-gnus-cite-5-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-cite-5 This personality uses
+      voice-smoothen-extra whose effect can be changed globally by
+      customizing voice-smoothen-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-146" id=
+    "index-User-Option-146"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-gnus-cite-6-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-cite-6 This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-147" id=
+    "index-User-Option-147"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-gnus-cite-7-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-cite-7 This personality uses
+      voice-lighten-extra whose effect can be changed globally by
+      customizing voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-148" id=
+    "index-User-Option-148"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-gnus-cite-8-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-cite-8 This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-149" id=
+    "index-User-Option-149"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-gnus-cite-9-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-cite-9 This personality uses
+      voice-bolden-medium whose effect can be changed globally by
+      customizing voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-150" id=
+    "index-User-Option-150"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-emphasis-bold-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-emphasis-bold This personality
+      uses voice-bolden-and-animate whose effect can be changed
+      globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-151" id=
+    "index-User-Option-151"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-emphasis-highlight-words-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-emphasis-highlight-words This
+      personality uses voice-lighten-extra whose effect can be
+      changed globally by customizing
+      voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-152" id=
+    "index-User-Option-152"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-emphasis-italic-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-emphasis-italic This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-153" id=
+    "index-User-Option-153"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-emphasis-strikethru-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-emphasis-strikethru This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-154" id=
+    "index-User-Option-154"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-emphasis-underline-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-emphasis-underline This
+      personality uses voice-brighten-extra whose effect can be
+      changed globally by customizing
+      voice-brighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-155" id=
+    "index-User-Option-155"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-group-mail-1-empty-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-group-mail-1-empty This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-156" id=
+    "index-User-Option-156"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-gnus-group-mail-1-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-group-mail-1 This personality
+      uses default whose effect can be changed globally by
+      customizing default-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-157" id=
+    "index-User-Option-157"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-group-mail-2-empty-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-group-mail-2-empty This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-158" id=
+    "index-User-Option-158"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-gnus-group-mail-2-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-group-mail-2 This personality
+      uses default whose effect can be changed globally by
+      customizing default-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-159" id=
+    "index-User-Option-159"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-group-mail-3-empty-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-group-mail-3-empty This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-160" id=
+    "index-User-Option-160"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-gnus-group-mail-3-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-group-mail-3 This personality
+      uses default whose effect can be changed globally by
+      customizing default-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-161" id=
+    "index-User-Option-161"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-group-mail-low-empty-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-group-mail-low-empty This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-162" id=
+    "index-User-Option-162"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-group-mail-low-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-group-mail-low This personality
+      uses default whose effect can be changed globally by
+      customizing default-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-163" id=
+    "index-User-Option-163"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-group-news-1-empty-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-group-news-1-empty This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-164" id=
+    "index-User-Option-164"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-gnus-group-news-1-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-group-news-1 This personality
+      uses default whose effect can be changed globally by
+      customizing default-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-165" id=
+    "index-User-Option-165"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-group-news-2-empty-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-group-news-2-empty This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-166" id=
+    "index-User-Option-166"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-gnus-group-news-2-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-group-news-2 This personality
+      uses default whose effect can be changed globally by
+      customizing default-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-167" id=
+    "index-User-Option-167"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-group-news-3-empty-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-group-news-3-empty This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-168" id=
+    "index-User-Option-168"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-gnus-group-news-3-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-group-news-3 This personality
+      uses default whose effect can be changed globally by
+      customizing default-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-169" id=
+    "index-User-Option-169"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-group-news-4-empty-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-group-news-4-empty This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-170" id=
+    "index-User-Option-170"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-gnus-group-news-4-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-group-news-4 This personality
+      uses default whose effect can be changed globally by
+      customizing default-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-171" id=
+    "index-User-Option-171"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-group-news-5-empty-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-group-news-5-empty This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-172" id=
+    "index-User-Option-172"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-gnus-group-news-5-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-group-news-5 This personality
+      uses default whose effect can be changed globally by
+      customizing default-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-173" id=
+    "index-User-Option-173"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-group-news-6-empty-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-group-news-6-empty This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-174" id=
+    "index-User-Option-174"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-gnus-group-news-6-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-group-news-6 This personality
+      uses default whose effect can be changed globally by
+      customizing default-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-175" id=
+    "index-User-Option-175"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-group-news-low-empty-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-group-news-low-empty This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-176" id=
+    "index-User-Option-176"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-group-news-low-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-group-news-low This personality
+      uses default whose effect can be changed globally by
+      customizing default-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-177" id=
+    "index-User-Option-177"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-header-content-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-header-content This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-178" id=
+    "index-User-Option-178"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-gnus-header-from-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-header-from This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-179" id=
+    "index-User-Option-179"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-gnus-header-name-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-header-name This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-180" id=
+    "index-User-Option-180"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-header-newsgroups-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-header-newsgroups This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-181" id=
+    "index-User-Option-181"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-header-subject-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-header-subject This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-182" id=
+    "index-User-Option-182"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-gnus-server-agent-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-server-agent This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-183" id=
+    "index-User-Option-183"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-server-closed-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-server-closed This personality
+      uses voice-bolden-medium whose effect can be changed globally
+      by customizing voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-184" id=
+    "index-User-Option-184"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-server-denied-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-server-denied This personality
+      uses voice-bolden-extra whose effect can be changed globally
+      by customizing voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-185" id=
+    "index-User-Option-185"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-server-offline-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-server-offline This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-186" id=
+    "index-User-Option-186"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-server-opened-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-server-opened This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-187" id=
+    "index-User-Option-187"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-gnus-signature-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-signature This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-188" id=
+    "index-User-Option-188"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-summary-cancelled-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-summary-cancelled This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-189" id=
+    "index-User-Option-189"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-summary-high-ancient-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-summary-high-ancient This
+      personality uses voice-smoothen-extra whose effect can be
+      changed globally by customizing
+      voice-smoothen-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-190" id=
+    "index-User-Option-190"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-summary-high-read-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-summary-high-read This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-191" id=
+    "index-User-Option-191"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-summary-high-ticked-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-summary-high-ticked This
+      personality uses voice-brighten-extra whose effect can be
+      changed globally by customizing
+      voice-brighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-192" id=
+    "index-User-Option-192"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-summary-high-undownloadedvoice-bolden-and-animate-voice</em></dt>
+
+    <dd>
+      <p>Personality used for
+      gnus-summary-high-undownloadedvoice-bolden-and-animate This
+      personality uses nil whose effect can be changed globally by
+      customizing nil-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-193" id=
+    "index-User-Option-193"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-summary-high-unread-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-summary-high-unread This
+      personality uses voice-brighten-extra whose effect can be
+      changed globally by customizing
+      voice-brighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-194" id=
+    "index-User-Option-194"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-summary-low-ancient-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-summary-low-ancient This
+      personality uses voice-smoothen-extra whose effect can be
+      changed globally by customizing
+      voice-smoothen-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-195" id=
+    "index-User-Option-195"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-summary-low-read-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-summary-low-read This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-196" id=
+    "index-User-Option-196"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-summary-low-ticked-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-summary-low-ticked This
+      personality uses voice-brighten-extra whose effect can be
+      changed globally by customizing
+      voice-brighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-197" id=
+    "index-User-Option-197"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-summary-low-undownloaded-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-summary-low-undownloaded This
+      personality uses voice-bolden-and-animate whose effect can be
+      changed globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-198" id=
+    "index-User-Option-198"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-summary-low-unread-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-summary-low-unread This
+      personality uses voice-bolden-medium whose effect can be
+      changed globally by customizing
+      voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-199" id=
+    "index-User-Option-199"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-summary-normal-ancient-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-summary-normal-ancient This
+      personality uses voice-smoothen-extra whose effect can be
+      changed globally by customizing
+      voice-smoothen-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-200" id=
+    "index-User-Option-200"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-summary-normal-read-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-summary-normal-read This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-201" id=
+    "index-User-Option-201"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-summary-normal-ticked-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-summary-normal-ticked This
+      personality uses voice-brighten-extra whose effect can be
+      changed globally by customizing
+      voice-brighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-202" id=
+    "index-User-Option-202"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-summary-normal-undownloaded-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-summary-normal-undownloaded This
+      personality uses voice-bolden-and-animate whose effect can be
+      changed globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-203" id=
+    "index-User-Option-203"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-gnus-summary-selected-voice</em></dt>
+
+    <dd>
+      <p>Personality used for gnus-summary-selected This
+      personality uses voice-animate-extra whose effect can be
+      changed globally by customizing
+      voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-204" id=
+    "index-User-Option-204"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-header-line-voice</em></dt>
+
+    <dd>
+      <p>Personality used for header-line This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-205" id=
+    "index-User-Option-205"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-help-argument-name-voice</em></dt>
+
+    <dd>
+      <p>Personality used for help-argument-name This personality
+      uses voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-206" id=
+    "index-User-Option-206"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-highlight-voice</em></dt>
+
+    <dd>
+      <p>Personality used for highlight This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-207" id=
+    "index-User-Option-207"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-holiday-personality</em></dt>
+
+    <dd>
+      <p>Personality used for holiday-face This personality uses
+      voice-brighten-extra whose effect can be changed globally by
+      customizing voice-brighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-208" id=
+    "index-User-Option-208"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-ido-first-match-voice</em></dt>
+
+    <dd>
+      <p>Personality used for ido-first-match This personality uses
+      voice-brighten-extra whose effect can be changed globally by
+      customizing voice-brighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-209" id=
+    "index-User-Option-209"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-ido-incomplete-regexp-voice</em></dt>
+
+    <dd>
+      <p>Personality used for ido-incomplete-regexp This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-210" id=
+    "index-User-Option-210"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-ido-indicator-voice</em></dt>
+
+    <dd>
+      <p>Personality used for ido-indicator This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-211" id=
+    "index-User-Option-211"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-ido-only-match-voice</em></dt>
+
+    <dd>
+      <p>Personality used for ido-only-match This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-212" id=
+    "index-User-Option-212"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-ido-subdir-voice</em></dt>
+
+    <dd>
+      <p>Personality used for ido-subdir This personality uses
+      voice-lighten-extra whose effect can be changed globally by
+      customizing voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-213" id=
+    "index-User-Option-213"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-info-header-node-voice</em></dt>
+
+    <dd>
+      <p>Personality used for info-header-node This personality
+      uses voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-214" id=
+    "index-User-Option-214"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-info-header-xref-voice</em></dt>
+
+    <dd>
+      <p>Personality used for info-header-xref This personality
+      uses voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-215" id=
+    "index-User-Option-215"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-info-index-match-voice</em></dt>
+
+    <dd>
+      <p>Personality used for info-index-match This personality
+      uses (quote voice-bolden-medium) whose effect can be changed
+      globally by customizing (quote
+      voice-bolden-medium)-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-216" id=
+    "index-User-Option-216"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-info-menu-5-voice</em></dt>
+
+    <dd>
+      <p>Personality used for info-menu-5 This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-217" id=
+    "index-User-Option-217"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-info-menu-header-voice</em></dt>
+
+    <dd>
+      <p>Personality used for info-menu-header This personality
+      uses voice-bolden-medium whose effect can be changed globally
+      by customizing voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-218" id=
+    "index-User-Option-218"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-info-menu-star-voice</em></dt>
+
+    <dd>
+      <p>Personality used for info-menu-star This personality uses
+      voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-219" id=
+    "index-User-Option-219"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-info-node-voice</em></dt>
+
+    <dd>
+      <p>Personality used for info-node This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-220" id=
+    "index-User-Option-220"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-info-title-1-voice</em></dt>
+
+    <dd>
+      <p>Personality used for info-title-1 This personality uses
+      voice-bolden-extra whose effect can be changed globally by
+      customizing voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-221" id=
+    "index-User-Option-221"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-info-title-2-voice</em></dt>
+
+    <dd>
+      <p>Personality used for info-title-2 This personality uses
+      voice-bolden-medium whose effect can be changed globally by
+      customizing voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-222" id=
+    "index-User-Option-222"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-info-title-3-voice</em></dt>
+
+    <dd>
+      <p>Personality used for info-title-3 This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-223" id=
+    "index-User-Option-223"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-info-title-4-voice</em></dt>
+
+    <dd>
+      <p>Personality used for info-title-4 This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-224" id=
+    "index-User-Option-224"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-info-xref-visited-voice</em></dt>
+
+    <dd>
+      <p>Personality used for info-xref-visited This personality
+      uses voice-animate-medium whose effect can be changed
+      globally by customizing voice-animate-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-225" id=
+    "index-User-Option-225"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-info-xref-voice</em></dt>
+
+    <dd>
+      <p>Personality used for info-xref This personality uses
+      voice-animate-extra whose effect can be changed globally by
+      customizing voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-226" id=
+    "index-User-Option-226"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-isearch-voice</em></dt>
+
+    <dd>
+      <p>Personality used for isearch This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-227" id=
+    "index-User-Option-227"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-italic-voice</em></dt>
+
+    <dd>
+      <p>Personality used for italic This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-228" id=
+    "index-User-Option-228"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-link-voice</em></dt>
+
+    <dd>
+      <p>Personality used for link This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-229" id=
+    "index-User-Option-229"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-branch-voice</em></dt>
+
+    <dd>
+      <p>Personality used for magit-branch This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-230" id=
+    "index-User-Option-230"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-diff-add-voice</em></dt>
+
+    <dd>
+      <p>Personality used for magit-diff-add This personality uses
+      voice-animate-extra whose effect can be changed globally by
+      customizing voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-231" id=
+    "index-User-Option-231"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-diff-del-voice</em></dt>
+
+    <dd>
+      <p>Personality used for magit-diff-del This personality uses
+      voice-animate-extra whose effect can be changed globally by
+      customizing voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-232" id=
+    "index-User-Option-232"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-diff-file-header-voice</em></dt>
+
+    <dd>
+      <p>Personality used for magit-diff-file-header This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-233" id=
+    "index-User-Option-233"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-diff-hunk-header-voice</em></dt>
+
+    <dd>
+      <p>Personality used for magit-diff-hunk-header This
+      personality uses voice-animate-medium whose effect can be
+      changed globally by customizing
+      voice-animate-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-234" id=
+    "index-User-Option-234"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-diff-none-voice</em></dt>
+
+    <dd>
+      <p>Personality used for magit-diff-none This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-235" id=
+    "index-User-Option-235"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-header-voice</em></dt>
+
+    <dd>
+      <p>Personality used for magit-header This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-236" id=
+    "index-User-Option-236"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-item-highlight-voice</em></dt>
+
+    <dd>
+      <p>Personality used for magit-item-highlight This personality
+      uses voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-237" id=
+    "index-User-Option-237"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-item-mark-voice</em></dt>
+
+    <dd>
+      <p>Personality used for magit-item-mark This personality uses
+      voice-lighten-extra whose effect can be changed globally by
+      customizing voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-238" id=
+    "index-User-Option-238"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-log-graph-voice</em></dt>
+
+    <dd>
+      <p>Personality used for magit-log-graph This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-239" id=
+    "index-User-Option-239"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-log-head-label-bisect-bad-voice</em></dt>
+
+    <dd>
+      <p>Personality used for magit-log-head-label-bisect-bad This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-240" id=
+    "index-User-Option-240"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-log-head-label-bisect-good-voice</em></dt>
+
+    <dd>
+      <p>Personality used for magit-log-head-label-bisect-good This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-241" id=
+    "index-User-Option-241"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-log-head-label-default-voice</em></dt>
+
+    <dd>
+      <p>Personality used for magit-log-head-label-default This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-242" id=
+    "index-User-Option-242"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-log-head-label-local-voice</em></dt>
+
+    <dd>
+      <p>Personality used for magit-log-head-label-local This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-243" id=
+    "index-User-Option-243"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-log-head-label-patches-voice</em></dt>
+
+    <dd>
+      <p>Personality used for magit-log-head-label-patches This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-244" id=
+    "index-User-Option-244"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-log-head-label-remote-voice</em></dt>
+
+    <dd>
+      <p>Personality used for magit-log-head-label-remote This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-245" id=
+    "index-User-Option-245"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-log-head-label-tags-voice</em></dt>
+
+    <dd>
+      <p>Personality used for magit-log-head-label-tags This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-246" id=
+    "index-User-Option-246"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-log-message-voice</em></dt>
+
+    <dd>
+      <p>Personality used for magit-log-message This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-247" id=
+    "index-User-Option-247"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-magit-log-sha1-voice</em></dt>
+
+    <dd>
+      <p>Personality used for magit-log-sha1 This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-248" id=
+    "index-User-Option-248"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-log-tag-label-voice</em></dt>
+
+    <dd>
+      <p>Personality used for magit-log-tag-label This personality
+      uses voice-annotate whose effect can be changed globally by
+      customizing voice-annotate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-249" id=
+    "index-User-Option-249"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-menu-selected-option-voice</em></dt>
+
+    <dd>
+      <p>Personality used for magit-menu-selected-option This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-250" id=
+    "index-User-Option-250"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-section-title-voice</em></dt>
+
+    <dd>
+      <p>Personality used for magit-section-title This personality
+      uses voice-annotate whose effect can be changed globally by
+      customizing voice-annotate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-251" id=
+    "index-User-Option-251"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-magit-whitespace-warning-personality</em></dt>
+
+    <dd>
+      <p>Personality used for magit-whitespace-warning-face This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-252" id=
+    "index-User-Option-252"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-match-voice</em></dt>
+
+    <dd>
+      <p>Personality used for match This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-253" id=
+    "index-User-Option-253"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-media-player</em></dt>
+
+    <dd>
+      <p>Default media player to use. This is a Lisp function that
+      takes a resource locator.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-254" id=
+    "index-User-Option-254"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-message-cited-text-voice</em></dt>
+
+    <dd>
+      <p>Personality used for message-cited-text This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-255" id=
+    "index-User-Option-255"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-message-header-cc-voice</em></dt>
+
+    <dd>
+      <p>Personality used for message-header-cc This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-256" id=
+    "index-User-Option-256"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-message-header-name-voice</em></dt>
+
+    <dd>
+      <p>Personality used for message-header-name This personality
+      uses voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-257" id=
+    "index-User-Option-257"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-message-header-newsgroups-voice</em></dt>
+
+    <dd>
+      <p>Personality used for message-header-newsgroups This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-258" id=
+    "index-User-Option-258"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-message-header-other-voice</em></dt>
+
+    <dd>
+      <p>Personality used for message-header-other This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-259" id=
+    "index-User-Option-259"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-message-header-subject-voice</em></dt>
+
+    <dd>
+      <p>Personality used for message-header-subject This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-260" id=
+    "index-User-Option-260"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-message-header-to-voice</em></dt>
+
+    <dd>
+      <p>Personality used for message-header-to This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-261" id=
+    "index-User-Option-261"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-message-header-xheader-voice</em></dt>
+
+    <dd>
+      <p>Personality used for message-header-xheader This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-262" id=
+    "index-User-Option-262"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-message-mml-voice</em></dt>
+
+    <dd>
+      <p>Personality used for message-mml This personality uses
+      voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-263" id=
+    "index-User-Option-263"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-message-separator-voice</em></dt>
+
+    <dd>
+      <p>Personality used for message-separator This personality
+      uses voice-bolden-extra whose effect can be changed globally
+      by customizing voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-264" id=
+    "index-User-Option-264"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-minibuffer-prompt-voice</em></dt>
+
+    <dd>
+      <p>Personality used for minibuffer-prompt This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-265" id=
+    "index-User-Option-265"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-outline-1-voice</em></dt>
+
+    <dd>
+      <p>Personality used for outline-1 This personality uses
+      voice-bolden-extra whose effect can be changed globally by
+      customizing voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-266" id=
+    "index-User-Option-266"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-outline-2-voice</em></dt>
+
+    <dd>
+      <p>Personality used for outline-2 This personality uses
+      voice-bolden-medium whose effect can be changed globally by
+      customizing voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-267" id=
+    "index-User-Option-267"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-outline-3-voice</em></dt>
+
+    <dd>
+      <p>Personality used for outline-3 This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-268" id=
+    "index-User-Option-268"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-outline-4-voice</em></dt>
+
+    <dd>
+      <p>Personality used for outline-4 This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-269" id=
+    "index-User-Option-269"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-outline-5-voice</em></dt>
+
+    <dd>
+      <p>Personality used for outline-5 This personality uses
+      voice-lighten-medium whose effect can be changed globally by
+      customizing voice-lighten-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-270" id=
+    "index-User-Option-270"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-outline-6-voice</em></dt>
+
+    <dd>
+      <p>Personality used for outline-6 This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-271" id=
+    "index-User-Option-271"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-play-emacspeak-startup-icon</em></dt>
+
+    <dd>
+      <p>If set to T, emacspeak plays its icon as it launches.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-272" id=
+    "index-User-Option-272"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-py-XXX-tag-personality</em></dt>
+
+    <dd>
+      <p>Personality used for py-XXX-tag-face This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-273" id=
+    "index-User-Option-273"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-py-builtins-personality</em></dt>
+
+    <dd>
+      <p>Personality used for py-builtins-face This personality
+      uses emacspeak-voice-lock-builtin-personality whose effect
+      can be changed globally by customizing
+      emacspeak-voice-lock-builtin-personality-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-274" id=
+    "index-User-Option-274"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-py-class-name-personality</em></dt>
+
+    <dd>
+      <p>Personality used for py-class-name-face This personality
+      uses voice-bolden-extra whose effect can be changed globally
+      by customizing voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-275" id=
+    "index-User-Option-275"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-py-decorators-personality</em></dt>
+
+    <dd>
+      <p>Personality used for py-decorators-face This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-276" id=
+    "index-User-Option-276"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-py-exception-name-personality</em></dt>
+
+    <dd>
+      <p>Personality used for py-exception-name-face This
+      personality uses emacspeak-voice-lock-warning-personality
+      whose effect can be changed globally by customizing
+      emacspeak-voice-lock-warning-personality-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-277" id=
+    "index-User-Option-277"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-py-number-personality</em></dt>
+
+    <dd>
+      <p>Personality used for py-number-face This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-278" id=
+    "index-User-Option-278"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-py-pseudo-keyword-personality</em></dt>
+
+    <dd>
+      <p>Personality used for py-pseudo-keyword-face This
+      personality uses voice-bolden-medium whose effect can be
+      changed globally by customizing
+      voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-279" id=
+    "index-User-Option-279"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-py-variable-name-personality</em></dt>
+
+    <dd>
+      <p>Personality used for py-variable-name-face This
+      personality uses
+      emacspeak-voice-lock-variable-name-personality whose effect
+      can be changed globally by customizing
+      emacspeak-voice-lock-variable-name-personality-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-280" id=
+    "index-User-Option-280"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-query-replace-voice</em></dt>
+
+    <dd>
+      <p>Personality used for query-replace This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-281" id=
+    "index-User-Option-281"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-region-voice</em></dt>
+
+    <dd>
+      <p>Personality used for region This personality uses
+      voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-282" id=
+    "index-User-Option-282"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-shadow-voice</em></dt>
+
+    <dd>
+      <p>Personality used for shadow This personality uses
+      voice-monotone-medium whose effect can be changed globally by
+      customizing voice-monotone-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-283" id=
+    "index-User-Option-283"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-shr-link-voice</em></dt>
+
+    <dd>
+      <p>Personality used for shr-link This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-284" id=
+    "index-User-Option-284"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-startup-hook</em></dt>
+
+    <dd>
+      <p>Hook to run after starting emacspeak.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-285" id=
+    "index-User-Option-285"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-term-underline-voice</em></dt>
+
+    <dd>
+      <p>Personality used for term-underline This personality uses
+      voice-brighten-medium whose effect can be changed globally by
+      customizing voice-brighten-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-286" id=
+    "index-User-Option-286"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-underline-voice</em></dt>
+
+    <dd>
+      <p>Personality used for underline This personality uses
+      voice-lighten-extra whose effect can be changed globally by
+      customizing voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-287" id=
+    "index-User-Option-287"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-variable-pitch-voice</em></dt>
+
+    <dd>
+      <p>Personality used for variable-pitch This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-288" id=
+    "index-User-Option-288"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-voice-latex-bold-personality</em></dt>
+
+    <dd>
+      <p>Personality used for font-latex-bold-face This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-289" id=
+    "index-User-Option-289"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-voice-latex-doctex-documentation-personality</em></dt>
+
+    <dd>
+      <p>Personality used for font-latex-doctex-documentation-face
+      This personality uses voice-monotone-medium whose effect can
+      be changed globally by customizing
+      voice-monotone-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-290" id=
+    "index-User-Option-290"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-voice-latex-doctex-preprocessor-personality</em></dt>
+
+    <dd>
+      <p>Personality used for font-latex-doctex-preprocessor-face
+      This personality uses voice-brighten-medium whose effect can
+      be changed globally by customizing
+      voice-brighten-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-291" id=
+    "index-User-Option-291"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-voice-latex-italic-personality</em></dt>
+
+    <dd>
+      <p>Personality used for font-latex-italic-face This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-292" id=
+    "index-User-Option-292"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-voice-latex-math-personality</em></dt>
+
+    <dd>
+      <p>Personality used for font-latex-math-face This personality
+      uses voice-brighten-extra whose effect can be changed
+      globally by customizing voice-brighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-293" id=
+    "index-User-Option-293"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-voice-latex-sedate-personality</em></dt>
+
+    <dd>
+      <p>Personality used for font-latex-sedate-face This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-294" id=
+    "index-User-Option-294"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-voice-latex-string-personality</em></dt>
+
+    <dd>
+      <p>Personality used for font-latex-string-face This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-295" id=
+    "index-User-Option-295"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-voice-latex-subscript-personality</em></dt>
+
+    <dd>
+      <p>Personality used for font-latex-subscript-face This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-296" id=
+    "index-User-Option-296"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-voice-latex-superscript-personality</em></dt>
+
+    <dd>
+      <p>Personality used for font-latex-superscript-face This
+      personality uses voice-brighten whose effect can be changed
+      globally by customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-297" id=
+    "index-User-Option-297"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-voice-latex-verbatim-personality</em></dt>
+
+    <dd>
+      <p>Personality used for font-latex-verbatim-face This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-298" id=
+    "index-User-Option-298"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-voice-latex-warning-personality</em></dt>
+
+    <dd>
+      <p>Personality used for font-latex-warning-face This
+      personality uses voice-bolden-and-animate whose effect can be
+      changed globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-299" id=
+    "index-User-Option-299"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-voice-lock-builtin-personality</em></dt>
+
+    <dd>
+      <p>Personality used for font-lock-builtin-face This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-300" id=
+    "index-User-Option-300"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-voice-lock-comment-delimiter-personality</em></dt>
+
+    <dd>
+      <p>Personality used for font-lock-comment-delimiter-face This
+      personality uses voice-smoothen-medium whose effect can be
+      changed globally by customizing
+      voice-smoothen-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-301" id=
+    "index-User-Option-301"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-voice-lock-comment-personality</em></dt>
+
+    <dd>
+      <p>Personality used for font-lock-comment-face This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-302" id=
+    "index-User-Option-302"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-voice-lock-constant-personality</em></dt>
+
+    <dd>
+      <p>Personality used for font-lock-constant-face This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-303" id=
+    "index-User-Option-303"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-voice-lock-doc-personality</em></dt>
+
+    <dd>
+      <p>Personality used for font-lock-doc-face This personality
+      uses voice-monotone-medium whose effect can be changed
+      globally by customizing voice-monotone-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-304" id=
+    "index-User-Option-304"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-voice-lock-function-name-personality</em></dt>
+
+    <dd>
+      <p>Personality used for font-lock-function-name-face This
+      personality uses voice-bolden-medium whose effect can be
+      changed globally by customizing
+      voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-305" id=
+    "index-User-Option-305"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-voice-lock-keyword-personality</em></dt>
+
+    <dd>
+      <p>Personality used for font-lock-keyword-face This
+      personality uses voice-animate-extra whose effect can be
+      changed globally by customizing
+      voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-306" id=
+    "index-User-Option-306"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-voice-lock-negation-char-personality</em></dt>
+
+    <dd>
+      <p>Personality used for font-lock-negation-char-face This
+      personality uses voice-brighten-extra whose effect can be
+      changed globally by customizing
+      voice-brighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-307" id=
+    "index-User-Option-307"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-voice-lock-preprocessor-personality</em></dt>
+
+    <dd>
+      <p>Personality used for font-lock-preprocessor-face This
+      personality uses voice-monotone-medium whose effect can be
+      changed globally by customizing
+      voice-monotone-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-308" id=
+    "index-User-Option-308"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-voice-lock-regexp-grouping-backslash</em></dt>
+
+    <dd>
+      <p>Personality used for font-lock-regexp-grouping-backslash
+      This personality uses voice-smoothen-extra whose effect can
+      be changed globally by customizing
+      voice-smoothen-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-309" id=
+    "index-User-Option-309"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-voice-lock-regexp-grouping-construct</em></dt>
+
+    <dd>
+      <p>Personality used for font-lock-regexp-grouping-construct
+      This personality uses voice-smoothen whose effect can be
+      changed globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-310" id=
+    "index-User-Option-310"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-voice-lock-string-personality</em></dt>
+
+    <dd>
+      <p>Personality used for font-lock-string-face This
+      personality uses voice-lighten-extra whose effect can be
+      changed globally by customizing
+      voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-311" id=
+    "index-User-Option-311"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-voice-lock-type-personality</em></dt>
+
+    <dd>
+      <p>Personality used for font-lock-type-face This personality
+      uses voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-312" id=
+    "index-User-Option-312"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-voice-lock-variable-name-personality</em></dt>
+
+    <dd>
+      <p>Personality used for font-lock-variable-name-face This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-313" id=
+    "index-User-Option-313"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-voice-lock-warning-personality</em></dt>
+
+    <dd>
+      <p>Personality used for font-lock-warning-face This
+      personality uses voice-bolden-and-animate whose effect can be
+      changed globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-314" id=
+    "index-User-Option-314"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-w3m-anchor-voice</em></dt>
+
+    <dd>
+      <p>Personality used for w3m-anchor This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-315" id=
+    "index-User-Option-315"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-w3m-arrived-anchor-voice</em></dt>
+
+    <dd>
+      <p>Personality used for w3m-arrived-anchor This personality
+      uses voice-lighten-extra whose effect can be changed globally
+      by customizing voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-316" id=
+    "index-User-Option-316"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-w3m-bold-voice</em></dt>
+
+    <dd>
+      <p>Personality used for w3m-bold This personality uses
+      voice-bolden-medium whose effect can be changed globally by
+      customizing voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-317" id=
+    "index-User-Option-317"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-w3m-current-anchor-voice</em></dt>
+
+    <dd>
+      <p>Personality used for w3m-current-anchor This personality
+      uses voice-bolden-extra whose effect can be changed globally
+      by customizing voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-318" id=
+    "index-User-Option-318"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-w3m-form-button-pressed-voice</em></dt>
+
+    <dd>
+      <p>Personality used for w3m-form-button-pressed This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-319" id=
+    "index-User-Option-319"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-w3m-form-button-voice</em></dt>
+
+    <dd>
+      <p>Personality used for w3m-form-button This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-320" id=
+    "index-User-Option-320"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-w3m-form-voice</em></dt>
+
+    <dd>
+      <p>Personality used for w3m-form This personality uses
+      voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-321" id=
+    "index-User-Option-321"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-w3m-header-line-location-content-voice</em></dt>
+
+    <dd>
+      <p>Personality used for w3m-header-line-location-content This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-322" id=
+    "index-User-Option-322"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-w3m-header-line-location-title-voice</em></dt>
+
+    <dd>
+      <p>Personality used for w3m-header-line-location-title This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-323" id=
+    "index-User-Option-323"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-w3m-history-current-url-voice</em></dt>
+
+    <dd>
+      <p>Personality used for w3m-history-current-url This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-324" id=
+    "index-User-Option-324"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-w3m-image-voice</em></dt>
+
+    <dd>
+      <p>Personality used for w3m-image This personality uses
+      voice-brighten whose effect can be changed globally by
+      customizing voice-brighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-325" id=
+    "index-User-Option-325"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-w3m-insert-voice</em></dt>
+
+    <dd>
+      <p>Personality used for w3m-insert This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-326" id=
+    "index-User-Option-326"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-w3m-italic-voice</em></dt>
+
+    <dd>
+      <p>Personality used for w3m-italic This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-327" id=
+    "index-User-Option-327"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-w3m-strike-through-voice</em></dt>
+
+    <dd>
+      <p>Personality used for w3m-strike-through This personality
+      uses voice-smoothen-extra whose effect can be changed
+      globally by customizing voice-smoothen-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-328" id=
+    "index-User-Option-328"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-w3m-tab-selected-voice</em></dt>
+
+    <dd>
+      <p>Personality used for w3m-tab-selected This personality
+      uses voice-animate-extra whose effect can be changed globally
+      by customizing voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-329" id=
+    "index-User-Option-329"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-w3m-tab-unselected-voice</em></dt>
+
+    <dd>
+      <p>Personality used for w3m-tab-unselected This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-330" id=
+    "index-User-Option-330"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-w3m-underline-voice</em></dt>
+
+    <dd>
+      <p>Personality used for w3m-underline This personality uses
+      voice-brighten-extra whose effect can be changed globally by
+      customizing voice-brighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-331" id=
+    "index-User-Option-331"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-warning-voice</em></dt>
+
+    <dd>
+      <p>Personality used for warning This personality uses
+      voice-bolden-and-animate whose effect can be changed globally
+      by customizing voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-332" id=
+    "index-User-Option-332"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-widget-button-pressed-voice</em></dt>
+
+    <dd>
+      <p>Personality used for widget-button-pressed This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-333" id=
+    "index-User-Option-333"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-widget-button-voice</em></dt>
+
+    <dd>
+      <p>Personality used for widget-button This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-334" id=
+    "index-User-Option-334"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-widget-documentation-voice</em></dt>
+
+    <dd>
+      <p>Personality used for widget-documentation This personality
+      uses voice-smoothen-extra whose effect can be changed
+      globally by customizing voice-smoothen-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-335" id=
+    "index-User-Option-335"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-widget-field-voice</em></dt>
+
+    <dd>
+      <p>Personality used for widget-field This personality uses
+      voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-336" id=
+    "index-User-Option-336"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-widget-inactive-voice</em></dt>
+
+    <dd>
+      <p>Personality used for widget-inactive This personality uses
+      voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-337" id=
+    "index-User-Option-337"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-widget-single-line-field-voice</em></dt>
+
+    <dd>
+      <p>Personality used for widget-single-line-field This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-338" id=
+    "index-User-Option-338"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-woman-bold-voice</em></dt>
+
+    <dd>
+      <p>Personality used for woman-bold This personality uses
+      voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-339" id=
+    "index-User-Option-339"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-woman-edition-voice</em></dt>
+
+    <dd>
+      <p>Personality used for woman-edition This personality uses
+      voice-bolden-medium whose effect can be changed globally by
+      customizing voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-340" id=
+    "index-User-Option-340"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-woman-italic-voice</em></dt>
+
+    <dd>
+      <p>Personality used for woman-italic This personality uses
+      voice-animate whose effect can be changed globally by
+      customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-341" id=
+    "index-User-Option-341"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-woman-unknown-voice</em></dt>
+
+    <dd>
+      <p>Personality used for woman-unknown This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-342" id=
+    "index-User-Option-342"></a>Variable: <strong>User
+    Option</strong> <em>g-auth-lifetime</em></dt>
+
+    <dd>
+      <p>Auth lifetime.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href="emacspeak_002d2048.html#emacspeak_002d2048"
+    accesskey="n" rel="next">emacspeak-2048</a>, Previous: <a href=
+    "dtk_002dunicode.html#dtk_002dunicode" accesskey="p" rel=
+    "prev">dtk-unicode</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+</body>
+</html>
