@@ -344,8 +344,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 (defun emacspeak-url-template-setup-content-filter ()
   "Set up content filter in displayed page."
   (declare (special emacspeak-we-xpath-filter emacspeak-we-paragraphs-xpath-filter))
-  (setq emacspeak-we-xpath-filter
-        emacspeak-we-paragraphs-xpath-filter))
+  (setq emacspeak-we-xpath-filter emacspeak-we-paragraphs-xpath-filter))
 
 ;;}}}
 ;;{{{ webmaster tools
