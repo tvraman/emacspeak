@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1062 commands and 880 options.
+This chapter documents a total of 1062 commands and 882 options.
 
 @menu
 * acss-structure::
@@ -1751,6 +1751,18 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 @defvar {User Option} emacspeak-eww-form-text-voice
 Personality used for eww-form-text
 This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-eww-invalid-certificate-voice
+Personality used for eww-invalid-certificate
+This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-eww-valid-certificate-voice
+Personality used for eww-valid-certificate
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 
 @end defvar
 
@@ -5687,6 +5699,7 @@ Warning, this is fragile, and depends on a stable id for the
 @findex emacspeak-eww-links-rel
 
 Display Link tags of type rel.
+Web pages for which alternate links are available are cued by an auditory icon on the header line.
 @end deffn
 
 @deffn {Command} emacspeak-eww-masquerade   

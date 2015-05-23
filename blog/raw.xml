@@ -1,4 +1,598 @@
-<?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet href="http://www.blogger.com/styles/atom.css" type="text/css"?><feed xmlns='http://www.w3.org/2005/Atom' xmlns:openSearch='http://a9.com/-/spec/opensearchrss/1.0/' xmlns:blogger='http://schemas.google.com/blogger/2008' xmlns:georss='http://www.georss.org/georss' xmlns:gd="http://schemas.google.com/g/2005" xmlns:thr='http://purl.org/syndication/thread/1.0'><id>tag:blogger.com,1999:blog-20280042</id><updated>2015-02-17T17:40:22.906-08:00</updated><title type='text'>EMACSPEAK  The Complete Audio Desktop</title><subtitle type='html'>Here is where I plan to Blog Emacspeak tricks and introduce new features as I implement them.</subtitle><link rel='http://schemas.google.com/g/2005#feed' type='application/atom+xml' href='http://emacspeak.blogspot.com/feeds/posts/default'/><link rel='self' type='application/atom+xml' href='http://www.blogger.com/feeds/20280042/posts/default?max-results=1000'/><link rel='alternate' type='text/html' href='http://emacspeak.blogspot.com/'/><link rel='hub' href='http://pubsubhubbub.appspot.com/'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='http://img2.blogblog.com/img/b16-rounded.gif'/></author><generator version='7.00' uri='http://www.blogger.com'>Blogger</generator><openSearch:totalResults>124</openSearch:totalResults><openSearch:startIndex>1</openSearch:startIndex><openSearch:itemsPerPage>1000</openSearch:itemsPerPage><entry><id>tag:blogger.com,1999:blog-20280042.post-8289264463441948640</id><published>2015-02-17T17:40:00.001-08:00</published><updated>2015-02-17T17:40:22.919-08:00</updated><title type='text'>Enhanced Audio On The Emacspeak Desktop</title><content type='html'>
+<?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet href="http://www.blogger.com/styles/atom.css" type="text/css"?><feed xmlns='http://www.w3.org/2005/Atom' xmlns:openSearch='http://a9.com/-/spec/opensearchrss/1.0/' xmlns:blogger='http://schemas.google.com/blogger/2008' xmlns:georss='http://www.georss.org/georss' xmlns:gd="http://schemas.google.com/g/2005" xmlns:thr='http://purl.org/syndication/thread/1.0'><id>tag:blogger.com,1999:blog-20280042</id><updated>2015-04-30T15:37:55.329-07:00</updated><title type='text'>EMACSPEAK  The Complete Audio Desktop</title><subtitle type='html'>Here is where I plan to Blog Emacspeak tricks and introduce new features as I implement them.</subtitle><link rel='http://schemas.google.com/g/2005#feed' type='application/atom+xml' href='http://emacspeak.blogspot.com/feeds/posts/default'/><link rel='self' type='application/atom+xml' href='http://www.blogger.com/feeds/20280042/posts/default?max-results=1000'/><link rel='alternate' type='text/html' href='http://emacspeak.blogspot.com/'/><link rel='hub' href='http://pubsubhubbub.appspot.com/'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='http://img2.blogblog.com/img/b16-rounded.gif'/></author><generator version='7.00' uri='http://www.blogger.com'>Blogger</generator><openSearch:totalResults>128</openSearch:totalResults><openSearch:startIndex>1</openSearch:startIndex><openSearch:itemsPerPage>1000</openSearch:itemsPerPage><entry><id>tag:blogger.com,1999:blog-20280042.post-1698175370010769215</id><published>2015-04-30T15:37:00.001-07:00</published><updated>2015-04-30T15:37:55.362-07:00</updated><title type='text'>Announcing Emacspeak 42.0 (AnswerDog)</title><content type='html'>
+    &lt;div xmlns=&#39;http://www.w3.org/1999/xhtml&#39;&gt;
+&lt;div id=&#39;content&#39;&gt;
+&lt;h1 class=&#39;title&#39;&gt;Emacspeak 42.0—AnswerDog—Unleashed!&lt;/h1&gt;
+
+&lt;div class=&#39;outline-2&#39; id=&#39;outline-container-sec-1&#39;&gt;
+&lt;h2 id=&#39;sec-1&#39;&gt;&lt;span class=&#39;section-number-2&#39;&gt;1&lt;/span&gt; Emacspeak-42.0 (AnswerDog) Unleashed!&lt;/h2&gt;
+&lt;div id=&#39;text-1&#39; class=&#39;outline-text-2&#39;&gt;
+&lt;p&gt;
+**  For Immediate Release:
+&lt;/p&gt;
+
+&lt;p&gt;
+San Jose, Calif., (May 1, 2015)
+    Emacspeak:  Redefining Accessibility In The Era Of Internet  Computing 
+    –Zero cost of upgrades/downgrades makes priceless software affordable!
+&lt;/p&gt;
+
+&lt;p&gt;
+Emacspeak Inc (NASDOG: ESPK) --&lt;a href=&#39;http://emacspeak.sf.net&#39;&gt;http://emacspeak.sf.net&lt;/a&gt;– announces the
+immediate world-wide availability of &lt;a href=&#39;https://github.com/tvraman/emacspeak/releases/download/42.0/emacspeak-42.0.tar.bz2&#39;&gt;Emacspeak 42.0&lt;/a&gt; (AnswerDog) –a
+powerful audio desktop for leveraging today&#39;s evolving data, social
+and service-oriented Internet cloud.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&#39;outline-3&#39; id=&#39;outline-container-sec-1-1&#39;&gt;
+&lt;h3 id=&#39;sec-1-1&#39;&gt;&lt;span class=&#39;section-number-3&#39;&gt;1.1&lt;/span&gt; Investors Note:&lt;/h3&gt;
+&lt;div id=&#39;text-1-1&#39; class=&#39;outline-text-3&#39;&gt;
+&lt;p&gt;
+With several prominent tweeters expanding coverage of
+&lt;span class=&#39;underline&#39;&gt;#emacspeak&lt;/span&gt;, NASDOG: ESPK has now been consistently trading over
+the social net at levels close to that once attained by DogCom
+high-fliers—and as of May 2015 is trading at levels close to
+that achieved by once better known stocks in the tech sector.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#39;outline-3&#39; id=&#39;outline-container-sec-1-2&#39;&gt;
+&lt;h3 id=&#39;sec-1-2&#39;&gt;&lt;span class=&#39;section-number-3&#39;&gt;1.2&lt;/span&gt; What Is It?&lt;/h3&gt;
+&lt;div id=&#39;text-1-2&#39; class=&#39;outline-text-3&#39;&gt;
+&lt;p&gt;
+Emacspeak is a fully functional audio desktop that provides
+complete eyes-free access to all major 32 and 64 bit operating
+environments. By seamlessly blending live access to all aspects
+of the Internet such as Web-surfing, blogging, social computing
+and electronic messaging into the audio desktop, Emacspeak
+enables speech access to local and remote information with a
+consistent and well-integrated user interface. A rich suite of
+task-oriented tools provides efficient speech-enabled access to
+the evolving service-oriented social Internet cloud.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#39;outline-3&#39; id=&#39;outline-container-sec-1-3&#39;&gt;
+&lt;h3 id=&#39;sec-1-3&#39;&gt;&lt;span class=&#39;section-number-3&#39;&gt;1.3&lt;/span&gt; Major Enhancements:&lt;/h3&gt;
+&lt;div id=&#39;text-1-3&#39; class=&#39;outline-text-3&#39;&gt;
+&lt;ul class=&#39;org-ul&#39;&gt;
+&lt;li&gt;Emacs EWW: Consume Web content efficiently.   🕷
+&lt;/li&gt;
+&lt;li&gt;Updated Info manual 🕮
+&lt;/li&gt;
+&lt;li&gt;SoX integration for generating auditory feedback ℗
+&lt;/li&gt;
+&lt;li&gt;Speech-enabled Elfeed, an Emacs Feed Reader 🗞
+&lt;/li&gt;
+&lt;li&gt;CSound generated 3d Auditory Icons ⟀
+&lt;/li&gt;
+&lt;li&gt;Audacious — An Audio Workbench using SoX   🝧
+&lt;/li&gt;
+&lt;li&gt;Audio presets for MPlayer using Ladspa filters ♮
+&lt;/li&gt;
+&lt;li&gt;emacspeak-url-templates: Smart Web access.  ♅
+&lt;/li&gt;
+&lt;li&gt;Integrated TuneIn Radio search, browse and play 📻
+&lt;/li&gt;
+&lt;li&gt;emacspeak-websearch.el Find things fast. ♁
+&lt;/li&gt;
+&lt;li&gt;Calibre integration for searching and viewing epub 📚 📔
+&lt;/li&gt;
+&lt;li&gt;Complete anything via company integration  ∁
+&lt;/li&gt;
+&lt;li&gt;Emacs 24.4: Supports all new features in Emacs 24.4. 🌚
+&lt;/li&gt;
+&lt;li&gt;And a lot more than wil fit this margin. …
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#39;outline-3&#39; id=&#39;outline-container-sec-1-4&#39;&gt;
+&lt;h3 id=&#39;sec-1-4&#39;&gt;&lt;span class=&#39;section-number-3&#39;&gt;1.4&lt;/span&gt; Establishing Liberty, Equality And Freedom:&lt;/h3&gt;
+&lt;div id=&#39;text-1-4&#39; class=&#39;outline-text-3&#39;&gt;
+&lt;p&gt;
+  Never a toy system, Emacspeak is voluntarily bundled with all
+major Linux distributions. Though designed to be modular,
+distributors have freely chosen to bundle the fully integrated
+system without any undue pressure—a documented success for
+the integrated innovation embodied by Emacspeak. As the system
+evolves, both upgrades and downgrades continue to be available at
+the same zero-cost to all users. The integrity of the Emacspeak
+codebase is ensured by the reliable and secure Linux platform
+used to develop and distribute the software.
+&lt;/p&gt;
+
+&lt;p&gt;
+Extensive studies have shown that thanks to these features, users
+consider Emacspeak to be absolutely priceless. Thanks to this
+wide-spread user demand, the present version remains   priceless
+as ever—it is being made available at the same zero-cost as
+previous releases.
+&lt;/p&gt;
+
+&lt;p&gt;
+At the same time, Emacspeak continues to innovate in the area of
+eyes-free social interaction and carries forward the
+well-established Open Source tradition of introducing user
+interface features that eventually show up in luser environments.
+&lt;/p&gt;
+
+&lt;p&gt;
+On this theme, when once challenged by a proponent of a crash-prone
+but well-marketed mousetrap with the assertion &quot;Emacs is a system from
+the 70&#39;s&quot;, the creator of Emacspeak evinced surprise at the unusual
+candor manifest in the assertion that it would take popular
+idiot-proven interfaces until the year 2070 to catch up to where the
+Emacspeak audio desktop is today. Industry experts welcomed this
+refreshing breath of Courage Certainty and Clarity (CCC) at a time
+when users are reeling from the Fear Uncertainty and Doubt (FUD)
+unleashed by complex software systems backed by even more convoluted
+press releases.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#39;outline-3&#39; id=&#39;outline-container-sec-1-5&#39;&gt;
+&lt;h3 id=&#39;sec-1-5&#39;&gt;&lt;span class=&#39;section-number-3&#39;&gt;1.5&lt;/span&gt; Independent Test Results:&lt;/h3&gt;
+&lt;div id=&#39;text-1-5&#39; class=&#39;outline-text-3&#39;&gt;
+&lt;p&gt;
+Independent test results have proven that unlike some modern (and
+not so modern) software, Emacspeak can be safely uninstalled without
+adversely affecting the continued performance of the computer. These
+same tests also revealed that once uninstalled, the user stopped
+functioning altogether. Speaking with Aster Labrador, the creator of
+Emacspeak once pointed out that these results re-emphasize the
+user-centric design of Emacspeak; &quot;It is the user –and not the
+computer– that stops functioning when Emacspeak is uninstalled!&quot;.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&#39;outline-4&#39; id=&#39;outline-container-sec-1-5-1&#39;&gt;
+&lt;h4 id=&#39;sec-1-5-1&#39;&gt;&lt;span class=&#39;section-number-4&#39;&gt;1.5.1&lt;/span&gt; Note from Aster,Bubbles and Tilden:&lt;/h4&gt;
+&lt;div id=&#39;text-1-5-1&#39; class=&#39;outline-text-4&#39;&gt;
+&lt;p&gt;
+UnDoctored Videos Inc. is looking for volunteers to star in a
+video demonstrating such complete user failure.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#39;outline-3&#39; id=&#39;outline-container-sec-1-6&#39;&gt;
+&lt;h3 id=&#39;sec-1-6&#39;&gt;&lt;span class=&#39;section-number-3&#39;&gt;1.6&lt;/span&gt; Obtaining Emacspeak:&lt;/h3&gt;
+&lt;div id=&#39;text-1-6&#39; class=&#39;outline-text-3&#39;&gt;
+&lt;p&gt;
+Emacspeak can be downloaded from GitHub  –see
+&lt;a href=&#39;https://github.com/tvraman/emacspeak&#39;&gt;https://github.com/tvraman/emacspeak&lt;/a&gt;  you can visit 
+Emacspeak on the WWW at &lt;a href=&#39;http://emacspeak.sf.net&#39;&gt;http://emacspeak.sf.net&lt;/a&gt;.  You can subscribe
+to the emacspeak mailing list emacspeak@cs.vassar.edu by sending
+mail to the list request address
+emacspeak-request@cs.vassar.edu. The
+&lt;a href=&#39;http://emacspeak.blogspot.com&#39;&gt;Emacspeak Blog&lt;/a&gt; is a good source
+ for news about recent enhancements and how to use them.
+&lt;/p&gt;
+
+&lt;p&gt;
+The latest development snapshot of Emacspeak is always available via
+Git  from GitHub  at 
+&lt;a href=&#39;https://github.com/tvraman/emacspeak&#39;&gt;Emacspeak GitHub &lt;/a&gt;.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#39;outline-3&#39; id=&#39;outline-container-sec-1-7&#39;&gt;
+&lt;h3 id=&#39;sec-1-7&#39;&gt;&lt;span class=&#39;section-number-3&#39;&gt;1.7&lt;/span&gt; History:&lt;/h3&gt;
+&lt;div id=&#39;text-1-7&#39; class=&#39;outline-text-3&#39;&gt;
+&lt;p&gt;
+Emacspeak 42.0 while moving to GitHub from Google Code continues to
+innovate in the areas of auditory user interfaces and efficient,
+light-weight Internet access.  Emacspeak 41.0 continues to improve
+upon the desire to provide not just equal, but superior access —
+technology when correctly implemented can significantly enhance the
+human ability. Emacspeak 40.0 goes back to Web basics by enabling
+&lt;a href=&#39;http://emacspeak.blogspot.com/2013/11/reading-web-content-efficiently.html&#39;&gt;efficient access&lt;/a&gt; to large amounts of readable Web content. Emacspeak
+39.0 continues the Emacspeak tradition of increasing the breadth of
+user tasks that are covered without introducing unnecessary
+bloatware. Emacspeak 38.0 is the latest in a series of award-winning
+releases from Emacspeak Inc. Emacspeak 37.0 continues the tradition of
+delivering robust software as reflected by its code-name. Emacspeak
+36.0 enhances the audio desktop with many new tools including full
+EPub support — hence the name EPubDog. Emacspeak 35.0 is all about
+teaching a new dog old tricks — and is aptly code-named HeadDog in
+honor of our new Press/Analyst contact. emacspeak-34.0 (AKA Bubbles)
+established a new beach-head with respect to rapid task completion in
+an eyes-free environment. Emacspeak-33.0 AKA StarDog brings
+unparalleled cloud access to the audio desktop. Emacspeak 32.0 AKA
+LuckyDog continues to innovate via open technologies for better
+access. Emacspeak 31.0 AKA TweetDog — adds tweeting to the Emacspeak
+desktop. Emacspeak 30.0 AKA SocialDog brings the Social Web to the
+audio desktop—you cant but be social if you speak! Emacspeak
+29.0—AKAAbleDog—is a testament to the resilliance and innovation
+embodied by Open Source software—it would not exist without the
+thriving Emacs community that continues to ensure that Emacs remains
+one of the premier user environments despite perhaps also being one of
+the oldest. Emacspeak 28.0—AKA PuppyDog—exemplifies the rapid pace of
+development evinced by Open Source software. Emacspeak 27.0—AKA
+FastDog—is the latest in a sequence of upgrades that make previous
+releases obsolete and downgrades unnecessary. Emacspeak 26—AKA
+LeadDog—continues the tradition of introducing innovative access
+solutions that are unfettered by the constraints inherent in
+traditional adaptive technologies. Emacspeak 25 —AKA ActiveDog
+—re-activates open, unfettered access to online
+information. Emacspeak-Alive —AKA LiveDog —enlivens open, unfettered
+information access with a series of live updates that once again
+demonstrate the power and agility of open source software
+development. Emacspeak 23.0 – AKA Retriever—went the extra mile in
+fetching full access. Emacspeak 22.0 —AKA GuideDog —helps users
+navigate the Web more effectively than ever before. Emacspeak 21.0
+—AKA PlayDog —continued the Emacspeak tradition of relying on enhanced
+productivity to liberate users. Emacspeak-20.0 —AKA LeapDog —continues
+the long established GNU/Emacs tradition of integrated innovation to
+create a pleasurable computing environment for eyes-free
+interaction. emacspeak-19.0 –AKA WorkDog– is designed to enhance
+user productivity at work and leisure. Emacspeak-18.0 –code named
+GoodDog– continued the Emacspeak tradition of enhancing user
+productivity and thereby reducing total cost of
+ownership. Emacspeak-17.0 –code named HappyDog– enhances user
+productivity by exploiting today&#39;s evolving WWW
+standards. Emacspeak-16.0 –code named CleverDog– the follow-up to
+SmartDog– continued the tradition of working better, faster,
+smarter. Emacspeak-15.0 –code named SmartDog–followed up on TopDog
+as the next in a continuing a series of award-winning audio desktop
+releases from Emacspeak Inc. Emacspeak-14.0 –code named TopDog–was
+the first release of this millennium. Emacspeak-13.0 –codenamed
+YellowLab– was the closing release of the
+20th. century. Emacspeak-12.0 –code named GoldenDog– began
+leveraging the evolving semantic WWW to provide task-oriented speech
+access to Webformation. Emacspeak-11.0 –code named Aster– went the
+final step in making Linux a zero-cost Internet access solution for
+blind and visually impaired users. Emacspeak-10.0 –(AKA
+Emacspeak-2000) code named WonderDog– continued the tradition of
+award-winning software releases designed to make eyes-free computing a
+productive and pleasurable experience. Emacspeak-9.0 –(AKA
+Emacspeak 99) code named BlackLab– continued to innovate in the areas
+of speech interaction and interactive accessibility. Emacspeak-8.0
+–(AKA Emacspeak-98++) code named BlackDog– was a major upgrade to
+the speech output extension to Emacs.
+&lt;/p&gt;
+
+&lt;p&gt;
+Emacspeak-95 (code named Illinois) was released as OpenSource on
+the Internet in May 1995 as the first complete speech interface
+to UNIX workstations. The subsequent release, Emacspeak-96 (code
+named Egypt) made available in May 1996 provided significant
+enhancements to the interface. Emacspeak-97 (Tennessee) went
+further in providing a true audio desktop. Emacspeak-98
+integrated Internetworking into all aspects of the audio desktop
+to provide the first fully interactive speech-enabled WebTop.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#39;outline-3&#39; id=&#39;outline-container-sec-1-8&#39;&gt;
+&lt;h3 id=&#39;sec-1-8&#39;&gt;&lt;span class=&#39;section-number-3&#39;&gt;1.8&lt;/span&gt; About Emacspeak:&lt;/h3&gt;
+&lt;div id=&#39;text-1-8&#39; class=&#39;outline-text-3&#39;&gt;
+&lt;p&gt;
+Originally based at Cornell (NY)
+&lt;a href=&#39;http://www.cs.cornell.edu/home/raman&#39;&gt;http://www.cs.cornell.edu/home/raman&lt;/a&gt; –home to Auditory User
+Interfaces (AUI) on the WWW– Emacspeak is now maintained on
+GitHub --&lt;a href=&#39;https://github.com/tvraman/emacspeak&#39;&gt;https://github.com/tvraman/emacspeak&lt;/a&gt; —and
+Sourceforge —&lt;a href=&#39;http://emacspeak.sf.net&#39;&gt;http://emacspeak.sf.net&lt;/a&gt;. The system is mirrored
+world-wide by an international network of software archives and
+bundled voluntarily with all major Linux distributions. On
+Monday, April 12, 1999, Emacspeak became part of the
+Smithsonian&#39;s Permanent Research Collection on Information
+Technology at the Smithsonian&#39;s National Museum of American
+History.
+&lt;/p&gt;
+
+&lt;p&gt;
+The Emacspeak mailing list is archived at Vassar –the home of the
+Emacspeak mailing list– thanks to Greg Priest-Dorman, and provides a
+valuable knowledge base for new users.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#39;outline-3&#39; id=&#39;outline-container-sec-1-9&#39;&gt;
+&lt;h3 id=&#39;sec-1-9&#39;&gt;&lt;span class=&#39;section-number-3&#39;&gt;1.9&lt;/span&gt; Press/Analyst Contact: Tilden Labrador&lt;/h3&gt;
+&lt;div id=&#39;text-1-9&#39; class=&#39;outline-text-3&#39;&gt;
+&lt;p&gt;
+Going forward, Tilden acknowledges his exclusive monopoly on
+setting the direction of the Emacspeak Audio Desktop, and
+promises to exercise this freedom to innovate and her resulting
+power responsibly (as before) in the interest of all dogs.
+&lt;/p&gt;
+
+&lt;p&gt;
+**About This Release:
+&lt;/p&gt;
+&lt;hr/&gt;
+
+&lt;p&gt;
+Windows-Free (WF) is a favorite battle-cry of The League Against
+Forced Fenestration (LAFF).  –see
+&lt;a href=&#39;http://www.usdoj.gov/atr/cases/f3800/msjudgex.htm&#39;&gt;http://www.usdoj.gov/atr/cases/f3800/msjudgex.htm&lt;/a&gt; for details on
+the ill-effects of Forced Fenestration.
+&lt;/p&gt;
+
+&lt;p&gt;
+CopyWrite )C( Aster and Hubbell Labrador. All Writes Reserved.
+HeadDog (DM), LiveDog (DM), GoldenDog (DM), BlackDog (DM) etc., are Registered
+Dogmarks of Aster,  Hubbell  and Tilden Labrador.  All other dogs belong to
+their respective owners.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#39;status&#39; id=&#39;postamble&#39;&gt;
+&lt;p class=&#39;author&#39;&gt;Author: T.V Raman&lt;/p&gt;
+&lt;p class=&#39;date&#39;&gt;Created: 2015-04-30 Thu 15:35&lt;/p&gt;
+&lt;p class=&#39;creator&#39;&gt;&lt;a href=&#39;http://www.gnu.org/software/emacs/&#39;&gt;Emacs&lt;/a&gt; 25.0.50.1 (&lt;a href=&#39;http://orgmode.org&#39;&gt;Org&lt;/a&gt; mode 8.2.10)&lt;/p&gt;
+&lt;p class=&#39;validation&#39;&gt;&lt;a href=&#39;http://validator.w3.org/check?uri=referer&#39;&gt;Validate&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+  </content><link rel='edit' type='application/atom+xml' href='http://www.blogger.com/feeds/20280042/posts/default/1698175370010769215'/><link rel='self' type='application/atom+xml' href='http://www.blogger.com/feeds/20280042/posts/default/1698175370010769215'/><link rel='alternate' type='text/html' href='http://emacspeak.blogspot.com/2015/04/announcing-emacspeak-420-answerdog.html' title='Announcing Emacspeak 42.0 (AnswerDog)'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='http://img2.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-4322999248520814794</id><published>2015-04-25T09:49:00.001-07:00</published><updated>2015-04-25T09:49:43.791-07:00</updated><title type='text'>Emacspeak 3.0: Released 20 Years Ago Today!</title><content type='html'>
+    &lt;div xmlns=&#39;http://www.w3.org/1999/xhtml&#39;&gt;
+&lt;div id=&#39;content&#39;&gt;
+&lt;h1 class=&#39;title&#39;&gt;twenty-years-after&lt;/h1&gt;
+&lt;div class=&#39;outline-2&#39; id=&#39;outline-container-sec-1&#39;&gt;
+&lt;h2 id=&#39;sec-1&#39;&gt;&lt;span class=&#39;section-number-2&#39;&gt;1&lt;/span&gt; Emacspeak Was Released Twenty Years Ago Today&lt;/h2&gt;
+&lt;div id=&#39;text-1&#39; class=&#39;outline-text-2&#39;&gt;
+&lt;p&gt;
+The more things change, the more they remain the same.
+&lt;/p&gt;
+
+&lt;p&gt;
+Emacspeak was released 20 years ago on April 25, 1995 with &lt;a href=&#39;http://emacspeak.sourceforge.net/releases/release-3.0.html&#39;&gt;this
+announcement&lt;/a&gt;. The Emacspeak mailing list itself did not exist in its
+present form — note that the original announcement talks about a
+mailing list at DEC CRL.  When Greg started the mailing list at
+Vassar, we seeded the list from some/all of the messages from the
+archive for the mailing list at DEC.e
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+  </content><link rel='edit' type='application/atom+xml' href='http://www.blogger.com/feeds/20280042/posts/default/4322999248520814794'/><link rel='self' type='application/atom+xml' href='http://www.blogger.com/feeds/20280042/posts/default/4322999248520814794'/><link rel='alternate' type='text/html' href='http://emacspeak.blogspot.com/2015/04/emacspeak-30-released-20-years-ago-today.html' title='Emacspeak 3.0: Released 20 Years Ago Today!'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='http://img2.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-131675225312108827</id><published>2015-04-15T17:37:00.001-07:00</published><updated>2015-04-15T17:37:32.705-07:00</updated><title type='text'>HowTo: Log Speech Server Output To Aid In Developing TTS Servers</title><content type='html'>
+    &lt;div xmlns=&#39;http://www.w3.org/1999/xhtml&#39;&gt;
+&lt;div id=&#39;content&#39;&gt;
+&lt;h1 class=&#39;title&#39;&gt;HowTo: Log TTS Server Output To Aid In TTS Server Development&lt;/h1&gt;
+&lt;div class=&#39;outline-2&#39; id=&#39;outline-container-sec-1&#39;&gt;
+&lt;h2 id=&#39;sec-1&#39;&gt;&lt;span class=&#39;section-number-2&#39;&gt;1&lt;/span&gt; HowTo: Log TTS Server Output To Aid In TTS Server Development&lt;/h2&gt;
+&lt;div id=&#39;text-1&#39; class=&#39;outline-text-2&#39;&gt;
+&lt;p&gt;
+This is mostly of interest to developers of Emacspeak speech servers.
+This article outlines how one can log TTS server output to a file.
+The loggeds record all commands send by Emacspeak to the TTS server.
+It is best to generate the logs in an Emacs session that is separate
+from the Emacs session where you are developping your code.
+This keeps the logs short, and makes isolating problems much easier.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&#39;outline-3&#39; id=&#39;outline-container-sec-1-1&#39;&gt;
+&lt;h3 id=&#39;sec-1-1&#39;&gt;&lt;span class=&#39;section-number-3&#39;&gt;1.1&lt;/span&gt; How It Works&lt;/h3&gt;
+&lt;div id=&#39;text-1-1&#39; class=&#39;outline-text-3&#39;&gt;
+&lt;p&gt;
+The &lt;span class=&#39;underline&#39;&gt;emacspeak/servers&lt;/span&gt; directory now contains &lt;span class=&#39;underline&#39;&gt;log_&amp;lt;tts-name&amp;gt;&lt;/span&gt;
+servers for the various supported speech servers.  When selected,
+these &lt;i&gt;log-speech&lt;/i&gt; servers produce no speech output; instead, they
+output the speech server commands received from Emacspeak to a file in
+&lt;span class=&#39;underline&#39;&gt;/tmp&lt;/span&gt; named &lt;span class=&#39;underline&#39;&gt;tts-log-$$&lt;/span&gt;.
+Once you&#39;re done logging, you can examine this file  from the primary Emacs session.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#39;outline-3&#39; id=&#39;outline-container-sec-1-2&#39;&gt;
+&lt;h3 id=&#39;sec-1-2&#39;&gt;&lt;span class=&#39;section-number-3&#39;&gt;1.2&lt;/span&gt; Typical Workflow&lt;/h3&gt;
+&lt;div id=&#39;text-1-2&#39; class=&#39;outline-text-3&#39;&gt;
+&lt;p&gt;
+Assume you want to see the speech-server commands sent by Emacs when you perform a specific action, in this instance, pressing &lt;span class=&#39;underline&#39;&gt;C-e m&lt;/span&gt; to execute command &lt;span class=&#39;underline&#39;&gt;emacspeak-speak-mode-line&lt;/span&gt;.
+&lt;/p&gt;
+
+&lt;ol class=&#39;org-ol&#39;&gt;
+&lt;li&gt;In  a separate Linux  console or X-Window, launch Emacs with Emacspeak loaded — this is  separate from your primary Emacs session.
+&lt;/li&gt;
+&lt;li&gt;In this Emacs session, use &lt;span class=&#39;underline&#39;&gt;C-e d d&lt;/span&gt; (command &lt;span class=&#39;underline&#39;&gt;dtk-select-server&lt;/span&gt;) and select &lt;span class=&#39;underline&#39;&gt;log-&amp;lt;tts-name&amp;gt;&lt;/span&gt; as the speech server, where &lt;span class=&#39;underline&#39;&gt;tts-name&lt;/span&gt; corresponds to the speech engine you&#39;re testing.
+&lt;/li&gt;
+&lt;li&gt;Emacspeak will now start the logging server, and fall silent; all  commands sent by Emacspeak to the speech-server will be logged to a file in &lt;span class=&#39;underline&#39;&gt;/tmp&lt;/span&gt;.
+&lt;/li&gt;
+&lt;li&gt;Press &lt;span class=&#39;underline&#39;&gt;C-e m&lt;/span&gt; – to produce the log output you want to see.
+&lt;/li&gt;
+&lt;li&gt;Use command _emacspeak-emergency-tts-restart  to get speech back.
+&lt;/li&gt;
+&lt;li&gt;Open a &lt;span class=&#39;underline&#39;&gt;dired&lt;/span&gt; buffer on &lt;span class=&#39;underline&#39;&gt;/tmp&lt;/span&gt;, press &lt;span class=&#39;underline&#39;&gt;s&lt;/span&gt; to sort files by date, and find your generated log output at the top of the list.
+&lt;/li&gt;
+&lt;li&gt;Note: It is useful to configure your default speech engine via  Custom – see user option  &lt;span class=&#39;underline&#39;&gt;emacspeak-emergency-tts-server&lt;/span&gt;.   It provides a quick-fire means to get speech back if you ever switch to a speech-server that fails for some reason.
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+&lt;b&gt;Share And Enjoy&lt;/b&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#39;status&#39; id=&#39;postamble&#39;&gt;
+&lt;p class=&#39;date&#39;&gt;Date: &lt;span class=&#39;timestamp-wrapper&#39;&gt;&lt;span class=&#39;timestamp&#39;&gt;&amp;lt;2015-04-15 Wed&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p class=&#39;author&#39;&gt;Author: raman&lt;/p&gt;
+&lt;p class=&#39;date&#39;&gt;Created: 2015-04-15 Wed 17:33&lt;/p&gt;
+&lt;p class=&#39;creator&#39;&gt;Emacs 25.0.50.1 (Org mode 8.2.10)&lt;/p&gt;
+&lt;p class=&#39;validation&#39;&gt;&lt;a href=&#39;http://validator.w3.org/check?uri=referer&#39;&gt;Validate&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+  </content><link rel='edit' type='application/atom+xml' href='http://www.blogger.com/feeds/20280042/posts/default/131675225312108827'/><link rel='self' type='application/atom+xml' href='http://www.blogger.com/feeds/20280042/posts/default/131675225312108827'/><link rel='alternate' type='text/html' href='http://emacspeak.blogspot.com/2015/04/howto-log-speech-server-output-to-aid.html' title='HowTo: Log Speech Server Output To Aid In Developing TTS Servers'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='http://img2.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-7044326487827026820</id><published>2015-03-09T08:39:00.001-07:00</published><updated>2015-03-09T08:39:08.290-07:00</updated><title type='text'>Emacspeak Development Is Moving To GitHub</title><content type='html'> 
+    &lt;div xmlns=&#39;http://www.w3.org/1999/xhtml&#39;&gt; 
+&lt;div id=&#39;content&#39;&gt; 
+&lt;h1 class=&#39;title&#39;&gt;Emacspeak Development Is Moving To GitHub&lt;/h1&gt; 
+&lt;div class=&#39;outline-2&#39; id=&#39;outline-container-sec-1&#39;&gt; 
+&lt;h2 id=&#39;sec-1&#39;&gt;&lt;span class=&#39;section-number-2&#39;&gt;1&lt;/span&gt; Summary:&lt;/h2&gt; 
+&lt;div id=&#39;text-1&#39; class=&#39;outline-text-2&#39;&gt; 
+&lt;p&gt; 
+Emacspeak development is moving from &lt;a href=&#39;http://emacspeak.googlecode.com&#39;&gt;Google Code Hosting&lt;/a&gt; to &lt;a href=&#39;https://github.com/tvraman/emacspeak&#39;&gt;GitHub&lt;/a&gt;. 
+If you have been running from the SVN repository, I recommend you 
+switch to the GitHub version by executing: 
+&lt;/p&gt; 
+ 
+&lt;pre class=&#39;example&#39;&gt; 
+git clone https://github.com/tvraman/emacspeak.git 
+make config 
+make -j 
+&lt;/pre&gt; 
+&lt;ul class=&#39;org-ul&#39;&gt; 
+&lt;li&gt;If using Outloud TTS: 
+&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;pre class=&#39;example&#39;&gt; 
+cd servers/linux-outloud  &amp;amp;&amp;amp;  make 
+&lt;/pre&gt; 
+&lt;ul class=&#39;org-ul&#39;&gt; 
+&lt;li&gt;If using Espeak TTS: 
+&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;pre class=&#39;example&#39;&gt; 
+cd servers/linux-espeak &amp;amp;&amp;amp; make 
+&lt;/pre&gt; 
+&lt;ul class=&#39;org-ul&#39;&gt; 
+&lt;li&gt;After this,  all you should need to stay up to date is a periodic  
+&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;pre class=&#39;example&#39;&gt; 
+git pull; make config; make  
+&lt;/pre&gt; 
+&lt;/div&gt; 
+&lt;/div&gt; 
+ 
+&lt;div class=&#39;outline-2&#39; id=&#39;outline-container-sec-2&#39;&gt; 
+&lt;h2 id=&#39;sec-2&#39;&gt;&lt;span class=&#39;section-number-2&#39;&gt;2&lt;/span&gt; A Brief History&lt;/h2&gt; 
+&lt;div id=&#39;text-2&#39; class=&#39;outline-text-2&#39;&gt; 
+&lt;ul class=&#39;org-ul&#39;&gt; 
+&lt;li&gt;The first five years of Emacspeak development used a local RCS 
+repository on my home machine (1994 –1999). 
+&lt;/li&gt; 
+&lt;li&gt;The first few releases of Emacspeak were distributed through the 
+Web site and FTP server at Digital Research; they were also 
+mirrored at Cornell. 
+&lt;/li&gt; 
+&lt;li&gt;After moving to Adobe Systems in the fall of 1995, Emacspeak was 
+distributed exclusively through my Web page on the Cornell CS 
+Department Web server, which also hosted my personal Web site. 
+&lt;/li&gt; 
+&lt;li&gt;In 2000, I created &lt;a href=&#39;http://emacspeak.sf.net&#39;&gt;Emacspeak On SourceForge&lt;/a&gt; 
+&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt; 
+and used that site for both hosting the Emacspeak source code as 
+well as the Web site — coincidentally, I lost the ability to 
+update my Web site at &lt;a href=&#39;http://www.cs.cornell.edu/home/raman&#39;&gt;Cornell CS&lt;/a&gt; around the same time. 
+&lt;/p&gt; 
+&lt;ul class=&#39;org-ul&#39;&gt; 
+&lt;li&gt;Over time it became harder and harder to publish new Emacspeak 
+releases through the SourceForge interface. Luckily, Google Code 
+Hosting came along a few months after I joined Google, and moving 
+the source code repository to &lt;a href=&#39;http://emacspeak.googlecode.com/svn/trunk&#39;&gt;Google Code SVN&lt;/a&gt; was a no-brainer. 
+&lt;/li&gt; 
+&lt;li&gt;My friend and colleague Fitz helped me migrate the 5+ years of CVS 
+history to SVN; this meant that the source code repository on 
+Google Code also recorded all of the development history that had 
+been built up on Sourceforge. 
+&lt;/li&gt; 
+&lt;li&gt;Now, it&#39;s time to move to GitHub. I&#39;ve been using Git for most of 
+my work the last few years, but was simply too lazy to move 
+Emacspeak development from SVN to Git on GoogleCode. 
+&lt;/li&gt; 
+&lt;li&gt;But over time, the advantages present in Git as a source control 
+system and GitHub as a hosting service have increased — primary 
+among these — a rich set of Emacs tools that have been written 
+to leverage the GitHub API. 
+&lt;/li&gt; 
+&lt;li&gt;For Git integration in Emacs, my personal preference is package 
+Magit available through Elpa — 
+&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;pre class=&#39;example&#39;&gt; 
+M-x package-install magit in Emacs. 
+&lt;/pre&gt; 
+&lt;ul class=&#39;org-ul&#39;&gt; 
+&lt;li&gt;The GitHub Web site itself is fairly heavy-weight in terms of its 
+use of scripting, i.e. performing all operations through the 
+&lt;a href=&#39;http://github.com&#39;&gt;github.com&lt;/a&gt; Web site from within Emacs is fairly unpleasant.  But 
+the afore-mentioned GitHub API makes this a non-issue at this 
+point with respect to the type of workflow I prefer. 
+&lt;/li&gt; 
+&lt;li&gt;So this week, I did the work to migrate Emacspeak development to 
+&lt;a href=&#39;https://github.com/tvraman/emacspeak&#39;&gt;Emacspeak On GitHub&lt;/a&gt;. 
+&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;/div&gt; 
+ 
+&lt;div class=&#39;outline-2&#39; id=&#39;outline-container-sec-3&#39;&gt; 
+&lt;h2 id=&#39;sec-3&#39;&gt;&lt;span class=&#39;section-number-2&#39;&gt;3&lt;/span&gt; Status Of Migration&lt;/h2&gt; 
+&lt;div id=&#39;text-3&#39; class=&#39;outline-text-2&#39;&gt; 
+&lt;ul class=&#39;org-ul&#39;&gt; 
+&lt;li&gt;With help from some of the kind folk at Google Code Hosting, I&#39;ve 
+successfully migrated the source code repository including all 
+release tags to GitHub. 
+&lt;/li&gt; 
+&lt;li&gt;I am now checking in changes into GitHub; the SVN repository on 
+Google Code Hosting is now frozen, and I do not plan to make any 
+commits there. 
+&lt;/li&gt; 
+&lt;li&gt;I presently have no immediate plans to start using features of 
+GitHub like the Issue Tracker; for now we will continue to use the 
+Emacspeak mailing list which has served us well for 20 years. 
+&lt;/li&gt; 
+&lt;li&gt;I have also taken this opportunity to prune out legacy portions of 
+the Emacspeak codebase by moving modules to &lt;span class=&#39;underline&#39;&gt;obsolete&lt;/span&gt; at each 
+level of the directory tree. 
+&lt;/li&gt; 
+&lt;li&gt;Since starting the &lt;a href=&#39;http://emacspeak.blogspot.com&#39;&gt;Emacspeak Blog&lt;/a&gt; in late 2005, I have published a 
+sequence of articles describing Emacspeak features and usage 
+patterns; I felt that having these articles for local reference 
+made a useful supplement to the emacspeak online 
+documentation. Toward this end, I have downloaded all articles 
+published so far and checked in both XML and HTML versions into 
+sub-directory &lt;span class=&#39;underline&#39;&gt;blogs&lt;/span&gt;. 
+&lt;/li&gt; 
+&lt;li&gt;Note that newer articles are also available as .org files under sub-directory &lt;span class=&#39;underline&#39;&gt;announcements&lt;/span&gt;. 
+&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;/div&gt; 
+ 
+&lt;div class=&#39;outline-2&#39; id=&#39;outline-container-sec-4&#39;&gt; 
+&lt;h2 id=&#39;sec-4&#39;&gt;&lt;span class=&#39;section-number-2&#39;&gt;4&lt;/span&gt; Next Steps&lt;/h2&gt; 
+&lt;div id=&#39;text-4&#39; class=&#39;outline-text-2&#39;&gt; 
+&lt;ul class=&#39;org-ul&#39;&gt; 
+&lt;li&gt;I still need to learn how to do software releases on GitHub. 
+&lt;/li&gt; 
+&lt;/ul&gt; 
+ 
+ 
+ 
+ 
+&lt;p&gt; 
+&lt;b&gt;Share And Enjoy!&lt;/b&gt; 
+&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&#39;status&#39; id=&#39;postamble&#39;&gt; 
+&lt;p class=&#39;date&#39;&gt;Date: &lt;span class=&#39;timestamp-wrapper&#39;&gt;&lt;span class=&#39;timestamp&#39;&gt;&amp;lt;2015-03-06 Fri&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt; 
+&lt;p class=&#39;author&#39;&gt;Author: raman&lt;/p&gt; 
+&lt;p class=&#39;date&#39;&gt;Created: 2015-03-07 Sat 08:12&lt;/p&gt; 
+&lt;p class=&#39;creator&#39;&gt;Emacs 25.0.50.1 (Org mode 8.2.10)&lt;/p&gt; 
+&lt;p class=&#39;validation&#39;&gt;&lt;a href=&#39;http://validator.w3.org/check?uri=referer&#39;&gt;Validate&lt;/a&gt;&lt;/p&gt; 
+&lt;/div&gt; 
+    &lt;/div&gt; 
+  </content><link rel='edit' type='application/atom+xml' href='http://www.blogger.com/feeds/20280042/posts/default/7044326487827026820'/><link rel='self' type='application/atom+xml' href='http://www.blogger.com/feeds/20280042/posts/default/7044326487827026820'/><link rel='alternate' type='text/html' href='http://emacspeak.blogspot.com/2015/03/emacspeak-development-is-moving-to.html' title='Emacspeak Development Is Moving To GitHub'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='http://img2.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-8289264463441948640</id><published>2015-02-17T17:40:00.001-08:00</published><updated>2015-02-17T17:40:22.919-08:00</updated><title type='text'>Enhanced Audio On The Emacspeak Desktop</title><content type='html'>
     &lt;div xmlns=&#39;http://www.w3.org/1999/xhtml&#39;&gt;
 &lt;div id=&#39;content&#39;&gt;
 &lt;h1 class=&#39;title&#39;&gt;Enhanced Audio On The Emacspeak Desktop&lt;/h1&gt;
