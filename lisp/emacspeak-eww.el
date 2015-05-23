@@ -130,7 +130,8 @@
 ;;{{{ Viewing Page metadata: meta, links
 
 (defun emacspeak-eww-links-rel ()
-  "Display Link tags of type rel."
+  "Display Link tags of type rel.
+Web pages for which alternate links are available are cued by an auditory icon on the header line."
   (interactive)
   (emacspeak-eww-prepare-eww)
   (let ((alt (dom-alternate-links (emacspeak-eww-current-dom)))
