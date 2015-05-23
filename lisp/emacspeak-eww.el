@@ -303,6 +303,8 @@
 
 (voice-setup-add-map
  '(
+   (eww-invalid-certificate  voice-bolden-and-animate)
+   (eww-valid-certificate voice-bolden)
    (eww-form-submit voice-animate)
    (eww-form-checkbox voice-monotone)
    (eww-form-select voice-annotate)
