@@ -148,7 +148,8 @@ Web pages for which alternate links are available are cued by an auditory icon o
           (format "<td>%s</td>\n"
                   (or (dom-attr a 'title)
                       (dom-attr a 'type)
-                      (dom-attr a 'media))))
+                      (dom-attr a 'media)
+                      "")))
          (insert
           (format "<td><a href='%s'>%s</td>\n"
                   (shr-expand-url (dom-attr a 'href) base)
