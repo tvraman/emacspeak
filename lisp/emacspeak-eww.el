@@ -119,7 +119,8 @@
   (declare (special major-mode  emacspeak-eww-cache-updated))
   (unless (eq major-mode 'eww-mode) (error "Not in EWW buffer."))
   (unless (emacspeak-eww-current-dom) (error "No DOM!"))
-  (unless emacspeak-eww-cache-updated (eww-update-cache (emacspeak-eww-current-dom))))
+  (unless emacspeak-eww-cache-updated
+    (eww-update-cache (emacspeak-eww-current-dom))))
 
 (defsubst emacspeak-eww-post-render-actions ()
   "Post-render actions for setting up emacspeak."
@@ -130,8 +131,8 @@
 ;;{{{ Viewing Page metadata: meta, links
 
 (defun emacspeak-eww-links-rel ()
-  "Display Link tags of type rel.
-Web pages for which alternate links are available are cued by an auditory icon on the header line."
+  "Display Link tags of type rel.  Web pages for which alternate links
+are available are cued by an auditory icon on the header line."
   (interactive)
   (emacspeak-eww-prepare-eww)
   (let ((alt (dom-alternate-links (emacspeak-eww-current-dom)))
@@ -203,7 +204,8 @@ Web pages for which alternate links are available are cued by an auditory icon o
   :type 'string
   :group 'emacspeak-eww)
 
-;;; Advice note: Setting ad-return-value in one arm of the cond appears to perculate to both arms.
+;;; Advice note: Setting ad-return-value in one arm of the cond
+;;; appears to perculate to both arms.
 
 (defadvice url-http-user-agent-string (around emacspeak pre act comp)
   "Respond to user  asking us to masquerade."
@@ -216,8 +218,10 @@ Web pages for which alternate links are available are cued by an auditory icon o
 (defun emacspeak-eww-setup ()
   "Setup keymaps etc."
   (declare (special eww-mode-map eww-link-keymap
-                    shr-inhibit-images emacspeak-pronounce-common-xml-namespace-uri-pronunciations
-                    emacspeak-eww-masquerade emacspeak-pronounce-load-pronunciations-on-startup))
+                    shr-inhibit-images
+                    emacspeak-pronounce-common-xml-namespace-uri-pronunciations
+                    emacspeak-eww-masquerade
+                    emacspeak-pronounce-load-pronunciations-on-startup))
   (when emacspeak-pronounce-load-pronunciations-on-startup
     (emacspeak-pronounce-augment-pronunciations
      'eww-mode emacspeak-pronounce-common-xml-namespace-uri-pronunciations)
@@ -235,7 +239,6 @@ Web pages for which alternate links are available are cued by an auditory icon o
    do
    (when (assoc  c eww-link-keymap)
      (delete (assoc  c eww-link-keymap) eww-link-keymap)))
-
   (define-key eww-link-keymap  "k" 'shr-copy-url)
   (loop
    for binding  in
@@ -254,6 +257,7 @@ Web pages for which alternate links are available are cued by an auditory icon o
      ("C" eww-view-dom-having-class)
      ("C-e" emacspeak-prefix-command)
      ("C-o" emacspeak-feeds-opml-display)
+     ("C-t" emacspeak-eww-transcode)
      ("E" eww-view-dom-having-elements)
      ("G" emacspeak-google-command)
      ("I" eww-view-dom-having-id)
@@ -409,7 +413,8 @@ Retain previously set punctuations  mode."
     (when alt
       (put-text-property 0 2 'auditory-icon 'mark-object  header-line-format))
     (cond
-     (emacspeak-web-post-process-hook (emacspeak-webutils-run-post-process-hook))
+     (emacspeak-web-post-process-hook
+      (emacspeak-webutils-run-post-process-hook))
      (t (emacspeak-speak-mode-line)))))
 
 (cond
@@ -491,7 +496,8 @@ Retain previously set punctuations  mode."
          (emacspeak-auditory-icon 'large-movement)
          (emacspeak-speak-region
           (point)
-          (next-single-property-change (point) 'help-echo  nil (point-max))))))))
+          (next-single-property-change (point) 'help-echo
+                                       nil (point-max))))))))
 
 ;;; Handle emacspeak-we-url-executor
 
@@ -537,7 +543,7 @@ Retain previously set punctuations  mode."
  do
  (eval
   `
-  (defadvice  ,(intern (format "shr-tag-%s" tag)) (around emacspeak pre act comp)
+  (defadvice ,(intern (format "shr-tag-%s" tag)) (around emacspeak pre act comp)
     (let ((start (point)))
       ad-do-it
       (let ((start (if (char-equal (following-char) ?\n)
@@ -758,8 +764,9 @@ Optional interactive arg `multi' prompts for multiple ids."
                  (ems-eww-read-list 'ems-eww-read-id)
                (ems-eww-read-id))))
     (setq dom (funcall filter dom id))
-    (when dom (emacspeak-eww-view-helper (dom-html-from-nodes dom
-                                                              (emacspeak-eww-current-url))))))
+    (when dom
+      (emacspeak-eww-view-helper
+       (dom-html-from-nodes dom (emacspeak-eww-current-url))))))
 
 (defun eww-view-dom-not-having-id (multi)
   "Display DOM filtered by specified nodes not passing  id=value test.
@@ -811,8 +818,9 @@ Optional interactive arg `multi' prompts for multiple classes."
            (if multi
                (ems-eww-read-list 'ems-eww-read-attribute-and-value)
              (list  (ems-eww-read-attribute-and-value)))))))
-    (when dom (emacspeak-eww-view-helper (dom-html-from-nodes dom
-                                                              (emacspeak-eww-current-url))))))
+    (when dom
+      (emacspeak-eww-view-helper
+       (dom-html-from-nodes dom (emacspeak-eww-current-url))))))
 
 (defun eww-view-dom-not-having-attribute (multi)
   "Display DOM filtered by specified nodes not passing  attribute=value test.
@@ -846,8 +854,9 @@ Optional interactive arg `multi' prompts for multiple classes."
                     (ems-eww-read-list 'ems-eww-read-class)
                   (ems-eww-read-class))))
     (setq dom (funcall filter dom class))
-    (when dom (emacspeak-eww-view-helper (dom-html-from-nodes dom
-                                                              (emacspeak-eww-current-url))))))
+    (when dom
+      (emacspeak-eww-view-helper
+       (dom-html-from-nodes dom (emacspeak-eww-current-url))))))
 
 (defun eww-view-dom-not-having-class (multi)
   "Display DOM filtered by specified nodes not passing   class=value test.
@@ -878,13 +887,14 @@ Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
   (emacspeak-eww-prepare-eww)
   (let ((dom (emacspeak-eww-current-dom))
-        (filter  (if #'dom-by-role-list #'dom-by-role))
+        (filter  (if multi #'dom-by-role-list #'dom-by-role))
         (role  (if multi
                    (ems-eww-read-list 'ems-eww-read-role)
                  (ems-eww-read-role))))
     (setq dom (funcall filter dom role))
-    (when dom (emacspeak-eww-view-helper (dom-html-from-nodes dom
-                                                              (emacspeak-eww-current-url))))))
+    (when dom
+      (emacspeak-eww-view-helper
+       (dom-html-from-nodes dom (emacspeak-eww-current-url))))))
 
 (defun eww-view-dom-not-having-role (multi)
   "Display DOM filtered by specified  nodes not passing   role=value test.
@@ -921,8 +931,9 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
                (ems-eww-read-element))))
     (setq dom (funcall filter dom tag))
     (cond
-     (dom (emacspeak-eww-view-helper (dom-html-from-nodes dom
-                                                          (emacspeak-eww-current-url))))
+     (dom
+      (emacspeak-eww-view-helper
+       (dom-html-from-nodes dom (emacspeak-eww-current-url))))
      (t (message "Filtering failed.")))))
 
 (defun eww-view-dom-not-having-elements (multi)
@@ -975,7 +986,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
     (cond
      (next
       (goto-char next)
-      (setq emacspeak-eww-element-navigation-history (delq el emacspeak-eww-element-navigation-history))
+      (setq emacspeak-eww-element-navigation-history
+            (delq el emacspeak-eww-element-navigation-history))
       (push  el emacspeak-eww-element-navigation-history)
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-speak-region next (next-single-property-change next el)))
@@ -987,9 +999,11 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
    (list
     (progn
       (emacspeak-eww-prepare-eww)
-      (intern (completing-read "Element: " eww-element-cache nil 'must-match
-                               nil 'emacspeak-eww-element-navigation-history)))))
-  (declare (special eww-element-cache  emacspeak-eww-element-navigation-history))
+      (intern
+       (completing-read "Element: " eww-element-cache nil 'must-match
+                        nil 'emacspeak-eww-element-navigation-history)))))
+  (declare (special eww-element-cache
+                    emacspeak-eww-element-navigation-history))
   (let* ((start
           (or
            (when (get-text-property  (point) el)
@@ -999,7 +1013,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
     (cond
      (previous
       (goto-char (or (previous-single-property-change previous el) (point-min)))
-      (setq emacspeak-eww-element-navigation-history (delq el emacspeak-eww-element-navigation-history))
+      (setq emacspeak-eww-element-navigation-history
+            (delq el emacspeak-eww-element-navigation-history))
       (push  el emacspeak-eww-element-navigation-history)
       (emacspeak-auditory-icon 'large-movement)
       (emacspeak-speak-region (point) previous))
@@ -1011,7 +1026,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (declare (special emacspeak-eww-element-navigation-history))
   (cond
    (emacspeak-eww-element-navigation-history
-    (emacspeak-eww-next-element  (car emacspeak-eww-element-navigation-history)))
+    (emacspeak-eww-next-element
+     (car emacspeak-eww-element-navigation-history)))
    (t (error "No elements in navigation history"))))
 
 (defun emacspeak-eww-previous-element-from-history ()
@@ -1020,7 +1036,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (declare (special emacspeak-eww-element-navigation-history))
   (cond
    (emacspeak-eww-element-navigation-history
-    (emacspeak-eww-previous-element  (car emacspeak-eww-element-navigation-history)))
+    (emacspeak-eww-previous-element
+     (car emacspeak-eww-element-navigation-history)))
    (t (error "No elements in navigation history"))))
 
 (defsubst emacspeak-eww-here-tags ()
@@ -1133,7 +1150,7 @@ Warning, this is fragile, and depends on a stable id for the
   (interactive)
   (declare (special eww-shr-render-functions emacspeak-eww-masquerade))
   (unless emacspeak-eww-masquerade
-    (error "Repeat search after turning on masquerade mode to see knowledge cards."))
+    (error "Turn on  masquerade mode for knowledge cards."))
   (unless (eq major-mode 'eww-mode)
     (error "This command is only available in EWW"))
   (unless  emacspeak-google-toolbelt
@@ -1145,7 +1162,8 @@ Warning, this is fragile, and depends on a stable id for the
        (inhibit-read-only t)
        (dom
         (eww-dom-remove-if
-         (eww-dom-keep-if (emacspeak-eww-current-dom) (eww-attribute-tester 'id value))
+         (eww-dom-keep-if
+          (emacspeak-eww-current-dom) (eww-attribute-tester 'id value))
          (eww-attribute-tester 'class media)))
        (shr-external-rendering-functions eww-shr-render-functions))
     (cond
@@ -1159,7 +1177,8 @@ Warning, this is fragile, and depends on a stable id for the
       (goto-char (point-min))
       (setq buffer-read-only t)
       (emacspeak-speak-buffer))
-     (t (message "Knowledge Card not found.")))    (emacspeak-auditory-icon 'open-object)))
+     (t (message "Knowledge Card not found.")))
+    (emacspeak-auditory-icon 'open-object)))
 
 (define-key emacspeak-google-keymap "k" 'emacspeak-eww-google-knowledge-card)
 (define-key emacspeak-google-keymap "e" 'emacspeak-eww-masquerade)
@@ -1207,14 +1226,30 @@ Warning, this is fragile, and depends on a stable id for the
 ;;}}}
 ;;{{{  EWW Filtering shortcuts:
 
-(define-prefix-command 'emacspeak-eww-filter-map )
-(declaim (special emacspeak-eww-filter-map))
-(loop for binding in
-      '(
-
-        )
-      do
-      (emacspeak-keymap-update emacspeak-eww-filter-map binding))
+(defun emacspeak-eww-transcode ()
+  "Apply appropriate transcoding rules to current DOM."
+  (interactive)
+  (declare (special eww-element-cache eww-role-cache ))
+  (emacspeak-eww-prepare-eww)
+  (let ((dom (emacspeak-eww-current-dom))
+        (article-p (member "article" eww-element-cache))
+        (main-p (member "main" eww-role-cache)))
+    (cond
+     (article-p
+      (message "articles")
+      (setq dom (dom-by-tag dom 'article))
+      (emacspeak-eww-view-helper
+       (dom-html-from-nodes dom (emacspeak-eww-current-url))))
+     (main-p
+      (message "role.main")
+      (setq dom (dom-by-role dom "main"))
+      (emacspeak-eww-view-helper
+       (dom-html-from-nodes dom (emacspeak-eww-current-url))))
+     (t
+      (message "headers and paragraphs")
+      (setq dom (dom-by-tag-list dom '(p h1 h2 h3)))
+      (emacspeak-eww-view-helper
+       (dom-html-from-nodes dom (emacspeak-eww-current-url)))))))
 
 ;;}}}
 (provide 'emacspeak-eww)
