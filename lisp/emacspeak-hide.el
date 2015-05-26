@@ -211,6 +211,7 @@ Returns t if a block was found and hidden."
           (with-silent-modifications
             (add-text-properties start (point)
                                  (list 'invisible t
+                                       'cursor-intangible t
                                        'intangible t))
             (add-text-properties begin (point)
                                  (list 'emacspeak-hide-block-prefix (nth 2  prefix)
@@ -250,6 +251,7 @@ Returns t if a block was found and hidden."
           (add-text-properties start end
                                (list 'invisible nil
                                      'intangible nil
+                                     'cursor-intangible nil
                                      'personality nil)))
         (message "Exposed %s block containing %s lines"
                  block-name
