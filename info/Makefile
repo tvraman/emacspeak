@@ -1,6 +1,6 @@
 #$Id$
 SF_HOME= raman,emacspeak@web.sourceforge.net:/home/groups/e/em/emacspeak/htdocs
-HTML_FILES=$(shell find . -name '*.html' -print)
+GH_PAGES=../../gh-pages-emacspeak/manual
 TEXINDEX=texindex
 FILES=*.texi
 MAKEINFO = makeinfo 
@@ -64,18 +64,14 @@ print: emacspeak.dvi
 	dvips emacspeak.dvi
 
 htm: emacspeak.texi 
-	makeinfo -o html  --html  emacspeak.texi
-	perl add-css.pl html/*.html
-	for f in $(HTML_FILES) ; \
-		do \
-		tidy -q -mic -asxml  $$f 2>&1 > /dev/null  || echo tidy; \
-		done
-
+	makeinfo -o ${GH_PAGES}  --html  emacspeak.texi
+	perl add-css.pl ${GH_PAGES}/*.html
+	tidy -q -mic -asxml  ${GH_PAGES}/*.html 2>&1 > /dev/null  || echo tidy
 
 introducing-emacspeak.html: introducing-emacspeak.texi
 	makeinfo --no-split --html  introducing-emacspeak.texi
 	perl add-css.pl introducing-emacspeak.html
-
+#For publishing to SF
 pub:  html/index.html introducing-emacspeak.html
 	rsync introducing-emacspeak.html ${SF_HOME}/info/
 	rsync -avz  html ${SF_HOME}/info/
