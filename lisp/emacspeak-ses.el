@@ -49,7 +49,6 @@
 
 ;;; Code:
 (require 'emacspeak-preamble)
-(require 'emacspeak-redefine)
 (require 'ses)
 ;;}}}
 ;;{{{ emacspeak ses accessors 
@@ -139,19 +138,7 @@
 (defun emacspeak-ses-setup ()
   "Setup SES for use with emacspeak."
   (declare (special ses-mode-map))
-  (emacspeak-rebind 'emacspeak-forward-char
-                    'emacspeak-ses-forward-column-and-summarize
-                    ses-mode-map)
-  (emacspeak-rebind 'emacspeak-backward-char
-                    'emacspeak-ses-backward-column-and-summarize
-                    ses-mode-map)
-  (emacspeak-rebind 'next-line
-                    'emacspeak-ses-forward-row-and-summarize
-                    ses-mode-map)
-  (emacspeak-rebind 'previous-line
-                    'emacspeak-ses-backward-row-and-summarize
-                    ses-mode-map)
-  )
+)
 
 (defadvice ses-forward-or-insert (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -172,7 +159,12 @@
     (emacspeak-ses-summarize-current-cell)))
 
 ;;}}}
+;;{{{ Setup:
+
 (emacspeak-ses-setup)
+
+;;}}}
+
 (provide 'emacspeak-ses)
 ;;{{{ end of file
 
