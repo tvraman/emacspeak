@@ -60,9 +60,9 @@
  for   f in 
  '(
    xref-find-definitions xref-pop-marker-stack
-                         xref-next-line xref-prev-line
-                         xref-goto-xref
-                         )
+   xref-next-line xref-prev-line
+   xref-find-regexp 
+   xref-find-apropos xref-goto-xref)
  do
  (eval
   `(defadvice ,f (after emacspeak pre  act comp)
@@ -70,6 +70,7 @@
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'large-movement)))))
+
 (loop
  for f in 
  '(
@@ -82,9 +83,11 @@
      (when (ems-interactive-p)
        (message "Displayed cross-reference."
                 (emacspeak-auditory-icon 'select-object))))))
-
-                                        ;xref-find-references
-                                        ;xref-quit
+(defadvice xref-find-references (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'task-done)))
 
 ;;}}}
 (provide 'emacspeak-xref)
