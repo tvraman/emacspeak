@@ -52,52 +52,6 @@
 (require 'emacspeak-redefine)
 (require 'ses)
 ;;}}}
-;;{{{ SES Accessors:
-
-;;; these are defined as macros in ses.el 
-;;; and are cloned here as defsubst forms 
-
-(defsubst emacspeak-ses-get-cell (row col)
-  "Return the cell structure that stores information about cell
-  (ROW,COL)."
-  (declare (special ses--cells))
-  (aref (aref ses--cells row) col))
-
-(defsubst emacspeak-ses-cell-symbol (row &optional col)
-  "From a CELL or a pair (ROW,COL), get the symbol that names the local-variable holding its value.  (0,0) => A1."
-  (aref (if col (emacspeak-ses-get-cell  row  col) row) 0))
-
-(defsubst emacspeak-ses-cell-formula (row &optional col)
-  "From a CELL or a pair (ROW,COL), get the function that computes its value."
-  (aref  (if col (emacspeak-ses-get-cell  row  col) row) 1))
-(defsubst emacspeak-ses-cell-value (row &optional col)
-  "From a CELL or a pair (ROW,COL), get the current value for that cell."
-  (symbol-value (emacspeak-ses-cell-symbol row col)))
-
-(defsubst emacspeak-ses-sym-rowcol (sym)
-  "From a cell-symbol SYM, gets the cons (row . col).  A1 => (0 . 0).  Result
-is nil if SYM is not a symbol that names a cell."
-  (and (symbolp  sym) (get  sym 'ses-cell)))
-
-(defsubst emacspeak-ses-cell-printer (row &optional col)
-  "From a CELL or a pair (ROW,COL), get the function that prints its value."
-  (aref (if col (ses-get-cell row col) row) 2))
-(defsubst emacspeak-ses-cell-property-get (property-name row &optional col)
-  "Get property named PROPERTY-NAME from a CELL or a pair (ROWCOL).
-
-When COL is omitted CELL=ROW is a cell object.  When COL is
-present ROW and COL are the integer coordinates of the cell of
-interest."
-  (ses-cell-property-get-fun
-   property-name
-   (if col (ses-get-cell row col) row)))
-
-(defsubst emacspeak-ses-col-printer (col)
-  "Return the default printer for column COL."
-  (declare (special ses--col-printers))
-  (aref ses--col-printers col)) ;;}}}
-
-;;}}}
 ;;{{{ emacspeak ses accessors 
 
 ;;; these additional accessors are defined in terms of the
@@ -110,15 +64,18 @@ interest."
 
 (defsubst emacspeak-ses-current-cell-value ()
   "Return current cell value."
-  (emacspeak-ses-cell-value
-   (car (emacspeak-ses-sym-rowcol (emacspeak-ses-current-cell-symbol)))
-   (cdr (emacspeak-ses-sym-rowcol (emacspeak-ses-current-cell-symbol)))))
+  (declare (special ses--named-cell-hashmap ses--cells))
+  (ses-cell-value
+   (car (ses-sym-rowcol (emacspeak-ses-current-cell-symbol)))
+   (cdr (ses-sym-rowcol (emacspeak-ses-current-cell-symbol)))))
 
 (defsubst emacspeak-ses-get-cell-value-by-name (cell-name)
   "Return current  value of cell specified by name."
-  (emacspeak-ses-cell-value
-   (car (emacspeak-ses-sym-rowcol cell-name))
-   (cdr (emacspeak-ses-sym-rowcol cell-name))))
+  (declare (special ses--named-cell-hashmap ses--cells))
+  (ses-cell-value
+   
+   (car (ses-sym-rowcol cell-name))
+   (cdr (ses-sym-rowcol cell-name))))
 
 ;;}}}
 ;;{{{ emacspeak ses summarizers 
