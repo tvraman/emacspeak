@@ -10,17 +10,16 @@
   <link rel="http://www.w3.org/StyleSheets/Core/Modernist" type=
   "text/css" />
 
-  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
-  dtk-speak</title>
+  <title>Emacspeak User’s Manual –2nd Edition.: dtk-speak</title>
   <meta name="description" content=
-  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: dtk-speak" />
+  "Emacspeak User’s Manual –2nd Edition.: dtk-speak" />
   <meta name="keywords" content=
-  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: dtk-speak" />
+  "Emacspeak User’s Manual –2nd Edition.: dtk-speak" />
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
   <meta http-equiv="Content-Type" content=
-  "text/html; charset=us-ascii" />
+  "text/html; charset=utf-8" />
   <link href="index.html#Top" rel="start" title="Top" />
   <link href="Concept-Index.html#Concept-Index" rel="index" title=
   "Concept Index" />
@@ -118,11 +117,10 @@
       pattern if previously added. Cleaning up repeated patterns
       results in emacspeak speaking the pattern followed by a
       repeat count instead of speaking all the characters making up
-      the pattern. Thus, by adding the repeating pattern
-      &lsquo;.&rsquo; (this is already added by default) emacspeak
-      will say &ldquo;aw fifteen dot&rdquo; when speaking the
-      string &ldquo;...............&rdquo; instead of &ldquo;period
-      period period period &rdquo;</p>
+      the pattern. Thus, by adding the repeating pattern ‘.’ (this
+      is already added by default) emacspeak will say “aw fifteen
+      dot” when speaking the string “...............” instead of
+      “period period period period ”</p>
     </dd>
   </dl>
 
@@ -317,10 +315,10 @@
       "index-dtk_002dset_002dpunctuations-2" id=
       "index-dtk_002dset_002dpunctuations-2"></a>
 
-      <p>Set punctuation mode to MODE. Possible values are
-      &lsquo;some&rsquo;, &lsquo;all&rsquo;, or &lsquo;none&rsquo;.
-      Interactive PREFIX arg means set the global default value,
-      and then set the current local value to the result.</p>
+      <p>Set punctuation mode to MODE. Possible values are ‘some’,
+      ‘all’, or ‘none’. Interactive PREFIX arg means set the global
+      default value, and then set the current local value to the
+      result.</p>
     </dd>
   </dl>
 
@@ -525,14 +523,14 @@
       purely by clause boundaries, or also include whitespace. By
       default, emacspeak sends a clause at a time to the speech
       device. This produces fluent speech for normal use. However
-      in modes such as &lsquo;shell-mode&rsquo; and some
-      programming language modes, clause markers appear
-      infrequently, and this can result in large amounts of text
-      being sent to the speech device at once, making the system
-      unresponsive when asked to stop talking. Splitting on white
-      space makes emacspeak&rsquo;s stop command responsive.
-      However, when splitting on white space, the speech sounds
-      choppy since the synthesizer is getting a word at a time.</p>
+      in modes such as ‘shell-mode’ and some programming language
+      modes, clause markers appear infrequently, and this can
+      result in large amounts of text being sent to the speech
+      device at once, making the system unresponsive when asked to
+      stop talking. Splitting on white space makes emacspeak’s stop
+      command responsive. However, when splitting on white space,
+      the speech sounds choppy since the synthesizer is getting a
+      word at a time.</p>
     </dd>
   </dl>
 
@@ -609,10 +607,10 @@
 
     <dd>
       <p>List of repeating patterns to clean up. You can use
-      command &lsquo;dtk-add-cleanup-pattern&rsquo; bound to C-e d
-      a to add more patterns. Specify patterns that people use to
-      decorate their ASCII files, and cause untold pain to the
-      speech synthesizer.</p>
+      command ‘dtk-add-cleanup-pattern’ bound to C-e d a to add
+      more patterns. Specify patterns that people use to decorate
+      their ASCII files, and cause untold pain to the speech
+      synthesizer.</p>
 
       <p>If more than 3 consecutive occurrences of a specified
       pattern is found, the TTS engine replaces it with a repeat
@@ -662,7 +660,7 @@
     <dd>
       <p>*Value of speech rate increment. This determines step size
       used when setting speech rate via command
-      &lsquo;dtk-set-predefined-speech-rate&rsquo;. Formula used is
+      ‘dtk-set-predefined-speech-rate’. Formula used is
       dtk-speech-rate-base + dtk-speech-rate-step*level.</p>
     </dd>
   </dl>
