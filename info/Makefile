@@ -4,7 +4,7 @@ GH_PAGES=../../gh-pages-emacspeak/manual
 TEXINDEX=texindex
 FILES=*.texi
 MAKEINFO = makeinfo 
-CSS_REF="http://www.w3.org/StyleSheets/Core/Modernist"
+CSS="http://www.w3.org/StyleSheets/Core/Modernist"
 TEX=tex
 PDFTEX=pdftex
 TEXI2HTML=texi2html
@@ -65,7 +65,7 @@ print: emacspeak.dvi
 	dvips emacspeak.dvi
 
 htm: emacspeak.texi 
-	makeinfo -o ${GH_PAGES}  --html  --css-ref=$CSS_REF emacspeak.texi
+	makeinfo -o ${GH_PAGES}  --html  --css-ref=${CSS} emacspeak.texi
 	tidy -q -mic -asxml  ${GH_PAGES}/*.html 2>&1 > /dev/null  || echo tidy
 	echo "Commit and push updated HTML files from gh-pages!"
 
