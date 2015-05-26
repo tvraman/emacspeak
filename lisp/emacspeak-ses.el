@@ -105,7 +105,9 @@ interest."
 ;;;earlier helpers by Emacspeak.
 (defsubst emacspeak-ses-current-cell-symbol ()
   "Return symbol for current cell."
-  (get-text-property (point) 'intangible))
+  (or 
+  (get-text-property (point) 'cursor-intangible)
+  (get-text-property (point) 'intangible)))
 
 (defsubst emacspeak-ses-current-cell-value ()
   "Return current cell value."
