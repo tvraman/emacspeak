@@ -712,8 +712,8 @@ for use as a DOM filter."
 
 (defun emacspeak-eww-view-helper  (filtered-dom)
   "View helper called by various filtering viewers."
-  (declare (special emacspeak-eww-rename-result-buffer eww-shr-render-functions
-                    shr-base))
+  (declare (special emacspeak-eww-rename-result-buffer
+                    eww-shr-render-functions shr-base))
   (let ((emacspeak-eww-rename-result-buffer nil)
         (url (emacspeak-eww-current-url))
         (title  (format "%s: Filtered" (emacspeak-eww-current-title)))
