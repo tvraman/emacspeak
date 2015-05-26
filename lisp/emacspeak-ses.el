@@ -127,10 +127,13 @@ interest."
   (interactive
    (list
     (read-minibuffer "Cell: ")))
+  (cond
+   (cell-name
   (dtk-speak
    (format "%s: %s"
            cell-name
            (emacspeak-ses-get-cell-value-by-name cell-name))))
+   (t (message "No cell here"))))
 
 (defun emacspeak-ses-summarize-current-cell (&rest ignore)
   "Summarize current cell."
