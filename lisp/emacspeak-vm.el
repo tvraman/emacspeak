@@ -1,4 +1,5 @@
-;;; emacspeak-vm.el --- Speech enable VM -- A powerful mail agent (and the one I use)
+;;; emacspeak-vm.el --- Speech enable VM -- A powerful mail agent
+;;;(and the one I use)
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak extension to speech enhance vm
@@ -380,7 +381,7 @@ Then speak the screenful. "
 (when (boundp 'vm-mode-map)
   (declaim  (special
              vm-mode-map
-             global-map emacspeak-prefix emacspeak-keymap))  
+             global-map emacspeak-prefix emacspeak-keymap))
   (define-key vm-mode-map "\M-\C-m" 'widget-button-press)
   (define-key vm-mode-map "y" 'emacspeak-vm-yank-header)
   (define-key vm-mode-map "\M-\t" 'emacspeak-vm-next-button)
@@ -479,33 +480,33 @@ Leave point at front of decoded attachment."
           #'(lambda nil
               (emacspeak-pronounce-refresh-pronunciations)))
 (declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
-(loop for hook in
-      (list 'mail-mode-hook
-            'vm-presentation-mode-hook)
-      do
-      (add-hook hook 'emacspeak-pronounce-refresh-pronunciations
-                'append ))
+(loop
+ for hook in
+ '(mail-mode-hook vm-presentation-mode-hook)
+ do
+ (add-hook hook 'emacspeak-pronounce-refresh-pronunciations 'append ))
 
-(loop for mode in
-      '(vm-presentation-mode
-        mail-mode)
-      do
-      (emacspeak-pronounce-augment-pronunciations mode
-                                                  emacspeak-pronounce-internet-smileys-pronunciations)
-      (emacspeak-pronounce-add-dictionary-entry mode
-                                                emacspeak-speak-embedded-url-pattern
-                                                (cons 're-search-forward
-                                                      #'(lambda
-                                                          (url) "
-      Link ")))
-      (emacspeak-pronounce-add-dictionary-entry mode
-                                                emacspeak-speak-rfc-3339-datetime-pattern
-                                                (cons 're-search-forward
-                                                      'emacspeak-speak-decode-rfc-3339-datetime))
-      (emacspeak-pronounce-add-dictionary-entry mode
-                                                emacspeak-speak-iso-datetime-pattern
-                                                (cons 're-search-forward
-                                                      'emacspeak-speak-decode-iso-datetime)))
+(loop
+ for mode in
+ '(vm-presentation-mode mail-mode)
+ do
+ (emacspeak-pronounce-augment-pronunciations
+  mode
+  emacspeak-pronounce-internet-smileys-pronunciations)
+ (emacspeak-pronounce-add-dictionary-entry
+  mode
+  emacspeak-speak-embedded-url-pattern
+  (cons
+   're-search-forward
+   #'(lambda (url) " Link ")))
+ (emacspeak-pronounce-add-dictionary-entry
+  mode
+  emacspeak-speak-rfc-3339-datetime-pattern
+  (cons 're-search-forward 'emacspeak-speak-decode-rfc-3339-datetime))
+ (emacspeak-pronounce-add-dictionary-entry
+  mode
+  emacspeak-speak-iso-datetime-pattern
+  (cons 're-search-forward 'emacspeak-speak-decode-iso-datetime)))
 
 ;;}}}
 ;;{{{ advice button motion
@@ -546,7 +547,9 @@ If N is negative, move backward instead."
       (when (and backward (not (get-text-property (point) 'w3-hyperlink-info)))
         (goto-char (funcall function (point) 'w3-hyperlink-info nil limit)))
       ;; Skip past intangible buttons.
-      (when (get-text-property (point) 'intangible)
+      (when
+          (or (get-text-property (point) 'intangible)
+              (get-text-property (point) 'cursorintangible))
         (incf n))
       (decf n))
     (unless (zerop n)
@@ -703,7 +706,8 @@ text using wvText."
         vm-mime-decode-for-preview nil
         vm-auto-decode-mime-messages t
         vm-auto-displayed-mime-content-type-exceptions '("text/html")
-        vm-mime-attachment-save-directory (expand-file-name "~/Mail/attachments/")
+        vm-mime-attachment-save-directory
+        (expand-file-name "~/Mail/attachments/")
         vm-mime-base64-encoder-program "base64-encode"
         vm-mime-base64-decoder-program "base64-decode")
   t)

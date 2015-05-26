@@ -38,13 +38,12 @@
 ;;}}}
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;; Commentary:
+
 ;;{{{  Introduction:
-
+;;; Commentary:
 ;;; ses implements a simple spread sheet and is part of Emacs
-;;; 21.4
 ;;; This module speech-enables ses
-
+;;; Code:
 ;;}}}
 ;;{{{ required modules
 
@@ -53,7 +52,6 @@
 (require 'emacspeak-redefine)
 (require 'ses)
 ;;}}}
-
 ;;{{{ SES Accessors:
 
 ;;; these are defined as macros in ses.el 
@@ -98,6 +96,7 @@ interest."
   "Return the default printer for column COL."
   (declare (special ses--col-printers))
   (aref ses--col-printers col)) ;;}}}
+
 ;;}}}
 ;;{{{ emacspeak ses accessors 
 
