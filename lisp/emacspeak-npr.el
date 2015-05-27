@@ -57,6 +57,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'g-utils)
 (require 'emacspeak-webutils)
 (require 'xml)
 
@@ -85,12 +86,9 @@
 ;;}}}
 ;;{{{ Variables:
 
-(defvar emacspeak-npr-curl-program (executable-find "curl")
-  "Curl executable.")
 
-(defvar emacspeak-npr-curl-common-options
-  " --silent "
-  "Common Curl options for Npr. ")
+
+
 
 (defvar emacspeak-npr-api-base
   "http://api.npr.org"
@@ -110,23 +108,12 @@
 (defvar emacspeak-npr-scratch-buffer " *Npr Scratch* "
   "Scratch buffer for Npr operations.")
 
-(defmacro emacspeak-npr-using-scratch(&rest body)
-  "Evaluate forms in a  ready to use temporary buffer."
-  `(let ((buffer (get-buffer-create emacspeak-npr-scratch-buffer))
-         (default-process-coding-system (cons 'utf-8 'utf-8))
-         (coding-system-for-read 'binary)
-         (coding-system-for-write 'binary)
-         (buffer-undo-list t))
-     (save-excursion
-       (set-buffer buffer)
-       (kill-all-local-variables)
-       (erase-buffer)
-       (progn ,@body))))
+
 
 (defsubst emacspeak-npr-get-xml (command)
   "Run command and return its output."
   (declare (special shell-file-name shell-command-switch))
-  (emacspeak-npr-using-scratch
+  (g-using-scratch
    (call-process shell-file-name nil t
                  nil shell-command-switch
                  command)
@@ -153,8 +140,8 @@
   (emacspeak-npr-get-result
    (format
     "%s %s '%s'  2>/dev/null"
-    emacspeak-npr-curl-program
-    emacspeak-npr-curl-common-options
+    g-curl-program
+    g-curl-common-options
     emacspeak-npr-last-action-uri)))
 ;;;###autoload
 (defun emacspeak-npr-view (operation operand)
