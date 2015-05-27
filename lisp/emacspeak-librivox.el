@@ -219,8 +219,9 @@ Both exact and partial matches for `title'."
   (ecase search-type
     (?a (call-interactively 'emacspeak-librivox-search-by-author))
     (?t (call-interactively 'emacspeak-librivox-search-by-title))))
-    (emacspeak-fix-interactive 'emacspeak-librivox)  
-  (
+
+(emacspeak-fix-interactive 'emacspeak-librivox)  
+  
 
 ;;}}}
 (provide 'emacspeak-librivox)

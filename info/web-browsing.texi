@@ -1,7 +1,7 @@
 
 
 Note that there is newer material at 
-http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html
+@url{http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html}
 and in @xref{emacspeak-eww}.
 For Emacs 24.4 and later, note that the built-in Web browser EWW is also
 the browser of choice for emacspeak. 
@@ -537,20 +537,6 @@ useful timesavers while web browsing.
 The @kbd{y} command will rewrite the url of the url under point.  This is
 useful for those sites you frequent.  Often, sites that have printer
 friendly content have a specific way in which the url is written.  For
-example,  the O'Reilly web site uses ``pub'' for the regular html
-version of a page and ``lpt'' for the printer friendly version.  Examine
-these urls:
-
-@uref{http://www.oreillynet.com/lpt/a/wireless/2001/03/02/802.11b_facts.html}
-
-@uref{http://www.oreillynet.com/lpt/a/wireless/2001/03/02/802.11b_facts.html}
-
-The first link goes to the regular version of the page and the second
-to the printer friendly version.  Sometimes it is difficult to figure
-out the formula, so this is only useful if this is a site that you are
-visiting rather often, as the time to figure out the formula on a site
-that you rarely visit is far greater than the time you save.
-
 The first time you run this command in a particular buffer you are
 prompted for a pattern to use.  The pattern is in the form of 
 
@@ -630,7 +616,7 @@ can hit @kbd{e e} and then enter the name of the function.  Nice.
 
 The @kbd{e f} command will run the current page through an XPath filter
 and return the results.  For more information on XPath, see
-@uref{http://en.wikipedia.org/wiki/XPath}.  If you wanted to see only the
+@url{http://en.wikipedia.org/wiki/XPath}.  If you wanted to see only the
 links on a page, when prompted enter @kbd{//a} and you will be returned
 every link on the page.  If you wanted to see only the contents of ``p''
 tags, you would enter @kbd{//p}.  This can be useful for many things, form
@@ -723,7 +709,7 @@ but those are being worked on.  I think this is a good solution to the
 problem of emacs/w3 not having bookmarks functionality and providing
 one central bookmark location for those who regularly use both
 browsers.  See
-@uref{http://www.emacswiki.org/cgi-bin/wiki/EmacsBmkMgr}, for more
+@url{http://www.emacswiki.org/cgi-bin/wiki/EmacsBmkMgr}, for more
 information.
 
 @node Conclusion
