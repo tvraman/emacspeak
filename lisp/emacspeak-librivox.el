@@ -215,13 +215,15 @@ Both exact and partial matches for `title'."
 ;;;###autoload
 (defun emacspeak-librivox (search-type)
   "Launch a Librivox Search."
-  (interactive "ca: Author, t: Title")
+  (interactive
+   (list
+    (read-char "a: Author, t: Title g:Genre")))
   (ecase search-type
     (?a (call-interactively 'emacspeak-librivox-search-by-author))
     (?t (call-interactively 'emacspeak-librivox-search-by-title))
     (?g (call-interactively 'emacspeak-librivox-search-by-genre))))
 
-(emacspeak-fix-interactive 'emacspeak-librivox)  
+  
   
 
 ;;}}}
