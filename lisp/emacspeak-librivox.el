@@ -218,7 +218,8 @@ Both exact and partial matches for `title'."
   (interactive "ca: Author, t: Title")
   (ecase search-type
     (?a (call-interactively 'emacspeak-librivox-search-by-author))
-    (?t (call-interactively 'emacspeak-librivox-search-by-title))))
+    (?t (call-interactively 'emacspeak-librivox-search-by-title))
+    (?g (call-interactively 'emacspeak-librivox-search-by-genre))))
 
 (emacspeak-fix-interactive 'emacspeak-librivox)  
   
