@@ -8,17 +8,17 @@
   <meta name="generator" content=
   "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
 
-  <title>Emacspeak User’s Manual –2nd Edition.:
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
   acss-structure</title>
   <meta name="description" content=
-  "Emacspeak User’s Manual –2nd Edition.: acss-structure" />
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: acss-structure" />
   <meta name="keywords" content=
-  "Emacspeak User’s Manual –2nd Edition.: acss-structure" />
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: acss-structure" />
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
   <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
+  "text/html; charset=us-ascii" />
   <link href="index.html#Top" rel="start" title="Top" />
   <link href="Concept-Index.html#Concept-Index" rel="index" title=
   "Concept Index" />
@@ -103,25 +103,25 @@
   structure needs to be mapped to device dependent codes to produce
   the desired effect. This module forms a bridge between User
   Agents e.g. Emacs-w3 that wish to implement a speech style sheet
-  and Emacspeak’s dectalk-voices module. Emacspeak produces voice
-  change effects by examining the value of text-property
-  ’personality.</p>
+  and Emacspeak&rsquo;s dectalk-voices module. Emacspeak produces
+  voice change effects by examining the value of text-property
+  &rsquo;personality.</p>
 
   <p>Think of a buffer of formatted text along with the
-  text-property ’personality appropriately set as a "aural display
-  list". Applications like W3 that produce such formatted buffers
-  call function acss-personality-from-speech-style with a
-  "speech-style" –a structure as defined in this module and get
-  back a symbol that they then assign to the value of property
-  ’personality. Emacspeak’s rendering engine then does the needful
-  at the time speech is produced. Function
+  text-property &rsquo;personality appropriately set as a "aural
+  display list". Applications like W3 that produce such formatted
+  buffers call function acss-personality-from-speech-style with a
+  "speech-style" &ndash;a structure as defined in this module and
+  get back a symbol that they then assign to the value of property
+  &rsquo;personality. Emacspeak&rsquo;s rendering engine then does
+  the needful at the time speech is produced. Function
   acss-personality-from-speech-style does the following: Takes as
   input a "speech style" (1) Computes a symbol that will be used
   henceforth to refer to this specific speech style. (2) Examines
-  emacspeak’s internal voice table to see if this speech style has
-  a voice already defined. If so it returns immediately. Otherwise,
-  it does the additional work of defining a dectalk-voice for
-  future use. See module dectalk-voices.el to see how voices are
-  defined.</p>
+  emacspeak&rsquo;s internal voice table to see if this speech
+  style has a voice already defined. If so it returns immediately.
+  Otherwise, it does the additional work of defining a
+  dectalk-voice for future use. See module dectalk-voices.el to see
+  how voices are defined.</p>
 </body>
 </html>

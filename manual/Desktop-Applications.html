@@ -8,17 +8,17 @@
   <meta name="generator" content=
   "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
 
-  <title>Emacspeak User’s Manual –2nd Edition.: Desktop
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Desktop
   Applications</title>
   <meta name="description" content=
-  "Emacspeak User’s Manual –2nd Edition.: Desktop Applications" />
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Desktop Applications" />
   <meta name="keywords" content=
-  "Emacspeak User’s Manual –2nd Edition.: Desktop Applications" />
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Desktop Applications" />
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
   <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
+  "text/html; charset=us-ascii" />
   <link href="index.html#Top" rel="start" title="Top" />
   <link href="Concept-Index.html#Concept-Index" rel="index" title=
   "Concept Index" />
@@ -120,11 +120,12 @@
   particular item of data. Finally, the aural interface needs to
   enable <em>multiple</em> views of the display. In the visual
   interface, such <em>multiple</em> views are automatically enabled
-  by the two dimensional layout combined with the eye’s ability to
-  move rapidly around the layout structure. Thus, while viewing any
-  particular row of a portfolio, one can immediately see the
-  current total value as well as the net gain or loss. The Emacs
-  spread-sheet package <code>dismal</code> can be retrieved from
+  by the two dimensional layout combined with the eye&rsquo;s
+  ability to move rapidly around the layout structure. Thus, while
+  viewing any particular row of a portfolio, one can immediately
+  see the current total value as well as the net gain or loss. The
+  Emacs spread-sheet package <code>dismal</code> can be retrieved
+  from
   <code>ftp://cs.nyu.edu/pub/local/fox/dismal</code>.</p><a name=
   "Forms-Mode" id="Forms-Mode"></a>
 
@@ -143,7 +144,8 @@
   documentation.</p><a name="OCR-_002d_002dReading-Print-Documents"
   id="OCR-_002d_002dReading-Print-Documents"></a>
 
-  <h4 class="subsection">9.10.3 OCR –Reading Print Documents</h4>
+  <h4 class="subsection">9.10.3 OCR &ndash;Reading Print
+  Documents</h4>
 
   <p>Module <code>emacspeak-ocr</code> implements an OCR front-end
   for the Emacspeak desktop.</p>
@@ -173,15 +175,16 @@
   <p>Make sure your scanner back-end works, and that you have the
   utilities to scan a document and acquire an image as a tiff file.
   Then set variable <var>emacspeak-ocr-scan-image-program</var> to
-  point at this utility. By default, this is set to ‘scanimage’
-  which is the image scanning utility provided by SANE.</p>
+  point at this utility. By default, this is set to
+  &lsquo;scanimage&rsquo; which is the image scanning utility
+  provided by SANE.</p>
 
   <p>By default, this front-end attempts to compress the acquired
   tiff image; make sure you have a utility like
   <code>tiffcp</code>. Variable
-  <var>emacspeak-ocr-compress-image</var> is set to ‘tiffcp’ by
-  default; if you use something else, you should customize this
-  variable.</p>
+  <var>emacspeak-ocr-compress-image</var> is set to
+  &lsquo;tiffcp&rsquo; by default; if you use something else, you
+  should customize this variable.</p>
 
   <p>Next, make sure you have an OCR engine installed and working.
   By default this front-end assumes that OCR is available as
@@ -195,9 +198,9 @@
   <em>emacspeak-ocr</em> bound to <kbd>C-e C-o</kbd>.</p>
 
   <p>This command switches to a special buffer that has OCR
-  commands bounds to single keystrokes– see the key-binding list at
-  the end of this description. Use Emacs online help facility to
-  look up help on these commands.</p>
+  commands bounds to single keystrokes&ndash; see the key-binding
+  list at the end of this description. Use Emacs online help
+  facility to look up help on these commands.</p>
 
   <p>Mode <em>emacspeak-ocr-mode</em> provides the necessary
   functionality to scan, OCR, read and save documents. By default,
@@ -207,11 +210,11 @@
   <em>emacspeak-ocr-open-working-directory</em> bound to
   <kbd>d</kbd> will open this directory.</p>
 
-  <p>By default, the document being scanned is named ‘untitled’.
-  You can name the document by using command
-  <em>emacspeak-ocr-name-document</em> bound to <kbd>n</kbd>. The
-  document name is used in constructing the name of the image and
-  text files.</p>
+  <p>By default, the document being scanned is named
+  &lsquo;untitled&rsquo;. You can name the document by using
+  command <em>emacspeak-ocr-name-document</em> bound to
+  <kbd>n</kbd>. The document name is used in constructing the name
+  of the image and text files.</p>
 
   <p>Here is a list of all emacspeak OCR commands along with their
   key-bindings and a brief description:</p>
