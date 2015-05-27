@@ -56,6 +56,8 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'emacspeak-webutils)
+(require 'emacspeak-m-player)
 (require 'g-utils)
 
 ;;}}}
@@ -225,6 +227,23 @@ Both exact and partial matches for `title'."
 
   
   
+
+;;}}}
+;;{{{ Play Librivox Streams:
+;;;###autoload
+(defun emacspeak-librivox-play (rss-url)
+  "Play book stream"
+  (interactive
+   (list
+    (emacspeak-webutils-read-this-url)))
+  (declare (special g-curl-program g-curl-common-options))
+  (let ((file  (make-temp-file "librivox" nil ".rss")))
+    (shell-command
+     (format "%s %s %s > %s"
+             g-curl-program g-curl-common-options rss-url file))
+    (emacspeak-m-player-play-rss (format "file://%s" file))))
+                         
+                         
 
 ;;}}}
 (provide 'emacspeak-librivox)
