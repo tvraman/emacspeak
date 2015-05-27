@@ -19,7 +19,7 @@
       <body>
         <ol>
           <xsl:for-each select="//item">
-<xsl:sort select="@storycounttoday" data-type="number" order="descending"/>
+<xsl:sort select="@num" data-type="number" order="descending"/>
 <li>
       <a>
         <xsl:attribute name="href">
@@ -30,9 +30,7 @@
       <xsl:value-of select="additionalInfo"/><br/>
 <p>
       <strong>Story Counts:</strong>
-      Today: <xsl:value-of select="@storycounttoday"/>
-      Month: <xsl:value-of select="@storycountmonth"/>
-      Total: <xsl:value-of select="@storycountall"/>
+      Today: <xsl:value-of select="num"/>
 </p>
     </li>
           </xsl:for-each>
