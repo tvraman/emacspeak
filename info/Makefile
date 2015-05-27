@@ -1,13 +1,15 @@
 #$Id$
-SF_HOME= raman,emacspeak@web.sourceforge.net:/home/groups/e/em/emacspeak/htdocs
+#http://emacspeak.sf.net/info
+SF_HOME= raman,emacspeak@web.sourceforge.net:/home/groups/e/em/emacspeak/htdocs/info
+#https://tvraman.github.io/emacspeak/manual
 GH_PAGES=../../gh-pages-emacspeak/manual
+
 TEXINDEX=texindex
 FILES=*.texi
 MAKEINFO = makeinfo 
-CSS="http://www.w3.org/StyleSheets/Core/Modernist"
+CSS=-css-ref="http://www.w3.org/StyleSheets/Core/Modernist"
 TEX=tex
 PDFTEX=pdftex
-TEXI2HTML=texi2html
 infodir =/usr/share/info#normally supplied by caller
 INSTALL = install
 EMACS=emacs
@@ -64,8 +66,8 @@ emacspeak.pdf:		emacspeak.texi
 print: emacspeak.dvi
 	dvips emacspeak.dvi
 
-htm: emacspeak.texi 
-	makeinfo -o ${GH_PAGES}  --html  --css-ref=${CSS} emacspeak.texi
+man: emacspeak.texi 
+	makeinfo -o ${GH_PAGES}  --html  ${CSS} emacspeak.texi
 	tidy -q -mic -asxml  ${GH_PAGES}/*.html 2>&1 > /dev/null  || echo tidy
 	echo "Commit and push updated HTML files from gh-pages!"
 
@@ -74,7 +76,7 @@ introducing-emacspeak.html: introducing-emacspeak.texi
 	perl add-css.pl introducing-emacspeak.html
 #For publishing to SF
 pub:  html/index.html introducing-emacspeak.html
-	rsync introducing-emacspeak.html ${SF_HOME}/info/
+	rsync introducing-emacspeak.html ${SF_HOME}
 	rsync -avz  html ${SF_HOME}/info/
 
 %.pdf: %.ps
