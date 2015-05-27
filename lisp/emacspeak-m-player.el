@@ -1212,6 +1212,24 @@ tap-reverb already installed."
     (emacspeak-auditory-icon 'button)))
 
 ;;}}}
+;;{{{ Play RSS Stream:
+;;;###autoload
+(defun emacspeak-m-player-play-rss (rss-url)
+  "Play an RSS stream by converting to  an M3U playlist."
+  (interactive
+   (list
+    (emacspeak-webutils-read-this-url)))
+  (let* ((file (make-temp-file  "librivox" nil ".m3u"))
+         (buffer (find-file-noselect file)))
+    (message "Retrieving playlist.")
+    (with-current-buffer buffer
+      (insert-buffer-substring
+       (emacspeak-xslt-xml-url
+        (emacspeak-xslt-get "rss2m3u.xsl")
+        rss-url))
+      (save-buffer))
+    (emacspeak-m-player file 'playlist)))
+;;}}}
 (provide 'emacspeak-m-player)
 ;;{{{ end of file
 
