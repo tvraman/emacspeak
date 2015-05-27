@@ -210,6 +210,19 @@ Both exact and partial matches for `title'."
    (format "Search For Title: %s" title)))
 
 ;;}}}
+;;{{{ Top-Level Dispatch:
+
+;;;###autoload
+(defun emacspeak-librivox (search-type)
+  "Launch a Librivox Search."
+  (interactive "ca: Author, t: Title")
+  (ecase search-type
+    (?a (call-interactively 'emacspeak-librivox-search-by-author))
+    (?t (call-interactively 'emacspeak-librivox-search-by-title))))
+    (emacspeak-fix-interactive 'emacspeak-librivox)  
+  (
+
+;;}}}
 (provide 'emacspeak-librivox)
 ;;{{{ end of file
 
