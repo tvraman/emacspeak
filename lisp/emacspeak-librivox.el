@@ -219,9 +219,10 @@ Both exact and partial matches for `title'."
   "Launch a Librivox Search."
   (interactive
    (list
-    (read-char "a: Author, t: Title g:Genre")))
+    (read-char "a: Author, t: Title,  p:Play, g:Genre")))
   (ecase search-type
     (?a (call-interactively 'emacspeak-librivox-search-by-author))
+    (?p (call-interactively 'emacspeak-librivox-play))
     (?t (call-interactively 'emacspeak-librivox-search-by-title))
     (?g (call-interactively 'emacspeak-librivox-search-by-genre))))
 
