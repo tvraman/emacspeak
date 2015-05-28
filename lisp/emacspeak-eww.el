@@ -243,6 +243,7 @@ are available are cued by an auditory icon on the header line."
   (loop
    for binding  in
    '(
+     (":" emacspeak-eww-tags-at-point)
      ("'" emacspeak-speak-rest-of-buffer)
      ("*" eww-add-bookmark)
      ("," emacspeak-eww-previous-h)
@@ -1252,6 +1253,20 @@ Warning, this is fragile, and depends on a stable id for the
        (dom-html-from-nodes dom (emacspeak-eww-current-url)))))))
 
 ;;}}}
+;;{{{ Tags At Point:
+
+(defun emacspeak-eww-tags-at-point ()
+  "Display tags at point."
+  (interactive)
+  (emacspeak-eww-prepare-eww)
+  (let ((props (text-properties-at (point))))
+    (print 
+     (loop 
+ for i from 0 to (length props) by 2 
+ if (eq 'eww-tag (elt  props (+ 1 i))) collect (elt props i)))))
+
+;;}}}
+
 (provide 'emacspeak-eww)
 ;;{{{ end of file
 
