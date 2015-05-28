@@ -1259,11 +1259,14 @@ Warning, this is fragile, and depends on a stable id for the
   "Display tags at point."
   (interactive)
   (emacspeak-eww-prepare-eww)
-  (let ((props (text-properties-at (point))))
-    (print 
-     (loop 
- for i from 0 to (length props) by 2 
- if (eq 'eww-tag (elt  props (+ 1 i))) collect (elt props i)))))
+  (let ((props (text-properties-at (point)))
+        (tags nil))
+    (setq tags
+          (loop
+           for i from 0 to (length props) by 2
+           if (eq 'eww-tag (elt  props (+ 1 i))) collect (elt props i)))
+    (print tags)
+    (dtk-speak-list tags)))
 
 ;;}}}
 
