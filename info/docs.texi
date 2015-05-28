@@ -1034,48 +1034,6 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 
 @end defvar
 
-@defvar {User Option} emacspeak-apt-utils-broken-personality
-Personality used for apt-utils-broken-face
-This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-description-personality
-Personality used for apt-utils-description-face
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-field-contents-personality
-Personality used for apt-utils-field-contents-face
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-field-keyword-personality
-Personality used for apt-utils-field-keyword-face
-This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-normal-package-personality
-Personality used for apt-utils-normal-package-face
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-version-personality
-Personality used for apt-utils-version-face
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-virtual-package-personality
-Personality used for apt-utils-virtual-package-face
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
 @defvar {User Option} emacspeak-bold-italic-voice
 Personality used for bold-italic
 This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
@@ -2658,6 +2616,18 @@ This personality uses  voice-brighten-medium whose  effect can be changed global
 
 @end defvar
 
+@defvar {User Option} emacspeak-twittering-uri-personality
+Personality used for twittering-uri-face
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-twittering-username-personality
+Personality used for twittering-username-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-underline-voice
 Personality used for underline
 This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
@@ -3524,6 +3494,50 @@ Debian packages.
 
 Copy package under point to kill ring.
 @end deffn
+
+@subsection emacspeak-apt-utils Options
+
+@defvar {User Option} emacspeak-apt-utils-broken-personality
+Personality used for apt-utils-broken-face
+This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-apt-utils-description-personality
+Personality used for apt-utils-description-face
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-apt-utils-field-contents-personality
+Personality used for apt-utils-field-contents-face
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-apt-utils-field-keyword-personality
+Personality used for apt-utils-field-keyword-face
+This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-apt-utils-normal-package-personality
+Personality used for apt-utils-normal-package-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-apt-utils-version-personality
+Personality used for apt-utils-version-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-apt-utils-virtual-package-personality
+Personality used for apt-utils-virtual-package-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
 
 @node emacspeak-arc
 @section emacspeak-arc
@@ -12313,20 +12327,6 @@ Move to and open closest URI  following point.
 
 Speak tweet under point.
 @end deffn
-
-@subsection emacspeak-twittering Options
-
-@defvar {User Option} emacspeak-twittering-uri-personality
-Personality used for twittering-uri-face
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-twittering-username-personality
-Personality used for twittering-username-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
 
 @node emacspeak-url-template
 @section emacspeak-url-template
