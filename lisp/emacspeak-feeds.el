@@ -64,23 +64,23 @@
   :group 'emacspeak)
 
 (defcustom emacspeak-opml-view-xsl
-  (expand-file-name "opml.xsl" emacspeak-xslt-directory)
+  (emacspeak-xslt-get "opml.xsl")
   "XSL stylesheet used for viewing OPML  Feeds."
   :type  'file
   :group 'emacspeak-xsl)
 
 (defcustom emacspeak-rss-view-xsl
-  (expand-file-name "rss.xsl" emacspeak-xslt-directory)
+  (emacspeak-xslt-get "rss.xsl")
   "XSL stylesheet used for viewing RSS Feeds."
   :type  'file
   :group 'emacspeak-xsl)
 
 (defcustom emacspeak-atom-view-xsl
-  (expand-file-name "legacy-atom.xsl" emacspeak-xslt-directory)
+  (emacspeak-xslt-get "legacy-atom.xsl")
   "XSL stylesheet used for viewing Atom Feeds."
   :type '(choice
-          (string :tag "Legacy"  (expand-file-name "legacy-atom.xsl" emacspeak-xslt-directory))
-          (string :tag "Modern" (expand-file-name "atom-view.xsl" emacspeak-xslt-directory)))
+          (string :tag "Legacy"  (emacspeak-xslt-get "legacy-atom.xsl"))
+          (string :tag "Modern" (emacspeak-xslt-get "atom-view.xsl")))
   :group 'emacspeak-xsl)
 
 ;;;###autoload

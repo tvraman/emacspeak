@@ -194,11 +194,11 @@
     buffer))
 
 (defvar emacspeak-epub-metadata-xsl
-  (expand-file-name "epub-metadata.xsl" emacspeak-xslt-directory)
+  (emacspeak-xslt-get "epub-metadata.xsl")
   "XSL to extract Author/Title information.")
 
 (defvar emacspeak-epub-opf-xsl
-  (expand-file-name "epub-opf.xsl" emacspeak-xslt-directory)
+  (emacspeak-xslt-get "epub-opf.xsl")
   "XSL to extract Author/Title information from content.opf.")
 
 (defsubst emacspeak-epub-get-metadata (epub)
@@ -285,7 +285,7 @@ Useful if table of contents in toc.ncx is empty."
        'at-end)
       (browse-url-of-buffer))))
 
-(defvar epub-toc-xsl (expand-file-name "epub-toc.xsl" emacspeak-xslt-directory)
+(defvar epub-toc-xsl (emacspeak-xslt-get "epub-toc.xsl")
   "XSL to process .ncx file.")
 
 (defun emacspeak-epub-browse-toc (epub)
