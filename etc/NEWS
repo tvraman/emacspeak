@@ -7,6 +7,11 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 ** emacspeak-librivox:
 
 Implements the new Librivox API
+
+** emacspeak-npr:
+
+Updated to API 0.94.
+
 ** emacspeak-eww:
 
 Better filtering: filter by elements, class, roles and attributes.
