@@ -201,7 +201,7 @@ Generated from http://www.npr.org/api/inputReference.php")
                'emacspeak-npr-listing-url-executor)
          (emacspeak-speak-buffer)))
     (emacspeak-xslt-view-xml
-     (expand-file-name "npr-list.xsl" emacspeak-xslt-directory)
+     (emacspeak-xslt-get  "npr-list.xsl")
      (emacspeak-npr-rest-endpoint "list"
                                   (format "id=%s&output=atom" key)))))
 
