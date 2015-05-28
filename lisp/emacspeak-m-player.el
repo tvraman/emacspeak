@@ -1219,7 +1219,7 @@ tap-reverb already installed."
   (interactive
    (list
     (emacspeak-webutils-read-this-url)))
-  (let* ((file (make-temp-file  "librivox" nil ".m3u"))
+  (let* ((file (make-temp-file  "rss-media" nil ".m3u"))
          (buffer (find-file-noselect file)))
     (message "Retrieving playlist.")
     (with-current-buffer buffer
