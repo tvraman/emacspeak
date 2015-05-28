@@ -17,6 +17,7 @@
         <xsl:value-of select="/list/title"/></title>
       </head>
       <body>
+<p>Use <code>e e</code> to invoke a custom URL executor to open program links.</p>
         <ol>
           <xsl:for-each select="//item">
 <xsl:sort select="@num" data-type="number" order="descending"/>
