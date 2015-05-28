@@ -62,7 +62,6 @@
   (executable-find "curl")
   "Curl executable.")
 
-(defvar emacspeak-xslt-directory)
 (defvar emacspeak-wizards-personal-portfolio)
 
 (declare-function gweb-google-autocomplete (&optional prompt))

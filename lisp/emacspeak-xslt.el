@@ -69,7 +69,7 @@
    (cons "base"
          (format "\"'%s'\""
                  base))))
-(declaim (special emacspeak-xslt-directory))
+
 ;;;###autoload
 (defsubst emacspeak-xslt-get (style)
   "Return fully qualified stylesheet path."
@@ -303,11 +303,9 @@ part of the libxslt package."
   (interactive
    (list
     (expand-file-name
-     (read-file-name "XSL Transformation: "
-                     emacspeak-xslt-directory))
+     (read-file-name "XSL Transformation: "))
     (read-string "URL: " (browse-url-url-at-point))))
-  (declare (special emacspeak-xslt-options
-                    emacspeak-xslt-directory))
+  (declare (special emacspeak-xslt-options))
   (add-to-list
    'emacspeak-web-pre-process-hook
    (emacspeak-webutils-make-xsl-transformer style))
