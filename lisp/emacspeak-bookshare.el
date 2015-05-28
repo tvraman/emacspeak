@@ -1091,7 +1091,7 @@ Make sure it's downloaded and unpacked first."
          (end (read-from-minibuffer "End Page: "))
          (result
           (emacspeak-xslt-xml-url
-           (expand-file-name "dtb-page-range.xsl" emacspeak-xslt-directory)
+           (emacspeak-xslt-get "dtb-page-range.xsl")
            (substring url 7)
            (list
             (cons "start" (format "'%s'" start ))

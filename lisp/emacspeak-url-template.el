@@ -279,7 +279,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  #'(lambda (url)
      (emacspeak-webutils-autospeak)
      (emacspeak-xslt-view-xml
-      (expand-file-name "bbc-iplayer.xsl" emacspeak-xslt-directory) url))
+      (emacspeak-xslt-get "bbc-iplayer.xsl" ) url))
  'dont-url-encode)
 
 (emacspeak-url-template-define
@@ -293,7 +293,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  #'(lambda (url)
      (emacspeak-webutils-autospeak)
      (emacspeak-xslt-view-xml
-      (expand-file-name "bbc-iplayer.xsl" emacspeak-xslt-directory) url))
+      (emacspeak-xslt-get "bbc-iplayer.xsl") url))
  'dont-url-encode)
 
 ;;}}}
@@ -306,7 +306,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  "Display interactive BBC Program Guide."
  #'(lambda (url)
      (emacspeak-xslt-view-xml
-      (expand-file-name "bbc-ppg.xsl" emacspeak-xslt-directory) url )))
+      (emacspeak-xslt-get "bbc-ppg.xsl") url )))
 (emacspeak-url-template-define
  "BBC Podcast Directory"
  "http://www.bbc.co.uk/podcasts.opml"
@@ -527,8 +527,7 @@ from English to German")
  #'(lambda (url)
      (let ((buffer
             (emacspeak-xslt-xml-url
-             (expand-file-name "opml.xsl"
-                               emacspeak-xslt-directory)
+             (emacspeak-xslt-get "opml.xsl")
              url )))
        (save-current-buffer
          (set-buffer buffer)
@@ -843,7 +842,7 @@ name of the list.")
  "Show MLB Scorecard."
  #'(lambda (url)
      (emacspeak-xslt-view-xml
-      (expand-file-name "mlb-scorecard.xsl" emacspeak-xslt-directory)
+      (emacspeak-xslt-get "mlb-scorecard.xsl")
       url)))
 
 (emacspeak-url-template-define
