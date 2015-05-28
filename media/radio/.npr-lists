@@ -1,661 +1,1093 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head>
-    <title>Mapping Index : Tech Center : NPR</title>
-    <link type="text/css" rel="stylesheet" media="screen,print" href="/templates/css/news/thinnav.css">
-<link type="text/css" rel="stylesheet" media="screen, print" href="/templates/css/api/api.css">
-<link type="text/css" rel="stylesheet" media="screen, print" href="/templates/css/api/scal.css">
-
-<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
-<meta http-equiv="Content-Language" content="en-us">
-<meta name="robots" content="noarchive,follow">
-<meta name="Copyright" content="Copyright (c) 2008 NPR">
-<meta http-equiv="imagetoolbar" content="no">
-<meta name="MSSmartTagsPreventParsing" content="true">
-<meta name="description" content="NPR's API provides a flexible, powerful way to access your favorite NPR content, including audio from All Things Considered and Morning Edition.  The API includes text, images and other web-only content from NPR and NPR member stations.">
-<meta name="keywords" content="api, rss, mediarss, atom, json, javascript, widget, gadget, documentation, nprml, application programming interface">
-<meta name="priority" content="zxapplication programming interfacezx, zxapizx, zxwidgetzx">
-<meta name="Rating" content="General">
-<meta name="revisit-after" content="1 Day">
-<meta name="doc-class" content="Living Document">
-<link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon">
-<script type="text/javascript" src="/templates/javascript/localize/zip_code.js"></script>
-<script type="text/javascript">
-function toggleDetails(num)
-{
-if(document.getElementById)
-{
-    var objRef = document.getElementById("descriptionTxt" + num);
-    var expanderRef = document.getElementById("expander" + num);
-
-    if (objRef.className=="closeDiv")
-    {
-    objRef.className = "openDiv";
-    expanderRef.setAttribute("src", "http://media.npr.org/chrome/api/arrow_down_brown.gif");
-    expanderRef.setAttribute("alt", "Hide description");
-    }
-    else if (objRef.className=="openDiv")
-    {
-    objRef.className = "closeDiv";
-    expanderRef.setAttribute("src", "http://media.npr.org/chrome/api/arrow_right_brown.gif");
-    expanderRef.setAttribute("alt", "Display description");
-    }
-}
-}
-</script>
-<script type="text/javascript" src="/templates/javascript/api/apidocsrpt.js"></script>
-<script type="text/javascript" src="/templates/javascript/api/prototype.js"></script>
-
-
-
-        <link rel="stylesheet" type="text/css" href="/templates/css/api/openapi.css">
-        <script type="text/javascript">
-var txt1 = "This is the text of the first tooltip";
-
-var arrayOfRequests = new Array();
-
-function TooltipTxt(n)
-{
-    return n;
-}
-
-function loadMapIndex(){
-    var tabs = document.getElementsByClassName('tabs');
-    for (var i = 0; i < tabs.length; i++) {
-        $(tabs[i].id).onclick = function () {
-            getTabData(this.id);
-        }
-    }
-    getTabData('topics');
-}
-
-function getTabData(id) {
-    var contentDivName = id + 'Content';
-
-    if ($(contentDivName).innerHTML == "")
-    {
-        showLoad();
-    }
-
-    if($(contentDivName).innerHTML == "") {
-        if (id=="personalities") {
-            loadXMLDoc('personalities', '/list?id=3007&date=2000-01-01&apiKey=' + window.apiKey, onBiosResponse);
-        }
-        if (id=="artists") {
-            loadXMLDoc('artists', '/list?id=3008&date=2000-01-01&apiKey=' + window.apiKey, onArtistsResponse);
-        }
-        if (id=="aggregations") {
-            loadXMLDoc('columns', '/list?id=3003&date=2000-01-01&apiKey=' + window.apiKey, onAggsResponse);
-            loadXMLDoc('aggregations', '/list?id=3006&date=2000-01-01&apiKey=' + window.apiKey, onAggsResponse);
-        }
-        if (id=="programs") {
-            loadXMLDoc('programs', '/list?id=3004&date=2000-01-01&apiKey=' + window.apiKey, onProgramsResponse);
-        }
-        if (id=="topics") {
-            loadXMLDoc('topics', '/list?id=3218&date=2000-01-01&apiKey=' + window.apiKey, onTopicsResponse);
-        }
-        if (id=="blogs") {
-            loadXMLDoc('blogs', '/list?id=3013&date=2000-01-01&apiKey=' + window.apiKey, onBlogsResponse);
-        }
-    }
-
-
-    var tabs = document.getElementsByClassName('tabs');
-    for (var i = 0; i < tabs.length; i++)
-    {
-
-            if (tabs[i].id == id)
-            {
-                document.getElementById(tabs[i].id).className = 'tabs selected';
-            }
-            else
-            {
-                document.getElementById(tabs[i].id).className = 'tabs';
-            }
-        }
-
-
-    var contentDivs = document.getElementsByClassName('content');
-    for (var i = 0; i < contentDivs.length; i++)
-    {
-        if (contentDivs[i].id == contentDivName)
-        {
-            contentDivs[i].style.display = '';
-        }
-        else
-        {
-            contentDivs[i].style.display = 'none';
-        }
-
-    }
-}
-
-
-function showLoad () {
-    $('load2').style.display = 'block';
-}
-function stopLoad(){
-    $('load2').style.display = 'none';
-
-}
-
-function renderSubcat(dataElm)
-{
-    var subcatDiv = document.createElement('div');
-
-    var itemElms = dataElm.getElementsByTagName('item');
-    var totCol= Math.round(itemElms.length/2);
-
-    var blockADiv = document.createElement('div');
-    blockADiv.id = 'blockA';
-    for (var jindex =  0; jindex < totCol; jindex++)
-    {
-        var checkboxElm = renderCheckbox(itemElms[jindex]);
-        blockADiv.appendChild(checkboxElm);
-        blockADiv.appendChild(document.createElement('br'));
-    }
-    subcatDiv.appendChild(blockADiv);
-
-
-    var blockBDiv = document.createElement('div');
-    blockBDiv.id = 'blockB';
-    for (var jindex =  totCol; jindex < itemElms.length; jindex++)
-    {
-        var checkboxElm = renderCheckbox(itemElms[jindex]);
-        blockBDiv.appendChild(checkboxElm);
-        blockBDiv.appendChild(document.createElement('br'));
-    }
-    subcatDiv.appendChild(blockBDiv);
-
-    return subcatDiv;
-}
-function renderList(dataElm)
-{
-
-    var liElm = "";
-    try
-    {
-        var additionInfoElms=dataElm.getElementsByTagName("additionalInfo");
-        //teaser = additionInfoElms[0].firstChild.nodeValue.replace(/\'/g, "&#39;");
-        teaser = additionInfoElms[0].firstChild.nodeValue;
-    }
-    catch (er)
-    {
-      teaser = 'none';
-    }
-    var titleElm = dataElm.getElementsByTagName("title");
-    //var vTitle = titleElm[0].firstChild.nodeValue.replace(/\'/g, "&#39;");
-    var vTitle = titleElm[0].firstChild.nodeValue;
-    var displayString = ' (' + dataElm.getAttribute("id")+ ') - ' + teaser;
-    liElm = vTitle + displayString;
-
-    return liElm;
-}
-function renderSubcatLinks(subcats, prefix, parentNode)
-{
-
-    for (var index = 0; index < subcats.length; index++)
-    {
-        var subcatLink = document.createElement('a');
-        subcatLink.href = "#";
-        subcatLink.onclick = function ()
-        {
-            window[prefix + 'DivShowing'].style.display = 'none';
-            //window[prefix + 'DivShowing'].style.marginRight = '10px';
-            window[prefix + 'LinkShowing'].style.fontWeight = 'normal';
-            window[prefix + 'LinkShowing'].style.fontSize = '';
-            //window[prefix + 'DivShowing'].style.margin = '0 0 0 20px';
-            //window[prefix + 'LinkShowing'].style.float = 'left';
-
-            var divToShow = document.getElementById(prefix + '_subcat_' + this.innerHTML);
-            divToShow.style.display = 'block';
-            this.style.fontWeight = 'bold';
-            this.style.fontSize = 'large';
-
-            window[prefix + 'DivShowing'] = divToShow;
-            window[prefix + 'LinkShowing'] = this;
-            return false;
-        };
-        subcatLink.innerHTML = subcats[index].getAttribute("name");
-
-        if (index == 0)
-        {
-            subcatLink.style.fontWeight = 'bold';
-            subcatLink.style.fontSize = 'large';
-            window[prefix + 'LinkShowing'] = subcatLink;
-        }
-
-        parentNode.appendChild(subcatLink);
-        parentNode.appendChild(document.createTextNode("    "));
-
-    }
-
-}
-    function loadXMLDoc(index, url, responseCallback)
-    {
-        arrayOfRequests[index] = null;
-        if (window.XMLHttpRequest)
-          {// code for IE7, Firefox, Mozilla, etc.
-            arrayOfRequests[index]=new XMLHttpRequest();
-          }
-        else if (window.ActiveXObject)
-          {// code for IE5, IE6
-            arrayOfRequests[index]=new ActiveXObject("Microsoft.XMLHTTP");
-          }
-        if (arrayOfRequests[index] != null)
-          {
-            arrayOfRequests[index].onreadystatechange=responseCallback;
-            arrayOfRequests[index].open("GET",url,true);
-            arrayOfRequests[index].send(null);
-
-          }
-        else
-          {
-          alert("Your browser does not support XMLHTTP.");
-          }
-
-
-    }
-
-function buildTable(name, showAddInfo, additionalName)
-{
-    if(typeof(showAddInfo) == 'undefined') {
-        showAddInfo = true;
-    }
-    var xmlhttp = arrayOfRequests[name];
-    if(!isReady(xmlhttp)) {
-        return;
-    }
-    var table = '<table border="1" width="100%"><tr><th>TITLE</th><th>ID</th>';
-    if(showAddInfo) {
-        table += '<th>Additional Info</th>';
-    }
-    table += '</tr>';
-    var items = xmlhttp.responseXML.getElementsByTagName('item');
-    var itemLength = items.length; // cache total length
-    for(var i=0;i<itemLength;i++) {
-        table += addToTable(items[i], showAddInfo);
-    }
-    if(typeof(additionalName) != 'undefined')
-    {
-        // throw the second group in here, too
-        var additionalXmlhttp = arrayOfRequests[additionalName];
-        if(isReady(additionalXmlhttp, true)) {
-            items = additionalXmlhttp.responseXML.getElementsByTagName('item');
-            itemLength = items.length;
-            for(var i=0;i<itemLength;i++) {
-                table += addToTable(items[i], showAddInfo);
-            }
-        }
-    }
-    table += '</table>';
-    stopLoad();
-    document.getElementById(name+'Content').innerHTML=table;
-}
-
-function isReady(xmlhttp, quiet) {
-    if(typeof(quiet) == 'undefined') {
-        quiet = false;
-    }
-    if(xmlhttp.readyState!=4) {
-        return false;
-    }
-    else if(xmlhttp.status!=200) {
-        if(!quiet) {
-            alert("Problem retrieving XML data");
-        }
-        return false;
-    }
-    return true;
-}
-
-function addToTable(item, showAddInfo) {
-    var table = '<tr>';
-    try {
-        table += '<td>' + item.getElementsByTagName('title')[0].firstChild.nodeValue + '</td>';
-    }
-    catch (er) {
-        table += '<td> </td>';
-    }
-    try {
-        var itemId = item.getAttribute('id');
-        table += '<td class="srchID" id="' + itemId + '">' + itemId + '</td>';
-    }
-    catch (er) {
-        table += '<td> </td>';
-    }
-    if(showAddInfo) {
-        try {
-            table += '<td>' + item.getElementsByTagName('additionalInfo')[0].firstChild.nodeValue + '</td>';
-        }
-        catch (er) {
-            table += '<td> </td>';
-        }
-    }
-    table += '</tr>';
-    return table;
-}
-
-function onTopicsResponse() {
-    buildTable('topics');
-}
-
-function onAggsResponse() {
-    if(!isReady(arrayOfRequests['aggregations'], true) || !isReady(arrayOfRequests['columns'], true)) {
-        return;
-    } 
-    buildTable('aggregations', true, 'columns');
-}
-
-function onProgramsResponse() {
-    buildTable('programs');
-}
-
-function onBiosResponse() {
-    buildTable('personalities');
-}
-
-function onArtistsResponse() {
-    buildTable('artists', false);
-}
-
-function onBlogsResponse() {
-    buildTable('blogs');
-}
-
-function searchId(id,tableName)
-{
-
-    var sIds = document.getElementById(id).id;
-    alert(sIds);
-    alert(document.getElementById(id).rowIndex);
-    x=document.getElementById(id).rowIndex
-    xx=tableName[x].cells;
-    alert(xx[0].innerHTML);
-
-}
-</script>
-   </head>
-<body onload="loadMapIndex()">
-<!-- sponsor -->
-<div id="sponsorexp">
-	<div class="close">
-		<p><a href="javascript: void(0);" class="share" onclick="if (document.getElementById(&quot;sponsorexp&quot;).style.display==&quot;block&quot;){document.getElementById(&quot;sponsorexp&quot;).style.display=&quot;none&quot;;}">close sponsorship window</a></p>
-		<div class="spacer">&nbsp;</div>
-	</div>
-
-	<div class="sponsorinfo">
-		<div class="left">
-			<p>AT&amp;T is a proud supporter of NPR</p>
-			<ul>
-				<li><a href="" target="_blank">Learn why we support NPR »</a></li>
-				<li><a href="" target="_blank">Learn more about our company</a></li>
-				<li><a href="" target="_blank">Visit our website</a></li>
-			</ul>
-		</div>
-		<div class="right">
-			<a href=""><img src="http://www.iab.net/media/image/300x100.gif" width="300" height="100" alt=""></a>
-		</div>
-		<div class="spacer">&nbsp;</div>
-	</div>
-
-	<div class="spacer">&nbsp;</div>
-</div><script type="text/javascript" src="/templates/javascript/localize/station_include_thin.js"></script>
-<div id="npr_thin">
-
-	<div id="login">
-    	<p id="loginPElm">
-			<a href="/stations/donate/" class="donate" data-action="Click Business Link">Donate</a> |
-			<a href="http://shop.npr.org/?utm_source=topnav&amp;utm_medium=topnav&amp;utm_campaign=topnav" class="shop" data-action="Click Business Link">NPR Shop</a> |
-			<a href="/templates/community/" class="comm" data-action="Click Business Link">NPR Social Media</a> |
-			<a href="/templates/reg/login.php" data-action="Click Profile Link">Sign In</a> |
-			<a href="/templates/reg" class="reg" data-action="Click Profile Link">Register</a>
-		</p>
-	</div>
-
-	<div class="navwrap">
-		<ul id="thinnav">
-			<li><a href="/" class="npr"></a></li>
-            <li class="navstation" style="display: none;"><a href="javascript:void(0);" class="station"></a></li>
-			<li><a href="/templates/stations/stations/" class="find">find a station</a></li>
-			<li><a href="/sections/news/">news</a></li>
-			<li><a href="/sections/arts/">arts &amp; life</a></li>
-			<li><a href="/music/">music</a></li>
-			<li class="navprograms"><a href="/programs/">programs</a></li>
-			<li class="navlisten"><a href="/listen/">listen</a></li>
-		</ul>
-	</div>
-
-	<div class="navdrops">
-		<!-- program dropdown -->
-		<div id="thinprograms" class="fix-z-index">
-			<div class="contentwrap">
-				<div class="content" style="display: none; ">
-
-					<div class="col news">
-						<h3>news</h3>
-						<ul class="left">
-							<li><a href="/programs/morning-edition/">Morning Edition</a></li>
-							<li><a href="/programs/all-things-considered/">All Things Considered</a></li>
-							<li><a href="/programs/fresh-air/">Fresh Air</a></li>
-							<li><a href="http://thedianerehmshow.org">The Diane Rehm Show</a></li>
-							<li><a href="http://www.onthemedia.org">On The Media</a></li>
-							<li><a href="http://www.onpointradio.org/">On Point</a></li>
-						</ul>
-						<ul class="right">
-							<li><a href="/programs/weekend-edition-saturday/">Weekend Edition Saturday</a></li>
-							<li><a href="/programs/weekend-edition-sunday/">Weekend Edition Sunday</a></li>
-							<li class="hdr">Also heard on NPR stations:</li>
-							<li class="other"><a href="http://marketplace.publicradio.org">Marketplace <span>APM</span></a></li>
-						</ul>
-					</div>
-
-					<div class="col entertainment">
-						<h3>arts &amp; life</h3>
-						<ul>
-							<li><a href="/programs/ask-me-another/">Ask Me Another</a></li>
-							<li><a href="http://www.cartalk.com">The Best Of Car Talk</a></li>
-                            <li><a href="http://www.maximumfun.org/shows/bullseye" target="_blank">Bullseye</a></li>
-                            <li><a href="/programs/invisibilia/">Invisibilia</a></li>
-                            <li><a href="http://www.radiolab.org">Radiolab</a></li>
-							<li><a href="/programs/snap-judgment/">Snap Judgment</a></li>
-                            <li><a href="http://storycorps.org" class="storycorps">StoryCorps</a></li>
-							<li><a href="/programs/ted-radio-hour/">TED Radio Hour</a></li>
-							<li><a href="/programs/wait-wait-dont-tell-me/">Wait Wait...Don't Tell Me!</a></li>
-							<li class="hdr">Also heard on NPR stations:</li>
-							<li class="other"><a href="http://www.thisamericanlife.org">This American Life <span>PRX</span></a></li>
-							<li class="other"><a href="http://prairiehome.publicradio.org">A Prairie Home Companion <span>APM</span></a></li>
-						</ul>
-					</div>
-
-					<div class="col music">
-						<h3>music</h3>
-						<ul class="left">
-			                <li><a href="/programs/all-songs-considered/">All Songs Considered</a></li>
-			                <li><a href="/series/alt-latino/">Alt.Latino</a></li>
-			                <li><a href="/series/15667984/favorite-sessions">Favorite Sessions</a></li>
-			                <li><a href="/series/98679384/first-listen">First Listen</a></li>
-							<li><a href="http://www.fromthetop.org/">From The Top</a></li>
-							<li><a href="/series/347139849/jazz-night-in-america">Jazz Night In America</a></li>
-							<li><a href="http://www.npr.org/programs/jazzset/">Jazzset</a></li>
-							<li><a href="/sections/concerts/">Live In Concert</a></li>
-						</ul>
-			            <ul class="right">
-			            	<li><a href="/series/mountain-stage/">Mountain Stage</a></li>
-							<li><a href="/programs/piano-jazz/">Piano Jazz</a></li>
-							<li><a href="/series/103063413/the-thistle-and-shamrock">The Thistle &amp; Shamrock</a></li>
-			                <li><a href="/programs/world-cafe/">World Cafe</a></li>
-			            </ul>
-					</div>
-
-					<div class="col special">
-						<h3>special series</h3>
-						<ul>
-							<li><a href="/series/4516989/storycorps">StoryCorps</a></li>
-							<li><a href="/sections/money/">Planet Money</a></li>
-							<li><a href="/sections/pictureshow/">Picture Show</a></li>
-							<li><a href="/sections/krulwich/">Krulwich Wonders...</a></li>
-							<li><a href="/series/153299281/cabinet-of-wonders">Cabinet of Wonders</a></li>
-						</ul>
-					</div>
-
-				</div>
-				<!-- end content -->
-			</div>
-
-			<div class="footer">
-				<a href="/programs/">public radio programs a-z</a> <span class="pipe">|</span> <a class="closemenu" href="#">close</a>
-			</div>
-		</div>
-
-		<!-- listen dropdown -->
-		<div id="thinlisten" class="fix-z-index">
-			<div class="content" style="display: none; ">
-				<ul>
-					<li><a href="javascript:getNewsCast();">NPR Newscast<br>
-					<span>Hourly News Summary</span></a></li>
-					<li><a href="javascript:getProgramStream();">NPR Program Stream<br>
-					<span>24-Hour Stream</span></a></li>
-				</ul>
-			</div>
-			<div class="footer">
-				<img src="http://media.npr.org/chrome/news/bg_thinnav_cnr_left.gif" class="left" alt="cnr_left">
-				<img src="http://media.npr.org/chrome/news/bg_thinnav_cnr_right.gif" class="right" alt="cnr_right">
-				<p>&nbsp;</p>
-			</div>
-		</div>
-
-		<!-- station dropdown -->
-		<div id="thinstation" class="fix-z-index">
-
-			<!-- station info will be written here -->
-			<div id="station_info" class="content" style="display: none; "></div>
-
-			<div class="footer">
-				<img src="http://media.npr.org/chrome/news/bg_thinnav_cnr_left.gif" class="left" alt="cnr_left">
-				<img src="http://media.npr.org/chrome/news/bg_thinnav_cnr_right.gif" class="right" alt="cnr_right">
-				<p>&nbsp;</p>
-			</div>
-		</div>
-
-
-	</div>
-</div>
-
-
-<div id="header">
-    <div class="bannertop">&nbsp;</div>
-    <div class="bannermid">
-        <h1>NPR Tech Center</h1><div class="beta">BETA</div>
-        <ul id="nav">
-            <li id="selected"><a href="index.php">API Documentation</a></li>
-            <li><a href="widgets.php">Widgets</a></li>
-            <li><a href="/templates/archives/archive.php?thingId=125099784">Inside NPR.org : API</a></li>
-        </ul>
-        <div class="searchwrap">
-            <form method="get" action="/search.php">
-                <label for="searchinput" class="searchtxt">Search NPR</label>
-                <input type="text" name="searchinput" id="searchText" class="searchbox">
-                <input type="image" onclick="submit();" value="" src="http://media.npr.org/chrome/api/searchbtn.gif" class="searchbtn">
-            </form>
-        </div>
-    </div>
-    <div class="bannerbottom">&nbsp;</div>
-</div>
-<div id="wrapper">
-
-<script type="text/javascript">
-
-window.apiKey = 'demo';
-
-</script>
-
-<!-- start leftnav -->
-<div id="leftnav">
-<p class="welcome">Get started! <a href="http://www.npr.org/templates/reg/login.php?returnUrl=%2Fapi%2FmappingCodes.php"><br>Login</a> | <a href="http://www.npr.org/templates/reg/">Register</a></p>    <ul>
-
-    
-        <li><a href="index.php">API Overview</a></li>
-        <li><a href="apiterms.php">Terms of Use</a></li>
-
-    <li><a href="javascript:toggleDetails('1');">Story API Reference<img id="expander1" src="http://media.npr.org/chrome/api/arrow_right_brown.gif" width="10" height="10" alt="" class="expander"></a><ul id="descriptionTxt1" echo="" class="closeDiv">                <!--<li class="sub" ><a href="advStory.php" >About Our Archive</a></li>
-                <li class="sub" ><a href="standards.php">API Standards</a></li>-->
-                <li class="sub"><a href="inputReference.php">API Input Reference</a></li>
-                <li class="sub"><a href="outputReference.php">API Output Reference</a></li>
-                <li class="sub"><a href="msgReference.php">API Messaging</a></li>
-            </ul>
-        </li>
-        <li><a href="queryGenerator.php">Query Generator</a></li>
-        <li>
-
-
-
-                </li><li><a href="stationFinder.php">Station Finder API</a></li>
-                <li><a href="transcript.php">Transcript API</a></li>
-        
-            <!--<li ><a href="glossary.php">Glossary</a></li>-->
-        <li><a href="mappingCodes.php" class="selected">Mapping Index</a></li>
-        <li><a href="/contact/?mid=11101">Give Us Feedback</a></li>
-    </ul>
-</div>
-<!-- end leftnav -->
-
-    <!-- start maincontent -->
-    <div id="maincontent">
-        <div class="contenttop">&nbsp;</div>
-
-        <div class="contentmid">
-
-            <h2>Mapping Index</h2>
-
-            <p>Below is an index of lists available in the API, listed with title, ID and description.  This index is the comprehensive list of all lists available through the API.  The <a href="queryGenerator.php">Query Generator</a> does not contain all lists available in the Mapping Index.</p>
-
-
-            <div id="colwide">
-
-                <div class="module">
-                    <!--<div id="topicsView">
-                    <div id="programsView"> -->
-                    <div id="personalitiesView">
-                    <!--<div id="columnsView">
-                    <div id="aggregationsView"> -->
-                    <div id="load">Loading...</div>
-                    <ul class="qgennav">
-                        <li id="topics" class="tabs selected"><a href="javascript: void(0);">Topics</a></li>
-                        <li id="programs" class="tabs"><a href="javascript: void(0);">Programs</a></li>
-                        <li id="blogs" class="tabs"><a href="javascript: void(0);">Blogs</a></li>
-                        <li id="personalities" class="tabs"><a href="javascript: void(0);">Bios</a></li>
-                        <li id="artists" class="tabs"><a href="javascript: void(0);">Music Artists</a></li>
-                        <li id="aggregations" class="tabs"><a href="javascript: void(0);">Series</a></li>
-                    </ul>
-                    <div class="mbuckettop">&nbsp;</div>
-                    <div class="mbucket">
-                        <div id="container">
-                        <div id="load2" style="display: none; "><img src="http://media.npr.org/images/small_loading.gif">Loading...</div>
-                            <div id="aggregationsContent" class="content" style="display: none; "></div>
-                            <div id="topicsContent" class="content" style=""><table border="1" width="100%"><tbody><tr><th>TITLE</th><th>ID</th><th>Additional Info</th></tr><tr><td>Afghanistan</td><td class="srchID" id="1149">1149</td><td>Afghanistan</td></tr><tr><td>Africa</td><td class="srchID" id="1126">1126</td><td>Africa</td></tr><tr><td>Analysis</td><td class="srchID" id="1059">1059</td><td>Analysis by NPR commentators, including Ted Koppel. Subscribe to our free podcast.</td></tr><tr><td>Animals</td><td class="srchID" id="1132">1132</td><td>Animals</td></tr><tr><td>Architecture</td><td class="srchID" id="1142">1142</td><td>Architecture</td></tr><tr><td>Around the Nation</td><td class="srchID" id="1091">1091</td><td>Stories of Local interest</td></tr><tr><td>Art &amp; Design</td><td class="srchID" id="1047">1047</td><td>NPR explores the visual arts including design, photography, sculpture, and architecture. Interviews, commentary, and audio. Subscribe to the RSS feed.</td></tr><tr><td>Arts &amp; Life</td><td class="srchID" id="1008">1008</td><td>Art and entertainment commentary plus interviews, book reviews, movie reviews, music reviews, comedy, and visual art. Subscribe to podcasts and follow trends in music, painting, art, architecture, photography, and design.</td></tr><tr><td>Asia</td><td class="srchID" id="1125">1125</td><td>Asia</td></tr><tr><td>Author Interviews</td><td class="srchID" id="1033">1033</td><td>NPR interviews with top authors and the NPR Book Tour, a weekly feature and podcast where leading authors read and discuss their writing. Subscribe to the RSS feed.</td></tr><tr><td>Book News &amp; Features</td><td class="srchID" id="1161">1161</td><td>Headlines, trends and profiles from the world of publishing.</td></tr><tr><td>Book Reviews</td><td class="srchID" id="1034">1034</td><td>Summary judgment on books of note, from NPR personalities, independent booksellers and critics from across the public-radio spectrum.</td></tr><tr><td>Books</td><td class="srchID" id="1032">1032</td><td>NPR's brings you news about books and authors along with our picks for great reads. Interviews, reviews, the NPR Bestseller Lists, New in Paperback and much more.</td></tr><tr><td>Brain Candy</td><td class="srchID" id="1130">1130</td><td>Brain Candy</td></tr><tr><td>Business</td><td class="srchID" id="1006">1006</td><td>Find the latest business news with reports on Wall Street, interest rates, banking, companies, and U.S. and world financial markets. Subscribe to the Business Story of the Day podcast.</td></tr><tr><td>Business Story of the Day</td><td class="srchID" id="1095">1095</td><td>NPR's top stories about business, money, Wall Street, companies, and the economy that you can't miss. Subscribe to the Business Story of the Day RSS feed.</td></tr><tr><td>Children's Health</td><td class="srchID" id="1030">1030</td><td>NPR reports on children's health and medical news including health insurance, new treatments for diseases, and child product safety recalls. Subscribe to the RSS feed.</td></tr><tr><td>Columns</td><td class="srchID" id="1058">1058</td><td>NPR columnists discuss news, politics, sports, and culture. Download podcasts and RSS feeds.</td></tr><tr><td>Commentary</td><td class="srchID" id="1060">1060</td><td>NPR's acclaimed commentary on news, politics, and sports. Subscribe to RSS news feeds and podcasts.</td></tr><tr><td>Dance</td><td class="srchID" id="1145">1145</td><td>Dance</td></tr><tr><td>Digital Life</td><td class="srchID" id="1049">1049</td><td>NPR's stories on information technology, computing, and the internet. Download podcasts and subscribe to RSS feeds. Listen to audio online.</td></tr><tr><td>Diversions</td><td class="srchID" id="1051">1051</td><td>Irrestible and odd stories from news, culture, sports, and literature. Subscribe to the Diversions RSS feed.</td></tr><tr><td>Economy</td><td class="srchID" id="1017">1017</td><td>NPR news on the U.S. and world economy, the World Bank, and Federal Reserve. Commentary on economic trends. Subscribe to NPR Economy podcasts and RSS feeds.</td></tr><tr><td>Education</td><td class="srchID" id="1013">1013</td><td>NPR news and commentary on education, schools, colleges and universities, and emerging trends in learning. Listen to audio and subscribe to RSS feeds.</td></tr><tr><td>Election 2008</td><td class="srchID" id="1102">1102</td><td>In-depth coverage of the 2008 presidential election, Democratic and Republican candidates, and primary elections and caucuses. Listen to audio and video reports from the campaign trail. Interactive features include a primary calendar and an interactive election map.</td></tr><tr><td>Election 2008: Congressional &amp; State Races</td><td class="srchID" id="1114">1114</td><td>NPR looks at the key House, Senate and gubernatorial races for November 2008.</td></tr><tr><td>Election 2008: Issues</td><td class="srchID" id="1111">1111</td><td>NPR provides in-depth coverage of election issues, from the Iraq war to the economy to health care.</td></tr><tr><td>Election 2008: Money, Media &amp; Influence</td><td class="srchID" id="1113">1113</td><td>NPR looks at the political process in the 2008 presidential election, including campaign finance, media coverage and the role of lobbyists.</td></tr><tr><td>Election 2008: On the Campaign Trail</td><td class="srchID" id="1115">1115</td><td>NPR examines the presidential candidates on the campaign trail.</td></tr><tr><td>Election 2008: Voting Groups</td><td class="srchID" id="1112">1112</td><td>NPR looks at the key voting groups for election 2008, including white working-class voters, Hispanics and women.</td></tr><tr><td>Election 2008: Voting Problems</td><td class="srchID" id="1121">1121</td><td>NPR examines voting problems for the 2008 election with a look at voter intimidation, voter fraud, registration irregularities and other issues at the polls.</td></tr><tr><td>Election 2012</td><td class="srchID" id="139482413">139482413</td><td>Explore NPR's coverage of the battle for the White House. You'll also find the latest news about House and Senate races and key statewide contests.</td></tr><tr><td>Energy</td><td class="srchID" id="1131">1131</td><td>Energy</td></tr><tr><td>Environment</td><td class="srchID" id="1025">1025</td><td>Breaking news on the environment, climate change, pollution, and endangered species. Also featuring Climate Connections, a special series on climate change co-produced by NPR and National Geographic.</td></tr><tr><td>Europe</td><td class="srchID" id="1124">1124</td><td>Europe</td></tr><tr><td>Fine Art</td><td class="srchID" id="1141">1141</td><td>Fine Art</td></tr><tr><td>Fitness &amp; Nutrition</td><td class="srchID" id="1134">1134</td><td>Fitness &amp; Nutrition</td></tr><tr><td>Food</td><td class="srchID" id="1053">1053</td><td>Stories on food, nutrition, recipes, cooking, cookbook reviews, and health. Download Food and Hidden Kitchen podcasts and subscribe to RSS feeds.</td></tr><tr><td>From Our Listeners</td><td class="srchID" id="1061">1061</td><td>Listeners respond by email and phone to NPR stories. Subscribe to the Listeners RSS feed.</td></tr><tr><td>Games &amp; Humor</td><td class="srchID" id="1052">1052</td><td>Games, puzzles, and contests plus odd stories from comedy, art, and society.</td></tr><tr><td>Gardening</td><td class="srchID" id="1054">1054</td><td>NPR stories about gardening, plants, and food crops. Read interviews and commentary and subscribe to the Gardening RSS feed.</td></tr><tr><td>Global Health</td><td class="srchID" id="1031">1031</td><td>NPR news on world health issues, disease control, public health and sanitation, and health education. Subscribe to the RSS feed.</td></tr><tr><td>Gov. Sarah Palin</td><td class="srchID" id="1120">1120</td><td>Browse NPR coverage of Republican vice-presidential candidate Alaska Gov. Sarah Palin.</td></tr><tr><td>Governing</td><td class="srchID" id="1123">1123</td><td>Governing</td></tr><tr><td>Health</td><td class="srchID" id="1128">1128</td><td>Health</td></tr><tr><td>Health Care</td><td class="srchID" id="1027">1027</td><td>The state of health care, health insurance, new medical research, disease prevention, and drug treatments. Interviews, news, and commentary from NPR's correspondents. Subscribe to podcasts.</td></tr><tr><td>History</td><td class="srchID" id="1136">1136</td><td>History</td></tr><tr><td>Holiday Story of the Day</td><td class="srchID" id="1096">1096</td><td>The holiday stories that you can't miss. Christmas, Hannukah, Kwanzaa, and New Year's. Subscribe to the Holiday Story of the Day RSS feed.</td></tr><tr><td>Home Page Top Stories</td><td class="srchID" id="1002">1002</td><td>NPR delivers breaking national and world news. Also top stories from business, politics, health, science, technology, music, arts and culture. Subscribe to podcasts and RSS feeds.</td></tr><tr><td>House &amp; Senate Races</td><td class="srchID" id="139545299">139545299</td><td>Explore NPR's latest coverage of the 2012 congressional contests.</td></tr><tr><td>Humans</td><td class="srchID" id="1129">1129</td><td>Humans</td></tr><tr><td>Indian Ocean Tsunami 2004-05</td><td class="srchID" id="1081">1081</td><td>NPR Coverage of the great Indian Ocean tsunami and its aftermath. Interviews and stories about the plight of refugees and efforts to rebuild.</td></tr><tr><td>Interviews</td><td class="srchID" id="1022">1022</td><td>NPR interviews famous and everyday individuals, including world leaders and political figures, artists, writers, musicians, and unique people in your community.</td></tr><tr><td>Iraq</td><td class="srchID" id="1010">1010</td><td>NPR's ongoing coverage of the Iraq War's effects abroad and on the home front. Stories of soldiers, marines, sailors, airmen, veterans and their families. Iraq's effects on politics, society, and diplomacy. Photos, audio and commentary. Subscribe to the Iraq RSS feed.</td></tr><tr><td>Israeli-Palestinian Coverage</td><td class="srchID" id="1101">1101</td><td>NPR provides free transcripts of Middle East coverage from Morning Edition, All Things Considered, Weekend Edition, Tell Me More, and Talk of the Nation. Stories about Israel, Palestine, and the Arab states.</td></tr><tr><td>Katrina &amp; Beyond</td><td class="srchID" id="1093">1093</td><td>NPR coverage of Hurricane Katrina and the aftermath. Interviews with hurricane victims and rebuilding efforts in New Orleans and Mississippi.</td></tr><tr><td>Latin America</td><td class="srchID" id="1127">1127</td><td>Latin America</td></tr><tr><td>Law</td><td class="srchID" id="1070">1070</td><td>NPR stories on legal issues, court rulings, Supreme Court hearings, new laws and government investigations. Download the NPR Justice Talking podcast and subscribe to the Legal Affairs RSS feed.</td></tr><tr><td>Lost &amp; Found Sound</td><td class="srchID" id="1074">1074</td><td>NPR's Lost &amp; Found Sound series explores newly discovered audio and music sessions, home audio, and listener submitted sounds and interviews. Subscribe to the RSS feed of never before played audio and sounds.</td></tr><tr><td>Low-Wage America</td><td class="srchID" id="1076">1076</td><td>NPR stories about low-wage America, the income gap between rich and poor, affordable housing, welfare, medicaid, social security, and healthcare for the working poor.</td></tr><tr><td>Media</td><td class="srchID" id="1020">1020</td><td>News about the state of the media. Trends in broadcast and print media, television, and radio journalism. Download podcasts and RSS feeds.</td></tr><tr><td>Medical Treatments</td><td class="srchID" id="1135">1135</td><td>Medical Treatments</td></tr><tr><td>Mental Health</td><td class="srchID" id="1029">1029</td><td>NPR covers mental health, happiness, depression, and treatment options. Subscribe to the RSS feed.</td></tr><tr><td>Middle East</td><td class="srchID" id="1009">1009</td><td>Middle East news, arts, culture, and politics. Updates on Iraq, Israel, Palestine, Iran, OPEC, and the Persian Gulf states NPR streaming audio. Subscribe to the Middle East RSS feed.</td></tr><tr><td>Movie Interviews</td><td class="srchID" id="1137">1137</td><td>Movie Interviews</td></tr><tr><td>Movie Reviews</td><td class="srchID" id="4467349">4467349</td><td>Reviews of new movies, classic and art films, foreign films, and popular movies. Featuring Bob Mondello, Kenneth Turan, David Edelstein, and Mark Jenkins.</td></tr><tr><td>Movies</td><td class="srchID" id="1045">1045</td><td>NPR Movies podcast, movie reviews, and commentary on new and classic films. Interviews with filmmakers, actors, and actresses.</td></tr><tr><td>Multimedia</td><td class="srchID" id="1147">1147</td><td>National Public Radio offers up radio with a vision. Presenting NPR multimedia: the Picture Show blog and the Radio Pictures video podcast - quality visuals to go with NPR's quality sound.</td></tr><tr><td>National Security</td><td class="srchID" id="1122">1122</td><td>National Security</td></tr><tr><td>News</td><td class="srchID" id="1001">1001</td><td>NPR news, audio, and podcasts. Coverage of breaking stories, national and world news, politics, business, science, technology, and extended coverage of major national and world events.</td></tr><tr><td>NPR News Investigations</td><td class="srchID" id="1150">1150</td><td>NPR News Investigations</td></tr><tr><td>On Aging</td><td class="srchID" id="1028">1028</td><td>NPR stories and audio on aging, longevity, retirement, and senior issues. More articles on health care, leisure, disease prevention, and housing. Subscribe to the RSS feed.</td></tr><tr><td>On Disabilities</td><td class="srchID" id="1133">1133</td><td>On Disabilities</td></tr><tr><td>Opinion</td><td class="srchID" id="1057">1057</td><td>Editorial opinions and commentary on news events and world events. Download podcasts and subscribe to RSS feeds.</td></tr><tr><td>Performing Arts</td><td class="srchID" id="1046">1046</td><td>News, interviews, and commentary on theater, the arts, music, and dance.</td></tr><tr><td>Photography</td><td class="srchID" id="1143">1143</td><td>Photography</td></tr><tr><td>Politics</td><td class="srchID" id="1014">1014</td><td>NPR's expanded coverage of U.S. and world politics, the latest news from Congress and the White House, and elections.</td></tr><tr><td>Pop Culture</td><td class="srchID" id="1048">1048</td><td>News and commentary on popular culture trends. Download the Pop Culture podcast.</td></tr><tr><td>Presidential Race</td><td class="srchID" id="139544303">139544303</td><td>Explore NPR's latest coverage of the race for the White House.</td></tr><tr><td>Race</td><td class="srchID" id="1015">1015</td><td>NPR stories on race and ethnicity. Commentary on race's effects on politics, culture, society. Subscribe to NPR podcasts and RSS feeds on race and ethnicity issues.</td></tr><tr><td>Radio Expeditions</td><td class="srchID" id="1023">1023</td><td>A co-production of NPR and the National Geographic Society. Explore our world's environments, cultures, and wildlife through interviews, narrative, and sounds. Subscribe to the Radio Expeditions RSS feed.</td></tr><tr><td>Recipes</td><td class="srchID" id="1139">1139</td><td>Recipes</td></tr><tr><td>Religion</td><td class="srchID" id="1016">1016</td><td>NPR's stories on U.S. and world religion, spirituality, ethics, and moral issues affecting society and culture. Subscribe to NPR Religion RSS feeds.</td></tr><tr><td>Remembrances</td><td class="srchID" id="1062">1062</td><td>NPR remembrances of remarkable individuals. Also obituaries and and tributes to great individuals. Subscribe to the Remembrances podcast.</td></tr><tr><td>Research News</td><td class="srchID" id="1024">1024</td><td>New advances in science, medicine, health, and technology.Stem cell research, drug research, and new treatments for disease.</td></tr><tr><td>Science</td><td class="srchID" id="1007">1007</td><td>The latest health and science news. Updates on medicine, healthy living, nutrition, drugs, diet, and advances in science and technology. Subscribe to the Health &amp; Science podcast.</td></tr><tr><td>Sen. Barack Obama (D-IL)</td><td class="srchID" id="1117">1117</td><td>Browse NPR coverage of Democratic presidential candidate Illinois Sen. Barack Obama.</td></tr><tr><td>Sen. Hillary Clinton (D-NY)</td><td class="srchID" id="1116">1116</td><td>Browse NPR coverage of Democratic presidential candidate New York Sen. Hillary Clinton.</td></tr><tr><td>Sen. John McCain (R-AZ)</td><td class="srchID" id="1118">1118</td><td>Browse NPR coverage of Republican presidential candidate Arizona Sen. John McCain.</td></tr><tr><td>Sen. Joseph Biden (D-DE)</td><td class="srchID" id="1119">1119</td><td>Browse NPR coverage of Democratic vice-presidential candidate Delaware Sen. Joseph Biden.</td></tr><tr><td>Social Security Debate</td><td class="srchID" id="1083">1083</td><td>News and analysis on the Social Security debate. Pending legislation, political viewpoints, and news about retirement. Subscribe to the Social Security RSS feed.</td></tr><tr><td>Space</td><td class="srchID" id="1026">1026</td><td>NPR coverage of space exploration, space shuttle missions, news from NASA, private space exploration, satellite technology, and new discoveries in astronomy and astrophysics.</td></tr><tr><td>Sports</td><td class="srchID" id="1055">1055</td><td>NPR sports news and interviews. Listen to Frank Deford's sport commentary and download the sports podcast.</td></tr><tr><td>Statewide Races</td><td class="srchID" id="139545485">139545485</td><td>Explore NPR's coverage of gubernatorial contests, ballot issues and other statewide elections in 2012.</td></tr><tr><td>Story of the Day</td><td class="srchID" id="1090">1090</td><td>NPR's daily top stories that you can't miss. Exceptional, moving, offbeat, or just plain funny. Subscribe to the Story of the Day podcast.</td></tr><tr><td>Strange News</td><td class="srchID" id="1146">1146</td><td>Unlikely stories from around the nation and the world.</td></tr><tr><td>Summer</td><td class="srchID" id="1088">1088</td><td>NPR stories about summer. Living, eating, diversions, health, and summer traditions. Subscribe to the Summer RSS feed.</td></tr><tr><td>Summer Reading: Cooking</td><td class="srchID" id="1087">1087</td><td>Fresh recipes and cookbooks for summer reading. Subscribe to the RSS feed.</td></tr><tr><td>Summer Reading: Fiction</td><td class="srchID" id="1085">1085</td><td>Selections for great summer fiction. Book reviews, excerpts, and author interviews. Suscribe to the Summer Fiction RSS feed.</td></tr><tr><td>Summer Reading: Kids</td><td class="srchID" id="1086">1086</td><td>NPR's selections of summer reading for kids. Excerpts, interviews, and reviews. Subscribe to RSS feeds.</td></tr><tr><td>Summer Reading: Nonfiction</td><td class="srchID" id="1089">1089</td><td>Selections for great summer nonfiction. Book reviews, excerpts, and author interviews. Suscribe to the Summer Reading Nonfiction RSS feed.</td></tr><tr><td>Technology</td><td class="srchID" id="1019">1019</td><td>Latest technology news and breakthroughs in technology, science, and industry. Download the NPR Technology podcast and Technology RSS feed.</td></tr><tr><td>Television</td><td class="srchID" id="1138">1138</td><td>Television</td></tr><tr><td>The Impact of War</td><td class="srchID" id="1078">1078</td><td>NPR news and stories about the wars in Iraq and Afghanistan. Interviews with soldiers, world leaders, veterans, and families on the home front. Read and listen to stories and subscribe to RSS feeds.</td></tr><tr><td>The Second Term</td><td class="srchID" id="1077">1077</td><td>NPR stories about George W. Bush's second term as 43rd President of the United States</td></tr><tr><td>Theater</td><td class="srchID" id="1144">1144</td><td>Theater</td></tr><tr><td>U.S.</td><td class="srchID" id="1003">1003</td><td>NPR coverage of national news, U.S. politics, elections, business, arts, culture, health and science, and technology. Subscribe to the NPR Nation RSS feed.</td></tr><tr><td>World</td><td class="srchID" id="1004">1004</td><td>NPR world news, international art and culture, world business and financial markets, world economy, and global trends in health, science and technology. Subscribe to the World Story of the Day podcast and RSS feed.</td></tr><tr><td>World Story of the Day</td><td class="srchID" id="1056">1056</td><td>NPR's top daily news about world events, politics, economy, and culture. Download the World Story of the Day podcast.</td></tr><tr><td>Your Health</td><td class="srchID" id="1066">1066</td><td>News and commentary about personal health, medicine, healthcare, drugs, diet, recipes, and nutrition. Download the Your Health podcast and subscribe to our RSS feed.</td></tr><tr><td>Your Money</td><td class="srchID" id="1018">1018</td><td>NPR coverage of personal finance, money, investing, taxes, retirement, mortgages and housing markets, wealth management, and stock market news. Download NPR podcasts and RSS feeds.</td></tr><tr><td>Blues</td><td class="srchID" id="139998151">139998151</td><td>NPR Music stories that feature blues music.</td></tr><tr><td>Classical</td><td class="srchID" id="10003">10003</td><td>Classical music performances and features from NPR news, NPR cultural programs, and NPR Music stations.</td></tr><tr><td>Concerts</td><td class="srchID" id="1109">1109</td><td>Performances from today's top artists, filmed at venues and festivals across the country.</td></tr><tr><td>Country</td><td class="srchID" id="92792712">92792712</td><td>Performances and stories featuring traditions and innovations in American roots and country music.</td></tr><tr><td>Discover Songs</td><td class="srchID" id="1108">1108</td><td>Song features from NPR Music including All Songs Considered, Song of the Day, Open Mic, Song on Deadline, Music Lists, and more. Listen online to find new music in rock, pop, folk, jazz, urban, blues, classical, and world music. Video sessions of new artists.</td></tr><tr><td>Electronic/Dance</td><td class="srchID" id="135408474">135408474</td><td>Explore NPR Music's collection of stories and songs in the electronica/dance genre.</td></tr><tr><td>Folk</td><td class="srchID" id="139999257">139999257</td><td>NPR Music stories featuring folk music.</td></tr><tr><td>Hip-Hop</td><td class="srchID" id="10005">10005</td><td>Urban music and features from NPR news, NPR cultural programs, and NPR Music stations.</td></tr><tr><td>In Performance</td><td class="srchID" id="1040">1040</td><td>Listen to new music, podcasts, live concerts and studio sessions. Watch video sessions. Read interviews with musicians and music reviews. NPR covers the best new songs from rock, pop, folk, jazz, urban, world, and classical music.</td></tr><tr><td>Jazz</td><td class="srchID" id="10002">10002</td><td>Jazz and blues music performances and features from NPR news, NPR cultural programs, and NPR Music stations.</td></tr><tr><td>Latin</td><td class="srchID" id="139996449">139996449</td><td>NPR Music stories featuring Latin Alternative music.</td></tr><tr><td>Music</td><td class="srchID" id="1039">1039</td><td>NPR Music features, streams, live concerts and music news.</td></tr><tr><td>Music Interviews</td><td class="srchID" id="1105">1105</td><td>Interviews with top musicians from jazz, blues, rock, pop, folk, classical, urban, and world music. Listen online to live studio sessions and musician interviews and watch video sessions.</td></tr><tr><td>Music Lists</td><td class="srchID" id="1107">1107</td><td>Lists of top artists and top songs compiled by musicians, critics, and noted NPR hosts.</td></tr><tr><td>Music News</td><td class="srchID" id="1106">1106</td><td>Current music news, artist interviews, album reviews, and music industry news from NPR Music.</td></tr><tr><td>Music Quizzes</td><td class="srchID" id="1151">1151</td><td>Puzzlers from the NPR Music team.</td></tr><tr><td>Music Reviews</td><td class="srchID" id="1104">1104</td><td>Music reviews of new albums in pop, rock, folk, jazz, blues, classical, world, and hip-hop.</td></tr><tr><td>Music Videos</td><td class="srchID" id="1110">1110</td><td>Watch new music videos and live NPR studio sessions featuring top musicians. Discover songs and listen online. NPR covers the best pop, rock, urban, jazz, folk, blues, world, and classical music.</td></tr><tr><td>Other</td><td class="srchID" id="10006">10006</td><td>Songs that don't fit into other categories</td></tr><tr><td>Pop</td><td class="srchID" id="139997200">139997200</td><td>NPR Music stories that discuss pop music.</td></tr><tr><td>R&amp;B/Soul</td><td class="srchID" id="139998808">139998808</td><td>NPR Music stories that feature R&amp;B and soul music.</td></tr><tr><td>Rock</td><td class="srchID" id="10001">10001</td><td>Rock, pop, and folk music performances and features from NPR news, NPR cultural programs, and NPR Music stations.</td></tr><tr><td>Studio Sessions</td><td class="srchID" id="1103">1103</td><td>Musicians perform and discuss their work in the studios of NPR and NPR Music station partners. Live music sessions, interviews, and the best new songs in rock, pop, folk, classical, jazz, blues, urban, and world music. Watch video sessions.</td></tr><tr><td>World</td><td class="srchID" id="10004">10004</td><td>World music and features from NPR news, NPR cultural programs, and NPR Music stations.</td></tr></tbody></table></div>
-                            <div id="programsContent" class="content" style="display: none; "></div>
-                            <div id="personalitiesContent" class="content" style="display: none; "></div>
-                            <div id="artistsContent" class="content" style="display: none; "></div>
-                            <div id="blogsContent" class="content" style="display: none; "></div>
-                        </div>
-                        </div>
-
-                    <div class="mbucketbottom">&nbsp;</div>
-                </div>
-
-            </div>
-        </div>
-        <div class="contentbottom">&nbsp;</div>
-
-    </div>
-    <!-- end maincontent -->
-
-
-    <div class="spacer">&nbsp;</div>
-</div>
-
-
-
-
-
-</div></body></html>
+<table border="1" width="100%">
+<tbody>
+<tr>
+<th>TITLE
+</th>
+<th>ID
+</th>
+<th>Additional Info
+</th>
+</tr>
+<tr>
+<td>Afghanistan
+</td>
+<td class="srchID" id="1149">1149
+</td>
+<td>Afghanistan
+</td>
+</tr>
+<tr>
+<td>Africa
+</td>
+<td class="srchID" id="1126">1126
+</td>
+<td>Africa
+</td>
+</tr>
+<tr>
+<td>Analysis
+</td>
+<td class="srchID" id="1059">1059
+</td>
+<td>Analysis by NPR commentators, including Ted Koppel. Subscribe to our free podcast.
+</td>
+</tr>
+<tr>
+<td>Animals
+</td>
+<td class="srchID" id="1132">1132
+</td>
+<td>Animals
+</td>
+</tr>
+<tr>
+<td>Architecture
+</td>
+<td class="srchID" id="1142">1142
+</td>
+<td>Architecture
+</td>
+</tr>
+<tr>
+<td>Around the Nation
+</td>
+<td class="srchID" id="1091">1091
+</td>
+<td>Stories of Local interest
+</td>
+</tr>
+<tr>
+<td>Art &amp; Design
+</td>
+<td class="srchID" id="1047">1047
+</td>
+<td>NPR explores the visual arts including design, photography, sculpture, and architecture. Interviews, commentary, and audio. Subscribe to the RSS feed.
+</td>
+</tr>
+<tr>
+<td>Arts &amp; Life
+</td>
+<td class="srchID" id="1008">1008
+</td>
+<td>Art and entertainment commentary plus interviews, book reviews, movie reviews, music reviews, comedy, and visual art. Subscribe to podcasts and follow trends in music, painting, art, architecture, photography, and design.
+</td>
+</tr>
+<tr>
+<td>Asia
+</td>
+<td class="srchID" id="1125">1125
+</td>
+<td>Asia
+</td>
+</tr>
+<tr>
+<td>Author Interviews
+</td>
+<td class="srchID" id="1033">1033
+</td>
+<td>NPR interviews with top authors and the NPR Book Tour, a weekly feature and podcast where leading authors read and discuss their writing. Subscribe to the RSS feed.
+</td>
+</tr>
+<tr>
+<td>Book News &amp; Features
+</td>
+<td class="srchID" id="1161">1161
+</td>
+<td>Headlines, trends and profiles from the world of publishing.
+</td>
+</tr>
+<tr>
+<td>Book Reviews
+</td>
+<td class="srchID" id="1034">1034
+</td>
+<td>Summary judgment on books of note, from NPR personalities, independent booksellers and critics from across the public-radio spectrum.
+</td>
+</tr>
+<tr>
+<td>Books
+</td>
+<td class="srchID" id="1032">1032
+</td>
+<td>NPR's brings you news about books and authors along with our picks for great reads. Interviews, reviews, the NPR Bestseller Lists, New in Paperback and much more.
+</td>
+</tr>
+<tr>
+<td>Brain Candy
+</td>
+<td class="srchID" id="1130">1130
+</td>
+<td>Brain Candy
+</td>
+</tr>
+<tr>
+<td>Business
+</td>
+<td class="srchID" id="1006">1006
+</td>
+<td>Find the latest business news with reports on Wall Street, interest rates, banking, companies, and U.S. and world financial markets. Subscribe to the Business Story of the Day podcast.
+</td>
+</tr>
+<tr>
+<td>Business Story of the Day
+</td>
+<td class="srchID" id="1095">1095
+</td>
+<td>NPR's top stories about business, money, Wall Street, companies, and the economy that you can't miss. Subscribe to the Business Story of the Day RSS feed.
+</td>
+</tr>
+<tr>
+<td>Children's Health
+</td>
+<td class="srchID" id="1030">1030
+</td>
+<td>NPR reports on children's health and medical news including health insurance, new treatments for diseases, and child product safety recalls. Subscribe to the RSS feed.
+</td>
+</tr>
+<tr>
+<td>Columns
+</td>
+<td class="srchID" id="1058">1058
+</td>
+<td>NPR columnists discuss news, politics, sports, and culture. Download podcasts and RSS feeds.
+</td>
+</tr>
+<tr>
+<td>Commentary
+</td>
+<td class="srchID" id="1060">1060
+</td>
+<td>NPR's acclaimed commentary on news, politics, and sports. Subscribe to RSS news feeds and podcasts.
+</td>
+</tr>
+<tr>
+<td>Dance
+</td>
+<td class="srchID" id="1145">1145
+</td>
+<td>Dance
+</td>
+</tr>
+<tr>
+<td>Digital Life
+</td>
+<td class="srchID" id="1049">1049
+</td>
+<td>NPR's stories on information technology, computing, and the internet. Download podcasts and subscribe to RSS feeds. Listen to audio online.
+</td>
+</tr>
+<tr>
+<td>Diversions
+</td>
+<td class="srchID" id="1051">1051
+</td>
+<td>Irrestible and odd stories from news, culture, sports, and literature. Subscribe to the Diversions RSS feed.
+</td>
+</tr>
+<tr>
+<td>Economy
+</td>
+<td class="srchID" id="1017">1017
+</td>
+<td>NPR news on the U.S. and world economy, the World Bank, and Federal Reserve. Commentary on economic trends. Subscribe to NPR Economy podcasts and RSS feeds.
+</td>
+</tr>
+<tr>
+<td>Education
+</td>
+<td class="srchID" id="1013">1013
+</td>
+<td>NPR news and commentary on education, schools, colleges and universities, and emerging trends in learning. Listen to audio and subscribe to RSS feeds.
+</td>
+</tr>
+<tr>
+<td>Election 2008
+</td>
+<td class="srchID" id="1102">1102
+</td>
+<td>In-depth coverage of the 2008 presidential election, Democratic and Republican candidates, and primary elections and caucuses. Listen to audio and video reports from the campaign trail. Interactive features include a primary calendar and an interactive election map.
+</td>
+</tr>
+<tr>
+<td>Election 2008: Congressional &amp; State Races
+</td>
+<td class="srchID" id="1114">1114
+</td>
+<td>NPR looks at the key House, Senate and gubernatorial races for November 2008.
+</td>
+</tr>
+<tr>
+<td>Election 2008: Issues
+</td>
+<td class="srchID" id="1111">1111
+</td>
+<td>NPR provides in-depth coverage of election issues, from the Iraq war to the economy to health care.
+</td>
+</tr>
+<tr>
+<td>Election 2008: Money, Media &amp; Influence
+</td>
+<td class="srchID" id="1113">1113
+</td>
+<td>NPR looks at the political process in the 2008 presidential election, including campaign finance, media coverage and the role of lobbyists.
+</td>
+</tr>
+<tr>
+<td>Election 2008: On the Campaign Trail
+</td>
+<td class="srchID" id="1115">1115
+</td>
+<td>NPR examines the presidential candidates on the campaign trail.
+</td>
+</tr>
+<tr>
+<td>Election 2008: Voting Groups
+</td>
+<td class="srchID" id="1112">1112
+</td>
+<td>NPR looks at the key voting groups for election 2008, including white working-class voters, Hispanics and women.
+</td>
+</tr>
+<tr>
+<td>Election 2008: Voting Problems
+</td>
+<td class="srchID" id="1121">1121
+</td>
+<td>NPR examines voting problems for the 2008 election with a look at voter intimidation, voter fraud, registration irregularities and other issues at the polls.
+</td>
+</tr>
+<tr>
+<td>Election 2012
+</td>
+<td class="srchID" id="139482413">139482413
+</td>
+<td>Explore NPR's coverage of the battle for the White House. You'll also find the latest news about House and Senate races and key statewide contests.
+</td>
+</tr>
+<tr>
+<td>Energy
+</td>
+<td class="srchID" id="1131">1131
+</td>
+<td>Energy
+</td>
+</tr>
+<tr>
+<td>Environment
+</td>
+<td class="srchID" id="1025">1025
+</td>
+<td>Breaking news on the environment, climate change, pollution, and endangered species. Also featuring Climate Connections, a special series on climate change co-produced by NPR and National Geographic.
+</td>
+</tr>
+<tr>
+<td>Europe
+</td>
+<td class="srchID" id="1124">1124
+</td>
+<td>Europe
+</td>
+</tr>
+<tr>
+<td>Fine Art
+</td>
+<td class="srchID" id="1141">1141
+</td>
+<td>Fine Art
+</td>
+</tr>
+<tr>
+<td>Fitness &amp; Nutrition
+</td>
+<td class="srchID" id="1134">1134
+</td>
+<td>Fitness &amp; Nutrition
+</td>
+</tr>
+<tr>
+<td>Food
+</td>
+<td class="srchID" id="1053">1053
+</td>
+<td>Stories on food, nutrition, recipes, cooking, cookbook reviews, and health. Download Food and Hidden Kitchen podcasts and subscribe to RSS feeds.
+</td>
+</tr>
+<tr>
+<td>From Our Listeners
+</td>
+<td class="srchID" id="1061">1061
+</td>
+<td>Listeners respond by email and phone to NPR stories. Subscribe to the Listeners RSS feed.
+</td>
+</tr>
+<tr>
+<td>Games &amp; Humor
+</td>
+<td class="srchID" id="1052">1052
+</td>
+<td>Games, puzzles, and contests plus odd stories from comedy, art, and society.
+</td>
+</tr>
+<tr>
+<td>Gardening
+</td>
+<td class="srchID" id="1054">1054
+</td>
+<td>NPR stories about gardening, plants, and food crops. Read interviews and commentary and subscribe to the Gardening RSS feed.
+</td>
+</tr>
+<tr>
+<td>Global Health
+</td>
+<td class="srchID" id="1031">1031
+</td>
+<td>NPR news on world health issues, disease control, public health and sanitation, and health education. Subscribe to the RSS feed.
+</td>
+</tr>
+<tr>
+<td>Gov. Sarah Palin
+</td>
+<td class="srchID" id="1120">1120
+</td>
+<td>Browse NPR coverage of Republican vice-presidential candidate Alaska Gov. Sarah Palin.
+</td>
+</tr>
+<tr>
+<td>Governing
+</td>
+<td class="srchID" id="1123">1123
+</td>
+<td>Governing
+</td>
+</tr>
+<tr>
+<td>Health
+</td>
+<td class="srchID" id="1128">1128
+</td>
+<td>Health
+</td>
+</tr>
+<tr>
+<td>Health Care
+</td>
+<td class="srchID" id="1027">1027
+</td>
+<td>The state of health care, health insurance, new medical research, disease prevention, and drug treatments. Interviews, news, and commentary from NPR's correspondents. Subscribe to podcasts.
+</td>
+</tr>
+<tr>
+<td>History
+</td>
+<td class="srchID" id="1136">1136
+</td>
+<td>History
+</td>
+</tr>
+<tr>
+<td>Holiday Story of the Day
+</td>
+<td class="srchID" id="1096">1096
+</td>
+<td>The holiday stories that you can't miss. Christmas, Hannukah, Kwanzaa, and New Year's. Subscribe to the Holiday Story of the Day RSS feed.
+</td>
+</tr>
+<tr>
+<td>Home Page Top Stories
+</td>
+<td class="srchID" id="1002">1002
+</td>
+<td>NPR delivers breaking national and world news. Also top stories from business, politics, health, science, technology, music, arts and culture. Subscribe to podcasts and RSS feeds.
+</td>
+</tr>
+<tr>
+<td>House &amp; Senate Races
+</td>
+<td class="srchID" id="139545299">139545299
+</td>
+<td>Explore NPR's latest coverage of the 2012 congressional contests.
+</td>
+</tr>
+<tr>
+<td>Humans
+</td>
+<td class="srchID" id="1129">1129
+</td>
+<td>Humans
+</td>
+</tr>
+<tr>
+<td>Indian Ocean Tsunami 2004-05
+</td>
+<td class="srchID" id="1081">1081
+</td>
+<td>NPR Coverage of the great Indian Ocean tsunami and its aftermath. Interviews and stories about the plight of refugees and efforts to rebuild.
+</td>
+</tr>
+<tr>
+<td>Interviews
+</td>
+<td class="srchID" id="1022">1022
+</td>
+<td>NPR interviews famous and everyday individuals, including world leaders and political figures, artists, writers, musicians, and unique people in your community.
+</td>
+</tr>
+<tr>
+<td>Iraq
+</td>
+<td class="srchID" id="1010">1010
+</td>
+<td>NPR's ongoing coverage of the Iraq War's effects abroad and on the home front. Stories of soldiers, marines, sailors, airmen, veterans and their families. Iraq's effects on politics, society, and diplomacy. Photos, audio and commentary. Subscribe to the Iraq RSS feed.
+</td>
+</tr>
+<tr>
+<td>Israeli-Palestinian Coverage
+</td>
+<td class="srchID" id="1101">1101
+</td>
+<td>NPR provides free transcripts of Middle East coverage from Morning Edition, All Things Considered, Weekend Edition, Tell Me More, and Talk of the Nation. Stories about Israel, Palestine, and the Arab states.
+</td>
+</tr>
+<tr>
+<td>Katrina &amp; Beyond
+</td>
+<td class="srchID" id="1093">1093
+</td>
+<td>NPR coverage of Hurricane Katrina and the aftermath. Interviews with hurricane victims and rebuilding efforts in New Orleans and Mississippi.
+</td>
+</tr>
+<tr>
+<td>Latin America
+</td>
+<td class="srchID" id="1127">1127
+</td>
+<td>Latin America
+</td>
+</tr>
+<tr>
+<td>Law
+</td>
+<td class="srchID" id="1070">1070
+</td>
+<td>NPR stories on legal issues, court rulings, Supreme Court hearings, new laws and government investigations. Download the NPR Justice Talking podcast and subscribe to the Legal Affairs RSS feed.
+</td>
+</tr>
+<tr>
+<td>Lost &amp; Found Sound
+</td>
+<td class="srchID" id="1074">1074
+</td>
+<td>NPR's Lost &amp; Found Sound series explores newly discovered audio and music sessions, home audio, and listener submitted sounds and interviews. Subscribe to the RSS feed of never before played audio and sounds.
+</td>
+</tr>
+<tr>
+<td>Low-Wage America
+</td>
+<td class="srchID" id="1076">1076
+</td>
+<td>NPR stories about low-wage America, the income gap between rich and poor, affordable housing, welfare, medicaid, social security, and healthcare for the working poor.
+</td>
+</tr>
+<tr>
+<td>Media
+</td>
+<td class="srchID" id="1020">1020
+</td>
+<td>News about the state of the media. Trends in broadcast and print media, television, and radio journalism. Download podcasts and RSS feeds.
+</td>
+</tr>
+<tr>
+<td>Medical Treatments
+</td>
+<td class="srchID" id="1135">1135
+</td>
+<td>Medical Treatments
+</td>
+</tr>
+<tr>
+<td>Mental Health
+</td>
+<td class="srchID" id="1029">1029
+</td>
+<td>NPR covers mental health, happiness, depression, and treatment options. Subscribe to the RSS feed.
+</td>
+</tr>
+<tr>
+<td>Middle East
+</td>
+<td class="srchID" id="1009">1009
+</td>
+<td>Middle East news, arts, culture, and politics. Updates on Iraq, Israel, Palestine, Iran, OPEC, and the Persian Gulf states NPR streaming audio. Subscribe to the Middle East RSS feed.
+</td>
+</tr>
+<tr>
+<td>Movie Interviews
+</td>
+<td class="srchID" id="1137">1137
+</td>
+<td>Movie Interviews
+</td>
+</tr>
+<tr>
+<td>Movie Reviews
+</td>
+<td class="srchID" id="4467349">4467349
+</td>
+<td>Reviews of new movies, classic and art films, foreign films, and popular movies. Featuring Bob Mondello, Kenneth Turan, David Edelstein, and Mark Jenkins.
+</td>
+</tr>
+<tr>
+<td>Movies
+</td>
+<td class="srchID" id="1045">1045
+</td>
+<td>NPR Movies podcast, movie reviews, and commentary on new and classic films. Interviews with filmmakers, actors, and actresses.
+</td>
+</tr>
+<tr>
+<td>Multimedia
+</td>
+<td class="srchID" id="1147">1147
+</td>
+<td>National Public Radio offers up radio with a vision. Presenting NPR multimedia: the Picture Show blog and the Radio Pictures video podcast - quality visuals to go with NPR's quality sound.
+</td>
+</tr>
+<tr>
+<td>National Security
+</td>
+<td class="srchID" id="1122">1122
+</td>
+<td>National Security
+</td>
+</tr>
+<tr>
+<td>News
+</td>
+<td class="srchID" id="1001">1001
+</td>
+<td>NPR news, audio, and podcasts. Coverage of breaking stories, national and world news, politics, business, science, technology, and extended coverage of major national and world events.
+</td>
+</tr>
+<tr>
+<td>NPR News Investigations
+</td>
+<td class="srchID" id="1150">1150
+</td>
+<td>NPR News Investigations
+</td>
+</tr>
+<tr>
+<td>On Aging
+</td>
+<td class="srchID" id="1028">1028
+</td>
+<td>NPR stories and audio on aging, longevity, retirement, and senior issues. More articles on health care, leisure, disease prevention, and housing. Subscribe to the RSS feed.
+</td>
+</tr>
+<tr>
+<td>On Disabilities
+</td>
+<td class="srchID" id="1133">1133
+</td>
+<td>On Disabilities
+</td>
+</tr>
+<tr>
+<td>Opinion
+</td>
+<td class="srchID" id="1057">1057
+</td>
+<td>Editorial opinions and commentary on news events and world events. Download podcasts and subscribe to RSS feeds.
+</td>
+</tr>
+<tr>
+<td>Performing Arts
+</td>
+<td class="srchID" id="1046">1046
+</td>
+<td>News, interviews, and commentary on theater, the arts, music, and dance.
+</td>
+</tr>
+<tr>
+<td>Photography
+</td>
+<td class="srchID" id="1143">1143
+</td>
+<td>Photography
+</td>
+</tr>
+<tr>
+<td>Politics
+</td>
+<td class="srchID" id="1014">1014
+</td>
+<td>NPR's expanded coverage of U.S. and world politics, the latest news from Congress and the White House, and elections.
+</td>
+</tr>
+<tr>
+<td>Pop Culture
+</td>
+<td class="srchID" id="1048">1048
+</td>
+<td>News and commentary on popular culture trends. Download the Pop Culture podcast.
+</td>
+</tr>
+<tr>
+<td>Presidential Race
+</td>
+<td class="srchID" id="139544303">139544303
+</td>
+<td>Explore NPR's latest coverage of the race for the White House.
+</td>
+</tr>
+<tr>
+<td>Race
+</td>
+<td class="srchID" id="1015">1015
+</td>
+<td>NPR stories on race and ethnicity. Commentary on race's effects on politics, culture, society. Subscribe to NPR podcasts and RSS feeds on race and ethnicity issues.
+</td>
+</tr>
+<tr>
+<td>Radio Expeditions
+</td>
+<td class="srchID" id="1023">1023
+</td>
+<td>A co-production of NPR and the National Geographic Society. Explore our world's environments, cultures, and wildlife through interviews, narrative, and sounds. Subscribe to the Radio Expeditions RSS feed.
+</td>
+</tr>
+<tr>
+<td>Recipes
+</td>
+<td class="srchID" id="1139">1139
+</td>
+<td>Recipes
+</td>
+</tr>
+<tr>
+<td>Religion
+</td>
+<td class="srchID" id="1016">1016
+</td>
+<td>NPR's stories on U.S. and world religion, spirituality, ethics, and moral issues affecting society and culture. Subscribe to NPR Religion RSS feeds.
+</td>
+</tr>
+<tr>
+<td>Remembrances
+</td>
+<td class="srchID" id="1062">1062
+</td>
+<td>NPR remembrances of remarkable individuals. Also obituaries and and tributes to great individuals. Subscribe to the Remembrances podcast.
+</td>
+</tr>
+<tr>
+<td>Research News
+</td>
+<td class="srchID" id="1024">1024
+</td>
+<td>New advances in science, medicine, health, and technology.Stem cell research, drug research, and new treatments for disease.
+</td>
+</tr>
+<tr>
+<td>Science
+</td>
+<td class="srchID" id="1007">1007
+</td>
+<td>The latest health and science news. Updates on medicine, healthy living, nutrition, drugs, diet, and advances in science and technology. Subscribe to the Health &amp; Science podcast.
+</td>
+</tr>
+<tr>
+<td>Sen. Barack Obama (D-IL)
+</td>
+<td class="srchID" id="1117">1117
+</td>
+<td>Browse NPR coverage of Democratic presidential candidate Illinois Sen. Barack Obama.
+</td>
+</tr>
+<tr>
+<td>Sen. Hillary Clinton (D-NY)
+</td>
+<td class="srchID" id="1116">1116
+</td>
+<td>Browse NPR coverage of Democratic presidential candidate New York Sen. Hillary Clinton.
+</td>
+</tr>
+<tr>
+<td>Sen. John McCain (R-AZ)
+</td>
+<td class="srchID" id="1118">1118
+</td>
+<td>Browse NPR coverage of Republican presidential candidate Arizona Sen. John McCain.
+</td>
+</tr>
+<tr>
+<td>Sen. Joseph Biden (D-DE)
+</td>
+<td class="srchID" id="1119">1119
+</td>
+<td>Browse NPR coverage of Democratic vice-presidential candidate Delaware Sen. Joseph Biden.
+</td>
+</tr>
+<tr>
+<td>Social Security Debate
+</td>
+<td class="srchID" id="1083">1083
+</td>
+<td>News and analysis on the Social Security debate. Pending legislation, political viewpoints, and news about retirement. Subscribe to the Social Security RSS feed.
+</td>
+</tr>
+<tr>
+<td>Space
+</td>
+<td class="srchID" id="1026">1026
+</td>
+<td>NPR coverage of space exploration, space shuttle missions, news from NASA, private space exploration, satellite technology, and new discoveries in astronomy and astrophysics.
+</td>
+</tr>
+<tr>
+<td>Sports
+</td>
+<td class="srchID" id="1055">1055
+</td>
+<td>NPR sports news and interviews. Listen to Frank Deford's sport commentary and download the sports podcast.
+</td>
+</tr>
+<tr>
+<td>Statewide Races
+</td>
+<td class="srchID" id="139545485">139545485
+</td>
+<td>Explore NPR's coverage of gubernatorial contests, ballot issues and other statewide elections in 2012.
+</td>
+</tr>
+<tr>
+<td>Story of the Day
+</td>
+<td class="srchID" id="1090">1090
+</td>
+<td>NPR's daily top stories that you can't miss. Exceptional, moving, offbeat, or just plain funny. Subscribe to the Story of the Day podcast.
+</td>
+</tr>
+<tr>
+<td>Strange News
+</td>
+<td class="srchID" id="1146">1146
+</td>
+<td>Unlikely stories from around the nation and the world.
+</td>
+</tr>
+<tr>
+<td>Summer
+</td>
+<td class="srchID" id="1088">1088
+</td>
+<td>NPR stories about summer. Living, eating, diversions, health, and summer traditions. Subscribe to the Summer RSS feed.
+</td>
+</tr>
+<tr>
+<td>Summer Reading: Cooking
+</td>
+<td class="srchID" id="1087">1087
+</td>
+<td>Fresh recipes and cookbooks for summer reading. Subscribe to the RSS feed.
+</td>
+</tr>
+<tr>
+<td>Summer Reading: Fiction
+</td>
+<td class="srchID" id="1085">1085
+</td>
+<td>Selections for great summer fiction. Book reviews, excerpts, and author interviews. Suscribe to the Summer Fiction RSS feed.
+</td>
+</tr>
+<tr>
+<td>Summer Reading: Kids
+</td>
+<td class="srchID" id="1086">1086
+</td>
+<td>NPR's selections of summer reading for kids. Excerpts, interviews, and reviews. Subscribe to RSS feeds.
+</td>
+</tr>
+<tr>
+<td>Summer Reading: Nonfiction
+</td>
+<td class="srchID" id="1089">1089
+</td>
+<td>Selections for great summer nonfiction. Book reviews, excerpts, and author interviews. Suscribe to the Summer Reading Nonfiction RSS feed.
+</td>
+</tr>
+<tr>
+<td>Technology
+</td>
+<td class="srchID" id="1019">1019
+</td>
+<td>Latest technology news and breakthroughs in technology, science, and industry. Download the NPR Technology podcast and Technology RSS feed.
+</td>
+</tr>
+<tr>
+<td>Television
+</td>
+<td class="srchID" id="1138">1138
+</td>
+<td>Television
+</td>
+</tr>
+<tr>
+<td>The Impact of War
+</td>
+<td class="srchID" id="1078">1078
+</td>
+<td>NPR news and stories about the wars in Iraq and Afghanistan. Interviews with soldiers, world leaders, veterans, and families on the home front. Read and listen to stories and subscribe to RSS feeds.
+</td>
+</tr>
+<tr>
+<td>The Second Term
+</td>
+<td class="srchID" id="1077">1077
+</td>
+<td>NPR stories about George W. Bush's second term as 43rd President of the United States
+</td>
+</tr>
+<tr>
+<td>Theater
+</td>
+<td class="srchID" id="1144">1144
+</td>
+<td>Theater
+</td>
+</tr>
+<tr>
+<td>U.S.
+</td>
+<td class="srchID" id="1003">1003
+</td>
+<td>NPR coverage of national news, U.S. politics, elections, business, arts, culture, health and science, and technology. Subscribe to the NPR Nation RSS feed.
+</td>
+</tr>
+<tr>
+<td>World
+</td>
+<td class="srchID" id="1004">1004
+</td>
+<td>NPR world news, international art and culture, world business and financial markets, world economy, and global trends in health, science and technology. Subscribe to the World Story of the Day podcast and RSS feed.
+</td>
+</tr>
+<tr>
+<td>World Story of the Day
+</td>
+<td class="srchID" id="1056">1056
+</td>
+<td>NPR's top daily news about world events, politics, economy, and culture. Download the World Story of the Day podcast.
+</td>
+</tr>
+<tr>
+<td>Your Health
+</td>
+<td class="srchID" id="1066">1066
+</td>
+<td>News and commentary about personal health, medicine, healthcare, drugs, diet, recipes, and nutrition. Download the Your Health podcast and subscribe to our RSS feed.
+</td>
+</tr>
+<tr>
+<td>Your Money
+</td>
+<td class="srchID" id="1018">1018
+</td>
+<td>NPR coverage of personal finance, money, investing, taxes, retirement, mortgages and housing markets, wealth management, and stock market news. Download NPR podcasts and RSS feeds.
+</td>
+</tr>
+<tr>
+<td>Blues
+</td>
+<td class="srchID" id="139998151">139998151
+</td>
+<td>NPR Music stories that feature blues music.
+</td>
+</tr>
+<tr>
+<td>Classical
+</td>
+<td class="srchID" id="10003">10003
+</td>
+<td>Classical music performances and features from NPR news, NPR cultural programs, and NPR Music stations.
+</td>
+</tr>
+<tr>
+<td>Concerts
+</td>
+<td class="srchID" id="1109">1109
+</td>
+<td>Performances from today's top artists, filmed at venues and festivals across the country.
+</td>
+</tr>
+<tr>
+<td>Country
+</td>
+<td class="srchID" id="92792712">92792712
+</td>
+<td>Performances and stories featuring traditions and innovations in American roots and country music.
+</td>
+</tr>
+<tr>
+<td>Discover Songs
+</td>
+<td class="srchID" id="1108">1108
+</td>
+<td>Song features from NPR Music including All Songs Considered, Song of the Day, Open Mic, Song on Deadline, Music Lists, and more. Listen online to find new music in rock, pop, folk, jazz, urban, blues, classical, and world music. Video sessions of new artists.
+</td>
+</tr>
+<tr>
+<td>Electronic/Dance
+</td>
+<td class="srchID" id="135408474">135408474
+</td>
+<td>Explore NPR Music's collection of stories and songs in the electronica/dance genre.
+</td>
+</tr>
+<tr>
+<td>Folk
+</td>
+<td class="srchID" id="139999257">139999257
+</td>
+<td>NPR Music stories featuring folk music.
+</td>
+</tr>
+<tr>
+<td>Hip-Hop
+</td>
+<td class="srchID" id="10005">10005
+</td>
+<td>Urban music and features from NPR news, NPR cultural programs, and NPR Music stations.
+</td>
+</tr>
+<tr>
+<td>In Performance
+</td>
+<td class="srchID" id="1040">1040
+</td>
+<td>Listen to new music, podcasts, live concerts and studio sessions. Watch video sessions. Read interviews with musicians and music reviews. NPR covers the best new songs from rock, pop, folk, jazz, urban, world, and classical music.
+</td>
+</tr>
+<tr>
+<td>Jazz
+</td>
+<td class="srchID" id="10002">10002
+</td>
+<td>Jazz and blues music performances and features from NPR news, NPR cultural programs, and NPR Music stations.
+</td>
+</tr>
+<tr>
+<td>Latin
+</td>
+<td class="srchID" id="139996449">139996449
+</td>
+<td>NPR Music stories featuring Latin Alternative music.
+</td>
+</tr>
+<tr>
+<td>Music
+</td>
+<td class="srchID" id="1039">1039
+</td>
+<td>NPR Music features, streams, live concerts and music news.
+</td>
+</tr>
+<tr>
+<td>Music Interviews
+</td>
+<td class="srchID" id="1105">1105
+</td>
+<td>Interviews with top musicians from jazz, blues, rock, pop, folk, classical, urban, and world music. Listen online to live studio sessions and musician interviews and watch video sessions.
+</td>
+</tr>
+<tr>
+<td>Music Lists
+</td>
+<td class="srchID" id="1107">1107
+</td>
+<td>Lists of top artists and top songs compiled by musicians, critics, and noted NPR hosts.
+</td>
+</tr>
+<tr>
+<td>Music News
+</td>
+<td class="srchID" id="1106">1106
+</td>
+<td>Current music news, artist interviews, album reviews, and music industry news from NPR Music.
+</td>
+</tr>
+<tr>
+<td>Music Quizzes
+</td>
+<td class="srchID" id="1151">1151
+</td>
+<td>Puzzlers from the NPR Music team.
+</td>
+</tr>
+<tr>
+<td>Music Reviews
+</td>
+<td class="srchID" id="1104">1104
+</td>
+<td>Music reviews of new albums in pop, rock, folk, jazz, blues, classical, world, and hip-hop.
+</td>
+</tr>
+<tr>
+<td>Music Videos
+</td>
+<td class="srchID" id="1110">1110
+</td>
+<td>Watch new music videos and live NPR studio sessions featuring top musicians. Discover songs and listen online. NPR covers the best pop, rock, urban, jazz, folk, blues, world, and classical music.
+</td>
+</tr>
+<tr>
+<td>Other
+</td>
+<td class="srchID" id="10006">10006
+</td>
+<td>Songs that don't fit into other categories
+</td>
+</tr>
+<tr>
+<td>Pop
+</td>
+<td class="srchID" id="139997200">139997200
+</td>
+<td>NPR Music stories that discuss pop music.
+</td>
+</tr>
+<tr>
+<td>R&amp;B/Soul
+</td>
+<td class="srchID" id="139998808">139998808
+</td>
+<td>NPR Music stories that feature R&amp;B and soul music.
+</td>
+</tr>
+<tr>
+<td>Rock
+</td>
+<td class="srchID" id="10001">10001
+</td>
+<td>Rock, pop, and folk music performances and features from NPR news, NPR cultural programs, and NPR Music stations.
+</td>
+</tr>
+<tr>
+<td>Studio Sessions
+</td>
+<td class="srchID" id="1103">1103
+</td>
+<td>Musicians perform and discuss their work in the studios of NPR and NPR Music station partners. Live music sessions, interviews, and the best new songs in rock, pop, folk, classical, jazz, blues, urban, and world music. Watch video sessions.
+</td>
+</tr>
+<tr>
+<td>World
+</td>
+<td class="srchID" id="10004">10004
+</td>
+<td>World music and features from NPR news, NPR cultural programs, and NPR Music stations.
+</td>
+</tr>
+</tbody>
+</table>
