@@ -188,6 +188,14 @@ Generated from http://www.npr.org/api/inputReference.php")
                                 (format "id=%s&output=atom"
                                         (file-name-nondirectory url)))))
 
+
+(defun emacspeak-npr-search (query)
+  "Search NPR"
+  (interactive "sTerm: ")
+  (emacspeak-feeds-atom-display
+   (emacspeak-npr-rest-endpoint "query"
+                                (format"searchTerm=%s&output=Atom" query))))
+
 ;;;###autoload    
 (defun emacspeak-npr-listing ()
   "Display specified listing."
