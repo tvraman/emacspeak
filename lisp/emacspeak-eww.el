@@ -168,7 +168,7 @@ are available are cued by an auditory icon on the header line."
  'eww-mode-hook
  #'(lambda ()
      (setq
-      emacspeak-webutils-document-title (emacspeak-eww-current-title)
+      emacspeak-webutils-document-title #'emacspeak-eww-current-title
       emacspeak-webutils-url-at-point
       #'(lambda ()
           (let ((url (get-text-property (point) 'help-echo)))
@@ -180,7 +180,7 @@ are available are cued by an auditory icon on the header line."
               (emacspeak-google-canonicalize-result-url url))
              ((and url (stringp url))url)
              (t (error "No URL under point.")))))
-      emacspeak-webutils-current-url (emacspeak-eww-current-url))))
+      emacspeak-webutils-current-url #'emacspeak-eww-current-url)))
 
 (defvar emacspeak-eww-masquerade t
   "Says if we masquerade as a mainstream browser.")
