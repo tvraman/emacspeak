@@ -1151,6 +1151,16 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS stations that
  #'emacspeak-feeds-opml-display)
 
 ;;}}}
+;;{{{ OpenLibrary 
+
+(emacspeak-url-template-define
+ "OpenLibrary"
+ "https://openlibrary.org/search?subject_facet=Accessible+book&q=%s&has_fulltext=true"
+ (list "Query: ")
+ nil
+ "Open Library Search")
+
+;;}}}
 ;;{{{ Interactive commands
 
 ;;;###autoload
