@@ -197,10 +197,14 @@ Generated from http://www.npr.org/api/inputReference.php")
                                 (format"searchTerm=%s&output=Atom" query))))
 
 ;;;###autoload    
-(defun emacspeak-npr-listing ()
-  "Display specified listing."
-  (interactive)
-  (let ((key (emacspeak-npr-get-listing-key)))
+(defun emacspeak-npr-listing (&optional search)
+  "Display specified listing.
+Interactive prefix arg prompts for search."
+  (interactive "P")
+  (cond
+   (search (call-interactively #'emacspeak-npr-search))
+   (t
+    (let ((key (emacspeak-npr-get-listing-key)))
     (add-hook
      'emacspeak-web-post-process-hook
      #'(lambda ()
@@ -211,7 +215,7 @@ Generated from http://www.npr.org/api/inputReference.php")
     (emacspeak-xslt-view-xml
      (emacspeak-xslt-get  "npr-list.xsl")
      (emacspeak-npr-rest-endpoint "list"
-                                  (format "id=%s&output=atom" key)))))
+                                  (format "id=%s&output=atom" key)))))))
 
 ;;}}}
 (provide 'emacspeak-npr)
