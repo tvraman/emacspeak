@@ -111,7 +111,7 @@
     "index-emacspeak_002determ_002dcopy_002dregion_002dto_002dregister">
     </a>Command:
     <strong>emacspeak-eterm-copy-region-to-register</strong>
-    <em>(&amp;rest rest)</em></dt>
+    <em>(register)</em></dt>
 
     <dd>
       <a name=
@@ -120,15 +120,10 @@
       "index-emacspeak_002determ_002dcopy_002dregion_002dto_002dregister-1">
       </a>
 
-      <p>:around advice:
-      &lsquo;ad-Advice-emacspeak-eterm-copy-region-to-register&rsquo;</p>
-
       <p>Copy text from terminal to an Emacs REGISTER. This copies
       region delimited by the emacspeak eterm marker set by command
       M-x emacspeak-eterm-set-marker and the emacspeak eterm
       pointer to a register.</p>
-
-      <p>(fn REGISTER)</p>
     </dd>
   </dl>
 
@@ -222,21 +217,16 @@
     <dt><a name="index-emacspeak_002determ_002dpaste_002dregister"
     id=
     "index-emacspeak_002determ_002dpaste_002dregister"></a>Command:
-    <strong>emacspeak-eterm-paste-register</strong> <em>(&amp;rest
-    rest)</em></dt>
+    <strong>emacspeak-eterm-paste-register</strong>
+    <em>(register)</em></dt>
 
     <dd>
       <a name="index-emacspeak_002determ_002dpaste_002dregister-1"
       id="index-emacspeak_002determ_002dpaste_002dregister-1"></a>
 
-      <p>:around advice:
-      &lsquo;ad-Advice-emacspeak-eterm-paste-register&rsquo;</p>
-
       <p>Paste contents of REGISTER at current location. If the
       specified register contains text, then that text is sent to
       the terminal as if it were typed by the user.</p>
-
-      <p>(fn REGISTER)</p>
     </dd>
   </dl>
 
@@ -814,8 +804,8 @@
   <h4 class="subsection">11.67.2 emacspeak-eterm Options</h4>
 
   <dl>
-    <dt><a name="index-User-Option-422" id=
-    "index-User-Option-422"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-403" id=
+    "index-User-Option-403"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-eterm-bold-personality</em></dt>
 
     <dd>
@@ -824,8 +814,8 @@
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-423" id=
-    "index-User-Option-423"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-404" id=
+    "index-User-Option-404"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-eterm-default-personality</em></dt>
 
@@ -835,8 +825,8 @@
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-424" id=
-    "index-User-Option-424"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-405" id=
+    "index-User-Option-405"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-eterm-highlight-personality</em></dt>
 
@@ -846,8 +836,8 @@
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-425" id=
-    "index-User-Option-425"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-406" id=
+    "index-User-Option-406"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-eterm-remote-hosts-cache</em></dt>
 
@@ -857,8 +847,8 @@
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-426" id=
-    "index-User-Option-426"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-407" id=
+    "index-User-Option-407"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-eterm-underline-personality</em></dt>
 
