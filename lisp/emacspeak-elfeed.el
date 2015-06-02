@@ -125,14 +125,15 @@
   "Speak entry at point."
   (interactive)
   (let* ((e (emacspeak-elfeed-entry-at-point))
-         (title (elfeed-entry-title e))
-         (tags (elfeed-entry-tags e)))
-    (dtk-speak title)
-                                        ;(when (memq 'unread tags) (emacspeak-auditory-icon 'unmodified-object))
-    (when (memq 'read tags) (emacspeak-auditory-icon 'modified-object))
-    (when (memq 'seen  tags) (emacspeak-auditory-icon 'mark-object))
-    (emacspeak-auditory-icon 'item)
-    (elfeed-tag e 'seen)))
+         (title (and e (elfeed-entry-title e)))
+         (tags (and e (elfeed-entry-tags e))))
+    (unless e (message "No entry here"))
+    (when title
+      (dtk-speak title)
+      (when (memq 'read tags) (emacspeak-auditory-icon 'modified-object))
+      (when (memq 'seen  tags) (emacspeak-auditory-icon 'mark-object))
+      (emacspeak-auditory-icon 'item)
+    (elfeed-tag e 'seen))))
 
 ;;}}}
 ;;{{{ Define additional interactive commands:
