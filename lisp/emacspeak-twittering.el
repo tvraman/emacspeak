@@ -198,7 +198,7 @@
                 (not (looking-at "http")))
       (setq moved
             (goto-char (next-single-property-change (point) 'uri))))
-    (setq  url (get-text-property (point)  'uri))
+    (setq  url (thing-at-point 'url))
     (and url (browse-url url))))
 
 (when (boundp 'twittering-mode-map)
