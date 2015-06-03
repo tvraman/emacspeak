@@ -66,23 +66,30 @@
   "Buffer local handle to data being viewed.")
 
 (make-variable-buffer-local 'json-view--data)
-(defun json-display (j)
+(defun json-display (j &optional indent)
   "Display j"
+  (beginning-of-line)
+  (when indent (insert-char ?\  indent))
+  (or indent (setq indent 0))
   (cond
-   ((listp j) (json-display-dict j))
-   ((vectorp j) (json-display-array j))))
+   ((listp j) (json-display-dict j (1+ indent)))
+   ((vectorp j) (json-display-array j (1+ indent)))))
 
-(defun json-display-dict (dict)
+(defun json-display-dict (dict &optional indent)
   "Display a dict."
+  (when indent (insert-char ?\  indent))
+  (or indent (setq indent 0))
   (loop
    for  entry in dict do
    (insert (format "<%s>\n" (symbol-name (car entry))))
-   (json-display (cdr entry))))
+   (json-display (cdr entry) (1+ indent))))
 
-   (defun json-display-array (array)
-     "View JSON Array."
-     (insert (format "[%s]\n"
-                     (length array))))
+(defun json-display-array (array &optional indent)
+  "View JSON Array."
+  (when indent (insert-char ?\  indent))
+  (or indent (setq indent 0))
+  (insert (format "[%s]\n" (length array))))
+
 ;;;###autoload
 (defun json-view (json)
   "Launch a viewer for data in json.
