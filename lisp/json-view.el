@@ -81,15 +81,18 @@
   (or indent (setq indent 0))
   (loop
    for  entry in dict do
-   (insert (format "<%s>: " (symbol-name (car entry))))
+   (insert (format "\n<%s>: " (symbol-name (car entry))))
    (json-display (cdr entry))))
 
 (defun json-display-array (array &optional indent)
   "View JSON Array."
   (unless (zerop indent)  (insert-char ?\  indent))
   (or indent (setq indent 0))
-  (insert (format "[%s]\n" (length array))))
-
+  (insert (format "[%s]" (length array)))
+  (loop
+   for row across array do
+   (json-display row (1+ indent))))
+    
 ;;;###autoload
 (defun json-view (json)
   "Launch a viewer for data in json.
