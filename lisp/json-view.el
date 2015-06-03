@@ -72,7 +72,8 @@
   (unless (zerop  indent) (insert-char ?\  indent))
   (cond
    ((listp j) (json-display-dict j (1+ indent)))
-   ((vectorp j) (json-display-array j (1+ indent)))))
+   ((vectorp j) (json-display-array j (1+ indent)))
+   (t (insert (format "%s" j)))))
 
 (defun json-display-dict (dict &optional indent)
   "Display a dict."
