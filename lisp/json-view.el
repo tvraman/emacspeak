@@ -66,6 +66,23 @@
   "Buffer local handle to data being viewed.")
 
 (make-variable-buffer-local 'json-view--data)
+(defun json-display (j)
+  "Display j"
+  (cond
+   ((listp j) (json-display-dict j))
+   ((vectorp j) (json-display-array j))))
+
+(defun json-display-dict (dict)
+  "Display a dict."
+  (loop
+   for  entry in dict do
+   (insert (format "<%s>\n" (symbol-name (car entry))))
+   (json-display (cdr entry))))
+
+   (defun json-display-array (array)
+     "View JSON Array."
+     (insert (format "[%s]\n"
+                     (length array))))
 ;;;###autoload
 (defun json-view (json)
   "Launch a viewer for data in json.
@@ -79,12 +96,7 @@
     (erase-buffer)
     (json-view-mode)
     (setq json-view--data json)
-    (cond
-     ((listp json)
-      (insert "<dict>\n"))
-     ((vectorp json)
-      (insert "<array>\n"))
-     (t (insert "atom?"))))
+    (json-display json))
     (switch-to-buffer buffer)))
 
 ;;}}}
