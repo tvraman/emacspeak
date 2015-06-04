@@ -3016,7 +3016,7 @@ Symbols are taken from `emacspeak-wizards-personal-portfolio'."
   (unless emacspeak-wizards-personal-portfolio (error "Customize emacspeak-wizards-personal-portfolio first"))
   
   (let ((tickers (split-string emacspeak-wizards-personal-portfolio))
-        (buff "*YQL Quotes*"))
+        (buff "Stock Quotes"))
     (when  (get-buffer "*YQL*") (kill-buffer  (get-buffer "*YQL*")))
     (emacspeak-table-prepare-table-buffer
      (emacspeak-wizards-yq-table tickers)
@@ -3027,6 +3027,9 @@ Symbols are taken from `emacspeak-wizards-personal-portfolio'."
     (goto-char (point-min))
     (switch-to-buffer buff)
     (setq tab-width 2)
+    (setq header-line-format
+          (format "Stock Quotes At %s"
+                  (format-time-string emacspeak-speak-time-format-string)))
     (call-interactively 'emacspeak-table-next-row)))
 
 ;;}}}
