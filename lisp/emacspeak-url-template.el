@@ -390,32 +390,6 @@ dont-url-encode if true then url arguments are not url-encoded "
      (emacspeak-we-extract-by-id "center_col" url 'speak)))
 
 ;;}}}
-;;{{{ YouTube:
-(emacspeak-url-template-define
- "YouTube Results"
- "http://gdata.youtube.com/feeds/api/videos?vq=%s"
- (list
-  #'(lambda ()
-      (gweb-google-autocomplete-with-corpus "youtube")))
- #'(lambda ()
-     (declare (special emacspeak-we-url-executor))
-     (setq emacspeak-we-url-executor
-           'emacspeak-m-player-youtube-player))
- "YouTube Search Via Feeds"
- #'emacspeak-feeds-atom-display)
-
-(emacspeak-url-template-define
- "Recent YouTube Results"
- "http://gdata.youtube.com/feeds/api/videos?vq=%s&orderby=updated"
- (list "YouTube:")
- #'(lambda ()
-     (declare (special emacspeak-we-url-executor))
-     (setq emacspeak-we-url-executor
-           'emacspeak-m-player-youtube-player))
- "YouTube Search Via Feeds"
- #'emacspeak-feeds-atom-display)
-
-;;}}}
 ;;{{{ google finance
 ;;{{{ seeking alpha stock search
 
