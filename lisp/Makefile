@@ -254,7 +254,7 @@ emacspeak-xslt.elc
 ADDON_OBJECTS = \
 tapestry.elc   stack-f.elc  \
 subr-x.elc dom.elc dom-addons.elc \
-toy-braille.elc tetris.elc cd-tool.elc nm.elc
+json-view.elc toy-braille.elc tetris.elc cd-tool.elc nm.elc
 
 OBJECTS = $(DTK_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  $(ADDON_OBJECTS)
 # }}}
@@ -311,6 +311,7 @@ voice-setup.elc: voice-setup.el acss-structure.elc
 emacspeak-alsaplayer.elc: emacspeak-alsaplayer.el
 ommacspeak-amark.elc: emacspeak-amark.el
 cd-tool.elc: cd-tool.el
+json-view.elc: json-view.el
 nm.elc: nm.el
 amixer.elc: amixer.el
 emacspeak-actions.elc: emacspeak-actions.el
