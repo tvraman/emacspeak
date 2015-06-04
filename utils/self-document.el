@@ -106,8 +106,7 @@
              "dectalk" "dtk" "espeak" "mac-"
              "emacspeak"
              "g-" "g-app" "gblogger" "gfeed" "gm-" "gmap" "gphoto" "gweb"
-             "outloud" "sox-"   "tts" "voice-")))
-
+             "json-view" "outloud" "sox-"   "tts" "voice-")))
   "Patterns to match command names.")
 
 (defvar self-document-command-count 0

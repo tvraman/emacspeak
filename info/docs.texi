@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1068 commands and 882 options.
+This chapter documents a total of 1070 commands and 882 options.
 
 @menu
 * acss-structure::
@@ -15484,6 +15484,29 @@ Display News Search results  in a browser.
 @section json-view
 
 json-viewer.el: View, Explore JSON data 
+
+@subsection json-view Commands
+
+@deffn {Command} json-view  (json)
+@findex json-view
+
+Launch a viewer for data in json.
+`json' is the parsed representation of a JSON data structure.
+@end deffn
+
+@deffn {Command} json-view-mode   
+@findex json-view-mode
+
+View, Explore JSON-encoded data on the Emacspeak Audio Desktop.
+
+In addition to any hooks its parent mode `special-mode' might have run,
+this mode runs the hook `json-view-mode-hook', as the final step
+during initialization.
+
+key             binding
+---             -------
+
+@end deffn
 
 @node mac-voices
 @section mac-voices
