@@ -706,7 +706,7 @@ necessary."
            (expand-file-name f))))
 
 (defconst emacspeak-m-player-filters
-  '("hrtf" "sweep" "extrastereo" "volnorm" "surround"
+  '("sweep" "extrastereo" "volnorm" "surround"
     "ladspa=bs2b:bs2b:700:4.5"
     "bs2b=cmoy" "bs2b=jmeier" "bs2b")
   "Table of useful MPlayer filters.")
