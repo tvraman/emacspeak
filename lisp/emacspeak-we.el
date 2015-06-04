@@ -1145,14 +1145,16 @@ and provide a completion list of applicable  property values. Filter document by
 
 (loop
  for f in
- '(url-write-global-history url-history-save-history
-                            url-http-chunked-encoding-after-change-function url-cookie-handle-set-cookie
-                            url-lazy-message url-cookie-write-file)
+ '(
+   url-write-global-history url-history-save-history
+   url-http-chunked-encoding-after-change-function url-cookie-handle-set-cookie
+   url-lazy-message url-cookie-write-file)
  do
  (eval
   `(defadvice   ,f (around emacspeak pre act comp)
      "Silence messages while this function executes"
-     (ems-with-messages-silenced ad-do-it))))
+     (let ((url-show-status nil))
+     (ems-with-messages-silenced ad-do-it)))))
 
 ;;}}}
 (provide 'emacspeak-we)
