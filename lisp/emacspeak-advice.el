@@ -2138,8 +2138,8 @@ Produce an auditory icon if possible."
   (cond
    ((null isearch-success) (emacspeak-auditory-icon 'search-miss))
    (t
-    (when (sit-for  0.2)
     (emacspeak-auditory-icon 'search-hit)
+    (when (sit-for  0.2)
     (save-excursion
       (ems-set-personality-temporarily
        (point) isearch-other-end voice-bolden

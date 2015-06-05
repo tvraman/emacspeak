@@ -24,6 +24,7 @@ endin
 </CsInstruments>
 <CsScore>
 
-i1 0 0.25 0.1 1600 2000 2400
+i1 0 0.15 0.1 1600 2000 2400
+i1 0.165 0.15 0.1 1600 2000 2400
 </CsScore>
 </CsoundSynthesizer>
