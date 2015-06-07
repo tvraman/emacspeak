@@ -712,7 +712,7 @@ necessary."
   "Table of useful MPlayer filters.")
 
 (defun emacspeak-m-player-add-filter ()
-  "Adds specified filter  to use for the next invocation of MPlayer."
+  "Adds specified filter."
   (interactive)
   (declare (special emacspeak-m-player-process))
   (let ((filter-name
