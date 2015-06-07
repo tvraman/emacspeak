@@ -722,6 +722,20 @@ necessary."
     (when (process-live-p  emacspeak-m-player-process)
       (emacspeak-m-player-dispatch (format "af_add %s" filter-name)))))
 
+(defun emacspeak-m-player-left-channel ()
+  "Play on left channel."
+  (interactive)
+  (let ((filter-name "channels=2:2:0:0:1:0"))
+    (when (process-live-p  emacspeak-m-player-process)
+      (emacspeak-m-player-dispatch (format "af_add %s" filter-name)))))
+
+(defun emacspeak-m-player-right-channel ()
+  "Play on right channel."
+  (interactive)
+  (let ((filter-name "channels=2:2:0:1:1:1"))
+    (when (process-live-p  emacspeak-m-player-process)
+      (emacspeak-m-player-dispatch (format "af_add %s" filter-name)))))
+
 (defun emacspeak-m-player-clear-filters ()
   "Clear all active filters"
   (interactive)
@@ -890,6 +904,8 @@ arg `reset' starts with all filters set to 0."
    ("t" emacspeak-m-player-play-tracks-jump)
    ("u" emacspeak-m-player-url)
    ("v" emacspeak-m-player-volume-change)
+   ("(" emacspeak-m-player-left-channel)
+   (")" emacspeak-m-player-right-channel)
    ("{" emacspeak-m-player-half-speed)
    ("}" emacspeak-m-player-double-speed)
    )

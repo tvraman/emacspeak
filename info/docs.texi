@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1070 commands and 882 options.
+This chapter documents a total of 1072 commands and 882 options.
 
 @menu
 * acss-structure::
@@ -7567,7 +7567,7 @@ arg `reset' starts with all filters set to 0.
 @deffn {Command} emacspeak-m-player-add-filter   
 @findex emacspeak-m-player-add-filter
 
-Adds specified filter  to use for the next invocation of MPlayer.
+Adds specified filter.
 @end deffn
 
 @deffn {Command} emacspeak-m-player-alt-src-step  (step)
@@ -7734,6 +7734,12 @@ Display length of track in seconds.
 Scale speed by 0.5.
 @end deffn
 
+@deffn {Command} emacspeak-m-player-left-channel   
+@findex emacspeak-m-player-left-channel
+
+Play on left channel.
+@end deffn
+
 @deffn {Command} emacspeak-m-player-load  (resource &optional append)
 @findex emacspeak-m-player-load
 
@@ -7765,6 +7771,8 @@ RET		emacspeak-m-player-load
 ESC		Prefix Command
 SPC		emacspeak-m-player-pause
 %		emacspeak-m-player-display-percent
+(		emacspeak-m-player-left-channel
+)		emacspeak-m-player-right-channel
 +		emacspeak-m-player-volume-up
 ,		emacspeak-m-player-backward-10s
 -		emacspeak-m-player-volume-down
@@ -7872,6 +7880,12 @@ Reset MPlayer options to initial defaults.
 @findex emacspeak-m-player-reset-speed
 
 Reset playing speed to normal.
+@end deffn
+
+@deffn {Command} emacspeak-m-player-right-channel   
+@findex emacspeak-m-player-right-channel
+
+Play on right channel.
 @end deffn
 
 @deffn {Command} emacspeak-m-player-scale-speed  (factor)
