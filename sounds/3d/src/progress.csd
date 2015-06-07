@@ -25,7 +25,7 @@ aL,aR	pan2	asig, kline   ; sent across image
 endin
 </CsInstruments>
 <CsScore>
-i1 0 0.25 0.75 1630 1000 1200 
+i1 0 0.15 0.85 1630 2000 2200 
 e
 </CsScore>
 </CsoundSynthesizer>
