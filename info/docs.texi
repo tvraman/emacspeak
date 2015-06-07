@@ -15959,7 +15959,7 @@ Apply first female voice.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 70 URL Templates.
+This section documents a total of 68 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -16168,10 +16168,6 @@ RadioTime Entry point.
 
 RadioTime Search.
 
-@b{Recent YouTube Results}
-
-YouTube Search Via Feeds
-
 @b{Redhat Linux Show}
 
 Play specified edition of Redhat Linux Show
@@ -16225,10 +16221,6 @@ Retrieve and speak business section from Yahoo Daily News.
 @b{Yahoo RSS Feeds}
 
 List Yahoo RSS Feeds.
-
-@b{YouTube Results}
-
-YouTube Search Via Feeds
 
 @b{fedex packages}
 
