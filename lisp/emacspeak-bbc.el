@@ -41,7 +41,7 @@
 
 ;;{{{  introduction
 
-;;; Commentary: 
+;;; Commentary:
 ;;; BBC: http://www.bbc.co.uk This module uses
 ;;; publicly available REST APIs to implement a native Emacs
 ;;; client for browsing and listening to BBC programs.
@@ -256,8 +256,13 @@ Interactive prefix arg filters  content by genre."
   'help-echo "Play Program"
   'action #'emacspeak-bbc-iplayer-button-action)
 
+(defvar emacspeak-bbc-iplayer-uri-prefix
+  "http://www.bbc.co.uk/radio/player/"
+  "URL end-point for iplayer.")
+
 (defun   emacspeak-bbc-insert-show (show)
   "Insert a formatted button for this show."
+  (declare (special emacspeak-bbc-iplayer-uri-prefix))
   (let ((title  (g-json-lookup-string "programme.display_titles.title" show))
         (pid (g-json-lookup-string "programme.pid" show))
         (short-title (g-json-lookup-string "programme.display_titles.subtitle" show))
@@ -268,6 +273,7 @@ Interactive prefix arg filters  content by genre."
     (insert-text-button
      (format "%s %s" title short-title); label
      'type 'emacspeak-bbc-iplayer-button
+     'link (concat emacspeak-bbc-iplayer-uri-prefix pid)
      'pid pid)
     (insert (format "\t%s\n" start))
     (insert (format "%s" synopsis))
