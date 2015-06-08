@@ -1,2 +1,5 @@
 (load-library "iplayer")
 (push '("w" "BBC World Service") iplayer-presets)
+(push '("a" "BBC Asian Network") iplayer-presets)
+(define-key iplayer-mode-map "a" 'iplayer-preset)
+(define-key iplayer-mode-map "w" 'iplayer-preset)
