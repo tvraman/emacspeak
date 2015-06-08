@@ -159,8 +159,7 @@
       "index-emacspeak_002dm_002dplayer_002dadd_002dfilter-1" id=
       "index-emacspeak_002dm_002dplayer_002dadd_002dfilter-1"></a>
 
-      <p>Adds specified filter to use for the next invocation of
-      MPlayer.</p>
+      <p>Adds specified filter.</p>
     </dd>
   </dl>
 
@@ -592,6 +591,21 @@
   </dl>
 
   <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dleft_002dchannel" id=
+    "index-emacspeak_002dm_002dplayer_002dleft_002dchannel"></a>Command:
+    <strong>emacspeak-m-player-left-channel</strong></dt>
+
+    <dd>
+      <a name=
+      "index-emacspeak_002dm_002dplayer_002dleft_002dchannel-1" id=
+      "index-emacspeak_002dm_002dplayer_002dleft_002dchannel-1"></a>
+
+      <p>Play on left channel.</p>
+    </dd>
+  </dl>
+
+  <dl>
     <dt><a name="index-emacspeak_002dm_002dplayer_002dload" id=
     "index-emacspeak_002dm_002dplayer_002dload"></a>Command:
     <strong>emacspeak-m-player-load</strong> <em>(resource
@@ -654,7 +668,9 @@
 
       <p>RET emacspeak-m-player-load ESC Prefix Command SPC
       emacspeak-m-player-pause % emacspeak-m-player-display-percent
-      + emacspeak-m-player-volume-up ,
+      ( emacspeak-m-player-left-channel )
+      emacspeak-m-player-right-channel +
+      emacspeak-m-player-volume-up ,
       emacspeak-m-player-backward-10s -
       emacspeak-m-player-volume-down .
       emacspeak-m-player-forward-10s &lt;
@@ -842,6 +858,22 @@
       "index-emacspeak_002dm_002dplayer_002dreset_002dspeed-1"></a>
 
       <p>Reset playing speed to normal.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dright_002dchannel" id=
+    "index-emacspeak_002dm_002dplayer_002dright_002dchannel"></a>Command:
+    <strong>emacspeak-m-player-right-channel</strong></dt>
+
+    <dd>
+      <a name=
+      "index-emacspeak_002dm_002dplayer_002dright_002dchannel-1"
+      id="index-emacspeak_002dm_002dplayer_002dright_002dchannel-1">
+      </a>
+
+      <p>Play on right channel.</p>
     </dd>
   </dl>
 
