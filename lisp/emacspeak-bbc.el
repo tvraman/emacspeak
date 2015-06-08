@@ -281,18 +281,7 @@ Interactive prefix arg filters  content by genre."
 
 (defun emacspeak-bbc-iplayer-button-action (button)
   "Play program  refered to by this button."
-  (declare (special emacspeak-bbc-iplayer-converter))
-  (add-hook
-   'emacspeak-web-post-process-hook
-   #'(lambda nil
-       (cond
-        ((search-forward "mms:" nil t)
-         (emacspeak-webutils-play-media-at-point)
-         (bury-buffer))
-        (t (message "Could not find media link."))))
-   'at-end)
-  (browse-url
-   (format emacspeak-bbc-iplayer-converter (button-get button 'pid))))
+  (browse-url-chromium (button-get  button 'link)))
 
 ;;}}}
 (provide 'emacspeak-bbc)
