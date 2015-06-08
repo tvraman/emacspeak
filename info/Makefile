@@ -27,14 +27,16 @@ docs.texi:
 	$(EMACS) -batch -q -l ../utils/self-document.el -f self-document-all-modules
 
 install: emacspeak.info turning-twenty.info
-	if test  -x /sbin/install-info ; then \
-		install-info *.info /etc/info-dir; \
+	if test  -x /usr/bin/install-info ; then \
+		install-info emacspeak.info ${INFODIR}/dir ;\
+install-info turning-twenty.info ${INFODIR}/dir \;
 	fi
-	$(INSTALL)  -m 644 *.info* $(DESTDIR)$(infodir)
+	$(INSTALL)  -m 644 *.info* $(infodir)
 
 uninstall:
-	if test  -e /sbin/install-info ; then \
-		install-info --delete $(infodir)/emacspeak.info* /etc/info-dir; \
+	if test  -e /usr/bin/install-info ; then \
+		install-info --delete $(infodir)/emacspeak.info* ${INFODIR}/dir \;
+		install-info --delete $(infodir)/turning-20.info * ${INFODIR}/dir \;
 	fi
 	rm -f $(infodir)/emacspeak.info*
 emacspeak.info: 
