@@ -21,9 +21,9 @@ gi = gi +40
 endin
 </CsInstruments>
 <CsScore>
-i 1 0 0.3 25 0.07 
-{7 CNT 
-  i1 [0.05 * $CNT] 0.25  25 -[5 * $CNT]  0.07
+i 1 0 0.3 25 0.06 
+{8 CNT 
+  i1 [0.1 * $CNT] 0.15  25 -[5 * $CNT]  0.06
 }
 e
 </CsScore>
