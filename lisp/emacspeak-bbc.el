@@ -214,7 +214,7 @@ Date defaults to today."
     (unless (file-exists-p emacspeak-bbc-iplayer-handle)
       (shell-command (format "mknod %s p" emacspeak-bbc-iplayer-handle)))
     (message "Initialized stream, please wait.")
-    (shell-command  command "*get-iplayer*")
+    (shell-command  command " *get-iplayer*")
     (sit-for 1)
     (emacspeak-m-player emacspeak-bbc-iplayer-handle)))
 
