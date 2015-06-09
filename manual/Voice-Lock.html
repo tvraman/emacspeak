@@ -8,17 +8,16 @@
   <meta name="generator" content=
   "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
 
-  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Voice
-  Lock</title>
+  <title>Emacspeak User’s Manual –2nd Edition.: Voice Lock</title>
   <meta name="description" content=
-  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Voice Lock" />
+  "Emacspeak User’s Manual –2nd Edition.: Voice Lock" />
   <meta name="keywords" content=
-  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Voice Lock" />
+  "Emacspeak User’s Manual –2nd Edition.: Voice Lock" />
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
   <meta http-equiv="Content-Type" content=
-  "text/html; charset=us-ascii" />
+  "text/html; charset=utf-8" />
   <link href="index.html#Top" rel="start" title="Top" />
   <link href="Concept-Index.html#Concept-Index" rel="index" title=
   "Concept Index" />
@@ -94,20 +93,20 @@
 
   <ol>
     <li>Emacspeak defines a number of voice overlays such as
-    &lsquo;<samp>voice-bolden</samp>&rsquo;, and
-    &lsquo;<samp>voice-lighten</samp>&rsquo; that can be applied to
-    a given voice to change what it sounds like.</li>
+    ‘<samp>voice-bolden</samp>’, and ‘<samp>voice-lighten</samp>’
+    that can be applied to a given voice to change what it sounds
+    like.</li>
 
     <li>Voice overlays are defined in terms of Aural CSS (<a href=
     "http://www.w3.org/tr/css2/aural.html">ACSS</a>) to keep them
     independent of a specific TTS engine.</li>
 
     <li>For each such overlay there is a corresponding
-    &lsquo;<samp>&lt;overlay-name&gt;-settings</samp>&rsquo;
-    variable that can be customized via custom.</li>
+    ‘<samp>&lt;overlay-name&gt;-settings</samp>’ variable that can
+    be customized via custom.</li>
 
-    <li>The numbers in &lsquo;<samp>voice-bolden-settings as an
-    example</samp>&rsquo;:</li>
+    <li>The numbers in ‘<samp>voice-bolden-settings as an
+    example</samp>’:</li>
   </ol>
 
   <table>
@@ -154,33 +153,30 @@
     </tr>
   </table>
 
-  <p>Unset values (&lsquo;<samp>nil</samp>&rsquo;) show up as
-  &ldquo;unspecified&rdquo; in the customize interface.</p>
+  <p>Unset values (‘<samp>nil</samp>’) show up as “unspecified” in
+  the customize interface.</p>
 
   <ol>
-    <li>Do not directly customize
-    &lsquo;<samp>voice-bolden</samp>&rsquo; and friends, instead
-    customize the corresponding
-    &lsquo;<samp>voice-bolden-settings</samp>&rsquo;, since that
-    ensures that all voices that are defined in terms of
-    &lsquo;<samp>voice-bolden</samp>&rsquo; get correctly
-    updated.</li>
+    <li>Do not directly customize ‘<samp>voice-bolden</samp>’ and
+    friends, instead customize the corresponding
+    ‘<samp>voice-bolden-settings</samp>’, since that ensures that
+    all voices that are defined in terms of
+    ‘<samp>voice-bolden</samp>’ get correctly updated.</li>
 
     <li>Discovering what to customize:</li>
   </ol>
 
-  <p>Command
-  &lsquo;<samp>emacspeak-show-personality-at-point</samp>&rsquo;
+  <p>Command ‘<samp>emacspeak-show-personality-at-point</samp>’
   (bound by default to C-e M-v) will show you the value of
   properties personality and face at point. A recent update I
   implemented last weekend makes this more useful, so make sure you
   do a CVS update; earlier this command used to display the ACSS
-  setting &mdash; now it displays the abstract name.
-  Describe-variable on these names should tell you what to
-  customize; so as an example:</p>
+  setting — now it displays the abstract name. Describe-variable on
+  these names should tell you what to customize; so as an
+  example:</p>
 
-  <p>Put point on a comment line, and hit &lsquo;<samp>C-e
-  M-v</samp>&rsquo;: you will hear</p>
+  <p>Put point on a comment line, and hit ‘<samp>C-e M-v</samp>’:
+  you will hear</p>
 
   <div class="example">
     <pre class="example">
@@ -190,7 +186,7 @@ Face font-lock-comment-delimiter-face
   </div>
 
   <p>Describe-variable of
-  &lsquo;<samp>emacspeak-voice-lock-comment-personality</samp>&rsquo;
+  ‘<samp>emacspeak-voice-lock-comment-personality</samp>’
   gives:</p>
 
   <div class="example">
@@ -206,7 +202,7 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 
   <table class="menu" border="0" cellspacing="0">
     <tr>
-      <td align="left" valign="top">&bull; <a href=
+      <td align="left" valign="top">• <a href=
       "How-It-All-Works_002e.html#How-It-All-Works_002e" accesskey=
       "1">How It All Works.</a>:</td>
 
@@ -216,7 +212,7 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
     </tr>
 
     <tr>
-      <td align="left" valign="top">&bull; <a href=
+      <td align="left" valign="top">• <a href=
       "What-this-gives_002e.html#What-this-gives_002e" accesskey=
       "2">What this gives.</a>:</td>
 
