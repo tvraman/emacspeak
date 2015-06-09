@@ -180,13 +180,18 @@ Generated from http://www.npr.org/api/inputReference.php")
          (label(completing-read "Listing: " emacspeak-npr-listing-table)))
     (cdr (assoc label emacspeak-npr-listing-table))))
 
-(defun emacspeak-npr-listing-url-executor (url)
+(defun emacspeak-npr-listing-url-executor (url &optional date)
   "Special executor for use in NPR  listings."
-  (interactive "sURL: ")
+  (interactive "sURL: \nP ")
   (emacspeak-feeds-atom-display
-   (emacspeak-npr-rest-endpoint "query"
-                                (format "id=%s&output=atom"
-                                        (file-name-nondirectory url)))))
+   (emacspeak-npr-rest-endpoint
+    "query"
+    (format
+     "id=%s&output=atom%s"
+     (file-name-nondirectory url)
+     (if date
+         (concat "&date=" (read-from-minibuffer "Date: "))
+       "")))))
 
 
 (defun emacspeak-npr-search (query)
