@@ -11,6 +11,10 @@ Implements the new Librivox API
 ** emacspeak-npr:
 
 Updated to API 0.94.
+** emacspeak-bbc:
+Updated implementation to reflect that older iplayer convertor no longer works.
+Emacspeak-bbc now plays links through Chrome. Alternatively,, use package iplayer.
+
 
 ** emacspeak-eww:
 

@@ -8461,10 +8461,11 @@ Display specified listing.
 Interactive prefix arg prompts for search.
 @end deffn
 
-@deffn {Command} emacspeak-npr-listing-url-executor  (url)
+@deffn {Command} emacspeak-npr-listing-url-executor  (url &optional get-date)
 @findex emacspeak-npr-listing-url-executor
 
 Special executor for use in NPR  listings.
+Optional prefix arg prompts for date.
 @end deffn
 
 @deffn {Command} emacspeak-npr-search  (query)
@@ -12947,7 +12948,7 @@ specifies the page to extract contents  from.
 Toggle xsl keep result flag.
 @end deffn
 
-@deffn {Command} emacspeak-we-url-expand-and-execute   
+@deffn {Command} emacspeak-we-url-expand-and-execute  (&optional prefix)
 @findex emacspeak-we-url-expand-and-execute
 
 Applies buffer-specific URL expander/executor function.
