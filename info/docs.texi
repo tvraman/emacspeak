@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1071 commands and 881 options.
+This chapter documents a total of 1071 commands and 883 options.
 
 @menu
 * acss-structure::
@@ -3660,12 +3660,10 @@ client for browsing and listening to BBC programs.
 
 See http://www.bbc.co.uk/programmes/developers
 The BBC API helps locate a PID for a given program stream.
-That PID is converted to a streamable URL via the converter:
-http://www.iplayerconverter.co.uk/convert.aspx
-Conversion: http://www.iplayerconverter.co.uk/convert.aspx?pid=%s
-The result of the above conversion gives a Web page with a
-set of links,
-We hand the link to the raw stream  to mplayer.
+We then construct the BBC IPlayer URL for that  PID,
+And either hand that link off to Chrome,
+Or stream it via get_iplayer and mplayer.
+get_iplayer: https://github.com/get-iplayer/get_iplayer.git (push)
 
 @subsection emacspeak-bbc Commands
 
@@ -3683,6 +3681,20 @@ Interactive prefix arg filters  content by genre.
 
 Launch BBC Interaction for specified Genre.
 @end deffn
+
+@subsection emacspeak-bbc Options
+
+@defvar {User Option} emacspeak-bbc-button-action
+Action to use for BBC iPlayer buttons.
+get-iplayer: use get_iplayer.
+chrome: Hand off URL to Chrome.
+
+@end defvar
+
+@defvar {User Option} emacspeak-bbc-get-iplayer
+Name of get_iplayer executable.
+
+@end defvar
 
 @node emacspeak-bbdb
 @section emacspeak-bbdb
