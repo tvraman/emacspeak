@@ -45,7 +45,6 @@
 ;;; NPR == http://www.npr.org National Public Radio in the US
 ;;; It provides a simple Web  API http://www.npr.org/api/index
 ;;; This module implements an Emacspeak Npr client.
-;;; TODO: This module needs to be updated to the current NPR API (0.94) from the older 0.92
 
 ;;; For now, users will need to get their own API key
 
@@ -76,12 +75,8 @@
            (string :tag "API Key: "))
   :group 'emacspeak-npr)
 
-(defcustom emacspeak-npr-user-id nil
-  "Npr user Id."
-  :type '(choice :tag "Npr User id"
-                 (const :tag "None" nil)
-                 (string :tag "Email"))
-  :group 'emacspeak-npr)
+(defvar emacspeak-npr-user-id nil
+  "Npr user Id. Not used at present")
 
 ;;}}}
 ;;{{{ Variables:
@@ -125,7 +120,6 @@
 ;;;###autoload
 (defun emacspeak-npr-view (operation operand)
   "View results as Atom."
-  (interactive "sOperation:\nsOperands")
   (let* ((url
           (emacspeak-npr-rest-endpoint
            operation
