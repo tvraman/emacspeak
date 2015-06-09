@@ -576,8 +576,10 @@ necessary."
   (let ((kill-buffer-query-functions nil))
     (when (eq (process-status emacspeak-m-player-process) 'run)
       (let ((buffer (process-buffer emacspeak-m-player-process)))
+        (unless (string-equal emacspeak-media-shortcuts-directory
+                              (substring default-directory 0 -1))
           (emacspeak-m-player-amark-add emacspeak-m-player-recent-amark-name)
-          (emacspeak-amark-save)
+          (emacspeak-amark-save))
         (emacspeak-m-player-dispatch "quit")
         (emacspeak-auditory-icon 'close-object)
         (and (buffer-live-p buffer)
