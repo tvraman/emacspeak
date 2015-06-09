@@ -190,7 +190,7 @@ Generated from http://www.npr.org/api/inputReference.php")
      "id=%s&output=atom%s"
      (file-name-nondirectory url)
      (if date
-         (concat "&date=" (read-from-minibuffer "Date: "))
+         (concat "&date=" (emacspeak-speak-year-month-date))
        "")))))
 
 
