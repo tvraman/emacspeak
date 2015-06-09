@@ -83,7 +83,8 @@ Date defaults to today."
   (declare  (special emacspeak-bbc-json-schedules-template
                      emacspeak-bbc-station-list))
   (let* ((fields (split-string
-                  (completing-read  "Station:Outlet:" emacspeak-bbc-station-list)
+                  (completing-read "Station:Outlet:" emacspeak-bbc-station-list
+                                   nil 'must-match)
                   ":"))
          (date (emacspeak-speak-read-date-year/month/date))
          (station (first fields))
@@ -211,10 +212,11 @@ Date defaults to today."
           (format "%s --stream --pid=%s --modes=flashaaclow,hlsaaclow > %s &"
                   emacspeak-bbc-get-iplayer pid emacspeak-bbc-iplayer-handle)))
     (unless (file-exists-p emacspeak-bbc-iplayer-handle)
-         (shell-command (format "mknod %s p" emacspeak-bbc-iplayer-handle)))                  (message "Initialized stream, please wait.")
-         (shell-command  command "*get-iplayer*")
-         (sit-for 1)
-         (emacspeak-m-player emacspeak-bbc-iplayer-handle)))
+      (shell-command (format "mknod %s p" emacspeak-bbc-iplayer-handle)))
+    (message "Initialized stream, please wait.")
+    (shell-command  command "*get-iplayer*")
+    (sit-for 1)
+    (emacspeak-m-player emacspeak-bbc-iplayer-handle)))
 
 ;;}}}
 ;;{{{ Generic Button Action:
@@ -224,12 +226,13 @@ Date defaults to today."
 get-iplayer: use get_iplayer.
 chrome: Hand off URL to Chrome."
   :type '(choice :tag "Player"
-          (const :tag "Use get_iplayer"  get-iplayer)
-          (const :tag "Use chrome"  chrome))
+                 (const :tag "Use get_iplayer"  get-iplayer)
+                 (const :tag "Use chrome"  chrome))
   :group 'emacspeak-bbc)
 
 (defun emacspeak-bbc-iplayer-button-action (button)
-  "Generic button action that dispatches to get_iplayer or chrome based on user preference."
+  "Generic button action that dispatches to get_iplayer or chrome based
+on user preference."
   (declare (special emacspeak-bbc-button-action))
   (ecase emacspeak-bbc-button-action
     ('chrome (funcall #'emacspeak-bbc-chrome-action button))
@@ -318,7 +321,8 @@ Interactive prefix arg filters  content by genre."
   (declare (special emacspeak-bbc-iplayer-uri-prefix))
   (let ((title  (g-json-lookup-string "programme.display_titles.title" show))
         (pid (g-json-lookup-string "programme.pid" show))
-        (short-title (g-json-lookup-string "programme.display_titles.subtitle" show))
+        (short-title
+         (g-json-lookup-string "programme.display_titles.subtitle" show))
         (start (g-json-get 'start show))
         (synopsis (g-json-lookup-string "programme.short_synopsis" show))
         (orig (point)))
