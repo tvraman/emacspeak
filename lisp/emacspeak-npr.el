@@ -119,30 +119,9 @@
                  command)
    (buffer-string)))
 
-(defsubst emacspeak-npr-get-result (command)
-  "Run command and return its parsed XML output."
-  (declare (special shell-file-name shell-command-switch))
-  (emacspeak-npr-using-scratch
-   (call-process shell-file-name nil t
-                 nil shell-command-switch
-                 command)
-   (goto-char (point-min))
-   (read-xml)))
-
 (defvar emacspeak-npr-last-action-uri nil
   "Cache last API call URI.")
 
-(defun emacspeak-npr-api-call (operation operand)
-  "Make a Npr API  call and get the result."
-  (declare (special emacspeak-npr-last-action-uri))
-  (setq emacspeak-npr-last-action-uri
-        (emacspeak-npr-rest-endpoint operation operand))
-  (emacspeak-npr-get-result
-   (format
-    "%s %s '%s'  2>/dev/null"
-    g-curl-program
-    g-curl-common-options
-    emacspeak-npr-last-action-uri)))
 ;;;###autoload
 (defun emacspeak-npr-view (operation operand)
   "View results as Atom."
@@ -180,15 +159,19 @@ Generated from http://www.npr.org/api/inputReference.php")
          (label(completing-read "Listing: " emacspeak-npr-listing-table)))
     (cdr (assoc label emacspeak-npr-listing-table))))
 
-(defun emacspeak-npr-listing-url-executor (url)
-  "Special executor for use in NPR  listings."
-  (interactive "sURL")
+(defun emacspeak-npr-listing-url-executor (url &optional get-date)
+  "Special executor for use in NPR  listings.
+Optional prefix arg prompts for date."
+  (interactive "sURL: \nP")
   (emacspeak-feeds-atom-display
    (emacspeak-npr-rest-endpoint
     "query"
     (format
-     "id=%s&output=atom"
-     (file-name-nondirectory url)))))
+     "id=%s&output=atom%s"
+     (file-name-nondirectory url)
+     (if get-date
+         (concat "&date=" (emacspeak-speak-year-month-date))
+       "")))))
 
 
 (defun emacspeak-npr-search (query)

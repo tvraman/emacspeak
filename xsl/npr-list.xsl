@@ -17,7 +17,8 @@
         <xsl:value-of select="/list/title"/></title>
       </head>
       <body>
-<p>Use <code>e e</code> to invoke a custom URL executor to open program links.</p>
+<p>Use <code>e e</code> to invoke a custom URL executor to open program links.
+Interactive prefix arg  prompts for a date. </p>
         <ol>
           <xsl:for-each select="//item">
 <li>

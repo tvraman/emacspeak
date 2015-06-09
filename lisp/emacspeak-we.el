@@ -102,9 +102,9 @@ a rewrite rule even if one is already defined."
 
 (make-variable-buffer-local 'emacspeak-we-url-executor)
 
-(defun emacspeak-we-url-expand-and-execute ()
+(defun emacspeak-we-url-expand-and-execute (&optional prefix)
   "Applies buffer-specific URL expander/executor function."
-  (interactive)
+  (interactive "P")
   (declare (special emacspeak-we-url-executor))
   (emacspeak-webutils-browser-check)
   (let ((url (funcall emacspeak-webutils-url-at-point)))
@@ -112,7 +112,9 @@ a rewrite rule even if one is already defined."
     (cond
      ((and (boundp 'emacspeak-we-url-executor)
            (fboundp emacspeak-we-url-executor))
-      (funcall emacspeak-we-url-executor url))
+      (if prefix
+          (funcall emacspeak-we-url-executor url prefix)
+      (funcall emacspeak-we-url-executor url)))
      (t
       (setq emacspeak-we-url-executor
             (intern
