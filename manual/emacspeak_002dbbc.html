@@ -99,12 +99,10 @@
   listening to BBC programs.</p>
 
   <p>See http://www.bbc.co.uk/programmes/developers The BBC API
-  helps locate a PID for a given program stream. That PID is
-  converted to a streamable URL via the converter:
-  http://www.iplayerconverter.co.uk/convert.aspx Conversion:
-  http://www.iplayerconverter.co.uk/convert.aspx?pid=%s The result
-  of the above conversion gives a Web page with a set of links, We
-  hand the link to the raw stream to mplayer.</p><a name=
+  helps locate a PID for a given program stream. We then construct
+  the BBC IPlayer URL for that PID, And either hand that link off
+  to Chrome, Or stream it via get_iplayer and mplayer. get_iplayer:
+  https://github.com/get-iplayer/get_iplayer.git (push)</p><a name=
   "emacspeak_002dbbc-Commands" id="emacspeak_002dbbc-Commands"></a>
 
   <h4 class="subsection">11.25.1 emacspeak-bbc Commands</h4>
@@ -137,6 +135,30 @@
       "index-emacspeak_002dbbc_002dgenre-1"></a>
 
       <p>Launch BBC Interaction for specified Genre.</p>
+    </dd>
+  </dl><a name="emacspeak_002dbbc-Options" id=
+  "emacspeak_002dbbc-Options"></a>
+
+  <h4 class="subsection">11.25.2 emacspeak-bbc Options</h4>
+
+  <dl>
+    <dt><a name="index-User-Option-366" id=
+    "index-User-Option-366"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-bbc-button-action</em></dt>
+
+    <dd>
+      <p>Action to use for BBC iPlayer buttons. get-iplayer: use
+      get_iplayer. chrome: Hand off URL to Chrome.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-367" id=
+    "index-User-Option-367"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-bbc-get-iplayer</em></dt>
+
+    <dd>
+      <p>Name of get_iplayer executable.</p>
     </dd>
   </dl>
 </body>
