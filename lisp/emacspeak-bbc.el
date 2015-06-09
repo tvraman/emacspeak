@@ -48,12 +48,15 @@
 
 ;;; See http://www.bbc.co.uk/programmes/developers
 ;;; The BBC API helps locate a PID for a given program stream.
-;;; That PID is converted to a streamable URL via the converter:
-;;; http://www.iplayerconverter.co.uk/convert.aspx
-;;;Conversion: http://www.iplayerconverter.co.uk/convert.aspx?pid=%s
-;;; The result of the above conversion gives a Web page with a
-;;; set of links,
-;;; We hand the link to the raw stream  to mplayer.
+;;; We then construct the BBC IPlayer URL for that  PID,
+;;; And either hand that link off to Chrome,
+;;; Or stream it via get_iplayer and mplayer.
+;;; get_iplayer: https://github.com/get-iplayer/get_iplayer.git (push)
+;;; Pro/Con:
+;;; Chrome: Has the UI for seeking in the stream.
+;;; get_iplayer: We use a named pipe, and cannot seek,
+;;; but the rest of emacspeak-m-player is available.
+;;; For downloading a program etc., use package iplayer.
 ;;; Code:
 ;;}}}
 ;;{{{  Required modules
@@ -73,10 +76,6 @@
 (defvar emacspeak-bbc-json-schedules-template
   "http://www.bbc.co.uk/%s/programmes/schedules/%s%s.json"
   "URL template for pulling schedules as json.")
-
-(defvar emacspeak-bbc-iplayer-converter
-  "http://www.iplayerconverter.co.uk/convert.aspx?pid=%s"
-  "REST API for converting IPlayer program-id to  stream.")
 
 (defun emacspeak-bbc-read-schedules-url ()
   "Return URL for schedule for specified station, outlet, date.
@@ -193,7 +192,61 @@ Date defaults to today."
   "List of BBC Radio stations.")
 
 ;;}}}
+;;{{{ Stream using get_iplayer:
+
+(defvar emacspeak-bbc-iplayer-handle "/tmp/iplayer-stream.mp3"
+  "Name of named pipe used for streaming.")
+
+(defcustom emacspeak-bbc-get-iplayer (executable-find "get_iplayer")
+  "Name of get_iplayer executable."
+  :type 'string
+  :group 'emacspeak-bbc)
+
+(defun emacspeak-bbc-get-iplayer-action (button)
+  "Stream using get_iplayer."
+  (declare (special emacspeak-bbc-get-iplayer
+                    emacspeak-bbc-iplayer-handle))
+  (let* ((pid (button-get button 'pid))
+         (command
+          (format "%s --stream --pid=%s --modes=flashaaclow,hlsaaclow > %s &"
+                  emacspeak-bbc-get-iplayer pid emacspeak-bbc-iplayer-handle)))
+    (unless (file-exists-p emacspeak-bbc-iplayer-handle)
+         (shell-command (format "mknod %s p" emacspeak-bbc-iplayer-handle)))                  (message "Initialized stream, please wait.")
+         (shell-command  command "*get-iplayer*")
+         (sit-for 1)
+         (emacspeak-m-player emacspeak-bbc-iplayer-handle)))
+
+;;}}}
+;;{{{ Generic Button Action:
+
+(defcustom emacspeak-bbc-button-action  'get-iplayer
+  "Action to use for BBC iPlayer buttons.
+get-iplayer: use get_iplayer.
+chrome: Hand off URL to Chrome."
+  :type '(choice :tag "Player"
+          (const :tag "Use get_iplayer"  get-iplayer)
+          (const :tag "Use chrome"  chrome))
+  :group 'emacspeak-bbc)
+
+(defun emacspeak-bbc-iplayer-button-action (button)
+  "Generic button action that dispatches to get_iplayer or chrome based on user preference."
+  (declare (special emacspeak-bbc-button-action))
+  (ecase emacspeak-bbc-button-action
+    ('chrome (funcall #'emacspeak-bbc-chrome-action button))
+    ('get-iplayer (funcall #'emacspeak-bbc-get-iplayer-action button))))
+
+;;{{{ Action: Chrome
+
+(defun emacspeak-bbc-chrome-action (button)
+  "Play program  refered to by this button."
+  (browse-url-chromium (button-get  button 'link)))
+
+;;}}}
+
+;;}}}
+
 ;;{{{ BBC IPlayer Interaction
+
 ;;;###autoload
 (defun emacspeak-bbc (&optional genre)
   "Launch BBC Interaction.
@@ -278,10 +331,6 @@ Interactive prefix arg filters  content by genre."
     (insert (format "\t%s\n" start))
     (insert (format "%s" synopsis))
     (put-text-property  orig (point) 'show show)))
-
-(defun emacspeak-bbc-iplayer-button-action (button)
-  "Play program  refered to by this button."
-  (browse-url-chromium (button-get  button 'link)))
 
 ;;}}}
 (provide 'emacspeak-bbc)
