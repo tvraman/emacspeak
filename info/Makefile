@@ -29,7 +29,7 @@ docs.texi:
 install: emacspeak.info turning-twenty.info
 	if test  -x /usr/bin/install-info ; then \
 		install-info emacspeak.info ${INFODIR}/dir ;\
-install-info turning-twenty.info ${INFODIR}/dir \;
+install-info turning-twenty.info ${INFODIR}/dir ; \
 	fi
 	$(INSTALL)  -m 644 *.info* $(infodir)
 
