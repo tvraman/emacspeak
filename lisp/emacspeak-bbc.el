@@ -42,7 +42,8 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; BBC: http://www.bbc.co.uk This module uses
+;;; BBC: http://www.bbc.co.uk
+;;; This module uses
 ;;; publicly available REST APIs to implement a native Emacs
 ;;; client for browsing and listening to BBC programs.
 
@@ -51,13 +52,15 @@
 ;;; We then construct the BBC IPlayer URL for that  PID,
 ;;; And either hand that link off to Chrome,
 ;;; Or stream it via get_iplayer and mplayer.
-;;; get_iplayer: https://github.com/get-iplayer/get_iplayer.git (push)
-;;; Pro/Con:
+;;; get_iplayer: https://github.com/get-iplayer/get_iplayer.git
+;;; get_player vs Chrome: Pro/Con:
 ;;; Chrome: Has the UI for seeking in the stream.
 ;;; get_iplayer: We use a named pipe, and cannot seek,
 ;;; but the rest of emacspeak-m-player is available.
-;;; For downloading a program etc., use package iplayer.
+;;; For downloading a program etc., use Emacs package iplayer.
+
 ;;; Code:
+
 ;;}}}
 ;;{{{  Required modules
 
@@ -70,9 +73,11 @@
 
 ;;}}}
 ;;{{{ Helpers:
+
 (defvar emacspeak-bbc-json nil
   "Buffer local variable to store API results.")
 (make-variable-buffer-local 'emacspeak-bbc-json)
+
 (defvar emacspeak-bbc-json-schedules-template
   "http://www.bbc.co.uk/%s/programmes/schedules/%s%s.json"
   "URL template for pulling schedules as json.")
@@ -101,8 +106,7 @@ Date defaults to today."
 (defun emacspeak-bbc-read-genre-url ()
   "Return URL for specified  genre."
   (declare (special emacspeak-bbc-json-genre-template))
-  (let
-      ((genre (read-from-minibuffer "Genre/Genre/Genre:")))
+  (let ((genre (read-from-minibuffer "Genre/Genre/Genre:")))
     (format emacspeak-bbc-json-genre-template genre)))
 
 (defvar emacspeak-bbc-station-list
@@ -196,7 +200,7 @@ Date defaults to today."
 ;;{{{ Stream using get_iplayer:
 
 (defvar emacspeak-bbc-iplayer-handle "/tmp/iplayer-stream.mp3"
-  "Name of named pipe used for streaming.")
+  "Location of named pipe used for streaming.")
 
 (defcustom emacspeak-bbc-get-iplayer (executable-find "get_iplayer")
   "Name of get_iplayer executable."
@@ -205,18 +209,25 @@ Date defaults to today."
 
 (defun emacspeak-bbc-get-iplayer-action (button)
   "Stream using get_iplayer."
-  (declare (special emacspeak-bbc-get-iplayer
-                    emacspeak-bbc-iplayer-handle))
-  (let* ((pid (button-get button 'pid))
-         (command
-          (format "%s --stream --pid=%s --modes=flashaaclow,hlsaaclow > %s &"
-                  emacspeak-bbc-get-iplayer pid emacspeak-bbc-iplayer-handle)))
+  (declare (special emacspeak-bbc-get-iplayer emacspeak-bbc-iplayer-handle))
+  (let ((command
+         (format
+          "%s --stream --pid=%s --modes=best,flashaaclow,hlsaaclow > %s &"
+          emacspeak-bbc-get-iplayer
+          (button-get button 'pid) emacspeak-bbc-iplayer-handle)))
     (unless (file-exists-p emacspeak-bbc-iplayer-handle)
       (shell-command (format "mknod %s p" emacspeak-bbc-iplayer-handle)))
-    (message "Initialized stream, please wait.")
+    (dtk-speak-and-echo "Initialized stream, please wait.")
     (shell-command  command " *get-iplayer*")
     (sit-for 1)
     (emacspeak-m-player emacspeak-bbc-iplayer-handle)))
+
+;;}}}
+;;{{{ Stream Using Chrome:
+
+(defun emacspeak-bbc-chrome-action (button)
+  "Play program  refered to by this button."
+  (browse-url-chromium (button-get  button 'link)))
 
 ;;}}}
 ;;{{{ Generic Button Action:
@@ -238,16 +249,7 @@ on user preference."
     ('chrome (funcall #'emacspeak-bbc-chrome-action button))
     ('get-iplayer (funcall #'emacspeak-bbc-get-iplayer-action button))))
 
-;;{{{ Action: Chrome
-
-(defun emacspeak-bbc-chrome-action (button)
-  "Play program  refered to by this button."
-  (browse-url-chromium (button-get  button 'link)))
-
 ;;}}}
-
-;;}}}
-
 ;;{{{ BBC IPlayer Interaction
 
 ;;;###autoload
