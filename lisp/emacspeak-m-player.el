@@ -261,10 +261,10 @@ on a specific directory."
    (t (expand-file-name  emacspeak-media-shortcuts-directory))))
 
 ;;;###autoload
-(defun emacspeak-m-player-url (url)
+(defun emacspeak-m-player-url (url &optional playlist-p)
   "Call emacspeak-m-player with specified URL."
   (interactive (list (car (browse-url-interactive-arg "Media URL: "))))
-  (emacspeak-m-player url 'playlist))
+  (emacspeak-m-player url playlist-p))
 
 ;;;###autoload
 
