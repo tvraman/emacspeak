@@ -243,6 +243,7 @@ on a specific directory."
 (defun emacspeak-m-player-accelerator (directory)
   "Launch MPlayer on specified directory and switch to it."
   (let ((ido-case-fold t)
+        (emacspeak-media-directory-regexp "_____") ;hack: dont match
         (emacspeak-media-shortcuts-directory (expand-file-name directory)))
     (call-interactively 'emacspeak-multimedia)
     (switch-to-buffer (process-buffer emacspeak-m-player-process))
