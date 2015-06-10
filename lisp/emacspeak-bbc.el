@@ -232,7 +232,8 @@ Date defaults to today."
 ;;}}}
 ;;{{{ Generic Button Action:
 
-(defcustom emacspeak-bbc-button-action  'get-iplayer
+(defcustom emacspeak-bbc-button-action
+  (if (executable-find "get_iplayer") 'get-iplayer 'chrome)
   "Action to use for BBC iPlayer buttons.
 get-iplayer: use get_iplayer.
 chrome: Hand off URL to Chrome."
