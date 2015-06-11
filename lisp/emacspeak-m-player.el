@@ -238,12 +238,15 @@ on a specific directory."
              (interactive)
              (emacspeak-m-player-accelerator ,directory)))))
     (global-set-key key command)))
+(defvar emacspeak-m-player-accelerator-p nil
+  "Flag set by accelerators.
+Let-binding this causes default-directory etc to be ignored when guessing directory.")
 
 ;;;###autoload
 (defun emacspeak-m-player-accelerator (directory)
   "Launch MPlayer on specified directory and switch to it."
   (let ((ido-case-fold t)
-        (emacspeak-media-directory-regexp "_____") ;hack: dont match
+        (emacspeak-m-player-accelerator-p t)
         (emacspeak-media-shortcuts-directory (expand-file-name directory)))
     (call-interactively 'emacspeak-multimedia)
     (switch-to-buffer (process-buffer emacspeak-m-player-process))
@@ -252,11 +255,13 @@ on a specific directory."
 
 (defsubst emacspeak-m-player-guess-directory ()
   "Guess default directory."
-  (declare (special emacspeak-media-directory-regexp))
+  (declare (special emacspeak-media-directory-regexp
+                    emacspeak-m-player-accelerator-p))
   (cond
-   ((or (string-match emacspeak-media-directory-regexp  default-directory)
-                                        ;pattern match
-        (directory-files default-directory   nil emacspeak-media-extensions))
+   (emacspeak-m-player-accelerator-p (expand-file-name  emacspeak-media-shortcuts-directory))
+   ((string-match emacspeak-media-directory-regexp  default-directory)
+    default-directory)
+   ((directory-files default-directory   nil emacspeak-media-extensions)
     default-directory)
    (t (expand-file-name  emacspeak-media-shortcuts-directory))))
 
