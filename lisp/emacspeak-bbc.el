@@ -210,11 +210,12 @@ Date defaults to today."
 (defun emacspeak-bbc-get-iplayer-action (button)
   "Stream using get_iplayer."
   (declare (special emacspeak-bbc-get-iplayer emacspeak-bbc-iplayer-handle))
-  (let ((command
-         (format
-          "%s --stream --pid=%s --modes=best,flashaaclow,hlsaaclow > %s &"
-          emacspeak-bbc-get-iplayer
-          (button-get button 'pid) emacspeak-bbc-iplayer-handle)))
+  (let
+      ((command
+        (format
+         "%s --stream --pid=%s --modes=flashaaclow,hlsaaclow -type=radio > %s &"
+         emacspeak-bbc-get-iplayer
+         (button-get button 'pid) emacspeak-bbc-iplayer-handle)))
     (unless (file-exists-p emacspeak-bbc-iplayer-handle)
       (shell-command (format "mknod %s p" emacspeak-bbc-iplayer-handle)))
     (dtk-speak-and-echo "Initialized stream, please wait.")
