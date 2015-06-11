@@ -150,7 +150,7 @@ Generated from http://www.npr.org/api/inputReference.php")
 (defsubst emacspeak-npr-get-listing-key ()
   "Prompt for and return listing key."
   (let* ((completion-ignore-case t)
-         (label(completing-read "Listing: " emacspeak-npr-listing-table)))
+         (label(completing-read "Listing: " emacspeak-npr-listing-table nil t)))
     (cdr (assoc label emacspeak-npr-listing-table))))
 
 (defun emacspeak-npr-listing-url-executor (url &optional get-date)
