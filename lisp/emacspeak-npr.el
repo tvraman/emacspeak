@@ -157,6 +157,7 @@ Generated from http://www.npr.org/api/inputReference.php")
   "Special executor for use in NPR  listings.
 Optional prefix arg prompts for date."
   (interactive "sURL: \nP")
+  (emacspeak-webutils-autospeak)
   (emacspeak-feeds-atom-display
    (emacspeak-npr-rest-endpoint
     "query"
