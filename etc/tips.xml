@@ -614,42 +614,6 @@ Thus, one can organize electronic texts by placing  files for a given
       </qandaentry>
       <qandaentry>
         <question>
-          <para>Playing MP3 using
-            <application>mpg123</application></para>
-        </question>
-        <answer>
-          <para><application>mpg123</application> is a
-            command-line MP3 player.
-            Emacs package <application>mpg123.el</application> provides
-            an Emacs front-end that is speech-enabled by
-            Emacspeak.
-            This front-end is most convenient for playing tracks out of
-            a given directory.</para>
-        </answer>
-      </qandaentry>
-      <qandaentry>
-        <question>
-          <para>Playing MP3 files with <application>freeamp</application></para>
-        </question>
-        <answer>
-          <para>MP3 player
-            <application>freeamp</application> provides a
-            pluggable look and feel with many popular
-            front-ends for playing music. There are different front
-            -ends to <application>freeamp</application>,
-            including an Emacs front-end provided by Emacspeak
-            via module
-            <application>emacspeak-freeamp.el</application>.
-            The <application>freeamp</application> is more
-            convenient for setting up music playlists.
-            The emacspeak interface allows controlling the MP3 player
-            from anywhere on the audio desktop without the
-            need to explicitly switch context from the current task.
-          </para>
-        </answer>
-      </qandaentry>
-      <qandaentry>
-        <question>
           <para>Setting up music playlists</para>
         </question>
         <answer>
@@ -777,6 +741,15 @@ There are a number of available options, none of which are completely
             satisfactory.
 Here is a summary of what is available.</para>
           <orderedlist>
+            <listitem>
+              <para>
+<command>eww</command>.
+EWW is built-in with Emacs 24.4 and later.
+ Emacspeak's web-specific wizards 
+make up for many of the short-comings encountered when navigating
+                complex web sites.
+  </para>
+            </listitem>
             <listitem>
               <para>
 <command>W3</command>.
