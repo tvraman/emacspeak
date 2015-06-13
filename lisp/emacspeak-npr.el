@@ -223,11 +223,47 @@ Interactive prefix arg prompts for search."
   (or emacspeak-npr-program-table (emacspeak-npr-refresh-program-table))
   (let ((completion-ignore-case t))
     (cadr
-     (assoc  
+     (assoc
       (completing-read
        "NPR Program: "
        emacspeak-npr-program-table nil t)
-      emacspeak-npr-program-table)))))
+      emacspeak-npr-program-table))))
+
+(defun emacspeak-npr-play-program (pid &optional get-date)
+  "Play specified NPR program.
+Optional interactive prefix arg prompts for a date."
+  (interactive
+   (list
+    (emacspeak-npr-read-program-id)
+    current-prefix-arg))
+  (let* ((date (and get-date (emacspeak-speak-read-date-year/month/date)))
+       (url
+         (emacspeak-npr-rest-endpoint
+    "query"
+    (format "id=%s&output=json%s" pid
+            (if get-date (concat "&date=" date) ""))))
+       (listing
+        (g-json-get-result
+         (format "%s %s '%s'"
+                 g-curl-program g-curl-common-options url)))
+       (stories (g-json-lookup "list.story" listing))
+       (playlist (make-temp-file "npr" nil ".m3u"))
+       (target nil))
+    (loop
+     for s across stories do
+      (setq
+       target
+       (g-json-lookup
+        "$text"
+        (aref
+         (g-json-lookup "format.mp3"
+                        (aref (g-json-get 'audio s) 0))
+         0)))
+      (shell-command
+        (format "%s %s '%s' >> %s"
+                g-curl-program g-curl-common-options
+                target playlist)))
+    (emacspeak-m-player playlist 'playlist)))
 
 ;;}}}
 (provide 'emacspeak-npr)
