@@ -144,7 +144,7 @@ Generated from http://www.npr.org/api/inputReference.php")
 (defsubst emacspeak-npr-get-listing-key ()
   "Prompt for and return listing key."
   (let* ((completion-ignore-case t)
-         (label(completing-read "Listing: " emacspeak-npr-listing-table nil t)))
+         (label (completing-read "List: " emacspeak-npr-listing-table nil t)))
     (cdr (assoc label emacspeak-npr-listing-table))))
 
 (defun emacspeak-npr-listing-url-executor (url &optional get-date)
@@ -202,13 +202,15 @@ Interactive prefix arg prompts for search."
   (declare (special emacspeak-npr-program-table))
   (when (or (null emacspeak-npr-program-table) force)
     (let* ((url
-            (emacspeak-npr-rest-endpoint "list" (format "id=3004&output=json")))
+            (emacspeak-npr-rest-endpoint
+             "list"
+             (format "id=%s&output=json"
+                     (cdr (assoc "Programs" emacspeak-npr-listing-table)))))
            (json
             (g-json-get 'item
                         (g-json-get-result
                          (format  "%s %s '%s'"
                                   g-curl-program g-curl-common-options url)))))
-
       (loop
        for p  across json do
        (push
@@ -237,6 +239,8 @@ Optional interactive prefix arg prompts for a date."
     (emacspeak-npr-read-program-id)
     current-prefix-arg))
   (let* ((emacspeak-speak-messages nil)
+         (program  (first (find pid emacspeak-npr-program-table
+                                :key #'second :test #'string-equal)))
          (date (and get-date (emacspeak-speak-read-date-year/month/date)))
          (url
           (emacspeak-npr-rest-endpoint
@@ -249,24 +253,21 @@ Optional interactive prefix arg prompts for a date."
                    g-curl-program g-curl-common-options url)))
          (stories (g-json-lookup "list.story" listing))
          (playlist (make-temp-file
-                     (format "npr-%s-" pid) nil ".m3u"))
+                    (format "npr-%s-"  program) nil ".m3u"))
          (target nil))
-    (dtk-speak-and-echo "Getting program.")
-    (loop
-     for s across stories do
-     (setq
-      target
-      (g-json-lookup
-       "$text"
-       (aref
-        (g-json-lookup "format.mp3"
-                       (aref (g-json-get 'audio s) 0))
-        0)))
-     (shell-command
-      (format "%s  '%s' >> %s"
-              g-curl-program target playlist))
-     (shell-command
-      (format "echo ' ' >> %s" playlist)))
+    (dtk-speak-and-echo
+     (format "Getting %s%s"
+             program
+             (if date (format " for %s" date) "")))
+    (with-current-buffer (find-file playlist)
+      (loop
+       for s across stories do
+       (setq
+        target
+        (g-json-lookup "format.mp4.$text" (aref (g-json-get 'audio s) 0)))
+       (insert (format "%s\n" target)))
+      (save-buffer)
+      (kill-buffer))
     (emacspeak-m-player playlist 'playlist)))
 
 ;;}}}
