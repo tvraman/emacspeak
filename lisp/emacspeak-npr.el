@@ -228,7 +228,7 @@ Interactive prefix arg prompts for search."
        "NPR Program: "
        emacspeak-npr-program-table nil t)
       emacspeak-npr-program-table))))
-
+;;;###autoload
 (defun emacspeak-npr-play-program (pid &optional get-date)
   "Play specified NPR program.
 Optional interactive prefix arg prompts for a date."
