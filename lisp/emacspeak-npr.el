@@ -253,8 +253,7 @@ Optional interactive prefix arg prompts for a date."
                    g-curl-program g-curl-common-options url)))
          (stories (g-json-lookup "list.story" listing))
          (playlist (make-temp-file
-                    (format "npr-%s-"  program) nil ".m3u"))
-         (target nil))
+                    (format "npr-%s-"  program) nil ".m3u")))
     (dtk-speak-and-echo
      (format "Getting %s%s"
              program
@@ -262,10 +261,8 @@ Optional interactive prefix arg prompts for a date."
     (with-current-buffer (find-file playlist)
       (loop
        for s across stories do
-       (setq
-        target
-        (g-json-lookup "format.mp4.$text" (aref (g-json-get 'audio s) 0)))
-       (insert (format "%s\n" target)))
+       (insert
+        (format "%s\n" (g-json-path-lookup "audio.[0].format.mp4.$text" s))))
       (save-buffer)
       (kill-buffer))
     (emacspeak-m-player playlist 'playlist)))
