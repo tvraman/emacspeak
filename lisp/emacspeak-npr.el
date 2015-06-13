@@ -248,7 +248,8 @@ Optional interactive prefix arg prompts for a date."
            (format "%s %s '%s'"
                    g-curl-program g-curl-common-options url)))
          (stories (g-json-lookup "list.story" listing))
-         (playlist (make-temp-file "npr" nil ".m3u"))
+         (playlist (make-temp-file
+                     (format "npr-%s-" pid) nil ".m3u"))
          (target nil))
     (loop
      for s across stories do
@@ -260,9 +261,8 @@ Optional interactive prefix arg prompts for a date."
         (g-json-lookup "format.mp3"
                        (aref (g-json-get 'audio s) 0))
         0)))
-     (message target)
      (shell-command
-      (format "%s --verbose '%s' >> %s"
+      (format "%s  '%s' >> %s"
               g-curl-program target playlist))
      (shell-command
       (format "echo ' ' >> %s" playlist)))
