@@ -251,6 +251,7 @@ Optional interactive prefix arg prompts for a date."
          (playlist (make-temp-file
                      (format "npr-%s-" pid) nil ".m3u"))
          (target nil))
+    (dtk-speak-and-echo "Getting program.")
     (loop
      for s across stories do
      (setq
