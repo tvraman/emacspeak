@@ -65,6 +65,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 
 (declare (special custom-file))
 (setq custom-file (expand-file-name "~/.customize-emacs"))
+(when (file-exists-p custom-file) (load-file custom-file))
 (setq message-log-max 1024)
 
 ;;}}}
@@ -182,7 +183,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (shell-command "aplay ~/cues/highbells.au")
      (message "Successfully initialized Emacs")))
 (start-up-my-emacs)
-(when (file-exists-p custom-file) (load-file custom-file))
+
 (setq warning-suppress-types nil)
 
 ;;}}}
