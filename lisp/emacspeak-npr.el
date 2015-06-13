@@ -236,36 +236,37 @@ Optional interactive prefix arg prompts for a date."
    (list
     (emacspeak-npr-read-program-id)
     current-prefix-arg))
-  (let* ((date (and get-date (emacspeak-speak-read-date-year/month/date)))
-       (url
-         (emacspeak-npr-rest-endpoint
-    "query"
-    (format "id=%s&output=json%s" pid
-            (if get-date (concat "&date=" date) ""))))
-       (listing
-        (g-json-get-result
-         (format "%s %s '%s'"
-                 g-curl-program g-curl-common-options url)))
-       (stories (g-json-lookup "list.story" listing))
-       (playlist (make-temp-file "npr" nil ".m3u"))
-       (target nil))
+  (let* ((emacspeak-speak-messages nil)
+         (date (and get-date (emacspeak-speak-read-date-year/month/date)))
+         (url
+          (emacspeak-npr-rest-endpoint
+           "query"
+           (format "id=%s&output=json%s" pid
+                   (if get-date (concat "&date=" date) ""))))
+         (listing
+          (g-json-get-result
+           (format "%s %s '%s'"
+                   g-curl-program g-curl-common-options url)))
+         (stories (g-json-lookup "list.story" listing))
+         (playlist (make-temp-file "npr" nil ".m3u"))
+         (target nil))
     (loop
      for s across stories do
-      (setq
-       target
-       (format "%s\n"
-       (g-json-lookup
-        "$text"
-        (aref
-         (g-json-lookup "format.mp3"
-                        (aref (g-json-get 'audio s) 0))
-         0))))
-      (message target)
-      (shell-command
-        (format "%s \"%s\" >> %s"
-                g-curl-program target playlist)))
-    ;(emacspeak-m-player playlist 'playlist)
-    ))
+     (setq
+      target
+      (g-json-lookup
+       "$text"
+       (aref
+        (g-json-lookup "format.mp3"
+                       (aref (g-json-get 'audio s) 0))
+        0)))
+     (message target)
+     (shell-command
+      (format "%s --verbose '%s' >> %s"
+              g-curl-program target playlist))
+     (shell-command
+      (format "echo ' ' >> %s" playlist)))
+    (emacspeak-m-player playlist 'playlist)))
 
 ;;}}}
 (provide 'emacspeak-npr)
