@@ -205,7 +205,7 @@ Interactive prefix arg prompts for search."
 
 (defun emacspeak-npr-refresh-program-table (&optional force)
   "Refresh program table cache if needed."
-  (interactive)
+  (interactive "P")
   (declare (special emacspeak-npr-program-table))
   (when (or (null emacspeak-npr-program-table) force)
     (let* ((url
@@ -220,8 +220,8 @@ Interactive prefix arg prompts for search."
      for p  across json do
      (push
       (list
-       (g-json-get 'id p)
-       (g-json-lookup "title.$text"  p))
+       (g-json-lookup "title.$text"  p)
+       (g-json-get 'id p))
       emacspeak-npr-program-table)))))
 
 ;;}}}
