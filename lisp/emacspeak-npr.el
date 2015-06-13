@@ -253,17 +253,19 @@ Optional interactive prefix arg prompts for a date."
      for s across stories do
       (setq
        target
+       (format "%s\n"
        (g-json-lookup
         "$text"
         (aref
          (g-json-lookup "format.mp3"
                         (aref (g-json-get 'audio s) 0))
-         0)))
+         0))))
+      (message target)
       (shell-command
-        (format "%s %s '%s' >> %s"
-                g-curl-program g-curl-common-options
-                target playlist)))
-    (emacspeak-m-player playlist 'playlist)))
+        (format "%s \"%s\" >> %s"
+                g-curl-program target playlist)))
+    ;(emacspeak-m-player playlist 'playlist)
+    ))
 
 ;;}}}
 (provide 'emacspeak-npr)
