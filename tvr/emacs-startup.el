@@ -5,14 +5,17 @@
 ;;; August 12, 2007: Cleaned up for Emacs 22
 ;;}}}
 ;;{{{ personal lib
+
 (defvar emacs-private-library
   (expand-file-name "~/.elisp")
   "Private personalization directory. ")
 (defvar emacs-personal-library
   (expand-file-name "~/emacs/lisp/site-lisp")
   "Directory where we keep personal libraries")
+
 ;;}}}
 ;;{{{ helper functions:
+
 (defmacro csetq (variable value)
   `(funcall (or (get ',variable 'custom-set) 'set-default) ',variable ,value))
 ;;; Usage:
@@ -56,13 +59,14 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
       (error (message
               "Error loading %s"
               lib)))))
+
 ;;}}}
 ;;{{{ customize custom
-
 
 (declare (special custom-file))
 (setq custom-file (expand-file-name "~/.customize-emacs"))
 (setq message-log-max 1024)
+
 ;;}}}
 (defun start-up-my-emacs()
   "Start up emacs for me. "
@@ -96,7 +100,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
           '(
             ([f3] bury-buffer)
             ([f4] emacspeak-kill-buffer-quietly)
-                                        ;("\M-s" save-buffer)
             ("\M--" undo)
             ([delete]dtk-toggle-punctuation-mode)
             ( [f8]emacspeak-remote-quick-connect-to-server)
@@ -110,7 +113,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
             ( "\M-\C-c"calendar))
           do
           (global-set-key (first key) (second key)))
-    
+
     ;;}}}
     ;;{{{  initial stuff
 
@@ -126,6 +129,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 
     ;;}}}
     ;;{{{  different mode settings
+
 ;;; Mode hooks.
 
     (eval-after-load "shell"
@@ -136,6 +140,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 
     ;;}}}
     ;;{{{ Prepare needed libraries
+
     (package-initialize)
     (mapc
      #'load-library-if-available
@@ -143,28 +148,23 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 ;;; personal functions and advice
        "my-functions"
 ;;; Mail readers:
-       "vm-prepare" "gm-smtp"
-       "gnus-prepare"
-       "bbdb-prepare"
-        "sigbegone"
+       "vm-prepare" "gm-smtp" "gnus-prepare" "bbdb-prepare"
+       "mspools-prepare" "sigbegone"
 ;;; Web Browsers:
-       "w3-prepare" ;"w3m-prepare" 
-       "auctex-prepare" "nxml-prepare"
-       "folding-prepare"
+       "w3-prepare"
+       "auctex-prepare" "nxml-prepare" "folding-prepare"
 "elfeed-prepare"
        "calc-prepare" 
        "tcl-prepare" 
                                         ; jde and ecb will pull in cedet.
                                         ;"jde-prepare" "ecb-prepare"
-       "mspools-prepare"
        "org-prepare"
-       "erc-prepare" "jabber-prepare"
-       "twittering-prepare"
-       "tramp-prepare"
-       "fff-prepare" "fap-prepare"
+       "erc-prepare" "jabber-prepare" "twittering-prepare"
+       "tramp-prepare" "fff-prepare" "fap-prepare"
        "emms-prepare"
        "local"
        "emacspeak-dbus"))
+
     ;;}}}
     ))                                  ; end defun
 ;;{{{  start it up
@@ -184,6 +184,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 (start-up-my-emacs)
 (when (file-exists-p custom-file) (load-file custom-file))
 (setq warning-suppress-types nil)
+
 ;;}}}
 (provide 'emacs-startup)
 ;;{{{  emacs local variables
