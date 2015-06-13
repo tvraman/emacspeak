@@ -239,33 +239,31 @@ Optional interactive prefix arg prompts for a date."
     (emacspeak-npr-read-program-id)
     current-prefix-arg))
   (let* ((emacspeak-speak-messages nil)
-         (program  (first (find pid emacspeak-npr-program-table
-                                :key #'second :test #'string-equal)))
+         (program
+          (first
+           (find pid emacspeak-npr-program-table
+                 :key #'second :test #'string-equal)))
          (date (and get-date (emacspeak-speak-read-date-year/month/date)))
          (url
           (emacspeak-npr-rest-endpoint
            "query"
-           (format "id=%s&output=json%s" pid
+           (format "id=%s&output=json%s"
+                   pid
                    (if get-date (concat "&date=" date) ""))))
          (listing
           (g-json-get-result
-           (format "%s %s '%s'"
-                   g-curl-program g-curl-common-options url)))
-         (stories (g-json-lookup "list.story" listing))
-         (playlist (make-temp-file
-                    (format "npr-%s-"  program) nil ".m3u")))
-    (dtk-speak-and-echo
-     (format "Getting %s%s"
-             program
-             (if date (format " for %s" date) "")))
-    (with-current-buffer (find-file playlist)
+           (format "%s %s  '%s'"
+                   g-curl-program  g-curl-common-options url)))
+         (m3u (make-temp-file (format "npr-%s-"  program) nil ".m3u")))
+    (dtk-speak-and-echo (format "Getting %s for %s" program (or date  "today")))
+    (with-current-buffer (find-file m3u)
       (loop
-       for s across stories do
+       for s across  (g-json-lookup "list.story" listing) do
        (insert
         (format "%s\n" (g-json-path-lookup "audio.[0].format.mp4.$text" s))))
       (save-buffer)
       (kill-buffer))
-    (emacspeak-m-player playlist 'playlist)))
+    (emacspeak-m-player m3u 'playlist)))
 
 ;;}}}
 (provide 'emacspeak-npr)
