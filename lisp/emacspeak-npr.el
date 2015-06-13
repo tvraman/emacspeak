@@ -198,6 +198,33 @@ Interactive prefix arg prompts for search."
                                   (format "id=%s&output=atom" key)))))))
 
 ;;}}}
+;;{{{ pid cache: program ids 
+
+(defvar emacspeak-npr-program-table nil
+  "Cache mapping NPR program names to program ids.")
+
+(defun emacspeak-npr-refresh-program-table (&optional force)
+  "Refresh program table cache if needed."
+  (interactive)
+  (declare (special emacspeak-npr-program-table))
+  (when (or (null emacspeak-npr-program-table) force)
+    (let* ((url
+          (emacspeak-npr-rest-endpoint "list" (format "id=3004&output=json")))
+         (json
+          (g-json-get 'item 
+         (g-json-get-result
+          (format  "%s %s '%s'"
+                   g-curl-program g-curl-common-options url)))))
+
+    (loop
+     for p  across json do
+     (push
+      (list
+       (g-json-get 'id p)
+       (g-json-lookup "title.$text"  p))
+      emacspeak-npr-program-table)))))
+
+;;}}}
 (provide 'emacspeak-npr)
 ;;{{{ end of file
 
