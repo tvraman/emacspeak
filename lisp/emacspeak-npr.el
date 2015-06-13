@@ -235,9 +235,8 @@ Interactive prefix arg prompts for search."
   "Play specified NPR program.
 Optional interactive prefix arg prompts for a date."
   (interactive
-   (list
-    (emacspeak-npr-read-program-id)
-    current-prefix-arg))
+   (list (emacspeak-npr-read-program-id) current-prefix-arg))
+  (emacspeak-auditory-icon 'select-object)
   (let* ((emacspeak-speak-messages nil)
          (program
           (first
@@ -258,9 +257,11 @@ Optional interactive prefix arg prompts for a date."
     (dtk-speak-and-echo (format "Getting %s for %s" program (or date  "today")))
     (with-current-buffer (find-file m3u)
       (loop
-       for s across  (g-json-lookup "list.story" listing) do
+       for s across  (g-json-lookup "list.story" listing)
+       do
        (insert
-        (format "%s\n" (g-json-path-lookup "audio.[0].format.mp4.$text" s))))
+        (format "%s\n"
+                (g-json-path-lookup "audio.[0].format.mp4.$text" s))))
       (save-buffer)
       (kill-buffer))
     (emacspeak-m-player m3u 'playlist)))
