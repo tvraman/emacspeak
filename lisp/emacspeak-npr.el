@@ -81,10 +81,6 @@
 ;;}}}
 ;;{{{ Variables:
 
-
-
-
-
 (defvar emacspeak-npr-api-base
   "http://api.npr.org"
   "Base REST end-point for Npr API  access.")
@@ -102,8 +98,6 @@
 
 (defvar emacspeak-npr-scratch-buffer " *Npr Scratch* "
   "Scratch buffer for Npr operations.")
-
-
 
 (defsubst emacspeak-npr-get-xml (command)
   "Run command and return its output."
@@ -130,7 +124,7 @@
 ;;}}}
 ;;{{{ program index
 
-;;; Found using documentation at 
+;;; Found using documentation at
 ;;; http://www.npr.org/api/inputReference.php
 ;;; All Programs : http://api.npr.org/list?id=3004
 
@@ -168,7 +162,6 @@ Optional prefix arg prompts for date."
          (concat "&date=" (emacspeak-speak-year-month-date))
        "")))))
 
-
 (defun emacspeak-npr-search (query)
   "Search NPR"
   (interactive "sTerm: ")
@@ -176,7 +169,7 @@ Optional prefix arg prompts for date."
    (emacspeak-npr-rest-endpoint "query"
                                 (format"searchTerm=%s&output=Atom" query))))
 
-;;;###autoload    
+;;;###autoload
 (defun emacspeak-npr-listing (&optional search)
   "Display specified listing.
 Interactive prefix arg prompts for search."
@@ -185,20 +178,20 @@ Interactive prefix arg prompts for search."
    (search (call-interactively #'emacspeak-npr-search))
    (t
     (let ((key (emacspeak-npr-get-listing-key)))
-    (add-hook
-     'emacspeak-web-post-process-hook
-     #'(lambda ()
-         (declare (special emacspeak-we-url-executor))
-         (setq emacspeak-we-url-executor
-               'emacspeak-npr-listing-url-executor)
-         (emacspeak-speak-buffer)))
-    (emacspeak-xslt-view-xml
-     (emacspeak-xslt-get  "npr-list.xsl")
-     (emacspeak-npr-rest-endpoint "list"
-                                  (format "id=%s&output=atom" key)))))))
+      (add-hook
+       'emacspeak-web-post-process-hook
+       #'(lambda ()
+           (declare (special emacspeak-we-url-executor))
+           (setq emacspeak-we-url-executor
+                 'emacspeak-npr-listing-url-executor)
+           (emacspeak-speak-buffer)))
+      (emacspeak-xslt-view-xml
+       (emacspeak-xslt-get  "npr-list.xsl")
+       (emacspeak-npr-rest-endpoint "list"
+                                    (format "id=%s&output=atom" key)))))))
 
 ;;}}}
-;;{{{ pid cache: program ids 
+;;{{{ Play Programs Directly:
 
 (defvar emacspeak-npr-program-table nil
   "Cache mapping NPR program names to program ids.")
@@ -209,19 +202,31 @@ Interactive prefix arg prompts for search."
   (declare (special emacspeak-npr-program-table))
   (when (or (null emacspeak-npr-program-table) force)
     (let* ((url
-          (emacspeak-npr-rest-endpoint "list" (format "id=3004&output=json")))
-         (json
-          (g-json-get 'item 
-         (g-json-get-result
-          (format  "%s %s '%s'"
-                   g-curl-program g-curl-common-options url)))))
+            (emacspeak-npr-rest-endpoint "list" (format "id=3004&output=json")))
+           (json
+            (g-json-get 'item
+                        (g-json-get-result
+                         (format  "%s %s '%s'"
+                                  g-curl-program g-curl-common-options url)))))
 
-    (loop
-     for p  across json do
-     (push
-      (list
-       (g-json-lookup "title.$text"  p)
-       (g-json-get 'id p))
+      (loop
+       for p  across json do
+       (push
+        (list
+         (g-json-lookup "title.$text"  p)
+         (g-json-get 'id p))
+        emacspeak-npr-program-table)))))
+
+(defsubst emacspeak-npr-read-program-id ()
+  "Interactively read program id with completion."
+  (declare (special emacspeak-npr-program-table))
+  (or emacspeak-npr-program-table (emacspeak-npr-refresh-program-table))
+  (let ((completion-ignore-case t))
+    (cadr
+     (assoc  
+      (completing-read
+       "NPR Program: "
+       emacspeak-npr-program-table nil t)
       emacspeak-npr-program-table)))))
 
 ;;}}}
