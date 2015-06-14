@@ -213,7 +213,7 @@ Date defaults to today."
   (let
       ((command
         (format
-         "%s --stream --pid=%s --modes=flashaaclow,hlsaaclow -type=radio > %s &"
+         "%s --stream --pid=%s --modes=flashaaclow,hlsaaclow --type=radio > %s &"
          emacspeak-bbc-get-iplayer
          (button-get button 'pid) emacspeak-bbc-iplayer-handle)))
     (unless (file-exists-p emacspeak-bbc-iplayer-handle)
