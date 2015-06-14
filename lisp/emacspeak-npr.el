@@ -250,7 +250,14 @@ Optional interactive prefix arg prompts for a date."
                    pid
                    (if get-date (concat "&date=" date) ""))))
          (listing nil)
-         (m3u (make-temp-file (format "npr-%s-"  program) nil ".m3u")))
+         (m3u (make-temp-file
+               (format
+                "npr-%s-%s-"
+                program
+                (if date
+                    (replace-regexp-in-string "/" "-" date)
+                  (format-time-string  "%Y-%m-%d")))
+               nil ".m3u")))
     (dtk-speak-and-echo (format "Getting %s for %s" program (or date  "today")))
     (with-current-buffer (find-file m3u)
       (setq listing
@@ -258,8 +265,7 @@ Optional interactive prefix arg prompts for a date."
              (format "%s %s  '%s'"
                      g-curl-program  g-curl-common-options url)))
       (loop
-       for s across  (g-json-lookup "list.story" listing)
-       do
+       for s across  (g-json-lookup "list.story" listing) do
        (insert (format "%s\n" (g-json-path-lookup mp4 s))))
       (save-buffer)
       (kill-buffer))
