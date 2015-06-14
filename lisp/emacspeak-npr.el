@@ -249,13 +249,13 @@ Optional interactive prefix arg prompts for a date."
            (format "id=%s&output=json%s"
                    pid
                    (if get-date (concat "&date=" date) ""))))
-         (listing
-          (g-json-get-result
-           (format "%s %s  '%s'"
-                   g-curl-program  g-curl-common-options url)))
+         (listing nil)
          (m3u (make-temp-file (format "npr-%s-"  program) nil ".m3u")))
     (dtk-speak-and-echo (format "Getting %s for %s" program (or date  "today")))
     (with-current-buffer (find-file m3u)
+      (setq listing (g-json-get-result
+                     (format "%s %s  '%s'"
+                             g-curl-program  g-curl-common-options url)))
       (loop
        for s across  (g-json-lookup "list.story" listing)
        do
