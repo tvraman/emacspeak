@@ -236,8 +236,8 @@ Interactive prefix arg prompts for search."
 Optional interactive prefix arg prompts for a date."
   (interactive
    (list (emacspeak-npr-read-program-id) current-prefix-arg))
-  (emacspeak-auditory-icon 'select-object)
   (let* ((emacspeak-speak-messages nil)
+         (mp4 "audio.[0].format.mp4.$text")
          (program
           (first
            (find pid emacspeak-npr-program-table
@@ -253,15 +253,14 @@ Optional interactive prefix arg prompts for a date."
          (m3u (make-temp-file (format "npr-%s-"  program) nil ".m3u")))
     (dtk-speak-and-echo (format "Getting %s for %s" program (or date  "today")))
     (with-current-buffer (find-file m3u)
-      (setq listing (g-json-get-result
-                     (format "%s %s  '%s'"
-                             g-curl-program  g-curl-common-options url)))
+      (setq listing
+            (g-json-get-result
+             (format "%s %s  '%s'"
+                     g-curl-program  g-curl-common-options url)))
       (loop
        for s across  (g-json-lookup "list.story" listing)
        do
-       (insert
-        (format "%s\n"
-                (g-json-path-lookup "audio.[0].format.mp4.$text" s))))
+       (insert (format "%s\n" (g-json-path-lookup mp4 s))))
       (save-buffer)
       (kill-buffer))
     (emacspeak-m-player m3u 'playlist)))
