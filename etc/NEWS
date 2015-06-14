@@ -6,17 +6,25 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 * Emacspeak 43 -- Emacspeak 43 User Visible Changes
 ** emacspeak-librivox:
 
-Implements the new Librivox API
+Implements the new Librivox API.
+Search, browse download and play book streams. 
+
 
 ** emacspeak-npr:
 
 Updated to API 0.94.
-** emacspeak-bbc:
-Updated implementation to reflect that older iplayer convertor no longer works.
-Emacspeak-bbc now plays links through Chrome. Alternatively,, use package iplayer.
+Commands for browsing, searching and playing present and past shows.
 
+** emacspeak-bbc: Updated implementation to reflect that older iplayer
+convertor no longer works.  Emacspeak-bbc now plays links through
+Chrome or by using command get_iplayer to stream via mplayer.
+Complements download functionality available via Emacs package iplayer.
 
 ** emacspeak-eww:
 
 Better filtering: filter by elements, class, roles and attributes.
 History navigating through nested filter invocations works.
+
+** emacspeak-url-templates:
+
+Updated templates.
