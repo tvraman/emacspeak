@@ -95,12 +95,23 @@
 
   <h3 class="section">11.119 emacspeak-npr</h3>
 
-  <p>NPR == http://www.npr.org National Public Radio in the US It
-  provides a simple Web API http://www.npr.org/api/index This
-  module implements an Emacspeak Npr client.</p>
+  <p>NPR == http://www.npr.org National Public Radio in the US. It
+  provides a simple Web API documented at
+  http://www.npr.org/api/index. This module implements an Emacspeak
+  Npr client. Users will need to get their own API key.</p>
 
-  <p>For now, users will need to get their own API key</p><a name=
-  "emacspeak_002dnpr-Commands" id="emacspeak_002dnpr-Commands"></a>
+  <p>Entry Points:</p>
+
+  <p>Command: emacspeak-npr-play-program &mdash; Play current or
+  past program with completion for program name.</p>
+
+  <p>emacspeak-npr-listing &mdash; List NPR programs, blogs, etc
+  with completion. Streams can be played from within the displayed
+  listing.</p>
+
+  <p>In all cases, streams are played using module
+  emacspeak-m-player.</p><a name="emacspeak_002dnpr-Commands" id=
+  "emacspeak_002dnpr-Commands"></a>
 
   <h4 class="subsection">11.119.1 emacspeak-npr Commands</h4>
 
@@ -187,8 +198,8 @@
   <h4 class="subsection">11.119.2 emacspeak-npr Options</h4>
 
   <dl>
-    <dt><a name="index-User-Option-563" id=
-    "index-User-Option-563"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-580" id=
+    "index-User-Option-580"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-npr-api-key</em></dt>
 
     <dd>
