@@ -42,11 +42,21 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; NPR == http://www.npr.org National Public Radio in the US
-;;; It provides a simple Web  API http://www.npr.org/api/index
+;;; NPR == http://www.npr.org National Public Radio in the US.
+;;; It provides a simple Web  API documented at http://www.npr.org/api/index.
 ;;; This module implements an Emacspeak Npr client.
+;;; Users will need to get their own API key.
+;;;
+;;; Entry Points:
 
-;;; For now, users will need to get their own API key
+;;; Command: emacspeak-npr-play-program
+;;; --- Play current or past program with completion for program name.
+;;;
+;;; emacspeak-npr-listing
+;;; --- List NPR programs, blogs, etc with completion.
+;;; Streams can be played from within the displayed listing.
+;;;
+;;; In all cases, streams are played using module emacspeak-m-player.
 
 ;;; Code:
 
