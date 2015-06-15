@@ -245,8 +245,7 @@ Interactive prefix arg prompts for search."
   "Play specified NPR program.
 Optional interactive prefix arg prompts for a date."
   (interactive (list (emacspeak-npr-read-program-id) current-prefix-arg))
-  (let*
-      ((emacspeak-speak-messages nil)
+  (let* ((emacspeak-speak-messages nil)
        (mp4 "audio.[0].format.mp4.$text")
        (program
         (first (find pid emacspeak-npr-program-table
