@@ -274,7 +274,7 @@ Optional interactive prefix arg prompts for a date."
                      g-curl-program  g-curl-common-options url)))
       (loop
        for s across  (g-json-lookup "list.story" listing) do
-       (insert (format "%s\n" (g-json-path-lookup mp4 s))))
+       (insert (format "%s\n" (or (g-json-path-lookup mp4 s) ";no mp4"))))
       (save-buffer)
       (kill-buffer))
     (emacspeak-m-player m3u 'playlist)))
