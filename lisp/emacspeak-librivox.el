@@ -253,9 +253,11 @@ Both exact and partial matches for `title'."
       (when title
         (setq title (dom-text (first title )))
         (setq title (replace-regexp-in-string " +" "-" title)) )
+      (kill-buffer)
       (expand-file-name
        (format "%s.rss" (or title "Untitled"))
        emacspeak-librivox-local-cache))))      
+
 ;;}}}
 ;;{{{ Play Librivox Streams:
 ;;;###autoload
@@ -265,13 +267,18 @@ Both exact and partial matches for `title'."
    (list
     (emacspeak-webutils-read-this-url)))
   (declare (special g-curl-program g-curl-common-options))
-  (let ((file  (make-temp-file "librivox" nil ".rss")))
+  (let ((file  (make-temp-file "librivox" nil ".rss"))
+        (title-file nil))
     (shell-command
      (format "%s %s %s > %s"
              g-curl-program g-curl-common-options rss-url file))
-    (copy-file file
-               (emacspeak-librivox-get-real-name file))
-    (emacspeak-m-player-play-rss (format "file://%s" file))))
+    (setq title-file (emacspeak-librivox-get-real-name file))
+    (copy-file file title-file t)
+    (shell-command
+     (format "%s %s %s > `basename %s rss`m3u"
+             emacspeak-xslt-program (emacspeak-xslt-get "rss2m3u.xsl")
+             title-file title-file))
+    (emacspeak-m-player-play-rss (format "file://%s" title-file))))
 
 
 
