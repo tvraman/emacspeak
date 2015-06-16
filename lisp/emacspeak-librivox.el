@@ -243,7 +243,7 @@ Both exact and partial matches for `title'."
   (unless (file-exists-p emacspeak-librivox-local-cache)
     (make-directory  emacspeak-librivox-local-cache 'parents)))
 
-(defun emacspeak-librivox-get-real-name (rss)
+(defun emacspeak-librivox-get-m3u-name (rss)
   "Parse RSS from temporary location to create a real file name."
   (emacspeak-librivox-ensure-cache)
   (assert  (file-exists-p rss) nil "RSS file not found.")
@@ -257,7 +257,7 @@ Both exact and partial matches for `title'."
         (setq title (replace-regexp-in-string " +" "-" title)) )
       (kill-buffer)
       (expand-file-name
-       (format "%s.rss" (or title "Untitled"))
+       (format "%s.m3u" (or title "Untitled"))
        emacspeak-librivox-local-cache))))      
 
 ;;}}}
@@ -271,17 +271,16 @@ Both exact and partial matches for `title'."
   (declare (special g-curl-program g-curl-common-options
                     emacspeak-xslt-program))
   (let ((file  (make-temp-file "librivox" nil ".rss"))
-        (title-file nil))
+        (m3u-file nil))
     (shell-command
      (format "%s %s %s > %s"
              g-curl-program g-curl-common-options rss-url file))
-    (setq title-file (emacspeak-librivox-get-real-name file))
-    (copy-file file title-file t)
+    (setq m3u-file (emacspeak-librivox-get-m3u-name file))
     (shell-command
-     (format "%s %s %s > `basename %s rss`m3u"
+     (format "%s %s %s > %s"
              emacspeak-xslt-program (emacspeak-xslt-get "rss2m3u.xsl")
-             title-file title-file))
-    (emacspeak-m-player-play-rss (format "file://%s" title-file))))
+             file m3u-file))
+    (emacspeak-m-player m3u-file 'playlist)))
 
 
 
