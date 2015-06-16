@@ -212,21 +212,22 @@ Interactive prefix arg prompts for search."
   (declare (special emacspeak-npr-local-cache))
   (unless (file-exists-p emacspeak-npr-local-cache)
     (make-directory  emacspeak-npr-local-cache 'parents)))
+(defsubst emacspeak-npr-pid-to-program (pid)
+  "Return program name for pid."
+  (declare (special emacspeak-npr-program-table))
+  (first
+   (find pid emacspeak-npr-program-table :key #'second :test #'string-equal)))
 
 (defun emacspeak-npr-make-file-name (pid &optional date)
   "Return  filename used to cache playlist for specified program, date pair."
-  (declare (special emacspeak-npr-program-table emacspeak-npr-local-cache))
+  (declare (special  emacspeak-npr-local-cache))
   (emacspeak-npr-ensure-cache)
   (if date
       (setq date (replace-regexp-in-string "/" "-" date))
     (setq date (format-time-string  "%Y-%m-%d")))
-  (let ((program
-         (first (find pid emacspeak-npr-program-table
-                      :key #'second :test #'string-equal))))
-    (dtk-speak-and-echo (format "Getting %s for %s" program (or date  "today")))
-    (expand-file-name
-     (format "%s-%s.m3u" program date)
-     emacspeak-npr-local-cache)))
+  (expand-file-name
+   (format "%s-%s.m3u" (emacspeak-npr-pid-to-program pid) date)
+   emacspeak-npr-local-cache))
 
 ;;}}}
 ;;{{{ Play Programs Directly:
@@ -292,6 +293,9 @@ Optional interactive prefix arg prompts for a date."
          (listing nil)
          (m3u (emacspeak-npr-make-file-name pid date)))
     (unless (file-exists-p m3u)
+      (dtk-speak-and-echo
+       (format "Getting %s for %s"
+               (emacspeak-npr-pid-to-program pid)(or date  "today")))
       (with-current-buffer (find-file m3u)
         (setq listing
               (g-json-get-result
