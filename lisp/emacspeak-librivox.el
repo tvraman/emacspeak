@@ -254,7 +254,7 @@ Both exact and partial matches for `title'."
         (setq title (dom-text (first title )))
         (setq title (replace-regexp-in-string " +" "-" title)) )
       (expand-file-name
-       (format "%s.m3u" (or title "Untitled"))
+       (format "%s.rss" (or title "Untitled"))
        emacspeak-librivox-local-cache))))      
 ;;}}}
 ;;{{{ Play Librivox Streams:
