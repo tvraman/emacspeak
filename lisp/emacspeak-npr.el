@@ -240,6 +240,13 @@ Interactive prefix arg prompts for search."
        "NPR Program: "
        emacspeak-npr-program-table nil t)
       emacspeak-npr-program-table))))
+
+(defun emacspeak-npr-get-mp3-from-story (s)
+  "Follow one level of indirection to get an mp3 URL to use in an m3u file."
+  (let* ((mp3 "audio.[0].format.mp3.[0].$text")
+         (url (g-json-path-lookup mp3 s)))
+    (shell-command-to-string (format "curl --silent '%s'" url))))
+
 ;;;###autoload
 (defun emacspeak-npr-play-program (pid &optional get-date)
   "Play specified NPR program.
@@ -274,7 +281,10 @@ Optional interactive prefix arg prompts for a date."
                      g-curl-program  g-curl-common-options url)))
       (loop
        for s across  (g-json-lookup "list.story" listing) do
-       (insert (format "%s\n" (or (g-json-path-lookup mp4 s) ";no mp4"))))
+       (insert (format "%s\n"
+                       (or (g-json-path-lookup mp4 s)
+                                  (emacspeak-npr-get-mp3-from-story s)
+                                  ";;; No usable media link"))))
       (save-buffer)
       (kill-buffer))
     (emacspeak-m-player m3u 'playlist)))
