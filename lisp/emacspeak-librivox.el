@@ -226,8 +226,8 @@ Both exact and partial matches for `title'."
     (?t (call-interactively 'emacspeak-librivox-search-by-title))
     (?g (call-interactively 'emacspeak-librivox-search-by-genre))))
 
-  
-  
+
+
 
 ;;}}}
 ;;{{{ Play Librivox Streams:
@@ -243,8 +243,8 @@ Both exact and partial matches for `title'."
      (format "%s %s %s > %s"
              g-curl-program g-curl-common-options rss-url file))
     (emacspeak-m-player-play-rss (format "file://%s" file))))
-                         
-                         
+
+
 
 ;;}}}
 (provide 'emacspeak-librivox)
