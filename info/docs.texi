@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1073 commands and 883 options.
+This chapter documents a total of 1073 commands and 884 options.
 
 @menu
 * acss-structure::
@@ -8518,6 +8518,11 @@ Search NPR
 
 @defvar {User Option} emacspeak-npr-api-key
 Web API  key for this application.
+
+@end defvar
+
+@defvar {User Option} emacspeak-npr-local-cache
+Location where we cache NPR playlists.
 
 @end defvar
 

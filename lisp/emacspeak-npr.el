@@ -201,6 +201,33 @@ Interactive prefix arg prompts for search."
                                     (format "id=%s&output=atom" key)))))))
 
 ;;}}}
+;;{{{ Cache Playlists:
+
+(defcustom emacspeak-npr-local-cache
+  (expand-file-name "npr" emacspeak-resource-directory)
+  "Location where we cache NPR playlists.")
+
+(defsubst emacspeak-npr-ensure-cache ()
+  "Create NPR cache directory if needed."
+  (declare (special emacspeak-npr-local-cache))
+  (unless (file-exists-p emacspeak-npr-local-cache)
+    (make-directory  emacspeak-npr-local-cache 'parents)))
+
+(defun emacspeak-npr-make-file-name (pid &optional date)
+  "Return  filename used to cache playlist for specified program, date pair."
+  (declare (special emacspeak-npr-program-table emacspeak-npr-local-cache))
+  (if date
+      (setq date (replace-regexp-in-string "/" "-" date))
+    (setq date (format-time-string  "%Y-%m-%d")))
+  (let ((program
+         (first (find pid emacspeak-npr-program-table
+                      :key #'second :test #'string-equal))))
+    (dtk-speak-and-echo (format "Getting %s for %s" program (or date  "today")))
+    (expand-file-name
+     (format "%s-%s.m3u" program date)
+     emacspeak-npr-local-cache)))
+
+;;}}}
 ;;{{{ Play Programs Directly:
 
 (defvar emacspeak-npr-program-table nil
@@ -254,9 +281,6 @@ Optional interactive prefix arg prompts for a date."
   (interactive (list (emacspeak-npr-read-program-id) current-prefix-arg))
   (let* ((emacspeak-speak-messages nil)
          (mp4 "audio.[0].format.mp4.$text")
-         (program
-          (first (find pid emacspeak-npr-program-table
-                       :key #'second :test #'string-equal)))
          (date (and get-date (emacspeak-speak-read-date-year/month/date)))
          (url
           (emacspeak-npr-rest-endpoint
@@ -265,28 +289,21 @@ Optional interactive prefix arg prompts for a date."
                    pid
                    (if date (concat "&date=" date) ""))))
          (listing nil)
-         (m3u (make-temp-file
-               (format
-                "npr-%s-%s-"
-                program
-                (if date
-                    (replace-regexp-in-string "/" "-" date)
-                  (format-time-string  "%Y-%m-%d")))
-               nil ".m3u")))
-    (dtk-speak-and-echo (format "Getting %s for %s" program (or date  "today")))
-    (with-current-buffer (find-file m3u)
-      (setq listing
-            (g-json-get-result
-             (format "%s %s  '%s'"
-                     g-curl-program  g-curl-common-options url)))
-      (loop
-       for s across  (g-json-lookup "list.story" listing) do
-       (insert (format "%s\n"
-                       (or (g-json-path-lookup mp4 s)
-                                  (emacspeak-npr-get-mp3-from-story s)
-                                  ";;; No usable media link"))))
-      (save-buffer)
-      (kill-buffer))
+         (m3u (emacspeak-npr-make-file-name pid date)))
+    (unless (file-exists-p m3u)
+      (with-current-buffer (find-file m3u)
+        (setq listing
+              (g-json-get-result
+               (format "%s %s  '%s'"
+                       g-curl-program  g-curl-common-options url)))
+        (loop
+         for s across  (g-json-lookup "list.story" listing) do
+         (insert (format "%s\n"
+                         (or (g-json-path-lookup mp4 s)
+                             (emacspeak-npr-get-mp3-from-story s)
+                             ";;; No usable media link"))))
+        (save-buffer)
+        (kill-buffer)))
     (emacspeak-m-player m3u 'playlist)))
 
 ;;}}}
