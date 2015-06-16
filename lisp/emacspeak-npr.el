@@ -216,6 +216,7 @@ Interactive prefix arg prompts for search."
 (defun emacspeak-npr-make-file-name (pid &optional date)
   "Return  filename used to cache playlist for specified program, date pair."
   (declare (special emacspeak-npr-program-table emacspeak-npr-local-cache))
+  (emacspeak-npr-ensure-cache)
   (if date
       (setq date (replace-regexp-in-string "/" "-" date))
     (setq date (format-time-string  "%Y-%m-%d")))
