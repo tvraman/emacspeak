@@ -233,7 +233,9 @@ Both exact and partial matches for `title'."
 ;;{{{ Cache Playlists:
 (defcustom emacspeak-librivox-local-cache
   (expand-file-name "librivox" emacspeak-resource-directory)
-  "Location where we cache LIBRIVOX playlists.")
+  "Location where we cache LIBRIVOX playlists."
+  :type 'directory
+  :group 'emacspeak-librivox)
 
 (defsubst emacspeak-librivox-ensure-cache ()
   "Create LIBRIVOX cache directory if needed."
@@ -266,7 +268,8 @@ Both exact and partial matches for `title'."
   (interactive
    (list
     (emacspeak-webutils-read-this-url)))
-  (declare (special g-curl-program g-curl-common-options))
+  (declare (special g-curl-program g-curl-common-options
+                    emacspeak-xslt-program))
   (let ((file  (make-temp-file "librivox" nil ".rss"))
         (title-file nil))
     (shell-command

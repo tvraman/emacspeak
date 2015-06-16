@@ -205,7 +205,9 @@ Interactive prefix arg prompts for search."
 
 (defcustom emacspeak-npr-local-cache
   (expand-file-name "npr" emacspeak-resource-directory)
-  "Location where we cache NPR playlists.")
+  "Location where we cache NPR playlists."
+  :type 'directory
+  :group 'emacspeak-npr)
 
 (defsubst emacspeak-npr-ensure-cache ()
   "Create NPR cache directory if needed."
