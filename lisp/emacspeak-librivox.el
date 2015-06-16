@@ -230,6 +230,33 @@ Both exact and partial matches for `title'."
 
 
 ;;}}}
+;;{{{ Cache Playlists:
+(defcustom emacspeak-librivox-local-cache
+  (expand-file-name "librivox" emacspeak-resource-directory)
+  "Location where we cache LIBRIVOX playlists.")
+
+(defsubst emacspeak-librivox-ensure-cache ()
+  "Create LIBRIVOX cache directory if needed."
+  (declare (special emacspeak-librivox-local-cache))
+  (unless (file-exists-p emacspeak-librivox-local-cache)
+    (make-directory  emacspeak-librivox-local-cache 'parents)))
+
+(defun emacspeak-librivox-get-real-name (rss)
+  "Parse RSS from temporary location to create a real file name."
+  (emacspeak-librivox-ensure-cache)
+  (assert  (file-exists-p rss) nil "RSS file not found.")
+  (with-current-buffer (find-file rss)
+    (let* ((title
+            (dom-by-tag
+             (libxml-parse-xml-region (point-min) (point-max))
+             'title)))
+      (when title
+        (setq title (dom-text (first title )))
+        (setq title (replace-regexp-in-string " +" "-" title)) )
+      (expand-file-name
+       (format "%s.m3u" (or title "Untitled"))
+       emacspeak-librivox-local-cache))))      
+;;}}}
 ;;{{{ Play Librivox Streams:
 ;;;###autoload
 (defun emacspeak-librivox-play (rss-url)
@@ -242,6 +269,8 @@ Both exact and partial matches for `title'."
     (shell-command
      (format "%s %s %s > %s"
              g-curl-program g-curl-common-options rss-url file))
+    (copy-file file
+               (emacspeak-librivox-get-real-name file))
     (emacspeak-m-player-play-rss (format "file://%s" file))))
 
 
