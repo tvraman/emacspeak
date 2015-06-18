@@ -1881,7 +1881,8 @@ Use with caution."
 (defcustom emacspeak-wizards-vc-viewer-command
   "setterm -dump %s -file %s"
   "Command line for dumping out virtual console.
-Make sure you have access to /dev/vcs* by adding yourself to the appropriate group."
+Make sure you have access to /dev/vcs* by adding yourself to the appropriate group.
+On Ubuntu and Debian this is group `tty'."
   :type 'string
   :group 'emacspeak-wizards)
 
