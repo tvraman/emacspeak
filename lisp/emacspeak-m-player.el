@@ -123,7 +123,8 @@ This is set to nil when playing Internet  streams.")
   "Emacspeak media player settings."
   :group 'emacspeak)
 
-(defcustom emacspeak-m-player-program "mplayer"
+(defcustom emacspeak-m-player-program
+  (executable-find "mplayer")
   "Media player program."
   :type 'string
   :set  #'(lambda (sym val)

@@ -151,9 +151,10 @@ a rewrite rule even if one is already defined."
   :group 'emacspeak-we)
 
 ;;;###autoload
-(defcustom emacspeak-we-xsl-transform nil
+(defcustom emacspeak-we-xsl-transform
+  (emacspeak-xslt-get "sort-tables.xsl")
   "Specifies transform to use before displaying a page.
-Nil means no transform is used. "
+Default is to apply sort-tables."
   :type  '(choice
            (file :tag "XSL")
            (const :tag "none" nil))
