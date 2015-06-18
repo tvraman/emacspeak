@@ -1879,7 +1879,7 @@ Use with caution."
 ;;}}}
 ;;{{{ VC viewer
 (defcustom emacspeak-wizards-vc-viewer-command
-  "sudo setterm -dump %s -file %s"
+  "setterm -dump %s -file %s"
   "Command line for dumping out virtual console."
   :type 'string
   :group 'emacspeak-wizards)
