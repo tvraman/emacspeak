@@ -90,7 +90,7 @@ See http://developer.bookshare.org/docs for details on how to get
                  (string :tag "Email"))
   :group 'emacspeak-bookshare)
 
-(defcustom emacspeak-bookshare-directory (expand-file-name "~/")
+(defcustom emacspeak-bookshare-directory (expand-file-name "~/books/book-share")
   "Customize this to the root of where books are organized."
   :type 'directory
   :group 'emacspeak-bookshare)
