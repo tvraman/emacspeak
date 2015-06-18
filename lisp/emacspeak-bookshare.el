@@ -96,7 +96,7 @@ See http://developer.bookshare.org/docs for details on how to get
   :group 'emacspeak-bookshare)
 
 (defcustom emacspeak-bookshare-downloads-directory
-  (expand-file-name "~/" emacspeak-bookshare-directory)
+  (expand-file-name "downloads/" emacspeak-bookshare-directory)
   "Customize this to the root of where books are organized."
   :type 'directory
   :group 'emacspeak-bookshare)
