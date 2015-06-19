@@ -1092,7 +1092,8 @@ You need to use mplayer built with ladspa support, and have package
 tap-reverb already installed."
   (interactive)
   (declare (special emacspeak-m-player-reverb-filter))
-  (let ((ladspa (getenv "LADSPA_PATH"))
+  (let ((ladspa(or  (getenv "LADSPA_PATH")
+                    "/usr/lib/ladspa"))
         (filter nil)
         (orig-filter
          (mapconcat
