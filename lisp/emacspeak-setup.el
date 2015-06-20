@@ -111,6 +111,12 @@ pronunciation dictionaries are stored. ")
          0 6)
       "")))
 
+
+;;;###autoload
+(defsubst emacspeak-xslt-get (style)
+  "Return fully qualified stylesheet path."
+  (declare (special emacspeak-xslt-directory))
+  (expand-file-name style emacspeak-xslt-directory))
 ;;;###autoload
 (defvar emacspeak-version
   (format

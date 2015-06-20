@@ -70,11 +70,8 @@
          (format "\"'%s'\""
                  base))))
 
-;;;###autoload
-(defsubst emacspeak-xslt-get (style)
-  "Return fully qualified stylesheet path."
-  (declare (special emacspeak-xslt-directory))
-  (expand-file-name style emacspeak-xslt-directory))
+
+
 
 (defsubst emacspeak-xslt-read ()
   "Read XSLT transformation name from minibuffer."
