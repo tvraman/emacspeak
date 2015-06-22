@@ -1,0 +1,12 @@
+* elib
+
+This directory includes stack-f.el  from Elib 1.0.
+stack-f.el has been modified to use defsubst instead of defun.
+
+* Emacs 25
+
+Includes dom.el and subr-x.el from Emacs 25.
+
+* tapestry.el
+
+Includes tapestry.el from emacs/vm.
