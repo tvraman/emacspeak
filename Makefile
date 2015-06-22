@@ -280,6 +280,7 @@ install:
 
 uninstall:
 	rm -rf $(infodir)/emacspeak.info* $(bindir)/emacspeak $(libdir)
+	cd info && make uninstall infodir=${infodir}
 # }}}
 # {{{  complete build
 
