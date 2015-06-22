@@ -3,6 +3,9 @@
 This directory includes stack-f.el  from Elib 1.0.
 stack-f.el has been modified to use defsubst instead of defun.
 
+* Emacs 23:
+Older implementation of tetris.el 
+
 * Emacs 25
 
 Includes dom.el and subr-x.el from Emacs 25.
