@@ -15,3 +15,14 @@
 (setq mode-line-coding-system-map nil    
       mode-line-column-line-number-mode-map nil
       mode-line-input-method-map nil)
+
+
+;;; To disable touchpad in all apps:
+;; but if you want to completely disable it, you can do the following
+;; In a terminal type:
+;; xinput list | grep -i touchpad
+;;; Thinkpad X250: ⎜   ↳ SynPS/2 Synaptics TouchPad              	id=11	[slave  pointer  (2)]
+;; to determine the device ID (in my case, 11). Then disable by typing:
+;; xinput set-prop 11 "Device Enabled" 0
+;; To enable it, type:
+;; xinput set-prop 11 "Device Enabled" 1
