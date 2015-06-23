@@ -486,7 +486,9 @@ To leave, press \\[keyboard-quit]."
     (while continue
       (call-interactively 'describe-key-briefly)
       (sit-for 1)
-      (when (= last-input-event 7) (setq continue nil )))
+      (when (and (numberp last-event)
+                 (= last-input-event 7))
+        (setq continue nil )))
     (message "Leaving learn mode ")))
 
 ;;}}}
