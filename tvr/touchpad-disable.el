@@ -52,6 +52,6 @@ Set by locating it via xinput --list."
     touchpad-device))
   (message "Enabled touchpad"))
 
-(add-hook 'focus-in-hook #'turn-off-mouse)
-(add-hook 'focus-out-hook #'turn-on-mouse)
-(add-hook 'delete-frame-functions #'turn-on-mouse)
+;(add-hook 'focus-in-hook #'turn-off-mouse)
+;(add-hook 'focus-out-hook #'turn-on-mouse)
+;(add-hook 'delete-frame-functions #'turn-on-mouse)
