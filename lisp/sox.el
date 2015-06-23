@@ -261,7 +261,7 @@
   (delete-process (sox-context-play sox-context))
   (message
    "%.2f"
-   (time-to-seconds
+   (float-time
     (time-subtract
      (sox-context-stop-time sox-context)
      (sox-context-start-time sox-context)))))
@@ -274,7 +274,7 @@
   (declare (special sox-context))
   (message
    "%.2f"
-   (time-to-seconds
+   (float-time
     (time-subtract (current-time) (sox-context-start-time sox-context)))))
 
 (defun sox-save(save-file)
