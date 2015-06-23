@@ -416,7 +416,7 @@ Checked by emacspeak specific dis-mode-hooks entry.")
 
 (add-hook 'dis-mode-hooks
           #'(lambda nil
-              (declare (special dismal-saved-variables dismal-mode-map))
+              (declare (special dismal-saved-variables dismal-map))
               (define-key dismal-map (concat emacspeak-prefix "e")
                 'dis-last-column)
               (define-key dismal-mode-map emacspeak-prefix 'emacspeak-prefix-command)

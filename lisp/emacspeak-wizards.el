@@ -2849,7 +2849,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
     (loop
      for r in results
      and index from 1 do
-     (aset  table index (yql-result-row r)))
+     (aset  table index (yql-result-row header-row r)))
     (emacspeak-table-make-table table)))
 
 ;;}}}
