@@ -26,3 +26,32 @@
 ;; xinput set-prop 11 "Device Enabled" 0
 ;; To enable it, type:
 ;; xinput set-prop 11 "Device Enabled" 1
+(defgroup touchpad-unprepare nil
+  "disable mouse/touchpad in emacs")
+(defcustom touchpad-device "11"
+  "Device ID of touchpad.
+Set by locating it via xinput --list."
+  :type 'string
+  :group 'touchpad-unprepare)
+
+(defun turn-off-mouse (&optional frame)
+  (interactive)
+  (declare (special touchpad-device))
+  (shell-command
+   (format
+    "xinput set-prop %s \"Device Enabled\" 0"
+    touchpad-device))
+  (message "Disabled touchpad"))
+
+(defun turn-on-mouse (&optional frame)
+  (interactive)
+  (declare (special touchpad-device))
+  (shell-command
+   (format
+    "xinput set-prop %s \"Device Enabled\" 1"
+    touchpad-device))
+  (message "Enabled touchpad"))
+
+(add-hook 'focus-in-hook #'turn-off-mouse)
+(add-hook 'focus-out-hook #'turn-on-mouse)
+(add-hook 'delete-frame-functions #'turn-on-mouse)
