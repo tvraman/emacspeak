@@ -10,3 +10,8 @@
    [mouse-5] [down-mouse-5] [drag-mouse-5] [double-mouse-5] [triple-mouse-5])
  do
  (global-unset-key k))
+
+;; disable on modeline etc:
+(setq mode-line-coding-system-map nil    
+      mode-line-column-line-number-mode-map nil
+      mode-line-input-method-map nil)
