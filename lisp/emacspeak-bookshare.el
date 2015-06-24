@@ -766,6 +766,22 @@ b Browse
 ;;}}}
 ;;{{{  Property Accessors:
 
+;;{{{ Generate Declarations:
+;; (loop
+;;  for p in
+;;  '(author title id metadata target directory)
+;;  do
+;;  (declare-function (format "emacspeak-bookshare-get-%s"  p) "emacspeak-bookshare" nil))
+
+(declare-function emacspeak-bookshare-get-author    "emacspeak-bookshare" nil)
+
+(declare-function emacspeak-bookshare-get-title    "emacspeak-bookshare" nil)
+(declare-function emacspeak-bookshare-get-id    "emacspeak-bookshare" nil)
+(declare-function emacspeak-bookshare-get-metadata    "emacspeak-bookshare" nil)
+(declare-function emacspeak-bookshare-get-target    "emacspeak-bookshare" nil)
+(declare-function emacspeak-bookshare-get-directory    "emacspeak-bookshare" nil)
+
+;; ;;}}}
 (loop for p in
       '(author title id metadata target directory)
       do

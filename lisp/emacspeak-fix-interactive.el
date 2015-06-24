@@ -67,7 +67,6 @@
 ;;;###autoload
 (defsubst emacspeak-should-i-fix-interactive-p  (sym)
   "Predicate to test if this function should be fixed. "
-  (declare (special emacspeak-commands-dont-fix-regexp))
   (and
    (not (string-match emacspeak-commands-dont-fix-regexp
                       (symbol-name sym)))
