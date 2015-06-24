@@ -8,17 +8,17 @@
   <meta name="generator" content=
   "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
 
-  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  <title>Emacspeak User’s Manual –2nd Edition.:
   emacspeak-ocr</title>
   <meta name="description" content=
-  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-ocr" />
+  "Emacspeak User’s Manual –2nd Edition.: emacspeak-ocr" />
   <meta name="keywords" content=
-  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-ocr" />
+  "Emacspeak User’s Manual –2nd Edition.: emacspeak-ocr" />
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
   <meta http-equiv="Content-Type" content=
-  "text/html; charset=us-ascii" />
+  "text/html; charset=utf-8" />
   <link href="index.html#Top" rel="start" title="Top" />
   <link href="Concept-Index.html#Concept-Index" rel="index" title=
   "Concept Index" />
@@ -124,9 +124,8 @@
       suitable for browsing the results.</p>
 
       <p>For detailed help, invoke command emacspeak-ocr bound to
-      C-e C-o to launch emacspeak-ocr-mode, and press
-      &lsquo;?&rsquo; to display mode-specific help for
-      emacspeak-ocr-mode.</p>
+      C-e C-o to launch emacspeak-ocr-mode, and press â?â to
+      display mode-specific help for emacspeak-ocr-mode.</p>
     </dd>
   </dl>
 
@@ -174,12 +173,12 @@
       </a>
 
       <p>Run OCR engine on current image after flip-flopping it.
-      Useful if you&rsquo;ve scanned a page upside down and are
-      using an engine that does not automatically flip the image
-      for you. You need the imagemagik family of tools &mdash; we
-      use mogrify to transform the image. Prompts for image file if
-      file corresponding to the expected &lsquo;current page&rsquo;
-      is not found.</p>
+      Useful if you’ve scanned a page upside down and are using an
+      engine that does not automatically flip the image for you.
+      You need the imagemagik family of tools — we use mogrify to
+      transform the image. Prompts for image file if file
+      corresponding to the expected âcurrent pageâ is not
+      found.</p>
     </dd>
   </dl>
 
@@ -219,14 +218,14 @@
       have the utilities to scan a document and acquire an image as
       a tiff file. Then set variable
       emacspeak-ocr-scan-image-program to point at this utility. By
-      default, this is set to &lsquo;scanimage&rsquo; which is the
-      image scanning utility provided by SANE.</p>
+      default, this is set to âscanimageâ which is the image
+      scanning utility provided by SANE.</p>
 
       <p>By default, this front-end attempts to compress the
       acquired tiff image; make sure you have a utility like
       tiffcp. Variable emacspeak-ocr-compress-image is set to
-      &lsquo;tiffcp&rsquo; by default; if you use something else,
-      you should customize this variable.</p>
+      âtiffcpâ by default; if you use something else, you
+      should customize this variable.</p>
 
       <p>2: Next, make sure you have an OCR engine installed and
       working. By default this front-end assumes that OCR is
@@ -241,9 +240,9 @@
       emacspeak-ocr bound to C-e C-o.</p>
 
       <p>This command switches to a special buffer that has OCR
-      commands bounds to single keystrokes&ndash; see the
-      key-binding list at the end of this description. Use Emacs
-      online help facility to look up help on these commands.</p>
+      commands bounds to single keystrokes– see the key-binding
+      list at the end of this description. Use Emacs online help
+      facility to look up help on these commands.</p>
 
       <p>emacspeak-ocr-mode provides the necessary functionality to
       scan, OCR, read and save documents. By default, scanned
@@ -254,14 +253,14 @@
       directory.</p>
 
       <p>By default, the document being scanned is named
-      &lsquo;untitled&rsquo;. You can name the document by using
-      command emacspeak-ocr-name-document bound to M-x
+      âuntitledâ. You can name the document by using command
+      emacspeak-ocr-name-document bound to M-x
       emacspeak-ocr-name-document. The document name is used in
       constructing the name of the image and text files.</p>
 
       <p>Key Bindings:</p>
 
-      <p>See key binding &mdash; &mdash;&mdash;-</p>
+      <p>See key binding — ——-</p>
 
       <p>RET emacspeak-ocr-scan-and-recognize SPC
       emacspeak-ocr-read-current-page 1 .. 9 emacspeak-ocr-page ?
@@ -279,10 +278,10 @@
 
       <p>.</p>
 
-      <p>In addition to any hooks its parent mode
-      &lsquo;text-mode&rsquo; might have run, this mode runs the
-      hook &lsquo;emacspeak-ocr-mode-hook&rsquo;, as the final step
-      during initialization.</p>
+      <p>In addition to any hooks its parent mode âtext-modeâ
+      might have run, this mode runs the hook
+      âemacspeak-ocr-mode-hookâ, as the final step during
+      initialization.</p>
     </dd>
   </dl>
 
@@ -358,8 +357,8 @@
       id="index-emacspeak_002docr_002drecognize_002dimage-1"></a>
 
       <p>Run OCR engine on current image. Prompts for image file if
-      file corresponding to the expected &lsquo;current page&rsquo;
-      is not found.</p>
+      file corresponding to the expected âcurrent pageâ is not
+      found.</p>
     </dd>
   </dl>
 
@@ -392,9 +391,9 @@
       </a>
 
       <p>Scan in a page and run OCR engine on it. Use this command
-      once you&rsquo;ve verified that the separate steps of
-      acquiring an image and running the OCR engine work correctly
-      by themselves.</p>
+      once you’ve verified that the separate steps of acquiring an
+      image and running the OCR engine work correctly by
+      themselves.</p>
     </dd>
   </dl>
 
@@ -488,8 +487,8 @@
   <h4 class="subsection">11.121.2 emacspeak-ocr Options</h4>
 
   <dl>
-    <dt><a name="index-User-Option-620" id=
-    "index-User-Option-620"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-622" id=
+    "index-User-Option-622"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-ocr-compress-image</em></dt>
 
     <dd>
@@ -498,8 +497,8 @@
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-621" id=
-    "index-User-Option-621"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-623" id=
+    "index-User-Option-623"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-ocr-compress-image-options</em></dt>
 
@@ -509,8 +508,8 @@
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-622" id=
-    "index-User-Option-622"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-624" id=
+    "index-User-Option-624"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-ocr-compress-photo-options</em></dt>
 
@@ -521,8 +520,8 @@
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-623" id=
-    "index-User-Option-623"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-625" id=
+    "index-User-Option-625"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-ocr-engine</em></dt>
 
     <dd>
@@ -531,8 +530,8 @@
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-624" id=
-    "index-User-Option-624"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-626" id=
+    "index-User-Option-626"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-ocr-engine-options</em></dt>
 
     <dd>
@@ -541,8 +540,8 @@
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-625" id=
-    "index-User-Option-625"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-627" id=
+    "index-User-Option-627"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-ocr-image-extension</em></dt>
 
     <dd>
@@ -551,8 +550,8 @@
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-626" id=
-    "index-User-Option-626"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-628" id=
+    "index-User-Option-628"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-ocr-jpeg-metadata-writer</em></dt>
 
@@ -562,8 +561,8 @@
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-627" id=
-    "index-User-Option-627"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-629" id=
+    "index-User-Option-629"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-ocr-keep-uncompressed-image</em></dt>
 
@@ -573,8 +572,8 @@
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-628" id=
-    "index-User-Option-628"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-630" id=
+    "index-User-Option-630"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-ocr-photo-compress</em></dt>
 
     <dd>
@@ -583,8 +582,8 @@
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-629" id=
-    "index-User-Option-629"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-631" id=
+    "index-User-Option-631"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-ocr-scan-image</em></dt>
 
     <dd>
@@ -593,8 +592,8 @@
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-630" id=
-    "index-User-Option-630"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-632" id=
+    "index-User-Option-632"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-ocr-scan-image-options</em></dt>
 
     <dd>
@@ -604,8 +603,8 @@
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-631" id=
-    "index-User-Option-631"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-633" id=
+    "index-User-Option-633"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-ocr-scan-photo-options</em></dt>
 
     <dd>
@@ -614,8 +613,8 @@
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-632" id=
-    "index-User-Option-632"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-634" id=
+    "index-User-Option-634"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-ocr-working-directory</em></dt>
 
     <dd>
