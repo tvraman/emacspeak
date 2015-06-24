@@ -69,6 +69,7 @@
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
+(require 'auth-source)
 (require 'g-utils)
 
 ;;}}}
