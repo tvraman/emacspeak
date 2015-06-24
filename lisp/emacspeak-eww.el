@@ -62,6 +62,19 @@
 (require 'emacspeak-google)
                                         ;(require 'xml)
 ;;}}}
+;;{{{ Declare generated functions:
+
+
+(declare-function emacspeak-eww-current-dom "emacspeak-eww" nil)
+(declare-function emacspeak-eww-current-url "emacspeak-eww" nil)
+(declare-function  "emacspeak-eww" nil)
+(declare-function emacspeak-eww-current-title "emacspeak-eww" nil)
+(declare-function emacspeak-eww-set-dom "emacspeak-eww" (dom))
+(declare-function emacspeak-eww-set-url "emacspeak-eww" (url))
+(declare-function emacspeak-eww-set-title "emacspeak-eww" (title))
+
+;;}}}
+
 ;;{{{ Compatibility Helpers:
 
 ;;; For compatibility between Emacs 24 and Emacs 25
