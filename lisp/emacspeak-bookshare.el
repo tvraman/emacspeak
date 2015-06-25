@@ -973,7 +973,7 @@ Target location is generated from author and title."
     (when (file-exists-p directory) (error "Already unpacked."))
     (make-directory directory 'parents)
     (shell-command
-     (format "cd %s; unzip -P %s %s"
+     (format "cd \"%s\"; unzip -P %s %s"
              directory
              (or emacspeak-bookshare-password-cache
                  (read-passwd
