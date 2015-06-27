@@ -1,15 +1,15 @@
 ;;; emacspeak-tar.el --- Speech enable Tar Mode -- Manipulate tar archives from Emacs
 ;;; $Id$
-;;; $Author: tv.raman.tv $ 
+;;; $Author: tv.raman.tv $
 ;;; Description: Auditory interface to tar mode
 ;;; Keywords: Emacspeak, Speak, Spoken Output, tar
-;;{{{  LCD Archive entry: 
+;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
+;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date: 2008-06-21 10:50:41 -0700 (Sat, 21 Jun 2008) $ |
-;;;  $Revision: 4532 $ | 
+;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;
 
@@ -17,7 +17,7 @@
 ;;{{{  Copyright:
 
 ;;; Copyright (c) 1995 -- 2015, T. V. Raman
-;;; All Rights Reserved. 
+;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
 ;;;
@@ -43,7 +43,7 @@
 (require 'emacspeak-preamble)
 (require 'tar-mode)
 ;;}}}
-;;{{{  Introduction 
+;;{{{  Introduction
 ;;; Commentary:
 ;;;Auditory interface to tar mode
 ;;; Code:
@@ -129,10 +129,10 @@
       (message "No file on this line"))
      (t
       (setq mode
-            (tar-header-mode (tar-desc-tokens entry)))
+            (tar-header-mode  entry))
       (aset string 0       (if (zerop (logand 256 mode)) ?- ?r))
       (aset string   1 (if (zerop (logand 128 mode)) ?- ?w))
-      (aset string  2 (if (zerop (logand  64 mode)) ?- ?x)) 
+      (aset string  2 (if (zerop (logand  64 mode)) ?- ?x))
       (aset string  3 (if (zerop (logand  32 mode)) ?- ?r))
       (aset string  4 (if (zerop (logand  16 mode)) ?- ?w))
       (aset string  5 (if (zerop (logand   8 mode)) ?- ?x))
@@ -154,8 +154,7 @@
      ((null entry)
       (message "No file on this line"))
      (t (message  "File size %s "
-                  (tar-header-size (tar-desc-tokens
-                                    entry)))))))
+                  (tar-header-size entry))))))
 
 (defun emacspeak-tar-speak-file-date()
   "Speak date of file current entry "
@@ -170,13 +169,12 @@
      (t (message  "Modified on  %s "
                   (format-time-string
                    emacspeak-speak-time-format-string
-                   (tar-header-date
-                    (tar-desc-tokens entry))))))))
+                   (tar-header-date entry)))))))
 
 (defun emacspeak-tar-setup-keys ()
   "Setup emacspeak keys for tar mode"
   (declare (special tar-mode-map))
-  (define-key tar-mode-map "z" 'emacspeak-tar-speak-file-size)       
+  (define-key tar-mode-map "z" 'emacspeak-tar-speak-file-size)
   (define-key tar-mode-map "/" 'emacspeak-tar-speak-file-permissions)
   (define-key tar-mode-map "c" 'emacspeak-tar-speak-file-date)
   )
@@ -186,11 +184,11 @@
 
 ;;}}}
 (provide 'emacspeak-tar)
-;;{{{ end of file 
+;;{{{ end of file
 
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: nil
-;;; end: 
+;;; end:
 
 ;;}}}
