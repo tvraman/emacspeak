@@ -489,21 +489,18 @@ punctuations.")
       (turn-off-voice-lock)
     (turn-on-voice-lock))
   (when (ems-interactive-p )
-    (let ((state (if voice-lock-mode 'on 'off)))
-      (when (ems-interactive-p )
-        (emacspeak-auditory-icon state)))))
+    (emacspeak-auditory-icon (if voice-lock-mode 'on 'off))))
 
 ;;;###autoload
 (defvar global-voice-lock-mode t
   "Global value of voice-lock-mode.")
 
-(when (string-match "24" emacs-version)
-  (define-globalized-minor-mode global-voice-lock-mode
+(define-globalized-minor-mode global-voice-lock-mode
     voice-lock-mode turn-on-voice-lock
     :initialize 'custom-initialize-delay
     :init-value (not (or noninteractive emacs-basic-display))
     :group 'voice-lock
-    :version "24.1"))
+    :version "24.1")
 
 ;; Install ourselves:
 (declaim (special text-property-default-nonsticky))
