@@ -58,7 +58,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'dired)
-(require 'eww   nil 'noerror)
+(require 'eww   "eww" 'noerror)
 (require 'browse-url)
 (require 'emacspeak-we)
 (require 'emacspeak-webutils)

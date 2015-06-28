@@ -40,7 +40,7 @@
 ;;{{{ required modules
 
 (require 'emacspeak-preamble)
-(require 'apt-utils nil t)
+(require 'apt-sources nil 'no-error)
 ;;}}}
 ;;{{{  Introduction:
 
