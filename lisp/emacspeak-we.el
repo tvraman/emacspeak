@@ -1068,7 +1068,7 @@ used as well."
 
 ;;}}}
 ;;{{{ Property filter
-
+(declare-function emacspeak-w3-html-stack "emacspeak-w3" nil)
 ;;;###autoload
 (defun emacspeak-we-extract-by-property (url &optional speak)
   "Interactively prompt for an HTML property, e.g. id or class,
