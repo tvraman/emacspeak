@@ -96,6 +96,7 @@
 
 (defadvice ansi-color-set-extent-face (after emacspeak pre act comp)
   "Apply aural properties."
+  (declare (special emacspeak-personality-voiceify-faces))
   (let* ((extent (ad-get-arg 0))
          (face (ad-get-arg 1))
          (start (overlay-start extent))
