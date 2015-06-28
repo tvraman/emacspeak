@@ -54,7 +54,7 @@
 ;;{{{ required modules
 
 (require 'emacspeak-preamble)
-
+(require 'emms "emms" 'no-error)
 ;;}}}
 ;;{{{ module emms:
 
@@ -62,7 +62,7 @@
   "Speak current track."
   (interactive)
   (message
-   (cdr (assq 'name (emms-playlist-current-track)))))
+   (cdr (assq 'name (emms-playlist-current-selected-track)))))
 
 (loop for f in
       '(emms-next emms-next-noerror emms-previous)
