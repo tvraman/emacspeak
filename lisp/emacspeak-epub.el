@@ -218,6 +218,8 @@
   "EPub associated with current buffer.")
 
 (make-variable-buffer-local 'emacspeak-epub-this-epub)
+(declare-function w3-fetch  "w3" (url))
+(declare-function w3-download-url  "w3" (url &optional file-name))
 
 (defun emacspeak-epub-browse-content (epub element fragment &optional style )
   "Browse content in specified element of EPub."
