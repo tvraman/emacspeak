@@ -35,6 +35,10 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
+(when (fboundp 'package-initialize) (package-initialize))
+(setq byte-compile-warnings t)
+
+
 (defvar emacspeak-directory
   (expand-file-name "../" (file-name-directory load-file-name))
   "Directory where emacspeak is installed. ")
