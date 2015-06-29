@@ -51,6 +51,7 @@
 ;;{{{  Required modules
 
 (require 'emacspeak-preamble)
+(require 'jabber "jabber" 'no-error)
 ;;}}}
 ;;{{{ map voices
 
