@@ -67,7 +67,7 @@
   (let ((metadata (funcall 'company-fetch-metadata)))
     (when metadata (ems-voiceify-string metadata 'voice-annotate))
     (dtk-speak
-     (concat (ems-company-current) " " metadata))))    
+     (concat (ems-company-current) " " metadata))))
 
 ;;}}}
 ;;{{{ Emacspeak Front-End For Company:
@@ -86,6 +86,12 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (dtk-speak (ems-company-current))))
+(defadvice company-complete-number (after emacspeak pre act com)
+  "Speak what we completed."
+  (when (ems-interactive-p)
+    (let ((n (ad-get-arg 0)))
+      (emacspeak-speak-line))))
+
 (defadvice company-show-doc-buffer (before emacspeak pre act comp)
   "Provide spoken feedback."
   (when (ems-interactive-p)
