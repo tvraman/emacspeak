@@ -42,6 +42,9 @@
 ;;{{{ required modules
 
 (require 'emacspeak-preamble)
+(eval-when-compile
+  (require 'ecb "ecb" 'no-error)
+  (require 'tree-buffer "tree-buffer" 'no-error))
 ;;}}}
 ;;{{{  Introduction:
 ;;; Commentary:
