@@ -143,7 +143,7 @@ sure the guesses are usually correct."
   (emacspeak-remote-connect-to-server
    (emacspeak-remote-get-current-remote-hostname)
    (string-to-number  emacspeak-remote-default-port-to-connect)))
-
+(declare-function ssh "ssh" (input-args &optional buffer))
 ;;;###autoload
 (defun emacspeak-remote-home()
   "Open ssh session to where we came from.
