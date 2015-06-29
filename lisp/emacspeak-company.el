@@ -86,6 +86,14 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (dtk-speak (ems-company-current))))
+(defadvice company-show-doc-buffer (before emacspeak pre act comp)
+  "Provide spoken feedback."
+  (when (ems-interactive-p)
+    (let* ((selected (nth company-selection company-candidates))
+           (doc-buffer (or (company-call-backend 'doc-buffer selected)
+                           (error "No documentation available"))))
+      (with-current-buffer doc-buffer (dtk-speak (buffer-string)))
+      (emacspeak-auditory-icon 'help))))
 
 ;;}}}
 ;;{{{ Company Setup For Emacspeak:
