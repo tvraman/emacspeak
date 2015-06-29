@@ -54,7 +54,6 @@
 ;;}}}
 ;;{{{  Required modules
 (require 'emacspeak-preamble)
-(require 'arc-mode)
 ;;}}}
 ;;{{{ Advice interactive commands to speak.
 
