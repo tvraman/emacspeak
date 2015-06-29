@@ -52,8 +52,8 @@
 ;;{{{ required modules
 
 (require 'emacspeak-preamble)
-                                        ;(require 'emacspeak-redefine)
-
+(require 'org "org" 'no-error)
+(require 'org-table "org-table" 'no-error)
 ;;}}}
 ;;{{{ voice locking:
 
@@ -348,6 +348,7 @@
 
 (defadvice orgtbl-mode (after emacspeak pre act comp)
   "Provide auditory feedback."
+  (declare (special orgtbl-mode))
   (when (ems-interactive-p )
     (emacspeak-auditory-icon
      (if orgtbl-mode 'on 'off))
