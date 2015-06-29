@@ -50,7 +50,8 @@
 ;;{{{  Required modules
 (require 'cl)
 (require 'emacspeak-preamble)
-(require 'python "python" 'no-error)
+(eval-when-compile
+ (require 'python "python" 'no-error))
 ;;}}}
 ;;{{{ Advice interactive commands:
 
@@ -141,17 +142,6 @@
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'large-movement)))
 (defadvice python-next-statement (after emacspeak pre act comp)
-  "Speak current statement after moving"
-  (when (ems-interactive-p )
-    (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'large-movement)))
-
-(defadvice python-beginning-of-def-or-class (after emacspeak pre act comp)
-  "Speak current statement after moving"
-  (when (ems-interactive-p )
-    (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'large-movement)))
-(defadvice python-end-of-def-or-class (after emacspeak pre act comp)
   "Speak current statement after moving"
   (when (ems-interactive-p )
     (emacspeak-speak-line)

@@ -50,7 +50,8 @@
 ;;{{{  Required modules
 (require 'cl)
 (require 'emacspeak-preamble)
-(require 'python-mode "python-mode" 'no-error)
+(eval-when-compile
+  (require 'python-mode "python-mode" 'no-error))
 ;;}}}
 ;;{{{ Advice interactive commands:
 
