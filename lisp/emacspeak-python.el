@@ -59,18 +59,26 @@
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)))
-(defadvice python-send-region (after emacspeak pre act comp)
+(loop
+ for f in
+ '(
+   python-shell-send-region python-shell-send-defun
+                            python-shell-send-file   python-shell-send-buffer
+                            python-shell-send-string python-shell-send-string-no-output)
+ do
+ (eval
+  `(defadvice python-shell-send-region (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (ems-interactive-p )
-    (emacspeak-auditory-icon 'task-done)))
-
-(defadvice python-send-buffer (after emacspeak pre act comp)
-  "Provide auditory feedback"
-  (when (ems-interactive-p )
-    (emacspeak-auditory-icon 'task-done)))
+    (emacspeak-auditory-icon 'task-done)))))
 
 ;;}}}
 ;;{{{  whitespace management and indentation
+(defadvice python-indent-dedent-line (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'select-object)))
 
 (defadvice  python-indent-dedent-line-backspace (around emacspeak pre act)
   "Speak character you're deleting."
@@ -133,36 +141,6 @@
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'large-movement)))))
 
-;;}}}
-;;{{{ the process buffer
-
-(defadvice python-process-filter (around emacspeak pre act)
-  "Make comint in Python speak its output. "
-  (declare (special emacspeak-comint-autospeak))
-  (let ((prior (point ))
-        (dtk-stop-immediately nil))
-    ad-do-it
-    (when (and  emacspeak-comint-autospeak
-                (window-live-p
-                 (get-buffer-window (process-buffer (ad-get-arg 0)))))
-      (condition-case nil
-          (emacspeak-speak-region prior (point ))
-        (error (emacspeak-auditory-icon 'scroll)
-               (dtk-stop ))))
-    ad-return-value))
-
-;;}}}
-
-;;{{{ keybindings
-
-(progn
-  (declaim (special  python-mode-map))
-  (define-key python-mode-map "\M-n" 'python-next-statement)
-  (define-key python-mode-map "\M-p" 'python-previous-statement)
-  (define-key python-mode-map "\C-\M-u" 'python-goto-block-up)
-  )
-(add-hook 'python-mode-hook
-          'emacspeak-setup-programming-mode)
 ;;}}}
 (provide 'emacspeak-python )
 ;;{{{ end of file
