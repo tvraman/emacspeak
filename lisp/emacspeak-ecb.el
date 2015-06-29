@@ -124,28 +124,9 @@
   (setq tree-buffer-incr-searchpattern "")
   (dtk-speak "Cleared search pattern."))
 
-(defun emacspeak-ecb-tree-expand-common-prefix ()
-  "Expand to longest common prefix in tree buffer."
-  (interactive)
-  (declare (special tree-buffer-incr-searchpattern
-                    tree-buffer-incr-search
-                    tree-buffer-root))
-  ;; expand to the max. common prefix
-  (let* ((node-name-list (tree-node-get-all-visible-node-names
-                          tree-buffer-root))
-         (common-prefix (tree-buffer-find-common-substring
-                         node-name-list tree-buffer-incr-searchpattern
-                         (if (equal tree-buffer-incr-search 'prefix) t))))
-    (if (stringp common-prefix)
-        (setq tree-buffer-incr-searchpattern
-              common-prefix))
-    (end-of-line)
-    (emacspeak-speak-line)))
 
-(defun emacspeak-ecb-tree-shift-return ()
-  "Do shift return in ECB tree browser."
-  (interactive)
-  (tree-buffer-return-pressed 'shift nil))
+
+
 
 (defadvice tree-buffer-create (after emacspeak pre act comp)
   "Fixes up keybindings so incremental tree search is
@@ -156,16 +137,13 @@ available."
                                  'tree-buffer-incremental-node-search
                                  tree-buffer-key-map
                                  global-map))
-    (define-key tree-buffer-key-map "\M-\C-m"
-      'emacspeak-ecb-tree-shift-return)
     (define-key tree-buffer-key-map "\d"
       'emacspeak-ecb-tree-backspace)
     (define-key tree-buffer-key-map '[delete]
       'emacspeak-ecb-tree-backspace)
     (define-key tree-buffer-key-map '[home]
       'emacspeak-ecb-tree-clear)
-    (define-key tree-buffer-key-map '[end]
-      'emacspeak-ecb-tree-expand-common-prefix)))
+    ))
 
 (defadvice tree-buffer-incremental-node-search 
     (around emacspeak pre act comp)
@@ -201,6 +179,10 @@ available."
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
+(defsubst tree-node-is-expanded (node)
+  "Check if node is expanded."
+  (or (not (tree-node->expandable node))
+                                  (tree-node->expanded node)))
 
 (defadvice tree-node-toggle-expanded (after emacspeak pre
                                             act comp)
