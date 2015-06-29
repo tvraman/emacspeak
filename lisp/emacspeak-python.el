@@ -1,15 +1,15 @@
 ;;; emacspeak-python.el --- Speech enable Python development environment
 ;;; $Id$
-;;; $Author: tv.raman.tv $ 
+;;; $Author: tv.raman.tv $
 ;;; Description: Auditory interface to python mode
 ;;; Keywords: Emacspeak, Speak, Spoken Output, python
-;;{{{  LCD Archive entry: 
+;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
-;;; emacspeak| T. V. Raman |raman@cs.cornell.edu 
+;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
 ;;; $Date: 2007-08-25 18:28:19 -0700 (Sat, 25 Aug 2007) $ |
-;;;  $Revision: 4532 $ | 
+;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;
 
@@ -17,7 +17,7 @@
 ;;{{{  Copyright:
 
 ;;; Copyright (c) 1995 -- 2015, T. V. Raman
-;;; All Rights Reserved. 
+;;; All Rights Reserved.
 ;;;
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
 ;;;
@@ -51,42 +51,14 @@
 (require 'cl)
 (require 'emacspeak-preamble)
 (eval-when-compile
- (require 'python "python" 'no-error))
-;;}}}
-;;{{{ Advice interactive commands:
-
-;;{{{  electric editing
-(unless (and (boundp 'post-self-insert-hook)
-             post-self-insert-hook
-             (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
-  (defadvice python-electric-colon (after emacspeak pre act comp)
-    "Speak what you inserted"
-    (when (ems-interactive-p )
-      (dtk-say " colon "))))
-
-(defadvice  python-indent-dedent-line-backspace (around emacspeak pre act)
-  "Speak character you're deleting."
-  (cond
-   ((ems-interactive-p  )
-    (dtk-tone 500 30 'force)
-    (emacspeak-speak-this-char (preceding-char ))
-    ad-do-it)
-   (t ad-do-it))
-  ad-return-value)
-
-(defadvice python-electric-delete (around emacspeak pre act)
-  "Speak character you're deleting."
-  (cond
-   ((ems-interactive-p  )
-    (dtk-tone 500 30 'force)
-    (emacspeak-speak-this-char (preceding-char ))
-    ad-do-it)
-   (t ad-do-it))
-  ad-return-value)
-
+  (require 'python "python" 'no-error))
 ;;}}}
 ;;{{{ interactive programming
 
+(defadvice python-check (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'task-done)))
 (defadvice python-send-region (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (ems-interactive-p )
@@ -99,18 +71,24 @@
 
 ;;}}}
 ;;{{{  whitespace management and indentation
-(loop for f in
-      (list 'python-fill-paragraph
-            
-            )
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p )
-            (emacspeak-auditory-icon 'fill-object)))))
 
-(defadvice python-shift-left (after emacspeak pre act comp)
+(defadvice  python-indent-dedent-line-backspace (around emacspeak pre act)
+  "Speak character you're deleting."
+  (cond
+   ((ems-interactive-p  )
+    (dtk-tone 500 30 'force)
+    (emacspeak-speak-this-char (preceding-char ))
+    ad-do-it)
+   (t ad-do-it))
+  ad-return-value)
+
+
+(defadvice python-fill-paragraph (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p )
+    (emacspeak-auditory-icon 'fill-object)))
+
+(defadvice python-indent-shift-left (after emacspeak pre act comp)
   "Speak number of lines that were shifted"
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
@@ -118,7 +96,7 @@
      (format "Left shifted block  containing %s lines"
              (count-lines  (region-beginning)
                            (region-end))))))
-(defadvice python-shift-right (after emacspeak pre act comp)
+(defadvice python-indent-shift-right (after emacspeak pre act comp)
   "Speak number of lines that were shifted"
   (when (ems-interactive-p )
     (dtk-speak
@@ -136,54 +114,24 @@
 
 ;;}}}
 ;;{{{  buffer navigation
-(defadvice python-previous-statement (after emacspeak pre act comp)
-  "Speak current statement after moving"
-  (when (ems-interactive-p )
-    (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'large-movement)))
-(defadvice python-next-statement (after emacspeak pre act comp)
-  "Speak current statement after moving"
-  (when (ems-interactive-p )
-    (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'large-movement)))
 
-(defadvice python-mark-block (after emacspeak pre act comp)
-  "Speak number of lines marked"
-  (when (ems-interactive-p )
-    (dtk-speak
-     (format "Marked block containing %s lines"
-             (count-lines (region-beginning)
-                          (region-end))))
-    (emacspeak-auditory-icon 'mark-object)))
-(defadvice python-narrow-to-defun (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p )
-    (message "%s %s lines"
-             (save-excursion
-               (goto-char (point-min))
-               (buffer-substring (line-beginning-position)
-                                 (line-end-position)))
-             (count-lines (point-min)
-                          (point-max)))))
-
-(defadvice python-mark-def-or-class (after emacspeak pre act comp)
-  "Speak number of lines marked"
-  (when (ems-interactive-p )
-    (dtk-speak
-     (format "Marked block containing %s lines"
-             (count-lines (region-beginning)
-                          (region-end))))
-    (emacspeak-auditory-icon 'mark-object)))
-
-(defadvice python-forward-into-nomenclature(after emacspeak pre act comp)
-  "Speak rest of current word"
-  (when (ems-interactive-p )
-    (emacspeak-speak-word 1)))
-
-(defadvice python-backward-into-nomenclature(after emacspeak pre act comp)
-  "Speak rest of current word"
-  (when (ems-interactive-p )
-    (emacspeak-speak-word 1)))
+(loop
+ for f in
+ '(
+   python-nav-up-list python-nav-if-name-main python-nav-forward-statement
+                      python-nav-forward-sexp-safe python-nav-forward-sexp python-nav-forward-defun
+                      python-nav-forward-block python-nav-end-of-statement python-nav-end-of-defun
+                      python-nav-end-of-block python-nav-beginning-of-statement python-nav-beginning-of-block
+                      python-nav-backward-up-list python-nav-backward-statement python-nav-backward-sexp-safe
+                      python-nav-backward-sexp python-nav-backward-defun python-nav-backward-block
+                      )
+ do
+ (eval
+  `(defadvice  ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p )
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'large-movement)))))
 
 ;;}}}
 ;;{{{ the process buffer
@@ -193,7 +141,7 @@
   (declare (special emacspeak-comint-autospeak))
   (let ((prior (point ))
         (dtk-stop-immediately nil))
-    ad-do-it 
+    ad-do-it
     (when (and  emacspeak-comint-autospeak
                 (window-live-p
                  (get-buffer-window (process-buffer (ad-get-arg 0)))))
@@ -205,7 +153,6 @@
 
 ;;}}}
 
-;;}}}
 ;;{{{ keybindings
 
 (progn
@@ -218,11 +165,11 @@
           'emacspeak-setup-programming-mode)
 ;;}}}
 (provide 'emacspeak-python )
-;;{{{ end of file 
+;;{{{ end of file
 
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: nil
-;;; end: 
+;;; end:
 
 ;;}}}
