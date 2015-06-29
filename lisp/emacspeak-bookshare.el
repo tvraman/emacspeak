@@ -369,7 +369,8 @@ Interactive prefix arg filters search by category."
    ((null category)                     ; plain search
     (emacspeak-bookshare-api-call "book/searchFTS/author" query))
    (t                                   ; filter using category:
-    (let ((filter
+    (let* ((completion-ignore-case  t)
+           (filter
            (completing-read "Category: "
                             (emacspeak-bookshare-categories))))
       (emacspeak-bookshare-api-call
@@ -389,7 +390,8 @@ Interactive prefix arg filters search by category."
    ((null category)                     ; plain search
     (emacspeak-bookshare-api-call "book/searchFTS/title" query))
    (t                                   ; filter using category:
-    (let ((filter
+    (let* ((completion-ignore-case t)
+           (filter
            (completing-read "Category: "
                             (emacspeak-bookshare-categories))))
       (emacspeak-bookshare-api-call
@@ -418,7 +420,8 @@ Optional interactive prefix arg filters by category."
    ((null category)                     ; plain search
     (emacspeak-bookshare-api-call "book/search/since" query))
    (t                                   ; filter using category:
-    (let ((filter
+    (let* ((completion-ignore-case t)
+           (filter
            (completing-read "Category: "
                             (emacspeak-bookshare-categories))))
       (emacspeak-bookshare-api-call
@@ -439,7 +442,8 @@ Optional interactive prefix arg prompts for a category to use as a filter."
    ((null category)                     ; plain search
     (emacspeak-bookshare-api-call "book/browse/popular" ""))
    (t                                   ; filter using category:
-    (let ((filter
+    (let* ((completion-ignore-case t)
+           (filter
            (completing-read "Category: "
                             (emacspeak-bookshare-categories))))
       (emacspeak-bookshare-api-call
