@@ -1,220 +1,137 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
-
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-npr</title>
 
-  <title>Emacspeak User’s Manual –2nd Edition.:
-  emacspeak-npr</title>
-  <meta name="description" content=
-  "Emacspeak User’s Manual –2nd Edition.: emacspeak-npr" />
-  <meta name="keywords" content=
-  "Emacspeak User’s Manual –2nd Edition.: emacspeak-npr" />
-  <meta name="resource-type" content="document" />
-  <meta name="distribution" content="global" />
-  <meta name="Generator" content="makeinfo" />
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <link href="index.html#Top" rel="start" title="Top" />
-  <link href="Concept-Index.html#Concept-Index" rel="index" title=
-  "Concept Index" />
-  <link href="index.html#SEC_Contents" rel="contents" title=
-  "Table of Contents" />
-  <link href=
-  "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
-  rel="up" title="Emacspeak Commands And Options" />
-  <link href="emacspeak_002dnxml.html#emacspeak_002dnxml" rel=
-  "next" title="emacspeak-nxml" />
-  <link href=
-  "emacspeak_002dnewsticker.html#emacspeak_002dnewsticker" rel=
-  "prev" title="emacspeak-newsticker" />
-  <style type="text/css">
-/*<![CDATA[*/
-  <!--
-  a.summary-letter {text-decoration: none}
-  blockquote.smallquotation {font-size: smaller}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  div.indentedblock {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
-  div.smalldisplay {margin-left: 3.2em}
-  div.smallexample {margin-left: 3.2em}
-  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-  div.smalllisp {margin-left: 3.2em}
-  kbd {font-style:oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  pre.smalldisplay {font-family: inherit; font-size: smaller}
-  pre.smallexample {font-size: smaller}
-  pre.smallformat {font-family: inherit; font-size: smaller}
-  pre.smalllisp {font-size: smaller}
-  span.nocodebreak {white-space:nowrap}
-  span.nolinebreak {white-space:nowrap}
-  span.roman {font-family:serif; font-weight:normal}
-  span.sansserif {font-family:sans-serif; font-weight:normal}
-  ul.no-bullet {list-style: none}
-  -->
-  /*]]>*/
-  </style>
-  <style type="text/css">
-/*<![CDATA[*/
-  body {
-  background-color: #FFFFFF;
-  color: #000000;
-  }
-  :link { color: #0000FF }
-  :visited { color: #800080 }
-  :active { color: #FF0000 }
-  /*]]>*/
-  </style>
+<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-npr">
+<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-npr">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" rel="up" title="Emacspeak Commands And Options">
+<link href="emacspeak_002dnxml.html#emacspeak_002dnxml" rel="next" title="emacspeak-nxml">
+<link href="emacspeak_002dnewsticker.html#emacspeak_002dnewsticker" rel="prev" title="emacspeak-newsticker">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
 
-<body lang="en" xml:lang="en">
-  <a name="emacspeak_002dnpr" id="emacspeak_002dnpr"></a>
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="emacspeak_002dnpr"></a>
+<div class="header">
+<p>
+Next: <a href="emacspeak_002dnxml.html#emacspeak_002dnxml" accesskey="n" rel="next">emacspeak-nxml</a>, Previous: <a href="emacspeak_002dnewsticker.html#emacspeak_002dnewsticker" accesskey="p" rel="prev">emacspeak-newsticker</a>, Up: <a href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="emacspeak_002dnpr-1"></a>
+<h3 class="section">11.119 emacspeak-npr</h3>
 
-  <div class="header">
-    <p>Next: <a href="emacspeak_002dnxml.html#emacspeak_002dnxml"
-    accesskey="n" rel="next">emacspeak-nxml</a>, Previous: <a href=
-    "emacspeak_002dnewsticker.html#emacspeak_002dnewsticker"
-    accesskey="p" rel="prev">emacspeak-newsticker</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
-    accesskey="u" rel="up">Emacspeak Commands And Options</a>
-    &nbsp; [<a href="index.html#SEC_Contents" title=
-    "Table of contents" rel="contents">Contents</a>][<a href=
-    "Concept-Index.html#Concept-Index" title="Index" rel=
-    "index">Index</a>]</p>
-  </div>
-  <hr />
-  <a name="emacspeak_002dnpr-1" id="emacspeak_002dnpr-1"></a>
+<p>NPR == http://www.npr.org National Public Radio in the US.
+It provides a simple Web  API documented at http://www.npr.org/api/index.
+This module implements an Emacspeak Npr client.
+Users will need to get their own API key.
+</p>
+<p>Entry Points:
+</p>
+<p>Command: emacspeak-npr-play-program
+&mdash; Play current or past program with completion for program name.
+</p>
+<p>emacspeak-npr-listing
+&mdash; List NPR programs, blogs, etc with completion.
+Streams can be played from within the displayed listing.
+</p>
+<p>In all cases, streams are played using module emacspeak-m-player.
+</p>
+<a name="emacspeak_002dnpr-Commands"></a>
+<h4 class="subsection">11.119.1 emacspeak-npr Commands</h4>
 
-  <h3 class="section">11.119 emacspeak-npr</h3>
+<dl>
+<dt><a name="index-emacspeak_002dnpr_002dlisting"></a>Command: <strong>emacspeak-npr-listing</strong> <em>(&amp;optional search)</em></dt>
+<dd><a name="index-emacspeak_002dnpr_002dlisting-1"></a>
 
-  <p>NPR == http://www.npr.org National Public Radio in the US. It
-  provides a simple Web API documented at
-  http://www.npr.org/api/index. This module implements an Emacspeak
-  Npr client. Users will need to get their own API key.</p>
+<p>Display specified listing.
+Interactive prefix arg prompts for search.
+</p></dd></dl>
 
-  <p>Entry Points:</p>
+<dl>
+<dt><a name="index-emacspeak_002dnpr_002dlisting_002durl_002dexecutor"></a>Command: <strong>emacspeak-npr-listing-url-executor</strong> <em>(url &amp;optional get-date)</em></dt>
+<dd><a name="index-emacspeak_002dnpr_002dlisting_002durl_002dexecutor-1"></a>
 
-  <p>Command: emacspeak-npr-play-program — Play current or past
-  program with completion for program name.</p>
+<p>Special executor for use in NPR  listings.
+Optional prefix arg prompts for date.
+</p></dd></dl>
 
-  <p>emacspeak-npr-listing — List NPR programs, blogs, etc with
-  completion. Streams can be played from within the displayed
-  listing.</p>
+<dl>
+<dt><a name="index-emacspeak_002dnpr_002dplay_002dprogram"></a>Command: <strong>emacspeak-npr-play-program</strong> <em>(pid &amp;optional get-date)</em></dt>
+<dd><a name="index-emacspeak_002dnpr_002dplay_002dprogram-1"></a>
 
-  <p>In all cases, streams are played using module
-  emacspeak-m-player.</p><a name="emacspeak_002dnpr-Commands" id=
-  "emacspeak_002dnpr-Commands"></a>
+<p>Play specified NPR program.
+Optional interactive prefix arg prompts for a date.
+</p></dd></dl>
 
-  <h4 class="subsection">11.119.1 emacspeak-npr Commands</h4>
+<dl>
+<dt><a name="index-emacspeak_002dnpr_002drefresh_002dprogram_002dtable"></a>Command: <strong>emacspeak-npr-refresh-program-table</strong> <em>(&amp;optional force)</em></dt>
+<dd><a name="index-emacspeak_002dnpr_002drefresh_002dprogram_002dtable-1"></a>
 
-  <dl>
-    <dt><a name="index-emacspeak_002dnpr_002dlisting" id=
-    "index-emacspeak_002dnpr_002dlisting"></a>Command:
-    <strong>emacspeak-npr-listing</strong> <em>(&amp;optional
-    search)</em></dt>
+<p>Refresh program table cache if needed.
+</p></dd></dl>
 
-    <dd>
-      <a name="index-emacspeak_002dnpr_002dlisting-1" id=
-      "index-emacspeak_002dnpr_002dlisting-1"></a>
+<dl>
+<dt><a name="index-emacspeak_002dnpr_002dsearch"></a>Command: <strong>emacspeak-npr-search</strong> <em>(query)</em></dt>
+<dd><a name="index-emacspeak_002dnpr_002dsearch-1"></a>
 
-      <p>Display specified listing. Interactive prefix arg prompts
-      for search.</p>
-    </dd>
-  </dl>
+<p>Search NPR
+</p></dd></dl>
 
-  <dl>
-    <dt><a name=
-    "index-emacspeak_002dnpr_002dlisting_002durl_002dexecutor" id=
-    "index-emacspeak_002dnpr_002dlisting_002durl_002dexecutor"></a>Command:
-    <strong>emacspeak-npr-listing-url-executor</strong> <em>(url
-    &amp;optional get-date)</em></dt>
+<a name="emacspeak_002dnpr-Options"></a>
+<h4 class="subsection">11.119.2 emacspeak-npr Options</h4>
 
-    <dd>
-      <a name=
-      "index-emacspeak_002dnpr_002dlisting_002durl_002dexecutor-1"
-      id=
-      "index-emacspeak_002dnpr_002dlisting_002durl_002dexecutor-1"></a>
+<dl>
+<dt><a name="index-User-Option-623"></a>Variable: <strong>User Option</strong> <em>emacspeak-npr-api-key</em></dt>
+<dd><p>Web API  key for this application.
+</p>
+</dd></dl>
 
-      <p>Special executor for use in NPR listings. Optional prefix
-      arg prompts for date.</p>
-    </dd>
-  </dl>
+<dl>
+<dt><a name="index-User-Option-624"></a>Variable: <strong>User Option</strong> <em>emacspeak-npr-local-cache</em></dt>
+<dd><p>Location where we cache NPR playlists.
+</p>
+</dd></dl>
 
-  <dl>
-    <dt><a name="index-emacspeak_002dnpr_002dplay_002dprogram" id=
-    "index-emacspeak_002dnpr_002dplay_002dprogram"></a>Command:
-    <strong>emacspeak-npr-play-program</strong> <em>(pid
-    &amp;optional get-date)</em></dt>
 
-    <dd>
-      <a name="index-emacspeak_002dnpr_002dplay_002dprogram-1" id=
-      "index-emacspeak_002dnpr_002dplay_002dprogram-1"></a>
 
-      <p>Play specified NPR program. Optional interactive prefix
-      arg prompts for a date.</p>
-    </dd>
-  </dl>
 
-  <dl>
-    <dt><a name=
-    "index-emacspeak_002dnpr_002drefresh_002dprogram_002dtable" id=
-    "index-emacspeak_002dnpr_002drefresh_002dprogram_002dtable"></a>Command:
-    <strong>emacspeak-npr-refresh-program-table</strong>
-    <em>(&amp;optional force)</em></dt>
-
-    <dd>
-      <a name=
-      "index-emacspeak_002dnpr_002drefresh_002dprogram_002dtable-1"
-      id=
-      "index-emacspeak_002dnpr_002drefresh_002dprogram_002dtable-1">
-      </a>
-
-      <p>Refresh program table cache if needed.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-emacspeak_002dnpr_002dsearch" id=
-    "index-emacspeak_002dnpr_002dsearch"></a>Command:
-    <strong>emacspeak-npr-search</strong> <em>(query)</em></dt>
-
-    <dd>
-      <a name="index-emacspeak_002dnpr_002dsearch-1" id=
-      "index-emacspeak_002dnpr_002dsearch-1"></a>
-
-      <p>Search NPR</p>
-    </dd>
-  </dl><a name="emacspeak_002dnpr-Options" id=
-  "emacspeak_002dnpr-Options"></a>
-
-  <h4 class="subsection">11.119.2 emacspeak-npr Options</h4>
-
-  <dl>
-    <dt><a name="index-User-Option-583" id=
-    "index-User-Option-583"></a>Variable: <strong>User
-    Option</strong> <em>emacspeak-npr-api-key</em></dt>
-
-    <dd>
-      <p>Web API key for this application.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-User-Option-584" id=
-    "index-User-Option-584"></a>Variable: <strong>User
-    Option</strong> <em>emacspeak-npr-local-cache</em></dt>
-
-    <dd>
-      <p>Location where we cache NPR playlists.</p>
-    </dd>
-  </dl>
 </body>
 </html>

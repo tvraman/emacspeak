@@ -1,122 +1,85 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
-
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-ispell</title>
 
-  <title>Emacspeak User’s Manual –2nd Edition.:
-  emacspeak-ispell</title>
-  <meta name="description" content=
-  "Emacspeak User’s Manual –2nd Edition.: emacspeak-ispell" />
-  <meta name="keywords" content=
-  "Emacspeak User’s Manual –2nd Edition.: emacspeak-ispell" />
-  <meta name="resource-type" content="document" />
-  <meta name="distribution" content="global" />
-  <meta name="Generator" content="makeinfo" />
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <link href="index.html#Top" rel="start" title="Top" />
-  <link href="Concept-Index.html#Concept-Index" rel="index" title=
-  "Concept Index" />
-  <link href="index.html#SEC_Contents" rel="contents" title=
-  "Table of Contents" />
-  <link href=
-  "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
-  rel="up" title="Emacspeak Commands And Options" />
-  <link href="emacspeak_002djabber.html#emacspeak_002djabber" rel=
-  "next" title="emacspeak-jabber" />
-  <link href="emacspeak_002dinfo.html#emacspeak_002dinfo" rel=
-  "prev" title="emacspeak-info" />
-  <style type="text/css">
-/*<![CDATA[*/
-  <!--
-  a.summary-letter {text-decoration: none}
-  blockquote.smallquotation {font-size: smaller}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  div.indentedblock {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
-  div.smalldisplay {margin-left: 3.2em}
-  div.smallexample {margin-left: 3.2em}
-  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-  div.smalllisp {margin-left: 3.2em}
-  kbd {font-style:oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  pre.smalldisplay {font-family: inherit; font-size: smaller}
-  pre.smallexample {font-size: smaller}
-  pre.smallformat {font-family: inherit; font-size: smaller}
-  pre.smalllisp {font-size: smaller}
-  span.nocodebreak {white-space:nowrap}
-  span.nolinebreak {white-space:nowrap}
-  span.roman {font-family:serif; font-weight:normal}
-  span.sansserif {font-family:sans-serif; font-weight:normal}
-  ul.no-bullet {list-style: none}
-  -->
-  /*]]>*/
-  </style>
-  <style type="text/css">
-/*<![CDATA[*/
-  body {
-  background-color: #FFFFFF;
-  color: #000000;
-  }
-  :link { color: #0000FF }
-  :visited { color: #800080 }
-  :active { color: #FF0000 }
-  /*]]>*/
-  </style>
+<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-ispell">
+<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-ispell">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" rel="up" title="Emacspeak Commands And Options">
+<link href="emacspeak_002djabber.html#emacspeak_002djabber" rel="next" title="emacspeak-jabber">
+<link href="emacspeak_002dinfo.html#emacspeak_002dinfo" rel="prev" title="emacspeak-info">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
 
-<body lang="en" xml:lang="en">
-  <a name="emacspeak_002dispell" id="emacspeak_002dispell"></a>
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="emacspeak_002dispell"></a>
+<div class="header">
+<p>
+Next: <a href="emacspeak_002djabber.html#emacspeak_002djabber" accesskey="n" rel="next">emacspeak-jabber</a>, Previous: <a href="emacspeak_002dinfo.html#emacspeak_002dinfo" accesskey="p" rel="prev">emacspeak-info</a>, Up: <a href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="emacspeak_002dispell-1"></a>
+<h3 class="section">11.97 emacspeak-ispell</h3>
 
-  <div class="header">
-    <p>Next: <a href=
-    "emacspeak_002djabber.html#emacspeak_002djabber" accesskey="n"
-    rel="next">emacspeak-jabber</a>, Previous: <a href=
-    "emacspeak_002dinfo.html#emacspeak_002dinfo" accesskey="p" rel=
-    "prev">emacspeak-info</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
-    accesskey="u" rel="up">Emacspeak Commands And Options</a>
-    &nbsp; [<a href="index.html#SEC_Contents" title=
-    "Table of contents" rel="contents">Contents</a>][<a href=
-    "Concept-Index.html#Concept-Index" title="Index" rel=
-    "index">Index</a>]</p>
-  </div>
-  <hr />
-  <a name="emacspeak_002dispell-1" id="emacspeak_002dispell-1"></a>
+<p>This module speech enables ispell.
+Implementation note: This is hard because of how  ispell.el is written
+Namely, all of the work is done by one huge hairy function.
+This makes advising it hard.
+</p>
+<p>Original version of this extension was written under emacs-19.28
+for ispell.el version 2.30
+Now updating it for ispell.el version 2.37.
+Support for 2.30 will wither away
+</p>
+<a name="emacspeak_002dispell-Options"></a>
+<h4 class="subsection">11.97.1 emacspeak-ispell Options</h4>
 
-  <h3 class="section">11.97 emacspeak-ispell</h3>
+<dl>
+<dt><a name="index-User-Option-523"></a>Variable: <strong>User Option</strong> <em>emacspeak-ispell-max-choices</em></dt>
+<dd><p>Emacspeak will not speak the choices if there are more than this
+many available corrections.
+</p>
+</dd></dl>
 
-  <p>This module speech enables ispell. Implementation note: This
-  is hard because of how ispell.el is written Namely, all of the
-  work is done by one huge hairy function. This makes advising it
-  hard.</p>
 
-  <p>Original version of this extension was written under
-  emacs-19.28 for ispell.el version 2.30 Now updating it for
-  ispell.el version 2.37. Support for 2.30 will wither
-  away</p><a name="emacspeak_002dispell-Options" id=
-  "emacspeak_002dispell-Options"></a>
 
-  <h4 class="subsection">11.97.1 emacspeak-ispell Options</h4>
 
-  <dl>
-    <dt><a name="index-User-Option-452" id=
-    "index-User-Option-452"></a>Variable: <strong>User
-    Option</strong> <em>emacspeak-ispell-max-choices</em></dt>
-
-    <dd>
-      <p>Emacspeak will not speak the choices if there are more
-      than this many available corrections.</p>
-    </dd>
-  </dl>
 </body>
 </html>

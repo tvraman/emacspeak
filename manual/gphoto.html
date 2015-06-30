@@ -1,387 +1,225 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
-
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: gphoto</title>
 
-  <title>Emacspeak User’s Manual –2nd Edition.: gphoto</title>
-  <meta name="description" content=
-  "Emacspeak User’s Manual –2nd Edition.: gphoto" />
-  <meta name="keywords" content=
-  "Emacspeak User’s Manual –2nd Edition.: gphoto" />
-  <meta name="resource-type" content="document" />
-  <meta name="distribution" content="global" />
-  <meta name="Generator" content="makeinfo" />
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8" />
-  <link href="index.html#Top" rel="start" title="Top" />
-  <link href="Concept-Index.html#Concept-Index" rel="index" title=
-  "Concept Index" />
-  <link href="index.html#SEC_Contents" rel="contents" title=
-  "Table of Contents" />
-  <link href=
-  "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
-  rel="up" title="Emacspeak Commands And Options" />
-  <link href="gweb.html#gweb" rel="next" title="gweb" />
-  <link href="gmaps.html#gmaps" rel="prev" title="gmaps" />
-  <style type="text/css">
-/*<![CDATA[*/
-  <!--
-  a.summary-letter {text-decoration: none}
-  blockquote.smallquotation {font-size: smaller}
-  div.display {margin-left: 3.2em}
-  div.example {margin-left: 3.2em}
-  div.indentedblock {margin-left: 3.2em}
-  div.lisp {margin-left: 3.2em}
-  div.smalldisplay {margin-left: 3.2em}
-  div.smallexample {margin-left: 3.2em}
-  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-  div.smalllisp {margin-left: 3.2em}
-  kbd {font-style:oblique}
-  pre.display {font-family: inherit}
-  pre.format {font-family: inherit}
-  pre.menu-comment {font-family: serif}
-  pre.menu-preformatted {font-family: serif}
-  pre.smalldisplay {font-family: inherit; font-size: smaller}
-  pre.smallexample {font-size: smaller}
-  pre.smallformat {font-family: inherit; font-size: smaller}
-  pre.smalllisp {font-size: smaller}
-  span.nocodebreak {white-space:nowrap}
-  span.nolinebreak {white-space:nowrap}
-  span.roman {font-family:serif; font-weight:normal}
-  span.sansserif {font-family:sans-serif; font-weight:normal}
-  ul.no-bullet {list-style: none}
-  -->
-  /*]]>*/
-  </style>
-  <style type="text/css">
-/*<![CDATA[*/
-  body {
-  background-color: #FFFFFF;
-  color: #000000;
-  }
-  :link { color: #0000FF }
-  :visited { color: #800080 }
-  :active { color: #FF0000 }
-  /*]]>*/
-  </style>
+<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: gphoto">
+<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: gphoto">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" rel="up" title="Emacspeak Commands And Options">
+<link href="gweb.html#gweb" rel="next" title="gweb">
+<link href="gmaps.html#gmaps" rel="prev" title="gmaps">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
 
-<body lang="en" xml:lang="en">
-  <a name="gphoto" id="gphoto"></a>
-
-  <div class="header">
-    <p>Next: <a href="gweb.html#gweb" accesskey="n" rel=
-    "next">gweb</a>, Previous: <a href="gmaps.html#gmaps"
-    accesskey="p" rel="prev">gmaps</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
-    accesskey="u" rel="up">Emacspeak Commands And Options</a>
-    &nbsp; [<a href="index.html#SEC_Contents" title=
-    "Table of contents" rel="contents">Contents</a>][<a href=
-    "Concept-Index.html#Concept-Index" title="Index" rel=
-    "index">Index</a>]</p>
-  </div>
-  <hr />
-  <a name="gphoto-1" id="gphoto-1"></a>
-
-  <h3 class="section">11.196 gphoto</h3>
-
-  <p>Emacs client for accessing Picasa — Google Photo Albums See
-  http://code.google.com/apis/picasaweb/overview.html</p><a name=
-  "gphoto-Commands" id="gphoto-Commands"></a>
-
-  <h4 class="subsection">11.196.1 gphoto Commands</h4>
-
-  <dl>
-    <dt><a name="index-gphoto_002dalbum_002dcreate" id=
-    "index-gphoto_002dalbum_002dcreate"></a>Command:
-    <strong>gphoto-album-create</strong></dt>
-
-    <dd>
-      <a name="index-gphoto_002dalbum_002dcreate-1" id=
-      "index-gphoto_002dalbum_002dcreate-1"></a>
-
-      <p>Create a new GPhoto album.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-gphoto_002dalbums" id=
-    "index-gphoto_002dalbums"></a>Command:
-    <strong>gphoto-albums</strong> <em>(&amp;optional
-    prompt)</em></dt>
-
-    <dd>
-      <a name="index-gphoto_002dalbums-1" id=
-      "index-gphoto_002dalbums-1"></a>
-
-      <p>Display feed of albums. Interactive prefix arg prompts for
-      userid whose albums we request.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-gphoto_002dcomment_002dor_002dtag" id=
-    "index-gphoto_002dcomment_002dor_002dtag"></a>Command:
-    <strong>gphoto-comment-or-tag</strong> <em>(type
-    resource)</em></dt>
-
-    <dd>
-      <a name="index-gphoto_002dcomment_002dor_002dtag-1" id=
-      "index-gphoto_002dcomment_002dor_002dtag-1"></a>
-
-      <p>Add comments or tags to an existing photo.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-gphoto_002dcommunity_002dsearch" id=
-    "index-gphoto_002dcommunity_002dsearch"></a>Command:
-    <strong>gphoto-community-search</strong> <em>(query)</em></dt>
-
-    <dd>
-      <a name="index-gphoto_002dcommunity_002dsearch-1" id=
-      "index-gphoto_002dcommunity_002dsearch-1"></a>
-
-      <p>Search all public photos.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-gphoto_002ddelete_002ditem" id=
-    "index-gphoto_002ddelete_002ditem"></a>Command:
-    <strong>gphoto-delete-item</strong> <em>(url)</em></dt>
-
-    <dd>
-      <a name="index-gphoto_002ddelete_002ditem-1" id=
-      "index-gphoto_002ddelete_002ditem-1"></a>
-
-      <p>Delete specified item.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-gphoto_002ddirectory_002dadd_002dphotos" id=
-    "index-gphoto_002ddirectory_002dadd_002dphotos"></a>Command:
-    <strong>gphoto-directory-add-photos</strong> <em>(directory
-    album-name)</em></dt>
-
-    <dd>
-      <a name="index-gphoto_002ddirectory_002dadd_002dphotos-1" id=
-      "index-gphoto_002ddirectory_002dadd_002dphotos-1"></a>
-
-      <p>Add all jpeg files in a directory to specified album.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-gphoto_002ddownload" id=
-    "index-gphoto_002ddownload"></a>Command:
-    <strong>gphoto-download</strong> <em>(resource)</em></dt>
-
-    <dd>
-      <a name="index-gphoto_002ddownload-1" id=
-      "index-gphoto_002ddownload-1"></a>
-
-      <p>Download resource after authenticating.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-gphoto_002dedit_002dentry" id=
-    "index-gphoto_002dedit_002dentry"></a>Command:
-    <strong>gphoto-edit-entry</strong> <em>(url)</em></dt>
-
-    <dd>
-      <a name="index-gphoto_002dedit_002dentry-1" id=
-      "index-gphoto_002dedit_002dentry-1"></a>
-
-      <p>Retrieve metadata for entry and prepare it for editting.
-      The retrieved entry is placed in a buffer ready for editing.
-      âurlâ is the URL of the entry.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-gphoto_002dfeeds" id=
-    "index-gphoto_002dfeeds"></a>Command:
-    <strong>gphoto-feeds</strong> <em>(kind user)</em></dt>
-
-    <dd>
-      <a name="index-gphoto_002dfeeds-1" id=
-      "index-gphoto_002dfeeds-1"></a>
-
-      <p>Retrieve and display feed of albums or tags after
-      authenticating.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-gphoto_002dphoto_002dadd" id=
-    "index-gphoto_002dphoto_002dadd"></a>Command:
-    <strong>gphoto-photo-add</strong> <em>(album-name
-    photo)</em></dt>
-
-    <dd>
-      <a name="index-gphoto_002dphoto_002dadd-1" id=
-      "index-gphoto_002dphoto_002dadd-1"></a>
-
-      <p>Add a photo to an existing album.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-gphoto_002drecent" id=
-    "index-gphoto_002drecent"></a>Command:
-    <strong>gphoto-recent</strong> <em>(user kind)</em></dt>
-
-    <dd>
-      <a name="index-gphoto_002drecent-1" id=
-      "index-gphoto_002drecent-1"></a>
-
-      <p>Retrieve feed of recently uploaded photos or comments.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-gphoto_002dsign_002din" id=
-    "index-gphoto_002dsign_002din"></a>Command:
-    <strong>gphoto-sign-in</strong></dt>
-
-    <dd>
-      <a name="index-gphoto_002dsign_002din-1" id=
-      "index-gphoto_002dsign_002din-1"></a>
-
-      <p>Resets client so you can start with a different
-      userid.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-gphoto_002dsign_002dout" id=
-    "index-gphoto_002dsign_002dout"></a>Command:
-    <strong>gphoto-sign-out</strong></dt>
-
-    <dd>
-      <a name="index-gphoto_002dsign_002dout-1" id=
-      "index-gphoto_002dsign_002dout-1"></a>
-
-      <p>Resets client so you can start with a different
-      userid.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-gphoto_002dtags" id=
-    "index-gphoto_002dtags"></a>Command:
-    <strong>gphoto-tags</strong></dt>
-
-    <dd>
-      <a name="index-gphoto_002dtags-1" id=
-      "index-gphoto_002dtags-1"></a>
-
-      <p>View feed of tags.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-gphoto_002duser_002dsearch" id=
-    "index-gphoto_002duser_002dsearch"></a>Command:
-    <strong>gphoto-user-search</strong> <em>(user query)</em></dt>
-
-    <dd>
-      <a name="index-gphoto_002duser_002dsearch-1" id=
-      "index-gphoto_002duser_002dsearch-1"></a>
-
-      <p>Retrieve feed of recently uploaded comments for specified
-      user.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-gphoto_002duser_002dtagsearch" id=
-    "index-gphoto_002duser_002dtagsearch"></a>Command:
-    <strong>gphoto-user-tagsearch</strong> <em>(user tag)</em></dt>
-
-    <dd>
-      <a name="index-gphoto_002duser_002dtagsearch-1" id=
-      "index-gphoto_002duser_002dtagsearch-1"></a>
-
-      <p>Retrieve feed o matches comments for specified user.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-gphoto_002dview" id=
-    "index-gphoto_002dview"></a>Command:
-    <strong>gphoto-view</strong> <em>(resource)</em></dt>
-
-    <dd>
-      <a name="index-gphoto_002dview-1" id=
-      "index-gphoto_002dview-1"></a>
-
-      <p>Retrieve and display resource after authenticating.</p>
-    </dd>
-  </dl><a name="gphoto-Options" id="gphoto-Options"></a>
-
-  <h4 class="subsection">11.196.2 gphoto Options</h4>
-
-  <dl>
-    <dt><a name="index-User-Option-850" id=
-    "index-User-Option-850"></a>Variable: <strong>User
-    Option</strong> <em>gphoto-album-default-access</em></dt>
-
-    <dd>
-      <p>Default access mode for newly created albums.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-User-Option-851" id=
-    "index-User-Option-851"></a>Variable: <strong>User
-    Option</strong>
-    <em>gphoto-album-default-commenting-enabled</em></dt>
-
-    <dd>
-      <p>Default commenting mode for newly created albums.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-User-Option-852" id=
-    "index-User-Option-852"></a>Variable: <strong>User
-    Option</strong> <em>gphoto-user-email</em></dt>
-
-    <dd>
-      <p>Mail address that identifies Picasa user.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-User-Option-853" id=
-    "index-User-Option-853"></a>Variable: <strong>User
-    Option</strong> <em>gphoto-user-password</em></dt>
-
-    <dd>
-      <p>Password for authenticating to Picasa account.</p>
-    </dd>
-  </dl>
-  <hr />
-
-  <div class="header">
-    <p>Next: <a href="gweb.html#gweb" accesskey="n" rel=
-    "next">gweb</a>, Previous: <a href="gmaps.html#gmaps"
-    accesskey="p" rel="prev">gmaps</a>, Up: <a href=
-    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
-    accesskey="u" rel="up">Emacspeak Commands And Options</a>
-    &nbsp; [<a href="index.html#SEC_Contents" title=
-    "Table of contents" rel="contents">Contents</a>][<a href=
-    "Concept-Index.html#Concept-Index" title="Index" rel=
-    "index">Index</a>]</p>
-  </div>
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="gphoto"></a>
+<div class="header">
+<p>
+Next: <a href="gweb.html#gweb" accesskey="n" rel="next">gweb</a>, Previous: <a href="gmaps.html#gmaps" accesskey="p" rel="prev">gmaps</a>, Up: <a href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="gphoto-1"></a>
+<h3 class="section">11.196 gphoto</h3>
+
+<p>Emacs client for accessing Picasa &mdash; Google Photo Albums
+See  http://code.google.com/apis/picasaweb/overview.html
+</p>
+<a name="gphoto-Commands"></a>
+<h4 class="subsection">11.196.1 gphoto Commands</h4>
+
+<dl>
+<dt><a name="index-gphoto_002dalbum_002dcreate"></a>Command: <strong>gphoto-album-create</strong></dt>
+<dd><a name="index-gphoto_002dalbum_002dcreate-1"></a>
+
+<p>Create a new GPhoto album.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-gphoto_002dalbums"></a>Command: <strong>gphoto-albums</strong> <em>(&amp;optional prompt)</em></dt>
+<dd><a name="index-gphoto_002dalbums-1"></a>
+
+<p>Display feed of albums.
+Interactive prefix arg prompts for userid whose albums we request.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-gphoto_002dcomment_002dor_002dtag"></a>Command: <strong>gphoto-comment-or-tag</strong> <em>(type resource)</em></dt>
+<dd><a name="index-gphoto_002dcomment_002dor_002dtag-1"></a>
+
+<p>Add comments or tags  to an existing photo.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-gphoto_002dcommunity_002dsearch"></a>Command: <strong>gphoto-community-search</strong> <em>(query)</em></dt>
+<dd><a name="index-gphoto_002dcommunity_002dsearch-1"></a>
+
+<p>Search all public photos.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-gphoto_002ddelete_002ditem"></a>Command: <strong>gphoto-delete-item</strong> <em>(url)</em></dt>
+<dd><a name="index-gphoto_002ddelete_002ditem-1"></a>
+
+<p>Delete specified item.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-gphoto_002ddirectory_002dadd_002dphotos"></a>Command: <strong>gphoto-directory-add-photos</strong> <em>(directory album-name)</em></dt>
+<dd><a name="index-gphoto_002ddirectory_002dadd_002dphotos-1"></a>
+
+<p>Add all jpeg files in a directory to specified album.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-gphoto_002ddownload"></a>Command: <strong>gphoto-download</strong> <em>(resource)</em></dt>
+<dd><a name="index-gphoto_002ddownload-1"></a>
+
+<p>Download resource after authenticating.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-gphoto_002dedit_002dentry"></a>Command: <strong>gphoto-edit-entry</strong> <em>(url)</em></dt>
+<dd><a name="index-gphoto_002dedit_002dentry-1"></a>
+
+<p>Retrieve metadata for entry and prepare it for editting.
+The retrieved entry is placed in a buffer ready for editing.
+âurlâ is the URL of the entry.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-gphoto_002dfeeds"></a>Command: <strong>gphoto-feeds</strong> <em>(kind user)</em></dt>
+<dd><a name="index-gphoto_002dfeeds-1"></a>
+
+<p>Retrieve and display feed of albums or tags after authenticating.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-gphoto_002dphoto_002dadd"></a>Command: <strong>gphoto-photo-add</strong> <em>(album-name photo)</em></dt>
+<dd><a name="index-gphoto_002dphoto_002dadd-1"></a>
+
+<p>Add a photo to an existing album.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-gphoto_002drecent"></a>Command: <strong>gphoto-recent</strong> <em>(user kind)</em></dt>
+<dd><a name="index-gphoto_002drecent-1"></a>
+
+<p>Retrieve feed of recently uploaded photos or comments.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-gphoto_002dsign_002din"></a>Command: <strong>gphoto-sign-in</strong></dt>
+<dd><a name="index-gphoto_002dsign_002din-1"></a>
+
+<p>Resets client so you can start with a different userid.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-gphoto_002dsign_002dout"></a>Command: <strong>gphoto-sign-out</strong></dt>
+<dd><a name="index-gphoto_002dsign_002dout-1"></a>
+
+<p>Resets client so you can start with a different userid.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-gphoto_002dtags"></a>Command: <strong>gphoto-tags</strong></dt>
+<dd><a name="index-gphoto_002dtags-1"></a>
+
+<p>View feed of tags.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-gphoto_002duser_002dsearch"></a>Command: <strong>gphoto-user-search</strong> <em>(user query)</em></dt>
+<dd><a name="index-gphoto_002duser_002dsearch-1"></a>
+
+<p>Retrieve feed of recently uploaded comments for  specified user.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-gphoto_002duser_002dtagsearch"></a>Command: <strong>gphoto-user-tagsearch</strong> <em>(user tag)</em></dt>
+<dd><a name="index-gphoto_002duser_002dtagsearch-1"></a>
+
+<p>Retrieve feed o matches comments for  specified user.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-gphoto_002dview"></a>Command: <strong>gphoto-view</strong> <em>(resource)</em></dt>
+<dd><a name="index-gphoto_002dview-1"></a>
+
+<p>Retrieve and display resource after authenticating.
+</p></dd></dl>
+
+<a name="gphoto-Options"></a>
+<h4 class="subsection">11.196.2 gphoto Options</h4>
+
+<dl>
+<dt><a name="index-User-Option-850"></a>Variable: <strong>User Option</strong> <em>gphoto-album-default-access</em></dt>
+<dd><p>Default access mode for newly created albums.
+</p>
+</dd></dl>
+
+<dl>
+<dt><a name="index-User-Option-851"></a>Variable: <strong>User Option</strong> <em>gphoto-album-default-commenting-enabled</em></dt>
+<dd><p>Default commenting mode for newly created albums.
+</p>
+</dd></dl>
+
+<dl>
+<dt><a name="index-User-Option-852"></a>Variable: <strong>User Option</strong> <em>gphoto-user-email</em></dt>
+<dd><p>Mail address that identifies Picasa user.
+</p>
+</dd></dl>
+
+<dl>
+<dt><a name="index-User-Option-853"></a>Variable: <strong>User Option</strong> <em>gphoto-user-password</em></dt>
+<dd><p>Password for authenticating to Picasa account.
+</p>
+</dd></dl>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="gweb.html#gweb" accesskey="n" rel="next">gweb</a>, Previous: <a href="gmaps.html#gmaps" accesskey="p" rel="prev">gmaps</a>, Up: <a href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
 </body>
 </html>
