@@ -108,7 +108,7 @@
   "Pattern match for path component  to table of contents in an Epub.")
 
 (defvar emacspeak-epub-toc-command
-  (format "%s -1 \"%%s\" | grep %s"
+  (format "%s -1 %%s | grep %s"
           emacspeak-epub-zip-info
           emacspeak-epub-toc-path-pattern)
   "Command that returns location of .ncx file in an epub archive.")
@@ -116,7 +116,8 @@
 (defsubst emacspeak-epub-do-toc (file)
   "Return location of .ncx file within epub archive."
   (declare (special emacspeak-epub-toc-command))
-  (let ((result (shell-command-to-string (format emacspeak-epub-toc-command file ))))
+  (let ((result
+         (shell-command-to-string (format emacspeak-epub-toc-command  file))))
     (cond
      ((= 0 (length result)) nil)
      (t (substring result 0 -1)))))
