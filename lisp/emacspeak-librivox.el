@@ -1,4 +1,3 @@
-
 ;;; emacspeak-librivox.el --- Speech-enabled  LIBRIVOX API client
 ;;; $Id: emacspeak-librivox.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
@@ -58,7 +57,6 @@
 (require 'emacspeak-preamble)
 (require 'dom)
 (require 'emacspeak-webutils)
-(require 'emacspeak-m-player)
 (require 'g-utils)
 
 ;;}}}
