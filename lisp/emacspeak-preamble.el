@@ -40,8 +40,7 @@
 ;;{{{ Required modules 
 
 (require 'cl)
-(when (locate-library "cl-lib")
-  (require 'cl-lib))
+(when (locate-library "cl-lib") (require 'cl-lib))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'advice)
 (require 'emacspeak-load-path)
@@ -50,7 +49,7 @@
 (require 'emacspeak-pronounce)
 (require 'emacspeak-speak)
 (require 'emacspeak-keymap)
-
+(when (> emacs-major-version 24) (package-initialize))
 ;;}}}
 ;;{{{ Utilities:
 (defsubst emacspeak-url-encode (str)
