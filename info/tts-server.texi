@@ -77,10 +77,17 @@ For additional notes on how to log and view TTS server  commands when developing
         speaking text which is to queue text before asking the server to
         process the queue.
 
-        @example
-        l c
-        @end example
+Note that this command needs to handle the special syntax for morpheme
+boundaries @samp{[*]}.  The @samp{[*]} syntax is specific to the Dectalk
+family of synthesizers; servers for other TTS engines need to map this
+pattern to the engine-specific code for each engine. As an example, see
+@samp{servers/outloud} 
+A morpheme boundary results in synthesizing compound words such as @emph{left bracket} with the right intonation; using a space would result in that phrase being synthesized as two separate words.
 
+
+@example
+l c
+@end example
         Speak @emph{c} a single character, as a letter.  The character is
         spoken immediately. This command uses the TTS engine's capability to
         speak a single character with the ability to flush speech
