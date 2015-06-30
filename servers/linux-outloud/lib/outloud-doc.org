@@ -1,0 +1,3 @@
+The outloud-tts.pdf manual was downloaded from 
+http://www.wizzardsoftware.com/docs/tts.pdf
+and is checked in here for convenience.
