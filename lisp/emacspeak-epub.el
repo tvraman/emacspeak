@@ -140,7 +140,7 @@
    0 -1))
 
 (defvar emacspeak-epub-ls-command
-  (format "%s -1 \"%%s\" " emacspeak-epub-zip-info)
+  (format "%s -1 %%s " emacspeak-epub-zip-info)
   "Shell command that returns list of files in an epub archive.")
 
 (defsubst emacspeak-epub-do-ls (file)
