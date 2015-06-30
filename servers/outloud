@@ -78,7 +78,7 @@ proc tts_say {text} {
     service 
     set r $tts(speech_rate)
     set prefix "`v1 `vs$r "
-    regsub -all {\[\*\]} $text { `p1 } text 
+    regsub -all {\[\*\]} $text { `00  } text 
     synth " $prefix $text"
     service
     return ""
