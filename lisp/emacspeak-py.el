@@ -194,7 +194,9 @@
 (loop
  for f in
  '(
+   py-backward-statement py-forward-statement
    py-goto-block-up  py-go-to-beginning-of-comment
+                     py-beginning-of-statement py-end-of-statement
    py-next-statement py-previous-statement
    py-beginning-of-def-or-class py-end-of-def-or-class)
  do                  
