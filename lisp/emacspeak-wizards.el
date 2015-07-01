@@ -65,6 +65,10 @@
 (require 'emacspeak-webutils)
 (require 'emacspeak-we)
 (require 'emacspeak-xslt)
+(eval-when-compile
+  (require 'calendar)
+(require 'solar)
+(require 'gmaps))
 ;;}}}
 ;;{{{ custom
 

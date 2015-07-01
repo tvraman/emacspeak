@@ -943,6 +943,7 @@ non-negative integer ")
   "Window id used to filter screen activity.")
 
 (make-variable-buffer-local 'emacspeak-eterm-filter-window)
+;;;###autoload
 (defun emacspeak-eterm-set-filter-window (flag)
   "Prompt for the id of a predefined window,
 and set the `filter' window to it.

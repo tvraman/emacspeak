@@ -77,7 +77,7 @@
     (?U . "⠠⠥") (?V . "⠠⠧") (?W . "⠠⠺") (?X . "⠠⠭")
     (?Y . "⠠⠽") (?Z . "⠠⠵"))
   "Braille Map")
-
+;;;###autoload
 (defun get-toy-braille-string (instr)
   (let ((inlst (string-to-list instr)))
     (apply 'concat
