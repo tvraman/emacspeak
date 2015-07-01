@@ -42,7 +42,7 @@
 
 ;;; Commentary:
 
-;;; This speech-enables python-mode available on sourceforge
+;;; This speech-enables python-mode available on sourceforge and ELPA
 
 ;;; Code:
 
@@ -194,14 +194,17 @@
 (loop
  for f in
  '(
+   py-down py-up
    py-backward-statement py-forward-statement
    py-goto-block-up  py-go-to-beginning-of-comment
                      py-beginning-of-statement py-end-of-statement
+                     py-beginning-of-block py-end-of-block
+                     py-beginning-of-clause py-end-of-clause
    py-next-statement py-previous-statement
    py-beginning-of-def-or-class py-end-of-def-or-class)
  do                  
  (eval
-  `(defadvice py-next-statement (after emacspeak pre act comp)
+  `(defadvice ,f (after emacspeak pre act comp)
      "Speak current statement after moving"
      (when (ems-interactive-p )
        (emacspeak-speak-line)
