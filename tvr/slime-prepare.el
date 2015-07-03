@@ -3,7 +3,7 @@
 (require 'slime)
 (require 'slime-scratch)
 (require 'slime-repl)
-(setq inferior-lisp-program (executable-find "sbcl"))
+(setq inferior-lisp-program (executable-find "clisp"))
 
 (setq common-lisp-hyperspec-root
       (if (file-exists-p "/usr/share/doc/hyperspec/")
@@ -12,5 +12,5 @@
 (global-set-key "\C-cs" 'slime-selector)
 
 ;;; Do this at the end:
-(setq slime-contribs '(slime-fancy))
+;(setq slime-contribs '(slime-fancy))
 (slime-setup)
