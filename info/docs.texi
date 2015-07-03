@@ -152,6 +152,7 @@ This chapter documents a total of 1067 commands and 885 options.
 * emacspeak-sgml-mode::
 * emacspeak-sh-script::
 * emacspeak-sigbegone::
+* emacspeak-slime::
 * emacspeak-solitaire::
 * emacspeak-sounds::
 * emacspeak-speak::
@@ -9708,7 +9709,7 @@ applied.
 @node emacspeak-py
 @section emacspeak-py
 
-This speech-enables python-mode available on sourceforge
+This speech-enables python-mode available on sourceforge and ELPA
 
 @subsection emacspeak-py Options
 
@@ -10110,6 +10111,15 @@ Personality used for sigbegone-exorcized-face
 This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
 
 @end defvar
+
+@node emacspeak-slime
+@section emacspeak-slime
+
+ ;;; SLIME == Superior  Lisp Interaction Mode For Emacs 
+
+Slime is a powerful IDE for developing in Common Lisp and Clojure.
+It's similar but more modern than package ILisp that I used as a
+graduate student when developing AsTeR.
 
 @node emacspeak-solitaire
 @section emacspeak-solitaire
