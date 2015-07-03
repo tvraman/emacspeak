@@ -1,7 +1,7 @@
-;;; emacspeak-<skeleton>.el --- Speech-enable <SKELETON>
+;;; emacspeak-slime.el --- Speech-enable SLIME
 ;;; $Author: tv.raman.tv $
-;;; Description:  Speech-enable <SKELETON> An Emacs Interface to <skeleton>
-;;; Keywords: Emacspeak,  Audio Desktop <skeleton>
+;;; Description:  Speech-enable SLIME An Emacs Interface to slime
+;;; Keywords: Emacspeak,  Audio Desktop slime
 ;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
@@ -27,7 +27,7 @@
 ;;;
 ;;; GNU Emacs is distributed in the hope that it will be useful,
 ;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITN<SKELETON> FOR A PARTICULAR PURPOSE.  See the
+;;; MERCHANTABILITY or FITNSLIME FOR A PARTICULAR PURPOSE.  See the
 ;;; GNU General Public License for more details.
 ;;;
 ;;; You should have received a copy of the GNU General Public License
@@ -40,7 +40,11 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; <SKELETON> == 
+ ;;; SLIME == Superior  Lisp Interaction Mode For Emacs 
+
+;;; Slime is a powerful IDE for developing in Common Lisp and Clojure.
+;;; It's similar but more modern than package ILisp that I used as a
+;;; graduate student when developing AsTeR.
 
 ;;; Code:
 
@@ -50,9 +54,20 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(eval-when-compile
+  (require 'slime "slime" 'no-error))
+;;}}}
+;;{{{ Writing Code:
 
 ;;}}}
-(provide 'emacspeak-<skeleton>)
+;;{{{ Lisp Interaction:
+
+;;}}}
+;;{{{ Browsing Documentation:
+
+;;}}}
+
+(provide 'emacspeak-slime)
 ;;{{{ end of file
 
 ;;; local variables:

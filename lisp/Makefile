@@ -208,6 +208,7 @@ emacspeak-rmail.elc \
 emacspeak-rpm.elc  \
 emacspeak-ruby.elc \
 emacspeak-sawfish.elc \
+emacspeak-slime.elc \
 emacspeak-ses.elc \
 emacspeak-setup.el \
 emacspeak-sgml-mode.elc \
@@ -449,6 +450,7 @@ emacspeak-replace.elc: emacspeak-replace.el dtk-speak.elc voice-setup.elc
 emacspeak-ruby.elc: emacspeak-ruby.el dtk-speak.elc
 emacspeak-rmail.elc: emacspeak-rmail.el dtk-speak.elc voice-setup.elc
 emacspeak-sawfish.elc: emacspeak-sawfish.el dtk-speak.elc
+emacspeak-slime.elc: emacspeak-slime.el dtk-speak.elc
 emacspeak-ses.elc: emacspeak-ses.el dtk-speak.elc voice-setup.elc
 emacspeak-setup.elc: emacspeak-setup.el
 emacspeak-sgml-mode.elc: emacspeak-sgml-mode.el dtk-speak.elc voice-setup.elc
