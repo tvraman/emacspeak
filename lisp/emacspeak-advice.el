@@ -237,7 +237,7 @@
        (let ((emacspeak-show-point t))
          (emacspeak-speak-line))))))
      
-     ad-return-value)))
+     
 (loop
  for f in
  '(forward-page backward-page)
