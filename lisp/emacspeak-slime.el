@@ -57,10 +57,19 @@
 
 ;;}}}
 ;;{{{ Navigation:
+
 (loop
  for f in
  '(
-   slime-end-of-defun slime-beginning-of-defun)
+   slime-end-of-defun                   ;slime-beginning-of-defun
+   slime-close-all-parens-in-sexp
+   slime-next-presentation slime-previous-presentation
+   slime-next-location slime-previous-location
+   slime-edit-definition slime-pop-find-definition-stack
+   slime-edit-definition-other-frame slime-edit-definition-other-window
+   slime-next-note slime-previous-note
+   
+   )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -68,6 +77,19 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
+
+
+(defadvice slime-complete-symbol (around emacspeak pre act comp)
+  "Say what you completed."
+  (let ((prior (point ))
+        (emacspeak-speak-messages nil))
+    ad-do-it
+    (if (> (point) prior)
+        (tts-with-punctuations
+         'all
+         (dtk-speak (buffer-substring prior (point))))
+      (emacspeak-speak-completions-if-available))
+    ad-return-value))
 
 ;;}}}
 ;;{{{ Writing Code:
@@ -77,6 +99,18 @@
 
 ;;}}}
 ;;{{{ Browsing Documentation:
+(loop
+ for f in
+ '(
+   slime-describe-function  slime-describe-symbol slime-describe-presentation
+   slime-apropos slime-apropos-package slime-apropos-summary
+   )
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'help)))))
 
 ;;}}}
 
