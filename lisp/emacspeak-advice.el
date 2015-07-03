@@ -161,8 +161,9 @@
        (emacspeak-speak-mode-line)))))
 (loop
  for f in
- '(beginning-of-buffer end-of-buffer
-                       beginning-of-defun end-of-defun)
+ '(
+   beginning-of-buffer end-of-buffer
+   beginning-of-defun end-of-defun)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -170,6 +171,7 @@
      (when (ems-interactive-p )
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line )))))
+
 (loop
  for f in
  '(tab-to-tab-stop indent-for-tab-command reindent-then-newline-and-indent
@@ -228,18 +230,13 @@
                 up-list backward-up-list down-list)
  do
  (eval
-  `(defadvice ,f (around emacspeak pre act comp)
-     "Speak the list.
-If you moved more than a line,
- only speak the target line."
-     (if (ems-interactive-p )
-         (let ((start (point)))
-           ad-do-it
-           (cond
-            ((ems-same-line-p start (point))
-             (emacspeak-speak-region start (point )))
-            (t (emacspeak-speak-line))))
-       ad-do-it)
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Speak line."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (let ((emacspeak-show-point t))
+         (emacspeak-speak-line))))))
+     
      ad-return-value)))
 (loop
  for f in

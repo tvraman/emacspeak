@@ -56,6 +56,20 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
+;;{{{ Navigation:
+(loop
+ for f in
+ '(
+   slime-end-of-defun slime-beginning-of-defun)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-line)))))
+
+;;}}}
 ;;{{{ Writing Code:
 
 ;;}}}
