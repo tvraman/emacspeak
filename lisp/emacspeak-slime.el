@@ -78,8 +78,12 @@
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
-
-(defadvice slime-complete-symbol (around emacspeak pre act comp)
+(loop
+ for f in
+ '(slime-complete-symbol slime-indent-and-complete-symbol)
+ do
+ (eval
+  `(defadvice ,f (around emacspeak pre act comp)
   "Say what you completed."
   (let ((prior (point ))
         (emacspeak-speak-messages nil))
@@ -89,7 +93,7 @@
          'all
          (dtk-speak (buffer-substring prior (point))))
       (emacspeak-speak-completions-if-available))
-    ad-return-value))
+    ad-return-value))))
 
 ;;}}}
 ;;{{{ Writing Code:
