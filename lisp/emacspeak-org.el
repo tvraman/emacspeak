@@ -172,7 +172,7 @@
               (emacspeak-org-table-speak-current-element))
              (t
               (emacspeak-speak-line)
-              (emacspeak-auditory-icon 'select-object)))))))xrjp
+              (emacspeak-auditory-icon 'select-object)))))))
 
 (defadvice org-overview (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -395,12 +395,18 @@
           ("M-S-<right>" org-shiftmetaright)
           ("M-S-<up>" org-shiftmetaup)
           ("M-S-RET" org-insert-todo-heading)
+	  ("S-RET" org-table-previous-row)
           ("M-n" org-next-item)
           ("M-p" org-previous-item)
           ("S-<down>" org-shiftdown)
           ("S-<left>" org-shiftleft)
           ("S-<right>" org-shiftright)
           ("S-<up>" org-shiftup)
+	  ("C-e <SPC>" emacspeak-org-table-speak-current-element)
+	  ("C-e ." emacspeak-org-table-speak-coordinates)
+	  ("C-e b" emacspeak-org-table-speak-both-headers-and-element)
+	  ("C-e r" emacspeak-org-table-speak-row-header-and-element)
+	  ("C-e c" emacspeak-org-table-speak-column-header-and-element)
           ("S-TAB" org-shifttab)
           )
         do
@@ -545,9 +551,56 @@
   "echoes current table element"
   (interactive)
   (dtk-speak-and-echo (org-table-get-field)))
+
+;;;###autoload
+(defun emacspeak-org-table-speak-column-header ()
+  "echoes column header"
+  (interactive)
+  (dtk-speak-and-echo (org-table-get 1 nil)))
+
+;;;###autoload
+(defun emacspeak-org-table-speak-row-header ()
+  "echoes column header"
+  (interactive)
+  (dtk-speak-and-echo (org-table-get nil 1 )))
+
+;;;###autoload
+(defun emacspeak-org-table-speak-coordinates ()
+  "echoes coordinates"
+  (interactive)
+  (dtk-speak-and-echo (concat "row " (number-to-string (org-table-current-line))
+			      ", column " (number-to-string (org-table-current-column)))))
+
+;;;###autoload
+(defun emacspeak-org-table-speak-both-headers-and-element ()
+  "echoes coordinates"
+  (interactive)
+  (dtk-speak-and-echo (concat (org-table-get nil 1) ", "
+			      (org-table-get  1 nil) ", "
+			      (org-table-get-field))))
+
+;;;###autoload
+(defun emacspeak-org-table-speak-row-header-and-element ()
+  "echoes coordinates"
+  (interactive)
+  (dtk-speak-and-echo (concat (org-table-get nil 1) ", "
+			      (org-table-get-field))))
+
+;;;###autoload
+(defun emacspeak-org-table-speak-column-header-and-element ()
+  "echoes coordinates"
+  (interactive)
+  (dtk-speak-and-echo (concat 
+			      (org-table-get  1 nil) ", "
+			      (org-table-get-field))))
+
+
+
+
+
 (loop
  for f in
- '(org-table-next-field org-table-previous-field)
+ '(org-table-next-field org-table-previous-field org-table-next-row org-table-previous-row)
  do
  (eval
   `(defadvice ,f  (after emacspeak pre act comp)
