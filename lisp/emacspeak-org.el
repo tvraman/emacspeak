@@ -132,20 +132,21 @@
 
 (loop 
  for f in
- '(org-mark-ring-goto org-mark-ring-push
-                      org-next-visible-heading org-previous-visible-heading
-                      org-forward-heading-same-level org-backward-heading-same-level
-                      org-next-link org-previous-link org-open-at-point
-                      org-goto  org-goto-ret
-                      org-goto-left org-goto-right
-                      org-goto-quit
-                      org-next-item org-previous-item
-                      org-metaleft org-metaright org-metaup org-metadown
-                      org-meta-return
-                      org-shiftmetaleft org-shiftmetaright org-shiftmetaup org-shiftmetadown
-                      org-mark-element org-mark-subtree
-                      org-agenda-forward-block org-agenda-backward-block
-                      )
+ '(
+   org-mark-ring-goto org-mark-ring-push
+   org-next-visible-heading org-previous-visible-heading
+   org-forward-heading-same-level org-backward-heading-same-level
+   org-next-link org-previous-link org-open-at-point
+   org-goto  org-goto-ret
+   org-goto-left org-goto-right
+   org-goto-quit
+   org-next-item org-previous-item
+   org-metaleft org-metaright org-metaup org-metadown
+   org-meta-return
+   org-shiftmetaleft org-shiftmetaright org-shiftmetaup org-shiftmetadown
+   org-mark-element org-mark-subtree
+   org-agenda-forward-block org-agenda-backward-block
+   )
  do
  (eval
   `(defadvice ,f(after emacspeak pre act comp)
@@ -197,22 +198,23 @@
 ;;}}}
 ;;{{{ Header insertion and relocation
 
-(loop for f in
-      '(
-        org-insert-heading org-insert-todo-heading
-                           org-insert-subheading org-insert-todo-subheading
-                           org-promote-subtree org-demote-subtree
-                           org-do-promote org-do-demote
-                           org-move-subtree-up org-move-subtree-down
-                           org-convert-to-odd-levels org-convert-to-oddeven-levels
-                           )
-      do
-      (eval
-       `(defadvice ,f(after emacspeak pre act comp)
-          "Provide spoken feedback."
-          (when (ems-interactive-p )
-            (emacspeak-speak-line)
-            (emacspeak-auditory-icon 'open-object)))))
+(loop
+ for f in
+ '(
+   org-insert-heading org-insert-todo-heading
+   org-insert-subheading org-insert-todo-subheading
+   org-promote-subtree org-demote-subtree
+   org-do-promote org-do-demote
+   org-move-subtree-up org-move-subtree-down
+   org-convert-to-odd-levels org-convert-to-oddeven-levels
+   )
+ do
+ (eval
+  `(defadvice ,f(after emacspeak pre act comp)
+     "Provide spoken feedback."
+     (when (ems-interactive-p )
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'open-object)))))
 
 ;;}}}
 ;;{{{ cut and paste:
@@ -299,19 +301,20 @@
 
 ;;; AGENDA NAVIGATION
 
-(loop for f in
-      '(
-        org-agenda-next-date-line org-agenda-previous-date-line
-                                  org-agenda-next-line org-agenda-previous-line
-                                  org-agenda-goto-today
-                                  )
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p )
-            (emacspeak-auditory-icon 'select-object)
-            (emacspeak-speak-line)))))
+(loop
+ for f in
+ '(
+   org-agenda-next-date-line org-agenda-previous-date-line
+   org-agenda-next-line org-agenda-previous-line
+   org-agenda-goto-today
+   )
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p )
+       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-speak-line)))))
 
 (loop for f in
       '(
@@ -354,16 +357,6 @@
      (if orgtbl-mode 'on 'off))
     (message "Turned %s org table mode."
              (if orgtbl-mode 'on 'off))))
-
-;;}}}
-;;{{{ import/export:
-;;; Work In Progress:
-;;; Need to be able to use Emacspeak keys within the dispatcher.
-
-                                        ;(defadvice org-export--dispatch-action (around emacspeak (prompt allowed-keys entries options first-key expertp)  pre act comp)
-                                        ;"Enable Emacspeak keys."
-                                        ;(ad-set-argument '(prompt allowed-keys entries options first-key expertp) 1  (pushnew  5 (ad-get-arg 1)))
-                                        ;ad-do-it)
 
 ;;}}}
 ;;{{{ org-goto fixup:
@@ -568,8 +561,9 @@
 (defun emacspeak-org-table-speak-coordinates ()
   "echoes coordinates"
   (interactive)
-  (dtk-speak-and-echo (concat "row " (number-to-string (org-table-current-line))
-			      ", column " (number-to-string (org-table-current-column)))))
+  (dtk-speak-and-echo
+   (concat "row " (number-to-string (org-table-current-line))
+           ", column " (number-to-string (org-table-current-column)))))
 
 ;;;###autoload
 (defun emacspeak-org-table-speak-both-headers-and-element ()
@@ -591,8 +585,8 @@
   "echoes coordinates"
   (interactive)
   (dtk-speak-and-echo (concat 
-			      (org-table-get  1 nil) ", "
-			      (org-table-get-field))))
+                       (org-table-get  1 nil) ", "
+                       (org-table-get-field))))
 
 
 
@@ -600,7 +594,8 @@
 
 (loop
  for f in
- '(org-table-next-field org-table-previous-field org-table-next-row org-table-previous-row)
+ '(org-table-next-field org-table-previous-field
+                        org-table-next-row org-table-previous-row)
  do
  (eval
   `(defadvice ,f  (after emacspeak pre act comp)
@@ -609,30 +604,28 @@
 
 ;;}}}
 ;;{{{ Additional table function:
- 
+
  ;;;###autoload
 (unless (fboundp 'org-table-previous-row)
   (defun org-table-previous-row ()
-  "Go to the previous row (same column) in the current table.
+    "Go to the previous row (same column) in the current table.
 Before doing so, re-align the table if necessary."
-  (interactive)
-  (org-table-maybe-eval-formula)
-  (org-table-maybe-recalculate-line)
-  (if (or (looking-at "[ \t]*$")
-	  (save-excursion (skip-chars-backward " \t") (bolp)))
-      (newline)
-    (if (and org-table-automatic-realign
-	     org-table-may-need-update)
-	(org-table-align))
-    (let ((col (org-table-current-column)))
-      (beginning-of-line 0)
-      (if (or (not (org-at-table-p))
-	      (org-at-table-hline-p))
-	  (progn
-	    (beginning-of-line 1)))
-      (org-table-goto-column col)
-      (skip-chars-backward "^|\n\r")
-      (if (looking-at " ") (forward-char 1))))))
+    (interactive)
+    (org-table-maybe-eval-formula)
+    (org-table-maybe-recalculate-line)
+    (if (or (looking-at "[ \t]*$")
+            (save-excursion (skip-chars-backward " \t") (bolp)))
+        (newline)
+      (if (and org-table-automatic-realign
+               org-table-may-need-update)
+          (org-table-align))
+      (let ((col (org-table-current-column)))
+        (beginning-of-line 0)
+        (when (or (not (org-at-table-p)) (org-at-table-hline-p))
+          (beginning-of-line 1))
+        (org-table-goto-column col)
+        (skip-chars-backward "^|\n\r")
+        (if (looking-at " ") (forward-char 1))))))
 
 
 ;;}}}
