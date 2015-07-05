@@ -131,6 +131,9 @@
        (cond
         ((2048-game-was-won) (emacspeak-auditory-icon 'task-done))
         ((2048-game-was-lost) (emacspeak-auditory-icon 'alarm)))))))
+(defadvice 2048-insert-random-cell (after emacspeak pre act comp)
+"Provide auditory icon"
+(emacspeak-auditory-icon 'item))
 
 (defun emacspeak-2048-score ()
   "Show total on board."
