@@ -63,6 +63,7 @@
  '(
    slime-end-of-defun                   ;slime-beginning-of-defun
    slime-close-all-parens-in-sexp
+   slime-repl-previous-prompt slime-repl-next-prompt
    slime-next-presentation slime-previous-presentation
    slime-next-location slime-previous-location
    slime-edit-definition slime-pop-find-definition-stack
