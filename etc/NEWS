@@ -4,6 +4,10 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
 * Emacspeak 43 -- Emacspeak 43 User Visible Changes
+** emacspeak-slime:
+
+Speech-enables package SLIME --- Superior Lisp Interaction Mode  --- a powerful IDE for Common Lisp and Clojure.
+
 ** emacspeak-librivox:
 
 Implements the new Librivox API.
