@@ -608,6 +608,34 @@
      (emacspeak-org-table-speak-current-element))))
 
 ;;}}}
+;;{{{ Additional table function:
+ 
+ ;;;###autoload
+(unless (fboundp 'org-table-previous-row)
+  (defun org-table-previous-row ()
+  "Go to the previous row (same column) in the current table.
+Before doing so, re-align the table if necessary."
+  (interactive)
+  (org-table-maybe-eval-formula)
+  (org-table-maybe-recalculate-line)
+  (if (or (looking-at "[ \t]*$")
+	  (save-excursion (skip-chars-backward " \t") (bolp)))
+      (newline)
+    (if (and org-table-automatic-realign
+	     org-table-may-need-update)
+	(org-table-align))
+    (let ((col (org-table-current-column)))
+      (beginning-of-line 0)
+      (if (or (not (org-at-table-p))
+	      (org-at-table-hline-p))
+	  (progn
+	    (beginning-of-line 1)))
+      (org-table-goto-column col)
+      (skip-chars-backward "^|\n\r")
+      (if (looking-at " ") (forward-char 1))))))
+
+
+;;}}}
 (provide 'emacspeak-org)
 ;;{{{ end of file
 
