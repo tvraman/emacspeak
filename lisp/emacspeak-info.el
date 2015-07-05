@@ -113,6 +113,7 @@ node -- speak the entire node."
   `(defadvice ,f (after emacspeak pre act)
      " Speak the selected node based on setting of
 emacspeak-info-select-node-speak-chunk"
+     (load-library "emacspeak-info")
      (emacspeak-info-visit-node))))
 
 (defadvice Info-scroll-up (after emacspeak pre act)
