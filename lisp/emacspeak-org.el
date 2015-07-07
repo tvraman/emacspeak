@@ -395,7 +395,6 @@
           ("S-<left>" org-shiftleft)
           ("S-<right>" org-shiftright)
           ("S-<up>" org-shiftup)
-	  ("C-e <SPC>" emacspeak-org-table-speak-current-element)
 	  ("C-e ." emacspeak-org-table-speak-coordinates)
 	  ("C-e b" emacspeak-org-table-speak-both-headers-and-element)
 	  ("C-e r" emacspeak-org-table-speak-row-header-and-element)
@@ -403,8 +402,7 @@
           ("S-TAB" org-shifttab)
           )
         do
-        (emacspeak-keymap-update  org-mode-map k))
-  )
+        (emacspeak-keymap-update  org-mode-map k)))
 
 (add-hook 'org-mode-hook 'emacspeak-org-update-keys)
 
