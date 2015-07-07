@@ -269,8 +269,8 @@ proc speech_task {} {
         switch  -exact -- $event_type {
             s {
                 set text [clean [lindex $event 1]]
-                puts -nonewline  $tts(write) "\[:i r $index] $text\[_.]"
-                set retval [tts_get_acknowledgement ]
+                puts -nonewline  $tts(write) "\[:i r $index] $text"
+                #set retval [tts_get_acknowledgement ]
             }
             c {
                 set text  [lindex $event 1]
