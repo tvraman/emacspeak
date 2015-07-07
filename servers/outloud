@@ -365,12 +365,10 @@ proc speech_task {} {
             s {
                 set text [clean [lindex $event 1]]
                 synth "$prefix $text"
-                #set retval [service]
             }
             c {
                 set text  [lindex $event 1]
                 synth " $text"
-                set retval [service]
             }
             a {
                 set sound [lindex $event 1]
