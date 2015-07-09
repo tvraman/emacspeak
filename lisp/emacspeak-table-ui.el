@@ -55,6 +55,7 @@
 
 (defvar emacspeak-table-keymap (make-sparse-keymap)
   "Keymap for using in table browsing mode")
+;;; emacspeak-table-submap makes these available globally.
 
 (loop
  for binding in
@@ -103,7 +104,8 @@
    ("x" emacspeak-table-copy-current-element-to-register)
    )
  do
- (emacspeak-keymap-update emacspeak-table-keymap binding))
+ (emacspeak-keymap-update emacspeak-table-keymap binding)
+ (emacspeak-keymap-update emacspeak-table-submap binding))
 
 (defun emacspeak-table-mode ()
   "Major mode for browsing tables.
