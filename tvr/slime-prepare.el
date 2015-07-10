@@ -1,3 +1,4 @@
+
 (augment-load-path "slime" "slime")
 (augment-load-path "slime/contrib" "slime-repl")
 (require 'slime)
@@ -12,7 +13,7 @@
       (if (file-exists-p "/usr/share/doc/hyperspec/")
           "file:///usr/share/doc/hyperspec/"
           "http://www.lispworks.com/reference/HyperSpec/"))
-;(global-set-key "\C-c\M-s" 'slime-selector)
+(global-set-key "\C-c\M-s" 'slime-selector)
 
 ;;; Do this at the end:
 (setq slime-contribs '(slime-fancy))
