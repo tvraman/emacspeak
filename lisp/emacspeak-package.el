@@ -54,7 +54,7 @@
 (eval-when-compile (require 'package "package" 'no-error))
 (require 'calendar)
 ;;}}}
-;;{{{ Additional Commands 
+;;{{{ Additional Commands
 
 (defun emacspeak-package-summarize-line ()
   "Succinct Summary."
@@ -111,7 +111,8 @@
 
 (loop
  for f in
- '(package-menu-mark-delete package-menu-mark-install)
+ '(package-menu-mark-delete package-menu-mark-install
+                            package-menu-mark-unmark package-menu-backup-unmark)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act com)
@@ -119,7 +120,6 @@
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'mark-object)))))
-
 
 ;;}}}
 (provide 'emacspeak-package)
