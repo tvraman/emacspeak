@@ -109,9 +109,17 @@
   "Silence messages while installing packages. "
   (ems-with-messages-silenced ad-do-it))
 
-(defadvice package-menu--perform-transaction (around emacspeak pre act comp)
-  "Silence messages."
-  (ems-with-messages-silenced ad-do-it))
+(loop
+ for f in
+ '(package-menu-mark-delete package-menu-mark-install)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act com)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'mark-object)))))
+
 
 ;;}}}
 (provide 'emacspeak-package)
