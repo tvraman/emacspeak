@@ -1,113 +1,212 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-ses</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-ses">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-ses">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" rel="up" title="Emacspeak Commands And Options">
-<link href="emacspeak_002dsetup.html#emacspeak_002dsetup" rel="next" title="emacspeak-setup">
-<link href="emacspeak_002dsawfish.html#emacspeak_002dsawfish" rel="prev" title="emacspeak-sawfish">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-ses</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-ses" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-ses" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+  rel="up" title="Emacspeak Commands And Options" />
+  <link href="emacspeak_002dsetup.html#emacspeak_002dsetup" rel=
+  "next" title="emacspeak-setup" />
+  <link href="emacspeak_002dsawfish.html#emacspeak_002dsawfish"
+  rel="prev" title="emacspeak-sawfish" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dses"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002dsetup.html#emacspeak_002dsetup" accesskey="n" rel="next">emacspeak-setup</a>, Previous: <a href="emacspeak_002dsawfish.html#emacspeak_002dsawfish" accesskey="p" rel="prev">emacspeak-sawfish</a>, Up: <a href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dses-1"></a>
-<h3 class="section">11.143 emacspeak-ses</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dses" id="emacspeak_002dses"></a>
 
-<p>ses implements a simple spread sheet and is part of Emacs
-This module speech-enables ses
-</p>
-<a name="emacspeak_002dses-Commands"></a>
-<h4 class="subsection">11.143.1 emacspeak-ses Commands</h4>
+  <div class="header">
+    <p>Next: <a href="emacspeak_002dsetup.html#emacspeak_002dsetup"
+    accesskey="n" rel="next">emacspeak-setup</a>, Previous:
+    <a href="emacspeak_002dsawfish.html#emacspeak_002dsawfish"
+    accesskey="p" rel="prev">emacspeak-sawfish</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dses-1" id="emacspeak_002dses-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002dses_002dbackward_002dcolumn_002dand_002dsummarize"></a>Command: <strong>emacspeak-ses-backward-column-and-summarize</strong></dt>
-<dd><a name="index-emacspeak_002dses_002dbackward_002dcolumn_002dand_002dsummarize-1"></a>
+  <h3 class="section">11.143 emacspeak-ses</h3>
 
-<p>Move to previous column and summarize.
-</p></dd></dl>
+  <p>ses implements a simple spread sheet and is part of Emacs This
+  module speech-enables ses</p><a name="emacspeak_002dses-Commands"
+  id="emacspeak_002dses-Commands"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002dses_002dbackward_002drow_002dand_002dsummarize"></a>Command: <strong>emacspeak-ses-backward-row-and-summarize</strong></dt>
-<dd><a name="index-emacspeak_002dses_002dbackward_002drow_002dand_002dsummarize-1"></a>
+  <h4 class="subsection">11.143.1 emacspeak-ses Commands</h4>
 
-<p>Move to previous row  and summarize.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dses_002dbackward_002dcolumn_002dand_002dsummarize"
+    id=
+    "index-emacspeak_002dses_002dbackward_002dcolumn_002dand_002dsummarize">
+    </a>Command:
+    <strong>emacspeak-ses-backward-column-and-summarize</strong></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dses_002dforward_002dcolumn_002dand_002dsummarize"></a>Command: <strong>emacspeak-ses-forward-column-and-summarize</strong></dt>
-<dd><a name="index-emacspeak_002dses_002dforward_002dcolumn_002dand_002dsummarize-1"></a>
+    <dd>
+      <a name=
+      "index-emacspeak_002dses_002dbackward_002dcolumn_002dand_002dsummarize-1"
+      id=
+      "index-emacspeak_002dses_002dbackward_002dcolumn_002dand_002dsummarize-1">
+      </a>
 
-<p>Move to next column and summarize.
-</p></dd></dl>
+      <p>Move to previous column and summarize.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-emacspeak_002dses_002dforward_002drow_002dand_002dsummarize"></a>Command: <strong>emacspeak-ses-forward-row-and-summarize</strong></dt>
-<dd><a name="index-emacspeak_002dses_002dforward_002drow_002dand_002dsummarize-1"></a>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dses_002dbackward_002drow_002dand_002dsummarize"
+    id=
+    "index-emacspeak_002dses_002dbackward_002drow_002dand_002dsummarize">
+    </a>Command:
+    <strong>emacspeak-ses-backward-row-and-summarize</strong></dt>
 
-<p>Move to next row and summarize.
-</p></dd></dl>
+    <dd>
+      <a name=
+      "index-emacspeak_002dses_002dbackward_002drow_002dand_002dsummarize-1"
+      id=
+      "index-emacspeak_002dses_002dbackward_002drow_002dand_002dsummarize-1">
+      </a>
 
-<dl>
-<dt><a name="index-emacspeak_002dses_002dsummarize_002dcell"></a>Command: <strong>emacspeak-ses-summarize-cell</strong> <em>(cell-name)</em></dt>
-<dd><a name="index-emacspeak_002dses_002dsummarize_002dcell-1"></a>
+      <p>Move to previous row and summarize.</p>
+    </dd>
+  </dl>
 
-<p>Summarize specified  cell.
-</p></dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dses_002dforward_002dcolumn_002dand_002dsummarize"
+    id=
+    "index-emacspeak_002dses_002dforward_002dcolumn_002dand_002dsummarize">
+    </a>Command:
+    <strong>emacspeak-ses-forward-column-and-summarize</strong></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dses_002dsummarize_002dcurrent_002dcell"></a>Command: <strong>emacspeak-ses-summarize-current-cell</strong> <em>(&amp;rest ignore)</em></dt>
-<dd><a name="index-emacspeak_002dses_002dsummarize_002dcurrent_002dcell-1"></a>
+    <dd>
+      <a name=
+      "index-emacspeak_002dses_002dforward_002dcolumn_002dand_002dsummarize-1"
+      id=
+      "index-emacspeak_002dses_002dforward_002dcolumn_002dand_002dsummarize-1">
+      </a>
 
-<p>Summarize current cell.
-</p></dd></dl>
+      <p>Move to next column and summarize.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dses_002dforward_002drow_002dand_002dsummarize"
+    id=
+    "index-emacspeak_002dses_002dforward_002drow_002dand_002dsummarize">
+    </a>Command:
+    <strong>emacspeak-ses-forward-row-and-summarize</strong></dt>
 
+    <dd>
+      <a name=
+      "index-emacspeak_002dses_002dforward_002drow_002dand_002dsummarize-1"
+      id=
+      "index-emacspeak_002dses_002dforward_002drow_002dand_002dsummarize-1">
+      </a>
 
+      <p>Move to next row and summarize.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-emacspeak_002dses_002dsummarize_002dcell"
+    id="index-emacspeak_002dses_002dsummarize_002dcell"></a>Command:
+    <strong>emacspeak-ses-summarize-cell</strong>
+    <em>(cell-name)</em></dt>
+
+    <dd>
+      <a name="index-emacspeak_002dses_002dsummarize_002dcell-1"
+      id="index-emacspeak_002dses_002dsummarize_002dcell-1"></a>
+
+      <p>Summarize specified cell.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dses_002dsummarize_002dcurrent_002dcell"
+    id="index-emacspeak_002dses_002dsummarize_002dcurrent_002dcell">
+    </a>Command:
+    <strong>emacspeak-ses-summarize-current-cell</strong>
+    <em>(&amp;rest ignore)</em></dt>
+
+    <dd>
+      <a name=
+      "index-emacspeak_002dses_002dsummarize_002dcurrent_002dcell-1"
+      id=
+      "index-emacspeak_002dses_002dsummarize_002dcurrent_002dcell-1">
+      </a>
+
+      <p>Summarize current cell.</p>
+    </dd>
+  </dl>
 </body>
 </html>

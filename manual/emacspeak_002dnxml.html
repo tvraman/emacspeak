@@ -1,345 +1,620 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-nxml</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-nxml">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-nxml">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" rel="up" title="Emacspeak Commands And Options">
-<link href="emacspeak_002docr.html#emacspeak_002docr" rel="next" title="emacspeak-ocr">
-<link href="emacspeak_002dnpr.html#emacspeak_002dnpr" rel="prev" title="emacspeak-npr">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-nxml</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-nxml" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-nxml" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+  rel="up" title="Emacspeak Commands And Options" />
+  <link href="emacspeak_002docr.html#emacspeak_002docr" rel="next"
+  title="emacspeak-ocr" />
+  <link href="emacspeak_002dnpr.html#emacspeak_002dnpr" rel="prev"
+  title="emacspeak-npr" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dnxml"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002docr.html#emacspeak_002docr" accesskey="n" rel="next">emacspeak-ocr</a>, Previous: <a href="emacspeak_002dnpr.html#emacspeak_002dnpr" accesskey="p" rel="prev">emacspeak-npr</a>, Up: <a href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dnxml-1"></a>
-<h3 class="section">11.120 emacspeak-nxml</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dnxml" id="emacspeak_002dnxml"></a>
 
-<p>nxml-mode is a new XML mode for emacs by James Clark.
- http://www.thaiopensource.com/download/
-</p>
-<a name="emacspeak_002dnxml-Commands"></a>
-<h4 class="subsection">11.120.1 emacspeak-nxml Commands</h4>
+  <div class="header">
+    <p>Next: <a href="emacspeak_002docr.html#emacspeak_002docr"
+    accesskey="n" rel="next">emacspeak-ocr</a>, Previous: <a href=
+    "emacspeak_002dnpr.html#emacspeak_002dnpr" accesskey="p" rel=
+    "prev">emacspeak-npr</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dnxml-1" id="emacspeak_002dnxml-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002dnxml_002dsummarize_002doutline"></a>Command: <strong>emacspeak-nxml-summarize-outline</strong></dt>
-<dd><a name="index-emacspeak_002dnxml_002dsummarize_002doutline-1"></a>
+  <h3 class="section">11.120 emacspeak-nxml</h3>
 
-<p>Intelligent spoken display of current outline entry.
-</p></dd></dl>
+  <p>nxml-mode is a new XML mode for emacs by James Clark.
+  http://www.thaiopensource.com/download/</p><a name=
+  "emacspeak_002dnxml-Commands" id=
+  "emacspeak_002dnxml-Commands"></a>
 
-<a name="emacspeak_002dnxml-Options"></a>
-<h4 class="subsection">11.120.2 emacspeak-nxml Options</h4>
+  <h4 class="subsection">11.120.1 emacspeak-nxml Commands</h4>
 
-<dl>
-<dt><a name="index-User-Option-625"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-attribute-colon-voice</em></dt>
-<dd><p>Personality used for nxml-attribute-colon
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dnxml_002dsummarize_002doutline" id=
+    "index-emacspeak_002dnxml_002dsummarize_002doutline"></a>Command:
+    <strong>emacspeak-nxml-summarize-outline</strong></dt>
 
-<dl>
-<dt><a name="index-User-Option-626"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-attribute-local-name-voice</em></dt>
-<dd><p>Personality used for nxml-attribute-local-name
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-</p>
-</dd></dl>
+    <dd>
+      <a name=
+      "index-emacspeak_002dnxml_002dsummarize_002doutline-1" id=
+      "index-emacspeak_002dnxml_002dsummarize_002doutline-1"></a>
 
-<dl>
-<dt><a name="index-User-Option-627"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-attribute-prefix-voice</em></dt>
-<dd><p>Personality used for nxml-attribute-prefix
-This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
-</p>
-</dd></dl>
+      <p>Intelligent spoken display of current outline entry.</p>
+    </dd>
+  </dl><a name="emacspeak_002dnxml-Options" id=
+  "emacspeak_002dnxml-Options"></a>
 
-<dl>
-<dt><a name="index-User-Option-628"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-attribute-value-delimiter-voice</em></dt>
-<dd><p>Personality used for nxml-attribute-value-delimiter
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-</p>
-</dd></dl>
+  <h4 class="subsection">11.120.2 emacspeak-nxml Options</h4>
 
-<dl>
-<dt><a name="index-User-Option-629"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-attribute-value-voice</em></dt>
-<dd><p>Personality used for nxml-attribute-value
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-625" id=
+    "index-User-Option-625"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-attribute-colon-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-630"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-cdata-section-CDATA-voice</em></dt>
-<dd><p>Personality used for nxml-cdata-section-CDATA
-This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
-</p>
-</dd></dl>
+    <dd>
+      <p>Personality used for nxml-attribute-colon This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-631"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-cdata-section-content-voice</em></dt>
-<dd><p>Personality used for nxml-cdata-section-content
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-626" id=
+    "index-User-Option-626"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-attribute-local-name-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-632"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-cdata-section-delimiter-voice</em></dt>
-<dd><p>Personality used for nxml-cdata-section-delimiter
-This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
-</p>
-</dd></dl>
+    <dd>
+      <p>Personality used for nxml-attribute-local-name This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-633"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-char-ref-delimiter-voice</em></dt>
-<dd><p>Personality used for nxml-char-ref-delimiter
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-627" id=
+    "index-User-Option-627"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-attribute-prefix-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-634"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-char-ref-number-voice</em></dt>
-<dd><p>Personality used for nxml-char-ref-number
-This personality uses  voice-animate-medium whose  effect can be changed globally by customizing voice-animate-medium-settings.
-</p>
-</dd></dl>
+    <dd>
+      <p>Personality used for nxml-attribute-prefix This
+      personality uses voice-monotone-medium whose effect can be
+      changed globally by customizing
+      voice-monotone-medium-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-635"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-comment-content-voice</em></dt>
-<dd><p>Personality used for nxml-comment-content
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-628" id=
+    "index-User-Option-628"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-attribute-value-delimiter-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-636"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-comment-delimiter-voice</em></dt>
-<dd><p>Personality used for nxml-comment-delimiter
-This personality uses  voice-smoothen-medium whose  effect can be changed globally by customizing voice-smoothen-medium-settings.
-</p>
-</dd></dl>
+    <dd>
+      <p>Personality used for nxml-attribute-value-delimiter This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-637"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-delimited-data-voice</em></dt>
-<dd><p>Personality used for nxml-delimited-data
-This personality uses  voice-animate-medium whose  effect can be changed globally by customizing voice-animate-medium-settings.
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-629" id=
+    "index-User-Option-629"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-attribute-value-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-638"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-delimiter-voice</em></dt>
-<dd><p>Personality used for nxml-delimiter
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
-</p>
-</dd></dl>
+    <dd>
+      <p>Personality used for nxml-attribute-value This personality
+      uses voice-lighten whose effect can be changed globally by
+      customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-639"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-element-colon-voice</em></dt>
-<dd><p>Personality used for nxml-element-colon
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-630" id=
+    "index-User-Option-630"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-cdata-section-CDATA-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-640"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-element-local-name-voice</em></dt>
-<dd><p>Personality used for nxml-element-local-name
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-</p>
-</dd></dl>
+    <dd>
+      <p>Personality used for nxml-cdata-section-CDATA This
+      personality uses voice-animate-extra whose effect can be
+      changed globally by customizing
+      voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-641"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-element-prefix-voice</em></dt>
-<dd><p>Personality used for nxml-element-prefix
-This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-631" id=
+    "index-User-Option-631"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-cdata-section-content-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-642"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-entity-ref-delimiter-voice</em></dt>
-<dd><p>Personality used for nxml-entity-ref-delimiter
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-</p>
-</dd></dl>
+    <dd>
+      <p>Personality used for nxml-cdata-section-content This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-643"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-entity-ref-name-voice</em></dt>
-<dd><p>Personality used for nxml-entity-ref-name
-This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-632" id=
+    "index-User-Option-632"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-cdata-section-delimiter-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-644"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-hash-voice</em></dt>
-<dd><p>Personality used for nxml-hash
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-</p>
-</dd></dl>
+    <dd>
+      <p>Personality used for nxml-cdata-section-delimiter This
+      personality uses voice-monotone-medium whose effect can be
+      changed globally by customizing
+      voice-monotone-medium-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-645"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-markup-declaration-delimiter-voice</em></dt>
-<dd><p>Personality used for nxml-markup-declaration-delimiter
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-633" id=
+    "index-User-Option-633"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-char-ref-delimiter-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-646"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-name-voice</em></dt>
-<dd><p>Personality used for nxml-name
-This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
-</p>
-</dd></dl>
+    <dd>
+      <p>Personality used for nxml-char-ref-delimiter This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-647"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-namespace-attribute-colon-voice</em></dt>
-<dd><p>Personality used for nxml-namespace-attribute-colon
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-634" id=
+    "index-User-Option-634"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-char-ref-number-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-648"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-namespace-attribute-prefix-voice</em></dt>
-<dd><p>Personality used for nxml-namespace-attribute-prefix
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-</p>
-</dd></dl>
+    <dd>
+      <p>Personality used for nxml-char-ref-number This personality
+      uses voice-animate-medium whose effect can be changed
+      globally by customizing voice-animate-medium-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-649"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-namespace-attribute-value-delimiter-voice</em></dt>
-<dd><p>Personality used for nxml-namespace-attribute-value-delimiter
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-635" id=
+    "index-User-Option-635"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-comment-content-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-650"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-namespace-attribute-value-voice</em></dt>
-<dd><p>Personality used for nxml-namespace-attribute-value
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-</p>
-</dd></dl>
+    <dd>
+      <p>Personality used for nxml-comment-content This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-651"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-namespace-attribute-xmlns-voice</em></dt>
-<dd><p>Personality used for nxml-namespace-attribute-xmlns
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-636" id=
+    "index-User-Option-636"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-comment-delimiter-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-652"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-processing-instruction-content-voice</em></dt>
-<dd><p>Personality used for nxml-processing-instruction-content
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-</p>
-</dd></dl>
+    <dd>
+      <p>Personality used for nxml-comment-delimiter This
+      personality uses voice-smoothen-medium whose effect can be
+      changed globally by customizing
+      voice-smoothen-medium-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-653"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-processing-instruction-delimiter-voice</em></dt>
-<dd><p>Personality used for nxml-processing-instruction-delimiter
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-637" id=
+    "index-User-Option-637"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-delimited-data-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-654"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-processing-instruction-target-voice</em></dt>
-<dd><p>Personality used for nxml-processing-instruction-target
-This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
-</p>
-</dd></dl>
+    <dd>
+      <p>Personality used for nxml-delimited-data This personality
+      uses voice-animate-medium whose effect can be changed
+      globally by customizing voice-animate-medium-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-655"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-prolog-keyword-voice</em></dt>
-<dd><p>Personality used for nxml-prolog-keyword
-This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-638" id=
+    "index-User-Option-638"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-nxml-delimiter-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-656"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-prolog-literal-content-voice</em></dt>
-<dd><p>Personality used for nxml-prolog-literal-content
-This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
-</p>
-</dd></dl>
+    <dd>
+      <p>Personality used for nxml-delimiter This personality uses
+      voice-bolden-medium whose effect can be changed globally by
+      customizing voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-657"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-prolog-literal-delimiter-voice</em></dt>
-<dd><p>Personality used for nxml-prolog-literal-delimiter
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-639" id=
+    "index-User-Option-639"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-element-colon-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-658"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-ref-voice</em></dt>
-<dd><p>Personality used for nxml-ref
-This personality uses  voice-animate-medium whose  effect can be changed globally by customizing voice-animate-medium-settings.
-</p>
-</dd></dl>
+    <dd>
+      <p>Personality used for nxml-element-colon This personality
+      uses voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-659"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-tag-delimiter-voice</em></dt>
-<dd><p>Personality used for nxml-tag-delimiter
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-640" id=
+    "index-User-Option-640"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-element-local-name-voice</em></dt>
 
-<dl>
-<dt><a name="index-User-Option-660"></a>Variable: <strong>User Option</strong> <em>emacspeak-nxml-tag-slash-voice</em></dt>
-<dd><p>Personality used for nxml-tag-slash
-This personality uses  voice-smoothen-medium whose  effect can be changed globally by customizing voice-smoothen-medium-settings.
-</p>
-</dd></dl>
+    <dd>
+      <p>Personality used for nxml-element-local-name This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
 
-<dl>
-<dt><a name="index-User-Option-661"></a>Variable: <strong>User Option</strong> <em>emacspeak-rng-error-voice</em></dt>
-<dd><p>Personality used for rng-error
-This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
-</p>
-</dd></dl>
+  <dl>
+    <dt><a name="index-User-Option-641" id=
+    "index-User-Option-641"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-element-prefix-voice</em></dt>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002docr.html#emacspeak_002docr" accesskey="n" rel="next">emacspeak-ocr</a>, Previous: <a href="emacspeak_002dnpr.html#emacspeak_002dnpr" accesskey="p" rel="prev">emacspeak-npr</a>, Up: <a href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
+    <dd>
+      <p>Personality used for nxml-element-prefix This personality
+      uses voice-monotone-medium whose effect can be changed
+      globally by customizing voice-monotone-medium-settings.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-642" id=
+    "index-User-Option-642"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-entity-ref-delimiter-voice</em></dt>
 
+    <dd>
+      <p>Personality used for nxml-entity-ref-delimiter This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name="index-User-Option-643" id=
+    "index-User-Option-643"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-entity-ref-name-voice</em></dt>
+
+    <dd>
+      <p>Personality used for nxml-entity-ref-name This personality
+      uses voice-lighten-medium whose effect can be changed
+      globally by customizing voice-lighten-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-644" id=
+    "index-User-Option-644"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-nxml-hash-voice</em></dt>
+
+    <dd>
+      <p>Personality used for nxml-hash This personality uses
+      voice-monotone whose effect can be changed globally by
+      customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-645" id=
+    "index-User-Option-645"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-markup-declaration-delimiter-voice</em></dt>
+
+    <dd>
+      <p>Personality used for nxml-markup-declaration-delimiter
+      This personality uses voice-smoothen whose effect can be
+      changed globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-646" id=
+    "index-User-Option-646"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-nxml-name-voice</em></dt>
+
+    <dd>
+      <p>Personality used for nxml-name This personality uses
+      voice-animate-extra whose effect can be changed globally by
+      customizing voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-647" id=
+    "index-User-Option-647"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-namespace-attribute-colon-voice</em></dt>
+
+    <dd>
+      <p>Personality used for nxml-namespace-attribute-colon This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-648" id=
+    "index-User-Option-648"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-namespace-attribute-prefix-voice</em></dt>
+
+    <dd>
+      <p>Personality used for nxml-namespace-attribute-prefix This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-649" id=
+    "index-User-Option-649"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-namespace-attribute-value-delimiter-voice</em></dt>
+
+    <dd>
+      <p>Personality used for
+      nxml-namespace-attribute-value-delimiter This personality
+      uses voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-650" id=
+    "index-User-Option-650"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-namespace-attribute-value-voice</em></dt>
+
+    <dd>
+      <p>Personality used for nxml-namespace-attribute-value This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-651" id=
+    "index-User-Option-651"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-namespace-attribute-xmlns-voice</em></dt>
+
+    <dd>
+      <p>Personality used for nxml-namespace-attribute-xmlns This
+      personality uses voice-smoothen-extra whose effect can be
+      changed globally by customizing
+      voice-smoothen-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-652" id=
+    "index-User-Option-652"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-processing-instruction-content-voice</em></dt>
+
+    <dd>
+      <p>Personality used for nxml-processing-instruction-content
+      This personality uses voice-animate whose effect can be
+      changed globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-653" id=
+    "index-User-Option-653"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-processing-instruction-delimiter-voice</em></dt>
+
+    <dd>
+      <p>Personality used for nxml-processing-instruction-delimiter
+      This personality uses voice-lighten-extra whose effect can be
+      changed globally by customizing
+      voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-654" id=
+    "index-User-Option-654"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-processing-instruction-target-voice</em></dt>
+
+    <dd>
+      <p>Personality used for nxml-processing-instruction-target
+      This personality uses voice-animate-extra whose effect can be
+      changed globally by customizing
+      voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-655" id=
+    "index-User-Option-655"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-prolog-keyword-voice</em></dt>
+
+    <dd>
+      <p>Personality used for nxml-prolog-keyword This personality
+      uses voice-animate-extra whose effect can be changed globally
+      by customizing voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-656" id=
+    "index-User-Option-656"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-prolog-literal-content-voice</em></dt>
+
+    <dd>
+      <p>Personality used for nxml-prolog-literal-content This
+      personality uses voice-monotone-medium whose effect can be
+      changed globally by customizing
+      voice-monotone-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-657" id=
+    "index-User-Option-657"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-prolog-literal-delimiter-voice</em></dt>
+
+    <dd>
+      <p>Personality used for nxml-prolog-literal-delimiter This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-658" id=
+    "index-User-Option-658"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-nxml-ref-voice</em></dt>
+
+    <dd>
+      <p>Personality used for nxml-ref This personality uses
+      voice-animate-medium whose effect can be changed globally by
+      customizing voice-animate-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-659" id=
+    "index-User-Option-659"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-nxml-tag-delimiter-voice</em></dt>
+
+    <dd>
+      <p>Personality used for nxml-tag-delimiter This personality
+      uses voice-smoothen whose effect can be changed globally by
+      customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-660" id=
+    "index-User-Option-660"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-nxml-tag-slash-voice</em></dt>
+
+    <dd>
+      <p>Personality used for nxml-tag-slash This personality uses
+      voice-smoothen-medium whose effect can be changed globally by
+      customizing voice-smoothen-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-661" id=
+    "index-User-Option-661"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-rng-error-voice</em></dt>
+
+    <dd>
+      <p>Personality used for rng-error This personality uses
+      voice-bolden-and-animate whose effect can be changed globally
+      by customizing voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href="emacspeak_002docr.html#emacspeak_002docr"
+    accesskey="n" rel="next">emacspeak-ocr</a>, Previous: <a href=
+    "emacspeak_002dnpr.html#emacspeak_002dnpr" accesskey="p" rel=
+    "prev">emacspeak-npr</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

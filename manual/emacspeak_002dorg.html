@@ -1,103 +1,278 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
 <head>
-<title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-org</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
 
-<meta name="description" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-org">
-<meta name="keywords" content="Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-org">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="index.html#Top" rel="start" title="Top">
-<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
-<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" rel="up" title="Emacspeak Commands And Options">
-<link href="emacspeak_002doutline.html#emacspeak_002doutline" rel="next" title="emacspeak-outline">
-<link href="emacspeak_002docr.html#emacspeak_002docr" rel="prev" title="emacspeak-ocr">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-
-
+  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  emacspeak-org</title>
+  <meta name="description" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-org" />
+  <meta name="keywords" content=
+  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: emacspeak-org" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+  rel="up" title="Emacspeak Commands And Options" />
+  <link href="emacspeak_002doutline.html#emacspeak_002doutline"
+  rel="next" title="emacspeak-outline" />
+  <link href="emacspeak_002docr.html#emacspeak_002docr" rel="prev"
+  title="emacspeak-ocr" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="emacspeak_002dorg"></a>
-<div class="header">
-<p>
-Next: <a href="emacspeak_002doutline.html#emacspeak_002doutline" accesskey="n" rel="next">emacspeak-outline</a>, Previous: <a href="emacspeak_002docr.html#emacspeak_002docr" accesskey="p" rel="prev">emacspeak-ocr</a>, Up: <a href="Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options" accesskey="u" rel="up">Emacspeak Commands And Options</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
-<hr>
-<a name="emacspeak_002dorg-1"></a>
-<h3 class="section">11.122 emacspeak-org</h3>
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dorg" id="emacspeak_002dorg"></a>
 
-<p>Speech-enable org &mdash;
- Org allows you to keep organized notes and todo lists.
-Homepage: http://www.astro.uva.nl/~dominik/Tools/org/
-or http://orgmode.org/
-</p>
-<a name="emacspeak_002dorg-Commands"></a>
-<h4 class="subsection">11.122.1 emacspeak-org Commands</h4>
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002doutline.html#emacspeak_002doutline" accesskey=
+    "n" rel="next">emacspeak-outline</a>, Previous: <a href=
+    "emacspeak_002docr.html#emacspeak_002docr" accesskey="p" rel=
+    "prev">emacspeak-ocr</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dorg-1" id="emacspeak_002dorg-1"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002dorg_002dbookmark"></a>Command: <strong>emacspeak-org-bookmark</strong> <em>(&amp;optional goto)</em></dt>
-<dd><a name="index-emacspeak_002dorg_002dbookmark-1"></a>
+  <h3 class="section">11.122 emacspeak-org</h3>
 
-<p>Bookmark from org.
-</p></dd></dl>
+  <p>Speech-enable org &mdash; Org allows you to keep organized
+  notes and todo lists. Homepage:
+  http://www.astro.uva.nl/~dominik/Tools/org/ or
+  http://orgmode.org/</p><a name="emacspeak_002dorg-Commands" id=
+  "emacspeak_002dorg-Commands"></a>
 
-<dl>
-<dt><a name="index-emacspeak_002dorg_002dpopup_002dinput"></a>Command: <strong>emacspeak-org-popup-input</strong></dt>
-<dd><a name="index-emacspeak_002dorg_002dpopup_002dinput-1"></a>
+  <h4 class="subsection">11.122.1 emacspeak-org Commands</h4>
 
-<p>Pops up an org input area.
-</p></dd></dl>
+  <dl>
+    <dt><a name="index-emacspeak_002dorg_002dbookmark" id=
+    "index-emacspeak_002dorg_002dbookmark"></a>Command:
+    <strong>emacspeak-org-bookmark</strong> <em>(&amp;optional
+    goto)</em></dt>
 
-<dl>
-<dt><a name="index-emacspeak_002dorg_002dtable_002dspeak_002dcurrent_002delement"></a>Command: <strong>emacspeak-org-table-speak-current-element</strong></dt>
-<dd><a name="index-emacspeak_002dorg_002dtable_002dspeak_002dcurrent_002delement-1"></a>
+    <dd>
+      <a name="index-emacspeak_002dorg_002dbookmark-1" id=
+      "index-emacspeak_002dorg_002dbookmark-1"></a>
 
-<p>echoes current table element
-</p></dd></dl>
+      <p>Bookmark from org.</p>
+    </dd>
+  </dl>
 
-<a name="emacspeak_002dorg-Options"></a>
-<h4 class="subsection">11.122.2 emacspeak-org Options</h4>
+  <dl>
+    <dt><a name="index-emacspeak_002dorg_002dpopup_002dinput" id=
+    "index-emacspeak_002dorg_002dpopup_002dinput"></a>Command:
+    <strong>emacspeak-org-popup-input</strong></dt>
 
-<dl>
-<dt><a name="index-User-Option-675"></a>Variable: <strong>User Option</strong> <em>emacspeak-org-bookmark-key</em></dt>
-<dd><p>Key of template used for capturing  hot list.
-</p>
-</dd></dl>
+    <dd>
+      <a name="index-emacspeak_002dorg_002dpopup_002dinput-1" id=
+      "index-emacspeak_002dorg_002dpopup_002dinput-1"></a>
 
+      <p>Pops up an org input area.</p>
+    </dd>
+  </dl>
 
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dorg_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement"
+    id=
+    "index-emacspeak_002dorg_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement">
+    </a>Command:
+    <strong>emacspeak-org-table-speak-both-headers-and-element</strong></dt>
 
+    <dd>
+      <a name=
+      "index-emacspeak_002dorg_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement-1"
+      id=
+      "index-emacspeak_002dorg_002dtable_002dspeak_002dboth_002dheaders_002dand_002delement-1">
+      </a>
 
+      <p>echoes coordinates</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader"
+    id=
+    "index-emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader">
+    </a>Command:
+    <strong>emacspeak-org-table-speak-column-header</strong></dt>
+
+    <dd>
+      <a name=
+      "index-emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader-1"
+      id=
+      "index-emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader-1">
+      </a>
+
+      <p>echoes column header</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement"
+    id=
+    "index-emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement">
+    </a>Command:
+    <strong>emacspeak-org-table-speak-column-header-and-element</strong></dt>
+
+    <dd>
+      <a name=
+      "index-emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement-1"
+      id=
+      "index-emacspeak_002dorg_002dtable_002dspeak_002dcolumn_002dheader_002dand_002delement-1">
+      </a>
+
+      <p>echoes coordinates</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dorg_002dtable_002dspeak_002dcoordinates"
+    id=
+    "index-emacspeak_002dorg_002dtable_002dspeak_002dcoordinates"></a>Command:
+    <strong>emacspeak-org-table-speak-coordinates</strong></dt>
+
+    <dd>
+      <a name=
+      "index-emacspeak_002dorg_002dtable_002dspeak_002dcoordinates-1"
+      id=
+      "index-emacspeak_002dorg_002dtable_002dspeak_002dcoordinates-1">
+      </a>
+
+      <p>echoes coordinates</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dorg_002dtable_002dspeak_002dcurrent_002delement"
+    id=
+    "index-emacspeak_002dorg_002dtable_002dspeak_002dcurrent_002delement">
+    </a>Command:
+    <strong>emacspeak-org-table-speak-current-element</strong></dt>
+
+    <dd>
+      <a name=
+      "index-emacspeak_002dorg_002dtable_002dspeak_002dcurrent_002delement-1"
+      id=
+      "index-emacspeak_002dorg_002dtable_002dspeak_002dcurrent_002delement-1">
+      </a>
+
+      <p>echoes current table element</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader"
+    id=
+    "index-emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader">
+    </a>Command:
+    <strong>emacspeak-org-table-speak-row-header</strong></dt>
+
+    <dd>
+      <a name=
+      "index-emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader-1"
+      id=
+      "index-emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader-1">
+      </a>
+
+      <p>echoes column header</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader_002dand_002delement"
+    id=
+    "index-emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader_002dand_002delement">
+    </a>Command:
+    <strong>emacspeak-org-table-speak-row-header-and-element</strong></dt>
+
+    <dd>
+      <a name=
+      "index-emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader_002dand_002delement-1"
+      id=
+      "index-emacspeak_002dorg_002dtable_002dspeak_002drow_002dheader_002dand_002delement-1">
+      </a>
+
+      <p>echoes coordinates</p>
+    </dd>
+  </dl><a name="emacspeak_002dorg-Options" id=
+  "emacspeak_002dorg-Options"></a>
+
+  <h4 class="subsection">11.122.2 emacspeak-org Options</h4>
+
+  <dl>
+    <dt><a name="index-User-Option-675" id=
+    "index-User-Option-675"></a>Variable: <strong>User
+    Option</strong> <em>emacspeak-org-bookmark-key</em></dt>
+
+    <dd>
+      <p>Key of template used for capturing hot list.</p>
+    </dd>
+  </dl>
 </body>
 </html>
