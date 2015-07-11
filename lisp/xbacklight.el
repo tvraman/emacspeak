@@ -104,14 +104,14 @@
 ;;{{{ Hydra:
 
 (when (featurep 'hydra)
-(defhydra hydra-brightness (global-map "<f5>")
-  "Brightness"
-  ("i" xbacklight-increment "brighter")
-  ("d" xbacklight-decrement "dimmer")
-  ("g" xbacklight-get "Get")
-  ("s" xbacklight-set "set")
-  ("0" xbacklight-0 "black")
-  ("1" xbacklight-1 "white")))
+  (defhydra hydra-brightness (global-map "<print>")
+    "Brightness"
+    ("i" xbacklight-increment "brighter")
+    ("d" xbacklight-decrement "dimmer")
+    ("g" xbacklight-get "Get")
+    ("s" xbacklight-set "set")
+    ("0" xbacklight-0 "black")
+    ("1" xbacklight-1 "white")))
 
 ;;}}}
 (provide 'xbacklight)
