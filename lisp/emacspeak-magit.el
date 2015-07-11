@@ -132,20 +132,12 @@
 ;;}}}
 ;;{{{ Advice generator to advice generated  commands:
 
-(defadvice  magit-key-mode-generate (after emacspeak pre act comp)
-  "Advice  the key-group menu for GROUP"
-  (let ((group (ad-get-arg 0))))
-  (eval
-   `(defadvice ,(intern (concat "magit-key-mode-popup-" (symbol-name group))) 
-        (after emacspeak  pre act comp)
-      ,(concat "Speech-enabled Key menu for " (symbol-name group))
-      (dtk-speak
-       (save-current-buffer
-         (set-buffer ,(format magit-key-mode-buf-name group))
-         (buffer-string))))))
-;;; load the magit-key-mode file so the above advice gets applied:
-(when (locate-library "magit-key-mode")
-(load-library "magit-key-mode"))
+
+
+(defadvice magit-invoke-popup (after emacspeak pre act comp)
+  "Speech-enable  magit-popup."
+  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-speak-buffer))
 
 ;;}}}
 ;;{{{ Advice hide/show commands:
