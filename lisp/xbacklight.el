@@ -26,15 +26,13 @@
 ;;{{{ introduction
 
 ;;; Commentary:
-;;; Provide an emacs front-end to xbacklight
+;;; Provide an emacs front-end to xbacklight.
+;;; This is a tool that controls the brightness on laptops.
+;;; To install xbacklight, 
 ;;; sudo apt-get install xbacklight
-;;; Likely to be most easily used in conjunction with  hydra:
+
+;;; This module  is most   easily used in conjunction with  hydra:
 ;;;M-x package-install hydra
-
-
-
-
-
 
 ;;; Code:
 ;;}}}
