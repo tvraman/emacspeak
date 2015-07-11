@@ -50,7 +50,10 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(eval-when-compile (require 'magit "magit" 'no-error))
+
+(require 'magit "magit" 'no-error)
+
+
 ;;}}}
 ;;{{{ Map voices to faces:
 (voice-setup-add-map
@@ -141,8 +144,8 @@
          (set-buffer ,(format magit-key-mode-buf-name group))
          (buffer-string))))))
 ;;; load the magit-key-mode file so the above advice gets applied:
-
-(load-library "magit-key-mode")
+(when (locate-library "magit-key-mode")
+(load-library "magit-key-mode"))
 
 ;;}}}
 ;;{{{ Advice hide/show commands:
