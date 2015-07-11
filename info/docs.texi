@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1079 commands and 886 options.
+This chapter documents a total of 1073 commands and 885 options.
 
 @menu
 * acss-structure::
@@ -215,7 +215,6 @@ This chapter documents a total of 1079 commands and 886 options.
 * tetris::
 * toy-braille::
 * voice-setup::
-* xbacklight::
 * URL Templates ::
 @end menu
 
@@ -16137,60 +16136,6 @@ Smoothen current voice.
 
 @defvar {User Option} voice-womanize-1-settings
 Apply first female voice.
-
-@end defvar
-
-@node xbacklight
-@section xbacklight
-
-Provide an emacs front-end to xbacklight
-sudo apt-get install xbacklight
-Likely to be most easily used in conjunction with  hydra:
-M-x package-install hydra
-
-@subsection xbacklight Commands
-
-@deffn {Command} xbacklight-0   
-@findex xbacklight-0
-
-Set brightness to 0
-@end deffn
-
-@deffn {Command} xbacklight-1   
-@findex xbacklight-1
-
-Set brightness to 100
-@end deffn
-
-@deffn {Command} xbacklight-decrement   
-@findex xbacklight-decrement
-
-Decrease brightness by  by one step.
-@end deffn
-
-@deffn {Command} xbacklight-get   
-@findex xbacklight-get
-
-Get current brightness level.
-@end deffn
-
-@deffn {Command} xbacklight-increment   
-@findex xbacklight-increment
-
-Increase brightness by  by one step.
-@end deffn
-
-@deffn {Command} xbacklight-set  (brightness)
-@findex xbacklight-set
-
-Set brightness to  specified level.
-`brightness' is a percentage value.
-@end deffn
-
-@subsection xbacklight Options
-
-@defvar {User Option} xbacklight-step
-Step-size used when incrementing and decrementing brightness.
 
 @end defvar
 
