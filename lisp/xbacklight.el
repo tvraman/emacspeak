@@ -107,8 +107,8 @@
     (defhydra hydra-brightness
       (
        global-map "<print>"
-                  :pre hydra-brightness/pre
-                  :post hydra-brightness/post)
+       :pre hydra-brightness/pre
+       :post hydra-brightness/post)
       "Brightness"
       ("i" xbacklight-increment "brighter")
       ("SPC" xbacklight-increment "brighter")
