@@ -114,7 +114,13 @@
     ("s" xbacklight-set "set")
     ("0" xbacklight-0 "black")
     ("<print>" xbacklight-0 "black")
-    ("1" xbacklight-1 "white")))
+    ("1" xbacklight-1 "white"))
+
+;;; This advice will likely move to emacspeak-hydra.el 
+  (defadvice hydra-default-pre(after emacspeak pre act comp) 
+  "Provide auditory feedback."
+(emacspeak-auditory-icon 'open-object))
+)
 
 ;;}}}
 (provide 'xbacklight)
