@@ -51,6 +51,7 @@
 
 ;;}}}
 ;;{{{ Commands:
+
 (defun xbacklight-get ()
   "Get current brightness level."
   (interactive)
@@ -68,15 +69,6 @@
                          xbacklight-cmd brightness))
   (xbacklight-get))
 
-(defun xbacklight-0 ()
-  "Set brightness to 0"
-  (interactive)
-  (xbacklight-set 0))
-
-(defun xbacklight-1 ()
-  "Set brightness to 100"
-  (interactive)
-  (xbacklight-set 100))
 (defgroup xbacklight nil
   "Control XBacklight from Emacs."
   :group 'emacspeak
@@ -90,41 +82,42 @@
 (defun xbacklight-increment ()
   "Increase brightness by  by one step."
   (interactive)
-  (shell-command
-   (format "%s -inc %s"
-           xbacklight-cmd xbacklight-step))
+  (shell-command (format "%s -inc %s" xbacklight-cmd xbacklight-step))
   (xbacklight-get))
 
 (defun xbacklight-decrement ()
   "Decrease brightness by  by one step."
   (interactive)
-  (shell-command
-   (format "%s -dec %s"
-           xbacklight-cmd xbacklight-step))
+  (shell-command (format "%s -dec %s" xbacklight-cmd xbacklight-step))
   (xbacklight-get))
 
 ;;}}}
 ;;{{{ Hydra:
-(eval-when '(load)
- (when (featurep 'hydra)
-  (defhydra hydra-brightness (global-map "<print>")
-    "Brightness"
-    ("i" xbacklight-increment "brighter")
-    ("SPC" xbacklight-increment "brighter")
-    ("d" xbacklight-decrement "dimmer")
-    ("g" xbacklight-get "Get")
-    ("s" xbacklight-set "set")
-    ("0" xbacklight-0 "black")
-    ("<print>" xbacklight-0 "black")
-    ("1" xbacklight-1 "white"))))
 
-;;}}}
-;;{{{ Advice Hydra:
-
-;;; This advice will likely move to emacspeak-hydra.el
-(defadvice hydra-default-pre(after emacspeak pre act comp)
-  "Provide auditory feedback."
+(defun hydra-brightness/pre ()
+  "Provide auditory icon"
   (emacspeak-auditory-icon 'open-object))
+
+(defun hydra-brightness/post ()
+  "Provide auditory icon"
+  (emacspeak-auditory-icon 'close-object))
+
+(eval-when '(load)
+  (when (featurep 'hydra)
+    (defhydra hydra-brightness
+      (
+       global-map "<print>"
+                  :pre hydra-brightness/pre
+                  :post hydra-brightness/post)
+      "Brightness"
+      ("i" xbacklight-increment "brighter")
+      ("SPC" xbacklight-increment "brighter")
+      ("d" xbacklight-decrement "dimmer")
+      ("g" xbacklight-get "Get")
+      ("s" xbacklight-set "set")
+      ("0" (xbacklight-set 0) "black")
+      ("<print>" (xbacklight-set 0) "black")
+      ("1" (xbacklight-set 1) "white"))))
 
 ;;}}}
 (provide 'xbacklight)
