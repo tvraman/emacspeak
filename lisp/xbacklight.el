@@ -54,8 +54,11 @@
 (defun xbacklight-get ()
   "Get current brightness level."
   (interactive)
-  (message "Brightness is %s"
-           (shell-command-to-string (format "%s -get " xbacklight-cmd ))))
+  (let ((value (shell-command-to-string (format "%s -get " xbacklight-cmd ))))
+    (cond
+         ((numberp (read value))
+          (message "Brightness is %.2f" (read value)      ))
+  (t (message "Brightness is %s" value)))))
 
 (defun xbacklight-set (brightness)
   "Set brightness to  specified level.
