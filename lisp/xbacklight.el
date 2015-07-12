@@ -28,7 +28,7 @@
 ;;; Commentary:
 ;;; Provide an emacs front-end to xbacklight.
 ;;; This is a tool that controls the brightness on laptops.
-;;; To install xbacklight, 
+;;; To install xbacklight,
 ;;; sudo apt-get install xbacklight
 
 ;;; This module  is most   easily used in conjunction with  hydra:
@@ -86,7 +86,7 @@
   "Step-size used when incrementing and decrementing brightness."
   :type 'integer
   :group  'xbacklight)
-  
+
 (defun xbacklight-increment ()
   "Increase brightness by  by one step."
   (interactive)
@@ -101,29 +101,30 @@
   (shell-command
    (format "%s -dec %s"
            xbacklight-cmd xbacklight-step))
-  (xbacklight-get))   
+  (xbacklight-get))
 
-  ;;}}}
+;;}}}
 ;;{{{ Hydra:
-
-(when (featurep 'hydra)
+(eval-when '(load)
+ (when (featurep 'hydra)
   (defhydra hydra-brightness (global-map "<print>")
     "Brightness"
     ("i" xbacklight-increment "brighter")
     ("SPC" xbacklight-increment "brighter")
     ("d" xbacklight-decrement "dimmer")
-    ("d" xbacklight-decrement "dimmer")
     ("g" xbacklight-get "Get")
     ("s" xbacklight-set "set")
     ("0" xbacklight-0 "black")
     ("<print>" xbacklight-0 "black")
-    ("1" xbacklight-1 "white"))
+    ("1" xbacklight-1 "white"))))
 
-;;; This advice will likely move to emacspeak-hydra.el 
-  (defadvice hydra-default-pre(after emacspeak pre act comp) 
+;;}}}
+;;{{{ Advice Hydra:
+
+;;; This advice will likely move to emacspeak-hydra.el
+(defadvice hydra-default-pre(after emacspeak pre act comp)
   "Provide auditory feedback."
-(emacspeak-auditory-icon 'open-object))
-)
+  (emacspeak-auditory-icon 'open-object))
 
 ;;}}}
 (provide 'xbacklight)
