@@ -4,6 +4,11 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
 * Emacspeak 43 -- Emacspeak 43 User Visible Changes
+
+** XBackLight:
+
+Module xbacklight.el  provides an Emacs front-end to XBackLight for controlling display brightness on laptops and  exposes it using a light-weight Hydra.
+
 ** emacspeak-slime:
 
 Speech-enables package SLIME --- Superior Lisp Interaction Mode  --- a powerful IDE for Common Lisp and Clojure.
