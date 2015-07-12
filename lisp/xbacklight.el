@@ -102,9 +102,9 @@
   "Provide auditory icon"
   (emacspeak-auditory-icon 'close-object))
 
-(eval-when '(load)
-  (when (featurep 'hydra)
-    (defhydra hydra-brightness
+
+(when (featurep 'hydra)
+  (defhydra hydra-brightness
       (
        global-map "<print>"
        :pre hydra-brightness/pre
@@ -117,7 +117,7 @@
       ("s" xbacklight-set "set")
       ("0" (xbacklight-set 0) "black")
       ("<print>" (xbacklight-set 0) "black")
-      ("1" (xbacklight-set 1) "white"))))
+      ("1" (xbacklight-set 100) "white")))
 
 ;;}}}
 (provide 'xbacklight)
