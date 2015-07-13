@@ -48,6 +48,13 @@
 ;;; Commentary:
 ;;{{{  introduction
 ;;; Commentary:
+
+;;; This module is obsolete pending implementation of the new
+;;; Blogger authentication API.
+;;; That API presently requires one to get an auth token through
+;;;  a heavy-weight Web browser like Chrome or Firefox, and is
+;;; consequently beyond Emacs.
+
 ;;; Simple wrapper using Curl to post/edit Blogger.com Blogs
 ;;; posts are edited as XML
 ;;;nxml-mode is highly recommend and will be used if available.
