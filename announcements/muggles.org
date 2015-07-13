@@ -1,0 +1,50 @@
+#+TITLE:Announcing Emacspeak-Muggles: Keyboard Conveniences For Emacspeak
+#+DATE: <2015-07-13 Mon>
+#+AUTHOR: raman
+#+EMAIL: raman@google.com
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
+#+OPTIONS: e:t email:nil f:t inline:t num:t p:nil pri:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t toc:nil todo:t |:t
+#+CREATOR: Emacs 25.0.50.1 (Org mode 8.2.10)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+* Announcing Emacspeak-Muggles: Keyboard Conveniences For Emacspeak
+
+** Executive Summary:
+
+ new module /emacspeak-muggles/ uses package _hydra_ to provide keyboard conveniences.
+
+** Overview:
+
+Package _hydra_ allows convenient grouping of keyboard commands, see that package's description for details. It can be installed by executing
+
+: M-x package-install hydra
+
+Module _emacspeak-muggles_ implements a set of convenience hydras  that make invoking groups of related commands easy. Here are the  *Muggles* currently implemented:
+
+  - Brightness :: Control laptop display brightness using xbacklight.
+    - view-mode ::  Access view-mode functionality without  invoking view-mode explicitly.
+    - org-table-ui  ::  Access Emacspeak Table UI functionality for org-mode tables.
+    - … ::  And a lot more to come.
+
+** Blogger Note:
+
+Going forward, these articles will be published via GitHub -- rather than Blogspot --- the new Blogspot API  requires  browser-based authentication that is beyond Emacs.
+
+#+OPTIONS: html-link-use-abs-url:nil html-postamble:auto
+#+OPTIONS: html-preamble:t html-scripts:t html-style:t
+#+OPTIONS: html5-fancy:nil tex:t
+#+CREATOR: <a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.0.50.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)
+#+HTML_CONTAINER: div
+#+HTML_DOCTYPE: xhtml-strict
+#+HTML_HEAD:
+#+HTML_HEAD_EXTRA:
+#+HTML_LINK_HOME:
+#+HTML_LINK_UP:
+#+HTML_MATHJAX:
+#+INFOJS_OPT:
+#+LATEX_HEADER:
