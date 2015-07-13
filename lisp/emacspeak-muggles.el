@@ -145,6 +145,22 @@
 ;;}}}
 ;;{{{ Org-Mode Table Navigation:
 
+(defhydra
+  emacspeak-muggles-org-table
+  (
+   org-mode-map "C-c t"
+   :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
+  "Org Table UI"
+  ("j" org-table-next-row)
+  ("k" org-table-previous-row)
+  ("h" org-table-previous-field)
+  ("l" org-table-next-field)
+  ("SPC"emacspeak-org-table-speak-current-element)
+  ("."emacspeak-org-table-speak-coordinates)
+  ("b"emacspeak-org-table-speak-both-headers-and-element)
+  ("r"emacspeak-org-table-speak-row-header-and-element)
+  ("c"emacspeak-org-table-speak-column-header-and-element))
+
 ;;}}}
 (provide 'emacspeak-muggles)
 ;;{{{ end of file
