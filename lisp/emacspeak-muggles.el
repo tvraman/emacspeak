@@ -54,6 +54,8 @@
 
 ;;; Brightness: <print> Control display brightness using xbacklight.
 
+;;;View-Mode: <C-z> Temporarily behave like view-mode.
+
 ;;; Code:
 
 ;;}}}
@@ -98,7 +100,47 @@
 ;;}}}
 ;;{{{  Biew Mode:
 
-;;; Inspired by the mini-vi example from hydra-examples.el
+(defhydra
+  emacspeak-muggles-view
+  (
+   global-map "C-z"
+   :pre emacspeak-muggles-pre :post emacspeak-muggles-post :color amaranth)
+  "View Mode"
+  ("l" forward-char)
+  ("h" backward-char)
+  ("j" next-line)
+  ("k" previous-line)
+  ("m" set-mark-command "mark")
+  ("a" move-beginning-of-line "beg")
+  ("e" move-end-of-line "end")
+  ("y" kill-ring-save "yank" :color blue)
+  ("p" View-search-last-regexp-backward)
+  ("n" View-search-last-regexp-forward)
+  ("\\" View-search-regexp-backward)
+  ("/" View-search-regexp-forward)
+  ("r" isearch-backward)
+  ("s" isearch-forward)
+  ("m" point-to-register)
+  ("'" register-to-point)
+  ("x" exchange-point-and-mark)
+  ("@" View-back-to-mark)
+  ("." set-mark-command)
+  ("g" View-goto-line)
+  ("=" what-line)
+  ("u" View-scroll-half-page-backward)
+  ("d" View-scroll-half-page-forward)
+  ("SPC" View-scroll-page-forward)
+  ("o" View-scroll-to-buffer-end)
+  (">" end-of-buffer)
+  ("<" beginning-of-buffer)
+  ("[" previous-page)
+  ("]" next-page)
+  ("{" backward-paragraph)
+  ("}" forward-paragraph)
+  ("(" backward-sexp)
+  (")" forward-sexp)
+
+  ("q" nil "quit"))
 
 ;;}}}
 ;;{{{ Org-Mode Table Navigation:
