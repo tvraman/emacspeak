@@ -254,7 +254,7 @@ emacspeak-xslt.elc
 ADDON_OBJECTS = \
 tapestry.elc   stack-f.elc  \
 subr-x.elc dom.elc dom-addons.elc \
-json-view.elc toy-braille.elc tetris.elc cd-tool.elc nm.elc
+xbacklight.elc json-view.elc toy-braille.elc tetris.elc cd-tool.elc nm.elc
 
 OBJECTS = $(DTK_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  $(ADDON_OBJECTS)
 # }}}

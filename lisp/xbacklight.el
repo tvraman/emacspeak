@@ -40,7 +40,6 @@
 
 (eval-when-compile(require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
-(require 'hydra nil 'no-error)
 
 ;;}}}
 ;;{{{  Variables:
@@ -52,6 +51,7 @@
 ;;}}}
 ;;{{{ Commands:
 
+;;;###autoload
 (defun xbacklight-get ()
   "Get current brightness level."
   (interactive)
@@ -60,7 +60,7 @@
      ((numberp (read value))
       (message "Brightness is %d" (round  (read value))))
      (t (message "Brightness is %s" value)))))
-
+;;;###autoload
 (defun xbacklight-set (brightness)
   "Set brightness to  specified level.
 `brightness' is a percentage value."
@@ -78,46 +78,19 @@
   "Step-size used when incrementing and decrementing brightness."
   :type 'integer
   :group  'xbacklight)
-
+;;;###autoload
 (defun xbacklight-increment ()
   "Increase brightness by  by one step."
   (interactive)
   (shell-command (format "%s -inc %s" xbacklight-cmd xbacklight-step))
   (xbacklight-get))
 
+;;;###autoload
 (defun xbacklight-decrement ()
   "Decrease brightness by  by one step."
   (interactive)
   (shell-command (format "%s -dec %s" xbacklight-cmd xbacklight-step))
   (xbacklight-get))
-
-;;}}}
-;;{{{ Hydra:
-
-(defun hydra-brightness/pre ()
-  "Provide auditory icon"
-  (emacspeak-auditory-icon 'open-object))
-
-(defun hydra-brightness/post ()
-  "Provide auditory icon"
-  (emacspeak-auditory-icon 'close-object))
-
-
-(when (featurep 'hydra)
-  (defhydra hydra-brightness
-      (
-       global-map "<print>"
-       :pre hydra-brightness/pre
-       :post hydra-brightness/post)
-      "Brightness"
-      ("i" xbacklight-increment "brighter")
-      ("SPC" xbacklight-increment "brighter")
-      ("d" xbacklight-decrement "dimmer")
-      ("g" xbacklight-get "Get")
-      ("s" xbacklight-set "set")
-      ("0" (xbacklight-set 0) "black")
-      ("<print>" (xbacklight-set 0) "black")
-      ("1" (xbacklight-set 100) "white")))
 
 ;;}}}
 (provide 'xbacklight)
