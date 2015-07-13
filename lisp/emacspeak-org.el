@@ -536,7 +536,10 @@
 (defun emacspeak-org-table-speak-current-element ()
   "echoes current table element"
   (interactive)
-  (dtk-speak-and-echo (org-table-get-field)))
+  (let ((field (org-table-get-field)))
+    (cond
+     ((string-match "^ *$" field) (dtk-speak "space"))
+  (t (dtk-speak-and-echo field)))))
 
 ;;;###autoload
 (defun emacspeak-org-table-speak-column-header ()
