@@ -67,21 +67,24 @@
 (require 'hydra)
 
 ;;}}}
-;;{{{ Brightness:
+;;{{{ Emacspeak Helpers:
 
-(defun hydra-brightness/pre ()
+(defun emacspeak-muggles-pre ()
   "Provide auditory icon"
   (emacspeak-auditory-icon 'open-object))
 
-(defun hydra-brightness/post ()
+(defun emacspeak-muggles-post ()
   "Provide auditory icon"
   (emacspeak-auditory-icon 'close-object))
+
+;;}}}
+;;{{{ Brightness:
 
 (defhydra
   emacspeak-muggles-brightness
   (global-map "<print>"
-              :pre hydra-brightness/pre
-              :post hydra-brightness/post)
+              :pre emacspeak-muggles-pre
+              :post emacspeak-muggles-post)
   "Brightness"
   ("i" xbacklight-increment "brighter")
   ("SPC" xbacklight-increment "brighter")
@@ -91,6 +94,14 @@
   ("0" (xbacklight-set 0) "black")
   ("<print>" (xbacklight-set 0) "black")
   ("1" (xbacklight-set 100) "white"))
+
+;;}}}
+;;{{{  Biew Mode:
+
+;;; Inspired by the mini-vi example from hydra-examples.el
+
+;;}}}
+;;{{{ Org-Mode Table Navigation:
 
 ;;}}}
 (provide 'emacspeak-muggles)
