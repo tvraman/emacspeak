@@ -56,6 +56,8 @@
 
 ;;;View-Mode: <C-z> Temporarily behave like view-mode.
 
+;;; org-mode tables: <C-c t> Table UI for org-mode tables.
+
 ;;; Code:
 
 ;;}}}
