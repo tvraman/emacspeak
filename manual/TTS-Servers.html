@@ -8,17 +8,16 @@
   <meta name="generator" content=
   "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
 
-  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: TTS
-  Servers</title>
+  <title>Emacspeak User’s Manual –2nd Edition.: TTS Servers</title>
   <meta name="description" content=
-  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: TTS Servers" />
+  "Emacspeak User’s Manual –2nd Edition.: TTS Servers" />
   <meta name="keywords" content=
-  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: TTS Servers" />
+  "Emacspeak User’s Manual –2nd Edition.: TTS Servers" />
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
   <meta http-equiv="Content-Type" content=
-  "text/html; charset=us-ascii" />
+  "text/html; charset=utf-8" />
   <link href="index.html#Top" rel="start" title="Top" />
   <link href="Concept-Index.html#Concept-Index" rel="index" title=
   "Concept Index" />
@@ -188,15 +187,14 @@
   to process the queue.</p>
 
   <p>Note that this command needs to handle the special syntax for
-  morpheme boundaries &lsquo;<samp>[*]</samp>&rsquo;. The
-  &lsquo;<samp>[*]</samp>&rsquo; syntax is specific to the Dectalk
-  family of synthesizers; servers for other TTS engines need to map
-  this pattern to the engine-specific code for each engine. As an
-  example, see &lsquo;<samp>servers/outloud</samp>&rsquo; A
-  morpheme boundary results in synthesizing compound words such as
-  <em>left bracket</em> with the right intonation; using a space
-  would result in that phrase being synthesized as two separate
-  words.</p>
+  morpheme boundaries ‘<samp>[*]</samp>’. The ‘<samp>[*]</samp>’
+  syntax is specific to the Dectalk family of synthesizers; servers
+  for other TTS engines need to map this pattern to the
+  engine-specific code for each engine. As an example, see
+  ‘<samp>servers/outloud</samp>’ A morpheme boundary results in
+  synthesizing compound words such as <em>left bracket</em> with
+  the right intonation; using a space would result in that phrase
+  being synthesized as two separate words.</p>
 
   <div class="example">
     <pre class="example">
@@ -206,11 +204,10 @@ l c
 
   <p>Speak <em>c</em> a single character, as a letter. The
   character is spoken immediately. This command uses the TTS
-  engine&rsquo;s capability to speak a single character with the
-  ability to flush speech <em>immediately</em>. Client applications
-  wishing to produce character-at-a-time output, e.g., when
-  providing character echo during keyboard input should use this
-  command.</p>
+  engine’s capability to speak a single character with the ability
+  to flush speech <em>immediately</em>. Client applications wishing
+  to produce character-at-a-time output, e.g., when providing
+  character echo during keyboard input should use this command.</p>
 
   <div class="example">
     <pre class="example">

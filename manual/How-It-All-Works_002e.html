@@ -8,17 +8,17 @@
   <meta name="generator" content=
   "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
 
-  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: How It
-  All Works.</title>
+  <title>Emacspeak User’s Manual –2nd Edition.: How It All
+  Works.</title>
   <meta name="description" content=
-  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: How It All Works." />
+  "Emacspeak User’s Manual –2nd Edition.: How It All Works." />
   <meta name="keywords" content=
-  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: How It All Works." />
+  "Emacspeak User’s Manual –2nd Edition.: How It All Works." />
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
   <meta http-equiv="Content-Type" content=
-  "text/html; charset=us-ascii" />
+  "text/html; charset=utf-8" />
   <link href="index.html#Top" rel="start" title="Top" />
   <link href="Concept-Index.html#Concept-Index" rel="index" title=
   "Concept Index" />
@@ -92,13 +92,13 @@
   <h3 class="section">7.1 How It All Works</h3>
 
   <p>Here is a brief explanation of the connection between
-  &lsquo;<samp>voice-bolden</samp>&rsquo; and its associated
-  &lsquo;<samp>voice-bolden-settings</samp>&rsquo;.</p>
+  ‘<samp>voice-bolden</samp>’ and its associated
+  ‘<samp>voice-bolden-settings</samp>’.</p>
 
   <ol>
     <li>Voice settings are initially in
-    &lsquo;<samp>voice-bolden-settings</samp>&rsquo; which is a
-    list of numbers.</li>
+    ‘<samp>voice-bolden-settings</samp>’ which is a list of
+    numbers.</li>
 
     <li>That list of numbers needs to be translated to appropriate
     device-specific codes to send to the TTS engine.</li>
@@ -106,21 +106,21 @@
     <li>You do not want to do this translation <em>each</em> time
     you speak something.</li>
 
-    <li>So when &lsquo;<samp>voice-bolden</samp>&rsquo; is defined,
-    the definition happens in two steps:</li>
+    <li>So when ‘<samp>voice-bolden</samp>’ is defined, the
+    definition happens in two steps:</li>
   </ol>
 
   <ul>
     <li>The list of settings is stored away in
-    &lsquo;<samp>voice-bolden-settings</samp>&rsquo;,</li>
+    ‘<samp>voice-bolden-settings</samp>’,</li>
 
-    <li>A corresponding voice-name is generated &mdash;
-    &lsquo;<samp>acss-a&lt;n&gt;-p&lt;n&gt;-r&lt;n&gt;-s&lt;n&gt;</samp>&rsquo;
+    <li>A corresponding voice-name is generated —
+    ‘<samp>acss-a&lt;n&gt;-p&lt;n&gt;-r&lt;n&gt;-s&lt;n&gt;</samp>’
     and the corresponding control codes to send to the device are
     stored away in a hash-table keyed by the above symbol.</li>
 
-    <li>Finally, &lsquo;<samp>voice-bolden</samp>&rsquo; is
-    assigned the above symbol.</li>
+    <li>Finally, ‘<samp>voice-bolden</samp>’ is assigned the above
+    symbol.</li>
   </ul>
 </body>
 </html>

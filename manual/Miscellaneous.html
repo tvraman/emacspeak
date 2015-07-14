@@ -8,17 +8,17 @@
   <meta name="generator" content=
   "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
 
-  <title>Emacspeak User&rsquo;s Manual &ndash;2nd Edition.:
+  <title>Emacspeak User’s Manual –2nd Edition.:
   Miscellaneous</title>
   <meta name="description" content=
-  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Miscellaneous" />
+  "Emacspeak User’s Manual –2nd Edition.: Miscellaneous" />
   <meta name="keywords" content=
-  "Emacspeak User&rsquo;s Manual &ndash;2nd Edition.: Miscellaneous" />
+  "Emacspeak User’s Manual –2nd Edition.: Miscellaneous" />
   <meta name="resource-type" content="document" />
   <meta name="distribution" content="global" />
   <meta name="Generator" content="makeinfo" />
   <meta http-equiv="Content-Type" content=
-  "text/html; charset=us-ascii" />
+  "text/html; charset=utf-8" />
   <link href="index.html#Top" rel="start" title="Top" />
   <link href="Concept-Index.html#Concept-Index" rel="index" title=
   "Concept Index" />
@@ -94,11 +94,11 @@
   <h4 class="subsection">5.4.3 Miscellaneous Speech Commands</h4>
 
   <p>Speech can be stopped using command <code>dtk-stop</code>
-  &ndash;though in normal use, the action of moving the cursor will
-  stop ongoing speech. Speech can also be paused and resumed. The
-  speech server can be stopped and restarted for cases where the
-  user wants to switch to a different server &ndash;or in the rare
-  case to nuke a runaway speech server.</p>
+  –though in normal use, the action of moving the cursor will stop
+  ongoing speech. Speech can also be paused and resumed. The speech
+  server can be stopped and restarted for cases where the user
+  wants to switch to a different server –or in the rare case to
+  nuke a runaway speech server.</p>
 
   <dl compact="compact">
     <dd><a name="index-dtk_002dstop" id="index-dtk_002dstop"></a>
@@ -117,16 +117,16 @@
 
     <dd>
       <p>dtk-pause Pause ongoing speech. The speech can be resumed
-      with command &lsquo;dtk-resume&rsquo; normally bound to C-e
-      SPC. Pausing speech is useful when one needs to perform a few
-      actions before continuing to read a large document. Emacspeak
-      gives you speech feedback as usual once speech has been
-      paused. &lsquo;dtk-resume&rsquo; continues the interrupted
-      speech irrespective of the buffer in which it is executed.
-      Optional PREFIX arg flushes any previously paused
-      speech.</p><a name="index-dtk_002dresume" id=
-      "index-dtk_002dresume"></a> <a name="index-control-e-SPACE"
-      id="index-control-e-SPACE"></a>
+      with command ‘dtk-resume’ normally bound to C-e SPC. Pausing
+      speech is useful when one needs to perform a few actions
+      before continuing to read a large document. Emacspeak gives
+      you speech feedback as usual once speech has been paused.
+      ‘dtk-resume’ continues the interrupted speech irrespective of
+      the buffer in which it is executed. Optional PREFIX arg
+      flushes any previously paused speech.</p><a name=
+      "index-dtk_002dresume" id="index-dtk_002dresume"></a>
+      <a name="index-control-e-SPACE" id=
+      "index-control-e-SPACE"></a>
     </dd>
 
     <dt><kbd><kbd>control e SPACE</kbd></kbd></dt>
@@ -134,10 +134,9 @@
     <dd>
       <p>dtk-resume Resume paused speech. This command resumes
       speech that has been suspended by executing command
-      &lsquo;dtk-pause&rsquo; bound to C-e p. If speech has not
-      been paused, and variable
-      &lsquo;dtk-resume-should-toggle&rsquo; is t then this command
-      will pause ongoing speech.</p><a name=
+      ‘dtk-pause’ bound to C-e p. If speech has not been paused,
+      and variable ‘dtk-resume-should-toggle’ is t then this
+      command will pause ongoing speech.</p><a name=
       "index-dtk_002dtoggle_002dquiet" id=
       "index-dtk_002dtoggle_002dquiet"></a> <a name=
       "index-control-e-d-q" id="index-control-e-d-q"></a>
@@ -184,11 +183,10 @@
       up repeated patterns results in emacspeak speaking the
       pattern followed by a repeat count instead of speaking all
       the characters making up the pattern. Thus, by adding the
-      repeating pattern &lsquo;.&rsquo; (this is already added by
-      default) emacspeak will say &ldquo;aw fifteen dot&rdquo; when
-      speaking the string &ldquo;...............&rdquo; instead of
-      &ldquo;period period period period &rdquo;.</p><a name=
-      "index-dtk_002dselect_002dserver" id=
+      repeating pattern ‘.’ (this is already added by default)
+      emacspeak will say “aw fifteen dot” when speaking the string
+      “...............” instead of “period period period period
+      ”.</p><a name="index-dtk_002dselect_002dserver" id=
       "index-dtk_002dselect_002dserver"></a> <a name=
       "index-control-e-d-d" id="index-control-e-d-d"></a>
     </dd>
@@ -216,14 +214,14 @@
       boundaries, or also include whitespace. By default, emacspeak
       sends a clause at a time to the speech device. This produces
       fluent speech for normal use. However in modes such as
-      &lsquo;shell-mode&rsquo; and some programming language modes,
-      clause markers appear infrequently, and this can result in
-      large amounts of text being sent to the speech device at
-      once, making the system unresponsive when asked to stop
-      talking. Splitting on white space makes emacspeak&rsquo;s
-      stop command responsive. However, when splitting on white
-      space, the speech sounds choppy since the synthesizer is
-      getting a word at a time.</p><a name=
+      ‘shell-mode’ and some programming language modes, clause
+      markers appear infrequently, and this can result in large
+      amounts of text being sent to the speech device at once,
+      making the system unresponsive when asked to stop talking.
+      Splitting on white space makes emacspeak’s stop command
+      responsive. However, when splitting on white space, the
+      speech sounds choppy since the synthesizer is getting a word
+      at a time.</p><a name=
       "index-dtk_002dset_002dchunk_002dseparator_002dsyntax" id=
       "index-dtk_002dset_002dchunk_002dseparator_002dsyntax"></a>
       <a name="index-control-e-d-RETURN" id=
