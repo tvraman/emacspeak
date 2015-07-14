@@ -111,7 +111,7 @@
   emacspeak-muggles-view
   (
    global-map "C-z"
-   :pre emacspeak-muggles-pre :post emacspeak-muggles-post :color amaranth)
+   :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
   "View Mode"
   ("'" register-to-point)
   ("(" backward-sexp)
@@ -126,11 +126,17 @@
   ("[" previous-page)
   ("\\" View-search-regexp-backward)
   ("]" next-page)
+  ("A"beginning-of-defun )
+  ("E"end-of-defun )
   ("a" move-beginning-of-line "beg")
+  ("b" backward-word)
+  ("c" emacspeak-speak-char)
   ("d" View-scroll-half-page-forward)
   ("e" move-end-of-line "end")
+  ("f" forward-word)
   ("g" View-goto-line)
   ("h" backward-char)
+  ("i" emacspeak-speak-mode-line)
   ("j" next-line)
   ("k" previous-line)
   ("l" forward-char)
@@ -141,8 +147,9 @@
   ("r" isearch-backward)
   ("s" isearch-forward)
   ("u" View-scroll-half-page-backward)
+  ("w"kill-ring-save)
   ("x" exchange-point-and-mark)
-  ("y" kill-ring-save "yank" :color blue)
+  ("y" kill-ring-save "yank")
   ("{" backward-paragraph)
   ("}" forward-paragraph)
   )
