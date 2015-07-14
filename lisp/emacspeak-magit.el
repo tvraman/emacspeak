@@ -113,21 +113,23 @@
        (t (emacspeak-auditory-icon 'open-object)))
       (emacspeak-speak-line))))
 
-(loop for f in
-      '(
-        magit-ignore-file magit-ignore-item
-                          magit-stage-item magit-stash
-                          magit-ignore-item-locally
-                          magit-goto-next-section magit-goto-previous-section
-                          magit-goto-parent-section magit-goto-line
-                          magit-goto-section magit-goto-section-at-path)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback"
-          (when (ems-interactive-p )
-            (emacspeak-auditory-icon 'large-movement)
-            (emacspeak-speak-line)))))
+(loop
+ for f in
+ '(
+   magit-section-forward magit-section-backward
+   magit-ignore-file magit-ignore-item
+   magit-stage-item magit-stash
+   magit-ignore-item-locally
+   magit-goto-next-section magit-goto-previous-section
+   magit-goto-parent-section magit-goto-line
+   magit-goto-section magit-goto-section-at-path)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback"
+     (when (ems-interactive-p )
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-line)))))
 
 ;;}}}
 ;;{{{ Advice generator to advice generated  commands:
@@ -191,12 +193,15 @@
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
-
-(defadvice magit-mode-quit-window (after emacspeak pre act  comp)
+(loop
+ for f in
+ '(magit-mode-quit-window magit-mode-bury-buffer)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act  comp)
   "Provide auditory feedback."
   (when (ems-interactive-p )
-    (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-line)))
+    (emacspeak-auditory-icon 'close-object)))))
 
 (defadvice magit-refresh-all (after emacspeak pre act comp)
   "Provide auditory feedback."
