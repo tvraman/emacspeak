@@ -70,6 +70,10 @@
 (when (locate-library "package")
   (unless (locate-library "hydra") (package-install 'hydra)))
 (require 'hydra)
+(require 'xbacklight)
+(require 'view)
+(require 'org)
+(require 'emacspeak-m-player)
 
 ;;}}}
 ;;{{{ Emacspeak Helpers:
