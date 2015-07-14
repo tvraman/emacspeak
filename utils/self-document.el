@@ -71,6 +71,7 @@
 
 (defconst self-document-files
   (append
+   (list "emacspeak-muggles.el")
    (directory-files self-document-lisp-directory nil ".elc$")
    (directory-files (expand-file-name "g-client" self-document-lisp-directory)
                     nil ".elc$"))
@@ -180,7 +181,11 @@
 
 (defun sd-get-commentary (name)
   "Get commentary for named module"
-  (let ((lmc (lm-commentary (substring (locate-library name) 0 -1))))
+  (let* ((lib (locate-library name))
+         (lmc (lm-commentary
+               (if (string-match ".el$" lib)
+                   lib
+                 (substring lib 0 -1)))))
     (if lmc
         (setq lmc (sd-cleanup-commentary lmc)))))
 
