@@ -288,6 +288,16 @@
 ;;{{{ Iterate over all modules
 
 (declare-function emacspeak-url-template-generate-texinfo-documentation (buffer))
+(defun self-document-fix-quotes ()
+  "Fix UTF8 curved quotes since makeinfo doesn't handle them well."
+  (goto-char (point-min))
+  (while
+      (search-forward (format "%c" 8216) (point-max) 'no-error)
+    (replace-match "``"))
+  (goto-char (point-min))
+  (while
+      (search-forward (format "%c" 8217) (point-max) 'no-error)
+    (replace-match "''")))
 
 (defun self-document-all-modules()
   "Generate documentation for all modules."
@@ -316,6 +326,7 @@ This chapter documents a total of %d commands and %d options.\n\n"
       (emacspeak-url-template-generate-texinfo-documentation (current-buffer))
       (texinfo-all-menus-update)
       (flush-lines "^Commentary: *$" (point-min) (point-max))
+      (self-document-fix-quotes)
       (shell-command-on-region          ; squeeze blanks
        (point-min) (point-max)
        "cat -s" (current-buffer) 'replace)
