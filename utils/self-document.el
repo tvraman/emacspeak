@@ -117,7 +117,8 @@
   "Predicate to check if  this command it to be documented."
   (declare (special self-document-patterns))
   (when (and (fboundp f) (commandp f)
-             (string-match self-document-patterns (symbol-name f)))
+             (string-match self-document-patterns (symbol-name f))
+             (not  (string-match  "/" (symbol-name f))))
     (cl-incf self-document-command-count)
     f))
 
