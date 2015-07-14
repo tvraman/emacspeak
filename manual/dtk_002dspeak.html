@@ -117,10 +117,16 @@
       results in emacspeak speaking the pattern followed by a
       repeat count instead of speaking all the characters making up
       the pattern. Thus, by adding the repeating pattern
-      &lsquo;.&rsquo; (this is already added by default) emacspeak
-      will say &ldquo;aw fifteen dot&rdquo; when speaking the
-      string &ldquo;...............&rdquo; instead of &ldquo;period
-      period period period &rdquo;</p>
+      &Atilde;&cent;&Acirc;&euro;&Acirc;&tilde;.&Atilde;&cent;&Acirc;&euro;&Acirc;&trade;
+      (this is already added by default) emacspeak will say
+      &Atilde;&cent;&Acirc;&euro;&Acirc;&tilde;&Atilde;&cent;&Acirc;&euro;&Acirc;&tilde;aw
+      fifteen dot&Atilde;&cent;&Acirc;&euro;&Acirc;&trade;&rsquo;
+      when speaking the string
+      &Atilde;&cent;&Acirc;&euro;&Acirc;&tilde;&Atilde;&cent;&Acirc;&euro;&Acirc;&tilde;...............&Atilde;&cent;&Acirc;&euro;&Acirc;&trade;&rsquo;
+      instead of
+      &Atilde;&cent;&Acirc;&euro;&Acirc;&tilde;&Atilde;&cent;&Acirc;&euro;&Acirc;&tilde;period
+      period period period
+      &Atilde;&cent;&Acirc;&euro;&Acirc;&trade;&rsquo;</p>
     </dd>
   </dl>
 
@@ -316,7 +322,10 @@
       "index-dtk_002dset_002dpunctuations-2"></a>
 
       <p>Set punctuation mode to MODE. Possible values are
-      &lsquo;some&rsquo;, &lsquo;all&rsquo;, or &lsquo;none&rsquo;.
+      &Atilde;&cent;&Acirc;&euro;&Acirc;&tilde;some&Atilde;&cent;&Acirc;&euro;&Acirc;&trade;,
+      &Atilde;&cent;&Acirc;&euro;&Acirc;&tilde;all&Atilde;&cent;&Acirc;&euro;&Acirc;&trade;,
+      or
+      &Atilde;&cent;&Acirc;&euro;&Acirc;&tilde;none&Atilde;&cent;&Acirc;&euro;&Acirc;&trade;.
       Interactive PREFIX arg means set the global default value,
       and then set the current local value to the result.</p>
     </dd>
@@ -523,8 +532,9 @@
       purely by clause boundaries, or also include whitespace. By
       default, emacspeak sends a clause at a time to the speech
       device. This produces fluent speech for normal use. However
-      in modes such as &lsquo;shell-mode&rsquo; and some
-      programming language modes, clause markers appear
+      in modes such as
+      &Atilde;&cent;&Acirc;&euro;&Acirc;&tilde;shell-mode&Atilde;&cent;&Acirc;&euro;&Acirc;&trade;
+      and some programming language modes, clause markers appear
       infrequently, and this can result in large amounts of text
       being sent to the speech device at once, making the system
       unresponsive when asked to stop talking. Splitting on white
@@ -607,10 +617,11 @@
 
     <dd>
       <p>List of repeating patterns to clean up. You can use
-      command &lsquo;dtk-add-cleanup-pattern&rsquo; bound to C-e d
-      a to add more patterns. Specify patterns that people use to
-      decorate their ASCII files, and cause untold pain to the
-      speech synthesizer.</p>
+      command
+      &Atilde;&cent;&Acirc;&euro;&Acirc;&tilde;dtk-add-cleanup-pattern&Atilde;&cent;&Acirc;&euro;&Acirc;&trade;
+      bound to C-e d a to add more patterns. Specify patterns that
+      people use to decorate their ASCII files, and cause untold
+      pain to the speech synthesizer.</p>
 
       <p>If more than 3 consecutive occurrences of a specified
       pattern is found, the TTS engine replaces it with a repeat
@@ -660,8 +671,9 @@
     <dd>
       <p>*Value of speech rate increment. This determines step size
       used when setting speech rate via command
-      &lsquo;dtk-set-predefined-speech-rate&rsquo;. Formula used is
-      dtk-speech-rate-base + dtk-speech-rate-step*level.</p>
+      &Atilde;&cent;&Acirc;&euro;&Acirc;&tilde;dtk-set-predefined-speech-rate&Atilde;&cent;&Acirc;&euro;&Acirc;&trade;.
+      Formula used is dtk-speech-rate-base +
+      dtk-speech-rate-step*level.</p>
     </dd>
   </dl>
 
