@@ -545,13 +545,15 @@
 (defun emacspeak-org-table-speak-column-header ()
   "echoes column header"
   (interactive)
-  (dtk-speak-and-echo (org-table-get 1 nil)))
+  (dtk-speak-and-echo
+   (propertize (org-table-get 1 nil) 'face 'bold)))
 
 ;;;###autoload
 (defun emacspeak-org-table-speak-row-header ()
-  "echoes column header"
+  "echoes row header"
   (interactive)
-  (dtk-speak-and-echo (org-table-get nil 1 )))
+  (dtk-speak-and-echo
+   (propertize (org-table-get nil 1 ) 'face 'italic)))
 
 ;;;###autoload
 (defun emacspeak-org-table-speak-coordinates ()
@@ -563,30 +565,34 @@
 
 ;;;###autoload
 (defun emacspeak-org-table-speak-both-headers-and-element ()
-  "echoes coordinates"
+  "echoes both row and col headers."
   (interactive)
-  (dtk-speak-and-echo (concat (org-table-get nil 1) ", "
-			      (org-table-get  1 nil) ", "
+  (dtk-speak-and-echo
+   (concat
+    (propertize (org-table-get nil 1) 'face 'italic)
+" "
+			      (propertize (org-table-get  1 nil) 'face 'bold) " "
 			      (org-table-get-field))))
 
 ;;;###autoload
 (defun emacspeak-org-table-speak-row-header-and-element ()
-  "echoes coordinates"
+  "echoes row header and element"
   (interactive)
-  (dtk-speak-and-echo (concat (org-table-get nil 1) ", "
-			      (org-table-get-field))))
+  (dtk-speak-and-echo
+   (concat
+    (propertize (org-table-get nil 1) 'face 'italic)
+    " "
+    (org-table-get-field))))
 
 ;;;###autoload
 (defun emacspeak-org-table-speak-column-header-and-element ()
-  "echoes coordinates"
+  "echoes col header and element"
   (interactive)
-  (dtk-speak-and-echo (concat 
-                       (org-table-get  1 nil) ", "
+  (dtk-speak-and-echo
+   (concat 
+                       (propertize (org-table-get  1 nil) 'face 'bold)
+                       " "
                        (org-table-get-field))))
-
-
-
-
 
 (loop
  for f in
