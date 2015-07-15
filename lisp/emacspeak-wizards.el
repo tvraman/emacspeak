@@ -2552,20 +2552,19 @@ Default is to add autoload cookies to current file."
   "Return next buffer in cycle order having same major mode as `mode'."
   (catch 'loop
     (dolist (buf  (cdr (buffer-list (selected-frame))))
-      (when (with-current-buffer buf (derived-mode-p mode))
+      (when (with-current-buffer buf (eq mode major-mode))
         (throw 'loop buf)))))
 
 (defun emacspeak-wizards-cycle-to-next-buffer()
   "Cycles to next buffer having same mode."
   (interactive)
   (let ((next (emacspeak-wizards-buffer-cycle-next major-mode)))
-    (when (and next (derived-mode-p major-mode)) (bury-buffer))
     (cond
-     (next (switch-to-buffer next)
+     (next (bury-buffer)
+           (switch-to-buffer next)
            (emacspeak-auditory-icon 'select-object)
            (emacspeak-speak-mode-line))
-     (t
-      (error "No next buffer in mode %s" major-mode)))))
+     (t (error "No next buffer in mode %s" major-mode)))))
 
 ;;}}}
 ;;{{{ Start or switch to term:
