@@ -567,7 +567,7 @@ Retain previously set punctuations  mode."
             (end (if (> (point) start) (1- (point)) (point))))
         (put-text-property start end
                            (quote ,tag) 'eww-tag)
-        (when (memq (quote ,tag) '(h1 h2 h3))
+        (when (memq (quote ,tag) '(h1 h2 h3 h4 h5 h6))
           (put-text-property start end 'h 'eww-tag)))))))
 
 ;;}}}
