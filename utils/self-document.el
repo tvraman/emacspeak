@@ -263,7 +263,7 @@
     (insert
      (if
          (documentation c)
-         (format "@display\n%s\n@end display"
+         (format "@format\n%s\n@end format"
                  (sd-texinfo-escape (documentation c)))
        (format "### %s: Not Documented\n" c)))
     (insert "\n@end deffn\n\n")))
