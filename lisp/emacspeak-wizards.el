@@ -2547,6 +2547,12 @@ Default is to add autoload cookies to current file."
 
 ;;}}}
 ;;{{{  Buffer Cycling:
+(defun emacspeak-wizards-buffer-cycle-previous (mode)
+  "Return previous  buffer in cycle order having same major mode as `mode'."
+  (catch 'loop
+    (dolist (buf   (reverse (cdr (buffer-list (selected-frame)))))
+      (when (with-current-buffer buf (eq mode major-mode))
+        (throw 'loop buf)))))
 
 (defun emacspeak-wizards-buffer-cycle-next (mode)
   "Return next buffer in cycle order having same major mode as `mode'."
@@ -2554,7 +2560,19 @@ Default is to add autoload cookies to current file."
     (dolist (buf  (cdr (buffer-list (selected-frame))))
       (when (with-current-buffer buf (eq mode major-mode))
         (throw 'loop buf)))))
+;;;###autoload 
+(defun emacspeak-wizards-cycle-to-previous-buffer()
+  "Cycles to previous buffer having same mode."
+  (interactive)
+  (let ((prev (emacspeak-wizards-buffer-cycle-previous major-mode)))
+    (cond
+     (prev 
+           (switch-to-buffer prev)
+           (emacspeak-auditory-icon 'select-object)
+           (emacspeak-speak-mode-line))
+     (t (error "No previous buffer in mode %s" major-mode)))))
 
+;;;###autoload
 (defun emacspeak-wizards-cycle-to-next-buffer()
   "Cycles to next buffer having same mode."
   (interactive)
