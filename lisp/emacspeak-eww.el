@@ -264,6 +264,7 @@ are available are cued by an auditory icon on the header line."
      ("1" emacspeak-eww-next-h1)
      ("2" emacspeak-eww-next-h2)
      ("3" emacspeak-eww-next-h3)
+     ("4" emacspeak-eww-next-h4)
      ("=" dtk-toggle-punctuation-mode)
      ("/" emacspeak-eww-filter-map)
      ("?" emacspeak-webutils-google-similar-to-this-page)
@@ -282,6 +283,7 @@ are available are cued by an auditory icon on the header line."
      ("M-1" emacspeak-eww-previous-h1)
      ("M-2" emacspeak-eww-previous-h2)
      ("M-3" emacspeak-eww-previous-h3)
+     ("M-4" emacspeak-eww-previous-h4)
      ("M-a" eww-view-dom-not-having-attribute)
      ("M-c" eww-view-dom-not-having-class)
      ("M-e" eww-view-dom-not-having-elements)
@@ -1105,7 +1107,7 @@ Otherwise, prompts if content at point is enclosed by multiple elements."
 
 (loop
  for  f in
- '(h h1 h2 h3 li table ol ul p)
+ '(h h1 h2 h3 h4 h5 h6 li table ol ul p)
  do
  (eval
   `(defun ,(intern (format "emacspeak-eww-next-%s" f)) (&optional speak)
@@ -1261,7 +1263,7 @@ Warning, this is fragile, and depends on a stable id for the
        (dom-html-from-nodes dom (emacspeak-eww-current-url))))
      (t
       (message "headers and paragraphs")
-      (setq dom (dom-by-tag-list dom '(p h1 h2 h3)))
+      (setq dom (dom-by-tag-list dom '(p h1 h2 h3 h4)))
       (emacspeak-eww-view-helper
        (dom-html-from-nodes dom (emacspeak-eww-current-url)))))))
 
