@@ -359,7 +359,8 @@ sets punctuation mode to all, activates the dictionary and turns on split caps."
   (emacspeak-pronounce-refresh-pronunciations)
   (or emacspeak-audio-indentation
       (emacspeak-toggle-audio-indentation))
-  (emacspeak-dtk-sync))
+  (emacspeak-dtk-sync)
+  (hs-minor-mode 1))
 
 (defun emacspeak-setup-programming-modes ()
   "Setup programming modes."
