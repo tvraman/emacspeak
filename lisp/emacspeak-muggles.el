@@ -106,7 +106,7 @@
   ("1" (xbacklight-set 100) "white"))
 
 ;;}}}
-;;{{{  Biew Mode:
+;;{{{  View Mode:
 
 (defhydra
   emacspeak-muggles-view
