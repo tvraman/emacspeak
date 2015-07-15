@@ -296,6 +296,14 @@
   (emacspeak-auditory-icon 'open-object))
 
 ;;}}}
+;;{{{ Advise process-sentinel:
+
+(defadvice magit-process-finish(after emacspeak pre act comp)
+  "Produce auditory icon."
+  (emacspeak-auditory-icon 'task-done))
+
+
+;;}}}
 (provide 'emacspeak-magit)
 ;;{{{ end of file
 
