@@ -116,6 +116,182 @@
   <p>org-mode tables: &lt;C-c t&gt; Table UI for org-mode
   tables.</p>
 
-  <p>m-player: Super-M Emacspeak-M-Player Commands</p>
+  <p>m-player: Super-M Emacspeak-M-Player Commands</p><a name=
+  "emacspeak_002dmuggles-Commands" id=
+  "emacspeak_002dmuggles-Commands"></a>
+
+  <h4 class="subsection">11.116.1 emacspeak-muggles Commands</h4>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dmuggles_002dbrightness_002fbody" id=
+    "index-emacspeak_002dmuggles_002dbrightness_002fbody"></a>Command:
+    <strong>emacspeak-muggles-brightness/body</strong></dt>
+
+    <dd>
+      <a name=
+      "index-emacspeak_002dmuggles_002dbrightness_002fbody-1" id=
+      "index-emacspeak_002dmuggles_002dbrightness_002fbody-1"></a>
+
+      <p>Create a hydra with a "&lt;print&gt;" body and the
+      heads:</p>
+
+      <p>"i": “xbacklight-increment”, "SPC":
+      “xbacklight-increment”, "d": “xbacklight-decrement”, "g":
+      “xbacklight-get”, "s": “xbacklight-set”, "0":
+      “(xbacklight-set 0)”, "&lt;print&gt;": “(xbacklight-set 0)”,
+      "1": “(xbacklight-set 100)”</p>
+
+      <p>The body can be accessed via
+      “emacspeak-muggles-brightness/body”.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dmuggles_002dm_002dplayer_002fbody" id=
+    "index-emacspeak_002dmuggles_002dm_002dplayer_002fbody"></a>Command:
+    <strong>emacspeak-muggles-m-player/body</strong></dt>
+
+    <dd>
+      <a name=
+      "index-emacspeak_002dmuggles_002dm_002dplayer_002fbody-1" id=
+      "index-emacspeak_002dmuggles_002dm_002dplayer_002fbody-1"></a>
+
+      <p>Create a hydra with a "m" body and the heads:</p>
+
+      <p>";": “emacspeak-m-player”, "+":
+      “emacspeak-m-player-volume-up”, ",":
+      “emacspeak-m-player-backward-10s”, "-":
+      “emacspeak-m-player-volume-down”, ".":
+      “emacspeak-m-player-forward-10s”, "&lt;":
+      “emacspeak-m-player-backward-1min”, "&lt;down&gt;":
+      “emacspeak-m-player-forward-1min”, "&lt;end&gt;":
+      “emacspeak-m-player-end-of-track”, "&lt;home&gt;":
+      “emacspeak-m-player-beginning-of-track”, "&lt;left&gt;":
+      “emacspeak-m-player-backward-10s”, "&lt;next&gt;":
+      “emacspeak-m-player-forward-10min”, "&lt;prior&gt;":
+      “emacspeak-m-player-backward-10min”, "&lt;right&gt;":
+      “emacspeak-m-player-forward-10s”, "&lt;up&gt;":
+      “emacspeak-m-player-backward-1min”, "=":
+      “emacspeak-m-player-volume-up”, "&gt;":
+      “emacspeak-m-player-forward-1min”, "?":
+      “emacspeak-m-player-display-position”, "C":
+      “emacspeak-m-player-clear-filters”, "C-m":
+      “emacspeak-m-player-load”, "DEL":
+      “emacspeak-m-player-reset-speed”, "L":
+      “emacspeak-m-player-load-file”, "M-l":
+      “emacspeak-m-player-load-playlist”, "O":
+      “emacspeak-m-player-reset-options”, "P":
+      “emacspeak-m-player-apply-reverb-preset”, "Q":
+      “emacspeak-m-player-quit”, "R":
+      “emacspeak-m-player-edit-reverb”, "S":
+      “emacspeak-amark-save”, "SPC": “emacspeak-m-player-pause”,
+      "[": “emacspeak-m-player-slower”, "]":
+      “emacspeak-m-player-faster”, "a":
+      “emacspeak-m-player-amark-add”, "b":
+      “emacspeak-m-player-balance”, "c":
+      “emacspeak-m-player-slave-command”, "d":
+      “emacspeak-m-player-delete-filter”, "e":
+      “emacspeak-m-player-add-equalizer”, "f":
+      “emacspeak-m-player-add-filter”, "g":
+      “emacspeak-m-player-seek-absolute”, "j":
+      “emacspeak-m-player-amark-jump”, "l":
+      “emacspeak-m-player-get-length”, "m":
+      “emacspeak-m-player-speak-mode-line”, "n":
+      “emacspeak-m-player-next-track”, "o":
+      “emacspeak-m-player-customize-options”, "p":
+      “emacspeak-m-player-previous-track”, "q": “bury-buffer”, "r":
+      “emacspeak-m-player-seek-relative”, "s":
+      “emacspeak-m-player-scale-speed”, "t":
+      “emacspeak-m-player-play-tracks-jump”, "u":
+      “emacspeak-m-player-url”, "v":
+      “emacspeak-m-player-volume-change”, "(":
+      “emacspeak-m-player-left-channel”, ")":
+      “emacspeak-m-player-right-channel”, "{":
+      “emacspeak-m-player-half-speed”, "}":
+      “emacspeak-m-player-double-speed”</p>
+
+      <p>The body can be accessed via
+      “emacspeak-muggles-m-player/body”.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dmuggles_002dorg_002dtable_002fbody" id=
+    "index-emacspeak_002dmuggles_002dorg_002dtable_002fbody"></a>Command:
+    <strong>emacspeak-muggles-org-table/body</strong></dt>
+
+    <dd>
+      <a name=
+      "index-emacspeak_002dmuggles_002dorg_002dtable_002fbody-1"
+      id="index-emacspeak_002dmuggles_002dorg_002dtable_002fbody-1">
+      </a>
+
+      <p>Create a hydra with a "C-c t" body and the heads:</p>
+
+      <p>"j": “org-table-next-row”, "k": “org-table-previous-row”,
+      "h": “org-table-previous-field”, "l": “org-table-next-field”,
+      "SPC": “emacspeak-org-table-speak-current-element”, ".":
+      “emacspeak-org-table-speak-coordinates”, "b":
+      “emacspeak-org-table-speak-both-headers-and-element”, "r":
+      “emacspeak-org-table-speak-row-header-and-element”, "c":
+      “emacspeak-org-table-speak-column-header-and-element”</p>
+
+      <p>The body can be accessed via
+      “emacspeak-muggles-org-table/body”.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dmuggles_002dview_002fbody" id=
+    "index-emacspeak_002dmuggles_002dview_002fbody"></a>Command:
+    <strong>emacspeak-muggles-view/body</strong></dt>
+
+    <dd>
+      <a name="index-emacspeak_002dmuggles_002dview_002fbody-1" id=
+      "index-emacspeak_002dmuggles_002dview_002fbody-1"></a>
+
+      <p>Create a hydra with a "C-z" body and the heads:</p>
+
+      <p>"’": “register-to-point”, "(": “backward-sexp”, ")":
+      “forward-sexp”, ".": “set-mark-command”, "/":
+      “View-search-regexp-forward”, "&lt;": “beginning-of-buffer”,
+      "=": “what-line”, "&gt;": “end-of-buffer”, "@":
+      “View-back-to-mark”, "SPC": “View-scroll-page-forward”, "[":
+      “previous-page”, "\": “View-search-regexp-backward”, "]":
+      “next-page”, "A": “beginning-of-defun”, "E": “end-of-defun”,
+      "a": “move-beginning-of-line”, "b": “backward-word”, "c":
+      “emacspeak-speak-char”, "d": “View-scroll-half-page-forward”,
+      "e": “move-end-of-line”, "f": “forward-word”, "g":
+      “View-goto-line”, "h": “backward-char”, "i":
+      “emacspeak-speak-mode-line”, "j": “next-line”, "k":
+      “previous-line”, "l": “forward-char”, "m":
+      “point-to-register”, "n": “View-search-last-regexp-forward”,
+      "p": “View-search-last-regexp-backward”, "q": “nil”, "r":
+      “isearch-backward”, "s": “isearch-forward”, "u":
+      “View-scroll-half-page-backward”, "w": “kill-ring-save”, "x":
+      “exchange-point-and-mark”, "y": “kill-ring-save”, "{":
+      “backward-paragraph”, "}": “forward-paragraph”</p>
+
+      <p>The body can be accessed via
+      “emacspeak-muggles-view/body”.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href="emacspeak_002dmuse.html#emacspeak_002dmuse"
+    accesskey="n" rel="next">emacspeak-muse</a>, Previous: <a href=
+    "emacspeak_002dmspools.html#emacspeak_002dmspools" accesskey=
+    "p" rel="prev">emacspeak-mspools</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>
