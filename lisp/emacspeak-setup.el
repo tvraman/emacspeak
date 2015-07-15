@@ -190,6 +190,17 @@ pronunciation dictionaries are stored. ")
 (add-hook 'emacspeak-startup-hook 'emacspeak-setup-header-line)
 (add-hook 'emacspeak-startup-hook 'emacspeak-tvr-startup-hook)
 
+
+(defvar emacspeak-info-already-loaded nil
+  "Track info support load.")
+
+(add-hook
+ 'Info-mode-hook
+ #'(lambda ()
+     (unless emacspeak-info-already-loaded
+       (load-library "emacspeak-info")
+       (setq emacspeak-info-already-loaded t))))
+
 ;;}}}
 (emacspeak)
 (provide 'emacspeak-setup)

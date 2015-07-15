@@ -190,18 +190,6 @@ node-spec."
 (define-key Info-mode-map "'" 'emacspeak-speak-rest-of-buffer)
 
 ;;}}}
-;;{{{ Info Hook:
-
-(defvar emacspeak-info-already-loaded nil
-  "Work around bug where we need to reload.")
-(add-hook
- 'Info-mode-hook
- #'(lambda ()
-     (unless emacspeak-info-already-loaded
-       (load-library "emacspeak-info")
-       (setq emacspeak-info-already-loaded t))))
-
-;;}}}
 (provide  'emacspeak-info)
 ;;{{{  emacs local variables
 
