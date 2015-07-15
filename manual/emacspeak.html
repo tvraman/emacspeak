@@ -109,179 +109,241 @@
     <dd>
       <a name="index-emacspeak-1" id="index-emacspeak-1"></a>
 
-      <p>Starts the Emacspeak speech subsystem. Use emacs as you
-      normally would, emacspeak will provide you spoken feedback as
-      you work. Emacspeak also provides commands for having parts
-      of the current buffer, the mode-line etc to be spoken.</p>
+      <div class="display">
+        <pre class="display">
+Starts the Emacspeak speech subsystem.  Use emacs as you
+normally would, emacspeak will provide you spoken feedback
+as you work.  Emacspeak also provides commands for having
+parts of the current buffer, the mode-line etc to be spoken.
 
-      <p>If you are hearing this description as a result of
-      pressing C-h C-e you may want to press C-e s to stop speech,
-      and then use the arrow keys to move around in the Help buffer
-      to read the rest of this description, which includes a
-      summary of all emacspeak keybindings.</p>
+If you are hearing this description as a result of pressing
+C-h C-e you may want to press
+C-e s to stop speech, and then use the arrow keys to
+move around in the Help buffer to read the rest of this
+description, which includes a summary of all emacspeak
+keybindings.
 
-      <p>All emacspeak commands use C-e as a prefix key. You can
-      also set the state of the TTS engine by using C-e d as a
-      prefix. Here is a summary of all emacspeak commands along
-      with their bindings. You need to precede the keystrokes
-      listed below with C-e.</p>
+All emacspeak commands use C-e as a
+prefix key.  You can also set the state of the TTS engine  by
+using C-e d as a prefix.  Here is
+a summary of all emacspeak commands along with their
+bindings.  You need to precede the keystrokes listed below
+with C-e.
 
-      <p>Emacspeak also provides a fluent speech extension to the
-      emacs terminal emulator (eterm). Note: You need to use the
-      term package that comes with emacs-19.29 and later.</p>
+Emacspeak also provides a fluent speech extension to the
+emacs terminal emulator (eterm).  Note: You need to use the
+term package that comes with emacs-19.29 and later.
 
-      <p>key binding — ——-</p>
+key             binding
+—             ——-
 
-      <p>C-@ emacspeak-speak-current-mark C-a
-      emacspeak-toggle-auditory-icons C-b emacspeak-bookshare C-c
-      emacspeak-clipboard-copy C-d emacspeak-toggle-show-point C-e
-      end-of-line TAB emacspeak-table-display-table-in-region C-j
-      emacspeak-hide-speak-block-sans-prefix C-l
-      emacspeak-speak-line-number RET emacspeak-speak-continuously
-      C-n emacspeak-speak-next-window C-o emacspeak-ocr C-p
-      emacspeak-speak-previous-window C-q
-      emacspeak-toggle-comint-autospeak C-s tts-restart C-t
-      emacspeak-table-submap-command C-u emacspeak-feeds-browse C-v
-      view-mode C-w emacspeak-speak-window-information C-x
-      emacspeak-personal-ctlx-keymap C-y emacspeak-clipboard-paste
-      ESC Prefix Command SPC emacspeak-speak-header-line !
-      emacspeak-speak-run-shell-command "
-      emacspeak-speak-sexp-interactively # emacspeak-gridtext %
-      emacspeak-speak-current-percentage &amp;
-      emacspeak-wizards-shell-command-on-current-file ’
-      emacspeak-pianobar ( emacspeak-audio-setup )
-      emacspeak-sounds-select-theme , emacspeak-speak-browse-buffer
-      . emacspeak-speak-current-field /
-      emacspeak-speak-this-buffer-other-window-display 0 .. 9
-      emacspeak-speak-predefined-window :
-      emacspeak-m-player-shuffle ; emacspeak-multimedia &lt;
-      emacspeak-speak-previous-field =
-      emacspeak-speak-current-column &gt;
-      emacspeak-speak-next-field ? emacspeak-websearch-dispatch @
-      emacspeak-speak-message-at-time A
-      emacspeak-appt-repeat-announcement B
-      emacspeak-speak-buffer-interactively C emacspeak-customize F
-      emacspeak-view-emacspeak-faq I
-      emacspeak-speak-show-active-network-interfaces L
-      emacspeak-speak-line-interactively M
-      emacspeak-speak-minor-mode-line N
-      emacspeak-view-emacspeak-news P
-      emacspeak-speak-paragraph-interactively R
-      emacspeak-speak-rectangle T emacspeak-view-emacspeak-tips U
-      emacspeak-websearch-usenet V emacspeak-speak-version W
-      emacspeak-tapestry-select-window-by-name [
-      emacspeak-speak-page \
-      emacspeak-toggle-speak-line-invert-filter ]
-      emacspeak-speak-page-interactively ^ emacspeak-filtertext a
-      emacspeak-speak-message-again b emacspeak-speak-buffer c
-      emacspeak-speak-char d emacspeak-dtk-submap-command e
-      end-of-line f emacspeak-speak-buffer-filename g
-      emacspeak-epub h emacspeak-speak-help i
-      emacspeak-tabulate-region j emacspeak-hide-or-expose-block k
-      emacspeak-speak-current-kill l emacspeak-speak-line m
-      emacspeak-speak-mode-line n emacspeak-speak-rest-of-buffer o
-      emacspeak-toggle-comint-output-monitor p
-      emacspeak-speak-paragraph q emacspeak-toggle-speak-messages r
-      emacspeak-speak-region s dtk-stop t emacspeak-speak-time u
-      emacspeak-url-template-fetch v view-register w
-      emacspeak-speak-word x emacspeak-personal-keymap {
-      emacspeak-speak-paragraph |
-      emacspeak-speak-line-set-column-filter DEL cd-tool
-      &lt;(deletechar&gt; emacspeak-ssh-tts-restart
-      &lt;C-&lt;left&gt;
-      emacspeak-select-this-buffer-previous-display
-      &lt;C-&lt;right&gt; emacspeak-select-this-buffer-next-display
-      &lt;delete&gt; emacspeak-ssh-tts-restart &lt;down&gt;
-      emacspeak-read-next-line &lt;f1&gt;
-      emacspeak-learn-emacs-mode &lt;f11&gt;
-      emacspeak-wizards-shell-toggle &lt;insert&gt;
-      emacspeak-emergency-tts-restart &lt;left&gt;
-      emacspeak-speak-this-buffer-previous-display &lt;right&gt;
-      emacspeak-speak-this-buffer-next-display &lt;up&gt;
-      emacspeak-read-previous-line</p>
+C-@             emacspeak-speak-current-mark
+C-a             emacspeak-toggle-auditory-icons
+C-b             emacspeak-bookshare
+C-c             emacspeak-clipboard-copy
+C-d             emacspeak-toggle-show-point
+C-e             end-of-line
+TAB             emacspeak-table-display-table-in-region
+C-j             emacspeak-hide-speak-block-sans-prefix
+C-l             emacspeak-speak-line-number
+RET             emacspeak-speak-continuously
+C-n             emacspeak-speak-next-window
+C-o             emacspeak-ocr
+C-p             emacspeak-speak-previous-window
+C-q             emacspeak-toggle-comint-autospeak
+C-s             tts-restart
+C-t             emacspeak-table-submap-command
+C-u             emacspeak-feeds-browse
+C-v             view-mode
+C-w             emacspeak-speak-window-information
+C-x             emacspeak-personal-ctlx-keymap
+C-y             emacspeak-clipboard-paste
+ESC             Prefix Command
+SPC             emacspeak-speak-header-line
+!               emacspeak-speak-run-shell-command
+"          emacspeak-speak-sexp-interactively
+#               emacspeak-gridtext
+%               emacspeak-speak-current-percentage
+&amp;           emacspeak-wizards-shell-command-on-current-file
+’         emacspeak-pianobar
+(               emacspeak-audio-setup
+)               emacspeak-sounds-select-theme
+,               emacspeak-speak-browse-buffer
+.               emacspeak-speak-current-field
+/               emacspeak-speak-this-buffer-other-window-display
+0 .. 9          emacspeak-speak-predefined-window
+:               emacspeak-m-player-shuffle
+;               emacspeak-multimedia
+&lt;            emacspeak-speak-previous-field
+=               emacspeak-speak-current-column
+&gt;            emacspeak-speak-next-field
+?               emacspeak-websearch-dispatch
+@               emacspeak-speak-message-at-time
+A               emacspeak-appt-repeat-announcement
+B               emacspeak-speak-buffer-interactively
+C               emacspeak-customize
+F               emacspeak-view-emacspeak-faq
+I               emacspeak-speak-show-active-network-interfaces
+L               emacspeak-speak-line-interactively
+M               emacspeak-speak-minor-mode-line
+N               emacspeak-view-emacspeak-news
+P               emacspeak-speak-paragraph-interactively
+R               emacspeak-speak-rectangle
+T               emacspeak-view-emacspeak-tips
+U               emacspeak-websearch-usenet
+V               emacspeak-speak-version
+W               emacspeak-tapestry-select-window-by-name
+[               emacspeak-speak-page
+\               emacspeak-toggle-speak-line-invert-filter
+]               emacspeak-speak-page-interactively
+^               emacspeak-filtertext
+a               emacspeak-speak-message-again
+b               emacspeak-speak-buffer
+c               emacspeak-speak-char
+d               emacspeak-dtk-submap-command
+e               end-of-line
+f               emacspeak-speak-buffer-filename
+g               emacspeak-epub
+h               emacspeak-speak-help
+i               emacspeak-tabulate-region
+j               emacspeak-hide-or-expose-block
+k               emacspeak-speak-current-kill
+l               emacspeak-speak-line
+m               emacspeak-speak-mode-line
+n               emacspeak-speak-rest-of-buffer
+o               emacspeak-toggle-comint-output-monitor
+p               emacspeak-speak-paragraph
+q               emacspeak-toggle-speak-messages
+r               emacspeak-speak-region
+s               dtk-stop
+t               emacspeak-speak-time
+u               emacspeak-url-template-fetch
+v               view-register
+w               emacspeak-speak-word
+x               emacspeak-personal-keymap
+{               emacspeak-speak-paragraph
+|               emacspeak-speak-line-set-column-filter
+DEL             cd-tool
+&lt;(deletechar&gt;     emacspeak-ssh-tts-restart
+&lt;C-&lt;left&gt;      emacspeak-select-this-buffer-previous-display
+&lt;C-&lt;right&gt;     emacspeak-select-this-buffer-next-display
+&lt;delete&gt;  emacspeak-ssh-tts-restart
+&lt;down&gt;            emacspeak-read-next-line
+&lt;f1&gt;              emacspeak-learn-emacs-mode
+&lt;f11&gt;             emacspeak-wizards-shell-toggle
+&lt;insert&gt;  emacspeak-emergency-tts-restart
+&lt;left&gt;            emacspeak-speak-this-buffer-previous-display
+&lt;right&gt;           emacspeak-speak-this-buffer-next-display
+&lt;up&gt;              emacspeak-read-previous-line
 
-      <p># a emacspeak-gridtext-apply # l emacspeak-gridtext-load #
-      s emacspeak-gridtext-save</p>
+# a             emacspeak-gridtext-apply
+# l             emacspeak-gridtext-load
+# s             emacspeak-gridtext-save
 
-      <p>C-M-@ emacspeak-speak-spaces-at-point C-M-b
-      emacspeak-submit-bug C-M-k kill-emacs M-%
-      emacspeak-goto-percent M-;
-      emacspeak-webutils-play-media-at-point M-a
-      emacspeak-set-auditory-icon-player M-b
-      emacspeak-speak-other-buffer M-c emacspeak-copy-current-file
-      M-d emacspeak-pronounce-dispatch M-f
-      emacspeak-frame-label-or-switch-to-labelled-frame M-h
-      emacspeak-speak-hostname M-l emacspeak-link-current-file M-m
-      emacspeak-toggle-mail-alert M-q
-      voice-setup-toggle-silence-personality M-r
-      emacspeak-remote-connect-to-server M-s
-      emacspeak-symlink-current-file M-t
-      emacspeak-tapestry-describe-tapestry M-u
-      emacspeak-feeds-add-feed M-v
-      emacspeak-show-personality-at-point M-w
-      emacspeak-toggle-which-function</p>
+C-M-@           emacspeak-speak-spaces-at-point
+C-M-b           emacspeak-submit-bug
+C-M-k           kill-emacs
+M-%             emacspeak-goto-percent
+M-;             emacspeak-webutils-play-media-at-point
+M-a             emacspeak-set-auditory-icon-player
+M-b             emacspeak-speak-other-buffer
+M-c             emacspeak-copy-current-file
+M-d             emacspeak-pronounce-dispatch
+M-f             emacspeak-frame-label-or-switch-to-labelled-frame
+M-h             emacspeak-speak-hostname
+M-l             emacspeak-link-current-file
+M-m             emacspeak-toggle-mail-alert
+M-q             voice-setup-toggle-silence-personality
+M-r             emacspeak-remote-connect-to-server
+M-s             emacspeak-symlink-current-file
+M-t             emacspeak-tapestry-describe-tapestry
+M-u             emacspeak-feeds-add-feed
+M-v             emacspeak-show-personality-at-point
+M-w             emacspeak-toggle-which-function
 
-      <p>C-t C-b emacspeak-table-previous-column C-t C-f
-      emacspeak-table-next-column C-t TAB
-      emacspeak-table-next-column C-t C-n emacspeak-table-next-row
-      C-t C-p emacspeak-table-previous-row C-t ESC Prefix Command
-      C-t SPC emacspeak-table-speak-current-element C-t #
-      emacspeak-table-sort-on-current-column C-t .
-      emacspeak-table-speak-coordinates C-t &lt;
-      emacspeak-table-goto-left C-t =
-      emacspeak-table-speak-dimensions C-t &gt;
-      emacspeak-table-goto-right C-t A emacspeak-table-goto-left
-      C-t B emacspeak-table-goto-bottom C-t C
-      emacspeak-table-search-column C-t E
-      emacspeak-table-goto-right C-t Q
-      emacspeak-kill-buffer-quietly C-t R
-      emacspeak-table-search-row C-t T emacspeak-table-goto-top C-t
-      a emacspeak-table-select-automatic-speaking-method C-t b
-      emacspeak-table-speak-both-headers-and-element C-t c
-      emacspeak-table-speak-column-header-and-element C-t f
-      emacspeak-table-speak-row-filtered C-t g
-      emacspeak-table-speak-column-filtered C-t h
-      emacspeak-table-search-headers C-t j emacspeak-table-goto C-t
-      k emacspeak-table-copy-to-clipboard C-t n
-      emacspeak-table-next-row C-t p emacspeak-table-previous-row
-      C-t q quit-window C-t r
-      emacspeak-table-speak-row-header-and-element C-t s
-      emacspeak-table-search C-t w
-      emacspeak-table-copy-current-element-to-kill-ring C-t x
-      emacspeak-table-copy-current-element-to-register C-t
-      &lt;S-tab&gt; emacspeak-table-previous-column C-t
-      &lt;down&gt; emacspeak-table-next-row C-t &lt;left&gt;
-      emacspeak-table-previous-column C-t &lt;right&gt;
-      emacspeak-table-next-column C-t &lt;up&gt;
-      emacspeak-table-previous-row</p>
+C-t C-b         emacspeak-table-previous-column
+C-t C-f         emacspeak-table-next-column
+C-t TAB         emacspeak-table-next-column
+C-t C-n         emacspeak-table-next-row
+C-t C-p         emacspeak-table-previous-row
+C-t ESC         Prefix Command
+C-t SPC         emacspeak-table-speak-current-element
+C-t #           emacspeak-table-sort-on-current-column
+C-t .           emacspeak-table-speak-coordinates
+C-t &lt;                emacspeak-table-goto-left
+C-t =           emacspeak-table-speak-dimensions
+C-t &gt;                emacspeak-table-goto-right
+C-t A           emacspeak-table-goto-left
+C-t B           emacspeak-table-goto-bottom
+C-t C           emacspeak-table-search-column
+C-t E           emacspeak-table-goto-right
+C-t Q           emacspeak-kill-buffer-quietly
+C-t R           emacspeak-table-search-row
+C-t T           emacspeak-table-goto-top
+C-t a           emacspeak-table-select-automatic-speaking-method
+C-t b           emacspeak-table-speak-both-headers-and-element
+C-t c           emacspeak-table-speak-column-header-and-element
+C-t f           emacspeak-table-speak-row-filtered
+C-t g           emacspeak-table-speak-column-filtered
+C-t h           emacspeak-table-search-headers
+C-t j           emacspeak-table-goto
+C-t k           emacspeak-table-copy-to-clipboard
+C-t n           emacspeak-table-next-row
+C-t p           emacspeak-table-previous-row
+C-t q           quit-window
+C-t r           emacspeak-table-speak-row-header-and-element
+C-t s           emacspeak-table-search
+C-t w           emacspeak-table-copy-current-element-to-kill-ring
+C-t x           emacspeak-table-copy-current-element-to-register
+C-t &lt;S-tab&gt;       emacspeak-table-previous-column
+C-t &lt;down&gt;        emacspeak-table-next-row
+C-t &lt;left&gt;        emacspeak-table-previous-column
+C-t &lt;right&gt;       emacspeak-table-next-column
+C-t &lt;up&gt;  emacspeak-table-previous-row
 
-      <p>d C-d dectalk d C-e espeak d RET
-      dtk-set-chunk-separator-syntax d C-o outloud d C-v outloud-32
-      d SPC dtk-toggle-splitting-on-white-space d ,
-      dtk-toggle-punctuation-mode d 0 .. d 9
-      dtk-set-predefined-speech-rate d C dtk-toggle-allcaps-beep d
-      L dtk-local-server d N dtk-set-next-language d P
-      dtk-set-previous-language d R dtk-reset-state d S
-      dtk-set-language d V tts-speak-version d a
-      dtk-add-cleanup-pattern d c dtk-toggle-capitalization d d
-      dtk-select-server d f dtk-set-character-scale d i
-      emacspeak-toggle-audio-indentation d k
-      emacspeak-toggle-character-echo d l
-      emacspeak-toggle-line-echo d m
-      emacspeak-speak-set-mode-punctuations d n
-      dtk-toggle-speak-nonprinting-chars d o
-      dtk-toggle-strip-octals d p dtk-set-punctuations d q
-      dtk-toggle-quiet d r dtk-set-rate d s dtk-toggle-split-caps d
-      t emacspeak-dial-dtk d v voice-lock-mode d w
-      emacspeak-toggle-word-echo d z emacspeak-zap-tts</p>
+d C-d           dectalk
+d C-e           espeak
+d RET           dtk-set-chunk-separator-syntax
+d C-o           outloud
+d C-v           outloud-32
+d SPC           dtk-toggle-splitting-on-white-space
+d ,             dtk-toggle-punctuation-mode
+d 0 .. d 9      dtk-set-predefined-speech-rate
+d C             dtk-toggle-allcaps-beep
+d L             dtk-local-server
+d N             dtk-set-next-language
+d P             dtk-set-previous-language
+d R             dtk-reset-state
+d S             dtk-set-language
+d V             tts-speak-version
+d a             dtk-add-cleanup-pattern
+d c             dtk-toggle-capitalization
+d d             dtk-select-server
+d f             dtk-set-character-scale
+d i             emacspeak-toggle-audio-indentation
+d k             emacspeak-toggle-character-echo
+d l             emacspeak-toggle-line-echo
+d m             emacspeak-speak-set-mode-punctuations
+d n             dtk-toggle-speak-nonprinting-chars
+d o             dtk-toggle-strip-octals
+d p             dtk-set-punctuations
+d q             dtk-toggle-quiet
+d r             dtk-set-rate
+d s             dtk-toggle-split-caps
+d t             emacspeak-dial-dtk
+d v             voice-lock-mode
+d w             emacspeak-toggle-word-echo
+d z             emacspeak-zap-tts
 
-      <p>C-t M-&lt; emacspeak-table-goto-top C-t M-&gt;
-      emacspeak-table-goto-bottom C-t M-l
-      emacspeak-table-ui-filter-load C-t M-s
-      emacspeak-table-ui-filter-save</p>
+C-t M-&lt;              emacspeak-table-goto-top
+C-t M-&gt;              emacspeak-table-goto-bottom
+C-t M-l         emacspeak-table-ui-filter-load
+C-t M-s         emacspeak-table-ui-filter-save
 
-      <p>See the online documentation for individual commands and
-      functions for details.</p>
+See the online documentation for individual commands and
+functions for details.   
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -299,7 +361,11 @@
       <a name="index-emacspeak_002ddescribe_002demacspeak-1" id=
       "index-emacspeak_002ddescribe_002demacspeak-1"></a>
 
-      <p>Give a brief overview of emacspeak.</p>
+      <div class="display">
+        <pre class="display">
+Give a brief overview of emacspeak.
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -315,7 +381,11 @@
       "index-emacspeak_002dsubmit_002dbug-1" id=
       "index-emacspeak_002dsubmit_002dbug-1"></a>
 
-      <p>Function to submit a bug to the programs maintainer.</p>
+      <div class="display">
+        <pre class="display">
+Function to submit a bug to the programs maintainer.
+</pre>
+      </div>
     </dd>
   </dl><a name="emacspeak-Options" id="emacspeak-Options"></a>
 

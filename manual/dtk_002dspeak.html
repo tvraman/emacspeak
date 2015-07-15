@@ -110,15 +110,20 @@
       "index-dtk_002dadd_002dcleanup_002dpattern-2" id=
       "index-dtk_002dadd_002dcleanup_002dpattern-2"></a>
 
-      <p>Add this pattern to the list of repeating patterns that
-      are cleaned up. Optional interactive prefix arg deletes this
-      pattern if previously added. Cleaning up repeated patterns
-      results in emacspeak speaking the pattern followed by a
-      repeat count instead of speaking all the characters making up
-      the pattern. Thus, by adding the repeating pattern “.” (this
-      is already added by default) emacspeak will say ““aw fifteen
-      dot”’ when speaking the string ““...............”’ instead of
-      ““period period period period ”’</p>
+      <div class="display">
+        <pre class="display">
+Add this pattern to the list of repeating patterns that
+are cleaned up.  Optional interactive prefix arg deletes
+this pattern if previously added.  Cleaning up repeated
+patterns results in emacspeak speaking the pattern followed
+by a repeat count instead of speaking all the characters
+making up the pattern.  Thus, by adding the repeating
+pattern “.” (this is already added by default) emacspeak
+will say ““aw fifteen dot”’ when speaking the string
+““...............”’ instead of ““period period period period
+”’
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -133,11 +138,14 @@
       "index-dtk_002dlocal_002dserver-1" id=
       "index-dtk_002dlocal_002dserver-1"></a>
 
-      <p>Select and start an local speech server interactively.
-      Local server lets Emacspeak on a remote host connect back via
-      SSH port forwarding for instance. Argument PROGRAM specifies
-      the speech server program. Port defaults to
-      dtk-local-server-port</p>
+      <div class="display">
+        <pre class="display">
+Select and start an local  speech server interactively.
+Local server lets Emacspeak on a remote host connect back via SSH  port forwarding for instance.
+Argument PROGRAM specifies the speech server program.
+Port  defaults to  dtk-local-server-port
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -152,8 +160,12 @@
       "index-dtk_002dreset_002dstate-1" id=
       "index-dtk_002dreset_002dstate-1"></a>
 
-      <p>Restore sanity to the Dectalk. Typically used after the
-      Dectalk has been power cycled.</p>
+      <div class="display">
+        <pre class="display">
+Restore sanity to the Dectalk.
+Typically used after the Dectalk has been power   cycled.
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -169,11 +181,15 @@
       "index-dtk_002dselect_002dserver-2" id=
       "index-dtk_002dselect_002dserver-2"></a>
 
-      <p>Select a speech server interactively. When called
-      interactively, restarts speech server. Argument PROGRAM
-      specifies the speech server program. Optional arg device sets
-      up environment variable ALSA_DEFAULT to specified device
-      before starting the server.</p>
+      <div class="display">
+        <pre class="display">
+Select a speech server interactively.
+When called interactively, restarts speech server.
+Argument PROGRAM specifies the speech server program. 
+ Optional arg device sets up environment variable
+ALSA_DEFAULT to specified device before starting the server.
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -189,10 +205,15 @@
       "index-dtk_002dset_002dcharacter_002dscale-2" id=
       "index-dtk_002dset_002dcharacter_002dscale-2"></a>
 
-      <p>Set scale FACTOR for speech rate. Speech rate is scaled by
-      this factor when speaking characters. Interactive PREFIX arg
-      means set the global default value, and then set the current
-      local value to the result.</p>
+      <div class="display">
+        <pre class="display">
+Set scale FACTOR for   speech rate.
+Speech rate is scaled by this factor
+when speaking characters.
+Interactive PREFIX arg means set   the global default value, and then set the
+current local  value to the result.
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -209,10 +230,14 @@
       "index-dtk_002dset_002dchunk_002dseparator_002dsyntax-2" id=
       "index-dtk_002dset_002dchunk_002dseparator_002dsyntax-2"></a>
 
-      <p>Interactively set how text is split in chunks. See the
-      Emacs documentation on syntax tables for details on how
-      characters are classified into various syntactic classes.
-      Argument S specifies the syntax class.</p>
+      <div class="display">
+        <pre class="display">
+Interactively set how text is split in chunks.
+See the Emacs documentation on syntax tables for details on how characters are
+classified into various syntactic classes.
+Argument S specifies the syntax class.
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -227,7 +252,11 @@
       "index-dtk_002dset_002dlanguage-1" id=
       "index-dtk_002dset_002dlanguage-1"></a>
 
-      <p>Set language according to the argument lang.</p>
+      <div class="display">
+        <pre class="display">
+Set language according to the argument lang.
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -242,7 +271,11 @@
       "index-dtk_002dset_002dnext_002dlanguage-1" id=
       "index-dtk_002dset_002dnext_002dlanguage-1"></a>
 
-      <p>Switch to the next available language</p>
+      <div class="display">
+        <pre class="display">
+Switch to the next available language
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -263,10 +296,14 @@
       "index-dtk_002dset_002dpredefined_002dspeech_002drate-2" id=
       "index-dtk_002dset_002dpredefined_002dspeech_002drate-2"></a>
 
-      <p>Set speech rate to one of nine predefined levels.
-      Interactive PREFIX arg says to set the rate globally. Formula
-      used is: rate = dtk-speech-rate-base + dtk-speech-rate-step *
-      level.</p>
+      <div class="display">
+        <pre class="display">
+Set speech rate to one of nine predefined levels.
+Interactive PREFIX arg says to set the rate globally.
+Formula used is:
+rate = dtk-speech-rate-base + dtk-speech-rate-step * level.
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -280,9 +317,16 @@
       <a name="index-dtk_002dset_002dpreferred_002dlanguage-1" id=
       "index-dtk_002dset_002dpreferred_002dlanguage-1"></a>
 
-      <p>Set the alias of the preferred language: For example if
-      alias="en" lang="en_GB", then the following call:
-      dtk-set-language("en") will set "en_GB".</p>
+      <div class="display">
+        <pre class="display">
+Set the alias of the preferred language:
+For example if alias="en" lang="en_GB",
+then the following call:
+ dtk-set-language("en")
+will set "en_GB".
+
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -297,7 +341,11 @@
       "index-dtk_002dset_002dprevious_002dlanguage-1" id=
       "index-dtk_002dset_002dprevious_002dlanguage-1"></a>
 
-      <p>Switch to the previous available language</p>
+      <div class="display">
+        <pre class="display">
+Switch to the previous available language
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -313,10 +361,14 @@
       "index-dtk_002dset_002dpunctuations-2" id=
       "index-dtk_002dset_002dpunctuations-2"></a>
 
-      <p>Set punctuation mode to MODE. Possible values are “some”,
-      “all”, or “none”. Interactive PREFIX arg means set the global
-      default value, and then set the current local value to the
-      result.</p>
+      <div class="display">
+        <pre class="display">
+Set punctuation mode to MODE.
+Possible values are “some”, “all”, or “none”.
+Interactive PREFIX arg means set   the global default value, and then set the
+current local  value to the result.
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -331,8 +383,12 @@
       <a name="index-dtk_002dset_002dpunctuations_002dto_002dall-1"
       id="index-dtk_002dset_002dpunctuations_002dto_002dall-1"></a>
 
-      <p>Set punctuation mode to all. Interactive PREFIX arg sets
-      punctuation mode globally.</p>
+      <div class="display">
+        <pre class="display">
+Set punctuation  mode to all.
+Interactive PREFIX arg sets punctuation mode globally.
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -348,8 +404,12 @@
       "index-dtk_002dset_002dpunctuations_002dto_002dsome-1" id=
       "index-dtk_002dset_002dpunctuations_002dto_002dsome-1"></a>
 
-      <p>Set punctuation mode to some. Interactive PREFIX arg sets
-      punctuation mode globally.</p>
+      <div class="display">
+        <pre class="display">
+Set punctuation  mode to some.
+Interactive PREFIX arg sets punctuation mode globally.
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -365,9 +425,13 @@
       "index-dtk_002dset_002drate-2" id=
       "index-dtk_002dset_002drate-2"></a>
 
-      <p>Set speaking RATE for the tts. Interactive PREFIX arg
-      means set the global default value, and then set the current
-      local value to the result.</p>
+      <div class="display">
+        <pre class="display">
+Set speaking RATE for the tts.
+Interactive PREFIX arg means set   the global default value, and then set the
+current local  value to the result.
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -381,7 +445,11 @@
       "index-C_002de-s"></a> <a name="index-dtk_002dstop-2" id=
       "index-dtk_002dstop-2"></a>
 
-      <p>Stop speech now.</p>
+      <div class="display">
+        <pre class="display">
+Stop speech now.
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -397,12 +465,16 @@
       "index-dtk_002dtoggle_002dallcaps_002dbeep-2" id=
       "index-dtk_002dtoggle_002dallcaps_002dbeep-2"></a>
 
-      <p>Toggle allcaps-beep. when set, allcaps words are indicated
-      by a short beep. Interactive PREFIX arg means toggle the
-      global default value, and then set the current local value to
-      the result. Note that allcaps-beep is a very useful thing
-      when programming. However it is irritating to have it on when
-      reading documents.</p>
+      <div class="display">
+        <pre class="display">
+Toggle allcaps-beep.
+when set, allcaps words  are  indicated by a
+short beep.  Interactive PREFIX arg means toggle the global default
+value, and then set the current local value to the result.
+Note that allcaps-beep is a very useful thing when programming.
+However it is irritating to have it on when reading documents.
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -418,10 +490,14 @@
       "index-dtk_002dtoggle_002dcapitalization-2" id=
       "index-dtk_002dtoggle_002dcapitalization-2"></a>
 
-      <p>Toggle capitalization. when set, capitalization is
-      indicated by a short beep. Interactive PREFIX arg means
-      toggle the global default value, and then set the current
-      local value to the result.</p>
+      <div class="display">
+        <pre class="display">
+Toggle capitalization.
+when set, capitalization is indicated by a
+short beep.  Interactive PREFIX arg means toggle the global default
+value, and then set the current local value to the result.
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -437,8 +513,12 @@
       "index-dtk_002dtoggle_002dpunctuation_002dmode-1" id=
       "index-dtk_002dtoggle_002dpunctuation_002dmode-1"></a>
 
-      <p>Toggle punctuation mode between "some" and "all".
-      Interactive PREFIX arg makes the new setting global.</p>
+      <div class="display">
+        <pre class="display">
+Toggle punctuation mode between "some" and "all".
+Interactive PREFIX arg makes the new setting global.
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -454,9 +534,13 @@
       "index-dtk_002dtoggle_002dquiet-2" id=
       "index-dtk_002dtoggle_002dquiet-2"></a>
 
-      <p>Toggles state of dtk-quiet. Turning on this switch
-      silences speech. Optional interactive prefix arg causes this
-      setting to become global.</p>
+      <div class="display">
+        <pre class="display">
+Toggles state of  dtk-quiet.
+Turning on this switch silences speech.
+Optional interactive prefix arg causes this setting to become global.
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -474,10 +558,14 @@
       id=
       "index-dtk_002dtoggle_002dspeak_002dnonprinting_002dchars-1"></a>
 
-      <p>Toggle speak-nonprinting-chars. Switches behavior of how
-      characters with the high bit set are handled. Interactive
-      PREFIX arg means toggle the global default value, and then
-      set the current local value to the result.</p>
+      <div class="display">
+        <pre class="display">
+Toggle speak-nonprinting-chars.
+Switches behavior of how characters with the high bit set are handled.
+Interactive PREFIX arg means toggle the global default
+value, and then set the current local value to the result.
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -493,10 +581,15 @@
       "index-dtk_002dtoggle_002dsplit_002dcaps-2" id=
       "index-dtk_002dtoggle_002dsplit_002dcaps-2"></a>
 
-      <p>Toggle split caps mode. Split caps mode is useful when
-      reading Hungarian notation in program source code.
-      Interactive PREFIX arg means toggle the global default value,
-      and then set the current local value to the result.</p>
+      <div class="display">
+        <pre class="display">
+Toggle split caps mode.
+Split caps mode is useful when reading
+Hungarian notation in program source code.  Interactive PREFIX arg
+means toggle the global default value, and then set the current local
+value to the result.
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -516,19 +609,23 @@
       "index-dtk_002dtoggle_002dsplitting_002don_002dwhite_002dspace-2">
       </a>
 
-      <p>Toggle splitting of speech on white space. This affects
-      the internal state of emacspeak that decides if we split text
-      purely by clause boundaries, or also include whitespace. By
-      default, emacspeak sends a clause at a time to the speech
-      device. This produces fluent speech for normal use. However
-      in modes such as “shell-mode” and some programming language
-      modes, clause markers appear infrequently, and this can
-      result in large amounts of text being sent to the speech
-      device at once, making the system unresponsive when asked to
-      stop talking. Splitting on white space makes emacspeak’s stop
-      command responsive. However, when splitting on white space,
-      the speech sounds choppy since the synthesizer is getting a
-      word at a time.</p>
+      <div class="display">
+        <pre class="display">
+Toggle splitting of speech on white space.
+This affects the internal state of emacspeak that decides if we split
+text purely by clause boundaries, or also include
+whitespace.  By default, emacspeak sends a clause at a time
+to the speech device.  This produces fluent speech for
+normal use.  However in modes such as “shell-mode” and some
+programming language modes, clause markers appear
+infrequently, and this can result in large amounts of text
+being sent to the speech device at once, making the system
+unresponsive when asked to stop talking.  Splitting on white
+space makes emacspeak’s stop command responsive.  However,
+when splitting on white space, the speech sounds choppy
+since the synthesizer is getting a word at a time.
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -544,9 +641,14 @@
       "index-dtk_002dtoggle_002dstrip_002doctals-1" id=
       "index-dtk_002dtoggle_002dstrip_002doctals-1"></a>
 
-      <p>Toggle stripping of octals. Interactive prefix arg means
-      toggle the global default value, and then set the current
-      local value to the result.</p>
+      <div class="display">
+        <pre class="display">
+Toggle stripping of octals.
+Interactive prefix arg means
+ toggle the global default value, and then set the current local
+value to the result.
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -560,8 +662,12 @@
       <a name="index-tts_002dcycle_002ddevice-1" id=
       "index-tts_002dcycle_002ddevice-1"></a>
 
-      <p>Cycle through available ALSA devices. Optional interactive
-      prefix arg restarts current TTS server.</p>
+      <div class="display">
+        <pre class="display">
+Cycle through available ALSA devices.
+Optional interactive prefix arg restarts current TTS server.
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -575,8 +681,11 @@
       "index-C_002de-C_002ds"></a> <a name=
       "index-tts_002drestart-1" id="index-tts_002drestart-1"></a>
 
-      <p>Use this to nuke the currently running TTS server and
-      restart it.</p>
+      <div class="display">
+        <pre class="display">
+Use this to nuke the currently running TTS server and restart it.
+</pre>
+      </div>
     </dd>
   </dl>
 
@@ -591,7 +700,11 @@
       "index-tts_002dspeak_002dversion-1" id=
       "index-tts_002dspeak_002dversion-1"></a>
 
-      <p>Speak version.</p>
+      <div class="display">
+        <pre class="display">
+Speak version.
+</pre>
+      </div>
     </dd>
   </dl><a name="dtk_002dspeak-Options" id=
   "dtk_002dspeak-Options"></a>
