@@ -37,21 +37,17 @@
 
 ;;}}}
 ;;{{{ Introduction:
+
 ;;; Commentary:
+
 ;;; This module extends and customizes the Emacs info reader.
 ;;; Code:
+
 ;;}}}
 ;;{{{ requires
+
 (require 'emacspeak-preamble)
 (require 'info)
-;;}}}
-;;{{{  Variables:
-
-(defvar Info-voiceify t
-  "*Non-nil enables highlighting and voices in Info nodes.")
-
-(defvar Info-voiceify-maximum-menu-size 30000
-  "*Maximum size of menu to voiceify if `Info-voiceify' is non-nil.")
 
 ;;}}}
 ;;{{{  Voices
@@ -113,7 +109,6 @@ node -- speak the entire node."
   `(defadvice ,f (after emacspeak pre act)
      " Speak the selected node based on setting of
 emacspeak-info-select-node-speak-chunk"
-     (load-library "emacspeak-info")
      (emacspeak-info-visit-node))))
 
 (defadvice Info-scroll-up (after emacspeak pre act)
@@ -188,19 +183,25 @@ node-spec."
              (emacspeak-speak-line))))))
 
 ;;}}}
-;;{{{  Emacs 21
-
-;;}}}
 ;;{{{ keymaps
+
 (declaim (special Info-mode-map))
 (define-key Info-mode-map "T" 'emacspeak-info-speak-header)
 (define-key Info-mode-map "'" 'emacspeak-speak-rest-of-buffer)
-;;}}}
-;;{{{ info wizard
-;;;###autoload
 
 ;;}}}
+;;{{{ Info Hook:
 
+(defvar emacspeak-info-already-loaded nil
+  "Work around bug where we need to reload.")
+(add-hook
+ 'Info-mode-hook
+ #'(lambda ()
+     (unless emacspeak-info-already-loaded
+       (load-library "emacspeak-info")
+       (setq emacspeak-info-already-loaded t))))
+
+;;}}}
 (provide  'emacspeak-info)
 ;;{{{  emacs local variables
 
