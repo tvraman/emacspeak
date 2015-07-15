@@ -118,7 +118,9 @@
  '(
    magit-section-forward magit-section-backward
    magit-ignore-file magit-ignore-item
-   magit-stage-item magit-stash
+     magit-stash
+     magit-unstage magit-unstage-all magit-unstage-file
+    magit-stage magit-stage-file  magit-stage-modified
    magit-ignore-item-locally
    magit-goto-next-section magit-goto-previous-section
    magit-goto-parent-section magit-goto-line
