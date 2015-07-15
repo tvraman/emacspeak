@@ -547,7 +547,7 @@ Retain previously set punctuations  mode."
 
 (loop
  for  tag in
- '(h1 h2 h3 div                    ; sectioning
+ '(h1 h2 h3 h4 h5 h6 div                    ; sectioning
       ul ol dl                     ; Lists
       li dt dd p                   ; block-level: bullets, paras
       form blockquote              ; block-level
