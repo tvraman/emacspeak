@@ -49,16 +49,17 @@
 ;;; Usage: M-x load-library emacspeak-muggles.
 ;;; You need to install package Hydra first:
 ;;; M-x package-install  hydra.
+;;; Note that on newer versions of Emacs, loading this module will attempt to automatically install package hydra if it is not found.
 
 ;;; Implemented Hydras:
 
-;;; Brightness: <print> Control display brightness using xbacklight.
+;;;@itemize
+;;; @item Brightness: <print> Control display brightness using xbacklight.
+;;; @item View-Mode: <C-z> Temporarily behave like view-mode.
+;;;@item  org-mode tables: <C-c t> Table UI for org-mode tables.
+;;;@item m-player: Super-M Emacspeak-M-Player Commands 
+;;;@end itemize
 
-;;;View-Mode: <C-z> Temporarily behave like view-mode.
-
-;;; org-mode tables: <C-c t> Table UI for org-mode tables.
-
-;;;m-player: Super-M Emacspeak-M-Player Commands 
 ;;; Code:
 
 ;;}}}
