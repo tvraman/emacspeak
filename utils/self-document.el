@@ -251,8 +251,9 @@
   "Document this command."
   (let ((key (where-is-internal c))
         (keys nil))
-    (insert (format "\n\n@deffn {Command} %s  %s\n"
-                    c
+    (insert
+     (format "\n\n@subsubsection %s\n@deffn {Command} %s  %s\n"
+                    c c 
                     (or (help-function-arglist c t) " ")))
     (when key
       (setq keys (sd-texinfo-escape (mapconcat #'key-description key " ")))
