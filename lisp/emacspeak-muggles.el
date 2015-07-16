@@ -1,4 +1,4 @@
-;;; emacspeak-muggles.el --- Convenience Hydras For The Emacspeak Desktop
+;;; emacspeak-muggles.el --- Convenience Hydras For The Emacspeak Desktop 
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable MUGGLES An Emacs Interface to muggles
 ;;; Keywords: Emacspeak,  Audio Desktop muggles
@@ -59,6 +59,7 @@
 ;;;@item  org-mode tables: <C-c t> Table UI for org-mode tables.
 ;;;@item m-player: Super-M Emacspeak-M-Player Commands
 ;;; @item hideshow C-c h hideshow
+;;; @item toggle-option <C-c o> Toggle options
 ;;;@end itemize
 
 ;;; Code:
@@ -245,6 +246,30 @@
   ("H" hs-hide-all)
   ("S" hs-show-all)
   ("i" hs-hide-initial-comment-block))
+
+;;}}}
+;;{{{ Option Toggle
+
+;;; Cloned from hydra-examples.el and modified to tase.
+
+(defhydra emacspeak-muggles-toggle-option
+  (global-map "C-c o" :color blue)
+  "
+_a_ abbrev-mode:       %`abbrev-mode
+_d_ debug-on-error:    %`debug-on-error
+_f_ auto-fill-mode:    %`auto-fill-function
+_g_ debug-on-quit:    %`debug-on-quit
+_t_ truncate-lines:    %`truncate-lines
+_w_ whitespace-mode:   %`whitespace-mode
+
+"
+  ("a" abbrev-mode nil)
+  ("d" toggle-debug-on-error nil)
+  ("f" auto-fill-mode nil)
+  ("g"  toggle-debug-on-quit  nil)
+  ("t" toggle-truncate-lines nil)
+  ("w" whitespace-mode nil)
+  ("q" nil "quit"))
 
 ;;}}}
 (provide 'emacspeak-muggles)
