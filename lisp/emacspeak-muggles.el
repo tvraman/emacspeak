@@ -57,7 +57,8 @@
 ;;; @item Brightness: <print> Control display brightness using xbacklight.
 ;;; @item View-Mode: <C-z> Temporarily behave like view-mode.
 ;;;@item  org-mode tables: <C-c t> Table UI for org-mode tables.
-;;;@item m-player: Super-M Emacspeak-M-Player Commands 
+;;;@item m-player: Super-M Emacspeak-M-Player Commands
+;;; hideshow C-c h hideshow
 ;;;@end itemize
 
 ;;; Code:
@@ -90,8 +91,7 @@
 ;;}}}
 ;;{{{ Brightness:
 
-(defhydra
-  emacspeak-muggles-brightness
+(defhydra emacspeak-muggles-brightness
   (global-map "<print>"
               :pre emacspeak-muggles-pre
               :post emacspeak-muggles-post)
@@ -108,11 +108,10 @@
 ;;}}}
 ;;{{{  View Mode:
 
-(defhydra
-  emacspeak-muggles-view
+(defhydra emacspeak-muggles-view
   (
    global-map "C-z"
-   :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
+              :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
   "View Mode"
   ("'" register-to-point)
   ("(" backward-sexp)
@@ -158,11 +157,10 @@
 ;;}}}
 ;;{{{ Org-Mode Table Navigation:
 
-(defhydra
-  emacspeak-muggles-org-table
+(defhydra emacspeak-muggles-org-table
   (
    org-mode-map "C-c t"
-   :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
+                :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
   "Org Table UI"
   ("j" org-table-next-row)
   ("k" org-table-previous-row)
@@ -177,8 +175,7 @@
 ;;}}}
 ;;{{{ Media Player:
 
-(defhydra
-  emacspeak-muggles-m-player
+(defhydra emacspeak-muggles-m-player
   (emacspeak-super-keymap "m"
                           :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
   (";" emacspeak-m-player)
@@ -235,6 +232,19 @@
   ("{" emacspeak-m-player-half-speed)
   ("}" emacspeak-m-player-double-speed)
   )
+
+;;}}}
+;;{{{ HideShow:
+
+(defhydra  emacspeak-muggles-hideshow
+  (global-map "C-c h"
+              :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
+  "Hideshow"
+  ("h" hs-hide-block)
+  ("s" hs-show-block)
+  ("H" hs-hide-all)
+  ("S" hs-show-all)
+  ("i" hs-hide-initial-comment-block))
 
 ;;}}}
 (provide 'emacspeak-muggles)
