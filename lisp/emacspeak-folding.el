@@ -92,7 +92,7 @@ Then speak the folded line."
 ;;{{{ Fix keymap:
 (declaim (special folding-mode-map))
 (when (boundp 'folding-mode-map)
-  (define-key folding-mode-map "C-e" 'emacspeak-prefix-command))
+  (define-key folding-mode-map "\C-e" 'emacspeak-prefix-command))
 
 ;;}}}
 (provide  'emacspeak-folding)
