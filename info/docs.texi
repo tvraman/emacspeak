@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1090 commands and 886 options.
+This chapter documents a total of 1090 commands and 887 options.
 
 @menu
 * acss-structure::
@@ -10440,6 +10440,13 @@ Create a hydra with a "C-c v" body and the heads:
 The body can be accessed via ``emacspeak-muggles-view/body''.
 @end format
 @end deffn
+
+@subsection emacspeak-muggles Options
+
+@defvar {User Option} emacspeak-muggles-activate-p
+Whether emacspeak Muggles are activated on startup.
+
+@end defvar
 
 @node emacspeak-muse
 @section emacspeak-muse

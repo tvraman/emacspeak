@@ -76,7 +76,7 @@
    (directory-files (expand-file-name "g-client" self-document-lisp-directory)
                     nil ".elc$"))
   "List of elisp modules  to document.")
-
+(defvar emacspeak-muggles-activate-p t)
 (defvar self-document-map
   (make-hash-table :test #'equal)
   "Maps modules to commands and options they define.")
