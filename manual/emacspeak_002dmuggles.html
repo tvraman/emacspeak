@@ -114,7 +114,7 @@
     <li>Brightness: &lt;print&gt; Control display brightness using
     xbacklight.</li>
 
-    <li>View-Mode: &lt;C-z&gt; Temporarily behave like
+    <li>View-Mode: &lt;C-c v&gt; Temporarily behave like
     view-mode.</li>
 
     <li>org-mode tables: &lt;C-c t&gt; Table UI for org-mode
@@ -125,6 +125,8 @@
     <li>hideshow C-c h hideshow</li>
 
     <li>toggle-option &lt;C-c o&gt; Toggle options</li>
+
+    <li>outliner &lt;C-c #&gt; outline-minor-mode</li>
   </ul><a name="emacspeak_002dmuggles-Commands" id=
   "emacspeak_002dmuggles-Commands"></a>
 
@@ -309,11 +311,53 @@ The body can be accessed via “emacspeak-muggles-org-table/body”.
 </pre>
       </div>
     </dd>
+  </dl><a name="emacspeak_002dmuggles_002doutliner_002fbody" id=
+  "emacspeak_002dmuggles_002doutliner_002fbody"></a>
+
+  <h4 class="subsubsection">11.116.1.5
+  emacspeak-muggles-outliner/body</h4>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dmuggles_002doutliner_002fbody"
+    id=
+    "index-emacspeak_002dmuggles_002doutliner_002fbody"></a>Command:
+    <strong>emacspeak-muggles-outliner/body</strong></dt>
+
+    <dd>
+      <a name="index-emacspeak_002dmuggles_002doutliner_002fbody-1"
+      id="index-emacspeak_002dmuggles_002doutliner_002fbody-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Create a hydra with a "C-c #" body and the heads:
+
+"q":    “hide-sublevels”,
+"t":    “hide-body”,
+"o":    “hide-other”,
+"c":    “hide-entry”,
+"l":    “hide-leaves”,
+"d":    “hide-subtree”,
+"a":    “show-all”,
+"e":    “show-entry”,
+"i":    “show-children”,
+"k":    “show-branches”,
+"s":    “show-subtree”,
+"u":    “outline-up-heading”,
+"n":    “outline-next-visible-heading”,
+"p":    “outline-previous-visible-heading”,
+"f":    “outline-forward-same-level”,
+"b":    “outline-backward-same-level”,
+"z":    “nil”
+
+The body can be accessed via “emacspeak-muggles-outliner/body”.
+</pre>
+      </div>
+    </dd>
   </dl><a name=
   "emacspeak_002dmuggles_002dtoggle_002doption_002fbody" id=
   "emacspeak_002dmuggles_002dtoggle_002doption_002fbody"></a>
 
-  <h4 class="subsubsection">11.116.1.5
+  <h4 class="subsubsection">11.116.1.6
   emacspeak-muggles-toggle-option/body</h4>
 
   <dl>
@@ -349,7 +393,7 @@ The body can be accessed via “emacspeak-muggles-toggle-option/body”.
   </dl><a name="emacspeak_002dmuggles_002dview_002fbody" id=
   "emacspeak_002dmuggles_002dview_002fbody"></a>
 
-  <h4 class="subsubsection">11.116.1.6
+  <h4 class="subsubsection">11.116.1.7
   emacspeak-muggles-view/body</h4>
 
   <dl>
@@ -363,7 +407,7 @@ The body can be accessed via “emacspeak-muggles-toggle-option/body”.
 
       <div class="format">
         <pre class="format">
-Create a hydra with a "C-z" body and the heads:
+Create a hydra with a "C-c v" body and the heads:
 
 "$":    “set-selective-display”,
 "’":    “register-to-point”,
