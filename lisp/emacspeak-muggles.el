@@ -55,7 +55,7 @@
 
 ;;;@itemize
 ;;; @item Brightness: <print> Control display brightness using xbacklight.
-;;; @item View-Mode: <C-z> Temporarily behave like view-mode.
+;;; @item View-Mode: <C-c v> Temporarily behave like view-mode.
 ;;;@item  org-mode tables: <C-c t> Table UI for org-mode tables.
 ;;;@item m-player: Super-M Emacspeak-M-Player Commands
 ;;; @item hideshow C-c h hideshow
@@ -110,7 +110,7 @@
 ;;{{{  View Mode:
 
 (defhydra emacspeak-muggles-view
-  (global-map "C-z"
+  (global-map "C-c v"
               :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
   "View Mode"
   ("$" set-selective-display)
