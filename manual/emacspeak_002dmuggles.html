@@ -123,6 +123,8 @@
     <li>m-player: Super-M Emacspeak-M-Player Commands</li>
 
     <li>hideshow C-c h hideshow</li>
+
+    <li>toggle-option &lt;C-c o&gt; Toggle options</li>
   </ul><a name="emacspeak_002dmuggles-Commands" id=
   "emacspeak_002dmuggles-Commands"></a>
 
@@ -307,10 +309,47 @@ The body can be accessed via “emacspeak-muggles-org-table/body”.
 </pre>
       </div>
     </dd>
+  </dl><a name=
+  "emacspeak_002dmuggles_002dtoggle_002doption_002fbody" id=
+  "emacspeak_002dmuggles_002dtoggle_002doption_002fbody"></a>
+
+  <h4 class="subsubsection">11.116.1.5
+  emacspeak-muggles-toggle-option/body</h4>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dmuggles_002dtoggle_002doption_002fbody"
+    id="index-emacspeak_002dmuggles_002dtoggle_002doption_002fbody">
+    </a>Command:
+    <strong>emacspeak-muggles-toggle-option/body</strong></dt>
+
+    <dd>
+      <a name=
+      "index-emacspeak_002dmuggles_002dtoggle_002doption_002fbody-1"
+      id=
+      "index-emacspeak_002dmuggles_002dtoggle_002doption_002fbody-1">
+      </a>
+
+      <div class="format">
+        <pre class="format">
+Create a hydra with a "C-c o" body and the heads:
+
+"a":    “abbrev-mode”,
+"d":    “toggle-debug-on-error”,
+"f":    “auto-fill-mode”,
+"g":    “toggle-debug-on-quit”,
+"t":    “toggle-truncate-lines”,
+"w":    “whitespace-mode”,
+"q":    “nil”
+
+The body can be accessed via “emacspeak-muggles-toggle-option/body”.
+</pre>
+      </div>
+    </dd>
   </dl><a name="emacspeak_002dmuggles_002dview_002fbody" id=
   "emacspeak_002dmuggles_002dview_002fbody"></a>
 
-  <h4 class="subsubsection">11.116.1.5
+  <h4 class="subsubsection">11.116.1.6
   emacspeak-muggles-view/body</h4>
 
   <dl>
@@ -326,6 +365,7 @@ The body can be accessed via “emacspeak-muggles-org-table/body”.
         <pre class="format">
 Create a hydra with a "C-z" body and the heads:
 
+"$":    “set-selective-display”,
 "’":    “register-to-point”,
 "(":    “backward-sexp”,
 ")":    “forward-sexp”,
