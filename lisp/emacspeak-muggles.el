@@ -58,7 +58,7 @@
 ;;; @item View-Mode: <C-z> Temporarily behave like view-mode.
 ;;;@item  org-mode tables: <C-c t> Table UI for org-mode tables.
 ;;;@item m-player: Super-M Emacspeak-M-Player Commands
-;;; hideshow C-c h hideshow
+;;; @item hideshow C-c h hideshow
 ;;;@end itemize
 
 ;;; Code:
