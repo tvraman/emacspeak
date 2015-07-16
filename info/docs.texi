@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1088 commands and 886 options.
+This chapter documents a total of 1089 commands and 886 options.
 
 @menu
 * acss-structure::
@@ -10100,6 +10100,7 @@ Implemented Hydras:
 @item  org-mode tables: <C-c t> Table UI for org-mode tables.
 @item m-player: Super-M Emacspeak-M-Player Commands
 @item hideshow C-c h hideshow
+@item toggle-option <C-c o> Toggle options
 @end itemize
 
 @subsection emacspeak-muggles Commands
@@ -10227,6 +10228,25 @@ The body can be accessed via ``emacspeak-muggles-org-table/body''.
 @end format
 @end deffn
 
+@subsubsection emacspeak-muggles-toggle-option/body
+@deffn {Command} emacspeak-muggles-toggle-option/body   
+@findex emacspeak-muggles-toggle-option/body
+
+@format
+Create a hydra with a "C-c o" body and the heads:
+
+"a":    ``abbrev-mode'',
+"d":    ``toggle-debug-on-error'',
+"f":    ``auto-fill-mode'',
+"g":    ``toggle-debug-on-quit'',
+"t":    ``toggle-truncate-lines'',
+"w":    ``whitespace-mode'',
+"q":    ``nil''
+
+The body can be accessed via ``emacspeak-muggles-toggle-option/body''.
+@end format
+@end deffn
+
 @subsubsection emacspeak-muggles-view/body
 @deffn {Command} emacspeak-muggles-view/body   
 @findex emacspeak-muggles-view/body
@@ -10234,6 +10254,7 @@ The body can be accessed via ``emacspeak-muggles-org-table/body''.
 @format
 Create a hydra with a "C-z" body and the heads:
 
+"$":    ``set-selective-display'',
 "'":    ``register-to-point'',
 "(":    ``backward-sexp'',
 ")":    ``forward-sexp'',
