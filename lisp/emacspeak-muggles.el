@@ -80,6 +80,19 @@
 (require 'emacspeak-m-player)
 
 ;;}}}
+;;{{{ Customizations:
+(defgroup emacspeak-muggles nil
+  "Muggles on the emacspeak desktop."
+  :group 'emacspeak)
+;;;###autoload
+(defcustom emacspeak-muggles-activate-p t
+  "Whether emacspeak Muggles are activated on startup."
+  :type '(choice
+          (const :tag "On" t)
+          (const :tag "Off" nil))
+  :group 'emacspeak-muggles)
+
+;;}}}
 ;;{{{ Emacspeak Helpers:
 
 (defun emacspeak-muggles-pre ()
@@ -317,7 +330,6 @@ _d_: subtree
   ("z" nil "leave"))
 
 ;;}}}
-
 (provide 'emacspeak-muggles)
 ;;{{{ end of file
 
