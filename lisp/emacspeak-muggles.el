@@ -109,8 +109,7 @@
 ;;{{{  View Mode:
 
 (defhydra emacspeak-muggles-view
-  (
-   global-map "C-z"
+  (global-map "C-z"
               :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
   "View Mode"
   ("$" set-selective-display)
@@ -239,7 +238,7 @@
 
 (defhydra  emacspeak-muggles-hideshow
   (global-map "C-c h"
-              :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
+              :pre emacspeak-muggles-pre :post emacspeak-muggles-post :color blue)
   "Hideshow"
   ("h" hs-hide-block)
   ("s" hs-show-block)
