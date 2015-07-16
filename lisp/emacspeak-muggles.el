@@ -113,6 +113,7 @@
    global-map "C-z"
               :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
   "View Mode"
+  ("$" set-selective-display)
   ("'" register-to-point)
   ("(" backward-sexp)
   (")" forward-sexp)
