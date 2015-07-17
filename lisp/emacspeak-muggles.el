@@ -171,7 +171,7 @@
   ("p" View-search-last-regexp-backward)
   ("q" nil "quit")
   ("u" View-scroll-half-page-backward)
-  ("w"kill-ring-save)
+  ("w"emacspeak-speak-word)
   ("x" exchange-point-and-mark)
   ("y" kill-ring-save "yank")
   ("{" backward-paragraph)
