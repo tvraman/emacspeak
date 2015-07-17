@@ -108,7 +108,7 @@
   newer versions of Emacs, loading this module will attempt to
   automatically install package hydra if it is not found.</p>
 
-  <p>Implemented Hydras:</p>
+  <p>Implemented Muggles:</p>
 
   <ul>
     <li>Brightness: &lt;print&gt; Control display brightness using
@@ -122,11 +122,13 @@
 
     <li>m-player: Super-M Emacspeak-M-Player Commands</li>
 
-    <li>hideshow C-c h hideshow</li>
+    <li>hideshow: C-c h Provide HideShow bindings.</li>
 
-    <li>toggle-option &lt;C-c o&gt; Toggle options</li>
+    <li>toggle-option: &lt;C-c o&gt; Single binding for toggling
+    options.</li>
 
-    <li>outliner &lt;C-c #&gt; outline-minor-mode</li>
+    <li>outliner: &lt;C-c #&gt; Bindings from
+    outline-minor-mode.</li>
   </ul><a name="emacspeak_002dmuggles-Commands" id=
   "emacspeak_002dmuggles-Commands"></a>
 
@@ -450,7 +452,7 @@ Create a hydra with no body and the heads:
 "p":    “View-search-last-regexp-backward”,
 "q":    “nil”,
 "u":    “View-scroll-half-page-backward”,
-"w":    “kill-ring-save”,
+"w":    “emacspeak-speak-word”,
 "x":    “exchange-point-and-mark”,
 "y":    “kill-ring-save”,
 "{":    “backward-paragraph”,
