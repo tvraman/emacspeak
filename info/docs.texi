@@ -1004,7 +1004,6 @@ N		emacspeak-view-emacspeak-news
 P		emacspeak-speak-paragraph-interactively
 R		emacspeak-speak-rectangle
 T		emacspeak-view-emacspeak-tips
-U		emacspeak-websearch-usenet
 V		emacspeak-speak-version
 W		emacspeak-tapestry-select-window-by-name
 [		emacspeak-speak-page
@@ -1038,6 +1037,7 @@ x		emacspeak-personal-keymap
 @{		emacspeak-speak-paragraph
 |		emacspeak-speak-line-set-column-filter
 DEL		cd-tool
+C-SPC		emacspeak-speak-current-mark
 <(deletechar>	emacspeak-ssh-tts-restart
 <C-<left>	emacspeak-select-this-buffer-previous-display
 <C-<right>	emacspeak-select-this-buffer-next-display
@@ -1074,6 +1074,7 @@ M-t		emacspeak-tapestry-describe-tapestry
 M-u		emacspeak-feeds-add-feed
 M-v		emacspeak-show-personality-at-point
 M-w		emacspeak-toggle-which-function
+C-M-SPC		emacspeak-speak-spaces-at-point
 
 C-t C-b		emacspeak-table-previous-column
 C-t C-f		emacspeak-table-next-column
@@ -10092,16 +10093,16 @@ You need to install package Hydra first:
 M-x package-install  hydra.
 Note that on newer versions of Emacs, loading this module will attempt to automatically install package hydra if it is not found.
 
-Implemented Hydras:
+Implemented Muggles:
 
 @itemize
 @item Brightness: <print> Control display brightness using xbacklight.
 @item View-Mode: <C-c v> Temporarily behave like view-mode.
 @item  org-mode tables: <C-c t> Table UI for org-mode tables.
 @item m-player: Super-M Emacspeak-M-Player Commands
-@item hideshow C-c h hideshow
-@item toggle-option <C-c o> Toggle options
-@item outliner <C-c #> outline-minor-mode
+@item hideshow: C-c h Provide HideShow bindings.
+@item toggle-option:  <C-c o> Single binding for toggling options.
+@item outliner: <C-c #> Bindings from outline-minor-mode.
 @end itemize
 
 @subsection emacspeak-muggles Commands
@@ -10330,7 +10331,7 @@ Create a hydra with no body and the heads:
 "p":    ``View-search-last-regexp-backward'',
 "q":    ``nil'',
 "u":    ``View-scroll-half-page-backward'',
-"w":    ``kill-ring-save'',
+"w":    ``emacspeak-speak-word'',
 "x":    ``exchange-point-and-mark'',
 "y":    ``kill-ring-save'',
 "@{":    ``backward-paragraph'',
@@ -12737,9 +12738,9 @@ to command yank.
 
 @subsubsection emacspeak-speak-current-mark
 @deffn {Command} emacspeak-speak-current-mark  (count)
-@kbd{C-e C-@@}
+@kbd{C-e C-SPC C-e C-@@}
 
-@kindex C-e C-@@
+@kindex C-e C-SPC C-e C-@@
 @findex emacspeak-speak-current-mark
 
 @format
@@ -13389,9 +13390,9 @@ Speech is scaled by the value of dtk-speak-skim-scale
 
 @subsubsection emacspeak-speak-spaces-at-point
 @deffn {Command} emacspeak-speak-spaces-at-point   
-@kbd{C-e C-M-@@}
+@kbd{C-e C-M-SPC C-e C-M-@@}
 
-@kindex C-e C-M-@@
+@kindex C-e C-M-SPC C-e C-M-@@
 @findex emacspeak-speak-spaces-at-point
 
 @format
