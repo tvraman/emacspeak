@@ -95,8 +95,9 @@
 ;;}}}
 ;;{{{ Emacspeak Helpers:
 
-(defun emacspeak-muggles-body-pre ()
+(defun emacspeak-muggles-body-pre (&optional name)
   "Provide auditory icon"
+  (when name (dtk-speak name))
   (emacspeak-auditory-icon 'open-object))
 
 (defun emacspeak-muggles-pre ()
@@ -114,7 +115,7 @@
 (global-set-key
  (kbd "<print>")
  (defhydra emacspeak-muggles-brightness
-  (:body-pre emacspeak-muggles-body-pre
+  (:body-pre (emacspeak-muggles-body-pre "Brightness")
               :pre emacspeak-muggles-pre
               :post emacspeak-muggles-post)
   "Brightness"
@@ -133,8 +134,7 @@
 (global-set-key
  (kbd  "C-c v")
  (defhydra emacspeak-muggles-view
-  (
-              :body-pre emacspeak-muggles-body-pre
+  (:body-pre (emacspeak-muggles-body-pre "View")
               :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
   "View Mode"
   ("$" set-selective-display)
@@ -185,7 +185,7 @@
 (define-key
   org-mode-map "C-c t"
   (defhydra emacspeak-muggles-org-table
-  (:body-pre emacspeak-muggles-body-pre
+  (:body-pre (emacspeak-muggles-body-pre "Org Table UI")
                 :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
   "Org Table UI"
   ("j" org-table-next-row)
@@ -204,7 +204,7 @@
 (define-key
   emacspeak-super-keymap "m"
   (defhydra emacspeak-muggles-m-player
-  (:body-pre emacspeak-muggles-body-pre
+  (:body-pre (emacspeak-muggles-body-pre "Media Player")
                           :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
   (";" emacspeak-m-player)
   ("+" emacspeak-m-player-volume-up)
@@ -268,7 +268,7 @@
  (kbd "C-c h")
  (defhydra  emacspeak-muggles-hideshow
   (
-              :body-pre emacspeak-muggles-body-pre
+              :body-pre (emacspeak-muggles-body-pre  "Hide Show")
               :pre emacspeak-muggles-pre :post emacspeak-muggles-post :color blue)
   "Hideshow"
   ("h" hs-hide-block)
@@ -285,7 +285,7 @@
 (global-set-key
  (kbd "C-c o")
  (defhydra emacspeak-muggles-toggle-option
-  (:color blue :body-pre emacspeak-muggles-body-pre
+  (:color blue :body-pre (emacspeak-muggles-body-pre "Toggle Option ")
 :pre emacspeak-muggles-pre :post emacspeak-muggles-post
               )
   "
@@ -314,7 +314,7 @@ _w_ whitespace-mode:   %`whitespace-mode
  (defhydra emacspeak-muggles-outliner 
   (:body-pre (progn
                      (outline-minor-mode 1)
-                     (emacspeak-muggles-body-pre))
+                     (emacspeak-muggles-body-pre "Outline Navigation"))
               :pre emacspeak-muggles-pre :post emacspeak-muggles-post
               :color pink :hint nil)
   "
