@@ -51,16 +51,16 @@
 ;;; M-x package-install  hydra.
 ;;; Note that on newer versions of Emacs, loading this module will attempt to automatically install package hydra if it is not found.
 
-;;; Implemented Hydras:
+;;; Implemented Muggles:
 
 ;;;@itemize
 ;;; @item Brightness: <print> Control display brightness using xbacklight.
 ;;; @item View-Mode: <C-c v> Temporarily behave like view-mode.
 ;;;@item  org-mode tables: <C-c t> Table UI for org-mode tables.
 ;;;@item m-player: Super-M Emacspeak-M-Player Commands
-;;; @item hideshow C-c h hideshow
-;;; @item toggle-option <C-c o> Toggle options
-;;; @item outliner <C-c #> outline-minor-mode
+;;; @item hideshow: C-c h Provide HideShow bindings.
+;;; @item toggle-option:  <C-c o> Single binding for toggling options.
+;;; @item outliner: <C-c #> Bindings from outline-minor-mode.
 ;;;@end itemize
 
 ;;; Code:
