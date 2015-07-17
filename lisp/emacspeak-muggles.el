@@ -97,6 +97,7 @@
 
 (defun emacspeak-muggles-body-pre ()
   "Provide auditory icon"
+  (message "body-pre")
   (emacspeak-auditory-icon 'open-object))
 
 (defun emacspeak-muggles-pre ()
@@ -131,6 +132,7 @@
 
 (defhydra emacspeak-muggles-view
   (global-map "C-c v"
+              :body-pre emacspeak-muggles-body-pre
               :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
   "View Mode"
   ("$" set-selective-display)
@@ -173,14 +175,14 @@
   ("x" exchange-point-and-mark)
   ("y" kill-ring-save "yank")
   ("{" backward-paragraph)
-  ("}" forward-paragraph)
-  )
+  ("}" forward-paragraph))
 
 ;;}}}
 ;;{{{ Org-Mode Table Navigation:
 
 (defhydra emacspeak-muggles-org-table
   (org-mode-map "C-c t"
+                :body-pre emacspeak-muggles-body-pre
                 :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
   "Org Table UI"
   ("j" org-table-next-row)
@@ -198,6 +200,7 @@
 
 (defhydra emacspeak-muggles-m-player
   (emacspeak-super-keymap "m"
+                          :body-pre emacspeak-muggles-body-pre
                           :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
   (";" emacspeak-m-player)
   ("+" emacspeak-m-player-volume-up)
@@ -259,6 +262,7 @@
 
 (defhydra  emacspeak-muggles-hideshow
   (global-map "C-c h"
+              :body-pre emacspeak-muggles-body-pre
               :pre emacspeak-muggles-pre :post emacspeak-muggles-post :color blue)
   "Hideshow"
   ("h" hs-hide-block)
@@ -273,7 +277,10 @@
 ;;; Cloned from hydra-examples.el and modified to tase.
 
 (defhydra emacspeak-muggles-toggle-option
-  (global-map "C-c o" :color blue)
+  (global-map "C-c o" :color blue
+:body-pre emacspeak-muggles-body-pre
+:pre emacspeak-muggles-pre :post emacspeak-muggles-post
+              )
   "
 _a_ abbrev-mode:       %`abbrev-mode
 _d_ debug-on-error:    %`debug-on-error
@@ -298,10 +305,10 @@ _w_ whitespace-mode:   %`whitespace-mode
 
 (defhydra emacspeak-muggles-outliner 
   (global-map "C-c #"
-              :pre (progn
+              :body-pre (progn
                      (outline-minor-mode 1)
-                     (emacspeak-muggles-pre))
-              :post emacspeak-muggles-post
+                     (emacspeak-muggles-body-pre))
+              :pre emacspeak-muggles-pre :post emacspeak-muggles-post
               :color pink :hint nil)
   "
 ^Hide^             ^Show^           ^Move
