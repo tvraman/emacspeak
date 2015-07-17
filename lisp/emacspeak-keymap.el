@@ -219,6 +219,7 @@
    ("M-%" emacspeak-goto-percent)
    ("M-;" emacspeak-webutils-play-media-at-point )
    ("M-C-@" emacspeak-speak-spaces-at-point)
+   ("M-C-SPC" emacspeak-speak-spaces-at-point)
    ("M-C-b" emacspeak-submit-bug )
    ("M-C-k" kill-emacs)
    ("M-a" emacspeak-set-auditory-icon-player)
