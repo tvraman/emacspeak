@@ -97,7 +97,6 @@
 
 (defun emacspeak-muggles-body-pre ()
   "Provide auditory icon"
-  (message "body-pre")
   (emacspeak-auditory-icon 'open-object))
 
 (defun emacspeak-muggles-pre ()
@@ -112,9 +111,10 @@
 ;;}}}
 ;;{{{ Brightness:
 
-(defhydra emacspeak-muggles-brightness
-  (global-map "<print>"
-              :body-pre emacspeak-muggles-body-pre
+(global-set-key
+ (kbd "<print>")
+ (defhydra emacspeak-muggles-brightness
+  (:body-pre emacspeak-muggles-body-pre
               :pre emacspeak-muggles-pre
               :post emacspeak-muggles-post)
   "Brightness"
@@ -125,13 +125,15 @@
   ("s" xbacklight-set "set")
   ("0" (xbacklight-set 0) "black")
   ("<print>" (xbacklight-set 0) "black")
-  ("1" (xbacklight-set 100) "white"))
+  ("1" (xbacklight-set 100) "white")))
 
 ;;}}}
 ;;{{{  View Mode:
 
-(defhydra emacspeak-muggles-view
-  (global-map "C-c v"
+(global-set-key
+ (kbd  "C-c v")
+ (defhydra emacspeak-muggles-view
+  (
               :body-pre emacspeak-muggles-body-pre
               :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
   "View Mode"
@@ -175,14 +177,15 @@
   ("x" exchange-point-and-mark)
   ("y" kill-ring-save "yank")
   ("{" backward-paragraph)
-  ("}" forward-paragraph))
+  ("}" forward-paragraph)))
 
 ;;}}}
 ;;{{{ Org-Mode Table Navigation:
 
-(defhydra emacspeak-muggles-org-table
-  (org-mode-map "C-c t"
-                :body-pre emacspeak-muggles-body-pre
+(define-key
+  org-mode-map "C-c t"
+  (defhydra emacspeak-muggles-org-table
+  (:body-pre emacspeak-muggles-body-pre
                 :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
   "Org Table UI"
   ("j" org-table-next-row)
@@ -193,14 +196,15 @@
   ("."emacspeak-org-table-speak-coordinates)
   ("b"emacspeak-org-table-speak-both-headers-and-element)
   ("r"emacspeak-org-table-speak-row-header-and-element)
-  ("c"emacspeak-org-table-speak-column-header-and-element))
+  ("c"emacspeak-org-table-speak-column-header-and-element)))
 
 ;;}}}
 ;;{{{ Media Player:
 
-(defhydra emacspeak-muggles-m-player
-  (emacspeak-super-keymap "m"
-                          :body-pre emacspeak-muggles-body-pre
+(define-key
+  emacspeak-super-keymap "m"
+  (defhydra emacspeak-muggles-m-player
+  (:body-pre emacspeak-muggles-body-pre
                           :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
   (";" emacspeak-m-player)
   ("+" emacspeak-m-player-volume-up)
@@ -255,13 +259,15 @@
   (")" emacspeak-m-player-right-channel)
   ("{" emacspeak-m-player-half-speed)
   ("}" emacspeak-m-player-double-speed)
-  )
+  ))
 
 ;;}}}
 ;;{{{ HideShow:
 
-(defhydra  emacspeak-muggles-hideshow
-  (global-map "C-c h"
+(global-set-key
+ (kbd "C-c h")
+ (defhydra  emacspeak-muggles-hideshow
+  (
               :body-pre emacspeak-muggles-body-pre
               :pre emacspeak-muggles-pre :post emacspeak-muggles-post :color blue)
   "Hideshow"
@@ -269,16 +275,17 @@
   ("s" hs-show-block)
   ("H" hs-hide-all)
   ("S" hs-show-all)
-  ("i" hs-hide-initial-comment-block))
+  ("i" hs-hide-initial-comment-block)))
 
 ;;}}}
 ;;{{{ Option Toggle
 
 ;;; Cloned from hydra-examples.el and modified to tase.
-
-(defhydra emacspeak-muggles-toggle-option
-  (global-map "C-c o" :color blue
-:body-pre emacspeak-muggles-body-pre
+(require 'whitespace)
+(global-set-key
+ (kbd "C-c o")
+ (defhydra emacspeak-muggles-toggle-option
+  (:color blue :body-pre emacspeak-muggles-body-pre
 :pre emacspeak-muggles-pre :post emacspeak-muggles-post
               )
   "
@@ -296,16 +303,16 @@ _w_ whitespace-mode:   %`whitespace-mode
   ("g"  toggle-debug-on-quit  )
   ("t" toggle-truncate-lines )
   ("w" whitespace-mode )
-  ("q" nil "quit"))
+  ("q" nil "quit")))
 
 ;;}}}
 ;;{{{ Outliner:
 
 ;;; Cloned from Hydra Wiki:
-
-(defhydra emacspeak-muggles-outliner 
-  (global-map "C-c #"
-              :body-pre (progn
+(global-set-key
+ (kbd "C-c #")
+ (defhydra emacspeak-muggles-outliner 
+  (:body-pre (progn
                      (outline-minor-mode 1)
                      (emacspeak-muggles-body-pre))
               :pre emacspeak-muggles-pre :post emacspeak-muggles-post
@@ -340,7 +347,7 @@ _d_: subtree
   ("p" outline-previous-visible-heading)  ; Previous
   ("f" outline-forward-same-level)        ; Forward - same level
   ("b" outline-backward-same-level)       ; Backward - same level
-  ("z" nil "leave"))
+  ("z" nil "leave")))
 
 ;;}}}
 (provide 'emacspeak-muggles)
