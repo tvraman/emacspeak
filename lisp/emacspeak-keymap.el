@@ -240,7 +240,6 @@
    ("R" emacspeak-speak-rectangle)
    ("SPC" emacspeak-speak-header-line)
    ("T" emacspeak-view-emacspeak-tips )
-   ("U" emacspeak-websearch-usenet)
    ("V" emacspeak-speak-version)
    ("W" emacspeak-tapestry-select-window-by-name)
    ("[" emacspeak-speak-page)
