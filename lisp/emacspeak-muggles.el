@@ -277,12 +277,12 @@ _t_ truncate-lines:    %`truncate-lines
 _w_ whitespace-mode:   %`whitespace-mode
 
 "
-  ("a" abbrev-mode nil)
-  ("d" toggle-debug-on-error nil)
-  ("f" auto-fill-mode nil)
-  ("g"  toggle-debug-on-quit  nil)
-  ("t" toggle-truncate-lines nil)
-  ("w" whitespace-mode nil)
+  ("a" abbrev-mode )
+  ("d" toggle-debug-on-error )
+  ("f" auto-fill-mode )
+  ("g"  toggle-debug-on-quit  )
+  ("t" toggle-truncate-lines )
+  ("w" whitespace-mode )
   ("q" nil "quit"))
 
 ;;}}}
