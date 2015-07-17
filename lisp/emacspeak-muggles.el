@@ -95,8 +95,13 @@
 ;;}}}
 ;;{{{ Emacspeak Helpers:
 
-(defun emacspeak-muggles-pre () "Provide auditory icon"
-(emacspeak-auditory-icon 'progress))
+(defun emacspeak-muggles-body-pre ()
+  "Provide auditory icon"
+  (emacspeak-auditory-icon 'open-object))
+
+(defun emacspeak-muggles-pre ()
+  "Provide auditory icon"
+  (emacspeak-auditory-icon 'progress))
 
 
 (defun emacspeak-muggles-post ()
@@ -108,6 +113,7 @@
 
 (defhydra emacspeak-muggles-brightness
   (global-map "<print>"
+              :body-pre emacspeak-muggles-body-pre
               :pre emacspeak-muggles-pre
               :post emacspeak-muggles-post)
   "Brightness"
