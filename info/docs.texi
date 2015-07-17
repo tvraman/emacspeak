@@ -10108,10 +10108,13 @@ Implemented Hydras:
 
 @subsubsection emacspeak-muggles-brightness/body
 @deffn {Command} emacspeak-muggles-brightness/body   
+@kbd{<print>}
+
+@kindex <print>
 @findex emacspeak-muggles-brightness/body
 
 @format
-Create a hydra with a "<print>" body and the heads:
+Create a hydra with no body and the heads:
 
 "i":    ``xbacklight-increment'',
 "SPC":    ``xbacklight-increment'',
@@ -10128,10 +10131,13 @@ The body can be accessed via ``emacspeak-muggles-brightness/body''.
 
 @subsubsection emacspeak-muggles-hideshow/body
 @deffn {Command} emacspeak-muggles-hideshow/body   
+@kbd{C-c h}
+
+@kindex C-c h
 @findex emacspeak-muggles-hideshow/body
 
 @format
-Create a hydra with a "C-c h" body and the heads:
+Create a hydra with no body and the heads:
 
 "h":    ``hs-hide-block'',
 "s":    ``hs-show-block'',
@@ -10148,7 +10154,7 @@ The body can be accessed via ``emacspeak-muggles-hideshow/body''.
 @findex emacspeak-muggles-m-player/body
 
 @format
-Create a hydra with a "m" body and the heads:
+Create a hydra with no body and the heads:
 
 ";":    ``emacspeak-m-player'',
 "+":    ``emacspeak-m-player-volume-up'',
@@ -10213,7 +10219,7 @@ The body can be accessed via ``emacspeak-muggles-m-player/body''.
 @findex emacspeak-muggles-org-table/body
 
 @format
-Create a hydra with a "C-c t" body and the heads:
+Create a hydra with no body and the heads:
 
 "j":    ``org-table-next-row'',
 "k":    ``org-table-previous-row'',
@@ -10234,7 +10240,7 @@ The body can be accessed via ``emacspeak-muggles-org-table/body''.
 @findex emacspeak-muggles-outliner/body
 
 @format
-Create a hydra with a "C-c #" body and the heads:
+Create a hydra with no body and the heads:
 
 "q":    ``hide-sublevels'',
 "t":    ``hide-body'',
@@ -10260,10 +10266,13 @@ The body can be accessed via ``emacspeak-muggles-outliner/body''.
 
 @subsubsection emacspeak-muggles-toggle-option/body
 @deffn {Command} emacspeak-muggles-toggle-option/body   
+@kbd{C-c o}
+
+@kindex C-c o
 @findex emacspeak-muggles-toggle-option/body
 
 @format
-Create a hydra with a "C-c o" body and the heads:
+Create a hydra with no body and the heads:
 
 "a":    ``abbrev-mode'',
 "d":    ``toggle-debug-on-error'',
@@ -10279,10 +10288,13 @@ The body can be accessed via ``emacspeak-muggles-toggle-option/body''.
 
 @subsubsection emacspeak-muggles-view/body
 @deffn {Command} emacspeak-muggles-view/body   
+@kbd{C-c v}
+
+@kindex C-c v
 @findex emacspeak-muggles-view/body
 
 @format
-Create a hydra with a "C-c v" body and the heads:
+Create a hydra with no body and the heads:
 
 "$":    ``set-selective-display'',
 "'":    ``register-to-point'',
@@ -10317,8 +10329,6 @@ Create a hydra with a "C-c v" body and the heads:
 "n":    ``View-search-last-regexp-forward'',
 "p":    ``View-search-last-regexp-backward'',
 "q":    ``nil'',
-"r":    ``isearch-backward'',
-"s":    ``isearch-forward'',
 "u":    ``View-scroll-half-page-backward'',
 "w":    ``kill-ring-save'',
 "x":    ``exchange-point-and-mark'',
