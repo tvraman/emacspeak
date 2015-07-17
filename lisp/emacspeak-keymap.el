@@ -194,6 +194,7 @@
    ("B" emacspeak-speak-buffer-interactively)
    ("C" emacspeak-customize)
    ("C-@" emacspeak-speak-current-mark )
+   ("C-SPC" emacspeak-speak-current-mark )
    ("C-b" emacspeak-bookshare)
    ("C-c" emacspeak-clipboard-copy)
    ("C-d" emacspeak-toggle-show-point)
