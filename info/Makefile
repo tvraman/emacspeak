@@ -73,6 +73,9 @@ man: emacspeak.texi
 	tidy -q -utf8 -mic -asxml  ${GH_PAGES}/*.html 2>&1 > /dev/null  || echo tidy
 	echo "Commit and push updated HTML files from gh-pages!"
 
+publish:
+	cd ../../gh-pages-emacspeak && make
+
 introducing-emacspeak.html: introducing-emacspeak.texi
 	makeinfo --no-split --html  introducing-emacspeak.texi
 	perl add-css.pl introducing-emacspeak.html
