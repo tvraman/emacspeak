@@ -95,9 +95,9 @@
 ;;}}}
 ;;{{{ Emacspeak Helpers:
 
-(defun emacspeak-muggles-pre ()
-  "Provide auditory icon"
-  (emacspeak-auditory-icon 'open-object))
+(defun emacspeak-muggles-pre () "Provide auditory icon"
+(emacspeak-auditory-icon 'progress))
+
 
 (defun emacspeak-muggles-post ()
   "Provide auditory icon"
