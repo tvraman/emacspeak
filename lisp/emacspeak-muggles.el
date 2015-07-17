@@ -138,6 +138,7 @@
   (">" end-of-buffer)
   ("@" View-back-to-mark)
   ("SPC" View-scroll-page-forward)
+  ("DEL" View-scroll-page-backward)
   ("[" previous-page)
   ("\\" View-search-regexp-backward)
   ("]" next-page)
@@ -149,7 +150,7 @@
   ("d" View-scroll-half-page-forward)
   ("e" move-end-of-line "end")
   ("f" forward-word)
-  ("g" View-goto-line)
+  ("g" goto-line)
   ("h" backward-char)
   ("i" emacspeak-speak-mode-line)
   ("j" next-line)
@@ -173,8 +174,7 @@
 ;;{{{ Org-Mode Table Navigation:
 
 (defhydra emacspeak-muggles-org-table
-  (
-   org-mode-map "C-c t"
+  (org-mode-map "C-c t"
                 :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
   "Org Table UI"
   ("j" org-table-next-row)
