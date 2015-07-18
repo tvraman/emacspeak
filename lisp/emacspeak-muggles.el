@@ -7,8 +7,6 @@
 ;;; LCD Archive Entry:
 ;;; emacspeak| T. V. Raman |raman@cs.cornell.edu
 ;;; A speech interface to Emacs |
-;;; $Date: 2007-05-03 18:13:44 -0700 (Thu, 03 May 2007) $ |
-;;;  $Revision: 4532 $ |
 ;;; Location undetermined
 ;;;
 
@@ -108,6 +106,18 @@
 (defun emacspeak-muggles-post ()
   "Provide auditory icon"
   (emacspeak-auditory-icon 'close-object))
+
+;;}}}
+;;{{{ Advice LV:
+
+(defadvice lv-message (after emacspeak pre act comp)
+  "provide spoken feedback if idle."
+  (let ((buffer (get-buffer "*LV*"))
+        (dtk-stop-immediately nil))
+    (when (and buffer  (buffer-live-p buffer)
+               (sit-for 3))
+      (emacspeak-auditory-icon 'help)
+      (with-current-buffer buffer (dtk-speak (buffer-string))))))
 
 ;;}}}
 ;;{{{ Brightness:
