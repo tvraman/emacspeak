@@ -122,10 +122,10 @@ this pattern if previously added.  Cleaning up repeated
 patterns results in emacspeak speaking the pattern followed
 by a repeat count instead of speaking all the characters
 making up the pattern.  Thus, by adding the repeating
-pattern “.” (this is already added by default) emacspeak
-will say ““aw fifteen dot”’ when speaking the string
-““...............”’ instead of ““period period period period
-”’
+pattern ‘.’ (this is already added by default) emacspeak
+will say “aw fifteen dot” when speaking the string
+“...............” instead of “period period period period
+”
 </pre>
       </div>
     </dd>
@@ -405,7 +405,7 @@ Switch to the previous available language
       <div class="format">
         <pre class="format">
 Set punctuation mode to MODE.
-Possible values are “some”, “all”, or “none”.
+Possible values are ‘some’, ‘all’, or ‘none’.
 Interactive PREFIX arg means set   the global default value, and then set the
 current local  value to the result.
 </pre>
@@ -696,7 +696,7 @@ This affects the internal state of emacspeak that decides if we split
 text purely by clause boundaries, or also include
 whitespace.  By default, emacspeak sends a clause at a time
 to the speech device.  This produces fluent speech for
-normal use.  However in modes such as “shell-mode” and some
+normal use.  However in modes such as ‘shell-mode’ and some
 programming language modes, clause markers appear
 infrequently, and this can result in large amounts of text
 being sent to the speech device at once, making the system
@@ -809,7 +809,7 @@ Speak version.
 
     <dd>
       <p>List of repeating patterns to clean up. You can use
-      command “dtk-add-cleanup-pattern” bound to C-e d a to add
+      command ‘dtk-add-cleanup-pattern’ bound to C-e d a to add
       more patterns. Specify patterns that people use to decorate
       their ASCII files, and cause untold pain to the speech
       synthesizer.</p>
@@ -862,7 +862,7 @@ Speak version.
     <dd>
       <p>*Value of speech rate increment. This determines step size
       used when setting speech rate via command
-      “dtk-set-predefined-speech-rate”. Formula used is
+      ‘dtk-set-predefined-speech-rate’. Formula used is
       dtk-speech-rate-base + dtk-speech-rate-step*level.</p>
     </dd>
   </dl>

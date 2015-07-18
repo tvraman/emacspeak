@@ -131,7 +131,7 @@ suitable for browsing the results.
 
 For detailed help, invoke command emacspeak-ocr bound to
 C-e C-o to launch emacspeak-ocr-mode, and press
-“?” to display mode-specific help for emacspeak-ocr-mode.
+‘?’ to display mode-specific help for emacspeak-ocr-mode.
 </pre>
       </div>
     </dd>
@@ -206,7 +206,7 @@ Run OCR engine on current image after flip-flopping it.
 Useful if you’ve scanned a page upside down and are using an engine that does not automatically flip the image for you.
 You need the imagemagik family of tools — we use mogrify to transform the image.
 Prompts for image file if file corresponding to the expected
-“current page” is not found.
+‘current page’ is not found.
 </pre>
       </div>
     </dd>
@@ -260,12 +260,12 @@ Pre-requisites:
 the utilities to scan a document and acquire an image as a
 tiff file.  Then set variable
 emacspeak-ocr-scan-image-program to point at this utility.
-By default, this is set to “scanimage” which is the image
+By default, this is set to ‘scanimage’ which is the image
 scanning utility provided by SANE.
 
 By default, this front-end attempts to compress the acquired
 tiff image; make sure you have a utility like tiffcp.
-Variable emacspeak-ocr-compress-image is set to “tiffcp” by
+Variable emacspeak-ocr-compress-image is set to ‘tiffcp’ by
 default; if you use something else, you should customize
 this variable.
 
@@ -293,7 +293,7 @@ images and the resulting text are saved under directory
 Invoking command emacspeak-ocr-open-working-directory bound
 to M-x emacspeak-ocr-open-working-directory will open this directory.
 
-By default, the document being scanned is named “untitled”.
+By default, the document being scanned is named ‘untitled’.
 You can name the document by using command
 emacspeak-ocr-name-document bound to
 M-x emacspeak-ocr-name-document.  The document name is used
@@ -326,8 +326,8 @@ w               emacspeak-ocr-write-document
 
 .
 
-In addition to any hooks its parent mode “text-mode” might have run,
-this mode runs the hook “emacspeak-ocr-mode-hook”, as the final step
+In addition to any hooks its parent mode ‘text-mode’ might have run,
+this mode runs the hook ‘emacspeak-ocr-mode-hook’, as the final step
 during initialization.
 </pre>
       </div>
@@ -445,7 +445,7 @@ Speaks current page.
         <pre class="format">
 Run OCR engine on current image.
 Prompts for image file if file corresponding to the expected
-“current page” is not found.
+‘current page’ is not found.
 </pre>
       </div>
     </dd>
