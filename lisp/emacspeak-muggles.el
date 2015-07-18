@@ -161,6 +161,7 @@
  (kbd  "C-c v")
  (defhydra emacspeak-muggles-view
    (:body-pre (emacspeak-muggles-body-pre "View")
+              :hint nil
               :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
    "View Mode"
    ("$" set-selective-display)
@@ -181,11 +182,11 @@
    ("[" previous-page)
    ("\\" View-search-regexp-backward)
    ("]" next-page)
-   ("a" move-beginning-of-line "beg")
+   ("a" move-beginning-of-line )
    ("b" backward-word)
    ("c" emacspeak-speak-char)
    ("d" View-scroll-half-page-forward)
-   ("e" move-end-of-line "end")
+   ("e" move-end-of-line )
    ("f" forward-word)
    ("g" goto-line)
    ("h" backward-char)
@@ -202,7 +203,7 @@
    ("u" View-scroll-half-page-backward)
    ("w"emacspeak-speak-word)
    ("x" exchange-point-and-mark)
-   ("y" kill-ring-save "yank")
+   ("y" kill-ring-save)
    ("{" backward-paragraph)
    ("}" forward-paragraph)
    ))
@@ -233,10 +234,12 @@
   emacspeak-super-keymap "m"
   (defhydra emacspeak-muggles-m-player
     (:body-pre (emacspeak-muggles-body-pre "Media Player")
+               :hint nil
                :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
     (";" emacspeak-m-player)
     ("+" emacspeak-m-player-volume-up)
     ("," emacspeak-m-player-backward-10s)
+    ("%" emacspeak-m-player-display-percent)
     ("-" emacspeak-m-player-volume-down)
     ("." emacspeak-m-player-forward-10s)
     ("<" emacspeak-m-player-backward-1min)
@@ -258,7 +261,7 @@
     ("M-l" emacspeak-m-player-load-playlist)
     ("O" emacspeak-m-player-reset-options)
     ("P" emacspeak-m-player-apply-reverb-preset)
-    ("Q" emacspeak-m-player-quit)
+    ("Q" emacspeak-m-player-quit "quit")
     ("R" emacspeak-m-player-edit-reverb)
     ("S" emacspeak-amark-save)
     ("SPC" emacspeak-m-player-pause)
