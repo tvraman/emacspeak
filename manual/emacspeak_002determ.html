@@ -117,7 +117,7 @@
     "index-emacspeak_002determ_002dcopy_002dregion_002dto_002dregister">
     </a>Command:
     <strong>emacspeak-eterm-copy-region-to-register</strong>
-    <em>(register)</em></dt>
+    <em>(&amp;rest rest)</em></dt>
 
     <dd>
       <a name=
@@ -128,10 +128,14 @@
 
       <div class="format">
         <pre class="format">
+:around advice: “ad-Advice-emacspeak-eterm-copy-region-to-register”
+
 Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
 emacspeak eterm pointer to a register.
+
+(fn REGISTER)
 </pre>
       </div>
     </dd>
@@ -273,8 +277,8 @@ in a non eterm buffer if executed via C-e C-e
     <dt><a name="index-emacspeak_002determ_002dpaste_002dregister"
     id=
     "index-emacspeak_002determ_002dpaste_002dregister"></a>Command:
-    <strong>emacspeak-eterm-paste-register</strong>
-    <em>(register)</em></dt>
+    <strong>emacspeak-eterm-paste-register</strong> <em>(&amp;rest
+    rest)</em></dt>
 
     <dd>
       <a name="index-emacspeak_002determ_002dpaste_002dregister-1"
@@ -282,9 +286,13 @@ in a non eterm buffer if executed via C-e C-e
 
       <div class="format">
         <pre class="format">
+:around advice: “ad-Advice-emacspeak-eterm-paste-register”
+
 Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
 sent to the terminal as if it were typed by the user.
+
+(fn REGISTER)
 </pre>
       </div>
     </dd>
@@ -720,8 +728,8 @@ Search forward on the terminal.
       <div class="format">
         <pre class="format">
 Prompt for the id of a predefined window,
-and set the ‘filter’ window to it.
-Non-nil interactive prefix arg ‘unsets’ the filter window;
+and set the “filter” window to it.
+Non-nil interactive prefix arg “unsets” the filter window;
 this is equivalent to having the entire terminal as the filter window (this is
 what eterm starts up with).
 Setting the filter window results in emacspeak  only monitoring screen
@@ -751,8 +759,8 @@ activity within the filter window.
       <div class="format">
         <pre class="format">
 Prompt for the id of a predefined window,
-and set the ‘focus’ window to it.
-Non-nil interactive prefix arg ‘unsets’ the focus window;
+and set the “focus” window to it.
+Non-nil interactive prefix arg “unsets” the focus window;
 this is equivalent to having the entire terminal as the focus window (this is
 what eterm starts up with).
 Setting the focus window results in emacspeak  monitoring screen

@@ -344,7 +344,7 @@ Numeric prefix arg COUNT specifies number of lines to move.
 
       <div class="format">
         <pre class="format">
-Scroll down  the window that command ‘other-window’ would move to.
+Scroll down  the window that command “other-window” would move to.
 Speak the window contents after scrolling.
 </pre>
       </div>
@@ -369,7 +369,7 @@ Speak the window contents after scrolling.
 
       <div class="format">
         <pre class="format">
-Scroll up the window that command ‘other-window’ would move to.
+Scroll up the window that command “other-window” would move to.
 Speak the window contents after scrolling.
 </pre>
       </div>
@@ -561,7 +561,7 @@ Run shell command and speak its output.
         <pre class="format">
 Silence is golden. Stop speech, and pause/resume any media
 streams.
-Runs ‘emacspeak-silence-hook’ which can be used to configure
+Runs “emacspeak-silence-hook” which can be used to configure
 which media players get silenced or paused/resumed.
 </pre>
       </div>
@@ -649,7 +649,7 @@ Speak extent delimited by point and last character typed.
         <pre class="format">
 Browse current buffer.
 Default is to speak chunk having current personality.
-Interactive prefix arg ‘browse’  repeatedly browses  through
+Interactive prefix arg “browse”  repeatedly browses  through
   chunks having same personality as the current text chunk.
 </pre>
       </div>
@@ -677,7 +677,7 @@ Speak current buffer  contents.
 With prefix ARG, speaks the rest of the buffer from point.
 Negative prefix arg speaks from start of buffer to point.
  If voice lock mode is on, the paragraphs in the buffer are
-voice annotated first,  see command ‘emacspeak-speak-voice-annotate-paragraphs’.
+voice annotated first,  see command “emacspeak-speak-voice-annotate-paragraphs”.
 </pre>
       </div>
     </dd>
@@ -705,7 +705,7 @@ voice annotated first,  see command ‘emacspeak-speak-voice-annotate-paragraphs
 Speak name of file being visited in current buffer.
 Speak default directory if invoked in a dired buffer,
 or when the buffer is not visiting any file.
-Interactive prefix arg ‘filename’ speaks only the final path
+Interactive prefix arg “filename” speaks only the final path
 component.
 The result is put in the kill ring for convenience.
 </pre>
@@ -944,10 +944,10 @@ to command yank.
         <pre class="format">
 Speak the line containing the mark.
 With no argument, speaks the
-line containing the mark–this is where ‘exchange-point-and-mark’
+line containing the mark–this is where “exchange-point-and-mark”
 C-x C-x would jump.  Numeric prefix arg ’COUNT’ speaks
 line containing mark ’n’ where ’n’ is one less than the number of
-times one has to jump using ‘set-mark-command’ to get to this marked
+times one has to jump using “set-mark-command” to get to this marked
 position.  The location of the mark is indicated by an aural highlight
 achieved by a change in voice personality.
 </pre>
@@ -1044,7 +1044,7 @@ Seconds value is also placed in the kill-ring.
       <div class="format">
         <pre class="format">
 Display char under point using current speech display table.
-Behavior is the same as command ‘emacspeak-speak-char’
+Behavior is the same as command “emacspeak-speak-char”
 bound to C-e c
 for characters in the range 0–127.
 Optional argument PREFIX  specifies that the character should be spoken phonetically.
@@ -1221,13 +1221,13 @@ Speak host name.
         <pre class="format">
 Speaks current line.  With prefix ARG, speaks the rest of the line
 from point.  Negative prefix optional arg speaks from start of line to
-point.  Voicifies if option ‘voice-lock-mode’ is on.  Indicates
+point.  Voicifies if option “voice-lock-mode” is on.  Indicates
 indentation with a tone if audio indentation is in use.  Indicates
 position of point with an aural highlight if option
-‘emacspeak-show-point’ is turned on –see command
-‘emacspeak-show-point’ bound to M-x emacspeak-show-point.  Lines that
+“emacspeak-show-point” is turned on –see command
+“emacspeak-show-point” bound to M-x emacspeak-show-point.  Lines that
 start hidden blocks of text, e.g.  outline header lines, or header
-lines of blocks created by command ‘emacspeak-hide-or-expose-block’
+lines of blocks created by command “emacspeak-hide-or-expose-block”
 are indicated with auditory icon ellipses.
 </pre>
       </div>
@@ -1377,7 +1377,7 @@ directory.
         <pre class="format">
 Speak the last message from Emacs once again.
 The message is also placed in the kill ring for convenient yanking
-if ‘emacspeak-speak-message-again-should-copy-to-kill-ring’ is set.
+if “emacspeak-speak-message-again-should-copy-to-kill-ring” is set.
 </pre>
       </div>
     </dd>
@@ -1683,11 +1683,11 @@ Useful to listen to a buffer without switching  contexts.
 
       <div class="format">
         <pre class="format">
-Speak contents of ‘other’ window.
+Speak contents of “other” window.
 Speaks entire window irrespective of point.
-Semantics  of ‘other’ is the same as for the builtin Emacs command
-‘other-window’.
-Optional argument ARG  specifies ‘other’ window to speak.
+Semantics  of “other” is the same as for the builtin Emacs command
+“other-window”.
+Optional argument ARG  specifies “other” window to speak.
 </pre>
       </div>
     </dd>
@@ -1713,7 +1713,7 @@ Optional argument ARG  specifies ‘other’ window to speak.
 Speak a page.
 With prefix ARG, speaks rest of current page.
 Negative prefix arg will read from start of current page to point.
-If option  ‘voice-lock-mode’ is on, then it will use any defined personality.
+If option  “voice-lock-mode” is on, then it will use any defined personality.
 </pre>
       </div>
     </dd>
@@ -1854,8 +1854,8 @@ Speaks entire window irrespective of point.
 In general, you’ll never have Emacs split the screen into more than
 two or three.
 Argument ARG determines the ’other’ window to speak.
-Semantics  of ‘other’ is the same as for the builtin Emacs command
-‘other-window’.
+Semantics  of “other” is the same as for the builtin Emacs command
+“other-window”.
 </pre>
       </div>
     </dd>
@@ -2165,7 +2165,7 @@ Set punctuation mode for all buffers in current mode.
 Speak current sexp.
 With prefix ARG, speaks the rest of the sexp  from point.
 Negative prefix arg speaks from start of sexp to point.
-If option  ‘voice-lock-mode’ is on, then uses the personality.
+If option  “voice-lock-mode” is on, then uses the personality.
 </pre>
       </div>
     </dd>
@@ -2445,7 +2445,7 @@ personality.
       <div class="format">
         <pre class="format">
 Speak the time.
-Optional interactive prefix arg ‘C-u’invokes world clock.
+Optional interactive prefix arg “C-u”invokes world clock.
 Timezone is specified using minibuffer completion.
 Second interactive prefix sets clock to new timezone.
 </pre>
@@ -2601,7 +2601,7 @@ any other key to speak entire word.
       <div class="format">
         <pre class="format">
 Display current date and time  for specified zone.
-Optional second arg ‘set’ sets the TZ environment variable as well.
+Optional second arg “set” sets the TZ environment variable as well.
 </pre>
       </div>
     </dd>
@@ -2680,9 +2680,9 @@ current local  value to the result.
 Toggle state of  Emacspeak  audio indentation.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.
-Specifying the method of indentation as ‘tones’
+Specifying the method of indentation as “tones”
 results in the Dectalk producing a tone whose length is a function of the
-line’s indentation.  Specifying ‘speak’
+line’s indentation.  Specifying “speak”
 results in the number of initial spaces being spoken.
 </pre>
       </div>
@@ -3075,7 +3075,7 @@ Send this command to the TTS directly.
     <dd>
       <p>Option indicating if line indentation is cued. If non-nil
       , then speaking a line indicates its indentation. You can use
-      command ‘emacspeak-toggle-audio-indentation’ bound to C-e d i
+      command “emacspeak-toggle-audio-indentation” bound to C-e d i
       to toggle this setting..</p>
     </dd>
   </dl>
@@ -3088,7 +3088,7 @@ Send this command to the TTS directly.
 
     <dd>
       <p>*Current technique used to cue indentation. Default is
-      ‘speak’. You can specify ‘tone’ for producing a beep
+      “speak”. You can specify “tone” for producing a beep
       indicating the indentation. Automatically becomes local in
       any buffer where it is set.</p>
     </dd>
@@ -3112,7 +3112,7 @@ Send this command to the TTS directly.
 
     <dd>
       <p>Says if comint output is automatically spoken. You can use
-      ‘emacspeak-toggle-comint-autospeak‘ bound to C-e C-q to
+      “emacspeak-toggle-comint-autospeak“ bound to C-e C-q to
       toggle this setting.</p>
     </dd>
   </dl>
@@ -3159,7 +3159,7 @@ Send this command to the TTS directly.
       <p>*Option to indicate cueing of new mail. If t, emacspeak
       will alert you about newly arrived mail with an auditory icon
       when displaying the mode line. You can use command
-      ‘emacspeak-toggle-mail-alert’ bound to C-e M-m to set this
+      “emacspeak-toggle-mail-alert” bound to C-e M-m to set this
       option. If you have online access to a voicemail drop, you
       can have a voice-mail alert set up by specifying the location
       of the voice-mail drop via custom option
@@ -3263,7 +3263,7 @@ Send this command to the TTS directly.
     <em>emacspeak-speak-line-invert-filter</em></dt>
 
     <dd>
-      <p>Non-nil means the sense of ‘filter’ is inverted when
+      <p>Non-nil means the sense of “filter” is inverted when
       filtering columns in a line –see command
       emacspeak-speak-line-set-column-filter.</p>
     </dd>
@@ -3289,7 +3289,7 @@ Send this command to the TTS directly.
     <em>emacspeak-speak-maximum-line-length</em></dt>
 
     <dd>
-      <p>*Threshold for determining ‘long’ lines. Emacspeak will
+      <p>*Threshold for determining “long” lines. Emacspeak will
       ask for confirmation before speaking lines that are longer
       than this length. This is to avoid accidentally opening a
       binary file and torturing the speech synthesizer with a long
@@ -3306,7 +3306,7 @@ Send this command to the TTS directly.
       <p>*Option indicating if messages are spoken. If nil,
       emacspeak will not speak messages as they are echoed to the
       message area. You can use command
-      ‘emacspeak-toggle-speak-messages’ bound to C-e q.</p>
+      “emacspeak-toggle-speak-messages” bound to C-e q.</p>
     </dd>
   </dl>
 
@@ -3340,7 +3340,7 @@ Send this command to the TTS directly.
     <dd>
       <p>*Format string that specifies how the time should be
       spoken. See the documentation for function
-      ‘format-time-string’</p>
+      “format-time-string”</p>
     </dd>
   </dl>
 
