@@ -128,7 +128,9 @@
     (when (and buffer  (buffer-live-p buffer)
                (sit-for 3))
       (emacspeak-auditory-icon 'help)
-      (with-current-buffer buffer (dtk-speak (buffer-string))))))
+      (with-current-buffer buffer
+        (dtk-speak ;; will lose brackets
+         (replace-regexp-in-string "[][]" "" (buffer-string)))))))
 
 ;;}}}
 ;;{{{ Brightness:
