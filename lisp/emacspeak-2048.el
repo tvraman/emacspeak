@@ -117,14 +117,18 @@
   "Add a column  to the current board."
   (interactive)
   (declare (special *2048-board* *2048-columns*))
-  (setq *2048-columns* (incf *2048-columns*))
-  (let ((board (copy-sequence *2048-board*)))
+  (let ((board (copy-sequence *2048-board*))
+        (index 0)
+        (cols *2048-columns*))
+    (setq *2048-columns* (incf *2048-columns*))
     (setq *2048-board* (make-vector (* *2048-columns* *2048-rows*) 0))
     (loop
      for  r from 0 to (1- *2048-rows*)  do
      (loop
-      for c from 0 to (- *2048-columns*  2) do
-      (aset  *2048-board*  (* r c)   (aref board (* r c))))
+      for c from 0 to (1- cols)do 
+      (setq index (+ (* r cols) c))
+      do
+      (aset  *2048-board*  index   (aref board index)))
      (2048-print-board))
     (message "Added column.")))
 
