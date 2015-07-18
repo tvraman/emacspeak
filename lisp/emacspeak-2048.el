@@ -123,14 +123,14 @@
     (setq *2048-columns* (incf *2048-columns*))
     (setq *2048-board* (make-vector (* *2048-columns* *2048-rows*) 0))
     (loop
-     for  r from 0 to (1- *2048-rows*)  do
+     for r from 0 to (1- *2048-rows*) do
      (loop
-      for c from 0 to (1- cols)do 
-      (setq index (+ (* r cols) c))
-      do
-      (aset  *2048-board*  index   (aref board index)))
-     (2048-print-board))
-    (message "Added column.")))
+      for c from 0 to (1- cols) do
+      (setq index (+ (* r cols) c))     ; old  board
+      (aset *2048-board*
+            (+ r index)
+            (aref board index)))
+     (message "Added column."))))
 
 (defun emacspeak-2048-board-reset ()
   "Reset board to default size."
