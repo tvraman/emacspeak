@@ -69,6 +69,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'advice)
 (when (locate-library "package")
   (unless (locate-library "hydra") (package-install 'hydra)))
 (require 'hydra)
