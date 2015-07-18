@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1092 commands and 887 options.
+This chapter documents a total of 1094 commands and 887 options.
 
 @menu
 * acss-structure::
@@ -415,10 +415,10 @@ this pattern if previously added.  Cleaning up repeated
 patterns results in emacspeak speaking the pattern followed
 by a repeat count instead of speaking all the characters
 making up the pattern.  Thus, by adding the repeating
-pattern `.' (this is already added by default) emacspeak
-will say ``aw fifteen dot'' when speaking the string
-``...............'' instead of ``period period period period
-''
+pattern ``.'' (this is already added by default) emacspeak
+will say ````aw fifteen dot''' when speaking the string
+````...............''' instead of ````period period period period
+'''
 @end format
 @end deffn
 
@@ -571,7 +571,7 @@ Switch to the previous available language
 
 @format
 Set punctuation mode to MODE.
-Possible values are `some', `all', or `none'.
+Possible values are ``some'', ``all'', or ``none''.
 Interactive PREFIX arg means set   the global default value, and then set the
 current local  value to the result.
 @end format
@@ -726,7 +726,7 @@ This affects the internal state of emacspeak that decides if we split
 text purely by clause boundaries, or also include
 whitespace.  By default, emacspeak sends a clause at a time
 to the speech device.  This produces fluent speech for
-normal use.  However in modes such as `shell-mode' and some
+normal use.  However in modes such as ``shell-mode'' and some
 programming language modes, clause markers appear
 infrequently, and this can result in large amounts of text
 being sent to the speech device at once, making the system
@@ -790,7 +790,7 @@ Speak version.
 
 @defvar {User Option} dtk-cleanup-patterns
 List of repeating patterns to clean up.
-You can use  command  `dtk-add-cleanup-pattern'
+You can use  command  ``dtk-add-cleanup-pattern''
  bound to C-e d a  to add more patterns.
 Specify patterns that people use to decorate their ASCII files, and cause
 untold pain to the speech synthesizer.
@@ -823,7 +823,7 @@ it seems some accented characters in certain contexts.
 @defvar {User Option} dtk-speech-rate-step
 *Value of speech rate increment.
 This determines step size used when setting speech rate via command
-`dtk-set-predefined-speech-rate'.  Formula used is
+``dtk-set-predefined-speech-rate''.  Formula used is
 dtk-speech-rate-base  +  dtk-speech-rate-step*level.
 
 @end defvar
@@ -1189,48 +1189,6 @@ Function to submit a bug to the programs maintainer.
 @defvar {User Option} emacspeak-Buffer-menu-buffer-voice
 Personality used for Buffer-menu-buffer
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-broken-personality
-Personality used for apt-utils-broken-face
-This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-description-personality
-Personality used for apt-utils-description-face
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-field-contents-personality
-Personality used for apt-utils-field-contents-face
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-field-keyword-personality
-Personality used for apt-utils-field-keyword-face
-This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-normal-package-personality
-Personality used for apt-utils-normal-package-face
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-version-personality
-Personality used for apt-utils-version-face
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-virtual-package-personality
-Personality used for apt-utils-virtual-package-face
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 
 @end defvar
 
@@ -3626,6 +3584,24 @@ Speech-enable 2048 Game
 
 @subsection emacspeak-2048 Commands
 
+@subsubsection emacspeak-2048-add-column
+@deffn {Command} emacspeak-2048-add-column   
+@findex emacspeak-2048-add-column
+
+@format
+Add a column  to the current board.
+@end format
+@end deffn
+
+@subsubsection emacspeak-2048-add-row
+@deffn {Command} emacspeak-2048-add-row   
+@findex emacspeak-2048-add-row
+
+@format
+Add a row  to the current board.
+@end format
+@end deffn
+
 @subsubsection emacspeak-2048-pop-state
 @deffn {Command} emacspeak-2048-pop-state   
 @findex emacspeak-2048-pop-state
@@ -3800,7 +3776,7 @@ Add specified resource to queue.
 @findex emacspeak-alsaplayer-amark-add
 
 @format
-Set AMark `name' at current position in current audio stream.
+Set AMark ``name'' at current position in current audio stream.
 Interactive prefix arg prompts for position.
 As the default, use current position.
 @end format
@@ -3990,8 +3966,8 @@ x		emacspeak-alsaplayer-clip
 M-l		emacspeak-amark-load
 M-s		emacspeak-amark-save
 
-In addition to any hooks its parent mode `special-mode' might have run,
-this mode runs the hook `emacspeak-alsaplayer-mode-hook', as the final step
+In addition to any hooks its parent mode ``special-mode'' might have run,
+this mode runs the hook ``emacspeak-alsaplayer-mode-hook'', as the final step
 during initialization.
 @end format
 @end deffn
@@ -4285,6 +4261,50 @@ Debian packages.
 Copy package under point to kill ring.
 @end format
 @end deffn
+
+@subsection emacspeak-apt-utils Options
+
+@defvar {User Option} emacspeak-apt-utils-broken-personality
+Personality used for apt-utils-broken-face
+This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-apt-utils-description-personality
+Personality used for apt-utils-description-face
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-apt-utils-field-contents-personality
+Personality used for apt-utils-field-contents-face
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-apt-utils-field-keyword-personality
+Personality used for apt-utils-field-keyword-face
+This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-apt-utils-normal-package-personality
+Personality used for apt-utils-normal-package-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-apt-utils-version-personality
+Personality used for apt-utils-version-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-apt-utils-virtual-package-personality
+Personality used for apt-utils-virtual-package-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
 
 @node emacspeak-arc
 @section emacspeak-arc
@@ -4788,8 +4808,8 @@ v		emacspeak-bookshare-view
 M-n		emacspeak-bookshare-next-result
 M-p		emacspeak-bookshare-previous-result
 
-In addition to any hooks its parent mode `special-mode' might have run,
-this mode runs the hook `emacspeak-bookshare-mode-hook', as the final step
+In addition to any hooks its parent mode ``special-mode'' might have run,
+this mode runs the hook ``emacspeak-bookshare-mode-hook'', as the final step
 during initialization.
 @end format
 @end deffn
@@ -5264,7 +5284,7 @@ Voicification is used to indicate directories, marked files etc.
 @format
 Labels the fields of the listing in the dired buffer.
 Currently is a no-op  unless
-unless `dired-listing-switches' contains -l
+unless ``dired-listing-switches'' contains -l
 @end format
 @end deffn
 
@@ -5275,7 +5295,7 @@ unless `dired-listing-switches' contains -l
 @format
 Displays type of current file by running command file.
 Like Emacs' built-in dired-show-file-type but allows user to customize
-options passed to command `file'.
+options passed to command ``file''.
 @end format
 @end deffn
 
@@ -5337,7 +5357,7 @@ Speaks the target of the symlink on the current line.
 @subsection emacspeak-dired Options
 
 @defvar {User Option} emacspeak-dired-file-cmd-options
-Options passed to Unix builtin `file' command.
+Options passed to Unix builtin ``file'' command.
 
 @end defvar
 
@@ -5402,7 +5422,7 @@ Display the cell value in the message area
 
 @format
 Display current cell along with its column header.
-The `column header' is the entry in row 0.
+The ``column header'' is the entry in row 0.
 @end format
 @end deffn
 
@@ -5412,7 +5432,7 @@ The `column header' is the entry in row 0.
 
 @format
 Displays current cell along with its row header.
-The `row header' is the entry in column 0.
+The ``row header'' is the entry in column 0.
 @end format
 @end deffn
 
@@ -5970,8 +5990,8 @@ key             binding
 RET		emacspeak-epub-calibre-dired-at-point
 <Return>	emacspeak-epub-calibre-dired-at-point
 
-In addition to any hooks its parent mode `special-mode' might have run,
-this mode runs the hook `emacspeak-calibre-mode-hook', as the final step
+In addition to any hooks its parent mode ``special-mode'' might have run,
+this mode runs the hook ``emacspeak-calibre-mode-hook'', as the final step
 during initialization.
 @end format
 @end deffn
@@ -6117,7 +6137,7 @@ No book files are deleted.
 
 @format
 Saves current bookshelf to  specified name.
-Interactive prefix arg `overwrite' will overwrite existing file.
+Interactive prefix arg ``overwrite'' will overwrite existing file.
 @end format
 @end deffn
 
@@ -6258,8 +6278,8 @@ M-s		emacspeak-epub-bookshelf-save
 C-x C-q		emacspeak-epub-bookshelf-refresh
 C-x C-s		emacspeak-epub-bookshelf-save
 
-In addition to any hooks its parent mode `special-mode' might have run,
-this mode runs the hook `emacspeak-epub-mode-hook', as the final step
+In addition to any hooks its parent mode ``special-mode'' might have run,
+this mode runs the hook ``emacspeak-epub-mode-hook'', as the final step
 during initialization.
 @end format
 @end deffn
@@ -6496,14 +6516,18 @@ To move around the terminal and have different parts spoken.
 @subsection emacspeak-eterm Commands
 
 @subsubsection emacspeak-eterm-copy-region-to-register
-@deffn {Command} emacspeak-eterm-copy-region-to-register  (register)
+@deffn {Command} emacspeak-eterm-copy-region-to-register  (&rest rest)
 @findex emacspeak-eterm-copy-region-to-register
 
 @format
+:around advice: ``ad-Advice-emacspeak-eterm-copy-region-to-register''
+
 Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
 emacspeak eterm pointer to a register.
+
+(fn REGISTER)
 @end format
 @end deffn
 
@@ -6563,13 +6587,17 @@ in a non eterm buffer if executed via C-e C-e
 @end deffn
 
 @subsubsection emacspeak-eterm-paste-register
-@deffn {Command} emacspeak-eterm-paste-register  (register)
+@deffn {Command} emacspeak-eterm-paste-register  (&rest rest)
 @findex emacspeak-eterm-paste-register
 
 @format
+:around advice: ``ad-Advice-emacspeak-eterm-paste-register''
+
 Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
 sent to the terminal as if it were typed by the user.
+
+(fn REGISTER)
 @end format
 @end deffn
 
@@ -6735,8 +6763,8 @@ Search forward on the terminal.
 
 @format
 Prompt for the id of a predefined window,
-and set the `filter' window to it.
-Non-nil interactive prefix arg `unsets' the filter window;
+and set the ``filter'' window to it.
+Non-nil interactive prefix arg ``unsets'' the filter window;
 this is equivalent to having the entire terminal as the filter window (this is
 what eterm starts up with).
 Setting the filter window results in emacspeak  only monitoring screen
@@ -6750,8 +6778,8 @@ activity within the filter window.
 
 @format
 Prompt for the id of a predefined window,
-and set the `focus' window to it.
-Non-nil interactive prefix arg `unsets' the focus window;
+and set the ``focus'' window to it.
+Non-nil interactive prefix arg ``unsets'' the focus window;
 this is equivalent to having the entire terminal as the focus window (this is
 what eterm starts up with).
 Setting the focus window results in emacspeak  monitoring screen
@@ -7528,8 +7556,8 @@ key             binding
 ^		flush-lines
 r		emacspeak-filtertext-revert
 
-In addition to any hooks its parent mode `text-mode' might have run,
-this mode runs the hook `emacspeak-filtertext-mode-hook', as the final step
+In addition to any hooks its parent mode ``text-mode'' might have run,
+this mode runs the hook ``emacspeak-filtertext-mode-hook'', as the final step
 during initialization.
 @end format
 @end deffn
@@ -7581,7 +7609,7 @@ To speech enable such functions.
 
 @format
 Fix recently loaded interactive commands.
-This command looks through `load-history' and fixes commands if necessary.
+This command looks through ``load-history'' and fixes commands if necessary.
 Memoizes call in emacspeak-load-history-pointer to memoize this call. 
 @end format
 @end deffn
@@ -8482,7 +8510,7 @@ Speak info header line.
 @format
 Read a node spec from the minibuffer and launch
 Info-goto-node.
-See documentation for command `Info-goto-node' for details on
+See documentation for command ``Info-goto-node'' for details on
 node-spec.
 @end format
 @end deffn
@@ -8728,7 +8756,7 @@ This module defines the emacspeak keybindings.
 
 @format
 Interactively select a new prefix key to use for all emacspeak
-commands.  The default is to use `C-e'  This command
+commands.  The default is to use ``C-e''  This command
 lets you switch the prefix to something else.  This is a useful thing
 to do if you run emacspeak on a remote machine from inside a terminal
 that is running inside a local emacspeak session.  You can have the
@@ -8741,17 +8769,17 @@ relief.
 
 @defvar {User Option} emacspeak-alt-keys
 *Specifies alt key bindings for the audio desktop.
-You can turn the `Pause' key  on your Linux PC keyboard into a `alt' key
-on Linux by having it emit the sequence `C-x@@a'.
+You can turn the ``Pause'' key  on your Linux PC keyboard into a ``alt'' key
+on Linux by having it emit the sequence ``C-x@@a''.
 
-Bindings specified here are available on prefix key `alt'
+Bindings specified here are available on prefix key ``alt''
 (not to be confused with alt==meta)
 for example, if you bind
-`s' to command emacspeak-emergency-tts-restart
-then that command will be available on key `ALT  s'
+``s'' to command emacspeak-emergency-tts-restart
+then that command will be available on key ``ALT  s''
 
 KEYS should be a string constant in the format used for saving
-keyboard macros (see `edmacro-mode').
+keyboard macros (see ``edmacro-mode'').
 
 Command is an interactive command or a prefix-command that can be
 bound to a key. 
@@ -8764,16 +8792,16 @@ interactive command that the key sequence executes.
 
 @defvar {User Option} emacspeak-hyper-keys
 *Specifies hyper key bindings for the audio desktop. Emacs can
-use the `hyper' key as a modifier key. You can turn the `windows'
-keys on your Linux PC keyboard into a `hyper' key on Linux by
-having it emit the sequence `C-x@@h'.
+use the ``hyper'' key as a modifier key. You can turn the ``windows''
+keys on your Linux PC keyboard into a ``hyper'' key on Linux by
+having it emit the sequence ``C-x@@h''.
 
-Bindings specified here are available on prefix key `hyper' for
-example, if you bind `b' to command `bbdb ' then that command
-will be available on key `hyper b'.
+Bindings specified here are available on prefix key ``hyper'' for
+example, if you bind ``b'' to command ``bbdb '' then that command
+will be available on key ``hyper b''.
 
 KEYS should be a string constant in the format used for saving
-keyboard macros (see `edmacro-mode').
+keyboard macros (see ``edmacro-mode'').
 
 Command is an interactive command or a prefix-command that can be
 bound to a key. 
@@ -8787,10 +8815,10 @@ interactive command that the key sequence executes.
 @defvar {User Option} emacspeak-personal-ctlx-keys
 *Specifies personal-ctlx key bindings for use with C-e C-x for
 the audio desktop. Bindings specified here are available on
-prefix key C-e C-x for example, if you bind `C-s' to command
+prefix key C-e C-x for example, if you bind ``C-s'' to command
 emacspeak-emergency-tts-restart then that command will be
 available on key C-e C-x C-s. KEYS should be a string constant in
-the format used for saving keyboard macros (see `edmacro-mode').
+the format used for saving keyboard macros (see ``edmacro-mode'').
 
 Command is an interactive command or a prefix-command that can be
 bound to a key.
@@ -8805,11 +8833,11 @@ interactive command that the key sequence executes.
 *Specifies personal key bindings for the audio desktop.
 Bindings specified here are available on prefix key C-e x
 for example, if you bind
-`s' to command emacspeak-emergency-tts-restart
+``s'' to command emacspeak-emergency-tts-restart
 then that command will be available on key C-e x s.
 
 KEYS should be a string constant in the format used for saving
-keyboard macros (see `edmacro-mode').
+keyboard macros (see ``edmacro-mode'').
 
 Command is an interactive command or a prefix-command that can be
 bound to a key. 
@@ -8822,14 +8850,14 @@ interactive command that the key sequence executes.
 
 @defvar {User Option} emacspeak-super-keys
 *Specifies super key bindings for the audio desktop. You can
-turn the right `windows menu' keys on your Linux PC keyboard into
-a `super' key on Linux by having it emit the sequence `C-x@@s'.
+turn the right ``windows menu'' keys on your Linux PC keyboard into
+a ``super'' key on Linux by having it emit the sequence ``C-x@@s''.
 
-Bindings specified here are available on prefix key `super' for
-example, if you bind `s' to command
+Bindings specified here are available on prefix key ``super'' for
+example, if you bind ``s'' to command
 emacspeak-emergency-tts-restart then that command will be
-available on key `super s'. KEYS should be a string constant in
-the format used for saving keyboard macros (see `edmacro-mode').
+available on key ``super s''. KEYS should be a string constant in
+the format used for saving keyboard macros (see ``edmacro-mode'').
 
 Command is an interactive command or a prefix-command that can be
 bound to a key.
@@ -9028,7 +9056,7 @@ Play book stream
 
 @format
 Search by author.
-Both exact and partial matches for `author'.
+Both exact and partial matches for ``author''.
 @end format
 @end deffn
 
@@ -9038,7 +9066,7 @@ Both exact and partial matches for `author'.
 
 @format
 Search by genre.
-Both exact and partial matches for `genre'.
+Both exact and partial matches for ``genre''.
 @end format
 @end deffn
 
@@ -9048,7 +9076,7 @@ Both exact and partial matches for `genre'.
 
 @format
 Search by title.
-Both exact and partial matches for `title'.
+Both exact and partial matches for ``title''.
 @end format
 @end deffn
 
@@ -9095,7 +9123,7 @@ The player is placed in a buffer in emacspeak-m-player-mode.
 @format
 Add equalizer to playing stream.  Equalizer is applied as each change
 is made, and the final effect set by pressing RET.  Interactive prefix
-arg `reset' starts with all filters set to 0.
+arg ``reset'' starts with all filters set to 0.
 @end format
 @end deffn
 
@@ -9122,7 +9150,7 @@ Move within an ASF playlist.
 @findex emacspeak-m-player-amark-add
 
 @format
-Set AMark `name' at current position in current audio stream.
+Set AMark ``name'' at current position in current audio stream.
 Interactive prefix arg prompts for position.
 As the default, use current position.
 @end format
@@ -9453,8 +9481,8 @@ DEL		emacspeak-m-player-reset-speed
 
 M-l		emacspeak-m-player-load-playlist
 
-In addition to any hooks its parent mode `comint-mode' might have run,
-this mode runs the hook `emacspeak-m-player-mode-hook', as the final step
+In addition to any hooks its parent mode ``comint-mode'' might have run,
+this mode runs the hook ``emacspeak-m-player-mode-hook'', as the final step
 during initialization.
 @end format
 @end deffn
@@ -10107,16 +10135,16 @@ Implemented Muggles:
 @format
 Create a hydra with no body and the heads:
 
-"i":    `xbacklight-increment',
-"SPC":    `xbacklight-increment',
-"d":    `xbacklight-decrement',
-"g":    `xbacklight-get',
-"s":    `xbacklight-set',
-"0":    `xbacklight-black',
-"<print>":    `xbacklight-black',
-"1":    `xbacklight-white'
+"i":    ``xbacklight-increment'',
+"SPC":    ``xbacklight-increment'',
+"d":    ``xbacklight-decrement'',
+"g":    ``xbacklight-get'',
+"s":    ``xbacklight-set'',
+"0":    ``xbacklight-black'',
+"<print>":    ``xbacklight-black'',
+"1":    ``xbacklight-white''
 
-The body can be accessed via `emacspeak-muggles-brightness/body'.
+The body can be accessed via ``emacspeak-muggles-brightness/body''.
 @end format
 @end deffn
 
@@ -10130,13 +10158,13 @@ The body can be accessed via `emacspeak-muggles-brightness/body'.
 @format
 Create a hydra with no body and the heads:
 
-"h":    `hs-hide-block',
-"s":    `hs-show-block',
-"H":    `hs-hide-all',
-"S":    `hs-show-all',
-"i":    `hs-hide-initial-comment-block'
+"h":    ``hs-hide-block'',
+"s":    ``hs-show-block'',
+"H":    ``hs-hide-all'',
+"S":    ``hs-show-all'',
+"i":    ``hs-hide-initial-comment-block''
 
-The body can be accessed via `emacspeak-muggles-hideshow/body'.
+The body can be accessed via ``emacspeak-muggles-hideshow/body''.
 @end format
 @end deffn
 
@@ -10147,61 +10175,61 @@ The body can be accessed via `emacspeak-muggles-hideshow/body'.
 @format
 Create a hydra with no body and the heads:
 
-";":    `emacspeak-m-player',
-"+":    `emacspeak-m-player-volume-up',
-",":    `emacspeak-m-player-backward-10s',
-"-":    `emacspeak-m-player-volume-down',
-".":    `emacspeak-m-player-forward-10s',
-"<":    `emacspeak-m-player-backward-1min',
-"<down>":    `emacspeak-m-player-forward-1min',
-"<end>":    `emacspeak-m-player-end-of-track',
-"<home>":    `emacspeak-m-player-beginning-of-track',
-"<left>":    `emacspeak-m-player-backward-10s',
-"<next>":    `emacspeak-m-player-forward-10min',
-"<prior>":    `emacspeak-m-player-backward-10min',
-"<right>":    `emacspeak-m-player-forward-10s',
-"<up>":    `emacspeak-m-player-backward-1min',
-"=":    `emacspeak-m-player-volume-up',
-">":    `emacspeak-m-player-forward-1min',
-"?":    `emacspeak-m-player-display-position',
-"C":    `emacspeak-m-player-clear-filters',
-"C-m":    `emacspeak-m-player-load',
-"DEL":    `emacspeak-m-player-reset-speed',
-"L":    `emacspeak-m-player-load-file',
-"M-l":    `emacspeak-m-player-load-playlist',
-"O":    `emacspeak-m-player-reset-options',
-"P":    `emacspeak-m-player-apply-reverb-preset',
-"Q":    `emacspeak-m-player-quit',
-"R":    `emacspeak-m-player-edit-reverb',
-"S":    `emacspeak-amark-save',
-"SPC":    `emacspeak-m-player-pause',
-"[":    `emacspeak-m-player-slower',
-"]":    `emacspeak-m-player-faster',
-"a":    `emacspeak-m-player-amark-add',
-"b":    `emacspeak-m-player-balance',
-"c":    `emacspeak-m-player-slave-command',
-"d":    `emacspeak-m-player-delete-filter',
-"e":    `emacspeak-m-player-add-equalizer',
-"f":    `emacspeak-m-player-add-filter',
-"g":    `emacspeak-m-player-seek-absolute',
-"j":    `emacspeak-m-player-amark-jump',
-"l":    `emacspeak-m-player-get-length',
-"m":    `emacspeak-m-player-speak-mode-line',
-"n":    `emacspeak-m-player-next-track',
-"o":    `emacspeak-m-player-customize-options',
-"p":    `emacspeak-m-player-previous-track',
-"q":    `bury-buffer',
-"r":    `emacspeak-m-player-seek-relative',
-"s":    `emacspeak-m-player-scale-speed',
-"t":    `emacspeak-m-player-play-tracks-jump',
-"u":    `emacspeak-m-player-url',
-"v":    `emacspeak-m-player-volume-change',
-"(":    `emacspeak-m-player-left-channel',
-")":    `emacspeak-m-player-right-channel',
-"@{":    `emacspeak-m-player-half-speed',
-"@}":    `emacspeak-m-player-double-speed'
+";":    ``emacspeak-m-player'',
+"+":    ``emacspeak-m-player-volume-up'',
+",":    ``emacspeak-m-player-backward-10s'',
+"-":    ``emacspeak-m-player-volume-down'',
+".":    ``emacspeak-m-player-forward-10s'',
+"<":    ``emacspeak-m-player-backward-1min'',
+"<down>":    ``emacspeak-m-player-forward-1min'',
+"<end>":    ``emacspeak-m-player-end-of-track'',
+"<home>":    ``emacspeak-m-player-beginning-of-track'',
+"<left>":    ``emacspeak-m-player-backward-10s'',
+"<next>":    ``emacspeak-m-player-forward-10min'',
+"<prior>":    ``emacspeak-m-player-backward-10min'',
+"<right>":    ``emacspeak-m-player-forward-10s'',
+"<up>":    ``emacspeak-m-player-backward-1min'',
+"=":    ``emacspeak-m-player-volume-up'',
+">":    ``emacspeak-m-player-forward-1min'',
+"?":    ``emacspeak-m-player-display-position'',
+"C":    ``emacspeak-m-player-clear-filters'',
+"C-m":    ``emacspeak-m-player-load'',
+"DEL":    ``emacspeak-m-player-reset-speed'',
+"L":    ``emacspeak-m-player-load-file'',
+"M-l":    ``emacspeak-m-player-load-playlist'',
+"O":    ``emacspeak-m-player-reset-options'',
+"P":    ``emacspeak-m-player-apply-reverb-preset'',
+"Q":    ``emacspeak-m-player-quit'',
+"R":    ``emacspeak-m-player-edit-reverb'',
+"S":    ``emacspeak-amark-save'',
+"SPC":    ``emacspeak-m-player-pause'',
+"[":    ``emacspeak-m-player-slower'',
+"]":    ``emacspeak-m-player-faster'',
+"a":    ``emacspeak-m-player-amark-add'',
+"b":    ``emacspeak-m-player-balance'',
+"c":    ``emacspeak-m-player-slave-command'',
+"d":    ``emacspeak-m-player-delete-filter'',
+"e":    ``emacspeak-m-player-add-equalizer'',
+"f":    ``emacspeak-m-player-add-filter'',
+"g":    ``emacspeak-m-player-seek-absolute'',
+"j":    ``emacspeak-m-player-amark-jump'',
+"l":    ``emacspeak-m-player-get-length'',
+"m":    ``emacspeak-m-player-speak-mode-line'',
+"n":    ``emacspeak-m-player-next-track'',
+"o":    ``emacspeak-m-player-customize-options'',
+"p":    ``emacspeak-m-player-previous-track'',
+"q":    ``bury-buffer'',
+"r":    ``emacspeak-m-player-seek-relative'',
+"s":    ``emacspeak-m-player-scale-speed'',
+"t":    ``emacspeak-m-player-play-tracks-jump'',
+"u":    ``emacspeak-m-player-url'',
+"v":    ``emacspeak-m-player-volume-change'',
+"(":    ``emacspeak-m-player-left-channel'',
+")":    ``emacspeak-m-player-right-channel'',
+"@{":    ``emacspeak-m-player-half-speed'',
+"@}":    ``emacspeak-m-player-double-speed''
 
-The body can be accessed via `emacspeak-muggles-m-player/body'.
+The body can be accessed via ``emacspeak-muggles-m-player/body''.
 @end format
 @end deffn
 
@@ -10212,17 +10240,17 @@ The body can be accessed via `emacspeak-muggles-m-player/body'.
 @format
 Create a hydra with no body and the heads:
 
-"j":    `org-table-next-row',
-"k":    `org-table-previous-row',
-"h":    `org-table-previous-field',
-"l":    `org-table-next-field',
-"SPC":    `emacspeak-org-table-speak-current-element',
-".":    `emacspeak-org-table-speak-coordinates',
-"b":    `emacspeak-org-table-speak-both-headers-and-element',
-"r":    `emacspeak-org-table-speak-row-header-and-element',
-"c":    `emacspeak-org-table-speak-column-header-and-element'
+"j":    ``org-table-next-row'',
+"k":    ``org-table-previous-row'',
+"h":    ``org-table-previous-field'',
+"l":    ``org-table-next-field'',
+"SPC":    ``emacspeak-org-table-speak-current-element'',
+".":    ``emacspeak-org-table-speak-coordinates'',
+"b":    ``emacspeak-org-table-speak-both-headers-and-element'',
+"r":    ``emacspeak-org-table-speak-row-header-and-element'',
+"c":    ``emacspeak-org-table-speak-column-header-and-element''
 
-The body can be accessed via `emacspeak-muggles-org-table/body'.
+The body can be accessed via ``emacspeak-muggles-org-table/body''.
 @end format
 @end deffn
 
@@ -10233,25 +10261,25 @@ The body can be accessed via `emacspeak-muggles-org-table/body'.
 @format
 Create a hydra with no body and the heads:
 
-"q":    `hide-sublevels',
-"t":    `hide-body',
-"o":    `hide-other',
-"c":    `hide-entry',
-"l":    `hide-leaves',
-"d":    `hide-subtree',
-"a":    `show-all',
-"e":    `show-entry',
-"i":    `show-children',
-"k":    `show-branches',
-"s":    `show-subtree',
-"u":    `outline-up-heading',
-"n":    `outline-next-visible-heading',
-"p":    `outline-previous-visible-heading',
-"f":    `outline-forward-same-level',
-"b":    `outline-backward-same-level',
-"z":    `nil'
+"q":    ``hide-sublevels'',
+"t":    ``hide-body'',
+"o":    ``hide-other'',
+"c":    ``hide-entry'',
+"l":    ``hide-leaves'',
+"d":    ``hide-subtree'',
+"a":    ``show-all'',
+"e":    ``show-entry'',
+"i":    ``show-children'',
+"k":    ``show-branches'',
+"s":    ``show-subtree'',
+"u":    ``outline-up-heading'',
+"n":    ``outline-next-visible-heading'',
+"p":    ``outline-previous-visible-heading'',
+"f":    ``outline-forward-same-level'',
+"b":    ``outline-backward-same-level'',
+"z":    ``nil''
 
-The body can be accessed via `emacspeak-muggles-outliner/body'.
+The body can be accessed via ``emacspeak-muggles-outliner/body''.
 @end format
 @end deffn
 
@@ -10265,15 +10293,15 @@ The body can be accessed via `emacspeak-muggles-outliner/body'.
 @format
 Create a hydra with no body and the heads:
 
-"a":    `abbrev-mode',
-"d":    `toggle-debug-on-error',
-"f":    `auto-fill-mode',
-"g":    `toggle-debug-on-quit',
-"t":    `toggle-truncate-lines',
-"w":    `whitespace-mode',
-"q":    `nil'
+"a":    ``abbrev-mode'',
+"d":    ``toggle-debug-on-error'',
+"f":    ``auto-fill-mode'',
+"g":    ``toggle-debug-on-quit'',
+"t":    ``toggle-truncate-lines'',
+"w":    ``whitespace-mode'',
+"q":    ``nil''
 
-The body can be accessed via `emacspeak-muggles-toggle-option/body'.
+The body can be accessed via ``emacspeak-muggles-toggle-option/body''.
 @end format
 @end deffn
 
@@ -10287,47 +10315,47 @@ The body can be accessed via `emacspeak-muggles-toggle-option/body'.
 @format
 Create a hydra with no body and the heads:
 
-"$":    `set-selective-display',
-"'":    `register-to-point',
-"(":    `backward-sexp',
-")":    `forward-sexp',
-".":    `set-mark-command',
-"/":    `View-search-regexp-forward',
-"<":    `beginning-of-buffer',
-"=":    `what-line',
-">":    `end-of-buffer',
-"@@":    `View-back-to-mark',
-"SPC":    `View-scroll-page-forward',
-"DEL":    `View-scroll-page-backward',
-"[":    `previous-page',
-"\":    `View-search-regexp-backward',
-"]":    `next-page',
-"A":    `beginning-of-defun',
-"E":    `end-of-defun',
-"a":    `move-beginning-of-line',
-"b":    `backward-word',
-"c":    `emacspeak-speak-char',
-"d":    `View-scroll-half-page-forward',
-"e":    `move-end-of-line',
-"f":    `forward-word',
-"g":    `goto-line',
-"h":    `backward-char',
-"i":    `emacspeak-speak-mode-line',
-"j":    `next-line',
-"k":    `previous-line',
-"l":    `forward-char',
-"m":    `point-to-register',
-"n":    `View-search-last-regexp-forward',
-"p":    `View-search-last-regexp-backward',
-"q":    `nil',
-"u":    `View-scroll-half-page-backward',
-"w":    `emacspeak-speak-word',
-"x":    `exchange-point-and-mark',
-"y":    `kill-ring-save',
-"@{":    `backward-paragraph',
-"@}":    `forward-paragraph'
+"$":    ``set-selective-display'',
+"'":    ``register-to-point'',
+"(":    ``backward-sexp'',
+")":    ``forward-sexp'',
+".":    ``set-mark-command'',
+"/":    ``View-search-regexp-forward'',
+"<":    ``beginning-of-buffer'',
+"=":    ``what-line'',
+">":    ``end-of-buffer'',
+"@@":    ``View-back-to-mark'',
+"SPC":    ``View-scroll-page-forward'',
+"DEL":    ``View-scroll-page-backward'',
+"[":    ``previous-page'',
+"\":    ``View-search-regexp-backward'',
+"]":    ``next-page'',
+"A":    ``beginning-of-defun'',
+"E":    ``end-of-defun'',
+"a":    ``move-beginning-of-line'',
+"b":    ``backward-word'',
+"c":    ``emacspeak-speak-char'',
+"d":    ``View-scroll-half-page-forward'',
+"e":    ``move-end-of-line'',
+"f":    ``forward-word'',
+"g":    ``goto-line'',
+"h":    ``backward-char'',
+"i":    ``emacspeak-speak-mode-line'',
+"j":    ``next-line'',
+"k":    ``previous-line'',
+"l":    ``forward-char'',
+"m":    ``point-to-register'',
+"n":    ``View-search-last-regexp-forward'',
+"p":    ``View-search-last-regexp-backward'',
+"q":    ``nil'',
+"u":    ``View-scroll-half-page-backward'',
+"w":    ``emacspeak-speak-word'',
+"x":    ``exchange-point-and-mark'',
+"y":    ``kill-ring-save'',
+"@{":    ``backward-paragraph'',
+"@}":    ``forward-paragraph''
 
-The body can be accessed via `emacspeak-muggles-view/body'.
+The body can be accessed via ``emacspeak-muggles-view/body''.
 @end format
 @end deffn
 
@@ -10800,7 +10828,7 @@ suitable for browsing the results.
 
 For detailed help, invoke command emacspeak-ocr bound to
 C-e C-o to launch emacspeak-ocr-mode, and press
-`?' to display mode-specific help for emacspeak-ocr-mode.
+``?'' to display mode-specific help for emacspeak-ocr-mode.
 @end format
 @end deffn
 
@@ -10831,7 +10859,7 @@ Run OCR engine on current image after flip-flopping it.
 Useful if you've scanned a page upside down and are using an engine that does not automatically flip the image for you.
 You need the imagemagik family of tools --- we use mogrify to transform the image.
 Prompts for image file if file corresponding to the expected
-`current page' is not found.
+``current page'' is not found.
 @end format
 @end deffn
 
@@ -10861,12 +10889,12 @@ Pre-requisites:
 the utilities to scan a document and acquire an image as a
 tiff file.  Then set variable
 emacspeak-ocr-scan-image-program to point at this utility.
-By default, this is set to `scanimage' which is the image
+By default, this is set to ``scanimage'' which is the image
 scanning utility provided by SANE.
 
 By default, this front-end attempts to compress the acquired
 tiff image; make sure you have a utility like tiffcp.
-Variable emacspeak-ocr-compress-image is set to `tiffcp' by
+Variable emacspeak-ocr-compress-image is set to ``tiffcp'' by
 default; if you use something else, you should customize
 this variable.
 
@@ -10894,7 +10922,7 @@ images and the resulting text are saved under directory
 Invoking command emacspeak-ocr-open-working-directory bound
 to M-x emacspeak-ocr-open-working-directory will open this directory.
 
-By default, the document being scanned is named `untitled'.
+By default, the document being scanned is named ``untitled''.
 You can name the document by using command
 emacspeak-ocr-name-document bound to
 M-x emacspeak-ocr-name-document.  The document name is used
@@ -10927,8 +10955,8 @@ w		emacspeak-ocr-write-document
 
 .
 
-In addition to any hooks its parent mode `text-mode' might have run,
-this mode runs the hook `emacspeak-ocr-mode-hook', as the final step
+In addition to any hooks its parent mode ``text-mode'' might have run,
+this mode runs the hook ``emacspeak-ocr-mode-hook'', as the final step
 during initialization.
 @end format
 @end deffn
@@ -10977,7 +11005,7 @@ Speaks current page.
 @format
 Run OCR engine on current image.
 Prompts for image file if file corresponding to the expected
-`current page' is not found.
+``current page'' is not found.
 @end format
 @end deffn
 
@@ -11862,7 +11890,7 @@ Value is persisted for use with ssh servers.
 
 @format
 Open ssh session to where we came from.
-Uses value returned by `emacspeak-remote-get-current-remote-hostname'.
+Uses value returned by ``emacspeak-remote-get-current-remote-hostname''.
 @end format
 @end deffn
 
@@ -11884,7 +11912,7 @@ sure the guesses are usually correct.
 
 @format
 Connect via ssh to remote Emacspeak server.
-Server is specified via custom option `emacspeak-remote-default-ssh-server'.
+Server is specified via custom option ``emacspeak-remote-default-ssh-server''.
 @end format
 @end deffn
 
@@ -12441,7 +12469,7 @@ Numeric prefix arg COUNT specifies number of lines to move.
 @findex emacspeak-owindow-scroll-down
 
 @format
-Scroll down  the window that command `other-window' would move to.
+Scroll down  the window that command ``other-window'' would move to.
 Speak the window contents after scrolling.
 @end format
 @end deffn
@@ -12454,7 +12482,7 @@ Speak the window contents after scrolling.
 @findex emacspeak-owindow-scroll-up
 
 @format
-Scroll up the window that command `other-window' would move to.
+Scroll up the window that command ``other-window'' would move to.
 Speak the window contents after scrolling.
 @end format
 @end deffn
@@ -12548,7 +12576,7 @@ Run shell command and speak its output.
 @format
 Silence is golden. Stop speech, and pause/resume any media
 streams.
-Runs `emacspeak-silence-hook' which can be used to configure
+Runs ``emacspeak-silence-hook'' which can be used to configure
 which media players get silenced or paused/resumed.
 @end format
 @end deffn
@@ -12582,7 +12610,7 @@ Speak extent delimited by point and last character typed.
 @format
 Browse current buffer.
 Default is to speak chunk having current personality.
-Interactive prefix arg `browse'  repeatedly browses  through
+Interactive prefix arg ``browse''  repeatedly browses  through
   chunks having same personality as the current text chunk.
 @end format
 @end deffn
@@ -12599,7 +12627,7 @@ Speak current buffer  contents.
 With prefix ARG, speaks the rest of the buffer from point.
 Negative prefix arg speaks from start of buffer to point.
  If voice lock mode is on, the paragraphs in the buffer are
-voice annotated first,  see command `emacspeak-speak-voice-annotate-paragraphs'.
+voice annotated first,  see command ``emacspeak-speak-voice-annotate-paragraphs''.
 @end format
 @end deffn
 
@@ -12614,7 +12642,7 @@ voice annotated first,  see command `emacspeak-speak-voice-annotate-paragraphs'.
 Speak name of file being visited in current buffer.
 Speak default directory if invoked in a dired buffer,
 or when the buffer is not visiting any file.
-Interactive prefix arg `filename' speaks only the final path
+Interactive prefix arg ``filename'' speaks only the final path
 component.
 The result is put in the kill ring for convenience.
 @end format
@@ -12736,10 +12764,10 @@ to command yank.
 @format
 Speak the line containing the mark.
 With no argument, speaks the
-line containing the mark--this is where `exchange-point-and-mark'
+line containing the mark--this is where ``exchange-point-and-mark''
 C-x C-x would jump.  Numeric prefix arg 'COUNT' speaks
 line containing mark 'n' where 'n' is one less than the number of
-times one has to jump using `set-mark-command' to get to this marked
+times one has to jump using ``set-mark-command'' to get to this marked
 position.  The location of the mark is indicated by an aural highlight
 achieved by a change in voice personality.
 @end format
@@ -12783,7 +12811,7 @@ Seconds value is also placed in the kill-ring.
 
 @format
 Display char under point using current speech display table.
-Behavior is the same as command `emacspeak-speak-char'
+Behavior is the same as command ``emacspeak-speak-char''
 bound to C-e c
 for characters in the range 0--127.
 Optional argument PREFIX  specifies that the character should be spoken phonetically.
@@ -12868,13 +12896,13 @@ Speak host name.
 @format
 Speaks current line.  With prefix ARG, speaks the rest of the line
 from point.  Negative prefix optional arg speaks from start of line to
-point.  Voicifies if option `voice-lock-mode' is on.  Indicates
+point.  Voicifies if option ``voice-lock-mode'' is on.  Indicates
 indentation with a tone if audio indentation is in use.  Indicates
 position of point with an aural highlight if option
-`emacspeak-show-point' is turned on --see command
-`emacspeak-show-point' bound to M-x emacspeak-show-point.  Lines that
+``emacspeak-show-point'' is turned on --see command
+``emacspeak-show-point'' bound to M-x emacspeak-show-point.  Lines that
 start hidden blocks of text, e.g.  outline header lines, or header
-lines of blocks created by command `emacspeak-hide-or-expose-block'
+lines of blocks created by command ``emacspeak-hide-or-expose-block''
 are indicated with auditory icon ellipses.
 @end format
 @end deffn
@@ -12949,7 +12977,7 @@ directory.
 @format
 Speak the last message from Emacs once again.
 The message is also placed in the kill ring for convenient yanking
-if `emacspeak-speak-message-again-should-copy-to-kill-ring' is set.
+if ``emacspeak-speak-message-again-should-copy-to-kill-ring'' is set.
 @end format
 @end deffn
 
@@ -13084,11 +13112,11 @@ Useful to listen to a buffer without switching  contexts.
 @findex emacspeak-speak-other-window
 
 @format
-Speak contents of `other' window.
+Speak contents of ``other'' window.
 Speaks entire window irrespective of point.
-Semantics  of `other' is the same as for the builtin Emacs command
-`other-window'.
-Optional argument ARG  specifies `other' window to speak.
+Semantics  of ``other'' is the same as for the builtin Emacs command
+``other-window''.
+Optional argument ARG  specifies ``other'' window to speak.
 @end format
 @end deffn
 
@@ -13103,7 +13131,7 @@ Optional argument ARG  specifies `other' window to speak.
 Speak a page.
 With prefix ARG, speaks rest of current page.
 Negative prefix arg will read from start of current page to point.
-If option  `voice-lock-mode' is on, then it will use any defined personality.
+If option  ``voice-lock-mode'' is on, then it will use any defined personality.
 @end format
 @end deffn
 
@@ -13174,8 +13202,8 @@ Speaks entire window irrespective of point.
 In general, you'll never have Emacs split the screen into more than
 two or three.
 Argument ARG determines the 'other' window to speak.
-Semantics  of `other' is the same as for the builtin Emacs command
-`other-window'.
+Semantics  of ``other'' is the same as for the builtin Emacs command
+``other-window''.
 @end format
 @end deffn
 
@@ -13314,7 +13342,7 @@ Set punctuation mode for all buffers in current mode.
 Speak current sexp.
 With prefix ARG, speaks the rest of the sexp  from point.
 Negative prefix arg speaks from start of sexp to point.
-If option  `voice-lock-mode' is on, then uses the personality.
+If option  ``voice-lock-mode'' is on, then uses the personality.
 @end format
 @end deffn
 
@@ -13436,7 +13464,7 @@ personality.
 
 @format
 Speak the time.
-Optional interactive prefix arg `C-u'invokes world clock.
+Optional interactive prefix arg ``C-u''invokes world clock.
 Timezone is specified using minibuffer completion.
 Second interactive prefix sets clock to new timezone.
 @end format
@@ -13511,7 +13539,7 @@ any other key to speak entire word.
 
 @format
 Display current date and time  for specified zone.
-Optional second arg `set' sets the TZ environment variable as well.
+Optional second arg ``set'' sets the TZ environment variable as well.
 @end format
 @end deffn
 
@@ -13546,9 +13574,9 @@ current local  value to the result.
 Toggle state of  Emacspeak  audio indentation.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.
-Specifying the method of indentation as `tones'
+Specifying the method of indentation as ``tones''
 results in the Dectalk producing a tone whose length is a function of the
-line's indentation.  Specifying `speak'
+line's indentation.  Specifying ``speak''
 results in the number of initial spaces being spoken.
 @end format
 @end deffn
@@ -13744,7 +13772,7 @@ Send this command to the TTS directly.
 @defvar {User Option} emacspeak-audio-indentation
 Option indicating if line indentation is cued.
 If non-nil , then speaking a line indicates its indentation.
-You can use  command `emacspeak-toggle-audio-indentation' bound
+You can use  command ``emacspeak-toggle-audio-indentation'' bound
 to C-e d i to toggle this
 setting..
 
@@ -13752,7 +13780,7 @@ setting..
 
 @defvar {User Option} emacspeak-audio-indentation-method
 *Current technique used to cue indentation.  Default is
-`speak'.  You can specify `tone' for producing a beep
+``speak''.  You can specify ``tone'' for producing a beep
 indicating the indentation.  Automatically becomes local in
 any buffer where it is set.
 
@@ -13769,7 +13797,7 @@ setting.
 @defvar {User Option} emacspeak-comint-autospeak
 Says if comint output is automatically spoken.
 You can use
-  `emacspeak-toggle-comint-autospeak` bound to
+  ``emacspeak-toggle-comint-autospeak`` bound to
   C-e C-q to toggle this
 setting.
 
@@ -13800,7 +13828,7 @@ If t, emacspeak will alert you about newly arrived mail
 with an auditory icon when
 displaying the mode line.
 You can use command
-`emacspeak-toggle-mail-alert' bound to
+``emacspeak-toggle-mail-alert'' bound to
 C-e M-m to set this option.
 If you have online access to a voicemail drop, you can have a
   voice-mail alert set up by specifying the location of the
@@ -13856,7 +13884,7 @@ by cut -c on UNIX.
 @end defvar
 
 @defvar {User Option} emacspeak-speak-line-invert-filter
-Non-nil means the sense of `filter' is inverted when filtering
+Non-nil means the sense of ``filter'' is inverted when filtering
 columns in a line --see
 command emacspeak-speak-line-set-column-filter.
 
@@ -13870,7 +13898,7 @@ directory specific settings.
 @end defvar
 
 @defvar {User Option} emacspeak-speak-maximum-line-length
-*Threshold for determining `long' lines.
+*Threshold for determining ``long'' lines.
 Emacspeak will ask for confirmation before speaking lines
 that are longer than this length.  This is to avoid accidentally
 opening a binary file and torturing the speech synthesizer
@@ -13882,7 +13910,7 @@ with a long string of gibberish.
 *Option indicating if messages are spoken.  If nil,
 emacspeak will not speak messages as they are echoed to the
 message area.  You can use command
-`emacspeak-toggle-speak-messages' bound to
+``emacspeak-toggle-speak-messages'' bound to
 C-e q.
 
 @end defvar
@@ -13900,7 +13928,7 @@ Pattern that matches white space.
 @defvar {User Option} emacspeak-speak-time-format-string
 *Format string that specifies how the time should be spoken.
 See the documentation for function
-`format-time-string'
+``format-time-string''
 
 @end defvar
 
@@ -14286,7 +14314,7 @@ Copy current table element to kill ring.
 @findex emacspeak-table-copy-current-element-to-register
 
 @format
-:around advice: `ad-Advice-emacspeak-table-copy-current-element-to-register'
+:around advice: ``ad-Advice-emacspeak-table-copy-current-element-to-register''
 
 Copy current table element to specified register.
 
@@ -14321,7 +14349,7 @@ emacspeak table mode is designed to let you browse tabular data using
 all the power of the two-dimensional spatial layout while giving you
 sufficient contextual information.  The tables subdirectory of the
 emacspeak distribution contains some sample tables --these are the
-CalTrain schedules.  Execute command `describe-mode' bound to
+CalTrain schedules.  Execute command ``describe-mode'' bound to
 C-h m in a buffer that is in emacspeak table mode to read
 the documentation on the table browser.
 @end format
@@ -14347,7 +14375,7 @@ emacspeak table mode is designed to let you browse tabular data using
 all the power of the two-dimensional spatial layout while giving you
 sufficient contextual information.  The etc/tables subdirectory of the
 emacspeak distribution contains some sample tables --these are the
-CalTrain schedules.  Execute command `describe-mode' bound to
+CalTrain schedules.  Execute command ``describe-mode'' bound to
 C-h m in a buffer that is in emacspeak table mode to read
 the documentation on the table browser.
 @end format
@@ -14482,8 +14510,8 @@ Move to the previous row if possible
 @format
 Search the table for matching elements.  Interactively prompts for
 row or column to search and pattern to look for.    If there is a match, makes
-the matching cell current. When called from a program, `what' can
-  be either `row' or `column'.
+the matching cell current. When called from a program, ``what'' can
+  be either ``row'' or ``column''.
 @end format
 @end deffn
 
@@ -15590,7 +15618,7 @@ buffer. Interactive use provides list of class values as completion.
 @findex emacspeak-we-extract-by-class-list
 
 @format
-Extract elements having class specified in list `classes' from HTML.
+Extract elements having class specified in list ``classes'' from HTML.
 Extracts specified elements from current WWW page and displays it
 in a separate buffer.  Interactive use provides list of class
 values as completion. 
@@ -15614,7 +15642,7 @@ Interactive use provides list of id values as completion.
 @findex emacspeak-we-extract-by-id-list
 
 @format
-Extract elements having id specified in list `ids' from HTML.
+Extract elements having id specified in list ``ids'' from HTML.
 Extracts specified elements from current WWW page and displays it in a
 separate buffer. Interactive use provides list of id values as completion. 
 @end format
@@ -15646,7 +15674,7 @@ buffer. Interactive use provides list of role values as completion.
 @findex emacspeak-we-extract-id-list-text
 
 @format
-Extract text nodes from elements having id specified in list `ids' from HTML.
+Extract text nodes from elements having id specified in list ``ids'' from HTML.
 Extracts specified elements from current WWW page and displays it in a
 separate buffer. Interactive use provides list of id values as completion. 
 @end format
@@ -15680,7 +15708,7 @@ Extracts links whose URL matches pattern.
 @format
 Extract links to media streams.
 operate on current web page when in a browser buffer; otherwise
- prompt for url.  Optional arg `speak' specifies if the result
+ prompt for url.  Optional arg ``speak'' specifies if the result
  should be spoken automatically.
 @end format
 @end deffn
@@ -15699,9 +15727,9 @@ In browser buffers, extract media streams from url under point.
 @findex emacspeak-we-extract-nested-table
 
 @format
-Extract nested table specified by `table-index'. Default is to
+Extract nested table specified by ``table-index''. Default is to
 operate on current web page when in a browser buffer; otherwise
-prompt for URL. Optional arg `speak' specifies if the result should be
+prompt for URL. Optional arg ``speak'' specifies if the result should be
 spoken automatically.
 @end format
 @end deffn
@@ -15722,7 +15750,7 @@ Extract specified list of tables from a Web page.
 @format
 Extract links to printable  streams.
 operate on current web page when in a browser buffer; otherwise
- prompt for url.  Optional arg `speak' specifies if the result
+ prompt for url.  Optional arg ``speak'' specifies if the result
  should be spoken automatically.
 @end format
 @end deffn
@@ -15806,7 +15834,7 @@ buffer. Interactive use provides list of class values as completion.
 @findex emacspeak-we-junk-by-class-list
 
 @format
-Extract elements not having class specified in list `classes' from HTML.
+Extract elements not having class specified in list ``classes'' from HTML.
 Extracts specified elements from current WWW page and displays it
 in a separate buffer.  Interactive use provides list of class
 values as completion. 
@@ -15851,7 +15879,7 @@ Applies buffer-specific URL expander/executor function.
 Apply a url rewrite rule as specified in the current buffer
 before following link under point.  If no rewrite rule is
 defined, first prompt for one.  Rewrite rules are of the
-form `(from to)' where from and to are strings.  Typically, the
+form ``(from to)'' where from and to are strings.  Typically, the
 rewrite rule is automatically set up by Emacspeak tools like
 websearch where a rewrite rule is known.  Rewrite rules are
 useful in jumping directly to the printer friendly version of an
@@ -16065,7 +16093,7 @@ Search CTAN Comprehensive TeX Archive Network   Site.
 @findex emacspeak-websearch-dispatch
 
 @format
- Press `?' to list available search engines.
+ Press ``?'' to list available search engines.
 When using supported browsers,  this interface attempts to speak the most relevant information on the result page.
 @end format
 @end deffn
@@ -16094,7 +16122,7 @@ Perform a FolDoc search.
 
 @format
 Perform a Google search.  First optional interactive prefix arg
-`flag' prompts for additional search options. Second interactive
+``flag'' prompts for additional search options. Second interactive
 prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. 
 @end format
 @end deffn
@@ -16379,8 +16407,8 @@ y		emacspeak-webspace-yank-link
 
 C-M-i		backward-button
 
-In addition to any hooks its parent mode `special-mode' might have run,
-this mode runs the hook `emacspeak-webspace-mode-hook', as the final step
+In addition to any hooks its parent mode ``special-mode'' might have run,
+this mode runs the hook ``emacspeak-webspace-mode-hook'', as the final step
 during initialization.
 @end format
 @end deffn
@@ -16421,7 +16449,7 @@ Speak current weather.
 
 @format
 Setup periodic weather updates.
-Updated weather is found in `emacspeak-webspace-current-weather'.
+Updated weather is found in ``emacspeak-webspace-current-weather''.
 @end format
 @end deffn
 
@@ -16511,7 +16539,7 @@ Opens link in alternate browser.
 
 @format
 Play media url under point.
-Optional interactive prefix arg `playlist-p' says to treat the link as a playlist.
+Optional interactive prefix arg ``playlist-p'' says to treat the link as a playlist.
  A second interactive prefix arg adds mplayer option -allow-dangerous-playlist-parsing
 @end format
 @end deffn
@@ -16628,7 +16656,7 @@ Contains various wizards for the Emacspeak desktop.
 @format
 Add annotation to the annotation working buffer.
 Prompt for annotation buffer if not already set.
-Interactive prefix arg `reset' prompts for the annotation
+Interactive prefix arg ``reset'' prompts for the annotation
 buffer even if one is already set.
 Annotation is entered in a temporary buffer and the
 annotation is inserted into the working buffer when complete.
@@ -16828,7 +16856,7 @@ Launch lynx on  specified URL in a new terminal.
 
 @format
 Move to next buffer.
-With optional interactive prefix arg `frame', move to next frame instead.
+With optional interactive prefix arg ``frame'', move to next frame instead.
 @end format
 @end deffn
 
@@ -16841,7 +16869,7 @@ With optional interactive prefix arg `frame', move to next frame instead.
 
 @format
 Move to previous buffer.
-With optional interactive prefix arg `frame', move to previous frame instead.
+With optional interactive prefix arg ``frame'', move to previous frame instead.
 @end format
 @end deffn
 
@@ -16853,10 +16881,10 @@ With optional interactive prefix arg `frame', move to previous frame instead.
 @findex emacspeak-select-this-buffer-next-display
 
 @format
-Select this buffer as displayed in a `next' frame.
+Select this buffer as displayed in a ``next'' frame.
 See documentation for command
-`emacspeak-select-this-buffer-other-window-display' for the
-meaning of `next'.
+``emacspeak-select-this-buffer-other-window-display'' for the
+meaning of ``next''.
 @end format
 @end deffn
 
@@ -16887,10 +16915,10 @@ the display to select.
 @findex emacspeak-select-this-buffer-previous-display
 
 @format
-Select this buffer as displayed in a `previous' window.
+Select this buffer as displayed in a ``previous'' window.
 See documentation for command
-`emacspeak-select-this-buffer-other-window-display' for the
-meaning of `previous'.
+``emacspeak-select-this-buffer-other-window-display'' for the
+meaning of ``previous''.
 @end format
 @end deffn
 
@@ -16976,7 +17004,7 @@ result as csv. . Use this for running shell commands that produce
 tabulated output. This command should be used for shell commands
 that produce tabulated output that works with Emacspeak's table
 recognizer. Verify this first by running the command in a shell
-and executing command `emacspeak-table-display-table-in-region'
+and executing command ``emacspeak-table-display-table-in-region''
 normally bound to C-e TAB.
 @end format
 @end deffn
@@ -16999,10 +17027,10 @@ With prefix arg, opens the phone book for editing.
 @findex emacspeak-speak-this-buffer-next-display
 
 @format
-Speak this buffer as displayed in a `previous' window.
+Speak this buffer as displayed in a ``previous'' window.
 See documentation for command
-`emacspeak-speak-this-buffer-other-window-display' for the
-meaning of `next'.
+``emacspeak-speak-this-buffer-other-window-display'' for the
+meaning of ``next''.
 @end format
 @end deffn
 
@@ -17036,10 +17064,10 @@ the display to speak.
 @findex emacspeak-speak-this-buffer-previous-display
 
 @format
-Speak this buffer as displayed in a `previous' window.
+Speak this buffer as displayed in a ``previous'' window.
 See documentation for command
-`emacspeak-speak-this-buffer-other-window-display' for the
-meaning of `previous'.
+``emacspeak-speak-this-buffer-other-window-display'' for the
+meaning of ``previous''.
 @end format
 @end deffn
 
@@ -17061,7 +17089,7 @@ Restart specified ssh tts server.
 
 @format
 Switch to most recently used interesting buffer.
-Obsoleted by `previous-buffer' in Emacs 22
+Obsoleted by ``previous-buffer'' in Emacs 22
 @end format
 @end deffn
 
@@ -17218,7 +17246,7 @@ Major mode for browsing DVI files.
 
 DVI files  are converted to text and previewed using text mode.
 
-This mode runs the hook `emacspeak-wizards-dvi-mode-hook', as the final step
+This mode runs the hook ``emacspeak-wizards-dvi-mode-hook'', as the final step
 during initialization.
 
 key             binding
@@ -17296,7 +17324,7 @@ Speak region using ESpeak polyglot wizard.
 
 @format
 Speak string in lang via ESpeak.
-Lang is obtained from property `lang' on string, or  via an interactive prompt.
+Lang is obtained from property ``lang'' on string, or  via an interactive prompt.
 @end format
 @end deffn
 
@@ -17323,7 +17351,7 @@ Like find-file, but binds default-directory to emacspeak-directory.
 @findex emacspeak-wizards-find-file-as-root
 
 @format
-Like `ido-find-file, but automatically edit the file with
+Like ``ido-find-file, but automatically edit the file with
 root-privileges (using tramp/sudo), if the file is not writable by
 user.
 @end format
@@ -17386,7 +17414,7 @@ directory to where find is to be launched.
 @format
 Emacspeak Finder
 
-This mode runs the hook `emacspeak-wizards-finder-mode-hook', as the final step
+This mode runs the hook ``emacspeak-wizards-finder-mode-hook'', as the final step
 during initialization.
 
 key             binding
@@ -17409,8 +17437,8 @@ Nuke read-only property on text range.
 @findex emacspeak-wizards-fix-typo
 
 @format
-Search and replace  recursively in all files with extension `ext'
-for `word' and replace it with correction.
+Search and replace  recursively in all files with extension ``ext''
+for ``word'' and replace it with correction.
 Use with caution.
 @end format
 @end deffn
@@ -17471,9 +17499,9 @@ View Web through Google Transcoder.
 
 @format
 If you define a file local variable
-called `emacspeak-occur-pattern' that holds a regular expression
+called ``emacspeak-occur-pattern'' that holds a regular expression
 that matches  lines of interest, you can use this command to conveniently
-run `how-many' to count  matching header lines.
+run ``how-many'' to count  matching header lines.
 With interactive prefix arg, prompts for and remembers the file local pattern.
 @end format
 @end deffn
@@ -17515,7 +17543,7 @@ command.
 @findex emacspeak-wizards-next-bullet
 
 @format
-Navigate to and speak next `bullet'.
+Navigate to and speak next ``bullet''.
 @end format
 @end deffn
 
@@ -17543,9 +17571,9 @@ Switch to next shell.
 
 @format
 If you define a file local variable called
-`emacspeak-occur-pattern' that holds a regular expression that
+``emacspeak-occur-pattern'' that holds a regular expression that
 matches header lines, you can use this command to conveniently
-run `occur' to find matching header lines. With prefix arg,
+run ``occur'' to find matching header lines. With prefix arg,
 prompts for and sets value of the file local pattern.
 @end format
 @end deffn
@@ -17590,8 +17618,8 @@ Major mode for browsing PPT slides.
 
 PPT files  are converted to HTML and previewed using a browser.
 
-In addition to any hooks its parent mode `text-mode' might have run,
-this mode runs the hook `emacspeak-wizards-ppt-mode-hook', as the final step
+In addition to any hooks its parent mode ``text-mode'' might have run,
+this mode runs the hook ``emacspeak-wizards-ppt-mode-hook'', as the final step
 during initialization.
 
 key             binding
@@ -17605,7 +17633,7 @@ key             binding
 @findex emacspeak-wizards-previous-bullet
 
 @format
-Navigate to and speak previous `bullet'.
+Navigate to and speak previous ``bullet''.
 @end format
 @end deffn
 
@@ -17657,8 +17685,8 @@ Run rpm -qi on current dired entry.
 @findex emacspeak-wizards-shell
 
 @format
-Run Emacs built-in `shell' command when not in a shell buffer, or when called with a prefix argument.
-When called from a shell buffer, switches to `next' shell buffer.
+Run Emacs built-in ``shell'' command when not in a shell buffer, or when called with a prefix argument.
+When called from a shell buffer, switches to ``next'' shell buffer.
 @end format
 @end deffn
 
@@ -17749,8 +17777,8 @@ Make ISO date-time speech friendly.
 @findex emacspeak-wizards-spot-words
 
 @format
-Searches recursively in all files with extension `ext'
-for `word' and displays hits in a compilation buffer.
+Searches recursively in all files with extension ``ext''
+for ``word'' and displays hits in a compilation buffer.
 @end format
 @end deffn
 
@@ -17915,7 +17943,7 @@ key             binding
 
 C-l		emacspeak-wizards-vc-viewer-refresh
 
-This mode runs the hook `emacspeak-wizards-vc-viewer-mode-hook', as the final step
+This mode runs the hook ``emacspeak-wizards-vc-viewer-mode-hook'', as the final step
 during initialization.
 @end format
 @end deffn
@@ -17995,8 +18023,8 @@ Major mode for browsing XL spreadsheets.
 
 XL Sheets are converted to HTML and previewed using a browser.
 
-In addition to any hooks its parent mode `text-mode' might have run,
-this mode runs the hook `emacspeak-wizards-xl-mode-hook', as the final step
+In addition to any hooks its parent mode ``text-mode'' might have run,
+this mode runs the hook ``emacspeak-wizards-xl-mode-hook'', as the final step
 during initialization.
 
 key             binding
@@ -18011,7 +18039,7 @@ key             binding
 
 @format
 Display quotes using YQL API.
-Symbols are taken from `emacspeak-wizards-personal-portfolio'.
+Symbols are taken from ``emacspeak-wizards-personal-portfolio''.
 @end format
 @end deffn
 
@@ -18136,7 +18164,7 @@ bound to M-x emacspeak-wizards-tramp-open-location.
 @defvar {User Option} emacspeak-wizards-vc-viewer-command
 Command line for dumping out virtual console.
 Make sure you have access to /dev/vcs* by adding yourself to the appropriate group.
-On Ubuntu and Debian this is group `tty'.
+On Ubuntu and Debian this is group ``tty''.
 
 @end defvar
 
@@ -18274,8 +18302,8 @@ C-c		Prefix Command
 C-c C-v		emacspeak-xml-shell-browse-result
 C-c v		emacspeak-xml-shell-browse-current
 
-In addition to any hooks its parent mode `comint-mode' might have run,
-this mode runs the hook `emacspeak-xml-shell-mode-hook', as the final step
+In addition to any hooks its parent mode ``comint-mode'' might have run,
+this mode runs the hook ``emacspeak-xml-shell-mode-hook'', as the final step
 during initialization.
 @end format
 @end deffn
@@ -18336,7 +18364,7 @@ Browse URL with specified XSL style.
 @findex emacspeak-xslt-view-file
 
 @format
-Transform `file' using `style' and preview via browse-url.
+Transform ``file'' using ``style'' and preview via browse-url.
 @end format
 @end deffn
 
@@ -18604,7 +18632,7 @@ Delete item at specified edit URL.
 @format
 Retrieve entry and prepare it for editing.
 The retrieved entry is placed in a buffer ready for editing.
-`url' is the URL of the entry.
+``url'' is the URL of the entry.
 @end format
 @end deffn
 
@@ -18644,7 +18672,7 @@ Author name under which we post.
 
 @defvar {User Option} gblogger-posting-url
 URL for posting to this post.
-You can get the URL from a [post] link shown by `gblogger-blog'
+You can get the URL from a [post] link shown by ``gblogger-blog''
 
 @end defvar
 
@@ -18675,7 +18703,7 @@ Fast feed access from Google for use in Emacs
 @findex gfeeds-view
 
 @format
-:around advice: `ad-Advice-gfeeds-view'
+:around advice: ``ad-Advice-gfeeds-view''
 
 Display Feed in a browser.
 Interactive prefix arg causes the feed url to be looked up given a Web site.
@@ -18738,7 +18766,7 @@ Implements the Google Maps API
 @findex gmaps
 
 @format
-:around advice: `ad-Advice-gmaps'
+:around advice: ``ad-Advice-gmaps''
 
 Google Maps Interaction.
 
@@ -18751,7 +18779,7 @@ Google Maps Interaction.
 @findex gmaps-bicycling-directions
 
 @format
-:around advice: `ad-Advice-gmaps-bicycling-directions'
+:around advice: ``ad-Advice-gmaps-bicycling-directions''
 
 Biking directions from Google Maps.
 
@@ -18773,7 +18801,7 @@ Display  directions obtained from Google Maps.
 @findex gmaps-driving-directions
 
 @format
-:around advice: `ad-Advice-gmaps-driving-directions'
+:around advice: ``ad-Advice-gmaps-driving-directions''
 
 Driving directions from Google Maps.
 
@@ -18788,8 +18816,8 @@ Driving directions from Google Maps.
 @format
 A Google Maps front-end for the Emacspeak desktop.
 
-In addition to any hooks its parent mode `special-mode' might have run,
-this mode runs the hook `gmaps-mode-hook', as the final step
+In addition to any hooks its parent mode ``special-mode'' might have run,
+this mode runs the hook ``gmaps-mode-hook'', as the final step
 during initialization.
 
 key             binding
@@ -18820,7 +18848,7 @@ M-i		backward-button
 @findex gmaps-place-details
 
 @format
-:around advice: `ad-Advice-gmaps-place-details'
+:around advice: ``ad-Advice-gmaps-place-details''
 
 Display details for place at point.
 Insert reviews if already displaying details.
@@ -18844,7 +18872,7 @@ Place details need to have been expanded first.
 @findex gmaps-places-nearby
 
 @format
-:around advice: `ad-Advice-gmaps-places-nearby'
+:around advice: ``ad-Advice-gmaps-places-nearby''
 
 Find places near current location.
 Uses default radius. optional interactive prefix arg clears any active filters.
@@ -18858,7 +18886,7 @@ Uses default radius. optional interactive prefix arg clears any active filters.
 @findex gmaps-places-search
 
 @format
-:around advice: `ad-Advice-gmaps-places-search'
+:around advice: ``ad-Advice-gmaps-places-search''
 
 Perform a places search.
 Use this only if you dont know the locality  of the place you're looking for.
@@ -18883,7 +18911,7 @@ Optional interactive prefix arg prompts for all filter fields.
 @findex gmaps-set-current-location
 
 @format
-:around advice: `ad-Advice-gmaps-set-current-location'
+:around advice: ``ad-Advice-gmaps-set-current-location''
 
  Set current location.
 
@@ -18896,7 +18924,7 @@ Optional interactive prefix arg prompts for all filter fields.
 @findex gmaps-set-current-radius
 
 @format
-:around advice: `ad-Advice-gmaps-set-current-radius'
+:around advice: ``ad-Advice-gmaps-set-current-radius''
 
 Set current radius
 
@@ -18909,7 +18937,7 @@ Set current radius
 @findex gmaps-transit-directions
 
 @format
-:around advice: `ad-Advice-gmaps-transit-directions'
+:around advice: ``ad-Advice-gmaps-transit-directions''
 
 Transit directions from Google Maps.
 
@@ -18922,7 +18950,7 @@ Transit directions from Google Maps.
 @findex gmaps-walking-directions
 
 @format
-:around advice: `ad-Advice-gmaps-walking-directions'
+:around advice: ``ad-Advice-gmaps-walking-directions''
 
 Walking directions from Google Maps.
 
@@ -19021,7 +19049,7 @@ Download resource after authenticating.
 @format
 Retrieve metadata for entry and prepare it for editting.
 The retrieved entry is placed in a buffer ready for editing.
-`url' is the URL of the entry.
+``url'' is the URL of the entry.
 @end format
 @end deffn
 
@@ -19170,7 +19198,7 @@ json-viewer.el: View, Explore JSON data
 
 @format
 Launch a viewer for data in json.
-`json' is the parsed representation of a JSON data structure.
+``json'' is the parsed representation of a JSON data structure.
 @end format
 @end deffn
 
@@ -19181,8 +19209,8 @@ Launch a viewer for data in json.
 @format
 View, Explore JSON-encoded data on the Emacspeak Audio Desktop.
 
-In addition to any hooks its parent mode `special-mode' might have run,
-this mode runs the hook `json-view-mode-hook', as the final step
+In addition to any hooks its parent mode ``special-mode'' might have run,
+this mode runs the hook ``json-view-mode-hook'', as the final step
 during initialization.
 
 key             binding
@@ -19271,7 +19299,7 @@ Adds  effect at the end of the effect list
 @findex sox-delete-effect-at-point
 
 @format
-:around advice: `ad-Advice-sox-delete-effect-at-point'
+:around advice: ``ad-Advice-sox-delete-effect-at-point''
 
 Delete effect at point.
 
@@ -19295,8 +19323,8 @@ Edit effect at point.
 @format
 An audio workbench for the Emacspeak desktop.
 
-In addition to any hooks its parent mode `special-mode' might have run,
-this mode runs the hook `sox-mode-hook', as the final step
+In addition to any hooks its parent mode ``special-mode'' might have run,
+this mode runs the hook ``sox-mode-hook'', as the final step
 during initialization.
 
 key             binding
@@ -19310,7 +19338,7 @@ key             binding
 @findex sox-open-file
 
 @format
-:around advice: `ad-Advice-sox-open-file'
+:around advice: ``ad-Advice-sox-open-file''
 
 Open specified snd-file on the Audio Workbench.
 
@@ -19332,7 +19360,7 @@ Play sound from current context.
 @findex sox-refresh
 
 @format
-:around advice: `ad-Advice-sox-refresh'
+:around advice: ``ad-Advice-sox-refresh''
 
 Redraw Audio Workbench.
 
@@ -19518,7 +19546,7 @@ Interactively toggle voice lock.
 @format
 Show all defined voice-face mappings  in a help buffer.
 Sample text to use comes from variable
-  `voice-setup-sample-text'. 
+  ``voice-setup-sample-text''. 
 @end format
 @end deffn
 
@@ -19745,7 +19773,7 @@ Increase brightness by  by one step.
 
 @format
 Set brightness to  specified level.
-`brightness' is a percentage value.
+``brightness'' is a percentage value.
 @end format
 @end deffn
 

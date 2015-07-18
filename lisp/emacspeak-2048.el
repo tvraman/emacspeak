@@ -45,7 +45,7 @@
 ;;; Code:
 
 ;;; Commentary:
-;;; 2048 == 
+;;; 2048 ==
 
 ;;}}}
 ;;{{{  Required modules
@@ -56,9 +56,10 @@
 (require '2048-game "2048-game" 'no-error)
 ;;}}}
 ;;{{{ Push And Pop states:
+
 (defstruct emacspeak-2048-game-state
   board score
-  rows cols 
+  rows cols
   )
 
 (defvar emacspeak-2048-game-stack nil
@@ -95,6 +96,44 @@
       (2048-print-board)
       (emacspeak-auditory-icon 'yank-object)
       (message "Popped: Score is now %s" *2048-score*)))))
+
+;;}}}
+;;{{{ Adding rows and columns:
+
+(defun emacspeak-2048-add-row ()
+  "Add a row  to the current board."
+  (interactive)
+  (declare (special *2048-board* *2048-rows*))
+  (setq *2048-rows* (incf *2048-rows*))
+  (let ((board (copy-sequence *2048-board*)))
+    (setq *2048-board* (make-vector (* *2048-columns* *2048-rows*) 0))
+    (loop
+     for   i from 0 to (1- (length board)) do
+     (aset  *2048-board* i  (aref board i))
+     (2048-print-board))
+    (message "Added row.")))
+
+(defun emacspeak-2048-add-column ()
+  "Add a column  to the current board."
+  (interactive)
+  (declare (special *2048-board* *2048-columns*))
+  (setq *2048-columns* (incf *2048-columns*))
+  (let ((board (copy-sequence *2048-board*)))
+    (setq *2048-board* (make-vector (* *2048-columns* *2048-rows*) 0))
+    (loop
+     for  r from 0 to (1- *2048-rows*)  do
+     (loop
+      for c from 0 to (- *2048-columns*  2) do
+      (aset  *2048-board*  (* r c)   (aref board (* r c))))
+     (2048-print-board))
+    (message "Added column.")))
+
+(defun emacspeak-2048-board-reset ()
+  "Reset board to default size."
+  (declare (special *2048-rows* *2048-columns* *2048-board*))
+  (setq *2048-rows* 4
+        *2048-columns* 4))
+
 ;;}}}
 ;;{{{ Advice commands, bind one review command
 
@@ -110,13 +149,13 @@
   (declare (special *2048-board*      *2048-columns* *2048-rows*))
   (dtk-speak-list
    (loop for col from 0 to (- *2048-columns*  1)
-         collect 
+         collect
          (loop for row from 0 to (- *2048-rows*  1)
                collect
                (aref  *2048-board*  (+ col (* 4 row)))))
    *2048-rows*))
 
-(loop 
+(loop
  for f in
  '(2048-left 2048-right 2048-down 2048-up)
  do
@@ -132,8 +171,8 @@
         ((2048-game-was-won) (emacspeak-auditory-icon 'task-done))
         ((2048-game-was-lost) (emacspeak-auditory-icon 'alarm)))))))
 (defadvice 2048-insert-random-cell (after emacspeak pre act comp)
-"Provide auditory icon"
-(emacspeak-auditory-icon 'item))
+  "Provide auditory icon"
+  (emacspeak-auditory-icon 'item))
 
 (defun emacspeak-2048-score ()
   "Show total on board."
@@ -147,16 +186,18 @@
 (defun emacspeak-2048-setup ()
   "Emacspeak setup for 2048."
   (declaim (special  2048-mode-map))
+  (define-key 2048-mode-map "R" 'emacspeak-2048-add-row)
+  (define-key 2048-mode-map "C" 'emacspeak-2048-add-column)
   (define-key 2048-mode-map " " 'emacspeak-2048-speak-board)
   (define-key 2048-mode-map "s" 'emacspeak-2048-push-state)
   (define-key 2048-mode-map "u"  'emacspeak-2048-pop-state)
   (define-key 2048-mode-map [delete]  'emacspeak-2048-pop-state)
   (define-key 2048-mode-map "/" 'emacspeak-2048-speak-transposed-board)
   (define-key 2048-mode-map  "="'emacspeak-2048-score)
-  (define-key 2048-mode-map  "R"'emacspeak-2048-randomize-game)
+  (define-key 2048-mode-map  "r"'emacspeak-2048-randomize-game)
   (define-key 2048-mode-map  (kbd "C-SPC") 'emacspeak-2048-score)
   (define-key 2048-mode-map "g" '2048-game)
-  (dtk-set-rate 
+  (dtk-set-rate
    (+ dtk-speech-rate-base
       (* dtk-speech-rate-step  3 )))
   (dtk-set-punctuations 'some)
@@ -170,17 +211,18 @@
 
 (defvar emacspeak-2048-move-count 0
   "Number of moves in this game.")
-(loop 
- for f in 
+(loop
+ for f in
  '(2048-up 2048-down 2048-left 2048-right)
  do
  (eval
   `(defadvice ,f (after  count-moves pre act comp)
      "Count this move."
      (incf emacspeak-2048-move-count))))
-(defadvice 2048-game (after count-moves pre act comp)
-  "Reset move count."
-  (setq emacspeak-2048-move-count 0))
+(defadvice 2048-game (before count-moves pre act comp)
+  "Reset move count and board size."
+  (setq emacspeak-2048-move-count 0)
+  (emacspeak-2048-board-reset))
 
 ;;}}}
 ;;{{{ Randomize game
@@ -193,7 +235,7 @@
    for i from 0 to 15 do
    (cond
     ((< i  count)
-     (aset *2048-board* i 
+     (aset *2048-board* i
            (lsh 2 (random (random count)))))
     (t (aset *2048-board* i 0))))
   (emacspeak-2048-speak-board))
