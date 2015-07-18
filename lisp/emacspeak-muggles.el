@@ -125,15 +125,15 @@
 
 (defadvice lv-message (after emacspeak pre act comp)
   "provide spoken feedback if idle."
-  (let ((buffer (get-buffer "*LV*")))
-    (when (and buffer  (buffer-live-p buffer)
-               (sit-for 3))
-      (emacspeak-auditory-icon 'help)
+  (let ((buffer (get-buffer "*LV*"))
+        (dtk-stop-immediately  nil))
+    (when (and buffer  (buffer-live-p buffer))
       (with-current-buffer buffer
         (dtk-speak
          (replace-regexp-in-string
           emacspeak-muggles-hint-cleanup"\\1"
           (buffer-string)))))))
+
 
 ;;}}}
 ;;{{{ Brightness:
