@@ -1,4 +1,4 @@
-;;; emacspeak-muggles.el --- Convenience Hydras For The Emacspeak Desktop 
+;;; emacspeak-muggles.el --- Convenience Hydras For The Emacspeak Desktop
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable MUGGLES An Emacs Interface to muggles
 ;;; Keywords: Emacspeak,  Audio Desktop muggles
@@ -113,24 +113,27 @@
   "Provide auditory icon"
   (emacspeak-auditory-icon 'progress))
 
-
 (defun emacspeak-muggles-post ()
   "Provide auditory icon"
   (emacspeak-auditory-icon 'close-object))
 
 ;;}}}
 ;;{{{ Advice LV:
+(defconst emacspeak-muggles-hint-cleanup
+  "\\[\\([^][]+\\)]"
+  "Regexp pattern to cleanup  Muggle hints.")
 
 (defadvice lv-message (after emacspeak pre act comp)
   "provide spoken feedback if idle."
-  (let ((buffer (get-buffer "*LV*"))
-        (dtk-stop-immediately nil))
+  (let ((buffer (get-buffer "*LV*")))
     (when (and buffer  (buffer-live-p buffer)
                (sit-for 3))
       (emacspeak-auditory-icon 'help)
       (with-current-buffer buffer
-        (dtk-speak ;; will lose brackets
-         (replace-regexp-in-string "[][]" "" (buffer-string)))))))
+        (dtk-speak
+         (replace-regexp-in-string
+          emacspeak-muggles-hint-cleanup"\\1"
+          (buffer-string)))))))
 
 ;;}}}
 ;;{{{ Brightness:
@@ -138,18 +141,18 @@
 (global-set-key
  (kbd "<print>")
  (defhydra emacspeak-muggles-brightness
-  (:body-pre (emacspeak-muggles-body-pre "Brightness")
+   (:body-pre (emacspeak-muggles-body-pre "Brightness")
               :pre emacspeak-muggles-pre
               :post emacspeak-muggles-post)
-  "Brightness"
-  ("i" xbacklight-increment "brighter")
-  ("SPC" xbacklight-increment "brighter")
-  ("d" xbacklight-decrement "dimmer")
-  ("g" xbacklight-get "Get")
-  ("s" xbacklight-set "set")
-  ("0" xbacklight-black "black")
-  ("<print>" xbacklight-black "black")
-  ("1" xbacklight-white  "white")))
+   "Brightness"
+   ("i" xbacklight-increment "brighter")
+   ("SPC" xbacklight-increment "brighter")
+   ("d" xbacklight-decrement "dimmer")
+   ("g" xbacklight-get "Get")
+   ("s" xbacklight-set "set")
+   ("0" xbacklight-black "black")
+   ("<print>" xbacklight-black "black")
+   ("1" xbacklight-white  "white")))
 
 ;;}}}
 ;;{{{  View Mode:
@@ -157,52 +160,52 @@
 (global-set-key
  (kbd  "C-c v")
  (defhydra emacspeak-muggles-view
-  (:body-pre (emacspeak-muggles-body-pre "View")
+   (:body-pre (emacspeak-muggles-body-pre "View")
               :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
-  "View Mode"
-  ("$" set-selective-display)
-  ("'" register-to-point)
-  ("(" backward-sexp)
-  (")" forward-sexp)
-  ("." set-mark-command)
-  ("/" View-search-regexp-forward)
-  ("<" beginning-of-buffer)
-  ("<return>" nil "quit")
-  ("=" what-line)
-  (">" end-of-buffer)
-  ("@" View-back-to-mark)
-  ("A"beginning-of-defun )
-  ("DEL" View-scroll-page-backward)
-  ("E"end-of-defun )
-  ("SPC" View-scroll-page-forward)
-  ("[" previous-page)
-  ("\\" View-search-regexp-backward)
-  ("]" next-page)
-  ("a" move-beginning-of-line "beg")
-  ("b" backward-word)
-  ("c" emacspeak-speak-char)
-  ("d" View-scroll-half-page-forward)
-  ("e" move-end-of-line "end")
-  ("f" forward-word)
-  ("g" goto-line)
-  ("h" backward-char)
-  ("i" emacspeak-speak-mode-line)
-  ("j" next-line)
-  ("k" previous-line)
-  ("l" forward-char)
-  ("m" point-to-register)
-  ("n" View-search-last-regexp-forward)
-  ("p" View-search-last-regexp-backward)
-  ("q" nil "quit")
-  ("r" copy-to-register)
-  ("t" (recenter 0))
-  ("u" View-scroll-half-page-backward)
-  ("w"emacspeak-speak-word)
-  ("x" exchange-point-and-mark)
-  ("y" kill-ring-save "yank")
-  ("{" backward-paragraph)
-  ("}" forward-paragraph)
-  ))
+   "View Mode"
+   ("$" set-selective-display)
+   ("'" register-to-point)
+   ("(" backward-sexp)
+   (")" forward-sexp)
+   ("." set-mark-command)
+   ("/" View-search-regexp-forward)
+   ("<" beginning-of-buffer)
+   ("<return>" nil "quit")
+   ("=" what-line)
+   (">" end-of-buffer)
+   ("@" View-back-to-mark)
+   ("A"beginning-of-defun )
+   ("DEL" View-scroll-page-backward)
+   ("E"end-of-defun )
+   ("SPC" View-scroll-page-forward)
+   ("[" previous-page)
+   ("\\" View-search-regexp-backward)
+   ("]" next-page)
+   ("a" move-beginning-of-line "beg")
+   ("b" backward-word)
+   ("c" emacspeak-speak-char)
+   ("d" View-scroll-half-page-forward)
+   ("e" move-end-of-line "end")
+   ("f" forward-word)
+   ("g" goto-line)
+   ("h" backward-char)
+   ("i" emacspeak-speak-mode-line)
+   ("j" next-line)
+   ("k" previous-line)
+   ("l" forward-char)
+   ("m" point-to-register)
+   ("n" View-search-last-regexp-forward)
+   ("p" View-search-last-regexp-backward)
+   ("q" nil "quit")
+   ("r" copy-to-register)
+   ("t" (recenter 0))
+   ("u" View-scroll-half-page-backward)
+   ("w"emacspeak-speak-word)
+   ("x" exchange-point-and-mark)
+   ("y" kill-ring-save "yank")
+   ("{" backward-paragraph)
+   ("}" forward-paragraph)
+   ))
 
 ;;}}}
 ;;{{{ Org-Mode Table Navigation:
@@ -210,18 +213,18 @@
 (define-key
   org-mode-map "C-c t"
   (defhydra emacspeak-muggles-org-table
-  (:body-pre (emacspeak-muggles-body-pre "Org Table UI")
-                :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
-  "Org Table UI"
-  ("j" org-table-next-row)
-  ("k" org-table-previous-row)
-  ("h" org-table-previous-field)
-  ("l" org-table-next-field)
-  ("SPC"emacspeak-org-table-speak-current-element)
-  ("."emacspeak-org-table-speak-coordinates)
-  ("b"emacspeak-org-table-speak-both-headers-and-element)
-  ("r"emacspeak-org-table-speak-row-header-and-element)
-  ("c"emacspeak-org-table-speak-column-header-and-element)))
+    (:body-pre (emacspeak-muggles-body-pre "Org Table UI")
+               :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
+    "Org Table UI"
+    ("j" org-table-next-row)
+    ("k" org-table-previous-row)
+    ("h" org-table-previous-field)
+    ("l" org-table-next-field)
+    ("SPC"emacspeak-org-table-speak-current-element)
+    ("."emacspeak-org-table-speak-coordinates)
+    ("b"emacspeak-org-table-speak-both-headers-and-element)
+    ("r"emacspeak-org-table-speak-row-header-and-element)
+    ("c"emacspeak-org-table-speak-column-header-and-element)))
 
 ;;}}}
 ;;{{{ Media Player:
@@ -292,15 +295,15 @@
 (global-set-key
  (kbd "C-c h")
  (defhydra  emacspeak-muggles-hideshow
-  (
-              :body-pre (emacspeak-muggles-body-pre  "Hide Show")
+   (
+    :body-pre (emacspeak-muggles-body-pre  "Hide Show")
               :pre emacspeak-muggles-pre :post emacspeak-muggles-post :color blue)
-  "Hideshow"
-  ("h" hs-hide-block)
-  ("s" hs-show-block)
-  ("H" hs-hide-all)
-  ("S" hs-show-all)
-  ("i" hs-hide-initial-comment-block)))
+   "Hideshow"
+   ("h" hs-hide-block)
+   ("s" hs-show-block)
+   ("H" hs-hide-all)
+   ("S" hs-show-all)
+   ("i" hs-hide-initial-comment-block)))
 
 ;;}}}
 ;;{{{ Option Toggle
@@ -310,10 +313,10 @@
 (global-set-key
  (kbd "C-c o")
  (defhydra emacspeak-muggles-toggle-option
-  (:color blue :body-pre (emacspeak-muggles-body-pre "Toggle Option ")
-:pre emacspeak-muggles-pre :post emacspeak-muggles-post
-              )
-  "
+   (:color blue :body-pre (emacspeak-muggles-body-pre "Toggle Option ")
+           :pre emacspeak-muggles-pre :post emacspeak-muggles-post
+           )
+   "
 _a_ abbrev-mode:       %`abbrev-mode
 _d_ debug-on-error:    %`debug-on-error
 _f_ auto-fill-mode:    %`auto-fill-function
@@ -322,13 +325,13 @@ _t_ truncate-lines:    %`truncate-lines
 _w_ whitespace-mode:   %`whitespace-mode
 
 "
-  ("a" abbrev-mode )
-  ("d" toggle-debug-on-error )
-  ("f" auto-fill-mode )
-  ("g"  toggle-debug-on-quit  )
-  ("t" toggle-truncate-lines )
-  ("w" whitespace-mode )
-  ("q" nil "quit")))
+   ("a" abbrev-mode )
+   ("d" toggle-debug-on-error )
+   ("f" auto-fill-mode )
+   ("g"  toggle-debug-on-quit  )
+   ("t" toggle-truncate-lines )
+   ("w" whitespace-mode )
+   ("q" nil "quit")))
 
 ;;}}}
 ;;{{{ Outliner:
@@ -336,13 +339,13 @@ _w_ whitespace-mode:   %`whitespace-mode
 ;;; Cloned from Hydra Wiki:
 (global-set-key
  (kbd "C-c #")
- (defhydra emacspeak-muggles-outliner 
-  (:body-pre (progn
-                     (outline-minor-mode 1)
-                     (emacspeak-muggles-body-pre "Outline Navigation"))
+ (defhydra emacspeak-muggles-outliner
+   (:body-pre (progn
+                (outline-minor-mode 1)
+                (emacspeak-muggles-body-pre "Outline Navigation"))
               :pre emacspeak-muggles-pre :post emacspeak-muggles-post
               :color pink :hint nil)
-  "
+   "
 ^Hide^             ^Show^           ^Move
 ^^^^^^------------------------------------------------------
 _q_: sublevels     _a_: all         _u_: up
@@ -353,26 +356,26 @@ _l_: leaves        _s_: subtree     _b_: backward same level
 _d_: subtree
 
 "
-  ;; Hide
-  ("q" hide-sublevels)    ; Hide everything but the top-level headings
-  ("t" hide-body)         ; Hide everything but headings (all body lines)
-  ("o" hide-other)        ; Hide other branches
-  ("c" hide-entry)        ; Hide this entry's body
-  ("l" hide-leaves)       ; Hide body lines in this entry and sub-entries
-  ("d" hide-subtree)      ; Hide everything in this entry and sub-entries
-  ;; Show
-  ("a" show-all)          ; Show (expand) everything
-  ("e" show-entry)        ; Show this heading's body
-  ("i" show-children)     ; Show this heading's immediate child sub-headings
-  ("k" show-branches)     ; Show all sub-headings under this heading
-  ("s" show-subtree)      ; Show (expand) everything in this heading & below
-  ;; Move
-  ("u" outline-up-heading)                ; Up
-  ("n" outline-next-visible-heading)      ; Next
-  ("p" outline-previous-visible-heading)  ; Previous
-  ("f" outline-forward-same-level)        ; Forward - same level
-  ("b" outline-backward-same-level)       ; Backward - same level
-  ("z" nil "leave")))
+   ;; Hide
+   ("q" hide-sublevels)    ; Hide everything but the top-level headings
+   ("t" hide-body)         ; Hide everything but headings (all body lines)
+   ("o" hide-other)        ; Hide other branches
+   ("c" hide-entry)        ; Hide this entry's body
+   ("l" hide-leaves)       ; Hide body lines in this entry and sub-entries
+   ("d" hide-subtree)      ; Hide everything in this entry and sub-entries
+   ;; Show
+   ("a" show-all)          ; Show (expand) everything
+   ("e" show-entry)        ; Show this heading's body
+   ("i" show-children)     ; Show this heading's immediate child sub-headings
+   ("k" show-branches)     ; Show all sub-headings under this heading
+   ("s" show-subtree)      ; Show (expand) everything in this heading & below
+   ;; Move
+   ("u" outline-up-heading)                ; Up
+   ("n" outline-next-visible-heading)      ; Next
+   ("p" outline-previous-visible-heading)  ; Previous
+   ("f" outline-forward-same-level)        ; Forward - same level
+   ("b" outline-backward-same-level)       ; Backward - same level
+   ("z" nil "leave")))
 
 ;;}}}
 (provide 'emacspeak-muggles)
