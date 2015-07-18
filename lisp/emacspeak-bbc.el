@@ -222,6 +222,39 @@ Date defaults to today."
     (shell-command  command " *get-iplayer*")
     (sit-for 1)
     (emacspeak-m-player emacspeak-bbc-iplayer-handle)))
+;;;###autoload
+(defun emacspeak-bbc-get-iplayer-stream-url (url)
+  "Stream using get_iplayer."
+  (interactive "sURL: ")
+  (declare (special emacspeak-bbc-get-iplayer emacspeak-bbc-iplayer-handle))
+  (let
+      ((command
+        (format
+         "%s --stream --url='%s' --modes=flashaaclow,hlsaaclow --type=radio > %s &"
+         emacspeak-bbc-get-iplayer url emacspeak-bbc-iplayer-handle)))
+    (unless (file-exists-p emacspeak-bbc-iplayer-handle)
+      (shell-command (format "mknod %s p" emacspeak-bbc-iplayer-handle)))
+    (dtk-speak-and-echo "Initialized stream, please wait.")
+    (shell-command  command " *get-iplayer*")
+    (sit-for 1)
+    (emacspeak-m-player emacspeak-bbc-iplayer-handle)))
+
+;;;###autoload
+(defun emacspeak-bbc-get-iplayer-stream-pid (pid)
+  "Stream using get_iplayer."
+  (interactive "sURL: ")
+  (declare (special emacspeak-bbc-get-iplayer emacspeak-bbc-iplayer-handle))
+  (let
+      ((command
+        (format
+         "%s --stream --pid='%s' --modes=flashaaclow,hlsaaclow --type=radio > %s &"
+         emacspeak-bbc-get-iplayer pid emacspeak-bbc-iplayer-handle)))
+    (unless (file-exists-p emacspeak-bbc-iplayer-handle)
+      (shell-command (format "mknod %s p" emacspeak-bbc-iplayer-handle)))
+    (dtk-speak-and-echo "Initialized stream, please wait.")
+    (shell-command  command " *get-iplayer*")
+    (sit-for 1)
+    (emacspeak-m-player emacspeak-bbc-iplayer-handle)))
 
 ;;}}}
 ;;{{{ Stream Using Chrome:
