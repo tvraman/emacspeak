@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1094 commands and 887 options.
+This chapter documents a total of 1096 commands and 892 options.
 
 @menu
 * acss-structure::
@@ -2332,6 +2332,36 @@ This personality uses  voice-brighten-extra whose  effect can be changed globall
 
 @end defvar
 
+@defvar {User Option} emacspeak-hydra-face-amaranth-voice
+Personality used for hydra-face-amaranth
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-hydra-face-blue-voice
+Personality used for hydra-face-blue
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-hydra-face-pink-voice
+Personality used for hydra-face-pink
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-hydra-face-red-voice
+Personality used for hydra-face-red
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-hydra-face-teal-voice
+Personality used for hydra-face-teal
+This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-ido-first-match-voice
 Personality used for ido-first-match
 This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
@@ -4490,6 +4520,24 @@ Interactive prefix arg filters  content by genre.
 
 @format
 Launch BBC Interaction for specified Genre.
+@end format
+@end deffn
+
+@subsubsection emacspeak-bbc-get-iplayer-stream-pid
+@deffn {Command} emacspeak-bbc-get-iplayer-stream-pid  (pid)
+@findex emacspeak-bbc-get-iplayer-stream-pid
+
+@format
+Stream using get_iplayer.
+@end format
+@end deffn
+
+@subsubsection emacspeak-bbc-get-iplayer-stream-url
+@deffn {Command} emacspeak-bbc-get-iplayer-stream-url  (url)
+@findex emacspeak-bbc-get-iplayer-stream-url
+
+@format
+Stream using get_iplayer.
 @end format
 @end deffn
 
@@ -10178,6 +10226,7 @@ Create a hydra with no body and the heads:
 ";":    ``emacspeak-m-player'',
 "+":    ``emacspeak-m-player-volume-up'',
 ",":    ``emacspeak-m-player-backward-10s'',
+"%":    ``emacspeak-m-player-display-percent'',
 "-":    ``emacspeak-m-player-volume-down'',
 ".":    ``emacspeak-m-player-forward-10s'',
 "<":    ``emacspeak-m-player-backward-1min'',
