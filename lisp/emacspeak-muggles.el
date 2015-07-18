@@ -291,6 +291,8 @@
     ("{" emacspeak-m-player-half-speed)
     ("}" emacspeak-m-player-double-speed)
     ))
+(global-set-key (kbd "s-m")
+                'emacspeak-muggles-m-player/body)
 
 ;;}}}
 ;;{{{ HideShow:
