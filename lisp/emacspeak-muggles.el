@@ -165,6 +165,7 @@
               :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
    "View Mode"
    ("$" set-selective-display)
+   ("%"  View-goto-percent)
    ("'" register-to-point)
    ("(" backward-sexp)
    (")" forward-sexp)
