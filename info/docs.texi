@@ -10218,6 +10218,9 @@ The body can be accessed via ``emacspeak-muggles-hideshow/body''.
 
 @subsubsection emacspeak-muggles-m-player/body
 @deffn {Command} emacspeak-muggles-m-player/body   
+@kbd{s-m}
+
+@kindex s-m
 @findex emacspeak-muggles-m-player/body
 
 @format
@@ -10365,6 +10368,7 @@ The body can be accessed via ``emacspeak-muggles-toggle-option/body''.
 Create a hydra with no body and the heads:
 
 "$":    ``set-selective-display'',
+"%":    ``View-goto-percent'',
 "'":    ``register-to-point'',
 "(":    ``backward-sexp'',
 ")":    ``forward-sexp'',
