@@ -69,7 +69,6 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'advice)
 (when (locate-library "package")
   (unless (locate-library "hydra") (package-install 'hydra)))
 (require 'hydra)
@@ -90,6 +89,17 @@
           (const :tag "On" t)
           (const :tag "Off" nil))
   :group 'emacspeak-muggles)
+
+;;}}}
+;;{{{ Map Hydra Colors To Voices:
+
+(voice-setup-add-map
+ '(
+   (hydra-face-red voice-bolden)
+   (hydra-face-blue voice-lighten)
+   (hydra-face-amaranth voice-animate)
+   (hydra-face-pink voice-bolden-medium)
+   (hydra-face-teal voice-lighten-medium)))
 
 ;;}}}
 ;;{{{ Emacspeak Helpers:
