@@ -124,9 +124,9 @@
   ("d" xbacklight-decrement "dimmer")
   ("g" xbacklight-get "Get")
   ("s" xbacklight-set "set")
-  ("0" (xbacklight-set 0) "black")
-  ("<print>" (xbacklight-set 0) "black")
-  ("1" (xbacklight-set 100) "white")))
+  ("0" xbacklight-black "black")
+  ("<print>" xbacklight-black "black")
+  ("1" xbacklight-white  "white")))
 
 ;;}}}
 ;;{{{  View Mode:
