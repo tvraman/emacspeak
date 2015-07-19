@@ -181,6 +181,7 @@
    ("A"beginning-of-defun )
    ("DEL" View-scroll-page-backward)
    ("E"end-of-defun )
+   ("J" (emacspeak-hide-or-expose-block 'all))
    ("SPC" View-scroll-page-forward)
    ("[" previous-page)
    ("\\" View-search-regexp-backward)
