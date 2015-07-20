@@ -106,7 +106,6 @@
 
 ;;}}}
 ;;{{{ Advice LV:
-(proclaim (special hydra-head-format))
 (setq hydra-head-format "%s ")
 
 (defadvice lv-message (after emacspeak pre act comp)
