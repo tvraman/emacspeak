@@ -203,8 +203,7 @@ pronunciation dictionaries are stored. ")
 
 ;;}}}
 (emacspeak)
-(when (and (locate-library "hydra") emacspeak-muggles-activate-p)
-  (load-library "emacspeak-muggles"))
+
 
 (provide 'emacspeak-setup)
 ;;{{{  emacs local variables

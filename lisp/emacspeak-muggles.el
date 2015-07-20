@@ -78,19 +78,6 @@
 (require 'emacspeak-m-player)
 
 ;;}}}
-;;{{{ Customizations:
-(defgroup emacspeak-muggles nil
-  "Muggles on the emacspeak desktop."
-  :group 'emacspeak)
-;;;###autoload
-(defcustom emacspeak-muggles-activate-p t
-  "Whether emacspeak Muggles are activated on startup."
-  :type '(choice
-          (const :tag "On" t)
-          (const :tag "Off" nil))
-  :group 'emacspeak-muggles)
-
-;;}}}
 ;;{{{ Map Hydra Colors To Voices:
 
 (voice-setup-add-map
