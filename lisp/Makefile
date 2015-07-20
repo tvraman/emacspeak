@@ -42,7 +42,7 @@
 EMACS = emacs
 SRC=".."
 # How to run in batch mode
-BATCH = -batch -q -no-site-file    -eval '(setq debug-on-error t)'
+BATCH = -batch -q -no-site-file    
 DEPS=-l $(SRC)/lisp/emacspeak-load-path.el \
 -l $(SRC)/lisp/emacspeak-loaddefs.el \
 -l $(SRC)/lisp/emacspeak-cus-load.el \
