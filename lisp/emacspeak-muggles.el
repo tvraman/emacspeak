@@ -132,11 +132,8 @@
     (when (and buffer  (buffer-live-p buffer))
       (with-current-buffer buffer
         (dtk-speak
-         (propertize 
-         (replace-regexp-in-string
-          emacspeak-muggles-hint-cleanup"\\1"
-          (buffer-string))
-         :personality 'voice-smoothen))))))
+         (propertize (buffer-string)
+                     :personality 'voice-smoothen))))))
 
 
 ;;}}}
