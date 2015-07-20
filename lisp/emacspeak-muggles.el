@@ -123,6 +123,8 @@
   "\\[\\([^][]+\\)]"
   "Regexp pattern to cleanup  Muggle hints.")
 
+(setq hydra-head-format "%s ")
+
 (defadvice lv-message (after emacspeak pre act comp)
   "provide spoken feedback if idle."
   (let ((buffer (get-buffer "*LV*"))

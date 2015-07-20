@@ -38,7 +38,7 @@
 # what emacs is called on your system
 EMACS = emacs
 # How to run in batch mode
-BATCH = -batch -q -no-site-file  
+BATCH = -batch -q -no-site-file   -eval '(setq debug-on-error t)'
 DEPS= -l ./g-load-path.el -l ./g-loaddefs.el
 COMPILE =  -f batch-byte-compile
 OBJECTS= g-auth.elc \
