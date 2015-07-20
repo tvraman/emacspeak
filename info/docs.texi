@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1096 commands and 892 options.
+This chapter documents a total of 1096 commands and 891 options.
 
 @menu
 * acss-structure::
@@ -10165,7 +10165,7 @@ Implemented Muggles:
 @item Brightness: <print> Control display brightness using xbacklight.
 @item View-Mode: <C-c v> Temporarily behave like view-mode.
 @item  org-mode tables: <C-c t> Table UI for org-mode tables.
-@item m-player: Super-M Emacspeak-M-Player Commands
+@item m-player: <s-m> Emacspeak-M-Player Commands
 @item hideshow: C-c h Provide HideShow bindings.
 @item toggle-option:  <C-c o> Single binding for toggling options.
 @item outliner: <C-c #> Bindings from outline-minor-mode.
@@ -10415,13 +10415,6 @@ Create a hydra with no body and the heads:
 The body can be accessed via ``emacspeak-muggles-view/body''.
 @end format
 @end deffn
-
-@subsection emacspeak-muggles Options
-
-@defvar {User Option} emacspeak-muggles-activate-p
-Whether emacspeak Muggles are activated on startup.
-
-@end defvar
 
 @node emacspeak-muse
 @section emacspeak-muse
