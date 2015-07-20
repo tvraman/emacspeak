@@ -55,7 +55,7 @@
 ;;; @item Brightness: <print> Control display brightness using xbacklight.
 ;;; @item View-Mode: <C-c v> Temporarily behave like view-mode.
 ;;;@item  org-mode tables: <C-c t> Table UI for org-mode tables.
-;;;@item m-player: Super-M Emacspeak-M-Player Commands
+;;;@item m-player: <s-m> Emacspeak-M-Player Commands
 ;;; @item hideshow: C-c h Provide HideShow bindings.
 ;;; @item toggle-option:  <C-c o> Single binding for toggling options.
 ;;; @item outliner: <C-c #> Bindings from outline-minor-mode.
@@ -106,10 +106,7 @@
 
 ;;}}}
 ;;{{{ Advice LV:
-(defconst emacspeak-muggles-hint-cleanup
-  "\\[\\([^][]+\\)]"
-  "Regexp pattern to cleanup  Muggle hints.")
-
+(proclaim (special hydra-head-format))
 (setq hydra-head-format "%s ")
 
 (defadvice lv-message (after emacspeak pre act comp)
@@ -121,7 +118,6 @@
         (dtk-speak
          (propertize (buffer-string)
                      :personality 'voice-smoothen))))))
-
 
 ;;}}}
 ;;{{{ Brightness:
@@ -220,69 +216,67 @@
 ;;}}}
 ;;{{{ Media Player:
 
-(define-key
-  emacspeak-super-keymap "m"
-  (defhydra emacspeak-muggles-m-player
-    (:body-pre (emacspeak-muggles-body-pre "Media Player")
-               :hint nil
-               :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
-    (";" emacspeak-m-player)
-    ("+" emacspeak-m-player-volume-up)
-    ("," emacspeak-m-player-backward-10s)
-    ("%" emacspeak-m-player-display-percent)
-    ("-" emacspeak-m-player-volume-down)
-    ("." emacspeak-m-player-forward-10s)
-    ("<" emacspeak-m-player-backward-1min)
-    ("<down>" emacspeak-m-player-forward-1min)
-    ("<end>" emacspeak-m-player-end-of-track)
-    ("<home>" emacspeak-m-player-beginning-of-track)
-    ("<left>" emacspeak-m-player-backward-10s)
-    ("<next>" emacspeak-m-player-forward-10min)
-    ("<prior>" emacspeak-m-player-backward-10min)
-    ("<right>" emacspeak-m-player-forward-10s)
-    ("<up>" emacspeak-m-player-backward-1min)
-    ("=" emacspeak-m-player-volume-up)
-    (">" emacspeak-m-player-forward-1min)
-    ("?" emacspeak-m-player-display-position)
-    ("C" emacspeak-m-player-clear-filters)
-    ("C-m" emacspeak-m-player-load)
-    ("DEL" emacspeak-m-player-reset-speed)
-    ("L" emacspeak-m-player-load-file)
-    ("M-l" emacspeak-m-player-load-playlist)
-    ("O" emacspeak-m-player-reset-options)
-    ("P" emacspeak-m-player-apply-reverb-preset)
-    ("Q" emacspeak-m-player-quit "quit")
-    ("R" emacspeak-m-player-edit-reverb)
-    ("S" emacspeak-amark-save)
-    ("SPC" emacspeak-m-player-pause)
-    ("[" emacspeak-m-player-slower)
-    ("]" emacspeak-m-player-faster)
-    ("a" emacspeak-m-player-amark-add)
-    ("b" emacspeak-m-player-balance)
-    ("c" emacspeak-m-player-slave-command)
-    ("d" emacspeak-m-player-delete-filter)
-    ("e" emacspeak-m-player-add-equalizer)
-    ("f" emacspeak-m-player-add-filter)
-    ("g" emacspeak-m-player-seek-absolute)
-    ("j" emacspeak-m-player-amark-jump)
-    ("l" emacspeak-m-player-get-length)
-    ("m" emacspeak-m-player-speak-mode-line)
-    ("n" emacspeak-m-player-next-track)
-    ("o" emacspeak-m-player-customize-options)
-    ("p" emacspeak-m-player-previous-track)
-    ("q" bury-buffer)
-    ("r" emacspeak-m-player-seek-relative)
-    ("s" emacspeak-m-player-scale-speed)
-    ("t" emacspeak-m-player-play-tracks-jump)
-    ("u" emacspeak-m-player-url)
-    ("v" emacspeak-m-player-volume-change)
-    ("(" emacspeak-m-player-left-channel)
-    (")" emacspeak-m-player-right-channel)
-    ("{" emacspeak-m-player-half-speed)
-    ("}" emacspeak-m-player-double-speed)
-    ))
-(global-set-key (kbd "s-m")
-                'emacspeak-muggles-m-player/body)
+(global-set-key
+ (kbd "s-m")
+ (defhydra emacspeak-muggles-m-player
+   (:body-pre (emacspeak-muggles-body-pre "Media Player")
+              :hint nil
+              :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
+   (";" emacspeak-m-player)
+   ("+" emacspeak-m-player-volume-up)
+   ("," emacspeak-m-player-backward-10s)
+   ("%" emacspeak-m-player-display-percent)
+   ("-" emacspeak-m-player-volume-down)
+   ("." emacspeak-m-player-forward-10s)
+   ("<" emacspeak-m-player-backward-1min)
+   ("<down>" emacspeak-m-player-forward-1min)
+   ("<end>" emacspeak-m-player-end-of-track)
+   ("<home>" emacspeak-m-player-beginning-of-track)
+   ("<left>" emacspeak-m-player-backward-10s)
+   ("<next>" emacspeak-m-player-forward-10min)
+   ("<prior>" emacspeak-m-player-backward-10min)
+   ("<right>" emacspeak-m-player-forward-10s)
+   ("<up>" emacspeak-m-player-backward-1min)
+   ("=" emacspeak-m-player-volume-up)
+   (">" emacspeak-m-player-forward-1min)
+   ("?" emacspeak-m-player-display-position)
+   ("C" emacspeak-m-player-clear-filters)
+   ("C-m" emacspeak-m-player-load)
+   ("DEL" emacspeak-m-player-reset-speed)
+   ("L" emacspeak-m-player-load-file)
+   ("M-l" emacspeak-m-player-load-playlist)
+   ("O" emacspeak-m-player-reset-options)
+   ("P" emacspeak-m-player-apply-reverb-preset)
+   ("Q" emacspeak-m-player-quit "quit")
+   ("R" emacspeak-m-player-edit-reverb)
+   ("S" emacspeak-amark-save)
+   ("SPC" emacspeak-m-player-pause)
+   ("[" emacspeak-m-player-slower)
+   ("]" emacspeak-m-player-faster)
+   ("a" emacspeak-m-player-amark-add)
+   ("b" emacspeak-m-player-balance)
+   ("c" emacspeak-m-player-slave-command)
+   ("d" emacspeak-m-player-delete-filter)
+   ("e" emacspeak-m-player-add-equalizer)
+   ("f" emacspeak-m-player-add-filter)
+   ("g" emacspeak-m-player-seek-absolute)
+   ("j" emacspeak-m-player-amark-jump)
+   ("l" emacspeak-m-player-get-length)
+   ("m" emacspeak-m-player-speak-mode-line)
+   ("n" emacspeak-m-player-next-track)
+   ("o" emacspeak-m-player-customize-options)
+   ("p" emacspeak-m-player-previous-track)
+   ("q" bury-buffer)
+   ("r" emacspeak-m-player-seek-relative)
+   ("s" emacspeak-m-player-scale-speed)
+   ("t" emacspeak-m-player-play-tracks-jump)
+   ("u" emacspeak-m-player-url)
+   ("v" emacspeak-m-player-volume-change)
+   ("(" emacspeak-m-player-left-channel)
+   (")" emacspeak-m-player-right-channel)
+   ("{" emacspeak-m-player-half-speed)
+   ("}" emacspeak-m-player-double-speed)
+   ))
 
 ;;}}}
 ;;{{{ HideShow:
