@@ -197,7 +197,7 @@
 ;;{{{ Org-Mode Table Navigation:
 
 (define-key
-  org-mode-map "C-c t"
+  org-mode-map (kbd "C-c t")
   (defhydra emacspeak-muggles-org-table
     (:body-pre (emacspeak-muggles-body-pre "Org Table UI")
                :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
