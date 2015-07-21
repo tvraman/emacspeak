@@ -340,6 +340,7 @@ _a_ abbrev-mode:       %`abbrev-mode
 _d_ debug-on-error:    %`debug-on-error
 _f_ auto-fill-mode:    %`auto-fill-function
 _g_ debug-on-quit:    %`debug-on-quit
+_h_ hydra-is-helpful    %`hydra-is-helpful
 _t_ truncate-lines:    %`truncate-lines
 _w_ whitespace-mode:   %`whitespace-mode
 
@@ -348,6 +349,7 @@ _w_ whitespace-mode:   %`whitespace-mode
    ("d" toggle-debug-on-error )
    ("f" auto-fill-mode )
    ("g"  toggle-debug-on-quit  )
+   ("h" (setq hydra-is-helpful (not hydra-is-helpful)))
    ("t" toggle-truncate-lines )
    ("w" whitespace-mode )
    ("q" nil "quit")))
