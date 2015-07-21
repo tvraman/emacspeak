@@ -57,9 +57,11 @@
   (interactive)
   (let ((value (shell-command-to-string (format "%s -get " xbacklight-cmd ))))
     (cond
+     ((= 0 (length value)) (message "XBacklight not supported."))
      ((numberp (read value))
       (message "Brightness is %d" (round  (read value))))
      (t (message "Brightness is %s" value)))))
+
 ;;;###autoload
 (defun xbacklight-set (brightness)
   "Set brightness to  specified level.
