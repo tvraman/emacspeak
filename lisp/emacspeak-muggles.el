@@ -128,13 +128,13 @@
               :pre emacspeak-muggles-pre
               :post emacspeak-muggles-post)
    "Brightness"
+   ("s" xbacklight-set "set")
+   ("g" xbacklight-get "Get")
+   ("<print>" xbacklight-black "black")
+   ("0" xbacklight-black "black")
+   ("d" xbacklight-decrement "dimmer")
    ("i" xbacklight-increment "brighter")
    ("SPC" xbacklight-increment "brighter")
-   ("d" xbacklight-decrement "dimmer")
-   ("g" xbacklight-get "Get")
-   ("s" xbacklight-set "set")
-   ("0" xbacklight-black "black")
-   ("<print>" xbacklight-black "black")
    ("1" xbacklight-white  "white")))
 
 ;;}}}
