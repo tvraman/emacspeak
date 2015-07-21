@@ -106,6 +106,7 @@
 
 ;;}}}
 ;;{{{ Advice LV:
+
 (setq hydra-head-format "%s ")
 
 (defadvice lv-message (after emacspeak pre act comp)
@@ -114,9 +115,12 @@
         (dtk-stop-immediately  nil))
     (when (and buffer  (buffer-live-p buffer))
       (with-current-buffer buffer
-        (dtk-speak
-         (propertize (buffer-string)
-                     :personality 'voice-smoothen))))))
+        (dtk-speak-list
+         (split-string
+          (propertize
+           (buffer-substring (point-min) (1- (point-max)))
+                     :personality 'voice-smoothen)
+          ","))))))
 
 ;;}}}
 ;;{{{ Brightness:
@@ -132,10 +136,10 @@
    ("g" xbacklight-get "Get")
    ("<print>" xbacklight-black "black")
    ("0" xbacklight-black "black")
+   ("1" xbacklight-white  "white")
    ("d" xbacklight-decrement "dimmer")
    ("i" xbacklight-increment "brighter")
-   ("SPC" xbacklight-increment "brighter")
-   ("1" xbacklight-white  "white")))
+   ("SPC" xbacklight-increment "brighter")))
 
 ;;}}}
 ;;{{{  View Mode:
