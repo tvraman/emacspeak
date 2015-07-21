@@ -136,6 +136,9 @@
    org-mark-ring-goto org-mark-ring-push
    org-next-visible-heading org-previous-visible-heading
    org-forward-heading-same-level org-backward-heading-same-level
+   org-backward-sentence org-forward-sentence
+   org-backward-element org-forward-element
+   org-backward-paragraph org-forward-paragraph
    org-next-link org-previous-link org-open-at-point
    org-goto  org-goto-ret
    org-goto-left org-goto-right
@@ -475,9 +478,11 @@
     (dtk-stop)
     (emacspeak-auditory-icon 'select-object)))
 
-(loop for f in
+(loop
+ for f in
       '(
         org-occur org-next-link org-previous-link
+                  org-beginning-of-line
                   org-beginning-of-item
                   org-beginning-of-item-list
                   org-back-to-heading
@@ -486,8 +491,8 @@
       (eval
        `(defadvice ,f (around emacspeak pre act comp)
           "Avoid outline errors bubbling up."
-
-          (ems-with-errors-silenced ad-do-it))))
+          (ems-with-errors-silenced ad-do-it)
+          (emacspeak-speak-line))))
 
 ;;}}}
 ;;{{{ global input wizard
