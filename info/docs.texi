@@ -10151,15 +10151,18 @@ multiple maildrops
 
 MUGGLES ==  Keybinding Conveniences For The Emacspeak Desktop.
 
-This module implements no new functionality --- contrast with emacspeak-wizards.
-Instead, it uses package hydra  to provide convenience key-bindings that access  existing Emacspeak functionality.
-
-Usage: M-x load-library emacspeak-muggles.
+This module implements no new functionality --- contrast with
+emacspeak-wizards.  Instead, it uses package hydra to provide
+convenience key-bindings that access existing Emacspeak
+functionality.
+This module is automatically loaded if package Hydra is loaded.
 You need to install package Hydra first:
-M-x package-install  hydra.
-Note that on newer versions of Emacs, loading this module will attempt to automatically install package hydra if it is not found.
+@samp{M-x package-install  hydra}.
 
-Implemented Muggles:
+Note that on newer versions of Emacs, loading this module will
+attempt to automatically install package hydra if it is not found.
+
+@subsection{Implemented Muggles}
 
 @itemize
 @item Brightness: <print> Control display brightness using xbacklight.
