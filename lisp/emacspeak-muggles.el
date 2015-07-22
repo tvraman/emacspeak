@@ -89,6 +89,19 @@
    (hydra-face-teal voice-lighten-medium)))
 
 ;;}}}
+;;{{{ Toggle Talkative:
+
+(defvar emacspeak-muggles-talkative-p t
+  "Set to nil when silencing speaking of hydra hints.")
+
+(defun emacspeak-muggles-toggle-talkative ()
+  "Toggle state of emacspeak-muggles-talkative-p."
+  (interactive)
+  (declare (special emacspeak-muggles-talkative-p))
+  (setq emacspeak-muggles-talkative-p (not emacspeak-muggles-talkative-p))
+  (emacspeak-auditory-icon (if emacspeak-muggles-talkative-p 'on 'off)))
+
+;;}}}
 ;;{{{ Emacspeak Helpers:
 
 (defun emacspeak-muggles-body-pre (&optional name)
@@ -101,7 +114,9 @@
   (emacspeak-auditory-icon 'progress))
 
 (defun emacspeak-muggles-post ()
-  "Provide auditory icon"
+  "Provide auditory icon.
+Also turn on emacspeak-muggles-talkative-p if it was turned off."
+  (setq emacspeak-muggles-talkative-p t)
   (emacspeak-auditory-icon 'close-object))
 
 ;;}}}
@@ -110,8 +125,9 @@
 (setq hydra-head-format "%s ")
 
 (defadvice lv-message (after emacspeak pre act comp)
-  "provide spoken feedback if idle."
-  (let ((buffer (get-buffer "*LV*"))
+  "provide spoken feedback if idle, and emacspeak-muggles-talkative-p is T."
+  (when emacspeak-muggles-talkative-p
+    (let ((buffer (get-buffer "*LV*"))
         (dtk-stop-immediately  nil))
     (when (and buffer  (buffer-live-p buffer))
       (with-current-buffer buffer
@@ -120,7 +136,7 @@
           (propertize
            (buffer-substring (point-min) (1- (point-max)))
                      :personality 'voice-smoothen)
-          ","))))))
+          ",")))))))
 
 ;;}}}
 ;;{{{ Brightness:
@@ -188,6 +204,7 @@
    ("p" View-search-last-regexp-backward)
    ("q" nil "quit")
    ("r" copy-to-register)
+   ("s" emacspeak-muggles-toggle-talkative)
    ("t" (recenter 0))
    ("u" View-scroll-half-page-backward)
    ("w"emacspeak-speak-word)
