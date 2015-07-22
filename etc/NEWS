@@ -7,6 +7,9 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 ** Emacspeak-Muggles:
 
 Keyboard conveniences implemented using package Hydra.
+** emacspeak-projectile:
+
+Speech-Enable project management utility projectile.el.
 
 ** XBackLight:
 
