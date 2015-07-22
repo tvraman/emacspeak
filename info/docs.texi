@@ -10162,7 +10162,7 @@ You need to install package Hydra first:
 Note that on newer versions of Emacs, loading this module will
 attempt to automatically install package hydra if it is not found.
 
-@subsection{Implemented Muggles}
+@subsection Implemented Muggles
 
 @itemize
 @item Brightness: <print> Control display brightness using xbacklight.
@@ -10173,6 +10173,12 @@ attempt to automatically install package hydra if it is not found.
 @item toggle-option:  <C-c o> Single binding for toggling options.
 @item outliner: <C-c #> Bindings from outline-minor-mode.
 @end itemize
+
+Emacspeak automatically speaks Hydra hints when displayed.
+To silence all Hydra hints, set hydra-is-helpful to nil.  To
+temporarily silence speaking of Hydra hints, Muggles can bind
+command @code{emacspeak-muggles-toggle-talkative}.  As an
+example, Muggle @samp{ViewMode} binds @code{s} to this command.
 
 @subsection emacspeak-muggles Commands
 
