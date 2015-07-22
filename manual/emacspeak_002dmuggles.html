@@ -157,14 +157,14 @@
         <pre class="format">
 Create a hydra with no body and the heads:
 
-"i":    “xbacklight-increment”,
-"SPC":    “xbacklight-increment”,
-"d":    “xbacklight-decrement”,
-"g":    “xbacklight-get”,
 "s":    “xbacklight-set”,
-"0":    “xbacklight-black”,
+"g":    “xbacklight-get”,
 "&lt;print&gt;":    “xbacklight-black”,
-"1":    “xbacklight-white”
+"0":    “xbacklight-black”,
+"1":    “xbacklight-white”,
+"d":    “xbacklight-decrement”,
+"i":    “xbacklight-increment”,
+"SPC":    “xbacklight-increment”
 
 The body can be accessed via “emacspeak-muggles-brightness/body”.
 </pre>
@@ -399,10 +399,33 @@ The body can be accessed via “emacspeak-muggles-toggle-option/body”.
 </pre>
       </div>
     </dd>
+  </dl><a name="emacspeak_002dmuggles_002dtoggle_002dtalkative" id=
+  "emacspeak_002dmuggles_002dtoggle_002dtalkative"></a>
+
+  <h4 class="subsubsection">11.116.1.7
+  emacspeak-muggles-toggle-talkative</h4>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dmuggles_002dtoggle_002dtalkative" id=
+    "index-emacspeak_002dmuggles_002dtoggle_002dtalkative"></a>Command:
+    <strong>emacspeak-muggles-toggle-talkative</strong></dt>
+
+    <dd>
+      <a name=
+      "index-emacspeak_002dmuggles_002dtoggle_002dtalkative-1" id=
+      "index-emacspeak_002dmuggles_002dtoggle_002dtalkative-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Toggle state of emacspeak-muggles-talkative-p.
+</pre>
+      </div>
+    </dd>
   </dl><a name="emacspeak_002dmuggles_002dview_002fbody" id=
   "emacspeak_002dmuggles_002dview_002fbody"></a>
 
-  <h4 class="subsubsection">11.116.1.7
+  <h4 class="subsubsection">11.116.1.8
   emacspeak-muggles-view/body</h4>
 
   <dl>
@@ -457,6 +480,7 @@ Create a hydra with no body and the heads:
 "p":    “View-search-last-regexp-backward”,
 "q":    “nil”,
 "r":    “copy-to-register”,
+"s":    “emacspeak-muggles-toggle-talkative”,
 "t":    “(recenter 0)”,
 "u":    “View-scroll-half-page-backward”,
 "w":    “emacspeak-speak-word”,
