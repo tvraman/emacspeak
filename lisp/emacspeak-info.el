@@ -103,6 +103,9 @@ node -- speak the entire node."
 (loop
  for f in
  '(info info-display-manual Info-select-node Info-goto-node info-emacs-manual
+        Info-follow-nearest-node
+        Info-history-back Info-history-forward
+        Info-backward-node Info-forward-node
         Info-next Info-prev )
  do
  (eval
