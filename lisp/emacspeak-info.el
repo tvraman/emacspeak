@@ -92,14 +92,13 @@ node -- speak the entire node."
 (defun emacspeak-info-visit-node()
   "Apply requested action upon visiting a node."
   (declare (special emacspeak-info-select-node-speak-chunk))
-  (let ((dtk-stop-immediately t ))
-    (emacspeak-auditory-icon 'select-object)
-    (cond
-     ((eq emacspeak-info-select-node-speak-chunk 'screenfull)
-      (emacspeak-info-speak-current-window))
-     ((eq emacspeak-info-select-node-speak-chunk 'node)
-      (emacspeak-speak-buffer ))
-     (t (emacspeak-speak-line)))))
+  (emacspeak-auditory-icon 'select-object)
+  (cond
+   ((eq emacspeak-info-select-node-speak-chunk 'screenfull)
+    (emacspeak-info-speak-current-window))
+   ((eq emacspeak-info-select-node-speak-chunk 'node)
+    (emacspeak-speak-buffer ))
+   (t (emacspeak-speak-line))))
 
 (loop
  for f in
