@@ -102,13 +102,14 @@ node -- speak the entire node."
 
 (loop
  for f in
- '(info info-display-manual Info-select-node Info-goto-node info-emacs-manual)
+ '(info info-display-manual Info-select-node Info-goto-node info-emacs-manual
+        Info-next Info-prev )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act)
      " Speak the selected node based on setting of
 emacspeak-info-select-node-speak-chunk"
-     (emacspeak-info-visit-node))))
+     (when (ems-interactive-p) (emacspeak-info-visit-node)))))
 
 (defadvice Info-scroll-up (after emacspeak pre act)
   "Speak the screenful."
@@ -147,6 +148,7 @@ and then cue the next selected buffer."
   "Speak the line. "
   (when (ems-interactive-p )
     (emacspeak-speak-line)))
+
 ;;;###autoload
 (defun emacspeak-info-wizard (node-spec )
   "Read a node spec from the minibuffer and launch
