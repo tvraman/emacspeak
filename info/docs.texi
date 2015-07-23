@@ -110,6 +110,7 @@ This chapter documents a total of 1097 commands and 891 options.
 * emacspeak-kite::
 * emacspeak-kmacro::
 * emacspeak-librivox::
+* emacspeak-lua::
 * emacspeak-m-player::
 * emacspeak-magit::
 * emacspeak-make-mode::
@@ -9247,6 +9248,12 @@ Both exact and partial matches for ``title''.
 Location where we cache LIBRIVOX playlists.
 
 @end defvar
+
+@node emacspeak-lua
+@section emacspeak-lua
+
+LUA == lua-mode
+Speech-enable lua-mode.
 
 @node emacspeak-m-player
 @section emacspeak-m-player

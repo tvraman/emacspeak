@@ -226,6 +226,7 @@ speech-enabling extensions."
 (emacspeak-do-package-setup "jss" 'emacspeak-jss)
 (emacspeak-do-package-setup "kite" 'emacspeak-kite)
 (emacspeak-do-package-setup "kmacro" 'emacspeak-kmacro)
+(emacspeak-do-package-setup"lua-mdoe" 'emacspeak-lua)
 (emacspeak-do-package-setup "magit" 'emacspeak-magit)
 (emacspeak-do-package-setup "make-mode" 'emacspeak-make-mode)
 (emacspeak-do-package-setup "markdown-mode" 'emacspeak-markdown)
@@ -379,6 +380,7 @@ sets punctuation mode to all, activates the dictionary and turns on split caps."
     'lisp-interaction-mode-hook
     'javascript-mode-hook
     'js2-mode-hook
+    'lua-mode-hook
     'scala-mode-hook
     'midge-mode-hook
     'meta-common-mode-hook
