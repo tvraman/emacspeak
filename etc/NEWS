@@ -7,6 +7,10 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 ** Emacspeak-Muggles:
 
 Keyboard conveniences implemented using package Hydra.
+** emacspeak-lua.el:
+
+Speech-enable lua-mode.
+
 ** emacspeak-projectile:
 
 Speech-Enable project management utility projectile.el.
