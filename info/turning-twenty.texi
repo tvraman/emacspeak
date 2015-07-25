@@ -7,7 +7,7 @@
 @c %**end of header
 @dircategory Accessibility
 @direntry
-* Turning-20: Emacspeak at 20.
+* Turning-Twenty: (turning-twenty).  Emacspeak At Twenty ---  Looking Back, Looking Forward
 @end direntry
 
 
@@ -21,7 +21,7 @@
 
 @ifnottex
 @node Top
-@top Emacspeak At Twenty: Looking Back, Looking Forward
+@top Turning-20: Emacspeak At Twenty ---  Looking Back, Looking Forward
 @end ifnottex
 
 @menu
