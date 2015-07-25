@@ -130,26 +130,26 @@
 ;;}}}
 ;;{{{ Structure Navigation:
 
-(loop 
+(loop
  for f in
  '(
    org-mark-ring-goto org-mark-ring-push
-   org-next-visible-heading org-previous-visible-heading
-   org-forward-heading-same-level org-backward-heading-same-level
-   org-backward-sentence org-forward-sentence
-   org-backward-element org-forward-element
-   org-backward-paragraph org-forward-paragraph
-   org-next-link org-previous-link org-open-at-point
-   org-goto  org-goto-ret
-   org-goto-left org-goto-right
-   org-goto-quit
-   org-next-item org-previous-item
-   org-metaleft org-metaright org-metaup org-metadown
-   org-meta-return
-   org-shiftmetaleft org-shiftmetaright org-shiftmetaup org-shiftmetadown
-   org-mark-element org-mark-subtree
-   org-agenda-forward-block org-agenda-backward-block
-   )
+                      org-next-visible-heading org-previous-visible-heading
+                      org-forward-heading-same-level org-backward-heading-same-level
+                      org-backward-sentence org-forward-sentence
+                      org-backward-element org-forward-element
+                      org-backward-paragraph org-forward-paragraph
+                      org-next-link org-previous-link org-open-at-point
+                      org-goto  org-goto-ret
+                      org-goto-left org-goto-right
+                      org-goto-quit
+                      org-next-item org-previous-item
+                      org-metaleft org-metaright org-metaup org-metadown
+                      org-meta-return
+                      org-shiftmetaleft org-shiftmetaright org-shiftmetaup org-shiftmetadown
+                      org-mark-element org-mark-subtree
+                      org-agenda-forward-block org-agenda-backward-block
+                      )
  do
  (eval
   `(defadvice ,f(after emacspeak pre act comp)
@@ -201,23 +201,14 @@
 ;;}}}
 ;;{{{ Header insertion and relocation
 
-(loop
- for f in
- '(
-   org-insert-heading org-insert-todo-heading
-   org-insert-subheading org-insert-todo-subheading
-   org-promote-subtree org-demote-subtree
-   org-do-promote org-do-demote
-   org-move-subtree-up org-move-subtree-down
-   org-convert-to-odd-levels org-convert-to-oddeven-levels
-   )
- do
- (eval
-  `(defadvice ,f(after emacspeak pre act comp)
-     "Provide spoken feedback."
-     (when (ems-interactive-p )
-       (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'open-object)))))
+(defun emacspeak-org-default-action ()
+  "Provide spoken feedback."
+  (emacspeak-speak-line)
+  (emacspeak-auditory-icon 'open-object))
+
+(add-hook 'org-insert-heading-hook #'emacspeak-org-default-action)
+(add-hook 'org-after-promote-entry-hook #'emacspeak-org-default-action)
+(add-hook 'org-after-demote-entry-hook #'emacspeak-org-default-action)
 
 ;;}}}
 ;;{{{ cut and paste:
@@ -269,13 +260,11 @@
             (emacspeak-speak-line)))))
 
 ;;}}}
-;;{{{ ToDo:
-
-;;}}}
 ;;{{{ timestamps and calendar:
 
 (loop for f in
-      '(org-timestamp-down-day org-timestamp-up-day)
+      '(org-timestamp-down-day org-timestamp-up-day
+                               org-timestamp-up org-timestamp-down)
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
@@ -308,9 +297,9 @@
  for f in
  '(
    org-agenda-next-date-line org-agenda-previous-date-line
-   org-agenda-next-line org-agenda-previous-line
-   org-agenda-goto-today
-   )
+                             org-agenda-next-line org-agenda-previous-line
+                             org-agenda-goto-today
+                             )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -329,6 +318,7 @@
           (when (ems-interactive-p )
             (emacspeak-auditory-icon 'close-object)
             (emacspeak-speak-mode-line)))))
+
 (loop for f in
       '(
         org-agenda-goto org-agenda-show org-agenda-switch-to)
@@ -480,19 +470,19 @@
 
 (loop
  for f in
-      '(
-        org-occur org-next-link org-previous-link
-                  org-beginning-of-line
-                  org-beginning-of-item
-                  org-beginning-of-item-list
-                  org-back-to-heading
-                  org-insert-heading org-insert-todo-heading)
-      do
-      (eval
-       `(defadvice ,f (around emacspeak pre act comp)
-          "Avoid outline errors bubbling up."
-          (ems-with-errors-silenced ad-do-it)
-          (emacspeak-speak-line))))
+ '(
+   org-occur org-next-link org-previous-link
+             org-beginning-of-line
+             org-beginning-of-item
+             org-beginning-of-item-list
+             org-back-to-heading
+             org-insert-heading org-insert-todo-heading)
+ do
+ (eval
+  `(defadvice ,f (around emacspeak pre act comp)
+     "Avoid outline errors bubbling up."
+     (ems-with-errors-silenced ad-do-it)
+     (emacspeak-speak-line))))
 
 ;;}}}
 ;;{{{ global input wizard
@@ -544,7 +534,7 @@
   (let ((field (org-table-get-field)))
     (cond
      ((string-match "^ *$" field) (dtk-speak "space"))
-  (t (dtk-speak-and-echo field)))))
+     (t (dtk-speak-and-echo field)))))
 
 ;;;###autoload
 (defun emacspeak-org-table-speak-column-header ()
@@ -575,9 +565,9 @@
   (dtk-speak-and-echo
    (concat
     (propertize (org-table-get nil 1) 'face 'italic)
-" "
-			      (propertize (org-table-get  1 nil) 'face 'bold) " "
-			      (org-table-get-field))))
+    " "
+    (propertize (org-table-get  1 nil) 'face 'bold) " "
+    (org-table-get-field))))
 
 ;;;###autoload
 (defun emacspeak-org-table-speak-row-header-and-element ()
@@ -594,10 +584,10 @@
   "echoes col header and element"
   (interactive)
   (dtk-speak-and-echo
-   (concat 
-                       (propertize (org-table-get  1 nil) 'face 'bold)
-                       " "
-                       (org-table-get-field))))
+   (concat
+    (propertize (org-table-get  1 nil) 'face 'bold)
+    " "
+    (org-table-get-field))))
 
 (loop
  for f in
@@ -610,7 +600,7 @@
      (emacspeak-org-table-speak-current-element))))
 
 ;;}}}
-;;{{{ Additional table function:
+;;{{{ Additional table functions:
 
  ;;;###autoload
 (unless (fboundp 'org-table-previous-row)
@@ -633,7 +623,6 @@ Before doing so, re-align the table if necessary."
         (org-table-goto-column col)
         (skip-chars-backward "^|\n\r")
         (if (looking-at " ") (forward-char 1))))))
-
 
 ;;}}}
 (provide 'emacspeak-org)
