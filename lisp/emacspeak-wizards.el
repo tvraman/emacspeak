@@ -3019,7 +3019,7 @@ Returns a list of lists, one list per ticker."
      (aset  table index (emacspeak-wizards-yq-result-row r)))
     (emacspeak-table-make-table table)))
 
-(defcustom emacspeak-wizards-yql-row-filter
+(defcustom emacspeak-wizards-yql-quotes-row-filter
   '(31 " ask  " 1
        " trading between   " 13  " and  " 14  " with volume " 43 
        " PE is "37
@@ -3046,7 +3046,7 @@ Symbols are taken from `emacspeak-wizards-personal-portfolio'."
     (emacspeak-table-prepare-table-buffer
      (emacspeak-wizards-yq-table tickers)
      (get-buffer-create buff))
-    (setq emacspeak-table-speak-row-filter emacspeak-wizards-yql-row-filter
+    (setq emacspeak-table-speak-row-filter emacspeak-wizards-yql-quotes-row-filter
           emacspeak-table-speak-element 'emacspeak-table-speak-row-filtered)
     (rename-buffer buff 'unique)
     (goto-char (point-min))
