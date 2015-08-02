@@ -8,3 +8,4 @@
 (yas/load-directory yas/root-directory)
 (yas/initialize)
 (yas/reload-all)
+(yas-global-mode)
