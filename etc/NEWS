@@ -4,6 +4,11 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
 * Emacspeak 43 -- Emacspeak 43 User Visible Changes
+
+** emacspeak-yasnippet.el:
+
+Speech-enables package yasnippet.
+
 ** Emacspeak-Muggles:
 
 Keyboard conveniences implemented using package Hydra.
