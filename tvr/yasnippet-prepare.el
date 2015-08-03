@@ -8,4 +8,7 @@
 (yas/load-directory yas/root-directory)
 (yas/initialize)
 (yas/reload-all)
-(yas-global-mode)
+(add-hook
+ 'prog-mode-hook
+ #'(lambda nil
+     (yas-minor-mode 1)))
