@@ -220,8 +220,7 @@
     (emacspeak-speak-line)))
 (loop
  for f in
- '(
-   magit-mode-quit-window magit-mode-bury-buffer magit-log-bury-buffer)
+ '(magit-mode-quit-window magit-mode-bury-buffer magit-log-bury-buffer)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act  comp)
