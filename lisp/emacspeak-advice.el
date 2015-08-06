@@ -818,8 +818,12 @@ Produce an auditory icon if possible."
   "Provide spoken feedback."
   (emacspeak-auditory-icon 'select-object)
   (dtk-speak (emacspeak-get-current-completion)))
-
-(defadvice complete (around emacspeak pre act comp)
+(loop
+ for f in
+ '(complete crm-complete)
+ do
+ (eval
+  `(defadvice ,f  (around emacspeak pre act comp)
   "Say what you completed."
   (lexical-let ((emacspeak-speak-messages nil)
                 (emacspeak-last-message nil))
@@ -830,7 +834,9 @@ Produce an auditory icon if possible."
                (save-excursion (backward-char 1)
                                (sexp-at-point ))
                (or emacspeak-last-message "")))
-      ad-return-value)))
+      ad-return-value)))))
+
+
 
 (defadvice minibuffer-complete-shell-command (around emacspeak pre act comp)
   "Say what you completed."
