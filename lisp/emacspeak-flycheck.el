@@ -43,6 +43,7 @@
 ;;; Commentary:
 ;;; FLYCHECK == On-the-fly checking.
 ;;; Code:
+
 ;;}}}
 ;;{{{  Required modules
 
@@ -67,6 +68,7 @@
 
 ;;}}}
 ;;{{{ Advice interactive commands.
+
 (loop
  for  f in
  '(flycheck-next-error flycheck-previous-error
@@ -107,10 +109,6 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)
     (dtk-speak "Refreshed errors")))
-
-;;  "flycheck-copy-messages-as-kill"
-
-;;  "flycheck-google-messages"
 
 ;;}}}
 (provide 'emacspeak-flycheck)
