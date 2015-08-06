@@ -120,6 +120,12 @@
    #'(lambda (&rest ignore) (emacspeak-auditory-icon 'close-object))))
 
 ;;}}}
+;;{{{ Silence YCMD Chatter:
+(defadvice ycmd--request (around emacspeak pre act comp)
+  "Silence chatter."
+  (ems-with-messages-silenced ad-do-it))
+
+;;}}}
 (emacspeak-company-setup)
 (provide 'emacspeak-company)
 ;;{{{ end of file

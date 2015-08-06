@@ -1151,6 +1151,7 @@ and provide a completion list of applicable  property values. Filter document by
  '(
    url-write-global-history url-history-save-history
    url-http-chunked-encoding-after-change-function url-cookie-handle-set-cookie
+   url-retrieve-internal
    url-lazy-message url-cookie-write-file)
  do
  (eval
