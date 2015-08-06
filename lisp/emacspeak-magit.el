@@ -143,6 +143,12 @@
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-buffer))
 
+(defadvice magit-invoke-popup-option (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-line)))
+
 ;;}}}
 ;;{{{ Advice hide/show commands:
 (loop for f in
@@ -232,68 +238,6 @@
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-line)))
-
-;;}}}
-;;{{{ Setting Command Options:
-
-(defadvice magit-key-mode-add-option (after emacspeak pre act comp) 
-  "Provide auditory feedback."
-  (let ((for-group (ad-get-arg 0))
-        (option-name (ad-get-arg 1)))
-    (cond
-     ((not (member option-name magit-key-mode-current-options))
-      (message "Removed %s for %s" option-name for-group)
-      (emacspeak-auditory-icon 'delete-object))
-     (t (message "Added %s for %s" option-name for-group)
-        (emacspeak-auditory-icon 'select-object)))))
-
-(defadvice magit-key-mode-exec-at-point (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p )
-    (emacspeak-auditory-icon 'button)))
-
-(defadvice magit-key-mode-kill-buffer (after emacspeak pre act
-                                             comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p )
-    (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-mode-line)))
-(defsubst emacspeak-magit-key-mode-header-line ()
-  "Currently set options and args for use in header-line."
-  (declare (special magit-key-mode-current-options magit-key-mode-current-args))
-  (let ((options
-         (mapconcat
-          #'identity
-          magit-key-mode-current-options
-          " "))
-        (args
-         (mapconcat
-          #'identity
-          (loop for k being the hash-keys of magit-key-mode-current-args
-                collect
-                (format "%s %s"
-                        k (gethash k magit-key-mode-current-args)))
-          " ")))
-    (format "%s %s" options args)))    
-
-(defadvice magit-key-mode-add-argument (after emacspeak pre act comp)
-  "Speak header line where we accumulate and reflect current state."
-  (emacspeak-speak-header-line))
-(defadvice magit-key-mode-command (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (emacspeak-auditory-icon 'button)
-  (emacspeak-speak-line))
-(defadvice magit-visit-item (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p )
-    (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'open-object)))
-
-(defadvice magit-key-mode(after emacspeak pre act comp)
-  "Provide auditory icon."
-  (setq header-line-format
-        '(:eval (emacspeak-magit-key-mode-header-line)))
-  (emacspeak-auditory-icon 'open-object))
 
 ;;}}}
 ;;{{{ Advise process-sentinel:
