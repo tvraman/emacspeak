@@ -54,6 +54,26 @@
 (eval-when-compile (require 'package "package" 'no-error))
 (require 'calendar)
 ;;}}}
+;;{{{ Map Faces:
+
+(voice-setup-add-map
+ '(
+ (package-help-section-name-face voice-lighten)
+ (package-name-face voice-bolden)
+ (package-description-face voice-monotone)
+ (package-status-built-in-face voice-monotone-medium)
+ (package-status-external-face voice-animate)
+ (package-status-available-face voice-annotate)
+ (package-status-new-face voice-brighten)
+ (package-status-held-face voice-monotone)
+ (package-status-disabled-face voice-smoothen)
+ (package-status-installed-face voice-lighten-extra)
+ (package-status-dependency-face voice-monotone-medium)
+ (package-status-unsigned-face voice-animate-extra)
+ (package-status-incompat-face voice-animate-extra)
+ (package-status-avail-obso-face voice-monotone)
+))
+;;}}}
 ;;{{{ Additional Commands
 
 (defun emacspeak-package-summarize-line ()
