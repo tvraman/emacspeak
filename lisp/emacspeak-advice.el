@@ -776,7 +776,9 @@ Produce an auditory icon if possible."
    (completions-first-difference voice-brighten)))
 (loop
  for f in
- '(minibuffer-complete-word minibuffer-complete)
+ '(minibuffer-complete-word minibuffer-complete
+                            crm-complete-word crm-complete crm-complete-and-exit
+                            crm-minibuffer-complete crm-minibuffer-complete-and-exit)
  do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
@@ -820,7 +822,7 @@ Produce an auditory icon if possible."
   (dtk-speak (emacspeak-get-current-completion)))
 (loop
  for f in
- '(complete crm-complete)
+ '(complete )
  do
  (eval
   `(defadvice ,f  (around emacspeak pre act comp)
