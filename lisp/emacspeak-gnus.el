@@ -881,7 +881,6 @@ Helps to prevent words from being spelled instead of spoken."
    (gnus-summary-high-ancient voice-smoothen-extra)
    (gnus-summary-low-ancient voice-smoothen-extra)
    (gnus-summary-normal-undownloaded voice-bolden-and-animate)
-   (gnus-summary-high-undownloadedvoice-bolden-and-animate)
    (gnus-summary-low-undownloaded voice-bolden-and-animate)
    (gnus-summary-low-unread voice-bolden-medium)
    (gnus-summary-high-unread voice-brighten-extra)
