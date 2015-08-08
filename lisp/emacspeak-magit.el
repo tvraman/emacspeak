@@ -64,7 +64,6 @@
    ( magit-diff-file-header voice-animate)
    ( magit-diff-hunk-header voice-animate-medium)
    ( magit-diff-none voice-monotone)
-   ( magit-header voice-bolden)
    ( magit-item-highlight voice-brighten)
    ( magit-item-mark voice-lighten-extra)
    ( magit-log-graph voice-monotone)
