@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1097 commands and 924 options.
+This chapter documents a total of 1097 commands and 919 options.
 
 @menu
 * acss-structure::
@@ -1381,8 +1381,8 @@ This personality uses  voice-bolden-medium whose  effect can be changed globally
 
 @end defvar
 
-@defvar {User Option} emacspeak-diary-personality
-Personality used for diary-face
+@defvar {User Option} emacspeak-diary-voice
+Personality used for diary
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 
 @end defvar
@@ -2239,12 +2239,6 @@ This personality uses  voice-brighten-extra whose  effect can be changed globall
 
 @end defvar
 
-@defvar {User Option} emacspeak-gnus-summary-high-undownloadedvoice-bolden-and-animate-voice
-Personality used for gnus-summary-high-undownloadedvoice-bolden-and-animate
-This personality uses  nil whose  effect can be changed globally by customizing nil-settings.
-
-@end defvar
-
 @defvar {User Option} emacspeak-gnus-summary-high-unread-voice
 Personality used for gnus-summary-high-unread
 This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
@@ -2329,8 +2323,8 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 
 @end defvar
 
-@defvar {User Option} emacspeak-holiday-personality
-Personality used for holiday-face
+@defvar {User Option} emacspeak-holiday-voice
+Personality used for holiday
 This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
 
 @end defvar
@@ -2785,12 +2779,6 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 
 @end defvar
 
-@defvar {User Option} emacspeak-magit-header-voice
-Personality used for magit-header
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
 @defvar {User Option} emacspeak-magit-item-highlight-voice
 Personality used for magit-item-highlight
 This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
@@ -2869,12 +2857,6 @@ This personality uses  voice-annotate whose  effect can be changed globally by c
 
 @end defvar
 
-@defvar {User Option} emacspeak-magit-menu-selected-option-voice
-Personality used for magit-menu-selected-option
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
 @defvar {User Option} emacspeak-magit-popup-heading-voice
 Personality used for magit-popup-heading
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
@@ -2905,21 +2887,9 @@ This personality uses  voice-bolden-medium whose  effect can be changed globally
 
 @end defvar
 
-@defvar {User Option} emacspeak-magit-section-title-voice
-Personality used for magit-section-title
-This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
-
-@end defvar
-
 @defvar {User Option} emacspeak-magit-tag-voice
 Personality used for magit-tag
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-magit-whitespace-warning-personality
-Personality used for magit-whitespace-warning-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
 
 @end defvar
 
