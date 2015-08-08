@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1097 commands and 906 options.
+This chapter documents a total of 1097 commands and 924 options.
 
 @menu
 * acss-structure::
@@ -2677,6 +2677,18 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 
 @end defvar
 
+@defvar {User Option} emacspeak-magit-branch-local-voice
+Personality used for magit-branch-local
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-branch-remote-voice
+Personality used for magit-branch-remote
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-magit-branch-voice
 Personality used for magit-branch
 This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
@@ -2686,6 +2698,24 @@ This personality uses  voice-lighten whose  effect can be changed globally by cu
 @defvar {User Option} emacspeak-magit-diff-add-voice
 Personality used for magit-diff-add
 This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-diff-added-highlight-voice
+Personality used for magit-diff-added-highlight
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-diff-base-highlight-voice
+Personality used for magit-diff-base-highlight
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-diff-context-highlight-voice
+Personality used for magit-diff-context-highlight
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
 
 @end defvar
 
@@ -2701,15 +2731,57 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 
 @end defvar
 
+@defvar {User Option} emacspeak-magit-diff-file-heading-highlight-voice
+Personality used for magit-diff-file-heading-highlight
+This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-magit-diff-hunk-header-voice
 Personality used for magit-diff-hunk-header
 This personality uses  voice-animate-medium whose  effect can be changed globally by customizing voice-animate-medium-settings.
 
 @end defvar
 
+@defvar {User Option} emacspeak-magit-diff-hunk-heading-highlight-voice
+Personality used for magit-diff-hunk-heading-highlight
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-diff-hunk-heading-voice
+Personality used for magit-diff-hunk-heading
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-magit-diff-none-voice
 Personality used for magit-diff-none
 This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-diff-removed-highlight-voice
+Personality used for magit-diff-removed-highlight
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-dimmed-voice
+Personality used for magit-dimmed
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-hash-voice
+Personality used for magit-hash
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-header-line-voice
+Personality used for magit-header-line
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 
 @end defvar
 
@@ -2803,9 +2875,45 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 
 @end defvar
 
+@defvar {User Option} emacspeak-magit-popup-heading-voice
+Personality used for magit-popup-heading
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-popup-key-voice
+Personality used for magit-popup-key
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-section-heading-voice
+Personality used for magit-section-heading
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-section-highlight-voice
+Personality used for magit-section-highlight
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-section-secondary-heading-voice
+Personality used for magit-section-secondary-heading
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-magit-section-title-voice
 Personality used for magit-section-title
 This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-magit-tag-voice
+Personality used for magit-tag
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 
 @end defvar
 
