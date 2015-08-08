@@ -205,6 +205,12 @@ The default value of 12 is too high for using ido effectively with speech. "
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'close-object)))
 
+
+(defadvice ido-bury-buffer-at-head (after emacspeak pre act comp)
+  "Provide auditory icon."
+  (when (ems-interactive-p )
+    (emacspeak-auditory-icon 'close-object)))
+
 (defadvice ido-kill-buffer (after emacspeak pre act comp)
   "Provide auditory icon."
   (when (ems-interactive-p )
