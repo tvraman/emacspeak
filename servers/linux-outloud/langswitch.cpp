@@ -94,7 +94,7 @@ enum ECILanguageDialect initLanguage(Tcl_Interp *interp,
       sprintf(command, "set langalias(%s)  %s\n",
               const_cast<char *>(TheLanguages[i].code), buffer_i);
       // int rc = /* unused */
-        Tcl_Eval(interp, command);
+      Tcl_Eval(interp, command);
     }
   }
 

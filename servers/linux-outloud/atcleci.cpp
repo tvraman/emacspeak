@@ -815,7 +815,7 @@ int SetLanguage(ClientData eciHandle, Tcl_Interp *interp, int objc,
   if (code) {
     char buffer[ANNOTATION_MAX_SIZE];
     snprintf(buffer, ANNOTATION_MAX_SIZE, "`l%s", code);
-     _eciAddText(eciHandle, buffer);
+    _eciAddText(eciHandle, buffer);
   }
   return TCL_OK;
 }
