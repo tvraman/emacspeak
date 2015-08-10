@@ -227,7 +227,8 @@
   `(defadvice ,f (after emacspeak pre act  comp)
   "Provide auditory feedback."
   (when (ems-interactive-p )
-    (emacspeak-auditory-icon 'close-object)))))
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line)))))
 
 (defadvice magit-refresh-all (after emacspeak pre act comp)
   "Provide auditory feedback."
