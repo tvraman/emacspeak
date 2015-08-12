@@ -130,26 +130,26 @@
 ;;}}}
 ;;{{{ Structure Navigation:
 
-(loop 
+(loop
  for f in
  '(
    org-mark-ring-goto org-mark-ring-push
-   org-next-visible-heading org-previous-visible-heading
-   org-forward-heading-same-level org-backward-heading-same-level
-   org-backward-sentence org-forward-sentence
-   org-backward-element org-forward-element
-   org-backward-paragraph org-forward-paragraph
-   org-next-link org-previous-link org-open-at-point
-   org-goto  org-goto-ret
-   org-goto-left org-goto-right
-   org-goto-quit
-   org-next-item org-previous-item
-   org-metaleft org-metaright org-metaup org-metadown
-   org-meta-return
-   org-shiftmetaleft org-shiftmetaright org-shiftmetaup org-shiftmetadown
-   org-mark-element org-mark-subtree
-   org-agenda-forward-block org-agenda-backward-block
-   )
+                      org-next-visible-heading org-previous-visible-heading
+                      org-forward-heading-same-level org-backward-heading-same-level
+                      org-backward-sentence org-forward-sentence
+                      org-backward-element org-forward-element
+                      org-backward-paragraph org-forward-paragraph
+                      org-next-link org-previous-link org-open-at-point
+                      org-goto  org-goto-ret
+                      org-goto-left org-goto-right
+                      org-goto-quit
+                      org-next-item org-previous-item
+                      org-metaleft org-metaright org-metaup org-metadown
+                      org-meta-return
+                      org-shiftmetaleft org-shiftmetaright org-shiftmetaup org-shiftmetadown
+                      org-mark-element org-mark-subtree
+                      org-agenda-forward-block org-agenda-backward-block
+                      )
  do
  (eval
   `(defadvice ,f(after emacspeak pre act comp)
@@ -164,19 +164,20 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
-(loop for f in
-      '(org-cycle org-shifttab)
-      do
-      (eval
-       `(defadvice ,f(after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p )
-            (cond
-             ((org-at-table-p 'any)
-              (emacspeak-org-table-speak-current-element))
-             (t
-              (emacspeak-speak-line)
-              (emacspeak-auditory-icon 'select-object)))))))
+(loop
+ for f in
+ '(org-cycle org-shifttab)
+ do
+ (eval
+  `(defadvice ,f(after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p )
+       (cond
+        ((org-at-table-p 'any)
+         (emacspeak-org-table-speak-current-element))
+        (t
+         (emacspeak-speak-line)
+         (emacspeak-auditory-icon 'select-object)))))))
 
 (defadvice org-overview (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -205,12 +206,12 @@
  for f in
  '(
    org-insert-heading org-insert-todo-heading
-   org-insert-subheading org-insert-todo-subheading
-   org-promote-subtree org-demote-subtree
-   org-do-promote org-do-demote
-   org-move-subtree-up org-move-subtree-down
-   org-convert-to-odd-levels org-convert-to-oddeven-levels
-   )
+                      org-insert-subheading org-insert-todo-subheading
+                      org-promote-subtree org-demote-subtree
+                      org-do-promote org-do-demote
+                      org-move-subtree-up org-move-subtree-down
+                      org-convert-to-odd-levels org-convert-to-oddeven-levels
+                      )
  do
  (eval
   `(defadvice ,f(after emacspeak pre act comp)
@@ -308,9 +309,9 @@
  for f in
  '(
    org-agenda-next-date-line org-agenda-previous-date-line
-   org-agenda-next-line org-agenda-previous-line
-   org-agenda-goto-today
-   )
+                             org-agenda-next-line org-agenda-previous-line
+                             org-agenda-goto-today
+                             )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -319,26 +320,27 @@
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-speak-line)))))
 
-(loop for f in
-      '(
-        org-agenda-quit org-agenda-exit)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p )
-            (emacspeak-auditory-icon 'close-object)
-            (emacspeak-speak-mode-line)))))
-(loop for f in
-      '(
-        org-agenda-goto org-agenda-show org-agenda-switch-to)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p )
-            (emacspeak-auditory-icon 'open-object)
-            (emacspeak-speak-line)))))
+(loop
+ for f in
+ '(org-agenda-quit org-agenda-exit)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p )
+       (emacspeak-auditory-icon 'close-object)
+       (emacspeak-speak-mode-line)))))
+
+(loop
+ for f in
+ '(org-agenda-goto org-agenda-show org-agenda-switch-to)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p )
+       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-speak-line)))))
 
 (defadvice org-agenda (after emacspeak pre act comp)
   "Provide spoken feedback."
@@ -362,17 +364,7 @@
              (if orgtbl-mode 'on 'off))))
 
 ;;}}}
-;;{{{ org-goto fixup:
-
-(loop for f in
-      '(org-metadown org-metaup org-metaleft org-metaright)
-      do
-      (eval
-       `(defadvice ,f(after emacspeak pre act comp)
-          "Provide spoken feedback."
-          (when (ems-interactive-p )
-            (emacspeak-speak-line)
-            (emacspeak-auditory-icon 'yank-object)))))
+;;{{{ Keymap update:
 
 (defun emacspeak-org-update-keys ()
   "Update keys in org mode."
@@ -472,6 +464,7 @@
 
 ;;}}}
 ;;{{{ fix misc commands:
+
 (defadvice org-end-of-line (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p )
@@ -480,19 +473,16 @@
 
 (loop
  for f in
-      '(
-        org-occur org-next-link org-previous-link
-                  org-beginning-of-line
-                  org-beginning-of-item
-                  org-beginning-of-item-list
-                  org-back-to-heading
-                  org-insert-heading org-insert-todo-heading)
-      do
-      (eval
-       `(defadvice ,f (around emacspeak pre act comp)
-          "Avoid outline errors bubbling up."
-          (ems-with-errors-silenced ad-do-it)
-          (emacspeak-speak-line))))
+ '(
+   org-occur org-beginning-of-line
+             org-beginning-of-item org-beginning-of-item-list
+             org-back-to-heading)
+ do
+ (eval
+  `(defadvice ,f (around emacspeak pre act comp)
+     "Avoid outline errors bubbling up."
+     (ems-with-errors-silenced ad-do-it)
+     (emacspeak-speak-line))))
 
 ;;}}}
 ;;{{{ global input wizard
@@ -544,7 +534,7 @@
   (let ((field (org-table-get-field)))
     (cond
      ((string-match "^ *$" field) (dtk-speak "space"))
-  (t (dtk-speak-and-echo field)))))
+     (t (dtk-speak-and-echo field)))))
 
 ;;;###autoload
 (defun emacspeak-org-table-speak-column-header ()
@@ -575,9 +565,9 @@
   (dtk-speak-and-echo
    (concat
     (propertize (org-table-get nil 1) 'face 'italic)
-" "
-			      (propertize (org-table-get  1 nil) 'face 'bold) " "
-			      (org-table-get-field))))
+    " "
+    (propertize (org-table-get  1 nil) 'face 'bold) " "
+    (org-table-get-field))))
 
 ;;;###autoload
 (defun emacspeak-org-table-speak-row-header-and-element ()
@@ -594,10 +584,10 @@
   "echoes col header and element"
   (interactive)
   (dtk-speak-and-echo
-   (concat 
-                       (propertize (org-table-get  1 nil) 'face 'bold)
-                       " "
-                       (org-table-get-field))))
+   (concat
+    (propertize (org-table-get  1 nil) 'face 'bold)
+    " "
+    (org-table-get-field))))
 
 (loop
  for f in
@@ -633,7 +623,6 @@ Before doing so, re-align the table if necessary."
         (org-table-goto-column col)
         (skip-chars-backward "^|\n\r")
         (if (looking-at " ") (forward-char 1))))))
-
 
 ;;}}}
 (provide 'emacspeak-org)
