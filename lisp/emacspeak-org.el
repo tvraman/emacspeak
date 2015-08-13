@@ -620,6 +620,22 @@ Before doing so, re-align the table if necessary."
         (if (looking-at " ") (forward-char 1))))))
 
 ;;}}}
+;;{{{ EWW Integration:
+
+(defun org-eww-store-link ()
+  "Store a link to a EWW buffer."
+  (when (eq major-mode 'eww-mode)
+    (org-store-link-props
+     :type "eww"
+     :link   (emacspeak-eww-current-url)
+     :url (eww-current-url)
+     :description (emacspeak-eww-current-title))))
+(add-hook
+ 'org-load-hook
+ #'(lambda nil
+     (push #'org-eww-store-link org-store-link-functions)))
+
+;;}}}
 (provide 'emacspeak-org)
 ;;{{{ end of file
 
