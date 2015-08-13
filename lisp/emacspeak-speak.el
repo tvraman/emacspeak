@@ -2393,13 +2393,11 @@ set the current local value to the result.")
                      (propertize (buffer-name) 'personality voice-annotate))))))
   (dtk-set-punctuations 'all)
   (define-key comint-mode-map "\C-o" 'switch-to-completions)
-  (define-key comint-mode-map "\C-c\M-o" #'comint-clear-buffer)  
   (emacspeak-pronounce-refresh-pronunciations))
 
 (add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)
 
-
-  
+;;;###autoload
 
 ;;}}}
 ;;{{{   quieten messages
