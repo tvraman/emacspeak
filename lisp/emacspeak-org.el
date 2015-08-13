@@ -206,12 +206,11 @@
  for f in
  '(
    org-insert-heading org-insert-todo-heading
-                      org-insert-subheading org-insert-todo-subheading
-                      org-promote-subtree org-demote-subtree
-                      org-do-promote org-do-demote
-                      org-move-subtree-up org-move-subtree-down
-                      org-convert-to-odd-levels org-convert-to-oddeven-levels
-                      )
+   org-promote-subtree org-demote-subtree
+   org-do-promote org-do-demote
+   org-move-subtree-up org-move-subtree-down
+   org-convert-to-odd-levels org-convert-to-oddeven-levels
+   )
  do
  (eval
   `(defadvice ,f(after emacspeak pre act comp)
@@ -258,16 +257,17 @@
 ;;}}}
 ;;{{{ toggles:
 
-(loop for f in
-      '(
-        org-toggle-archive-tag org-toggle-comment)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide spoken feedback."
-          (when (ems-interactive-p )
-            (emacspeak-auditory-icon 'button)
-            (emacspeak-speak-line)))))
+(loop
+ for f in
+ '(
+   org-toggle-archive-tag org-toggle-comment)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide spoken feedback."
+     (when (ems-interactive-p )
+       (emacspeak-auditory-icon 'button)
+       (emacspeak-speak-line)))))
 
 ;;}}}
 ;;{{{ ToDo:
@@ -465,24 +465,19 @@
 ;;}}}
 ;;{{{ fix misc commands:
 
-(defadvice org-end-of-line (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p )
-    (dtk-stop)
-    (emacspeak-auditory-icon 'select-object)))
+
 
 (loop
  for f in
  '(
-   org-occur org-beginning-of-line
-             org-beginning-of-item org-beginning-of-item-list
-             org-back-to-heading)
+   org-occur
+   org-beginning-of-line org-end-of-line
+   org-beginning-of-item org-beginning-of-item-list)
  do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
-     "Avoid outline errors bubbling up."
-     (ems-with-errors-silenced ad-do-it)
-     (emacspeak-speak-line))))
+     "Provide auditory feedback."
+     (when (ems-interactive-p) (emacspeak-speak-line)))))
 
 ;;}}}
 ;;{{{ global input wizard
