@@ -2398,6 +2398,13 @@ set the current local value to the result.")
 (add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)
 
 ;;;###autoload
+(defun comint-clear-buffer ()  
+  (interactive)  
+     (let ((comint-buffer-maximum-size 0))  
+       (comint-truncate-buffer)))  
+
+(when comint-mode-map   
+  (define-key comint-mode-map "\C-c\M-o" #'comint-clear-buffer)  )
 
 ;;}}}
 ;;{{{   quieten messages
