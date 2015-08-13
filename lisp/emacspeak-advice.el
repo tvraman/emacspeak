@@ -914,6 +914,12 @@ Produce an auditory icon if possible."
 
 ;;}}}
 ;;{{{ Advice comint:
+(defadvice comint-clear-buffer (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-speak-line)))
+
 
 (defadvice comint-magic-space (around emacspeak pre act comp)
   "Speak word or completion."
