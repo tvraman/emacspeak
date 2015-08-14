@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1099 commands and 919 options.
+This chapter documents a total of 1100 commands and 919 options.
 
 @menu
 * acss-structure::
@@ -18292,6 +18292,16 @@ during initialization.
 key             binding
 ---             -------
 
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-yql-lookup
+@deffn {Command} emacspeak-wizards-yql-lookup  (symbols)
+@findex emacspeak-wizards-yql-lookup
+
+@format
+Lookup quotes for specified stock symbols.
+Symbols are separated by whitespace.
 @end format
 @end deffn
 
