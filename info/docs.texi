@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1098 commands and 919 options.
+This chapter documents a total of 1099 commands and 919 options.
 
 @menu
 * acss-structure::
@@ -11538,6 +11538,15 @@ or http://orgmode.org/
 
 @format
 Bookmark from org.
+@end format
+@end deffn
+
+@subsubsection emacspeak-org-capture-link
+@deffn {Command} emacspeak-org-capture-link   
+@findex emacspeak-org-capture-link
+
+@format
+Capture hyperlink to current context.
 @end format
 @end deffn
 
