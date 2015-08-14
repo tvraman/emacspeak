@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1100 commands and 919 options.
+This chapter documents a total of 1099 commands and 919 options.
 
 @menu
 * acss-structure::
@@ -1070,6 +1070,7 @@ M-f		emacspeak-frame-label-or-switch-to-labelled-frame
 M-h		emacspeak-speak-hostname
 M-l		emacspeak-link-current-file
 M-m		emacspeak-toggle-mail-alert
+M-p		emacspeak-show-property-at-point
 M-q		voice-setup-toggle-silence-personality
 M-r		emacspeak-remote-connect-to-server
 M-s		emacspeak-symlink-current-file
@@ -17199,12 +17200,15 @@ at point.
 
 @subsubsection emacspeak-show-property-at-point
 @deffn {Command} emacspeak-show-property-at-point  (&optional property)
+@kbd{C-e M-p}
+
+@kindex C-e M-p
 @findex emacspeak-show-property-at-point
 
 @format
 Show value of PROPERTY at point.
 If optional arg property is not supplied, read it interactively.
-Provides completion based on properties that are of interest.
+Provides completion based on properties at point.
 If no property is set, show a message and exit.
 @end format
 @end deffn
@@ -18059,16 +18063,6 @@ Squeeze multiple blank lines in current buffer.
 
 @format
 Display sunrise/sunset for specified address.
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-switch-shell
-@deffn {Command} emacspeak-wizards-switch-shell  (direction)
-@findex emacspeak-wizards-switch-shell
-
-@format
-Switch to next/previous shell buffer.
-Direction specifies previous/next.
 @end format
 @end deffn
 
