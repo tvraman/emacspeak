@@ -892,7 +892,7 @@ at point."
 (defun emacspeak-show-property-at-point (&optional property )
   "Show value of PROPERTY at point.
 If optional arg property is not supplied, read it interactively.
-Provides completion based on properties that are of interest.
+Provides completion based on properties at point.
 If no property is set, show a message and exit."
   (interactive
    (let
@@ -903,12 +903,12 @@ If no property is set, show a message and exit."
        (list (car properties )))
       (properties
        (list
-        (intern
-         (completing-read  "Display property: "
-                           emacspeak-property-table ))))
+        (intern 
+         (completing-read
+          "Display property: "
+          (loop  for p in properties  and i from 0 if (evenp i) collect p)))))
       (t (message "No property set at point ")
          nil))))
-  (declare (special emacspeak-property-table))
   (if property
       (message"%s"
               (get-text-property (point) property ))))
