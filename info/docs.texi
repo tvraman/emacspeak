@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1099 commands and 919 options.
+This chapter documents a total of 1098 commands and 919 options.
 
 @menu
 * acss-structure::
@@ -18237,15 +18237,6 @@ Display list of buffers filtered by specified mode.
 
 @format
 Buffer menu filtered by  mode of current-buffer.
-@end format
-@end deffn
-
-@subsubsection emacspeak-wizards-view-url
-@deffn {Command} emacspeak-wizards-view-url   
-@findex emacspeak-wizards-view-url
-
-@format
-Open a new buffer containing the contents of URL.
 @end format
 @end deffn
 

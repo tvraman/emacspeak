@@ -621,6 +621,12 @@ Before doing so, re-align the table if necessary."
 
 ;;}}}
 ;;{{{ EWW Integration:
+;;;###autoload
+(defun emacspeak-org-capture-link ()
+  "Capture hyperlink to current context."
+  (interactive)
+  (org-store-link nil)
+  (org-capture nil "h"))
 
 (defun org-eww-store-link ()
   "Store a link to a EWW buffer."
