@@ -2343,7 +2343,6 @@ This is for use in conjunction with bash to allow multiple emacs
 (defun emacspeak-wizards-switch-shell (direction)
   "Switch to next/previous shell buffer.
 Direction specifies previous/next."
-  (interactive "d")
   (let* ((shells (emacspeak-wizards-get-shells))
          (target nil))
     (cond
