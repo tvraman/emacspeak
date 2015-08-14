@@ -3031,16 +3031,12 @@ Returns a list of lists, one list per ticker."
                   (integer :tag "Column Number:")
                   (string :tag "Text: ")))
   :group 'emacspeak-wizards)
-
-;;;###autoload
-(defun emacspeak-wizards-yql-quotes ()
-  "Display quotes using YQL API.
-Symbols are taken from `emacspeak-wizards-personal-portfolio'."
-  (interactive)
-  (declare (special emacspeak-wizards-personal-portfolio))
-  (unless emacspeak-wizards-personal-portfolio (error "Customize emacspeak-wizards-personal-portfolio first"))
-  
-  (let ((tickers (split-string emacspeak-wizards-personal-portfolio))
+;;;###autload
+(defun emacspeak-wizards-yql-lookup (symbols)
+  "Lookup quotes for specified stock symbols.
+Symbols are separated by whitespace."
+  (interactive "sStock Symbols: ")
+  (let ((tickers (split-string symbols))
         (buff "Stock Quotes"))
     (when  (get-buffer "*YQL*") (kill-buffer  (get-buffer "*YQL*")))
     (emacspeak-table-prepare-table-buffer
@@ -3056,6 +3052,18 @@ Symbols are taken from `emacspeak-wizards-personal-portfolio'."
           (format "Stock Quotes At %s"
                   (format-time-string emacspeak-speak-time-format-string)))
     (call-interactively 'emacspeak-table-next-row)))
+
+;;;###autoload
+(defun emacspeak-wizards-yql-quotes ()
+  "Display quotes using YQL API.
+Symbols are taken from `emacspeak-wizards-personal-portfolio'."
+  (interactive)
+  (declare (special emacspeak-wizards-personal-portfolio))
+  (unless emacspeak-wizards-personal-portfolio (error "Customize emacspeak-wizards-personal-portfolio first"))
+  (emacspeak-wizards-yql-lookup emacspeak-wizards-personal-portfolio))
+
+;;;###autoload
+
 
 ;;}}}
 ;;{{{ YQL: Weather
