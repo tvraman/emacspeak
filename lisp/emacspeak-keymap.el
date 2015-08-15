@@ -234,7 +234,7 @@
    ("M-s" emacspeak-symlink-current-file)
    ("M-t" emacspeak-tapestry-describe-tapestry)
    ("M-u" emacspeak-feeds-add-feed)
-   ("M-p" emacspeak-show-property-at-point)
+   ("M-P" emacspeak-show-property-at-point)
    ("M-v" emacspeak-show-personality-at-point)
    ("M-w" emacspeak-toggle-which-function)
    ("N" emacspeak-view-emacspeak-news)
