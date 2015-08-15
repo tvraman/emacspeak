@@ -1,3 +1,4 @@
+
 ;;; emacspeak-info.el --- Speech enable Info -- Emacs' online documentation viewer
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
@@ -103,6 +104,10 @@ node -- speak the entire node."
 (loop
  for f in
  '(info info-display-manual Info-select-node Info-goto-node info-emacs-manual
+        Info-top-node Info-menu-last-node  Info-final-node Info-up
+        Info-goto-emacs-key-command-node Info-goto-emacs-command-node
+        Info-directory Info-help
+        Info-nth-menu-item
         Info-menu Info-follow-nearest-node
         Info-history-back Info-history-forward
         Info-backward-node Info-forward-node
@@ -113,6 +118,12 @@ node -- speak the entire node."
      " Speak the selected node based on setting of
 emacspeak-info-select-node-speak-chunk"
      (when (ems-interactive-p) (emacspeak-info-visit-node)))))
+
+(defadvice Info-search (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'search-hit)
+    (emacspeak-speak-line)))
 
 (defadvice Info-scroll-up (after emacspeak pre act)
   "Speak the screenful."
