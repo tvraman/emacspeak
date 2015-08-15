@@ -623,7 +623,9 @@ Before doing so, re-align the table if necessary."
 ;;{{{ EWW Integration:
 ;;;###autoload
 (defun emacspeak-org-capture-link ()
-  "Capture hyperlink to current context."
+  "Capture hyperlink to current context.
+To use this command, first  do `customize-variable' `org-capture-template'
+and assign  letter `h' to a template that creates the hyperlink on capture."
   (interactive)
   (org-store-link nil)
   (org-capture nil "h"))
