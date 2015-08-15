@@ -103,10 +103,11 @@ node -- speak the entire node."
 
 (loop
  for f in
- '(info info-display-manual Info-select-node Info-goto-node info-emacs-manual
+ '(info info-display-manual Info-select-node
+        Info-follow-reference Info-goto-node info-emacs-manual
         Info-top-node Info-menu-last-node  Info-final-node Info-up
         Info-goto-emacs-key-command-node Info-goto-emacs-command-node
-        Info-directory Info-help
+        Info-history Info-virtual-index Info-directory Info-help
         Info-nth-menu-item
         Info-menu Info-follow-nearest-node
         Info-history-back Info-history-forward
