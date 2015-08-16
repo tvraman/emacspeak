@@ -1,8 +1,6 @@
-
 ;;; emacspeak-info.el --- Speech enable Info -- Emacs' online documentation viewer
-;;; $Id$
 ;;; $Author: tv.raman.tv $
-;;; Description:  Module for customizing Emacs info
+;;; Description:  Speech-enable Emacs Info Reader.
 ;;; Keywords:emacspeak, audio interface to emacs
 ;;{{{  LCD Archive entry:
 
@@ -41,7 +39,7 @@
 
 ;;; Commentary:
 
-;;; This module extends and customizes the Emacs info reader.
+;;; This module speech-enables the Emacs Info Reader.
 ;;; Code:
 
 ;;}}}
@@ -66,6 +64,7 @@
    (info-node voice-monotone)
    (info-xref voice-animate-extra)
    (info-menu-star voice-brighten)
+   (info-menu-header voice-bolden)
    (info-xref-visited voice-animate-medium)
    ))
 
