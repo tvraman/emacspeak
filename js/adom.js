@@ -2,6 +2,7 @@
 // <Helper: beget
 
 // useful if we use the prototypical pattern, rather than classical inheritance
+
 if (typeof Object.beget !== 'function') {
   Object.beget = function (o) {
     var F = function () {};
