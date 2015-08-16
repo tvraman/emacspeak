@@ -60,7 +60,6 @@
    (info-title-4 voice-lighten)
    (info-header-node voice-smoothen)
    (info-header-xref voice-brighten)
-   (info-menu-5 voice-lighten)
    (info-menu-header voice-bolden-medium)
    (info-node voice-monotone)
    (info-xref voice-animate-extra)
