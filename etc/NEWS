@@ -5,6 +5,15 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 * Emacspeak 43 -- Emacspeak 43 User Visible Changes
 
+
+** emacspeak-org.el:
+
+Exported command for using org-capture for capturing hyperlinks to personalized  hotlists. 
+
+** emacspeak-info.el:
+
+updated Info support.
+
 ** emacspeak-yasnippet.el:
 
 Speech-enables package yasnippet.
