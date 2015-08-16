@@ -50,6 +50,7 @@
 
 ;;}}}
 ;;{{{  Voices
+
 (voice-setup-add-map
  '(
    (info-index-match 'voice-bolden-medium)
@@ -65,8 +66,7 @@
    (info-xref voice-animate-extra)
    (info-menu-star voice-brighten)
    (info-menu-header voice-bolden)
-   (info-xref-visited voice-animate-medium)
-   ))
+   (info-xref-visited voice-animate-medium)))
 
 ;;}}}
 ;;{{{ advice
