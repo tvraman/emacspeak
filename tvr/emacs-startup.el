@@ -183,6 +183,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (load-library "emacspeak-m-player")
      (initialize-completions)
      (shell-command "aplay ~/cues/highbells.au")
+     (tooltip-mode -1)
      (message "Successfully initialized Emacs")))
 (start-up-my-emacs)
 (when (file-exists-p custom-file) (load-file custom-file))
