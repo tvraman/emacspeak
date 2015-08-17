@@ -682,6 +682,7 @@ Arguments START and END specify region to speak."
   (when (and emacspeak-use-auditory-icons
              (get-text-property start 'auditory-icon))
     (emacspeak-queue-auditory-icon (get-text-property start 'auditory-icon)))
+  (dtk-interp-queue-code tts-voice-reset-code)
   (cond
    ((not voice-lock-mode) (dtk-interp-queue (buffer-substring start end  )))
    (t                                   ; voiceify as we go
