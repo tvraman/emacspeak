@@ -58,24 +58,21 @@
   :group 'vm
   :prefix "emacspeak-vm-")
 
-(defcustom emacspeak-vm-voice-lock-messages nil
+(defcustom emacspeak-vm-voice-loc nil
   "Set this to T if you want messages automatically voice locked.
 Note that some badly formed mime messages  cause trouble."
   :type 'boolean
   :group 'emacspeak-vm)
 
-(add-hook 'vm-mode-hook
-          'emacspeak-vm-mode-setup)
+(add-hook 'vm-mode-hook 'emacspeak-vm-mode-setup)
 
 (defun emacspeak-vm-mode-setup ()
   "Setup function placed on vm-mode-hook by Emacspeak."
-  (declare (special  dtk-punctuation-mode emacspeak-vm-voice-lock-messages
-                     dtk-allcaps-beep))
+  (declare (special  dtk-punctuation-mode dtk-allcaps-beep))
   (setq dtk-punctuation-mode 'all)
   (when dtk-allcaps-beep
     (dtk-toggle-allcaps-beep))
-  (emacspeak-dtk-sync)
-  (when emacspeak-vm-voice-lock-messages))
+  (emacspeak-dtk-sync) )
 
 ;;}}}
 ;;{{{ inline helpers
@@ -242,8 +239,7 @@ s(defun emacspeak-vm-yank-header ()
 ;;}}}
 ;;{{{  Moving between messages
 
-(add-hook 'vm-select-message-hook
-          'emacspeak-vm-summarize-message)
+(add-hook 'vm-select-message-hook 'emacspeak-vm-summarize-message)
 
 ;;}}}
 ;;{{{  Scrolling messages:
@@ -479,6 +475,7 @@ Leave point at front of decoded attachment."
 (add-hook 'vm-presentation-mode-hook
           #'(lambda nil
               (emacspeak-pronounce-refresh-pronunciations)))
+
 (declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
 (loop
  for hook in
@@ -560,6 +557,33 @@ If N is negative, move backward instead."
 ;;{{{ saving mime attachment under point
 
 ;;}}}
+;;{{{ Voice Lock:
+
+(when (locate-library "u-vm-color")
+  (require 'u-vm-color)
+  (voice-setup-add-map
+   '(
+     (u-vm-color-author-face voice-brighten)
+     (u-vm-color-citation-1-face voice-smoothen)
+     (u-vm-color-citation-2-face voice-smoothen-extra)
+     (u-vm-color-date-face voice-monotone-medium)
+     (u-vm-color-header-face voice-bolden-medium)
+     (u-vm-color-recipient-face voice-annotate)
+     (u-vm-color-signature-face voice-smoothen)
+     (u-vm-color-spamassassin-face voice-monotone)
+     (u-vm-color-subject-face voice-lighten)
+     (u-vm-color-time-face voice-monotone)
+     (u-vm-color-user-face voice-animate)
+
+     )
+)
+  (add-hook 'vm-presentation-mode-hook #'u-vm-color-fontify-buffer)
+  (add-hook 'vm-summary-mode-hook #'u-vm-color-summary-mode)
+  (add-hook 'vm-select-message-hook #'u-vm-color-fontify-buffer)
+)
+
+;;}}}
+
 ;;{{{ configure and customize vm
 
 ;;; This is how I customize VM
@@ -590,8 +614,7 @@ Emacspeak."
             vm-delete-after-saving
             vm-url-browser
             vm-confirm-new-folders
-            vm-move-after-deleting
-            emacspeak-vm-voice-lock-messages))
+            vm-move-after-deleting))
   (setq vm-mime-charset-converter-alist
         '(
           ("utf-8" "iso-8859-1" "iconv -f utf-8 -t iso-8859-1")
@@ -614,8 +637,7 @@ Emacspeak."
         vm-delete-after-saving t
         vm-url-browser 'browse-url
         vm-confirm-new-folders t
-        vm-move-after-deleting nil
-        emacspeak-vm-voice-lock-messages t)
+        vm-move-after-deleting nil)
   t)
 
 (when emacspeak-vm-use-raman-settings
