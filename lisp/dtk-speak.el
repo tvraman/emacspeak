@@ -616,6 +616,7 @@ Argument COMPLEMENT  is the complement of separator."
               (and (listp voice) (memq 'inaudible voice)))
 ;;; ensure text is a  string
     (unless (stringp text) (setq text (format "%s" text)))
+    (dtk-interp-queue-code tts-voice-reset-code)
     (dtk-interp-queue-code
      (cond
       ((symbolp voice)
@@ -683,7 +684,6 @@ Arguments START and END specify region to speak."
              (get-text-property start 'auditory-icon))
     (emacspeak-queue-auditory-icon
      (get-text-property start 'auditory-icon)))
-  (dtk-interp-queue-code tts-voice-reset-code)
   (cond
    (voice-lock-mode
     (let ((last  nil)
