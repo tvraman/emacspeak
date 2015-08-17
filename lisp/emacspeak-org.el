@@ -475,7 +475,8 @@
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
-     (when (ems-interactive-p) (emacspeak-speak-line)))))
+     (when (ems-interactive-p) (emacspeak-speak-line)
+           (emacspeak-auditory-icon 'select-object)))))
 
 ;;}}}
 ;;{{{ global input wizard
