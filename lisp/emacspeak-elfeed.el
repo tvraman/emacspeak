@@ -130,8 +130,7 @@
          (tags (and e (elfeed-entry-tags e))))
     (unless e (message "No entry here"))
     (when title
-      (propertize title 'personality voice-bolden)
-      (dtk-speak title)
+      (dtk-speak (propertize title 'personality voice-brighten))
       (when (memq 'read tags) (emacspeak-auditory-icon 'modified-object))
       (when (memq 'seen  tags) (emacspeak-auditory-icon 'mark-object))
       (emacspeak-auditory-icon 'item)
