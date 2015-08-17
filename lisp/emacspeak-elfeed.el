@@ -59,6 +59,7 @@
  '(
    (elfeed-search-date-face  voice-smoothen)
    (elfeed-search-title-face voice-bolden)
+   (elfeed-search-unread-title-face voice-bolden-medium)
    (elfeed-search-feed-face voice-animate)
    (elfeed-search-tag-face voice-lighten)))
 
@@ -129,6 +130,7 @@
          (tags (and e (elfeed-entry-tags e))))
     (unless e (message "No entry here"))
     (when title
+      (propertize title 'personality voice-bolden)
       (dtk-speak title)
       (when (memq 'read tags) (emacspeak-auditory-icon 'modified-object))
       (when (memq 'seen  tags) (emacspeak-auditory-icon 'mark-object))
