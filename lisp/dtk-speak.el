@@ -678,28 +678,43 @@ Argument COMPLEMENT  is the complement of separator."
   "Format and speak text.
 Arguments START and END specify region to speak."
   (declare (special voice-lock-mode dtk-speaker-process
-                    tts-voice-reset-code
                     emacspeak-use-auditory-icons))
   (when (and emacspeak-use-auditory-icons
              (get-text-property start 'auditory-icon))
-    (emacspeak-queue-auditory-icon
-     (get-text-property start 'auditory-icon)))
+    (emacspeak-queue-auditory-icon (get-text-property start 'auditory-icon)))
   (cond
-   (voice-lock-mode
+   ((not voice-lock-mode) (dtk-interp-queue (buffer-substring start end  )))
+   (t                                   ; voiceify as we go
     (let ((last  nil)
-          (personality (get-text-property start 'personality )))
-      (while (and (< start end )
-                  (setq last
-                        (next-true-single-property-change start 'personality
-                                                          (current-buffer) end)))
+          (personality (get-text-property start 'personality ))
+          (face
+           (or
+            (get-text-property start 'face )
+            (get-text-property start 'font-lock-face ))))
+      (while
+          (and
+           (< start end )
+           (setq
+            last
+            (min
+             (next-true-single-property-change
+              start 'personality (current-buffer) end)
+             (next-true-single-property-change
+              start 'face (current-buffer) end)
+             (next-true-single-property-change
+              start 'font-lock-face (current-buffer) end))))
+;;; Fall-back case:
+        (or personality (setq personality (ems-get-voice-for-face face)))
         (if personality
             (dtk-speak-using-voice personality (buffer-substring start last ))
           (dtk-interp-queue (buffer-substring  start last)))
-        (setq start  last
-              personality
-              (get-text-property last  'personality))) ; end while
-      ))                                ; end clause
-   (t (dtk-interp-queue (buffer-substring start end  )))))
+        (setq
+         start  last
+         personality
+         (or
+          (get-text-property last  'personality)
+          (ems-get-voice-for-face (get-text-property last 'face))
+          (ems-get-voice-for-face (get-text-property last 'font-lock-face)))))))))
 
                                         ;Force the speech.
 (defalias 'dtk-force 'dtk-interp-speak)
