@@ -98,6 +98,24 @@
 
   <h3 class="section">11.128 emacspeak-personality</h3>
 
+  <p>Implementation Notes From 2015:</p>
+
+  <p>Setting emacspeak-personality-voiceify-faces to nil (none via
+  customize interface) now results in dtk-speak falling back to the
+  face-&gt;voice mapping defined via voice-setup for the face at
+  point. What this means:</p>
+
+  <p>1. You always get voice-locking except when you set
+  voice-lock-mode to nil.</p>
+
+  <p>2. The advice on put-text-property and friends become a no-op
+  and we still get voice-locking.</p>
+
+  <p>3. Eventually this will become the default behavior for
+  voice-locking.</p>
+
+  <p>Implementation Notes from 2002.</p>
+
   <p>This module defines a personality interface for implementing
   voice lock via font lock.</p><a name=
   "emacspeak_002dpersonality-Options" id=
@@ -107,8 +125,8 @@
   Options</h4>
 
   <dl>
-    <dt><a name="index-User-Option-728" id=
-    "index-User-Option-728"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-739" id=
+    "index-User-Option-739"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-personality-show-unmapped-faces</em></dt>
 
@@ -119,8 +137,8 @@
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-729" id=
-    "index-User-Option-729"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-740" id=
+    "index-User-Option-740"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-personality-voiceify-faces</em></dt>
 
@@ -141,8 +159,8 @@
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-730" id=
-    "index-User-Option-730"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-741" id=
+    "index-User-Option-741"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-personality-voiceify-overlays</em></dt>
 
