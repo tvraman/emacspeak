@@ -41,6 +41,24 @@
 ;;{{{  Introduction:
 
 ;;; Commentary:
+;;; Implementation Notes From 2015:
+
+;;; Setting emacspeak-personality-voiceify-faces to nil (none via
+;;; customize interface) now results in dtk-speak falling back to the
+;;; face->voice mapping defined via voice-setup for the face at
+;;; point. What this means:
+;;;
+;;; 1. You always get voice-locking except
+;;; when you set voice-lock-mode to nil.
+;;;
+;;; 2. The advice on
+;;; put-text-property and friends become a no-op and we still get
+;;; voice-locking.
+;;;
+;;; 3. Eventually this will become the default behavior
+;;; for voice-locking.
+
+;;; Implementation Notes from 2002.
 
 ;;; This module defines a personality interface for implementing voice
 ;;; lock via font lock.
