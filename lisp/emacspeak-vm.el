@@ -577,6 +577,7 @@ If N is negative, move backward instead."
 
      )
 )
+(add-hook 'vm-showing-message-hook #'u-vm-color-fontify-buffer)
   (add-hook 'vm-presentation-mode-hook #'u-vm-color-fontify-buffer)
   (add-hook 'vm-summary-mode-hook #'u-vm-color-summary-mode)
   (add-hook 'vm-select-message-hook #'u-vm-color-fontify-buffer)
