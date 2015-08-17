@@ -231,11 +231,13 @@ Preserve other existing personality properties on the text range."
   'emacspeak-personality-put
   "Determines how and if we voiceify faces.
 
-None means that  faces are not mapped to voices.
+None means   faces are  mapped directly to voices.
+
 Prepend means that the corresponding personality is prepended to the
 existing personalities on the text.
 
 Append means place corresponding personality at the end.
+
 Simple means that voiceification is not cumulative --this is the default."
   :type '(choice :tag "Face Voiceification"
                  (const :tag "None" nil)
