@@ -465,8 +465,6 @@
 ;;}}}
 ;;{{{ fix misc commands:
 
-
-
 (loop
  for f in
  '(
@@ -475,7 +473,7 @@
    org-beginning-of-item org-beginning-of-item-list)
  do
  (eval
-  `(defadvice ,f (around emacspeak pre act comp)
+  `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p) (emacspeak-speak-line)))))
 
