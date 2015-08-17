@@ -357,7 +357,7 @@ displayed in the messages area."
 
 (defadvice remove-text-properties (before emacspeak-personality pre act comp)
   "Undo any voiceification if needed."
-  (when voice-lock-mode
+  (when (and voice-lock-mode emacspeak-personality-voiceify-faces)
     (let  ((start (ad-get-arg 0))
            (end (ad-get-arg 1))
            (props (ad-get-arg 2))
@@ -368,7 +368,7 @@ displayed in the messages area."
 
 (defadvice remove-list-of-text-properties (before emacspeak-personality pre act comp)
   "Undo any voiceification if needed."
-  (when voice-lock-mode
+  (when (and voice-lock-mode emacspeak-personality-voiceify-faces)
     (let  ((start (ad-get-arg 0))
            (end (ad-get-arg 1))
            (props (ad-get-arg 2))
@@ -377,10 +377,6 @@ displayed in the messages area."
                  (emacspeak-personality-plist-face-p props)) ;;; simple minded for now
         (put-text-property start end
                            'personality nil object)))))
-
-;;; deactivate these for js2-mode:
-                                        ;(ad-deactivate 'remove-list-of-text-properties)
-                                        ;(ad-deactivate 'remove-text-properties)
 
 ;;}}}
 ;;{{{ advice overlay-put
