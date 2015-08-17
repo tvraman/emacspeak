@@ -883,7 +883,8 @@ at point."
                 #'(lambda (overlay)
                     (overlay-get overlay 'face))
                 (overlays-at (point))))))
-    (message "Personality %s Face %s %s" p f
+    (message "Personality %s Face %s %s"
+             (or p (ems-get-voice-for-face f)) f
              (if o
                  o
                " "))))
