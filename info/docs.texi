@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1099 commands and 922 options.
+This chapter documents a total of 1099 commands and 921 options.
 
 @menu
 * acss-structure::
@@ -11668,12 +11668,6 @@ This module defines a personality interface for implementing voice
 lock via font lock.
 
 @subsection emacspeak-personality Options
-
-@defvar {User Option} emacspeak-personality-show-unmapped-faces
-If set, faces that dont have a corresponding personality are
-displayed in the messages area.
-
-@end defvar
 
 @defvar {User Option} emacspeak-personality-voiceify-faces
 Determines how and if we voiceify faces.
