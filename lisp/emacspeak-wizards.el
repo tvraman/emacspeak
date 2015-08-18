@@ -875,15 +875,20 @@ personal customizations."
   "Show value of property personality (and possibly face)
 at point."
   (interactive )
-  (let ((f (get-text-property (point) 'face))
+  (let ((f (or (get-text-property (point) 'font-lock-face)
+            (get-text-property (point) 'face)))
         (o
-         (delq nil
+                                                        (delq nil
                (mapcar
-                #'(lambda (overlay) (overlay-get overlay 'face))
+                #'(lambda (overlay)
+                    (or (overlay-get overlay 'font-lock-face)
+                     (overlay-get overlay 'face)))
                 (overlays-at (point))))))
     (message "Personality %s Face %s %s"
               (dtk-get-personality)f
-             (if o o " "))))
+             (if o
+                 (format "Overlay Face: %s" o)
+" "))))
 
 ;;;###autoload
 (defun emacspeak-show-property-at-point (&optional property )
