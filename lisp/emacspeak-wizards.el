@@ -884,7 +884,7 @@ at point."
                     (overlay-get overlay 'face))
                 (overlays-at (point))))))
     (message "Personality %s Face %s %s"
-             (or p (ems-get-voice-for-face f)) f
+              (dtk-get-personality)f
              (if o
                  o
                " "))))
