@@ -273,7 +273,7 @@ displayed in the messages area."
 (defvar emacspeak-personality-unmapped-faces (make-hash-table)
   "Records faces that we have not yet mapped to personalities.")
 ;;; Helper: Get face->voice mapping
-
+;;;###autoload
 (defun ems-get-voice-for-face (value)
   "Compute face->voice mapping."
   (let ((voice nil))
