@@ -264,14 +264,6 @@ Simple means that voiceification is not cumulative --this is the default."
                  (const :tag "Append" emacspeak-personality-append))
   :group 'emacspeak-personality)
 
-(defcustom emacspeak-personality-show-unmapped-faces nil
-  "If set, faces that dont have a corresponding personality are
-displayed in the messages area."
-  :type 'boolean
-  :group 'emacspeak-personality)
-
-(defvar emacspeak-personality-unmapped-faces (make-hash-table)
-  "Records faces that we have not yet mapped to personalities.")
 ;;; Helper: Get face->voice mapping
 ;;;###autoload
 (defun ems-get-voice-for-face (value)
