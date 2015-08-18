@@ -60,9 +60,9 @@ default --- by changing the default value of
 =emacspeak-personality-voiceify-faces= to _none_.
 ** Summary
 
-From an end-user's perspective nothing has changed. From the
-perspective of implementing voice-lock for Emacs modules, nothing has
-changed --- all that an Emacspeak extension for a specific package
+From an end-user's perspective, nothing has changed in 21 years. From
+the perspective of implementing voice-lock for Emacs modules, nothing
+has changed --- all that an Emacspeak extension for a specific package
 needs to do to enable =voice-lock= is to set up a face->personality
 mapping as before via function =voice-setup-add-map=. Note that
 property =personality= will continue to have higher precedence than
