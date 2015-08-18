@@ -424,7 +424,7 @@ punctuations.")
  '(
    (shr-link voice-bolden)
    (bold voice-bolden)
-   (variable-pitch voice-animate)
+   ;(variable-pitch voice-animate) ; this is often the default
    (bold-italic voice-bolden-and-animate)
    (button voice-bolden)
    (link voice-bolden)
