@@ -674,13 +674,24 @@ Argument COMPLEMENT  is the complement of separator."
           (setq pos (next-single-property-change pos prop object limit)))
         pos))))
 
-(defsubst ems-next-style-change (start end)
+(defsubst dtk-next-style-change (start end)
   "Get position of next style change from start   to end.
 Here, style change is any change in property personality, face or font-lock-face."
   (min
    (next-true-single-property-change start 'personality (current-buffer) end)
    (next-true-single-property-change start 'face (current-buffer) end)
    (next-true-single-property-change start 'font-lock-face (current-buffer) end)))
+
+(defsubst dtk-get-personality (&optional pos)
+  "Compute personality at pos by examining personality and face properties.
+Default `pos' to point.
+Property `personality' has higher precedence than `face'."
+  (or pos (setq pos (point)))
+  (let ((personality (get-text-property pos 'personality ))
+        (face
+         (or (get-text-property pos 'face )
+          (get-text-property pos 'font-lock-face ))))
+    (or personality (ems-get-voice-for-face face))))
 
 (defsubst dtk-format-text-and-speak (start end )
   "Format and speak text.
@@ -695,27 +706,17 @@ Arguments START and END specify region to speak."
    ((not voice-lock-mode) (dtk-interp-queue (buffer-substring start end  )))
    (t                                   ; voiceify as we go
     (let ((last  nil)
-          (personality (get-text-property start 'personality ))
-          (face
-           (or
-            (get-text-property start 'face )
-            (get-text-property start 'font-lock-face ))))
+          (personality (dtk-get-personality start)))
       (while
           (and
            (< start end )
-           (setq last (ems-next-style-change start end)))
-;;; Fall-back case:
-        (or personality (setq personality (ems-get-voice-for-face face)))
+           (setq last (dtk-next-style-change start end)))
         (if personality
             (dtk-speak-using-voice personality (buffer-substring start last ))
           (dtk-interp-queue (buffer-substring  start last)))
         (setq
          start  last
-         personality
-         (or
-          (get-text-property last  'personality)
-          (ems-get-voice-for-face (get-text-property last 'face))
-          (ems-get-voice-for-face (get-text-property last 'font-lock-face)))))))))
+         personality (dtk-get-personality last)))))))
 
                                         ;Force the speech.
 (defalias 'dtk-force 'dtk-interp-speak)
