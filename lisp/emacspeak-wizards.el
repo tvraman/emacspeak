@@ -885,7 +885,7 @@ at point."
                      (overlay-get overlay 'face)))
                 (overlays-at (point))))))
     (message "Personality %s Face %s %s"
-              (dtk-get-personality)f
+              (dtk-get-style)f
              (if o
                  (format "Overlay Face: %s" o)
 " "))))

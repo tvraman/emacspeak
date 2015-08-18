@@ -682,10 +682,11 @@ Here, style change is any change in property personality, face or font-lock-face
    (next-true-single-property-change start 'face (current-buffer) end)
    (next-true-single-property-change start 'font-lock-face (current-buffer) end)))
 
-(defsubst dtk-get-personality (&optional pos)
-  "Compute personality at pos by examining personality and face properties.
-Default `pos' to point.
-Property `personality' has higher precedence than `face'."
+(defsubst dtk-get-style (&optional pos)
+  "Compute style at pos by examining personality and face
+properties. Return value is a personality that can be applied to the
+content when speaking. Default `pos' to point. Property `personality'
+has higher precedence than `face'."
   (or pos (setq pos (point)))
   (let ((personality (get-text-property pos 'personality ))
         (face
@@ -706,7 +707,7 @@ Arguments START and END specify region to speak."
    ((not voice-lock-mode) (dtk-interp-queue (buffer-substring start end  )))
    (t                                   ; voiceify as we go
     (let ((last  nil)
-          (personality (dtk-get-personality start)))
+          (personality (dtk-get-style start)))
       (while
           (and
            (< start end )
@@ -716,7 +717,7 @@ Arguments START and END specify region to speak."
           (dtk-interp-queue (buffer-substring  start last)))
         (setq
          start  last
-         personality (dtk-get-personality last)))))))
+         personality (dtk-get-style last)))))))
 
                                         ;Force the speech.
 (defalias 'dtk-force 'dtk-interp-speak)
