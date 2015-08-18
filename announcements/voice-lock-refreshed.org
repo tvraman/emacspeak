@@ -1,6 +1,6 @@
-* Emacspeak: An Overview Of Voice-Lock Over The Years
 
-** Executive Summary
+
+* Executive Summary
 
 Audio formatted output is provided via =voice-lock= in Emacspeak.
 The feature was originally implemented in 1994 and  significantly
@@ -8,7 +8,7 @@ overhauled in 2002 (with no change in functionality). Now, in 2015,
 the implementation has been reworked to be once again simpler --- but
 with the same functionality.
 
-** 1994: Original Implementation
+* 1994: Original Implementation
 
 Font-lock was a new feature in Emacs 19 --- it was introduced right
 around the time the Emacspeak project was started.
@@ -25,7 +25,7 @@ abstraction for defining /values/ that can be assigned to property
 =personality=. Next, the rest of emacspeak was overhauled to
 express all =voice-lock= features via the ACSS abstraction.
 
-** 2002 Overhaul
+* 2002 Overhaul
 
 With feature =font-lock= now mature, Emacs itself converged on a
 single font-lock module with =jit-lock.el= providing just-in-time font
@@ -44,7 +44,7 @@ personalities:
     applied =personality= property.
   -  None: Where faces were not mapped to personalities.
 
-** 2015 Overhaul
+* 2015 Overhaul
 
 And now, in 2015, the code in module =dtk-speak.el= that implements
 audio-formatting has been overhauled to directly map faces to
@@ -58,7 +58,7 @@ while) with the earlier advice-based implementation from module
 once deemed to be stable, the new implementation will become the
 default --- by changing the default value of
 =emacspeak-personality-voiceify-faces= to _none_.
-** Summary
+* Summary
 
 From an end-user's perspective, nothing has changed in 21 years. From
 the perspective of implementing voice-lock for Emacs modules, nothing
