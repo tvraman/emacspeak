@@ -674,6 +674,14 @@ Argument COMPLEMENT  is the complement of separator."
           (setq pos (next-single-property-change pos prop object limit)))
         pos))))
 
+(defsubst ems-next-style-change (start end)
+  "Get position of next style change from start   to end.
+Here, style change is any change in property personality, face or font-lock-face."
+  (min
+   (next-true-single-property-change start 'personality (current-buffer) end)
+   (next-true-single-property-change start 'face (current-buffer) end)
+   (next-true-single-property-change start 'font-lock-face (current-buffer) end)))
+
 (defsubst dtk-format-text-and-speak (start end )
   "Format and speak text.
 Arguments START and END specify region to speak."
@@ -695,15 +703,7 @@ Arguments START and END specify region to speak."
       (while
           (and
            (< start end )
-           (setq
-            last
-            (min
-             (next-true-single-property-change
-              start 'personality (current-buffer) end)
-             (next-true-single-property-change
-              start 'face (current-buffer) end)
-             (next-true-single-property-change
-              start 'font-lock-face (current-buffer) end))))
+           (setq last (ems-next-style-change start end)))
 ;;; Fall-back case:
         (or personality (setq personality (ems-get-voice-for-face face)))
         (if personality
