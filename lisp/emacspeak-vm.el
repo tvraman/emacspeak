@@ -182,11 +182,11 @@ s(defun emacspeak-vm-yank-header ()
              (propertize from   'personality voice-brighten)
            "")
          (if subject
-             (concat "on "
-                     (propertize subject 'personality voice-lighten))
+                     (propertize subject 'personality voice-lighten)
            " ")
          (if (and to (< (length to) 80))
-             (concat " to "
+             (concat
+              (propertize " to " 'personality voice-smoothen)
                      (propertize  to 'personality voice-annotate))
            "")
          (if lines (format "%s lines" lines) ""))))
