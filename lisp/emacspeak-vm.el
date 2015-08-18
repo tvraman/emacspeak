@@ -176,22 +176,29 @@ s(defun emacspeak-vm-yank-header ()
             (lines (vm-su-line-count message)))
       (dtk-speak
        (vm-decode-mime-encoded-words-in-string
-        (format "%s %s %s   %s %s "
-                number
-                (or from "")
-                (if subject (format "on %s" subject) "")
-                (if (and to (< (length to) 80))
-                    (format "to %s" to) "")
-                (if lines (format "%s lines" lines) ""))))
+        (concat
+         number
+         (if from
+             (propertize from   'personality voice-brighten)
+           "")
+         (if subject
+             (concat "on "
+                     (propertize subject 'personality voice-lighten))
+           " ")
+         (if (and to (< (length to) 80))
+             (concat " to "
+                     (propertize  to 'personality voice-annotate))
+           "")
+         (if lines (format "%s lines" lines) ""))))
       (goto-char (point-min))
       (search-forward  (format "%c%c" 10 10) nil)
       (cond
        ((and self-p
              (= 0 self-p)                    ) ;mail to me and others
         (emacspeak-auditory-icon 'select-object))
-       (self-p                       ;mail to others including me
+       (self-p                          ;mail to others including me
         (emacspeak-auditory-icon 'mark-object))
-       (t                       ;got it because of a mailing list
+       (t                            ;got it because of a mailing list
         (emacspeak-auditory-icon 'item ))))))
 
 (defun emacspeak-vm-speak-labels ()
