@@ -688,12 +688,11 @@ properties. Return value is a personality that can be applied to the
 content when speaking. Default `pos' to point. Property `personality'
 has higher precedence than `face'."
   (or pos (setq pos (point)))
-  (let ((personality (get-text-property pos 'personality )))
-    (or personality
-        (ems-get-voice-for-face
-         (and font-lock-mode
-              (or (get-text-property pos 'face )
-                  (get-text-property pos 'font-lock-face )))))))
+  (let ((personality (get-text-property pos 'personality ))
+        (face
+         (or (get-text-property pos 'face )
+          (get-text-property pos 'font-lock-face ))))
+    (or personality (ems-get-voice-for-face face))))
 
 (defsubst dtk-format-text-and-speak (start end )
   "Format and speak text.
