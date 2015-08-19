@@ -1,6 +1,12 @@
 @node Voice Lock
 @chapter Voice Lock
 
+
+See
+@url{http://tvraman.github.io/emacspeak/blog/voice-lock-refreshed.html}
+for a high-level overview of how Emacspeak Voice-Lock has evolved over
+the years.
+
 @enumerate
 @item
 Emacspeak defines a number of voice overlays such as
