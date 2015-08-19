@@ -253,7 +253,7 @@ Argument CHILD specifies the mode whose supers are being requested."
 
 ;;}}}
 
-(defcustom emacspeak-pronounce-pronunciation-personality nil
+(defcustom emacspeak-pronounce-pronunciation-personality voice-lighten
   "*Pronunciation personality.
 This is the personality used when speaking things that have a pronunciation
 applied."
