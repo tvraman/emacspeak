@@ -76,12 +76,10 @@
   "Speak the dired line intelligently."
   (declare (special emacspeak-speak-last-spoken-word-position))
   (let ((filename (dired-get-filename 'no-dir  t ))
-        (personality (get-text-property (point) 'personality)))
+        (personality (dtk-get-style)))
     (cond
      (filename
-      (put-text-property  0  (length filename)
-                          'personality personality filename )
-      (dtk-speak filename)
+      (dtk-speak (propertize filename 'personality personality))
       (setq emacspeak-speak-last-spoken-word-position (point)))
      (t (emacspeak-speak-line )))))
 
