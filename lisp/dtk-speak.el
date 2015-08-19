@@ -220,7 +220,7 @@ Modifies text and point in buffer."
               (cond
                ((stringp pronunciation)
                 (while (search-forward  word nil t)
-                  (setq pp (get-text-property (point) 'personality))
+                  (setq pp (dtk-get-style))
                   (replace-match  pronunciation t t  )
                   (when (or pp emacspeak-pronounce-pronunciation-personality)
                     (put-text-property
@@ -237,7 +237,7 @@ Modifies text and point in buffer."
                       (pronouncer (cdr pronunciation))
                       (pronunciation ""))
                   (while (funcall matcher   word nil t)
-                    (setq pp (get-text-property (point) 'personality))
+                    (setq pp (dtk-get-style))
                     (setq pronunciation
                           (save-match-data
                             (funcall pronouncer
@@ -512,8 +512,7 @@ Argument MODE  specifies the current pronunciation mode."
          (personality nil)
          (replacement nil))
     (while (re-search-forward reg nil t)
-      (setq personality
-            (get-text-property (point) 'personality))
+      (setq personality (dtk-get-style))
       (setq replacement
             (if  (eq 'all  mode)
                 (format " aw %s %s"
@@ -674,9 +673,19 @@ Argument COMPLEMENT  is the complement of separator."
           (setq pos (next-single-property-change pos prop object limit)))
         pos))))
 
-(defsubst dtk-next-style-change (start end)
+(defsubst dtk-previous-style-change (start &optional end)
+  "Get position of previous  style change from start   to end.
+Here, style change is any change in property personality, face or font-lock-face."
+  (or end (setq end (point-min)))
+  (max
+   (previous-single-property-change start 'personality (current-buffer) end)
+   (previous-single-property-change start 'face (current-buffer) end)
+   (previous-single-property-change start 'font-lock-face (current-buffer) end)))
+
+(defsubst dtk-next-style-change (start &optional end)
   "Get position of next style change from start   to end.
 Here, style change is any change in property personality, face or font-lock-face."
+  (or end (setq end (point-max)))
   (min
    (next-true-single-property-change start 'personality (current-buffer) end)
    (next-true-single-property-change start 'face (current-buffer) end)

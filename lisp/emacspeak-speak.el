@@ -2098,9 +2098,9 @@ achieved by a change in voice personality."
   "Speak chunk of text around point that has current
 personality."
   (interactive)
-  (let ((personality (get-text-property (point) 'personality))
-        (start (previous-single-property-change (point) 'personality))
-        (end (next-single-property-change  (point) 'personality)))
+  (let ((personality (dtk-get-style))
+        (start (dtk-previous-style-change (point)))
+        (end (dtk-next-style-change (point))))
     (emacspeak-speak-region
      (or start (point-min))
      (or end (point-max)))))
@@ -2110,8 +2110,8 @@ personality."
   "Moves to the front of next chunk having current personality.
 Speak that chunk after moving."
   (interactive)
-  (let ((personality (get-text-property (point) 'personality))
-        (this-end (next-single-property-change (point) 'personality))
+  (let ((personality (dtk-get-style))
+        (this-end (dtk-next-style-change(point) (point-max)))
         (next-start nil))
     (cond
      ((and (< this-end (point-max))
@@ -2153,17 +2153,14 @@ Return buffer position or nil on failure."
   "Moves to the front of previous chunk having current personality.
 Speak that chunk after moving."
   (interactive)
-  (let ((personality (get-text-property (point) 'personality))
-        (this-start (previous-single-property-change (point) 'personality))
+  (let ((personality (dtk-get-style))
+        (this-start (dtk-previous-style-change (point)))
         (next-end nil))
     (cond
      ((and (> this-start (point-min))
-           (setq next-end
-                 (ems-backwards-text-property-any  (1- this-start) (point-min)
-                                                   'personality personality)))
-      (goto-char next-end)
+      (goto-char (dtk-previous-style-change (point)))
       (backward-char 1)
-      (emacspeak-speak-this-personality-chunk))
+      (emacspeak-speak-this-personality-chunk)))
      (t (error "No previous  chunks with current personality.")))))
 
 (defun emacspeak-speak-face-interval-and-move ()

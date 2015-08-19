@@ -500,7 +500,7 @@ Optional argument COUNT specifies how many changes to skip."
   (interactive "p")
   (declare (special emacspeak-eterm-pointer))
   (setq count (or count 1 ))
-  (let ((current (get-text-property emacspeak-eterm-pointer 'personality ))
+  (let ((current (dtk-get-style emacspeak-eterm-pointer))
         (found nil))
     (save-excursion
       (goto-char emacspeak-eterm-pointer)
@@ -519,7 +519,7 @@ Optional argument COUNT specifies how many changes to skip."
   (interactive "p")
   (declare (special emacspeak-eterm-pointer term-home-marker))
   (setq count (or count 1 ))
-  (let ((current (get-text-property emacspeak-eterm-pointer 'personality ))
+  (let ((current (dtk-get-style emacspeak-eterm-pointer))
         (found nil))
     (save-excursion
       (goto-char emacspeak-eterm-pointer)
