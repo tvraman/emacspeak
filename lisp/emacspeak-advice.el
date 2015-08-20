@@ -1020,13 +1020,6 @@ Produce an auditory icon if possible."
    (t ad-do-it))
   ad-return-value)
 
-(defadvice comint-send-input (before emacspeak pre act comp)
-  "Aurally highlight input."
-  (let ((start (line-beginning-position))
-        (end (line-end-position)))
-    (emacspeak-personality-append start end
-                                  'emacspeak-comint-input-personality)))
-
 (defadvice comint-send-eof (before emacspeak pre act comp)
   "Announce what we are doing."
   (when (ems-interactive-p )
