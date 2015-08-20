@@ -3204,7 +3204,9 @@ See documentation for command run-at-time for details on time-spec."
                #'(lambda (m)
                    (message m)
                    (emacspeak-auditory-icon 'alarm))
-               message))
+               message)
+  (message "Set alarm for %s" time)
+  (emacspeak-auditory-icon 'button))
 
 ;;}}}
 ;;{{{ Directory specific settings
