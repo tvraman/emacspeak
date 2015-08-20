@@ -2562,14 +2562,12 @@ Produce auditory icons if possible."
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Adds property personality."
-     (when emacspeak-personality-voiceify-faces
-       (let ((beg (ad-get-arg 0))
+     (let ((beg (ad-get-arg 0))
              (end (ad-get-arg 1)))
          (with-silent-modifications
            (add-text-properties
             beg end
-            (list 'personality voice-bolden
-                  'auditory-icon 'button))))))))
+            (list 'personality voice-bolden 'auditory-icon 'button)))))))
 
 (defadvice push-button (after emacspeak pre act comp)
   "Produce auditory icon."
