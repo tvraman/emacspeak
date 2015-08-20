@@ -226,6 +226,7 @@
 (defadvice 2048-game (before count-moves pre act comp)
   "Reset move count and board size."
   (setq emacspeak-2048-move-count 0)
+  (voice-lock-mode -1)
   (emacspeak-2048-board-reset))
 
 ;;}}}
