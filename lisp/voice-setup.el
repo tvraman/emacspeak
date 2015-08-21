@@ -424,7 +424,7 @@ punctuations.")
  '(
    (shr-link voice-bolden)
    (bold voice-bolden)
-   ;(variable-pitch voice-animate) ; this is often the default
+                                        ;(variable-pitch voice-animate) ; this is often the default
    (bold-italic voice-bolden-and-animate)
    (button voice-bolden)
    (link voice-bolden)
@@ -499,11 +499,11 @@ punctuations.")
   "Global value of voice-lock-mode.")
 
 (define-globalized-minor-mode global-voice-lock-mode
-    voice-lock-mode turn-on-voice-lock
-    :initialize 'custom-initialize-delay
-    :init-value (not (or noninteractive emacs-basic-display))
-    :group 'voice-lock
-    :version "24.1")
+  voice-lock-mode turn-on-voice-lock
+  :initialize 'custom-initialize-delay
+  :init-value (not (or noninteractive emacs-basic-display))
+  :group 'voice-lock
+  :version "24.1")
 
 ;; Install ourselves:
 (declaim (special text-property-default-nonsticky))

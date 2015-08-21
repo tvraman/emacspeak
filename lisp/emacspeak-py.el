@@ -195,13 +195,13 @@
  for f in
  '(
    py-down py-up
-   py-backward-statement py-forward-statement
-   py-goto-block-up  py-go-to-beginning-of-comment
-                     py-beginning-of-statement py-end-of-statement
-                     py-beginning-of-block py-end-of-block
-                     py-beginning-of-clause py-end-of-clause
-   py-next-statement py-previous-statement
-   py-beginning-of-def-or-class py-end-of-def-or-class)
+           py-backward-statement py-forward-statement
+           py-goto-block-up  py-go-to-beginning-of-comment
+           py-beginning-of-statement py-end-of-statement
+           py-beginning-of-block py-end-of-block
+           py-beginning-of-clause py-end-of-clause
+           py-next-statement py-previous-statement
+           py-beginning-of-def-or-class py-end-of-def-or-class)
  do                  
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -210,26 +210,19 @@
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'large-movement)))))
 
-
-
-
-
-
-
-
 (loop
  for  f in
  '(
    py-mark-class-bol py-mark-clause py-mark-clause-bol py-mark-comment
-   py-mark-comment-bol py-mark-def py-mark-def-bol
-   py-mark-def-or-class py-mark-def-or-class-bol py-mark-except-block
-   py-mark-except-block-bol py-mark-expression py-mark-expression-bol
-   py-mark-if-block py-mark-if-block-bol py-mark-line py-mark-line-bol
-   py-mark-minor-block py-mark-minor-block-bol py-mark-paragraph
-   py-mark-paragraph-bol py-mark-partial-expression
-   py-mark-partial-expression-bol py-mark-section py-mark-statement
-   py-mark-statement-bol py-mark-top-level py-mark-top-level-bol
-   py-mark-try-block py-mark-try-block-bol )                 
+                     py-mark-comment-bol py-mark-def py-mark-def-bol
+                     py-mark-def-or-class py-mark-def-or-class-bol py-mark-except-block
+                     py-mark-except-block-bol py-mark-expression py-mark-expression-bol
+                     py-mark-if-block py-mark-if-block-bol py-mark-line py-mark-line-bol
+                     py-mark-minor-block py-mark-minor-block-bol py-mark-paragraph
+                     py-mark-paragraph-bol py-mark-partial-expression
+                     py-mark-partial-expression-bol py-mark-section py-mark-statement
+                     py-mark-statement-bol py-mark-top-level py-mark-top-level-bol
+                     py-mark-try-block py-mark-try-block-bol )                 
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -246,10 +239,10 @@
  '(
 
    Possible completions are:
-   py-narrow-to-block 	py-narrow-to-block-or-clause 	py-narrow-to-class
-   py-narrow-to-clause 	py-narrow-to-def 	py-narrow-to-def-or-class
-   py-narrow-to-statement
-   )
+            py-narrow-to-block  py-narrow-to-block-or-clause    py-narrow-to-class
+            py-narrow-to-clause         py-narrow-to-def        py-narrow-to-def-or-class
+            py-narrow-to-statement
+            )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

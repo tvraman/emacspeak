@@ -75,10 +75,10 @@
 (defun emacspeak-company-frontend (command)
   "Emacspeak front-end for Company."
   (let ((emacspeak-speak-messages nil))
-  (case command
-    (pre-command (emacspeak-company-speak-this))
-    (post-command (emacspeak-company-speak-this))
-    (hide nil))))
+    (case command
+      (pre-command (emacspeak-company-speak-this))
+      (post-command (emacspeak-company-speak-this))
+      (hide nil))))
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:

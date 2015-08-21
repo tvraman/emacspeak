@@ -70,9 +70,6 @@
          (format "\"'%s'\""
                  base))))
 
-
-
-
 (defsubst emacspeak-xslt-read ()
   "Read XSLT transformation name from minibuffer."
   (declare (special emacspeak-xslt-directory))

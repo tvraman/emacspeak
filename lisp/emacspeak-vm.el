@@ -182,12 +182,12 @@ s(defun emacspeak-vm-yank-header ()
              (propertize from   'personality voice-brighten)
            "")
          (if subject
-                     (propertize subject 'personality voice-lighten)
+             (propertize subject 'personality voice-lighten)
            " ")
          (if (and to (< (length to) 80))
              (concat
               (propertize " to " 'personality voice-smoothen)
-                     (propertize  to 'personality voice-annotate))
+              (propertize  to 'personality voice-annotate))
            "")
          (if lines (format "%s lines" lines) ""))))
       (goto-char (point-min))
@@ -583,12 +583,12 @@ If N is negative, move backward instead."
      (u-vm-color-user-face voice-animate)
 
      )
-)
-(add-hook 'vm-showing-message-hook #'u-vm-color-fontify-buffer)
+   )
+  (add-hook 'vm-showing-message-hook #'u-vm-color-fontify-buffer)
   (add-hook 'vm-presentation-mode-hook #'u-vm-color-fontify-buffer)
   (add-hook 'vm-summary-mode-hook #'u-vm-color-summary-mode)
   (add-hook 'vm-select-message-hook #'u-vm-color-fontify-buffer)
-)
+  )
 
 ;;}}}
 

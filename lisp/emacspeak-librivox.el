@@ -225,9 +225,6 @@ Both exact and partial matches for `title'."
     (?t (call-interactively 'emacspeak-librivox-search-by-title))
     (?g (call-interactively 'emacspeak-librivox-search-by-genre))))
 
-
-
-
 ;;}}}
 ;;{{{ Cache Playlists:
 (defcustom emacspeak-librivox-local-cache
@@ -280,8 +277,6 @@ Both exact and partial matches for `title'."
              emacspeak-xslt-program (emacspeak-xslt-get "rss2m3u.xsl")
              file m3u-file))
     (emacspeak-m-player m3u-file 'playlist)))
-
-
 
 ;;}}}
 (provide 'emacspeak-librivox)

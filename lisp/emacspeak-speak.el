@@ -847,7 +847,7 @@ with a long string of gibberish."
           ?\                            ; Ascii 32
           ?\t                           ; tab
           ?\r                           ; CR
-?\f ; form-feed
+          ?\f ; form-feed
           )
   "Pattern that matches white space."
   :type 'string
@@ -2158,9 +2158,9 @@ Speak that chunk after moving."
         (next-end nil))
     (cond
      ((and (> this-start (point-min))
-      (goto-char (dtk-previous-style-change (point)))
-      (backward-char 1)
-      (emacspeak-speak-this-personality-chunk)))
+           (goto-char (dtk-previous-style-change (point)))
+           (backward-char 1)
+           (emacspeak-speak-this-personality-chunk)))
      (t (error "No previous  chunks with current personality.")))))
 
 (defun emacspeak-speak-face-interval-and-move ()

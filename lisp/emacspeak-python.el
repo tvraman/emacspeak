@@ -68,9 +68,9 @@
  do
  (eval
   `(defadvice python-shell-send-region (after emacspeak pre act comp)
-  "Provide auditory feedback"
-  (when (ems-interactive-p )
-    (emacspeak-auditory-icon 'task-done)))))
+     "Provide auditory feedback"
+     (when (ems-interactive-p )
+       (emacspeak-auditory-icon 'task-done)))))
 
 ;;}}}
 ;;{{{  whitespace management and indentation
@@ -89,7 +89,6 @@
     ad-do-it)
    (t ad-do-it))
   ad-return-value)
-
 
 (defadvice python-fill-paragraph (after emacspeak pre act comp)
   "Provide auditory feedback."

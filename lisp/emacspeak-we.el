@@ -114,7 +114,7 @@ a rewrite rule even if one is already defined."
            (fboundp emacspeak-we-url-executor))
       (if prefix
           (funcall emacspeak-we-url-executor url prefix)
-      (funcall emacspeak-we-url-executor url)))
+        (funcall emacspeak-we-url-executor url)))
      (t
       (setq emacspeak-we-url-executor
             (intern
@@ -1150,15 +1150,15 @@ and provide a completion list of applicable  property values. Filter document by
  for f in
  '(
    url-write-global-history url-history-save-history
-   url-http-chunked-encoding-after-change-function url-cookie-handle-set-cookie
-   url-retrieve-internal
-   url-lazy-message url-cookie-write-file)
+                            url-http-chunked-encoding-after-change-function url-cookie-handle-set-cookie
+                            url-retrieve-internal
+                            url-lazy-message url-cookie-write-file)
  do
  (eval
   `(defadvice   ,f (around emacspeak pre act comp)
      "Silence messages while this function executes"
      (let ((url-show-status nil))
-     (ems-with-messages-silenced ad-do-it)))))
+       (ems-with-messages-silenced ad-do-it)))))
 
 ;;}}}
 (provide 'emacspeak-we)

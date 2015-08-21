@@ -63,7 +63,7 @@
  for f in 
  '(
    yas-prev-field yas-expand
-   yas-next-field yas-next-field-or-maybe-expand )
+                  yas-next-field yas-next-field-or-maybe-expand )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

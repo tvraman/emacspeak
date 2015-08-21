@@ -67,8 +67,8 @@
 (require 'emacspeak-xslt)
 (eval-when-compile
   (require 'calendar)
-(require 'solar)
-(require 'gmaps))
+  (require 'solar)
+  (require 'gmaps))
 ;;}}}
 ;;{{{ custom
 
@@ -876,19 +876,19 @@ personal customizations."
 at point."
   (interactive )
   (let ((f (or (get-text-property (point) 'font-lock-face)
-            (get-text-property (point) 'face)))
+               (get-text-property (point) 'face)))
         (o
-                                                        (delq nil
+         (delq nil
                (mapcar
                 #'(lambda (overlay)
                     (or (overlay-get overlay 'font-lock-face)
-                     (overlay-get overlay 'face)))
+                        (overlay-get overlay 'face)))
                 (overlays-at (point))))))
     (message "Personality %s Face %s %s"
-              (dtk-get-style)f
+             (dtk-get-style)f
              (if o
                  (format "Overlay Face: %s" o)
-" "))))
+               " "))))
 
 ;;;###autoload
 (defun emacspeak-show-property-at-point (&optional property )
@@ -1162,9 +1162,6 @@ Extracted content is sent to STDOUT."
 
 ;;}}}
 ;;{{{ view url:
-
-
-
 
 ;;}}}
 ;;{{{ annotation wizard
@@ -2560,9 +2557,9 @@ Default is to add autoload cookies to current file."
   (let ((prev (emacspeak-wizards-buffer-cycle-previous major-mode)))
     (cond
      (prev 
-           (switch-to-buffer prev)
-           (emacspeak-auditory-icon 'select-object)
-           (emacspeak-speak-mode-line))
+      (switch-to-buffer prev)
+      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-speak-mode-line))
      (t (error "No previous buffer in mode %s" major-mode)))))
 
 ;;;###autoload
@@ -3056,7 +3053,6 @@ Symbols are taken from `emacspeak-wizards-personal-portfolio'."
   (emacspeak-wizards-yql-lookup emacspeak-wizards-personal-portfolio))
 
 ;;;###autoload
-
 
 ;;}}}
 ;;{{{ YQL: Weather

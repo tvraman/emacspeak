@@ -111,7 +111,6 @@ pronunciation dictionaries are stored. ")
          0 6)
       "")))
 
-
 ;;;###autoload
 (defsubst emacspeak-xslt-get (style)
   "Return fully qualified stylesheet path."
@@ -190,7 +189,6 @@ pronunciation dictionaries are stored. ")
 (add-hook 'emacspeak-startup-hook 'emacspeak-setup-header-line)
 (add-hook 'emacspeak-startup-hook 'emacspeak-tvr-startup-hook)
 
-
 (defvar emacspeak-info-already-loaded nil
   "Track info support load.")
 
@@ -203,7 +201,6 @@ pronunciation dictionaries are stored. ")
 
 ;;}}}
 (emacspeak)
-
 
 (provide 'emacspeak-setup)
 ;;{{{  emacs local variables

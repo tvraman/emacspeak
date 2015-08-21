@@ -93,7 +93,7 @@
     (aref (aref elements row) column)))
 
 (defsubst emacspeak-table-current-element (table)
-          (emacspeak-table-this-element table 
+  (emacspeak-table-this-element table 
                                 (emacspeak-table-current-row table )
                                 (emacspeak-table-current-column table)))
 
@@ -131,8 +131,8 @@
 Calls callback once per row."
   (loop
    for row across (emacspeak-table-elements table)
-        collect
-        (apply callback row callback-args )))
+   collect
+   (apply callback row callback-args )))
 
 (defun emacspeak-table-enumerate-columns (table callback &rest callback-args)
   "Enumerate columns of a table.
@@ -140,10 +140,10 @@ Calls callback once per column."
   (let ((elements (emacspeak-table-elements table )))
     (loop
      for column   from 0 to (1- (length   elements))
-          collect
-          (apply callback
-                 (emacspeak-table-this-column table column)
-                 callback-args ))))
+     collect
+     (apply callback
+            (emacspeak-table-this-column table column)
+            callback-args ))))
 
 ;;}}}
 ;;{{{ finders 
@@ -163,10 +163,10 @@ Calls callback once per column."
      if
      (funcall predicate  pattern
               (emacspeak-table-this-element table  index column))
-          do
-          (setq found t )
-          until found
-          finally return (and found column))))
+     do
+     (setq found t )
+     until found
+     finally return (and found column))))
 
 (defun emacspeak-table-find-match-in-column (table index pattern
                                                    &optional predicate)

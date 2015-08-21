@@ -64,7 +64,6 @@
 ;;}}}
 ;;{{{ Declare generated functions:
 
-
 (declare-function emacspeak-eww-current-dom "emacspeak-eww" nil)
 (declare-function emacspeak-eww-current-url "emacspeak-eww" nil)
 (declare-function  "emacspeak-eww" nil)

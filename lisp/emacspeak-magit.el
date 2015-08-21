@@ -53,7 +53,6 @@
 
 (require 'magit "magit" 'no-error)
 
-
 ;;}}}
 ;;{{{ Map voices to faces:
 (voice-setup-add-map
@@ -134,14 +133,14 @@
  for f in
  '(
    magit-section-forward magit-section-backward
-   magit-ignore-file magit-ignore-item
-     magit-stash
-     magit-unstage magit-unstage-all magit-unstage-file
-    magit-stage magit-stage-file  magit-stage-modified
-   magit-ignore-item-locally
-   magit-goto-next-section magit-goto-previous-section
-   magit-goto-parent-section magit-goto-line
-   magit-goto-section magit-goto-section-at-path)
+                         magit-ignore-file magit-ignore-item
+                         magit-stash
+                         magit-unstage magit-unstage-all magit-unstage-file
+                         magit-stage magit-stage-file  magit-stage-modified
+                         magit-ignore-item-locally
+                         magit-goto-next-section magit-goto-previous-section
+                         magit-goto-parent-section magit-goto-line
+                         magit-goto-section magit-goto-section-at-path)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -152,8 +151,6 @@
 
 ;;}}}
 ;;{{{ Advice generator to advice generated  commands:
-
-
 
 (defadvice magit-invoke-popup (after emacspeak pre act comp)
   "Speech-enable  magit-popup."
@@ -224,10 +221,10 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act  comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p )
-    (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-mode-line)))))
+     "Provide auditory feedback."
+     (when (ems-interactive-p )
+       (emacspeak-auditory-icon 'close-object)
+       (emacspeak-speak-mode-line)))))
 
 (defadvice magit-refresh-all (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -263,7 +260,6 @@
 (defadvice magit-process-finish(after emacspeak pre act comp)
   "Produce auditory icon."
   (emacspeak-auditory-icon 'task-done))
-
 
 ;;}}}
 (provide 'emacspeak-magit)
