@@ -245,11 +245,10 @@ Preserve other existing personality properties on the text range."
 ;;}}}
 ;;{{{ advice put-text-personality
 
-(defcustom emacspeak-personality-voiceify-faces
-  'emacspeak-personality-put
+(defcustom emacspeak-personality-voiceify-faces nil
   "Determines how and if we voiceify faces.
 
-None means   faces are  mapped directly to voices.
+All means   faces are  mapped directly to voices.
 
 Prepend means that the corresponding personality is prepended to the
 existing personalities on the text.
@@ -258,7 +257,7 @@ Append means place corresponding personality at the end.
 
 Simple means that voiceification is not cumulative --this is the default."
   :type '(choice :tag "Face Voiceification"
-                 (const :tag "None" nil)
+                 (const :tag "All" nil)
                  (const :tag "Simple" emacspeak-personality-put)
                  (const :tag "Prepend" emacspeak-personality-prepend)
                  (const :tag "Append" emacspeak-personality-append))
