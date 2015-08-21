@@ -413,7 +413,7 @@ _d_: subtree
     (progn
       (emacspeak-muggles-body-pre "Move")
       (emacspeak-muggles-toggle-talkative)
-      (next-line))
+      (condition-case nil (next-line) (error nil)))
     :hint nil
     :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
    "move"
@@ -431,7 +431,6 @@ _d_: subtree
    ("l" recenter-top-bottom)))
 
 ;;}}}
-
 (provide 'emacspeak-muggles)
 ;;{{{ end of file
 
