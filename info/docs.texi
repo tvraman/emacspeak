@@ -10515,9 +10515,13 @@ Create a hydra with no body and the heads:
 "b":    ``backward-char'',
 "a":    ``beginning-of-line'',
 "e":    ``move-end-of-line'',
+"j":    ``next-line'',
+"k":    ``previous-line'',
 "v":    ``scroll-up-command'',
 "V":    ``scroll-down-command'',
-"l":    ``recenter-top-bottom''
+"l":    ``recenter-top-bottom'',
+"<":    ``beginning-of-buffer'',
+">":    ``end-of-buffer''
 
 The body can be accessed via ``emacspeak-muggles-navigate/body''.
 @end format
