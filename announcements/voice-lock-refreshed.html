@@ -3,23 +3,30 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>Emacspeak: An Overview Of Voice-Lock Over The Years</title>
-<!-- 2015-08-18 Tue 15:26 -->
+<!-- 2015-08-21 Fri 10:18 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title>Emacspeak: An Overview Of Voice-Lock Over The Years</title>
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="T.V Raman" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
   .todo   { font-family: monospace; color: red; }
-  .done   { color: green; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
   .tag    { background-color: #eee; font-family: monospace;
             padding: 2px; font-size: 80%; font-weight: normal; }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
-  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
   .underline { text-decoration: underline; }
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
@@ -58,15 +65,14 @@
   caption.t-above { caption-side: top; }
   caption.t-bottom { caption-side: bottom; }
   td, th { vertical-align:top;  }
-  th.right  { text-align: center;  }
-  th.left   { text-align: center;   }
-  th.center { text-align: center; }
-  td.right  { text-align: right;  }
-  td.left   { text-align: left;   }
-  td.center { text-align: center; }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
   dt { font-weight: bold; }
-  .footpara:nth-child(2) { display: inline; }
-  .footpara { display: block; }
+  .footpara { display: inline; }
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
@@ -138,8 +144,8 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">Emacspeak: An Overview Of Voice-Lock Over The Years</h1>
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> Executive Summary</h2>
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1"><span class="section-number-2">1</span> Executive Summary</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Audio formatted output is provided via <code>voice-lock</code> in Emacspeak.
@@ -151,8 +157,8 @@ with the same functionality.
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 1994: Original Implementation</h2>
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2"><span class="section-number-2">2</span> 1994: Original Implementation</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Font-lock was a new feature in Emacs 19 &#x2014; it was introduced right
@@ -175,8 +181,8 @@ express all <code>voice-lock</code> features via the ACSS abstraction.
 </div>
 </div>
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> 2002 Overhaul</h2>
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3"><span class="section-number-2">3</span> 2002 Overhaul</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 With feature <code>font-lock</code> now mature, Emacs itself converged on a
@@ -195,29 +201,25 @@ personalities:
 
 <ul class="org-ul">
 <li>Cumulative where  property <code>personality</code> was either appended or
-prepended to the list of personalities  at any given position.
-</li>
+prepended to the list of personalities  at any given position.</li>
 <li>Simple: where the new personality directly replaced any previously
-applied <code>personality</code> property.
-</li>
-<li>None: Where faces were not mapped to personalities.
-</li>
+applied <code>personality</code> property.</li>
+<li>None: Where faces were not mapped to personalities.</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> 2015 Overhaul</h2>
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4"><span class="section-number-2">4</span> 2015 Overhaul</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 And now, in 2015, the code in module <code>dtk-speak.el</code> that implements
 audio-formatting has been overhauled to directly map faces to
-personalities.   This implementation can be enabled by setting the
-option  <code>emacspeak-personality-voiceify-faces</code> provided in module
-<code>emacspeak-personality.el</code> to <span class="underline">none</span>.
-This means that the new implementation can co-exist (at least for a
-while) with the earlier advice-based implementation from module
-<code>emacspeak-personality.el</code>. 
+personalities.  This implementation can be enabled by setting the
+option <code>emacspeak-personality-voiceify-faces</code> provided in module
+<code>emacspeak-personality.el</code> to <span class="underline">All</span>.  This means that the new
+implementation can co-exist (at least for a while) with the earlier
+advice-based implementation from module <code>emacspeak-personality.el</code>.
 </p>
 
 <p>
@@ -227,8 +229,8 @@ default &#x2014; by changing the default value of
 </p>
 </div>
 </div>
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> Summary</h2>
+<div id="outline-container-orgheadline5" class="outline-2">
+<h2 id="orgheadline5"><span class="section-number-2">5</span> Summary</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 From an end-user's perspective, nothing has changed in 21 years. From
@@ -248,7 +250,7 @@ face-&gt;personality mapping (if defined) is used as the aural style.
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-08-18 Tue&gt;</span></span></p>
 <p class="author">Author: T.V Raman</p>
-<p class="date">Created: 2015-08-18 Tue 15:26</p>
+<p class="date">Created: 2015-08-21 Fri 10:18</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

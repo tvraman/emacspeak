@@ -1,5 +1,3 @@
-
-
 * Executive Summary
 
 Audio formatted output is provided via =voice-lock= in Emacspeak.
@@ -48,12 +46,11 @@ personalities:
 
 And now, in 2015, the code in module =dtk-speak.el= that implements
 audio-formatting has been overhauled to directly map faces to
-personalities.   This implementation can be enabled by setting the
-option  =emacspeak-personality-voiceify-faces= provided in module
-=emacspeak-personality.el= to _none_.
-This means that the new implementation can co-exist (at least for a
-while) with the earlier advice-based implementation from module
-=emacspeak-personality.el=. 
+personalities.  This implementation can be enabled by setting the
+option =emacspeak-personality-voiceify-faces= provided in module
+=emacspeak-personality.el= to _All_.  This means that the new
+implementation can co-exist (at least for a while) with the earlier
+advice-based implementation from module =emacspeak-personality.el=.
 
 once deemed to be stable, the new implementation will become the
 default --- by changing the default value of
@@ -80,6 +77,22 @@ face->personality mapping (if defined) is used as the aural style.
 #+TITLE:  Emacspeak: An Overview Of Voice-Lock Over The Years
 #+DATE: <2015-08-18 Tue>
 #+AUTHOR: T.V Raman
+#+OPTIONS: html-link-use-abs-url:nil html-postamble:auto
+#+OPTIONS: html-preamble:t html-scripts:t html-style:t
+#+OPTIONS: html5-fancy:nil tex:t
+#+HTML_DOCTYPE: xhtml-strict
+#+HTML_CONTAINER: div
+#+DESCRIPTION:
+#+KEYWORDS:
+#+HTML_LINK_HOME:
+#+HTML_LINK_UP:
+#+HTML_MATHJAX:
+#+HTML_HEAD:
+#+HTML_HEAD_EXTRA:
+#+SUBTITLE:
+#+INFOJS_OPT:
+#+CREATOR: <a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.0.50.1 (<a href="http://orgmode.org">Org</a> mode 8.3.1)
+#+LATEX_HEADER:
 #+EMAIL: raman@google.com
 #+LANGUAGE: en
 #+SELECT_TAGS: export
