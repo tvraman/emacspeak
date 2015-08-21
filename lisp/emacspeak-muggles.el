@@ -404,7 +404,8 @@ _d_: subtree
 ;;}}}
 ;;{{{ Navigate:
 
-;;; Taken from Hydra wiki:
+;;; Inspired by  Hydra wiki:
+;;; But bound to s-n --- instead of C-n
 
 (global-set-key
  (kbd "s-n")
@@ -425,10 +426,14 @@ _d_: subtree
    ("b" backward-char)
    ("a" beginning-of-line)
    ("e" move-end-of-line)
+   ("j" next-line)
+   ("k" previous-line)
    ("v" scroll-up-command)
    ;; Converting M-v to V here by analogy.
    ("V" scroll-down-command)
-   ("l" recenter-top-bottom)))
+   ("l" recenter-top-bottom)
+   ("<" beginning-of-buffer)
+   (">" end-of-buffer)))
 
 ;;}}}
 (provide 'emacspeak-muggles)
