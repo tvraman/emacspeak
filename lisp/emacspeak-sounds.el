@@ -286,18 +286,24 @@ Do not set this by hand;
 
 (defcustom emacspeak-play-args "-q"
   "Set this to nil if using paplay from pulseaudio."
-  :type 'string
+  :type '(choice (string :tag "Arguments" "-q")
+		 (const :tag "None" nil))
   :group 'emacspeak-sounds)
 
 (defun emacspeak-play-auditory-icon (sound-name)
   "Produce auditory icon SOUND-NAME."
   (declare (special emacspeak-play-program emacspeak-play-args))
   (let ((process-connection-type nil))
-    (start-process
-     emacspeak-play-program nil emacspeak-play-program
-     emacspeak-play-args
-     (emacspeak-get-sound-filename sound-name)
-     "&")))
+    (if emacspeak-play-args
+        (start-process
+         emacspeak-play-program nil emacspeak-play-program
+         emacspeak-play-args
+         (emacspeak-get-sound-filename sound-name)
+         "&")
+      (start-process
+       emacspeak-play-program nil emacspeak-play-program
+       (emacspeak-get-sound-filename sound-name)
+       "&"))))
 
 ;;;###autoload
 (defcustom emacspeak-soxplay-command 
