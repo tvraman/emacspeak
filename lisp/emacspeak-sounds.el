@@ -172,7 +172,7 @@ If we add new icons we should declare them here. ")
 
 ;;;###autoload
 (defcustom emacspeak-sounds-default-theme
-  (expand-file-name "default-8k/"
+  (expand-file-name "3d"
                     emacspeak-sounds-directory)
   "Default theme for auditory icons. "
   :type '(directory :tag "Sound Theme Directory")
