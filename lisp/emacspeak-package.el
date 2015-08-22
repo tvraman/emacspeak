@@ -125,6 +125,12 @@
 ;;}}}
 ;;{{{ Managing packages:
 
+(defadvice package-menu-describe-package (after emacspeak pre act comp)
+  "Speak displayed description."
+  (when  (ems-interactive-p )
+    (emacspeak-auditory-icon 'help)
+    (emacspeak-speak-help )))
+
 (defadvice package-menu-execute(around emacspeak pre act comp)
   "Silence messages while installing packages. "
   (ems-with-messages-silenced ad-do-it))
