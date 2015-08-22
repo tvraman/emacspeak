@@ -156,7 +156,7 @@ ${ECI}/Makefile
 
 NEWS = etc/NEWS*  etc/COPYRIGHT \
 etc/remote.txt etc/applications.html   etc/tips.html
-SOUNDS=sounds/default-8k sounds/emacspeak.mp3 \
+SOUNDS=sounds/default-8k sounds/default-stereo sounds/emacspeak.mp3 \
 sounds/cartoon-22k-mono sounds/chimes-stereo  sounds/3d
 
 TCL_PROGRAMS = servers/.servers \
