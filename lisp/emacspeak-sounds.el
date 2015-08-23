@@ -151,13 +151,14 @@ If we add new icons we should declare them here. ")
 
 (defvar emacspeak-default-sound
   (expand-file-name
-   "default-8k/button.au"
+   "classic/button.au"
    emacspeak-sounds-directory)
   "Default sound to play if requested icon not found.")
 
 (defvar emacspeak-sounds-themes-table
   (make-hash-table)
   "Maps valid sound themes to the file name extension used by that theme.")
+
 ;;;###autoload
 (defun emacspeak-sounds-define-theme (theme-name file-ext)
   "Define a sounds theme for auditory icons. "
@@ -177,6 +178,7 @@ If we add new icons we should declare them here. ")
   "Default theme for auditory icons. "
   :type '(directory :tag "Sound Theme Directory")
   :group 'emacspeak-sounds)
+
 ;;;###autoload
 (defcustom emacspeak-play-program
   (cond
@@ -220,6 +222,7 @@ Do not set this by hand;
   "Predicate to test if theme is available."
   (file-exists-p
    (expand-file-name theme emacspeak-sounds-directory)))
+
 ;;;###autoload
 (defun emacspeak-sounds-select-theme  (theme)
   "Select theme for auditory icons."
