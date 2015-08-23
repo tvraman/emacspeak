@@ -95,60 +95,6 @@ use `emacspeak-toggle-auditory-icons' bound to
 ;;}}}
 ;;{{{  Setup sound themes
 
-(defvar emacspeak-sounds-icon-list
-  '(
-    alarm
-    alert-user
-    ask-question
-    ask-short-question
-    button
-    center
-    close-object
-    delete-object
-    deselect-object
-    ellipses
-    fill-object
-    full
-    help
-    item
-    large-movement
-    left
-    mark-object
-    modified-object
-    n-answer
-    new-mail
-    news
-    no-answer
-    off
-    on
-    open-object
-    paragraph
-    progress
-    quit
-    right
-    save-object
-    scroll
-    search-hit
-    search-miss
-    section
-    select-object
-    shutdown
-    task-done
-    unmodified-object
-    warn-user
-    window-resize
-    y-answer
-    yank-object
-    yes-answer
-    )
-  "List of valid auditory icon names.
-If we add new icons we should declare them here. ")
-
-(defsubst emacspeak-sounds-icon-list ()
-  "Return the  list of auditory icons that are currently defined."
-  (declare (special emacspeak-sounds-icon-list))
-  emacspeak-sounds-icon-list)
-
 (defvar emacspeak-default-sound
   (expand-file-name
    "classic/button.au"
@@ -403,19 +349,6 @@ emacspeak-queue-auditory-icon when using software TTS."
   (declare (special emacspeak-auditory-icon-function))
   (setq emacspeak-auditory-icon-function player))  (when (ems-interactive-p )
                                                      (emacspeak-auditory-icon 'select-object))
-
-;;}}}
-;;{{{ Show all icons
-
-(defun emacspeak-play-all-icons ()
-  "Plays all defined icons and speaks their names."
-  (interactive)
-  (mapcar
-   #'(lambda (f)
-       (emacspeak-auditory-icon f)
-       (dtk-speak (format "%s" f))
-       (sleep-for 2))
-   (emacspeak-sounds-icon-list)))
 
 ;;}}}
 ;;{{{ reset local player
