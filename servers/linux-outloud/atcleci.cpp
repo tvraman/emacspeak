@@ -606,7 +606,7 @@ set tts(last_index) $x}");
 //>
 //<playTTS
 
-int playTTS(int count) {
+size_t playTTS(size_t count) {
   pcm_write(waveBuffer, count);
   return eciDataProcessed;
 }
