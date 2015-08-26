@@ -58,8 +58,8 @@
 (defsubst emacspeak-ses-current-cell-symbol ()
   "Return symbol for current cell."
   (or 
-  (get-text-property (point) 'cursor-intangible)
-  (get-text-property (point) 'intangible)))
+   (get-text-property (point) 'cursor-intangible)
+   (get-text-property (point) 'intangible)))
 
 (defsubst emacspeak-ses-current-cell-value ()
   "Return current cell value."
@@ -86,10 +86,10 @@
     (read-minibuffer "Cell: ")))
   (cond
    (cell-name
-  (dtk-speak
-   (format "%s: %s"
-           cell-name
-           (emacspeak-ses-get-cell-value-by-name cell-name))))
+    (dtk-speak
+     (format "%s: %s"
+             cell-name
+             (emacspeak-ses-get-cell-value-by-name cell-name))))
    (t (message "No cell here"))))
 
 (defun emacspeak-ses-summarize-current-cell (&rest ignore)
@@ -138,7 +138,7 @@
 (defun emacspeak-ses-setup ()
   "Setup SES for use with emacspeak."
   (declare (special ses-mode-map))
-)
+  )
 
 (defadvice ses-forward-or-insert (after emacspeak pre act comp)
   "Provide auditory feedback."

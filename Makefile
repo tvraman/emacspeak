@@ -156,8 +156,8 @@ ${ECI}/Makefile
 
 NEWS = etc/NEWS*  etc/COPYRIGHT \
 etc/remote.txt etc/applications.html   etc/tips.html
-SOUNDS=sounds/default-8k sounds/emacspeak.mp3 \
-sounds/cartoon-22k-mono sounds/chimes-stereo  sounds/3d
+SOUNDS=sounds/classic sounds/emacspeak.mp3 \
+sounds/chimes  sounds/3d
 
 TCL_PROGRAMS = servers/.servers \
 servers/dtk-exp  servers/ssh-dtk-exp\

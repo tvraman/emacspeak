@@ -134,7 +134,7 @@
       (when (memq 'read tags) (emacspeak-auditory-icon 'modified-object))
       (when (memq 'seen  tags) (emacspeak-auditory-icon 'mark-object))
       (emacspeak-auditory-icon 'item)
-    (elfeed-tag e 'seen))))
+      (elfeed-tag e 'seen))))
 
 ;;}}}
 ;;{{{ Define additional interactive commands:
@@ -162,7 +162,6 @@
             (emacspeak-we-xslt-filter emacspeak-we-recent-xpath-filter link 'speak))
      (t (message "No link under point.")))))
 
-
 (defun emacspeak-elfeed-w3-filter-entry-at-point ()
   "Display current article after filtering using W3.
 Work-around for async fetch bug in EWW."
@@ -185,7 +184,6 @@ Work-around for async fetch bug in EWW."
      (entry (elfeed-untag  entry 'unread)
             (eww link))
      (t (message "No link under point.")))))
-
 
 (defun emacspeak-elfeed-w3-entry-at-point ()
   "Display current article in W3."

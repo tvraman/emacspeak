@@ -58,21 +58,21 @@
 
 (voice-setup-add-map
  '(
- (package-help-section-name-face voice-lighten)
- (package-name-face voice-bolden)
- (package-description-face voice-monotone)
- (package-status-built-in-face voice-monotone-medium)
- (package-status-external-face voice-animate)
- (package-status-available-face voice-annotate)
- (package-status-new-face voice-brighten)
- (package-status-held-face voice-monotone)
- (package-status-disabled-face voice-smoothen)
- (package-status-installed-face voice-lighten-extra)
- (package-status-dependency-face voice-monotone-medium)
- (package-status-unsigned-face voice-animate-extra)
- (package-status-incompat-face voice-animate-extra)
- (package-status-avail-obso-face voice-monotone)
-))
+   (package-help-section-name-face voice-lighten)
+   (package-name-face voice-bolden)
+   (package-description-face voice-monotone)
+   (package-status-built-in-face voice-monotone-medium)
+   (package-status-external-face voice-animate)
+   (package-status-available-face voice-annotate)
+   (package-status-new-face voice-brighten)
+   (package-status-held-face voice-monotone)
+   (package-status-disabled-face voice-smoothen)
+   (package-status-installed-face voice-lighten-extra)
+   (package-status-dependency-face voice-monotone-medium)
+   (package-status-unsigned-face voice-animate-extra)
+   (package-status-incompat-face voice-animate-extra)
+   (package-status-avail-obso-face voice-monotone)
+   ))
 ;;}}}
 ;;{{{ Additional Commands
 
@@ -125,6 +125,12 @@
 ;;}}}
 ;;{{{ Managing packages:
 
+(defadvice package-menu-describe-package (after emacspeak pre act comp)
+  "Speak displayed description."
+  (when  (ems-interactive-p )
+    (emacspeak-auditory-icon 'help)
+    (emacspeak-speak-help )))
+
 (defadvice package-menu-execute(around emacspeak pre act comp)
   "Silence messages while installing packages. "
   (ems-with-messages-silenced ad-do-it))
@@ -133,7 +139,7 @@
  for f in
  '(
    package-menu-mark-delete package-menu-mark-install package-show-package-list
-   package-menu-mark-unmark package-menu-backup-unmark)
+                            package-menu-mark-unmark package-menu-backup-unmark)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act com)

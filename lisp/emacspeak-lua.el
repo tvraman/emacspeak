@@ -57,8 +57,8 @@
  for f in
  '(
    lua-backwards-to-block-begin-or-end lua-beginning-of-proc
-   lua-end-of-proc
-   lua-forward-sexp lua-goto-matching-block)
+                                       lua-end-of-proc
+                                       lua-forward-sexp lua-goto-matching-block)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -85,19 +85,17 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
-
 (loop
  for f in
  '(
    lua-send-buffer lua-send-current-line
- lua-send-lua-region lua-send-proc lua-send-region)
+                   lua-send-lua-region lua-send-proc lua-send-region)
  do
  (eval
   `(defadvice,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)))))
- 
 
 (defadvice lua-show-process-buffer(after emacspeak pre act comp)
   "Provide auditory feedback."

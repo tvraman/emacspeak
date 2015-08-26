@@ -371,8 +371,8 @@ Interactive prefix arg filters search by category."
    (t                                   ; filter using category:
     (let* ((completion-ignore-case  t)
            (filter
-           (completing-read "Category: "
-                            (emacspeak-bookshare-categories))))
+            (completing-read "Category: "
+                             (emacspeak-bookshare-categories))))
       (emacspeak-bookshare-api-call
        "book/searchFTS/author"
        (format "%s/category/%s"
@@ -392,8 +392,8 @@ Interactive prefix arg filters search by category."
    (t                                   ; filter using category:
     (let* ((completion-ignore-case t)
            (filter
-           (completing-read "Category: "
-                            (emacspeak-bookshare-categories))))
+            (completing-read "Category: "
+                             (emacspeak-bookshare-categories))))
       (emacspeak-bookshare-api-call
        "book/searchFTS/title"
        (format "%s/category/%s"
@@ -422,8 +422,8 @@ Optional interactive prefix arg filters by category."
    (t                                   ; filter using category:
     (let* ((completion-ignore-case t)
            (filter
-           (completing-read "Category: "
-                            (emacspeak-bookshare-categories))))
+            (completing-read "Category: "
+                             (emacspeak-bookshare-categories))))
       (emacspeak-bookshare-api-call
        "book/search/since"
        (format "%s/category/%s"
@@ -444,8 +444,8 @@ Optional interactive prefix arg prompts for a category to use as a filter."
    (t                                   ; filter using category:
     (let* ((completion-ignore-case t)
            (filter
-           (completing-read "Category: "
-                            (emacspeak-bookshare-categories))))
+            (completing-read "Category: "
+                             (emacspeak-bookshare-categories))))
       (emacspeak-bookshare-api-call
        "book/browse/popular"
        (format "category/%s" filter))))      ))

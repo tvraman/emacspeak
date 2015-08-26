@@ -5,6 +5,11 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 * Emacspeak 43 -- Emacspeak 43 User Visible Changes
 
+** Sound Themess:
+
+Reorganized sound themes. The original default-8k sounds have
+been converted to 44.1k stereo and renamed =classic=.
+Emacspeak now defaults to theme =3d= out of the bo.
 
 ** emacspeak-org.el:
 

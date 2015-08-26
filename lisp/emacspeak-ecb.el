@@ -124,10 +124,6 @@
   (setq tree-buffer-incr-searchpattern "")
   (dtk-speak "Cleared search pattern."))
 
-
-
-
-
 (defadvice tree-buffer-create (after emacspeak pre act comp)
   "Fixes up keybindings so incremental tree search is
 available."
@@ -182,7 +178,7 @@ available."
 (defsubst tree-node-is-expanded (node)
   "Check if node is expanded."
   (or (not (tree-node->expandable node))
-                                  (tree-node->expanded node)))
+      (tree-node->expanded node)))
 
 (defadvice tree-node-toggle-expanded (after emacspeak pre
                                             act comp)

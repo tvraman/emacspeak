@@ -67,26 +67,26 @@
 (loop
  for f in
  '(projectile-ag 
- projectile-cleanup-known-projects
- projectile-clear-known-projects
- projectile-compile-project
-projectile-regenerate-tags 
- 
- 
- 
- 
- 
- 
- 
- 
- projectile-run-async-shell-command-in-root
- projectile-run-command-in-root
- projectile-run-project
- projectile-run-shell-command-in-root
- projectile-test-project
- 
- 
- )
+   projectile-cleanup-known-projects
+   projectile-clear-known-projects
+   projectile-compile-project
+   projectile-regenerate-tags 
+   
+   
+   
+   
+   
+   
+   
+   
+   projectile-run-async-shell-command-in-root
+   projectile-run-command-in-root
+   projectile-run-project
+   projectile-run-shell-command-in-root
+   projectile-test-project
+   
+   
+   )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

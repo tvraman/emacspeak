@@ -61,7 +61,7 @@
     (goto-char (point-min))
     ))
 (defvar json-view-buffer-name "*JSON Viewer"
-"Name of buffer used to view JSON data.")
+  "Name of buffer used to view JSON data.")
 (defvar json-view--data nil
   "Buffer local handle to data being viewed.")
 
@@ -92,7 +92,7 @@
   (loop
    for row across array do
    (json-display row (1+ indent))))
-    
+
 ;;;###autoload
 (defun json-view (json)
   "Launch a viewer for data in json.
@@ -102,11 +102,11 @@
   (let ((buffer (get-buffer-create json-view-buffer-name))
         (inhibit-read-only  t))
     (with-current-buffer buffer
-    (kill-all-local-variables)
-    (erase-buffer)
-    (json-view-mode)
-    (setq json-view--data json)
-    (json-display json))
+      (kill-all-local-variables)
+      (erase-buffer)
+      (json-view-mode)
+      (setq json-view--data json)
+      (json-display json))
     (switch-to-buffer buffer)))
 
 ;;}}}

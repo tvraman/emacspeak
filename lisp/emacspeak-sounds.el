@@ -95,69 +95,16 @@ use `emacspeak-toggle-auditory-icons' bound to
 ;;}}}
 ;;{{{  Setup sound themes
 
-(defvar emacspeak-sounds-icon-list
-  '(
-    alarm
-    alert-user
-    ask-question
-    ask-short-question
-    button
-    center
-    close-object
-    delete-object
-    deselect-object
-    ellipses
-    fill-object
-    full
-    help
-    item
-    large-movement
-    left
-    mark-object
-    modified-object
-    n-answer
-    new-mail
-    news
-    no-answer
-    off
-    on
-    open-object
-    paragraph
-    progress
-    quit
-    right
-    save-object
-    scroll
-    search-hit
-    search-miss
-    section
-    select-object
-    shutdown
-    task-done
-    unmodified-object
-    warn-user
-    window-resize
-    y-answer
-    yank-object
-    yes-answer
-    )
-  "List of valid auditory icon names.
-If we add new icons we should declare them here. ")
-
-(defsubst emacspeak-sounds-icon-list ()
-  "Return the  list of auditory icons that are currently defined."
-  (declare (special emacspeak-sounds-icon-list))
-  emacspeak-sounds-icon-list)
-
 (defvar emacspeak-default-sound
   (expand-file-name
-   "default-8k/button.au"
+   "classic/button.au"
    emacspeak-sounds-directory)
   "Default sound to play if requested icon not found.")
 
 (defvar emacspeak-sounds-themes-table
   (make-hash-table)
   "Maps valid sound themes to the file name extension used by that theme.")
+
 ;;;###autoload
 (defun emacspeak-sounds-define-theme (theme-name file-ext)
   "Define a sounds theme for auditory icons. "
@@ -172,11 +119,12 @@ If we add new icons we should declare them here. ")
 
 ;;;###autoload
 (defcustom emacspeak-sounds-default-theme
-  (expand-file-name "default-8k/"
+  (expand-file-name "3d"
                     emacspeak-sounds-directory)
   "Default theme for auditory icons. "
   :type '(directory :tag "Sound Theme Directory")
   :group 'emacspeak-sounds)
+
 ;;;###autoload
 (defcustom emacspeak-play-program
   (cond
@@ -220,6 +168,7 @@ Do not set this by hand;
   "Predicate to test if theme is available."
   (file-exists-p
    (expand-file-name theme emacspeak-sounds-directory)))
+
 ;;;###autoload
 (defun emacspeak-sounds-select-theme  (theme)
   "Select theme for auditory icons."
@@ -287,7 +236,7 @@ Do not set this by hand;
 (defcustom emacspeak-play-args "-q"
   "Set this to nil if using paplay from pulseaudio."
   :type '(choice (string :tag "Arguments" "-q")
-		 (const :tag "No Arguments" nil))
+		 (const :tag "None" nil))
   :group 'emacspeak-sounds)
 
 (defun emacspeak-play-auditory-icon (sound-name)
@@ -295,20 +244,20 @@ Do not set this by hand;
   (declare (special emacspeak-play-program emacspeak-play-args))
   (let ((process-connection-type nil))
     (if emacspeak-play-args
-	(start-process
-	 emacspeak-play-program nil emacspeak-play-program
-	 emacspeak-play-args
-	 (emacspeak-get-sound-filename sound-name)
-	 "&")
+        (start-process
+         emacspeak-play-program nil emacspeak-play-program
+         emacspeak-play-args
+         (emacspeak-get-sound-filename sound-name)
+         "&")
       (start-process
        emacspeak-play-program nil emacspeak-play-program
        (emacspeak-get-sound-filename sound-name)
-       "&"))))     
+       "&"))))
 
 ;;;###autoload
 (defcustom emacspeak-soxplay-command 
   (when(executable-find "play")
-    (format "%s -v 2 %%s  earwax &" (executable-find "play")))
+    (format "%s -v 1.2 %%s  earwax &" (executable-find "play")))
   "Name of play executable from SoX"
   :group 'emacspeak-sounds
   :type 'string)
@@ -400,19 +349,6 @@ emacspeak-queue-auditory-icon when using software TTS."
   (declare (special emacspeak-auditory-icon-function))
   (setq emacspeak-auditory-icon-function player))  (when (ems-interactive-p )
                                                      (emacspeak-auditory-icon 'select-object))
-
-;;}}}
-;;{{{ Show all icons
-
-(defun emacspeak-play-all-icons ()
-  "Plays all defined icons and speaks their names."
-  (interactive)
-  (mapcar
-   #'(lambda (f)
-       (emacspeak-auditory-icon f)
-       (dtk-speak (format "%s" f))
-       (sleep-for 2))
-   (emacspeak-sounds-icon-list)))
 
 ;;}}}
 ;;{{{ reset local player

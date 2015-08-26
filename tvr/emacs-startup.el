@@ -154,7 +154,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 ;;; Web Browsers:
        "w3-prepare"
        "auctex-prepare" "nxml-prepare" "folding-prepare"
-"elfeed-prepare"
+       "elfeed-prepare"
        "calc-prepare"
        "hydra-prepare"
        "tcl-prepare"
@@ -165,6 +165,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "erc-prepare" "jabber-prepare" "twittering-prepare"
        "tramp-prepare" "fff-prepare" "fap-prepare"
        "emms-prepare"
+       "iplayer-prepare"
        "local"
        "emacspeak-dbus"))
 

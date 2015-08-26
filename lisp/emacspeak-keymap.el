@@ -106,7 +106,6 @@
 (defvar emacspeak-dtk-submap nil
   "Submap used for DTK commands. ")
 
-
 (defvar emacspeak-table-submap nil
   "Submap used for table  commands. ")
 
@@ -330,8 +329,6 @@
    )
  do
  (emacspeak-keymap-update emacspeak-table-submap binding))
-
-
 
 ;;; Put these in the global map:
 (global-set-key [(shift left)] 'previous-buffer)

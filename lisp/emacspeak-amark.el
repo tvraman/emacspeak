@@ -95,13 +95,13 @@ given name, it is updated with path and position."
   (let ((amark (emacspeak-amark-find name)))
     (when (and path (not (zerop (length path))))
       (cond
-     (amark                             ; exists, reposition
-      (setf (emacspeak-amark-path amark) path
-            (emacspeak-amark-position amark) position))
-     (t 
-      (push
-       (make-emacspeak-amark :path path :name name :position position )
-       emacspeak-amark-list))))))
+       (amark                             ; exists, reposition
+        (setf (emacspeak-amark-path amark) path
+              (emacspeak-amark-position amark) position))
+       (t 
+        (push
+         (make-emacspeak-amark :path path :name name :position position )
+         emacspeak-amark-list))))))
 
 (defvar emacspeak-amark-file ".amarks.el"
   "Name of file used to save AMarks.")

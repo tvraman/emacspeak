@@ -163,7 +163,7 @@
  for f in
  '(
    beginning-of-buffer end-of-buffer
-   beginning-of-defun end-of-defun)
+                       beginning-of-defun end-of-defun)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -236,8 +236,7 @@
        (emacspeak-auditory-icon 'large-movement)
        (let ((emacspeak-show-point t))
          (emacspeak-speak-line))))))
-     
-     
+
 (loop
  for f in
  '(forward-page backward-page)
@@ -826,19 +825,17 @@ Produce an auditory icon if possible."
  do
  (eval
   `(defadvice ,f  (around emacspeak pre act comp)
-  "Say what you completed."
-  (lexical-let ((emacspeak-speak-messages nil)
-                (emacspeak-last-message nil))
-    ad-do-it
-    (when (ems-interactive-p )
-      (dtk-speak
-       (format "%s %s"
-               (save-excursion (backward-char 1)
-                               (sexp-at-point ))
-               (or emacspeak-last-message "")))
-      ad-return-value)))))
-
-
+     "Say what you completed."
+     (lexical-let ((emacspeak-speak-messages nil)
+                   (emacspeak-last-message nil))
+       ad-do-it
+       (when (ems-interactive-p )
+         (dtk-speak
+          (format "%s %s"
+                  (save-excursion (backward-char 1)
+                                  (sexp-at-point ))
+                  (or emacspeak-last-message "")))
+         ad-return-value)))))
 
 (defadvice minibuffer-complete-shell-command (around emacspeak pre act comp)
   "Say what you completed."
@@ -919,7 +916,6 @@ Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-line)))
-
 
 (defadvice comint-magic-space (around emacspeak pre act comp)
   "Speak word or completion."
@@ -2145,11 +2141,11 @@ Produce an auditory icon if possible."
    (t
     (emacspeak-auditory-icon 'search-hit)
     (when (sit-for  0.2)
-    (save-excursion
-      (ems-set-personality-temporarily
-       (point) isearch-other-end voice-bolden
-       (dtk-speak
-        (buffer-substring (line-beginning-position) (line-end-position)))))))))
+      (save-excursion
+        (ems-set-personality-temporarily
+         (point) isearch-other-end voice-bolden
+         (dtk-speak
+          (buffer-substring (line-beginning-position) (line-end-position)))))))))
 
 (defadvice isearch-delete-char (after emacspeak pre act comp)
   "Speak the search hit.

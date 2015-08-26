@@ -57,6 +57,7 @@
 ;;;@itemize
 ;;; @item Brightness: <print> Control display brightness using xbacklight.
 ;;; @item View-Mode: <C-c v> Temporarily behave like view-mode.
+;;; @item Navigate: <s-n> Navigate with ease.
 ;;;@item  org-mode tables: <C-c t> Table UI for org-mode tables.
 ;;;@item m-player: <s-m> Emacspeak-M-Player Commands
 ;;; @item hideshow: C-c h Provide HideShow bindings.
@@ -69,7 +70,6 @@
 ;;; temporarily silence speaking of Hydra hints, Muggles can bind
 ;;; command @code{emacspeak-muggles-toggle-talkative}.  As an
 ;;; example, Muggle @samp{ViewMode} binds @code{s} to this command.
-
 
 ;;; Code:
 
@@ -138,15 +138,15 @@ Also turn on emacspeak-muggles-talkative-p if it was turned off."
   "provide spoken feedback if idle, and emacspeak-muggles-talkative-p is T."
   (when emacspeak-muggles-talkative-p
     (let ((buffer (get-buffer "*LV*"))
-        (dtk-stop-immediately  nil))
-    (when (and buffer  (buffer-live-p buffer))
-      (with-current-buffer buffer
-        (dtk-speak-list
-         (split-string
-          (propertize
-           (buffer-substring (point-min) (1- (point-max)))
-                     :personality 'voice-smoothen)
-          ",")))))))
+          (dtk-stop-immediately  nil))
+      (when (and buffer  (buffer-live-p buffer))
+        (with-current-buffer buffer
+          (dtk-speak-list
+           (split-string
+            (propertize
+             (buffer-substring (point-min) (1- (point-max)))
+             :personality 'voice-smoothen)
+            ",")))))))
 
 ;;}}}
 ;;{{{ Brightness:
@@ -173,9 +173,12 @@ Also turn on emacspeak-muggles-talkative-p if it was turned off."
 (global-set-key
  (kbd  "C-c v")
  (defhydra emacspeak-muggles-view
-   (:body-pre (emacspeak-muggles-body-pre "View")
-              :hint nil
-              :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
+   (:body-pre
+    (progn
+      (emacspeak-muggles-toggle-talkative)
+      (emacspeak-muggles-body-pre "View"))
+    :hint nil
+    :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
    "View Mode"
    ("$" set-selective-display)
    ("%"  View-goto-percent)
@@ -397,6 +400,40 @@ _d_: subtree
    ("f" outline-forward-same-level)        ; Forward - same level
    ("b" outline-backward-same-level)       ; Backward - same level
    ("z" nil "leave")))
+
+;;}}}
+;;{{{ Navigate:
+
+;;; Inspired by  Hydra wiki:
+;;; But bound to s-n --- instead of C-n
+
+(global-set-key
+ (kbd "s-n")
+ (defhydra emacspeak-muggles-navigate
+   (:body-pre
+    (progn
+      (emacspeak-muggles-body-pre "Move")
+      (emacspeak-muggles-toggle-talkative)
+      (condition-case nil (next-line) (error nil)))
+    :hint nil
+    :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
+   "move"
+   ("s" emacspeak-muggles-toggle-talkative)
+
+   ("n" next-line)
+   ("p" previous-line)
+   ("f" forward-char)
+   ("b" backward-char)
+   ("a" beginning-of-line)
+   ("e" move-end-of-line)
+   ("j" next-line)
+   ("k" previous-line)
+   ("v" scroll-up-command)
+   ;; Converting M-v to V here by analogy.
+   ("V" scroll-down-command)
+   ("l" recenter-top-bottom)
+   ("<" beginning-of-buffer)
+   (">" end-of-buffer)))
 
 ;;}}}
 (provide 'emacspeak-muggles)

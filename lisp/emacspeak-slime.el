@@ -85,16 +85,16 @@
  do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
-  "Say what you completed."
-  (let ((prior (point ))
-        (emacspeak-speak-messages nil))
-    ad-do-it
-    (if (> (point) prior)
-        (tts-with-punctuations
-         'all
-         (dtk-speak (buffer-substring prior (point))))
-      (emacspeak-speak-completions-if-available))
-    ad-return-value))))
+     "Say what you completed."
+     (let ((prior (point ))
+           (emacspeak-speak-messages nil))
+       ad-do-it
+       (if (> (point) prior)
+           (tts-with-punctuations
+            'all
+            (dtk-speak (buffer-substring prior (point))))
+         (emacspeak-speak-completions-if-available))
+       ad-return-value))))
 
 ;;}}}
 ;;{{{ Writing Code:
@@ -108,8 +108,8 @@
  for f in
  '(
    slime-describe-function  slime-describe-symbol slime-describe-presentation
-   slime-apropos slime-apropos-package slime-apropos-summary
-   )
+                            slime-apropos slime-apropos-package slime-apropos-summary
+                            )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
