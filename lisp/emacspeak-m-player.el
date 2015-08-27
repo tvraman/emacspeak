@@ -311,14 +311,11 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
 (make-variable-buffer-local 'emacspeak-m-player-stream-metadata)
 (defun emacspeak-m-player-process-filter (process output)
   "Filter function that captures metadata."
-  (let ((buffer (process-buffer process)))
-    (when 
-        (string-match "ICY Info:" output)
-      (setq emacspeak-m-player-stream-metadata
-            (second (split-string output "="))))
-    (with-current-buffer buffer 
-      (goto-char (process-mark process) )
-      (insert output))))
+  (with-current-buffer (process-buffer emacspeak-m-player-process) 
+    (when (string-match "ICY Info:" output)
+      (setq emacspeak-m-player-stream-metadata output))
+      (goto-char (process-mark process))
+      (insert output)))
 
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
@@ -687,11 +684,12 @@ necessary."
   "Speak and display metadata if available."
   (interactive)
   (declare (special emacspeak-m-player-stream-metadata))
-  (with-buffer (process-buffer emacspeak-m-player-process)
-    (dtk-speak-and-echo
-     (format "%s"
-     (or emacspeak-m-player-stream-metadata
-         "No stream metadata.")))))
+  (let ((title (and emacspeak-m-player-stream-metadata
+                    (second (split-string emacspeak-m-player-stream-metadata "=")))))
+    (with-current-buffer (process-buffer emacspeak-m-player-process)
+      (dtk-speak-and-echo
+       (format "%s"
+               (or title emacspeak-m-player-stream-metadata "No metadata"))))))
    
 ;;;###autoload
 (defun emacspeak-m-player-get-length ()
