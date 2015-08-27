@@ -687,11 +687,11 @@ necessary."
   "Speak and display metadata if available."
   (interactive)
   (declare (special emacspeak-m-player-stream-metadata))
-  
+  (with-buffer (process-buffer emacspeak-m-player-process)
     (dtk-speak-and-echo
      (format "%s"
      (or emacspeak-m-player-stream-metadata
-         "No stream metadata."))))
+         "No stream metadata.")))))
    
 ;;;###autoload
 (defun emacspeak-m-player-get-length ()
