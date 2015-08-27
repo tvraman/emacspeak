@@ -895,6 +895,8 @@ arg `reset' starts with all filters set to 0."
  for k in
  '(
    ("%" emacspeak-m-player-display-percent)
+   ("(" emacspeak-m-player-left-channel)
+   (")" emacspeak-m-player-right-channel)
    ("+" emacspeak-m-player-volume-up)
    ("," emacspeak-m-player-backward-10s)
    ("-" emacspeak-m-player-volume-down)
@@ -944,8 +946,6 @@ arg `reset' starts with all filters set to 0."
    ("t" emacspeak-m-player-play-tracks-jump)
    ("u" emacspeak-m-player-url)
    ("v" emacspeak-m-player-volume-change)
-   ("(" emacspeak-m-player-left-channel)
-   (")" emacspeak-m-player-right-channel)
    ("{" emacspeak-m-player-half-speed)
    ("}" emacspeak-m-player-double-speed)
    )
