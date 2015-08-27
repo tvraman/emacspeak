@@ -306,6 +306,20 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
      (emacspeak-m-player-guess-directory)
      (when (eq major-mode 'dired-mode) (dired-get-filename nil 'no-error))
      'must-match)))
+(defvar emacspeak-m-player-stream-metadata nil
+  "Stream metadata.")
+(make-variable-buffer-local 'emacspeak-m-player-stream-metadata)
+(defun emacspeak-m-player-process-filter (process output)
+  "Filter function that captures metadata."
+  (let ((buffer (process-buffer process)))
+    (when 
+        (string-match "ICY Info:" output)
+      (setq emacspeak-m-player-stream-metadata
+            (second (split-string output "="))))
+    (with-current-buffer buffer 
+      (goto-char (process-mark process) )
+      (insert output))))
+
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
   "Play specified resource using m-player.  Optional prefix argument
@@ -358,9 +372,11 @@ The player is placed in a buffer in emacspeak-m-player-mode."
            (t
             (nconc options (list resource)))))
     (with-current-buffer buffer
+      (setq emacspeak-m-player-stream-metadata nil)
       (setq emacspeak-m-player-process
             (apply 'start-process "MPLayer" buffer
                    emacspeak-m-player-program options))
+      (set-process-filter  emacspeak-m-player-process  #'emacspeak-m-player-process-filter)
       (when emacspeak-m-player-current-directory
         (cd emacspeak-m-player-current-directory))
       (emacspeak-m-player-mode)
@@ -665,6 +681,18 @@ necessary."
   "Display current percentage."
   (interactive)
   (dtk-speak (emacspeak-m-player-slave-command "get_percent_pos")))
+
+;;;###autoload
+(defun emacspeak-m-player-info-metadata ()
+  "Speak and display metadata if available."
+  (interactive)
+  (declare (special emacspeak-m-player-stream-metadata))
+  
+    (dtk-speak-and-echo
+     (format "%s"
+     (or emacspeak-m-player-stream-metadata
+         "No stream metadata."))))
+   
 ;;;###autoload
 (defun emacspeak-m-player-get-length ()
   "Display length of track in seconds."
@@ -905,6 +933,7 @@ arg `reset' starts with all filters set to 0."
    ("e" emacspeak-m-player-add-equalizer)
    ("f" emacspeak-m-player-add-filter)
    ("g" emacspeak-m-player-seek-absolute)
+   ("i" emacspeak-m-player-info-metadata)
    ("j" emacspeak-m-player-amark-jump)
    ("l" emacspeak-m-player-get-length)
    ("m" emacspeak-m-player-speak-mode-line)
