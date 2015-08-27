@@ -135,7 +135,7 @@ This is set to nil when playing Internet  streams.")
 (defvar emacspeak-m-player-default-options
   (list
    "-msglevel" "all=4"
-   "-slave"  "-nortc""-softvol" "-softvol-max" "200" "-quiet")
+   "-slave"  "-softvol" "-softvol-max" "200" "-quiet")
   "Default options for MPlayer.")
 (defcustom emacspeak-m-player-options
   (copy-sequence emacspeak-m-player-default-options)
