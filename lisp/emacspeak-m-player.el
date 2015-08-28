@@ -115,6 +115,19 @@ This is set to nil when playing Internet  streams.")
     (setq emacspeak-m-player-process (get-buffer-process (current-buffer)))))
 
 ;;}}}
+;;{{{ Stream Metadata:
+
+(defstruct emacspeak-m-player-metadata
+  title artist album info 
+ year comment track genre)
+
+(defvar emacspeak-m-player-stream-metadata nil
+  "Instance of stream metadata for this buffer.")
+
+(make-variable-buffer-local 'emacspeak-m-player-stream-metadata)
+
+;;}}}
+
 ;;{{{ emacspeak-m-player
 
 ;;;###autoload
@@ -314,7 +327,7 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
   (with-current-buffer (process-buffer emacspeak-m-player-process) 
     (when (string-match "ICY Info:" output)
       (setq emacspeak-m-player-stream-info output)
-      (emacspeak-m-player-info-metadata))
+      (emacspeak-m-player-stream-info))
       (goto-char (process-mark process))
       (insert output)))
 
