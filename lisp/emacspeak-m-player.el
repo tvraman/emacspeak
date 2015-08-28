@@ -307,7 +307,7 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
      (when (eq major-mode 'dired-mode) (dired-get-filename nil 'no-error))
      'must-match)))
 (defvar emacspeak-m-player-stream-info nil
-  "Stream metadata.")
+  "Stream ICY info.")
 (make-variable-buffer-local 'emacspeak-m-player-stream-info)
 (defun emacspeak-m-player-process-filter (process output)
   "Filter function that captures metadata."
@@ -681,7 +681,7 @@ necessary."
   (dtk-speak (emacspeak-m-player-slave-command "get_percent_pos")))
 
 ;;;###autoload
-(defun emacspeak-m-player-info-metadata ()
+(defun emacspeak-m-player-stream-info ()
   "Speak and display metadata if available."
   (interactive)
   (declare (special emacspeak-m-player-stream-info))
@@ -934,7 +934,7 @@ arg `reset' starts with all filters set to 0."
    ("e" emacspeak-m-player-add-equalizer)
    ("f" emacspeak-m-player-add-filter)
    ("g" emacspeak-m-player-seek-absolute)
-   ("i" emacspeak-m-player-info-metadata)
+   ("i" emacspeak-m-player-stream-info)
    ("j" emacspeak-m-player-amark-jump)
    ("l" emacspeak-m-player-get-length)
    ("m" emacspeak-m-player-speak-mode-line)
