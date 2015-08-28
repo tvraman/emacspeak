@@ -817,16 +817,16 @@ necessary."
       (emacspeak-m-player-dispatch (format "af_add %s" filter-name)))))
 
 (defun emacspeak-m-player-left-channel ()
-  "Play on left channel."
+  "Play both channels on left channel."
   (interactive)
-  (let ((filter-name "channels=2:2:0:0:1:0"))
+  (let ((filter-name "channels=2:1:0:0:1:0"))
     (when (process-live-p  emacspeak-m-player-process)
       (emacspeak-m-player-dispatch (format "af_add %s" filter-name)))))
 
 (defun emacspeak-m-player-right-channel ()
   "Play on right channel."
   (interactive)
-  (let ((filter-name "channels=2:2:0:1:1:1"))
+  (let ((filter-name "channels=2:1:0:1:1:1"))
     (when (process-live-p  emacspeak-m-player-process)
       (emacspeak-m-player-dispatch (format "af_add %s" filter-name)))))
 
