@@ -138,10 +138,11 @@ This is set to nil when playing Internet  streams.")
        for f in
        (rest (mapcar #'car (cl-struct-slot-info 'emacspeak-m-player-metadata)))
        do
-       (princ
+       (when (cl-struct-slot-value 'emacspeak-m-player-metadata f data)
+         (princ
         (format "%s:\t%s\n"
                 f
-                (cl-struct-slot-value 'emacspeak-m-player-metadata f data)))))
+                (cl-struct-slot-value 'emacspeak-m-player-metadata f data))))))
     (message "Displayed metadata in other window.")
     (emacspeak-auditory-icon 'task-done)))
 
