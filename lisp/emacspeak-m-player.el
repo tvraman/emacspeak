@@ -313,7 +313,8 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
   "Filter function that captures metadata."
   (with-current-buffer (process-buffer emacspeak-m-player-process) 
     (when (string-match "ICY Info:" output)
-      (setq emacspeak-m-player-stream-metadata output))
+      (setq emacspeak-m-player-stream-metadata output)
+      (emacspeak-m-player-info-metadata))
       (goto-char (process-mark process))
       (insert output)))
 
