@@ -742,9 +742,10 @@ necessary."
          (and emacspeak-m-player-stream-metadata
               (emacspeak-m-player-metadata-info  emacspeak-m-player-stream-metadata)
               (second (split-string (emacspeak-m-player-metadata-info  emacspeak-m-player-stream-metadata) "=")))))
-    (dtk-speak-and-echo
+    (message
      (format "%s"
              (or info  "No Stream Info"))))))   
+
 ;;;###autoload
 (defun emacspeak-m-player-get-length ()
   "Display length of track in seconds."
