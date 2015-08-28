@@ -306,14 +306,14 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
      (emacspeak-m-player-guess-directory)
      (when (eq major-mode 'dired-mode) (dired-get-filename nil 'no-error))
      'must-match)))
-(defvar emacspeak-m-player-stream-metadata nil
+(defvar emacspeak-m-player-stream-info nil
   "Stream metadata.")
-(make-variable-buffer-local 'emacspeak-m-player-stream-metadata)
+(make-variable-buffer-local 'emacspeak-m-player-stream-info)
 (defun emacspeak-m-player-process-filter (process output)
   "Filter function that captures metadata."
   (with-current-buffer (process-buffer emacspeak-m-player-process) 
     (when (string-match "ICY Info:" output)
-      (setq emacspeak-m-player-stream-metadata output)
+      (setq emacspeak-m-player-stream-info output)
       (emacspeak-m-player-info-metadata))
       (goto-char (process-mark process))
       (insert output)))
@@ -370,7 +370,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
            (t
             (nconc options (list resource)))))
     (with-current-buffer buffer
-      (setq emacspeak-m-player-stream-metadata nil)
+      (setq emacspeak-m-player-stream-info nil)
       (setq emacspeak-m-player-process
             (apply 'start-process "MPLayer" buffer
                    emacspeak-m-player-program options))
@@ -684,13 +684,13 @@ necessary."
 (defun emacspeak-m-player-info-metadata ()
   "Speak and display metadata if available."
   (interactive)
-  (declare (special emacspeak-m-player-stream-metadata))
-  (let ((title (and emacspeak-m-player-stream-metadata
-                    (second (split-string emacspeak-m-player-stream-metadata "=")))))
+  (declare (special emacspeak-m-player-stream-info))
+  (let ((title (and emacspeak-m-player-stream-info
+                    (second (split-string emacspeak-m-player-stream-info "=")))))
     (with-current-buffer (process-buffer emacspeak-m-player-process)
       (dtk-speak-and-echo
        (format "%s"
-               (or title emacspeak-m-player-stream-metadata "No Stream Info"))))))
+               (or title emacspeak-m-player-stream-info "No Stream Info"))))))
    
 ;;;###autoload
 (defun emacspeak-m-player-get-length ()
