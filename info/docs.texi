@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1100 commands and 920 options.
+This chapter documents a total of 1101 commands and 920 options.
 
 @menu
 * acss-structure::
@@ -9518,6 +9518,15 @@ Delete filter.
 @end format
 @end deffn
 
+@subsubsection emacspeak-m-player-display-metadata
+@deffn {Command} emacspeak-m-player-display-metadata   
+@findex emacspeak-m-player-display-metadata
+
+@format
+Display metadata after refreshing it if needed.
+@end format
+@end deffn
+
 @subsubsection emacspeak-m-player-display-percent
 @deffn {Command} emacspeak-m-player-display-percent   
 @findex emacspeak-m-player-display-percent
@@ -9630,15 +9639,6 @@ Scale speed by 0.5.
 @end format
 @end deffn
 
-@subsubsection emacspeak-m-player-info-metadata
-@deffn {Command} emacspeak-m-player-info-metadata   
-@findex emacspeak-m-player-info-metadata
-
-@format
-Speak and display metadata if available.
-@end format
-@end deffn
-
 @subsubsection emacspeak-m-player-left-channel
 @deffn {Command} emacspeak-m-player-left-channel   
 @findex emacspeak-m-player-left-channel
@@ -9702,6 +9702,7 @@ SPC		emacspeak-m-player-pause
 ?		emacspeak-m-player-display-position
 C		emacspeak-m-player-clear-filters
 L		emacspeak-m-player-load-file
+M		emacspeak-m-player-display-metadata
 O		emacspeak-m-player-reset-options
 P		emacspeak-m-player-apply-reverb-preset
 Q		emacspeak-m-player-quit
@@ -9716,7 +9717,7 @@ d		emacspeak-m-player-delete-filter
 e		emacspeak-m-player-add-equalizer
 f		emacspeak-m-player-add-filter
 g		emacspeak-m-player-seek-absolute
-i		emacspeak-m-player-info-metadata
+i		emacspeak-m-player-stream-info
 j		emacspeak-m-player-amark-jump
 l		emacspeak-m-player-get-length
 m		emacspeak-m-player-speak-mode-line
@@ -9902,6 +9903,15 @@ Slow down playback.
 
 @format
 Speak mode line
+@end format
+@end deffn
+
+@subsubsection emacspeak-m-player-stream-info
+@deffn {Command} emacspeak-m-player-stream-info   
+@findex emacspeak-m-player-stream-info
+
+@format
+Speak and display metadata if available.
 @end format
 @end deffn
 
