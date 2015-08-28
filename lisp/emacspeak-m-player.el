@@ -319,17 +319,19 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
      (emacspeak-m-player-guess-directory)
      (when (eq major-mode 'dired-mode) (dired-get-filename nil 'no-error))
      'must-match)))
-(defvar emacspeak-m-player-stream-info nil
-  "Stream ICY info.")
-(make-variable-buffer-local 'emacspeak-m-player-stream-info)
+
 (defun emacspeak-m-player-process-filter (process output)
   "Filter function that captures metadata."
   (with-current-buffer (process-buffer emacspeak-m-player-process) 
-    (when (string-match "ICY Info:" output)
-      (setq emacspeak-m-player-stream-info output)
+    (when (and emacspeak-m-player-stream-metadata
+               (emacspeak-m-player-metadata-p emacspeak-m-player-stream-metadata)
+               (string-match "ICY Info:" output))
+      (setf
+       (emacspeak-m-player-metadata-info emacspeak-m-player-stream-metadata)
+       output)
       (emacspeak-m-player-stream-info))
-      (goto-char (process-mark process))
-      (insert output)))
+    (goto-char (process-mark process))
+    (insert output)))
 
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
@@ -342,7 +344,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
    (list
     (emacspeak-m-player-read-resource)
     current-prefix-arg))
-  (declare (special
+  (declare (special 
             emacspeak-m-player-file-list emacspeak-m-player-current-directory
             ido-work-directory-list emacspeak-media-directory-regexp
             emacspeak-media-shortcuts-directory emacspeak-m-player-process
@@ -383,7 +385,6 @@ The player is placed in a buffer in emacspeak-m-player-mode."
            (t
             (nconc options (list resource)))))
     (with-current-buffer buffer
-      (setq emacspeak-m-player-stream-info nil)
       (setq emacspeak-m-player-process
             (apply 'start-process "MPLayer" buffer
                    emacspeak-m-player-program options))
@@ -391,6 +392,8 @@ The player is placed in a buffer in emacspeak-m-player-mode."
       (when emacspeak-m-player-current-directory
         (cd emacspeak-m-player-current-directory))
       (emacspeak-m-player-mode)
+      (setq emacspeak-m-player-stream-metadata
+            (make-emacspeak-m-player-metadata))
       (emacspeak-amark-load)
       (setq  emacspeak-m-player-file-list file-list)
       (message "MPlayer opened  %s" resource))))
@@ -697,14 +700,15 @@ necessary."
 (defun emacspeak-m-player-stream-info ()
   "Speak and display metadata if available."
   (interactive)
-  (declare (special emacspeak-m-player-stream-info))
-  (let ((title (and emacspeak-m-player-stream-info
-                    (second (split-string emacspeak-m-player-stream-info "=")))))
-    (with-current-buffer (process-buffer emacspeak-m-player-process)
-      (dtk-speak-and-echo
-       (format "%s"
-               (or title emacspeak-m-player-stream-info "No Stream Info"))))))
-   
+  (declare (special emacspeak-m-player-stream-metadata))
+  (with-current-buffer (process-buffer emacspeak-m-player-process)
+  (let ((info
+         (and emacspeak-m-player-stream-metadata
+              (emacspeak-m-player-metadata-info  emacspeak-m-player-stream-metadata)
+              (second (split-string (emacspeak-m-player-metadata-info  emacspeak-m-player-stream-metadata) "=")))))
+    (dtk-speak-and-echo
+     (format "%s"
+             (or info  "No Stream Info"))))))   
 ;;;###autoload
 (defun emacspeak-m-player-get-length ()
   "Display length of track in seconds."
