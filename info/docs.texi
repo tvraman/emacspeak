@@ -1088,6 +1088,7 @@ C-t C-p		emacspeak-table-previous-row
 C-t ESC		Prefix Command
 C-t SPC		emacspeak-table-speak-current-element
 C-t #		emacspeak-table-sort-on-current-column
+C-t ,		emacspeak-table-find-csv-file
 C-t .		emacspeak-table-speak-coordinates
 C-t <		emacspeak-table-goto-left
 C-t =		emacspeak-table-speak-dimensions
@@ -9629,6 +9630,15 @@ Scale speed by 0.5.
 @end format
 @end deffn
 
+@subsubsection emacspeak-m-player-info-metadata
+@deffn {Command} emacspeak-m-player-info-metadata   
+@findex emacspeak-m-player-info-metadata
+
+@format
+Speak and display metadata if available.
+@end format
+@end deffn
+
 @subsubsection emacspeak-m-player-left-channel
 @deffn {Command} emacspeak-m-player-left-channel   
 @findex emacspeak-m-player-left-channel
@@ -9706,6 +9716,7 @@ d		emacspeak-m-player-delete-filter
 e		emacspeak-m-player-add-equalizer
 f		emacspeak-m-player-add-filter
 g		emacspeak-m-player-seek-absolute
+i		emacspeak-m-player-info-metadata
 j		emacspeak-m-player-amark-jump
 l		emacspeak-m-player-get-length
 m		emacspeak-m-player-speak-mode-line
@@ -12573,15 +12584,6 @@ Call appropriate audio environment set command.
 @end format
 @end deffn
 
-@subsubsection emacspeak-play-all-icons
-@deffn {Command} emacspeak-play-all-icons   
-@findex emacspeak-play-all-icons
-
-@format
-Plays all defined icons and speaks their names.
-@end format
-@end deffn
-
 @subsubsection emacspeak-set-auditory-icon-player
 @deffn {Command} emacspeak-set-auditory-icon-player  (player)
 @kbd{C-e M-a}
@@ -14692,6 +14694,9 @@ the documentation on the table browser.
 
 @subsubsection emacspeak-table-find-csv-file
 @deffn {Command} emacspeak-table-find-csv-file  (filename)
+@kbd{C-e C-t ,}
+
+@kindex C-e C-t ,
 @findex emacspeak-table-find-csv-file
 
 @format

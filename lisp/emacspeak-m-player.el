@@ -690,7 +690,7 @@ necessary."
     (with-current-buffer (process-buffer emacspeak-m-player-process)
       (dtk-speak-and-echo
        (format "%s"
-               (or title emacspeak-m-player-stream-metadata "No metadata"))))))
+               (or title emacspeak-m-player-stream-metadata "No Stream Info"))))))
    
 ;;;###autoload
 (defun emacspeak-m-player-get-length ()
