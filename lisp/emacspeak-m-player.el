@@ -123,8 +123,28 @@ This is set to nil when playing Internet  streams.")
 
 (defvar emacspeak-m-player-stream-metadata nil
   "Instance of stream metadata for this buffer.")
-
 (make-variable-buffer-local 'emacspeak-m-player-stream-metadata)
+(defsubst emacspeak-m-player-stream-metadata ()
+  "Return metadata handle for current stream."
+  (with-current-buffer (process-buffer emacspeak-m-player-process)
+    emacspeak-m-player-stream-metadata))
+
+(defun emacspeak-m-player-display-metadata ()
+  "Display metadata after refreshing it if needed."
+  (interactive)
+  (let ((data (emacspeak-m-player-refresh-metadata)))
+    (with-output-to-temp-buffer "M Player Metadata"
+      (loop
+       for f in
+       (rest (mapcar #'car (cl-struct-slot-info 'emacspeak-m-player-metadata)))
+       do
+       (princ
+        (format "%s:\t%s\n"
+                f
+                (cl-struct-slot-value 'emacspeak-m-player-metadata f data)))))
+    (message "Displayed metadata in other window.")
+    (emacspeak-auditory-icon 'task-done)))
+
 
 ;;}}}
 
@@ -319,10 +339,23 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
      (emacspeak-m-player-guess-directory)
      (when (eq major-mode 'dired-mode) (dired-get-filename nil 'no-error))
      'must-match)))
-
+(defun emacspeak-m-player-refresh-metadata ()
+  "Populate metadata fields from currently playing  stream."
+  (declare (special emacspeak-m-player-stream-metadata))
+  (with-current-buffer (process-buffer emacspeak-m-player-process)
+    (loop
+     for  f in
+     '(title artist album year comment track genre)
+     do
+     (aset emacspeak-m-player-stream-metadata
+           (cl-struct-slot-offset 'emacspeak-m-player-metadata f)
+           (second (split-string (emacspeak-m-player-slave-command (format "get_meta_%s" f))
+                                 "="))))
+    emacspeak-m-player-stream-metadata))
+ 
 (defun emacspeak-m-player-process-filter (process output)
   "Filter function that captures metadata."
-  (with-current-buffer (process-buffer emacspeak-m-player-process) 
+  (with-current-buffer (process-buffer emacspeak-m-player-process)
     (when (and emacspeak-m-player-stream-metadata
                (emacspeak-m-player-metadata-p emacspeak-m-player-stream-metadata)
                (string-match "ICY Info:" output))
@@ -673,8 +706,10 @@ necessary."
       (when result
         (setq result (replace-regexp-in-string  "^ans_" "" result))
         (setq result (replace-regexp-in-string  "_" " " result)))
+      (when (called-interactively-p 'interactive)
       (message   "%s"
-                 (or result "Waiting")))))
+                 (or result "Waiting")))
+      result)))
 
 (defun emacspeak-m-player-delete-filter (filter)
   "Delete filter."
@@ -935,6 +970,7 @@ arg `reset' starts with all filters set to 0."
    ("C-m" emacspeak-m-player-load)
    ("DEL" emacspeak-m-player-reset-speed)
    ("L" emacspeak-m-player-load-file)
+   ("M" emacspeak-m-player-display-metadata)
    ("M-l" emacspeak-m-player-load-playlist)
    ("O" emacspeak-m-player-reset-options)
    ("P" emacspeak-m-player-apply-reverb-preset)
