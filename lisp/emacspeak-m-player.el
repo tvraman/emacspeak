@@ -953,9 +953,9 @@ arg `reset' starts with all filters set to 0."
 ;;{{{ keys
 
 (declaim (special emacspeak-m-player-mode-map))
-(loop
- for k in
- '(
+
+(defvar emacspeak-media-bindings
+  '(
    ("%" emacspeak-m-player-display-percent)
    ("(" emacspeak-m-player-left-channel)
    (")" emacspeak-m-player-right-channel)
@@ -1012,7 +1012,9 @@ arg `reset' starts with all filters set to 0."
    ("{" emacspeak-m-player-half-speed)
    ("}" emacspeak-m-player-double-speed)
    )
- do
+  "Key bindings used by Emacspeak M-Player.")
+
+(loop for k in emacspeak-media-bindings do
  (emacspeak-keymap-update  emacspeak-m-player-mode-map k))
 
 ;;}}}
