@@ -64,6 +64,34 @@
 (require 'comint)
 
 ;;}}}
+;;{{{ Stream Metadata:
+
+(defstruct emacspeak-m-player-metadata
+  title artist album info
+  year comment track genre)
+
+(defvar emacspeak-m-player-stream-metadata nil
+  "Instance of stream metadata for this buffer.")
+(make-variable-buffer-local 'emacspeak-m-player-stream-metadata)
+
+(defun emacspeak-m-player-display-metadata ()
+  "Display metadata after refreshing it if needed."
+  (interactive)
+  (let ((data (emacspeak-m-player-refresh-metadata)))
+    (with-output-to-temp-buffer "M Player Metadata"
+      (loop
+       for f in
+       (rest (mapcar #'car (cl-struct-slot-info 'emacspeak-m-player-metadata)))
+       do
+       (when (cl-struct-slot-value 'emacspeak-m-player-metadata f data)
+         (princ
+          (format "%s:\t%s\n"
+                  f
+                  (cl-struct-slot-value 'emacspeak-m-player-metadata f data))))))
+    (message "Displayed metadata in other window.")
+    (emacspeak-auditory-icon 'task-done)))
+
+;;}}}
 ;;{{{ define a derived mode for m-player interaction
 (defconst  emacspeak-media-shortcuts-directory
   (expand-file-name "media/radio" emacspeak-directory)
@@ -71,6 +99,7 @@
 
 (defvar emacspeak-m-player-process nil
   "Process handle to m-player." )
+
 (defsubst emacspeak-m-player-dispatch (command)
   "Dispatch command to m-player."
   (declare (special emacspeak-m-player-process))
@@ -82,6 +111,7 @@
     (accept-process-output emacspeak-m-player-process 0.1)
     (unless (zerop (buffer-size))
       (buffer-substring-no-properties (point-min) (1-  (point-max))))))
+
 (defvar emacspeak-m-player-current-directory nil
   "Records current directory of media being played.
 This is set to nil when playing Internet  streams.")
@@ -112,42 +142,10 @@ This is set to nil when playing Internet  streams.")
   (progn
     (setq buffer-undo-list t)
     (ansi-color-for-comint-mode-on)
+    (setq emacspeak-m-player-stream-metadata (make-emacspeak-m-player-metadata))
     (setq emacspeak-m-player-process (get-buffer-process (current-buffer)))))
 
 ;;}}}
-;;{{{ Stream Metadata:
-
-(defstruct emacspeak-m-player-metadata
-  title artist album info
-  year comment track genre)
-
-(defvar emacspeak-m-player-stream-metadata nil
-  "Instance of stream metadata for this buffer.")
-(make-variable-buffer-local 'emacspeak-m-player-stream-metadata)
-(defsubst emacspeak-m-player-stream-metadata ()
-  "Return metadata handle for current stream."
-  (with-current-buffer (process-buffer emacspeak-m-player-process)
-    emacspeak-m-player-stream-metadata))
-
-(defun emacspeak-m-player-display-metadata ()
-  "Display metadata after refreshing it if needed."
-  (interactive)
-  (let ((data (emacspeak-m-player-refresh-metadata)))
-    (with-output-to-temp-buffer "M Player Metadata"
-      (loop
-       for f in
-       (rest (mapcar #'car (cl-struct-slot-info 'emacspeak-m-player-metadata)))
-       do
-       (when (cl-struct-slot-value 'emacspeak-m-player-metadata f data)
-         (princ
-          (format "%s:\t%s\n"
-                  f
-                  (cl-struct-slot-value 'emacspeak-m-player-metadata f data))))))
-    (message "Displayed metadata in other window.")
-    (emacspeak-auditory-icon 'task-done)))
-
-;;}}}
-
 ;;{{{ emacspeak-m-player
 
 ;;;###autoload
@@ -433,8 +431,6 @@ The player is placed in a buffer in emacspeak-m-player-mode."
       (when emacspeak-m-player-current-directory
         (cd emacspeak-m-player-current-directory))
       (emacspeak-m-player-mode)
-      (setq emacspeak-m-player-stream-metadata
-            (make-emacspeak-m-player-metadata))
       (emacspeak-amark-load)
       (setq  emacspeak-m-player-file-list file-list)
       (message "MPlayer opened  %s" resource))))
@@ -954,7 +950,7 @@ arg `reset' starts with all filters set to 0."
    (t (message "No stream playing at present."))))
 
 ;;}}}
-;;{{{ keys
+;;{{{ Key Bindings:
 
 (declaim (special emacspeak-m-player-mode-map))
 
