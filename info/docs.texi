@@ -9644,7 +9644,7 @@ Scale speed by 0.5.
 @findex emacspeak-m-player-left-channel
 
 @format
-Play on left channel.
+Play both channels on left channel.
 @end format
 @end deffn
 
@@ -9907,11 +9907,12 @@ Speak mode line
 @end deffn
 
 @subsubsection emacspeak-m-player-stream-info
-@deffn {Command} emacspeak-m-player-stream-info   
+@deffn {Command} emacspeak-m-player-stream-info  (&optional toggle-cue)
 @findex emacspeak-m-player-stream-info
 
 @format
 Speak and display metadata if available.
+Interactive prefix arg toggles automatic cueing of ICY info updates.
 @end format
 @end deffn
 
