@@ -5,7 +5,7 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 * Emacspeak 43 -- Emacspeak 43 User Visible Changes
 
-** Sound Themess:
+** Sound Themes:
 
 Reorganized sound themes. The original default-8k sounds have
 been converted to 44.1k stereo and renamed =classic=.
@@ -26,6 +26,7 @@ Speech-enables package yasnippet.
 ** Emacspeak-Muggles:
 
 Keyboard conveniences implemented using package Hydra.
+
 ** emacspeak-lua.el:
 
 Speech-enable lua-mode.
