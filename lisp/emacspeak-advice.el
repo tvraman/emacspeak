@@ -993,7 +993,7 @@ Produce an auditory icon if possible."
 
 (loop
  for f in
- '(shell-command shell-dirstack-message)
+ '( shell-dirstack-message)
  do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
