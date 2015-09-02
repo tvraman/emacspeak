@@ -137,7 +137,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
       '(progn
          (when (locate-library "bash-completion")
            (require 'bash-completion)
-(add-hook 'shell-dynamic-complete-functions 'bash-completion-dynamic-complete))
+(bash-completion-setup))
          (define-key shell-mode-map "\C-cr" 'comint-redirect-send-command)
          (define-key shell-mode-map "\C-ch"
            'emacspeak-wizards-refresh-shell-history)))
