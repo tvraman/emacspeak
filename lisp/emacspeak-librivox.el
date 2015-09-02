@@ -250,11 +250,11 @@ Both exact and partial matches for `title'."
              'title)))
       (when title
         (setq title (dom-text (first title )))
-        (setq title (replace-regexp-in-string " +" "-" title)) )
+        (setq title (replace-regexp-in-string " +" "-" title)))
       (kill-buffer)
       (expand-file-name
        (format "%s.m3u" (or title "Untitled"))
-       emacspeak-librivox-local-cache))))      
+       emacspeak-librivox-local-cache))))
 
 ;;}}}
 ;;{{{ Play Librivox Streams:
@@ -273,7 +273,7 @@ Both exact and partial matches for `title'."
              g-curl-program g-curl-common-options rss-url file))
     (setq m3u-file (emacspeak-librivox-get-m3u-name file))
     (shell-command
-     (format "%s %s %s > %s"
+     (format "%s %s %s > \"%s\""
              emacspeak-xslt-program (emacspeak-xslt-get "rss2m3u.xsl")
              file m3u-file))
     (emacspeak-m-player m3u-file 'playlist)))

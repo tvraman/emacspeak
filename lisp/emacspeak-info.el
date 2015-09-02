@@ -53,6 +53,7 @@
 
 (voice-setup-add-map
  '(
+   (Info-quoted voice-lighten)
    (info-index-match 'voice-bolden-medium)
    (info-title-1 voice-bolden-extra)
    (info-title-2 voice-bolden-medium)

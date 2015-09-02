@@ -27,11 +27,16 @@
 
 ;;; }
 ;;; {Speak Actions:
+(defvar *tts-window-icon* "/home/raman/emacs/lisp/emacspeak/sounds/classic/window-resize.wav"
+"Window change icon.")
 
 (defun speak-window-change (new old)
   "Speak current window  information."
   (when new
+    (tts-serve-icon *tts-window-icon*)
     (tts-speak (window-name new))))
+
+
 
 (defun speak-this-window (window)
   "Speak this window  information."

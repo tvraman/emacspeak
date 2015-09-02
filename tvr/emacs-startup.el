@@ -135,6 +135,9 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 
     (eval-after-load "shell"
       '(progn
+         (when (locate-library "bash-completion")
+           (require 'bash-completion)
+(bash-completion-setup))
          (define-key shell-mode-map "\C-cr" 'comint-redirect-send-command)
          (define-key shell-mode-map "\C-ch"
            'emacspeak-wizards-refresh-shell-history)))

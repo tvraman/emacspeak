@@ -125,6 +125,15 @@
     (write-line (format nil "q ~a\;d" text) i)
     (force-output i)))
 
+(defun tts-serve-icon (filename)
+  "Serve auditory icon  in filename."
+  (unless (and  *tts-process*
+                (sb-ext:process-alive-p *tts-process*))
+    (tts-open))
+  (let ((i (sb-ext:process-input *tts-process*)))
+    (write-line (format nil "a ~a\;d" filename) i)
+    (force-output i)))
+
 (defun tts-say (text)
   "Say some text."
   (unless (and  *tts-process*

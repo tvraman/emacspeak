@@ -912,8 +912,9 @@ If no property is set, show a message and exit."
       (t (message "No property set at point ")
          nil))))
   (if property
-      (message"%s"
-              (get-text-property (point) property ))))
+      (kill-new
+       (message"%s"
+              (get-text-property (point) property )))))
 
 ;;}}}
 ;;{{{  moving across blank lines
