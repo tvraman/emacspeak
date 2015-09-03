@@ -10,7 +10,10 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 Reorganized sound themes. The original default-8k sounds have
 been converted to 44.1k stereo and renamed =classic=.
 Emacspeak now defaults to theme =3d= out of the bo.
+** emacspeak-eww.el:
 
+Added interactive command =emacspeak-eww-phantom= that retrieves using PhantomJS.
+Useful for viewing AngularJS powered sites like http://golang.org/tour using EWW.
 ** emacspeak-org.el:
 
 Exported command for using org-capture for capturing hyperlinks to personalized  hotlists. 
