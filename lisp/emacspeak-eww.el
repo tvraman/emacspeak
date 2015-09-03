@@ -1283,7 +1283,35 @@ Warning, this is fragile, and depends on a stable id for the
     (dtk-speak-list tags)))
 
 ;;}}}
+;;{{{ Phantom:
 
+(defvar emacspeak-eww-phantom-get
+  (expand-file-name "phantom/pget.js" emacspeak-directory)
+  "Name of PhantomJS script that implements wget-like retrieval.")
+(defvar emacspeak-eww-phantom-js
+  (executable-find "phantomjs")
+  "Name of PhantomJS executable.")
+
+(defun emacspeak-eww-phantom (url)
+  "Retrieve `url'  using PhantomJS and render with EWW."
+  (interactive
+   (list
+    (read-from-minibuffer "URL: "
+                          (or (browse-url-url-at-point)
+                              "http://"))))
+  (assert emacspeak-eww-phantom-js  nil "Please install phantomjs first.")
+  (assert emacspeak-eww-phantom-get nil "PhantomJS script not found.")
+  (with-temp-buffer
+    (shell-command
+     (format "%s %s '%s' 2> /dev/null "
+             emacspeak-eww-phantom-js emacspeak-eww-phantom-get url)
+     (current-buffer))
+    (goto-char (point-min))
+    (insert
+     (format "<base href='%s'/>" url))
+    (browse-url-of-buffer)))
+
+;;}}}
 (provide 'emacspeak-eww)
 ;;{{{ end of file
 
