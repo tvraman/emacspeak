@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1103 commands and 921 options.
+This chapter documents a total of 1103 commands and 932 options.
 
 @menu
 * acss-structure::
@@ -419,9 +419,9 @@ patterns results in emacspeak speaking the pattern followed
 by a repeat count instead of speaking all the characters
 making up the pattern.  Thus, by adding the repeating
 pattern ``.'' (this is already added by default) emacspeak
-will say ````aw fifteen dot''' when speaking the string
-````...............''' instead of ````period period period period
-'''
+will say ````aw fifteen dot'''' when speaking the string
+````...............'''' instead of ````period period period period
+''''
 @end format
 @end deffn
 
@@ -734,7 +734,7 @@ programming language modes, clause markers appear
 infrequently, and this can result in large amounts of text
 being sent to the speech device at once, making the system
 unresponsive when asked to stop talking.  Splitting on white
-space makes emacspeak's stop command responsive.  However,
+space makes emacspeak''s stop command responsive.  However,
 when splitting on white space, the speech sounds choppy
 since the synthesizer is getting a word at a time.
 @end format
@@ -1200,6 +1200,48 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @defvar {User Option} emacspeak-Info-quoted-voice
 Personality used for Info-quoted
 This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-apt-utils-broken-personality
+Personality used for apt-utils-broken-face
+This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-apt-utils-description-personality
+Personality used for apt-utils-description-face
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-apt-utils-field-contents-personality
+Personality used for apt-utils-field-contents-face
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-apt-utils-field-keyword-personality
+Personality used for apt-utils-field-keyword-face
+This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-apt-utils-normal-package-personality
+Personality used for apt-utils-normal-package-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-apt-utils-version-personality
+Personality used for apt-utils-version-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-apt-utils-virtual-package-personality
+Personality used for apt-utils-virtual-package-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 
 @end defvar
 
@@ -3559,6 +3601,84 @@ This personality uses  voice-brighten-medium whose  effect can be changed global
 
 @end defvar
 
+@defvar {User Option} emacspeak-twittering-uri-personality
+Personality used for twittering-uri-face
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-twittering-username-personality
+Personality used for twittering-username-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-author-personality
+Personality used for u-vm-color-author-face
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-citation-1-personality
+Personality used for u-vm-color-citation-1-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-citation-2-personality
+Personality used for u-vm-color-citation-2-face
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-date-personality
+Personality used for u-vm-color-date-face
+This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-header-personality
+Personality used for u-vm-color-header-face
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-recipient-personality
+Personality used for u-vm-color-recipient-face
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-signature-personality
+Personality used for u-vm-color-signature-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-spamassassin-personality
+Personality used for u-vm-color-spamassassin-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-subject-personality
+Personality used for u-vm-color-subject-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-time-personality
+Personality used for u-vm-color-time-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-u-vm-color-user-personality
+Personality used for u-vm-color-user-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-underline-voice
 Personality used for underline
 This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
@@ -3718,6 +3838,108 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @defvar {User Option} emacspeak-voice-lock-warning-personality
 Personality used for font-lock-warning-face
 This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-anchor-voice
+Personality used for w3m-anchor
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-arrived-anchor-voice
+Personality used for w3m-arrived-anchor
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-bold-voice
+Personality used for w3m-bold
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-current-anchor-voice
+Personality used for w3m-current-anchor
+This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-form-button-pressed-voice
+Personality used for w3m-form-button-pressed
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-form-button-voice
+Personality used for w3m-form-button
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-form-voice
+Personality used for w3m-form
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-header-line-location-content-voice
+Personality used for w3m-header-line-location-content
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-header-line-location-title-voice
+Personality used for w3m-header-line-location-title
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-history-current-url-voice
+Personality used for w3m-history-current-url
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-image-voice
+Personality used for w3m-image
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-insert-voice
+Personality used for w3m-insert
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-italic-voice
+Personality used for w3m-italic
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-strike-through-voice
+Personality used for w3m-strike-through
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-tab-selected-voice
+Personality used for w3m-tab-selected
+This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-tab-unselected-voice
+Personality used for w3m-tab-unselected
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-underline-voice
+Personality used for w3m-underline
+This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
 
 @end defvar
 
@@ -4477,50 +4699,6 @@ Copy package under point to kill ring.
 @end format
 @end deffn
 
-@subsection emacspeak-apt-utils Options
-
-@defvar {User Option} emacspeak-apt-utils-broken-personality
-Personality used for apt-utils-broken-face
-This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-description-personality
-Personality used for apt-utils-description-face
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-field-contents-personality
-Personality used for apt-utils-field-contents-face
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-field-keyword-personality
-Personality used for apt-utils-field-keyword-face
-This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-normal-package-personality
-Personality used for apt-utils-normal-package-face
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-version-personality
-Personality used for apt-utils-version-face
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-virtual-package-personality
-Personality used for apt-utils-virtual-package-face
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
 @node emacspeak-arc
 @section emacspeak-arc
 
@@ -5127,7 +5305,7 @@ View TOC for book in specified directory.
 
 @format
 View TOC for book at point.
-Make sure it's downloaded and unpacked first.
+Make sure it''s downloaded and unpacked first.
 @end format
 @end deffn
 
@@ -5176,7 +5354,7 @@ View book in specified directory.
 
 @format
 View book at point.
-Make sure it's downloaded and unpacked first.
+Make sure it''s downloaded and unpacked first.
 @end format
 @end deffn
 
@@ -5527,7 +5705,7 @@ unless ``dired-listing-switches'' contains -l
 
 @format
 Displays type of current file by running command file.
-Like Emacs' built-in dired-show-file-type but allows user to customize
+Like Emacs'' built-in dired-show-file-type but allows user to customize
 options passed to command ``file''.
 @end format
 @end deffn
@@ -6627,7 +6805,7 @@ http://www.cs.cmu.edu/~berez/irc/erc.el
 @format
 Add people to monitor in this room.
 Optional interactive prefix  arg defines a pronunciation that
-  silences speaking of this perso's name.
+  silences speaking of this perso''s name.
 @end format
 @end deffn
 
@@ -8085,7 +8263,7 @@ Catch up on all articles in current group.
 
 @format
 Hide all headers in the article.
-Use this command if you don't want to listen to any article headers when
+Use this command if you don''t want to listen to any article headers when
 reading news.
 @end format
 @end deffn
@@ -8186,7 +8364,7 @@ Aurally display current row
 @findex emacspeak-gomoku-speak-emacs-previous-move
 
 @format
-Speak emacs' previous move
+Speak emacs'' previous move
 @end format
 @end deffn
 
@@ -8195,7 +8373,7 @@ Speak emacs' previous move
 @findex emacspeak-gomoku-speak-humans-previous-move
 
 @format
-Speak human' previous move
+Speak human'' previous move
 @end format
 @end deffn
 
@@ -10668,7 +10846,7 @@ Create a hydra with no body and the heads:
 
 "$":    ``set-selective-display'',
 "%":    ``View-goto-percent'',
-"'":    ``register-to-point'',
+"''":    ``register-to-point'',
 "(":    ``backward-sexp'',
 ")":    ``forward-sexp'',
 ".":    ``set-mark-command'',
@@ -11206,7 +11384,7 @@ Customize OCR settings.
 
 @format
 Run OCR engine on current image after flip-flopping it.
-Useful if you've scanned a page upside down and are using an engine that does not automatically flip the image for you.
+Useful if you''ve scanned a page upside down and are using an engine that does not automatically flip the image for you.
 You need the imagemagik family of tools --- we use mogrify to transform the image.
 Prompts for image file if file corresponding to the expected
 ``current page'' is not found.
@@ -11375,7 +11553,7 @@ to an appropriately named file.
 
 @format
 Scan in a page and run OCR engine on it.
-Use this command once you've verified that the separate
+Use this command once you''ve verified that the separate
 steps of acquiring an image and running the OCR engine work
 correctly by themselves.
 @end format
@@ -11981,7 +12159,7 @@ First loads any persistent dictionaries if not already loaded.
 @findex emacspeak-pronounce-dispatch
 
 @format
-Provides the user interface front-end to Emacspeak's pronunciation dictionaries.
+Provides the user interface front-end to Emacspeak''s pronunciation dictionaries.
 @end format
 @end deffn
 
@@ -12643,7 +12821,7 @@ emacspeak-queue-auditory-icon when using software TTS.
 @format
 Ask Emacspeak to use a local audio player.
 This lets me have Emacspeak switch to using audioplay on
-solaris after I've used it for a while from a remote session
+solaris after I''ve used it for a while from a remote session
 where it would use the more primitive speech-server based
 audio player.
 @end format
@@ -12691,7 +12869,7 @@ play : Launches play-program to play.
 Serve: Send a command to the speech-server to play.
 Queue : Add auditory icon to speech queue.
 soxplay: Use sox to apply effect earwax for headphones.
-Native : Use Emacs' builtin sound support.
+Native : Use Emacs'' builtin sound support.
 Use Serve when working with remote speech servers.
 
 @end defvar
@@ -13030,8 +13208,8 @@ The result is put in the kill ring for convenience.
 
 @format
 Speak the start of, rest of, or the entire buffer.
-'s' to speak the start.
-'r' to speak the rest.
+''s'' to speak the start.
+''r'' to speak the rest.
 any other key to speak entire buffer.
 @end format
 @end deffn
@@ -13138,8 +13316,8 @@ to command yank.
 Speak the line containing the mark.
 With no argument, speaks the
 line containing the mark--this is where ``exchange-point-and-mark''
-C-x C-x would jump.  Numeric prefix arg 'COUNT' speaks
-line containing mark 'n' where 'n' is one less than the number of
+C-x C-x would jump.  Numeric prefix arg ''COUNT'' speaks
+line containing mark ''n'' where ''n'' is one less than the number of
 times one has to jump using ``set-mark-command'' to get to this marked
 position.  The location of the mark is indicated by an aural highlight
 achieved by a change in voice personality.
@@ -13241,8 +13419,8 @@ Negative prefix arg speaks from start of buffer to point.
 
 @format
 Speak the start of, rest of, or the entire help.
-'s' to speak the start.
-'r' to speak the rest.
+''s'' to speak the start.
+''r'' to speak the rest.
 any other key to speak entire help.
 @end format
 @end deffn
@@ -13289,8 +13467,8 @@ are indicated with auditory icon ellipses.
 
 @format
 Speak the start of, rest of, or the entire line.
-'s' to speak the start.
-'r' to speak the rest.
+''s'' to speak the start.
+''r'' to speak the rest.
 any other key to speak entire line.
 @end format
 @end deffn
@@ -13517,8 +13695,8 @@ If option  ``voice-lock-mode'' is on, then it will use any defined personality.
 
 @format
 Speak the start of, rest of, or the entire page.
-'s' to speak the start.
-'r' to speak the rest.
+''s'' to speak the start.
+''r'' to speak the rest.
 any other key to speak entire page.
 @end format
 @end deffn
@@ -13547,8 +13725,8 @@ If voice-lock-mode is on, then it will use any defined personality.
 
 @format
 Speak the start of, rest of, or the entire paragraph.
-'s' to speak the start.
-'r' to speak the rest.
+''s'' to speak the start.
+''r'' to speak the rest.
 any other key to speak entire paragraph.
 @end format
 @end deffn
@@ -13572,9 +13750,9 @@ Speak character before point.
 @format
 Speak one of the first 10 windows on the screen.
 Speaks entire window irrespective of point.
-In general, you'll never have Emacs split the screen into more than
+In general, you''ll never have Emacs split the screen into more than
 two or three.
-Argument ARG determines the 'other' window to speak.
+Argument ARG determines the ''other'' window to speak.
 Semantics  of ``other'' is the same as for the builtin Emacs command
 ``other-window''.
 @end format
@@ -13728,8 +13906,8 @@ If option  ``voice-lock-mode'' is on, then uses the personality.
 
 @format
 Speak the start of, rest of, or the entire sexp.
-'s' to speak the start.
-'r' to speak the rest.
+''s'' to speak the start.
+''r'' to speak the rest.
 any other key to speak entire sexp.
 @end format
 @end deffn
@@ -13900,8 +14078,8 @@ spelled out  instead of being spoken.
 
 @format
 Speak the start of, rest of, or the entire word.
-'s' to speak the start.
-'r' to speak the rest.
+''s'' to speak the start.
+''r'' to speak the rest.
 any other key to speak entire word.
 @end format
 @end deffn
@@ -13949,7 +14127,7 @@ Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.
 Specifying the method of indentation as ``tones''
 results in the Dectalk producing a tone whose length is a function of the
-line's indentation.  Specifying ``speak''
+line''s indentation.  Specifying ``speak''
 results in the number of initial spaces being spoken.
 @end format
 @end deffn
@@ -14005,7 +14183,7 @@ set the current local value to the result.
 @findex emacspeak-toggle-header-line
 
 @format
-Toggle Emacspeak's default header line.
+Toggle Emacspeak''s default header line.
 @end format
 @end deffn
 
@@ -15348,20 +15526,6 @@ Speak tweet under point.
 @end format
 @end deffn
 
-@subsection emacspeak-twittering Options
-
-@defvar {User Option} emacspeak-twittering-uri-personality
-Personality used for twittering-uri-face
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-twittering-username-personality
-Personality used for twittering-username-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
 @node emacspeak-url-template
 @section emacspeak-url-template
 
@@ -15475,7 +15639,7 @@ Mark all messages in folder to be deleted. Use with caution.
 
 @format
 Locates the subject line in a message being read.
-Useful when you're reading a message
+Useful when you''re reading a message
 that has been forwarded multiple times.
 @end format
 @end deffn
@@ -15504,7 +15668,7 @@ If N is negative, move backward instead.
 @findex emacspeak-vm-speak-labels
 
 @format
-Speak a message's labels
+Speak a message''s labels
 @end format
 @end deffn
 
@@ -15798,112 +15962,10 @@ Preview this buffer in w3m.
 
 @subsection emacspeak-w3m Options
 
-@defvar {User Option} emacspeak-w3m-anchor-voice
-Personality used for w3m-anchor
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-arrived-anchor-voice
-Personality used for w3m-arrived-anchor
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-bold-voice
-Personality used for w3m-bold
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-current-anchor-voice
-Personality used for w3m-current-anchor
-This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-form-button-pressed-voice
-Personality used for w3m-form-button-pressed
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-form-button-voice
-Personality used for w3m-form-button
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-form-voice
-Personality used for w3m-form
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-header-line-location-content-voice
-Personality used for w3m-header-line-location-content
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-header-line-location-title-voice
-Personality used for w3m-header-line-location-title
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-history-current-url-voice
-Personality used for w3m-history-current-url
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-image-voice
-Personality used for w3m-image
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-insert-voice
-Personality used for w3m-insert
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-italic-voice
-Personality used for w3m-italic
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
 @defvar {User Option} emacspeak-w3m-speak-titles-on-switch
 Speak the document title when switching between w3m buffers.
 If non-nil, switching between w3m buffers will speak the title
 instead of the modeline.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-strike-through-voice
-Personality used for w3m-strike-through
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-tab-selected-voice
-Personality used for w3m-tab-selected
-This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-tab-unselected-voice
-Personality used for w3m-tab-unselected
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-underline-voice
-Personality used for w3m-underline
-This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
 
 @end defvar
 
@@ -16499,7 +16561,7 @@ Perform a FolDoc search.
 @format
 Perform a Google search.  First optional interactive prefix arg
 ``flag'' prompts for additional search options. Second interactive
-prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. 
+prefix arg is equivalent to hitting the I''m Feeling Lucky button on Google. 
 @end format
 @end deffn
 
@@ -16508,7 +16570,7 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google.
 @findex emacspeak-websearch-google-feeling-lucky
 
 @format
-Do a I'm Feeling Lucky Google search.
+Do a I''m Feeling Lucky Google search.
 @end format
 @end deffn
 
@@ -17052,7 +17114,7 @@ Previous contents of the clipboard will be overwritten.  The Emacspeak
 clipboard is a convenient way of sharing information between
 independent Emacspeak sessions running on the same or different
 machines.  Do not use this for sharing information within an Emacs
-session --Emacs' register commands are far more efficient and
+session --Emacs'' register commands are far more efficient and
 light-weight.  Optional interactive prefix arg results in Emacspeak
 prompting for the clipboard file to use.
 Argument START and END specifies  region.
@@ -17072,7 +17134,7 @@ Yank contents of the Emacspeak clipboard at point.
 The Emacspeak clipboard is a convenient way of sharing information between
 independent Emacspeak sessions running on the same or different
 machines.  Do not use this for sharing information within an Emacs
-session --Emacs' register commands are far more efficient and
+session --Emacs'' register commands are far more efficient and
 light-weight.  Optional interactive prefix arg pastes from
 the emacspeak table clipboard instead.
 @end format
@@ -17377,11 +17439,11 @@ previous window configuration.
 
 @format
 Invoke shell COMMAND and display its output as a table. The
-results are placed in a buffer in Emacspeak's table browsing
+results are placed in a buffer in Emacspeak''s table browsing
 mode. Optional interactive prefix arg read-as-csv interprets the
 result as csv. . Use this for running shell commands that produce
 tabulated output. This command should be used for shell commands
-that produce tabulated output that works with Emacspeak's table
+that produce tabulated output that works with Emacspeak''s table
 recognizer. Verify this first by running the command in a shell
 and executing command ``emacspeak-table-display-table-in-region''
 normally bound to C-e TAB.
@@ -18322,7 +18384,7 @@ during initialization.
 @findex emacspeak-wizards-vc-viewer-refresh
 
 @format
-Refresh view of VC we're viewing.
+Refresh view of VC we''re viewing.
 @end format
 @end deffn
 
@@ -18443,7 +18505,7 @@ If you are debugging another speech server and that server
 gets wedged for some reason,
 you can use command emacspeak-emergency-tts-restart
 to get speech back using the reliable TTS server.
-It's useful to bind the above command to a convenient key.
+It''s useful to bind the above command to a convenient key.
 
 @end defvar
 
@@ -18837,11 +18899,11 @@ Used by modules like gphoto, gblogger etc.
 @format
 Major mode for APP interaction
 
-Uses keymap `g-app-mode-map
+Uses keymap ``g-app-mode-map
 
 In addition to any hooks its parent mode `nxml-mode' might have run,
 this mode runs the hook `g-app-mode-hook', as the final step
-during initialization.', which is not currently defined.
+during initialization.'', which is not currently defined.
 
 @end format
 @end deffn
@@ -19272,7 +19334,7 @@ Uses default radius. optional interactive prefix arg clears any active filters.
 :around advice: ``ad-Advice-gmaps-places-search''
 
 Perform a places search.
-Use this only if you dont know the locality  of the place you're looking for.
+Use this only if you dont know the locality  of the place you''re looking for.
 Optional  prefix arg clears any active filters.
 
 (fn QUERY &optional CLEAR-FILTER)
@@ -20179,7 +20241,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 68 URL Templates.
+This section documents a total of 71 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -20296,6 +20358,18 @@ Play specified edition of Geek Linux DailyShow
 @b{GitHub Search}
 
 Perform a GitHub Search.
+
+@b{GoLang Browse}
+
+Browse GoLang package documentation.
+
+@b{GoLang Lookup}
+
+Lookup GoLang package documentation.
+
+@b{GoLang Search}
+
+Search GoLang package documentation.
 
 @b{Google Image Search}
 
