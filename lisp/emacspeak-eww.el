@@ -1296,9 +1296,7 @@ Warning, this is fragile, and depends on a stable id for the
   "Retrieve `url'  using PhantomJS and render with EWW."
   (interactive
    (list
-    (read-from-minibuffer "URL: "
-                          (or (browse-url-url-at-point)
-                              "http://"))))
+    (emacspeak-webutils-read-this-url)))
   (assert emacspeak-eww-phantom-js  nil "Please install phantomjs first.")
   (assert emacspeak-eww-phantom-get nil "PhantomJS script not found.")
   (with-temp-buffer
