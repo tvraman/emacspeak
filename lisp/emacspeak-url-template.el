@@ -1141,21 +1141,21 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS stations that
 "Base REST end-point for Golang.org")
 
 (emacspeak-url-template-define
- "Go Package Browse"
+ "GoLang Browse"
  (concat emacspeak-url-template-go-base "pkg")
  nil
  'emacspeak-speak-buffer
  "Browse GoLang package documentation.")
 
 (emacspeak-url-template-define
- "Go Package Lookup"
+ "GoLang Lookup"
  (concat emacspeak-url-template-go-base "pkg/%s")
  (list "Go Package: ")
  'emacspeak-speak-buffer
  "Lookup GoLang package documentation.")
 
 (emacspeak-url-template-define
- "Go Package Search"
+ "GoLang Search"
  (concat emacspeak-url-template-go-base "search?q=%s")
  (list "Go Package: ")
  'emacspeak-speak-buffer
