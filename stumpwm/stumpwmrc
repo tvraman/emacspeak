@@ -5,7 +5,10 @@
 (in-package :stumpwm)
 
 ;;; {Prefix key matches my screen setup:
+
 (set-prefix-key (kbd "C-\\"))
+
+(setq *window-name-source* :title)
 
 ;;; }
 ;;; {Lock screen C-t D
@@ -19,6 +22,7 @@
   (eval-command *my-lock-command*))
 
 (define-key *root-map* (kbd "D") "lock-screen")
+
 ;;; }
 ;;; {TTS
 
@@ -77,17 +81,6 @@
 (setq  *focus-window-hook* (list 'speak-window-change))
 (setq *new-window-hook* (list 'speak-this-window))
 (setq *message-hook* (list 'speak-messages))
-
-;;; }
-;;; {emacs  is emacsclient 
-
-;;; Avoid activity in a window causing it to get raised:
-(setf stumpwm:*deny-raise-request* t)
-(defcommand emacs () ()
-            "Start emacs unless it is already running, in which case focus it."
-            (run-or-raise "emacsclient -c" '(:class "Emacs")))
-
-(define-key *root-map* (kbd "D") "lock-screen")
 
 ;;; }
 ;;; {Chrome:
