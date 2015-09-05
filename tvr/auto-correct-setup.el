@@ -1,17 +1,15 @@
-(define-key ctl-x-map "\C-i"
-  #'endless/ispell-word-then-abbrev)
+;;; Taken from endless' Blog:
 
-(defun endless/ispell-word-then-abbrev (p)
+(define-key ctl-x-map "\C-i" #'auto-correct-update)
+
+(defun auto-correct-update (p)
   "Call `ispell-word', then create an abbrev for it.
-With prefix P, create local abbrev. Otherwise it will
-be global."
+With prefix P, create local abbrev. Otherwise it will be global."
   (interactive "P")
-  (let ((bef (downcase (or (thing-at-point 'word)
-                           "")))
-        aft)
+  (let ((bef (downcase (or (thing-at-point 'word) "")))
+        (aft nil))
     (call-interactively 'ispell-word)
-    (setq aft (downcase
-               (or (thing-at-point 'word) "")))
+    (setq aft (downcase (or (thing-at-point 'word) "")))
     (unless (or (string= aft bef)
                 (string= aft "")
                 (string= bef ""))
