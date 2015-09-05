@@ -4,4 +4,4 @@
 # avoiding log spam in .xsession-errors 
 #and the remote debugging port available to connect.
 
-google-chrome  --remote-debugging-port=9222   "$@" 2>&1 > /dev/null 
+google-chrome  --remote-debugging-port=9222   "$@" 2>&1 > /dev/null  &
