@@ -169,6 +169,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "tramp-prepare" "fff-prepare" "fap-prepare"
        "emms-prepare"
        "iplayer-prepare"
+"ispell-abbrev"
        "local"
        "emacspeak-dbus"))
 
