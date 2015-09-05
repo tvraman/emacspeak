@@ -67,8 +67,9 @@
   "Set brightness to  specified level.
 `brightness' is a percentage value."
   (interactive "nBrightness: ")
+  (ems-with-messages-silenced
   (shell-command (format "%s -set %s"
-                         xbacklight-cmd brightness))
+                         xbacklight-cmd brightness)))
   (xbacklight-get))
 
 (defgroup xbacklight nil

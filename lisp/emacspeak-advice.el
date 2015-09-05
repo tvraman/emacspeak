@@ -991,15 +991,11 @@ Produce an auditory icon if possible."
 
 (add-hook 'shell-mode-hook 'emacspeak-pronounce-refresh-pronunciations)
 
-(loop
- for f in
- '( shell-dirstack-message)
- do
- (eval
-  `(defadvice ,f (around emacspeak pre act comp)
+
+(defadvice shell-dirstack-message (around emacspeak pre act comp)
      "Silence messages"
      (ems-with-messages-silenced
-      ad-do-it))))
+      ad-do-it))
 
 (add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)
 
