@@ -36,9 +36,6 @@ type="text/xsl"?>
     <application name="man">
       UNIX online manual browser with full aural highlighting and
     structured browsing.</application>
-    <application name="howto">
-      Emacspeak wizard for browsing Linux HOWTO
-    documents.</application>
     <application name="woman">
       Support for <em>WoMan</em>, the UNIX Man page reader implemented
     as a native Emacs application.</application>
@@ -204,12 +201,6 @@ type="text/xsl"?>
     Google's AJAX  Search API.</application>
     <application name="gfeeds">
     Provides efficient access to Blogs using Google's AJAX BlogSearch APIs.</application>
-    <application name="youtube">
-      Google Video and YouTube
-    </application>
-    <application name="webmarks">
-      Google Bookmarks wizard for storing and finding bookmarks via
-    Google.</application>
   </category>
   <category name="Messaging">
     <application name="vm">
@@ -574,6 +565,9 @@ type="text/xsl"?>
     <application name="arc">
       Browse various compressed archives.
     </application>
+    <application name="Muggles">
+      Emacspeak Muggles exposes smart keybindings for   performing common tasks.
+    </application>
     <application name="wizards">
       Emacspeak wizards for performing common tasks.
     </application>
@@ -587,6 +581,15 @@ type="text/xsl"?>
     </application>
   </category>
   <category name=" programming">
+    <application name="xref">
+      Support for cross-references via package XRef in Emacs-25.
+    </application>
+    <application name="company">
+      Complete anything support.
+      Supports all features of package Company via a custom speech-enabled front-end.
+    </application>
+    <application name="flycheck">
+    On-the-fly syntax checking.</application>
     <application name="jde">
       Java Development Environment with interactive debugging
       support using the Java Platform Debug Architecture
@@ -665,8 +668,8 @@ type="text/xsl"?>
     <application name="rpm-spec">
       Editting support for RPM spec files.
     </application>
-    <application name="tempo">
-      Support for creating and filling-in templates.
+    <application name="yasnippet">
+      Support for creating and filling-in templates using package YaSnippets.
       Used to implement wizards in JDE, HTML helper mode and friends.
     </application>
     <application name="dmacro">
