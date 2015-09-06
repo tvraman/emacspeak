@@ -88,7 +88,8 @@
 
 (defun speak-messages (&rest messages)
   "Speak messages, a list of lines."
-  (tts-speak-list  messages))
+  (declare (special *tts-speak-messages*))
+  (when *tts-speak-messages* (tts-speak-list  messages)))
 
 ;;; }
 ;;; {Attach Handlers:
