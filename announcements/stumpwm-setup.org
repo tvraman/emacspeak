@@ -1,0 +1,59 @@
+* Summary:
+
+Describes my Linux X-Windowing setup using *lightdm* to initialize the desktop and StumpWM configured as a talking Window Manager.
+
+* Overview 
+
+File =stumpwmrc= is my StumpWM init file that  I use to set up
+StumpWM as a talking window manager.  With this setup, I run Emacs in
+one window and Chrome+ChromeVox in another window. 
+
+File =xsession= is my =.xsession= file  --- it launches StumpWM once =lightdm= has finished authentication.
+You can find my =lightdm= setup files in  directory =emacspeak/tvr/lightdm=.
+
+
+* Contents
+
+  - tts.lisp :: Interface to Emacspeak TTS  servers.
+  - stumpwmrc :: Code to insert into personal =.stumpwmr
+  - xsession-  ::  My= .xsession= file.
+  - xlock ::  A light-weight screen-lock script.
+
+
+  
+* Resulting Functionality
+
+
+
+To set this up, You should only need to edit the value of
+=*emacspeak-dir*= in the =stumpwmrc= file for setup.
+
+  1. All Keybindings  match my usual =screen= setup, including the window-manager prefix-key.
+  2. C-\ is the window-manager key.
+  3. Switching windows speaks the title of the new window.
+  4. Stumpwm command for displaying window list =C-\w= also speaks the output.
+  5. The init file provides a simple lock-screen command bound to =C-\d=.
+  6. The above lock command invokes shell script =xlock= --- that script takes care of playing an auditory icon when the desktop is locked or unlocked.
+  7. Window manager messages speak automatically; this can be toggled with =C-\t=.
+  8. If there is a lot of activity in a window that is not focused,
+     you can turn off automatic speaking of messages using =C-\t= to
+     avoid distraction.
+  9. StumpWM is set up to deny raise-focus requests --- this is so that activity in a window doesn't automatically grab focus.
+   I typically run with only one window displayed at a time.
+  
+  
+# local variables:
+# mode:org
+# end:
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:nil d:(not "LOGBOOK") date:t e:t
+#+OPTIONS: email:nil f:t inline:t num:t p:nil pri:nil prop:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t
+#+TITLE:  Emacspeak support for StumpWM
+#+DATE: <2015-09-07 Mon>
+#+AUTHOR: raman
+#+EMAIL: raman@google.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 25.0.50.1 (Org mode 8.3.1)
