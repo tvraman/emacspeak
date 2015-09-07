@@ -1,25 +1,30 @@
 * Emacspeak support for StumpWM
 
-This is what I use to set up StumpWM as a talking window manager.
-With this setup, I run Emacs in one window and Chrome+ChromeVox in another window.
-
+File =stumpwmrc= is my StumpWM init file that  I use to set up
+StumpWM as a talking window manager.  With this setup, I run Emacs in
+one window and Chrome+ChromeVox in another window. 
+File =xsession= is my =.xsession= file  --- it launches StumpWM once =lightdm= has finished authentication.
+You can find my =lightdm= setup files in  directory =emacspeak/tvr/lightdm=.
 
 * Contents
 
   - tts.lisp :: Interface to Emacspeak TTS  servers.
   - stumpwmrc :: Code to insert into personal .stumpwmrc
-
+  -Setup   ::  You should only need to edit the value of  =*emacspeak-dir*= in the =stumpwmrc= file for setup.
 
 * Resulting Functionality
 
-  1. All Keybindings  match screen, including the window-manager prefix-key.
+  1. All Keybindings  match my usual screen, including the window-manager prefix-key.
   2. C-\ is the window-manager key.
   3. Switching windows speaks the title of the new window.
   4. Stumpwm command for displaying window list =C-\w= also speaks the output.
   5. The init file provides a simple lock-screen command bound to =C-\d=.
-  6. Window manager messages speak automatically; this can be toggled with =C-\t=.
-  7. If there is a lot of activity in a window that is not focused, turn off automatic speaking of messages using =C-\t= to avoid distraction.
-  8. StumpWM is set up to deny raise-focus requests --- this is so that activity in a window doesn't automatically grab focus.
+  6. The above lock command invokes shell script =xlock= --- that script takes care of playing an auditory icon when the desktop is locked or unlocked.
+  7. Window manager messages speak automatically; this can be toggled with =C-\t=.
+  8. If there is a lot of activity in a window that is not focused,
+     you can turn off automatic speaking of messages using =C-\t= to
+     avoid distraction.
+  9. StumpWM is set up to deny raise-focus requests --- this is so that activity in a window doesn't automatically grab focus.
    I typically run with only one window displayed at a time.
   
   
