@@ -14,7 +14,7 @@ You can find my =lightdm= setup files in  directory =emacspeak/tvr/lightdm=.
 
 * Resulting Functionality
 
-  1. All Keybindings  match my usual screen, including the window-manager prefix-key.
+  1. All Keybindings  match my usual =screen= setup, including the window-manager prefix-key.
   2. C-\ is the window-manager key.
   3. Switching windows speaks the title of the new window.
   4. Stumpwm command for displaying window list =C-\w= also speaks the output.
