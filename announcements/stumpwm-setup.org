@@ -1,6 +1,7 @@
 * Summary:
 
 Describes my Linux X-Windowing setup using *lightdm* to initialize the desktop and StumpWM configured as a talking Window Manager.
+These files can be found under =emacspeak/stumpwm= in your Emacspeak installation, or  in the source code cloned from  https://github.com/tvraman/emacspeak.
 
 * Overview 
 
