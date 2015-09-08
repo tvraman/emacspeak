@@ -34,8 +34,6 @@
 
 (set-prefix-key (kbd "C-\\"))
 
-(setq *window-name-source* :title)
-
 ;;; }
 ;;; {TTS
 
