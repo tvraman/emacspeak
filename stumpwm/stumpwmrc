@@ -5,7 +5,7 @@
 (in-package :stumpwm)
 ;;; {Variables:
 
-(defvar *emacspeak-dir* "/home/raman/emacs/lisp/emacspeak"
+(defvar *emacspeak-dir* "/usr/share/emacs/site-lisp/emacspeak"
   "Root directory of Emacspeak installation.")
 
 (defvar *tts-window-icon*
