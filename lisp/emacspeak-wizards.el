@@ -3127,6 +3127,16 @@ Symbols are taken from `emacspeak-wizards-personal-portfolio'."
     (call-interactively 'emacspeak-table-next-row)))
 
 ;;}}}
+;;{{{ Color at point:
+;;;###autoload
+(defun emacspeak-wizards-color-at-point()
+  "Echo foreground/background color at point."
+  (interactive)
+  (message "%s on %s"
+           (foreground-color-at-point) (background-color-at-point)))
+
+;;}}}
+
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
