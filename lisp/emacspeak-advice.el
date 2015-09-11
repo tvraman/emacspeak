@@ -1658,8 +1658,10 @@ Indicate change of selection with an auditory icon
 
 (loop
  for f in
- '(describe-function describe-variable
-                     describe-package describe-key)
+ '(
+   describe-function describe-variable
+   describe-face describe-font
+   describe-package describe-key)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
