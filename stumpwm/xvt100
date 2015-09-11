@@ -1,5 +1,0 @@
-XTerm*VT100.translations: #override \n\
-    Ctrl <Key>;: string(0x18) string("@h") \n\
-Ctrl <Key>,: string(0x18) string("@a") \n\
-Ctrl <Key>.: string(0x18) string("@S") \n\
-    Shift <Key>Return: string(0x18) string("@s") string(0x0d)
