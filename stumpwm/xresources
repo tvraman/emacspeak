@@ -10,13 +10,12 @@ XTerm*Background: black
 XTerm*faceName: xft:Inconsolata:pixelsize=14
 XTerm*eightBitInput: true
 XTerm*metaSendsEscape: true
+XTerm*VT100.translations: #override \n\
+    Ctrl <Key>;: string(0x18) string("@h") \n\
+Ctrl <Key>,: string(0x18) string("@a") \n\
+Ctrl <Key>.: string(0x18) string("@S") \n\
+    Shift <Key>Return: string(0x18) string("@s") string(0x0d)
 
-URxvt.font: xft:Inconsolata:pixelsize=14
-URxvt.background: black
-URxvt.foreground: white
-URxvt.scrollBar: false
-Rxvt*background:	black
-Rxvt*foreground:	white
 !emacs 
 
 Emacs.menuBar:		off
