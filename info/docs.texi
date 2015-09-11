@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1103 commands and 932 options.
+This chapter documents a total of 1104 commands and 932 options.
 
 @menu
 * acss-structure::
@@ -17609,6 +17609,15 @@ byte compile current buffer
 
 @format
 Cleans up duplicates in shell path env variable.
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-color-at-point
+@deffn {Command} emacspeak-wizards-color-at-point   
+@findex emacspeak-wizards-color-at-point
+
+@format
+Echo foreground/background color at point.
 @end format
 @end deffn
 
