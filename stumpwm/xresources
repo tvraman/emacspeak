@@ -1,4 +1,4 @@
-Emacs*font:	-adobe-Utopia-bold-italic-normal-*-*-*-*-*-*-0-iso10646-1
+Emacs*font:	-adobe-Utopia-normal-normal-normal-*-*-*-*-*-*-0-iso10646-1
 Emacs.Font:	-adobe-Utopia-normal-italic-normal-*-*-*-*-*-*-0-iso10646-1
 Emacs.FontBackend:	xft,x
 Emacs.menuBar:	off
