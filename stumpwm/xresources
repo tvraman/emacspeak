@@ -6,7 +6,11 @@ Emacs.verticalScrollBars:	off
 
 XTerm*Background:	black
 XTerm*Foreground:	white
-XTerm*VT100.translations:	#override \n Ctrl <Key>semicolon: string(0x18) string("@h") \nCtrl <Key>comma: string(0x18) string("@a") \nCtrl <Key>period: string(0x18) string("@s") \n Shift <Key>Return: string(0x18) string("@s") string(0x0d)
+XTerm*VT100.translations:	#override \n\
+ Ctrl <Key>semicolon: string(0x18) string("@h") \n\
+ Ctrl <Key>comma: string(0x18) string("@a") \n\
+ Ctrl <Key>period: string(0x18) string("@s") \n\
+ Shift <Key>Return: string(0x18) string("@s") string(0x0d)
 XTerm*eightBitInput:	true
 XTerm*faceName:	xft:Inconsolata:pixelsize=14
 XTerm*metaSendsEscape:	true
