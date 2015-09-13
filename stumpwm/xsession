@@ -2,8 +2,8 @@
 setxkbmap -option ctrl:nocaps       
 xrdb -merge $HOME/.Xresources &
 xautolock -detectsleep -time 30  -locker  "$HOME/bin/xlock" & 
-emacs &
-xterm &
+emacs  -title Emacs &
+xterm  -title Retriever &
 export LISP=sbcl
 ${HOME}/bin/export_x_info &
 exec  /usr/local/bin/stumpwm
