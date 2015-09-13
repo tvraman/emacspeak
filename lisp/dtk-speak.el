@@ -561,23 +561,6 @@ Argument MODE  specifies the current pronunciation mode."
   (while (search-forward "\\" nil t)
     (replace-match " backslash ")))
 
-;;; efficient quoting function for use in dtk-say
-(defsubst  dtk-quick-quote(string )
-  (let ((dtk-scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
-        (inhibit-read-only t))
-    (save-current-buffer
-      (set-buffer dtk-scratch-buffer)
-      (setq buffer-undo-list t)
-      (erase-buffer)
-      (insert string)
-      (goto-char (point-min))
-;;; dtk will think it's processing a command otherwise:
-      (dtk-fix-brackets 'all)
-      (dtk-fix-null-char)
-      (dtk-fix-backslash)
-;;; fix control chars
-      (dtk-fix-control-chars))))
-
 ;;; Moving  across a chunk of text.
 ;;; A chunk  is specified by a punctuation followed by whitespace
 ;;; or  multiple blank lines
