@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1101 commands and 932 options.
+This chapter documents a total of 1104 commands and 932 options.
 
 @menu
 * acss-structure::
@@ -7608,6 +7608,15 @@ Optional interactive prefix arg speaks the structural unit.
 @end format
 @end deffn
 
+@subsubsection emacspeak-eww-phantom
+@deffn {Command} emacspeak-eww-phantom  (url)
+@findex emacspeak-eww-phantom
+
+@format
+Retrieve ``url''  using PhantomJS and render with EWW.
+@end format
+@end deffn
+
 @subsubsection emacspeak-eww-previous-element
 @deffn {Command} emacspeak-eww-previous-element  (el)
 @findex emacspeak-eww-previous-element
@@ -9828,7 +9837,7 @@ Scale speed by 0.5.
 @findex emacspeak-m-player-left-channel
 
 @format
-Play on left channel.
+Play both channels on left channel.
 @end format
 @end deffn
 
@@ -9880,6 +9889,7 @@ SPC		emacspeak-m-player-pause
 ,		emacspeak-m-player-backward-10s
 -		emacspeak-m-player-volume-down
 .		emacspeak-m-player-forward-10s
+;		emacspeak-m-player-pop-to-player
 <		emacspeak-m-player-backward-1min
 =		emacspeak-m-player-volume-up
 >		emacspeak-m-player-forward-1min
@@ -9976,6 +9986,15 @@ Move within the play tree.
 
 @format
 Move within the play tree.
+@end format
+@end deffn
+
+@subsubsection emacspeak-m-player-pop-to-player
+@deffn {Command} emacspeak-m-player-pop-to-player   
+@findex emacspeak-m-player-pop-to-player
+
+@format
+Pop to m-player buffer.
 @end format
 @end deffn
 
@@ -10091,11 +10110,12 @@ Speak mode line
 @end deffn
 
 @subsubsection emacspeak-m-player-stream-info
-@deffn {Command} emacspeak-m-player-stream-info   
+@deffn {Command} emacspeak-m-player-stream-info  (&optional toggle-cue)
 @findex emacspeak-m-player-stream-info
 
 @format
 Speak and display metadata if available.
+Interactive prefix arg toggles automatic cueing of ICY info updates.
 @end format
 @end deffn
 
@@ -17592,6 +17612,15 @@ Cleans up duplicates in shell path env variable.
 @end format
 @end deffn
 
+@subsubsection emacspeak-wizards-color-at-point
+@deffn {Command} emacspeak-wizards-color-at-point   
+@findex emacspeak-wizards-color-at-point
+
+@format
+Echo foreground/background color at point.
+@end format
+@end deffn
+
 @subsubsection emacspeak-wizards-comma-at-end-of-word
 @deffn {Command} emacspeak-wizards-comma-at-end-of-word   
 @findex emacspeak-wizards-comma-at-end-of-word
@@ -20221,7 +20250,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 68 URL Templates.
+This section documents a total of 71 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -20338,6 +20367,18 @@ Play specified edition of Geek Linux DailyShow
 @b{GitHub Search}
 
 Perform a GitHub Search.
+
+@b{GoLang Browse}
+
+Browse GoLang package documentation.
+
+@b{GoLang Lookup}
+
+Lookup GoLang package documentation.
+
+@b{GoLang Search}
+
+Search GoLang package documentation.
 
 @b{Google Image Search}
 

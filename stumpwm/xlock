@@ -1,0 +1,9 @@
+#!/bin/sh
+# run xtrlock with audio feedback
+sounds=/usr/share/sounds/ubuntu/stereo
+ogg123 -q $sounds/service-logout.ogg &
+#i3lock   -b  -d  && xbacklight -set 0
+xbacklight -set 0
+xtrlock -b
+ogg123 -q $sounds/service-login.ogg &
+xbacklight -set 0

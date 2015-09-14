@@ -36,12 +36,9 @@ type="text/xsl"?>
     <application name="man">
       UNIX online manual browser with full aural highlighting and
     structured browsing.</application>
-    <application name="howto">
-    Emacspeak wizard for browsing Linux HOWTO
-    documents.</application>
-<application name="woman">
-Support for <em>WoMan</em>, the UNIX Man page reader implemented
- as a native Emacs application.</application>
+    <application name="woman">
+      Support for <em>WoMan</em>, the UNIX Man page reader implemented
+    as a native Emacs application.</application>
   </category>
   <category name="desktop">
     <application name="ido">
@@ -74,7 +71,7 @@ Support for <em>WoMan</em>, the UNIX Man page reader implemented
       Speech-enables the Sawfish window-manager.
     </application>
     <application name="DBus">
-Support for DBus integration.</application>
+    Support for DBus integration.</application>
   </category>
   <category name="finders">
     <application name="dired">
@@ -114,8 +111,8 @@ Support for DBus integration.</application>
 
     <application name="apt-get">
     Emacs interface to Debian <code>apt-get</code></application>
-<application name="elpa">
-Support for the Emacs Lisp Package Archive.</application>
+    <application name="elpa">
+    Support for the Emacs Lisp Package Archive.</application>
   </category>
   <category name="Web">
     <application name="eww">
@@ -176,9 +173,9 @@ Support for the Emacs Lisp Package Archive.</application>
       <application name="mozrepl">
         Connect to Firefox.
       </application>
-<application name="google">
-Support for Google search --- including the Google tool-belt for
-refining searches.</application>
+      <application name="google">
+        Support for Google search --- including the Google tool-belt for
+      refining searches.</application>
   </category>
   <category name="Google Client">
     <application name="gblogger">
@@ -191,7 +188,7 @@ refining searches.</application>
     Google Calendar client using ATOM and GData.</application>
     
     <application name="gmaps">
-Google Maps (V2) API  client, that enables Maps exploration.
+      Google Maps (V2) API  client, that enables Maps exploration.
     </application>
     <application name="gphoto">
       Google Picasa (photo albums)  client using ATOM and GData.
@@ -204,12 +201,6 @@ Google Maps (V2) API  client, that enables Maps exploration.
     Google's AJAX  Search API.</application>
     <application name="gfeeds">
     Provides efficient access to Blogs using Google's AJAX BlogSearch APIs.</application>
-    <application name="youtube">
-      Google Video and YouTube
-    </application>
-    <application name="webmarks">
-      Google Bookmarks wizard for storing and finding bookmarks via
-    Google.</application>
   </category>
   <category name="Messaging">
     <application name="vm">
@@ -226,7 +217,7 @@ Google Maps (V2) API  client, that enables Maps exploration.
       Usenet news and email client
       with support for exotic information backends such as
     Slashdot etc.</application>
-<application name="elfeed">
+    <application name="elfeed">
       Feed reader  for Emacs
       
     </application>
@@ -342,18 +333,18 @@ Google Maps (V2) API  client, that enables Maps exploration.
     <application name="sox">
       Audio workbench for the Emacspeak desktop.
     </application>
-<application name="tune-in">
+    <application name="tune-in">
       Search, Browse and play Internet radio stations
     </application>
     <application name="pianobar">
       Play Pandora radio using the Open Source <em>Pianobar</em>
       command-line client.
     </application>
-<application name="npr">
+    <application name="npr">
       API  client for listening to NPR programs.
     </application>
-<application name="librivox">
-API  client for listening to free Librivox audio books.</application>
+    <application name="librivox">
+    API  client for listening to free Librivox audio books.</application>
     <application name="emms">
       Emacs equivalent  of XMMS --- a versatile multimedia tool.
       Provides a consistent user interface to a variety of media players.
@@ -418,14 +409,14 @@ API  client for listening to free Librivox audio books.</application>
     <application name="emacspeak-daisy">
       Implements a digital talking book reader for DAISY3  talking
     books.</application>
-<application name="emacspeak-bookshare">
+    <application name="emacspeak-bookshare">
       Implements a client for Bookshare, including a light-weight
       Daisy reader.
     </application>    
-<application name="emacspeak-epub">
+    <application name="emacspeak-epub">
       Implements a simple EPub reader.
     </application>
-<application name="view">
+    <application name="view">
       File browser for reading etexts.
     </application>
     <application name="bookmark">
@@ -436,10 +427,10 @@ API  client for listening to free Librivox audio books.</application>
       Emacs as <code>text/org.el</code>.
       It is built on top of <code>outline mode</code> and is a useful
     way to keep organized notes.</application>
-<application name="markdown">
+    <application name="markdown">
       Speech-enabled markdown mode. 
-</application>  
-      
+    </application>  
+    
     
     <application name="remember">
       Package <code>remember.el</code>
@@ -546,9 +537,9 @@ API  client for listening to free Librivox audio books.</application>
       Interactive spell checker that aurally and visually
       highlights misspelled  words as they are typed.
     </application>
-<application name="find-things-fast">
-Finds files within a project using cached list of files.</application>
-<application name="magit">
+    <application name="find-things-fast">
+    Finds files within a project using cached list of files.</application>
+    <application name="magit">
     Emacs front-end to GIT</application>
     <application name="vc">
     Front-end to version control systems like SVN, GIT, HG, CVS and RCS.</application>
@@ -574,6 +565,9 @@ Finds files within a project using cached list of files.</application>
     <application name="arc">
       Browse various compressed archives.
     </application>
+    <application name="Muggles">
+      Emacspeak Muggles exposes smart keybindings for   performing common tasks.
+    </application>
     <application name="wizards">
       Emacspeak wizards for performing common tasks.
     </application>
@@ -587,6 +581,15 @@ Finds files within a project using cached list of files.</application>
     </application>
   </category>
   <category name=" programming">
+    <application name="xref">
+      Support for cross-references via package XRef in Emacs-25.
+    </application>
+    <application name="company">
+      Complete anything support.
+      Supports all features of package Company via a custom speech-enabled front-end.
+    </application>
+    <application name="flycheck">
+    On-the-fly syntax checking.</application>
     <application name="jde">
       Java Development Environment with interactive debugging
       support using the Java Platform Debug Architecture
@@ -625,6 +628,18 @@ Finds files within a project using cached list of files.</application>
       Features  aural highlighting and easy access to
       online help.
     </application>
+    <application name="lua">
+      Editting support for interactive LUA  development.
+      Features aural highlighting, structured browsing and debugging.
+    </application>
+    <application name="Go">
+      Editting support for interactive Go  development.
+      Features aural highlighting, structured browsing and debugging.
+    </application>
+    <application name="tcl">
+      Support for interactive TCL development including aural highlighting,
+      structured browsing and interactive  help.
+    </application>
     <application name="python">
       Editting support for interactive Python development.
       Features aural highlighting, structured browsing and debugging.
@@ -653,8 +668,8 @@ Finds files within a project using cached list of files.</application>
     <application name="rpm-spec">
       Editting support for RPM spec files.
     </application>
-    <application name="tempo">
-      Support for creating and filling-in templates.
+    <application name="yasnippet">
+      Support for creating and filling-in templates using package YaSnippets.
       Used to implement wizards in JDE, HTML helper mode and friends.
     </application>
     <application name="dmacro">
@@ -664,14 +679,14 @@ Finds files within a project using cached list of files.</application>
       Tool for browsing  object oriented software codebases
       --- this is largely obsoleted by ECB..
     </application>
-<applicaiton name="jss">
-Interactive debugging of Web applications (Chrome, Firefox) via
-the browser debugging API.</applicaiton>
-<application name="kite">
-Interact with Chrome via the remote debugging API.
-</application>
-<application name="ein">
-IPython Notebook interaction from Emacs.</application>
+    <applicaiton name="jss">
+      Interactive debugging of Web applications (Chrome, Firefox) via
+    the browser debugging API.</applicaiton>
+    <application name="kite">
+      Interact with Chrome via the remote debugging API.
+    </application>
+    <application name="ein">
+    IPython Notebook interaction from Emacs.</application>
   </category>
   <category name="Distractions">
     <application name="entertain">

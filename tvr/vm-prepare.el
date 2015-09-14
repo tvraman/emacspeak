@@ -30,7 +30,7 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
     (set hook (list t)))
   hook)
 (load-library "vm-autoloads")
-;(load-library "vm-pine")
+
 (global-set-key "\M-\C-v" 'vm-visit-folder)
 
 (defadvice vm-check-emacs-version(around work-in-20-emacs pre act com) t)
@@ -42,25 +42,26 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
              (and (featurep 'emacspeak)
                   (define-key vm-mode-map '[delete]
                     'dtk-toggle-punctuation-mode))))
-
-;;{{{ spamassassin
-
-(defun  vm-spam-assassinate ()
-  "Assassinate spam using spamassassin."
-  (interactive)
-  (vm-pipe-message-to-command "spamassassin -r -w 'spamtrap1' 1>&- 2>&- &" nil)
-  (vm-delete-message 1)
-  (emacspeak-auditory-icon 'delete-object)
-  (call-interactively 'vm-next-message))
-
-(define-key vm-mode-map "\C-\M-s" 'vm-spam-assassinate)
-
  ;;}}}
 
 (setq vm-postponed-messages (expand-file-name "~/Mail/crash"))
 
 (setq vm-auto-displayed-mime-content-type-exceptions nil)
-(defun vm-mime-display-internal-emacs-shr-text/html (start end layout)
+(defun vm-mime-display-internal-shr-text/html (start end layout)
   "Use shr to inline HTML mails in the VM presentation buffer."
-    (shr-render-region start (1- end)))
-    
+    (shr-render-region start (1- end))
+    (put-text-property start end
+                       'text-rendered-by-shr t))
+
+
+(setq vm-mime-text/html-handler 'emacs-w3m)
+(defalias 'vm-mime-display-internal-emacs-w3m-text/html  'vm-mime-display-internal-shr-text/html)
+
+(defun vm-chromium ()
+  "Run Chromium on current link."
+  (interactive)
+  (let ((url (get-text-property (point) 'w3m-href-anchor)))
+    (unless url (error "No link here."))
+    (browse-url-chromium url)))
+
+(define-key vm-mode-map "C" 'vm-chromium)

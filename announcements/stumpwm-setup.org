@@ -1,18 +1,33 @@
-* Emacspeak support for StumpWM
+* Summary:
+
+Describes my Linux X-Windowing setup using *lightdm* to initialize the desktop and StumpWM configured as a talking Window Manager.
+These files can be found under =emacspeak/stumpwm= in your Emacspeak installation, or  in the source code cloned from  https://github.com/tvraman/emacspeak.
+
+* Overview 
 
 File =stumpwmrc= is my StumpWM init file that  I use to set up
 StumpWM as a talking window manager.  With this setup, I run Emacs in
 one window and Chrome+ChromeVox in another window. 
+
 File =xsession= is my =.xsession= file  --- it launches StumpWM once =lightdm= has finished authentication.
 You can find my =lightdm= setup files in  directory =emacspeak/tvr/lightdm=.
+
 
 * Contents
 
   - tts.lisp :: Interface to Emacspeak TTS  servers.
-  - stumpwmrc :: Code to insert into personal .stumpwmrc
-  -Setup   ::  You should only need to edit the value of  =*emacspeak-dir*= in the =stumpwmrc= file for setup.
+  - stumpwmrc :: Code to insert into personal =.stumpwmr
+  - xsession-  ::  My= .xsession= file.
+  - xlock ::  A light-weight screen-lock script.
 
+
+  
 * Resulting Functionality
+
+
+
+To set this up, You should only need to edit the value of
+=*emacspeak-dir*= in the =stumpwmrc= file for setup.
 
   1. All Keybindings  match my usual =screen= setup, including the window-manager prefix-key.
   2. C-\ is the window-manager key.
@@ -31,3 +46,15 @@ You can find my =lightdm= setup files in  directory =emacspeak/tvr/lightdm=.
 # local variables:
 # mode:org
 # end:
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:nil d:(not "LOGBOOK") date:t e:t
+#+OPTIONS: email:nil f:t inline:t num:t p:nil pri:nil prop:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t
+#+TITLE:  Emacspeak support for StumpWM
+#+DATE: <2015-09-07 Mon>
+#+AUTHOR: raman
+#+EMAIL: raman@google.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 25.0.50.1 (Org mode 8.3.1)

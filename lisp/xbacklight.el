@@ -67,8 +67,9 @@
   "Set brightness to  specified level.
 `brightness' is a percentage value."
   (interactive "nBrightness: ")
-  (shell-command (format "%s -set %s"
-                         xbacklight-cmd brightness))
+  (let ((emacspeak-speak-messages nil))
+   (shell-command (format "%s -set %s"
+                          xbacklight-cmd brightness)))
   (xbacklight-get))
 
 (defgroup xbacklight nil
@@ -84,14 +85,17 @@
 (defun xbacklight-increment ()
   "Increase brightness by  by one step."
   (interactive)
-  (shell-command (format "%s -inc %s" xbacklight-cmd xbacklight-step))
+  (let ((emacspeak-speak-messages nil))
+   (shell-command (format "%s -inc %s" xbacklight-cmd xbacklight-step))
+   (xbacklight-get))
   (xbacklight-get))
 
 ;;;###autoload
 (defun xbacklight-decrement ()
   "Decrease brightness by  by one step."
   (interactive)
-  (shell-command (format "%s -dec %s" xbacklight-cmd xbacklight-step))
+  (let ((emacspeak-speak-messages nil))
+   (shell-command (format "%s -dec %s" xbacklight-cmd xbacklight-step)))
   (xbacklight-get))
 
 ;;;###autoload

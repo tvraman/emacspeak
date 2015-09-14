@@ -64,7 +64,7 @@
 ;;{{{ Forward Declarations:
 (declare-function emacspeak-auditory-icon "emacspeak-sounds.el" (icon))
 (declare-function emacspeak-queue-auditory-icon "emacspeak-sounds.el" (icon))
-;;;###autoload 
+;;;###autoload
 (defvar dtk-program
   (or  (getenv "DTK_PROGRAM" ) "dtk-exp")
   "The program to use to talk to the speech engine.
@@ -535,33 +535,31 @@ Argument MODE  specifies the current pronunciation mode."
        (dtk-replace-duplicates str mode ))
    dtk-cleanup-patterns ))
 
+(defvar dtk-null-char (format "%c" 0)
+  "Null char.")
+(defsubst dtk-fix-null-char (mode)
+  "Remove null-char C-@."
+  (declare (special dtk-null-char))
+  (goto-char (point-min))
+  (cond
+   ((eq mode 'all)
+    (while (search-forward  dtk-null-char nil t) (replace-match " control at ")))
+   (t (while (search-forward  dtk-null-char nil t) (replace-match "")))))
+
 (defsubst  dtk-quote(mode )
+  "Clean-up text before sending it out."
+  (let ((inhibit-read-only t))
 ;;; dtk will think it's processing a command otherwise:
-  (dtk-fix-brackets mode)
+    (dtk-fix-brackets mode)
+    (dtk-fix-null-char mode)
 ;;; fix control chars
-  (dtk-fix-control-chars))
+    (dtk-fix-control-chars)))
 
 (defsubst dtk-fix-backslash ()
   "Quote backslash characters as appropriate."
   (goto-char (point-min))
   (while (search-forward "\\" nil t)
     (replace-match " backslash ")))
-
-;;; efficient quoting function for use in dtk-say
-(defsubst  dtk-quick-quote(string )
-  (let ((dtk-scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
-        (inhibit-read-only t))
-    (save-current-buffer
-      (set-buffer dtk-scratch-buffer)
-      (setq buffer-undo-list t)
-      (erase-buffer)
-      (insert string)
-      (goto-char (point-min))
-;;; dtk will think it's processing a command otherwise:
-      (dtk-fix-brackets 'all)
-      (dtk-fix-backslash)
-;;; fix control chars
-      (dtk-fix-control-chars))))
 
 ;;; Moving  across a chunk of text.
 ;;; A chunk  is specified by a punctuation followed by whitespace
@@ -1498,7 +1496,7 @@ This is setup on a per engine basis.")
                     tts-voice-reset-code))
   (unless tts-name (setq tts-name dtk-program))
   (cond
-                                        ;viavoice outloud family 
+                                        ;viavoice outloud family
    ((string-match "outloud" tts-name) (outloud-configure-tts))
 ;;;all dectalks
    ((string-match "dtk" tts-name) (dectalk-configure-tts))
@@ -1510,9 +1508,9 @@ This is setup on a per engine basis.")
    (t (plain-configure-tts)))
   (dtk-interp-sync)
   (when
-      (or 
+      (or
        (string-match "^ssh" tts-name)   ;remote server
-       (string-match "^cloud" tts-name) ; cloud 
+       (string-match "^cloud" tts-name) ; cloud
        (string-match "^log" tts-name))
     (setq emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon))
   (load-library "voice-setup")
@@ -1525,7 +1523,7 @@ This is setup on a per engine basis.")
 (defun dtk-select-server (program &optional device)
   "Select a speech server interactively.
 When called interactively, restarts speech server.
-Argument PROGRAM specifies the speech server program. 
+Argument PROGRAM specifies the speech server program.
  Optional arg device sets up environment variable
 ALSA_DEFAULT to specified device before starting the server."
   (interactive
@@ -1593,7 +1591,7 @@ Optional interactive prefix arg restarts current TTS server."
   :group 'dtk)
 (defvar dtk-local-server-port "2222"
   "Port where we run our local server.")
-;;;###autoload 
+;;;###autoload
 
 (defcustom dtk-local-engine "outloud"
   "Engine we use  for our local TTS  server."
@@ -1615,7 +1613,7 @@ Port  defaults to  dtk-local-server-port"
          (tts-setup-servers-alist))
      nil
      t
-     nil nil 
+     nil nil
      dtk-program)))
   (declare (special    dtk-servers-alist dtk-local-server-port
                        dtk-local-server-process emacspeak-servers-directory ))
@@ -1639,7 +1637,7 @@ Port  defaults to  dtk-local-server-port"
 
 (defun  dtk-initialize ()
   "Initialize speech system."
-  (declare (special dtk-program  
+  (declare (special dtk-program
                     dtk-speaker-process dtk-speak-server-initialized
                     dtk-startup-hook emacspeak-servers-directory))
   (let ((new-process nil)
@@ -1745,7 +1743,7 @@ only speak upto the first ctrl-m."
   (unless (or (eq 'run (process-status dtk-speaker-process ))
               (eq 'open (process-status dtk-speaker-process )))
     (dtk-initialize))
-;;; If you dont want me to talk,or my server is not running, 
+;;; If you dont want me to talk,or my server is not running,
 ;;; I will remain silent.
 ;;; I also do nothing if text is nil or ""
   (unless
@@ -1829,7 +1827,7 @@ only speak upto the first ctrl-m."
 (defsubst dtk-speak-and-echo (message)
   "Speak message and echo it to the message area."
   (let ((emacspeak-speak-messages nil))
-    (dtk-speak message) 
+    (dtk-speak message)
     (message "%s" message)))
 
 (defun dtk-speak-list (text &optional group-count)

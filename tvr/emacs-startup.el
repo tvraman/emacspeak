@@ -169,6 +169,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "tramp-prepare" "fff-prepare" "fap-prepare"
        "emms-prepare"
        "iplayer-prepare"
+"auto-correct-setup"
+"color-theme-prepare"
        "local"
        "emacspeak-dbus"))
 
@@ -188,6 +190,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (initialize-completions)
      (shell-command "aplay ~/cues/highbells.au")
      (tooltip-mode -1)
+     (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
      (message "Successfully initialized Emacs")))
 (start-up-my-emacs)
 (when (file-exists-p custom-file) (load-file custom-file))

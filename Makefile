@@ -167,6 +167,7 @@ servers/mac \
 servers/outloud  servers/ssh-outloud servers/32-outloud \
 servers/tts-lib.tcl \
 servers/cloud* servers/log* servers/speech-server
+PHANTOM=phantom/*.js
 ELISP = lisp/*.el lisp/g-client \
 lisp/Makefile
 TEMPLATES = etc/emacspeak.sh.def etc/Makefile
@@ -178,9 +179,9 @@ etc/emacspeak.xpm etc/emacspeak.jpg
 
 INFO = info/Makefile info/*.texi info/add-css.pl
 XSL=xsl 
-DISTFILES =${ELISP}  ${TEMPLATES}     $(TCL_PROGRAMS) ${XSL} \
+DISTFILES =${ELISP}  ${TEMPLATES}     ${TCL_PROGRAMS} ${XSL} \
 ${OUTLOUD} ${DTKTTS} ${ESPEAK} \
-${STUMPWM} ${INFO}  ${NEWS} ${MISC} Makefile
+${PHANTOM} ${STUMPWM} ${INFO}  ${NEWS} ${MISC} Makefile
 
 # }}}
 # {{{  User level targets emacspeak info 
@@ -252,6 +253,8 @@ install:
 	$(INSTALL) -m 0644  lisp/g-client/*.xsl    $(libdir)/lisp/g-client
 	$(INSTALL) -m 0644  xsl/*.xsl    $(libdir)/xsl
 	$(INSTALL) -d $(libdir)/sounds
+	$(INSTALL) -d $(libdir)/phantom
+	$(CP) -r $(PHANTOM) $(libdir)/phantom
 	$(INSTALL) -d $(libdir)/servers
 	$(INSTALL) -d $(libdir)/servers/linux-outloud
 	$(INSTALL)  -m 755 ${OUTLOUD}  $(libdir)/servers/linux-outloud

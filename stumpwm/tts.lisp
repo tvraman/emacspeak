@@ -73,7 +73,10 @@
   "Open a TTS session."
   (setq *tts-process*
         (sb-ext:run-program
-         *tts-engine* nil :wait nil  :input :stream)))
+         *tts-engine* nil :wait nil  :input :stream))
+  (let ((i (sb-ext:process-input *tts-process*)))
+    (write-line (format nil "tts_set_punctuations all") i)
+    (force-output i)))
 
 (defun tts-close ()
   "Close a TTS session."

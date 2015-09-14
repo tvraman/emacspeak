@@ -991,15 +991,11 @@ Produce an auditory icon if possible."
 
 (add-hook 'shell-mode-hook 'emacspeak-pronounce-refresh-pronunciations)
 
-(loop
- for f in
- '( shell-dirstack-message)
- do
- (eval
-  `(defadvice ,f (around emacspeak pre act comp)
+
+(defadvice shell-dirstack-message (around emacspeak pre act comp)
      "Silence messages"
      (ems-with-messages-silenced
-      ad-do-it))))
+      ad-do-it))
 
 (add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)
 
@@ -1295,6 +1291,12 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
     (shell-dirtrack-mode 0)))
 (when (file-exists-p "/proc")
   (add-hook 'shell-mode-hook 'dirtrack-procfs-mode))
+
+;;; Silence Bash completions chatter:
+(defadvice bash-completion-dynamic-complete-0 (around emacspeak pre act comp)
+  "Silence chatter."
+  (ems-with-messages-silenced ad-do-it))
+
 ;;}}}
 ;;{{{ Advice centering and filling commands:
 
@@ -1656,8 +1658,10 @@ Indicate change of selection with an auditory icon
 
 (loop
  for f in
- '(describe-function describe-variable
-                     describe-package describe-key)
+ '(
+   describe-function describe-variable
+   describe-face describe-font
+   describe-package describe-key)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
