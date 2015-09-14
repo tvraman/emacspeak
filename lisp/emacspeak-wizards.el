@@ -3136,7 +3136,18 @@ Symbols are taken from `emacspeak-wizards-personal-portfolio'."
            (foreground-color-at-point) (background-color-at-point)))
 
 ;;}}}
+;;{{{ Utility: Read from a pipe helper:
 
+;;; For use from etc/emacs-pipe.pl
+;;; Above can be used as a printer command in XTerm
+;;;###autoload
+(defun emacspeak-wizards-pipe ()
+  "convenience function"
+  (pop-to-buffer (get-buffer-create " *piped*"))
+  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-speak-mode-line))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
