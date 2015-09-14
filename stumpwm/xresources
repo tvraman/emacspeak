@@ -17,9 +17,11 @@ Ctrl <Key>apostrophe: string(0x18) string("@s") \n\
 XTerm*eightBitInput:	true
 XTerm*faceName:	xft:Inconsolata:pixelsize=14
 XTerm*metaSendsEscape:	true
+XTerm.*.printerCommand:     sh -c '\rm /tmp/xterm-dump; cat  > /tmp/xterm-dump ; emacsclient /tmp/xterm-dump'
+XTerm.*.printAttributes: 0
 Xft*antialias:	true
 Xft*dpi:	96
 Xft*hinting:	true
 Xft*hintstyle:	hintfull
 Xft*rgba:	rgb
-XTerm.*.printerCommand:     sh -c '\rm /tmp/xterm-dump; cat  > /tmp/xterm-dump ; emacsclient /tmp/xterm-dump'
+
