@@ -11,7 +11,9 @@ XTerm*VT100.translations:	#override \n\
  Ctrl <Key>comma: string(0x18) string("@a") \n\
  Ctrl <Key>period: string(0x18) string("@s") \n\
 Ctrl <Key>apostrophe: string(0x18) string("@s") \n\
- Shift <Key>Return: string(0x18) string("@s") string(0x0d)
+ Shift <Key>Return: string(0x18) string("@s") string(0x0d)\n\
+ Ctrl <Key>Return: print-everything() 
+
 XTerm*eightBitInput:	true
 XTerm*faceName:	xft:Inconsolata:pixelsize=14
 XTerm*metaSendsEscape:	true
@@ -20,8 +22,4 @@ Xft*dpi:	96
 Xft*hinting:	true
 Xft*hintstyle:	hintfull
 Xft*rgba:	rgb
-
-XTerm.*.translations: #override \n\  
-    Ctrl <Key>Return: print-everything() 
-
-XTerm.*.printerCommand: sh -c 'cat  > /tmp/out <&3' 3<&0  
+XTerm.*.printerCommand:     sh -c '\rm /tmp/xterm-dump; cat  > /tmp/xterm-dump ; emacsclient /tmp/xterm-dump'
