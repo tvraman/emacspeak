@@ -60,5 +60,5 @@ while (1)
     $data =~ s/\\/\\\\/g;
     $data =~ s/"/\\"/g;
     $data =~ s/'/'\\''/g;
-    system(qq{$emacsclient -n --eval '(with-current-buffer "*piped*" (goto-char (point-max)) (insert "} . $data . qq{"))'});
+    system(qq{$emacsclient -n --eval '(with-current-buffer " *piped*" (goto-char (point-max)) (insert "} . $data . qq{"))'});
 }
