@@ -17,7 +17,7 @@ Ctrl <Key>apostrophe: string(0x18) string("@s") \n\
 XTerm*eightBitInput:	true
 XTerm*faceName:	xft:Inconsolata:pixelsize=14
 XTerm*metaSendsEscape:	true
-XTerm.*.printerCommand:     sh -c '\rm /tmp/xterm-dump; cat  > /tmp/xterm-dump ; emacsclient /tmp/xterm-dump'
+XTerm.*.printerCommand:     /usr/local/google/home/raman/emacs/lisp/emacspeak/etc/emacs-pipe.pl
 XTerm.*.printAttributes: 0
 Xft*antialias:	true
 Xft*dpi:	96
