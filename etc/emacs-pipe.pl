@@ -1,4 +1,4 @@
-#!/usr/bin/env perl
+#!/usr/bin/perl -t
 # Cloned from https://gist.github.com/1143204.git
 # You can use this script in a pipe. It's input will become an emacs buffer
 # via emacsclient (so you need server-start etc.)
