@@ -4,6 +4,9 @@ Emacs.menuBar:	off
 Emacs.toolBar:	off
 Emacs.verticalScrollBars:	off
 
+XTerm*ScrollBar: false
+XTerm*SaveLines: 8192
+XTerm*selectToClipboard: true
 XTerm*Background:	black
 XTerm*Foreground:	white
 XTerm*VT100.translations:	#override \n\
