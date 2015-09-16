@@ -52,13 +52,16 @@ while (1)
 
     # keep reading while data is available, or we have a bunch of lines
     my $lines = 0;
+    my $lisp_prefix = qq{$emacsclient -n --eval '(with-current-buffer " *piped*" (goto-char (point-max)) (insert "};
+my $lisp_suffix = qq{"))'};
     $data .= <STDIN>
         while $lines++ < 100 && $s->can_read(.5);
 
-    # need to escape backslashes first, otherwise we end up escaping the backslashes
+    # need to escape backslashes first, 
+# otherwise we end up escaping the backslashes
     # we're using to escape the quotes...
     $data =~ s/\\/\\\\/g;
     $data =~ s/"/\\"/g;
     $data =~ s/'/'\\''/g;
-    system(qq{$emacsclient -n --eval '(with-current-buffer " *piped*" (goto-char (point-max)) (insert "} . $data . qq{"))'});
+    system($lisp_prefix . $data . $lisp_suffix);
 }
