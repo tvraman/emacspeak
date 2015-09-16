@@ -4,9 +4,6 @@ Emacs.menuBar:	off
 Emacs.toolBar:	off
 Emacs.verticalScrollBars:	off
 
-XTerm*ScrollBar: false
-XTerm*SaveLines: 8192
-XTerm*selectToClipboard: true
 XTerm*Background:	black
 XTerm*Foreground:	white
 XTerm*VT100.translations:	#override \n\
@@ -15,7 +12,8 @@ XTerm*VT100.translations:	#override \n\
  Ctrl <Key>period: string(0x18) string("@s") \n\
 Ctrl <Key>apostrophe: string(0x18) string("@s") \n\
  Shift <Key>Return: string(0x18) string("@s") string(0x0d)\n\
- Ctrl <Key>Return: print-everything() 
+ Ctrl <Key>Return: print-everything()\n\
+ Shift <Key>space:    insert-selection(CLIPBOARD) 
 
 XTerm*eightBitInput:	true
 XTerm*faceName:	xft:Inconsolata:pixelsize=14
