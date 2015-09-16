@@ -29,7 +29,7 @@ use strict;
 use warnings;
 
 use IO::Select;
-
+$ENV{PATH}="";
 my $emacsclient = "/usr/local/bin/emacsclient";
 
 # This script uses emacsclient, be sure to have a running server session.
