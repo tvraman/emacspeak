@@ -15,7 +15,7 @@ XTerm*VT100.translations:	#override \n\
  Ctrl <Key>Return: print-everything()\n\
  Ctrl Shift <Key>space:    insert-selection(CLIPBOARD) 
 
-XTerm*eightBitInput:	true
+XTerm*eightBitInput:	false
 XTerm*faceName:	xft:Inconsolata:pixelsize=14
 XTerm*metaSendsEscape:	true
 
