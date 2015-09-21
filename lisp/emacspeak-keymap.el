@@ -328,6 +328,7 @@
  for binding in
  '(
    ("f" emacspeak-table-find-file)
+   ("," emacspeak-table-find-csv-file)
    )
  do
  (emacspeak-keymap-update emacspeak-table-submap binding))
