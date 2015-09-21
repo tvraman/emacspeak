@@ -1,6 +1,6 @@
 * Executive Summary
 
-This is a follow-up to [[http://tvraman.github.io/emacspeak/blog/stumpwm-setup.html][the article on my Window Manager ]]
+This is a follow-up to [[./stumpwm-setup.html][the article on my Window Manager  set-up]]
 and details the setup of my X environment. This setup is specifically geared around the following use-cases:
 
   1. Emacspeak running in a window to provide a local audio desktop.
@@ -9,21 +9,21 @@ and details the setup of my X environment. This setup is specifically geared aro
 
 The setup described below is implemented via my personal =.XResources=
 file --- that file along with my =.xsession= file that loads it are
-both checked into the GitHub repo under =emacspeak/stumpwm=.
+both checked into the GitHub repo under =emacspeak/stumpwm= along with any needed helper files.
 
 The remaining sections give a brief descriptive overview of the
 =.XResources= and =.xsession= files as they exist  at the time of
 writing.
 
 
-** Resulting Functionality: What This Gives  Us
+* Resulting Functionality: What This Gives  Us
 
   1. You can cut-and-paste between the local Chrome and local Emacspeak using standard clipboard copy/paste commands. Make sure Emacs is set up to use the clipboard, and not the primary X selection.
   2. Output displayed in the Xterm, e.g., by the remote Emacspeak session, can be brought into the local Emacspeak session by hitting =PrintEverything= bound to =Ctrl-Return= in the XTerm window.
   3. Contents of  the local clipboard, i.e. Chrome, Emacspeak etc., can be pasted into the remote Emacspeak  running in the XTerm using key =Ctrl-Shift-Space=.
 
 
-** Initializing X Session Via File =.xsession=
+* Initializing X Session Via File =.xsession=
 
 : #!/bin/sh
 : #Caps Lock is Control
@@ -43,7 +43,7 @@ writing.
 : # Launch StumpWM
 : exec  /usr/local/bin/stumpwm
 
-** Customizing X Environment Via File =.XResources=
+* Customizing X Environment Via File =.XResources=
 
 
 : ! Setup Emacs Visual Look And Feel

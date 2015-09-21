@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-09-21 Mon 09:10 -->
+<!-- 2015-09-21 Mon 09:14 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Setting Up An X Environment For Using With Emacspeak, ChromeVox and StumpWM</title>
@@ -144,11 +144,11 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">Setting Up An X Environment For Using With Emacspeak, ChromeVox and StumpWM</h1>
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">1</span> Executive Summary</h2>
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1"><span class="section-number-2">1</span> Executive Summary</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-This is a follow-up to <a href="http://tvraman.github.io/emacspeak/blog/stumpwm-setup.html">the article on my Window Manager </a>
+This is a follow-up to <a href="./stumpwm-setup.html">the article on my Window Manager  set-up</a>
 and details the setup of my X environment. This setup is specifically geared around the following use-cases:
 </p>
 
@@ -161,7 +161,7 @@ and details the setup of my X environment. This setup is specifically geared aro
 <p>
 The setup described below is implemented via my personal <code>.XResources</code>
 file &#x2014; that file along with my <code>.xsession</code> file that loads it are
-both checked into the GitHub repo under <code>emacspeak/stumpwm</code>.
+both checked into the GitHub repo under <code>emacspeak/stumpwm</code> along with any needed helper files.
 </p>
 
 <p>
@@ -170,11 +170,12 @@ The remaining sections give a brief descriptive overview of the
 writing.
 </p>
 </div>
+</div>
 
 
-<div id="outline-container-orgheadline1" class="outline-3">
-<h3 id="orgheadline1"><span class="section-number-3">1.1</span> Resulting Functionality: What This Gives  Us</h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2"><span class="section-number-2">2</span> Resulting Functionality: What This Gives  Us</h2>
+<div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li>You can cut-and-paste between the local Chrome and local Emacspeak using standard clipboard copy/paste commands. Make sure Emacs is set up to use the clipboard, and not the primary X selection.</li>
 <li>Output displayed in the Xterm, e.g., by the remote Emacspeak session, can be brought into the local Emacspeak session by hitting <code>PrintEverything</code> bound to <code>Ctrl-Return</code> in the XTerm window.</li>
@@ -184,9 +185,9 @@ writing.
 </div>
 
 
-<div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">1.2</span> Initializing X Session Via File <code>.xsession</code></h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3"><span class="section-number-2">3</span> Initializing X Session Via File <code>.xsession</code></h2>
+<div class="outline-text-2" id="text-3">
 <pre class="example">
 #!/bin/sh
 #Caps Lock is Control
@@ -209,9 +210,9 @@ exec  /usr/local/bin/stumpwm
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">1.3</span> Customizing X Environment Via File <code>.XResources</code></h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4"><span class="section-number-2">4</span> Customizing X Environment Via File <code>.XResources</code></h2>
+<div class="outline-text-2" id="text-4">
 <pre class="example">
 ! Setup Emacs Visual Look And Feel
 Emacs*font:     -adobe-Utopia-normal-normal-normal-*-*-*-*-*-*-0-iso10646-1
@@ -267,11 +268,10 @@ Xft*rgba:       rgb
 </div>
 </div>
 </div>
-</div>
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-09-21 Mon&gt;</span></span></p>
 <p class="author">Author: raman</p>
-<p class="date">Created: 2015-09-21 Mon 09:10</p>
+<p class="date">Created: 2015-09-21 Mon 09:14</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
