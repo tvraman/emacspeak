@@ -53,9 +53,6 @@
 (require 'emacspeak-preamble)
 (eval-when-compile (require 'company "company" 'no-error))
 ;;}}}
-;;{{{ Customizations:
-
-;;}}}
 ;;{{{ Helpers:
 (defsubst ems-company-current ()
   "Helper: Return current selection in company."
