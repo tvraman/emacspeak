@@ -91,18 +91,18 @@
 ;;; Get search completions from Google
 ;;; Service Names: (corpus)
 ;; youtube : 'youtube',
-;; 			books : 'books',
-;; 			products : 'products-cc',
-;; 			news : 'news-cc',
-;; 			img : 'img',
-;; 			web : 'psy'
+;;                      books : 'books',
+;;                      products : 'products-cc',
+;;                      news : 'news-cc',
+;;                      img : 'img',
+;;                      web : 'psy'
 ;; youtube: 'youtube
- 
+
 (defvar gweb-suggest-url
   "http://clients1.google.com/complete/search?json=t&nohtml=t&nolabels=t&client=%s&q=%s"
   "URL  that gets suggestions from Google as JSON.")
 ;;; corpus is ds=n for News
-;;; ds=r for recipes 
+;;; ds=r for recipes
 
 (defsubst gweb-suggest (input &optional corpus)
   "Get completion list from Google Suggest."
@@ -131,27 +131,26 @@
 (defvar gweb-google-suggest-metadata
   '(metadata .
              (
-              ; Google suggest returns suggestions already sorted 
+                                        ; Google suggest returns suggestions already sorted
               (display-sort-function . identity)
-              ; add annots function here
+                                        ; add annots function here
               ))
   "Metadata returned by google-suggest completer.")
 
 (defun gweb-suggest-completer (string predicate action)
   "Generate completions using Google Suggest. "
-  (save-current-buffer 
-    (set-buffer 
-     (let ((window (minibuffer-selected-window))) 
-       (if (window-live-p window) 
-           (window-buffer window) 
+  (save-current-buffer
+    (set-buffer
+     (let ((window (minibuffer-selected-window)))
+       (if (window-live-p window)
+           (window-buffer window)
          (current-buffer))))
     (cond
      ((eq action 'metadata) gweb-google-suggest-metadata)
      (t
-      (complete-with-action action 
+      (complete-with-action action
                             (gweb-suggest string)
                             string predicate)))))
-
 
 ;;{{{  Generate suggest handlers for Google properties
 (loop for c in
@@ -159,35 +158,30 @@
       do
       (eval
        `(defun
-          , (intern
-             (format  "gweb-%s-suggest-completer" c))
-          (string predicate action)
+            , (intern
+               (format  "gweb-%s-suggest-completer" c))
+            (string predicate action)
           ,(format
             "Generate completions using Google %s Suggest. " c)
-          (save-current-buffer 
-            (set-buffer 
-             (let ((window (minibuffer-selected-window))) 
-               (if (window-live-p window) 
-                   (window-buffer window) 
+          (save-current-buffer
+            (set-buffer
+             (let ((window (minibuffer-selected-window)))
+               (if (window-live-p window)
+                   (window-buffer window)
                  (current-buffer))))
             (cond
              ((eq action 'metadata) gweb-google-suggest-metadata)
              (t
-              (complete-with-action action 
+              (complete-with-action action
                                     (gweb-suggest string ,c)
                                     string predicate)))))))
 
 ;;}}}
 
-
-
-
-
 (defvar gweb-history nil
   "History of Google Search queries.")
 
 (put 'gweb-history 'history-length 100)
-
 
 ;;; Emacs 23 and beyond:
 ;;; i.e. if complete-with-action is defined
@@ -207,7 +201,6 @@
            'gweb-history))
     (pushnew  query gweb-history)
     (g-url-encode query)))
-
 
 ;;;###autoload
 
@@ -247,7 +240,7 @@ Uses specified corpus for prompting and suggest selection."
            word 'gweb-history))
     (pushnew  query gweb-history)
     (g-url-encode query)))
-  
+
 ;;}}}
 ;;{{{ Search Helpers
 
@@ -287,7 +280,7 @@ Uses specified corpus for prompting and suggest selection."
     (when results
       (concat
        (format "<html><title>News Results For %s</title><ol>" query)
-       (mapconcat 
+       (mapconcat
         #'(lambda (a)
             (format "<li><a href='%s'>%s</a>\n%s
 <a href='%s'>Related Stories</a></li>"
@@ -305,14 +298,14 @@ Uses specified corpus for prompting and suggest selection."
   (let ((html (gweb-news-html query)))
     (cond
      ((null html) (message "No news found."))
-     (t 
+     (t
       (g-using-scratch
        (insert html)
        (browse-url-of-buffer))))))
 ;;}}}
 ;;{{{ Interactive Commands:
 
-;;; Need to be smarter about guessing default term 
+;;; Need to be smarter about guessing default term
 ;;; thing-at-point can return an empty string,
 ;;; and this is not a good thing for Google Suggest which will error out.
 (defvar gweb-search-results-handler nil
@@ -334,7 +327,7 @@ Optional interactive prefix arg refresh forces this cached URL to be refreshed."
    ((and (not refresh)
          (get-text-property (point) 'lucky-url))
     (browse-url (get-text-property (point) 'lucky-url)))
-   (t 
+   (t
     (let* ((results (gweb-web-results  search-term))
            (lucky (aref results 0))
            (inhibit-read-only t)
@@ -346,7 +339,7 @@ Optional interactive prefix arg refresh forces this cached URL to be refreshed."
                      (format
                       "echo '%s' | lynx -dump -stdin 2>/dev/null"
                       (g-json-get 'content lucky)))))
-      (when bounds 
+      (when bounds
         (add-text-properties   (car bounds) (cdr bounds)
                                (list 'lucky-url url
                                      'face 'highlight)))
