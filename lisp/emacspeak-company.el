@@ -105,10 +105,7 @@
 (defun emacspeak-company-setup ()
   "Set front-end to our sole front-end action."
   (declare (special company-frontends))
-  (setq company-frontends
-        '(
-          company-pseudo-tooltip-unless-just-one-frontend
-          company-preview-if-just-one-frontend emacspeak-company-frontend))
+  (setq company-frontends '(emacspeak-company-frontend))
   (add-hook
    'company-completion-started-hook
    #'(lambda (&rest ignore) (emacspeak-auditory-icon 'help)))
