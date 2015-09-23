@@ -83,9 +83,9 @@ use `emacspeak-toggle-auditory-icons' bound to
 ;;}}}
 ;;{{{ Setup Audio 
 ;;;###autoload
-(defun emacspeak-audio-setup ()
+(defun emacspeak-audio-setup (&optional prefix)
   "Call appropriate audio environment set command."
-  (interactive)
+  (interactive "P")
   (cond
    ((executable-find "amixer")
     (call-interactively 'amixer))
