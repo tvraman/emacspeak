@@ -73,7 +73,7 @@
    (define-key keymap (kbd (first binding)) (second binding)))) 
 
 (define-widget 'ems-interactive-command 'restricted-sexp
-  "An interactive command  or keymap that can be bound to a key.."
+  "An interactive command  or keymap that can be bound to a key."
   :completions
   (apply-partially #'completion-table-with-predicate
                    obarray 'emacspeak-keymap-command-p 'strict)
@@ -91,8 +91,6 @@
                 widget))
   :value 'ignore
   :tag "Interactive Command")
-
-;;;###autoload
 
 ;;}}}
 ;;{{{  variables:
