@@ -97,6 +97,7 @@
 
 (defvar emacspeak-prefix (kbd "C-e")
   "Default prefix key used for emacspeak. ")
+
 ;;;###autoload
 (defvar emacspeak-keymap nil
   "Primary keymap used by emacspeak. ")
@@ -111,18 +112,14 @@
 ;;{{{   Binding keymap and submap
 
 (define-prefix-command 'emacspeak-prefix-command 'emacspeak-keymap )
-
-(define-prefix-command  'emacspeak-dtk-submap-command
-  'emacspeak-dtk-submap )
-(define-prefix-command  'emacspeak-table-submap-command
-  'emacspeak-table-submap )
+(define-prefix-command  'emacspeak-dtk-submap-command 'emacspeak-dtk-submap )
+(define-prefix-command  'emacspeak-table-submap-command 'emacspeak-table-submap )
 
 (global-set-key emacspeak-prefix 'emacspeak-prefix-command)
-
 (define-key emacspeak-keymap "d"  'emacspeak-dtk-submap-command)
 (define-key emacspeak-keymap (kbd "C-t")  'emacspeak-table-submap-command)
 
-;;; fix what we just broke:-
+;;; fix what we just broke:-)
 (define-key emacspeak-keymap "e" 'end-of-line)
 (define-key emacspeak-keymap (kbd "C-e") 'end-of-line)
 
