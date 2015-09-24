@@ -117,7 +117,7 @@ given name, it is updated with path and position."
       (setq buffer-undo-list t)
       (erase-buffer)
       (prin1  l (current-buffer)) 
-      (save-buffer buff)
+      (save-buffer)
       (kill-buffer buff)
       (message "Saved AMarks in %s" emacspeak-amark-file)
       (emacspeak-auditory-icon 'save-object))))
