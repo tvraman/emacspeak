@@ -633,12 +633,14 @@ interactive command that the key sequence executes."
       (insert-file filename)
       (goto-char (point-min))
       (while (not (eobp))
-        (push
-         (split-string
-          (buffer-substring-no-properties
-           (line-beginning-position) (line-end-position))
-          " " 'omit-nulls)
-         bindings)
+        (let ((fields
+               (split-string
+                (buffer-substring-no-properties
+                 (line-beginning-position) (line-end-position))
+          " " 'omit-nulls)))
+          (push
+         (list (first fields) (intern (second fields)))
+         bindings))
         (forward-line 1)))
     (set variable  (nreverse bindings))))
 
