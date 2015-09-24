@@ -1,0 +1,9 @@
+. auto-correct-update
+b emacspeak-bbc
+e elfeed
+f emacspeak-feeds-lookup-and-view
+h emacspeak-webspace-headlines-browse
+n gweb-news-view
+p proced
+r emacspeak-webspace-feed-reader
+w wget
