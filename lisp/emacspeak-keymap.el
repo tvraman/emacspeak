@@ -425,7 +425,7 @@ interactive command that the key sequence executes."
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Personal Keymap"
-          (cons
+          (list
            :tag "Key Binding"
            (key-sequence :tag "Key")
            (ems-interactive-command :tag "Command")))
@@ -464,7 +464,7 @@ interactive command that the key sequence executes."
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Personal-Ctlx Keymap"
-          (cons
+          (list
            :tag "Key Binding"
            (key-sequence :tag "Key")
            (ems-interactive-command :tag "Command")))
@@ -507,7 +507,7 @@ interactive command that the key sequence executes."
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Super Keymap"
-          (cons
+          (list
            :tag "Key Binding"
            (key-sequence :tag "Key")
            (ems-interactive-command :tag "Command")))
@@ -555,7 +555,7 @@ interactive command that the key sequence executes."
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Alt Keymap"
-          (cons
+          (list
            :tag "Key Binding"
            (key-sequence :tag "Key")
            (ems-interactive-command :tag "Command")))
@@ -602,7 +602,7 @@ interactive command that the key sequence executes."
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Hyper Keys"
-          (cons
+          (list
            :tag "Key Binding"
            (key-sequence :tag "Key")
            (ems-interactive-command :tag "Command")))
