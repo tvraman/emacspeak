@@ -355,6 +355,7 @@
 ;;; I use the Windows key.
 (global-set-key '[silence] 'emacspeak-silence)
 (global-set-key '[search] 'emacspeak-search)
+
 ;;}}}
 ;;{{{ Interactively switching the emacspeak-prefix
 ;;;###autoload
@@ -378,6 +379,7 @@ relief."
 
 ;;}}}
 ;;{{{  removing emacspeak-self-insert-command in non-edit modes.
+
 ;;;###autoload
 (defun emacspeak-keymap-remove-emacspeak-edit-commands
     (keymap)
@@ -433,7 +435,7 @@ interactive command that the key sequence executes."
                          #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
 (define-key  emacspeak-keymap "x" 'emacspeak-personal-keymap)
-(define-key  emacspeak-keymap "\C-x" 'emacspeak-personal-ctlx-keymap)
+
 ;;}}}
 ;;{{{ Create personal ctl-x map 
 
@@ -470,6 +472,8 @@ interactive command that the key sequence executes."
                         (sort
                          val
                          #'(lambda (a b) (string-lessp (car a) (car b)))))))
+
+(define-key  emacspeak-keymap "\C-x" 'emacspeak-personal-ctlx-keymap)
 
 ;;}}}
 ;;{{{ Create a super keymap that users can put personal commands
