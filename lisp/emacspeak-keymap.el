@@ -342,7 +342,8 @@
 (global-set-key  [27 prior]  'emacspeak-owindow-scroll-down)
 (global-set-key  [27 next]  'emacspeak-owindow-scroll-up)
 (global-set-key  [27 select]  'emacspeak-owindow-speak-line)
-(define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
+:(define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
+
 ;;}}}
 ;;{{{ emacspeak under X windows
 
