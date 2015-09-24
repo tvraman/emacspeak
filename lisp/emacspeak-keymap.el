@@ -617,8 +617,48 @@ interactive command that the key sequence executes."
                 'emacspeak-hyper-keymap)
 (define-key emacspeak-hyper-keymap " " 'emacspeak-webspace)
 ;;}}}
-(provide 'emacspeak-keymap)
+;;{{{ Keymaps <-> Org (text) Files :
 
+
+;;; This makes it easy to consolidate personal bindings across machines.
+;;; It also protects against custom losing settings due to Custom accidents.
+;;;
+
+(defun emacspeak-keymap-bindings-from-org (variable filename)
+  "Load bindings from a specified file."
+  (interactive "vVariable: \nfFilename: ")
+  (let ((bindings nil))
+    (with-temp-buffer
+      "org-to-map"
+      (insert-file filename)
+      (goto-char (point-min))
+      (while (not (eobp))
+        (push
+         (split-string
+          (buffer-substring-no-properties
+           (line-beginning-position) (line-end-position))
+          " " 'omit-nulls)
+         bindings)
+        (forward-line 1)))
+    (set variable  (nreverse bindings))))
+
+(defun emacspeak-keymap-bindings-to-org (variable filename)
+  "Persists mapping to org file."
+  (interactive "vVariable: \nfFilename: ")
+  (let ((buffer (find-file-noselect  filename)))
+    (with-current-buffer
+      buffer
+      (goto-char (point-max))
+      (loop
+       for binding  in (symbol-value variable) do
+       (insert (format "%s %s\n" (first binding) (second binding ))))
+      (save-buffer buffer))
+    (switch-to-buffer buffer)
+    (emacspeak-speak-mode-line)))
+      
+                 
+;;}}}
+(provide 'emacspeak-keymap)
 ;;{{{  emacs local variables
 
 ;;; local variables:
