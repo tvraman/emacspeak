@@ -61,7 +61,7 @@ Cue update."
   (emacspeak-auditory-icon 'select-object))
 
 
-(add-hook 'helm-after-update-hook  #'emacspeak-helm-cue-update)
+(add-hook 'helm-update-hook  #'emacspeak-helm-cue-update)
 (add-hook   'helm-select-action-hook #'emacspeak-helm-cue-update)
 (add-hook 'helm-move-selection-after-hook #'emacspeak-helm-cue-update)
 (add-hook 'helm-after-action-hook #'emacspeak-speak-mode-line)

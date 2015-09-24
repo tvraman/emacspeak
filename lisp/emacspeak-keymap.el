@@ -73,7 +73,7 @@
    (define-key keymap (kbd (car binding)) (cdr binding))))
 
 (define-widget 'ems-interactive-command 'restricted-sexp
-  "An interactive command."
+  "An interactive command  or keymap that can be bound to a key.."
   :completions
   (apply-partially #'completion-table-with-predicate
                    obarray 'emacspeak-keymap-command-p 'strict)
