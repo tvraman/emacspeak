@@ -70,7 +70,7 @@
   (loop
    for binding in bindings
    do
-   (define-key keymap (kbd (car binding)) (cdr binding))))
+   (define-key keymap (kbd (first binding)) (second binding)))) 
 
 (define-widget 'ems-interactive-command 'restricted-sexp
   "An interactive command  or keymap that can be bound to a key.."
