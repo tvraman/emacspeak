@@ -637,12 +637,14 @@ interactive command that the key sequence executes."
                (split-string
                 (buffer-substring-no-properties
                  (line-beginning-position) (line-end-position))
-          " " 'omit-nulls)))
+                " " 'omit-nulls)))
           (push
-         (list (first fields) (intern (second fields)))
-         bindings))
+           (list (first fields) (intern (second fields)))
+           bindings))
         (forward-line 1)))
-    (set variable  (nreverse bindings))))
+    (setq bindings (nreverse (copy-sequence bindings)))
+    (set variable  bindings )
+    (customize-save-variable variable bindings  )))
 
 (defun emacspeak-keymap-bindings-to-org (variable filename)
   "Persists mapping to org file."

@@ -7,7 +7,6 @@ h emacspeak-wizards-how-many-matches
 j emacspeak-jabber-popup-roster
 m mspools-show
 o emacspeak-wizards-occur-header-lines
-Q emacspeak-wizards-yql-lookup
 q emacspeak-wizards-yql-quotes
 r jabber-activity-switch-to
 s emacspeak-emergency-tts-restart
