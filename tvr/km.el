@@ -16,3 +16,4 @@
 (setq emacspeak-super-keys (emacspeak-wizards-migrate-keymap emacspeak-super-keys))
 (setq emacspeak-personal-keys (emacspeak-wizards-migrate-keymap emacspeak-personal-keys))
 (setq emacspeak-personal-ctlx-keys (emacspeak-wizards-migrate-keymap emacspeak-personal-ctlx-keys))
+(setq emacspeak-media-location-bindings (emacspeak-wizards-migrate-keymap emacspeak-media-location-bindings))
