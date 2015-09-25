@@ -10,8 +10,8 @@
     (loop for p in k do
           (push (list (car p) (cdr p)) l))
 (setq km (copy-sequence l))))
-
-
+(setq emacspeak-alt-keys (emacspeak-wizards-migrate-keymap emacspeak-alt-keys))
+(setq emacspeak-hyper-keys (emacspeak-wizards-migrate-keymap emacspeak-hyper-keys))
 (setq emacspeak-alt-keys (emacspeak-wizards-migrate-keymap emacspeak-alt-keys))
 (setq emacspeak-super-keys (emacspeak-wizards-migrate-keymap emacspeak-super-keys))
 (setq emacspeak-personal-keys (emacspeak-wizards-migrate-keymap emacspeak-personal-keys))
