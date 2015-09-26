@@ -1,0 +1,14 @@
+a emacspeak-feeds-atom-display
+c emacspeak-wizards-color-at-point
+d magit-dispatch-popup
+e eww
+f emacspeak-feeds-find-feeds
+l eww-open-file
+m magit-status
+n emacspeak-wizards-cycle-to-next-buffer
+o emacspeak-feeds-opml-display
+p emacspeak-wizards-cycle-to-previous-buffer
+r emacspeak-feeds-rss-display
+s emacspeak-wizards-tune-in-radio-search
+t emacspeak-wizards-tune-in-radio-browse
+u emacspeak-m-player-url

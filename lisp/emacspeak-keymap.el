@@ -70,10 +70,10 @@
   (loop
    for binding in bindings
    do
-   (define-key keymap (kbd (car binding)) (cdr binding))))
+   (define-key keymap (kbd (first binding)) (second binding)))) 
 
 (define-widget 'ems-interactive-command 'restricted-sexp
-  "An interactive command."
+  "An interactive command  or keymap that can be bound to a key."
   :completions
   (apply-partially #'completion-table-with-predicate
                    obarray 'emacspeak-keymap-command-p 'strict)
@@ -92,13 +92,12 @@
   :value 'ignore
   :tag "Interactive Command")
 
-;;;###autoload
-
 ;;}}}
 ;;{{{  variables:
 
 (defvar emacspeak-prefix (kbd "C-e")
   "Default prefix key used for emacspeak. ")
+
 ;;;###autoload
 (defvar emacspeak-keymap nil
   "Primary keymap used by emacspeak. ")
@@ -113,18 +112,14 @@
 ;;{{{   Binding keymap and submap
 
 (define-prefix-command 'emacspeak-prefix-command 'emacspeak-keymap )
-
-(define-prefix-command  'emacspeak-dtk-submap-command
-  'emacspeak-dtk-submap )
-(define-prefix-command  'emacspeak-table-submap-command
-  'emacspeak-table-submap )
+(define-prefix-command  'emacspeak-dtk-submap-command 'emacspeak-dtk-submap )
+(define-prefix-command  'emacspeak-table-submap-command 'emacspeak-table-submap )
 
 (global-set-key emacspeak-prefix 'emacspeak-prefix-command)
-
 (define-key emacspeak-keymap "d"  'emacspeak-dtk-submap-command)
 (define-key emacspeak-keymap (kbd "C-t")  'emacspeak-table-submap-command)
 
-;;; fix what we just broke:-
+;;; fix what we just broke:-)
 (define-key emacspeak-keymap "e" 'end-of-line)
 (define-key emacspeak-keymap (kbd "C-e") 'end-of-line)
 
@@ -328,6 +323,7 @@
  for binding in
  '(
    ("f" emacspeak-table-find-file)
+   ("," emacspeak-table-find-csv-file)
    )
  do
  (emacspeak-keymap-update emacspeak-table-submap binding))
@@ -346,7 +342,8 @@
 (global-set-key  [27 prior]  'emacspeak-owindow-scroll-down)
 (global-set-key  [27 next]  'emacspeak-owindow-scroll-up)
 (global-set-key  [27 select]  'emacspeak-owindow-speak-line)
-(define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
+:(define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
+
 ;;}}}
 ;;{{{ emacspeak under X windows
 
@@ -358,6 +355,7 @@
 ;;; I use the Windows key.
 (global-set-key '[silence] 'emacspeak-silence)
 (global-set-key '[search] 'emacspeak-search)
+
 ;;}}}
 ;;{{{ Interactively switching the emacspeak-prefix
 ;;;###autoload
@@ -381,6 +379,7 @@ relief."
 
 ;;}}}
 ;;{{{  removing emacspeak-self-insert-command in non-edit modes.
+
 ;;;###autoload
 (defun emacspeak-keymap-remove-emacspeak-edit-commands
     (keymap)
@@ -424,7 +423,7 @@ interactive command that the key sequence executes."
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Personal Keymap"
-          (cons
+          (list
            :tag "Key Binding"
            (key-sequence :tag "Key")
            (ems-interactive-command :tag "Command")))
@@ -436,7 +435,7 @@ interactive command that the key sequence executes."
                          #'(lambda (a b) (string-lessp (car a) (car b)))))))
 
 (define-key  emacspeak-keymap "x" 'emacspeak-personal-keymap)
-(define-key  emacspeak-keymap "\C-x" 'emacspeak-personal-ctlx-keymap)
+
 ;;}}}
 ;;{{{ Create personal ctl-x map 
 
@@ -463,7 +462,7 @@ interactive command that the key sequence executes."
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Personal-Ctlx Keymap"
-          (cons
+          (list
            :tag "Key Binding"
            (key-sequence :tag "Key")
            (ems-interactive-command :tag "Command")))
@@ -473,6 +472,8 @@ interactive command that the key sequence executes."
                         (sort
                          val
                          #'(lambda (a b) (string-lessp (car a) (car b)))))))
+
+(define-key  emacspeak-keymap "\C-x" 'emacspeak-personal-ctlx-keymap)
 
 ;;}}}
 ;;{{{ Create a super keymap that users can put personal commands
@@ -506,7 +507,7 @@ interactive command that the key sequence executes."
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Super Keymap"
-          (cons
+          (list
            :tag "Key Binding"
            (key-sequence :tag "Key")
            (ems-interactive-command :tag "Command")))
@@ -554,7 +555,7 @@ interactive command that the key sequence executes."
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Alt Keymap"
-          (cons
+          (list
            :tag "Key Binding"
            (key-sequence :tag "Key")
            (ems-interactive-command :tag "Command")))
@@ -601,7 +602,7 @@ interactive command that the key sequence executes."
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Hyper Keys"
-          (cons
+          (list
            :tag "Key Binding"
            (key-sequence :tag "Key")
            (ems-interactive-command :tag "Command")))
@@ -616,8 +617,52 @@ interactive command that the key sequence executes."
                 'emacspeak-hyper-keymap)
 (define-key emacspeak-hyper-keymap " " 'emacspeak-webspace)
 ;;}}}
-(provide 'emacspeak-keymap)
+;;{{{ Keymaps <-> Org (text) Files :
 
+
+;;; This makes it easy to consolidate personal bindings across machines.
+;;; It also protects against custom losing settings due to Custom accidents.
+;;;
+
+(defun emacspeak-keymap-bindings-from-org (variable filename)
+  "Load bindings from a specified file."
+  (interactive "vVariable: \nfFilename: ")
+  (let ((bindings nil))
+    (with-temp-buffer
+      "org-to-map"
+      (insert-file filename)
+      (goto-char (point-min))
+      (while (not (eobp))
+        (let ((fields
+               (split-string
+                (buffer-substring-no-properties
+                 (line-beginning-position) (line-end-position))
+                " " 'omit-nulls)))
+          (push
+           (list (first fields) (intern (second fields)))
+           bindings))
+        (forward-line 1)))
+    (setq bindings (nreverse (copy-sequence bindings)))
+    (set variable  bindings )
+    (customize-save-variable variable bindings  )))
+
+(defun emacspeak-keymap-bindings-to-org (variable filename)
+  "Persists mapping to org file."
+  (interactive "vVariable: \nfFilename: ")
+  (let ((buffer (find-file-noselect  filename)))
+    (with-current-buffer
+      buffer
+      (goto-char (point-max))
+      (loop
+       for binding  in (symbol-value variable) do
+       (insert (format "%s %s\n" (first binding) (second binding ))))
+      (save-buffer buffer))
+    (switch-to-buffer buffer)
+    (emacspeak-speak-mode-line)))
+      
+                 
+;;}}}
+(provide 'emacspeak-keymap)
 ;;{{{  emacs local variables
 
 ;;; local variables:

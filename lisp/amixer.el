@@ -192,13 +192,31 @@
            values))
         (forward-line 1))
       (nreverse values))))
+(defvar amixer-alsactl-config-file
+  nil
+  "Personal sound card settings.
+Copied from /var/lib/alsa/asound.state to your ~/.emacs.d to avoid needing to run alsactl as root on first use.")
 
+
+(defun amixer-alsactl-setup ()
+  "Set up alsactl sound state."
+  (declare (special amixer-alsactl-config-file))
+  (setq
+   amixer-alsactl-config-file
+   (let ((sys-alsa "/var/lib/alsa/asound.state")
+         (f (expand-file-name "asound.state" user-emacs-directory)))
+     (unless (file-exists-p sys-alsa) (error "Alsa not setup correctly."))
+     (unless  (file-exists-p f) (copy-file sys-alsa user-emacs-directory))
+     f)))
+           
 ;;;###autoload
 (defun amixer (&optional refresh)
   "Interactively manipulate ALSA settings.
 Interactive prefix arg refreshes cache."
   (interactive "P")
-  (declare (special amixer-db))
+  (declare (special amixer-db
+                    amixer-alsactl-config-file))
+  (unless amixer-alsactl-config-file (amixer-alsactl-setup))
   (when (or refresh
             (null amixer-db))
     (amixer-build-db))
@@ -214,8 +232,12 @@ Interactive prefix arg refreshes cache."
         (choices nil))
     (cond
      ((null control)
-      (shell-command "alsactl restore")
-      (message "Resetting  sound to default")
+      (shell-command
+       (format "alsactl %s  restore"
+               (if amixer-alsactl-config-file
+                   (format "-f %s" amixer-alsactl-config-file)
+                 ""))
+       (message "Resetting  sound to default"))
       (amixer-build-db))
      (t
       (when (string=

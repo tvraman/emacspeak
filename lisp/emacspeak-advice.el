@@ -2015,6 +2015,15 @@ Provide an auditory icon if possible."
 
 ;;}}}
 ;;{{{ Emacs server
+(defun emacspeak-speak-announce-server-buffer ()
+  "Announce opening of an emacsclient buffer."
+  (emacspeak-speak-mode-line)
+  (emacspeak-auditory-icon 'open-object))
+(add-hook 'server-done-hook
+          #'(lambda nil
+              (emacspeak-auditory-icon 'close-object)))
+
+(add-hook 'server-switch-hook 'emacspeak-speak-announce-server-buffer)
 
 (defadvice server-start (after emacspeak pre act comp)
   "Provide auditory confirmation."

@@ -409,13 +409,6 @@
    (t ad-do-it))
   ad-return-value)
 
-(defadvice org-force-self-insert (after emacspeak pre act comp)
-  "speak char that was inserted."
-  (when (and emacspeak-character-echo
-             (ems-interactive-p  ))
-    (dtk-stop)
-    (emacspeak-speak-this-char last-input-event )))
-
 (defadvice org-delete-char (around emacspeak pre act)
   "Speak character you're deleting."
   (cond

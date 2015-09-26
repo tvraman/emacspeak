@@ -1,0 +1,97 @@
+* Executive Summary
+
+This is a follow-up to [[./stumpwm-setup.html][the article on my Window Manager  set-up]]
+and details the setup of my X environment. This setup is specifically geared around the following use-cases:
+
+  1. Emacspeak running in a window to provide a local audio desktop.
+  2. ChromeVox running in a second window to provide access to JS-powered WebApps. Note  that for the content-oriented Web, I  use Emacs' built-in EWW browser.
+  3. SSH running in an XTerm to my remote Linux desktop  in a third window. The remote desktop runs Emacspeak and produces  auditory feedback through a local speech server.
+
+The setup described below is implemented via my personal =.XResources=
+file --- that file along with my =.xsession= file that loads it are
+both checked into the GitHub repo under =emacspeak/stumpwm= along with any needed helper files.
+
+The remaining sections give a brief descriptive overview of the
+=.XResources= and =.xsession= files as they exist  at the time of
+writing.
+
+
+* Resulting Functionality: What This Gives  Us
+
+  1. You can cut-and-paste between the local Chrome and local Emacspeak using standard clipboard copy/paste commands. Make sure Emacs is set up to use the clipboard, and not the primary X selection.
+  2. Output displayed in the Xterm, e.g., by the remote Emacspeak session, can be brought into the local Emacspeak session by hitting =PrintEverything= bound to =Ctrl-Return= in the XTerm window.
+  3. Contents of  the local clipboard, i.e. Chrome, Emacspeak etc., can be pasted into the remote Emacspeak  running in the XTerm using key =Ctrl-Shift-Space=.
+
+
+* Initializing X Session Via File =.xsession=
+
+: #!/bin/sh
+: #Caps Lock is Control
+: setxkbmap -option ctrl:nocaps       
+: #load in XResources to customize X environment 
+: xrdb -merge $HOME/.Xresources &
+: #Display locks after  30 minutes of inactivity
+: xautolock -detectsleep -time 30  -locker  "$HOME/bin/xlock" & 
+: # Launch Emacs 
+: emacs  -title Emacs &
+: # XTerm for SSH to remote desktop
+: xterm  -title Retriever &
+: # StumpWM Setup: Use SBCL 
+: export LISP=sbcl
+: # Export our  X auth environment 
+: ${HOME}/bin/export_x_info &
+: # Launch StumpWM
+: exec  /usr/local/bin/stumpwm
+
+* Customizing X Environment Via File =.XResources=
+
+
+: ! Setup Emacs Visual Look And Feel
+: Emacs*font:	-adobe-Utopia-normal-normal-normal-*-*-*-*-*-*-0-iso10646-1
+: Emacs.FontBackend:	xft,x
+: Emacs.menuBar:	off
+: Emacs.toolBar:	off
+: Emacs.verticalScrollBars:	off
+:! Setup XTerm Look And Feel:
+
+: XTerm*Background:	black
+: XTerm*Foreground:	white
+: ! Setup XTerm key-bindings to match Emacspeak
+: XTerm*VT100.translations:	#override \n\
+ : Ctrl <Key>semicolon: string(0x18) string("@h") \n\
+ : Ctrl <Key>comma: string(0x18) string("@a") \n\
+ : Ctrl <Key>period: string(0x18) string("@s") \n\
+ : Ctrl <Key>apostrophe: string(0x18) string("@s") \n\
+ : Shift <Key>Return: string(0x18) string("@s") string(0x0d)\n\
+ : Ctrl <Key>Return: print-everything()\n\
+ : Ctrl Shift <Key>space:    insert-selection(CLIPBOARD) 
+:! Configure rest of XTerm 
+: XTerm*eightBitInput:	false
+: XTerm*faceName:	xft:Inconsolata:pixelsize=14
+: XTerm*metaSendsEscape:	true
+
+: ! emacs-pipe.pl is under emacspeak/etc in the Emacspeak Git Repository
+: ! This helps us view XTerm output in a buffer in the locally running Emacspeak
+
+: XTerm.*.printerCommand:     /usr/local/bin/emacs-pipe.pl
+: XTerm.*.printAttributes: 0
+
+: !X Font environment
+: Xft*antialias:	true
+: Xft*dpi:	96
+: Xft*hinting:	true
+: Xft*hintstyle:	hintfull
+: Xft*rgba:	rgb
+
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:nil d:(not "LOGBOOK") date:t e:t
+#+OPTIONS: email:nil f:t inline:t num:t p:nil pri:nil prop:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t
+#+TITLE:Setting Up An X Environment For Using With Emacspeak, ChromeVox and StumpWM
+#+DATE: <2015-09-21 Mon>
+#+AUTHOR: raman
+#+EMAIL: raman@google.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 25.0.50.1 (Org mode 8.3.1)
