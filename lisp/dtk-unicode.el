@@ -215,7 +215,7 @@ charsets returned by operations such as `find-charset-region'."
 nil if CHAR is not in Unicode."
   (downcase
    (or (get-char-code-property char 'name)
-       (car (rassoc char (ucs-names)))
+       (car (rassq char (ucs-names)))
        "")))
 
 (defsubst dtk-unicode-char-properties (char)
