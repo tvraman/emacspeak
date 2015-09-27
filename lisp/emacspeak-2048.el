@@ -98,6 +98,36 @@
       (message "Popped: Score is now %s" *2048-score*)))))
 
 ;;}}}
+
+;;{{{ Export And Import Games:
+
+(defvar emacspeak-2048-game-file
+  (expand-file-name "2048-game-stack"
+                    emacspeak-resource-directory)
+  "File where we export/import game state.")
+
+(defun emacspeak-2048-export ()
+  "Exports game stack to a file."
+  (interactive )
+  (declare (special emacspeak-2048-game-file emacspeak-2048-game-stack))
+  (with-temp-buffer
+    (let ((print-length nil)
+            (print-level nil))
+	(insert "(setq emacspeak-2048-game-stack \n'")
+	(pp emacspeak-2048-game-stack (current-buffer))
+      (insert ")\n")
+      (write-file emacspeak-2048-game-file)
+      (emacspeak-auditory-icon 'save-object)
+      (message "Exported game."))))
+
+(defun emacspeak-2048-import ()
+  "Import game."
+  (interactive)
+  (load-file emacspeak-2048-game-file)
+  (emacspeak-auditory-icon 'task-done)
+  (message "Imported game."))
+
+;;}}}
 ;;{{{ Adding rows and columns:
 
 (defun emacspeak-2048-add-row ()
@@ -193,6 +223,8 @@
   (voice-lock-mode -1)
   (define-key 2048-mode-map "R" 'emacspeak-2048-add-row)
   (define-key 2048-mode-map "C" 'emacspeak-2048-add-column)
+  (define-key 2048-mode-map "e" 'emacspeak-2048-export)
+  (define-key 2048-mode-map "i" 'emacspeak-2048-import)
   (define-key 2048-mode-map " " 'emacspeak-2048-speak-board)
   (define-key 2048-mode-map "s" 'emacspeak-2048-push-state)
   (define-key 2048-mode-map "u"  'emacspeak-2048-pop-state)
