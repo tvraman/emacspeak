@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1106 commands and 921 options.
+This chapter documents a total of 1108 commands and 921 options.
 
 @menu
 * acss-structure::
@@ -3815,6 +3815,24 @@ Add a column  to the current board.
 
 @format
 Add a row  to the current board.
+@end format
+@end deffn
+
+@subsubsection emacspeak-2048-export
+@deffn {Command} emacspeak-2048-export   
+@findex emacspeak-2048-export
+
+@format
+Exports game stack to a file.
+@end format
+@end deffn
+
+@subsubsection emacspeak-2048-import
+@deffn {Command} emacspeak-2048-import   
+@findex emacspeak-2048-import
+
+@format
+Import game.
 @end format
 @end deffn
 
