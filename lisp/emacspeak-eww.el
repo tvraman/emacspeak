@@ -211,7 +211,7 @@ are available are cued by an auditory icon on the header line."
   (format "User-Agent: %s %s %s\r\n"
           "Mozilla/5.0 (X11; Linux i686 (x86_64)) "
           "AppleWebKit/537.36 (KHTML, like Gecko) "
-          "Chrome/42.0.2311.135 Safari/537.36")
+          "Chrome/45.0.2454.101 Safari/537.36")
   "User Agent string that is  sent when masquerading is on."
   :type 'string
   :group 'emacspeak-eww)
