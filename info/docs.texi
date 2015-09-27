@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1104 commands and 921 options.
+This chapter documents a total of 1106 commands and 921 options.
 
 @menu
 * acss-structure::
@@ -95,6 +95,7 @@ This chapter documents a total of 1104 commands and 921 options.
 * emacspeak-gridtext::
 * emacspeak-gtags::
 * emacspeak-gud::
+* emacspeak-helm::
 * emacspeak-hide::
 * emacspeak-hideshow::
 * emacspeak-ibuffer::
@@ -8615,6 +8616,11 @@ Package gtags interfaces Emacs to this tool.
 
 Provide additional advice to ease debugger interaction with gud
 
+@node emacspeak-helm
+@section emacspeak-helm
+
+HELM ==  Smart narrowing/selection in emacs
+
 @node emacspeak-hide
 @section emacspeak-hide
 
@@ -9010,6 +9016,24 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 This module defines the emacspeak keybindings.
 
 @subsection emacspeak-keymap Commands
+
+@subsubsection emacspeak-keymap-bindings-from-org
+@deffn {Command} emacspeak-keymap-bindings-from-org  (variable filename)
+@findex emacspeak-keymap-bindings-from-org
+
+@format
+Load bindings from a specified file.
+@end format
+@end deffn
+
+@subsubsection emacspeak-keymap-bindings-to-org
+@deffn {Command} emacspeak-keymap-bindings-to-org  (variable filename)
+@findex emacspeak-keymap-bindings-to-org
+
+@format
+Persists mapping to org file.
+@end format
+@end deffn
 
 @subsubsection emacspeak-keymap-choose-new-emacspeak-prefix
 @deffn {Command} emacspeak-keymap-choose-new-emacspeak-prefix  (prefix-key)
@@ -12609,7 +12633,7 @@ appropriate subdirectories of emacspeak-sounds-directory
 @subsection emacspeak-sounds Commands
 
 @subsubsection emacspeak-audio-setup
-@deffn {Command} emacspeak-audio-setup   
+@deffn {Command} emacspeak-audio-setup  (&optional prefix)
 @kbd{C-e (}
 
 @kindex C-e (
@@ -17721,6 +17745,9 @@ Lang is obtained from property ``lang'' on string, or  via an interactive prompt
 
 @subsubsection emacspeak-wizards-eww-buffer-list
 @deffn {Command} emacspeak-wizards-eww-buffer-list   
+@kbd{C-; w m C-x @@ h w m}
+
+@kindex C-; w m C-x @@ h w m
 @findex emacspeak-wizards-eww-buffer-list
 
 @format
@@ -18752,6 +18779,9 @@ Transform ``file'' using ``style'' and preview via browse-url.
 
 @subsubsection emacspeak-xslt-view-region
 @deffn {Command} emacspeak-xslt-view-region  (style start end &optional unescape-charent)
+@kbd{C-; w R C-x @@ h w R}
+
+@kindex C-; w R C-x @@ h w R
 @findex emacspeak-xslt-view-region
 
 @format

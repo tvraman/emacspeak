@@ -53,7 +53,7 @@
   :group 'w3m
   :prefix "emacspeak-w3m-")
 
-(defcustom emacspeak-w3m-speak-titles-on-switch nil
+(defcustom emacspeak-w3m-speak-titles-on-switch t
   "Speak the document title when switching between w3m buffers.
 If non-nil, switching between w3m buffers will speak the title
 instead of the modeline."
