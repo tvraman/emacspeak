@@ -106,26 +106,37 @@
                     emacspeak-resource-directory)
   "File where we export/import game state.")
 
-(defun emacspeak-2048-export ()
-  "Exports game stack to a file."
-  (interactive )
+(defun emacspeak-2048-export (&optional prompt)
+  "Exports game stack to a file.
+Optional interactive prefix arg prompts for a file.
+Note that the file is overwritten silently."
+  (interactive "P")
   (declare (special emacspeak-2048-game-file emacspeak-2048-game-stack))
   (with-temp-buffer
-    (let ((print-length nil)
+    (let ((file
+         (if prompt
+             (read-file-name "File to save game to: ")
+emacspeak-2048-game-file))
+          (print-length nil)
             (print-level nil))
 	(insert "(setq emacspeak-2048-game-stack \n'")
 	(pp emacspeak-2048-game-stack (current-buffer))
       (insert ")\n")
-      (write-file emacspeak-2048-game-file)
+      (write-file file)
       (emacspeak-auditory-icon 'save-object)
-      (message "Exported game."))))
+      (message "Exported game to %s." file))))
 
-(defun emacspeak-2048-import ()
-  "Import game."
-  (interactive)
-  (load-file emacspeak-2048-game-file)
-  (emacspeak-auditory-icon 'task-done)
-  (message "Imported game."))
+(defun emacspeak-2048-import (&optional prompt)
+  "Import game.
+Optional interactive prefix arg prompts for a filename."
+  (interactive "P")
+  (let ((file
+         (if prompt
+             (read-file-name "File to save game to: ")
+           emacspeak-2048-game-file)))
+    (load-file file)
+    (emacspeak-auditory-icon 'task-done)
+    (message "Imported game %s." file)))
 
 ;;}}}
 ;;{{{ Adding rows and columns:
