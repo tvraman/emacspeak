@@ -962,8 +962,8 @@ Produce an auditory icon if possible."
 (add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt )
 (voice-setup-add-map
  '(
-   (comint-highlight-prompt voice-monotone-medium)
-   (comint-highlight-input voice-bolden-medium)))
+   (comint-highlight-prompt voice-monotone)
+   (comint-highlight-input voice-bolden)))
 (declaim (special emacspeak-pronounce-sha-checksum-pattern))
 
 (emacspeak-pronounce-add-dictionary-entry
