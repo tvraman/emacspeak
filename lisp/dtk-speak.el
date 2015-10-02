@@ -1518,6 +1518,16 @@ This is setup on a per engine basis.")
 
 (defvar tts-device "default"
   "Name of current sound device in use.")
+;;;###autoload
+(defcustom dtk-cloud-server "cloud-outloud"
+  "Set this to your prefered cloud TTS server."
+  :type '(string
+          (choice
+           (:const "cloud-outloud" :tag "Outloud Variants")
+          (:const  "cloud-dtk" :tag "DTK Variants")
+          (:const "cloud-espeak" :tag "ESpeak Variants")
+          (:const "cloud-mac" :tag "Mac Variants")))
+:group 'dtk)
 
 ;;;###autoload
 (defun dtk-select-server (program &optional device)
@@ -1548,7 +1558,12 @@ ALSA_DEFAULT to specified device before starting the server."
       (setq-default emacspeak-ssh-tts-server ssh-server))
     (when (called-interactively-p  'interactive)
       (dtk-initialize))))
-
+;;;###autoload
+(defun dtk-cloud ()
+  "Select prefered Cloud TTS server."
+  (interactive)
+  (declare (special dtk-cloud-server))
+  (dtk-select-server dtk-cloud-server))
 (defcustom tts-device-list (list "default")
   "List of ALSA sound devices  we can use."
   :type '(repeat

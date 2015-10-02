@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1109 commands and 921 options.
+This chapter documents a total of 1110 commands and 922 options.
 
 @menu
 * acss-structure::
@@ -426,6 +426,18 @@ will say ````aw fifteen dot'''' when speaking the string
 @end format
 @end deffn
 
+@subsubsection dtk-cloud
+@deffn {Command} dtk-cloud   
+@kbd{C-e d C-c}
+
+@kindex C-e d C-c
+@findex dtk-cloud
+
+@format
+Select prefered Cloud TTS server.
+@end format
+@end deffn
+
 @subsubsection dtk-local-server
 @deffn {Command} dtk-local-server  (program)
 @kbd{C-e d L}
@@ -805,6 +817,11 @@ with a repeat count.
 
 @end defvar
 
+@defvar {User Option} dtk-cloud-server
+Set this to your prefered cloud TTS server.
+
+@end defvar
+
 @defvar {User Option} dtk-local-engine
 Engine we use  for our local TTS  server.
 
@@ -1122,6 +1139,7 @@ C-t <left>	emacspeak-table-previous-column
 C-t <right>	emacspeak-table-next-column
 C-t <up>	emacspeak-table-previous-row
 
+d C-c		dtk-cloud
 d C-d		dectalk
 d C-e		espeak
 d RET		dtk-set-chunk-separator-syntax
