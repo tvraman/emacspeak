@@ -620,6 +620,18 @@ Retain previously set punctuations  mode."
   "Cache of role values. Is buffer-local.")
 
 (make-variable-buffer-local 'eww-role-cache)
+
+(defvar eww-itemprop-cache nil
+  "Cache of itemprop values. Is buffer-local.")
+
+(make-variable-buffer-local 'eww-itemprop-cache)
+
+
+(defvar eww-property-cache nil
+  "Cache of property values. Is buffer-local.")
+
+(make-variable-buffer-local 'eww-property-cache)
+
 ;;; Holds element names as strings.
 
 (defvar eww-element-cache nil
@@ -630,20 +642,25 @@ Retain previously set punctuations  mode."
 (defun eww-update-cache (dom)
   "Update element, role, class and id cache."
   (declare (special eww-element-cache eww-id-cache
+                    eww-property-cache eww-itemprop-cache
                     eww-role-cache eww-class-cache emacspeak-eww-cache-updated))
-  (when (listp dom) ; build cache
+  (when (listp dom)                     ; build cache
     (let ((id (dom-attr dom 'id))
           (class (dom-attr dom 'class))
           (role (dom-attr dom 'role))
+          (itemprop (dom-attr dom 'itemprop))
+          (property (dom-attr dom 'property))
           (el (symbol-name (dom-tag dom)))
           (children (dom-children dom)))
       (when id (pushnew id eww-id-cache))
       (when class (pushnew class eww-class-cache))
+      (when itemprop (pushnew property eww-itemprop-cache))
       (when role (pushnew role eww-role-cache))
+      (when property (pushnew property eww-property-cache))
       (when el (pushnew el eww-element-cache))
       (when children (mapc #'eww-update-cache children)))
     (setq emacspeak-eww-cache-updated t)))
-
+          
 ;;}}}
 ;;{{{ Filter DOM:
 (defun emacspeak-eww-tag-article (dom)
