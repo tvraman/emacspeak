@@ -70,7 +70,7 @@
 
 (defsubst dom-html-add-base (dom base)
   "Add base to dom."
-  `((base ((href . ,base))) ,dom))
+  `(base ((href . ,base)) ,dom))
 
 ;;}}}
 ;;{{{  Filterring Inspired by dom.el:
