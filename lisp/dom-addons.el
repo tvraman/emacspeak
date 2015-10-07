@@ -59,6 +59,15 @@
    #'(lambda (l) (equal "alternate"
                         (dom-attr l 'rel)))
    (dom-by-tag dom 'link)))
+(defsubst dom-html-add-base (dom base)
+  "Add base to dom."
+  (let ((b `(base ((href . ,base))))
+        (head (dom-child-by-tag dom 'head)))
+    (cond
+     (head (dom-add-child-before  head b))
+     (t (dom-add-child-before dom `(head nil ,b))))
+    dom))
+
 
 (defsubst dom-html-from-nodes (nodes &optional base)
   "Make up an HTML DOM having nodes as children."
@@ -68,10 +77,8 @@
         (dom-html-add-base  dom base)
       dom)))
 
-(defsubst dom-html-add-base (dom base)
-  "Add base to dom."
-  `(base ((href . ,base)) ,dom))
 
+  
 ;;}}}
 ;;{{{  Filterring Inspired by dom.el:
 
