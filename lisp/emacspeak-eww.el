@@ -926,6 +926,13 @@ Optional interactive arg `multi' prompts for multiple classes."
   (let ((value (completing-read "Value: " eww-property-cache nil 'must-match)))
     (unless (zerop (length value)) value)))
 
+(defsubst ems-eww-read-itemprop ()
+  "Return itemprop value read from minibuffer."
+  (declare (special eww-itemprop-cache))
+  (unless eww-itemprop-cache (error "No itemprop to filter."))
+  (let ((value (completing-read "Value: " eww-itemprop-cache nil 'must-match)))
+    (unless (zerop (length value)) value))) 
+
 (defun eww-view-dom-having-role (multi)
   "Display DOM filtered by specified role=value test.
 Optional interactive arg `multi' prompts for multiple classes."
@@ -991,6 +998,38 @@ Optional interactive arg `multi' prompts for multiple classes."
              (list (list 'property (ems-eww-read-property))))))))
     (when dom (emacspeak-eww-view-helper (dom-html-add-base dom))))) 
 
+
+ (defun eww-view-dom-having-itemprop (multi)
+  "Display DOM filtered by specified itemprop=value test.
+Optional interactive arg `multi' prompts for multiple classes."
+  (interactive "P")
+  (emacspeak-eww-prepare-eww)
+  (let ((dom (emacspeak-eww-current-dom))
+        (filter  (if multi #'dom-by-itemprop-list #'dom-by-itemprop))
+        (itemprop  (if multi
+                   (ems-eww-read-list 'ems-eww-read-itemprop)
+                 (ems-eww-read-itemprop))))
+    (setq dom (funcall filter dom itemprop))
+    (when dom
+      (emacspeak-eww-view-helper
+       (dom-html-from-nodes dom (emacspeak-eww-current-url))))))
+
+(defun eww-view-dom-not-having-itemprop (multi)
+  "Display DOM filtered by specified  nodes not passing   itemprop=value test.
+Optional interactive arg `multi' prompts for multiple classes."
+  (interactive "P")
+  (declare (special  eww-shr-render-functions ))
+  (emacspeak-eww-prepare-eww)
+  (let ((dom
+         (eww-dom-remove-if
+          (emacspeak-eww-current-dom)
+          (eww-attribute-list-tester
+           (if multi
+               (loop
+                for r in (ems-eww-read-list 'ems-eww-read-itemprop)
+                collect (list 'itemprop r))
+             (list (list 'itemprop (ems-eww-read-itemprop))))))))
+    (when dom (emacspeak-eww-view-helper (dom-html-add-base dom)))))
 (defsubst ems-eww-read-element ()
   "Return element  value read from minibuffer."
   (declare (special eww-element-cache))
