@@ -65,12 +65,12 @@
   (message "%d nodes" (length nodes))
   (let ((dom (apply #'dom-node 'html nil nodes)))
     (if base
-        `(base ((href.  ,base)) ,dom)
+        (dom-html-add-base  dom base)
       dom)))
 
 (defsubst dom-html-add-base (dom base)
   "Add base to dom."
-  `(base ((href . ,base)) ,dom))
+  `((base ((href . ,base))) ,dom))
 
 ;;}}}
 ;;{{{  Filterring Inspired by dom.el:
