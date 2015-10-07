@@ -818,12 +818,16 @@ Optional interactive arg `multi' prompts for multiple ids."
 
 (defun ems-eww-read-attribute-and-value ()
   "Read attr-value pair and return as a list."
-  (declare (special eww-id-cache eww-class-cache eww-role-cache))
-  (unless (or eww-role-cache eww-id-cache eww-class-cache)
+  (declare (special eww-id-cache eww-class-cache eww-role-cache
+                    eww-property-cache eww-itemprop-cache))
+  (unless (or eww-role-cache eww-id-cache eww-class-cache
+              eww-itemprop-cache eww-property-cache)
     (error "No attributes to filter."))
   (let(attr-names attr value)
     (when eww-class-cache (push "class" attr-names))
     (when eww-id-cache (push "id" attr-names))
+    (when eww-itemprop-cache (push "itemprop" attr-names))
+    (when eww-property-cache (push "property" attr-names))
     (when eww-role-cache (push "role" attr-names))
     (setq attr (completing-read "Attr: " attr-names nil 'must-match))
     (unless (zerop (length attr))
@@ -833,6 +837,8 @@ Optional interactive arg `multi' prompts for multiple ids."
              "Value: "
              (cond
               ((eq attr 'id) eww-id-cache)
+              ((eq attr 'itemppprop) eww-itemprop-cache)
+              ((eq attr 'property) eww-property-cache)
               ((eq attr 'class)eww-class-cache)
               ((eq attr 'role)eww-role-cache))
              nil 'must-match))
