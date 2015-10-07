@@ -654,7 +654,7 @@ Retain previously set punctuations  mode."
           (children (dom-children dom)))
       (when id (pushnew id eww-id-cache))
       (when class (pushnew class eww-class-cache))
-      (when itemprop (pushnew property eww-itemprop-cache))
+      (when itemprop (pushnew itemprop eww-itemprop-cache))
       (when role (pushnew role eww-role-cache))
       (when property (pushnew property eww-property-cache))
       (when el (pushnew el eww-element-cache))
