@@ -837,7 +837,7 @@ Optional interactive arg `multi' prompts for multiple ids."
              "Value: "
              (cond
               ((eq attr 'id) eww-id-cache)
-              ((eq attr 'itemppprop) eww-itemprop-cache)
+              ((eq attr 'itemprop) eww-itemprop-cache)
               ((eq attr 'property) eww-property-cache)
               ((eq attr 'class)eww-class-cache)
               ((eq attr 'role)eww-role-cache))
