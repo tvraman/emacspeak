@@ -128,6 +128,24 @@ ATTRIBUTE would typically be `class', `id' or the like."
   "Return elements in DOM that have a role name that matches regexp MATCH."
   (dom-elements-by-matchlist dom 'role match-list))
 
+(defun dom-by-property (dom match)
+  "Return elements in DOM that have a property name that matches regexp MATCH."
+  (dom-elements dom 'property match))
+
+(defun dom-by-property-list (dom match-list)
+  "Return elements in DOM that have a property name that matches regexp MATCH."
+  (dom-elements-by-matchlist dom 'property match-list))
+
+
+(defun dom-by-itemprop (dom match)
+  "Return elements in DOM that have a itemprop name that matches regexp MATCH."
+  (dom-elements dom 'itemprop match))
+
+(defun dom-by-itemprop-list (dom match-list)
+  "Return elements in DOM that have a itemprop name that matches regexp MATCH."
+  (dom-elements-by-matchlist dom 'itemprop match-list))
+
+
 ;;}}}
 (provide 'dom-addons)
 ;;{{{ end of file
