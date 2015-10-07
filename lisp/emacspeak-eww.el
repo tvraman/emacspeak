@@ -851,14 +851,14 @@ Optional interactive arg `multi' prompts for multiple classes."
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-keep-if
-          (emacspeak-eww-current-dom)
+          (dom-child-by-tag (emacspeak-eww-current-dom) 'html)
           (eww-attribute-list-tester
            (if multi
                (ems-eww-read-list 'ems-eww-read-attribute-and-value)
              (list  (ems-eww-read-attribute-and-value)))))))
     (when dom
-      (emacspeak-eww-view-helper
-       (dom-html-from-nodes dom (emacspeak-eww-current-url))))))
+      (dom-html-add-base dom   (emacspeak-eww-current-url))
+      (emacspeak-eww-view-helper dom))))
 
 (defun eww-view-dom-not-having-attribute (multi)
   "Display DOM filtered by specified nodes not passing  attribute=value test.
@@ -867,12 +867,14 @@ Optional interactive arg `multi' prompts for multiple classes."
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-remove-if
-          (emacspeak-eww-current-dom)
+          (dom-child-by-tag (emacspeak-eww-current-dom) 'html)
           (eww-attribute-list-tester
            (if multi
                (ems-eww-read-list 'ems-eww-read-attribute-and-value)
              (list  (ems-eww-read-attribute-and-value)))))))
-    (when dom (emacspeak-eww-view-helper (dom-html-add-base dom)))))
+    (when dom
+      (dom-html-add-base dom   (emacspeak-eww-current-url))
+      (emacspeak-eww-view-helper dom))))
 
 (defsubst ems-eww-read-class ()
   "Return class value read from minibuffer."
