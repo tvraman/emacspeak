@@ -59,8 +59,10 @@
    #'(lambda (l) (equal "alternate"
                         (dom-attr l 'rel)))
    (dom-by-tag dom 'link)))
+
 (defsubst dom-html-add-base (dom base)
-  "Add base to dom."
+  "Add base to HTML dom.
+Added element goes inside the HTML head if any."
   (let ((b `(base ((href . ,base))))
         (head (dom-child-by-tag dom 'head)))
     (cond
@@ -68,23 +70,21 @@
      (t (dom-add-child-before dom `(head nil ,b))))
     dom))
 
-
 (defsubst dom-html-from-nodes (nodes &optional base)
-  "Make up an HTML DOM having nodes as children unless nodes is an HTML document."
-  (let ((dom 
+  "Make up an HTML DOM having nodes as children unless nodes is an HTML
+document."
+  (let ((dom
          (cond
           ((not (eq 'html (dom-tag nodes)))
            (apply #'dom-node 'html nil nodes))
           (t nodes)))
         (dom-html-add-base dom  base)
-    dom))
-    
-    (if base
-        (dom-html-add-base  dom base)
-      dom))
+        dom))
+
+  (if base
+      (dom-html-add-base  dom base)))
 
 
-  
 ;;}}}
 ;;{{{  Filterring Inspired by dom.el:
 
@@ -142,7 +142,6 @@ ATTRIBUTE would typically be `class', `id' or the like."
   "Return elements in DOM that have a property name that matches regexp MATCH."
   (dom-elements-by-matchlist dom 'property match-list))
 
-
 (defun dom-by-itemprop (dom match)
   "Return elements in DOM that have a itemprop name that matches regexp MATCH."
   (dom-elements dom 'itemprop match))
@@ -150,7 +149,6 @@ ATTRIBUTE would typically be `class', `id' or the like."
 (defun dom-by-itemprop-list (dom match-list)
   "Return elements in DOM that have a itemprop name that matches regexp MATCH."
   (dom-elements-by-matchlist dom 'itemprop match-list))
-
 
 ;;}}}
 (provide 'dom-addons)
