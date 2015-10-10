@@ -114,6 +114,9 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
             ( "\M-\C-c"calendar))
           do
           (global-set-key (first key) (second key)))
+;;; Smarten up ctl-x-map
+(define-key ctl-x-map "\C-n" 'forward-page)
+(define-key ctl-x-map "\C-p" 'backward-page)
 
     ;;}}}
     ;;{{{  initial stuff
