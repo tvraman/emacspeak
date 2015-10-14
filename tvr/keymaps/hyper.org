@@ -1,20 +1,5 @@
 a emacspeak-wizards-term
-c browse-url-chromium
-h emacspeak-org-capture-link
-i ido-everywhere
-l emacspeak-librivox
-m vm
-n emacspeak-npr-play-program
-p emacspeak-wizards-pdf-open
-q emacspeak-remote-quick-connect-to-server
-r org-capture
-s emacspeak-wizards-shell
-t twit
-u browse-url
-v emacspeak-muggles-view/body
-w emacspeak-web-prefix
-
-a emacspeak-wizards-term
+C apu-chars
 c browse-url-chromium
 e gmaps
 h emacspeak-org-capture-link
