@@ -166,9 +166,10 @@ Optional interactive prefix arg prompts for a filename."
   (let ((board (copy-sequence *2048-board*)))
     (setq *2048-board* (make-vector (* *2048-columns* *2048-rows*) 0))
     (loop
-     for   i from 0 to (1- (length board)) do
+     for   i from 0 to (1- (length *2048-board*)) do
      (aset  *2048-board* i  (aref board i))
      (2048-print-board))
+    (emacspeak-auditory-icon 'delete-object)
     (message "Dropped row.")))
 
 (defun emacspeak-2048-add-column ()
