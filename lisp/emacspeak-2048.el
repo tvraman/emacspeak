@@ -135,6 +135,9 @@ Optional interactive prefix arg prompts for a filename."
              (read-file-name "File to save game to: ")
            emacspeak-2048-game-file)))
     (load-file file)
+    (loop
+     for i in '(4096 8192 16384 32768) do
+     (2048-init-tile i))
     (emacspeak-auditory-icon 'task-done)
     (message "Imported game %s." file)))
 
