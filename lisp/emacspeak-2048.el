@@ -157,6 +157,20 @@ Optional interactive prefix arg prompts for a filename."
      (2048-print-board))
     (message "Added row.")))
 
+
+(defun emacspeak-2048-drop-row ()
+  "Drop last  row  from  the current board."
+  (interactive)
+  (declare (special *2048-board* *2048-rows*))
+  (setq *2048-rows* (1- *2048-rows*))
+  (let ((board (copy-sequence *2048-board*)))
+    (setq *2048-board* (make-vector (* *2048-columns* *2048-rows*) 0))
+    (loop
+     for   i from 0 to (1- (length board)) do
+     (aset  *2048-board* i  (aref board i))
+     (2048-print-board))
+    (message "Dropped row.")))
+
 (defun emacspeak-2048-add-column ()
   "Add a column  to the current board."
   (interactive)
@@ -235,6 +249,7 @@ Optional interactive prefix arg prompts for a filename."
   "Emacspeak setup for 2048."
   (declaim (special  2048-mode-map))
   (voice-lock-mode -1)
+  (define-key 2048-mode-map "D" 'emacspeak-2048-drop-row)
   (define-key 2048-mode-map "R" 'emacspeak-2048-add-row)
   (define-key 2048-mode-map "C" 'emacspeak-2048-add-column)
   (define-key 2048-mode-map "e" 'emacspeak-2048-export)
