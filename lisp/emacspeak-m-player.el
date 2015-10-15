@@ -336,15 +336,17 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
         (read-file-name-completion-ignore-case t)
         (default
           (when (or (eq major-mode 'dired-mode) (eq major-mode 'locate-mode))
-            (dired-get-filename nil 'no-error)))        (ido-work-directory-list
+            (dired-get-filename nil 'no-error)))
+        (ido-work-directory-list
          (remove-if-not
           #'(lambda (d)
               (string-match  emacspeak-media-directory-regexp  d))
           ido-work-directory-list)))
     (read-file-name
-     "MP3 Resource: "
+     "Media Resource: "
      (emacspeak-m-player-guess-directory)
      default 'must-match default)))
+
 (defun emacspeak-m-player-refresh-metadata ()
   "Populate metadata fields from currently playing  stream."
   (declare (special emacspeak-m-player-stream-metadata))
