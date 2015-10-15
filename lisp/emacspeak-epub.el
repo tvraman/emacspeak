@@ -62,7 +62,7 @@
 (require 'emacspeak-webutils)
 (require 'emacspeak-xslt)
 (require 'derived)
-
+(require 'locate)
 ;;}}}
 ;;{{{  Customizations, Variables:
 
@@ -826,6 +826,7 @@ Letters do not insert themselves; instead, they are commands.
         ("e" emacspeak-epub-eww)
         ("f" emacspeak-epub-browse-files)
         ("g" emacspeak-epub-google)
+        ("l" emacspeak-epub-locate-epubs)
         ("n" next-line)
         ("o" emacspeak-epub-open)
         ("p" previous-line)
@@ -1132,6 +1133,14 @@ Letters do not insert themselves; instead, they are commands.
     (emacspeak-speak-line)))
 
 ;;}}}
+;;{{{ Locate epub using Locate:
+(defun emacspeak-epub-locate-epubs (pattern)
+  "Locate epub files using locate."  (interactive "sSearch Pattern: ")
+  (let ((locate-make-command-line #'(lambda (s) (list locate-command "-i" s))))
+    (funcall-interactively #'locate-with-filter pattern ".epub$")))
+
+;;}}}
+
 (provide 'emacspeak-epub)
 ;;{{{ end of file
 
