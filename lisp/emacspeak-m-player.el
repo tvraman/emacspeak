@@ -332,6 +332,10 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
   "Read resource from minibuffer with contextual smarts."
   (declare (special ido-work-directory-list))
   (let ((completion-ignore-case t)
+        (read-file-name-function
+         (if (eq major-mode 'locate-mode)
+             #'read-file-name-default
+           #'ido-read-file-name))
         (emacspeak-speak-messages nil)
         (read-file-name-completion-ignore-case t)
         (default
@@ -1367,8 +1371,7 @@ Results are placed in a Locate buffer and can be played using M-Player."
   (interactive "sSearch Pattern: ")
   (declare  (special emacspeak-media-extensions))
   (let ((locate-make-command-line #'(lambda (s) (list locate-command "-i" s))))
-(funcall-interactively #'locate-with-filter pattern emacspeak-media-extensions)))
-
+    (funcall-interactively #'locate-with-filter pattern emacspeak-media-extensions)))
 
 ;;}}}
 (provide 'emacspeak-m-player)
