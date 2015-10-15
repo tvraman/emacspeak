@@ -372,7 +372,7 @@ On a directory line, run du -s on the directory to speak its size."
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
-     (when (ems-interactive-)
+     (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'open-object)))))
 ;;}}}
