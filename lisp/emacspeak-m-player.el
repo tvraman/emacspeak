@@ -61,6 +61,7 @@
 (require 'emacspeak-amark)
 (require 'emacspeak-webutils)
 (require 'dired)
+(require 'locate)
 (require 'comint)
 
 ;;}}}
@@ -299,6 +300,7 @@ Let-binding this causes default-directory etc to be ignored when guessing direct
   (declare (special emacspeak-media-directory-regexp
                     emacspeak-m-player-accelerator-p))
   (cond
+   ((or (eq major-mode 'dired-mode) (eq major-mode 'locate-mode)) nil)
    (emacspeak-m-player-accelerator-p (expand-file-name  emacspeak-media-shortcuts-directory))
    ((string-match emacspeak-media-directory-regexp  default-directory)
     default-directory)
@@ -332,7 +334,9 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
   (let ((completion-ignore-case t)
         (emacspeak-speak-messages nil)
         (read-file-name-completion-ignore-case t)
-        (ido-work-directory-list
+        (default
+          (when (or (eq major-mode 'dired-mode) (eq major-mode 'locate-mode))
+            (dired-get-filename nil 'no-error)))        (ido-work-directory-list
          (remove-if-not
           #'(lambda (d)
               (string-match  emacspeak-media-directory-regexp  d))
@@ -340,8 +344,7 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
     (read-file-name
      "MP3 Resource: "
      (emacspeak-m-player-guess-directory)
-     (when (eq major-mode 'dired-mode) (dired-get-filename nil 'no-error))
-     'must-match)))
+     default 'must-match default)))
 (defun emacspeak-m-player-refresh-metadata ()
   "Populate metadata fields from currently playing  stream."
   (declare (special emacspeak-m-player-stream-metadata))
