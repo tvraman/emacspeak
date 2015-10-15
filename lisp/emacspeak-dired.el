@@ -352,6 +352,7 @@ On a directory line, run du -s on the directory to speak its size."
 (defun emacspeak-dired-setup-keys ()
   "Add emacspeak keys to dired."
   (declare (special dired-mode-map ))
+  (define-key dired-mode-map "E" 'emacspeak-dired-epub-eww)
   (define-key dired-mode-map "'" 'emacspeak-dired-show-file-type)
   (define-key  dired-mode-map "/" 'emacspeak-dired-speak-file-permissions)
   (define-key  dired-mode-map ";" 'emacspeak-dired-speak-header-line)
@@ -375,6 +376,15 @@ On a directory line, run du -s on the directory to speak its size."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'open-object)))))
+;;}}}
+;;{{{ epub viewer for dired:
+
+(defun emacspeak-dired-epub-eww ()
+  "Open epub on current line  in EWW"
+(interactive)
+(funcall-interactively #'emacspeak-epub-eww (dired-get-filename))
+(emacspeak-auditory-icon 'open-object))
+
 ;;}}}
 (provide 'emacspeak-dired)
 ;;{{{ emacs local variables
