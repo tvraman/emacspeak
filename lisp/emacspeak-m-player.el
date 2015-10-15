@@ -1358,6 +1358,19 @@ tap-reverb already installed."
       (save-buffer))
     (emacspeak-m-player file 'playlist)))
 ;;}}}
+;;{{{ Use locate to construct media playlist:
+
+;;;###autoload
+(defun emacspeak-m-player-locate-media (pattern)
+  "Locate media matching specified pattern.
+Results are placed in a Locate buffer and can be played using M-Player."
+  (interactive "sSearch Pattern: ")
+  (declare  (special emacspeak-media-extensions))
+  (let ((locate-make-command-line #'(lambda (s) (list locate-command "-i" s))))
+(funcall-interactively #'locate-with-filter pattern emacspeak-media-extensions)))
+
+
+;;}}}
 (provide 'emacspeak-m-player)
 ;;{{{ end of file
 
