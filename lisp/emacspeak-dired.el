@@ -364,6 +364,18 @@ On a directory line, run du -s on the directory to speak its size."
 (add-hook 'dired-mode-hook  'emacspeak-dired-initialize 'append)
 
 ;;}}}
+;;{{{ Advice locate:
+(loop
+ for f in
+ '(locate locate-with-filter)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-)
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'open-object)))))
+;;}}}
 (provide 'emacspeak-dired)
 ;;{{{ emacs local variables
 
