@@ -758,8 +758,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
 (defun emacspeak-m-player-get-length ()
   "Display length of track in seconds."
   (interactive)
-  (emacspeak-m-player-dispatch "get_time_length")
-  (accept-process-output))
+  (dtk-speak (emacspeak-m-player-dispatch "get_time_length")))
 
 (defconst emacspeak-m-player-display-cmd
   "get_time_pos\nget_percent_pos\nget_time_length\nget_file_name\n"
