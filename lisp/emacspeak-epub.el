@@ -638,6 +638,8 @@ Suitable for text searches."
     (switch-to-buffer buffer)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
+
+;;;###autoload
 (defun emacspeak-epub-eww (epub-file)
   "Display entire book  using EWW from EPub in a buffer.
 Suitable for text searches."
