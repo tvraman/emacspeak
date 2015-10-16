@@ -353,6 +353,8 @@ On a directory line, run du -s on the directory to speak its size."
   "Add emacspeak keys to dired."
   (declare (special dired-mode-map ))
   (define-key dired-mode-map "E" 'emacspeak-dired-epub-eww)
+  (define-key dired-mode-map (kbd "C-RET") 'emacspeak-dired-open-this-file)
+  (define-key dired-mode-map [C-return] 'emacspeak-dired-open-this-file)
   (define-key dired-mode-map "'" 'emacspeak-dired-show-file-type)
   (define-key  dired-mode-map "/" 'emacspeak-dired-speak-file-permissions)
   (define-key  dired-mode-map ";" 'emacspeak-dired-speak-header-line)
@@ -381,10 +383,44 @@ On a directory line, run du -s on the directory to speak its size."
 
 (defun emacspeak-dired-epub-eww ()
   "Open epub on current line  in EWW"
-(interactive)
-(funcall-interactively #'emacspeak-epub-eww (dired-get-filename))
-(emacspeak-auditory-icon 'open-object))
+  (interactive)
+  (funcall-interactively #'emacspeak-epub-eww (shell-quote-argument(dired-get-filename)))
+  (emacspeak-auditory-icon 'open-object))
 
+;;}}}
+;;{{{ Context-sensitive openers:
+
+(defun emacspeak-dired-play-this-media ()
+  "Plays media on current line."
+  (funcall-interactively #'emacspeak-m-player (dired-get-filename)))
+
+(defvar emacspeak-dired-opener-table
+  `((".epub$"  emacspeak-dired-epub-eww)
+    (,emacspeak-media-extensions emacspeak-dired-play-this-media))
+  "Association of filename extension patterns to Emacspeak handlers.")
+
+(defun emacspeak-dired-open-this-file  ()
+  "Smart dired opener. Invokes appropriate Emacspeak handler on  current file in DirEd."
+  (interactive)
+  (let* ((f (dired-get-filename nil t))
+         (ext (file-name-extension f))
+         (handler nil))
+    (unless f (error "No file here."))
+    (unless ext (error "This entry has no extension."))
+    (setq handler
+                  (second
+                  (find
+                   ext
+                   emacspeak-dired-opener-table
+                   :test #'(lambda (ext e) (string-match  ext (first e))))))
+    (cond
+             ((and handler (fboundp handler))
+              (funcall-interactively handler))
+             (t (error  "No known handler")))))
+                       
+                       
+    
+     
 ;;}}}
 (provide 'emacspeak-dired)
 ;;{{{ emacs local variables
