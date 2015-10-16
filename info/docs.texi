@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1117 commands and 933 options.
+This chapter documents a total of 1118 commands and 933 options.
 
 @menu
 * acss-structure::
@@ -5736,6 +5736,15 @@ Typically you hear the file names as you move through the dired buffer
 Voicification is used to indicate directories, marked files etc.
 
 @subsection emacspeak-dired Commands
+
+@subsubsection emacspeak-dired-csv-open
+@deffn {Command} emacspeak-dired-csv-open   
+@findex emacspeak-dired-csv-open
+
+@format
+Open CSV file on current dired line.
+@end format
+@end deffn
 
 @subsubsection emacspeak-dired-epub-eww
 @deffn {Command} emacspeak-dired-epub-eww   

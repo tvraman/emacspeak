@@ -381,15 +381,6 @@ On a directory line, run du -s on the directory to speak its size."
 (load-library "locate")
 (define-key locate-mode-map  [C-return] 'emacspeak-dired-open-this-file)
 ;;}}}
-;;{{{ epub viewer for dired:
-
-(defun emacspeak-dired-epub-eww ()
-  "Open epub on current line  in EWW"
-  (interactive)
-  (funcall-interactively #'emacspeak-epub-eww (shell-quote-argument(dired-get-filename)))
-  (emacspeak-auditory-icon 'open-object))
-
-;;}}}
 ;;{{{ Context-sensitive openers:
 
 (defun emacspeak-dired-play-this-media ()
@@ -401,6 +392,7 @@ On a directory line, run du -s on the directory to speak its size."
     (".html" emacspeak-dired-eww-open )
     (".htm" emacspeak-dired-eww-open )
     (".pdf" emacspeak-dired-pdf-open)
+    (".csv" emacspeak-dired-csv-open)
     (,emacspeak-media-extensions emacspeak-dired-play-this-media))
   "Association of filename extension patterns to Emacspeak handlers.")
 
@@ -433,8 +425,20 @@ On a directory line, run du -s on the directory to speak its size."
   "Open PDF file on current dired line."
   (interactive)
   (funcall-interactively #'emacspeak-wizards-pdf-open (dired-get-filename current-prefix-arg)))
+(defun emacspeak-dired-epub-eww ()
+  "Open epub on current line  in EWW"
+  (interactive)
+  (funcall-interactively #'emacspeak-epub-eww (shell-quote-argument(dired-get-filename)))
+  (emacspeak-auditory-icon 'open-object))
+
+(defun emacspeak-dired-csv-open ()
+  "Open CSV file on current dired line."
+  (interactive)
+  (funcall-interactively #'emacspeak-table-find-csv-file (dired-get-filename current-prefix-arg)))
+
 
 ;;}}}
+
 (provide 'emacspeak-dired)
 ;;{{{ emacs local variables
 
