@@ -7,3 +7,13 @@ n gweb-news-view
 p proced
 r emacspeak-webspace-feed-reader
 w wget
+. auto-correct-update
+b emacspeak-bbc
+e elfeed
+f emacspeak-feeds-lookup-and-view
+h emacspeak-webspace-headlines-browse
+l emacspeak-m-player-locate-media
+n gweb-news-view
+p proced
+r emacspeak-webspace-feed-reader
+w wget
