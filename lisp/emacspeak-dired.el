@@ -417,6 +417,7 @@ On a directory line, run du -s on the directory to speak its size."
                    :test #'(lambda (ext e) (string-match  ext (first e))))))
     (cond
              ((and handler (fboundp handler))
+              (emacspeak-auditory-icon 'task-done)
               (funcall-interactively handler))
              (t (error  "No known handler")))))
 
