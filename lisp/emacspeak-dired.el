@@ -396,8 +396,11 @@ On a directory line, run du -s on the directory to speak its size."
   "Plays media on current line."
   (funcall-interactively #'emacspeak-m-player (dired-get-filename)))
 
-(defvar emacspeak-dired-opener-table
+(defconst emacspeak-dired-opener-table
   `((".epub$"  emacspeak-dired-epub-eww)
+    (".html" emacspeak-dired-eww-open )
+    (".htm" emacspeak-dired-eww-open )
+    (".pdf" emacspeak-dired-pdf-open)
     (,emacspeak-media-extensions emacspeak-dired-play-this-media))
   "Association of filename extension patterns to Emacspeak handlers.")
 
@@ -420,6 +423,16 @@ On a directory line, run du -s on the directory to speak its size."
               (emacspeak-auditory-icon 'task-done)
               (funcall-interactively handler))
              (t (error  "No known handler")))))
+
+(defun emacspeak-dired-eww-open ()
+  "Open HTML file on current dired line."
+  (interactive)
+  (funcall-interactively #'eww-open-file (dired-get-filename)))
+
+(defun emacspeak-dired-pdf-open ()
+  "Open PDF file on current dired line."
+  (interactive)
+  (funcall-interactively #'emacspeak-wizards-pdf-open (dired-get-filename current-prefix-arg)))
 
 ;;}}}
 (provide 'emacspeak-dired)
