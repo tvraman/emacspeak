@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1114 commands and 922 options.
+This chapter documents a total of 1115 commands and 922 options.
 
 @menu
 * acss-structure::
@@ -5468,6 +5468,15 @@ Open epub on current line  in EWW
 Labels the fields of the listing in the dired buffer.
 Currently is a no-op  unless
 unless ``dired-listing-switches'' contains -l
+@end format
+@end deffn
+
+@subsubsection emacspeak-dired-open-this-file
+@deffn {Command} emacspeak-dired-open-this-file   
+@findex emacspeak-dired-open-this-file
+
+@format
+Smart dired opener. Invokes appropriate Emacspeak handler on  current file in DirEd.
 @end format
 @end deffn
 

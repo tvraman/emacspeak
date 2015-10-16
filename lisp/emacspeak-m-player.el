@@ -244,23 +244,7 @@ on a specific directory."
   "Check if specified resource matches a playlist type."
   (declare (special emacspeak-m-player-playlist-pattern))
   (string-match emacspeak-m-player-playlist-pattern resource))
-;;;###autoload
-(defvar emacspeak-media-extensions
-  (concat
-   (regexp-opt
-    (list ".wma"
-          ".wmv"
-          ".flv"
-          ".m4a"
-          ".m4b"
-          ".flac"
-          ".ogg"
-          ".mp3"
-          ".MP3"
-          ".mp4")
-    'parens)
-   "$")
-  "Extensions that match media files.")
+
 
 ;;;###autoload
 (defun emacspeak-m-player-bind-accelerator (directory key)
