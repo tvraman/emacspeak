@@ -378,6 +378,8 @@ On a directory line, run du -s on the directory to speak its size."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'open-object)))))
+(load-library "locate")
+(define-key locate-mode-map  [C-return] 'emacspeak-dired-open-this-file)
 ;;}}}
 ;;{{{ epub viewer for dired:
 
@@ -417,10 +419,7 @@ On a directory line, run du -s on the directory to speak its size."
              ((and handler (fboundp handler))
               (funcall-interactively handler))
              (t (error  "No known handler")))))
-                       
-                       
-    
-     
+
 ;;}}}
 (provide 'emacspeak-dired)
 ;;{{{ emacs local variables
