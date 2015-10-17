@@ -1099,9 +1099,6 @@ Letters do not insert themselves; instead, they are commands.
 (declaim (special emacspeak-calibre-mode-map))
 (define-key emacspeak-calibre-mode-map [Return] 'emacspeak-epub-calibre-dired-at-point )
 
-
-
-
 (defun emacspeak-epub-calibre-results ()
   "Show most recent Calibre search results."
   (interactive)
