@@ -110,7 +110,11 @@
   (declare (special emacspeak-2048-game-stack))
   (setq emacspeak-2048-game-stack
         (butlast emacspeak-2048-game-stack
-                 (- (length emacspeak-2048-game-stack) drop))))
+                 (- (length emacspeak-2048-game-stack) drop)))
+  (message "Stack is now %s deep"
+           (length emacspeak-2048-game-stack))
+  (emacspeak-auditory-icon 'delete-object))
+
 ;;}}}
 
 ;;{{{ Export And Import Games:
