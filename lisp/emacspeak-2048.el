@@ -97,6 +97,20 @@
       (emacspeak-auditory-icon 'yank-object)
       (message "Popped: Score is now %s" *2048-score*)))))
 
+(defun emacspeak-2048-prune-stack (drop)
+  "Prune game stack to specified length."
+  (interactive 
+   (list
+    (cond
+     ((null emacspeak-2048-game-stack) (error "No saved  states."))
+     (t (read-number
+         (format "Stack: %s New? "
+                 (length emacspeak-2048-game-stack)
+                 (/ (length emacspeak-2048-game-stack ) 2)))))))
+  (declare (special emacspeak-2048-game-stack))
+  (setq emacspeak-2048-game-stack
+        (butlast emacspeak-2048-game-stack
+                 (- (length emacspeak-2048-game-stack) drop))))
 ;;}}}
 
 ;;{{{ Export And Import Games:
@@ -251,6 +265,7 @@ Optional interactive prefix arg prompts for a filename."
   (declaim (special  2048-mode-map))
   (voice-lock-mode -1)
   (define-key 2048-mode-map "D" 'emacspeak-2048-drop-row)
+  (define-key 2048-mode-map "P" 'emacspeak-2048-prune-stack)
   (define-key 2048-mode-map "R" 'emacspeak-2048-add-row)
   (define-key 2048-mode-map "C" 'emacspeak-2048-add-column)
   (define-key 2048-mode-map "e" 'emacspeak-2048-export)
