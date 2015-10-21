@@ -246,6 +246,7 @@ speech-enabling extensions."
 (emacspeak-do-package-setup "perl-mode" 'emacspeak-perl)
 (emacspeak-do-package-setup "php-mode" 'emacspeak-php-mode)
 (emacspeak-do-package-setup "package"'emacspeak-package)
+(emacspeak-do-package-setup "paradox"'emacspeak-paradox)
 (emacspeak-do-package-setup "pcvs" 'emacspeak-pcl-cvs)
 (emacspeak-do-package-setup "python" 'emacspeak-python)
 (emacspeak-do-package-setup "python-mode" 'emacspeak-py)
