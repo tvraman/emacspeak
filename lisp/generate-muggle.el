@@ -13,8 +13,7 @@ Argument `keymap-name' is a symbol  that names a keymap."
                (keymapp (symbol-value keymap-name)))
     (error "%s is not a keymap." keymap-name))
   (lexical-let
-      ((map (symbol-value keymap-name))
-       (cmd-name (intern (format "emacspeak-muggles-%s-cmd" keymap-name)))
+      ((cmd-name (intern (format "emacspeak-muggles-%s-cmd" keymap-name)))
        (doc-string
         (format "Invoke commands from %s until an unbound key is pressed."
                 keymap-name)))
@@ -23,10 +22,9 @@ Argument `keymap-name' is a symbol  that names a keymap."
      `(defun ,cmd-name ()
     ,doc-string
     (interactive)
-    (let ((key (read-key-sequence "Key: "))
-          (cmd nil))
+    (let((cmd nil))
       (while
-          (setq cmd (lookup-key ',map key))
-        (call-interactively cmd)))))))
-      
+          (setq cmd (lookup-key ,keymap-name (read-key-sequence "Key: ")))
+        (call-interactively cmd))
+      (emacspeak-auditory-icon 'select-object)
 (emacspeak-muggles-generate 'view-mode-map)
