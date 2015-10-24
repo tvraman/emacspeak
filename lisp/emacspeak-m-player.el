@@ -230,8 +230,7 @@ on a specific directory."
   "Invoke MPlayer commands."
   (interactive (list (read-key-sequence "MPlayer Key: ")))
   (call-interactively
-   (or (lookup-key emacspeak-m-player-mode-map key)
-       'undefined)))
+   (or (lookup-key emacspeak-m-player-mode-map key) 'undefined)))
 
 (defvar  emacspeak-m-player-playlist-pattern
   (concat
