@@ -250,9 +250,8 @@ Also turn on emacspeak-muggles-talkative-p if it was turned off."
 ;;}}}
 ;;{{{ Media Player:
 
-(global-set-key
- (kbd "s-m")
- (defhydra emacspeak-muggles-m-player
+
+(defhydra emacspeak-muggles-m-player
    (:body-pre (emacspeak-muggles-body-pre "Media Player")
               :hint nil
               :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
@@ -310,7 +309,7 @@ Also turn on emacspeak-muggles-talkative-p if it was turned off."
    (")" emacspeak-m-player-right-channel)
    ("{" emacspeak-m-player-half-speed)
    ("}" emacspeak-m-player-double-speed)
-   ))
+   )
 
 ;;}}}
 ;;{{{ HideShow:
@@ -536,8 +535,9 @@ Argument `k-map' is a symbol  that names a keymap."
              (emacspeak-auditory-icon 'close-object))))))
 
 ;;; Sample Usage:
-;(emacspeak-muggles-generate 'view-mode-map)
-;(emacspeak-muggles-generate 'emacspeak-m-player-mode-map)
+(global-set-key
+ (kbd "s-m")
+(emacspeak-muggles-generate 'emacspeak-m-player-mode-map))
 ;;}}}
 (provide 'emacspeak-muggles)
 ;;{{{ end of file
