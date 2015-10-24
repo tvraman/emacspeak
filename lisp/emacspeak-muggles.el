@@ -537,7 +537,7 @@ Argument `k-map' is a symbol  that names a keymap."
 
 ;;; Sample Usage:
 ;(emacspeak-muggles-generate 'view-mode-map)
-
+;(emacspeak-muggles-generate 'emacspeak-m-player-mode-map)
 ;;}}}
 (provide 'emacspeak-muggles)
 ;;{{{ end of file
