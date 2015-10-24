@@ -211,7 +211,7 @@ are available are cued by an auditory icon on the header line."
   (format "User-Agent: %s %s %s\r\n"
           "Mozilla/5.0 (X11; Linux i686 (x86_64)) "
           "AppleWebKit/537.36 (KHTML, like Gecko) "
-          "Chrome/42.0.2311.135 Safari/537.36")
+          "Chrome/45.0.2454.101 Safari/537.36")
   "User Agent string that is  sent when masquerading is on."
   :type 'string
   :group 'emacspeak-eww)
@@ -620,6 +620,18 @@ Retain previously set punctuations  mode."
   "Cache of role values. Is buffer-local.")
 
 (make-variable-buffer-local 'eww-role-cache)
+
+(defvar eww-itemprop-cache nil
+  "Cache of itemprop values. Is buffer-local.")
+
+(make-variable-buffer-local 'eww-itemprop-cache)
+
+
+(defvar eww-property-cache nil
+  "Cache of property values. Is buffer-local.")
+
+(make-variable-buffer-local 'eww-property-cache)
+
 ;;; Holds element names as strings.
 
 (defvar eww-element-cache nil
@@ -630,20 +642,25 @@ Retain previously set punctuations  mode."
 (defun eww-update-cache (dom)
   "Update element, role, class and id cache."
   (declare (special eww-element-cache eww-id-cache
+                    eww-property-cache eww-itemprop-cache
                     eww-role-cache eww-class-cache emacspeak-eww-cache-updated))
-  (when (listp dom) ; build cache
+  (when (listp dom)                     ; build cache
     (let ((id (dom-attr dom 'id))
           (class (dom-attr dom 'class))
           (role (dom-attr dom 'role))
+          (itemprop (dom-attr dom 'itemprop))
+          (property (dom-attr dom 'property))
           (el (symbol-name (dom-tag dom)))
           (children (dom-children dom)))
       (when id (pushnew id eww-id-cache))
       (when class (pushnew class eww-class-cache))
+      (when itemprop (pushnew itemprop eww-itemprop-cache))
       (when role (pushnew role eww-role-cache))
+      (when property (pushnew property eww-property-cache))
       (when el (pushnew el eww-element-cache))
       (when children (mapc #'eww-update-cache children)))
     (setq emacspeak-eww-cache-updated t)))
-
+          
 ;;}}}
 ;;{{{ Filter DOM:
 (defun emacspeak-eww-tag-article (dom)
@@ -728,7 +745,7 @@ for use as a DOM filter."
 (defun emacspeak-eww-view-helper  (filtered-dom)
   "View helper called by various filtering viewers."
   (declare (special emacspeak-eww-rename-result-buffer
-                    eww-shr-render-functions shr-base))
+                    eww-shr-render-functions ))
   (let ((emacspeak-eww-rename-result-buffer nil)
         (url (emacspeak-eww-current-url))
         (title  (format "%s: Filtered" (emacspeak-eww-current-title)))
@@ -737,7 +754,7 @@ for use as a DOM filter."
     (eww-save-history)
     (erase-buffer)
     (goto-char (point-min))
-    (setq shr-base (shr-parse-base url))
+    ;(setq shr-base (shr-parse-base url))
     (shr-insert-document filtered-dom)
     (emacspeak-eww-set-dom filtered-dom)
     (emacspeak-eww-set-url url)
@@ -801,12 +818,16 @@ Optional interactive arg `multi' prompts for multiple ids."
 
 (defun ems-eww-read-attribute-and-value ()
   "Read attr-value pair and return as a list."
-  (declare (special eww-id-cache eww-class-cache eww-role-cache))
-  (unless (or eww-role-cache eww-id-cache eww-class-cache)
+  (declare (special eww-id-cache eww-class-cache eww-role-cache
+                    eww-property-cache eww-itemprop-cache))
+  (unless (or eww-role-cache eww-id-cache eww-class-cache
+              eww-itemprop-cache eww-property-cache)
     (error "No attributes to filter."))
   (let(attr-names attr value)
     (when eww-class-cache (push "class" attr-names))
     (when eww-id-cache (push "id" attr-names))
+    (when eww-itemprop-cache (push "itemprop" attr-names))
+    (when eww-property-cache (push "property" attr-names))
     (when eww-role-cache (push "role" attr-names))
     (setq attr (completing-read "Attr: " attr-names nil 'must-match))
     (unless (zerop (length attr))
@@ -816,6 +837,8 @@ Optional interactive arg `multi' prompts for multiple ids."
              "Value: "
              (cond
               ((eq attr 'id) eww-id-cache)
+              ((eq attr 'itemprop) eww-itemprop-cache)
+              ((eq attr 'property) eww-property-cache)
               ((eq attr 'class)eww-class-cache)
               ((eq attr 'role)eww-role-cache))
              nil 'must-match))
@@ -828,14 +851,14 @@ Optional interactive arg `multi' prompts for multiple classes."
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-keep-if
-          (emacspeak-eww-current-dom)
+          (dom-child-by-tag (emacspeak-eww-current-dom) 'html)
           (eww-attribute-list-tester
            (if multi
                (ems-eww-read-list 'ems-eww-read-attribute-and-value)
              (list  (ems-eww-read-attribute-and-value)))))))
     (when dom
-      (emacspeak-eww-view-helper
-       (dom-html-from-nodes dom (emacspeak-eww-current-url))))))
+      (dom-html-add-base dom   (emacspeak-eww-current-url))
+      (emacspeak-eww-view-helper dom))))
 
 (defun eww-view-dom-not-having-attribute (multi)
   "Display DOM filtered by specified nodes not passing  attribute=value test.
@@ -844,12 +867,14 @@ Optional interactive arg `multi' prompts for multiple classes."
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-remove-if
-          (emacspeak-eww-current-dom)
+          (dom-child-by-tag (emacspeak-eww-current-dom) 'html)
           (eww-attribute-list-tester
            (if multi
                (ems-eww-read-list 'ems-eww-read-attribute-and-value)
              (list  (ems-eww-read-attribute-and-value)))))))
-    (when dom (emacspeak-eww-view-helper (dom-html-add-base dom)))))
+    (when dom
+      (dom-html-add-base dom   (emacspeak-eww-current-url))
+      (emacspeak-eww-view-helper dom))))
 
 (defsubst ems-eww-read-class ()
   "Return class value read from minibuffer."
@@ -896,6 +921,20 @@ Optional interactive arg `multi' prompts for multiple classes."
   (let ((value (completing-read "Value: " eww-role-cache nil 'must-match)))
     (unless (zerop (length value)) value)))
 
+(defsubst ems-eww-read-property ()
+  "Return property value read from minibuffer."
+  (declare (special eww-property-cache))
+  (unless eww-property-cache (error "No property to filter."))
+  (let ((value (completing-read "Value: " eww-property-cache nil 'must-match)))
+    (unless (zerop (length value)) value)))
+
+(defsubst ems-eww-read-itemprop ()
+  "Return itemprop value read from minibuffer."
+  (declare (special eww-itemprop-cache))
+  (unless eww-itemprop-cache (error "No itemprop to filter."))
+  (let ((value (completing-read "Value: " eww-itemprop-cache nil 'must-match)))
+    (unless (zerop (length value)) value))) 
+
 (defun eww-view-dom-having-role (multi)
   "Display DOM filtered by specified role=value test.
 Optional interactive arg `multi' prompts for multiple classes."
@@ -928,6 +967,71 @@ Optional interactive arg `multi' prompts for multiple classes."
              (list (list 'role (ems-eww-read-role))))))))
     (when dom (emacspeak-eww-view-helper (dom-html-add-base dom)))))
 
+
+(defun eww-view-dom-having-property (multi)
+  "Display DOM filtered by specified property=value test.
+Optional interactive arg `multi' prompts for multiple classes."
+  (interactive "P")
+  (emacspeak-eww-prepare-eww)
+  (let ((dom (emacspeak-eww-current-dom))
+        (filter  (if multi #'dom-by-property-list #'dom-by-property))
+        (property  (if multi
+                   (ems-eww-read-list 'ems-eww-read-property)
+                 (ems-eww-read-property))))
+    (setq dom (funcall filter dom property))
+    (when dom
+      (emacspeak-eww-view-helper
+       (dom-html-from-nodes dom (emacspeak-eww-current-url))))))
+
+(defun eww-view-dom-not-having-property (multi)
+  "Display DOM filtered by specified  nodes not passing   property=value test.
+Optional interactive arg `multi' prompts for multiple classes."
+  (interactive "P")
+  (declare (special  eww-shr-render-functions ))
+  (emacspeak-eww-prepare-eww)
+  (let ((dom
+         (eww-dom-remove-if
+          (emacspeak-eww-current-dom)
+          (eww-attribute-list-tester
+           (if multi
+               (loop
+                for r in (ems-eww-read-list 'ems-eww-read-property)
+                collect (list 'property r))
+             (list (list 'property (ems-eww-read-property))))))))
+    (when dom (emacspeak-eww-view-helper (dom-html-add-base dom))))) 
+
+
+ (defun eww-view-dom-having-itemprop (multi)
+  "Display DOM filtered by specified itemprop=value test.
+Optional interactive arg `multi' prompts for multiple classes."
+  (interactive "P")
+  (emacspeak-eww-prepare-eww)
+  (let ((dom (emacspeak-eww-current-dom))
+        (filter  (if multi #'dom-by-itemprop-list #'dom-by-itemprop))
+        (itemprop  (if multi
+                   (ems-eww-read-list 'ems-eww-read-itemprop)
+                 (ems-eww-read-itemprop))))
+    (setq dom (funcall filter dom itemprop))
+    (when dom
+      (emacspeak-eww-view-helper
+       (dom-html-from-nodes dom (emacspeak-eww-current-url))))))
+
+(defun eww-view-dom-not-having-itemprop (multi)
+  "Display DOM filtered by specified  nodes not passing   itemprop=value test.
+Optional interactive arg `multi' prompts for multiple classes."
+  (interactive "P")
+  (declare (special  eww-shr-render-functions ))
+  (emacspeak-eww-prepare-eww)
+  (let ((dom
+         (eww-dom-remove-if
+          (emacspeak-eww-current-dom)
+          (eww-attribute-list-tester
+           (if multi
+               (loop
+                for r in (ems-eww-read-list 'ems-eww-read-itemprop)
+                collect (list 'itemprop r))
+             (list (list 'itemprop (ems-eww-read-itemprop))))))))
+    (when dom (emacspeak-eww-view-helper (dom-html-add-base dom)))))
 (defsubst ems-eww-read-element ()
   "Return element  value read from minibuffer."
   (declare (special eww-element-cache))

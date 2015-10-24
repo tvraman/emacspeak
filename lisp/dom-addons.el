@@ -60,17 +60,30 @@
                         (dom-attr l 'rel)))
    (dom-by-tag dom 'link)))
 
-(defsubst dom-html-from-nodes (nodes &optional base)
-  "Make up an HTML DOM having nodes as children."
-  (message "%d nodes" (length nodes))
-  (let ((dom (apply #'dom-node 'html nil nodes)))
-    (if base
-        `(base ((href.  ,base)) ,dom)
-      dom)))
-
 (defsubst dom-html-add-base (dom base)
-  "Add base to dom."
-  `(base ((href . ,base)) ,dom))
+  "Add base to HTML dom.
+Added element goes inside the HTML head if any."
+  (let ((b `(base ((href . ,base))))
+        (head (dom-child-by-tag dom 'head)))
+    (cond
+     (head (dom-add-child-before  head b))
+     (t (dom-add-child-before dom `(head nil ,b))))
+    dom))
+
+(defsubst dom-html-from-nodes (nodes &optional base)
+  "Make up an HTML DOM having nodes as children unless nodes is an HTML
+document."
+  (let ((dom
+         (cond
+          ((not (eq 'html (dom-tag nodes)))
+           (apply #'dom-node 'html nil nodes))
+          (t nodes)))
+        (dom-html-add-base dom  base)
+        dom))
+
+  (if base
+      (dom-html-add-base  dom base)))
+
 
 ;;}}}
 ;;{{{  Filterring Inspired by dom.el:
@@ -113,6 +126,7 @@ ATTRIBUTE would typically be `class', `id' or the like."
 (defun dom-by-class-list (dom match-list)
   "Return elements in DOM that have a class name that matches regexp MATCH."
   (dom-elements-by-matchlist dom 'class match-list))
+
 (defun dom-by-role (dom match)
   "Return elements in DOM that have a role name that matches regexp MATCH."
   (dom-elements dom 'role match))
@@ -120,6 +134,22 @@ ATTRIBUTE would typically be `class', `id' or the like."
 (defun dom-by-role-list (dom match-list)
   "Return elements in DOM that have a role name that matches regexp MATCH."
   (dom-elements-by-matchlist dom 'role match-list))
+
+(defun dom-by-property (dom match)
+  "Return elements in DOM that have a property name that matches regexp MATCH."
+  (dom-elements dom 'property match))
+
+(defun dom-by-property-list (dom match-list)
+  "Return elements in DOM that have a property name that matches regexp MATCH."
+  (dom-elements-by-matchlist dom 'property match-list))
+
+(defun dom-by-itemprop (dom match)
+  "Return elements in DOM that have a itemprop name that matches regexp MATCH."
+  (dom-elements dom 'itemprop match))
+
+(defun dom-by-itemprop-list (dom match-list)
+  "Return elements in DOM that have a itemprop name that matches regexp MATCH."
+  (dom-elements-by-matchlist dom 'itemprop match-list))
 
 ;;}}}
 (provide 'dom-addons)

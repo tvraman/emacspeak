@@ -62,7 +62,7 @@
 (require 'emacspeak-webutils)
 (require 'emacspeak-xslt)
 (require 'derived)
-
+(require 'locate)
 ;;}}}
 ;;{{{  Customizations, Variables:
 
@@ -638,6 +638,8 @@ Suitable for text searches."
     (switch-to-buffer buffer)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
+
+;;;###autoload
 (defun emacspeak-epub-eww (epub-file)
   "Display entire book  using EWW from EPub in a buffer.
 Suitable for text searches."
@@ -826,6 +828,7 @@ Letters do not insert themselves; instead, they are commands.
         ("e" emacspeak-epub-eww)
         ("f" emacspeak-epub-browse-files)
         ("g" emacspeak-epub-google)
+        ("l" emacspeak-epub-locate-epubs)
         ("n" next-line)
         ("o" emacspeak-epub-open)
         ("p" previous-line)
@@ -1096,9 +1099,6 @@ Letters do not insert themselves; instead, they are commands.
 (declaim (special emacspeak-calibre-mode-map))
 (define-key emacspeak-calibre-mode-map [Return] 'emacspeak-epub-calibre-dired-at-point )
 
-(declaim (special emacspeak-calibre-mode-map))
-(define-key emacspeak-calibre-mode-map [Return] 'emacspeak-epub-calibre-dired-at-point)
-(define-key emacspeak-calibre-mode-map "\C-m" 'emacspeak-epub-calibre-dired-at-point)
 (defun emacspeak-epub-calibre-results ()
   "Show most recent Calibre search results."
   (interactive)
@@ -1132,6 +1132,14 @@ Letters do not insert themselves; instead, they are commands.
     (emacspeak-speak-line)))
 
 ;;}}}
+;;{{{ Locate epub using Locate:
+(defun emacspeak-epub-locate-epubs (pattern)
+  "Locate epub files using locate."  (interactive "sSearch Pattern: ")
+  (let ((locate-make-command-line #'(lambda (s) (list locate-command "-i" s))))
+    (funcall-interactively #'locate-with-filter pattern ".epub$")))
+
+;;}}}
+
 (provide 'emacspeak-epub)
 ;;{{{ end of file
 

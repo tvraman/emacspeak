@@ -70,14 +70,12 @@
 (defun outloud ()
   "Select Outloud server."
   (interactive)
-  (dtk-select-server "outloud")
-  (dtk-initialize))
+  (funcall-interactively #'dtk-select-server "outloud"))
 
 (defun outloud-32()
   "Select 32-Outloud server."
   (interactive)
-  (dtk-select-server "32-outloud")
-  (dtk-initialize))
+  (funcall-interactively #'dtk-select-server "32-outloud"))
 
 ;;}}}
 ;;{{{  voice table

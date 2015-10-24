@@ -97,6 +97,68 @@
       (emacspeak-auditory-icon 'yank-object)
       (message "Popped: Score is now %s" *2048-score*)))))
 
+(defun emacspeak-2048-prune-stack (drop)
+  "Prune game stack to specified length."
+  (interactive 
+   (list
+    (cond
+     ((null emacspeak-2048-game-stack) (error "No saved  states."))
+     (t (read-number
+         (format "Stack: %s New? "
+                 (length emacspeak-2048-game-stack)
+                 (/ (length emacspeak-2048-game-stack ) 2)))))))
+  (declare (special emacspeak-2048-game-stack))
+  (setq emacspeak-2048-game-stack
+        (butlast emacspeak-2048-game-stack
+                 (- (length emacspeak-2048-game-stack) drop)))
+  (message "Stack is now %s deep"
+           (length emacspeak-2048-game-stack))
+  (emacspeak-auditory-icon 'delete-object))
+
+;;}}}
+
+;;{{{ Export And Import Games:
+
+(defvar emacspeak-2048-game-file
+  (expand-file-name "2048-game-stack"
+                    emacspeak-resource-directory)
+  "File where we export/import game state.")
+
+(defun emacspeak-2048-export (&optional prompt)
+  "Exports game stack to a file.
+Optional interactive prefix arg prompts for a file.
+Note that the file is overwritten silently."
+  (interactive "P")
+  (declare (special emacspeak-2048-game-file emacspeak-2048-game-stack))
+  (with-temp-buffer
+    (let ((file
+         (if prompt
+             (read-file-name "File to save game to: ")
+emacspeak-2048-game-file))
+          (print-length nil)
+            (print-level nil))
+	(insert "(setq emacspeak-2048-game-stack \n'")
+	(pp emacspeak-2048-game-stack (current-buffer))
+      (insert ")\n")
+      (write-file file)
+      (emacspeak-auditory-icon 'save-object)
+      (message "Exported game to %s." file))))
+
+(defun emacspeak-2048-import (&optional prompt)
+  "Import game.
+Optional interactive prefix arg prompts for a filename."
+  (interactive "P")
+  (let ((file
+         (if prompt
+             (read-file-name "File to save game to: ")
+           emacspeak-2048-game-file)))
+    (load-file file)
+    (loop
+     for i in '(4096 8192 16384 32768) do
+     (2048-init-tile i))
+    (emacspeak-auditory-icon 'task-done)
+    (message "Imported game %s." file)))
+
 ;;}}}
 ;;{{{ Adding rows and columns:
 
@@ -112,6 +174,21 @@
      (aset  *2048-board* i  (aref board i))
      (2048-print-board))
     (message "Added row.")))
+
+
+(defun emacspeak-2048-drop-row ()
+  "Drop last  row  from  the current board."
+  (interactive)
+  (declare (special *2048-board* *2048-rows*))
+  (setq *2048-rows* (1- *2048-rows*))
+  (let ((board (copy-sequence *2048-board*)))
+    (setq *2048-board* (make-vector (* *2048-columns* *2048-rows*) 0))
+    (loop
+     for   i from 0 to (1- (length *2048-board*)) do
+     (aset  *2048-board* i  (aref board i))
+     (2048-print-board))
+    (emacspeak-auditory-icon 'delete-object)
+    (message "Dropped row.")))
 
 (defun emacspeak-2048-add-column ()
   "Add a column  to the current board."
@@ -191,8 +268,12 @@
   "Emacspeak setup for 2048."
   (declaim (special  2048-mode-map))
   (voice-lock-mode -1)
+  (define-key 2048-mode-map "D" 'emacspeak-2048-drop-row)
+  (define-key 2048-mode-map "P" 'emacspeak-2048-prune-stack)
   (define-key 2048-mode-map "R" 'emacspeak-2048-add-row)
   (define-key 2048-mode-map "C" 'emacspeak-2048-add-column)
+  (define-key 2048-mode-map "e" 'emacspeak-2048-export)
+  (define-key 2048-mode-map "i" 'emacspeak-2048-import)
   (define-key 2048-mode-map " " 'emacspeak-2048-speak-board)
   (define-key 2048-mode-map "s" 'emacspeak-2048-push-state)
   (define-key 2048-mode-map "u"  'emacspeak-2048-pop-state)

@@ -288,6 +288,7 @@
    ("S" dtk-set-language)
    ("SPC" dtk-toggle-splitting-on-white-space)
    ("V" tts-speak-version)
+   ("\C-c" dtk-cloud)
    ("\C-d" dectalk)
    ("\C-e" espeak)
    ("\C-m" dtk-set-chunk-separator-syntax)

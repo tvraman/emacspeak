@@ -70,8 +70,22 @@
    (diff-refine-added voice-lighten)
    (diff-refine-change voice-brighten-medium)
    (diff-refine-removed voice-smoothen)
-   (diff-removed voice-smoothen-extra)
-   ))
+   (diff-removed voice-smoothen-extra)))
+
+;;}}}
+;;{{{ Advice Interactive Commands:
+(loop
+ for f in
+ '(diff-next-complex-hunk
+   diff-hunk-prev diff-hunk-next
+   diff-file-next diff-file-prev)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-line)))))
 
 ;;}}}
 (provide 'emacspeak-diff-mode)

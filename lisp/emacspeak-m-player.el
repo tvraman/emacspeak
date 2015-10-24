@@ -61,6 +61,7 @@
 (require 'emacspeak-amark)
 (require 'emacspeak-webutils)
 (require 'dired)
+(require 'locate)
 (require 'comint)
 
 ;;}}}
@@ -243,23 +244,7 @@ on a specific directory."
   "Check if specified resource matches a playlist type."
   (declare (special emacspeak-m-player-playlist-pattern))
   (string-match emacspeak-m-player-playlist-pattern resource))
-;;;###autoload
-(defvar emacspeak-media-extensions
-  (concat
-   (regexp-opt
-    (list ".wma"
-          ".wmv"
-          ".flv"
-          ".m4a"
-          ".m4b"
-          ".flac"
-          ".ogg"
-          ".mp3"
-          ".MP3"
-          ".mp4")
-    'parens)
-   "$")
-  "Extensions that match media files.")
+
 
 ;;;###autoload
 (defun emacspeak-m-player-bind-accelerator (directory key)
@@ -299,6 +284,7 @@ Let-binding this causes default-directory etc to be ignored when guessing direct
   (declare (special emacspeak-media-directory-regexp
                     emacspeak-m-player-accelerator-p))
   (cond
+   ((or (eq major-mode 'dired-mode) (eq major-mode 'locate-mode)) nil)
    (emacspeak-m-player-accelerator-p (expand-file-name  emacspeak-media-shortcuts-directory))
    ((string-match emacspeak-media-directory-regexp  default-directory)
     default-directory)
@@ -330,18 +316,25 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
   "Read resource from minibuffer with contextual smarts."
   (declare (special ido-work-directory-list))
   (let ((completion-ignore-case t)
+        (read-file-name-function
+         (if (eq major-mode 'locate-mode)
+             #'read-file-name-default
+           #'ido-read-file-name))
         (emacspeak-speak-messages nil)
         (read-file-name-completion-ignore-case t)
+        (default
+          (when (or (eq major-mode 'dired-mode) (eq major-mode 'locate-mode))
+            (dired-get-filename nil 'no-error)))
         (ido-work-directory-list
          (remove-if-not
           #'(lambda (d)
               (string-match  emacspeak-media-directory-regexp  d))
           ido-work-directory-list)))
     (read-file-name
-     "MP3 Resource: "
+     "Media Resource: "
      (emacspeak-m-player-guess-directory)
-     (when (eq major-mode 'dired-mode) (dired-get-filename nil 'no-error))
-     'must-match)))
+     default 'must-match default)))
+
 (defun emacspeak-m-player-refresh-metadata ()
   "Populate metadata fields from currently playing  stream."
   (declare (special emacspeak-m-player-stream-metadata))
@@ -758,8 +751,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
 (defun emacspeak-m-player-get-length ()
   "Display length of track in seconds."
   (interactive)
-  (emacspeak-m-player-dispatch "get_time_length")
-  (accept-process-output))
+  (dtk-speak (emacspeak-m-player-dispatch "get_time_length")))
 
 (defconst emacspeak-m-player-display-cmd
   "get_time_pos\nget_percent_pos\nget_time_length\nget_file_name\n"
@@ -1353,6 +1345,18 @@ tap-reverb already installed."
         rss-url))
       (save-buffer))
     (emacspeak-m-player file 'playlist)))
+;;}}}
+;;{{{ Use locate to construct media playlist:
+
+;;;###autoload
+(defun emacspeak-m-player-locate-media (pattern)
+  "Locate media matching specified pattern.
+Results are placed in a Locate buffer and can be played using M-Player."
+  (interactive "sSearch Pattern: ")
+  (declare  (special emacspeak-media-extensions))
+  (let ((locate-make-command-line #'(lambda (s) (list locate-command "-i" s))))
+    (funcall-interactively #'locate-with-filter pattern emacspeak-media-extensions)))
+
 ;;}}}
 (provide 'emacspeak-m-player)
 ;;{{{ end of file

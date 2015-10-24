@@ -21,6 +21,9 @@ Exported command for using org-capture for capturing hyperlinks to personalized 
 ** emacspeak-info.el:
 
 updated Info support.
+** emacspeak-helm.el:
+
+Early speech-enable support  for helm and its related packages.
 
 ** emacspeak-yasnippet.el:
 

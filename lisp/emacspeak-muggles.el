@@ -63,6 +63,7 @@
 ;;; @item hideshow: C-c h Provide HideShow bindings.
 ;;; @item toggle-option:  <C-c o> Single binding for toggling options.
 ;;; @item outliner: <C-c #> Bindings from outline-minor-mode.
+;;;@item Info-Summary: <?> in Info Info Summary Muggle
 ;;;@end itemize
 
 ;;; Emacspeak automatically speaks Hydra hints when displayed.
@@ -434,6 +435,108 @@ _d_: subtree
    ("l" recenter-top-bottom)
    ("<" beginning-of-buffer)
    (">" end-of-buffer)))
+
+;;}}}
+;;{{{ Info Summary:
+
+;;; Taken from Hydra wiki and customized to taste:
+(define-key Info-mode-map (kbd "?") 
+  (defhydra emacspeak-muggles-info-summary
+    (:color blue :hint nil
+            :body-pre (emacspeak-muggles-body-pre "Info Summary")
+            :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
+    "
+Info-mode:
+
+  ^^_]_ forward  (next logical node)       ^^_l_ast (←)        _u_p (↑)                             _f_ollow reference       _T_OC
+  ^^_[_ backward (prev logical node)       ^^_r_eturn (→)      _m_enu (↓) (C-u for new window)      _i_ndex                  _d_irectory
+  ^^_n_ext (same level only)               ^^_H_istory         _g_oto (C-u for new window)          _,_ next index item      _c_opy node name
+  ^^_p_rev (same level only)               _<_/_t_op           _b_eginning of buffer                virtual _I_ndex          _C_lone buffer
+  regex _s_earch (_S_ case sensitive)      ^^_>_ final         _e_nd of buffer                      ^^                       _a_propos
+
+  _1_ .. _9_ Pick first .. ninth item in the node's menu.
+
+"
+    ("]"   Info-forward-node)
+    ("["   Info-backward-node)
+    ("n"   Info-next)
+    ("p"   Info-prev)
+    ("s"   Info-search)
+    ("S"   Info-search-case-sensitively)
+
+    ("l"   Info-history-back)
+    ("r"   Info-history-forward)
+    ("H"   Info-history)
+    ("t"   Info-top-node)
+    ("<"   Info-top-node)
+    (">"   Info-final-node)
+
+    ("u"   Info-up)
+    ("^"   Info-up)
+    ("m"   Info-menu)
+    ("g"   Info-goto-node)
+    ("b"   beginning-of-buffer)
+    ("e"   end-of-buffer)
+
+    ("f"   Info-follow-reference)
+    ("i"   Info-index)
+    (","   Info-index-next)
+    ("I"   Info-virtual-index)
+
+    ("T"   Info-toc)
+    ("d"   Info-directory)
+    ("c"   Info-copy-current-node-name)
+    ("C"   clone-buffer)
+    ("a"   info-apropos)
+
+    ("1"   Info-nth-menu-item)
+    ("2"   Info-nth-menu-item)
+    ("3"   Info-nth-menu-item)
+    ("4"   Info-nth-menu-item)
+    ("5"   Info-nth-menu-item)
+    ("6"   Info-nth-menu-item)
+    ("7"   Info-nth-menu-item)
+    ("8"   Info-nth-menu-item)
+    ("9"   Info-nth-menu-item)
+
+    ("?"   Info-summary "Info summary")
+    ("h"   Info-help "Info help")
+    ("q"   Info-exit "Info exit")
+    ("C-g" nil "cancel" :color blue)))
+
+;;}}}
+;;{{{ Generate Muggles From Keymaps:
+
+;;; Generate A Muggle:
+
+;;; Take a name of a keymap (symbol)
+;;; And generate an interactive command that can be bound to a key.
+;;; Invoking that command temporarily activates the previously supplied keymap.
+;;; That activated keymap remains active until the user presses a key that is not bound in that keymap.
+;;; Inspired by the Hydra package.
+
+(defun emacspeak-muggles-generate (k-map)
+  "Generate a Muggle from specified k-map.
+Argument `k-map' is a symbol  that names a keymap."
+  (unless (and (symbolp k-map)
+               (boundp k-map)
+               (keymapp (symbol-value k-map)))
+    (error "%s is not a keymap." k-map))
+  (let ((cmd-name (intern (format "emacspeak-muggles-%s-cmd" k-map)))
+        (doc-string (format "Temporarily use keymap %s" k-map))) (eval
+        `(defun ,cmd-name ()
+           ,doc-string
+           (interactive)
+           (let((cmd nil)
+                (key (read-key-sequence "Key: ")))
+             (while (setq cmd (lookup-key ,k-map key))
+               (call-interactively cmd)
+               (setq key (read-key-sequence "Key: ")))
+             (call-interactively (lookup-key global-map key))
+             (emacspeak-auditory-icon 'close-object))))))
+
+;;; Sample Usage:
+;(emacspeak-muggles-generate 'view-mode-map)
 
 ;;}}}
 (provide 'emacspeak-muggles)

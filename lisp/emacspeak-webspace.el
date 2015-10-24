@@ -158,10 +158,11 @@ Generates auditory and visual display."
       '(
         ("w" emacspeak-webspace-weather)
         ("h" emacspeak-webspace-headlines)
+        (" " emacspeak-webspace-headlines-browse)
         )
       do
       (define-key emacspeak-webspace-keymap (first k) (second k)))
-(global-set-key [C-return] 'emacspeak-webspace-headlines-browse)
+;(global-set-key [C-return] 'emacspeak-webspace-headlines-browse)
 
 ;;}}}
 ;;{{{ Headlines:

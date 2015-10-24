@@ -97,6 +97,24 @@ pronunciation dictionaries are stored. ")
   "README file from where we get SVN revision number.")
 
 ;;;###autoload
+(defvar emacspeak-media-extensions
+  (concat
+   (regexp-opt
+    (list ".wma"
+          ".wmv"
+          ".flv"
+          ".m4a"
+          ".m4b"
+          ".flac"
+          ".ogg"
+          ".mp3"
+          ".MP3"
+          ".mp4")
+    'parens)
+   "$")
+  "Extensions that match media files.")
+
+;;;###autoload
 (defvar emacspeak-codename
   "AnswerDog"
   "Code name of present release.")

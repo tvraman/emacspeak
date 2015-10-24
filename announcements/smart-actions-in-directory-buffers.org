@@ -1,0 +1,48 @@
+* Overview
+
+Emacspeak now provides  a *smart  actions* feature in Emacs' Directory
+Editor (DirEd) buffers.
+Pressing key ~Ctrl-RET~ in ~DirEd~ buffers now invokes 
+an appropriate Emacspeak action on the current file.
+
+* Background
+
+Over time, Emacspeak has come to include a number of smart handlers
+for different file types:
+
+  - An MPlayer interface for media files.
+  - An EPub reader for electronic books.
+  - A light-weight PDF viewer.
+  - A table browser for ~csv~ files.
+
+Command ~emacspeak-dired-open-this-file~ bound to ~Ctrl-RET~ in
+~DirEd~ buffers unifies this functionality by invoking the appropriate
+Emacspeak action on the file on the current line. 
+* Extending To ~*Locate*~ Buffers
+
+This facility is also available in ~locate-mode~
+buffers.  Emacspeak provides two content-specific
+*Locate* commands:
+
+  - Command ~emacspeak-m-player-locate (I have this bound to key
+    ~Super-l~) for locating media files that match a pattern.
+  - Command  ~emacspeak-epub-locate-epub~ bound to ~l~ in *EPub
+    Interaction* for locating ~epub~ files.
+
+Pressing key ~Ctrl-RET~ in the resulting ~*Locate*~ buffers invokes
+the afore-mentioned smart action.
+
+
+
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:nil d:(not "LOGBOOK") date:t e:t
+#+OPTIONS: email:nil f:t inline:t num:t p:nil pri:nil prop:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t
+#+TITLE:Smart Actions In Directory Buffers For The Emacspeak Audio Desktop
+#+DATE: <2015-10-16 Fri>
+#+AUTHOR: T.V Raman
+#+EMAIL: raman@google.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 25.0.50.1 (Org mode 8.3.2)
