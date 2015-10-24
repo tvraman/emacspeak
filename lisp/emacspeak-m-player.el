@@ -223,12 +223,16 @@ on a specific directory."
   "Pop to m-player buffer."
   (interactive)
   (declare (special emacspeak-m-player-process))
+  (unless (eq 'run (process-status emacspeak-m-player-process))
+    (emacspeak-multimedia))
   (pop-to-buffer (process-buffer emacspeak-m-player-process))
   (emacspeak-speak-mode-line))
 
 (defun emacspeak-m-player-command (key)
   "Invoke MPlayer commands."
   (interactive (list (read-key-sequence "MPlayer Key: ")))
+  (unless (eq 'run (process-status emacspeak-m-player-process))
+    (emacspeak-multimedia))
   (call-interactively
    (or (lookup-key emacspeak-m-player-mode-map key) 'undefined)))
 
