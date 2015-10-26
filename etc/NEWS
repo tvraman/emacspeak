@@ -69,6 +69,9 @@ Complements download functionality available via Emacs package iplayer.
 
 Better filtering: filter by elements, class, roles and attributes.
 History navigating through nested filter invocations works.
+** emacspeak-paradox:
+
+Speech-enables paradox, an alternative package-manager UI.
 
 ** emacspeak-url-templates:
 
