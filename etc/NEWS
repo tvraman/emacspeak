@@ -9,7 +9,7 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 Reorganized sound themes. The original default-8k sounds have
 been converted to 44.1k stereo and renamed =classic=.
-Emacspeak now defaults to theme =3d= out of the bo.
+Emacspeak now defaults to theme =3d= out of the gox.
 ** emacspeak-eww.el:
 
 Added interactive command =emacspeak-eww-phantom= that retrieves using PhantomJS.
@@ -60,7 +60,8 @@ Search, browse download and play book streams.
 Updated to API 0.94.
 Commands for browsing, searching and playing present and past shows.
 
-** emacspeak-bbc: Updated implementation to reflect that older iplayer
+** emacspeak-bbc: 
+Updated implementation to reflect that older iplayer
 convertor no longer works.  Emacspeak-bbc now plays links through
 Chrome or by using command get_iplayer to stream via mplayer.
 Complements download functionality available via Emacs package iplayer.
@@ -76,3 +77,7 @@ Speech-enables paradox, an alternative package-manager UI.
 ** emacspeak-url-templates:
 
 Updated templates.
+
+** emacspeak-wizards:
+
+Code cleanup and updates.
