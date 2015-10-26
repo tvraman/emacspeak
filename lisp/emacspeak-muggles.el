@@ -89,6 +89,41 @@
 (require 'emacspeak-m-player)
 
 ;;}}}
+;;{{{ Generate Muggles From Keymaps:
+
+;;; Generate A Muggle:
+
+;;; Take a name of a keymap (symbol)
+;;; And generate an interactive command that can be bound to a key.
+;;; Invoking that command temporarily activates the previously supplied keymap.
+;;; That activated keymap remains active until the user presses a key that is not bound in that keymap.
+;;; Inspired by the Hydra package.
+
+(defun emacspeak-muggles-generate (k-map)
+  "Generate a Muggle from specified k-map.
+Argument `k-map' is a symbol  that names a keymap."
+  (unless (and (symbolp k-map)
+               (boundp k-map)
+               (keymapp (symbol-value k-map)))
+    (error "%s is not a keymap." k-map))
+  (let ((cmd-name (intern (format "emacspeak-muggles-%s-cmd" k-map)))
+        (doc-string (format "Temporarily use keymap %s" k-map))) (eval
+        `(defun ,cmd-name ()
+           ,doc-string
+           (interactive)
+           (let((cmd nil)
+                (key (read-key-sequence "Key: ")))
+             (while (setq cmd (lookup-key ,k-map key))
+               (when (commandp cmd) (call-interactively cmd))
+               (setq key (read-key-sequence "Key: ")))
+             (call-interactively (lookup-key global-map key))
+             (emacspeak-auditory-icon 'close-object))))))
+
+;;; Sample Usage:
+(global-set-key
+ (kbd "s-m")
+(emacspeak-muggles-generate 'emacspeak-m-player-mode-map))
+;;}}}
 ;;{{{ Map Hydra Colors To Voices:
 
 (voice-setup-add-map
@@ -503,41 +538,6 @@ Info-mode:
     ("q"   Info-exit "Info exit")
     ("C-g" nil "cancel" :color blue)))
 
-;;}}}
-;;{{{ Generate Muggles From Keymaps:
-
-;;; Generate A Muggle:
-
-;;; Take a name of a keymap (symbol)
-;;; And generate an interactive command that can be bound to a key.
-;;; Invoking that command temporarily activates the previously supplied keymap.
-;;; That activated keymap remains active until the user presses a key that is not bound in that keymap.
-;;; Inspired by the Hydra package.
-
-(defun emacspeak-muggles-generate (k-map)
-  "Generate a Muggle from specified k-map.
-Argument `k-map' is a symbol  that names a keymap."
-  (unless (and (symbolp k-map)
-               (boundp k-map)
-               (keymapp (symbol-value k-map)))
-    (error "%s is not a keymap." k-map))
-  (let ((cmd-name (intern (format "emacspeak-muggles-%s-cmd" k-map)))
-        (doc-string (format "Temporarily use keymap %s" k-map))) (eval
-        `(defun ,cmd-name ()
-           ,doc-string
-           (interactive)
-           (let((cmd nil)
-                (key (read-key-sequence "Key: ")))
-             (while (setq cmd (lookup-key ,k-map key))
-               (when (commandp cmd) (call-interactively cmd))
-               (setq key (read-key-sequence "Key: ")))
-             (call-interactively (lookup-key global-map key))
-             (emacspeak-auditory-icon 'close-object))))))
-
-;;; Sample Usage:
-(global-set-key
- (kbd "s-m")
-(emacspeak-muggles-generate 'emacspeak-m-player-mode-map))
 ;;}}}
 (provide 'emacspeak-muggles)
 ;;{{{ end of file
