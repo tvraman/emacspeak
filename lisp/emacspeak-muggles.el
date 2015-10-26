@@ -92,7 +92,6 @@
 ;;{{{ Generate Muggles From Keymaps:
 
 ;;; Generate A Muggle:
-
 ;;; Take a name of a keymap (symbol)
 ;;; And generate an interactive command that can be bound to a key.
 ;;; Invoking that command temporarily activates the previously supplied keymap.
@@ -102,27 +101,28 @@
 (defun emacspeak-muggles-generate (k-map)
   "Generate a Muggle from specified k-map.
 Argument `k-map' is a symbol  that names a keymap."
-  (unless (and (symbolp k-map)
-               (boundp k-map)
-               (keymapp (symbol-value k-map)))
+  (unless (and (symbolp k-map) (boundp k-map) (keymapp (symbol-value k-map)))
     (error "%s is not a keymap." k-map))
   (let ((cmd-name (intern (format "emacspeak-muggles-%s-cmd" k-map)))
-        (doc-string (format "Temporarily use keymap %s" k-map))) (eval
-        `(defun ,cmd-name ()
-           ,doc-string
-           (interactive)
-           (let((cmd nil)
-                (key (read-key-sequence "Key: ")))
-             (while (setq cmd (lookup-key ,k-map key))
-               (when (commandp cmd) (call-interactively cmd))
-               (setq key (read-key-sequence "Key: ")))
-             (call-interactively (lookup-key global-map key))
-             (emacspeak-auditory-icon 'close-object))))))
+        (doc-string (format "Temporarily use keymap %s" k-map)))
+    (eval
+     `(defun ,cmd-name ()
+        ,doc-string
+        (interactive)
+        (let((cmd nil)
+             (key (read-key-sequence "Key: ")))
+          (while (setq cmd (lookup-key ,k-map key))
+            (when (commandp cmd) (call-interactively cmd))
+            (setq key (read-key-sequence "Key: ")))
+          (call-interactively (lookup-key global-map key))
+          (emacspeak-auditory-icon 'close-object))))))
 
-;;; Sample Usage:
+;;; Create a command to invoke our media player map:
+
 (global-set-key
  (kbd "s-m")
-(emacspeak-muggles-generate 'emacspeak-m-player-mode-map))
+ (emacspeak-muggles-generate 'emacspeak-m-player-mode-map))
+
 ;;}}}
 ;;{{{ Map Hydra Colors To Voices:
 
@@ -285,66 +285,65 @@ Also turn on emacspeak-muggles-talkative-p if it was turned off."
 ;;}}}
 ;;{{{ Media Player:
 
-
 (defhydra emacspeak-muggles-m-player
-   (:body-pre (emacspeak-muggles-body-pre "Media Player")
-              :hint nil
-              :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
-   (";" emacspeak-m-player)
-   ("+" emacspeak-m-player-volume-up)
-   ("," emacspeak-m-player-backward-10s)
-   ("%" emacspeak-m-player-display-percent)
-   ("-" emacspeak-m-player-volume-down)
-   ("." emacspeak-m-player-forward-10s)
-   ("<" emacspeak-m-player-backward-1min)
-   ("<down>" emacspeak-m-player-forward-1min)
-   ("<end>" emacspeak-m-player-end-of-track)
-   ("<home>" emacspeak-m-player-beginning-of-track)
-   ("<left>" emacspeak-m-player-backward-10s)
-   ("<next>" emacspeak-m-player-forward-10min)
-   ("<prior>" emacspeak-m-player-backward-10min)
-   ("<right>" emacspeak-m-player-forward-10s)
-   ("<up>" emacspeak-m-player-backward-1min)
-   ("=" emacspeak-m-player-volume-up)
-   (">" emacspeak-m-player-forward-1min)
-   ("?" emacspeak-m-player-display-position)
-   ("C" emacspeak-m-player-clear-filters)
-   ("C-m" emacspeak-m-player-load)
-   ("DEL" emacspeak-m-player-reset-speed)
-   ("L" emacspeak-m-player-load-file)
-   ("M-l" emacspeak-m-player-load-playlist)
-   ("O" emacspeak-m-player-reset-options)
-   ("P" emacspeak-m-player-apply-reverb-preset)
-   ("Q" emacspeak-m-player-quit "quit")
-   ("R" emacspeak-m-player-edit-reverb)
-   ("S" emacspeak-amark-save)
-   ("SPC" emacspeak-m-player-pause)
-   ("[" emacspeak-m-player-slower)
-   ("]" emacspeak-m-player-faster)
-   ("a" emacspeak-m-player-amark-add)
-   ("b" emacspeak-m-player-balance)
-   ("c" emacspeak-m-player-slave-command)
-   ("d" emacspeak-m-player-delete-filter)
-   ("e" emacspeak-m-player-add-equalizer)
-   ("f" emacspeak-m-player-add-filter)
-   ("g" emacspeak-m-player-seek-absolute)
-   ("j" emacspeak-m-player-amark-jump)
-   ("l" emacspeak-m-player-get-length)
-   ("m" emacspeak-m-player-speak-mode-line)
-   ("n" emacspeak-m-player-next-track)
-   ("o" emacspeak-m-player-customize-options)
-   ("p" emacspeak-m-player-previous-track)
-   ("q" bury-buffer)
-   ("r" emacspeak-m-player-seek-relative)
-   ("s" emacspeak-m-player-scale-speed)
-   ("t" emacspeak-m-player-play-tracks-jump)
-   ("u" emacspeak-m-player-url)
-   ("v" emacspeak-m-player-volume-change)
-   ("(" emacspeak-m-player-left-channel)
-   (")" emacspeak-m-player-right-channel)
-   ("{" emacspeak-m-player-half-speed)
-   ("}" emacspeak-m-player-double-speed)
-   )
+  (:body-pre (emacspeak-muggles-body-pre "Media Player")
+             :hint nil
+             :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
+  (";" emacspeak-m-player)
+  ("+" emacspeak-m-player-volume-up)
+  ("," emacspeak-m-player-backward-10s)
+  ("%" emacspeak-m-player-display-percent)
+  ("-" emacspeak-m-player-volume-down)
+  ("." emacspeak-m-player-forward-10s)
+  ("<" emacspeak-m-player-backward-1min)
+  ("<down>" emacspeak-m-player-forward-1min)
+  ("<end>" emacspeak-m-player-end-of-track)
+  ("<home>" emacspeak-m-player-beginning-of-track)
+  ("<left>" emacspeak-m-player-backward-10s)
+  ("<next>" emacspeak-m-player-forward-10min)
+  ("<prior>" emacspeak-m-player-backward-10min)
+  ("<right>" emacspeak-m-player-forward-10s)
+  ("<up>" emacspeak-m-player-backward-1min)
+  ("=" emacspeak-m-player-volume-up)
+  (">" emacspeak-m-player-forward-1min)
+  ("?" emacspeak-m-player-display-position)
+  ("C" emacspeak-m-player-clear-filters)
+  ("C-m" emacspeak-m-player-load)
+  ("DEL" emacspeak-m-player-reset-speed)
+  ("L" emacspeak-m-player-load-file)
+  ("M-l" emacspeak-m-player-load-playlist)
+  ("O" emacspeak-m-player-reset-options)
+  ("P" emacspeak-m-player-apply-reverb-preset)
+  ("Q" emacspeak-m-player-quit "quit")
+  ("R" emacspeak-m-player-edit-reverb)
+  ("S" emacspeak-amark-save)
+  ("SPC" emacspeak-m-player-pause)
+  ("[" emacspeak-m-player-slower)
+  ("]" emacspeak-m-player-faster)
+  ("a" emacspeak-m-player-amark-add)
+  ("b" emacspeak-m-player-balance)
+  ("c" emacspeak-m-player-slave-command)
+  ("d" emacspeak-m-player-delete-filter)
+  ("e" emacspeak-m-player-add-equalizer)
+  ("f" emacspeak-m-player-add-filter)
+  ("g" emacspeak-m-player-seek-absolute)
+  ("j" emacspeak-m-player-amark-jump)
+  ("l" emacspeak-m-player-get-length)
+  ("m" emacspeak-m-player-speak-mode-line)
+  ("n" emacspeak-m-player-next-track)
+  ("o" emacspeak-m-player-customize-options)
+  ("p" emacspeak-m-player-previous-track)
+  ("q" bury-buffer)
+  ("r" emacspeak-m-player-seek-relative)
+  ("s" emacspeak-m-player-scale-speed)
+  ("t" emacspeak-m-player-play-tracks-jump)
+  ("u" emacspeak-m-player-url)
+  ("v" emacspeak-m-player-volume-change)
+  ("(" emacspeak-m-player-left-channel)
+  (")" emacspeak-m-player-right-channel)
+  ("{" emacspeak-m-player-half-speed)
+  ("}" emacspeak-m-player-double-speed)
+  )
 
 ;;}}}
 ;;{{{ HideShow:
@@ -474,7 +473,7 @@ _d_: subtree
 ;;{{{ Info Summary:
 
 ;;; Taken from Hydra wiki and customized to taste:
-(define-key Info-mode-map (kbd "?") 
+(define-key Info-mode-map (kbd "?")
   (defhydra emacspeak-muggles-info-summary
     (:color blue :hint nil
             :body-pre (emacspeak-muggles-body-pre "Info Summary")
