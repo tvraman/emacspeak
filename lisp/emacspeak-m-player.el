@@ -223,7 +223,8 @@ on a specific directory."
   "Pop to m-player buffer."
   (interactive)
   (declare (special emacspeak-m-player-process))
-  (unless (eq 'run (process-status emacspeak-m-player-process))
+  (unless
+      (and emacspeak-m-player-process(eq 'run (process-status emacspeak-m-player-process)))
     (emacspeak-multimedia))
   (pop-to-buffer (process-buffer emacspeak-m-player-process))
   (emacspeak-speak-mode-line))
