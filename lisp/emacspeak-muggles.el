@@ -109,11 +109,12 @@ Argument `k-map' is a symbol  that names a keymap."
      `(defun ,cmd-name ()
         ,doc-string
         (interactive)
-        (let((cmd nil)
-             (key (read-key-sequence "Key: ")))
-          (while (setq cmd (lookup-key ,k-map key))
-            (when (commandp cmd) (call-interactively cmd))
-            (setq key (read-key-sequence "Key: ")))
+        (let* ((key (read-key-sequence "Key: "))
+               (cmd (lookup-key ,k-map key)))
+          (while (commandp cmd)
+            (call-interactively cmd)
+            (setq key (read-key-sequence "Key: ")
+                  cmd (lookup-key ,k-map key)))
           (call-interactively (lookup-key global-map key))
           (emacspeak-auditory-icon 'close-object))))))
 
