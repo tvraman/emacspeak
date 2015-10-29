@@ -58,6 +58,7 @@
 ;;; @item Brightness: <print> Control display brightness using xbacklight.
 ;;; @item View-Mode: <C-c v> Temporarily behave like view-mode.
 ;;; @item Navigate: <s-n> Navigate with ease.
+;;;@item  org-mode structure nav: <C-c SPC> Structure navigation  for org-mode.
 ;;;@item  org-mode tables: <C-c t> Table UI for org-mode tables.
 ;;;@item m-player: <s-m> Emacspeak-M-Player Commands
 ;;; @item hideshow: C-c h Provide HideShow bindings.
@@ -263,6 +264,28 @@ Also turn on emacspeak-muggles-talkative-p if it was turned off."
    ("{" backward-paragraph)
    ("}" forward-paragraph)
    ))
+
+;;}}}
+;;{{{ Org Mode Structure Navigation:
+
+(define-key org-mode-map 
+  (kbd "C-c SPC")
+(defhydra emacspeak-muggles-org-nav
+  (:body-pre
+    (progn
+      (emacspeak-muggles-toggle-talkative)
+      (emacspeak-muggles-body-pre "OrgNavView"))
+    :hint nil
+    :pre emacspeak-muggles-pre :post emacspeak-muggles-post
+    :color red :columns 3)
+  "Org Mode Movements"
+  ("SPC" emacspeak-outline-speak-this-heading  "Speak this section")
+  ("n" outline-next-visible-heading "next heading")
+  ("p" outline-previous-visible-heading "prev heading")
+  ("N" org-forward-heading-same-level "next heading at same level")
+  ("P" org-backward-heading-same-level "prev heading at same level")
+  ("u" outline-up-heading "up heading")
+  ("g" org-goto "goto" :exit t)))
 
 ;;}}}
 ;;{{{ Org-Mode Table Navigation:
