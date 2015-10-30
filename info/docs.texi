@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1121 commands and 928 options.
+This chapter documents a total of 1122 commands and 928 options.
 
 @menu
 * acss-structure::
@@ -10564,6 +10564,7 @@ attempt to automatically install package hydra if it is not found.
 @item Brightness: <print> Control display brightness using xbacklight.
 @item View-Mode: <C-c v> Temporarily behave like view-mode.
 @item Navigate: <s-n> Navigate with ease.
+@item  org-mode structure nav: <C-c SPC> Structure navigation  for org-mode.
 @item  org-mode tables: <C-c t> Table UI for org-mode tables.
 @item m-player: <s-m> Emacspeak-M-Player Commands
 @item hideshow: C-c h Provide HideShow bindings.
@@ -10779,6 +10780,25 @@ Create a hydra with no body and the heads:
 ">":    ``end-of-buffer''
 
 The body can be accessed via ``emacspeak-muggles-navigate/body''.
+@end format
+@end deffn
+
+@subsubsection emacspeak-muggles-org-nav/body
+@deffn {Command} emacspeak-muggles-org-nav/body   
+@findex emacspeak-muggles-org-nav/body
+
+@format
+Create a hydra with no body and the heads:
+
+"SPC":    ``emacspeak-outline-speak-this-heading'',
+"n":    ``outline-next-visible-heading'',
+"p":    ``outline-previous-visible-heading'',
+"N":    ``org-forward-heading-same-level'',
+"P":    ``org-backward-heading-same-level'',
+"u":    ``outline-up-heading'',
+"g":    ``org-goto''
+
+The body can be accessed via ``emacspeak-muggles-org-nav/body''.
 @end format
 @end deffn
 
