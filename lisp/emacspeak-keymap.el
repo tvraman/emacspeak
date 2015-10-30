@@ -146,8 +146,8 @@
         ("C-r" info-display-manual)
         ("SPC" customize-group)
         ("TAB" emacspeak-info-wizard)
-        ("M-p" list-packages)
         ("," emacspeak-wizards-color-at-point)
+        ("p" list-packages)
         )
       do
       (emacspeak-keymap-update help-map binding))
