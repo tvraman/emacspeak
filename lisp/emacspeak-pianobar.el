@@ -77,7 +77,8 @@
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:
-
+(declare-function pianobar "Launch pianobar.")
+(declare-function pianobar-send-string  "Send command to pianobar." (cmd))
 (defadvice pianobar (after emacspeak pre act comp)
   "Provide auditory feedback."
   (define-key pianobar-key-map "t" 'emacspeak-pianobar-electric-mode-toggle)
