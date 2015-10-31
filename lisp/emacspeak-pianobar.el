@@ -79,6 +79,16 @@
 ;;{{{ Advice Interactive Commands:
 (declare-function pianobar "Launch pianobar.")
 (declare-function pianobar-send-string  "Send command to pianobar." (cmd))
+(defun emacspeak-pianobar-volume-down ()
+  "Decrease volume"
+  (interactive)
+   (pianobar-send-string "(\n"))
+
+
+(defun emacspeak-pianobar-volume-up ()
+  "Increase volume"
+  (interactive)
+   (pianobar-send-string ")\n"))
 (defadvice pianobar (after emacspeak pre act comp)
   "Provide auditory feedback."
   (define-key pianobar-key-map "t" 'emacspeak-pianobar-electric-mode-toggle)
@@ -91,8 +101,8 @@
       'emacspeak-pianobar-switch-to-preset ))
   (define-key  pianobar-key-map [up] 'emacspeak-pianobar-previous-preset)
   (define-key  pianobar-key-map [down] 'emacspeak-pianobar-next-preset)
-  (define-key pianobar-key-map "(" #'(lambda () (pianobar-send-string "(\n")))
-  (define-key pianobar-key-map ")" #'(lambda () (pianobar-send-string ")\n")))
+  (define-key pianobar-key-map "(" 'emacspeak-pianobar-volume-down)
+  (define-key pianobar-key-map ")" 'emacspeak-pianobar-volume-up)
   (emacspeak-speak-mode-line)
   (emacspeak-auditory-icon 'open-object))
 
