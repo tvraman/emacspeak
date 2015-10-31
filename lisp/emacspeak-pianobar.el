@@ -141,7 +141,7 @@
 
 ;;}}}
 ;;{{{ emacspeak-pianobar
-(defvar emacspeak-pianobar-electric-mode nil
+(defvar emacspeak-pianobar-electric-mode t
   "Records if electric mode is on.")
 
 ;;;###autoload
