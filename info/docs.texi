@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1122 commands and 928 options.
+This chapter documents a total of 1124 commands and 929 options.
 
 @menu
 * acss-structure::
@@ -12100,6 +12100,24 @@ If electric mode is on, keystrokes invoke pianobar commands directly.
 @end format
 @end deffn
 
+@subsubsection emacspeak-pianobar-next-preset
+@deffn {Command} emacspeak-pianobar-next-preset   
+@findex emacspeak-pianobar-next-preset
+
+@format
+Switch to next preset.
+@end format
+@end deffn
+
+@subsubsection emacspeak-pianobar-previous-preset
+@deffn {Command} emacspeak-pianobar-previous-preset   
+@findex emacspeak-pianobar-previous-preset
+
+@format
+Switch to previous preset.
+@end format
+@end deffn
+
 @subsubsection emacspeak-pianobar-switch-to-preset
 @deffn {Command} emacspeak-pianobar-switch-to-preset   
 @findex emacspeak-pianobar-switch-to-preset
@@ -12108,6 +12126,13 @@ If electric mode is on, keystrokes invoke pianobar commands directly.
 Switch to one of the  presets.
 @end format
 @end deffn
+
+@subsection emacspeak-pianobar Options
+
+@defvar {User Option} emacspeak-pianobar-max-preset
+Number of presets.
+
+@end defvar
 
 @node emacspeak-proced
 @section emacspeak-proced
