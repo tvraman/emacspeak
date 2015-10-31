@@ -101,6 +101,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
           '(
             ([f3] bury-buffer)
             ([f4] emacspeak-kill-buffer-quietly)
+            ([f5] emacspeak-pianobar)
             ("\M--" undo)
             ([delete]dtk-toggle-punctuation-mode)
             ( [f8]emacspeak-remote-quick-connect-to-server)
