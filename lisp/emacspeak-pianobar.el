@@ -82,15 +82,18 @@
 (defadvice pianobar (after emacspeak pre act comp)
   "Provide auditory feedback."
   (define-key pianobar-key-map "t" 'emacspeak-pianobar-electric-mode-toggle)
+  (define-key pianobar-key-map [right] 'pianobar-next-song)
   (dotimes (i 10)
     (define-key pianobar-key-map    (format "%s" i )   'emacspeak-pianobar-switch-to-preset ))
   (dotimes (i 25)
     (define-key pianobar-key-map
       (format "%c" (+ i 65))
       'emacspeak-pianobar-switch-to-preset ))
+  (define-key  pianobar-key-map [up] 'emacspeak-pianobar-previous-preset)
+  (define-key  pianobar-key-map [down] 'emacspeak-pianobar-next-preset)
   (define-key pianobar-key-map "(" #'(lambda () (pianobar-send-string "(\n")))
-  (define-key pianobar-key-map ")" #'(lambda () (pianobar-send-string ")\n")))  
-  (emacspeak-speak-mode-line)  
+  (define-key pianobar-key-map ")" #'(lambda () (pianobar-send-string ")\n")))
+  (emacspeak-speak-mode-line)
   (emacspeak-auditory-icon 'open-object))
 
 ;;; Advice all actions to play a pre-auditory icon
@@ -148,7 +151,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
   (interactive)
   (declare (special emacspeak-pianobar-electric-mode
                     pianobar-key-map pianobar-buffer))
-  
+
   (save-excursion
     (set-buffer pianobar-buffer)
     pianobar-buffer
@@ -205,23 +208,49 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
     (call-interactively (lookup-key pianobar-key-map key)))
    (t (pianobar-send-string  key))))
 
+;;;###autoload
+(defcustom emacspeak-pianobar-max-preset 10
+  "Number of presets."
+  :type 'number
+  :group 'emacspeak-pianobar)
+
+(defvar emacspeak-pianobar-current-preset "0"
+  "Current preset.")
+
 ;;; Station Presets
 (defun emacspeak-pianobar-switch-to-preset ()
   "Switch to one of the  presets."
   (interactive)
-  (declare (special last-input-event))
+  (declare (special last-input-event emacspeak-pianobar-current-preset))
   (let ((preset last-input-event))
-    (setq preset 
+    (setq emacspeak-pianobar-current-preset
           (cond
-           ((and (<= 48 preset)
-                 (<= preset 57))
-            (- preset 48))
-           ((and (<= 65 preset)
-                 (<= preset 90))
-            (- preset 55))               ;A == 10
-           (t
-            (setq preset (read-string "Preset: ")))))
-    (pianobar-send-string (format "s%s\n" preset))))
+           ((and (<= 48 preset) (<= preset 57))
+            (- preset 48)) ; 0..9
+           ((and (<= 65 preset) (<= preset 90)) ; 10.. 35 A..Z
+            (- preset 55))
+           (t (read-string "Preset: "))))
+    (pianobar-send-string (format "s%s\n" emacspeak-pianobar-current-preset))))
+
+(defun emacspeak-pianobar-next-preset ()
+  "Switch to next preset."
+  (interactive)
+  (declare (special emacspeak-pianobar-current-preset emacspeak-pianobar-max-preset))
+  (when (= emacspeak-pianobar-max-preset emacspeak-pianobar-current-preset)
+    (setq emacspeak-pianobar-current-preset -1))
+  (setq emacspeak-pianobar-current-preset (1+ emacspeak-pianobar-current-preset))
+  (pianobar-send-string (format "s%s\n" emacspeak-pianobar-current-preset)))
+
+(defun emacspeak-pianobar-previous-preset ()
+  "Switch to previous preset."
+  (interactive)
+  (declare (special emacspeak-pianobar-current-preset emacspeak-pianobar-max-preset))
+  (when (zerop emacspeak-pianobar-current-preset)
+    (setq emacspeak-pianobar-current-preset (1+ emacspeak-pianobar-max-preset)))
+  (setq emacspeak-pianobar-current-preset (1- emacspeak-pianobar-current-preset))
+  (pianobar-send-string (format "s%s\n" emacspeak-pianobar-current-preset)))
+
+
 ;;}}}
 
 (provide 'emacspeak-pianobar)
