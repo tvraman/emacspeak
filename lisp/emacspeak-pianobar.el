@@ -223,7 +223,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
   :type 'number
   :group 'emacspeak-pianobar)
 
-(defvar emacspeak-pianobar-current-preset "0"
+(defvar emacspeak-pianobar-current-preset 0
   "Current preset.")
 
 ;;; Station Presets
