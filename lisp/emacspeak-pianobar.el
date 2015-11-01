@@ -102,8 +102,11 @@
         'emacspeak-pianobar-switch-to-preset ))
     (define-key  pianobar-key-map [up] 'emacspeak-pianobar-previous-preset)
     (define-key  pianobar-key-map [down] 'emacspeak-pianobar-next-preset)
-    (define-key pianobar-key-map "(" 'emacspeak-pianobar-volume-down)
+    (define-key pianobar-key-map "("
+      'emacspeak-pianobar-volume-down)
+    (define-key pianobar-key-map [prior] 'emacspeak-pianobar-volume-down)
     (define-key pianobar-key-map ")" 'emacspeak-pianobar-volume-up)
+    (define-key pianobar-key-map [next] 'emacspeak-pianobar-volume-up)
     (use-local-map pianobar-key-map)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
