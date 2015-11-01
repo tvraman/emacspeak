@@ -91,20 +91,22 @@
    (pianobar-send-string ")\n"))
 (defadvice pianobar (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (define-key pianobar-key-map "t" 'emacspeak-pianobar-electric-mode-toggle)
-  (define-key pianobar-key-map [right] 'pianobar-next-song)
-  (dotimes (i 10)
-    (define-key pianobar-key-map    (format "%s" i )   'emacspeak-pianobar-switch-to-preset ))
-  (dotimes (i 25)
-    (define-key pianobar-key-map
-      (format "%c" (+ i 65))
-      'emacspeak-pianobar-switch-to-preset ))
-  (define-key  pianobar-key-map [up] 'emacspeak-pianobar-previous-preset)
-  (define-key  pianobar-key-map [down] 'emacspeak-pianobar-next-preset)
-  (define-key pianobar-key-map "(" 'emacspeak-pianobar-volume-down)
-  (define-key pianobar-key-map ")" 'emacspeak-pianobar-volume-up)
-  (emacspeak-speak-mode-line)
-  (emacspeak-auditory-icon 'open-object))
+  (with-current-buffer pianobar-buffer
+    (define-key pianobar-key-map "t" 'emacspeak-pianobar-electric-mode-toggle)
+    (define-key pianobar-key-map [right] 'pianobar-next-song)
+    (dotimes (i 10)
+      (define-key pianobar-key-map    (format "%s" i )   'emacspeak-pianobar-switch-to-preset ))
+    (dotimes (i 25)
+      (define-key pianobar-key-map
+        (format "%c" (+ i 65))
+        'emacspeak-pianobar-switch-to-preset ))
+    (define-key  pianobar-key-map [up] 'emacspeak-pianobar-previous-preset)
+    (define-key  pianobar-key-map [down] 'emacspeak-pianobar-next-preset)
+    (define-key pianobar-key-map "(" 'emacspeak-pianobar-volume-down)
+    (define-key pianobar-key-map ")" 'emacspeak-pianobar-volume-up)
+    (use-local-map pianobar-key-map)
+    (emacspeak-speak-mode-line)
+    (emacspeak-auditory-icon 'open-object)))
 
 ;;; Advice all actions to play a pre-auditory icon
 
@@ -161,10 +163,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
   (interactive)
   (declare (special emacspeak-pianobar-electric-mode
                     pianobar-key-map pianobar-buffer))
-
-  (save-excursion
-    (set-buffer pianobar-buffer)
-    pianobar-buffer
+  (with-current-buffer pianobar-buffer
     (cond
      (emacspeak-pianobar-electric-mode  ; turn it off
       (use-local-map nil)
