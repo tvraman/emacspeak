@@ -388,11 +388,11 @@ On a directory line, run du -s on the directory to speak its size."
   (funcall-interactively #'emacspeak-m-player (dired-get-filename)))
 
 (defconst emacspeak-dired-opener-table
-  `((".epub$"  emacspeak-dired-epub-eww)
-    (".html" emacspeak-dired-eww-open )
-    (".htm" emacspeak-dired-eww-open )
-    (".pdf" emacspeak-dired-pdf-open)
-    (".csv" emacspeak-dired-csv-open)
+  `(("\\.epub$"  emacspeak-dired-epub-eww)
+    ("\\.html" emacspeak-dired-eww-open )
+    ("\\.htm" emacspeak-dired-eww-open )
+    ("\\.pdf" emacspeak-dired-pdf-open)
+    ("\\.csv" emacspeak-dired-csv-open)
     (,emacspeak-media-extensions emacspeak-dired-play-this-media))
   "Association of filename extension patterns to Emacspeak handlers.")
 
