@@ -100,16 +100,16 @@ pronunciation dictionaries are stored. ")
 (defvar emacspeak-media-extensions
   (concat
    (regexp-opt
-    (list ".wma"
-          ".wmv"
-          ".flv"
-          ".m4a"
-          ".m4b"
-          ".flac"
-          ".ogg"
-          ".mp3"
-          ".MP3"
-          ".mp4")
+    (list "wma"
+          "wmv"
+          "flv"
+          "m4a"
+          "m4b"
+          "flac"
+          "ogg"
+          "mp3"
+          "MP3"
+          "mp4")
     'parens)
    "$")
   "Extensions that match media files.")
