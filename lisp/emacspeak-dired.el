@@ -405,11 +405,11 @@ On a directory line, run du -s on the directory to speak its size."
     (unless f (error "No file here."))
     (unless ext (error "This entry has no extension."))
     (setq handler
-                  (second
-                  (find
-                   ext
-                   emacspeak-dired-opener-table
-                   :test #'(lambda (ext e) (string-match  (first e) ext)))))
+          (second
+           (find
+            ext
+            emacspeak-dired-opener-table
+            :test #'(lambda (ext e) (string-match  (first e) ext)))))
     (cond
              ((and handler (fboundp handler))
               (emacspeak-auditory-icon 'task-done)
