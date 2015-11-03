@@ -407,13 +407,15 @@ On a directory line, run du -s on the directory to speak its size."
     (setq handler
           (second
            (find
-            ext emacspeak-dired-opener-table
-            :test #'(lambda (ext e) (string-match  (first e) ext)))))
+            ext
+            emacspeak-dired-opener-table
+            :key #'car                  ; extract pattern
+            :test #'(lambda (e pattern) (string-match  pattern e)))))
     (cond
-             ((and handler (fboundp handler))
-              (emacspeak-auditory-icon 'task-done)
-              (funcall-interactively handler))
-             (t (error  "No known handler")))))
+     ((and handler (fboundp handler))
+      (emacspeak-auditory-icon 'task-done)
+      (funcall-interactively handler))
+     (t (error  "No known handler")))))
 
 (defun emacspeak-dired-eww-open ()
   "Open HTML file on current dired line."
