@@ -407,9 +407,9 @@ On a directory line, run du -s on the directory to speak its size."
     (setq handler
           (second
            (find
-            ext
+            (format ".%s" ext)
             emacspeak-dired-opener-table
-            :key #'car                  ; extract pattern
+            :key #'car                  ; extract pattern from entry 
             :test #'(lambda (e pattern) (string-match  pattern e)))))
     (cond
      ((and handler (fboundp handler))
