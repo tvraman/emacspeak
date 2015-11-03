@@ -407,8 +407,7 @@ On a directory line, run du -s on the directory to speak its size."
     (setq handler
           (second
            (find
-            ext
-            emacspeak-dired-opener-table
+            ext emacspeak-dired-opener-table
             :test #'(lambda (ext e) (string-match  (first e) ext)))))
     (cond
              ((and handler (fboundp handler))
