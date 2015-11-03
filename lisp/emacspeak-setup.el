@@ -99,6 +99,7 @@ pronunciation dictionaries are stored. ")
 ;;;###autoload
 (defvar emacspeak-media-extensions
   (concat
+   "\\."
    (regexp-opt
     (list "wma"
           "wmv"
