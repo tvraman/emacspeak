@@ -3397,7 +3397,15 @@ This function is sensitive to calendar mode when prompting."
 ;;; end:
 
 ;;}}}
+;;{{{ AppLauncher for use in X:
+;;;###autoload
+(defun emacspeak-launch-application (command)
+  "Launch an application. 
+This command  is designed for use in a windowing environment like X."
+  (interactive (list (read-shell-command "$ ")))
+                      (start-process-shell-command command nil command))
 
+;;}}}
 (provide 'emacspeak-speak )
 ;;{{{ end of file
 
