@@ -1,9 +1,3 @@
-!caps-lock is control:
-
-clear Lock
-keycode 0x42 = Control_L
-add Control = Control_L
-
 ! swap escape and backquote
  keycode 49 = Escape asciitilde
 keycode 9=grave asciitilde
