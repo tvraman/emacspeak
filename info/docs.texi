@@ -1018,7 +1018,6 @@ SPC		emacspeak-speak-header-line
 A		emacspeak-appt-repeat-announcement
 B		emacspeak-speak-buffer-interactively
 C		emacspeak-customize
-F		emacspeak-view-emacspeak-faq
 I		emacspeak-speak-show-active-network-interfaces
 L		emacspeak-speak-line-interactively
 M		emacspeak-speak-minor-mode-line

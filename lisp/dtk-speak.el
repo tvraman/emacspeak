@@ -58,8 +58,6 @@
 (require 'dtk-unicode)
 
 (require 'espeak-voices)
-(require 'flite-voices)
-
 ;;}}}
 ;;{{{ Forward Declarations:
 (declare-function emacspeak-auditory-icon "emacspeak-sounds.el" (icon))
@@ -1503,7 +1501,6 @@ This is setup on a per engine basis.")
    ((string-match "^multispeech$" tts-name) (multispeech-configure-tts))
    ((string-match "mac$" tts-name) (mac-configure-tts))
    ((string-match "espeak$" tts-name) (espeak-configure-tts))
-   ((string-match "^eflite$" tts-name) (flite-configure-tts))
 ;;; generic configure
    (t (plain-configure-tts)))
   (dtk-interp-sync)
