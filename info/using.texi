@@ -378,9 +378,9 @@ Speak the window contents after scrolling.
 
 
 @findex  emacspeak-speak-sexp
- @kindex  control e ' 
  
-@item @kbd{ control e ' }
+ 
+@item 
 emacspeak-speak-sexp
  Speak current sexp.
 With prefix ARG, speaks the rest of the sexp  from point.
