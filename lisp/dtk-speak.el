@@ -1674,11 +1674,9 @@ Port  defaults to  dtk-local-server-port"
      
 (defun  dtk-initialize ()
   "Initialize speech system."
-  (declare (special dtk-program
-                    dtk-speaker-process dtk-speak-server-initialized
+  (declare (special dtk-speaker-process dtk-speak-server-initialized
                     dtk-startup-hook emacspeak-servers-directory))
-  (let ((new-process nil)
-        (process-connection-type  nil))
+  (let ((new-process nil))
     (setq new-process (dtk-make-process "Speaker"))
     (setq dtk-speak-server-initialized
           (or (eq 'run (process-status new-process ))
