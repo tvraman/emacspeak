@@ -270,7 +270,7 @@ Also turn on emacspeak-muggles-talkative-p if it was turned off."
 
 (define-key org-mode-map 
   (kbd "C-c SPC")
-(defhydra emacspeak-muggles-org-nav
+  (defhydra emacspeak-muggles-org-nav
   (:body-pre
     (progn
       (emacspeak-muggles-toggle-talkative)
