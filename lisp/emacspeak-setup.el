@@ -190,6 +190,15 @@ pronunciation dictionaries are stored. ")
 
 (add-hook 'dtk-startup-hook 'emacspeak-tts-startup-hook)
 
+(defun emacspeak-tts-notify-hook ()
+  "Starts up a notification stream if current synth supports  multiple invocations.
+Should be safe to use with any software engine.
+For now, checks for outloud and only launches if dtk-program is outloud."
+  (when (or (string= dtk-program "outlout")
+            (string= dtk-program "32-outloud"))
+    (dtk-notify-initialize)))
+
+(add-hook 'dtk-startup-hook 'emacspeak-tts-notify-hook 'at-end)
 (defvar emacspeak-startup-hook nil)
 (defun emacspeak-setup-header-line ()
   "Set up Emacspeak to show a default header line."
