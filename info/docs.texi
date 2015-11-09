@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1127 commands and 929 options.
+This chapter documents a total of 1126 commands and 929 options.
 
 @menu
 * acss-structure::

@@ -192,6 +192,9 @@ Gutenberg Project.
 I cannot imagine running Emacspeak without customizing it.
 
 @item Two software text-to-speech synthesizers
+Note that Flite support is now obsolete.
+
+
 
 A discussion of @code{eflite} and @code{espeakf}.  When I first wrote
 this in April 2003, I had problems with them.  Now, in
