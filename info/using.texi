@@ -329,9 +329,9 @@ emacspeak-speak-previous-window
 
 
 @findex  emacspeak-speak-other-window
- @kindex  control e control o 
  
-@item @kbd{ control e control o }
+ 
+@item 
 emacspeak-speak-other-window
  Speak contents of `other' window.
 Speaks entire window irrespective of point.
