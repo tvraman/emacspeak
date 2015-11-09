@@ -612,8 +612,7 @@ icon."
           "In Emacs 25, this  will  inhibit messages in echo area. "))
 (defadvice message (around emacspeak pre act comp)
   "Speak the message."
-  (declare (special emacspeak-last-message
-                    inhibit-message
+  (declare (special emacspeak-last-message inhibit-message
                     emacspeak-speak-messages emacspeak-lazy-message-time))
   (let ((inhibit-read-only t))
     ad-do-it
