@@ -454,6 +454,18 @@ Port  defaults to  dtk-local-server-port
 @end format
 @end deffn
 
+@subsubsection dtk-notify-initialize
+@deffn {Command} dtk-notify-initialize   
+@kbd{C-e d C-n}
+
+@kindex C-e d C-n
+@findex dtk-notify-initialize
+
+@format
+Initialize notification TTS stream.
+@end format
+@end deffn
+
 @subsubsection dtk-reset-state
 @deffn {Command} dtk-reset-state   
 @kbd{C-e d R}
@@ -1143,6 +1155,7 @@ d C-c		dtk-cloud
 d C-d		dectalk
 d C-e		espeak
 d RET		dtk-set-chunk-separator-syntax
+d C-n		dtk-notify-initialize
 d C-o		outloud
 d C-v		outloud-32
 d SPC		dtk-toggle-splitting-on-white-space
@@ -13321,19 +13334,6 @@ Execute COMMAND repeatedly.
 Move to end  PERCENT of buffer like in View mode.
 Display is centered at point.
 Also set the mark at the position where point was.
-@end format
-@end deffn
-
-@subsubsection emacspeak-launch-application
-@deffn {Command} emacspeak-launch-application  (command)
-@kbd{C-&}
-
-@kindex C-&
-@findex emacspeak-launch-application
-
-@format
-Launch an application. 
-This command  is designed for use in a windowing environment like X.
 @end format
 @end deffn
 
