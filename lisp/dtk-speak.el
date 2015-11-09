@@ -1676,25 +1676,16 @@ Port  defaults to  dtk-local-server-port"
   "Initialize speech system."
   (declare (special dtk-speaker-process dtk-speak-server-initialized
                     dtk-startup-hook emacspeak-servers-directory))
-  (let ((new-process nil))
-    (setq new-process (dtk-make-process "Speaker"))
-    (setq dtk-speak-server-initialized
-          (or (eq 'run (process-status new-process ))
-              (eq 'open (process-status new-process))))
+  (let* ((new-process (dtk-make-process "Speaker"))
+         (state (process-status new-process)))
+    (setq dtk-speak-server-initialized (memq state '(run open)))
     (cond
-     (dtk-speak-server-initialized
-      ;; nuke old server
-      (when (and dtk-speaker-process
-                 (or (eq 'run (process-status dtk-speaker-process ))
-                     (eq 'open (process-status dtk-speaker-process ))
-                     (eq 'stop (process-status dtk-speaker-process ))))
+     (dtk-speak-server-initialized ;; nuke old server
+      (when (and dtk-speaker-process (process-live-p dtk-speaker-process))
         (delete-process dtk-speaker-process ))
       (setq dtk-speaker-process new-process)
       (set-process-coding-system dtk-speaker-process 'utf-8 'utf-8)
-      (run-hooks 'dtk-startup-hook ))
-     (t
-      (when (ems-interactive-p )
-        (message "The speech server is not running."))))))
+      (run-hooks 'dtk-startup-hook )))))
 
 ;;;###autoload
 (defun tts-restart ()
