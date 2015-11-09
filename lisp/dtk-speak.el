@@ -74,6 +74,9 @@ multispeech For Multilingual speech server
 espeak      For eSpeak
 The default is dtk-exp.")
 
+
+  
+
 (defvar dtk-program-args
   (when (getenv "DTK_PROGRAM_ARGS")
     (split-string   (getenv "DTK_PROGRAM_ARGS")))
@@ -1036,6 +1039,12 @@ important to be interrupted.")
 
 (defvar dtk-speaker-process nil
   "Speaker process handle.")
+
+
+(defvar dtk-notify-process nil
+  "Notify speaker  process handle.")
+
+
 (defvar dtk-punctuation-mode  'all
   "Current setting of punctuation state.
 Possible values are some, all or none.
@@ -1648,6 +1657,19 @@ Port  defaults to  dtk-local-server-port"
 (defvar dtk-speak-server-initialized nil
   "Records if the server is initialized.")
 
+
+;;; Helper: dtk-make-process:
+(defun  dtk-make-process  (name)
+  "Make a  TTS process called name."
+  (declare (special dtk-program emacspeak-servers-directory))
+  (let ((process-connection-type  nil))
+    (apply 'start-process
+                 name nil
+                 (expand-file-name dtk-program emacspeak-servers-directory))))
+    
+    
+     
+     
 (defun  dtk-initialize ()
   "Initialize speech system."
   (declare (special dtk-program
