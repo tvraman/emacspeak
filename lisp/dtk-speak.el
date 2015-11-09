@@ -1661,11 +1661,13 @@ Port  defaults to  dtk-local-server-port"
 ;;; Helper: dtk-make-process:
 (defun  dtk-make-process  (name)
   "Make a  TTS process called name."
-  (declare (special dtk-program emacspeak-servers-directory))
+  (declare (special dtk-program dtk-program-args
+                    emacspeak-servers-directory))
   (let ((process-connection-type  nil))
     (apply 'start-process
                  name nil
-                 (expand-file-name dtk-program emacspeak-servers-directory))))
+                 (expand-file-name dtk-program emacspeak-servers-directory)
+                 dtk-program-args)))
     
     
      
@@ -1677,12 +1679,7 @@ Port  defaults to  dtk-local-server-port"
                     dtk-startup-hook emacspeak-servers-directory))
   (let ((new-process nil)
         (process-connection-type  nil))
-    (setq new-process
-          (apply 'start-process
-                 "speaker"
-                 nil
-                 (expand-file-name dtk-program emacspeak-servers-directory)
-                 dtk-program-args))
+    (setq new-process (dtk-make-process "Speaker"))
     (setq dtk-speak-server-initialized
           (or (eq 'run (process-status new-process ))
               (eq 'open (process-status new-process))))
