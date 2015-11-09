@@ -1925,14 +1925,11 @@ Optional argument group-count specifies grouping for intonation."
 (defun dtk-notify-process ()
   "Return valid TTS handle for notifications."
   (declare (special dtk-notify-process dtk-speaker-process))
-  (cond
-   ((or
-      (null dtk-notify-process)
-     (not (eq 'run (process-status dtk-notify-process )))
-     (not (eq 'signal (process-status dtk-notify-process )))
-     (not (eq 'open (process-status dtk-notify-process))))
-    dtk-notify-process)
-   (t dtk-speaker-process)))
+  (let ((state  (when dtk-notify-process (process-status dtk-notify-process ))))
+    (cond
+     ((null dtk-notify-process) dtk-speaker-process)
+     ((memq state '(open run)) dtk-notify-process)
+     (t dtk-speaker-process))))
 
 (defun dtk-notify-speak (text)
   "Speak text on notification stream. "
