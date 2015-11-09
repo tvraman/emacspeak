@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1126 commands and 929 options.
+This chapter documents a total of 1127 commands and 929 options.
 
 @menu
 * acss-structure::
@@ -13144,6 +13144,19 @@ Execute COMMAND repeatedly.
 Move to end  PERCENT of buffer like in View mode.
 Display is centered at point.
 Also set the mark at the position where point was.
+@end format
+@end deffn
+
+@subsubsection emacspeak-launch-application
+@deffn {Command} emacspeak-launch-application  (command)
+@kbd{C-&}
+
+@kindex C-&
+@findex emacspeak-launch-application
+
+@format
+Launch an application. 
+This command  is designed for use in a windowing environment like X.
 @end format
 @end deffn
 
