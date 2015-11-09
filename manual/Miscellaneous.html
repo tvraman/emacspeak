@@ -95,10 +95,9 @@
 
   <p>Speech can be stopped using command <code>dtk-stop</code>
   –though in normal use, the action of moving the cursor will stop
-  ongoing speech. Speech can also be paused and resumed. The speech
-  server can be stopped and restarted for cases where the user
-  wants to switch to a different server –or in the rare case to
-  nuke a runaway speech server.</p>
+  ongoing speech. The speech server can be stopped and restarted
+  for cases where the user wants to switch to a different server
+  –or in the rare case to nuke a runaway speech server.</p>
 
   <dl compact="compact">
     <dd><a name="index-dtk_002dstop" id="index-dtk_002dstop"></a>
@@ -108,35 +107,7 @@
     <dt><kbd><kbd>Control e s</kbd></kbd></dt>
 
     <dd>
-      <p>dtk-stop Stop speech now.</p><a name="index-dtk_002dpause"
-      id="index-dtk_002dpause"></a> <a name="index-control-e-p" id=
-      "index-control-e-p"></a>
-    </dd>
-
-    <dt><kbd><kbd>control e p</kbd></kbd></dt>
-
-    <dd>
-      <p>dtk-pause Pause ongoing speech. The speech can be resumed
-      with command ‘dtk-resume’ normally bound to C-e SPC. Pausing
-      speech is useful when one needs to perform a few actions
-      before continuing to read a large document. Emacspeak gives
-      you speech feedback as usual once speech has been paused.
-      ‘dtk-resume’ continues the interrupted speech irrespective of
-      the buffer in which it is executed. Optional PREFIX arg
-      flushes any previously paused speech.</p><a name=
-      "index-dtk_002dresume" id="index-dtk_002dresume"></a>
-      <a name="index-control-e-SPACE" id=
-      "index-control-e-SPACE"></a>
-    </dd>
-
-    <dt><kbd><kbd>control e SPACE</kbd></kbd></dt>
-
-    <dd>
-      <p>dtk-resume Resume paused speech. This command resumes
-      speech that has been suspended by executing command
-      ‘dtk-pause’ bound to C-e p. If speech has not been paused,
-      and variable ‘dtk-resume-should-toggle’ is t then this
-      command will pause ongoing speech.</p><a name=
+      <p>dtk-stop Stop speech now.</p><a name=
       "index-dtk_002dtoggle_002dquiet" id=
       "index-dtk_002dtoggle_002dquiet"></a> <a name=
       "index-control-e-d-q" id="index-control-e-d-q"></a>
