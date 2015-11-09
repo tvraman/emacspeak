@@ -1932,6 +1932,20 @@ Optional argument group-count specifies grouping for intonation."
   (let ((dtk-speaker-process (dtk-notify-process)))
     (dtk-letter letter)))
 
+(defun  dtk-notify-initialize ()
+  "Initialize notification TTS stream."
+  (interactive)
+  (declare (special dtk-notify-process ))
+  (let* ((new-process (dtk-make-process "Notify"))
+         (state (process-status new-process))
+         (success(memq state '(run open))))
+    (cond
+     (success ;; nuke old server
+      (when (and dtk-notify-process (process-live-p dtk-notify-process))
+        (delete-process dtk-notify-process ))
+      (setq dtk-notify-process new-process)
+      (set-process-coding-system dtk-notify-process 'utf-8 'utf-8)))))
+
  ;;}}}
 
 (provide 'dtk-speak)

@@ -311,6 +311,7 @@
    ("v" voice-lock-mode)
    ("w" emacspeak-toggle-word-echo)
    ("z" emacspeak-zap-tts)
+   ("C-n" dtk-notify-initialize)
    )
  do
  (emacspeak-keymap-update emacspeak-dtk-submap binding))
