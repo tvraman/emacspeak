@@ -1920,8 +1920,39 @@ Optional argument group-count specifies grouping for intonation."
       (dtk-interp-say words))))
 
 ;;}}}
-(provide 'dtk-speak)
+;;{{{ Notify:
+(defsubst dtk-notify-process ()
+  "Return valid TTS handle for notifications."
+  (declare (special dtk-notify-process dtk-speaker-process))
+  (cond
+   ((not
+     (or
+      (null dtk-notify-process)
+     (eq 'run (process-status dtk-notify-process ))
+     (eq 'signal (process-status dtk-notify-process ))
+     (eq 'open (process-status dtk-notify-process))))
+    dtk-notify-process)
+   (t dtk-speaker-process)))
 
+(defun dtk-notify-speak (text)
+  "Speak text on notification stream. "
+  (let ((dtk-speaker-process (dtk-notify-process)))
+    (dtk-speak text)))
+
+(defun dtk-notify-say (text)
+  "Say text on notification stream. "
+  (let ((dtk-speaker-process (dtk-notify-process)))
+    (dtk-say text)))
+
+(defun dtk-notify-letter (letter)
+  "Speak letter on notification stream. "
+  (let ((dtk-speaker-process (dtk-notify-process)))
+    (dtk-letter letter)))
+
+
+ ;;}}}
+
+(provide 'dtk-speak)
 ;;{{{  emacs local variables
 
 ;;; local variables:
