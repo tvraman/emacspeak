@@ -1907,7 +1907,7 @@ Second interactive prefix sets clock to new timezone."
     (call-interactively 'emacspeak-speak-world-clock))
    (t
     (tts-with-punctuations 'some
-                           (dtk-speak
+                           (dtk-notify-speak
                             (propertize
                              (format-time-string
                               emacspeak-speak-time-format-string)
