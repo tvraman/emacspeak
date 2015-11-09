@@ -1921,16 +1921,16 @@ Optional argument group-count specifies grouping for intonation."
 
 ;;}}}
 ;;{{{ Notify:
-(defsubst dtk-notify-process ()
+
+(defun dtk-notify-process ()
   "Return valid TTS handle for notifications."
   (declare (special dtk-notify-process dtk-speaker-process))
   (cond
-   ((not
-     (or
+   ((or
       (null dtk-notify-process)
-     (eq 'run (process-status dtk-notify-process ))
-     (eq 'signal (process-status dtk-notify-process ))
-     (eq 'open (process-status dtk-notify-process))))
+     (not (eq 'run (process-status dtk-notify-process )))
+     (not (eq 'signal (process-status dtk-notify-process )))
+     (not (eq 'open (process-status dtk-notify-process))))
     dtk-notify-process)
    (t dtk-speaker-process)))
 
@@ -1948,7 +1948,6 @@ Optional argument group-count specifies grouping for intonation."
   "Speak letter on notification stream. "
   (let ((dtk-speaker-process (dtk-notify-process)))
     (dtk-letter letter)))
-
 
  ;;}}}
 
