@@ -331,8 +331,7 @@ emacspeak-speak-previous-window
 @findex  emacspeak-speak-other-window
  
  
-@item 
-emacspeak-speak-other-window
+@item emacspeak-speak-other-window
  Speak contents of `other' window.
 Speaks entire window irrespective of point.
 Semantics  of `other' is the same as for the builtin Emacs command
@@ -380,8 +379,7 @@ Speak the window contents after scrolling.
 @findex  emacspeak-speak-sexp
  
  
-@item 
-emacspeak-speak-sexp
+@item emacspeak-speak-sexp
  Speak current sexp.
 With prefix ARG, speaks the rest of the sexp  from point.
 Negative prefix arg speaks from start of sexp to point.
