@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1127 commands and 929 options.
+This chapter documents a total of 1128 commands and 930 options.
 
 @menu
 * acss-structure::
@@ -463,6 +463,18 @@ Port  defaults to  dtk-local-server-port
 
 @format
 Initialize notification TTS stream.
+@end format
+@end deffn
+
+@subsubsection dtk-notify-shutdown
+@deffn {Command} dtk-notify-shutdown   
+@kbd{C-e d C-s}
+
+@kindex C-e d C-s
+@findex dtk-notify-shutdown
+
+@format
+Shutdown notification TTS stream.
 @end format
 @end deffn
 
@@ -1158,6 +1170,7 @@ d C-e		espeak
 d RET		dtk-set-chunk-separator-syntax
 d C-n		dtk-notify-initialize
 d C-o		outloud
+d C-s		dtk-notify-shutdown
 d C-v		outloud-32
 d SPC		dtk-toggle-splitting-on-white-space
 d ,		dtk-toggle-punctuation-mode
@@ -12863,6 +12876,11 @@ Entry point for Emacspeak.
 
 @defvar {User Option} dectalk-default-speech-rate
 *Default speech rate at which TTS is started. 
+
+@end defvar
+
+@defvar {User Option} emacspeak-tts-use-notify-stream
+Set to true to use a separate TTS stream for notifications.
 
 @end defvar
 
