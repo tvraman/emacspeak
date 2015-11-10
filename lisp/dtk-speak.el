@@ -742,10 +742,12 @@ Arguments START and END specify region to speak."
       (dtk-interp-say string ))))
 
 ;;;###autoload
-(defsubst dtk-stop ()
-  "Stop speech now."
-  (interactive)
-  (dtk-interp-stop))
+(defsubst dtk-stop (&optional all)
+  "Stop speech now.
+Optional interactive prefix arg silences notification stream as well."
+  (interactive "P")
+  (dtk-interp-stop)
+  (when all(dtk-notify-stop)))
 
 (defsubst dtk-reset-default-voice()
   (declare (special tts-default-voice))
@@ -1917,6 +1919,11 @@ Optional argument group-count specifies grouping for intonation."
      ((memq state '(open run)) dtk-notify-process)
      (t dtk-speaker-process))))
 
+(defun dtk-notify-stop ()
+  "Stop  speech on notification stream."
+  (let ((dtk-speaker-process (dtk-notify-process)))
+    (dtk-stop)))
+
 (defun dtk-notify-speak (text)
   "Speak text on notification stream. "
   (let ((dtk-speaker-process (dtk-notify-process)))
@@ -1947,7 +1954,6 @@ Optional argument group-count specifies grouping for intonation."
       (set-process-coding-system dtk-notify-process 'utf-8 'utf-8)))))
 
  ;;}}}
-
 (provide 'dtk-speak)
 ;;{{{  emacs local variables
 
