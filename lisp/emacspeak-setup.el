@@ -194,6 +194,10 @@ pronunciation dictionaries are stored. ")
   "Starts up a notification stream if current synth supports  multiple invocations.
 Should be safe to use with any software engine.
 For now, checks for outloud and only launches if dtk-program is outloud."
+  (unless (or (string= dtk-program "outlout")
+              (string= dtk-program "32-outloud"))
+    (when (and dtk-notify-process (process-live-p dtk-notify-process))
+      (kill-process dtk-notify-process)))
   (when (or (string= dtk-program "outlout")
             (string= dtk-program "32-outloud"))
     (dtk-notify-initialize)))
