@@ -211,6 +211,7 @@ Should be safe to use with any software TTS engine."
 
 (when emacspeak-tts-use-notify-stream
   (add-hook 'dtk-startup-hook 'emacspeak-tts-notify-hook 'at-end))
+
 (defvar emacspeak-startup-hook nil)
 (defun emacspeak-setup-header-line ()
   "Set up Emacspeak to show a default header line."
