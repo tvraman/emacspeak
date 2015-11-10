@@ -1911,7 +1911,7 @@ Second interactive prefix sets clock to new timezone."
      (dtk-notify-speak
       (propertize
        (format-time-string emacspeak-speak-time-format-string)
-       'personality voice-punctuations-some)))))
+       'personality voice-bolden)))))
   (emacspeak-auditory-icon 'progress))
 
 ;;;###autoload
