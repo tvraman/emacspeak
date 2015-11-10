@@ -1963,7 +1963,10 @@ Optional argument group-count specifies grouping for intonation."
       (dtk-interp-queue text)
       (dtk-interp-speak))))
   
-
+(defun dtk-notify-shutdown ()
+  "Shutdown notification TTS stream."
+  (interactive)
+  (when (process-live-p  dtk-notify-process) (delete-process dtk-notify-process)))
  ;;}}}
 (provide 'dtk-speak)
 ;;{{{  emacs local variables

@@ -312,6 +312,7 @@
    ("w" emacspeak-toggle-word-echo)
    ("z" emacspeak-zap-tts)
    ("C-n" dtk-notify-initialize)
+   ("C-s" dtk-notify-shutdown)
    )
  do
  (emacspeak-keymap-update emacspeak-dtk-submap binding))
