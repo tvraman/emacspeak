@@ -1953,6 +1953,17 @@ Optional argument group-count specifies grouping for intonation."
       (setq dtk-notify-process new-process)
       (set-process-coding-system dtk-notify-process 'utf-8 'utf-8)))))
 
+(defun dtk-notify-using-voice (voice text)
+  "Use voice VOICE to speak text TEXT on notification stream."
+  (declare (special tts-voice-reset-code dtk-quiet))
+  (unless dtk-quiet
+    (let ((dtk-speaker-process (dtk-notify-process)))
+      (dtk-interp-queue-code tts-voice-reset-code)
+      (dtk-interp-queue-code (tts-get-voice-command voice))
+      (dtk-interp-queue text)
+      (dtk-interp-speak))))
+  
+
  ;;}}}
 (provide 'dtk-speak)
 ;;{{{  emacs local variables
