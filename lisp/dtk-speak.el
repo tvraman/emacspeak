@@ -1850,7 +1850,7 @@ only speak upto the first ctrl-m."
 (defsubst dtk-speak-and-echo (message)
   "Speak message and echo it to the message area."
   (let ((emacspeak-speak-messages nil))
-    (dtk-speak message)
+    (dtk-notify-speak message)
     (message "%s" message)))
 
 (defun dtk-speak-list (text &optional group-count)
