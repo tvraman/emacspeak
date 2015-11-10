@@ -196,18 +196,19 @@ pronunciation dictionaries are stored. ")
   "Set to true to use a separate TTS stream for notifications."
   :type 'boolean
   :group 'emacspeak)
+(defun emacspeak-tts-multistream-p (tts-engine)
+  "Checks if this tts-engine can support multiple streams."
+  (member tts-engine '("outloud" "32-outloud" "espeak" "mac")))
 
 (defun emacspeak-tts-notify-hook ()
   "Starts up a notification stream if current synth supports  multiple invocations.
-Should be safe to use with any software engine.
-For now, checks for outloud and only launches if dtk-program is outloud."
-  (unless (or (string= dtk-program "outlout")
-              (string= dtk-program "32-outloud"))
-    (when (and dtk-notify-process (process-live-p dtk-notify-process))
-      (kill-process dtk-notify-process)))
-  (when (or (string= dtk-program "outlout")
-            (string= dtk-program "32-outloud"))
+Should be safe to use with any software TTS engine."
+  (declare (special dtk-program dtk-notify-process))
+  (unless (emacspeak-tts-multistream-p dtk-program)
+    (and (process-live-p dtk-notify-process) (delete-process dtk-notify-process)))
+  (when  (emacspeak-tts-multistream-p dtk-program)
     (dtk-notify-initialize)))
+
 (when emacspeak-tts-use-notify-stream
   (add-hook 'dtk-startup-hook 'emacspeak-tts-notify-hook 'at-end))
 (defvar emacspeak-startup-hook nil)
