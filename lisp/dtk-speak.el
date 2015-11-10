@@ -1942,8 +1942,11 @@ Optional argument group-count specifies grouping for intonation."
 (defun  dtk-notify-initialize ()
   "Initialize notification TTS stream."
   (interactive)
-  (declare (special dtk-notify-process ))
-  (let* ((new-process (dtk-make-process "Notify"))
+  (declare (special dtk-notify-process process-environment))
+  (let* ((save-env process-environment)
+         (process-environment
+          (setenv-internal process-environment "ALSA_DEFAULT" "mono" t))
+         (new-process (dtk-make-process "Notify"))
          (state (process-status new-process))
          (success(memq state '(run open))))
     (cond
