@@ -626,7 +626,7 @@ icon."
       (setq emacspeak-last-message (ansi-color-apply (current-message)))
       ;; so we really need to speak it
       (tts-with-punctuations 'all
-                             (dtk-notify-speak emacspeak-last-message)))
+                             (dtk-notify-using-voice voice-annotate  emacspeak-last-message)))
     ad-return-value))
 
 (defadvice eldoc-message (around emacspeak pre act comp)
