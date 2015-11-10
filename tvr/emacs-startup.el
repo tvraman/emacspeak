@@ -87,9 +87,9 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     ;;{{{ Load and customize emacspeak
 
     (unless (featurep 'emacspeak)
+      (setq emacspeak-tts-use-notify-stream t)
       (load-file (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el")))
     (when (featurep 'emacspeak)
-      (setq emacspeak-tts-use-notify-stream t)
       (emacspeak-toggle-auditory-icons t)
       (emacspeak-sounds-select-theme "3d/")
       (emacspeak-tts-startup-hook))
