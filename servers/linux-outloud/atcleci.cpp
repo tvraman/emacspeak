@@ -349,7 +349,7 @@ int alsa_init() {
     device = "default";
   }
   size_t chunk_bytes = 0;
-  if ((err = snd_pcm_open(&AHandle, device, SND_PCM_STREAM_PLAYBACK, 0)) < 0) {
+  if ((err = snd_pcm_open(&AHandle, device, SND_PCM_STREAM_PLAYBACK, 0 /* blocking */)) < 0) {
     fprintf(stderr, "Playback open error: %s\n", snd_strerror(err));
     exit(1);
   }
