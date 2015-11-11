@@ -1,0 +1,89 @@
+* Executive Summary 
+
+Emacspeak now uses multiple text-to-speech streams --- as an example,
+this enables spoken notifications that do not interrupt ongoing spoken
+output. To make such notifications more perceivable, Emacspeak places
+notifications to the right of the user by leveraging Linux-ALSA
+features that allow one to scale the amplitude of the left and right
+audio channels.
+
+* Background
+
+Until now, Emacspeak has used a single instance of a Text-To-Speech
+(TTS) engine to produce all spoken feedback. An unfortunate
+consequence is that any spoken announcement necessarily interrupts
+ongoing speech; as an example, an incoming instant-message (e.g.,
+Jabber notification) can interrupt what you're currently
+reading. 
+
+Emacs itself produces a large number of asynchronous messages
+depending on the number of processes running within Emacs; at present,
+all Emacs generated messages are /equal/ though there are ongoing
+plans to improve this situation going forward, e.g., using package
+~alert~. With Emacspeak now able to use multiple TTS streams, arrival
+of package ~alert~ within Emacs should facilitate smarter handling of
+different categories of messages over time.
+
+Playing multiple TTS streams simultaneously can make it hard to
+understand the resulting output; Emacspeak leverages underlying ALSA
+functionality to send notifications to a virtual ALSA device that
+places the auditory output /mostly/ on the right channel. See the
+following paragraphs on setup/configuration. I'm presently using this
+on Linux with the ~linux-outloud~ voice --- you need to have a copy of
+this TTS engine installed and working --- see [[http://voxin.oralux.net/][Voxin]] for details on
+obtaining that engine. Note: the Emacspeak ~espeak~ server does not
+use raw ALSA for its output --- consequently, notifications produced
+by  ~espeak~ play on both left and right channels, making it
+impossible to understand. The ~mac~ server may be able to support
+this functionality using something Mac-specific --- patches welcome.
+
+* Emacspeak Setup 
+
+  - Emacspeak now adds user-option
+    ~emacspeak-tts-use-notify-stream~. If this is set to ~t~ in the
+    user's initialization file *before Emacspeak is loaded*, Emacspeak
+    checks to see if the user's selected TTS engine supports multiple
+    instances, and if so launches a second instance of the TTS engine
+    for use as a /Notification TTS Stream/. See my
+    ~tvr/emacs-startup.el~ in the Emacspeak Git Repository for  an
+    example setup.
+  - The /Notification TTS Stream/ can be restarted via command
+   ~dtk-notify-initialize~ bound to ~C-e d C-n~. You should
+   ordinarily not need   to invoke this command.
+  - The /Notification TTS Stream/ can be shut-down using command
+    ~dtk-notify-shutdown~ bound to ~C-e d C-s~. When  the  /Notification
+    TTS Stream is not available, Emacspeak defaults to using a single
+    TTS stream for all spoken output --- i.e., no change.
+  - At present, emacspeak tries to use a separate  /Notification TTS
+    Stream/  when the selected TTS engine is a software TTS 
+    running locally.
+  - File ~servers/linux-outloud/notify-asoundrc~ contains the
+    ~.asoundrc~ that I am using on my thinkpad. To have Emacspeak
+    place the /Notification TTS Stream/ mostly on the right,  the
+    contents of that file (suitably modified for your sound card)
+    need  to be placed in file ~$HOME/.asoundrc~. Warning: Handle with
+    care --- a broken ~.asoundrc~ can kill all audio output.
+  - The ~.asoundrc~ scales  left and right amplitude  to place the
+    output /mostly on the right/ --- to change this behavior, you can
+    edit the /Transformation Table/ for virtual device ~tts_mono~ in
+    the ~.asoundrc~ file.
+  - This set-up has not been tested with ~pulseaudio~.
+
+* Summary 
+
+Share and enjoy ---
+
+
+
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:nil d:(not "LOGBOOK") date:t e:t
+#+OPTIONS: email:nil f:t inline:t num:t p:nil pri:nil prop:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t
+#+TITLE: Using Multiple TTS Streams On The Emacspeak Audio Desktop 
+#+DATE: <2015-11-10 Tue>
+#+AUTHOR: raman
+#+EMAIL: raman@google.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 25.0.50.1 (Org mode 8.3.2)
