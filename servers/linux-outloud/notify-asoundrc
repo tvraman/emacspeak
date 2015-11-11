@@ -30,7 +30,7 @@ pcm.!default {
 # }}}
 # {{{Mono: 
 
-pcm.mono { 
+pcm.tts_mono { 
     type plug 
     slave.pcm { 
         type route 
@@ -39,10 +39,12 @@ pcm.mono {
         # Matrix of Source->Destination values
         # Unspecified entries default to 0.
         # Format: Source.Destination = Value
-        ttable.0.0 0.99 
-        ttable.0.1 0.00  # optional
-        ttable.1.0 0.99 
-        ttable.1.1 0.00  # optional 
+        ttable {
+            0.0 0.99 
+            0.1 0.05
+            1.0 0.99 
+            1.1 0.05
+        }
     } 
 } 
 
