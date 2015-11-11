@@ -28,7 +28,7 @@ pcm.!default {
 }
 
 # }}}
-# {{{Mono: 
+# {{{TTS Mono: 
 
 pcm.tts_mono_right { 
     type plug 
@@ -47,6 +47,61 @@ pcm.tts_mono_right {
         }
     } 
 } 
+
+
+pcm.tts_mono_left { 
+    type plug 
+    slave.pcm { 
+        type route 
+        slave.pcm "dmixer"
+        #TTable is a transfer table.
+        # Matrix of Source->Destination values
+        # Unspecified entries default to 0.
+        # Format: Source.Destination = Value
+        ttable {
+            0.0 =  1
+            0.1 = 0.03
+            1.0 =  1
+            1.1 = 0.03 
+        }
+    } 
+}
+
+
+pcm.tts_mono_mid_left { 
+    type plug 
+    slave.pcm { 
+        type route 
+        slave.pcm "dmixer"
+        #TTable is a transfer table.
+        # Matrix of Source->Destination values
+        # Unspecified entries default to 0.
+        # Format: Source.Destination = Value
+        ttable {
+            0.0 =  1
+            0.1 = 0.33
+            1.0 =  1
+            1.1 = 0.33
+        }
+    } 
+}
+pcm.tts_mono_mid_right { 
+    type plug 
+    slave.pcm { 
+        type route 
+        slave.pcm "dmixer"
+        #TTable is a transfer table.
+        # Matrix of Source->Destination values
+        # Unspecified entries default to 0.
+        # Format: Source.Destination = Value
+        ttable {
+            0.0 =  0.33
+            0.1 = 0.1
+            1.0 =  0.33
+            1.1 = 1
+        }
+    } 
+}
 
 # }}}
 # {{{end of file
