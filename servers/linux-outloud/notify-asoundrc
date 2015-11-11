@@ -87,7 +87,7 @@ pcm.tts_mono_mid_right {
         slave.pcm "dmixer"
         ttable {
             0.0 =  0.33
-            0.1 = 0.0.66
+            0.1 = 0.66
             1.0 =  0.33
             1.1 = 0.66
         }
