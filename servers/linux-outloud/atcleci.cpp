@@ -64,8 +64,10 @@
 #include <sys/time.h>
 #include <dlfcn.h>
 #include <alloca.h>
-
+#define ALSA_PCM_NEW_HW_PARAMS_API
+#define ALSA_PCM_NEW_SW_PARAMS_API
 #include <alsa/asoundlib.h>
+
 #include <tcl.h>
 #include "langswitch.h"
 
