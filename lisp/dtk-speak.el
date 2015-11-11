@@ -1939,9 +1939,9 @@ Optional argument group-count specifies grouping for intonation."
 (defun dtk-get-notify-alsa-device ()
   "Returns name of Alsa device if available."
   (when
-      (string-match "tts_mono"
-                    (shell-command-to-string  "aplay -L | grep tts_mono"))
-    "tts_mono"))
+      (string-match "tts_mono_right"
+                    (shell-command-to-string  "aplay -L | grep tts_mono_right"))
+    "tts_mono_right"))
 
 (defun  dtk-notify-initialize ()
   "Initialize notification TTS stream."
@@ -1951,7 +1951,7 @@ Optional argument group-count specifies grouping for intonation."
          (process-environment
           (cond
            ((dtk-get-notify-alsa-device)
-            (setenv-internal process-environment "ALSA_DEFAULT" "tts_mono" t))
+            (setenv-internal process-environment "ALSA_DEFAULT" "tts_mono_right" t))
            (t process-environment)))
          (new-process (dtk-make-process "Notify"))
          (state (process-status new-process))

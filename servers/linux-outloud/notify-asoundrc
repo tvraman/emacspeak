@@ -30,7 +30,7 @@ pcm.!default {
 # }}}
 # {{{Mono: 
 
-pcm.tts_mono { 
+pcm.tts_mono_right { 
     type plug 
     slave.pcm { 
         type route 
