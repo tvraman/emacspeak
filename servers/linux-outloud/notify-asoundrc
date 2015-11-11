@@ -40,10 +40,10 @@ pcm.tts_mono {
         # Unspecified entries default to 0.
         # Format: Source.Destination = Value
         ttable {
-            0.0 0.99 
-            0.1 0.05
-            1.0 0.99 
-            1.1 0.05
+            0.0 =  0.03 
+            0.1 = 1
+            1.0 =  0.03 
+            1.1 = 1
         }
     } 
 } 
