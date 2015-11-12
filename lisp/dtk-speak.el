@@ -1922,6 +1922,7 @@ Optional argument group-count specifies grouping for intonation."
 
 (defun dtk-notify-stop ()
   "Stop  speech on notification stream."
+  (interactive)
   (let ((dtk-speaker-process (dtk-notify-process)))
     (dtk-stop)))
 

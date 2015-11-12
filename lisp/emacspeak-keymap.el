@@ -267,6 +267,7 @@
    ("w" emacspeak-speak-word)
    ("{" emacspeak-speak-paragraph)
    ("|" emacspeak-speak-line-set-column-filter)
+   ("." dtk-notify-stop)
    )
  do
  (emacspeak-keymap-update emacspeak-keymap binding))
