@@ -1914,27 +1914,31 @@ Optional argument group-count specifies grouping for intonation."
      ((null dtk-notify-process) dtk-speaker-process)
      ((memq state '(open run)) dtk-notify-process)
      (t dtk-speaker-process))))
-
+;;;###autoload
 (defun dtk-notify-stop ()
   "Stop  speech on notification stream."
   (interactive)
   (let ((dtk-speaker-process (dtk-notify-process)))
     (dtk-stop)))
 
+;;;###autoload
 (defun dtk-notify-speak (text)
   "Speak text on notification stream. "
   (let ((dtk-speaker-process (dtk-notify-process)))
     (dtk-speak text)))
 
+;;;###autoload
 (defun dtk-notify-say (text)
   "Say text on notification stream. "
   (let ((dtk-speaker-process (dtk-notify-process)))
     (dtk-say text)))
 
+;;;###autoload
 (defun dtk-notify-letter (letter)
   "Speak letter on notification stream. "
   (let ((dtk-speaker-process (dtk-notify-process)))
     (dtk-letter letter)))
+
 (defun dtk-get-notify-alsa-device ()
   "Returns name of Alsa device if available."
   (when
@@ -1942,6 +1946,7 @@ Optional argument group-count specifies grouping for intonation."
                     (shell-command-to-string  "aplay -L | grep tts_mono_right"))
     "tts_mono_right"))
 
+;;;###autoload
 (defun  dtk-notify-initialize ()
   "Initialize notification TTS stream."
   (interactive)
@@ -1967,6 +1972,7 @@ Optional argument group-count specifies grouping for intonation."
       (setq dtk-notify-process new-process)
       (set-process-coding-system dtk-notify-process 'utf-8 'utf-8)))))
 
+;;;###autoload
 (defun dtk-notify-using-voice (voice text)
   "Use voice VOICE to speak text TEXT on notification stream."
   (declare (special tts-voice-reset-code dtk-quiet))
@@ -1977,10 +1983,12 @@ Optional argument group-count specifies grouping for intonation."
       (dtk-interp-queue text)
       (dtk-interp-speak))))
 
+;;;###autoload
 (defun dtk-notify-shutdown ()
   "Shutdown notification TTS stream."
   (interactive)
   (when (process-live-p  dtk-notify-process) (delete-process dtk-notify-process)))
+
 ;;}}}
 (provide 'dtk-speak)
 ;;{{{  emacs local variables
