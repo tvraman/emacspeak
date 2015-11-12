@@ -1957,6 +1957,11 @@ Optional argument group-count specifies grouping for intonation."
            ((dtk-get-notify-alsa-device)
             (setenv-internal process-environment "ALSA_DEFAULT" "tts_mono_right" t))
            (t process-environment)))
+         (dtk-program
+          (if 
+          (string-match "cloud" dtk-program)
+              "cloud-notify"
+            dtk-program))
          (new-process (dtk-make-process "Notify"))
          (state (process-status new-process))
          (success(memq state '(run open))))
