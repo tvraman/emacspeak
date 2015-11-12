@@ -198,8 +198,8 @@ pronunciation dictionaries are stored. ")
   :group 'emacspeak)
 (defun emacspeak-tts-multistream-p (tts-engine)
   "Checks if this tts-engine can support multiple streams."
-  (member tts-engine '("outloud" "32-outloud" "espeak" "mac"))
-  "cloud-outloud" "cloud-espeak" "cloud-mac")))
+  (member tts-engine '("outloud" "32-outloud" "espeak" "mac"
+                       "cloud-outloud" "cloud-espeak" "cloud-mac")))
 
 (defun emacspeak-tts-notify-hook ()
   "Starts up a notification stream if current synth supports  multiple invocations.
