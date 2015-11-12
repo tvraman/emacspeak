@@ -1628,7 +1628,7 @@ Optional interactive prefix arg restarts current TTS server."
           (const :tag "Viavoice Outloud" "outloud")
           (const :tag "32Bit ViaVoice on 64Bit Linux" "32-outloud"))
   :group 'dtk)
-(defun dtk-local-server (program)
+(defun dtk-local-server (program &optional prompt-port)
   "Select and start an local speech server interactively. Local server
 lets Emacspeak on a remote host connect back via SSH port forwarding
 for instance. Argument PROGRAM specifies the speech server
@@ -1642,7 +1642,8 @@ program. Port defaults to dtk-local-server-port"
      nil
      t
      nil nil
-     dtk-program)))
+     dtk-program)
+    current-prefix-arg))
   (declare (special    dtk-servers-alist dtk-local-server-port
                        dtk-local-server-process emacspeak-servers-directory ))
   (when (and
@@ -1654,7 +1655,9 @@ program. Port defaults to dtk-local-server-port"
          "LocalTTS"
          "*localTTS*"
          (expand-file-name  dtk-speech-server-program emacspeak-servers-directory)
-         dtk-local-server-port
+         (if current-prefix-arg
+             (read-from-minibuffer "Port:" "3333")
+dtk-local-server-port)
          (expand-file-name program  emacspeak-servers-directory))))
 
 ;;}}}
