@@ -1,6 +1,6 @@
 #!/bin/sh
-# Use this server for emacs running in the cloud
-# It just connects to local port 2222 
+# Use this server for notifications when emacs running in the cloud
+# It just connects to local port 3333 
 # It is assumed that the client has already done the appropriate reverse port forwarding.
 # This also helps keeping the cloud environment simple:
 # you dont need any flavor of TCL
