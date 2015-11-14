@@ -660,8 +660,7 @@ interactive command that the key sequence executes."
        for binding  in (symbol-value variable) do
        (insert (format "%s %s\n" (first binding) (second binding ))))
       (save-buffer buffer))
-    (switch-to-buffer buffer)
-    (emacspeak-speak-mode-line)))
+    (switch-to-buffer buffer)))
       
                  
 ;;}}}

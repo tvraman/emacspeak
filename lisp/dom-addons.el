@@ -71,19 +71,14 @@ Added element goes inside the HTML head if any."
     dom))
 
 (defsubst dom-html-from-nodes (nodes &optional base)
-  "Make up an HTML DOM having nodes as children unless nodes is an HTML
-document."
+  "Make  an HTML DOM having nodes as children unless nodes is an HTML document."
   (let ((dom
          (cond
           ((not (eq 'html (dom-tag nodes)))
            (apply #'dom-node 'html nil nodes))
-          (t nodes)))
-        (dom-html-add-base dom  base)
-        dom))
-
-  (if base
-      (dom-html-add-base  dom base)))
-
+          (t nodes))))
+    (when base (dom-html-add-base dom  base))
+    dom))
 
 ;;}}}
 ;;{{{  Filterring Inspired by dom.el:
