@@ -105,8 +105,8 @@
      ((null emacspeak-2048-game-stack) (error "No saved  states."))
      (t (read-number
          (format "Stack: %s New? "
-                 (length emacspeak-2048-game-stack)
-                 (/ (length emacspeak-2048-game-stack ) 2)))))))
+                 (length emacspeak-2048-game-stack))
+                 (/ (length emacspeak-2048-game-stack ) 2))))))
   (declare (special emacspeak-2048-game-stack))
   (setq emacspeak-2048-game-stack
         (butlast emacspeak-2048-game-stack
