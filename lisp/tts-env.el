@@ -57,9 +57,8 @@
 ;;{{{ Structure Definition 
 
 (cl-defstruct tts-env
-  name process                               
-  default-voice default-speech-rate
-  speech-rate-step speech-rate-base 
+  name default-voice 
+  default-speech-rate speech-rate-step speech-rate-base 
   list-voices voice-defined-p                       
   get-voice-command define-voice-from-acss                
   )
