@@ -303,7 +303,7 @@ emacspeak-cus-load.el: force
 
 dtk-interp.elc: dtk-interp.el
 dtk-unicode.elc: dtk-unicode.el
-dtk-speak.elc: dtk-speak.el  dtk-interp.elc dtk-unicode.elc
+dtk-speak.elc: dtk-speak.el  dtk-interp.elc dtk-unicode.elc tts-env.elc
 acss-structure.elc: acss-structure.el
 tts-env.elc: tts-env.el
 dectalk-voices.elc: dectalk-voices.el voice-setup.elc 
