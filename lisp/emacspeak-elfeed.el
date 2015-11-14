@@ -188,7 +188,7 @@ Work-around for async fetch bug in EWW."
 (defun emacspeak-elfeed-w3-entry-at-point ()
   "Display current article in W3."
   (interactive)
-  (let* ((browse-url-browser-function browse-url-w3)
+  (let* ((browse-url-browser-function #'browse-url-w3)
          (entry (emacspeak-elfeed-entry-at-point))
          (link(elfeed-entry-link entry)))
     (cond

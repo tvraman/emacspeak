@@ -50,6 +50,26 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'acss-structure)
+(require 'tts-env)
+
+;;}}}
+;;{{{ tts-env for Plain:
+
+(defun plain-make-tts-env  ()
+  "Constructs a TTS environment for Plain."
+  (declare (special plain-default-speech-rate tts-default-voice ))
+  (make-tts-env
+   :name :plain
+   :default-voice 'paul
+   :default-speech-rate plain-default-speech-rate
+   :list-voices #'plain-list-voices
+   :voice-defined-p #'plain-voice-defined-p
+   :get-voice-command #'plain-get-voice-command
+   :define-voice-from-acss #'plain-define-voice-from-speech-style
+   :speech-rate-base 100
+   :speech-rate-step 10))
+
+(tts-env-set :plain  (plain-make-tts-env))
 
 ;;}}}
 ;;{{{  Top-level TTS  switcher

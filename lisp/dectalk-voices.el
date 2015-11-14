@@ -51,9 +51,30 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'acss-structure)
+(require 'tts-env)
+
+;;}}}
+;;{{{  tts-env for Dectalk:
+
+(defun dectalk-make-tts-env  ()
+  "Constructs a TTS environment for Dectalk."
+  (declare (special tts-default-speech-rate tts-default-voice ))
+  (make-tts-env
+   :name :dectalk
+   :default-voice 'paul
+   :default-speech-rate dectalk-default-speech-rate
+   :list-voices #'dectalk-list-voices
+   :voice-defined-p #'dectalk-voice-defined-p
+   :get-voice-command #'dectalk-get-voice-command
+   :define-voice-from-acss #'dectalk-define-voice-from-speech-style
+   :speech-rate-base 150
+   :speech-rate-step 50))
+
+(tts-env-set :dectalk  (dectalk-make-tts-env))
 
 ;;}}}
 ;;{{{  Top-level TTS  switcher
+
 ;;;### autoload
 (defun dectalk ()
   "Select Dectalk TTS server."

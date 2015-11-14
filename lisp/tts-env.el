@@ -65,6 +65,18 @@
   )
 
 ;;}}}
+;;{{{ dtk-Program->Key 
+
+(defun tts-env-key (tts-name)
+  "Return engine key-name for specified dtk-program."
+  (cond
+   ((string-match "outloud" tts-name) :outloud)
+   ((string-match "dtk" tts-name) :dectalk)
+   ((string-match "mac$" tts-name) :mac)
+   ((string-match "espeak$" tts-name) :espeak)
+   (t :plain)))
+
+;;}}}
 ;;{{{ TTS Env Table:
 
 ;;; Store TTS Env structures, keyed by engine name.
@@ -84,103 +96,6 @@
   (puthash engine-name  env tts-env-table))
 
 ;;}}}
-;;; Engine specific tts-env constructur will move to engine-specific modules.
-;;{{{  Dectalk:
-
-(defun dectalk-make-tts-env  ()
-  "Constructs a TTS environment for Dectalk."
-  (declare (special tts-default-speech-rate tts-default-voice ))
-  (make-tts-env
-   :name :dectalk
-   :default-voice 'paul
-   :default-speech-rate dectalk-default-speech-rate
-   :list-voices #'dectalk-list-voices
-   :voice-defined-p #'dectalk-voice-defined-p
-   :get-voice-command #'dectalk-get-voice-command
-   :define-voice-from-acss #'dectalk-define-voice-from-speech-style
-   :speech-rate-base 150
-   :speech-rate-step 50))
-
-(tts-env-set :dectalk  (dectalk-make-tts-env))
-
-;;}}}
-;;{{{  Outloud:
-
-(defun outloud-make-tts-env  ()
-  "Constructs a TTS environment for Outloud."
-  (declare (special tts-default-speech-rate tts-default-voice ))
-  (make-tts-env
-   :name :outloud
-   :default-voice 'paul
-   :default-speech-rate outloud-default-speech-rate
-   :list-voices #'outloud-list-voices
-   :voice-defined-p #'outloud-voice-defined-p
-   :get-voice-command #'outloud-get-voice-command
-   :define-voice-from-acss #'outloud-define-voice-from-speech-style
-   :speech-rate-base 50
-   :speech-rate-step 10))
-
-(tts-env-set :outloud  (outloud-make-tts-env))
-
-;;}}}
-;;{{{ Plain:
-
-(defun plain-make-tts-env  ()
-  "Constructs a TTS environment for Plain."
-  (declare (special plain-default-speech-rate tts-default-voice ))
-  (make-tts-env
-   :name :plain
-   :default-voice 'paul
-   :default-speech-rate plain-default-speech-rate
-   :list-voices #'plain-list-voices
-   :voice-defined-p #'plain-voice-defined-p
-   :get-voice-command #'plain-get-voice-command
-   :define-voice-from-acss #'plain-define-voice-from-speech-style
-   :speech-rate-base 100
-   :speech-rate-step 10))
-
-(tts-env-set :plain  (plain-make-tts-env))
-
-;;}}}
-;;{{{ Mac:
-
-(defun mac-make-tts-env  ()
-  "Constructs a TTS environment for Mac."
-  (declare (special tts-default-speech-rate tts-default-voice ))
-  (make-tts-env
-   :name :mac
-   :default-voice 'paul
-   :default-speech-rate mac-default-speech-rate
-   :list-voices #'mac-list-voices
-   :voice-defined-p #'mac-voice-defined-p
-   :get-voice-command #'mac-get-voice-command
-   :define-voice-from-acss #'mac-define-voice-from-speech-style
-   :speech-rate-base 100
-   :speech-rate-step 10))
-
-(tts-env-set :mac  (mac-make-tts-env))
-
-;;}}}        
-;;{{{ Espeak:
-
-(defun espeak-make-tts-env  ()
-  "Constructs a TTS environment for Espeak."
-  (declare (special tts-default-speech-rate tts-default-voice ))
-  (make-tts-env
-   :name :espeak
-   :default-voice 'paul
-   :default-speech-rate espeak-default-speech-rate
-   :list-voices #'espeak-list-voices
-   :voice-defined-p #'espeak-voice-defined-p
-   :get-voice-command #'espeak-get-voice-command
-   :define-voice-from-acss #'espeak-define-voice-from-speech-style
-   :speech-rate-base 100
-   :speech-rate-step 10))
-
-(tts-env-set :espeak  (espeak-make-tts-env))
-
-;;}}}  
-
 (provide 'tts-env)
 ;;{{{ end of file
 

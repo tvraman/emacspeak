@@ -58,7 +58,7 @@ COMPILE =  -f batch-byte-compile
 #The various modules:
 DTK_OBJECTS = acss-structure.elc \
 dtk-speak.elc		dectalk-voices.elc\
-plain-voices.elc espeak-voices.elc \
+tts-env.elc plain-voices.elc espeak-voices.elc \
 outloud-voices.elc  mac-voices.elc\
 dtk-interp.elc dtk-unicode.elc
 
@@ -305,13 +305,13 @@ dtk-interp.elc: dtk-interp.el
 dtk-unicode.elc: dtk-unicode.el
 dtk-speak.elc: dtk-speak.el  dtk-interp.elc dtk-unicode.elc
 acss-structure.elc: acss-structure.el
-dectalk-voices.elc: dectalk-voices.el voice-setup.elc
-outloud-voices.elc: outloud-voices.el voice-setup.elc
-plain-voices.elc: plain-voices.el voice-setup.elc
-multispeech-voices.elc: multispeech-voices.el voice-setup.elc
-mac-voices.elc: mac-voices.el voice-setup.elc
-espeak-voices.elc: espeak-voices.el voice-setup.elc
-voice-setup.elc: voice-setup.el acss-structure.elc
+tts-env.elc: tts-env.el
+dectalk-voices.elc: dectalk-voices.el voice-setup.elc tts-env.elc
+outloud-voices.elc: outloud-voices.el voice-setup.elc tts-env.elc
+plain-voices.elc: plain-voices.el voice-setup.elc tts-env.elc
+mac-voices.elc: mac-voices.el voice-setup.elc tts-env.elc
+espeak-voices.elc: espeak-voices.el voice-setup.elc tts-env.elc
+voice-setup.elc: voice-setup.el acss-structure.elc tts-env.elc
 emacspeak-alsaplayer.elc: emacspeak-alsaplayer.el
 ommacspeak-amark.elc: emacspeak-amark.el
 cd-tool.elc: cd-tool.el

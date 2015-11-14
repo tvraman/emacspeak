@@ -52,6 +52,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'acss-structure)
 (require 'dtk-unicode)
+(require 'tts-env)
 
 ;;}}}
 ;;{{{ Forward declarations:
@@ -63,6 +64,25 @@
 (defvar dtk-speech-rate-step )
 (defvar dtk-speech-rate-base )
 (defvar outloud-default-speech-rate)
+;;}}}
+;;{{{  tts-env for Outloud:
+
+(defun outloud-make-tts-env  ()
+  "Constructs a TTS environment for Outloud."
+  (declare (special tts-default-speech-rate tts-default-voice ))
+  (make-tts-env
+   :name :outloud
+   :default-voice 'paul
+   :default-speech-rate outloud-default-speech-rate
+   :list-voices #'outloud-list-voices
+   :voice-defined-p #'outloud-voice-defined-p
+   :get-voice-command #'outloud-get-voice-command
+   :define-voice-from-acss #'outloud-define-voice-from-speech-style
+   :speech-rate-base 50
+   :speech-rate-step 10))
+
+(tts-env-set :outloud  (outloud-make-tts-env))
+
 ;;}}}
 ;;{{{ Top level TTS  switcher
 
