@@ -471,11 +471,9 @@ and TABLE gives the values along that dimension."
 ;;;###autoload
 (defun outloud-configure-tts ()
   "Configure TTS environment to use ViaVoice  family of synthesizers."
-  (declare (special tts-default-speech-rate
-                    tts-default-voice
+  (declare (special tts-default-speech-rate tts-default-voice
                     outloud-default-speech-rate
-                    dtk-speech-rate-step
-                    dtk-speech-rate-base
+                    dtk-speech-rate-step dtk-speech-rate-base
                     dtk-speaker-process))
   (fset 'tts-list-voices'outloud-list-voices)
   (fset 'tts-voice-defined-p 'outloud-voice-defined-p)
