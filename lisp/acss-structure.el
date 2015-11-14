@@ -78,7 +78,7 @@
 ;;{{{  Required modules
 
 ;;; Code:
-(require 'cl)
+(require 'cl-lib)
 (declaim  (optimize  (safety 0) (speed 3)))
 
 ;;}}}
@@ -89,7 +89,7 @@
 ;;}}}
 ;;{{{  A speech style structure
 
-(defstruct  acss
+(cl-defstruct  acss
   family
   gain left-volume right-volume
   average-pitch
@@ -104,9 +104,16 @@
 
 ;;; may be redefined at runtime when alternative tts engine is
 ;;; configured.
-(defalias 'tts-voice-defined-p 'dectalk-voice-defined-p)
-(defalias 'tts-define-voice-from-speech-style
-  'dectalk-define-voice-from-speech-style)
+
+(declare-function dectalk-voice-defined-p "dectalk-voices.el" (voice))
+(declare-function dectalk-define-voice-from-speech-style "dectalk-voices.el" (name style))
+
+(unless (fboundp 'tts-voice-defined-p)
+  (fset  'tts-voice-defined-p 'dectalk-voice-defined-p))
+
+(unless (fboundp 'tts-define-voice-from-speech-style)
+  (fset  'tts-define-voice-from-speech-style #'dectalk-define-voice-from-speech-style))
+  
 
 (defun acss-personality-from-speech-style (style)
   "First compute a symbol that will be name for this STYLE.

@@ -50,13 +50,13 @@
 ;;}}}
 ;;{{{  Required modules
 
-(require 'cl)
+(require 'cl-lib)
 (declaim  (optimize  (safety 0) (speed 3)))
 
 ;;}}}
 ;;{{{ Structure Definition 
 
-(defstruct tts-env
+(cl-defstruct tts-env
   name process                               
   default-voice default-speech-rate
   speech-rate-step speech-rate-base 
