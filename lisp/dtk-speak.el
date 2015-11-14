@@ -1673,6 +1673,7 @@ dtk-local-server-port)
         (program (expand-file-name dtk-program emacspeak-servers-directory))
     (process nil))
      (setq process (apply #'start-process name nil program dtk-program-args))
+     (set-process-coding-system process 'utf-8 'utf-8)
      (tts-env-set-process-env process
                               (tts-env-get (tts-env-key dtk-program)))
      process))
@@ -1681,7 +1682,7 @@ dtk-local-server-port)
 (defun  dtk-initialize ()
   "Initialize speech system."
   (declare (special dtk-speaker-process dtk-speak-server-initialized
-                    dtk-startup-hook emacspeak-servers-directory))
+                    dtk-startup-hook))
   (let* ((new-process (dtk-make-process "Speaker"))
          (state (process-status new-process)))
     (setq dtk-speak-server-initialized (memq state '(run open)))
@@ -1690,7 +1691,6 @@ dtk-local-server-port)
       (when (and dtk-speaker-process (process-live-p dtk-speaker-process))
         (delete-process dtk-speaker-process ))
       (setq dtk-speaker-process new-process)
-      (set-process-coding-system dtk-speaker-process 'utf-8 'utf-8)
       (run-hooks 'dtk-startup-hook )))))
 
 ;;;###autoload
@@ -1972,8 +1972,7 @@ Optional argument group-count specifies grouping for intonation."
      (success ;; nuke old server
       (when (and dtk-notify-process (process-live-p dtk-notify-process))
         (delete-process dtk-notify-process ))
-      (setq dtk-notify-process new-process)
-      (set-process-coding-system dtk-notify-process 'utf-8 'utf-8)))))
+      (setq dtk-notify-process new-process)))))
 
 ;;;###autoload
 (defun dtk-notify-using-voice (voice text)
