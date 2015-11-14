@@ -159,10 +159,6 @@ pronunciation dictionaries are stored. ")
   :type 'integer)
 
 ;;;###autoload
-(defcustom multispeech-default-speech-rate 225
-  "Default speech rate for multispeech."
-  :group 'tts
-  :type 'integer)
 ;;;###autoload
 (defcustom dectalk-default-speech-rate 225
   "*Default speech rate at which TTS is started. "

@@ -70,7 +70,6 @@ Possible choices at present:
 dtk-exp     For the Dectalk Express.
 dtk-mv      for the Multivoice and older Dectalks.
 outloud     For IBM ViaVoice Outloud
-multispeech For Multilingual speech server
 espeak      For eSpeak
 The default is dtk-exp.")
 
