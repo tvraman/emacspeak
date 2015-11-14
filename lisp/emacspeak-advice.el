@@ -618,9 +618,9 @@ icon."
     ad-do-it
     (when
         (and
+         emacspeak-speak-messages          ; speaking messages
          (null inhibit-message)
          (current-message)
-         emacspeak-speak-messages          ; speaking messages
          (/= emacspeak-lazy-message-time ;; previous message not recent
              (setq emacspeak-lazy-message-time (nth 1 (current-time)))))
       (setq emacspeak-last-message (ansi-color-apply (current-message)))
