@@ -107,33 +107,18 @@
 ;;{{{  helper for voice custom items:
 (unless (fboundp 'tts-list-voices)
   (fset 'tts-list-voices'dectalk-list-voices))
+
 (defun voice-setup-custom-menu ()
   "Return a choice widget used in selecting voices."
-  (let ((v (tts-list-voices))
-        (menu nil))
-    (setq menu
-          (mapcar
-           #'(lambda (voice)
-               (list 'const voice))
-           v))
-    (setq menu
-          (cons
-           (list 'symbol :tag "Other")
-           menu))
-    (cons 'choice menu)))
+  `(choice
+    (symbol :tag "Other")
+    ,@(mapcar 
+       #'(lambda (voice)(list 'const voice))
+       (tts-list-voices))))
 
-(defun voice-setup-read-personality (&optional prompt)
-  "Read name of a pre-defined personality using completion."
-  (let ((table (mapcar
-                #'(lambda (v)
-                    (cons
-                     (format "%s" v)
-                     (format "%s" v)))
-                (tts-list-voices))))
-    (read
-     (completing-read
-      (or prompt "Personality: ")
-      table))))
+(defsubst voice-setup-read-personality (&optional prompt)
+   "Read name of a pre-defined personality using completion."
+   (read (completing-read (or prompt "Personality: ") (tts-list-voices))))
 
 ;;}}}
 ;;{{{ map faces to voices
