@@ -2111,14 +2111,10 @@ Interactive  arguments specify filename pattern and search pattern."
 ;;;###autoload
 (defun emacspeak-wizards-voice-sampler (personality)
   "Read a personality  and apply it to the current line."
-  (interactive
-   (list
-    (voice-setup-read-personality)))
-  (put-text-property (line-beginning-position)
-                     (line-end-position)
-                     'personality
-                     personality
-                     (emacspeak-speak-line)))
+  (interactive (list (voice-setup-read-personality)))
+  (put-text-property (line-beginning-position) (line-end-position)
+                     'personality personality)
+                     (emacspeak-speak-line))
 
 ;;;###autoload
 (defun emacspeak-wizards-generate-voice-sampler  (step)
