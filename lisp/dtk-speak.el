@@ -1668,13 +1668,15 @@ dtk-local-server-port)
 ;;; Helper: dtk-make-process:
 (defun  dtk-make-process  (name)
   "Make a  TTS process called name."
-  (declare (special dtk-program dtk-program-args
-                    emacspeak-servers-directory))
-  (let ((process-connection-type  nil))
-    (apply 'start-process
-           name nil
-           (expand-file-name dtk-program emacspeak-servers-directory)
-           dtk-program-args)))
+  (declare (special dtk-program dtk-program-args emacspeak-servers-directory))
+  (let ((process-connection-type  nil)
+        (program (expand-file-name dtk-program emacspeak-servers-directory))
+    (process nil))
+     (setq process (apply #'start-process name nil program dtk-program-args))
+     (tts-env-set-process-env process
+                              (tts-env-get (tts-env-key dtk-program)))
+     process))
+     
 
 (defun  dtk-initialize ()
   "Initialize speech system."
