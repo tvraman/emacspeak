@@ -111,6 +111,15 @@
   (declare (special tts-env-process-table))
   (gethash speaker tts-env-process-table))
 
+
+(defsubst tts-env-gc-process-env ()
+  "Garbage collect tts-env for killed processes."
+  (declare (special tts-env-process-table))
+  (loop
+   for key being the hash-keys of tts-env-process-table 
+   unless (process-live-p key) do 
+                           (remhash key tts-env-process-table)))
+   
 ;;}}}
 (provide 'tts-env)
 ;;{{{ end of file
