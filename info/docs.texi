@@ -219,6 +219,7 @@ This chapter documents a total of 1129 commands and 930 options.
 * subr-x::
 * tetris::
 * toy-braille::
+* tts-env::
 * voice-setup::
 * xbacklight::
 * URL Templates ::
@@ -20270,6 +20271,12 @@ References:
   http://www.nbp.org/ic/nbp/braille/index.html
 
   http://www.unicode.org/Public/4.0-Update1/UnicodeData-4.0.1.txt
+
+@node tts-env
+@section tts-env
+
+Define data structure and API for setting up, accessing and manipulating TTS environment.
+When complete, this will  be used by the various engine configuration functions to set everything in one structure.
 
 @node voice-setup
 @section voice-setup
