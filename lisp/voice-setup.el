@@ -105,8 +105,8 @@
 
 ;;}}}
 ;;{{{  helper for voice custom items:
-
-(defalias 'tts-list-voices 'dectalk-list-voices)
+(unless (fboundp 'tts-list-voices)
+  (fset 'tts-list-voices'dectalk-list-voices))
 (defun voice-setup-custom-menu ()
   "Return a choice widget used in selecting voices."
   (let ((v (tts-list-voices))
