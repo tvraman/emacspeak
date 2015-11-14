@@ -59,7 +59,7 @@ COMPILE =  -f batch-byte-compile
 DTK_OBJECTS = acss-structure.elc \
 dtk-speak.elc		dectalk-voices.elc\
 plain-voices.elc espeak-voices.elc \
-outloud-voices.elc multispeech-voices.elc mac-voices.elc\
+outloud-voices.elc  mac-voices.elc\
 dtk-interp.elc dtk-unicode.elc
 
 SPEAK_OBJECTS =   \
