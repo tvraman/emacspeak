@@ -96,6 +96,22 @@
   (puthash engine-name  env tts-env-table))
 
 ;;}}}
+;;{{{ Speaker Process->Env 
+
+(defvar tts-env-process-table
+  (make-hash-table :test #'eq)
+  "Maps speaker processes to their associated tts-env.")
+(defsubst tts-env-set-process-env  (speaker env)
+  "Setup speaker->env association."
+  (declare (special tts-env-process-table))
+  (puthash speaker env tts-env-process-table))
+
+(defsubst tts-env-get-process-env (speaker)
+  "Return tts-env for this speaker."
+  (declare (special tts-env-process-table))
+  (gethash speaker tts-env-process-table))
+
+;;}}}
 (provide 'tts-env)
 ;;{{{ end of file
 
