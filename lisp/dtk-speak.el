@@ -1675,9 +1675,6 @@ dtk-local-server-port)
            (expand-file-name dtk-program emacspeak-servers-directory)
            dtk-program-args)))
 
-
-
-
 (defun  dtk-initialize ()
   "Initialize speech system."
   (declare (special dtk-speaker-process dtk-speak-server-initialized
