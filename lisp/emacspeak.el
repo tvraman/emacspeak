@@ -39,12 +39,13 @@
 ;;{{{ Introduction
 
 ;;; Commentary:
-;;;The complete audio desktop.
 
 ;;;Emacspeak extends Emacs to be a fully functional audio desktop.
 ;;; This is the main emacspeak module.
 ;;; It actually does very little:
-;;; It loads the various parts of the system.
+;;; It sets up Emacs to load package-specific Emacspeak modules as each package is loaded.
+;;; It implements function emacspeak which loads the rest of the system.
+
 ;;; Code:
 
 ;;}}}
@@ -55,14 +56,16 @@
 (require 'emacspeak-preamble)
 (require 'emacspeak-sounds)
 (require 'emacspeak-fix-interactive)
+
 ;;}}}
 ;;{{{ autoloads
+
 (unless noninteractive
   (load-library "emacspeak-loaddefs")
   (load-library "emacspeak-cus-load")
   (load-library "g-loaddefs")
-  (load-library "g-client/g-cus-load")
-  )
+  (load-library "g-cus-load"))
+
 ;;}}}
 ;;{{{  Customize groups
 
@@ -103,6 +106,7 @@ the Emacspeak desktop." )
   :prefix "emacspeak-"
   :group 'applications
   :group 'accessibility)
+
 ;;;###autoload
 (defcustom emacspeak-startup-hook nil
   "Hook to run after starting emacspeak."
@@ -110,21 +114,18 @@ the Emacspeak desktop." )
   :group 'emacspeak)
 
 ;;;###autoload
-(defcustom emacspeak-media-player 'emacspeak-m-player
+(defvar emacspeak-media-player 'emacspeak-m-player
   "Default media player to use.
-This is a Lisp function that takes a resource locator."
-  :type 'function
-  :group 'emacspeak)
+This is a Lisp function that takes a resource locator.")
 
 ;;}}}
 ;;{{{ Package Setup Helper
 
 (defun emacspeak-do-package-setup (package module)
-  "Setup Emacspeak extension for a specific PACKAGE.
-This function adds the appropriate form to `after-load-alist' to
-set up Emacspeak support for a given package. Argument MODULE
-specifies the emacspeak module that implements the
-speech-enabling extensions."
+  "Setup Emacspeak extension for a specific PACKAGE. This function adds
+the appropriate form to `after-load-alist' to set up Emacspeak support
+for a given package. Argument MODULE specifies the emacspeak module
+that implements the speech-enabling extensions."
   (eval-after-load package
     `(progn
        (require ',module)
@@ -339,8 +340,7 @@ speech-enabling extensions."
   "Export shell environment.
 This exports emacspeak's system variables to the environment
 so it can be passed to subprocesses."
-  (declare (special emacspeak-directory
-                    emacspeak-play-program
+  (declare (special emacspeak-directory emacspeak-play-program
                     emacspeak-sounds-directory))
   (setenv "EMACSPEAK_DIR" emacspeak-directory)
   (setenv "EMACSPEAK_SOUNDS_DIR" emacspeak-sounds-directory)
@@ -428,7 +428,7 @@ sets punctuation mode to all, activates the dictionary and turns on split caps."
                      (expand-file-name "emacspeak.mp3" emacspeak-sounds-directory)))))
 ;;;###autoload
 (defun emacspeak()
-  "Starts the Emacspeak speech subsystem.  Use emacs as you
+  "Starts the Emacspeak  Audio Desktop.  Use emacs as you
 normally would, emacspeak will provide you spoken feedback
 as you work.  Emacspeak also provides commands for having
 parts of the current buffer, the mode-line etc to be spoken.
@@ -458,8 +458,7 @@ functions for details.   "
   (interactive)
   (declare (special emacspeak-pronounce-load-pronunciations-on-startup
                     emacspeak-pronounce-dictionaries-file
-                    emacspeak-play-program
-                    emacspeak-sounds-directory))
+                    emacspeak-play-program emacspeak-sounds-directory))
   (emacspeak-export-environment)
   (require 'emacspeak-personality)
   (dtk-initialize)
