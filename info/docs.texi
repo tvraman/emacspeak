@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1129 commands and 930 options.
+This chapter documents a total of 1129 commands and 929 options.
 
 @menu
 * acss-structure::
@@ -970,12 +970,11 @@ themselves, e.g., when using an Asian language.
 @node emacspeak
 @section emacspeak
 
-The complete audio desktop.
-
 Emacspeak extends Emacs to be a fully functional audio desktop.
 This is the main emacspeak module.
 It actually does very little:
-It loads the various parts of the system.
+It sets up Emacs to load package-specific Emacspeak modules as each package is loaded.
+It implements function emacspeak which loads the rest of the system.
 
 @subsection emacspeak Commands
 
@@ -984,7 +983,7 @@ It loads the various parts of the system.
 @findex emacspeak
 
 @format
-Starts the Emacspeak speech subsystem.  Use emacs as you
+Starts the Emacspeak  Audio Desktop.  Use emacs as you
 normally would, emacspeak will provide you spoken feedback
 as you work.  Emacspeak also provides commands for having
 parts of the current buffer, the mode-line etc to be spoken.
@@ -2866,12 +2865,6 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 @defvar {User Option} emacspeak-match-voice
 Personality used for match
 This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-media-player
-Default media player to use.
-This is a Lisp function that takes a resource locator.
 
 @end defvar
 
@@ -12883,6 +12876,14 @@ Summarize current cell.
 @section emacspeak-setup
 
 Entry point for Emacspeak.
+The simplest and most basic way to start emacspeak is:
+emacs -q -l <emacspeak-dir>/lisp/emacspeak-setup.el
+The above starts a vanilla Emacs with just Emacspeak loaded.
+Once the above has been verified to work,
+You can  add
+(load-library "emacspeak-setup")
+To your .emacs file.
+See tvr/emacs-startup.el in the Emacspeak Git repository for  my setup.
 
 @subsection emacspeak-setup Options
 
