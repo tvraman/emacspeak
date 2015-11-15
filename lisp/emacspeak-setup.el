@@ -182,7 +182,7 @@ pronunciation dictionaries are stored. ")
 ;;;###autoload
 (defun emacspeak-tts-startup-hook ()
   "Default hook function run after TTS is started."
-  (tts-configure-synthesis-setup))
+  (tts-configure-synthesis-setup dtk-program))
 
 (add-hook 'dtk-startup-hook 'emacspeak-tts-startup-hook)
 

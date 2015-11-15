@@ -120,7 +120,7 @@
 ;;}}}
 ;;{{{ High-level API:
 
-(defun tts-list-voices ()
+(defun tts-voices ()
   "List voices for speaker."
   (declare (special dtk-speaker-process))
   (when ( and (boundp 'dtk-speaker-process) dtk-speaker-process)
