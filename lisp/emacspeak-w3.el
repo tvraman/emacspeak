@@ -543,6 +543,7 @@ element. "
 ;;{{{ backward compatibility
 
 ;;; this will go away
+;;; It's only used in w3-speak.el but that module is frozen for now
 (defalias 'make-dtk-speech-style 'make-acss)
 (defalias 'dtk-personality-from-speech-style 'acss-personality-from-speech-style)
 
