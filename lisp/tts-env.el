@@ -120,11 +120,10 @@
 ;;}}}
 ;;{{{ High-level API:
 
-(defun tts-voices ()
+(defun tts-voices (speaker)
   "List voices for speaker."
-  (declare (special dtk-speaker-process))
-  (when ( and (boundp 'dtk-speaker-process) dtk-speaker-process)
-     (funcall (tts-env-list-voices (tts-env-get-process-env dtk-speaker-process)))))
+  (when speaker 
+     (funcall (tts-env-list-voices (tts-env-get-process-env speaker)))))
 
 ;;}}}
 (provide 'tts-env)
