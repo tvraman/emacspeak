@@ -93,11 +93,11 @@
 
   <h3 class="section">11.11 emacspeak</h3>
 
-  <p>The complete audio desktop.</p>
-
   <p>Emacspeak extends Emacs to be a fully functional audio
   desktop. This is the main emacspeak module. It actually does very
-  little: It loads the various parts of the system.</p><a name=
+  little: It sets up Emacs to load package-specific Emacspeak
+  modules as each package is loaded. It implements function
+  emacspeak which loads the rest of the system.</p><a name=
   "emacspeak-Commands" id="emacspeak-Commands"></a>
 
   <h4 class="subsection">11.11.1 emacspeak Commands</h4><a name=
@@ -114,7 +114,7 @@
 
       <div class="format">
         <pre class="format">
-Starts the Emacspeak speech subsystem.  Use emacs as you
+Starts the Emacspeak  Audio Desktop.  Use emacs as you
 normally would, emacspeak will provide you spoken feedback
 as you work.  Emacspeak also provides commands for having
 parts of the current buffer, the mode-line etc to be spoken.
@@ -3825,17 +3825,6 @@ Function to submit a bug to the programs maintainer.
   <dl>
     <dt><a name="index-User-Option-287" id=
     "index-User-Option-287"></a>Variable: <strong>User
-    Option</strong> <em>emacspeak-media-player</em></dt>
-
-    <dd>
-      <p>Default media player to use. This is a Lisp function that
-      takes a resource locator.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-User-Option-288" id=
-    "index-User-Option-288"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-message-cited-text-voice</em></dt>
 
@@ -3847,8 +3836,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-289" id=
-    "index-User-Option-289"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-288" id=
+    "index-User-Option-288"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-message-header-cc-voice</em></dt>
 
     <dd>
@@ -3859,8 +3848,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-290" id=
-    "index-User-Option-290"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-289" id=
+    "index-User-Option-289"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-message-header-name-voice</em></dt>
 
@@ -3872,8 +3861,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-291" id=
-    "index-User-Option-291"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-290" id=
+    "index-User-Option-290"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-message-header-newsgroups-voice</em></dt>
 
@@ -3885,8 +3874,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-292" id=
-    "index-User-Option-292"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-291" id=
+    "index-User-Option-291"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-message-header-other-voice</em></dt>
 
@@ -3898,8 +3887,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-293" id=
-    "index-User-Option-293"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-292" id=
+    "index-User-Option-292"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-message-header-subject-voice</em></dt>
 
@@ -3911,8 +3900,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-294" id=
-    "index-User-Option-294"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-293" id=
+    "index-User-Option-293"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-message-header-to-voice</em></dt>
 
     <dd>
@@ -3923,8 +3912,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-295" id=
-    "index-User-Option-295"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-294" id=
+    "index-User-Option-294"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-message-header-xheader-voice</em></dt>
 
@@ -3936,8 +3925,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-296" id=
-    "index-User-Option-296"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-295" id=
+    "index-User-Option-295"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-message-mml-voice</em></dt>
 
     <dd>
@@ -3948,8 +3937,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-297" id=
-    "index-User-Option-297"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-296" id=
+    "index-User-Option-296"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-message-separator-voice</em></dt>
 
     <dd>
@@ -3960,8 +3949,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-298" id=
-    "index-User-Option-298"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-297" id=
+    "index-User-Option-297"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-minibuffer-prompt-voice</em></dt>
 
     <dd>
@@ -3972,8 +3961,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-299" id=
-    "index-User-Option-299"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-298" id=
+    "index-User-Option-298"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-org-agenda-calendar-event-voice</em></dt>
 
@@ -3986,8 +3975,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-300" id=
-    "index-User-Option-300"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-299" id=
+    "index-User-Option-299"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-org-agenda-calendar-sexp-voice</em></dt>
 
@@ -3999,8 +3988,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-301" id=
-    "index-User-Option-301"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-300" id=
+    "index-User-Option-300"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-org-agenda-column-dateline-voice</em></dt>
 
@@ -4012,8 +4001,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-302" id=
-    "index-User-Option-302"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-301" id=
+    "index-User-Option-301"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-agenda-diary-voice</em></dt>
 
     <dd>
@@ -4024,8 +4013,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-303" id=
-    "index-User-Option-303"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-302" id=
+    "index-User-Option-302"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-org-agenda-dimmed-todo-personality</em></dt>
 
@@ -4038,8 +4027,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-304" id=
-    "index-User-Option-304"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-303" id=
+    "index-User-Option-303"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-agenda-done-voice</em></dt>
 
     <dd>
@@ -4050,8 +4039,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-305" id=
-    "index-User-Option-305"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-304" id=
+    "index-User-Option-304"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-org-agenda-filter-category-voice</em></dt>
 
@@ -4064,8 +4053,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-306" id=
-    "index-User-Option-306"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-305" id=
+    "index-User-Option-305"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-org-agenda-filter-tags-voice</em></dt>
 
@@ -4077,8 +4066,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-307" id=
-    "index-User-Option-307"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-306" id=
+    "index-User-Option-306"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-org-agenda-restriction-lock-voice</em></dt>
 
@@ -4090,8 +4079,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-308" id=
-    "index-User-Option-308"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-307" id=
+    "index-User-Option-307"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-org-agenda-structure-voice</em></dt>
 
@@ -4103,8 +4092,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-309" id=
-    "index-User-Option-309"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-308" id=
+    "index-User-Option-308"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-archived-voice</em></dt>
 
     <dd>
@@ -4115,8 +4104,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-310" id=
-    "index-User-Option-310"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-309" id=
+    "index-User-Option-309"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-beamer-tag-voice</em></dt>
 
     <dd>
@@ -4127,8 +4116,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-311" id=
-    "index-User-Option-311"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-310" id=
+    "index-User-Option-310"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-org-block-background-voice</em></dt>
 
@@ -4140,8 +4129,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-312" id=
-    "index-User-Option-312"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-311" id=
+    "index-User-Option-311"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-block-voice</em></dt>
 
     <dd>
@@ -4152,8 +4141,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-313" id=
-    "index-User-Option-313"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-312" id=
+    "index-User-Option-312"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-checkbox-voice</em></dt>
 
     <dd>
@@ -4164,8 +4153,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-314" id=
-    "index-User-Option-314"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-313" id=
+    "index-User-Option-313"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-clock-overlay-voice</em></dt>
 
     <dd>
@@ -4176,8 +4165,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-315" id=
-    "index-User-Option-315"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-314" id=
+    "index-User-Option-314"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-code-voice</em></dt>
 
     <dd>
@@ -4188,8 +4177,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-316" id=
-    "index-User-Option-316"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-315" id=
+    "index-User-Option-315"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-column-title-voice</em></dt>
 
     <dd>
@@ -4200,8 +4189,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-317" id=
-    "index-User-Option-317"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-316" id=
+    "index-User-Option-316"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-column-voice</em></dt>
 
     <dd>
@@ -4212,8 +4201,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-318" id=
-    "index-User-Option-318"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-317" id=
+    "index-User-Option-317"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-date-selected-voice</em></dt>
 
     <dd>
@@ -4224,8 +4213,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-319" id=
-    "index-User-Option-319"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-318" id=
+    "index-User-Option-318"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-date-voice</em></dt>
 
     <dd>
@@ -4236,8 +4225,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-320" id=
-    "index-User-Option-320"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-319" id=
+    "index-User-Option-319"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-default-voice</em></dt>
 
     <dd>
@@ -4248,8 +4237,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-321" id=
-    "index-User-Option-321"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-320" id=
+    "index-User-Option-320"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-org-document-info-keyword-voice</em></dt>
 
@@ -4262,8 +4251,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-322" id=
-    "index-User-Option-322"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-321" id=
+    "index-User-Option-321"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-document-info-voice</em></dt>
 
     <dd>
@@ -4274,8 +4263,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-323" id=
-    "index-User-Option-323"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-322" id=
+    "index-User-Option-322"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-org-document-title-voice</em></dt>
 
@@ -4287,8 +4276,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-324" id=
-    "index-User-Option-324"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-323" id=
+    "index-User-Option-323"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-done-voice</em></dt>
 
     <dd>
@@ -4299,8 +4288,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-325" id=
-    "index-User-Option-325"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-324" id=
+    "index-User-Option-324"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-drawer-voice</em></dt>
 
     <dd>
@@ -4311,8 +4300,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-326" id=
-    "index-User-Option-326"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-325" id=
+    "index-User-Option-325"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-ellipsis-voice</em></dt>
 
     <dd>
@@ -4323,8 +4312,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-327" id=
-    "index-User-Option-327"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-326" id=
+    "index-User-Option-326"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-footnote-voice</em></dt>
 
     <dd>
@@ -4335,8 +4324,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-328" id=
-    "index-User-Option-328"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-327" id=
+    "index-User-Option-327"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-formula-voice</em></dt>
 
     <dd>
@@ -4347,8 +4336,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-329" id=
-    "index-User-Option-329"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-328" id=
+    "index-User-Option-328"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-org-habit-alert-future-personality</em></dt>
 
@@ -4360,8 +4349,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-330" id=
-    "index-User-Option-330"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-329" id=
+    "index-User-Option-329"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-org-habit-alert-personality</em></dt>
 
@@ -4373,8 +4362,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-331" id=
-    "index-User-Option-331"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-330" id=
+    "index-User-Option-330"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-org-habit-clear-future-personality</em></dt>
 
@@ -4386,8 +4375,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-332" id=
-    "index-User-Option-332"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-331" id=
+    "index-User-Option-331"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-org-habit-clear-personality</em></dt>
 
@@ -4399,8 +4388,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-333" id=
-    "index-User-Option-333"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-332" id=
+    "index-User-Option-332"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-org-habit-overdue-future-personality</em></dt>
 
@@ -4412,8 +4401,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-334" id=
-    "index-User-Option-334"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-333" id=
+    "index-User-Option-333"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-org-habit-overdue-personality</em></dt>
 
@@ -4425,8 +4414,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-335" id=
-    "index-User-Option-335"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-334" id=
+    "index-User-Option-334"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-org-habit-ready-future-personality</em></dt>
 
@@ -4438,8 +4427,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-336" id=
-    "index-User-Option-336"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-335" id=
+    "index-User-Option-335"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-org-habit-ready-personality</em></dt>
 
@@ -4451,8 +4440,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-337" id=
-    "index-User-Option-337"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-336" id=
+    "index-User-Option-336"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-headline-done-voice</em></dt>
 
     <dd>
@@ -4463,8 +4452,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-338" id=
-    "index-User-Option-338"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-337" id=
+    "index-User-Option-337"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-hide-voice</em></dt>
 
     <dd>
@@ -4475,8 +4464,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-339" id=
-    "index-User-Option-339"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-338" id=
+    "index-User-Option-338"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-indent-voice</em></dt>
 
     <dd>
@@ -4487,8 +4476,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-340" id=
-    "index-User-Option-340"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-339" id=
+    "index-User-Option-339"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-inlinetask-voice</em></dt>
 
     <dd>
@@ -4499,8 +4488,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-341" id=
-    "index-User-Option-341"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-340" id=
+    "index-User-Option-340"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-org-latex-and-export-specials-voice</em></dt>
 
@@ -4512,8 +4501,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-342" id=
-    "index-User-Option-342"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-341" id=
+    "index-User-Option-341"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-level-1-voice</em></dt>
 
     <dd>
@@ -4524,8 +4513,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-343" id=
-    "index-User-Option-343"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-342" id=
+    "index-User-Option-342"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-level-2-voice</em></dt>
 
     <dd>
@@ -4536,8 +4525,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-344" id=
-    "index-User-Option-344"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-343" id=
+    "index-User-Option-343"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-level-3-voice</em></dt>
 
     <dd>
@@ -4548,8 +4537,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-345" id=
-    "index-User-Option-345"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-344" id=
+    "index-User-Option-344"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-level-4-voice</em></dt>
 
     <dd>
@@ -4560,8 +4549,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-346" id=
-    "index-User-Option-346"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-345" id=
+    "index-User-Option-345"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-level-5-voice</em></dt>
 
     <dd>
@@ -4572,8 +4561,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-347" id=
-    "index-User-Option-347"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-346" id=
+    "index-User-Option-346"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-level-6-voice</em></dt>
 
     <dd>
@@ -4584,8 +4573,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-348" id=
-    "index-User-Option-348"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-347" id=
+    "index-User-Option-347"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-level-7-voice</em></dt>
 
     <dd>
@@ -4596,8 +4585,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-349" id=
-    "index-User-Option-349"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-348" id=
+    "index-User-Option-348"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-level-8-voice</em></dt>
 
     <dd>
@@ -4608,8 +4597,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-350" id=
-    "index-User-Option-350"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-349" id=
+    "index-User-Option-349"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-link-voice</em></dt>
 
     <dd>
@@ -4620,8 +4609,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-351" id=
-    "index-User-Option-351"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-350" id=
+    "index-User-Option-350"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-meta-line-voice</em></dt>
 
     <dd>
@@ -4632,8 +4621,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-352" id=
-    "index-User-Option-352"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-351" id=
+    "index-User-Option-351"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-org-property-value-voice</em></dt>
 
@@ -4645,8 +4634,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-353" id=
-    "index-User-Option-353"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-352" id=
+    "index-User-Option-352"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-org-scheduled-previously-voice</em></dt>
 
@@ -4659,8 +4648,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-354" id=
-    "index-User-Option-354"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-353" id=
+    "index-User-Option-353"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-org-scheduled-today-voice</em></dt>
 
@@ -4672,8 +4661,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-355" id=
-    "index-User-Option-355"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-354" id=
+    "index-User-Option-354"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-scheduled-voice</em></dt>
 
     <dd>
@@ -4684,8 +4673,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-356" id=
-    "index-User-Option-356"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-355" id=
+    "index-User-Option-355"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-sexp-date-voice</em></dt>
 
     <dd>
@@ -4696,8 +4685,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-357" id=
-    "index-User-Option-357"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-356" id=
+    "index-User-Option-356"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-org-special-keyword-voice</em></dt>
 
@@ -4709,8 +4698,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-358" id=
-    "index-User-Option-358"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-357" id=
+    "index-User-Option-357"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-table-voice</em></dt>
 
     <dd>
@@ -4721,8 +4710,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-359" id=
-    "index-User-Option-359"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-358" id=
+    "index-User-Option-358"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-tag-voice</em></dt>
 
     <dd>
@@ -4733,8 +4722,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-360" id=
-    "index-User-Option-360"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-359" id=
+    "index-User-Option-359"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-target-voice</em></dt>
 
     <dd>
@@ -4745,8 +4734,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-361" id=
-    "index-User-Option-361"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-360" id=
+    "index-User-Option-360"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-time-grid-voice</em></dt>
 
     <dd>
@@ -4757,8 +4746,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-362" id=
-    "index-User-Option-362"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-361" id=
+    "index-User-Option-361"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-todo-voice</em></dt>
 
     <dd>
@@ -4769,8 +4758,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-363" id=
-    "index-User-Option-363"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-362" id=
+    "index-User-Option-362"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-org-upcoming-deadline-voice</em></dt>
 
@@ -4782,8 +4771,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-364" id=
-    "index-User-Option-364"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-363" id=
+    "index-User-Option-363"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-verbatim-voice</em></dt>
 
     <dd>
@@ -4794,8 +4783,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-365" id=
-    "index-User-Option-365"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-364" id=
+    "index-User-Option-364"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-org-warning-voice</em></dt>
 
     <dd>
@@ -4806,8 +4795,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-366" id=
-    "index-User-Option-366"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-365" id=
+    "index-User-Option-365"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-outline-1-voice</em></dt>
 
     <dd>
@@ -4818,8 +4807,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-367" id=
-    "index-User-Option-367"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-366" id=
+    "index-User-Option-366"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-outline-2-voice</em></dt>
 
     <dd>
@@ -4830,8 +4819,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-368" id=
-    "index-User-Option-368"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-367" id=
+    "index-User-Option-367"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-outline-3-voice</em></dt>
 
     <dd>
@@ -4842,8 +4831,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-369" id=
-    "index-User-Option-369"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-368" id=
+    "index-User-Option-368"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-outline-4-voice</em></dt>
 
     <dd>
@@ -4854,8 +4843,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-370" id=
-    "index-User-Option-370"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-369" id=
+    "index-User-Option-369"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-outline-5-voice</em></dt>
 
     <dd>
@@ -4866,8 +4855,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-371" id=
-    "index-User-Option-371"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-370" id=
+    "index-User-Option-370"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-outline-6-voice</em></dt>
 
     <dd>
@@ -4878,8 +4867,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-372" id=
-    "index-User-Option-372"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-371" id=
+    "index-User-Option-371"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-package-description-voice</em></dt>
 
@@ -4891,8 +4880,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-373" id=
-    "index-User-Option-373"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-372" id=
+    "index-User-Option-372"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-package-help-section-name-voice</em></dt>
 
@@ -4904,8 +4893,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-374" id=
-    "index-User-Option-374"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-373" id=
+    "index-User-Option-373"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-package-name-voice</em></dt>
 
     <dd>
@@ -4916,8 +4905,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-375" id=
-    "index-User-Option-375"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-374" id=
+    "index-User-Option-374"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-package-status-avail-obso-voice</em></dt>
 
@@ -4929,8 +4918,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-376" id=
-    "index-User-Option-376"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-375" id=
+    "index-User-Option-375"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-package-status-available-voice</em></dt>
 
@@ -4942,8 +4931,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-377" id=
-    "index-User-Option-377"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-376" id=
+    "index-User-Option-376"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-package-status-built-in-voice</em></dt>
 
@@ -4956,8 +4945,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-378" id=
-    "index-User-Option-378"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-377" id=
+    "index-User-Option-377"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-package-status-dependency-voice</em></dt>
 
@@ -4970,8 +4959,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-379" id=
-    "index-User-Option-379"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-378" id=
+    "index-User-Option-378"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-package-status-disabled-voice</em></dt>
 
@@ -4983,8 +4972,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-380" id=
-    "index-User-Option-380"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-379" id=
+    "index-User-Option-379"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-package-status-external-voice</em></dt>
 
@@ -4996,8 +4985,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-381" id=
-    "index-User-Option-381"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-380" id=
+    "index-User-Option-380"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-package-status-held-voice</em></dt>
 
@@ -5009,8 +4998,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-382" id=
-    "index-User-Option-382"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-381" id=
+    "index-User-Option-381"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-package-status-incompat-voice</em></dt>
 
@@ -5023,8 +5012,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-383" id=
-    "index-User-Option-383"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-382" id=
+    "index-User-Option-382"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-package-status-installed-voice</em></dt>
 
@@ -5037,8 +5026,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-384" id=
-    "index-User-Option-384"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-383" id=
+    "index-User-Option-383"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-package-status-new-voice</em></dt>
 
@@ -5050,8 +5039,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-385" id=
-    "index-User-Option-385"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-384" id=
+    "index-User-Option-384"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-package-status-unsigned-voice</em></dt>
 
@@ -5064,8 +5053,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-386" id=
-    "index-User-Option-386"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-385" id=
+    "index-User-Option-385"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-play-emacspeak-startup-icon</em></dt>
 
@@ -5075,8 +5064,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-387" id=
-    "index-User-Option-387"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-386" id=
+    "index-User-Option-386"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-query-replace-voice</em></dt>
 
     <dd>
@@ -5087,8 +5076,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-388" id=
-    "index-User-Option-388"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-387" id=
+    "index-User-Option-387"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-region-voice</em></dt>
 
     <dd>
@@ -5099,8 +5088,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-389" id=
-    "index-User-Option-389"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-388" id=
+    "index-User-Option-388"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-shadow-voice</em></dt>
 
     <dd>
@@ -5111,8 +5100,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-390" id=
-    "index-User-Option-390"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-389" id=
+    "index-User-Option-389"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-shr-link-voice</em></dt>
 
     <dd>
@@ -5123,8 +5112,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-391" id=
-    "index-User-Option-391"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-390" id=
+    "index-User-Option-390"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-startup-hook</em></dt>
 
     <dd>
@@ -5133,8 +5122,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-392" id=
-    "index-User-Option-392"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-391" id=
+    "index-User-Option-391"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-success-voice</em></dt>
 
     <dd>
@@ -5145,8 +5134,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-393" id=
-    "index-User-Option-393"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-392" id=
+    "index-User-Option-392"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-term-underline-voice</em></dt>
 
     <dd>
@@ -5157,8 +5146,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-394" id=
-    "index-User-Option-394"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-393" id=
+    "index-User-Option-393"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-underline-voice</em></dt>
 
     <dd>
@@ -5169,8 +5158,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-395" id=
-    "index-User-Option-395"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-394" id=
+    "index-User-Option-394"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-voice-latex-bold-personality</em></dt>
 
@@ -5182,8 +5171,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-396" id=
-    "index-User-Option-396"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-395" id=
+    "index-User-Option-395"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-voice-latex-doctex-documentation-personality</em></dt>
 
@@ -5196,8 +5185,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-397" id=
-    "index-User-Option-397"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-396" id=
+    "index-User-Option-396"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-voice-latex-doctex-preprocessor-personality</em></dt>
 
@@ -5210,8 +5199,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-398" id=
-    "index-User-Option-398"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-397" id=
+    "index-User-Option-397"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-voice-latex-italic-personality</em></dt>
 
@@ -5223,8 +5212,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-399" id=
-    "index-User-Option-399"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-398" id=
+    "index-User-Option-398"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-voice-latex-math-personality</em></dt>
 
@@ -5236,8 +5225,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-400" id=
-    "index-User-Option-400"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-399" id=
+    "index-User-Option-399"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-voice-latex-sedate-personality</em></dt>
 
@@ -5249,8 +5238,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-401" id=
-    "index-User-Option-401"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-400" id=
+    "index-User-Option-400"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-voice-latex-string-personality</em></dt>
 
@@ -5262,8 +5251,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-402" id=
-    "index-User-Option-402"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-401" id=
+    "index-User-Option-401"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-voice-latex-subscript-personality</em></dt>
 
@@ -5275,8 +5264,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-403" id=
-    "index-User-Option-403"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-402" id=
+    "index-User-Option-402"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-voice-latex-superscript-personality</em></dt>
 
@@ -5288,8 +5277,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-404" id=
-    "index-User-Option-404"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-403" id=
+    "index-User-Option-403"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-voice-latex-verbatim-personality</em></dt>
 
@@ -5301,8 +5290,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-405" id=
-    "index-User-Option-405"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-404" id=
+    "index-User-Option-404"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-voice-latex-warning-personality</em></dt>
 
@@ -5315,8 +5304,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-406" id=
-    "index-User-Option-406"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-405" id=
+    "index-User-Option-405"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-voice-lock-builtin-personality</em></dt>
 
@@ -5328,8 +5317,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-407" id=
-    "index-User-Option-407"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-406" id=
+    "index-User-Option-406"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-voice-lock-comment-delimiter-personality</em></dt>
 
@@ -5342,8 +5331,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-408" id=
-    "index-User-Option-408"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-407" id=
+    "index-User-Option-407"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-voice-lock-comment-personality</em></dt>
 
@@ -5355,8 +5344,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-409" id=
-    "index-User-Option-409"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-408" id=
+    "index-User-Option-408"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-voice-lock-constant-personality</em></dt>
 
@@ -5368,8 +5357,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-410" id=
-    "index-User-Option-410"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-409" id=
+    "index-User-Option-409"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-voice-lock-doc-personality</em></dt>
 
@@ -5381,8 +5370,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-411" id=
-    "index-User-Option-411"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-410" id=
+    "index-User-Option-410"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-voice-lock-function-name-personality</em></dt>
 
@@ -5395,8 +5384,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-412" id=
-    "index-User-Option-412"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-411" id=
+    "index-User-Option-411"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-voice-lock-keyword-personality</em></dt>
 
@@ -5409,8 +5398,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-413" id=
-    "index-User-Option-413"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-412" id=
+    "index-User-Option-412"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-voice-lock-negation-char-personality</em></dt>
 
@@ -5423,8 +5412,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-414" id=
-    "index-User-Option-414"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-413" id=
+    "index-User-Option-413"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-voice-lock-preprocessor-personality</em></dt>
 
@@ -5437,8 +5426,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-415" id=
-    "index-User-Option-415"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-414" id=
+    "index-User-Option-414"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-voice-lock-regexp-grouping-backslash</em></dt>
 
@@ -5451,8 +5440,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-416" id=
-    "index-User-Option-416"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-415" id=
+    "index-User-Option-415"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-voice-lock-regexp-grouping-construct</em></dt>
 
@@ -5464,8 +5453,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-417" id=
-    "index-User-Option-417"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-416" id=
+    "index-User-Option-416"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-voice-lock-string-personality</em></dt>
 
@@ -5478,8 +5467,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-418" id=
-    "index-User-Option-418"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-417" id=
+    "index-User-Option-417"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-voice-lock-type-personality</em></dt>
 
@@ -5491,8 +5480,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-419" id=
-    "index-User-Option-419"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-418" id=
+    "index-User-Option-418"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-voice-lock-variable-name-personality</em></dt>
 
@@ -5504,8 +5493,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-420" id=
-    "index-User-Option-420"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-419" id=
+    "index-User-Option-419"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-voice-lock-warning-personality</em></dt>
 
@@ -5518,8 +5507,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-421" id=
-    "index-User-Option-421"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-420" id=
+    "index-User-Option-420"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-warning-voice</em></dt>
 
     <dd>
@@ -5530,8 +5519,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-422" id=
-    "index-User-Option-422"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-421" id=
+    "index-User-Option-421"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-widget-button-pressed-voice</em></dt>
 
@@ -5544,8 +5533,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-423" id=
-    "index-User-Option-423"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-422" id=
+    "index-User-Option-422"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-widget-button-voice</em></dt>
 
     <dd>
@@ -5556,8 +5545,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-424" id=
-    "index-User-Option-424"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-423" id=
+    "index-User-Option-423"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-widget-documentation-voice</em></dt>
 
@@ -5569,8 +5558,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-425" id=
-    "index-User-Option-425"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-424" id=
+    "index-User-Option-424"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-widget-field-voice</em></dt>
 
     <dd>
@@ -5581,8 +5570,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-426" id=
-    "index-User-Option-426"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-425" id=
+    "index-User-Option-425"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-widget-inactive-voice</em></dt>
 
     <dd>
@@ -5593,8 +5582,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-427" id=
-    "index-User-Option-427"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-426" id=
+    "index-User-Option-426"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-widget-single-line-field-voice</em></dt>
 
@@ -5606,8 +5595,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-428" id=
-    "index-User-Option-428"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-427" id=
+    "index-User-Option-427"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-woman-bold-voice</em></dt>
 
     <dd>
@@ -5618,8 +5607,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-429" id=
-    "index-User-Option-429"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-428" id=
+    "index-User-Option-428"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-woman-edition-voice</em></dt>
 
     <dd>
@@ -5630,8 +5619,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-430" id=
-    "index-User-Option-430"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-429" id=
+    "index-User-Option-429"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-woman-italic-voice</em></dt>
 
     <dd>
@@ -5642,8 +5631,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-431" id=
-    "index-User-Option-431"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-430" id=
+    "index-User-Option-430"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-woman-unknown-voice</em></dt>
 
     <dd>
@@ -5654,8 +5643,8 @@ Function to submit a bug to the programs maintainer.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-432" id=
-    "index-User-Option-432"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-431" id=
+    "index-User-Option-431"></a>Variable: <strong>User
     Option</strong> <em>g-auth-lifetime</em></dt>
 
     <dd>
