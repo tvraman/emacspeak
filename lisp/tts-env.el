@@ -108,7 +108,8 @@
 (defsubst tts-env-get-process-env (speaker)
   "Return tts-env for this speaker."
   (declare (special tts-env-process-table))
-  (gethash speaker tts-env-process-table))
+  (or (gethash speaker tts-env-process-table)
+      (plain-make-tts-env)))
 
 
 (defsubst tts-env-gc-process-env ()
@@ -118,7 +119,14 @@
    for key being the hash-keys of tts-env-process-table 
    unless (process-live-p key) do 
                            (remhash key tts-env-process-table)))
-   
+
+;;}}}
+;;{{{ High-level API:
+
+(defun tts-list-voices (speaker)
+  "List voices for speaker."
+  (when speaker (tts-env-list-voices (tts-env-get-process-env speaker))))
+
 ;;}}}
 (provide 'tts-env)
 ;;{{{ end of file

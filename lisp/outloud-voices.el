@@ -65,25 +65,6 @@
 (defvar dtk-speech-rate-base )
 (defvar outloud-default-speech-rate)
 ;;}}}
-;;{{{  tts-env for Outloud:
-
-(defun outloud-make-tts-env  ()
-  "Constructs a TTS environment for Outloud."
-  (declare (special tts-default-speech-rate tts-default-voice ))
-  (make-tts-env
-   :name :outloud
-   :default-voice 'paul
-   :default-speech-rate outloud-default-speech-rate
-   :list-voices #'outloud-list-voices
-   :voice-defined-p #'outloud-voice-defined-p
-   :get-voice-command #'outloud-get-voice-command
-   :define-voice-from-acss #'outloud-define-voice-from-speech-style
-   :speech-rate-base 50
-   :speech-rate-step 10))
-
-(tts-env-set :outloud  (outloud-make-tts-env))
-
-;;}}}
 ;;{{{ Top level TTS  switcher
 
 ;;;### autoload
@@ -508,6 +489,26 @@ and TABLE gives the values along that dimension."
                 dtk-speech-rate outloud-default-speech-rate
                 dtk-speech-rate-base 50)
   (dtk-unicode-update-untouched-charsets '(ascii latin-iso8859-1 latin-iso8859-15 latin-iso8859-9 eight-bit-graphic)))
+
+;;}}}
+;;{{{  tts-env for Outloud:
+
+;;;###autoload
+(defun outloud-make-tts-env  ()
+  "Constructs a TTS environment for Outloud."
+  (declare (special tts-default-speech-rate tts-default-voice ))
+  (make-tts-env
+   :name :outloud
+   :default-voice 'paul
+   :default-speech-rate outloud-default-speech-rate
+   :list-voices #'outloud-list-voices
+   :voice-defined-p #'outloud-voice-defined-p
+   :get-voice-command #'outloud-get-voice-command
+   :define-voice-from-acss #'outloud-define-voice-from-speech-style
+   :speech-rate-base 50
+   :speech-rate-step 10))
+
+(tts-env-set :outloud  (outloud-make-tts-env))
 
 ;;}}}
 (provide 'outloud-voices)

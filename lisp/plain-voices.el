@@ -615,7 +615,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 ;;{{{ tts-env for Plain:
-
+;;;###autoload
 (defun plain-make-tts-env  ()
   "Constructs a TTS environment for Plain."
   (declare (special plain-default-speech-rate tts-default-voice ))
