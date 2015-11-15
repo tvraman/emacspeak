@@ -108,7 +108,6 @@
   (declare (special tts-env-process-table))
   (or (gethash speaker tts-env-process-table)
       (plain-make-tts-env)))
-
 (defsubst tts-env-gc-process-env ()
   "Garbage collect tts-env for killed processes."
   (declare (special tts-env-process-table))
@@ -116,6 +115,10 @@
    for key being the hash-keys of tts-env-process-table
    unless (process-live-p key) do
    (remhash key tts-env-process-table)))
+  
+(defvar tts-env-gc-timer
+  (run-at-time 1800 1800 #'tts-env-gc-process-env)
+  "Idle timer that runs every 30 minutes to cleanup stale tts-env objects.")
 
 ;;}}}
 ;;{{{ High-level API:
