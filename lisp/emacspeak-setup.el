@@ -49,7 +49,6 @@
 ;;; To your .emacs file.
 ;;; See tvr/emacs-startup.el in the Emacspeak Git repository for  my setup.
 
-
 ;;; Code:
 
 ;;}}}
@@ -131,7 +130,7 @@ such as pronunciation dictionaries are stored. ")
   (let ((default-directory emacspeak-directory))
     (if (and (executable-find "git")
              (file-exists-p (expand-file-name ".git"  emacspeak-directory)))
-        (substring 
+        (substring
          (shell-command-to-string  "git show HEAD | head -1 | cut -b 8- ")
          0 6)
       "")))
@@ -192,7 +191,6 @@ such as pronunciation dictionaries are stored. ")
   (tts-configure-synthesis-setup dtk-program))
 
 (add-hook 'dtk-startup-hook 'emacspeak-tts-startup-hook)
-
 
 ;;;###autoload
 (defcustom emacspeak-tts-use-notify-stream nil
