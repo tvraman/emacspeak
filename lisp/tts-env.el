@@ -1,4 +1,4 @@
-;;; tts-env.el --- Engine-specific TTS Environment 
+;;; tts-env.el --- Engine-specific TTS Environment
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Engine-Specific TTS Environment setup.
 ;;; Keywords: Emacspeak,  Audio Desktop tts-env
@@ -44,7 +44,6 @@
 ;;; Define data structure and API for setting up, accessing and manipulating TTS environment.
 ;;; When complete, this will  be used by the various engine configuration functions to set everything in one structure.
 
-
 ;;; Code:
 
 ;;}}}
@@ -54,17 +53,17 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 
 ;;}}}
-;;{{{ Structure Definition 
+;;{{{ Structure Definition
 
 (cl-defstruct tts-env
-  name default-voice 
-  default-speech-rate speech-rate-step speech-rate-base 
-  list-voices voice-defined-p                       
-  get-voice-command define-voice-from-acss                
+  name default-voice
+  default-speech-rate speech-rate-step speech-rate-base
+  list-voices voice-defined-p
+  get-voice-command define-voice-from-acss
   )
 
 ;;}}}
-;;{{{ dtk-Program->Key 
+;;{{{ dtk-Program->Key
 
 (defun tts-env-key (tts-name)
   "Return engine key-name for specified dtk-program."
@@ -89,13 +88,12 @@
   (or (gethash  engine-name tts-env-table)
       (gethash  :plain tts-env-table)))
 
-
 (defsubst tts-env-set (engine-name env)
   "Set up engine-name->env mapping."
   (puthash engine-name  env tts-env-table))
 
 ;;}}}
-;;{{{ Speaker Process->Env 
+;;{{{ Speaker Process->Env
 
 (defvar tts-env-process-table
   (make-hash-table :test #'eq)
@@ -111,21 +109,22 @@
   (or (gethash speaker tts-env-process-table)
       (plain-make-tts-env)))
 
-
 (defsubst tts-env-gc-process-env ()
   "Garbage collect tts-env for killed processes."
   (declare (special tts-env-process-table))
   (loop
-   for key being the hash-keys of tts-env-process-table 
-   unless (process-live-p key) do 
-                           (remhash key tts-env-process-table)))
+   for key being the hash-keys of tts-env-process-table
+   unless (process-live-p key) do
+   (remhash key tts-env-process-table)))
 
 ;;}}}
 ;;{{{ High-level API:
 
-(defun tts-list-voices (speaker)
+(defun tts-list-voices ()
   "List voices for speaker."
-  (when speaker (tts-env-list-voices (tts-env-get-process-env speaker))))
+  (declare (special dtk-speaker-process))
+  (when ( and (boundp 'dtk-speaker-process) dtk-speaker-process)
+     (tts-env-list-voices (tts-env-get-process-env dtk-speaker-process))))
 
 ;;}}}
 (provide 'tts-env)

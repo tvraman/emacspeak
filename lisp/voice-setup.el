@@ -114,12 +114,12 @@
     (symbol :tag "Other")
     ,@(mapcar 
        #'(lambda (voice)(list 'const voice))
-       (tts-list-voices dtk-speaker-process))))
+       (tts-list-voices))))
 
 (defsubst voice-setup-read-personality (&optional prompt)
    "Read name of a pre-defined personality using completion."
    (read (completing-read (or prompt "Personality: ")
-                          (tts-list-voices dtk-speaker-process))))
+                          (tts-list-voices))))
 
 ;;}}}
 ;;{{{ map faces to voices
