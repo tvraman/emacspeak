@@ -40,6 +40,15 @@
 
 ;;; Commentary:
 ;;; Entry point for Emacspeak.
+;;; The simplest and most basic way to start emacspeak is:
+;;; emacs -q -l <emacspeak-dir>/lisp/emacspeak-setup.el
+;;; The above starts a vanilla Emacs with just Emacspeak loaded.
+;;; Once the above has been verified to work,
+;;; You can  add
+;;; (load-library "emacspeak-setup")
+;;; To your .emacs file.
+;;; See tvr/emacs-startup.el in the Emacspeak Git repository for  my setup.
+
 
 ;;; Code:
 
@@ -49,8 +58,7 @@
 (eval-when-compile (require 'cl))
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
-(eval-when (compile)
-  (require 'emacspeak-preamble))
+(eval-when (compile) (require 'emacspeak-preamble))
 
 ;;}}}
 ;;{{{  Define locations
@@ -59,14 +67,17 @@
 (defvar emacspeak-directory
   (expand-file-name "../" (file-name-directory load-file-name))
   "Directory where emacspeak is installed. ")
+
 ;;;###autoload
 (defvar emacspeak-lisp-directory
   (expand-file-name  "lisp/" emacspeak-directory)
   "Directory where emacspeak lisp files are  installed. ")
+
 ;;;###autoload
 (defvar emacspeak-sounds-directory
   (expand-file-name  "sounds/" emacspeak-directory)
   "Directory containing auditory icons for Emacspeak.")
+
 ;;;###autoload
 (defvar emacspeak-xslt-directory
   (expand-file-name "xsl/" emacspeak-directory)
@@ -75,42 +86,36 @@
 ;;;###autoload
 (defvar emacspeak-etc-directory
   (expand-file-name  "etc/" emacspeak-directory)
-  "Directory containing miscellaneous files  for
-  Emacspeak.")
+  "Directory containing miscellaneous files  for Emacspeak.")
+
 ;;;###autoload
 (defvar emacspeak-servers-directory
   (expand-file-name  "servers/" emacspeak-directory)
-  "Directory containing speech servers  for
-  Emacspeak.")
+  "Directory containing speech servers  for Emacspeak.")
+
 ;;;###autoload
 (defvar emacspeak-info-directory
   (expand-file-name  "info/" emacspeak-directory)
   "Directory containing  Emacspeak info files.")
+
 ;;;###autoload
 (defvar emacspeak-resource-directory (expand-file-name "~/.emacspeak/")
-  "Directory where Emacspeak resource files such as
-pronunciation dictionaries are stored. ")
+  "Directory where Emacspeak resource files
+such as pronunciation dictionaries are stored. ")
+
 ;;;###autoload
 (defvar emacspeak-readme-file
-  (expand-file-name "README"
-                    emacspeak-directory)
-  "README file from where we get SVN revision number.")
+  (expand-file-name "README" emacspeak-directory)
+  "README file from where we get Git  revision number.")
 
 ;;;###autoload
 (defvar emacspeak-media-extensions
   (concat
    "\\."
    (regexp-opt
-    (list "wma"
-          "wmv"
-          "flv"
-          "m4a"
-          "m4b"
-          "flac"
-          "ogg"
-          "mp3"
-          "MP3"
-          "mp4")
+    (list "wma" "wmv" "flv"
+          "m4a" "m4b" "flac"
+          "ogg" "mp3" "MP3" "mp4")
     'parens)
    "$")
   "Extensions that match media files.")
@@ -119,6 +124,7 @@ pronunciation dictionaries are stored. ")
 (defvar emacspeak-codename
   "AnswerDog"
   "Code name of present release.")
+
 ;;;###autoload
 (defsubst emacspeak-setup-get-revision ()
   "Get SHA checksum of current revision that is suitable for spoken output."
@@ -159,11 +165,11 @@ pronunciation dictionaries are stored. ")
   :type 'integer)
 
 ;;;###autoload
-;;;###autoload
 (defcustom dectalk-default-speech-rate 225
   "*Default speech rate at which TTS is started. "
   :group 'tts
   :type 'integer)
+
 ;;;###autoload
 (defcustom espeak-default-speech-rate 175
   "Default speech rate for eSpeak."
@@ -182,6 +188,7 @@ pronunciation dictionaries are stored. ")
 ;;;###autoload
 (defun emacspeak-tts-startup-hook ()
   "Default hook function run after TTS is started."
+  (declare (special dtk-program))
   (tts-configure-synthesis-setup dtk-program))
 
 (add-hook 'dtk-startup-hook 'emacspeak-tts-startup-hook)
@@ -192,6 +199,7 @@ pronunciation dictionaries are stored. ")
   "Set to true to use a separate TTS stream for notifications."
   :type 'boolean
   :group 'emacspeak)
+
 (defun emacspeak-tts-multistream-p (tts-engine)
   "Checks if this tts-engine can support multiple streams."
   (member tts-engine '("outloud" "32-outloud" "espeak" "mac"
@@ -203,24 +211,21 @@ Should be safe to use with any software TTS engine."
   (declare (special dtk-program dtk-notify-process))
   (unless (emacspeak-tts-multistream-p dtk-program)
     (and (process-live-p dtk-notify-process) (delete-process dtk-notify-process)))
-  (when  (emacspeak-tts-multistream-p dtk-program)
-    (dtk-notify-initialize)))
+  (when  (emacspeak-tts-multistream-p dtk-program) (dtk-notify-initialize)))
 
 (when emacspeak-tts-use-notify-stream
   (add-hook 'dtk-startup-hook 'emacspeak-tts-notify-hook 'at-end))
 
 (defvar emacspeak-startup-hook nil)
 (defun emacspeak-setup-header-line ()
-  "Set up Emacspeak to show a default header line."
+  "Set up Emacspeak to speak a default header line."
   (declare (special emacspeak-use-header-line
-                    header-line-format
-                    emacspeak-header-line-format))
+                    header-line-format emacspeak-header-line-format))
   (when emacspeak-use-header-line
     (setq header-line-format emacspeak-header-line-format)))
 
 (defun emacspeak-tvr-startup-hook ()
   "Emacspeak startup hook that I use."
-  (load-library "emacspeak-alsaplayer")
   (load-library "emacspeak-webspace")
   (load-library "emacspeak-dbus"))
 
