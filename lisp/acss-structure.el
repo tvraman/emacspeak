@@ -80,7 +80,7 @@
 ;;; Code:
 (require 'cl-lib)
 (declaim  (optimize  (safety 0) (speed 3)))
-(require 'tts-env)
+(require 'tts)
 ;;}}}
 ;;{{{ tts common vars 
 (defvar tts-default-voice 'paul 

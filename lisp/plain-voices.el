@@ -50,10 +50,10 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'acss-structure)
-(require 'tts-env)
+(require 'tts)
 
 ;;}}}
-;;{{{  Top-level TTS  switcher
+;;;{{{  Top-level TTS  switcher
 
 ;;;### autoload
 (defun plain ()

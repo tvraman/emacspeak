@@ -91,7 +91,7 @@
 (eval-when-compile (require 'easy-mmode))
 (require 'custom)
 (require 'acss-structure)
-(require 'tts-env)
+(require 'tts)
 (require 'outloud-voices)
 (require 'mac-voices)
 (require 'espeak-voices)

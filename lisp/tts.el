@@ -129,7 +129,7 @@
      (funcall (tts-env-list-voices (tts-env-get-process-env speaker)))))
 
 ;;}}}
-(provide 'tts-env)
+(provide 'tts)
 ;;{{{ end of file
 
 ;;; local variables:

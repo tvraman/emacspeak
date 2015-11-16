@@ -52,7 +52,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'acss-structure)
 (require 'dtk-unicode)
-(require 'tts-env)
+(require 'tts)
 
 ;;}}}
 ;;{{{ Forward declarations:

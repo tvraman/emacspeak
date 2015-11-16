@@ -54,7 +54,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
-(require 'tts-env)
+(require 'tts)
 (require 'dtk-interp)
 (require 'dtk-unicode)
 
