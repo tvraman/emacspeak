@@ -84,7 +84,7 @@
         (setf (acss-pitch-range style) color-parameter)
         (setf (acss-richness style) color-parameter)
         (setf (acss-stress style) color-parameter)
-        (setq voice-name (acss-personality-from-speech-style voice-name style))
+        (setq voice-name (acss-personality-from-speech-style  style))
         voice-name)
     (error nil)))
 
