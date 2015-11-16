@@ -131,7 +131,7 @@
 ;;}}}
 ;;{{{ High-level API:
 
-(defun tts-voices (speaker)
+(cl-defun tts-voices (&optional (speaker dtk-speaker-process))
   "List voices for speaker."
   (when speaker 
      (funcall (tts-env-list-voices (tts-env-get-process-env speaker)))))
