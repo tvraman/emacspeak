@@ -4,6 +4,9 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
 * Emacspeak 43 -- Emacspeak 43 User Visible Changes
+** Multiple TTS Streams:
+
+Emacspeak now uses a separate TTS instance for its notification stream.
 
 ** Sound Themes:
 
