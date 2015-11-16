@@ -121,6 +121,14 @@
   "Idle timer that runs every 30 minutes to cleanup stale tts-env objects.")
 
 ;;}}}
+;;{{{ TTS State:
+(defstruct tts-state
+  rate punctuation   quiet 
+  capitalize split-caps allcaps
+  speak-nonprinting-chars  strip-octals 
+  chunk-separator pronunciations use-auditory-icons)
+
+;;}}}
 ;;{{{ High-level API:
 
 (defun tts-voices (speaker)
