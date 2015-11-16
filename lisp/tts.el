@@ -98,16 +98,18 @@
 (defvar tts-env-process-table
   (make-hash-table :test #'eq)
   "Maps speaker processes to their associated tts-env.")
+
 (defsubst tts-env-set-process-env  (speaker env)
   "Setup speaker->env association."
   (declare (special tts-env-process-table))
   (puthash speaker env tts-env-process-table))
 
-(defsubst tts-env-get-process-env (speaker)
+(cl-defsubst tts-env-get-process-env (&optional (speaker dtk-speaker-process))
   "Return tts-env for this speaker."
-  (declare (special tts-env-process-table))
+  (declare (special tts-env-process-table dtk-speaker-process))
   (or (gethash speaker tts-env-process-table)
       (plain-make-tts-env)))
+
 (defsubst tts-env-gc-process-env ()
   "Garbage collect tts-env for killed processes."
   (declare (special tts-env-process-table))
@@ -122,11 +124,26 @@
 
 ;;}}}
 ;;{{{ TTS State:
+
 (defstruct tts-state
   rate punctuation   quiet 
   capitalize split-caps allcaps
   speak-nonprinting-chars  strip-octals 
   chunk-separator pronunciations use-auditory-icons)
+
+(cl-defun tts-state (&optional (speaker dtk-speaker-process))
+  "Return a default tts-state appropriately initialized"
+  (declare (special dtk-speaker-process))
+  (let ((env (tts-env-get-process-env speaker)))
+    (make-tts-state
+:rate   tts-env-default-speech-rate env)
+:punctuation  'all
+:quiet  nil
+  :capitalize  nil
+split-caps allcaps
+  speak-nonprinting-chars  strip-octals 
+  chunk-separator pronunciations use-auditory-icons
+))
 
 ;;}}}
 ;;{{{ High-level API:
