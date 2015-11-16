@@ -496,17 +496,15 @@ and TABLE gives the values along that dimension."
 ;;;###autoload
 (defun espeak-make-tts-env  ()
   "Constructs a TTS environment for Espeak."
-  (declare (special tts-default-speech-rate tts-default-voice ))
+  (declare (special espeak-default-speech-rate))
   (make-tts-env
-   :name :espeak
-   :default-voice 'paul
+   :name :espeak :default-voice 'paul
    :default-speech-rate espeak-default-speech-rate
    :list-voices #'espeak-list-voices
-   :voice-defined-p #'espeak-voice-defined-p
-   :get-voice-command #'espeak-get-voice-command
+   :acss-voice-defined-p #'espeak-voice-defined-p
+   :get-acss-voice-command #'espeak-get-voice-command
    :define-voice-from-acss #'espeak-define-voice-from-speech-style
-   :speech-rate-base 100
-   :speech-rate-step 10))
+   :speech-rate-base 100 :speech-rate-step 10))
 
 (tts-env-set :espeak  (espeak-make-tts-env))
 

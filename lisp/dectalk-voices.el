@@ -645,17 +645,16 @@ and TABLE gives the values along that dimension."
 ;;;###autoload
 (defun dectalk-make-tts-env  ()
   "Constructs a TTS environment for Dectalk."
-  (declare (special tts-default-speech-rate tts-default-voice ))
+  (declare (special dectalk-default-speech-rate  ))
   (make-tts-env
    :name :dectalk
    :default-voice 'paul
    :default-speech-rate dectalk-default-speech-rate
    :list-voices #'dectalk-list-voices
-   :voice-defined-p #'dectalk-voice-defined-p
-   :get-voice-command #'dectalk-get-voice-command
+   :acss-voice-defined-p #'dectalk-voice-defined-p
+   :get-acss-voice-command #'dectalk-get-voice-command
    :define-voice-from-acss #'dectalk-define-voice-from-speech-style
-   :speech-rate-base 150
-   :speech-rate-step 50))
+   :speech-rate-base 150 :speech-rate-step 50))
 
 (tts-env-set :dectalk  (dectalk-make-tts-env))
 

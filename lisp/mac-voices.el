@@ -399,17 +399,15 @@ and TABLE gives the values along that dimension."
 ;;;###autoload
 (defun mac-make-tts-env  ()
   "Constructs a TTS environment for Mac."
-  (declare (special tts-default-speech-rate tts-default-voice ))
+  (declare (special mac-default-speech-rate))
   (make-tts-env
-   :name :mac
-   :default-voice 'paul
+   :name :mac :default-voice 'paul
    :default-speech-rate mac-default-speech-rate
    :list-voices #'mac-list-voices
-   :voice-defined-p #'mac-voice-defined-p
-   :get-voice-command #'mac-get-voice-command
+   :acss-voice-defined-p #'mac-voice-defined-p
+   :get-acss-voice-command #'mac-get-voice-command
    :define-voice-from-acss #'mac-define-voice-from-speech-style
-   :speech-rate-base 100
-   :speech-rate-step 10))
+   :speech-rate-base 100 :speech-rate-step 10))
 
 (tts-env-set :mac  (mac-make-tts-env))
 

@@ -496,17 +496,15 @@ and TABLE gives the values along that dimension."
 ;;;###autoload
 (defun outloud-make-tts-env  ()
   "Constructs a TTS environment for Outloud."
-  (declare (special tts-default-speech-rate tts-default-voice ))
+  (declare (special outloud-default-speech-rate))
   (make-tts-env
-   :name :outloud
-   :default-voice 'paul
+   :name :outloud :default-voice 'paul
    :default-speech-rate outloud-default-speech-rate
    :list-voices #'outloud-list-voices
-   :voice-defined-p #'outloud-voice-defined-p
-   :get-voice-command #'outloud-get-voice-command
+   :acss-voice-defined-p #'outloud-voice-defined-p
+   :get-acss-voice-command #'outloud-get-voice-command
    :define-voice-from-acss #'outloud-define-voice-from-speech-style
-   :speech-rate-base 50
-   :speech-rate-step 10))
+   :speech-rate-base 50 :speech-rate-step 10))
 
 (tts-env-set :outloud  (outloud-make-tts-env))
 
