@@ -132,22 +132,23 @@
   chunk-separator pronunciations use-auditory-icons)
 
 (cl-defun tts-state (&optional (speaker dtk-speaker-process))
-  "Return a default tts-state appropriately initialized"
+  "Return a default tts-state 
+appropriately initialized for engine used in this speaker process."
   (declare (special dtk-speaker-process))
   (let ((env (tts-env-get-process-env speaker)))
     (make-tts-state
-:rate   tts-env-default-speech-rate env)
-:punctuation  'all
-:quiet  nil
-  :capitalize  nil
-:split-caps nil
-:allcaps nil 
-  :speak-nonprinting-chars  nil
-  :strip-octals  nil
-  :chunk-separator ".>)$\""
-  ;:pronunciations  emacspeak-pronounce-pronunciation-table
-  :use-auditory-icons t
-))
+     :rate   (tts-env-default-speech-rate env)
+     :punctuation  'all
+     :quiet  nil
+     :capitalize  nil
+     :split-caps nil
+     :allcaps nil 
+     :speak-nonprinting-chars  nil
+     :strip-octals  nil
+     :chunk-separator ".>)$\""
+     :pronunciations  emacspeak-pronounce-pronunciation-table
+     :use-auditory-icons t)))
+
 
 ;;}}}
 ;;{{{ High-level API:
