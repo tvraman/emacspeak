@@ -140,9 +140,13 @@
 :punctuation  'all
 :quiet  nil
   :capitalize  nil
-split-caps allcaps
-  speak-nonprinting-chars  strip-octals 
-  chunk-separator pronunciations use-auditory-icons
+:split-caps nil
+:allcaps nil 
+  :speak-nonprinting-chars  nil
+  :strip-octals  nil
+  :chunk-separator ".>)$\""
+  ;:pronunciations  emacspeak-pronounce-pronunciation-table
+  :use-auditory-icons t
 ))
 
 ;;}}}
