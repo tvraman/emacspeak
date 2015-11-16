@@ -124,6 +124,10 @@
 
 ;;}}}
 ;;{{{ TTS State:
+(defvar tt-state nil
+  "Buffer local tts state.")
+
+(make-variable-buffer-local 'tts-state)
 
 (defstruct tts-state
   rate punctuation   quiet 
@@ -134,9 +138,13 @@
 (cl-defun tts-state (&optional (speaker dtk-speaker-process))
   "Return a default tts-state 
 appropriately initialized for engine used in this speaker process."
-  (declare (special dtk-speaker-process))
-  (let ((env (tts-env-get-process-env speaker)))
-    (make-tts-state
+  (declare (special dtk-speaker-process tts-state))
+  (cond
+   ((and (boundp 'tts-state) tts-state) tts-state)
+   (t
+    (let ((env (tts-env-get-process-env speaker)))
+      (setq tts-state 
+            (make-tts-state
      :rate   (tts-env-default-speech-rate env)
      :punctuation  'all
      :quiet  nil
@@ -147,7 +155,7 @@ appropriately initialized for engine used in this speaker process."
      :strip-octals  nil
      :chunk-separator ".>)$\""
      :pronunciations  emacspeak-pronounce-pronunciation-table
-     :use-auditory-icons t)))
+     :use-auditory-icons t))))))
 
 
 ;;}}}
