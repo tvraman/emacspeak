@@ -200,6 +200,39 @@ appropriately initialized for engine used in this speaker process."
      (,(intern (format "tts-state-%s" field)) (tts-state)))))
 
 ;;}}}
+;;{{{ Interactive tts state Mutators: 
+
+(loop
+ for switch in
+ '(quiet capitalize split-caps allcaps
+   speak-nonprinting-chars  strip-octals use-auditory-icons)
+ do
+ (eval
+  `(defun ,(intern (format "tts-toggle-%s" switch)) ()
+     ,(format "Toggle field %s in current tts-state." switch)
+     (interactive)
+     (setf
+      (,(intern (format "tts-state-%s"  switch)) (tts-state))
+      (not (,(intern (format "tts-state-%s"  switch)) (tts-state)))))))
+
+(defun tts-set-rate(rate)
+  "Set tts rate."
+  (interactive "nRate: ")
+  (setf (tts-state-rate (tts-state))rate))
+
+(defun tts-set-punctuations(punctuations)
+  "Set tts punctuations."
+  (interactive
+   (list (read (completing-read "Punctuations: " '(all some none))))
+   (setf (tts-state-punctuations (tts-state))punctuations)))
+
+(defun tts-set-chunk-separator(chunk-separator)
+  "Set tts chunk-separator."
+  (interactive "sChunk-Separator: ")
+  (setf (tts-state-chunk-separator (tts-state))chunk-separator))
+
+;;}}}
+
 (provide 'tts)
 ;;{{{ end of file
 
