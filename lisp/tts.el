@@ -200,12 +200,12 @@ appropriately initialized for engine used in this speaker process."
      (,(intern (format "tts-state-%s" field)) (tts-state)))))
 
 ;;}}}
-;;{{{ Interactive tts state Mutators: 
+;;{{{ Interactive tts state Mutators:
 
 (loop
  for switch in
  '(quiet capitalize split-caps allcaps
-   speak-nonprinting-chars  strip-octals use-auditory-icons)
+         speak-nonprinting-chars  strip-octals use-auditory-icons)
  do
  (eval
   `(defun ,(intern (format "tts-toggle-%s" switch)) ()
