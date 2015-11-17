@@ -501,7 +501,6 @@ Becomes automatically buffer local.")
 ;;;###autoload
 (defsubst  emacspeak-pronounce-pronunciation-table ()
   "Closure that returns the pronunciation table."
-  (declare (special emacspeak-pronounce-pronunciation-table))
   emacspeak-pronounce-pronunciation-table)
 
 ;;;###autoload
