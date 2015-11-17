@@ -59,8 +59,7 @@
   name default-voice
   default-speech-rate speech-rate-step speech-rate-base
   list-voices acss-voice-defined-p
-  get-acss-voice-command define-voice-from-acss
-  )
+  get-acss-voice-command define-voice-from-acss)
 
 ;;}}}
 ;;{{{ dtk-Program->Key
@@ -124,7 +123,8 @@
 
 ;;}}}
 ;;{{{ TTS State:
-(defvar tt-state nil
+
+(defvar tts-state nil
   "Buffer local tts state.")
 
 (make-variable-buffer-local 'tts-state)
@@ -157,14 +157,13 @@ appropriately initialized for engine used in this speaker process."
      :pronunciations  (emacspeak-pronounce-pronunciation-table)
      :use-auditory-icons t))))))
 
-
 ;;}}}
 ;;{{{ High-level API:
 
 (cl-defun tts-voices (&optional (speaker dtk-speaker-process))
   "List voices for speaker."
-  (when speaker 
-     (funcall (tts-env-list-voices (tts-env-get-process-env speaker)))))
+  (declare (special dtk-speaker-process))
+  (funcall (tts-env-list-voices (tts-env-get-process-env speaker))))
 
 ;;}}}
 (provide 'tts)
