@@ -143,7 +143,7 @@ appropriately initialized for engine used in this speaker process."
   (cond
    ((and (boundp 'tts-state) tts-state) tts-state)
    (t
-    (let ((env (tts-env-get-process-env speaker)))
+    (let ((env (tts-env speaker)))
       (setq tts-state 
             (make-tts-state
      :rate   (tts-env-default-speech-rate env)
@@ -171,12 +171,18 @@ appropriately initialized for engine used in this speaker process."
      ,(format "Return %s from tts-env." field)
      (,(intern (format "tts-env-%s" field)) (tts-env)))))
 
-  
-
-(cl-defun tts-voices (&optional (speaker dtk-speaker-process))
+(cl-defun tts-voices ()
   "List voices for speaker."
-  (declare (special dtk-speaker-process))
-  (funcall (tts-env-list-voices (tts-env-get-process-env speaker))))
+  (funcall (tts-env-list-voices (tts-env))))
+
+(loop
+ for field in
+ '(acss-voice-defined-p get-acss-voice-command define-voice-from-acss)
+ do
+ (eval
+  `(defun ,(intern (format "tts-%s" field)) (value)
+     ,(format "Return result of applying %s from tts-env to `value'." field)
+     (funcall (,(intern (format "tts-env-%s" field)) (tts-env)) value))))
 
 ;;}}}
 ;;{{{ tts-state: High level API
