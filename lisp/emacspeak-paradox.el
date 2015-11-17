@@ -124,6 +124,15 @@
        (emacspeak-paradox-summarize-line)))))
 
 ;;}}}
+;;{{{ Advice:
+
+(defadvice paradox-quit-and-close (after emacspeak pre act comp)
+  "provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line)))
+
+;;}}}
 (provide 'emacspeak-paradox)
 ;;{{{ end of file
 
