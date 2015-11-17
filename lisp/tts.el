@@ -116,7 +116,7 @@
    for key being the hash-keys of tts-env-process-table
    unless (process-live-p key) do
    (remhash key tts-env-process-table)))
-  
+
 (defvar tts-env-gc-timer
   (run-at-time 1800 1800 #'tts-env-gc-process-env)
   "Idle timer that runs every 30 minutes to cleanup stale tts-env objects.")
@@ -130,13 +130,13 @@
 (make-variable-buffer-local 'tts-state)
 
 (defstruct tts-state
-  rate punctuation   quiet 
+  rate punctuation   quiet
   capitalize split-caps allcaps
-  speak-nonprinting-chars  strip-octals 
+  speak-nonprinting-chars  strip-octals
   chunk-separator pronunciations use-auditory-icons)
 
 (cl-defun tts-state (&optional (speaker dtk-speaker-process))
-  "Return a default tts-state 
+  "Return a default tts-state
 appropriately initialized for engine used in this speaker process."
   (declare (special dtk-speaker-process tts-state
                     emacspeak-pronounce-pronunciation-table))
@@ -144,27 +144,27 @@ appropriately initialized for engine used in this speaker process."
    ((and (boundp 'tts-state) tts-state) tts-state)
    (t
     (let ((env (tts-env speaker)))
-      (setq tts-state 
+      (setq tts-state
             (make-tts-state
-     :rate   (tts-env-default-speech-rate env)
-     :punctuation  'all
-     :quiet  nil
-     :capitalize  nil
-     :split-caps nil
-     :allcaps nil 
-     :speak-nonprinting-chars  nil
-     :strip-octals  nil
-     :chunk-separator ".>)$\""
-     :pronunciations  (emacspeak-pronounce-pronunciation-table)
-     :use-auditory-icons t))))))
+             :rate   (tts-env-default-speech-rate env)
+             :punctuation  'all
+             :quiet  nil
+             :capitalize  nil
+             :split-caps t
+             :allcaps nil
+             :speak-nonprinting-chars  nil
+             :strip-octals  nil
+             :chunk-separator ".>)$\""
+             :pronunciations  (emacspeak-pronounce-pronunciation-table)
+             :use-auditory-icons t))))))
 
 ;;}}}
 ;;{{{ tts-env: High-level API
 
 (loop
- for field in 
+ for field in
  '(name default-voice
-  default-speech-rate speech-rate-step speech-rate-base )
+        default-speech-rate speech-rate-step speech-rate-base )
  do
  (eval
   `(defun ,(intern (format "tts-%s" field)) ()
@@ -189,10 +189,10 @@ appropriately initialized for engine used in this speaker process."
 
 (loop
  for field in
- '(rate punctuation   quiet 
-  capitalize split-caps allcaps
-  speak-nonprinting-chars  strip-octals 
-  chunk-separator pronunciations use-auditory-icons)
+ '(rate punctuation   quiet
+        capitalize split-caps allcaps
+        speak-nonprinting-chars  strip-octals
+        chunk-separator pronunciations use-auditory-icons)
  do
  (eval
   `(defun ,(intern (format "tts-%s" field)) ()
