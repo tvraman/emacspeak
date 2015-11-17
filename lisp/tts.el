@@ -154,7 +154,7 @@ appropriately initialized for engine used in this speaker process."
      :speak-nonprinting-chars  nil
      :strip-octals  nil
      :chunk-separator ".>)$\""
-     :pronunciations  emacspeak-pronounce-pronunciation-table
+     :pronunciations  (emacspeak-pronounce-pronunciation-table)
      :use-auditory-icons t))))))
 
 
