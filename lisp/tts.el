@@ -130,7 +130,7 @@
 (make-variable-buffer-local 'tts-state)
 
 (defstruct tts-state
-  rate punctuation   quiet
+  rate punctuations   quiet
   capitalize split-caps allcaps
   speak-nonprinting-chars  strip-octals
   chunk-separator pronunciations use-auditory-icons)
@@ -147,7 +147,7 @@ appropriately initialized for engine used in this speaker process."
       (setq tts-state
             (make-tts-state
              :rate   (tts-env-default-speech-rate env)
-             :punctuation  'all
+             :punctuations  'all
              :quiet  nil
              :capitalize  nil
              :split-caps t
@@ -189,7 +189,7 @@ appropriately initialized for engine used in this speaker process."
 
 (loop
  for field in
- '(rate punctuation   quiet
+ '(rate punctuations   quiet
         capitalize split-caps allcaps
         speak-nonprinting-chars  strip-octals
         chunk-separator pronunciations use-auditory-icons)
@@ -223,8 +223,8 @@ appropriately initialized for engine used in this speaker process."
 (defun tts-set-punctuations(punctuations)
   "Set tts punctuations."
   (interactive
-   (list (read (completing-read "Punctuations: " '(all some none))))
-   (setf (tts-state-punctuations (tts-state))punctuations)))
+   (list (read (completing-read "Punctuations: " '(all some none)))))
+  (setf (tts-state-punctuations (tts-state))punctuations))
 
 (defun tts-set-chunk-separator(chunk-separator)
   "Set tts chunk-separator."
