@@ -138,7 +138,8 @@
 (cl-defun tts-state (&optional (speaker dtk-speaker-process))
   "Return a default tts-state 
 appropriately initialized for engine used in this speaker process."
-  (declare (special dtk-speaker-process tts-state))
+  (declare (special dtk-speaker-process tts-state
+                    emacspeak-pronounce-pronunciation-table))
   (cond
    ((and (boundp 'tts-state) tts-state) tts-state)
    (t
@@ -158,12 +159,27 @@ appropriately initialized for engine used in this speaker process."
      :use-auditory-icons t))))))
 
 ;;}}}
-;;{{{ High-level API:
+;;{{{tts-env: High-level API:
 
 (cl-defun tts-voices (&optional (speaker dtk-speaker-process))
   "List voices for speaker."
   (declare (special dtk-speaker-process))
   (funcall (tts-env-list-voices (tts-env-get-process-env speaker))))
+
+;;}}}
+;;{{{ tts-state: High level API
+
+(loop
+ for field in
+ '(rate punctuation   quiet 
+  capitalize split-caps allcaps
+  speak-nonprinting-chars  strip-octals 
+  chunk-separator pronunciations use-auditory-icons)
+ do
+ (eval
+  `(defun ,(intern (format "tts-%s" field)) ()
+     ,(format "Return %s from tts-state." field)
+     (,(intern (format "tts-state-%s" field)) (tts-state)))))
 
 ;;}}}
 (provide 'tts)
