@@ -61,13 +61,6 @@
   list-voices acss-voice-defined-p
   get-acss-voice-command define-voice-from-acss)
 
-(cl-defsubst tts-env (&optional (speaker dtk-speaker-process))
-  "Return tts-env object."
-  (declare (special dtk-speaker-process))
-   (tts-env-get-process-env speaker))
-   
-  
-
 ;;}}}
 ;;{{{ dtk-Program->Key
 
@@ -110,7 +103,7 @@
   (declare (special tts-env-process-table))
   (puthash speaker env tts-env-process-table))
 
-(cl-defsubst tts-env-get-process-env (&optional (speaker dtk-speaker-process))
+(cl-defsubst tts-env (&optional (speaker dtk-speaker-process))
   "Return tts-env for this speaker."
   (declare (special tts-env-process-table dtk-speaker-process))
   (or (gethash speaker tts-env-process-table)
@@ -167,6 +160,18 @@ appropriately initialized for engine used in this speaker process."
 
 ;;}}}
 ;;{{{ tts-env: High-level API
+
+(loop
+ for field in 
+ '(name default-voice
+  default-speech-rate speech-rate-step speech-rate-base )
+ do
+ (eval
+  `(defun ,(intern (format "tts-%s" field)) ()
+     ,(format "Return %s from tts-env." field)
+     (,(intern (format "tts-env-%s" field)) (tts-env)))))
+
+  
 
 (cl-defun tts-voices (&optional (speaker dtk-speaker-process))
   "List voices for speaker."
