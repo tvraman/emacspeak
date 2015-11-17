@@ -61,6 +61,13 @@
   list-voices acss-voice-defined-p
   get-acss-voice-command define-voice-from-acss)
 
+(cl-defsubst tts-env (&optional (speaker dtk-speaker-process))
+  "Return tts-env object."
+  (declare (special dtk-speaker-process))
+   (tts-env-get-process-env speaker))
+   
+  
+
 ;;}}}
 ;;{{{ dtk-Program->Key
 
@@ -159,7 +166,7 @@ appropriately initialized for engine used in this speaker process."
      :use-auditory-icons t))))))
 
 ;;}}}
-;;{{{tts-env: High-level API:
+;;{{{ tts-env: High-level API
 
 (cl-defun tts-voices (&optional (speaker dtk-speaker-process))
   "List voices for speaker."
