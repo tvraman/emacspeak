@@ -176,8 +176,7 @@ split caps Do not set this variable by hand, use command
   '("some" "all" "none")
   "Alist of valid punctuation modes.")
 
-(defvar  nil
-  "Variable holding last output.")
+
 
 (defvar dtk-speech-rate
   (if (string-match "dtk" dtk-program)
