@@ -49,8 +49,6 @@
 ;;}}}
 ;;{{{ required modules
 
-;;;Code:
-
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
@@ -58,7 +56,6 @@
 (require 'dtk-interp)
 (require 'dtk-unicode)
 
-(require 'espeak-voices)
 ;;}}}
 ;;{{{ Forward Declarations:
 (declare-function emacspeak-auditory-icon "emacspeak-sounds.el" (icon))
