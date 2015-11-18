@@ -176,8 +176,6 @@ split caps Do not set this variable by hand, use command
   '("some" "all" "none")
   "Alist of valid punctuation modes.")
 
-
-
 (defvar dtk-speech-rate
   (if (string-match "dtk" dtk-program)
       225 100)
@@ -785,7 +783,6 @@ will say ``aw fifteen dot'' when speaking the string
 ;;{{{  producing output
 
 ;;; Filter function to record last output from tcl
-
 
 ;;; Uses the syntax table belonging to the buffer that owns the text
 ;;; to parse and speak the text intelligently.
@@ -1667,7 +1664,6 @@ program. Port defaults to dtk-local-server-port"
     (tts-env-set-process-env process
                              (tts-env-get (tts-env-key dtk-program)))
     process))
-
 
 (defun  dtk-initialize ()
   "Initialize speech system."
