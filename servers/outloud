@@ -59,6 +59,8 @@ proc tts_set_speech_rate {rate} {
     global tts
     set factor $tts(char_factor) 
     set tts(speech_rate) $rate
+    set tts(say_rate) [round \
+                           [expr $tts(speech_rate) * $factor ]]
     say "`vs$rate "
     service
     return ""
