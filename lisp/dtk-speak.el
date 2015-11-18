@@ -69,9 +69,8 @@ dtk-exp     For the Dectalk Express.
 dtk-mv      for the Multivoice and older Dectalks.
 outloud     For IBM ViaVoice Outloud
 espeak      For eSpeak
+mac for MAC TTS
 The default is dtk-exp.")
-
-
 
 (defvar dtk-program-args
   (when (getenv "DTK_PROGRAM_ARGS")
@@ -1653,7 +1652,7 @@ program. Port defaults to dtk-local-server-port"
          (expand-file-name  dtk-speech-server-program emacspeak-servers-directory)
          (if current-prefix-arg
              (read-from-minibuffer "Port:" "3333")
-dtk-local-server-port)
+           dtk-local-server-port)
          (expand-file-name program  emacspeak-servers-directory))))
 
 ;;}}}
@@ -1668,13 +1667,13 @@ dtk-local-server-port)
   (declare (special dtk-program dtk-program-args emacspeak-servers-directory))
   (let ((process-connection-type  nil)
         (program (expand-file-name dtk-program emacspeak-servers-directory))
-    (process nil))
-     (setq process (apply #'start-process name nil program dtk-program-args))
-     (set-process-coding-system process 'utf-8 'utf-8)
-     (tts-env-set-process-env process
-                              (tts-env-get (tts-env-key dtk-program)))
-     process))
-     
+        (process nil))
+    (setq process (apply #'start-process name nil program dtk-program-args))
+    (set-process-coding-system process 'utf-8 'utf-8)
+    (tts-env-set-process-env process
+                             (tts-env-get (tts-env-key dtk-program)))
+    process))
+
 
 (defun  dtk-initialize ()
   "Initialize speech system."
@@ -1722,7 +1721,7 @@ since the synthesizer is getting a word at a time."
    ((not (string-match " " dtk-chunk-separator-syntax))
     (dtk-chunk-on-white-space-and-punctuations)
     (when (ems-interactive-p)
-(message "Text will be split at punctuations and white space when speaking") ))
+      (message "Text will be split at punctuations and white space when speaking") ))
    (t (dtk-chunk-only-on-punctuations)
       (when (ems-interactive-p )
         (message "Text split  at clause boundaries")))))
@@ -1958,8 +1957,8 @@ Optional argument group-count specifies grouping for intonation."
             (setenv-internal process-environment "ALSA_DEFAULT" "tts_mono_right" t))
            (t process-environment)))
          (dtk-program
-          (if 
-          (string-match "cloud" dtk-program)
+          (if
+              (string-match "cloud" dtk-program)
               "cloud-notify"
             dtk-program))
          (new-process (dtk-make-process "Notify"))
