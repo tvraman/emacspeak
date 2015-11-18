@@ -2,7 +2,7 @@
 ;;;$Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacs interface to TTS
-;;; Keywords: Dectalk Emacs Elisp
+;;; Keywords: TTS  Emacs Elisp
 ;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
