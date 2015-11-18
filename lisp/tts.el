@@ -1,4 +1,4 @@
-;;; tts-env.el --- Engine-specific TTS Environment
+;;; tts.el --- Engine-specific TTS Environment
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Engine-Specific TTS Environment setup.
 ;;; Keywords: Emacspeak,  Audio Desktop tts-env
