@@ -474,7 +474,7 @@ and TABLE gives the values along that dimension."
                   when   (string-match "\\(\\[\\*\\]\\)"  entry) do
                   (setf entry (replace-match " " nil nil  entry 1)))
             table))))
-
+;;;###autoload
 (defun espeak-configure-tts ()
   "Configure TTS environment to use eSpeak."
   (declare (special tts-default-speech-rate

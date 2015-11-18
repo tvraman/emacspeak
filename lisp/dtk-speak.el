@@ -176,7 +176,7 @@ split caps Do not set this variable by hand, use command
   '("some" "all" "none")
   "Alist of valid punctuation modes.")
 
-(defvar dtk-last-output nil
+(defvar  nil
   "Variable holding last output.")
 
 (defvar dtk-speech-rate
@@ -787,12 +787,7 @@ will say ``aw fifteen dot'' when speaking the string
 
 ;;; Filter function to record last output from tcl
 
-(defsubst dtk-filter-function (proc output)
-  "Filter function for speech server.
-Argument PROC is the server process.
-Argument OUTPUT is the newly arrived output."
-  (declare (special dtk-last-output))
-  (setq dtk-last-output output))
+
 ;;; Uses the syntax table belonging to the buffer that owns the text
 ;;; to parse and speak the text intelligently.
 
