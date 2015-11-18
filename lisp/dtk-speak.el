@@ -190,6 +190,7 @@ Do not modify this variable directly; use command  `dtk-set-rate'
 
 ;;}}}
 ;;{{{ helper: apply pronunciations
+
 ;;; moved here from the emacspeak-pronounce module for efficient
 ;;compilation
 
@@ -342,7 +343,6 @@ Optional argument FORCE  flushes the command to the speech server."
   (declare (special dtk-speak-server-initialized))
   (when dtk-speak-server-initialized
     (dtk-interp-next-language (ems-interactive-p ))))
-;;)
 
 (defun dtk-set-previous-language ()
   "Switch to the previous available language"
@@ -352,7 +352,6 @@ Optional argument FORCE  flushes the command to the speech server."
   ;;  (unless dtk-quiet
   (when dtk-speak-server-initialized
     (dtk-interp-previous-language (ems-interactive-p ))))
-;;)
 
 (defun dtk-set-preferred-language (alias lang)
   "Set the alias of the preferred language:
@@ -367,7 +366,6 @@ will set \"en_GB\".
   ;;  (unless dtk-quiet
   (when dtk-speak-server-initialized
     (dtk-interp-preferred-language alias lang)))
-;;)
 
 (defun dtk-list-language ()
   "Say the available languages."
@@ -375,8 +373,7 @@ will set \"en_GB\".
                     dtk-speak-server-initialized))
   (unless dtk-quiet
     (when dtk-speak-server-initialized
-      (dtk-interp-list-language)))
-  )
+      (dtk-interp-list-language))))
 
 ;;; helper function:
 
@@ -520,6 +517,7 @@ Argument MODE  specifies the current pronunciation mode."
         (put-text-property start (point)
                            'personality personality)))
     (goto-char (point-min))))
+
 (defsubst dtk-handle-repeating-patterns (mode)
   (declare (special dtk-cleanup-patterns))
   (goto-char (point-min))
@@ -563,7 +561,8 @@ Argument MODE  specifies the current pronunciation mode."
 ;;; returns  distance moved; nil if stationery
 (defvar dtk-chunk-separator-syntax ".>)$\""
   "Syntax string to identify chunks when splitting text.")
-                                        ; make it buffer local:
+
+;;; make it buffer local:
 (make-variable-buffer-local 'dtk-chunk-separator-syntax)
 (defsubst dtk-complement-chunk-separator-syntax ()
   "Return complement of syntactic class that splits clauses."
@@ -720,10 +719,10 @@ Arguments START and END specify region to speak."
          start  last
          personality (dtk-get-style last)))))))
 
-                                        ;Force the speech.
+;;;Force the speech.
 (defalias 'dtk-force 'dtk-interp-speak)
 
-;;;Write out the string to the tts via TCLSH.
+;;;Write out the string to the tts via TCL.
 ;;; No quoting is done,
 ;;; ifyou want to quote the text, see dtk-speak
 
@@ -777,9 +776,7 @@ will say ``aw fifteen dot'' when speaking the string
              dtk-cleanup-patterns )))))
 
 ;;}}}
-;;{{{  producing output
-
-;;; Filter function to record last output from tcl
+;;{{{  Controlling how we produce  output
 
 ;;; Uses the syntax table belonging to the buffer that owns the text
 ;;; to parse and speak the text intelligently.
@@ -792,6 +789,7 @@ will say ``aw fifteen dot'' when speaking the string
 
 ;;}}}
 ;;{{{ helper --generate state switcher:
+
 ;;;###autoload
 (defun ems-generate-switcher (command switch documentation )
   "Generate desired command to switch the specified state."
@@ -1873,6 +1871,7 @@ Optional argument group-count specifies grouping for intonation."
   (unless dtk-quiet
     (when dtk-speak-server-initialized
       (dtk-interp-letter  letter ))))
+
 (defun dtk-say (words)
   "Say these WORDS."
   (declare (special dtk-speaker-process dtk-stop-immediately
