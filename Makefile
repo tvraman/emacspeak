@@ -177,7 +177,7 @@ etc/xls2html etc/ppt2html  \
 etc/ocr-client.pl \
 etc/emacspeak.xpm etc/emacspeak.jpg
 
-INFO = info/Makefile info/*.texi info/add-css.pl
+INFO = info/Makefile info/*.texi 
 XSL=xsl 
 DISTFILES =${ELISP}  ${TEMPLATES}     ${TCL_PROGRAMS} ${XSL} \
 ${OUTLOUD} ${DTKTTS} ${ESPEAK} \
