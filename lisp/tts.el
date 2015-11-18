@@ -136,12 +136,13 @@
   chunk-separator pronunciations use-auditory-icons)
 
 ;;; tts-state-prototype is used as a place to hold all global defaults.
-;;; This prototype instance does not  have rate and pronunciation-dictionary set.
-;;; rate will be set based on engine that is current.
+;;; This prototype instance does not  have  pronunciation-dictionary set.
+
 ;;; Pronunciation dictionary is consed at run-time.
 
 (defvar tts-state-prototype 
   (make-tts-state
+     (tts-env-default-speech-rate (tts-env)):rate 
    :punctuations  'all
    :quiet  nil
    :capitalize  nil
@@ -164,7 +165,7 @@ appropriately initialized for engine used in this speaker process."
     (let ((env (tts-env speaker)))
       (setq tts-state (copy-tts-state tts-state-prototype))
       (setf
-       (tts-state-rate tts-state)  (tts-env-default-speech-rate env)
+         (tts-env-default-speech-rate env)
        (tts-state-pronunciations tts-state) (emacspeak-pronounce-pronunciation-table))
       tts-state))))
 
