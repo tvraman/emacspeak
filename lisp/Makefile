@@ -58,7 +58,7 @@ COMPILE =  -f batch-byte-compile
 #The various modules:
 DTK_OBJECTS = acss-structure.elc \
 dtk-speak.elc		dectalk-voices.elc\
-tts.elc plain-voices.elc espeak-voices.elc \
+tts.tts-cmds.elc elc plain-voices.elc espeak-voices.elc \
 outloud-voices.elc  mac-voices.elc\
 dtk-interp.elc dtk-unicode.elc
 
@@ -306,6 +306,7 @@ dtk-unicode.elc: dtk-unicode.el
 dtk-speak.elc: dtk-speak.el  dtk-interp.elc dtk-unicode.elc tts.elc
 acss-structure.elc: acss-structure.el
 tts.elc: tts.el
+tts-cmds.elc: tts-cmds.el tts.elc
 dectalk-voices.elc: dectalk-voices.el voice-setup.elc 
 outloud-voices.elc: outloud-voices.el voice-setup.elc 
 plain-voices.elc: plain-voices.el voice-setup.elc 
