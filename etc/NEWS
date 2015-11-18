@@ -1,3 +1,5 @@
+#    -*- mode: org -*-
+
 Emacspeak News --History Of User-Visible Changes
 $Id$
 Author: T. V. Raman <tv.raman.tv@gmail.com>
@@ -53,7 +55,6 @@ Module xbacklight.el  provides an Emacs front-end to XBackLight for controlling 
 Speech-enables package SLIME --- Superior Lisp Interaction Mode  --- a powerful IDE for Common Lisp and Clojure.
 
 ** emacspeak-librivox:
-
 Implements the new Librivox API.
 Search, browse download and play book streams. 
 
