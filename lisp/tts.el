@@ -129,34 +129,44 @@
 
 (make-variable-buffer-local 'tts-state)
 
-(defstruct tts-state
+(cl-defstruct tts-state
   rate punctuations   quiet
   capitalize split-caps allcaps
   speak-nonprinting-chars  strip-octals
   chunk-separator pronunciations use-auditory-icons)
 
+;;; tts-state-prototype is used as a place to hold all global defaults.
+;;; This prototype instance does not  have rate and pronunciation-dictionary set.
+;;; rate will be set based on engine that is current.
+;;; Pronunciation dictionary is consed at run-time.
+
+(defvar tts-state-prototype 
+  (make-tts-state
+   :punctuations  'all
+   :quiet  nil
+   :capitalize  nil
+   :split-caps t
+   :allcaps nil
+   :speak-nonprinting-chars  nil
+   :strip-octals  nil
+   :chunk-separator ".>)$\""
+   :use-auditory-icons t)
+  "Global prototype of tts-state used to initialize new tts-state instances. ")
+
 (cl-defun tts-state (&optional (speaker dtk-speaker-process))
   "Return a default tts-state
 appropriately initialized for engine used in this speaker process."
-  (declare (special dtk-speaker-process tts-state
+  (declare (special dtk-speaker-process tts-state tts-state-prototype
                     emacspeak-pronounce-pronunciation-table))
   (cond
    ((and (boundp 'tts-state) tts-state) tts-state)
    (t
     (let ((env (tts-env speaker)))
-      (setq tts-state
-            (make-tts-state
-             :rate   (tts-env-default-speech-rate env)
-             :punctuations  'all
-             :quiet  nil
-             :capitalize  nil
-             :split-caps t
-             :allcaps nil
-             :speak-nonprinting-chars  nil
-             :strip-octals  nil
-             :chunk-separator ".>)$\""
-             :pronunciations  (emacspeak-pronounce-pronunciation-table)
-             :use-auditory-icons t))))))
+      (setq tts-state (copy-tts-state tts-state-prototype))
+      (setf
+       (tts-state-rate tts-state)  (tts-env-default-speech-rate env)
+       (tts-state-pronunciations tts-state) (emacspeak-pronounce-pronunciation-table))
+      tts-state))))
 
 ;;}}}
 ;;{{{ tts-env: High-level API
