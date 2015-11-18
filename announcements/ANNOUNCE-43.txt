@@ -34,27 +34,26 @@ the evolving service-oriented social Internet cloud.
 
 ** Major Enhancements:
   
-   - Multiple spatially located TTS streams  for efficient communication. 🕪
-   - Refactored, improved sound themes.℗
-   - Updated org-mode support.  🎶
-   - Speech-enables package ~helm~.𝍎
-   - Speech-enable package ~yasnippet~ for smart templates. ䷾
-   - Context-sensitive  keyboard shortcuts via package ~emacspeak-muggles~. ⌨
-   - Speech-enables ~lua-mode~ for LUA programming. 
-   - Speech-enable package ~projectile~ for software project
-     management. 📽
-   - Speech-enable package ~slime~ for Lisp programming. Λ
-   - Updated Librivox support to the new API. 📖
-   - Package ~XBacklight~ for controlling LCD
-   - Updated NPR client for one-click access to present and past NPR content.📻
-   - BBC radio programs via IPlayer and friends. 📢
-      brightness. 🟈
-     - Emacs EWW: Consume Web content efficiently.   🕷
-     - Updated Info manual 🕮
-     - Speech-enabled Elfeed, an Emacs Feed Reader 🗞
-     - emacspeak-url-templates: Smart Web access.  ♅
-     - emacspeak-websearch.el Find things fast. ♁
-     - And a lot more than wil fit this margin. …
+  - Multiple spatially located TTS streams  for efficient communication. 🕪
+  - Refactored, improved sound themes.℗
+  - Updated org-mode support.  🎶
+  - Speech-enables package ~helm~.𝍎
+  - Speech-enable package ~yasnippet~ for smart templates. ䷾
+  - Context-sensitive  keyboard shortcuts via package ~emacspeak-muggles~. ⌨
+  - Speech-enables ~lua-mode~ for LUA programming. 
+  - Speech-enable package ~projectile~ for software project
+  management. 📽
+  - Speech-enable package ~slime~ for Lisp programming. Λ
+  - Updated Librivox support to the new API. 📖
+  - Package ~XBacklight~ for controlling LCD brightness. 🟈
+  - Updated NPR client for one-click access to present and past NPR content.📻
+  - BBC radio programs via IPlayer and friends. 📢
+  - Emacs EWW: Consume Web content efficiently.   🕷
+  - Updated Info manual 🕮
+  - Speech-enabled Elfeed, an Emacs Feed Reader 🗞
+  - emacspeak-url-templates: Smart Web access.  ♅
+  - emacspeak-websearch.el Find things fast. ♁
+  - And a lot more than wil fit this margin. …
 
 ** Establishing Liberty, Equality And Freedom:
 
