@@ -58,6 +58,7 @@
 
 ;;}}}
 ;;{{{ Forward Declarations:
+
 (declare-function emacspeak-auditory-icon "emacspeak-sounds.el" (icon))
 (declare-function emacspeak-queue-auditory-icon "emacspeak-sounds.el" (icon))
 ;;;###autoload
@@ -100,7 +101,6 @@ Particularly useful for web browsing."
   :group  'tts)
 (make-variable-buffer-local 'tts-strip-octals)
 
-;;;###autoload
 ;;;###autoload
 (defcustom dtk-speech-rate-base
   (if (string-match "dtk" dtk-program) 180 50)
