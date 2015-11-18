@@ -198,20 +198,17 @@ Do not modify this variable directly; use command  `dtk-set-rate'
 Modifies text and point in buffer."
   (declare (special emacspeak-pronounce-pronunciation-personality))
   (let ((words
-         (sort
-          (loop for  k  being the hash-keys  of pronunciation-table collect k)
-          #'(lambda (a b ) (> (length  a) (length  b))))))
+         (loop for  k  being the hash-keys  of pronunciation-table collect k)))
     (loop
-     for key in words do
-     (let ((word  key)
-           (pronunciation (gethash  key pronunciation-table))
-           (pp nil)
-           (personality nil))
-       (when word
+     for w in words do
+     (when w
+       (let ((pronunciation (gethash  w pronunciation-table))
+             (pp nil)
+             (personality nil))
          (goto-char (point-min))
          (cond
           ((stringp pronunciation)
-           (while (search-forward  word nil t)
+           (while (search-forward  w nil t)
              (setq pp (dtk-get-style))
              (replace-match  pronunciation t t  )
              (when (or pp emacspeak-pronounce-pronunciation-personality)
@@ -229,7 +226,7 @@ Modifies text and point in buffer."
            (let ((matcher (car pronunciation))
                  (pronouncer (cdr pronunciation))
                  (pronunciation ""))
-             (while (funcall matcher   word nil t)
+             (while (funcall matcher   w nil t)
                (setq pp (dtk-get-style))
                (setq pronunciation
                      (save-match-data
