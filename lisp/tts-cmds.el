@@ -64,7 +64,7 @@
     (tts-set-rate rate)
     (setq dtk-speech-rate rate)
     (dtk-interp-set-rate rate)
-    (when (ems-interactive-p )
+    (when (called-interactively-p t)
           (message "Set speech rate to %s %s"
                rate
                (if prefix "" "locally")))))

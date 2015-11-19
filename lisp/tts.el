@@ -157,16 +157,14 @@
 (cl-defun tts-state (&optional (speaker dtk-speaker-process))
   "Return a default tts-state
 appropriately initialized for engine used in this speaker process."
-  (declare (special dtk-speaker-process tts-state tts-state-prototype
-                    emacspeak-pronounce-pronunciation-table))
+  (declare (special dtk-speaker-process tts-state tts-state-prototype))
   (cond
    ((and (boundp 'tts-state) tts-state) tts-state)
    (t
     (let ((env (tts-env speaker)))
       (setq tts-state (copy-tts-state tts-state-prototype))
       (setf
-         (tts-env-default-speech-rate env)
-       (tts-state-pronunciations tts-state) (emacspeak-pronounce-pronunciation-table))
+         (tts-env-default-speech-rate env))
       tts-state))))
 
 ;;}}}
