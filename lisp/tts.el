@@ -142,7 +142,7 @@
 
 (defvar tts-state-prototype 
   (make-tts-state
-     (tts-env-default-speech-rate (tts-env)):rate 
+     :rate  100
    :punctuations  'all
    :quiet  nil
    :capitalize  nil

@@ -58,7 +58,7 @@ COMPILE =  -f batch-byte-compile
 #The various modules:
 DTK_OBJECTS = acss-structure.elc \
 dtk-speak.elc		dectalk-voices.elc\
-tts.tts-cmds.elc elc plain-voices.elc espeak-voices.elc \
+tts.elc tts-cmds.elc  plain-voices.elc espeak-voices.elc \
 outloud-voices.elc  mac-voices.elc\
 dtk-interp.elc dtk-unicode.elc
 
@@ -304,7 +304,7 @@ emacspeak-cus-load.el: force
 dtk-interp.elc: dtk-interp.el
 dtk-unicode.elc: dtk-unicode.el
 dtk-speak.elc: dtk-speak.el  dtk-interp.elc dtk-unicode.elc tts.elc
-acss-structure.elc: acss-structure.el
+acss-structure.elc: acss-structure.el tts.elc 
 tts.elc: tts.el
 tts-cmds.elc: tts-cmds.el tts.elc
 dectalk-voices.elc: dectalk-voices.el voice-setup.elc 
@@ -312,7 +312,7 @@ outloud-voices.elc: outloud-voices.el voice-setup.elc
 plain-voices.elc: plain-voices.el voice-setup.elc 
 mac-voices.elc: mac-voices.el voice-setup.elc 
 espeak-voices.elc: espeak-voices.el voice-setup.elc 
-voice-setup.elc: voice-setup.el acss-structure.elc tts.elc
+voice-setup.elc: voice-setup.el acss-structure.elc 
 emacspeak-alsaplayer.elc: emacspeak-alsaplayer.el
 ommacspeak-amark.elc: emacspeak-amark.el
 cd-tool.elc: cd-tool.el
