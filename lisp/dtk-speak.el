@@ -834,6 +834,9 @@ current local  value to the result."
   (when dtk-speak-server-initialized
     (cond
      (prefix
+      (unless (eq dtk-speaker-process (dtk-notify-process))
+        (let ((dtk-speaker-process (dtk-notify-process)))
+          (dtk-set-rate rate )))
       (setq tts-default-speech-rate rate)
       (setq-default dtk-speech-rate rate )
       (setq dtk-speech-rate rate))
