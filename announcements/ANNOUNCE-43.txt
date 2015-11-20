@@ -209,8 +209,8 @@ Git  from GitHub  at
   - Emacspeak-15.0 --code named SmartDog--followed up on TopDog
    as the next in a continuing  series of award-winning audio desktop
    releases from  Emacspeak Inc.
-  -  Emacspeak-14.0 --code named TopDog--was
-   the first release of this millennium. 
+  - Emacspeak-14.0 --code named TopDog--was
+  the first release of this millennium. 
   - Emacspeak-13.0 --codenamed
    YellowLab-- was the closing release of the
    20th. century. 
