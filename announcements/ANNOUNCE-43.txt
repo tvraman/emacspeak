@@ -45,7 +45,7 @@ the evolving service-oriented social Internet cloud.
   management. 📽
   - Speech-enable package ~slime~ for Lisp programming. Λ
   - Updated Librivox support to the new API. 📖
-  - Package ~XBacklight~ for controlling LCD brightness. 🟈
+  - Package ~XBacklight~ for controlling LCD brightness. ⎚
   - Updated NPR client for one-click access to present and past NPR content.📻
   - BBC radio programs via IPlayer and friends. 📢
   - Emacs EWW: Consume Web content efficiently.   🕷
