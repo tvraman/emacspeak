@@ -308,7 +308,7 @@ clean:
 # {{{ labeling releases
 
 #label  releases when ready
-LABEL=
+LABEL=#version number
 MSG="Releasing ${LABEL}"
 release: #supply LABEL=NN.NN
 	git tag -a  ${LABEL} -m "Tagging release with ${LABEL}"
