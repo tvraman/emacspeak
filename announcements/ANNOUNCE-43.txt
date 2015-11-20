@@ -1,7 +1,7 @@
 #    -*- mode: org -*-
 
-*               Emacspeak-43.0 (SoundDog) Unleashed!
-               **  For Immediate Release:
+
+               *For Immediate Release:*
 
 San Jose, Calif., (Nov 25, 2015)
     Emacspeak:  Redefining Accessibility In The Era Of Internet  Computing 
@@ -12,7 +12,7 @@ immediate world-wide availability of [[https://github.com/tvraman/emacspeak/rele
 powerful audio desktop for leveraging today's evolving data, social
 and service-oriented Internet cloud.
 
-** Investors Note:
+* Investors Note:
 
 With several prominent tweeters expanding coverage of
 _#emacspeak_, NASDOG: ESPK has now been consistently trading over
@@ -20,7 +20,7 @@ the social net at levels close to that once attained by DogCom
 high-fliers—and as of Nov 2015 is trading at levels close to
 that achieved by once better known stocks in the tech sector.
 
-** What Is It?
+* What Is It?
 
 Emacspeak is a fully functional audio desktop that provides
 complete eyes-free access to all major 32 and 64 bit operating
@@ -32,7 +32,7 @@ consistent and well-integrated user interface. A rich suite of
 task-oriented tools provides efficient speech-enabled access to
 the evolving service-oriented social Internet cloud.
 
-** Major Enhancements:
+* Major Enhancements:
   
   - Multiple spatially located TTS streams  for efficient communication. 🕪
   - Refactored, improved sound themes.℗
@@ -55,7 +55,7 @@ the evolving service-oriented social Internet cloud.
   - emacspeak-websearch.el Find things fast. ♁
   - And a lot more than wil fit this margin. …
 
-** Establishing Liberty, Equality And Freedom:
+* Establishing Liberty, Equality And Freedom:
 
 
   Never a toy system, Emacspeak is voluntarily bundled with all
@@ -90,7 +90,7 @@ when users are reeling from the Fear Uncertainty and Doubt (FUD)
 unleashed by complex software systems backed by even more convoluted
 press releases.
 
-** Independent Test Results:
+* Independent Test Results:
 
 
 Independent test results have proven that unlike some modern (and
@@ -102,13 +102,13 @@ Emacspeak once pointed out that these results re-emphasize the
 user-centric design of Emacspeak; "It is the user --and not the
 computer-- that stops functioning when Emacspeak is uninstalled!".
 
-*** Note from Aster,Bubbles and Tilden:
+** Note from Aster,Bubbles and Tilden:
 
 
 UnDoctored Videos Inc. is looking for volunteers to star in a
 video demonstrating such complete user failure.
 
-** Obtaining Emacspeak:
+* Obtaining Emacspeak:
 
 
 Emacspeak can be downloaded from GitHub  --see
@@ -124,7 +124,7 @@ The latest development snapshot of Emacspeak is always available via
 Git  from GitHub  at 
 [[https://github.com/tvraman/emacspeak][Emacspeak GitHub ]].
 
-** History:
+* History:
    
   - Emacspeak  43.0 brings even more end-user efficiency by leveraging the
    ability to spatially place multiple audio streams to provide timely
@@ -136,7 +136,7 @@ Git  from GitHub  at
    on  the desire to provide not just equal, but superior access —
    technology when correctly implemented can significantly enhance the
    human ability. 
-  - Emacspeak40.0 goes back to Web basics by enabling
+  - Emacspeak 40.0 goes back to Web basics by enabling
    [[http://emacspeak.blogspot.com/2013/11/reading-web-content-efficiently.html][efficient access]] to large amounts of readable Web content. 
   - Emacspeak 39.0 continues the Emacspeak tradition of increasing the breadth of
    user tasks that are covered without introducing unnecessary
@@ -238,7 +238,7 @@ Git  from GitHub  at
    integrated Internetworking into all aspects of the audio desktop
    to provide the first fully interactive speech-enabled WebTop.
   
-** About Emacspeak:
+* About Emacspeak:
 
 
 Originally based at Cornell (NY)
@@ -257,14 +257,14 @@ The Emacspeak mailing list is archived at Vassar --the home of the
 Emacspeak mailing list-- thanks to Greg Priest-Dorman, and provides a
 valuable knowledge base for new users.
 
-** Press/Analyst Contact: Tilden Labrador
+* Press/Analyst Contact: Tilden Labrador
 
 Going forward, Tilden acknowledges his exclusive monopoly on
 setting the direction of the Emacspeak Audio Desktop, and
 promises to exercise this freedom to innovate and her resulting
 power responsibly (as before) in the interest of all dogs.
 
-**About This Release:
+*About This Release:
 ------------------
 
 Windows-Free (WF) is a favorite battle-cry of The League Against
@@ -277,7 +277,7 @@ HeadDog (DM), LiveDog (DM), GoldenDog (DM), BlackDog (DM) etc., are Registered
 Dogmarks of Aster,  Hubbell  and Tilden Labrador.  All other dogs belong to
 their respective owners.
 
-#+TITLE:     Emacspeak 42.0—AnswerDog—Unleashed!
+#+TITLE:     Emacspeak 43.0—SoundDog—Unleashed!
 #+AUTHOR:    T.V Raman
 #+EMAIL:     tv.raman.tv@gmail.com#+DATE:      2009-11-25 Wed
 #+LANGUAGE:  en
