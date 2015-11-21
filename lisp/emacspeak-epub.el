@@ -669,6 +669,12 @@ Suitable for text searches."
                           (shell-quote-argument f)))
             (insert (shell-command-to-string command ))
             (goto-char (point-max)))
+      (add-hook
+       'emacspeak-web-post-process-hook
+       #'(lambda nil
+           (dtk-set-punctuations 'some)
+           (when dtk-split-caps (dtk-toggle-split-caps))
+           (emacspeak-speak-mode-line)))
       (browse-url-of-buffer))))
 
 (defvar emacspeak-epub-google-search-template
