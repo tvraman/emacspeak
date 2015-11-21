@@ -90,7 +90,7 @@ proc tts_say {text} {
 
 proc l {text} {
     global tts
-    set prefix ""
+    set prefix "`v1 "
     if {[regexp  {[A-Z]} $text]} {
         set prefix "$prefix `vb80"
     }
