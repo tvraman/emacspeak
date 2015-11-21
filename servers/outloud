@@ -90,7 +90,8 @@ proc tts_say {text} {
 
 proc l {text} {
     global tts
-    set prefix "`v1 "
+    set r $tts(speech_rate)
+    set prefix "`v1 `vs$r "
     if {[regexp  {[A-Z]} $text]} {
         set prefix "$prefix `vb80"
     }
