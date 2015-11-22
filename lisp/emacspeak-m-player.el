@@ -352,7 +352,7 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
            (second (split-string (emacspeak-m-player-slave-command (format "get_meta_%s" f))
                                  "="))))
     emacspeak-m-player-stream-metadata))
-(defvar emacspeak-m-player-cue-info nil
+(defvar emacspeak-m-player-cue-info t
   "Set to T if  ICY info cued automatically.")
 
 (defun emacspeak-m-player-process-filter (process output)
