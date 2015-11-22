@@ -50,9 +50,10 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'acss-structure)
+(require 'tts)
 
 ;;}}}
-;;{{{  Top-level TTS  switcher
+;;;{{{  Top-level TTS  switcher
 
 ;;;### autoload
 (defun plain ()
@@ -611,6 +612,23 @@ and TABLE gives the values along that dimension."
   (fset 'tts-define-voice-from-speech-style 'plain-define-voice-from-speech-style)
   (setq tts-default-speech-rate plain-default-speech-rate)
   (set-default 'tts-default-speech-rate plain-default-speech-rate))
+
+;;}}}
+;;{{{ tts-env for Plain:
+;;;###autoload
+(defun plain-make-tts-env  ()
+  "Constructs a TTS environment for Plain."
+  (declare (special plain-default-speech-rate  ))
+  (make-tts-env
+   :name :plain :default-voice 'paul
+   :default-speech-rate plain-default-speech-rate
+   :list-voices #'plain-list-voices
+   :acss-voice-defined-p #'plain-voice-defined-p
+   :get-acss-voice-command #'plain-get-voice-command
+   :define-voice-from-acss #'plain-define-voice-from-speech-style
+   :speech-rate-base 100 :speech-rate-step 10))
+
+(tts-env-set :plain  (plain-make-tts-env))
 
 ;;}}}
 (provide 'plain-voices)

@@ -45,6 +45,7 @@ Note that special releases are marked with an '*'.
 | 40.0 | May 2014       | WowDog         |
 | 41.0 | November 14    | NiceDog        |
 | 42.0 | May 2015       | AnswerDog      |
+| 43.0 | November 2015  | SoundDog       |
 |------+----------------+----------------|
 
 #+TITLE:     code-names.txt

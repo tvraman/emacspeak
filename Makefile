@@ -177,7 +177,7 @@ etc/xls2html etc/ppt2html  \
 etc/ocr-client.pl \
 etc/emacspeak.xpm etc/emacspeak.jpg
 
-INFO = info/Makefile info/*.texi info/add-css.pl
+INFO = info/Makefile info/*.texi 
 XSL=xsl 
 DISTFILES =${ELISP}  ${TEMPLATES}     ${TCL_PROGRAMS} ${XSL} \
 ${OUTLOUD} ${DTKTTS} ${ESPEAK} \
@@ -308,7 +308,7 @@ clean:
 # {{{ labeling releases
 
 #label  releases when ready
-LABEL=
+LABEL=#version number
 MSG="Releasing ${LABEL}"
 release: #supply LABEL=NN.NN
 	git tag -a  ${LABEL} -m "Tagging release with ${LABEL}"

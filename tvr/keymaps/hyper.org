@@ -2,10 +2,12 @@ a emacspeak-wizards-term
 C apu-chars
 c browse-url-chromium
 e gmaps
+f emacspeak-webspace-freebase-search
 h emacspeak-org-capture-link
 i ido-everywhere
 l emacspeak-librivox
 m vm
+N emacspeak-npr-listing
 n emacspeak-npr-play-program
 p emacspeak-wizards-pdf-open
 q emacspeak-remote-quick-connect-to-server

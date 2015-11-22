@@ -217,8 +217,7 @@ Automatically becomes local in any buffer where it is set.
 
 Speech can be stopped using command @code{dtk-stop}
 --though in normal use, 
-the action of moving the cursor will stop ongoing speech. Speech can
-also be paused and resumed.
+the action of moving the cursor will stop ongoing speech. 
 The speech server can be stopped and restarted for cases where the user
 wants to switch to a different server --or in the rare case to nuke a
 runaway speech server.
@@ -232,35 +231,6 @@ runaway speech server.
 @item @kbd{Control e s}
 dtk-stop
  Stop speech now.
-
-
-@findex  dtk-pause
- @kindex  control e p 
- 
-@item @kbd{ control e p }
-dtk-pause
- Pause ongoing speech.
-The speech can be resumed with command `dtk-resume'
-normally bound to C-e SPC.  Pausing speech is useful when one needs to
-perform a few actions before continuing to read a large document.  Emacspeak
-gives you speech feedback as usual once speech has been paused.  `dtk-resume'
-continues the interrupted speech irrespective of the buffer
-in which it is executed.
-Optional PREFIX arg flushes any previously paused speech.
-
-
-@findex  dtk-resume
- @kindex  control e SPACE 
- 
-@item @kbd{ control e SPACE }
-dtk-resume
- Resume paused speech.
-This command resumes  speech that has been suspended by executing
-command `dtk-pause' bound to C-e p.
-If speech has not been paused,
-and variable `dtk-resume-should-toggle' is t
- then this command will pause ongoing speech.
-
 
 @findex  dtk-toggle-quiet
  @kindex  control e d q 

@@ -223,15 +223,19 @@ on a specific directory."
   "Pop to m-player buffer."
   (interactive)
   (declare (special emacspeak-m-player-process))
+  (unless
+      (and emacspeak-m-player-process(eq 'run (process-status emacspeak-m-player-process)))
+    (emacspeak-multimedia))
   (pop-to-buffer (process-buffer emacspeak-m-player-process))
   (emacspeak-speak-mode-line))
 
 (defun emacspeak-m-player-command (key)
   "Invoke MPlayer commands."
   (interactive (list (read-key-sequence "MPlayer Key: ")))
+  (unless (eq 'run (process-status emacspeak-m-player-process))
+    (emacspeak-multimedia))
   (call-interactively
-   (or (lookup-key emacspeak-m-player-mode-map key)
-       'undefined)))
+   (or (lookup-key emacspeak-m-player-mode-map key) 'undefined)))
 
 (defvar  emacspeak-m-player-playlist-pattern
   (concat
@@ -972,7 +976,7 @@ arg `reset' starts with all filters set to 0."
     ("C" emacspeak-m-player-clear-filters)
     ("C-m" emacspeak-m-player-load)
     ("DEL" emacspeak-m-player-reset-speed)
-    ("L" emacspeak-m-player-load-file)
+    ("L" emacspeak-m-player-locate-media)
     ("M" emacspeak-m-player-display-metadata)
     ("M-l" emacspeak-m-player-load-playlist)
     ("O" emacspeak-m-player-reset-options)

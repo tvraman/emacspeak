@@ -133,10 +133,7 @@ an eyes-free environment.
 
 
 Notable among such structured navigation is Emacs' powerful outline
-feature. Notice for example, that the Emacspeak FAQ (reached via command
-@code{emacspeak-view-emacspeak-faq} bound to @kbd{C-e F}) takes
-advantage of Emacs' outline mode to allow you to easily move through the
-various sections.  
+feature. 
 
 An example of content-sensitive navigation is provided by the imenu
 package which dynamically creates a "table of contents" based on the

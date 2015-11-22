@@ -75,6 +75,10 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
   (let ((gc-cons-threshold 8000000)
         (debug-on-quit t)
         (debug-on-error t))
+    (menu-bar-mode -1)
+    (tool-bar-mode -1)
+    (scroll-bar-mode -1)
+    (fringe-mode 1)
     (setq outline-minor-mode-prefix "\C-x@h")
     (when (file-exists-p  emacs-private-library)
       (augment-load-path emacs-private-library ))
@@ -83,6 +87,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     ;;{{{ Load and customize emacspeak
 
     (unless (featurep 'emacspeak)
+      (setq emacspeak-tts-use-notify-stream t)
       (load-file (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el")))
     (when (featurep 'emacspeak)
       (emacspeak-toggle-auditory-icons t)
@@ -101,6 +106,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
           '(
             ([f3] bury-buffer)
             ([f4] emacspeak-kill-buffer-quietly)
+            ([f5] emacspeak-pianobar)
+            ([pause] dtk-stop)
             ("\M--" undo)
             ([delete]dtk-toggle-punctuation-mode)
             ( [f8]emacspeak-remote-quick-connect-to-server)
@@ -138,9 +145,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 
     (eval-after-load "shell"
       '(progn
-         (when (locate-library "bash-completion")
-           (require 'bash-completion)
-(bash-completion-setup))
          (define-key shell-mode-map "\C-cr" 'comint-redirect-send-command)
          (define-key shell-mode-map "\C-ch"
            'emacspeak-wizards-refresh-shell-history)))

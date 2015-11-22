@@ -170,7 +170,7 @@
   (when (or jabber-message-alert-same-buffer
             (not (memq (selected-window) (get-buffer-window-list buffer))))
     (emacspeak-auditory-icon 'progress)
-    (dtk-speak
+    (dtk-notify-speak
      (if (jabber-muc-sender-p from)
          (format "Private message from %s in %s"
                  (jabber-jid-resource from)

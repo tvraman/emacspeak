@@ -414,7 +414,7 @@ Interactive prefix arg filters search by category."
 Optional interactive prefix arg filters by category."
   (interactive
    (list
-    (read-from-minibuffer "Date:MMDDYYYY ")
+    (read-from-minibuffer "Date:MmDdYyYy")
     current-prefix-arg))
   (cond
    ((null category)                     ; plain search

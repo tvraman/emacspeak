@@ -58,8 +58,8 @@ COMPILE =  -f batch-byte-compile
 #The various modules:
 DTK_OBJECTS = acss-structure.elc \
 dtk-speak.elc		dectalk-voices.elc\
-plain-voices.elc espeak-voices.elc \
-outloud-voices.elc multispeech-voices.elc mac-voices.elc\
+tts.elc tts-cmds.elc  plain-voices.elc espeak-voices.elc \
+outloud-voices.elc  mac-voices.elc\
 dtk-interp.elc dtk-unicode.elc
 
 SPEAK_OBJECTS =   \
@@ -128,7 +128,6 @@ emacspeak-ein.elc \
 emacspeak-ediary.elc \
 emacspeak-ediff.elc \
 emacspeak-eww.elc \
-flite-voices.elc \
 emacspeak-eclim.elc \
 emacspeak-elfeed.elc \
 emacspeak-enriched.elc \
@@ -304,15 +303,16 @@ emacspeak-cus-load.el: force
 
 dtk-interp.elc: dtk-interp.el
 dtk-unicode.elc: dtk-unicode.el
-dtk-speak.elc: dtk-speak.el  dtk-interp.elc dtk-unicode.elc
-acss-structure.elc: acss-structure.el
-dectalk-voices.elc: dectalk-voices.el voice-setup.elc
-outloud-voices.elc: outloud-voices.el voice-setup.elc
-plain-voices.elc: plain-voices.el voice-setup.elc
-multispeech-voices.elc: multispeech-voices.el voice-setup.elc
-mac-voices.elc: mac-voices.el voice-setup.elc
-espeak-voices.elc: espeak-voices.el voice-setup.elc
-voice-setup.elc: voice-setup.el acss-structure.elc
+dtk-speak.elc: dtk-speak.el  dtk-interp.elc dtk-unicode.elc tts.elc
+acss-structure.elc: acss-structure.el tts.elc 
+tts.elc: tts.el
+tts-cmds.elc: tts-cmds.el tts.elc
+dectalk-voices.elc: dectalk-voices.el voice-setup.elc 
+outloud-voices.elc: outloud-voices.el voice-setup.elc 
+plain-voices.elc: plain-voices.el voice-setup.elc 
+mac-voices.elc: mac-voices.el voice-setup.elc 
+espeak-voices.elc: espeak-voices.el voice-setup.elc 
+voice-setup.elc: voice-setup.el acss-structure.elc 
 emacspeak-alsaplayer.elc: emacspeak-alsaplayer.el
 ommacspeak-amark.elc: emacspeak-amark.el
 cd-tool.elc: cd-tool.el
@@ -364,7 +364,6 @@ emacspeak-ein.elc: emacspeak-ein.el dtk-speak.elc voice-setup.elc
 emacspeak-ediary.elc: emacspeak-ediary.el dtk-speak.elc voice-setup.elc
 emacspeak-ediff.elc: emacspeak-ediff.el dtk-speak.elc voice-setup.elc
 emacspeak-xkcd.elc: emacspeak-xkcd.el dtk-speak.elc
-flite-voices.elc: flite-voices.el
 emacspeak-eclim.elc: emacspeak-eclim.el dtk-speak.elc voice-setup.elc
 emacspeak-elfeed.elc: emacspeak-elfeed.el dtk-speak.elc
 emacspeak-enriched.elc: emacspeak-enriched.el dtk-speak.elc voice-setup.elc

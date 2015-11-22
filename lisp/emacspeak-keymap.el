@@ -146,8 +146,8 @@
         ("C-r" info-display-manual)
         ("SPC" customize-group)
         ("TAB" emacspeak-info-wizard)
-        ("M-p" list-packages)
         ("," emacspeak-wizards-color-at-point)
+        ("p" list-packages)
         )
       do
       (emacspeak-keymap-update help-map binding))
@@ -208,7 +208,6 @@
    ("C-w" emacspeak-speak-window-information)
    ("C-y" emacspeak-clipboard-paste)
    ("DEL" cd-tool)
-   ("F" emacspeak-view-emacspeak-faq)
    ("I"  emacspeak-speak-show-active-network-interfaces)
    ("L" emacspeak-speak-line-interactively)
    ("M" emacspeak-speak-minor-mode-line)
@@ -268,6 +267,7 @@
    ("w" emacspeak-speak-word)
    ("{" emacspeak-speak-paragraph)
    ("|" emacspeak-speak-line-set-column-filter)
+   ("." dtk-notify-stop)
    )
  do
  (emacspeak-keymap-update emacspeak-keymap binding))
@@ -312,6 +312,8 @@
    ("v" voice-lock-mode)
    ("w" emacspeak-toggle-word-echo)
    ("z" emacspeak-zap-tts)
+   ("C-n" dtk-notify-initialize)
+   ("C-s" dtk-notify-shutdown)
    )
  do
  (emacspeak-keymap-update emacspeak-dtk-submap binding))
@@ -613,7 +615,7 @@ interactive command that the key sequence executes."
                         (sort
                          val
                          #'(lambda (a b) (string-lessp (car a) (car b)))))))
-
+(global-set-key (kbd "C-&") 'emacspeak-launch-application)
 (global-set-key "\C-x@h"
                 'emacspeak-hyper-keymap)
 (define-key emacspeak-hyper-keymap " " 'emacspeak-webspace)
@@ -658,8 +660,7 @@ interactive command that the key sequence executes."
        for binding  in (symbol-value variable) do
        (insert (format "%s %s\n" (first binding) (second binding ))))
       (save-buffer buffer))
-    (switch-to-buffer buffer)
-    (emacspeak-speak-mode-line)))
+    (switch-to-buffer buffer)))
       
                  
 ;;}}}

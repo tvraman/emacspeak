@@ -270,7 +270,7 @@ When using supported browsers,  this interface attempts to speak the most releva
 (emacspeak-websearch-set-key ?f 'foldoc)
 
 (defvar emacspeak-websearch-foldoc-uri
-  "http://wombat.doc.ic.ac.uk/foldoc/"
+  "http://foldoc.org/"
   "*URI for launching a FolDoc  search.")
 
 ;;;###autoload

@@ -1906,12 +1906,12 @@ Second interactive prefix sets clock to new timezone."
    (world
     (call-interactively 'emacspeak-speak-world-clock))
    (t
-    (tts-with-punctuations 'some
-                           (dtk-speak
-                            (propertize
-                             (format-time-string
-                              emacspeak-speak-time-format-string)
-                             'personality voice-punctuations-some)))))
+    (tts-with-punctuations
+     'some
+     (dtk-notify-speak
+      (propertize
+       (format-time-string emacspeak-speak-time-format-string)
+       'personality voice-lighten)))))
   (emacspeak-auditory-icon 'progress))
 
 ;;;###autoload
@@ -3397,7 +3397,15 @@ This function is sensitive to calendar mode when prompting."
 ;;; end:
 
 ;;}}}
+;;{{{ AppLauncher for use in X:
+;;;###autoload
+(defun emacspeak-launch-application (command)
+  "Launch an application. 
+This command  is designed for use in a windowing environment like X."
+  (interactive (list (read-shell-command "$ ")))
+  (start-process-shell-command command nil command))
 
+;;}}}
 (provide 'emacspeak-speak )
 ;;{{{ end of file
 

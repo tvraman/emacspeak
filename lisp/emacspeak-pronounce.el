@@ -497,6 +497,12 @@ First loads any persistent dictionaries if not already loaded."
 Becomes automatically buffer local.")
 (make-variable-buffer-local 'emacspeak-pronounce-pronunciation-table)
 (setq-default emacspeak-pronounce-pronunciation-table nil)
+
+;;;###autoload
+(defsubst  emacspeak-pronounce-pronunciation-table ()
+  "Closure that returns the pronunciation table."
+  emacspeak-pronounce-pronunciation-table)
+
 ;;;###autoload
 (defun emacspeak-pronounce-toggle-use-of-dictionaries (&optional state)
   "Toggle use of pronunciation dictionaries in current buffer.
