@@ -1957,7 +1957,8 @@ Optional argument group-count specifies grouping for intonation."
      (success ;; nuke old server
       (when (and dtk-notify-process (process-live-p dtk-notify-process))
         (delete-process dtk-notify-process ))
-      (setq dtk-notify-process new-process)))))
+      (setq dtk-notify-process new-process)
+      (setenv-internal process-environment "ALSA_DEFAULT" "default" t)))))
 
 ;;;###autoload
 (defun dtk-notify-using-voice (voice text)
