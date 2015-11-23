@@ -1,0 +1,45 @@
+* Executive Summary 
+
+The GitHub version of Emacspeak now supports launching and controlling
+multiple media streams. This enables one to listen to the news while
+playing a music stream, or relaxing nature sounds.
+
+* Sample Usage 
+
+Here are some examples of using this feature:
+
+1. Launch your favorite news station --- BBC World Service in my
+   case --- _C-e ; RET_.
+2. Place the News on the left channel --- _C-e ; (_.
+3. Persist the currently playing News stream by invoking command
+   _emacspeak-m-player-persist-stream_ bound to _C-e ; \_. This lets
+   you launch a second stream via Emacspeak media key _C-e ;_ rather
+   than controlling the currently playing stream.
+4. Launch a classical music  media-stream  --- _C-e ; lu RET_ for a lullaby
+   media stream.
+5. Now Emacspeak M-Player commands will  control the most recently
+   launched stream;  you can once again invoke command
+   _emacspeak-m-player-persist-stream_ if you  wish.
+6. The previously launched (and still playing) News stream is now in a
+   buffer named ~*Persistent-...*~. Command
+   _emacspeak-wizards-view-buffers-filtered-by-m-player-mode_ can be
+   used to list   buffers that hold a live ~m-player~ instance. It is
+   bound to _b_ in ~emacspeak-m-player-mode~. I also bind this command
+   to _C-; ;_ in my global keymap.
+7. You can make  an M-Player instance *current* by switching to its
+   buffer and invoking command _emacspeak-m-player-restore-process_
+   bound to _/_ in ~emacspeak-m-player-mode~.
+Share And Enjoy--
+
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:nil d:(not "LOGBOOK") date:t e:t
+#+OPTIONS: email:nil f:t inline:t num:t p:nil pri:nil prop:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t
+#+TITLE: Listening To Multiple Media Streams On The Emacspeak Audio Desktop 
+#+DATE: <2015-11-23 Mon>
+#+AUTHOR: T.V Raman
+#+EMAIL: raman@google.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 25.1.50.1 (Org mode 8.3.2)
