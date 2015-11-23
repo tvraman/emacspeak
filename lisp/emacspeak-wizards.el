@@ -2802,6 +2802,13 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
   (interactive)
   (emacspeak-wizards-view-buffers-filtered-by-mode major-mode))
 
+
+;;;###autoload
+(defun emacspeak-wizards-view-buffers-filtered-by-m-player-mode ()
+  "Buffer menu filtered by  m-player mode."
+  (interactive)
+  (emacspeak-wizards-view-buffers-filtered-by-mode 'emacspeak-m-player-mode))
+
 ;;;###autoload
 (defun emacspeak-wizards-eww-buffer-list ()
   "Display list of open EWW buffers."

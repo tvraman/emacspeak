@@ -992,7 +992,7 @@ arg `reset' starts with all filters set to 0."
     ("[" emacspeak-m-player-slower)
     ("]" emacspeak-m-player-faster)
     ("a" emacspeak-m-player-amark-add)
-    ("b" emacspeak-wizards-view-buffers-filtered-by-this-mode)
+    ("b" emacspeak-wizards-view-buffers-filtered-by-m-player-mode)
     ("c" emacspeak-m-player-slave-command)
     ("d" emacspeak-m-player-delete-filter)
     ("e" emacspeak-m-player-add-equalizer)
