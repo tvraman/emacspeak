@@ -90,8 +90,8 @@ proc tts_say {text} {
 
 proc l {text} {
     global tts
-    set f  $tts(say_rate)
-    set prefix "`v1 `vs$f "
+    set r $tts(speech_rate)
+    set prefix "`v1 `vs$r "
     if {[regexp  {[A-Z]} $text]} {
         set prefix "$prefix `vb80"
     }
@@ -356,9 +356,7 @@ proc speech_task {} {
     global langsynth
     set tts(talking?) 1
     set tts(not_stopped) 1
-    set r $tts(speech_rate)
     set length [queue_length]
-    set prefix " `vs$r "
     synth "`v1 "
     loop index 0 $length {
         set event   [queue_remove]
@@ -366,7 +364,7 @@ proc speech_task {} {
         switch  -exact -- $event_type {
             s {
                 set text [clean [lindex $event 1]]
-                synth "$prefix $text"
+                synth "$text"
             }
             c {
                 set text  [lindex $event 1]

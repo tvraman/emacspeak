@@ -1939,12 +1939,11 @@ Optional argument group-count specifies grouping for intonation."
   "Initialize notification TTS stream."
   (interactive)
   (declare (special dtk-notify-process process-environment))
-  (let* ((save-env process-environment)
-         (process-environment
-          (cond
-           ((dtk-get-notify-alsa-device)
-            (setenv-internal process-environment "ALSA_DEFAULT" "tts_mono_right" t))
-           (t process-environment)))
+  (let* ((save-device (getenv "ALSA_DEFAULT"))
+         (device (setenv "ALSA_DEFAULT"
+                         (cond
+                          ((dtk-get-notify-alsa-device) "tts_mono_right")
+                          (t save-device))))
          (dtk-program
           (if
               (string-match "cloud" dtk-program)
@@ -1957,6 +1956,7 @@ Optional argument group-count specifies grouping for intonation."
      (success ;; nuke old server
       (when (and dtk-notify-process (process-live-p dtk-notify-process))
         (delete-process dtk-notify-process ))
+      (when save-device (setenv "ALSA_DEFAULT" save-device))
       (setq dtk-notify-process new-process)))))
 
 ;;;###autoload
