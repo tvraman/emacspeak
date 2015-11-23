@@ -976,6 +976,7 @@ arg `reset' starts with all filters set to 0."
     ("?" emacspeak-m-player-display-position)
     ("\\" emacspeak-m-player-persist-process)
     ("/" emacspeak-m-player-restore-process)
+    
     ("C" emacspeak-m-player-clear-filters)
     ("C-m" emacspeak-m-player-load)
     ("DEL" emacspeak-m-player-reset-speed)
@@ -991,7 +992,7 @@ arg `reset' starts with all filters set to 0."
     ("[" emacspeak-m-player-slower)
     ("]" emacspeak-m-player-faster)
     ("a" emacspeak-m-player-amark-add)
-    ("b" emacspeak-m-player-balance)
+    ("b" emacspeak-wizards-view-buffers-filtered-by-this-mode)
     ("c" emacspeak-m-player-slave-command)
     ("d" emacspeak-m-player-delete-filter)
     ("e" emacspeak-m-player-add-equalizer)

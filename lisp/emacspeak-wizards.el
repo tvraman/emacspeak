@@ -2782,9 +2782,10 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
   "Display list of buffers filtered by specified mode."
   (interactive "SMode: ")
   (let ((buffer-list
-         (remove-if-not
-          #'(lambda (b) (with-current-buffer b (eq major-mode mode)))
-          (buffer-list)))
+         (loop
+          for b in (buffer-list)
+          when (with-current-buffer b (eq major-mode mode))
+          collect b))
         (old-buffer (current-buffer))
         (buffer (get-buffer-create (format "*%s: Buffer Menu" mode))))
     (with-current-buffer buffer
