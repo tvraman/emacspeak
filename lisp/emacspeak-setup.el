@@ -121,7 +121,7 @@ such as pronunciation dictionaries are stored. ")
 
 ;;;###autoload
 (defvar emacspeak-codename
-  "SolidDog"
+  "SoundDog"
   "Code name of present release.")
 
 ;;;###autoload
