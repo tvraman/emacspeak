@@ -1002,6 +1002,7 @@ SPC             emacspeak-m-player-pause
 ,               emacspeak-m-player-backward-10s
 -               emacspeak-m-player-volume-down
 .               emacspeak-m-player-forward-10s
+/               emacspeak-m-player-restore-process
 ;               emacspeak-m-player-pop-to-player
 &lt;            emacspeak-m-player-backward-1min
 =               emacspeak-m-player-volume-up
@@ -1016,6 +1017,7 @@ Q               emacspeak-m-player-quit
 R               emacspeak-m-player-edit-reverb
 S               emacspeak-amark-save
 [               emacspeak-m-player-slower
+\               emacspeak-m-player-persist-process
 ]               emacspeak-m-player-faster
 a               emacspeak-m-player-amark-add
 b               emacspeak-m-player-balance
@@ -1101,10 +1103,34 @@ Pause or unpause media player.
 </pre>
       </div>
     </dd>
+  </dl><a name="emacspeak_002dm_002dplayer_002dpersist_002dprocess"
+  id="emacspeak_002dm_002dplayer_002dpersist_002dprocess"></a>
+
+  <h4 class="subsubsection">11.108.1.39
+  emacspeak-m-player-persist-process</h4>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dpersist_002dprocess" id=
+    "index-emacspeak_002dm_002dplayer_002dpersist_002dprocess"></a>Command:
+    <strong>emacspeak-m-player-persist-process</strong></dt>
+
+    <dd>
+      <a name=
+      "index-emacspeak_002dm_002dplayer_002dpersist_002dprocess-1"
+      id=
+      "index-emacspeak_002dm_002dplayer_002dpersist_002dprocess-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Persists current m-player process instance by renaming its buffer.
+</pre>
+      </div>
+    </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dplay_002drss" id=
   "emacspeak_002dm_002dplayer_002dplay_002drss"></a>
 
-  <h4 class="subsubsection">11.108.1.39
+  <h4 class="subsubsection">11.108.1.40
   emacspeak-m-player-play-rss</h4>
 
   <dl>
@@ -1128,7 +1154,7 @@ Play an RSS stream by converting to  an M3U playlist.
   "emacspeak_002dm_002dplayer_002dplay_002dtracks_002djump" id=
   "emacspeak_002dm_002dplayer_002dplay_002dtracks_002djump"></a>
 
-  <h4 class="subsubsection">11.108.1.40
+  <h4 class="subsubsection">11.108.1.41
   emacspeak-m-player-play-tracks-jump</h4>
 
   <dl>
@@ -1157,7 +1183,7 @@ Move within the play tree.
   "emacspeak_002dm_002dplayer_002dplay_002dtree_002dup" id=
   "emacspeak_002dm_002dplayer_002dplay_002dtree_002dup"></a>
 
-  <h4 class="subsubsection">11.108.1.41
+  <h4 class="subsubsection">11.108.1.42
   emacspeak-m-player-play-tree-up</h4>
 
   <dl>
@@ -1184,7 +1210,7 @@ Move within the play tree.
   "emacspeak_002dm_002dplayer_002dpop_002dto_002dplayer" id=
   "emacspeak_002dm_002dplayer_002dpop_002dto_002dplayer"></a>
 
-  <h4 class="subsubsection">11.108.1.42
+  <h4 class="subsubsection">11.108.1.43
   emacspeak-m-player-pop-to-player</h4>
 
   <dl>
@@ -1210,7 +1236,7 @@ Pop to m-player buffer.
   </dl><a name="emacspeak_002dm_002dplayer_002dprevious_002dtrack"
   id="emacspeak_002dm_002dplayer_002dprevious_002dtrack"></a>
 
-  <h4 class="subsubsection">11.108.1.43
+  <h4 class="subsubsection">11.108.1.44
   emacspeak-m-player-previous-track</h4>
 
   <dl>
@@ -1234,7 +1260,7 @@ Move to previous track.
   </dl><a name="emacspeak_002dm_002dplayer_002dquit" id=
   "emacspeak_002dm_002dplayer_002dquit"></a>
 
-  <h4 class="subsubsection">11.108.1.44
+  <h4 class="subsubsection">11.108.1.45
   emacspeak-m-player-quit</h4>
 
   <dl>
@@ -1255,7 +1281,7 @@ Quit media player.
   </dl><a name="emacspeak_002dm_002dplayer_002dreset_002doptions"
   id="emacspeak_002dm_002dplayer_002dreset_002doptions"></a>
 
-  <h4 class="subsubsection">11.108.1.45
+  <h4 class="subsubsection">11.108.1.46
   emacspeak-m-player-reset-options</h4>
 
   <dl>
@@ -1279,7 +1305,7 @@ Reset MPlayer options to initial defaults.
   </dl><a name="emacspeak_002dm_002dplayer_002dreset_002dspeed" id=
   "emacspeak_002dm_002dplayer_002dreset_002dspeed"></a>
 
-  <h4 class="subsubsection">11.108.1.46
+  <h4 class="subsubsection">11.108.1.47
   emacspeak-m-player-reset-speed</h4>
 
   <dl>
@@ -1299,10 +1325,35 @@ Reset playing speed to normal.
 </pre>
       </div>
     </dd>
+  </dl><a name="emacspeak_002dm_002dplayer_002drestore_002dprocess"
+  id="emacspeak_002dm_002dplayer_002drestore_002dprocess"></a>
+
+  <h4 class="subsubsection">11.108.1.48
+  emacspeak-m-player-restore-process</h4>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002drestore_002dprocess" id=
+    "index-emacspeak_002dm_002dplayer_002drestore_002dprocess"></a>Command:
+    <strong>emacspeak-m-player-restore-process</strong></dt>
+
+    <dd>
+      <a name=
+      "index-emacspeak_002dm_002dplayer_002drestore_002dprocess-1"
+      id=
+      "index-emacspeak_002dm_002dplayer_002drestore_002dprocess-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Restore emacspeak-m-player-process from current buffer.
+Check first if current buffer is in emacspeak-m-player-mode.
+</pre>
+      </div>
+    </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dright_002dchannel"
   id="emacspeak_002dm_002dplayer_002dright_002dchannel"></a>
 
-  <h4 class="subsubsection">11.108.1.47
+  <h4 class="subsubsection">11.108.1.49
   emacspeak-m-player-right-channel</h4>
 
   <dl>
@@ -1326,7 +1377,7 @@ Play on right channel.
   </dl><a name="emacspeak_002dm_002dplayer_002dscale_002dspeed" id=
   "emacspeak_002dm_002dplayer_002dscale_002dspeed"></a>
 
-  <h4 class="subsubsection">11.108.1.48
+  <h4 class="subsubsection">11.108.1.50
   emacspeak-m-player-scale-speed</h4>
 
   <dl>
@@ -1350,7 +1401,7 @@ Scale speed by specified factor.
   </dl><a name="emacspeak_002dm_002dplayer_002dseek_002dabsolute"
   id="emacspeak_002dm_002dplayer_002dseek_002dabsolute"></a>
 
-  <h4 class="subsubsection">11.108.1.49
+  <h4 class="subsubsection">11.108.1.51
   emacspeak-m-player-seek-absolute</h4>
 
   <dl>
@@ -1375,7 +1426,7 @@ Seek  to absolute specified position.
   </dl><a name="emacspeak_002dm_002dplayer_002dseek_002drelative"
   id="emacspeak_002dm_002dplayer_002dseek_002drelative"></a>
 
-  <h4 class="subsubsection">11.108.1.50
+  <h4 class="subsubsection">11.108.1.52
   emacspeak-m-player-seek-relative</h4>
 
   <dl>
@@ -1400,7 +1451,7 @@ Seek  by offset into stream from current position.
   </dl><a name="emacspeak_002dm_002dplayer_002dshuffle" id=
   "emacspeak_002dm_002dplayer_002dshuffle"></a>
 
-  <h4 class="subsubsection">11.108.1.51
+  <h4 class="subsubsection">11.108.1.53
   emacspeak-m-player-shuffle</h4>
 
   <dl>
@@ -1423,7 +1474,7 @@ Launch M-Player with shuffle turned on.
   </dl><a name="emacspeak_002dm_002dplayer_002dslave_002dcommand"
   id="emacspeak_002dm_002dplayer_002dslave_002dcommand"></a>
 
-  <h4 class="subsubsection">11.108.1.52
+  <h4 class="subsubsection">11.108.1.54
   emacspeak-m-player-slave-command</h4>
 
   <dl>
@@ -1448,7 +1499,7 @@ Dispatch slave command read from minibuffer.
   </dl><a name="emacspeak_002dm_002dplayer_002dslower" id=
   "emacspeak_002dm_002dplayer_002dslower"></a>
 
-  <h4 class="subsubsection">11.108.1.53
+  <h4 class="subsubsection">11.108.1.55
   emacspeak-m-player-slower</h4>
 
   <dl>
@@ -1470,7 +1521,7 @@ Slow down playback.
   "emacspeak_002dm_002dplayer_002dspeak_002dmode_002dline" id=
   "emacspeak_002dm_002dplayer_002dspeak_002dmode_002dline"></a>
 
-  <h4 class="subsubsection">11.108.1.54
+  <h4 class="subsubsection">11.108.1.56
   emacspeak-m-player-speak-mode-line</h4>
 
   <dl>
@@ -1496,7 +1547,7 @@ Speak mode line
   </dl><a name="emacspeak_002dm_002dplayer_002dstream_002dinfo" id=
   "emacspeak_002dm_002dplayer_002dstream_002dinfo"></a>
 
-  <h4 class="subsubsection">11.108.1.55
+  <h4 class="subsubsection">11.108.1.57
   emacspeak-m-player-stream-info</h4>
 
   <dl>
@@ -1521,7 +1572,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates.
   </dl><a name="emacspeak_002dm_002dplayer_002durl" id=
   "emacspeak_002dm_002dplayer_002durl"></a>
 
-  <h4 class="subsubsection">11.108.1.56 emacspeak-m-player-url</h4>
+  <h4 class="subsubsection">11.108.1.58 emacspeak-m-player-url</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002dm_002dplayer_002durl" id=
@@ -1542,7 +1593,7 @@ Call emacspeak-m-player with specified URL.
   </dl><a name="emacspeak_002dm_002dplayer_002dvolume_002dchange"
   id="emacspeak_002dm_002dplayer_002dvolume_002dchange"></a>
 
-  <h4 class="subsubsection">11.108.1.57
+  <h4 class="subsubsection">11.108.1.59
   emacspeak-m-player-volume-change</h4>
 
   <dl>
@@ -1567,7 +1618,7 @@ Change volume to specified absolute value.
   </dl><a name="emacspeak_002dm_002dplayer_002dvolume_002ddown" id=
   "emacspeak_002dm_002dplayer_002dvolume_002ddown"></a>
 
-  <h4 class="subsubsection">11.108.1.58
+  <h4 class="subsubsection">11.108.1.60
   emacspeak-m-player-volume-down</h4>
 
   <dl>
@@ -1590,7 +1641,7 @@ Decrease volume.
   </dl><a name="emacspeak_002dm_002dplayer_002dvolume_002dup" id=
   "emacspeak_002dm_002dplayer_002dvolume_002dup"></a>
 
-  <h4 class="subsubsection">11.108.1.59
+  <h4 class="subsubsection">11.108.1.61
   emacspeak-m-player-volume-up</h4>
 
   <dl>
@@ -1613,7 +1664,7 @@ Increase volume.
   </dl><a name="emacspeak_002dm_002dplayer_002dyoutube_002dplayer"
   id="emacspeak_002dm_002dplayer_002dyoutube_002dplayer"></a>
 
-  <h4 class="subsubsection">11.108.1.60
+  <h4 class="subsubsection">11.108.1.62
   emacspeak-m-player-youtube-player</h4>
 
   <dl>
@@ -1638,7 +1689,7 @@ Use youtube-dl and mplayer to stream YouTube content.
   </dl><a name="emacspeak_002dmultimedia" id=
   "emacspeak_002dmultimedia"></a>
 
-  <h4 class="subsubsection">11.108.1.61 emacspeak-multimedia</h4>
+  <h4 class="subsubsection">11.108.1.63 emacspeak-multimedia</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002dmultimedia" id=
@@ -1663,8 +1714,8 @@ Start or control Emacspeak multimedia player.
   <h4 class="subsection">11.108.2 emacspeak-m-player Options</h4>
 
   <dl>
-    <dt><a name="index-User-Option-636" id=
-    "index-User-Option-636"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-606" id=
+    "index-User-Option-606"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-m-player-options</em></dt>
 
     <dd>
@@ -1673,8 +1724,8 @@ Start or control Emacspeak multimedia player.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-637" id=
-    "index-User-Option-637"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-607" id=
+    "index-User-Option-607"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-m-player-program</em></dt>
 
     <dd>
@@ -1683,8 +1734,8 @@ Start or control Emacspeak multimedia player.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-638" id=
-    "index-User-Option-638"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-608" id=
+    "index-User-Option-608"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-m-player-recent-amark-name</em></dt>
 
@@ -1694,8 +1745,8 @@ Start or control Emacspeak multimedia player.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-639" id=
-    "index-User-Option-639"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-609" id=
+    "index-User-Option-609"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-m-player-reverb-filter</em></dt>
 
     <dd>
@@ -1704,8 +1755,8 @@ Start or control Emacspeak multimedia player.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-640" id=
-    "index-User-Option-640"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-610" id=
+    "index-User-Option-610"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-m-player-youtube-dl</em></dt>
 
     <dd>
@@ -1714,8 +1765,8 @@ Start or control Emacspeak multimedia player.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-641" id=
-    "index-User-Option-641"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-611" id=
+    "index-User-Option-611"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-media-location-bindings</em></dt>
 
     <dd>
