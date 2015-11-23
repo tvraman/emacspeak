@@ -974,6 +974,8 @@ arg `reset' starts with all filters set to 0."
     ("=" emacspeak-m-player-volume-up)
     (">" emacspeak-m-player-forward-1min)
     ("?" emacspeak-m-player-display-position)
+    ("\\" emacspeak-m-player-persist-process)
+    ("/" emacspeak-m-player-restore-process)
     ("C" emacspeak-m-player-clear-filters)
     ("C-m" emacspeak-m-player-load)
     ("DEL" emacspeak-m-player-reset-speed)
@@ -1362,6 +1364,33 @@ Results are placed in a Locate buffer and can be played using M-Player."
   (let ((locate-make-command-line #'(lambda (s) (list locate-command "-i" s))))
     (funcall-interactively #'locate-with-filter pattern emacspeak-media-extensions)))
 
+;;}}}
+;;{{{ MultiPlayer Support:
+
+(defun emacspeak-m-player-persist-process ()
+  "Persists current m-player process instance by renaming its buffer."  (interactive)
+  (declare (special  emacspeak-m-player-process))
+  (when (process-live-p emacspeak-m-player-process)
+    (with-current-buffer (process-buffer emacspeak-m-player-process) (rename-buffer  "*Persisted-M-Player*" 'unique))
+    (setq emacspeak-m-player-process nil)
+    (when (ems-interactive-p)
+      (emacspeak-auditory-icon 'close-object)
+      (message "persisted current process. You can now start another player instance."))))
+
+(defun emacspeak-m-player-restore-process ()
+  "Restore emacspeak-m-player-process from current buffer.
+Check first if current buffer is in emacspeak-m-player-mode."
+  (interactive)
+  (declare (special emacspeak-m-player-process))
+  (assert (eq major-mode 'emacspeak-m-player-mode) nil "This is not an MPlayer buffer.")
+  (let ((proc (get-buffer-process (current-buffer))))
+        (cond
+         ((process-live-p proc)
+          (setq emacspeak-m-player-process proc)
+          (emacspeak-auditory-icon 'open-object)
+          (message "Restored  player process."))
+         (t (error "No live player here.")))))
+                   
 ;;}}}
 (provide 'emacspeak-m-player)
 ;;{{{ end of file
