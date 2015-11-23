@@ -2,6 +2,7 @@ a emacspeak-wizards-term
 C apu-chars
 c browse-url-chromium
 e gmaps
+; emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 f emacspeak-webspace-freebase-search
 h emacspeak-org-capture-link
 i ido-everywhere
