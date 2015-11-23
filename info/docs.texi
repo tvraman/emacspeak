@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1129 commands and 929 options.
+This chapter documents a total of 1142 commands and 929 options.
 
 @menu
 * acss-structure::
@@ -219,7 +219,8 @@ This chapter documents a total of 1129 commands and 929 options.
 * subr-x::
 * tetris::
 * toy-braille::
-* tts-env::
+* tts::
+* tts-cmds::
 * voice-setup::
 * xbacklight::
 * URL Templates ::
@@ -9888,6 +9889,7 @@ SPC		emacspeak-m-player-pause
 ,		emacspeak-m-player-backward-10s
 -		emacspeak-m-player-volume-down
 .		emacspeak-m-player-forward-10s
+/		emacspeak-m-player-restore-process
 ;		emacspeak-m-player-pop-to-player
 <		emacspeak-m-player-backward-1min
 =		emacspeak-m-player-volume-up
@@ -9902,6 +9904,7 @@ Q		emacspeak-m-player-quit
 R		emacspeak-m-player-edit-reverb
 S		emacspeak-amark-save
 [		emacspeak-m-player-slower
+\		emacspeak-m-player-persist-process
 ]		emacspeak-m-player-faster
 a		emacspeak-m-player-amark-add
 b		emacspeak-m-player-balance
@@ -9958,6 +9961,15 @@ Move to next track.
 
 @format
 Pause or unpause media player.
+@end format
+@end deffn
+
+@subsubsection emacspeak-m-player-persist-process
+@deffn {Command} emacspeak-m-player-persist-process   
+@findex emacspeak-m-player-persist-process
+
+@format
+Persists current m-player process instance by renaming its buffer.
 @end format
 @end deffn
 
@@ -10030,6 +10042,16 @@ Reset MPlayer options to initial defaults.
 
 @format
 Reset playing speed to normal.
+@end format
+@end deffn
+
+@subsubsection emacspeak-m-player-restore-process
+@deffn {Command} emacspeak-m-player-restore-process   
+@findex emacspeak-m-player-restore-process
+
+@format
+Restore emacspeak-m-player-process from current buffer.
+Check first if current buffer is in emacspeak-m-player-mode.
 @end format
 @end deffn
 
@@ -20273,11 +20295,121 @@ References:
 
   http://www.unicode.org/Public/4.0-Update1/UnicodeData-4.0.1.txt
 
-@node tts-env
-@section tts-env
+@node tts
+@section tts
 
 Define data structure and API for setting up, accessing and manipulating TTS environment.
 When complete, this will  be used by the various engine configuration functions to set everything in one structure.
+
+@subsection tts Commands
+
+@subsubsection tts-set-chunk-separator
+@deffn {Command} tts-set-chunk-separator  (chunk-separator)
+@findex tts-set-chunk-separator
+
+@format
+Set tts chunk-separator.
+@end format
+@end deffn
+
+@subsubsection tts-set-punctuations
+@deffn {Command} tts-set-punctuations  (punctuations)
+@findex tts-set-punctuations
+
+@format
+Set tts punctuations.
+@end format
+@end deffn
+
+@subsubsection tts-set-rate
+@deffn {Command} tts-set-rate  (rate)
+@findex tts-set-rate
+
+@format
+Set tts rate.
+@end format
+@end deffn
+
+@subsubsection tts-toggle-allcaps
+@deffn {Command} tts-toggle-allcaps   
+@findex tts-toggle-allcaps
+
+@format
+Toggle field allcaps in current tts-state.
+@end format
+@end deffn
+
+@subsubsection tts-toggle-capitalize
+@deffn {Command} tts-toggle-capitalize   
+@findex tts-toggle-capitalize
+
+@format
+Toggle field capitalize in current tts-state.
+@end format
+@end deffn
+
+@subsubsection tts-toggle-quiet
+@deffn {Command} tts-toggle-quiet   
+@findex tts-toggle-quiet
+
+@format
+Toggle field quiet in current tts-state.
+@end format
+@end deffn
+
+@subsubsection tts-toggle-speak-nonprinting-chars
+@deffn {Command} tts-toggle-speak-nonprinting-chars   
+@findex tts-toggle-speak-nonprinting-chars
+
+@format
+Toggle field speak-nonprinting-chars in current tts-state.
+@end format
+@end deffn
+
+@subsubsection tts-toggle-split-caps
+@deffn {Command} tts-toggle-split-caps   
+@findex tts-toggle-split-caps
+
+@format
+Toggle field split-caps in current tts-state.
+@end format
+@end deffn
+
+@subsubsection tts-toggle-strip-octals
+@deffn {Command} tts-toggle-strip-octals   
+@findex tts-toggle-strip-octals
+
+@format
+Toggle field strip-octals in current tts-state.
+@end format
+@end deffn
+
+@subsubsection tts-toggle-use-auditory-icons
+@deffn {Command} tts-toggle-use-auditory-icons   
+@findex tts-toggle-use-auditory-icons
+
+@format
+Toggle field use-auditory-icons in current tts-state.
+@end format
+@end deffn
+
+@node tts-cmds
+@section tts-cmds
+
+End-user TTS Commands implemented using tts-state. If this works
+out, these will eventually replace the commands implemented in
+dtk-speak.el
+
+@subsection tts-cmds Commands
+
+@subsubsection tts-cmd-set-rate
+@deffn {Command} tts-cmd-set-rate  (rate &optional prefix)
+@findex tts-cmd-set-rate
+
+@format
+Set speech rate.
+@end format
+@end deffn
 
 @node voice-setup
 @section voice-setup
