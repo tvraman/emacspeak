@@ -1376,7 +1376,7 @@ Results are placed in a Locate buffer and can be played using M-Player."
       (make-local-variable 'emacspeak-m-player-process)
       (set-default 'emacspeak-m-player-process nil)
       (rename-buffer  "*Persisted-M-Player*" 'unique))
-    (when (ems-interactive-p)
+    (when (called-interactively-p 'interactive)
       (emacspeak-auditory-icon 'close-object)
       (message "persisted current process. You can now start another player instance."))))
 
@@ -1385,7 +1385,8 @@ Results are placed in a Locate buffer and can be played using M-Player."
 Check first if current buffer is in emacspeak-m-player-mode."
   (interactive)
   (declare (special emacspeak-m-player-process))
-  (assert (eq major-mode 'emacspeak-m-player-mode) nil "This is not an MPlayer buffer.")
+  (unless (eq major-mode 'emacspeak-m-player-mode)
+    (error "This is not an MPlayer buffer."))
   (let ((proc (get-buffer-process (current-buffer))))
         (cond
          ((process-live-p proc)
