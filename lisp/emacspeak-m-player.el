@@ -649,7 +649,8 @@ necessary."
 (defun emacspeak-m-player-quit ()
   "Quit media player."
   (interactive)
-  (declare (special emacspeak-amark-list emacspeak-m-player-recent-amark-name))
+  (declare (special emacspeak-amark-list emacspeak-m-player-recent-amark-name
+                    emacspeak-m-player-process))
   (let ((kill-buffer-query-functions nil))
     (when (eq (process-status emacspeak-m-player-process) 'run)
       (let ((buffer (process-buffer emacspeak-m-player-process)))
