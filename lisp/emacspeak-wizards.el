@@ -905,7 +905,7 @@ If no property is set, show a message and exit."
        (list (car properties )))
       (properties
        (list
-        (intern 
+        (intern
          (completing-read
           "Display property: "
           (loop  for p in properties  and i from 0 if (evenp i) collect p)))))
@@ -914,7 +914,7 @@ If no property is set, show a message and exit."
   (if property
       (kill-new
        (message"%s"
-              (get-text-property (point) property )))))
+               (get-text-property (point) property )))))
 
 ;;}}}
 ;;{{{  moving across blank lines
@@ -2114,7 +2114,7 @@ Interactive  arguments specify filename pattern and search pattern."
   (interactive (list (voice-setup-read-personality)))
   (put-text-property (line-beginning-position) (line-end-position)
                      'personality personality)
-                     (emacspeak-speak-line))
+  (emacspeak-speak-line))
 
 ;;;###autoload
 (defun emacspeak-wizards-generate-voice-sampler  (step)
@@ -2547,13 +2547,13 @@ Default is to add autoload cookies to current file."
     (dolist (buf  (cdr (buffer-list (selected-frame))))
       (when (with-current-buffer buf (eq mode major-mode))
         (throw 'loop buf)))))
-;;;###autoload 
+;;;###autoload
 (defun emacspeak-wizards-cycle-to-previous-buffer()
   "Cycles to previous buffer having same mode."
   (interactive)
   (let ((prev (emacspeak-wizards-buffer-cycle-previous major-mode)))
     (cond
-     (prev 
+     (prev
       (switch-to-buffer prev)
       (emacspeak-auditory-icon 'select-object)
       (emacspeak-speak-mode-line))
@@ -2777,24 +2777,33 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
 
 ;;}}}
 ;;{{{ Filtered buffer lists:
-;;;###autoload
-(defun emacspeak-wizards-view-buffers-filtered-by-mode (mode)
-  "Display list of buffers filtered by specified mode."
-  (interactive "SMode: ")
+(defun emacspeak-wizards-view-buffers-filtered-by-predicate (predicate)
+  "Display list of buffers filtered by specified predicate."
   (let ((buffer-list
          (loop
           for b in (buffer-list)
-          when (with-current-buffer b (eq major-mode mode))
-          collect b))
+          when (funcall predicate b) collect b))
         (old-buffer (current-buffer))
-        (buffer (get-buffer-create (format "*%s: Buffer Menu" mode))))
+        (buffer (get-buffer-create (format "*: Filtered Buffer Menu"))))
     (with-current-buffer buffer
       (Buffer-menu-mode)
       (list-buffers--refresh  buffer-list old-buffer)
       (tabulated-list-print))
-    (switch-to-buffer buffer)
-    (emacspeak-auditory-icon 'open-object)
-    (emacspeak-speak-mode-line)))
+    buffer))
+
+;;;###autoload
+(defun emacspeak-wizards-view-buffers-filtered-by-mode (mode)
+  "Display list of buffers filtered by specified mode."
+  (interactive "SMode: ")
+  (switch-to-buffer
+   (emacspeak-wizards-view-buffers-filtered-by-predicate
+
+    #'(lambda (buffer)
+        (with-current-buffer buffer
+          (eq  major-mode mode)))))
+  (rename-buffer (format "Buffers Filtered By Major Mode %s" mode))
+  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-speak-mode-line))
 
 ;;;###autoload
 (defun emacspeak-wizards-view-buffers-filtered-by-this-mode ()
@@ -2802,12 +2811,21 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
   (interactive)
   (emacspeak-wizards-view-buffers-filtered-by-mode major-mode))
 
-
 ;;;###autoload
 (defun emacspeak-wizards-view-buffers-filtered-by-m-player-mode ()
   "Buffer menu filtered by  m-player mode."
   (interactive)
-  (emacspeak-wizards-view-buffers-filtered-by-mode 'emacspeak-m-player-mode))
+  (switch-to-buffer
+   (emacspeak-wizards-view-buffers-filtered-by-predicate
+    #'(lambda (buffer)
+        (with-current-buffer buffer
+          (and
+           (eq  major-mode 'emacspeak-m-player-mode)
+           (process-live-p (get-buffer-process buffer)))))))
+  (rename-buffer "Media Player Buffers" 'unique)
+  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-speak-mode-line))
+
 
 ;;;###autoload
 (defun emacspeak-wizards-eww-buffer-list ()
@@ -2836,7 +2854,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
 ;;{{{ Generic YQL Implementation:
 
 (defvar yql-public-base
-  (concat 
+  (concat
    "http://query.yahooapis.com/v1/public/yql?"
    "format=json"
    "&q=")
@@ -3016,7 +3034,7 @@ Returns a list of lists, one list per ticker."
 
 (defcustom emacspeak-wizards-yql-quotes-row-filter
   '(31 " ask  " 1
-       " trading between   " 13  " and  " 14  " with volume " 43 
+       " trading between   " 13  " and  " 14  " with volume " 43
        " PE is "37
        " for a market cap of " 17 "at earning of " 9 " per share "
        "the 52 week range is " 44 )
