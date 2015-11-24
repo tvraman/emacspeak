@@ -79,6 +79,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     (tool-bar-mode -1)
     (scroll-bar-mode -1)
     (fringe-mode 1)
+    (setq text-quoting-style 'grave)
     (setq outline-minor-mode-prefix "\C-x@h")
     (when (file-exists-p  emacs-private-library)
       (augment-load-path emacs-private-library ))
