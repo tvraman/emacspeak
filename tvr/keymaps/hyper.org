@@ -1,4 +1,5 @@
 a emacspeak-wizards-term
+b eww-list-bookmarks
 C apu-chars
 c browse-url-chromium
 e gmaps
