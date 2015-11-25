@@ -1409,25 +1409,26 @@ Check first if current buffer is in emacspeak-m-player-mode."
 
 (defvar emacspeak-m-player-panner
   (loop for i from 0 to 10 collect (* 0.1 i))
-  "The 11 pre-defined panning locations, moving from right to left.")
+  "The 11 pre-defined panning locations,.")
 
 (make-variable-buffer-local 'emacspeak-m-player-panner)
 
 (defun emacspeak-m-player-pan ()
-  "Pan from right to left  one step at a time."
+  "Pan from left to right   one step at a time."
   (interactive)
   (declare (special emacspeak-m-player-panner emacspeak-m-player-process))
   (when (and emacspeak-m-player-process (process-live-p emacspeak-m-player-process))
     (let*
         ((this (first emacspeak-m-player-panner))
-         (pan (format "%s:%s" this (- 1 this))))
+         (pan (format "%s:%s" (- 1 this) this)))
       (emacspeak-m-player-dispatch  "af_del pan")
       (emacspeak-m-player-dispatch (format "af_add pan=2:%s:%s" pan pan))
       (setq emacspeak-m-player-panner
             (append (cdr emacspeak-m-player-panner )
                     (list (first emacspeak-m-player-panner))))
-      (message "Panned  to %s %s"
+      (message "Panned  to %.1f %.1f"
                this (- 1 this)))))
+
 ;;}}}
 (provide 'emacspeak-m-player)
 ;;{{{ end of file
