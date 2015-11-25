@@ -1369,14 +1369,20 @@ Results are placed in a Locate buffer and can be played using M-Player."
 ;;}}}
 ;;{{{ MultiPlayer Support:
 
-(defun emacspeak-m-player-persist-process ()
-  "Persists current m-player process instance by renaming its buffer."  (interactive)
+(defun emacspeak-m-player-persist-process (&optional name)
+  "Persists current m-player process instance by renaming its buffer.
+Optional interactive prefix arg prompts for name to use for  player."
+  (interactive "P")
   (declare (special  emacspeak-m-player-process))
   (when (process-live-p emacspeak-m-player-process)
     (with-current-buffer  (process-buffer emacspeak-m-player-process) 
       (make-local-variable 'emacspeak-m-player-process)
       (set-default 'emacspeak-m-player-process nil)
-      (rename-buffer  "*Persisted-M-Player*" 'unique))
+      (rename-buffer
+       (if name
+           (format "*%s*" (read-from-minibuffer "Name: "))
+         "*Persisted-M-Player*")
+       'unique))
     (when (called-interactively-p 'interactive)
       (emacspeak-auditory-icon 'close-object)
       (message "persisted current process. You can now start another player instance."))))
