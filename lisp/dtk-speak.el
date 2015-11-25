@@ -842,7 +842,7 @@ current local  value to the result."
       (setq dtk-speech-rate rate))
      (t (setq dtk-speech-rate rate)))
     (dtk-interp-set-rate rate)
-    (when (ems-interactive-p )
+    (when (called-interactively-p 'interactive)
       (message "Set speech rate to %s %s"
                rate
                (if prefix "" "locally")))))
