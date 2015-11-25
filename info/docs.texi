@@ -9965,11 +9965,12 @@ Pause or unpause media player.
 @end deffn
 
 @subsubsection emacspeak-m-player-persist-process
-@deffn {Command} emacspeak-m-player-persist-process   
+@deffn {Command} emacspeak-m-player-persist-process  (&optional name)
 @findex emacspeak-m-player-persist-process
 
 @format
 Persists current m-player process instance by renaming its buffer.
+Optional interactive prefix arg prompts for name to use for  player.
 @end format
 @end deffn
 
