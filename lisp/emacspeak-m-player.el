@@ -1407,8 +1407,7 @@ Check first if current buffer is in emacspeak-m-player-mode."
 ;;}}}
 ;;{{{ Panning:
 
-(defvar emacspeak-m-player-panner
-  (loop for i from 0 to 10 collect (* 0.1 i))
+(defvar emacspeak-m-player-panner 0
   "The 11 pre-defined panning locations,.")
 
 (make-variable-buffer-local 'emacspeak-m-player-panner)
@@ -1418,16 +1417,12 @@ Check first if current buffer is in emacspeak-m-player-mode."
   (interactive)
   (declare (special emacspeak-m-player-panner emacspeak-m-player-process))
   (when (and emacspeak-m-player-process (process-live-p emacspeak-m-player-process))
-    (let*
-        ((this (first emacspeak-m-player-panner))
-         (pan (format "%s:%s" (- 1 this) this)))
+    (let* ((this (/ emacspeak-m-player-panner 10.0))
+           (pan (format "%.1f:%.1f" (- 1  this)  this)))
       (emacspeak-m-player-dispatch  "af_del pan")
       (emacspeak-m-player-dispatch (format "af_add pan=2:%s:%s" pan pan))
-      (setq emacspeak-m-player-panner
-            (nconc (cdr emacspeak-m-player-panner )
-                    (list (car emacspeak-m-player-panner))))
-      (message "Panned  to %.1f %.1f"
-               this (- 1 this)))))
+      (setq emacspeak-m-player-panner (% (1+ emacspeak-m-player-panner) 11))
+      (message "Panned  to %.1f %.1f" this (- 1 this)))))
 
 ;;}}}
 (provide 'emacspeak-m-player)
