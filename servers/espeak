@@ -258,8 +258,8 @@ proc l {text} {
     set la $langcode(current)
     set prefix "<voice xml:lang=\"$la\" gender=\"male\" variant=\"1\">"
     if {[regexp  {[A-Z]} $text]} {
-	# pitch instead of 80%, high which could be 75%.
-        set prefix "$prefix <prosody pitch=\"high\">"
+        # Use a relative pitch adjustment.  +70% seems goodafter some testing.
+        set prefix "$prefix <prosody pitch=\"+70%\">"
     }
     set tts(not_stopped) 1
     # TBD: say-as, format attribute: instead of characters/glyphs, define "word"
