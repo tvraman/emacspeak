@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1142 commands and 929 options.
+This chapter documents a total of 1143 commands and 929 options.
 
 @menu
 * acss-structure::
@@ -9907,7 +9907,7 @@ S		emacspeak-amark-save
 \		emacspeak-m-player-persist-process
 ]		emacspeak-m-player-faster
 a		emacspeak-m-player-amark-add
-b		emacspeak-m-player-balance
+b		emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 c		emacspeak-m-player-slave-command
 d		emacspeak-m-player-delete-filter
 e		emacspeak-m-player-add-equalizer
@@ -18774,6 +18774,15 @@ Refresh view of VC we''re viewing.
 
 @format
 Launch sudo vi on specified file in a terminal.
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-view-buffers-filtered-by-m-player-mode
+@deffn {Command} emacspeak-wizards-view-buffers-filtered-by-m-player-mode   
+@findex emacspeak-wizards-view-buffers-filtered-by-m-player-mode
+
+@format
+Buffer menu filtered by  m-player mode.
 @end format
 @end deffn
 

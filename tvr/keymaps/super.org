@@ -8,4 +8,3 @@ m emacspeak-wizards-view-buffers-filtered-by-this-mode
 n gweb-news-view
 p proced
 r emacspeak-webspace-feed-reader
-s snippets-edit
