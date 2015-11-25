@@ -5,83 +5,16 @@ $Id$
 Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
-* Emacspeak 43 -- Emacspeak 43 User Visible Changes
-** Multiple TTS Streams:
+* Emacspeak 44 -- Emacspeak 43 User Visible Changes
 
-Emacspeak now uses a separate TTS instance for its notification stream.
+** Multiple Media Players 
 
-** Sound Themes:
+Module [[http://emacspeak.blogspot.com/2015/11/listening-to-multiple-media-streams-on.html][emacspeak-m-player]] can now launch and control multiple media
+player instances.
 
-Reorganized sound themes. The original default-8k sounds have
-been converted to 44.1k stereo and renamed =classic=.
-Emacspeak now defaults to theme =3d= out of the gox.
-** emacspeak-eww.el:
+** Panning In MPlayer
 
-Added interactive command =emacspeak-eww-phantom= that retrieves using PhantomJS.
-Useful for viewing AngularJS powered sites like http://golang.org/tour using EWW.
-** emacspeak-org.el:
-
-Exported command for using org-capture for capturing hyperlinks to personalized  hotlists. 
-
-** emacspeak-info.el:
-
-updated Info support.
-** emacspeak-helm.el:
-
-Early speech-enable support  for helm and its related packages.
-
-** emacspeak-yasnippet.el:
-
-Speech-enables package yasnippet.
-
-** Emacspeak-Muggles:
-
-Keyboard conveniences implemented using package Hydra.
-
-** emacspeak-lua.el:
-
-Speech-enable lua-mode.
-
-** emacspeak-projectile:
-
-Speech-Enable project management utility projectile.el.
-
-** XBackLight:
-
-Module xbacklight.el  provides an Emacs front-end to XBackLight for controlling display brightness on laptops and  exposes it using a light-weight Hydra.
-
-** emacspeak-slime:
-
-Speech-enables package SLIME --- Superior Lisp Interaction Mode  --- a powerful IDE for Common Lisp and Clojure.
-
-** emacspeak-librivox:
-Implements the new Librivox API.
-Search, browse download and play book streams. 
+Module emacspeak-m-player adds support for panning audio from the currently
+playing stream from left to right.
 
 
-** emacspeak-npr:
-
-Updated to API 0.94.
-Commands for browsing, searching and playing present and past shows.
-
-** emacspeak-bbc: 
-Updated implementation to reflect that older iplayer
-convertor no longer works.  Emacspeak-bbc now plays links through
-Chrome or by using command get_iplayer to stream via mplayer.
-Complements download functionality available via Emacs package iplayer.
-
-** emacspeak-eww:
-
-Better filtering: filter by elements, class, roles and attributes.
-History navigating through nested filter invocations works.
-** emacspeak-paradox:
-
-Speech-enables paradox, an alternative package-manager UI.
-
-** emacspeak-url-templates:
-
-Updated templates.
-
-** emacspeak-wizards:
-
-Code cleanup and updates.
