@@ -1020,7 +1020,7 @@ S               emacspeak-amark-save
 \               emacspeak-m-player-persist-process
 ]               emacspeak-m-player-faster
 a               emacspeak-m-player-amark-add
-b               emacspeak-m-player-balance
+b               emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 c               emacspeak-m-player-slave-command
 d               emacspeak-m-player-delete-filter
 e               emacspeak-m-player-add-equalizer
@@ -1113,7 +1113,8 @@ Pause or unpause media player.
     <dt><a name=
     "index-emacspeak_002dm_002dplayer_002dpersist_002dprocess" id=
     "index-emacspeak_002dm_002dplayer_002dpersist_002dprocess"></a>Command:
-    <strong>emacspeak-m-player-persist-process</strong></dt>
+    <strong>emacspeak-m-player-persist-process</strong>
+    <em>(&amp;optional name)</em></dt>
 
     <dd>
       <a name=
@@ -1124,6 +1125,7 @@ Pause or unpause media player.
       <div class="format">
         <pre class="format">
 Persists current m-player process instance by renaming its buffer.
+Optional interactive prefix arg prompts for name to use for  player.
 </pre>
       </div>
     </dd>
