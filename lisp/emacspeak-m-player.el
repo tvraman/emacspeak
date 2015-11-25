@@ -953,7 +953,7 @@ arg `reset' starts with all filters set to 0."
 
 (declaim (special emacspeak-m-player-mode-map))
 
-(defvar emacspeak-m-player-bindings
+ (defvar emacspeak-m-player-bindings
   '(
     (";" emacspeak-m-player-pop-to-player)
     ("%" emacspeak-m-player-display-percent)
@@ -977,7 +977,6 @@ arg `reset' starts with all filters set to 0."
     ("?" emacspeak-m-player-display-position)
     ("\\" emacspeak-m-player-persist-process)
     ("/" emacspeak-m-player-restore-process)
-    
     ("C" emacspeak-m-player-clear-filters)
     ("C-m" emacspeak-m-player-load)
     ("DEL" emacspeak-m-player-reset-speed)
@@ -989,6 +988,7 @@ arg `reset' starts with all filters set to 0."
     ("Q" emacspeak-m-player-quit)
     ("R" emacspeak-m-player-edit-reverb)
     ("S" emacspeak-amark-save)
+    ("x" emacspeak-m-player-pan)
     ("SPC" emacspeak-m-player-pause)
     ("[" emacspeak-m-player-slower)
     ("]" emacspeak-m-player-faster)
@@ -1333,7 +1333,8 @@ tap-reverb already installed."
     (setq filter (mapconcat #'(lambda (v) (format "%s" v)) filter-spec ":"))
 
     (emacspeak-m-player-dispatch "af_clr")
-    (emacspeak-m-player-dispatch (format "af_add %s" filter))
+    (emacspeak-m-player-dispatch
+     (format "af_add %s" filter))
     (emacspeak-auditory-icon 'button)))
 
 ;;}}}
@@ -1403,6 +1404,30 @@ Check first if current buffer is in emacspeak-m-player-mode."
           (message "Restored  player process."))
          (t (error "No live player here.")))))
                    
+;;}}}
+;;{{{ Panning:
+
+(defvar emacspeak-m-player-panner
+  (loop for i from 0 to 10 collect (* 0.1 i))
+  "The 11 pre-defined panning locations, moving from right to left.")
+
+(make-variable-buffer-local 'emacspeak-m-player-panner)
+
+(defun emacspeak-m-player-pan ()
+  "Pan from right to left  one step at a time."
+  (interactive)
+  (declare (special emacspeak-m-player-panner emacspeak-m-player-process))
+  (when (and emacspeak-m-player-process (process-live-p emacspeak-m-player-process))
+    (let*
+        ((this (first emacspeak-m-player-panner))
+         (pan (format "%s:%s" this (- 1 this))))
+      (emacspeak-m-player-dispatch  "af_del pan")
+      (emacspeak-m-player-dispatch (format "af_add pan=2:%s:%s" pan pan))
+      (setq emacspeak-m-player-panner
+            (append (cdr emacspeak-m-player-panner )
+                    (list (first emacspeak-m-player-panner))))
+      (message "Panned  to %s %s"
+               this (- 1 this)))))
 ;;}}}
 (provide 'emacspeak-m-player)
 ;;{{{ end of file
