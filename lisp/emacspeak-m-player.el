@@ -1413,16 +1413,17 @@ Check first if current buffer is in emacspeak-m-player-mode."
 (make-variable-buffer-local 'emacspeak-m-player-panner)
 
 (defun emacspeak-m-player-pan ()
-  "Pan from left to right   one step at a time."
+  "Pan from left to right   and back from right to left one step at a time."
   (interactive)
   (declare (special emacspeak-m-player-panner emacspeak-m-player-process))
   (unless (process-live-p emacspeak-m-player-process) (error "No   player."))
-  (let* ((this (/ emacspeak-m-player-panner 10.0))
+  (let* ((this (abs (/ emacspeak-m-player-panner 10.0)))
            (pan (format "%.1f:%.1f" (- 1  this)  this)))
     (emacspeak-m-player-dispatch  "af_del pan")
     (emacspeak-m-player-dispatch (format "af_add pan=2:%s:%s" pan pan))
+    (when (= 10 emacspeak-m-player-panner) (setq emacspeak-m-player-panner -10))
     (setq emacspeak-m-player-panner (% (1+ emacspeak-m-player-panner) 11))
-    (message "Panned  to %.1f %.1f" this (- 1 this))))
+    (message "Panned  to %.1f %.1f" (- 1 this) this)))
 
 ;;}}}
 (provide 'emacspeak-m-player)
