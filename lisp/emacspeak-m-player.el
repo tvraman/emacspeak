@@ -1420,6 +1420,7 @@ Check first if current buffer is in emacspeak-m-player-mode."
   (let* ((this (abs (/ emacspeak-m-player-panner 10.0)))
            (pan (format "%.1f:%.1f" (- 1  this)  this)))
     (emacspeak-m-player-dispatch  "af_del pan")
+    (emacspeak-m-player-dispatch  "af_del channels")
     (emacspeak-m-player-dispatch (format "af_add pan=2:%s:%s" pan pan))
     (when (= 10 emacspeak-m-player-panner) (setq emacspeak-m-player-panner -10))
     (setq emacspeak-m-player-panner (% (1+ emacspeak-m-player-panner) 11))
