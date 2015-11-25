@@ -1,0 +1,5 @@
+vo=null
+ao=alsa
+cache	        = 128
+slave=1
+af=scaletempo
