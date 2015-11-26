@@ -1414,12 +1414,12 @@ Check first if current buffer is in emacspeak-m-player-mode."
   (interactive)
   (declare (special emacspeak-m-player-panner emacspeak-m-player-process))
   (unless (process-live-p emacspeak-m-player-process) (error "No   player."))
-  (let* ((this (abs (/ emacspeak-m-player-panner 10.0)))
+  (let* ((this (abs  emacspeak-m-player-panner ))
          (pan (format "%.1f:%.1f" (- 1  this)  this)))
     (emacspeak-m-player-dispatch  "af_del pan, channels")
     (emacspeak-m-player-dispatch (format "af_add pan=2:%s:%s" pan pan))
-    (setq emacspeak-m-player-panner (1+ emacspeak-m-player-panner))
-    (when (= 10 emacspeak-m-player-panner) (setq emacspeak-m-player-panner -10))
+    (setq emacspeak-m-player-panner (+ 0.0  emacspeak-m-player-panner))
+    (when (= 1 emacspeak-m-player-panner) (setq emacspeak-m-player-panner -1))
     (message "Panned  to %.1f %.1f" (- 1 this) this)))
 
 ;;}}}
