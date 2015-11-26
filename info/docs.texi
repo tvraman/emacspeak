@@ -509,7 +509,9 @@ Typically used after the Dectalk has been power   cycled.
 @kbd{C-e d d}
 
 @kindex C-e d d
-                           @format
+@findex dtk-select-server
+
+@format
 Select a speech server interactively.
 When called interactively, restarts speech server.
 Argument PROGRAM specifies the speech server program.
@@ -9527,8 +9529,6 @@ Defines a simple derived mode for interacting with mplayer.
 mplayer  is a versatile media player capable of playing many
 streaming formats  and is especially useful for playing windows
 media (WMA) and streaming windows media (ASF) files.
-You may need the  win32 codecs which can be downloaded from
-http://ftp.lug.udel.edu/MPlayer/releases/w32codec-0.60.tar.bz2
 Mplayer FAQ at
 http://www.mplayerhq.hu/DOCS/faq.html
 Mplayer docs at
