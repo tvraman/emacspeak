@@ -1418,7 +1418,7 @@ Check first if current buffer is in emacspeak-m-player-mode."
          (pan (format "%.1f:%.1f" (- 1  this)  this)))
     (emacspeak-m-player-dispatch  "af_del pan, channels")
     (emacspeak-m-player-dispatch (format "af_add pan=2:%s:%s" pan pan))
-    (setq emacspeak-m-player-panner (+ 0.0  emacspeak-m-player-panner))
+    (setq emacspeak-m-player-panner (+ 0.1  emacspeak-m-player-panner))
     (when (= 1 emacspeak-m-player-panner) (setq emacspeak-m-player-panner -1))
     (message "Panned  to %.1f %.1f" (- 1 this) this)))
 
