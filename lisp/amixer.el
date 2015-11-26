@@ -197,7 +197,6 @@
   "Personal sound card settings.
 Copied from /var/lib/alsa/asound.state to your ~/.emacs.d to avoid needing to run alsactl as root on first use.")
 
-
 (defun amixer-alsactl-setup ()
   "Set up alsactl sound state."
   (declare (special amixer-alsactl-config-file))
@@ -208,7 +207,7 @@ Copied from /var/lib/alsa/asound.state to your ~/.emacs.d to avoid needing to ru
      (unless (file-exists-p sys-alsa) (error "Alsa not setup correctly."))
      (unless  (file-exists-p f) (copy-file sys-alsa user-emacs-directory))
      f)))
-           
+
 ;;;###autoload
 (defun amixer (&optional refresh)
   "Interactively manipulate ALSA settings.

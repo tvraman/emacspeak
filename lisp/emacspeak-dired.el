@@ -438,7 +438,6 @@ On a directory line, run du -s on the directory to speak its size."
   (interactive)
   (funcall-interactively #'emacspeak-table-find-csv-file (dired-get-filename current-prefix-arg)))
 
-
 ;;}}}
 
 (provide 'emacspeak-dired)

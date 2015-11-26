@@ -271,21 +271,21 @@ Also turn on emacspeak-muggles-talkative-p if it was turned off."
 (define-key org-mode-map 
   (kbd "C-c SPC")
   (defhydra emacspeak-muggles-org-nav
-  (:body-pre
-    (progn
-      (emacspeak-muggles-toggle-talkative)
-      (emacspeak-muggles-body-pre "OrgNavView"))
-    :hint nil
-    :pre emacspeak-muggles-pre :post emacspeak-muggles-post
-    :color red :columns 3)
-  "Org Mode Movements"
-  ("SPC" emacspeak-outline-speak-this-heading  "Speak this section")
-  ("n" outline-next-visible-heading "next heading")
-  ("p" outline-previous-visible-heading "prev heading")
-  ("N" org-forward-heading-same-level "next heading at same level")
-  ("P" org-backward-heading-same-level "prev heading at same level")
-  ("u" outline-up-heading "up heading")
-  ("g" org-goto "goto" :exit t)))
+    (:body-pre
+     (progn
+       (emacspeak-muggles-toggle-talkative)
+       (emacspeak-muggles-body-pre "OrgNavView"))
+     :hint nil
+     :pre emacspeak-muggles-pre :post emacspeak-muggles-post
+     :color red :columns 3)
+    "Org Mode Movements"
+    ("SPC" emacspeak-outline-speak-this-heading  "Speak this section")
+    ("n" outline-next-visible-heading "next heading")
+    ("p" outline-previous-visible-heading "prev heading")
+    ("N" org-forward-heading-same-level "next heading at same level")
+    ("P" org-backward-heading-same-level "prev heading at same level")
+    ("u" outline-up-heading "up heading")
+    ("g" org-goto "goto" :exit t)))
 
 ;;}}}
 ;;{{{ Org-Mode Table Navigation:

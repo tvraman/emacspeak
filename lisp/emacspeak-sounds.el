@@ -236,7 +236,7 @@ Do not set this by hand;
 (defcustom emacspeak-play-args "-q"
   "Set this to nil if using paplay from pulseaudio."
   :type '(choice (string :tag "Arguments" "-q")
-		 (const :tag "None" nil))
+                 (const :tag "None" nil))
   :group 'emacspeak-sounds)
 
 (defun emacspeak-play-auditory-icon (sound-name)

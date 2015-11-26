@@ -113,7 +113,6 @@
 
 (unless (fboundp 'tts-define-voice-from-speech-style)
   (fset  'tts-define-voice-from-speech-style #'dectalk-define-voice-from-speech-style))
-  
 
 (defun acss-personality-from-speech-style (style)
   "First compute a symbol that will be name for this STYLE.

@@ -247,7 +247,6 @@ on a specific directory."
   (declare (special emacspeak-m-player-playlist-pattern))
   (string-match emacspeak-m-player-playlist-pattern resource))
 
-
 ;;;###autoload
 (defun emacspeak-m-player-bind-accelerator (directory key)
   "Binds key to invoke m-player  on specified directory."
@@ -951,7 +950,7 @@ arg `reset' starts with all filters set to 0."
 
 (declaim (special emacspeak-m-player-mode-map))
 
- (defvar emacspeak-m-player-bindings
+(defvar emacspeak-m-player-bindings
   '(
     (";" emacspeak-m-player-pop-to-player)
     ("%" emacspeak-m-player-display-percent)
@@ -1394,14 +1393,14 @@ Check first if current buffer is in emacspeak-m-player-mode."
   (unless (eq major-mode 'emacspeak-m-player-mode)
     (error "This is not an MPlayer buffer."))
   (let ((proc (get-buffer-process (current-buffer))))
-        (cond
-         ((process-live-p proc)
-          (setq emacspeak-m-player-process proc)
-          (set-default 'emacspeak-m-player-process proc)
-          (emacspeak-auditory-icon 'open-object)
-          (message "Restored  player process."))
-         (t (error "No live player here.")))))
-                   
+    (cond
+     ((process-live-p proc)
+      (setq emacspeak-m-player-process proc)
+      (set-default 'emacspeak-m-player-process proc)
+      (emacspeak-auditory-icon 'open-object)
+      (message "Restored  player process."))
+     (t (error "No live player here.")))))
+
 ;;}}}
 ;;{{{ Panning:
 
@@ -1416,7 +1415,7 @@ Check first if current buffer is in emacspeak-m-player-mode."
   (declare (special emacspeak-m-player-panner emacspeak-m-player-process))
   (unless (process-live-p emacspeak-m-player-process) (error "No   player."))
   (let* ((this (abs (/ emacspeak-m-player-panner 10.0)))
-           (pan (format "%.1f:%.1f" (- 1  this)  this)))
+         (pan (format "%.1f:%.1f" (- 1  this)  this)))
     (emacspeak-m-player-dispatch  "af_del pan, channels")
     (emacspeak-m-player-dispatch (format "af_add pan=2:%s:%s" pan pan))
     (setq emacspeak-m-player-panner (1+ emacspeak-m-player-panner))

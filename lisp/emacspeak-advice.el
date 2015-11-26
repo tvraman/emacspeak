@@ -990,11 +990,10 @@ Produce an auditory icon if possible."
 
 (add-hook 'shell-mode-hook 'emacspeak-pronounce-refresh-pronunciations)
 
-
 (defadvice shell-dirstack-message (around emacspeak pre act comp)
-     "Silence messages"
-     (ems-with-messages-silenced
-      ad-do-it))
+  "Silence messages"
+  (ems-with-messages-silenced
+   ad-do-it))
 
 (add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)
 
@@ -1659,8 +1658,8 @@ Indicate change of selection with an auditory icon
  for f in
  '(
    describe-function describe-variable
-   describe-face describe-font
-   describe-package describe-key)
+                     describe-face describe-font
+                     describe-package describe-key)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

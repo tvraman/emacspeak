@@ -75,7 +75,6 @@
 ;;; by pressing the Pianobar prefix key (@code{C-e '}) followed by
 ;;; keys from @code{pianobar-key-map}.
 
-
 ;;; Code:
 
 ;;}}}
@@ -107,13 +106,12 @@
 (defun emacspeak-pianobar-volume-down ()
   "Decrease volume"
   (interactive)
-   (pianobar-send-string "(\n"))
-
+  (pianobar-send-string "(\n"))
 
 (defun emacspeak-pianobar-volume-up ()
   "Increase volume"
   (interactive)
-   (pianobar-send-string ")\n"))
+  (pianobar-send-string ")\n"))
 (defadvice pianobar (after emacspeak pre act comp)
   "Provide auditory feedback."
   (with-current-buffer pianobar-buffer
@@ -286,7 +284,6 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
     (setq emacspeak-pianobar-current-preset (1+ emacspeak-pianobar-max-preset)))
   (setq emacspeak-pianobar-current-preset (1- emacspeak-pianobar-current-preset))
   (pianobar-send-string (format "s%s\n" emacspeak-pianobar-current-preset)))
-
 
 ;;}}}
 

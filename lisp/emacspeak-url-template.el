@@ -1137,8 +1137,8 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS stations that
 ;;}}}
 ;;{{{ GoLang.org:
 (defvar emacspeak-url-template-go-base 
-"http://golang.org/"
-"Base REST end-point for Golang.org")
+  "http://golang.org/"
+  "Base REST end-point for Golang.org")
 
 (emacspeak-url-template-define
  "GoLang Browse"
@@ -1160,8 +1160,6 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS stations that
  (list "Go Package: ")
  'emacspeak-speak-buffer
  "Search GoLang package documentation.")
- 
-
 
 ;;}}}
 ;;{{{ Interactive commands

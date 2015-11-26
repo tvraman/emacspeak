@@ -2826,7 +2826,6 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-mode-line))
 
-
 ;;;###autoload
 (defun emacspeak-wizards-eww-buffer-list ()
   "Display list of open EWW buffers."

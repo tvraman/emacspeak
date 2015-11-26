@@ -162,7 +162,7 @@ Generates auditory and visual display."
         )
       do
       (define-key emacspeak-webspace-keymap (first k) (second k)))
-;(global-set-key [C-return] 'emacspeak-webspace-headlines-browse)
+                                        ;(global-set-key [C-return] 'emacspeak-webspace-headlines-browse)
 
 ;;}}}
 ;;{{{ Headlines:

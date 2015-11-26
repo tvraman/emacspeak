@@ -118,9 +118,9 @@
        (tts-list-voices))))
 
 (defsubst voice-setup-read-personality (&optional prompt)
-   "Read name of a pre-defined personality using completion."
-   (read (completing-read (or prompt "Personality: ")
-                          (tts-list-voices))))
+  "Read name of a pre-defined personality using completion."
+  (read (completing-read (or prompt "Personality: ")
+                         (tts-list-voices))))
 
 ;;}}}
 ;;{{{ map faces to voices

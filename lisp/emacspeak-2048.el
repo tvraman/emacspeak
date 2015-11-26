@@ -106,7 +106,7 @@
      (t (read-number
          (format "Stack: %s New? "
                  (length emacspeak-2048-game-stack))
-                 (/ (length emacspeak-2048-game-stack ) 2))))))
+         (/ (length emacspeak-2048-game-stack ) 2))))))
   (declare (special emacspeak-2048-game-stack))
   (setq emacspeak-2048-game-stack
         (butlast emacspeak-2048-game-stack
@@ -132,13 +132,13 @@ Note that the file is overwritten silently."
   (declare (special emacspeak-2048-game-file emacspeak-2048-game-stack))
   (with-temp-buffer
     (let ((file
-         (if prompt
-             (read-file-name "File to save game to: ")
-emacspeak-2048-game-file))
+           (if prompt
+               (read-file-name "File to save game to: ")
+             emacspeak-2048-game-file))
           (print-length nil)
-            (print-level nil))
-	(insert "(setq emacspeak-2048-game-stack \n'")
-	(pp emacspeak-2048-game-stack (current-buffer))
+          (print-level nil))
+      (insert "(setq emacspeak-2048-game-stack \n'")
+      (pp emacspeak-2048-game-stack (current-buffer))
       (insert ")\n")
       (write-file file)
       (emacspeak-auditory-icon 'save-object)
@@ -174,7 +174,6 @@ Optional interactive prefix arg prompts for a filename."
      (aset  *2048-board* i  (aref board i))
      (2048-print-board))
     (message "Added row.")))
-
 
 (defun emacspeak-2048-drop-row ()
   "Drop last  row  from  the current board."

@@ -89,11 +89,7 @@
      ((string= state "incompat") (emacspeak-auditory-icon 'warn-user))
      (t (emacspeak-auditory-icon 'item)))
     (dtk-speak-and-echo  (concat name ": "desc
- stars))))
-
-
-
-
+                                 stars))))
 
 (defun emacspeak-paradox-mode-hook ()
   "Emacspeak setup hook for paradox-mode."
@@ -110,8 +106,6 @@
 (defadvice paradox-menu-execute(around emacspeak pre act comp)
   "Silence messages while installing packages. "
   (ems-with-messages-silenced ad-do-it))
-
-
 
 (loop
  for f in

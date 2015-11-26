@@ -622,7 +622,6 @@ interactive command that the key sequence executes."
 ;;}}}
 ;;{{{ Keymaps <-> Org (text) Files :
 
-
 ;;; This makes it easy to consolidate personal bindings across machines.
 ;;; It also protects against custom losing settings due to Custom accidents.
 ;;;
@@ -654,15 +653,14 @@ interactive command that the key sequence executes."
   (interactive "vVariable: \nfFilename: ")
   (let ((buffer (find-file-noselect  filename)))
     (with-current-buffer
-      buffer
+        buffer
       (goto-char (point-max))
       (loop
        for binding  in (symbol-value variable) do
        (insert (format "%s %s\n" (first binding) (second binding ))))
       (save-buffer buffer))
     (switch-to-buffer buffer)))
-      
-                 
+
 ;;}}}
 (provide 'emacspeak-keymap)
 ;;{{{  emacs local variables

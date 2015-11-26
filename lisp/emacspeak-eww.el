@@ -626,7 +626,6 @@ Retain previously set punctuations  mode."
 
 (make-variable-buffer-local 'eww-itemprop-cache)
 
-
 (defvar eww-property-cache nil
   "Cache of property values. Is buffer-local.")
 
@@ -660,7 +659,7 @@ Retain previously set punctuations  mode."
       (when el (pushnew el eww-element-cache))
       (when children (mapc #'eww-update-cache children)))
     (setq emacspeak-eww-cache-updated t)))
-          
+
 ;;}}}
 ;;{{{ Filter DOM:
 (defun emacspeak-eww-tag-article (dom)
@@ -754,7 +753,7 @@ for use as a DOM filter."
     (eww-save-history)
     (erase-buffer)
     (goto-char (point-min))
-    ;(setq shr-base (shr-parse-base url))
+                                        ;(setq shr-base (shr-parse-base url))
     (shr-insert-document filtered-dom)
     (emacspeak-eww-set-dom filtered-dom)
     (emacspeak-eww-set-url url)
@@ -967,7 +966,6 @@ Optional interactive arg `multi' prompts for multiple classes."
              (list (list 'role (ems-eww-read-role))))))))
     (when dom (emacspeak-eww-view-helper (dom-html-add-base dom)))))
 
-
 (defun eww-view-dom-having-property (multi)
   "Display DOM filtered by specified property=value test.
 Optional interactive arg `multi' prompts for multiple classes."
@@ -976,8 +974,8 @@ Optional interactive arg `multi' prompts for multiple classes."
   (let ((dom (emacspeak-eww-current-dom))
         (filter  (if multi #'dom-by-property-list #'dom-by-property))
         (property  (if multi
-                   (ems-eww-read-list 'ems-eww-read-property)
-                 (ems-eww-read-property))))
+                       (ems-eww-read-list 'ems-eww-read-property)
+                     (ems-eww-read-property))))
     (setq dom (funcall filter dom property))
     (when dom
       (emacspeak-eww-view-helper
@@ -1000,8 +998,7 @@ Optional interactive arg `multi' prompts for multiple classes."
              (list (list 'property (ems-eww-read-property))))))))
     (when dom (emacspeak-eww-view-helper (dom-html-add-base dom))))) 
 
-
- (defun eww-view-dom-having-itemprop (multi)
+(defun eww-view-dom-having-itemprop (multi)
   "Display DOM filtered by specified itemprop=value test.
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
@@ -1009,8 +1006,8 @@ Optional interactive arg `multi' prompts for multiple classes."
   (let ((dom (emacspeak-eww-current-dom))
         (filter  (if multi #'dom-by-itemprop-list #'dom-by-itemprop))
         (itemprop  (if multi
-                   (ems-eww-read-list 'ems-eww-read-itemprop)
-                 (ems-eww-read-itemprop))))
+                       (ems-eww-read-list 'ems-eww-read-itemprop)
+                     (ems-eww-read-itemprop))))
     (setq dom (funcall filter dom itemprop))
     (when dom
       (emacspeak-eww-view-helper

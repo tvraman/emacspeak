@@ -65,7 +65,7 @@
     (setq dtk-speech-rate rate)
     (dtk-interp-set-rate rate)
     (when (called-interactively-p t)
-          (message "Set speech rate to %s %s"
+      (message "Set speech rate to %s %s"
                rate
                (if prefix "" "locally")))))
 
