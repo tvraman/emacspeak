@@ -874,9 +874,10 @@ speech rate:")))
          (+ dtk-speech-rate-base
             (* dtk-speech-rate-step  level ))
          prefix )
-        (when (ems-interactive-p )
-          (message "Set speech rate to level %s"
-                   level))))))
+        (when (called-interactively-p 'interactive)
+          (message "Set speech rate to level %s %s"
+                   level
+                   (if prefix "" "locally")))))))
 
 ;;;###autoload
 (defun dtk-set-character-scale (factor &optional prefix)
@@ -896,7 +897,7 @@ current local  value to the result."
      (t (make-local-variable 'dtk-character-scale)
         (setq dtk-character-scale factor)))
     (dtk-interp-set-character-scale dtk-character-scale)
-    (when (ems-interactive-p )
+    (when (called-interactively-p 'interactive)
       (message "Set character scale factor to %s %s"
                dtk-character-scale
                (if  prefix ""  "locally")))))
@@ -970,7 +971,7 @@ current local  value to the result."
      (t (make-local-variable 'dtk-punctuation-mode)
         (setq dtk-punctuation-mode mode )))
     (dtk-interp-set-punctuations mode)
-    (when (ems-interactive-p )
+    (when (called-interactively-p 'interactive)
       (message "set punctuation mode to %s %s"
                mode
                (if prefix "" "locally")))))
@@ -1000,7 +1001,7 @@ Interactive PREFIX arg makes the new setting global."
     (dtk-set-punctuations-to-some prefix ))
    ((eq 'some  dtk-punctuation-mode )
     (dtk-set-punctuations-to-all prefix )))
-  (when (ems-interactive-p )
+  (when (called-interactively-p 'interactive)
     (message "set punctuation mode to %s %s"
              dtk-punctuation-mode
              (if prefix "" "locally"))))
@@ -1708,7 +1709,7 @@ since the synthesizer is getting a word at a time."
   (cond
    ((not (string-match " " dtk-chunk-separator-syntax))
     (dtk-chunk-on-white-space-and-punctuations)
-    (when (ems-interactive-p)
+    (when (called-interactively-p 'interactive)
       (message "Text will be split at punctuations and white space when speaking") ))
    (t (dtk-chunk-only-on-punctuations)
       (when (ems-interactive-p )
@@ -1726,7 +1727,7 @@ Argument S specifies the syntax class."
     (read-from-minibuffer "Specify separator syntax string: ")))
   (declare (special dtk-chunk-separator-syntax))
   (setq dtk-chunk-separator-syntax s)
-  (when (ems-interactive-p )
+  (when (called-interactively-p 'interactive)
     (message "Set  separator to %s" s)))
 
 ;;}}}
