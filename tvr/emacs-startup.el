@@ -9,6 +9,7 @@
 (defvar emacs-private-library
   (expand-file-name "~/.elisp")
   "Private personalization directory. ")
+
 (defvar emacs-personal-library
   (expand-file-name "~/emacs/lisp/site-lisp")
   "Directory where we keep personal libraries")
@@ -18,9 +19,7 @@
 
 (defmacro csetq (variable value)
   `(funcall (or (get ',variable 'custom-set) 'set-default) ',variable ,value))
-;;; Usage:
-(csetq tool-bar-mode nil)
-(csetq menu-bar-mode nil)
+
 
 (defsubst augment-load-path (path &optional library whence at-end)
   "add directory to load path.
@@ -45,6 +44,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
         (cons
          (cons ext mode)
          auto-mode-alist)))
+
 (defsubst load-library-if-available (lib)
   "Load a library only if it is around"
   (let ((emacspeak-speak-messages nil))
@@ -66,8 +66,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 (declare (special custom-file))
 (setq custom-file (expand-file-name "~/.customize-emacs"))
 
-(setq message-log-max 1024)
-
 ;;}}}
 (defun start-up-my-emacs()
   "Start up emacs for me. "
@@ -75,15 +73,22 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
   (let ((gc-cons-threshold 8000000)
         (debug-on-quit t)
         (debug-on-error t))
+(csetq tool-bar-mode nil)
+(csetq menu-bar-mode nil)
+
+(csetq message-log-max 1024)
+(tooltip-mode -1)
     (menu-bar-mode -1)
     (tool-bar-mode -1)
     (scroll-bar-mode -1)
     (fringe-mode 1)
     (setq text-quoting-style 'grave)
     (setq outline-minor-mode-prefix "\C-x@h")
+
     (when (file-exists-p  emacs-private-library)
       (augment-load-path emacs-private-library ))
-    (when (file-exists-p  emacs-personal-library)
+    
+(when (file-exists-p  emacs-personal-library)
       (augment-load-path emacs-personal-library))
     ;;{{{ Load and customize emacspeak
 
@@ -98,10 +103,9 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     ;;}}}
     ;;{{{  set up terminal codes and global keys
 
-    (mapc #'load-library-if-available
-          '("console" "screen"))
-    (when (eq window-system 'x)
-      (load-library-if-available "x"))
+    (mapc #'load-library-if-available '("console" "screen"))
+
+    (when (eq window-system 'x) (load-library-if-available "x"))
 
     (loop for  key in
           '(
@@ -122,12 +126,13 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
             ( "\M-\C-c"calendar))
           do
           (global-set-key (first key) (second key)))
+
 ;;; Smarten up ctl-x-map
 (define-key ctl-x-map "\C-n" 'forward-page)
 (define-key ctl-x-map "\C-p" 'backward-page)
 
     ;;}}}
-    ;;{{{  initial stuff
+    ;;{{{  Basic Support Libraries 
 
     (require 'dired-x)
     (require 'dired-aux)
@@ -138,17 +143,19 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     (put 'eval-expression 'disabled nil)
 
     (dynamic-completion-mode)
+(unless enable-completion (completion-mode ))
 
     ;;}}}
     ;;{{{  different mode settings
 
 ;;; Mode hooks.
 
-    (eval-after-load "shell"
+    (eval-after-load
+        "shell"
       '(progn
          (define-key shell-mode-map "\C-cr" 'comint-redirect-send-command)
-         (define-key shell-mode-map "\C-ch"
-           'emacspeak-wizards-refresh-shell-history)))
+         (define-key shell-mode-map "\C-ch" '
+           emacspeak-wizards-refresh-shell-history)))
 
     ;;}}}
     ;;{{{ Prepare needed libraries
@@ -157,26 +164,24 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     (mapc
      #'load-library-if-available
      '(
-;;; personal functions and advice
        "my-functions"
 ;;; Mail readers:
        "vm-prepare" "gm-smtp" "gnus-prepare" "bbdb-prepare"
        "mspools-prepare" "sigbegone"
 ;;; Web Browsers:
        "w3-prepare"
+       ;;; Authoring:
        "auctex-prepare" "nxml-prepare" "folding-prepare"
        "elfeed-prepare"
        "calc-prepare"
        "hydra-prepare"
-       "tcl-prepare"
-       "slime-prepare" "company-prepare"
+       "tcl-prepare" "slime-prepare" "company-prepare"
                                         ; jde and ecb will pull in cedet.
                                         ;"jde-prepare" "ecb-prepare"
        "org-prepare"
        "erc-prepare" "jabber-prepare" "twittering-prepare"
        "tramp-prepare" "fff-prepare" "fap-prepare"
-       "emms-prepare"
-       "iplayer-prepare"
+       "emms-prepare" "iplayer-prepare"
 "auto-correct-setup"
 "color-theme-prepare"
        "local"
@@ -189,19 +194,18 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 (add-hook
  #'after-init-hook
  #'(lambda ()
-     (emacspeak-tts-startup-hook)
+     ;(emacspeak-tts-startup-hook)
      (bbdb-insinuate-vm)
      (server-start)
      (shell)
      (calendar)
-     (load-library "emacspeak-m-player")
+     ;(load-library "emacspeak-m-player")
      (initialize-completions)
      (shell-command "aplay ~/cues/highbells.au")
-     (tooltip-mode -1)
      (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
      (message "Successfully initialized Emacs")))
-(start-up-my-emacs)
 (when (file-exists-p custom-file) (load-file custom-file))
+(start-up-my-emacs)
 (setq warning-suppress-types nil)
 
 ;;}}}
