@@ -46,8 +46,6 @@
 ;;; mplayer  is a versatile media player capable of playing many
 ;;; streaming formats  and is especially useful for playing windows
 ;;; media (WMA) and streaming windows media (ASF) files.
-;;;You may need the  win32 codecs which can be downloaded from
-;;;http://ftp.lug.udel.edu/MPlayer/releases/w32codec-0.60.tar.bz2
 ;;;Mplayer FAQ at
 ;;;http://www.mplayerhq.hu/DOCS/faq.html
 ;;; Mplayer docs at
