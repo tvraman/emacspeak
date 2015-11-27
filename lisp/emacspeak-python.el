@@ -84,9 +84,11 @@
   "Speak character you're deleting."
   (cond
    ((ems-interactive-p  )
-    (dtk-tone 500 30 'force)
+    (let ((ws (looking-back "^[ \t]+")))
+      (dtk-tone 500 30 'force)
     (emacspeak-speak-this-char (preceding-char ))
-    ad-do-it)
+    ad-do-it
+    (when ws (dtk-notify-speak (format "Indent %s " (current-column))))))
    (t ad-do-it))
   ad-return-value)
 
