@@ -77,7 +77,7 @@
    ((ems-interactive-p  )
     (let ((ws (looking-back "^[ \t]+")))
     (dtk-tone 500 30 'force)
-    (emacspeak-speak-this-char (preceding-char ))
+    (unless ws (emacspeak-speak-this-char (preceding-char )))
     ad-do-it
     (when ws (dtk-notify-speak  (format "Indent %s "ad-return-value)))))
    (t ad-do-it))
