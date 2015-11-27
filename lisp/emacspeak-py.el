@@ -251,6 +251,7 @@
                               py-backward-section py-backward-statement-bol py-backward-statements
                               py-backward-top-level py-backward-top-level-p
                               py-backward-try-block py-backward-try-block-bol
+                              py-match-paren
                               py-beginning py-beginning-of-block-bol
                               py-beginning-of-block-current-column
                               py-beginning-of-block-or-clause py-beginning-of-class
