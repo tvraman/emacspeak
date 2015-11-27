@@ -174,7 +174,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "elfeed-prepare"
        "calc-prepare"
        "hydra-prepare"
-       "tcl-prepare" "slime-prepare" "company-prepare"
+       "tcl-prepare" "slime-prepare" "company-prepare" "python-mode-prepare"
                                         ; jde and ecb will pull in cedet.
                                         ;"jde-prepare" "ecb-prepare"
        "org-prepare"
