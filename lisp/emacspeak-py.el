@@ -392,6 +392,15 @@
    (py-exception-name-face emacspeak-voice-lock-warning-personality)))
 
 ;;}}}
+;;{{{ pydoc advice:
+(defadvice pydoc (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-rest-of-buffer)))
+
+;;}}}
+
 (provide 'emacspeak-py )
 ;;{{{ end of file
 
