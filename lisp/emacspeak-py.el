@@ -72,14 +72,21 @@
     (dtk-say " colon ")))
 
 (defadvice py-electric-backspace (around emacspeak pre act)
-  "Speak character you're deleting."
+  "Speak character you're deleting.
+Provide contextual feedback when closing blocks"
   (cond
    ((ems-interactive-p  )
     (let ((ws (looking-back "^[ \t]+")))
       (dtk-tone 500 30 'force)
       (unless ws (emacspeak-speak-this-char (preceding-char )))
       ad-do-it
-      (when ws (dtk-notify-speak  (format "Indent %s "ad-return-value)))))
+      (when ws
+        (dtk-notify-speak  (format "Indent %s "ad-return-value))
+        (emacspeak-auditory-icon  'close-object)
+        (sit-for 0.2)
+        (save-excursion
+          (py-beginning-of-block)
+          (emacspeak-speak-line)))))
    (t ad-do-it))
   ad-return-value)
 
