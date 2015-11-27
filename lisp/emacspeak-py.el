@@ -75,9 +75,11 @@
   "Speak character you're deleting."
   (cond
    ((ems-interactive-p  )
+    (let ((ws (looking-back "^[ \t]+")))
     (dtk-tone 500 30 'force)
     (emacspeak-speak-this-char (preceding-char ))
-    ad-do-it)
+    ad-do-it
+    (when ws (dtk-notify-speak  (format "Indent %s "ad-return-value)))))
    (t ad-do-it))
   ad-return-value)
 
