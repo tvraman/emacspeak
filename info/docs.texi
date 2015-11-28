@@ -436,7 +436,7 @@ will say ````aw fifteen dot'''' when speaking the string
 @findex dtk-cloud
 
 @format
-Select prefered Cloud TTS server.
+Select preferred Cloud TTS server.
 @end format
 @end deffn
 
@@ -857,7 +857,7 @@ with a repeat count.
 @end defvar
 
 @defvar {User Option} dtk-cloud-server
-Set this to your prefered cloud TTS server.
+Set this to your preferred cloud TTS server.
 
 @end defvar
 
@@ -9485,7 +9485,7 @@ Play book stream
 
 @format
 Search by author.
-Both exact and partial matches for ``author''.
+Both exact and partial matches for   author''.
 @end format
 @end deffn
 

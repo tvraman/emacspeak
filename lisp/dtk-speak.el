@@ -1516,7 +1516,7 @@ This is setup on a per engine basis.")
   "Name of current sound device in use.")
 ;;;###autoload
 (defcustom dtk-cloud-server "cloud-outloud"
-  "Set this to your prefered cloud TTS server."
+  "Set this to your preferred cloud TTS server."
   :type '(string
           (choice
            (:const "cloud-outloud" :tag "Outloud Variants")
@@ -1557,7 +1557,7 @@ ALSA_DEFAULT to specified device before starting the server."
       (dtk-initialize))))
 ;;;###autoload
 (defun dtk-cloud ()
-  "Select prefered Cloud TTS server."
+  "Select preferred Cloud TTS server."
   (interactive)
   (declare (special dtk-cloud-server))
   (funcall-interactively #'dtk-select-server dtk-cloud-server))
