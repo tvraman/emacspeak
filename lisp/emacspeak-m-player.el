@@ -747,7 +747,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
   (with-current-buffer (process-buffer emacspeak-m-player-process)
     (unless   emacspeak-m-player-metadata  (error "No metadata"))
     (let* ((m (emacspeak-m-player-metadata-info  emacspeak-m-player-metadata))
-           (info (second (split-string m "="))))
+           (info (and m (second (split-string m "=")))))
       (when toggle-cue
         (setq emacspeak-m-player-cue-info (not emacspeak-m-player-cue-info)))
       (message (format "%s" (or info  "No Stream Info"))))))
