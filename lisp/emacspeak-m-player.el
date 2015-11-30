@@ -1198,6 +1198,7 @@ tap-reverb already installed."
           #'(lambda (v) (format "%s" v))
           emacspeak-m-player-reverb-filter ":")))
     (unless ladspa (error "Environment variable LADSPA_PATH not set."))
+    (unless (getenv "LADSPA_PATH") (setenv "LADSPA_PATH" ladspa))
     (unless (file-exists-p (expand-file-name "tap_reverb.so" ladspa))
       (error "Package tap_reverb not installed."))
     (setq filter (read-from-minibuffer "Reverb: " orig-filter))
