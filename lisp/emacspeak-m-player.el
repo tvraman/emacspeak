@@ -1377,7 +1377,7 @@ Optional interactive prefix arg prompts for name to use for  player."
   (declare (special  emacspeak-m-player-process))
   (when (process-live-p emacspeak-m-player-process)
     (with-current-buffer  (process-buffer emacspeak-m-player-process) 
-      (make-local-variable 'emacspeak-m-player-process)
+      (set (make-local-variable 'emacspeak-m-player-process)emacspeak-m-player-process)
       (set-default 'emacspeak-m-player-process nil)
       (rename-buffer
        (if name
