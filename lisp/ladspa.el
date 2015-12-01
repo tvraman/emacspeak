@@ -95,6 +95,18 @@
 
 (defvar ladspa-plugins nil
   "List of installed plugins with their metadata.")
+(defun ladspa-control (c-str)
+  "Construct a ladspa control instance from c-str."
+  (let* ((fields (split-string c-str "," 'omit-null))
+         (range (split-string (third fields) " " 'omit))
+         (default (split-string (fourth fields) " " 'omit))
+        (result (make-ladspa-control)))
+    (setf (ladspa-control-desc result) (first fields)
+     (ladspa-control-min result) (first range)
+          (ladspa-control-max result) (third range)
+          (ladspa-control-default result)(second default)
+          (ladspa-control-value result)(second default))
+    result))
 
 (defun ladspa-analyse-label (library summary)
   "Analyse Ladspa effect and return a parsed metadata structure."
@@ -109,7 +121,7 @@
        (format "analyseplugin   %s %s | grep  control " library label))
       "\n" 'omit-null)
      do
-     (push c controls))
+     (push (ladspa-control c) controls))
     (setf (ladspa-plugin-controls result) controls)
     result))
 
