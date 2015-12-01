@@ -163,8 +163,7 @@ appropriately initialized for engine used in this speaker process."
    (t
     (let ((env (tts-env speaker)))
       (setq tts-state (copy-tts-state tts-state-prototype))
-      (setf
-       (tts-env-default-speech-rate env))
+      (setf (tts-state-rate tts-state)  (tts-env-default-speech-rate env))
       tts-state))))
 
 ;;}}}
