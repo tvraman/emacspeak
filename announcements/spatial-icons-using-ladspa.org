@@ -1,0 +1,39 @@
+* Executive Summary 
+
+The Emacspeak GitHub repository now includes a new auditory icon theme
+=pan-chimes= --- these are the result of spatializing theme =chimes=.
+
+* Fun With Ladspa, MPlayer and Library =tap-plugins=
+Here is the result of some fun with MPlayer and Ladspa over the
+Thanksgiving weekend. Package =tap-plugins= provides a number of
+interesting Ladspa plugins; one of these, =tap_reverb= is used in
+module =emacspeak-m-player= to provide a variety of predefined
+effects.
+
+Library =tap-plugins= also includes Ladspa filter =tap_autopan= that
+ pans the input audio signal --- see that  plugin's documentation for
+ details.
+
+The Linux media player =mplayer=  allows the injection of =ladspa
+plugins= in its processing chain.
+Combining these, I have created theme =pan-chimes= that  provides a
+spatialized version of sound-theme =chimes=.
+
+
+See script =apply-pan.sh= in the Github repository to see how this new
+theme was generated.
+
+
+
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:nil d:(not "LOGBOOK") date:t e:t
+#+OPTIONS: email:nil f:t inline:t num:t p:nil pri:nil prop:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t
+#+TITLE:Generating Spatialized Auditory Icons Using MPlayer And Ladspa 
+#+DATE: <2015-11-30 Mon>
+#+AUTHOR: raman
+#+EMAIL: raman@google.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 25.0.50.1 (Org mode 8.3.2)
