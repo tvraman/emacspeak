@@ -98,17 +98,20 @@
 
 (defun ladspa-analyse-label (library label)
   "Analyse Ladspa effect and return a parsed metadata structure."
-  (let ((result (make-ladspa-plugin :library library :label label)))
+  (let* (
+(tag  (substring  label 0 (string-match " " label)))
+(desc (substring  label (string-match " " label)))
+         (result (make-ladspa-plugin :library library :label tag :desc desc)))
     result))
 
 (defun ladspa-analyse-library (library )
-  "Analyse Ladspa library and return a list of parsed data."
+  "Analyse Ladspa library and return a 
+list of parsed ladspa-plugin structures, one per label.."
   (let ((result nil)
         (labels
-         (mapcar
-          #'(lambda (p) (first (split-string p " ")))
           (split-string
-           (shell-command-to-string (format "analyseplugin -l %s" library)) "\n"))))
+           (shell-command-to-string (format "analyseplugin -l %s" library))
+           "\n" 'omit-null)))
     (loop
      for label in labels  do
      (push (ladspa-analyse-label library label) result))
