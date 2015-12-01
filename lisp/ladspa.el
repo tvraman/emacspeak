@@ -97,6 +97,7 @@
   "List of installed plugins with their metadata.")
 (defun ladspa-control (c-str)
   "Construct a ladspa control instance from c-str."
+  (assert (stringp c-str) nil "Error: c-str is not a string.")
   (let* ((fields (split-string c-str "," 'omit-null))
          (range (split-string (third fields) " " 'omit))
          (default (split-string (fourth fields) " " 'omit))
