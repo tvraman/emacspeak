@@ -96,13 +96,23 @@
 (defvar ladspa-plugins nil
   "List of installed plugins with their metadata.")
 
-(defun ladspa-analyse-label (library label)
+(defun ladspa-analyse-label (library summary)
   "Analyse Ladspa effect and return a parsed metadata structure."
-  (let* (
-(tag  (substring  label 0 (string-match " " label)))
-(desc (substring  label (string-match " " label)))
-         (result (make-ladspa-plugin :library library :label tag :desc desc)))
+  (let* ((label  (substring  summary 0 (string-match " " summary)))
+         (desc (substring  summary (string-match " " summary)))
+         (controls nil)
+         (result (make-ladspa-plugin :library library :label label :desc desc)))
+    (loop
+     for c in
+     (split-string
+      (shell-command-to-string
+       (format "analyseplugin   %s %s | grep  control " library label))
+      "\n" 'omit-null)
+     do
+     (push c controls))
+    (setf (ladspa-plugin-controls result) controls)
     result))
+
 
 (defun ladspa-analyse-library (library )
   "Analyse Ladspa library and return a 
