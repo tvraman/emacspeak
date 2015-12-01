@@ -57,21 +57,68 @@
 
 
 ;;}}}
-;;{{{ Customizations:
-
-(defvar ladspa-home
-  (or (getenv "LADSPA_PATH") "/usr/lib/ladspa")
-"Instalation location for Ladspa plugins.")
-
-;;}}}
 ;;{{{ Structures:
+
+(cl-defstruct ladspa-control
+  desc
+  min max default
+  value )
 
 (cl-defstruct ladspa-plugin
   library label controls)
-(cl-defstruct ladspa-control
-  desc min max default value )
 
 ;;}}}
+;;{{{ Ladspa Setup:
+
+(defconst ladspa-home
+  (or (getenv "LADSPA_PATH") "/usr/lib/ladspa")
+"Instalation location for Ladspa plugins.")
+
+(defconst ladspa-analyse
+  (executable-find "analyseplugin")
+  "Analyse plugins tool from Ladspa SDK.")
+
+(defvar ladspa-libs  nil
+  "List of installed Ladspa libraries.")
+
+
+(defun ladspa-libs (&optional refresh)
+  "Return list of installed Ladspa libs."
+  (declare (special ladspa-libs))
+  (cond
+   ((and ladspa-libs (null refresh)) ladspa-libs)
+   (t
+    (loop
+     for d in (split-string ladspa-home ":" t) do 
+     (setq ladspa-libs (nconc ladspa-libs (directory-files d  nil "\\.so$"))))
+    ladspa-libs)))
+
+  ;;}}}
+;;{{{ Ladspa Plugins:
+
+(defvar ladspa-plugins nil
+  "List of installed plugins with their metadata.")
+
+
+(defun ladspa-analyse (plugin)
+  "Analyse plugin and return a parsed metadata structure."
+  (make-ladspa-plugin :library plugin)
+)
+
+(defun ladspa-plugins (&optional refresh)
+  "Return list of installed Ladspa plugins."
+  (declare (special ladspa-plugins))
+  (cond
+   ((and ladspa-plugins (null refresh)) ladspa-plugins)
+   (t
+    (loop
+     for p in (ladspa-libs) do 
+     (setq ladspa-plugins
+           (push (ladspa-analyse p) ladspa-plugins)))
+    ladspa-plugins)))
+
+;;}}}
+
 
 (provide 'ladspa)
 ;;{{{ end of file
