@@ -1,7 +1,6 @@
-
-;;; ladspa.el --- Ladspa Tools For Emacs 
+;;; ladspa.el --- Ladspa Tools For Emacs
 ;;; $Author: tv.raman.tv $
-;;; Description:  Expose Ladspa Plugins to Emacs/Emacspeak 
+;;; Description:  Expose Ladspa Plugins to Emacs/Emacspeak
 ;;; Keywords: Emacspeak,  Audio Desktop Ladspa
 ;;{{{  LCD Archive entry:
 
@@ -55,7 +54,6 @@
 (require 'cl-lib)
 (declaim  (optimize  (safety 0) (speed 3)))
 
-
 ;;}}}
 ;;{{{ Structures:
 
@@ -72,7 +70,7 @@
 
 (defconst ladspa-home
   (or (getenv "LADSPA_PATH") "/usr/lib/ladspa")
-"Instalation location for Ladspa plugins.")
+  "Instalation location for Ladspa plugins.")
 
 (defconst ladspa-analyse
   (executable-find "analyseplugin")
@@ -81,7 +79,6 @@
 (defvar ladspa-libs  nil
   "List of installed Ladspa libraries.")
 
-
 (defun ladspa-libs (&optional refresh)
   "Return list of installed Ladspa libs."
   (declare (special ladspa-libs))
@@ -89,21 +86,34 @@
    ((and ladspa-libs (null refresh)) ladspa-libs)
    (t
     (loop
-     for d in (split-string ladspa-home ":" t) do 
+     for d in (split-string ladspa-home ":" t) do
      (setq ladspa-libs (nconc ladspa-libs (directory-files d  nil "\\.so$"))))
     ladspa-libs)))
 
-  ;;}}}
+;;}}}
 ;;{{{ Ladspa Plugins:
 
 (defvar ladspa-plugins nil
   "List of installed plugins with their metadata.")
 
+(defun ladspa-analyse-label (library label)
+  "Analyse Ladspa effect and return a parsed metadata structure."
+  (make-ladspa-plugin :library library :label label)
+  )
 
-(defun ladspa-analyse (plugin)
-  "Analyse plugin and return a parsed metadata structure."
-  (make-ladspa-plugin :library plugin)
-)
+(defun ladspa-analyse-library (library )
+  "Analyse Ladspa library and return a list of parsed data."
+  (let ((result nil)
+        (labels
+         (mapcar
+          #'(lambda (p) (first (split-string p " ")))
+          (split-string
+           (shell-command-to-string (format "analyseplugin -l %s" library)) "\n"))))
+    (loop
+     for label in labels  do
+     (push (ladspa-analyse-label library label) result))
+    result))
+
 
 (defun ladspa-plugins (&optional refresh)
   "Return list of installed Ladspa plugins."
@@ -112,14 +122,12 @@
    ((and ladspa-plugins (null refresh)) ladspa-plugins)
    (t
     (loop
-     for p in (ladspa-libs) do 
+     for library in (ladspa-libs) do
      (setq ladspa-plugins
-           (push (ladspa-analyse p) ladspa-plugins)))
+           (nconc ladspa-plugins (ladspa-analyse-library library))))
     ladspa-plugins)))
 
 ;;}}}
-
-
 (provide 'ladspa)
 ;;{{{ end of file
 
