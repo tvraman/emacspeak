@@ -63,7 +63,7 @@
   value )
 
 (cl-defstruct ladspa-plugin
-  library label controls)
+  desc library label controls)
 
 ;;}}}
 ;;{{{ Ladspa Setup:
@@ -98,8 +98,8 @@
 
 (defun ladspa-analyse-label (library label)
   "Analyse Ladspa effect and return a parsed metadata structure."
-  (make-ladspa-plugin :library library :label label)
-  )
+  (let ((result (make-ladspa-plugin :library library :label label)))
+    result))
 
 (defun ladspa-analyse-library (library )
   "Analyse Ladspa library and return a list of parsed data."
