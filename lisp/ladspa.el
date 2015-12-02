@@ -82,6 +82,9 @@
 (defun ladspa-libs (&optional refresh)
   "Return list of installed Ladspa libs."
   (declare (special ladspa-libs))
+  (unless (file-exists-p ladspa-home)
+    (error "Ladspa not installed or not configured."))
+  (unless ladspa-analyse (error "Ladspa SDK not installed."))
   (cond
    ((and ladspa-libs (null refresh)) ladspa-libs)
    (t
@@ -95,10 +98,12 @@
 
 (defvar ladspa-plugins nil
   "List of installed plugins with their metadata.")
+
 (defun ladspa-control (c-str)
   "Construct a ladspa control instance from c-str."
   (assert (stringp c-str) nil "Error: c-str is not a string.")
   (let* ((fields (split-string c-str "," 'omit-null))
+         (desc (first fields))
          (range
           (when (>= (length fields) 3)
           (split-string (third fields) " " 'omit)))
@@ -106,44 +111,40 @@
            (when (>= (length fields) 4)
            (split-string (fourth fields) " " 'omit)))
         (result (make-ladspa-control)))
-    (setf (ladspa-control-desc result) (first fields)
+    (when (string-match "^Ports:" desc)
+      (setq desc (substring desc  7)))
+    (setf (ladspa-control-desc result) desc
      (ladspa-control-min result) (first range)
           (ladspa-control-max result) (third range)
-          (ladspa-control-default result)(second default)
-          (ladspa-control-value result)(second default))
+          (ladspa-control-default result)(second default))
     result))
 
 (defun ladspa-analyse-label (library summary)
   "Analyse Ladspa effect and return a parsed metadata structure."
   (let* ((label  (substring  summary 0 (string-match " " summary)))
-         (desc (substring  summary (string-match " " summary)))
+         (desc (string-trim (substring  summary (string-match " " summary))))
          (controls nil)
+         (lines (split-string
+                 (shell-command-to-string
+                  (format "analyseplugin   %s %s | grep  control " library label))
+                 "\n" 'omit-null))
          (result (make-ladspa-plugin :library library :label label :desc desc)))
-    (loop
-     for c in
-     (split-string
-      (shell-command-to-string
-       (format "analyseplugin   %s %s | grep  control " library label))
-      "\n" 'omit-null)
-     do
- (push (ladspa-control c) controls))
+    (loop for c in lines do
+          (push (ladspa-control c) controls))
     (setf (ladspa-plugin-controls result) controls)
     result))
 
-
 (defun ladspa-analyse-library (library )
   "Analyse Ladspa library and return a 
-list of parsed ladspa-plugin structures, one per label.."
+list of parsed ladspa-plugin structures, one per label."
   (let ((result nil)
         (labels
           (split-string
            (shell-command-to-string (format "analyseplugin -l %s" library))
            "\n" 'omit-null)))
-    (loop
-     for label in labels  do
-     (push (ladspa-analyse-label library label) result))
+    (loop for label in labels  do
+          (push (ladspa-analyse-label library label) result))
     result))
-
 
 (defun ladspa-plugins (&optional refresh)
   "Return list of installed Ladspa plugins."
@@ -155,7 +156,7 @@ list of parsed ladspa-plugin structures, one per label.."
      for library in (ladspa-libs) do
      (setq ladspa-plugins
            (nconc ladspa-plugins (ladspa-analyse-library library))))
-    ladspa-plugins)))
+    (nreverse ladspa-plugins))))
 
 ;;}}}
 (provide 'ladspa)
