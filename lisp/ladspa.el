@@ -224,19 +224,23 @@ list of parsed ladspa-plugin structures, one per label."
   (unless (eq major-mode 'ladspa-mode) (error "This is not a Ladspa buffer"))
   (unless (get-text-property (point) 'ladspa)
     (error "No Ladspa Plugin here."))
-  (let* ((plugin (get-text-property (point) 'ladspa))
+  (let* ((inhibit-read-only  t)
+         (plugin (get-text-property (point) 'ladspa))
          (controls (ladspa-plugin-controls plugin))
         (buffer
          (get-buffer-create  (format "*%s*" (ladspa-plugin-label plugin)))))
     (save-current-buffer
       (set-buffer buffer)
+      (erase-buffer)
       (loop for c in controls do
             (setf (ladspa-control-value c)
                   (read-from-minibuffer
                    (format "%s: Range %s -- %s: Default %s"
                            (ladspa-control-desc c)
                            (ladspa-control-min c) (ladspa-control-max c)
-                           (ladspa-control-default c)))))
+                           (ladspa-control-default c))
+                   nil nil nil nil
+                   (ladspa-control-default c))))
       (insert (ladspa-plugin-desc plugin))
       (insert "\n\n")
       (loop  for c in controls do
@@ -276,7 +280,9 @@ list of parsed ladspa-plugin structures, one per label."
   (unless (process-live-p emacspeak-m-player-process) (error "No running MPlayer."))
   (let ((plugin (get-text-property (point) 'ladspa))
         (args nil))
-    
+    (when
+        (some  #'null (mapcar #'ladspa-control-value (ladspa-plugin-controls plugin)))
+      (ladspa-instantiate))
     (setq args (ladspa-plugin-to-m-player plugin))
     (emacspeak-m-player-dispatch (format "af_add %s" args))))
 
