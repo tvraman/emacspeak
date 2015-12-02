@@ -2742,6 +2742,15 @@ Produce auditory icons if possible."
    (t (emacspeak-auditory-icon 'n-answer))))
 
 ;;}}}
+;;{{{ Advice process-menu 
+
+(defadvice process-menu-delete-process (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-speak-line)))
+
+;;}}}
 (provide 'emacspeak-advice)
 ;;{{{ end of file
 
