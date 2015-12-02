@@ -203,7 +203,7 @@ list of parsed ladspa-plugin structures, one per label."
       (set-buffer "*Ladspa*")
       (ladspa-init)
       (ladspa-mode))
-     (switch-to-buffer buffer)))
+     (funcall-interactively #'switch-to-buffer buffer)))
 
 (declaim (special ladspa-mode-map))
 (loop for k in
@@ -245,8 +245,11 @@ list of parsed ladspa-plugin structures, one per label."
                              (ladspa-control-value c))))
       (put-text-property (point-min) (point-max)
                          'ladspa plugin)
+      (goto-char (point-min))
       (ladspa-mode))
-    (switch-to-buffer buffer)))
+    (when (called-interactively-p 'interactive)
+      (ladspa-add-to-mplayer))
+    (funcall-interactively #'switch-to-buffer buffer)))
 
 ;;}}}
 ;;{{{ Apply to MPlayer:
@@ -270,10 +273,10 @@ list of parsed ladspa-plugin structures, one per label."
   (unless (eq major-mode 'ladspa-mode) (error "This is not a Ladspa buffer"))
   (unless (get-text-property (point) 'ladspa)
     (error "No Ladspa Plugin here."))
+  (unless (process-live-p emacspeak-m-player-process) (error "No running MPlayer."))
   (let ((plugin (get-text-property (point) 'ladspa))
-        (args nil)
-        (player emacspeak-m-player-process))
-    (unless (process-live-p emacspeak-m-player-process) (error "No running MPlayer."))
+        (args nil))
+    
     (setq args (ladspa-plugin-to-m-player plugin))
     (emacspeak-m-player-dispatch (format "af_add %s" args))))
 
@@ -284,12 +287,10 @@ list of parsed ladspa-plugin structures, one per label."
   (unless (eq major-mode 'ladspa-mode) (error "This is not a Ladspa buffer"))
   (unless (get-text-property (point) 'ladspa)
     (error "No Ladspa Plugin here."))
-  (let ((plugin (get-text-property (point) 'ladspa))
-        (args nil)
-        (player emacspeak-m-player-process))
-    (unless (process-live-p emacspeak-m-player-process) (error "No running MPlayer."))
-    (setq args (ladspa-plugin-to-m-player plugin))
-    (emacspeak-m-player-dispatch (format "af_del %s" args))))
+        (unless (process-live-p emacspeak-m-player-process) (error "No running MPlayer."))
+    
+    
+ (emacspeak-m-player-dispatch "af_del ladspa"))
 
 
 ;;}}}
