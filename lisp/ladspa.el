@@ -54,6 +54,7 @@
 (require 'cl-lib)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'subr-x)
+(require 'derived)
 ;;}}}
 ;;{{{ Structures:
 
@@ -158,6 +159,48 @@ list of parsed ladspa-plugin structures, one per label."
            (nconc ladspa-plugins (ladspa-analyse-library library))))
     (nreverse ladspa-plugins))))
 
+;;}}}
+;;{{{ Ladspa Mode:
+(defconst ladspa-header-line-format
+  '((:eval
+     (format
+      "%s"
+      (propertize "Ladspa Workbench" 'face 'bold))))
+      
+  "Header line format for SoX buffers.")
+
+(defun ladspa-draw-plugin (p)
+  "Draw plugin at point."
+  (let ((start (point)))
+    (insert (ladspa-plugin-desc p))
+    (put-text-property start (point)
+                       'ladspa p))
+  (insert "\n"))
+
+(defun  ladspa-init ()
+  "Initialize Ladspa."
+  (let ((inhibit-read-only  t)
+        (plugins (ladspa-plugins)))
+    (erase-buffer)
+    (loop for  p in plugins do
+          (ladspa-draw-plugin p))))
+
+(define-derived-mode ladspa-mode special-mode
+                     "Interactively manipulate Ladspa filters."
+"A Ladspa workbench for the Emacspeak desktop."
+  (ladspa-init)
+  (setq tab-width 8)
+  (setq buffer-read-only t)
+  (setq header-line-format ladspa-header-line-format))
+;;;###autoload
+(defun ladspa ()
+  "Launch Ladspa workbench."
+  (interactive)
+  (let ((buffer (get-buffer-create "*Ladspa*")))
+    (save-current-buffer
+      (set-buffer "*Ladspa*")
+      (ladspa-mode))
+    (switch-to-buffer buffer)))
 ;;}}}
 (provide 'ladspa)
 ;;{{{ end of file
