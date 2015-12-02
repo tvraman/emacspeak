@@ -99,8 +99,12 @@
   "Construct a ladspa control instance from c-str."
   (assert (stringp c-str) nil "Error: c-str is not a string.")
   (let* ((fields (split-string c-str "," 'omit-null))
-         (range (split-string (third fields) " " 'omit))
-         (default (split-string (fourth fields) " " 'omit))
+         (range
+          (when (>= (length fields) 3)
+          (split-string (third fields) " " 'omit)))
+         (default
+           (when (>= (length fields) 4)
+           (split-string (fourth fields) " " 'omit)))
         (result (make-ladspa-control)))
     (setf (ladspa-control-desc result) (first fields)
      (ladspa-control-min result) (first range)
@@ -122,7 +126,7 @@
        (format "analyseplugin   %s %s | grep  control " library label))
       "\n" 'omit-null)
      do
-     (push (ladspa-control c) controls))
+ (push (ladspa-control c) controls))
     (setf (ladspa-plugin-controls result) controls)
     result))
 
