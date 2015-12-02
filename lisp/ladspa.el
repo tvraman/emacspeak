@@ -158,10 +158,11 @@ list of parsed ladspa-plugin structures, one per label."
      for library in (ladspa-libs) do
      (setq ladspa-plugins
            (nconc ladspa-plugins (ladspa-analyse-library library))))
-    (nreverse ladspa-plugins))))
+     ladspa-plugins)))
 
 ;;}}}
 ;;{{{ Ladspa Mode:
+
 (defconst ladspa-header-line-format
   '((:eval
      (format
@@ -202,14 +203,29 @@ list of parsed ladspa-plugin structures, one per label."
       (set-buffer "*Ladspa*")
       (ladspa-init)
       (ladspa-mode))
-    (switch-to-buffer buffer)))
+     (switch-to-buffer buffer)))
+
+(declaim (special ladspa-mode-map))
+(loop for k in
+      '(
+        ("RET" ladspa-instantiate)
+        ("a" ladspa-add-to-mplayer)
+        ("d" ladspa-delete-from-mplayer)
+        )
+      do
+      (define-key ladspa-mode-map (kbd (first k)) (second k)))
+
 ;;}}}
 ;;{{{ Instantiate Ladspa Plugin:
 
-(defun ladspa-instantiate (plugin)
-  "Instantiate plugin by prompting for control values."
+(defun ladspa-instantiate ()
+  "Instantiate plugin at point by prompting for control values."
   (interactive)
-  (let ((controls (ladspa-plugin-controls plugin))
+  (unless (eq major-mode 'ladspa-mode) (error "This is not a Ladspa buffer"))
+  (unless (get-text-property (point) 'ladspa)
+    (error "No Ladspa Plugin here."))
+  (let* ((plugin (get-text-property (point) 'ladspa))
+         (controls (ladspa-plugin-controls plugin))
         (buffer
          (get-buffer-create  (format "*%s*" (ladspa-plugin-label plugin)))))
     (save-current-buffer
@@ -225,10 +241,57 @@ list of parsed ladspa-plugin structures, one per label."
       (insert "\n\n")
       (loop  for c in controls do
              (insert (format "%s:\t%s\n"
-                             (ladspa-control-desc c) (ladspa-control-value c))))
+                             (ladspa-control-desc c)
+                             (ladspa-control-value c))))
+      (put-text-property (point-min) (point-max)
+                         'ladspa plugin)
       (ladspa-mode))
-
     (switch-to-buffer buffer)))
+
+;;}}}
+;;{{{ Apply to MPlayer:
+
+(declare-function emacspeak-m-player-dispatch "emacspeak-m-player.el" (cmd))
+
+
+(defun ladspa-plugin-to-m-player (plugin)
+  "Convert Ladspa Plugin to M-Player args."
+  (format "ladspa=%s:%s:%s"
+          (ladspa-plugin-library plugin) (ladspa-plugin-label plugin)
+          (mapconcat
+           #'ladspa-control-value
+           (ladspa-plugin-controls plugin)
+           ":")))
+
+(defun ladspa-add-to-mplayer ()
+  "Apply plugin to running MPlayer."
+  (interactive)
+  (declare (special emacspeak-m-player-process))
+  (unless (eq major-mode 'ladspa-mode) (error "This is not a Ladspa buffer"))
+  (unless (get-text-property (point) 'ladspa)
+    (error "No Ladspa Plugin here."))
+  (let ((plugin (get-text-property (point) 'ladspa))
+        (args nil)
+        (player emacspeak-m-player-process))
+    (unless (process-live-p emacspeak-m-player-process) (error "No running MPlayer."))
+    (setq args (ladspa-plugin-to-m-player plugin))
+    (emacspeak-m-player-dispatch (format "af_add %s" args))))
+
+(defun ladspa-delete-from-mplayer ()
+   "Delete plugin from  running MPlayer."
+  (interactive)
+  (declare (special emacspeak-m-player-process))
+  (unless (eq major-mode 'ladspa-mode) (error "This is not a Ladspa buffer"))
+  (unless (get-text-property (point) 'ladspa)
+    (error "No Ladspa Plugin here."))
+  (let ((plugin (get-text-property (point) 'ladspa))
+        (args nil)
+        (player emacspeak-m-player-process))
+    (unless (process-live-p emacspeak-m-player-process) (error "No running MPlayer."))
+    (setq args (ladspa-plugin-to-m-player plugin))
+    (emacspeak-m-player-dispatch (format "af_del %s" args))))
+
+
 ;;}}}
 (provide 'ladspa)
 ;;{{{ end of file
