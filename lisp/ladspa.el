@@ -44,7 +44,7 @@
 ;;; This module  uses tools from the Ladspa SDK  to expose
 ;;; Ladspa plugins in a consistent way to elisp.
 ;;; The goal is to make it easy to inspect Ladspa Plugins,
-;;; And invoke them easily from within Ladspa host applications such as MPlayer.
+;;; And invoke them easily from  Ladspa host applications such as MPlayer.
 
 ;;; Code:
 
@@ -107,15 +107,15 @@
          (desc (first fields))
          (range
           (when (>= (length fields) 3)
-          (split-string (third fields) " " 'omit)))
+            (split-string (third fields) " " 'omit)))
          (default
            (when (>= (length fields) 4)
-           (split-string (fourth fields) " " 'omit)))
-        (result (make-ladspa-control)))
+             (split-string (fourth fields) " " 'omit)))
+         (result (make-ladspa-control)))
     (when (string-match "^Ports:" desc)
       (setq desc (substring desc  7)))
     (setf (ladspa-control-desc result) desc
-     (ladspa-control-min result) (first range)
+          (ladspa-control-min result) (first range)
           (ladspa-control-max result) (third range)
           (ladspa-control-default result)(second default))
     result))
@@ -127,25 +127,26 @@
          (controls nil)
          (lines (split-string
                  (shell-command-to-string
-                  (format "analyseplugin   %s %s | grep  control " library label))
+                  (format
+                   "analyseplugin   %s %s | grep  control " library label))
                  "\n" 'omit-null))
          (result (make-ladspa-plugin :library library :label label :desc desc)))
     (loop for c in lines do
           (push (ladspa-control c) controls))
-    (setf (ladspa-plugin-controls result) controls)
+    (setf (ladspa-plugin-controls result) (nreverse controls))
     result))
 
 (defun ladspa-analyse-library (library )
-  "Analyse Ladspa library and return a 
+  "Analyse Ladspa library and return a
 list of parsed ladspa-plugin structures, one per label."
   (let ((result nil)
         (labels
-          (split-string
-           (shell-command-to-string (format "analyseplugin -l %s" library))
-           "\n" 'omit-null)))
+            (split-string
+             (shell-command-to-string (format "analyseplugin -l %s" library))
+             "\n" 'omit-null)))
     (loop for label in labels  do
           (push (ladspa-analyse-label library label) result))
-    result))
+    (nreverse result)))
 
 (defun ladspa-plugins (&optional refresh)
   "Return list of installed Ladspa plugins."
@@ -166,7 +167,7 @@ list of parsed ladspa-plugin structures, one per label."
      (format
       "%s"
       (propertize "Ladspa Workbench" 'face 'bold))))
-      
+
   "Header line format for SoX buffers.")
 
 (defun ladspa-draw-plugin (p)
@@ -187,11 +188,11 @@ list of parsed ladspa-plugin structures, one per label."
 
 (define-derived-mode ladspa-mode special-mode
                      "Interactively manipulate Ladspa filters."
-"A Ladspa workbench for the Emacspeak desktop."
-  (ladspa-init)
+  "A Ladspa workbench for the Emacspeak desktop."
   (setq tab-width 8)
   (setq buffer-read-only t)
   (setq header-line-format ladspa-header-line-format))
+
 ;;;###autoload
 (defun ladspa ()
   "Launch Ladspa workbench."
@@ -199,7 +200,34 @@ list of parsed ladspa-plugin structures, one per label."
   (let ((buffer (get-buffer-create "*Ladspa*")))
     (save-current-buffer
       (set-buffer "*Ladspa*")
+      (ladspa-init)
       (ladspa-mode))
+    (switch-to-buffer buffer)))
+;;}}}
+;;{{{ Instantiate Ladspa Plugin:
+
+(defun ladspa-instantiate (plugin)
+  "Instantiate plugin by prompting for control values."
+  (interactive)
+  (let ((controls (ladspa-plugin-controls plugin))
+        (buffer
+         (get-buffer-create  (format "*%s*" (ladspa-plugin-label plugin)))))
+    (save-current-buffer
+      (set-buffer buffer)
+      (loop for c in controls do
+            (setf (ladspa-control-value c)
+                  (read-from-minibuffer
+                   (format "%s: Range %s -- %s: Default %s"
+                           (ladspa-control-desc c)
+                           (ladspa-control-min c) (ladspa-control-max c)
+                           (ladspa-control-default c)))))
+      (insert (ladspa-plugin-desc plugin))
+      (insert "\n\n")
+      (loop  for c in controls do
+             (insert (format "%s:\t%s\n"
+                             (ladspa-control-desc c) (ladspa-control-value c))))
+      (ladspa-mode))
+
     (switch-to-buffer buffer)))
 ;;}}}
 (provide 'ladspa)
