@@ -202,6 +202,7 @@ list of parsed ladspa-plugin structures, one per label."
     (save-current-buffer
       (set-buffer "*Ladspa*")
       (ladspa-init)
+      (goto-char (point-min))
       (ladspa-mode))
      (funcall-interactively #'switch-to-buffer buffer)))
 
