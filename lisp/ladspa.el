@@ -212,13 +212,15 @@ list of parsed ladspa-plugin structures, one per label."
       (goto-char (point-min))
       (ladspa-mode))
     (funcall-interactively #'switch-to-buffer buffer)))
+(declare-function emacspeak-m-player-add-ladspa "emacspeak-m-player.el")
+(declare-function emacspeak-m-player-delete-ladspa "emacspeak-m-player.el")
 
 (declaim (special ladspa-mode-map))
 (loop for k in
       '(
         ("RET" ladspa-instantiate)
-        ("a" ladspa-add-to-mplayer)
-        ("d" ladspa-delete-from-mplayer)
+        ("a" emacspeak-m-player-add-ladspa)
+        ("d" emacspeak-m-player-delete-ladspa)
         ("p" previous-line)
         ("n" next-line)
         ("SPC" ladspa-analyse-plugin-at-point)
@@ -255,7 +257,6 @@ list of parsed ladspa-plugin structures, one per label."
                    (ladspa-control-default c))))
       (insert (propertize (ladspa-plugin-desc plugin) 'face 'bold))
       (insert "\n")
-      (insert "e: Edit Control\t a: Apply Control\n\n")
       (loop  for c in controls  and i from 1 do
              (insert (format "%s:  %s:\t%s"
                              i (ladspa-control-desc c) (ladspa-control-value c)))
@@ -263,6 +264,7 @@ list of parsed ladspa-plugin structures, one per label."
               (line-beginning-position) (line-end-position)
               'ladspa-control c)
              (insert "\n"))
+      (insert "e: Edit \t a: Apply \n\n")
       (put-text-property (point-min) (point-max)
                          'ladspa plugin)
       (goto-char (point-min))
@@ -270,10 +272,7 @@ list of parsed ladspa-plugin structures, one per label."
       (setq header-line-format
             (concat 
              "Ladspa: "
-             (propertize (ladspa-plugin-label plugin) 'face 'bold)))
-      )
-    (when (called-interactively-p 'interactive)
-      (ladspa-add-to-mplayer))
+             (propertize (ladspa-plugin-label plugin) 'face 'bold))))
     (funcall-interactively #'switch-to-buffer buffer)))
 
 ;;}}}
@@ -308,55 +307,6 @@ list of parsed ladspa-plugin structures, one per label."
      (line-beginning-position) (line-end-position)
      'ladspa plugin)
     (goto-char (line-beginning-position))))
-
-;;}}}
-;;{{{ Apply to MPlayer:
-
-;;; This may move to emacspeak-m-player.el
-
-(declare-function emacspeak-m-player-dispatch "emacspeak-m-player.el" (cmd))
-
-(defun ladspa-plugin-to-m-player (plugin)
-  "Convert Ladspa Plugin to M-Player args."
-  (format "ladspa=%s:%s:%s"
-          (ladspa-plugin-library plugin) (ladspa-plugin-label plugin)
-          (mapconcat
-           #'ladspa-control-value
-           (ladspa-plugin-controls plugin)
-           ":")))
-
-(defun ladspa-add-to-mplayer ()
-  "Apply plugin to running MPlayer."
-  (interactive)
-  (declare (special emacspeak-m-player-process))
-  (unless (eq major-mode 'ladspa-mode) (error "This is not a Ladspa buffer"))
-  (unless (get-text-property (point) 'ladspa)
-    (error "No Ladspa Plugin here."))
-  (unless (process-live-p emacspeak-m-player-process)
-    (error "No running MPlayer."))
-  (let ((result nil)
-        (plugin (get-text-property (point) 'ladspa))
-        (args nil))
-    (when
-        (some
-         #'null (mapcar #'ladspa-control-value (ladspa-plugin-controls plugin)))
-      (ladspa-instantiate))
-    (setq args (ladspa-plugin-to-m-player plugin))
-    (setq result 
-          (emacspeak-m-player-dispatch (format "af_add %s" args)))
-    (when (called-interactively-p 'interactive)
-      (message   "%s"
-                 (or result "Waiting")))))
-
-(defun ladspa-delete-from-mplayer ()
-  "Delete plugin from  running MPlayer."
-  (interactive)
-  (declare (special emacspeak-m-player-process))
-  (unless (eq major-mode 'ladspa-mode) (error "This is not a Ladspa buffer"))
-  (unless (process-live-p emacspeak-m-player-process)
-    (error "No running MPlayer."))
-
-  (emacspeak-m-player-dispatch "af_del ladspa"))
 
 ;;}}}
 ;;{{{ Analyse Plugin At Point

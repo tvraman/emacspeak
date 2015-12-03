@@ -56,6 +56,7 @@
 ;;{{{  Required modules
 
 (require 'emacspeak-preamble)
+(require 'ladspa)
 (require 'emacspeak-amark)
 (require 'emacspeak-webutils)
 (require 'dired)
@@ -1427,6 +1428,49 @@ Check first if current buffer is in emacspeak-m-player-mode."
     (setq emacspeak-m-player-panner (1+ emacspeak-m-player-panner))
     (when (= 10 emacspeak-m-player-panner) (setq emacspeak-m-player-panner -10))
     (message "Panned  to %.1f %.1f" (- 1 this) this)))
+
+;;}}}
+;;{{{ Apply Ladspa to MPlayer:
+
+(defun emacspeak-m-player-ladspa-cmd (plugin)
+  "Convert Ladspa Plugin to M-Player command args."
+  (format
+   "ladspa=%s:%s:%s"
+   (ladspa-plugin-library plugin) (ladspa-plugin-label plugin)
+   (mapconcat #'ladspa-control-value (ladspa-plugin-controls plugin) ":")))
+
+(defun emacspeak-m-player-add-ladspa ()
+  "Apply plugin to running MPlayer."
+  (interactive)
+  (declare (special emacspeak-m-player-process))
+  (unless (eq major-mode 'ladspa-mode) (error "This is not a Ladspa buffer"))
+  (unless (get-text-property (point) 'ladspa)
+    (error "No Ladspa Plugin here."))
+  (unless (process-live-p emacspeak-m-player-process)
+    (error "No running MPlayer."))
+  (let ((result nil)
+        (plugin (get-text-property (point) 'ladspa))
+        (args nil))
+    (when
+        (some
+         #'null (mapcar #'ladspa-control-value (ladspa-plugin-controls plugin)))
+      (ladspa-instantiate))
+    (setq args (emacspeak-m-player-ladspa-cmd plugin))
+    (setq result 
+          (emacspeak-m-player-dispatch (format "af_add %s" args)))
+    (when (called-interactively-p 'interactive)
+      (message   "%s"
+                 (or result "Waiting")))))
+
+(defun emacspeak-m-player-delete-ladspa ()
+  "Delete plugin from  running MPlayer."
+  (interactive)
+  (declare (special emacspeak-m-player-process))
+  (unless (eq major-mode 'ladspa-mode) (error "This is not a Ladspa buffer"))
+  (unless (process-live-p emacspeak-m-player-process)
+    (error "No running MPlayer."))
+
+  (emacspeak-m-player-dispatch "af_del ladspa"))
 
 ;;}}}
 (provide 'emacspeak-m-player)
