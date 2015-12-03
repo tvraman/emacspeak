@@ -982,6 +982,7 @@ arg `reset' starts with all filters set to 0."
     ("L" emacspeak-m-player-locate-media)
     ("M" emacspeak-m-player-display-metadata)
     ("M-l" emacspeak-m-player-load-playlist)
+    ("C-l" ladspa)
     ("O" emacspeak-m-player-reset-options)
     ("P" emacspeak-m-player-apply-reverb-preset)
     ("Q" emacspeak-m-player-quit)
