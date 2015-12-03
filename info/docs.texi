@@ -9570,6 +9570,15 @@ Adds specified filter.
 @end format
 @end deffn
 
+@subsubsection emacspeak-m-player-add-ladspa
+@deffn {Command} emacspeak-m-player-add-ladspa   
+@findex emacspeak-m-player-add-ladspa
+
+@format
+Apply plugin to running MPlayer.
+@end format
+@end deffn
+
 @subsubsection emacspeak-m-player-alt-src-step
 @deffn {Command} emacspeak-m-player-alt-src-step  (step)
 @findex emacspeak-m-player-alt-src-step
@@ -9697,6 +9706,15 @@ Use Customize to manipulate MPlayer options.
 
 @format
 Delete filter.
+@end format
+@end deffn
+
+@subsubsection emacspeak-m-player-delete-ladspa
+@deffn {Command} emacspeak-m-player-delete-ladspa   
+@findex emacspeak-m-player-delete-ladspa
+
+@format
+Delete plugin from  running MPlayer.
 @end format
 @end deffn
 
@@ -9878,6 +9896,7 @@ Major mode for m-player interaction.
 key             binding
 ---             -------
 
+C-l		ladspa
 RET		emacspeak-m-player-load
 ESC		Prefix Command
 SPC		emacspeak-m-player-pause
@@ -20085,30 +20104,12 @@ Launch Ladspa workbench.
 @end format
 @end deffn
 
-@subsubsection ladspa-add-to-mplayer
-@deffn {Command} ladspa-add-to-mplayer   
-@findex ladspa-add-to-mplayer
-
-@format
-Apply plugin to running MPlayer.
-@end format
-@end deffn
-
 @subsubsection ladspa-analyse-plugin-at-point
 @deffn {Command} ladspa-analyse-plugin-at-point   
 @findex ladspa-analyse-plugin-at-point
 
 @format
 Analyse plugin at point.
-@end format
-@end deffn
-
-@subsubsection ladspa-delete-from-mplayer
-@deffn {Command} ladspa-delete-from-mplayer   
-@findex ladspa-delete-from-mplayer
-
-@format
-Delete plugin from  running MPlayer.
 @end format
 @end deffn
 
@@ -20146,8 +20147,8 @@ key             binding
 
 RET		ladspa-instantiate
 SPC		ladspa-analyse-plugin-at-point
-a		ladspa-add-to-mplayer
-d		ladspa-delete-from-mplayer
+a		emacspeak-m-player-add-ladspa
+d		emacspeak-m-player-delete-ladspa
 e		ladspa-edit-control
 n		next-line
 p		previous-line

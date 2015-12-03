@@ -1,7 +1,7 @@
 #    -*- mode: org -*-
 
 Emacspeak News --History Of User-Visible Changes
-$Id$
+
 Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
@@ -18,3 +18,13 @@ Module emacspeak-m-player adds support for panning audio from the currently
 playing stream from left to right.
 
 
+** Spatialized Chimes Theme 
+
+Sound theme pan-chimes provides a spatialized theme generated from the
+original =chimes= theme.
+
+** Ladspa Workbench
+
+Module =ladspa.el= implements a Ladspa workbench for the Emacspeak
+desktop. 
+It is integrated with =MPlayer=. 
