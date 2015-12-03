@@ -197,7 +197,7 @@ list of parsed ladspa-plugin structures, one per label."
   "A Ladspa workbench for the Emacspeak desktop."
   (setq tab-width 8
         tab-stop-list '(16))
-  
+
   (setq buffer-read-only t)
   (setq header-line-format ladspa-header-line-format))
 
@@ -254,11 +254,11 @@ list of parsed ladspa-plugin structures, one per label."
       (insert "\n\n")
       (loop  for c in controls  and i from 1 do
              (insert (format "%s:  %s:\t%s"
-                             i (ladspa-control-desc c) (ladspa-control-value c)
-                             (put-text-property
-                              (line-beginning-position) (line-end-position)
-                              'ladspa-control c)
-                             (insert "\n"))))
+                             i (ladspa-control-desc c) (ladspa-control-value c)))
+             (put-text-property
+              (line-beginning-position) (line-end-position)
+              'ladspa-control c)
+             (insert "\n"))
       (put-text-property (point-min) (point-max)
                          'ladspa plugin)
       (goto-char (point-min))
@@ -266,6 +266,39 @@ list of parsed ladspa-plugin structures, one per label."
     (when (called-interactively-p 'interactive)
       (ladspa-add-to-mplayer))
     (funcall-interactively #'switch-to-buffer buffer)))
+
+;;}}}
+;;{{{ Edit Ladspa Plugin:
+
+(defun ladspa-edit-control ()
+  "Edit Ladspa control  at point by prompting for control values."
+  (interactive)
+  (unless (eq major-mode 'ladspa-mode) (error "This is not a Ladspa buffer"))
+  (unless (get-text-property (point) 'ladspa-control)
+    (error "No Ladspa control here."))
+  (let* ((inhibit-read-only  t)
+         (plugin (get-text-property (point) 'ladspa))
+         (control (get-text-property (point) 'ladspa-control)))
+    (beginning-of-line)
+    (delete-region (line-beginning-position) (line-end-position))
+    (setf (ladspa-control-value control)
+          (read-from-minibuffer
+           (format "%s: Range %s -- %s: Default %s"
+                   (ladspa-control-desc control)
+                   (ladspa-control-min control) (ladspa-control-max control)
+                   (ladspa-control-default control))
+           nil nil nil nil
+           (ladspa-control-default control)))
+    (insert (format "%s:  %s:\t%s"
+                    "*" (ladspa-control-desc control) (ladspa-control-value control)))
+    (put-text-property
+     (line-beginning-position) (line-end-position)
+     'ladspa-control control)
+    (put-text-property
+     (line-beginning-position) (line-end-position)
+     'ladspa plugin)
+    (insert "\n")
+    (goto-char (line-beginning-position))))
 
 ;;}}}
 ;;{{{ Apply to MPlayer:
@@ -308,7 +341,6 @@ list of parsed ladspa-plugin structures, one per label."
   (unless (eq major-mode 'ladspa-mode) (error "This is not a Ladspa buffer"))
   (unless (process-live-p emacspeak-m-player-process)
     (error "No running MPlayer."))
-
 
   (emacspeak-m-player-dispatch "af_del ladspa"))
 
