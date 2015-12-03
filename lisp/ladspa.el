@@ -249,9 +249,9 @@ list of parsed ladspa-plugin structures, one per label."
                    (ladspa-control-default c))))
       (insert (ladspa-plugin-desc plugin))
       (insert "\n\n")
-      (loop  for c in controls do
-             (insert (format "%s:\t%s\n"
-                             (ladspa-control-desc c)
+      (loop  for c in controls  and i from 1 do
+             (insert (format "%s:  %s:\t%s\n"
+                             i (ladspa-control-desc c)
                              (ladspa-control-value c))))
       (put-text-property (point-min) (point-max)
                          'ladspa plugin)
