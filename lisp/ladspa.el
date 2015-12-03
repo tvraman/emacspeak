@@ -219,6 +219,8 @@ list of parsed ladspa-plugin structures, one per label."
         ("RET" ladspa-instantiate)
         ("a" ladspa-add-to-mplayer)
         ("d" ladspa-delete-from-mplayer)
+        ("p" previous-line)
+        ("n" next-line)
         ("SPC" ladspa-analyse-plugin-at-point)
         ("e" ladspa-edit-control)
         )
@@ -252,7 +254,8 @@ list of parsed ladspa-plugin structures, one per label."
                    nil nil nil nil
                    (ladspa-control-default c))))
       (insert (propertize (ladspa-plugin-desc plugin) 'face 'bold))
-      (insert "\n\n")
+      (insert "\n")
+      (insert "e: Edit Control\t a: Apply Control\n\n")
       (loop  for c in controls  and i from 1 do
              (insert (format "%s:  %s:\t%s"
                              i (ladspa-control-desc c) (ladspa-control-value c)))
