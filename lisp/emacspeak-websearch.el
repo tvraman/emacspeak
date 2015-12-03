@@ -648,7 +648,7 @@ Optional prefix arg prompts for toolbelt options."
     current-prefix-arg))
   (declare (special emacspeak-websearch-accessible-google-url emacspeak-google-toolbelt))
   (setq emacspeak-google-toolbelt nil)
-  (let ((emacspeak-eww-masquerade nil)
+  (let ((emacspeak-eww-masquerade t)
         (toolbelt (emacspeak-google-toolbelt)))
     (emacspeak-webutils-cache-google-query query)
     (emacspeak-webutils-cache-google-toolbelt toolbelt)
