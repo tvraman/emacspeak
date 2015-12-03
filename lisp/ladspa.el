@@ -159,7 +159,7 @@ list of parsed ladspa-plugin structures, one per label."
    ((and ladspa-plugins (null refresh)) ladspa-plugins)
    (t
     (loop
-     for library in (ladspa-libs) do
+     for library in (ladspa-libs refresh) do
      (setq ladspa-plugins
            (nconc ladspa-plugins (ladspa-analyse-library library))))
     ladspa-plugins)))
