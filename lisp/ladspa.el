@@ -220,6 +220,7 @@ list of parsed ladspa-plugin structures, one per label."
         ("a" ladspa-add-to-mplayer)
         ("d" ladspa-delete-from-mplayer)
         ("SPC" ladspa-analyse-plugin-at-point)
+        ("e" ladspa-edit-control)
         )
       do
       (define-key ladspa-mode-map (kbd (first k)) (second k)))
@@ -262,7 +263,12 @@ list of parsed ladspa-plugin structures, one per label."
       (put-text-property (point-min) (point-max)
                          'ladspa plugin)
       (goto-char (point-min))
-      (ladspa-mode))
+      (ladspa-mode)
+      (setq header-line-format
+            (concat 
+             "Ladspa: "
+             (propertize (ladspa-plugin-label plugin) 'face 'bold)))
+      )
     (when (called-interactively-p 'interactive)
       (ladspa-add-to-mplayer))
     (funcall-interactively #'switch-to-buffer buffer)))
@@ -290,14 +296,14 @@ list of parsed ladspa-plugin structures, one per label."
            nil nil nil nil
            (ladspa-control-default control)))
     (insert (format "%s:  %s:\t%s"
-                    "*" (ladspa-control-desc control) (ladspa-control-value control)))
+                     (1+ (position control (ladspa-plugin-controls plugin)))
+                               (ladspa-control-desc control) (ladspa-control-value control)))
     (put-text-property
      (line-beginning-position) (line-end-position)
      'ladspa-control control)
     (put-text-property
      (line-beginning-position) (line-end-position)
      'ladspa plugin)
-    (insert "\n")
     (goto-char (line-beginning-position))))
 
 ;;}}}
