@@ -122,13 +122,15 @@
 
 (defun ladspa-analyse-label (library summary)
   "Analyse Ladspa effect and return a parsed metadata structure."
+  (declare (special ladspa-analyse))
   (let* ((label  (substring  summary 0 (string-match " " summary)))
          (desc (string-trim (substring  summary (string-match " " summary))))
          (controls nil)
          (lines (split-string
                  (shell-command-to-string
                   (format
-                   "analyseplugin   %s %s | grep  control " library label))
+                   "%s   %s %s | grep  control "
+                   ladspa-analyse library label))
                  "\n" 'omit-null))
          (result (make-ladspa-plugin :library library :label label :desc desc)))
     (loop for c in lines do
@@ -139,10 +141,12 @@
 (defun ladspa-analyse-library (library )
   "Analyse Ladspa library and return a
 list of parsed ladspa-plugin structures, one per label."
+  (declare (special ladspa-analyse))
   (let ((result nil)
         (labels
             (split-string
-             (shell-command-to-string (format "analyseplugin -l %s" library))
+             (shell-command-to-string
+              (format "%s -l %s" ladspa-analyse library))
              "\n" 'omit-null)))
     (loop for label in labels  do
           (push (ladspa-analyse-label library label) result))
@@ -158,7 +162,7 @@ list of parsed ladspa-plugin structures, one per label."
      for library in (ladspa-libs) do
      (setq ladspa-plugins
            (nconc ladspa-plugins (ladspa-analyse-library library))))
-     ladspa-plugins)))
+    ladspa-plugins)))
 
 ;;}}}
 ;;{{{ Ladspa Mode:
@@ -204,7 +208,7 @@ list of parsed ladspa-plugin structures, one per label."
       (ladspa-init)
       (goto-char (point-min))
       (ladspa-mode))
-     (funcall-interactively #'switch-to-buffer buffer)))
+    (funcall-interactively #'switch-to-buffer buffer)))
 
 (declaim (special ladspa-mode-map))
 (loop for k in
@@ -212,6 +216,7 @@ list of parsed ladspa-plugin structures, one per label."
         ("RET" ladspa-instantiate)
         ("a" ladspa-add-to-mplayer)
         ("d" ladspa-delete-from-mplayer)
+        ("SPC" ladspa-analyse-plugin-at-point)
         )
       do
       (define-key ladspa-mode-map (kbd (first k)) (second k)))
@@ -228,8 +233,8 @@ list of parsed ladspa-plugin structures, one per label."
   (let* ((inhibit-read-only  t)
          (plugin (get-text-property (point) 'ladspa))
          (controls (ladspa-plugin-controls plugin))
-        (buffer
-         (get-buffer-create  (format "*%s*" (ladspa-plugin-label plugin)))))
+         (buffer
+          (get-buffer-create  (format "*%s*" (ladspa-plugin-label plugin)))))
     (save-current-buffer
       (set-buffer buffer)
       (erase-buffer)
@@ -261,7 +266,6 @@ list of parsed ladspa-plugin structures, one per label."
 
 (declare-function emacspeak-m-player-dispatch "emacspeak-m-player.el" (cmd))
 
-
 (defun ladspa-plugin-to-m-player (plugin)
   "Convert Ladspa Plugin to M-Player args."
   (format "ladspa=%s:%s:%s"
@@ -288,17 +292,32 @@ list of parsed ladspa-plugin structures, one per label."
     (emacspeak-m-player-dispatch (format "af_add %s" args))))
 
 (defun ladspa-delete-from-mplayer ()
-   "Delete plugin from  running MPlayer."
+  "Delete plugin from  running MPlayer."
   (interactive)
   (declare (special emacspeak-m-player-process))
   (unless (eq major-mode 'ladspa-mode) (error "This is not a Ladspa buffer"))
   (unless (get-text-property (point) 'ladspa)
     (error "No Ladspa Plugin here."))
-        (unless (process-live-p emacspeak-m-player-process) (error "No running MPlayer."))
-    
-    
- (emacspeak-m-player-dispatch "af_del ladspa"))
+  (unless (process-live-p emacspeak-m-player-process) (error "No running MPlayer."))
 
+
+  (emacspeak-m-player-dispatch "af_del ladspa"))
+
+;;}}}
+;;{{{ Analyse Plugin At Point
+
+(defun ladspa-analyse-plugin-at-point ()
+  "Analyse plugin at point."
+  (interactive)
+  (unless (eq major-mode 'ladspa-mode) (error "This is not a Ladspa buffer"))
+  (unless (get-text-property (point) 'ladspa)
+    (error "No Ladspa Plugin here."))
+  (let ((plugin (get-text-property (point) 'ladspa)))
+    (funcall-interactively
+     #'shell-command
+     (format "%s %s %s"
+             ladspa-analyse
+             (ladspa-plugin-library plugin) (ladspa-plugin-label plugin)))))
 
 ;;}}}
 (provide 'ladspa)
