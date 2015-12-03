@@ -135,7 +135,7 @@
          (result (make-ladspa-plugin :library library :label label :desc desc)))
     (loop for c in lines do
           (push (ladspa-control c) controls))
-    (setf (ladspa-plugin-controls result) (nreverse controls))
+    (setf (ladspa-plugin-controls result) (reverse controls))
     result))
 
 (defun ladspa-analyse-library (library )
@@ -150,7 +150,7 @@ list of parsed ladspa-plugin structures, one per label."
              "\n" 'omit-null)))
     (loop for label in labels  do
           (push (ladspa-analyse-label library label) result))
-    (nreverse result)))
+    (reverse result)))
 
 (defun ladspa-plugins (&optional refresh)
   "Return list of installed Ladspa plugins."
