@@ -290,11 +290,13 @@ list of parsed ladspa-plugin structures, one per label."
   (unless (eq major-mode 'ladspa-mode) (error "This is not a Ladspa buffer"))
   (unless (get-text-property (point) 'ladspa)
     (error "No Ladspa Plugin here."))
-  (unless (process-live-p emacspeak-m-player-process) (error "No running MPlayer."))
+  (unless (process-live-p emacspeak-m-player-process)
+    (error "No running MPlayer."))
   (let ((plugin (get-text-property (point) 'ladspa))
         (args nil))
     (when
-        (some  #'null (mapcar #'ladspa-control-value (ladspa-plugin-controls plugin)))
+        (some
+         #'null (mapcar #'ladspa-control-value (ladspa-plugin-controls plugin)))
       (ladspa-instantiate))
     (setq args (ladspa-plugin-to-m-player plugin))
     (emacspeak-m-player-dispatch (format "af_add %s" args))))
@@ -304,7 +306,8 @@ list of parsed ladspa-plugin structures, one per label."
   (interactive)
   (declare (special emacspeak-m-player-process))
   (unless (eq major-mode 'ladspa-mode) (error "This is not a Ladspa buffer"))
-  (unless (process-live-p emacspeak-m-player-process) (error "No running MPlayer."))
+  (unless (process-live-p emacspeak-m-player-process)
+    (error "No running MPlayer."))
 
 
   (emacspeak-m-player-dispatch "af_del ladspa"))
