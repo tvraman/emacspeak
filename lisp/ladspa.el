@@ -296,8 +296,6 @@ list of parsed ladspa-plugin structures, one per label."
   (interactive)
   (declare (special emacspeak-m-player-process))
   (unless (eq major-mode 'ladspa-mode) (error "This is not a Ladspa buffer"))
-  (unless (get-text-property (point) 'ladspa)
-    (error "No Ladspa Plugin here."))
   (unless (process-live-p emacspeak-m-player-process) (error "No running MPlayer."))
 
 
