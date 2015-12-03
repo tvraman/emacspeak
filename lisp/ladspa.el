@@ -334,14 +334,19 @@ list of parsed ladspa-plugin structures, one per label."
     (error "No Ladspa Plugin here."))
   (unless (process-live-p emacspeak-m-player-process)
     (error "No running MPlayer."))
-  (let ((plugin (get-text-property (point) 'ladspa))
+  (let ((result nil)
+        (plugin (get-text-property (point) 'ladspa))
         (args nil))
     (when
         (some
          #'null (mapcar #'ladspa-control-value (ladspa-plugin-controls plugin)))
       (ladspa-instantiate))
     (setq args (ladspa-plugin-to-m-player plugin))
-    (emacspeak-m-player-dispatch (format "af_add %s" args))))
+    (setq result 
+          (emacspeak-m-player-dispatch (format "af_add %s" args)))
+    (when (called-interactively-p 'interactive)
+      (message   "%s"
+                 (or result "Waiting")))))
 
 (defun ladspa-delete-from-mplayer ()
   "Delete plugin from  running MPlayer."
