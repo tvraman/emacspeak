@@ -178,9 +178,10 @@ list of parsed ladspa-plugin structures, one per label."
 (defun ladspa-draw-plugin (p)
   "Draw plugin at point."
   (let ((start (point)))
+    (insert (propertize (ladspa-plugin-label p) 'face 'bold))
+    (insert ":\t")
     (insert (ladspa-plugin-desc p))
-    (put-text-property start (point)
-                       'ladspa p))
+    (put-text-property start (point) 'ladspa p))
   (insert "\n"))
 
 (defun  ladspa-init ()
@@ -194,7 +195,9 @@ list of parsed ladspa-plugin structures, one per label."
 (define-derived-mode ladspa-mode special-mode
                      "Interactively manipulate Ladspa filters."
   "A Ladspa workbench for the Emacspeak desktop."
-  (setq tab-width 8)
+  (setq tab-width 8
+        tab-stop-list '(16))
+  
   (setq buffer-read-only t)
   (setq header-line-format ladspa-header-line-format))
 
@@ -247,12 +250,15 @@ list of parsed ladspa-plugin structures, one per label."
                            (ladspa-control-default c))
                    nil nil nil nil
                    (ladspa-control-default c))))
-      (insert (ladspa-plugin-desc plugin))
+      (insert (propertize (ladspa-plugin-desc plugin) 'face 'bold))
       (insert "\n\n")
       (loop  for c in controls  and i from 1 do
-             (insert (format "%s:  %s:\t%s\n"
-                             i (ladspa-control-desc c)
-                             (ladspa-control-value c))))
+             (insert (format "%s:  %s:\t%s"
+                             i (ladspa-control-desc c) (ladspa-control-value c)
+                             (put-text-property
+                              (line-beginning-position) (line-end-position)
+                              'ladspa-control c)
+                             (insert "\n"))))
       (put-text-property (point-min) (point-max)
                          'ladspa plugin)
       (goto-char (point-min))
@@ -263,6 +269,8 @@ list of parsed ladspa-plugin structures, one per label."
 
 ;;}}}
 ;;{{{ Apply to MPlayer:
+
+;;; This may move to emacspeak-m-player.el
 
 (declare-function emacspeak-m-player-dispatch "emacspeak-m-player.el" (cmd))
 
