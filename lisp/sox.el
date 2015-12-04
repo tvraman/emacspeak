@@ -239,6 +239,7 @@
      for e in effects  do
      (cond
       ((eq 'ladspa (sox-effect-type e))
+       (push  file options)
        (mapc #'(lambda(o)  (push o    options)) (sox-ladspa-cmd (sox-effect-params e))))
       (t
        (push (sox-effect-name e) options)
@@ -247,9 +248,8 @@
         (when (second p)(push (second p)  options))))))
     (setq options (nreverse  options))
     (when (string= action sox-edit) (push save-file options))
-    (princ options)
     (apply #'start-process
-           sox-play "*SOX*" action file options)))
+           "play" "*SOX*" sox-play  file options)))
 
 (defun sox-play ()
   "Play sound from current context."
@@ -491,9 +491,9 @@ and return a suitable effect structure."
 
 (defun sox-ladspa-cmd (plugin)
   "Convert Ladspa Plugin to SoX args."
-  `(,@(mapcar #'ladspa-control-value( reverse  (ladspa-plugin-controls plugin)))
-    ,(ladspa-plugin-label plugin) ,(ladspa-plugin-library plugin)
-    "ladspa "))
+  `("ladspa"
+    ,(ladspa-plugin-library plugin) ,(ladspa-plugin-label plugin)
+    ,@(mapcar #'ladspa-control-value( reverse  (ladspa-plugin-controls plugin)))))
 
 ;;}}}
 ;;{{{ Add Emacspeak Support
