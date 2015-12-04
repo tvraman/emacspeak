@@ -162,19 +162,20 @@ list of parsed ladspa-plugin structures, one per label."
      for library in (ladspa-libs refresh) do
      (setq ladspa-plugins
            (nconc ladspa-plugins (ladspa-analyse-library library))))
+    (ladspa-table-init)
     ladspa-plugins)))
 
 ;;}}}
 ;;{{{ Ladspa Table:
 
-(defvar ladspa-table (make-hash-table )
+(defvar ladspa-table (make-hash-table :test #'eq)
   "Table of Ladspa plugins.")
 
 (defun ladspa-table-init ()
   "Populate Ladspa hash-table."
   (declare (special ladspa-table))
   (loop for p in (ladspa-plugins) do
-        (puthash (ladspa-plugin-label p) p ladspa-table)))
+        (puthash (intern (ladspa-plugin-label p)) p ladspa-table)))
 
 (defsubst ladspa-table-get (label)
 "Return plugin by label."
@@ -183,9 +184,12 @@ list of parsed ladspa-plugin structures, one per label."
 (defun ladspa-read (&optional prompt)
   "Return a plugin after reading its label."
   (declare (special ladspa-table))
-  (let ((label (completing-read
+ (let ((label
+        (intern
+         (completing-read
                 (or prompt "Ladspa Plugin Tag: ")
-                (hash-table-keys ladspa-table))))
+                (hash-table-keys ladspa-table)
+                nil 'must-match))))
     (when label (gethash label ladspa-table))))
 
 ;;}}}
