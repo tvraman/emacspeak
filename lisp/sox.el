@@ -234,16 +234,20 @@
   "Apply action to    current context."
   (let ((file (sox-context-file context))
         (effects (sox-context-effects context))
-        (command nil)
         (options nil))
     (loop
      for e in effects  do
-     (push (sox-effect-name e) options)
-     (loop
-      for  p in (sox-effect-params e) do
-      (when (second p)(push (second p)  options))))
+     (cond
+      ((eq 'ladspa (sox-effect-type e))
+       (mapc #'(lambda(o)  (push o    options)) (sox-ladspa-cmd (sox-effect-params e))))
+      (t
+       (push (sox-effect-name e) options)
+       (loop
+        for  p in (sox-effect-params e) do
+        (when (second p)(push (second p)  options))))))
     (setq options (nreverse  options))
     (when (string= action sox-edit) (push save-file options))
+    (princ options)
     (apply #'start-process
            sox-play "*SOX*" action file options)))
 
@@ -400,6 +404,14 @@ and return a suitable effect structure."
   "Generic spec for ladspa effect.")
 
 (put 'sox-ladspa-params 'create #'ladspa-create)
+(defun sox-get-ladspa-effect ()
+  "Read needed params for effect ladspa,
+and return a suitable effect structure."
+  (let ((plugin (ladspa-create (ladspa-read "Ladspa effect: "))))
+    (make-sox-effect
+     :type 'ladspa 
+     :name (ladspa-plugin-label plugin)
+     :params plugin)))
 
 ;;}}}
 ;;{{{ Bass:
@@ -479,12 +491,9 @@ and return a suitable effect structure."
 
 (defun sox-ladspa-cmd (plugin)
   "Convert Ladspa Plugin to SoX args."
-  (format
-   "ladspa %s %s %s"
-   (ladspa-plugin-library plugin) (ladspa-plugin-label plugin)
-   (mapconcat #'ladspa-control-value (ladspa-plugin-controls plugin) " ")))
-
-;;;###autoload
+  `(,@(mapcar #'ladspa-control-value( reverse  (ladspa-plugin-controls plugin)))
+    ,(ladspa-plugin-label plugin) ,(ladspa-plugin-library plugin)
+    "ladspa "))
 
 ;;}}}
 ;;{{{ Add Emacspeak Support
