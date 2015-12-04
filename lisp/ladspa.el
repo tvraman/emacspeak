@@ -104,7 +104,7 @@
   "Construct a ladspa control instance from c-str."
   (assert (stringp c-str) nil "Error: c-str is not a string.")
   (let* ((fields (split-string c-str "," 'omit-null))
-         (desc (first fields))
+         (desc (string-trim (first fields)))
          (range
           (when (>= (length fields) 3)
             (split-string (third fields) " " 'omit)))
@@ -113,8 +113,8 @@
              (split-string (fourth fields) " " 'omit)))
          (result (make-ladspa-control)))
     (when (string-match "^Ports:" desc)
-      (setq desc (substring desc  7)))
-    (setf (ladspa-control-desc result) (substring desc 1 -1)
+      (setq desc (string-trim (substring desc  7))))
+    (setf (ladspa-control-desc result) desc
           (ladspa-control-min result) (first range)
           (ladspa-control-max result) (third range)
           (ladspa-control-default result)(second default))
