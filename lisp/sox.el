@@ -296,6 +296,10 @@
         (desc nil)
         (repeat nil))
     (unless effect (error "No effect at point."))
+    (cond
+     ((eq 'ladspa (sox-effect-type   effect))
+      (ladspa-initialize (sox-effect-params effect )))
+     (t
     (setq desc (intern (format "sox-%s-params" (sox-effect-name effect))))
     (setq repeat (get desc 'repeat))
     (setf (sox-effect-params effect)
