@@ -184,10 +184,10 @@ list of parsed ladspa-plugin structures, one per label."
     (put-text-property start (point) 'ladspa p))
   (insert "\n"))
 
-(defun  ladspa-init ()
+(defun  ladspa-init (&optional refresh)
   "Initialize Ladspa."
   (let ((inhibit-read-only  t)
-        (plugins (ladspa-plugins)))
+        (plugins (ladspa-plugins refresh)))
     (erase-buffer)
     (loop for  p in plugins do
           (ladspa-draw-plugin p))))
@@ -202,13 +202,13 @@ list of parsed ladspa-plugin structures, one per label."
   (setq header-line-format ladspa-header-line-format))
 
 ;;;###autoload
-(defun ladspa ()
+(defun ladspa (&optional refresh)
   "Launch Ladspa workbench."
-  (interactive)
+  (interactive "P")
   (let ((buffer (get-buffer-create "*Ladspa*")))
     (save-current-buffer
       (set-buffer "*Ladspa*")
-      (ladspa-init)
+      (ladspa-init refresh)
       (goto-char (point-min))
       (ladspa-mode))
     (funcall-interactively #'switch-to-buffer buffer)))
