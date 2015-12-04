@@ -1430,7 +1430,7 @@ Check first if current buffer is in emacspeak-m-player-mode."
     (message "Panned  to %.1f %.1f" (- 1 this) this)))
 
 ;;}}}
-;;{{{ Apply Ladspa to MPlayer:
+e;;{{{ Apply Ladspa to MPlayer:
 
 (defun emacspeak-m-player-ladspa-cmd (plugin)
   "Convert Ladspa Plugin to M-Player command args."
@@ -1438,7 +1438,7 @@ Check first if current buffer is in emacspeak-m-player-mode."
    "ladspa=%s:%s:%s"
    (ladspa-plugin-library plugin) (ladspa-plugin-label plugin)
    (mapconcat #'ladspa-control-value (ladspa-plugin-controls plugin) ":")))
-
+;;;###autoload
 (defun emacspeak-m-player-add-ladspa ()
   "Apply plugin to running MPlayer."
   (interactive)
@@ -1461,7 +1461,7 @@ Check first if current buffer is in emacspeak-m-player-mode."
     (when (called-interactively-p 'interactive)
       (message   "%s"
                  (or result "Waiting")))))
-
+;;;###autoload
 (defun emacspeak-m-player-delete-ladspa ()
   "Delete plugin from  running MPlayer."
   (interactive)

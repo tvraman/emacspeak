@@ -231,10 +231,19 @@ list of parsed ladspa-plugin structures, one per label."
 
 ;;}}}
 ;;{{{ Instantiate Ladspa Plugin:
+(defvar ladspa-edit-help
+  (concat
+   (propertize "a" 'face 'bold)
+   ":\tApply\t\t\t"
+   (propertize "e" 'face 'bold)
+   ":\t Edit")
+  "Help string for  Ladspa Control Edit.")
 
+   
 (defun ladspa-instantiate ()
   "Instantiate plugin at point by prompting for control values."
   (interactive)
+  (declare (special ladspa-edit-help))
   (unless (eq major-mode 'ladspa-mode) (error "This is not a Ladspa buffer"))
   (unless (get-text-property (point) 'ladspa)
     (error "No Ladspa Plugin here."))
@@ -264,7 +273,8 @@ list of parsed ladspa-plugin structures, one per label."
               (line-beginning-position) (line-end-position)
               'ladspa-control c)
              (insert "\n"))
-      (insert "e: Edit \t a: Apply \n\n")
+      (insert "\n")
+      (insert ladspa-edit-help)
       (put-text-property (point-min) (point-max)
                          'ladspa plugin)
       (goto-char (point-min))
