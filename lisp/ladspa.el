@@ -165,6 +165,30 @@ list of parsed ladspa-plugin structures, one per label."
     ladspa-plugins)))
 
 ;;}}}
+;;{{{ Ladspa Table:
+
+(defvar ladspa-table (make-hash-table )
+  "Table of Ladspa plugins.")
+
+(defun ladspa-table-init ()
+  "Populate Ladspa hash-table."
+  (declare (special ladspa-table))
+  (loop for p in (ladspa-plugins) do
+        (puthash (ladspa-plugin-label p) p ladspa-table)))
+
+(defsubst ladspa-table-get (label)
+"Return plugin by label."
+(gethash label ladspa-table))
+
+(defun ladspa-read (&optional prompt)
+  "Return a plugin after reading its label."
+  (declare (special ladspa-table))
+  (let ((label (completing-read
+                (or prompt "Ladspa Plugin Tag: ")
+                (hash-table-keys ladspa-table))))
+    (when label (gethash label ladspa-table))))
+
+;;}}}
 ;;{{{ Ladspa Mode:
 
 (defconst ladspa-header-line-format
