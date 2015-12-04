@@ -475,7 +475,18 @@ and return a suitable effect structure."
    :params (sox-read-effect-params sox-reverb-params)))
 
 ;;}}}
-(provide 'sox)
+;;{{{ Apply Ladspa to SoX:
+
+(defun sox-ladspa-cmd (plugin)
+  "Convert Ladspa Plugin to SoX args."
+  (format
+   "ladspa %s %s %s"
+   (ladspa-plugin-library plugin) (ladspa-plugin-label plugin)
+   (mapconcat #'ladspa-control-value (ladspa-plugin-controls plugin) " ")))
+
+;;;###autoload
+
+;;}}}
 ;;{{{ Add Emacspeak Support
 
 ;;; Code here can be factored out to emacspeak-sox.el
@@ -503,6 +514,7 @@ and return a suitable effect structure."
     (emacspeak-auditory-icon 'delete-object)))
 
 ;;}}}
+(provide 'sox)
 ;;{{{ end of file
 
 ;;; local variables:
