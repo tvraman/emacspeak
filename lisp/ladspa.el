@@ -114,7 +114,7 @@
          (result (make-ladspa-control)))
     (when (string-match "^Ports:" desc)
       (setq desc (substring desc  7)))
-    (setf (ladspa-control-desc result) desc
+    (setf (ladspa-control-desc result) (substring desc 1 -1)
           (ladspa-control-min result) (first range)
           (ladspa-control-max result) (third range)
           (ladspa-control-default result)(second default))
