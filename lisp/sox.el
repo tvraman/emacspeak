@@ -46,10 +46,13 @@
 ;;; Launching M-x sox  creates a special interaction buffer
 ;;; that provides single keystroke commands for editing and
 ;;; applying effects to a selected sound file. For adding mp3
-;;; support to sox,
+;;; support to sox, do
 ;;;
 ;;; sudo apt-get libsox-fmt-mp3 install
 ;;;
+;;; This module provides support for ladspa effects using module ladspa.el.
+;;; To use ladspa effects with SoX, you need a relatively new build of Sox;
+;;; The stock SoX that is package for Debian/Ubuntu  does not always work.
 ;;; This module can be used independent of Emacspeak.
 ;;; Code:
 
@@ -59,6 +62,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'derived)
+(require 'ladspa)
 
 ;;}}}
 ;;{{{ Customizations:
@@ -79,6 +83,7 @@
 
 ;;}}}
 ;;{{{ Define Special Mode
+
 (defsubst sox-effect-at-point (&optional pos)
   "Return effect at  point."
   (get-text-property (or pos (point)) 'sox-effect))
@@ -180,6 +185,7 @@
 ;;{{{ Top-level Context:
 
 (defstruct sox-effect
+  type ; native: nil ladspa: 'ladspa
   name ; effect name
   params ; list of effect name/value pairs
   )
