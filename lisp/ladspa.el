@@ -269,42 +269,16 @@ list of parsed ladspa-plugin structures, one per label."
 
 (defun ladspa-create (plugin)
   "Instantiate plugin  by prompting for control values."
-  (declare (special ladspa-edit-help))
-  (let* ((inhibit-read-only  t) 
-         (controls (ladspa-plugin-controls plugin))
-         (buffer
-          (get-buffer-create  (format "*%s*" (ladspa-plugin-label plugin)))))
-    (save-current-buffer
-      (set-buffer buffer)
-      (erase-buffer)
-      (loop for c in controls do
+  (let* ((controls (ladspa-plugin-controls plugin)))
+    (loop for c in controls do
             (setf (ladspa-control-value c)
                   (read-from-minibuffer
                    (format "%s: Range %s -- %s: Default %s"
                            (ladspa-control-desc c)
                            (ladspa-control-min c) (ladspa-control-max c)
                            (ladspa-control-default c))
-                   nil nil nil nil (ladspa-control-default c))))
-      (insert (propertize (ladspa-plugin-desc plugin) 'face 'bold))
-      (insert "\n")
-      (loop  for c in controls  and i from 1 do
-             (insert (format "%s:  %s:\t%s"
-                             i (ladspa-control-desc c) (ladspa-control-value c)))
-             (put-text-property
-              (line-beginning-position) (line-end-position)
-              'ladspa-control c)
-             (insert "\n"))
-      (insert "\n")
-      (insert ladspa-edit-help)
-      (put-text-property (point-min) (point-max)
-                         'ladspa plugin)
-      (goto-char (point-min))
-      (ladspa-mode)
-      (setq header-line-format
-            (concat 
-             "Ladspa: "
-             (propertize (ladspa-plugin-label plugin) 'face 'bold))))
-    (funcall-interactively #'switch-to-buffer buffer)))
+                   nil nil nil nil (ladspa-control-default c)))))
+  plugin)
    
 (defun ladspa-instantiate ()
   "Instantiate plugin at point by prompting for control values."
@@ -314,8 +288,36 @@ list of parsed ladspa-plugin structures, one per label."
   (let ((plugin  (get-text-property (point) 'ladspa)))
     (cond
      ((null plugin) (error "No Ladspa Plugin here."))
-     (t (ladspa-create plugin)))))
-    
+     (t
+      (let ((inhibit-read-only  t)
+            (buffer
+             (get-buffer-create  (format "*%s*" (ladspa-plugin-label plugin)))))
+        (ladspa-create plugin)
+        (save-current-buffer
+          (set-buffer buffer)
+          (erase-buffer)
+          (insert (propertize (ladspa-plugin-desc plugin) 'face 'bold))
+          (insert "\n")
+          (loop  for c in controls  and i from 1 do
+                 (insert
+                  (format "%s:  %s:\t%s"
+                          i (ladspa-control-desc c) (ladspa-control-value c)))
+                 (put-text-property
+                  (line-beginning-position) (line-end-position)
+                  'ladspa-control c)
+                 (insert "\n"))
+          (insert "\n")
+          (insert ladspa-edit-help)
+          (put-text-property (point-min) (point-max)
+                             'ladspa plugin)
+          (goto-char (point-min))
+          (ladspa-mode)
+          (setq header-line-format
+                (concat 
+                 "Ladspa: "
+                 (propertize (ladspa-plugin-label plugin) 'face 'bold))))
+        (funcall-interactively #'switch-to-buffer buffer))))))
+
 ;;}}}
 ;;{{{ Edit Ladspa Plugin:
 
@@ -338,9 +340,10 @@ list of parsed ladspa-plugin structures, one per label."
                    (ladspa-control-default control))
            nil nil nil nil
            (ladspa-control-default control)))
-    (insert (format "%s:  %s:\t%s"
-                     (1+ (position control (ladspa-plugin-controls plugin)))
-                               (ladspa-control-desc control) (ladspa-control-value control)))
+    (insert
+     (format "%s:  %s:\t%s"
+             (1+ (position control (ladspa-plugin-controls plugin)))
+             (ladspa-control-desc control) (ladspa-control-value control)))
     (put-text-property
      (line-beginning-position) (line-end-position)
      'ladspa-control control)
