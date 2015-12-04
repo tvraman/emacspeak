@@ -372,7 +372,8 @@
     "chorus"
     "reverb"
     "treble"
-    "trim")
+    "trim"
+    "ladspa")
   "Table of implemented effects.")
 
 ;;}}}
@@ -389,6 +390,16 @@ and return a suitable effect structure."
    :name "trim"
    :params
    (sox-read-effect-params sox-trim-params 'repeat)))
+
+;;}}}
+;;{{{ Ladspa:
+
+;;; Heavy lifting done by Ladspa module.
+
+(defvar sox-ladspa-params nil
+  "Generic spec for ladspa effect.")
+
+(put 'sox-ladspa-params 'create #'ladspa-initialize)
 
 ;;}}}
 ;;{{{ Bass:
