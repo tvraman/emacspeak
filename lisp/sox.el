@@ -240,7 +240,8 @@
      (cond
       ((eq 'ladspa (sox-effect-type e))
        (push  file options)
-       (mapc #'(lambda(o)  (push o    options)) (sox-ladspa-cmd (sox-effect-params e))))
+       (mapc #'(lambda(o)  (push o    options))
+             (sox-ladspa-cmd (sox-effect-params e))))
       (t
        (push (sox-effect-name e) options)
        (loop
@@ -319,7 +320,8 @@
   (let ((inhibit-read-only  t)
         (e (sox-effect-at-point)))
     (unless e (error "No effect at point."))
-    (setf  (sox-context-effects sox-context) (remove e (sox-context-effects sox-context)))
+    (setf  (sox-context-effects sox-context)
+           (remove e (sox-context-effects sox-context)))
     (message "Deleted effect %s at point. " (sox-effect-name e ))
     (sox-redraw sox-context)))
 
@@ -409,7 +411,7 @@ and return a suitable effect structure."
 and return a suitable effect structure."
   (let ((plugin (ladspa-create (ladspa-read "Ladspa effect: "))))
     (make-sox-effect
-     :type 'ladspa 
+     :type 'ladspa
      :name (ladspa-plugin-label plugin)
      :params plugin)))
 
@@ -493,7 +495,7 @@ and return a suitable effect structure."
   "Convert Ladspa Plugin to SoX args."
   `("ladspa"
     ,(ladspa-plugin-library plugin) ,(ladspa-plugin-label plugin)
-    ,@(mapcar #'ladspa-control-value( reverse  (ladspa-plugin-controls plugin)))))
+    ,@(mapcar #'ladspa-control-value  (ladspa-plugin-controls plugin))))
 
 ;;}}}
 ;;{{{ Add Emacspeak Support
