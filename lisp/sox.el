@@ -298,7 +298,7 @@
     (unless effect (error "No effect at point."))
     (cond
      ((eq 'ladspa (sox-effect-type   effect))
-      (ladspa-initialize (sox-effect-params effect )))
+      (ladspa-create (sox-effect-params effect )))
      (t
       (setq desc (intern (format "sox-%s-params" (sox-effect-name effect))))
       (setq repeat (get desc 'repeat))
@@ -399,7 +399,7 @@ and return a suitable effect structure."
 (defvar sox-ladspa-params nil
   "Generic spec for ladspa effect.")
 
-(put 'sox-ladspa-params 'create #'ladspa-initialize)
+(put 'sox-ladspa-params 'create #'ladspa-create)
 
 ;;}}}
 ;;{{{ Bass:

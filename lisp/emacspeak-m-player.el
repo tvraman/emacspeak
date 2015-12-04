@@ -1430,7 +1430,7 @@ Check first if current buffer is in emacspeak-m-player-mode."
     (message "Panned  to %.1f %.1f" (- 1 this) this)))
 
 ;;}}}
-e;;{{{ Apply Ladspa to MPlayer:
+;;{{{ Apply Ladspa to MPlayer:
 
 (defun emacspeak-m-player-ladspa-cmd (plugin)
   "Convert Ladspa Plugin to M-Player command args."

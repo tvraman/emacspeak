@@ -267,16 +267,10 @@ list of parsed ladspa-plugin structures, one per label."
    ":\t Edit")
   "Help string for  Ladspa Control Edit.")
 
-   
-(defun ladspa-instantiate ()
-  "Instantiate plugin at point by prompting for control values."
-  (interactive)
+(defun ladspa-create (plugin)
+  "Instantiate plugin  by prompting for control values."
   (declare (special ladspa-edit-help))
-  (unless (eq major-mode 'ladspa-mode) (error "This is not a Ladspa buffer"))
-  (unless (get-text-property (point) 'ladspa)
-    (error "No Ladspa Plugin here."))
-  (let* ((inhibit-read-only  t)
-         (plugin (get-text-property (point) 'ladspa))
+  (let* ((inhibit-read-only  t) 
          (controls (ladspa-plugin-controls plugin))
          (buffer
           (get-buffer-create  (format "*%s*" (ladspa-plugin-label plugin)))))
@@ -290,8 +284,7 @@ list of parsed ladspa-plugin structures, one per label."
                            (ladspa-control-desc c)
                            (ladspa-control-min c) (ladspa-control-max c)
                            (ladspa-control-default c))
-                   nil nil nil nil
-                   (ladspa-control-default c))))
+                   nil nil nil nil (ladspa-control-default c))))
       (insert (propertize (ladspa-plugin-desc plugin) 'face 'bold))
       (insert "\n")
       (loop  for c in controls  and i from 1 do
@@ -312,7 +305,17 @@ list of parsed ladspa-plugin structures, one per label."
              "Ladspa: "
              (propertize (ladspa-plugin-label plugin) 'face 'bold))))
     (funcall-interactively #'switch-to-buffer buffer)))
-
+   
+(defun ladspa-instantiate ()
+  "Instantiate plugin at point by prompting for control values."
+  (interactive)
+  (declare (special ladspa-edit-help))
+  (unless (eq major-mode 'ladspa-mode) (error "This is not a Ladspa buffer"))
+  (let ((plugin  (get-text-property (point) 'ladspa)))
+    (cond
+     ((null plugin) (error "No Ladspa Plugin here."))
+     (t (ladspa-create plugin)))))
+    
 ;;}}}
 ;;{{{ Edit Ladspa Plugin:
 
