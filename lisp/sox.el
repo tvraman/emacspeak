@@ -300,13 +300,13 @@
      ((eq 'ladspa (sox-effect-type   effect))
       (ladspa-initialize (sox-effect-params effect )))
      (t
-    (setq desc (intern (format "sox-%s-params" (sox-effect-name effect))))
-    (setq repeat (get desc 'repeat))
-    (setf (sox-effect-params effect)
-          (sox-read-effect-params (eval desc) repeat ))
-    (delete-region (line-beginning-position) (line-end-position))
-    (sox-draw-effect effect)
-    (flush-lines "^ *$" (point-min) (point-max))))
+      (setq desc (intern (format "sox-%s-params" (sox-effect-name effect))))
+      (setq repeat (get desc 'repeat))
+      (setf (sox-effect-params effect)
+            (sox-read-effect-params (eval desc) repeat ))
+      (delete-region (line-beginning-position) (line-end-position))
+      (sox-draw-effect effect)
+      (flush-lines "^ *$" (point-min) (point-max))))))
 
 (defun sox-delete-effect-at-point ()
   "Delete effect at point."
