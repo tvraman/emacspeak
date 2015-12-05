@@ -380,6 +380,7 @@
   '(
     "bass"
     "chorus"
+    "echo"
     "reverb"
     "treble"
     "trimm"
@@ -387,6 +388,23 @@
     "remix"
     "ladspa")
   "Table of implemented effects.")
+
+;;}}}
+;;{{{ Echo:
+
+(defvar sox-echo-params
+  '("gain-in" "gain-out" "delay" "decay")
+  "Parameter spec for effect echo.")
+
+(put 'sox-echo-params 'repeat t)
+
+(defun sox-get-echo-effect ()
+  "Read needed params for effect echo,
+and return a suitable effect structure."
+  (make-sox-effect
+   :name "echo"
+   :params
+   (sox-read-effect-params sox-echo-params 'repeat)))
 
 ;;}}}
 ;;{{{ Channels:
