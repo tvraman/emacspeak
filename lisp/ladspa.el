@@ -89,6 +89,7 @@
   (cond
    ((and ladspa-libs (null refresh)) ladspa-libs)
    (t
+    (setq ladspa-plugins nil)
     (loop
      for d in (split-string ladspa-home ":" t) do
      (setq ladspa-libs (nconc ladspa-libs (directory-files d  nil "\\.so$"))))
@@ -158,6 +159,7 @@ list of parsed ladspa-plugin structures, one per label."
   (cond
    ((and ladspa-plugins (null refresh)) ladspa-plugins)
    (t
+    (setq ladspa-plugins nil)
     (loop
      for library in (ladspa-libs refresh) do
      (setq ladspa-plugins
@@ -209,6 +211,7 @@ list of parsed ladspa-plugin structures, one per label."
     (insert (propertize (ladspa-plugin-label p) 'face 'bold))
     (insert ":\t")
     (insert (ladspa-plugin-desc p))
+    (insert "\t")
     (insert (propertize (ladspa-plugin-library p) 'face 'italic))
     (put-text-property start (point) 'ladspa p))
   (insert "\n"))
