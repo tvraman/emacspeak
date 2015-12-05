@@ -293,6 +293,7 @@ list of parsed ladspa-plugin structures, one per label."
      ((null plugin) (error "No Ladspa Plugin here."))
      (t
       (let ((inhibit-read-only  t)
+            (controls (ladspa-plugin-controls plugin))
             (buffer
              (get-buffer-create  (format "*%s*" (ladspa-plugin-label plugin)))))
         (ladspa-create plugin)
