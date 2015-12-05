@@ -209,6 +209,7 @@ list of parsed ladspa-plugin structures, one per label."
     (insert (propertize (ladspa-plugin-label p) 'face 'bold))
     (insert ":\t")
     (insert (ladspa-plugin-desc p))
+    (insert (propertize (ladspa-plugin-library p) 'face 'italic))
     (put-text-property start (point) 'ladspa p))
   (insert "\n"))
 
