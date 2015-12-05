@@ -174,9 +174,9 @@
    '(
      ("." sox-show-timestamp)
      ("C-k" sox-delete-effect-at-point)
-     ("E" sox-add-effect)
+     ("e" sox-add-effect)
      ("RET" sox-edit-effect-at-point)
-     ("e" sox-set-effect)
+     ("E" sox-set-effect)
      ("f" sox-open-file)
      ("g" sox-refresh)
      ("k" sox-stop)
