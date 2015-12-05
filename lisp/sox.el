@@ -244,7 +244,6 @@
      for e in effects  do
      (cond
       ((eq 'ladspa (sox-effect-type e))
-       (push  file options)
        (mapc #'(lambda(o)  (push o    options))
              (sox-ladspa-cmd (sox-effect-params e))))
       (t
@@ -255,7 +254,7 @@
     (setq options (nreverse  options))
     (when (string= action sox-edit) (push save-file options))
     (apply #'start-process
-           "play" "*SOX*" sox-play  file options)))
+           "player" "*SOX*" sox-play  file options)))
 
 (defun sox-play ()
   "Play sound from current context."
@@ -264,8 +263,8 @@
   (when (process-live-p (sox-context-play sox-context))
     (error "Already playing stream."))
   (setf (sox-context-start-time sox-context) (current-time))
-  (setf (sox-context-play sox-context)(sox-action sox-context
-                                                  sox-play)))
+  (setf (sox-context-play sox-context)
+        (sox-action sox-context sox-play)))
 
 (defun sox-stop ()
   "Stop currently playing  sound from current context."
@@ -383,9 +382,41 @@
     "chorus"
     "reverb"
     "treble"
-    "trim"
+    "trimm"
+    "channels"
+    "remix"
     "ladspa")
   "Table of implemented effects.")
+
+;;}}}
+;;{{{ Channels:
+
+(defvar sox-channels-params '("")
+  "Parameter spec for effect channels.")
+
+
+(defun sox-get-channels-effect ()
+  "Read needed params for effect channels,
+and return a suitable effect structure."
+  (make-sox-effect
+   :name "channels"
+   :params
+   (sox-read-effect-params sox-channels-params 'repeat)))
+
+;;}}}
+;;{{{ Remix:
+
+(defvar sox-remix-params '("|")
+  "Parameter spec for effect remix.")
+(put 'sox-channels-params 'repeat t)
+
+(defun sox-get-remix-effect ()
+  "Read needed params for effect remix,
+and return a suitable effect structure."
+  (make-sox-effect
+   :name "remix"
+   :params
+   (sox-read-effect-params sox-remix-params 'repeat)))
 
 ;;}}}
 ;;{{{ Trim:
