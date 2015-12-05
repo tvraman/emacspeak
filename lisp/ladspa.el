@@ -199,10 +199,12 @@ list of parsed ladspa-plugin structures, one per label."
 
 (defconst ladspa-header-line-format
   '((:eval
-     (format
-      "%s"
-      (propertize "Ladspa Workbench" 'face 'bold))))
-
+     (concat
+(propertize "Laudible: " 'face 'bold)
+(propertize "A Ladspa WorkBench" 'face 'italic)
+(format "%s Effects from %s libraries"
+        (length (ladspa-plugins))
+        (length (ladspa-libs))))))
   "Header line format for SoX buffers.")
 
 (defun ladspa-draw-plugin (p)
