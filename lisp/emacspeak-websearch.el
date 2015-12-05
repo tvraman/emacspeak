@@ -654,10 +654,11 @@ Optional prefix arg prompts for toolbelt options."
     (emacspeak-webutils-cache-google-toolbelt toolbelt)
     (cond
      (options (emacspeak-google-toolbelt-change))
-     (t (emacspeak-we-extract-by-id
-         "center_col"
-         (format emacspeak-websearch-accessible-google-url query)
-         'speak)))))
+     (t
+      (emacspeak-we-extract-by-id-list
+       '( "rhs" "center_col" "nav")
+       (format emacspeak-websearch-accessible-google-url query)
+       'speak)))))
 
 ;;;###autoload
 (defun emacspeak-websearch-google-with-toolbelt (query)
