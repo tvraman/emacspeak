@@ -85,6 +85,7 @@
   (declare (special ladspa-libs))
   (unless (file-exists-p ladspa-home)
     (error "Ladspa not installed or not configured."))
+  (unless (getenv "LADSPA_PATH")(setenv "LADSPA_PATH" ladspa-home))
   (unless ladspa-analyse (error "Ladspa SDK not installed."))
   (cond
    ((and ladspa-libs (null refresh)) ladspa-libs)
