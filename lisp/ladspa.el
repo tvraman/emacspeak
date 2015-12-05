@@ -45,7 +45,7 @@
 ;;; Ladspa plugins in a consistent way to elisp.
 ;;; The goal is to make it easy to inspect Ladspa Plugins,
 ;;; And invoke them easily from  Ladspa host applications such as MPlayer.
-
+;;; See @url{http://emacspeak.blogspot.com/2015/12/a-ladspa-work-bench-for-emacspeak.html}
 ;;; Code:
 
 ;;}}}
