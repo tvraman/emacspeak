@@ -239,6 +239,9 @@ list of parsed ladspa-plugin structures, one per label."
       (ladspa-init refresh)
       (goto-char (point-min))
       (ladspa-mode))
+    (message "%s plugins in %s libs"
+             (length (ladspa-plugins))
+             (length (ladspa-libs)))
     (funcall-interactively #'switch-to-buffer buffer)))
 (declare-function emacspeak-m-player-add-ladspa "emacspeak-m-player.el")
 (declare-function emacspeak-m-player-delete-ladspa "emacspeak-m-player.el")
