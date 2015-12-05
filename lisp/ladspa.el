@@ -239,9 +239,13 @@ list of parsed ladspa-plugin structures, one per label."
 (defun ladspa (&optional refresh)
   "Launch Ladspa workbench."
   (interactive "P")
+  (declare (special ladspa-libs ladspa-plugins))
   (let ((buffer (get-buffer-create "*Ladspa*")))
     (save-current-buffer
       (set-buffer "*Ladspa*")
+      (when refresh
+        (setq ladspa-plugins nil
+              ladspa-libs nil))
       (ladspa-init refresh)
       (goto-char (point-min))
       (ladspa-mode))
