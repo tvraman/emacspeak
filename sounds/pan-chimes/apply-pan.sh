@@ -76,3 +76,4 @@ function swapchan () {
 # swapchan no-answer.wav
 # swapchan mark-object.wav
 # wapchan large-movement.wav
+# swapchan scroll.wav
