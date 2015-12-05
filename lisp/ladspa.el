@@ -45,7 +45,8 @@
 ;;; Ladspa plugins in a consistent way to elisp.
 ;;; The goal is to make it easy to inspect Ladspa Plugins,
 ;;; And invoke them easily from  Ladspa host applications such as MPlayer.
-;;; See @url{http://emacspeak.blogspot.com/2015/12/a-ladspa-work-bench-for-emacspeak.html}
+;;; See
+;;; @url{http://emacspeak.blogspot.com/2015/12/a-ladspa-work-bench-for-emacspeak.html}
 ;;; Code:
 
 ;;}}}
@@ -181,18 +182,18 @@ list of parsed ladspa-plugin structures, one per label."
         (puthash (intern (ladspa-plugin-label p)) p ladspa-table)))
 
 (defsubst ladspa-table-get (label)
-"Return plugin by label."
-(gethash label ladspa-table))
+  "Return plugin by label."
+  (gethash label ladspa-table))
 
 (defun ladspa-read (&optional prompt)
   "Return a plugin after reading its label."
   (declare (special ladspa-table))
- (let ((label
-        (intern
-         (completing-read
-                (or prompt "Ladspa Plugin Tag: ")
-                (hash-table-keys ladspa-table)
-                nil 'must-match))))
+  (let ((label
+         (intern
+          (completing-read
+           (or prompt "Ladspa Plugin Tag: ")
+           (hash-table-keys ladspa-table)
+           nil 'must-match))))
     (when label (gethash label ladspa-table))))
 
 ;;}}}
@@ -201,21 +202,24 @@ list of parsed ladspa-plugin structures, one per label."
 (defconst ladspa-header-line-format
   '((:eval
      (concat
-(propertize "Laudible: " 'face 'bold)
-(propertize "A Ladspa WorkBench" 'face 'italic)
-(format "%s Effects from %s libraries"
-        (length (ladspa-plugins))
-        (length (ladspa-libs))))))
+      (propertize "LAUDIBLE: " 'face 'font-lock-keyword-face)
+      (propertize "A Ladspa WorkBench" 'face 'font-lock-string-face)
+      (propertize
+       (format "%s Effects from %s libraries"
+               (length (ladspa-plugins))
+               (length (ladspa-libs)))
+       'face font-lock-constant-face))))
   "Header line format for SoX buffers.")
 
 (defun ladspa-draw-plugin (p)
   "Draw plugin at point."
   (let ((start (point)))
-    (insert (propertize (ladspa-plugin-label p) 'face 'bold))
+    (insert (propertize (ladspa-plugin-label p) 'face 'font-lock-keyword-face))
     (insert ":\t")
-    (insert (ladspa-plugin-desc p))
+    (insert
+     (propertize (ladspa-plugin-desc p) 'face 'font-lock-string-face))
     (insert "\t")
-    (insert (propertize (ladspa-plugin-library p) 'face 'italic))
+    (insert (propertize (ladspa-plugin-library p) 'face 'font-lock-constant-face))
     (put-text-property start (point) 'ladspa p))
   (insert "\n"))
 
@@ -285,15 +289,15 @@ list of parsed ladspa-plugin structures, one per label."
   "Instantiate plugin  by prompting for control values."
   (let* ((controls (ladspa-plugin-controls plugin)))
     (loop for c in controls do
-            (setf (ladspa-control-value c)
-                  (read-from-minibuffer
-                   (format "%s: Range %s -- %s: Default %s"
-                           (ladspa-control-desc c)
-                           (ladspa-control-min c) (ladspa-control-max c)
-                           (ladspa-control-default c))
-                   nil nil nil nil (ladspa-control-default c)))))
+          (setf (ladspa-control-value c)
+                (read-from-minibuffer
+                 (format "%s: Range %s -- %s: Default %s"
+                         (ladspa-control-desc c)
+                         (ladspa-control-min c) (ladspa-control-max c)
+                         (ladspa-control-default c))
+                 nil nil nil nil (ladspa-control-default c)))))
   plugin)
-   
+
 (defun ladspa-instantiate ()
   "Instantiate plugin at point by prompting for control values."
   (interactive)
@@ -311,7 +315,7 @@ list of parsed ladspa-plugin structures, one per label."
         (save-current-buffer
           (set-buffer buffer)
           (erase-buffer)
-          (insert (propertize (ladspa-plugin-desc plugin) 'face 'bold))
+          (insert (propertize (ladspa-plugin-desc plugin) 'face 'font-lock-string-face))
           (insert "\n")
           (loop  for c in controls  and i from 1 do
                  (insert
@@ -328,9 +332,9 @@ list of parsed ladspa-plugin structures, one per label."
           (goto-char (point-min))
           (ladspa-mode)
           (setq header-line-format
-                (concat 
+                (concat
                  "Ladspa: "
-                 (propertize (ladspa-plugin-label plugin) 'face 'bold))))
+                 (propertize (ladspa-plugin-label plugin) 'face 'font-lock-keyword-face))))
         (funcall-interactively #'switch-to-buffer buffer))))))
 
 ;;}}}
