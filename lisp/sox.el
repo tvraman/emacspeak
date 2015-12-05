@@ -91,18 +91,23 @@
 (defun sox-draw-effect (effect)
   "Insert a representation of specified effect at point."
   (let ((name (sox-effect-name effect))
+        (type (sox-effect-type effect))
         (params (sox-effect-params effect))
         (orig (point)))
     (insert (propertize  name 'face  'fixed-pitch))
     (insert ":\t")
-    (loop
-     for p in params do
-     (when (second p) (insert (propertize (first p) 'face 'italic ))
-           (insert "\t")
-           (insert (propertize (second p) 'face 'bold))
-           (insert "\t")))
-    (put-text-property orig (point) 'sox-effect effect)
-    )
+    (cond
+     ((eq 'ladspa type)
+      (insert
+       (mapconcat #'ladspa-control-value (ladspa-plugin-controls (sox-effect-params effect)) " ")))
+     (t
+      (loop
+       for p in params do
+       (when (second p) (insert (propertize (first p) 'face 'italic ))
+             (insert "\t")
+             (insert (propertize (second p) 'face 'bold))
+             (insert "\t")))))
+    (put-text-property orig (point) 'sox-effect effect))
   (insert "\n"))
 
 (defun sox-redraw (context)
