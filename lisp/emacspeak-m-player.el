@@ -808,6 +808,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
 (defconst emacspeak-m-player-filters
   '("extrastereo" "volnorm" "surround"
     "ladspa=bs2b:bs2b:700:4.5"
+    "ladspa=tap_autopan:tap_autopan:.0016:100:1"
     "bs2b=cmoy" "bs2b=jmeier" "bs2b")
   "Table of useful MPlayer filters.")
 
