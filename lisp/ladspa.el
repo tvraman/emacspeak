@@ -47,6 +47,11 @@
 ;;; And invoke them easily from  Ladspa host applications such as MPlayer.
 ;;; See
 ;;; @url{http://emacspeak.blogspot.com/2015/12/a-ladspa-work-bench-for-emacspeak.html}
+;;; Some Ladspa Packages that provide plugins:
+;;; sudo apt-get install zam-plugins wah-plugins vco-plugins tap-plugins 
+;;; swh-plugins rev-plugins mcp-plugins liquidsoap-plugin-ladspa 
+;;; ladspa-foo-plugins invada-studio-plugins-ladspa fil-plugins 
+
 ;;; Code:
 
 ;;}}}
