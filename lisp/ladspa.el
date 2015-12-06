@@ -322,14 +322,21 @@ list of parsed ladspa-plugin structures, one per label."
           (erase-buffer)
           (insert (propertize (ladspa-plugin-desc plugin) 'face 'font-lock-string-face))
           (insert "\n")
-          (loop  for c in controls  and i from 1 do
-                 (insert
-                  (format "%s:  %s:\t%s"
-                          i (ladspa-control-desc c) (ladspa-control-value c)))
-                 (put-text-property
-                  (line-beginning-position) (line-end-position)
-                  'ladspa-control c)
-                 (insert "\n"))
+          (loop
+           for c in controls  and i from 1 do
+           (insert
+            (propertize (format "%s:  " i)  'face 'font-lock-comment-face))
+           (insert
+            (propertize (format "%s:" (ladspa-control-desc c))
+                        'face font-lock-string-face))
+           (insert
+            (propertize
+             (format "\t\t%s"  (ladspa-control-value c))
+             'face 'font-lock-variable-name-face))
+           (put-text-property
+            (line-beginning-position) (line-end-position)
+            'ladspa-control c)
+           (insert "\n"))
           (insert "\n")
           (insert ladspa-edit-help)
           (put-text-property (point-min) (point-max)
