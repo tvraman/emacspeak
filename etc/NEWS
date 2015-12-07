@@ -28,3 +28,7 @@ original =chimes= theme.
 Module =ladspa.el= implements a Ladspa workbench for the Emacspeak
 desktop. 
 It is integrated with =MPlayer=. 
+
+**  Speech-Enabled ElPY:
+
+Module =emacspeak-elpy.el= speech-enables package =ElPY= --- a Python IDE.
