@@ -61,6 +61,7 @@ This chapter documents a total of 1151 commands and 929 options.
 * emacspeak-ediff::
 * emacspeak-ein::
 * emacspeak-elfeed::
+* emacspeak-elpy::
 * emacspeak-emms::
 * emacspeak-enriched::
 * emacspeak-entertain::
@@ -6018,6 +6019,12 @@ Display current article after filtering using W3.
 Work-around for async fetch bug in EWW.
 @end format
 @end deffn
+
+@node emacspeak-elpy
+@section emacspeak-elpy
+
+ELPY ==  Emacs Lisp Python IDE
+Speech-enables all aspects of elpy.
 
 @node emacspeak-emms
 @section emacspeak-emms
