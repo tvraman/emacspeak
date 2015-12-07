@@ -202,6 +202,7 @@ emacspeak-php-mode.elc \
 emacspeak-pianobar.elc \
 emacspeak-proced.elc \
 emacspeak-py.elc \
+emacspeak-elpy.elc \
 emacspeak-python.elc \
 emacspeak-re-builder.elc \
 emacspeak-reftex.elc \
@@ -450,6 +451,7 @@ emacspeak-proced.elc: emacspeak-proced.el dtk-speak.elc voice-setup.elc
 emacspeak-projectile.elc: emacspeak-projectile.el dtk-speak.elc
 emacspeak-py.elc: emacspeak-py.el dtk-speak.elc voice-setup.elc
 emacspeak-python.elc: emacspeak-python.el dtk-speak.elc voice-setup.elc
+emacspeak-elpy.elc: emacspeak-elpy.el dtk-speak.elc
 emacspeak-re-builder.elc: emacspeak-re-builder.el dtk-speak.elc voice-setup.elc
 emacspeak-redefine.elc: emacspeak-redefine.el  dtk-speak.elc voice-setup.elc
 emacspeak-reftex.elc: emacspeak-reftex.el dtk-speak.elc voice-setup.elc
