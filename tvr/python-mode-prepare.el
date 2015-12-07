@@ -3,5 +3,9 @@
 
 (when (locate-library "ipython-autoloads")
   (load-library "ipython-autoloads"))
-(require 'pysmell)
-(add-hook 'python-mode-hook (lambda () (pysmell-mode 1)))
+
+(add-hook
+ 'python-mode-hook
+ #'(lambda ()
+                              (when (locate-library "elpy")
+                                (elpy-enable))))
