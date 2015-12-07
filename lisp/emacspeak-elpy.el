@@ -53,6 +53,84 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
+;;{{{ Advice Interactive Commands:
+
+(loop
+ for f in
+ '(
+   elpy-autopep8-fix-code elpy-config elpy-check
+   elpy-occur-definitions elpy-rgrep-symbol
+   elpy-set-project-root elpy-set-project-variable
+   elpy-set-test-runner
+   elpy-shell-send-current-statement elpy-shell-send-region-or-buffer
+elpy-shell-switch-to-buffer elpy-shell-switch-to-shell
+   elpy-use-cpython elpy-use-ipython
+   elpy-importmagic-add-import elpy-importmagic-fixup)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'task-done)
+       (emacspeak-speak-mode-line)))))
+
+ (defadvice elpy-enable (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'on)
+    (message "Enabled elpy")))
+
+
+
+
+(defadvice elpy-disable (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'off)
+    (message "Disabled elpy")))
+
+(defadvice elpy-doc (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'help)
+    (message "Displayed help in other window.")))
+
+(defadvice elpy-find-file (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
+(loop
+ for f in
+ '(elpy-flymake-next-error elpy-flymake-previous-error
+                           elpy-goto-definition)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-line)))))
+
+; elpy-flymake-show-error
+
+(loop
+ for f in
+ '(elpy-nav-backward-block elpy-nav-backward-indent
+elpy-nav-expand-to-indentation elpy-nav-forward-block
+elpy-nav-forward-indent
+elpy-nav-indent-shift-left elpy-nav-indent-shift-right
+elpy-open-and-indent-line-below elpy-open-and-indent-line-above
+elpy-nav-move-line-or-region-down elpy-nav-move-line-or-region-up)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-line)))))
+
+;;}}}
 (provide 'emacspeak-elpy)
 ;;{{{ end of file
 
