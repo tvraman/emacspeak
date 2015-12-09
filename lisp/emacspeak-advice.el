@@ -678,7 +678,6 @@ icon."
 
 (defun emacspeak-error-handler (data context calling-function)
   "Emacspeak custom error handling function."
-
   (emacspeak-auditory-icon 'warn-user)
   (message "%s %s"
            (error-message-string data)
@@ -687,6 +686,7 @@ icon."
 (declaim (special command-error-function))
 (when (boundp 'command-error-function)
   (ad-deactivate 'signal)
+  (ad-deactivate 'keyboard-quit)
   (setq command-error-function 'emacspeak-error-handler))
 
 (unless (boundp 'command-error-function)
@@ -1764,6 +1764,7 @@ the newly created blank line."
        (dtk-stop)
        (emacspeak-auditory-icon 'warn-user)
        (dtk-speak "quit")))))
+
 (loop
  for f in
  '(eval-last-sexp eval-expression)
