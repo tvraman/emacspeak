@@ -682,6 +682,17 @@ icon."
   (message "%s %s"
            (error-message-string data)
            (or context " ")))
+(loop
+ for f in
+ '(keyboard-quit keyboard-escape-quit)
+ do
+ (eval
+  `(defadvice ,f (before emacspeak pre act comp)
+     "Stop speech first."
+     (when (ems-interactive-p)
+       (dtk-stop)
+       (emacspeak-auditory-icon 'warn-user)
+       (dtk-speak "quit")))))
 
 (declaim (special command-error-function))
 (when (boundp 'command-error-function)
@@ -1753,17 +1764,7 @@ the newly created blank line."
         (t(when dtk-stop-immediately (dtk-stop))
           (dtk-tone 225 75 'force )))))))
 
-(loop
- for f in
- '(keyboard-quit keyboard-escape-quit)
- do
- (eval
-  `(defadvice ,f (before emacspeak pre act comp)
-     "Stop speech first."
-     (when (ems-interactive-p)
-       (dtk-stop)
-       (emacspeak-auditory-icon 'warn-user)
-       (dtk-speak "quit")))))
+
 
 (loop
  for f in
