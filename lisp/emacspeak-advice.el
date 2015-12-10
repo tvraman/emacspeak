@@ -668,13 +668,9 @@ icon."
 (defvar emacspeak-speak-signals t
   "Specifies if signalled messages are cued.")
 
-(defadvice signal (before emacspeak pre act comp)
-  "Provide spoken feedback for signals."
-  (let ((error-symbol(ad-get-arg 0))
-        (data (ad-get-arg 1)))
-    (tts-with-punctuations
-     'all
-     (dtk-speak (error-message-string (cons error-symbol data))))))
+(declaim (special command-error-function))
+(when (boundp 'command-error-function)
+  (setq command-error-function 'emacspeak-error-handler))
 
 (defun emacspeak-error-handler (data context calling-function)
   "Emacspeak custom error handling function."
@@ -682,7 +678,18 @@ icon."
   (message "%s %s"
            (error-message-string data)
            (or context " ")))
-(loop
+
+(unless (boundp 'command-error-function)
+  (defadvice signal (before emacspeak pre act comp)
+    "Provide spoken feedback for signals."
+    (let ((error-symbol(ad-get-arg 0))
+          (data (ad-get-arg 1)))
+      (tts-with-punctuations
+       'all
+       (dtk-speak (error-message-string (cons error-symbol data)))))))
+
+(unless (boundp 'command-error-function)
+  (loop
  for f in
  '(keyboard-quit keyboard-escape-quit)
  do
@@ -692,13 +699,7 @@ icon."
      (when (ems-interactive-p)
        (dtk-stop)
        (emacspeak-auditory-icon 'warn-user)
-       (dtk-speak "quit")))))
-
-(declaim (special command-error-function))
-(when (boundp 'command-error-function)
-  (ad-deactivate 'signal)
-  (ad-deactivate 'keyboard-quit)
-  (setq command-error-function 'emacspeak-error-handler))
+       (dtk-speak "quit"))))))
 
 (unless (boundp 'command-error-function)
  ;;; turn off tool-bar-mode -- since it raises signals during redisplay
