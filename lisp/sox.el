@@ -399,23 +399,22 @@
   (let ((p-sym (intern (format "sox-%s-params" name)))
         (getter (intern (format "sox-get-%s-effect" name ))))
 ;;; Parameter template used for prompting:
-  (eval
-   `(defconst ,p-sym ,params
-      ,(format "Parameters for effect %s" name)))
-  
-;;; Function  for generating effect structure:
-  (eval
-   `(defun ,getter ()
-      ,(format "Read needed params for effect %s
-and return a suitable effect structure." name)
-      (declare (special ,p-sym))
-      (make-sox-effect
-       :name ,name
-       :params (sox-read-effect-params ,p-sym ,repeat))))
+    (eval
+     `(defconst ,p-sym ,params
+        ,(format "Parameters for effect %s" name)))
 
-;;; Set repeat if needed:
-  (when repeat
-    `(put ',p-sym 'repeat t))))
+;;; Set up  repeat
+    (when repeat `(put ',p-sym 'repeat t))
+
+;;; Function  for generating effect structure:
+    (eval
+     `(defun ,getter ()
+        ,(format "Read needed params for effect %s
+and return a suitable effect structure." name)
+        (declare (special ,p-sym))
+        (make-sox-effect
+         :name ,name
+         :params (sox-read-effect-params ,p-sym ,repeat))))))
 
 ;;}}}
 ;;{{{ Echo:
