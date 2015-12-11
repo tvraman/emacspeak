@@ -391,6 +391,34 @@
   "Table of implemented effects.")
 
 ;;}}}
+;;{{{ Define Effects: Macro
+
+(defmacro sox-def-effect (name params repeat)
+  "Defines needed functions and variables for manipulating effect `name'."
+  (pushnew name  sox-effects :test #'string-equal)
+  (let ((p-sym (intern (format "sox-%s-params" name))))
+;;; Parameter template used for prompting:
+  (eval
+   `(defconst ,p-sym ,params
+      ,(format "Parameters for effect %s" name)))
+  
+;;; Function  for generating effect structure:
+  (eval
+   `(defun
+        ,(intern (format "sox-get-%s-effect" name ))
+        ()
+      ,(format "Read needed params for effect %s
+and return a suitable effect structure." name)
+      (declare (special ,p-sym))
+      (make-sox-effect
+       :name ,name
+       :params (sox-read-effect-params ,p-sym))))
+
+;;; Set repeat if needed:
+  (when repeat
+    `(put ',p-sym 'repeat t))))
+
+;;}}}
 ;;{{{ Echo:
 
 (defvar sox-echo-params
