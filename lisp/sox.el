@@ -396,7 +396,8 @@
 (defmacro sox-def-effect (name params repeat)
   "Defines needed functions and variables for manipulating effect `name'."
   (pushnew name  sox-effects :test #'string-equal)
-  (let ((p-sym (intern (format "sox-%s-params" name))))
+  (let ((p-sym (intern (format "sox-%s-params" name)))
+        (getter (intern (format "sox-get-%s-effect" name ))))
 ;;; Parameter template used for prompting:
   (eval
    `(defconst ,p-sym ,params
@@ -404,15 +405,13 @@
   
 ;;; Function  for generating effect structure:
   (eval
-   `(defun
-        ,(intern (format "sox-get-%s-effect" name ))
-        ()
+   `(defun ,getter ()
       ,(format "Read needed params for effect %s
 and return a suitable effect structure." name)
       (declare (special ,p-sym))
       (make-sox-effect
        :name ,name
-       :params (sox-read-effect-params ,p-sym))))
+       :params (sox-read-effect-params ,p-sym ,repeat))))
 
 ;;; Set repeat if needed:
   (when repeat
