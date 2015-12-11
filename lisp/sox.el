@@ -398,6 +398,15 @@ and return a suitable effect structure."
      :params plugin)))
 
 ;;}}}
+;;{{{ Apply Ladspa to SoX:
+
+(defun sox-ladspa-cmd (plugin)
+  "Convert Ladspa Plugin to SoX args."
+  `("ladspa"
+    ,(ladspa-plugin-library plugin) ,(ladspa-plugin-label plugin)
+    ,@(mapcar #'ladspa-control-value  (ladspa-plugin-controls plugin))))
+
+;;}}}
 ;;{{{ Define Effects: Macro
 
 (defmacro sox-def-effect (name params repeat)
@@ -435,27 +444,26 @@ and return a suitable effect structure." name)
  "echo"
  '("gain-in" "gain-out" "delay" "decay")
  'repeat)
-;;; Channels:
 
+;;; Channels:
 (sox-def-effect
  "channels"
  '("count")
  nil)
 
+;;;remix
 (sox-def-effect
  "remix"
  '("|")
  'repeat)
 
 ;;; Trim:
-
 (sox-def-effect
  "trim"
  '("|")
  'repeat)
 
 ;;; Bass
-
 ;;; bass|treble gain [frequency[k] [width[s|h|k|o|q]]]
 (sox-def-effect
  "bass"
@@ -463,7 +471,6 @@ and return a suitable effect structure." name)
  nil)
 
 ;;; Treble:
-
 ;;; bass|treble gain [frequency[k] [width[s|h|k|o|q]]]
 (sox-def-effect
  "treble"
@@ -471,7 +478,6 @@ and return a suitable effect structure." name)
  nil)
 
 ;;; Chorus:
-
 ;;;  chorus gain-in gain-out <delay decay speed depth -s|-t>
 (sox-def-effect
  "chorus"
@@ -479,7 +485,6 @@ and return a suitable effect structure." name)
  'repeat)
 
 ;;; Fade:
-
 ;;;  fade shape fade-in stop fade-out
 (sox-def-effect
  "fade"
@@ -487,7 +492,6 @@ and return a suitable effect structure." name)
  nil)
 
 ;;; reverb:
-
 ;;;reverb [-w|--wet-only] [reverberance (50%) [HF-damping (50%)
 ;;; [room-scale (100%) [stereo-depth (100%)
 ;;; [pre-delay (0ms) [wet-gain (0dB)]]]]]]
@@ -497,14 +501,6 @@ and return a suitable effect structure." name)
    "room-scale" "stereo-depth"
    "pre-delay"  "wet-gain")
  nil)
-;;}}}
-;;{{{ Apply Ladspa to SoX:
-
-(defun sox-ladspa-cmd (plugin)
-  "Convert Ladspa Plugin to SoX args."
-  `("ladspa"
-    ,(ladspa-plugin-library plugin) ,(ladspa-plugin-label plugin)
-    ,@(mapcar #'ladspa-control-value  (ladspa-plugin-controls plugin))))
 
 ;;}}}
 ;;{{{ Add Emacspeak Support
