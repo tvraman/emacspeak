@@ -381,6 +381,7 @@
     "bass"
     "chorus"
     "echo"
+    "fade"
     "reverb"
     "treble"
     "trimm"
@@ -518,16 +519,27 @@ and return a suitable effect structure."
    :params (sox-read-effect-params sox-chorus-params)))
 
 ;;}}}
+;;{{{ Fade:
+
+;;;  fade shape fade-in stop fade-out
+(defvar sox-fade-params
+  '("shape"  "fade-in" "stop" "fade-out")
+  "Parameters for effect fade.")
+
+(defun sox-get-fade-effect  ()
+  "Read needed params for effect fade
+and return a suitable effect structure."
+  (declare (special sox-fade-params))
+  (make-sox-effect
+   :name "fade"
+   :params (sox-read-effect-params sox-fade-params)))
+
+;;}}}
 ;;{{{ Reverb:
 
 ;;;reverb [-w|--wet-only] [reverberance (50%) [HF-damping (50%)
 ;;; [room-scale (100%) [stereo-depth (100%)
 ;;; [pre-delay (0ms) [wet-gain (0dB)]]]]]]
-
-;; reverb [-w|--wet-only] [reverberance (50%) [HF-damping (50%)
-;;               [room-scale (100%) [stereo-depth (100%)
-;;               [pre-delay (0ms) [wet-gain (0dB)]]]]]]
-
 (defconst sox-reverb-params
   '("-w"  "reverb" "hf-damp"
     "room-scale" "stereo-depth"
