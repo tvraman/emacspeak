@@ -380,6 +380,24 @@
   "Table of implemented effects.")
 
 ;;}}}
+;;{{{ Ladspa:
+
+;;; Heavy lifting done by Ladspa module.
+
+(defvar sox-ladspa-params nil
+  "Generic spec for ladspa effect.")
+
+(put 'sox-ladspa-params 'create #'ladspa-create)
+(defun sox-get-ladspa-effect ()
+  "Read needed params for effect ladspa,
+and return a suitable effect structure."
+  (let ((plugin (ladspa-create (ladspa-read "Ladspa effect: "))))
+    (make-sox-effect
+     :type 'ladspa
+     :name (ladspa-plugin-label plugin)
+     :params plugin)))
+
+;;}}}
 ;;{{{ Define Effects: Macro
 
 (defmacro sox-def-effect (name params repeat)
@@ -409,161 +427,76 @@ and return a suitable effect structure." name)
   t)
 
 ;;}}}
-;;{{{ Echo:
+;;{{{ Use: sox-def-effect
+
+;;; Echo:
 
 (sox-def-effect
  "echo"
  '("gain-in" "gain-out" "delay" "decay")
  'repeat)
-
-;;}}}
-;;{{{ Channels:
+;;; Channels:
 
 (sox-def-effect
  "channels"
  '("count")
  nil)
 
-(defun sox-get-channels-effect ()
-  "Read needed params for effect channels,
-and return a suitable effect structure."
-  (make-sox-effect
-   :name "channels"
-   :params
-   (sox-read-effect-params sox-channels-params 'repeat)))
+(sox-def-effect
+ "remix"
+ '("|")
+ 'repeat)
 
-;;}}}
-;;{{{ Remix:
+;;; Trim:
 
-(defvar sox-remix-params '("|")
-  "Parameter spec for effect remix.")
-(put 'sox-channels-params 'repeat t)
+(sox-def-effect
+ "trim"
+ '("|")
+ 'repeat)
 
-(defun sox-get-remix-effect ()
-  "Read needed params for effect remix,
-and return a suitable effect structure."
-  (make-sox-effect
-   :name "remix"
-   :params
-   (sox-read-effect-params sox-remix-params 'repeat)))
-
-;;}}}
-;;{{{ Trim:
-
-(defvar sox-trim-params '("|")
-  "Parameter spec for effect trim.")
-(put 'sox-trim-params 'repeat t)
-
-(defun sox-get-trim-effect ()
-  "Read needed params for effect trim,
-and return a suitable effect structure."
-  (make-sox-effect
-   :name "trim"
-   :params
-   (sox-read-effect-params sox-trim-params 'repeat)))
-
-;;}}}
-;;{{{ Ladspa:
-
-;;; Heavy lifting done by Ladspa module.
-
-(defvar sox-ladspa-params nil
-  "Generic spec for ladspa effect.")
-
-(put 'sox-ladspa-params 'create #'ladspa-create)
-(defun sox-get-ladspa-effect ()
-  "Read needed params for effect ladspa,
-and return a suitable effect structure."
-  (let ((plugin (ladspa-create (ladspa-read "Ladspa effect: "))))
-    (make-sox-effect
-     :type 'ladspa
-     :name (ladspa-plugin-label plugin)
-     :params plugin)))
-
-;;}}}
-;;{{{ Bass:
+;;; Bass
 
 ;;; bass|treble gain [frequency[k] [width[s|h|k|o|q]]]
-(defvar sox-bass-params
-  '("gain" "frequency" "width")
-  "Params accepted by bass.")
+(sox-def-effect
+ "bass"
+ '("gain" "frequency" "width")
+ nil)
 
-(defun sox-get-bass-effect ()
-  "Read needed params for effect bass,
-and return a suitable effect structure."
-  (declare (special sox-bass-params))
-  (make-sox-effect
-   :name "bass"
-   :params (sox-read-effect-params sox-bass-params)))
-
-;;}}}
-;;{{{ Treble:
+;;; Treble:
 
 ;;; bass|treble gain [frequency[k] [width[s|h|k|o|q]]]
-(defvar sox-treble-params
-  '("gain" "frequency" "width")
-  "Params accepted by treble.")
+(sox-def-effect
+ "treble"
+ '("gain" "frequency" "width")
+ nil)
 
-(defun sox-get-treble-effect ()
-  "Read needed params for effect treble,
-and return a suitable effect structure."
-  (declare (special sox-treble-params))
-  (make-sox-effect
-   :name "treble"
-   :params (sox-read-effect-params sox-treble-params) ))
-
-;;}}}
-;;{{{ Chorus:
+;;; Chorus:
 
 ;;;  chorus gain-in gain-out <delay decay speed depth -s|-t>
-(defvar sox-chorus-params
-  '("gain-in" "gain-out" "delay" "decay" "speed" "step" "shape" )
-  "Parameters for effect chorus.")
-(put 'sox-chorus-params 'repeat t)
-(defun sox-get-chorus-effect  ()
-  "Read needed params for effect chorus
-and return a suitable effect structure."
-  (declare (special sox-chorus-params))
-  (make-sox-effect
-   :name "chorus"
-   :params (sox-read-effect-params sox-chorus-params)))
+(sox-def-effect
+ "chorus"
+ '("gain-in" "gain-out" "delay" "decay" "speed" "step" "shape" )
+ 'repeat)
 
-;;}}}
-;;{{{ Fade:
+;;; Fade:
 
 ;;;  fade shape fade-in stop fade-out
-(defvar sox-fade-params
-  '("shape"  "fade-in" "stop" "fade-out")
-  "Parameters for effect fade.")
+(sox-def-effect
+ "fade"
+ '("shape"  "fade-in" "stop" "fade-out")
+ nil)
 
-(defun sox-get-fade-effect  ()
-  "Read needed params for effect fade
-and return a suitable effect structure."
-  (declare (special sox-fade-params))
-  (make-sox-effect
-   :name "fade"
-   :params (sox-read-effect-params sox-fade-params)))
-
-;;}}}
-;;{{{ Reverb:
+;;; reverb:
 
 ;;;reverb [-w|--wet-only] [reverberance (50%) [HF-damping (50%)
 ;;; [room-scale (100%) [stereo-depth (100%)
 ;;; [pre-delay (0ms) [wet-gain (0dB)]]]]]]
-(defconst sox-reverb-params
-  '("-w"  "reverb" "hf-damp"
-    "room-scale" "stereo-depth"
-    "pre-delay"  "wet-gain")
-  "Parameters for effect reverb.")
-
-(defun sox-get-reverb-effect  ()
-  "Read needed params for effect reverb
-and return a suitable effect structure."
-  (declare (special sox-reverb-params))
-  (make-sox-effect
-   :name "reverb"
-   :params (sox-read-effect-params sox-reverb-params)))
-
+(sox-def-effect
+ "reverb"
+ '("-w"  "reverb" "hf-damp"
+   "room-scale" "stereo-depth"
+   "pre-delay"  "wet-gain")
+ nil)
 ;;}}}
 ;;{{{ Apply Ladspa to SoX:
 
