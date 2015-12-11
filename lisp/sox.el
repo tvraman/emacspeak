@@ -439,7 +439,6 @@ and return a suitable effect structure."
 (defvar sox-channels-params '("")
   "Parameter spec for effect channels.")
 
-
 (defun sox-get-channels-effect ()
   "Read needed params for effect channels,
 and return a suitable effect structure."
