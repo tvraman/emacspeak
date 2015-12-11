@@ -376,18 +376,7 @@
 ;;; 2. Clone the code from one of the previously implemented effects,
 ;;; And update per the SoX man page.
 
-(defconst sox-effects
-  '(
-    "bass"
-    "chorus"
-    "echo"
-    "fade"
-    "reverb"
-    "treble"
-    "trimm"
-    "channels"
-    "remix"
-    "ladspa")
+(defvar sox-effects nil
   "Table of implemented effects.")
 
 ;;}}}
@@ -395,16 +384,18 @@
 
 (defmacro sox-def-effect (name params repeat)
   "Defines needed functions and variables for manipulating effect `name'."
+  (unless (boundp 'sox-effects) (setq sox-effects nil))
   (pushnew name  sox-effects :test #'string-equal)
   (let ((p-sym (intern (format "sox-%s-params" name)))
         (getter (intern (format "sox-get-%s-effect" name ))))
 ;;; Parameter template used for prompting:
     (eval
-     `(defconst ,p-sym ,params
+     `(defconst ,p-sym ',params
         ,(format "Parameters for effect %s" name)))
 
 ;;; Set up  repeat
-    (when repeat `(put ',p-sym 'repeat t))
+    (when repeat
+      (eval `(put ',p-sym 'repeat t)))
 
 ;;; Function  for generating effect structure:
     (eval
@@ -414,30 +405,24 @@ and return a suitable effect structure." name)
         (declare (special ,p-sym))
         (make-sox-effect
          :name ,name
-         :params (sox-read-effect-params ,p-sym ,repeat))))))
+         :params (sox-read-effect-params ,p-sym ,repeat)))))
+  t)
 
 ;;}}}
 ;;{{{ Echo:
 
-(defvar sox-echo-params
-  '("gain-in" "gain-out" "delay" "decay")
-  "Parameter spec for effect echo.")
-
-(put 'sox-echo-params 'repeat t)
-
-(defun sox-get-echo-effect ()
-  "Read needed params for effect echo,
-and return a suitable effect structure."
-  (make-sox-effect
-   :name "echo"
-   :params
-   (sox-read-effect-params sox-echo-params 'repeat)))
+(sox-def-effect
+ "echo"
+ '("gain-in" "gain-out" "delay" "decay")
+ 'repeat)
 
 ;;}}}
 ;;{{{ Channels:
 
-(defvar sox-channels-params '("")
-  "Parameter spec for effect channels.")
+(sox-def-effect
+ "channels"
+ '("count")
+ nil)
 
 (defun sox-get-channels-effect ()
   "Read needed params for effect channels,
