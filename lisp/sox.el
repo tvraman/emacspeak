@@ -380,7 +380,7 @@
   "Table of implemented effects.")
 
 ;;}}}
-;;{{{ Ladspa:
+;;{{{ Ladspa Effects:
 
 ;;; Heavy lifting done by Ladspa module.
 
@@ -407,10 +407,10 @@ and return a suitable effect structure."
     ,@(mapcar #'ladspa-control-value  (ladspa-plugin-controls plugin))))
 
 ;;}}}
-;;{{{ Define Effects: Macro
+;;{{{ Define SoX Effect: Macro
 
 (defmacro sox-def-effect (name params repeat)
-  "Defines needed functions and variables for manipulating effect `name'."
+  "Defines needed functions and variables for manipulating effect name."
   (unless (boundp 'sox-effects) (setq sox-effects nil))
   (pushnew name  sox-effects :test #'string-equal)
   (let ((p-sym (intern (format "sox-%s-params" name)))
@@ -438,58 +438,30 @@ and return a suitable effect structure." name)
 ;;}}}
 ;;{{{ Use: sox-def-effect
 
-;;; Echo:
+(sox-def-effect "echo" '("gain-in" "gain-out" "delay" "decay") 'repeat)
 
-(sox-def-effect
- "echo"
- '("gain-in" "gain-out" "delay" "decay")
- 'repeat)
+(sox-def-effect "channels" '("count") nil)
 
-;;; Channels:
-(sox-def-effect
- "channels"
- '("count")
- nil)
+(sox-def-effect "remix" '("out-spec") 'repeat)
 
-;;;remix
-(sox-def-effect
- "remix"
- '("|")
- 'repeat)
 
-;;; Trim:
-(sox-def-effect
- "trim"
- '("|")
- 'repeat)
+(sox-def-effect "trim" '("position") 'repeat)
 
-;;; Bass
-;;; bass|treble gain [frequency[k] [width[s|h|k|o|q]]]
-(sox-def-effect
- "bass"
- '("gain" "frequency" "width")
- nil)
 
-;;; Treble:
-;;; bass|treble gain [frequency[k] [width[s|h|k|o|q]]]
-(sox-def-effect
- "treble"
- '("gain" "frequency" "width")
- nil)
+(sox-def-effect "bass" '("gain" "frequency" "width") nil)
 
-;;; Chorus:
-;;;  chorus gain-in gain-out <delay decay speed depth -s|-t>
+
+
+(sox-def-effect "treble" '("gain" "frequency" "width") nil)
+
+
+
 (sox-def-effect
  "chorus"
  '("gain-in" "gain-out" "delay" "decay" "speed" "step" "shape" )
  'repeat)
 
-;;; Fade:
-;;;  fade shape fade-in stop fade-out
-(sox-def-effect
- "fade"
- '("shape"  "fade-in" "stop" "fade-out")
- nil)
+(sox-def-effect "fade" '("shape"  "fade-in" "stop" "fade-out") nil)
 
 ;;; reverb:
 ;;;reverb [-w|--wet-only] [reverberance (50%) [HF-damping (50%)
