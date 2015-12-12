@@ -99,7 +99,7 @@ proc tts_say {text} {
     global tts
     set tts(not_stopped) 1
     puts -nonewline  $tts(write)\
-        "\[_]\[:sa w]$text\013"
+        "\[_]\[:sa w]$text \013"
         tts_gobble_acknowledgements
 return ""
 }
