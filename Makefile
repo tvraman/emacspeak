@@ -152,7 +152,7 @@ OUTLOUD=${ECI}/eci.ini \
 ${ECI}/*.h \
 ${ECI}/*.cpp \
 ${ECI}/ALSA ${ECI}/asoundrc \
-${ECI}/Makefile
+${ECI}/atcleci.so ${ECI}/Makefile
 
 NEWS = etc/NEWS*  etc/COPYRIGHT \
 etc/remote.txt etc/applications.html   etc/tips.html
