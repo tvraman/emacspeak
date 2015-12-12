@@ -307,12 +307,10 @@ command \\[customize-variable] on <personality>-settings.. "
 ;;; these voices are device independent 
 
 (defvoice  voice-punctuations-all (list nil nil nil nil  nil 'all)
-  "Turns current voice into one that  speaks all
-punctuations.")
+  "Turns current voice into one that  speaks all punctuations.")
 
 (defvoice  voice-punctuations-some (list nil nil nil nil  nil 'some)
-  "Turns current voice into one that  speaks some
-punctuations.")
+  "Turns current voice into one that  speaks some punctuations.")
 
 (defvoice  voice-punctuations-none (list nil nil nil nil  nil "none")
   "Turns current voice into one that  speaks no punctuations.")

@@ -12778,7 +12778,7 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 
 @defvar {User Option} emacspeak-pydoc-callable-param-personality
 Personality used for pydoc-callable-param-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+This personality uses  emacspeak-voice-lock-variable-name-personality whose  effect can be changed globally by customizing emacspeak-voice-lock-variable-name-personality-settings.
 
 @end defvar
 
@@ -12802,13 +12802,13 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 
 @defvar {User Option} emacspeak-pydoc-package-link-personality
 Personality used for pydoc-package-link-face
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+This personality uses  emacspeak-voice-lock-variable-name-personality whose  effect can be changed globally by customizing emacspeak-voice-lock-variable-name-personality-settings.
 
 @end defvar
 
 @defvar {User Option} emacspeak-pydoc-source-file-link-personality
 Personality used for pydoc-source-file-link-face
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
 
 @end defvar
 
@@ -12832,7 +12832,7 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 
 @defvar {User Option} emacspeak-pydoc-string-personality
 Personality used for pydoc-string-face
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+This personality uses  emacspeak-voice-lock-string-personality whose  effect can be changed globally by customizing emacspeak-voice-lock-string-personality-settings.
 
 @end defvar
 
