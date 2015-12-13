@@ -328,7 +328,7 @@ command \\[customize-variable] on <personality>-settings.. "
   "Adds medium animation  current voice.")
 
 (defvoice voice-animate-extra (list nil 8 8 7 )
-  "Adds extra animation  current voice.")
+  "Adds extra animation  to current voice.")
 
 (defvoice voice-smoothen (list nil nil nil 3 4)
   "Smoothen current voice.")
