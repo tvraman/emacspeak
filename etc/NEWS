@@ -32,3 +32,7 @@ It is integrated with =MPlayer=.
 **  Speech-Enabled ElPY:
 
 Module =emacspeak-elpy.el= speech-enables package =ElPY= --- a Python IDE.
+** SoundScapes:
+
+Module ~soundscape.el~ implements SoundScapes using Python package
+~boodler~ --- see [[http://boodler.org]]
