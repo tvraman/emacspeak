@@ -1,4 +1,4 @@
-;;; $Id: sox.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
+;;; sox.el --- An Audio Work-Bench For The Emacspeak Desktop
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable SOX An Emacs Interface to sox
 ;;; Keywords: Emacspeak,  Audio Desktop sox
