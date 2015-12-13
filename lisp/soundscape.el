@@ -40,7 +40,7 @@
 
 ;;; Commentary:
 ;;; http://boodler.org is a Python-based SoundScape generator.
-;;; This module defines Emacspeak conveniences for running installed Soundscapes.
+;;; This module defines Emacspeak conveniences for running  Soundscapes.
 
 ;;}}}
 ;;{{{  Required modules
@@ -77,60 +77,68 @@
    (t
     (let ((name nil)
           (path nil))
-    (with-temp-buffer
-      (insert-file-contents soundscape-list)
-      (goto-char (point-min))
-      (while (not (eobp))
-        (setq path (buffer-substring (line-beginning-position) (line-end-position)))
-        (setq name (second (split-string path "/")))
-        (when (and name path)
-          (push (cons name path) soundscape-catalog))
-        (forward-line 1))))
+      (with-temp-buffer
+        (insert-file-contents soundscape-list)
+        (goto-char (point-min)) (while
+            (not (eobp))
+          (setq path
+                (buffer-substring (line-beginning-position) (line-end-position)))
+          (setq name (second (split-string path "/")))
+          (when (and name path)
+            (push (cons name path) soundscape-catalog))
+          (forward-line 1))))
     soundscape-catalog)))
 (defun soundscape-read ()
   "Read name of Soundscape with completion."
   (let ((completion-ignore-case t))
-  (cdr
-   (assoc
-    (completing-read "Soundscape: "
-                     (soundscape-catalog))
-    (soundscape-catalog)))))
+    (cdr
+     (assoc
+      (completing-read "Soundscape: "
+                       (soundscape-catalog))
+      (soundscape-catalog)))))
 
 ;;}}}
-;;{{{ Play:
+;;{{{ Running:
 
 (defvar soundscape-processes (make-hash-table :test #'equal)
-"Hash table of running Soundscapes.")
+  "Hash table of running Soundscapes.")
 
 (defun soundscape (scape)
   "Play soundscape."
   (interactive (list (soundscape-read)))
   (declare (special soundscape-processes))
-  (let ((proc (start-process "SoundScape" nil soundscape-player "-o" "alsa" scape))
+  (let ((proc
+         (start-process "SoundScape" nil soundscape-player "-o" "alsa" scape))
         (name (second (split-string scape "/"))))
     (when (process-live-p proc)
       (puthash name proc soundscape-processes)
       (message "Started %s" scape))))
-
 
 (defun soundscape-stop (name)
   "Stop running Soundscape."
   (interactive
    (list
     (let ((completion-ignore-case t))
-      (completing-read "Stop Soundscape:" (hash-table-keys soundscape-processes)))))
+      (completing-read "Stop Soundscape:"
+                       (hash-table-keys soundscape-processes)))))
   (declare (special soundscape-processes))
   (delete-process (gethash name soundscape-processes))
   (remhash  name soundscape-processes)
   (message "Stopped soundscape %s" name))
 
+(defun soundscape-kill ()
+  "Stop all running soundscapes."
+  (interactive)
+  (declare (special soundscape-processes))
+  (mapcar  #'soundscape-stop (hash-table-keys soundscape-processes))
+  (message "Stopped all soundscapes."))
+
 (defsubst soundscape-running-p (name)
   "Predicate to check if soundscape is running."
   (declare (special soundscape-processes))
-(gethash  name soundscape-processes))
+  (gethash  name soundscape-processes))
 
 ;;}}}
-
 (provide 'soundscape)
 ;;{{{ end of file
 
