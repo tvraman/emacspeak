@@ -61,7 +61,7 @@
 (defconst soundscape-list (expand-file-name "soundscapes"  "~/.boodler")
   "Soundscape player. Looks for installed boodler.")
 
-(defvar soundscape-catalog nil
+(defvar soundscape--catalog nil
   "Catalog of installed soundscapes keyed by agent name.")
 
 ;;}}}
@@ -69,9 +69,9 @@
 
 (defun soundscape-catalog (&optional refresh)
   "Return catalog of installed Soundscapes, initialize if necessary."
-  (declare (special soundscape-catalog soundscape-list))
+  (declare (special soundscape--catalog soundscape-list))
   (cond
-   ((or soundscape-catalog (null refresh)) soundscape-catalog)
+   ((or soundscape--catalog (null refresh)) soundscape--catalog)
    ((null (file-exists-p soundscape-list))
     (error "Soundscape catalog not initialized."))
    (t
@@ -85,9 +85,9 @@
                 (buffer-substring (line-beginning-position) (line-end-position)))
           (setq name (second (split-string path "/")))
           (when (and name path)
-            (push (cons name path) soundscape-catalog))
+            (push (cons name path) soundscape--catalog))
           (forward-line 1))))
-    soundscape-catalog)))
+    soundscape--catalog)))
 (defun soundscape-read ()
   "Read name of Soundscape with completion."
   (let ((completion-ignore-case t))

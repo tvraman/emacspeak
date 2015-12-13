@@ -1162,6 +1162,16 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS stations that
  "Search GoLang package documentation.")
 
 ;;}}}
+;;{{{ FreeSound.org:
+
+(emacspeak-url-template-define
+ "FreeSound"
+ "http://freesound.org/search/?q=%s"
+ (list "Search FreeSound: ")
+ nil
+ "Search FreeSound.")
+
+;;}}}
 ;;{{{ Interactive commands
 
 ;;;###autoload

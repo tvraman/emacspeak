@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1151 commands and 942 options.
+This chapter documents a total of 1152 commands and 942 options.
 
 @menu
 * acss-structure::
@@ -3586,9 +3586,7 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @end defvar
 
 @defvar {User Option} emacspeak-voice-lock-comment-delimiter-personality
-Personality used for font-lock-comment-delimiter-face
-This personality uses  voice-smoothen-medium whose  effect can be changed globally by customizing voice-smoothen-medium-settings.
-
+                                                                                                                                                                                        
 @end defvar
 
 @defvar {User Option} emacspeak-voice-lock-comment-personality
@@ -20274,7 +20272,7 @@ This module is Plain  i.e. suitable for a device  for which you haven't yet impl
 @section soundscape
 
 http://boodler.org is a Python-based SoundScape generator.
-This module defines Emacspeak conveniences for running installed Soundscapes.
+This module defines Emacspeak conveniences for running  Soundscapes.
 
 @subsection soundscape Commands
 
@@ -20284,6 +20282,15 @@ This module defines Emacspeak conveniences for running installed Soundscapes.
 
 @format
 Play soundscape.
+@end format
+@end deffn
+
+@subsubsection soundscape-kill
+@deffn {Command} soundscape-kill   
+@findex soundscape-kill
+
+@format
+Stop all running soundscapes.
 @end format
 @end deffn
 
