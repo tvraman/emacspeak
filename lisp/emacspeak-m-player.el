@@ -809,7 +809,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
   '("extrastereo" "volnorm" "surround"
     "ladspa=bs2b:bs2b:700:4.5"
     "ladspa=tap_pinknoise.so:tap_pinknoise:0.5:-2:-12"
-    "ladspa=tap_autopan:tap_autopan:.0016:100:1"
+    "ladspa=tap_autopan:tap_autopan:.0016:100:1, ladspa=tap_autopan:tap_autopan:.06:33:1"
     "bs2b=cmoy" "bs2b=jmeier" "bs2b")
   "Table of useful MPlayer filters.")
 
