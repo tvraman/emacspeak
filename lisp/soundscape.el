@@ -86,6 +86,14 @@
           (push (cons name path) soundscape-catalog))
         (forward-line 1))))
     soundscape-catalog)))
+(defun soundscape-read ()
+  "Read name of Soundscape with completion."
+  (let ((completion-ignore-case t))
+  (cdr
+   (assoc
+    (completing-read "Soundscape: "
+                     (soundscape-catalog))
+    (soundscape-catalog)))))
 
 ;;}}}
 (provide 'soundscape)
