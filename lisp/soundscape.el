@@ -47,6 +47,7 @@
 
 (require 'cl-lib)
 (declaim  (optimize  (safety 0) (speed 3)))
+(require 'subr-x)
 
 ;;}}}
 ;;{{{ Configuration:
@@ -96,6 +97,40 @@
     (soundscape-catalog)))))
 
 ;;}}}
+;;{{{ Play:
+
+(defvar soundscape-processes (make-hash-table :test #'equal)
+"Hash table of running Soundscapes.")
+
+(defun soundscape (scape)
+  "Play soundscape."
+  (interactive (list (soundscape-read)))
+  (declare (special soundscape-processes))
+  (let ((proc (start-process "SoundScape" nil soundscape-player "-o" "alsa" scape))
+        (name (second (split-string scape "/"))))
+    (when (process-live-p proc)
+      (puthash name proc soundscape-processes)
+      (message "Started %s" scape))))
+
+
+(defun soundscape-stop (name)
+  "Stop running Soundscape."
+  (interactive
+   (list
+    (let ((completion-ignore-case t))
+      (completing-read "Stop Soundscape:" (hash-table-keys soundscape-processes)))))
+  (declare (special soundscape-processes))
+  (delete-process (gethash name soundscape-processes))
+  (remhash  name soundscape-processes)
+  (message "Stopped soundscape %s" name))
+
+(defsubst soundscape-running-p (name)
+  "Predicate to check if soundscape is running."
+  (declare (special soundscape-processes))
+(gethash  name soundscape-processes))
+
+;;}}}
+
 (provide 'soundscape)
 ;;{{{ end of file
 

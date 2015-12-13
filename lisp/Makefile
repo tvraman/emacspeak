@@ -223,6 +223,7 @@ emacspeak-solitaire.elc \
 emacspeak-speedbar.elc \
 ladspa.elc \
 sox.elc \
+soundscape.elc \
 sox-gen.elc \
 emacspeak-sql.elc \
 emacspeak-supercite.elc \
@@ -476,6 +477,7 @@ emacspeak-speedbar.elc: emacspeak-speedbar.el dtk-speak.elc voice-setup.elc
 emacspeak-sql.elc: emacspeak-sql.el dtk-speak.elc voice-setup.elc
 ladspa.elc: ladspa.el 
 sox.elc: sox.el ladspa.elc
+soundscape.elc: soundscape.el
 sox-gen.elc: sox-gen.el sox.elc
 emacspeak-supercite.elc: emacspeak-supercite.el dtk-speak.elc voice-setup.elc
 emacspeak-sudoku.elc: emacspeak-sudoku.el dtk-speak.elc
