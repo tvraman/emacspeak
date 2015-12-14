@@ -73,11 +73,10 @@
 (defun emacspeak-list-buffers-speak-buffer-line ()
   "Speak information about this buffer"
   (interactive)
-  (declare (special list-buffers-directory
-                    dtk-stop-immediately))
-  (cond
-   ((eq major-mode 'Buffer-menu-mode)
-    (let((buffer (Buffer-menu-buffer t)))
+  (declare (special list-buffers-directory dtk-stop-immediately))
+  (unless (eq major-mode 'Buffer-menu-mode)
+    (error "This command can be used only in buffer menus"))
+  (let((buffer (Buffer-menu-buffer t)))
       (cond
        ((get-buffer buffer)
         (when dtk-stop-immediately (dtk-stop))
@@ -102,12 +101,11 @@
                          list-buffers-directory)
                     (setq this-buffer-directory list-buffers-directory))))
                                         ;format and speak the line
-          (when this-buffer-modified-p (dtk-tone 700 70))
-          (when this-buffer-read-only (dtk-tone 250 50))
+          (when this-buffer-modified-p (emacspeak-auditory-icon 'modified-object))
+          (when this-buffer-read-only (emacspeak-auditory-icon 'unmodified-object))
           (dtk-speak
            (format  "%s a %s  document  %s with size  %s"
-                    name
-                    this-buffer-mode-name
+                    name this-buffer-mode-name
                     (if (or file this-buffer-directory)
                         (format "visiting %s"
                                 (or file this-buffer-directory))
@@ -115,7 +113,6 @@
                     this-buffer-size))))
        (t(emacspeak-auditory-icon 'error)
          (emacspeak-speak-line)))))
-   (t (error "This command can be used only in buffer menus"))))
 
 (defun emacspeak-list-buffers-next-line (count)
   "Speech enabled buffer menu navigation"
