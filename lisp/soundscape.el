@@ -186,6 +186,7 @@
   (puthash mode scape soundscape-mode-table))
 
 ;;; Add some mappings
+(soundscape-map-mode 'special-mode (soundscape-lookup-name "LightWind"))
 (soundscape-map-mode 'prog-mode(soundscape-lookup-name "Cavern"))
 (soundscape-map-mode 'eww-mode (soundscape-lookup-name "BackgroundWaves"))
 (soundscape-map-mode 'text-mode (soundscape-lookup-name "Still"))
