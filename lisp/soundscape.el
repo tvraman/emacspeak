@@ -258,7 +258,7 @@ Do not set this by hand, use command \\[soundscape-toggle].")
     (when scapes
       (loop
        for scape in scapes
-       unless (gethash scape soundscape-processes)
+       unless (process-live-p (gethash scape soundscape-processes))
        do (soundscape scape))
       (loop
        for scape  being the hash-keys of soundscape-processes
