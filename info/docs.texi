@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1152 commands and 942 options.
+This chapter documents a total of 1153 commands and 942 options.
 
 @menu
 * acss-structure::
@@ -3586,7 +3586,9 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @end defvar
 
 @defvar {User Option} emacspeak-voice-lock-comment-delimiter-personality
-                                                                                                                                                                                        
+Personality used for font-lock-comment-delimiter-face
+This personality uses  voice-smoothen-medium whose  effect can be changed globally by customizing voice-smoothen-medium-settings.
+
 @end defvar
 
 @defvar {User Option} emacspeak-voice-lock-comment-personality
@@ -13958,16 +13960,20 @@ Speak the minor mode-information.
 @end deffn
 
 @subsubsection emacspeak-speak-mode-line
-@deffn {Command} emacspeak-speak-mode-line  (&optional buffer-info)
+@deffn {Command} emacspeak-speak-mode-line  (&rest rest)
 @kbd{C-e m}
 
 @kindex C-e m
 @findex emacspeak-speak-mode-line
 
 @format
+:around advice: ``ad-Advice-emacspeak-speak-mode-line''
+
 Speak the mode-line.
 Speaks header-line if that is set when called non-interactively.
 Interactive prefix arg speaks buffer info.
+
+(fn &optional BUFFER-INFO)
 @end format
 @end deffn
 
@@ -20273,6 +20279,13 @@ This module is Plain  i.e. suitable for a device  for which you haven't yet impl
 
 http://boodler.org is a Python-based SoundScape generator.
 This module defines Emacspeak conveniences for running  Soundscapes.
+Main Entry Points:
+@itemize
+@item M-x soundscape --- runs a named SoundScape
+@item M-x soundscape-toggle --- Enables or disables automatic SoundScapes.
+@end itemize
+When automatic Soundscapes are enabled, SoundScapes are automatically started and stopped based on the current major mode.
+Thus, SoundScapes can be thought of as reflecting the @emph{mood} of the current @emph{mode}.
 
 @subsection soundscape Commands
 
@@ -20295,11 +20308,21 @@ Stop all running soundscapes.
 @end deffn
 
 @subsubsection soundscape-stop
-@deffn {Command} soundscape-stop  (name)
+@deffn {Command} soundscape-stop  (scape)
 @findex soundscape-stop
 
 @format
 Stop running Soundscape.
+@end format
+@end deffn
+
+@subsubsection soundscape-toggle
+@deffn {Command} soundscape-toggle   
+@findex soundscape-toggle
+
+@format
+Toggle automatic SoundScapes.
+When turned on, Soundscapes are automatically run based on current major mode.
 @end format
 @end deffn
 
@@ -20948,7 +20971,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 71 URL Templates.
+This section documents a total of 72 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -21057,6 +21080,10 @@ Display content from Google Finance.
 @b{Finance Google news}
 
 Display content from Google Finance.
+
+@b{FreeSound}
+
+Search FreeSound.
 
 @b{Geek Linux Daily}
 
