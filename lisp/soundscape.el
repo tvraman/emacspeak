@@ -155,6 +155,14 @@
   (declare (special soundscape-processes))
   (process-live-p (gethash  scape soundscape-processes)))
 
+(defun soundscape-display ()
+  "Display names of running scapes."
+  (interactive)
+  (message "%s"
+           (mapconcat
+            #'soundscape-lookup-scape
+            (hash-table-keys soundscape-processes)
+           " ")))
 ;;}}}
 ;;{{{ Modes->SoundScapes:
 
@@ -176,6 +184,7 @@
   (puthash mode scape soundscape-mode-table))
 
 ;;; Add some mappings
+(soundscape-map-mode 'special-mode (soundscape-lookup-name "CricketMeadow"))
 (soundscape-map-mode 'prog-mode(soundscape-lookup-name "Cavern"))
 (soundscape-map-mode 'eww-mode (soundscape-lookup-name "BackgroundWaves"))
 (soundscape-map-mode 'text-mode (soundscape-lookup-name "Still"))
