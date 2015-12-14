@@ -88,14 +88,16 @@
             (push (cons name path) soundscape--catalog))
           (forward-line 1))))
     soundscape--catalog)))
+
+(defsubst soundscape-lookup (name)
+  "Return package/agent for this name."
+  (cdr (assoc name (soundscape-catalog))))
+
 (defun soundscape-read ()
   "Read name of Soundscape with completion."
   (let ((completion-ignore-case t))
-    (cdr
-     (assoc
-      (completing-read "Soundscape: "
-                       (soundscape-catalog))
-      (soundscape-catalog)))))
+    (soundscape-lookup
+     (completing-read "Soundscape: " (soundscape-catalog)))))
 
 ;;}}}
 ;;{{{ Running:
@@ -103,6 +105,7 @@
 (defvar soundscape-processes (make-hash-table :test #'equal)
   "Hash table of running Soundscapes.")
 
+;;;###autoload
 (defun soundscape (scape)
   "Play soundscape."
   (interactive (list (soundscape-read)))
@@ -137,6 +140,42 @@
   "Predicate to check if soundscape is running."
   (declare (special soundscape-processes))
   (gethash  name soundscape-processes))
+
+;;}}}
+;;{{{ Modes->SoundScapes:
+
+(defvar soundscape-mode-table (make-hash-table :test #'eq)
+  "Maps mode-names to associated Soundscapes.")
+
+(defsubst  soundscape-for-mode (mode)
+  "Return associated soundscape for this mode if any."
+  (declare (special soundscape-mode-table))
+  (let ((result nil))
+    (while mode 
+    (pushnew (gethash mode soundscape-mode-table) result)
+    (setq mode (get mode 'derived-mode-parent)))
+    (delq nil result)))
+
+(defsubst  soundscape-map-mode (mode scape)
+  "Associate soundscape for this mode."
+  (declare (special soundscape-mode-table))
+  (puthash mode scape soundscape-mode-table))
+
+;;; Add some mappings
+(soundscape-map-mode 'prog-mode(soundscape-lookup "WaveSounds"))
+(soundscape-map-mode 'eww-mode (soundscape-lookup "BackgroundWaves"))
+(soundscape-map-mode 'text-mode (soundscape-lookup "Still"))
+(soundscape-map-mode 'comint-mode (soundscape-lookup "Cavern"))
+
+;;; Gnus, VM, Mail, Jabber (communication)
+(loop
+ for m in
+ '(
+   gnus-summary-mode gnus-article-mode gnus-group-mode
+   vm-presentation-mode vm-mode mail-mode
+   jabber-roster-mode jabber-chat-mode erc-mode)
+ do
+ (soundscape-map-mode m (soundscape-lookup"Drip" )))
 
 ;;}}}
 (provide 'soundscape)
