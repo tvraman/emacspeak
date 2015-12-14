@@ -199,20 +199,32 @@
 ;;}}}
 ;;{{{ Default mapping:
 
+
+(defconst soundscape-web-modes
+  '(w3-mode eww-mode)
+  "List of mode-names that get the Web  mood.")
+
+(defconst soundscape-communication-modes
+  '(message-mode gnus-summary-mode gnus-article-mode gnus-group-mode
+                   vm-presentation-mode vm-mode mail-mode
+                   jabber-roster-mode jabber-chat-mode erc-mode)
+  "List of mode names that get the Communication defconst.")
+
+(mood soundscape-help-modes
+  '(Info-mode  help-mode  Man-mode
+                 Custom-mode messages-buffer-mode)
+  "List of mode names that get the Help mood.")
+
+
 (defconst soundscape-default-theme
-  '(
+  `(
     ("LightWind"  ( special-mode))
     ( "Cavern" (prog-mode))
-    ( "WaterFlow"  ( w3-mode eww-mode))
+    ( "WaterFlow"  ,soundscape-web-modes)
     ( " Still" (text-mode))
     ( "WaterSounds"  (dired-mode))
-    ("Drip"
-     (message-mode gnus-summary-mode gnus-article-mode gnus-group-mode
-                   vm-presentation-mode vm-mode mail-mode
-                   jabber-roster-mode jabber-chat-mode erc-mode))
-    ("RainForever"
-     (Info-mode  help-mode  Man-mode
-                 Custom-mode messages-buffer-mode))
+    ("Drip" ,soundscape-communication-modes)
+    ("RainForever" ,soundscape-help-modes)
     )
   "Specifies default map.
 Map is a list of lists, where the first element of each sublist is a Soundscape name,
