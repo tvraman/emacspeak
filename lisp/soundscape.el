@@ -193,7 +193,7 @@
 (loop
  for m in
  '(
-   info-mode  help-mode  Man-mode
+   Info-mode  help-mode  Man-mode
               Custom-mode messages-buffer-mode)
  do
  (soundscape-map-mode m (soundscape-lookup-name "RainForever" )))
