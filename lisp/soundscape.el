@@ -165,7 +165,7 @@
 (soundscape-map-mode 'prog-mode(soundscape-lookup "WaveSounds"))
 (soundscape-map-mode 'eww-mode (soundscape-lookup "BackgroundWaves"))
 (soundscape-map-mode 'text-mode (soundscape-lookup "Still"))
-(soundscape-map-mode 'comint-mode (soundscape-lookup "Cavern"))
+;(soundscape-map-mode 'comint-mode (soundscape-lookup "Cavern"))
 
 ;;; Gnus, VM, Mail, Jabber (communication)
 (loop
@@ -176,6 +176,33 @@
    jabber-roster-mode jabber-chat-mode erc-mode)
  do
  (soundscape-map-mode m (soundscape-lookup"Drip" )))
+
+;;}}}
+;;{{{ Customization: Use SoundScape Mappings
+
+;;;###autoload 
+(defcustom soundscape-auto nil
+  "Turn on automatic soundscapes."
+  :type 'boolean
+  :group 'soundscape)
+(defun soundscape-activate (mode)
+  "Activate and deactivate Soundscapes for  this mode."
+  (declare (special soundscape-auto))
+  (when soundscape-auto
+    (let ((scapes (soundscape-for-mode mode)))
+      (when scapes
+        (loop
+         for scape in scapes
+         unless (gethash scape soundscape-processes)
+         do (soundscape scape))
+        (loop
+         for name  being the hash-keys of soundscape-processes
+         unless (member (soundscape-lookup name)  scapes)
+         do (soundscape-stop name))))))
+   
+(defadvice emacspeak-speak-mode-line (after soundscape pre act comp)
+  "Switch soundscape if soundscape-auto is on."
+  (and soundscape-auto (soundscape-activate major-mode)))
 
 ;;}}}
 (provide 'soundscape)
