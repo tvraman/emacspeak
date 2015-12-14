@@ -102,6 +102,11 @@
           (forward-line 1))))
     soundscape--catalog)))
 
+;;;###autoload
+(defun soundscape-init ()
+  "Initialize Soundscape module."
+  (soundscape-catalog))
+
 (defsubst soundscape-lookup-name (name)
   "Return package/agent for this name."
   (cdr (assoc name (soundscape-catalog))))
@@ -261,7 +266,9 @@ When turned on, Soundscapes are automatically run based on current major mode."
    (soundscape-auto
     (setq soundscape-auto nil)
     (soundscape-kill))
-   (t (setq soundscape-auto t)))
+   (t
+    (soundscape-init)
+    (setq soundscape-auto t)))
   (message "Automatic Soundscapes are now %s"
            (if soundscape-auto "on" "off")))
 
