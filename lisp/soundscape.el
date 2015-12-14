@@ -216,22 +216,6 @@
     Custom-mode messages-buffer-mode)
   "List of mode names that get the Help mood.")
 
-(defconst soundscape-default-theme
-  `(
-    ("LightWind"  ( special-mode))
-    ("Steady" (calendar-mode diary-mode))
-    ( "Cavern" (prog-mode))
-    ( "WaterFlow"  ,soundscape-web-modes)
-    ( " Still" (text-mode))
-    ( "WaterSounds"  (dired-mode))
-    ("Drip" ,soundscape-communication-modes)
-    ("RainForever" ,soundscape-help-modes)
-    )
-  "Specifies default map.
-Map is a list of lists, where the first element of each sublist is a Soundscape name,
-and the second element is a list of Soundscape names."
-  )
-
 ;;;###autoload
 (defun soundscape-load-theme (theme)
   "Sets up automatic Soundscape mappings based on theme.
@@ -241,7 +225,24 @@ See  \\{soundscape-default-theme} for details."
    for pair in theme do
    (let ((scape (soundscape-lookup-name (first pair)))
         (modes (second pair)))
-     (when  scape (mapc #'(lambda (m) (soundscape-map-mode m scape)) modes)))))
+     (cond
+      (scape (mapc #'(lambda (m) (soundscape-map-mode m scape)) modes))
+      (t (message "Theme: <%s> not found." (first pair)))))))
+
+(defconst soundscape-default-theme
+  `(
+    ("LightWind"  ( special-mode))
+    ("Steady" (calendar-mode diary-mode))
+    ( "Cavern" (prog-mode))
+    ( "WaterFlow"  ,soundscape-web-modes)
+    ( "Still" (text-mode))
+    ( "WaterSounds"  (dired-mode))
+    ("Drip" ,soundscape-communication-modes)
+    ("RainForever" ,soundscape-help-modes)
+    )
+  "Specifies default map.
+Map is a list of lists, where the first element of each sublist is a Soundscape name,
+and the second element is a list of Soundscape names.")
 
 (soundscape-load-theme soundscape-default-theme)
 
