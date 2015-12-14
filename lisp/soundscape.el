@@ -71,7 +71,7 @@
   "Return catalog of installed Soundscapes, initialize if necessary."
   (declare (special soundscape--catalog soundscape-list))
   (cond
-   ((or soundscape--catalog (null refresh)) soundscape--catalog)
+   ((and soundscape--catalog (null refresh)) soundscape--catalog)
    ((null (file-exists-p soundscape-list))
     (error "Soundscape catalog not initialized."))
    (t
@@ -162,11 +162,9 @@
   (puthash mode scape soundscape-mode-table))
 
 ;;; Add some mappings
-(soundscape-map-mode 'prog-mode(soundscape-lookup "WaveSounds"))
+(soundscape-map-mode 'prog-mode(soundscape-lookup "Cavern"))
 (soundscape-map-mode 'eww-mode (soundscape-lookup "BackgroundWaves"))
 (soundscape-map-mode 'text-mode (soundscape-lookup "Still"))
-;(soundscape-map-mode 'comint-mode (soundscape-lookup "Cavern"))
-
 ;;; Gnus, VM, Mail, Jabber (communication)
 (loop
  for m in
@@ -177,8 +175,17 @@
  do
  (soundscape-map-mode m (soundscape-lookup"Drip" )))
 
+;; help, man, references 
+(loop
+ for m in
+ '(
+   info-mode  help-mode  Man-mode
+              Custom-mode messages-buffer-mode)
+ do
+ (soundscape-map-mode m (soundscape-lookup"Cavern" )))
+
 ;;}}}
-;;{{{ Customization: Use SoundScape Mappings
+;;{{{ Automatic soundscapes:
 
 ;;;###autoload 
 (defcustom soundscape-auto nil
@@ -188,17 +195,17 @@
 (defun soundscape-activate (mode)
   "Activate and deactivate Soundscapes for  this mode."
   (declare (special soundscape-auto))
-  (when soundscape-auto
-    (let ((scapes (soundscape-for-mode mode)))
-      (when scapes
+  (let ((scapes (soundscape-for-mode mode)))
+    (when scapes
         (loop
          for scape in scapes
          unless (gethash scape soundscape-processes)
-         do (soundscape scape))
-        (loop
+         do (soundscape scape)))
+    (unless (eq mode 'shell-mode)
+      (loop
          for name  being the hash-keys of soundscape-processes
          unless (member (soundscape-lookup name)  scapes)
-         do (soundscape-stop name))))))
+         do (soundscape-stop name)))))
    
 (defadvice emacspeak-speak-mode-line (after soundscape pre act comp)
   "Switch soundscape if soundscape-auto is on."
