@@ -203,7 +203,7 @@
   '(
     ("LightWind"  ( special-mode))
     ( "Cavern" (prog-mode))
-    ( "BackgroundWaves"  ( w3-mode eww-mode))
+    ( "WaterFlow"  ( w3-mode eww-mode))
     ( " Still" (text-mode))
     ( "WaterSounds"  (dired-mode))
     ("Drip"
