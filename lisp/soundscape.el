@@ -163,8 +163,8 @@
   (message "%s"
            (mapconcat
             #'soundscape-lookup-scape
-            (hash-table-keys soundscape-processes)
-            " ")))
+            (hash-table-keys soundscape-processes) " ")))
+
 ;;}}}
 ;;{{{ Modes->SoundScapes:
 
@@ -191,9 +191,6 @@
 ;;{{{ Default mapping:
 
 (defconst soundscape-default-theme
-  "Specifies default map.
-Map is a list of lists, where the first element of each sublist is a Soundscape name,
-and the second element is a list of Soundscape names."
   '(
     ("LightWind"  ( special-mode))
     ( "Cavern" (prog-mode))
@@ -208,11 +205,16 @@ and the second element is a list of Soundscape names."
      (Info-mode  help-mode  Man-mode
                  Custom-mode messages-buffer-mode))
     )
+  "Specifies default map.
+Map is a list of lists, where the first element of each sublist is a Soundscape name,
+and the second element is a list of Soundscape names."
   )
+
 ;;;###autoload
 (defun soundscape-load-theme (theme)
   "Sets up automatic Soundscape mappings based on theme.
 See  \\{soundscape-default-theme} for details."
+  (soundscape-catalog)
   (loop
    for pair in theme do
    (let ((scape (soundscape-lookup-name (first pair)))
