@@ -307,7 +307,6 @@
 (defun self-document-all-modules()
   "Generate documentation for all modules."
   (declare (special self-document-map))
-  (setq debug-on-error t)
   (let ((output (find-file-noselect "docs.texi"))
         (keys nil))
     (self-document-load-modules)

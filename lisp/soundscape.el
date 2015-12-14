@@ -38,7 +38,9 @@
 
 ;;{{{  introduction
 
-;;; Commentary: http://boodler.org is a Python-based SoundScape
+;;; Commentary: 
+
+;;; http://boodler.org is a Python-based SoundScape
 ;;; generator. This module defines Emacspeak conveniences for running
 ;;; Soundscapes. Main Entry Points:
 ;;;
@@ -53,6 +55,8 @@
 ;;; automatically started and stopped based on the current major
 ;;; mode. Thus, SoundScapes can be thought of as reflecting the
 ;;; @emph{mood} of the current @emph{mode}.
+
+;;; Code:
 
 ;;}}}
 ;;{{{  Required modules
