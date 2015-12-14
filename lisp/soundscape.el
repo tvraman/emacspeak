@@ -185,30 +185,41 @@
   (declare (special soundscape-mode-table))
   (puthash mode scape soundscape-mode-table))
 
-;;; Add some mappings
-(soundscape-map-mode 'special-mode (soundscape-lookup-name "LightWind"))
-(soundscape-map-mode 'prog-mode(soundscape-lookup-name "Cavern"))
-(soundscape-map-mode 'eww-mode (soundscape-lookup-name "BackgroundWaves"))
-(soundscape-map-mode 'text-mode (soundscape-lookup-name "Still"))
-(soundscape-map-mode 'dired-mode (soundscape-lookup-name "WaterSounds"))
-;;; Gnus, VM, Mail, Jabber (communication)
-(loop
- for m in
- '(
-   message-mode gnus-summary-mode gnus-article-mode gnus-group-mode
-                vm-presentation-mode vm-mode mail-mode
-                jabber-roster-mode jabber-chat-mode erc-mode)
- do
- (soundscape-map-mode m (soundscape-lookup-name"Drip" )))
+;;
 
-;; help, man, references
-(loop
- for m in
- '(
-   Info-mode  help-mode  Man-mode
-              Custom-mode messages-buffer-mode)
- do
- (soundscape-map-mode m (soundscape-lookup-name "RainForever" )))
+;;}}}
+;;{{{ Default mapping:
+
+(defconst soundscape-default-theme
+  "Specifies default map.
+Map is a list of lists, where the first element of each sublist is a Soundscape name,
+and the second element is a list of Soundscape names."
+  '(
+    ("LightWind"  ( special-mode))
+    ( "Cavern" (prog-mode))
+    ( "BackgroundWaves"  ( w3-mode eww-mode))
+    ( " Still" (text-mode))
+    ( "WaterSounds"  (dired-mode))
+    ("Drip"
+     (message-mode gnus-summary-mode gnus-article-mode gnus-group-mode
+                   vm-presentation-mode vm-mode mail-mode
+                   jabber-roster-mode jabber-chat-mode erc-mode))
+    ("RainForever"
+     (Info-mode  help-mode  Man-mode
+                 Custom-mode messages-buffer-mode))
+    )
+  )
+
+(defun soundscape-load-theme (theme)
+  "Sets up automatic Soundscape mappings based on theme.
+See  \\{soundscape-default-theme} for details."
+  (loop
+   for pair in theme do
+   (let ((scape (soundscape-lookup-name (first pair)))
+        (modes (second pair)))
+     (when  scape (mapc #'(lambda (m) (soundscape-map-mode m scape)) modes)))))
+
+(soundscape-load-theme soundscape-default-theme)
 
 ;;}}}
 ;;{{{ Automatic soundscapes:
