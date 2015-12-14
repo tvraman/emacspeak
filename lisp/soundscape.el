@@ -219,7 +219,7 @@
 (defconst soundscape-default-theme
   `(
     ("LightWind"  ( special-mode))
-    ("VaryingChirps" (calendar-mode diary-mode))
+    ("Steady" (calendar-mode diary-mode))
     ( "Cavern" (prog-mode))
     ( "WaterFlow"  ,soundscape-web-modes)
     ( " Still" (text-mode))
