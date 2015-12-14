@@ -1,4 +1,4 @@
-1;;; soundscape.el --- Soundscapes for The Emacspeak Desktop
+;;; soundscape.el --- Soundscapes for The Emacspeak Desktop
 ;;; Description:  Soundscapes Using Boodler
 ;;; Keywords: Emacspeak,  Audio Desktop Soundscapes
 ;;{{{  LCD Archive entry:
@@ -207,7 +207,7 @@
   '(
     message-mode gnus-summary-mode gnus-article-mode gnus-group-mode
     vm-presentation-mode vm-mode mail-mode
-    jabber-roster-mode jabber-chat-mode erc-mode)
+    twittering-mode jabber-roster-mode jabber-chat-mode erc-mode)
   "List of mode names that get the Communication mood.")
 
 (defconst soundscape-help-modes
