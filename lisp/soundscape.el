@@ -84,16 +84,16 @@
    ((null (file-exists-p soundscape-list)) (error "Catalog not initialized."))
    (t
     (let ((name nil)
-          (path nil))
+          (scape nil))
       (with-temp-buffer
         (insert-file-contents soundscape-list)
         (goto-char (point-min))
         (while (not (eobp))
-          (setq path
+          (setq scape
                 (buffer-substring (line-beginning-position) (line-end-position)))
-          (setq name (second (split-string path "/")))
-          (when (and name path)
-            (push (cons name path) soundscape--catalog))
+          (setq name (second (split-string scape "/")))
+          (when (and name scape)
+            (push (cons name scape) soundscape--catalog))
           (forward-line 1))))
     soundscape--catalog)))
 
@@ -101,9 +101,9 @@
   "Return package/agent for this name."
   (cdr (assoc name (soundscape-catalog))))
 
-(defsubst soundscape-lookup-path (path)
+(defsubst soundscape-lookup-scape (scape)
   "Return name for this package/agent."
-  (car (rassoc path (soundscape-catalog))))
+  (car (rassoc scape (soundscape-catalog))))
 
 (defun soundscape-read ()
   "Read name of Soundscape with completion."
@@ -128,18 +128,20 @@
       (setq proc
             (start-process "Boodler" nil soundscape-player "-o" "alsa" scape))
       (when (process-live-p proc) (puthash scape proc soundscape-processes))
-    (message "Soundscape %s is running. " scape))))
+      (message "Soundscape %s is running. " scape))))
 
-(defun soundscape-stop (path)
+(defun soundscape-stop (scape)
   "Stop running Soundscape."
   (interactive
    (list
     (let ((completion-ignore-case t))
       (completing-read "Stop: " (hash-table-keys soundscape-processes)))))
   (declare (special soundscape-processes))
-  (delete-process (gethash path soundscape-processes))
-  (remhash  path soundscape-processes)
-  (message "Stopped soundscape %s" path))
+  (let ((proc (gethash scape soundscape-processes)))
+    (when (process-live-p proc)
+      (delete-process proc)
+      (remhash  scape soundscape-processes)
+      (message "Stopped soundscape %s" scape))))
 
 (defun soundscape-kill ()
   "Stop all running soundscapes."
@@ -148,10 +150,10 @@
   (mapcar  #'soundscape-stop (hash-table-keys soundscape-processes))
   (message "Stopped all soundscapes."))
 
-(defsubst soundscape-running-p (name)
+(defsubst soundscape-running-p (scape)
   "Predicate to check if soundscape is running."
   (declare (special soundscape-processes))
-  (gethash  name soundscape-processes))
+  (process-live-p (gethash  scape soundscape-processes)))
 
 ;;}}}
 ;;{{{ Modes->SoundScapes:
@@ -181,9 +183,9 @@
 (loop
  for m in
  '(
-   gnus-summary-mode gnus-article-mode gnus-group-mode
-                     vm-presentation-mode vm-mode mail-mode
-                     jabber-roster-mode jabber-chat-mode erc-mode)
+   message-mode gnus-summary-mode gnus-article-mode gnus-group-mode
+                vm-presentation-mode vm-mode mail-mode
+                jabber-roster-mode jabber-chat-mode erc-mode)
  do
  (soundscape-map-mode m (soundscape-lookup-name"Drip" )))
 
@@ -200,28 +202,45 @@
 ;;{{{ Automatic soundscapes:
 
 ;;;###autoload
-(defcustom soundscape-auto nil
-  "Turn on automatic soundscapes."
-  :type 'boolean
-  :group 'soundscape)
+(defvar soundscape-auto nil
+  "Turn on automatic soundscapes.
+Do not set this by hand, use command \\[soundscape-toggle].")
+
+
+
 (defun soundscape-activate (mode)
   "Activate and deactivate Soundscapes for  this mode."
-  (declare (special soundscape-auto))
   (let ((scapes (soundscape-for-mode mode)))
     (when scapes
       (loop
        for scape in scapes
        unless (gethash scape soundscape-processes)
-       do (soundscape scape)))
-    (unless (eq mode 'shell-mode)
+       do (soundscape scape))
       (loop
-       for name  being the hash-keys of soundscape-processes
-       unless (member (soundscape-lookup-name name)  scapes)
-       do (soundscape-stop name)))))
+       for scape  being the hash-keys of soundscape-processes
+       unless (member scape  scapes)
+       do (soundscape-stop scape)))))
 
 (defadvice emacspeak-speak-mode-line (after soundscape pre act comp)
   "Switch soundscape if soundscape-auto is on."
   (and soundscape-auto (soundscape-activate major-mode)))
+
+;;}}}
+;;{{{ SoundScape Toggle:
+
+;;;###autoload
+(defun soundscape-toggle ()
+  "Toggle automatic SoundScapes.
+When turned on, Soundscapes are automatically run based on current major mode."
+  (interactive)
+  (declare (special soundscape-auto))
+  (cond
+   (soundscape-auto
+    (setq soundscape-auto nil)
+    (soundscape-kill))
+   (t (setq soundscape-auto t)))
+  (message "Automatic Soundscapes are now %s"
+           (if soundscape-auto "on" "off")))
 
 ;;}}}
 (provide 'soundscape)
