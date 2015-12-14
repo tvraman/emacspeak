@@ -252,10 +252,16 @@ Do not set this by hand, use command \\[soundscape-toggle].")
        for scape  being the hash-keys of soundscape-processes
        unless (member scape  scapes)
        do (soundscape-stop scape)))))
+(defun soundscape-update-hook ()
+  "Hook function to update Soundscape automatically."
+  (declare (special soundscape-auto))
+  (when soundscape-auto (soundscape-activate major-mode)))
+
+(add-hook 'buffer-list-update-hook #'soundscape-update-hook)
 
 (defadvice emacspeak-speak-mode-line (after soundscape pre act comp)
   "Switch soundscape if soundscape-auto is on."
-  (and soundscape-auto (soundscape-activate major-mode)))
+  (soundscape-update-hook))
 
 ;;}}}
 ;;{{{ SoundScape Toggle:
