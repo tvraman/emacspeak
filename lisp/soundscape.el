@@ -209,7 +209,7 @@ and the second element is a list of Soundscape names."
                  Custom-mode messages-buffer-mode))
     )
   )
-
+;;;###autoload
 (defun soundscape-load-theme (theme)
   "Sets up automatic Soundscape mappings based on theme.
 See  \\{soundscape-default-theme} for details."
