@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1153 commands and 942 options.
+This chapter documents a total of 1154 commands and 942 options.
 
 @menu
 * acss-structure::
@@ -216,7 +216,6 @@ This chapter documents a total of 1153 commands and 942 options.
 * mac-voices::
 * outloud-voices::
 * plain-voices::
-* soundscape::
 * sox::
 * sox-gen::
 * stack-f::
@@ -20273,58 +20272,6 @@ Select 32-Outloud server.
 
 This module defines the various voices used in voice-lock mode.
 This module is Plain  i.e. suitable for a device  for which you haven't yet implemented appropriate voice-locking controls
-
-@node soundscape
-@section soundscape
-
-http://boodler.org is a Python-based SoundScape generator.
-This module defines Emacspeak conveniences for running  Soundscapes.
-Main Entry Points:
-@itemize
-@item M-x soundscape --- runs a named SoundScape
-@item M-x soundscape-toggle --- Enables or disables automatic SoundScapes.
-@end itemize
-When automatic Soundscapes are enabled, SoundScapes are automatically started and stopped based on the current major mode.
-Thus, SoundScapes can be thought of as reflecting the @emph{mood} of the current @emph{mode}.
-
-@subsection soundscape Commands
-
-@subsubsection soundscape
-@deffn {Command} soundscape  (scape)
-@findex soundscape
-
-@format
-Play soundscape.
-@end format
-@end deffn
-
-@subsubsection soundscape-kill
-@deffn {Command} soundscape-kill   
-@findex soundscape-kill
-
-@format
-Stop all running soundscapes.
-@end format
-@end deffn
-
-@subsubsection soundscape-stop
-@deffn {Command} soundscape-stop  (scape)
-@findex soundscape-stop
-
-@format
-Stop running Soundscape.
-@end format
-@end deffn
-
-@subsubsection soundscape-toggle
-@deffn {Command} soundscape-toggle   
-@findex soundscape-toggle
-
-@format
-Toggle automatic SoundScapes.
-When turned on, Soundscapes are automatically run based on current major mode.
-@end format
-@end deffn
 
 @node sox
 @section sox
