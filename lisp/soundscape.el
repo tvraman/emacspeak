@@ -38,16 +38,21 @@
 
 ;;{{{  introduction
 
-;;; Commentary:
-;;; http://boodler.org is a Python-based SoundScape generator.
-;;; This module defines Emacspeak conveniences for running  Soundscapes.
-;;; Main Entry Points:
+;;; Commentary: http://boodler.org is a Python-based SoundScape
+;;; generator. This module defines Emacspeak conveniences for running
+;;; Soundscapes. Main Entry Points:
+;;;
 ;;;@itemize
-;;; @item M-x soundscape --- runs a named SoundScape
-;;; @item M-x soundscape-toggle --- Enables or disables automatic SoundScapes.
-;;; @end itemize
-;;; When automatic Soundscapes are enabled, SoundScapes are automatically started and stopped based on the current major mode.
-;;; Thus, SoundScapes can be thought of as reflecting the @emph{mood} of the current @emph{mode}.
+;;; @item M-x soundscape ---
+;;; runs a named SoundScape
+;;; @item M-x soundscape-toggle --- Enables or
+;;; disables automatic SoundScapes.
+;;;@end itemize
+;;;
+;;; When automatic Soundscapes are enabled, SoundScapes are
+;;; automatically started and stopped based on the current major
+;;; mode. Thus, SoundScapes can be thought of as reflecting the
+;;; @emph{mood} of the current @emph{mode}.
 
 ;;}}}
 ;;{{{  Required modules
@@ -124,11 +129,9 @@
   (declare (special soundscape-processes))
   (let ((proc (gethash scape soundscape-processes)))
     (unless (process-live-p proc)
-      (message "Starting %s" scape)
       (setq proc
             (start-process "Boodler" nil soundscape-player "-o" "alsa" scape))
-      (when (process-live-p proc) (puthash scape proc soundscape-processes))
-      (message "Soundscape %s is running. " scape))))
+      (when (process-live-p proc) (puthash scape proc soundscape-processes)))))
 
 (defun soundscape-stop (scape)
   "Stop running Soundscape."
@@ -140,8 +143,7 @@
   (let ((proc (gethash scape soundscape-processes)))
     (when (process-live-p proc)
       (delete-process proc)
-      (remhash  scape soundscape-processes)
-      (message "Stopped soundscape %s" scape))))
+      (remhash  scape soundscape-processes))))
 
 (defun soundscape-kill ()
   "Stop all running soundscapes."
@@ -162,7 +164,7 @@
            (mapconcat
             #'soundscape-lookup-scape
             (hash-table-keys soundscape-processes)
-           " ")))
+            " ")))
 ;;}}}
 ;;{{{ Modes->SoundScapes:
 
@@ -214,8 +216,6 @@
 (defvar soundscape-auto nil
   "Turn on automatic soundscapes.
 Do not set this by hand, use command \\[soundscape-toggle].")
-
-
 
 (defun soundscape-activate (mode)
   "Activate and deactivate Soundscapes for  this mode."
