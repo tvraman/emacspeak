@@ -1546,8 +1546,8 @@ Speak the minor mode-information.
   <dl>
     <dt><a name="index-emacspeak_002dspeak_002dmode_002dline-1" id=
     "index-emacspeak_002dspeak_002dmode_002dline-1"></a>Command:
-    <strong>emacspeak-speak-mode-line</strong> <em>(&amp;optional
-    buffer-info)</em></dt>
+    <strong>emacspeak-speak-mode-line</strong> <em>(&amp;rest
+    rest)</em></dt>
 
     <dd>
       <p><kbd>C-e m</kbd></p><a name="index-C_002de-m" id=
@@ -1557,9 +1557,13 @@ Speak the minor mode-information.
 
       <div class="format">
         <pre class="format">
+:around advice: “ad-Advice-emacspeak-speak-mode-line”
+
 Speak the mode-line.
 Speaks header-line if that is set when called non-interactively.
 Interactive prefix arg speaks buffer info.
+
+(fn &amp;optional BUFFER-INFO)
 </pre>
       </div>
     </dd>
