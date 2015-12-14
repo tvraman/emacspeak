@@ -199,6 +199,8 @@ Full List Of Keybindings:
   (emacspeak-auditory-icon 'select-object)
   (emacspeak-speak-mode-line))
 
+;;; Inherit from 'special-mode:
+(put 'emacspeak-table-mode  'derived-mode-parent 'special-mode)
 ;;}}}
 ;;{{{  speaking current entry
 
