@@ -93,6 +93,11 @@
   "Return package/agent for this name."
   (cdr (assoc name (soundscape-catalog))))
 
+(defsubst soundscape-reverse-lookup (path)
+  "Return name for this package/agent."
+  (cdr (rassocassoc path (soundscape-catalog))))
+
+
 (defun soundscape-read ()
   "Read name of Soundscape with completion."
   (let ((completion-ignore-case t))
