@@ -265,10 +265,15 @@ Do not set this by hand, use command \\[soundscape-toggle].")
        for scape  being the hash-keys of soundscape-processes
        unless (member scape  scapes)
        do (soundscape-stop scape)))))
+(defvar soundscape-cache-mode  nil
+  "Caches last seen mode.")
+
 (defun soundscape-update-hook ()
   "Hook function to update Soundscape automatically."
-  (declare (special soundscape-auto))
-  (when soundscape-auto (soundscape-activate major-mode)))
+  (declare (special soundscape-auto soundscape-cache-mode))
+  (when (and soundscape-auto (not (eq major-mode soundscape-cache-mode)))
+    (soundscape-activate major-mode)
+    (setq soundscape-cache-mode major-mode)))
 
 (add-hook 'buffer-list-update-hook #'soundscape-update-hook)
 
