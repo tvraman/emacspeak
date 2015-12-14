@@ -190,6 +190,7 @@
 (soundscape-map-mode 'prog-mode(soundscape-lookup-name "Cavern"))
 (soundscape-map-mode 'eww-mode (soundscape-lookup-name "BackgroundWaves"))
 (soundscape-map-mode 'text-mode (soundscape-lookup-name "Still"))
+(soundscape-map-mode 'dired-mode (soundscape-lookup-name "WaterSounds"))
 ;;; Gnus, VM, Mail, Jabber (communication)
 (loop
  for m in
