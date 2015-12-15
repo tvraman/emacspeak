@@ -178,6 +178,11 @@
   (declare (special soundscape-processes))
   (process-live-p (gethash  scape soundscape-processes)))
 
+(defun soundscape-current ()
+  "Return names of currently running scapes."
+  (apply #'concat (mapcar #'soundscape-lookup-scape (hash-table-keys soundscape-processes))))
+
+
 (defun soundscape-display ()
   "Display names of running scapes."
   (interactive)
@@ -308,6 +313,7 @@ When turned on, Soundscapes are automatically run based on current major mode."
     (setq soundscape-auto nil)
     (soundscape-kill))
    (t
+    (pushnew   '(soundscape-auto (:eval (soundscape-current))) minor-mode-alist)
     (soundscape-init)
     (setq soundscape-auto t)))
   (message "Automatic Soundscapes are now %s"
