@@ -407,7 +407,24 @@ relief."
 
 (define-prefix-command 'emacspeak-personal-keymap   'emacspeak-personal-keymap)
 
-(defcustom emacspeak-personal-keys nil
+(defcustom emacspeak-personal-keys 
+  '(
+    ("=" emacspeak-wizards-find-longest-line-in-region)
+    ("b" battery)
+    ("e" emacspeak-we-xsl-map)
+    ("h" emacspeak-wizards-how-many-matches)
+    ("j" emacspeak-jabber-popup-roster)
+    ("m" mspools-show)
+    ("o" emacspeak-wizards-occur-header-lines)
+    ("Q" emacspeak-wizards-yql-lookup)
+    ("q" emacspeak-wizards-yql-quotes)
+    ("r" jabber-activity-switch-to)
+    ("s" emacspeak-emergency-tts-restart)
+    ("t" emacspeak-speak-telephone-directory)
+    ("u" emacspeak-wizards-units)
+    ("v" emacspeak-wizards-vc-viewer)
+    ("|" emacspeak-wizards-squeeze-blanks)
+    ("" desktop-clear)) 
   "*Specifies personal key bindings for the audio desktop.
 Bindings specified here are available on prefix key C-e x
 for example, if you bind
