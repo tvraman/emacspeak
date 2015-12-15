@@ -163,8 +163,8 @@
   (declare (special soundscape-processes))
   (let ((proc (gethash scape soundscape-processes)))
     (when (process-live-p proc)
-      (delete-process proc)
-      (remhash  scape soundscape-processes))))
+      (delete-process proc))
+      (remhash  scape soundscape-processes)))
 
 (defun soundscape-kill ()
   "Stop all running soundscapes."
