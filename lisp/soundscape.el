@@ -40,13 +40,13 @@
 
 ;;; Commentary: 
 
-;;; http://boodler.org is a Python-based SoundScape generator.
+;;; Boodler  at @url{http://boodler.org} is a Python-based SoundScape generator.
 ;;; To use this module, first install boodler.
 ;;; Then install the soundscape packages (*.boop) files available 
-;;; at http://boodler.org/lib
+;;; at @url{http://boodler.org/lib}
 ;;; Make sure boodler works and produces audio in your environment.
 ;;; When  boodler is set up and all packages installed, copy
-;;; file emacspea/etc/soundscapes  to ~/.boodler.
+;;; file emacspeak/etc/soundscapes  to ~/.boodler.
 ;;;
 ;;;  This module defines Emacspeak conveniences for running
 ;;; Soundscapes. Main Entry Points:
@@ -65,7 +65,7 @@
 ;;; mode. Thus, SoundScapes can be thought of as reflecting the
 ;;; @emph{mood} of the current @emph{mode}.
 ;;; This package defines a single @var{soundscape-default-theme}
-;;; that is loaded using @code{(soundscape-load soundscape-default-theme}.
+;;; that is loaded using @code{(soundscape-load soundscape-default-theme)}.
 ;;; Emacs modes that provide similar functionality e.g., 
 ;;; communication == email, IM, ... map to  the same @emph{mood}.
 ;;; Code:
