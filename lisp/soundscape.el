@@ -61,7 +61,7 @@
 ;;;@end itemize
 ;;;
 ;;; When automatic Soundscapes are enabled, SoundScapes are
-;;; automatically started and stopped based on the current major
+;;;  started and stopped based on the current major
 ;;; mode. Thus, SoundScapes can be thought of as reflecting the
 ;;; @emph{mood} of the current @emph{mode}.
 ;;; This package defines a single @var{soundscape-default-theme}
