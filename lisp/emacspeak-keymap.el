@@ -546,7 +546,22 @@ interactive command that the key sequence executes."
 
 (define-prefix-command 'emacspeak-alt-keymap   'emacspeak-alt-keymap)
 
-(defcustom emacspeak-alt-keys nil
+(defcustom emacspeak-alt-keys 
+  '(
+    ("a" emacspeak-feeds-atom-display)
+    ("c" emacspeak-wizards-color-at-point)
+    ("d" magit-dispatch-popup)
+    ("e" eww)
+    ("f" emacspeak-feeds-find-feeds)
+    ("l" eww-open-file)
+    ("m" magit-status)
+    ("n" emacspeak-wizards-cycle-to-next-buffer)
+    ("o" emacspeak-feeds-opml-display)
+    ("p" emacspeak-wizards-cycle-to-previous-buffer)
+    ("r" emacspeak-feeds-rss-display)
+    ("s" emacspeak-wizards-tune-in-radio-search)
+    ("t" emacspeak-wizards-tune-in-radio-browse)
+    ("u" emacspeak-m-player-url)) 
   "*Specifies alt key bindings for the audio desktop.
 You can turn the `Pause' key  on your Linux PC keyboard into a `alt' key
 on Linux by having it emit the sequence `C-x@a'.
