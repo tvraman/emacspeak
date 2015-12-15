@@ -566,7 +566,8 @@ interactive command that the key sequence executes."
 (defcustom emacspeak-alt-keys 
   '(
     ("a" emacspeak-feeds-atom-display)
-    ("c" emacspeak-wizards-color-at-point)
+    ("C" emacspeak-wizards-color-at-point)
+    ("c" emacspeak-wizards-view-buffers-filtered-by-this-mode)
     ("e" eww)
     ("f" emacspeak-feeds-find-feeds)
     ("l" eww-open-file)
