@@ -567,7 +567,6 @@ interactive command that the key sequence executes."
   '(
     ("a" emacspeak-feeds-atom-display)
     ("c" emacspeak-wizards-color-at-point)
-    ("d" magit-dispatch-popup)
     ("e" eww)
     ("f" emacspeak-feeds-find-feeds)
     ("l" eww-open-file)
@@ -628,6 +627,7 @@ interactive command that the key sequence executes."
 
 (defcustom emacspeak-hyper-keys 
   '(
+    ("d" magit-dispatch-popup)
     ("\;" emacspeak-wizards-view-buffers-filtered-by-m-player-mode)
     ("C" apu-chars)
     ("N" emacspeak-npr-listing)
