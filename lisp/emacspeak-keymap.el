@@ -489,7 +489,18 @@ interactive command that the key sequence executes."
 
 (define-prefix-command 'emacspeak-super-keymap   'emacspeak-super-keymap)
 
-(defcustom emacspeak-super-keys nil
+(defcustom emacspeak-super-keys 
+  '(
+    ("." auto-correct-update)
+    ("b" emacspeak-bbc)
+    ("e" elfeed)
+    ("f" emacspeak-feeds-lookup-and-view)
+    ("h" emacspeak-webspace-headlines-browse)
+    ("l" emacspeak-m-player-locate-media)
+    ("m" emacspeak-wizards-view-buffers-filtered-by-this-mode)
+    ("n" gweb-news-view)
+    ("p" proced)
+    ("r" emacspeak-webspace-feed-reader))
   "*Specifies super key bindings for the audio desktop. You can
 turn the right `windows menu' keys on your Linux PC keyboard into
 a `super' key on Linux by having it emit the sequence `C-x@s'.
