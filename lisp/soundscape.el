@@ -295,10 +295,6 @@ Do not set this by hand, use command \\[soundscape-toggle].")
 
 (add-hook 'buffer-list-update-hook #'soundscape-update-hook)
 
-(defadvice emacspeak-speak-mode-line (after soundscape pre act comp)
-  "Switch soundscape if soundscape-auto is on."
-  (soundscape-update-hook))
-
 ;;}}}
 ;;{{{ SoundScape Toggle:
 
