@@ -583,7 +583,29 @@ interactive command that the key sequence executes."
 
 (define-prefix-command 'emacspeak-hyper-keymap   'emacspeak-hyper-keymap)
 
-(defcustom emacspeak-hyper-keys nil
+(defcustom emacspeak-hyper-keys 
+  '(
+    ("\;" emacspeak-wizards-view-buffers-filtered-by-m-player-mode)
+    ("C" apu-chars)
+    ("N" emacspeak-npr-listing)
+    ("a" emacspeak-wizards-term)
+    ("b" eww-list-bookmarks)
+    ("c" browse-url-chromium)
+    ("e" gmaps)
+    ("f" emacspeak-webspace-freebase-search)
+    ("g" gnus)
+    ("h" emacspeak-org-capture-link)
+    ("i" ido-everywhere)
+    ("l" emacspeak-librivox)
+    ("m" vm)
+    ("n" emacspeak-npr-play-program)
+    ("p" emacspeak-wizards-pdf-open)
+    ("q" emacspeak-remote-quick-connect-to-server)
+    ("r" org-capture)
+    ("s" emacspeak-wizards-shell)
+    ("t" twit)
+    ("u" browse-url)
+    ("v" emacspeak-muggles-view/body))
   "*Specifies hyper key bindings for the audio desktop. Emacs can
 use the `hyper' key as a modifier key. You can turn the `windows'
 keys on your Linux PC keyboard into a `hyper' key on Linux by
