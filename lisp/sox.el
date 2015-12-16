@@ -372,12 +372,12 @@
 ;;}}}
 ;;{{{  Effects Infrastructure:
 
-(defconst sox-effects
-  '("ladspa"
-"bass" "treble" "trim"
-"channels" "remix"
-"fade" "echo" "reverb" "chorus")
+(defconst sox-effects nil
 "Table of defined effects.")
+
+(defsubst sox-register-effect (name)
+  "Register effect."
+  (pushnew name sox-effects :test #'string=))
 
 ;;; To define support for an effect,:
 ;;; 1. Add it to the effect table below.
@@ -418,10 +418,12 @@ and return a suitable effect structure."
 ;;}}}
 ;;{{{ Define SoX Effect: Macro
 
-(defmacro sox-def-effect (name params repeat)
+(defun sox-def-effect (name params repeat)
   "Defines needed functions and variables for manipulating effect name."
   (let ((p-sym (intern (format "sox-%s-params" name)))
         (getter (intern (format "sox-get-%s-effect" name ))))
+    ;;; Register effect
+    (sox-register-effect name)
 ;;; Parameter template used for prompting:
     (eval
      `(defconst ,p-sym ',params
