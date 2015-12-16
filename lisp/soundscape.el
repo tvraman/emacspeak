@@ -252,7 +252,7 @@ See  \\{soundscape-default-theme} for details."
   `(
     ("LightStorm"  ( special-mode))
     ("TonkSpace" (tabulated-list-mode))
-    ("LightWind" (comint-mode))
+    ("LightWind" (comint-mode elfeed-search-mode))
     ("Steady" (calendar-mode diary-mode))
     ( "Cavern" (prog-mode))
     ("WaterFlow"  ,soundscape-web-modes)
