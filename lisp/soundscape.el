@@ -304,7 +304,7 @@ Do not set this by hand, use command \\[soundscape-toggle].")
     (setq soundscape-last-mode major-mode)
     (soundscape-activate major-mode)))
 
-(defadvice emacspeak-speak-mode-line (after soundscape pre act comp)
+(defadvice select-window (after soundscape pre act comp)
   "Update Soundscape."
   (soundscape-update-hook))
 
