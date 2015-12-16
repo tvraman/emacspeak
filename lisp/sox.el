@@ -372,6 +372,13 @@
 ;;}}}
 ;;{{{  Effects Infrastructure:
 
+(defvar sox-effects
+  '("ladspa"
+"bass" "treble" "trim"
+"channels" "remix"
+"fade" "echo" "reverb" "chorus")
+"Table of defined effects.")
+
 ;;; To define support for an effect,:
 ;;; 1. Add it to the effect table below.
 ;;; 2. Clone the code from one of the previously implemented effects,
