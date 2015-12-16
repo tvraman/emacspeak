@@ -164,8 +164,7 @@
       (completing-read "Stop: " (hash-table-keys soundscape-processes)))))
   (declare (special soundscape-processes))
   (let ((proc (gethash scape soundscape-processes)))
-    (when (process-live-p proc)
-      (delete-process proc))
+    (when (process-live-p proc) (delete-process proc))
       (remhash  scape soundscape-processes)))
 
 (defun soundscape-kill ()
@@ -283,11 +282,14 @@ Do not set this by hand, use command \\[soundscape-toggle].")
       (loop
        for scape in scapes
        unless (process-live-p (gethash scape soundscape-processes))
-       do (soundscape scape))
-      (loop
-       for scape  being the hash-keys of soundscape-processes
-       unless (member scape  scapes)
-       do (soundscape-stop scape)))))
+       do (soundscape scape)))
+    (loop
+     for scape  being the hash-keys of soundscape-processes
+     unless (member scape  scapes)
+     do
+     (when (process-live-p (gethash scape soundscape-processes))
+       (soundscape-stop scape)))))
+
 (defvar soundscape-last-mode  nil
   "Caches last seen mode.")
 
@@ -295,13 +297,17 @@ Do not set this by hand, use command \\[soundscape-toggle].")
   "Hook function to update Soundscape automatically."
   (declare (special soundscape-auto soundscape-last-mode))
   (when (and soundscape-auto
-             (not (eq major-mode soundscape-last-mode))
-             (not (eq 'minibuffer-inactive-mode major-mode))
-             (not (string-match "^ \\*temp*" (buffer-name ))))
+             ;(not (eq major-mode soundscape-last-mode))
+             ;(not (eq 'minibuffer-inactive-mode major-mode))
+             ;(not (string-match "^ \\*temp*" (buffer-name )))
+             )
     (setq soundscape-last-mode major-mode)
     (soundscape-activate major-mode)))
 
-(add-hook 'buffer-list-update-hook #'soundscape-update-hook)
+(defadvice emacspeak-speak-mode-line (after soundscape pre act comp)
+  "Update Soundscape."
+  (soundscape-update-hook))
+
 
 ;;}}}
 ;;{{{ SoundScape Toggle:
