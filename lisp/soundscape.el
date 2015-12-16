@@ -289,8 +289,8 @@ Do not set this by hand, use command \\[soundscape-toggle].")
 (defun soundscape-update-hook ()
   "Hook function to update Soundscape automatically."
   (declare (special soundscape-auto soundscape-cache-mode))
-  (when (and soundscape-auto (not (eq major-mode soundscape-cache-mode)))
-    (soundscape-activate major-mode)
+  (when (and soundscape-auto (not (eq major-mode soundscape-cache-mode))
+             (not (string-match "^temp-buffer" (buffer-name ))))    (soundscape-activate major-mode)
     (setq soundscape-cache-mode major-mode)))
 
 (add-hook 'buffer-list-update-hook #'soundscape-update-hook)
