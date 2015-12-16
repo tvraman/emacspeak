@@ -298,8 +298,8 @@ Do not set this by hand, use command \\[soundscape-toggle].")
              (not (eq major-mode soundscape-last-mode))
              (not (eq 'minibuffer-inactive-mode major-mode))
              (not (string-match "^ \\*temp*" (buffer-name ))))
-    (soundscape-activate major-mode)
-    (setq soundscape-last-mode major-mode)))
+    (soundscape-activate major-mode))
+  (setq soundscape-last-mode major-mode))
 
 (add-hook 'buffer-list-update-hook #'soundscape-update-hook)
 
