@@ -38,11 +38,11 @@
 
 ;;{{{  introduction
 
-;;; Commentary: 
+;;; Commentary:
 
 ;;; Boodler  at @url{http://boodler.org} is a Python-based SoundScape generator.
 ;;; To use this module, first install boodler.
-;;; Then install the soundscape packages (*.boop) files available 
+;;; Then install the soundscape packages (*.boop) files available
 ;;; at @url{http://boodler.org/lib}
 ;;; Make sure boodler works and produces audio in your environment.
 ;;; When  boodler is set up and all packages installed, copy
@@ -69,7 +69,7 @@
 ;;; @emph{mood} of the current @emph{mode}.
 ;;; This package defines a single @var{soundscape-default-theme}
 ;;; that is loaded using @code{(soundscape-load soundscape-default-theme)}.
-;;; Emacs modes that provide similar functionality e.g., 
+;;; Emacs modes that provide similar functionality e.g.,
 ;;; communication == email, IM, ... map to  the same @emph{mood}.
 ;;; Code:
 
@@ -166,7 +166,7 @@
   (declare (special soundscape-processes))
   (let ((proc (gethash scape soundscape-processes)))
     (when (process-live-p proc) (delete-process proc))
-      (remhash  scape soundscape-processes)))
+    (remhash  scape soundscape-processes)))
 
 (defun soundscape-kill ()
   "Stop all running soundscapes."
@@ -183,7 +183,6 @@
 (defun soundscape-current ()
   "Return names of currently running scapes."
   (apply #'concat (mapcar #'soundscape-lookup-scape (hash-table-keys soundscape-processes))))
-
 
 (defun soundscape-display ()
   "Display names of running scapes."
@@ -225,14 +224,14 @@
 (defconst soundscape-communication-modes
   '(
     message-mode gnus-summary-mode gnus-article-mode gnus-group-mode
-    vm-presentation-mode vm-mode mail-mode
-    twittering-mode jabber-roster-mode jabber-chat-mode erc-mode)
+                 vm-presentation-mode vm-mode mail-mode
+                 twittering-mode jabber-roster-mode jabber-chat-mode erc-mode)
   "List of mode names that get the Communication mood.")
 
 (defconst soundscape-help-modes
   '(
     Info-mode  help-mode  Man-mode
-    Custom-mode messages-buffer-mode)
+               Custom-mode messages-buffer-mode)
   "List of mode names that get the Help mood.")
 
 ;;;###autoload
@@ -243,7 +242,7 @@ See  \\{soundscape-default-theme} for details."
   (loop
    for pair in theme do
    (let ((scape (soundscape-lookup-name (first pair)))
-        (modes (second pair)))
+         (modes (second pair)))
      (cond
       (scape (mapc #'(lambda (m) (soundscape-map-mode m scape)) modes))
       (t (message "Theme: <%s> not found." (first pair)))))))
@@ -307,7 +306,6 @@ Do not set this by hand, use command \\[soundscape-toggle].")
   "Update Soundscape."
   (soundscape-update-hook))
 
-
 ;;}}}
 ;;{{{ SoundScape Toggle:
 
@@ -327,6 +325,29 @@ When turned on, Soundscapes are automatically run based on current major mode."
     (setq soundscape-auto t)))
   (message "Automatic Soundscapes are now %s"
            (if soundscape-auto "on" "off")))
+
+;;}}}
+;;{{{ Display Theme:
+
+(defun soundscape-theme ()
+  "Shows default theme in a special buffer."
+  (interactive)
+  (declare (special soundscape-default-theme))
+  (let ((buffer (get-buffer-create "*Soundscape Theme*")))
+    (with-current-buffer buffer
+      (erase-buffer)
+      (loop
+       for entry in soundscape-default-theme
+       do
+       (let ((package (soundscape-lookup-name  (first entry)))
+             (modes (second entry)))
+         (insert
+          (format "%s:\t%s\n"
+                  package (mapconcat #'symbol-name  modes " ")))))
+      (sort-lines nil (point-min) (point-max)))
+
+    (funcall-interactively #'switch-to-buffer buffer)))
+
 
 ;;}}}
 (provide 'soundscape)
