@@ -62,7 +62,9 @@
 ;;;
 ;;; When automatic Soundscapes are enabled, SoundScapes are
 ;;;  started and stopped based on the current major
-;;; mode. Thus, SoundScapes can be thought of as reflecting the
+;;; mode. Active Soundscape names are displayed as part of the minor-mode-alist
+;;; Command emacspeak-speakc-minor-mode-line can be used to heear their names.
+;;; Thus, SoundScapes can be thought of as reflecting the
 ;;; @emph{mood} of the current @emph{mode}.
 ;;; This package defines a single @var{soundscape-default-theme}
 ;;; that is loaded using @code{(soundscape-load soundscape-default-theme)}.
