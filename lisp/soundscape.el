@@ -224,7 +224,7 @@
 (defconst soundscape-communication-modes
   '(
     message-mode gnus-summary-mode gnus-article-mode gnus-group-mode
-                 vm-presentation-mode vm-mode mail-mode
+                 mspools-mode vm-presentation-mode vm-mode mail-mode
                  twittering-mode jabber-roster-mode jabber-chat-mode erc-mode)
   "List of mode names that get the Communication mood.")
 
