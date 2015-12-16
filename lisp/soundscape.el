@@ -290,7 +290,7 @@ Do not set this by hand, use command \\[soundscape-toggle].")
   "Hook function to update Soundscape automatically."
   (declare (special soundscape-auto soundscape-cache-mode))
   (when (and soundscape-auto (not (eq major-mode soundscape-cache-mode))
-             (not (string-match "^ \\*temp*" (buffer-name ))))    (soundscape-activate major-mode)
+             (not (string= " *temp*" (buffer-name ))))    (soundscape-activate major-mode)
              (setq soundscape-cache-mode major-mode)))
 
 (add-hook 'buffer-list-update-hook #'soundscape-update-hook)
