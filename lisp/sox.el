@@ -372,7 +372,7 @@
 ;;}}}
 ;;{{{  Effects Infrastructure:
 
-(defvar sox-effects
+(defconst sox-effects
   '("ladspa"
 "bass" "treble" "trim"
 "channels" "remix"
