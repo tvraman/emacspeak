@@ -399,6 +399,7 @@
 (defun sox-get-ladspa-effect ()
   "Read needed params for effect ladspa,
 and return a suitable effect structure."
+  (ladspa-plugins)
   (let ((plugin (ladspa-create (ladspa-read "Ladspa effect: "))))
     (make-sox-effect
      :type 'ladspa
