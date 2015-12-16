@@ -47,8 +47,9 @@
 ;;; Make sure boodler works and produces audio in your environment.
 ;;; When  boodler is set up and all packages installed, copy
 ;;; file emacspeak/etc/soundscapes  to ~/.boodler.
+;;; The above file lists all installed SoundScapes.
 ;;;
-;;;  This module defines Emacspeak conveniences for running
+;;;  Module soundscape.el  defines Emacspeak conveniences for running
 ;;; Soundscapes. Main Entry Points:
 ;;;
 ;;;@itemize
