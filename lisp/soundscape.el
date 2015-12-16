@@ -257,7 +257,7 @@ See  \\{soundscape-default-theme} for details."
     ( "Cavern" (prog-mode))
     ("WaterSounds"  ,soundscape-web-modes)
     ( "Still" (text-mode))
-    ( "WaterSounds"  (dired-mode))
+    ("Water"  (dired-mode))
     ("BuddhaLoop" (fundamental-mode))
     ("Drip" ,soundscape-communication-modes)
     ("RainForever" ,soundscape-help-modes)
