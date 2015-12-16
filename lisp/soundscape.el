@@ -343,7 +343,11 @@ When turned on, Soundscapes are automatically run based on current major mode."
              (modes (second entry)))
          (insert
           (format "%s:\t%s\n"
-                  package (mapconcat #'symbol-name  modes " ")))))
+                  package
+                  (mapconcat
+                   #'(lambda (s)
+                       (substring (symbol-name s) 0 -5))
+                   modes " ")))))
       (sort-lines nil (point-min) (point-max)))
 
     (funcall-interactively #'switch-to-buffer buffer)))
