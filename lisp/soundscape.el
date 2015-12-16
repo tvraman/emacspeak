@@ -250,7 +250,7 @@ See  \\{soundscape-default-theme} for details."
 
 (defconst soundscape-default-theme
   `(
-    ("LightWind"  ( special-mode))
+    ("LightStorm"  ( special-mode))
     ("LightWind" (comint-mode))
     ("Steady" (calendar-mode diary-mode))
     ( "Cavern" (prog-mode))
