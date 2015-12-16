@@ -420,8 +420,6 @@ and return a suitable effect structure."
 
 (defmacro sox-def-effect (name params repeat)
   "Defines needed functions and variables for manipulating effect name."
-  (unless (boundp 'sox-effects) (setq sox-effects nil))
-  (pushnew name  sox-effects :test #'string-equal)
   (let ((p-sym (intern (format "sox-%s-params" name)))
         (getter (intern (format "sox-get-%s-effect" name ))))
 ;;; Parameter template used for prompting:
