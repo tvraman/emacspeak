@@ -1112,6 +1112,23 @@ C-SPC		emacspeak-speak-current-mark
 <right>		emacspeak-speak-this-buffer-next-display
 <up>		emacspeak-read-previous-line
 
+x =		emacspeak-wizards-find-longest-line-in-region
+x Q		emacspeak-wizards-yql-lookup
+x b		battery
+x e		emacspeak-we-xsl-map
+x h		emacspeak-wizards-how-many-matches
+x j		emacspeak-jabber-popup-roster
+x m		mspools-show
+x o		emacspeak-wizards-occur-header-lines
+x q		emacspeak-wizards-yql-quotes
+x r		jabber-activity-switch-to
+x s		emacspeak-emergency-tts-restart
+x t		emacspeak-speak-telephone-directory
+x u		emacspeak-wizards-units
+x v		emacspeak-wizards-vc-viewer
+x |		emacspeak-wizards-squeeze-blanks
+x DEL		desktop-clear
+
 # a		emacspeak-gridtext-apply
 # l		emacspeak-gridtext-load
 # s		emacspeak-gridtext-save
@@ -1216,6 +1233,40 @@ d t		emacspeak-dial-dtk
 d v		voice-lock-mode
 d w		emacspeak-toggle-word-echo
 d z		emacspeak-zap-tts
+
+x e C-c		emacspeak-we-junk-by-class-list
+x e C-f		emacspeak-we-count-matches
+x e C-p		emacspeak-we-xpath-junk-and-follow
+x e C-t		emacspeak-we-count-tables
+x e C-x		emacspeak-we-count-nested-tables
+x e C		emacspeak-we-extract-by-class-list
+x e D		emacspeak-we-junk-by-class-list
+x e I		emacspeak-we-extract-by-id-list
+x e M		emacspeak-we-extract-tables-by-match-list
+x e P		emacspeak-we-follow-and-extract-main
+x e S		emacspeak-we-style-filter
+x e T		emacspeak-we-extract-tables-by-position-list
+x e X		emacspeak-we-extract-nested-table-list
+x e a		emacspeak-we-xslt-apply
+x e b		emacspeak-we-follow-and-filter-by-id
+x e c		emacspeak-we-extract-by-class
+x e d		emacspeak-we-junk-by-class
+x e e		emacspeak-we-url-expand-and-execute
+x e f		emacspeak-we-xslt-filter
+x e i		emacspeak-we-extract-by-id
+x e j		emacspeak-we-xslt-junk
+x e k		emacspeak-we-toggle-xsl-keep-result
+x e m		emacspeak-we-extract-table-by-match
+x e o		emacspeak-we-xsl-toggle
+x e p		emacspeak-we-xpath-filter-and-follow
+x e r		emacspeak-we-extract-by-role
+x e s		emacspeak-we-xslt-select
+x e t		emacspeak-we-extract-table-by-position
+x e u		emacspeak-we-extract-matching-urls
+x e v		emacspeak-we-class-filter-and-follow-link
+x e w		emacspeak-we-extract-by-property
+x e x		emacspeak-we-extract-nested-table
+x e y		emacspeak-we-class-filter-and-follow
 
 C-t M-<		emacspeak-table-goto-top
 C-t M->		emacspeak-table-goto-bottom
@@ -4676,6 +4727,9 @@ For downloading a program etc., use Emacs package iplayer.
 
 @subsubsection emacspeak-bbc
 @deffn {Command} emacspeak-bbc  (&optional genre)
+@kbd{C-' b C-x @@ s b}
+
+@kindex C-' b C-x @@ s b
 @findex emacspeak-bbc
 
 @format
@@ -7720,6 +7774,9 @@ Archiving is useful when synchronizing feeds across multiple machines.
 
 @subsubsection emacspeak-feeds-atom-display
 @deffn {Command} emacspeak-feeds-atom-display  (feed-url)
+@kbd{C-, a C-x @@ a a}
+
+@kindex C-, a C-x @@ a a
 @findex emacspeak-feeds-atom-display
 
 @format
@@ -7751,6 +7808,9 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
 
 @subsubsection emacspeak-feeds-find-feeds
 @deffn {Command} emacspeak-feeds-find-feeds  (query)
+@kbd{C-, f C-x @@ a f}
+
+@kindex C-, f C-x @@ a f
 @findex emacspeak-feeds-find-feeds
 
 @format
@@ -7760,6 +7820,9 @@ Browse feeds matching specified query.
 
 @subsubsection emacspeak-feeds-lookup-and-view
 @deffn {Command} emacspeak-feeds-lookup-and-view  (site)
+@kbd{C-' f C-x @@ s f}
+
+@kindex C-' f C-x @@ s f
 @findex emacspeak-feeds-lookup-and-view
 
 @format
@@ -7769,6 +7832,9 @@ Lookup feed URL for a site and browse result.
 
 @subsubsection emacspeak-feeds-opml-display
 @deffn {Command} emacspeak-feeds-opml-display  (feed-url)
+@kbd{C-, o C-x @@ a o}
+
+@kindex C-, o C-x @@ a o
 @findex emacspeak-feeds-opml-display
 
 @format
@@ -7788,6 +7854,9 @@ Archiving is useful when synchronizing feeds across multiple machines.
 
 @subsubsection emacspeak-feeds-rss-display
 @deffn {Command} emacspeak-feeds-rss-display  (feed-url)
+@kbd{C-, r C-x @@ a r}
+
+@kindex C-, r C-x @@ a r
 @findex emacspeak-feeds-rss-display
 
 @format
@@ -8901,6 +8970,9 @@ Returns a cons (start . end) that delimits the message.
 
 @subsubsection emacspeak-jabber-popup-roster
 @deffn {Command} emacspeak-jabber-popup-roster   
+@kbd{C-e x j}
+
+@kindex C-e x j
 @findex emacspeak-jabber-popup-roster
 
 @format
@@ -9473,6 +9545,9 @@ This module implements an Emacspeak Librivox client.
 
 @subsubsection emacspeak-librivox
 @deffn {Command} emacspeak-librivox  (search-type)
+@kbd{C-; l C-x @@ h l}
+
+@kindex C-; l C-x @@ h l
 @findex emacspeak-librivox
 
 @format
@@ -9887,6 +9962,9 @@ Load specified playlist file.
 
 @subsubsection emacspeak-m-player-locate-media
 @deffn {Command} emacspeak-m-player-locate-media  (pattern)
+@kbd{C-' l C-x @@ s l}
+
+@kindex C-' l C-x @@ s l
 @findex emacspeak-m-player-locate-media
 
 @format
@@ -10180,6 +10258,9 @@ Interactive prefix arg toggles automatic cueing of ICY info updates.
 
 @subsubsection emacspeak-m-player-url
 @deffn {Command} emacspeak-m-player-url  (url &optional playlist-p)
+@kbd{C-, u C-x @@ a u}
+
+@kindex C-, u C-x @@ a u
 @findex emacspeak-m-player-url
 
 @format
@@ -10977,9 +11058,9 @@ Toggle state of emacspeak-muggles-talkative-p.
 
 @subsubsection emacspeak-muggles-view/body
 @deffn {Command} emacspeak-muggles-view/body   
-@kbd{C-c v}
+@kbd{C-c v C-; v C-x @@ h v}
 
-@kindex C-c v
+@kindex C-c v C-; v C-x @@ h v
 @findex emacspeak-muggles-view/body
 
 @format
@@ -11163,6 +11244,9 @@ In all cases, streams are played using module emacspeak-m-player.
 
 @subsubsection emacspeak-npr-listing
 @deffn {Command} emacspeak-npr-listing  (&optional search)
+@kbd{C-; N C-x @@ h N}
+
+@kindex C-; N C-x @@ h N
 @findex emacspeak-npr-listing
 
 @format
@@ -11183,6 +11267,9 @@ Optional prefix arg prompts for date.
 
 @subsubsection emacspeak-npr-play-program
 @deffn {Command} emacspeak-npr-play-program  (pid &optional get-date)
+@kbd{C-; n C-x @@ h n}
+
+@kindex C-; n C-x @@ h n
 @findex emacspeak-npr-play-program
 
 @format
@@ -11839,6 +11926,9 @@ Bookmark from org.
 
 @subsubsection emacspeak-org-capture-link
 @deffn {Command} emacspeak-org-capture-link   
+@kbd{C-; h C-x @@ h h}
+
+@kindex C-; h C-x @@ h h
 @findex emacspeak-org-capture-link
 
 @format
@@ -12805,6 +12895,9 @@ Uses value returned by ``emacspeak-remote-get-current-remote-hostname''.
 
 @subsubsection emacspeak-remote-quick-connect-to-server
 @deffn {Command} emacspeak-remote-quick-connect-to-server   
+@kbd{C-; q C-x @@ h q}
+
+@kindex C-; q C-x @@ h q
 @findex emacspeak-remote-quick-connect-to-server
 
 @format
@@ -13960,20 +14053,16 @@ Speak the minor mode-information.
 @end deffn
 
 @subsubsection emacspeak-speak-mode-line
-@deffn {Command} emacspeak-speak-mode-line  (&rest rest)
+@deffn {Command} emacspeak-speak-mode-line  (&optional buffer-info)
 @kbd{C-e m}
 
 @kindex C-e m
 @findex emacspeak-speak-mode-line
 
 @format
-:around advice: ``ad-Advice-emacspeak-speak-mode-line''
-
 Speak the mode-line.
 Speaks header-line if that is set when called non-interactively.
 Interactive prefix arg speaks buffer info.
-
-(fn &optional BUFFER-INFO)
 @end format
 @end deffn
 
@@ -16483,6 +16572,9 @@ abstractions not already covered by browse-url
 
 @subsubsection emacspeak-we-class-filter-and-follow
 @deffn {Command} emacspeak-we-class-filter-and-follow  (class url)
+@kbd{C-e x e y}
+
+@kindex C-e x e y
 @findex emacspeak-we-class-filter-and-follow
 
 @format
@@ -16495,6 +16587,9 @@ used as well.
 
 @subsubsection emacspeak-we-class-filter-and-follow-link
 @deffn {Command} emacspeak-we-class-filter-and-follow-link  (&optional prompt)
+@kbd{C-e x e v}
+
+@kindex C-e x e v
 @findex emacspeak-we-class-filter-and-follow-link
 
 @format
@@ -16507,6 +16602,9 @@ used as well.
 
 @subsubsection emacspeak-we-count-matches
 @deffn {Command} emacspeak-we-count-matches  (url locator)
+@kbd{C-e x e C-f}
+
+@kindex C-e x e C-f
 @findex emacspeak-we-count-matches
 
 @format
@@ -16516,6 +16614,9 @@ Count matches for locator  in Web page.
 
 @subsubsection emacspeak-we-count-nested-tables
 @deffn {Command} emacspeak-we-count-nested-tables  (url)
+@kbd{C-e x e C-x}
+
+@kindex C-e x e C-x
 @findex emacspeak-we-count-nested-tables
 
 @format
@@ -16525,6 +16626,9 @@ Count nested tables in Web page.
 
 @subsubsection emacspeak-we-count-tables
 @deffn {Command} emacspeak-we-count-tables  (url)
+@kbd{C-e x e C-t}
+
+@kindex C-e x e C-t
 @findex emacspeak-we-count-tables
 
 @format
@@ -16534,6 +16638,9 @@ Count  tables in Web page.
 
 @subsubsection emacspeak-we-extract-by-class
 @deffn {Command} emacspeak-we-extract-by-class  (class url &optional speak)
+@kbd{C-e x e c}
+
+@kindex C-e x e c
 @findex emacspeak-we-extract-by-class
 
 @format
@@ -16545,6 +16652,9 @@ buffer. Interactive use provides list of class values as completion.
 
 @subsubsection emacspeak-we-extract-by-class-list
 @deffn {Command} emacspeak-we-extract-by-class-list  (classes url &optional speak)
+@kbd{C-e x e C}
+
+@kindex C-e x e C
 @findex emacspeak-we-extract-by-class-list
 
 @format
@@ -16557,6 +16667,9 @@ values as completion.
 
 @subsubsection emacspeak-we-extract-by-id
 @deffn {Command} emacspeak-we-extract-by-id  (id url &optional speak)
+@kbd{C-e x e i}
+
+@kindex C-e x e i
 @findex emacspeak-we-extract-by-id
 
 @format
@@ -16569,6 +16682,9 @@ Interactive use provides list of id values as completion.
 
 @subsubsection emacspeak-we-extract-by-id-list
 @deffn {Command} emacspeak-we-extract-by-id-list  (ids url &optional speak)
+@kbd{C-e x e I}
+
+@kindex C-e x e I
 @findex emacspeak-we-extract-by-id-list
 
 @format
@@ -16580,6 +16696,9 @@ separate buffer. Interactive use provides list of id values as completion.
 
 @subsubsection emacspeak-we-extract-by-property
 @deffn {Command} emacspeak-we-extract-by-property  (url &optional speak)
+@kbd{C-e x e w}
+
+@kindex C-e x e w
 @findex emacspeak-we-extract-by-property
 
 @format
@@ -16590,6 +16709,9 @@ and provide a completion list of applicable  property values. Filter document by
 
 @subsubsection emacspeak-we-extract-by-role
 @deffn {Command} emacspeak-we-extract-by-role  (role url &optional speak)
+@kbd{C-e x e r}
+
+@kindex C-e x e r
 @findex emacspeak-we-extract-by-role
 
 @format
@@ -16624,6 +16746,9 @@ Interactive use provides list of id values as completion.
 
 @subsubsection emacspeak-we-extract-matching-urls
 @deffn {Command} emacspeak-we-extract-matching-urls  (pattern url &optional speak)
+@kbd{C-e x e u}
+
+@kindex C-e x e u
 @findex emacspeak-we-extract-matching-urls
 
 @format
@@ -16654,6 +16779,9 @@ In browser buffers, extract media streams from url under point.
 
 @subsubsection emacspeak-we-extract-nested-table
 @deffn {Command} emacspeak-we-extract-nested-table  (index url &optional speak)
+@kbd{C-e x e x}
+
+@kindex C-e x e x
 @findex emacspeak-we-extract-nested-table
 
 @format
@@ -16666,6 +16794,9 @@ spoken automatically.
 
 @subsubsection emacspeak-we-extract-nested-table-list
 @deffn {Command} emacspeak-we-extract-nested-table-list  (tables url &optional speak)
+@kbd{C-e x e X}
+
+@kindex C-e x e X
 @findex emacspeak-we-extract-nested-table-list
 
 @format
@@ -16687,6 +16818,9 @@ operate on current web page when in a browser buffer; otherwise
 
 @subsubsection emacspeak-we-extract-table-by-match
 @deffn {Command} emacspeak-we-extract-table-by-match  (match url &optional speak)
+@kbd{C-e x e m}
+
+@kindex C-e x e m
 @findex emacspeak-we-extract-table-by-match
 
 @format
@@ -16697,6 +16831,9 @@ Extract table containing  specified match.
 
 @subsubsection emacspeak-we-extract-table-by-position
 @deffn {Command} emacspeak-we-extract-table-by-position  (position url &optional speak)
+@kbd{C-e x e t}
+
+@kindex C-e x e t
 @findex emacspeak-we-extract-table-by-position
 
 @format
@@ -16707,6 +16844,9 @@ Default is to extract from current page.
 
 @subsubsection emacspeak-we-extract-tables-by-match-list
 @deffn {Command} emacspeak-we-extract-tables-by-match-list  (match-list url &optional speak)
+@kbd{C-e x e M}
+
+@kindex C-e x e M
 @findex emacspeak-we-extract-tables-by-match-list
 
 @format
@@ -16718,6 +16858,9 @@ Tables are specified by containing  match pattern
 
 @subsubsection emacspeak-we-extract-tables-by-position-list
 @deffn {Command} emacspeak-we-extract-tables-by-position-list  (positions url &optional speak)
+@kbd{C-e x e T}
+
+@kindex C-e x e T
 @findex emacspeak-we-extract-tables-by-position-list
 
 @format
@@ -16729,6 +16872,9 @@ Tables are specified by their position in the list
 
 @subsubsection emacspeak-we-follow-and-extract-main
 @deffn {Command} emacspeak-we-follow-and-extract-main  (&optional speak)
+@kbd{C-e x e P}
+
+@kindex C-e x e P
 @findex emacspeak-we-follow-and-extract-main
 
 @format
@@ -16738,6 +16884,9 @@ Follow URL, then extract role=main.
 
 @subsubsection emacspeak-we-follow-and-filter-by-id
 @deffn {Command} emacspeak-we-follow-and-filter-by-id  (id)
+@kbd{C-e x e b}
+
+@kindex C-e x e b
 @findex emacspeak-we-follow-and-filter-by-id
 
 @format
@@ -16750,6 +16899,9 @@ used as well.
 
 @subsubsection emacspeak-we-junk-by-class
 @deffn {Command} emacspeak-we-junk-by-class  (class url &optional speak)
+@kbd{C-e x e d}
+
+@kindex C-e x e d
 @findex emacspeak-we-junk-by-class
 
 @format
@@ -16761,6 +16913,9 @@ buffer. Interactive use provides list of class values as completion.
 
 @subsubsection emacspeak-we-junk-by-class-list
 @deffn {Command} emacspeak-we-junk-by-class-list  (classes url &optional speak)
+@kbd{C-e x e D C-e x e C-c}
+
+@kindex C-e x e D C-e x e C-c
 @findex emacspeak-we-junk-by-class-list
 
 @format
@@ -16773,6 +16928,9 @@ values as completion.
 
 @subsubsection emacspeak-we-style-filter
 @deffn {Command} emacspeak-we-style-filter  (style url &optional speak)
+@kbd{C-e x e S}
+
+@kindex C-e x e S
 @findex emacspeak-we-style-filter
 
 @format
@@ -16785,6 +16943,9 @@ specifies the page to extract contents  from.
 
 @subsubsection emacspeak-we-toggle-xsl-keep-result
 @deffn {Command} emacspeak-we-toggle-xsl-keep-result   
+@kbd{C-e x e k}
+
+@kindex C-e x e k
 @findex emacspeak-we-toggle-xsl-keep-result
 
 @format
@@ -16794,6 +16955,9 @@ Toggle xsl keep result flag.
 
 @subsubsection emacspeak-we-url-expand-and-execute
 @deffn {Command} emacspeak-we-url-expand-and-execute  (&optional prefix)
+@kbd{C-e x e e}
+
+@kindex C-e x e e
 @findex emacspeak-we-url-expand-and-execute
 
 @format
@@ -16820,6 +16984,9 @@ a rewrite rule even if one is already defined.
 
 @subsubsection emacspeak-we-xpath-filter-and-follow
 @deffn {Command} emacspeak-we-xpath-filter-and-follow  (&optional prompt)
+@kbd{C-e x e p}
+
+@kindex C-e x e p
 @findex emacspeak-we-xpath-filter-and-follow
 
 @format
@@ -16832,6 +16999,9 @@ used as well.
 
 @subsubsection emacspeak-we-xpath-junk-and-follow
 @deffn {Command} emacspeak-we-xpath-junk-and-follow  (&optional prompt)
+@kbd{C-e x e C-p}
+
+@kindex C-e x e C-p
 @findex emacspeak-we-xpath-junk-and-follow
 
 @format
@@ -16845,6 +17015,9 @@ used as well.
 
 @subsubsection emacspeak-we-xsl-toggle
 @deffn {Command} emacspeak-we-xsl-toggle   
+@kbd{C-e x e o}
+
+@kindex C-e x e o
 @findex emacspeak-we-xsl-toggle
 
 @format
@@ -16854,6 +17027,9 @@ Toggle  application of XSL transformations.
 
 @subsubsection emacspeak-we-xslt-apply
 @deffn {Command} emacspeak-we-xslt-apply  (xsl)
+@kbd{C-e x e a}
+
+@kindex C-e x e a
 @findex emacspeak-we-xslt-apply
 
 @format
@@ -16863,6 +17039,9 @@ Apply specified transformation to current Web page.
 
 @subsubsection emacspeak-we-xslt-filter
 @deffn {Command} emacspeak-we-xslt-filter  (path url &optional speak)
+@kbd{C-e x e f}
+
+@kindex C-e x e f
 @findex emacspeak-we-xslt-filter
 
 @format
@@ -16873,6 +17052,9 @@ from Web page -- default is the current page being viewed.
 
 @subsubsection emacspeak-we-xslt-junk
 @deffn {Command} emacspeak-we-xslt-junk  (path url &optional speak)
+@kbd{C-e x e j}
+
+@kindex C-e x e j
 @findex emacspeak-we-xslt-junk
 
 @format
@@ -16882,6 +17064,9 @@ Junk elements matching specified locator.
 
 @subsubsection emacspeak-we-xslt-select
 @deffn {Command} emacspeak-we-xslt-select  (xsl)
+@kbd{C-e x e s}
+
+@kindex C-e x e s
 @findex emacspeak-we-xslt-select
 
 @format
@@ -17240,6 +17425,9 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
 
 @subsubsection emacspeak-webspace-feed-reader
 @deffn {Command} emacspeak-webspace-feed-reader  (&optional refresh)
+@kbd{C-' r C-x @@ s r}
+
+@kindex C-' r C-x @@ s r
 @findex emacspeak-webspace-feed-reader
 
 @format
@@ -17259,6 +17447,9 @@ Open headline at point by following its link property and filter for content.
 
 @subsubsection emacspeak-webspace-freebase-search
 @deffn {Command} emacspeak-webspace-freebase-search  (query)
+@kbd{C-; f C-x @@ h f}
+
+@kindex C-; f C-x @@ h f
 @findex emacspeak-webspace-freebase-search
 
 @format
@@ -17289,9 +17480,9 @@ Startup Headlines ticker.
 
 @subsubsection emacspeak-webspace-headlines-browse
 @deffn {Command} emacspeak-webspace-headlines-browse   
-@kbd{C-; SPC SPC C-x @@ h SPC SPC}
+@kbd{C-' h C-; SPC SPC C-x @@ s h C-x @@ h SPC SPC}
 
-@kindex C-; SPC SPC C-x @@ h SPC SPC
+@kindex C-' h C-; SPC SPC C-x @@ s h C-x @@ h SPC SPC
 @findex emacspeak-webspace-headlines-browse
 
 @format
@@ -17683,9 +17874,9 @@ personal customizations.
 
 @subsubsection emacspeak-emergency-tts-restart
 @deffn {Command} emacspeak-emergency-tts-restart   
-@kbd{C-e <insert>}
+@kbd{C-e <insert> C-e x s}
 
-@kindex C-e <insert>
+@kindex C-e <insert> C-e x s
 @findex emacspeak-emergency-tts-restart
 
 @format
@@ -17944,6 +18135,9 @@ normally bound to C-e TAB.
 
 @subsubsection emacspeak-speak-telephone-directory
 @deffn {Command} emacspeak-speak-telephone-directory  (&optional edit)
+@kbd{C-e x t}
+
+@kindex C-e x t
 @findex emacspeak-speak-telephone-directory
 
 @format
@@ -18106,9 +18300,9 @@ Cleans up duplicates in shell path env variable.
 
 @subsubsection emacspeak-wizards-color-at-point
 @deffn {Command} emacspeak-wizards-color-at-point   
-@kbd{C-h , <f1> , <help> ,}
+@kbd{C-h , C-, C <f1> , <help> , C-x @@ a C}
 
-@kindex C-h , <f1> , <help> ,
+@kindex C-h , C-, C <f1> , <help> , C-x @@ a C
 @findex emacspeak-wizards-color-at-point
 
 @format
@@ -18145,6 +18339,9 @@ Cycles through available browsers.
 
 @subsubsection emacspeak-wizards-cycle-to-next-buffer
 @deffn {Command} emacspeak-wizards-cycle-to-next-buffer   
+@kbd{C-, n C-x @@ a n}
+
+@kindex C-, n C-x @@ a n
 @findex emacspeak-wizards-cycle-to-next-buffer
 
 @format
@@ -18154,6 +18351,9 @@ Cycles to next buffer having same mode.
 
 @subsubsection emacspeak-wizards-cycle-to-previous-buffer
 @deffn {Command} emacspeak-wizards-cycle-to-previous-buffer   
+@kbd{C-, p C-x @@ a p}
+
+@kindex C-, p C-x @@ a p
 @findex emacspeak-wizards-cycle-to-previous-buffer
 
 @format
@@ -18317,6 +18517,9 @@ Interactive  arguments specify filename pattern and search pattern.
 
 @subsubsection emacspeak-wizards-find-longest-line-in-region
 @deffn {Command} emacspeak-wizards-find-longest-line-in-region  (start end)
+@kbd{C-e x =}
+
+@kindex C-e x =
 @findex emacspeak-wizards-find-longest-line-in-region
 
 @format
@@ -18443,6 +18646,9 @@ View Web through Google Transcoder.
 
 @subsubsection emacspeak-wizards-how-many-matches
 @deffn {Command} emacspeak-wizards-how-many-matches  (start end &optional prefix)
+@kbd{C-e x h}
+
+@kindex C-e x h
 @findex emacspeak-wizards-how-many-matches
 
 @format
@@ -18515,6 +18721,9 @@ Switch to next shell.
 
 @subsubsection emacspeak-wizards-occur-header-lines
 @deffn {Command} emacspeak-wizards-occur-header-lines  (start end &optional prefix)
+@kbd{C-e x o}
+
+@kindex C-e x o
 @findex emacspeak-wizards-occur-header-lines
 
 @format
@@ -18528,6 +18737,9 @@ prompts for and sets value of the file local pattern.
 
 @subsubsection emacspeak-wizards-pdf-open
 @deffn {Command} emacspeak-wizards-pdf-open  (filename &optional ask-pwd)
+@kbd{C-; p C-x @@ h p}
+
+@kindex C-; p C-x @@ h p
 @findex emacspeak-wizards-pdf-open
 
 @format
@@ -18630,6 +18842,9 @@ Run rpm -qi on current dired entry.
 
 @subsubsection emacspeak-wizards-shell
 @deffn {Command} emacspeak-wizards-shell  (&optional prefix)
+@kbd{C-; s C-x @@ h s}
+
+@kindex C-; s C-x @@ h s
 @findex emacspeak-wizards-shell
 
 @format
@@ -18732,6 +18947,9 @@ for ``word'' and displays hits in a compilation buffer.
 
 @subsubsection emacspeak-wizards-squeeze-blanks
 @deffn {Command} emacspeak-wizards-squeeze-blanks  (start end)
+@kbd{C-e x |}
+
+@kindex C-e x |
 @findex emacspeak-wizards-squeeze-blanks
 
 @format
@@ -18750,6 +18968,9 @@ Display sunrise/sunset for specified address.
 
 @subsubsection emacspeak-wizards-term
 @deffn {Command} emacspeak-wizards-term  (create)
+@kbd{C-; a C-x @@ h a}
+
+@kindex C-; a C-x @@ h a
 @findex emacspeak-wizards-term
 
 @format
@@ -18817,6 +19038,9 @@ Location is specified by name.
 
 @subsubsection emacspeak-wizards-tune-in-radio-browse
 @deffn {Command} emacspeak-wizards-tune-in-radio-browse   
+@kbd{C-, t C-x @@ a t}
+
+@kindex C-, t C-x @@ a t
 @findex emacspeak-wizards-tune-in-radio-browse
 
 @format
@@ -18826,6 +19050,9 @@ Browse Tune-In Radio.
 
 @subsubsection emacspeak-wizards-tune-in-radio-search
 @deffn {Command} emacspeak-wizards-tune-in-radio-search   
+@kbd{C-, s C-x @@ a s}
+
+@kindex C-, s C-x @@ a s
 @findex emacspeak-wizards-tune-in-radio-search
 
 @format
@@ -18844,6 +19071,9 @@ UnEscape URI
 
 @subsubsection emacspeak-wizards-units
 @deffn {Command} emacspeak-wizards-units   
+@kbd{C-e x u}
+
+@kindex C-e x u
 @findex emacspeak-wizards-units
 
 @format
@@ -18862,6 +19092,9 @@ Accelerator for VC viewer.
 
 @subsubsection emacspeak-wizards-vc-viewer
 @deffn {Command} emacspeak-wizards-vc-viewer  (console)
+@kbd{C-e x v}
+
+@kindex C-e x v
 @findex emacspeak-wizards-vc-viewer
 
 @format
@@ -18906,6 +19139,9 @@ Launch sudo vi on specified file in a terminal.
 
 @subsubsection emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 @deffn {Command} emacspeak-wizards-view-buffers-filtered-by-m-player-mode   
+@kbd{C-; ; C-x @@ h ;}
+
+@kindex C-; ; C-x @@ h ;
 @findex emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 
 @format
@@ -18924,6 +19160,9 @@ Display list of buffers filtered by specified mode.
 
 @subsubsection emacspeak-wizards-view-buffers-filtered-by-this-mode
 @deffn {Command} emacspeak-wizards-view-buffers-filtered-by-this-mode   
+@kbd{C-' m C-, c C-x @@ a c C-x @@ s m}
+
+@kindex C-' m C-, c C-x @@ a c C-x @@ s m
 @findex emacspeak-wizards-view-buffers-filtered-by-this-mode
 
 @format
@@ -18973,6 +19212,9 @@ key             binding
 
 @subsubsection emacspeak-wizards-yql-lookup
 @deffn {Command} emacspeak-wizards-yql-lookup  (symbols)
+@kbd{C-e x Q}
+
+@kindex C-e x Q
 @findex emacspeak-wizards-yql-lookup
 
 @format
@@ -18983,6 +19225,9 @@ Symbols are separated by whitespace.
 
 @subsubsection emacspeak-wizards-yql-quotes
 @deffn {Command} emacspeak-wizards-yql-quotes   
+@kbd{C-e x q}
+
+@kindex C-e x q
 @findex emacspeak-wizards-yql-quotes
 
 @format
@@ -19727,6 +19972,9 @@ Implements the Google Maps API
 
 @subsubsection gmaps
 @deffn {Command} gmaps  (&rest rest)
+@kbd{C-; e C-x @@ h e}
+
+@kindex C-; e C-x @@ h e
 @findex gmaps
 
 @format
@@ -20142,6 +20390,9 @@ Optional interactive prefix arg refresh forces this cached URL to be refreshed.
 
 @subsubsection gweb-news-view
 @deffn {Command} gweb-news-view  (query)
+@kbd{C-' n C-x @@ s n}
+
+@kindex C-' n C-x @@ s n
 @findex gweb-news-view
 
 @format
@@ -20299,7 +20550,9 @@ disables automatic SoundScapes.
 
 When automatic Soundscapes are enabled, SoundScapes are
  started and stopped based on the current major
-mode. Thus, SoundScapes can be thought of as reflecting the
+mode. Active Soundscape names are displayed as part of the minor-mode-alist
+Command emacspeak-speakc-minor-mode-line can be used to heear their names.
+Thus, SoundScapes can be thought of as reflecting the
 @emph{mood} of the current @emph{mode}.
 This package defines a single @var{soundscape-default-theme}
 that is loaded using @code{(soundscape-load soundscape-default-theme)}.
