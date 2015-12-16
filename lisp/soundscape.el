@@ -251,7 +251,7 @@ See  \\{soundscape-default-theme} for details."
     ("LightWind"  ( special-mode))
     ("Steady" (calendar-mode diary-mode))
     ( "Cavern" (prog-mode))
-    ( "WaterFlow"  ,soundscape-web-modes)
+    ("WaterSounds"  ,soundscape-web-modes)
     ( "Still" (text-mode))
     ( "WaterSounds"  (dired-mode))
     ("Drip" ,soundscape-communication-modes)
