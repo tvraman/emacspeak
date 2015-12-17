@@ -288,7 +288,8 @@ Do not set this by hand, use command \\[soundscape-toggle].")
      unless (member scape  scapes)
      do
      (when (process-live-p (gethash scape soundscape-processes))
-       (soundscape-stop scape)))))
+       (soundscape-stop scape))
+     (remhash scape soundscape-processes))))
 
 (defvar soundscape-last-mode  nil
   "Caches last seen mode.")
