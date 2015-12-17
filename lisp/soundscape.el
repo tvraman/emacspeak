@@ -351,7 +351,6 @@ When turned on, Soundscapes are automatically run based on current major mode."
                    modes " ")))))
       (sort-lines nil (point-min) (point-max))
       (goto-char (point-min))
-      (setq buffer-read-only t)
       (special-mode)
       (setq default-directory
             (expand-file-name "~/.boodler/Collection")))
