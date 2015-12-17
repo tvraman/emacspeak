@@ -535,14 +535,13 @@ from English to German")
         "s_EDITORS_PICK" "s_BREAKING_NEWS_BOX")
       url
       'speak)))
-
+;;; As of Dec 16, atom no longer appears supported
 (emacspeak-url-template-define
  "Google News Search"
- "http://news.google.com/news?hl=en&ned=tus&q=%s&btnG=Google+Search&output=atom"
+ "http://news.google.com/news?hl=en&ned=tus&q=%s&btnG=Google+Search"
  (list "Google News: ")
  'emacspeak-url-template-setup-content-filter
- "Search Google news."
- #'emacspeak-feeds-atom-display)
+ "Search Google news.")
 
 (emacspeak-url-template-define
  "Google Recent News Search"
