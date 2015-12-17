@@ -485,6 +485,31 @@ and return a suitable effect structure." name)
 
 ;;}}}
 (provide 'sox)
+;;{{{ Add Emacspeak Support
+
+;;; Code here can be factored out to emacspeak-sox.el
+(require 'emacspeak-preamble)
+
+
+
+(defadvice sox-open-file(after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'select-object)))
+
+
+(defadvice sox-refresh (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'task-done)))
+
+(defadvice sox-delete-effect-at-point (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'delete-object)))
+(provide 'emacspeak-sox)
+
+;;}}}
 ;;{{{ end of file
 
 ;;; local variables:
