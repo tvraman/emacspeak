@@ -774,9 +774,9 @@ https://www.google.com/options/specialsearches.html "
   "*RSS URI for launching a Yahoo News search")
 
 ;;;###autoload
-(defun emacspeak-websearch-news-yahoo (query &optional no-rss)
+(defun emacspeak-websearch-news-yahoo (query &optional rss)
   "Perform an Yahoo News search.
-Optional prefix arg no-rss scrapes information from HTML."
+Optional prefix arg  avoids scraping  information from HTML."
   (interactive
    (list
     (emacspeak-websearch-read-query "Yahoo News Query: ")
@@ -790,7 +790,7 @@ Optional prefix arg no-rss scrapes information from HTML."
                       emacspeak-we-url-rewrite-rule
                       '("$" "&printer=1"))))
   (cond
-   ((null no-rss)                       ;use rss feed
+   (rss                       ;use rss feed
     (emacspeak-feeds-rss-display
      (concat emacspeak-websearch-news-yahoo-rss-uri
              (format "p=%s&n=20&c=news"
