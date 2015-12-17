@@ -333,7 +333,8 @@ When turned on, Soundscapes are automatically run based on current major mode."
   "Shows default theme in a special buffer."
   (interactive)
   (declare (special soundscape-default-theme))
-  (let ((buffer (get-buffer-create "*Soundscape Theme*")))
+  (let ((buffer (get-buffer-create "*Soundscape Theme*"))
+        (inhibit-read-only  t))
     (with-current-buffer buffer
       (erase-buffer)
       (loop
