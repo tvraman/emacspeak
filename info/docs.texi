@@ -20614,7 +20614,7 @@ disables automatic SoundScapes.
 When automatic Soundscapes are enabled, SoundScapes are
  started and stopped based on the current major
 mode. Active Soundscape names are displayed as part of the minor-mode-alist
-Command emacspeak-speakc-minor-mode-line can be used to heear their names.
+Command emacspeak-speakc-minor-mode-line can be used to have this spoken.
 Thus, SoundScapes can be thought of as reflecting the
 @emph{mood} of the current @emph{mode}.
 This package defines a single @var{soundscape-default-theme}
@@ -20709,15 +20709,11 @@ Adds  effect at the end of the effect list
 @end deffn
 
 @subsubsection sox-delete-effect-at-point
-@deffn {Command} sox-delete-effect-at-point  (&rest rest)
+@deffn {Command} sox-delete-effect-at-point   
 @findex sox-delete-effect-at-point
 
 @format
-:around advice: ``ad-Advice-sox-delete-effect-at-point''
-
 Delete effect at point.
-
-(fn)
 @end format
 @end deffn
 
@@ -20748,15 +20744,11 @@ key             binding
 @end deffn
 
 @subsubsection sox-open-file
-@deffn {Command} sox-open-file  (&rest rest)
+@deffn {Command} sox-open-file  (snd-file)
 @findex sox-open-file
 
 @format
-:around advice: ``ad-Advice-sox-open-file''
-
 Open specified snd-file on the Audio Workbench.
-
-(fn SND-FILE)
 @end format
 @end deffn
 
@@ -20770,15 +20762,11 @@ Play sound from current context.
 @end deffn
 
 @subsubsection sox-refresh
-@deffn {Command} sox-refresh  (&rest rest)
+@deffn {Command} sox-refresh   
 @findex sox-refresh
 
 @format
-:around advice: ``ad-Advice-sox-refresh''
-
 Redraw Audio Workbench.
-
-(fn)
 @end format
 @end deffn
 
