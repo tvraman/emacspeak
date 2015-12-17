@@ -348,8 +348,10 @@ When turned on, Soundscapes are automatically run based on current major mode."
                    #'(lambda (s)
                        (substring (symbol-name s) 0 -5))
                    modes " ")))))
-      (sort-lines nil (point-min) (point-max)))
-
+      (sort-lines nil (point-min) (point-max))
+      (goto-char (point-min))
+      (setq default-directory
+            (expand-file-name "~/.boodler/Collection")))
     (funcall-interactively #'switch-to-buffer buffer)))
 
 
