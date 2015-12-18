@@ -813,16 +813,24 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
     "bs2b=cmoy" "bs2b=jmeier" "bs2b")
   "Table of useful MPlayer filters.")
 
-(defun emacspeak-m-player-add-filter ()
-  "Adds specified filter."
+(defun emacspeak-m-player-add-autopan ()
+  "Add predefined autopan effect."
   (interactive)
-  (declare (special emacspeak-m-player-process))
-  (let ((filter-name
-         (completing-read "Filter:"
+  (emacspeak-m-player-add-filter
+   (concat 
+    "ladspa=tap_autopan:tap_autopan:.0016:100:1,"
+    "ladspa=tap_autopan:tap_autopan:.06:33:1")))
+
+(defun emacspeak-m-player-add-filter (filter-name)
+  "Adds specified filter."
+  (interactive
+   (list
+    (completing-read "Filter:"
                           emacspeak-m-player-filters
                           nil nil)))
+  (declare (special emacspeak-m-player-process))
     (when (process-live-p  emacspeak-m-player-process)
-      (emacspeak-m-player-dispatch (format "af_add %s" filter-name)))))
+      (emacspeak-m-player-dispatch (format "af_add %s" filter-name))))
 
 (defun emacspeak-m-player-left-channel ()
   "Play both channels on left channel."
@@ -986,6 +994,7 @@ arg `reset' starts with all filters set to 0."
     ("M" emacspeak-m-player-display-metadata)
     ("M-l" emacspeak-m-player-load-playlist)
     ("C-l" ladspa)
+    ("A" emacspeak-m-player-add-autopan)
     ("O" emacspeak-m-player-reset-options)
     ("P" emacspeak-m-player-apply-reverb-preset)
     ("Q" emacspeak-m-player-quit)
