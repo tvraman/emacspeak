@@ -5,7 +5,7 @@
 ;;; August 12, 2007: Cleaned up for Emacs 22
 ;;}}}
 ;;{{{ personal lib
-
+(setq inhibit-startup-echo-area-message "raman")
 (defvar emacs-private-library
   (expand-file-name "~/.elisp")
   "Private personalization directory. ")
