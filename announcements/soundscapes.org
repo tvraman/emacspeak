@@ -1,0 +1,87 @@
+* Executive Summary 
+
+Emacspeak module [[http://tvraman.github.io/emacspeak/manual/soundscape.html][soundscape]] adds the ability to automatically switch
+*Soundscapes* based on the current buffer. A *Soundscape* can be any
+continuously playing stream of audio; in practice, using nature sounds
+that repeat softly in a pseudo-random manner appears to be
+effective. Soundscapes are activated based on the currently active
+/Emacs Major Mode/ and as a consequence directly mirror the user's
+current activity. The present implementation uses Python package
+[[http://boodler.org][Boodler]] to generate soundscapes.
+
+* Usage 
+
+Note that package ~soundscape.el~ does not have any Emacspeak
+dependencies. See the [[http://tvraman.github.io/emacspeak/manual/soundscape][package documentation]] for details on installing
+and configuring [[http://boodler.org][Boodler]]. 
+
+You can experiment with installed Boodler agents using command
+~soundscape~ and ~soundscape-stop~. You can enable and disable
+/automatic soundscapes/ using command ~soundscape-toggle~. The
+currently active default Soundscape theme can be inspected via command
+~soundscape-display~ --- this produces a buffer that lists the
+currently defined /major-mode -> Soundscape mapping. 
+
+Package ~soundscape.el~ considers the inheritance relationship among
+Emacs major-modes when computing the set of /soundscapes/ to
+activate.As an example, _eww-mode_ inherits from _special-mode_ --- as
+a consequence, two soundscapes (/LightWind/ and /BackgroundWaves/)
+become active when reading Web content.
+
+* Default Major-Mode->Soundscape (Mood) Mapping:
+
+Here is a table showing the mapping of major-mmodes to Soundscape
+moods at the time of writing. For readability, I have stripped out the
+_package-name_ for these soundscapes.
+
+
+|-------------------+-------------------------------------------------------------------------------------------------------------------------|
+| Soundscape (Mood) | List Of Major Modes                                                                                                     |
+| BuddhaLoop        | 	fundamental                                                                                                           |
+| LightStorm        | 	special                                                                                                               |
+| RainForever       | 	Info help Man Custom messages-buffer                                                                                  |
+| LightWind         | 	comint elfeed-search                                                                                                  |
+| TonkSpace         | 	tabulated-list                                                                                                        |
+| Cavern            | 	prog                                                                                                                  |
+| Drip              | 	message gnus-summary gnus-article gnus-group mspools vm-presentation vm mail twittering jabber-roster jabber-chat erc |
+| Still             | 	text                                                                                                                  |
+| Water             | 	dired                                                                                                                 |
+| Steady            | 	calendar diary                                                                                                        |
+| BackgroundWaves   | 	w3 eww                                                                                                                |
+|-------------------+-------------------------------------------------------------------------------------------------------------------------|
+
+* Soundscape Research
+
+I implemented package ~soundscape.el~ to create a platform that would
+let me experiment with different tools that aid in
+concentration. After using Soundscapes for about a week, I have also
+found that it reduces some of the fatigue that results from having to
+listen to synthetic text-to-speech for extended  periods.
+The true value (if any) of this package will be a function of how heavily
+I find myself using it six months from now --- as a metric, /complete
+success/  might mean that in mid-2016, I still  have automatic
+soundscapes turned on.
+As I type this article in Emacs _org-mode_, I hear  the sound of
+water-drops falling softly in the background, and I take note
+that I have not switched tasks  for the entire time I have spent
+writing this article.
+
+Other success metrics --- harder to measure --- might include how
+effective Soundscapes are in helping the user stay focused on a
+given activity for extended periods of time. In an ever-connected
+world buzzing with a constant stream of distractions ranging from
+incoming email and instant-messages to a flood of twitter updates,
+this is likely the most relevant metric.
+
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:nil d:(not "LOGBOOK") date:t e:t
+#+OPTIONS: email:nil f:t inline:t num:t p:nil pri:nil prop:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t
+#+TITLE: Soundscapes On The Emacspeak Audio Desktop 
+#+DATE: <2015-12-18 Fri>
+#+AUTHOR: T.V Raman
+#+EMAIL: raman@google.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 25.0.50.1 (Org mode 8.3.2)
