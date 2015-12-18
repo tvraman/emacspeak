@@ -193,6 +193,9 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 (add-hook
  #'after-init-hook
  #'(lambda ()
+     (savehist-mode )
+     (save-place-mode)
+     (midnight-mode)
      (emacspeak-tts-startup-hook)
      (unless soundscape-auto
        (soundscape-toggle))
