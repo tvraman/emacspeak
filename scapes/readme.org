@@ -2,14 +2,8 @@
 
 This directory will contain Boodler packages that I create as part of
 Emacspeak.
-For now, I'm unable to get tool ~boodle-mgr~ to work, so I'm not
-packaging these as _.boop_ files.
-Copying package directories found here to _~/.boodler/Collection/_
-appears to work.
-
-
 
 * Contents
 
-  1. org.emacspeak.seascape: A slightly modified version of package
+  1. org.emacspeak.seascape.1.0.boop: A slightly modified version of package
      _name.acroucher.seascape_ for use with Web content.
