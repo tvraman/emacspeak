@@ -157,3 +157,7 @@ org.boodler.play/RepeatSoundShuffleList
 org.boodler.play/SoundSequence
 org.boodler.play/SoundShuffle
 org.boodler.play/SoundShuffleMix
+org.emacspeak.seascapes/SurfWaves
+org.emacspeak.seascapes/SurfWaveSounds
+org.emacspeak.seascapes/SurfBackgroundWaves
+
