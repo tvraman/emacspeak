@@ -40,7 +40,8 @@
 
 ;;; Commentary:
 
-;;; Boodler  at @url{http://boodler.org} is a Python-based SoundScape generator.
+;;; Boodler  at @url{http://boodler.org} is a
+;;; Python-based SoundScape generator.
 ;;; To use this module, first install boodler.
 ;;; Then install the soundscape packages (*.boop) files available
 ;;; at @url{http://boodler.org/lib}
@@ -106,33 +107,36 @@
 (defvar soundscape-missing-packages nil
   "Records missing packages when building up the catalog.")
 
+(defun soundscape-catalog-add-entry()
+  "Add catalog entry from current line."
+  (declare (special soundscape-missing-packages))
+  (let ((name nil)
+          (scape nil)
+          (package nil)
+          (fields nil))
+    (setq scape
+        (buffer-substring (line-beginning-position) (line-end-position)))
+  (setq fields (split-string scape "/"))
+  (setq  package (first fields) name (second fields))
+  (cond
+   ((and name scape
+         (file-exists-p   (expand-file-name package soundscape-data)))
+    (push (cons name scape) soundscape--catalog))
+   (t (push scape soundscape-missing-packages)))))
 (defun soundscape-catalog (&optional refresh)
   "Return catalog of installed Soundscapes, initialize if necessary."
-  (declare (special soundscape--catalog soundscape-list
-                    soundscape-missing-packages))
+  (declare (special soundscape--catalog soundscape-list))
   (when (null (file-exists-p soundscape-list)) (error "Catalog missing."))
   (cond
    ((and soundscape--catalog (null refresh)) soundscape--catalog)
    (t
-    (let ((name nil)
-          (scape nil)
-          (package nil)
-          (fields nil))
-      (with-temp-buffer
-        (insert-file-contents soundscape-list)
-        (goto-char (point-min))
-        (while (not (eobp))
-          (setq scape
-                (buffer-substring (line-beginning-position) (line-end-position)))
-          (setq fields (split-string scape "/"))
-          (setq  package (first fields) name (second fields))
-          (cond
-           ((and name scape
-                 (file-exists-p   (expand-file-name package soundscape-data)))
-            (push (cons name scape) soundscape--catalog))
-           (t (push scape soundscape-missing-packages)))
-          (forward-line 1)))
-      soundscape--catalog))))
+    (with-temp-buffer
+      (insert-file-contents soundscape-list)
+      (goto-char (point-min))
+      (while (not (eobp))
+        (soundscape-catalog-add-entry)
+        (forward-line 1)))
+    soundscape--catalog)))
 
 ;;;###autoload
 (defun soundscape-init ()
@@ -195,9 +199,10 @@
 
 (defun soundscape-current ()
   "Return names of currently running scapes."
-  (apply
-   #'concat
-   (mapcar #'soundscape-lookup-scape (hash-table-keys soundscape-processes))))
+  (mapconcat
+   #'identity
+   (mapcar #'soundscape-lookup-scape (hash-table-keys soundscape-processes))
+   " "))
 
 (defun soundscape-display ()
   "Display names of running scapes."
@@ -277,8 +282,9 @@ See  \\{soundscape-default-theme} for details."
     ("RainForever" ,soundscape-help-modes)
     )
   "Specifies default map.
-Map is a list of lists, where the first element of each sublist is a Soundscape name,
-and the second element is a list of Soundscape names.")
+Map is a list of lists, where the first element of each sublist
+is a Soundscape name, and the second element is a list of
+Soundscape names.")
 
 (soundscape-load-theme soundscape-default-theme)
 
