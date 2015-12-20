@@ -34,7 +34,7 @@ class SurfWaveSounds(agent.Agent):
             mindelay=1.0, maxdelay=5.0,
             minpitch=0.2, maxpitch=0.6,
             minvol=0.1, maxvol=0.8,
-            maxpan=1.0, sounds=wavesounds)
+            maxpan=1.5, sounds=wavesounds)
         ag2 = manage.VolumeModulateAgent(ag, 0.075)
         self.sched_agent(ag2)
 
