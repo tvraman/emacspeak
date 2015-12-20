@@ -518,15 +518,16 @@ Retain previously set punctuations  mode."
 
 (defadvice eww-follow-link (around emacspeak pre act comp)
   "Respect emacspeak-we-url-executor if set."
-  (emacspeak-auditory-icon 'button)
-  (cond
+  (let ((soundscape-auto nil))
+    (emacspeak-auditory-icon 'button)
+    (cond
    ((and (ems-interactive-p)
          (boundp 'emacspeak-we-url-executor)
          (fboundp emacspeak-we-url-executor))
     (let ((url (get-text-property (point) 'shr-url)))
       (unless url (error "No URL  under point"))
       (funcall emacspeak-we-url-executor url)))
-   (t ad-do-it)))
+   (t ad-do-it))))
 
 ;;}}}
 ;;{{{ xslt transform on request:
