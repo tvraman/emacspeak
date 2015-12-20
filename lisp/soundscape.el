@@ -254,7 +254,7 @@ See  \\{soundscape-default-theme} for details."
     ("LightWind" (comint-mode elfeed-search-mode))
     ("Steady" (calendar-mode diary-mode))
     ( "Cavern" (prog-mode))
-    ("BackgroundWaves"  ,soundscape-web-modes)
+    ("waves"  ,soundscape-web-modes)
     ( "Still" (text-mode))
     ("Water"  (dired-mode))
     ("BuddhaLoop" (fundamental-mode))
