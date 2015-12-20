@@ -249,7 +249,7 @@ See  \\{soundscape-default-theme} for details."
 
 (defconst soundscape-default-theme
   `(
-    ("OneStorm"  ( special-mode))
+    ("NoStormYet"  ( special-mode))
     ("TonkSpace" (tabulated-list-mode))
     ("LightWind" (comint-mode elfeed-search-mode))
     ("Steady" (calendar-mode diary-mode))
