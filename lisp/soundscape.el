@@ -269,6 +269,7 @@ See  \\{soundscape-default-theme} for details."
 
 (defconst soundscape-default-theme
   `(
+    ("ChangingLoops" (emacspeak-m-player-mode))
     ("NoStormYet"  ( fundamental-mode))
     ("TonkSpace" (tabulated-list-mode))
     ("LightWind" (comint-mode elfeed-search-mode))
