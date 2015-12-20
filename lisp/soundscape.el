@@ -249,7 +249,7 @@ See  \\{soundscape-default-theme} for details."
 
 (defconst soundscape-default-theme
   `(
-    ("NoStormYet"  ( special-mode))
+    ("NoStormYet"  ( fundamental-mode))
     ("TonkSpace" (tabulated-list-mode))
     ("LightWind" (comint-mode elfeed-search-mode))
     ("Steady" (calendar-mode diary-mode))
@@ -257,7 +257,7 @@ See  \\{soundscape-default-theme} for details."
     ("SurfWaves"  ,soundscape-web-modes)
     ( "Still" (text-mode))
     ("WaterFlow"  (dired-mode))
-    ("BuddhaLoop" (fundamental-mode))
+    ("BuddhaLoop" (special-mode))
     ("Drip" ,soundscape-communication-modes)
     ("RainForever" ,soundscape-help-modes)
     )
