@@ -46,7 +46,7 @@
 ;;; at @url{http://boodler.org/lib}
 ;;; Make sure boodler works and produces audio in your environment.
 ;;; When  boodler is set up and all packages installed, copy
-;;; file emacspeak/scapes/soundscapes  to ~/.boodler.
+;;; file emacspeak/scapes/soundscapes  to ~/.boodler/Collection.
 ;;; The above file lists all installed SoundScapes.
 ;;; Directory emacspea/scapes also contains
 ;;; additional SoundScapes  that I have created for use with Emacspeak.
@@ -92,8 +92,10 @@
   "Soundscape manager. Looks for installed boodler.")
 
 ;;; This file is generated via a shell-hack for now.
+(defvar soundscape-data "~/.boodler/Collection"
+  "Soundscape data directory.")
 
-(defconst soundscape-list (expand-file-name "soundscapes"  "~/.boodler")
+(defconst soundscape-list (expand-file-name "soundscapes"  soundscape-data)
   "Soundscape player. Looks for installed boodler.")
 
 (defvar soundscape--catalog nil
@@ -101,27 +103,36 @@
 
 ;;}}}
 ;;{{{ Catalog:
+(defvar soundscape-missing-packages nil
+  "Records missing packages when building up the catalog.")
 
 (defun soundscape-catalog (&optional refresh)
   "Return catalog of installed Soundscapes, initialize if necessary."
-  (declare (special soundscape--catalog soundscape-list))
+  (declare (special soundscape--catalog soundscape-list
+                    soundscape-missing-packages))
+  (when (null (file-exists-p soundscape-list)) (error "Catalog missing."))
   (cond
    ((and soundscape--catalog (null refresh)) soundscape--catalog)
-   ((null (file-exists-p soundscape-list)) (error "Catalog not initialized."))
    (t
     (let ((name nil)
-          (scape nil))
+          (scape nil)
+          (package nil)
+          (fields nil))
       (with-temp-buffer
         (insert-file-contents soundscape-list)
         (goto-char (point-min))
         (while (not (eobp))
           (setq scape
                 (buffer-substring (line-beginning-position) (line-end-position)))
-          (setq name (second (split-string scape "/")))
-          (when (and name scape)
+          (setq fields (split-string scape "/"))
+          (setq  package (first fields) name (second fields))
+          (cond
+           ((and name scape
+                 (file-exists-p   (expand-file-name package soundscape-data)))
             (push (cons name scape) soundscape--catalog))
-          (forward-line 1))))
-    soundscape--catalog)))
+           (t (push scape soundscape-missing-packages)))
+          (forward-line 1)))
+      soundscape--catalog))))
 
 ;;;###autoload
 (defun soundscape-init ()
@@ -184,7 +195,9 @@
 
 (defun soundscape-current ()
   "Return names of currently running scapes."
-  (apply #'concat (mapcar #'soundscape-lookup-scape (hash-table-keys soundscape-processes))))
+  (apply
+   #'concat
+   (mapcar #'soundscape-lookup-scape (hash-table-keys soundscape-processes))))
 
 (defun soundscape-display ()
   "Display names of running scapes."
@@ -336,7 +349,7 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
 (defun soundscape-theme ()
   "Shows default theme in a special buffer."
   (interactive)
-  (declare (special soundscape-default-theme))
+  (declare (special soundscape-default-theme soundscape-base))
   (let ((buffer (get-buffer-create "*Soundscape Theme*"))
         (inhibit-read-only  t))
     (with-current-buffer buffer
@@ -357,9 +370,8 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
       (goto-char (point-min))
       (special-mode)
       (setq default-directory
-            (expand-file-name "~/.boodler/Collection")))
+            (expand-file-name soundscape-data)))
     (funcall-interactively #'switch-to-buffer buffer)))
-
 
 ;;}}}
 (provide 'soundscape)
