@@ -46,8 +46,10 @@
 ;;; at @url{http://boodler.org/lib}
 ;;; Make sure boodler works and produces audio in your environment.
 ;;; When  boodler is set up and all packages installed, copy
-;;; file emacspeak/etc/soundscapes  to ~/.boodler.
+;;; file emacspeak/scapes/soundscapes  to ~/.boodler.
 ;;; The above file lists all installed SoundScapes.
+;;; Directory emacspea/scapes also contains
+;;; additional SoundScapes  that I have created for use with Emacspeak.
 ;;;
 ;;;  Module soundscape.el  defines Emacspeak conveniences for running
 ;;; Soundscapes. Main Entry Points:
