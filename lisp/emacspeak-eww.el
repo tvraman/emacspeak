@@ -369,8 +369,9 @@ are available are cued by an auditory icon on the header line."
 If buffer was result of displaying a feed, reload feed.
 If we came from a url-template, reload that template.
 Retain previously set punctuations  mode."
-  (add-hook 'emacspeak-web-post-process-hook 'emacspeak-eww-post-render-actions)
-  (cond
+  (let ((soundscape-auto nil))
+    (add-hook 'emacspeak-web-post-process-hook 'emacspeak-eww-post-render-actions)
+    (cond
    ((and (emacspeak-eww-current-url)
          emacspeak-eww-feed
          emacspeak-eww-style)
@@ -404,7 +405,7 @@ Retain previously set punctuations  mode."
        'at-end)
       (kill-buffer)
       (emacspeak-url-template-open (emacspeak-url-template-get  n))))
-   (t ad-do-it)))
+   (t ad-do-it))))
 
 (loop
  for f in
