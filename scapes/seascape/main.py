@@ -41,7 +41,7 @@ class SurfWaveSounds(agent.Agent):
 class SurfBackgroundWaves(agent.Agent):
     def run(self):
         p=random.uniform(0.2,0.7)
-        v=random.uniform(0.1, 0.25)
+        v=random.uniform(0.05, 0.15)
         d=random.uniform(0.3,1.0)
         pan= random.uniform(-1.5, 1.5)
         dur=self.sched_note_pan(water.waves_light, pan, pitch=p, volume=v)
