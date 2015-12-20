@@ -313,7 +313,8 @@ Do not set this by hand, use command \\[soundscape-toggle].")
 ;;;###autoload
 (defun soundscape-toggle ()
   "Toggle automatic SoundScapes.
-When turned on, Soundscapes are automatically run based on current major mode."
+When turned on, Soundscapes are automatically run based on current major mode.
+Run command \\[soundscape-theme] to see the default mode->mood mapping."
   (interactive)
   (declare (special soundscape-auto))
   (cond
