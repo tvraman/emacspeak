@@ -1,0 +1,10 @@
+# org.emacspeak.listen 1.0
+# package built Mon Dec 21 11:58:42 PST 2015
+
+boodler.main: main
+
+boodler.package: org.emacspeak.listen
+boodler.version: 1.0
+dc.creator: T. V. Raman
+dc.title: Emacspeak Soundscape Manager
+dc.description: Inspired by org.boodler.listen/Catalog
