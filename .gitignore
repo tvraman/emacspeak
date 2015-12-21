@@ -3,7 +3,6 @@
 *.info-*
 *.el~
 *.o
-*.so
 # ignore generated files:
 README
 etc/emacspeak.sh
