@@ -2,3 +2,6 @@
 
 org.emacspeak.seascape.1.0.boop: seascape/main.py
 	boodle-mgr --import create  seascape 
+
+org.emacspeak.listen.1.0.boop: listen/main.py
+	boodle-mgr --import create  listen 
