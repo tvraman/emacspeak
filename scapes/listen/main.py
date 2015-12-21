@@ -47,17 +47,11 @@ class Catalog(agent.Agent):
         self.workagent.trigger(self.classlist[self.pos])
 
     def receive(self, event):
-        print event
         key = event.split('.')[-1]
         newpos = self.pos
         count = len(self.classlist)
-        if (key == 'chanup'):
-            newpos = ((self.pos + 1) % count)
-        elif (key == 'chandown'):
-            newpos = ((self.pos + count - 1) % count)
-        elif ('chan' in key):
-            val = int(key[4:])
-            print val
+        if ('c' in key):
+            val = int(key[1:])
             if (val >= 0 and val < count):
                 newpos = val
         if (newpos != self.pos):
