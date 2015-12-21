@@ -1,8 +1,7 @@
-                                        ; Configure BBDB
+
 (augment-load-path "bbdb/lisp" "bbdb")
 (load-library "bbdb-autoloads")
 
-(bbdb-initialize 'vm  'gnus)
 ;; Configuration for bbdb
 (setq bbdb-ignore-some-messages-alist
       '(
@@ -21,6 +20,9 @@
         ("From" . "administ")
         ("From" . "daemon")))
 
+(setq bbdb-ignore-most-messages-alist
+      '(
+        ("To"   . "raman")))
 (setq bbdb-completion-type 'primary-or-name)
 
                                         ; Always save BBDB without asking
