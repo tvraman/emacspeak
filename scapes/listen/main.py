@@ -23,15 +23,12 @@ class Agents(agent.Agent):
         if (self.prevchannel != None and self.prevchannel.active):
             self.sched_agent(builtin.FadeOutAgent(
                 self.fadetime), chan=self.prevchannel)
-            self.prevchannel = self.new_channel(0)
-            self.prevchannel.set_volume(1, self.fadetime)
-            self.sched_agent(clas(), chan=self.prevchannel)
+        self.prevchannel = self.new_channel(0)
+        self.prevchannel.set_volume(1, self.fadetime)
+        self.sched_agent(clas(), chan=self.prevchannel)
 
 
 class Catalog(agent.Agent):
-
-    """Recieves a list of agents.
-    Accepts remote commands to start and stop these received agents."""
     _args = ArgList(ArgExtra(ListOf(Wrapped(agent.Agent))))
     selected_event = 'remote'
 
@@ -50,12 +47,17 @@ class Catalog(agent.Agent):
         self.workagent.trigger(self.classlist[self.pos])
 
     def receive(self, event):
-        val = event.split('.')[-1]
+        key = event.split('.')[-1]
         newpos = self.pos
         count = len(self.classlist)
-        if (val >= 0 and val < count):
-          newpos = val
-          print "value is ", val
-          if (newpos != self.pos):
+        if (key == 'chanup'):
+            newpos = ((self.pos + 1) % count)
+        elif (key == 'chandown'):
+            newpos = ((self.pos + count - 1) % count)
+        elif (key in ['num1', 'num2', 'num3', 'num4', 'num5', 'num6', 'num7', 'num8', 'num9']):
+            val = int(key[-1]) - 1
+            if (val >= 0 and val < count):
+                newpos = val
+        if (newpos != self.pos):
             self.pos = newpos
             self.workagent.trigger(self.classlist[self.pos])
