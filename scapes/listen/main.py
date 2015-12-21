@@ -5,6 +5,27 @@ from boodle import agent, builtin
 from boopak.argdef import *
 
 
+class Agents(agent.Agent):
+  selected_event = 'agent'
+
+  def init(self, fadetime=2.0):
+    self.fadetime = fadetime
+    self.prevchannel = None
+
+  def run(self):
+    self.listen(hold=True)
+
+  def receive(self, event, *arglist):
+    clas = self.load_described(arglist)
+    self.trigger(clas)
+
+  def trigger(self, clas):
+    if (self.prevchannel != None and self.prevchannel.active):
+      self.sched_agent(builtin.FadeOutAgent(self.fadetime), chan=self.prevchannel)
+      self.prevchannel = self.new_channel(0)
+      self.prevchannel.set_volume(1, self.fadetime)
+      self.sched_agent(clas(), chan=self.prevchannel)
+
 class Catalog(agent.Agent):
   """Recieves a list of agents.
   Accepts remote commands to start and stop these received agents."""
