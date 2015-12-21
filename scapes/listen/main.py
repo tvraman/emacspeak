@@ -50,12 +50,12 @@ class Catalog(agent.Agent):
         self.workagent.trigger(self.classlist[self.pos])
 
     def receive(self, event):
-        key = event.split('.')[-1]
+        val = event.split('.')[-1]
         newpos = self.pos
         count = len(self.classlist)
-        val = int(key)
         if (val >= 0 and val < count):
           newpos = val
+          print "value is ", val
           if (newpos != self.pos):
             self.pos = newpos
             self.workagent.trigger(self.classlist[self.pos])

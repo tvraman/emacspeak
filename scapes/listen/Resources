@@ -9,4 +9,4 @@ dc.title: Run agents by command
 :Catalog
 boodler.arguments: (arglist () listtype=(ListOf ((Wrapped Agent)) min=0))
 boodler.use: agent
-dc.title: Remote-control soundscape menu
+dc.title: Emacspeak soundscape Remote Control
