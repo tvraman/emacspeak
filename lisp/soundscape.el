@@ -318,9 +318,8 @@ Do not set this by hand, use command \\[soundscape-toggle].")
 
 (defun soundscape-update-hook ()
   "Hook function to update Soundscape automatically."
-  (declare (special soundscape-auto soundscape-last-mode))
-  (when (and soundscape-auto
-             (not (eq major-mode soundscape-last-mode))
+  (declare (special  soundscape-last-mode))
+  (when (and (not (eq major-mode soundscape-last-mode))
              (not (eq 'minibuffer-inactive-mode major-mode))
              (not (string-match "temp" (buffer-name))))
     (setq soundscape-last-mode major-mode)
@@ -328,7 +327,7 @@ Do not set this by hand, use command \\[soundscape-toggle].")
 
 (defadvice select-window (after soundscape pre act comp)
   "Update Soundscape."
-  (soundscape-update-hook))
+  (when (and soundscape-auto(ad-get-arg 1)) (soundscape-update-hook)))
 
 ;;}}}
 ;;{{{ SoundScape Toggle:
