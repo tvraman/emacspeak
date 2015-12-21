@@ -1,0 +1,12 @@
+# org.emacspeak.listen 1.0
+# package built Mon Dec 21 14:02:44 PST 2015
+
+:Agents
+boodler.arguments: (arglist ((arg default=2.0 index=1 type=float name=fadetime)))
+boodler.use: agent
+dc.title: Run agents by command
+
+:Catalog
+boodler.arguments: (arglist () listtype=(ListOf ((Wrapped Agent)) min=0))
+boodler.use: agent
+dc.title: Remote-control soundscape menu
