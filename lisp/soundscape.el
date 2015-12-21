@@ -40,14 +40,17 @@
 
 ;;; Commentary:
 
-;;; Boodler  at @url{http://boodler.org} is a Python-based SoundScape generator.
+;;; Boodler  at @url{http://boodler.org} is a
+;;; Python-based SoundScape generator.
 ;;; To use this module, first install boodler.
 ;;; Then install the soundscape packages (*.boop) files available
 ;;; at @url{http://boodler.org/lib}
 ;;; Make sure boodler works and produces audio in your environment.
 ;;; When  boodler is set up and all packages installed, copy
-;;; file emacspeak/etc/soundscapes  to ~/.boodler.
+;;; file emacspeak/scapes/soundscapes  to ~/.boodler/Collection.
 ;;; The above file lists all installed SoundScapes.
+;;; Directory emacspea/scapes also contains
+;;; additional SoundScapes  that I have created for use with Emacspeak.
 ;;;
 ;;;  Module soundscape.el  defines Emacspeak conveniences for running
 ;;; Soundscapes. Main Entry Points:
@@ -90,8 +93,10 @@
   "Soundscape manager. Looks for installed boodler.")
 
 ;;; This file is generated via a shell-hack for now.
+(defvar soundscape-data "~/.boodler/Collection"
+  "Soundscape data directory.")
 
-(defconst soundscape-list (expand-file-name "soundscapes"  "~/.boodler")
+(defconst soundscape-list (expand-file-name "soundscapes"  soundscape-data)
   "Soundscape player. Looks for installed boodler.")
 
 (defvar soundscape--catalog nil
@@ -99,26 +104,38 @@
 
 ;;}}}
 ;;{{{ Catalog:
+(defvar soundscape-missing-packages nil
+  "Records missing packages when building up the catalog.")
 
+(defun soundscape-catalog-add-entry()
+  "Add catalog entry from current line."
+  (declare (special soundscape-missing-packages))
+  (let ((name nil)
+          (scape nil)
+          (package nil)
+          (fields nil))
+    (setq scape
+        (buffer-substring (line-beginning-position) (line-end-position)))
+  (setq fields (split-string scape "/"))
+  (setq  package (first fields) name (second fields))
+  (cond
+   ((and name scape
+         (file-exists-p   (expand-file-name package soundscape-data)))
+    (push (cons name scape) soundscape--catalog))
+   (t (push scape soundscape-missing-packages)))))
 (defun soundscape-catalog (&optional refresh)
   "Return catalog of installed Soundscapes, initialize if necessary."
   (declare (special soundscape--catalog soundscape-list))
+  (when (null (file-exists-p soundscape-list)) (error "Catalog missing."))
   (cond
    ((and soundscape--catalog (null refresh)) soundscape--catalog)
-   ((null (file-exists-p soundscape-list)) (error "Catalog not initialized."))
    (t
-    (let ((name nil)
-          (scape nil))
-      (with-temp-buffer
-        (insert-file-contents soundscape-list)
-        (goto-char (point-min))
-        (while (not (eobp))
-          (setq scape
-                (buffer-substring (line-beginning-position) (line-end-position)))
-          (setq name (second (split-string scape "/")))
-          (when (and name scape)
-            (push (cons name scape) soundscape--catalog))
-          (forward-line 1))))
+    (with-temp-buffer
+      (insert-file-contents soundscape-list)
+      (goto-char (point-min))
+      (while (not (eobp))
+        (soundscape-catalog-add-entry)
+        (forward-line 1)))
     soundscape--catalog)))
 
 ;;;###autoload
@@ -151,7 +168,8 @@
   "Play soundscape."
   (interactive (list (soundscape-read)))
   (declare (special soundscape-processes))
-  (let ((proc (gethash scape soundscape-processes)))
+  (let ((process-connection-type  nil)
+        (proc (gethash scape soundscape-processes)))
     (unless (process-live-p proc)
       (setq proc
             (start-process "Boodler" nil soundscape-player "-o" "alsa" scape))
@@ -182,7 +200,10 @@
 
 (defun soundscape-current ()
   "Return names of currently running scapes."
-  (apply #'concat (mapcar #'soundscape-lookup-scape (hash-table-keys soundscape-processes))))
+  (mapconcat
+   #'identity
+   (mapcar #'soundscape-lookup-scape (hash-table-keys soundscape-processes))
+   " "))
 
 (defun soundscape-display ()
   "Display names of running scapes."
@@ -249,21 +270,23 @@ See  \\{soundscape-default-theme} for details."
 
 (defconst soundscape-default-theme
   `(
-    ("LightStorm"  ( special-mode))
+    ("ChangingLoops" (emacspeak-m-player-mode))
+    ("NoStormYet"  ( fundamental-mode))
     ("TonkSpace" (tabulated-list-mode))
     ("LightWind" (comint-mode elfeed-search-mode))
     ("Steady" (calendar-mode diary-mode))
     ( "Cavern" (prog-mode))
-    ("BackgroundWaves"  ,soundscape-web-modes)
+    ("SurfWaves"  ,soundscape-web-modes)
     ( "Still" (text-mode))
-    ("Water"  (dired-mode))
-    ("BuddhaLoop" (fundamental-mode))
+    ("WaterFlow"  (dired-mode))
+    ("BuddhaLoop" (special-mode))
     ("Drip" ,soundscape-communication-modes)
     ("RainForever" ,soundscape-help-modes)
     )
   "Specifies default map.
-Map is a list of lists, where the first element of each sublist is a Soundscape name,
-and the second element is a list of Soundscape names.")
+Map is a list of lists, where the first element of each sublist
+is a Soundscape name, and the second element is a list of
+Soundscape names.")
 
 (soundscape-load-theme soundscape-default-theme)
 
@@ -299,7 +322,8 @@ Do not set this by hand, use command \\[soundscape-toggle].")
   (declare (special soundscape-auto soundscape-last-mode))
   (when (and soundscape-auto
              (not (eq major-mode soundscape-last-mode))
-             (not (eq 'minibuffer-inactive-mode major-mode)))
+             (not (eq 'minibuffer-inactive-mode major-mode))
+             (not (string-match "temp" (buffer-name))))
     (setq soundscape-last-mode major-mode)
     (soundscape-activate major-mode)))
 
@@ -313,7 +337,8 @@ Do not set this by hand, use command \\[soundscape-toggle].")
 ;;;###autoload
 (defun soundscape-toggle ()
   "Toggle automatic SoundScapes.
-When turned on, Soundscapes are automatically run based on current major mode."
+When turned on, Soundscapes are automatically run based on current major mode.
+Run command \\[soundscape-theme] to see the default mode->mood mapping."
   (interactive)
   (declare (special soundscape-auto))
   (cond
@@ -321,7 +346,11 @@ When turned on, Soundscapes are automatically run based on current major mode."
     (setq soundscape-auto nil)
     (soundscape-kill))
    (t
-    (pushnew   '(soundscape-auto (:eval (soundscape-current))) minor-mode-alist)
+    (unless
+        (find-if
+         #'(lambda (form) (eq 'soundscape-auto (car form)))
+         minor-mode-alist)
+    (push   '(soundscape-auto (:eval (soundscape-current))) minor-mode-alist))
     (soundscape-init)
     (setq soundscape-auto t)))
   (message "Automatic Soundscapes are now %s"
@@ -333,7 +362,7 @@ When turned on, Soundscapes are automatically run based on current major mode."
 (defun soundscape-theme ()
   "Shows default theme in a special buffer."
   (interactive)
-  (declare (special soundscape-default-theme))
+  (declare (special soundscape-default-theme soundscape-base))
   (let ((buffer (get-buffer-create "*Soundscape Theme*"))
         (inhibit-read-only  t))
     (with-current-buffer buffer
@@ -354,9 +383,8 @@ When turned on, Soundscapes are automatically run based on current major mode."
       (goto-char (point-min))
       (special-mode)
       (setq default-directory
-            (expand-file-name "~/.boodler/Collection")))
+            (expand-file-name soundscape-data)))
     (funcall-interactively #'switch-to-buffer buffer)))
-
 
 ;;}}}
 (provide 'soundscape)

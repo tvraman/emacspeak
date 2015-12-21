@@ -819,7 +819,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
   (emacspeak-m-player-add-filter
    (concat 
     "ladspa=tap_autopan:tap_autopan:.0016:100:1,"
-    "ladspa=tap_autopan:tap_autopan:.06:33:1")))
+    "ladspa=tap_autopan:tap_autopan:.016:33:1")))
 
 (defun emacspeak-m-player-add-filter (filter-name)
   "Adds specified filter."
