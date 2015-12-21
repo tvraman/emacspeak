@@ -168,7 +168,8 @@
   "Play soundscape."
   (interactive (list (soundscape-read)))
   (declare (special soundscape-processes))
-  (let ((proc (gethash scape soundscape-processes)))
+  (let ((process-connection-type  nil)
+        (proc (gethash scape soundscape-processes)))
     (unless (process-live-p proc)
       (setq proc
             (start-process "Boodler" nil soundscape-player "-o" "alsa" scape))
