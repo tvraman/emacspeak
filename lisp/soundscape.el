@@ -454,12 +454,12 @@ Listener is loaded with all Soundscapes used by Emacspeak."
              "-U" soundscape-remote-end-point))))
   (process-send-string
    soundscape-remote-control
-   (format "remote.%s\n"
+   (format "remote %s\n"
            (mapconcat 
             #'(lambda (name)
-                (format "c%s"
+                (format "%s"
                         (soundscape-lookup-position name)))
-            names ","))))
+            names " "))))
 
 ;;}}}
 (provide 'soundscape)

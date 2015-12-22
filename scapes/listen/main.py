@@ -53,20 +53,12 @@ class Catalog(agent.Agent):
         sim = manage.Simultaneous(a)
         self.workagent.trigger(sim)
 
-    def receive(self, event):
-        if (self.lastEvent is not  None and self.lastEvent is event):
-                return
-        self.lastEvent = event
-        key = event.split('.')[-1]
-        print "ke is ", key
-        chans = key.split(':')
-        print "chans is ", chans 
-        pick =[]
+    def receive(self, event, *chans):
+        print chans
+        pick = []
         for chan in chans:
-                print chan
-                if ('c' in chan):
-                        pos = int(key[1:])
-                        pick.append(self.classlist[pos]())
+            print chan
+            pos = int(chan)
+            pick.append(self.classlist[pos]())
         sim = manage.Simultaneous(*pick)
         self.workagent.trigger(sim)
-        
