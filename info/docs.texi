@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1156 commands and 942 options.
+This chapter documents a total of 1159 commands and 942 options.
 
 @menu
 * acss-structure::
@@ -20538,33 +20538,39 @@ This module is Plain  i.e. suitable for a device  for which you haven't yet impl
 @node soundscape
 @section soundscape
 
-Boodler  at @url{http://boodler.org} is a Python-based SoundScape generator.
+Boodler  at @url{http://boodler.org} is a
+Python-based SoundScape generator.
 To use this module, first install boodler.
 Then install the soundscape packages (*.boop) files available
-at @url{http://boodler.org/lib}
+at @url{http://boodler.org/lib}.
 Make sure boodler works and produces audio in your environment.
+finally install the Boodler packages  from
+emacspeak/scapes from the Emacspeak GitHub repository.
+
 When  boodler is set up and all packages installed, copy
 file emacspeak/scapes/soundscapes  to ~/.boodler/Collection.
 The above file lists all installed SoundScapes.
-Directory emacspea/scapes also contains
-additional SoundScapes  that I have created for use with Emacspeak.
+Directory emacspeak/scapes also contains
+additional Boodler Agents and SoundScapes  that
+I have created for use with Emacspeak.
 
- Module soundscape.el  defines Emacspeak conveniences for running
+ Module soundscape.el  defines Emacs conveniences for running
 Soundscapes. Main Entry Points:
 
 @itemize
-@item M-x soundscape ---
-runs a named SoundScape
 @item M-x soundscape-toggle --- Enables or
 disables automatic SoundScapes.
+@item M-x soundscape ---
+runs a named SoundScape
 @item M-x soundscape-stop --- Stops a specified running Soundscape.
 @item M-x soundscape-kill --- Kills all running Soundscapes.
 @end itemize
 
 When automatic Soundscapes are enabled, SoundScapes are
  started and stopped based on the current major
-mode. Active Soundscape names are displayed as part of the minor-mode-alist
+mode. Active Soundscape names are displayed as part of the minor-mode-alist.
 Command emacspeak-speakc-minor-mode-line can be used to have this spoken.
+
 Thus, SoundScapes can be thought of as reflecting the
 @emph{mood} of the current @emph{mode}.
 This package defines a single @var{soundscape-default-theme}
@@ -20598,6 +20604,34 @@ Display names of running scapes.
 
 @format
 Stop all running soundscapes.
+@end format
+@end deffn
+
+@subsubsection soundscape-listener
+@deffn {Command} soundscape-listener   
+@findex soundscape-listener
+
+@format
+Start  a Soundscape listener.
+Listener is loaded with all Soundscapes used by Emacspeak.
+@end format
+@end deffn
+
+@subsubsection soundscape-listener-shutdown
+@deffn {Command} soundscape-listener-shutdown   
+@findex soundscape-listener-shutdown
+
+@format
+Shutdown listener.
+@end format
+@end deffn
+
+@subsubsection soundscape-remote
+@deffn {Command} soundscape-remote  (names)
+@findex soundscape-remote
+
+@format
+Activate scapes named names.
 @end format
 @end deffn
 

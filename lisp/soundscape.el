@@ -44,30 +44,35 @@
 ;;; Python-based SoundScape generator.
 ;;; To use this module, first install boodler.
 ;;; Then install the soundscape packages (*.boop) files available
-;;; at @url{http://boodler.org/lib}
+;;; at @url{http://boodler.org/lib}.
 ;;; Make sure boodler works and produces audio in your environment.
+;;; finally install the Boodler packages  from
+;;; emacspeak/scapes from the Emacspeak GitHub repository.
+;;;
 ;;; When  boodler is set up and all packages installed, copy
 ;;; file emacspeak/scapes/soundscapes  to ~/.boodler/Collection.
 ;;; The above file lists all installed SoundScapes.
-;;; Directory emacspea/scapes also contains
-;;; additional SoundScapes  that I have created for use with Emacspeak.
+;;; Directory emacspeak/scapes also contains
+;;; additional Boodler Agents and SoundScapes  that
+;;; I have created for use with Emacspeak.
 ;;;
-;;;  Module soundscape.el  defines Emacspeak conveniences for running
+;;;  Module soundscape.el  defines Emacs conveniences for running
 ;;; Soundscapes. Main Entry Points:
 ;;;
 ;;;@itemize
-;;; @item M-x soundscape ---
-;;; runs a named SoundScape
 ;;; @item M-x soundscape-toggle --- Enables or
 ;;; disables automatic SoundScapes.
+;;; @item M-x soundscape ---
+;;; runs a named SoundScape
 ;;; @item M-x soundscape-stop --- Stops a specified running Soundscape.
 ;;; @item M-x soundscape-kill --- Kills all running Soundscapes.
 ;;;@end itemize
 ;;;
 ;;; When automatic Soundscapes are enabled, SoundScapes are
 ;;;  started and stopped based on the current major
-;;; mode. Active Soundscape names are displayed as part of the minor-mode-alist
+;;; mode. Active Soundscape names are displayed as part of the minor-mode-alist.
 ;;; Command emacspeak-speakc-minor-mode-line can be used to have this spoken.
+;;;
 ;;; Thus, SoundScapes can be thought of as reflecting the
 ;;; @emph{mood} of the current @emph{mode}.
 ;;; This package defines a single @var{soundscape-default-theme}
