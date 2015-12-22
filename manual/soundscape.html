@@ -96,22 +96,25 @@
   is a Python-based SoundScape generator. To use this module, first
   install boodler. Then install the soundscape packages (*.boop)
   files available at <a href=
-  "http://boodler.org/lib">http://boodler.org/lib</a> Make sure
-  boodler works and produces audio in your environment. When
-  boodler is set up and all packages installed, copy file
-  emacspeak/scapes/soundscapes to ~/.boodler/Collection. The above
-  file lists all installed SoundScapes. Directory emacspea/scapes
-  also contains additional SoundScapes that I have created for use
-  with Emacspeak.</p>
+  "http://boodler.org/lib">http://boodler.org/lib</a>. Make sure
+  boodler works and produces audio in your environment. finally
+  install the Boodler packages from emacspeak/scapes from the
+  Emacspeak GitHub repository.</p>
 
-  <p>Module soundscape.el defines Emacspeak conveniences for
-  running Soundscapes. Main Entry Points:</p>
+  <p>When boodler is set up and all packages installed, copy file
+  emacspeak/scapes/soundscapes to ~/.boodler/Collection. The above
+  file lists all installed SoundScapes. Directory emacspeak/scapes
+  also contains additional Boodler Agents and SoundScapes that I
+  have created for use with Emacspeak.</p>
+
+  <p>Module soundscape.el defines Emacs conveniences for running
+  Soundscapes. Main Entry Points:</p>
 
   <ul>
-    <li>M-x soundscape — runs a named SoundScape</li>
-
     <li>M-x soundscape-toggle — Enables or disables automatic
     SoundScapes.</li>
+
+    <li>M-x soundscape — runs a named SoundScape</li>
 
     <li>M-x soundscape-stop — Stops a specified running
     Soundscape.</li>
@@ -121,9 +124,11 @@
 
   <p>When automatic Soundscapes are enabled, SoundScapes are
   started and stopped based on the current major mode. Active
-  Soundscape names are displayed as part of the minor-mode-alist
+  Soundscape names are displayed as part of the minor-mode-alist.
   Command emacspeak-speakc-minor-mode-line can be used to have this
-  spoken. Thus, SoundScapes can be thought of as reflecting the
+  spoken.</p>
+
+  <p>Thus, SoundScapes can be thought of as reflecting the
   <em>mood</em> of the current <em>mode</em>. This package defines
   a single <var>soundscape-default-theme</var> that is loaded using
   <code>(soundscape-load soundscape-default-theme)</code>. Emacs
@@ -189,9 +194,71 @@ Stop all running soundscapes.
 </pre>
       </div>
     </dd>
+  </dl><a name="soundscape_002dlistener" id=
+  "soundscape_002dlistener"></a>
+
+  <h4 class="subsubsection">11.212.1.4 soundscape-listener</h4>
+
+  <dl>
+    <dt><a name="index-soundscape_002dlistener" id=
+    "index-soundscape_002dlistener"></a>Command:
+    <strong>soundscape-listener</strong></dt>
+
+    <dd>
+      <a name="index-soundscape_002dlistener-1" id=
+      "index-soundscape_002dlistener-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Start  a Soundscape listener.
+Listener is loaded with all Soundscapes used by Emacspeak.
+</pre>
+      </div>
+    </dd>
+  </dl><a name="soundscape_002dlistener_002dshutdown" id=
+  "soundscape_002dlistener_002dshutdown"></a>
+
+  <h4 class="subsubsection">11.212.1.5
+  soundscape-listener-shutdown</h4>
+
+  <dl>
+    <dt><a name="index-soundscape_002dlistener_002dshutdown" id=
+    "index-soundscape_002dlistener_002dshutdown"></a>Command:
+    <strong>soundscape-listener-shutdown</strong></dt>
+
+    <dd>
+      <a name="index-soundscape_002dlistener_002dshutdown-1" id=
+      "index-soundscape_002dlistener_002dshutdown-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Shutdown listener.
+</pre>
+      </div>
+    </dd>
+  </dl><a name="soundscape_002dremote" id=
+  "soundscape_002dremote"></a>
+
+  <h4 class="subsubsection">11.212.1.6 soundscape-remote</h4>
+
+  <dl>
+    <dt><a name="index-soundscape_002dremote" id=
+    "index-soundscape_002dremote"></a>Command:
+    <strong>soundscape-remote</strong> <em>(names)</em></dt>
+
+    <dd>
+      <a name="index-soundscape_002dremote-1" id=
+      "index-soundscape_002dremote-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Activate scapes named names.
+</pre>
+      </div>
+    </dd>
   </dl><a name="soundscape_002dstop" id="soundscape_002dstop"></a>
 
-  <h4 class="subsubsection">11.212.1.4 soundscape-stop</h4>
+  <h4 class="subsubsection">11.212.1.7 soundscape-stop</h4>
 
   <dl>
     <dt><a name="index-soundscape_002dstop" id=
@@ -211,7 +278,7 @@ Stop running Soundscape.
   </dl><a name="soundscape_002dtheme" id=
   "soundscape_002dtheme"></a>
 
-  <h4 class="subsubsection">11.212.1.5 soundscape-theme</h4>
+  <h4 class="subsubsection">11.212.1.8 soundscape-theme</h4>
 
   <dl>
     <dt><a name="index-soundscape_002dtheme" id=
@@ -231,7 +298,7 @@ Shows default theme in a special buffer.
   </dl><a name="soundscape_002dtoggle" id=
   "soundscape_002dtoggle"></a>
 
-  <h4 class="subsubsection">11.212.1.6 soundscape-toggle</h4>
+  <h4 class="subsubsection">11.212.1.9 soundscape-toggle</h4>
 
   <dl>
     <dt><a name="index-soundscape_002dtoggle" id=
