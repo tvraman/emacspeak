@@ -233,7 +233,7 @@
   (declare (special soundscape-mode-table))
   (puthash mode scape soundscape-mode-table))
 
-;;
+
 
 ;;}}}
 ;;{{{ Default mapping:
