@@ -425,23 +425,26 @@ Listener is loaded with all Soundscapes used by Emacspeak."
   (when (file-exists-p soundscape-remote-end-point)
     (delete-file soundscape-remote-end-point)))
 
-(defun soundscape-remote (channel)
+(defun soundscape-remote (name)
   "Switch to channel"
   (interactive
    (list
-    (read-number
-     (format "Channel: 0..%s"
-             (1- (length soundscape-default-theme))))))
+    (let ((completion-ignore-case t))
+      (completing-read "Soundscape Name:"
+                     (mapcar #'car soundscape-default-theme)))))
   (unless (process-live-p soundscape-remote-control)
     (when (process-live-p soundscape-listener-process)
       (setq soundscape-remote-control
             (start-process
-             "nc" "*NC*" "nc"
+             "nc" nil "nc"
              "-U" soundscape-remote-end-point))))
   (process-send-string
    soundscape-remote-control
-   (format "remote.c%s\n" channel)))
-
+   (format "remote.c%s\n"
+           (position-if
+            #'(lambda (pair)
+                (string= name  (car pair)))
+            soundscape-default-theme))))
 ;;}}}
 (provide 'soundscape)
 ;;{{{ end of file
