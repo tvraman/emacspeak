@@ -6,26 +6,27 @@ from boopak.argdef import *
 
 
 class Agents(agent.Agent):
-    selected_event = 'agent'
 
-    def init(self, fadetime=1.0):
-        self.fadetime = fadetime
-        self.prevchannel = None
+        selected_event = 'agent'
 
-    def run(self):
-        self.listen(hold=True)
+        def init(self, fadetime=1.0):
+            self.fadetime = fadetime
+            self.prevchannel = None
 
-    def receive(self, event, *arglist):
-        clas = self.load_described(arglist)
-        self.trigger(clas)
+        def run(self):
+            self.listen(hold=True)
 
-    def trigger(self, clas):
-        if (self.prevchannel != None and self.prevchannel.active):
-            self.sched_agent(builtin.FadeOutAgent(
-                self.fadetime), chan=self.prevchannel)
-        self.prevchannel = self.new_channel(0)
-        self.prevchannel.set_volume(1, self.fadetime)
-        self.sched_agent(clas(), chan=self.prevchannel)
+        def receive(self, event, *arglist):
+            clas = self.load_described(arglist)
+            self.trigger(clas)
+
+        def trigger(self, clas):
+            if (self.prevchannel != None and self.prevchannel.active):
+                self.sched_agent(builtin.FadeOutAgent(
+                    self.fadetime), chan=self.prevchannel)
+            self.prevchannel = self.new_channel(0)
+            self.prevchannel.set_volume(1, self.fadetime)
+            self.sched_agent(clas(), chan=self.prevchannel)
 
 
 class Catalog(agent.Agent):
