@@ -142,6 +142,12 @@
 (defun soundscape-init ()
   "Initialize Soundscape module."
   (soundscape-catalog))
+(defun soundscape-lookup-position (name)
+  "Return position in soundscape-default-theme."
+  (position-if
+            #'(lambda (pair)
+                (string= name  (car pair)))
+            soundscape-default-theme))
 
 (defsubst soundscape-lookup-name (name)
   "Return package/agent for this name."
@@ -425,13 +431,21 @@ Listener is loaded with all Soundscapes used by Emacspeak."
   (when (file-exists-p soundscape-remote-end-point)
     (delete-file soundscape-remote-end-point)))
 
-(defun soundscape-remote (name)
-  "Switch to channel"
+
+
+(defun soundscape-remote (names)
+  "Activate scapes named names."
   (interactive
    (list
-    (let ((completion-ignore-case t))
-      (completing-read "Soundscape Name:"
-                     (mapcar #'car soundscape-default-theme)))))
+    (let ((completion-ignore-case t)
+          (result nil)
+          (name " "))
+      (while (> (length name) 0)
+        (setq name 
+              (completing-read "Soundscape Name:"
+                               (mapcar #'car soundscape-default-theme)))
+        (push name  result))
+      result)))
   (unless (process-live-p soundscape-remote-control)
     (when (process-live-p soundscape-listener-process)
       (setq soundscape-remote-control
@@ -440,11 +454,13 @@ Listener is loaded with all Soundscapes used by Emacspeak."
              "-U" soundscape-remote-end-point))))
   (process-send-string
    soundscape-remote-control
-   (format "remote.c%s\n"
-           (position-if
-            #'(lambda (pair)
-                (string= name  (car pair)))
-            soundscape-default-theme))))
+   (format "remote.%s\n"
+           (mapconcat 
+            #'(lambda (name)
+                (format "c%s"
+                        (soundscape-lookup-position name)))
+            names ","))))
+
 ;;}}}
 (provide 'soundscape)
 ;;{{{ end of file
