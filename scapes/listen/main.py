@@ -7,28 +7,29 @@ from boopak.argdef import *
 from boodle import builtin
 manage = bimport('org.boodler.manage')
 
+
 class Agents(agent.Agent):
 
-        selected_event = 'agent'
+    selected_event = 'agent'
 
-        def init(self, fadetime=1.0):
-            self.fadetime = fadetime
-            self.prevchannel = None
+    def init(self, fadetime=1.0):
+        self.fadetime = fadetime
+        self.prevchannel = None
 
-        def run(self):
-            self.listen(hold=True)
+    def run(self):
+        self.listen(hold=True)
 
-        def receive(self, event, *arglist):
-            clas = self.load_described(arglist)
-            self.trigger(clas)
+    def receive(self, event, *arglist):
+        clas = self.load_described(arglist)
+        self.trigger(clas)
 
-        def trigger(self, scape):
-            if (self.prevchannel != None and self.prevchannel.active):
-                self.sched_agent(builtin.FadeOutAgent(
-                    self.fadetime), chan=self.prevchannel)
-            self.prevchannel = self.new_channel(0)
-            self.prevchannel.set_volume(1, self.fadetime)
-            self.sched_agent(scape, chan=self.prevchannel)
+    def trigger(self, scape):
+        if (self.prevchannel != None and self.prevchannel.active):
+            self.sched_agent(builtin.FadeOutAgent(
+                self.fadetime), chan=self.prevchannel)
+        self.prevchannel = self.new_channel(0)
+        self.prevchannel.set_volume(1, self.fadetime)
+        self.sched_agent(scape, chan=self.prevchannel)
 
 
 class Catalog(agent.Agent):
@@ -40,6 +41,7 @@ class Catalog(agent.Agent):
             raise Exception('Catalog requires at least one agent argument')
         self.classlist = agents
         self.fadetime = 1.0
+        self.lastEvent = None
         self.pos = 0
         self.workagent = None
 
@@ -48,18 +50,19 @@ class Catalog(agent.Agent):
         self.post_listener_agent(self.workagent, hold=True)
         self.listen()
         a = self.classlist[self.pos]()
-        b = self.classlist[1]()
-        sim =manage.Simultaneous(a,b )
+        sim = manage.Simultaneous(a)
         self.workagent.trigger(sim)
 
     def receive(self, event):
+        if (self.lastEvent is not  None and self.lastEvent is event):
+                return
         key = event.split('.')[-1]
-        newpos = self.pos
-        count = len(self.classlist)
-        if ('c' in key):
-            val = int(key[1:])
-            if (val >= 0 and val < count):
-                newpos = val
-        if (newpos != self.pos):
-            self.pos = newpos
-            self.workagent.trigger(self.classlist[self.pos])
+        chans = key.split(',')
+        pick =[]
+        for chan in chans:
+                if ('c' in chan):
+                        pos = int(key[1:])
+                        pick.append(self.classlist[pos]())
+        sim = manage.Simultaneous(*pick)
+        self.workagent.trigger(sim)
+        
