@@ -423,8 +423,7 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
    (t
     (unless
         (member '(soundscape-auto (:eval (soundscape-current))) minor-mode-alist)
-    (push   '(soundscape-auto (:eval (soundscape-current))) minor-mode-alist)
-      
+    (push   '(soundscape-auto (:eval (soundscape-current))) minor-mode-alist))
     (soundscape-init)
     (setq soundscape-auto t)))
   (message "Automatic Soundscapes are now %s" (if soundscape-auto "on" "off")))
