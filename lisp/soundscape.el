@@ -70,7 +70,7 @@
 ;;;
 ;;; When automatic Soundscapes are enabled, SoundScapes are
 ;;;  started and stopped based on the current major
-;;; mode. Active Soundscape names are displayed as part of the minor-mode-alist.
+;;; mode. Active Soundscape  are displayed as part of the minor-mode-alist.
 ;;; Command emacspeak-speakc-minor-mode-line can be used to have this spoken.
 ;;;
 ;;; Thus, SoundScapes can be thought of as reflecting the
@@ -295,18 +295,16 @@ Soundscape names.")
   "Return position in soundscape-default-theme."
   (declare (special soundscape-default-theme))
   (format "%s"
-  (position-if
-            #'(lambda (pair)
-                (string= name  (car pair)))
-            soundscape-default-theme)))
-
+          (position-if
+           #'(lambda (pair)
+               (string= name  (car pair)))
+           soundscape-default-theme)))
 
 ;;;###autoload
 (defun soundscape-init ()
   "Initialize Soundscape module."
   (soundscape-catalog)
   (soundscape-listener))
-
 
 ;;;###autoload
 (defun soundscape-listener  ()
@@ -339,6 +337,11 @@ Listener is loaded with all Soundscapes used by Emacspeak."
     (delete-process soundscape-remote-control))
   (when (file-exists-p soundscape-remote-end-point)
     (delete-file soundscape-remote-end-point)))
+(defvar soundscape-remote-nc
+  (executable-find "nc")
+  "Location of nc executable.
+Need a version that supports flag -U.
+Install package  netcat-openbsd.")
 
 (defun soundscape-remote (names)
   "Activate scapes named names."
@@ -348,17 +351,18 @@ Listener is loaded with all Soundscapes used by Emacspeak."
           (result nil)
           (name " "))
       (while (> (length name) 0)
-        (setq name 
+        (setq name
               (completing-read "Soundscape Name:"
                                (mapcar #'car soundscape-default-theme)))
         (when (> (length name) 0) (push name  result)))
       result)))
+  (declare (special soundscape-remote-nc))
   (unless (process-live-p soundscape-listener-process) (soundscape-listener))
   (unless (process-live-p soundscape-remote-control)
     (when (process-live-p soundscape-listener-process)
       (setq soundscape-remote-control
             (start-process
-             "nc" nil "nc"
+             "nc" nil soundscape-remote-nc
              "-U" soundscape-remote-end-point))))
   (process-send-string
    soundscape-remote-control
@@ -383,7 +387,7 @@ Do not set this by hand, use command \\[soundscape-toggle].")
     (unless (equal scapes soundscape-cache-scapes)
       (setq soundscape-cache-scapes scapes)
       (soundscape-remote (mapcar #'soundscape-lookup-scape scapes)))))
-    
+
 
 (defvar soundscape-last-mode  nil
   "Caches last seen mode.")
