@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1159 commands and 942 options.
+This chapter documents a total of 1158 commands and 942 options.
 
 @menu
 * acss-structure::
@@ -20586,15 +20586,6 @@ communication == email, IM, ... map to  the same @emph{mood}.
 
 @format
 Play soundscape.
-@end format
-@end deffn
-
-@subsubsection soundscape-display
-@deffn {Command} soundscape-display   
-@findex soundscape-display
-
-@format
-Display names of running scapes.
 @end format
 @end deffn
 
