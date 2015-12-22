@@ -56,10 +56,14 @@ class Catalog(agent.Agent):
     def receive(self, event):
         if (self.lastEvent is not  None and self.lastEvent is event):
                 return
+        self.lastEvent = event
         key = event.split('.')[-1]
-        chans = key.split(',')
+        print "ke is ", key
+        chans = key.split(':')
+        print "chans is ", chans 
         pick =[]
         for chan in chans:
+                print chan
                 if ('c' in chan):
                         pos = int(key[1:])
                         pick.append(self.classlist[pos]())
