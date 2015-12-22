@@ -111,18 +111,18 @@
   "Add catalog entry from current line."
   (declare (special soundscape-missing-packages))
   (let ((name nil)
-          (scape nil)
-          (package nil)
-          (fields nil))
+        (scape nil)
+        (package nil)
+        (fields nil))
     (setq scape
-        (buffer-substring (line-beginning-position) (line-end-position)))
-  (setq fields (split-string scape "/"))
-  (setq  package (first fields) name (second fields))
-  (cond
-   ((and name scape
-         (file-exists-p   (expand-file-name package soundscape-data)))
-    (push (cons name scape) soundscape--catalog))
-   (t (push scape soundscape-missing-packages)))))
+          (buffer-substring (line-beginning-position) (line-end-position)))
+    (setq fields (split-string scape "/"))
+    (setq  package (first fields) name (second fields))
+    (cond
+     ((and name scape
+           (file-exists-p   (expand-file-name package soundscape-data)))
+      (push (cons name scape) soundscape--catalog))
+     (t (push scape soundscape-missing-packages)))))
 (defun soundscape-catalog (&optional refresh)
   "Return catalog of installed Soundscapes, initialize if necessary."
   (declare (special soundscape--catalog soundscape-list))
@@ -350,7 +350,7 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
         (find-if
          #'(lambda (form) (eq 'soundscape-auto (car form)))
          minor-mode-alist)
-    (push   '(soundscape-auto (:eval (soundscape-current))) minor-mode-alist))
+      (push   '(soundscape-auto (:eval (soundscape-current))) minor-mode-alist))
     (soundscape-init)
     (setq soundscape-auto t)))
   (message "Automatic Soundscapes are now %s"
@@ -385,6 +385,64 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
       (setq default-directory
             (expand-file-name soundscape-data)))
     (funcall-interactively #'switch-to-buffer buffer)))
+
+;;}}}
+;;{{{ Soundscape Remote Control
+
+(defvar soundscape-remote-end-point
+  (make-temp-name "/tmp/emacspeak-soundscape")
+  "Name of Unix Domain socket used to control Soundscape.")
+(defvar soundscape-listener-process nil
+  "Handle to Soundscape listener.")
+
+(defvar soundscape-remote-control nil
+  "Handle to remote control.")
+
+(defun soundscape-listener  ()
+  "Start  a Soundscape listener.
+Listener is loaded with all Soundscapes used by Emacspeak."
+  (interactive)
+  (declare (special soundscape-listener-process soundscape-remote-end-point
+                    soundscape-remote-control soundscape-default-theme))
+  (let ((process-connection-type nil))
+    (setq  soundscape-listener-process
+           (apply
+            #'start-process
+            "SoundscapeListener" "*l*"  soundscape-player
+            "-o" "alsa"
+            "--listen" "--port" soundscape-remote-end-point
+            "org.emacspeak.listen/Catalog"
+            (mapcar
+             #'(lambda (name) (soundscape-lookup-name (car name)))
+             soundscape-default-theme)))))
+
+(defun soundscape-listener-shutdown ()
+  "Shutdown listener."
+  (interactive)
+  (declare (special soundscape-listener-process soundscape-remote-control))
+  (when (process-live-p soundscape-listener-process)
+    (delete-process soundscape-listener-process))
+  (when (process-live-p soundscape-remote-control)
+    (delete-process soundscape-remote-control))
+  (when (file-exists-p soundscape-remote-end-point)
+    (delete-file soundscape-remote-end-point)))
+
+(defun soundscape-remote (channel)
+  "Switch to channel"
+  (interactive
+   (list
+    (read-number
+     (format "Channel: 0..%s"
+             (1- (length soundscape-default-theme))))))
+  (unless (process-live-p soundscape-remote-control)
+    (when (process-live-p soundscape-listener-process)
+      (setq soundscape-remote-control
+            (start-process
+             "nc" "*NC*" "nc"
+             "-U" soundscape-remote-end-point))))
+  (process-send-string
+   soundscape-remote-control
+   (format "remote.c%s\n" channel)))
 
 ;;}}}
 (provide 'soundscape)
