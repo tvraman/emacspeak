@@ -144,10 +144,11 @@
   (soundscape-catalog))
 (defun soundscape-lookup-position (name)
   "Return position in soundscape-default-theme."
+  (format "%s"
   (position-if
             #'(lambda (pair)
                 (string= name  (car pair)))
-            soundscape-default-theme))
+            soundscape-default-theme)))
 
 (defsubst soundscape-lookup-name (name)
   "Return package/agent for this name."
@@ -444,8 +445,7 @@ Listener is loaded with all Soundscapes used by Emacspeak."
         (setq name 
               (completing-read "Soundscape Name:"
                                (mapcar #'car soundscape-default-theme)))
-        (when (> (length name) 0)
-        (push name  result)))
+        (when (> (length name) 0) (push name  result)))
       result)))
   (unless (process-live-p soundscape-remote-control)
     (when (process-live-p soundscape-listener-process)
@@ -456,11 +456,7 @@ Listener is loaded with all Soundscapes used by Emacspeak."
   (process-send-string
    soundscape-remote-control
    (format "remote %s\n"
-           (mapconcat 
-            #'(lambda (name)
-                (format "%s"
-                        (soundscape-lookup-position name)))
-            names " "))))
+           (mapconcat #'soundscape-lookup-position names " "))))
 
 ;;}}}
 (provide 'soundscape)
