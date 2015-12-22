@@ -144,6 +144,7 @@
   (soundscape-catalog))
 (defun soundscape-lookup-position (name)
   "Return position in soundscape-default-theme."
+  (declare (special soundscape-default-theme))
   (format "%s"
   (position-if
             #'(lambda (pair)
