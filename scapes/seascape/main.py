@@ -33,7 +33,7 @@ class SurfWaveSounds(agent.Agent):
         ag = play.IntermittentSoundsList (
             mindelay=1.0, maxdelay=5.0,
             minpitch=0.2, maxpitch=0.6,
-            minvol=0.1, maxvol=0.8,
+            minvol=0.1, maxvol=0.6,
             maxpan=1.5, sounds=wavesounds)
         ag2 = manage.VolumeModulateAgent(ag, 0.075)
         self.sched_agent(ag2)
@@ -41,7 +41,7 @@ class SurfWaveSounds(agent.Agent):
 class SurfBackgroundWaves(agent.Agent):
     def run(self):
         p=random.uniform(0.2,0.7)
-        v=random.uniform(0.05, 0.15)
+        v=random.uniform(0.05, 0.1)
         d=random.uniform(0.3,1.0)
         pan= random.uniform(-1.5, 1.5)
         dur=self.sched_note_pan(water.waves_light, pan, pitch=p, volume=v)
