@@ -202,13 +202,6 @@
   "Return names of currently running scapes."
   (declare (special soundscape-cache-scapes))
   (mapconcat #'soundscape-lookup-scape soundscape-cache-scapes " "))
-(defun soundscape-display ()
-  "Display names of running scapes."
-  (interactive)
-  (message "%s"
-           (mapconcat
-            #'soundscape-lookup-scape
-            (hash-table-keys soundscape-processes) " ")))
 
 ;;}}}
 ;;{{{ Modes->SoundScapes:
