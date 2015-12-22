@@ -1,4 +1,11 @@
 # org.emacspeak.listen
+"""Package org.emacspeak.listen: Implement  a Soundscape Listener.
+
+Class Catalog implements a Listener Agent.
+Emacs module soundscape.el starts this Agent with a  list of 
+Boodler agents that implement the various Soundscapes.
+Module Soundscape then uses the remote control functionality to switch Soundscapes on the fly.
+All bounds checking etc is done on the Elisp side in soundscape.el. """
 
 from boopak.package import *
 from boodle import agent, builtin
@@ -34,14 +41,13 @@ class Agents(agent.Agent):
 
 class Catalog(agent.Agent):
     _args = ArgList(ArgExtra(ListOf(Wrapped(agent.Agent))))
-    selected_event = 'remote'
+    selected_event = 'soundscape'
 
     def init(self, *agents):
         if (len(agents) == 0):
             raise Exception('Catalog requires at least one agent argument')
         self.classlist = agents
         self.fadetime = 1.0
-        self.lastEvent = None
         self.pos = 0
         self.workagent = None
 
@@ -57,7 +63,6 @@ class Catalog(agent.Agent):
         print chans
         pick = []
         for chan in chans:
-            print chan
             pos = int(chan)
             pick.append(self.classlist[pos]())
         sim = manage.Simultaneous(*pick)

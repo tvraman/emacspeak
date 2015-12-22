@@ -142,14 +142,7 @@
 (defun soundscape-init ()
   "Initialize Soundscape module."
   (soundscape-catalog))
-(defun soundscape-lookup-position (name)
-  "Return position in soundscape-default-theme."
-  (declare (special soundscape-default-theme))
-  (format "%s"
-  (position-if
-            #'(lambda (pair)
-                (string= name  (car pair)))
-            soundscape-default-theme)))
+
 
 (defsubst soundscape-lookup-name (name)
   "Return package/agent for this name."
@@ -398,12 +391,22 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
 (defvar soundscape-remote-end-point
   (make-temp-name "/tmp/emacspeak-soundscape")
   "Name of Unix Domain socket used to control Soundscape.")
+
 (defvar soundscape-listener-process nil
   "Handle to Soundscape listener.")
 
 (defvar soundscape-remote-control nil
   "Handle to remote control.")
 
+(defun soundscape-lookup-position (name)
+  "Return position in soundscape-default-theme."
+  (declare (special soundscape-default-theme))
+  (format "%s"
+  (position-if
+            #'(lambda (pair)
+                (string= name  (car pair)))
+            soundscape-default-theme)))
+;;;###autoload
 (defun soundscape-listener  ()
   "Start  a Soundscape listener.
 Listener is loaded with all Soundscapes used by Emacspeak."
@@ -414,12 +417,12 @@ Listener is loaded with all Soundscapes used by Emacspeak."
     (setq  soundscape-listener-process
            (apply
             #'start-process
-            "SoundscapeListener" "*l*"  soundscape-player
+            "SoundscapeListener" " *Soundscapes*"  soundscape-player
             "-o" "alsa"
             "--listen" "--port" soundscape-remote-end-point
             "org.emacspeak.listen/Catalog"
             (mapcar
-             #'(lambda (name) (soundscape-lookup-name (car name)))
+             #'(lambda (mapping) (soundscape-lookup-name (car mapping)))
              soundscape-default-theme)))))
 
 (defun soundscape-listener-shutdown ()
@@ -432,8 +435,6 @@ Listener is loaded with all Soundscapes used by Emacspeak."
     (delete-process soundscape-remote-control))
   (when (file-exists-p soundscape-remote-end-point)
     (delete-file soundscape-remote-end-point)))
-
-
 
 (defun soundscape-remote (names)
   "Activate scapes named names."
@@ -456,7 +457,7 @@ Listener is loaded with all Soundscapes used by Emacspeak."
              "-U" soundscape-remote-end-point))))
   (process-send-string
    soundscape-remote-control
-   (format "remote %s\n"
+   (format "soundscape %s\n"
            (mapconcat #'soundscape-lookup-position names " "))))
 
 ;;}}}
