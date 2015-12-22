@@ -3,6 +3,7 @@
 from boopak.package import *
 from boodle import agent, builtin
 from boopak.argdef import *
+
 from boodle import builtin
 manage = bimport('org.boodler.manage')
 
@@ -21,13 +22,13 @@ class Agents(agent.Agent):
             clas = self.load_described(arglist)
             self.trigger(clas)
 
-        def trigger(self, clas):
+        def trigger(self, scape):
             if (self.prevchannel != None and self.prevchannel.active):
                 self.sched_agent(builtin.FadeOutAgent(
                     self.fadetime), chan=self.prevchannel)
             self.prevchannel = self.new_channel(0)
             self.prevchannel.set_volume(1, self.fadetime)
-            self.sched_agent(clas(), chan=self.prevchannel)
+            self.sched_agent(scape, chan=self.prevchannel)
 
 
 class Catalog(agent.Agent):
@@ -46,7 +47,10 @@ class Catalog(agent.Agent):
         self.workagent = Agents(self.fadetime)
         self.post_listener_agent(self.workagent, hold=True)
         self.listen()
-        self.workagent.trigger(self.classlist[self.pos])
+        a = self.classlist[self.pos]()
+        b = self.classlist[1]()
+        sim =manage.Simultaneous(a,b )
+        self.workagent.trigger(sim)
 
     def receive(self, event):
         key = event.split('.')[-1]

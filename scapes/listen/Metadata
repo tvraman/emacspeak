@@ -5,6 +5,7 @@ boodler.main: main
 
 boodler.package: org.emacspeak.listen
 boodler.version: 1.0
+boodler.requires: org.boodler.manage
 dc.creator: T. V. Raman
 dc.title: Emacspeak Soundscape Manager
 dc.description: Inspired by org.boodler.listen/Catalog
