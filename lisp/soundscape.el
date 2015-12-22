@@ -290,102 +290,6 @@ Soundscape names.")
 (soundscape-load-theme soundscape-default-theme)
 
 ;;}}}
-;;{{{ Automatic soundscapes:
-
-;;;###autoload
-(defvar soundscape-auto nil
-  "Turn on automatic soundscapes.
-Do not set this by hand, use command \\[soundscape-toggle].")
-
-(defun soundscape-activate (mode)
-  "Activate and deactivate Soundscapes for  this mode."
-  (let ((scapes (soundscape-for-mode mode)))
-    (when scapes
-      (loop
-       for scape in scapes
-       unless (process-live-p (gethash scape soundscape-processes))
-       do (soundscape scape)))
-    (loop
-     for scape  being the hash-keys of soundscape-processes
-     unless (member scape  scapes)
-     do
-     (when (process-live-p (gethash scape soundscape-processes))
-       (soundscape-stop scape))
-     (remhash scape soundscape-processes))))
-
-(defvar soundscape-last-mode  nil
-  "Caches last seen mode.")
-
-(defun soundscape-update-hook ()
-  "Hook function to update Soundscape automatically."
-  (declare (special soundscape-auto soundscape-last-mode))
-  (when (and soundscape-auto
-             (not (eq major-mode soundscape-last-mode))
-             (not (eq 'minibuffer-inactive-mode major-mode))
-             (not (string-match "temp" (buffer-name))))
-    (setq soundscape-last-mode major-mode)
-    (soundscape-activate major-mode)))
-
-(defadvice select-window (after soundscape pre act comp)
-  "Update Soundscape."
-  (soundscape-update-hook))
-
-;;}}}
-;;{{{ SoundScape Toggle:
-
-;;;###autoload
-(defun soundscape-toggle ()
-  "Toggle automatic SoundScapes.
-When turned on, Soundscapes are automatically run based on current major mode.
-Run command \\[soundscape-theme] to see the default mode->mood mapping."
-  (interactive)
-  (declare (special soundscape-auto))
-  (cond
-   (soundscape-auto
-    (setq soundscape-auto nil)
-    (soundscape-kill))
-   (t
-    (unless
-        (find-if
-         #'(lambda (form) (eq 'soundscape-auto (car form)))
-         minor-mode-alist)
-      (push   '(soundscape-auto (:eval (soundscape-current))) minor-mode-alist))
-    (soundscape-init)
-    (setq soundscape-auto t)))
-  (message "Automatic Soundscapes are now %s"
-           (if soundscape-auto "on" "off")))
-
-;;}}}
-;;{{{ Display Theme:
-
-(defun soundscape-theme ()
-  "Shows default theme in a special buffer."
-  (interactive)
-  (declare (special soundscape-default-theme soundscape-base))
-  (let ((buffer (get-buffer-create "*Soundscape Theme*"))
-        (inhibit-read-only  t))
-    (with-current-buffer buffer
-      (erase-buffer)
-      (loop
-       for entry in soundscape-default-theme
-       do
-       (let ((package (soundscape-lookup-name  (first entry)))
-             (modes (second entry)))
-         (insert
-          (format "%s:\t%s\n"
-                  package
-                  (mapconcat
-                   #'(lambda (s)
-                       (substring (symbol-name s) 0 -5))
-                   modes " ")))))
-      (sort-lines nil (point-min) (point-max))
-      (goto-char (point-min))
-      (special-mode)
-      (setq default-directory
-            (expand-file-name soundscape-data)))
-    (funcall-interactively #'switch-to-buffer buffer)))
-
-;;}}}
 ;;{{{ Soundscape Remote Control
 
 (defvar soundscape-remote-end-point
@@ -461,6 +365,98 @@ Listener is loaded with all Soundscapes used by Emacspeak."
            (mapconcat #'soundscape-lookup-position names " "))))
 
 ;;}}}
+;;{{{ Automatic soundscapes:
+
+;;;###autoload
+(defvar soundscape-auto nil
+  "Turn on automatic soundscapes.
+Do not set this by hand, use command \\[soundscape-toggle].")
+(defvar soundscape-cache-scapes nil
+  "Cache of currently running scapes.")
+
+(defun soundscape-activate (mode)
+  "Activate and deactivate Soundscapes for  this mode."
+  (declare (special soundscape-cache-scapes))
+  (let ((scapes (soundscape-for-mode mode)))
+    (unless (equal scapes soundscape-cache-scapes)
+      (setq soundscape-cache-scapes scapes)
+      (soundscape-remote (mapcar #'soundscape-lookup-scape scapes)))))
+    
+
+(defvar soundscape-last-mode  nil
+  "Caches last seen mode.")
+
+(defun soundscape-update-hook ()
+  "Hook function to update Soundscape automatically."
+  (declare (special soundscape-auto soundscape-last-mode))
+  (when (and soundscape-auto
+             (not (eq major-mode soundscape-last-mode))
+             (not (eq 'minibuffer-inactive-mode major-mode))
+             (not (string-match "temp" (buffer-name))))
+    (setq soundscape-last-mode major-mode)
+    (soundscape-activate major-mode)))
+
+(defadvice select-window (after soundscape pre act comp)
+  "Update Soundscape."
+  (soundscape-update-hook))
+
+;;}}}
+;;{{{ SoundScape Toggle:
+
+;;;###autoload
+(defun soundscape-toggle ()
+  "Toggle automatic SoundScapes.
+When turned on, Soundscapes are automatically run based on current major mode.
+Run command \\[soundscape-theme] to see the default mode->mood mapping."
+  (interactive)
+  (declare (special soundscape-auto))
+  (cond
+   (soundscape-auto
+    (setq soundscape-auto nil)
+    (soundscape-kill))
+   (t
+    (unless
+        (find-if
+         #'(lambda (form) (eq 'soundscape-auto (car form)))
+         minor-mode-alist)
+      (push   '(soundscape-auto (:eval (soundscape-current))) minor-mode-alist))
+    (soundscape-init)
+    (setq soundscape-auto t)))
+  (message "Automatic Soundscapes are now %s"
+           (if soundscape-auto "on" "off")))
+
+;;}}}
+;;{{{ Display Theme:
+
+(defun soundscape-theme ()
+  "Shows default theme in a special buffer."
+  (interactive)
+  (declare (special soundscape-default-theme soundscape-base))
+  (let ((buffer (get-buffer-create "*Soundscape Theme*"))
+        (inhibit-read-only  t))
+    (with-current-buffer buffer
+      (erase-buffer)
+      (loop
+       for entry in soundscape-default-theme
+       do
+       (let ((package (soundscape-lookup-name  (first entry)))
+             (modes (second entry)))
+         (insert
+          (format "%s:\t%s\n"
+                  package
+                  (mapconcat
+                   #'(lambda (s)
+                       (substring (symbol-name s) 0 -5))
+                   modes " ")))))
+      (sort-lines nil (point-min) (point-max))
+      (goto-char (point-min))
+      (special-mode)
+      (setq default-directory
+            (expand-file-name soundscape-data)))
+    (funcall-interactively #'switch-to-buffer buffer)))
+
+;;}}}
+
 (provide 'soundscape)
 ;;{{{ end of file
 
