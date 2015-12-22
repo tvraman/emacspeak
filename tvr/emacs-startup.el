@@ -197,8 +197,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (save-place-mode)
      (midnight-mode)
      (emacspeak-tts-startup-hook)
-     (unless soundscape-auto
-       (soundscape-toggle))
+     (unless soundscape-auto (soundscape-toggle))
      (bbdb-insinuate-vm)
      (server-start)
      (shell)

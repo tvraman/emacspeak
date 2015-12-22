@@ -138,12 +138,6 @@
         (forward-line 1)))
     soundscape--catalog)))
 
-;;;###autoload
-(defun soundscape-init ()
-  "Initialize Soundscape module."
-  (soundscape-catalog))
-
-
 (defsubst soundscape-lookup-name (name)
   "Return package/agent for this name."
   (cdr (assoc name (soundscape-catalog))))
@@ -201,11 +195,8 @@
 
 (defun soundscape-current ()
   "Return names of currently running scapes."
-  (mapconcat
-   #'identity
-   (mapcar #'soundscape-lookup-scape (hash-table-keys soundscape-processes))
-   " "))
-
+  (declare (special soundscape-cache-scapes))
+  (mapconcat #'soundscape-lookup-scape soundscape-cache-scapes " "))
 (defun soundscape-display ()
   "Display names of running scapes."
   (interactive)
@@ -310,6 +301,15 @@ Soundscape names.")
             #'(lambda (pair)
                 (string= name  (car pair)))
             soundscape-default-theme)))
+
+
+;;;###autoload
+(defun soundscape-init ()
+  "Initialize Soundscape module."
+  (soundscape-catalog)
+  (soundscape-listener))
+
+
 ;;;###autoload
 (defun soundscape-listener  ()
   "Start  a Soundscape listener.
@@ -332,7 +332,9 @@ Listener is loaded with all Soundscapes used by Emacspeak."
 (defun soundscape-listener-shutdown ()
   "Shutdown listener."
   (interactive)
-  (declare (special soundscape-listener-process soundscape-remote-control))
+  (declare (special soundscape-listener-process soundscape-remote-control
+                    soundscape-cache-scapes))
+  (setq soundscape-cache-scapes nil)
   (when (process-live-p soundscape-listener-process)
     (delete-process soundscape-listener-process))
   (when (process-live-p soundscape-remote-control)
@@ -371,6 +373,7 @@ Listener is loaded with all Soundscapes used by Emacspeak."
 (defvar soundscape-auto nil
   "Turn on automatic soundscapes.
 Do not set this by hand, use command \\[soundscape-toggle].")
+
 (defvar soundscape-cache-scapes nil
   "Cache of currently running scapes.")
 
@@ -413,7 +416,7 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
   (cond
    (soundscape-auto
     (setq soundscape-auto nil)
-    (soundscape-kill))
+    (soundscape-listener-shutdown))
    (t
     (unless
         (find-if
