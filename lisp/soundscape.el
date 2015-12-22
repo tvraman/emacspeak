@@ -444,7 +444,8 @@ Listener is loaded with all Soundscapes used by Emacspeak."
         (setq name 
               (completing-read "Soundscape Name:"
                                (mapcar #'car soundscape-default-theme)))
-        (push name  result))
+        (when (> (length name) 0)
+        (push name  result)))
       result)))
   (unless (process-live-p soundscape-remote-control)
     (when (process-live-p soundscape-listener-process)
