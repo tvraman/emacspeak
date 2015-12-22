@@ -19,7 +19,7 @@ You can experiment with installed Boodler agents using command
 ~soundscape~ and ~soundscape-stop~. You can enable and disable
 /automatic soundscapes/ using command ~soundscape-toggle~. The
 currently active default Soundscape theme can be inspected via command
-~soundscape-display~ --- this produces a buffer that lists the
+~soundscape-theme~ --- this produces a buffer that lists the
 currently defined /major-mode -> Soundscape mapping. 
 
 Package ~soundscape.el~ considers the inheritance relationship among
