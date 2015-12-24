@@ -442,19 +442,19 @@ and return a suitable effect structure." name)
         (declare (special ,p-sym))
         (make-sox-effect
          :name ,name
-         :params (sox-read-effect-params ,p-sym ',repeat))))))
+         :params (sox-read-effect-params ,p-sym ,repeat))))))
 
 ;;}}}
 ;;{{{ Use: sox-def-effect
 
-(sox-def-effect "echo" '("gain-in" "gain-out" "delay" "decay") 'repeat)
+(sox-def-effect "echo" '("gain-in" "gain-out" "delay" "decay") t)
 
 (sox-def-effect "channels" '("count") nil)
 
-(sox-def-effect "remix" '("out-spec") 'repeat)
+(sox-def-effect "remix" '("out-spec") t)
 
 
-(sox-def-effect "trim" '("position") 'repeat)
+(sox-def-effect "trim" '("position") t)
 
 
 (sox-def-effect "bass" '("gain" "frequency" "width") nil)
@@ -468,7 +468,7 @@ and return a suitable effect structure." name)
 (sox-def-effect
  "chorus"
  '("gain-in" "gain-out" "delay" "decay" "speed" "step" "shape" )
- 'repeat)
+ t)
 
 (sox-def-effect "fade" '("shape"  "fade-in" "stop" "fade-out") nil)
 
