@@ -1899,7 +1899,9 @@ Optional argument group-count specifies grouping for intonation."
     (cond
      ((null dtk-notify-process) dtk-speaker-process)
      ((memq state '(open run)) dtk-notify-process)
-     (t dtk-speaker-process))))
+     (t (or (dtk-notify-initialize)
+      dtk-speaker-process)))))
+
 ;;;###autoload
 (defun dtk-notify-stop ()
   "Stop  speech on notification stream."
