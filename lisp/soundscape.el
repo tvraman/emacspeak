@@ -258,10 +258,7 @@ See  \\{soundscape-default-theme} for details."
          (modes (second pair)))
      (cond
       (scape (mapc #'(lambda (m) (soundscape-map-mode m scape)) modes))
-      (t (message "Theme: <%s> not found." (first pair))))))
-  (when (process-live-p soundscape-listener-process)
-    (soundscape-listener-shutdown)
-    (soundscape-listener)))
+      (t (message "Theme: <%s> not found." (first pair)))))))
 
   
   

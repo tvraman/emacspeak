@@ -20568,7 +20568,7 @@ runs a named SoundScape
 
 When automatic Soundscapes are enabled, SoundScapes are
  started and stopped based on the current major
-mode. Active Soundscape names are displayed as part of the minor-mode-alist.
+mode. Active Soundscape  are displayed as part of the minor-mode-alist.
 Command emacspeak-speakc-minor-mode-line can be used to have this spoken.
 
 Thus, SoundScapes can be thought of as reflecting the
@@ -20604,7 +20604,7 @@ Stop all running soundscapes.
 
 @format
 Start  a Soundscape listener.
-Listener is loaded with all Soundscapes used by Emacspeak.
+Listener is loaded with all Soundscapes defined in ``soundscape-default-theme'' .
 @end format
 @end deffn
 
