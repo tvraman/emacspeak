@@ -509,6 +509,8 @@ interactive command that the key sequence executes."
 (defcustom emacspeak-super-keys 
   '(
     ("." auto-correct-update)
+    ("s" soundscape)
+    ("S" soundscape-stop)
     ("b" emacspeak-bbc)
     ("e" elfeed)
     ("f" emacspeak-feeds-lookup-and-view)
