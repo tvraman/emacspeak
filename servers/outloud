@@ -356,8 +356,9 @@ proc speech_task {} {
     global langsynth
     set tts(talking?) 1
     set tts(not_stopped) 1
+    set rate $tts(speech_rate)
     set length [queue_length]
-    synth "`v1 "
+    synth "`v1`vs$rate "
     loop index 0 $length {
         set event   [queue_remove]
         set event_type [lindex $event 0]
