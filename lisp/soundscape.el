@@ -294,6 +294,13 @@ Soundscape names.")
   (make-temp-name "/tmp/emacspeak-soundscape")
   "Name of Unix Domain socket used to control Soundscape.")
 
+(defun soundscape-listener-sentinel (proc state)
+  "Delete remote control end point on exit."
+  (declare (special soundscape-remote-end-point))
+  (unless (process-live-p  proc)
+    (when (file-exists-p soundscape-remote-end-point)
+      (delete-file soundscape-remote-end-point))))
+
 (defvar soundscape-listener-process nil
   "Handle to Soundscape listener.")
 
@@ -332,7 +339,10 @@ Listener is loaded with all Soundscapes defined in `soundscape-default-theme' ."
             "org.emacspeak.listen/Catalog"
             (mapcar
              #'(lambda (mapping) (soundscape-lookup-name (car mapping)))
-             soundscape-default-theme)))))
+             soundscape-default-theme)))
+    (set-process-sentinel
+     soundscape-listener-process #'soundscape-listener-sentinel)
+     ))
 
 (defun soundscape-listener-shutdown ()
   "Shutdown listener."
@@ -468,7 +478,6 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
     (funcall-interactively #'switch-to-buffer buffer)))
 
 ;;}}}
-
 (provide 'soundscape)
 ;;{{{ end of file
 
