@@ -1,0 +1,20 @@
+#package: org.emacspeak.birds 1.0
+:mocking_1
+boodler.filename: mocking-1.aiff
+boodler.use: sound
+
+:mocking_2
+boodler.filename: mocking-2.aiff
+boodler.use: sound
+
+:mocking_3
+boodler.filename: mocking-3.aiff
+boodler.use: sound
+
+:mocking_4
+boodler.filename: mocking-4.aiff
+boodler.use: sound
+
+:mocking_5
+boodler.filename: mocking-5.aiff
+boodler.use: sound

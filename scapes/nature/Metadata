@@ -1,0 +1,11 @@
+# org.emacspeak.nature 1.0
+# package built Wed Dec 23 20:30:44 PST 2015
+
+
+boodler.main: main
+boodler.package: org.emacspeak.nature
+boodler.requires: org.boodler.play
+boodler.requires: org.emacspeak.birds
+boodler.version: 1.0
+dc.creator: T. V. Raman
+dc.title: Nature Soundscapes 
