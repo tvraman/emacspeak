@@ -599,13 +599,13 @@ Argument COMPLEMENT  is the complement of separator."
 
 (defsubst dtk-speak-using-voice (voice text)
   "Use voice VOICE to speak text TEXT."
-  (declare (special tts-voice-reset-code dtk-quiet))
+  (declare (special  dtk-quiet))
   (unless (or (eq 'inaudible voice ) dtk-quiet
               (null text) (string-equal  text "")
               (and (listp voice) (memq 'inaudible voice)))
 ;;; ensure text is a  string
     (unless (stringp text) (setq text (format "%s" text)))
-    (dtk-interp-queue-code tts-voice-reset-code)
+    (dtk-interp-queue-code (tts-voice-reset-code))
     (dtk-interp-queue-code
      (cond
       ((symbolp voice)
@@ -623,7 +623,7 @@ Argument COMPLEMENT  is the complement of separator."
                    " "))
       (t       "")))
     (dtk-interp-queue text)
-    (dtk-interp-queue-code tts-voice-reset-code)))
+    (dtk-interp-queue-code (tts-voice-reset-code))))
 
 ;;;Internal function used by dtk-speak to send text out.
 ;;;Handles voice locking etc.
@@ -702,7 +702,7 @@ Arguments START and END specify region to speak."
   (when (and emacspeak-use-auditory-icons
              (get-text-property start 'auditory-icon))
     (emacspeak-queue-auditory-icon (get-text-property start 'auditory-icon)))
-  (dtk-interp-queue-code tts-voice-reset-code)
+  (dtk-interp-queue-code (tts-voice-reset-code))
   (cond
    ((not voice-lock-mode) (dtk-interp-queue (buffer-substring start end  )))
    (t                                   ; voiceify as we go
@@ -1481,17 +1481,17 @@ available TTS servers.")
 ;;}}}
 ;;{{{  interactively selecting the server:
 
-(defvar tts-voice-reset-code nil
-  "Code sent to reset the voice to its default.
-This is setup on a per engine basis.")
-
 ;;; will be reset on a per TTS engine basis.
 (defalias 'tts-get-voice-command 'dectalk-get-voice-command)
+
+(defsubst tts-voice-reset-code ()
+  "Return voice reset code."
+   (tts-get-voice-command tts-default-voice))
+
 ;;;###autoload
 (defun tts-configure-synthesis-setup (&optional tts-name)
   "Setup synthesis environment. "
-  (declare (special dtk-program emacspeak-auditory-icon-function
-                    tts-voice-reset-code))
+  (declare (special dtk-program emacspeak-auditory-icon-function))
   (unless tts-name (setq tts-name dtk-program))
   (cond
                                         ;viavoice outloud family
@@ -1509,8 +1509,7 @@ This is setup on a per engine basis.")
        (string-match "^cloud" tts-name) ; cloud
        (string-match "^log" tts-name))
     (setq emacspeak-auditory-icon-function 'emacspeak-serve-auditory-icon))
-  (load-library "voice-setup")
-  (setq tts-voice-reset-code (tts-get-voice-command tts-default-voice)))
+  (load-library "voice-setup"))
 
 (defvar tts-device "default"
   "Name of current sound device in use.")
@@ -1961,10 +1960,10 @@ Optional argument group-count specifies grouping for intonation."
 ;;;###autoload
 (defun dtk-notify-using-voice (voice text)
   "Use voice VOICE to speak text TEXT on notification stream."
-  (declare (special tts-voice-reset-code dtk-quiet))
+  (declare (special  dtk-quiet))
   (unless dtk-quiet
     (let ((dtk-speaker-process (dtk-notify-process)))
-      (dtk-interp-queue-code tts-voice-reset-code)
+      (dtk-interp-queue-code (tts-voice-reset-code))
       (dtk-interp-queue-code (tts-get-voice-command voice))
       (dtk-interp-queue text)
       (dtk-interp-speak))))
