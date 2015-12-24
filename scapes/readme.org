@@ -4,8 +4,12 @@ This directory will contain Boodler packages that I create as part of
 Emacspeak.
 
 * Contents
-  1. File ~soundscapes~ contains a list of all the Soundscapes I have installed.
+  1. File ~soundscapes~ contains a list of all the Soundscapes I use.
   2. File ~urls~ lists the URLs for Boodler packages from
      the boodler.org site.
   3. org.emacspeak.seascape.1.0.boop: A slightly modified version of package
      _name.acroucher.seascape_ for use with Web content.
+  4. org.emacspeak.listen.1.0.boop: Agent that acts as the Soundscape manager.
+  5. org.emacspeak.nature.1.0.boop: Nature soundscapes.
+  6. org.emacspeak.birds.1.0.boop: Bird sounds.
+  
