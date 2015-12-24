@@ -229,7 +229,11 @@
 (defconst soundscape-web-modes
   '(w3-mode eww-mode)
   "List of mode-names that get the Web  mood.")
+(defconst soundscape-vc-modes
+  '(magit-mode vc-mode)
+  "Version control modes.")
 
+  
 (defconst soundscape-communication-modes
   '(
     message-mode gnus-summary-mode gnus-article-mode gnus-group-mode
@@ -254,7 +258,14 @@ See  \\{soundscape-default-theme} for details."
          (modes (second pair)))
      (cond
       (scape (mapc #'(lambda (m) (soundscape-map-mode m scape)) modes))
-      (t (message "Theme: <%s> not found." (first pair)))))))
+      (t (message "Theme: <%s> not found." (first pair))))))
+  (when (process-live-p soundscape-listener-process)
+    (soundscape-listener-shutdown)
+    (soundscape-listener)))
+
+  
+  
+
 
 (defconst soundscape-default-theme
   `(
@@ -269,6 +280,7 @@ See  \\{soundscape-default-theme} for details."
     ("WaterFlow"  (dired-mode))
     ("BuddhaLoop" (special-mode))
     ("Drip" ,soundscape-communication-modes)
+    ("RainSounds" ,soundscape-vc-modes)
     ("RainForever" ,soundscape-help-modes)
     )
   "Specifies default map.
@@ -309,7 +321,7 @@ Soundscape names.")
 ;;;###autoload
 (defun soundscape-listener  ()
   "Start  a Soundscape listener.
-Listener is loaded with all Soundscapes used by Emacspeak."
+Listener is loaded with all Soundscapes defined in `soundscape-default-theme' ."
   (interactive)
   (declare (special soundscape-listener-process soundscape-remote-end-point
                     soundscape-remote-control soundscape-default-theme))
