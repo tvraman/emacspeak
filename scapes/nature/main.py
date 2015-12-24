@@ -5,34 +5,75 @@ from boodle import builtin
 
 play = bimport('org.boodler.play')
 birds = bimport('org.emacspeak.birds')
-mocks = [
-    birds.mocking_1, birds.mocking_2, birds.mocking_3, #Northern Mocking Bird
-    birds.mocking_4, birds.mocking_5,
-    birds.fl_mocking_1, birds.fl_mocking_2, birds.fl_mocking_3, # Florida Mocking Bird
-    birds.fl_mocking_4, birds.fl_mocking_5, birds.fl_mocking_6]
+
+ca_mocks = [
+    birds.mocking_1, birds.mocking_2, birds.mocking_3,  # Northern Mocking Bird
+    birds.mocking_4, birds.mocking_5]
+
+fl_mocks = [birds.fl_mocking_1, birds.fl_mocking_2, birds.fl_mocking_3,  # Florida Mocking Bird
+            birds.fl_mocking_4, birds.fl_mocking_5, birds.fl_mocking_6]
 
 
-class MockingBirds(agent.Agent):
+class _FlMockingBirds(agent.Agent):
+
+    def init(self,
+             minDelay=5.0,
+             maxDelay=10.0,
+             minVol=0.0,
+             maxVol=1.0,
+             pan=1.0):
+        self.minDelay = minDelay
+        self.maxDelay = maxDelay
+        self.minVol = minVol
+        self.maxVol = maxVol
+        self.pan = pan
 
     def run(self):
         ag = play.IntermittentSoundsList(
-            5.0, 10.0,  # delay
+            self.minDelay, self.maxDelay,
             1.0, 1.0,  # pitch
-            0.1, 0.5,  # volume
-            1.5,  # pan
-            mocks)
+            self.minVol, self.maxVol,
+            self.pan,
+            fl_mocks)
         self.sched_agent(ag)
+
+
+class _CaMockingBirds(agent.Agent):
+
+    def init(self,
+             minDelay=1.0,
+             maxDelay=1.0,
+             minVol=0.0,
+             maxVol=1.0,
+             pan=1.0):
+        self.minDelay = minDelay
+        self.maxDelay = maxDelay
+        self.minVol = minVol
+        self.maxVol = maxVol
+        self.pan = pan
+
+    def run(self):
         ag = play.IntermittentSoundsList(
-            10.0, 20.0,  # delay
+            self.minDelay, self.maxDelay,
             1.0, 1.0,  # pitch
-            0.1, 0.4,  # volume
-            1.0,  # pan
-            mocks)
+            self.minVol, self.maxVol,
+            self.pan,
+            ca_mocks)
         self.sched_agent(ag)
-        ag = play.IntermittentSoundsList(
-            20.0, 40.0,  # delay
-            1.0, 1.0,  # pitch
-            0.1, 0.3,  # volume
-            1.8,  # pan
-            mocks)
+
+
+class MockingBirds (agent.Agent):
+
+    def run(self):
+        ag = _CaMockingBirds(5.0, 10.0, 0.1, 0.5, 1.0)
+        self.sched_agent(ag)
+        ag = _CaMockingBirds(30.0, 60.0, 0.1, 0.4, 1.2)
+        self.sched_agent(ag)
+        ag = _CaMockingBirds(60.0, 90.0, 0.1, 0.3, 1.5)
+        self.sched_agent(ag)
+        ag = _FlMockingBirds(5.0, 30.0, 0.05, 0.3, 1.0)
+        self.sched_agent(ag)
+        ag = _FlMockingBirds(30.0, 75.0, 0.1, 0.3, 1.2)
+        self.sched_agent(ag)
+        ag = _FlMockingBirds(10.0, 120.0, 0.1, 0.4, 1.5)
         self.sched_agent(ag)
