@@ -441,8 +441,7 @@ and return a suitable effect structure." name)
         (declare (special ,p-sym))
         (make-sox-effect
          :name ,name
-         :params (sox-read-effect-params ,p-sym ,repeat)))))
-  t)
+         :params (sox-read-effect-params ,p-sym ',repeat))))))
 
 ;;}}}
 ;;{{{ Use: sox-def-effect
