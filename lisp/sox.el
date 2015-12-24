@@ -255,7 +255,8 @@
     (setq options (nreverse  options))
     (when (string= action sox-edit) (push save-file options))
     (apply #'start-process
-           "player" "*SOX*" sox-play  file options)))
+           "player" "*SOX*"
+           action file options)))
 
 (defun sox-play ()
   "Play sound from current context."
