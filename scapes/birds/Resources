@@ -1,4 +1,7 @@
 #package: org.emacspeak.birds 1.0
+
+# Northern Mocking Bird (unknown)
+
 :mocking_1
 boodler.filename: mocking-1.aiff
 boodler.use: sound
@@ -18,3 +21,35 @@ boodler.use: sound
 :mocking_5
 boodler.filename: mocking-5.aiff
 boodler.use: sound
+
+ #Florida Mocking Bird (freesound.org)
+
+:fl_mocking_1
+boodler.filename: fl-mocking-1.aiff
+boodler.use: sound
+
+
+:fl_mocking_2
+boodler.filename: fl-mocking-2.aiff
+boodler.use: sound
+
+
+:fl_mocking_3
+boodler.filename: fl-mocking-3.aiff
+boodler.use: sound
+
+
+:fl_mocking_4
+boodler.filename: fl-mocking-4.aiff
+boodler.use: sound
+
+
+:fl_mocking_5
+boodler.filename: fl-mocking-5.aiff
+boodler.use: sound
+
+
+:fl_mocking_6
+boodler.filename: fl-mocking-6.aiff
+boodler.use: sound
+
