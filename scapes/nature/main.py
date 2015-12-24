@@ -6,8 +6,10 @@ from boodle import builtin
 play = bimport('org.boodler.play')
 birds = bimport('org.emacspeak.birds')
 mocks = [
-    birds.mocking_1, birds.mocking_2,
-    birds.mocking_3, birds.mocking_4, birds.mocking_5]
+    birds.mocking_1, birds.mocking_2, birds.mocking_3, #Northern Mocking Bird
+    birds.mocking_4, birds.mocking_5,
+    birds.fl_mocking_1, birds.fl_mocking_2, birds.fl_mocking_3, # Florida Mocking Bird
+    birds.fl_mocking_4, birds.fl_mocking_5, birds.fl_mocking_6]
 
 
 class MockingBirds(agent.Agent):
