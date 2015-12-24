@@ -291,7 +291,7 @@ Soundscape names.")
 ;;{{{ Soundscape Remote Control
 
 (defvar soundscape-remote-end-point
-  (make-temp-name "/tmp/emacspeak-soundscape")
+  (make-temp-name "/tmp/soundscape-soundscape")
   "Name of Unix Domain socket used to control Soundscape.")
 
 (defun soundscape-listener-sentinel (proc state)
