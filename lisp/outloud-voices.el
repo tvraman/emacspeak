@@ -104,12 +104,12 @@ COMMAND-STRING to the TTS engine."
    (t (or  (gethash name outloud-voice-table)
            outloud-default-voice-string))))
 
-(defsubst outloud-get-voice-command (name)
+(defun outloud-get-voice-command (name)
   "Retrieve command string for  voice NAME."
   (declare (special dtk-speech-rate))
   (concat 
    (outloud-get-voice-command-internal name)
-   (format " `vs%s " dtk-speech-rate )))
+   (format "`vs%s" dtk-speech-rate)))
 
 (defsubst outloud-voice-defined-p (name)
   "Check if there is a voice named NAME defined."

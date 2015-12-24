@@ -1763,7 +1763,6 @@ only speak upto the first ctrl-m."
           (null text) (zerop (length text)))
 ;;; flush previous speech if asked to
     (when dtk-stop-immediately (dtk-stop ))
-    (dtk-interp-sync)
     (when selective-display
       (let ((ctrl-m (string-match "\015" text )))
         (and ctrl-m (setq text (substring  text 0 ctrl-m ))
@@ -1800,12 +1799,12 @@ only speak upto the first ctrl-m."
               emacspeak-use-auditory-icons use-auditory-icons
               dtk-punctuation-mode mode
               dtk-split-caps split-caps
-              dtk-speak-nonprinting-chars
-              inherit-speak-nonprinting-chars
+              dtk-speak-nonprinting-chars inherit-speak-nonprinting-chars
               tts-strip-octals inherit-strip-octals
               voice-lock-mode voice-lock)
         (set-syntax-table syntax-table )
         (set-buffer-multibyte inherit-enable-multibyte-characters)
+        (dtk-interp-sync)
         (insert  text)
         (delete-invisible-text)
         (when pronunciation-table
@@ -1817,8 +1816,7 @@ only speak upto the first ctrl-m."
         (skip-syntax-forward inherit-chunk-separator-syntax)
         (while (and (not (eobp))
                     (dtk-move-across-a-chunk
-                     inherit-chunk-separator-syntax
-                     complement-separator))
+                     inherit-chunk-separator-syntax complement-separator))
           (unless
               (and (char-after  (point))
                    (= (char-syntax (preceding-char )) ?.)
