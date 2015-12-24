@@ -104,7 +104,7 @@ COMMAND-STRING to the TTS engine."
    (t (or  (gethash name outloud-voice-table)
            outloud-default-voice-string))))
 
-(defun outloud-get-voice-command (name)
+(defsubst outloud-get-voice-command (name)
   "Retrieve command string for  voice NAME."
   (declare (special dtk-speech-rate))
   (concat 
