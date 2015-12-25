@@ -1,4 +1,6 @@
 # org.emacspeak.nature
+
+import random
 from boopak.package import *
 from boopak.argdef import *
 from boodle import agent
@@ -6,6 +8,7 @@ from boodle import builtin
 
 play = bimport('org.boodler.play')
 birds = bimport('org.emacspeak.birds')
+water = bimport('org.boodler.sample.water')
 
 ca_mocks = [
     birds.mocking_1, birds.mocking_2, birds.mocking_3,  # Northern Mocking Bird
@@ -13,6 +16,34 @@ ca_mocks = [
 
 fl_mocks = [birds.fl_mocking_1, birds.fl_mocking_2, birds.fl_mocking_3,  # Florida Mocking Bird
             birds.fl_mocking_4, birds.fl_mocking_5, birds.fl_mocking_6]
+
+streams = [
+    water.stream_rushing_1, water.stream_rushing_2, water.stream_rushing_3]
+
+
+# helper: Pendulum generator:
+
+def pendulum(n):
+    """Generate an oscilating sequence."""
+    i = 0
+    while 1:
+        yield abs(i)
+        i = i + 1
+        if i == n:
+            i = -n
+
+
+class StreamRush (agent.Agent):
+
+    def init(self, time=0.0):
+        self.time = time
+        self.pendulum = pendulum(20)
+
+    def run(self):
+        sound = random.choice(streams)
+        pan = (self.pendulum.next() - 10) / 10.0  # -1 .. 1
+        dur = self.sched_note_pan(sound, pan, 1.0, 0.1, self.time)
+        self.resched(dur + random.uniform(0.01, 0.1))
 
 
 class FlMockingBirds(agent.Agent):
@@ -72,6 +103,10 @@ class CaMockingBirds(agent.Agent):
 class MockingBirds (agent.Agent):
 
     def run(self):
+        for i in xrange(2):
+            water = StreamRush(i*0.0)
+            self.sched_agent(water)
+        
         ag = CaMockingBirds(5.0, 10.0, 0.1, 0.5, 1.0)
         self.sched_agent(ag)
         ag = CaMockingBirds(30.0, 60.0, 0.1, 0.4, 1.2)
@@ -89,12 +124,17 @@ class MockingBirds (agent.Agent):
 class ManyMockingBirds (agent.Agent):
 
     def run(self):
+        for i in xrange(4):
+            water = StreamRush(i * 7.0)
+            self.sched_agent(water)
+
         for i in xrange(5):
             ag = CaMockingBirds(
                 5.0, 90.0,
                 0.1, 0.5,
                 1.0 + i * 0.2)
             self.sched_agent(ag)
+
         for i in xrange(6):
             ag = FlMockingBirds(
                 5.0, 120.0,

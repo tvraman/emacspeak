@@ -5,6 +5,7 @@
 boodler.main: main
 boodler.package: org.emacspeak.nature
 boodler.requires: org.boodler.play
+boodler.requires: org.boodler.sample.water
 boodler.requires: org.emacspeak.birds
 boodler.version: 1.0
 dc.creator: T. V. Raman
