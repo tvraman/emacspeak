@@ -1,13 +1,22 @@
 # org.emacspeak.nature 1.0
 # package built Wed Dec 23 20:26:48 PST 2015
 
+:Ca_MockingBirds
+boodler.use: agent
+dc.title: Nature Sounds Ca Mocking Birds
+dc.description: Ca  Mocking Birds
+
+:FlMockingBirds
+boodler.use: agent
+dc.title: Nature Sounds Fl Mocking Birds
+dc.description:  FL Mocking Birds
 
 :MockingBirds
 boodler.use: agent
 dc.title: Nature Sounds Mocking Birds
+dc.description: Ca And FL Mocking Birds
 
-
-
-:MockingBirds_1
+:ManyMockingBirds
 boodler.use: agent
-dc.title: Nature Sounds Mocking Birds 
+dc.title: Nature Sounds Mocking Birds
+dc.description: Larger flock of CA and FL Mocking Birds

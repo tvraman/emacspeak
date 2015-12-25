@@ -14,12 +14,12 @@ fl_mocks = [birds.fl_mocking_1, birds.fl_mocking_2, birds.fl_mocking_3,  # Flori
             birds.fl_mocking_4, birds.fl_mocking_5, birds.fl_mocking_6]
 
 
-class _FlMockingBirds(agent.Agent):
+class FlMockingBirds(agent.Agent):
 
     def init(self,
              minDelay=5.0,
              maxDelay=10.0,
-             minVol=0.0,
+             minVol=0.1,
              maxVol=1.0,
              pan=1.0):
         self.minDelay = minDelay
@@ -38,12 +38,12 @@ class _FlMockingBirds(agent.Agent):
         self.sched_agent(ag)
 
 
-class _CaMockingBirds(agent.Agent):
+class CaMockingBirds(agent.Agent):
 
     def init(self,
-             minDelay=1.0,
-             maxDelay=1.0,
-             minVol=0.0,
+             minDelay=4.0,
+             maxDelay=12.0,
+             minVol=0.1,
              maxVol=1.0,
              pan=1.0):
         self.minDelay = minDelay
@@ -65,31 +65,31 @@ class _CaMockingBirds(agent.Agent):
 class MockingBirds (agent.Agent):
 
     def run(self):
-        ag = _CaMockingBirds(5.0, 10.0, 0.1, 0.5, 1.0)
+        ag = CaMockingBirds(5.0, 10.0, 0.1, 0.5, 1.0)
         self.sched_agent(ag)
-        ag = _CaMockingBirds(30.0, 60.0, 0.1, 0.4, 1.2)
+        ag = CaMockingBirds(30.0, 60.0, 0.1, 0.4, 1.2)
         self.sched_agent(ag)
-        ag = _CaMockingBirds(60.0, 90.0, 0.1, 0.3, 1.5)
+        ag = CaMockingBirds(60.0, 90.0, 0.1, 0.3, 1.5)
         self.sched_agent(ag)
-        ag = _FlMockingBirds(5.0, 30.0, 0.05, 0.3, 1.0)
+        ag = FlMockingBirds(5.0, 30.0, 0.05, 0.3, 1.0)
         self.sched_agent(ag)
-        ag = _FlMockingBirds(30.0, 75.0, 0.1, 0.3, 1.2)
+        ag = FlMockingBirds(30.0, 75.0, 0.1, 0.3, 1.2)
         self.sched_agent(ag)
-        ag = _FlMockingBirds(10.0, 120.0, 0.1, 0.4, 1.5)
+        ag = FlMockingBirds(10.0, 120.0, 0.1, 0.4, 1.5)
         self.sched_agent(ag)
 
 
-class MockingBirds_1 (agent.Agent):
+class ManyMockingBirds (agent.Agent):
 
     def run(self):
         for i in xrange(5):
-            ag = _CaMockingBirds(
+            ag = CaMockingBirds(
                 5.0, 90.0,
                 0.1, 0.5,
                 1.0 + i*0.2)
             self.sched_agent(ag)
         for i in xrange(6):
-            ag = _FlMockingBirds(
+            ag = FlMockingBirds(
                 5.0, 120.0,
                 0.1, 0.3,
                 1.0 + i * 0.2)

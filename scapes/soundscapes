@@ -160,5 +160,7 @@ org.boodler.play/SoundShuffleMix
 org.emacspeak.seascape/SurfWaves
 org.emacspeak.seascape/SurfWaveSounds
 org.emacspeak.seascape/SurfBackgroundWaves
+org.emacspeak.nature/CaMockingBirds
+org.emacspeak.nature/FlMockingBirds
 org.emacspeak.nature/MockingBirds
-org.emacspeak.nature/MockingBirds_1
+org.emacspeak.nature/ManyMockingBirds
