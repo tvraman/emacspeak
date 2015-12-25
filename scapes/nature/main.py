@@ -1,5 +1,6 @@
 # org.emacspeak.nature
 from boopak.package import *
+from boopak.argdef import *
 from boodle import agent
 from boodle import builtin
 
@@ -15,6 +16,9 @@ fl_mocks = [birds.fl_mocking_1, birds.fl_mocking_2, birds.fl_mocking_3,  # Flori
 
 
 class FlMockingBirds(agent.Agent):
+
+    _args = ArgList(Arg(type=float), Arg(type=float), Arg(type=float),
+                    Arg(type=float), Arg(type=float))
 
     def init(self,
              minDelay=5.0,
@@ -39,6 +43,9 @@ class FlMockingBirds(agent.Agent):
 
 
 class CaMockingBirds(agent.Agent):
+
+    _args = ArgList(Arg(type=float), Arg(type=float), Arg(type=float),
+                    Arg(type=float), Arg(type=float))
 
     def init(self,
              minDelay=4.0,
@@ -86,7 +93,7 @@ class ManyMockingBirds (agent.Agent):
             ag = CaMockingBirds(
                 5.0, 90.0,
                 0.1, 0.5,
-                1.0 + i*0.2)
+                1.0 + i * 0.2)
             self.sched_agent(ag)
         for i in xrange(6):
             ag = FlMockingBirds(
