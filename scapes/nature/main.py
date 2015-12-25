@@ -77,3 +77,20 @@ class MockingBirds (agent.Agent):
         self.sched_agent(ag)
         ag = _FlMockingBirds(10.0, 120.0, 0.1, 0.4, 1.5)
         self.sched_agent(ag)
+
+
+class MockingBirds_1 (agent.Agent):
+
+    def run(self):
+        for i in xrange(5):
+            ag = _CaMockingBirds(
+                5.0, 90.0,
+                0.1, 0.5,
+                1.0 + i*0.2)
+            self.sched_agent(ag)
+        for i in xrange(6):
+            ag = _FlMockingBirds(
+                5.0, 120.0,
+                0.1, 0.3,
+                1.0 + i * 0.2)
+            self.sched_agent(ag)
