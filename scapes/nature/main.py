@@ -133,16 +133,16 @@ class ManyMockingBirds (agent.Agent):
         nature = GardenBackground(0.0)
         self.sched_agent(nature)
 
-        for i in xrange(5):
+        for i in xrange(8):
             ag = CaMockingBirds(
                 5.0, 90.0,
                 0.05, 0.3,
                 1.0 + i * 0.2)
             self.sched_agent(ag)
 
-        for i in xrange(6):
+        for i in xrange(8):
             ag = FlMockingBirds(
                 5.0, 120.0,
-                0.05, 0.25,
+                0.05, 0.15,
                 1.0 + i * 0.2)
             self.sched_agent(ag)
