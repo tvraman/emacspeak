@@ -27,6 +27,7 @@ streams = [
 winds = [
     wind.soft_low_1, wind.soft_low_2, wind.soft_low_3,
     wind.gust_soft_1, wind.gust_soft_2, wind.gust_soft_3,
+    wind.soft_whistly_1, wind.soft_whistly_2, wind.soft_whistly_3,
     wind.soft_rushy]
 
 
@@ -46,15 +47,15 @@ class GardenBackground (agent.Agent):
 
     def init(self, time=0.0):
         self.time = time
-        self.pendulum = pendulum(20)
+        self.pendulum = pendulum(30)
 
     def run(self):
         gurgle = random.choice(streams)
         breeze = random.choice(winds)
-        pan = (self.pendulum.next() - 10) / 10.0  # -1 .. 1
-        dur_0 = self.sched_note_pan(gurgle, pan, 1.0, 0.15, self.time)
-        dur_1 = self.sched_note_pan(
-            breeze, -1 * pan, 0.75, 1.0, self.time + dur_0)
+        v =random.uniform(0.3, 0.6)
+        pan = (self.pendulum.next() - 15) / 10.0  # [-1.5, 1.5]
+        dur_0 = self.sched_note_pan(gurgle, pan, 1.0, v, self.time)
+        self.sched_note_pan(breeze, -1 * pan, v, 1.0, self.time + dur_0)
         self.resched(dur_0 + random.uniform(-1.0, 0.1))
 
 
