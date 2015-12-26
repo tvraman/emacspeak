@@ -148,6 +148,6 @@ class ManyMockingBirds (agent.Agent):
         for i in xrange(8):
             ag = FlMockingBirds(
                 5.0, 120.0,
-                0.05, 0.15,
+                0.05, 0.5,
                 1.0 + i * 0.15)
             self.sched_agent(ag)
