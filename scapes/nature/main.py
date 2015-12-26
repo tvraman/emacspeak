@@ -9,6 +9,7 @@ from boodle import builtin
 play = bimport('org.boodler.play')
 birds = bimport('org.emacspeak.birds')
 water = bimport('org.boodler.sample.water')
+wind = bimport('org.boodler.sample.wind')
 
 ca_mocks = [
     birds.mocking_1, birds.mocking_2, birds.mocking_3,  # Northern Mocking Bird
@@ -19,6 +20,9 @@ fl_mocks = [birds.fl_mocking_1, birds.fl_mocking_2, birds.fl_mocking_3,  # Flori
 
 streams = [
     water.stream_rushing_1, water.stream_rushing_2, water.stream_rushing_3]
+
+winds = [
+    wind.soft_low_1, wind.soft_low_2, wind.soft_low_3]
 
 
 # helper: Pendulum generator:
@@ -33,16 +37,18 @@ def pendulum(n):
             i = -n
 
 
-class StreamRush (agent.Agent):
+class GardenBackground (agent.Agent):
 
     def init(self, time=0.0):
         self.time = time
         self.pendulum = pendulum(20)
 
     def run(self):
-        sound = random.choice(streams)
+        gurgle = random.choice(streams)
+        breeze = random.choice(winds)
         pan = (self.pendulum.next() - 10) / 10.0  # -1 .. 1
-        dur = self.sched_note_pan(sound, pan, 1.0, 0.1, self.time)
+        dur = self.sched_note_pan(gurgle, pan, 1.0, 0.15, self.time)
+        dur = self.sched_note_pan(breeze, -1*pan, 1.0, 0.4, self.time + dur)
         self.resched(dur + random.uniform(-0.1, 0.1))
 
 
@@ -103,7 +109,7 @@ class CaMockingBirds(agent.Agent):
 class MockingBirds (agent.Agent):
 
     def run(self):
-        water = StreamRush(0.0)
+        water = GardenBackground(0.0)
         self.sched_agent(water)
         
         ag = CaMockingBirds(5.0, 10.0, 0.1, 0.5, 1.0)
@@ -123,7 +129,7 @@ class MockingBirds (agent.Agent):
 class ManyMockingBirds (agent.Agent):
 
     def run(self):
-        water = StreamRush(0.0)
+        water = GardenBackground(0.0)
         self.sched_agent(water)
 
         for i in xrange(5):
