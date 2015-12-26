@@ -9,17 +9,20 @@ from boodle import builtin
 play = bimport('org.boodler.play')
 birds = bimport('org.emacspeak.birds')
 water = bimport('org.boodler.sample.water')
+oldwater = bimport('org.boodler.old.water')
 wind = bimport('org.boodler.sample.wind')
 
 ca_mocks = [
-    birds.mocking_1, birds.mocking_2, birds.mocking_3,  # Northern Mocking Bird
+    birds.mocking_1, birds.mocking_2, birds.mocking_3,  # CA Mocking Bird
     birds.mocking_4, birds.mocking_5]
 
-fl_mocks = [birds.fl_mocking_1, birds.fl_mocking_2, birds.fl_mocking_3,  # Florida Mocking Bird
-            birds.fl_mocking_4, birds.fl_mocking_5, birds.fl_mocking_6]
+fl_mocks = [
+    birds.fl_mocking_1, birds.fl_mocking_2, birds.fl_mocking_3,
+    birds.fl_mocking_4, birds.fl_mocking_5, birds.fl_mocking_6]
 
 streams = [
-    water.stream_rushing_1, water.stream_rushing_2, water.stream_rushing_3]
+    oldwater.water_bubbling, water.stream_rushing_1,
+    water.stream_rushing_2, water.stream_rushing_3]
 
 winds = [
     wind.soft_low_1, wind.soft_low_2, wind.soft_low_3,
