@@ -190,7 +190,7 @@
   "Stop all running soundscapes."
   (interactive)
   (declare (special soundscape-processes))
-  (mapcar  #'soundscape-stop (hash-table-keys soundscape-processes))
+  (mapc  #'soundscape-stop (hash-table-keys soundscape-processes))
   (message "Stopped all soundscapes."))
 
 (defsubst soundscape-running-p (scape)
@@ -214,7 +214,7 @@
   (declare (special soundscape-mode-table))
   (let ((result nil))
     (while mode
-      (pushnew (gethash mode soundscape-mode-table) result)
+      (cl-pushnew (gethash mode soundscape-mode-table) result)
       (setq mode (get mode 'derived-mode-parent)))
     (delq nil result)))
 
@@ -252,7 +252,7 @@
   "Sets up automatic Soundscape mappings based on theme.
 See  \\{soundscape-default-theme} for details."
   (soundscape-catalog)
-  (loop
+  (cl-loop
    for pair in theme do
    (let ((scape (soundscape-lookup-name (first pair)))
          (modes (second pair)))
@@ -311,7 +311,7 @@ Soundscape names.")
   "Return position in soundscape-default-theme."
   (declare (special soundscape-default-theme))
   (format "%s"
-          (position-if
+          (cl-position-if
            #'(lambda (pair)
                (string= name  (car pair)))
            soundscape-default-theme)))
@@ -458,7 +458,7 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
         (inhibit-read-only  t))
     (with-current-buffer buffer
       (erase-buffer)
-      (loop
+      (cl-loop
        for entry in soundscape-default-theme
        do
        (let ((package (soundscape-lookup-name  (first entry)))
