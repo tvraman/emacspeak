@@ -54,9 +54,9 @@ class GardenBackground (agent.Agent):
         breeze = random.choice(winds)
         v =random.uniform(0.3, 0.6)
         pan = (self.pendulum.next() - 15) / 10.0  # [-1.5, 1.5]
-        dur_0 = self.sched_note_pan(gurgle, pan, 1.0, v, self.time)
-        self.sched_note_pan(breeze, -1 * pan, v, 1.0, self.time + dur_0)
-        self.resched(dur_0 + random.uniform(-1.0, 0.1))
+        d0 = self.sched_note_pan(gurgle, pan, 1.0, v, self.time)
+        d1 = self.sched_note_pan(breeze, -1 * pan, v, 1.0, self.time + dur_0)
+        self.resched(max(d0, d1)  + random.uniform(-1.0, 0.1))
 
 
 class FlMockingBirds(agent.Agent):
