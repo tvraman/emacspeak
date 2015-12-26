@@ -107,6 +107,8 @@
 (defvar soundscape--catalog nil
   "Catalog of installed soundscapes keyed by agent name.")
 
+(defvar soundscape-cache-scapes nil
+  "Cache of currently running scapes.")
 ;;}}}
 ;;{{{ Catalog:
 (defvar soundscape-missing-packages nil
@@ -395,9 +397,6 @@ Install package  netcat-openbsd.")
 (defvar soundscape-auto nil
   "Turn on automatic soundscapes.
 Do not set this by hand, use command \\[soundscape-toggle].")
-
-(defvar soundscape-cache-scapes nil
-  "Cache of currently running scapes.")
 
 (defun soundscape-activate (mode)
   "Activate and deactivate Soundscapes for  this mode."
