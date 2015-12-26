@@ -273,7 +273,7 @@ See  \\{soundscape-default-theme} for details."
     ("ChangingLoops" (emacspeak-m-player-mode))
     ("Drip" ,soundscape-communication-modes)
     ("LightWind" (comint-mode elfeed-search-mode))
-    ("MockingBirds" (shell-mode))
+    ("ManyMockingBirds" (shell-mode))
     ("NoStormYet"  (fundamental-mode))
     ("RainForever" ,soundscape-help-modes)
     ("RainSounds" ,soundscape-vc-modes)
