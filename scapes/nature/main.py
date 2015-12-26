@@ -50,7 +50,7 @@ class GardenBackground (agent.Agent):
         dur_0 = self.sched_note_pan(gurgle, pan, 1.0, 0.15, self.time)
         dur_1 = self.sched_note_pan(
             breeze, -1 * pan, 1.0, 0.4, self.time + dur_0)
-        self.resched((dur_0 + dur_1) / 2.0 + random.uniform(-1.0, 0.1))
+        self.resched(dur_0 + random.uniform(-1.0, 0.1))
 
 
 class FlMockingBirds(agent.Agent):
