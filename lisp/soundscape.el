@@ -122,7 +122,7 @@
     (setq scape
           (buffer-substring (line-beginning-position) (line-end-position)))
     (setq fields (split-string scape "/"))
-    (setq  package (first fields) name (second fields))
+    (setq  package (cl-first fields) name (cl-second fields))
     (cond
      ((and name scape
            (file-exists-p   (expand-file-name package soundscape-data)))
@@ -254,11 +254,11 @@ See  \\{soundscape-default-theme} for details."
   (soundscape-catalog)
   (cl-loop
    for pair in theme do
-   (let ((scape (soundscape-lookup-name (first pair)))
-         (modes (second pair)))
+   (let ((scape (soundscape-lookup-name (cl-first pair)))
+         (modes (cl-second pair)))
      (cond
       (scape (mapc #'(lambda (m) (soundscape-map-mode m scape)) modes))
-      (t (message "Theme: <%s> not found." (first pair)))))))
+      (t (message "Theme: <%s> not found." (cl-first pair)))))))
 
   
   
@@ -461,8 +461,8 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
       (cl-loop
        for entry in soundscape-default-theme
        do
-       (let ((package (soundscape-lookup-name  (first entry)))
-             (modes (second entry)))
+       (let ((package (soundscape-lookup-name  (cl-first entry)))
+             (modes (cl-second entry)))
          (insert
           (format "%s:\t%s\n"
                   package
