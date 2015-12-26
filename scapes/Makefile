@@ -1,5 +1,6 @@
 # Build Boodler packages:
 BOOPS=$(shell ls *.boop)
+all: ${BOOPS}
 
 org.emacspeak.seascape.1.0.boop: seascape/main.py
 	boodle-mgr --import create  seascape 

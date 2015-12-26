@@ -109,8 +109,8 @@ class CaMockingBirds(agent.Agent):
 class MockingBirds (agent.Agent):
 
     def run(self):
-        water = GardenBackground(0.0)
-        self.sched_agent(water)
+        nature = GardenBackground(0.0)
+        self.sched_agent(nature)
         
         ag = CaMockingBirds(5.0, 10.0, 0.1, 0.5, 1.0)
         self.sched_agent(ag)
@@ -129,19 +129,19 @@ class MockingBirds (agent.Agent):
 class ManyMockingBirds (agent.Agent):
 
     def run(self):
-        water = GardenBackground(0.0)
-        self.sched_agent(water)
+        nature = GardenBackground(0.0)
+        self.sched_agent(nature)
 
         for i in xrange(5):
             ag = CaMockingBirds(
                 5.0, 90.0,
-                0.1, 0.5,
+                0.05, 0.3,
                 1.0 + i * 0.2)
             self.sched_agent(ag)
 
         for i in xrange(6):
             ag = FlMockingBirds(
                 5.0, 120.0,
-                0.1, 0.3,
+                0.05, 0.25,
                 1.0 + i * 0.2)
             self.sched_agent(ag)
