@@ -268,20 +268,20 @@ See  \\{soundscape-default-theme} for details."
 
 (defconst soundscape-default-theme
   `(
+    ("BuddhaLoop" (special-mode))
+    ("Cavern" (prog-mode))
     ("ChangingLoops" (emacspeak-m-player-mode))
-    ("NoStormYet"  ( fundamental-mode))
-    ("TonkSpace" (tabulated-list-mode))
+    ("Drip" ,soundscape-communication-modes)
     ("LightWind" (comimnt-mode elfeed-search-mode))
     ("MockingBirds" (shell-mode))
-    ("Steady" (calendar-mode diary-mode))
-    ( "Cavern" (prog-mode))
-    ("SurfWaves"  ,soundscape-web-modes)
-    ( "Still" (text-mode))
-    ("WaterFlow"  (dired-mode))
-    ("BuddhaLoop" (special-mode))
-    ("Drip" ,soundscape-communication-modes)
-    ("RainSounds" ,soundscape-vc-modes)
+    ("NoStormYet"  (
+                    ("Still" (text-mode))fundamental-mode))
     ("RainForever" ,soundscape-help-modes)
+    ("RainSounds" ,soundscape-vc-modes)
+    ("Steady" (calendar-mode diary-mode))
+    ("SurfWaves"  ,soundscape-web-modes)
+    ("TonkSpace" (tabulated-list-mode))
+    ("WaterFlow"  (dired-mode))
     )
   "Specifies default map.
 Map is a list of lists, where the first element of each sublist
@@ -461,11 +461,11 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
       (cl-loop
        for entry in soundscape-default-theme
        do
-       (let ((package (soundscape-lookup-name  (cl-first entry)))
+       (let ((name  (cl-first entry))
              (modes (cl-second entry)))
          (insert
           (format "%s:\t%s\n"
-                  package
+                  name
                   (mapconcat
                    #'(lambda (s)
                        (substring (symbol-name s) 0 -5))
