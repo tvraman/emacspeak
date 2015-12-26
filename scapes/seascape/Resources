@@ -3,10 +3,12 @@
 :SurfBackgroundWaves
 boodler.arguments: (arglist ())
 boodler.use: agent
+dc.title: Waves in the background
 
 :SurfWaveSounds
 boodler.arguments: (arglist ())
 boodler.use: agent
+dc.title: Surf Soundscape
 
 :SurfWaves
 boodler.arguments: (arglist ())
