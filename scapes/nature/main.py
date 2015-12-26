@@ -43,7 +43,7 @@ class StreamRush (agent.Agent):
         sound = random.choice(streams)
         pan = (self.pendulum.next() - 10) / 10.0  # -1 .. 1
         dur = self.sched_note_pan(sound, pan, 1.0, 0.1, self.time)
-        self.resched(dur + random.uniform(0.01, 0.1))
+        self.resched(dur + random.uniform(-0.1, 0.1))
 
 
 class FlMockingBirds(agent.Agent):
@@ -103,9 +103,8 @@ class CaMockingBirds(agent.Agent):
 class MockingBirds (agent.Agent):
 
     def run(self):
-        for i in xrange(2):
-            water = StreamRush(i*0.0)
-            self.sched_agent(water)
+        water = StreamRush(0.0)
+        self.sched_agent(water)
         
         ag = CaMockingBirds(5.0, 10.0, 0.1, 0.5, 1.0)
         self.sched_agent(ag)
@@ -124,9 +123,8 @@ class MockingBirds (agent.Agent):
 class ManyMockingBirds (agent.Agent):
 
     def run(self):
-        for i in xrange(4):
-            water = StreamRush(i * 7.0)
-            self.sched_agent(water)
+        water = StreamRush(0.0)
+        self.sched_agent(water)
 
         for i in xrange(5):
             ag = CaMockingBirds(
