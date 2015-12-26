@@ -47,9 +47,10 @@ class GardenBackground (agent.Agent):
         gurgle = random.choice(streams)
         breeze = random.choice(winds)
         pan = (self.pendulum.next() - 10) / 10.0  # -1 .. 1
-        dur = self.sched_note_pan(gurgle, pan, 1.0, 0.15, self.time)
-        dur = self.sched_note_pan(breeze, -1*pan, 1.0, 0.4, self.time + dur)
-        self.resched(dur + random.uniform(-0.1, 0.1))
+        dur_0 = self.sched_note_pan(gurgle, pan, 1.0, 0.15, self.time)
+        dur_1 = self.sched_note_pan(
+            breeze, -1 * pan, 1.0, 0.4, self.time + dur_0)
+        self.resched((dur_0 + dur_1) / 2.0 + random.uniform(-0.1, 0.1))
 
 
 class FlMockingBirds(agent.Agent):
@@ -111,7 +112,7 @@ class MockingBirds (agent.Agent):
     def run(self):
         nature = GardenBackground(0.0)
         self.sched_agent(nature)
-        
+
         ag = CaMockingBirds(5.0, 10.0, 0.1, 0.5, 1.0)
         self.sched_agent(ag)
         ag = CaMockingBirds(30.0, 60.0, 0.1, 0.4, 1.2)
