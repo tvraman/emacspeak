@@ -22,7 +22,9 @@ streams = [
     water.stream_rushing_1, water.stream_rushing_2, water.stream_rushing_3]
 
 winds = [
-    wind.soft_low_1, wind.soft_low_2, wind.soft_low_3]
+    wind.soft_low_1, wind.soft_low_2, wind.soft_low_3,
+    wind.gust_soft_1, wind.gust_soft_2, wind.gust_soft_3,
+    wind.soft_rushy]
 
 
 # helper: Pendulum generator:
@@ -49,7 +51,7 @@ class GardenBackground (agent.Agent):
         pan = (self.pendulum.next() - 10) / 10.0  # -1 .. 1
         dur_0 = self.sched_note_pan(gurgle, pan, 1.0, 0.15, self.time)
         dur_1 = self.sched_note_pan(
-            breeze, -1 * pan, 1.0, 0.4, self.time + dur_0)
+            breeze, -1 * pan, 0.75, 1.0, self.time + dur_0)
         self.resched(dur_0 + random.uniform(-1.0, 0.1))
 
 
