@@ -23,10 +23,10 @@ fl_mocks = [
 showers = [
     rain.rain_thin, rain.rain_splatter,
     rain.rain_splashy_low, rain.rain_on_leaves,
-    rain.rain_med, rain.rain_heavy,  #repeat
-    rain.rain_thin, rain.rain_splatter,
-    rain.rain_splashy_low, rain.rain_on_leaves,
-    rain.rain_med, rain.rain_heavy]
+    rain.rain_med]
+    
+    
+    
 
 streams = [
     water.stream_rushing_1, water.stream_rushing_2, water.stream_rushing_3]
