@@ -53,9 +53,10 @@ class GardenBackground (agent.Agent):
         gurgle = random.choice(streams)
         breeze = random.choice(winds)
         v =random.uniform(0.3, 0.7)
+        p = random.uniform(0.6,1.2)
         pan = (self.pendulum.next() - 15) * 0.1  # [-1.5, 1.5]
-        d0 = self.sched_note_pan(gurgle, pan, 1.0, v, self.time)
-        self.sched_note_pan(breeze, -1 * pan, v, 1.0, self.time + d0)
+        d0 = self.sched_note_pan(gurgle, pan, p, v, self.time)
+        self.sched_note_pan(breeze, -1 * pan, v, p, self.time + d0)
         self.resched(d0  + random.uniform(-1.0, 0.1))
 
 
