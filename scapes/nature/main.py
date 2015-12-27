@@ -56,8 +56,8 @@ class GardenBackground (agent.Agent):
         pan = (self.pendulum.next() - 15) * 0.1  # [-1.5, 1.5]
         d0 = self.sched_note_pan(gurgle, pan, 1.0, v, self.time)
         v = v* 0.9
-        d1 = self.sched_note_pan(breeze, -1 * pan, v, 1.0, self.time + d0)
-        self.resched(min(d0, d1)  + random.uniform(-1.0, 0.1))
+        self.sched_note_pan(breeze, -1 * pan, v, 1.0, self.time + d0)
+        self.resched(d0  + random.uniform(-1.0, 0.1))
 
 
 class FlMockingBirds(agent.Agent):
