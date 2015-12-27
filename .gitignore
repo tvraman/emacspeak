@@ -14,3 +14,4 @@ lisp/g-client/g-cus-load.el
 lisp/g-client/g-loaddefs.el
 
 .amarks.el
+*.boop
