@@ -166,5 +166,5 @@ class ManyMockingBirds (agent.Agent):
             ag = FlMockingBirds(
                 1.0, 90.0,
                 0.05, 0.35,
-                1.0 + i * 0.15)
+                1.0 + i * 0.1)
             self.sched_agent(ag)
