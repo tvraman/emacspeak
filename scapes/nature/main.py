@@ -61,7 +61,7 @@ class GardenBackground (agent.Agent):
         count = self.pendulum.next() # [0, 30]
         gurgle = random.choice(streams)
         breeze = random.choice(winds)
-        vol =random.uniform(0.3, 0.7)
+        vol =random.uniform(0.2, 0.5)
         if (count < 7 or count > 22):
             pitch = random.uniform(0.6,1.1)
         else:
