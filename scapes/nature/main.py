@@ -68,10 +68,10 @@ class GardenBackground (agent.Agent):
             pitch = random.uniform(0.9, 1.4)
         pan = (count - 15) * 0.1  # [-1.5, 1.5]
         d0 = self.sched_note_pan(gurgle, pan, pitch, vol, self.time)
-        self.sched_note_pan(breeze, -1 * pan, vol, pitch, self.time + d0)
+        self.sched_note_pan(breeze, -1 * pan, pitch, vol,  self.time + d0)
         if ((count % 6) == 0):
             shower = random.choice(showers)
-            self.sched_note_pan(shower, -1.2 * pan, vol*0.5, pitch, self.time )
+            self.sched_note_pan(shower, -1.2 * pan, 1.0, vol*0.5,  self.time )
         self.resched(d0  + random.uniform(-1.0, 0.1))
 
 
