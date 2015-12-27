@@ -11,6 +11,7 @@ birds = bimport('org.emacspeak.birds')
 water = bimport('org.boodler.sample.water')
 oldwater = bimport('org.boodler.old.water')
 wind = bimport('org.boodler.sample.wind')
+rain = bimport('org.boodler.old.water')
 
 ca_mocks = [
     birds.mocking_1, birds.mocking_2, birds.mocking_3,  # CA Mocking Bird
@@ -19,6 +20,11 @@ ca_mocks = [
 fl_mocks = [
     birds.fl_mocking_1, birds.fl_mocking_2, birds.fl_mocking_3,
     birds.fl_mocking_4, birds.fl_mocking_5, birds.fl_mocking_6]
+showers = [
+    rain.rain_thin, rain.rain_splatter,
+    rain.rain_splashy_low, rain.rain_on_leaves,
+    rain.rain_med, rain.rain_heavy
+]
 
 streams = [
     water.stream_rushing_1, water.stream_rushing_2, water.stream_rushing_3]
@@ -50,9 +56,9 @@ class GardenBackground (agent.Agent):
         self.pendulum = pendulum(30)
 
     def run(self):
+        count = self.pendulum.next() # [0, 30]
         gurgle = random.choice(streams)
         breeze = random.choice(winds)
-        count = self.pendulum.next() # [0, 30]
         vol =random.uniform(0.3, 0.7)
         if (count < 7 or count > 22):
             pitch = random.uniform(0.6,1.1)
@@ -61,6 +67,9 @@ class GardenBackground (agent.Agent):
         pan = (count - 15) * 0.1  # [-1.5, 1.5]
         d0 = self.sched_note_pan(gurgle, pan, pitch, vol, self.time)
         self.sched_note_pan(breeze, -1 * pan, vol, pitch, self.time + d0)
+        if ((count % 6) == 0):
+            shower = random.choice(showers)
+            self.sched_note_pan(shower, -1.5 * pan, vol*0.8, pitch, self.time )
         self.resched(d0  + random.uniform(-1.0, 0.1))
 
 
