@@ -21,10 +21,10 @@ fl_mocks = [
     birds.fl_mocking_4, birds.fl_mocking_5, birds.fl_mocking_6]
 
 streams = [
-    oldwater.water_bubbling, water.stream_rushing_1,
-    water.stream_rushing_2, water.stream_rushing_3]
+    water.stream_rushing_1, water.stream_rushing_2, water.stream_rushing_3]
 
 winds = [
+    oldwater.water_bubbling,
     wind.soft_low_1, wind.soft_low_2, wind.soft_low_3,
     wind.gust_soft_1, wind.gust_soft_2, wind.gust_soft_3,
     wind.soft_whistly_1, wind.soft_whistly_2, wind.soft_whistly_3,
