@@ -15,7 +15,7 @@ rain = bimport('org.boodler.old.water')
 
 ca_mocks = [
     birds.mocking_1, birds.mocking_2, birds.mocking_3,  # CA Mocking Bird
-    birds.mocking_4, birds.mocking_5]
+    birds.mocking_4, birds.mocking_5, birds.mocking_6]
 
 fl_mocks = [
     birds.fl_mocking_1, birds.fl_mocking_2, birds.fl_mocking_3,
