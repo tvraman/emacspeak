@@ -1,5 +1,6 @@
 # Build Boodler packages:
 BOOPS=$(shell ls *.boop)
+SRC= seascape birds nature listen
 all: ${BOOPS}
 
 org.emacspeak.seascape.1.0.boop: seascape/*
