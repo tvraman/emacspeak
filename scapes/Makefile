@@ -1,6 +1,7 @@
 # Build Boodler packages:
-BOOPS=$(shell ls *.boop)
-SRC= seascape birds nature listen
+SRC :=  seascape birds nature listen
+BOOPS :=  $(foreach d,${SRC},org.emacspeak.$d.1.0.boop)
+
 all: ${BOOPS}
 
 org.emacspeak.seascape.1.0.boop: seascape/*
@@ -15,8 +16,11 @@ org.emacspeak.nature.1.0.boop: nature/*
 org.emacspeak.birds.1.0.boop: birds/*
 	boodle-mgr -f  --import create  birds 
 
-install:  ${BOOPS}
+install:  
 	boodle-mgr -f  install  org.emacspeak.seascape.1.0.boop
 	boodle-mgr -f  install org.emacspeak.listen.1.0.boop
 	boodle-mgr -f  install org.emacspeak.nature.1.0.boop
 	boodle-mgr -f  install org.emacspeak.birds.1.0.boop
+
+clean:
+	rm -f *.boop
