@@ -61,17 +61,17 @@ class GardenBackground (agent.Agent):
         count = self.pendulum.next() # [0, 30]
         gurgle = random.choice(streams)
         breeze = random.choice(winds)
-        vol =random.uniform(0.2, 0.7)
+        vol =random.uniform(0.2, 0.6)
         if (count < 7 or count > 22):
             pitch = random.uniform(0.6,1.1)
         else:
             pitch = random.uniform(0.9, 1.4)
         pan = (count - 15) * 0.1  # [-1.5, 1.5]
         d0 = self.sched_note_pan(gurgle, pan, pitch, vol, self.time)
-        self.sched_note_pan(breeze, -1 * pan, pitch, vol*0.9,  self.time + d0)
+        self.sched_note_pan(breeze, -1 * pan, pitch, vol,  self.time + d0)
         if ((count % 6) == 0):
             shower = random.choice(showers)
-            self.sched_note_pan(shower, -1.2 * pan, 1.0, vol*0.3,  self.time )
+            self.sched_note_pan(shower, -1.2 * pan, 1.0, vol*0.2,  self.time )
         self.resched(d0  + random.uniform(-1.0, 0.1))
 
 
