@@ -10,6 +10,7 @@ all: ${BOOPS}
 org.emacspeak.%.1.0.boop:  %/*
 	boodle-mgr -f  --import create  $*
 	boodle-mgr -f install $@
+
 .phony: clean
 clean:
 	rm -f *.boop
