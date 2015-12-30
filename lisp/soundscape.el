@@ -325,26 +325,30 @@ Soundscape names.")
   (soundscape-listener))
 
 ;;;###autoload
-(defun soundscape-listener  ()
+(defun soundscape-listener  (&optional restart)
   "Start  a Soundscape listener.
-Listener is loaded with all Soundscapes defined in `soundscape-default-theme' ."
-  (interactive)
+Listener is loaded with all Soundscapes defined in `soundscape-default-theme' .
+Optional interactive prefix arg restarts the listener if already running."
+  (interactive "P")
   (declare (special soundscape-listener-process soundscape-remote-end-point
                     soundscape-remote-control soundscape-default-theme))
   (let ((process-connection-type nil))
-    (setq  soundscape-listener-process
-           (apply
-            #'start-process
-            "SoundscapeListener" " *Soundscapes*"  soundscape-player
-            "-o" "alsa"
-            "--listen" "--port" soundscape-remote-end-point
-            "org.emacspeak.listen/Catalog"
-            (mapcar
-             #'(lambda (mapping) (soundscape-lookup-name (car mapping)))
-             soundscape-default-theme)))
-    (set-process-sentinel
-     soundscape-listener-process #'soundscape-listener-sentinel)
-    ))
+    (cond
+     ((or restart (not (process-live-p soundscape-listener-process)))
+      (setq  soundscape-listener-process
+             (apply
+              #'start-process
+              "SoundscapeListener" " *Soundscapes*"  soundscape-player
+              "-o" "alsa"
+              "--listen" "--port" soundscape-remote-end-point
+              "org.emacspeak.listen/Catalog"
+              (mapcar
+               #'(lambda (mapping) (soundscape-lookup-name (car mapping)))
+               soundscape-default-theme)))
+      (set-process-sentinel
+       soundscape-listener-process #'soundscape-listener-sentinel)
+      )
+     (t soundscape-listener-process))))
 
 (defun soundscape-listener-shutdown ()
   "Shutdown listener."
@@ -436,7 +440,8 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
   (cond
    (soundscape-auto
     (setq soundscape-auto nil)
-    (soundscape-listener-shutdown))
+    ;(soundscape-listener-shutdown)
+    (process-send-string soundscape-remote-control "soundscape 0\n"))
    (t
     (unless (member '(soundscape-auto (:eval (soundscape-current)))
                     minor-mode-alist)
