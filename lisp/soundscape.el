@@ -423,7 +423,7 @@ Do not set this by hand, use command \\[soundscape-toggle].")
 
 (defadvice select-window (after soundscape pre act comp)
   "Update Soundscape."
-  (soundscape-update-hook))
+  (when soundscape-auto   (soundscape-update-hook)))
 
 ;;}}}
 ;;{{{ SoundScape Toggle:
