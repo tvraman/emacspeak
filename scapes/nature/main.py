@@ -213,7 +213,7 @@ class Crickets(agent.Agent):
         self.sched_agent(ag)
 
 
-class Nocturnal (agent.Agent):
+class Nightscape (agent.Agent):
 
     def run(self):
         nature=GardenBackground(0.0)
