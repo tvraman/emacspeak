@@ -170,14 +170,14 @@ class ManyMockingBirds (agent.Agent):
 
     def run(self):
         nature = GardenBackground(0.0)
-        self.sched_agent(builtin.FadeInOutAgent(nature, 2, 10))
+        self.sched_agent(nature)
 
         for _ in xrange(8):
             ag=CaMockingBirds(
                 0.0, 90.0,
                 0.15, 0.3,
                 1.2)
-            self.sched_agent(builtin.FadeInOutAgent(ag, 1, 10))
+            self.sched_agent(ag)
 
             ag=FlMockingBirds(
                 7.0, 97.0,
@@ -225,5 +225,4 @@ class Nightscape (agent.Agent):
                 0.1, 0.4,
                 1.0)
             ag2=manage.VolumeModulateAgent(ag, 0.7)
-            ag3=builtin.FadeInOutAgent(ag2, 2, 20)
-            self.sched_agent(ag3)
+            self.sched_agent(ag2)
