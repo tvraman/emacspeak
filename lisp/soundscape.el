@@ -429,7 +429,12 @@ Do not set this by hand, use command \\[soundscape-toggle].")
 
 ;;}}}
 ;;{{{ SoundScape Toggle:
-
+(defsubst soundscape-quiet ()
+  "Activate NullAgent."
+  (declare (special soundscape-remote-control))
+  (when (process-live-p soundscape-remote-control)
+    (process-send-string soundscape-remote-control "soundscape 0\n")))
+    
 ;;;###autoload
 (defun soundscape-toggle ()
   "Toggle automatic SoundScapes.
@@ -440,16 +445,15 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
   (cond
    (soundscape-auto
     (setq soundscape-auto nil)
-    ;(soundscape-listener-shutdown)
-    (process-send-string soundscape-remote-control "soundscape 0\n"))
+    (soundscape-quiet))
    (t
     (unless (member '(soundscape-auto (:eval (soundscape-current)))
                     minor-mode-alist)
       (push   '(soundscape-auto (:eval (soundscape-current))) minor-mode-alist))
     (soundscape-init)
     (setq soundscape-auto t)
-    (soundscape-update-hook)))
-  (message "Automatic Soundscapes are now %s" (if soundscape-auto "on" "off")))
+    (soundscape-update-hook)
+    (message "Automatic Soundscapes are now %s" (if soundscape-auto "on" "off")))))
 
 ;;}}}
 ;;{{{ Display Theme:
