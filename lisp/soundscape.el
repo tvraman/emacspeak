@@ -146,8 +146,11 @@
     soundscape--catalog)))
 
 (defsubst soundscape-lookup-name (name)
-  "Return package/agent for this name."
-  (cdr (assoc name (soundscape-catalog))))
+  "Return package/agent for this name.
+Default is to return NullAgent if name not found."
+  (or
+   (cdr (assoc name (soundscape-catalog)))
+   "()"))
 
 (defsubst soundscape-lookup-scape (scape)
   "Return name for this package/agent."
@@ -235,7 +238,6 @@
   '(magit-mode vc-mode)
   "Version control modes.")
 
-  
 (defconst soundscape-communication-modes
   '(
     message-mode gnus-summary-mode gnus-article-mode gnus-group-mode
@@ -262,12 +264,9 @@ See  \\{soundscape-default-theme} for details."
       (scape (mapc #'(lambda (m) (soundscape-map-mode m scape)) modes))
       (t (message "Theme: <%s> not found." (cl-first pair)))))))
 
-  
-  
-
-
 (defconst soundscape-default-theme
   `(
+    ("()" (nil))
     ("BuddhaLoop" (special-mode))
     ("Cavern" (prog-mode))
     ("ChangingLoops" (emacspeak-m-player-mode))
@@ -345,7 +344,7 @@ Listener is loaded with all Soundscapes defined in `soundscape-default-theme' ."
              soundscape-default-theme)))
     (set-process-sentinel
      soundscape-listener-process #'soundscape-listener-sentinel)
-     ))
+    ))
 
 (defun soundscape-listener-shutdown ()
   "Shutdown listener."
@@ -407,7 +406,6 @@ Do not set this by hand, use command \\[soundscape-toggle].")
       (setq soundscape-cache-scapes scapes)
       (soundscape-remote (mapcar #'soundscape-lookup-scape scapes)))))
 
-
 (defvar soundscape-last-mode  nil
   "Caches last seen mode.")
 
@@ -440,9 +438,9 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
     (setq soundscape-auto nil)
     (soundscape-listener-shutdown))
    (t
-    (unless
-        (member '(soundscape-auto (:eval (soundscape-current))) minor-mode-alist)
-    (push   '(soundscape-auto (:eval (soundscape-current))) minor-mode-alist))
+    (unless (member '(soundscape-auto (:eval (soundscape-current)))
+                    minor-mode-alist)
+      (push   '(soundscape-auto (:eval (soundscape-current))) minor-mode-alist))
     (soundscape-init)
     (setq soundscape-auto t)
     (soundscape-update-hook)))
