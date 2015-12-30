@@ -47,7 +47,8 @@
 ;;; at @url{http://boodler.org/lib}.
 ;;; Make sure boodler works and produces audio in your environment.
 ;;; finally install the Boodler packages  from
-;;; emacspeak/scapes from the Emacspeak GitHub repository.
+;;; emacspeak/scapes from the Emacspeak GitHub repository by running
+;;; @code{cd emacspeak/scapes\; make }
 ;;;
 ;;; When  boodler is set up and all packages installed, copy
 ;;; file emacspeak/scapes/soundscapes  to ~/.boodler/Collection.
