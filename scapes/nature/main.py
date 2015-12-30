@@ -5,7 +5,7 @@ from boopak.package import *
 from boopak.argdef import *
 from boodle import agent
 from boodle import builtin
-
+manage = bimport('org.boodler.manage')
 play = bimport('org.boodler.play')
 birds = bimport('org.emacspeak.birds')
 water = bimport('org.boodler.sample.water')
@@ -217,11 +217,12 @@ class Nocturnal (agent.Agent):
 
     def run(self):
         nature = GardenBackground(0.0)
-        self.sched_agent(nature)
+        self.sched_agent(manage.VolumeModulateAgent(nature, 0.6))
 
         for i in xrange(20):
             ag = Crickets(
-                0.0, 90.0,
-                0.15, 0.5,
-                1.2)
-            self.sched_agent(ag)
+                0.0, 120.0,
+                0.1, 0.4,
+                1.0)
+            ag2 = manage.VolumeModulateAgent(ag, 0.7)
+            self.sched_agent(ag2)
