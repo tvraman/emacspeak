@@ -170,16 +170,16 @@ class ManyMockingBirds (agent.Agent):
 
     def run(self):
         nature = GardenBackground(0.0)
-        self.sched_agent(nature)
+        self.sched_agent(builtin.FadeInOutAgent(nature, 2, 10)
 
-        for i in xrange(8):
-            ag = CaMockingBirds(
+        for _ in xrange(8):
+            ag=CaMockingBirds(
                 0.0, 90.0,
                 0.15, 0.3,
                 1.2)
-            self.sched_agent(ag)
+            self.sched_agent(builtin.FadeInOutAgent(ag, 1, 10))
 
-            ag = FlMockingBirds(
+            ag=FlMockingBirds(
                 7.0, 97.0,
                 0.15, 0.35,
                 1.2)
@@ -188,7 +188,7 @@ class ManyMockingBirds (agent.Agent):
 
 class Crickets(agent.Agent):
 
-    _args = ArgList(Arg(type=float), Arg(type=float), Arg(type=float),
+    _args=ArgList(Arg(type=float), Arg(type=float), Arg(type=float),
                     Arg(type=float), Arg(type=float))
 
     def init(self,
@@ -197,14 +197,14 @@ class Crickets(agent.Agent):
              minVol=0.1,
              maxVol=1.0,
              pan=1.0):
-        self.minDelay = minDelay
-        self.maxDelay = maxDelay
-        self.minVol = minVol
-        self.maxVol = maxVol
-        self.pan = pan
+        self.minDelay=minDelay
+        self.maxDelay=maxDelay
+        self.minVol=minVol
+        self.maxVol=maxVol
+        self.pan=pan
 
     def run(self):
-        ag = play.IntermittentSoundsList(
+        ag=play.IntermittentSoundsList(
             self.minDelay, self.maxDelay,
             1.0, 1.0,  # pitch
             self.minVol, self.maxVol,
@@ -216,13 +216,14 @@ class Crickets(agent.Agent):
 class Nocturnal (agent.Agent):
 
     def run(self):
-        nature = GardenBackground(0.0)
+        nature=GardenBackground(0.0)
         self.sched_agent(manage.VolumeModulateAgent(nature, 0.6))
 
         for i in xrange(20):
-            ag = Crickets(
+            ag=Crickets(
                 0.0, 120.0,
                 0.1, 0.4,
                 1.0)
-            ag2 = manage.VolumeModulateAgent(ag, 0.7)
-            self.sched_agent(ag2)
+            ag2=manage.VolumeModulateAgent(ag, 0.7)
+            ag3=builtin.FadeInOutAgent(ag2, 2, 20)
+            self.sched_agent(ag3)
