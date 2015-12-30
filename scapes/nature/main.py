@@ -170,7 +170,7 @@ class ManyMockingBirds (agent.Agent):
 
     def run(self):
         nature = GardenBackground(0.0)
-        self.sched_agent(builtin.FadeInOutAgent(nature, 2, 10)
+        self.sched_agent(builtin.FadeInOutAgent(nature, 2, 10))
 
         for _ in xrange(8):
             ag=CaMockingBirds(
