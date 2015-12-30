@@ -20582,6 +20582,9 @@ communication == email, IM, ... map to  the same @emph{mood}.
 
 @subsubsection soundscape
 @deffn {Command} soundscape  (scape)
+@kbd{C-' s C-x @@ s s}
+
+@kindex C-' s C-x @@ s s
 @findex soundscape
 
 @format
@@ -20599,12 +20602,13 @@ Stop all running soundscapes.
 @end deffn
 
 @subsubsection soundscape-listener
-@deffn {Command} soundscape-listener   
+@deffn {Command} soundscape-listener  (&optional restart)
 @findex soundscape-listener
 
 @format
 Start  a Soundscape listener.
 Listener is loaded with all Soundscapes defined in ``soundscape-default-theme'' .
+Optional interactive prefix arg restarts the listener if already running.
 @end format
 @end deffn
 
@@ -20628,6 +20632,9 @@ Activate scapes named names.
 
 @subsubsection soundscape-stop
 @deffn {Command} soundscape-stop  (scape)
+@kbd{C-' S C-x @@ s S}
+
+@kindex C-' S C-x @@ s S
 @findex soundscape-stop
 
 @format
