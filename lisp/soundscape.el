@@ -111,9 +111,20 @@
 (defvar soundscape-cache-scapes nil
   "Cache of currently running scapes.")
 
-(defvar soundscape-manager-options
-  '("-o" "alsa")
-  "User customizable options list.")
+(defgroup soundscape nil
+  "Soundscapes For Emacs."
+  :group 'applications)
+
+
+;;;###autoload
+(defcustom soundscape-manager-options
+  '("-o" "alsa"
+    "-m" "0.5")
+  "User customizable options list passed to boodler.
+Defaults specify alsa as the output and set master volume to 0.5"
+  :group 'soundscape
+  :type '(repeat
+          (string :tag "Option: ")))
 
 ;;}}}
 ;;{{{ Catalog:
@@ -295,8 +306,8 @@ See  \\{soundscape-default-theme} for details."
   "*Specifies default map.
 Map is a list of lists, where the first element of each sublist
 is a Soundscape name, and the second element is a list of
-Soundscape names.
-Soundscape at position 0 (the first entry in this list)  must be the NullAgent written  as (). ")
+Soundscape names. Soundscape at position 0 (the first entry in
+this list) must be the NullAgent written as (). ")
 
 (soundscape-load-theme soundscape-default-theme)
 
@@ -353,10 +364,10 @@ Optional interactive prefix arg restarts the listener if already running."
               "SoundscapeListener" " *Soundscapes*"  soundscape-player
               `(,@soundscape-manager-options
                 "--listen" "--port" ,soundscape-remote-end-point
-              "org.emacspeak.listen/Catalog"
-              ,@(mapcar
-               #'(lambda (mapping) (soundscape-lookup-name (car mapping)))
-               soundscape-default-theme))))
+                "org.emacspeak.listen/Catalog"
+                ,@(mapcar
+                   #'(lambda (mapping) (soundscape-lookup-name (car mapping)))
+                   soundscape-default-theme))))
       (set-process-sentinel
        soundscape-listener-process #'soundscape-listener-sentinel)
       )
@@ -470,7 +481,8 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
           soundscape-cache-scapes nil
           soundscape-last-mode nil)
     (soundscape-activate major-mode)
-    (message "Automatic Soundscapes are now %s" (if soundscape-auto "on" "off")))))
+    (message "Automatic Soundscapes are now %s"
+             (if soundscape-auto "on" "off")))))
 
 ;;}}}
 ;;{{{ Display Theme:
