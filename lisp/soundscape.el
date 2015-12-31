@@ -313,6 +313,19 @@ this list) must be the NullAgent written as (). ")
 
 (soundscape-load-theme soundscape-default-theme)
 
+
+(defun soundscape-update-mood ()
+  "Update mood/scape mapping for current major mode.
+This updated mapping is not persisted."
+  (interactive)
+  (let* ((completion-ignore-case t)
+         (scape
+          (soundscape-lookup-name
+           (completing-read "Scape:" (mapcar 'car soundscape-default-theme)))))
+    (soundscape-map-mode major-mode scape)
+    (message "Temporarily using %s for %s" scape major-mode)))
+                                            
+
 ;;}}}
 ;;{{{ Soundscape Remote Control
 
