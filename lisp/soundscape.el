@@ -115,7 +115,6 @@
   "Soundscapes For Emacs."
   :group 'applications)
 
-
 ;;;###autoload
 (defcustom soundscape-manager-options
   '("-o" "alsa"
@@ -313,7 +312,6 @@ this list) must be the NullAgent written as (). ")
 
 (soundscape-load-theme soundscape-default-theme)
 
-
 (defun soundscape-update-mood ()
   "Update mood/scape mapping for current major mode.
 This updated mapping is not persisted."
@@ -323,8 +321,9 @@ This updated mapping is not persisted."
           (soundscape-lookup-name
            (completing-read "Scape:" (mapcar 'car soundscape-default-theme)))))
     (soundscape-map-mode major-mode scape)
+    (soundscape-activate major-mode)
     (message "Temporarily using %s for %s" scape major-mode)))
-                                            
+
 
 ;;}}}
 ;;{{{ Soundscape Remote Control
