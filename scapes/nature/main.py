@@ -174,7 +174,7 @@ class ManyMockingBirds (agent.Agent):
 
         for _ in xrange(8):
             ag=CaMockingBirds(
-                0.0, 90.0,
+                0.0, 120.0,
                 0.15, 0.275,
                 1.1)
             self.sched_agent(ag)
