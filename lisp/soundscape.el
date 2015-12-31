@@ -246,6 +246,10 @@ Default is to return NullAgent if name not found."
 
 (defsubst  soundscape-map-mode (mode scape)
   "Associate soundscape for this mode."
+  (interactive
+   (list
+    major-mode
+    (soundscape-read)))
   (declare (special soundscape-mode-table))
   (puthash mode scape soundscape-mode-table))
 
