@@ -294,6 +294,8 @@ See  \\{soundscape-default-theme} for details."
     ("Drip" ,soundscape-communication-modes)
     ("LightWind" (comint-mode elfeed-search-mode))
     ("ManyMockingBirds" (shell-mode term-mode))
+    ("MockingBirds" nil)
+    ("Nightscape" nil)
     ("NoStormYet"  (fundamental-mode))
     ("RainForever" ,soundscape-help-modes)
     ("RainSounds" ,soundscape-vc-modes)
