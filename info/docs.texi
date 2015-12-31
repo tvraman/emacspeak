@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1158 commands and 942 options.
+This chapter documents a total of 1158 commands and 943 options.
 
 @menu
 * acss-structure::
@@ -20662,6 +20662,14 @@ When turned on, Soundscapes are automatically run based on current major mode.
 Run command M-x soundscape-theme to see the default mode->mood mapping.
 @end format
 @end deffn
+
+@subsection soundscape Options
+
+@defvar {User Option} soundscape-manager-options
+User customizable options list passed to boodler.
+Defaults specify alsa as the output and set master volume to 0.5
+
+@end defvar
 
 @node sox
 @section sox
