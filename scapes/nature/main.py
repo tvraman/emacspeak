@@ -176,12 +176,12 @@ class ManyMockingBirds (agent.Agent):
             ag=CaMockingBirds(
                 0.0, 120.0,
                 0.15, 0.275,
-                1.1)
+                1.2)
             self.sched_agent(ag)
             ag=FlMockingBirds(
                 7.0, 97.0,
                 0.15, 0.275,
-                1.1)
+                1.2)
             self.sched_agent(ag)
 
 
