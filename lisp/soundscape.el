@@ -110,6 +110,11 @@
 
 (defvar soundscape-cache-scapes nil
   "Cache of currently running scapes.")
+
+(defvar soundscape-manager-options
+  '("-o" "alsa")
+  "User customizable options list.")
+
 ;;}}}
 ;;{{{ Catalog:
 (defvar soundscape-missing-packages nil
