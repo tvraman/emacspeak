@@ -358,19 +358,18 @@ Optional interactive prefix arg restarts the listener if already running."
   (let ((process-connection-type nil))
     (cond
      ((or restart (not (process-live-p soundscape-listener-process)))
-      (setq  soundscape-listener-process
-             (apply
-              #'start-process
-              "SoundscapeListener" " *Soundscapes*"  soundscape-player
-              `(,@soundscape-manager-options
-                "--listen" "--port" ,soundscape-remote-end-point
-                "org.emacspeak.listen/Catalog"
-                ,@(mapcar
-                   #'(lambda (mapping) (soundscape-lookup-name (car mapping)))
-                   soundscape-default-theme))))
+      (setq
+       soundscape-listener-process
+       (apply
+        #'start-process
+        "SoundscapeListener" " *Soundscapes*"  soundscape-player
+        `(,@soundscape-manager-options
+          "--listen" "--port" ,soundscape-remote-end-point
+          "org.emacspeak.listen/Catalog"
+          ,@(mapcar #'(lambda (m) (soundscape-lookup-name (car m)))
+                    soundscape-default-theme))))
       (set-process-sentinel
-       soundscape-listener-process #'soundscape-listener-sentinel)
-      )
+       soundscape-listener-process #'soundscape-listener-sentinel))
      (t soundscape-listener-process))))
 
 (defun soundscape-listener-shutdown ()
