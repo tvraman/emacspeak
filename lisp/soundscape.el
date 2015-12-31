@@ -178,12 +178,16 @@ Default is to return NullAgent if name not found."
 (defun soundscape (scape)
   "Play soundscape."
   (interactive (list (soundscape-read)))
-  (declare (special soundscape-processes))
+  (declare (special soundscape-processes
+                    soundscape-manager-options))
   (let ((process-connection-type  nil)
         (proc (gethash scape soundscape-processes)))
     (unless (process-live-p proc)
       (setq proc
-            (start-process "Boodler" nil soundscape-player "-o" "alsa" scape))
+            (apply
+             #'start-process
+             "Boodler" nil soundscape-player
+             `(,@soundscape-manager-options ,scape)))
       (when (process-live-p proc) (puthash scape proc soundscape-processes)))))
 
 (defun soundscape-stop (scape)
@@ -338,6 +342,7 @@ Listener is loaded with all Soundscapes defined in `soundscape-default-theme' .
 Optional interactive prefix arg restarts the listener if already running."
   (interactive "P")
   (declare (special soundscape-listener-process soundscape-remote-end-point
+                    soundscape-manager-options
                     soundscape-remote-control soundscape-default-theme))
   (let ((process-connection-type nil))
     (cond
@@ -346,12 +351,12 @@ Optional interactive prefix arg restarts the listener if already running."
              (apply
               #'start-process
               "SoundscapeListener" " *Soundscapes*"  soundscape-player
-              "-o" "alsa"
-              "--listen" "--port" soundscape-remote-end-point
+              `(,@soundscape-manager-options
+                "--listen" "--port" ,soundscape-remote-end-point
               "org.emacspeak.listen/Catalog"
-              (mapcar
+              ,@(mapcar
                #'(lambda (mapping) (soundscape-lookup-name (car mapping)))
-               soundscape-default-theme)))
+               soundscape-default-theme))))
       (set-process-sentinel
        soundscape-listener-process #'soundscape-listener-sentinel)
       )
