@@ -216,7 +216,7 @@ class Nightscape (agent.Agent):
 
     def run(self):
         nature=GardenBackground(0.0)
-        self.sched_agent(manage.VolumeModulateAgent(nature, 0.6))
+        self.sched_agent(manage.VolumeModulateAgent(nature, 0.5))
 
         for i in xrange(20):
             ag=Crickets(
