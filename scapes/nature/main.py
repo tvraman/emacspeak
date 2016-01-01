@@ -221,6 +221,6 @@ class Nightscape (agent.Agent):
             ag=Crickets(
                 0.0, 120.0,
                 0.1, 0.4,
-                1.0)
+                1.3)
             ag2=manage.VolumeModulateAgent(ag, 0.7)
             self.sched_agent(ag2)
