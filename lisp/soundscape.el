@@ -424,10 +424,11 @@ Install package  netcat-openbsd.")
             (start-process
              "nc" nil soundscape-remote-nc
              "-U" soundscape-remote-end-point))))
-  (process-send-string
-   soundscape-remote-control
-   (format "soundscape %s\n"
-           (mapconcat #'soundscape-lookup-position names " "))))
+  (when (process-live-p soundscape-remote-control)
+    (process-send-string
+     soundscape-remote-control
+     (format "soundscape %s\n"
+             (mapconcat #'soundscape-lookup-position names " ")))))
 
 ;;}}}
 ;;{{{ Automatic soundscapes:
