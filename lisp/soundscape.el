@@ -493,7 +493,7 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
                     minor-mode-alist)
       (push   '(soundscape-auto (:eval (soundscape-current))) minor-mode-alist))
     (soundscape-init)
-    (setq soundscape-auto (run-with-idle-timer   1 t #'soundscape-update)
+    (setq soundscape-auto (run-with-idle-timer   0.1 t #'soundscape-update)
           soundscape-cache-scapes nil
           soundscape-last-mode nil)
     (soundscape-sync major-mode)
