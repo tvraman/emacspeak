@@ -463,7 +463,7 @@ Do not set this by hand, use command \\[soundscape-toggle].")
 ;;; Advice on select-window, force-mode-line-update etc fire too often.
 ;;; Ditto with buffer-list-update-hook
 ;;; Running on an idle timer can be  less responsive
-;;;  soundscape-delay (default is 0.1)
+;;;  soundscape-delay (default is 0.5)
 ;;; but  triggers fewer spurious changes than running on advice.
 
 ;;}}}
@@ -475,7 +475,7 @@ Do not set this by hand, use command \\[soundscape-toggle].")
     (process-send-string soundscape-remote-control "soundscape 0\n")))
 
 ;;;###autoload
-(defcustom soundscape-idle-delay 0.1
+(defcustom soundscape-idle-delay 0.5
   "Number of seconds of idle time
 before soundscapes are synchronized with current mode."
   :type 'float
