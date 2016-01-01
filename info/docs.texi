@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1158 commands and 943 options.
+This chapter documents a total of 1159 commands and 944 options.
 
 @menu
 * acss-structure::
@@ -20663,7 +20663,22 @@ Run command M-x soundscape-theme to see the default mode->mood mapping.
 @end format
 @end deffn
 
+@subsubsection soundscape-update-mood
+@deffn {Command} soundscape-update-mood   
+@findex soundscape-update-mood
+
+@format
+Update mood/scape mapping for current major mode.
+This updated mapping is not persisted.
+@end format
+@end deffn
+
 @subsection soundscape Options
+
+@defvar {User Option} soundscape-idle-delay
+Number of seconds of idle time before soundscape  is synced.
+
+@end defvar
 
 @defvar {User Option} soundscape-manager-options
 User customizable options list passed to boodler.
