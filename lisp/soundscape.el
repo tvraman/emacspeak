@@ -435,7 +435,7 @@ Install package  netcat-openbsd.")
 
 ;;;###autoload
 (defvar soundscape-auto nil
-  "Turn on automatic soundscapes.
+  "Record if automatic soundscapes are on.
 Do not set this by hand, use command \\[soundscape-toggle].")
 
 (defun soundscape-activate (mode)
@@ -482,6 +482,7 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
                     soundscape-last-mode))
   (cond
    (soundscape-auto
+    (cancel-timer soundscape-auto)
     (setq soundscape-auto nil
           soundscape-cache-scapes nil
           soundscape-last-mode nil)
@@ -491,7 +492,7 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
                     minor-mode-alist)
       (push   '(soundscape-auto (:eval (soundscape-current))) minor-mode-alist))
     (soundscape-init)
-    (setq soundscape-auto t
+    (setq soundscape-auto (run-with-idle-timer   1 t #'soundscape-update)
           soundscape-cache-scapes nil
           soundscape-last-mode nil)
     (soundscape-activate major-mode)
