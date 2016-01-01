@@ -39,7 +39,7 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-
+;;; Soundscapes @url{https://en.wikipedia.org/wiki/Soundscape} define an acoustic environment.
 ;;; Boodler  at @url{http://boodler.org} is a
 ;;; Python-based SoundScape generator.
 ;;; To use this module, first install boodler.
