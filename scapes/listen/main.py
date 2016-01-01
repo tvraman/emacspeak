@@ -19,7 +19,7 @@ class Agents(agent.Agent):
 
     selected_event = 'agent'
 
-    def init(self, fadetime=1.0):
+    def init(self, fadetime=0.5):
         self.fadetime = fadetime
         self.prevchannel = None
 
@@ -47,7 +47,7 @@ class Catalog(agent.Agent):
         if (len(agents) == 0):
             raise Exception('Catalog requires at least one agent argument')
         self.classlist = agents
-        self.fadetime = 1.0
+        self.fadetime = 0.5
         self.pos = 0
         self.workagent = None
 
