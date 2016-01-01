@@ -449,7 +449,7 @@ Do not set this by hand, use command \\[soundscape-toggle].")
 (defvar soundscape-last-mode  nil
   "Caches last seen mode.")
 
-(defun soundscape-update-hook ()
+(defun soundscape-update ()
   "Hook function to update Soundscape automatically."
   (declare (special soundscape-auto soundscape-last-mode))
   (when (and soundscape-auto
@@ -459,11 +459,10 @@ Do not set this by hand, use command \\[soundscape-toggle].")
     (setq soundscape-last-mode major-mode)
     (soundscape-activate major-mode)))
 
-(defadvice select-window (after soundscape pre act comp)
-  "Update Soundscape."
-  (when soundscape-auto
-    (push (current-buffer) record)
-    (soundscape-update-hook)))
+;;; Advice on select-window, force-mode-line-update etc fire too often.
+;;; Ditto with buffer-list-update-hook
+;;; Running on an idle timer is less responsive but  triggers fewer spurious changes 
+
 
 ;;}}}
 ;;{{{ SoundScape Toggle:
