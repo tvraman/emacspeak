@@ -459,9 +459,11 @@ Do not set this by hand, use command \\[soundscape-toggle].")
     (setq soundscape-last-mode major-mode)
     (soundscape-activate major-mode)))
 
-(defadvice force-mode-line-update (after soundscape pre act comp)
+(defadvice select-window (after soundscape pre act comp)
   "Update Soundscape."
-  (when soundscape-auto   (soundscape-update-hook)))
+  (when soundscape-auto
+    (push (current-buffer) record)
+    (soundscape-update-hook)))
 
 ;;}}}
 ;;{{{ SoundScape Toggle:
