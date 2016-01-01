@@ -321,7 +321,7 @@ This updated mapping is not persisted."
           (soundscape-lookup-name
            (completing-read "Scape:" (mapcar 'car soundscape-default-theme)))))
     (soundscape-map-mode major-mode scape)
-    (soundscape-activate major-mode)
+    (soundscape-sync major-mode)
     (message "Temporarily using %s for %s" scape major-mode)))
 
 
@@ -438,7 +438,7 @@ Install package  netcat-openbsd.")
   "Record if automatic soundscapes are on.
 Do not set this by hand, use command \\[soundscape-toggle].")
 
-(defun soundscape-activate (mode)
+(defun soundscape-sync (mode)
   "Activate  Soundscapes for  this mode."
   (declare (special soundscape-cache-scapes))
   (let ((scapes (soundscape-for-mode mode)))
@@ -458,7 +458,7 @@ Do not set this by hand, use command \\[soundscape-toggle].")
        (not (eq 'minibuffer-inactive-mode major-mode))
        (not (string-match "temp" (buffer-name))))
     (setq soundscape-last-mode major-mode)
-    (soundscape-activate major-mode)))
+    (soundscape-sync major-mode)))
 
 ;;; Advice on select-window, force-mode-line-update etc fire too often.
 ;;; Ditto with buffer-list-update-hook
@@ -496,7 +496,7 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
     (setq soundscape-auto (run-with-idle-timer   1 t #'soundscape-update)
           soundscape-cache-scapes nil
           soundscape-last-mode nil)
-    (soundscape-activate major-mode)
+    (soundscape-sync major-mode)
     (message "Automatic Soundscapes are now %s"
              (if soundscape-auto "on" "off")))))
 
