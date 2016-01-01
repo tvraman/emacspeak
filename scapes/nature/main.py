@@ -11,6 +11,7 @@ birds = bimport('org.emacspeak.birds')
 water = bimport('org.boodler.sample.water')
 wind = bimport('org.boodler.sample.wind')
 rain = bimport('org.boodler.old.water')
+soft = bimport('org.boodler.sample.rain')
 cricket = bimport('org.boodler.old.insect')
 trill = bimport('org.boodler.sample.insect')
 
@@ -30,7 +31,8 @@ streams = [
     water.stream_rushing_1, water.stream_rushing_2, water.stream_rushing_3]
 
 winds = [
-    rain.water_bubbling, water.soft_sprinkle,
+    rain.water_bubbling, soft.soft_sprinkle,
+    soft.soft_gentle, soft.soft_drizzle,
     wind.soft_low_1, wind.soft_low_2, wind.soft_low_3,
     wind.gust_soft_1, wind.gust_soft_2, wind.gust_soft_3,
     wind.soft_whistly_1, wind.soft_whistly_2, wind.soft_whistly_3,
