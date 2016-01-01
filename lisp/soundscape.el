@@ -475,7 +475,8 @@ Do not set this by hand, use command \\[soundscape-toggle].")
 
 ;;;###autoload
 (defcustom soundscape-idle-delay 0.1
-  "Number of seconds of idle time before soundscape  is synced."
+  "Number of seconds of idle time
+before soundscapes are synchronized with current mode."
   :type 'float
   :group 'soundscape)
 
