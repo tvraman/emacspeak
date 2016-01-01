@@ -2363,8 +2363,7 @@ Direction specifies previous/next."
 When called from a shell buffer, switches to `next' shell buffer."
   (interactive "P")
   (cond
-   ((or  prefix
-         (not (eq major-mode 'shell-mode)))
+   ((or  prefix (not (eq major-mode 'shell-mode)))
     (call-interactively 'shell))
    (t (call-interactively 'emacspeak-wizards-next-shell))))
 ;;}}}
