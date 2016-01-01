@@ -324,7 +324,6 @@ This updated mapping is not persisted."
     (soundscape-sync major-mode)
     (message "Temporarily using %s for %s" scape major-mode)))
 
-
 ;;}}}
 ;;{{{ Soundscape Remote Control
 
@@ -462,8 +461,9 @@ Do not set this by hand, use command \\[soundscape-toggle].")
 
 ;;; Advice on select-window, force-mode-line-update etc fire too often.
 ;;; Ditto with buffer-list-update-hook
-;;; Running on an idle timer is less responsive but  triggers fewer spurious changes 
-
+;;; Running on an idle timer can be  less responsive
+;;;  soundscape-delay (default is 0.1)
+;;; but  triggers fewer spurious changes than running on advice.
 
 ;;}}}
 ;;{{{ SoundScape Toggle:
@@ -474,13 +474,19 @@ Do not set this by hand, use command \\[soundscape-toggle].")
     (process-send-string soundscape-remote-control "soundscape 0\n")))
 
 ;;;###autoload
+(defcustom soundscape-idle-delay 0.1
+  "Number of seconds of idle time before soundscape  is synced."
+  :type 'float
+  :group 'soundscape)
+
+;;;###autoload
 (defun soundscape-toggle ()
   "Toggle automatic SoundScapes.
 When turned on, Soundscapes are automatically run based on current major mode.
 Run command \\[soundscape-theme] to see the default mode->mood mapping."
   (interactive)
   (declare (special soundscape-auto soundscape-cache-scapes
-                    soundscape-last-mode))
+                    soundscape-idle-delay soundscape-last-mode))
   (cond
    (soundscape-auto
     (cancel-timer soundscape-auto)
@@ -493,7 +499,8 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
                     minor-mode-alist)
       (push   '(soundscape-auto (:eval (soundscape-current))) minor-mode-alist))
     (soundscape-init)
-    (setq soundscape-auto (run-with-idle-timer   0.1 t #'soundscape-update)
+    (setq soundscape-auto
+          (run-with-idle-timer   soundscape-idle-delay t #'soundscape-update)
           soundscape-cache-scapes nil
           soundscape-last-mode nil)
     (soundscape-sync major-mode)
