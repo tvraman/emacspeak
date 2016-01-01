@@ -1,7 +1,7 @@
 # org.emacspeak.listen
 """Package org.emacspeak.listen: Implement  a Soundscape Listener.
 
-Class Catalog implements a Listener Agent.
+Class SoundscapePanel implements a Listener Agent.
 Emacs module soundscape.el starts this Agent with a  list of 
 Boodler agents that implement the various Soundscapes.
 Module Soundscape then uses the remote control functionality to switch Soundscapes on the fly.
@@ -39,13 +39,13 @@ class Agents(agent.Agent):
         self.sched_agent(scape, chan=self.prevchannel)
 
 
-class Catalog(agent.Agent):
+class SoundscapePanel(agent.Agent):
     _args = ArgList(ArgExtra(ListOf(Wrapped(agent.Agent))))
     selected_event = 'soundscape'
 
     def init(self, *agents):
         if (len(agents) == 0):
-            raise Exception('Catalog requires at least one agent argument')
+            raise Exception('SoundscapePanel requires at least one agent argument')
         self.classlist = agents
         self.fadetime = 0.5
         self.pos = 0

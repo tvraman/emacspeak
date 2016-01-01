@@ -378,7 +378,7 @@ Optional interactive prefix arg restarts the listener if already running."
         "SoundscapeListener" " *Soundscapes*"  soundscape-player
         `(,@soundscape-manager-options
           "--listen" "--port" ,soundscape-remote-end-point
-          "org.emacspeak.listen/Catalog"
+          "org.emacspeak.listen/SoundscapePanel"
           ,@(mapcar #'(lambda (m) (soundscape-lookup-name (car m)))
                     soundscape-default-theme))))
       (set-process-sentinel

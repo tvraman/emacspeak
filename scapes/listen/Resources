@@ -6,7 +6,7 @@ boodler.arguments: (arglist ((arg default=2.0 index=1 type=float name=fadetime))
 boodler.use: agent
 dc.title: Run agents by command
 
-:Catalog
+:SoundscapePanel
 boodler.arguments: (arglist () listtype=(ListOf ((Wrapped Agent)) min=0))
 boodler.use: agent
-dc.title: Emacspeak soundscape Remote Control
+dc.title: Emacspeak soundscape  Panel With Remote Control
