@@ -329,7 +329,7 @@ This updated mapping is not persisted."
 ;;{{{ Soundscape Remote Control
 
 (defvar soundscape-remote-end-point
-  (make-temp-name "/tmp/soundscape-soundscape")
+  (make-temp-name "/tmp/soundscape")
   "Name of Unix Domain socket used to control Soundscape.")
 
 (defun soundscape-listener-sentinel (proc state)
