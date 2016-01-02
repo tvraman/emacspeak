@@ -82,9 +82,9 @@ class GardenBackground (agent.Agent):
         breeze = random.choice(winds)
         vol = random.uniform(0.2, 0.6)
         if (count < 7 or count > 22):
-            pitch = random.uniform(0.2, 1.1)
+            pitch = random.uniform(0.5, 1.1)
         else:
-            pitch = random.uniform(0.7, 1.6)
+            pitch = random.uniform(0.7, 1.3)
         pan = (count - 15) * 0.1  # [-1.5, 1.5]
         d0 = self.sched_note_pan(gurgle, pan, pitch, vol, self.time)
         self.sched_note_pan(breeze, -1 * pan, pitch, vol,  self.time + d0)
