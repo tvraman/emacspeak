@@ -39,7 +39,8 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; Soundscapes @url{https://en.wikipedia.org/wiki/Soundscape} define an acoustic environment.
+;;; Soundscapes @url{https://en.wikipedia.org/wiki/Soundscape}
+;;; define an acoustic environment.
 ;;; Boodler  at @url{http://boodler.org} is a
 ;;; Python-based SoundScape generator.
 ;;; To use this module, first install boodler.
@@ -98,9 +99,15 @@
 (defconst soundscape-mgr (executable-find "boodle-mgr")
   "Soundscape manager. Looks for installed boodler.")
 
-;;; This file is generated via a shell-hack for now.
-(defvar soundscape-data "~/.boodler/Collection"
-  "Soundscape data directory.")
+(defgroup soundscape nil
+  "Soundscapes For Emacs."
+  :group 'applications)
+
+(defcustom soundscape-data
+  (expand-file-name "~/.boodler/Collection")
+  "Soundscape data directory."
+  :type 'directory
+  :group 'soundscape)
 
 (defconst soundscape-list (expand-file-name "soundscapes"  soundscape-data)
   "Soundscape player. Looks for installed boodler.")
@@ -108,12 +115,10 @@
 (defvar soundscape--catalog nil
   "Catalog of installed soundscapes keyed by agent name.")
 
-(defvar soundscape-cache-scapes nil
+(defvar soundscape--scapes nil
   "Cache of currently running scapes.")
 
-(defgroup soundscape nil
-  "Soundscapes For Emacs."
-  :group 'applications)
+
 
 ;;;###autoload
 (defcustom soundscape-manager-options
@@ -127,12 +132,12 @@ Defaults specify alsa as the output and set master volume to 0.5"
 
 ;;}}}
 ;;{{{ Catalog:
-(defvar soundscape-missing-packages nil
+(defvar soundscape--missing-packages nil
   "Records missing packages when building up the catalog.")
 
 (defun soundscape-catalog-add-entry()
   "Add catalog entry from current line."
-  (declare (special soundscape-missing-packages))
+  (declare (special soundscape--missing-packages))
   (let ((name nil)
         (scape nil)
         (package nil)
@@ -145,7 +150,7 @@ Defaults specify alsa as the output and set master volume to 0.5"
      ((and name scape
            (file-exists-p   (expand-file-name package soundscape-data)))
       (push (cons name scape) soundscape--catalog))
-     (t (push scape soundscape-missing-packages)))))
+     (t (push scape soundscape--missing-packages)))))
 (defun soundscape-catalog (&optional refresh)
   "Return catalog of installed Soundscapes, initialize if necessary."
   (declare (special soundscape--catalog soundscape-list))
@@ -225,8 +230,8 @@ Default is to return NullAgent if name not found."
 
 (defun soundscape-current ()
   "Return names of currently running scapes."
-  (declare (special soundscape-cache-scapes))
-  (mapconcat #'soundscape-lookup-scape soundscape-cache-scapes " "))
+  (declare (special soundscape--scapes))
+  (mapconcat #'soundscape-lookup-scape soundscape--scapes " "))
 
 ;;}}}
 ;;{{{ Modes->SoundScapes:
@@ -327,16 +332,16 @@ This updated mapping is not persisted."
 ;;}}}
 ;;{{{ Soundscape Remote Control
 
-(defvar soundscape-remote-end-point
+(defvar soundscape--remote
   (make-temp-name "/tmp/soundscape")
   "Name of Unix Domain socket used to control Soundscape.")
 
 (defun soundscape-listener-sentinel (proc state)
   "Delete remote control end point on exit."
-  (declare (special soundscape-remote-end-point))
+  (declare (special soundscape--remote))
   (unless (process-live-p  proc)
-    (when (file-exists-p soundscape-remote-end-point)
-      (delete-file soundscape-remote-end-point))))
+    (when (file-exists-p soundscape--remote)
+      (delete-file soundscape--remote))))
 
 (defvar soundscape-listener-process nil
   "Handle to Soundscape listener.")
@@ -365,7 +370,7 @@ This updated mapping is not persisted."
 Listener is loaded with all Soundscapes defined in `soundscape-default-theme' .
 Optional interactive prefix arg restarts the listener if already running."
   (interactive "P")
-  (declare (special soundscape-listener-process soundscape-remote-end-point
+  (declare (special soundscape-listener-process soundscape--remote
                     soundscape-manager-options
                     soundscape-remote-control soundscape-default-theme))
   (let ((process-connection-type nil))
@@ -377,7 +382,7 @@ Optional interactive prefix arg restarts the listener if already running."
         #'start-process
         "SoundscapeListener" " *Soundscapes*"  soundscape-player
         `(,@soundscape-manager-options
-          "--listen" "--port" ,soundscape-remote-end-point
+          "--listen" "--port" ,soundscape--remote
           "org.emacspeak.listen/SoundscapePanel"
           ,@(mapcar #'(lambda (m) (soundscape-lookup-name (car m)))
                     soundscape-default-theme))))
@@ -389,14 +394,14 @@ Optional interactive prefix arg restarts the listener if already running."
   "Shutdown listener."
   (interactive)
   (declare (special soundscape-listener-process soundscape-remote-control
-                    soundscape-cache-scapes))
-  (setq soundscape-cache-scapes nil)
+                    soundscape--scapes))
+  (setq soundscape--scapes nil)
   (when (process-live-p soundscape-listener-process)
     (delete-process soundscape-listener-process))
   (when (process-live-p soundscape-remote-control)
     (delete-process soundscape-remote-control))
-  (when (file-exists-p soundscape-remote-end-point)
-    (delete-file soundscape-remote-end-point)))
+  (when (file-exists-p soundscape--remote)
+    (delete-file soundscape--remote)))
 (defvar soundscape-remote-nc
   (executable-find "nc")
   "Location of nc executable.
@@ -423,7 +428,7 @@ Install package  netcat-openbsd.")
       (setq soundscape-remote-control
             (start-process
              "nc" nil soundscape-remote-nc
-             "-U" soundscape-remote-end-point))))
+             "-U" soundscape--remote))))
   (when (process-live-p soundscape-remote-control)
     (process-send-string
      soundscape-remote-control
@@ -434,30 +439,30 @@ Install package  netcat-openbsd.")
 ;;{{{ Automatic soundscapes:
 
 ;;;###autoload
-(defvar soundscape-auto nil
+(defvar soundscape--auto nil
   "Record if automatic soundscapes are on.
 Do not set this by hand, use command \\[soundscape-toggle].")
 
 (defun soundscape-sync (mode)
   "Activate  Soundscapes for  this mode."
-  (declare (special soundscape-cache-scapes))
+  (declare (special soundscape--scapes))
   (let ((scapes (soundscape-for-mode mode)))
-    (unless (equal scapes soundscape-cache-scapes)
-      (setq soundscape-cache-scapes scapes)
+    (unless (equal scapes soundscape--scapes)
+      (setq soundscape--scapes scapes)
       (soundscape-remote (mapcar #'soundscape-lookup-scape scapes)))))
 
-(defvar soundscape-last-mode  nil
+(defvar soundscape---last-mode  nil
   "Caches last seen mode.")
 
 (defun soundscape-update ()
   "Function to update Soundscape automatically."
-  (declare (special  soundscape-last-mode))
+  (declare (special  soundscape---last-mode))
   (unless
       (or
-       (eq major-mode soundscape-last-mode)
+       (eq major-mode soundscape---last-mode)
        (eq 'minibuffer-inactive-mode major-mode)
        (string-match "temp" (buffer-name)))
-    (setq soundscape-last-mode major-mode)
+    (setq soundscape---last-mode major-mode)
     (soundscape-sync major-mode)))
 
 ;;; Advice on select-window, force-mode-line-update etc fire too often.
@@ -487,27 +492,27 @@ before soundscapes are synchronized with current mode."
 When turned on, Soundscapes are automatically run based on current major mode.
 Run command \\[soundscape-theme] to see the default mode->mood mapping."
   (interactive)
-  (declare (special soundscape-auto soundscape-cache-scapes
-                    soundscape-idle-delay soundscape-last-mode))
+  (declare (special soundscape--auto soundscape--scapes
+                    soundscape-idle-delay soundscape---last-mode))
   (cond
-   (soundscape-auto
-    (cancel-timer soundscape-auto)
-    (setq soundscape-auto nil
-          soundscape-cache-scapes nil
-          soundscape-last-mode nil)
+   (soundscape--auto
+    (cancel-timer soundscape--auto)
+    (setq soundscape--auto nil
+          soundscape--scapes nil
+          soundscape---last-mode nil)
     (soundscape-quiet))
    (t
-    (unless (member '(soundscape-auto (:eval (soundscape-current)))
+    (unless (member '(soundscape--auto (:eval (soundscape-current)))
                     minor-mode-alist)
-      (push   '(soundscape-auto (:eval (soundscape-current))) minor-mode-alist))
+      (push   '(soundscape--auto (:eval (soundscape-current))) minor-mode-alist))
     (soundscape-init)
-    (setq soundscape-auto
+    (setq soundscape--auto
           (run-with-idle-timer   soundscape-idle-delay t #'soundscape-update)
-          soundscape-cache-scapes nil
-          soundscape-last-mode nil)
+          soundscape--scapes nil
+          soundscape---last-mode nil)
     (soundscape-sync major-mode)
     (message "Automatic Soundscapes are now %s"
-             (if soundscape-auto "on" "off")))))
+             (if soundscape--auto "on" "off")))))
 
 ;;}}}
 ;;{{{ Display Theme:
