@@ -25,7 +25,8 @@ fl_mocks = [
 showers = [
     rain.rain_thin, rain.rain_splatter,
     rain.rain_splashy_low, rain.rain_on_leaves,
-    rain.rain_med]
+    rain.rain_med,
+soft.soft_sprinkle, soft.soft_gentle, soft.soft_drizzle]
 
 streams = [
     water.stream_rushing_1, water.stream_rushing_2, water.stream_rushing_3]
@@ -81,9 +82,9 @@ class GardenBackground (agent.Agent):
         breeze = random.choice(winds)
         vol = random.uniform(0.2, 0.6)
         if (count < 7 or count > 22):
-            pitch = random.uniform(0.6, 1.1)
+            pitch = random.uniform(0.2, 1.1)
         else:
-            pitch = random.uniform(0.9, 1.4)
+            pitch = random.uniform(0.7, 1.6)
         pan = (count - 15) * 0.1  # [-1.5, 1.5]
         d0 = self.sched_note_pan(gurgle, pan, pitch, vol, self.time)
         self.sched_note_pan(breeze, -1 * pan, pitch, vol,  self.time + d0)
