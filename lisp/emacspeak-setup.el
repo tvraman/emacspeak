@@ -114,7 +114,7 @@ such as pronunciation dictionaries are stored. ")
    (regexp-opt
     (list "wma" "wmv" "flv"
           "m4a" "m4b" "flac"
-          "ogg" "mp3" "MP3" "mp4")
+          "ogg" "mp3" "MP3" "mp4" "webm")
     'parens)
    "$")
   "Extensions that match media files.")
