@@ -452,11 +452,11 @@ Do not set this by hand, use command \\[soundscape-toggle].")
 (defun soundscape-update ()
   "Function to update Soundscape automatically."
   (declare (special  soundscape-last-mode))
-  (when
-      (and
-       (not (eq major-mode soundscape-last-mode))
-       (not (eq 'minibuffer-inactive-mode major-mode))
-       (not (string-match "temp" (buffer-name))))
+  (unless
+      (or
+       (eq major-mode soundscape-last-mode)
+       (eq 'minibuffer-inactive-mode major-mode)
+       (string-match "temp" (buffer-name)))
     (setq soundscape-last-mode major-mode)
     (soundscape-sync major-mode)))
 
