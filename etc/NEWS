@@ -10,13 +10,19 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 ** Multiple Media Players 
 
 Module [[http://emacspeak.blogspot.com/2015/11/listening-to-multiple-media-streams-on.html][emacspeak-m-player]] can now launch and control multiple media
-player instances.
+player instances. Use C-e;\ to persist current m-player session; Use a
+prefix arg to give that session a name.
 
 ** Panning In MPlayer
 
 Module emacspeak-m-player adds support for panning audio from the currently
 playing stream from left to right.
 
+** Ladspa And MPlayer
+
+Module emacspeak-m-player  now  provides Ladspa integration with more
+presets including an autopan+pinknoise setting suitable for
+relaxation.
 
 ** Spatialized Chimes Theme 
 
