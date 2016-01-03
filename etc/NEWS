@@ -43,3 +43,9 @@ Module =emacspeak-elpy.el= speech-enables package =ElPY= --- a Python IDE.
 can be automatically turned on and off to match the user's current
 activity. Module ~soundscape.el~ implements SoundScapes using Python
 package ~boodler~ --- see [[http://boodler.org]].
+
+
+** Additional Emacspeak Soundscapes
+
+Directory emacspeak/scapes includes Soundscapes developed for use on
+the Audio Desktop.
