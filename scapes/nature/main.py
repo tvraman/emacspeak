@@ -26,14 +26,14 @@ showers = [
     rain.rain_thin, rain.rain_splatter,
     rain.rain_splashy_low, rain.rain_on_leaves,
     rain.rain_med,
-soft.soft_sprinkle, soft.soft_gentle, soft.soft_drizzle]
+    soft.soft_sprinkle, soft.soft_gentle, soft.soft_drizzle]
 
 streams = [
-    water.stream_rushing_1, water.stream_rushing_2, water.stream_rushing_3]
+    water.stream_rushing_1, water.stream_rushing_2, water.stream_rushing_3,
+    rain.water_bubbling, soft.soft_sprinkle,
+    soft.soft_gentle, soft.soft_drizzle, ]
 
 winds = [
-    rain.water_bubbling, soft.soft_sprinkle,
-    soft.soft_gentle, soft.soft_drizzle,
     wind.soft_low_1, wind.soft_low_2, wind.soft_low_3,
     wind.gust_soft_1, wind.gust_soft_2, wind.gust_soft_3,
     wind.soft_whistly_1, wind.soft_whistly_2, wind.soft_whistly_3,
@@ -87,11 +87,13 @@ class GardenBackground (agent.Agent):
             pitch = random.uniform(0.7, 1.3)
         pan = (count - 15) * 0.1  # [-1.5, 1.5]
         d0 = self.sched_note_pan(gurgle, pan, pitch, vol, self.time)
-        self.sched_note_pan(breeze, -1 * pan, pitch, vol,  self.time + d0)
+        self.sched_note_pan(breeze, -1 * pan, pitch, vol,
+                            self.time + random.uniform(2.0))
         if ((count % 6) == 0):
             shower = random.choice(showers)
-            self.sched_note_pan(shower, -1.2 * pan, 1.0, vol * 0.2,  self.time)
-        self.resched(d0 + random.uniform(-1.0, 0.1))
+            self.sched_note_pan(shower, -1.2 * pan, pitch,
+                                vol * 0.2,  self.time + random.uniform(2.0))
+        self.resched(d0 + random.uniform(-1.0, -0.1))
 
 
 class FlMockingBirds(agent.Agent):
@@ -175,12 +177,12 @@ class ManyMockingBirds (agent.Agent):
         self.sched_agent(manage.VolumeModulateAgent(nature, 0.6))
 
         for _ in xrange(8):
-            ag=CaMockingBirds(
+            ag = CaMockingBirds(
                 0.0, 120.0,
                 0.1, 0.2,
                 1.2)
             self.sched_agent(ag)
-            ag=FlMockingBirds(
+            ag = FlMockingBirds(
                 7.0, 157.0,
                 0.1, 0.3,
                 1.2)
@@ -189,7 +191,7 @@ class ManyMockingBirds (agent.Agent):
 
 class Crickets(agent.Agent):
 
-    _args=ArgList(Arg(type=float), Arg(type=float), Arg(type=float),
+    _args = ArgList(Arg(type=float), Arg(type=float), Arg(type=float),
                     Arg(type=float), Arg(type=float))
 
     def init(self,
@@ -198,14 +200,14 @@ class Crickets(agent.Agent):
              minVol=0.1,
              maxVol=1.0,
              pan=1.0):
-        self.minDelay=minDelay
-        self.maxDelay=maxDelay
-        self.minVol=minVol
-        self.maxVol=maxVol
-        self.pan=pan
+        self.minDelay = minDelay
+        self.maxDelay = maxDelay
+        self.minVol = minVol
+        self.maxVol = maxVol
+        self.pan = pan
 
     def run(self):
-        ag=play.IntermittentSoundsList(
+        ag = play.IntermittentSoundsList(
             self.minDelay, self.maxDelay,
             0.9, 1.1,  # pitch
             self.minVol, self.maxVol, self.pan,
@@ -216,11 +218,11 @@ class Crickets(agent.Agent):
 class Nightscape (agent.Agent):
 
     def run(self):
-        nature=GardenBackground(0.0)
+        nature = GardenBackground(0.0)
         self.sched_agent(manage.VolumeModulateAgent(nature, 0.4))
 
         for i in xrange(25):
-            ag=Crickets(
+            ag = Crickets(
                 0.0, 60.0,
                 0.1, 0.22, 1.0)
             self.sched_agent(ag)
