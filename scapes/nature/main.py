@@ -208,8 +208,7 @@ class Crickets(agent.Agent):
         ag=play.IntermittentSoundsList(
             self.minDelay, self.maxDelay,
             0.9, 1.1,  # pitch
-            self.minVol, self.maxVol,
-            self.pan,
+            self.minVol, self.maxVol, self.pan,
             bugs)
         self.sched_agent(ag)
 
@@ -220,9 +219,8 @@ class Nightscape (agent.Agent):
         nature=GardenBackground(0.0)
         self.sched_agent(manage.VolumeModulateAgent(nature, 0.4))
 
-        for i in xrange(30):
+        for i in xrange(25):
             ag=Crickets(
                 0.0, 60.0,
-                0.1, 0.25,
-                1.1)
+                0.1, 0.22, 1.0)
             self.sched_agent(ag)
