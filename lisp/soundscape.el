@@ -327,7 +327,7 @@ This updated mapping is not persisted."
            (completing-read "Scape:" (mapcar 'car soundscape-default-theme)))))
     (soundscape-map-mode major-mode scape)
     (soundscape-sync major-mode)
-    (message "Temporarily using %s for %s" scape major-mode)))
+    (message "Now using %s for %s" scape major-mode)))
 
 ;;}}}
 ;;{{{ Soundscape Remote Control
