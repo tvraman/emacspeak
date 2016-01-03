@@ -222,7 +222,7 @@ class Nightscape (agent.Agent):
 
         for i in xrange(30):
             ag=Crickets(
-                0.0, 120.0,
+                0.0, 60.0,
                 0.1, 0.25,
                 1.1)
             self.sched_agent(ag)
