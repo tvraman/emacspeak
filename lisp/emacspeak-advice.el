@@ -625,8 +625,9 @@ icon."
              (setq emacspeak-lazy-message-time (nth 1 (current-time)))))
       (setq emacspeak-last-message (ansi-color-apply (current-message)))
       ;; so we really need to speak it
-      (tts-with-punctuations 'all
-                             (dtk-notify-using-voice voice-annotate  emacspeak-last-message)))
+      (let ((dtk-speaker-process (dtk-notify-process)))
+        (tts-with-punctuations 'all
+                             (dtk-notify-using-voice voice-annotate  emacspeak-last-message))))
     ad-return-value))
 
 (defadvice eldoc-message (around emacspeak pre act comp)
