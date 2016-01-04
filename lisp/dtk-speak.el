@@ -599,7 +599,7 @@ Argument COMPLEMENT  is the complement of separator."
 
 (defsubst dtk-speak-using-voice (voice text)
   "Use voice VOICE to speak text TEXT."
-  (declare (special  dtk-quiet))
+  (declare (special  dtk-quiet tts-default-voice))
   (unless (or (eq 'inaudible voice ) dtk-quiet
               (null text) (string-equal  text "")
               (and (listp voice) (memq 'inaudible voice)))
@@ -698,7 +698,7 @@ has higher precedence than `face'."
   "Format and speak text.
 Arguments START and END specify region to speak."
   (declare (special voice-lock-mode dtk-speaker-process
-                    emacspeak-use-auditory-icons))
+                    tts-default-voice emacspeak-use-auditory-icons))
   (when (and emacspeak-use-auditory-icons
              (get-text-property start 'auditory-icon))
     (emacspeak-queue-auditory-icon (get-text-property start 'auditory-icon)))
@@ -1486,7 +1486,7 @@ available TTS servers.")
 
 (defsubst tts-voice-reset-code ()
   "Return voice reset code."
-   (tts-get-voice-command tts-default-voice))
+  (tts-get-voice-command tts-default-voice))
 
 ;;;###autoload
 (defun tts-configure-synthesis-setup (&optional tts-name)
@@ -1894,13 +1894,17 @@ Optional argument group-count specifies grouping for intonation."
 
 (defun dtk-notify-process ()
   "Return valid TTS handle for notifications."
-  (declare (special dtk-notify-process dtk-speaker-process))
-  (let ((state  (when dtk-notify-process (process-status dtk-notify-process ))))
-    (cond
-     ((null dtk-notify-process) dtk-speaker-process)
-     ((memq state '(open run)) dtk-notify-process)
-     (t (or (dtk-notify-initialize)
-      dtk-speaker-process)))))
+  (declare (special dtk-notify-process dtk-speaker-process
+                    dtk-program))
+  (cond
+   ((emacspeak-tts-multistream-p dtk-program)
+    (let ((state  (when dtk-notify-process (process-status dtk-notify-process ))))
+      (cond
+       ((null dtk-notify-process) dtk-speaker-process)
+       ((memq state '(open run)) dtk-notify-process)
+       (t (or (dtk-notify-initialize)
+              dtk-speaker-process)))))
+   (t dtk-speaker-process)))
 
 ;;;###autoload
 (defun dtk-notify-stop ()

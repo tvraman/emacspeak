@@ -197,7 +197,7 @@ such as pronunciation dictionaries are stored. ")
   "Set to true to use a separate TTS stream for notifications."
   :type 'boolean
   :group 'emacspeak)
-
+;;;###autoload
 (defun emacspeak-tts-multistream-p (tts-engine)
   "Checks if this tts-engine can support multiple streams."
   (member tts-engine '("outloud" "32-outloud" "espeak" "mac"
