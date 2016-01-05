@@ -371,7 +371,8 @@ Simple means that voiceification is not cumulative."
     (let  ((start (ad-get-arg 0))
            (end (ad-get-arg 1))
            (props (ad-get-arg 2))
-           (object (ad-get-arg 3)))
+           (object (ad-get-arg 3))
+           (inhibit-read-only  t))
       (when (and (not (= start end))
                  (emacspeak-personality-plist-face-p props)) ;;; simple minded for now
         (put-text-property start end 'personality nil object)))))
