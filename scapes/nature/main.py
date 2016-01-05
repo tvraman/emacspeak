@@ -174,7 +174,7 @@ class ManyMockingBirds (agent.Agent):
 
     def run(self):
         nature = GardenBackground(0.0)
-        self.sched_agent(manage.VolumeModulateAgent(nature, 0.6))
+        self.sched_agent(manage.VolumeModulateAgent(nature, 0.75))
 
         for _ in xrange(8):
             ag = CaMockingBirds(
