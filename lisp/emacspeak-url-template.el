@@ -540,7 +540,12 @@ from English to German")
  "Google News Search"
  "http://news.google.com/news?hl=en&ned=tus&q=%s&btnG=Google+Search"
  (list "Google News: ")
- 'emacspeak-url-template-setup-content-filter
+ #'(lambda ()
+     (emacspeak-url-template-setup-content-filter)
+     (goto-char (point-min))
+     (emacspeak-eww-next-h)
+     (emacspeak-eww-next-h)
+     (emacspeak-speak-rest-of-buffer))
  "Search Google news.")
 
 (emacspeak-url-template-define
@@ -1124,7 +1129,7 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS stations that
  #'emacspeak-feeds-opml-display)
 
 ;;}}}
-;;{{{ OpenLibrary 
+;;{{{ OpenLibrary
 
 (emacspeak-url-template-define
  "OpenLibrary"
@@ -1135,7 +1140,7 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS stations that
 
 ;;}}}
 ;;{{{ GoLang.org:
-(defvar emacspeak-url-template-go-base 
+(defvar emacspeak-url-template-go-base
   "http://golang.org/"
   "Base REST end-point for Golang.org")
 
