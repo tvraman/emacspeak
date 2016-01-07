@@ -1,4 +1,4 @@
-;;; soundscape.el --- Soundscapes for The Emacspeak Desktop
+;;; soundscape.el -- Soundscapes for The Emacspeak Desktop
 ;;; Description:  Soundscapes Using Boodler
 ;;; Keywords: Emacspeak,  Audio Desktop Soundscapes
 ;;{{{  LCD Archive entry:
@@ -62,12 +62,12 @@
 ;;; Soundscapes. Main Entry Points:
 ;;;
 ;;;@itemize
-;;; @item M-x soundscape-toggle --- Enables or
+;;; @item M-x soundscape-toggle -- Enables or
 ;;; disables automatic SoundScapes.
-;;; @item M-x soundscape ---
+;;; @item M-x soundscape --
 ;;; runs a named SoundScape
-;;; @item M-x soundscape-stop --- Stops a specified running Soundscape.
-;;; @item M-x soundscape-kill --- Kills all running Soundscapes.
+;;; @item M-x soundscape-stop -- Stops a specified running Soundscape.
+;;; @item M-x soundscape-kill -- Kills all running Soundscapes.
 ;;;@end itemize
 ;;;
 ;;; When automatic Soundscapes are enabled, SoundScapes are
@@ -451,18 +451,18 @@ Do not set this by hand, use command \\[soundscape-toggle].")
       (setq soundscape--scapes scapes)
       (soundscape-remote (mapcar #'soundscape-lookup-scape scapes)))))
 
-(defvar soundscape---last-mode  nil
+(defvar soundscape--last-mode  nil
   "Caches last seen mode.")
 
 (defun soundscape-update ()
   "Function to update Soundscape automatically."
-  (declare (special  soundscape---last-mode))
+  (declare (special  soundscape--last-mode))
   (unless
       (or
-       (eq major-mode soundscape---last-mode)
+       (eq major-mode soundscape--last-mode)
        (eq 'minibuffer-inactive-mode major-mode)
        (string-match "temp" (buffer-name)))
-    (setq soundscape---last-mode major-mode)
+    (setq soundscape--last-mode major-mode)
     (soundscape-sync major-mode)))
 
 ;;; Advice on select-window, force-mode-line-update etc fire too often.
@@ -493,13 +493,13 @@ When turned on, Soundscapes are automatically run based on current major mode.
 Run command \\[soundscape-theme] to see the default mode->mood mapping."
   (interactive)
   (declare (special soundscape--auto soundscape--scapes
-                    soundscape-idle-delay soundscape---last-mode))
+                    soundscape-idle-delay soundscape--last-mode))
   (cond
    (soundscape--auto
     (cancel-timer soundscape--auto)
     (setq soundscape--auto nil
           soundscape--scapes nil
-          soundscape---last-mode nil)
+          soundscape--last-mode nil)
     (soundscape-quiet))
    (t
     (unless (member '(soundscape--auto (:eval (soundscape-current)))
@@ -509,7 +509,7 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
     (setq soundscape--auto
           (run-with-idle-timer   soundscape-idle-delay t #'soundscape-update)
           soundscape--scapes nil
-          soundscape---last-mode nil)
+          soundscape--last-mode nil)
     (soundscape-sync major-mode)
     (message "Automatic Soundscapes are now %s"
              (if soundscape--auto "on" "off")))))
