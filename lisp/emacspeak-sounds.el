@@ -119,7 +119,7 @@ use `emacspeak-toggle-auditory-icons' bound to
 
 ;;;###autoload
 (defcustom emacspeak-sounds-default-theme
-  (expand-file-name "3d"
+  (expand-file-name "3d/"
                     emacspeak-sounds-directory)
   "Default theme for auditory icons. "
   :type '(directory :tag "Sound Theme Directory")
