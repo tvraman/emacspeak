@@ -57,3 +57,131 @@ boodler.use: sound
 boodler.filename: fl-mocking-6.aiff
 boodler.use: sound
 
+
+# Song Birds extracted from
+#http://archive.org/download/Sounds_of_Nature_Collection/26_Songbirds.mp3
+
+
+:songbird_001
+boodler.filename: song-bird-001
+boodler.use: sound
+:songbird_002
+boodler.filename: song-bird-002
+boodler.use: sound
+:songbird_003
+boodler.filename: song-bird-003
+boodler.use: sound
+:songbird_004
+boodler.filename: song-bird-004
+boodler.use: sound
+:songbird_005
+boodler.filename: song-bird-005
+boodler.use: sound
+:songbird_006
+boodler.filename: song-bird-006
+boodler.use: sound
+:songbird_007
+boodler.filename: song-bird-007
+boodler.use: sound
+:songbird_008
+boodler.filename: song-bird-008
+boodler.use: sound
+:songbird_009
+boodler.filename: song-bird-009
+boodler.use: sound
+:songbird_010
+boodler.filename: song-bird-010
+boodler.use: sound
+:songbird_011
+boodler.filename: song-bird-011
+boodler.use: sound
+:songbird_012
+boodler.filename: song-bird-012
+boodler.use: sound
+:songbird_013
+boodler.filename: song-bird-013
+boodler.use: sound
+:songbird_014
+boodler.filename: song-bird-014
+boodler.use: sound
+:songbird_015
+boodler.filename: song-bird-015
+boodler.use: sound
+:songbird_016
+boodler.filename: song-bird-016
+boodler.use: sound
+:songbird_017
+boodler.filename: song-bird-017
+boodler.use: sound
+:songbird_018
+boodler.filename: song-bird-018
+boodler.use: sound
+:songbird_019
+boodler.filename: song-bird-019
+boodler.use: sound
+:songbird_020
+boodler.filename: song-bird-020
+boodler.use: sound
+:songbird_021
+boodler.filename: song-bird-021
+boodler.use: sound
+:songbird_022
+boodler.filename: song-bird-022
+boodler.use: sound
+:songbird_023
+boodler.filename: song-bird-023
+boodler.use: sound
+:songbird_024
+boodler.filename: song-bird-024
+boodler.use: sound
+:songbird_025
+boodler.filename: song-bird-025
+boodler.use: sound
+:songbird_026
+boodler.filename: song-bird-026
+boodler.use: sound
+:songbird_027
+boodler.filename: song-bird-027
+boodler.use: sound
+:songbird_028
+boodler.filename: song-bird-028
+boodler.use: sound
+:songbird_029
+boodler.filename: song-bird-029
+boodler.use: sound
+:songbird_030
+boodler.filename: song-bird-030
+boodler.use: sound
+:songbird_031
+boodler.filename: song-bird-031
+boodler.use: sound
+:songbird_032
+boodler.filename: song-bird-032
+boodler.use: sound
+:songbird_033
+boodler.filename: song-bird-033
+boodler.use: sound
+:songbird_034
+boodler.filename: song-bird-034
+boodler.use: sound
+:songbird_035
+boodler.filename: song-bird-035
+boodler.use: sound
+:songbird_036
+boodler.filename: song-bird-036
+boodler.use: sound
+:songbird_037
+boodler.filename: song-bird-037
+boodler.use: sound
+:songbird_038
+boodler.filename: song-bird-038
+boodler.use: sound
+:songbird_039
+boodler.filename: song-bird-039
+boodler.use: sound
+:songbird_040
+boodler.filename: song-bird-040
+boodler.use: sound
+:songbird_041
+boodler.filename: song-bird-041
+boodler.use: sound
