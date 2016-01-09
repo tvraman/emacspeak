@@ -280,7 +280,7 @@ class BirdChorus (agent.Agent):
 
     def run(self):
         nature = GardenBackground(0.0)
-        self.sched_agent(manage.VolumeModulateAgent(nature, 0.7))
+        self.sched_agent(manage.VolumeModulateAgent(nature, 0.6))
         for i in xrange(len(self.agents)):
             for _ in xrange(8):
                 ag = self.agents[i](
