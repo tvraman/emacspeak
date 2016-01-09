@@ -135,5 +135,5 @@ org.emacspeak.nature/MockingBirds
 org.emacspeak.nature/ManyMockingBirds
 org.emacspeak.nature/GardenBackground
 org.emacspeak.nature/Nightscape
-org.emacspeak.nature.BirdChorus
-org.emacspeak.nature.SongBirds
+org.emacspeak.nature/BirdChorus
+org.emacspeak.nature/SongBirds
