@@ -297,7 +297,7 @@ See  \\{soundscape-default-theme} for details."
     ("ChangingLoops" (emacspeak-m-player-mode))
     ("Drip" ,soundscape-communication-modes)
     ("LightWind" (comint-mode elfeed-search-mode))
-    ("ManyMockingBirds" (shell-mode term-mode))
+    ("BirdChorus" (shell-mode term-mode))
     ("MockingBirds" nil)
     ("Nightscape" nil)
     ("NoStormYet"  (fundamental-mode))
