@@ -34,3 +34,16 @@ dc.description: For use as garden background in Mocking Birds
 boodler.use: agent
 dc.title: Nature Sounds Nocturnal crickets with Garden background 
 dc.description: For use as a nocturnal nightscape 
+
+
+
+:SongBirds
+boodler.use: agent
+dc.title: Nature Sounds SongBirds
+dc.description: SongBirds 
+
+
+:BirdChorus
+boodler.use: agent
+dc.title: Nature Sounds SongBirds  with mocking birds 
+dc.description: Bird songs in a garden

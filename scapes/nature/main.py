@@ -22,6 +22,24 @@ ca_mocks = [
 fl_mocks = [
     birds.fl_mocking_1, birds.fl_mocking_2, birds.fl_mocking_3,
     birds.fl_mocking_4, birds.fl_mocking_5, birds.fl_mocking_6]
+
+song_birds  = [
+    birds.songbird_001, birds.songbird_002, birds.songbird_003,
+    birds.songbird_004, birds.songbird_005, birds.songbird_006,
+    birds.songbird_007, birds.songbird_008, birds.songbird_009,
+    birds.songbird_010, birds.songbird_011, birds.songbird_012,
+    birds.songbird_013, birds.songbird_014, birds.songbird_015,
+    birds.songbird_016, birds.songbird_017, birds.songbird_018,
+    birds.songbird_019, birds.songbird_020, birds.songbird_021,
+    birds.songbird_022, birds.songbird_023, birds.songbird_024,
+    birds.songbird_025, birds.songbird_026, birds.songbird_027,
+    birds.songbird_028, birds.songbird_029, birds.songbird_030,
+    birds.songbird_031, birds.songbird_032, birds.songbird_033,
+    birds.songbird_034, birds.songbird_035, birds.songbird_036,
+    birds.songbird_037, birds.songbird_038, birds.songbird_039,
+    birds.songbird_040, birds.songbird_041
+]
+
 showers = [
     rain.rain_thin, rain.rain_splatter,
     rain.rain_splashy_low, rain.rain_on_leaves,
@@ -150,6 +168,34 @@ class CaMockingBirds(agent.Agent):
         self.sched_agent(ag)
 
 
+class SongBirds(agent.Agent):
+
+    _args = ArgList(Arg(type=float), Arg(type=float), Arg(type=float),
+                    Arg(type=float), Arg(type=float))
+
+    def init(self,
+             minDelay=4.0,
+             maxDelay=12.0,
+             minVol=0.1,
+             maxVol=1.0,
+             pan=1.0):
+        self.minDelay = minDelay
+        self.maxDelay = maxDelay
+        self.minVol = minVol
+        self.maxVol = maxVol
+        self.pan = pan
+
+    def run(self):
+        ag = play.IntermittentSoundsList(
+            self.minDelay, self.maxDelay,
+            0.9, 1.1,  # pitch
+            self.minVol, self.maxVol,
+            self.pan,
+            song_birds)
+        self.sched_agent(ag)
+ 
+
+
 class MockingBirds (agent.Agent):
 
     def run(self):
@@ -226,3 +272,28 @@ class Nightscape (agent.Agent):
                 0.0, 60.0,
                 0.1, 0.22, 1.0)
             self.sched_agent(ag)
+
+
+class BirdChorus (agent.Agent):
+
+    def run(self):
+        nature = GardenBackground(0.0)
+        self.sched_agent(manage.VolumeModulateAgent(nature, 0.5))
+
+        for _ in xrange(6):
+            ag = CaMockingBirds(
+                0.0, 120.0,
+                0.1, 0.2,
+                1.2)
+            self.sched_agent(ag)
+            ag = FlMockingBirds(
+                7.0, 157.0,
+                0.1, 0.3,
+                1.2)
+            self.sched_agent(ag)
+            ag = SongBirds(
+                5.0, 125.0,
+                0.1, 0.3,
+                1.2)
+            self.sched_agent(ag)
+
