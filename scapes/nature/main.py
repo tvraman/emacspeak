@@ -23,7 +23,7 @@ fl_mocks = [
     birds.fl_mocking_1, birds.fl_mocking_2, birds.fl_mocking_3,
     birds.fl_mocking_4, birds.fl_mocking_5, birds.fl_mocking_6]
 
-song_birds  = [
+song_birds = [
     birds.songbird_001, birds.songbird_002, birds.songbird_003,
     birds.songbird_004, birds.songbird_005, birds.songbird_006,
     birds.songbird_007, birds.songbird_008, birds.songbird_009,
@@ -193,7 +193,6 @@ class SongBirds(agent.Agent):
             self.pan,
             song_birds)
         self.sched_agent(ag)
- 
 
 
 class MockingBirds (agent.Agent):
@@ -276,24 +275,16 @@ class Nightscape (agent.Agent):
 
 class BirdChorus (agent.Agent):
 
+    def init(self):
+        self.agents = [CaMockingBirds, FlMockingBirds, SongBirds]
+
     def run(self):
         nature = GardenBackground(0.0)
         self.sched_agent(manage.VolumeModulateAgent(nature, 0.7))
-
-        for _ in xrange(6):
-            ag = CaMockingBirds(
-                0.0, 120.0,
-                0.1, 0.2,
-                1.2)
-            self.sched_agent(ag)
-            ag = FlMockingBirds(
-                7.0, 157.0,
-                0.1, 0.3,
-                1.2)
-            self.sched_agent(ag)
-            ag = SongBirds(
-                5.0, 125.0,
-                0.1, 0.3,
-                1.2)
-            self.sched_agent(ag)
-
+        for i in xrange(len(self.agents)):
+            for _ in xrange(8):
+                ag = self.agents[i](
+                    120 * i, 120.0 + 120 * i,
+                    0.1, 0.2,
+                    1.2)
+                self.sched_agent(ag)
