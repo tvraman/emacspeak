@@ -278,7 +278,7 @@ class BirdChorus (agent.Agent):
 
     def run(self):
         nature = GardenBackground(0.0)
-        self.sched_agent(manage.VolumeModulateAgent(nature, 0.5))
+        self.sched_agent(manage.VolumeModulateAgent(nature, 0.7))
 
         for _ in xrange(6):
             ag = CaMockingBirds(
