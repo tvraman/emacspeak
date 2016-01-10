@@ -284,7 +284,7 @@ class BirdChorus (agent.Agent):
         for i in xrange(len(self.agents)):
             for j in xrange(8):
                 ag = self.agents[i](
-                    10 * j, 120.0 + 10 * j,
+                    10 * j, 60 + 10 * j,
                     0.1, 0.2,
                     0.8 + j*0.5)
                 self.sched_agent(ag)
