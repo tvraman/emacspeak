@@ -282,10 +282,10 @@ class BirdChorus (agent.Agent):
         nature = GardenBackground(0.0)
         self.sched_agent(manage.VolumeModulateAgent(nature, 0.5))
         for i in xrange(len(self.agents)):
-            for j in xrange(8):
+            for j in xrange(10):
                 start = 10 * i + 10 * j
                 ag = self.agents[i](
                     start, 60 + start,  # duration
-                    0.15, 0.2,  # volume
+                    0.075, 0.225,  # volume
                     0.7 + j * 0.05)
                 self.sched_agent(ag)
