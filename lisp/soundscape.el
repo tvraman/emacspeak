@@ -292,12 +292,13 @@ See  \\{soundscape-default-theme} for details."
 (defvar soundscape-default-theme
   `(
     ("()" (nil))
+    ("BirdChorus" (shell-mode term-mode))
     ("BuddhaLoop" (special-mode))
     ("Cavern" (prog-mode))
     ("ChangingLoops" (emacspeak-m-player-mode))
     ("Drip" ,soundscape-communication-modes)
     ("LightWind" (comint-mode elfeed-search-mode))
-    ("BirdChorus" (shell-mode term-mode))
+    ("ManyMockingBirds" nil)
     ("MockingBirds" nil)
     ("Nightscape" nil)
     ("NoStormYet"  (fundamental-mode))
