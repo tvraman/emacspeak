@@ -37,8 +37,7 @@ song_birds = [
     birds.songbird_031, birds.songbird_032, birds.songbird_033,
     birds.songbird_034, birds.songbird_035, birds.songbird_036,
     birds.songbird_037, birds.songbird_038, birds.songbird_039,
-    birds.songbird_040, birds.songbird_041
-]
+    birds.songbird_040]
 
 showers = [
     rain.rain_thin, rain.rain_splatter,
