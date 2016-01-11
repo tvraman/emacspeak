@@ -118,8 +118,6 @@
 (defvar soundscape--scapes nil
   "Cache of currently running scapes.")
 
-
-
 ;;;###autoload
 (defcustom soundscape-manager-options
   '("-o" "alsa"
@@ -363,7 +361,10 @@ This updated mapping is not persisted."
 (defun soundscape-init ()
   "Initialize Soundscape module."
   (soundscape-catalog)
-  (soundscape-listener))
+  (soundscape-listener)
+  (unless (member '(soundscape--auto (:eval (soundscape-current)))
+                  minor-mode-alist)
+    (push   '(soundscape--auto (:eval (soundscape-current))) minor-mode-alist)))
 
 ;;;###autoload
 (defun soundscape-listener  (&optional restart)
@@ -503,14 +504,9 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
           soundscape--last-mode nil)
     (soundscape-quiet))
    (t
-    (unless (member '(soundscape--auto (:eval (soundscape-current)))
-                    minor-mode-alist)
-      (push   '(soundscape--auto (:eval (soundscape-current))) minor-mode-alist))
     (soundscape-init)
     (setq soundscape--auto
-          (run-with-idle-timer   soundscape-idle-delay t #'soundscape-update)
-          soundscape--scapes nil
-          soundscape--last-mode nil)
+          (run-with-idle-timer   soundscape-idle-delay t #'soundscape-update))
     (soundscape-sync major-mode)
     (message "Automatic Soundscapes are now %s"
              (if soundscape--auto "on" "off")))))
