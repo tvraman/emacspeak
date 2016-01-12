@@ -249,7 +249,8 @@ Default is to return NullAgent if name not found."
 (defsubst  soundscape-map-mode (mode scape)
   "Associate soundscape for this mode."
   (declare (special soundscape-mode-table))
-  (puthash mode scape soundscape-mode-table))
+  (when mode 
+  (puthash mode scape soundscape-mode-table)))
 
 ;;}}}
 ;;{{{ Default mapping:
@@ -289,7 +290,7 @@ See  \\{soundscape-default-theme} for details."
 
 (defvar soundscape-default-theme
   `(
-    ("()" (nil))
+    ("()" nil)
     ("BirdChorus" (shell-mode term-mode))
     ("BirdSongs" nil)
     ("BuddhaLoop" (special-mode))
@@ -528,13 +529,14 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
        do
        (let ((name  (cl-first entry))
              (modes (cl-second entry)))
-         (insert
-          (format "%s:\t%s\n"
-                  name
-                  (mapconcat
-                   #'(lambda (s)
-                       (substring (symbol-name s) 0 -5))
-                   modes " ")))))
+         (when (and name modes )
+           (insert
+            (format "%s:\t%s\n"
+                    name
+                    (mapconcat
+                     #'(lambda (s)
+                         (substring (symbol-name s) 0 -5))
+                     modes " "))))))
       (sort-lines nil (point-min) (point-max))
       (goto-char (point-min))
       (special-mode)
