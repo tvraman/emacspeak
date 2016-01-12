@@ -288,3 +288,21 @@ class BirdChorus (agent.Agent):
                     0.075, 0.225,  # volume
                     0.7 + j * 0.05)
                 self.sched_agent(ag)
+
+
+class BirdSongs (agent.Agent):
+
+    def init(self):
+        self.agents = [CaMockingBirds, FlMockingBirds, SongBirds]
+
+    def run(self):
+        nature = GardenBackground(60.0)
+        self.sched_agent(manage.VolumeModulateAgent(nature, 0.5))
+        for i in xrange(len(self.agents)):
+            for j in xrange(6):
+                start = 5 * i + 10 * j
+                ag = self.agents[i](
+                    start, 30 + start,  # duration
+                    0.075, 0.225,  # volume
+                    0.7 + j * 0.05)
+                self.sched_agent(ag)
