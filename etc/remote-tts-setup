@@ -1,16 +1,18 @@
 #!/bin/sh
-# usage: remote-tts-setup server-script synthesizer-server
-#cloned from etc/remote-tts-setup
+# usage: remote-tts-setup server-script synthesizer-server hostname
 # starts a local server, then ssh to remote-host,
 # and set up reverse port forwarding.
 #Examples:
 # remote-tts-setup speech-server outloud host.example.com
 # remote-tts-setup 32-speech-server 32-outloud host.example.com
+
 REMOTE=#host.example.com
 EMACSPEAK=#emacspeak install directory 
 
 SDIR=$EMACSPEAK/servers 
+# Primary server listens on 2222
 $SDIR/32-speech-server  2222 $SDIR/32-outloud  &
+#notification stream listens on 3333
 (export ALSA_DEFAULT="tts_mono_left"; $SDIR/32-speech-server  3333 $SDIR/32-outloud  &)
 beep -f 800 -l 50
 ssh-agent ssh -R 2222:localhost:2222  -R 3333:localhost:3333 $REMOTE
