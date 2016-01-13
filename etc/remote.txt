@@ -1,6 +1,8 @@
 *Running Speech Server  remotely
 
 For  using ssh port forwarding, see remote-tts-setup.
+Reverse port forwarding is the solution I have been using since approx
+2011.
 
 ** Using SSH 
 
