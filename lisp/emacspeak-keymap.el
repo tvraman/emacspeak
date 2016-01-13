@@ -632,10 +632,11 @@ interactive command that the key sequence executes."
   '(
     ("d" magit-dispatch-popup)
     ("\;" emacspeak-wizards-view-buffers-filtered-by-m-player-mode)
+    ("B" eww-list-bookmarks)
     ("C" apu-chars)
     ("N" emacspeak-npr-listing)
     ("a" emacspeak-wizards-term)
-    ("b" eww-list-bookmarks)
+    ("b" eww-list-buffers)
     ("c" browse-url-chromium)
     ("e" gmaps)
     ("f" emacspeak-webspace-freebase-search)
