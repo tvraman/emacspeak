@@ -202,7 +202,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (server-start)
      (shell)
      (calendar)
-     ;(load-library "emacspeak-m-player")
      (initialize-completions)
      (load-library "emacspeak-m-player")
      (shell-command "aplay ~/cues/highbells.au")
