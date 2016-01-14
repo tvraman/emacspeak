@@ -1502,6 +1502,7 @@ available TTS servers.")
    ((string-match "espeak$" tts-name) (espeak-configure-tts))
 ;;; generic configure
    (t (plain-configure-tts)))
+  (dtk-set-rate dtk-speech-rate t)
   (dtk-interp-sync)
   (when
       (or
