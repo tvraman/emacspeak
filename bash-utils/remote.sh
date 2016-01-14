@@ -20,6 +20,10 @@ function remote () {
     $SDIR/$SERVER  2222 $SDIR/$ENGINE  &
 #notification stream listens on 3333
     (export ALSA_DEFAULT="tts_mono_left"; $SDIR/$SERVER  3333 $SDIR/$ENGINE  &)
-beep -f 800 -l 50
- ssh-agent ssh -R 2222:localhost:2222  -R 3333:localhost:3333 $REMOTE
+    
+    play -q -n synth -j 3 sin %3 sin %-2 sin %-5 sin %-9 \
+    sin %-14 sin %-21 fade h .01 2 1.5 delay \
+    1.3 1 .76 .54 .27 remix - fade h 0 2.7 2.5 norm -1 &
+# Open SSH Connection
+    ssh-agent ssh -R 2222:localhost:2222  -R 3333:localhost:3333 $REMOTE
 }
