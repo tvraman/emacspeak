@@ -72,7 +72,7 @@
 ;;}}}
 ;;{{{  state of auditory icons
 
-(defvar emacspeak-use-auditory-icons nil
+(defvar emacspeak-use-auditory-icons t
   "Tells if emacspeak should use auditory icons.
 Do not set this variable by hand,
 use `emacspeak-toggle-auditory-icons' bound to
