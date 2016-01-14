@@ -93,11 +93,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     ;;{{{ Load and customize emacspeak
 
     (unless (featurep 'emacspeak)
-      (setq emacspeak-tts-use-notify-stream t)
       (load-file (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el")))
-    (when (featurep 'emacspeak)
-      (emacspeak-toggle-auditory-icons t)
-      (emacspeak-sounds-select-theme "3d/"))
+    (when (featurep 'emacspeak) (emacspeak-sounds-select-theme "3d/"))
 
     ;;}}}
     ;;{{{  set up terminal codes and global keys
@@ -197,6 +194,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (save-place-mode)
      (midnight-mode)
      (emacspeak-tts-startup-hook)
+     (dtk-set-rate dtk-speech-rate t)
      (soundscape-toggle)
      (bbdb-insinuate-vm)
      (server-start)
