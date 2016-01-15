@@ -60,7 +60,6 @@
 ;;; From dtkk-speak.el:
 (defvar dtk-speech-rate)
 (defvar tts-default-speech-rate )
-(defvar dectalk-default-speech-rate )
 (defvar dtk-speech-rate-step )
 (defvar dtk-speech-rate-base )
 (defvar outloud-default-speech-rate)
