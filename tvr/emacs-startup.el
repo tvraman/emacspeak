@@ -204,9 +204,9 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (shell-command "aplay ~/cues/highbells.au")
      (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
      (message "Successfully initialized Emacs")))
-
-(start-up-my-emacs)
 (when (file-exists-p custom-file) (load-file custom-file))
+(start-up-my-emacs)
+
 ;(setq warning-suppress-types nil)
 
 ;;}}}
