@@ -296,8 +296,8 @@ class BirdSongs (agent.Agent):
         self.agents = [CaMockingBirds, FlMockingBirds, SongBirds]
 
     def run(self):
-        nature = GardenBackground(60.0)
-        self.sched_agent(manage.VolumeModulateAgent(nature, 0.5))
+        nature = GardenBackground(10.0)
+        self.sched_agent(manage.VolumeModulateAgent(nature, 0.6))
         for i in xrange(len(self.agents)):
             for j in xrange(6):
                 start = 5 * i + 10 * j
