@@ -188,13 +188,12 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 ;;{{{  start it up
 
 (add-hook
- #'after-init-hook
+ 'after-init-hook
  #'(lambda ()
      (savehist-mode )
      (save-place-mode)
      (midnight-mode)
      (emacspeak-tts-startup-hook)
-     (dtk-set-rate dtk-speech-rate t)
      (soundscape-toggle)
      (bbdb-insinuate-vm)
      (server-start)
@@ -205,9 +204,10 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (shell-command "aplay ~/cues/highbells.au")
      (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
      (message "Successfully initialized Emacs")))
+
 (start-up-my-emacs)
 (when (file-exists-p custom-file) (load-file custom-file))
-(setq warning-suppress-types nil)
+;(setq warning-suppress-types nil)
 
 ;;}}}
 (provide 'emacs-startup)
