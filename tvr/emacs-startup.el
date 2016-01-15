@@ -206,9 +206,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (message "Successfully initialized Emacs")))
 (when (file-exists-p custom-file) (load-file custom-file))
 (start-up-my-emacs)
-
-;(setq warning-suppress-types nil)
-
 ;;}}}
 (provide 'emacs-startup)
 ;;{{{  emacs local variables
