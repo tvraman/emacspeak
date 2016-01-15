@@ -624,8 +624,7 @@ and TABLE gives the values along that dimension."
 (defun dectalk-configure-tts ()
   "Configures TTS environment to use Dectalk family of synthesizers."
   (declare (special  dectalk-default-speech-rate
-                     tts-default-speech-rate
-                     tts-default-voice))
+                     tts-default-speech-rate tts-default-voice))
   (setq tts-default-voice 'paul)
   (fset 'tts-list-voices 'dectalk-list-voices)
   (fset 'tts-voice-defined-p 'dectalk-voice-defined-p)
