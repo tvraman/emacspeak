@@ -107,7 +107,9 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
       (load-file
        (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el")))
 
-    (when (featurep 'emacspeak) (emacspeak-sounds-select-theme "3d/"))
+    (when (featurep 'emacspeak)
+      (emacspeak-tts-startup-hook)
+      (emacspeak-sounds-select-theme "3d/"))
 
     ;;}}}
     ;;{{{  set up terminal codes and global keys
@@ -205,7 +207,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 (add-hook
  'after-init-hook
  #'(lambda ()
-     (emacspeak-tts-startup-hook)
      (soundscape-toggle)
      (shell)
      (calendar)
