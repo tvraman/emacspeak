@@ -76,7 +76,7 @@
 Provide contextual feedback when closing blocks"
   (cond
    ((ems-interactive-p  )
-    (let ((ws (looking-back "^[ \t]+")))
+    (let ((ws (= (char-syntax (preceding-char)) 32)))
       (dtk-tone 500 30 'force)
       (unless ws (emacspeak-speak-this-char (preceding-char )))
       ad-do-it
