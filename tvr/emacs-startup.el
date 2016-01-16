@@ -210,9 +210,11 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (custom-reevaluate-setting 'emacspeak-media-location-bindings)
      (soundscape-toggle)
      (shell)
-     (calendar)
      (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
-     (shell-command "aplay ~/cues/highbells.au")
+     (calendar)
+     (shell-command 
+      (format "aplay %s"
+              (expand-file-name "highbells.wav" emacspeak-sounds-directory)))
      (message "Successfully initialized Emacs")))
 (when (file-exists-p custom-file) (load-file custom-file))
 (start-up-my-emacs)
