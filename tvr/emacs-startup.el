@@ -207,6 +207,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 (add-hook
  'after-init-hook
  #'(lambda ()
+     (custom-reevaluate-setting 'emacspeak-media-location-bindings)
      (soundscape-toggle)
      (shell)
      (calendar)
