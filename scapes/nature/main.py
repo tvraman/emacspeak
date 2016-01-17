@@ -279,7 +279,8 @@ class BirdChorus (agent.Agent):
 
     def run(self):
         nature = GardenBackground(0.0)
-        self.sched_agent(manage.VolumeModulateAgent(nature, 0.5))
+        inoutag = builtin.FadeInOutAgent(nature, 1, 1)
+        self.sched_agent(manage.VolumeModulateAgent(inoutag, 0.6))
         for i in xrange(len(self.agents)):
             for j in xrange(10):
                 start = 30 * i + 10 * j
