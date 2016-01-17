@@ -447,11 +447,12 @@ Install package  netcat-openbsd.")
   "Record if automatic soundscapes are on.
 Do not set this by hand, use command \\[soundscape-toggle].")
 
-(defun soundscape-sync (mode)
-  "Activate  Soundscapes for  this mode."
+(defun soundscape-sync (mode &optional force)
+  "Activate  Soundscapes for  this mode.
+Optional interactive prefix arg `force' skips optimization checks."
   (declare (special soundscape--scapes))
   (let ((scapes (soundscape-for-mode mode)))
-    (unless (equal scapes soundscape--scapes)
+    (when (or force (not   (equal scapes soundscape--scapes)))
       (setq soundscape--scapes scapes)
       (soundscape-remote (mapcar #'soundscape-lookup-scape scapes)))))
 
@@ -522,7 +523,9 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
         soundscape--last-mode nil)
   (when soundscape--auto (soundscape-toggle)
   (soundscape-listener-shutdown))
-  (soundscape-toggle))
+  (soundscape-toggle)
+  (sit-for 0.1)
+  (soundscape-sync major-mode 'force))
         
         
 
