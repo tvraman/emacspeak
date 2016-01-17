@@ -303,6 +303,6 @@ class BirdSongs (agent.Agent):
                 start = 5 * i + 10 * j
                 ag = self.agents[i](
                     start, 30 + start,  # duration
-                    0.075, 0.225,  # volume
+                    0.05, 0.2,  # volume
                     0.8 + j * 0.08)
                 self.sched_agent(ag)
