@@ -410,6 +410,7 @@ relief."
 (defcustom emacspeak-personal-keys 
   '(
     ("=" emacspeak-wizards-find-longest-line-in-region)
+    ("3" emacspeak-wizards-cycle-browser)
     ("b" battery)
     ("e" emacspeak-we-xsl-map)
     ("h" emacspeak-wizards-how-many-matches)
