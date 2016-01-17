@@ -291,7 +291,7 @@ See  \\{soundscape-default-theme} for details."
 (defvar soundscape-default-theme
   `(
     ("()" nil)
-    ("BirdChorus" (shell-mode term-mode))
+    ("BirdSongs" (shell-mode term-mode))
     ("BirdSongs" nil)
     ("BuddhaLoop" (special-mode))
     ("Cavern" (prog-mode))
