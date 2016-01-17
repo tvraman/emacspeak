@@ -510,8 +510,21 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
     (setq soundscape--auto
           (run-with-idle-timer   soundscape-idle-delay t #'soundscape-update))
     (soundscape-sync major-mode)
-    (message "Automatic Soundscapes are now %s"
+    (when (called-interactively-p 'interactive)
+    (message "Automatic Soundscapes are now %s")
              (if soundscape--auto "on" "off")))))
+
+(defun soundscape-restart ()
+  "Restart Soundscape  environment."
+  (interactive)
+  (declare (special soundscape--last-mode  soundscape--scapes soundscape--auto))
+  (setq soundscape--scapes nil
+        soundscape--last-mode nil)
+  (when soundscape--auto (soundscape-toggle)
+  (soundscape-listener-shutdown))
+  (soundscape-toggle))
+        
+        
 
 ;;}}}
 ;;{{{ Display Theme:
