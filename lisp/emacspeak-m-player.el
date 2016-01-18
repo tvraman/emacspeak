@@ -400,8 +400,9 @@ The player is placed in a buffer in emacspeak-m-player-mode."
       (setq resource (expand-file-name resource))
       (setq emacspeak-m-player-current-directory
             (file-name-directory resource)))
-    (when (file-directory-p resource)
-      (setq file-list (emacspeak-m-player-directory-files resource)))
+    (if (file-directory-p resource)
+      (setq file-list (emacspeak-m-player-directory-files resource))
+      (setq file-list (list resource)))
     (when (getenv "ALSA_DEFAULT")
       (setq options
             (nconc options
