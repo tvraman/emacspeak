@@ -592,13 +592,22 @@ necessary."
   (emacspeak-m-player-dispatch
    (format "seek %s" offset)))
 
-(defun emacspeak-m-player-seek-absolute (position)
-  "Seek  to absolute specified position."
+(defun emacspeak-m-player-seek-percentage (position)
+  "Seek  to absolute specified position in percent."
   (interactive
    (list
     (read-from-minibuffer "Seek to percentage: ")))
   (emacspeak-m-player-dispatch
    (format "seek %s 1" position )))
+
+
+(defun emacspeak-m-player-seek-absolute (position)
+  "Seek  to absolute specified position in seconds."
+  (interactive
+   (list
+    (read-from-minibuffer "Seek to percentage: ")))
+  (emacspeak-m-player-dispatch
+   (format "seek %s 2" position )))
 
 (defun emacspeak-m-player-beginning-of-track()
   "Move to beginning of track."
@@ -1001,6 +1010,7 @@ arg `reset' starts with all filters set to 0."
     ("SPC" emacspeak-m-player-pause)
     ("[" emacspeak-m-player-slower)
     ("]" emacspeak-m-player-faster)
+    ("G" emacspeak-m-player-seek-percentage)
     ("a" emacspeak-m-player-amark-add)
     ("b" emacspeak-wizards-view-buffers-filtered-by-m-player-mode)
     ("c" emacspeak-m-player-slave-command)
