@@ -297,7 +297,7 @@ class BirdSongs (agent.Agent):
         self.agents = [CaMockingBirds, FlMockingBirds, SongBirds]
 
     def run(self):
-        nature = GardenBackground(10.0)
+        nature = GardenBackground(0.0)
         fader = builtin.FadeInOutAgent(nature, 0.1 ,0.9)
         self.sched_agent(fader)
 
