@@ -207,11 +207,11 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 (add-hook
  'after-init-hook
  #'(lambda ()
+     ;;; Need to do this for Emacspeak Customizations having :set
      (mapcar
       #'custom-reevaluate-setting
       '(emacspeak-wizards-personal-portfolio
         emacspeak-media-location-bindings))
-
      (soundscape-toggle)
      (shell)
      (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
