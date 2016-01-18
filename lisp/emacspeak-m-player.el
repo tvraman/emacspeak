@@ -605,7 +605,7 @@ necessary."
   "Seek  to absolute specified position in seconds."
   (interactive
    (list
-    (read-from-minibuffer "Seek to percentage: ")))
+    (read-from-minibuffer "Seek to position in seconds: ")))
   (emacspeak-m-player-dispatch
    (format "seek %s 2" position )))
 
