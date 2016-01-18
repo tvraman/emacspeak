@@ -159,9 +159,6 @@ This is set to nil when playing Internet  streams.")
   (executable-find "mplayer")
   "Media player program."
   :type 'string
-  :set  #'(lambda (sym val)
-            (set-default sym
-                         (executable-find val)))
   :group 'emacspeak-m-player)
 
 (defvar emacspeak-m-player-default-options
