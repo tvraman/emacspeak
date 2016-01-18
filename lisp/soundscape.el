@@ -512,8 +512,8 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
           (run-with-idle-timer   soundscape-idle-delay t #'soundscape-update))
     (soundscape-sync major-mode)
     (when (called-interactively-p 'interactive)
-    (message "Automatic Soundscapes are now %s")
-             (if soundscape--auto "on" "off")))))
+    (message "Automatic Soundscapes are now %s"
+             (if soundscape--auto "on" "off"))))))
 
 (defun soundscape-restart ()
   "Restart Soundscape  environment."
