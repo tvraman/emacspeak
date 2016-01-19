@@ -1099,13 +1099,12 @@ As the default, use current position."
          (file-name (second position)))
     (when
         (and file-name  (not (zerop (length file-name))))
-      (emacspeak-amark-add
-       file-name ;file-name
-       name; mark name
-       (cond
+      (setq position
+            (cond
         (prompt-position (read-number "Position: "))
-        (t (first position))))
-      (message "Added Amark %s in %s" name file-name))))
+        (t  (first position))))
+      (emacspeak-amark-add file-name name position)
+      (message "Added Amark %s in %s at %s" name file-name position ))))
 
 (defsubst ems-file-index (name file-list)
   "Return index of name in file-list."
