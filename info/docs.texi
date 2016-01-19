@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1159 commands and 944 options.
+This chapter documents a total of 1161 commands and 945 options.
 
 @menu
 * acss-structure::
@@ -1112,6 +1112,7 @@ C-SPC		emacspeak-speak-current-mark
 <right>		emacspeak-speak-this-buffer-next-display
 <up>		emacspeak-read-previous-line
 
+x 3		emacspeak-wizards-cycle-browser
 x =		emacspeak-wizards-find-longest-line-in-region
 x Q		emacspeak-wizards-yql-lookup
 x b		battery
@@ -10011,6 +10012,7 @@ SPC		emacspeak-m-player-pause
 ?		emacspeak-m-player-display-position
 A		emacspeak-m-player-add-autopan
 C		emacspeak-m-player-clear-filters
+G		emacspeak-m-player-seek-percentage
 L		emacspeak-m-player-locate-media
 M		emacspeak-m-player-display-metadata
 O		emacspeak-m-player-reset-options
@@ -10204,7 +10206,16 @@ Scale speed by specified factor.
 @findex emacspeak-m-player-seek-absolute
 
 @format
-Seek  to absolute specified position.
+Seek  to absolute specified position in seconds.
+@end format
+@end deffn
+
+@subsubsection emacspeak-m-player-seek-percentage
+@deffn {Command} emacspeak-m-player-seek-percentage  (position)
+@findex emacspeak-m-player-seek-percentage
+
+@format
+Seek  to absolute specified position in percent.
 @end format
 @end deffn
 
@@ -18340,6 +18351,9 @@ Count slides starting from point.
 
 @subsubsection emacspeak-wizards-cycle-browser
 @deffn {Command} emacspeak-wizards-cycle-browser   
+@kbd{C-e x 3}
+
+@kindex C-e x 3
 @findex emacspeak-wizards-cycle-browser
 
 @format
@@ -20538,6 +20552,8 @@ This module is Plain  i.e. suitable for a device  for which you haven't yet impl
 @node soundscape
 @section soundscape
 
+Soundscapes @url{https://en.wikipedia.org/wiki/Soundscape}
+define an acoustic environment.
 Boodler  at @url{http://boodler.org} is a
 Python-based SoundScape generator.
 To use this module, first install boodler.
@@ -20559,12 +20575,12 @@ I have created for use with Emacspeak.
 Soundscapes. Main Entry Points:
 
 @itemize
-@item M-x soundscape-toggle --- Enables or
+@item M-x soundscape-toggle -- Enables or
 disables automatic SoundScapes.
-@item M-x soundscape ---
+@item M-x soundscape --
 runs a named SoundScape
-@item M-x soundscape-stop --- Stops a specified running Soundscape.
-@item M-x soundscape-kill --- Kills all running Soundscapes.
+@item M-x soundscape-stop -- Stops a specified running Soundscape.
+@item M-x soundscape-kill -- Kills all running Soundscapes.
 @end itemize
 
 When automatic Soundscapes are enabled, SoundScapes are
@@ -20631,6 +20647,15 @@ Activate scapes named names.
 @end format
 @end deffn
 
+@subsubsection soundscape-restart
+@deffn {Command} soundscape-restart   
+@findex soundscape-restart
+
+@format
+Restart Soundscape  environment.
+@end format
+@end deffn
+
 @subsubsection soundscape-stop
 @deffn {Command} soundscape-stop  (scape)
 @kbd{C-' S C-x @@ s S}
@@ -20675,8 +20700,14 @@ This updated mapping is not persisted.
 
 @subsection soundscape Options
 
+@defvar {User Option} soundscape-data
+Soundscape data directory.
+
+@end defvar
+
 @defvar {User Option} soundscape-idle-delay
-Number of seconds of idle time before soundscape  is synced.
+Number of seconds of idle time
+before soundscapes are synchronized with current mode.
 
 @end defvar
 
