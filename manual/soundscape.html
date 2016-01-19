@@ -92,15 +92,17 @@
 
   <h3 class="section">11.212 soundscape</h3>
 
-  <p>Boodler at <a href="http://boodler.org">http://boodler.org</a>
-  is a Python-based SoundScape generator. To use this module, first
-  install boodler. Then install the soundscape packages (*.boop)
-  files available at <a href=
-  "http://boodler.org/lib">http://boodler.org/lib</a>. Make sure
-  boodler works and produces audio in your environment. finally
-  install the Boodler packages from emacspeak/scapes from the
-  Emacspeak GitHub repository by running <code>cd emacspeak/scapes;
-  make</code></p>
+  <p>Soundscapes <a href=
+  "https://en.wikipedia.org/wiki/Soundscape">https://en.wikipedia.org/wiki/Soundscape</a>
+  define an acoustic environment. Boodler at <a href=
+  "http://boodler.org">http://boodler.org</a> is a Python-based
+  SoundScape generator. To use this module, first install boodler.
+  Then install the soundscape packages (*.boop) files available at
+  <a href="http://boodler.org/lib">http://boodler.org/lib</a>. Make
+  sure boodler works and produces audio in your environment.
+  finally install the Boodler packages from emacspeak/scapes from
+  the Emacspeak GitHub repository by running <code>cd
+  emacspeak/scapes; make</code></p>
 
   <p>When boodler is set up and all packages installed, copy file
   emacspeak/scapes/soundscapes to ~/.boodler/Collection. The above
@@ -112,15 +114,15 @@
   Soundscapes. Main Entry Points:</p>
 
   <ul>
-    <li>M-x soundscape-toggle — Enables or disables automatic
+    <li>M-x soundscape-toggle – Enables or disables automatic
     SoundScapes.</li>
 
-    <li>M-x soundscape — runs a named SoundScape</li>
+    <li>M-x soundscape – runs a named SoundScape</li>
 
-    <li>M-x soundscape-stop — Stops a specified running
+    <li>M-x soundscape-stop – Stops a specified running
     Soundscape.</li>
 
-    <li>M-x soundscape-kill — Kills all running Soundscapes.</li>
+    <li>M-x soundscape-kill – Kills all running Soundscapes.</li>
   </ul>
 
   <p>When automatic Soundscapes are enabled, SoundScapes are
@@ -242,9 +244,29 @@ Activate scapes named names.
 </pre>
       </div>
     </dd>
+  </dl><a name="soundscape_002drestart" id=
+  "soundscape_002drestart"></a>
+
+  <h4 class="subsubsection">11.212.1.6 soundscape-restart</h4>
+
+  <dl>
+    <dt><a name="index-soundscape_002drestart" id=
+    "index-soundscape_002drestart"></a>Command:
+    <strong>soundscape-restart</strong></dt>
+
+    <dd>
+      <a name="index-soundscape_002drestart-1" id=
+      "index-soundscape_002drestart-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Restart Soundscape  environment.
+</pre>
+      </div>
+    </dd>
   </dl><a name="soundscape_002dstop" id="soundscape_002dstop"></a>
 
-  <h4 class="subsubsection">11.212.1.6 soundscape-stop</h4>
+  <h4 class="subsubsection">11.212.1.7 soundscape-stop</h4>
 
   <dl>
     <dt><a name="index-soundscape_002dstop" id=
@@ -267,7 +289,7 @@ Stop running Soundscape.
   </dl><a name="soundscape_002dtheme" id=
   "soundscape_002dtheme"></a>
 
-  <h4 class="subsubsection">11.212.1.7 soundscape-theme</h4>
+  <h4 class="subsubsection">11.212.1.8 soundscape-theme</h4>
 
   <dl>
     <dt><a name="index-soundscape_002dtheme" id=
@@ -287,7 +309,7 @@ Shows default theme in a special buffer.
   </dl><a name="soundscape_002dtoggle" id=
   "soundscape_002dtoggle"></a>
 
-  <h4 class="subsubsection">11.212.1.8 soundscape-toggle</h4>
+  <h4 class="subsubsection">11.212.1.9 soundscape-toggle</h4>
 
   <dl>
     <dt><a name="index-soundscape_002dtoggle" id=
@@ -309,7 +331,7 @@ Run command M-x soundscape-theme to see the default mode-&gt;mood mapping.
   </dl><a name="soundscape_002dupdate_002dmood" id=
   "soundscape_002dupdate_002dmood"></a>
 
-  <h4 class="subsubsection">11.212.1.9 soundscape-update-mood</h4>
+  <h4 class="subsubsection">11.212.1.10 soundscape-update-mood</h4>
 
   <dl>
     <dt><a name="index-soundscape_002dupdate_002dmood" id=
@@ -334,17 +356,27 @@ This updated mapping is not persisted.
   <dl>
     <dt><a name="index-User-Option-910" id=
     "index-User-Option-910"></a>Variable: <strong>User
-    Option</strong> <em>soundscape-idle-delay</em></dt>
+    Option</strong> <em>soundscape-data</em></dt>
 
     <dd>
-      <p>Number of seconds of idle time before soundscape is
-      synced.</p>
+      <p>Soundscape data directory.</p>
     </dd>
   </dl>
 
   <dl>
     <dt><a name="index-User-Option-911" id=
     "index-User-Option-911"></a>Variable: <strong>User
+    Option</strong> <em>soundscape-idle-delay</em></dt>
+
+    <dd>
+      <p>Number of seconds of idle time before soundscapes are
+      synchronized with current mode.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-912" id=
+    "index-User-Option-912"></a>Variable: <strong>User
     Option</strong> <em>soundscape-manager-options</em></dt>
 
     <dd>

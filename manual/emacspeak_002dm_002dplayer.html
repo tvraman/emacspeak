@@ -1082,6 +1082,7 @@ SPC             emacspeak-m-player-pause
 ?               emacspeak-m-player-display-position
 A               emacspeak-m-player-add-autopan
 C               emacspeak-m-player-clear-filters
+G               emacspeak-m-player-seek-percentage
 L               emacspeak-m-player-locate-media
 M               emacspeak-m-player-display-metadata
 O               emacspeak-m-player-reset-options
@@ -1515,14 +1516,39 @@ Scale speed by specified factor.
 
       <div class="format">
         <pre class="format">
-Seek  to absolute specified position.
+Seek  to absolute specified position in seconds.
+</pre>
+      </div>
+    </dd>
+  </dl><a name="emacspeak_002dm_002dplayer_002dseek_002dpercentage"
+  id="emacspeak_002dm_002dplayer_002dseek_002dpercentage"></a>
+
+  <h4 class="subsubsection">11.109.1.56
+  emacspeak-m-player-seek-percentage</h4>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dseek_002dpercentage" id=
+    "index-emacspeak_002dm_002dplayer_002dseek_002dpercentage"></a>Command:
+    <strong>emacspeak-m-player-seek-percentage</strong>
+    <em>(position)</em></dt>
+
+    <dd>
+      <a name=
+      "index-emacspeak_002dm_002dplayer_002dseek_002dpercentage-1"
+      id=
+      "index-emacspeak_002dm_002dplayer_002dseek_002dpercentage-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Seek  to absolute specified position in percent.
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dm_002dplayer_002dseek_002drelative"
   id="emacspeak_002dm_002dplayer_002dseek_002drelative"></a>
 
-  <h4 class="subsubsection">11.109.1.56
+  <h4 class="subsubsection">11.109.1.57
   emacspeak-m-player-seek-relative</h4>
 
   <dl>
@@ -1547,7 +1573,7 @@ Seek  by offset into stream from current position.
   </dl><a name="emacspeak_002dm_002dplayer_002dshuffle" id=
   "emacspeak_002dm_002dplayer_002dshuffle"></a>
 
-  <h4 class="subsubsection">11.109.1.57
+  <h4 class="subsubsection">11.109.1.58
   emacspeak-m-player-shuffle</h4>
 
   <dl>
@@ -1570,7 +1596,7 @@ Launch M-Player with shuffle turned on.
   </dl><a name="emacspeak_002dm_002dplayer_002dslave_002dcommand"
   id="emacspeak_002dm_002dplayer_002dslave_002dcommand"></a>
 
-  <h4 class="subsubsection">11.109.1.58
+  <h4 class="subsubsection">11.109.1.59
   emacspeak-m-player-slave-command</h4>
 
   <dl>
@@ -1595,7 +1621,7 @@ Dispatch slave command read from minibuffer.
   </dl><a name="emacspeak_002dm_002dplayer_002dslower" id=
   "emacspeak_002dm_002dplayer_002dslower"></a>
 
-  <h4 class="subsubsection">11.109.1.59
+  <h4 class="subsubsection">11.109.1.60
   emacspeak-m-player-slower</h4>
 
   <dl>
@@ -1617,7 +1643,7 @@ Slow down playback.
   "emacspeak_002dm_002dplayer_002dspeak_002dmode_002dline" id=
   "emacspeak_002dm_002dplayer_002dspeak_002dmode_002dline"></a>
 
-  <h4 class="subsubsection">11.109.1.60
+  <h4 class="subsubsection">11.109.1.61
   emacspeak-m-player-speak-mode-line</h4>
 
   <dl>
@@ -1643,7 +1669,7 @@ Speak mode line
   </dl><a name="emacspeak_002dm_002dplayer_002dstream_002dinfo" id=
   "emacspeak_002dm_002dplayer_002dstream_002dinfo"></a>
 
-  <h4 class="subsubsection">11.109.1.61
+  <h4 class="subsubsection">11.109.1.62
   emacspeak-m-player-stream-info</h4>
 
   <dl>
@@ -1668,7 +1694,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates.
   </dl><a name="emacspeak_002dm_002dplayer_002durl" id=
   "emacspeak_002dm_002dplayer_002durl"></a>
 
-  <h4 class="subsubsection">11.109.1.62 emacspeak-m-player-url</h4>
+  <h4 class="subsubsection">11.109.1.63 emacspeak-m-player-url</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002dm_002dplayer_002durl" id=
@@ -1692,7 +1718,7 @@ Call emacspeak-m-player with specified URL.
   </dl><a name="emacspeak_002dm_002dplayer_002dvolume_002dchange"
   id="emacspeak_002dm_002dplayer_002dvolume_002dchange"></a>
 
-  <h4 class="subsubsection">11.109.1.63
+  <h4 class="subsubsection">11.109.1.64
   emacspeak-m-player-volume-change</h4>
 
   <dl>
@@ -1717,7 +1743,7 @@ Change volume to specified absolute value.
   </dl><a name="emacspeak_002dm_002dplayer_002dvolume_002ddown" id=
   "emacspeak_002dm_002dplayer_002dvolume_002ddown"></a>
 
-  <h4 class="subsubsection">11.109.1.64
+  <h4 class="subsubsection">11.109.1.65
   emacspeak-m-player-volume-down</h4>
 
   <dl>
@@ -1740,7 +1766,7 @@ Decrease volume.
   </dl><a name="emacspeak_002dm_002dplayer_002dvolume_002dup" id=
   "emacspeak_002dm_002dplayer_002dvolume_002dup"></a>
 
-  <h4 class="subsubsection">11.109.1.65
+  <h4 class="subsubsection">11.109.1.66
   emacspeak-m-player-volume-up</h4>
 
   <dl>
@@ -1763,7 +1789,7 @@ Increase volume.
   </dl><a name="emacspeak_002dm_002dplayer_002dyoutube_002dplayer"
   id="emacspeak_002dm_002dplayer_002dyoutube_002dplayer"></a>
 
-  <h4 class="subsubsection">11.109.1.66
+  <h4 class="subsubsection">11.109.1.67
   emacspeak-m-player-youtube-player</h4>
 
   <dl>
@@ -1788,7 +1814,7 @@ Use youtube-dl and mplayer to stream YouTube content.
   </dl><a name="emacspeak_002dmultimedia" id=
   "emacspeak_002dmultimedia"></a>
 
-  <h4 class="subsubsection">11.109.1.67 emacspeak-multimedia</h4>
+  <h4 class="subsubsection">11.109.1.68 emacspeak-multimedia</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002dmultimedia" id=
