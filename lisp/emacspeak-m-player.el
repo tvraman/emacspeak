@@ -501,6 +501,8 @@ necessary."
   "Return list suitable to use as an amark. --- see emacspeak-amark.el."
   (declare (special emacspeak-m-player-process))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
+    ;;; dispatch command twice to avoid flakiness in mplayer
+    (emacspeak-m-player-dispatch "get_time_pos\nget_file_name\n")
     (emacspeak-m-player-dispatch "get_time_pos\nget_file_name\n")
     (let* ((output  (buffer-substring-no-properties (point-min) (point-max)))
            (lines (split-string output "\n" 'omit-nulls))
