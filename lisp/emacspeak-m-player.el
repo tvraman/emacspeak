@@ -164,8 +164,8 @@ This is set to nil when playing Internet  streams.")
 (defvar emacspeak-m-player-default-options
   (list
    "-msglevel" ; reduce chattiness  while preserving metadata
-   "all=4:header=0:vo=0:ao=0:decaudio=0:decvideo=0:open=0:network=0"
-   "all=4"
+   (concat "all=4:header=0:vo=0:ao=0:decaudio=0:decvideo=0:open=0:network=0:"
+           "statusline=0:cplayer=0:seek=0")
    "-slave"  "-softvol" "-softvol-max" "200" "-quiet")
   "Default options for MPlayer.")
 (defcustom emacspeak-m-player-options
