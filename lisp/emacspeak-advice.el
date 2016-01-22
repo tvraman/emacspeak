@@ -2130,6 +2130,7 @@ Produce an auditory icon if possible."
   emacspeak-prefix 'emacspeak-prefix-command)
 (define-key isearch-mode-map emacspeak-prefix 'emacspeak-prefix-command)
 (define-key isearch-mode-map "\M-m" 'isearch-exit)
+(define-key isearch-mode-map "\C-f" 'isearch-forward-symbol-at-point)
 ;;; ISearch setup/teardown
 
 ;;; Produce auditory icon
