@@ -477,7 +477,7 @@ functions for details.   "
   (run-hooks 'emacspeak-startup-hook)
   (emacspeak-use-customized-blink-paren)
   (tts-with-punctuations 'some
-                         (dtk-speak
+                         (dtk-speak-and-echo
                           (format "  Press %s to get an   overview of emacspeak  %s \
  I am  completely operational,  and all my circuits are functioning perfectly! "
                                   (substitute-command-keys
