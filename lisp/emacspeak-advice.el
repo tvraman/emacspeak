@@ -2618,16 +2618,6 @@ Produce auditory icons if possible."
   (emacspeak-speak-mode-line))
 
 ;;}}}
-;;{{{ Advice show-paren:
-
-;;; We use our own blink-paren functionality:
-
-(defadvice show-paren-mode (after emacspeak pre act comp)
-  "Warn user."
-  (when (ad-get-arg 0)
-    (message "Warning: show-paren mode with Emacspeak will not work.")))
-
-;;}}}
 ;;{{{ display world time
 
 (defadvice display-time-world (after emacspeak pre act comp)

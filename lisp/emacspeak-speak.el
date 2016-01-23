@@ -2941,7 +2941,6 @@ Also display match context in minibuffer."
           ;; Matching open within window, temporarily move to blinkpos but only
           ;; if `blink-matching-paren-on-screen' is non-nil.
           (and blink-matching-paren-on-screen
-               (not show-paren-mode)
                (save-excursion
                  (goto-char blinkpos)
                  (emacspeak-speak-blinkpos-message blinkpos)
