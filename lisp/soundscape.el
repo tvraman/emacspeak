@@ -345,6 +345,13 @@ This updated mapping is not persisted."
     (when (file-exists-p soundscape--remote)
       (delete-file soundscape--remote))))
 
+(defun soundscape-kill-emacs-hook ()
+  "Clean up remote control end-points."
+  (declare (special soundscape--remote))
+  (when (file-exists-p soundscape--remote) (delete-file soundscape--remote)))
+
+(add-hook 'kill-emacs-hook #'soundscape-kill-emacs-hook)
+
 (defvar soundscape-listener-process nil
   "Handle to Soundscape listener.")
 
