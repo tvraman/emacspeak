@@ -193,7 +193,8 @@ such as pronunciation dictionaries are stored. ")
 (add-hook 'dtk-startup-hook 'emacspeak-tts-startup-hook)
 
 ;;;###autoload
-(defcustom emacspeak-tts-use-notify-stream nil
+(defcustom emacspeak-tts-use-notify-stream
+  (when (emacspeak-tts-multistream-p dtk-program) t)
   "Set to true to use a separate TTS stream for notifications."
   :type 'boolean
   :group 'emacspeak)
