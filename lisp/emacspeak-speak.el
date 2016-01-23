@@ -2885,100 +2885,102 @@ value to apply."
 ;;; addition of the call to helper emacspeak-speak-blinkpos-message
 
 (defun emacspeak-blink-matching-open ()
-  "Move cursor momentarily to the beginning of the sexp before point.
-Also display match context in minibuffer."
+  "Momentarily highlight the beginning of the sexp before point.
+Also speak relevant match/mismatch information."
   (interactive)
-  (when (and (> (point) (point-min))
-             blink-matching-paren
-             ;; Verify an even number of quoting characters precede the close.
-             (= 1 (logand 1 (- (point)
-                               (save-excursion
-                                 (forward-char -1)
-                                 (skip-syntax-backward "/\\")
-                                 (point))))))
+  (when (and (not (bobp))
+       blink-matching-paren)
     (let* ((oldpos (point))
-           (blink-matching-delay 5)
-           blinkpos
-           message-log-max  ; Don't log messages about paren matching.
-           matching-paren
-           open-paren-line-string)
-      (save-excursion
-        (save-restriction
-          (if blink-matching-paren-distance
-              (narrow-to-region (max (minibuffer-prompt-end)
-                                     (- (point) blink-matching-paren-distance))
-                                oldpos))
-          (condition-case ()
-              (let ((parse-sexp-ignore-comments
-                     (and parse-sexp-ignore-comments
-                          (not blink-matching-paren-dont-ignore-comments))))
-                (setq blinkpos (scan-sexps oldpos -1)))
-            (error nil)))
-        (and blinkpos
-             ;; Not syntax '$'.
-             (not (eq (syntax-class (syntax-after blinkpos)) 8))
-             (setq matching-paren
-                   (let ((syntax (syntax-after blinkpos)))
-                     (and (consp syntax)
-                          (eq (syntax-class syntax) 4)
-                          (cdr syntax)))))
-        (cond
-         ((not (or (eq matching-paren (char-before oldpos))
-                   ;; The cdr might hold a new paren-class info rather than
-                   ;; a matching-char info, in which case the two CDRs
-                   ;; should match.
-                   (eq matching-paren (cdr (syntax-after (1- oldpos))))))
-          (message "Mismatched parentheses"))
-         ((not blinkpos)
-          (if (not blink-matching-paren-distance)
-              (message "Unmatched parenthesis")))
-         ((pos-visible-in-window-p blinkpos)
-          ;; Matching open within window, temporarily move to blinkpos but only
-          ;; if `blink-matching-paren-on-screen' is non-nil.
-          (and blink-matching-paren-on-screen
-               (not show-paren-mode)
+     (message-log-max nil) ; Don't log messages about paren matching.
+     (blinkpos
+            (save-excursion
+              (save-restriction
+                (if blink-matching-paren-distance
+                    (narrow-to-region
+                     (max (minibuffer-prompt-end) ;(point-min) unless minibuf.
+                          (- (point) blink-matching-paren-distance))
+                     oldpos))
+                (let ((parse-sexp-ignore-comments
+                       (and parse-sexp-ignore-comments
+                            (not blink-matching-paren-dont-ignore-comments))))
+                  (condition-case ()
+                      (progn
+      (syntax-propertize (point))
+                        (forward-sexp -1)
+                        ;; backward-sexp skips backward over prefix chars,
+                        ;; so move back to the matching paren.
+                        (while (and (< (point) (1- oldpos))
+                                    (let ((code (syntax-after (point))))
+                                      (or (eq (syntax-class code) 6)
+                                          (eq (logand 1048576 (car code))
+                                              1048576))))
+                          (forward-char 1))
+                        (point))
+                    (error nil))))))
+           (mismatch (funcall blink-matching-check-function blinkpos oldpos)))
+      (cond
+       (mismatch
+        (if blinkpos
+            (if (minibufferp)
+                (minibuffer-message "Mismatched parentheses")
+              (message "Mismatched parentheses"))
+          (if (minibufferp)
+              (minibuffer-message "No matching parenthesis found")
+            (message "No matching parenthesis found"))))
+       ((not blinkpos) nil)
+       ((or
+         (eq blink-matching-paren 'jump-offscreen)
+         (pos-visible-in-window-p blinkpos))
+        ;; Matching open within window, temporarily move to or highlight
+        ;; char after blinkpos but only if `blink-matching-paren-on-screen'
+        ;; is non-nil.
+        (and blink-matching-paren-on-screen
+             (not show-paren-mode)
+             (if (memq blink-matching-paren '(jump jump-offscreen))
+                 (save-excursion
+                   (goto-char blinkpos)
+                   (sit-for blink-matching-delay))
+               (unwind-protect
+                   (progn
+                     (move-overlay blink-matching--overlay blinkpos (1+ blinkpos)
+                                   (current-buffer))
+                     (emacspeak-speak-blinkpos-message blinkpos)
+                     (sit-for blink-matching-delay))
+                 (delete-overlay blink-matching--overlay)))))
+       (t
+        (let ((open-paren-line-string
                (save-excursion
                  (goto-char blinkpos)
-                 (emacspeak-speak-blinkpos-message blinkpos)
-                 (sit-for blink-matching-delay))))
-         (t
-          (save-excursion
-            (goto-char blinkpos)
-            (setq open-paren-line-string
-                  ;; Show what precedes the open in its line, if anything.
-                  (if (save-excursion
-                        (skip-chars-backward " \t")
-                        (not (bolp)))
-                      (buffer-substring (line-beginning-position)
-                                        (1+ blinkpos))
-                    ;; Show what follows the open in its line, if anything.
-                    (if (save-excursion
-                          (forward-char 1)
-                          (skip-chars-forward " \t")
-                          (not (eolp)))
-                        (buffer-substring blinkpos
-                                          (line-end-position))
-                      ;; Otherwise show the previous nonblank line,
-                      ;; if there is one.
-                      (if (save-excursion
-                            (skip-chars-backward "\n \t")
-                            (not (bobp)))
-                          (concat
-                           (buffer-substring (progn
-                                               (skip-chars-backward "\n \t")
-                                               (line-beginning-position))
-                                             (progn (end-of-line)
-                                                    (skip-chars-backward " \t")
-                                                    (point)))
-                           ;; Replace the newline and other whitespace with `...'.
-                           "..."
-                           (buffer-substring blinkpos (1+ blinkpos)))
-                        ;; There is nothing to show except the char itself.
-                        (buffer-substring blinkpos (1+ blinkpos)))))))
-          (message "Matches %s"
-                   (substring-no-properties
-                    open-paren-line-string))
-          (sit-for blink-matching-delay)))))))
+                 ;; Show what precedes the open in its line, if anything.
+                 (cond
+                  ((save-excursion (skip-chars-backward " \t") (not (bolp)))
+                   (buffer-substring (line-beginning-position)
+                                     (1+ blinkpos)))
+                  ;; Show what follows the open in its line, if anything.
+                  ((save-excursion
+                     (forward-char 1)
+                     (skip-chars-forward " \t")
+                     (not (eolp)))
+                   (buffer-substring blinkpos
+                                     (line-end-position)))
+                  ;; Otherwise show the previous nonblank line,
+                  ;; if there is one.
+                  ((save-excursion (skip-chars-backward "\n \t") (not (bobp)))
+                   (concat
+                    (buffer-substring (progn
+                                        (skip-chars-backward "\n \t")
+                                        (line-beginning-position))
+                                      (progn (end-of-line)
+                                             (skip-chars-backward " \t")
+                                             (point)))
+                    ;; Replace the newline and other whitespace with `...'.
+                    "..."
+                    (buffer-substring blinkpos (1+ blinkpos))))
+                  ;; There is nothing to show except the char itself.
+                  (t (buffer-substring blinkpos (1+ blinkpos)))))))
+          (minibuffer-message
+           "Matches %s"
+           (substring-no-properties open-paren-line-string))))))))
 
 (defun  emacspeak-use-customized-blink-paren ()
   "A customized blink-paren to speak  matching opening paren.
