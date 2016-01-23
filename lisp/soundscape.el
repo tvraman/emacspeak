@@ -432,7 +432,8 @@ Optional interactive prefix arg restarts the listener if already running."
   (declare (special soundscape-remote-nc))
   (unless (process-live-p soundscape-listener-process) (soundscape-listener))
   (unless (process-live-p soundscape-remote-control)
-    (when (process-live-p soundscape-listener-process)
+    (when (and (process-live-p soundscape-listener-process)
+               (file-exists-p soundscape--remote))
       (setq soundscape-remote-control
             (make-network-process  :name "nc-connect"
 :family 'local 
