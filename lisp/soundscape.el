@@ -407,11 +407,7 @@ Optional interactive prefix arg restarts the listener if already running."
     (delete-process soundscape-remote-control))
   (when (file-exists-p soundscape--remote)
     (delete-file soundscape--remote)))
-(defvar soundscape-remote-nc
-  (executable-find "nc")
-  "Location of nc executable.
-Need a version that supports flag -U.
-Install package  netcat-openbsd.")
+
 
 (defun soundscape-remote (names)
   "Activate scapes named names."
@@ -431,9 +427,9 @@ Install package  netcat-openbsd.")
   (unless (process-live-p soundscape-remote-control)
     (when (process-live-p soundscape-listener-process)
       (setq soundscape-remote-control
-            (start-process
-             "nc" nil soundscape-remote-nc
-             "-U" soundscape--remote))))
+            (make-network-process  :name "nc-connect"
+:family 'local 
+:remote soundscape--remote))))
   (when (process-live-p soundscape-remote-control)
     (process-send-string
      soundscape-remote-control
