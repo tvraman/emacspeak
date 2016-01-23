@@ -2853,7 +2853,7 @@ value to apply."
 
 (defsubst emacspeak-speak-blinkpos-message(blinkpos)
   "Speak message about matching blinkpos."
-  (message "Matches %s"
+  (dtk-speak-and-echo "Matches %s"
            ;; Show what precedes the open in its line, if anything.
            (if (save-excursion
                  (skip-chars-backward " \t")
