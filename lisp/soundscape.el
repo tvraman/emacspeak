@@ -249,8 +249,8 @@ Default is to return NullAgent if name not found."
 (defsubst  soundscape-map-mode (mode scape)
   "Associate soundscape for this mode."
   (declare (special soundscape-mode-table))
-  (when mode 
-  (puthash mode scape soundscape-mode-table)))
+  (when mode
+    (puthash mode scape soundscape-mode-table)))
 
 ;;}}}
 ;;{{{ Default mapping:
@@ -338,7 +338,7 @@ This updated mapping is not persisted."
   (make-temp-name "/tmp/soundscape")
   "Name of Unix Domain socket used to control Soundscape.")
 
-(defun soundscape-listener-sentinel (proc state)
+(defun soundscape-sentinel (proc state)
   "Delete remote control end point on exit."
   (declare (special soundscape--remote))
   (unless (process-live-p  proc)
@@ -398,8 +398,8 @@ Optional interactive prefix arg restarts the listener if already running."
           "org.emacspeak.listen/SoundscapePanel"
           ,@(mapcar #'(lambda (m) (soundscape-lookup-name (car m)))
                     soundscape-default-theme))))
-      (set-process-sentinel
-       soundscape-listener-process #'soundscape-listener-sentinel))
+      (set-process-sentinel soundscape-listener-process #'soundscape-sentinel)
+      (accept-process-output))
      (t soundscape-listener-process))))
 
 (defun soundscape-listener-shutdown ()
@@ -414,7 +414,6 @@ Optional interactive prefix arg restarts the listener if already running."
     (delete-process soundscape-remote-control))
   (when (file-exists-p soundscape--remote)
     (delete-file soundscape--remote)))
-
 
 (defun soundscape-remote (names)
   "Activate scapes named names."
@@ -436,8 +435,8 @@ Optional interactive prefix arg restarts the listener if already running."
                (file-exists-p soundscape--remote))
       (setq soundscape-remote-control
             (make-network-process  :name "nc-connect"
-:family 'local 
-:remote soundscape--remote))))
+                                   :family 'local
+                                   :remote soundscape--remote))))
   (when (process-live-p soundscape-remote-control)
     (process-send-string
      soundscape-remote-control
@@ -517,8 +516,8 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
           (run-with-idle-timer   soundscape-idle-delay t #'soundscape-update))
     (soundscape-sync major-mode)
     (when (called-interactively-p 'interactive)
-    (message "Automatic Soundscapes are now %s"
-             (if soundscape--auto "on" "off"))))))
+      (message "Automatic Soundscapes are now %s"
+               (if soundscape--auto "on" "off"))))))
 
 (defun soundscape-restart ()
   "Restart Soundscape  environment."
@@ -527,12 +526,12 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
   (setq soundscape--scapes nil
         soundscape--last-mode nil)
   (when soundscape--auto (soundscape-toggle)
-  (soundscape-listener-shutdown))
+        (soundscape-listener-shutdown))
   (soundscape-toggle)
   (sit-for 0.1)
   (soundscape-sync major-mode 'force))
-        
-        
+
+
 
 ;;}}}
 ;;{{{ Display Theme:
