@@ -2853,33 +2853,37 @@ value to apply."
 
 (defsubst emacspeak-speak-blinkpos-message(blinkpos)
   "Speak message about matching blinkpos."
-  (dtk-speak-and-echo "Matches %s"
-           ;; Show what precedes the open in its line, if anything.
-           (if (save-excursion
+  (tts-with-punctuations
+   'all
+   (dtk-speak-and-echo
+    (format 
+    "Matches %s"
+;;; Show what precedes the open in its line, if anything.
+    (if
+        (save-excursion
+          (skip-chars-backward " \t")
+          (not (bolp)))
+        (buffer-substring (line-beginning-position) (1+ blinkpos))
+;;; Show what follows the open in its line, if anything.
+      (if
+          (save-excursion
+            (forward-char 1)
+            (skip-chars-forward " \t")
+            (not (eolp)))
+          (buffer-substring blinkpos (line-end-position))
+;;; Otherwise show the previous nonblank line.
+        (concat
+         (buffer-substring
+          (progn
+            (backward-char 1)
+            (skip-chars-backward "\n \t")
+            (line-beginning-position))
+          (progn (end-of-line)
                  (skip-chars-backward " \t")
-                 (not (bolp)))
-               (buffer-substring (line-beginning-position)
-                                 (1+ blinkpos))
-             ;; Show what follows the open in its line, if anything.
-             (if (save-excursion
-                   (forward-char 1)
-                   (skip-chars-forward " \t")
-                   (not (eolp)))
-                 (buffer-substring blinkpos
-                                   (progn (end-of-line) (point)))
-               ;; Otherwise show the previous nonblank line.
-               (concat
-                (buffer-substring (progn
-                                    (backward-char 1)
-                                    (skip-chars-backward "\n \t")
-                                    (line-beginning-position))
-                                  (progn (end-of-line)
-                                         (skip-chars-backward " \t")
-                                         (point)))
-                ;; Replace the newline and other whitespace with `...'.
-                "..."
-                (buffer-substring blinkpos (1+
-                                            blinkpos)))))))
+                 (point)))
+;;; Replace the newline and other whitespace with `...'.
+         "..."
+         (buffer-substring blinkpos (1+ blinkpos)))))))))
 
 ;;; The only change to emacs' default blink-matching-paren is the
 ;;; addition of the call to helper emacspeak-speak-blinkpos-message
