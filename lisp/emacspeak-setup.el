@@ -193,16 +193,16 @@ such as pronunciation dictionaries are stored. ")
 (add-hook 'dtk-startup-hook 'emacspeak-tts-startup-hook)
 
 ;;;###autoload
+(defun emacspeak-tts-multistream-p (tts-engine)
+  "Checks if this tts-engine can support multiple streams."
+  (member tts-engine '("outloud" "32-outloud" "espeak" "mac"
+                       "cloud-outloud" "cloud-espeak" "cloud-mac")))
+
 (defcustom emacspeak-tts-use-notify-stream
   (when (emacspeak-tts-multistream-p dtk-program) t)
   "Set to true to use a separate TTS stream for notifications."
   :type 'boolean
   :group 'emacspeak)
-;;;###autoload
-(defun emacspeak-tts-multistream-p (tts-engine)
-  "Checks if this tts-engine can support multiple streams."
-  (member tts-engine '("outloud" "32-outloud" "espeak" "mac"
-                       "cloud-outloud" "cloud-espeak" "cloud-mac")))
 
 (defun emacspeak-tts-notify-hook ()
   "Starts up a notification stream if current synth supports  multiple invocations.
