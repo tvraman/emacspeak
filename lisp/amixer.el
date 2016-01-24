@@ -46,6 +46,7 @@
 (defcustom amixer-card "0"
   "Card number to control."
   :type 'string
+  :set #'(lambda (sym val) (amixer-build-db))
   :group 'amixer)
 
 (defvar amixer-db nil
