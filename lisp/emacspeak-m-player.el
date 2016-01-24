@@ -1393,8 +1393,7 @@ Results are placed in a Locate buffer and can be played using M-Player."
   (interactive "sSearch Pattern: ")
   (declare  (special emacspeak-media-extensions))
   (let ((locate-make-command-line #'(lambda (s) (list locate-command "-i" s))))
-    (funcall-interactively #'locate-with-filter
-                           pattern emacspeak-media-extensions)))
+    (locate-with-filter pattern emacspeak-media-extensions)))
 
 ;;}}}
 ;;{{{ MultiPlayer Support:

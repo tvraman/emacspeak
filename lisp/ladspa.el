@@ -262,7 +262,10 @@ list of parsed ladspa-plugin structures, one per label."
     (message "%s plugins in %s libs"
              (length (ladspa-plugins))
              (length (ladspa-libs)))
-    (funcall-interactively #'switch-to-buffer buffer)))
+    (switch-to-buffer buffer)
+    (emacspeak-speak-mode-line)
+    (emacspeak-auditory-icon 'open-object)))
+
 (declare-function emacspeak-m-player-add-ladspa "emacspeak-m-player.el")
 (declare-function emacspeak-m-player-delete-ladspa "emacspeak-m-player.el")
 
@@ -347,7 +350,9 @@ list of parsed ladspa-plugin structures, one per label."
                 (concat
                  "Ladspa: "
                  (propertize (ladspa-plugin-label plugin) 'face 'font-lock-keyword-face))))
-        (funcall-interactively #'switch-to-buffer buffer))))))
+        (switch-to-buffer buffer)
+        (emacspeak-speak-mode-line)
+        (emacspeak-auditory-icon 'open-object))))))
 
 ;;}}}
 ;;{{{ Edit Ladspa Plugin:
@@ -393,8 +398,7 @@ list of parsed ladspa-plugin structures, one per label."
   (unless (get-text-property (point) 'ladspa)
     (error "No Ladspa Plugin here."))
   (let ((plugin (get-text-property (point) 'ladspa)))
-    (funcall-interactively
-     #'shell-command
+    (shell-command
      (format "%s %s %s"
              ladspa-analyse
              (ladspa-plugin-library plugin) (ladspa-plugin-label plugin)))))

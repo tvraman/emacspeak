@@ -1136,7 +1136,7 @@ Letters do not insert themselves; instead, they are commands.
 (defun emacspeak-epub-locate-epubs (pattern)
   "Locate epub files using locate."  (interactive "sSearch Pattern: ")
   (let ((locate-make-command-line #'(lambda (s) (list locate-command "-i" s))))
-    (funcall-interactively #'locate-with-filter pattern ".epub$")))
+    (locate-with-filter pattern ".epub$")))
 
 ;;}}}
 

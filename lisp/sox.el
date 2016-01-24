@@ -165,7 +165,9 @@
       (with-current-buffer buffer
         (sox-mode)
         (sox-setup-keys))))
-  (funcall-interactively #'switch-to-buffer sox-buffer))
+  (switch-to-buffer sox-buffer)
+  (emacspeak-speak-mode-line)
+  (emacspeak-auditory-icon 'open-object))
 
 (defun sox-setup-keys ()
   "Set up sox keymap."

@@ -1560,7 +1560,8 @@ ALSA_DEFAULT to specified device before starting the server."
   "Select preferred Cloud TTS server."
   (interactive)
   (declare (special dtk-cloud-server))
-  (funcall-interactively #'dtk-select-server dtk-cloud-server))
+  (dtk-select-server dtk-cloud-server)
+  (dtk-initialize))
 
 (defcustom tts-device-list (list "default")
   "List of ALSA sound devices  we can use."

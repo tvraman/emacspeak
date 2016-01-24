@@ -386,7 +386,7 @@ On a directory line, run du -s on the directory to speak its size."
 
 (defun emacspeak-dired-play-this-media ()
   "Plays media on current line."
-  (funcall-interactively #'emacspeak-m-player (dired-get-filename)))
+(emacspeak-m-player (dired-get-filename)))
 
 (defconst emacspeak-dired-opener-table
   `(("\\.epub$"  emacspeak-dired-epub-eww)
@@ -415,28 +415,29 @@ On a directory line, run du -s on the directory to speak its size."
     (cond
      ((and handler (fboundp handler))
       (emacspeak-auditory-icon 'task-done)
-      (funcall-interactively handler))
+      (funcall handler))
      (t (error  "No known handler")))))
 
 (defun emacspeak-dired-eww-open ()
   "Open HTML file on current dired line."
   (interactive)
-  (funcall-interactively #'eww-open-file (dired-get-filename)))
+  (eww-open-file (dired-get-filename)))
 
 (defun emacspeak-dired-pdf-open ()
   "Open PDF file on current dired line."
   (interactive)
-  (funcall-interactively #'emacspeak-wizards-pdf-open (dired-get-filename current-prefix-arg)))
+  (emacspeak-wizards-pdf-open (dired-get-filename current-prefix-arg)))
+
 (defun emacspeak-dired-epub-eww ()
   "Open epub on current line  in EWW"
   (interactive)
-  (funcall-interactively #'emacspeak-epub-eww (shell-quote-argument(dired-get-filename)))
+  (emacspeak-epub-eww (shell-quote-argument(dired-get-filename)))
   (emacspeak-auditory-icon 'open-object))
 
 (defun emacspeak-dired-csv-open ()
   "Open CSV file on current dired line."
   (interactive)
-  (funcall-interactively #'emacspeak-table-find-csv-file (dired-get-filename current-prefix-arg)))
+  (emacspeak-table-find-csv-file (dired-get-filename current-prefix-arg)))
 
 ;;}}}
 

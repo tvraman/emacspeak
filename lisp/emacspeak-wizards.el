@@ -1376,9 +1376,9 @@ Optional interactive prefix arg ask-pwd prompts for password."
   (declare (special emacspeak-wizards-pdf-to-text-options
                     emacspeak-wizards-pdf-to-text-program))
   (let ((passwd (when ask-pwd (read-passwd "User Password:")))
-        (output-buffer (format "%s"
-                               (file-name-sans-extension
-                                (file-name-nondirectory filename)))))
+        (output-buffer
+         (format "%s"
+                 (file-name-sans-extension (file-name-nondirectory filename)))))
     (shell-command
      (format
       "%s %s %s  %s - | cat -s "
@@ -2829,7 +2829,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
 (defun emacspeak-wizards-eww-buffer-list ()
   "Display list of open EWW buffers."
   (interactive)
-  (funcall-interactively 'emacspeak-wizards-view-buffers-filtered-by-mode 'eww-mode))
+  (emacspeak-wizards-view-buffers-filtered-by-mode 'eww-mode))
 ;;}}}
 ;;{{{ TuneIn:
 

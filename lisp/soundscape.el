@@ -562,7 +562,9 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
       (special-mode)
       (setq default-directory
             (expand-file-name soundscape-data)))
-    (funcall-interactively #'switch-to-buffer buffer)))
+    (switch-to-buffer buffer)
+    (emacspeak-speak-mode-line)
+    (emacspeak-auditory-icon 'open-object)))
 
 ;;}}}
 (provide 'soundscape)
