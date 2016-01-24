@@ -305,7 +305,7 @@ See  \\{soundscape-default-theme} for details."
     ("NoStormYet"  (fundamental-mode))
     ("RainForever" ,soundscape-help-modes)
     ("RainSounds" ,soundscape-vc-modes)
-    ("Steady" (calendar-mode diary-mode))
+    ("Bonfire" (calendar-mode diary-mode))
     ("Still" (text-mode))
     ("SurfWaves"  ,soundscape-web-modes)
     ("TonkSpace" (tabulated-list-mode))
