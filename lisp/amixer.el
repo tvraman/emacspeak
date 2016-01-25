@@ -44,7 +44,7 @@
 ;;{{{ Definitions
 ;;; forward declaration:
 
-(defvar amixer-card)
+(defvar amixer-card "0")
 (defun amixer-build-db ()
   "Create a database of amixer controls and their settings."
   (declare (special amixer-db amixer-card))
