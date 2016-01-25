@@ -49,11 +49,8 @@
   current)
 
 ;;}}}
-
-;;{{{ Customizations:
-
-;;}}}
 ;;{{{ Definitions
+
 ;;; forward declaration:
 
 (defvar amixer-card "0")
@@ -135,7 +132,7 @@
                ","))
 ;;; only need 3 fields:
         (setq fields
-              (list 
+              (list
                (nth 0 fields)
                (nth 1 fields)
                (mapconcat #'identity (nthcdr 2 fields) " ")))
@@ -164,19 +161,12 @@
 (defvar amixer-db nil
   "Holds cached values.")
 
-
-
 (declare-function amixer-control-name  "amixer.el" (amixer))
 (declare-function amixer-control-numid  "amixer.el" (amixer))
 (declare-function amixer-control-iface  "amixer.el" (amixer))
 
-
 ;;}}}
 ;;{{{ Manage amixer db:
-
-
-
-
 
 ;;}}}
 ;;{{{ Amixer:
@@ -261,7 +251,7 @@ Interactive prefix arg refreshes cache."
         (setq choices
               (amixer-get-enumerated-values control)))
       (setq update
-            (read-from-minibuffer 
+            (read-from-minibuffer
              (format
               "Change %s from %s %s:"
               (amixer-control-name control)
@@ -284,7 +274,7 @@ Interactive prefix arg refreshes cache."
        update)))))
 
 ;;}}}
-(provide 'amixer)      
+(provide 'amixer)
 ;;{{{ end of file
 
 ;;; local variables:
@@ -292,4 +282,4 @@ Interactive prefix arg refreshes cache."
 ;;; byte-compile-dynamic: nil
 ;;; end:
 
-;;}}}      
+;;}}}
