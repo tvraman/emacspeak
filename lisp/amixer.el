@@ -38,6 +38,18 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 
 ;;}}}
+;;{{{ Structure
+
+(cl-defstruct amixer-control
+  numid iface name setting)
+
+(cl-defstruct amixer-control-setting
+  type access values
+  min max step
+  current)
+
+;;}}}
+
 ;;{{{ Customizations:
 
 ;;}}}
@@ -45,6 +57,56 @@
 ;;; forward declaration:
 
 (defvar amixer-card "0")
+
+(defun amixer-populate-settings (control)
+  "Populate control with its settings information."
+  (declare (special amixer-card))
+  (let ((scratch (get-buffer-create " *amixer*"))
+        (fields nil)
+        (slots nil)
+        (current nil))
+    (save-current-buffer
+      (set-buffer scratch)
+      (setq buffer-undo-list t)
+      (erase-buffer)
+      (shell-command
+       (format "amixer -c %s cget numid=%s"
+               amixer-card
+               (amixer-control-numid (cdr control)))
+       (current-buffer))
+      (goto-char (point-min))
+      (forward-line 1)
+      (setq fields
+            (split-string
+             (buffer-substring-no-properties
+              (1+ (line-beginning-position))
+              (line-end-position))
+             ","))
+      (setq slots
+            (loop for f in fields
+                  collect
+                  (second (split-string f "="))))
+      (while (and (not (eobp))
+                  (looking-at "^ *;"))
+        (forward-line 1))
+      (setq current
+            (second
+             (split-string
+              (buffer-substring-no-properties
+               (line-beginning-position)
+               (line-end-position))
+              "=")))
+      (setf (amixer-control-setting (cdr control))
+            (make-amixer-control-setting
+             :type (nth 0 slots)
+             :access (nth 1 slots)
+             :values (nth 2 slots)
+             :min (nth 3 slots)
+             :max (nth 4 slots)
+             :step (nth 5 slots)
+             :current current))))
+  control)
+
 (defun amixer-build-db ()
   "Create a database of amixer controls and their settings."
   (declare (special amixer-db amixer-card))
@@ -102,68 +164,17 @@
 (defvar amixer-db nil
   "Holds cached values.")
 
-(cl-defstruct amixer-control
-  numid iface name setting)
+
 
 (declare-function amixer-control-name  "amixer.el" (amixer))
 (declare-function amixer-control-numid  "amixer.el" (amixer))
 (declare-function amixer-control-iface  "amixer.el" (amixer))
-(cl-defstruct amixer-control-setting
-  type access values
-  min max step
-  current)
+
 
 ;;}}}
 ;;{{{ Manage amixer db:
 
-(defun amixer-populate-settings (control)
-  "Populate control with its settings information."
-  (declare (special amixer-card))
-  (let ((scratch (get-buffer-create " *amixer*"))
-        (fields nil)
-        (slots nil)
-        (current nil))
-    (save-current-buffer
-      (set-buffer scratch)
-      (setq buffer-undo-list t)
-      (erase-buffer)
-      (shell-command
-       (format "amixer -c %s cget numid=%s"
-               amixer-card
-               (amixer-control-numid (cdr control)))
-       (current-buffer))
-      (goto-char (point-min))
-      (forward-line 1)
-      (setq fields
-            (split-string
-             (buffer-substring-no-properties
-              (1+ (line-beginning-position))
-              (line-end-position))
-             ","))
-      (setq slots
-            (loop for f in fields
-                  collect
-                  (second (split-string f "="))))
-      (while (and (not (eobp))
-                  (looking-at "^ *;"))
-        (forward-line 1))
-      (setq current
-            (second
-             (split-string
-              (buffer-substring-no-properties
-               (line-beginning-position)
-               (line-end-position))
-              "=")))
-      (setf (amixer-control-setting (cdr control))
-            (make-amixer-control-setting
-             :type (nth 0 slots)
-             :access (nth 1 slots)
-             :values (nth 2 slots)
-             :min (nth 3 slots)
-             :max (nth 4 slots)
-             :step (nth 5 slots)
-             :current current))))
-  control)
+
 
 
 
