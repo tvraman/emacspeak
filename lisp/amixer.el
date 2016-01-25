@@ -34,7 +34,7 @@
 ;;}}}
 ;;{{{ required packages
 
-(require 'cl)
+(require 'cl-lib)
 (declaim  (optimize  (safety 0) (speed 3)))
 
 ;;}}}
@@ -102,13 +102,13 @@
 (defvar amixer-db nil
   "Holds cached values.")
 
-(defstruct amixer-control
+(cl-defstruct amixer-control
   numid iface name setting)
 
 (declare-function amixer-control-name  "amixer.el" (amixer))
 (declare-function amixer-control-numid  "amixer.el" (amixer))
 (declare-function amixer-control-iface  "amixer.el" (amixer))
-(defstruct amixer-control-setting
+(cl-defstruct amixer-control-setting
   type access values
   min max step
   current)
