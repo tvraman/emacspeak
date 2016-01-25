@@ -42,6 +42,53 @@
 
 ;;}}}
 ;;{{{ Definitions
+(defun amixer-build-db ()
+  "Create a database of amixer controls and their settings."
+  (declare (special amixer-db amixer-card))
+  (unless (executable-find "amixer")
+    (error "You dont have a standard amixer."))
+  (let ((scratch (get-buffer-create " *amixer*"))
+        (controls nil)
+        (fields nil)
+        (slots nil))
+    (save-current-buffer
+      (set-buffer scratch)
+      (setq buffer-undo-list t)
+      (erase-buffer)
+      (shell-command
+       (format
+        "amixer -c %s controls | sed -e s/\\'//g"
+        amixer-card)
+       (current-buffer))
+      (goto-char (point-min))
+      (while (not (eobp))
+        (setq fields
+              (split-string
+               (buffer-substring-no-properties
+                (line-beginning-position)
+                (line-end-position))
+               ","))
+;;; only need 3 fields:
+        (setq fields
+              (list 
+               (nth 0 fields)
+               (nth 1 fields)
+               (mapconcat #'identity (nthcdr 2 fields) " ")))
+        (setq slots
+              (loop for f in fields
+                    collect
+                    (second (split-string f "="))))
+        (push
+         (cons
+          (third slots)
+          (make-amixer-control
+           :numid (first slots)
+           :iface (second slots)
+           :name (third slots)))
+         controls)
+        (forward-line 1))               ; done collecting controls
+      (mapc #'amixer-populate-settings controls)
+      (setq amixer-db controls))))
 
 (defcustom amixer-card "0"
   "Card number to control."
@@ -115,53 +162,7 @@
              :current current))))
   control)
 
-(defun amixer-build-db ()
-  "Create a database of amixer controls and their settings."
-  (declare (special amixer-db amixer-card))
-  (unless (executable-find "amixer")
-    (error "You dont have a standard amixer."))
-  (let ((scratch (get-buffer-create " *amixer*"))
-        (controls nil)
-        (fields nil)
-        (slots nil))
-    (save-current-buffer
-      (set-buffer scratch)
-      (setq buffer-undo-list t)
-      (erase-buffer)
-      (shell-command
-       (format
-        "amixer -c %s controls | sed -e s/\\'//g"
-        amixer-card)
-       (current-buffer))
-      (goto-char (point-min))
-      (while (not (eobp))
-        (setq fields
-              (split-string
-               (buffer-substring-no-properties
-                (line-beginning-position)
-                (line-end-position))
-               ","))
-;;; only need 3 fields:
-        (setq fields
-              (list 
-               (nth 0 fields)
-               (nth 1 fields)
-               (mapconcat #'identity (nthcdr 2 fields) " ")))
-        (setq slots
-              (loop for f in fields
-                    collect
-                    (second (split-string f "="))))
-        (push
-         (cons
-          (third slots)
-          (make-amixer-control
-           :numid (first slots)
-           :iface (second slots)
-           :name (third slots)))
-         controls)
-        (forward-line 1))               ; done collecting controls
-      (mapc #'amixer-populate-settings controls)
-      (setq amixer-db controls))))
+
 
 ;;}}}
 ;;{{{ Amixer:
