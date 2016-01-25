@@ -34,26 +34,36 @@
 ;;}}}
 ;;{{{ required packages
 
-(require 'cl-lib)
+(require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 
 ;;}}}
-;;{{{ Structure
+;;{{{ Customizations:
 
-(cl-defstruct amixer-control
+;;}}}
+;;{{{ Definitions
+
+(defcustom amixer-card "0"
+  "Card number to control."
+  :type 'string
+  :group 'amixer)
+
+(defvar amixer-db nil
+  "Holds cached values.")
+
+(defstruct amixer-control
   numid iface name setting)
 
-(cl-defstruct amixer-control-setting
+(declare-function amixer-control-name  "amixer.el" (amixer))
+(declare-function amixer-control-numid  "amixer.el" (amixer))
+(declare-function amixer-control-iface  "amixer.el" (amixer))
+(defstruct amixer-control-setting
   type access values
   min max step
   current)
 
 ;;}}}
-;;{{{ Definitions
-
-;;; forward declaration:
-
-(defvar amixer-card "0")
+;;{{{ Manage amixer db:
 
 (defun amixer-populate-settings (control)
   "Populate control with its settings information."
@@ -132,7 +142,7 @@
                ","))
 ;;; only need 3 fields:
         (setq fields
-              (list
+              (list 
                (nth 0 fields)
                (nth 1 fields)
                (mapconcat #'identity (nthcdr 2 fields) " ")))
@@ -151,22 +161,6 @@
         (forward-line 1))               ; done collecting controls
       (mapc #'amixer-populate-settings controls)
       (setq amixer-db controls))))
-
-(defcustom amixer-card "0"
-  "Card number to control."
-  :type 'string
-  :set #'(lambda (sym val) (amixer-build-db))
-  :group 'amixer)
-
-(defvar amixer-db nil
-  "Holds cached values.")
-
-(declare-function amixer-control-name  "amixer.el" (amixer))
-(declare-function amixer-control-numid  "amixer.el" (amixer))
-(declare-function amixer-control-iface  "amixer.el" (amixer))
-
-;;}}}
-;;{{{ Manage amixer db:
 
 ;;}}}
 ;;{{{ Amixer:
@@ -251,7 +245,7 @@ Interactive prefix arg refreshes cache."
         (setq choices
               (amixer-get-enumerated-values control)))
       (setq update
-            (read-from-minibuffer
+            (read-from-minibuffer 
              (format
               "Change %s from %s %s:"
               (amixer-control-name control)
@@ -274,7 +268,7 @@ Interactive prefix arg refreshes cache."
        update)))))
 
 ;;}}}
-(provide 'amixer)
+(provide 'amixer)      
 ;;{{{ end of file
 
 ;;; local variables:
@@ -282,4 +276,4 @@ Interactive prefix arg refreshes cache."
 ;;; byte-compile-dynamic: nil
 ;;; end:
 
-;;}}}
+;;}}}      
