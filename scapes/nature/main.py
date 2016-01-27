@@ -46,6 +46,7 @@ showers = [
     soft.soft_sprinkle, soft.soft_gentle, soft.soft_drizzle]
 
 streams = [
+    rain.droplet_bloink,
     water.stream_rushing_1, water.stream_rushing_2, water.stream_rushing_3,
     rain.water_bubbling, soft.soft_sprinkle,
     soft.soft_gentle, soft.soft_drizzle, ]
