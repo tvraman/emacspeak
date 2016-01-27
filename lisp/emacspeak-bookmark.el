@@ -49,7 +49,7 @@
 ;;; Code:
 ;;}}}
 ;;{{{  bookmarks
-(defadvice bookmark-set (after emacspeak pre act)
+(defadvice bookmark-set (after emacspeak pre act comp)
   "Announce yourself."
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'mark-object)
@@ -73,7 +73,7 @@
     (emacspeak-auditory-icon 'yank-object )
     (emacspeak-speak-line )))
 
-(defadvice  bookmark-jump (after emacspeak pre act)
+(defadvice  bookmark-jump (after emacspeak pre act comp)
   "Announce what happened."
   (when (ems-interactive-p )
     (emacspeak-auditory-icon 'large-movement)
