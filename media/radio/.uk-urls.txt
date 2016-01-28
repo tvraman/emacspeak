@@ -178,8 +178,12 @@ http://62.210.125.247:8092/listen.pls?sid=1
 http://stream.saintfm.co.uk:8134/listen.pls
 http://82.165.151.90:8000/listen.pls
 http://87.117.193.43:8060/listen.pls
-http://s11.zetcast.net:8002/listen.pls?sid=1
-http://s11.zetcast.net:8000/listen.pls?sid=1
+http://tx9.zetcast.net:8100/steam.m3u
+http://tx9.zetcast.net:8100/stream2.m3u
+http://tx9.zetcast.net:8100/stream3.m3u
+http://tx9.zetcast.net:8100/stream4.m3u
+http://tx9.zetcast.net:8100/stream5.m3u
+http://tx9.zetcast.net:8100/stream6.m3u
 http://s3.xrad.io:8090/listen.pls
 http://s3.xrad.io:8096/listen.pls
 http://50.7.70.58:8771/listen.pls
