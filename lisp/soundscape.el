@@ -458,7 +458,7 @@ Optional interactive prefix arg `force' skips optimization checks."
   (let ((scapes (soundscape-for-mode mode)))
     (when (or force (not   (equal scapes soundscape--scapes)))
       (setq soundscape--scapes scapes)
-      (soundscape-remote (mapcar #'soundscape-lookup-scape scapes)))))
+      (soundscape-remote (delq nil (mapcar #'soundscape-lookup-scape scapes))))))
 
 (defvar soundscape--last-mode  nil
   "Caches last seen mode.")
