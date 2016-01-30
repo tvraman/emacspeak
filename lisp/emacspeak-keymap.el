@@ -511,6 +511,7 @@ interactive command that the key sequence executes."
   '(
     ("." auto-correct-update)
     ("s" soundscape)
+    ("u" soundscape-update-mood)
     ("S" soundscape-stop)
     ("b" emacspeak-bbc)
     ("e" elfeed)
