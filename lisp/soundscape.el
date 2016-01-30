@@ -291,12 +291,17 @@ See  \\{soundscape-default-theme} for details."
 (defvar soundscape-default-theme
   `(
     ("()" nil)
+    ("BirdChorus" nil)
     ("BirdSongs" (shell-mode term-mode))
+    ("BirdSongs" nil)
     ("BuddhaLoop" (special-mode))
     ("Cavern" (prog-mode))
     ("ChangingLoops" (emacspeak-m-player-mode))
     ("Drip" ,soundscape-communication-modes)
     ("LightWind" (comint-mode elfeed-search-mode))
+    ("ManyMockingBirds" nil)
+    ("MockingBirds" nil)
+    ("Nightscape" nil)
     ("NoStormYet"  (fundamental-mode))
     ("RainForever" ,soundscape-help-modes)
     ("RainSounds" ,soundscape-vc-modes)
@@ -319,7 +324,9 @@ this list) must be the NullAgent written as (). ")
 This updated mapping is not persisted."
   (interactive)
   (let* ((completion-ignore-case t)
-         (scape (soundscape-read)))
+         (scape
+          (soundscape-lookup-name
+           (completing-read "Scape:" (mapcar 'car soundscape-default-theme)))))
     (soundscape-map-mode major-mode scape)
     (soundscape-sync major-mode)
     (message "Now using %s for %s" scape major-mode)))
