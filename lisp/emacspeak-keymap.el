@@ -510,7 +510,9 @@ interactive command that the key sequence executes."
 (defcustom emacspeak-super-keys 
   '(
     ("." auto-correct-update)
+    ("R" soundscape-restart)
     ("s" soundscape)
+    ("t" soundscape-toggle)
     ("u" soundscape-update-mood)
     ("S" soundscape-stop)
     ("b" emacspeak-bbc)
