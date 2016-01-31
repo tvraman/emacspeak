@@ -17,5 +17,5 @@
               (or (string-match  "emacspeak-loaddefs.el" file)
                   (string-match "emacspeak-autoload.el" file))
             (elint-file f)))))
-            
+
 (batch-elint-files)

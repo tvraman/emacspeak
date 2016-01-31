@@ -253,8 +253,8 @@
         (keys nil))
     (insert
      (format "\n\n@subsubsection %s\n@deffn {Command} %s  %s\n"
-                    c c 
-                    (or (help-function-arglist c t) " ")))
+             c c 
+             (or (help-function-arglist c t) " ")))
     (when key
       (setq keys (sd-texinfo-escape (mapconcat #'key-description key " ")))
       (insert (format "@kbd{%s}\n\n" keys))
