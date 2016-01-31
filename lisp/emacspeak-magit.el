@@ -105,6 +105,8 @@
                                           (cons 're-search-forward
                                                 'emacspeak-pronounce-sha-checksum))
 (emacspeak-pronounce-add-super 'magit-mode 'magit-commit-mode)
+(emacspeak-pronounce-add-super 'magit-mode 'magit-revision-mode)
+(emacspeak-pronounce-add-super 'magit-mode 'magit-log-mod)
 
 (add-hook
  'magit-mode-hook
