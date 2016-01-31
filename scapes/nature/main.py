@@ -27,17 +27,7 @@ song_birds = [
     birds.songbird_001, birds.songbird_002, birds.songbird_003,
     birds.songbird_004, birds.songbird_005, birds.songbird_006,
     birds.songbird_007, birds.songbird_008, birds.songbird_009,
-    birds.songbird_010, birds.songbird_011, birds.songbird_012,
-    birds.songbird_013, birds.songbird_014, birds.songbird_015,
-    birds.songbird_016, birds.songbird_017, birds.songbird_018,
-    birds.songbird_019, birds.songbird_020, birds.songbird_021,
-    birds.songbird_022, birds.songbird_023, birds.songbird_024,
-    birds.songbird_025, birds.songbird_026, birds.songbird_027,
-    birds.songbird_028, birds.songbird_029, birds.songbird_030,
-    birds.songbird_031, birds.songbird_032, birds.songbird_033,
-    birds.songbird_034, birds.songbird_035, birds.songbird_036,
-    birds.songbird_037, birds.songbird_038, birds.songbird_039,
-    birds.songbird_040]
+    birds.songbird_010]
 
 showers = [
     rain.rain_thin, rain.rain_splatter,
