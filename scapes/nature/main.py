@@ -181,7 +181,7 @@ class SongBirds(agent.Agent):
         ag = play.IntermittentSoundsList(
             self.minDelay, self.maxDelay,
             0.8, 1.2,  # pitch
-            self.minVol, self.maxVol,
+            self.minVol, self.maxVol*0.6,
             self.pan,
             song_birds)
         self.sched_agent(ag)
