@@ -372,40 +372,40 @@ Retain previously set punctuations  mode."
   (let ((soundscape-auto nil))
     (add-hook 'emacspeak-web-post-process-hook 'emacspeak-eww-post-render-actions)
     (cond
-   ((and (emacspeak-eww-current-url)
-         emacspeak-eww-feed
-         emacspeak-eww-style)
+     ((and (emacspeak-eww-current-url)
+           emacspeak-eww-feed
+           emacspeak-eww-style)
                                         ; this is a displayed feed
-    (lexical-let
-        ((p dtk-punctuation-mode)
-         (r dtk-speech-rate)
-         (u (emacspeak-eww-current-url) )
-         (s emacspeak-eww-style))
-      (kill-buffer)
-      (add-hook
-       'emacspeak-web-post-process-hook
-       #'(lambda ()
-           (dtk-set-punctuations p)
-           (dtk-set-rate r)
-           (emacspeak-dtk-sync))
-       'at-end)
-      (emacspeak-feeds-feed-display u s 'speak)))
-   ((and (emacspeak-eww-current-url) emacspeak-eww-url-template)
+      (lexical-let
+          ((p dtk-punctuation-mode)
+           (r dtk-speech-rate)
+           (u (emacspeak-eww-current-url) )
+           (s emacspeak-eww-style))
+        (kill-buffer)
+        (add-hook
+         'emacspeak-web-post-process-hook
+         #'(lambda ()
+             (dtk-set-punctuations p)
+             (dtk-set-rate r)
+             (emacspeak-dtk-sync))
+         'at-end)
+        (emacspeak-feeds-feed-display u s 'speak)))
+     ((and (emacspeak-eww-current-url) emacspeak-eww-url-template)
                                         ; this is a url template
-    (lexical-let
-        ((n emacspeak-eww-url-template)
-         (p dtk-punctuation-mode)
-         (r dtk-speech-rate))
-      (add-hook
-       'emacspeak-web-post-process-hook
-       #'(lambda nil
-           (dtk-set-punctuations p)
-           (dtk-set-rate r)
-           (emacspeak-dtk-sync))
-       'at-end)
-      (kill-buffer)
-      (emacspeak-url-template-open (emacspeak-url-template-get  n))))
-   (t ad-do-it))))
+      (lexical-let
+          ((n emacspeak-eww-url-template)
+           (p dtk-punctuation-mode)
+           (r dtk-speech-rate))
+        (add-hook
+         'emacspeak-web-post-process-hook
+         #'(lambda nil
+             (dtk-set-punctuations p)
+             (dtk-set-rate r)
+             (emacspeak-dtk-sync))
+         'at-end)
+        (kill-buffer)
+        (emacspeak-url-template-open (emacspeak-url-template-get  n))))
+     (t ad-do-it))))
 
 (loop
  for f in
@@ -522,13 +522,13 @@ Retain previously set punctuations  mode."
   (let ((soundscape-auto nil))
     (emacspeak-auditory-icon 'button)
     (cond
-   ((and (ems-interactive-p)
-         (boundp 'emacspeak-we-url-executor)
-         (fboundp emacspeak-we-url-executor))
-    (let ((url (get-text-property (point) 'shr-url)))
-      (unless url (error "No URL  under point"))
-      (funcall emacspeak-we-url-executor url)))
-   (t ad-do-it))))
+     ((and (ems-interactive-p)
+           (boundp 'emacspeak-we-url-executor)
+           (fboundp emacspeak-we-url-executor))
+      (let ((url (get-text-property (point) 'shr-url)))
+        (unless url (error "No URL  under point"))
+        (funcall emacspeak-we-url-executor url)))
+     (t ad-do-it))))
 
 ;;}}}
 ;;{{{ xslt transform on request:

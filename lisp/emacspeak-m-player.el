@@ -354,7 +354,7 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
            (second
             (split-string
              (emacspeak-m-player-slave-command (format "get_meta_%s" f))
-                                 "="))))
+             "="))))
     emacspeak-m-player-metadata))
 (defvar emacspeak-m-player-cue-info t
   "Set to T if  ICY info cued automatically.")
@@ -407,7 +407,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
       (setq emacspeak-m-player-current-directory
             (file-name-directory resource)))
     (if (file-directory-p resource)
-      (setq file-list (emacspeak-m-player-directory-files resource))
+        (setq file-list (emacspeak-m-player-directory-files resource))
       (setq file-list (list resource)))
     (when (getenv "ALSA_DEFAULT")
       (setq options
@@ -608,7 +608,6 @@ necessary."
     (read-from-minibuffer "Seek to percentage: ")))
   (emacspeak-m-player-dispatch
    (format "seek %s 1" position )))
-
 
 (defun emacspeak-m-player-seek-absolute (position)
   "Seek  to absolute specified position in seconds."
@@ -841,11 +840,11 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
   (interactive
    (list
     (completing-read "Filter:"
-                          emacspeak-m-player-filters
-                          nil nil)))
+                     emacspeak-m-player-filters
+                     nil nil)))
   (declare (special emacspeak-m-player-process))
-    (when (process-live-p  emacspeak-m-player-process)
-      (emacspeak-m-player-dispatch (format "af_add %s" filter-name))))
+  (when (process-live-p  emacspeak-m-player-process)
+    (emacspeak-m-player-dispatch (format "af_add %s" filter-name))))
 
 (defun emacspeak-m-player-left-channel ()
   "Play both channels on left channel."
@@ -1109,8 +1108,8 @@ As the default, use current position."
         (and file-name  (not (zerop (length file-name))))
       (setq position
             (cond
-        (prompt-position (read-number "Position: "))
-        (t  (first position))))
+             (prompt-position (read-number "Position: "))
+             (t  (first position))))
       (emacspeak-amark-add file-name name position)
       (message "Added Amark %s in %s at %s" name file-name position ))))
 

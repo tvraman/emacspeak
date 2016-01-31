@@ -627,7 +627,7 @@ icon."
       ;; so we really need to speak it
       (let ((dtk-speaker-process (dtk-notify-process)))
         (tts-with-punctuations 'all
-                             (dtk-notify-using-voice voice-annotate  emacspeak-last-message))))
+                               (dtk-notify-using-voice voice-annotate  emacspeak-last-message))))
     ad-return-value))
 
 (defadvice eldoc-message (around emacspeak pre act comp)
@@ -691,16 +691,16 @@ icon."
 
 (unless (boundp 'command-error-function)
   (loop
- for f in
- '(keyboard-quit keyboard-escape-quit)
- do
- (eval
-  `(defadvice ,f (before emacspeak pre act comp)
-     "Stop speech first."
-     (when (ems-interactive-p)
-       (dtk-stop)
-       (emacspeak-auditory-icon 'warn-user)
-       (dtk-speak "quit"))))))
+   for f in
+   '(keyboard-quit keyboard-escape-quit)
+   do
+   (eval
+    `(defadvice ,f (before emacspeak pre act comp)
+       "Stop speech first."
+       (when (ems-interactive-p)
+         (dtk-stop)
+         (emacspeak-auditory-icon 'warn-user)
+         (dtk-speak "quit"))))))
 
 (unless (boundp 'command-error-function)
  ;;; turn off tool-bar-mode -- since it raises signals during redisplay
@@ -1765,8 +1765,6 @@ the newly created blank line."
         (emacspeak-line-echo (emacspeak-speak-line ))
         (t(when dtk-stop-immediately (dtk-stop))
           (dtk-tone 225 75 'force )))))))
-
-
 
 (loop
  for f in

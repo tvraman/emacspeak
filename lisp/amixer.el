@@ -91,8 +91,8 @@
              ","))
       (setq slots
             (cl-loop for f in fields
-                  collect
-                  (second (split-string f "="))))
+                     collect
+                     (second (split-string f "="))))
       (while (and (not (eobp))
                   (looking-at "^ *;"))
         (forward-line 1))
@@ -148,8 +148,8 @@
                (mapconcat #'identity (nthcdr 2 fields) " ")))
         (setq slots
               (cl-loop for f in fields
-                    collect
-                    (second (split-string f "="))))
+                       collect
+                       (second (split-string f "="))))
         (push
          (cons
           (third slots)

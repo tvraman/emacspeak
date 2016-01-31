@@ -77,42 +77,42 @@
   (unless (eq major-mode 'Buffer-menu-mode)
     (error "This command can be used only in buffer menus"))
   (let((buffer (Buffer-menu-buffer t)))
-      (cond
-       ((get-buffer buffer)
-        (when dtk-stop-immediately (dtk-stop))
-        (let ((name (buffer-name buffer))
-              (file (buffer-file-name buffer))
-              this-buffer-read-only
-              this-buffer-modified-p
-              this-buffer-size
-              this-buffer-mode-name
-              this-buffer-directory
-              (dtk-stop-immediately nil))
-          (save-current-buffer
-            (set-buffer buffer)
-            (setq this-buffer-read-only buffer-read-only)
-            (setq this-buffer-modified-p (buffer-modified-p))
-            (setq this-buffer-size (buffer-size))
-            (setq this-buffer-mode-name mode-name)
-            (or file
-                ;; No visited file.  Check local value of
-                ;; list-buffers-directory.
-                (if (and (boundp 'list-buffers-directory)
-                         list-buffers-directory)
-                    (setq this-buffer-directory list-buffers-directory))))
+    (cond
+     ((get-buffer buffer)
+      (when dtk-stop-immediately (dtk-stop))
+      (let ((name (buffer-name buffer))
+            (file (buffer-file-name buffer))
+            this-buffer-read-only
+            this-buffer-modified-p
+            this-buffer-size
+            this-buffer-mode-name
+            this-buffer-directory
+            (dtk-stop-immediately nil))
+        (save-current-buffer
+          (set-buffer buffer)
+          (setq this-buffer-read-only buffer-read-only)
+          (setq this-buffer-modified-p (buffer-modified-p))
+          (setq this-buffer-size (buffer-size))
+          (setq this-buffer-mode-name mode-name)
+          (or file
+              ;; No visited file.  Check local value of
+              ;; list-buffers-directory.
+              (if (and (boundp 'list-buffers-directory)
+                       list-buffers-directory)
+                  (setq this-buffer-directory list-buffers-directory))))
                                         ;format and speak the line
-          (when this-buffer-modified-p (emacspeak-auditory-icon 'modified-object))
-          (when this-buffer-read-only (emacspeak-auditory-icon 'unmodified-object))
-          (dtk-speak
-           (format  "%s a %s  document  %s with size  %s"
-                    name this-buffer-mode-name
-                    (if (or file this-buffer-directory)
-                        (format "visiting %s"
-                                (or file this-buffer-directory))
-                      "")
-                    this-buffer-size))))
-       (t(emacspeak-auditory-icon 'error)
-         (emacspeak-speak-line)))))
+        (when this-buffer-modified-p (emacspeak-auditory-icon 'modified-object))
+        (when this-buffer-read-only (emacspeak-auditory-icon 'unmodified-object))
+        (dtk-speak
+         (format  "%s a %s  document  %s with size  %s"
+                  name this-buffer-mode-name
+                  (if (or file this-buffer-directory)
+                      (format "visiting %s"
+                              (or file this-buffer-directory))
+                    "")
+                  this-buffer-size))))
+     (t(emacspeak-auditory-icon 'error)
+       (emacspeak-speak-line)))))
 
 (defun emacspeak-list-buffers-next-line (count)
   "Speech enabled buffer menu navigation"

@@ -531,8 +531,6 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
   (sit-for 0.1)
   (soundscape-sync major-mode 'force))
 
-
-
 ;;}}}
 ;;{{{ Display Theme:
 

@@ -376,7 +376,7 @@
 ;;{{{  Effects Infrastructure:
 
 (defconst sox-effects nil
-"Table of defined effects.")
+  "Table of defined effects.")
 
 (defsubst sox-register-effect (name)
   "Register effect."
@@ -455,17 +455,11 @@ and return a suitable effect structure." name)
 
 (sox-def-effect "remix" '("out-spec") t)
 
-
 (sox-def-effect "trim" '("position") t)
-
 
 (sox-def-effect "bass" '("gain" "frequency" "width") nil)
 
-
-
 (sox-def-effect "treble" '("gain" "frequency" "width") nil)
-
-
 
 (sox-def-effect
  "chorus"
@@ -492,13 +486,10 @@ and return a suitable effect structure." name)
 ;;; Code here can be factored out to emacspeak-sox.el
 (require 'emacspeak-preamble)
 
-
-
 (defadvice sox-open-file(after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)))
-
 
 (defadvice sox-refresh (after emacspeak pre act comp)
   "Provide auditory feedback."
