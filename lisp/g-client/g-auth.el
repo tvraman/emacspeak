@@ -93,10 +93,10 @@
   "Auth lifetime."
   :type  'string
   :set  #'(lambda (sym val)
-           (declare (special g-auth-lifetime-internal))
-           (setq g-auth-lifetime-internal
-                 (seconds-to-time(timer-duration val)))
-           (set-default sym val))
+            (declare (special g-auth-lifetime-internal))
+            (setq g-auth-lifetime-internal
+                  (seconds-to-time(timer-duration val)))
+            (set-default sym val))
   :group 'g-auth)
 
 ;;}}}

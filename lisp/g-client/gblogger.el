@@ -186,8 +186,8 @@ from the server.")
   "Retrieve specified entry.
 `url' is the URL of the entry"
   (declare (special gblogger-auth-handle))
-    (save-excursion
-      (set-buffer (g-app-get-entry gblogger-auth-handle url))
+  (save-excursion
+    (set-buffer (g-app-get-entry gblogger-auth-handle url))
     (current-buffer)))
 
 ;;;###autoload
@@ -210,10 +210,10 @@ The retrieved entry is placed in a buffer ready for editing.
     (switch-to-buffer buffer)
     (goto-char (point-min))
     (search-forward "content" nil t)
-    ;(search-backward "<content")
-    ;(mark-sexp)
-    ;(g-html-unescape-region (point) (mark))
-    ;(search-forward "<content" nil t)
+                                        ;(search-backward "<content")
+                                        ;(mark-sexp)
+                                        ;(g-html-unescape-region (point) (mark))
+                                        ;(search-forward "<content" nil t)
     (forward-line 1))
   (message
    (substitute-command-keys "Use \\[g-app-publish] to publish your edits .")))
@@ -241,7 +241,7 @@ The retrieved entry is placed in a buffer ready for editing.
        (format gblogger-new-entry-template
                gblogger-generator-name gblogger-generator-name
                gblogger-author title
-	       (or text "<!--content goes here -->"))))
+               (or text "<!--content goes here -->"))))
     (switch-to-buffer buffer)
     (search-backward "<div" nil t)
     (forward-line 1)
@@ -269,9 +269,6 @@ The retrieved entry is placed in a buffer ready for editing.
      (format "
      <category scheme='http://www.blogger.com/atom/ns#' term='%s'/>"
              label))))
-
-
-
 
 ;;}}}
 ;;{{{ Reset auth handle:

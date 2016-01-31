@@ -181,7 +181,6 @@ Interactive prefix arg prompts for userid whose albums we request."
                 (if prompt
                     (read-from-minibuffer "UserId:")
                   (g-auth-email gphoto-auth-handle))))
-   
 
 ;;;###autoload
 (defun gphoto-tags()
@@ -446,7 +445,7 @@ Interactive prefix arg prompts for userid whose albums we request."
          (image (format
                  g-curl-image-options
                  (expand-file-name (gphoto-photo-filepath photo))
-                  (file-name-nondirectory (gphoto-photo-filepath photo))))
+                 (file-name-nondirectory (gphoto-photo-filepath photo))))
          (extra-options "--silent --include"))
      (shell-command
       (format

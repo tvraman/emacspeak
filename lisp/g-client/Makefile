@@ -111,7 +111,7 @@ clean:
 # {{{dev targets:
 
 indent:
-	emacs -batch -q -no-site-file -l indent-files.el
+	emacs -batch -q -no-site-file -l ../../utils/indent-files.el
 
 # }}}
 # {{{ end of file

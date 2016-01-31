@@ -22,5 +22,4 @@
             (untabify (point-min) (point-max))
             (save-buffer)))))
 
-  
 (batch-indent-files)

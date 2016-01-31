@@ -200,7 +200,7 @@ Interactive prefix arg prompts for a query string."
                                   nil g-scratch-buffer))
      (set-buffer-multibyte nil)
      (let ((cl (format "-H 'Content-Length: %s'" (g-buffer-bytes)))
-	   (title (format "-H 'Slug: %s'"
+           (title (format "-H 'Slug: %s'"
                           (or
                            (save-excursion
                              (set-buffer org-buffer)
@@ -211,10 +211,10 @@ Interactive prefix arg prompts for a query string."
        (shell-command-on-region
         (point-min) (point-max)
         (format "%s -s -S -i %s %s %s %s %s"
-		g-curl-program 
-		gdocs-upload-options cl title
-		(g-authorization gdocs-auth-handle)
-		(gdocs-feeds-url))
+                g-curl-program 
+                gdocs-upload-options cl title
+                (g-authorization gdocs-auth-handle)
+                (gdocs-feeds-url))
         nil 'replace
         "*Messages*"))
      (let ((headers (g-http-headers (point-min) (point-max)))
@@ -243,16 +243,16 @@ the buffer local variable gdocs-docid. If that is not present,
 this interactively prompts for it."
   (interactive)
   (if (boundp 'gdocs-docid)
-    (setq docid gdocs-docid)
+      (setq docid gdocs-docid)
     (setq docid (read-from-minibuffer "Doc ID:")))
   (declare (special gdocs-auth-handle
                     g-atom-view-xsl
                     g-curl-program g-curl-common-options
                     g-cookie-options))
   (let ((location 
-	 (concat (gdocs-download-url)
-		 (format "?id=%s&exportFormat=%s&format=%s"
-			 docid export-format export-format))))
+         (concat (gdocs-download-url)
+                 (format "?id=%s&exportFormat=%s&format=%s"
+                         docid export-format export-format))))
     (g-auth-ensure-token gdocs-auth-handle)
     (g-get-result
      (format
@@ -295,44 +295,44 @@ buffer local variable gdocs-docid. If that is not present, this
 interactively prompts for it."
   (interactive)
   (if (boundp 'gdocs-docid)
-    (setq docid gdocs-docid)
+      (setq docid gdocs-docid)
     (setq docid (read-from-minibuffer "Doc ID:")))
-  ;(setq etag (read-from-minibuffer "ETag:"))
+                                        ;(setq etag (read-from-minibuffer "ETag:"))
   (declare (special g-cookie-options
                     g-curl-program g-curl-common-options
                     g-app-this-url g-app-auth-handle
                     g-curl-atom-header
-		    gdocs-auth-handle
-		    g-curl-program))
+                    gdocs-auth-handle
+                    g-curl-program))
   (g-auth-ensure-token gdocs-auth-handle)
   (let ((text-buffer (current-buffer))
-	(location (concat (gdocs-update-url) docid)))
+        (location (concat (gdocs-update-url) docid)))
     (g-using-scratch
      (save-excursion
        (set-buffer text-buffer)
        (copy-to-buffer g-scratch-buffer (point-min) (point-max)))
      (set-buffer-multibyte nil)
      (let* ((cl (format "-H 'Content-Length: %s'" (g-buffer-bytes)))
-	    (title (format "-H 'Slug: %s'" (buffer-name text-buffer)))
-	    ;; Warning: This always clobbers! todo: fix this.
-	    ;(etag-header (format "-H 'If-None-Match: %s'" etag))
-	    (etag-header "-H 'If-None-Match: fixme'")
-	    (g-curl-version-header 
-	     (format "-H 'Content-Type: %s' -H 'GData-Version: 2.0'" 
-		     content-type))
-	    (curl-cmd 
-	     (format
-	      "%s %s %s %s %s %s %s %s -i -X %s --data-binary @- %s 2>/dev/null"
-	      g-curl-program g-curl-common-options g-curl-version-header cl 
-	      title etag-header
-	      (g-authorization gdocs-auth-handle)
-	      g-cookie-options
-	      "PUT"
-	      location)))
+            (title (format "-H 'Slug: %s'" (buffer-name text-buffer)))
+            ;; Warning: This always clobbers! todo: fix this.
+                                        ;(etag-header (format "-H 'If-None-Match: %s'" etag))
+            (etag-header "-H 'If-None-Match: fixme'")
+            (g-curl-version-header 
+             (format "-H 'Content-Type: %s' -H 'GData-Version: 2.0'" 
+                     content-type))
+            (curl-cmd 
+             (format
+              "%s %s %s %s %s %s %s %s -i -X %s --data-binary @- %s 2>/dev/null"
+              g-curl-program g-curl-common-options g-curl-version-header cl 
+              title etag-header
+              (g-authorization gdocs-auth-handle)
+              g-cookie-options
+              "PUT"
+              location)))
        (shell-command-on-region
-	(point-min) (point-max)
-	curl-cmd
-	(current-buffer) 'replace)))))
+        (point-min) (point-max)
+        curl-cmd
+        (current-buffer) 'replace)))))
 
 (defun gdocs-update-from-text ()
   "Export from plain text to a specific Google Doc, without
@@ -352,7 +352,6 @@ interactively prompts for it."
   (interactive)
   (gdocs-blind-update "text/html"))
 
-
 ;;}}}
 ;;{{{ Publishing plain text and HTML:
 ;;;###autoload
@@ -360,7 +359,7 @@ interactively prompts for it."
   "Export from given content type to Google Docs."
   (interactive)
   (declare (special  gdocs-auth-handle g-curl-program
-		     g-atom-view-xsl))
+                     g-atom-view-xsl))
   (g-auth-ensure-token gdocs-auth-handle)
   (let ((text-buffer (current-buffer)))
     (g-using-scratch
@@ -369,9 +368,9 @@ interactively prompts for it."
        (copy-to-buffer g-scratch-buffer (point-min) (point-max)))
      (set-buffer-multibyte nil)
      (let ((cl (format "-H 'Content-Length: %s'" (g-buffer-bytes)))
-	   (title (format "-H 'Slug: %s'" (buffer-name text-buffer)))
-	   (gcurl-header (format "--data-binary @- -H 'Content-Type: %s'"
-				 content-type)))
+           (title (format "-H 'Slug: %s'" (buffer-name text-buffer)))
+           (gcurl-header (format "--data-binary @- -H 'Content-Type: %s'"
+                                 content-type)))
        (shell-command-on-region
         (point-min) (point-max)
         (format
@@ -449,7 +448,7 @@ You can find the acl-url through the DocList."
 
 ;;}}}
 ;;{{{ Viewing an item:
- 
+
 ;;;###autoload
 (defun gdocs-view-item (url)
   "View specified item."

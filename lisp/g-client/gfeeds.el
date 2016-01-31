@@ -107,8 +107,8 @@ Customize this to point to your Web location."
      (setq result (json-read))
      (when (= 200 (g-json-get 'responseStatus result))
        (g-json-get
-	'feed
-	(g-json-get 'responseData result))))))
+        'feed
+        (g-json-get 'responseData result))))))
 
 ;;;###autoload
 (defsubst gfeeds-lookup (url)
@@ -125,7 +125,7 @@ Customize this to point to your Web location."
      (when (= 200 (g-json-get 'responseStatus result))
        (g-json-get
         'url
-(g-json-get 'responseData result))))))
+        (g-json-get 'responseData result))))))
 
 ;;;###autoload
 (defsubst gfeeds-find (query)
@@ -141,8 +141,8 @@ Customize this to point to your Web location."
      (setq result (json-read))
      (when (= 200 (g-json-get 'responseStatus result))
        (g-json-get
-	'entries
-	(g-json-get 'responseData result))))))
+        'entries
+        (g-json-get 'responseData result))))))
 
 ;;; Feed slot accessors:
 
@@ -165,10 +165,10 @@ Customize this to point to your Web location."
   "Freshness used to decide if we return titles."
   :type  'string
   :set  #'(lambda (sym val)
-           (declare (special gfeeds-freshness-internal))
-           (setq gfeeds-freshness-internal
-                 (seconds-to-time(timer-duration val)))
-           (set-default sym val))
+            (declare (special gfeeds-freshness-internal))
+            (setq gfeeds-freshness-internal
+                  (seconds-to-time(timer-duration val)))
+            (set-default sym val))
   :group 'gfeeds)
 
 ;;;###autoload
@@ -179,36 +179,36 @@ Customize this to point to your Web location."
     (when feed
       (cond
        (gfeeds-freshness-internal
-      (delq nil
-	    (mapcar
-	     #'(lambda (article)
-		 (let ((since (time-since  (cdr (assq 'publishedDate article))))
-		       (title (g-html-string (cdr (assq 'title article))))
-		       (link (cdr (assq 'link article))))
-		   (when (and (time-less-p  since gfeeds-freshness-internal)
-                              (> (length title) 0))
-		     (put-text-property 0 (1- (length title))
-					'link link title)
-		     title)))
-	     (gfeeds-feed-entries feed))))
-      (t (gfeeds-feed-entries feed))))))
+        (delq nil
+              (mapcar
+               #'(lambda (article)
+                   (let ((since (time-since  (cdr (assq 'publishedDate article))))
+                         (title (g-html-string (cdr (assq 'title article))))
+                         (link (cdr (assq 'link article))))
+                     (when (and (time-less-p  since gfeeds-freshness-internal)
+                                (> (length title) 0))
+                       (put-text-property 0 (1- (length title))
+                                          'link link title)
+                       title)))
+               (gfeeds-feed-entries feed))))
+       (t (gfeeds-feed-entries feed))))))
 
 (defun gfeeds-html (feed-url)
   "Return a simplified HTML view."
   (let ((feed (gfeeds-feed feed-url)))
-  (concat
-   (format "<html><title>%s</title><ol>"
-           (gfeeds-feed-title  feed))
-  (mapconcat 
-   #'(lambda (a)
-       (format "<li><a href='%s'>%s</a>\n%s</li>"
-               (cdr (assq 'link a))
-               (cdr (assq 'title a))
-               (cdr (assq 'contentSnippet a))))
-   (gfeeds-feed-entries feed)
-   "")
-  "</ol></html>")
-))
+    (concat
+     (format "<html><title>%s</title><ol>"
+             (gfeeds-feed-title  feed))
+     (mapconcat 
+      #'(lambda (a)
+          (format "<li><a href='%s'>%s</a>\n%s</li>"
+                  (cdr (assq 'link a))
+                  (cdr (assq 'title a))
+                  (cdr (assq 'contentSnippet a))))
+      (gfeeds-feed-entries feed)
+      "")
+     "</ol></html>")
+    ))
 
 ;;;###autoload
 (defun gfeeds-view (url &optional lookup)
@@ -229,8 +229,6 @@ Interactive prefix arg causes the feed url to be looked up given a Web site."
        (browse-url-of-buffer))
       (kill-new feed-url)
       (message "%s" feed-url)))))
-
-
 
 ;;}}}
 (provide 'gfeeds)

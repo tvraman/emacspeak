@@ -275,7 +275,6 @@ references, poor-man's xpath."
      ((null name) v)
      (t nil))))
 
-
 (defun g-json-lookup-string  (key object)
   "Like g-json-lookup, but returns empty string for nil."
   (or (g-json-lookup key object) ""))

@@ -98,7 +98,6 @@
      nil)  
   "IMap search criteria with argument specs.")
 
-
 (defun gm-nnir-read-imap-clause ()
   "Read one IMap search clause with smart prompts."
   (declare (special gm-nnir-search-criteria))

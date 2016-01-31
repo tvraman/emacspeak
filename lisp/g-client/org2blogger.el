@@ -26,35 +26,33 @@
 
 ;; 
 
-
 ;;;_ , Requires
 
 (require 'org)
-;(require 'org-exp)
+                                        ;(require 'org-exp)
 (require 'gblogger)
 
 ;;;_. Body
 
 (defun org2gblogger ()
-   "Export the current org buffer to gblogger."
-   
-   (interactive)
-   (unless (org-mode-p)
-      (error "Only useful in an org-mode buffer"))
-   
-   (let*
+  "Export the current org buffer to gblogger."
+  
+  (interactive)
+  (unless (org-mode-p)
+    (error "Only useful in an org-mode buffer"))
+  
+  (let*
       ((plist (org-infile-export-plist))
-	 (title
-	    (or
-	       (plist-get plist :title)
-	       nil))
-	 (str
-	    (org-export-as-html nil nil nil 'string t))
-	 (url
-	    gblogger-posting-url))
-      
-      (gblogger-new-entry url title str)))
-
+       (title
+        (or
+         (plist-get plist :title)
+         nil))
+       (str
+        (org-export-as-html nil nil nil 'string t))
+       (url
+        gblogger-posting-url))
+    
+    (gblogger-new-entry url title str)))
 
 ;;;_. Footers
 ;;;_ , Provides

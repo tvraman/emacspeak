@@ -62,7 +62,7 @@
 ;;}}}
 ;;{{{  APP Methods
 (define-derived-mode g-app-mode nxml-mode
-  "Atom  Publishing Interaction"
+                     "Atom  Publishing Interaction"
   "Major mode for APP interaction\n\n
 \\{g-app-mode-map"
   (auto-fill-mode 1))
@@ -128,7 +128,7 @@ Returns HTTP response as (list headers body)."
     (error "Not in a correctly initialized Atom Entry."))
   (goto-char (point-min))
   (let ((cl
-	 (format "-H Content-Length:%s" (g-buffer-bytes))))
+         (format "-H Content-Length:%s" (g-buffer-bytes))))
     (shell-command-on-region
      (point-min) (point-max)
      (format
