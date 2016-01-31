@@ -136,7 +136,7 @@ class FlMockingBirds(agent.Agent):
     def run(self):
         ag = play.IntermittentSoundsList(
             self.minDelay, self.maxDelay,
-            0.7, 1.3,  # pitch
+            0.8, 1.2,  # pitch
             self.minVol, self.maxVol,
             self.pan,
             fl_mocks)
@@ -163,7 +163,7 @@ class CaMockingBirds(agent.Agent):
     def run(self):
         ag = play.IntermittentSoundsList(
             self.minDelay, self.maxDelay,
-            0.7, 1.3,  # pitch
+            0.8, 1.2,  # pitch
             self.minVol, self.maxVol,
             self.pan,
             ca_mocks)
@@ -190,7 +190,7 @@ class SongBirds(agent.Agent):
     def run(self):
         ag = play.IntermittentSoundsList(
             self.minDelay, self.maxDelay,
-            0.7, 1.3,  # pitch
+            0.8, 1.2,  # pitch
             self.minVol, self.maxVol,
             self.pan,
             song_birds)
@@ -301,7 +301,7 @@ class BirdSongs (agent.Agent):
 
     def run(self):
         nature = GardenBackground(0.0)
-        self.sched_agent(manage.VolumeModulateAgent(nature, 0.6))
+        self.sched_agent(manage.VolumeModulateAgent(nature, 0.5))
 
         for i in xrange(len(self.agents)):
             for j in xrange(6):
