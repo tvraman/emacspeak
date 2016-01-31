@@ -45,11 +45,9 @@ OBJECTS= g-auth.elc \
 g-app.elc \
 g-utils.elc \
 g.elc \
-gblogger.elc \
 org2blogger.elc \
 gfeeds.elc \
 gf.elc \
-gphoto.elc \
 gweb.elc \
 gmaps.elc \
 gm-nnir.elc \
