@@ -3,7 +3,7 @@
 import random
 from boopak.package import *
 from boopak.argdef import *
-from boodle import agent
+from boodle import agent, stereo
 from boodle import builtin
 manage = bimport('org.boodler.manage')
 play = bimport('org.boodler.play')
@@ -175,14 +175,14 @@ class SongBirds(agent.Agent):
         self.maxDelay = maxDelay
         self.minVol = minVol
         self.maxVol = maxVol
-        self.pan = pan 
+        self.pan = pan
 
     def run(self):
         ag = play.IntermittentSoundsList(
             self.minDelay, self.maxDelay,
             0.8, 1.2,  # pitch
-            self.minVol, self.maxVol*0.6,
-            self.pan +0.1,
+            self.minVol, self.maxVol * 0.6,
+            self.pan + 0.1,
             song_birds)
         self.sched_agent(ag)
 
@@ -291,13 +291,16 @@ class BirdSongs (agent.Agent):
 
     def run(self):
         nature = GardenBackground(0.0)
-        self.sched_agent(manage.VolumeModulateAgent(nature, 0.5))
+        nc = self.new_channel_pan(stereo.shiftxy(0.5, -1))
+        self.sched_agent(manage.VolumeModulateAgent(nature, 0.5), 0, nc)
 
         for i in xrange(len(self.agents)):
             for j in xrange(6):
+                bc = self.new_channel_pan(
+                    stereo.shiftxy(-1 + 0.3 * j, -1 + 0.3 * j))
                 start = 5 * i + 15 * j
                 ag = self.agents[i](
                     start, 30 + start,  # duration
                     0.05, 0.2,  # volume
                     0.9 + j * 0.05)
-                self.sched_agent(ag)
+                self.sched_agent(ag, 0, bc)
