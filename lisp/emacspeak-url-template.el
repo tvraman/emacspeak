@@ -690,7 +690,16 @@ name of the list.")
 
 (emacspeak-url-template-define
  "CNN Content"
- "http://www.cnn.com/"
+ "http://www.cnn.com/us"
+ nil
+ nil
+ "Filter down to CNN content area."
+ #'(lambda (url)
+     (emacspeak-we-extract-by-class "column" url 'speak)))
+
+(emacspeak-url-template-define
+ "world CNN Content"
+ "http://www.cnn.com/world"
  nil
  nil
  "Filter down to CNN content area."
