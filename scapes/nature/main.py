@@ -294,7 +294,7 @@ class BirdSongs (agent.Agent):
         nc = self.new_channel_pan(stereo.shiftxy(0, 1.5))  # in front
         self.sched_agent(nature, 0, nc)
 
-        nature = GardenBackground(10.0)
+        nature = GardenBackground(60.0)
         nc = self.new_channel_pan(stereo.shiftxy(0, -1.5))  # behind
         self.sched_agent(nature, 0, nc)
 
