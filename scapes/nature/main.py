@@ -306,7 +306,7 @@ class BirdSongs (agent.Agent):
             bc = self.new_channel_pan(stereo.shiftxy(0, y))
             start = 5 * i + 15 * j
             ag = self.agents[i](
-                start, 20 + start,  # duration
+                start, 60 + start,  # duration
                 0.25, 0.5,  # volume
                 0.9 + j * 0.05)
             self.sched_agent(ag, 0, bc)
