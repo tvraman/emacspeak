@@ -173,7 +173,7 @@ with X-password HTTP header for use with Curl."
 (defsubst emacspeak-bookshare-rest-endpoint (operation operand &optional noauth)
   "Return  URL  end point for specified operation.
 Optional argument `noauth' says no user auth needed."
-  (declare (special emacspeak-bookshare-api-base emacspeak-bookshare-user-id))
+  (cl-assert emacspeak-bookshare-api-key nil "API key not set.")
   (format "%s/%s/%s/%s?api_key=%s"
           emacspeak-bookshare-api-base
           operation
