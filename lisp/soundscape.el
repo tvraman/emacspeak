@@ -476,9 +476,9 @@ Optional interactive prefix arg `force' skips optimization checks."
 
 ;;; Advice on select-window, force-mode-line-update etc fire too often.
 ;;; Ditto with buffer-list-update-hook
-;;; Running on an idle timer can be  less responsive
-;;;  soundscape-delay (default is 0.5)
-;;; but  triggers fewer spurious changes than running on advice.
+;;; Running on an idle timer can 
+;;;  soundscape-delay (default is 0.1)
+;;;   triggers fewer spurious changes than running on advice.
 
 ;;}}}
 ;;{{{ SoundScape Toggle:
@@ -489,7 +489,7 @@ Optional interactive prefix arg `force' skips optimization checks."
     (process-send-string soundscape-remote-control "soundscape 0\n")))
 
 ;;;###autoload
-(defcustom soundscape-idle-delay 0.5
+(defcustom soundscape-idle-delay 0.1
   "Number of seconds of idle time
 before soundscapes are synchronized with current mode."
   :type 'float
