@@ -19,7 +19,7 @@ class Agents(agent.Agent):
 
     selected_event = 'agent'
 
-    def init(self, fadetime=0.5):
+    def init(self, fadetime=0.25):
         self.fadetime = fadetime
         self.prevchannel = None
 
@@ -47,7 +47,7 @@ class SoundscapePanel(agent.Agent):
         if (len(agents) == 0):
             raise Exception('SoundscapePanel requires at least one agent argument')
         self.classlist = agents
-        self.fadetime = 0.5
+        self.fadetime = 0.25
         self.pos = 0
         self.workagent = None
 
