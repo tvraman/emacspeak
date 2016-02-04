@@ -293,7 +293,6 @@ See  \\{soundscape-default-theme} for details."
     ("()" nil)
     ("BirdChorus" nil)
     ("BirdSongs" (shell-mode term-mode))
-    ("BirdSongs" nil)
     ("BuddhaLoop" (special-mode))
     ("Cavern" (prog-mode))
     ("ChangingLoops" (emacspeak-m-player-mode))
