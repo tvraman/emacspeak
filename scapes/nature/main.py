@@ -304,7 +304,7 @@ class BirdSongs (agent.Agent):
                 # i = 0 approaches, i=1 no change, i=2 recedes
             y = (i - 1) * (1.5 - j * 0.1)
             bc = self.new_channel_pan(stereo.shiftxy(0, y))
-            start = 5 * i + 15 * j
+            start = 20 * i + 15 * j
             ag = self.agents[i](
                 start, 60 + start,  # duration
                 0.25, 0.5,  # volume
