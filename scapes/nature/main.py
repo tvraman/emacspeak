@@ -302,7 +302,7 @@ class BirdSongs (agent.Agent):
         for j in xrange(6):
                 # compute y using i and j
                 # i = 0 approaches, i=1 no change, i=2 recedes
-            y = (i - 1) * (1.6 - j * 0.1)
+            y = (i - 1) * (1.5 - j * 0.1)
             bc = self.new_channel_pan(stereo.shiftxy(0, y))
             start = 5 * i + 15 * j
             ag = self.agents[i](
