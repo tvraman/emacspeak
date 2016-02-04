@@ -106,7 +106,7 @@
            '("amixer" "cd-tool"
              "dectalk" "dtk" "espeak" "mac-"
              "emacspeak" "xbacklight"
-             "g-" "g-app" "gblogger" "gfeed" "gm-" "gmap" "gphoto" "gweb"
+             "g-" "g-app"  "gfeed" "gm-" "gmap"  "gweb"
              "ladspa" "soundscape" "outloud" "sox-"   "tts" "voice-")))
   "Patterns to match command names.")
 
