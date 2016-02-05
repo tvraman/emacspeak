@@ -258,7 +258,11 @@ class Nightscape (agent.Agent):
         nature = GardenBackground(0.0)
         nc = self.new_channel_pan(stereo.shiftxy(0, 1.3))  # in front
         self.sched_agent(nature, 0, nc)
-
+        
+        nature = GardenBackground(60.0)
+        nc = self.new_channel_pan(stereo.shiftxy(0, -1.3))  # in back
+        self.sched_agent(nature, 0, nc)
+        
         for i in xrange(6):
             y = 1 +i * 0.1
             nc = self.new_channel_pan(stereo.shiftxy(0, y))
