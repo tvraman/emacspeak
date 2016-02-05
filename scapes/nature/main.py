@@ -313,11 +313,11 @@ class BirdSongs (agent.Agent):
                 # i = 0 approaches, i=1 no change, i=2 recedes
                 y = (i - 1) * (1.5 - j * 0.1)
                 bc = self.new_channel_pan(
-                    stereo.compose(stereo.scalexy(1.4), stereo.shiftxy(0, y)))
+                    stereo.compose(stereo.scalexy(1.5), stereo.shiftxy(0, y)))
                 start = 15 * (i + j)
                 ag = self.agents[i](
                     start, 60 + start - 5 * j,  # duration shortens through the loop
-                    0.35, 0.7,  # volume
+                    0.2, 0.7,  # volume
                     1 + j * 0.05  # pan
                 )
                 self.sched_agent(ag, 0, bc)
