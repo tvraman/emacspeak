@@ -3,7 +3,7 @@
 import random
 from boopak.package import *
 from boopak.argdef import *
-from boodle import agent
+from boodle import agent, stereo
 from boodle import builtin
 manage = bimport('org.boodler.manage')
 play = bimport('org.boodler.play')
@@ -90,7 +90,7 @@ class GardenBackground (agent.Agent):
         count = self.pendulum.next()  # [0, 60]
         gurgle = random.choice(streams)
         breeze = random.choice(winds)
-        vol = random.uniform(0., 0.6)
+        vol = random.uniform(0.6, 0.7)
         if (count < 15 or count > 45):
             pitch = random.uniform(0.5, 1.1)
         else:
@@ -102,7 +102,7 @@ class GardenBackground (agent.Agent):
         if ((count % 6) == 0):
             shower = random.choice(showers)
             self.sched_note_pan(shower, -1.2 * pan, pitch,
-                                vol * 0.2,  abs(d0 + random.uniform(-2.0, 2.0)))
+                                vol,  abs(d0 + random.uniform(-2.0, 2.0)))
         self.resched(abs(d0 + random.uniform(-1.0, -1)))
 
 
@@ -175,14 +175,14 @@ class SongBirds(agent.Agent):
         self.maxDelay = maxDelay
         self.minVol = minVol
         self.maxVol = maxVol
-        self.pan = pan 
+        self.pan = pan
 
     def run(self):
         ag = play.IntermittentSoundsList(
             self.minDelay, self.maxDelay,
             0.8, 1.2,  # pitch
-            self.minVol, self.maxVol*0.6,
-            self.pan +0.1,
+            self.minVol, self.maxVol,
+            self.pan,
             song_birds)
         self.sched_agent(ag)
 
@@ -256,13 +256,20 @@ class Nightscape (agent.Agent):
 
     def run(self):
         nature = GardenBackground(0.0)
-        self.sched_agent(manage.VolumeModulateAgent(nature, 0.5))
+        nc = self.new_channel_pan(stereo.shiftxy(0, 1.3))  # in front
+        self.sched_agent(nature, 0, nc)
+
+        nature = GardenBackground(60.0)
+        nc = self.new_channel_pan(stereo.shiftxy(0, -1.3))  # in back
+        self.sched_agent(nature, 0, nc)
 
         for i in xrange(6):
+            y = 1 + i * 0.1
+            nc = self.new_channel_pan(stereo.shiftxy(0, y))
             ag = Crickets(
                 0.0, 12.0,
                 0.1, 0.18, 1.2)
-            self.sched_agent(ag)
+            self.sched_agent(ag, I * 10, y)
 
 
 class BirdChorus (agent.Agent):
@@ -291,13 +298,23 @@ class BirdSongs (agent.Agent):
 
     def run(self):
         nature = GardenBackground(0.0)
-        self.sched_agent(manage.VolumeModulateAgent(nature, 0.5))
+        nc = self.new_channel_pan(stereo.shiftxy(0, 1.3))  # in front
+        self.sched_agent(nature, 0, nc)
+
+        nature = GardenBackground(60.0)
+        nc = self.new_channel_pan(stereo.shiftxy(0, -1.3))  # behind
+        self.sched_agent(nature, 0, nc)
 
         for i in xrange(len(self.agents)):
             for j in xrange(6):
-                start = 5 * i + 15 * j
+                # compute y using i and j
+                # i = 0 approaches, i=1 no change, i=2 recedes
+                y = (i - 1) * (1.5 - j * 0.1)
+                bc = self.new_channel_pan(stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, y)))
+                start = 15 * (i + j)
                 ag = self.agents[i](
-                    start, 30 + start,  # duration
-                    0.05, 0.2,  # volume
-                    0.9 + j * 0.05)
-                self.sched_agent(ag)
+                    start, 60 + start - 5 * j,  # duration shortens through the loop
+                    0.25, 0.5,  # volume
+                    1 + j * 0.05  # pan
+                )
+                self.sched_agent(ag, 0, bc)
