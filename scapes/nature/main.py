@@ -90,7 +90,7 @@ class GardenBackground (agent.Agent):
         count = self.pendulum.next()  # [0, 60]
         gurgle = random.choice(streams)
         breeze = random.choice(winds)
-        vol = random.uniform(0.6, 0.7)
+        vol = random.uniform(0.5, 0.6)
         if (count < 15 or count > 45):
             pitch = random.uniform(0.5, 1.1)
         else:
@@ -299,12 +299,12 @@ class BirdSongs (agent.Agent):
     def run(self):
         nature = GardenBackground(0.0)
         nc = self.new_channel_pan(
-            stereo.compose(stereo.scalexy(1.5), stereo.shiftxy(0, 1.3)))  # in front
+            stereo.compose(stereo.scalexy(1.5), stereo.shiftxy(0, 1.5)))  # in front
         self.sched_agent(nature, 0, nc)
 
         nature = GardenBackground(60.0)
         nc = self.new_channel_pan(
-            stereo.compose(stereo.scalexy(1.5), stereo.shiftxy(0, -1.3)))  # behind
+            stereo.compose(stereo.scalexy(1.5), stereo.shiftxy(0, -1.5)))  # behind
         self.sched_agent(nature, 0, nc)
 
         for i in xrange(len(self.agents)):
@@ -317,7 +317,7 @@ class BirdSongs (agent.Agent):
                 start = 15 * (i + j)
                 ag = self.agents[i](
                     start, 60 + start - 5 * j,  # duration shortens through the loop
-                    0.2, 0.7,  # volume
+                    0.2, 0.6,  # volume
                     1 + j * 0.05  # pan
                 )
                 self.sched_agent(ag, 0, bc)
