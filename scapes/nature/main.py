@@ -256,13 +256,16 @@ class Nightscape (agent.Agent):
 
     def run(self):
         nature = GardenBackground(0.0)
-        self.sched_agent(manage.VolumeModulateAgent(nature, 0.5))
+        nc = self.new_channel_pan(stereo.shiftxy(0, 1.3))  # in front
+        self.sched_agent(nature, 0, nc)
 
         for i in xrange(6):
+            y = 1 +i * 0.1
+            nc = self.new_channel_pan(stereo.shiftxy(0, y))
             ag = Crickets(
                 0.0, 12.0,
                 0.1, 0.18, 1.2)
-            self.sched_agent(ag)
+            self.sched_agent(ag, I*10, y)
 
 
 class BirdChorus (agent.Agent):
