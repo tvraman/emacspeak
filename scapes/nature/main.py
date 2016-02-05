@@ -269,7 +269,7 @@ class Nightscape (agent.Agent):
             ag = Crickets(
                 0.0, 12.0,
                 0.1, 0.18, 1.2)
-            self.sched_agent(ag, I * 10, y)
+            self.sched_agent(ag, i * 10, y)
 
 
 class BirdChorus (agent.Agent):
