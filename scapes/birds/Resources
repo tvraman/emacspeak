@@ -98,6 +98,12 @@ boodler.use: sound
 boodler.filename: indian-cuckoo-01.aiff
 boodler.use: sound
 
+
+:cuckoo_02
+boodler.filename: indian-cuckoo-02.aiff
+boodler.use: sound
+
+
 :chirp_01
 boodler.filename: chirp-01.aiff
 boodler.use: sound
