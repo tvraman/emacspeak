@@ -128,7 +128,7 @@ class FlMockingBirds(agent.Agent):
     def run(self):
         ag = play.IntermittentSoundsList(
             self.minDelay, self.maxDelay,
-            0.8, 1.2,  # pitch
+            0.9, 1.1,  # pitch
             self.minVol, self.maxVol,
             self.pan,
             fl_mocks)
@@ -155,7 +155,7 @@ class CaMockingBirds(agent.Agent):
     def run(self):
         ag = play.IntermittentSoundsList(
             self.minDelay, self.maxDelay,
-            0.8, 1.2,  # pitch
+            0.9, 1.1,  # pitch
             self.minVol, self.maxVol,
             self.pan,
             ca_mocks)
@@ -182,7 +182,7 @@ class SongBirds(agent.Agent):
     def run(self):
         ag = play.IntermittentSoundsList(
             self.minDelay, self.maxDelay,
-            0.8, 1.2,  # pitch
+            0.9, 1.1,  # pitch
             self.minVol, self.maxVol,
             self.pan,
             song_birds)
