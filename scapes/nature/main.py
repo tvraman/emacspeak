@@ -318,7 +318,7 @@ class BirdSongs (agent.Agent):
                     stereo.compose(stereo.scalexy(1.5), stereo.shiftxy(0, y)))
                 start = 15 * (i + j)
                 ag = self.agents[i](
-                    start, 45 + start - 5 * j,  # duration shortens through the loop
+                    0, 60,
                     0.35, 0.5,  # volume
                     1 + j * 0.05  # pan
                 )
