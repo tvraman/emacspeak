@@ -195,8 +195,7 @@ such as pronunciation dictionaries are stored. ")
 ;;;###autoload
 (defun emacspeak-tts-multistream-p (tts-engine)
   "Checks if this tts-engine can support multiple streams."
-  (member tts-engine '("outloud" "32-outloud" "espeak" "mac"
-                       "cloud-outloud" "cloud-espeak" "cloud-mac")))
+  (member tts-engine '("outloud" "32-outloud" "cloud-outloud" )))
 
 (defcustom emacspeak-tts-use-notify-stream
   (when (emacspeak-tts-multistream-p dtk-program) t)
