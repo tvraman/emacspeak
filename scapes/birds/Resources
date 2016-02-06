@@ -92,6 +92,6 @@ boodler.use: sound
 boodler.filename: song-bird-010.aiff
 boodler.use: sound
 
-:cuckoo_010
+:cuckoo_01
 boodler.filename: indian-cuckoo-01.aiff
 boodler.use: sound
