@@ -92,6 +92,17 @@ boodler.use: sound
 boodler.filename: song-bird-010.aiff
 boodler.use: sound
 
+# these next 3 sounds are from freesound.org 
+
 :cuckoo_01
 boodler.filename: indian-cuckoo-01.aiff
+boodler.use: sound
+
+:chirp_01
+boodler.filename: chirp-01.aiff
+boodler.use: sound
+
+
+:chirp_02
+boodler.filename: chirp-02.aiff
 boodler.use: sound
