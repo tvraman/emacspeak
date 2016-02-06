@@ -109,14 +109,16 @@ such as pronunciation dictionaries are stored. ")
 
 ;;;###autoload
 (defvar emacspeak-media-extensions
+  (let
+      ((ext
+        '("wma" "wmv" "flv" "m4a" "m4b"  "flac" ".aiff"
+          "ogg" "mp3"  "mp4" "webm" "wav")))
   (concat
    "\\."
    (regexp-opt
-    (list "wma" "wmv" "flv"
-          "m4a" "m4b" "m4v" "flac" ".aiff"
-          "ogg" "mp3" "MP3" "mp4" "webm")
+    (nconc ext (mapcar #'upcase ext))
     'parens)
-   "$")
+   "$"))
   "Extensions that match media files.")
 
 ;;;###autoload
