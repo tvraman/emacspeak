@@ -92,7 +92,7 @@ class GardenBackground (agent.Agent):
         count = self.pendulum.next()  # [0, 60]
         gurgle = random.choice(streams)
         breeze = random.choice(winds)
-        vol = random.uniform(0.4, 0.5)
+        vol = random.uniform(0.4, 0.2)
         if (count < 15 or count > 45):
             pitch = random.uniform(0.5, 1.1)
         else:
@@ -267,10 +267,10 @@ class Nightscape (agent.Agent):
 
         for i in xrange(6):
             y = 1 + i * 0.1
-            nc = self.new_channel_pan(stereo.shiftxy(0, y))
+            nc = self.new_channel_pan(
+                stereo.compose(stereo.scalexy(1.4),stereo.shiftxy(0, y)))
             ag = Crickets(
-                0.0, 12.0,
-                0.1, 0.18, 1.2)
+                0.0, 12.0, 0.1, 0.18, 1.2)
             self.sched_agent(ag, 0, nc)
 
 
