@@ -106,3 +106,7 @@ boodler.use: sound
 :chirp_02
 boodler.filename: chirp-02.aiff
 boodler.use: sound
+# Carolina Wren 
+:chirp_03
+boodler.filename: chirp-03.aiff
+boodler.use: sound
