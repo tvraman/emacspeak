@@ -215,7 +215,7 @@
 ;;{{{ Commands:
 
 (defvar sox-sound-regexp
-  (regexp-opt  '(".mp3" ".wav" ".au"))
+  (regexp-opt  '(".mp3" ".wav" ".au" ".aiff"))
   "Regexp matching sound files.")
 
 (defsubst sox-sound-p (snd-file)
