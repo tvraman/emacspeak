@@ -53,3 +53,9 @@ dc.description: Bird songs in a garden
 boodler.use: agent
 dc.title: Nature Sounds SongBirds  with mocking birds 
 dc.description: Bird songs in a garden
+
+
+:MockingCuckoos
+boodler.use: agent
+dc.title: Nature Sounds Cuckoos  with mocking birds 
+dc.description: Bird songs in a garden

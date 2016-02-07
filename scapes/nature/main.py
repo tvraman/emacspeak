@@ -23,6 +23,8 @@ fl_mocks = [
     birds.fl_mocking_1, birds.fl_mocking_2, birds.fl_mocking_3,
     birds.fl_mocking_4, birds.fl_mocking_5, birds.fl_mocking_6]
 
+cuckoos = [birds.cuckoo_01, birds.cuckoo_02, birds.cuckoo_03]
+
 song_birds = [
     birds.cuckoo_01, birds.cuckoo_02, birds.cuckoo_03,
     birds.chirp_01, birds.chirp_02, birds.chirp_03,
@@ -162,6 +164,33 @@ class CaMockingBirds(agent.Agent):
         self.sched_agent(ag)
 
 
+class Cuckoos(agent.Agent):
+
+    _args = ArgList(Arg(type=float), Arg(type=float), Arg(type=float),
+                    Arg(type=float), Arg(type=float))
+
+    def init(self,
+             minDelay=4.0,
+             maxDelay=12.0,
+             minVol=0.1,
+             maxVol=1.0,
+             pan=1.0):
+        self.minDelay = minDelay
+        self.maxDelay = maxDelay
+        self.minVol = minVol
+        self.maxVol = maxVol
+        self.pan = pan
+
+    def run(self):
+        ag = play.IntermittentSoundsList(
+            self.minDelay, self.maxDelay,
+            0.9, 1.1,  # pitch
+            self.minVol, self.maxVol,
+            self.pan,
+            cuckoos)
+        self.sched_agent(ag)
+
+
 class SongBirds(agent.Agent):
 
     _args = ArgList(Arg(type=float), Arg(type=float), Arg(type=float),
@@ -291,6 +320,37 @@ class BirdSongs (agent.Agent):
 
     def init(self):
         self.agents = [CaMockingBirds, SongBirds, FlMockingBirds]
+
+    def run(self):
+        nature = GardenBackground(0.0)
+        nc = self.new_channel_pan(
+            stereo.compose(stereo.scalexy(1.5), stereo.shiftxy(0, 1.5)))  # in front
+        self.sched_agent(nature, 0, nc)
+
+        nature = GardenBackground(60.0)
+        nc = self.new_channel_pan(
+            stereo.compose(stereo.scalexy(1.5), stereo.shiftxy(0, -1.5)))  # behind
+        self.sched_agent(nature, 0, nc)
+
+        for i in xrange(len(self.agents)):
+            for j in xrange(8):
+                # compute y using i and j
+                # i = 0 approaches, i=1 no change, i=2 recedes
+                y = (i - 1) * (1.4 - j * 0.05)
+                bc = self.new_channel_pan(
+                    stereo.compose(stereo.scalexy(1.8), stereo.shiftxy(0, y)))
+                ag = self.agents[i](
+                    0, 60,
+                    0.25, 0.5,  # volume
+                    1 + j * 0.05  # pan
+                )
+                self.sched_agent(ag, 0, bc)
+
+
+class MockingCuckoos (agent.Agent):
+
+    def init(self):
+        self.agents = [CaMockingBirds, Cuckoos, FlMockingBirds]
 
     def run(self):
         nature = GardenBackground(0.0)
