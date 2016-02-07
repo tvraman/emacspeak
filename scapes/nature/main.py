@@ -96,7 +96,7 @@ class GardenBackground (agent.Agent):
         count = self.pendulum.next()  # [0, 60]
         gurgle = random.choice(streams)
         breeze = random.choice(winds)
-        vol = random.uniform(0.4, 0.2)
+        vol = random.uniform(0.4, 0.5)
         if (count < 15 or count > 45):
             pitch = random.uniform(0.5, 1.1)
         else:
@@ -367,7 +367,7 @@ class MockingCuckoos (agent.Agent):
             for j in xrange(6):
                 # compute y using i and j
                 # i = 0 approaches, i=1 no change, i=2 recedes
-                y = (i - 1) * (1.4 - j * 0.05)
+                y = (i - 1) * (1.3 - j * 0.05)
                 bc = self.new_channel_pan(
                     stereo.compose(stereo.scalexy(1.8), stereo.shiftxy(0, y)))
                 ag = self.agents[i](
