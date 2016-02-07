@@ -364,7 +364,7 @@ class MockingCuckoos (agent.Agent):
         self.sched_agent(nature, 0, nc)
 
         for i in xrange(len(self.agents)):
-            for j in xrange(8):
+            for j in xrange(6):
                 # compute y using i and j
                 # i = 0 approaches, i=1 no change, i=2 recedes
                 y = (i - 1) * (1.4 - j * 0.05)
