@@ -116,10 +116,8 @@ class FlMockingBirds(agent.Agent):
                     Arg(type=float), Arg(type=float))
 
     def init(self,
-             minDelay=5.0,
-             maxDelay=10.0,
-             minVol=0.1,
-             maxVol=1.0,
+             minDelay=5.0, maxDelay=10.0,
+             minVol=0.1, maxVol=1.0,
              pan=1.0):
         self.minDelay = minDelay
         self.maxDelay = maxDelay
