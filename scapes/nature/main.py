@@ -109,7 +109,6 @@ class GardenBackground (agent.Agent):
                                 vol,  abs(d0 + random.uniform(-2.0, 2.0)))
         self.resched(abs(d0 + random.uniform(-1.0, -1)))
 
-
 class FlMockingBirds(agent.Agent):
 
     _args = ArgList(Arg(type=float), Arg(type=float), Arg(type=float),
