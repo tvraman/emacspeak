@@ -23,10 +23,10 @@ fl_mocks = [
     birds.fl_mocking_1, birds.fl_mocking_2, birds.fl_mocking_3,
     birds.fl_mocking_4, birds.fl_mocking_5, birds.fl_mocking_6]
 
-cuckoos = [birds.cuckoo_01, birds.cuckoo_02, birds.cuckoo_03]
+cuckoos = [birds.cuckoo_01, birds.cuckoo_02, birds.cuckoo_03, birds.cuckoo_04]
 
 song_birds = [
-    birds.cuckoo_01, birds.cuckoo_02, birds.cuckoo_03,
+    birds.cuckoo_01, birds.cuckoo_02, birds.cuckoo_03, birds.cuckoo_04,
     birds.chirp_01, birds.chirp_02, birds.chirp_03,
     birds.songbird_001, birds.songbird_002, birds.songbird_003,
     birds.songbird_004, birds.songbird_005, birds.songbird_006,
