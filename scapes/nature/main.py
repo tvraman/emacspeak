@@ -26,6 +26,8 @@ fl_mocks = [
 cuckoos = [birds.cuckoo_01, birds.cuckoo_02, birds.cuckoo_03, birds.cuckoo_04]
 
 song_birds = [
+    birds.tropical_01, birds.tropical_02, birds.tropical_03, birds.tropical_04,
+    birds.tropical_05, birds.tropical_06, birds.tropical_07,
     birds.cuckoo_01, birds.cuckoo_02, birds.cuckoo_03, birds.cuckoo_04,
     birds.chirp_01, birds.chirp_02, birds.chirp_03,
     birds.songbird_001, birds.songbird_002, birds.songbird_003,
