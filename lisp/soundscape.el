@@ -302,6 +302,7 @@ See  \\{soundscape-default-theme} for details."
     ("LightWind" (comint-mode elfeed-search-mode))
     ("ManyMockingBirds" nil)
     ("MockingBirds" nil)
+    ("MockingCuckoos" nil)
     ("Nightscape" nil)
     ("NoStormYet"  (fundamental-mode))
     ("RainForever" ,soundscape-help-modes)
