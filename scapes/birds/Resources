@@ -127,3 +127,33 @@ boodler.use: sound
 :chirp_03
 boodler.filename: chirp-03.aiff
 boodler.use: sound
+
+# Tropical Orchard from freesound.org 
+:tropical_01
+boodler.filename: tropical-01.aiff
+boodler.use: sound
+
+:tropical_02
+boodler.filename: tropical-02.aiff
+boodler.use: sound
+
+:tropical_03
+boodler.filename: tropical-03.aiff
+boodler.use: sound
+
+:tropical_04
+boodler.filename: tropical-04.aiff
+boodler.use: sound
+
+:tropical_05
+boodler.filename: tropical-05.aiff
+boodler.use: sound
+
+:tropical_06
+boodler.filename: tropical-06.aiff
+boodler.use: sound
+
+:tropical_07
+boodler.filename: tropical-07.aiff
+boodler.use: sound
+
