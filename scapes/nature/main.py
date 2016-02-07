@@ -109,7 +109,7 @@ class GardenBackground (agent.Agent):
             shower = random.choice(showers)
             self.sched_note_pan(shower, -1.2 * pan, pitch,
                                 vol,  abs(d0 + random.uniform(-2.0, 2.0)))
-        self.resched(abs(d0 + random.uniform(-1.0, -1)))
+        self.resched(d0)
 
 
 class FlMockingBirds(agent.Agent):
