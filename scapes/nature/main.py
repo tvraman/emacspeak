@@ -216,15 +216,9 @@ class ManyMockingBirds (agent.Agent):
         self.sched_agent(manage.VolumeModulateAgent(nature, 0.75))
 
         for _ in xrange(8):
-            ag = CaMockingBirds(
-                0.0, 120.0,
-                0.1, 0.2,
-                1.2)
+            ag = CaMockingBirds(0.0, 60.0, 0.1, 0.2, 1.2)
             self.sched_agent(ag)
-            ag = FlMockingBirds(
-                7.0, 157.0,
-                0.1, 0.3,
-                1.2)
+            ag = FlMockingBirds(0, 120, 0.1, 0.3, 1.2)
             self.sched_agent(ag)
 
 
@@ -268,7 +262,7 @@ class Nightscape (agent.Agent):
         for i in xrange(6):
             y = 1 + i * 0.1
             nc = self.new_channel_pan(
-                stereo.compose(stereo.scalexy(1.4),stereo.shiftxy(0, y)))
+                stereo.compose(stereo.scalexy(1.4), stereo.shiftxy(0, y)))
             ag = Crickets(
                 0.0, 12.0, 0.1, 0.18, 1.2)
             self.sched_agent(ag, 0, nc)
