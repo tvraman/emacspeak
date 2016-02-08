@@ -1,15 +1,13 @@
 # org.emacspeak.nature 1.0
 # package built Wed Dec 23 20:26:48 PST 2015
 
-:Ca_MockingBirds
+:CaMockingBirds
 boodler.use: agent
-boodler.arguments: (arglist ((arg index=1 type=float name=mindelay) (arg index=2 type=float name=maxdelay)  (arg index=3 type=float name=minvol) (arg index=4 type=float name=maxvol) (arg index=5 type=float name=maxpan)))
 dc.title: Nature Sounds Ca Mocking Birds
 dc.description: Ca  Mocking Birds
 
 :FlMockingBirds
 boodler.use: agent
-boodler.arguments: (arglist ((arg index=1 type=float name=mindelay) (arg index=2 type=float name=maxdelay)  (arg index=3 type=float name=minvol) (arg index=4 type=float name=maxvol) (arg index=5 type=float name=maxpan)))
 dc.title: Nature Sounds Fl Mocking Birds
 dc.description:  FL Mocking Birds
 
