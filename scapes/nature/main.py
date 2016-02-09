@@ -363,10 +363,10 @@ class MockingCuckoos (agent.Agent):
         self.sched_agent(nature, 0, nc)
 
         for i in xrange(len(self.agents)):
-            for j in xrange(10):
+            for j in xrange(12):
                 # compute y using i and j
                 # i = 0 approaches, i=1 no change, i=2 recedes
-                y = (i - 1) * (1.5 - j * 0.05)
+                y = (i - 1) * (1.6 - j * 0.05)
                 bc = self.new_channel_pan(
                     stereo.compose(stereo.scalexy(1.8), stereo.shiftxy(0, y)))
                 ag = self.agents[i](
