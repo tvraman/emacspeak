@@ -368,7 +368,7 @@ class MockingCuckoos (agent.Agent):
                 # i = 0 approaches, i=1 no change, i=2 recedes
                 y = (i - 1) * (1.6 - j * 0.05)
                 bc = self.new_channel_pan(
-                    stereo.compose(stereo.scalexy(1.8), stereo.shiftxy(0, y)))
+                    stereo.compose(stereo.shiftxy(0, y), stereo.scalexy(1.8)))
                 ag = self.agents[i](
                     0, 120,
                     0.25, 0.5,  # volume
