@@ -372,6 +372,6 @@ class MockingCuckoos (agent.Agent):
                 ag = self.agents[i](
                     0, 120,
                     0.25, 0.5,  # volume
-                    1 + j * 0.05  # pan
+                    1.0 # pan
                 )
                 self.sched_agent(ag, 0, bc)
