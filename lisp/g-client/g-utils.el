@@ -123,7 +123,7 @@ Receives buffer containing HTML as its argument."
   :group 'g)
 
 (defcustom g-cookie-jar
-  (make-temp-file ".g-cookie-jar")
+  nil
   "Cookie jar used for Google services.
 Customize this to live on your local disk."
   :type 'file
@@ -135,6 +135,13 @@ Customize this to live on your local disk."
           (set-default sym val))
   :group 'g)
 
+(defun g-cookie-jar ()
+  "Return our cookie jar."
+  (declare (special g-cookie-jar))
+  
+   
+  (unless g-cookie-jar (setq g-cookie-jar (make-temp-file ".g-cookie-jar")))
+      g-cookie-jar)
 (defvar g-cookie-options
   (format "--cookie %s --cookie-jar %s"
           g-cookie-jar g-cookie-jar)
