@@ -179,6 +179,11 @@ Optional arg `page-title' specifies page title."
          and i from 1
          do
          (emacspeak-librivox-display-book b i))
+        (add-hook
+         'emacspeak-web-post-process-hook
+         #'(lambda ()
+             (setq emacspeak-we-url-executor 'emacspeak-librivox-play)))
+         
         (browse-url-of-buffer)))))
 ;;;###autoload
 (defun emacspeak-librivox-search-by-genre (genre)
