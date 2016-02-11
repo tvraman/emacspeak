@@ -157,3 +157,36 @@ boodler.use: sound
 boodler.filename: tropical-07.aiff
 boodler.use: sound
 
+
+# From Internet Archive
+# https://archive.org/download/bird-sound/bird-sound.ogg
+# Split using sox
+# sox -V3 input.aiff output.aiff silence 1 0.50 0.1% 1 0.3 0.1% : newfile : restart  
+
+:ia_bird_1
+boodler.filename: ia-bird-1.aiff
+boodler.use: sound
+:ia_bird_2
+boodler.filename: ia-bird-2.aiff
+boodler.use: sound
+:ia_bird_3
+boodler.filename: ia-bird-3.aiff
+boodler.use: sound
+:ia_bird_4
+boodler.filename: ia-bird-4.aiff
+boodler.use: sound
+:ia_bird_5
+boodler.filename: ia-bird-5.aiff
+boodler.use: sound
+:ia_bird_6
+boodler.filename: ia-bird-6.aiff
+boodler.use: sound
+:ia_bird_7
+boodler.filename: ia-bird-7.aiff
+boodler.use: sound
+:ia_bird_8
+boodler.filename: ia-bird-8.aiff
+boodler.use: sound
+:ia_bird_9
+boodler.filename: ia-bird-9.aiff
+boodler.use: sound
