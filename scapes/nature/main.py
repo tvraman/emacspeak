@@ -27,7 +27,7 @@ cuckoos = [birds.cuckoo_01, birds.cuckoo_02, birds.cuckoo_03, birds.cuckoo_04]
 
 ia_birds = [
     birds.ia_bird_1, birds.ia_bird_2, birds.ia_bird_3, birds.ia_bird_4, birds.ia_bird_5,
-            birds.ia_bird_6, birds.ia_bird_7, birds.ia_bird_8, birds.ia_bird_9, ]
+    birds.ia_bird_6, birds.ia_bird_7, birds.ia_bird_8, birds.ia_bird_9, ]
 
 song_birds = [
     birds.tropical_01, birds.tropical_02, birds.tropical_03, birds.tropical_04,
@@ -382,7 +382,7 @@ class BirdSongs (agent.Agent):
 class MockingCuckoos (agent.Agent):
 
     def init(self):
-        self.agents = [CaMockingBirds, Cuckoos, FlMockingBirds, IABirds]
+        self.agents = [CaMockingBirds, Cuckoos, FlMockingBirds]
 
     def run(self):
         nature = GardenBackground(0.0)
