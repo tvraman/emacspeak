@@ -190,3 +190,8 @@ boodler.use: sound
 :ia_bird_9
 boodler.filename: ia-bird-09.aiff
 boodler.use: sound
+
+# wren call from freesound -- split out one call.
+:wren_01
+boodler.filename: wren-01.aiff
+boodler.use: sound
