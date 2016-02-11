@@ -354,21 +354,21 @@ class MockingCuckoos (agent.Agent):
     def run(self):
         nature = GardenBackground(0.0)
         nc = self.new_channel_pan(
-            stereo.compose(stereo.scalexy(1.5), stereo.shiftxy(0, 1.5)))  # in front
+            stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.5)))  # in front
         self.sched_agent(nature, 0, nc)
 
         nature = GardenBackground(60.0)
         nc = self.new_channel_pan(
-            stereo.compose(stereo.scalexy(1.5), stereo.shiftxy(0, -1.5)))  # behind
+            stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, -1.5)))  # behind
         self.sched_agent(nature, 0, nc)
 
         for i in xrange(len(self.agents)):
-            for j in xrange(12):
+            for j in xrange(8):
                 # compute y using i and j
                 # i = 0 approaches, i=1 no change, i=2 recedes
                 y = (i - 1) * (1.6 - j * 0.05)
                 bc = self.new_channel_pan(
-                    stereo.compose(stereo.shiftxy(0, y), stereo.scalexy(1.8)))
+                    stereo.compose(stereo.shiftxy(0, y), stereo.scalexy(1.5)))
                 ag = self.agents[i](
                     0, 120,
                     0.25, 0.5,  # volume
