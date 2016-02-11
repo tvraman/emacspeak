@@ -25,11 +25,17 @@ fl_mocks = [
 
 cuckoos = [birds.cuckoo_01, birds.cuckoo_02, birds.cuckoo_03, birds.cuckoo_04]
 
+ia_birds = [
+    birds.ia_bird_1, birds.ia_bird_2, birds.ia_bird_3, birds.ia_bird_4, birds.ia_bird_5,
+            birds.ia_bird_6, birds.ia_bird_7, birds.ia_bird_8, birds.ia_bird_9, ]
+
 song_birds = [
     birds.tropical_01, birds.tropical_02, birds.tropical_03, birds.tropical_04,
     birds.tropical_05, birds.tropical_06, birds.tropical_07,
     birds.cuckoo_01, birds.cuckoo_02, birds.cuckoo_03, birds.cuckoo_04,
     birds.chirp_01, birds.chirp_02, birds.chirp_03,
+    birds.ia_bird_1, birds.ia_bird_2, birds.ia_bird_3, birds.ia_bird_4, birds.ia_bird_5,
+    birds.ia_bird_6, birds.ia_bird_7, birds.ia_bird_8, birds.ia_bird_9,
     birds.songbird_001, birds.songbird_002, birds.songbird_003,
     birds.songbird_004, birds.songbird_005, birds.songbird_006,
     birds.songbird_007, birds.songbird_008, birds.songbird_009,
@@ -108,7 +114,7 @@ class GardenBackground (agent.Agent):
             shower = random.choice(showers)
             self.sched_note_pan(shower, -1.2 * pan, pitch,
                                 vol,  abs(d0 + random.uniform(-2.0, 2.0)))
-        self.resched(2*d0)
+        self.resched(2 * d0)
 
 
 class FlMockingBirds(agent.Agent):
@@ -214,6 +220,33 @@ class SongBirds(agent.Agent):
             self.minVol, self.maxVol,
             self.pan,
             song_birds)
+        self.sched_agent(ag)
+
+
+class IABirds(agent.Agent):
+
+    _args = ArgList(Arg(type=float), Arg(type=float), Arg(type=float),
+                    Arg(type=float), Arg(type=float))
+
+    def init(self,
+             minDelay=4.0,
+             maxDelay=12.0,
+             minVol=0.1,
+             maxVol=1.0,
+             pan=1.0):
+        self.minDelay = minDelay
+        self.maxDelay = maxDelay
+        self.minVol = minVol
+        self.maxVol = maxVol
+        self.pan = pan
+
+    def run(self):
+        ag = play.IntermittentSoundsList(
+            self.minDelay, self.maxDelay,
+            0.9, 1.1,  # pitch
+            self.minVol, self.maxVol,
+            self.pan,
+            ia_birds)
         self.sched_agent(ag)
 
 
@@ -349,7 +382,7 @@ class BirdSongs (agent.Agent):
 class MockingCuckoos (agent.Agent):
 
     def init(self):
-        self.agents = [CaMockingBirds, Cuckoos, FlMockingBirds]
+        self.agents = [CaMockingBirds, Cuckoos, FlMockingBirds, IABirds]
 
     def run(self):
         nature = GardenBackground(0.0)
@@ -372,6 +405,6 @@ class MockingCuckoos (agent.Agent):
                 ag = self.agents[i](
                     0, 120,
                     0.25, 0.5,  # volume
-                    1.0 # pan
+                    1.0  # pan
                 )
                 self.sched_agent(ag, 0, bc)
