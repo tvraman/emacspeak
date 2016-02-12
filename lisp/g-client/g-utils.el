@@ -142,11 +142,22 @@ Customize this to live on your local disk."
    
   (unless g-cookie-jar (setq g-cookie-jar (make-temp-file ".g-cookie-jar")))
       g-cookie-jar)
+
 (defvar g-cookie-options
   (format "--cookie %s --cookie-jar %s"
           g-cookie-jar g-cookie-jar)
   "Options to pass for using our cookie jar.")
 
+
+(defun g-cookie-options ()
+  "Return cookie jar options."
+  (declare (special g-cookie-options))
+  (unless g-cookie-options
+    (setq g-cookie-options
+          (format "--cookie %s --cookie-jar %s"
+          (g-cookie-jar) ( g-cookie-jar))))
+  g-cookie-options)
+  
 (defcustom g-curl-debug nil
   "Set to T to see Curl stderr output."
   :type 'boolean

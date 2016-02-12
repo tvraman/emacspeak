@@ -210,7 +210,7 @@ Populate auth-handle with the returned cookies and token."
       (shell-command-on-region
        (point-min) (point-max)
        (format "%s %s %s -X POST --data-binary @- %s 2>/dev/null"
-               g-curl-program g-cookie-options g-curl-common-options
+               g-curl-program (g-cookie-options) g-curl-common-options
                (g-auth-url (g-auth-service auth-handle)))
        (current-buffer)
        'replace)
