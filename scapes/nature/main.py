@@ -356,12 +356,12 @@ class BirdSongs (agent.Agent):
     def run(self):
         nature = GardenBackground(0.0)
         nc = self.new_channel_pan(
-            stereo.compose(stereo.scalexy(1.5), stereo.shiftxy(0, 1.5)))  # in front
+            stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.5)))  # in front
         self.sched_agent(nature, 0, nc)
 
         nature = GardenBackground(60.0)
         nc = self.new_channel_pan(
-            stereo.compose(stereo.scalexy(1.5), stereo.shiftxy(0, -1.5)))  # behind
+            stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, -1.5)))  # behind
         self.sched_agent(nature, 0, nc)
 
         for i in xrange(len(self.agents)):
@@ -372,7 +372,7 @@ class BirdSongs (agent.Agent):
                 bc = self.new_channel_pan(
                     stereo.compose(stereo.scalexy(1.8), stereo.shiftxy(0, y)))
                 ag = self.agents[i](
-                    0, 60,
+                    0, 120,
                     0.25, 0.5,  # volume
                     1 + j * 0.05  # pan
                 )
