@@ -427,14 +427,14 @@ class BirdSongs (agent.Agent):
             stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, -1.5)))  # behind
         self.sched_agent(nature, 0, nc)
 
-        y = [-1.2, 0, 1.2]
+        y = [-1.5, 0, 1.5]
         for i in xrange(len(self.agents)):
-            for j in xrange(8):
+            for j in xrange(6):
                 bc = self.new_channel_pan(
                     stereo.compose(stereo.scalexy(1.4), stereo.shiftxy(0, y[i])))
                 ag = self.agents[i](
-                    0, 90,
+                    0, 60,
                     0.25, 0.5,  # volume
-                    1 + j * 0.05  # pan
+                    1 + j * 0.1  # pan
                 )
                 self.sched_agent(ag, 0, bc)
