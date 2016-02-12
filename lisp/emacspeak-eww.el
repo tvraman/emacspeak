@@ -1101,6 +1101,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
            (next-single-property-change (point) el ))
          (point)))
        (next (next-single-property-change start  el )))
+    (dtk-stop)
     (cond
      (next
       (goto-char next)
@@ -1128,6 +1129,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
              (previous-single-property-change (1+ (point)) el ))
            (point)))
          (previous (previous-single-property-change  start  el)))
+    (dtk-stop)
     (cond
      (previous
       (goto-char (or (previous-single-property-change previous el) (point-min)))
