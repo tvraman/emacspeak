@@ -348,37 +348,6 @@ class BirdChorus (agent.Agent):
                 self.sched_agent(ag)
 
 
-class BirdSongs (agent.Agent):
-
-    def init(self):
-        self.agents = [CaMockingBirds, SongBirds, FlMockingBirds]
-
-    def run(self):
-        nature = GardenBackground(0.0)
-        nc = self.new_channel_pan(
-            stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.5)))  # in front
-        self.sched_agent(nature, 0, nc)
-
-        nature = GardenBackground(60.0)
-        nc = self.new_channel_pan(
-            stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, -1.5)))  # behind
-        self.sched_agent(nature, 0, nc)
-
-        for i in xrange(len(self.agents)):
-            for j in xrange(8):
-                # compute y using i and j
-                # i = 0 approaches, i=1 no change, i=2 recedes
-                y = (i - 1) * (1.4 - j * 0.05)
-                bc = self.new_channel_pan(
-                    stereo.compose(stereo.scalexy(1.8), stereo.shiftxy(0, y)))
-                ag = self.agents[i](
-                    0, 120,
-                    0.25, 0.5,  # volume
-                    1 + j * 0.05  # pan
-                )
-                self.sched_agent(ag, 0, bc)
-
-
 class MockingCuckoos (agent.Agent):
 
     def init(self):
@@ -406,5 +375,36 @@ class MockingCuckoos (agent.Agent):
                     0, 120,
                     0.25, 0.5,  # volume
                     1.0  # pan
+                )
+                self.sched_agent(ag, 0, bc)
+
+
+class BirdSongs (agent.Agent):
+
+    def init(self):
+        self.agents = [CaMockingBirds, SongBirds, FlMockingBirds]
+
+    def run(self):
+        nature = GardenBackground(0.0)
+        nc = self.new_channel_pan(
+            stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.5)))  # in front
+        self.sched_agent(nature, 0, nc)
+
+        nature = GardenBackground(60.0)
+        nc = self.new_channel_pan(
+            stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, -1.5)))  # behind
+        self.sched_agent(nature, 0, nc)
+
+        for i in xrange(len(self.agents)):
+            for j in xrange(8):
+                # compute y using i and j
+                # i = 0 approaches, i=1 no change, i=2 recedes
+                y = (i - 1) * (1.4 - j * 0.05)
+                bc = self.new_channel_pan(
+                    stereo.compose(stereo.scalexy(1.8), stereo.shiftxy(0, y)))
+                ag = self.agents[i](
+                    0, 120,
+                    0.25, 0.5,  # volume
+                    1 + j * 0.05  # pan
                 )
                 self.sched_agent(ag, 0, bc)
