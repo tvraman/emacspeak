@@ -413,8 +413,8 @@ class MockingCuckoos (agent.Agent):
 class BirdSongs (agent.Agent):
 
     def init(self):
-        self.agents = [CaMockingBirds, SongBirds,
-                       FlMockingBirds, TropicalBirds]
+        self.agents = [CaMockingBirds, SongBirds, FlMockingBirds]
+                       
 
     def run(self):
         nature = GardenBackground(0.0)
@@ -427,9 +427,9 @@ class BirdSongs (agent.Agent):
             stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, -1.5)))  # behind
         self.sched_agent(nature, 0, nc)
 
-        y = [-1.4, -1.2, 1.2, 1.4]
+        y = [-1.2, 0, 1.2]
         for i in xrange(len(self.agents)):
-            for j in xrange(7):
+            for j in xrange(8):
                 bc = self.new_channel_pan(
                     stereo.compose(stereo.scalexy(1.4), stereo.shiftxy(0, y[i])))
                 ag = self.agents[i](
