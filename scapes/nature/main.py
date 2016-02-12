@@ -433,7 +433,7 @@ class BirdSongs (agent.Agent):
                 bc = self.new_channel_pan(
                     stereo.compose(stereo.scalexy(1.4), stereo.shiftxy(0, y[i])))
                 ag = self.agents[i](
-                    0, 120,
+                    0, 90,
                     0.25, 0.5,  # volume
                     1 + j * 0.05  # pan
                 )
