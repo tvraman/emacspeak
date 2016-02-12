@@ -29,6 +29,10 @@ ia_birds = [
     birds.wren_01,
     birds.ia_bird_1, birds.ia_bird_2, birds.ia_bird_3, birds.ia_bird_4, birds.ia_bird_5,
     birds.ia_bird_6, birds.ia_bird_7, birds.ia_bird_8, birds.ia_bird_9, ]
+tropical_birds = [
+    birds.tropical_01, birds.tropical_02, birds.tropical_03, birds.tropical_04,
+    birds.tropical_05, birds.tropical_06, birds.tropical_07
+]
 
 song_birds = [
     birds.tropical_01, birds.tropical_02, birds.tropical_03, birds.tropical_04,
@@ -166,6 +170,33 @@ class CaMockingBirds(agent.Agent):
             self.minVol, self.maxVol,
             self.pan,
             ca_mocks)
+        self.sched_agent(ag)
+
+
+class TropicalBirds(agent.Agent):
+
+    _args = ArgList(Arg(type=float), Arg(type=float), Arg(type=float),
+                    Arg(type=float), Arg(type=float))
+
+    def init(self,
+             minDelay=4.0,
+             maxDelay=12.0,
+             minVol=0.1,
+             maxVol=1.0,
+             pan=1.0):
+        self.minDelay = minDelay
+        self.maxDelay = maxDelay
+        self.minVol = minVol
+        self.maxVol = maxVol
+        self.pan = pan
+
+    def run(self):
+        ag = play.IntermittentSoundsList(
+            self.minDelay, self.maxDelay,
+            0.9, 1.1,  # pitch
+            self.minVol, self.maxVol,
+            self.pan,
+            tropical_birds)
         self.sched_agent(ag)
 
 
@@ -382,7 +413,8 @@ class MockingCuckoos (agent.Agent):
 class BirdSongs (agent.Agent):
 
     def init(self):
-        self.agents = [CaMockingBirds, SongBirds, FlMockingBirds]
+        self.agents = [CaMockingBirds, SongBirds,
+                       FlMockingBirds, TropicalBirds]
 
     def run(self):
         nature = GardenBackground(0.0)
@@ -395,13 +427,11 @@ class BirdSongs (agent.Agent):
             stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, -1.5)))  # behind
         self.sched_agent(nature, 0, nc)
 
+        y = [-1.4, -1.2, 1.2, 1.4]
         for i in xrange(len(self.agents)):
-            for j in xrange(8):
-                # compute y using i and j
-                # i = 0 approaches, i=1 no change, i=2 recedes
-                y = (i - 1) * (1.4 - j * 0.05)
+            for j in xrange(6):
                 bc = self.new_channel_pan(
-                    stereo.compose(stereo.scalexy(1.8), stereo.shiftxy(0, y)))
+                    stereo.compose(stereo.scalexy(1.8), stereo.shiftxy(0, y[i])))
                 ag = self.agents[i](
                     0, 120,
                     0.25, 0.5,  # volume
