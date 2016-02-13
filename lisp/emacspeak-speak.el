@@ -1319,6 +1319,7 @@ voice annotated first,  see command `emacspeak-speak-voice-annotate-paragraphs'.
     (when (not emacspeak-speak-voice-annotated-paragraphs)
       (emacspeak-speak-voice-annotate-paragraphs))
     (when (listp arg) (setq arg (car arg )))
+    (dtk-stop)
     (let ((start nil )
           (end nil))
       (cond
