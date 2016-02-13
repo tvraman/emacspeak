@@ -292,6 +292,7 @@ See  \\{soundscape-default-theme} for details."
   `(
     ("()" nil)
     ("BirdChorus" nil)
+    ("BirdCalls" nil)
     ("BirdSongs" (shell-mode term-mode))
     ("BuddhaLoop" (special-mode))
     ("Cavern" (prog-mode))
