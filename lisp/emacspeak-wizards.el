@@ -795,7 +795,7 @@ the emacspeak table clipboard instead."
 
 ;;}}}
 ;;{{{ emergency tts restart
-;;;###autoload
+
 (defcustom emacspeak-emergency-tts-server
   "dtk-exp"
   "TTS server to use in an emergency.
