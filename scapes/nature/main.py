@@ -29,10 +29,10 @@ ia_birds = [
     birds.wren_01,
     birds.ia_bird_1, birds.ia_bird_2, birds.ia_bird_3, birds.ia_bird_4, birds.ia_bird_5,
     birds.ia_bird_6, birds.ia_bird_7, birds.ia_bird_8, birds.ia_bird_9, ]
+
 tropical_birds = [
     birds.tropical_01, birds.tropical_02, birds.tropical_03, birds.tropical_04,
-    birds.tropical_05, birds.tropical_06, birds.tropical_07
-]
+    birds.tropical_05, birds.tropical_06, birds.tropical_07]
 
 song_birds = [
     birds.tropical_01, birds.tropical_02, birds.tropical_03, birds.tropical_04,
@@ -114,7 +114,7 @@ class GardenBackground (agent.Agent):
         pan = (count - 30) * 0.05  # [-1.5, 1.5]
         d0 = self.sched_note_pan(gurgle, pan, pitch, vol, self.time)
         self.sched_note_pan(breeze, -1 * pan, pitch, vol, self.time)
-        if ((count % 6) == 0):
+        if ((count % 15) == 0):
             shower = random.choice(showers)
             self.sched_note_pan(shower, -1.2 * pan, pitch,
                                 vol,  abs(d0 + random.uniform(-2.0, 2.0)))
@@ -410,11 +410,29 @@ class MockingCuckoos (agent.Agent):
                 self.sched_agent(ag, 0, bc)
 
 
+class BirdCalls (agent.Agent):
+
+    def init(self):
+        self.agents = [CaMockingBirds, IABirds, FlMockingBirds, TropicalBirds]
+
+    def run(self):
+        y = [-1.5, -1.2, 1.2,  1.5]
+        for i in xrange(len(self.agents)):
+            for j in xrange(6):
+                bc = self.new_channel_pan(
+                    stereo.compose(stereo.scalexy(1.4), stereo.shiftxy(0, y[i])))
+                ag = self.agents[i](
+                    0, 60,
+                    0.25, 0.5,  # volume
+                    1 + j * 0.1  # pan
+                )
+                self.sched_agent(ag, 0, bc)
+
+
 class BirdSongs (agent.Agent):
 
     def init(self):
         self.agents = [CaMockingBirds, SongBirds, FlMockingBirds]
-                       
 
     def run(self):
         nature = GardenBackground(0.0)
