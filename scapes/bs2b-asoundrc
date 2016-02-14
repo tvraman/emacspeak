@@ -1,42 +1,6 @@
 # $Id: .asoundrc,v 1.3 2012/03/08 19:19:31 raman Exp raman $
 # defining DMix explicitly appears to work better
 # on  Thinkpads
-# {{{bs2b:
-
-## Adding these stanzas to your .asoundrc or /etc/asound.conf will
-## create an ALSA output device called 'crossfeed' which outputs
-## the bs2b crossfeed stream to a device of your choosing.
-
-## LADSPA uses a 32-bit floating-point sample format, while most
-## software uses 16-, 24-, or 32-bit integer formats. We input through
-## a plug device to handle the conversion.
-
-pcm.crossfeed {
-  type plug
-  slave.pcm "bs2b"
-}
-
-## If you use dmix or other processing filters, you should slave the
-## plug:bs2b device to them directly, then have bs2b play to the hardware.
-## This will minimize the impact of sample format conversion.
-
-## This device passes its input through the bs2b LADSPA plugin, then
-## passes it off to another PCM device. In this example, we use
-## plughw:0,0 to pass directly to hardware (with a plug adapter for
-## sample conversion).
-pcm.bs2b {
-  type ladspa
-  slave.pcm "plug:dmixer" # Set this line to match your configuration
-  path "/usr/lib/ladspa/"
-  plugins [{
-    label bs2b
-    input {
-      controls [ 725 4.5 ] # The defaults are 725Hz crossover frequency and 4.5dB rolloff
-    }
-  }]
-}
-
-# }}}
 # {{{ default device is a mixer
 
 #Note hw:1,0 on this laptop 
@@ -64,6 +28,43 @@ pcm.!default {
 }
 
 # }}}
+# {{{bs2b:
+
+## Adding these stanzas to your .asoundrc or /etc/asound.conf will
+## create an ALSA output device called 'crossfeed' which outputs
+## the bs2b crossfeed stream to a device of your choosing.
+
+## LADSPA uses a 32-bit floating-point sample format, while most
+## software uses 16-, 24-, or 32-bit integer formats. We input through
+## a plug device to handle the conversion.
+
+pcm.crossfeed {
+  type plug
+  slave.pcm "bs2b"
+}
+
+## If you use dmix or other processing filters, you should slave the
+## plug:bs2b device to them directly, then have bs2b play to the hardware.
+## This will minimize the impact of sample format conversion.
+
+## This device passes its input through the bs2b LADSPA plugin, then
+## passes it off to another PCM device. In this example, we use
+## plug:dmixer to pass to our dmixer  (with a plug adapter for
+## sample conversion).
+pcm.bs2b {
+  type ladspa
+  slave.pcm "plug:dmixer" # Set this line to match your configuration
+  path "/usr/lib/ladspa/"
+  plugins [{
+    label bs2b
+    input {
+      controls [ 725 4.5 ] # The defaults are 725Hz crossover frequency and 4.5dB rolloff
+    }
+  }]
+}
+
+# }}}
+
 # {{{TTS Mono: 
 
 #  The Route plugin routes audio among channles using a TTable .
