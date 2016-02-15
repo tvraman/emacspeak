@@ -160,12 +160,15 @@ This is set to nil when playing Internet  streams.")
   "Media player program."
   :type 'string
   :group 'emacspeak-m-player)
+(defvar emacspeak-m-player-openal-options
+  '("-ao" "openal")
+  "Additional options to use openal  --- this gives us hrtf for instance.")
 
 (defvar emacspeak-m-player-default-options
   (list
    "-msglevel"          ; reduce chattiness  while preserving metadata
    (mapconcat
-    #'identity 
+    #'identity
     '("all=4"
       "header=0" "vo=0" "ao=0"
       "decaudio=0" "decvideo=0" "open=0"
@@ -439,6 +442,18 @@ The player is placed in a buffer in emacspeak-m-player-mode."
       (emacspeak-amark-load)
       (setq  emacspeak-m-player-file-list file-list)
       (message "MPlayer opened  %s" resource))))
+
+;;;###autoload
+(defun emacspeak-m-player-using-openal ()
+  "Use openal as the audio output driver.
+Adding hrtf=true to ~/.alsoftrc gives HRTF."
+  (interactive)
+  (declare (special emacspeak-m-player-default-options
+                    emacspeak-m-player-openal-options))
+  (let ((emacspeak-m-player-default-options
+         (append emacspeak-m-player-openal-options
+                 emacspeak-m-player-default-options)))
+    (call-interactively 'emacspeak-m-player)))
 
 ;;;###autoload
 (defun emacspeak-m-player-shuffle ()
@@ -831,7 +846,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
   "Add predefined autopan effect."
   (interactive)
   (emacspeak-m-player-add-filter
-   (concat 
+   (concat
     "ladspa=tap_autopan:tap_autopan:.0016:100:1,"
     "ladspa=tap_autopan:tap_autopan:.016:33:1")))
 
@@ -1403,7 +1418,7 @@ Optional interactive prefix arg prompts for name to use for  player."
   (interactive "P")
   (declare (special  emacspeak-m-player-process))
   (when (process-live-p emacspeak-m-player-process)
-    (with-current-buffer  (process-buffer emacspeak-m-player-process) 
+    (with-current-buffer  (process-buffer emacspeak-m-player-process)
       (set (make-local-variable 'emacspeak-m-player-process)emacspeak-m-player-process)
       (set-default 'emacspeak-m-player-process nil)
       (rename-buffer
@@ -1480,7 +1495,7 @@ Check first if current buffer is in emacspeak-m-player-mode."
          #'null (mapcar #'ladspa-control-value (ladspa-plugin-controls plugin)))
       (ladspa-instantiate))
     (setq args (emacspeak-m-player-ladspa-cmd plugin))
-    (setq result 
+    (setq result
           (emacspeak-m-player-dispatch (format "af_add %s" args)))
     (when (called-interactively-p 'interactive)
       (message   "%s"
