@@ -444,8 +444,10 @@ The player is placed in a buffer in emacspeak-m-player-mode."
 
 ;;;###autoload
 (defun emacspeak-m-player-using-openal ()
-  "Use openal as the audio output driver.
-Adding hrtf=true to ~/.alsoftrc gives HRTF."
+  "Use openal as the audio output driver. Adding hrtf=true to
+~/.alsoftrc gives HRTF. You need to have openal installed and have an
+mplayer that has been compiled with openal support to use this
+feature."
   (interactive)
   (declare (special emacspeak-m-player-options
                     emacspeak-m-player-openal-options))
