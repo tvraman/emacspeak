@@ -109,7 +109,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 
     (when (featurep 'emacspeak)
       (emacspeak-tts-startup-hook)
-      (emacspeak-sounds-select-theme "3d/"))
+      (emacspeak-sounds-select-theme "pan-chimes/"))
 
     ;;}}}
     ;;{{{  set up terminal codes and global keys
