@@ -635,8 +635,8 @@ interactive command that the key sequence executes."
 (defcustom emacspeak-hyper-keys 
   '(
     ("d" magit-dispatch-popup)
-    ("\;" emacspeak-wizards-view-buffers-filtered-by-m-player-mode)
-    (":" emacspeak-m-player-using-openal)
+    (":" emacspeak-wizards-view-buffers-filtered-by-m-player-mode)
+    (";" emacspeak-m-player-using-openal)
     ("B" eww-list-bookmarks)
     ("C" apu-chars)
     ("N" emacspeak-npr-listing)
