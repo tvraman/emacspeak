@@ -399,6 +399,7 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     (emacspeak-m-player-quit)
     (setq emacspeak-m-player-process nil))
   (let ((buffer (get-buffer-create "*M-Player*"))
+        (alsa-device (getenv "ALSA_DEFAULT"))
         (process-connection-type nil)
         (playlist-p
          (or play-list
@@ -412,12 +413,10 @@ The player is placed in a buffer in emacspeak-m-player-mode."
     (if (file-directory-p resource)
         (setq file-list (emacspeak-m-player-directory-files resource))
       (setq file-list (list resource)))
-    (when (getenv "ALSA_DEFAULT")
+    (when (and alsa-device (not (string= alsa-device "default")))
       (setq options
             (nconc options
-                   (list "-ao"
-                         (format "alsa:device=%s"
-                                 (getenv "ALSA_DEFAULT"))))))
+                   (list "-ao" (format "alsa:device=%s" alsa-device)))))
     (setq options
           (cond
            ((and play-list  (listp play-list)(< 4   (car play-list)))
@@ -448,11 +447,11 @@ The player is placed in a buffer in emacspeak-m-player-mode."
   "Use openal as the audio output driver.
 Adding hrtf=true to ~/.alsoftrc gives HRTF."
   (interactive)
-  (declare (special emacspeak-m-player-default-options
+  (declare (special emacspeak-m-player-options
                     emacspeak-m-player-openal-options))
-  (let ((emacspeak-m-player-default-options
+  (let ((emacspeak-m-player-options
          (append emacspeak-m-player-openal-options
-                 emacspeak-m-player-default-options)))
+                 emacspeak-m-player-options)))
     (call-interactively 'emacspeak-m-player)))
 
 ;;;###autoload
