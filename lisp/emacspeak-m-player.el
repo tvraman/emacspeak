@@ -450,11 +450,18 @@ mplayer that has been compiled with openal support to use this
 feature."
   (interactive)
   (declare (special emacspeak-m-player-options
-                    emacspeak-m-player-openal-options))
+                    emacspeak-m-player-openal-options
+                    emacspeak-m-player-process))
+  (when (and emacspeak-m-player-process
+             (eq 'run (process-status emacspeak-m-player-process))
+             (y-or-n-p "Stop currently playing music? "))
+    (emacspeak-m-player-quit)
+    (setq emacspeak-m-player-process nil))
+  (unless emacspeak-m-player-process
   (let ((emacspeak-m-player-options
          (append emacspeak-m-player-openal-options
                  emacspeak-m-player-options)))
-    (call-interactively 'emacspeak-m-player)))
+    (call-interactively 'emacspeak-m-player))))
 
 ;;;###autoload
 (defun emacspeak-m-player-shuffle ()
