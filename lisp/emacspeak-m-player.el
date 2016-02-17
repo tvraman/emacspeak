@@ -455,8 +455,7 @@ feature."
   (when (and emacspeak-m-player-process
              (eq 'run (process-status emacspeak-m-player-process))
              (y-or-n-p "Stop currently playing music? "))
-    (emacspeak-m-player-quit)
-    (setq emacspeak-m-player-process nil))
+    (emacspeak-m-player-quit))
   (unless emacspeak-m-player-process
   (let ((emacspeak-m-player-options
          (append emacspeak-m-player-openal-options
@@ -704,6 +703,7 @@ necessary."
              (kill-buffer buffer))))
     (unless (eq (process-status emacspeak-m-player-process) 'exit)
       (delete-process  emacspeak-m-player-process))
+    (setq emacspeak-m-player-process nil)
     (emacspeak-speak-mode-line)))
 
 ;;;###autoload
