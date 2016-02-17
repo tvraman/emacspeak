@@ -456,7 +456,7 @@ feature."
              (eq 'run (process-status emacspeak-m-player-process))
              (y-or-n-p "Stop currently playing music? "))
     (emacspeak-m-player-quit))
-  (unless emacspeak-m-player-process
+  (unless (process-live-p emacspeak-m-player-process)
   (let ((emacspeak-m-player-options
          (append emacspeak-m-player-openal-options
                  emacspeak-m-player-options)))
