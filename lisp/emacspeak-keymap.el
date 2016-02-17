@@ -510,7 +510,7 @@ interactive command that the key sequence executes."
 (defcustom emacspeak-super-keys 
   '(
     ("." auto-correct-update)
-    ("R" soundscape-restart)
+    ("r" soundscape-restart)
     ("s" soundscape)
     ("t" soundscape-toggle)
     ("u" soundscape-update-mood)
@@ -523,7 +523,7 @@ interactive command that the key sequence executes."
     ("m" emacspeak-wizards-view-buffers-filtered-by-this-mode)
     ("n" gweb-news-view)
     ("p" proced)
-    ("r" emacspeak-webspace-feed-reader))
+    ("R" emacspeak-webspace-feed-reader))
   "*Specifies super key bindings for the audio desktop. You can
 turn the right `windows menu' keys on your Linux PC keyboard into
 a `super' key on Linux by having it emit the sequence `C-x@s'.
