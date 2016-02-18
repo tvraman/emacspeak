@@ -1,6 +1,6 @@
 import random
 from boopak.package import *
-from boodle import agent
+from boodle import agent, stereo
 from boodle import builtin
 
 play = bimport('org.boodler.play')
@@ -19,11 +19,18 @@ class SurfWaves(agent.Agent):
 
     def run(self):
         for i in range(12):
+            y = 1+i*0.025
+            sc = self.new_channel_pan(
+                stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, y)))
             ag = SurfBackgroundWaves()
-            self.sched_agent(ag)
+            self.sched_agent(ag, 0, sc)
+            
         for i in range(16):
+            y = 1+i*0.05
+            sc = self.new_channel_pan(
+                stereo.compose(stereo.scalexy(1.4), stereo.shiftxy(0, y)))
             ag = SurfWaveSounds()
-            self.sched_agent(ag)
+            self.sched_agent(ag, 0, sc)
 
 
 class SurfWaveSounds(agent.Agent):
@@ -32,7 +39,7 @@ class SurfWaveSounds(agent.Agent):
         ag = play.IntermittentSoundsList(
             mindelay=1.0, maxdelay=15.0,
             minpitch=0.2, maxpitch=1.0,
-            minvol=0.02, maxvol=0.1,
+            minvol=0.02, maxvol=0.45,
             maxpan=1.5, sounds=wavesounds)
         self.sched_agent(ag)
 
