@@ -80,8 +80,8 @@
   (emacspeak-xslt-get "legacy-atom.xsl")
   "XSL stylesheet used for viewing Atom Feeds."
   :type '(choice
-          (string :tag "Legacy"  (emacspeak-xslt-get "legacy-atom.xsl"))
-          (string :tag "Modern" (emacspeak-xslt-get "atom-view.xsl")))
+          (string :tag "Legacy"  "/usr/local/google/home/raman/emacs/lisp/emacspeak/xsl/legacy-atom.xsl")
+          (string :tag "Modern" "/usr/local/google/home/raman/emacs/lisp/emacspeak/xsl/atom-view.xsl"))
   :group 'emacspeak-xsl)
 
 ;;;###autoload

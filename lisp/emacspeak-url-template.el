@@ -545,6 +545,14 @@ from English to German")
      (emacspeak-speak-rest-of-buffer))
  "Search Google news.")
 
+(emacspeak-url-template-define
+ "Atom Google News Search"
+ "http://news.google.com/news?hl=en&ned=tus&q=%s&btnG=Google+Search&output=atom"
+ (list "Google News: ")
+ nil
+ "Search Google news."
+ #'emacspeak-feeds-atom-display)
+
 
 
 (defvar emacspeak-url-template-google-transcoder-url
