@@ -58,6 +58,7 @@
 (require 'emacspeak-preamble)
 (require 'emacspeak-webutils)
 (require 'gweb)
+(require 'g-utils)
 (require 'emacspeak-we)
 (require 'emacspeak-xslt)
 (eval-when-compile
@@ -545,13 +546,26 @@ from English to German")
      (emacspeak-speak-rest-of-buffer))
  "Search Google news.")
 
+
+  
+(defun emacspeak-url-template-google-atom-news-display (feed-url)
+  "View feed using auth credentials in auth-handle."
+  (interactive)
+  (declare (special g-atom-view-xsl
+                    g-curl-program g-curl-common-options))
+  (g-display-result
+   (format
+    "%s %s  --location  %s 2>/dev/null"
+    g-curl-program g-curl-common-options feed-url)
+   g-atom-view-xsl))  
+
 (emacspeak-url-template-define
  "Atom Google News Search"
  "http://news.google.com/news?hl=en&ned=tus&q=%s&btnG=Google+Search&output=atom"
  (list "Google News: ")
  nil
  "Search Google news."
- #'emacspeak-feeds-atom-display)
+ #'emacspeak-url-template-google-atom-news-display )
 
 
 
