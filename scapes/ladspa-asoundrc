@@ -79,7 +79,7 @@ pcm.tap_reverb_helper {
   plugins [{
     label tap_reverb
     input {
-      controls [1200 0 -7 1 1 1 1 4] # Ambiance 
+      controls [1200 -1 -20 1 1 1 1 4] # Ambiance 
     }
   }]
 }
