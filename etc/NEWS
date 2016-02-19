@@ -49,3 +49,15 @@ package ~boodler~ --- see [[http://boodler.org]].
 
 Directory emacspeak/scapes includes Soundscapes developed for use on
 the Audio Desktop.
+
+** Using CrossFeed With ALSA
+
+File ~scapes/bs2b-asoundrc~ defines a  *crossfeed*  virtual device
+that can be used to  enable enhanced headphones listening --- works
+particularly well for soundscapes.
+
+** MPlayer, HRTF And OpenAL
+
+Module emacspeak-m-player provides a new command for invoking
+~MPlayer~ with *OpenAL* as the output driver. This provides *HRTF* for
+a better listening experience.
