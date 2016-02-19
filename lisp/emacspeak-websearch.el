@@ -622,7 +622,7 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
      (lucky (browse-url search-url))
      (t                                 ; always just show results
       (emacspeak-we-extract-by-id-list
-       '( "rhs" "center_col" "nav")
+       '("center_col" "nav" "rhs_block")
        search-url 'speak)))))
 
 ;;{{{ IMFA
@@ -656,7 +656,7 @@ Optional prefix arg prompts for toolbelt options."
      (options (emacspeak-google-toolbelt-change))
      (t
       (emacspeak-we-extract-by-id-list
-       '( "rhs" "center_col" "nav")
+       '("center_col" "nav" "rhs_block")
        (format emacspeak-websearch-accessible-google-url query)
        'speak)))))
 
