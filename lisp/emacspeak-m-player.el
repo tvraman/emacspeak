@@ -1381,7 +1381,6 @@ tap-reverb already installed."
                           emacspeak-m-player-reverb-preset-table))))
     (setq emacspeak-m-player-reverb-filter filter-spec)
     (setq filter (mapconcat #'(lambda (v) (format "%s" v)) filter-spec ":"))
-
     (emacspeak-m-player-dispatch "af_clr")
     (emacspeak-m-player-dispatch
      (format "af_add %s" filter))
