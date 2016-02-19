@@ -46,7 +46,7 @@ pcm.crossfeed {
 ## If you use dmix or other processing filters, you should slave the
 ## plug:bs2b device to them directly, then have bs2b play to the hardware.
 ## This will minimize the impact of sample format conversion.
-
+# TVR: Above didn't work writing to dmixer instead.
 ## This device passes its input through the bs2b LADSPA plugin, then
 ## passes it off to another PCM device. In this example, we use
 ## plug:dmixer to pass to our dmixer  (with a plug adapter for
@@ -58,13 +58,33 @@ pcm.bs2b {
   plugins [{
     label bs2b
     input {
-      controls [ 725 4.5 ] # The defaults are 725Hz crossover frequency and 4.5dB rolloff
+      controls [ 725 6.0 ] # The defaults are 725Hz crossover frequency and 4.5dB rolloff
     }
   }]
 }
 
 # }}}
+# {{{tap_reverb:
 
+pcm.tap_reverb {
+  type plug
+  slave.pcm "tap_reverb_helper"
+}
+
+
+pcm.tap_reverb_helper {
+  type ladspa
+  slave.pcm "plug:dmixer" # Set this line to match your configuration
+  path "/usr/lib/ladspa/"
+  plugins [{
+    label tap_reverb
+    input {
+      controls [1200 0 -7 1 1 1 1 4] # Ambiance 
+    }
+  }]
+}
+
+# }}}
 # {{{TTS Mono: 
 
 #  The Route plugin routes audio among channles using a TTable .

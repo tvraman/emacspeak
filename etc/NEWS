@@ -52,9 +52,10 @@ the Audio Desktop.
 
 ** Using CrossFeed With ALSA
 
-File ~scapes/bs2b-asoundrc~ defines a  *crossfeed*  virtual device
+File ~scapes/bs2b-asoundrc~ defines   *crossfeed*  and *tap_reverb* virtual devices
 that can be used to  enable enhanced headphones listening --- works
 particularly well for soundscapes.
+
 
 ** MPlayer, HRTF And OpenAL
 
