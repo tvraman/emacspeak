@@ -536,9 +536,9 @@ from English to German")
         "s_EDITORS_PICK" "s_BREAKING_NEWS_BOX")
       url
       'speak)))
-;;; As of Dec 16, atom no longer appears supported
+
 (emacspeak-url-template-define
- "Google News Search"
+ "html Google News Search"
  "http://news.google.com/news?hl=en&ned=tus&q=%s&btnG=Google+Search"
  (list "Google News: ")
  #'(lambda ()
@@ -547,27 +547,25 @@ from English to German")
  "Search Google news.")
 
 
-  
 (defun emacspeak-url-template-google-atom-news-display (feed-url)
-  "View feed using auth credentials in auth-handle."
+  "View Google Atom news feed pulled using Curl."
   (interactive)
   (declare (special g-atom-view-xsl
                     g-curl-program g-curl-common-options))
+  (emacspeak-webutils-autospeak)
   (g-display-result
    (format
-    "%s %s  --location  %s 2>/dev/null"
+    "%s %s    '%s' 2>/dev/null"
     g-curl-program g-curl-common-options feed-url)
-   g-atom-view-xsl))  
+   g-atom-view-xsl))
 
 (emacspeak-url-template-define
- "Atom Google News Search"
+ "Google News Search"
  "http://news.google.com/news?hl=en&ned=tus&q=%s&btnG=Google+Search&output=atom"
  (list "Google News: ")
  nil
  "Search Google news."
  #'emacspeak-url-template-google-atom-news-display )
-
-
 
 (defvar emacspeak-url-template-google-transcoder-url
   "http://www.google.com/gwt/n?_gwt_noimg=1&output=xhtml&u=%s"
