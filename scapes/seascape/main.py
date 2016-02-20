@@ -23,21 +23,21 @@ class SurfWaves(agent.Agent):
             sc = self.new_channel_pan(
                 stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, y)))
             ag = SurfBackgroundWaves()
-            self.sched_agent(ag, 0, sc)
+            self.sched_agent(ag, i*10, sc)
             
         for i in range(16):
             y = 1+i*0.05
             sc = self.new_channel_pan(
                 stereo.compose(stereo.scalexy(1.4), stereo.shiftxy(0, y)))
             ag = SurfWaveSounds()
-            self.sched_agent(ag, 0, sc)
+            self.sched_agent(ag, i*8, sc)
 
 
 class SurfWaveSounds(agent.Agent):
 
     def run(self):
         ag = play.IntermittentSoundsList(
-            mindelay=1.0, maxdelay=15.0,
+            mindelay=1.0, maxdelay=25.0,
             minpitch=0.2, maxpitch=1.0,
             minvol=0.02, maxvol=0.35,
             maxpan=1.5, sounds=wavesounds)
@@ -49,7 +49,7 @@ class SurfBackgroundWaves(agent.Agent):
     def run(self):
         p = random.uniform(0.2, 1.0)
         v = random.uniform(0.01, 0.1)
-        d = random.uniform(0.3, 5.0)
+        d = random.uniform(0.3, 10.0)
         pan = random.uniform(-1.5, 1.5)
         dur = self.sched_note_pan(water.waves_light, pan, pitch=p, volume=v)
         self.resched(dur * d)
