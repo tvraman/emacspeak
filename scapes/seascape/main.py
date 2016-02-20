@@ -37,7 +37,7 @@ class SurfWaveSounds(agent.Agent):
 
     def run(self):
         ag = play.IntermittentSoundsList(
-            mindelay=1.0, maxdelay=25.0,
+            mindelay=1.0, maxdelay=20.0,
             minpitch=0.2, maxpitch=1.0,
             minvol=0.02, maxvol=0.35,
             maxpan=1.5, sounds=wavesounds)
