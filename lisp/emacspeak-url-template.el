@@ -560,7 +560,7 @@ from English to German")
    g-atom-view-xsl))
 
 (emacspeak-url-template-define
- "Atom Google News Search"
+ "Google News Search"
  "http://news.google.com/news?hl=en&ned=tus&q=%s&btnG=Google+Search&output=atom"
  (list "Google News: ")
  nil
