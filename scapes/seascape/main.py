@@ -39,7 +39,7 @@ class SurfWaveSounds(agent.Agent):
         ag = play.IntermittentSoundsList(
             mindelay=1.0, maxdelay=15.0,
             minpitch=0.2, maxpitch=1.0,
-            minvol=0.02, maxvol=0.45,
+            minvol=0.02, maxvol=0.35,
             maxpan=1.5, sounds=wavesounds)
         self.sched_agent(ag)
 
