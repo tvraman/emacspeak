@@ -299,6 +299,7 @@ See  \\{soundscape-default-theme} for details."
     ("ChangingLoops" (emacspeak-m-player-mode))
     ("Drip" ,soundscape-communication-modes)
     ("LightWind" (comint-mode elfeed-search-mode))
+    ("LoopStew" nil)
     ("ManyMockingBirds" nil)
     ("MockingBirds" nil)
     ("MockingCuckoos" nil)
