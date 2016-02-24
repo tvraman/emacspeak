@@ -1218,7 +1218,7 @@ Optional interactive prefix arg speaks the structural unit." f)
      (interactive "P")
      (funcall 'emacspeak-eww-next-element (intern ,(format "%s" f)))
      (when speak
-       (emacspeak-eww-speak-element-like-this (intern ,(format "%s" f))))))
+       (emacspeak-eww-speak-this-element (intern ,(format "%s" f))))))
  (eval
   `(defun ,(intern (format "emacspeak-eww-previous-%s" f)) (&optional speak)
      ,(format "Move backward to the next %s.
@@ -1226,7 +1226,7 @@ Optional interactive prefix arg speaks the structural unit." f)
      (interactive "P")
      (funcall 'emacspeak-eww-previous-element (intern ,(format "%s" f)))
      (when speak
-       (emacspeak-eww-speak-element-like-this (intern ,(format "%s" f)))))))
+       (emacspeak-eww-speak-this-element (intern ,(format "%s" f)))))))
 
 ;;}}}
 ;;{{{ Google Search  fixes:
