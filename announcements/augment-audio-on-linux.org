@@ -1,0 +1,27 @@
+* Executive Summary 
+
+A combination of *ALSA*, *Ladspa* and *OpenAL* can provide an enhanced
+headphone listening experience on Linux ---  this article summarizes
+various tools and techniques for leveraging these affordances on the
+Emacspeak Audio Desktop.
+
+* Playing Media Using MPlayer 
+
+
+
+* Defining Virtual Audio Devices For Use With Soundscapes 
+
+
+
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:nil d:(not "LOGBOOK") date:t e:t
+#+OPTIONS: email:nil f:t inline:t num:t p:nil pri:nil prop:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t
+#+TITLE: Augmented Headphone Listening On Linux For The Emacspeak Audio Desktop
+#+DATE: <2016-02-25 Thu>
+#+AUTHOR: raman
+#+EMAIL: raman@google.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 25.0.90.1 (Org mode 8.3.3)
