@@ -134,6 +134,8 @@
                                markdown-jump
                                markdown-move-down markdown-move-list-item-down
                                markdown-move-list-item-up markdown-move-up
+                               markdown-next-visible-heading markdown-previous-visible-heading
+                               markdown-next-heading markdown-previous-heading
                                markdown-next-link markdown-previous-link
                                markdown-promote markdown-promote-list-item
                                markdown-reference-goto-definition
