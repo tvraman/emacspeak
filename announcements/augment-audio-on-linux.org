@@ -25,10 +25,56 @@ Emacspeak Audio Desktop.
 * Playing Media Using MPlayer 
 
 
+1. With Ladspa and its associated plugins installed --- at the minimum
+ I would recommend installing ~tap-plugins~, module
+ ~emacspeak-m-player~ provides a number of affordances for
+ interactively applying Ladspa filters. See commands
+ _emacspeak-m-player-apply-reverb-preset_(bound to _P_ in ~M-Player~)
+ and command _emacspeak-m-player-add-filter_ (bound to _f_ in
+ ~M-Player~).
+2. Command _emacspeak-m-player-apply-reverb-preset_ lets you pick
+ among a total of 42 reverb presets defined by Ladspa module ~tap_reverb~.
+3. Command _emacspeak-m-player-add-filter_ lets you add some of the
+ more commonly used Ladspa effects with smart minibuffer
+ prompts. Use tab completion to discover some of the predefined
+ filters --- these are just convenience shortcuts --- and you can
+ add  any filters you use commonly to this list.
+4. Note that ~mplayer~ also has its own
+  HRTF filter, but that  filter requires that the stream being played is
+  a 48K stream.
+5. Command _emacspeak-m-player-using-openal_ bound by default to
+  _Hyper ;_ launches ~mplayer~ with _OpenAL_ as the audio output
+  driver --- adding  the following line 
+to your _~/.alsoftrc~ file will apply a suitable  HRTF filter for
+augmented headphone listening. 
+: hrtf=true
 
 * Defining Virtual Audio Devices For Use With Soundscapes 
 
+I use soundscapes to provide a pleasant auditory background as I work
+--- see earlier blog article that describes [[http://emacspeak.blogspot.com/2015/12/soundscapes-on-emacspeak-audio-desktop.html][Soundscapes On The
+Emacspeak Audio Desktop]]. Defining virtual ALSA devices that inject
+Ladspa plugins into the output processing chain is an elegant means
+for enhancing the auditory experience provided by these
+soundscapes. In this instance, I apply one of the predefined reverb
+effects (Ambiance) from Ladspa module ~tap-plugins~ and pass the
+results through a BS2B (Bauer Stereo To Binaural) filter --- see file
+[[https://github.com/tvraman/emacspeak/blob/master/scapes/ladspa-asoundrc][scapes/ladspa-asoundrc]] in the emacspeak Github Repo. Notice that that
+file defines a number of virtual audio devices and can serve as a
+template for injecting any installed Ladspa plugins --- you can first
+experiment with filters using Emacspeak's  [[http://emacspeak.blogspot.com/2015/12/a-ladspa-work-bench-for-emacspeak.html][Laudible]] module to find
+settings that work for you before applying them via a virtual device
+defined in your ~asoundrc~ file. Finally, you can customize option
+~soundscape-manager-options~  to add _--device <devicename>_ to have
+the soundscapes use the desired virtual device.
 
+
+* Summary 
+
+Laptops today have plenty of processing power and some really nice
+audio hardware.  Linux has a powerful audio processing stack in ALSA,
+Ladspa and OpenAL. Connecting the dots can be fun and provide an
+enhanced auditory environment.
 
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+OPTIONS: author:t c:nil creator:nil d:(not "LOGBOOK") date:t e:t
