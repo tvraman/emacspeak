@@ -5,6 +5,23 @@ headphone listening experience on Linux ---  this article summarizes
 various tools and techniques for leveraging these affordances on the
 Emacspeak Audio Desktop.
 
+* Glossary 
+
+  - ALSA :: Advanced Linux Sound Architecture. This is my  prefered
+       means of controlling audio, and I entirely avoid Pulseaudio on
+       all my machines.
+  - Ladspa  ::   Linux Audio Developer's Simple Plugin API. Enables
+       the injection of Digital Signal Processing (DSP)  when playing
+       media. It is a layer that sits above *ALSA*. *Ladspa* filters
+       can be  used by  user-space applications like *MPlayer* and
+       *SoX* when playing media. They can also be used  within the
+       user's *ASoundRC* to define virtual audio devices that inject
+       DSP plugins into the media stream.
+  - OpenAL ::  OpenAL is an API for enabling cross-platform 3D
+       audio. User-space applications like *MPlayer* can use OpenAL as
+       the audio output driver --- note that OpenAL on Linux writes to
+       *ALSA* under the covers.
+
 * Playing Media Using MPlayer 
 
 
