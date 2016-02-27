@@ -74,13 +74,12 @@ pcm.crossfeed_reverb {
   type ladspa
   slave.pcm "plug:dmixer"
   path "/usr/lib/ladspa/"
-  plugins [{
-    label tap_reverb #ambiance thick (hd)
-    input {controls [1200 -3 -15 1 1 1 1 4]}
-  }
-          {
-    label bs2b
-    input {controls [ 725 4.5 ]}
+  plugins [
+      {label tap_reverb #ambiance thick (hd)
+       input {controls [5500 0 -18 1 1 1 1 4]}
+      }
+      {label bs2b
+       input {controls [ 725 4.5 ]}
   }]
   }
 }
