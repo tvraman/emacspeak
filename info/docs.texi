@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1137 commands and 937 options.
+This chapter documents a total of 1138 commands and 938 options.
 
 @menu
 * acss-structure::
@@ -1315,6 +1315,48 @@ This personality uses  voice-lighten whose  effect can be changed globally by cu
 
 @end defvar
 
+@defvar {User Option} emacspeak-apt-utils-broken-personality
+Personality used for apt-utils-broken-face
+This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-apt-utils-description-personality
+Personality used for apt-utils-description-face
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-apt-utils-field-contents-personality
+Personality used for apt-utils-field-contents-face
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-apt-utils-field-keyword-personality
+Personality used for apt-utils-field-keyword-face
+This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-apt-utils-normal-package-personality
+Personality used for apt-utils-normal-package-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-apt-utils-version-personality
+Personality used for apt-utils-version-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-apt-utils-virtual-package-personality
+Personality used for apt-utils-virtual-package-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-bold-italic-voice
 Personality used for bold-italic
 This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
@@ -2602,84 +2644,6 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @defvar {User Option} emacspeak-italic-voice
 Personality used for italic
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-js2-error-voice
-Personality used for js2-error
-This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-js2-external-variable-voice
-Personality used for js2-external-variable
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-js2-function-param-voice
-Personality used for js2-function-param
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-js2-instance-member-voice
-Personality used for js2-instance-member
-This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-js2-jsdoc-html-tag-delimiter-voice
-Personality used for js2-jsdoc-html-tag-delimiter
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-js2-jsdoc-html-tag-name-voice
-Personality used for js2-jsdoc-html-tag-name
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-js2-jsdoc-tag-voice
-Personality used for js2-jsdoc-tag
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-js2-jsdoc-type-voice
-Personality used for js2-jsdoc-type
-This personality uses  voice-smoothen-medium whose  effect can be changed globally by customizing voice-smoothen-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-js2-jsdoc-value-voice
-Personality used for js2-jsdoc-value
-This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-js2-magic-paren-voice
-Personality used for js2-magic-paren
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-js2-private-function-call-voice
-Personality used for js2-private-function-call
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-js2-private-member-voice
-Personality used for js2-private-member
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-js2-warning-voice
-Personality used for js2-warning
-This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
 
 @end defvar
 
@@ -3990,6 +3954,11 @@ icon.
 
 @end defvar
 
+@defvar {User Option} emacspeak-eldoc-speak-explicitly
+Set to T if not using a separate TTS notification stream.
+
+@end defvar
+
 @defvar {User Option} emacspeak-speak-errors
 Specifies if error messages are cued.
 
@@ -4513,50 +4482,6 @@ Debian packages.
 Copy package under point to kill ring.
 @end format
 @end deffn
-
-@subsection emacspeak-apt-utils Options
-
-@defvar {User Option} emacspeak-apt-utils-broken-personality
-Personality used for apt-utils-broken-face
-This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-description-personality
-Personality used for apt-utils-description-face
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-field-contents-personality
-Personality used for apt-utils-field-contents-face
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-field-keyword-personality
-Personality used for apt-utils-field-keyword-face
-This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-normal-package-personality
-Personality used for apt-utils-normal-package-face
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-version-personality
-Personality used for apt-utils-version-face
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-virtual-package-personality
-Personality used for apt-utils-virtual-package-face
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
 
 @node emacspeak-arc
 @section emacspeak-arc
@@ -6868,18 +6793,14 @@ To move around the terminal and have different parts spoken.
 @subsection emacspeak-eterm Commands
 
 @subsubsection emacspeak-eterm-copy-region-to-register
-@deffn {Command} emacspeak-eterm-copy-region-to-register  (&rest rest)
+@deffn {Command} emacspeak-eterm-copy-region-to-register  (register)
 @findex emacspeak-eterm-copy-region-to-register
 
 @format
-:around advice: ``ad-Advice-emacspeak-eterm-copy-region-to-register''
-
 Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
 set by command M-x emacspeak-eterm-set-marker and the 
 emacspeak eterm pointer to a register.
-
-(fn REGISTER)
 @end format
 @end deffn
 
@@ -6939,17 +6860,13 @@ in a non eterm buffer if executed via C-e C-e
 @end deffn
 
 @subsubsection emacspeak-eterm-paste-register
-@deffn {Command} emacspeak-eterm-paste-register  (&rest rest)
+@deffn {Command} emacspeak-eterm-paste-register  (register)
 @findex emacspeak-eterm-paste-register
 
 @format
-:around advice: ``ad-Advice-emacspeak-eterm-paste-register''
-
 Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
 sent to the terminal as if it were typed by the user.
-
-(fn REGISTER)
 @end format
 @end deffn
 
@@ -9170,6 +9087,86 @@ JS2-mode http://js2-mode.googlecode.com/svn/trunk
 is a new, powerful Emacs mode for working with JavaScript.
 This module speech-enables js2.
 
+@subsection emacspeak-js2 Options
+
+@defvar {User Option} emacspeak-js2-error-voice
+Personality used for js2-error
+This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-js2-external-variable-voice
+Personality used for js2-external-variable
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-js2-function-param-voice
+Personality used for js2-function-param
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-js2-instance-member-voice
+Personality used for js2-instance-member
+This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-js2-jsdoc-html-tag-delimiter-voice
+Personality used for js2-jsdoc-html-tag-delimiter
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-js2-jsdoc-html-tag-name-voice
+Personality used for js2-jsdoc-html-tag-name
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-js2-jsdoc-tag-voice
+Personality used for js2-jsdoc-tag
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-js2-jsdoc-type-voice
+Personality used for js2-jsdoc-type
+This personality uses  voice-smoothen-medium whose  effect can be changed globally by customizing voice-smoothen-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-js2-jsdoc-value-voice
+Personality used for js2-jsdoc-value
+This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-js2-magic-paren-voice
+Personality used for js2-magic-paren
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-js2-private-function-call-voice
+Personality used for js2-private-function-call
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-js2-private-member-voice
+Personality used for js2-private-member
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-js2-warning-voice
+Personality used for js2-warning
+This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+
+@end defvar
+
 @node emacspeak-jss
 @section emacspeak-jss
 
@@ -9851,7 +9848,7 @@ Scale speed by 2.0
 @findex emacspeak-m-player-edit-reverb
 
 @format
-Add ladspa reverb filter.
+Edit  current ladspa reverb filter.
 See option emacspeak-m-player-reverb-filter to customize reverb filter values.
 You need to use mplayer built with ladspa support, and have package
 tap-reverb already installed.
@@ -16068,6 +16065,15 @@ Optional interactive prefix arg displays documentation for specified resource.
 @end format
 @end deffn
 
+@subsubsection emacspeak-url-template-google-atom-news-display
+@deffn {Command} emacspeak-url-template-google-atom-news-display  (feed-url)
+@findex emacspeak-url-template-google-atom-news-display
+
+@format
+View Google Atom news feed pulled using Curl.
+@end format
+@end deffn
+
 @subsubsection emacspeak-url-template-help
 @deffn {Command} emacspeak-url-template-help   
 @findex emacspeak-url-template-help
@@ -17459,9 +17465,9 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
 
 @subsubsection emacspeak-webspace-feed-reader
 @deffn {Command} emacspeak-webspace-feed-reader  (&optional refresh)
-@kbd{C-' r C-x @@ s r}
+@kbd{C-' R C-x @@ s R}
 
-@kindex C-' r C-x @@ s r
+@kindex C-' R C-x @@ s R
 @findex emacspeak-webspace-feed-reader
 
 @format
@@ -20364,9 +20370,9 @@ Activate scapes named names.
 
 @subsubsection soundscape-restart
 @deffn {Command} soundscape-restart   
-@kbd{C-' R C-x @@ s R}
+@kbd{C-' r C-x @@ s r}
 
-@kindex C-' R C-x @@ s R
+@kindex C-' r C-x @@ s r
 @findex soundscape-restart
 
 @format
@@ -21086,7 +21092,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 72 URL Templates.
+This section documents a total of 73 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -21364,6 +21370,10 @@ List Yahoo RSS Feeds.
 @b{fedex packages}
 
 Display package tracking information from Fedex.
+
+@b{html Google News Search}
+
+Search Google news.
 
 @b{html5IRC}
 
