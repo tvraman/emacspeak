@@ -629,15 +629,22 @@ icon."
         (tts-with-punctuations 'all
                                (dtk-notify-using-voice voice-annotate  emacspeak-last-message))))
     ad-return-value))
+(defcustom emacspeak-eldoc-speak-explicitly nil
+  "Set to T if not using a separate TTS notification stream."
+  :type 'boolean
+  :group 'emacspeak-eldoc)
 
 (defadvice eldoc-message (around emacspeak pre act comp)
   "Speech enable ELDoc --- now used by semantic."
  ;;; eldoc flashes message temporarily, we cache and speak.
-  (lexical-let ((emacspeak-speak-messages nil))
+  (cond
+   (emacspeak-eldoc-speak-explicitly
+    (lexical-let ((emacspeak-speak-messages nil))
     ad-do-it
     (when eldoc-last-message
-      (dtk-speak-and-echo eldoc-last-message))
-    ad-return-value))
+      (dtk-speak-and-echo eldoc-last-message))))
+   (t ad-do-it))
+  ad-return-value)
 
 (defvar emacspeak-ange-ftp-last-percent nil
   "Cache the last percentage that emacspeak spoke.")
