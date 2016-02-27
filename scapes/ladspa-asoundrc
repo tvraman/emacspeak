@@ -76,11 +76,11 @@ pcm.crossfeed_reverb {
   path "/usr/lib/ladspa/"
   plugins [{
     label tap_reverb #ambiance thick (hd)
-    input {controls [1200 0 -18 1 1 1 1 4]}
+    input {controls [1200 -3 -15 1 1 1 1 4]}
   }
           {
     label bs2b
-    input {controls [ 650 9.5 ]}
+    input {controls [ 725 4.5 ]}
   }]
   }
 }
