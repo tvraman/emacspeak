@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2016-02-25 Thu 17:47 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title>Augmented Headphone Listening On Linux For The Emacspeak Audio Desktop</title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="raman" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Augmented Headphone Listening On Linux For The Emacspeak Audio Desktop</h1>
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1"><span class="section-number-2">1</span> Executive Summary</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+A combination of <b>ALSA</b>, <b>Ladspa</b> and <b>OpenAL</b> can provide an enhanced
+headphone listening experience on Linux &#x2014;  this article summarizes
+various tools and techniques for leveraging these affordances on the
+Emacspeak Audio Desktop.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2"><span class="section-number-2">2</span> Glossary</h2>
+<div class="outline-text-2" id="text-2">
+<dl class="org-dl">
+<dt>ALSA</dt><dd>Advanced Linux Sound Architecture. This is my  prefered
+means of controlling audio, and I entirely avoid Pulseaudio on
+all my machines.</dd>
+<dt>Ladspa </dt><dd>Linux Audio Developer's Simple Plugin API. Enables
+the injection of Digital Signal Processing (DSP)  when playing
+media. It is a layer that sits above <b>ALSA</b>. <b>Ladspa</b> filters
+can be  used by  user-space applications like <b>MPlayer</b> and
+<b>SoX</b> when playing media. They can also be used  within the
+user's <b>ASoundRC</b> to define virtual audio devices that inject
+DSP plugins into the media stream.</dd>
+<dt>OpenAL</dt><dd>OpenAL is an API for enabling cross-platform 3D
+audio. User-space applications like <b>MPlayer</b> can use OpenAL as
+the audio output driver &#x2014; note that OpenAL on Linux writes to
+<b>ALSA</b> under the covers.</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3"><span class="section-number-2">3</span> Playing Media Using MPlayer</h2>
+<div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li>With Ladspa and its associated plugins installed &#x2014; at the minimum
+I would recommend installing <code>tap-plugins</code>, module
+<code>emacspeak-m-player</code> provides a number of affordances for
+interactively applying Ladspa filters. See commands
+<span class="underline">emacspeak-m-player-apply-reverb-preset_(bound to _P</span> in <code>M-Player</code>)
+and command <span class="underline">emacspeak-m-player-add-filter</span> (bound to <span class="underline">f</span> in
+<code>M-Player</code>).</li>
+<li>Command <span class="underline">emacspeak-m-player-apply-reverb-preset</span> lets you pick
+among a total of 42 reverb presets defined by Ladspa module <code>tap_reverb</code>.</li>
+<li>Command <span class="underline">emacspeak-m-player-add-filter</span> lets you add some of the
+more commonly used Ladspa effects with smart minibuffer
+prompts. Use tab completion to discover some of the predefined
+filters &#x2014; these are just convenience shortcuts &#x2014; and you can
+add  any filters you use commonly to this list.</li>
+<li>Note that <code>mplayer</code> also has its own
+HRTF filter, but that  filter requires that the stream being played is
+a 48K stream.</li>
+<li>Command <span class="underline">emacspeak-m-player-using-openal</span> bound by default to
+<span class="underline">Hyper ;</span> launches <code>mplayer</code> with <span class="underline">OpenAL</span> as the audio output
+driver &#x2014; adding  the following line</li>
+</ol>
+<p>
+to your _~/.alsoftrc~ file will apply a suitable  HRTF filter for
+augmented headphone listening. 
+</p>
+<pre class="example">
+hrtf=true
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4"><span class="section-number-2">4</span> Defining Virtual Audio Devices For Use With Soundscapes</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+I use soundscapes to provide a pleasant auditory background as I work
+&#x2014; see earlier blog article that describes <a href="http://emacspeak.blogspot.com/2015/12/soundscapes-on-emacspeak-audio-desktop.html">Soundscapes On The
+Emacspeak Audio Desktop</a>. Defining virtual ALSA devices that inject
+Ladspa plugins into the output processing chain is an elegant means
+for enhancing the auditory experience provided by these
+soundscapes. In this instance, I apply one of the predefined reverb
+effects (Ambiance) from Ladspa module <code>tap-plugins</code> and pass the
+results through a BS2B (Bauer Stereo To Binaural) filter &#x2014; see file
+<a href="https://github.com/tvraman/emacspeak/blob/master/scapes/ladspa-asoundrc">scapes/ladspa-asoundrc</a> in the emacspeak Github Repo. Notice that that
+file defines a number of virtual audio devices and can serve as a
+template for injecting any installed Ladspa plugins &#x2014; you can first
+experiment with filters using Emacspeak's  <a href="http://emacspeak.blogspot.com/2015/12/a-ladspa-work-bench-for-emacspeak.html">Laudible</a> module to find
+settings that work for you before applying them via a virtual device
+defined in your <code>asoundrc</code> file. Finally, you can customize option
+<code>soundscape-manager-options</code>  to add <span class="underline">&#x2013;device &lt;devicename&gt;</span> to have
+the soundscapes use the desired virtual device.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline5" class="outline-2">
+<h2 id="orgheadline5"><span class="section-number-2">5</span> Summary</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Laptops today have plenty of processing power and some really nice
+audio hardware.  Linux has a powerful audio processing stack in ALSA,
+Ladspa and OpenAL. Connecting the dots can be fun and provide an
+enhanced auditory environment.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-02-25 Thu&gt;</span></span></p>
+<p class="author">Author: raman</p>
+<p class="date">Created: 2016-02-25 Thu 17:47</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
