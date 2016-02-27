@@ -1236,7 +1236,7 @@ As the default, use current position."
   :group 'emacspeak-m-player)
 
 (defun emacspeak-m-player-edit-reverb ()
-  "Add ladspa reverb filter.
+  "Edit  current ladspa reverb filter.
 See option emacspeak-m-player-reverb-filter to customize reverb filter values.
 You need to use mplayer built with ladspa support, and have package
 tap-reverb already installed."
@@ -1254,6 +1254,7 @@ tap-reverb already installed."
     (unless (file-exists-p (expand-file-name "tap_reverb.so" ladspa))
       (error "Package tap_reverb not installed."))
     (setq filter (read-from-minibuffer "Reverb: " orig-filter))
+    (setq emacspeak-m-player-reverb-filter(split-string filter ":"))
     (emacspeak-m-player-dispatch "af_clr")
     (emacspeak-m-player-dispatch (format "af_add %s" filter))))
 
