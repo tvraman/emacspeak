@@ -7,6 +7,7 @@ alist
 Alist
 allcaps
 allout
+alsa
 ALSA
 alsactl
 alsaplayer
@@ -38,6 +39,7 @@ Austen's
 auth
 Auth
 autoload
+autopan
 autospeak
 bbdb
 BBDB
@@ -51,10 +53,13 @@ blockquote
 bmk
 bolden
 Bolden
+boodler
+Boodler
 bookshare
 Bookshare
 BookShare
 BOOKSHARE
+boop
 brf
 browsable
 bsf
@@ -169,6 +174,7 @@ eflite
 ein
 EIN
 el
+eldoc
 elfeed
 ELFEED
 elisp
@@ -231,6 +237,7 @@ flyspell
 fmt
 fn
 foldoc
+FreeSound
 fset
 ftf
 FTF
@@ -275,6 +282,7 @@ IDE
 ido
 IIT
 ILisp
+IM
 IMap
 imenu
 IMenu
@@ -392,6 +400,7 @@ octals
 ol
 onclick
 ons
+openal
 OpenLibrary
 opml
 OPML
@@ -416,7 +425,6 @@ php
 pianobar
 Pianobar
 PIANOBAR
-Picasa
 pid
 PID
 playlist
@@ -487,6 +495,8 @@ Sametime
 sawfish
 Sawfish
 scanimage
+scape
+scapes
 screenful
 screenfull
 screenreader
@@ -511,6 +521,12 @@ Smoothen
 snd
 sonification
 Sorenson
+soundscape
+Soundscape
+SoundScape
+soundscapes
+Soundscapes
+SoundScapes
 sourceforge
 Sourceforge
 SourceForge
@@ -518,8 +534,8 @@ sox
 Sox
 SoX
 soxplay
-spamassassin
 SPC
+speakc
 speedbar
 Speedbar
 sql
@@ -552,7 +568,6 @@ superclass
 swh
 symlink
 symlinks
-tagsearch
 tbm
 tcl
 TCL
