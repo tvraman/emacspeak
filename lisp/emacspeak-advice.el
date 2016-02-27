@@ -635,13 +635,15 @@ icon."
   :group 'emacspeak-eldoc)
 
 (defadvice eldoc-message (around emacspeak pre act comp)
-  "Speech enable ELDoc --- now used by semantic."
- ;;; eldoc flashes message temporarily, we cache and speak.
+  "Speech enable ELDoc."
+ ;;; eldoc flashes message temporarily, we speak from cache."
   (cond
    (emacspeak-eldoc-speak-explicitly
-    (lexical-let ((emacspeak-speak-messages nil))
-    ad-do-it
-    (when eldoc-last-message
+    (lexical-let ((emacspeak-speak-messages nil)
+                  (cached-message eldoc-last-message))
+      ad-do-it
+    (when (and eldoc-last-message
+               (not (string-equal cached-message eldoc-last-message)))
       (dtk-speak-and-echo eldoc-last-message))))
    (t ad-do-it))
   ad-return-value)
