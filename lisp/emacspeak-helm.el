@@ -55,9 +55,8 @@
 ;;{{{ Setup Helm Hooks:
 
 (defun emacspeak-helm-cue-update ()
-  "
-Cue update."
-  (emacspeak-speak-line)
+  " Cue update."
+  (emacspeak-speak-region (line-beginning-position) (line-end-position))
   (emacspeak-auditory-icon 'select-object))
 
 (add-hook 'helm-update-hook  #'emacspeak-helm-cue-update)
