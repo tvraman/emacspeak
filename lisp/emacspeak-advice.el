@@ -648,6 +648,14 @@ icon."
    (t ad-do-it))
   ad-return-value)
 
+
+(defun emacspeak-eldoc-speak-doc ()
+  "Speak Eldoc documentation if available."
+  (interactive)
+  (declare (special eldoc-documentation-function))
+  (cond
+   (eldoc-documentation-function (message (funcall eldoc-documentation-function)))
+   (t (message "No ElDoc here. "))))
 (defvar emacspeak-ange-ftp-last-percent nil
   "Cache the last percentage that emacspeak spoke.")
 
