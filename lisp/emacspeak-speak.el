@@ -878,6 +878,7 @@ are indicated with auditory icon ellipses."
     (when (listp arg) (setq arg (car arg )))
     (save-excursion
       (let ((inhibit-field-text-motion t)
+            (inhibit-read-only t)
             (start  nil)
             (end nil )
             (inhibit-point-motion-hooks t)
