@@ -56,9 +56,9 @@
 
 (defun emacspeak-helm-cue-update ()
   " Cue update."
-   (dtk-speak
-    (buffer-substring (line-beginning-position) (line-end-position)))
-  (emacspeak-auditory-icon 'select-object))
+  (let ((inhibit-read-only t))
+    (dtk-speak (buffer-substring (line-beginning-position) (line-end-position)))
+    (emacspeak-auditory-icon 'select-object)))
 
 (add-hook 'helm-update-hook  #'emacspeak-helm-cue-update)
 (add-hook   'helm-select-action-hook #'emacspeak-helm-cue-update)
