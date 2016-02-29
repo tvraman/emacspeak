@@ -2191,7 +2191,7 @@ Produce auditory icons if possible."
          (- (point) (length isearch-string ))
        (+ (point) (length isearch-string )))
      voice-bolden
-     (emacspeak-speak-line nil ))))
+     (emacspeak-speak-line))))
 (loop
  for f in
  '(isearch-yank-word isearch-yank-kill isearch-yank-line)

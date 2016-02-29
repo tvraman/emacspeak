@@ -260,7 +260,7 @@ the Emacspeak pointer to be spoken."
   (declare (special emacspeak-eterm-pointer ))
   (save-excursion
     (goto-char emacspeak-eterm-pointer)
-    (emacspeak-speak-line nil )))
+    (emacspeak-speak-line)))
 
 (defun emacspeak-eterm-speak-pointer-word ()
   "Speak the word  the pointer is on."
@@ -300,7 +300,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
     (set-marker emacspeak-eterm-pointer (point))
     (when (ems-interactive-p )
       (emacspeak-auditory-icon 'large-movement)
-      (emacspeak-speak-line nil ))))
+      (emacspeak-speak-line))))
 
 (defun emacspeak-eterm-pointer-to-bottom  () 
   "Move the pointer to the bottom  of the screen."
@@ -311,7 +311,7 @@ Pronounces character phonetically unless  called with a PREFIX arg."
     (set-marker emacspeak-eterm-pointer (point ))
     (when (ems-interactive-p )
       (emacspeak-auditory-icon 'large-movement)
-      (emacspeak-speak-line nil ))))
+      (emacspeak-speak-line))))
 
 (defun emacspeak-eterm-pointer-up (count)
   "Move the pointer up a line.
@@ -327,7 +327,7 @@ Argument COUNT .specifies number of lines by which to move."
     (cond 
      ((<= (marker-position term-home-marker ) (point))
       (set-marker emacspeak-eterm-pointer (point ))
-      (emacspeak-speak-line nil ))
+      (emacspeak-speak-line))
      (t (error "At top of screen. "  )))))
 
 (defun emacspeak-eterm-pointer-down (count )
@@ -343,7 +343,7 @@ Argument COUNT specifies number of lines by which to move."
     (cond 
      ((<= (point) (point-max)) 
       (set-marker emacspeak-eterm-pointer (point ))
-      (emacspeak-speak-line nil ))
+      (emacspeak-speak-line))
      (t (error "Not that many lines on the screen" )))))
 
 (defun emacspeak-eterm-pointer-left (count)
@@ -1163,7 +1163,7 @@ emacspeak-toggle-eterm-autospeak bound to
             (save-excursion (forward-char 1)
                             (emacspeak-speak-word))        
           (emacspeak-speak-word )))
-       (t (emacspeak-speak-line nil )))
+       (t (emacspeak-speak-line)))
       (when (and (not  emacspeak-eterm-pointer-mode ) emacspeak-eterm-pointer)
         (emacspeak-eterm-pointer-to-cursor)))))
 
