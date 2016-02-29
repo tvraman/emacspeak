@@ -654,7 +654,8 @@ icon."
   (interactive)
   (declare (special eldoc-documentation-function))
   (cond
-   (eldoc-documentation-function (message (funcall eldoc-documentation-function)))
+   (eldoc-documentation-function
+    (message (or (funcall eldoc-documentation-function) "No ElDoc here ")))
    (t (message "No ElDoc here. "))))
 (defvar emacspeak-ange-ftp-last-percent nil
   "Cache the last percentage that emacspeak spoke.")
