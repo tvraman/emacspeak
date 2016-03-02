@@ -60,10 +60,10 @@
     (dtk-speak (buffer-substring (line-beginning-position) (line-end-position)))
     (emacspeak-auditory-icon 'select-object)))
 
-;(add-hook 'helm-update-hook  #'emacspeak-helm-cue-update)
-;(add-hook   'helm-select-action-hook #'emacspeak-helm-cue-update)
-(add-hook 'helm-move-selection-after-hook #'emacspeak-helm-cue-update)
-(add-hook 'helm-after-action-hook #'emacspeak-speak-mode-line)
+;(add-hook 'helm-update-hook  #'emacspeak-helm-cue-update 'at-end)
+;(add-hook   'helm-select-action-hook #'emacspeak-helm-cue-update 'at-end)
+(add-hook 'helm-move-selection-after-hook #'emacspeak-helm-cue-update 'at-end)
+(add-hook 'helm-after-action-hook #'emacspeak-speak-mode-line 'at-end)
 
 ;;}}}
 (provide 'emacspeak-helm)
