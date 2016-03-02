@@ -694,13 +694,7 @@ name of the list.")
  "http://www.cnn.com/services/podcasting/"
  nil
  nil
- "List CNN Podcast media links."
- #'(lambda (url)
-     (emacspeak-we-extract-by-class-list
-      '("cnnPODcastleft"
-        "cnnPODcastright")
-      url
-      'speak )))
+ "List CNN Podcast media links.")
 
 (emacspeak-url-template-define
  "CNN Content"
