@@ -56,7 +56,7 @@
 
 (defun emacspeak-helm-cue-update ()
   " Cue update."
-  (lexical-let ((inhibit-read-only t))
+  (let ((inhibit-read-only t))
     (condition-case nil
     (dtk-speak (buffer-substring (line-beginning-position) (line-end-position)))
     (error nil))
