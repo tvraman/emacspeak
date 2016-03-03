@@ -3,8 +3,8 @@
 (require 'helm)
 (require 'helm-config)
 
-;;; Use alt-h as the helm prefix 
-(global-set-key (kbd "C-x @ah") 'helm-command-prefix)
+;;; Use hyper-. as the helm prefix 
+(global-set-key (kbd "C-x @h.") 'helm-command-prefix)
 (global-unset-key (kbd "C-x c"))
 
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
