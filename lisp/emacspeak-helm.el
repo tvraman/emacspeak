@@ -63,16 +63,16 @@
     (when (and (not   (zerop count))
                (sit-for 0.2 t))
       (setq count-msg
-         (concat
-          (propertize 
-         (format "%d of %d"
-                 (- (line-number-at-pos) 2)
-          (- (count-lines(point-min) (point-max))2))
-         'personality voice-bolden)))
+            (concat
+             (propertize 
+              (format "%d of %d"
+                      (- (line-number-at-pos) 2)
+                      (- (count-lines(point-min) (point-max))2))
+              'personality voice-bolden)))
       (emacspeak-auditory-icon 'progress)
       (condition-case nil
-    (dtk-speak (concat selection count-msg))
-    (error nil)))))
+          (dtk-speak (concat line count-msg))
+        (error nil)))))
 
 
 
