@@ -41,7 +41,7 @@
 
 ;;; Commentary:
 ;;; HELM ==  Smart narrowing/selection in emacs
-
+;;; When using this with Emacspeak, hit space in the minibuffer to start getting feedback.
 ;;; Code:
 
 ;;}}}
