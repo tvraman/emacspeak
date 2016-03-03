@@ -65,7 +65,7 @@
 (defvar emacspeak-wizards-personal-portfolio)
 
 (declare-function gweb-google-autocomplete (&optional prompt))
-(declare-function gtube-video-by-tag(tag &optional page count))
+(declare-function gtu(tag &optional page count))
 (declare-function calendar-astro-date-string (&optional date))
 ;;}}}
 ;;{{{ searcher table

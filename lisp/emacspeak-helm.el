@@ -59,7 +59,8 @@
   (let ((inhibit-read-only t)
         (count-msg nil)
         (count (-  (count-lines (point-min) (point-max)) 2)))
-    (unless (zerop count)
+    (when (and (not   (zerop count))
+               (sit-for 0.2 t))
       (setq count-msg
          (concat
           (propertize 
