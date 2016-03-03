@@ -57,20 +57,23 @@
 (defun emacspeak-helm-cue-update ()
   " Cue update."
   (let ((inhibit-read-only t)
-        (count
+        (count-msg nil)
+        (count (-  (count-lines (point-min) (point-max)) 2)))
+    (unless (zerop count)
+      (setq count-msg
          (concat
           (propertize "Matches:" 'personality voice-annotate)
           (propertize 
          (format "%d"
                  (- (count-lines(point-min) (point-max))2))
-         'personality voice-bolden))))
-    (emacspeak-auditory-icon 'select-object)
-    (condition-case nil
+         'personality voice-bolden)))
+      (emacspeak-auditory-icon 'progress)
+      (condition-case nil
     (dtk-speak
      (concat  
      (buffer-substring (line-beginning-position) (line-end-position))
-     count))
-    (error nil))))
+     count-msg))
+    (error nil)))))
 
 
 
