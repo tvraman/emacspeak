@@ -23,3 +23,4 @@
 (helm-mode 1)
 
 
+(global-set-key (kbd "C-x @h..") 'helm-mode)
