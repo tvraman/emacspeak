@@ -53,6 +53,7 @@
 
 ;;}}}
 ;;{{{ Setup Helm Hooks:
+
 (defadvice helm-mode (after emacspeak pre act comp)
   "Emacspeak setup."
   ;;; Disable our minibuffer setup hook since helm handles it.
@@ -86,6 +87,16 @@
 
 (add-hook 'helm-move-selection-after-hook #'emacspeak-helm-cue-update 'at-end)
 (add-hook 'helm-after-action-hook #'emacspeak-speak-mode-line 'at-end)
+
+;;}}}
+;;{{{ Helm Setup:
+
+(defun emacspeak-helm-setup ()
+  "Set up Helm for use with Emacspeak."
+  (require 'helm-mode)
+  (push 'emacspeak-minibuffer-setup-hook helm-mode-minibuffer-setup-hook-black-list))
+
+(emacspeak-helm-setup)
 
 ;;}}}
 (provide 'emacspeak-helm)
