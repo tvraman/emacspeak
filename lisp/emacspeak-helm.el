@@ -62,6 +62,7 @@
     (remove-hook 'minibuffer-setup-hook #'emacspeak-minibuffer-setup-hook))
    (t  (add-hook 'minibuffer-setup-hook #'emacspeak-minibuffer-setup-hook)))
   (when (ems-interactive-p)
+    (emacspeak-auditory-icon (if helm-mode  'on 'off))
     (message "Turned %s helm-mode"
            (if helm-mode "on" "off"))))
 
