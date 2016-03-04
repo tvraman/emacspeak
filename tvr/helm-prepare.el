@@ -3,8 +3,8 @@
 (require 'helm)
 (require 'helm-config)
 
-;;; Use hyper-. as the helm prefix 
-(global-set-key (kbd "C-x @h.") 'helm-command-prefix)
+;;; Use hyper-; as the helm prefix 
+(global-set-key (kbd "C-x @h;") 'helm-command-prefix)
 (global-unset-key (kbd "C-x c"))
 
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
@@ -23,6 +23,6 @@
 (helm-mode 1)
 
 
-(global-set-key (kbd "C-x @h..") 'helm-mode)
-(global-set-key (kbd "C-x @h. M-:") 'helm-eval-expression-with-eldoc)
+(global-set-key (kbd "C-x @h;;") 'helm-mode)
+(global-set-key (kbd "C-x @h; M-:") 'helm-eval-expression-with-eldoc)
 (define-key helm-map (kbd "C-s") 'helm-toggle-suspend-update)
