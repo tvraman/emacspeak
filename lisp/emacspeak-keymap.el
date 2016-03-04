@@ -637,7 +637,7 @@ interactive command that the key sequence executes."
   '(
     ("d" magit-dispatch-popup)
     (":" emacspeak-wizards-view-buffers-filtered-by-m-player-mode)
-    (";" emacspeak-m-player-using-openal)
+    (":" emacspeak-m-player-using-openal)
     ("B" eww-list-bookmarks)
     ("C" apu-chars)
     ("N" emacspeak-npr-listing)
