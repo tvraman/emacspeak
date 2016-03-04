@@ -53,6 +53,15 @@
 
 ;;}}}
 ;;{{{ Setup Helm Hooks:
+(defadvice helm-mode (after emacspeak pre act comp)
+  "Emacspeak setup."
+  ;;; Disable our minibuffer setup hook since helm handles it.
+  (cond
+   (helm-mode
+    (remove-hook 'minibuffer-setup-hook #'emacspeak-minibuffer-setup-hook))
+   (t  (add-hook 'minibuffer-setup-hook #'emacspeak-minibuffer-setup-hook)))
+  (message "Turned %s helm-mode"
+           (if helm-mode "on" "off")))
 
 (defun emacspeak-helm-cue-update ()
   " Cue update."
