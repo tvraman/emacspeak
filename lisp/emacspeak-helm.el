@@ -64,7 +64,7 @@
                (sit-for 0.2 t))
       (setq count-msg
             (concat
-             (propertize 
+             (propertize
               (format "%d of %d"
                       (- (line-number-at-pos) 2)
                       (- (count-lines(point-min) (point-max))2))
@@ -73,8 +73,6 @@
       (condition-case nil
           (dtk-speak (concat line count-msg))
         (error nil)))))
-
-
 
 (add-hook 'helm-move-selection-after-hook #'emacspeak-helm-cue-update 'at-end)
 (add-hook 'helm-after-action-hook #'emacspeak-speak-mode-line 'at-end)
