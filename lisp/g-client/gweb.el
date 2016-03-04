@@ -340,6 +340,7 @@ Optional interactive prefix arg refresh forces this cached URL to be refreshed."
         (add-text-properties   (car bounds) (cdr bounds)
                                (list 'lucky-url url
                                      'face 'highlight)))
+      (pushnew lucky minibuffer-history)
       (set-buffer-modified-p modified-p)
       (kill-new content)
       (when (and gweb-search-results-handler
