@@ -199,7 +199,6 @@
            nil nil                     ; predicate required-match
            word                        ; initial input
            'gweb-history))
-    (pushnew  query gweb-history)
     (g-url-encode query)))
 
 ;;;###autoload
@@ -222,7 +221,6 @@ Uses specified corpus for prompting and suggest selection."
            nil nil                     ; predicate required-match
            word                        ; initial input
            'gweb-history))
-    (pushnew  query gweb-history)
     (g-url-encode query)))
 ;;; For news:
 
@@ -238,7 +236,6 @@ Uses specified corpus for prompting and suggest selection."
            'gweb-news-cc-suggest-completer
            nil nil
            word 'gweb-history))
-    (pushnew  query gweb-history)
     (g-url-encode query)))
 
 ;;}}}
@@ -343,7 +340,6 @@ Optional interactive prefix arg refresh forces this cached URL to be refreshed."
         (add-text-properties   (car bounds) (cdr bounds)
                                (list 'lucky-url url
                                      'face 'highlight)))
-      (pushnew lucky minibuffer-history)
       (set-buffer-modified-p modified-p)
       (kill-new content)
       (when (and gweb-search-results-handler
