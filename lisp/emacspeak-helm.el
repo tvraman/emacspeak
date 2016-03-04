@@ -60,8 +60,9 @@
    (helm-mode
     (remove-hook 'minibuffer-setup-hook #'emacspeak-minibuffer-setup-hook))
    (t  (add-hook 'minibuffer-setup-hook #'emacspeak-minibuffer-setup-hook)))
-  (message "Turned %s helm-mode"
-           (if helm-mode "on" "off")))
+  (when (ems-interactive-p)
+    (message "Turned %s helm-mode"
+           (if helm-mode "on" "off"))))
 
 (defun emacspeak-helm-cue-update ()
   " Cue update."
