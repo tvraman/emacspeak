@@ -58,6 +58,7 @@
 
 (voice-setup-add-map
  '(
+   (Man-overstrike   voice-animate)
    (woman-unknown  voice-monotone)
    (woman-edition voice-bolden-medium)
    (woman-bold voice-bolden)
