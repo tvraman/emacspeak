@@ -2404,8 +2404,7 @@ Produce auditory icons if possible."
   (let ((inhibit-field-text-motion t))
     (when emacspeak-minibuffer-enter-auditory-icon
       (emacspeak-auditory-icon 'open-object))
-    (unwind-protect
-        (tts-with-punctuations 'all (emacspeak-speak-buffer)))))
+    (tts-with-punctuations 'all (emacspeak-speak-buffer))))
 
 (add-hook 'minibuffer-setup-hook 'emacspeak-minibuffer-setup-hook)
 
