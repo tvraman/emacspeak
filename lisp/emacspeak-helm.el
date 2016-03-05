@@ -57,10 +57,10 @@
 (defadvice helm-mode (after emacspeak pre act comp)
   "Emacspeak setup."
   ;;; Disable our minibuffer setup hook since helm handles it.
-  (cond
-   (helm-mode
-    (remove-hook 'minibuffer-setup-hook #'emacspeak-minibuffer-setup-hook))
-   (t  (add-hook 'minibuffer-setup-hook #'emacspeak-minibuffer-setup-hook)))
+  ;; (cond
+  ;;  (helm-mode
+  ;;   (remove-hook 'minibuffer-setup-hook #'emacspeak-minibuffer-setup-hook))
+  ;;  (t  (add-hook 'minibuffer-setup-hook #'emacspeak-minibuffer-setup-hook)))
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if helm-mode  'on 'off))
     (message "Turned %s helm-mode"
