@@ -1,0 +1,105 @@
+@c Converted from emacspeak-significance.org 
+
+@node Background
+@chapter Background
+
+Emacspeak was originally developed in late 1994 and released as
+Open Source in May 1995.  Since then, the system has been
+regularly updated every six months to provide an up-to-date
+@emph{Audio Desktop}. Here is a brief overview of some of the
+significant aspects of the system, and the lessons learnt from
+its development and use. The work on Emacspeak was presented at
+CHI96 and the co-located Assets96 conference in Vancouver,
+BC. This overview is being written nearly 15 years later to trace
+the impact of the work.
+
+
+@menu
+* Speech-Enabling Applicationss::
+* Audio Formatting And Aural CSS::
+* Auditory Icons::
+* Summary::
+@end menu
+
+@node Speech-Enabling Applicationss
+@section Speech-Enabling Applicationss
+
+The underlying thesis behind AsTeR (Audio System For Technical
+Readings) and later Emacspeak is that information is
+display-independent.  This leads to the insight that  
+producing auditory renderings of information starting from the
+true source of that information often produces better renderings
+than those that result from  working from a modality-specific
+representation; thus, attempting to speak visually rendered
+information can often prove suboptimal. AsTeR  applied these
+ideas to documents authored in @LaTeX{}; Emacspeak generalized these
+ideas to user interfaces.
+
+Emacspeak was therefore designed from the ground-up to enable
+applications generate their own spoken feedback, rather than
+having an external software program construct the spoken feedback
+by responding to events in its environment. 
+
+In Emacspeak, theory meets practice to deliver a working
+implementation; Emacspeak leverages the power of Emacs and its
+embedded Lisp interpreter to inject spoken feedback into
+applications that run within Emacs. For a detailed overview on
+how the  @emph{advice} mechanism in Emacs  is used, see the original
+Assets96 paper, as well as the chapter on Emacspeak in the
+OReilly publication entitled  @emph{Beautiful Code}.
+
+@node Audio Formatting And Aural CSS
+@section Audio Formatting And Aural CSS
+
+AsTeR introduced the notion of @emph{audio formatting}  a concept
+analogous to the well-understood notion of visual formatting. The
+work on AsTeR coincided with the  Web being at its infancy. As
+the Web evolved to acquire Cascaded Style Sheets (CSS), ideas
+from AsTeR  were used to define Aural CSS as an appendix to CSS1
+in 1995. Emacspeak proved an ideal platform to prototype the
+ideas within Aural CSS --- first within the Emacs/W3
+browser. Around this time, Emacs itself evolved to support
+multiple fonts and @emph{font-locking}  to implement syntax coloring
+for various types of content. Emacspeak applied the ideas of
+audio formatting to create the auditory analog of @emph{font-lock} --
+Emacspeak calls this @emph{voice locking}.
+
+Voice locking in Emacspeak continues to be a unique feature among
+systems that provide auditory feedback. Later in 1997,
+Emacspeak's implementation was overhauled to use Aural CSS for
+all aspects of voice-locking, rather than just for Web content.
+
+@node Auditory Icons
+@section Auditory Icons
+
+Emacspeak augments spoken feedback with short auditory icons that
+vastly speed up interaction. Combined with audio formatting, the
+resulting experience is analogous to moving from a monochrome
+character-cell display to a high-quality color display --- the
+overall user experience is rich in comparison. This enabled
+Emacspeak to explore innovative means of auditory communication
+--- as an example,  see my Assets-98 paper entitled
+@emph{Conversational Gestures For The Audio Desktop} that details how
+one can play Tetris on the Emacspeak desktop.
+
+@node Summary
+@section Summary
+
+The lessons learnt from developing Emacspeak are many ---   here
+are a few highlights:
+
+@itemize
+@item
+A model for browsing tabular data --- see relevant chapter in
+my book @emph{Auditory User Interfaces}
+@item
+Audio formatting and Aural CSS
+@item
+Auditory icons for efficient feedback.
+@item
+Web widgets for rapid task completion on the Web.
+@end itemize
+
+And many more than will fit this margin.
+
+

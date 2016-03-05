@@ -33,7 +33,8 @@ notice are preserved on all copies.
 
 @include preamble.texi
 @include copyright.texi
-@include announce.texi     
+@include announce.texi
+@include emacspeak-significance.texi
 @include introduction.texi
 @include install.texi
 @include using.texi
@@ -43,7 +44,6 @@ notice are preserved on all copies.
 @include packages.texi
 @include eterm.texi
           @include docs.texi
-
 @include tts-server.texi
 @include acknowledge.texi
 @c trailer
