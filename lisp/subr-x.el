@@ -1,6 +1,6 @@
 ;;; subr-x.el --- extra Lisp functions  -*- lexical-binding:t -*-
 
-;; Copyright (C) 2013-2015 Free Software Foundation, Inc.
+;; Copyright (C) 2013-2016 Free Software Foundation, Inc.
 
 ;; Maintainer: emacs-devel@gnu.org
 ;; Keywords: convenience
@@ -33,6 +33,7 @@
 ;;; Code:
 
 (require 'pcase)
+
 
 (defmacro internal--thread-argument (first? &rest forms)
   "Internal implementation for `thread-first' and `thread-last'.
@@ -99,10 +100,10 @@ threading."
 (defun internal--build-binding (binding prev-var)
   "Check and build a single BINDING with PREV-VAR."
   (thread-first
-   binding
-   internal--listify
-   internal--check-binding
-   (internal--build-binding-value-form prev-var)))
+      binding
+    internal--listify
+    internal--check-binding
+    (internal--build-binding-value-form prev-var)))
 
 (defun internal--build-bindings (bindings)
   "Check and build conditional value forms for BINDINGS."
