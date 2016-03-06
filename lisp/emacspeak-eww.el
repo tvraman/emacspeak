@@ -664,6 +664,7 @@ Retain previously set punctuations  mode."
 
 ;;}}}
 ;;{{{ Filter DOM:
+
 (defun emacspeak-eww-tag-article (dom)
   "Tag article, then render."
   (let ((start (point)))
@@ -1075,6 +1076,51 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (eww-restore-history(elt eww-history eww-history-position))
   (emacspeak-speak-mode-line)
   (emacspeak-auditory-icon 'open-object))
+
+;;}}}
+;;{{{ Filters For Non-interactive  Use:
+
+(defun eww-display-dom-by-id (id)
+  "Display DOM filtered by specified id."
+  (emacspeak-eww-prepare-eww)
+  (let ((dom (funcall  #'dom-by-id  (emacspeak-eww-current-dom)id)))
+    (when dom (emacspeak-eww-view-helper (dom-html-from-nodes dom (emacspeak-eww-current-url))))))
+
+
+(defun eww-display-dom-by-id-list (id-list)
+  "Display DOM filtered by specified id-list."
+  (emacspeak-eww-prepare-eww)
+  (let ((dom (funcall  #'dom-by-id-list  (emacspeak-eww-current-dom)id-list)))
+    (when dom (emacspeak-eww-view-helper (dom-html-from-nodes dom (emacspeak-eww-current-url))))))
+
+
+(defun eww-display-dom-by-class (class)
+  "Display DOM filtered by specified class."
+  (emacspeak-eww-prepare-eww)
+  (let ((dom (funcall  #'dom-by-class  (emacspeak-eww-current-dom)class)))
+    (when dom (emacspeak-eww-view-helper (dom-html-from-nodes dom (emacspeak-eww-current-url))))))
+
+
+(defun eww-display-dom-by-class-list (class-list)
+  "Display DOM filtered by specified class-list."
+  (emacspeak-eww-prepare-eww)
+  (let ((dom (funcall  #'dom-by-class-list  (emacspeak-eww-current-dom)class-list)))
+    (when dom (emacspeak-eww-view-helper (dom-html-from-nodes dom (emacspeak-eww-current-url))))))
+
+
+
+(defun eww-display-dom-by-element (element)
+  "Display DOM filtered by specified element."
+  (emacspeak-eww-prepare-eww)
+  (let ((dom (funcall  #'dom-by-tag  (emacspeak-eww-current-dom)element)))
+    (when dom (emacspeak-eww-view-helper (dom-html-from-nodes dom (emacspeak-eww-current-url))))))
+
+
+(defun eww-display-dom-by-element-list (element-list)
+  "Display DOM filtered by specified element-list."
+  (emacspeak-eww-prepare-eww)
+  (let ((dom (funcall  #'dom-by-tag-list  (emacspeak-eww-current-dom)element-list)))
+    (when dom (emacspeak-eww-view-helper (dom-html-from-nodes dom (emacspeak-eww-current-url))))))
 
 ;;}}}
 ;;{{{ Element Navigation:
