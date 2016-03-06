@@ -786,7 +786,7 @@ for use as a DOM filter."
   (let ((value (completing-read "Value: " eww-id-cache nil 'must-match)))
     (unless (zerop (length value)) value)))
 
-(defun eww-view-dom-having-id (multi)
+(defun eww-view-dom-having-id (&optional multi)
   "Display DOM filtered by specified id=value test.
 Optional interactive arg `multi' prompts for multiple ids."
   (interactive "P")
@@ -801,7 +801,7 @@ Optional interactive arg `multi' prompts for multiple ids."
       (emacspeak-eww-view-helper
        (dom-html-from-nodes dom (emacspeak-eww-current-url))))))
 
-(defun eww-view-dom-not-having-id (multi)
+(defun eww-view-dom-not-having-id (&optional multi)
   "Display DOM filtered by specified nodes not passing  id=value test.
 Optional interactive arg `multi' prompts for multiple ids."
   (interactive "P")
@@ -845,7 +845,7 @@ Optional interactive arg `multi' prompts for multiple ids."
              nil 'must-match))
       (list attr value))))
 
-(defun eww-view-dom-having-attribute (multi)
+(defun eww-view-dom-having-attribute (&optional multi)
   "Display DOM filtered by specified attribute=value test.
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
@@ -861,7 +861,7 @@ Optional interactive arg `multi' prompts for multiple classes."
       (dom-html-add-base dom   (emacspeak-eww-current-url))
       (emacspeak-eww-view-helper dom))))
 
-(defun eww-view-dom-not-having-attribute (multi)
+(defun eww-view-dom-not-having-attribute (&optional multi)
   "Display DOM filtered by specified nodes not passing  attribute=value test.
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
@@ -884,7 +884,7 @@ Optional interactive arg `multi' prompts for multiple classes."
   (let ((value (completing-read "Value: " eww-class-cache nil 'must-match)))
     (unless (zerop (length value)) value)))
 
-(defun eww-view-dom-having-class (multi)
+(defun eww-view-dom-having-class (&optional multi)
   "Display DOM filtered by specified class=value test.
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
@@ -899,7 +899,7 @@ Optional interactive arg `multi' prompts for multiple classes."
       (emacspeak-eww-view-helper
        (dom-html-from-nodes dom (emacspeak-eww-current-url))))))
 
-(defun eww-view-dom-not-having-class (multi)
+(defun eww-view-dom-not-having-class (&optional multi)
   "Display DOM filtered by specified nodes not passing   class=value test.
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
