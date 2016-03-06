@@ -581,7 +581,6 @@ Retain previously set punctuations  mode."
     (emacspeak-speak-buffer)))
 
 ;;}}}
-
 ;;{{{  Customize image loading:
 
 (defcustom emacspeak-eww-silence-images t
@@ -1091,7 +1090,6 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
 
   (eww-display-dom-filter-helper #'dom-by-id  id))
 
-
 (defun eww-display-dom-by-id-list (id-list)
   "Display DOM filtered by specified id-list."
 
@@ -1115,6 +1113,14 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   "Display DOM filtered by specified element-list."
 
   (eww-display-dom-filter-helper #'dom-by-tag-list  tag-list))
+
+(defun eww-display-dom-by-role (role)
+  "Display DOM filtered by specified role."
+  (eww-display-dom-filter-helper #'dom-by-role  role))
+
+(defun eww-display-dom-by-role-list (role-list)
+  "Display DOM filtered by specified role-list."
+  (eww-display-dom-filter-helper #'dom-by-role-list  role-list))
 
 ;;}}}
 ;;{{{ Element Navigation:
