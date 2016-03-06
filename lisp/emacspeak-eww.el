@@ -935,7 +935,7 @@ Optional interactive arg `multi' prompts for multiple classes."
   (declare (special eww-itemprop-cache))
   (unless eww-itemprop-cache (error "No itemprop to filter."))
   (let ((value (completing-read "Value: " eww-itemprop-cache nil 'must-match)))
-    (unless (zerop (length value)) value))) 
+    (unless (zerop (length value)) value)))
 
 (defun eww-view-dom-having-role (multi)
   "Display DOM filtered by specified role=value test.
@@ -999,7 +999,7 @@ Optional interactive arg `multi' prompts for multiple classes."
                 for r in (ems-eww-read-list 'ems-eww-read-property)
                 collect (list 'property r))
              (list (list 'property (ems-eww-read-property))))))))
-    (when dom (emacspeak-eww-view-helper (dom-html-add-base dom))))) 
+    (when dom (emacspeak-eww-view-helper (dom-html-add-base dom)))))
 
 (defun eww-view-dom-having-itemprop (multi)
   "Display DOM filtered by specified itemprop=value test.
@@ -1088,37 +1088,32 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
 
 (defun eww-display-dom-by-id (id)
   "Display DOM filtered by specified id."
-  
-    (eww-display-dom-filter-helper #'dom-by-id  id))
-    
+
+  (eww-display-dom-filter-helper #'dom-by-id  id))
 
 
 (defun eww-display-dom-by-id-list (id-list)
   "Display DOM filtered by specified id-list."
-  
-  (eww-display-dom-filter-helper #'dom-by-id-list  id-list))
 
+  (eww-display-dom-filter-helper #'dom-by-id-list  id-list))
 
 (defun eww-display-dom-by-class (class)
   "Display DOM filtered by specified class."
-  
-  (eww-display-dom-filter-helper #'dom-by-class  class))
 
+  (eww-display-dom-filter-helper #'dom-by-class  class))
 
 (defun eww-display-dom-by-class-list (class-list)
   "Display DOM filtered by specified class-list."
-  
+
   (eww-display-dom-filter-helper #'dom-by-class-list  class-list))
 
 (defun eww-display-dom-by-element (tag)
   "Display DOM filtered by specified tag."
-  
   (eww-display-dom-filter-helper #'dom-by-tag  tag))
-
 
 (defun eww-display-dom-by-element-list (tag-list)
   "Display DOM filtered by specified element-list."
-  
+
   (eww-display-dom-filter-helper #'dom-by-tag-list  tag-list))
 
 ;;}}}
