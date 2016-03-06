@@ -101,13 +101,6 @@
 ;;}}}
 ;;{{{ Helm Setup:
 
-(defun emacspeak-helm-setup ()
-  "Set up Helm for use with Emacspeak."
-  (require 'helm-mode)
-  (push 'emacspeak-minibuffer-setup-hook helm-mode-minibuffer-setup-hook-black-list))
-
-(emacspeak-helm-setup)
-
 ;;}}}
 (provide 'emacspeak-helm)
 ;;{{{ end of file
