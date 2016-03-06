@@ -64,6 +64,7 @@
 
 (defun emacspeak-helm-before-initialize-hook ()
   "Remove emacspeak minibuffer setup hook."
+  (emacspeak-auditory-icon 'open-object)
   (remove-hook 'minibuffer-setup-hook #'emacspeak-minibuffer-setup-hook))
 
 (add-hook 'helm-before-initialize-hook #'emacspeak-helm-before-initialize-hook)
