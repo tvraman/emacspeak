@@ -102,6 +102,16 @@
 ;;{{{ Helm Setup:
 
 ;;}}}
+;;{{{ Advice helm-google-suggest to filter results:
+
+(defadvice helm-google-suggest (before emacspea pre act comp)
+  "setup emacspeak post-processing-hook"
+  (add-hook
+   'emacspeak-web-post-process-hook
+   #'(lambda nil
+       (eww-display-dom-by-id "res"))))
+
+;;}}}
 (provide 'emacspeak-helm)
 ;;{{{ end of file
 
