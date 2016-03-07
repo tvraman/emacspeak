@@ -81,8 +81,6 @@
         (line (buffer-substring (line-beginning-position) (line-end-position)))
         (count-msg nil)
         (count (-  (count-lines (point-min) (point-max)) 2)))
-    (when (and (not   (zerop count))
-               (sit-for 0.2 t))
       (setq count-msg
             (concat
              (propertize
@@ -93,7 +91,7 @@
       (emacspeak-auditory-icon 'progress)
       (condition-case nil
           (dtk-speak (concat line count-msg))
-        (error nil)))))
+        (error nil))))
 
 (add-hook 'helm-move-selection-after-hook #'emacspeak-helm-cue-update 'at-end)
 (add-hook 'helm-after-action-hook #'emacspeak-speak-mode-line 'at-end)
@@ -117,8 +115,18 @@
 
 (defadvice helm-recenter-top-bottom-other-window (after emacspeak pre act comp)
   "Speak current selection."
-  (with-current-buffer (helm-buffer-get)
-    (emacspeak-auditory-icon 'progress)
+  (when (ems-interactive-p)
+    (with-current-buffer (helm-buffer-get)
+      (emacspeak-auditory-icon 'progress)
+      (emacspeak-speak-line))))
+
+;;}}}
+;;{{{ Advice helm-yank-selection
+
+(defadvice helm-yank-selection (after emacspeak pre act comp)
+  "Speak minibuffer after yanking."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'yank-object)
     (emacspeak-speak-line)))
 
 ;;}}}
