@@ -89,9 +89,7 @@
                       (- (count-lines(point-min) (point-max))2))
               'personality voice-bolden)))
       (emacspeak-auditory-icon 'progress)
-      (condition-case nil
-          (dtk-speak (concat line count-msg))
-        (error nil))))
+          (dtk-speak (concat line count-msg))))
 
 (add-hook 'helm-move-selection-after-hook #'emacspeak-helm-cue-update 'at-end)
 (add-hook 'helm-after-action-hook #'emacspeak-speak-mode-line 'at-end)
