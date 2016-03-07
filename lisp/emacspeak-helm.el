@@ -41,6 +41,9 @@
 
 ;;; Commentary:
 ;;; HELM ==  Smart narrowing/selection in emacs
+;;; This module speech-enables Helm interaction.
+;;; See tvr/helm-prepare.el in the GitHub repository for my  helm setup.
+;;; that file provides convenient emacspeak-centric keybindings for Helm interaction.
 
 ;;; Code:
 
