@@ -62,3 +62,7 @@ particularly well for soundscapes.
 Module emacspeak-m-player provides a new command for invoking
 ~MPlayer~ with *OpenAL* as the output driver. This provides *HRTF* for
 a better listening experience.
+
+** Helm Support:
+
+Module emacspeak-helm.el enhanced to provide better coverage of Helm use-cases.
