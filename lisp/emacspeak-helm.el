@@ -113,6 +113,15 @@
        (eww-display-dom-by-id-list '("center_col" "rhs")))))
 
 ;;}}}
+;;{{{ Advice helm-recenter-top-bottom-other-window:
+
+(defadvice helm-recenter-top-bottom-other-window (after emacspeak pre act comp)
+  "Speak current selection."
+  (with-current-buffer (helm-buffer-get)
+    (emacspeak-auditory-icon 'progress)
+    (emacspeak-speak-line)))
+
+;;}}}
 (provide 'emacspeak-helm)
 ;;{{{ end of file
 
