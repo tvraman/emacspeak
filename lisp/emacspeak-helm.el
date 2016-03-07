@@ -109,7 +109,8 @@
   (add-hook
    'emacspeak-web-post-process-hook
    #'(lambda nil
-       (eww-display-dom-by-id "res"))))
+       (setq emacspeak-google-toolbelt (emacspeak-google-toolbelt))
+       (eww-display-dom-by-id-list '("center_col" "rhs")))))
 
 ;;}}}
 (provide 'emacspeak-helm)
