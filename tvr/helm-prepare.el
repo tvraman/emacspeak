@@ -11,7 +11,8 @@
 ;;; Use hyper-; as the helm prefix 
 (global-set-key (kbd "C-x @h;") 'helm-command-prefix)
 (global-unset-key (kbd "C-x c"))
-(require 'helm-config)
-(define-key helm-map "g" 'helm-google-suggest)
-(define-key helm-map (kbd ";") 'helm-mode)
+
+(global-set-key (kbd "C-x @h;g")  'helm-google-suggest)
+(global-set-key(kbd "C-x @h;;")  'helm-mode)
 (define-key helm-map (kbd "C-s") 'helm-toggle-suspend-update)
+(require 'helm-config)
