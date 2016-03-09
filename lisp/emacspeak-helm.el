@@ -91,7 +91,7 @@
                     (- (line-number-at-pos) 2)
                     (- (count-lines(point-min) (point-max))2))
             'personality voice-bolden)))
-    (emacspeak-auditory-icon 'progress)
+    ;(emacspeak-auditory-icon 'progress)
     (condition-case nil ; needed for some calls
         (dtk-speak (concat line count-msg))
       (error nil))))
