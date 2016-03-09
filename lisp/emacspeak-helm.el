@@ -62,8 +62,7 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if helm-mode  'on 'off))
     (message "Turned %s helm-mode"
-           (if helm-mode "on" "off"))))
-
+             (if helm-mode "on" "off"))))
 
 (defun emacspeak-helm-before-initialize-hook ()
   "Remove emacspeak minibuffer setup hook."
@@ -74,6 +73,7 @@
 
 (defun emacspeak-helm-cleanup-hook ()
   "Restore Emacspeak's minibuffer setup hook."
+  (emacspeak-auditory-icon 'close-object)
   (add-hook 'minibuffer-setup-hook #'emacspeak-minibuffer-setup-hook))
 
 (add-hook 'helm-cleanup-hook #'emacspeak-helm-cleanup-hook)
@@ -84,23 +84,20 @@
         (line (buffer-substring (line-beginning-position) (line-end-position)))
         (count-msg nil)
         (count (-  (count-lines (point-min) (point-max)) 2)))
-      (setq count-msg
-            (concat
-             (propertize
-              (format "%d of %d"
-                      (- (line-number-at-pos) 2)
-                      (- (count-lines(point-min) (point-max))2))
-              'personality voice-bolden)))
-      (emacspeak-auditory-icon 'progress)
-      (condition-case nil ; needed for some calls
-          (dtk-speak (concat line count-msg))
-        (error nil))))
+    (setq count-msg
+          (concat
+           (propertize
+            (format "%d of %d"
+                    (- (line-number-at-pos) 2)
+                    (- (count-lines(point-min) (point-max))2))
+            'personality voice-bolden)))
+    (emacspeak-auditory-icon 'progress)
+    (condition-case nil ; needed for some calls
+        (dtk-speak (concat line count-msg))
+      (error nil))))
 
 (add-hook 'helm-move-selection-after-hook #'emacspeak-helm-cue-update 'at-end)
 (add-hook 'helm-after-action-hook #'emacspeak-speak-mode-line 'at-end)
-
-;;}}}
-;;{{{ Helm Setup:
 
 ;;}}}
 ;;{{{ Advice helm-google-suggest to filter results:
@@ -120,7 +117,7 @@
   "Speak current selection."
   (when (ems-interactive-p)
     (with-current-buffer (helm-buffer-get)
-      (emacspeak-auditory-icon 'progress)
+      (emacspeak-auditory-icon 'scroll)
       (emacspeak-speak-line))))
 
 ;;}}}
