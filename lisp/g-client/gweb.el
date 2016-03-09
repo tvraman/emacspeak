@@ -193,6 +193,7 @@
          (completion-ignore-case t)
          (word (thing-at-point 'word))
          (query nil))
+    (setq gweb-history (remove-duplicates gweb-history :test #'string-equal))
     (setq query
           (completing-read
            (or prompt "Google: ")
