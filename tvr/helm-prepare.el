@@ -14,8 +14,14 @@
 ;;; put it on the bottom fn key as well
 (global-set-key (kbd "<XF86WakeUp>") 'helm-command-prefix)
 (global-unset-key (kbd "C-x c"))
+(loop
+ for b in
+ '(
+   (";" helm-mode)
+   ("g" helm-google-suggest)
+   ("o" helm-mini))
+ do
+ (define-key helm-command-map (first b) (second b)))
 
-(global-set-key  (kbd "C-x @h;;") 'helm-mode)
-(global-set-key  (kbd "C-x @h;g") 'helm-google-suggest)
 (define-key helm-map (kbd "C-s") 'helm-toggle-suspend-update)
 (helm-mode 1)
