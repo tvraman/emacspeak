@@ -11,6 +11,8 @@
 
 ;;; Use hyper-; as the helm prefix 
 (global-set-key (kbd "C-x @h;") 'helm-command-prefix)
+;;; put it on the bottom fn key as well
+(global-set-key (kbd "<XF86WakeUp>") 'helm-command-prefix)
 (global-unset-key (kbd "C-x c"))
 
 (global-set-key  (kbd "C-x @h;;") 'helm-mode)

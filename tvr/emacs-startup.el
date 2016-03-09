@@ -211,6 +211,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (mapcar
       #'custom-reevaluate-setting
       '(emacspeak-media-location-bindings))
+     (load-library "helm-prepare")
      (soundscape-toggle)
      (shell)
      (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
