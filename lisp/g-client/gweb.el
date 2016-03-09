@@ -182,6 +182,7 @@
   "History of Google Search queries.")
 
 (put 'gweb-history 'history-length 100)
+(put 'gweb-history 'history-delete-duplicates t)
 
 ;;; Emacs 23 and beyond:
 ;;; i.e. if complete-with-action is defined
