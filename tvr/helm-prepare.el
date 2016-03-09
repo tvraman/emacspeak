@@ -16,4 +16,4 @@
 (global-set-key  (kbd "C-x @h;;") 'helm-mode)
 (global-set-key  (kbd "C-x @h;g") 'helm-google-suggest)
 (define-key helm-map (kbd "C-s") 'helm-toggle-suspend-update)
-
+(helm-mode 1)
