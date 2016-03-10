@@ -127,10 +127,11 @@
   (emacspeak-list-buffers-speak-buffer-line))
 
 (defadvice list-buffers (after emacspeak pre act )
-  "Provide auditory feedback"
+  "Select the window displaying buffer-menu,
+and set up additional Emacspeak bindings."
   (declare (special Buffer-menu-mode-map))
   (when (ems-interactive-p )
-    (other-window 1)
+    (select-window  ad-return-value)
     (goto-char (point-min))
     (forward-line 2)
     (define-key Buffer-menu-mode-map "," 'emacspeak-list-buffers-speak-buffer-name)
@@ -139,7 +140,7 @@
     (define-key Buffer-menu-mode-map "n" 'emacspeak-list-buffers-next-line)
     (define-key Buffer-menu-mode-map "p" 'emacspeak-list-buffers-previous-line)
     (emacspeak-list-buffers-speak-buffer-line)
-    (emacspeak-auditory-icon 'task-done)))
+    (emacspeak-auditory-icon 'open-object)))
 
 (defadvice buffer-menu (after emacspeak pre act )
   "Provide auditory feedback"
