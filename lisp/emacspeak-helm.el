@@ -102,7 +102,7 @@
 ;;}}}
 ;;{{{ Advice helm-google-suggest to filter results:
 
-(defadvice helm-google-suggest (before emacspea pre act comp)
+(defadvice helm-google-suggest (before emacspeak pre act comp)
   "setup emacspeak post-processing-hook"
   (add-hook
    'emacspeak-web-post-process-hook
