@@ -40,6 +40,7 @@ song_birds = [
     birds.tropical_01, birds.tropical_02, birds.tropical_03, birds.tropical_04,
     birds.tropical_05, birds.tropical_06, birds.tropical_07,
     birds.cuckoo_01, birds.cuckoo_02, birds.cuckoo_03, birds.cuckoo_04,
+    birds.cuckoo_05, birds.cuckoo_06,
     birds.ia_bird_1, birds.ia_bird_2, birds.ia_bird_3, birds.ia_bird_4, birds.ia_bird_5,
     birds.ia_bird_6, birds.ia_bird_7, birds.ia_bird_8, birds.ia_bird_9,
     birds.songbird_001, birds.songbird_002, birds.songbird_003,
