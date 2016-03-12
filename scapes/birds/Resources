@@ -119,6 +119,9 @@ boodler.use: sound
 boodler.filename: indian-cuckoo-05.aiff
 boodler.use: sound
 
+:cuckoo_06
+boodler.filename: indian-cuckoo-06.aiff
+boodler.use: sound
 
 
 :chirp_01
