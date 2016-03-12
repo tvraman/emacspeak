@@ -37,16 +37,13 @@ tropical_birds = [
     birds.tropical_05, birds.tropical_06, birds.tropical_07]
 
 song_birds = [
+    birds.thrasher_01, birds.thrasher_02,
     birds.songbird_001, birds.songbird_002, birds.songbird_003,
     birds.songbird_004, birds.songbird_005, birds.songbird_006,
     birds.songbird_007, birds.songbird_008, birds.songbird_009, birds.songbird_010
 ]
-
-song_birds.extend(tropical_birds)
-song_birds.extend(ia_birds)
-song_birds.extend(cuckoos)
-song_birds.extend(fl_mocks)
-song_birds.extend(ca_mocks)
+for b in [tropical_birds, ia_birds, ca_mocks, fl_mocks, cuckoos]:
+    song_birds.extend(b)
 
 showers = [
     rain.rain_thin, rain.rain_splatter,
