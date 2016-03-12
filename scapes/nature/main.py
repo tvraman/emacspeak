@@ -42,7 +42,7 @@ song_birds = [
     birds.songbird_004, birds.songbird_005, birds.songbird_006,
     birds.songbird_007, birds.songbird_008, birds.songbird_009, birds.songbird_010
 ]
-for b in [tropical_birds, ia_birds, ca_mocks, fl_mocks, cuckoos]:
+for b in [tropical_birds,  ca_mocks, fl_mocks, cuckoos]:
     song_birds.extend(b)
 
 showers = [
@@ -432,7 +432,7 @@ class BirdCalls (agent.Agent):
 class BirdSongs (agent.Agent):
 
     def init(self):
-        self.agents = [CaMockingBirds, SongBirds, FlMockingBirds]
+        self.agents = [CaMockingBirds, SongBirds, IABirds, FlMockingBirds]
 
     def run(self):
         nature = GardenBackground(0.0)
@@ -445,7 +445,7 @@ class BirdSongs (agent.Agent):
             stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, -1.5)))  # behind
         self.sched_agent(nature, 0, nc)
 
-        y = [-1.5, 0, 1.5]
+        y = [-1.5, 0, 0, 1.5]
         for i in xrange(len(self.agents)):
             for j in xrange(6):
                 bc = self.new_channel_pan(
