@@ -119,6 +119,16 @@ boodler.use: sound
 boodler.filename: indian-cuckoo-05.aiff
 boodler.use: sound
 
+#Clipped from BBC Tweet Of The Day:Brown Thrasher
+#http://open.live.bbc.co.uk/mediaselector/5/redir/version/2.0/mediaset/audio-nondrm-download/proto/http/vpid/p02qjk25.mp3
+:thrasher_01
+boodler.filename: brown-thrasher-01.aiff
+boodler.use: sound 
+
+:thrasher_02
+boodler.filename: brown-thrasher-02.aiff
+boodler.use: sound 
+
 :cuckoo_06
 boodler.filename: indian-cuckoo-06.aiff
 boodler.use: sound
