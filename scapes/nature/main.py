@@ -363,7 +363,7 @@ class Nightscape (agent.Agent):
 class BirdChorus (agent.Agent):
 
     def init(self):
-        self.agents = [CaMockingBirds, FlMockingBirds, SongBirds]
+        self.agents = [CaMockingBirds, SongBirds, FlMockingBirds]
 
     def run(self):
         nature = GardenBackground(0.0)
