@@ -113,6 +113,13 @@ boodler.filename: indian-cuckoo-04.aiff
 boodler.use: sound
 
 
+#Asian Koel from BBC Tweet Of The Day: 
+# clipped from http://open.live.bbc.co.uk/mediaselector/5/redir/version/2.0/mediaset/audio-nondrm-download/proto/http/vpid/p02qg16q.mp3'
+:cuckoo_05
+boodler.filename: indian-cuckoo-05.aiff
+boodler.use: sound
+
+
 
 :chirp_01
 boodler.filename: chirp-01.aiff
