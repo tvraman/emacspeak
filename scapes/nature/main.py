@@ -27,6 +27,12 @@ cuckoos = [
     birds.cuckoo_01, birds.cuckoo_02, birds.cuckoo_03, birds.cuckoo_04,
     birds.cuckoo_05, birds.cuckoo_06]
 
+nightingales = [
+    birds.nightingale_001, birds.nightingale_002, birds.nightingale_003, birds.nightingale_004,
+    birds.nightingale_005, birds.nightingale_006, birds.nightingale_007, birds.nightingale_008,
+    birds.nightingale_009, birds.nightingale_010]
+
+
 ia_birds = [
     birds.wren_01,
     birds.ia_bird_1, birds.ia_bird_2, birds.ia_bird_3, birds.ia_bird_4, birds.ia_bird_5,
@@ -40,9 +46,9 @@ song_birds = [
     birds.thrasher_01, birds.thrasher_02,
     birds.songbird_001, birds.songbird_002, birds.songbird_003,
     birds.songbird_004, birds.songbird_005, birds.songbird_006,
-    birds.songbird_007, birds.songbird_008, birds.songbird_009, birds.songbird_010
-]
-for b in [tropical_birds,  ca_mocks, fl_mocks, cuckoos, ia_birds ]:
+    birds.songbird_007, birds.songbird_008, birds.songbird_009, birds.songbird_010]
+
+for b in [tropical_birds,  ca_mocks, fl_mocks, cuckoos, ia_birds, nightingales]:
     song_birds.extend(b)
 
 showers = [
@@ -224,6 +230,33 @@ class Cuckoos(agent.Agent):
             self.minVol, self.maxVol,
             self.pan,
             cuckoos)
+        self.sched_agent(ag)
+
+
+class Nightingales(agent.Agent):
+
+    _args = ArgList(Arg(type=float), Arg(type=float), Arg(type=float),
+                    Arg(type=float), Arg(type=float))
+
+    def init(self,
+             minDelay=4.0,
+             maxDelay=12.0,
+             minVol=0.1,
+             maxVol=1.0,
+             pan=1.0):
+        self.minDelay = minDelay
+        self.maxDelay = maxDelay
+        self.minVol = minVol
+        self.maxVol = maxVol
+        self.pan = pan
+
+    def run(self):
+        ag = play.IntermittentSoundsList(
+            self.minDelay, self.maxDelay,
+            0.9, 1.1,  # pitch
+            self.minVol, self.maxVol,
+            self.pan,
+            nightingales)
         self.sched_agent(ag)
 
 
@@ -432,7 +465,8 @@ class BirdCalls (agent.Agent):
 class BirdSongs (agent.Agent):
 
     def init(self):
-        self.agents = [CaMockingBirds, IABirds, SongBirds, Cuckoos, FlMockingBirds]
+        self.agents = [CaMockingBirds, IABirds, Nightingales,
+                       SongBirds, Cuckoos, FlMockingBirds]
 
     def run(self):
         nature = GardenBackground(0.0)
@@ -445,7 +479,7 @@ class BirdSongs (agent.Agent):
             stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, -1.5)))  # behind
         self.sched_agent(nature, 0, nc)
 
-        y = [-1.5, -1.25, 0,  1.25, 1.5]
+        y = [-1.5, -1.25, -1.125, 1.125,   1.25, 1.5]
         for i in xrange(len(self.agents)):
             for j in xrange(4):
                 bc = self.new_channel_pan(
