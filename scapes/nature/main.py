@@ -396,7 +396,8 @@ class Nightscape (agent.Agent):
 class BirdChorus (agent.Agent):
 
     def init(self):
-        self.agents = [CaMockingBirds, SongBirds, IABirds, FlMockingBirds]
+        self.agents = [CaMockingBirds, SongBirds, IABirds, FlMockingBirds,
+        TropicalBirds, Nightingales]
 
     def run(self):
         nature = GardenBackground(0.0)
@@ -446,10 +447,10 @@ class MockingCuckoos (agent.Agent):
 class BirdCalls (agent.Agent):
 
     def init(self):
-        self.agents = [CaMockingBirds, IABirds, FlMockingBirds, TropicalBirds]
+        self.agents = [CaMockingBirds, IABirds, FlMockingBirds, TropicalBirds, Cuckoos, Nightingales]
 
     def run(self):
-        y = [-1.5, -1.2, 1.2,  1.5]
+        y = [-1.5, -1.2,  -1.1, 1.1, 1.2,  1.5]
         for i in xrange(len(self.agents)):
             for j in xrange(6):
                 bc = self.new_channel_pan(
