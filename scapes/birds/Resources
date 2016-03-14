@@ -215,3 +215,47 @@ boodler.use: sound
 :wren_01
 boodler.filename: wren-01.aiff
 boodler.use: sound
+
+# Nightingale: nightingale-song.mp3 from freesound.org
+# Split into 10 equal segments 
+
+
+:nightingale_001
+boodler.filename: nightingale-001.aiff
+boodler.use: sound
+
+:nightingale_002
+boodler.filename: nightingale-002.aiff
+boodler.use: sound
+
+:nightingale_003
+boodler.filename: nightingale-003.aiff
+boodler.use: sound
+
+:nightingale_004
+boodler.filename: nightingale-004.aiff
+boodler.use: sound
+
+:nightingale_005
+boodler.filename: nightingale-005.aiff
+boodler.use: sound
+
+:nightingale_006
+boodler.filename: nightingale-006.aiff
+boodler.use: sound
+
+:nightingale_007
+boodler.filename: nightingale-007.aiff
+boodler.use: sound
+
+:nightingale_008
+boodler.filename: nightingale-008.aiff
+boodler.use: sound
+
+:nightingale_009
+boodler.filename: nightingale-009.aiff
+boodler.use: sound
+
+:nightingale_010
+boodler.filename: nightingale-010.aiff
+boodler.use: sound
