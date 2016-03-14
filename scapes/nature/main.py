@@ -432,7 +432,7 @@ class BirdCalls (agent.Agent):
 class BirdSongs (agent.Agent):
 
     def init(self):
-        self.agents = [CaMockingBirds, IABirds, SongBirds, FlMockingBirds, Cuckoos]
+        self.agents = [CaMockingBirds, IABirds, SongBirds, Cuckoos, FlMockingBirds]
 
     def run(self):
         nature = GardenBackground(0.0)
