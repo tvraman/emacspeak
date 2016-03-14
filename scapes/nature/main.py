@@ -7,6 +7,8 @@ from boodle import agent, stereo
 from boodle import builtin
 manage = bimport('org.boodler.manage')
 play = bimport('org.boodler.play')
+
+
 birds = bimport('org.emacspeak.birds')
 water = bimport('org.boodler.sample.water')
 wind = bimport('org.boodler.sample.wind')
@@ -16,12 +18,13 @@ cricket = bimport('org.boodler.old.insect')
 trill = bimport('org.boodler.sample.insect')
 
 ca_mocks = [
-    birds.mocking_1, birds.mocking_2, birds.mocking_3,  # CA Mocking Bird
+    birds.mocking_1, birds.mocking_2, birds.mocking_3,
     birds.mocking_4, birds.mocking_5, birds.mocking_6]
 
 fl_mocks = [
     birds.fl_mocking_1, birds.fl_mocking_2, birds.fl_mocking_3,
-    birds.fl_mocking_4, birds.fl_mocking_5, birds.fl_mocking_6]
+    birds.fl_mocking_4, birds.fl_mocking_5, birds.fl_mocking_6,
+    birds.thrasher_01, birds.thrasher_02]
 
 cuckoos = [
     birds.cuckoo_01, birds.cuckoo_02, birds.cuckoo_03, birds.cuckoo_04,
@@ -43,7 +46,6 @@ tropical_birds = [
     birds.tropical_05, birds.tropical_06, birds.tropical_07]
 
 song_birds = [
-    birds.thrasher_01, birds.thrasher_02,
     birds.songbird_001, birds.songbird_002, birds.songbird_003,
     birds.songbird_004, birds.songbird_005, birds.songbird_006,
     birds.songbird_007, birds.songbird_008, birds.songbird_009, birds.songbird_010]
@@ -397,7 +399,7 @@ class BirdChorus (agent.Agent):
 
     def init(self):
         self.agents = [CaMockingBirds, SongBirds, IABirds, FlMockingBirds,
-        TropicalBirds, Nightingales]
+                       TropicalBirds, Nightingales]
 
     def run(self):
         nature = GardenBackground(0.0)
@@ -447,7 +449,8 @@ class MockingCuckoos (agent.Agent):
 class BirdCalls (agent.Agent):
 
     def init(self):
-        self.agents = [CaMockingBirds, IABirds, FlMockingBirds, TropicalBirds, Cuckoos, Nightingales]
+        self.agents = [CaMockingBirds, IABirds, FlMockingBirds,
+                       TropicalBirds, Cuckoos, Nightingales]
 
     def run(self):
         y = [-1.5, -1.2,  -1.1, 1.1, 1.2,  1.5]
