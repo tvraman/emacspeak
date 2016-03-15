@@ -748,38 +748,6 @@ name of the list.")
       'speak)))
 
 ;;}}}
-;;{{{ The Linux Show
-
-(emacspeak-url-template-define
- "Geek Linux Daily"
- "http://thelinuxdaily.com/shows/%s.m3u"
- (list
-  #'(lambda ()
-      (emacspeak-speak-collect-date "Date:"
-                                    "%Y/%m/%d")))
- nil
- "Play specified edition of Geek Linux DailyShow"
- #'(lambda (url)
-     (funcall emacspeak-media-player url 'play-list)))
-
-(emacspeak-url-template-define
- "Redhat Linux Show"
- "http://www.thelinuxshow.com/archives/%s.mp3"
- (list
-  #'(lambda ()
-      (let ((mm-dd-yy
-             (emacspeak-speak-collect-date
-              "Date: (Tuesday)"
-              "%m-%d-%Y")))
-        (format "%s/tls-%s"
-                (third (split-string mm-dd-yy "-"))
-                mm-dd-yy))))
- nil
- "Play specified edition of Redhat Linux Show"
- #'(lambda (url)
-     (funcall emacspeak-media-player url 'play-list)))
-
-;;}}}
 ;;{{{ sourceforge
 
 (emacspeak-url-template-define
