@@ -521,12 +521,15 @@ emacspeak.elc: emacspeak.el
 emacspeak-setup.elc: emacspeak-setup.el
 loaddefs: emacspeak-loaddefs.elc
 # }}}
-# {{{Development  target: indent
+# {{{Development  target: indent, tags
 indent:
 	$(EMACS) -batch -q -no-site-file -l ../utils/indent-files.el
 
 elint:
 	$(EMACS) -batch -q -no-site-file -l ../utils/elint-files.el
+
+tags:
+	etags *.el g-client/*.el
 
 # }}}
 # {{{  user level target-- clean
