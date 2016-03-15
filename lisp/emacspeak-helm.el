@@ -81,7 +81,8 @@
 
 (defun emacspeak-helm-cue-update ()
   " Cue update."
-  (let ((inhibit-read-only t)
+  (when (sit-for 0.5)
+    (let ((inhibit-read-only t)
         (line (buffer-substring (line-beginning-position) (line-end-position)))
         (count-msg nil)
         (count (-  (count-lines (point-min) (point-max)) 2)))
@@ -95,7 +96,7 @@
     ;(emacspeak-auditory-icon 'progress)
     (condition-case nil ; needed for some calls
         (dtk-speak (concat line count-msg))
-      (error nil))))
+      (error nil)))))
 
 (add-hook 'helm-move-selection-after-hook #'emacspeak-helm-cue-update 'at-end)
 (add-hook 'helm-after-action-hook #'emacspeak-speak-mode-line 'at-end)
