@@ -1038,18 +1038,6 @@ Set up URL rewrite rule to get print page."
  "Look up term in WordNet.")
 
 ;;}}}
-;;{{{ prairie home companion
-
-(emacspeak-url-template-define
- "PHC Prairie Home Companion"
- "http://www.publicradio.org/tools/media/player/phc/%s_phc.ram"
- (list 'emacspeak-speak-read-date-year/month/date)
- nil
- "Play Prairie Home Companion"
- #'(lambda (url)
-     (funcall emacspeak-media-player url 'play-list)))
-
-;;}}}
 ;;{{{ earthquakes
 
 (emacspeak-url-template-define
