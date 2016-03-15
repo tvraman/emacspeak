@@ -21182,7 +21182,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 72 URL Templates.
+This section documents a total of 70 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -21296,10 +21296,6 @@ Display content from Google Finance.
 
 Search FreeSound.
 
-@b{Geek Linux Daily}
-
-Play specified edition of Geek Linux DailyShow
-
 @b{GitHub Search}
 
 Perform a GitHub Search.
@@ -21398,10 +21394,6 @@ RadioTime Entry point.
 @b{RadioTime Search}
 
 RadioTime Search.
-
-@b{Redhat Linux Show}
-
-Play specified edition of Redhat Linux Show
 
 @b{Reuters Finance}
 
