@@ -490,7 +490,7 @@ class BirdSongs (agent.Agent):
                     stereo.compose(stereo.scalexy(1.4), stereo.shiftxy(0, y[i])))
                 ag = self.agents[i](
                     0, 70,  # Duration
-                    0.1, 0.5,  # volume
+                    0.25, 0.5,  # volume
                     1 + j * 0.1  # pan
                 )
                 self.sched_agent(ag, j * 5, bc)
