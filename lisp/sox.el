@@ -374,9 +374,8 @@
 
 ;;}}}
 ;;{{{  Effects Infrastructure:
-
-(defconst sox-effects nil
-  "Table of defined effects.")
+(defvar sox-effects nil
+  "Table of implemented effects.")
 
 (defsubst sox-register-effect (name)
   "Register effect."
@@ -387,9 +386,6 @@
 ;;; 2. Clone the code from one of the previously implemented effects,
 ;;; And update per the SoX man page.
 
-(defvar sox-effects nil
-  "Table of implemented effects.")
-
 ;;}}}
 ;;{{{ Ladspa Effects:
 
@@ -399,6 +395,8 @@
   "Generic spec for ladspa effect.")
 
 (put 'sox-ladspa-params 'create #'ladspa-create)
+(sox-register-effect "ladspa")
+
 (defun sox-get-ladspa-effect ()
   "Read needed params for effect ladspa,
 and return a suitable effect structure."
