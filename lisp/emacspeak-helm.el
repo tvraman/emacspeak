@@ -74,9 +74,9 @@
  'helm-minibuffer-set-up-hook
  #'(lambda nil (emacspeak-auditory-icon 'open-object)))
 
+
 (defun emacspeak-helm-cleanup-hook ()
   "Restore Emacspeak's minibuffer setup hook."
-  (emacspeak-auditory-icon 'close-object)
   (add-hook 'minibuffer-setup-hook #'emacspeak-minibuffer-setup-hook))
 
 (add-hook 'helm-cleanup-hook #'emacspeak-helm-cleanup-hook)
