@@ -26,4 +26,4 @@
  (define-key helm-command-map (first b) (second b)))
 
 (define-key helm-map (kbd "C-s") 'helm-toggle-suspend-update)
-(helm-mode 1)
+;(helm-mode 1)
