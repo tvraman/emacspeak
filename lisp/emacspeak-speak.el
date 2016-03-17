@@ -3427,7 +3427,7 @@ This command  is designed for use in a windowing environment like X."
     (setq emacspeak-minibuffer-completions-cache  (completion-all-sorted-completions)))
   (cond
    ((null emacspeak-minibuffer-completions-cache) (message "No completions."))
-   (t (message (pop emacspeak-minibuffer-completions-cache)))))
+   (t (completion--replace  (minibuffer-prompt-end)(point-max)  (pop emacspeak-minibuffer-completions-cache)))))
 
 (define-key minibuffer-local-completion-map "\C-n" 'emacspeak-minibuffer-next-completion)
 
