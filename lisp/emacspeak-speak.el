@@ -3428,6 +3428,9 @@ This command  is designed for use in a windowing environment like X."
     (switch-to-completions)
     (funcall-interactively #'previous-completion 1)))
 
+(define-key minibuffer-local-completion-map "\C-n" 'emacspeak-minibuffer-next-completion)
+(define-key minibuffer-local-completion-map "\C-p" 'emacspeak-minibuffer-previous-completion)
+
 ;;}}}
 (provide 'emacspeak-speak )
 ;;{{{ end of file
@@ -3437,7 +3440,5 @@ This command  is designed for use in a windowing environment like X."
 ;;; byte-compile-dynamic: nil
 ;;; end:
 
-(define-key minibuffer-local-completion-map "\C-n" 'emacspeak-minibuffer-next-completion)
-(define-key minibuffer-local-completion-map "\C-p" 'emacspeak-minibuffer-previous-completion)
 
 ;;}}}
