@@ -3414,21 +3414,6 @@ This command  is designed for use in a windowing environment like X."
   (start-process-shell-command command nil command))
 
 ;;}}}
-;;{{{ Browsing Completions:
-
-(defun emacspeak-minibuffer-next-completion ()
-  "Select next available completion."
-  (interactive)
-  (declare (special emacspeak-minibuffer-completions-cache))
-  (unless completion-all-sorted-completions (completion-all-sorted-completions))
-  (cond
-   ((null completion-all-sorted-completions) (message "No completions."))
-   (t (completion--replace  (minibuffer-prompt-end)(point-max)  (car completion-all-sorted-completions))
-      (emacspeak-speak-line))))
-
-(define-key minibuffer-local-completion-map "\C-n" 'emacspeak-minibuffer-next-completion)
-
-;;}}}
 (provide 'emacspeak-speak )
 ;;{{{ end of file
 
