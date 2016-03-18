@@ -917,7 +917,7 @@ are indicated with auditory icon ellipses."
                 (get-text-property  start 'emacspeak-hidden-block))
           (emacspeak-auditory-icon 'ellipses))
         (cond
-         ;;; C1..C5 
+         ;;; C1..C5
          ((string-equal ""  line)
           (dtk-tone 130.8   75 'force))
          ((string-match  emacspeak-speak-space-regexp  line) ;only white space
@@ -2859,7 +2859,7 @@ value to apply."
   (tts-with-punctuations
    'all
    (dtk-speak-and-echo
-    (format 
+    (format
      "Matches %s"
      (cond
 ;;; Show what precedes the open in its line, if anything.
@@ -3399,7 +3399,7 @@ This function is sensitive to calendar mode when prompting."
 ;;{{{ AppLauncher for use in X:
 ;;;###autoload
 (defun emacspeak-launch-application (command)
-  "Launch an application. 
+  "Launch an application.
 This command  is designed for use in a windowing environment like X."
   (interactive (list (read-shell-command "$ ")))
   (start-process-shell-command command nil command))
@@ -3411,25 +3411,22 @@ This command  is designed for use in a windowing environment like X."
   "Move to next available minibuffer completion."
   (interactive)
   (when (get-buffer "*Completions*")
-        (with-current-buffer (get-buffer "*Completions*")
-          (funcall-interactively #'next-completion 1))))
+    (with-current-buffer (get-buffer "*Completions*")
+      (funcall-interactively #'next-completion 1))))
 
 (defun emacspeak-minibuffer-previous-completion ()
   "Move to previous available minibuffer completion."
   (interactive)
   (when (get-buffer "*Completions*")
-        (with-current-buffer (get-buffer "*Completions*")
-          (funcall-interactively #'previous-completion 1))))
+    (with-current-buffer (get-buffer "*Completions*")
+      (funcall-interactively #'previous-completion 1))))
 
 (defun emacspeak-minibuffer-previous-completion ()
   "Move to previous available minibuffer completion."
   (interactive)
-        (save-current-buffer
-          (switch-to-completions)
-          (funcall-interactively #'previous-completion 1)))
-          
-    
-  )
+  (save-current-buffer
+    (switch-to-completions)
+    (funcall-interactively #'previous-completion 1)))
 
 ;;}}}
 (provide 'emacspeak-speak )
