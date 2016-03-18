@@ -3396,15 +3396,6 @@ This function is sensitive to calendar mode when prompting."
   (emacspeak-speak-collect-date "Date:"
                                 "%Y-%m-%d"))
 ;;}}}
-(provide 'emacspeak-speak )
-;;{{{ end of file
-
-;;; local variables:
-;;; folded-file: t
-;;; byte-compile-dynamic: nil
-;;; end:
-
-;;}}}
 ;;{{{ AppLauncher for use in X:
 ;;;###autoload
 (defun emacspeak-launch-application (command)
@@ -3414,6 +3405,33 @@ This command  is designed for use in a windowing environment like X."
   (start-process-shell-command command nil command))
 
 ;;}}}
+;;{{{ Navigating completions:
+
+(defun emacspeak-minibuffer-next-completion ()
+  "Move to next available minibuffer completion."
+  (interactive)
+  (when (get-buffer "*Completions*")
+        (with-current-buffer (get-buffer "*Completions*")
+          (funcall-interactively #'next-completion 1))))
+
+(defun emacspeak-minibuffer-previous-completion ()
+  "Move to previous available minibuffer completion."
+  (interactive)
+  (when (get-buffer "*Completions*")
+        (with-current-buffer (get-buffer "*Completions*")
+          (funcall-interactively #'previous-completion 1))))
+
+(defun emacspeak-minibuffer-previous-completion ()
+  "Move to previous available minibuffer completion."
+  (interactive)
+        (save-current-buffer
+          (switch-to-completions)
+          (funcall-interactively #'previous-completion 1)))
+          
+    
+  )
+
+;;}}}
 (provide 'emacspeak-speak )
 ;;{{{ end of file
 
@@ -3421,5 +3439,8 @@ This command  is designed for use in a windowing environment like X."
 ;;; folded-file: t
 ;;; byte-compile-dynamic: nil
 ;;; end:
+
+(define-key minibuffer-local-completion-map "\C-n" 'emacspeak-minibuffer-next-completion)
+(define-key minibuffer-local-completion-map "\C-p" 'emacspeak-minibuffer-previous-completion)
 
 ;;}}}
