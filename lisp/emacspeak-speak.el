@@ -3421,15 +3421,46 @@ This command  is designed for use in a windowing environment like X."
     (with-current-buffer (get-buffer "*Completions*")
       (funcall-interactively #'previous-completion 1))))
 
-(defun emacspeak-minibuffer-previous-completion ()
-  "Move to previous available minibuffer completion."
+
+;;; Hacked out of choose-completion
+(defun emacspeak--choose-completion ()
+  "Choose the completion at point."
   (interactive)
-  (save-current-buffer
-    (switch-to-completions)
-    (funcall-interactively #'previous-completion 1)))
+    (let ((buffer completion-reference-buffer)
+          (base-size completion-base-size)
+          (base-position completion-base-position)
+          (insert-function completion-list-insert-choice-function)
+          (choice
+           (save-excursion
+             (let (beg end)
+               (cond
+                ((and (not (eobp)) (get-text-property (point) 'mouse-face))
+                 (setq end (point) beg (1+ (point))))
+                ((and (not (bobp))
+                      (get-text-property (1- (point)) 'mouse-face))
+                 (setq end (1- (point)) beg (point)))
+                (t (error "No completion here")))
+               (setq beg (previous-single-property-change beg 'mouse-face))
+               (setq end (or (next-single-property-change end 'mouse-face)
+                             (point-max)))
+               (buffer-substring-no-properties beg end)))))
+
+      (unless (buffer-live-p buffer) (error "Destination buffer is dead"))
+      (with-current-buffer buffer
+        (choose-completion-string choice buffer base-position insert-function))))
+
+(defun emacspeak-minibuffer-choose-completion ()
+  "Choose current completion."
+  (interactive)
+  (when (get-buffer "*Completions*")
+    (with-current-buffer (get-buffer "*Completions*")
+      (message "%s" (thing-at-point 'symbol))
+      (ems-choose-completion))))
+
 
 (define-key minibuffer-local-completion-map "\C-n" 'emacspeak-minibuffer-next-completion)
 (define-key minibuffer-local-completion-map "\C-p" 'emacspeak-minibuffer-previous-completion)
+(define-key minibuffer-local-completion-map "\C-f" 'emacspeak-minibuffer-choose-completion)
 
 ;;}}}
 (provide 'emacspeak-speak )
