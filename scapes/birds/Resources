@@ -259,3 +259,67 @@ boodler.use: sound
 :nightingale_010
 boodler.filename: nightingale-010.aiff
 boodler.use: sound
+
+gale_011
+boodler.filename: nightingale-011.aiff
+boodler.use: sound
+
+
+
+:nightingale_012
+boodler.filename: nightingale-012.aiff
+boodler.use: sound
+
+
+
+:nightingale_013
+boodler.filename: nightingale-013.aiff
+boodler.use: sound
+
+
+
+:nightingale_014
+boodler.filename: nightingale-014.aiff
+boodler.use: sound
+
+
+
+:nightingale_015
+boodler.filename: nightingale-015.aiff
+boodler.use: sound
+
+
+
+:nightingale_016
+boodler.filename: nightingale-016.aiff
+boodler.use: sound
+
+
+
+:nightingale_017
+boodler.filename: nightingale-017.aiff
+boodler.use: sound
+
+
+
+:nightingale_018
+boodler.filename: nightingale-018.aiff
+boodler.use: sound
+
+
+
+:nightingale_019
+boodler.filename: nightingale-019.aiff
+boodler.use: sound
+
+
+
+:nightingale_020
+boodler.filename: nightingale-020.aiff
+boodler.use: sound
+
+
+
+:nightingale_021
+boodler.filename: nightingale-021.aiff
+boodler.use: sound
