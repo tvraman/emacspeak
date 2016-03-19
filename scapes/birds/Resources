@@ -260,7 +260,7 @@ boodler.use: sound
 boodler.filename: nightingale-010.aiff
 boodler.use: sound
 
-gale_011
+:nightingale_011
 boodler.filename: nightingale-011.aiff
 boodler.use: sound
 
