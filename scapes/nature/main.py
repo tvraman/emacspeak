@@ -33,7 +33,11 @@ cuckoos = [
 nightingales = [
     birds.nightingale_001, birds.nightingale_002, birds.nightingale_003, birds.nightingale_004,
     birds.nightingale_005, birds.nightingale_006, birds.nightingale_007, birds.nightingale_008,
-    birds.nightingale_009, birds.nightingale_010]
+    birds.nightingale_009, birds.nightingale_010, birds.nightingale_011,
+    birds.nightingale_012, birds.nightingale_013, birds.nightingale_014,
+    birds.nightingale_015, birds.nightingale_016, birds.nightingale_017,
+    birds.nightingale_018, birds.nightingale_019,
+    birds.nightingale_020, birds.nightingale_021]
 
 
 ia_birds = [
@@ -470,7 +474,7 @@ class BirdSongs (agent.Agent):
 
     def init(self):
         self.agents = [TropicalBirds, IABirds, CaMockingBirds, Nightingales,
-        FlMockingBirds, Cuckoos, SongBirds]
+                       FlMockingBirds, Cuckoos, SongBirds]
 
     def run(self):
         nature = GardenBackground(0.0)
@@ -491,6 +495,6 @@ class BirdSongs (agent.Agent):
                 ag = self.agents[i](
                     0, 60,  # Duration
                     0.25, 0.5,  # volume
-                    1+0.1*j # pan
+                    1 + 0.1 * j  # pan
                 )
                 self.sched_agent(ag, j * 5, bc)
