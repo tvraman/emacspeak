@@ -473,6 +473,7 @@ Optional interactive prefix arg `force' skips optimization checks."
        (eq major-mode soundscape--last-mode)
        (eq 'minibuffer-inactive-mode major-mode)
        (string-prefix-p " " (buffer-name))
+       (string-prefix-p " *Minibuf-" (buffer-name))
        (string-match "temp" (buffer-name)))
     (setq soundscape--last-mode major-mode)
     (soundscape-sync major-mode)))
