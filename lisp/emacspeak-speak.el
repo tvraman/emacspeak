@@ -1905,14 +1905,13 @@ Second interactive prefix sets clock to new timezone."
   (declare (special emacspeak-speak-time-format-string))
   (emacspeak-auditory-icon 'progress)
   (cond
-   (world
-    (call-interactively 'emacspeak-speak-world-clock))
+   (world (call-interactively 'emacspeak-speak-world-clock))
    (t
     (tts-with-punctuations
      'some
      (dtk-notify-speak
       (propertize
-       (format-time-string emacspeak-speak-time-format-string)
+       (format-time-string emacspeak-speak-time-format-string (current-time) (getenv "TZ"))
        'personality voice-lighten)))))
   (emacspeak-auditory-icon 'progress))
 
