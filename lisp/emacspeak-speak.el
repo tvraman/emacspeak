@@ -1876,11 +1876,9 @@ Optional second arg `set' sets the TZ environment variable as well."
     (let ((completion-ignore-case t)
           (ido-case-fold t)
           (read-file-name-completion-ignore-case t))
-      (substring
        (read-file-name
         "Timezone: "
-        emacspeak-speak-zoneinfo-directory)
-       (length emacspeak-speak-zoneinfo-directory)))
+        emacspeak-speak-zoneinfo-directory))
     current-prefix-arg))
   (declare (special emacspeak-speak-time-format-string
                     emacspeak-speak-zoneinfo-directory))
@@ -1894,7 +1892,7 @@ Optional second arg `set' sets the TZ environment variable as well."
            (concat emacspeak-speak-time-format-string
                    (format
                     " in %s, %%Z, %%z "
-                    zone)))))
+                    (substring zone (length emacspeak-speak-zoneinfo-directory)))))))
 
 ;;}}}
 ;;;###autoload
