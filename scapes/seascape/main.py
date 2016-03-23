@@ -22,9 +22,9 @@ class SurfWaves(agent.Agent):
         bc = self.new_channel_pan(
             stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.25)))
         ag = nature.Nightingales(
-            0, 120,  # Duration
+            0, 30,  # Duration
             0.25, 0.5,  # volume
-            1.2)
+            1)
         self.sched_agent(ag, 0, bc)
         for i in range(16):
             y = 1+i*0.025
