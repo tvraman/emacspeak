@@ -575,6 +575,30 @@ This variable is buffer-local.")
   ad-return-value)
 
 ;;}}}
+;;{{{ TTS:
+
+(defcustom emacspeak-google-tts-default-language "en-us"
+  "Default language used for Google TTS."
+  :type 'string
+  :group 'emacspeak-google)
+
+
+(defvar emacspeak-google-tts-rest-uri
+  "https://www.google.com/speech-api/v1/synthesize?lang=%s&text=%s"
+  "REST endpoint for network speech synthesis.")
+
+(defun emacspeak-google-tts (text &optional lang)
+  "Speak text using Google Network TTS."
+  (interactive "sSay: ")
+  (declare (special 
+                    emacspeak-google-tts-default-language
+                    emacspeak-google-tts-rest-uri))
+  (emacspeak-m-player-url
+           (format emacspeak-google-tts-rest-uri
+                    (or lang emacspeak-google-tts-default-language)
+                    (url-hexify-string  text))))
+
+;;}}}
 (provide 'emacspeak-google)
 ;;{{{ end of file
 
