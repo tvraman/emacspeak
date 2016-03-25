@@ -305,7 +305,8 @@ etc to be ignored when guessing directory.")
 (defun emacspeak-m-player-url (url &optional playlist-p)
   "Call emacspeak-m-player with specified URL."
   (interactive (list (car (browse-url-interactive-arg "Media URL: "))))
-  (emacspeak-m-player url playlist-p))
+  (let ((emacspeak-speak-messages nil))
+  (emacspeak-m-player url playlist-p)))
 
 ;;;###autoload
 
