@@ -429,22 +429,17 @@ origin/destination may be returned as a lat,long string."
     "electrician"
     "electronics_store"
     "embassy"
-    "establishment"
-    "finance"
     "fire_station"
     "floor"
     "florist"
-    "food"
     "funeral_home"
     "furniture_store"
     "gas_station"
-    "general_contractor"
     "geocode"
     "grocery_or_supermarket"
     "gym"
     "hair_care"
     "hardware_store"
-    "health"
     "hindu_temple"
     "home_goods_store"
     "hospital"
@@ -475,7 +470,6 @@ origin/destination may be returned as a lat,long string."
     "pet_store"
     "pharmacy"
     "physiotherapist"
-    "place_of_worship"
     "plumber"
     "point_of_interest"
     "police"
@@ -535,7 +529,10 @@ origin/destination may be returned as a lat,long string."
     (error (message "Error finding %s" address))))
 
 (defstruct gmaps-places-filter
-  types keyword name )
+  type ; singleton as per new API 
+  types ; multiple types (until Feb 2017)
+  keyword name )
+
 (defvar gmaps-current-filter nil
   "Currently active filter. ")
 (make-variable-buffer-local 'gmaps-current-filter)
@@ -544,20 +541,24 @@ origin/destination may be returned as a lat,long string."
   "Convert filter structure into URL  params."
   (let ((keyword (gmaps-places-filter-keyword filter))
         (name (gmaps-places-filter-name filter))
-        (types (gmaps-places-filter-types filter)))
-    (format "%s%s%s"
+        (types (gmaps-places-filter-types filter))
+        (type (gmaps-places-filter-type filter)))
+    (format "%s%s%s %s"
             (if keyword (format "&keyword=%s" keyword) "")
             (if name (format "&name=%s" name) "")
+            (if type (format "&type=%s" type) "")
             (if types (format "&types=%s" (mapconcat #'identity types "|")) ""))))    
 
 (defsubst gmaps-places-filter-as-string (filter)
   "Convert filter structure into display-friendly string."
   (let ((keyword (gmaps-places-filter-keyword filter))
         (name (gmaps-places-filter-name filter))
+        (type (gmaps-places-filter-type filter))
         (types (gmaps-places-filter-types filter)))
-    (format "%s%s%s"
+    (format "%s%s%s %s"
             (if keyword (format "Keyword: %s" keyword) "")
             (if name (format "Name: %s" name) "")
+            (if type (format "Type: %s" type) "")
             (if types (format "Types: %s" (mapconcat #'identity types "|")) ""))))
 (defsubst gmaps-place-read-types ()
   "Returns a list of types."
@@ -569,6 +570,12 @@ origin/destination may be returned as a lat,long string."
       (setq type (completing-read "Type: Blank to quit " gmaps-place-types)))
     result))
 
+
+(defsubst gmaps-place-read-type ()
+  "Returns a type."
+  (declare (special gmaps-place-types))
+         (completing-read "Type: " gmaps-place-types))
+    
 (defun gmaps-set-current-filter (&optional all)
   "Set up filter in current buffer.
 Optional interactive prefix arg prompts for all filter fields."
@@ -578,21 +585,21 @@ Optional interactive prefix arg prompts for all filter fields."
    (all
     (let ((name (read-string "Name: " ))
           (keyword (read-string "Keyword: "))
-          (types (gmaps-place-read-types)))
+          (type (gmaps-place-read-type)))
       (when (= (length name) 0) (setq name nil))
       (when (= (length keyword) 0) (setq keyword nil))
-      (when (= (length types) 0) (setq types nil))
+      (when (= (length type) 0) (setq type nil))
       (setq gmaps-current-filter
             (make-gmaps-places-filter
              :name name
              :keyword keyword
-             :types types))))
+             :type type))))
    (t
     (setq gmaps-current-filter
           (make-gmaps-places-filter
            :name nil
            :keyword nil
-           :types (gmaps-place-read-types)))))
+           :type (gmaps-place-read-type)))))
   (let ((current-prefix-arg nil))       ;dont clear filter
     (call-interactively 'gmaps-places-nearby)))
 
