@@ -527,22 +527,22 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
   "Restart Soundscape  environment.
 With prefix arg `device', prompt for a alsa/ladspa device."
   (interactive "P")
-  (declare (special soundscape--last-mode  soundscape--scapes soundscape--auto
-                    soundscape-manager-options))
-  (setq soundscape--scapes nil
-        soundscape--last-mode nil)
-  (let ((soundscape-manager-options (copy-sequence soundscape-manager-options)))
-    (when device
-      (nconc soundscape-manager-options
-             `("--device"
-               ,(completing-read
-                 "Filter Device: "
-                 '("crossfeed" "crossfeed_reverb"))))
-      (when soundscape--auto (soundscape-toggle)
-            (soundscape-listener-shutdown))
-      (soundscape-toggle)
-      (sit-for 0.1)
-      (soundscape-sync major-mode 'force))))
+  (declare (special soundscape--last-mode  soundscape--scapes
+                    soundscape--auto soundscape-manager-options))
+  (setq soundscape--scapes nil soundscape--last-mode nil)
+  (let ((soundscape-manager-options 
+         (append
+          (copy-sequence soundscape-manager-options) ; clone default options
+          (when device
+            `("--device"
+              ,(completing-read
+                "Filter Device: "
+                '("crossfeed" "crossfeed_reverb")))))))
+    (when soundscape--auto (soundscape-toggle)
+          (soundscape-listener-shutdown))
+    (soundscape-toggle)
+    (sit-for 0.1)
+    (soundscape-sync major-mode 'force)))
 
 ;;}}}
 ;;{{{ Display Theme:
