@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1145 commands and 940 options.
+This chapter documents a total of 1146 commands and 940 options.
 
 @menu
 * acss-structure::
@@ -9724,6 +9724,15 @@ Apply plugin to running MPlayer.
 @end format
 @end deffn
 
+@subsubsection emacspeak-m-player-af-add
+@deffn {Command} emacspeak-m-player-af-add   
+@findex emacspeak-m-player-af-add
+
+@format
+Add slave command af_add.
+@end format
+@end deffn
+
 @subsubsection emacspeak-m-player-alt-src-step
 @deffn {Command} emacspeak-m-player-alt-src-step  (step)
 @findex emacspeak-m-player-alt-src-step
@@ -10095,6 +10104,7 @@ t		emacspeak-m-player-play-tracks-jump
 u		emacspeak-m-player-url
 v		emacspeak-m-player-volume-change
 x		emacspeak-m-player-pan
+z		emacspeak-m-player-af-add
 @{		emacspeak-m-player-half-speed
 @}		emacspeak-m-player-double-speed
 DEL		emacspeak-m-player-reset-speed
