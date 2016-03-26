@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1143 commands and 939 options.
+This chapter documents a total of 1145 commands and 940 options.
 
 @menu
 * acss-structure::
@@ -8684,6 +8684,31 @@ Change  web-history-not-visited in the currently active toolbelt.
 Change  web-history-visited in the currently active toolbelt.
 @end format
 @end deffn
+
+@subsubsection emacspeak-google-tts
+@deffn {Command} emacspeak-google-tts  (text &optional lang)
+@findex emacspeak-google-tts
+
+@format
+Speak text using Google Network TTS.
+@end format
+@end deffn
+
+@subsubsection emacspeak-google-tts-region
+@deffn {Command} emacspeak-google-tts-region  (start end)
+@findex emacspeak-google-tts-region
+
+@format
+Speak region using Google Network TTS.
+@end format
+@end deffn
+
+@subsection emacspeak-google Options
+
+@defvar {User Option} emacspeak-google-tts-default-language
+Default language used for Google TTS.
+
+@end defvar
 
 @node emacspeak-gridtext
 @section emacspeak-gridtext
