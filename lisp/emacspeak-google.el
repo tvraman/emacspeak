@@ -590,16 +590,19 @@ This variable is buffer-local.")
 ;;;###autoload
 (defun emacspeak-google-tts (text &optional lang)
   "Speak text using Google Network TTS."
-  (interactive "sSay:\np ")
-  (declare (special 
-                    emacspeak-google-tts-default-language
+  (interactive
+   (list
+    (read-from-minibuffer "Text: ")
+    current-prefix-arg))
+  (declare (special emacspeak-google-tts-default-language
                     emacspeak-google-tts-rest-uri))
-  (when (called-interactively-p 'interactive)
+(when (called-interactively-p 'interactive)
     (unless lang
-      (read-from-minibuffer
+      (setq lang 
+            (read-from-minibuffer
        "Language: " emacspeak-google-tts-default-language
        nil nil nil
-       emacspeak-google-tts-default-language)))
+       emacspeak-google-tts-default-language))))
   (emacspeak-m-player-url
            (format emacspeak-google-tts-rest-uri
                     (or lang emacspeak-google-tts-default-language)
