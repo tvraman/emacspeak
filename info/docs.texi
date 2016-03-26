@@ -20458,7 +20458,7 @@ Activate scapes named names.
 @end deffn
 
 @subsubsection soundscape-restart
-@deffn {Command} soundscape-restart   
+@deffn {Command} soundscape-restart  (&optional device)
 @kbd{C-' r C-x @@ s r}
 
 @kindex C-' r C-x @@ s r
@@ -20466,6 +20466,7 @@ Activate scapes named names.
 
 @format
 Restart Soundscape  environment.
+With prefix arg ``device'', prompt for a alsa/ladspa device.
 @end format
 @end deffn
 

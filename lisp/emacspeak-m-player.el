@@ -755,6 +755,12 @@ necessary."
         (message   "%s"
                    (or result "Waiting")))
       result)))
+;;;###autoload
+(defun emacspeak-m-player-af-add ()
+  "Add slave command af_add."
+  (interactive)
+  (funcall-interactively #'emacspeak-m-player-slave-command "af_add"))
+
 
 (defun emacspeak-m-player-delete-filter (filter)
   "Delete filter."
@@ -1042,6 +1048,7 @@ arg `reset' starts with all filters set to 0."
     ("R" emacspeak-m-player-edit-reverb)
     ("S" emacspeak-amark-save)
     ("x" emacspeak-m-player-pan)
+    ("z" emacspeak-m-player-af-add)
     ("SPC" emacspeak-m-player-pause)
     ("[" emacspeak-m-player-slower)
     ("]" emacspeak-m-player-faster)
