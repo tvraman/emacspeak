@@ -582,8 +582,6 @@ This variable is buffer-local.")
   :type 'string
   :group 'emacspeak-google)
 
-
-
 (defvar emacspeak-google-tts-rest-uri
   "https://www.google.com/speech-api/v1/synthesize?lang=%s&text=%s"
   "REST endpoint for network speech synthesis.")
@@ -596,17 +594,16 @@ This variable is buffer-local.")
     current-prefix-arg))
   (declare (special emacspeak-google-tts-default-language
                     emacspeak-google-tts-rest-uri))
-(when (called-interactively-p 'interactive)
+  (when (called-interactively-p 'interactive)
     (unless lang
-      (setq lang 
+      (setq lang
             (read-from-minibuffer
-       "Language: " emacspeak-google-tts-default-language
-       nil nil nil
-       emacspeak-google-tts-default-language))))
+             "Language: " nil nil t nil
+             emacspeak-google-tts-default-language))))
   (emacspeak-m-player-url
-           (format emacspeak-google-tts-rest-uri
-                    (or lang emacspeak-google-tts-default-language)
-                    (url-hexify-string  text))))
+   (format emacspeak-google-tts-rest-uri
+           (or lang emacspeak-google-tts-default-language)
+           (url-hexify-string  text))))
 
 ;;;###autoload
 (defun emacspeak-google-tts-region (start end)
