@@ -523,17 +523,26 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
       (message "Automatic Soundscapes are now %s"
                (if soundscape--auto "on" "off"))))))
 
-(defun soundscape-restart ()
-  "Restart Soundscape  environment."
-  (interactive)
-  (declare (special soundscape--last-mode  soundscape--scapes soundscape--auto))
+(defun soundscape-restart (&optional device)
+  "Restart Soundscape  environment.
+With prefix arg `device', prompt for a alsa/ladspa device."
+  (interactive "P")
+  (declare (special soundscape--last-mode  soundscape--scapes soundscape--auto
+                    soundscape-manager-options))
   (setq soundscape--scapes nil
         soundscape--last-mode nil)
-  (when soundscape--auto (soundscape-toggle)
-        (soundscape-listener-shutdown))
-  (soundscape-toggle)
-  (sit-for 0.1)
-  (soundscape-sync major-mode 'force))
+  (let ((soundscape-manager-options (copy-sequence soundscape-manager-options)))
+    (when device
+      (nconc soundscape-manager-options
+             `("--device"
+               ,(completing-read
+                 "Filter Device: "
+                 '("crossfeed" "crossfeed_reverb"))))
+      (when soundscape--auto (soundscape-toggle)
+            (soundscape-listener-shutdown))
+      (soundscape-toggle)
+      (sit-for 0.1)
+      (soundscape-sync major-mode 'force))))
 
 ;;}}}
 ;;{{{ Display Theme:
