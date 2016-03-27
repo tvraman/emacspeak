@@ -600,7 +600,8 @@ This variable is buffer-local.")
             (read-from-minibuffer
              "Language: " nil nil t nil
              emacspeak-google-tts-default-language))))
-  (emacspeak-m-player-url
+  (start-process
+   "google-tts" nil  emacspeak-m-player-program 
    (format emacspeak-google-tts-rest-uri
            (or lang emacspeak-google-tts-default-language)
            (url-hexify-string  text))))
