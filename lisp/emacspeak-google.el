@@ -593,7 +593,7 @@ This variable is buffer-local.")
     (read-from-minibuffer "Text: ")
     current-prefix-arg))
   (declare (special emacspeak-google-tts-default-language
-                    emacspeak-google-tts-rest-uri))
+                    emacspeak-google-tts-rest-uri emacspeak-m-player-program))
   (when (called-interactively-p 'interactive)
     (unless lang
       (setq lang
