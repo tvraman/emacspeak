@@ -252,6 +252,7 @@ are available are cued by an auditory icon on the header line."
    (when (assoc  c eww-link-keymap)
      (delete (assoc  c eww-link-keymap) eww-link-keymap)))
   (define-key eww-link-keymap  "k" 'shr-copy-url)
+  (define-key eww-link-keymap  "y" 'emacspeak-m-player-youtube-player)
   (loop
    for binding  in
    '(
