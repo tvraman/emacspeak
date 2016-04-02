@@ -879,8 +879,7 @@ Letters do not insert themselves; instead, they are commands.
     (cond
      ((file-exists-p file)
       (message "Book available locally as %s" file))
-     (t (w3-download-url url file)
-        (message "downloading ...")))))
+     (t (message "%s" url)))))
 
 (defvar emacspeak-epub-gutenberg-catalog-url
   "http://www.gutenberg.org/dirs/GUTINDEX.ALL"
