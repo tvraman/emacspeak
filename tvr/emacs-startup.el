@@ -84,8 +84,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     (scroll-bar-mode -1)
     (fringe-mode 0)
     (setq text-quoting-style 'grave)
-    (setq outline-minor-mode-prefix "\C-x@h")
-
     (put 'upcase-region 'disabled nil)
     (put 'downcase-region 'disabled nil)
     (put 'narrow-to-region 'disabled nil)
@@ -170,6 +168,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      #'load-library-if-available
      '(
        "my-functions"
+       "outline-prepare"
 ;;; Mail:
        "vm-prepare" "gm-smtp" "gnus-prepare" "bbdb-prepare"
        "mspools-prepare" "sigbegone"
