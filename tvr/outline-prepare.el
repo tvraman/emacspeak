@@ -1,5 +1,5 @@
 ; Outline-minor-mode key map
-(define-prefix-command 'tvr-outline-map nil "Outline-")
+(define-prefix-command 'tvr-outline-map nil)
 ; HIDE
 (define-key tvr-outline-map "q" 'hide-sublevels)    ; Hide everything but the top-level headings
 (define-key tvr-outline-map "t" 'hide-body)         ; Hide everything but headings (all body lines)
@@ -19,5 +19,7 @@
 (define-key tvr-outline-map "p" 'outline-previous-visible-heading)  ; Previous
 (define-key tvr-outline-map "f" 'outline-forward-same-level)        ; Forward - same level
 (define-key tvr-outline-map "b" 'outline-backward-same-level)       ; Backward - same level
+;restore what we stole
+(define-key tvr-outline-map "\C-o" 'open-line)
 (global-set-key "\C-o" tvr-outline-map)
 
