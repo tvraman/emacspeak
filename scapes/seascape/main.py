@@ -30,8 +30,8 @@ class SurfWaves(agent.Agent):
         bc = self.new_channel_pan(
             stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.25)))
         ag = nature.Cuckoos(
-            0, 15,  # Duration
-            0.25, 0.5,  # volume
+            0, 25,  # Duration
+            0.1, 0.5,  # volume
             1)
         self.sched_agent(ag, 0, bc)
         for i in range(16):
