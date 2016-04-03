@@ -252,6 +252,7 @@ are available are cued by an auditory icon on the header line."
    (when (assoc  c eww-link-keymap)
      (delete (assoc  c eww-link-keymap) eww-link-keymap)))
   (define-key eww-link-keymap  "k" 'shr-copy-url)
+  (define-key eww-link-keymap "C-o" 'emacspeak-feeds-opml-display)
   (define-key eww-link-keymap  "y" 'emacspeak-m-player-youtube-player)
   (loop
    for binding  in
@@ -271,7 +272,6 @@ are available are cued by an auditory icon on the header line."
      ("A" eww-view-dom-having-attribute)
      ("C" eww-view-dom-having-class)
      ("C-e" emacspeak-prefix-command)
-     ("C-o" emacspeak-feeds-opml-display)
      ("C-t" emacspeak-eww-transcode)
      ("E" eww-view-dom-having-elements)
      ("G" emacspeak-google-command)
