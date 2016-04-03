@@ -63,7 +63,7 @@
 ;;;@item m-player: <s-m> Emacspeak-M-Player Commands
 ;;; @item hideshow: C-c h Provide HideShow bindings.
 ;;; @item toggle-option:  <C-c o> Single binding for toggling options.
-;;; @item outliner: <C-c #> Bindings from outline-minor-mode.
+;;; @item outliner: <C-c .> Bindings from outline-minor-mode.
 ;;;@item Info-Summary: <?> in Info Info Summary Muggle
 ;;;@end itemize
 
@@ -420,7 +420,7 @@ _w_ whitespace-mode:   %`whitespace-mode
 
 ;;; Cloned from Hydra Wiki:
 (global-set-key
- (kbd "C-c #")
+ (kbd "C-c .")
  (defhydra emacspeak-muggles-outliner
    (:body-pre (progn
                 (outline-minor-mode 1)
