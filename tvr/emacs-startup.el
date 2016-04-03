@@ -160,7 +160,15 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
          (define-key shell-mode-map "\C-ch" 'emacspeak-wizards-refresh-shell-history)))
 
     ;;}}}
-    ;;{{{ Prepare needed libraries
+;;{{{ outline mode setup:
+
+(load-library "outline")
+;restore what we are about to steal 
+(define-key outline-mode-prefix-map "o" 'open-line)
+(global-set-key "\C-o"outline-mode-prefix-map)
+
+;;}}}
+;;{{{ Prepare needed libraries
 
     (package-initialize)
 
@@ -168,7 +176,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      #'load-library-if-available
      '(
        "my-functions"
-       "outline-prepare"
 ;;; Mail:
        "vm-prepare" "gm-smtp" "gnus-prepare" "bbdb-prepare"
        "mspools-prepare" "sigbegone"
