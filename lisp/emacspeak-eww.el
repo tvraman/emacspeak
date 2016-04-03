@@ -179,6 +179,7 @@ are available are cued by an auditory icon on the header line."
 (add-hook
  'eww-mode-hook
  #'(lambda ()
+     (outline-minor-mode nil)
      (setq
       emacspeak-webutils-document-title #'emacspeak-eww-current-title
       emacspeak-webutils-url-at-point
