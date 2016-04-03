@@ -5,7 +5,7 @@ from boodle import builtin
 
 play = bimport('org.boodler.play')
 
-nature=bimport('org.emacspeak.nature')
+nature = bimport('org.emacspeak.nature')
 water = bimport('org.boodler.old.water')
 
 wavesounds = [
@@ -18,7 +18,7 @@ class SurfWaves(agent.Agent):
     """Orchestrate wave agents SurfWaveSounds and SurfBackgroundWaves"""
 
     def run(self):
-        
+
         bc = self.new_channel_pan(
             stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.25)))
         ag = nature.Nightingales(
@@ -26,19 +26,27 @@ class SurfWaves(agent.Agent):
             0.25, 0.75,  # volume
             1)
         self.sched_agent(ag, 0, bc)
+
+        bc = self.new_channel_pan(
+            stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.25)))
+        ag = nature.Cuckoos(
+            0, 15,  # Duration
+            0.25, 0.75,  # volume
+            1)
+        self.sched_agent(ag, 0, bc)
         for i in range(16):
-            y = 1+i*0.025
+            y = 1 + i * 0.025
             sc = self.new_channel_pan(
                 stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, y)))
             ag = SurfBackgroundWaves()
-            self.sched_agent(ag, i*2, sc)
-            
+            self.sched_agent(ag, i * 2, sc)
+
         for i in range(16):
-            y = 1+i*0.025
+            y = 1 + i * 0.025
             sc = self.new_channel_pan(
                 stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, -y)))
             ag = SurfWaveSounds()
-            self.sched_agent(ag, i*8, sc)
+            self.sched_agent(ag, i * 8, sc)
 
 
 class SurfWaveSounds(agent.Agent):
