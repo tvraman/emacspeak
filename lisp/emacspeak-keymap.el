@@ -510,6 +510,7 @@ interactive command that the key sequence executes."
 (defcustom emacspeak-super-keys 
   '(
     ("." auto-correct-update)
+    ("c" emacspeak-wizards-color-at-point)
     ("r" soundscape-restart)
     ("s" soundscape)
     ("t" soundscape-toggle)
@@ -573,7 +574,6 @@ interactive command that the key sequence executes."
   '(
     ("," emacspeak-eldoc-speak-doc)
     ("a" emacspeak-feeds-atom-display)
-    ("C" emacspeak-wizards-color-at-point)
     ("c" emacspeak-wizards-view-buffers-filtered-by-this-mode)
     ("e" eww)
     ("f" emacspeak-feeds-find-feeds)
