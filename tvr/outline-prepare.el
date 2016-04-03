@@ -19,6 +19,7 @@
 (define-key tvr-outline-map "p" 'outline-previous-visible-heading)  ; Previous
 (define-key tvr-outline-map "f" 'outline-forward-same-level)        ; Forward - same level
 (define-key tvr-outline-map "b" 'outline-backward-same-level)       ; Backward - same level
+(define-key tvr-outline-map " " 'emacspeak-outline-speak-this-heading)
 ;restore what we stole
 (define-key tvr-outline-map "\C-o" 'open-line)
 (global-set-key "\C-o" tvr-outline-map)
