@@ -2367,8 +2367,7 @@ set the current local value to the result.")
 When turned on,  comint output will be spoken even when the
 buffer is not current or its window live.")
 
-(make-variable-buffer-local
- 'emacspeak-comint-output-monitor)
+(make-variable-buffer-local 'emacspeak-comint-output-monitor)
 
 ;;;###autoload
 (ems-generate-switcher ' emacspeak-toggle-comint-output-monitor
@@ -2395,7 +2394,7 @@ set the current local value to the result.")
 
 (add-hook 'comint-mode-hook 'emacspeak-comint-speech-setup)
 
-;;;###autoload
+
 
 ;;}}}
 ;;{{{   quieten messages
