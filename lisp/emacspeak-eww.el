@@ -254,9 +254,9 @@ are available are cued by an auditory icon on the header line."
      (delete (assoc  c eww-link-keymap) eww-link-keymap)))
   (define-key eww-link-keymap  "k" 'shr-copy-url)
   (define-key eww-link-keymap ";" 'emacspeak-webutils-play-media-at-point)
-  (define-key eww-link-keymap "C-o" 'emacspeak-feeds-opml-display)
-  (define-key eww-link-keymap "C-r" 'emacspeak-feeds-rss-display)
-  (define-key eww-link-keymap "C-a" 'emacspeak-feeds-atom-display)
+  (define-key eww-link-keymap "\C-o" 'emacspeak-feeds-opml-display)
+  (define-key eww-link-keymap "\C-r" 'emacspeak-feeds-rss-display)
+  (define-key eww-link-keymap "\C-a" 'emacspeak-feeds-atom-display)
   (define-key eww-link-keymap  "y" 'emacspeak-m-player-youtube-player)
   (loop
    for binding  in
