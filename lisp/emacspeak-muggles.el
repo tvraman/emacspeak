@@ -477,7 +477,6 @@ _d_: subtree
     :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
    "move"
    ("s" emacspeak-muggles-toggle-talkative)
-
    ("n" next-line)
    ("p" previous-line)
    ("f" forward-char)
