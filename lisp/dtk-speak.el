@@ -1683,7 +1683,8 @@ program. Port defaults to dtk-local-server-port"
 (defun tts-restart ()
   "Use this to nuke the currently running TTS server and restart it."
   (interactive)
-  (dtk-initialize ))
+  (dtk-initialize )
+  (dtk-interp-sync))
 
 ;;;###autoload
 
