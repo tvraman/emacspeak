@@ -3176,8 +3176,9 @@ where `sport' is either mlb or nba."
        (loop for f in s do
              (insert (format "%s:\t %s\n"
                              (car f) (cdr f))))
-       (insert "\n")))
-    (funcall-interactively #'switch-to-buffer buffer)))
+       (insert "\n"))
+      (goto-char (point-min))
+    (funcall-interactively #'switch-to-buffer buffer))))
 
 ;;}}}
 ;;{{{ Color at point:
