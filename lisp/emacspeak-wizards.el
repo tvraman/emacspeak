@@ -3162,6 +3162,7 @@ where `sport' is either mlb or nba."
   (interactive)
   (let ((buffer (get-buffer-create "*MLB Standings*"))
         (date (format-time-string "%B %e %Y"))
+        (inhibit-read-only t)
         (standings 
          (g-json-get-result
     (format
@@ -3170,6 +3171,7 @@ where `sport' is either mlb or nba."
      (emacspeak-wizards-xmlstats-standings-uri "mlb")))))
     (with-current-buffer buffer
       (erase-buffer)
+      (special-mode)
       (insert (format  "Standings: %s\n\n"
                        date))
       (loop
