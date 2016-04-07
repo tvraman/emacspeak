@@ -23,7 +23,7 @@ class SurfWaves(agent.Agent):
             stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.25)))
         ag = nature.Nightingales(
             0, 25,  # Duration
-            0.1, 0.75,  # volume
+            0.05, 0.85,  # volume
             1)
         self.sched_agent(ag, 0, bc)
 
