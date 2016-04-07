@@ -806,15 +806,13 @@ name of the list.")
       url)))
 
 (emacspeak-url-template-define
- "Baseball standings"
+ "MLB  standings"
  "http://www.mlb.com/NASApp/mlb/mlb/standings/index.jsp"
  nil
  nil
  "Display MLB standings."
  #'(lambda (url)
-     (emacspeak-we-extract-table-by-match
-      "Standings"
-      url 'speak)))
+     (emacspeak-wizards-mlb-standings)))
 
 (emacspeak-url-template-define
  "Baseball Game Index"
