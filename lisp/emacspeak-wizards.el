@@ -3146,6 +3146,40 @@ Symbols are taken from `emacspeak-wizards-personal-portfolio'."
     (call-interactively 'emacspeak-table-next-row)))
 
 ;;}}}
+;;{{{ Sports API:
+
+(defvar emacspeak-wizards--xmlstats-standings-uri
+  "https://erikberg.com/%s/standings.json"
+  "URI Rest end-point template for standings in a given sport.
+At present, handles mlb, nba.")
+
+(defsubst emacspeak-wizards-xmlstats-standings-uri (sport)
+  "Return REST URI end-point,
+where `sport' is either mlb or nba."
+  (format emacspeak-wizards--xmlstats-standings-uri sport))
+(defun emacspeak-wizards-mlb-standings ()
+  "Display MLB standings as of today."
+  (interactive)
+  (let ((buffer (get-buffer-create "*MLB Standings*"))
+        (standings 
+         (g-json-get-result
+    (format
+     "%s  %s '%s'"
+     g-curl-program g-curl-common-options
+     (emacspeak-wizards-xmlstats-standings-uri "mlb")))))
+    (with-current-buffer buffer
+      (erase-buffer)
+      (insert (format  "Standings: %s\n\n"
+                       (g-json-get 'standings_date standings)))
+      (loop
+       for s across  (g-json-get  'standing standings) do
+       (loop for f in s do
+             (insert (format "%s:\t %s\n"
+                             (car f) (cdr f))))
+       (insert "\n")))
+    (funcall-interactively #'switch-to-buffer buffer)))
+
+;;}}}
 ;;{{{ Color at point:
 ;;;###autoload
 (defun emacspeak-wizards-color-at-point()
