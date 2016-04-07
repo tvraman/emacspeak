@@ -3161,6 +3161,7 @@ where `sport' is either mlb or nba."
   "Display MLB standings as of today."
   (interactive)
   (let ((buffer (get-buffer-create "*MLB Standings*"))
+        (date (format-time-string "%B %e %Y"))
         (standings 
          (g-json-get-result
     (format
@@ -3170,7 +3171,7 @@ where `sport' is either mlb or nba."
     (with-current-buffer buffer
       (erase-buffer)
       (insert (format  "Standings: %s\n\n"
-                       (g-json-get 'standings_date standings)))
+                       date))
       (loop
        for s across  (g-json-get  'standing standings) do
        (loop for f in s do
