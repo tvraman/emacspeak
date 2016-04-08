@@ -775,6 +775,7 @@ name of the list.")
 
 ;;}}}
 ;;{{{ MLB scores
+
 ;;; standings:
 
 (emacspeak-url-template-define
@@ -892,6 +893,18 @@ name of the list.")
  nil
  "Display baseball scores."
  )
+
+;;}}}
+;;{{{ NBA Standings:
+
+(emacspeak-url-template-define
+ "NBA  standings"
+ "http://www.nba.com/NASApp/nba/nba/standings/index.jsp"
+ nil
+ nil
+ "Display NBA standings."
+ #'(lambda (url)
+     (emacspeak-wizards-nba-standings)))
 
 ;;}}}
 ;;{{{ Listening to Air Traffic control
