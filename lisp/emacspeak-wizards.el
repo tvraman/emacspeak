@@ -3200,6 +3200,52 @@ Optional interactive prefix arg shows  unprocessed results."
       (goto-char (point-min))
     (funcall-interactively #'switch-to-buffer buffer))))
 
+(defsubst emacspeak-wizards--format-nba-standing (s)
+  "Format  NBA standing."
+  (let-alist  s
+    (format
+     "%s %s  are %s in the %s %s. 
+They are at  %s/%s after %s games for an average of %s.
+Current streak is %s; Win/Loss at Home: %s/%s, Away: %s/%s, Conference: %s/%s.
+\n"
+     .first_name .last_name .ordinal_rank .conference .division
+     .won .lost .games_played  .win_percentage
+     .streak .home_won .home_lost .away_won .away_lost
+     .conference_won .conference_lost)))
+
+(defun emacspeak-wizards-nba-standings (&optional raw)
+  "Display NBA standings as of today.
+Optional interactive prefix arg shows  unprocessed results."
+  (interactive "P")
+  (let ((buffer (get-buffer-create "*NBA Standings*"))
+        (date (format-time-string "%B %e %Y"))
+        (inhibit-read-only t)
+        (standings 
+         (g-json-from-url (emacspeak-wizards-xmlstats-standings-uri "nba"))))
+    (with-current-buffer buffer
+      (erase-buffer)
+      (special-mode)
+      (insert (format  "Standings: %s\n\n" date))
+      (cond
+       (raw
+        (loop
+       for s across  (g-json-get  'standing standings) do
+       (loop
+        for f in s do
+        (insert (format "%s:\t%s\n"
+                        (car f) (cdr f))))
+       (insert "\n")))
+       (t 
+      (loop
+       for s across  (g-json-get  'standing standings) do
+       (insert (emacspeak-wizards--format-nba-standing s)))))
+      (goto-char (point-min))
+    (funcall-interactively #'switch-to-buffer buffer))))
+
+
+
+
+
 ;;}}}
 ;;{{{ Color at point:
 ;;;###autoload
