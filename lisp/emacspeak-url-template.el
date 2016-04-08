@@ -807,7 +807,7 @@ name of the list.")
       url)))
 
 (emacspeak-url-template-define
- "MLB  standings"
+ "MLB standings"
  "http://www.mlb.com/NASApp/mlb/mlb/standings/index.jsp"
  nil
  nil
