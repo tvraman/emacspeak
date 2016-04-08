@@ -3171,9 +3171,10 @@ Current streak is %s; Win/Loss at Home: %s/%s, Away: %s/%s, Conference: %s/%s.
      .streak .home_won .home_lost .away_won .away_lost
      .conference_won .conference_lost)))
 
-(defun emacspeak-wizards-mlb-standings ()
-  "Display MLB standings as of today."
-  (interactive)
+(defun emacspeak-wizards-mlb-standings (&optional raw)
+  "Display MLB standings as of today.
+Optional interactive prefix arg shows  unprocessed results."
+  (interactive "P")
   (let ((buffer (get-buffer-create "*MLB Standings*"))
         (date (format-time-string "%B %e %Y"))
         (inhibit-read-only t)
@@ -3183,9 +3184,19 @@ Current streak is %s; Win/Loss at Home: %s/%s, Away: %s/%s, Conference: %s/%s.
       (erase-buffer)
       (special-mode)
       (insert (format  "Standings: %s\n\n" date))
+      (cond
+       (raw
+        (loop
+       for s across  (g-json-get  'standing standings) do
+       (loop
+        for f in s do
+        (insert (format "%s:\t%s\n"
+                        (car f) (cdr f))))
+       (insert "\n")))
+       (t 
       (loop
        for s across  (g-json-get  'standing standings) do
-       (insert (emacspeak-wizards--format-mlb-standing s)))
+       (insert (emacspeak-wizards--format-mlb-standing s)))))
       (goto-char (point-min))
     (funcall-interactively #'switch-to-buffer buffer))))
 
