@@ -3157,6 +3157,17 @@ At present, handles mlb, nba.")
   "Return REST URI end-point,
 where `sport' is either mlb or nba."
   (format emacspeak-wizards--xmlstats-standings-uri sport))
+(defsubst emacspeak-wizards--format-mlb-standing (s)
+  "Format  MLB standing."
+  (let-alist  s
+    (format
+     "%s %s  are %s in the %s %s. 
+They are at  %s/%s after %s games for an average of %s%%..
+Current streak is %s; Win/Loss at Home: %s, Away: %s.
+\n"
+     .first_name .last_name .ordinal_rank .conference .division
+     .won .lost .games_played  .win_percentage
+     .streak .home_won .home_lost .away_won .away_lost)))
 
 (defun emacspeak-wizards-mlb-standings ()
   "Display MLB standings as of today."
@@ -3169,14 +3180,10 @@ where `sport' is either mlb or nba."
     (with-current-buffer buffer
       (erase-buffer)
       (special-mode)
-      (insert (format  "Standings: %s\n\n"
-                       date))
+      (insert (format  "Standings: %s\n\n" date))
       (loop
        for s across  (g-json-get  'standing standings) do
-       (loop for f in s do
-             (insert (format "%s:\t %s\n"
-                             (car f) (cdr f))))
-       (insert "\n"))
+       (insert (emacspeak-wizards-mlb-standings s)))
       (goto-char (point-min))
     (funcall-interactively #'switch-to-buffer buffer))))
 
