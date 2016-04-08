@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1146 commands and 940 options.
+This chapter documents a total of 1147 commands and 940 options.
 
 @menu
 * acss-structure::
@@ -18442,9 +18442,9 @@ Cleans up duplicates in shell path env variable.
 
 @subsubsection emacspeak-wizards-color-at-point
 @deffn {Command} emacspeak-wizards-color-at-point   
-@kbd{C-h , C-, C <f1> , <help> , C-x @@ a C}
+@kbd{C-h , C-' c <f1> , <help> , C-x @@ s c}
 
-@kindex C-h , C-, C <f1> , <help> , C-x @@ a C
+@kindex C-h , C-' c <f1> , <help> , C-x @@ s c
 @findex emacspeak-wizards-color-at-point
 
 @format
@@ -18820,6 +18820,15 @@ Run Lacheck on current buffer.
 
 @format
 load file into emacs
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-mlb-standings
+@deffn {Command} emacspeak-wizards-mlb-standings   
+@findex emacspeak-wizards-mlb-standings
+
+@format
+Display MLB standings as of today.
 @end format
 @end deffn
 
@@ -21254,10 +21263,6 @@ Display baseball Play By Play.
 
 Display baseball scores.
 
-@b{Baseball standings}
-
-Display MLB standings.
-
 @b{Bing News}
 
 Bing News results as RSS feed.
@@ -21353,6 +21358,10 @@ Display specified news feed.
 @b{IToRSS}
 
 Pull RSS feed corresponding to an ITunes Podcast.
+
+@b{MLB  standings}
+
+Display MLB standings.
 
 @b{MLB Scorecard}
 
