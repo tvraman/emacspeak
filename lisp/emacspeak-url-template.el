@@ -839,6 +839,39 @@ name of the list.")
  )
 
 (emacspeak-url-template-define
+ "Baseball Highlights"
+"http://gd2.mlb.com/components/game/mlb/%s_%smlb_%smlb_1/media/mobile.xml"
+ (list
+  #'(lambda nil
+      (let ((date
+             (emacspeak-speak-collect-date
+              "Date: "
+              "%Y-%m-%d"))
+            (fields nil)
+            (result nil))
+        (setq fields (split-string date "-"))
+        (setq result
+              (format
+               "year_%s/month_%s/day_%s/gid_%s_%s_%s"
+               (first fields)
+               (second fields)
+               (third fields)
+               (first fields)
+               (second fields)
+               (third fields)))
+        result))
+  "Visiting Team: "
+  "Home Team: ")
+ nil
+ "Display baseball Video Highlights."
+ #'(lambda (url)
+     (add-hook
+      'emacspeak-webutils-run-pre-process-hook
+      (emacspeak-webutils-make-xsl-transformer
+       (emacspeak-xslt-get "mlb-media.xsl")))
+      (browse-url url)))
+
+(emacspeak-url-template-define
  "Baseball Game Details"
 "http://gd2.mlb.com/components/game/mlb/%s_%smlb_%smlb_1/"
  (list
