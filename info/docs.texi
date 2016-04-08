@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1147 commands and 940 options.
+This chapter documents a total of 1148 commands and 940 options.
 
 @menu
 * acss-structure::
@@ -18824,11 +18824,12 @@ load file into emacs
 @end deffn
 
 @subsubsection emacspeak-wizards-mlb-standings
-@deffn {Command} emacspeak-wizards-mlb-standings   
+@deffn {Command} emacspeak-wizards-mlb-standings  (&optional raw)
 @findex emacspeak-wizards-mlb-standings
 
 @format
 Display MLB standings as of today.
+Optional interactive prefix arg shows  unprocessed results.
 @end format
 @end deffn
 
@@ -18843,6 +18844,16 @@ count that specifies how many times to execute that command
 first.  Point is left at the target position.  Interactively,
 command is specified by pressing the key that invokes the
 command.
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-nba-standings
+@deffn {Command} emacspeak-wizards-nba-standings  (&optional raw)
+@findex emacspeak-wizards-nba-standings
+
+@format
+Display NBA standings as of today.
+Optional interactive prefix arg shows  unprocessed results.
 @end format
 @end deffn
 
@@ -21201,7 +21212,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 70 URL Templates.
+This section documents a total of 73 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -21251,13 +21262,21 @@ Display interactive BBC Program Guide.
 
 BBC iPlayer
 
+@b{Baseball Box Scores}
+
+Display baseball Play By Play.
+
+@b{Baseball Game Details}
+
+Display baseball Play By Play.
+
 @b{Baseball Game Index}
 
 Display baseball Play By Play.
 
-@b{Baseball Play By Play}
+@b{Baseball Highlights}
 
-Display baseball Play By Play.
+Display baseball Video Highlights.
 
 @b{Baseball scores}
 
@@ -21359,13 +21378,13 @@ Display specified news feed.
 
 Pull RSS feed corresponding to an ITunes Podcast.
 
-@b{MLB  standings}
-
-Display MLB standings.
-
 @b{MLB Scorecard}
 
 Show MLB Scorecard.
+
+@b{MLB standings}
+
+Display MLB standings.
 
 @b{Market summary from Google}
 
@@ -21381,6 +21400,10 @@ Translate word using Google.
 Source and target languages
 are specified as two-letter language codes, e.g. en|de translates
 from English to German
+
+@b{NBA  standings}
+
+Display NBA standings.
 
 @b{NY Times Mobile}
 
