@@ -3157,6 +3157,7 @@ At present, handles mlb, nba.")
   "Return REST URI end-point,
 where `sport' is either mlb or nba."
   (format emacspeak-wizards--xmlstats-standings-uri sport))
+
 (defun emacspeak-wizards-mlb-standings ()
   "Display MLB standings as of today."
   (interactive)
@@ -3164,11 +3165,7 @@ where `sport' is either mlb or nba."
         (date (format-time-string "%B %e %Y"))
         (inhibit-read-only t)
         (standings 
-         (g-json-get-result
-    (format
-     "%s  %s '%s'"
-     g-curl-program g-curl-common-options
-     (emacspeak-wizards-xmlstats-standings-uri "mlb")))))
+         (g-json-from-url (emacspeak-wizards-xmlstats-standings-uri "mlb"))))
     (with-current-buffer buffer
       (erase-buffer)
       (special-mode)

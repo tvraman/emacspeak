@@ -138,16 +138,15 @@ Customize this to live on your local disk."
 (defun g-cookie-jar ()
   "Return our cookie jar."
   (declare (special g-cookie-jar))
-  
-   
+
+
   (unless g-cookie-jar (setq g-cookie-jar (make-temp-file ".g-cookie-jar")))
-      g-cookie-jar)
+  g-cookie-jar)
 
 (defvar g-cookie-options
   (format "--cookie %s --cookie-jar %s"
           g-cookie-jar g-cookie-jar)
   "Options to pass for using our cookie jar.")
-
 
 (defun g-cookie-options ()
   "Return cookie jar options."
@@ -155,9 +154,9 @@ Customize this to live on your local disk."
   (unless g-cookie-options
     (setq g-cookie-options
           (format "--cookie %s --cookie-jar %s"
-          (g-cookie-jar) ( g-cookie-jar))))
+                  (g-cookie-jar) ( g-cookie-jar))))
   g-cookie-options)
-  
+
 (defcustom g-curl-debug nil
   "Set to T to see Curl stderr output."
   :type 'boolean
@@ -331,6 +330,11 @@ string."
   (json-read-from-string
    (g-get-result command)))
 
+(defsubst g-json-from-url (url)
+  "Return JSON read from URL."
+  (g-json-get-result
+   (format "%s  %s '%s'" g-curl-program g-curl-common-options url)))
+
 (defsubst g-display-result (command style)
   "Display result retrieved by command using specified style.
 Typically, content is pulled using Curl , converted to HTML using style  and
@@ -461,7 +465,7 @@ Note that in the Curl output, we see lf rather than crlf.")
 (defsubst g-html-string (html-string)
   "Return formatted string."
   (or (require 'shr) (error "Need  emacs 24.4"))
-  (with-temp-buffer 
+  (with-temp-buffer
     (insert html-string)
     (shr-render-region  (point-min) (point-max))
     (buffer-string)))
