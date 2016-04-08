@@ -3163,7 +3163,7 @@ where `sport' is either mlb or nba."
   (let-alist  s
     (format
      "%s %s  are %s in the %s %s. 
-They are at  %s/%s after %s games for an average of %s%%.
+They are at  %s/%s after %s games for an average of %s.
 Current streak is %s; Win/Loss at Home: %s/%s, Away: %s/%s.
 \n"
      .first_name .last_name .ordinal_rank .conference .division
