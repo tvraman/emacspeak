@@ -456,7 +456,7 @@ Append means place corresponding personality at the end."
                  beg end voice object)))))
 
 ;;}}}
-(provide 'emacspeak-personality )
+(provide 'emacspeak-personality)
 ;;{{{ end of file
 
 ;;; local variables:

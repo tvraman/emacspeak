@@ -3457,7 +3457,7 @@ This command  is designed for use in a windowing environment like X."
 (define-key minibuffer-local-completion-map "\C-c" 'emacspeak-minibuffer-choose-completion)
 
 ;;}}}
-(provide 'emacspeak-speak )
+(provide 'emacspeak-speak)
 ;;{{{ end of file
 
 ;;; local variables:

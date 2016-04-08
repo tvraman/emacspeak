@@ -409,7 +409,7 @@ and when you have heard enough navigate easily  to move past the block."
        (t (message "Not on a hidden block"))))))
 
 ;;}}}
-(provide 'emacspeak-hide )
+(provide 'emacspeak-hide)
 ;;{{{ end of file
 
 ;;; local variables:
