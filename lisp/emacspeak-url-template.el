@@ -869,7 +869,7 @@ name of the list.")
       'emacspeak-webutils-run-pre-process-hook
       (emacspeak-webutils-make-xsl-transformer
        (emacspeak-xslt-get "mlb-media.xsl")))
-      (browse-url url)))
+      (eww url)))
 
 (emacspeak-url-template-define
  "Baseball Game Details"
