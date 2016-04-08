@@ -839,8 +839,8 @@ name of the list.")
  )
 
 (emacspeak-url-template-define
- "Baseball Play By Play"
- "http://gd.mlb.com/components/game/%s_%smlb_%smlb_1/playbyplay.html"
+ "Baseball Game Details"
+"http://gd2.mlb.com/components/game/mlb/%s_%smlb_%smlb_1/"
  (list
   #'(lambda nil
       (let ((date
@@ -863,9 +863,45 @@ name of the list.")
   "Visiting Team: "
   "Home Team: ")
  nil
- "Display baseball Play By Play."
- )
+ "Display baseball Play By Play.")
 
+(emacspeak-url-template-define
+ "Baseball Box Scores"
+"http://gd2.mlb.com/components/game/mlb/%s_%smlb_%smlb_1/boxscore.json"
+ (list
+  #'(lambda nil
+      (let ((date
+             (emacspeak-speak-collect-date
+              "Date: "
+              "%Y-%m-%d"))
+            (fields nil)
+            (result nil))
+        (setq fields (split-string date "-"))
+        (setq result
+              (format
+               "year_%s/month_%s/day_%s/gid_%s_%s_%s"
+               (first fields)
+               (second fields)
+               (third fields)
+               (first fields)
+               (second fields)
+               (third fields)))
+        result))
+  "Visiting Team: "
+  "Home Team: ")
+ nil
+ "Display baseball Play By Play.")
+
+(defun emacspeak-url-dtemplate--mlb-play-by-play (url)
+  "Display Play By Play details for an MLB game.
+JSON is retrieved from `url'."
+  (let ((inhibit-read-only t))
+    (with-current-buffer (get-buffer-create "*Baseball Play By Play*")
+      (erase-buffer)
+(special-mode)
+(goto-char (point-min)))))
+
+    (
 (emacspeak-url-template-define
  "Baseball scores"
  "http://gd.mlb.com/components/game/mlb/%s_%smlb_%smlb_1/boxscore.html"
