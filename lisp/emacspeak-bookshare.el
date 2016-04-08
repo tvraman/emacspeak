@@ -63,7 +63,8 @@
 (require 'emacspeak-we)
 (require 'emacspeak-webutils)
 (require 'emacspeak-xslt)
-(require 'dom) ; Cloned from Emacs 25
+(or (require 'dom nil t)
+    (require 'dom "bundled/dom"))
 (require 'xml)
 (require 'derived)
 ;;}}}

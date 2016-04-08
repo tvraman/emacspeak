@@ -25,7 +25,9 @@
 ;;; Code:
 
 (require 'cl-lib)
-(eval-when-compile (require 'subr-x))
+(eval-when-compile
+  (or (require 'subr-x nil t)
+      (require 'subr-x "bundled/subr-x")))
 
 (defsubst dom-tag (node)
   "Return the NODE tag."

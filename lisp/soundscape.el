@@ -88,7 +88,8 @@
 
 (require 'cl-lib)
 (cl-declaim  (optimize  (safety 0) (speed 3)))
-(require 'subr-x)
+(or (require 'subr-x nil t)
+    (require 'subr-x "bundled/subr-x"))
 
 ;;}}}
 ;;{{{ Configuration:

@@ -53,7 +53,8 @@
 (declaim (optimize (safety 0) (speed 3)))
 
 (eval-when-compile (require 'eww "eww" 'no-error))
-(require 'dom)
+(or (require 'dom nil t)
+    (require 'dom "bundled/dom"))
 (require 'dom-addons)
 (eval-when-compile (require 'emacspeak-feeds "emacspeak-feeds" 'no-error))
 (require 'emacspeak-preamble)
