@@ -3164,11 +3164,12 @@ where `sport' is either mlb or nba."
     (format
      "%s %s  are %s in the %s %s. 
 They are at  %s/%s after %s games for an average of %s.
-Current streak is %s; Win/Loss at Home: %s/%s, Away: %s/%s.
+Current streak is %s; Win/Loss at Home: %s/%s, Away: %s/%s, Conference: %s/%s.
 \n"
      .first_name .last_name .ordinal_rank .conference .division
      .won .lost .games_played  .win_percentage
-     .streak .home_won .home_lost .away_won .away_lost)))
+     .streak .home_won .home_lost .away_won .away_lost
+     .conference_won .conference_lost)))
 
 (defun emacspeak-wizards-mlb-standings ()
   "Display MLB standings as of today."
