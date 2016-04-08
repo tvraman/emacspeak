@@ -865,13 +865,12 @@ name of the list.")
  nil
  "Display baseball Video Highlights."
  #'(lambda (url)
-     (let ((command
-            (format
-             "%s %s '%s' "
-             emacspeak-xslt-program (emacspeak-xslt-get "mlb-media.xsl") url)))
-     (with-temp-buffer
-       (shell-command  command  (current-buffer))
-      (browse-url-of-buffer)))))
+     (emacspeak-webutils-autospeak)
+     (emacspeak-xslt-view-xml
+      (emacspeak-xslt-get "mlb-media.xsl") url)))
+     
+       
+      
 
 (emacspeak-url-template-define
  "Baseball Game Details"
