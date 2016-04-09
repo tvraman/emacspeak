@@ -546,7 +546,6 @@ from English to German")
      (emacspeak-speak-rest-of-buffer))
  "Search Google news.")
 
-
 (defun emacspeak-url-template-google-atom-news-display (feed-url)
   "View Google Atom news feed pulled using Curl."
   (interactive)
@@ -840,7 +839,7 @@ name of the list.")
 
 (emacspeak-url-template-define
  "Baseball Highlights"
-"http://gd2.mlb.com/components/game/mlb/%s_%smlb_%smlb_1/media/mobile.xml"
+ "http://gd2.mlb.com/components/game/mlb/%s_%smlb_%smlb_1/media/mobile.xml"
  (list
   #'(lambda nil
       (let ((date
@@ -868,13 +867,10 @@ name of the list.")
      (emacspeak-webutils-autospeak)
      (emacspeak-xslt-view-xml
       (emacspeak-xslt-get "mlb-media.xsl") url)))
-     
-       
-      
 
 (emacspeak-url-template-define
  "Baseball Game Details"
-"http://gd2.mlb.com/components/game/mlb/%s_%smlb_%smlb_1/"
+ "http://gd2.mlb.com/components/game/mlb/%s_%smlb_%smlb_1/"
  (list
   #'(lambda nil
       (let ((date
@@ -914,7 +910,7 @@ JSON is retrieved from `url'."
 
 (emacspeak-url-template-define
  "Baseball Box Scores"
-"http://gd2.mlb.com/components/game/mlb/%s_%smlb_%smlb_1/boxscore.json"
+ "http://gd2.mlb.com/components/game/mlb/%s_%smlb_%smlb_1/boxscore.json"
  (list
   #'(lambda nil
       (let ((date
@@ -940,7 +936,6 @@ JSON is retrieved from `url'."
  "Display baseball Play By Play."
  #'emacspeak-url-dtemplate--mlb-play-by-play)
 
-    
 (emacspeak-url-template-define
  "Baseball scores"
  "http://gd.mlb.com/components/game/mlb/%s_%smlb_%smlb_1/boxscore.html"

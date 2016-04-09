@@ -74,7 +74,6 @@
  'helm-minibuffer-set-up-hook
  #'(lambda nil (emacspeak-auditory-icon 'open-object)))
 
-
 (defun emacspeak-helm-cleanup-hook ()
   "Restore Emacspeak's minibuffer setup hook."
   (add-hook 'minibuffer-setup-hook #'emacspeak-minibuffer-setup-hook))
@@ -85,20 +84,20 @@
   " Cue update."
   (when (sit-for 0.5)
     (let ((inhibit-read-only t)
-        (line (buffer-substring (line-beginning-position) (line-end-position)))
-        (count-msg nil)
-        (count (-  (count-lines (point-min) (point-max)) 2)))
-    (setq count-msg
-          (concat
-           (propertize
-            (format "%d of %d"
-                    (- (line-number-at-pos) 2)
-                    (- (count-lines(point-min) (point-max))2))
-            'personality voice-bolden)))
-    ;(emacspeak-auditory-icon 'progress)
-    (condition-case nil ; needed for some calls
-        (dtk-speak (concat line count-msg))
-      (error nil)))))
+          (line (buffer-substring (line-beginning-position) (line-end-position)))
+          (count-msg nil)
+          (count (-  (count-lines (point-min) (point-max)) 2)))
+      (setq count-msg
+            (concat
+             (propertize
+              (format "%d of %d"
+                      (- (line-number-at-pos) 2)
+                      (- (count-lines(point-min) (point-max))2))
+              'personality voice-bolden)))
+                                        ;(emacspeak-auditory-icon 'progress)
+      (condition-case nil ; needed for some calls
+          (dtk-speak (concat line count-msg))
+        (error nil)))))
 
 (add-hook 'helm-move-selection-after-hook #'emacspeak-helm-cue-update 'at-end)
 (add-hook 'helm-after-action-hook #'emacspeak-speak-mode-line 'at-end)

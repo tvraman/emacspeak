@@ -143,7 +143,7 @@
   "Header line format for SoX buffers.")
 
 (define-derived-mode sox-mode special-mode
-                     "Interactively manipulate audio files."
+  "Interactively manipulate audio files."
   "An audio workbench for the Emacspeak desktop."
   (declare (special sox-context))
   (setq sox-context (make-sox-context))

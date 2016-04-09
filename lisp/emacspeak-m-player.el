@@ -137,7 +137,7 @@ This is set to nil when playing Internet  streams.")
    (dtk-speak (emacspeak-m-player-mode-line))))
 
 (define-derived-mode emacspeak-m-player-mode comint-mode
-                     "M-Player Interaction"
+  "M-Player Interaction"
   "Major mode for m-player interaction. \n\n
 \\{emacspeak-m-player-mode-map}"
   (progn
@@ -306,7 +306,7 @@ etc to be ignored when guessing directory.")
   "Call emacspeak-m-player with specified URL."
   (interactive (list (car (browse-url-interactive-arg "Media URL: "))))
   (let ((emacspeak-speak-messages nil))
-  (emacspeak-m-player url playlist-p)))
+    (emacspeak-m-player url playlist-p)))
 
 ;;;###autoload
 
@@ -367,17 +367,17 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
   "Filter function that captures metadata."
   (declare (special emacspeak-m-player-cue-info))
   (when emacspeak-m-player-process
-  (with-current-buffer (process-buffer emacspeak-m-player-process)
-    (when (and emacspeak-m-player-metadata
-               (emacspeak-m-player-metadata-p emacspeak-m-player-metadata)
-               (string-match "ICY Info:" output))
-      (setf
-       (emacspeak-m-player-metadata-info emacspeak-m-player-metadata)
-       output)
-      (emacspeak-auditory-icon 'progress)
-      (when emacspeak-m-player-cue-info (emacspeak-m-player-stream-info)))
-    (goto-char (process-mark process))
-    (insert output))))
+    (with-current-buffer (process-buffer emacspeak-m-player-process)
+      (when (and emacspeak-m-player-metadata
+                 (emacspeak-m-player-metadata-p emacspeak-m-player-metadata)
+                 (string-match "ICY Info:" output))
+        (setf
+         (emacspeak-m-player-metadata-info emacspeak-m-player-metadata)
+         output)
+        (emacspeak-auditory-icon 'progress)
+        (when emacspeak-m-player-cue-info (emacspeak-m-player-stream-info)))
+      (goto-char (process-mark process))
+      (insert output))))
 
 ;;;###autoload
 (defun emacspeak-m-player (resource &optional play-list)
@@ -459,10 +459,10 @@ feature."
              (y-or-n-p "Stop currently playing music? "))
     (emacspeak-m-player-quit))
   (unless (process-live-p emacspeak-m-player-process)
-  (let ((emacspeak-m-player-options
-         (append emacspeak-m-player-openal-options
-                 emacspeak-m-player-options)))
-    (call-interactively 'emacspeak-m-player))))
+    (let ((emacspeak-m-player-options
+           (append emacspeak-m-player-openal-options
+                   emacspeak-m-player-options)))
+      (call-interactively 'emacspeak-m-player))))
 
 ;;;###autoload
 (defun emacspeak-m-player-shuffle ()
@@ -761,7 +761,6 @@ necessary."
   "Add slave command af_add."
   (interactive)
   (funcall-interactively #'emacspeak-m-player-slave-command "af_add"))
-
 
 (defun emacspeak-m-player-delete-filter (filter)
   "Delete filter."

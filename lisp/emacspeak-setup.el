@@ -113,12 +113,12 @@ such as pronunciation dictionaries are stored. ")
       ((ext
         '("wma" "wmv" "flv" "m4a" "m4b"  "flac" ".aiff"
           "ogg" "mp3"  "mp4" "webm" "wav")))
-  (concat
-   "\\."
-   (regexp-opt
-    (nconc ext (mapcar #'upcase ext))
-    'parens)
-   "$"))
+    (concat
+     "\\."
+     (regexp-opt
+      (nconc ext (mapcar #'upcase ext))
+      'parens)
+     "$"))
   "Extensions that match media files.")
 
 ;;;###autoload

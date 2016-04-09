@@ -54,7 +54,7 @@
 ;;{{{  json-view-mode:
 
 (define-derived-mode json-view-mode special-mode
-                     "JSON Interaction."
+  "JSON Interaction."
   "View, Explore JSON-encoded data on the Emacspeak Audio Desktop."
   (let ((inhibit-read-only t)
         (start (point)))

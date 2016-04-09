@@ -1296,7 +1296,7 @@ annotation is inserted into the working buffer when complete."
 ;;;
 
 (define-derived-mode emacspeak-wizards-xl-mode text-mode
-                     "Browsing XL Files."
+  "Browsing XL Files."
   "Major mode for browsing XL spreadsheets.\n\n
 XL Sheets are converted to HTML and previewed using a browser."
   (emacspeak-wizards-xl-display))
@@ -1402,7 +1402,7 @@ Optional interactive prefix arg ask-pwd prompts for password."
 
 (require 'derived)
 (define-derived-mode emacspeak-wizards-ppt-mode text-mode
-                     "Browsing PPT Files."
+  "Browsing PPT Files."
   "Major mode for browsing PPT slides.\n\n
 PPT files  are converted to HTML and previewed using a browser."
   (emacspeak-wizards-ppt-display))
@@ -1454,7 +1454,7 @@ visiting the ppt file."
 ;;{{{ DVI wizard
 
 (define-derived-mode emacspeak-wizards-dvi-mode fundamental-mode
-                     "Browsing DVI Files."
+  "Browsing DVI Files."
   "Major mode for browsing DVI files.\n\n
 DVI files  are converted to text and previewed using text mode."
   (emacspeak-wizards-dvi-display))
@@ -1503,7 +1503,7 @@ visiting the DVI file."
 ;;{{{ find wizard
 
 (define-derived-mode emacspeak-wizards-finder-mode  fundamental-mode
-                     "Emacspeak Finder"
+  "Emacspeak Finder"
   "Emacspeak Finder\n\n"
   )
 
@@ -1885,7 +1885,7 @@ On Ubuntu and Debian this is group `tty'."
   :group 'emacspeak-wizards)
 
 (define-derived-mode emacspeak-wizards-vc-viewer-mode  fundamental-mode
-                     "VC Viewer  Interaction"
+  "VC Viewer  Interaction"
   "Major mode for interactively viewing virtual console contents.\n\n
 \\{emacspeak-wizards-vc-viewer-mode-map}")
 
@@ -3187,18 +3187,18 @@ Optional interactive prefix arg shows  unprocessed results."
       (cond
        (raw
         (loop
-       for s across  (g-json-get  'standing standings) do
-       (loop
-        for f in s do
-        (insert (format "%s:\t%s\n"
-                        (car f) (cdr f))))
-       (insert "\n")))
+         for s across  (g-json-get  'standing standings) do
+         (loop
+          for f in s do
+          (insert (format "%s:\t%s\n"
+                          (car f) (cdr f))))
+         (insert "\n")))
        (t 
-      (loop
-       for s across  (g-json-get  'standing standings) do
-       (insert (emacspeak-wizards--format-mlb-standing s)))))
+        (loop
+         for s across  (g-json-get  'standing standings) do
+         (insert (emacspeak-wizards--format-mlb-standing s)))))
       (goto-char (point-min))
-    (funcall-interactively #'switch-to-buffer buffer))))
+      (funcall-interactively #'switch-to-buffer buffer))))
 
 (defsubst emacspeak-wizards--format-nba-standing (s)
   "Format  NBA standing."
@@ -3229,22 +3229,18 @@ Optional interactive prefix arg shows  unprocessed results."
       (cond
        (raw
         (loop
-       for s across  (g-json-get  'standing standings) do
-       (loop
-        for f in s do
-        (insert (format "%s:\t%s\n"
-                        (car f) (cdr f))))
-       (insert "\n")))
+         for s across  (g-json-get  'standing standings) do
+         (loop
+          for f in s do
+          (insert (format "%s:\t%s\n"
+                          (car f) (cdr f))))
+         (insert "\n")))
        (t 
-      (loop
-       for s across  (g-json-get  'standing standings) do
-       (insert (emacspeak-wizards--format-nba-standing s)))))
+        (loop
+         for s across  (g-json-get  'standing standings) do
+         (insert (emacspeak-wizards--format-nba-standing s)))))
       (goto-char (point-min))
-    (funcall-interactively #'switch-to-buffer buffer))))
-
-
-
-
+      (funcall-interactively #'switch-to-buffer buffer))))
 
 ;;}}}
 ;;{{{ Color at point:

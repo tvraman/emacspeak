@@ -138,12 +138,12 @@ Note that the Web browser should reset this hook after using it.")
   (cond
    ((null params)
     (eval
-   `#'(lambda ()
-        (emacspeak-xslt-region ,xsl (point) (point-max)))))
-  (t
-   (eval
-   `#'(lambda ()
-        (emacspeak-xslt-region ,xsl (point) (point-max) ',params))))))
+     `#'(lambda ()
+          (emacspeak-xslt-region ,xsl (point) (point-max)))))
+   (t
+    (eval
+     `#'(lambda ()
+          (emacspeak-xslt-region ,xsl (point) (point-max) ',params))))))
 
 ;;;###autoload
 (defcustom emacspeak-webutils-charent-alist

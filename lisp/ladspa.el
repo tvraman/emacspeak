@@ -237,7 +237,7 @@ list of parsed ladspa-plugin structures, one per label."
           (ladspa-draw-plugin p))))
 
 (define-derived-mode ladspa-mode special-mode
-                     "Interactively manipulate Ladspa filters."
+  "Interactively manipulate Ladspa filters."
   "A Ladspa workbench for the Emacspeak desktop."
   (setq tab-width 8
         tab-stop-list '(16))

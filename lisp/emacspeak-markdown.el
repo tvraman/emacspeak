@@ -100,53 +100,53 @@
  for f in
  '(
    markdown-demote-subtree markdown-demote markdown-demote-list-item
-    markdown-promote-subtree 
-   markdown-move-subtree-up markdown-move-subtree-down
+                           markdown-promote-subtree 
+                           markdown-move-subtree-up markdown-move-subtree-down
                            
-   markdown-backward-paragraph markdown-cycle
-   markdown-enter-key
-   markdown-beginning-of-block
-   markdown-beginning-of-defun
-   markdown-end-of-block markdown-end-of-block-element
-   markdown-insert-footnote markdown-insert-code
-   markdown-insert-bold markdown-insert-blockquote
-   markdown-forward-paragraph markdown-footnote-goto-text
-   markdown-end-of-defun
-   markdown-insert-gfm-code-block
-   markdown-insert-header
-   markdown-insert-header-atx-1
-   markdown-insert-header-atx-2
-   markdown-insert-header-atx-3
-   markdown-insert-header-atx-4
-   markdown-insert-header-atx-5
-   markdown-insert-header-atx-6
-   markdown-insert-header-dwim
-   markdown-insert-header-setext-1
-   markdown-insert-header-setext-2
-   markdown-insert-header-setext-dwim
-   markdown-insert-hr
-   markdown-insert-image
-   markdown-insert-italic
-   markdown-insert-link
-   markdown-insert-list-item
-   markdown-insert-pre
-   markdown-insert-reference-image
-   markdown-insert-reference-link-dwim
-   markdown-insert-uri
-   markdown-insert-wiki-link
-   markdown-jump
-   markdown-move-down markdown-move-list-item-down
-   markdown-move-list-item-up markdown-move-up
-   markdown-next-visible-heading markdown-previous-visible-heading
-   markdown-next-heading markdown-previous-heading
-   markdown-forward-same-level markdown-backward-same-level
-   markdown-hide-subtree markdown-hide-body markdown-hide-sublevels
-   markdown-indent-line
+                           markdown-backward-paragraph markdown-cycle
+                           markdown-enter-key
+                           markdown-beginning-of-block
+                           markdown-beginning-of-defun
+                           markdown-end-of-block markdown-end-of-block-element
+                           markdown-insert-footnote markdown-insert-code
+                           markdown-insert-bold markdown-insert-blockquote
+                           markdown-forward-paragraph markdown-footnote-goto-text
+                           markdown-end-of-defun
+                           markdown-insert-gfm-code-block
+                           markdown-insert-header
+                           markdown-insert-header-atx-1
+                           markdown-insert-header-atx-2
+                           markdown-insert-header-atx-3
+                           markdown-insert-header-atx-4
+                           markdown-insert-header-atx-5
+                           markdown-insert-header-atx-6
+                           markdown-insert-header-dwim
+                           markdown-insert-header-setext-1
+                           markdown-insert-header-setext-2
+                           markdown-insert-header-setext-dwim
+                           markdown-insert-hr
+                           markdown-insert-image
+                           markdown-insert-italic
+                           markdown-insert-link
+                           markdown-insert-list-item
+                           markdown-insert-pre
+                           markdown-insert-reference-image
+                           markdown-insert-reference-link-dwim
+                           markdown-insert-uri
+                           markdown-insert-wiki-link
+                           markdown-jump
+                           markdown-move-down markdown-move-list-item-down
+                           markdown-move-list-item-up markdown-move-up
+                           markdown-next-visible-heading markdown-previous-visible-heading
+                           markdown-next-heading markdown-previous-heading
+                           markdown-forward-same-level markdown-backward-same-level
+                           markdown-hide-subtree markdown-hide-body markdown-hide-sublevels
+                           markdown-indent-line
 
-   markdown-next-link markdown-previous-link
-   markdown-promote markdown-promote-list-item
-   markdown-reference-goto-definition
-   )
+                           markdown-next-link markdown-previous-link
+                           markdown-promote markdown-promote-list-item
+                           markdown-reference-goto-definition
+                           )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
