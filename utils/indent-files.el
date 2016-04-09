@@ -11,11 +11,14 @@
        (find-file f)
        (emacs-lisp-mode)
        (goto-char (point-min))
+       (while (re-search-forward "( +" (point-max) 'no-error)
+         (replace-match "("))
+       (goto-char (point-min))
        (while (re-search-forward " +)" (point-max) 'no-error)
          (unless
              (or
               (char-equal ??  (char-before (match-beginning 0)))
-             (char-equal ?\\  (char-before (match-beginning 0))))
+              (char-equal ?\\  (char-before (match-beginning 0))))
            (replace-match ")")))
        (indent-region (point-min) (point-max))
        (shell-command-on-region (point-min) (point-max)
