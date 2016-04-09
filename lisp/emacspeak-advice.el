@@ -2623,7 +2623,6 @@ Produce auditory icons if possible."
 
 (defadvice finder-mode (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (load-library "emacspeak-finder-inf")
   (when(and (boundp 'finder-known-keywords)
             (not (eq 'emacspeak (caar finder-known-keywords))))
     (push (cons 'emacspeak "Audio Desktop")
