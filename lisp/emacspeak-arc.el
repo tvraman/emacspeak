@@ -144,7 +144,7 @@ first initializing it if necessary."
 (defsubst emacspeak-arc-get-field-index (field)
   (let ((marked-p (save-excursion
                     (beginning-of-line)
-                    (= (following-char) ?\ )))
+                    (= ?\  (following-char))))
         (position (cadr (assoc field
                                (emacspeak-arc-get-header-line-format)))))
     (if marked-p
