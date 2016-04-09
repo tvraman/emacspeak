@@ -50,7 +50,8 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'dbus)
-(require 'nm)
+(or (require 'nm nil t)
+    (require 'nm "bundled/nm"))
 
 ;;}}}
 ;;{{{ Customize:

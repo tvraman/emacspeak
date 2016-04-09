@@ -49,7 +49,8 @@
 
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
-(require 'dom)
+(or (require 'dom nil t)
+    (require 'dom "bundled/dom"))
 
 ;;}}}
 ;;{{{ Additional helpers:

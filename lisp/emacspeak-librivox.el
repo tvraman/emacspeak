@@ -55,7 +55,8 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'dom)
+(or (require 'dom nil t)
+    (require 'dom "bundled/dom"))
 (require 'emacspeak-webutils)
 (require 'g-utils)
 

@@ -59,7 +59,8 @@
 
 (require 'cl-lib)
 (declaim  (optimize  (safety 0) (speed 3)))
-(require 'subr-x)
+(or (require 'subr-x nil t)
+    (require 'subr-x "bundled/subr-x"))
 (require 'derived)
 ;;}}}
 ;;{{{ Structures:
