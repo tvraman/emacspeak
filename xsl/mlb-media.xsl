@@ -17,7 +17,7 @@
 <li>
           <a>
 <xsl:attribute name="href">
-  <xsl:value-of select="url[1]"/>
+  <xsl:value-of select="url[contains(text(), 'mp4')]"/>
 </xsl:attribute>
 <xsl:value-of select="bigblurb"/>
           </a>
