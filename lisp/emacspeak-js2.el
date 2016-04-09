@@ -98,7 +98,7 @@
                               js2-mode-match-single-quote js2-mode-match-paren
                               js2-mode-match-double-quote js2-mode-match-curly
                               js2-mode-match-bracket js2-mode-magic-close-paren
-                              js2-insert-and-indent     )
+                              js2-insert-and-indent)
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)

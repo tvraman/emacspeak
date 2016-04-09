@@ -55,7 +55,7 @@
 (defsubst emacspeak-gomoku-cell-value (row column)
   (declare (special gomoku-board))
   (aref  gomoku-board
-         (gomoku-xy-to-index column row )))
+         (gomoku-xy-to-index column row)))
 
 ;;}}}
 ;;{{{ Communicate state
@@ -90,7 +90,7 @@
     (setq values
           (loop for i from 1 to gomoku-board-width
                 collect 
-                (case (emacspeak-gomoku-cell-value row i )
+                (case (emacspeak-gomoku-cell-value row i)
                   (0 "-")
                   (1  "x")
                   (6 "0"))))
@@ -106,7 +106,7 @@
     (setq values
           (loop for i from 1 to gomoku-board-height
                 collect 
-                (case (emacspeak-gomoku-cell-value i column )
+                (case (emacspeak-gomoku-cell-value i column)
                   (0 "-")
                   (1  "x")
                   (6 "0"))))
@@ -130,14 +130,14 @@
      ((< row column)
       (setq diag-start-y  1
             diag-start-x (+ 1 (- column row))))
-     ((> row column )
+     ((> row column)
       (setq diag-start-x  1
             diag-start-y (+ 1 (- row column)))))
     (setq values
           (loop for i from diag-start-y  to gomoku-board-height
                 and j from diag-start-x to gomoku-board-width 
                 collect
-                (case (emacspeak-gomoku-cell-value i j )
+                (case (emacspeak-gomoku-cell-value i j)
                   (0 "-")
                   (1  "x")
                   (6 "0"))))
@@ -164,14 +164,14 @@
             diag-start-x (- (+ column row) 1)))
      ((<  (+ 1 square-size) (+ row  column)) ; below major diag 
       (setq diag-start-x   (min gomoku-board-width
-                                (- (+ row column ) 1 )))
+                                (- (+ row column) 1)))
       (setq diag-start-y
             (- (+ row column) diag-start-x))))
     (setq values
           (loop for i from diag-start-y  to gomoku-board-height
                 and j downfrom   diag-start-x  to 1 
                 collect
-                (case (emacspeak-gomoku-cell-value i j )
+                (case (emacspeak-gomoku-cell-value i j)
                   (0 "-")
                   (1  "x")
                   (6 "0"))))
@@ -254,68 +254,68 @@
                                         ;       (format
                                         ;        "(defadvice %s  (after emacspeak pre act comp)
                                         ;              \"Provide auditory feedback\"
-                                        ;              (when (ems-interactive-p )
+                                        ;              (when (ems-interactive-p)
                                         ;                (emacspeak-auditory-icon 'select-object)
                                         ;                (emacspeak-gomoku-speak-square)))\n\n"
                                         ;        command)))
 
 (defadvice gomoku-beginning-of-line  (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-gomoku-speak-square)))
 
 (defadvice gomoku-end-of-line  (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-gomoku-speak-square)))
 
 (defadvice gomoku-move-down  (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-gomoku-speak-square)))
 
 (defadvice gomoku-move-up  (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-gomoku-speak-square)))
 
 (defadvice gomoku-move-left  (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-gomoku-speak-square)))
 
 (defadvice gomoku-move-right  (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-gomoku-speak-square)))
 
 (defadvice gomoku-move-ne  (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-gomoku-speak-square)))
 
 (defadvice gomoku-move-nw  (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-gomoku-speak-square)))
 
 (defadvice gomoku-move-se  (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-gomoku-speak-square)))
 
 (defadvice gomoku-move-sw  (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-gomoku-speak-square)))
 
@@ -336,13 +336,13 @@
      (format "%s in %s moves  %s "
              result
              gomoku-number-of-moves
-             emacspeak-last-message ))
+             emacspeak-last-message))
     (sit-for 2))
   ad-return-value)
 
 (defadvice gomoku (after emacspeak pre act comp)
   "Speech enable gomoku"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-gomoku-setup-keys)))
 ;;}}}
 ;;{{{ keybindings
@@ -385,7 +385,7 @@
 
 ;;}}}
 
-(provide 'emacspeak-gomoku )
+(provide 'emacspeak-gomoku)
 ;;{{{ end of file 
 
 ;;; local variables:

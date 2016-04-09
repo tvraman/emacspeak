@@ -68,7 +68,7 @@
    (ediff-current-diff-B voice-brighten)
    (ediff-current-diff-C voice-lighten)
    (ediff-current-diff-Ancestor voice-lighten-extra)
-   (ediff-fine-diff-A voice-smoothen )
+   (ediff-fine-diff-A voice-smoothen)
    (ediff-fine-diff-B voice-brighten)
    (ediff-fine-diff-C voice-monotone)
    (ediff-fine-diff-Ancestor voice-lighten-extra)
@@ -89,11 +89,11 @@
   "Holds the control buffer for the most recent ediff")
 ;;;Please tell me what control buffer you're using--
 
-(defadvice ediff-setup-control-buffer (after emacspeak pre act )
-  (setq emacspeak-ediff-control-buffer (ad-get-arg 0 )))
+(defadvice ediff-setup-control-buffer (after emacspeak pre act)
+  (setq emacspeak-ediff-control-buffer (ad-get-arg 0)))
 
 (defsubst emacspeak-ediff-control-panel ()
-  (declare (special emacspeak-ediff-control-buffer ))
+  (declare (special emacspeak-ediff-control-buffer))
   emacspeak-ediff-control-buffer)
 
 (defsubst emacspeak-ediff-difference-a-overlay (n)
@@ -152,10 +152,10 @@
 ;;}}}
 ;;{{{ Diff Overlay Accessors:
 
-(defsubst emacspeak-ediff-diff-overlay-from-difference (diff counter )
+(defsubst emacspeak-ediff-diff-overlay-from-difference (diff counter)
   (aref (aref diff counter) 0))
 
-(defsubst emacspeak-ediff-fine-overlays-from-difference (diff counter )
+(defsubst emacspeak-ediff-fine-overlays-from-difference (diff counter)
   (aref (aref diff counter) 1))
 
 ;;}}}
@@ -179,24 +179,24 @@
 (defun emacspeak-ediff-speak-difference (n)
   "Speak a difference chunk"
   (with-silent-modifications
-    (let ((a-overlay (emacspeak-ediff-difference-a-overlay n ))
-          (b-overlay (emacspeak-ediff-difference-b-overlay n ))
+    (let ((a-overlay (emacspeak-ediff-difference-a-overlay n))
+          (b-overlay (emacspeak-ediff-difference-b-overlay n))
           (key ""))
       (emacspeak-auditory-icon 'select-object)
       (dtk-speak
        (concat
         "Difference ai "
         (emacspeak-overlay-get-text a-overlay)))
-      (let ((dtk-stop-immediately nil ))
+      (let ((dtk-stop-immediately nil))
         (sit-for 2)
         (setq key
-              (read-key-sequence "Press any key to continue" )))
-      (unless (= 7 (string-to-char key ))
+              (read-key-sequence "Press any key to continue")))
+      (unless (= 7 (string-to-char key))
         (dtk-stop)
         (dtk-speak
          (concat
           "Difference B "
-          (emacspeak-overlay-get-text b-overlay )))))))
+          (emacspeak-overlay-get-text b-overlay)))))))
 
 (defun emacspeak-ediff-speak-current-difference ()
   "Speak the current difference"
@@ -215,87 +215,87 @@
 
 (defadvice ediff-next-difference (after emacspeak pre act comp)
   "Speak the difference interactively."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-ediff-speak-current-difference)))
 
 (defadvice ediff-previous-difference (after emacspeak pre act comp)
   "Speak the difference interactively."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-ediff-speak-current-difference)))
 
-(defadvice ediff-status-info (after emacspeak pre act )
+(defadvice ediff-status-info (after emacspeak pre act)
   "Speak the status information"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (save-current-buffer
       (set-buffer " *ediff-info*")
-      (emacspeak-speak-buffer ))))
+      (emacspeak-speak-buffer))))
 
-(defadvice ediff-scroll-up (after emacspeak pre act )
+(defadvice ediff-scroll-up (after emacspeak pre act)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (message "Scrolled up buffers A and B")))
 
-(defadvice ediff-scroll-down (after emacspeak pre act )
+(defadvice ediff-scroll-down (after emacspeak pre act)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (message "Scrolled down buffers A and B")))
 
-(defadvice ediff-toggle-split (after emacspeak pre act )
+(defadvice ediff-toggle-split (after emacspeak pre act)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (if (eq ediff-split-window-function 'split-window-vertically)
         (message "Split ediff windows vertically")
       (message "Split ediff windows horizontally"))))
 
-(defadvice ediff-recenter (after emacspeak pre act )
+(defadvice ediff-recenter (after emacspeak pre act)
   "Provide spoken feedback"
-  (when (ems-interactive-p )
-    (emacspeak-auditory-icon 'select-object )
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'select-object)
     (message "Refreshed the ediff display")))
 
-(defadvice ediff-jump-to-difference (after emacspeak pre act )
+(defadvice ediff-jump-to-difference (after emacspeak pre act)
   "Speak the difference you jumped to"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-ediff-speak-current-difference )))
+    (emacspeak-ediff-speak-current-difference)))
 
-(defadvice ediff-jump-to-difference-at-point (after emacspeak pre act )
+(defadvice ediff-jump-to-difference-at-point (after emacspeak pre act)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-ediff-speak-current-difference)))
 
 ;;; advice meta panel
 (defadvice ediff-previous-meta-item (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object )))
+    (emacspeak-auditory-icon 'select-object)))
 (defadvice ediff-next-meta-item (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object )))
+    (emacspeak-auditory-icon 'select-object)))
 
 (defadvice ediff-registry-action (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice ediff-show-registry (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Welcome to the Ediff registry")))
 
 (defadvice ediff-toggle-filename-truncation (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (message "turned %s file name truncation in Ediff registry"
              ediff-meta-truncate-filenames)))
 

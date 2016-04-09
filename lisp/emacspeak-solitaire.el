@@ -75,15 +75,15 @@
            (emacspeak-solitaire-current-row)
            (emacspeak-solitaire-current-column))))
 
-(defsubst emacspeak-solitaire-stone  () (dtk-tone 400 50 ))
+(defsubst emacspeak-solitaire-stone  () (dtk-tone 400 50))
 
-(defsubst emacspeak-solitaire-hole () (dtk-tone 800 50 ))
+(defsubst emacspeak-solitaire-hole () (dtk-tone 800 50))
 
 (defun emacspeak-solitaire-show-row ()
   "Audio format current row."
   (interactive)
   (save-excursion
-    (beginning-of-line )
+    (beginning-of-line)
     (skip-syntax-forward " ")
     (let ((row (emacspeak-solitaire-current-row))
           (count 1))
@@ -142,7 +142,7 @@
 
 (defadvice solitaire-left (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (let ((dtk-stop-immediately nil))
       (emacspeak-auditory-icon 'select-object)
       (and emacspeak-solitaire-autoshow (emacspeak-solitaire-show-column))
@@ -150,7 +150,7 @@
 
 (defadvice solitaire-right (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (let ((dtk-stop-immediately nil))
       (emacspeak-auditory-icon 'select-object)
       (and emacspeak-solitaire-autoshow  (emacspeak-solitaire-show-column))
@@ -158,7 +158,7 @@
 
 (defadvice solitaire-up (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (let ((dtk-stop-immediately nil))
       (emacspeak-auditory-icon 'select-object)
       (and emacspeak-solitaire-autoshow (emacspeak-solitaire-show-row))
@@ -166,7 +166,7 @@
 
 (defadvice solitaire-down (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (let ((dtk-stop-immediately nil))
       (emacspeak-auditory-icon 'select-object)
       (and emacspeak-solitaire-autoshow (emacspeak-solitaire-show-row))
@@ -174,7 +174,7 @@
 
 (defadvice solitaire-center-point (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-solitaire-speak-coordinates)))
 
@@ -203,7 +203,7 @@ Emacspeak specific commands:
                \\[emacspeak-solitaire-show-column] emacspeak-solitaire-show-column
 \\[emacspeak-solitaire-show-row]                emacspeak-solitaire-show-row
                \\[emacspeak-solitaire-speak-coordinates]  emacspeak-solitaire-speak-coordinates"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (delete-other-windows)
     (emacspeak-auditory-icon 'alarm)
     (emacspeak-solitaire-setup-keymap)
@@ -211,7 +211,7 @@ Emacspeak specific commands:
 
 (defadvice solitaire-quit (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)
     (emacspeak-speak-mode-line)))
 
@@ -235,7 +235,7 @@ Emacspeak specific commands:
 
 ;;}}}
 
-(provide 'emacspeak-solitaire )
+(provide 'emacspeak-solitaire)
 ;;{{{ end of file 
 
 ;;; local variables:

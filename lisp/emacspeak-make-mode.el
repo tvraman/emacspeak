@@ -56,7 +56,7 @@
 (defadvice makefile-next-dependency (after emacspeak pre act
                                            comp)
   "Speak line we moved to"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'large-movement))))
@@ -64,20 +64,20 @@
 (defadvice makefile-browser-next-line (after emacspeak pre act
                                              comp)
   "Speak line we moved to"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice makefile-browser-previous-line (after emacspeak pre act
                                                  comp)
   "Speak line we moved to"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice makefile-previous-dependency (after emacspeak pre act comp)
   "Speak line we moved to"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'large-movement))))
@@ -85,7 +85,7 @@
 (defadvice makefile-complete (around emacspeak pre act comp)
   "Speak what we completed"
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (let ((orig (point)))
       ad-do-it
       (emacspeak-speak-region orig (point))))
@@ -95,7 +95,7 @@
 (defadvice makefile-backslash-region (after emacspeak pre
                                             act comp)
   "Speak how many lines we backslashed"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (message "Backslashed region containing %s lines"
              (count-lines (region-beginning)
                           (region-end)))
@@ -104,21 +104,21 @@
 (defadvice makefile-browser-quit (after emacspeak pre act
                                         comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'close-object)))
 
 (defadvice makefile-switch-to-browser (after emacspeak pre
                                              act comp)
   "Provide status information"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice makefile-browser-toggle (around emacspeak pre act comp)
   "Speak what happened"
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (let  ((this-line (max
                        (count-lines (point-min) (point))
                        1))
@@ -136,7 +136,7 @@
                                               emacspeak
                                               pre act comp)
   "Provide status message"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (message
      "Inserted selections into client  %s"
      (buffer-name makefile-browser-client))))

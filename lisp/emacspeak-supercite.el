@@ -54,7 +54,7 @@
 ;;{{{ Advice
 (defadvice sc-cite-region (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (message "Cited region containing %s lines"
              (count-lines (ad-get-arg 0)
@@ -62,7 +62,7 @@
 
 (defadvice sc-recite-region (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (message "Re-cited region containing %s lines"
              (count-lines (ad-get-arg 0)
@@ -70,7 +70,7 @@
 
 (defadvice sc-uncite-region (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (message "Uncited region containing %s lines"
              (count-lines (ad-get-arg 0)
@@ -80,7 +80,7 @@
                                        comp)
   "Speak what we inserted"
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (let ((opoint (point)))
       ad-do-it
       (emacspeak-speak-region opoint (point))
@@ -90,13 +90,13 @@
 (defadvice sc-insert-citation (after emacspeak pre act
                                      comp)
   "Speak what we inserted"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'yank-object)))
 
 (defadvice sc-open-line (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (dtk-speak "Opened a blank line")))
 

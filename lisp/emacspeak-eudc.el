@@ -57,14 +57,14 @@
 
 (defadvice eudc-move-to-next-record (after emacspeak pre act comp)
   "Provide auditory feedback. "
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
 (defadvice eudc-move-to-previous-record (after emacspeak pre act
                                                comp)
   "Provide auditory feedback. "
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
@@ -79,8 +79,8 @@
             "Edit "))
    ((eq (widget-type widget) 'push-button)
     (concat "Push button "
-            (widget-value widget )))
-   (t (emacspeak-widget-default-summarize widget ))))
+            (widget-value widget)))
+   (t (emacspeak-widget-default-summarize widget))))
 
 (defun emacspeak-eudc-widgets-add-emacspeak-help ()
   "Adds emacspeak widget help to all EUDC widgets. "
@@ -94,7 +94,7 @@
                     'emacspeak-eudc-widget-help)
         (forward-line 1)))))
 
-(defadvice eudc-query-form (after emacspeak pre act comp )
+(defadvice eudc-query-form (after emacspeak pre act comp)
   "Attach emacspeak help to all EUDC widgets.
 Summarize the form to welcome the user. "
   (declare (special eudc-server))

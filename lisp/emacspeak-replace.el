@@ -73,7 +73,7 @@ that is being replaced."
 (defadvice query-replace-regexp (around emacspeak pre act compile)
   "Stop message from chattering.
  Turn on voice lock temporarily. "
-  (declare (special voice-lock-mode ))
+  (declare (special voice-lock-mode))
   (let ((saved-voice-lock voice-lock-mode)
         (emacspeak-speak-messages nil))
     (dtk-stop)
@@ -82,7 +82,7 @@ that is being replaced."
           (setq voice-lock-mode 1)
           (setq emacspeak-replace-start nil 
                 emacspeak-replace-end nil 
-                emacspeak-replace-highlight-on nil )
+                emacspeak-replace-highlight-on nil)
           (save-match-data ad-do-it))
       (emacspeak-auditory-icon 'task-done)
       (setq voice-lock-mode saved-voice-lock
@@ -90,7 +90,7 @@ that is being replaced."
 
 (defadvice query-replace (around emacspeak pre act compile)
   "Stop message from chattering."
-  (declare (special voice-lock-mode ))
+  (declare (special voice-lock-mode))
   (let ((saved-voice-lock voice-lock-mode)
         (emacspeak-speak-messages nil))
     (dtk-stop)
@@ -99,7 +99,7 @@ that is being replaced."
           (setq voice-lock-mode 1)
           (setq emacspeak-replace-start nil 
                 emacspeak-replace-end nil 
-                emacspeak-replace-highlight-on nil )
+                emacspeak-replace-highlight-on nil)
           (save-match-data ad-do-it))
       (emacspeak-auditory-icon 'task-done)
       (setq voice-lock-mode saved-voice-lock
@@ -115,7 +115,7 @@ that is being replaced."
                     emacspeak-replace-start emacspeak-replace-end))
   (save-match-data
     (let ((from (ad-get-arg 0))
-          (to (ad-get-arg 1 )))
+          (to (ad-get-arg 1)))
       (condition-case nil
           (progn 
             (and emacspeak-replace-highlight-on
@@ -132,10 +132,10 @@ that is being replaced."
                   (dtk-get-style from))
             (and from to 
                  (put-text-property from to 'personality
-                                    emacspeak-replace-personality ))
+                                    emacspeak-replace-personality))
             (dtk-stop)
             (emacspeak-speak-line))
-        (error nil )))))
+        (error nil)))))
 
 (defadvice replace-dehighlight (after emacspeak pre act)
   "Turn off the replacement highlight. "
@@ -150,12 +150,12 @@ that is being replaced."
                emacspeak-replace-end
                (put-text-property 
                 (max emacspeak-replace-start  (point-min))
-                (min emacspeak-replace-end (point-max ))
+                (min emacspeak-replace-end (point-max))
                 'personality   emacspeak-replace-saved-personality)
                (setq emacspeak-replace-start nil
                      emacspeak-replace-end nil
                      emacspeak-replace-highlight-on nil)))
-      (error  nil ))))
+      (error  nil))))
 
 ;;}}}
 (provide 'emacspeak-replace)

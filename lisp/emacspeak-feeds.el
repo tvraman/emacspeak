@@ -264,7 +264,7 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
           (browse-url-of-buffer))))))))
 
 ;;;###autoload
-(defun emacspeak-feeds-rss-display (feed-url )
+(defun emacspeak-feeds-rss-display (feed-url)
   "Display RSS feed."
   (interactive
    (list
@@ -272,14 +272,14 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
   (declare (special emacspeak-rss-view-xsl))
   (emacspeak-feeds-feed-display feed-url emacspeak-rss-view-xsl 'speak))
 ;;;###autoload
-(defun emacspeak-feeds-opml-display (feed-url )
+(defun emacspeak-feeds-opml-display (feed-url)
   "Display OPML feed."
   (interactive (list (emacspeak-webutils-read-this-url)))
   (declare (special emacspeak-opml-view-xsl))
   (emacspeak-feeds-feed-display feed-url emacspeak-opml-view-xsl 'speak))
 
 ;;;###autoload
-(defun emacspeak-feeds-atom-display (feed-url )
+(defun emacspeak-feeds-atom-display (feed-url)
   "Display ATOM feed."
   (interactive (list (emacspeak-webutils-read-this-url)))
   (declare (special emacspeak-atom-view-xsl))

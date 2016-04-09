@@ -71,7 +71,7 @@
              (style nil)
              (color-parameter nil)
              (style-parameter nil))
-        (setq style (make-acss ))
+        (setq style (make-acss))
         (setq style-parameter
               (if style-index
                   (+ 1 style-index)
@@ -108,14 +108,14 @@
 (defadvice ansi-color-for-comint-mode-on (after emacspeak
                                                 pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'on)
     (message "Ansi escape sequences will be processed.")))
 
 (defadvice ansi-color-for-comint-mode-off (after emacspeak
                                                  pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'off)
     (message "Ansi escape sequences will not be processed.")))
 

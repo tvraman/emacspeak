@@ -101,19 +101,19 @@ a local  Emacspeak terminal buffer.")
 Value is persisted for use with ssh servers."
   (interactive)
   (declare (special emacspeak-remote-hostname))
-  (when (file-exists-p   emacspeak-remote-hostname )
+  (when (file-exists-p   emacspeak-remote-hostname)
     (find-file emacspeak-remote-hostname)))
 ;;; Todo: parse out hostname if the file has user@host:port
 (defun emacspeak-remote-get-current-remote-hostname  ()
   "Return the name of the remote hostname from where we connected if known"
   (declare (special emacspeak-remote-hostname))
-  (when (file-exists-p   emacspeak-remote-hostname )
+  (when (file-exists-p   emacspeak-remote-hostname)
     (let ((buffer (find-file-noselect emacspeak-remote-hostname))
           (result nil))
       (save-excursion
         (set-buffer buffer)
         (setq result (buffer-substring (point-min) (1- (point-max)))))
-      (kill-buffer buffer )
+      (kill-buffer buffer)
       result)))
 
 ;;}}}
@@ -232,15 +232,15 @@ port that that host is listening on for speech requests."
      ((or (eq 'run (process-status new-process))
           (eq 'open (process-status new-process)))
       (setq dtk-speaker-process new-process)
-      (setq emacspeak-remote-default-port-to-connect (format "%s" port ))
+      (setq emacspeak-remote-default-port-to-connect (format "%s" port))
       (delete-process old-process)
       (run-hooks 'emacspeak-remote-hooks)
       (emacspeak-tts-startup-hook)
-      (message "Connecting to server on host %s  port %s" host port ))
-     (t (error "Failed to connect to speech server on host %s port %s" host port )))))
+      (message "Connecting to server on host %s  port %s" host port))
+     (t (error "Failed to connect to speech server on host %s port %s" host port)))))
 
 ;;}}}
-(provide 'emacspeak-remote )
+(provide 'emacspeak-remote)
 ;;{{{ end of file
 
 ;;; local variables:

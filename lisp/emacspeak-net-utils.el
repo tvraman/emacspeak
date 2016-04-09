@@ -67,7 +67,7 @@
       (eval
        `(defadvice ,f  (after emacspeak pre act comp)
           "Speak output"
-          (when (ems-interactive-p )
+          (when (ems-interactive-p)
             (emacspeak-auditory-icon 'open-object)
             (message "Displayed results of %s in other window"
                      (quote ,f))))))

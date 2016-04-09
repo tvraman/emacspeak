@@ -235,7 +235,7 @@ Element 0 is ignored."
 ;;depending on their rotation
 
 (defconst tetris-shape-scores
-  [ [6 6 6 6] [6 7 6 7] [6 7 6 7] [6 7 6 7] [6 7 6 7] [5 5 6 5] [5 8 5 8]] )
+  [ [6 6 6 6] [6 7 6 7] [6 7 6 7] [6 7 6 7] [6 7 6 7] [5 5 6 5] [5 8 5 8]])
 
 (defconst tetris-shape-dimensions
   [[2 2] [3 2] [3 2] [3 2] [3 2] [3 2] [4 1]])

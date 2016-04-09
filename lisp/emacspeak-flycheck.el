@@ -72,7 +72,7 @@
 (loop
  for  f in
  '(flycheck-next-error flycheck-previous-error
-                       flycheck-first-error )
+                       flycheck-first-error)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

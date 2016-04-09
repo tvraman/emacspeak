@@ -64,7 +64,7 @@
   "Setup voice locking for tdtd mode."
   (declare (special 
             dtd-xml-flag 
-            dtd-decl-flag dtd-sys-decl-flag ))
+            dtd-decl-flag dtd-sys-decl-flag))
   (cond
    (dtd-xml-flag)
    (dtd-decl-flag

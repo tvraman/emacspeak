@@ -81,54 +81,54 @@ mpg123 defines this as a macro which causes compile trouble."
 
 (defadvice mpg123-backward (after emacspeak pre act comp)
   "Speak position."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-mpg123-speak-current-time)))
 
 (defadvice mpg123-forward (after emacspeak pre act comp)
   "Speak position."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-mpg123-speak-current-time)))
 (defadvice mpg123-backward-10 (after emacspeak pre act comp)
   "Speak position."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-mpg123-speak-current-time)))
 (defadvice mpg123-forward-10 (after emacspeak pre act comp)
   "Speak position."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-mpg123-speak-current-time)))
 
 (defadvice mpg123-next-line (after emacspeak pre act comp)
   "Speak line moveed to."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-mpg123-speak-line)))
 
 (defadvice mpg123-prev-line (after emacspeak pre act comp)
   "Speak line moveed to."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-mpg123-speak-line)))
 
 (defadvice mpg123-mark-position (after emacspeak pre act comp)
   "Speak line moveed to."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-mpg123-speak-line)))
 
 (defadvice  mpg123-yank-line (after emacspeak pre act comp)
   "Speak track we yanked."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-mpg123-speak-title)))
 
 (defadvice  mpg123-kill-line (before emacspeak pre act comp)
   "Speak track we killed."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-mpg123-speak-title)))
 
 (defadvice  mpg123-quit (after emacspeak pre act comp)
   "Speak modeline of what becomes current."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 

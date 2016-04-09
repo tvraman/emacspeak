@@ -99,7 +99,7 @@
    ("p" emacspeak-table-previous-row)
    ("q" quit-window)
    ("Q" emacspeak-kill-buffer-quietly)
-   ("r" emacspeak-table-speak-row-header-and-element )
+   ("r" emacspeak-table-speak-row-header-and-element)
    ("s" emacspeak-table-search)
    ("w" emacspeak-table-copy-current-element-to-kill-ring)
    ("x" emacspeak-table-copy-current-element-to-register)
@@ -242,7 +242,7 @@ Full List Of Keybindings:
 (defun emacspeak-table-speak-current-element ()
   "Speak current table element"
   (interactive)
-  (declare (special emacspeak-table ))
+  (declare (special emacspeak-table))
   (assert  (boundp 'emacspeak-table) nil "No table here")
   (dtk-speak-and-echo
    (format "%s" (emacspeak-table-current-element emacspeak-table))))
@@ -258,7 +258,7 @@ Full List Of Keybindings:
           "%s"
           (emacspeak-table-row-header-element
            emacspeak-table
-           (emacspeak-table-current-row emacspeak-table )))))
+           (emacspeak-table-current-row emacspeak-table)))))
     (put-text-property 0 (length head) 'face 'italic head)
     (dtk-speak
      (concat head
@@ -274,7 +274,7 @@ Full List Of Keybindings:
           "%s"
           (emacspeak-table-column-header-element
            emacspeak-table
-           (emacspeak-table-current-column emacspeak-table )))))
+           (emacspeak-table-current-column emacspeak-table)))))
     (put-text-property 0 (length head) 'face 'italic head)
     (dtk-speak-and-echo
      (concat
@@ -292,13 +292,13 @@ Full List Of Keybindings:
           "%s"
           (emacspeak-table-column-header-element
            emacspeak-table
-           (emacspeak-table-current-column emacspeak-table ))))
+           (emacspeak-table-current-column emacspeak-table))))
         (row-head
          (format
           "%s"
           (emacspeak-table-row-header-element
            emacspeak-table
-           (emacspeak-table-current-row emacspeak-table )))))
+           (emacspeak-table-current-row emacspeak-table)))))
     (put-text-property
      0 (length row-head) 'face 'italic row-head)
     (put-text-property
@@ -349,7 +349,7 @@ Full List Of Keybindings:
        0 (length value)
        'face 'bold  value)
       value)
-     ((and (listp token) (numberp (first token)) (numberp (second token )))
+     ((and (listp token) (numberp (first token)) (numberp (second token)))
       (setq value
             (emacspeak-table-get-entry-with-headers
              (first token) (second token)))
@@ -418,7 +418,7 @@ Optional prefix arg prompts for a new filter."
        (emacspeak-table-current-column emacspeak-table)))
      ((and (listp token)
            (numberp (first token))
-           (numberp (second token )))
+           (numberp (second token)))
       (emacspeak-table-get-entry-with-headers (first token) (second token)))
      ((and (symbolp (first token)) (fboundp  (first token)))
 ;;; applying a function:
@@ -460,7 +460,7 @@ Optional prefix arg prompts for a new filter."
 ;;}}}
 ;;{{{  what to do when point moves
 
-(defun emacspeak-table-point-motion-hook (old new )
+(defun emacspeak-table-point-motion-hook (old new)
   "Bring internal representation in sync with visual display"
   (declare (special emacspeak-table))
   (condition-case nil
@@ -468,7 +468,7 @@ Optional prefix arg prompts for a new filter."
        emacspeak-table
        (get-text-property new 'row)
        (get-text-property new 'column))
-    (error nil ))
+    (error nil))
   (push-mark old t))
 
 ;;}}}
@@ -493,7 +493,7 @@ Optional prefix arg prompts for a new filter."
 (defsubst emacspeak-table-prepare-table-buffer (table buffer
                                                       &optional filename)
   "Prepare tabular data."
-  (declare (special emacspeak-table positions ))
+  (declare (special emacspeak-table positions))
   (with-current-buffer buffer
     (let ((i 0)
           (j 0)
@@ -513,12 +513,12 @@ Optional prefix arg prompts for a new filter."
        (loop
         for element across row do
         (puthash
-         (intern (format "element:%s:%s" i j ))  ; compute key 
+         (intern (format "element:%s:%s" i j))  ; compute key 
          (point) ; insertion point  is the value 
          positions)
         (insert
          (format "%s%s"
-                 (emacspeak-table-this-element table i j )
+                 (emacspeak-table-this-element table i j)
                  (if (=  j count)
                      "\n"
                    "\t")))
@@ -554,8 +554,8 @@ the documentation on the table browser."
         (table nil))
     (setq data (find-file-noselect filename))
     (setq table (emacspeak-table-make-table (read data)))
-    (kill-buffer data )
-    (emacspeak-table-prepare-table-buffer table buffer filename )))
+    (kill-buffer data)
+    (emacspeak-table-prepare-table-buffer table buffer filename)))
 
 (defsubst ems-csv-get-fields ()
   "Return list of fields on this line."
@@ -680,12 +680,12 @@ the documentation on the table browser."
                     do
                     (setf
                      (gethash
-                      (intern (format "element:%s:%s" i j ))
+                      (intern (format "element:%s:%s" i j))
                       positions)
                      (point))
                     (insert
                      (format "%s%s"
-                             (emacspeak-table-this-element table i j )
+                             (emacspeak-table-this-element table i j)
                              (if (=  j count)
                                  "\n"
                                "\t")))
@@ -704,7 +704,7 @@ the documentation on the table browser."
      (format "%sX%s-%s"
              (emacspeak-table-num-rows emacspeak-table)
              (emacspeak-table-num-columns emacspeak-table)
-             (buffer-name buffer) ))))
+             (buffer-name buffer)))))
 
 ;;}}}
 ;;{{{ select default speaking action
@@ -747,10 +747,10 @@ browsing table elements"
 (defun emacspeak-table-next-row (&optional count)
   "Move to the next row if possible"
   (interactive "p")
-  (declare (special emacspeak-table ))
+  (declare (special emacspeak-table))
   (assert  (boundp 'emacspeak-table) nil "No table here")
-  (setq count (or count 1 ))
-  (emacspeak-table-move-down emacspeak-table count )
+  (setq count (or count 1))
+  (emacspeak-table-move-down emacspeak-table count)
   (emacspeak-table-synchronize-display)
   (funcall emacspeak-table-speak-element))
 
@@ -758,10 +758,10 @@ browsing table elements"
 (defun emacspeak-table-previous-row (&optional count)
   "Move to the previous row if possible"
   (interactive "p")
-  (declare (special emacspeak-table ))
+  (declare (special emacspeak-table))
   (assert  (boundp 'emacspeak-table) nil "No table here")
-  (setq count (or count 1 ))
-  (emacspeak-table-move-up emacspeak-table count )
+  (setq count (or count 1))
+  (emacspeak-table-move-up emacspeak-table count)
   (emacspeak-table-synchronize-display)
   (funcall emacspeak-table-speak-element))
 
@@ -769,10 +769,10 @@ browsing table elements"
 (defun emacspeak-table-next-column (&optional count)
   "Move to the next column if possible"
   (interactive "p")
-  (declare (special emacspeak-table ))
+  (declare (special emacspeak-table))
   (assert  (boundp 'emacspeak-table) nil "No table here")
-  (setq count (or count 1 ))
-  (emacspeak-table-move-right emacspeak-table count )
+  (setq count (or count 1))
+  (emacspeak-table-move-right emacspeak-table count)
   (emacspeak-table-synchronize-display)
   (funcall emacspeak-table-speak-element))
 
@@ -780,10 +780,10 @@ browsing table elements"
 (defun emacspeak-table-previous-column (&optional count)
   "Move to the previous column  if possible"
   (interactive "p")
-  (declare (special emacspeak-table ))
+  (declare (special emacspeak-table))
   (assert  (boundp 'emacspeak-table) nil "No table here")
-  (setq count (or count 1 ))
-  (emacspeak-table-move-left emacspeak-table count )
+  (setq count (or count 1))
+  (emacspeak-table-move-left emacspeak-table count)
   (emacspeak-table-synchronize-display)
   (funcall emacspeak-table-speak-element))
 
@@ -872,7 +872,7 @@ the matching cell current. When called from a program, `what' can
                 (otherwise (error "Can only search in either row or column")))))
          (pattern
           (read-string
-           (format "Search in current  %s for: " slice ))))
+           (format "Search in current  %s for: " slice))))
     (cond
      ((eq slice 'row)
       (setq found
@@ -886,7 +886,7 @@ the matching cell current. When called from a program, `what' can
     (cond
      (found
       (cond
-       ((eq slice 'row )
+       ((eq slice 'row)
         (emacspeak-table-goto-cell emacspeak-table row found))
        ((eq slice 'column)
         (emacspeak-table-goto-cell emacspeak-table found column)))
@@ -909,7 +909,7 @@ the matching cell current. When called from a program, `what' can
   "Search the table row or column headers.  Interactively prompts for
 row or column to search and pattern to look for.  If there is a
 match, makes the matching row or column current."
-  (interactive )
+  (interactive)
   (declare (special emacspeak-table))
   (assert  (boundp 'emacspeak-table) nil "No table here")
   (message
@@ -924,7 +924,7 @@ match, makes the matching row or column current."
             (otherwise (error "Can only search in either row or column"))))
          (pattern
           (read-string
-           (format "Search %s headers for: " slice ))))
+           (format "Search %s headers for: " slice))))
     (cond
      ((eq slice 'row)
       (setq found
@@ -938,7 +938,7 @@ match, makes the matching row or column current."
     (cond
      (found
       (cond
-       ((eq slice 'row )
+       ((eq slice 'row)
         (emacspeak-table-goto-cell emacspeak-table  found column))
        ((eq slice 'column)
         (emacspeak-table-goto-cell emacspeak-table row found)))
@@ -953,20 +953,20 @@ match, makes the matching row or column current."
 (defun emacspeak-table-copy-current-element-to-kill-ring ()
   "Copy current table element to kill ring."
   (interactive)
-  (declare (special emacspeak-table ))
+  (declare (special emacspeak-table))
   (assert  (boundp 'emacspeak-table) nil "No table here")
   (kill-new  (emacspeak-table-current-element emacspeak-table))
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (message "Copied element to kill ring")))
 (defun emacspeak-table-copy-current-element-to-register (register)
   "Copy current table element to specified register."
   (interactive "cCopy to register: ")
-  (declare (special emacspeak-table ))
+  (declare (special emacspeak-table))
   (assert  (boundp 'emacspeak-table) nil "No table here")
   (set-register register (emacspeak-table-current-element
                           emacspeak-table))
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (message "Copied element to register %c" register)))
 
@@ -990,7 +990,7 @@ match, makes the matching row or column current."
   row-end
   col-start
   col-end
-  col-separator )
+  col-separator)
 
 (defvar emacspeak-table-markup-table  (make-hash-table)
   "Hash table to hold mapping between major modes and mode specific
@@ -998,9 +998,9 @@ table markup.")
 
 (defsubst emacspeak-table-markup-set-table (mode markup)
   (declare (special emacspeak-table-markup-table))
-  (setf  (gethash mode emacspeak-table-markup-table) markup ))
+  (setf  (gethash mode emacspeak-table-markup-table) markup))
 
-(defsubst emacspeak-table-markup-get-table (mode )
+(defsubst emacspeak-table-markup-get-table (mode)
   (declare (special emacspeak-table-markup-table))
   (or (gethash mode emacspeak-table-markup-table)
       (gethash 'fundamental-mode emacspeak-table-markup-table)))
@@ -1126,7 +1126,7 @@ markup to use."
               (loop
                for column across row do
                (insert (format "%s %s %s"
-                               col-start column col-end  ))
+                               col-start column col-end))
                (incf current)
                (unless (= current final)
                  (insert (format "%s" col-separator)))))              (insert (format "%s" row-end)))
@@ -1139,10 +1139,10 @@ markup to use."
 
 (defun emacspeak-table-sort-on-current-column ()
   "Sort table on current column. "
-  (interactive )
+  (interactive)
   (declare (special major-mode emacspeak-table
                     emacspeak-table-speak-row-filter))
-  (assert (eq major-mode  'emacspeak-table-mode ) nil "Not in table mode.")
+  (assert (eq major-mode  'emacspeak-table-mode) nil "Not in table mode.")
   (let* ((column  (emacspeak-table-current-column emacspeak-table))
          (row-head   nil)
          (row-filter emacspeak-table-speak-row-filter)
@@ -1150,7 +1150,7 @@ markup to use."
                 (emacspeak-table-elements emacspeak-table) nil))
          (sorted-table nil)
          (sorted-row-list nil)
-         (buffer(get-buffer-create  (format "sorted-on-%d" column ))))
+         (buffer(get-buffer-create  (format "sorted-on-%d" column))))
     (setq row-head (pop rows)) ;;; header does not play in sort
     (setq  rows
            (remove-if
@@ -1203,7 +1203,7 @@ future  use."
 (defun emacspeak-table-ui-filter-set (key filter)
   "Map filter to key."
   (declare (special emacspeak-table-ui-filter-table))
-  (setf (gethash key emacspeak-table-ui-filter-table ) filter))
+  (setf (gethash key emacspeak-table-ui-filter-table) filter))
 
 (defun emacspeak-table-ui-filter-get (key)
   "Lookup key and return corresponding filter. "

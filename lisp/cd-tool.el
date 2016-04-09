@@ -105,7 +105,7 @@ cap C   Save clip to disk
                          nil))))
     (shell-command
      (format "%s &"
-             command ))))
+             command))))
 
 (defvar cd-tool-clipper "cdda2wav"
   "Program that can clip CD audio.")
@@ -139,12 +139,12 @@ cap C   Save clip to disk
                                     nil ; READ
                                     cd-tool-clip-track-history))
         (skip (read-from-minibuffer"Skip sectors: "
-                                   (car cd-tool-clip-skip-history ) ;INITIAL-CONTENTS
+                                   (car cd-tool-clip-skip-history) ;INITIAL-CONTENTS
                                    nil  ;KEYMAP
                                    nil  ; READ
                                    cd-tool-clip-skip-history))
         (duration  (read-from-minibuffer"Duration: "
-                                        (car cd-tool-clip-duration-history ) ;INITIAL-CONTENTS
+                                        (car cd-tool-clip-duration-history) ;INITIAL-CONTENTS
                                         nil ;KEYMAP
                                         nil ; READ
                                         cd-tool-clip-duration-history)))

@@ -51,30 +51,30 @@
 
 (defadvice sgml-skip-tag-forward (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice sgml-skip-tag-backward (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice sgml-slash (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-this-char (preceding-char))))
 
 (defadvice sgml-delete-tag (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)))
 
 (defadvice sgml-name-char (around emacspeak pre act comp)
   "Speak the character you typed"
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (let ((start (point)))
       (message "Type the char: ")
       ad-do-it
@@ -84,7 +84,7 @@
 
 (defadvice sgml-tags-invisible (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)
     (dtk-speak  "Toggled display of tags")))
 

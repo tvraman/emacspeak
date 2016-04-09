@@ -59,7 +59,7 @@
       (eval
        `(defadvice ,f (around emacspeak pre act comp)
           "Provide auditory feedback."
-          (let ((prior (point ))
+          (let ((prior (point))
                 (dtk-stop-immediately t))
             (emacspeak-kill-buffer-carefully "*Completions*")
             ad-do-it
@@ -70,7 +70,7 @@
             ad-return-value))))
 
 ;;}}}
-(provide 'emacspeak-cedet )
+(provide 'emacspeak-cedet)
 ;;{{{ end of file
 
 ;;; local variables:

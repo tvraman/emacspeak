@@ -59,35 +59,35 @@
 
 (defadvice rpm (after emacspeak pre act comp)
   "Provide speech feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (message "Welcome to RPM")
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice rpm-invert-sort (after emacspeak pre act comp)
   "Provide speech feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (message "Inverted sort order")
     (emacspeak-auditory-icon 'task-done)))
 (defadvice rpm-mark (after emacspeak pre act comp)
   "Provide speech feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (message "marked")
     (emacspeak-auditory-icon 'mark-object)))
 (defadvice rpm-mark-delete (after emacspeak pre act comp)
   "Provide speech feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (message "marked for deletion")
     (emacspeak-auditory-icon 'mark-object)))
 
 (defadvice rpm-quit (after emacspeak pre act comp)
   "Provide speech feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'close-object)))
 
 (defadvice rpm-rebuild- (after emacspeak pre act comp)
   "Provide speech feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (message "Rebuilt index")
     (emacspeak-auditory-icon 'rask-done)))
 

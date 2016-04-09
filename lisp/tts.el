@@ -172,7 +172,7 @@ appropriately initialized for engine used in this speaker process."
 (loop
  for field in
  '(name default-voice
-        default-speech-rate speech-rate-step speech-rate-base )
+        default-speech-rate speech-rate-step speech-rate-base)
  do
  (eval
   `(defun ,(intern (format "tts-%s" field)) ()

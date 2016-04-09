@@ -215,7 +215,7 @@ Optional argument `noauth' says no user auth needed."
             (split-string
              (substring url start end) "/" 'no-null))))
 
-(defsubst emacspeak-bookshare-download-url (id fmt )
+(defsubst emacspeak-bookshare-download-url (id fmt)
   "Return  URL  end point for content download.
 Argument id specifies content. Argument fmt = 0 for Braille, 1
   for Daisy."
@@ -332,7 +332,7 @@ Optional argument 'no-auth says we dont need a user auth."
 (defsubst emacspeak-bookshare-isbn-search (query)
   "Perform a Bookshare isbn search."
   (interactive "sISBN: ")
-  (emacspeak-bookshare-api-call "book/isbn" query ))
+  (emacspeak-bookshare-api-call "book/isbn" query))
 
 (defsubst emacspeak-bookshare-id-search (query)
   "Perform a Bookshare id search."
@@ -448,7 +448,7 @@ Optional interactive prefix arg prompts for a category to use as a filter."
                              (emacspeak-bookshare-categories))))
       (emacspeak-bookshare-api-call
        "book/browse/popular"
-       (format "category/%s" filter))))      ))
+       (format "category/%s" filter))))))
 
 ;;}}}
 ;;{{{ Periodical Actions:
@@ -760,7 +760,7 @@ b Browse
            (fill-region-as-paragraph start (point))))
      (sort
       display
-      #'(lambda (a b )
+      #'(lambda (a b)
           (string-lessp (symbol-name (car a)) (symbol-name (car b))))))
                                         ; Show availability:
     (insert
@@ -1101,9 +1101,9 @@ Make sure it's downloaded and unpacked first."
     (save-current-buffer
       (set-buffer result)
       (emacspeak-webutils-autospeak)
-      (browse-url-of-buffer ))))
+      (browse-url-of-buffer))))
 
-(defun emacspeak-bookshare-view-page-range (url )
+(defun emacspeak-bookshare-view-page-range (url)
   "Play pages in specified page range from URL."
   (interactive "sURL:")
   (declare (special emacspeak-bookshare-browser-function))
@@ -1114,8 +1114,8 @@ Make sure it's downloaded and unpacked first."
            (emacspeak-xslt-get "dtb-page-range.xsl")
            (substring url 7)
            (list
-            (cons "start" (format "'%s'" start ))
-            (cons "end" (format "'%s'" end )))))
+            (cons "start" (format "'%s'" start))
+            (cons "end" (format "'%s'" end)))))
          (browse-url-browser-function emacspeak-bookshare-browser-function))
     (save-current-buffer
       (set-buffer result)

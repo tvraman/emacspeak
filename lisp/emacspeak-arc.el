@@ -67,52 +67,52 @@
 
 (defadvice archive-mark (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (emacspeak-archive-speak-line)))
 
 (defadvice archive-next-line (after emacspeak pre act comp)
   "Provide spoken feedback"
-  (when (ems-interactive-p  )
+  (when (ems-interactive-p)
     (emacspeak-archive-speak-line)))
 
 (defadvice archive-previous-line (after emacspeak pre act comp)
   "Provide spoken feedback"
-  (when (ems-interactive-p  )
+  (when (ems-interactive-p)
     (emacspeak-archive-speak-line)))
 
 (defadvice archive-flag-deleted (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-archive-speak-line)))
 
 (defadvice archive-unflag (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-archive-speak-line)))
 (defadvice archive-unflag-backwards (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-archive-speak-line)))
 
 (defadvice archive-extract (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice archive-extract-other-window (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice archive-view (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
@@ -138,7 +138,7 @@ first initializing it if necessary."
             do
             (setq emacspeak-arc-header-list-format
                   (cons
-                   (list f i )
+                   (list f i)
                    emacspeak-arc-header-list-format)))))
   emacspeak-arc-header-list-format)
 (defsubst emacspeak-arc-get-field-index (field)
@@ -149,7 +149,7 @@ first initializing it if necessary."
                                (emacspeak-arc-get-header-line-format)))))
     (if marked-p
         (1- position)
-      position )))
+      position)))
 
 (defun emacspeak-arc-speak-file-name ()
   "Speak the name of the file on current line"

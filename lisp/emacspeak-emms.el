@@ -70,7 +70,7 @@
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Speak track name."
-          (when (ems-interactive-p )
+          (when (ems-interactive-p)
             (emacspeak-auditory-icon 'select-object)))))
 
 ;;; these commands should not be made to talk since that would  interferes
@@ -82,7 +82,7 @@
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory icon."
-          (when (ems-interactive-p )
+          (when (ems-interactive-p)
             (emacspeak-auditory-icon 'select-object)))))
 
 (loop for f in
@@ -92,7 +92,7 @@
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedback."
-          (when (ems-interactive-p )
+          (when (ems-interactive-p)
             (emacspeak-auditory-icon 'large-movement)
             (emacspeak-speak-line)))))
 (loop for f in
@@ -102,7 +102,7 @@
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedback."
-          (when (ems-interactive-p )
+          (when (ems-interactive-p)
             (emacspeak-speak-mode-line)
             (emacspeak-auditory-icon 'open-object)))))
 
@@ -117,13 +117,13 @@
 (defadvice emms-stream-delete-bookmark (after emacspeak pre act
                                               comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-line)))
 
 (defadvice emms-stream-save-bookmarks-file (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'save-object)
     (message "Saved stream bookmarks.")))
 
@@ -136,7 +136,7 @@
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedback."
-          (when (ems-interactive-p )
+          (when (ems-interactive-p)
             (emacspeak-speak-mode-line)))))
 
 (loop for f in
@@ -145,13 +145,13 @@
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedback."
-          (when (ems-interactive-p )
+          (when (ems-interactive-p)
             (emacspeak-speak-line)))))
 (defadvice emms-playlist-mode-bury-buffer (after emacspeak pre act)
   "Announce the buffer that becomes current."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-mode-line )))
+    (emacspeak-speak-mode-line)))
 
 ;;}}}
 ;;{{{ silence chatter from info

@@ -273,7 +273,7 @@ normally bound to \\[emacspeak-table-display-table-in-region]."
       (condition-case nil
           (cond
            (read-as-csv (emacspeak-table-view-csv-buffer  (current-buffer)))
-           (t (emacspeak-table-display-table-in-region  start end )))
+           (t (emacspeak-table-display-table-in-region  start end)))
         (error
          (progn
            (message "Output could not be tabulated correctly")
@@ -322,7 +322,7 @@ previous window configuration."
 (defun  emacspeak-wizards-byte-compile-current-buffer()
   "byte compile current buffer"
   (interactive)
-  (byte-compile-file  (buffer-file-name )))
+  (byte-compile-file  (buffer-file-name)))
 ;;;###autoload
 (defun emacspeak-wizards-load-current-file ()
   "load file into emacs"
@@ -485,14 +485,14 @@ command."
   "Helps you learn the keys.  You can press keys and hear what they do.
 To leave, press \\[keyboard-quit]."
   (interactive)
-  (let ((continue t )
+  (let ((continue t)
         (dtk-stop-immediately nil))
     (while continue
       (call-interactively 'describe-key-briefly)
       (sit-for 1)
       (when (and (numberp last-input-event)
                  (= last-input-event 7))
-        (setq continue nil )))
+        (setq continue nil)))
     (message "Leaving learn mode ")))
 
 ;;}}}
@@ -517,7 +517,7 @@ With optional PREFIX argument, label current frame."
    (prefix
     (call-interactively 'set-frame-name))
    (t (call-interactively 'select-frame-by-name)))
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'select-object)))
 
@@ -578,8 +578,8 @@ the display to speak."
   (let ((window
          (or arg
              (condition-case nil
-                 (read (format "%c" last-input-event ))
-               (error nil ))))
+                 (read (format "%c" last-input-event))
+               (error nil))))
         (win nil)
         (window-list (get-buffer-window-list
                       (current-buffer)
@@ -588,7 +588,7 @@ the display to speak."
         (setq window
               (read-minibuffer "Display    to speak")))
     (setq win
-          (nth (% window (length window-list ))
+          (nth (% window (length window-list))
                window-list))
     (save-excursion
       (save-window-excursion
@@ -631,8 +631,8 @@ the display to select."
   (let ((window
          (or arg
              (condition-case nil
-                 (read (format "%c" last-input-event ))
-               (error nil ))))
+                 (read (format "%c" last-input-event))
+               (error nil))))
         (win nil)
         (window-list (get-buffer-window-list
                       (current-buffer)
@@ -641,7 +641,7 @@ the display to select."
         (setq window
               (read-minibuffer "Display to select")))
     (setq win
-          (nth (% window (length window-list ))
+          (nth (% window (length window-list))
                window-list))
     (select-frame (window-frame win))
     (emacspeak-speak-line)
@@ -697,7 +697,7 @@ Argument START and END specifies  region.
 Optional argument PROMPT  specifies whether we prompt for the name of a clipboard file."
   (interactive "r\nP")
   (declare (special emacspeak-resource-directory emacspeak-clipboard-file))
-  (let ((clip (buffer-substring-no-properties start end ))
+  (let ((clip (buffer-substring-no-properties start end))
         (clipboard-file
          (if prompt
              (read-file-name "Copy region to clipboard file: "
@@ -874,7 +874,7 @@ personal customizations."
 (defun emacspeak-show-personality-at-point ()
   "Show value of property personality (and possibly face)
 at point."
-  (interactive )
+  (interactive)
   (let ((f (or (get-text-property (point) 'font-lock-face)
                (get-text-property (point) 'face)))
         (o
@@ -891,7 +891,7 @@ at point."
                " "))))
 
 ;;;###autoload
-(defun emacspeak-show-property-at-point (&optional property )
+(defun emacspeak-show-property-at-point (&optional property)
   "Show value of PROPERTY at point.
 If optional arg property is not supplied, read it interactively.
 Provides completion based on properties at point.
@@ -901,8 +901,8 @@ If no property is set, show a message and exit."
        ((properties (text-properties-at  (point))))
      (cond
       ((and properties
-            (= 2 (length properties )))
-       (list (car properties )))
+            (= 2 (length properties)))
+       (list (car properties)))
       (properties
        (list
         (intern
@@ -914,7 +914,7 @@ If no property is set, show a message and exit."
   (if property
       (kill-new
        (message"%s"
-               (get-text-property (point) property )))))
+               (get-text-property (point) property)))))
 
 ;;}}}
 ;;{{{  moving across blank lines
@@ -952,7 +952,7 @@ Signals end of buffer."
             (dtk-speak
              (concat skipped
                      (thing-at-point 'line))))))
-      (modify-syntax-entry 10 (format "%c" save-syntax )))))
+      (modify-syntax-entry 10 (format "%c" save-syntax)))))
 ;;;###autoload
 (defun emacspeak-skip-blank-lines-backward ()
   "Move backward  across blank lines.
@@ -972,7 +972,7 @@ Signals beginning  of buffer."
           (cond
            ((zerop skip)
             (message "Did not move "))
-           ((bobp )
+           ((bobp)
             (message "At start  of buffer"))
            (t
             (beginning-of-line)
@@ -986,7 +986,7 @@ Signals beginning  of buffer."
             (dtk-speak
              (concat skipped
                      (thing-at-point 'line))))))
-      (modify-syntax-entry 10 (format "%c" save-syntax )))))
+      (modify-syntax-entry 10 (format "%c" save-syntax)))))
 
 ;;}}}
 ;;{{{  launch lynx
@@ -1095,7 +1095,7 @@ Signals beginning  of buffer."
   (interactive (list (read-from-minibuffer "Run program: ")))
   (switch-to-buffer-other-frame
    (ansi-term program
-              (first (split-string program  ))))
+              (first (split-string program))))
   (delete-other-windows)
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-mode-line))
@@ -1112,7 +1112,7 @@ Signals beginning  of buffer."
   (expand-file-name "extract-table.pl" emacspeak-etc-directory)
   "Program that extracts table content.")
 ;;;###autoload
-(defun emacspeak-wizards-get-table-content-from-url (url depth count )
+(defun emacspeak-wizards-get-table-content-from-url (url depth count)
   "Extract table specified by depth and count from HTML
 content at URL.
 Extracted content is placed as a csv file in task.csv."
@@ -1136,7 +1136,7 @@ Extracted content is placed as a csv file in task.csv."
       (emacspeak-table-view-csv-buffer))))
 
 ;;;###autoload
-(defun emacspeak-wizards-get-table-content-from-file ( file depth count )
+(defun emacspeak-wizards-get-table-content-from-file ( file depth count)
   "Extract table specified by depth and count from HTML
 content at file.
 Extracted content is sent to STDOUT."
@@ -1249,7 +1249,7 @@ annotation is inserted into the working buffer when complete."
 (defun emacspeak-wizards-shell-toggle ()
   "Switch to the shell buffer and cd to
  the directory of the current buffer."
-  (interactive )
+  (interactive)
   (declare (special default-directory))
   (let ((dir default-directory))
     (shell)
@@ -1511,7 +1511,7 @@ visiting the DVI file."
   '(cons :tag "Find Expression"
          (menu-choice :tag "Find"
                       (string :tag "Test")
-                      (const "-name" )
+                      (const "-name")
                       (const "-iname")
                       (const "-path")
                       (const "-ipath")
@@ -1670,7 +1670,7 @@ directory to where find is to be launched."
   (declare (special browse-url-browser-function emacspeak-wizards-available-browsers))
   (let* ((count (length emacspeak-wizards-available-browsers))
          (current (position browse-url-browser-function emacspeak-wizards-available-browsers))
-         (next  (% (1+ current) count) ))
+         (next  (% (1+ current) count)))
     (setq browse-url-browser-function (nth  next emacspeak-wizards-available-browsers))
     (message "Browser set to %s" browse-url-browser-function)))
 
@@ -1783,16 +1783,16 @@ Obsoleted by `previous-buffer' in Emacs 22"
   (interactive)
   (switch-to-buffer (other-buffer
                      (current-buffer) 'visible-ok))
-  (emacspeak-speak-mode-line )
-  (emacspeak-auditory-icon 'select-object ))
+  (emacspeak-speak-mode-line)
+  (emacspeak-auditory-icon 'select-object))
 ;;;###autoload
 (defun emacspeak-kill-buffer-quietly   ()
   "Kill current buffer without asking for confirmation."
   (interactive)
-  (kill-buffer nil )
+  (kill-buffer nil)
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-mode-line )))
+    (emacspeak-speak-mode-line)))
 
 ;;}}}
 ;;{{{  spotting words
@@ -1921,7 +1921,7 @@ On Ubuntu and Debian this is group `tty'."
     (emacspeak-wizards-vc-viewer-mode)
     (setq emacspeak-wizards-vc-console console)
     (goto-char (point-min))
-    (when (ems-interactive-p ) (emacspeak-speak-line))))
+    (when (ems-interactive-p) (emacspeak-speak-line))))
 
 ;;;###autoload
 (defun emacspeak-wizards-vc-viewer-refresh ()
@@ -1953,7 +1953,7 @@ On Ubuntu and Debian this is group `tty'."
     (goto-char orig)
     (emacspeak-wizards-vc-viewer-mode)
     (setq emacspeak-wizards-vc-console console)
-    (when (ems-interactive-p )
+    (when (ems-interactive-p)
       (emacspeak-speak-line))))
 
 ;;;###autoload
@@ -2001,7 +2001,7 @@ Moves to the longest line when called interactively."
                        (line-beginning-position)))
           (setq where (line-beginning-position)))
         (forward-line 1)))
-    (when (ems-interactive-p )
+    (when (ems-interactive-p)
       (message "Longest line is %s columns"
                max)
       (goto-char where))
@@ -2025,7 +2025,7 @@ Moves to the shortest line when called interactively."
                        (line-beginning-position)))
           (setq where (line-beginning-position)))
         (forward-line 1)))
-    (when (ems-interactive-p )
+    (when (ems-interactive-p)
       (message "Shortest line is %s columns"
                min)
       (goto-char where))
@@ -2047,11 +2047,11 @@ Moves to the longest paragraph when called interactively."
                   (< (point) end))
         (forward-paragraph 1)
         (when
-            (< max (- (point) para-start ))
+            (< max (- (point) para-start))
           (setq max(- (point)  para-start))
           (setq where para-start))
         (setq para-start (point))))
-    (when (ems-interactive-p )
+    (when (ems-interactive-p)
       (message "Longest paragraph is %s characters"
                max)
       (goto-char where))
@@ -2100,7 +2100,7 @@ Interactive  arguments specify filename pattern and search pattern."
        (format "Documentation: %s\n"
                (face-documentation face)))
       (setq buffer-read-only t))
-    (when (ems-interactive-p )
+    (when (ems-interactive-p)
       (switch-to-buffer output)
       (goto-char (point-min))
       (emacspeak-speak-mode-line)
@@ -2131,11 +2131,11 @@ for the current voice family."
                   (loop for a from 0 to 9 by step do
                         (loop for r from 0 to 9 by step do
                               (setq voice (voice-setup-personality-from-style
-                                           (list nil a p s r )))
+                                           (list nil a p s r)))
                               (insert
                                (format
                                 " Aural CSS    average-pitch %s pitch-range %s stress %s richness %s"
-                                a p s r ))
+                                a p s r))
                               (put-text-property (line-beginning-position)
                                                  (line-end-position)
                                                  'personality voice)
@@ -2295,7 +2295,7 @@ RIVO is implemented by rivo.pl ---
                  channel stop-time output directory)))
     (shell-command
      (format "echo '%s' | at %s"
-             command when ))))
+             command when))))
 
 ;;}}}
 ;;{{{ shell history:
@@ -2368,7 +2368,7 @@ When called from a shell buffer, switches to `next' shell buffer."
    (t (call-interactively 'emacspeak-wizards-next-shell))))
 ;;}}}
 ;;{{{ show commentary:
-(defsubst ems-cleanup-commentary (commentary )
+(defsubst ems-cleanup-commentary (commentary)
   "Cleanup commentary."
   (save-excursion
     (set-buffer
@@ -2392,10 +2392,10 @@ When called from a shell buffer, switches to `next' shell buffer."
   (interactive "P")
   (let ((filename nil))
     (cond
-     ((and (ems-interactive-p )
+     ((and (ems-interactive-p)
            file)
       (setq filename (read-file-name "File: ")))
-     ((and (ems-interactive-p )
+     ((and (ems-interactive-p)
            (null file))
       (setq filename (buffer-file-name (current-buffer))))
      (t (setq filename file)))
@@ -2633,7 +2633,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
     (unless lang
       (setq lang
             (cond
-             ((ems-interactive-p ) (emacspeak-wizards-espeak-get-voice-code))
+             ((ems-interactive-p) (emacspeak-wizards-espeak-get-voice-code))
              (t "en"))))
     (shell-command
      (format "espeak -v %s '%s'" lang string))))
@@ -2772,7 +2772,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
 (defun emacspeak-wizards-shell-command-on-current-file (command)
   "Prompts for and runs shell command on current file."
   (interactive (list (read-shell-command "Command: ")))
-  (shell-command (format "%s %s" command (buffer-file-name ))))
+  (shell-command (format "%s %s" command (buffer-file-name))))
 
 ;;}}}
 ;;{{{ Filtered buffer lists:
@@ -2856,7 +2856,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
    "http://query.yahooapis.com/v1/public/yql?"
    "format=json"
    "&q=")
-  "REST end-point for YQL public APIs that returns JSON." )
+  "REST end-point for YQL public APIs that returns JSON.")
 
 (defun yql-filter (headers result-row)
   "Filter out fields we dont care about."
@@ -3034,7 +3034,7 @@ Returns a list of lists, one list per ticker."
        " trading between   " 13  " and  " 14  " with volume " 43
        " PE is "37
        " for a market cap of " 17 "at earning of " 9 " per share "
-       "the 52 week range is " 44 )
+       "the 52 week range is " 44)
   "Template used to audio-format  rows."
   :type '(repeat
           (choice :tag "Entry"
@@ -3083,7 +3083,7 @@ Symbols are taken from `emacspeak-wizards-personal-portfolio'."
 
 (defun emacspeak-wizards-yql-weather-url (zip)
   "Return end-point for retrieving weather forecast."
-  (declare (special emacspeak-wizards-yql-weather-base ))
+  (declare (special emacspeak-wizards-yql-weather-base))
   (format emacspeak-wizards-yql-weather-base zip))
 
 (defun emacspeak-wizards-yql-weather-results (zip)

@@ -104,18 +104,18 @@ server."
 
 (defadvice erc-select (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 (defadvice erc-send-current-line (after emacspeak pre act
                                         comp)
   "Provide auditory icon."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)))
 (defadvice erc-send-paragraph (after emacspeak pre act
                                      comp)
   "Provide auditory icon."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'paragraph)))
 
 ;;}}}
@@ -208,7 +208,7 @@ display. String is the original message."
                     emacspeak-erc-my-nick
                     emacspeak-erc-speak-all-participants
                     emacspeak-erc-monitor-my-messages))
-  (let ((who-from (car (split-string string )))
+  (let ((who-from (car (split-string string)))
         (case-fold-search t))
     (cond
      (emacspeak-erc-speak-all-participants string)
@@ -301,7 +301,7 @@ set the current local value to the result.")
   "Ignore notices from server is emacspeak-erc-ignore-notices it set."
   ad-do-it
   (cond
-   ((not emacspeak-erc-ignore-notices ) ad-return-value)
+   ((not emacspeak-erc-ignore-notices) ad-return-value)
    (t " ")))
 
 ;;}}}

@@ -121,7 +121,7 @@ a rewrite rule even if one is already defined."
              (completing-read
               "Executor function: "
               obarray 'fboundp t
-              "emacspeak-" nil )))
+              "emacspeak-" nil)))
       (if (and (boundp 'emacspeak-we-url-executor)
                (fboundp emacspeak-we-url-executor))
           (funcall emacspeak-we-url-executor url)
@@ -131,7 +131,7 @@ a rewrite rule even if one is already defined."
 ;;}}}
 ;;{{{ applying XSL transforms before displaying
 
-(define-prefix-command 'emacspeak-we-xsl-map )
+(define-prefix-command 'emacspeak-we-xsl-map)
 
 (defvar emacspeak-we-xsl-filter
   (emacspeak-xslt-get "xpath-filter.xsl")
@@ -191,7 +191,7 @@ Default is to apply sort-tables."
   (interactive (list (emacspeak-xslt-read)))
   (declare (special emacspeak-we-xsl-transform))
   (setq emacspeak-we-xsl-transform xsl)
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (message "Will apply %s before displaying HTML pages."
              (file-name-sans-extension
@@ -203,7 +203,7 @@ Default is to apply sort-tables."
   (interactive)
   (declare (special emacspeak-we-xsl-p))
   (setq emacspeak-we-xsl-p (not emacspeak-we-xsl-p))
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon
      (if emacspeak-we-xsl-p 'on 'off))
     (message "Turned %s XSL"
@@ -246,7 +246,7 @@ Default is to apply sort-tables."
   (declare (special emacspeak-we-xsl-keep-result))
   (setq emacspeak-we-xsl-keep-result
         (not emacspeak-we-xsl-keep-result))
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon
      (if emacspeak-we-xsl-keep-result
          'on 'off))
@@ -284,8 +284,8 @@ from Web page -- default is the current page being viewed."
    (list
     (read-from-minibuffer "XPath: ")
     (emacspeak-webutils-read-url)
-    (ems-interactive-p )))
-  (declare (special emacspeak-we-xsl-junk ))
+    (ems-interactive-p)))
+  (declare (special emacspeak-we-xsl-junk))
   (lexical-let ((params (emacspeak-xslt-params-from-xpath  path url)))
     (emacspeak-webutils-rename-buffer (format "Filtered %s" path))
     (when speak (emacspeak-webutils-autospeak))
@@ -323,7 +323,7 @@ operate on current web page when in a browser buffer; otherwise
   (interactive
    (list
     (emacspeak-webutils-read-url)
-    (ems-interactive-p )))
+    (ems-interactive-p)))
   (declare (special emacspeak-we-media-stream-suffixes))
   (let ((filter "//a[%s]")
         (predicate
@@ -334,7 +334,7 @@ operate on current web page when in a browser buffer; otherwise
           emacspeak-we-media-stream-suffixes
           " or ")))
     (emacspeak-we-xslt-filter
-     (format filter predicate )
+     (format filter predicate)
      url speak)))
 
 ;;;###autoload
@@ -346,7 +346,7 @@ operate on current web page when in a browser buffer; otherwise
   (interactive
    (list
     (emacspeak-webutils-read-url)
-    (ems-interactive-p )))
+    (ems-interactive-p)))
   (let ((filter "//a[contains(@href,\"print\")]"))
     (emacspeak-we-xslt-filter filter url speak)))
 
@@ -355,7 +355,7 @@ operate on current web page when in a browser buffer; otherwise
   "Follow URL, then extract role=main."
   (interactive
    (list
-    (ems-interactive-p )))
+    (ems-interactive-p)))
   (emacspeak-we-extract-by-role "main"
                                 (funcall emacspeak-webutils-url-at-point) 'speak))
 
@@ -375,7 +375,7 @@ operate on current web page when in a browser buffer; otherwise
    (list
     (read-from-minibuffer "Pattern: ")
     (emacspeak-webutils-read-url)
-    (ems-interactive-p )))
+    (ems-interactive-p)))
   (let ((filter
          (format
           "//a[contains(@href,\"%s\")]"
@@ -392,7 +392,7 @@ spoken automatically."
    (list
     (read-from-minibuffer "Table Index: ")
     (emacspeak-webutils-read-url)
-    (ems-interactive-p )))
+    (ems-interactive-p)))
   (emacspeak-we-xslt-filter
    (format "(//table//table)[%s]" index)
    url speak))
@@ -439,7 +439,7 @@ Empty value finishes the list."
    (list
     (emacspeak-we-get-table-list)
     (emacspeak-webutils-read-url)
-    (ems-interactive-p )))
+    (ems-interactive-p)))
   (let ((filter
          (mapconcat
           #'(lambda  (i)
@@ -483,7 +483,7 @@ Tables are specified by their position in the list
     (emacspeak-we-xslt-filter
      filter
      url
-     (or (ems-interactive-p )
+     (or (ems-interactive-p)
          speak))))
 
 ;;;###autoload
@@ -499,7 +499,7 @@ Tables are specified by their position in the list
    (format "(/descendant::table[contains(., \"%s\")])[last()]"
            match)
    url
-   (or (ems-interactive-p )
+   (or (ems-interactive-p)
        speak)))
 
 ;;;###autoload
@@ -522,7 +522,7 @@ Tables are specified by containing  match pattern
     (emacspeak-we-xslt-filter
      filter
      url
-     (or (ems-interactive-p )
+     (or (ems-interactive-p)
          speak))))
 
 (defvar emacspeak-we-buffer-class-cache nil
@@ -617,7 +617,7 @@ buffer. Interactive use provides list of class values as completion."
   (let ((filter (format "//*[contains(@class,\"%s\")]" class)))
     (emacspeak-we-xslt-filter filter
                               url
-                              (or (ems-interactive-p )
+                              (or (ems-interactive-p)
                                   speak))))
 
 (defun emacspeak-we-extract-by-role (role    url &optional speak)
@@ -633,7 +633,7 @@ buffer. Interactive use provides list of role values as completion."
   (let ((filter (format "//*[contains(@role,\"%s\")]" role)))
     (emacspeak-we-xslt-filter filter
                               url
-                              (or (ems-interactive-p )
+                              (or (ems-interactive-p)
                                   speak))))
 
 ;;;###autoload
@@ -650,7 +650,7 @@ buffer. Interactive use provides list of class values as completion."
   (let ((filter (format "//*[contains(@class,\"%s\")]" class)))
     (emacspeak-we-xslt-junk filter
                             url
-                            (or (ems-interactive-p )
+                            (or (ems-interactive-p)
                                 speak))))
 
 (defsubst  emacspeak-we-get-id-list ()
@@ -711,7 +711,7 @@ values as completion. "
     (emacspeak-we-xslt-filter
      (format "//*[%s]" filter)
      url
-     (or (ems-interactive-p ) speak))))
+     (or (ems-interactive-p) speak))))
 ;;;###autoload
 (defun emacspeak-we-junk-by-class-list(classes   url &optional
                                                  speak)
@@ -734,7 +734,7 @@ values as completion. "
     (emacspeak-we-xslt-junk
      (format "//*[%s]" filter)
      url
-     (or (ems-interactive-p ) speak))))
+     (or (ems-interactive-p) speak))))
 
 ;;;###autoload
 (defun emacspeak-we-extract-by-id (id   url &optional speak)
@@ -774,7 +774,7 @@ separate buffer. Interactive use provides list of id values as completion. "
     (emacspeak-we-xslt-filter
      (format "//*[%s]" filter)
      url
-     (or (ems-interactive-p )
+     (or (ems-interactive-p)
          speak))))
 
 ;;;###autoload
@@ -815,7 +815,7 @@ separate buffer. Interactive use provides list of id values as completion. "
     (emacspeak-we-xslt-filter
      (format "//*[%s]//text()" filter)
      url
-     (or (ems-interactive-p )
+     (or (ems-interactive-p)
          speak))))
 
 ;;;###autoload
@@ -891,7 +891,7 @@ used as well."
      'speak)))
 
 ;;;###autoload
-(defun emacspeak-we-style-filter (style   url &optional speak )
+(defun emacspeak-we-style-filter (style   url &optional speak)
   "Extract elements matching specified style
 from HTML.  Extracts specified elements from current WWW
 page and displays it in a separate buffer.  Optional arg url
@@ -904,7 +904,7 @@ specifies the page to extract contents  from."
   (emacspeak-we-xslt-filter
    (format "//*[contains(@style,  \"%s\")]" style)
    url
-   (or (ems-interactive-p ) speak)))
+   (or (ems-interactive-p) speak)))
 
 ;;}}}
 ;;{{{ xpath  filter
@@ -1097,7 +1097,7 @@ and provide a completion list of applicable  property values. Filter document by
             (format "//*[@%s=\"%s\"]"
                     property v))))
     (emacspeak-we-xslt-filter filter url
-                              (or (ems-interactive-p ) speak))))
+                              (or (ems-interactive-p) speak))))
 
 ;;}}}
 ;;{{{  xsl keymap

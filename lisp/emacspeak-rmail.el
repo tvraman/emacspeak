@@ -68,8 +68,8 @@
         (from (rmail-get-header "From" message))
         (lines (count-lines (rmail-msgbeg message)
                             (rmail-msgend message)))
-        (labels (let ((rmail-current-message message ))
-                  (rmail-display-labels ))))
+        (labels (let ((rmail-current-message message))
+                  (rmail-display-labels))))
     (dtk-speak
      (format "%s %s   %s %s labelled %s "
              (or from "")
@@ -85,24 +85,24 @@
 
 (defadvice rmail-quit(after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice rmail-bury(after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 (defadvice rmail (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-rmail-summarize-current-message)))
 
 (defadvice rmail-expunge-and-save (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'save-object)))
 
 ;;}}}
@@ -110,7 +110,7 @@
 
 (defadvice rmail-beginning-of-message (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
@@ -119,48 +119,48 @@
 
 (defadvice rmail-first-message (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-rmail-summarize-message rmail-current-message)))
 
 (defadvice rmail-first-unseen-message (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-rmail-summarize-message rmail-current-message)))
 
 (defadvice rmail-last-message (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-rmail-summarize-message rmail-current-message)))
 
 (defadvice rmail-next-undeleted-message (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-rmail-summarize-message rmail-current-message)))
 
 (defadvice rmail-next-message (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-rmail-summarize-message rmail-current-message)))
 
 (defadvice rmail-previous-undeleted-message (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-rmail-summarize-message rmail-current-message)))
 (defadvice rmail-previous-message (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-rmail-summarize-message rmail-current-message)))
 (defadvice rmail-next-labeled-message (around emacspeak pre act comp)
   "Provide auditory feedback"
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (let ((original rmail-current-message))
       ad-do-it
       (cond
@@ -174,7 +174,7 @@
 (defadvice rmail-previous-labeled-message (around emacspeak pre act comp)
   "Provide auditory feedback"
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (let ((original rmail-current-message))
       ad-do-it
       (cond
@@ -187,7 +187,7 @@
 
 (defadvice rmail-show-message (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-rmail-summarize-message rmail-current-message)))  
 
@@ -197,24 +197,24 @@
 (defadvice rmail-undelete-previous-message (after emacspeak pre act
                                                   comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-rmail-summarize-current-message)))
 (defadvice rmail-delete-message (after emacspeak pre act)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (message "Message discarded.")))
 
 (defadvice rmail-delete-forward (after emacspeak pre act comp)
   "provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-rmail-summarize-current-message)))
 
 (defadvice rmail-delete-backward (after emacspeak pre act comp)
   "provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-rmail-summarize-current-message))) ;;}}}
 

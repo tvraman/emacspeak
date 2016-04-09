@@ -53,12 +53,12 @@
 ;;{{{  advice calc interaction 
 (defadvice calc-dispatch (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)))
 
-(defadvice calc-quit (after emacspeak pre act )
+(defadvice calc-quit (after emacspeak pre act)
   "Announce the buffer that becomes current when calc is quit."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
@@ -68,7 +68,7 @@
 (defadvice calc-call-last-kbd-macro (around emacspeak pre act)
   "Provide spoken feedback."
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (let ((emacspeak-speak-messages nil)
           (dtk-quiet t)
           (emacspeak-use-auditory-icons nil))
@@ -77,7 +77,7 @@
                            (emacspeak-read-previous-line))
     (emacspeak-auditory-icon 'task-done))
    (t ad-do-it))
-  ad-return-value )
+  ad-return-value)
 
 (defadvice  calc-do (around emacspeak pre act comp)
   "Speak previous line of output."

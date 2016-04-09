@@ -59,9 +59,9 @@
 
 ;;; From dtkk-speak.el:
 (defvar dtk-speech-rate)
-(defvar tts-default-speech-rate )
-(defvar dtk-speech-rate-step )
-(defvar dtk-speech-rate-base )
+(defvar tts-default-speech-rate)
+(defvar dtk-speech-rate-step)
+(defvar dtk-speech-rate-base)
 (defvar outloud-default-speech-rate)
 ;;}}}
 ;;{{{ Top level TTS  switcher
@@ -93,7 +93,7 @@ The string can set any voice parameter.")
   "Define a Outloud  voice named NAME.
 This voice will be set   by sending the string
 COMMAND-STRING to the TTS engine."
-  (declare (special outloud-voice-table ))
+  (declare (special outloud-voice-table))
   (puthash name command-string outloud-voice-table))
 
 (defsubst outloud-get-voice-command-internal  (name)
@@ -114,8 +114,8 @@ COMMAND-STRING to the TTS engine."
 
 (defsubst outloud-voice-defined-p (name)
   "Check if there is a voice named NAME defined."
-  (declare (special outloud-voice-table ))
-  (gethash name outloud-voice-table ))
+  (declare (special outloud-voice-table))
+  (gethash name outloud-voice-table))
 
 ;;}}}
 ;;{{{ voice definitions
@@ -161,7 +161,7 @@ Argument DIMENSION is the dimension being set,
 and TABLE gives the values along that dimension."
   (declare (special outloud-css-code-tables))
   (let ((key (intern (format "%s-%s" family dimension))))
-    (puthash key table outloud-css-code-tables )))
+    (puthash key table outloud-css-code-tables)))
 
 (defsubst outloud-css-get-code-table (family dimension)
   "Retrieve table of values for specified FAMILY and DIMENSION."
@@ -198,16 +198,16 @@ and TABLE gives the values along that dimension."
                     (third setting)))))
    '(
      (0 44 52)
-     (1 50 58 )
+     (1 50 58)
      (2 56 56)
      (3 58 54)
-     (4 62 52  )
+     (4 62 52)
      (5 65 50)
      (6 69 48)
-     (7 73 46 )
+     (7 73 46)
      (8 77 44)
      (9 82 40)))
-  (outloud-css-set-code-table 'paul 'average-pitch table ))
+  (outloud-css-set-code-table 'paul 'average-pitch table))
 
 ;;}}}
 ;;{{{  harry average pitch
@@ -224,16 +224,16 @@ and TABLE gives the values along that dimension."
                     (third setting)))))
    '(
      (0 0 90)
-     (1 10 85 )
+     (1 10 85)
      (2 20 80)
      (3 30 70)
      (4 40 60)
      (5 50 60)
      (6 60 50)
-     (7 70 40 )
+     (7 70 40)
      (8 80 30)
      (9 90 20)))
-  (outloud-css-set-code-table 'harry 'average-pitch table ))
+  (outloud-css-set-code-table 'harry 'average-pitch table))
 
 ;;}}}
 ;;{{{  betty average pitch
@@ -254,13 +254,13 @@ and TABLE gives the values along that dimension."
      (1 17 66)
      (2 33 62)
      (3 49 58)
-     (4 65 54 )
+     (4 65 54)
      (5 81  50)
      (6 85 55)
      (7 89  60)
      (8 93 65)
      (9 97 69)))
-  (outloud-css-set-code-table 'betty 'average-pitch table ))
+  (outloud-css-set-code-table 'betty 'average-pitch table))
 
 ;;}}}
 
@@ -291,17 +291,17 @@ and TABLE gives the values along that dimension."
             (format " `vf%s  "
                     (second setting)))))
    '(
-     (0 0 )
-     (1 5 )
+     (0 0)
+     (1 5)
      (2  15)
      (3  20)
-     (4  25 )
-     (5  30 )
+     (4  25)
+     (5  30)
      (6  47)
      (7  64)
      (8  81)
      (9  100)))
-  (outloud-css-set-code-table 'paul 'pitch-range table ))
+  (outloud-css-set-code-table 'paul 'pitch-range table))
 
 ;;}}}
 ;;{{{  harry pitch range
@@ -315,17 +315,17 @@ and TABLE gives the values along that dimension."
             (format " `vf%s  "
                     (second setting)))))
    '(
-     (0 0 )
-     (1 5 )
+     (0 0)
+     (1 5)
      (2  15)
      (3  20)
-     (4  25 )
-     (5  30 )
+     (4  25)
+     (5  30)
      (6  47)
      (7  64)
      (8  81)
      (9  100)))
-  (outloud-css-set-code-table 'harry 'pitch-range table ))
+  (outloud-css-set-code-table 'harry 'pitch-range table))
 
 ;;}}}
 ;;{{{  betty pitch range
@@ -339,17 +339,17 @@ and TABLE gives the values along that dimension."
             (format " `vf%s  "
                     (second setting)))))
    '(
-     (0 0 )
-     (1 5 )
+     (0 0)
+     (1 5)
      (2  15)
      (3  20)
-     (4  25 )
-     (5  30 )
+     (4  25)
+     (5  30)
      (6  47)
      (7  64)
      (8  81)
      (9  100)))
-  (outloud-css-set-code-table 'betty 'pitch-range table ))
+  (outloud-css-set-code-table 'betty 'pitch-range table))
 
 ;;}}}
 (defsubst outloud-get-pitch-range-code (value family)
@@ -379,8 +379,8 @@ and TABLE gives the values along that dimension."
      (1 5 "`00")
      (2  10 "`0")
      (3  15 "`0")
-     (4  20 "`1" )
-     (5  25 "`1" )
+     (4  20 "`1")
+     (5  25 "`1")
      (6  30 "`v2")
      (7  35 "`v2")
      (8  40 "`v3")
@@ -391,7 +391,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 (defsubst outloud-get-stress-code (value family)
-  (or family (setq family 'paul ))
+  (or family (setq family 'paul))
   (if value 
       (aref (outloud-css-get-code-table family 'stress)
             value)
@@ -420,7 +420,7 @@ and TABLE gives the values along that dimension."
      (5 20 92)
      (6 24 93)
      (7 28 95)
-     (8 32 97 )
+     (8 32 97)
      (9 36 100)))
   (outloud-css-set-code-table 'paul 'richness table)
   (outloud-css-set-code-table 'harry 'richness table)
@@ -455,7 +455,7 @@ and TABLE gives the values along that dimension."
            (outloud-get-punctuations-code (acss-punctuations style))
            (outloud-get-average-pitch-code (acss-average-pitch style) family)
            (outloud-get-pitch-range-code (acss-pitch-range style) family)
-           (outloud-get-stress-code (acss-stress style ) family)
+           (outloud-get-stress-code (acss-stress style) family)
            (outloud-get-richness-code (acss-richness style) family))))
     (outloud-define-voice name command)))
 

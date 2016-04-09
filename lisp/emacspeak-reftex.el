@@ -59,34 +59,34 @@
 (defadvice reftex-select-previous-heading (after emacspeak pre act
                                                  comp)
   "Speech enable  by speaking toc entry."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice reftex-select-next-heading (after emacspeak pre act
                                              comp)
   "Speech enable  by speaking toc entry."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice reftex-toc-previous (after emacspeak pre act
                                       comp)
   "Speech enable  by speaking toc entry."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice reftex-toc-next (after emacspeak pre act
                                   comp)
   "Speech enable  by speaking toc entry."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice reftex-toc-goto-line (after emacspeak pre act comp)
   "Speech enable  by speaking toc entry."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (recenter 0)
     (cond
@@ -97,7 +97,7 @@
 
 (defadvice reftex-toc-goto-line-and-hide (after emacspeak pre act comp)
   "Speech enable  by speaking toc entry."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (if outline-minor-mode
         (emacspeak-outline-speak-this-heading)
@@ -105,7 +105,7 @@
 
 (defadvice reftex-toc-view-line (after emacspeak pre act comp)
   "Speech enable  by speaking toc entry."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (other-window 1)
     (recenter 0)
@@ -114,27 +114,27 @@
 
 (defadvice reftex-select-previous (after emacspeak pre act comp)
   "Speech enable  by speaking toc entry."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice reftex-select-next (after emacspeak pre act
                                      comp)
   "Speech enable  by speaking toc entry."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice reftex-select-accept (after emacspeak pre act
                                        comp)
   "Speak line where we inserted the reference."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
 (defadvice reftex-toc-toggle-follow (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon
      (if reftex-toc-follow-mode
          'on
@@ -143,7 +143,7 @@
              (if reftex-toc-follow-mode 'on 'off))))
 (defadvice reftex-toc-toggle-labels (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon
      (if reftex-toc-include-labels
          'on
@@ -153,7 +153,7 @@
 
 (defadvice reftex-toc-toggle-file-boundary (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon
      (if reftex-toc-include-file-boundaries
          'on
@@ -163,7 +163,7 @@
 
 (defadvice reftex-toc-toggle-context (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon
      (if reftex-toc-include-context
          'on
@@ -173,18 +173,18 @@
 
 (defadvice reftex-index-next (after emacspeak pre act comp)
   "Speech enable  by speaking  entry."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice reftex-index-previous (after emacspeak pre act comp)
   "Speech enable  by speaking  entry."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 (defadvice reftex-index-goto-entry (after emacspeak pre act comp)
   "Speech enable  by speaking index entry."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (recenter 0)
     (cond
@@ -195,7 +195,7 @@
 
 (defadvice reftex-index-goto-entry-and-hide (after emacspeak pre act comp)
   "Speech enable  by speaking toc entry."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (if outline-minor-mode
         (emacspeak-outline-speak-this-heading)
@@ -203,7 +203,7 @@
 
 (defadvice reftex-index-view-entry (after emacspeak pre act comp)
   "Speech enable  by speaking index entry."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (other-window 1)
     (recenter 0)
@@ -212,7 +212,7 @@
 
 (defadvice reftex-index-toggle-follow (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon
      (if reftex-index-follow-mode
          'on
@@ -222,7 +222,7 @@
 
 (defadvice reftex-index-toggle-labels (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon
      (if reftex-index-include-labels
          'on
@@ -232,7 +232,7 @@
 
 (defadvice reftex-index-toggle-file-boundary (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon
      (if reftex-index-include-file-boundaries
          'on
@@ -242,7 +242,7 @@
 
 (defadvice reftex-index-toggle-context (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon
      (if reftex-index-include-context
          'on
@@ -252,19 +252,19 @@
 
 (defadvice reftex-display-index (after emacspeak pre act comp)
   "Speech enable index mode."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice reftex-index-quit (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice reftex-index-quit-and-kill (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 

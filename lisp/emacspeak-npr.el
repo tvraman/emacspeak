@@ -99,7 +99,7 @@
 ;;{{{ Helpers:
 
 ;;; beware: when using curl, npr.org wants apiKey first (WHY?)
-(defsubst emacspeak-npr-rest-endpoint (operation operand )
+(defsubst emacspeak-npr-rest-endpoint (operation operand)
   "Return  URL  end point for specified operation."
   (declare (special emacspeak-npr-api-base
                     emacspeak-npr-api-key))

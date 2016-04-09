@@ -74,11 +74,11 @@ many available corrections."
   :type 'number
   :group 'emacspeak-ispell)
 
-(defadvice ispell-command-loop (before emacspeak pre act )
+(defadvice ispell-command-loop (before emacspeak pre act)
   "Speak the line containing the incorrect word.
  Then speak the possible corrections. "
   (let ((scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
-        (choices  (ad-get-arg 0 ))
+        (choices  (ad-get-arg 0))
         (line nil)
         (start (ad-get-arg 3))
         (end (ad-get-arg 4))
@@ -101,13 +101,13 @@ many available corrections."
        (t
         (insert (format "%s corrections available." (length choices)))))
       (modify-syntax-entry 10 ">")
-      (dtk-speak (buffer-string )))))
+      (dtk-speak (buffer-string)))))
 
 (defadvice ispell-comments-and-strings (around emacspeak pre act comp)
   "Stop chatter by turning off messages"
   (cond
-   ((ems-interactive-p )
-    (let ((dtk-stop-immediately t )
+   ((ems-interactive-p)
+    (let ((dtk-stop-immediately t)
           (emacspeak-speak-messages nil))
       ad-do-it
       (emacspeak-auditory-icon 'task-done)))
@@ -116,7 +116,7 @@ many available corrections."
 (defadvice ispell-help (before emacspeak pre act)
   "Speak the help message. "
   (let ((dtk-stop-immediately nil))
-    (dtk-speak (documentation 'ispell-help ))))
+    (dtk-speak (documentation 'ispell-help))))
 
 ;;}}}
 ;;{{{  Advice top-level ispell commands:
@@ -124,8 +124,8 @@ many available corrections."
 (defadvice ispell-buffer (around emacspeak pre act comp)
   "Produce auditory icons for ispell."
   (cond
-   ((ems-interactive-p )
-    (let ((dtk-stop-immediately t )
+   ((ems-interactive-p)
+    (let ((dtk-stop-immediately t)
           (emacspeak-speak-messages nil))
       ad-do-it
       (emacspeak-auditory-icon 'task-done)))
@@ -135,8 +135,8 @@ many available corrections."
 (defadvice ispell-region (around emacspeak pre act comp)
   "Produce auditory icons for ispell."
   (cond
-   ((ems-interactive-p )
-    (let ((dtk-stop-immediately t )
+   ((ems-interactive-p)
+    (let ((dtk-stop-immediately t)
           (emacspeak-speak-messages nil))
       ad-do-it
       (emacspeak-auditory-icon 'task-done)))
@@ -147,12 +147,12 @@ many available corrections."
   "Produce auditory icons for ispell."
   (declare (special emacspeak-last-message))
   (cond
-   ((ems-interactive-p )
-    (let ((dtk-stop-immediately t )
+   ((ems-interactive-p)
+    (let ((dtk-stop-immediately t)
           (emacspeak-speak-messages nil))
       (setq emacspeak-last-message nil)
       ad-do-it
-      (when (ems-interactive-p )
+      (when (ems-interactive-p)
         (emacspeak-speak-message-again))
       (emacspeak-auditory-icon 'task-done)))
    (t ad-do-it))

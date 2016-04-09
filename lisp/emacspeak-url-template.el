@@ -107,7 +107,7 @@
 (defun emacspeak-url-template-set (key ut)
   "Add specified template to key. "
   (declare (special emacspeak-url-template-table))
-  (setf (gethash key emacspeak-url-template-table ) ut))
+  (setf (gethash key emacspeak-url-template-table) ut))
 
 ;;;###autoload
 (defun emacspeak-url-template-get (key)
@@ -228,7 +228,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  "This months Old Time Radio Programming"
  #'(lambda (url)
      (emacspeak-we-extract-nested-table-list
-      (list 2 3 )
+      (list 2 3)
       url)))
 
 ;;}}}
@@ -280,7 +280,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  #'(lambda (url)
      (emacspeak-webutils-autospeak)
      (emacspeak-xslt-view-xml
-      (emacspeak-xslt-get "bbc-iplayer.xsl" ) url))
+      (emacspeak-xslt-get "bbc-iplayer.xsl") url))
  'dont-url-encode)
 
 (emacspeak-url-template-define
@@ -307,7 +307,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  "Display interactive BBC Program Guide."
  #'(lambda (url)
      (emacspeak-xslt-view-xml
-      (emacspeak-xslt-get "bbc-ppg.xsl") url )))
+      (emacspeak-xslt-get "bbc-ppg.xsl") url)))
 (emacspeak-url-template-define
  "BBC Podcast Directory"
  "http://www.bbc.co.uk/podcasts.opml"
@@ -422,7 +422,7 @@ dont-url-encode if true then url arguments are not url-encoded "
     (cond
      (minus-p
       (format " down %s"
-              (substring value (1+ minus-p ))))
+              (substring value (1+ minus-p))))
      (t (format " up %s " value)))))
 
 (emacspeak-url-template-define
@@ -503,7 +503,7 @@ from English to German")
      (let ((buffer
             (emacspeak-xslt-xml-url
              (emacspeak-xslt-get "opml.xsl")
-             url )))
+             url)))
        (save-current-buffer
          (set-buffer buffer)
          (browse-url-of-buffer)))))
@@ -564,7 +564,7 @@ from English to German")
  (list "Google News: ")
  nil
  "Search Google news."
- #'emacspeak-url-template-google-atom-news-display )
+ #'emacspeak-url-template-google-atom-news-display)
 
 (defvar emacspeak-url-template-google-transcoder-url
   "http://www.google.com/gwt/n?_gwt_noimg=1&output=xhtml&u=%s"
@@ -1232,7 +1232,7 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS stations that
 ;;;###autoload
 (defun emacspeak-url-template-open (ut)
   "Fetch resource identified by URL template."
-  (declare (special emacspeak-web-post-process-hook ))
+  (declare (special emacspeak-web-post-process-hook))
   (let ((fetcher (or (emacspeak-url-template-fetcher ut) 'browse-url))
         (url (emacspeak-url-template-url ut))
         (action (emacspeak-url-template-post-action ut))

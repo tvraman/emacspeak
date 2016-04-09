@@ -64,7 +64,7 @@
 ;;}}}
 ;;{{{  advice interactive commands 
 
-(defadvice  Man-mode (after emacspeak pre act )
+(defadvice  Man-mode (after emacspeak pre act)
   "Fixup variables paragraph-start and paragraph-separate.
 Also provide an auditory icon"
   (setq paragraph-start "^[\011\012\014]*$"
@@ -77,62 +77,62 @@ Also provide an auditory icon"
   (emacspeak-pronounce-refresh-pronunciations)
   (emacspeak-auditory-icon 'help))
 
-(defadvice   Man-goto-section  (after emacspeak pre act )
+(defadvice   Man-goto-section  (after emacspeak pre act)
   "Speak the line"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line )))
+    (emacspeak-speak-line)))
 
-(defadvice   Man-goto-page  (after emacspeak pre act )
+(defadvice   Man-goto-page  (after emacspeak pre act)
   "Speak the line"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line )))
-(defadvice   Man-next-manpage  (after emacspeak pre act )
+    (emacspeak-speak-line)))
+(defadvice   Man-next-manpage  (after emacspeak pre act)
   "Speak the line"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line )))
-(defadvice   Man-previous-manpage  (after emacspeak pre act )
+    (emacspeak-speak-line)))
+(defadvice   Man-previous-manpage  (after emacspeak pre act)
   "Speak the line"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line )))
+    (emacspeak-speak-line)))
 
-(defadvice Man-next-section (after emacspeak pre act )
+(defadvice Man-next-section (after emacspeak pre act)
   "Speak the line"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line )))
+    (emacspeak-speak-line)))
 
-(defadvice Man-previous-section (after emacspeak pre act )
+(defadvice Man-previous-section (after emacspeak pre act)
   "Speak the line"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line )))
+    (emacspeak-speak-line)))
 
-(defadvice Man-goto-see-also-section (after emacspeak pre act )
+(defadvice Man-goto-see-also-section (after emacspeak pre act)
   "Speak the line"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line )))
+    (emacspeak-speak-line)))
 
-(defadvice Man-quit (after emacspeak pre act )
+(defadvice Man-quit (after emacspeak pre act)
   "Announce buffer that is current"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-mode-line )))
+    (emacspeak-speak-mode-line)))
 
-(defadvice Man-kill (after emacspeak pre act )
+(defadvice Man-kill (after emacspeak pre act)
   "Announce buffer that is current"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-mode-line )))
+    (emacspeak-speak-mode-line)))
 
-(defadvice man (after emacspeak pre act )
+(defadvice man (after emacspeak pre act)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
-    (emacspeak-speak-mode-line )))
+  (when (ems-interactive-p)
+    (emacspeak-speak-mode-line)))
 
 ;;}}}
 ;;{{{  Additional commands
@@ -149,7 +149,7 @@ Also provide an auditory icon"
             (setq end (point)))
         (error (setq end (point-max))))
       (emacspeak-auditory-icon 'select-object)
-      (emacspeak-speak-region start end ))))
+      (emacspeak-speak-region start end))))
 
 (defun emacspeak-man-browse-man-page ()
   "Browse the man page --read it a paragraph at a time"

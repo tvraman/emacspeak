@@ -103,7 +103,7 @@
      (t
       (loop
        for p in params do
-       (when (second p) (insert (propertize (first p) 'face 'italic ))
+       (when (second p) (insert (propertize (first p) 'face 'italic))
              (insert "\t")
              (insert (propertize (second p) 'face 'bold))
              (insert "\t")))))
@@ -117,7 +117,7 @@
         (file  (sox-context-file context))
         (effects (sox-context-effects context)))
     (goto-char orig)
-    (when file (setq file (abbreviate-file-name file )))
+    (when file (setq file (abbreviate-file-name file)))
     (erase-buffer)
     (insert (propertize "Audio File:  " 'face font-lock-doc-face))
     (when  file (insert  (propertize file 'face font-lock-keyword-face)))
@@ -311,12 +311,12 @@
     (unless effect (error "No effect at point."))
     (cond
      ((eq 'ladspa (sox-effect-type   effect))
-      (ladspa-create (sox-effect-params effect )))
+      (ladspa-create (sox-effect-params effect)))
      (t
       (setq desc (intern (format "sox-%s-params" (sox-effect-name effect))))
       (setq repeat (get desc 'repeat))
       (setf (sox-effect-params effect)
-            (sox-read-effect-params (eval desc) repeat ))
+            (sox-read-effect-params (eval desc) repeat))
       (delete-region (line-beginning-position) (line-end-position))
       (sox-draw-effect effect)
       (flush-lines "^ *$" (point-min) (point-max))))))
@@ -330,7 +330,7 @@
     (unless e (error "No effect at point."))
     (setf  (sox-context-effects sox-context)
            (remove e (sox-context-effects sox-context)))
-    (message "Deleted effect %s at point. " (sox-effect-name e ))
+    (message "Deleted effect %s at point. " (sox-effect-name e))
     (sox-redraw sox-context)))
 
 (defun sox-set-effect (name)
@@ -360,14 +360,14 @@
 (defsubst sox-read-effect-params-per-desk (p)
   "Read sox effect param per spec."
   (let ((result (read-from-minibuffer (capitalize p))))
-    (when (>  (length result) 0) (list p result ))))
+    (when (>  (length result) 0) (list p result))))
 
 (defun sox-read-effect-params (param-desc &optional repeat)
   "Read list of effect  params."
   (let ((r (delq nil (mapcar #'sox-read-effect-params-per-desk param-desc))))
     ;;; Now handle repeat
     (cond
-     ((null repeat ) r) ; base case
+     ((null repeat) r) ; base case
      ((null r) r) ; all done
      (t ; recur till done
       (append r (sox-read-effect-params param-desc 'repeat))))))
@@ -422,7 +422,7 @@ and return a suitable effect structure."
 (defun sox-def-effect (name params repeat)
   "Defines needed functions and variables for manipulating effect name."
   (let ((p-sym (intern (format "sox-%s-params" name)))
-        (getter (intern (format "sox-get-%s-effect" name ))))
+        (getter (intern (format "sox-get-%s-effect" name))))
     ;;; Register effect
     (sox-register-effect name)
 ;;; Parameter template used for prompting:
@@ -461,7 +461,7 @@ and return a suitable effect structure." name)
 
 (sox-def-effect
  "chorus"
- '("gain-in" "gain-out" "delay" "decay" "speed" "step" "shape" )
+ '("gain-in" "gain-out" "delay" "decay" "speed" "step" "shape")
  t)
 
 (sox-def-effect "fade" '("shape"  "fade-in" "stop" "fade-out") nil)

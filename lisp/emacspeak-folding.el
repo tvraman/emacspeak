@@ -54,37 +54,37 @@
 
 (defadvice fold-goto-line (after emacspeak pre act)
   "Speak the line. "
-  (when (ems-interactive-p )
-    (emacspeak-speak-line )))
+  (when (ems-interactive-p)
+    (emacspeak-speak-line)))
 
-(defadvice folding-mode (after emacspeak pre act )
+(defadvice folding-mode (after emacspeak pre act)
   "Provide spoken feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (message "turned %s folding mode"
-             (if folding-mode " on " " off" ))))
+             (if folding-mode " on " " off"))))
 
 (defadvice fold-enter (after emacspeak pre act)
   "Produce an auditory icon and then speak the line. "
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
 (defadvice fold-exit (after emacspeak pre act)
   "Produce an auditory icon. 
 Then speak the folded line."
-  (when (ems-interactive-p ) 
+  (when (ems-interactive-p) 
     (emacspeak-auditory-icon'close-object)
     (emacspeak-speak-line)))
 
 (defadvice fold-fold-region (after emacspeak pre act)
   "Produce an auditory icon. "
-  (when (ems-interactive-p  )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Specify a meaningful name for the new fold ")))
 
-(defadvice fold-hide (after emacspeak pre act )
+(defadvice fold-hide (after emacspeak pre act)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (message "Hid current fold")))
 

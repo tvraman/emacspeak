@@ -74,7 +74,7 @@
          `(defadvice ,e (after emacspeak pre act comp)
             "Speak what you inserted.
 Cue electric insertion with a tone."
-            (when (ems-interactive-p )
+            (when (ems-interactive-p)
               (let ((emacspeak-speak-messages nil))
                 (emacspeak-speak-this-char last-input-event)
                 (dtk-tone 800 50 t)))))))
@@ -82,9 +82,9 @@ Cue electric insertion with a tone."
 (defadvice cperl-electric-backspace (around emacspeak pre act)
   "Speak character you're deleting."
   (cond
-   ((ems-interactive-p  )
+   ((ems-interactive-p)
     (dtk-tone 500 30 'force)
-    (emacspeak-speak-this-char (preceding-char ))
+    (emacspeak-speak-this-char (preceding-char))
     ad-do-it)
    (t ad-do-it))
   ad-return-value)
@@ -93,12 +93,12 @@ Cue electric insertion with a tone."
   "Speak the previous line if line echo is on. 
   See command \\[emacspeak-toggle-line-echo].
 Otherwise cue user to the line just created. "
-  (declare (special emacspeak-line-echo ))
+  (declare (special emacspeak-line-echo))
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (cond
      (emacspeak-line-echo 
-      (emacspeak-speak-line )
+      (emacspeak-speak-line)
       ad-do-it)
      (t ad-do-it       
         (dtk-speak-using-voice voice-annotate
@@ -111,8 +111,8 @@ Otherwise cue user to the line just created. "
 
 (defadvice cperl-indent-exp  (after emacspeak pre act)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
-    (emacspeak-auditory-icon 'fill-object )
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'fill-object)
     (message "Indented current s expression ")))
 
 ;;}}}
@@ -120,7 +120,7 @@ Otherwise cue user to the line just created. "
 
 (defadvice cperl-info-on-current-command (after emacspeak pre act comp)
   "Speak the displayed info"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'help)
     (message "Displayed info in other window")))
 
@@ -128,7 +128,7 @@ Otherwise cue user to the line just created. "
                                         pre act
                                         comp)
   "Speak the displayed info"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'help)
     (message "Displayed help in other window.")))
 
@@ -138,13 +138,13 @@ Otherwise cue user to the line just created. "
 (defadvice cperl-invert-if-unless (after emacspeak pre act
                                          comp)
   "Speak updated line"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
-(defadvice cperl-comment-region (after emacspeak pre act )
+(defadvice cperl-comment-region (after emacspeak pre act)
   "Provide spoken feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (let ((prefix-arg (ad-get-arg 2)))
       (message "%s region containing %s lines"
                (if (and prefix-arg
@@ -153,9 +153,9 @@ Otherwise cue user to the line just created. "
                  "Commented")
                (count-lines (point) (mark))))))
 
-(defadvice cperl-uncomment-region (after emacspeak pre act )
+(defadvice cperl-uncomment-region (after emacspeak pre act)
   "Provide spoken feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (let ((prefix-arg (ad-get-arg 2)))
       (message "%s region containing %s lines"
                (if (and prefix-arg
@@ -167,22 +167,22 @@ Otherwise cue user to the line just created. "
 (defadvice cperl-indent-command (after emacspeak pre act
                                        comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'large-movement)))
 
 (defadvice cperl-indent-region (after emacspeak pre act
                                       comp)
   "Provide auditory feedback when done"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (message "Filled region containing %s lines"
              (count-lines (region-beginning)
                           (region-end)))))
 (defadvice cperl-fill-paragraph (after emacspeak pre act)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
-    (emacspeak-auditory-icon 'fill-object )
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'fill-object)
     (message "Filled current paragraph")))
 ;;}}}
 ;;{{{  misc
@@ -190,14 +190,14 @@ Otherwise cue user to the line just created. "
 (defadvice cperl-switch-to-doc-buffer (after emacspeak pre
                                              act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice cperl-find-bad-style (after emacspeak pre act
                                        comp)
   "Provide auditory feedback when done."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'task-done)))
 ;;}}}

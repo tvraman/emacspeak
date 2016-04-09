@@ -55,7 +55,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require 'twittering-mode "twittering-mode" 'no-error )
+(require 'twittering-mode "twittering-mode" 'no-error)
 ;;}}}
 ;;{{{ Map->Voice Mappings:
 
@@ -69,7 +69,7 @@
 
 (defadvice twittering-toggle-activate-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon
      (if twittering-active-mode 'on 'off))
     (message "Turned %s twittering-active-mode"
@@ -77,14 +77,14 @@
 
 (defadvice twittering-scroll-mode (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon
      (if twittering-scroll-mode 'on 'off))
     (message "Turned %s twittering-scroll-mode"
              (if twittering-scroll-mode 'on 'off))))
 (defadvice twit (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
 
@@ -95,7 +95,7 @@
       (eval
        `(defadvice ,command (after emacspeak pre act comp)
           "Speak thing moved to."
-          (when (ems-interactive-p )
+          (when (ems-interactive-p)
             (emacspeak-auditory-icon 'mark-object)
             (emacspeak-speak-this-face-chunk)))))
 
@@ -121,18 +121,18 @@
       (eval
        `(defadvice ,command (after emacspeak pre act comp)
           "Speak status moved to."
-          (when (ems-interactive-p )
+          (when (ems-interactive-p)
             (emacspeak-auditory-icon 'select-object)
             (emacspeak-twittering-speak-this-tweet)))))
 
 (defadvice twittering-edit-post-status (after emacspeak pre act comp)
   "Produce auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 (defadvice twittering-update-status-interactive (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)))
 
 (loop for command in
@@ -153,12 +153,12 @@
       (eval
        `(defadvice ,command (after emacspeak pre act comp)
           "Provide spoken and auditory feedback."
-          (when (ems-interactive-p )
+          (when (ems-interactive-p)
             (emacspeak-auditory-icon 'task-done)
             (emacspeak-speak-mode-line)))))
 (defadvice twittering-kill-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 ;;}}}>

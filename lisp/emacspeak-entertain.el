@@ -53,12 +53,12 @@
 ;;}}}
 ;;{{{ doctar
 
-(defadvice doctor-txtype (after emacspeak pre act )
+(defadvice doctor-txtype (after emacspeak pre act)
   (dtk-speak
    (mapconcat
     (function (lambda (s)
                 (format "%s" s)))
-    (ad-get-arg 0 )
+    (ad-get-arg 0)
     " ")))
 
 ;;}}}
@@ -76,7 +76,7 @@
 (defadvice dun-parse (around emacspeak pre act comp)
   "Provide auditory feedback"
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (let ((orig (point)))
       ad-do-it
       (emacspeak-auditory-icon 'mark-object)
@@ -105,7 +105,7 @@
 
 (defadvice hm-self-guess-char (after eemacspeak pre act comp)
   "Speak the char."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)))
 
 (defun emacspeak-hangman-speak-guess ()
@@ -118,14 +118,14 @@
     (loop for i from 0 to (1- (length hm-current-word))
           do
           (aset  string  i
-                 (aref hm-current-guess-string (* i 2 ))))
+                 (aref hm-current-guess-string (* i 2))))
     (message  "%s:  %s "
               (length string)
               (downcase string))))
 
 (defadvice hangman (after emacseak pre act comp)
   "Speech enable hangman."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-hangman-setup-pronunciations)
     (emacspeak-auditory-icon 'open-object)))
 (declaim (special hm-map))

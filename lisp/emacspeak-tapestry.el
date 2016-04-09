@@ -56,7 +56,7 @@ Use interactive prefix arg to get coordinate positions of the
 displayed buffers."
   (interactive "P")
   (declare (special voice-animate voice-bolden))
-  (let* ((buffer-map (tapestry-buffer-map ))
+  (let* ((buffer-map (tapestry-buffer-map))
          (count (length buffer-map))
          (window-list  (tapestry-window-list))
          (windows nil)
@@ -75,7 +75,7 @@ displayed buffers."
                   collect
                   (let ((w (format "%s "  (second buffer)))
                         (corners  (window-edges window))
-                        (tl nil )
+                        (tl nil)
                         (br nil))
                     (put-text-property 0 (length w)
                                        'personality

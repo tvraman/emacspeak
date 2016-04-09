@@ -63,7 +63,7 @@
                                                  pre act
                                                  comp)
   "Speak status."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-other-window 1)))
 
@@ -71,7 +71,7 @@
                                                pre act
                                                comp)
   "Speak status."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-other-window 1)))
 
@@ -79,7 +79,7 @@
                                                 pre act
                                                 comp)
   "Speak status."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-other-window 1)))
 
@@ -87,21 +87,21 @@
                                                  pre act
                                                  comp)
   "Speak status."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-other-window 1)))
 (defadvice gnuplot-send-file-to-gnuplot (after emacspeak
                                                pre act
                                                comp)
   "Speak status."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-other-window 1)))
 
 (defadvice gnuplot-delchar-or-maybe-eof (around emacspeak pre act)
   "Speak character you're deleting."
   (cond
-   ((ems-interactive-p  )
+   ((ems-interactive-p)
     (cond
      ((= (point) (point-max))
       (message "Sending EOF to comint process"))
@@ -114,38 +114,38 @@
 (defadvice gnuplot-kill-gnuplot-buffer (after emacspeak pre
                                               act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice gnuplot-show-gnuplot-buffer (after emacspeak pre
                                               act comp)
   "Speak status."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice gnuplot-complete-keyword (around emacspeak pre act)
   "Say what you completed."
-  (let ((prior (point ))
+  (let ((prior (point))
         (dtk-stop-immediately dtk-stop-immediately))
     (when dtk-stop-immediately (dtk-stop))
     ad-do-it
     (when (> (point) prior)
       (setq dtk-stop-immediately nil)
-      (dtk-speak (buffer-substring prior (point ))))
+      (dtk-speak (buffer-substring prior (point))))
     ad-return-value))
 
 (defadvice gnuplot-indent-line (after emacspeak pre act
                                       comp)
   "Speak line we idnented."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice gnuplot-negate-option (after emacspeak pre act comp)
   "Speak line we negated."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 

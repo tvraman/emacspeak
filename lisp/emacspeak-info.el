@@ -83,11 +83,11 @@ node -- speak the entire node."
 
 (defsubst emacspeak-info-speak-current-window ()
   "Speak current window in info buffer."
-  (let ((start  (point ))
-        (window (get-buffer-window (current-buffer ))))
+  (let ((start  (point))
+        (window (get-buffer-window (current-buffer))))
     (save-excursion
       (forward-line (window-height window))
-      (emacspeak-speak-region start (point )))))
+      (emacspeak-speak-region start (point)))))
 
 (defun emacspeak-info-visit-node()
   "Apply requested action upon visiting a node."
@@ -97,7 +97,7 @@ node -- speak the entire node."
    ((eq emacspeak-info-select-node-speak-chunk 'screenfull)
     (emacspeak-info-speak-current-window))
    ((eq emacspeak-info-select-node-speak-chunk 'node)
-    (emacspeak-speak-buffer ))
+    (emacspeak-speak-buffer))
    (t (emacspeak-speak-line))))
 
 (loop
@@ -111,7 +111,7 @@ node -- speak the entire node."
         Info-menu Info-follow-nearest-node
         Info-history-back Info-history-forward
         Info-backward-node Info-forward-node
-        Info-next Info-prev )
+        Info-next Info-prev)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act)
@@ -127,44 +127,44 @@ emacspeak-info-select-node-speak-chunk"
 
 (defadvice Info-scroll-up (after emacspeak pre act)
   "Speak the screenful."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
-    (let ((start  (point ))
-          (window (get-buffer-window (current-buffer ))))
+    (let ((start  (point))
+          (window (get-buffer-window (current-buffer))))
       (save-excursion
         (forward-line (window-height window))
-        (emacspeak-speak-region start (point ))))))
+        (emacspeak-speak-region start (point))))))
 
 (defadvice Info-scroll-down (after emacspeak pre act)
   "Speak the screenful."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
-    (let ((start  (point ))
-          (window (get-buffer-window (current-buffer ))))
+    (let ((start  (point))
+          (window (get-buffer-window (current-buffer))))
       (save-excursion
         (forward-line (window-height window))
-        (emacspeak-speak-region start (point ))))))
+        (emacspeak-speak-region start (point))))))
 
 (defadvice Info-exit (after emacspeak pre act)
   "Play an auditory icon to close info,
 and then cue the next selected buffer."
-  (when (ems-interactive-p  )
+  (when (ems-interactive-p)
     (dtk-stop)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice Info-next-reference (after emacspeak pre act)
   "Speak the line. "
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
 (defadvice Info-prev-reference (after emacspeak pre act)
   "Speak the line. "
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
 ;;;###autoload
-(defun emacspeak-info-wizard (node-spec )
+(defun emacspeak-info-wizard (node-spec)
   "Read a node spec from the minibuffer and launch
 Info-goto-node.
 See documentation for command `Info-goto-node' for details on

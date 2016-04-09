@@ -93,14 +93,14 @@ end   as specified by grid."
         (this-line nil)
         (this-length 0)
         (this-row nil)
-        (num-rows (count-lines start end ))
+        (num-rows (count-lines start end))
         (num-columns(1+  (length grid))))
     (save-excursion
       (save-restriction
         (narrow-to-region start end)
-        (if (< start end )
+        (if (< start end)
             (goto-char start)
-          (goto-char end ))
+          (goto-char end))
         (loop for i from 0 to (1- num-rows)
               do
               (beginning-of-line)
@@ -110,15 +110,15 @@ end   as specified by grid."
               (setq this-row (make-vector num-columns ""))
               (loop for j from 0 to (1- (length grid))
                     do
-                    (when (< (1- (nth j grid )) this-length)
+                    (when (< (1- (nth j grid)) this-length)
 ;;; within bounds 
                       (aset  this-row j
                              (substring
                               this-line
-                              (if (= j 0 ) 
+                              (if (= j 0) 
                                   0
                                 (nth  (1- j) grid))
-                              (1- (nth j grid ))))))
+                              (1- (nth j grid))))))
               (aset this-row (length grid)
                     (if (< (nth (1- (length grid)) grid) this-length)
                         (substring this-line
@@ -137,7 +137,7 @@ end   as specified by grid."
 (defun emacspeak-gridtext-set (key grid)
   "Map grid to key."
   (declare (special emacspeak-gridtext-table))
-  (setf (gethash key emacspeak-gridtext-table ) grid))
+  (setf (gethash key emacspeak-gridtext-table) grid))
 
 (defun emacspeak-gridtext-get (key)
   "Lookup key and return corresponding grid. "
@@ -191,7 +191,7 @@ end   as specified by grid."
 ;;}}}
 ;;{{{ interactive commands
 ;;;###autoload
-(defun emacspeak-gridtext-apply (start end grid )
+(defun emacspeak-gridtext-apply (start end grid)
   "Apply grid to region."
   (interactive
    (list

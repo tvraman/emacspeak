@@ -78,13 +78,13 @@
 
 (defun emacspeak-fix-commands-that-use-interactive ()
   "Auto advises interactive commands to speak prompts."
-  (mapatoms 'emacspeak-fix-interactive-command-if-necessary ))
+  (mapatoms 'emacspeak-fix-interactive-command-if-necessary))
 
 ;;}}}
 
 (defsubst ems-prompt-without-minibuffer-p (prompt)
   "Check if this interactive prompt uses the minibuffer."
-  (string-match  "^\*?[ckK]" prompt ))
+  (string-match  "^\*?[ckK]" prompt))
 
 (defvar emacspeak-fix-interactive-problematic-functions nil
   "Functions whose interactive prompt we will need to fix by hand
@@ -99,9 +99,9 @@ use the minibuffer."
   (declare (special emacspeak-fix-interactive-problematic-functions))
   (let* ((prompts
           (split-string
-           (second (interactive-form  sym ))
+           (second (interactive-form  sym))
            "\n"))
-         (count (count-if 'ems-prompt-without-minibuffer-p  prompts )))
+         (count (count-if 'ems-prompt-without-minibuffer-p  prompts)))
                                         ;memoize call
     (put sym 'emacspeak-checked-interactive t)
                                         ; advice if necessary
@@ -125,7 +125,7 @@ use the minibuffer."
                         (emacspeak-auditory-icon 'open-object)
                         (tts-with-punctuations 'all
                                                (dtk-speak
-                                                (or (substring ,prompt 1 ) ""))))
+                                                (or (substring ,prompt 1) ""))))
                       (call-interactively
                        #'(lambda (&rest args)
                            (interactive ,prompt)
@@ -164,7 +164,7 @@ use the minibuffer."
                   (get (cdr item) 'byte-compile)))
          (commandp (cdr item))
          (emacspeak-fix-interactive-command-if-necessary (cdr item))))
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (message "Fixed interactive commands defined in module %s" module)))
 
 (defvar emacspeak-load-history-pointer nil
@@ -185,12 +185,12 @@ Memoizes call in emacspeak-load-history-pointer to memoize this call. "
                   (not (eq lh emacspeak-load-history-pointer)))
 ;;; fix commands in this module
         (emacspeak-fix-commands-loaded-from lh)
-        (when (ems-interactive-p )
+        (when (ems-interactive-p)
           (message "Fixed commands in %s" (first (first lh))))
         (setq lh (rest lh)))
 ;;;memoize for future call
       (setq emacspeak-load-history-pointer load-history))
-    (when (ems-interactive-p )
+    (when (ems-interactive-p)
       (message "Fixed recently defined  interactive commands")))
   t)
 

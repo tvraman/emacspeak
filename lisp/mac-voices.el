@@ -68,7 +68,7 @@ The string can set any voice parameter.")
   "Define a Mac  voice named NAME.
 This voice will be set   by sending the string
 COMMAND-STRING to the TTS engine."
-  (declare (special mac-voice-table ))
+  (declare (special mac-voice-table))
   (puthash name command-string mac-voice-table))
 
 (defsubst mac-get-voice-command-internal  (name)
@@ -86,8 +86,8 @@ COMMAND-STRING to the TTS engine."
 
 (defsubst mac-voice-defined-p (name)
   "Check if there is a voice named NAME defined."
-  (declare (special mac-voice-table ))
-  (gethash name mac-voice-table ))
+  (declare (special mac-voice-table))
+  (gethash name mac-voice-table))
 
 ;;}}}
 ;;{{{ voice definitions
@@ -134,7 +134,7 @@ Argument DIMENSION is the dimension being set,
 and TABLE gives the values along that dimension."
   (declare (special mac-css-code-tables))
   (let ((key (intern (format "%s-%s" family dimension))))
-    (puthash key table mac-css-code-tables )))
+    (puthash key table mac-css-code-tables)))
 
 (defsubst mac-css-get-code-table (family dimension)
   "Retrieve table of values for specified FAMILY and DIMENSION."
@@ -176,10 +176,10 @@ and TABLE gives the values along that dimension."
      (4 40)
      (5 45)
      (6 50)
-     (7 55 )
+     (7 55)
      (8 58)
      (9 62)))
-  (mac-css-set-code-table 'paul 'average-pitch table ))
+  (mac-css-set-code-table 'paul 'average-pitch table))
 
 ;;}}}
 ;;{{{  harry average pitch
@@ -194,16 +194,16 @@ and TABLE gives the values along that dimension."
                     (second setting)))))
    '(
      (0 0)
-     (1 10 )
+     (1 10)
      (2 20)
      (3 30)
      (4 40)
      (5 50)
      (6 60)
-     (7 70 )
+     (7 70)
      (8 80)
      (9 90)))
-  (mac-css-set-code-table 'harry 'average-pitch table ))
+  (mac-css-set-code-table 'harry 'average-pitch table))
 
 ;;}}}
 ;;{{{  betty average pitch
@@ -223,13 +223,13 @@ and TABLE gives the values along that dimension."
      (1 17)
      (2 33)
      (3 49)
-     (4 65 )
-     (5 81 )
+     (4 65)
+     (5 81)
      (6 85)
-     (7 89 )
+     (7 89)
      (8 93)
      (9 97)))
-  (mac-css-set-code-table 'betty 'average-pitch table ))
+  (mac-css-set-code-table 'betty 'average-pitch table))
 
 ;;}}}
 
@@ -260,7 +260,7 @@ and TABLE gives the values along that dimension."
             (format " [[pmod %s]] "
                     (second setting)))))
    '(
-     (0 0 )
+     (0 0)
      (1 14.1)
      (2  28.2)
      (3  42.3)
@@ -270,11 +270,11 @@ and TABLE gives the values along that dimension."
      (7 98.7)
      (8  112.8)
      (9  127)))
-  (mac-css-set-code-table 'paul 'pitch-range table ))
+  (mac-css-set-code-table 'paul 'pitch-range table))
 (let ((table (make-vector 10 "")))
-  (mac-css-set-code-table 'harry 'pitch-range table ))
+  (mac-css-set-code-table 'harry 'pitch-range table))
 (let ((table (make-vector 10 "")))
-  (mac-css-set-code-table 'betty 'pitch-range table ))
+  (mac-css-set-code-table 'betty 'pitch-range table))
 
 ;;}}}
 (defsubst mac-get-pitch-range-code (value family)
@@ -313,15 +313,15 @@ and TABLE gives the values along that dimension."
      (7  1 1 70 .3)
      (8  1 1 80 .3)
      (9  1 1 90 .3)))
-  (mac-css-set-code-table 'paul 'stress table ))
+  (mac-css-set-code-table 'paul 'stress table))
 
 (let ((table (make-vector 10 "")))
-  (mac-css-set-code-table 'harry 'stress table )
-  (mac-css-set-code-table 'betty 'stress table ))
+  (mac-css-set-code-table 'harry 'stress table)
+  (mac-css-set-code-table 'betty 'stress table))
 
 ;;}}}
 (defsubst mac-get-stress-code (value family)
-  (or family (setq family 'paul ))
+  (or family (setq family 'paul))
   (if value 
       (aref (mac-css-get-code-table family 'stress)
             value)
@@ -366,7 +366,7 @@ and TABLE gives the values along that dimension."
            (mac-get-punctuations-code (acss-punctuations style))
            (mac-get-average-pitch-code (acss-average-pitch style) family)
            (mac-get-pitch-range-code (acss-pitch-range style) family)
-           (mac-get-stress-code (acss-stress style ) family)
+           (mac-get-stress-code (acss-stress style) family)
            (mac-get-richness-code (acss-richness style) family))))
     (mac-define-voice name command)))
 

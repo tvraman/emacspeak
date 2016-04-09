@@ -84,7 +84,7 @@
 (define-key emacspeak-filtertext-mode-map "=" 'keep-lines)
 (define-key emacspeak-filtertext-mode-map "^" 'flush-lines)
 (define-key emacspeak-filtertext-mode-map "r"
-  'emacspeak-filtertext-revert )
+  'emacspeak-filtertext-revert)
 
 ;;}}}
 ;;{{{ Interactive commands 

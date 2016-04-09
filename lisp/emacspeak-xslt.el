@@ -110,7 +110,7 @@ This is useful when handling bad HTML."
 the result.  This uses XSLT processor xsltproc available as
 part of the libxslt package."
   (declare (special emacspeak-xslt-program emacspeak-xslt-options
-                    emacspeak-xslt-keep-errors modification-flag ))
+                    emacspeak-xslt-keep-errors modification-flag))
   (let ((command nil)
         (parameters (when params
                       (mapconcat
@@ -321,7 +321,7 @@ part of the libxslt package."
            (cons "base"
                  (format "\"'%s'\""
                          url))))))
-    (when (ems-interactive-p ) (emacspeak-webutils-autospeak))
+    (when (ems-interactive-p) (emacspeak-webutils-autospeak))
     (save-current-buffer
       (set-buffer src-buffer)
       (when unescape-charent

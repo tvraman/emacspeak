@@ -99,7 +99,7 @@
   "*Directory where we organize  mp3  libraries and media shortcuts. ")
 
 (defvar emacspeak-m-player-process nil
-  "Process handle to m-player." )
+  "Process handle to m-player.")
 
 (defsubst emacspeak-m-player-dispatch (command)
   "Dispatch command to m-player."
@@ -200,7 +200,7 @@ on a specific directory."
            (mapc
             (lambda (binding)
               (let ((key (first binding))
-                    (directory (second binding )))
+                    (directory (second binding)))
                 (emacspeak-m-player-bind-accelerator directory (kbd key))))
             val)
            (set-default sym val)))
@@ -212,7 +212,7 @@ on a specific directory."
 ;;;###autoload
 (defun emacspeak-multimedia  ()
   "Start or control Emacspeak multimedia player."
-  (interactive )
+  (interactive)
   (declare (special emacspeak-media-shortcuts-directory
                     emacspeak-m-player-process))
   (cond
@@ -245,7 +245,7 @@ on a specific directory."
 (defvar  emacspeak-m-player-playlist-pattern
   (concat
    (regexp-opt
-    (list ".m3u" ".asx" ".pls" ".rpm" ".ram"  ))
+    (list ".m3u" ".asx" ".pls" ".rpm" ".ram"))
    "$")
   "Pattern for matching playlists.")
 
@@ -631,7 +631,7 @@ necessary."
    (list
     (read-from-minibuffer "Seek to percentage: ")))
   (emacspeak-m-player-dispatch
-   (format "seek %s 1" position )))
+   (format "seek %s 1" position)))
 
 (defun emacspeak-m-player-seek-absolute (position)
   "Seek  to absolute specified position in seconds."
@@ -639,7 +639,7 @@ necessary."
    (list
     (read-from-minibuffer "Seek to position in seconds: ")))
   (emacspeak-m-player-dispatch
-   (format "seek %s 2" position )))
+   (format "seek %s 2" position)))
 
 (defun emacspeak-m-player-beginning-of-track()
   "Move to beginning of track."
@@ -1145,7 +1145,7 @@ As the default, use current position."
              (prompt-position (read-number "Position: "))
              (t  (first position))))
       (emacspeak-amark-add file-name name position)
-      (message "Added Amark %s in %s at %s" name file-name position ))))
+      (message "Added Amark %s in %s at %s" name file-name position))))
 
 (defsubst ems-file-index (name file-list)
   "Return index of name in file-list."

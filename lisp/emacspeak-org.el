@@ -154,13 +154,13 @@
  (eval
   `(defadvice ,f(after emacspeak pre act comp)
      "Provide spoken feedback."
-     (when (ems-interactive-p )
+     (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'large-movement)))))
 
 (defadvice org-cycle-list-bullet (after emacspeak pre act comp)
   "Provide spoken feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
@@ -171,7 +171,7 @@
  (eval
   `(defadvice ,f(after emacspeak pre act comp)
      "Provide auditory feedback."
-     (when (ems-interactive-p )
+     (when (ems-interactive-p)
        (cond
         ((org-at-table-p 'any)
          (emacspeak-org-table-speak-current-element))
@@ -181,17 +181,17 @@
 
 (defadvice org-overview (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (message "Showing top-level overview.")))
 
 (defadvice org-content (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (message "Showing table of contents.")))
 
 (defadvice org-tree-to-indirect-buffer(after emacspeak pre act comp)
   "Provide spoken feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (message "Cloned %s"
              (with-current-buffer org-last-indirect-buffer
                (goto-char (point-min))
@@ -215,7 +215,7 @@
  (eval
   `(defadvice ,f(after emacspeak pre act comp)
      "Provide spoken feedback."
-     (when (ems-interactive-p )
+     (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'open-object)))))
 
@@ -226,12 +226,12 @@
       '(
         org-cut-subtree org-copy-subtree
                         org-paste-subtree org-archive-subtree
-                        org-narrow-to-subtree )
+                        org-narrow-to-subtree)
       do
       (eval
        `(defadvice ,f(after emacspeak pre act comp)
           "Provide spoken feedback."
-          (when (ems-interactive-p )
+          (when (ems-interactive-p)
             (emacspeak-speak-line)
             (emacspeak-auditory-icon 'yank-object)))))
 
@@ -242,7 +242,7 @@
   "Say what you completed."
   (let ((prior (save-excursion
                  (backward-word 1)
-                 (point )))
+                 (point)))
         (dtk-stop-immediately t))
     ad-do-it
     (if (> (point) prior)
@@ -265,7 +265,7 @@
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide spoken feedback."
-     (when (ems-interactive-p )
+     (when (ems-interactive-p)
        (emacspeak-auditory-icon 'button)
        (emacspeak-speak-line)))))
 
@@ -281,7 +281,7 @@
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedback."
-          (when (ems-interactive-p )
+          (when (ems-interactive-p)
             (emacspeak-auditory-icon 'select-object)
             (emacspeak-speak-line)))))
 
@@ -291,7 +291,7 @@
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedback."
-          (when (ems-interactive-p )
+          (when (ems-interactive-p)
             (emacspeak-auditory-icon 'select-object)
             (dtk-speak org-last-changed-timestamp)))))
 
@@ -316,7 +316,7 @@
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
-     (when (ems-interactive-p )
+     (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-speak-line)))))
 
@@ -327,7 +327,7 @@
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
-     (when (ems-interactive-p )
+     (when (ems-interactive-p)
        (emacspeak-auditory-icon 'close-object)
        (emacspeak-speak-mode-line)))))
 
@@ -338,13 +338,13 @@
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
-     (when (ems-interactive-p )
+     (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-line)))))
 
 (defadvice org-agenda (after emacspeak pre act comp)
   "Provide spoken feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
@@ -357,7 +357,7 @@
 (defadvice orgtbl-mode (after emacspeak pre act comp)
   "Provide auditory feedback."
   (declare (special orgtbl-mode))
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon
      (if orgtbl-mode 'on 'off))
     (message "Turned %s org table mode."
@@ -402,9 +402,9 @@
 (defadvice org-delete-backward-char (around emacspeak pre act)
   "Speak character you're deleting."
   (cond
-   ((ems-interactive-p  )
+   ((ems-interactive-p)
     (dtk-tone 500 30 'force)
-    (emacspeak-speak-this-char (preceding-char ))
+    (emacspeak-speak-this-char (preceding-char))
     ad-do-it)
    (t ad-do-it))
   ad-return-value)
@@ -412,7 +412,7 @@
 (defadvice org-delete-char (around emacspeak pre act)
   "Speak character you're deleting."
   (cond
-   ((ems-interactive-p  )
+   ((ems-interactive-p)
     (dtk-tone 500 30 'force)
     (emacspeak-speak-char t)
     ad-do-it)
@@ -421,7 +421,7 @@
 
 (defadvice org-return (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (cond
      ((org-at-table-p 'any)
       (emacspeak-org-table-speak-current-element))
@@ -444,14 +444,14 @@
 ;;; advice end-of-line here to call org specific action
 (defadvice end-of-line (after emacspeak-org pre act comp)
   "Call org specific actions in org mode."
-  (when (and (ems-interactive-p )
+  (when (and (ems-interactive-p)
              (eq major-mode 'org-mode)
              (fboundp 'org-end-of-line))
     (org-end-of-line)))
 
 (defadvice org-toggle-checkbox (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)
     (emacspeak-speak-line)))
 
@@ -497,7 +497,7 @@
 
 (defadvice org-capture-goto-last-stored (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
@@ -535,7 +535,7 @@
   "echoes row header"
   (interactive)
   (dtk-speak-and-echo
-   (propertize (org-table-get nil 1 ) 'face 'italic)))
+   (propertize (org-table-get nil 1) 'face 'italic)))
 
 ;;;###autoload
 (defun emacspeak-org-table-speak-coordinates ()

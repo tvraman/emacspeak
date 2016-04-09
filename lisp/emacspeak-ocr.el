@@ -345,7 +345,7 @@ For detailed help, invoke command emacspeak-ocr bound to
   (declare (special emacspeak-ocr-working-directory
                     emacspeak-ocr-document-name
                     buffer-read-only))
-  (let  ((buffer (emacspeak-ocr-get-buffer )))
+  (let  ((buffer (emacspeak-ocr-get-buffer)))
     (save-excursion
       (set-buffer buffer)
       (emacspeak-ocr-mode)
@@ -413,7 +413,7 @@ Pick a short but meaningful name."
         (when emacspeak-ocr-keep-uncompressed-image
           (format "rm -f temp%s"
                   emacspeak-ocr-image-extension))))
-      (when (ems-interactive-p )
+      (when (ems-interactive-p)
         (setq emacspeak-ocr-last-page-number
               (1+ emacspeak-ocr-last-page-number)))
       (message "Acquired  image to file %s"
@@ -450,7 +450,7 @@ The scanned image is converted to JPEG."
                   pnm)
         (format "rm -f temp.pnm"))))
     (when (and metadata
-               (ems-interactive-p ))
+               (ems-interactive-p))
       (setq metadata
             (read-from-minibuffer "Enter picture description: "))
       (let ((tempfile (format "temp%s.jpg" (gensym))))
@@ -677,13 +677,13 @@ correctly by themselves."
 ;;;###autoload
 (defun emacspeak-ocr-page ()
   "Move to specified page."
-  (interactive )
+  (interactive)
   (when (= 0 emacspeak-ocr-last-page-number)
     (error "No pages in current document."))
   (let ((page
          (condition-case nil
-             (read (format "%c" last-input-event ))
-           (error nil ))))
+             (read (format "%c" last-input-event))
+           (error nil))))
     (or (numberp page)
         (setq page
               (read-minibuffer

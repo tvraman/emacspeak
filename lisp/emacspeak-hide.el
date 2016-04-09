@@ -355,7 +355,7 @@ blocks in current buffer to be hidden or exposed."
       (let ((block-prefix
              (emacspeak-hide-get-block-prefix)))
         (when block-prefix
-          (emacspeak-hide-current-block  block-prefix )))))))
+          (emacspeak-hide-current-block  block-prefix)))))))
 ;;;###autoload
 (defun emacspeak-hide-or-expose-all-blocks ()
   "Hide or expose all blocks in buffer."
@@ -409,7 +409,7 @@ and when you have heard enough navigate easily  to move past the block."
        (t (message "Not on a hidden block"))))))
 
 ;;}}}
-(provide 'emacspeak-hide )
+(provide 'emacspeak-hide)
 ;;{{{ end of file
 
 ;;; local variables:

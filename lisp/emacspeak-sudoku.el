@@ -133,7 +133,7 @@ s   Sub-square Distribution.
   (declare (special current-board))
   (let ((cell (sudoku-get-cell-from-point (point))))
     (dtk-speak-list (sudoku-row current-board
-                                (second cell ))
+                                (second cell))
                     3)))
 
 (defun emacspeak-sudoku-speak-current-column ()
@@ -142,7 +142,7 @@ s   Sub-square Distribution.
   (declare (special current-board))
   (let ((cell (sudoku-get-cell-from-point (point))))
     (dtk-speak-list (sudoku-column  current-board
-                                    (first cell ))
+                                    (first cell))
                     3)))
 
 (defsubst emacspeak-sudoku-cell-sub-square (cell)
@@ -285,7 +285,7 @@ s   Sub-square Distribution.
     (emacspeak-sudoku-erase-these-cells
      (loop for i from 0 to  8
            collect  (list i (second cell)))))
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)))
 
 (defun emacspeak-sudoku-erase-current-column ()
@@ -296,7 +296,7 @@ s   Sub-square Distribution.
     (emacspeak-sudoku-erase-these-cells
      (loop for i from 0 to  8
            collect  (list (first cell) i))))
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)))
 
 (defsubst emacspeak-sudoku-sub-square-cells (square)
@@ -307,7 +307,7 @@ s   Sub-square Distribution.
     (loop for r from row-start to (+ 2 row-start)
           nconc
           (loop  for c from col-start to (+ 2 col-start)
-                 collect (list c r )))))
+                 collect (list c r)))))
 
 (defun emacspeak-sudoku-erase-current-sub-square ()
   "Erase current sub-square."
@@ -317,7 +317,7 @@ s   Sub-square Distribution.
            (sudoku-get-cell-from-point (point))))
          (square-cells (emacspeak-sudoku-sub-square-cells square)))
     (emacspeak-sudoku-erase-these-cells square-cells))
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)))
 
 ;;}}}
@@ -332,12 +332,12 @@ s   Sub-square Distribution.
         sudoku-move-point-up 
         sudoku-move-point-upmost 
         sudoku-move-point-down 
-        sudoku-move-point-downmost )
+        sudoku-move-point-downmost)
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Produce auditory output."
-          (when (ems-interactive-p )
+          (when (ems-interactive-p)
             (emacspeak-sudoku-speak-current-cell-value)
             (if (eq (get-text-property  (point) 'face) 'bold)
                 (emacspeak-auditory-icon 'item)
@@ -351,7 +351,7 @@ s   Sub-square Distribution.
 See
   http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.html
   for details."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (dtk-set-punctuations 'some)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-sudoku-speak-current-cell-value)))
@@ -365,7 +365,7 @@ See
 
 (defadvice sudoku-restart (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-sudoku-speak-current-cell-value)))
 
@@ -435,7 +435,7 @@ See
         ("e" sudoku-move-point-rightmost)
         ("b" sudoku-move-point-downmost)
         ("t" sudoku-move-point-upmost)
-        ("." emacspeak-sudoku-speak-current-cell-value )
+        ("." emacspeak-sudoku-speak-current-cell-value)
         ("=" emacspeak-sudoku-speak-current-cell-coordinates)
         ("\C-e" emacspeak-prefix-command)
         ("r" emacspeak-sudoku-speak-current-row)

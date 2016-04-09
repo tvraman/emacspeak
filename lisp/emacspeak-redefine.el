@@ -60,17 +60,17 @@
 ;;}}}
 ;;{{{  How to redefine and restore a function:
 
-(defun emacspeak-redefine (function-name )
+(defun emacspeak-redefine (function-name)
   "Redefines function-name to its emacspeak version. "
-  (let ((save-name (intern (format "Orig-%s" function-name )))
-        (new-name (intern (format "emacspeak-%s" function-name ))))
-    (fset   save-name (symbol-function  function-name ))
-    (fset function-name new-name )))
+  (let ((save-name (intern (format "Orig-%s" function-name)))
+        (new-name (intern (format "emacspeak-%s" function-name))))
+    (fset   save-name (symbol-function  function-name))
+    (fset function-name new-name)))
 
 (defun emacspeak-undo-redefinition (function-name)
   "Undo the effect of having called emacs-redefine on function-name. "
-  (let ((restore-name (intern (format "Orig-%s" function-name ))))
-    (fset function-name (symbol-function restore-name ))))
+  (let ((restore-name (intern (format "Orig-%s" function-name))))
+    (fset function-name (symbol-function restore-name))))
 
 ;;}}}
 ;;{{{  The new functions:
@@ -89,15 +89,15 @@ Speech flushes as you type."
     (signal 'buffer-read-only (list (current-buffer))))
   (and (listp buffer-undo-list)
        (null (car buffer-undo-list))
-       (pop buffer-undo-list ))
-  (self-insert-command  arg )
-  (when (ems-interactive-p )
+       (pop buffer-undo-list))
+  (self-insert-command  arg)
+  (when (ems-interactive-p)
     (let ((display (get-char-property (1- (point)) 'display)))
       (dtk-stop)
       (cond
        ((stringp display) (dtk-say display))
        ((and emacspeak-word-echo
-             (= (char-syntax last-command-event )32 ))
+             (= (char-syntax last-command-event)32))
         (save-excursion
           (condition-case nil
               (forward-word -1)
@@ -127,7 +127,7 @@ eech flushes as you type."
       (cond
        ((stringp display) (dtk-say display))
        ((and emacspeak-word-echo
-             (= (char-syntax last-command-event )32 ))
+             (= (char-syntax last-command-event)32))
         (save-excursion
           (condition-case nil
               (forward-word -1)
@@ -154,9 +154,9 @@ eech flushes as you type."
   (cond
    ((<= (+ arg (point)) (point-max))
     (forward-char arg)
-    (when (ems-interactive-p )
+    (when (ems-interactive-p)
       (and dtk-stop-immediately (dtk-stop))
-      (emacspeak-speak-char t  )))
+      (emacspeak-speak-char t)))
    (t(ding)
      (message "End of buffer"))))
 
@@ -168,9 +168,9 @@ eech flushes as you type."
   (cond
    ((>= (- (point) arg) (point-min))
     (backward-char arg)
-    (when (ems-interactive-p )
+    (when (ems-interactive-p)
       (and dtk-stop-immediately (dtk-stop))
-      (emacspeak-speak-char t )))
+      (emacspeak-speak-char t)))
    (t (ding)
       (message "Beginning of buffer"))))
 
@@ -183,17 +183,17 @@ eech flushes as you type."
     (mapcar
      (if keymap
          #'(lambda (key)
-             (define-key keymap  key new-fn ))
+             (define-key keymap  key new-fn))
        #'(lambda (key)
-           (global-set-key key new-fn )))
-     keys )))
+           (global-set-key key new-fn)))
+     keys)))
 ;;; self-insert-command is removed since we can use
 ;;; post-self-insert-hook
 
 (defvar emacspeak-functions-that-bypass-function-cell nil
   "These commands are activated directly through C,
 rather than through their function cell.
-They have to be redefined and rebound to make them talk in versions older than Emacs 24. " )
+They have to be redefined and rebound to make them talk in versions older than Emacs 24. ")
 
 (unless (<=   24 emacs-major-version)
   (push 'backward-char emacspeak-functions-that-bypass-function-cell)
@@ -203,8 +203,8 @@ They have to be redefined and rebound to make them talk in versions older than E
 (mapcar
  #'(lambda (f)
      (emacspeak-rebind f
-                       (intern (format "emacspeak-%s" f ))))
- emacspeak-functions-that-bypass-function-cell )
+                       (intern (format "emacspeak-%s" f))))
+ emacspeak-functions-that-bypass-function-cell)
 
 ;;}}}
 (provide 'emacspeak-redefine)

@@ -56,14 +56,14 @@
 
 (defadvice meta-complete-symbol (around emacspeak pre act)
   "Say what you completed."
-  (let ((prior (point ))
+  (let ((prior (point))
         (dtk-stop-immediately dtk-stop-immediately))
     (when dtk-stop-immediately (dtk-stop))
     ad-do-it
     (when (> (point) prior)
       (setq dtk-stop-immediately nil)
       (tts-with-punctuations 'all
-                             (dtk-speak (buffer-substring prior (point )))))
+                             (dtk-speak (buffer-substring prior (point)))))
     ad-return-value))
 
 ;;}}}
@@ -71,35 +71,35 @@
 
 (defadvice meta-indent-line (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
-    (emacspeak-speak-line )))
+  (when (ems-interactive-p)
+    (emacspeak-speak-line)))
 
 (defadvice meta-fill-paragraph (after emacspeak pre act)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
-    (emacspeak-auditory-icon 'fill-object )
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'fill-object)
     (message "Filled current paragraph")))
 
 ;;}}}
 ;;{{{  navigation 
 (defadvice  meta-beginning-of-defun (after emacspeak pre act)
   "Speak the line."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice  meta-end-of-defun (after emacspeak pre act)
   "Speak the line."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
 ;;}}}
 ;;{{{  commenting etc
 
-(defadvice meta-comment-region (after emacspeak pre act )
+(defadvice meta-comment-region (after emacspeak pre act)
   "Provide spoken feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (let ((prefix-arg (ad-get-arg 2)))
       (message "%s region containing %s lines"
                (if (and prefix-arg
@@ -108,9 +108,9 @@
                  "Commented")
                (count-lines (point) (mark 'force))))))
 
-(defadvice meta-comment-defun (after emacspeak pre act )
+(defadvice meta-comment-defun (after emacspeak pre act)
   "Provide spoken feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (let ((prefix-arg (ad-get-arg 2)))
       (message "%s environment containing %s lines"
                (if  prefix-arg
@@ -118,35 +118,35 @@
                  "Commented")
                (count-lines (point) (mark 'force))))))
 
-(defadvice meta-uncomment-defun (after emacspeak pre act )
+(defadvice meta-uncomment-defun (after emacspeak pre act)
   "Provide spoken feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (message "Uncommented environment containing %s lines"
              (count-lines (point) (mark 'force)))))
 
-(defadvice meta-uncomment-region (after emacspeak pre act )
+(defadvice meta-uncomment-region (after emacspeak pre act)
   "Provide spoken feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (message "Uncommented  region containing %s lines"
              (count-lines (point) (mark 'force)))))
 
-(defadvice meta-indent-region (after emacspeak pre act )
+(defadvice meta-indent-region (after emacspeak pre act)
   "Provide spoken feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (message "Indented  region containing %s lines"
              (count-lines (point) (mark 'force)))))
 
-(defadvice meta-indent-buffer (after emacspeak pre act )
+(defadvice meta-indent-buffer (after emacspeak pre act)
   "Provide spoken feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (message "Indented  buffer containing %s lines"
              (count-lines (point-min) (point-max 'force)))))
 
 (defadvice meta-mark-defun (after emacspeak pre act)
   "Produce an auditory icon if possible."
-  (when (ems-interactive-p  )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (message "Marked function containing %s lines"
              (count-lines (point)
@@ -154,7 +154,7 @@
 
 (defadvice meta-indent-defun (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (message "Indented current defun. ")))
 

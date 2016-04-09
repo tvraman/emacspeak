@@ -58,9 +58,9 @@
 (defadvice c-electric-delete-forward (around emacspeak pre act)
   "Speak character you're deleting."
   (cond
-   ((ems-interactive-p  )
+   ((ems-interactive-p)
     (dtk-tone 500 30 'force)
-    (emacspeak-speak-this-char (following-char ))
+    (emacspeak-speak-this-char (following-char))
     ad-do-it)
    (t ad-do-it))
   ad-return-value)
@@ -68,9 +68,9 @@
 (defadvice c-electric-backspace (around emacspeak pre act)
   "Speak character you're deleting."
   (cond
-   ((ems-interactive-p  )
+   ((ems-interactive-p)
     (dtk-tone 500 30 'force)
-    (emacspeak-speak-this-char (preceding-char ))
+    (emacspeak-speak-this-char (preceding-char))
     ad-do-it)
    (t ad-do-it))
   ad-return-value)
@@ -78,77 +78,77 @@
 ;;}}}
 ;;{{{  advice things to speak
 ;;{{{  Electric chars speak
-(defadvice c-electric-semi&comma (after emacspeak pre act )
+(defadvice c-electric-semi&comma (after emacspeak pre act)
   "Speak the line when a statement is completed."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (cond
      ((= last-input-event ?,) (dtk-speak " comma "))
-     (t (emacspeak-speak-line )))))
+     (t (emacspeak-speak-line)))))
 
 (unless
     (and (boundp 'post-self-insert-hook)
          post-self-insert-hook
          (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
   
-  (defadvice c-electric-star (after emacspeak pre act )
+  (defadvice c-electric-star (after emacspeak pre act)
     "Speak what you typed"
-    (when (ems-interactive-p ) (dtk-say "star")))
+    (when (ems-interactive-p) (dtk-say "star")))
 
-  (defadvice c-electric-slash (after emacspeak pre act )
+  (defadvice c-electric-slash (after emacspeak pre act)
     "Speak slash"
-    (when (ems-interactive-p )
+    (when (ems-interactive-p)
       (dtk-say "slash")))
 
-  (defadvice c-electric-lt-gt (after emacspeak pre act )
+  (defadvice c-electric-lt-gt (after emacspeak pre act)
     "Speak what you typed"
     (declare (special last-input-event))
-    (when (ems-interactive-p )
+    (when (ems-interactive-p)
       (emacspeak-speak-this-char last-input-event)))
 
-  (defadvice electric-c-terminator (after emacspeak pre act )
+  (defadvice electric-c-terminator (after emacspeak pre act)
     "Speak what was typed. "
-    (when (ems-interactive-p )
+    (when (ems-interactive-p)
       (emacspeak-speak-this-char last-input-event)))
 
-  (defadvice c-electric-colon (after emacspeak pre act )
+  (defadvice c-electric-colon (after emacspeak pre act)
     "Speak the character you inserted"
-    (when (ems-interactive-p )
+    (when (ems-interactive-p)
       (emacspeak-speak-this-char last-input-event)))
 
-  (defadvice c-electric-paren (after emacspeak pre act )
+  (defadvice c-electric-paren (after emacspeak pre act)
     "Speak the character you inserted"
-    (when (ems-interactive-p )
+    (when (ems-interactive-p)
       (emacspeak-speak-this-char last-input-event)))
 
-  (defadvice c-electric-pound (after emacspeak pre act )
+  (defadvice c-electric-pound (after emacspeak pre act)
     "Speak the character you inserted"
-    (when (ems-interactive-p )
+    (when (ems-interactive-p)
       (emacspeak-speak-this-char last-input-event)))
 
-  (defadvice c-electric-brace (after emacspeak pre act )
+  (defadvice c-electric-brace (after emacspeak pre act)
     "Speak the character you inserted"
-    (when (ems-interactive-p )
+    (when (ems-interactive-p)
       (emacspeak-speak-this-char last-input-event)))
 
-  (defadvice electric-c-semi (after emacspeak pre act )
+  (defadvice electric-c-semi (after emacspeak pre act)
     "Speak what was typed. "
-    (when (ems-interactive-p )
+    (when (ems-interactive-p)
       (emacspeak-speak-this-char last-input-event)))
 
-  (defadvice electric-c-sharp-sign (after emacspeak pre act )
+  (defadvice electric-c-sharp-sign (after emacspeak pre act)
     "Speak what was typed. "
-    (when (ems-interactive-p )
+    (when (ems-interactive-p)
       (emacspeak-speak-this-char last-input-event)))
 
-  (defadvice electric-c-brace (after emacspeak pre act )
+  (defadvice electric-c-brace (after emacspeak pre act)
     "Speak what was typed. "
-    (when (ems-interactive-p )
+    (when (ems-interactive-p)
       (emacspeak-speak-this-char last-input-event))))
 
-(defadvice c-electric-delete (before emacspeak pre act )
+(defadvice c-electric-delete (before emacspeak pre act)
   "Speak char before deleting it."
-  (when (ems-interactive-p  )
-    (emacspeak-speak-this-char(preceding-char ))
+  (when (ems-interactive-p)
+    (emacspeak-speak-this-char(preceding-char))
     (dtk-tone 500 30)))
 
 ;;}}}
@@ -156,41 +156,41 @@
 
 ;;; CPP directives:
 
-(defadvice c-up-conditional (after emacspeak pre act )
+(defadvice c-up-conditional (after emacspeak pre act)
   "Speak the line moved to."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line )))
+    (emacspeak-speak-line)))
 
-(defadvice c-forward-conditional (after emacspeak pre act )
+(defadvice c-forward-conditional (after emacspeak pre act)
   "Speak the line moved to."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line )))
+    (emacspeak-speak-line)))
 
-(defadvice c-backward-conditional (after emacspeak pre act )
+(defadvice c-backward-conditional (after emacspeak pre act)
   "Speak the line moved to."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line )))
+    (emacspeak-speak-line)))
 
 ;;; Statements
 
-(defadvice c-beginning-of-statement (after emacspeak pre act )
+(defadvice c-beginning-of-statement (after emacspeak pre act)
   "Speak the line moved to."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line )))
+    (emacspeak-speak-line)))
 
-(defadvice c-end-of-statement (after emacspeak pre act )
+(defadvice c-end-of-statement (after emacspeak pre act)
   "Speak the line moved to."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line )))
+    (emacspeak-speak-line)))
 
-(defadvice c-mark-function (after emacspeak pre act )
+(defadvice c-mark-function (after emacspeak pre act)
   "Provide spoken and auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (emacspeak-speak-line)))
 
@@ -201,22 +201,22 @@
 
 (defadvice  c-beginning-of-defun (after emacspeak pre act)
   "Speak the line."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice  c-end-of-defun (after emacspeak pre act)
   "Speak the line."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
 ;;}}}
 ;;{{{  extensions  provided by c++ mode
 
-(defadvice c-scope-operator (after emacspeak pre act )
+(defadvice c-scope-operator (after emacspeak pre act)
   "speak what you inserted."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (dtk-speak "colon colon")))
 
 ;;}}}
@@ -227,21 +227,21 @@
   (interactive "P")
   (emacspeak-auditory-icon 'large-movement)
   (let  ((opoint (point))
-         (semantics (c-guess-basic-syntax )))
+         (semantics (c-guess-basic-syntax)))
 ;;; skip across a comment
     (cond
-     ((or (assq 'c semantics )
-          (assq 'comment-intro semantics ))
+     ((or (assq 'c semantics)
+          (assq 'comment-intro semantics))
       (while
-          (and (or (assq 'c semantics )
-                   (assq 'comment-intro semantics ))
-               (not (eobp ))
+          (and (or (assq 'c semantics)
+                   (assq 'comment-intro semantics))
+               (not (eobp))
                (= 0 (forward-line -1)))
-        (setq semantics (c-guess-basic-syntax )))
+        (setq semantics (c-guess-basic-syntax)))
       (skip-syntax-backward " ")
-      (emacspeak-speak-line ))
+      (emacspeak-speak-line))
      (t (setq count (or count 1))
-        (c-beginning-of-statement   count )
+        (c-beginning-of-statement   count)
         (and (save-match-data (looking-at "{"))
              (skip-syntax-backward " "))
         (if (>= (point) opoint)
@@ -257,22 +257,22 @@ this level")
   (interactive "P")
   (emacspeak-auditory-icon 'large-movement)
   (let  ((opoint (point))
-         (semantics (c-guess-basic-syntax )))
+         (semantics (c-guess-basic-syntax)))
 ;;; skip across a comment
     (cond
-     ((or (assq 'c semantics )
-          (assq 'comment-intro semantics ))
+     ((or (assq 'c semantics)
+          (assq 'comment-intro semantics))
       (while
-          (and (or (assq 'c semantics )
-                   (assq 'comment-intro semantics ))
-               (not (eobp ))
+          (and (or (assq 'c semantics)
+                   (assq 'comment-intro semantics))
+               (not (eobp))
                (= 0 (forward-line 1)))
-        (setq semantics (c-guess-basic-syntax )))
+        (setq semantics (c-guess-basic-syntax)))
       (skip-syntax-forward " ")
-      (emacspeak-speak-line ))
+      (emacspeak-speak-line))
      (t (setq count (or count 1))
-        (c-end-of-statement(1+  count ))
-        (c-beginning-of-statement  1 )
+        (c-end-of-statement(1+  count))
+        (c-beginning-of-statement  1)
         (and (save-match-data (looking-at "{"))
              (skip-syntax-backward " "))
         (if (<= (point) opoint)
@@ -358,28 +358,28 @@ and their meanings. ")
 (defun emacspeak-c-speak-semantics ()
   "Speak the C semantics of this line. "
   (interactive)
-  (declare (special emacspeak-c-syntactic-table ))
+  (declare (special emacspeak-c-syntactic-table))
   (let  ((semantics (mapcar 'car
-                            (c-guess-basic-syntax )))
+                            (c-guess-basic-syntax)))
          (description ""))
     (setq description
           (mapconcat
            (function (lambda (sem)
-                       (cdr (assq  sem emacspeak-c-syntactic-table ))))
+                       (cdr (assq  sem emacspeak-c-syntactic-table))))
            semantics
            " "))
     (condition-case nil
         (cond
-         ((or (memq 'block-close semantics )
-              (memq 'defun-close semantics )
-              (memq 'class-close semantics )
-              (memq 'inline-close semantics )
-              (memq 'brace-list-close semantics ))
+         ((or (memq 'block-close semantics)
+              (memq 'defun-close semantics)
+              (memq 'class-close semantics)
+              (memq 'inline-close semantics)
+              (memq 'brace-list-close semantics))
           ;; append the line
           (setq description
                 (concat description
                         ;; that begins this block
-                        (let ((start nil ))
+                        (let ((start nil))
                           (save-excursion
                             (forward-line 0)
                             (search-forward "}" nil t)
@@ -395,22 +395,22 @@ and their meanings. ")
                             (end-of-line)
                             (buffer-substring start
                                               (point))))))))
-      (error nil ))
-    (dtk-speak description )
+      (error nil))
+    (dtk-speak description)
     description))
 
 ;;}}}
 ;;{{{  indenting commands
 
 (defadvice c-indent-defun (after emacspeak pre act)
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (message "Indented function")))
 
 (defadvice c-indent-command (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
-    (emacspeak-speak-line )))
+  (when (ems-interactive-p)
+    (emacspeak-speak-line)))
 
 ;;}}}
 ;;{{{ Additional keybindings:

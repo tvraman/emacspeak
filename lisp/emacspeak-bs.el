@@ -123,119 +123,119 @@
 
 (defadvice bs-kill (after emacspeak pre act comp)
   "Speech-enable bs mode"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice bs-abort (after emacspeak pre act comp)
   "Speech-enable bs mode"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 (defadvice bs-set-configuration-and-refresh (after emacspeak pre act comp)
   "Speech-enable bs mode"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)))
 (defadvice bs-refresh (after emacspeak pre act comp)
   "Speech-enable bs mode"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice bs-view (after emacspeak pre act comp)
   "Speech-enable bs mode"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 (defadvice bs-select (after emacspeak pre act comp)
   "Speech-enable bs mode"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 (defadvice bs-select-other-window (after emacspeak pre act comp)
   "Speech-enable bs mode"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice bs-tmp-select-other-window (after emacspeak pre act comp)
   "Speech-enable bs mode"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice bs-select-other-frame (after emacspeak pre act comp)
   "Speech-enable bs mode"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice bs-select-in-one-window (after emacspeak pre act comp)
   "Speech-enable bs mode"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice bs-bury-buffer (after emacspeak pre act comp)
   "Speech-enable bs mode"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 (defadvice bs-save (after emacspeak pre act comp)
   "Speech-enable bs mode"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'save-object)))
 (defadvice bs-toggle-current-to-show (after emacspeak pre act comp)
   "Speech-enable bs mode"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)
     (emacspeak-bs-speak-buffer-line)))
 (defadvice bs-set-current-buffer-to-show-never (after emacspeak pre act comp)
   "Speech-enable bs mode"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)
     (emacspeak-bs-speak-buffer-line)))
 (defadvice bs-mark-current (after emacspeak pre act comp)
   "Speech-enable bs mode"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (emacspeak-bs-speak-buffer-line)))
 (defadvice bs-unmark-current (after emacspeak pre act comp)
   "Speech-enable bs mode"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'deselect-object)
     (emacspeak-bs-speak-buffer-line)))
 
 (defadvice bs-delete (after emacspeak pre act comp)
   "Speech-enable bs mode"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-bs-speak-buffer-line)))
 (defadvice bs-delete-backward (after emacspeak pre act comp)
   "Speech-enable bs mode"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-bs-speak-buffer-line)))
 
 (defadvice bs-up (after emacspeak pre act comp)
   "Speech-enable bs mode"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-bs-speak-buffer-line)))
 (defadvice bs-down (after emacspeak pre act comp)
   "Speech-enable bs mode"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-bs-speak-buffer-line)))
 
 (defadvice bs-cycle-next (after emacspeak pre act comp)
   "Speech-enable bs mode"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (let ((emacspeak-speak-messages nil))
       (emacspeak-auditory-icon 'select-object)
       (emacspeak-speak-mode-line))))
 
 (defadvice bs-cycle-previous (after emacspeak pre act comp)
   "Speech-enable bs mode"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (let ((emacspeak-speak-messages nil))
       (emacspeak-auditory-icon 'select-object)
       (emacspeak-speak-mode-line))))

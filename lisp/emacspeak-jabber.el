@@ -106,7 +106,7 @@
 
 (defadvice jabber-activity-switch-to (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
@@ -115,7 +115,7 @@
 
 (defadvice jabber-chat-buffer-send (after emacspeak pre act comp)
   "Produce auditory icon."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 
 ;;}}}
@@ -127,30 +127,30 @@
 (defadvice jabber-send-default-presence (after emacspeak pre act
                                                comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Sent default presence.")))
 
 (defadvice jabber-send-away-presence (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (message "Set to be away.")))
 
 (defadvice jabber-send-xa-presence (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (message "Set extended  away.")))
 (defadvice jabber-go-to-next-jid (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice jabber-go-to-previous-jid (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
@@ -232,7 +232,7 @@ Returns a cons (start . end) that delimits the message."
   (let ((start nil)
         (end nil))
     (save-excursion
-      (when (ems-interactive-p )
+      (when (ems-interactive-p)
         (unless (looking-at "^\\[")
           (re-search-backward "^\\[" nil t)))
       (setq start

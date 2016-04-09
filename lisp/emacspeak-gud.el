@@ -48,18 +48,18 @@
 ;;}}}
 ;;{{{  Advise key helpers:
 
-(defadvice gud-display-line (after emacspeak pre act )
+(defadvice gud-display-line (after emacspeak pre act)
   "Speak the error line"
   (declare (special gud-overlay-arrow-position))
-  (let ((marker gud-overlay-arrow-position ))
+  (let ((marker gud-overlay-arrow-position))
     (emacspeak-auditory-icon 'large-movement)
     (and marker
-         (marker-buffer marker )
-         (marker-position marker )
+         (marker-buffer marker)
+         (marker-position marker)
          (save-current-buffer
-           (set-buffer (marker-buffer marker ))
-           (goto-char (marker-position marker ))
-           (emacspeak-speak-line )))))
+           (set-buffer (marker-buffer marker))
+           (goto-char (marker-position marker))
+           (emacspeak-speak-line)))))
 
 (loop for f in
       '(

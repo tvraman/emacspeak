@@ -59,7 +59,7 @@
 
 (defadvice sqlplus-execute-command (after emacspeak pre act comp)
   "Provide auditory feedback and place point at the start of the output."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (sqlplus-back-command 2)
     (forward-line 1)
@@ -67,7 +67,7 @@
 
 (defadvice sqlplus-back-command (after emacspeak pre act
                                        comp)"Move prompt appropriately,  and speak the line."
-                                       (when (ems-interactive-p )
+                                       (when (ems-interactive-p)
                                          (emacspeak-auditory-icon 'large-movement)
                                          (forward-line 1)
                                          (emacspeak-speak-line)))
@@ -75,27 +75,27 @@
 (defadvice sqlplus-forward-command (after emacspeak pre act
                                           comp)
   "Move prompt appropriately,  and speak the line."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (forward-line 1)
     (emacspeak-speak-line)))
 
 (defadvice sqlplus-next-command (after emacspeak pre act comp)
   "Speak the line."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
 (defadvice sqlplus-previous-command (after emacspeak pre act comp)
   "Speak the line."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
 (defadvice sql-send-region (around emacspeak pre act comp)
   "Provide auditory feedback."
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     ad-do-it
     (emacspeak-auditory-icon 'mark-object))
@@ -105,7 +105,7 @@
 (defadvice sql-send-buffer (around emacspeak pre act comp)
   "Provide auditory feedback."
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     ad-do-it
     (emacspeak-auditory-icon 'mark-object))

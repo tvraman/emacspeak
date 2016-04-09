@@ -70,16 +70,16 @@
 ;;;###autoload
 (defun emacspeak-table-make-table (elements)
   "Construct a table object from elements."
-  (assert (vectorp elements) t "Elements should be a vector of vectors" )
-  (let ((table (cons-emacspeak-table :elements elements ))
-        (row-h (make-vector (length  elements ) nil))
+  (assert (vectorp elements) t "Elements should be a vector of vectors")
+  (let ((table (cons-emacspeak-table :elements elements))
+        (row-h (make-vector (length  elements) nil))
         (index 0))
-    (setf (emacspeak-table-column-header table ) (aref elements 0)) ;first row
+    (setf (emacspeak-table-column-header table) (aref elements 0)) ;first row
     (loop
      for element across  elements do 
      (assert (vectorp element) t "Row %s is not a vector" index)
      (aset row-h index (aref element 0)) ; build column 0
-     (incf index ))
+     (incf index))
     (setf (emacspeak-table-row-header table) row-h)
     (setf (emacspeak-table-current-row table) 0)
     (setf (emacspeak-table-current-column table) 0)
@@ -94,7 +94,7 @@
 
 (defsubst emacspeak-table-current-element (table)
   (emacspeak-table-this-element table 
-                                (emacspeak-table-current-row table )
+                                (emacspeak-table-current-row table)
                                 (emacspeak-table-current-column table)))
 
 (defsubst emacspeak-table-this-row (table index)
@@ -102,7 +102,7 @@
 
 (defsubst emacspeak-table-this-column (table column)
   (let*
-      ((elements (emacspeak-table-elements table ))
+      ((elements (emacspeak-table-elements table))
        (result (make-vector (length elements) nil))
        (index 0))
     (loop
@@ -132,18 +132,18 @@ Calls callback once per row."
   (loop
    for row across (emacspeak-table-elements table)
    collect
-   (apply callback row callback-args )))
+   (apply callback row callback-args)))
 
 (defun emacspeak-table-enumerate-columns (table callback &rest callback-args)
   "Enumerate columns of a table.
 Calls callback once per column."
-  (let ((elements (emacspeak-table-elements table )))
+  (let ((elements (emacspeak-table-elements table)))
     (loop
      for column   from 0 to (1- (length   elements))
      collect
      (apply callback
             (emacspeak-table-this-column table column)
-            callback-args ))))
+            callback-args))))
 
 ;;}}}
 ;;{{{ finders 
@@ -153,7 +153,7 @@ Calls callback once per column."
   "Look for next element matching pattern in  row."
   (or predicate
       (setq predicate 'equal))
-  (let ((next(%  (1+  (emacspeak-table-current-column table ))
+  (let ((next(%  (1+  (emacspeak-table-current-column table))
                  (emacspeak-table-num-columns  table)))
         (count   (emacspeak-table-num-columns table))
         (found nil))
@@ -164,7 +164,7 @@ Calls callback once per column."
      (funcall predicate  pattern
               (emacspeak-table-this-element table  index column))
      do
-     (setq found t )
+     (setq found t)
      until found
      finally return (and found column))))
 
@@ -173,7 +173,7 @@ Calls callback once per column."
   "Look for element matching pattern in  column."
   (or predicate
       (setq predicate 'equal))
-  (let ((next(%  (1+  (emacspeak-table-current-row table ))
+  (let ((next(%  (1+  (emacspeak-table-current-row table))
                  (emacspeak-table-num-rows table)))
         (count   (emacspeak-table-num-rows table))
         (found nil))
@@ -181,7 +181,7 @@ Calls callback once per column."
           and row = next then (% (incf row) count)
           if  (funcall predicate  pattern
                        (emacspeak-table-this-element table  row index))
-          do (setq found t )
+          do (setq found t)
           until found
           finally return (and found row))))
 
@@ -200,56 +200,56 @@ Calls callback once per column."
       (setf (emacspeak-table-current-row table) row)
       (setf (emacspeak-table-current-column table) column))
      (t (error "Current table has %s rows and %s columns"
-               row-count column-count )))))
+               row-count column-count)))))
 
 (defun emacspeak-table-move-up (table &optional count)
   "Move up in the table if possible."
-  (setq count (or count 1 ))
-  (let* ((current (emacspeak-table-current-row table ))
+  (setq count (or count 1))
+  (let* ((current (emacspeak-table-current-row table))
          (new (- current count)))
     (cond
      ((<= 0 new)
       (setf (emacspeak-table-current-row table) new))
      (t (message "Cannot move up by %s rows from row %s" count
-                 current )
+                 current)
         (emacspeak-auditory-icon 'warn-user)))))
 
 (defun emacspeak-table-move-down (table &optional count)
   "Move down in the table if possible."
-  (setq count (or count 1 ))
-  (let* ((current (emacspeak-table-current-row table ))
+  (setq count (or count 1))
+  (let* ((current (emacspeak-table-current-row table))
          (row-count (emacspeak-table-num-rows table))
          (new (+ current count)))
     (cond
      ((< new  row-count)
       (setf (emacspeak-table-current-row table) new))
      (t (message "Cannot move down by %s rows from row %s"
-                 count current )
+                 count current)
         (emacspeak-auditory-icon 'warn-user)))))
 
 (defun emacspeak-table-move-left (table &optional count)
   "Move left in the table if possible."
-  (setq count (or count 1 ))
-  (let* ((current (emacspeak-table-current-column table ))
+  (setq count (or count 1))
+  (let* ((current (emacspeak-table-current-column table))
          (new (- current count)))
     (cond
      ((<= 0 new)
       (setf (emacspeak-table-current-column table) new))
      (t (message "Cannot move left by %s columns from column %s"
-                 count current )
+                 count current)
         (emacspeak-auditory-icon 'warn-user)))))
 
 (defun emacspeak-table-move-right (table &optional count)
   "Move right in the table if possible."
-  (setq count (or count 1 ))
-  (let* ((current (emacspeak-table-current-column table ))
+  (setq count (or count 1))
+  (let* ((current (emacspeak-table-current-column table))
          (column-count (emacspeak-table-num-columns table))
          (new (+ current count)))
     (cond
      ((< new  column-count)
       (setf (emacspeak-table-current-column table) new))
      (t (message "Cannot move right by %s columns from column %s"
-                 count current )
+                 count current)
         (emacspeak-auditory-icon 'warn-user)))))
 
 ;;}}}

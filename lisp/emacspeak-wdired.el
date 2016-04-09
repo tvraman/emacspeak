@@ -58,43 +58,43 @@
       (eval
        `(defadvice ,c (after emacspeak pre act comp)
           "Provide spoken feedback."
-          (when (ems-interactive-p )
+          (when (ems-interactive-p)
             (emacspeak-auditory-icon 'select-object)
             (emacspeak-dired-speak-line)))))
 
 (defadvice wdired-upcase-word (after emacspeak pre act comp)
   "Provide spoken feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (tts-with-punctuations 'some
                            (dtk-speak "upper cased file name. "))))
 (defadvice wdired-capitalize-word (after emacspeak pre act comp)
   "Provide spoken feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (tts-with-punctuations 'some
                            (dtk-speak "Capitalized file name. "))))
 (defadvice wdired-downcase-word (after emacspeak pre act comp)
   "Provide spoken feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (tts-with-punctuations 'some
                            (dtk-speak "Down cased file
   name. "))))
 
 (defadvice wdired-toggle-bit (after emacspeak pre act comp)
   "Provide spoken feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)
     (dtk-speak "Toggled permission bit.")))
 
 (defadvice wdired-abort-changes (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (tts-with-punctuations 'some
                            (dtk-speak "Cancelling  changes. "))))
 
 (defadvice wdired-finish-edit (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'save-object)
     (tts-with-punctuations 'some
                            (dtk-speak "Committed changes. "))))
@@ -102,7 +102,7 @@
 (defadvice wdired-change-to-wdired-mode (after emacspeak pre act
                                                comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (tts-with-punctuations 'some
                            (dtk-speak "Entering writeable dir ed mode. "))))

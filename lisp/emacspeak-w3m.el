@@ -298,12 +298,12 @@ instead of the modeline."
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Produce auditory icon."
-          (when (ems-interactive-p )
+          (when (ems-interactive-p)
             (emacspeak-auditory-icon 'select-object)))))
 
 (defadvice w3m-submit-form (after emacspeak pre act comp)
   "Produce auditory icon."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)))
 
 (loop for f in
@@ -314,7 +314,7 @@ instead of the modeline."
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedback."
-          (when (ems-interactive-p )
+          (when (ems-interactive-p)
             (declare (special w3m-current-title))
             (emacspeak-auditory-icon 'select-object)
             (if emacspeak-w3m-speak-titles-on-switch
@@ -323,7 +323,7 @@ instead of the modeline."
 
 (defadvice w3m-delete-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (declare (special w3m-current-title))
     (emacspeak-auditory-icon 'close-object)
     (if emacspeak-w3m-speak-titles-on-switch
@@ -332,7 +332,7 @@ instead of the modeline."
 
 (defadvice w3m-delete-other-buffers (after emacspeak pre act comp)
   "Produce auditory icon."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (declare (special w3m-current-title))
     (emacspeak-auditory-icon 'close-object)
     (if emacspeak-w3m-speak-titles-on-switch
@@ -341,7 +341,7 @@ instead of the modeline."
 
 (defadvice w3m-bookmark-kill-entry (around emacspeak pre act comp)
   "Resets the punctuation mode to the one before the delete"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'ask-question)
     (let ((current-punct-mode dtk-punctuation-mode))
       ad-do-it
@@ -350,12 +350,12 @@ instead of the modeline."
 
 (defadvice w3m-bookmark-add-current-url (after emacspeak pre act comp)
   "Produce auditory icon."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'save-object)))
 
 (defadvice w3m-bookmark-add-this-url (after emacspeak pre act comp)
   "Produce auditory icon."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'save-object)))
 
 (loop for f in
@@ -367,7 +367,7 @@ instead of the modeline."
        `(defadvice ,f (around emacspeak pre act)
           "Speech-enable W3M."
           (cond
-           ((ems-interactive-p )
+           ((ems-interactive-p)
             (let ((emacspeak-speak-messages nil))
               ad-do-it
               (emacspeak-auditory-icon 'large-movement)
@@ -378,7 +378,7 @@ instead of the modeline."
 (defadvice w3m-view-this-url (around emacspeak pre act comp)
   "Speech-enable W3M."
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (let ((url (emacspeak-w3m-anchor))
           (act (emacspeak-w3m-action)))
       (when url
@@ -399,7 +399,7 @@ instead of the modeline."
 (defadvice w3m-history (around emacspeak pre act)
   "Speech-enable W3M."
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (let ((emacspeak-speak-messages nil))
       ad-do-it))
@@ -408,7 +408,7 @@ instead of the modeline."
 (defadvice w3m-antenna (around emacspeak pre act)
   "Speech-enable W3M."
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (let ((emacspeak-speak-messages nil))
       ad-do-it))
@@ -417,7 +417,7 @@ instead of the modeline."
 (defadvice w3m-bookmark-view (around emacspeak pre act)
   "Speech-enable W3M."
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (let ((emacspeak-speak-messages nil))
       ad-do-it))
@@ -435,7 +435,7 @@ instead of the modeline."
        `(defadvice ,f (around emacspeak pre act comp)
           "Speech-enable scrolling."
           (cond
-           ((ems-interactive-p )
+           ((ems-interactive-p)
             (let ((opoint (save-excursion
                             (beginning-of-line)
                             (point))))
@@ -451,7 +451,7 @@ instead of the modeline."
 (defadvice w3m (around emacspeak pre act)
   "Speech-enable W3M."
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (let ((emacspeak-speak-messages nil))
       ad-do-it)
@@ -461,61 +461,61 @@ instead of the modeline."
 
 (defadvice w3m-process-stop (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 
 (defadvice w3m-close-window (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (with-current-buffer (window-buffer)
       (emacspeak-speak-mode-line))))
 
 (defadvice w3m-quit (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (with-current-buffer (window-buffer)
       (emacspeak-speak-mode-line))))
 
 (defadvice w3m-wget (after emacspeak pre act comp)
   "provide auditory confirmation"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice w3m-view-header (after emacspeak pre act comp)
   "Speech enable w3m"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (declare (special w3m-current-title
                       w3m-current-url))
     (cond
      ((string-match "\\`about://header/" w3m-current-url)
-      (message"viewing header information for %s "w3m-current-title  )))))
+      (message"viewing header information for %s "w3m-current-title)))))
 
 (defadvice w3m-view-source (after emacspeak pre act comp)
   "Speech enable w3m"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (declare (special w3m-current-title
                       w3m-current-url))
     (cond
      ((string-match "\\`about://source/" w3m-current-url)
-      (message"viewing source for %s "w3m-current-title  )))))
+      (message"viewing source for %s "w3m-current-title)))))
 
 (defadvice w3m-history-store-position (after emacspeak pre act comp)
   "Speech enable w3m."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (dtk-speak "Marking page position")))
 
 (defadvice w3m-history-restore-position (after emacspeak pre act comp)
   "Speech enable w3m."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (dtk-speak "Restoring previously marked position")))
 
 (defadvice w3m-history (after emacspeak pre act comp)
   "Speech enable w3m"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (dtk-speak "Viewing history")))
 
 ;;}}}
@@ -533,60 +533,60 @@ instead of the modeline."
 
 (defadvice w3m-select-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice w3m-select-buffer-show-this-line (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (emacspeak-speak-other-window 1)))
 
 (defadvice w3m-select-buffer-show-this-line-and-down (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (emacspeak-speak-other-window 1)))
 
 (defadvice w3m-select-buffer-show-this-line-and-switch (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice w3m-select-buffer-show-this-line-and-quit (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice w3m-select-buffer-next-line (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
 (defadvice w3m-select-buffer-previous-line (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
 
 (defadvice w3m-select-buffer-delete-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-line)))
 
 (defadvice w3m-select-buffer-delete-other-buffers (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)))
 
 (defadvice w3m-select-buffer-quit (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
@@ -599,11 +599,11 @@ instead of the modeline."
             (emacspeak-speak-line)))
 
 (defadvice w3m-form-input-select-set (after emacspeak pre act comp)
-  (when (and (ems-interactive-p ) (w3m-anchor-sequence))
+  (when (and (ems-interactive-p) (w3m-anchor-sequence))
     (emacspeak-w3m-speak-this-anchor)))
 
 (defadvice w3m-form-input-select-exit (after emacspeak pre act comp)
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 
 ;;}}}
@@ -615,12 +615,12 @@ instead of the modeline."
             (dtk-speak "edit text area")))
 
 (defadvice w3m-form-input-textarea-set (after emacspeak pre act comp)
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-w3m-speak-this-anchor)))
 
 (defadvice w3m-form-input-textarea-exit (after emacspeak pre act comp)
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 
 ;;}}}

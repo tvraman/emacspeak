@@ -93,21 +93,21 @@
 Tip: Use M-x customize to set ido-max-prospects to a small value
   when using Emacspeak --- I set it to 3.
 The default value of 12 is too high for using ido effectively with speech. "
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon
      (if ido-mode 'on 'off))
     (dtk-speak (format "IDo set to %s" ido-mode))))
 
 (defadvice ido-everywhere (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon (if ido-everywhere 'on 'off))
     (dtk-speak
      (format "Turned %s IDo everywhere." (if ido-everywhere " on " " off ")))))
 
 (defadvice ido-toggle-case (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon
      (if ido-case-fold 'on 'off))
     (dtk-speak
@@ -116,7 +116,7 @@ The default value of 12 is too high for using ido effectively with speech. "
 
 (defadvice ido-toggle-regexp (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon
      (if ido-enable-regexp 'on 'off))
     (dtk-speak
@@ -124,7 +124,7 @@ The default value of 12 is too high for using ido effectively with speech. "
              (if ido-enable-regexp 'on 'off)))))
 (defadvice ido-toggle-prefix (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon
      (if ido-enable-prefix 'on 'off))
     (dtk-speak
@@ -134,7 +134,7 @@ The default value of 12 is too high for using ido effectively with speech. "
 (defvar ido-process-ignore-lists) 
 (defadvice ido-toggle-ignore (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon
      (if ido-process-ignore-lists 'on 'off))
     (dtk-speak
@@ -144,7 +144,7 @@ The default value of 12 is too high for using ido effectively with speech. "
 
 (defadvice ido-complete (after emacspeak pre act comp)
   "Speak completion at the head of the list."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (dtk-speak (car ido-matches))))
 
 (loop for f in
@@ -155,7 +155,7 @@ The default value of 12 is too high for using ido effectively with speech. "
        `(defadvice   ,f(around emacspeak pre act comp)
           "Provide auditory feedback."
           (cond
-           ((ems-interactive-p )
+           ((ems-interactive-p)
             (let ((emacspeak-minibuffer-enter-auditory-icon nil))
               (emacspeak-auditory-icon 'open-object)
               ad-do-it
@@ -172,7 +172,7 @@ The default value of 12 is too high for using ido effectively with speech. "
        `(defadvice   ,f(around emacspeak pre act comp)
           "Provide auditory feedback."
           (cond
-           ((ems-interactive-p )
+           ((ems-interactive-p)
             (let ((emacspeak-minibuffer-enter-auditory-icon nil))
               (emacspeak-auditory-icon 'open-object)
               ad-do-it
@@ -188,37 +188,37 @@ The default value of 12 is too high for using ido effectively with speech. "
 
 (defadvice ido-next-match (after emacspeak pre act comp)
   "Speak match at the front of the list."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (dtk-speak
      (second ido-matches))))
 
 (defadvice ido-prev-match (after emacspeak pre act comp)
   "Speak match at the front of the list."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (dtk-speak
      (car (last ido-matches)))))
 
 (defadvice ido-kill-buffer-at-head (after emacspeak pre act comp)
   "Provide auditory icon."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 
 (defadvice ido-bury-buffer-at-head (after emacspeak pre act comp)
   "Provide auditory icon."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 
 (defadvice ido-kill-buffer (after emacspeak pre act comp)
   "Provide auditory icon."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
 (defadvice ido-fallback-command (before emacspeak pre act comp)
   "Provide auditory cue to indicate we are closing out the IDO   minibuffer."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-auditory-icon 'open-object)))
 

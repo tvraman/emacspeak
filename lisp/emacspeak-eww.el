@@ -383,7 +383,7 @@ Retain previously set punctuations  mode."
       (lexical-let
           ((p dtk-punctuation-mode)
            (r dtk-speech-rate)
-           (u (emacspeak-eww-current-url) )
+           (u (emacspeak-eww-current-url))
            (s emacspeak-eww-style))
         (kill-buffer)
         (add-hook
@@ -560,7 +560,7 @@ Retain previously set punctuations  mode."
       form blockquote              ; block-level
       a b it em span               ; in-line
       br hr                        ; separators
-      th tr table )
+      th tr table)
  do
  (eval
   `
@@ -568,7 +568,7 @@ Retain previously set punctuations  mode."
     (let ((start (point)))
       ad-do-it
       (let ((start (if (char-equal (following-char) ?\n)
-                       (min (point-max) (1+ start) )start))
+                       (min (point-max) (1+ start))start))
             (end (if (> (point) start) (1- (point)) (point))))
         (put-text-property start end
                            (quote ,tag) 'eww-tag)
@@ -750,7 +750,7 @@ for use as a DOM filter."
 (defun emacspeak-eww-view-helper  (filtered-dom)
   "View helper called by various filtering viewers."
   (declare (special emacspeak-eww-rename-result-buffer
-                    eww-shr-render-functions ))
+                    eww-shr-render-functions))
   (let ((emacspeak-eww-rename-result-buffer nil)
         (url (emacspeak-eww-current-url))
         (title  (format "%s: Filtered" (emacspeak-eww-current-title)))
@@ -959,7 +959,7 @@ Optional interactive arg `multi' prompts for multiple classes."
   "Display DOM filtered by specified  nodes not passing   role=value test.
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
-  (declare (special  eww-shr-render-functions ))
+  (declare (special  eww-shr-render-functions))
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-remove-if
@@ -991,7 +991,7 @@ Optional interactive arg `multi' prompts for multiple classes."
   "Display DOM filtered by specified  nodes not passing   property=value test.
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
-  (declare (special  eww-shr-render-functions ))
+  (declare (special  eww-shr-render-functions))
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-remove-if
@@ -1023,7 +1023,7 @@ Optional interactive arg `multi' prompts for multiple classes."
   "Display DOM filtered by specified  nodes not passing   itemprop=value test.
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
-  (declare (special  eww-shr-render-functions ))
+  (declare (special  eww-shr-render-functions))
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-remove-if
@@ -1083,7 +1083,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
 ;;}}}
 ;;{{{ Filters For Non-interactive  Use:
 
-(defun eww-display-dom-filter-helper (filter arg )
+(defun eww-display-dom-filter-helper (filter arg)
   "Helper for display filters."
   (emacspeak-eww-prepare-eww)
   (let ((dom (funcall  filter  (emacspeak-eww-current-dom)arg)))
@@ -1148,9 +1148,9 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
       ((start
         (or
          (when (get-text-property (point) el)
-           (next-single-property-change (point) el ))
+           (next-single-property-change (point) el))
          (point)))
-       (next (next-single-property-change start  el )))
+       (next (next-single-property-change start  el)))
     (cond
      (next
       (goto-char next)
@@ -1175,7 +1175,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (let* ((start
           (or
            (when (get-text-property  (point) el)
-             (previous-single-property-change (1+ (point)) el ))
+             (previous-single-property-change (1+ (point)) el))
            (point)))
          (previous (previous-single-property-change  start  el)))
     (cond
@@ -1213,7 +1213,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (let* ((eww-tags (text-properties-at (point))))
     (loop
      for i from 0 to (1- (length eww-tags)) by 2
-     if (eq (plist-get eww-tags (nth i eww-tags)) 'eww-tag )
+     if (eq (plist-get eww-tags (nth i eww-tags)) 'eww-tag)
      collect (nth i eww-tags))))
 
 (defsubst emacspeak-eww-read-tags-like-this(&optional prompt)
@@ -1397,7 +1397,7 @@ Warning, this is fragile, and depends on a stable id for the
 (defun emacspeak-eww-transcode ()
   "Apply appropriate transcoding rules to current DOM."
   (interactive)
-  (declare (special eww-element-cache eww-role-cache ))
+  (declare (special eww-element-cache eww-role-cache))
   (emacspeak-eww-prepare-eww)
   (let ((dom (emacspeak-eww-current-dom))
         (article-p (member "article" eww-element-cache))

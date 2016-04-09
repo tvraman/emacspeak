@@ -116,7 +116,7 @@
 
 (defadvice gfeeds-view (around emacspeak pre act comp)
   "Automatically speak display."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-webutils-autospeak))
   ad-do-it
   ad-return-value)
@@ -173,7 +173,7 @@ Generates auditory and visual display."
   feeds
   titles
   timer slow-timer
-  index )
+  index)
 
 (defvar emacspeak-webspace-headlines nil
   "Feedstore structure to use a continuously updating ticker.")
@@ -200,7 +200,7 @@ We use module gfeeds to efficiently fetch feed contents using the
       (mapc
        #'(lambda (h)
            (unless (ring-member titles h)
-             (ring-insert titles h )))
+             (ring-insert titles h)))
        (gfeeds-titles feed)))))
 
 (defsubst emacspeak-webspace-fs-next (fs)
@@ -298,7 +298,7 @@ Updated headlines found in emacspeak-webspace-headlines."
       (put-text-property (point-min) (point) 'face font-lock-doc-face)
       (loop
        for h in
-       (delq nil (ring-elements (emacspeak-webspace-fs-titles emacspeak-webspace-headlines )))
+       (delq nil (ring-elements (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
        and position  from 1
        do
        (insert (format "%d\t" position))
@@ -324,7 +324,7 @@ Updated headlines found in emacspeak-webspace-headlines."
   (insert-text-button
    headline
    'type 'emacspeak-webspace-headline
-   'link (get-text-property 0 'link headline )))
+   'link (get-text-property 0 'link headline)))
 
 ;;}}}
 ;;{{{ Weather:
@@ -369,7 +369,7 @@ Updated weather is found in `emacspeak-webspace-current-weather'."
   (emacspeak-webspace-weather-get)
   (setq emacspeak-webspace-weather-timer
         (run-with-idle-timer 600 'repeat
-                             'emacspeak-webspace-weather-get )))
+                             'emacspeak-webspace-weather-get)))
 
 ;;;###autoload
 (defun emacspeak-webspace-weather ()
@@ -488,7 +488,7 @@ Optional interactive prefix arg forces a refresh."
 (define-button-type 'emacspeak-webspace-freebase-topic
   'id nil
   'help-echo ""
-  'action #'emacspeak-webspace-freebase-topic-expand )
+  'action #'emacspeak-webspace-freebase-topic-expand)
 
 (defun emacspeak-webspace-freebase-topic-expand (button)
   "Expand topic at point."
@@ -517,7 +517,7 @@ Optional interactive prefix arg forces a refresh."
   (insert-text-button
    id
    'type 'emacspeak-webspace-freebase-topic
-   'link (get-text-property 0 'id id   )))
+   'link (get-text-property 0 'id id)))
 
 ;;;###autoload
 (defun emacspeak-webspace-freebase-search (query)

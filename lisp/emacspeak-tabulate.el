@@ -51,15 +51,15 @@
 ;;{{{  helper functions:
 
 ;;; An interval is a cons of start and end 
-(defsubst ems-make-interval (start end ) (cons start end ))
-(defsubst ems-interval-start (interval) (car interval ))
-(defsubst ems-interval-end (interval) (cdr interval  ))
+(defsubst ems-make-interval (start end) (cons start end))
+(defsubst ems-interval-start (interval) (car interval))
+(defsubst ems-interval-end (interval) (cdr interval))
 (defsubst ems-intersect-intervals (i1 i2)
   (let  ((i (cons (max (ems-interval-start i1)
                        (ems-interval-start i2))
                   (min (ems-interval-end i1)
-                       (ems-interval-end i2 )))))
-    (if (< (car i) (cdr i)) i nil )))
+                       (ems-interval-end i2)))))
+    (if (< (car i) (cdr i)) i nil)))
 
 ;;}}}
 ;;{{{  Identify the fields in a region 
@@ -67,23 +67,23 @@
 (defun ems-tabulate-field-separators-in-this-line () 
   "Returns a list of intervals specifying the field separators on the line.
 Fields are assumed to be delimited by whitespace. "
-  (let ((positions nil )
+  (let ((positions nil)
         (end nil)
         (first nil)
         (last nil)
         (continue t))
     (save-excursion
       (end-of-line)
-      (setq end (point ))
+      (setq end (point))
       (beginning-of-line)
       (save-restriction
         (narrow-to-region (point) end)
         (skip-syntax-forward " ")
         (while (and continue
-                    (<= (point)  end ))
+                    (<= (point)  end))
                                         ;skip field
           (unless (zerop (skip-syntax-forward "^ "))
-            (setq first  (current-column  )))
+            (setq first  (current-column)))
                                         ;skip field separator 
           (unless (zerop (skip-syntax-forward " "))
             (setq last (current-column)))
@@ -92,52 +92,52 @@ Fields are assumed to be delimited by whitespace. "
            ((and first
                  last
                  (< first last))
-            (push (ems-make-interval  first last  ) positions))
+            (push (ems-make-interval  first last) positions))
            (t (setq continue nil)))
                                         ;reset fornext iteration
           (setq first nil
-                last nil )))
-      (nreverse  positions ))))
+                last nil)))
+      (nreverse  positions))))
 
-(defun ems-tabulate-field-separators-in-region (start end )
+(defun ems-tabulate-field-separators-in-region (start end)
   "Return a list of column separators. "
-  (when  (< end start )
+  (when  (< end start)
     (let ((tmp end))
       (setq end start
-            start tmp )))
+            start tmp)))
   (save-restriction 
-    (narrow-to-region start end )
+    (narrow-to-region start end)
     (save-excursion
-      (goto-char start )
+      (goto-char start)
       (let  ((try nil)
              (first nil)
              (last nil)
              (interval nil)
              (new-guesses nil)
-             (guesses (ems-tabulate-field-separators-in-this-line )))
+             (guesses (ems-tabulate-field-separators-in-this-line)))
         (while (and guesses
                     (< (point) end)
                     (not (= 1 (forward-line 1))))
           (setq try guesses)
           (while try
-            (beginning-of-line )
-            (goto-char (+ (point )  (ems-interval-start   (car try ))))
+            (beginning-of-line)
+            (goto-char (+ (point)  (ems-interval-start   (car try))))
             (skip-syntax-forward "^ ")
             (setq first (current-column))
             (skip-syntax-forward " ")
-            (setq last (current-column ))
+            (setq last (current-column))
             (setq interval
                   (ems-intersect-intervals (car try)
-                                           (ems-make-interval first last )))
+                                           (ems-make-interval first last)))
             (when interval (push interval  new-guesses))
-            (pop try )
+            (pop try)
             (setq first nil
                   last nil
-                  interval nil ))
+                  interval nil))
           (end-of-line)
           (setf guesses (nreverse new-guesses) 
                 new-guesses nil))
-        guesses ))))
+        guesses))))
 
 (defsubst ems-tabulate-process-column (tl tr br bl mark-headers start)
   (let ((header ( buffer-substring  tl tr))
@@ -147,11 +147,11 @@ Fields are assumed to be delimited by whitespace. "
      (intern (completing-read
               (format "Personality for column %s from  %s through %s"
                       header (- tl start) (- tr start))
-              personality-table  nil t )))
+              personality-table  nil t)))
     (and mark-headers
          (emacspeak-put-text-property-on-rectangle
           tl br
-          'field-name header ))))
+          'field-name header))))
 
 ;;;  White space contains a list of intervals giving position of inter
 ;;;  columnal space. All calculations are done in terms of buffer
@@ -165,7 +165,7 @@ Fields are assumed to be delimited by whitespace. "
 arg mark-fields specifies if the header row information is used to mark fields
 in the white-space."
   (interactive "r\nP")
-  (let ((white-space   (ems-tabulate-field-separators-in-region start end ))
+  (let ((white-space   (ems-tabulate-field-separators-in-region start end))
         (dtk-stop-immediately nil)
         (width nil)
         (tl nil)
@@ -176,14 +176,14 @@ in the white-space."
       (progn
         (message   "Detected %s rows and  %s columns."
                    (count-lines start end)
-                   (+ 1 (length white-space )))
+                   (+ 1 (length white-space)))
         (sit-for 1.5)
         (save-excursion
           (goto-char end)
           (beginning-of-line)
           (setq bl  (point))
-          (setq tl  start )
-                                        ;(goto-char tl )
+          (setq tl  start)
+                                        ;(goto-char tl)
           (setq width   (ems-interval-start (car white-space)))
           (setq tr (+ tl width)
                 br (+ bl width))
@@ -200,7 +200,7 @@ in the white-space."
             (cond
              (white-space
                                         ;white-space holds column positions, not buffer positions
-              (setq width (- (ems-interval-start (car white-space ))
+              (setq width (- (ems-interval-start (car white-space))
                              (- tl start)))
               (setq tr (+ tl width)
                     br (+ bl width)))

@@ -69,7 +69,7 @@
  (eval
   `(defadvice python-shell-send-region (after emacspeak pre act comp)
      "Provide auditory feedback"
-     (when (ems-interactive-p )
+     (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)))))
 
 ;;}}}
@@ -83,9 +83,9 @@
 (defadvice  python-indent-dedent-line-backspace (around emacspeak pre act)
   "Speak character you're deleting."
   (cond
-   ((ems-interactive-p  )
+   ((ems-interactive-p)
     (let ((ws (= 32 (char-syntax (preceding-char)))))      (dtk-tone 500 30 'force)
-         (unless ws (emacspeak-speak-this-char (preceding-char )))
+         (unless ws (emacspeak-speak-this-char (preceding-char)))
          ad-do-it
          (when ws (dtk-notify-speak (format "Indent %s " (current-column))))))
    (t ad-do-it))
@@ -93,12 +93,12 @@
 
 (defadvice python-fill-paragraph (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)))
 
 (defadvice python-indent-shift-left (after emacspeak pre act comp)
   "Speak number of lines that were shifted"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (dtk-speak
      (format "Left shifted block  containing %s lines"
@@ -106,14 +106,14 @@
                            (region-end))))))
 (defadvice python-indent-shift-right (after emacspeak pre act comp)
   "Speak number of lines that were shifted"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (dtk-speak
      (format "Right shifted block  containing %s lines"
              (count-lines  (region-beginning)
                            (region-end))))))
 (defadvice python-indent-region (after emacspeak pre act comp)
   "Speak number of lines that were shifted"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (dtk-speak
      (format "Indented region   containing %s lines"
@@ -137,12 +137,12 @@
  (eval
   `(defadvice  ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
-     (when (ems-interactive-p )
+     (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'large-movement)))))
 
 ;;}}}
-(provide 'emacspeak-python )
+(provide 'emacspeak-python)
 ;;{{{ end of file
 
 ;;; local variables:

@@ -72,7 +72,7 @@ This exists because some people (eg, me) use \"defvar\" et al. ")
     "uplevel" "loop" "for_array_keys" "for_recursive_glob" "for_file"
     "unwind_protect" 
     ;; itcl
-    "method" "itcl_class" )
+    "method" "itcl_class")
   "List of Tcl keywords.  Used only for highlighting.
 Default list includes some TclX keywords. ")
 
@@ -120,19 +120,19 @@ is a Tcl expression, and the last argument is Tcl commands.")
 ;;}}}
 ;;{{{  Advice electric insertion to talk:
 
-(defadvice tcl-electric-hash (after emacspeak pre act comp )
+(defadvice tcl-electric-hash (after emacspeak pre act comp)
   "Speak what you inserted."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-this-char last-input-event)))
 
-(defadvice tcl-electric-char (after emacspeak pre act comp )
+(defadvice tcl-electric-char (after emacspeak pre act comp)
   "Speak what you inserted."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-this-char last-input-event)))
 
-(defadvice tcl-electric-brace (after emacspeak pre act comp )
+(defadvice tcl-electric-brace (after emacspeak pre act comp)
   "Speak what you inserted."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-this-char last-input-event)))
 
 ;;}}}
@@ -140,17 +140,17 @@ is a Tcl expression, and the last argument is Tcl commands.")
 
 (defadvice switch-to-tcl (before emacspeak pre act comp)
   "Announce yourself."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (message "Switching to the Inferior TCL buffer")))
 
 (defadvice tcl-eval-region (after emacspeak  pre act comp)
   "Announce what you did."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (message "Evaluating contents of region")))
 
-(defadvice tcl-eval-defun (after emacspeak pre act comp )
+(defadvice tcl-eval-defun (after emacspeak pre act comp)
   "Announce what you did"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (let* ((start nil)
            (proc-line
             (save-excursion
@@ -158,42 +158,42 @@ is a Tcl expression, and the last argument is Tcl commands.")
               (setq start (point))
               (end-of-line)
               (buffer-substring start (point)))))
-      (message "Evaluated  %s" proc-line ))))
+      (message "Evaluated  %s" proc-line))))
 
 (defadvice tcl-help-on-word (after emacspeak pre act comp)
   "Speak  the help."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'help)
-    (with-current-buffer "*Tcl help*"      (emacspeak-speak-buffer ))))
+    (with-current-buffer "*Tcl help*"      (emacspeak-speak-buffer))))
 
 ;;}}}
 ;;{{{  Program structure:
 
 (defadvice tcl-mark-defun (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (message "Marked procedure")))
 
 (defadvice tcl-beginning-of-defun (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line )))
+    (emacspeak-speak-line)))
 
 (defadvice tcl-end-of-defun (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)))
 
-(defadvice indent-tcl-exp (after emacspeak pre act )
+(defadvice indent-tcl-exp (after emacspeak pre act)
   "Produce an auditory icon"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)))
 
 (defadvice tcl-indent-line (after emacspeak pre act)
   "Speak the line"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)))
 ;;}}}
 

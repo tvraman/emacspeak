@@ -60,7 +60,7 @@
     (loop for k in
           (where-is-internal 'emacspeak-self-insert-command (list table-cell-map))
           do
-          (define-key table-cell-map k '*table--cell-self-insert-command ))
+          (define-key table-cell-map k '*table--cell-self-insert-command))
     (loop for k in
           '(
             ("S-TAB" table-backward-cell)
@@ -74,7 +74,7 @@
 (defadvice *table--cell-delete-char (around emacspeak pre act)
   "Speak character you're deleting."
   (cond
-   ((ems-interactive-p  )
+   ((ems-interactive-p)
     (dtk-tone 500 30 'force)
     (emacspeak-speak-char t)
     ad-do-it)
@@ -84,16 +84,16 @@
 (defadvice *table--cell-delete-backward-char (around emacspeak pre act)
   "Speak character you're deleting."
   (cond
-   ((ems-interactive-p  )
+   ((ems-interactive-p)
     (dtk-tone 500 30 'force)
-    (emacspeak-speak-this-char (preceding-char ))
+    (emacspeak-speak-this-char (preceding-char))
     ad-do-it)
    (t ad-do-it))
   ad-return-value)
 
 (defadvice *table--cell-self-insert-command (after emacspeak pre act comp)
   "Provide spoken output."
-  (when  (ems-interactive-p )
+  (when  (ems-interactive-p)
     (cond
      ((and (= 32 last-input-event)
            emacspeak-word-echo)
@@ -104,36 +104,36 @@
           (emacspeak-speak-region orig (point)))))
      (emacspeak-character-echo
       (dtk-stop)
-      (emacspeak-speak-this-char last-input-event )))))
+      (emacspeak-speak-this-char last-input-event)))))
 
-(defadvice *table--cell-quoted-insert  (after emacspeak pre act )
+(defadvice *table--cell-quoted-insert  (after emacspeak pre act)
   "Speak the character that was inserted."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (table--finish-delayed-tasks)
-    (emacspeak-speak-this-char (preceding-char ))))
+    (emacspeak-speak-this-char (preceding-char))))
 
 (defadvice *table--cell-newline (before emacspeak pre act)
   "Speak the previous line if line echo is on.
 See command \\[emacspeak-toggle-line-echo].  Otherwise cue the user to
 the newly created blank line."
-  (declare (special emacspeak-line-echo ))
-  (when (ems-interactive-p )
+  (declare (special emacspeak-line-echo))
+  (when (ems-interactive-p)
     (table--finish-delayed-tasks)
     (cond
-     (emacspeak-line-echo (emacspeak-speak-line ))
+     (emacspeak-line-echo (emacspeak-speak-line))
      (t(if dtk-stop-immediately (dtk-stop))
-       (dtk-tone 225 120 'force   )))))
+       (dtk-tone 225 120 'force)))))
 
 (defadvice *table--cell-newline-and-indent (around emacspeak pre act)
   "Speak the previous line if line echo is on.
 See command \\[emacspeak-toggle-line-echo].
 Otherwise cue user to the line just created."
-  (declare (special emacspeak-line-echo ))
+  (declare (special emacspeak-line-echo))
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (cond
      (emacspeak-line-echo
-      (emacspeak-speak-line )
+      (emacspeak-speak-line)
       ad-do-it)
      (t ad-do-it
         (dtk-speak-using-voice voice-annotate
@@ -144,14 +144,14 @@ Otherwise cue user to the line just created."
    (t ad-do-it))
   ad-return-value)
 
-(defadvice *table--cell-open-line (after emacspeak pre act )
+(defadvice *table--cell-open-line (after emacspeak pre act)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (let ((count (ad-get-arg 0)))
       (emacspeak-auditory-icon 'open-object)
       (message "Opened %s blank line%s"
                (if (= count 1) "a" count)
-               (if (= count 1 ) "" "s")))))
+               (if (= count 1) "" "s")))))
 
 ;;}}}
 
@@ -175,7 +175,7 @@ Otherwise cue user to the line just created."
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedback by speaking current cell
       contents."
-          (when (ems-interactive-p )
+          (when (ems-interactive-p)
             (table--finish-delayed-tasks)
             (emacspeak-auditory-icon 'select-object)
             (emacspeak-etable-speak-cell)))))

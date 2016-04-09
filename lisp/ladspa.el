@@ -67,7 +67,7 @@
 (cl-defstruct ladspa-control
   desc
   min max default
-  value )
+  value)
 
 (cl-defstruct ladspa-plugin
   desc library label controls)
@@ -146,7 +146,7 @@
     (setf (ladspa-plugin-controls result) (reverse controls))
     result))
 
-(defun ladspa-analyse-library (library )
+(defun ladspa-analyse-library (library)
   "Analyse Ladspa library and return a
 list of parsed ladspa-plugin structures, one per label."
   (declare (special ladspa-analyse))

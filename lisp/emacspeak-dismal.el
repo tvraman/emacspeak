@@ -156,12 +156,12 @@
 ;;; return entry in col 0 of current row as a string:
 
 (defsubst emacspeak-dismal-current-row-header ()
-  (declare (special dismal-current-row ))
+  (declare (special dismal-current-row))
   (dismal-convert-cellexpr-to-string
    (dismal-get-exp dismal-current-row  0)))
 
 (defsubst emacspeak-dismal-current-col-header ()
-  (declare (special dismal-current-col ))
+  (declare (special dismal-current-col))
   (dismal-convert-cellexpr-to-string
    (dismal-get-exp 0  dismal-current-col)))
 
@@ -287,17 +287,17 @@ emacspeak-dismal-row-summarizer-list"
                                  dismal-current-row token)))
                   (put-text-property  0   (length value)
                                       'personality  emacspeak-dismal-value-personality 
-                                      value )
+                                      value)
                   value)
                  ((and (listp token)
                        (numberp (first token))
-                       (numberp (second token )))
+                       (numberp (second token)))
                   (setq value
                         (format "%s"
                                 (emacspeak-dismal-cell-value
                                  (first token)
                                  (second token))))
-                  (put-text-property 0   (length value )
+                  (put-text-property 0   (length value)
                                      'personality emacspeak-dismal-value-personality 
                                      value)
                   value)
@@ -337,7 +337,7 @@ emacspeak-dismal-col-summarizer-list"
                   value)
                  ((and (listp token)
                        (numberp (first token))
-                       (numberp (second token )))
+                       (numberp (second token)))
                   (setq value
                         (format "%s"
                                 (emacspeak-dismal-cell-value
@@ -368,7 +368,7 @@ emacspeak-dismal-sheet-summarizer-list"
           ((stringp token) token)
           ((and (listp token)
                 (numberp (first token))
-                (numberp (second token )))
+                (numberp (second token)))
            (emacspeak-dismal-cell-value
             (first token)
             (second token)))

@@ -118,11 +118,11 @@
     (define-key pianobar-key-map "t" 'emacspeak-pianobar-electric-mode-toggle)
     (define-key pianobar-key-map [right] 'pianobar-next-song)
     (dotimes (i 10)
-      (define-key pianobar-key-map    (format "%s" i )   'emacspeak-pianobar-switch-to-preset ))
+      (define-key pianobar-key-map    (format "%s" i)   'emacspeak-pianobar-switch-to-preset))
     (dotimes (i 25)
       (define-key pianobar-key-map
         (format "%c" (+ i 65))
-        'emacspeak-pianobar-switch-to-preset ))
+        'emacspeak-pianobar-switch-to-preset))
     (define-key  pianobar-key-map [up] 'emacspeak-pianobar-previous-preset)
     (define-key  pianobar-key-map [down] 'emacspeak-pianobar-next-preset)
     (define-key  pianobar-key-map "," 'emacspeak-pianobar-previous-preset)
@@ -157,11 +157,11 @@
       (eval
        `(defadvice ,f (before emacspeak pre act comp)
           "Play auditory icon."
-          (when (ems-interactive-p )
+          (when (ems-interactive-p)
             (emacspeak-auditory-icon 'select-object)))))
 (defadvice pianobar-window-toggle (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (let ((state (get-buffer-window pianobar-buffer)))
       (cond
        (state
@@ -173,7 +173,7 @@
 
 (defadvice pianobar-quit (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 
 ;;}}}
@@ -209,7 +209,7 @@ If electric mode is on, keystrokes invoke pianobar commands directly."
 ;;;###autoload
 (defun emacspeak-pianobar  ()
   "Start or control Emacspeak Pianobar player."
-  (interactive )
+  (interactive)
   (declare (special pianobar-buffer))
   (condition-case nil
       (unless (featurep 'pianobar) (require 'pianobar))

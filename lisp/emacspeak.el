@@ -87,7 +87,7 @@ design and implementation.")
   :link '(url-link :tag "Apps"
                    "http://emacspeak.sf.net/applications.html"
                    :help-echo "Browse available  applications on
-the Emacspeak desktop." )
+the Emacspeak desktop.")
   :link '(url-link :tag "Guide"
                    "http://emacspeak.sf.net/user-guide"
                    :help-echo "Read online user guide.")
@@ -149,11 +149,11 @@ that implements the speech-enabling extensions."
 (emacspeak-do-package-setup "apt-sources" 'emacspeak-apt-sources)
 (emacspeak-do-package-setup "apt-utils" 'emacspeak-apt-utils)
 (emacspeak-do-package-setup "arc-mode" 'emacspeak-arc)
-(emacspeak-do-package-setup "bbdb" 'emacspeak-bbdb )
+(emacspeak-do-package-setup "bbdb" 'emacspeak-bbdb)
 (emacspeak-do-package-setup "bibtex" 'emacspeak-bibtex)
 (emacspeak-do-package-setup "bookmark" 'emacspeak-bookmark)
 (emacspeak-do-package-setup "bmk-mgr" 'emacspeak-bmk-mgr)
-(emacspeak-do-package-setup "browse-kill-ring" 'emacspeak-browse-kill-ring )
+(emacspeak-do-package-setup "browse-kill-ring" 'emacspeak-browse-kill-ring)
 (emacspeak-do-package-setup "bs" 'emacspeak-bs)
 (emacspeak-do-package-setup "buff-menu" 'emacspeak-buff-menu)
 (emacspeak-do-package-setup "cc-mode" 'emacspeak-c)
@@ -173,9 +173,9 @@ that implements the speech-enabling extensions."
 (emacspeak-do-package-setup "ecb" 'emacspeak-ecb)
 (emacspeak-do-package-setup "ein" 'emacspeak-ein)
 (emacspeak-do-package-setup "cus-edit" 'emacspeak-custom)
-(emacspeak-do-package-setup "desktop" 'emacspeak-desktop )
-(emacspeak-do-package-setup "diff-mode" 'emacspeak-diff-mode )
-(emacspeak-do-package-setup "dired" 'emacspeak-dired )
+(emacspeak-do-package-setup "desktop" 'emacspeak-desktop)
+(emacspeak-do-package-setup "diff-mode" 'emacspeak-diff-mode)
+(emacspeak-do-package-setup "dired" 'emacspeak-dired)
 (emacspeak-do-package-setup "dismal" 'emacspeak-dismal)
 (emacspeak-do-package-setup "dictionary" 'emacspeak-dictionary)
 (emacspeak-do-package-setup "dmacro" 'emacspeak-dmacro)
@@ -276,8 +276,8 @@ that implements the speech-enabling extensions."
 (emacspeak-do-package-setup "tdtd" 'emacspeak-tdtd)
 (emacspeak-do-package-setup "xref" 'emacspeak-xref)
 (emacspeak-do-package-setup "tempo" 'emacspeak-tempo)
-(emacspeak-do-package-setup "term" 'emacspeak-eterm )
-(emacspeak-do-package-setup "eudc" 'emacspeak-eudc )
+(emacspeak-do-package-setup "term" 'emacspeak-eterm)
+(emacspeak-do-package-setup "eudc" 'emacspeak-eudc)
 (emacspeak-do-package-setup "tetris" 'emacspeak-tetris)
 (emacspeak-do-package-setup "2048-game" 'emacspeak-2048)
 (emacspeak-do-package-setup "tex-site" 'emacspeak-auctex)
@@ -324,14 +324,14 @@ that implements the speech-enabling extensions."
                   emacspeak-line-echo  emacspeak-word-echo
                   emacspeak-character-echo
                   emacspeak-use-auditory-icons
-                  emacspeak-audio-indentation )))
+                  emacspeak-audio-indentation)))
       (mapcar
        (function
         (lambda (x)
           (if (not (and (boundp x) (symbol-value x)))
               (setq vars (delq x vars))))) vars)
       (reporter-submit-bug-report  emacspeak-bug-address
-                                   (concat "Emacspeak Version: " emacspeak-version )
+                                   (concat "Emacspeak Version: " emacspeak-version)
                                    vars
                                    nil nil
                                    "Description of Problem:"))))
@@ -481,7 +481,7 @@ functions for details.   "
                           (format "  Press %s to get an   overview of emacspeak  %s \
  I am  completely operational,  and all my circuits are functioning perfectly! "
                                   (substitute-command-keys
-                                   "\\[emacspeak-describe-emacspeak]" )
+                                   "\\[emacspeak-describe-emacspeak]")
                                   emacspeak-version))))
 
 (defun emacspeak-describe-emacspeak ()

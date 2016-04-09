@@ -560,7 +560,7 @@ With prefix arg `device', prompt for a alsa/ladspa device."
        do
        (let ((name  (cl-first entry))
              (modes (cl-second entry)))
-         (when (and name modes )
+         (when (and name modes)
            (insert
             (format "%s:\t%s\n"
                     name

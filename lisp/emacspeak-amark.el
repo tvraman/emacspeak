@@ -100,7 +100,7 @@ given name, it is updated with path and position."
               (emacspeak-amark-position amark) position))
        (t 
         (push
-         (make-emacspeak-amark :path path :name name :position position )
+         (make-emacspeak-amark :path path :name name :position position)
          emacspeak-amark-list))))))
 
 (defvar emacspeak-amark-file ".amarks.el"
@@ -133,7 +133,7 @@ given name, it is updated with path and position."
          (locate-dominating-file default-directory emacspeak-amark-file)))
     (cond
      ((null where)
-      (when (ems-interactive-p )
+      (when (ems-interactive-p)
         (message "No AMarks found.")))
      (t (setq buff
               (find-file-noselect (expand-file-name emacspeak-amark-file where)))
@@ -143,7 +143,7 @@ given name, it is updated with path and position."
           (setq l (read buff))
           (kill-buffer buff))
         (setq emacspeak-amark-list l)
-        (when (ems-interactive-p )
+        (when (ems-interactive-p)
           (emacspeak-auditory-icon 'open-object)
           (message "Loaded AMarks from %s" where))))))
 

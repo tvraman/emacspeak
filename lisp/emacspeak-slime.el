@@ -86,7 +86,7 @@
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
      "Say what you completed."
-     (let ((prior (point ))
+     (let ((prior (point))
            (emacspeak-speak-messages nil))
        ad-do-it
        (if (> (point) prior)

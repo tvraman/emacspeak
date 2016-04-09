@@ -71,10 +71,10 @@
 
 ;;; From dtk-speak.el:
 
-(defvar tts-default-speech-rate )
-(defvar dectalk-default-speech-rate )
-(defvar dtk-speech-rate-step )
-(defvar dtk-speech-rate-base )
+(defvar tts-default-speech-rate)
+(defvar dectalk-default-speech-rate)
+(defvar dtk-speech-rate-step)
+(defvar dtk-speech-rate-base)
 
 ;;}}}
 ;;{{{  voice table
@@ -90,12 +90,12 @@ The string can set any Dectalk parameter.")
   "Define a Dectalk voice named NAME.
 This voice will be set   by sending the string
 COMMAND-STRING to the Dectalk."
-  (declare (special dectalk-voice-table ))
+  (declare (special dectalk-voice-table))
   (puthash  name command-string  dectalk-voice-table))
 
 (defsubst dectalk-get-voice-command (name)
   "Retrieve command string for  voice NAME."
-  (declare (special dectalk-voice-table ))
+  (declare (special dectalk-voice-table))
   (cond
    ((listp name)
     (mapconcat #'dectalk-get-voice-command name " "))
@@ -104,8 +104,8 @@ COMMAND-STRING to the Dectalk."
 
 (defsubst dectalk-voice-defined-p (name)
   "Check if there is a voice named NAME defined."
-  (declare (special dectalk-voice-table ))
-  (gethash name dectalk-voice-table ))
+  (declare (special dectalk-voice-table))
+  (gethash name dectalk-voice-table))
 
 ;;}}}
 ;;{{{ voice definitions
@@ -141,14 +141,14 @@ COMMAND-STRING to the Dectalk."
   (when (stringp name)
     (setq name (intern name)))
   (setq dectalk-family-table
-        (cons (list name code )
+        (cons (list name code)
               dectalk-family-table)))
 
 (defsubst dectalk-get-family-code (name)
   "Get control code for voice family NAME."
-  (declare (special dectalk-family-table ))
+  (declare (special dectalk-family-table))
   (when (stringp name)
-    (setq name (intern name )))
+    (setq name (intern name)))
   (or (cadr (assq  name dectalk-family-table))
       ""))
 
@@ -176,7 +176,7 @@ Argument DIMENSION is the dimension being set,
 and TABLE gives the values along that dimension."
   (declare (special dectalk-css-code-tables))
   (let ((key (intern (format "%s-%s" family dimension))))
-    (puthash  key table dectalk-css-code-tables )))
+    (puthash  key table dectalk-css-code-tables)))
 
 (defsubst dectalk-css-get-code-table (family dimension)
   "Retrieve table of values for specified FAMILY and DIMENSION."
@@ -217,14 +217,14 @@ and TABLE gives the values along that dimension."
      (1 101 112)
      (2 108 109)
      (3 112 106)
-     (4 118 103 )
+     (4 118 103)
      (5 122  100)
      (6 128 98)
      (7 134 96)
      (8 140 94)
      (9 147 91)
      ))
-  (dectalk-css-set-code-table 'paul 'average-pitch table ))
+  (dectalk-css-set-code-table 'paul 'average-pitch table))
 
 ;;}}}
 ;;{{{  harry average pitch
@@ -244,14 +244,14 @@ and TABLE gives the values along that dimension."
      (1 59 123)
      (2 68 121)
      (3 77 120)
-     (4 83  118 )
+     (4 83  118)
      (5 89 115)
      (6 95 112)
      (7 110 105)
      (8 125 100)
      (9 140 95)
      ))
-  (dectalk-css-set-code-table 'harry 'average-pitch table ))
+  (dectalk-css-set-code-table 'harry 'average-pitch table))
 
 ;;}}}
 ;;{{{  betty average pitch
@@ -270,14 +270,14 @@ and TABLE gives the values along that dimension."
      (1 170 112)
      (2 181 109)
      (3 192 106)
-     (4 200 103 )
+     (4 200 103)
      (5 208  100)
      (6 219 98)
      (7 225  96)
      (8 240 94)
      (9 260  91)
      ))
-  (dectalk-css-set-code-table 'betty 'average-pitch table ))
+  (dectalk-css-set-code-table 'betty 'average-pitch table))
 
 ;;}}}
 
@@ -314,14 +314,14 @@ and TABLE gives the values along that dimension."
      (1 20 10)
      (2 40 20)
      (3 60 30)
-     (4 80 40 )
-     (5 100 50 )
+     (4 80 40)
+     (5 100 50)
      (6 137 60)
      (7 174 70)
      (8 211 80)
      (9 250 100)
      ))
-  (dectalk-css-set-code-table 'paul 'pitch-range table ))
+  (dectalk-css-set-code-table 'paul 'pitch-range table))
 
 ;;}}}
 ;;{{{  harry pitch range
@@ -340,14 +340,14 @@ and TABLE gives the values along that dimension."
      (1 16 20)
      (2 32 40)
      (3 48 60)
-     (4 64 80 )
-     (5 80 100 )
+     (4 64 80)
+     (5 80 100)
      (6 137 100)
      (7 174 100)
      (8 211 100)
      (9 250 100)
      ))
-  (dectalk-css-set-code-table 'harry 'pitch-range table ))
+  (dectalk-css-set-code-table 'harry 'pitch-range table))
 
 ;;}}}
 ;;{{{  betty pitch range
@@ -366,14 +366,14 @@ and TABLE gives the values along that dimension."
      (1 50 10)
      (2 80 20)
      (3 100 25)
-     (4 110 30 )
+     (4 110 30)
      (5 140 35)
      (6 165 57)
      (7 190 75)
      (8 220 87)
      (9 250 100)
      ))
-  (dectalk-css-set-code-table 'betty 'pitch-range table ))
+  (dectalk-css-set-code-table 'betty 'pitch-range table))
 
 ;;}}}
 (defsubst dectalk-get-pitch-range-code (value family)
@@ -413,7 +413,7 @@ and TABLE gives the values along that dimension."
      (0  0 0 0 0)
      (1 3 6  20 3)
      (2 6 12  40 6)
-     (3 9 18  60 9 )
+     (3 9 18  60 9)
      (4 12 24 80 14)
      (5 18 32  100 18)
      (6 34 50 100 20)
@@ -439,10 +439,10 @@ and TABLE gives the values along that dimension."
                     (fifth setting)))))
    '(
      (0  0 0 0 0)
-     (1 4 6 2 2 )
-     (2 8 12 4 4 )
-     (3 12 18 6 6 )
-     (4 16 24 8 8 )
+     (1 4 6 2 2)
+     (2 8 12 4 4)
+     (3 12 18 6 6)
+     (4 16 24 8 8)
      (5 20 30 10 9)
      (6 40  48 32 16)
      (7 60 66 54 22)
@@ -469,7 +469,7 @@ and TABLE gives the values along that dimension."
      (0  1 1 0 0)
      (1 3 4 11 0)
      (2 5 8 22 0)
-     (3 8 12 33 0 )
+     (3 8 12 33 0)
      (4 11  16 44 0)
      (5 14 20 55 0)
      (6 35 40 65 10)
@@ -481,7 +481,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 (defsubst dectalk-get-stress-code (value family)
-  (or family (setq family 'paul ))
+  (or family (setq family 'paul))
   (if value
       (aref (dectalk-css-get-code-table family 'stress)
             value)
@@ -507,10 +507,10 @@ and TABLE gives the values along that dimension."
      (0 0 100)
      (1 14 80)
      (2 28 60)
-     (3 42 40 )
+     (3 42 40)
      (4 56 20)
-     (5 70  3 )
-     (6 60 24 )
+     (5 70  3)
+     (6 60 24)
      (7 70 16)
      (8 80 8 20)
      (9 100  0)
@@ -535,7 +535,7 @@ and TABLE gives the values along that dimension."
      (3 90 9)
      (4 88 11)
      (5 86 12)
-     (6 60 24 )
+     (6 60 24)
      (7 40 44)
      (8 20 65)
      (9 0 70)
@@ -560,7 +560,7 @@ and TABLE gives the values along that dimension."
      (3 24  28)
      (4 32 10)
      (5 40 4)
-     (6 50 3 )
+     (6 50 3)
      (7 65 3)
      (8 80 8 2)
      (9 100  0)
@@ -599,12 +599,12 @@ and TABLE gives the values along that dimension."
                   (dectalk-get-punctuations-code (acss-punctuations style))
                   (when (or (acss-average-pitch style)
                             (acss-pitch-range style)
-                            (acss-stress style )
+                            (acss-stress style)
                             (acss-richness style))
                     (concat " :dv "
                             (dectalk-get-average-pitch-code (acss-average-pitch style) family)
                             (dectalk-get-pitch-range-code (acss-pitch-range style) family)
-                            (dectalk-get-stress-code (acss-stress style ) family)
+                            (dectalk-get-stress-code (acss-stress style) family)
                             (dectalk-get-richness-code (acss-richness style) family)))
                   "]")))
     (dectalk-define-voice name command)))
@@ -644,7 +644,7 @@ and TABLE gives the values along that dimension."
 ;;;###autoload
 (defun dectalk-make-tts-env  ()
   "Constructs a TTS environment for Dectalk."
-  (declare (special dectalk-default-speech-rate  ))
+  (declare (special dectalk-default-speech-rate))
   (make-tts-env
    :name :dectalk
    :default-voice 'paul

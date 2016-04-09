@@ -72,7 +72,7 @@ Note that some badly formed mime messages  cause trouble."
   (setq dtk-punctuation-mode 'all)
   (when dtk-allcaps-beep
     (dtk-toggle-allcaps-beep))
-  (emacspeak-dtk-sync) )
+  (emacspeak-dtk-sync))
 
 ;;}}}
 ;;{{{ inline helpers
@@ -84,7 +84,7 @@ Note that some badly formed mime messages  cause trouble."
 
 (defadvice vm-minibuffer-complete-word (around emacspeak pre act)
   "Say what you completed."
-  (let ((prior (point ))
+  (let ((prior (point))
         (dtk-stop-immediately t))
     (emacspeak-kill-buffer-carefully "*Completions*")
     ad-do-it
@@ -99,7 +99,7 @@ Note that some badly formed mime messages  cause trouble."
 
 (defadvice vm-minibuffer-complete-word-and-exit (around emacspeak pre act)
   "Say what you completed."
-  (let ((prior (point ))
+  (let ((prior (point))
         (dtk-stop-immediately t))
     (emacspeak-kill-buffer-carefully "*Completions*")
     ad-do-it
@@ -127,10 +127,10 @@ s(defun emacspeak-vm-yank-header ()
    (cond
     (vm-message-pointer
      (dtk-stop)
-     (let*  ((message (car vm-message-pointer ))
-             (from (vm-from-of message ))
-             (subject (vm-subject-of  message ))
-             (to (vm-to-of message ))
+     (let*  ((message (car vm-message-pointer))
+             (from (vm-from-of message))
+             (subject (vm-subject-of  message))
+             (to (vm-to-of message))
              (header nil))
        (while (not header)
          (setq header
@@ -141,7 +141,7 @@ s(defun emacspeak-vm-yank-header ()
                  (?t to))))
        (kill-new header)
        (message "%s" header)))
-    (t (error "No current message." ))))
+    (t (error "No current message."))))
 
 (defcustom emacspeak-vm-headers-strip-octals t
   "Specify whether non-ascii chars should be stripped when
@@ -164,11 +164,11 @@ s(defun emacspeak-vm-yank-header ()
   (declare (special vm-message-pointer smtpmail-local-domain
                     emacspeak-vm-headers-strip-octals))
   (when vm-message-pointer
-    (let*  ((message (car vm-message-pointer ))
+    (let*  ((message (car vm-message-pointer))
             (number (emacspeak-vm-number-of  message))
-            (from (or (vm-su-full-name message) (vm-su-from message )))
-            (subject (vm-su-subject message ))
-            (to (or (vm-su-to-names message) (vm-su-to message )))
+            (from (or (vm-su-full-name message) (vm-su-from message)))
+            (subject (vm-su-subject message))
+            (to (or (vm-su-to-names message) (vm-su-to message)))
             (self-p
              (or (string-match user-mail-address to)
                  (string-match (user-full-name) to)
@@ -194,12 +194,12 @@ s(defun emacspeak-vm-yank-header ()
       (search-forward  (format "%c%c" 10 10) nil)
       (cond
        ((and self-p
-             (= 0 self-p)                    ) ;mail to me and others
+             (= 0 self-p)) ;mail to me and others
         (emacspeak-auditory-icon 'select-object))
        (self-p                          ;mail to others including me
         (emacspeak-auditory-icon 'mark-object))
        (t                            ;got it because of a mailing list
-        (emacspeak-auditory-icon 'item ))))))
+        (emacspeak-auditory-icon 'item))))))
 
 (defun emacspeak-vm-speak-labels ()
   "Speak a message's labels"
@@ -207,7 +207,7 @@ s(defun emacspeak-vm-yank-header ()
   (declare (special vm-message-pointer))
   (when vm-message-pointer
     (message "Labels: %s"
-             (vm-labels-of (car vm-message-pointer )))))
+             (vm-labels-of (car vm-message-pointer)))))
 
 (defun emacspeak-vm-mode-line ()
   "VM mode line information. "
@@ -216,8 +216,8 @@ s(defun emacspeak-vm-yank-header ()
                     vm-ml-message-read vm-ml-message-unread
                     vm-virtual-folder-definition
                     vm-ml-message-new
-                    vm-ml-message-number vm-ml-highest-message-number ))
-  (when (buffer-modified-p )
+                    vm-ml-message-number vm-ml-highest-message-number))
+  (when (buffer-modified-p)
     (dtk-tone 700 70))
   (cond
    (vm-virtual-folder-definition
@@ -234,9 +234,9 @@ s(defun emacspeak-vm-yank-header ()
                (mapconcat
                 (function (lambda(item)
                             (let ((var (car item))
-                                  (value (cadr item )))
+                                  (value (cadr item)))
                               (cond
-                               ((and (boundp var) (eval var ))
+                               ((and (boundp var) (eval var))
                                 (if (symbolp value)
                                     (eval value)
                                   value))
@@ -256,52 +256,52 @@ s(defun emacspeak-vm-yank-header ()
 Useful when you're reading a message
 that has been forwarded multiple times."
   (interactive)
-  (re-search-forward "^ *Subject:" nil t )
+  (re-search-forward "^ *Subject:" nil t)
   (emacspeak-speak-line))
 
 (defadvice vm-scroll-forward (after emacspeak pre act)
   "Produce auditory feedback.
 Then speak the screenful. "
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (save-excursion
-      (let ((start  (point ))
-            (window (get-buffer-window (current-buffer ))))
+      (let ((start  (point))
+            (window (get-buffer-window (current-buffer))))
         (forward-line (window-height window))
-        (emacspeak-speak-region start (point ))))))
+        (emacspeak-speak-region start (point))))))
 
 (defadvice vm-scroll-backward (after emacspeak pre act)
   "Produce auditory feedback.
 Then speak the screenful. "
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'scroll)
     (save-excursion
-      (let ((start  (point ))
-            (window (get-buffer-window (current-buffer ))))
+      (let ((start  (point))
+            (window (get-buffer-window (current-buffer))))
         (forward-line(-  (window-height window)))
-        (emacspeak-speak-region start (point ))))))
+        (emacspeak-speak-region start (point))))))
 (defun emacspeak-vm-browse-message ()
   "Browse an email message --read it paragraph at a time. "
   (interactive)
-  (emacspeak-execute-repeatedly 'forward-paragraph ))
+  (emacspeak-execute-repeatedly 'forward-paragraph))
 
 ;;}}}
 ;;{{{  deleting and killing
 
 (defadvice vm-delete-message (after emacspeak pre act)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (message "Message discarded.")))
 
 (defadvice vm-undelete-message (after emacspeak pre act)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (message "Message recovered.")))
 
 (defadvice vm-kill-subject (after emacspeak pre act)
   "Provide auditory feedback. "
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (call-interactively 'vm-next-message)))
 
@@ -310,59 +310,59 @@ Then speak the screenful. "
 
 (defadvice vm-forward-message (around emacspeak pre act)
   "Provide aural feedback."
-  (if (ems-interactive-p )
+  (if (ems-interactive-p)
       (let ((dtk-stop-immediately nil))
         (message "Forwarding message")
         ad-do-it
-        (emacspeak-speak-line ))
+        (emacspeak-speak-line))
     ad-do-it)
-  ad-return-value )
+  ad-return-value)
 
 (defadvice vm-reply (after emacspeak pre act)
   "Provide aural feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-mode-line)))
 
 (defadvice vm-followup (after emacspeak pre act)
   "Provide aural feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (message "Folluwing up")
     (emacspeak-speak-mode-line)))
 
 (defadvice vm-reply-include-text (after emacspeak pre act)
   "Provide aural feedback."
-  (when (ems-interactive-p )
-    (emacspeak-speak-mode-line )))
+  (when (ems-interactive-p)
+    (emacspeak-speak-mode-line)))
 
 (defadvice vm-followup-include-text (after emacspeak pre act)
   "Provide aural feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (message "Following up")
-    (emacspeak-speak-mode-line )))
+    (emacspeak-speak-mode-line)))
 (defadvice vm-mail-send (after emacspeak pre act comp)
   "Provide auditory context"
-  (when  (ems-interactive-p )
+  (when  (ems-interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'close-object)))
 
 (defadvice vm-mail-send-and-exit (after emacspeak pre act comp)
   "Provide auditory context"
-  (when  (ems-interactive-p )
+  (when  (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 
 (defadvice vm-mail (after emacspeak pre act)
   "Provide aural feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (let ((dtk-stop-immediately nil))
       (message "Composing a message")
-      (emacspeak-speak-line ))))
+      (emacspeak-speak-line))))
 
 ;;}}}
 ;;{{{ quitting
 
-(defadvice vm-quit (after emacspeak pre act )
+(defadvice vm-quit (after emacspeak pre act)
   "Provide an auditory icon if requested"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
@@ -407,7 +407,7 @@ Then speak the screenful. "
   "Provide auditory feedback"
   (declare (special vm-message-pointer))
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (let ((orig (point)))
       ad-do-it
       (cond
@@ -422,7 +422,7 @@ Then speak the screenful. "
   "Provide auditory feedback"
   (declare (special vm-message-pointer))
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (let ((orig (point)))
       ad-do-it
       (cond
@@ -448,8 +448,8 @@ Then speak the screenful. "
   "Provide auditory feedback.
 Leave point at front of decoded attachment."
   (cond
-   ((ems-interactive-p )
-    (let ((orig (point )))
+   ((ems-interactive-p)
+    (let ((orig (point)))
       ad-do-it
       (goto-char orig)
       (message "Decoded attachment")))
@@ -488,7 +488,7 @@ Leave point at front of decoded attachment."
  for hook in
  '(mail-mode-hook vm-presentation-mode-hook)
  do
- (add-hook hook 'emacspeak-pronounce-refresh-pronunciations 'append ))
+ (add-hook hook 'emacspeak-pronounce-refresh-pronunciations 'append))
 
 (loop
  for mode in
@@ -516,7 +516,7 @@ Leave point at front of decoded attachment."
 ;;{{{ advice button motion
 (defadvice vm-next-button (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-text-range  'w3-hyperlink-info)))
 
@@ -742,7 +742,7 @@ text using wvText."
         vm-mime-base64-decoder-program "base64-decode")
   t)
 
-(when (and (featurep 'vm )emacspeak-vm-customize-mime-settings)
+(when (and (featurep 'vm)emacspeak-vm-customize-mime-settings)
   (emacspeak-vm-customize-mime-settings))
 
 ;;}}}

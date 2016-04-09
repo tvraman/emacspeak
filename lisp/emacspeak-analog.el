@@ -60,19 +60,19 @@
 ;;{{{ advice interactive commands
 (defadvice analog (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-analog-update-edit-keys)
     (emacspeak-speak-mode-line)))
 
 (defadvice analog-quit (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 (defadvice analog-bury-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
@@ -87,7 +87,7 @@
       (eval
        `(defadvice ,command (after emacspeak pre act comp)
           "Provide auditory feedback."
-          (when (ems-interactive-p )
+          (when (ems-interactive-p)
             (emacspeak-speak-line)
             (emacspeak-auditory-icon 'select-object)))))
 
@@ -248,7 +248,7 @@ emacspeak-speak-and-skip-extent-upto-char "
              (where-is-internal cmd)
              do
              (define-key analog-mode-map k
-               'emacspeak-speak-and-skip-extent-upto-this-char )))
+               'emacspeak-speak-and-skip-extent-upto-this-char)))
    (list 'emacspeak-self-insert-command
          'completion-separator-self-insert-command)))
 

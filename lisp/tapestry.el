@@ -119,7 +119,7 @@ ROOT-WINDOW-EDGES will be used."
             (setcdr cell 'none)))
       (setq list (cdr list)
             frame-list (cdr frame-list)))
-    map ))
+    map))
 
 (defun tapestry-set-frame-map (map)
   ;; some parameters can only be set only at frame creation time.
@@ -204,14 +204,14 @@ ROOT-WINDOW-EDGES will be used."
                   (t (setq root-window overlap-w))))
           (tapestry-apply-window-map map map-width map-height root-window)
           (setq tapestry-windows-changed t)
-          root-window )
+          root-window)
       (if (tapestry-windows-match-map map map-width map-height)
           (tapestry-first-window)
         (delete-other-windows)
         (setq root-window (selected-window))
         (tapestry-apply-window-map map map-width map-height root-window)
         (setq tapestry-windows-changed t)
-        root-window ))))
+        root-window))))
 
 (defun tapestry-buffer-map ()
   (let ((w-list (tapestry-window-list))
@@ -336,7 +336,7 @@ ROOT-WINDOW-EDGES will be used."
                                              root-window-height)))
         (and (cdr map) (setq current-window (next-window current-window 0)))))
       (setq map (cdr map)))
-    current-window ))
+    current-window))
 
 (defun tapestry-windows-match-map (map
                                    &optional
@@ -411,7 +411,7 @@ ROOT-WINDOW-EDGES will be used."
         nw-edges
       (setq nw-edges (copy-sequence nw-edges))
       (setcdr (nthcdr 1 nw-edges) (nthcdr 2 se-edges))
-      nw-edges )))
+      nw-edges)))
 
 (defun tapestry-compute-map-width (map)
   (let ((edges (tapestry-find-window-map-edges map)))
@@ -432,7 +432,7 @@ ROOT-WINDOW-EDGES will be used."
             (setcdr prev (cdr curr))
             (setq curr (cdr curr)))
         (setq prev curr curr (cdr curr))))
-    list ))
+    list))
 
 (defun tapestry-remove-frame-parameters (map params)
   (let (frame-map)
@@ -496,7 +496,7 @@ ROOT-WINDOW-EDGES will be used."
     (while (not (eq w first-window))
       (setq current-cons (setcdr current-cons (cons w nil)))
       (setq w (next-window w 'nomini)))
-    windows ))
+    windows))
 
 (defun tapestry-first-window ()
   (if (eq (tapestry-selected-frame)
@@ -514,7 +514,7 @@ ROOT-WINDOW-EDGES will be used."
                  ;; window.
                  (not (>= top (nth 1 edges))))
         (setq w (next-window w 'nomini)))
-      w )))
+      w)))
 
 (defun tapestry-window-area (edges)
   (* (- (nth 3 edges) (nth 1 edges))
@@ -551,44 +551,44 @@ ROOT-WINDOW-EDGES will be used."
 (defun tapestry-frame-parameters (&optional f)
   (if (fboundp 'frame-parameters)
       (frame-parameters f)
-    nil ))
+    nil))
 
 (defun tapestry-window-frame (w)
   (if (fboundp 'window-frame)
       (window-frame w)
-    nil ))
+    nil))
 
 (defun tapestry-modify-frame-parameters (f alist)
   (if (fboundp 'modify-frame-parameters)
       (modify-frame-parameters f alist)
-    nil ))
+    nil))
 
 (defun tapestry-select-frame (f)
   (if (fboundp 'select-frame)
       (select-frame f)
-    nil ))
+    nil))
 
 (defun tapestry-selected-frame ()
   (if (fboundp 'selected-frame)
       (selected-frame)
-    nil ))
+    nil))
 
 (defun tapestry-next-frame (&optional f all)
   (if (fboundp 'next-frame)
       (next-frame f all)
-    nil ))
+    nil))
 
 (defun tapestry-make-frame (&optional alist)
   (if (fboundp 'make-frame)
       (make-frame alist)
-    nil ))
+    nil))
 
 (defun tapestry-delete-frame (&optional f)
   (if (fboundp 'delete-frame)
       (delete-frame f)
-    nil ))
+    nil))
 
 (defun tapestry-frame-live-p (f)
   (if (fboundp 'frame-live-p)
       (frame-live-p f)
-    t ))
+    t))

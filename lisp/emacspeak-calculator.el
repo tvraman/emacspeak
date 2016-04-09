@@ -62,7 +62,7 @@
 (defadvice calculator (around emacspeak pre act comp)
   "Fix while waiting for a bug-fix in Emacs."
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (let ((header-line-format nil))
       ad-do-it))
    (t ad-do-it))
@@ -70,14 +70,14 @@
 
 (defadvice calculator (after emacspeak pre act comp)
   "Speech enable calculator."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Welcome to the pocket calculator.")))
 
 (defadvice calculator-digit (around emacspeak pre act comp)
   "Speak the digit."
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (let ((start (point)))
       ad-do-it
       (emacspeak-speak-region start (point))))
@@ -87,7 +87,7 @@
 (defadvice calculator-exp (around emacspeak pre act comp)
   "Speak the digit."
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (let ((start (point)))
       ad-do-it
       (emacspeak-speak-region start (point))))
@@ -97,7 +97,7 @@
 (defadvice calculator-op (around emacspeak pre act comp)
   "Speak the digit."
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     ad-do-it
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-calculator-summarize))
@@ -106,7 +106,7 @@
 (defadvice calculator-op-or-exp (around emacspeak pre act comp)
   "Speak the digit."
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (let ((start (point)))
       ad-do-it
       (emacspeak-speak-region start (point))))
@@ -115,7 +115,7 @@
 (defadvice calculator-open-paren (around emacspeak pre act comp)
   "Speak the digit."
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (let ((start (point)))
       ad-do-it
       (emacspeak-speak-region start (point))))
@@ -125,7 +125,7 @@
 (defadvice calculator-close-paren (around emacspeak pre act comp)
   "Speak the digit."
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (let ((start (point)))
       ad-do-it
       (emacspeak-speak-region start (point))))
@@ -135,7 +135,7 @@
 (defadvice calculator-saved-up (around emacspeak pre act comp)
   "Speak the digit."
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     ad-do-it
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-calculator-summarize))
@@ -145,7 +145,7 @@
 (defadvice calculator-saved-down (around emacspeak pre act comp)
   "Speak the digit."
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     ad-do-it
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-calculator-summarize))
@@ -155,29 +155,29 @@
 (defadvice calculator-save-on-list (after emacspeak pre act
                                           comp)
   "Provide speech feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'save-object)
     (emacspeak-calculator-summarize)))
 
 (defadvice calculator-clear-saved (after emacspeak pre act
                                          comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-calculator-summarize)))
 
 (defadvice calculator-enter (after emacspeak pre act comp)
   "Provide speech feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-calculator-summarize)))
 
 (defadvice calculator-backspace (around emacspeak pre act)
   "Speak character you're deleting."
   (cond
-   ((ems-interactive-p  )
+   ((ems-interactive-p)
     (dtk-tone 500 30 'force)
-    (emacspeak-speak-this-char (preceding-char ))
+    (emacspeak-speak-this-char (preceding-char))
     ad-do-it)
    (t ad-do-it))
   ad-return-value)
@@ -185,35 +185,35 @@
 (defadvice calculator-clear (after emacspeak pre act
                                    comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-calculator-summarize)))
 (defadvice calculator-copy (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-current-kill 1)))
 
 (defadvice calculator-paste (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)))
 
 (defadvice calculator-get-register (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-calculator-summarize)))
 (defadvice calculator-quit (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-mode-line )))
+    (emacspeak-speak-mode-line)))
 (defadvice calculator-save-and-quit (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-mode-line )))
+    (emacspeak-speak-mode-line)))
 
 (defadvice calculator-update-display (after emacspeak pre
                                             act comp)

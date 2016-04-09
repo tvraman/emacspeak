@@ -70,7 +70,7 @@ The string can set any voice parameter.")
   "Define an Espeak  voice named NAME.
 This voice will be set   by sending the string
 COMMAND-STRING to the TTS engine."
-  (declare (special espeak-voice-table ))
+  (declare (special espeak-voice-table))
   (puthash name command-string espeak-voice-table))
 
 (defsubst espeak-get-voice-command  (name)
@@ -84,8 +84,8 @@ COMMAND-STRING to the TTS engine."
 
 (defsubst espeak-voice-defined-p (name)
   "Check if there is a voice named NAME defined."
-  (declare (special espeak-voice-table ))
-  (gethash name espeak-voice-table ))
+  (declare (special espeak-voice-table))
+  (gethash name espeak-voice-table))
 
 ;;}}}
 ;;{{{ voice definitions
@@ -132,7 +132,7 @@ Argument DIMENSION is the dimension being set,
 and TABLE gives the values along that dimension."
   (declare (special espeak-css-code-tables))
   (let ((key (intern (format "%s-%s" family dimension))))
-    (puthash key table espeak-css-code-tables )))
+    (puthash key table espeak-css-code-tables)))
 
 (defsubst espeak-css-get-code-table (family dimension)
   "Retrieve table of values for specified FAMILY and DIMENSION."
@@ -174,7 +174,7 @@ and TABLE gives the values along that dimension."
      (7 70)
      (8 80)
      (9 90)))
-  (espeak-css-set-code-table 'paul 'average-pitch table ))
+  (espeak-css-set-code-table 'paul 'average-pitch table))
 
 ;;}}}
 ;;{{{  harry average pitch
@@ -192,13 +192,13 @@ and TABLE gives the values along that dimension."
      (1 32.5)
      (2 39)
      (3 45.5)
-     (4 52 )
+     (4 52)
      (5 58.5)
      (6 65)
      (7 71.5)
      (8 78)
      (9 84.5)))
-  (espeak-css-set-code-table 'harry 'average-pitch table ))
+  (espeak-css-set-code-table 'harry 'average-pitch table))
 
 ;;}}}
 ;;{{{  betty average pitch
@@ -222,7 +222,7 @@ and TABLE gives the values along that dimension."
      (7 96)
      (8 104)
      (9 112)))
-  (espeak-css-set-code-table 'betty 'average-pitch table ))
+  (espeak-css-set-code-table 'betty 'average-pitch table))
 
 ;;}}}
 
@@ -260,7 +260,7 @@ and TABLE gives the values along that dimension."
      (7 80)
      (8 90)
      (9 100)))
-  (espeak-css-set-code-table 'paul 'pitch-range table ))
+  (espeak-css-set-code-table 'paul 'pitch-range table))
 
 ;;}}}
 ;;{{{  harry pitch range
@@ -284,7 +284,7 @@ and TABLE gives the values along that dimension."
      (7 80)
      (8 90)
      (9 100)))
-  (espeak-css-set-code-table 'harry 'pitch-range table ))
+  (espeak-css-set-code-table 'harry 'pitch-range table))
 
 ;;}}}
 ;;{{{  betty pitch range
@@ -308,7 +308,7 @@ and TABLE gives the values along that dimension."
      (7 80)
      (8 90)
      (9 100)))
-  (espeak-css-set-code-table 'betty 'pitch-range table ))
+  (espeak-css-set-code-table 'betty 'pitch-range table))
 
 ;;}}}
 (defsubst espeak-get-pitch-range-code (value family)
@@ -443,7 +443,7 @@ and TABLE gives the values along that dimension."
            (espeak-get-punctuations-code (acss-punctuations style))
            (espeak-get-average-pitch-code (acss-average-pitch style) family)
            (espeak-get-pitch-range-code (acss-pitch-range style) family)
-           (espeak-get-stress-code (acss-stress style ) family)
+           (espeak-get-stress-code (acss-stress style) family)
            (espeak-get-richness-code (acss-richness style) family)
            )))
     ;;                  "]")))

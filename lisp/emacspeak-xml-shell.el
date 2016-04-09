@@ -107,7 +107,7 @@ Interactive XML browser.
                        (append emacspeak-xml-shell-options
                                (if (string-match ".html?$" system-id)
                                    (list "--html")
-                                 nil )
+                                 nil)
                                (list system-id)))))
     (save-excursion
       (set-buffer buffer)

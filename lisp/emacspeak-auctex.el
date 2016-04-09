@@ -69,38 +69,38 @@
 
 (defadvice LaTeX-fill-paragraph (after emacspeak pre act  comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)))
 
 (defadvice LaTeX-mark-section (after emacspeak pre act)
   "Speak the first line. 
 Also provide an auditory icon. "
-  (when (ems-interactive-p ) 
+  (when (ems-interactive-p) 
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'mark-object)))
 
 (defadvice LaTeX-mark-environment (after emacspeak pre act)
   "Speak the first line. 
 Also provide an auditory icon. "
-  (when (ems-interactive-p ) 
+  (when (ems-interactive-p) 
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'mark-object)))
 
-(defadvice LaTeX-format-paragraph (after emacspeak pre act )
+(defadvice LaTeX-format-paragraph (after emacspeak pre act)
   "Provide auditory feedback"
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object)
     (message "Filled current paragraph")))
-(defadvice LaTeX-format-region (around emacspeak pre act )
+(defadvice LaTeX-format-region (around emacspeak pre act)
   "Ask for confirmation.
 Provide auditory feedback after formatting region"
   (cond
-   ((and (ems-interactive-p )
+   ((and (ems-interactive-p)
          (y-or-n-p "Really format region? "))
     ad-do-it
     (emacspeak-auditory-icon 'fill-object)
     (message "Reformatted region"))
-   ((not (ems-interactive-p )) ad-do-it))
+   ((not (ems-interactive-p)) ad-do-it))
   ad-return-value)
 
 ;;}}}
@@ -108,24 +108,24 @@ Provide auditory feedback after formatting region"
 
 (defadvice LaTeX-find-matching-begin (after emacspeak pre act)
   "Provide auditory feedback. "
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
 (defadvice LaTeX-find-matching-end (after emacspeak pre act)
   "Provide auditory feedback. "
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
 (defadvice LaTeX-close-environment (after emacspeak pre act)
   "Speak the inserted line. "
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-read-previous-line)))
 
 (defadvice TeX-insert-quote(around emacspeak pre act com)
   "Speak quotes that were inserted."
   (cond
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (let ((orig (point)))
       ad-do-it
       (emacspeak-speak-region orig (point))))
@@ -141,32 +141,32 @@ Provide auditory feedback after formatting region"
         (eval
          `(defadvice ,f (after emacspeak pre act comp)
             "Speak what you inserted"
-            (when (ems-interactive-p )
-              (emacspeak-speak-this-char  (preceding-char )))))))
+            (when (ems-interactive-p)
+              (emacspeak-speak-this-char  (preceding-char)))))))
 
 ;;}}}
 ;;{{{  Inserting structures
 
 (defadvice TeX-newline (after emacspeak pre act comp)
   "Provide auditory feedback to indicate indentation."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
 (defadvice LaTeX-insert-item (after emacspeak pre act)
   "Provide auditory feedback. "
-  (when (ems-interactive-p )
-    (emacspeak-speak-line )))
+  (when (ems-interactive-p)
+    (emacspeak-speak-line)))
 
 (defadvice LaTeX-environment (after emacspeak pre act)
   "Provide auditory feedback, by speaking
 the opening line of the newly inserted environment. "
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-read-previous-line)))
 
 (defadvice TeX-insert-macro (around  emacspeak pre act)
   "Provide spoken feedback."
-  (let ((opoint (point )))
+  (let ((opoint (point)))
     ad-do-it
     (emacspeak-speak-region opoint (point))))
 
@@ -175,25 +175,25 @@ the opening line of the newly inserted environment. "
 
 (defadvice TeX-comment-region (after emacspeak pre act)
   "Provide spoken and auditory feedback. "
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice TeX-un-comment (after emacspeak pre act)
   "Provide spoken and auditory feedback. "
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice TeX-un-comment-region (after emacspeak pre act)
   "Provide spoken and auditory feedback. "
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
 (defadvice TeX-comment-paragraph (after emacspeak pre act)
   "Provide spoken and auditory feedback. "
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
@@ -202,9 +202,9 @@ the opening line of the newly inserted environment. "
 
 (defadvice TeX-next-error (after emacspeak pre act)
   "Speak the error line. "
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-line )))
+    (emacspeak-speak-line)))
 
 ;;}}}
 ;;{{{  Hooks
@@ -230,7 +230,7 @@ the opening line of the newly inserted environment. "
 (defadvice TeX-font (around emacspeak pre act comp)
   "Speak the font we inserted"
   (cond 
-   ((ems-interactive-p )
+   ((ems-interactive-p)
     (let ((orig (point)))
       ad-do-it
       (if (ad-get-arg 0)

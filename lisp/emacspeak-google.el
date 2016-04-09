@@ -127,7 +127,7 @@ This variable is buffer-local.")
 (make-variable-buffer-local 'emacspeak-google-toolbelt-names)
 (defun emacspeak-google-toolbelt ()
   "Returns buffer-local toolbelt or a a newly initialized toolbelt."
-  (declare (special emacspeak-google-toolbelt ))
+  (declare (special emacspeak-google-toolbelt))
   (or emacspeak-google-toolbelt
       (setq
        emacspeak-google-toolbelt
@@ -569,7 +569,7 @@ This variable is buffer-local.")
     ad-do-it
     (emacspeak-speak-region  (point)
                              (or
-                              (next-single-property-change (point) 'place-details )
+                              (next-single-property-change (point) 'place-details)
                               (point-max))))
    (t ad-do-it))
   ad-return-value)

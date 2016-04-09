@@ -66,7 +66,7 @@
       (eval
        `(defadvice ,command (after emacspeak pre act comp)
           "Provide auditory feedback."
-          (when (ems-interactive-p )
+          (when (ems-interactive-p)
             (emacspeak-speak-line)
             (emacspeak-auditory-icon 'large-movement)))))
 
@@ -75,7 +75,7 @@
 
 (defadvice ruby-insert-end (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (save-excursion
       (ruby-beginning-of-block)
@@ -83,17 +83,17 @@
 
 (defadvice ruby-reindent-then-newline-and-indent (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
 (defadvice ruby-indent-line (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
 (defadvice ruby-indent-exp (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'fill-object)))
 (unless (and (boundp 'post-self-insert-hook)
@@ -102,7 +102,7 @@
   (defadvice ruby-electric-brace (after emacspeak pre act comp)
     "Speak what you inserted.
 Cue electric insertion with a tone.")
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (let ((emacspeak-speak-messages nil))
       (emacspeak-speak-this-char last-input-event)
       (dtk-tone 800 50 t))))
@@ -121,7 +121,7 @@ Cue electric insertion with a tone.")
       (eval
        `(defadvice ,command (after emacspeak pre act comp)
           "Provide auditory feedback."
-          (when (ems-interactive-p )
+          (when (ems-interactive-p)
             (emacspeak-auditory-icon 'select-object)
             (emacspeak-speak-line)))))
 

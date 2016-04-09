@@ -139,7 +139,7 @@ display."
      (format "%s %s"
              emacspeak-aumix-program
              emacspeak-aumix-reset-options))))
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)))
 (defun emacspeak-aumix-edit ()
   "Edit aumix settings interactively. 
@@ -177,7 +177,7 @@ you are done."
        ((and description
              (string-equal "reset" description))
         (emacspeak-aumix-reset)
-        (when (ems-interactive-p )
+        (when (ems-interactive-p)
           (emacspeak-auditory-icon 'close-object))
         (setq done t))
        (description
@@ -199,18 +199,18 @@ you are done."
 (defun emacspeak-aumix-wave-increase (&optional gain)
   "Increase volume of wave output. "
   (interactive "P")
-  (unless (numberp gain) (setq gain 1 ))
+  (unless (numberp gain) (setq gain 1))
   (let ((emacspeak-speak-messages nil))
     (shell-command
      (format "%s -w +%s"
              emacspeak-aumix-program  gain))
-    (emacspeak-auditory-icon 'select-object) ))
+    (emacspeak-auditory-icon 'select-object)))
 
 ;;;###autoload
 (defun emacspeak-aumix-wave-decrease  (&optional gain)
   "Decrease volume of wave output. "
   (interactive "P")
-  (unless (numberp gain) (setq gain 1 ))
+  (unless (numberp gain) (setq gain 1))
   (let ((emacspeak-speak-messages nil))
     (shell-command
      (format "%s -w -%s"
@@ -221,7 +221,7 @@ you are done."
 (defun emacspeak-aumix-volume-increase (&optional gain)
   "Increase overall volume. "
   (interactive "P")
-  (unless (numberp gain) (setq gain 1 ))
+  (unless (numberp gain) (setq gain 1))
   (let ((emacspeak-speak-messages nil))
     (shell-command
      (format "%s -v +%s"
@@ -232,7 +232,7 @@ you are done."
 (defun emacspeak-aumix-volume-decrease  (&optional gain)
   "Decrease overall volume. "
   (interactive "P")
-  (unless (numberp gain) (setq gain 1 ))
+  (unless (numberp gain) (setq gain 1))
   (let ((emacspeak-speak-messages nil))
     (shell-command
      (format "%s -v -%s"

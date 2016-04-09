@@ -53,29 +53,29 @@
 
 ;;; Prompting in the minibuffer is useful:
 
-(declaim  (special tempo-interactive ))
+(declaim  (special tempo-interactive))
 (setq tempo-interactive t)
 (add-hook 'tempo-insert-string-hook
           (function (lambda (string)
                       (dtk-speak string)
-                      string )))
+                      string)))
 
 ;;}}}
 ;;{{{  Advice: 
 
 (defadvice tempo-forward-mark (after emacspeak pre act)
   "Speak the line."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
 (defadvice tempo-backward-mark (after emacspeak pre act)
   "Speak the line."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
 (defadvice html-helper-smart-insert-item  (after emacspeak pre act)
   "Speak the line."
-  (when (ems-interactive-p )
+  (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
 ;;}}}

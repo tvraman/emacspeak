@@ -67,7 +67,7 @@
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide spoken feedback."
-          (when (ems-interactive-p )
+          (when (ems-interactive-p)
             (let ((entry  (format "%s"
                                   (quote ,f))))
               (setq entry
@@ -81,14 +81,14 @@
   '(rpm-backward-section rpm-beginning-of-section 
                          rpm-forward-section 
                          rpm-end-of-section 
-                         rpm-goto-section )
+                         rpm-goto-section)
   "Navigation commands in rpm-spec to speech-enable.")
 (loop for f in emacspeak-rpm-spec-navigation-commands
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide auditory feedback."
-          (when (ems-interactive-p )
+          (when (ems-interactive-p)
             (emacspeak-auditory-icon 'large-movement)
             (emacspeak-speak-line)))))
 
@@ -110,7 +110,7 @@
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide spoken feedback."
-          (when (ems-interactive-p )
+          (when (ems-interactive-p)
             (let ((target  (format "%s"
                                    (quote ,f))))
               (setq target
@@ -127,7 +127,7 @@
     rpm-toggle-clean 
     rpm-toggle-test 
     rpm-toggle-sign-gpg 
-    rpm-toggle-add-attr )
+    rpm-toggle-add-attr)
   "Toggle commands from rpm-spec that are speech-enabled.")
 
 (loop for f in emacspeak-rpm-spec-toggle-commands
@@ -135,7 +135,7 @@
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
           "Provide spoken feedback."
-          (when (ems-interactive-p )
+          (when (ems-interactive-p)
             (let ((toggle  (format "%s" (quote ,f)))
                   (switch nil))
               (setq switch
