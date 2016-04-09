@@ -147,7 +147,6 @@ emacspeak-filtertext.elc \
 emacspeak-find-dired.elc \
 emacspeak-ftf.elc \
 emacspeak-find-func.elc \
-emacspeak-finder.elc \
 emacspeak-flycheck.elc \
 emacspeak-flyspell.elc \
 emacspeak-folding.elc \
@@ -273,7 +272,7 @@ all: $(OBJECTS)
 
 force:
 
-config: emacspeak-loaddefs.el emacspeak-cus-load.el emacspeak-finder-inf.el
+config: emacspeak-loaddefs.el emacspeak-cus-load.el 
 lint:
 	echo "." |\
 emacs -batch -q \
@@ -281,9 +280,6 @@ emacs -batch -q \
 -f elint-directory 
 # }}}
 # {{{build time target --loaddefs
-
-emacspeak-finder-inf.el: force
-	$(EMACS) $(BATCH) -l emacspeak-load-path.el  -l emacspeak-finder.el  -f emacspeak-finder-compile-keywords
 
 emacspeak-loaddefs.el: force
 	echo ";;;Auto generated" > emacspeak-loaddefs.el
@@ -390,7 +386,6 @@ emacspeak-filtertext.elc: emacspeak-filtertext.el dtk-speak.elc voice-setup.elc
 emacspeak-find-dired.elc: emacspeak-find-dired.el dtk-speak.elc voice-setup.elc
 emacspeak-ftf.elc: emacspeak-ftf.el dtk-speak.elc
 emacspeak-find-func.elc: emacspeak-find-func.el dtk-speak.elc voice-setup.elc
-emacspeak-finder.elc: emacspeak-finder.el
 emacspeak-fix-interactive.elc: emacspeak-fix-interactive.el dtk-speak.elc voice-setup.elc
 emacspeak-flycheck.elc: emacspeak-flycheck.el dtk-speak.elc voice-setup.elc
 emacspeak-flyspell.elc: emacspeak-flyspell.el dtk-speak.elc voice-setup.elc
