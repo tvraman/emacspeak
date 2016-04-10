@@ -140,7 +140,7 @@ Fields are assumed to be delimited by whitespace. "
         guesses))))
 
 (defsubst ems-tabulate-process-column (tl tr br bl mark-headers start)
-  (let ((header ( buffer-substring  tl tr))
+  (let ((header (buffer-substring  tl tr))
         (personality-table (emacspeak-possible-voices)))
     (emacspeak-voiceify-rectangle
      tl br 

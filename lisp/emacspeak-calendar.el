@@ -423,13 +423,13 @@
   (declare (special appt-buffer-name))
   (let  ((appt-buffer (get-buffer appt-buffer-name)))
     (cond
-     ( appt-buffer
-       (save-current-buffer
-         (set-buffer  appt-buffer)
-         (emacspeak-dtk-sync)
-         (if (= (point-min) (point-max))
-             (message  "No appointments are currently displayed")
-           (dtk-speak (buffer-string)))))
+     (appt-buffer
+      (save-current-buffer
+        (set-buffer  appt-buffer)
+        (emacspeak-dtk-sync)
+        (if (= (point-min) (point-max))
+            (message  "No appointments are currently displayed")
+          (dtk-speak (buffer-string)))))
      (t (dtk-speak-and-echo "You have no appointments ")))))
 
 ;;}}}

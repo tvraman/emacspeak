@@ -758,7 +758,7 @@ Suitable for text searches."
     (insert
      (format
       "%-20s%s\n"
-      ( emacspeak-epub-format-author (emacspeak-epub-metadata-author epub))
+      (emacspeak-epub-format-author (emacspeak-epub-metadata-author epub))
       (propertize (emacspeak-epub-metadata-title epub) 'face 'italic)))
     (put-text-property start (point) 'epub key)))
 
@@ -787,7 +787,7 @@ Optional interactive prefix arg author-first prints author at the
   (emacspeak-epub-bookshelf-load)
   (emacspeak-epub-bookshelf-update)
   (emacspeak-epub-bookshelf-redraw)
-  ( emacspeak-epub-bookshelf-save)
+  (emacspeak-epub-bookshelf-save)
   (emacspeak-auditory-icon 'task-done))
 
 (define-derived-mode emacspeak-epub-mode special-mode

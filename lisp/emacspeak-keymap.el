@@ -130,15 +130,15 @@
 
 (loop for binding in
       '(
-        ( "B" customize-browse)
-        ( "G" customize-group)
-        ( "M" emacspeak-speak-popup-messages)
-        ( "M-F" find-function-at-point)
-        ( "M-V" find-variable-at-point)
-        ( "M-f" find-function)
-        ( "M-k" find-function-on-key)
-        ( "M-v" find-variable)
-        ( "V" customize-variable)
+        ("B" customize-browse)
+        ("G" customize-group)
+        ("M" emacspeak-speak-popup-messages)
+        ("M-F" find-function-at-point)
+        ("M-V" find-variable-at-point)
+        ("M-f" find-function)
+        ("M-k" find-function-on-key)
+        ("M-v" find-variable)
+        ("V" customize-variable)
         ("C-e"   emacspeak-describe-emacspeak)
         ("C-l" emacspeak-learn-emacs-mode)
         ("C-m" man)
@@ -156,8 +156,8 @@
 (loop
  for binding in
  '(
-   (  "C-a" emacspeak-toggle-auditory-icons)
-   ( "M-f" emacspeak-frame-label-or-switch-to-labelled-frame)
+   ("C-a" emacspeak-toggle-auditory-icons)
+   ("M-f" emacspeak-frame-label-or-switch-to-labelled-frame)
    ("!" emacspeak-speak-run-shell-command)
    ("#" emacspeak-gridtext)
    ("%" emacspeak-speak-current-percentage)

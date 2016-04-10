@@ -60,9 +60,9 @@
 (loop
  for binding in
  '(
-   ( "M-l" emacspeak-table-ui-filter-load)
-   ( "M-s" emacspeak-table-ui-filter-save)
-   ( "S-<tab>" emacspeak-table-previous-column)
+   ("M-l" emacspeak-table-ui-filter-load)
+   ("M-s" emacspeak-table-ui-filter-save)
+   ("S-<tab>" emacspeak-table-previous-column)
    ("#" emacspeak-table-sort-on-current-column)
    ("." emacspeak-table-speak-coordinates)
    ("," emacspeak-table-find-csv-file)
@@ -176,7 +176,7 @@ The concept is best explained with an example.
 
 A row filter specifies which of the entries in the current row should be
 spoken.Entries are numbered starting with 0.  Thus, when working with a table
-having 8 columns, a row filter of ( 1 2 3) will speak only entries 1 2 and 3.
+having 8 columns, a row filter of (1 2 3) will speak only entries 1 2 and 3.
 Use the sample tables in etc/tables   to familiarize yourself with this
 feature. Note that you can intersperse meaningful strings in the list that
 specifies the filter.

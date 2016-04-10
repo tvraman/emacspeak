@@ -149,7 +149,7 @@ s   Sub-square Distribution.
   "Return sub-square that this cell is in."
   (let ((row (second cell))
         (column (first cell)))
-    (+ ( * 3 (/ row 3))
+    (+ (* 3 (/ row 3))
        (/ column 3))))
 
 (defun emacspeak-sudoku-speak-current-sub-square ()

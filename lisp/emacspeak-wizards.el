@@ -1136,7 +1136,7 @@ Extracted content is placed as a csv file in task.csv."
       (emacspeak-table-view-csv-buffer))))
 
 ;;;###autoload
-(defun emacspeak-wizards-get-table-content-from-file ( file depth count)
+(defun emacspeak-wizards-get-table-content-from-file (file depth count)
   "Extract table specified by depth and count from HTML
 content at file.
 Extracted content is sent to STDOUT."

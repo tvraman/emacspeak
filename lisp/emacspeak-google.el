@@ -144,7 +144,7 @@ This variable is buffer-local.")
         (make-emacspeak-google-tool
          :name "recent"
          :param "rcnt"
-         :range '( 0 1)
+         :range '(0 1)
          :default 0
          :value 0
          :type 'tbs)

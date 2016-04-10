@@ -236,7 +236,7 @@ and end."
    (t ""))
   "Set according to the XML Shell in use.")
 
-(defun emacspeak-xml-shell-process-node ( xpath display-function)
+(defun emacspeak-xml-shell-process-node (xpath display-function)
   "Apply display-function to the contents of node specified by xpath.
 Display function accepts two arguments, start and end that specify the
 region of text to process."

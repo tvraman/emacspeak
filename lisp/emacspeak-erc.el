@@ -240,8 +240,8 @@ set the current local value to the result.")
   (declare (special emacspeak-erc-room-monitor
                     emacspeak-erc-monitor-my-messages
                     emacspeak-erc-my-nick))
-  (let ( (buffer (ad-get-arg 1))
-         (case-fold-search t))
+  (let ((buffer (ad-get-arg 1))
+        (case-fold-search t))
     (with-current-buffer  buffer
       (when (and emacspeak-erc-room-monitor
                  emacspeak-erc-monitor-my-messages)
@@ -259,8 +259,8 @@ set the current local value to the result.")
   (declare (special emacspeak-erc-room-monitor
                     emacspeak-erc-monitor-my-messages
                     emacspeak-erc-my-nick))
-  (let ( (buffer (ad-get-arg 1))
-         (case-fold-search t))
+  (let ((buffer (ad-get-arg 1))
+        (case-fold-search t))
     (save-current-buffer
       (set-buffer buffer)
       (when (and emacspeak-erc-room-monitor

@@ -460,7 +460,7 @@ the words that were capitalized."
       (cond
        ((and thisblank singleblank)
         (message "Deleting current blank line"))
-       ( thisblank (message "Deleting surrounding blank lines"))
+       (thisblank (message "Deleting surrounding blank lines"))
        (t (message "Deleting possible subsequent blank lines"))))))
 
 ;;}}}

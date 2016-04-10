@@ -180,7 +180,7 @@ Generates auditory and visual display."
 (defvar emacspeak-webspace-headlines-period '(0 1800 0)
   "How often we fetch from a feed.")
 
-(defsubst emacspeak-webspace-headlines-fetch ( feed)
+(defsubst emacspeak-webspace-headlines-fetch (feed)
   "Add headlines from specified feed to our cache.
 Newly found headlines are inserted into the ring within our feedstore.
 We use module gfeeds to efficiently fetch feed contents using the

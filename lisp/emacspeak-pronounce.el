@@ -137,8 +137,8 @@ Arguments STRING and PRONUNCIATION specify what is being defined."
     (set (make-local-variable 'emacspeak-pronounce-pronunciation-table)
          (emacspeak-pronounce-compose-pronunciation-table))
     (emacspeak-auditory-icon 'on))
-   ( emacspeak-pronounce-pronunciation-table ;already on --
-     (emacspeak-auditory-icon 'on))
+   (emacspeak-pronounce-pronunciation-table ;already on --
+    (emacspeak-auditory-icon 'on))
    (t ;turn it on
     (setq emacspeak-pronounce-pronunciation-table
           (emacspeak-pronounce-compose-pronunciation-table))))
@@ -552,9 +552,9 @@ Activates pronunciation dictionaries if not already active."
    ((not (boundp 'emacspeak-pronounce-pronunciation-table)) ;first time
     (set (make-local-variable 'emacspeak-pronounce-pronunciation-table)
          (emacspeak-pronounce-compose-pronunciation-table)))
-   ( emacspeak-pronounce-pronunciation-table ;already on --refresh it
-     (setq emacspeak-pronounce-pronunciation-table
-           (emacspeak-pronounce-compose-pronunciation-table)))
+   (emacspeak-pronounce-pronunciation-table ;already on --refresh it
+    (setq emacspeak-pronounce-pronunciation-table
+          (emacspeak-pronounce-compose-pronunciation-table)))
    (t ;turn it on
     (setq emacspeak-pronounce-pronunciation-table
           (emacspeak-pronounce-compose-pronunciation-table))))
@@ -776,7 +776,7 @@ specified pronunciation dictionary key."
     (propertize
      (calendar-date-string
       (list
-       ( read (substring string 4 6))
+       (read (substring string 4 6))
        (read (substring string 6))
        (read (substring string 0 4)))
       nil 'nodayname)

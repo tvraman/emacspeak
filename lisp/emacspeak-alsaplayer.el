@@ -426,7 +426,7 @@ Optional second arg watch-pattern specifies line of output to
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
-(defun emacspeak-alsaplayer-forward-minute ( minutes)
+(defun emacspeak-alsaplayer-forward-minute (minutes)
   "Skip forward by  minutes."
   (interactive "p")
   (emacspeak-alsaplayer-send-command
@@ -436,7 +436,7 @@ Optional second arg watch-pattern specifies line of output to
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
-(defun emacspeak-alsaplayer-backward-minute ( minutes)
+(defun emacspeak-alsaplayer-backward-minute (minutes)
   "Skip backwards by  minutes."
   (interactive "p")
   (emacspeak-alsaplayer-send-command
@@ -447,7 +447,7 @@ Optional second arg watch-pattern specifies line of output to
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
-(defun emacspeak-alsaplayer-forward-ten-minutes ( minutes)
+(defun emacspeak-alsaplayer-forward-ten-minutes (minutes)
   "Skip forward by  chunks of ten minutes."
   (interactive "p")
   (emacspeak-alsaplayer-send-command
@@ -458,7 +458,7 @@ Optional second arg watch-pattern specifies line of output to
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
-(defun emacspeak-alsaplayer-backward-ten-minutes ( minutes)
+(defun emacspeak-alsaplayer-backward-ten-minutes (minutes)
   "Skip backwards by  chunks of minutes."
   (interactive "p")
   (emacspeak-alsaplayer-send-command

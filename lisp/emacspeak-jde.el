@@ -286,11 +286,11 @@
   "Speak line we jumped to.
 If we are on the last call, do nothing."
   (cond
-   ( (and (ems-interactive-p)
-          (car jde-xref-stack))
-     ad-do-it
-     (emacspeak-auditory-icon 'large-movement)
-     (emacspeak-speak-line))
+   ((and (ems-interactive-p)
+         (car jde-xref-stack))
+    ad-do-it
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-speak-line))
    (t ad-do-it))
   ad-return-value)
 

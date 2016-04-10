@@ -922,8 +922,8 @@ and speaking that window upon seeing screen activity."
   (declare (special emacspeak-eterm-focus-window))
   (let  ((window-id nil))
     (cond
-     ( flag (setq emacspeak-eterm-focus-window nil)
-            (message "Emacspeak eterm focus set to entire screen "))
+     (flag (setq emacspeak-eterm-focus-window nil)
+           (message "Emacspeak eterm focus set to entire screen "))
      (t
       (setq window-id
             (read-minibuffer  "Specify eterm window to focus on "))
@@ -956,8 +956,8 @@ activity within the filter window."
   (declare (special emacspeak-eterm-filter-window))
   (let  ((window-id nil))
     (cond
-     ( flag (setq emacspeak-eterm-filter-window nil)
-            (message "Emacspeak eterm filter set to entire screen "))
+     (flag (setq emacspeak-eterm-filter-window nil)
+           (message "Emacspeak eterm filter set to entire screen "))
      (t
       (setq window-id
             (read-minibuffer  "Specify eterm window to filter on "))

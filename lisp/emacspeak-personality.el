@@ -274,10 +274,10 @@ Simple means that voiceification is not cumulative."
            ((symbolp value)
             (setq voice (voice-setup-get-voice-for-face value)))
            ((ems-plain-cons-p value)) ;;pass on plain cons
-           ( (listp value)
-             (setq voice
-                   (delq nil
-                         (mapcar   #'voice-setup-get-voice-for-face value)))))
+           ((listp value)
+            (setq voice
+                  (delq nil
+                        (mapcar   #'voice-setup-get-voice-for-face value)))))
         (error nil))
       voice)))
 

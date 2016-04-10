@@ -204,7 +204,7 @@ part of the libxslt package."
         (when emacspeak-xslt-nuke-null-char
           (goto-char (point-min))
           (while (search-forward
-                  ( format "%c" 0)
+                  (format "%c" 0)
                   nil  t)
             (replace-match " "))))
       (when (get-buffer  "*xslt errors*")

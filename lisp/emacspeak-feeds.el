@@ -339,8 +339,8 @@ Argument `feed' is a feed structure (label url type)."
   (let ((url (button-get button 'url))
         (link (button-get button 'link)))
     (cond
-     ( (zerop (length url)) ; missing feed url 
-       (browse-url (button-get button 'link)))
+     ((zerop (length url)) ; missing feed url 
+      (browse-url (button-get button 'link)))
      ((string-match "atom" url)
       (emacspeak-feeds-atom-display url))
      ((string-match "blogspot" url)

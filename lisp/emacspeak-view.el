@@ -227,7 +227,7 @@
    (t ad-do-it))
   ad-return-value)
 
-(defadvice View-back-to-mark ( after emacspeak pre act comp)
+(defadvice View-back-to-mark (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)

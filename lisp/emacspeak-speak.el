@@ -1574,7 +1574,7 @@ indicating the arrival  of new mail when displaying the mode line.")
           (frame-info nil))
       (or (gethash  frame-name emacspeak-voicefied-frame-info)
           (progn
-            ( setq frame-info (format " %s " frame-name))
+            (setq frame-info (format " %s " frame-name))
             (put-text-property 0 (length frame-info)
                                'personality voice-lighten-extra frame-info)
             (puthash  frame-name frame-info emacspeak-voicefied-frame-info)
@@ -2763,7 +2763,7 @@ any other key to speak entire sexp."
 (eval-when (compile) (require 'rect))
 ;;; These help you listen to columns of text. Useful for tabulated data
 ;;;###autoload
-(defun emacspeak-speak-rectangle ( start end)
+(defun emacspeak-speak-rectangle (start end)
   "Speak a rectangle of text.
 Rectangle is delimited by point and mark.
 When call from a program,
@@ -2810,7 +2810,7 @@ Prompts for PERSONALITY  with completion when called interactively."
                               personality-table nil t))))
     (with-silent-modifications
       (operate-on-rectangle
-       (function (lambda ( start-seg begextra endextra)
+       (function (lambda (start-seg begextra endextra)
                    (emacspeak-put-personality start-seg  (point) personality)))
        start end  nil))))
 
@@ -2837,7 +2837,7 @@ Argument PROP specifies the property and VALUE gives the
 value to apply."
   (require 'rect)
   (operate-on-rectangle
-   (function (lambda ( start-seg begextra endextra)
+   (function (lambda (start-seg begextra endextra)
                (put-text-property  start-seg (point)    prop value)))
    start end  nil))
 

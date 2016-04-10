@@ -83,7 +83,7 @@
   "Instantiate URL identified by URL template."
   (let ((url
          (apply 'format
-                ( emacspeak-url-template-template ut)
+                (emacspeak-url-template-template ut)
                 (mapcar
                  #'(lambda (g)
                      (let ((input nil))
