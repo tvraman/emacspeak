@@ -12,7 +12,10 @@
        (emacs-lisp-mode)
        (goto-char (point-min))
        (while (re-search-forward "( +" (point-max) 'no-error)
-         (unless (char-equal ?\\ (char-before (match-beginning 0)))
+         (unless
+             (or
+              (char-equal ?\\ (char-before (match-beginning 0)))
+              (char-equal ?? (char-before (match-beginning 0))))
          (replace-match "(")))
        (goto-char (point-min))
        (while (re-search-forward " +)" (point-max) 'no-error)
