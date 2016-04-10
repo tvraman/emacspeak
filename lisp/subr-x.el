@@ -34,6 +34,7 @@
 
 (require 'pcase)
 
+
 (defmacro internal--thread-argument (first? &rest forms)
   "Internal implementation for `thread-first' and `thread-last'.
 When Argument FIRST? is non-nil argument is threaded first, else
@@ -99,10 +100,10 @@ threading."
 (defun internal--build-binding (binding prev-var)
   "Check and build a single BINDING with PREV-VAR."
   (thread-first
-   binding
-   internal--listify
-   internal--check-binding
-   (internal--build-binding-value-form prev-var)))
+      binding
+    internal--listify
+    internal--check-binding
+    (internal--build-binding-value-form prev-var)))
 
 (defun internal--build-bindings (bindings)
   "Check and build conditional value forms for BINDINGS."
