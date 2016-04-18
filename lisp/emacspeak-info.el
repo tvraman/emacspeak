@@ -156,11 +156,13 @@ and then cue the next selected buffer."
 (defadvice Info-next-reference (after emacspeak pre act)
   "Speak the line. "
   (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
 (defadvice Info-prev-reference (after emacspeak pre act)
   "Speak the line. "
   (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
 ;;;###autoload
