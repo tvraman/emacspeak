@@ -10,7 +10,7 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 ** Multiple Media Players 
 
 Module [[http://emacspeak.blogspot.com/2015/11/listening-to-multiple-media-streams-on.html][emacspeak-m-player]] can now launch and control multiple media
-player instances. Use C-e;\ to persist current m-player session; Use a
+player instances. Use C-e;\ to persist the current m-player session; Use a
 prefix arg to give that session a name.
 
 ** Panning In MPlayer
@@ -38,8 +38,10 @@ It is integrated with =MPlayer=.
 **  Speech-Enabled ElPY:
 
 Module =emacspeak-elpy.el= speech-enables package =ElPY= --- a Python IDE.
+
 ** SoundScapes:
-[[http://emacspeak.blogspot.com/2015/11/listening-to-multiple-media-streams-on][Soundscapes]] --- a continuous loop of softly played sound-effects ---
+
+[[http://emacspeak.blogspot.com/2015/11/listening-to-multiple-media-streams-on][Soundscapes]] --- a continuous loop of softly playing sound-effects ---
 can be automatically turned on and off to match the user's current
 activity. Module ~soundscape.el~ implements SoundScapes using Python
 package ~boodler~ --- see [[http://boodler.org]].
@@ -49,13 +51,14 @@ package ~boodler~ --- see [[http://boodler.org]].
 
 Directory emacspeak/scapes includes Soundscapes developed for use on
 the Audio Desktop.
+These scapes will not be distributed as part of Emacspeak due to their
+size --- they can be obtained from the GitHub repository.
 
 ** Using CrossFeed With ALSA
 
-File ~scapes/bs2b-asoundrc~ defines   *crossfeed*  and *tap_reverb* virtual devices
-that can be used to  enable enhanced headphones listening --- works
-particularly well for soundscapes.
-
+File ~scapes/ladspa-asoundrc~ defines *crossfeed*, *reverb_crossfeed*
+and *tap_reverb* virtual devices that can be used to enable enhanced
+headphones listening --- works particularly well for soundscapes.
 
 ** MPlayer, HRTF And OpenAL
 
@@ -65,4 +68,11 @@ a better listening experience.
 
 ** Helm Support:
 
-Module emacspeak-helm.el enhanced to provide better coverage of Helm use-cases.
+Module emacspeak-helm.el has been enhanced to provide better coverage of Helm use-cases.
+
+
+** Browsing/Choosing Completions From Within The Minibuffer:
+
+You can now use =C-n= and =C-p=  in the minibuffer to move through
+displayed completion and =C-c= to select the current completion. 
+
