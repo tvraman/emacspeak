@@ -17,4 +17,4 @@ org.emacspeak.%.1.0.boop:  %/*
 .phony: clean
 
 clean:
-	rm -f *.boop
+	rm -f *.boop *.elc
