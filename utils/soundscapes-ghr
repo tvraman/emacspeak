@@ -1,0 +1,27 @@
+#!/bin/sh
+#Upload a Soundscape release to github
+#Usage:  $1 tagname $2 filename asset (tar.bz2)
+# Set token, username and repo in environment
+
+. ${HOME}/.github_token
+export PATH=$PATH:$GOPATH/bin
+
+
+# First,  create a release for this tag.
+github-release release --tag $1 --name "Release $1 " 
+
+# Next, upload the tar.bz2 dist package 
+github-release upload --tag $1 --name $2 --file $2
+
+
+
+
+
+
+
+
+echo "Released $1"
+#uploaded assets are under release name:
+#https://github.com/tvraman/emacspeak/releases/download/tagname/assetname
+
+echo "Download URL: https://github.com/tvraman/emacspeak/releases/download/$1/$2"
