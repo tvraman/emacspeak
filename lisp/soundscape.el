@@ -537,7 +537,7 @@ With prefix arg `device', prompt for a alsa/ladspa device."
             `("--device"
               ,(completing-read
                 "Filter Device: "
-                '("crossfeed" "crossfeed_reverb")))))))
+                '("crossfeed" "reverb_crossfeed")))))))
     (when soundscape--auto (soundscape-toggle)
           (soundscape-listener-shutdown))
     (soundscape-toggle)

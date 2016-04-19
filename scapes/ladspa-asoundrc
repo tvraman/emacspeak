@@ -41,7 +41,7 @@ pcm.crossfeed {
   plugins [{
     label bs2b
     input {
-      controls [ 725 6.0 ] # The defaults are 725Hz crossover frequency and 4.5dB rolloff
+      controls [ 725 4.5 ] # The defaults are 725Hz crossover frequency and 4.5dB rolloff
     }
   }]
   }
@@ -68,7 +68,7 @@ pcm.tap_reverb {
 # }}}
 # {{{crossfeed_reverb 
 #tap_reverb -> bs2b
-pcm.crossfeed_reverb {
+pcm.reverb_crossfeed {
   type plug
   slave.pcm {
   type ladspa
@@ -76,7 +76,7 @@ pcm.crossfeed_reverb {
   path "/usr/lib/ladspa/"
   plugins [
       {label tap_reverb #ambiance thick (hd)
-       input {controls [5500 0 -18 1 1 1 1 4]}
+       input {controls [2400 0 -20 1 1 1 1 4]}
       }
       {label bs2b
        input {controls [ 725 4.5 ]}
