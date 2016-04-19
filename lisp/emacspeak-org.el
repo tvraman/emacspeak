@@ -205,6 +205,7 @@
 (loop
  for f in
  '(
+   org-delete-indentation
    org-insert-heading org-insert-todo-heading
                       org-promote-subtree org-demote-subtree
                       org-do-promote org-do-demote
