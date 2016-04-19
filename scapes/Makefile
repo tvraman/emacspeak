@@ -4,7 +4,10 @@
 SRC :=  seascape birds nature listen
 BOOPS :=  $(foreach d,${SRC},org.emacspeak.$d.1.0.boop)
 
-all: ${BOOPS}
+all: ${BOOPS} soundscape.elc 
+
+soundscape.elc: soundscape.el
+	emacs -batch -q --no-site-file -f batch-byte-compile $<
 
 # Create and install packages if modified 
 
