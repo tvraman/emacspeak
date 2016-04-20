@@ -54,6 +54,9 @@ the Audio Desktop.
 These scapes will not be distributed as part of Emacspeak due to their
 size --- they can be obtained from the GitHub repository.
 
+A release snapshot can be found at
+https://github.com/tvraman/emacspeak/releases/download/soundscape-1.1/soundscapes-1.1.tar.bz2
+
 ** Using CrossFeed With ALSA
 
 File ~scapes/ladspa-asoundrc~ defines *crossfeed*, *reverb_crossfeed*
