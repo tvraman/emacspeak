@@ -1,6 +1,6 @@
         @c $Id$
         @node TTS Servers
-        @chapter Emacspeak TTS Servers
+        @chapter  TTS Servers
 
         Emacspeak produces spoken output by communicating with one of many
         speech servers. This section documents the communication protocol
