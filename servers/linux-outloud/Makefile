@@ -1,5 +1,5 @@
 #$Id$
-
+# Install g++-multilib to compile
 INSTALL = install
 PREFIX = /usr
 LIBPARENTDIR = ${PREFIX}/share/emacs/site-lisp
