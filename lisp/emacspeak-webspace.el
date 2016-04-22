@@ -554,6 +554,17 @@ Optional interactive prefix arg forces a refresh."
     (switch-to-buffer buffer)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
+;;; Will transition to Knowledge Graph:
+;;; Google Knowledge Graph Search API  |  Knowledge G https://developers.google.com/knowledge-graph/
+
+(defcustom emacspeak-webspace-kg-key  nil
+  "API Key for Google Knowledge Graph."
+  :type 
+  '(choice  
+    (const :tag "None" "")
+    (string :tag "Key" :value ""))
+  :group 'emacspeak-webspace)
+
 
 ;;}}}
 (provide 'emacspeak-webspace)
