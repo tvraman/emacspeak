@@ -565,6 +565,9 @@ Optional interactive prefix arg forces a refresh."
     (string :tag "Key" :value ""))
   :group 'emacspeak-webspace)
 
+(defvar emacspeak-webspace-kg-rest-end-point
+  "https://kgsearch.googleapis.com/v1/entities:search?query=%s&key=%s&limit=5"
+  "Rest end-point for KG Search.")
 
 ;;}}}
 (provide 'emacspeak-webspace)
