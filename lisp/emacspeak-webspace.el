@@ -592,6 +592,43 @@ Optional interactive prefix arg forces a refresh."
         (g-json-get 'itemListElement
                     (emacspeak-webspace-kg-json-ld query limit))))
 
+
+(defsubst emacspeak-webspace-kg-format-result (result)
+  "Format result as HTML."
+  (let-alist result
+    (format
+     "<p><a href='%s'>%s</a>:
+<strong>%s</strong></p>
+<p>%s</p>
+<img src='%s'\n>"
+     (g-json-get 'url .detailedDescription) .name 
+     .description 
+     (g-json-get 'articleBody .detailedDescription)
+     (g-json-get 'contentUrl .image))))
+rm
+(defun emacspeak-webspace-knowledge-search (query &optional limit)
+  "Perform a Google Knowledge Graph search.
+Optional interactive prefix arg `limit' prompts for number of results, default is 1."
+  (interactive "sQuery:\nP")
+  (or limit (setq limit 1))
+  (let ((results (emacspeak-webspace-kg-results query limit)))
+    (with-temp-buffer
+      (insert (format "<html><head><title>%s</title></head><body>\n" query))
+      (cond
+       ((> limit 1)
+        (insert "<ol>\n")
+        (loop
+         for r in results do
+         (insert "<li>")
+         (insert (emacspeak-webspace-kg-format-result r))
+         (insert "</li>\n"))
+        (insert "</ol>\n"))
+       (t(insert  (emacspeak-webspace-kg-format-result (first results)))))
+      (insert "</body></html>\n")
+      (browse-url-of-buffer))))
+ 
+      
+        
 ;;}}}
 (provide 'emacspeak-webspace)
 ;;{{{ end of file
