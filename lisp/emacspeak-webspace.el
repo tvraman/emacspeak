@@ -597,15 +597,15 @@ Optional interactive prefix arg forces a refresh."
   "Format result as HTML."
   (let-alist result
     (format
-     "<p><a href='%s'>%s</a>:
+     "<p><a href='%s'>%s</a> is a %s.
 <strong>%s</strong></p>
 <p>%s</p>
 <img src='%s'\n>"
-     (g-json-get 'url .detailedDescription) .name 
+     (g-json-get 'url .detailedDescription) .name  (aref  .@type 0)
      .description 
-     (g-json-get 'articleBody .detailedDescription)
+     (or (g-json-get 'articleBody .detailedDescription) "")
      (g-json-get 'contentUrl .image))))
-rm
+
 (defun emacspeak-webspace-knowledge-search (query &optional limit)
   "Perform a Google Knowledge Graph search.
 Optional interactive prefix arg `limit' prompts for number of results, default is 1."
