@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1148 commands and 940 options.
+This chapter documents a total of 1149 commands and 941 options.
 
 @menu
 * acss-structure::
@@ -80,7 +80,6 @@ This chapter documents a total of 1148 commands and 940 options.
 * emacspeak-filtertext::
 * emacspeak-find-dired::
 * emacspeak-find-func::
-* emacspeak-finder::
 * emacspeak-fix-interactive::
 * emacspeak-flycheck::
 * emacspeak-flyspell::
@@ -7982,12 +7981,6 @@ this module speech-enables find-dired
 @section emacspeak-find-func
 
 This module speech enables find-func
-
-@node emacspeak-finder
-@section emacspeak-finder
-
-Inspired by finder.el
-Not to be loaded at runtime.
 
 @node emacspeak-fix-interactive
 @section emacspeak-fix-interactive
@@ -17642,6 +17635,19 @@ Updated headlines found in emacspeak-webspace-headlines.
 @end format
 @end deffn
 
+@subsubsection emacspeak-webspace-knowledge-search
+@deffn {Command} emacspeak-webspace-knowledge-search  (query &optional limit)
+@kbd{C-; k C-x @@ h k}
+
+@kindex C-; k C-x @@ h k
+@findex emacspeak-webspace-knowledge-search
+
+@format
+Perform a Google Knowledge Graph search.
+Optional interactive prefix arg ``limit'' prompts for number of results, default is 1.
+@end format
+@end deffn
+
 @subsubsection emacspeak-webspace-mode
 @deffn {Command} emacspeak-webspace-mode   
 @findex emacspeak-webspace-mode
@@ -17724,6 +17730,13 @@ Updated weather is found in ``emacspeak-webspace-current-weather''.
 Yank link under point into kill ring.
 @end format
 @end deffn
+
+@subsection emacspeak-webspace Options
+
+@defvar {User Option} emacspeak-webspace-kg-key
+API Key for Google Knowledge Graph.
+
+@end defvar
 
 @node emacspeak-webutils
 @section emacspeak-webutils
