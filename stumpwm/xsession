@@ -1,10 +1,14 @@
 #!/bin/sh
+#export ALSA_CARD=1
+export SSH_ASKPASS=/usr/local/bin/e-askpass.sh
+. $HOME/.bash_profile
+eval  `ssh-agent -s`
 setxkbmap -option ctrl:nocaps
 xmodmap $HOME/.xmodmap 
 xrdb -merge $HOME/.Xresources &
-xautolock -detectsleep -time 30  -locker  "$HOME/bin/xlock" & 
+xautolock -detectsleep -time 30  -locker  "$HOME/bin/xlock" &
 emacs  -title Emacs &
-#xterm  -title Retriever &
+xterm  -title Retriever &
 export LISP=sbcl
 ${HOME}/bin/export_x_info &
 
