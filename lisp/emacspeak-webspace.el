@@ -610,8 +610,10 @@ Optional interactive prefix arg forces a refresh."
   "Perform a Google Knowledge Graph search.
 Optional interactive prefix arg `limit' prompts for number of results, default is 1."
   (interactive "sQuery:\nP")
-  (or limit (setq limit 1))
-  (let ((results (emacspeak-webspace-kg-results query limit)))
+  (setq limit 
+  (cond
+   (limit  (read-number "Number of results: "))
+   (t  1)))  (let ((results (emacspeak-webspace-kg-results query limit)))
     (with-temp-buffer
       (insert (format "<html><head><title>%s</title></head><body>\n" query))
       (cond
@@ -625,6 +627,7 @@ Optional interactive prefix arg `limit' prompts for number of results, default i
         (insert "</ol>\n"))
        (t(insert  (emacspeak-webspace-kg-format-result (first results)))))
       (insert "</body></html>\n")
+      (emacspeak-webutils-autospeak)
       (browse-url-of-buffer))))
  
       
