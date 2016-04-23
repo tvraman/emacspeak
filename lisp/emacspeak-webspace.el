@@ -584,6 +584,14 @@ Optional interactive prefix arg forces a refresh."
   (g-json-from-url
    (emacspeak-webspace-kg-uri query limit)))
 
+(defsubst emacspeak-webspace-kg-results (query &optional limit)
+  "Return list of results."
+  (or limit (setq limit 1))
+  (map  'list
+        #'(lambda (r) (g-json-get 'result r))
+        (g-json-get 'itemListElement
+                    (emacspeak-webspace-kg-json-ld query limit))))
+
 ;;}}}
 (provide 'emacspeak-webspace)
 ;;{{{ end of file
