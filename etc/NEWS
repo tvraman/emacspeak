@@ -79,3 +79,8 @@ Module emacspeak-helm.el has been enhanced to provide better coverage of Helm us
 You can now use =C-n= and =C-p=  in the minibuffer to move through
 displayed completion and =C-c= to select the current completion. 
 
+
+* Knowledge Graph Search
+
+Module ~emacspeak-webspace~ now provides an early implementation of
+Google Knowledge Graph search.
