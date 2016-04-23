@@ -646,6 +646,7 @@ interactive command that the key sequence executes."
     ("c" browse-url-chromium)
     ("e" gmaps)
     ("f" emacspeak-webspace-freebase-search)
+    ("k" emacspeak-webspace-knowledge-search)
     ("g" gnus)
     ("h" emacspeak-org-capture-link)
     ("i" ido-everywhere)
@@ -690,6 +691,7 @@ interactive command that the key sequence executes."
                         (sort
                          val
                          #'(lambda (a b) (string-lessp (car a) (car b)))))))
+
 (global-set-key (kbd "C-&") 'emacspeak-launch-application)
 (global-set-key "\C-x@h"
                 'emacspeak-hyper-keymap)
