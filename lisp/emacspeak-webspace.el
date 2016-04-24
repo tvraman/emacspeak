@@ -586,7 +586,7 @@ Optional interactive prefix arg forces a refresh."
 
 (defsubst emacspeak-webspace-kg-results (query &optional limit)
   "Return list of results."
-  (or limit (setq limit 1))
+  (or limit (setq limit 5))
   (map  'list
         #'(lambda (r) (g-json-get 'result r))
         (g-json-get 'itemListElement
