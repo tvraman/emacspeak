@@ -600,10 +600,12 @@ Optional interactive prefix arg forces a refresh."
      "<p><a href='%s'>%s</a> is a %s.
 <strong>%s</strong></p>
 <p>%s</p>
-<img src='%s'\n>"
+<p><em>Id:</em> %s
+<img src='%s'/></p>\n"
      (g-json-get 'url .detailedDescription) .name  (aref  .@type 0)
      .description 
      (or (g-json-get 'articleBody .detailedDescription) "")
+     .@id
      (g-json-get 'contentUrl .image))))
 
 (defun emacspeak-webspace-knowledge-search (query &optional limit)
