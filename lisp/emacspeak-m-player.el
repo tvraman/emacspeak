@@ -815,7 +815,6 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
         (result (emacspeak-m-player-dispatch emacspeak-m-player-display-cmd)))
     (when result
       (setq result (replace-regexp-in-string  "^ans_" "" result))
-      (setq result (replace-regexp-in-string  "_" " " result))
       (setq fields
             (mapcar
              #'(lambda (s) (split-string s "="))
