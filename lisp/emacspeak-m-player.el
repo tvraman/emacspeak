@@ -832,7 +832,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
              collect
              (concat (first f) (second f))))
       (tts-with-punctuations 'some
-                             (dtk-speak (apply #'concat result))))
+                             (dtk-speak-and-echo (apply #'concat result))))
      (t (dtk-speak-and-echo "Waiting")))))
 
 (defun emacspeak-m-player-load-file(f)
