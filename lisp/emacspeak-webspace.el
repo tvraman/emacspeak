@@ -597,12 +597,13 @@ Optional interactive prefix arg forces a refresh."
   "Format result as HTML."
   (let-alist result
     (format
-     "<p><a href='%s'>%s</a> is a %s.
+     "<p><a href='%s'>%s</a> is a <code>[%s]</code>.
 <strong>%s</strong></p>
 <p>%s</p>
 <p><em>Id:</em> %s
 <img src='%s'/></p>\n"
-     (g-json-get 'url .detailedDescription) .name  (aref  .@type 0)
+     (g-json-get 'url .detailedDescription) .name
+       (mapconcat #'identity .@type ", ")
      .description 
      (or (g-json-get 'articleBody .detailedDescription) "")
      .@id
