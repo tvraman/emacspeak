@@ -830,7 +830,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
             (loop
              for f in fields
              collect
-             (concat (first f) (second f))))
+             (concat (first f) " " (second f))))
       (tts-with-punctuations 'some
                              (dtk-speak-and-echo (apply #'concat result))))
      (t (dtk-speak-and-echo "Waiting")))))
