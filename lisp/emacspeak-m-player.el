@@ -54,7 +54,7 @@
 
 ;;}}}
 ;;{{{  Required modules
-
+(require 'cl-lib)
 (require 'emacspeak-preamble)
 (require 'ladspa)
 (require 'emacspeak-amark)
@@ -123,10 +123,10 @@ This is set to nil when playing Internet  streams.")
   (cond
    ((eq 'run (process-status emacspeak-m-player-process))
     (let ((info (emacspeak-m-player-get-position)))
-      (put-text-property 0 (length (first info))
-                         'personality 'voice-smoothen (first info))
+      (put-text-property 0 (length (cl-first info))
+                         'personality 'voice-smoothen (cl-first info))
       (dtk-speak-and-echo
-       (concat (first info) ":" (second info)))))
+       (concat (cl-first info) ":" (cl-second info)))))
    (t (message "Process MPlayer not running."))))
 
 (defun emacspeak-m-player-speak-mode-line ()
@@ -199,8 +199,8 @@ on a specific directory."
   :set #'(lambda (sym val)
            (mapc
             (lambda (binding)
-              (let ((key (first binding))
-                    (directory (second binding)))
+              (let ((key (cl-first binding))
+                    (directory (cl-second binding)))
                 (emacspeak-m-player-bind-accelerator directory (kbd key))))
             val)
            (set-default sym val)))
@@ -355,7 +355,7 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
      do
      (aset emacspeak-m-player-metadata
            (cl-struct-slot-offset 'emacspeak-m-player-metadata f)
-           (second
+           (cl-second
             (split-string
              (emacspeak-m-player-slave-command (format "get_meta_%s" f))
              "="))))
@@ -539,16 +539,16 @@ necessary."
            (fields
             (loop
              for l in lines
-             collect (second (split-string l "=")))))
+             collect (cl-second (split-string l "=")))))
       (list
-       (format "%s" (first fields))     ; position
-       (if (second fields)
-           (substring (second  fields) 1 -1)
+       (format "%s" (cl-first fields))     ; position
+       (if (cl-second fields)
+           (substring (cl-second  fields) 1 -1)
          "")))))
 
 (defsubst emacspeak-m-player-current-filename ()
   "Return filename of currently playing track."
-  (second
+  (cl-second
    (split-string
     (emacspeak-m-player-dispatch "get_file_name\n")
     "=")))
@@ -792,7 +792,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
   (with-current-buffer (process-buffer emacspeak-m-player-process)
     (unless   emacspeak-m-player-metadata  (error "No metadata"))
     (let* ((m (emacspeak-m-player-metadata-info  emacspeak-m-player-metadata))
-           (info (and m (second (split-string m "=")))))
+           (info (and m (cl-second (split-string m "=")))))
       (when toggle-cue
         (setq emacspeak-m-player-cue-info (not emacspeak-m-player-cue-info)))
       (message (format "%s" (or info  "No Stream Info"))))))
@@ -823,13 +823,15 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
      (fields                       ; speak them after audio formatting
       (loop
        for f in fields do
-       (put-text-property 0 (length (first f))
-                          'personality 'voice-smoothen (first f)))
+       (put-text-property 0 (length (cl-first f))
+                          'personality 'voice-smoothen (cl-first f))
+       (put-text-property 0 (length (cl-second f))
+                          'personality 'voice-bolden (cl-second f)))
       (setq result
             (loop
              for f in fields
              collect
-             (concat (first f) " " (second f))))
+             (concat (cl-first f) " " (cl-second f))))
       (tts-with-punctuations 'some
                              (dtk-speak-and-echo (apply #'concat result))))
      (t (dtk-speak-and-echo "Waiting")))))
@@ -1136,13 +1138,13 @@ Interactive prefix arg prompts for position.
 As the default, use current position."
   (interactive "sAMark Name:\nP")
   (let* ((position (emacspeak-m-player-get-position))
-         (file-name (second position)))
+         (file-name (cl-second position)))
     (when
         (and file-name  (not (zerop (length file-name))))
       (setq position
             (cond
              (prompt-position (read-number "Position: "))
-             (t  (first position))))
+             (t  (cl-first position))))
       (emacspeak-amark-add file-name name position)
       (message "Added Amark %s in %s at %s" name file-name position))))
 
@@ -1159,7 +1161,7 @@ As the default, use current position."
     (let* ((amark (call-interactively 'emacspeak-amark-find))
            (files emacspeak-m-player-file-list)
            (current
-            (ems-file-index (second (emacspeak-m-player-get-position)) files))
+            (ems-file-index (cl-second (emacspeak-m-player-get-position)) files))
            (new (ems-file-index (emacspeak-amark-path  amark) files)))
       (cond ; move to marked file if found, otherwise load
        ((and current new) ;skip in current play list
@@ -1384,11 +1386,11 @@ tap-reverb already installed."
       (error "Package tap_reverb not installed."))
     (setq filter-spec
           `("ladspa=tap_reverb:tap_reverb"
-            ,(round (* 1000 (second setting))) ;  delay  in ms
+            ,(round (* 1000 (cl-second setting))) ;  delay  in ms
             0 -7                               ; dry and wet db
             1 1 1 1
                                         ; preset name
-            ,(cadr (assoc (first setting)
+            ,(cadr (assoc (cl-first setting)
                           emacspeak-m-player-reverb-preset-table))))
     (setq emacspeak-m-player-reverb-filter filter-spec)
     (setq filter (mapconcat #'(lambda (v) (format "%s" v)) filter-spec ":"))
