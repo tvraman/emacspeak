@@ -780,7 +780,7 @@ necessary."
 (defun emacspeak-m-player-display-percent ()
   "Display current percentage."
   (interactive)
-  (dtk-speak (emacspeak-m-player-slave-command "get_percent_pos")))
+  (dtk-speak-and-echo (emacspeak-m-player-slave-command "get_percent_pos")))
 
 ;;;###autoload
 (defun emacspeak-m-player-stream-info (&optional toggle-cue)
@@ -801,7 +801,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
 (defun emacspeak-m-player-get-length ()
   "Display length of track in seconds."
   (interactive)
-  (dtk-speak (emacspeak-m-player-dispatch "get_time_length")))
+  (dtk-speak-and-echo (emacspeak-m-player-dispatch "get_time_length")))
 
 (defconst emacspeak-m-player-display-cmd
   "get_time_pos\nget_percent_pos\nget_time_length\nget_file_name\n"
