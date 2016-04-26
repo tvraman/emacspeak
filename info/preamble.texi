@@ -3,9 +3,11 @@
 @node Top
 @top Emacspeak
 
-This document was last updated on @today{}.
+
 
 This manual documents Emacspeak, a speech interface to Emacs.  
+This document was last updated on @today{}.
+
 @ifinfo 
 The manual is divided into the following chapters. 
 @end ifinfo
