@@ -16,8 +16,9 @@
      @title Emacspeak --The Complete Audio Desktop
 @subtitle User Manual
 @author T. V. Raman 
+     Last Updated:  @today{}
      
-     @page
+@page
      @vskip 0pt plus 1filll
      Copyright @copyright{} 1994--2015 T. V. Raman. All Rights Reserved.
 
@@ -30,6 +31,8 @@ notice are preserved on all copies.
 @summarycontents
 @contents
 @end titlepage
+
+
 
 @include preamble.texi
 @include copyright.texi

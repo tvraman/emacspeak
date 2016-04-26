@@ -3,6 +3,7 @@
 @node Top
 @top Emacspeak
 
+This document was last updated on @today{}.
 
 This manual documents Emacspeak, a speech interface to Emacs.  
 @ifinfo 
