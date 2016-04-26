@@ -46,6 +46,7 @@ Note that special releases are marked with an '*'.
 | 41.0 | November 14    | NiceDog        |
 | 42.0 | May 2015       | AnswerDog      |
 | 43.0 | November 2015  | SoundDog       |
+| 44.0 | SteadyDog      | May   2016     |
 |------+----------------+----------------|
 
 #+TITLE:     code-names.txt

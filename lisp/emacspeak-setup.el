@@ -123,7 +123,7 @@ such as pronunciation dictionaries are stored. ")
 
 ;;;###autoload
 (defvar emacspeak-codename
-  "SoundDog"
+  "SteadyDog"
   "Code name of present release.")
 
 ;;;###autoload
@@ -145,7 +145,7 @@ such as pronunciation dictionaries are stored. ")
 ;;;###autoload
 (defvar emacspeak-version
   (format
-   "43.0 %s:  %s"
+   "44.0 %s:  %s"
    emacspeak-codename
    (emacspeak-setup-get-revision))
   "Version number for Emacspeak.")
