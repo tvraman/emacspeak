@@ -1,6 +1,7 @@
 \input texinfo
 @c$Id$
 @setfilename./emacspeak.info 
+@include style.texi
 @settitle Emacspeak User's Manual --2nd Edition.
 @dircategory Accessibility
 @direntry
