@@ -5,7 +5,7 @@
 
 
 
-This manual documents Emacspeak, The Complete Audio Desktop.
+This manual documents @b{Emacspeak, The Complete Audio Desktop}.
 This document was last updated on @today{}.
 
 @ifinfo 
