@@ -322,7 +322,7 @@ cd .. ;\
 	tar cvfj emacspeak-${LABEL}.tar.bz2 emacspeak-$(LABEL); \
 	/bin/rm -rf emacspeak-${LABEL} ;\
 	echo "Prepared release in emacspeak-${LABEL}.tar.bz2"
-	./utils/ghr ${LABEL} "emacspeak-${LABEL}.tar.bz2"
+	./utils/emacspeak-ghr ${LABEL} "emacspeak-${LABEL}.tar.bz2"
 
 # }}}
 # {{{list distfiles to stdout
