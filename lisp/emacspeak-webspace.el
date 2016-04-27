@@ -536,7 +536,7 @@ Optional interactive prefix arg forces a refresh."
       (setq buffer-undo-list t)
       (format (buffer-name buffer))
       (center-line)
-                                        ; Nuke initial '/' in id 
+                                        ; Nuke initial '/' in id
       (loop
        for r in results
        and i from 1
@@ -559,8 +559,8 @@ Optional interactive prefix arg forces a refresh."
 
 (defcustom emacspeak-webspace-kg-key  nil
   "API Key for Google Knowledge Graph."
-  :type 
-  '(choice  
+  :type
+  '(choice
     (const :tag "None" "")
     (string :tag "Key" :value ""))
   :group 'emacspeak-webspace)
@@ -592,7 +592,6 @@ Optional interactive prefix arg forces a refresh."
         (g-json-get 'itemListElement
                     (emacspeak-webspace-kg-json-ld query limit))))
 
-
 (defsubst emacspeak-webspace-kg-format-result (result)
   "Format result as HTML."
   (let-alist result
@@ -603,8 +602,8 @@ Optional interactive prefix arg forces a refresh."
 <p><em>Id:</em> %s
 <img src='%s'/></p>\n"
      (g-json-get 'url .detailedDescription) .name
-       (mapconcat #'identity .@type ", ")
-     .description 
+     (mapconcat #'identity .@type ", ")
+     .description
      (or (g-json-get 'articleBody .detailedDescription) "")
      .@id
      (g-json-get 'contentUrl .image))))
@@ -613,10 +612,10 @@ Optional interactive prefix arg forces a refresh."
   "Perform a Google Knowledge Graph search.
 Optional interactive prefix arg `limit' prompts for number of results, default is 1."
   (interactive "sQuery:\nP")
-  (setq limit 
-  (cond
-   (limit  (read-number "Number of results: "))
-   (t  1)))
+  (setq limit
+        (cond
+         (limit  (read-number "Number of results: "))
+         (t  1)))
   (let ((results (emacspeak-webspace-kg-results query limit)))
     (unless results (error "No results"))
     (with-temp-buffer
@@ -634,9 +633,9 @@ Optional interactive prefix arg `limit' prompts for number of results, default i
       (insert "</body></html>\n")
       (emacspeak-webutils-autospeak)
       (browse-url-of-buffer))))
- 
-      
-        
+
+
+
 ;;}}}
 (provide 'emacspeak-webspace)
 ;;{{{ end of file
