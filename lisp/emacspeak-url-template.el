@@ -1357,12 +1357,11 @@ prompts for a location and speaks the forecast. \n\n"
  "Wiki Data Search"
  "https://www.wikidata.org/w/index.php?search=%s"
  (list "WikiData Query: ")
- #'(lambda nil 
+ #'(lambda nil
      (re-search-forward "^Result")
      (forward-line 1)
      (emacspeak-speak-rest-of-buffer))
  "Search WikiData.")
-
 
 ;;}}}
 (provide 'emacspeak-url-template)

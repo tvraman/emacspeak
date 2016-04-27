@@ -3162,7 +3162,7 @@ where `sport' is either mlb or nba."
   "Format  MLB standing."
   (let-alist  s
     (format
-     "%s %s  are %s in the %s %s. 
+     "%s %s  are %s in the %s %s.
 They are at  %s/%s after %s games for an average of %s.
 Current streak is %s; Win/Loss at Home: %s/%s, Away: %s/%s, Conference: %s/%s.
 \n"
@@ -3178,7 +3178,7 @@ Optional interactive prefix arg shows  unprocessed results."
   (let ((buffer (get-buffer-create "*MLB Standings*"))
         (date (format-time-string "%B %e %Y"))
         (inhibit-read-only t)
-        (standings 
+        (standings
          (g-json-from-url (emacspeak-wizards-xmlstats-standings-uri "mlb"))))
     (with-current-buffer buffer
       (erase-buffer)
@@ -3193,7 +3193,7 @@ Optional interactive prefix arg shows  unprocessed results."
           (insert (format "%s:\t%s\n"
                           (car f) (cdr f))))
          (insert "\n")))
-       (t 
+       (t
         (loop
          for s across  (g-json-get  'standing standings) do
          (insert (emacspeak-wizards--format-mlb-standing s)))))
@@ -3204,7 +3204,7 @@ Optional interactive prefix arg shows  unprocessed results."
   "Format  NBA standing."
   (let-alist  s
     (format
-     "%s %s  are %s in the %s %s. 
+     "%s %s  are %s in the %s %s.
 They are at  %s/%s after %s games for an average of %s.
 Current streak is %s; Win/Loss at Home: %s/%s, Away: %s/%s, Conference: %s/%s.
 \n"
@@ -3220,7 +3220,7 @@ Optional interactive prefix arg shows  unprocessed results."
   (let ((buffer (get-buffer-create "*NBA Standings*"))
         (date (format-time-string "%B %e %Y"))
         (inhibit-read-only t)
-        (standings 
+        (standings
          (g-json-from-url (emacspeak-wizards-xmlstats-standings-uri "nba"))))
     (with-current-buffer buffer
       (erase-buffer)
@@ -3235,7 +3235,7 @@ Optional interactive prefix arg shows  unprocessed results."
           (insert (format "%s:\t%s\n"
                           (car f) (cdr f))))
          (insert "\n")))
-       (t 
+       (t
         (loop
          for s across  (g-json-get  'standing standings) do
          (insert (emacspeak-wizards--format-nba-standing s)))))
