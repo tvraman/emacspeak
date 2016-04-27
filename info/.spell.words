@@ -22,6 +22,7 @@ Anonymize
 api
 API
 APIs
+Applicationss
 appt
 APT's
 arg
@@ -119,7 +120,6 @@ customizable
 customizations
 cvs
 CVS
-DailyShow
 datetime
 dbus
 DBus
@@ -326,6 +326,7 @@ lacheck
 ladspa
 Ladspa
 ldap
+learnt
 librivox
 Librivox
 LIBRIVOX
@@ -364,6 +365,7 @@ minibuffer
 Minibuffer
 misconfiguration
 mistyped
+mlb
 MLB
 mml
 modality
@@ -404,11 +406,13 @@ openal
 OpenLibrary
 opml
 OPML
+OReilly
 O'Reilly
 OSS
 outliner
 outloud
 Outloud
+overstrike
 owindow
 paplay
 param
@@ -420,7 +424,6 @@ PDF
 pdftotext
 Perry's
 phablets
-PHC
 php
 pianobar
 Pianobar
@@ -465,7 +468,6 @@ readonly
 RealAudio
 RealPlayer
 reb
-Redhat
 referer
 Referer
 refteex
@@ -534,6 +536,7 @@ sox
 Sox
 SoX
 soxplay
+spamassassin
 SPC
 speedbar
 Speedbar
@@ -557,6 +560,7 @@ subdir
 subdirectories
 subjob
 submode
+suboptimal
 subr
 subtrees
 sudo
@@ -654,6 +658,7 @@ webutils
 Wecker
 whitespace
 widnow
+WikiData
 windmove
 winring
 WMA
