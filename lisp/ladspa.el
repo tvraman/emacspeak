@@ -88,7 +88,7 @@
 
 (defun ladspa-libs (&optional refresh)
   "Return list of installed Ladspa libs."
-  (declare (special ladspa-libs))
+  (declare (special ladspa-libs ladspa-plugins))
   (unless (file-exists-p ladspa-home)
     (error "Ladspa not installed or not configured."))
   (unless (getenv "LADSPA_PATH")(setenv "LADSPA_PATH" ladspa-home))
