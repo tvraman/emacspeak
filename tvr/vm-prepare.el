@@ -60,7 +60,7 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
 (defun vm-chromium ()
   "Run Chromium on current link."
   (interactive)
-  (let ((url (get-text-property (point) 'w3m-href-anchor)))
+  (let ((url (get-text-property (point) 'shr-url)))
     (unless url (error "No link here."))
     (browse-url-chromium url)))
 
