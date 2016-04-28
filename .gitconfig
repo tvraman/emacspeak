@@ -1,0 +1,15 @@
+[core]
+pager=cat
+	editor = emacsclient
+[alias]
+	p = pull --rebase --all
+  s=status --short
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	ci = commit -a -m
+[push]
+	default = simple
+[credential]
+	helper = cache --timeout=7200
+[transfer]
+  fsckObjects = true
