@@ -241,7 +241,7 @@ Sourceforge —http://emacspeak.sf.net. The system is mirrored
 world-wide by an international network of software archives and
 bundled voluntarily with all major Linux distributions. On
 Monday, April 12, 1999, Emacspeak became part of the
-Smithsonian's Permanent Research Collection on Information
+[[http://tvraman.github.io/emacspeak/blog/smithsonian-study.html][Smithsonian's Permanent Research Collection]] on Information
 Technology at the Smithsonian's National Museum of American
 History.
 
