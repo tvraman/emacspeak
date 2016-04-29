@@ -372,35 +372,20 @@ sets punctuation mode to all, activates the dictionary and turns on split caps."
   "Setup programming modes."
   (mapcar
    #'(lambda (hook)
-       (add-hook hook
-                 'emacspeak-setup-programming-mode))
+       (add-hook hook 'emacspeak-setup-programming-mode))
    (list
     'prog-mode-hook'c-mode-common-hook
-    'conf-unix-mode-hook
-    'prolog-mode-hook 'markdown-mode-hook
-    'lisp-mode-hook
-    'emacs-lisp-mode-hook
-    'lisp-interaction-mode-hook
-    'javascript-mode-hook
-    'js2-mode-hook
-    'lua-mode-hook
-    'scala-mode-hook
-    'midge-mode-hook
-    'meta-common-mode-hook
-    'perl-mode-hook
-    'muse-mode-hook
-    'cperl-mode-hook
-    'sh-mode-hook
-    'ruby-mode-hook
-    'sql-mode-hook
-    'sgml-mode-hook
-    'xml-mode-hook
-    'nxml-mode-hook
+    'conf-unix-mode-hook 'prolog-mode-hook
+    'markdown-mode-hook 'yaml-mode-hook
+    'lisp-mode-hook 'emacs-lisp-mode-hook 'lisp-interaction-mode-hook
+    'javascript-mode-hook 'js2-mode-hook 'lua-mode-hook
+    'scala-mode-hook 'midge-mode-hook 'meta-common-mode-hook
+    'perl-mode-hook 'muse-mode-hook 'cperl-mode-hook
+    'sh-mode-hook 'ruby-mode-hook 'sql-mode-hook
+    'sgml-mode-hook 'xml-mode-hook 'nxml-mode-hook
     'xsl-mode-hook
     'makefile-mode-hook
-    'TeX-mode-hook
-    'LaTeX-mode-hook
-    'bibtex-mode-hook
+    'TeX-mode-hook 'LaTeX-mode-hook 'bibtex-mode-hook
     'tcl-mode-hook
     'html-helper-mode-hook
     'scheme-mode-hook
