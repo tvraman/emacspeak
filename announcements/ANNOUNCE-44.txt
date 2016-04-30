@@ -4,7 +4,7 @@
                        *For Immediate Release:*
 
 San Jose, Calif., (May 1, 2016)
-    Emacspeak:  Redefining Accessibility In The Era Of Intelligent  Computing 
+    Emacspeak:  Redefining Accessibility In The Era Of (Real)Intelligent  Computing 
     --Zero cost of Ownership  makes priceless software Universally affordable!
 
 Emacspeak Inc (NASDOG: ESPK) --http://emacspeak.sf.net-- announces the
@@ -22,20 +22,19 @@ that achieved by once better known stocks in the tech sector.
 
 * What Is It?
 
-Emacspeak is a fully functional audio desktop that provides
-complete eyes-free access to all major 32 and 64 bit operating
-environments. By seamlessly blending live access to all aspects
-of the Internet such as Web-surfing, blogging, social computing
-and electronic messaging into the audio desktop, Emacspeak
-enables speech access to local and remote information with a
-consistent and well-integrated user interface. A rich suite of
-task-oriented tools provides efficient speech-enabled access to
-the evolving service-oriented social Internet cloud.
+Emacspeak is a fully functional audio desktop that provides complete
+eyes-free access to all major 32 and 64 bit operating environments. By
+seamlessly blending live access to all aspects of the Internet such as
+Web-surfing, blogging, social computing and electronic messaging into
+the audio desktop, Emacspeak enables speech access to local and remote
+information with a consistent and well-integrated user interface. A
+rich suite of task-oriented tools provides efficient speech-enabled
+access to the evolving service-oriented social Internet cloud.
 
 * Major Enhancements:
   
   - Enable playing multiple media streams using *mplayer*. 🔊
-  - Smart Ladspa effects in *mplayer* including panning.  🕪
+  - Smart Ladspa effects in *mplayer*,  including panning.  🕪
   - Sound theme *chimes* has been spatialized to create theme *pan-chimes*.  🕭-
   - Package *elpy* has been speech-enabled.  🐍
   - Emacspeak now implements automatic soundscapes. 🏙
@@ -102,14 +101,13 @@ video demonstrating such complete user failure.
 * Obtaining Emacspeak:
 
 
-Emacspeak can be downloaded from GitHub  --see
-https://github.com/tvraman/emacspeak  you can visit 
-Emacspeak on the WWW at http://emacspeak.sf.net.  You can subscribe
-to the emacspeak mailing list emacspeak@cs.vassar.edu by sending
-mail to the list request address
-emacspeak-request@cs.vassar.edu. The
-[[http://emacspeak.blogspot.com][Emacspeak Blog]] is a good source
- for news about recent enhancements and how to use them.
+Emacspeak can be downloaded from GitHub --see
+https://github.com/tvraman/emacspeak you can visit Emacspeak on the
+WWW at http://emacspeak.sf.net. You can subscribe to the emacspeak
+mailing list — emacspeak@cs.vassar.edu — by sending mail to the
+list request address emacspeak-request@cs.vassar.edu. The [[http://emacspeak.blogspot.com][Emacspeak
+Blog]] is a good source for news about recent enhancements and how to
+use them.
 
 The latest development snapshot of Emacspeak is always available via
 Git  from GitHub  at 
@@ -138,9 +136,9 @@ Git  from GitHub  at
   - Emacspeak 37.0 continues the tradition of
    delivering robust software as reflected by its code-name. 
   - Emacspeak 36.0 enhances the audio desktop with many new tools including full
-   EPub support --- hence the name EPubDog. 
+   EPub support — hence the name EPubDog. 
   - Emacspeak 35.0 is all about
-   teaching a new dog old tricks --- and is aptly code-named HeadDog in
+   teaching a new dog old tricks — and is aptly code-named HeadDog in
    on  of our new Press/Analyst contact. emacspeak-34.0 (AKA Bubbles)
    established a new beach-head with respect to rapid task completion in
    an eyes-free environment. 
@@ -149,7 +147,7 @@ Git  from GitHub  at
   - Emacspeak 32.0 AKA
    LuckyDog continues to innovate via open technologies for better
    access. 
-  - Emacspeak 31.0 AKA TweetDog --- adds tweeting to the Emacspeak
+  - Emacspeak 31.0 AKA TweetDog — adds tweeting to the Emacspeak
    desktop. 
   - Emacspeak 30.0 AKA SocialDog brings the Social Web to the
    audio desktop—you cant but be social if you speak! 
@@ -233,17 +231,15 @@ Git  from GitHub  at
 * About Emacspeak:
 
 
-Originally based at Cornell (NY)
-http://www.cs.cornell.edu/home/raman --home to Auditory User
-Interfaces (AUI) on the WWW-- Emacspeak is now maintained on
-GitHub --[[https://github.com/tvraman/emacspeak]] —and
-Sourceforge —http://emacspeak.sf.net. The system is mirrored
+Originally based at Cornell (NY) —
+http://www.cs.cornell.edu/home/raman —home to Auditory User
+Interfaces (AUI) on the WWW, - Emacspeak is now maintained on GitHub
+—[[https://github.com/tvraman/emacspeak]]. The system is mirrored
 world-wide by an international network of software archives and
-bundled voluntarily with all major Linux distributions. On
-Monday, April 12, 1999, Emacspeak became part of the
-[[http://tvraman.github.io/emacspeak/blog/smithsonian-study.html][Smithsonian's Permanent Research Collection]] on Information
-Technology at the Smithsonian's National Museum of American
-History.
+bundled voluntarily with all major Linux distributions. On Monday,
+April 12, 1999, Emacspeak became part of the [[http://tvraman.github.io/emacspeak/blog/smithsonian-study.html][Smithsonian's Permanent
+Research Collection]] on Information Technology at the Smithsonian's
+National Museum of American History.
 
 The Emacspeak mailing list is archived at Vassar --the home of the
 Emacspeak mailing list-- thanks to Greg Priest-Dorman, and provides a
