@@ -1,0 +1,7 @@
+These JS files were used to implement /Piglets/ in 2008 ----
+Piglets were the result of  two large pigs mating --- AKA connecting
+Emacs to Firefox via MozRepl.
+
+Module emacspeak-piglets was  made obsolete in 2012.
+These JS files are here  in case they prove useful in walking the DOM
+in some future module.
