@@ -156,7 +156,6 @@ mpg123 defines this as a macro which causes compile trouble."
 (defun emacspeak-mpg123-speak-current-time ()
   "Speak time in current track."
   (interactive)
-  (declare (special mpg123-mode-map))
   (unless (mpg123:in-music-list-p)
     (error "Not on a valid MP3 song"))
   (let ((start nil))
@@ -168,19 +167,22 @@ mpg123 defines this as a macro which causes compile trouble."
       (skip-chars-forward "0-9:")
       (dtk-speak (buffer-substring  start (point))))))
 
-;;{{{ keys 
-(declaim (special mpg123-mode-map))
-(define-key mpg123-mode-map "t" 'emacspeak-mpg123-speak-title)
-(define-key mpg123-mode-map "l"
+;;{{{ keys
+(defun emacspeak-mpg123-setup-keys ()
+  "Set up key bindings."
+  (declare (special mpg123-mode-map))
+  (define-key mpg123-mode-map "t" 'emacspeak-mpg123-speak-title)
+  (define-key mpg123-mode-map "l"
   'emacspeak-mpg123-speak-length)
-(define-key mpg123-mode-map '[left]
-  'emacspeak-aumix-wave-decrease)
+  (define-key mpg123-mode-map '[left]
+    'emacspeak-aumix-wave-decrease)
 (define-key mpg123-mode-map '[right] 'emacspeak-aumix-wave-increase)
 (define-key mpg123-mode-map "c"
   'emacspeak-mpg123-speak-current-time)
 (define-key mpg123-mode-map "."
-  'emacspeak-mpg123-speak-filename)
+  'emacspeak-mpg123-speak-filename))
 
+(when (featurep 'mpg123) (emacspeak-mpg123-setup-keys))
 ;;}}}
 
 ;;}}}
