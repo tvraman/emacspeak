@@ -16,7 +16,9 @@ EMACS=emacs
 
 all: info  introducing-emacspeak.info turning-twenty.info
 
-info: emacspeak.texi 
+info: emacspeak.info
+
+emacspeak.info: emacspeak.texi
 	$(MAKEINFO) emacspeak.texi
 	$(MAKEINFO) introducing-emacspeak.texi
 	$(MAKEINFO) turning-twenty.texi
@@ -39,9 +41,6 @@ uninstall:
 		install-info --delete $(infodir)/turning-20.info * ${infodir}/dir \;
 	fi
 	rm -f $(infodir)/emacspeak.info*
-emacspeak.info: 
-	makeinfo --force -o emacspeak.info emacspeak.texi
-
 introducing-emacspeak.info: introducing-emacspeak.texi
 	makeinfo --force $<
 
