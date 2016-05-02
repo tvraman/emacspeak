@@ -25,7 +25,7 @@ emacspeak.info: emacspeak.texi
 
 
 
-docs.texi: 
+docs.texi: ../lisp/*.el
 	$(EMACS) -batch -q -l ../utils/self-document.el -f self-document-all-modules
 
 install: emacspeak.info turning-twenty.info
