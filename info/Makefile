@@ -3,9 +3,9 @@
 SF_HOME= raman,emacspeak@web.sourceforge.net:/home/groups/e/em/emacspeak/htdocs/info
 #https://tvraman.github.io/emacspeak/manual
 GH_PAGES=../../gh-pages-emacspeak/manual
+FILES=*.texi
 
 TEXINDEX=texindex
-FILES=*.texi
 MAKEINFO = makeinfo 
 CSS=-css-ref="http://www.w3.org/StyleSheets/Core/Modernist"
 TEX=tex
@@ -16,12 +16,12 @@ EMACS=emacs
 
 all: info  introducing-emacspeak.info turning-twenty.info
 
-info: emacspeak.texi introducing-emacspeak.texi turning-twenty.texi docs.texi
+info: emacspeak.texi 
 	$(MAKEINFO) emacspeak.texi
 	$(MAKEINFO) introducing-emacspeak.texi
 	$(MAKEINFO) turning-twenty.texi
 
-.PHONY: docs.texi 
+
 
 docs.texi: 
 	$(EMACS) -batch -q -l ../utils/self-document.el -f self-document-all-modules
