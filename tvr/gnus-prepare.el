@@ -63,4 +63,11 @@
 ;;}}}
 (setq gnus-summary-line-format "%t%U%R%-20,20a %s \n")
 (setq gnus-group-line-format "%M%S%p%P%5y: %(%G%)%l \n")
+(defun gmail-report-spam ()
+  "Report the current or marked mails as spam.
+This moves them into the Spam folder."
+  (interactive)
+  (gnus-summary-move-article nil "nnimap+imap.gmail.com:[Gmail]/Spam"))
+
+(define-key gnus-summary-mode-map "$" 'gmail-report-spam)
 (provide 'gnus-prepare)
