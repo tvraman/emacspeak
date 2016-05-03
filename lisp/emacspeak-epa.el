@@ -68,48 +68,27 @@
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:
+(loop
+ for f in
+ '(
+   epa-decrypt-region epa-decrypt-file epa-decrypt-armor-in-region
+   epa-encrypt-file epa-encrypt-region
+   epa-dired-do-verify epa-dired-do-sign
+   epa-dired-do-encrypt epa-dired-do-decrypt 
+   )
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback. "
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'task-done)))))
 
-;; ("epa-decrypt-armor-in-region"
-;; "epa-decrypt-file"
-;; "epa-decrypt-region"
-;; "epa-delete-keys"
-;; "epa-dired-do-decrypt"
-;; "epa-dired-do-encrypt"
-;; "epa-dired-do-sign"
-;; "epa-dired-do-verify"
-;; "epa-encrypt-file"
-;; "epa-encrypt-region"
-;; "epa-exit-buffer"
-;; "epa-export-keys"
-;; "epa-file-disable"
-;; "epa-file-enable"
-;; "epa-file-name-regexp-update"
-;; "epa-file-select-keys"
-;; "epa-global-mail-mode"
-;; "epa-import-armor-in-region"
-;; "epa-import-keys"
-;; "epa-import-keys-region"
-;; "epa-info-mode"
-;; "epa-insert-keys"
-;; "epa-key-list-mode"
-;; "epa-key-mode"
-;; "epa-list-keys"
-;; "epa-list-secret-keys"
-;; "epa-mail-decrypt"
-;; "epa-mail-encrypt"
-;; "epa-mail-import-keys"
-;; "epa-mail-mode"
-;; "epa-mail-sign"
-;; "epa-mail-verify"
-;; "epa-mark-key"
-;; "epa-sign-file"
-;; "epa-sign-region"
-;; "epa-unmark-key"
-;; "epa-verify-cleartext-in-region"
-;; "epa-verify-file"
-;; "epa-verify-region")
-
+(defadvice epa-delete-keys (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'task-done)))
 ;;}}}
+
 (provide 'emacspeak-epa)
 ;;{{{ end of file
 
