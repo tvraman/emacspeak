@@ -65,6 +65,7 @@ This chapter documents a total of 1149 commands and 952 options.
 * emacspeak-emms::
 * emacspeak-enriched::
 * emacspeak-entertain::
+* emacspeak-epa::
 * emacspeak-eperiodic::
 * emacspeak-epub::
 * emacspeak-erc::
@@ -6473,6 +6474,13 @@ Personality used for mpuz-unsolved-face
 This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 
 @end defvar
+
+@node emacspeak-epa
+@section emacspeak-epa
+
+EPA == EasyPG Assistant
+Integrate GPG functionality into Emacs.
+Speech-enable all interactive commands.
 
 @node emacspeak-eperiodic
 @section emacspeak-eperiodic

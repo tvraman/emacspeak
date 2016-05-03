@@ -18,7 +18,7 @@ all: info  introducing-emacspeak.info turning-twenty.info
 
 info: emacspeak.info
 
-emacspeak.info: emacspeak.texi
+emacspeak.info: *.texi
 	$(MAKEINFO) emacspeak.texi
 	$(MAKEINFO) introducing-emacspeak.texi
 	$(MAKEINFO) turning-twenty.texi
