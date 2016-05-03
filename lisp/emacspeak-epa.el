@@ -55,15 +55,16 @@
 
 ;;}}}
 ;;{{{ Map Faces:
-
-;; 86:(defface epa-validity-high
-;;      92:(defface epa-validity-medium
-;;      98:(defface epa-validity-low
-;;     103:(defface epa-validity-disabled
-;;     108:(defface epa-string
-;;     116:(defface epa-mark
-;;     123:(defface epa-field-name
-;;     129:(defface epa-field-body
+(voice-setup-add-map
+ '(
+   (epa-validity-high voice-animate)
+   (epa-validity-medium voice-smoothen)
+   (epa-validity-low voice-smoothen-extra)
+   (epa-validity-disabled voice-monotone)
+   (epa-string voice-lighten)
+   (epa-mark voice-bolden)
+   (epa-field-name voice-smoothen)
+   (epa-field-body voice-animate)))
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:
