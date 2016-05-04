@@ -71,11 +71,18 @@
 (loop
  for f in
  '(
-   epa-decrypt-region epa-decrypt-file epa-decrypt-armor-in-region
-   epa-encrypt-file epa-encrypt-region
-   epa-dired-do-verify epa-dired-do-sign
-   epa-dired-do-encrypt epa-dired-do-decrypt 
-   )
+   epa-mail-verify epa-mail-import-keys
+                   epa-file-select-keys epa-insert-keys
+                   epa-verify-region epa-verify-file epa-verify-cleartext-in-region
+                   epa-sign-region epa-sign-file epa-mail-sign
+                   epa-mail-encrypt epa-mail-decrypt
+                   epa-import-keys-region epa-import-keys
+                   epa-import-armor-in-region epa-export-keys
+                   epa-decrypt-region epa-decrypt-file epa-decrypt-armor-in-region
+                   epa-encrypt-file epa-encrypt-region
+                   epa-dired-do-verify epa-dired-do-sign
+                   epa-dired-do-encrypt epa-dired-do-decrypt
+                   )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -86,7 +93,49 @@
 (defadvice epa-delete-keys (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)))
+    (emacspeak-auditory-icon 'delete-object)))
+
+(defadvice epa-exit-buffer (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line)))
+
+(loop
+ for f in
+ '(
+   epa-mail-mode epa-global-mail-mode
+                 epa-file-disable epa-file-enable )
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback. "
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'button)))))
+
+(loop
+ for f in
+ '(epa-list-keys epa-list-secret-keys)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback. "
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-speak-mode-line)))))
+
+(defadvice epa-mark-key(after emacspeak pre act comp)
+  "Produce auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'mark-object)))
+
+(defadvice epa-unmark-key(after emacspeak pre act comp)
+  "Produce auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'unmark-object)))
+
 ;;}}}
 
 (provide 'emacspeak-epa)
