@@ -527,7 +527,8 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
 
 (defun soundscape-restart (&optional device)
   "Restart Soundscape  environment.
-With prefix arg `device', prompt for a alsa/ladspa device."
+With prefix arg `device', prompt for a alsa/ladspa device.
+Caches most recently used device, which then becomes the default for future invocations."
   (interactive "P")
   (declare (special soundscape--last-mode  soundscape--scapes
                     soundscape--cached-device
@@ -543,7 +544,7 @@ With prefix arg `device', prompt for a alsa/ladspa device."
           (when soundscape--cached-device `("--device" ,soundscape--cached-device)))))
     (when soundscape--auto 
       (soundscape-toggle) 
-          (soundscape-listener-shutdown))
+      (soundscape-listener-shutdown))
     (soundscape-toggle)
     (sit-for 0.1)
     (soundscape-sync major-mode 'force)))
