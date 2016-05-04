@@ -20,10 +20,12 @@ info: emacspeak.info
 
 emacspeak.info: *.texi
 	$(MAKEINFO) emacspeak.texi
-	$(MAKEINFO) introducing-emacspeak.texi
+
+introducing-emacspeak.info: introducing-emacspeak.texi
+	$(MAKEINFO) introducing-emacspeak.texi	
+
+turning-twenty.info: turning-twenty.texi
 	$(MAKEINFO) turning-twenty.texi
-
-
 
 docs.texi: ../lisp/*.el
 	$(EMACS) -batch -q -l ../utils/self-document.el -f self-document-all-modules
@@ -41,9 +43,6 @@ uninstall:
 		install-info --delete $(infodir)/turning-20.info * ${infodir}/dir \;
 	fi
 	rm -f $(infodir)/emacspeak.info*
-introducing-emacspeak.info: introducing-emacspeak.texi
-	makeinfo --force $<
-
 emacspeak.dvi:		emacspeak.texi
 	$(TEX) emacspeak.texi
 	$(TEX) emacspeak.texi
