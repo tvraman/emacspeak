@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1149 commands and 949 options.
+This chapter documents a total of 1149 commands and 951 options.
 
 @menu
 * acss-structure::
@@ -62,6 +62,7 @@ This chapter documents a total of 1149 commands and 949 options.
 * emacspeak-ein::
 * emacspeak-elfeed::
 * emacspeak-elpy::
+* emacspeak-elscreen::
 * emacspeak-emms::
 * emacspeak-enriched::
 * emacspeak-entertain::
@@ -6105,6 +6106,26 @@ Work-around for async fetch bug in EWW.
 
 ELPY ==  Emacs Lisp Python IDE
 Speech-enables all aspects of elpy.
+
+@node emacspeak-elscreen
+@section emacspeak-elscreen
+
+ELSCREEN ==  Manage window/screen configurations
+Speech-enable interactive commands.
+
+@subsection emacspeak-elscreen Options
+
+@defvar {User Option} emacspeak-elscreen-tab-current-screen-personality
+Personality used for elscreen-tab-current-screen-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-elscreen-tab-other-screen-personality
+Personality used for elscreen-tab-other-screen-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
 
 @node emacspeak-emms
 @section emacspeak-emms
@@ -20568,6 +20589,7 @@ Activate scapes named names.
 @format
 Restart Soundscape  environment.
 With prefix arg ``device'', prompt for a alsa/ladspa device.
+Caches most recently used device, which then becomes the default for future invocations.
 @end format
 @end deffn
 
