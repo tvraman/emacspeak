@@ -5,82 +5,14 @@ Emacspeak News --History Of User-Visible Changes
 Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
-* Emacspeak 44 -- Emacspeak 44 User Visible Changes
+* Emacspeak 45 -- Emacspeak 44 User Visible Changes
+** GPG Integration In Emacs:
 
-** Multiple Media Players 
+Speech-enables package ~epa~ for GPG integration. Also supports the
+use of module ~pinentry~ with ~gpg-agent~
+with newer versions of ~gpg-agent~.
 
-Module [[http://emacspeak.blogspot.com/2015/11/listening-to-multiple-media-streams-on.html][emacspeak-m-player]] can now launch and control multiple media
-player instances. Use C-e;\ to persist the current m-player session; Use a
-prefix arg to give that session a name.
+** Emacs Window Session Manager:
 
-** Panning In MPlayer
+Module ~emacspeak-elscreen~ speech-enables package ~elscreen~.
 
-Module emacspeak-m-player adds support for panning audio from the currently
-playing stream from left to right.
-
-** Ladspa And MPlayer
-
-Module emacspeak-m-player  now  provides Ladspa integration with more
-presets including an autopan+pinknoise setting suitable for
-relaxation.
-
-** Spatialized Chimes Theme 
-
-Sound theme pan-chimes provides a spatialized theme generated from the
-original =chimes= theme.
-
-** Ladspa Workbench
-
-Module =ladspa.el= implements a Ladspa workbench for the Emacspeak
-desktop. 
-It is integrated with =MPlayer=. 
-
-**  Speech-Enabled ElPY:
-
-Module =emacspeak-elpy.el= speech-enables package =ElPY= --- a Python IDE.
-
-** SoundScapes:
-
-[[http://emacspeak.blogspot.com/2015/11/listening-to-multiple-media-streams-on][Soundscapes]] --- a continuous loop of softly playing sound-effects ---
-can be automatically turned on and off to match the user's current
-activity. Module ~soundscape.el~ implements SoundScapes using Python
-package ~boodler~ --- see [[http://boodler.org]].
-
-
-** Additional Emacspeak Soundscapes
-
-Directory emacspeak/scapes includes Soundscapes developed for use on
-the Audio Desktop.
-These scapes will not be distributed as part of Emacspeak due to their
-size --- they can be obtained from the GitHub repository.
-
-A release snapshot can be found at
-https://github.com/tvraman/emacspeak/releases/download/soundscape-1.1/soundscapes-1.1.tar.bz2
-
-** Using CrossFeed With ALSA
-
-File ~scapes/ladspa-asoundrc~ defines *crossfeed*, *reverb_crossfeed*
-and *tap_reverb* virtual devices that can be used to enable enhanced
-headphones listening --- works particularly well for soundscapes.
-
-** MPlayer, HRTF And OpenAL
-
-Module emacspeak-m-player provides a new command for invoking
-~MPlayer~ with *OpenAL* as the output driver. This provides *HRTF* for
-a better listening experience.
-
-** Helm Support:
-
-Module emacspeak-helm.el has been enhanced to provide better coverage of Helm use-cases.
-
-
-** Browsing/Choosing Completions From Within The Minibuffer:
-
-You can now use =C-n= and =C-p=  in the minibuffer to move through
-displayed completion and =C-c= to select the current completion. 
-
-
-* Knowledge Graph Search
-
-Module ~emacspeak-webspace~ now provides an early implementation of
-Google Knowledge Graph search.
