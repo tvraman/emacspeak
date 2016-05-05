@@ -127,6 +127,7 @@ emacspeak-ecb.elc \
 emacspeak-ein.elc \
 emacspeak-ediary.elc \
 emacspeak-ediff.elc \
+emacspeak-elscreen.elc \
 emacspeak-eww.elc \
 emacspeak-eclim.elc \
 emacspeak-elfeed.elc \
@@ -364,6 +365,7 @@ emacspeak-ecb.elc: emacspeak-ecb.el dtk-speak.elc voice-setup.elc
 emacspeak-ein.elc: emacspeak-ein.el dtk-speak.elc voice-setup.elc
 emacspeak-ediary.elc: emacspeak-ediary.el dtk-speak.elc voice-setup.elc
 emacspeak-ediff.elc: emacspeak-ediff.el dtk-speak.elc voice-setup.elc
+emacspeak-elscreen.elc: emacspeak-elscreen.el dtk-speak.elc voice-setup.elc
 emacspeak-xkcd.elc: emacspeak-xkcd.el dtk-speak.elc
 emacspeak-eclim.elc: emacspeak-eclim.el dtk-speak.elc voice-setup.elc
 emacspeak-elfeed.elc: emacspeak-elfeed.el dtk-speak.elc
