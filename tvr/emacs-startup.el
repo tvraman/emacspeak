@@ -160,15 +160,15 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
          (define-key shell-mode-map "\C-ch" 'emacspeak-wizards-refresh-shell-history)))
 
     ;;}}}
-;;{{{ outline mode setup:
+    ;;{{{ outline mode setup:
 
-(load-library "outline")
-;restore what we are about to steal 
-(define-key outline-mode-prefix-map "o" 'open-line)
-(global-set-key "\C-o"outline-mode-prefix-map)
+    (load-library "outline")
+                                        ;restore what we are about to steal
+    (define-key outline-mode-prefix-map "o" 'open-line)
+    (global-set-key "\C-o"outline-mode-prefix-map)
 
-;;}}}
-;;{{{ Prepare needed libraries
+    ;;}}}
+    ;;{{{ Prepare needed libraries
 
     (package-initialize)
 
@@ -197,16 +197,16 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "local"))
 
     ;;}}}
-;;{{{ turn on modes:
+    ;;{{{ turn on modes:
 
-(initialize-completions)
-(savehist-mode )
-     (save-place-mode)
-     (midnight-mode)
-(server-start)
-(bbdb-insinuate-vm)
+    (initialize-completions)
+    (savehist-mode )
+    (save-place-mode)
+    (midnight-mode)
+    (server-start)
+    (bbdb-insinuate-vm)
 
-;;}}}
+    ;;}}}
     ))                                  ; end defun
 ;;{{{  start it up
 
@@ -217,12 +217,13 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (mapcar
       #'custom-reevaluate-setting
       '(emacspeak-media-location-bindings))
-     (load-library "helm-prepare")
+     (when (locate-library "elscreen")(elscreen-start))
+     (load-library "helm-prepare") ;loaded but not activated
      (soundscape-toggle)
      (shell)
      (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
      (calendar)
-     (shell-command 
+     (shell-command
       (format "aplay %s"
               (expand-file-name "highbells.au" emacspeak-sounds-directory)))
      (message "Successfully initialized Emacs")))
