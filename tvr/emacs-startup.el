@@ -219,7 +219,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
       '(emacspeak-media-location-bindings))
      (when (locate-library "elscreen")
        (elscreen-start)
-       (global-set-key (kbd "C-/") elscreen-map))
+       (global-set-key (kbd "C-/") elscreen-map)
+       (define-key elscreen-map  (kbd "C-/") 'elscreen-toggle))
      (load-library "helm-prepare") ;loaded but not activated
      (soundscape-toggle)
      (shell)
