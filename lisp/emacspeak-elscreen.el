@@ -40,7 +40,7 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; ELSCREEN ==  Manage window/screen configurations
+;;; ELSCREEN ==  Emacs Window Session Manager
 ;;; Speech-enable interactive commands.
 ;;; Code:
 
