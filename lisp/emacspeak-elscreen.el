@@ -80,7 +80,9 @@
        (emacspeak-auditory-icon 'select-object)
        (dtk-notify-using-voice
         voice-smoothen
-        (elscreen-get-screen-nickname  (elscreen-get-current-screen)))
+        (or 
+        (elscreen-get-screen-nickname  (elscreen-get-current-screen))
+        (buffer-name)))
        (emacspeak-speak-mode-line)))))
 
 (loop
