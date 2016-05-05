@@ -87,7 +87,7 @@
 (require 'xbacklight)
 (require 'view)
 (require 'org)
-(require 'emacspeak-m-player)
+(eval-when-compile(require 'emacspeak-m-player))
 
 ;;}}}
 ;;{{{ Generate Muggles From Keymaps:
