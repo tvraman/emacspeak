@@ -78,6 +78,9 @@
      "Provide auditory feedback."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
+       (dtk-notify-using-voice
+        voice-smoothen
+        (elscreen-get-screen-nickname  (elscreen-get-current-screen)))
        (emacspeak-speak-mode-line)))))
 
 (loop
