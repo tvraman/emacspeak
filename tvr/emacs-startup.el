@@ -217,7 +217,9 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (mapcar
       #'custom-reevaluate-setting
       '(emacspeak-media-location-bindings))
-     (when (locate-library "elscreen")(elscreen-start))
+     (when (locate-library "elscreen")
+       (elscreen-start)
+       (global-set-key (kbd "C-/") elscreen-map))
      (load-library "helm-prepare") ;loaded but not activated
      (soundscape-toggle)
      (shell)
