@@ -278,12 +278,11 @@ etc to be ignored when guessing directory.")
 
 ;;;###autoload
 (defun emacspeak-m-player-accelerator (directory)
-  "Launch MPlayer on specified directory and switch to it."
+  "Launch MPlayer on specified directory."
   (let ((ido-case-fold t)
         (emacspeak-m-player-accelerator-p t)
         (emacspeak-media-shortcuts-directory (expand-file-name directory)))
     (call-interactively 'emacspeak-multimedia)
-    (switch-to-buffer (process-buffer emacspeak-m-player-process))
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
