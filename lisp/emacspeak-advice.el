@@ -1547,6 +1547,15 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
         (emacspeak-auditory-icon 'modified-object)
       (emacspeak-auditory-icon 'unmodified-object))))
 
+(defadvice comment-dwim (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (cond
+     ((use-region-p)
+      (emacspeak-speak-region (region-beginning) (region-end)))
+     (t (emacspeak-speak-line)))
+    (emacspeak-auditory-icon 'task-done)))
+
 (defadvice comment-region (after emacspeak pre act comp)
   "Provide spoken feedback."
   (when (ems-interactive-p)
