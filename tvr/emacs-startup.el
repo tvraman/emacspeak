@@ -184,7 +184,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        ;;; Authoring:
        "auctex-prepare" "nxml-prepare" "folding-prepare"
        "calc-prepare"
-       "elscreen-prepare"
        "hydra-prepare" "helm-prepare" ;helm not activated 
        "js-prepare" "tcl-prepare" "slime-prepare" "company-prepare" "python-mode-prepare"
                                         ; jde and ecb will pull in cedet.
@@ -194,7 +193,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "tramp-prepare"  "fap-prepare"
        "emms-prepare" "iplayer-prepare"
        "auto-correct-setup"
-       "color-theme-prepare"
+       "color-theme-prepare" "elscreen-prepare"
        "local"))
 
     ;;}}}

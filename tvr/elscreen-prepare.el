@@ -1,4 +1,5 @@
 (when (locate-library "elscreen")
-       (elscreen-start)
-       (global-set-key (kbd "C-/") elscreen-map)
-       (define-key elscreen-map  (kbd "C-/") 'elscreen-toggle))
+  (elscreen-start)
+  (let ((copy-map (copy-keymap elscreen-map)))
+    (define-key copy-map  [67108911] 'elscreen-toggle)
+    (global-set-key   [67108911] copy-map)))
