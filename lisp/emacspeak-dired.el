@@ -393,6 +393,7 @@ On a directory line, run du -s on the directory to speak its size."
     ("\\.html" emacspeak-dired-eww-open)
     ("\\.htm" emacspeak-dired-eww-open)
     ("\\.pdf" emacspeak-dired-pdf-open)
+    ("\\.md" emacspeak-dired-md-open)
     ("\\.csv" emacspeak-dired-csv-open)
     (,emacspeak-media-extensions emacspeak-dired-play-this-media))
   "Association of filename extension patterns to Emacspeak handlers.")
@@ -422,6 +423,14 @@ On a directory line, run du -s on the directory to speak its size."
   "Open HTML file on current dired line."
   (interactive)
   (eww-open-file (dired-get-filename)))
+
+
+(defun emacspeak-dired-md-open ()
+  "Preview markdown  file on current dired line."
+  (interactive)
+  (let ((buffer (find-file-noselect  (dired-get-filename))))
+    (with-current-buffer buffer
+      (markdown-preview))))
 
 (defun emacspeak-dired-pdf-open ()
   "Open PDF file on current dired line."
