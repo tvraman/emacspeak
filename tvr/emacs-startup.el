@@ -184,7 +184,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        ;;; Authoring:
        "auctex-prepare" "nxml-prepare" "folding-prepare"
        "calc-prepare"
-       "hydra-prepare"
+       "elscreen-prepare"
+       "hydra-prepare" "helm-prepare" ;helm not activated 
        "js-prepare" "tcl-prepare" "slime-prepare" "company-prepare" "python-mode-prepare"
                                         ; jde and ecb will pull in cedet.
                                         ;"jde-prepare" "ecb-prepare"
@@ -217,11 +218,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (mapcar
       #'custom-reevaluate-setting
       '(emacspeak-media-location-bindings))
-     (when (locate-library "elscreen")
-       (elscreen-start)
-       (global-set-key (kbd "C-/") elscreen-map)
-       (define-key elscreen-map  (kbd "C-/") 'elscreen-toggle))
-     (load-library "helm-prepare") ;loaded but not activated
      (soundscape-toggle)
      (shell)
      (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
