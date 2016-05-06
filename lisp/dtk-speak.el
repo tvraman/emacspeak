@@ -63,7 +63,10 @@
 (declare-function emacspeak-queue-auditory-icon "emacspeak-sounds.el" (icon))
 ;;;###autoload
 (defvar dtk-program
-  (or  (getenv "DTK_PROGRAM") "dtk-exp")
+  (cond
+   ((getenv "DTK_PROGRAM")(getenv "DTK_PROGRAM"))
+   ((eq system-type 'darwin) "mac")
+   (t "espeak"))
   "The program to use to talk to the speech engine.
 Possible choices at present:
 dtk-exp     For the Dectalk Express.
@@ -71,7 +74,7 @@ dtk-mv      for the Multivoice and older Dectalks.
 outloud     For IBM ViaVoice Outloud
 espeak      For eSpeak
 mac for MAC TTS
-The default is dtk-exp.")
+The default is espeak.")
 
 (defvar dtk-program-args
   (when (getenv "DTK_PROGRAM_ARGS")
