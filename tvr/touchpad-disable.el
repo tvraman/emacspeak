@@ -1,6 +1,20 @@
 ;;; Disable mouse buttons and touchpad.
 ;;; Avoids accidental touches 
+(define-minor-mode disable-mouse-mode
+  "A minor-mode that disables all mouse keybinds."
+  :global t
+  :lighter " 🐭"
+  :keymap (make-sparse-keymap))
 
+(dolist
+    (type '(mouse down-mouse drag-mouse double-mouse triple-mouse))
+  (dolist
+      (prefix '("" C- M- S- M-S- C-M- C-S- C-M-S-))
+    ;; Yes, I actually HAD to go up to 7 here.
+    (dotimes (n 7)
+      (let ((k (format "%s%s-%s" prefix type n)))
+        (define-key disable-mouse-mode-map (vector (intern k)) #'ignore)))))
+(disable-mouse-mode 1)
 (loop
  for  k in 
  '([mouse-1] [down-mouse-1] [drag-mouse-1] [double-mouse-1] [triple-mouse-1]    
@@ -55,3 +69,17 @@ Set by locating it via xinput --list."
 ;(add-hook 'focus-in-hook #'turn-off-mouse)
 ;(add-hook 'focus-out-hook #'turn-on-mouse)
 ;(add-hook 'delete-frame-functions #'turn-on-mouse)
+(define-minor-mode disable-mouse-mode
+  "A minor-mode that disables all mouse keybinds."
+  :global t
+  :lighter " 🐭"
+  :keymap (make-sparse-keymap))
+
+(dolist (type '(mouse down-mouse drag-mouse
+                      double-mouse triple-mouse))
+  (dolist (prefix '("" C- M- S- M-S- C-M- C-S- C-M-S-))
+    ;; Yes, I actually HAD to go up to 7 here.
+    (dotimes (n 7)
+      (let ((k (format "%s%s-%s" prefix type n)))
+        (define-key disable-mouse-mode-map
+          (vector (intern k)) #'ignore)))))
