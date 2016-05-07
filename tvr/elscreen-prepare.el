@@ -2,4 +2,5 @@
   (elscreen-start)
   (let ((copy-map (copy-keymap elscreen-map)))
     (define-key copy-map  [67108911] 'elscreen-toggle)
-    (global-set-key   [67108911] copy-map)))
+    (global-set-key   [67108911] copy-map)
+    (global-set-key [C-tab] 'elscreen-toggle)))
