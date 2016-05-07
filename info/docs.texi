@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1149 commands and 951 options.
+This chapter documents a total of 1150 commands and 951 options.
 
 @menu
 * acss-structure::
@@ -5614,6 +5614,15 @@ unless ``dired-listing-switches'' contains -l
 @end format
 @end deffn
 
+@subsubsection emacspeak-dired-md-open
+@deffn {Command} emacspeak-dired-md-open   
+@findex emacspeak-dired-md-open
+
+@format
+Preview markdown  file on current dired line.
+@end format
+@end deffn
+
 @subsubsection emacspeak-dired-open-this-file
 @deffn {Command} emacspeak-dired-open-this-file   
 @findex emacspeak-dired-open-this-file
@@ -6110,7 +6119,7 @@ Speech-enables all aspects of elpy.
 @node emacspeak-elscreen
 @section emacspeak-elscreen
 
-ELSCREEN ==  Manage window/screen configurations
+ELSCREEN ==  Emacs Window Session Manager
 Speech-enable interactive commands.
 
 @subsection emacspeak-elscreen Options
