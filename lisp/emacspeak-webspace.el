@@ -302,8 +302,10 @@ Updated headlines found in emacspeak-webspace-headlines."
        and position  from 1
        do
        (insert (format "%d\t" position))
-       (emacspeak-webspace-headlines-insert-button h)
-       (emacspeak-webspace-mode))))
+       (emacspeak-webspace-headlines-insert-button h))
+      (goto-char (point-min))
+      (flush-lines "^ *$")
+      (emacspeak-webspace-mode)))
   (switch-to-buffer emacspeak-webspace-headlines-buffer)
   (goto-char (point-min))
   (emacspeak-auditory-icon 'open-object)
