@@ -105,6 +105,7 @@ displayed buffers."
                                                windows
                                                " "))))))
 
+(defalias 'emacspeak-speak-window-layout 'emacspeak-tapestry-describe-tapestry)
 ;;;###autoload
 (defun emacspeak-tapestry-select-window-by-name (buffer-name)
   "Select window by the name of the buffer it displays.
