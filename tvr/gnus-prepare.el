@@ -62,7 +62,7 @@
 
 ;;}}}
 (setq gnus-summary-line-format "%t%U%R%-20,20a %s \n")
-(setq gnus-group-line-format "%M%S%p%P%5y: %(%G%)%l \n")
+(setq gnus-group-line-format "%M%S%p%P%5y: %(%g%)%l \n")
 (defun gmail-report-spam ()
   "Report the current or marked mails as spam.
 This moves them into the Spam folder."
