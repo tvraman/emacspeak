@@ -59,7 +59,7 @@ Change to the @code{emacspeak} directory.
 @item
  Type 
 @example
-{make}
+make
 @end example
  to compile the files.
 @item Next, decide which text-to-speech engine you will be using, and
