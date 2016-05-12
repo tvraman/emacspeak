@@ -57,8 +57,11 @@ Obtain the source code --- either by downloading the tar.bz2 file for the latest
 Change to the @code{emacspeak} directory.
  Type @samp{make config} to configure the sources.
 @item
- Type @samp{make} to compile the files.
-@item Install Emacspeak syst
+ Type 
+@example
+{make}
+@end example
+ to compile the files.
 @item Next, decide which text-to-speech engine you will be using, and
 proceed to install that engine. Your choices are:
 @itemize @bullet
@@ -85,7 +88,7 @@ As an example, to use ESpeak, add
 @example 
 export DTK_PROGRAM=espeak
 @end example
-em-wide  by typing 
+@item install Emacspeak system-wide  by typing 
 @example 
 sudo make install
 @end example 
