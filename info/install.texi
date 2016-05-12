@@ -6,10 +6,9 @@ This chapter gives brief and detailed installation instructions
 for configuring, installing and starting Emacspeak.
 
 @menu
-* Obtaining Emacspeak::        Obtaining Emacspeak.
+* Obtaining Emacspeak::         Obtaining Emacspeak.
 * Quick Installation::          Default installation  and startup.
-* Configuring and Installing Emacspeak::  Configuring and Installing Emacspeak 
-                                         and its associated files
+* Building And Testing The Speech Server::
 @end menu
 
 
@@ -88,10 +87,6 @@ As an example, to use ESpeak, add
 @example 
 export DTK_PROGRAM=espeak
 @end example
-@item install Emacspeak system-wide  by typing 
-@example 
-sudo make install
-@end example 
 @item
  Run it by doing 
 @itemize @bullet
@@ -106,46 +101,45 @@ In the above, @code{<emacspeak-dir>} refers to the directory where you unpacked
 the sources. 
 @end  itemize
 
-
-@node Configuring and Installing Emacspeak
-@section Configuring and Installing Emacspeak
-
-Note: You need a current version of GNU Emacs 
-  for using newer versions of Emacspeak.
-
-The speech server for the Dectalk is written in TclX.  (For example, see the
-source file @file{dtk-exp}).  
-@itemize @bullet 
-@item Decide where you want the Emacspeak elisp files.  Most Unix packages are
-unpacked and compiled in one directory, and then the executable,
-documentation, and data files are installed in the appropriate system
-directories.  
+See the next section for details on building and testing the speech
+server.
 
 
-Once you have decided on the appropriate directory, make it if necessary
-and unpack the distribution @code{.tar.bz2} file there. 
+@node Building And Testing The Speech Server
+@section Building And Testing The Speech Server
+@subsection Speech Servers 
 
-@item Look through the introductory section of the Makefile to see if you need
-to edit it for your site.
-@item Check the directory prefix for installation.  The default is @file{/usr/local},
-so @file{.info} files go to @file{/usr/local/info} and the executable
-file goes to @file{/usr/local/bin}.  To change this, edit the line
-defining @var{PREFIX}.
-@end itemize
+Speech servers are located in the @code{emacspeak/servers} directory.
 
-Configure the source files by typing @samp{make config}.  At this point
-you can check that the  speech server is correctly configured by typing
+@itemize @bullet
+@item ESpeak: servers/espeak. This is a TCL script that   uses  a
+library built in @code{servers/linux-espeak/}.
+@item Dectalk:  @code{servers/dtk-exp}. This is a TCL script that does
+not depend on any native code.
+@item Outloud: @code{servers/outloud} or @code{servres/32-outloud} (for
+64-bit machines). This is a TCL script that uses the library built in
+@code{servers/linux-outloud}. Note that a checkout from GitHub gives you
+a prebuilt library --- however you will need to purchase  the TTS engine
+from @url{http://voxin.org}.
+@item Mac: @code{servers/mac}. This is a Python script that binds to the
+native Mac TTS.
+@end itemize 
+
+@subsubsection Testing The Selected Server.
+
+Once you have picked the TTS engine to use, 
+run  the selected server script at a shell prompt, e.g. for the
+@code{espeak} engine, do:
 @example 
- @samp{./servers/dtk-exp}
+./servers/espeak
 @end example
-@noindent (assuming you are using the Dectalk Express).  You should hear the
-Dectalk speak and get a TCL prompt if everything is okay.
 
-If you're feeling paranoid, you can perform a couple of additional tests
-at this point. Execute the following commands in the running tcl session
-you just started above.  (Most users will not need to do this; it is a
-sanity check and is useful in tracking problems, especially if you find
-emacspeak begin to talk and then immediately fall silent.)
+This will result in a TCL prompt.
+Here, you can test the  TTS engine by:
+
+
+
+
 
 @itemize @bullet
 @item
@@ -154,55 +148,12 @@ q "this is a test."
 d
 @end example
 
- You should hear the Dectalk speak  the text.
+ You should hear the TTS engine  speak  the text.
 @item @samp{s}
  The above command stops speech.
  You should see a TCL prompt when you execute it.
-  If things appear to hang when you execute @samp{s}
-  i.e. you don't see a TCL prompt
-@enumerate 
-@item The serial cable connecting your speech device is flaky
-@item Your serial port is flaky
-@item The stty settings on the port are incorrect for your system
-@end enumerate
- 
-In the case of incorrect stty settings please report the problem.  The
-following UNIX command can be used to report the stty settings:
-@example
-stty -a < serial_port
-@end example
-
 @end itemize
 
 Quit this TCL
 session by typing @kbd{C-D}.
-
-Next, compile the elisp files by typing 
-@example
-make 
-@end example
-Finally, install the documentation and executable files by typing 
-@example
-make PREFIX=<prefix> install 
-@end example
-
-The speech server program and/or output port can also be specified at run time by 
-setting the shell environment variables @var{DTK_PROGRAM} and @var{DTK_PORT}.
-Examples: If using @code{csh} or @code{tcsh} 
-@example
-setenv DTK_PROGRAM "dtk-exp"
-@end example
-@noindent if using @code{sh} or @code{bash}
-@example
-DTK_PROGRAM=dtk-exp
-export DTK_PROGRAM
-@end example
-@noindent Similarly,
-@example
-DTK_PORT=/dev/ttyS0
-@end example
-
-You can always set these variables from a running Emacs session by
-executing
-the Emacs setenv command.
 
