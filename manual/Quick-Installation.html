@@ -99,9 +99,11 @@
   section for detailed installation instructions.</p>
 
   <p>Packages for Linux distributions such as Debian typically
-  become available on the WWW a few days after a new version is
-  released. The instructions below are for building and installing
-  Emacspeak from the source distribution.</p>
+  become available on the WWW a few weeks or months after a new
+  version is released. The instructions below are for building and
+  installing Emacspeak from the source distribution. If you install
+  one of the pre-packaged distributions, use the install
+  instructions that come with that package.</p>
 
   <ul>
     <li>Obtain the source code — either by downloading the tar.bz2
@@ -116,6 +118,54 @@
 
     <li>Install Emacspeak system-wide by typing ‘<samp>sudo make
     install</samp>’</li>
+
+    <li>Next, decide which text-to-speech engine you will be using,
+    and proceed to install that engine. Your choices are:
+
+      <ul>
+        <li>Open Source ESpeak on Linux. Install the ESpeak
+        packages for your system, then compile the Emacspeak ESpeak
+        server by doing:
+
+          <div class="example">
+            <pre class="example">
+cd servers/linux-espeak; make
+</pre>
+          </div>
+        </li>
+
+        <li>ViaVoice Outloud (AKA Eloquent). You need to purchase
+        this engine from the voxin.org site. That purchase will
+        give you install-ready packages for installing the speech
+        engine as well as Emacspeak.</li>
+
+        <li>On the Mac, you can use the builtin Mac TTS engine
+        —emacspeak comes with a speech server for that TTS engine
+        written in Python.</li>
+      </ul>
+    </li>
+
+    <li>Having installed and configured the TTS engine of your
+    choice, and having built the associated speech server, set
+    Emacspeak up to use that engine by setting environment variable
+    <code>DTK_PROGRAM</code>. If using Bash as your shell, add the
+    line
+
+      <div class="example">
+        <pre class="example">
+export DTK_PROGRAM=&lt;engine-name&gt;
+</pre>
+      </div>
+
+      <p>to your <code>.bash_profile</code>. As an example, to use
+      ESpeak, add</p>
+
+      <div class="example">
+        <pre class="example">
+export DTK_PROGRAM=espeak
+</pre>
+      </div>
+    </li>
 
     <li>Run it by doing
 
@@ -136,5 +186,20 @@
       the directory where you unpacked the sources.</p>
     </li>
   </ul>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href=
+    "Configuring-and-Installing-Emacspeak.html#Configuring-and-Installing-Emacspeak"
+    accesskey="n" rel="next">Configuring and Installing
+    Emacspeak</a>, Previous: <a href=
+    "Obtaining-Emacspeak.html#Obtaining-Emacspeak" accesskey="p"
+    rel="prev">Obtaining Emacspeak</a>, Up: <a href=
+    "Installation.html#Installation" accesskey="u" rel=
+    "up">Installation</a> &nbsp; [<a href="index.html#SEC_Contents"
+    title="Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>
