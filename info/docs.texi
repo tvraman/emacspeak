@@ -670,9 +670,9 @@ current local  value to the result.
 
 @subsubsection dtk-stop
 @deffn {Command} dtk-stop   
-@kbd{C-e s <XF86WakeUp> s}
+@kbd{C-e s C-e <XF86WakeUp> <XF86WakeUp> s <XF86WakeUp> <XF86WakeUp>}
 
-@kindex C-e s <XF86WakeUp> s
+@kindex C-e s C-e <XF86WakeUp> <XF86WakeUp> s <XF86WakeUp> <XF86WakeUp>
 @findex dtk-stop
 
 @format
@@ -1102,6 +1102,7 @@ C-SPC		emacspeak-speak-current-mark
 <(deletechar>	emacspeak-ssh-tts-restart
 <C-<left>	emacspeak-select-this-buffer-previous-display
 <C-<right>	emacspeak-select-this-buffer-next-display
+<XF86WakeUp>	dtk-stop
 <delete>	emacspeak-ssh-tts-restart
 <down>		emacspeak-read-next-line
 <f1>		emacspeak-learn-emacs-mode

@@ -43,9 +43,11 @@ See the next section for detailed installation instructions.
 
 
 Packages for  Linux distributions such as Debian typically become
-available on the WWW a few days after a new version is released.
+available on the WWW a few weeks or months  after a new version is released.
 The instructions below are for building and installing Emacspeak from
-the source distribution.
+the source distribution. If you install one of the pre-packaged
+distributions, use the install instructions that come with that package.
+
 
 @itemize @bullet
 @item 
@@ -58,6 +60,33 @@ Change to the @code{emacspeak} directory.
  Type @samp{make} to compile the files.
 @item Install Emacspeak system-wide  by typing 
 @samp{sudo make install}
+@item Next, decide which text-to-speech engine you will be using, and
+proceed to install that engine. Your choices are:
+@itemize @bullet
+@item Open Source ESpeak on Linux. Install the ESpeak packages for your
+system, then compile the Emacspeak ESpeak server by doing:
+@example
+cd servers/linux-espeak; make
+@end example
+@item ViaVoice Outloud (AKA Eloquent). You need to purchase this engine
+from the voxin.org site. That purchase will give you install-ready
+packages for installing the speech engine as well as Emacspeak.
+@item On the Mac, you can use the builtin Mac TTS engine  ---emacspeak
+comes with a speech server for that TTS  engine written in Python.
+@end itemize
+@item Having installed and configured the TTS engine of your choice, and
+having built the associated speech server, set Emacspeak up to use that
+engine by setting environment variable @code{DTK_PROGRAM}. If using Bash
+as your shell, add the line
+@example
+export DTK_PROGRAM=<engine-name>
+@end example
+to your @code{.bash_profile}.
+As an example, to use ESpeak, add
+@example 
+export DTK_PROGRAM=espeak
+@end example
+
 @item
  Run it by doing 
 @itemize @bullet
