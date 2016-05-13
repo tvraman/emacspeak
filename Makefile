@@ -279,7 +279,7 @@ install:
 	$(INSTALL) -m 0755  etc/emacspeak.sh $(bindir)/emacspeak
 	$(INSTALL) -d $(infodir)
 	cd info; \
-	$(MAKE) install  infodir="$(infodir)"
+  cp *info* $(infodir)
 
 uninstall:
 	rm -rf $(infodir)/emacspeak.info* $(bindir)/emacspeak $(libdir)
