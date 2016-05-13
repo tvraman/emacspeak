@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+
+  <title>Emacspeak User’s Manual –2nd Edition.: Building And
+  Testing The Speech Server</title>
+  <meta name="description" content=
+  "Emacspeak User’s Manual –2nd Edition.: Building And Testing The Speech Server" />
+  <meta name="keywords" content=
+  "Emacspeak User’s Manual –2nd Edition.: Building And Testing The Speech Server" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Installation.html#Installation" rel="up" title=
+  "Installation" />
+  <link href="Basic-Usage.html#Basic-Usage" rel="next" title=
+  "Basic Usage" />
+  <link href="Quick-Installation.html#Quick-Installation" rel=
+  "prev" title="Quick Installation" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
+</head>
+
+<body lang="en" xml:lang="en">
+  <a name="Building-And-Testing-The-Speech-Server" id=
+  "Building-And-Testing-The-Speech-Server"></a>
+
+  <div class="header">
+    <p>Previous: <a href=
+    "Quick-Installation.html#Quick-Installation" accesskey="p" rel=
+    "prev">Quick Installation</a>, Up: <a href=
+    "Installation.html#Installation" accesskey="u" rel=
+    "up">Installation</a> &nbsp; [<a href="index.html#SEC_Contents"
+    title="Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="Building-And-Testing-The-Speech-Server-1" id=
+  "Building-And-Testing-The-Speech-Server-1"></a>
+
+  <h3 class="section">5.3 Building And Testing The Speech
+  Server</h3><a name="Speech-Servers" id="Speech-Servers"></a>
+
+  <h4 class="subsection">5.3.1 Speech Servers</h4>
+
+  <p>Speech servers are located in the
+  <code>emacspeak/servers</code> directory.</p>
+
+  <ul>
+    <li>ESpeak: servers/espeak. This is a TCL script that uses a
+    library built in <code>servers/linux-espeak/</code>.</li>
+
+    <li>Dectalk: <code>servers/dtk-exp</code>. This is a TCL script
+    that does not depend on any native code.</li>
+
+    <li>Outloud: <code>servers/outloud</code> or
+    <code>servres/32-outloud</code> (for 64-bit machines). This is
+    a TCL script that uses the library built in
+    <code>servers/linux-outloud</code>. Note that a checkout from
+    GitHub gives you a prebuilt library — however you will need to
+    purchase the TTS engine from <a href=
+    "http://voxin.org">http://voxin.org</a>.</li>
+
+    <li>Mac: <code>servers/mac</code>. This is a Python script that
+    binds to the native Mac TTS.</li>
+  </ul><a name="Testing-The-Selected-Server_002e" id=
+  "Testing-The-Selected-Server_002e"></a>
+
+  <h4 class="subsubsection">5.3.1.1 Testing The Selected
+  Server.</h4>
+
+  <p>Once you have picked the TTS engine to use, run the selected
+  server script at a shell prompt, e.g. for the <code>espeak</code>
+  engine, do:</p>
+
+  <div class="example">
+    <pre class="example">
+./servers/espeak
+</pre>
+  </div>
+
+  <p>This will result in a TCL prompt. Here, you can test the TTS
+  engine by:</p>
+
+  <ul>
+    <li>
+      <div class="example">
+        <pre class="example">
+q "this is a test."
+d
+</pre>
+      </div>You should hear the TTS engine speak the text.
+    </li>
+
+    <li>‘<samp>s</samp>’ The above command stops speech. You should
+    see a TCL prompt when you execute it.</li>
+  </ul>
+
+  <p>Quit this TCL session by typing <kbd>C-D</kbd>.</p>
+</body>
+</html>

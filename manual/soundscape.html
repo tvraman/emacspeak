@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+
+  <title>Emacspeak User’s Manual –2nd Edition.: soundscape</title>
+  <meta name="description" content=
+  "Emacspeak User’s Manual –2nd Edition.: soundscape" />
+  <meta name="keywords" content=
+  "Emacspeak User’s Manual –2nd Edition.: soundscape" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+  rel="up" title="Emacspeak Commands And Options" />
+  <link href="sox.html#sox" rel="next" title="sox" />
+  <link href="plain_002dvoices.html#plain_002dvoices" rel="prev"
+  title="plain-voices" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
+</head>
+
+<body lang="en" xml:lang="en">
+  <a name="soundscape" id="soundscape"></a>
+
+  <div class="header">
+    <p>Next: <a href="sox.html#sox" accesskey="n" rel=
+    "next">sox</a>, Previous: <a href=
+    "plain_002dvoices.html#plain_002dvoices" accesskey="p" rel=
+    "prev">plain-voices</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="soundscape-1" id="soundscape-1"></a>
+
+  <h3 class="section">12.211 soundscape</h3>
+
+  <p>Soundscapes <a href=
+  "https://en.wikipedia.org/wiki/Soundscape">https://en.wikipedia.org/wiki/Soundscape</a>
+  define an acoustic environment. Boodler at <a href=
+  "http://boodler.org">http://boodler.org</a> is a Python-based
+  SoundScape generator. To use this module, first install boodler.
+  Then install the soundscape packages (*.boop) files available at
+  <a href="http://boodler.org/lib">http://boodler.org/lib</a>. Make
+  sure boodler works and produces audio in your environment.
+  finally install the Boodler packages from emacspeak/scapes from
+  the Emacspeak GitHub repository by running <code>cd
+  emacspeak/scapes; make</code></p>
+
+  <p>When boodler is set up and all packages installed, copy file
+  emacspeak/scapes/soundscapes to ~/.boodler/Collection. The above
+  file lists all installed SoundScapes. Directory emacspeak/scapes
+  also contains additional Boodler Agents and SoundScapes that I
+  have created for use with Emacspeak.</p>
+
+  <p>Module soundscape.el defines Emacs conveniences for running
+  Soundscapes. Main Entry Points:</p>
+
+  <ul>
+    <li>M-x soundscape-toggle – Enables or disables automatic
+    SoundScapes.</li>
+
+    <li>M-x soundscape – runs a named SoundScape</li>
+
+    <li>M-x soundscape-stop – Stops a specified running
+    Soundscape.</li>
+
+    <li>M-x soundscape-kill – Kills all running Soundscapes.</li>
+  </ul>
+
+  <p>When automatic Soundscapes are enabled, SoundScapes are
+  started and stopped based on the current major mode. Active
+  Soundscape are displayed as part of the minor-mode-alist. Command
+  emacspeak-speak-minor-mode-line can be used to have this
+  spoken.</p>
+
+  <p>Thus, SoundScapes can be thought of as reflecting the
+  <em>mood</em> of the current <em>mode</em>. This package defines
+  a single <var>soundscape-default-theme</var> that is loaded using
+  <code>(soundscape-load soundscape-default-theme)</code>. Emacs
+  modes that provide similar functionality e.g., communication ==
+  email, IM, ... map to the same <em>mood</em>.</p><a name=
+  "soundscape-Commands" id="soundscape-Commands"></a>
+
+  <h4 class="subsection">12.211.1 soundscape Commands</h4><a name=
+  "soundscape-2" id="soundscape-2"></a>
+
+  <h4 class="subsubsection">12.211.1.1 soundscape</h4>
+
+  <dl>
+    <dt><a name="index-soundscape" id=
+    "index-soundscape"></a>Command: <strong>soundscape</strong>
+    <em>(scape)</em></dt>
+
+    <dd>
+      <p><kbd>C-' s C-x @ s s</kbd></p><a name=
+      "index-C_002d_0027-s-C_002dx-_0040-s-s" id=
+      "index-C_002d_0027-s-C_002dx-_0040-s-s"></a> <a name=
+      "index-soundscape-1" id="index-soundscape-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Play soundscape.
+</pre>
+      </div>
+    </dd>
+  </dl><a name="soundscape_002dkill" id="soundscape_002dkill"></a>
+
+  <h4 class="subsubsection">12.211.1.2 soundscape-kill</h4>
+
+  <dl>
+    <dt><a name="index-soundscape_002dkill" id=
+    "index-soundscape_002dkill"></a>Command:
+    <strong>soundscape-kill</strong></dt>
+
+    <dd>
+      <a name="index-soundscape_002dkill-1" id=
+      "index-soundscape_002dkill-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Stop all running soundscapes.
+</pre>
+      </div>
+    </dd>
+  </dl><a name="soundscape_002dlistener" id=
+  "soundscape_002dlistener"></a>
+
+  <h4 class="subsubsection">12.211.1.3 soundscape-listener</h4>
+
+  <dl>
+    <dt><a name="index-soundscape_002dlistener" id=
+    "index-soundscape_002dlistener"></a>Command:
+    <strong>soundscape-listener</strong> <em>(&amp;optional
+    restart)</em></dt>
+
+    <dd>
+      <a name="index-soundscape_002dlistener-1" id=
+      "index-soundscape_002dlistener-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Start  a Soundscape listener.
+Listener is loaded with all Soundscapes defined in “soundscape-default-theme” .
+Optional interactive prefix arg restarts the listener if already running.
+</pre>
+      </div>
+    </dd>
+  </dl><a name="soundscape_002dlistener_002dshutdown" id=
+  "soundscape_002dlistener_002dshutdown"></a>
+
+  <h4 class="subsubsection">12.211.1.4
+  soundscape-listener-shutdown</h4>
+
+  <dl>
+    <dt><a name="index-soundscape_002dlistener_002dshutdown" id=
+    "index-soundscape_002dlistener_002dshutdown"></a>Command:
+    <strong>soundscape-listener-shutdown</strong></dt>
+
+    <dd>
+      <a name="index-soundscape_002dlistener_002dshutdown-1" id=
+      "index-soundscape_002dlistener_002dshutdown-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Shutdown listener.
+</pre>
+      </div>
+    </dd>
+  </dl><a name="soundscape_002dremote" id=
+  "soundscape_002dremote"></a>
+
+  <h4 class="subsubsection">12.211.1.5 soundscape-remote</h4>
+
+  <dl>
+    <dt><a name="index-soundscape_002dremote" id=
+    "index-soundscape_002dremote"></a>Command:
+    <strong>soundscape-remote</strong> <em>(names)</em></dt>
+
+    <dd>
+      <a name="index-soundscape_002dremote-1" id=
+      "index-soundscape_002dremote-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Activate scapes named names.
+</pre>
+      </div>
+    </dd>
+  </dl><a name="soundscape_002drestart" id=
+  "soundscape_002drestart"></a>
+
+  <h4 class="subsubsection">12.211.1.6 soundscape-restart</h4>
+
+  <dl>
+    <dt><a name="index-soundscape_002drestart" id=
+    "index-soundscape_002drestart"></a>Command:
+    <strong>soundscape-restart</strong> <em>(&amp;optional
+    device)</em></dt>
+
+    <dd>
+      <p><kbd>C-' r C-x @ s r</kbd></p><a name=
+      "index-C_002d_0027-r-C_002dx-_0040-s-r" id=
+      "index-C_002d_0027-r-C_002dx-_0040-s-r"></a> <a name=
+      "index-soundscape_002drestart-1" id=
+      "index-soundscape_002drestart-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Restart Soundscape  environment.
+With prefix arg “device”, prompt for a alsa/ladspa device.
+Caches most recently used device, which then becomes the default for future invocations.
+</pre>
+      </div>
+    </dd>
+  </dl><a name="soundscape_002dstop" id="soundscape_002dstop"></a>
+
+  <h4 class="subsubsection">12.211.1.7 soundscape-stop</h4>
+
+  <dl>
+    <dt><a name="index-soundscape_002dstop" id=
+    "index-soundscape_002dstop"></a>Command:
+    <strong>soundscape-stop</strong> <em>(scape)</em></dt>
+
+    <dd>
+      <p><kbd>C-' S C-x @ s S</kbd></p><a name=
+      "index-C_002d_0027-S-C_002dx-_0040-s-S" id=
+      "index-C_002d_0027-S-C_002dx-_0040-s-S"></a> <a name=
+      "index-soundscape_002dstop-1" id=
+      "index-soundscape_002dstop-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Stop running Soundscape.
+</pre>
+      </div>
+    </dd>
+  </dl><a name="soundscape_002dtheme" id=
+  "soundscape_002dtheme"></a>
+
+  <h4 class="subsubsection">12.211.1.8 soundscape-theme</h4>
+
+  <dl>
+    <dt><a name="index-soundscape_002dtheme" id=
+    "index-soundscape_002dtheme"></a>Command:
+    <strong>soundscape-theme</strong></dt>
+
+    <dd>
+      <a name="index-soundscape_002dtheme-1" id=
+      "index-soundscape_002dtheme-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Shows default theme in a special buffer.
+</pre>
+      </div>
+    </dd>
+  </dl><a name="soundscape_002dtoggle" id=
+  "soundscape_002dtoggle"></a>
+
+  <h4 class="subsubsection">12.211.1.9 soundscape-toggle</h4>
+
+  <dl>
+    <dt><a name="index-soundscape_002dtoggle" id=
+    "index-soundscape_002dtoggle"></a>Command:
+    <strong>soundscape-toggle</strong></dt>
+
+    <dd>
+      <p><kbd>C-' t C-x @ s t</kbd></p><a name=
+      "index-C_002d_0027-t-C_002dx-_0040-s-t" id=
+      "index-C_002d_0027-t-C_002dx-_0040-s-t"></a> <a name=
+      "index-soundscape_002dtoggle-1" id=
+      "index-soundscape_002dtoggle-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Toggle automatic SoundScapes.
+When turned on, Soundscapes are automatically run based on current major mode.
+Run command M-x soundscape-theme to see the default mode-&gt;mood mapping.
+</pre>
+      </div>
+    </dd>
+  </dl><a name="soundscape_002dupdate_002dmood" id=
+  "soundscape_002dupdate_002dmood"></a>
+
+  <h4 class="subsubsection">12.211.1.10 soundscape-update-mood</h4>
+
+  <dl>
+    <dt><a name="index-soundscape_002dupdate_002dmood" id=
+    "index-soundscape_002dupdate_002dmood"></a>Command:
+    <strong>soundscape-update-mood</strong></dt>
+
+    <dd>
+      <p><kbd>C-' u C-x @ s u</kbd></p><a name=
+      "index-C_002d_0027-u-C_002dx-_0040-s-u" id=
+      "index-C_002d_0027-u-C_002dx-_0040-s-u"></a> <a name=
+      "index-soundscape_002dupdate_002dmood-1" id=
+      "index-soundscape_002dupdate_002dmood-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Update mood/scape mapping for current major mode.
+This updated mapping is not persisted.
+</pre>
+      </div>
+    </dd>
+  </dl><a name="soundscape-Options" id="soundscape-Options"></a>
+
+  <h4 class="subsection">12.211.2 soundscape Options</h4>
+
+  <dl>
+    <dt><a name="index-User-Option-916" id=
+    "index-User-Option-916"></a>Variable: <strong>User
+    Option</strong> <em>soundscape-data</em></dt>
+
+    <dd>
+      <p>Soundscape data directory.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-917" id=
+    "index-User-Option-917"></a>Variable: <strong>User
+    Option</strong> <em>soundscape-idle-delay</em></dt>
+
+    <dd>
+      <p>Number of seconds of idle time before soundscapes are
+      synchronized with current mode.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-918" id=
+    "index-User-Option-918"></a>Variable: <strong>User
+    Option</strong> <em>soundscape-manager-options</em></dt>
+
+    <dd>
+      <p>User customizable options list passed to boodler. Defaults
+      specify alsa as the output and set master volume to 0.5</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href="sox.html#sox" accesskey="n" rel=
+    "next">sox</a>, Previous: <a href=
+    "plain_002dvoices.html#plain_002dvoices" accesskey="p" rel=
+    "prev">plain-voices</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+</body>
+</html>
