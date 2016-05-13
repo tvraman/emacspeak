@@ -54,6 +54,8 @@
 
 ;;}}}
 ;;{{{ helpers 
+;;; Forward declaration
+(defvar mpg123-mode-map nil)
 (defsubst emacspeak-mpg123-current-track ()
   "Return current rtrack number if on a valid line."
   (when (mpg123:in-music-list-p)
