@@ -89,7 +89,7 @@
 (require 'hydra "hydra" 'no-error)(require 'xbacklight)
 (require 'view)
 (require 'org)
-(eval-when-compile(require 'emacspeak-m-player))
+(require 'emacspeak-m-player)
 
 ;;}}}
 ;;{{{ Generate Muggles From Keymaps:
