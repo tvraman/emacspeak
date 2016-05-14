@@ -189,6 +189,7 @@ emacspeak-midge.elc \
 emacspeak-mpg123.elc \
 emacspeak-muse.elc \
 emacspeak-mspools.elc \
+emacspeak-muggles.elc \
 emacspeak-net-utils.elc \
 emacspeak-newsticker.elc \
 emacspeak-ocr.elc \
@@ -434,6 +435,7 @@ emacspeak-midge.elc: emacspeak-midge.el dtk-speak.elc voice-setup.elc
 emacspeak-mpg123.elc: emacspeak-mpg123.el dtk-speak.elc voice-setup.elc
 emacspeak-muse.elc: emacspeak-muse.el dtk-speak.elc
 emacspeak-mspools.elc: emacspeak-mspools.el dtk-speak.elc voice-setup.elc
+emacspeak-muggles.elc: emacspeak-muggles.el dtk-speak.elc
 emacspeak-net-utils.elc: emacspeak-net-utils.el dtk-speak.elc voice-setup.elc
 emacspeak-newsticker.elc: emacspeak-newsticker.el dtk-speak.elc voice-setup.elc
 emacspeak-npr.elc: emacspeak-npr.el dtk-speak.elc voice-setup.elc
