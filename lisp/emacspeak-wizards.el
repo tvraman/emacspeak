@@ -3041,7 +3041,7 @@ Returns a list of lists, one list per ticker."
                   (integer :tag "Column Number:")
                   (string :tag "Text: ")))
   :group 'emacspeak-wizards)
-;;;###autload
+;;;###autoload
 (defun emacspeak-wizards-yql-lookup (symbols)
   "Lookup quotes for specified stock symbols.
 Symbols are separated by whitespace."
