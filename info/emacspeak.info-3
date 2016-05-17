@@ -12,6 +12,530 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: emacspeak-sql,  Next: emacspeak-sudoku,  Prev: emacspeak-speedbar,  Up: Emacspeak Commands And Options
+
+12.161 emacspeak-sql
+====================
+
+This module speech enables sql-mode– available from
+http://paddington.ic.uva.nl/public/sql-modes.zip sql-mode.el implemented
+by the above package sets up an Emacs to SQL interface where you can
+interactively evaluate SQL expressions.
+
+
+File: emacspeak.info,  Node: emacspeak-sudoku,  Next: emacspeak-supercite,  Prev: emacspeak-sql,  Up: Emacspeak Commands And Options
+
+12.162 emacspeak-sudoku
+=======================
+
+Playing SuDoku using speech output.  Written to discover what type of
+feedback one needs for this task.  See
+http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.html
+
+12.162.1 emacspeak-sudoku Commands
+----------------------------------
+
+12.162.1.1 emacspeak-sudoku-board-columns-summarize
+...................................................
+
+ -- Command: emacspeak-sudoku-board-columns-summarize
+
+     Summarize columns — speaks number of remaining cells.
+
+12.162.1.2 emacspeak-sudoku-board-distribution-summarize
+........................................................
+
+ -- Command: emacspeak-sudoku-board-distribution-summarize
+
+     Shows distribution of filled numbers.
+
+12.162.1.3 emacspeak-sudoku-board-rows-summarize
+................................................
+
+ -- Command: emacspeak-sudoku-board-rows-summarize
+
+     Summarize rows — speaks number of remaining cells.
+
+12.162.1.4 emacspeak-sudoku-board-sub-squares-summarize
+.......................................................
+
+ -- Command: emacspeak-sudoku-board-sub-squares-summarize
+
+     Summarize sub-squares — speaks number of remaining cells.
+
+12.162.1.5 emacspeak-sudoku-board-summarizer
+............................................
+
+ -- Command: emacspeak-sudoku-board-summarizer
+
+     Dispatch to  appropriate summarizer.
+
+     d   Number Distribution
+     r   Row Distribution
+     c   Column Distribution
+     s   Sub-square Distribution.
+
+
+12.162.1.6 emacspeak-sudoku-down-sub-square
+...........................................
+
+ -- Command: emacspeak-sudoku-down-sub-square
+
+     Move to top-left corner of  sub-square below current one.
+
+12.162.1.7 emacspeak-sudoku-erase-current-column
+................................................
+
+ -- Command: emacspeak-sudoku-erase-current-column
+
+     Erase current column.
+
+12.162.1.8 emacspeak-sudoku-erase-current-row
+.............................................
+
+ -- Command: emacspeak-sudoku-erase-current-row
+
+     Erase current row.
+
+12.162.1.9 emacspeak-sudoku-erase-current-sub-square
+....................................................
+
+ -- Command: emacspeak-sudoku-erase-current-sub-square
+
+     Erase current sub-square.
+
+12.162.1.10 emacspeak-sudoku-hint
+.................................
+
+ -- Command: emacspeak-sudoku-hint
+
+     Provide hint for current cell.
+
+12.162.1.11 emacspeak-sudoku-history-pop
+........................................
+
+ -- Command: emacspeak-sudoku-history-pop
+
+     Pop saved state off stack and redraw board.
+
+12.162.1.12 emacspeak-sudoku-history-push
+.........................................
+
+ -- Command: emacspeak-sudoku-history-push
+
+     Push current state on to history stack.
+
+12.162.1.13 emacspeak-sudoku-how-many-remaining
+...............................................
+
+ -- Command: emacspeak-sudoku-how-many-remaining
+
+     Speak number of remaining squares to fill.
+
+12.162.1.14 emacspeak-sudoku-next-sub-square
+............................................
+
+ -- Command: emacspeak-sudoku-next-sub-square
+
+     Move to top-left corner of next sub-square.
+
+12.162.1.15 emacspeak-sudoku-previous-sub-square
+................................................
+
+ -- Command: emacspeak-sudoku-previous-sub-square
+
+     Move to top-left corner of previous sub-square.
+
+12.162.1.16 emacspeak-sudoku-speak-current-cell-coordinates
+...........................................................
+
+ -- Command: emacspeak-sudoku-speak-current-cell-coordinates
+
+     speak current cell coordinates.
+
+12.162.1.17 emacspeak-sudoku-speak-current-cell-value
+.....................................................
+
+ -- Command: emacspeak-sudoku-speak-current-cell-value
+
+     Speak value in current cell.
+
+12.162.1.18 emacspeak-sudoku-speak-current-column
+.................................................
+
+ -- Command: emacspeak-sudoku-speak-current-column
+
+     Speak current column.
+
+12.162.1.19 emacspeak-sudoku-speak-current-row
+..............................................
+
+ -- Command: emacspeak-sudoku-speak-current-row
+
+     Speak current row.
+
+12.162.1.20 emacspeak-sudoku-speak-current-sub-square
+.....................................................
+
+ -- Command: emacspeak-sudoku-speak-current-sub-square
+
+     Speak current sub-square.
+
+12.162.1.21 emacspeak-sudoku-speak-remaining-in-column
+......................................................
+
+ -- Command: emacspeak-sudoku-speak-remaining-in-column
+
+     Speaks number of remaining cells in current column.
+
+12.162.1.22 emacspeak-sudoku-speak-remaining-in-row
+...................................................
+
+ -- Command: emacspeak-sudoku-speak-remaining-in-row
+
+     Speaks number of remaining cells in current row.
+
+12.162.1.23 emacspeak-sudoku-speak-remaining-in-sub-square
+..........................................................
+
+ -- Command: emacspeak-sudoku-speak-remaining-in-sub-square
+
+     Speaks number of remaining cells in current sub-square.
+
+12.162.1.24 emacspeak-sudoku-up-sub-square
+..........................................
+
+ -- Command: emacspeak-sudoku-up-sub-square
+
+     Move to top-left corner of  sub-square above current one.
+
+
+File: emacspeak.info,  Node: emacspeak-supercite,  Next: emacspeak-table,  Prev: emacspeak-sudoku,  Up: Emacspeak Commands And Options
+
+12.163 emacspeak-supercite
+==========================
+
+Speech-enable supercite.
+
+
+File: emacspeak.info,  Node: emacspeak-table,  Next: emacspeak-table-ui,  Prev: emacspeak-supercite,  Up: Emacspeak Commands And Options
+
+12.164 emacspeak-table
+======================
+
+Implements a module that provides a high level interface to tabulated
+information.
+
+
+File: emacspeak.info,  Node: emacspeak-table-ui,  Next: emacspeak-tabulate,  Prev: emacspeak-table,  Up: Emacspeak Commands And Options
+
+12.165 emacspeak-table-ui
+=========================
+
+User interface to tables
+
+12.165.1 emacspeak-table-ui Commands
+------------------------------------
+
+12.165.1.1 emacspeak-table-copy-current-element-to-kill-ring
+............................................................
+
+ -- Command: emacspeak-table-copy-current-element-to-kill-ring
+     ‘C-e C-t w <XF86WakeUp> C-t w’
+
+     Copy current table element to kill ring.
+
+12.165.1.2 emacspeak-table-copy-current-element-to-register
+...........................................................
+
+ -- Command: emacspeak-table-copy-current-element-to-register (&rest
+          rest)
+     ‘C-e C-t x <XF86WakeUp> C-t x’
+
+     :around advice: “ad-Advice-emacspeak-table-copy-current-element-to-register”
+
+     Copy current table element to specified register.
+
+     (fn REGISTER)
+
+12.165.1.3 emacspeak-table-copy-to-clipboard
+............................................
+
+ -- Command: emacspeak-table-copy-to-clipboard
+     ‘C-e C-t k <XF86WakeUp> C-t k’
+
+     Copy table in current buffer to the table clipboard.
+     Current buffer must be in emacspeak-table mode.
+
+12.165.1.4 emacspeak-table-display-table-in-region
+..................................................
+
+ -- Command: emacspeak-table-display-table-in-region (start end)
+     ‘C-e TAB <XF86WakeUp> TAB’
+
+     Recognize tabular data in current region and display it in table
+     browsing mode in a a separate buffer.
+     emacspeak table mode is designed to let you browse tabular data using
+     all the power of the two-dimensional spatial layout while giving you
+     sufficient contextual information.  The tables subdirectory of the
+     emacspeak distribution contains some sample tables –these are the
+     CalTrain schedules.  Execute command “describe-mode” bound to
+     C-h m in a buffer that is in emacspeak table mode to read
+     the documentation on the table browser.
+
+12.165.1.5 emacspeak-table-find-csv-file
+........................................
+
+ -- Command: emacspeak-table-find-csv-file (filename)
+     ‘C-e C-t , <XF86WakeUp> C-t ,’
+
+     Process a csv (comma separated values) file.
+     The processed  data is presented using emacspeak table navigation.
+
+12.165.1.6 emacspeak-table-find-file
+....................................
+
+ -- Command: emacspeak-table-find-file (filename)
+
+     Open a file containing table data and display it in table mode.
+     emacspeak table mode is designed to let you browse tabular data using
+     all the power of the two-dimensional spatial layout while giving you
+     sufficient contextual information.  The etc/tables subdirectory of the
+     emacspeak distribution contains some sample tables –these are the
+     CalTrain schedules.  Execute command “describe-mode” bound to
+     C-h m in a buffer that is in emacspeak table mode to read
+     the documentation on the table browser.
+
+12.165.1.7 emacspeak-table-goto
+...............................
+
+ -- Command: emacspeak-table-goto (row column)
+     ‘C-e C-t j <XF86WakeUp> C-t j’
+
+     Prompt for a table cell coordinates and jump to it.
+
+12.165.1.8 emacspeak-table-goto-bottom
+......................................
+
+ -- Command: emacspeak-table-goto-bottom
+     ‘C-e C-t B <XF86WakeUp> C-t B C-e C-t M-> <XF86WakeUp> C-t M->’
+
+     Goes to the bottom of the current column.
+
+12.165.1.9 emacspeak-table-goto-left
+....................................
+
+ -- Command: emacspeak-table-goto-left
+     ‘C-e C-t A C-e C-t < <XF86WakeUp> C-t A <XF86WakeUp> C-t <’
+
+     Goes to the left of the current row.
+
+12.165.1.10 emacspeak-table-goto-right
+......................................
+
+ -- Command: emacspeak-table-goto-right
+     ‘C-e C-t E C-e C-t > <XF86WakeUp> C-t E <XF86WakeUp> C-t >’
+
+     Goes to the right of the current row.
+
+12.165.1.11 emacspeak-table-goto-top
+....................................
+
+ -- Command: emacspeak-table-goto-top
+     ‘C-e C-t T <XF86WakeUp> C-t T C-e C-t M-< <XF86WakeUp> C-t M-<’
+
+     Goes to the top of the current column.
+
+12.165.1.12 emacspeak-table-next-column
+.......................................
+
+ -- Command: emacspeak-table-next-column (&optional count)
+     ‘C-e C-t TAB C-e C-t C-f C-e C-t <right> <XF86WakeUp> C-t TAB
+     <XF86WakeUp> C-t C-f <XF86WakeUp> C-t <right>’
+
+     Move to the next column if possible
+
+12.165.1.13 emacspeak-table-next-row
+....................................
+
+ -- Command: emacspeak-table-next-row (&optional count)
+     ‘C-e C-t n C-e C-t C-n C-e C-t <down> <XF86WakeUp> C-t n
+     <XF86WakeUp> C-t C-n <XF86WakeUp> C-t <down>’
+
+     Move to the next row if possible
+
+12.165.1.14 emacspeak-table-paste-from-clipboard
+................................................
+
+ -- Command: emacspeak-table-paste-from-clipboard
+
+     Paste the emacspeak table clipboard into the current buffer.
+     Use the major  mode of this buffer to  decide what kind of table
+     markup to use.
+
+12.165.1.15 emacspeak-table-previous-column
+...........................................
+
+ -- Command: emacspeak-table-previous-column (&optional count)
+     ‘C-e C-t C-b C-e C-t <left> C-e C-t <S-tab> <XF86WakeUp> C-t C-b
+     <XF86WakeUp> C-t <left> <XF86WakeUp> C-t <S-tab>’
+
+     Move to the previous column  if possible
+
+12.165.1.16 emacspeak-table-previous-row
+........................................
+
+ -- Command: emacspeak-table-previous-row (&optional count)
+     ‘C-e C-t p C-e C-t C-p C-e C-t <up> <XF86WakeUp> C-t p <XF86WakeUp>
+     C-t C-p <XF86WakeUp> C-t <up>’
+
+     Move to the previous row if possible
+
+12.165.1.17 emacspeak-table-search
+..................................
+
+ -- Command: emacspeak-table-search (&optional what)
+     ‘C-e C-t s <XF86WakeUp> C-t s’
+
+     Search the table for matching elements.  Interactively prompts for
+     row or column to search and pattern to look for.    If there is a match, makes
+     the matching cell current. When called from a program, “what” can
+       be either “row” or “column”.
+
+12.165.1.18 emacspeak-table-search-column
+.........................................
+
+ -- Command: emacspeak-table-search-column
+     ‘C-e C-t C <XF86WakeUp> C-t C’
+
+     Search in current table column.
+
+12.165.1.19 emacspeak-table-search-headers
+..........................................
+
+ -- Command: emacspeak-table-search-headers
+     ‘C-e C-t h <XF86WakeUp> C-t h’
+
+     Search the table row or column headers.  Interactively prompts for
+     row or column to search and pattern to look for.  If there is a
+     match, makes the matching row or column current.
+
+12.165.1.20 emacspeak-table-search-row
+......................................
+
+ -- Command: emacspeak-table-search-row
+     ‘C-e C-t R <XF86WakeUp> C-t R’
+
+     Search in current table row.
+
+12.165.1.21 emacspeak-table-select-automatic-speaking-method
+............................................................
+
+ -- Command: emacspeak-table-select-automatic-speaking-method
+     ‘C-e C-t a <XF86WakeUp> C-t a’
+
+     Interactively select the kind of automatic speech to produce when
+     browsing table elements
+
+12.165.1.22 emacspeak-table-sort-on-current-column
+..................................................
+
+ -- Command: emacspeak-table-sort-on-current-column
+     ‘C-e C-t # <XF86WakeUp> C-t #’
+
+     Sort table on current column.
+
+12.165.1.23 emacspeak-table-speak-both-headers-and-element
+..........................................................
+
+ -- Command: emacspeak-table-speak-both-headers-and-element
+     ‘C-e C-t b <XF86WakeUp> C-t b’
+
+     Speak  both row and column header and table element
+
+12.165.1.24 emacspeak-table-speak-column-filtered
+.................................................
+
+ -- Command: emacspeak-table-speak-column-filtered (&optional prefix)
+     ‘C-e C-t g <XF86WakeUp> C-t g’
+
+     Speaks a table column after applying a specified column filter.
+     Optional prefix arg prompts for a new filter.
+
+12.165.1.25 emacspeak-table-speak-column-header-and-element
+...........................................................
+
+ -- Command: emacspeak-table-speak-column-header-and-element
+     ‘C-e C-t c <XF86WakeUp> C-t c’
+
+     Speak  column header and table element
+
+12.165.1.26 emacspeak-table-speak-coordinates
+.............................................
+
+ -- Command: emacspeak-table-speak-coordinates
+     ‘C-e C-t . <XF86WakeUp> C-t .’
+
+     Speak current table coordinates.
+
+12.165.1.27 emacspeak-table-speak-current-element
+.................................................
+
+ -- Command: emacspeak-table-speak-current-element
+     ‘C-e C-t SPC <XF86WakeUp> C-t SPC’
+
+     Speak current table element
+
+12.165.1.28 emacspeak-table-speak-dimensions
+............................................
+
+ -- Command: emacspeak-table-speak-dimensions
+     ‘C-e C-t = <XF86WakeUp> C-t =’
+
+     Speak current table dimensions.
+
+12.165.1.29 emacspeak-table-speak-row-filtered
+..............................................
+
+ -- Command: emacspeak-table-speak-row-filtered (&optional prefix)
+     ‘C-e C-t f <XF86WakeUp> C-t f’
+
+     Speaks a table row after applying a specified row filter.
+     Optional prefix arg prompts for a new filter.
+
+12.165.1.30 emacspeak-table-speak-row-header-and-element
+........................................................
+
+ -- Command: emacspeak-table-speak-row-header-and-element
+     ‘C-e C-t r <XF86WakeUp> C-t r’
+
+     Speak  row header and table element
+
+12.165.1.31 emacspeak-table-ui-filter-load
+..........................................
+
+ -- Command: emacspeak-table-ui-filter-load (file)
+     ‘C-e C-t M-l <XF86WakeUp> C-t M-l’
+
+     Load saved filter settings.
+
+12.165.1.32 emacspeak-table-ui-filter-save
+..........................................
+
+ -- Command: emacspeak-table-ui-filter-save (file)
+     ‘C-e C-t M-s <XF86WakeUp> C-t M-s’
+
+     Save out filter settings.
+
+12.165.1.33 emacspeak-table-view-csv-buffer
+...........................................
+
+ -- Command: emacspeak-table-view-csv-buffer (&optional buffer-name)
+
+     Process a csv (comma separated values) data.
+     The processed  data is  presented using emacspeak table navigation.
+
+
 File: emacspeak.info,  Node: emacspeak-tabulate,  Next: emacspeak-tapestry,  Prev: emacspeak-table-ui,  Up: Emacspeak Commands And Options
 
 12.166 emacspeak-tabulate
@@ -268,19 +792,6 @@ broken.
  -- Command: emacspeak-twittering-speak-this-tweet
 
      Speak tweet under point.
-
-12.175.2 emacspeak-twittering Options
--------------------------------------
-
- -- Variable: User Option emacspeak-twittering-uri-personality
-     Personality used for twittering-uri-face This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option emacspeak-twittering-username-personality
-     Personality used for twittering-username-face This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-url-template,  Next: emacspeak-view,  Prev: emacspeak-twittering,  Up: Emacspeak Commands And Options
@@ -649,96 +1160,10 @@ File: emacspeak.info,  Node: emacspeak-w3m,  Next: emacspeak-wdired,  Prev: emac
 12.180.2 emacspeak-w3m Options
 ------------------------------
 
- -- Variable: User Option emacspeak-w3m-anchor-voice
-     Personality used for w3m-anchor This personality uses voice-lighten
-     whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option emacspeak-w3m-arrived-anchor-voice
-     Personality used for w3m-arrived-anchor This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option emacspeak-w3m-bold-voice
-     Personality used for w3m-bold This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option emacspeak-w3m-current-anchor-voice
-     Personality used for w3m-current-anchor This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option emacspeak-w3m-form-button-pressed-voice
-     Personality used for w3m-form-button-pressed This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option emacspeak-w3m-form-button-voice
-     Personality used for w3m-form-button This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option emacspeak-w3m-form-voice
-     Personality used for w3m-form This personality uses voice-brighten
-     whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option
-          emacspeak-w3m-header-line-location-content-voice
-     Personality used for w3m-header-line-location-content This
-     personality uses voice-animate whose effect can be changed globally
-     by customizing voice-animate-settings.
-
- -- Variable: User Option emacspeak-w3m-header-line-location-title-voice
-     Personality used for w3m-header-line-location-title This
-     personality uses voice-bolden whose effect can be changed globally
-     by customizing voice-bolden-settings.
-
- -- Variable: User Option emacspeak-w3m-history-current-url-voice
-     Personality used for w3m-history-current-url This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option emacspeak-w3m-image-voice
-     Personality used for w3m-image This personality uses voice-brighten
-     whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option emacspeak-w3m-insert-voice
-     Personality used for w3m-insert This personality uses voice-bolden
-     whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option emacspeak-w3m-italic-voice
-     Personality used for w3m-italic This personality uses voice-animate
-     whose effect can be changed globally by customizing
-     voice-animate-settings.
-
  -- Variable: User Option emacspeak-w3m-speak-titles-on-switch
      Speak the document title when switching between w3m buffers.  If
      non-nil, switching between w3m buffers will speak the title instead
      of the modeline.
-
- -- Variable: User Option emacspeak-w3m-strike-through-voice
-     Personality used for w3m-strike-through This personality uses
-     voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option emacspeak-w3m-tab-selected-voice
-     Personality used for w3m-tab-selected This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option emacspeak-w3m-tab-unselected-voice
-     Personality used for w3m-tab-unselected This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option emacspeak-w3m-underline-voice
-     Personality used for w3m-underline This personality uses
-     voice-brighten-extra whose effect can be changed globally by
-     customizing voice-brighten-extra-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-wdired,  Next: emacspeak-we,  Prev: emacspeak-w3m,  Up: Emacspeak Commands And Options

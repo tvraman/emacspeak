@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents Emacspeak, The Complete Audio Desktop.  This
-document was last updated on May 13, 2016.
+document was last updated on May 17, 2016.
 
    The manual is divided into the following chapters.
 
@@ -2939,7 +2939,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: TTS Servers,
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1151 commands and 951 options.
+This chapter documents a total of 1151 commands and 962 options.
 
 * Menu:
 
@@ -4114,6 +4114,42 @@ system.
      voice-animate whose effect can be changed globally by customizing
      voice-animate-settings.
 
+ -- Variable: User Option emacspeak-apt-utils-broken-personality
+     Personality used for apt-utils-broken-face This personality uses
+     voice-bolden-and-animate whose effect can be changed globally by
+     customizing voice-bolden-and-animate-settings.
+
+ -- Variable: User Option emacspeak-apt-utils-description-personality
+     Personality used for apt-utils-description-face This personality
+     uses voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option emacspeak-apt-utils-field-contents-personality
+     Personality used for apt-utils-field-contents-face This personality
+     uses voice-lighten-extra whose effect can be changed globally by
+     customizing voice-lighten-extra-settings.
+
+ -- Variable: User Option emacspeak-apt-utils-field-keyword-personality
+     Personality used for apt-utils-field-keyword-face This personality
+     uses voice-animate-extra whose effect can be changed globally by
+     customizing voice-animate-extra-settings.
+
+ -- Variable: User Option emacspeak-apt-utils-normal-package-personality
+     Personality used for apt-utils-normal-package-face This personality
+     uses voice-bolden whose effect can be changed globally by
+     customizing voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-apt-utils-version-personality
+     Personality used for apt-utils-version-face This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option
+          emacspeak-apt-utils-virtual-package-personality
+     Personality used for apt-utils-virtual-package-face This
+     personality uses voice-animate whose effect can be changed globally
+     by customizing voice-animate-settings.
+
  -- Variable: User Option emacspeak-bold-italic-voice
      Personality used for bold-italic This personality uses
      voice-bolden-and-animate whose effect can be changed globally by
@@ -5191,6 +5227,96 @@ system.
      whose effect can be changed globally by customizing
      voice-animate-settings.
 
+ -- Variable: User Option emacspeak-jabber-activity-personality
+     Personality used for jabber-activity-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option emacspeak-jabber-chat-error-voice
+     Personality used for jabber-chat-error This personality uses
+     voice-bolden-and-animate whose effect can be changed globally by
+     customizing voice-bolden-and-animate-settings.
+
+ -- Variable: User Option emacspeak-jabber-chat-prompt-foreign-voice
+     Personality used for jabber-chat-prompt-foreign This personality
+     uses voice-brighten-medium whose effect can be changed globally by
+     customizing voice-brighten-medium-settings.
+
+ -- Variable: User Option emacspeak-jabber-chat-prompt-local-voice
+     Personality used for jabber-chat-prompt-local This personality uses
+     voice-smoothen-medium whose effect can be changed globally by
+     customizing voice-smoothen-medium-settings.
+
+ -- Variable: User Option emacspeak-jabber-chat-prompt-system-voice
+     Personality used for jabber-chat-prompt-system This personality
+     uses voice-brighten-extra whose effect can be changed globally by
+     customizing voice-brighten-extra-settings.
+
+ -- Variable: User Option emacspeak-jabber-chat-text-foreign-voice
+     Personality used for jabber-chat-text-foreign This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option emacspeak-jabber-chat-text-local-voice
+     Personality used for jabber-chat-text-local This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-jabber-rare-time-personality
+     Personality used for jabber-rare-time-face This personality uses
+     voice-animate-extra whose effect can be changed globally by
+     customizing voice-animate-extra-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-away-voice
+     Personality used for jabber-roster-user-away This personality uses
+     voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-chatty-voice
+     Personality used for jabber-roster-user-chatty This personality
+     uses voice-brighten whose effect can be changed globally by
+     customizing voice-brighten-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-dnd-voice
+     Personality used for jabber-roster-user-dnd This personality uses
+     voice-lighten-medium whose effect can be changed globally by
+     customizing voice-lighten-medium-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-error-voice
+     Personality used for jabber-roster-user-error This personality uses
+     voice-bolden-and-animate whose effect can be changed globally by
+     customizing voice-bolden-and-animate-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-offline-voice
+     Personality used for jabber-roster-user-offline This personality
+     uses voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-online-voice
+     Personality used for jabber-roster-user-online This personality
+     uses voice-bolden whose effect can be changed globally by
+     customizing voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-xa-voice
+     Personality used for jabber-roster-user-xa This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-jabber-title-large-voice
+     Personality used for jabber-title-large This personality uses
+     voice-bolden-extra whose effect can be changed globally by
+     customizing voice-bolden-extra-settings.
+
+ -- Variable: User Option emacspeak-jabber-title-medium-voice
+     Personality used for jabber-title-medium This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-jabber-title-small-voice
+     Personality used for jabber-title-small This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
  -- Variable: User Option emacspeak-js2-error-voice
      Personality used for js2-error This personality uses
      voice-bolden-extra whose effect can be changed globally by
@@ -5987,6 +6113,71 @@ system.
      voice-brighten-medium whose effect can be changed globally by
      customizing voice-brighten-medium-settings.
 
+ -- Variable: User Option emacspeak-twittering-uri-personality
+     Personality used for twittering-uri-face This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option emacspeak-twittering-username-personality
+     Personality used for twittering-username-face This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-author-personality
+     Personality used for u-vm-color-author-face This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-citation-1-personality
+     Personality used for u-vm-color-citation-1-face This personality
+     uses voice-smoothen whose effect can be changed globally by
+     customizing voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-citation-2-personality
+     Personality used for u-vm-color-citation-2-face This personality
+     uses voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-date-personality
+     Personality used for u-vm-color-date-face This personality uses
+     voice-monotone-medium whose effect can be changed globally by
+     customizing voice-monotone-medium-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-header-personality
+     Personality used for u-vm-color-header-face This personality uses
+     voice-bolden-medium whose effect can be changed globally by
+     customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-recipient-personality
+     Personality used for u-vm-color-recipient-face This personality
+     uses voice-annotate whose effect can be changed globally by
+     customizing voice-annotate-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-signature-personality
+     Personality used for u-vm-color-signature-face This personality
+     uses voice-smoothen whose effect can be changed globally by
+     customizing voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-spamassassin-personality
+     Personality used for u-vm-color-spamassassin-face This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-subject-personality
+     Personality used for u-vm-color-subject-face This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-time-personality
+     Personality used for u-vm-color-time-face This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-u-vm-color-user-personality
+     Personality used for u-vm-color-user-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
  -- Variable: User Option emacspeak-underline-voice
      Personality used for underline This personality uses
      voice-lighten-extra whose effect can be changed globally by
@@ -6124,6 +6315,92 @@ system.
      Personality used for font-lock-warning-face This personality uses
      voice-bolden-and-animate whose effect can be changed globally by
      customizing voice-bolden-and-animate-settings.
+
+ -- Variable: User Option emacspeak-w3m-anchor-voice
+     Personality used for w3m-anchor This personality uses voice-lighten
+     whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-w3m-arrived-anchor-voice
+     Personality used for w3m-arrived-anchor This personality uses
+     voice-lighten-extra whose effect can be changed globally by
+     customizing voice-lighten-extra-settings.
+
+ -- Variable: User Option emacspeak-w3m-bold-voice
+     Personality used for w3m-bold This personality uses
+     voice-bolden-medium whose effect can be changed globally by
+     customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option emacspeak-w3m-current-anchor-voice
+     Personality used for w3m-current-anchor This personality uses
+     voice-bolden-extra whose effect can be changed globally by
+     customizing voice-bolden-extra-settings.
+
+ -- Variable: User Option emacspeak-w3m-form-button-pressed-voice
+     Personality used for w3m-form-button-pressed This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option emacspeak-w3m-form-button-voice
+     Personality used for w3m-form-button This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-w3m-form-voice
+     Personality used for w3m-form This personality uses voice-brighten
+     whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option
+          emacspeak-w3m-header-line-location-content-voice
+     Personality used for w3m-header-line-location-content This
+     personality uses voice-animate whose effect can be changed globally
+     by customizing voice-animate-settings.
+
+ -- Variable: User Option emacspeak-w3m-header-line-location-title-voice
+     Personality used for w3m-header-line-location-title This
+     personality uses voice-bolden whose effect can be changed globally
+     by customizing voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-w3m-history-current-url-voice
+     Personality used for w3m-history-current-url This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-w3m-image-voice
+     Personality used for w3m-image This personality uses voice-brighten
+     whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option emacspeak-w3m-insert-voice
+     Personality used for w3m-insert This personality uses voice-bolden
+     whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-w3m-italic-voice
+     Personality used for w3m-italic This personality uses voice-animate
+     whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option emacspeak-w3m-strike-through-voice
+     Personality used for w3m-strike-through This personality uses
+     voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option emacspeak-w3m-tab-selected-voice
+     Personality used for w3m-tab-selected This personality uses
+     voice-animate-extra whose effect can be changed globally by
+     customizing voice-animate-extra-settings.
+
+ -- Variable: User Option emacspeak-w3m-tab-unselected-voice
+     Personality used for w3m-tab-unselected This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-w3m-underline-voice
+     Personality used for w3m-underline This personality uses
+     voice-brighten-extra whose effect can be changed globally by
+     customizing voice-brighten-extra-settings.
 
  -- Variable: User Option emacspeak-warning-voice
      Personality used for warning This personality uses
@@ -6820,45 +7097,6 @@ browsing Debian packages.
 
      Copy package under point to kill ring.
 
-12.21.2 emacspeak-apt-utils Options
------------------------------------
-
- -- Variable: User Option emacspeak-apt-utils-broken-personality
-     Personality used for apt-utils-broken-face This personality uses
-     voice-bolden-and-animate whose effect can be changed globally by
-     customizing voice-bolden-and-animate-settings.
-
- -- Variable: User Option emacspeak-apt-utils-description-personality
-     Personality used for apt-utils-description-face This personality
-     uses voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option emacspeak-apt-utils-field-contents-personality
-     Personality used for apt-utils-field-contents-face This personality
-     uses voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option emacspeak-apt-utils-field-keyword-personality
-     Personality used for apt-utils-field-keyword-face This personality
-     uses voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option emacspeak-apt-utils-normal-package-personality
-     Personality used for apt-utils-normal-package-face This personality
-     uses voice-bolden whose effect can be changed globally by
-     customizing voice-bolden-settings.
-
- -- Variable: User Option emacspeak-apt-utils-version-personality
-     Personality used for apt-utils-version-face This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option
-          emacspeak-apt-utils-virtual-package-personality
-     Personality used for apt-utils-virtual-package-face This
-     personality uses voice-animate whose effect can be changed globally
-     by customizing voice-animate-settings.
-
 
 File: emacspeak.info,  Node: emacspeak-arc,  Next: emacspeak-auctex,  Prev: emacspeak-apt-utils,  Up: Emacspeak Commands And Options
 
@@ -6986,480 +7224,4 @@ is presently Linux specific
 
  -- Variable: User Option emacspeak-aumix-settings-file
      *Name of file containing personal aumix settings.
-
-
-File: emacspeak.info,  Node: emacspeak-bbc,  Next: emacspeak-bbdb,  Prev: emacspeak-aumix,  Up: Emacspeak Commands And Options
-
-12.25 emacspeak-bbc
-===================
-
-BBC: http://www.bbc.co.uk This module uses publicly available REST APIs
-to implement a native Emacs client for browsing and listening to BBC
-programs.
-
-   See http://www.bbc.co.uk/programmes/developers The BBC API helps
-locate a PID for a given program stream.  We then construct the BBC
-IPlayer URL for that PID, And either hand that link off to Chrome, Or
-stream it via get_iplayer and mplayer.  get_iplayer:
-https://github.com/get-iplayer/get_iplayer.git get_player vs Chrome:
-Pro/Con: Chrome: Has the UI for seeking in the stream.  get_iplayer: We
-use a named pipe, and cannot seek, but the rest of emacspeak-m-player is
-available.  For downloading a program etc., use Emacs package iplayer.
-
-12.25.1 emacspeak-bbc Commands
-------------------------------
-
-12.25.1.1 emacspeak-bbc
-.......................
-
- -- Command: emacspeak-bbc (&optional genre)
-     ‘C-' b C-x @ s b’
-
-     Launch BBC Interaction.
-     See http://www.bbc.co.uk/radio/stations for full list of stations.
-     See http://www.bbc.co.uk/radio/programmes/genres for list of genres.
-     Interactive prefix arg filters  content by genre.
-
-12.25.1.2 emacspeak-bbc-genre
-.............................
-
- -- Command: emacspeak-bbc-genre
-
-     Launch BBC Interaction for specified Genre.
-
-12.25.1.3 emacspeak-bbc-get-iplayer-stream-pid
-..............................................
-
- -- Command: emacspeak-bbc-get-iplayer-stream-pid (pid)
-
-     Stream using get_iplayer.
-
-12.25.1.4 emacspeak-bbc-get-iplayer-stream-url
-..............................................
-
- -- Command: emacspeak-bbc-get-iplayer-stream-url (url)
-
-     Stream using get_iplayer.
-
-12.25.2 emacspeak-bbc Options
------------------------------
-
- -- Variable: User Option emacspeak-bbc-button-action
-     Action to use for BBC iPlayer buttons.  get-iplayer: use
-     get_iplayer.  chrome: Hand off URL to Chrome.
-
- -- Variable: User Option emacspeak-bbc-get-iplayer
-     Name of get_iplayer executable.
-
-
-File: emacspeak.info,  Node: emacspeak-bbdb,  Next: emacspeak-bibtex,  Prev: emacspeak-bbc,  Up: Emacspeak Commands And Options
-
-12.26 emacspeak-bbdb
-====================
-
-Speech-enables BBDB. I have used BBDB to manage email address and
-contact information since 1991.
-
-
-File: emacspeak.info,  Node: emacspeak-bibtex,  Next: emacspeak-bookmark,  Prev: emacspeak-bbdb,  Up: Emacspeak Commands And Options
-
-12.27 emacspeak-bibtex
-======================
-
-Speech extensions for bibtex mode.
-
-
-File: emacspeak.info,  Node: emacspeak-bookmark,  Next: emacspeak-bookshare,  Prev: emacspeak-bibtex,  Up: Emacspeak Commands And Options
-
-12.28 emacspeak-bookmark
-========================
-
-Speech enable bookmarks
-
-
-File: emacspeak.info,  Node: emacspeak-bookshare,  Next: emacspeak-browse-kill-ring,  Prev: emacspeak-bookmark,  Up: Emacspeak Commands And Options
-
-12.29 emacspeak-bookshare
-=========================
-
-BOOKSHARE == http://www.bookshare.org provides book access to
-print-disabled users.  It provides a simple Web API
-http://developer.bookshare.org This module implements an Emacspeak
-Bookshare client.  For now, users will need to get their own API key
-This version needs Emacs with libxml2 support You need Emacs 24.1 or
-higher.
-
-12.29.1 emacspeak-bookshare Commands
-------------------------------------
-
-12.29.1.1 emacspeak-bookshare
-.............................
-
- -- Command: emacspeak-bookshare
-     ‘C-e C-b <XF86WakeUp> C-b’
-
-     Bookshare  Interaction.
-
-12.29.1.2 emacspeak-bookshare-action
-....................................
-
- -- Command: emacspeak-bookshare-action
-
-     Call action specified by  invoking key.
-
-12.29.1.3 emacspeak-bookshare-author-search
-...........................................
-
- -- Command: emacspeak-bookshare-author-search (query &optional
-          category)
-
-     Perform a Bookshare author search.
-     Interactive prefix arg filters search by category.
-
-12.29.1.4 emacspeak-bookshare-browse
-....................................
-
- -- Command: emacspeak-bookshare-browse
-
-     Browse Bookshare.
-
-12.29.1.5 emacspeak-bookshare-browse-latest
-...........................................
-
- -- Command: emacspeak-bookshare-browse-latest
-
-     Return latest books.
-
-12.29.1.6 emacspeak-bookshare-browse-popular
-............................................
-
- -- Command: emacspeak-bookshare-browse-popular (&optional category)
-
-     Browse popular books.
-     Optional interactive prefix arg prompts for a category to use as a filter.
-
-12.29.1.7 emacspeak-bookshare-download-brf
-..........................................
-
- -- Command: emacspeak-bookshare-download-brf (id target)
-
-     Download Daisy format of specified book to target location.
-
-12.29.1.8 emacspeak-bookshare-download-brf-at-point
-...................................................
-
- -- Command: emacspeak-bookshare-download-brf-at-point
-
-     Download Braille version of book under point.
-     Target location is generated from author and title.
-
-12.29.1.9 emacspeak-bookshare-download-daisy
-............................................
-
- -- Command: emacspeak-bookshare-download-daisy (id target)
-
-     Download Daisy format of specified book to target location.
-
-12.29.1.10 emacspeak-bookshare-download-daisy-at-point
-......................................................
-
- -- Command: emacspeak-bookshare-download-daisy-at-point
-
-     Download Daisy version of book under point.
-     Target location is generated from author and title.
-
-12.29.1.11 emacspeak-bookshare-download-internal
-................................................
-
- -- Command: emacspeak-bookshare-download-internal (url target)
-
-     Download content  to target location.
-
-12.29.1.12 emacspeak-bookshare-eww
-..................................
-
- -- Command: emacspeak-bookshare-eww (directory)
-
-     Render complete book using EWW if available.
-
-12.29.1.13 emacspeak-bookshare-expand-at-point
-..............................................
-
- -- Command: emacspeak-bookshare-expand-at-point
-
-     Expand entry at point by retrieving metadata.
-     Once retrieved, memoize to avoid multiple retrievals.
-
-12.29.1.14 emacspeak-bookshare-extract-and-view
-...............................................
-
- -- Command: emacspeak-bookshare-extract-and-view (url)
-
-     Extract content referred to by link under point, and render via the browser.
-
-12.29.1.15 emacspeak-bookshare-extract-xml
-..........................................
-
- -- Command: emacspeak-bookshare-extract-xml (url)
-
-     Extract content referred to by link under point, and return an XML buffer.
-
-12.29.1.16 emacspeak-bookshare-flush-lines
-..........................................
-
- -- Command: emacspeak-bookshare-flush-lines (regexp)
-
-     Flush lines matching regexp in Bookshare buffer.
-
-12.29.1.17 emacspeak-bookshare-fulltext
-.......................................
-
- -- Command: emacspeak-bookshare-fulltext (directory)
-
-     Display fulltext contents of  book in specified directory.
-     Useful for fulltext search in a book.
-
-12.29.1.18 emacspeak-bookshare-fulltext-search
-..............................................
-
- -- Command: emacspeak-bookshare-fulltext-search (query)
-
-     Perform a Bookshare fulltext search.
-
-12.29.1.19 emacspeak-bookshare-get-more-results
-...............................................
-
- -- Command: emacspeak-bookshare-get-more-results
-
-     Get next page of results for last query.
-
-12.29.1.20 emacspeak-bookshare-id-search
-........................................
-
- -- Command: emacspeak-bookshare-id-search (query)
-
-     Perform a Bookshare id search.
-
-12.29.1.21 emacspeak-bookshare-isbn-search
-..........................................
-
- -- Command: emacspeak-bookshare-isbn-search (query)
-
-     Perform a Bookshare isbn search.
-
-12.29.1.22 emacspeak-bookshare-list-preferences
-...............................................
-
- -- Command: emacspeak-bookshare-list-preferences
-
-     Return preference list.
-
-12.29.1.23 emacspeak-bookshare-mode
-...................................
-
- -- Command: emacspeak-bookshare-mode
-
-     A Bookshare front-end for the Emacspeak desktop.
-
-     The Emacspeak Bookshare front-end is launched by command
-     emacspeak-bookshare bound to C-e C-b
-
-     This command switches to a special buffer that has Bookshare
-     commands bounds to single keystrokes– see the key-binding list at
-     the end of this description. Use Emacs online help facility to
-     look up help on these commands.
-
-     emacspeak-bookshare-mode provides the necessary functionality to
-     Search and download Bookshare material,
-     Manage a local library of downloaded Bookshare content,
-     And commands to easily read newer Daisy books from Bookshare.
-
-     Here is a list of all emacspeak Bookshare commands  with their key-bindings:
-     a Author Search
-     A Author/Title Search
-     t Title Search
-     s Full Text Search
-     d Date Search
-     b Browse
-
-     key             binding
-     —             ——-
-
-     RET		emacspeak-bookshare-toc-at-point
-     ESC		Prefix Command
-     SPC		emacspeak-bookshare-expand-at-point
-     +		emacspeak-bookshare-action
-     A		emacspeak-bookshare-action
-     B		emacspeak-bookshare-download-brf-at-point
-     C		emacspeak-bookshare-fulltext
-     D		emacspeak-bookshare-download-daisy-at-point
-     E		emacspeak-bookshare-eww
-     I		emacspeak-bookshare-action
-     P		emacspeak-bookshare-action
-     S		emacspeak-bookshare-action
-     U		emacspeak-bookshare-unpack-at-point
-     V		emacspeak-bookshare-view-at-point
-     [		backward-page
-     ]		forward-page
-     a		emacspeak-bookshare-action
-     b		emacspeak-bookshare-browse
-     c		emacspeak-bookshare-toc-at-point
-     d		emacspeak-bookshare-action
-     e		emacspeak-epub
-     f		emacspeak-bookshare-flush-lines
-     i		emacspeak-bookshare-action
-     j		next-line
-     k		previous-line
-     l .. m		emacspeak-bookshare-action
-     p		emacspeak-bookshare-action
-     q		bury-buffer
-     s .. t		emacspeak-bookshare-action
-     v		emacspeak-bookshare-view
-
-     M-n		emacspeak-bookshare-next-result
-     M-p		emacspeak-bookshare-previous-result
-
-     In addition to any hooks its parent mode “special-mode” might have run,
-     this mode runs the hook “emacspeak-bookshare-mode-hook”, as the final step
-     during initialization.
-
-12.29.1.24 emacspeak-bookshare-next-result
-..........................................
-
- -- Command: emacspeak-bookshare-next-result
-
-     Move to next result.
-
-12.29.1.25 emacspeak-bookshare-periodical-list
-..............................................
-
- -- Command: emacspeak-bookshare-periodical-list
-
-     Return list of periodicals.
-
-12.29.1.26 emacspeak-bookshare-previous-result
-..............................................
-
- -- Command: emacspeak-bookshare-previous-result
-
-     Move to previous result.
-
-12.29.1.27 emacspeak-bookshare-set-preference
-.............................................
-
- -- Command: emacspeak-bookshare-set-preference (preference-id value)
-
-     Set preference preference-id to value.
-
-12.29.1.28 emacspeak-bookshare-sign-out
-.......................................
-
- -- Command: emacspeak-bookshare-sign-out
-
-     Sign out, clearing password.
-
-12.29.1.29 emacspeak-bookshare-since-search
-...........................................
-
- -- Command: emacspeak-bookshare-since-search (query &optional category)
-
-     Perform a Bookshare date  search.
-     Optional interactive prefix arg filters by category.
-
-12.29.1.30 emacspeak-bookshare-title-search
-...........................................
-
- -- Command: emacspeak-bookshare-title-search (query &optional category)
-
-     Perform a Bookshare title search.
-     Interactive prefix arg filters search by category.
-
-12.29.1.31 emacspeak-bookshare-toc
-..................................
-
- -- Command: emacspeak-bookshare-toc (directory)
-
-     View TOC for book in specified directory.
-
-12.29.1.32 emacspeak-bookshare-toc-at-point
-...........................................
-
- -- Command: emacspeak-bookshare-toc-at-point
-
-     View TOC for book at point.
-     Make sure it”s downloaded and unpacked first.
-
-12.29.1.33 emacspeak-bookshare-unpack-at-point
-..............................................
-
- -- Command: emacspeak-bookshare-unpack-at-point
-
-     Unpack downloaded content if necessary.
-
-12.29.1.34 emacspeak-bookshare-url-executor
-...........................................
-
- -- Command: emacspeak-bookshare-url-executor (url)
-
-     Custom URL executor for use in Bookshare TOC.
-
-12.29.1.35 emacspeak-bookshare-version-handler
-..............................................
-
- -- Command: emacspeak-bookshare-version-handler (&rest ignore)
-
-     Do nothing and return nil.
-     This function accepts any number of arguments, but ignores them.
-
-     (fn &rest IGNORE)
-
-12.29.1.36 emacspeak-bookshare-view
-...................................
-
- -- Command: emacspeak-bookshare-view (directory)
-
-     View book in specified directory.
-
-12.29.1.37 emacspeak-bookshare-view-at-point
-............................................
-
- -- Command: emacspeak-bookshare-view-at-point
-
-     View book at point.
-     Make sure it”s downloaded and unpacked first.
-
-12.29.1.38 emacspeak-bookshare-view-page-range
-..............................................
-
- -- Command: emacspeak-bookshare-view-page-range (url)
-
-     Play pages in specified page range from URL.
-
-12.29.2 emacspeak-bookshare Options
------------------------------------
-
- -- Variable: User Option emacspeak-bookshare-api-key
-     Web API key for this application.  See
-     http://developer.bookshare.org/docs for details on how to get an
-     API key.
-
- -- Variable: User Option emacspeak-bookshare-browser-function
-     Function to display Bookshare Book content in a WWW browser.  This
-     is used by the various Bookshare view commands to display content
-     from Daisy books.
-
- -- Variable: User Option emacspeak-bookshare-directory
-     Customize this to the root of where books are organized.
-
- -- Variable: User Option emacspeak-bookshare-downloads-directory
-     Customize this to the root of where books are organized.
-
- -- Variable: User Option emacspeak-bookshare-html-to-text-command
-     Command to convert html to text on stdin.
-
- -- Variable: User Option emacspeak-bookshare-user-id
-     Bookshare user Id.
-
- -- Variable: User Option emacspeak-bookshare-xslt
-     Name of bookshare XSL transform.
 
