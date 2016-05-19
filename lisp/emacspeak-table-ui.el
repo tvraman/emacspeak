@@ -66,6 +66,7 @@
    ("#" emacspeak-table-sort-on-current-column)
    ("." emacspeak-table-speak-coordinates)
    ("," emacspeak-table-find-csv-file)
+   ("v" emacspeak-table-view-csv-buffer)
    ("<down>" emacspeak-table-next-row)
    ("<left>" emacspeak-table-previous-column)
    ("<right>" emacspeak-table-next-column)
