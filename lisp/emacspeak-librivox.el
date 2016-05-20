@@ -186,11 +186,63 @@ Optional arg `page-title' specifies page title."
              (setq emacspeak-we-url-executor 'emacspeak-librivox-play)))
         
         (browse-url-of-buffer)))))
+
+(defvar emacspeak-librivox-genre-list
+  '(
+  "*Non-fiction" "Action & Adventure" "Action & Adventure Fiction"
+ "Ancient" "Animals" "Animals & Nature"
+ "Anthologies" "Antiquity" "Art, Design & Architecture"
+ "Arts" "Astronomy, Physics & Mechanics" "Ballads"
+ "Bibles" "Biography & Autobiography" "Business & Economics"
+ "Chemistry" "Children's Fiction" "Children's Non-fiction"
+ "Christian Fiction" "Christianity - Biographies" "Christianity - Commentary"
+ "Christianity - Other" "Classics (Antiquity)" "Comedy"
+ "Contemporary" "Cooking" "Crafts & Hobbies"
+ "Crime & Mystery Fiction" "Culture & Heritage" "Detective Fiction"
+ "Douay-Rheims Version" "Drama" "Dramatic Readings"
+ "Early Modern" "Earth Sciences" "Education"
+ "Elegies & Odes" "Epics" "Epistolary Fiction"
+ "Erotica" "Essays" "Essays & Short Works"
+ "Exploration" "Family" "Family & Relationships"
+ "Family Life" "Fantastic Fiction" "Fantasy Fiction"
+ "Fictional Biographies & Memoirs" "Free Verse" "Games"
+ "Gardening" "General" "General Fiction"
+ "Gothic Fiction" "Health & Fitness" "Historical"
+ "Historical Fiction" "History " "Horror & Supernatural Fiction"
+ "House & Home" "Humor" "Humorous Fiction"
+ "King James Version" "Language learning" "Law"
+ "Letters" "Life Sciences" "Literary Collections"
+ "Literary Criticism" "Literary Fiction" "Lyric"
+ "Mathematics" "Medical" "Medieval"
+ "Memoirs" "Middle Ages/Middle History" "Modern"
+ "Modern (19th C)" "Modern (20th C)" "Multi-version (Weekly and Fortnightly poetry)"
+ "Music" "Myths, Legends & Fairy Tales" "Narratives"
+ "Nature" "Nature & Animal Fiction" "Nautical & Marine Fiction"
+ "Other religions" "Performing Arts" "Philosophy"
+ "Plays" "Poetry" "Political Science"
+ "Psychology" "Published 1800 -1900" "Published 1900 onward"
+ "Published before 1800" "Reference" "Religion"
+ "Religious Fiction" "Romance" "Sagas"
+ "Satire" "School" "Science"
+ "Science Fiction" "Self-Help" "Short Stories"
+ "Short non-fiction" "Short works" "Single Author Collections"
+ "Single author" "Social Science" "Sonnets"
+ "Sports & Recreation" "Sports Fiction" "Suspense, Espionage, Political & Thrillers"
+ "Technology & Engineering" "Tragedy" "Travel & Geography"
+ "Travel Fiction" "True Crime" "War & Military"
+ "War & Military Fiction" "Westerns" "Weymouth New Testament"
+ "Writing & Linguistics" "Young's Literal Translation"
+ )
+  "List of genres.")
+
 ;;;###autoload
 (defun emacspeak-librivox-search-by-genre (genre)
-  "Search by genre.
-Both exact and partial matches for `genre'."
-  (interactive "sGenre: ")
+  "Search by genre."
+  (interactive
+   (list
+    (let ((completion-ignore-case t))
+    (completing-read "Genre: " emacspeak-librivox-genre-list))))
+  (declare (special emacspeak-librivox-genre-list))
   (emacspeak-librivox-search
    (format "genre=%s"
            (emacspeak-url-encode genre))
