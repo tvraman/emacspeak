@@ -3406,7 +3406,8 @@ This command  is designed for use in a windowing environment like X."
   (or  (get-buffer "*Completions*") (minibuffer-completion-help))
   (when  (get-buffer "*Completions*")
     (with-current-buffer (get-buffer "*Completions*")
-      (funcall-interactively #'next-completion 1))))
+      (let ((voice-lock-mode nil))
+      (funcall-interactively #'next-completion 1)))))
 
 (defun emacspeak-minibuffer-previous-completion ()
   "Move to previous available minibuffer completion."
@@ -3414,7 +3415,8 @@ This command  is designed for use in a windowing environment like X."
   (or  (get-buffer "*Completions*") (minibuffer-completion-help))
   (when (get-buffer "*Completions*")
     (with-current-buffer (get-buffer "*Completions*")
-      (funcall-interactively #'previous-completion 1))))
+      (let ((voice-lock-mode nil))
+        (funcall-interactively #'previous-completion 1)))))
 
 ;;; Hacked out of choose-completion
 (defun emacspeak--choose-completion ()
