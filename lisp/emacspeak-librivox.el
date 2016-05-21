@@ -246,17 +246,20 @@ Optional arg `offset' (default 0) is used for getting more results."
   "List of genres.")
 
 ;;;###autoload
-(defun emacspeak-librivox-search-by-genre (genre)
-  "Search by genre."
+(defun emacspeak-librivox-search-by-genre (genre &optional offset)
+  "Search by genre.
+Optional prefix arg `offset' prompts for offset."
   (interactive
    (list
     (let ((completion-ignore-case t))
-    (completing-read "Genre: " emacspeak-librivox-genre-list))))
+    (completing-read "Genre: " emacspeak-librivox-genre-list))
+    current-prefix-arg))
   (declare (special emacspeak-librivox-genre-list))
+  (when offset (setq offset (read-number "Offset: ")))
   (emacspeak-librivox-search
    (format "genre=%s"
            (emacspeak-url-encode genre))
-   (format "Search For Genre: %s" genre)))
+   offset))
 
 ;;;###autoload
 (defun emacspeak-librivox-search-by-author (author &optional offset)
