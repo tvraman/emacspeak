@@ -16,3 +16,8 @@ with newer versions of ~gpg-agent~.
 
 Module ~emacspeak-elscreen~ speech-enables package ~elscreen~.
 
+
+** Librivox Client:
+
+Added completion support for browsing Librivox by genre. All searches
+now accept an interactive prefix arg for getting next set of results.
