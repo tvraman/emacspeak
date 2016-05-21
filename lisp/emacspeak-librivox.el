@@ -183,7 +183,7 @@ Optional arg `offset' (default 0) is used for getting more results."
         (insert "<p> Press <code>e e </code> on a <em>listen</em> link to play the book.</p>")
         (loop
          for b across books
-         and i from 1
+         and i from (1+ offset)
          do
          (emacspeak-librivox-display-book b i))
         (when (= emacspeak-librivox-results-limit (length books))
