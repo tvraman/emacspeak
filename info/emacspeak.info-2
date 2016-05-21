@@ -3902,25 +3902,29 @@ implements an Emacspeak Librivox client.
 12.108.1.3 emacspeak-librivox-search-by-author
 ..............................................
 
- -- Command: emacspeak-librivox-search-by-author (author)
+ -- Command: emacspeak-librivox-search-by-author (author &optional
+          offset)
 
      Search by author.
      Both exact and partial matches for “author”.
+     Optional interactive prefix arg “offset” prompts for offset — use this for retrieving next set of results.
 
 12.108.1.4 emacspeak-librivox-search-by-genre
 .............................................
 
- -- Command: emacspeak-librivox-search-by-genre (genre)
+ -- Command: emacspeak-librivox-search-by-genre (genre &optional offset)
 
      Search by genre.
+     Optional prefix arg “offset” prompts for offset.
 
 12.108.1.5 emacspeak-librivox-search-by-title
 .............................................
 
- -- Command: emacspeak-librivox-search-by-title (title)
+ -- Command: emacspeak-librivox-search-by-title (title &optional offset)
 
      Search by title.
      Both exact and partial matches for “title”.
+     Optional prefix arg “offset” prompts for offset — use this for retrieving more results.
 
 12.108.2 emacspeak-librivox Options
 -----------------------------------

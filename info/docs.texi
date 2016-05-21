@@ -9802,31 +9802,34 @@ Play book stream
 @end deffn
 
 @subsubsection emacspeak-librivox-search-by-author
-@deffn {Command} emacspeak-librivox-search-by-author  (author)
+@deffn {Command} emacspeak-librivox-search-by-author  (author &optional offset)
 @findex emacspeak-librivox-search-by-author
 
 @format
 Search by author.
 Both exact and partial matches for ``author''.
+Optional interactive prefix arg ``offset'' prompts for offset --- use this for retrieving next set of results.
 @end format
 @end deffn
 
 @subsubsection emacspeak-librivox-search-by-genre
-@deffn {Command} emacspeak-librivox-search-by-genre  (genre)
+@deffn {Command} emacspeak-librivox-search-by-genre  (genre &optional offset)
 @findex emacspeak-librivox-search-by-genre
 
 @format
 Search by genre.
+Optional prefix arg ``offset'' prompts for offset.
 @end format
 @end deffn
 
 @subsubsection emacspeak-librivox-search-by-title
-@deffn {Command} emacspeak-librivox-search-by-title  (title)
+@deffn {Command} emacspeak-librivox-search-by-title  (title &optional offset)
 @findex emacspeak-librivox-search-by-title
 
 @format
 Search by title.
 Both exact and partial matches for ``title''.
+Optional prefix arg ``offset'' prompts for offset --- use this for retrieving more results.
 @end format
 @end deffn
 
