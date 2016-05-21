@@ -158,16 +158,14 @@
     (emacspeak-librivox-display-authors (g-json-get 'authors book))
     (when desc (insert "<p>" desc "</p>\n\n"))))
 
-(defun emacspeak-librivox-search (pattern &optional page-title offset)
+(defun emacspeak-librivox-search (pattern &optional  offset)
   "Search for books.
 Argument `pattern' is of the form:
 `author=pattern' Search by author.
 `title=pattern' Search by title.
 ^all Browse books.
-Optional arg `page-title' specifies page title.
 Optional arg `offset' (default 0) is used for getting more results."
   (declare (special  emacspeak-librivox-results-limit))
-  (or page-title (setq page-title pattern))
   (or offset (setq offset 0))
   (let* ((url (emacspeak-librivox-audiobooks-uri pattern offset))
          (result (g-json-get-result
@@ -180,8 +178,8 @@ Optional arg `offset' (default 0) is used for getting more results."
     (when books
       (emacspeak-webutils-autospeak)
       (with-temp-buffer
-        (insert "<title>" page-title "</title>\n")
-        (insert "<h1>" page-title "</h1>\n")
+        (insert "<title>" pattern "</title>\n")
+        (insert "<h1>" pattern "</h1>\n")
         (insert "<p> Press <code>e e </code> on a <em>listen</em> link to play the book.</p>")
         (loop
          for b across books
