@@ -144,7 +144,7 @@
         (desc (g-json-get 'description book)))
     (insert  (format "<h2>%s. %s</h2>\n\n" position title))
     (insert "<table><tr>\n")
-    (when rss (insert (format "<td><a href='%s'>Listen (RSS)</a></td>\n" rss)))
+    (when rss (insert (format "<td><a title='Press e e to play'  href='%s'>Listen </a></td>\n" rss)))
     (when zip (insert (format "<td><a href='%s'>Download</a></td>\n" zip)))
     (when text (insert (format "<td><a href='%s'>Full Text</a></td>\n" text)))
     (when time (insert (format "<td>Time: %s</td>\n" time)))
@@ -171,6 +171,7 @@ Optional arg `page-title' specifies page title."
     (unless books (message "No results."))
     (emacspeak-auditory-icon 'task-done)
     (when books
+      (emacspeak-webutils-autospeak)
       (with-temp-buffer
         (insert "<title>" page-title "</title>\n")
         (insert "<h1>" page-title "</h1>\n")
