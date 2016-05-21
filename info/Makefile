@@ -7,7 +7,7 @@ FILES=*.texi
 
 TEXINDEX=texindex
 MAKEINFO = makeinfo 
-CSS=-css-ref="http://www.w3.org/StyleSheets/Core/Modernist"
+CSS=--css-ref="http://www.w3.org/StyleSheets/Core/Modernist"
 TEX=tex
 PDFTEX=pdftex
 infodir =/usr/share/info#normally supplied by caller
