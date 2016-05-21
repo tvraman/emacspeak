@@ -84,7 +84,7 @@
 ;; * extended - =1 will return the full set of data about the project
 ;; * limit (default is 50)
 ;;   * offset
-(defvar emacspeak-librivox-results-limit 50
+(defvar emacspeak-librivox-results-limit 100
   "Number of results to retrieve at a time.")
 
 (defsubst emacspeak-librivox-audiobooks-uri (pattern  offset)
