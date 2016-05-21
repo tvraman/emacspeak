@@ -259,24 +259,28 @@ Optional arg `offset' (default 0) is used for getting more results."
    (format "Search For Genre: %s" genre)))
 
 ;;;###autoload
-(defun emacspeak-librivox-search-by-author (author)
+(defun emacspeak-librivox-search-by-author (author &optional offset)
   "Search by author.
-Both exact and partial matches for `author'."
-  (interactive "sAuthor: ")
+Both exact and partial matches for `author'.
+Optional interactive prefix arg `offset' prompts for offset --- use this for retrieving next set of results."
+  (interactive "sAuthor: \nP")
+  (when offset
+    (setq offset (read-number "Offset: ")))
   (emacspeak-librivox-search
    (format "author=%s"
            (emacspeak-url-encode author))
-   (format "Search For Author: %s" author)))
+   offset))
 
 ;;;###autoload
-(defun emacspeak-librivox-search-by-title (title)
+(defun emacspeak-librivox-search-by-title (title &optional offset)
   "Search by title.
-Both exact and partial matches for `title'."
-  (interactive "sTitle: ")
+Both exact and partial matches for `title'.
+Optional prefix arg `offset' prompts for offset --- use this for retrieving more results."
+  (interactive "sTitle: \nP")
   (emacspeak-librivox-search
    (format "title=%s"
            (emacspeak-url-encode title))
-   (format "Search For Title: %s" title)))
+   offset))
 
 ;;}}}
 ;;{{{ Top-Level Dispatch:
