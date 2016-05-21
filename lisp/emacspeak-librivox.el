@@ -94,7 +94,7 @@
    emacspeak-librivox-api-base
    (format "audiobooks?offset=%s&limit=%s&format=json&"
            offset emacspeak-librivox-results-limit)
- pattern))
+   pattern))
 
 ;;; Audio Tracks API:
 ;;; Params:
@@ -167,7 +167,11 @@ Argument `pattern' is of the form:
 Optional arg `offset' (default 0) is used for getting more results."
   (declare (special  emacspeak-librivox-results-limit))
   (or offset (setq offset 0))
-  (let* ((url (emacspeak-librivox-audiobooks-uri pattern offset))
+  (let* ((title
+          (format
+           "Search: %s Offset: %s"
+           (emacspeak-wizards-unhex-uri pattern) offset))
+         (url (emacspeak-librivox-audiobooks-uri pattern offset))
          (result (g-json-get-result
                   (format
                    "%s  %s '%s'"
@@ -178,8 +182,8 @@ Optional arg `offset' (default 0) is used for getting more results."
     (when books
       (emacspeak-webutils-autospeak)
       (with-temp-buffer
-        (insert "<title>" pattern "</title>\n")
-        (insert "<h1>" pattern "</h1>\n")
+        (insert "<title>" title "</title>\n")
+        (insert "<h1>" title "</h1>\n")
         (insert "<p> Press <code>e e </code> on a <em>listen</em> link to play the book.</p>")
         (loop
          for b across books
@@ -188,8 +192,8 @@ Optional arg `offset' (default 0) is used for getting more results."
          (emacspeak-librivox-display-book b i))
         (when (= emacspeak-librivox-results-limit (length books))
           (insert
-           (format "<a href='%s'>More Results</a>"
-                   (emacspeak-librivox-audiobooks-uri pattern (+ offset emacspeak-librivox-results-limit)))))
+           (format "Re-execute this command with an interactive prefix argument and specify offset  %s to get more results."
+                   (+ offset emacspeak-librivox-results-limit))))
         (add-hook
          'emacspeak-web-post-process-hook
          #'(lambda ()
@@ -199,50 +203,50 @@ Optional arg `offset' (default 0) is used for getting more results."
 
 (defvar emacspeak-librivox-genre-list
   '(
-  "*Non-fiction" "Action & Adventure" "Action & Adventure Fiction"
- "Ancient" "Animals" "Animals & Nature"
- "Anthologies" "Antiquity" "Art, Design & Architecture"
- "Arts" "Astronomy, Physics & Mechanics" "Ballads"
- "Bibles" "Biography & Autobiography" "Business & Economics"
- "Chemistry" "Children's Fiction" "Children's Non-fiction"
- "Christian Fiction" "Christianity - Biographies" "Christianity - Commentary"
- "Christianity - Other" "Classics (Antiquity)" "Comedy"
- "Contemporary" "Cooking" "Crafts & Hobbies"
- "Crime & Mystery Fiction" "Culture & Heritage" "Detective Fiction"
- "Douay-Rheims Version" "Drama" "Dramatic Readings"
- "Early Modern" "Earth Sciences" "Education"
- "Elegies & Odes" "Epics" "Epistolary Fiction"
- "Erotica" "Essays" "Essays & Short Works"
- "Exploration" "Family" "Family & Relationships"
- "Family Life" "Fantastic Fiction" "Fantasy Fiction"
- "Fictional Biographies & Memoirs" "Free Verse" "Games"
- "Gardening" "General" "General Fiction"
- "Gothic Fiction" "Health & Fitness" "Historical"
- "Historical Fiction" "History " "Horror & Supernatural Fiction"
- "House & Home" "Humor" "Humorous Fiction"
- "King James Version" "Language learning" "Law"
- "Letters" "Life Sciences" "Literary Collections"
- "Literary Criticism" "Literary Fiction" "Lyric"
- "Mathematics" "Medical" "Medieval"
- "Memoirs" "Middle Ages/Middle History" "Modern"
- "Modern (19th C)" "Modern (20th C)" "Multi-version (Weekly and Fortnightly poetry)"
- "Music" "Myths, Legends & Fairy Tales" "Narratives"
- "Nature" "Nature & Animal Fiction" "Nautical & Marine Fiction"
- "Other religions" "Performing Arts" "Philosophy"
- "Plays" "Poetry" "Political Science"
- "Psychology" "Published 1800 -1900" "Published 1900 onward"
- "Published before 1800" "Reference" "Religion"
- "Religious Fiction" "Romance" "Sagas"
- "Satire" "School" "Science"
- "Science Fiction" "Self-Help" "Short Stories"
- "Short non-fiction" "Short works" "Single Author Collections"
- "Single author" "Social Science" "Sonnets"
- "Sports & Recreation" "Sports Fiction" "Suspense, Espionage, Political & Thrillers"
- "Technology & Engineering" "Tragedy" "Travel & Geography"
- "Travel Fiction" "True Crime" "War & Military"
- "War & Military Fiction" "Westerns" "Weymouth New Testament"
- "Writing & Linguistics" "Young's Literal Translation"
- )
+    "*Non-fiction" "Action & Adventure" "Action & Adventure Fiction"
+    "Ancient" "Animals" "Animals & Nature"
+    "Anthologies" "Antiquity" "Art, Design & Architecture"
+    "Arts" "Astronomy, Physics & Mechanics" "Ballads"
+    "Bibles" "Biography & Autobiography" "Business & Economics"
+    "Chemistry" "Children's Fiction" "Children's Non-fiction"
+    "Christian Fiction" "Christianity - Biographies" "Christianity - Commentary"
+    "Christianity - Other" "Classics (Antiquity)" "Comedy"
+    "Contemporary" "Cooking" "Crafts & Hobbies"
+    "Crime & Mystery Fiction" "Culture & Heritage" "Detective Fiction"
+    "Douay-Rheims Version" "Drama" "Dramatic Readings"
+    "Early Modern" "Earth Sciences" "Education"
+    "Elegies & Odes" "Epics" "Epistolary Fiction"
+    "Erotica" "Essays" "Essays & Short Works"
+    "Exploration" "Family" "Family & Relationships"
+    "Family Life" "Fantastic Fiction" "Fantasy Fiction"
+    "Fictional Biographies & Memoirs" "Free Verse" "Games"
+    "Gardening" "General" "General Fiction"
+    "Gothic Fiction" "Health & Fitness" "Historical"
+    "Historical Fiction" "History " "Horror & Supernatural Fiction"
+    "House & Home" "Humor" "Humorous Fiction"
+    "King James Version" "Language learning" "Law"
+    "Letters" "Life Sciences" "Literary Collections"
+    "Literary Criticism" "Literary Fiction" "Lyric"
+    "Mathematics" "Medical" "Medieval"
+    "Memoirs" "Middle Ages/Middle History" "Modern"
+    "Modern (19th C)" "Modern (20th C)" "Multi-version (Weekly and Fortnightly poetry)"
+    "Music" "Myths, Legends & Fairy Tales" "Narratives"
+    "Nature" "Nature & Animal Fiction" "Nautical & Marine Fiction"
+    "Other religions" "Performing Arts" "Philosophy"
+    "Plays" "Poetry" "Political Science"
+    "Psychology" "Published 1800 -1900" "Published 1900 onward"
+    "Published before 1800" "Reference" "Religion"
+    "Religious Fiction" "Romance" "Sagas"
+    "Satire" "School" "Science"
+    "Science Fiction" "Self-Help" "Short Stories"
+    "Short non-fiction" "Short works" "Single Author Collections"
+    "Single author" "Social Science" "Sonnets"
+    "Sports & Recreation" "Sports Fiction" "Suspense, Espionage, Political & Thrillers"
+    "Technology & Engineering" "Tragedy" "Travel & Geography"
+    "Travel Fiction" "True Crime" "War & Military"
+    "War & Military Fiction" "Westerns" "Weymouth New Testament"
+    "Writing & Linguistics" "Young's Literal Translation"
+    )
   "List of genres.")
 
 ;;;###autoload
@@ -252,7 +256,7 @@ Optional prefix arg `offset' prompts for offset."
   (interactive
    (list
     (let ((completion-ignore-case t))
-    (completing-read "Genre: " emacspeak-librivox-genre-list))
+      (completing-read "Genre: " emacspeak-librivox-genre-list))
     current-prefix-arg))
   (declare (special emacspeak-librivox-genre-list))
   (when offset (setq offset (read-number "Offset: ")))
