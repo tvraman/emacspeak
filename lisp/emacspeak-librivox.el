@@ -147,7 +147,7 @@
         (desc (g-json-get 'description book)))
     (insert  (format "<h2>%s. %s</h2>\n\n" position title))
     (insert "<table><tr>\n")
-    (when rss (insert (format "<td><a title='Press e e to play'  href='%s'>Listen </a></td>\n" rss)))
+    (when rss (insert (format "<td><a title='Press e e or RET to play'  href='%s'>Listen </a></td>\n" rss)))
     (when zip (insert (format "<td><a href='%s'>Download</a></td>\n" zip)))
     (when text (insert (format "<td><a href='%s'>Full Text</a></td>\n" text)))
     (when time (insert (format "<td>Time: %s</td>\n" time)))
@@ -188,6 +188,11 @@ Optional arg `offset' (default 0) is used for getting more results."
           (insert
            (format "<a href='%s'>More Results</a>"
                    (emacspeak-librivox-audiobooks-uri pattern (+ offset 50)))))
+        (add-hook
+         'emacspeak-web-post-process-hook
+         #'(lambda ()
+             (declare (special emacspeak-we-url-executor))
+             (setq emacspeak-we-url-executor 'emacspeak-librivox-play)))
         (browse-url-of-buffer)))))
 
 (defvar emacspeak-librivox-genre-list
