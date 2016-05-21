@@ -85,10 +85,13 @@
 ;; * limit (default is 50)
 ;;   * offset
 
-(defsubst emacspeak-librivox-audiobooks-uri (pattern)
+(defsubst emacspeak-librivox-audiobooks-uri (pattern  offset)
   "Search URI for audiobooks."
   (declare (special emacspeak-librivox-api-base))
-  (concat emacspeak-librivox-api-base "audiobooks?format=json&" pattern))
+  (concat
+   emacspeak-librivox-api-base
+   (format "audiobooks?offset=%s&format=json&" offset)
+ pattern))
 
 ;;; Audio Tracks API:
 ;;; Params:
@@ -152,17 +155,17 @@
     (emacspeak-librivox-display-authors (g-json-get 'authors book))
     (when desc (insert "<p>" desc "</p>\n\n"))))
 
-(defun emacspeak-librivox-search (pattern &optional page-title)
+(defun emacspeak-librivox-search (pattern &optional page-title offset)
   "Search for books.
 Argument `pattern' is of the form:
 `author=pattern' Search by author.
 `title=pattern' Search by title.
 ^all Browse books.
-Optional arg `page-title' specifies page title."
+Optional arg `page-title' specifies page title.
+Optional arg `offset' (default 0) is used for getting more results."
   (or page-title (setq page-title pattern))
-  (let* ((url
-          (emacspeak-librivox-audiobooks-uri
-           pattern))
+  (or offset (setq offset 0))
+  (let* ((url (emacspeak-librivox-audiobooks-uri pattern offset))
          (result (g-json-get-result
                   (format
                    "%s  %s '%s'"
@@ -181,11 +184,10 @@ Optional arg `page-title' specifies page title."
          and i from 1
          do
          (emacspeak-librivox-display-book b i))
-        (add-hook
-         'emacspeak-web-post-process-hook
-         #'(lambda ()
-             (setq emacspeak-we-url-executor 'emacspeak-librivox-play)))
-        
+        (when (= 50 (length books))
+          (insert
+           (format "<a href='%s'>More Results</a>"
+                   (emacspeak-librivox-audiobooks-uri pattern (+ offset 50)))))
         (browse-url-of-buffer)))))
 
 (defvar emacspeak-librivox-genre-list
