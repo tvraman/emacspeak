@@ -84,13 +84,16 @@
 ;; * extended - =1 will return the full set of data about the project
 ;; * limit (default is 50)
 ;;   * offset
+(defvar emacspeak-librivox-results-limit 50
+  "Number of results to retrieve at a time.")
 
 (defsubst emacspeak-librivox-audiobooks-uri (pattern  offset)
   "Search URI for audiobooks."
   (declare (special emacspeak-librivox-api-base))
   (concat
    emacspeak-librivox-api-base
-   (format "audiobooks?offset=%s&format=json&" offset)
+   (format "audiobooks?offset=%s&limit=%s&format=json&"
+           offset emacspeak-librivox-results-limit)
  pattern))
 
 ;;; Audio Tracks API:
@@ -163,6 +166,7 @@ Argument `pattern' is of the form:
 ^all Browse books.
 Optional arg `page-title' specifies page title.
 Optional arg `offset' (default 0) is used for getting more results."
+  (declare (special  emacspeak-librivox-results-limit))
   (or page-title (setq page-title pattern))
   (or offset (setq offset 0))
   (let* ((url (emacspeak-librivox-audiobooks-uri pattern offset))
@@ -184,10 +188,10 @@ Optional arg `offset' (default 0) is used for getting more results."
          and i from 1
          do
          (emacspeak-librivox-display-book b i))
-        (when (= 50 (length books))
+        (when (= emacspeak-librivox-results-limit (length books))
           (insert
            (format "<a href='%s'>More Results</a>"
-                   (emacspeak-librivox-audiobooks-uri pattern (+ offset 50)))))
+                   (emacspeak-librivox-audiobooks-uri pattern (+ offset emacspeak-librivox-results-limit)))))
         (add-hook
          'emacspeak-web-post-process-hook
          #'(lambda ()
