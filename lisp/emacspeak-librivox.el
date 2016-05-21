@@ -174,7 +174,7 @@ Optional arg `page-title' specifies page title."
       (with-temp-buffer
         (insert "<title>" page-title "</title>\n")
         (insert "<h1>" page-title "</h1>\n")
-        (insert "<p> Press <code>e e </code> to listen to the audio stream.</p>\n")
+        (insert "<p> Press <code>e e </code> on a <em>listen</em> link to play the book.</p>")
         (loop
          for b across books
          and i from 1
