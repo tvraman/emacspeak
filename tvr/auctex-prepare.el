@@ -1,5 +1,4 @@
-
-(load-library "tex-site")
+;(load-library "tex-site")
 (load-library "reftex-prepare")
 (add-hook 'LaTeX-mode-hook 'reftex-mode)
 (add-hook 'LaTeX-mode-hook

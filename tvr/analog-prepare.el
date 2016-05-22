@@ -1,4 +1,4 @@
-
+(augment-load-path "analog" "analog")
 (autoload 'analog "analog" "View logs" t)
 (setq analog-entry-list
       '(
