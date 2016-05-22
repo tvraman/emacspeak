@@ -104,10 +104,10 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     (unless (featurep 'emacspeak)
       (load-file
        (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el")))
-
-    (when (featurep 'emacspeak)
+(when (featurep 'emacspeak)
       (emacspeak-tts-startup-hook)
       (emacspeak-sounds-select-theme "pan-chimes/"))
+    (add-to-list 'load-path (expand-file-name "tvr/" emacspeak-directory))
 
     ;;}}}
     ;;{{{  set up terminal codes and global keys
