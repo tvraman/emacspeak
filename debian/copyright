@@ -10,7 +10,7 @@ Copyright Holder: "T. V. Raman" <raman@users.sf.net>
    Cc: tvraman@comcast.net, 292322@bugs.debian.org, jcasey@gnu.org
    Subject: emacspeak license
    Date: Sun, 30 Jan 2005 19:29:03 -0800
-   The references to DEC and Adobe are legcy.
+   The references to DEC and Adobe are legacy.
    
    Each lisp file clearly states it's not part of Emacs but the same
    licensing rules apply --as far as I am concerned that's GPL.
