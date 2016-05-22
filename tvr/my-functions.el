@@ -1,12 +1,12 @@
-;;;$Id$(require 'cl)
+;;;$Id: my-functions.el,v 1.3 2002/08/25 15:35:11 tvraman Exp raman $(require 'cl)
+(defalias 'my-debug 'toggle-debug-on-error)
+
 (defun my-thanks-mail-signature()
   "insert thanks , --Raman at the end of mail message"
   (interactive)
   (goto-char (point-max))
   (insert
-   (format "\n Thanks, \n --Raman\n")))
-
-(defalias 'my-debug 'toggle-debug-on-error)
+   (format "\n Thanks, \n --%s\n" (user-full-name))))
 
 (defun tex-tie-current-word(n)
   (interactive "P")
@@ -51,12 +51,6 @@
   (compile (format "lacheck %s"
                    (buffer-file-name (current-buffer)))))
 
-(defun dired-play-sound ()
-  "Play the file on the current line. "
-  (interactive)
-  (start-process "play" nil "play"
-                 (dired-get-filename t t ) ))(require 'dired)
-
 (defun next-interactive-defun ()
   "Move point to the next interactive defun"
   (interactive)
@@ -73,8 +67,8 @@
      (read-file-name "Enter name of POD file: "))))
   (require 'man)
   (let* ((pod2man-args (concat filename " | nroff -man "))
-	 (bufname (concat "Man " filename))
-	 (buffer (generate-new-buffer bufname)))
+         (bufname (concat "Man " filename))
+         (buffer (generate-new-buffer bufname)))
     (save-excursion
       (set-buffer buffer)
       (let ((process-environment (copy-sequence process-environment)))
@@ -85,19 +79,28 @@
                         (format (cperl-pod2man-build-command) pod2man-args))
          'Man-bgproc-sentinel)))))
 
-(provide 'my-functions)
+(defun shell-bind-keys ()
+  "Set up additional shell mode keys."
+  (loop for b in
+        '(
+          ("\C-ch" emacspeak-wizards-refresh-shell-history)
+          ("\C-cr" comint-redirect-send-command))
+        do
+        (define-key shell-mode-map (first b) (second b))))
+
+
 (defun complete-isearch (regexp)
   "Search in the completions.  If a prefix is given, use REGEXP isearch."
   (interactive "P")
   (unless (and (memq last-command '(minibuffer-complete
-        minibuffer-completion-help))
-        (window-live-p minibuffer-scroll-window))
+                                    minibuffer-completion-help))
+               (window-live-p minibuffer-scroll-window))
     (minibuffer-completion-help))
   (with-current-buffer (window-buffer minibuffer-scroll-window)
     (save-window-excursion
       (select-window minibuffer-scroll-window)
       (if (isearch-forward regexp nil)
-   (choose-completion)))))
+          (choose-completion)))))
 (define-key minibuffer-local-must-match-map "\C-s" 'complete-isearch)
 (define-key minibuffer-local-map "\C-s" 'complete-isearch)
 (define-key minibuffer-local-completion-map "\C-s" 'complete-isearch)
@@ -107,3 +110,4 @@
   (vm-visit-folder
    (file-name-sans-extension emacspeak-voicemail-spool-file))
   (emacspeak-vm-mode-line))
+(provide 'my-functions)
