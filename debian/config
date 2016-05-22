@@ -1,0 +1,246 @@
+#!/usr/bin/perl -w
+# debconf config script for emacspeak
+#
+# synopsis
+#    config  configure  <installed-version>
+#    config  reconfigure  <installed-version>
+#
+# 
+# ----  Configuring a speech server using debconf  ----
+# 
+# A package can contribute several speech servers, as follows.
+# 
+# 
+# Use the method described in debconf-devel(7) "choosing among related
+# packages" to detect a new package.  All packages installing speech
+# servers include the same template file.  A fake question
+# "shared/emacspeak/fake" is shared by all the packages.  Each package
+# contributes its name as a "choice".  The question is "fake" because
+# the it is never displayed to a user.  Instead, if the package list
+# changes, use fset to declare a *different* question as not seen:
+# "shared/emacspeak/device".  That question has the real speech server
+# choices.  A new package contributes all the relevant choices to all
+# questions, and a package being removed removes its choices (in
+# prerm).
+
+use strict;
+
+use Debconf::Client::ConfModule q(:all);
+
+die "Syntax error: no argument" if ($#ARGV < 0);
+my $id;
+my $action=$ARGV[0];
+my $installed_version=$ARGV[1];
+my $ret;
+my $database;
+my $owners;
+my $choices;
+#open LOG,    ">> /var/log/emacspeak"  or die "can't open logfile:  $!";
+
+($ret, $owners)=metaget('shared/emacspeak/fake','owners');
+($ret, $choices)=metaget('shared/emacspeak/fake','choices');
+if ($owners ne $choices){
+    subst('shared/emacspeak/fake','choices',$owners);
+    # the devices have changed, so ask which device to use
+    fset('shared/emacspeak/device', 'seen', 'false');
+}
+
+# combine speech server choices from:
+# - previously installed packages (i.e. their .blurb files)
+# - this package (even though our .blurb files have not been unpacked)
+# - other packages being installed at this time (their .blurb files
+#   have not been unpacked either, but they may have registered their
+#   choices with debconf)
+
+# get choices already in the debconf database
+my ($b, $p, $t, $device, $olddevice, 
+    %blurb, %program, %tcl, %device, %db, $devicelist);
+($ret, $database) = metaget ('shared/emacspeak/database', 'choices');
+foreach (split (/, */, $database)){ # debconf database is comma separated
+    ($b, $p, $t, $device)=split(/:/);
+    # load data into hashes
+    $blurb{$device}=$b;
+    $program{$device}=$p;
+    $tcl{$device}=$t;
+    $db{$device}="$b:$p:$t";	# local database is colon separated
+}
+
+# Add choices from unpacked .blurb files from other packages, in case
+# their config scripts haven't run yet (or they aren't debconf configured)
+my $dirname='/usr/share/emacs/site-lisp/emacspeak/blurbs';
+if (opendir(DIR,$dirname)){
+    my @fnames=readdir(DIR);
+    closedir(DIR);
+    foreach (@fnames){
+	if (/.blurb$/){
+	    open(IF,"$dirname/$_");
+	    while(<IF>){
+		if (/^blurb: *(.*)$/) {$b=$1;}
+		if (/^program: *(.*)$/) {$p=$1;}
+		if (/^tcl: *(.*)$/) {$t=$1;}
+		if (/^device: *(.*)$/) {$device=$1;}
+	    }
+	    $blurb{$device}=$b;
+	    $program{$device}=$p;
+	    $tcl{$device}=$t;
+	    $db{$device}="$b:$p:$t";
+	}
+    }
+}
+
+# Add choices in this package, using "device" as the key.
+# E.g. this .blurb file:
+#   blurb: Software DECtalk
+#   program: dtk-soft
+#   tcl: tcl
+#   device: sound card with Software DECtalk
+# would generate this entry:
+#   $db{"sound card with Software DECtalk"}="Software DECtalk:dtk-soft:tcl";
+
+# These entries must be updated whenever .blurb files are changed.
+
+# FIXME these entries should be inserted here automatically at package
+# build time, based on the .blurb files.  (This cannot be done during
+# installation, because this package's .blurb files are not unpacked
+# at config time.)
+
+$db{"DECtalk Express"}="DECtalk Express:dtk-exp:tcl";
+$db{"DECtalk Multivoice"}="DECtalk Multivoice:dtk-mv:tcl";
+$db{"sound card with Software DECtalk"}="Software DECtalk:dtk-soft:tcl";
+$db{"DECtalk 3"}="DECtalk 3:dtk-mv:tcl";
+$db{"Software DECtalk"}="Software DECtalk:dtk-soft:tcl";
+$db{"espeak"}="eSpeak:espeak:tcl";
+$db{"ViaVoice Outloud"}="ViaVoice Outloud:outloud:tcl";
+$db{"a speech server on another computer"}="Remote DECtalk server:remote-tcl:/usr/share/emacs/site-lisp/emacspeak/servers/remote-tcl";
+
+$device=get('shared/emacspeak/device');
+if ($device eq ''){		# specify a default server
+    $device=get('shared/emacspeak/device','DECtalk Express');
+}
+
+my $newdatabase='';
+foreach $device (sort keys %db) {
+    ($b,$p,$t)=split(':',$db{$device});
+    $newdatabase .= "$b:$p:$t:$device, ";
+}
+if ($database ne $newdatabase){
+    # update debconf database
+    subst ('shared/emacspeak/database', 'choices', $newdatabase);
+    my $devicelist=join(', ', sort keys %db);
+    subst ('shared/emacspeak/device', 'choices', $devicelist);
+}
+
+# get current settings from the configuration file if it exists
+my $configfile='/etc/emacspeak.conf';
+my $program='';
+my $port='';
+my $tcl='';
+
+if (-e $configfile){
+    open(CF,$configfile) 
+	or die("$configfile exists but could not be opened for reading\n");
+    while (<CF>){
+	/^\s*DTK_PROGRAM\s*=\s*(\S+)/ and     
+	    set('shared/emacspeak/program',$1);
+	/^\s*DTK_PORT\s*=\s*(\S+)/ and 
+	    set('shared/emacspeak/port',$1);
+	/^\s*DTK_TCL\s*=\s*(\S+)/ and
+	    set('shared/emacspeak/tcl',$1);
+	/^\s*DTK_DEVICE\s*=\s*(\S+)/ and
+	    set('shared/emacspeak/device',$1);
+# If device is a quoted string, rescan to get the whole thing
+	/^\s*DTK_DEVICE\s*=\s*\"(.+)\"/ and
+	    set('shared/emacspeak/device',$1);
+	/^\s*DTK_DEVICE\s*=\s*\'(.+)\'/ and
+	    set('shared/emacspeak/device',$1);
+    }
+    close(CF);
+}
+
+title('emacspeak speech server configuration');
+$olddevice=get('shared/emacspeak/device');
+input('high', 'shared/emacspeak/device'); go();
+$device=get('shared/emacspeak/device');
+
+if (get('shared/emacspeak/program') eq ''){
+    set('shared/emacspeak/program',$program{$device});
+    }
+if (get('shared/emacspeak/tcl') eq ''){
+    set('shared/emacspeak/tcl',$tcl{$device});
+    }
+if ($device eq "DoubleTalk PC" and $port =~ m./dev/tty.){
+    set('shared/emacspeak/port','/dev/dtlk');
+}
+if ($olddevice ne $device){
+    set('shared/emacspeak/program',$program{$device});
+    set('shared/emacspeak/tcl',$tcl{$device});
+}
+$port=get('shared/emacspeak/port');
+if ($olddevice ne $device or $port eq "" or (($port ne "none") and ! -c $port)){
+    fset('shared/emacspeak/port', 'seen', 'false');
+}
+my $valid=0;
+while (!$valid) {
+    input('high', 'shared/emacspeak/port'); go();
+    $port=get('shared/emacspeak/port');
+    if (($port eq "none") || (-c $port)){
+	$valid=1;
+    } else {
+	subst("shared/emacspeak/invalidport",'port',$port);
+	input('high','shared/emacspeak/invalidport'); go();
+	fset('shared/emacspeak/port', 'seen', 'false');
+    }
+}
+
+if ($port ne "none"){
+    my ($dev,$ino,$mode,$nlink,$uid,$gid,$rdev,$size,$atime,$mtime,$ctime,
+	$blksize,$blocks);
+    my ($group,$passwd,$members);
+    my $question;
+    my $users;
+    my $user;
+    
+    ($dev,$ino,$mode,$nlink,$uid,$gid,$rdev,$size,$atime,$mtime,$ctime,
+     $blksize,$blocks)=stat($port); # get group etc. of speech device
+    ($group,$passwd,$gid,$members)=getgrgid($gid); # get group name and member list
+
+    foreach $question ('groupies', 'rootgroup', 'invaliduser'){
+	subst("shared/emacspeak/$question",'port',$port);
+	subst("shared/emacspeak/$question",'group',$group);
+	subst("shared/emacspeak/$question",'members',$members);
+    }
+    set("shared/emacspeak/groupies",$members);
+    if ((($group eq 'root') && (($mode & 6) ^ 6))||
+	(($group ne 'root') && (($mode & 060)^060))){
+        # ordinary users cannot access the port
+	input('high', 'shared/emacspeak/rootgroup'); go();
+    }
+    my %current_member=();	# initialize empty hash
+    my $priority="medium";
+    foreach $user (split / +/,$members) {
+	$current_member{$user}=1;
+    }
+    if (!scalar(keys(%current_member))){
+	$priority="high";
+    }
+    input($priority,"shared/emacspeak/groupies"); go();
+
+    # update group membership
+    $users=get("shared/emacspeak/groupies");
+    foreach $user (split / +/,$users) {
+	$id=getpwnam($user);
+	if (!$id) {		# $user doesn't exist (or is root)
+	    subst("shared/emacspeak/invaliduser","user",$user);
+	    input($priority,"shared/emacspeak/invaliduser"); go();
+	} else {
+	    if (exists($current_member{$user})) {
+		delete($current_member{$user}); # user status unchanged
+	    } else {		# enroll the new member
+		system("/usr/sbin/adduser $user $group")
+	    }
+	}
+    }
+    foreach $user (keys(%current_member)){ # remove the remaining members
+	system("/usr/sbin/deluser $user $group")
+    }
+}

@@ -1,0 +1,36 @@
+.\"{{{  Title                    Emacs major mode should be: -*- nroff -*-
+.TH EMACSPEAKCONFIG 8 "February 13, 1998"
+.\"}}}
+.\"{{{  Name
+.SH NAME
+emacspeakconfig \- configure emacspeak
+.\"}}}
+.\"{{{  Synopsis
+.SH SYNOPSIS
+.ad l
+.\" commands only
+.BR /usr/sbin/emacspeakconfig " [ " -i " ]"
+.\"}}}
+.\"{{{  Config
+.SH DESCRIPTION
+This script records in \fI/etc/emacspeak.conf\fP the type of text to
+speech device, the device (port) where it is connected, and the name
+of the speech server used to access it.
+.SH OPTIONS
+.IP "\fB\-i\fP"
+Initial configuration: If \fI/etc/emacspeakconfig\fP exists and has
+all the required entries, then leave it unchanged and ask no
+questions.  The default is to ask regardless.
+.SH AUTHOR
+Jim Van Zandt <jrv@debian.org>
+.\"}}}
+.\"{{{
+.SH FILES
+.nf
+\fI/etc/emacspeak.conf\fP
+.fi
+.\"}}}
+.\"{{{  See also
+.SH "SEE ALSO"
+.BR emacspeak (1)
+.\"}}}

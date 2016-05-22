@@ -1,0 +1,89 @@
+emacspeak for DEBIAN
+----------------------
+
+Emacspeak is authored by T. V. Raman <raman@cs.cornell.edu>.  These
+are the primary changes made in building the Debian package: html and
+plain text versions of the documentation were added.  A configuration
+script (/usr/sbin/emacspeakconfig) and associated speech server
+descriptions (/usr/share/emacs/site-lisp/emacspeak/blurbs/*) were
+added.  Manual pages for emacspeak and the configuration script were
+added.  Minor changes are listed in changelog.Debian.
+
+The user is expected to start emacspeak with /usr/bin/emacspeak, which
+gets configuration parameters from /etc/emacspeak.conf and starts
+emacs with emacspeak support.
+
+Several "flavors" of emacs may be installed at the same time (emacs20,
+emacs21, xemacs21, etc.).  In accordance with the Debian emacs policy,
+emacspeak is byte-compiled separately for each supported flavor -
+currently only emacs21.  There is a separate script to start each
+flavor of emacs with emacspeak support - for example,
+/usr/bin/emacspeak.emacs21.  /usr/bin/emacspeak is actually a symlink
+managed by the "alternatives" mechanism.  That is, it points to
+/etc/alternatives/emacspeak, which points to one of several links like
+/usr/bin/emacspeak.emacs21.  (See the manpage for
+update-alternatives.)
+
+The alternatives for emacspeak inherit their priorities from the
+corresponding emacs packages.  So, as long as the emacs and emacspeak
+alternatives are in "automatic" mode, both "emacs" and "emacspeak"
+will start emacs21.  If someday an emacs22 package is installed, with
+priority higher than for emacs 21, then by default both "emacs" and
+"emacspeak" will start emacs22.
+
+The administrator can use update-alternatives to change which flavor
+is started by either /usr/bin/emacs or /usr/bin/emacspeak.  Or, of
+course, any user can use one of the flavor-specific links like
+/usr/bin/emacspeak.emacs21 to start whichever flavor he wants.
+
+Starting with version 11.0, the Emacspeak sources include a speech
+server written in C++ for the IBM ViaVoice speech synthesis software.
+However, it depends on the ViaVoice runtime kit which does not meet
+the Debian Free Software Guidelines.  (It is available only as object
+code, and only under a temporary license.)  Therefore, support for
+ViaVoice is not included in this Debian package.  If you would like to
+try it, you can find some information in
+/usr/share/doc/emacspeak/VIAVOICE.
+
+Starting with version 10.0, Dr. Raman has rewritten the documentation
+files.  Approximately 100 commands are described there, compared to
+over 800 in the documentation shipped with the previous release.
+Therefore, the user should pay particular attention to the section
+"Using Online Help".
+
+Many command-line applications can be run under emacs, and can
+therefore be made accessible with emacspeak.  Much of this is
+explained in the documentation entitled "Running Terminal Based
+Applications".  However, it is worth emphasizing this point: "For
+regular shell interaction just use M-x shell instead of using the
+terminal emulator."
+
+The example file "tables.html" was supplied by Dr. Raman in a separate
+email.  It may be found in /usr/share/doc/emacspeak/examples.  It includes a
+sample table with three columns (labeled "item", "date", and
+"amount"), and three rows.  For a discussion of the support for tables
+in emacspeak and w3, see NEWS (or NEWS.gz) in /usr/share/doc/emacspeak.
+
+The Emacspeak-HOWTO contains additional documentation.  The plain text
+form of this can be found in the Debian package doc-linux, and is
+installed as /usr/share/doc/HOWTO/Emacspeak-HOWTO.gz.  Other formats are
+also available.  For example, these can be found at sunsite.unc.edu:
+
+  /pub/Linux/docs/HOWTO/other-formats/dvi/Emacspeak-HOWTO.dvi.gz
+  /pub/Linux/docs/HOWTO/other-formats/html/Emacspeak-HOWTO-html.tar.gz
+  /pub/Linux/docs/HOWTO/other-formats/ps/Emacspeak-HOWTO.ps.gz
+  /pub/Linux/docs/HOWTO/other-formats/sgml/Emacspeak-HOWTO.sgml.gz
+
+There is also an Emacspeak mailing list.  To subscribe, send a message
+to:
+
+        emacspeak-request@cs.vassar.edu
+
+with a subject of:
+
+        subscribe
+
+James R. Van Zandt <jrv@debian.org>, Mon Jan 30 21:36:59 EST 2006
+
+
+ -- James R. Van Zandt <jrv@debian.org>, Sun, 27 Jul 2008 15:50:43 -0400

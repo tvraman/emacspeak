@@ -1,0 +1,164 @@
+# ITALIAN TRANSLATION OF EMACSPEAK-28.0.5'S.PO-DEBCONF FILE
+# COPYRIGHT (C) 2008 THE EMACSPEAK'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the emacspeak package.
+#
+# Vincenzo Campanella <vinz65@gmail.com>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: emacspeak-28.0.5\n"
+"Report-Msgid-Bugs-To: emacspeak@packages.debian.org\n"
+"POT-Creation-Date: 2008-12-09 07:29+0100\n"
+"PO-Revision-Date: 2008-12-03 08:09+0100\n"
+"Last-Translator: Vincenzo Campanella <vinz65@gmail.com>\n"
+"Language-Team: Italian <tp@lists.linux.it>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#. Type: select
+#. Description
+#: ../templates:3001
+msgid "Default speech server:"
+msgstr "Server vocale predefinito:"
+
+#. Type: select
+#. Description
+#: ../templates:3001
+msgid ""
+"The /etc/emacspeak.conf file will be configured so that the command '/usr/"
+"bin/emacspeak' will start Emacs with emacspeak support using this server."
+msgstr ""
+"Il file «/etc/emacspeak.conf» verrà configurato in modo che il comando «/usr/"
+"bin/emacspeak» avvierà Emacs con il supporto a emacspeak usando questo "
+"server."
+
+#. Type: select
+#. Description
+#: ../templates:3001
+msgid ""
+"You may change the selection later by running 'dpkg-reconfigure emacspeak' "
+"as root, or temporarily override the selection by setting the environment "
+"variable DTK_PROGRAM."
+msgstr ""
+"È possibile modificare successivamente questa selezione eseguendo «dpkg-"
+"reconfigure emacspeak» come root, o sovrascrivere temporaneamente questa "
+"selezione impostando la variabile di ambiente DTK_PROGRAM."
+
+#. Type: string
+#. Description
+#: ../templates:4001
+msgid "Hardware port of the speech generation device:"
+msgstr "Porta hardware del dispositivo per la generazione vocale:"
+
+#. Type: string
+#. Description
+#: ../templates:4001
+msgid ""
+"If a hardware device is used to generate speech, please enter the Unix "
+"device file associated with it, such as '/dev/ttyS0' or '/dev/ttyUSB0'."
+msgstr ""
+"Se viene usato un dispositivo hardware per la generazione vocale, inserire "
+"il file di device Unix associato a esso, come per esempio «/dev/ttyS0» o «/"
+"dev/ttyUSB0»"
+
+#. Type: string
+#. Description
+#. Translators, please do not translate "none"
+#: ../templates:4001
+msgid "If you use a software method to generate speech, please enter 'none'."
+msgstr ""
+"Se si usa un metodo software per la generazione vocale, inserire «none»."
+
+#. Type: error
+#. Description
+#: ../templates:5001
+msgid "${port} is not a character special device"
+msgstr "${port} non è un device speciale a caratteri"
+
+#. Type: string
+#. Description
+#: ../templates:6001
+msgid "Users of speech server:"
+msgstr "Utenti del server vocale:"
+
+#. Type: string
+#. Description
+#: ../templates:6001
+msgid ""
+"Users must be members of group ${group} to access the speech server "
+"connected to ${port}. Please review the space-separated list of current "
+"members of that group, and add or remove usernames if needed."
+msgstr ""
+"Gli utenti devono essere membri del gruppo ${group} per poter accedere al "
+"server vocale connesso alla porta ${port}. Controllare l'elenco, che è "
+"separato da spaziature, dei membri attuali di questo gruppo ed eventualmente "
+"aggiungere o rimuovere nomi di utenti."
+
+#. Type: string
+#. Description
+#: ../templates:6001
+msgid ""
+"If you later add users to the system, you can either reconfigure the "
+"emacspeak package afterwards, or enroll the user in ${group} with 'adduser "
+"${group} <user>'."
+msgstr ""
+"Se si desiderano aggiungere successivamente degli utenti, sarà possibile o "
+"riconfigurare il pacchetto emacspeak, o aggiungere l'utente al gruppo "
+"${group} eseguendo «adduser ${group} <utente>»."
+
+#. Type: string
+#. Description
+#: ../templates:6001
+msgid ""
+"Group membership is checked at login time, so new members must log out and "
+"log in again before using the speech server."
+msgstr ""
+"L'appartenenza al gruppo viene verificata al momento dell'accesso al "
+"sistema, per cui i nuovi membri dovranno necessariamente uscire e rientrare "
+"prima di poter utilizzare il server vocale."
+
+#. Type: error
+#. Description
+#: ../templates:7001
+msgid "Invalid username ${user}"
+msgstr "Nome utente ${user} non valido"
+
+#. Type: error
+#. Description
+#: ../templates:7001
+msgid ""
+"There is no user named ${user}, so no such user could be added to ${group}."
+msgstr ""
+"Non esiste alcun utente con il nome ${user}, per cui l'utente non ha potuto "
+"essere aggiunto a ${group}."
+
+#. Type: error
+#. Description
+#: ../templates:8001
+msgid "${port} non-writable by unprivileged users"
+msgstr "La porta ${port} non è scrivibile da utenti senza privilegi"
+
+#. Type: error
+#. Description
+#: ../templates:8001
+msgid ""
+"Since the speech device is connected to ${port}, unprivileged users must "
+"have read/write access to that device."
+msgstr ""
+"Poiché il device vocale è connesso alla porta ${port}, gli utenti senza "
+"privilegi devono potervi accedere in lettura e scrittura."
+
+#. Type: error
+#. Description
+#: ../templates:8001
+msgid ""
+"You should modify the device permissions with 'chmod a+rw ${port}' or modify "
+"the device group with 'chown root:dialout ${port}', then reconfigure "
+"emacspeak with 'dpkg-reconfigure emacspeak'."
+msgstr ""
+"È necessario modificare i permessi del device eseguendo «chmod a+rw ${port}» "
+"o modificando il gruppo del device eseguendo «chown root:dialout ${port}», "
+"successivamente riconfigurare emacspeak eseguendo «dpkg-reconfigure "
+"emacspeak»."

@@ -1,0 +1,41 @@
+Description: Update clean target for documentation removal
+ .
+ Due to a non-free license documentation is removed and the clean target
+ prevents emacspeak from building. Removing info dir from clean target.
+Author: Paul Gevers <elbrus@debian.org>
+
+Index: emacspeak/Makefile
+===================================================================
+--- emacspeak.orig/Makefile
++++ emacspeak/Makefile
+@@ -198,9 +198,6 @@ emacspeak:
+ 	@echo "Use C-h p in Emacs for a package overview"
+ 	@echo "Make sure you read the Emacs info pages"
+ 
+-info:
+-	cd info; $(MAKE) -k
+-
+ # }}}
+ # {{{  Maintainance targets tar  dist
+ GITVERSION=$(shell git show HEAD | head -1  | cut -b 8- )
+@@ -278,12 +275,8 @@ install:
+ 	$(INSTALL) -d $(bindir)
+ 	$(INSTALL) -m 0755  etc/emacspeak.sh $(bindir)/emacspeak
+ 	$(INSTALL) -d $(infodir)
+-	cd info; \
+-	$(MAKE) install  infodir="$(infodir)"
+ 
+ uninstall:
+-	rm -rf $(infodir)/emacspeak.info* $(bindir)/emacspeak $(libdir)
+-	cd info && make uninstall infodir=${infodir}
+ # }}}
+ # {{{  complete build
+ 
+@@ -302,7 +302,6 @@ q:
+ 
+ clean:
+ 	cd lisp; $(MAKE) clean
+-		cd info; $(MAKE) clean
+ 
+ # }}}
+ # {{{ labeling releases

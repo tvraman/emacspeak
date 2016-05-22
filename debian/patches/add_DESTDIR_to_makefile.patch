@@ -1,0 +1,16 @@
+Description: upstream install target is not honoring the DESTDIR variable, so
+ let's add it here
+Author: Paul Gevers <elbrus@debian.org>
+Index: emacspeak/Makefile
+===================================================================
+--- emacspeak.orig/Makefile
++++ emacspeak/Makefile
+@@ -116,7 +116,7 @@
+ 
+ ##### Site  Configuration #####
+ MAKE=make
+-prefix = /usr
++prefix = $(DESTDIR)/usr
+ # where executables go
+ bindir = ${prefix}/bin
+ # where info files should go

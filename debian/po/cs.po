@@ -1,0 +1,161 @@
+# Czech translation of emacspeak.
+# Copyright (C) 2008
+# This file is distributed under the same license as the emacspeak package.
+# Martin Sin <martin.sin@zshk.cz>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: emacspeak 28.0-5\n"
+"Report-Msgid-Bugs-To: emacspeak@packages.debian.org\n"
+"POT-Creation-Date: 2008-12-09 07:29+0100\n"
+"PO-Revision-Date: 2008-12-03 13:51+0200\n"
+"Last-Translator: Martin Sin <martin.sin@zshk.cz>\n"
+"Language-Team: Czech <debian-l10n-czech@debian.org>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: select
+#. Description
+#: ../templates:3001
+msgid "Default speech server:"
+msgstr "Výchozí řečový server:"
+
+#. Type: select
+#. Description
+#: ../templates:3001
+msgid ""
+"The /etc/emacspeak.conf file will be configured so that the command '/usr/"
+"bin/emacspeak' will start Emacs with emacspeak support using this server."
+msgstr ""
+"Tato volba určuje server, který použije emacspeak (/usr/bin/emacspeak) při "
+"spuštění Emacs, hodnota se ukládá do konfiguračního souboru /etc/emacspeak."
+"conf."
+
+#. Type: select
+#. Description
+#: ../templates:3001
+msgid ""
+"You may change the selection later by running 'dpkg-reconfigure emacspeak' "
+"as root, or temporarily override the selection by setting the environment "
+"variable DTK_PROGRAM."
+msgstr ""
+"Výběr je možno změnit později zadáním příkazu „dpkg-reconfigure emacspeak“ s "
+"právy uživatele root, nebo dočasně změnit tento výběr nastavením proměnné "
+"prostředí DTK_PROGRAM."
+
+#. Type: string
+#. Description
+#: ../templates:4001
+msgid "Hardware port of the speech generation device:"
+msgstr "Hardwarový port zařízení generujícího hlas:"
+
+#. Type: string
+#. Description
+#: ../templates:4001
+msgid ""
+"If a hardware device is used to generate speech, please enter the Unix "
+"device file associated with it, such as '/dev/ttyS0' or '/dev/ttyUSB0'."
+msgstr ""
+"Pokud používáte ke generování řeči nějaké hardwarové zařízení, zadejte "
+"prosím soubor zařízení, který je s ním asociován, např. „/dev/ttyS0“ nebo „/"
+"dev/ttyUSB0“."
+
+#. Type: string
+#. Description
+#. Translators, please do not translate "none"
+#: ../templates:4001
+msgid "If you use a software method to generate speech, please enter 'none'."
+msgstr "Pokud ke generování řeči používáte software, zadejte prosím „none“."
+
+#. Type: error
+#. Description
+#: ../templates:5001
+msgid "${port} is not a character special device"
+msgstr "${port} není speciálním zařízením"
+
+#. Type: string
+#. Description
+#: ../templates:6001
+msgid "Users of speech server:"
+msgstr "Uživatelé serveru speech:"
+
+#. Type: string
+#. Description
+#: ../templates:6001
+msgid ""
+"Users must be members of group ${group} to access the speech server "
+"connected to ${port}. Please review the space-separated list of current "
+"members of that group, and add or remove usernames if needed."
+msgstr ""
+"Uživatelé, kteří chtějí přistupovat k serveru speech připojenému k ${port} "
+"musí být členy skupiny ${group}. Podívejte se prosím na seznam aktuálních "
+"uživatelů této skupiny a přidejte nebo odstraňte uživatelská jména podle "
+"potřeby, oddělovačem je mezera."
+
+#. Type: string
+#. Description
+#: ../templates:6001
+msgid ""
+"If you later add users to the system, you can either reconfigure the "
+"emacspeak package afterwards, or enroll the user in ${group} with 'adduser "
+"${group} <user>'."
+msgstr ""
+"Pokud později přidáte uživatele do systému, můžete buď znovu nastavit "
+"balíček emacspeak, nebo přidat uživatele do skupiny ${group} pomocí příkazu "
+"„adduser ${group} <user>“."
+
+#. Type: string
+#. Description
+#: ../templates:6001
+msgid ""
+"Group membership is checked at login time, so new members must log out and "
+"log in again before using the speech server."
+msgstr ""
+"Příslušnost ke skupině se kontroluje při přihlášení, takže je potřeba, aby "
+"se noví uživatelé serveru speech znovu přihlásili."
+
+#. Type: error
+#. Description
+#: ../templates:7001
+msgid "Invalid username ${user}"
+msgstr "Neplatné uživatelské jméno ${user}"
+
+#. Type: error
+#. Description
+#: ../templates:7001
+msgid ""
+"There is no user named ${user}, so no such user could be added to ${group}."
+msgstr ""
+"V systému se nenachází uživatel ${user}, takže ho nelze přidat do skupiny "
+"${group}."
+
+#. Type: error
+#. Description
+#: ../templates:8001
+msgid "${port} non-writable by unprivileged users"
+msgstr "Neprivilegovaní uživatelé nemohou zapisovat na port ${port}"
+
+#. Type: error
+#. Description
+#: ../templates:8001
+msgid ""
+"Since the speech device is connected to ${port}, unprivileged users must "
+"have read/write access to that device."
+msgstr ""
+"Protože je zařízení speech připojené k ${port}, neprivilegovaní uživatelé "
+"musí mít právo pro čtení/zápis na toto zařízení."
+
+#. Type: error
+#. Description
+#: ../templates:8001
+msgid ""
+"You should modify the device permissions with 'chmod a+rw ${port}' or modify "
+"the device group with 'chown root:dialout ${port}', then reconfigure "
+"emacspeak with 'dpkg-reconfigure emacspeak'."
+msgstr ""
+"K tomuto zařízení byste měli nastavit příslušná oprávnění pomocí příkazu "
+"„chmod a+rw ${port}“ nebo upravit skupinu uživatelů zařízení na „chown root:"
+"dialout ${port}“, pak opět nastavte emacspeak zadáním příkazu „dpkg-"
+"reconfigure emacspeak“."

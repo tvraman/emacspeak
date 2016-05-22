@@ -1,0 +1,119 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+# export DH_VERBOSE=1
+
+package=emacspeak
+debbase := $(shell pwd)/debian
+pkgtmp  := $(debbase)/$(package)
+eldir   := usr/share/emacs/site-lisp/$(package)
+deblsp  := $(pkgtmp)/$(eldir)
+tmpdir  := $(debbase)/tmp/$(eldir)
+
+%:
+	dh  $@
+
+override_dh_auto_build-arch:
+	$(MAKE) TCL_VERSION="" --directory servers/linux-espeak
+
+override_dh_auto_build-indep:
+	echo $(shell dpkg-parsechangelog -c1 | grep ^Version: | perl -p -e 's/Version: //') \
+		> debian_version
+
+# Upstream doesn't ship a changelog file but NEWS-* basically contain what is needed
+# so cat that all together. Not 100% elegant, but it will do for now.
+# Note: the loop is to sort 8 and 9 before the rest
+	echo > changelog
+	for release in 8 9 1 2 3 ; do \
+		cat etc/NEWS-$${release}* >> changelog ; \
+	done
+	cat etc/NEWS >> changelog
+
+	# The 3d auditory icon theme was generated using CSound, but it expects the
+	# reference files in the same directory.
+	ln -s /usr/share/csound/hrtf/*.dat sounds/3d/src/
+	cd sounds/3d/src ; \
+	for file in *.csd ; do \
+		if [ ! "$$file" = interactive.csd ] ; then \
+			csound -o ../$${file%csd}wav $$file ; \
+		fi ; \
+	done
+
+	$(MAKE)
+
+override_dh_auto_clean:
+	debconf-updatepo
+
+	$(MAKE) clean
+	$(MAKE) --directory servers/linux-espeak clean
+
+# the following items should be done by the get-orig-source target, but
+# leave them here just in case we might not need that target in the future
+# the sources included some byte-compiled file by mistake
+	find . -name \*.elc -delete
+	find . -name \*.pyc -delete
+	find . -name \*.pyo -delete
+	dh_clean 
+
+override_dh_auto_install-indep:
+	dh_auto_install
+	# The upstream install target installs more than we want, most importantly
+	# the compiled lisp files. Because it is easier to maintain, we let it
+	# install but remove the stuff we don't want here.
+	find $(tmpdir) -name \*.elc -delete
+	find $(tmpdir) -name .nosearch -delete
+	rm $(tmpdir)/etc/COPYRIGHT
+	rm $(tmpdir)/etc/NEWS-*
+	# Already compiled and shipped in emacspeak-espeak-server
+	rm -r $(tmpdir)/servers/linux-espeak
+	# Should be made into a proper package
+	rm -r $(tmpdir)/servers/linux-outloud
+	# If people want this, they have the source package
+	rm -r $(tmpdir)/servers/software-dtk
+	# File for Mac, not for Debian
+	rm -r $(tmpdir)/servers/mac
+	rm -r $(tmpdir)/servers/log-mac
+	# Source files
+	rm -r $(tmpdir)/sounds/3d/src
+	# Original convertion script, but useless now
+	rm $(tmpdir)/sounds/pan-chimes/apply-pan.sh
+	# Generated files
+	rm -r $(tmpdir)/lisp/emacspeak-cus-load.el
+	rm -r $(tmpdir)/lisp/emacspeak-loaddefs.el
+	rm -r $(tmpdir)/lisp/g-client/g-loaddefs.el
+
+override_dh_auto_install-arch:
+
+override_dh_install:
+	# Exclude the files that go into the documentation
+	dh_install --list-missing -Xdtk/DTK -Xetc/NEWS -XREADME -X.html -Xremote.txt -Xstumpwm
+
+override_dh_fixperms-indep:
+# Only fix the following in the indep case
+# scripts and speech servers should be executable
+	if [ -d $(deblsp) ] ; then \
+		chmod 644 `find $(deblsp) -type f`; \
+		chmod 755 $(deblsp)/etc/*.pl				\
+			$(deblsp)/etc/*2html				\
+			$(deblsp)/etc/*2text				\
+			$(deblsp)/servers/32-outloud			\
+			$(deblsp)/servers/cloud*			\
+			$(deblsp)/servers/dtk-exp			\
+			$(deblsp)/servers/dtk-soft			\
+			$(deblsp)/servers/espeak			\
+			$(deblsp)/servers/log-*			\
+			$(deblsp)/servers/outloud			\
+			$(deblsp)/servers/speech-server			\
+			$(deblsp)/servers/ssh-dtk-exp			\
+			$(deblsp)/servers/ssh-outloud ;			\
+	fi
+
+	dh_fixperms
+
+override_dh_compress:
+# NEWS can be called from emacspeak command, don't compress
+	dh_compress -XNEWS
+
+get-orig-source:
+	-uscan --rename --force-download

@@ -1,0 +1,14 @@
+# Upstream changelog is created from all NEWS-* files
+changelog
+
+debian_version
+etc/emacspeak.sh
+
+# this text is duplicated in the copyright file and source files e.g. atom-blogger.el 
+# It is easier to remove it here than to tweak the emacspeak.install file
+lisp/g-client/COPYING
+
+# The sound files are generated
+sounds/3d/*.wav
+# added in Debian to build sounds
+sounds/3d/src/*.dat

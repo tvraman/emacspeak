@@ -1,0 +1,162 @@
+# Danish translation emacspeak.
+# Copyright (C) 2011 emacspeak & nedenstående oversættere.
+# This file is distributed under the same license as the emacspeak package.
+# Joe Hansen <joedalton2@yahoo.dk>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: emacspeak\n"
+"Report-Msgid-Bugs-To: emacspeak@packages.debian.org\n"
+"POT-Creation-Date: 2008-12-09 07:29+0100\n"
+"PO-Revision-Date: 2011-10-23 17:30+01:00\n"
+"Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
+"Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: select
+#. Description
+#: ../templates:3001
+msgid "Default speech server:"
+msgstr "Standardtaleserver:"
+
+#. Type: select
+#. Description
+#: ../templates:3001
+msgid ""
+"The /etc/emacspeak.conf file will be configured so that the command '/usr/"
+"bin/emacspeak' will start Emacs with emacspeak support using this server."
+msgstr ""
+"Filen /etc/emacspeak.conf vil blive konfigureret så at kommandoen »/usr/bin/"
+"emacspeak« vil starte Emacs med emacspeak-understøttelse med brug af denne "
+"server."
+
+#. Type: select
+#. Description
+#: ../templates:3001
+msgid ""
+"You may change the selection later by running 'dpkg-reconfigure emacspeak' "
+"as root, or temporarily override the selection by setting the environment "
+"variable DTK_PROGRAM."
+msgstr ""
+"Du kan ændre valget senere ved at køre »dpkg-reconfigure emacspeak« som "
+"administrator (root) eller midlertidigt tilsidesætte valget ved at angive "
+"miljøvariablen DTK_PROGRAM."
+
+#. Type: string
+#. Description
+#: ../templates:4001
+msgid "Hardware port of the speech generation device:"
+msgstr "Maskinel port for taleoprettelsesenheden:"
+
+#. Type: string
+#. Description
+#: ../templates:4001
+msgid ""
+"If a hardware device is used to generate speech, please enter the Unix "
+"device file associated with it, such as '/dev/ttyS0' or '/dev/ttyUSB0'."
+msgstr ""
+"Hvis en maskinel (hardware) enhed bruges til at oprette tale, så indtast "
+"venligst Unix-enhedsfilen associeret med den såsom »/dev/ttyS0« eller »/dev/"
+"ttyUSB0«."
+
+#. Type: string
+#. Description
+#. Translators, please do not translate "none"
+#: ../templates:4001
+msgid "If you use a software method to generate speech, please enter 'none'."
+msgstr ""
+"Hvis du bruger en programmetode til at oprette tale, så indtast venligst "
+"»none« (ingen)."
+
+#. Type: error
+#. Description
+#: ../templates:5001
+msgid "${port} is not a character special device"
+msgstr "${port} er ikke en specialenhed for tegn"
+
+#. Type: string
+#. Description
+#: ../templates:6001
+msgid "Users of speech server:"
+msgstr "Brugere af taleserver:"
+
+#. Type: string
+#. Description
+#: ../templates:6001
+msgid ""
+"Users must be members of group ${group} to access the speech server "
+"connected to ${port}. Please review the space-separated list of current "
+"members of that group, and add or remove usernames if needed."
+msgstr ""
+"Brugere skal være medlemmer af gruppen ${group} for at tilgå taleserveren "
+"forbundet til ${port}. Gennemgå venligst den mellemrumsadskilte liste af "
+"aktuelle medlemmer for den gruppe og tilføj eller fjern brugernavne, hvis "
+"det er krævet."
+
+#. Type: string
+#. Description
+#: ../templates:6001
+msgid ""
+"If you later add users to the system, you can either reconfigure the "
+"emacspeak package afterwards, or enroll the user in ${group} with 'adduser "
+"${group} <user>'."
+msgstr ""
+"Hvis du senere tilføjer brugere til systemet, så kan du enten rekonfigurere "
+"pakken emacspeak efterfølgende, eller medtage brugeren i ${group} med "
+"»adduser ${group} <bruger>«."
+
+#. Type: string
+#. Description
+#: ../templates:6001
+msgid ""
+"Group membership is checked at login time, so new members must log out and "
+"log in again before using the speech server."
+msgstr ""
+"Gruppemedlemskab kontrolleres ved logindtid, så nye medlemmer skal logge ud "
+"og logge ind igen, før de bruger taleserveren."
+
+#. Type: error
+#. Description
+#: ../templates:7001
+msgid "Invalid username ${user}"
+msgstr "Ugyldigt brugernavn ${user}"
+
+#. Type: error
+#. Description
+#: ../templates:7001
+msgid ""
+"There is no user named ${user}, so no such user could be added to ${group}."
+msgstr ""
+"Der er ingen bruger med navnet ${user}, så denne bruger kunne ikke tilføjes "
+"til ${group}."
+
+#. Type: error
+#. Description
+#: ../templates:8001
+msgid "${port} non-writable by unprivileged users"
+msgstr "${port} er skrivebeskyttet for upriviligerede brugere"
+
+#. Type: error
+#. Description
+#: ../templates:8001
+msgid ""
+"Since the speech device is connected to ${port}, unprivileged users must "
+"have read/write access to that device."
+msgstr ""
+"Da taleenheden er forbundet til ${port}, skal upriviligerede brugere have "
+"læse/skrive adgang til den enhed."
+
+#. Type: error
+#. Description
+#: ../templates:8001
+msgid ""
+"You should modify the device permissions with 'chmod a+rw ${port}' or modify "
+"the device group with 'chown root:dialout ${port}', then reconfigure "
+"emacspeak with 'dpkg-reconfigure emacspeak'."
+msgstr ""
+"Du bør ændre enhedsrettighederne med »chmod a+rw ${port}« eller ændre "
+"enhedsgruppen med »chown root:dialout ${port}«. Efterfølgende "
+"genkonfigureres emacspeak så med »dpkg-reconfigure emacspeak«."

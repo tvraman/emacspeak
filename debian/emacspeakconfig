@@ -1,0 +1,473 @@
+#!/bin/sh
+#
+#  emacspeakconfig - configuration script for emacspeak
+#
+#  This script sets values in /etc/emacspeak.conf, which override the
+#  defaults compiled into emacspeak TCL scripts and .elc files.
+#  Values in the user's environment will override those in
+#  /etc/emacspeak.conf
+#
+#  Written by Jim Van Zandt <jrv@debian.org> for Debian Linux,
+#  and hereby placed in the public domain for use by anyone.
+
+set -e
+
+CFG=/etc/emacspeak.conf
+GROUPFILE=/etc/group
+DRIVERDIR=/usr/lib/emacs/common/emacspeak/drivers
+USUAL=/usr/share/emacs/site-lisp/emacspeak
+
+# on a Slackware or Red Hat system, a user may attempt configuration
+# with awk missing.
+if [ -x /usr/bin/awk -o -x /bin/awk ]; then true; else
+cat <<EOF
+
+awk is missing.
+Please execute /usr/sbin/emacspeakconfig again after installing it.
+
+EOF
+    echo -n "Press Enter: "; read junk;
+    exit 1;
+fi
+
+set -- `getopt i $*`
+if test $? != 0
+then
+    echo 'Usage: emacspeakconfig [-i]'
+    exit 2
+fi
+initial=no
+for i
+do
+    case "$i"
+    in
+       	-i)
+       		initial=yes; shift;;
+       	--)
+       		shift; break;;
+    esac
+done
+
+#echo initial=$initial
+
+# if there is no configuration file, then create one
+if [ -s $CFG ]; then
+  true
+else
+cat >$CFG  <<\EOF
+# emacspeak configuration file
+#
+#
+if [ "$DTK_PROGRAM" = "" ]; then
+  DTK_PROGRAM=
+fi
+if [ "$DTK_TCL" = "" ]; then
+  DTK_TCL=
+fi
+if [ "$DTK_PORT" = "" ]; then
+  DTK_PORT=
+fi
+if [ "$DTK_DEVICE" = "" ]; then
+  DTK_DEVICE=
+fi
+export DTK_PROGRAM DTK_PORT DTK_DEVICE
+if [ "$DTK_TCL" != "" ]; then export DTK_TCL; fi
+EOF
+fi
+
+# if the configuration file does not set the DTK_DEVICE variable, then
+# add that section
+if grep 'export.*DTK_DEVICE' $CFG >/dev/null ; then
+  true
+else
+    awk '
+    / *export/{
+	print "if [ \"$DTK_DEVICE\" = \"\" ]; then";
+	print "DTK_DEVICE=";
+	print "fi";
+	print "export DTK_PROGRAM DTK_PORT DTK_DEVICE";
+	print "if [ \"$DTK_TCL\" != \"\" ]; then export DTK_TCL; fi";
+	next;}
+	{print;}' $CFG > $CFG.TMP && mv $CFG.TMP $CFG
+fi
+
+# return success if answer is "yes"
+yesno() {
+# first argument is question
+# second argument is default answer
+while true; do
+    echo -n "$1 [$2]: "; read ans;
+    if [ "$ans" = "" ]; then ans=$2; fi
+    if [ "$ans" = "y" -o "$ans" = "Y" -o "$ans" = "yes" ]; then return 0; fi
+    if [ "$ans" = "n" -o "$ans" = "N" -o "$ans" = "no" ]; then return 1; fi
+done
+}
+
+# set TEXT to a string typed by the user
+text() {
+# first argument is question
+# second argument is default answer
+echo -n "$1 [$2]: "; read ans;
+if [ "$ans" = "" ]; then ans=$2; fi
+TEXT=$ans
+}
+
+# get parameters for some new synthesizer
+request_params() {
+    text "Please enter the name of the synthesizer" "$DEVICE"; DEVICE=$TEXT
+    if [ "$TCL" = "tcl" ]; then IS_TCL=y; else IS_TCL=n; fi
+    if yesno "Is the speech server a TCL script? " $IS_TCL ; then 
+	echo "These files in $USUAL/servers appear to be TCL scripts:"
+	(cd $USUAL/servers; grep -l dectalk_globals * 2>/dev/null)
+        text "Please enter the name (not path) of the $DEVICE speech server" \
+	    ${PROGRAM:-$TCL}
+        PROGRAM=$TEXT
+	TCL=tcl; 
+    else 
+        text "Please enter the full path name of the $DEVICE speech server" \
+	${PROGRAM:-$TCL}
+	TCL=$TEXT
+	PROGRAM=; 
+    fi;
+    if echo $PORT|grep '^/dev/ttyS' >/dev/null; then ans=y; else ans=n; fi;
+    if yesno "Is the $DEVICE connected to a serial port?" $ans ; then
+	true;
+    else
+	valid=no;
+	while [ "$valid" = "no" ]; do
+            text "Please enter the device (for example, /dev/lp0): " \
+                ${PORT:-/dev/lp0}
+	    PORT=$TEXT; 
+	    if check_port; then valid=yes; fi
+	done
+	HAVE_PORT=yes;
+    fi;
+
+# echo "PROGRAM=$PROGRAM, TCL=$TCL, PORT=$PORT"
+}
+
+# print warning if a program does not exist
+check_pgm() {
+if [ -x $TCL -o -x /usr/bin/$TCL ]; then true; else
+    echo
+    echo "NOTICE: Before using Emacspeak, please install"
+    echo "        $TCL"
+    echo
+    echo -n "Press Enter to continue: "; read junk;
+fi
+}
+
+# return success if $PORT is (or will be) a valid character device
+check_port() {
+
+if [ -c "$PORT" ]; then return 0; fi
+echo "$PORT is not a character device"
+yesno "Will $PORT be compiled into the kernel or loaded as a module?" "y"
+}
+
+#	give a user a supplementary group ID
+#
+#       usage:  enroll user1[,user2...]  group1[,group2...]
+enroll() {
+set -e
+awk '
+BEGIN {
+  FS=":";
+  OFS=":";
+  if (ARGC<4) {
+    print "requires two arguments" >"/dev/stderr";
+    exit(1);
+  }
+  userlist=ARGV[1];
+  if (userlist!~/^[a-z][a-z,]*$/) {
+    print "invalid user list" >"/dev/stderr"; 
+    exit(1);
+  }
+  nu=split(userlist,user,",");
+  grouplist=ARGV[2];
+  if (grouplist!~/^[a-z][a-z,]*$/) {
+    print "invalid group list" >"/dev/stderr"; 
+    exit(1);
+  }
+  ng=split(grouplist,group,",");
+#  printf("%d users: ",nu); 
+#  for (i=1; i<=nu; i++) printf("%s ", user[i]); 
+#  printf("\n");
+#  printf("%d groups: ",ng); 
+#  for (i=1; i<=nu; i++) printf("%s ", group[i]); 
+#  printf("\n");
+  ARGC=2;
+  ARGV[1]=ARGV[3];
+}
+{
+  for (i=1; i<=ng; i++) {
+    if ($1~group[i]) {
+      if (NF==3) {		# no group members yet
+	$4=userlist;
+      } else {			# already some group members
+	delete names;
+	delete member;
+	split($4,names,",");
+	for (j in names) {member[names[j]]=1;}
+	for (j=1;j <= nu;j++) {member[user[j]]=1;}
+	$4="";
+	for (name in member) {$4=$4 "," name;}
+	$4=substr($4, 2);
+      }
+    }
+  }
+  print;
+}' $1 $2 $GROUPFILE >$GROUPFILE.$$ && mv $GROUPFILE.$$ $GROUPFILE
+}
+
+#	take a supplementary group ID away from a user
+#
+#       usage: dismiss  user1[,user2...]  group1[,group2...]
+dismiss() {
+set -e
+awk '
+BEGIN {
+  FS=":";
+  OFS=":";
+  if (ARGC<4) {
+    print "requires two arguments" >"/dev/stderr";
+    exit(1);
+  }
+  userlist=ARGV[1];
+  if (userlist!~/^[a-z][a-z,]*$/) {
+    print "invalid user list" >"/dev/stderr"; 
+    exit(1);
+  }
+  nu=split(userlist,user,",");
+  grouplist=ARGV[2];
+  if (grouplist!~/^[a-z][a-z,]*$/) {
+    print "invalid group list" >"/dev/stderr"; 
+    exit(1);
+  }
+  ng=split(grouplist,group,",");
+#printf("userlist=%s\n",userlist);
+#printf("%d users: ",nu); for (i=1; i<=nu; i++) printf("%s ", user[i]); printf("\n");
+#printf("%d groups: ",ng); for (i=1; i<=nu; i++) printf("%s ", group[i]); printf("\n");
+  ARGC=2;
+  ARGV[1]=ARGV[3];
+}
+{
+  for (i=1; i<=ng; i++) {
+    if ($1~group[i]) {
+      if (NF==3) {		# no group members yet
+      } else {			# already some group members
+	delete names;
+	delete member;
+	split($4,names,",");
+	for (j in names) {member[names[j]]=1;}
+	for (j=1;j <= nu;j++) {delete member[user[j]];}
+	$4="";
+	for (name in member) {$4=$4 "," name;}
+	$4=substr($4, 2);
+      }
+    }
+  }
+  print;
+}' $1 $2 $GROUPFILE >$GROUPFILE.$$ && mv $GROUPFILE.$$ $GROUPFILE
+}
+
+# get the current parameter values (if any) from the configuration file
+if [ -s $CFG ]; then
+   PORT=`awk 'BEGIN{FS="="}/^ *DTK_PORT/{print $2}' $CFG`
+   TCL=`awk 'BEGIN{FS="="}/^ *DTK_TCL/{print $2}' $CFG`
+   PROGRAM=`awk 'BEGIN{FS="="}/^ *DTK_PROGRAM/{print $2}' $CFG`
+   DEVICE=`awk '
+   / *DTK_DEVICE="?.*"?/{
+	word=substr($0,index($0,"=")+1);
+	gsub(/\"/,"",word);
+	if (length(word) == 0) word="DECtalk Express";
+	print word;
+   }' $CFG`
+fi
+HAVE_PORT=no;
+
+#echo initial values are: PROGRAM=$PROGRAM TCL=$TCL PORT=$PORT DEVICE=$DEVICE
+#echo getting speech server choice
+
+# There must be a file foo.blurb in $BLURBS for each distinct
+# combination of speech server and hardware device.  It contains lines
+# beginning with a single word and a colon (anything else is ignored).
+# The valid words are
+#   blurb: the description to print
+#   device: value for DTK_DEVICE (supplies default for next time)
+#   tcl: value for DTK_TCL
+#   program: value for DTK_PROGRAM
+
+# get synthesizer name
+if [ $initial = no -o "$PROGRAM" = "" -o "$TCL" = "" ]; then
+    valid=no
+    while [ $valid = no ]; do
+
+	# first pass: print menu
+    	awk '
+    	BEGIN {
+    	  printf("Please enter the number of your choice:\n\n");
+    	  ARGC=1;
+    	  cmd = "ls " ARGV[1] "/blurbs/*.blurb";
+    	  while (cmd|getline >0){bname[++n] = $1;}
+    	  for (i = 1; i <= n; i++){
+    	    while (getline < bname[i] > 0){
+    	      if ($0 ~ /^blurb:/){$1 = ""; blurb[i] = $0;}
+    	      if ($0 ~ /^program:/){program[i] = $2;}
+    	      if ($0 ~ /^tcl:/){tcl[i] = $2;}
+    	      if ($0 ~ /^device:/){$1 = ""; device[i] = $0;}
+    	    }
+    	    close(bname[i]);
+    	    printf("  %2d %s\n", i, blurb[i]);
+    	  }
+    	  printf("   o  other.  I can provide the filename\n");
+    	  printf("   a  abort, and restart configuration after\n");
+	  printf("      installation of another speech server package\n"); 
+    	}' $USUAL "$DEVICE"
+
+	# second pass: determine default choice
+    	area=`awk '
+    	BEGIN {
+    	  ARGC=1;
+    	  cmd = "ls " ARGV[1] "/blurbs/*.blurb";
+    	  while (cmd|getline >0){bname[++n] = $1;}
+    	  for (i = 1; i <= n; i++){
+    	    while (getline < bname[i] > 0){
+    	      if ($0 ~ /^blurb:/){$1 = ""; blurb[i] = $0;}
+    	      if ($0 ~ /^program:/){program[i] = $2;}
+    	      if ($0 ~ /^tcl:/){tcl[i] = $2;}
+    	      if ($0 ~ /^device:/){$1 = ""; device[i] = $0;}
+    	    }
+    	    if (index(device[i],ARGV[2])){deflt=i;}
+    	    if (index(device[i],"DECtalk Express")){decexp=i;}
+    	    close(bname[i]);
+    	  }
+    	  if (deflt == 0) print decexp;
+    	  print deflt;
+    	}' $USUAL "$DEVICE" `
+
+	# get answer from user
+	text "Number" $area; area=$TEXT
+
+	# third pass: set shell variables according to his choice
+        eval `awk '
+        BEGIN {
+          ARGC=1;
+          cmd = "ls " ARGV[1] "/blurbs/*.blurb";
+          while (cmd|getline >0){bname[++n] = $1;}
+          for (i = 1; i <= n; i++){
+            while (getline < bname[i] > 0){
+              if ($0 ~ /^blurb:/){$1 = ""; blurb[i] = $0;}
+              if ($0 ~ /^program:/){program[i] = $2;}
+              if ($0 ~ /^tcl:/){tcl[i] = $2;}
+              if ($0 ~ /^device:/){$1 = ""; device[i] = $0;}
+            }
+            if (i == ARGV[2]){
+              sub(/^ */,"",device[i]);
+              printf("PROGRAM=%s; TCL=%s; DEVICE=\"%s\"; valid=yes;\n", \
+        	     program[i], tcl[i], device[i]);
+            }
+          }
+        }' $USUAL $area`
+	if [ "$area" = "a" ]; then exit 0; fi
+	if [ "$area" = "0" -o "$area" = "o" -o "$area" = "O" ]; then
+	    request_params;
+	fi
+	if [ "$PROGRAM" = "none" -o "$PROGRAM" = "" ]; then check_pgm; fi
+    done
+fi
+
+#echo new values are: DEVICE=$DEVICE PROGRAM=$PROGRAM TCL=$TCL PORT=$PORT
+
+# get unix device
+if [ "$DEVICE" = "DoubleTalk PC" ]; then
+    IN_PORT=/dev/dtlk
+else
+    IN_PORT=$PORT
+    if [ "$IN_PORT" = "" -o "$IN_PORT" = "/dev/dtlk" ]; then
+	IN_PORT=/dev/ttyS0;
+    fi
+fi
+if [ $HAVE_PORT = no ]; then
+    if [ $initial = no -o "$PORT" = "" ]; then
+    	valid=no
+    	while [ $valid = no ]; do
+    	    text "
+    Your speech synthesizer is connected to which port, if any?
+    (The first serial port would be /dev/ttyS0.
+    This is ignored for a software synthesizer)" $IN_PORT
+    	    PORT=$TEXT
+    	    if check_port $PORT; then valid=yes; fi
+    	done
+    fi
+fi
+
+#echo " "
+#echo emacspeak is configured for $DEVICE attached to $PORT
+
+# adjust unix device group membership if needed
+if [ -c "$PORT" ]; then
+    DEVICEGROUP=`ls -l -L $PORT|awk '{print $4}'`
+else
+    if [ "$DEVICE" = "DoubleTalk PC" -a -f /etc/makedev.cfg ]; then
+	DEVICEGROUP=`awk '/audio:/{print $4}' /etc/makedev.cfg`
+    else 
+	DEVICEGROUP=audio
+    fi
+    echo "$PORT is assumed to be in group: $DEVICEGROUP"
+fi
+
+if [ $DEVICEGROUP = root ];
+then
+    echo "$PORT is in group: root"
+    echo "please move it to another group with chown,"
+    echo "then repeat emacspeak configuration"
+    exit 1
+fi
+
+# skip the enrolling of additional users if there is already at least
+# one user, and it's the initial installation
+MEMBERS=`grep ^${DEVICEGROUP} $GROUPFILE|awk 'BEGIN{FS=":"}{print $4}'`
+if [ "$MEMBERS" = "" -o $initial = no ];
+then
+    echo " "
+    echo $PORT can be accessed by members of the group: $DEVICEGROUP.
+    if [ "$MEMBERS" = "" ]; 
+    then echo "Currently, no users are in group $DEVICEGROUP";
+    else echo "Currently, these users are in group $DEVICEGROUP: $MEMBERS";
+    fi
+    finished=no
+    while [ $finished = no ]; do
+	echo " "
+	echo "If you wish to enroll any other users into group $DEVICEGROUP,"
+	echo "(even if their accounts have not been created yet),"
+	echo -n "please list their usernames here separated by commas: "
+	read USERS
+	if [ "$USERS" = "" ] || enroll $USERS $DEVICEGROUP; then 
+	    finished=yes; 
+	fi
+    done
+    finished=no
+    while [ $finished = no ]; do
+	echo " "
+	echo "If you wish to remove any users from group $DEVICEGROUP,"
+	echo -n "please list their usernames here separated by commas: "
+	read USERS
+	if [ "$USERS" = "" ] || dismiss $USERS $DEVICEGROUP; then 
+	    finished=yes; 
+	fi
+    done
+fi
+
+echo " "
+echo "You may reconfigure emacspeak at any time by running emacspeakconfig as root"
+
+# make sure the group has both read and write permissions
+if [ -e "$PORT" ]; then chmod g+rw $PORT; fi
+
+# update the configuration file    
+sed -e "s@^ *DTK_PROGRAM=.*@  DTK_PROGRAM=$PROGRAM@" \
+    -e "s@^ *DTK_PORT=.*@  DTK_PORT=$PORT@" \
+    -e "s@^ *DTK_TCL=.*@  DTK_TCL=$TCL@" \
+    -e "s@^ *DTK_DEVICE=.*@  DTK_DEVICE=\"$DEVICE\"@" \
+    $CFG > $CFG.TMP && mv $CFG.TMP $CFG

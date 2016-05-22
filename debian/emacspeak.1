@@ -1,0 +1,66 @@
+.\"{{{  Title                    Emacs major mode should be: -*- nroff -*-
+.TH EMACSPEAK 1 "July 17, 2008"
+.\"}}}
+.\"{{{  Name
+.SH NAME
+emacspeak \- speech output interface to Emacs
+.\"}}}
+.\"{{{  Synopsis
+.SH SYNOPSIS
+.ad l
+.\" commands only
+.BR emacspeak
+.RI "[ " options " ] [ " file... " ]"
+.\"}}}
+.\"{{{  Config
+.SH DESCRIPTION
+This script starts \fBemacs\fP(1) with speech extensions.  \fBemacspeak\fP
+comes with support for the following speech synthesizers: DECtalk Express,
+DECtalk MultiVoice, software DECtalk on the DEC Alpha, and the
+software synthesizers eflite and espeakf.
+.\" or the IBM ViaVoice Outloud.
+Separate speech servers are available to support other hardware and
+software synthesizers.
+.P
+\fBemacspeak\fP reads the type of text to speech device and the
+port where it is connected from \fI/etc/emacspeak.conf\fP.
+.P
+For runtime commands supplied by \fBemacspeak\fP, see the
+\fBEmacspeak-HOWTO\fP, or consult the .info file:
+.nf
+.B "    info emacspeak"
+.fi
+.SH OPTIONS
+.TP
+.BI -o
+Use IBM ViaVoice Outloud speech server.
+.TP
+.BI -m
+Use \fBmultispeech\fP(1) for speech output.
+.TP
+.BI -e
+Use \fBespeak\fP(1) for speech output.
+.TP
+.BI -d
+Use \fBSoftware Dectalk\fP(1) for speech output.
+.TP
+.BI -q
+Do not process the startup file \fI~/.emacs\fP.
+.SH AUTHOR
+T. V. Raman, Google Incorporated  <raman@users.sf.net>
+.\"}}}
+.\"{{{
+.SH FILES
+.nf
+\fI/etc/emacspeak.conf\fP
+.fi
+.\"}}}
+.\"{{{  See also
+.SH "SEE ALSO"
+.nf
+.BR emacspeakconfig (8),
+.IR emacspeak.info ,
+.B ftp://leb.net/pub/blinux/emacspeak/blinux.
+
+.fi
+.\"}}}

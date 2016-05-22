@@ -1,0 +1,97 @@
+# These templates have been reviewed by the debian-l10n-english
+# team
+#
+# If modifications/additions/rewording are needed, please ask
+# debian-l10n-english@lists.debian.org for advice.
+#
+# Even minor modifications require translation updates and such
+# changes should be coordinated with translators and reviewers.
+
+Template: shared/emacspeak/fake
+Type: select
+Choices: ${choices}
+Description: for internal use
+ This template is never shown to the user and does not require
+ translation.
+
+Template: shared/emacspeak/device
+Type: select
+Choices: ${choices}
+_Description: Default speech server:
+ The /etc/emacspeak.conf file will be configured so that the command
+ '/usr/bin/emacspeak' will start Emacs with emacspeak support using
+ this server.
+ .
+ You may change the selection later by running
+ 'dpkg-reconfigure emacspeak' as root, or temporarily override the
+ selection by setting the environment variable DTK_PROGRAM.
+Default: espeak
+
+Template: shared/emacspeak/port
+Type: string
+#flag:comment:3
+# Translators, please do not translate "none"
+_Description: Hardware port of the speech generation device:
+ If a hardware device is used to generate speech, please enter the
+ Unix device file associated with it, such as '/dev/ttyS0' or
+ '/dev/ttyUSB0'.
+ .
+ If you use a software method to generate speech, please enter 'none'.
+Default: none
+
+Template: shared/emacspeak/invalidport
+Type: error
+_Description: ${port} is not a character special device
+
+Template: shared/emacspeak/groupies
+Type: string
+_Description: Users of speech server:
+ Users must be members of group ${group} to access the speech server
+ connected to ${port}. Please review the space-separated list of
+ current members of that group, and add or remove usernames if needed.
+ .
+ If you later add users to the system, you can either reconfigure
+ the emacspeak package afterwards, or enroll the user in ${group}
+ with 'adduser ${group} <user>'.
+ .
+ Group membership is checked at login time, so new members must log
+ out and log in again before using the speech server.
+
+Template: shared/emacspeak/invaliduser
+Type: error
+_Description: Invalid username ${user}
+ There is no user named ${user}, so no such user could be added to
+ ${group}.
+
+Template: shared/emacspeak/rootgroup
+Type: error
+_Description: ${port} non-writable by unprivileged users
+ Since the speech device is connected to ${port}, unprivileged users
+ must have read/write access to that device.
+ .
+ You should modify the device permissions with 'chmod a+rw ${port}'
+ or modify the device group with 'chown root:dialout ${port}',
+ then reconfigure emacspeak with 'dpkg-reconfigure emacspeak'.
+
+Template: shared/emacspeak/program
+Type: string
+Description: for internal use
+ This template is never shown to the user and does not require
+ translation.  This variable holds the path to the speech server,
+ relative to /usr/share/<flavor>/site-lisp/emacspeak/servers.
+
+Template: shared/emacspeak/tcl
+Type: string
+Description: for internal use
+ This template is never shown to the user and does not require
+ translation.  This variable holds the path to the interpreter if any
+ used to run the speech server.
+
+Template: shared/emacspeak/database
+Type: select
+Choices: ${choices}
+Description: for internal use
+ This template is never shown to the user and does not require
+ translation.  This variable holds all the available choices for
+ speech servers, and the corresponding values of "program", "tcl", and
+ "device" for the above variables.

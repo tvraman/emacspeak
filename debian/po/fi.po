@@ -1,0 +1,158 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: emacspeak\n"
+"Report-Msgid-Bugs-To: emacspeak@packages.debian.org\n"
+"POT-Creation-Date: 2008-12-09 07:29+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Esko Arajärvi <edu@iki.fi>\n"
+"Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Finnish\n"
+"X-Poedit-Country: FINLAND\n"
+
+#. Type: select
+#. Description
+#: ../templates:3001
+msgid "Default speech server:"
+msgstr "Oletuspuhepalvelin:"
+
+#. Type: select
+#. Description
+#: ../templates:3001
+msgid ""
+"The /etc/emacspeak.conf file will be configured so that the command '/usr/"
+"bin/emacspeak' will start Emacs with emacspeak support using this server."
+msgstr ""
+"Komento ”/usr/bin/emacspeak” käynnistää Emacsin emacspeak-tuen kanssa "
+"käyttäen tätä palvelinta. Tieto tallennetaan tiedostoon /etc/emacspeak.conf."
+
+#. Type: select
+#. Description
+#: ../templates:3001
+msgid ""
+"You may change the selection later by running 'dpkg-reconfigure emacspeak' "
+"as root, or temporarily override the selection by setting the environment "
+"variable DTK_PROGRAM."
+msgstr ""
+"Voit muuttaa valintaa ajamalla pääkäyttäjänä komennon ”dpkg-reconfigure "
+"emacspeak” tai väliaikaisesti käyttää toista palvelinta asettamalla "
+"ympäristömuuttujan DTK_PROGRAM."
+
+#. Type: string
+#. Description
+#: ../templates:4001
+msgid "Hardware port of the speech generation device:"
+msgstr "Puheenluontilaitteen laiteportti:"
+
+#. Type: string
+#. Description
+#: ../templates:4001
+#, fuzzy
+#| msgid ""
+#| "If a hardware device is used to generate speech, please enter the Unix "
+#| "device file associated with it, such as' /dev/ttyS0' or '/dev/ttyUSB0'"
+msgid ""
+"If a hardware device is used to generate speech, please enter the Unix "
+"device file associated with it, such as '/dev/ttyS0' or '/dev/ttyUSB0'."
+msgstr ""
+"Jos puheen luontiin käytetään fyysistä laitetta, anna sitä vastaava Unix-"
+"laitetiedosto, kuten ”/dev/ttyS0” tai ”/dev/ttyUSB0”."
+
+#. Type: string
+#. Description
+#. Translators, please do not translate "none"
+#: ../templates:4001
+msgid "If you use a software method to generate speech, please enter 'none'."
+msgstr "Jos puhe luodaan ohjelmallisesti, syötä ”none”."
+
+#. Type: error
+#. Description
+#: ../templates:5001
+msgid "${port} is not a character special device"
+msgstr "${port} ei ole merkkilaite"
+
+#. Type: string
+#. Description
+#: ../templates:6001
+msgid "Users of speech server:"
+msgstr "Puhepalvelimen käyttäjät:"
+
+#. Type: string
+#. Description
+#: ../templates:6001
+msgid ""
+"Users must be members of group ${group} to access the speech server "
+"connected to ${port}. Please review the space-separated list of current "
+"members of that group, and add or remove usernames if needed."
+msgstr ""
+"Käyttäjien tulee olla ryhmän ${group} jäseniä voidakseen käyttää porttiin "
+"${port} yhdistettyä puhepalvelinta. Tarkasta välilyönnein eroteltu ryhmän "
+"jäsenlista ja lisää tai poista käyttäjiä tarvittaessa."
+
+#. Type: string
+#. Description
+#: ../templates:6001
+msgid ""
+"If you later add users to the system, you can either reconfigure the "
+"emacspeak package afterwards, or enroll the user in ${group} with 'adduser "
+"${group} <user>'."
+msgstr ""
+"Jos lisäät järjestelmään käyttäjiä myöhemmin, voit joko tehdä paketin "
+"emacspeak asetukset uudelleen tai lisätä käyttäjän ryhmään ${group} "
+"komennolla ”adduser ${group} <käyttäjä>”."
+
+#. Type: string
+#. Description
+#: ../templates:6001
+msgid ""
+"Group membership is checked at login time, so new members must log out and "
+"log in again before using the speech server."
+msgstr ""
+"Jäsenyys ryhmässä tarkistetaan kirjauduttaessa, joten uusien jäsenten täytyy "
+"kirjautua ulos ja uudelleen sisään ennen kuin he voivat käyttää "
+"puhepalvelinta."
+
+#. Type: error
+#. Description
+#: ../templates:7001
+msgid "Invalid username ${user}"
+msgstr "Virheellinen käyttäjätunnus ${user}"
+
+#. Type: error
+#. Description
+#: ../templates:7001
+msgid ""
+"There is no user named ${user}, so no such user could be added to ${group}."
+msgstr ""
+"Käyttäjätunnusta ${user} ei ole, joten sitä ei voitu lisätä ryhmään ${group}."
+
+#. Type: error
+#. Description
+#: ../templates:8001
+msgid "${port} non-writable by unprivileged users"
+msgstr "Tavalliset käyttäjät eivät voi kirjoittaa porttiin ${port}"
+
+#. Type: error
+#. Description
+#: ../templates:8001
+msgid ""
+"Since the speech device is connected to ${port}, unprivileged users must "
+"have read/write access to that device."
+msgstr ""
+"Koska puhelaite on yhdistetty porttiin ${port}, tavallisilla käyttäjillä "
+"tulee olla kirjoitus- ja lukuoikeudet laitteeseen."
+
+#. Type: error
+#. Description
+#: ../templates:8001
+msgid ""
+"You should modify the device permissions with 'chmod a+rw ${port}' or modify "
+"the device group with 'chown root:dialout ${port}', then reconfigure "
+"emacspeak with 'dpkg-reconfigure emacspeak'."
+msgstr ""
+"Muokkaa laitteen oikeuksia komennolla ”chmod a+rw ${port}” tai muuta "
+"laitteen ryhmää komennolla ”chown root:dialout ${port}” ja tee emacspeakin "
+"asetukset tämän jälkeen uudelleen komennolla ”dpkg-reconfigure emacspeak”."

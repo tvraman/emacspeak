@@ -1,0 +1,35 @@
+Following is Raman's sample code to add to ~/.emacs to start
+emacspeak.  File locations are different in a Debian system.  - Jim Van Zandt
+
+emacspeak initialization...
+Anyone who copies this blindly without bothering to
+understand what it does will get what they deserve:-)
+
+    ;;{{{ Load and customize emacspeak 
+
+    
+    (unless (featurep 'emacspeak)
+      (load-file
+       (expand-file-name "~/emacs/lisp/emacspeak/emacspeak-setup.el")))
+    
+    (when (featurep 'emacspeak)
+      (declare (special emacspeak-play-program emacspeak-play-args
+                        emacspeak-auditory-icon-function
+                        dtk-default-speech-rate))
+      (if (file-exists-p "/usr/demo/SOUND/play")
+          (setq
+           emacspeak-play-program "/usr/demo/SOUND/play"
+           emacspeak-play-args "-i"
+           emacspeak-auditory-icon-function
+           'emacspeak-play-auditory-icon))
+      (if (file-exists-p "/usr/bin/audioplay")
+          (setq
+           emacspeak-play-program "/usr/bin/audioplay"
+           emacspeak-play-args "-i"
+           emacspeak-auditory-icon-function 'emacspeak-play-auditory-icon))
+      (setq dtk-default-speech-rate 485)
+      (emacspeak-pronounce-load-dictionaries "~/.emacspeak/.dictionary")
+      (dtk-set-rate 480 t)
+      (unless blackdog-p (emacspeak-toggle-auditory-icons t)))
+
+    ;;}}}

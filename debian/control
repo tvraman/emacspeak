@@ -1,0 +1,57 @@
+Source: emacspeak
+Section: editors
+Priority: optional
+Maintainer: Debian Accessibility Team <debian-accessibility@lists.debian.org>
+Uploaders: Paul Gevers <elbrus@debian.org>
+Build-Depends: debhelper (>= 9),
+               libespeak-dev,
+               po-debconf,
+               tcl-dev,
+Build-Depends-Indep: csound, emacs-nox
+Standards-Version: 3.9.8
+Homepage: http://emacspeak.sf.net
+Vcs-browser: https://anonscm.debian.org/cgit/pkg-a11y/emacspeak.git
+Vcs-git: https://anonscm.debian.org/git/pkg-a11y/emacspeak.git
+
+Package: emacspeak
+Architecture: all
+Depends: adduser,
+         debconf,
+         emacs (>=46.0),
+         make,
+         perl,
+         tcl,
+         tclx8.4,
+         ${misc:Depends},
+         ${perl:Depends}
+Recommends: emacspeak-espeak-server, sox
+Suggests: eflite, emacspeak-ss, espeak, psgml, w3m-el, xsltproc
+Description: speech output interface to Emacs
+ Emacspeak is a speech output system that will allow someone who
+ cannot see to work directly on a UNIX system.
+ .
+ Emacspeak is built on top of Emacs. Once Emacs is started with Emacspeak
+ loaded, users get spoken feedback for all actions. As Emacs can do
+ everything, they get speech feedback for everything they do.
+ .
+ This package recommends the speech server for the espeak (software) 
+ speech synthesizer, so it should work straight away. However it also
+ contains the source for speech servers to support the DECtalk Express
+ and DECtalk MultiVoice (hardware) speech synthesizers. For other
+ synthesizers, look for speech server packages such as emacspeak-ss and
+ eflite.
+
+Package: emacspeak-espeak-server
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Enhances: emacspeak
+Description: espeak syntesis server for emacspeak
+ Emacspeak is a speech output system that will allow someone who
+ cannot see to work directly on a UNIX system.
+ .
+ Emacspeak is built on top of Emacs. Once Emacs is started with Emacspeak
+ loaded, users get spoken feedback for all actions. As Emacs can do
+ everything, they get speech feedback for everything they do.
+ .
+ This package includes the speech server for the espeak (software) 
+ speech synthesizer.

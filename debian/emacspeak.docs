@@ -1,0 +1,7 @@
+debian/tmp/usr/share/emacs/site-lisp/emacspeak/README
+debian/tmp/usr/share/emacs/site-lisp/emacspeak/etc/NEWS
+debian/tmp/usr/share/emacs/site-lisp/emacspeak/etc/applications.html
+debian/tmp/usr/share/emacs/site-lisp/emacspeak/etc/remote.txt
+debian/tmp/usr/share/emacs/site-lisp/emacspeak/etc/tips.html
+lisp/g-client/g-client.html
+servers/software-dtk/DTK

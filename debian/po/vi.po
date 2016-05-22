@@ -1,0 +1,204 @@
+# Vietnamese Translation for adjtimex.
+# Copyright © 2009 Free Software Foundation, Inc.
+# Clytie Siddall <clytie@riverland.net.au>, 2005-2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: adjtimex 1.26-3\n"
+"Report-Msgid-Bugs-To: emacspeak@packages.debian.org\n"
+"POT-Creation-Date: 2008-12-09 07:29+0100\n"
+"PO-Revision-Date: 2009-10-27 19:34-0400\n"
+"Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
+"Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: LocFactoryEditor 1.8\n"
+
+#. Type: select
+#. Description
+#: ../templates:3001
+msgid "Default speech server:"
+msgstr ""
+
+#. Type: select
+#. Description
+#: ../templates:3001
+msgid ""
+"The /etc/emacspeak.conf file will be configured so that the command '/usr/"
+"bin/emacspeak' will start Emacs with emacspeak support using this server."
+msgstr ""
+
+#. Type: select
+#. Description
+#: ../templates:3001
+msgid ""
+"You may change the selection later by running 'dpkg-reconfigure emacspeak' "
+"as root, or temporarily override the selection by setting the environment "
+"variable DTK_PROGRAM."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../templates:4001
+msgid "Hardware port of the speech generation device:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../templates:4001
+msgid ""
+"If a hardware device is used to generate speech, please enter the Unix "
+"device file associated with it, such as '/dev/ttyS0' or '/dev/ttyUSB0'."
+msgstr ""
+
+#. Type: string
+#. Description
+#. Translators, please do not translate "none"
+#: ../templates:4001
+msgid "If you use a software method to generate speech, please enter 'none'."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../templates:5001
+msgid "${port} is not a character special device"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../templates:6001
+msgid "Users of speech server:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../templates:6001
+msgid ""
+"Users must be members of group ${group} to access the speech server "
+"connected to ${port}. Please review the space-separated list of current "
+"members of that group, and add or remove usernames if needed."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../templates:6001
+msgid ""
+"If you later add users to the system, you can either reconfigure the "
+"emacspeak package afterwards, or enroll the user in ${group} with 'adduser "
+"${group} <user>'."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../templates:6001
+msgid ""
+"Group membership is checked at login time, so new members must log out and "
+"log in again before using the speech server."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../templates:7001
+msgid "Invalid username ${user}"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../templates:7001
+msgid ""
+"There is no user named ${user}, so no such user could be added to ${group}."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../templates:8001
+msgid "${port} non-writable by unprivileged users"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../templates:8001
+msgid ""
+"Since the speech device is connected to ${port}, unprivileged users must "
+"have read/write access to that device."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../templates:8001
+msgid ""
+"You should modify the device permissions with 'chmod a+rw ${port}' or modify "
+"the device group with 'chown root:dialout ${port}', then reconfigure "
+"emacspeak with 'dpkg-reconfigure emacspeak'."
+msgstr ""
+
+#~ msgid "Should adjtimex be run at installation and at every startup?"
+#~ msgstr "adjtimex nên chạy vào lúc cài đặt và mỗi lần khởi động ?"
+
+#~| msgid ""
+#~| "adjtimex can run at system startup to set the kernel time parameters to "
+#~| "the values in /etc/default/adjtimex. Don't accept if you just want to "
+#~| "use adjtimex to inspect the current parameters."
+#~ msgid ""
+#~ "Running adjtimex at system startup will set the kernel time parameters to "
+#~ "the values in /etc/default/adjtimex."
+#~ msgstr ""
+#~ "Chạy adjtimex vào lúc khởi động hệ thống thì đặt các tham số thời gian "
+#~ "của hạt nhân thành những giá trị trong tập tin « /etc/default/adjtimex »."
+
+#~| msgid ""
+#~| "adjtimex can run at system startup to set the kernel time parameters to "
+#~| "the values in /etc/default/adjtimex. Don't accept if you just want to "
+#~| "use adjtimex to inspect the current parameters."
+#~ msgid ""
+#~ "You should not choose this option if you just want to use adjtimex to "
+#~ "inspect the current parameters."
+#~ msgstr ""
+#~ "Không nên bật tuỳ chọn này nếu bạn chỉ muốn sử dụng adjtimex để kiểm tra "
+#~ "các tham số đang sử dụng."
+
+#~| msgid "Should adjtimexconfig be run at installation time?"
+#~ msgid "Run adjtimexconfig when adjtimex is installed or upgraded?"
+#~ msgstr "Chạy adjtimexconfig mỗi lần cài đặt hoặc nâng cấp adjtimex ?"
+
+#~| msgid ""
+#~| "The adjtimexconfig script will use adjtimex to find values for the "
+#~| "kernel variables tick and frequency that will make the system clock "
+#~| "approximately agree with the hardware clock (also known as the CMOS "
+#~| "clock).  It then saves these values in the configuration file /etc/"
+#~| "default/adjtimex so the settings will be restored on every boot, when /"
+#~| "etc/init.d/adjtimex runs."
+#~ msgid ""
+#~ "The adjtimexconfig script will use adjtimex to find values for the kernel "
+#~ "variables \"tick\" and \"frequency\" that will make the system clock "
+#~ "approximately agree with the hardware clock (also known as the CMOS "
+#~ "clock).  It then saves these values in the configuration file /etc/"
+#~ "default/adjtimex so the settings will be restored on every boot, when /"
+#~ "etc/init.d/adjtimex runs."
+#~ msgstr ""
+#~ "Văn lệnh adjtimexconfig sẽ sử dụng adjtimex để tìm giá trị cho hai biến "
+#~ "hạt nhân « tick » (nhịp) và « frequency » (tần số) mà làm cho đồng hồ hệ "
+#~ "thống tương ứng xấp xỉ với đồng hồ phần cứng (cũng được biết như là đồng "
+#~ "hồ CMOS). Một khi tìm được thì văn lệnh adjtimexconfig lưu các giá trị "
+#~ "này vào tập tin cấu hình « /etc/default/adjtimex » để phục hồi thiết lập "
+#~ "đồng hồ mỗi lần khởi động hệ thống, khi văn lệnh sơ khởi « /etc/init.d/"
+#~ "adjtimex » chạy."
+
+#~| msgid ""
+#~| "The script takes 70 sec to run. Alternatively, you can run "
+#~| "adjtimexconfig yourself at a later time, or determine the kernel "
+#~| "variables one of several other ways (see the adjtimex man page) and "
+#~| "install them in /etc/default/adjtimex."
+#~ msgid ""
+#~ "The script takes 70 seconds to run, so running it for every upgrade may "
+#~ "be a waste of time. Alternatively, you can run adjtimexconfig manually "
+#~ "when needed, or determine the kernel variables by using other methods and "
+#~ "set them manually in /etc/default/adjtimex."
+#~ msgstr ""
+#~ "Văn lệnh cấu hình này chạy trong vòng 70 giây, vì thế có thể hoài phí thì "
+#~ "giờ nếu chạy nó mỗi lần nâng cấp. Thay vì vậy, bạn có thể tự chạy "
+#~ "adjtimexconfig khi yêu cầu, hoặc quyết định những biến hạt nhân bằng cách "
+#~ "khác và tự đặt chúng trong «  /etc/default/adjtimex »."

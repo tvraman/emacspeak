@@ -1,0 +1,18 @@
+#!/bin/sh -e
+# /usr/lib/emacsen-common/packages/remove/emacspeak
+
+FLAVOR=$1
+PACKAGE=emacspeak
+
+if [ ${FLAVOR} != emacs ]; then
+    if test -x /usr/sbin/install-info-altdir; then
+        echo remove/${PACKAGE}: removing Info links for ${FLAVOR}
+        install-info-altdir --quiet --remove --dirname=${FLAVOR} /usr/info/emacspeak.info.gz
+    fi
+
+    echo remove/${PACKAGE}: purging byte-compiled files for ${FLAVOR}
+    ENAME=`echo $FLAVOR | perl -pe 's/emacs.*/emacs/'`
+    update-alternatives --remove ${ENAME}peak /usr/bin/${ENAME}peak.${FLAVOR}
+    rm -f /usr/bin/${ENAME}peak.${FLAVOR}
+    rm -rf /usr/share/${FLAVOR}/site-lisp/${PACKAGE}
+fi

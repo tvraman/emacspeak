@@ -1,0 +1,7 @@
+allow_emacs_flavor_in_etc_makefile
+use_arch_dependent_path_for_espeak_lib
+remove_info_from_clean_target.patch
+dont_use_-q_in_emacspeak.sh.patch
+fix_lintian_privacy-breach-logo_error.patch
+add_DESTDIR_to_makefile.patch
+dont_install_OUTLOUD_for_now.patch

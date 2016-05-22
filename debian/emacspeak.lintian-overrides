@@ -1,0 +1,8 @@
+# debconf via perl, lintian does not know
+emacspeak: unused-debconf-template shared/emacspeak/invalidport
+emacspeak: unused-debconf-template shared/emacspeak/invaliduser
+emacspeak: unused-debconf-template shared/emacspeak/rootgroup
+# Template i.s.o. script
+emacspeak: script-not-executable usr/share/emacs/site-lisp/emacspeak/etc/emacspeak.sh.def
+# servers need user intervention anyway, including the next
+emacspeak: unusual-interpreter usr/share/emacs/site-lisp/emacspeak/servers/32-outloud #!/usr/bin/tclsh8.4_ia32

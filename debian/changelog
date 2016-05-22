@@ -1,0 +1,925 @@
+emacspeak (44.0+dfsg-1) unstable; urgency=medium
+
+  * New upstream release
+  * Bump standards version (no changes)
+  * Add dont_install_OUTLOUD_for_now.patch to prevent FTBFS
+
+ -- Paul Gevers <elbrus@debian.org>  Sat, 21 May 2016 14:32:58 +0200
+
+emacspeak (43.0+dfsg-1) unstable; urgency=medium
+
+  * New upstream release
+    - No httpspeaker and user-guide documentation anymore
+    - Add sox to Recommends as per upstream documentation
+  * Use the upstream build and install system to decrease the tracking
+    burden in the packaging (adds build-depends on emacs-nox)
+  * Bump standards version (no changes)
+  * Update Vcs-git field to use https
+
+ -- Paul Gevers <elbrus@debian.org>  Mon, 07 Mar 2016 20:13:40 +0100
+
+emacspeak (41.0+dfsg-2) unstable; urgency=medium
+
+  * Upload to unstable
+
+ -- Paul Gevers <elbrus@debian.org>  Fri, 01 May 2015 05:50:02 +0200
+
+emacspeak (41.0+dfsg-1) experimental; urgency=medium
+
+  [ Paul Gevers ]
+  * New upstream release
+  * Update Vcs-Browser to canonical location
+  * Update d/clean for removed file
+
+  [ Samuel Thibault ]
+  * Bump Standards-Version to 3.9.6 (no changes).
+
+ -- Paul Gevers <elbrus@debian.org>  Tue, 09 Dec 2014 20:19:14 +0100
+
+emacspeak (40.0+dfsg-3) unstable; urgency=medium
+
+  * piuparts.debian.org reports that files are left after purge.
+    No longer create /root/.gnupg during installation of the package. This
+    is achieved by binding GNUPGHOME to a temporary directory during
+    bytecode compilation (implementation in debian/emacsen-install).
+  * Strip spurious spaces from this changelog
+  * Add d/emacsen-compat to allow emacsen-common to correctly determine
+    that emacspeak is an add-on (prevents an error message).
+
+ -- Paul Gevers <elbrus@debian.org>  Tue, 02 Sep 2014 21:25:56 +0200
+
+emacspeak (40.0+dfsg-2) unstable; urgency=medium
+
+  * Upload to unstable
+  * Revert dependency back to emacs now Debian has emacs24 by default
+
+ -- Paul Gevers <elbrus@debian.org>  Tue, 26 Aug 2014 21:36:45 +0200
+
+emacspeak (40.0+dfsg-1) experimental; urgency=medium
+
+  * New upstream release
+    - Version string fixed (Closes: #731820)
+    - Refresh patches
+  * Strip generated stuff from the source while repacking
+  * Prevent privacy breach in documentation (thanks lintian)
+  * Improve d/rules line for debian_version file creation
+  * Update d/README.testing with content and link to Jarek's Wiki
+  * Depends on emacs24* alone as it fails on emacs23. As emacs23 is
+    still the default in Debian, upload to experimental for now.
+
+ -- Paul Gevers <elbrus@debian.org>  Fri, 20 Jun 2014 21:29:24 +0200
+
+emacspeak (39.0+dfsg-2) unstable; urgency=medium
+
+  * Update standards to 3.9.5 (no changes needed)
+  * Fix dont_use_-q_in_emacspeak.sh.patch thanks Jarek Czekalski.
+    (Closes: #730682)
+
+ -- Paul Gevers <elbrus@debian.org>  Sat, 30 Nov 2013 18:16:29 +0100
+
+emacspeak (39.0+dfsg-1) unstable; urgency=medium
+
+  * New upstream release
+    - Refresh patches
+  * Drop support for emacs22 (Closes: #729861)
+  * Drop -q and EMACS_UNIBYTE from startup script, thanks Jarek Czekalski.
+    (Closes: #730682)
+  * Add README.testing to ease group packaging
+
+ -- Paul Gevers <elbrus@debian.org>  Fri, 29 Nov 2013 15:27:46 +0100
+
+emacspeak (38.0+dfsg-2) unstable; urgency=low
+
+  [ Paul Gevers ]
+  * emacsen-install
+    - remove link to non-existing file
+    - /usr/sbin/update-alternatives does not exist
+  * Depend on emacs or all versions higher than 21
+  * Changed d/rules clean target to also succeed without patches applied
+  * Add doc-base files for the user-guide and the httpspeaker documentation
+  * Create user-guide and during build
+    - Build-Depends-Indep on docbook-utils
+  * Concatenate all NEWS-* files as upstream changelog
+  * Don't install useless servers/python/README and install-guide
+
+  [ Sergei Golovan ]
+  * Replaced the obsolete tcl8.4-dev package by tcl-dev in build-dependencies.
+    (Closes: #725290)
+  * Blanked TCL_VERSION variable to make sure the default Tcl/Tk version is
+    used when building the package.
+  * Don't add 8.4 suffix to the tclsh shebangs.
+
+ -- Paul Gevers <elbrus@debian.org>  Sun, 13 Oct 2013 07:56:26 +0200
+
+emacspeak (38.0+dfsg-1) unstable; urgency=low
+
+  * Imported Upstream version 38.0 (Closes: #707487)
+  * Repack source due to the non-free license of the documentation
+   - Add get-orig-source script and target to d/rules
+   - Update watch file (thanks Bart Martens)
+  * Change maintainership to a11y team (Closes: #636408)
+    - Add Vcs-* fields to d/control
+  * Clean up old patch by splitting into separate remaining patches
+  * Replace d/rules calls with debhelper files and rewrite d/rules to dh
+  * Remove unused files
+  * Update (build) dependencies (Closes: #619266)
+  * Translations: add Japanese ; thanks victory (Closes: #693340)
+  * Fix install script to recompile .el files upon upgrade
+  * d/config:
+    - add espeak as option
+    - don't ask again if port = none
+  * Update emacsen-install to recompile newer version upon upgrade
+  * Include building of espeak server
+  * Link documentation from the doc directory
+  * Add Lintian overrides for the relevant items
+  * Update default speech server to build in espeak
+  * Build espeak server and create emacspeak-espeak-server package
+    (Closes: #543920)
+  * Convert to short dh()
+  * Update of copyright
+  * Changed priority to optional
+  * Remove conflicts, they are long gone and were never part of a stable
+    release
+  * Updated standards to 3.9.4 (no further changes needed)
+
+ -- Paul Gevers <elbrus@debian.org>  Wed, 31 Jul 2013 21:22:38 +0200
+
+emacspeak (29.0-9) unstable; urgency=low
+
+  * QA upload.
+  * Fix "modifies conffiles (policy 10.7.3): /etc/emacspeak.conf":
+    - debian/rules: don't install /etc/emacspeak.conf
+    - debian/postrm: remove it during purge
+    - debian/{postinst,config} already care about the rest
+      (file creation, reading, updating)
+    (Closes: #688223)
+
+ -- gregor herrmann <gregoa@debian.org>  Tue, 09 Oct 2012 18:08:44 +0200
+
+emacspeak (29.0-8) unstable; urgency=low
+
+  * QA upload
+  * Debconf translations:
+    - Brazilian Portuguese (Marco Juliano e Silva).  Closes: #649500
+    - Danish (Joe Hansen).  Closes: #646323
+  * Modernize package:
+    - Use 3.0 source format
+    - Add build-arch and build-indep build targets
+    - Bump debhelper compatibility to 8
+
+ -- Christian Perrier <bubulle@debian.org>  Sat, 31 Dec 2011 11:37:50 +0100
+
+emacspeak (29.0-7) unstable; urgency=low
+
+  * QA upload.
+  * Package has been orphaned, set the maintainer t Debian QA.
+  * Stop shipping python bytecode.
+  * Build-depend on lynx-cur instead of the transitional lynx.
+  * Point the the versioned GPL file in debian/copyright.
+
+ -- Regis Boudin <regis@debian.org>  Tue, 20 Sep 2011 22:21:52 +0100
+
+emacspeak (29.0-6) unstable; urgency=low
+
+  * Copy Spanish debconf template translation from emacspeak-ss package
+    (thanks to Francisco Javier Cuadrado <fcocuadrado@gmail.com>)
+  * debian/control: Depend on emacs23|emacs22 (since emacs21 and older are
+    not supported). Bump policy version to 3.8.4 (no changes needed)
+  * debian/compat: version 7
+  * lisp/emacspeak-setup.el: claim to be version 29.0, not 28.0.
+  * debian/rules: call dh_prep rather than dh_clean -k
+  * debian/source/format: 1.0
+
+ -- James R. Van Zandt <jrv@debian.org>  Sat, 24 Apr 2010 11:44:34 -0400
+
+emacspeak (29.0-5) unstable; urgency=low
+
+  * debian/control: depend on "emacsen" rather than emacs22 specifically
+    (Closes:Bug#520196);
+
+ -- James R. Van Zandt <jrv@debian.org>  Sat, 06 Feb 2010 22:10:18 -0500
+
+emacspeak (29.0-4) unstable; urgency=low
+
+  * debian/control: bump policy version to 3.8.3 (no changes needed)
+
+  * debian/po: provide Vietnamese debconf templates translation (thanks to
+    Clytie Siddall <clytie@riverland.net.au>, Closes:Bug#548165)
+
+ -- James R. Van Zandt <jrv@debian.org>  Tue, 27 Oct 2009 19:39:13 -0400
+
+emacspeak (29.0-3) unstable; urgency=low
+
+  * debian/emacsen-install: create symlink /usr/bin/emacspeak.<flavor>
+    before calling update-alternatives (Closes:Bug#540063)
+
+ -- James R. Van Zandt <jrv@debian.org>  Wed, 12 Aug 2009 20:48:49 -0400
+
+emacspeak (29.0-2) unstable; urgency=low
+
+  * debian/templates: Default shared/emacspeak/port to "none". This way,
+    an empty string is no longer the default, allowing for a
+    noninteractive installation.  (Thanks to Cyril Brulebois
+    <kibi@debian.org>, Closes:Bug#522629)
+
+  * debian/control: depend on ${misc:Depends} so "the dependencies are set
+    correctly in case the result of a call to any of the dh_ commands
+    cause the package to depend on another package" (courtesy of
+    lintian). Bump Debian policy to 3.8.1 (no changes needed).q
+
+ -- James R. Van Zandt <jrv@debian.org>  Fri, 17 Apr 2009 21:45:50 -0400
+
+emacspeak (29.0-1) unstable; urgency=low
+
+  * New upstream release
+
+  * /usr/share/doc/emacspeak/DOC: regenerate
+
+  * debian/control, debian/emacsen-install: emacs21 is no longer supported
+    (because it doesn't have desc-text).  Don't suggest w3-el-e21 any
+    more.  Suggest w3m-el (thanks to Tatsuya Kinoshita
+    <tats@vega.ocn.ne.jp>, Closes:Bug#510986)
+
+  * debian/prerm: for "upgrade", don't unregister from the shared debconf
+    questions.
+
+  * debian/config: eliminate redundant query about port
+
+ -- James R. Van Zandt <jrv@debian.org>  Sun, 28 Dec 2008 18:09:19 -0500
+
+emacspeak (28.0-6) unstable; urgency=low
+
+  * debian/control: Really move w3-el-e21 from Depends: to Suggests: so it
+    does not cause an indirect dependency on emacs21. (Closes:Bug#498000).
+
+  * Debconf templates and debian/control reviewed by the debian-l10n-
+    english team as part of the Smith review project. (Thanks to Christian
+    Perrier <bubulle@debian.org>, Closes: #507532)
+
+  * [Debconf translation updates]
+    - Czech. Closes: #507664
+    - Russian. Closes: #507693
+    - Swedish. Closes: #507604
+    - Portuguese. Closes: #508153
+    - German. Closes: #508216
+    - French. Closes: #508326
+    - Italian. Closes: #508531
+    - Finnish. Closes: #509374
+
+ -- James R. Van Zandt <jrv@debian.org>  Sat, 20 Dec 2008 12:11:22 -0500
+
+emacspeak (28.0-5) unstable; urgency=low
+
+  * lisp/emacspeak-wizards.el: apply upstream patch to correct syntax
+    (thanks to Kumar Appaiah and Chris Brannon, see
+    http://thread.gmane.org/gmane.emacs.emacspeak.general/1696/focus=1700)
+
+  * Portuguese translation for debconf messages (thanks to Miguel
+    Figueiredo, Closes:#506528)
+
+  * debian/control: depend on perl w/o version number (since Lenny has no
+    perl5.6).  Don't suggest calc, since it's built into emacs22.
+
+ -- James R. Van Zandt <jrv@debian.org>  Sat, 22 Nov 2008 10:31:17 -0500
+
+emacspeak (28.0-4) unstable; urgency=low
+
+  * configure with debconf (Closes:Bug#502761,#252502)
+
+  * debian/watch: point to new repository (thanks to Mykola Nikishov
+    <man@manandbytes.info>, Closes: Bug#503714)
+
+ -- James R. Van Zandt <jrv@debian.org>  Mon, 10 Nov 2008 21:44:15 -0500
+
+emacspeak (28.0-3) unstable; urgency=low
+
+  * info/emacspeak.texi: fix syntax of info directory entry (thanks to
+    James Westby <jw+debian@jameswestby.net>, Closes:Bug#500638)
+
+ -- James R. Van Zandt <jrv@debian.org>  Mon, 29 Sep 2008 21:55:41 -0400
+
+emacspeak (28.0-2) unstable; urgency=low
+
+  * debian/control: Depend on emacs22|emacs21, don't allow alternative
+    emacs (since emacspeak does not support emacs20 or xemacs). Depend on
+    w3-url-e21. Move w3-el-e21 from Depends: to Suggests: so it does not
+    cause an indirect dependency on emacs21. (Closes:Bug#498000).
+
+  * lisp/emacspeak-w3m.el, lisp/emacspeak-wizards.el,
+    etc/extract-table.pl, etc/ocr-client.pl: Fix unsave temporary file
+    handling (back ported from changes checked into the SVN
+    server). (closes:Bug#496431)
+
+ -- James R. Van Zandt <jrv@debian.org>  Sat, 06 Sep 2008 16:51:04 -0400
+
+emacspeak (28.0-1) unstable; urgency=low
+
+  * New upstream release "PuppyDog".
+
+  * debian/*.blurb: Delete .blurb files for servers no longer included:
+    the dtk-mv server for MultiVoice and older Dectalk 3 synthesizers, and
+    remote-tcl for remote DECtalk.
+
+  * README.Debian: change "usr/doc" references to "usr/share/doc"
+
+  * debian/rules: build and install emacspeak.pdf.  Install g-client.org
+    to document the Emacs interface to Google services.
+
+  * debian/doc-base: move to section "Accessibility".  Register pdf
+    and info documentation.
+
+  * debian/control: build-depends-indep on ghostscript (to make
+    emacspeak.pdf), bump Debian policy to 3.8.0.
+
+  * debian/emacspeak.1: update man page with current options.  Begin
+    comment lines with .\" (one period instead of two).
+
+  * debian/emacspeakconfig.8: Begin comment lines with .\" (one period
+    instead of two).
+
+  * byte-compilation now succeeds without errors using the "testing"
+    versions of both emacs21 and emacs22 (closes:#405872)
+
+ -- James R. Van Zandt <jrv@debian.org>  Sat, 26 Jul 2008 22:50:26 -0400
+
+emacspeak (26.0-3) unstable; urgency=low
+
+  * debian/control: depend on w3-el-e21 (thanks to Sam Hartman
+    <hartmans@debian.org>, closes:#451867), bump policy to 3.7.3
+    (no changes needed), move Homepage: to regular field for the source
+    package.
+  * debian/dirs: don't include (empty) directory /usr/bin in package
+
+
+ -- James R. Van Zandt <jrv@debian.org>  Wed, 05 Dec 2007 20:33:01 -0500
+
+emacspeak (26.0-2) unstable; urgency=low
+
+  * debian/espeak.blurb: add .blurb file for espeak.
+
+  * debian/control: Suggests: espeak
+
+  * debian/compat: version 5, to match the Build-Depends entry.
+
+ -- James R. Van Zandt <jrv@debian.org>  Fri, 24 Aug 2007 21:15:48 -0400
+
+emacspeak (26.0-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- James R. Van Zandt <jrv@debian.org>  Wed, 08 Aug 2007 20:24:15 -0400
+
+emacspeak (24-3) unstable; urgency=low
+
+  * debian/control: depend on "emacs" so emacs22 would satisfy the
+    dependency (thanks to Tatsuya Kinoshita <tats@vega.ocn.ne.jp>,
+    closes:#434973)
+
+  * debian/emacsen-install: alternative emacspeak.emacs22 inherits its
+    priority from either emacs22 or emacs22-x.  Make extraction of
+    priority more robust.  /usr/share/emacs/site-lisp/emacspeak/lisp
+    should have only .el files - delete any .elc files there.
+
+  * debian/emacsen-startup: fix spelling of "site-lisp".
+
+  * debian/emacsen-install: configure and compile with ${FLAVOR}, not just
+    "emacs" (closes:#435317)
+
+  * debian/rules: don't ignore errors on "make clean" (silences lintian
+    warning).
+
+ -- James R. Van Zandt <jrv@debian.org>  Sat, 04 Aug 2007 16:20:18 -0400
+
+emacspeak (24-2) unstable; urgency=low
+
+  * servers/{dtk-exp,dtk-mv,outloud} updating all tcl servers to use tclsh8.4
+  * debian/control: depend on tcl8.4 and tclx8.4.
+
+ -- James R. Van Zandt <jrv@debian.org>  Thu, 22 Mar 2007 17:43:57 -0400
+
+emacspeak (24-1) unstable; urgency=low
+
+  * New upstream release
+
+  * debian/copyright: added (Google) copyright and (BSD style) license
+    text covering recent additions.
+
+ -- James R. Van Zandt <jrv@debian.org>  Sun,  6 Aug 2006 18:14:54 -0400
+
+emacspeak (23.505-4) unstable; urgency=low
+
+  * debian/control: add link to emacspeak homepage
+
+ -- James R. Van Zandt <jrv@debian.org>  Sun, 18 Jun 2006 13:40:35 -0400
+
+emacspeak (23.505-3) unstable; urgency=low
+
+  * debian/control: depend on perl-5.6|perl, since perl-5.005 isn't
+    available any more.  emacspeak no longer depends on debmake
+    (closes:Bug#372988).  Bump policy version to 3.7.2 (no changes
+    needed).  Convert Build-Depends-Indep to Build-Depends, per lintian
+    explanation: "The specified package is required to run the clean
+    target of debian/rules and therefore must be listed in Build-Depends,
+    even if no architecture-dependent packages are built".
+
+  * debian/doc-base: fix spelling of "emacspeak.txt.gz".
+
+ -- James R. Van Zandt <jrv@debian.org>  Sun, 18 Jun 2006 12:03:50 -0400
+
+emacspeak (23.505-2) unstable; urgency=low
+
+  * debian/control: suggest eflite, don't depend on xemacs21 or emacs20
+  * debian/emacsen-install: don't compile for xemacs or emacs20.  Don't
+    replace server or blurb directories with symlinks.  Compress the
+    install log.  Don't bother with redundant compiles (i.e. if run only
+    because another package is being installed).
+
+ -- James R. Van Zandt <jrv@debian.org>  Sat, 18 Feb 2006 12:01:10 -0500
+
+emacspeak (23.505-1) unstable; urgency=low
+
+  * New upstream release (closes:#207393,#291970,#175879,#188224)
+  * debian/copyright: clarify copyright (closes:#321802,#302599,#292322)
+  * README.Debian: Revise discussion of ViaVoice (closes:#106480).
+    Combine with README.debian (closes:#204273)
+  * debian/control: depend on emacsen-common (closes:#256288) and tclx8.3
+    (removing alternative of "tclx", since alternative tclx8.4 doesn't
+    provide /usr/bin/tcl).  Conflict with emacspeak-ss prior to 1.10
+    because the speech server interface has changed upstream.  Remove
+    pre-depends on some flavor of emacs, because byte-compiling can be
+    done whenever a flavor is installed (closes:#232756).  Add dependency
+    on some version of emacs or xemacs.
+  * added .blurb files for more servers: remote-tcl.blurb decsoft.blurb
+  * No longer installing symbolic link for /usr/doc/emacspeak.
+  * added #!/usr/bin/tcl lines to server script tts-lib.tcl just to
+    silence lintian complaint.  (The file is not executed by itself, only
+    sourced by other scripts.)
+  * debian/rules: update to use debhelper (closes:#292854,#292322)
+  * debian/emacsen-startup: add both source directory (with .el files) and
+    flavor directory (with .elc files) to load-path
+  * emacspeak-wizards.el, emacspeak-calendar.el: add ;;;###autoload
+    cookies for several functions
+  * emacspeak-keymap.el: "emacspeak-gridtext" changed to
+    "emacspeak-gridtext-apply" and "emacspeak
+  * install DOC file in documentation directory, install symlinks from
+    flavor/.../etc/DOC so emacspeak-view-emacspeak-doc (C-e D) works
+    (closes:#102246)
+  * emacspeak-wizards.el(emacspeak-generate-documentation): If there is no
+    key assignment, add whitespace between function name and documentation
+    string.
+  * copy all the source files to the flavor directory tree, not just the
+    elisp files (closes:#351710)
+  * depend on make (now used during installation)
+  * byte-compile (at package installation time) using upstream Makefile
+  * byte-compile for xemacs
+  * use alternatives to manage /usr/bin/emacspeak and /usr/bin/xemacspeak.
+  * patch software-dtk sources for compilation under Debian, as
+    recommended by Mario Lang, mlang@debian.org (closes:#228353).  Note:
+    not tested by the maintainer, because compilation also requires
+    commercial software.  See /usr/share/doc/emacspeak/DTK.
+
+ -- James R. Van Zandt <jrv@debian.org>  Fri, 30 Jan 2004 20:57:53 -0500
+
+emacspeak (17.0-1) unstable; urgency=low
+
+  * emacspeakconfig: tell user how to reconfigure, and that port is
+    ignored for a software speech synthesizer (closes:Bug#181044)
+  * add .blurb files for Software DECtalk and Outloud
+  * emacspeak-eshell.el: delete extraneous space within variable name, per
+    Raman's posting of 25 Nov
+  * New upstream release
+
+ -- James R. Van Zandt <jrv@debian.org>  Sun, 16 Mar 2003 13:02:20 -0500
+
+emacspeak (16.0-1) unstable; urgency=low
+
+  * New upstream release
+  * add texinfo to build-depends (closes:Bug#141265)
+  * Fix debian/rules to use && not ; for calls to make info
+  (thanks to hartmans@mit.edu (Sam Hartman))
+  * make compilation log world-readable (closes:Bug#167792)
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Thu, 18 Jul 2002 20:42:13 -0400
+
+emacspeak (15-4) unstable; urgency=low
+
+  * debian/control: change build-depend to build-depend-indep
+  * debian/: remove *.ex files
+
+ -- James R. Van Zandt <jrv@debian.org>  Thu, 18 Jul 2002 20:03:29 -0400
+
+emacspeak (15-3) unstable; urgency=low
+
+  * debian/rules: install xsl directory (thanks to Dimitry Paduchih
+    <paduch@imm.uran.ru>)
+  * lisp/emacspeak-setup: add emacspeak-lisp-directory to end of load-path
+    instead of beginning, and only if "emacspeak" can't be found by
+    load-library.
+  * debian/control: build-depend on texi2html and lynx
+  * debian/control: suggest xsltproc (thanks to Dimitry Paduchih
+    <paduch@imm.uran.ru>)
+
+ -- James R. Van Zandt <jrv@debian.org>  Fri,  8 Mar 2002 22:01:11 -0500
+
+emacspeak (15-2) unstable; urgency=low
+
+  * debian/rules: compile emacspeak-rpm.el and regexp-opt.el
+
+ -- James R. Van Zandt <jrv@debian.org>  Tue, 25 Dec 2001 15:47:29 -0500
+
+emacspeak (15-1) unstable; urgency=low
+
+  * New upstream release
+  * no longer need to adjust emacspeak-load-path.el or emacspeak-setup.el
+  * omit /usr/share/emacs/site-lisp/emacspeak/realaudio/.cvsignore
+  * remove patch from emacspeak-advice.el
+  * ignore reference to missing "add-css.pl" while building html docs
+
+ -- James R. Van Zandt <jrv@debian.org>  Sun,  9 Dec 2001 16:13:20 -0500
+
+emacspeak (14-4) unstable; urgency=low
+
+  * debian/control: emacs21 will satisfy emacs dependency
+    (thanks to Saqib Shaikh <ss@saqibshaikh.com>)
+
+ -- James R. Van Zandt <jrv@debian.org>  Sun, 28 Oct 2001 12:49:42 -0500
+
+emacspeak (14-3) unstable; urgency=low
+
+  * debian/control: just plain "perl" will satisfy dependency
+    (closes:bug#113215)
+  * debian/control: tclx8.3 will satisfy the tclx dependency.
+
+ -- James R. Van Zandt <jrv@debian.org>  Mon, 24 Sep 2001 20:57:11 -0400
+
+emacspeak (14-2) unstable; urgency=low
+
+  * debian/control: depend on perl-5.6 (closes:bug#80728)
+  * debian/emacspeakconfig: put quotes on both sides of comparison (thanks
+    to Robert Cymbala cymbaLa@Lafn.org)
+  * new maintainer email address
+
+ -- James R. Van Zandt <jrv@debian.org>  Sun,  1 Jul 2001 14:19:26 -0400
+
+emacspeak (14-1) unstable; urgency=low
+
+  * New upstream release (closes:Bug#97225)
+  * debian/control: emacs19 has been removed from unstable, so can't
+    satisfy a depends (closes:Bug#82682)
+  * debian/control: move build-depends line to source section.  Update to
+    version 3.5.2.
+  * debian/watch: support uscan
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Sat, 12 May 2001 09:55:50 -0400
+
+emacspeak (13.0-3) unstable; urgency=low
+
+  * Just creating ".nosearch" in /usr/share/emacs/emacspeak will prevent
+    recursion.
+
+  * lisp/emacspeak-speak.el: fix command history voice feedback (thanks to
+    "Dm. Paduchih" <paduch@imm.uran.ru>)
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Sun, 24 Dec 2000 18:32:33 -0500
+
+emacspeak (13.0-2) unstable; urgency=low
+
+  * README.debian: Raman wants only raman@cs.cornell.edu advertised
+  * emacspeakconfig: If the user gives a symbolic link as the output
+    device, test the group of the actual device rather than that of the
+    link. (Closes:Bug#78708)
+  * README.debian: Viavoice Outloud instructions shouldn't refer to
+    emacspeak-11 sources.
+  * Add files ".nosearch" in many directories so they don't get added to
+    load-path.
+  * emacspeak-message.el: line 51 is a comment
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Sat,  9 Dec 2000 20:00:38 -0500
+
+emacspeak (13.0-1) unstable; urgency=low
+
+  * New upstream release
+  * emacspeak script: replace "source" with "." to satisfy Bourne shell.
+  * emacsen-install: byte-compile the elisp files one at a time, in the
+    same order the source package uses.  Don't hide compilation warnings.
+    Set byte-compile-dynamic true during compilation.
+  * display byte-compile time estimate (since it's so slow)
+  * depend on perl.
+  * fix directory permissions with "chmod -R ugo+rX"
+  * remove define-theme.elc
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Thu, 23 Nov 2000 21:20:32 -0500
+
+emacspeak (12.0-4) unstable; urgency=low
+
+  * emacspeak-setup.def: add the source directory to the load
+    path only if Emacspeak would not be found otherwise (thanks to
+    Matthew Campbell <mattcampbell@pobox.com>, Closes:Bug#77490)
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Mon, 20 Nov 2000 23:43:13 -0500
+
+emacspeak (12.0-3) unstable; urgency=low
+
+  * README.debian: update URL and instructions for viavoice
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Sat, 28 Oct 2000 11:28:41 -0400
+
+emacspeak (12.0-2) unstable; urgency=low
+
+  * build-depends on debmake and debhelper(Closes:Bug#70373)
+
+  * pre-depend on emacs (Closes:Bug#72192)
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Sun,  3 Sep 2000 11:56:12 -0400
+
+emacspeak (12.0-1) unstable; urgency=low
+
+  * New upstream release
+  * info/Makefile: allow chmod to fail.
+  * Adapt debian/rules to new deep directory structure (lisp files in
+    lisp/, servers in servers/, etc.).
+  * debian/rules: The makefile variable controlling the install location
+    is now "prefix" rather than "PREFIX".
+  * emacsen-install: lisp files are now in
+    /usr/share/emacs/site-lisp/emacspeak/lisp
+  * emacspeak-setup.def: hard code the emacspeak directory
+  * emacspeak-load-path.def: hard code the emacspeak directory
+  * rename servers/.servers and add postinst command to assemble the real
+    servers/.servers at installation time.
+  * conflict with all previous emacspeak-ss packages.
+  * move .blurb files to their own directory.
+  * README.debian: IBM ViaVoice is available only for i386.
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Tue,  2 May 2000 21:06:00 -0400
+
+emacspeak (11.0-4) unstable; urgency=low
+
+  * info/using.texi: escape `@' in two places.
+  * info/audio-desktop.texi: Removed leading space before @section and
+    @subsection commands in four places.
+  * debian/copyright: remove mention of old GPL location.
+  * Add debhelper token to postinst and prerm.
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Sat, 29 Apr 2000 21:36:01 -0400
+
+emacspeak (11.0-3) unstable; urgency=low
+
+  * dtk-speak.el: Back out previous change which added the emacspeak-ss
+    servers to the list which dtk-select-server accepts.
+  * emacspeak.def: Register any additional servers for the
+    dtk-select-server command (control-e d d)
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Mon, 27 Dec 1999 18:54:07 -0500
+
+emacspeak (11.0-2) unstable; urgency=high
+
+  * My changes to emacspeak-setup.def included a syntax error. Fixed.
+  * Install tts-lib.tcl.
+  * dtk-speak.el has a list of speech servers which can be invoked while
+    running.  Add the six speech servers in the emacspeak-ss package:
+    accent, apollo, braillenspeak, ciber, doubletalk, hablado.
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Thu,  9 Dec 1999 20:35:03 -0500
+
+emacspeak (11.0-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Wed,  1 Dec 1999 20:09:53 -0500
+
+emacspeak (10.0-6) unstable; urgency=low
+
+  * Manpage updates: Raman's email, other speech servers, blinux ftp site.
+  * emacspeakconfig fixes: $PORT is a device rather than a file, don't
+    export DTK_TCL if it's the null string (thanks to Matt Campbell
+    <mattcamp@feist.com>)
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Sat, 27 Nov 1999 20:31:37 -0500
+
+emacspeak (10.0-5) unstable; urgency=low
+
+  * Fix line wrap in Description.
+  * Add symlink from /usr/doc/emacspeak to /usr/share/doc/emacspeak
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Sat, 11 Sep 1999 16:23:38 -0400
+
+emacspeak (10.0-4) unstable; urgency=low
+
+  * Startup and w3 fixes by Matthew Campbell <mattcamp@feist.com>
+  * Update to FHS
+  * Update GPL reference in copyright file
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Mon,  6 Sep 1999 20:53:34 -0400
+
+emacspeak (10.0-3) unstable; urgency=low
+
+  * Compile with --no-site-file --no-init-file (closes Bug#40474)
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Thu,  1 Jul 1999 19:07:10 -0400
+
+emacspeak (10.0-2) unstable; urgency=low
+
+  * Move NEWS-10 to replace NEWS (since the latter is for version 9.0)
+  * Remove extra space in the info page node title "Speech
+    Output  Control" which breaks info readers.
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Sat, 26 Jun 1999 12:13:39 -0400
+
+emacspeak (10.0-1) unstable; urgency=low
+
+  * New upstream release
+  * Follow Debian emacsen policy: byte-compile during installation (of
+    either this package, or a new flavor of emacs) rather than at
+    package build time.
+  * Provide one-line program description for Info directory.
+  * Register documentation using doc-base.
+  * Supports emacs19 as well as emacs20 (but not xemacs).
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Sun, 16 May 1999 20:34:59 -0400
+
+emacspeak (9.0-4) unstable; urgency=low
+
+  * Fix ring.au with sox (add header).
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Wed, 30 Dec 1998 19:40:10 -0500
+
+emacspeak (9.0-3) unstable; urgency=low
+
+  * Add emacspeak list subscription info to README.debian.
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Tue,  1 Dec 1998 21:59:33 -0500
+
+emacspeak (9.0-2) unstable; urgency=high
+
+  * Pay attention to DTK_PORT and DTK_OS again.  (Patch provided by
+    upstream maintainer.)
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Sun,  8 Nov 1998 20:17:27 -0500
+
+emacspeak (9.0-1) unstable; urgency=low
+
+  * Fix explain to find key bindings for "outline" commands.
+  * In explain, correctly extract docs from several existing sections.
+  * In .texinfo file, add references to new sections.
+  * Install FAQ.
+  * New upstream release
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Sun,  1 Nov 1998 15:24:42 -0500
+
+emacspeak (8.0-3) unstable; urgency=low
+
+  * remote-tcl needs 755 permissions.
+  * Provide feedback as you hit backspace within incremental search.
+    (Patch by upstream maintainer.)
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Fri, 28 Aug 1998 21:52:45 -0400
+
+emacspeak (8.0-2) unstable; urgency=low
+
+  * Removed extra copy of *.info* files from documentation directory.
+  * Added upstream file NEWS to the documentation directory.
+  * Added "tables.html" file which was missing from distribution (but
+    was supplied by upstream maintainer via email).
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Sun, 17 May 1998 14:18:43 -0400
+
+emacspeak (8.0-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Sun, 17 May 1998 11:21:11 -0400
+
+emacspeak (7.0-5) frozen unstable; urgency=low
+
+  * Added quotes in configuration script to eliminate some "unary
+    operator expected" warnings.
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Wed, 18 Mar 1998 22:44:09 -0500
+
+emacspeak (7.0-4) unstable; urgency=low
+
+  * The configuration script now collects menu choices from each server
+    package (.blurb files), so it will not show unavailable choices and
+    does not need updating when new server packages are released.  It also
+    allows the user to abort the configuration.
+  * Requires emacs20.
+  * Substituted new files dtk-exp, dtk-mv, and speech-server from upstream
+    developer.  (He did not release a new emacspeak package.)  These work
+    with tcl 7.5 and 8.0 (and presumably versions in between).
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Tue, 10 Mar 1998 19:44:09 -0500
+
+emacspeak (7.0-3) unstable; urgency=low
+
+  * emacs19 or emacs20 will satisfy dependency
+  * Priority "extra" (requires special hardware)
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Sat, 21 Feb 1998 16:06:27 -0500
+
+emacspeak (7.0-2) unstable; urgency=low
+
+  * Revised documentation and configure script to fix nomenclature: the
+    program used to access the speech device is a "speech server" rather
+    than a "driver".
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Fri, 13 Feb 1998 21:10:14 -0500
+
+emacspeak (7.0-1) unstable; urgency=high
+
+  * New upstream version with these improvements:
+    1) Usability enhancements including:
+        a) Smart prefix recognition
+       	b) Flexible customization of dictionaries
+        c) Pause and resume
+        d) Lazy voice-lock for faster audio formatting
+        e) Enhanced outline support
+    2) Support for games including  gomoku and tetris.
+    3) Better support for running remote sessions.
+    4) Supports many additional major modes.
+    + Preliminary support for the recently released Emacs 20.
+  * Documentation scripts improved to include more key codes.
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Sat, 15 Nov 1997 13:48:57 -0500
+
+emacspeak (6.0-4) unstable; urgency=low
+
+  * configuration script presents previous values as defaults,
+    and sets DTK_DISPLAY.
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Sun, 12 Oct 1997 18:01:51 -0400
+
+emacspeak (6.0-3) stable; urgency=low
+
+  * update configuration scripts to allow for DoubleTalk PC
+  * generate plain text version of documentation
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Sun, 10 Aug 1997 17:38:56 -0400
+
+emacspeak (6.0-2) unstable; urgency=low
+
+  * tclx76 also satisfies the dependency
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Sun, 1 Jun 1997 20:59:51 -0400
+
+emacspeak (6.0-1) unstable; urgency=medium
+
+  * New upstream version with these improvements:
+    1) Support for WWW ACSS (Aural Cascading Style Sheets)
+    2) Audio formatted output for rich text
+    3) Enhanced support for browsing tables
+    4) Support for speaking commonly used ISO Latin characters
+    5) Speech support for the  Emacs widget libraries
+    6) Support for SGML mode
+    7) an automatically generated users manual
+    (The last feature was adopted from the Debian package for
+    Emacspeak 5.0)
+  * In Makefile: added ";\" to a command line in the install target,
+    so the preceding "if" clause is completed by the following "fi".
+    In the call to info/make install, fixed the initialization of
+    variable infodir.
+  * In info/Makefile: fixed initialization of variable infodir, so it
+    doesn't include a space.  Also added a command to actually install
+    the info pages.
+  * Translating the .texinfo documentation into HTML.
+  * In emacspeak-eterm.el, fix spelling of "contents" in
+    emacspeak-eterm-toggle-review docs, and added period in
+    emacspeak-eterm-maybe-send-raw docs.
+  * Improved the description of eterm screen review mode.
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Sat, 3 May 1997 22:53:28 -0400
+
+emacspeak (5.0-2) frozen unstable; urgency=high
+
+  * Variables in /etc/emacspeak.conf now have $ signs and variables
+    are exported to the environment.  (Previously, config file had no
+    effect).  postinst now fixes up previous config file.
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Sun, 20 Apr 1997 20:29:14 -0400
+
+emacspeak (5.0-1) unstable stable; urgency=low
+
+  * Added line to emacspeak script to source /etc/emacspeak.conf which sets
+    environment variables.  Added emacspeakconfig to set the default
+    values, and to add or subtract users from whatever group owns the
+    output device.
+  * Building documentation files on the fly: concatenating all the source
+    files, then running perl script `explain' to extract the docs into
+    separate .texinfo files, then running makeinfo on the master
+    .texinfo file to build the .info files.  Put extra commands for
+    this into debian/debMakefile, and added an include line in
+    Makefile.
+  * Makefile could not install to a different directory than the
+    configured directory.  Moved the line `make config CWD=$(libdir)'
+    to permit this.
+  * Initial Release.
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Wed, 5 Mar 1997 21:51:04 -0500
+
+
+emacspeak (7.0-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- James R. Van Zandt <jrv@vanzandt.mv.com>  Sat, 15 Nov 1997 13:48:57 -0500
+
+

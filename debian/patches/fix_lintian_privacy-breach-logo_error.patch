@@ -1,0 +1,39 @@
+Description: documentation in emacspeak loads external files at runtime
+ This is considered a privacy breach. As the logo's don't add much to
+ the documentation, they are removed here.
+Author: Paul Gevers <elbrus@debian.org>
+Forwarded: no
+
+Index: emacspeak/etc/applications.html
+===================================================================
+--- emacspeak.orig/etc/applications.html
++++ emacspeak/etc/applications.html
+@@ -1,7 +1,6 @@
+ <html>
+ <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+-<link rel="stylesheet" href="http://www.w3.org/StyleSheets/Core/Chocolate" type="text/css">
+ <title>Emacspeak --The Complete Audio Desktop</title>
+ </head>
+ <body>
+@@ -1545,7 +1544,7 @@
+     </p>
+ <p><strong><a href="http://sourceforge.net/projects/emacspeak">
+           Emacspeak Home On Sourceforge
+-          <IMG src="http://sourceforge.net/sflogo.php?group_id=2238" width="88" height="31" border="0" alt="SourceForge Logo"></a></strong></p>
++          </a></strong></p>
+ <p><address><a href="mailto:raman@cs.cornell.edu">Email: T. V. Raman</a></address></p>
+ </body>
+ </html>
+Index: emacspeak/etc/tips.html
+===================================================================
+--- emacspeak.orig/etc/tips.html
++++ emacspeak/etc/tips.html
+@@ -27,7 +27,6 @@
+       </p><p>
+         The latest copy of this document is always available via CVS
+         from the Emacspeak CVS repository ---thanks to the
+-        <img src="http://sourceforge.net/sflogo.php?group_id=2238;type=1">
+         --- SourceForge project and on the 
+         <a class="ulink" href="http://emacspeak.sf.net/tips.html" target="_top">Emacspeak
+         WWW site</a>.

@@ -1,0 +1,175 @@
+#! /bin/sh -e
+#
+THISSCRIPT=/usr/lib/emacsen-common/packages/install/emacspeak
+
+# Written by Jim Van Zandt <jrv@debian.org>, borrowing heavily
+# from the install scripts for gettext by Santiago Vila
+# <sanvila@ctv.es> and octave by Dirk Eddelbuettel <edd@debian.org>.
+
+# set -v
+echo "$THISSCRIPT running in `pwd`"
+
+FLAVOR=$1
+PACKAGE=emacspeak
+
+if [ ${FLAVOR} = emacs ]; then exit 0; fi
+
+ELDIR=/usr/share/emacs/site-lisp/${PACKAGE}
+
+ELCDIR=/usr/share/${FLAVOR}/site-lisp/${PACKAGE}
+
+# Determine what we have to do, i.e. don't recompile if it is not needed
+# to save time
+if [ -d ${ELCDIR} ] ; then
+    VERSION_NEW=$(cat ${ELDIR}/debian_version)
+    echo "Latest installed version: $VERSION_NEW"
+    if [ -f ${ELCDIR}/debian_compiled_version ] ; then
+	VERSION_OLD=$(cat ${ELCDIR}/debian_compiled_version)
+	echo "Latest compiled version:  $VERSION_OLD"
+	if [ $(dpkg --compare-versions $VERSION_OLD lt $VERSION_NEW && echo true) ] ; then
+	    ACTION=update
+	else
+# latest emacspeak is already compiled - apparently we've just been
+# called because some other speech server is being installed.
+	    ACTION=triggered
+	fi
+    else
+	ACTION=update
+    fi
+else
+    ACTION=install
+fi
+
+if [ ${ACTION} = triggered ]; then
+    cp -ar ${ELDIR}/servers/* ${ELCDIR}/servers;
+    cp -ar ${ELDIR}/blurbs/* ${ELCDIR}/blurbs;
+# for the triggered case, we are done.
+    exit 0
+fi
+
+echo install/${PACKAGE}: Handling ${ACTION} for emacsen flavor ${FLAVOR}
+
+if [ ${FLAVOR} = emacs20 ]; then
+    echo "  ${PACKAGE} does not support ${FLAVOR}"
+    exit 0;
+fi
+
+if [ ${FLAVOR} = emacs21 ]; then
+    echo "  ${PACKAGE} does not support ${FLAVOR}"
+    exit 0;
+fi
+
+if [ ${FLAVOR} = emacs22 ]; then
+    echo "  ${PACKAGE} does not support ${FLAVOR}"
+    exit 0;
+fi
+
+if [ ${FLAVOR} = emacs23 ]; then
+    echo "  ${PACKAGE} does not support ${FLAVOR}"
+    exit 0;
+fi
+
+ENAME=`echo $FLAVOR | perl -pe 's/emacs.*/emacs/'` # emacs or xemacs
+if [ ${ENAME} = xemacs ] ; then
+    echo "  ${PACKAGE} does not support ${ENAME}"
+    exit 0;
+    SITEFLAG="-no-site-file"	# if and when xemacs is supported
+else 
+    if [ ${ENAME} = emacs ]; then # sanity check
+	SITEFLAG="--no-site-file"
+    else
+	echo "unknown flavor $FLAVOR, does not start with emacs or xemacs"
+	exit 1
+    fi
+fi
+
+if [ ${ACTION} = install ] ; then
+    install -m 755 -d ${ELCDIR}
+fi
+
+log=`tempfile`
+echo "  Temporary log file is ${log}"
+
+if [ -f /proc/cpuinfo ]; then
+    EST=`awk '
+    /MHz/{
+	min=1146/$NF;
+	if (min > 1./6){	# do not print estimate if it is short
+		printf(" (~%3.1f min)",min);
+	    }
+	exit;
+    }
+    ' /proc/cpuinfo`
+else
+    EST=""
+fi
+
+# Prevent gnupg to write to /root/.gnupg which leaves files behind on purge
+export GNUPGHOME=`mktemp -d /tmp/gnupg.XXXXXX`
+
+echo -n "  Byte-compiling ${EST} ..."
+echo "$THISSCRIPT byte-compiling for ${FLAVOR}" >>${log} 2>&1
+if [ ${ACTION} = update ] ; then
+    echo
+    echo "Removing old files from ${ELCDIR}" >>${log} 2>&1
+    rm -rf ${ELCDIR}/*
+fi
+
+echo "
+Copy files from ${ELDIR} to ${ELCDIR}" >>${log} 2>&1
+cd ${ELDIR}
+cp -rf * ${ELCDIR}
+cd ${ELCDIR}
+rm -f lisp/*.elc		# delete bogus or old compiled files
+
+echo "
+Configure in ${ELCDIR}..." >>${log} 2>&1
+
+make EMACS=${FLAVOR} SRC=${ELCDIR} FLAVOR=${FLAVOR} config >>${log} 2>&1
+
+echo "
+Byte-compile..." >>${log} 2>&1
+make EMACS=${FLAVOR} SRC=${ELCDIR} FLAVOR=${FLAVOR} >>${log} 2>&1
+
+echo "done."
+
+echo "
+Delete sources for compiled files..." >>${log} 2>&1
+cd lisp; 
+rm emacspeak-setup.elc; # etc/emacspeak.sh executes the .el file explicitly
+rm -vf `echo  *.elc|sed 's/\.elc/.el/g'` >>${log} 2>&1; 
+cd ..
+
+echo "
+Replace unchanged files and directories with symlinks to ${ELDIR}/..." >>${log} 2>&1
+
+# don't replace server or blurb directories with symlinks, since other
+# packages (emacspeak-ss and eflite) may be copying files there
+for x in Makefile README lisp/* etc/* realaudio sawfish shoutcast \
+    sounds user-guide xsl ; do
+    if diff -rq $x ${ELDIR}/$x >/dev/null 2>&1; then   # unchanged
+	echo $x >>${log} 2>&1
+	rm -rf $x; 
+	ln -s ${ELDIR}/$x $x
+    fi
+done
+
+if [ ${ACTION} = install ] ; then
+    PRIORITY=`update-alternatives --display emacs|awk "/usr.bin.${FLAVOR}.*priority/{print \\$NF;exit}"`
+    echo -n "  New alternative for /usr/bin/emacspeak is /usr/bin/emacspeak.${FLAVOR}"
+    echo "...with priority \"${PRIORITY:-0}\""
+# this will work for xemacs (creating /usr/bin/xemacspeak), if & when 
+# xemacs is supported
+    ln -sf ${ELCDIR}/etc/emacspeak.sh /usr/bin/${ENAME}peak.${FLAVOR}
+    update-alternatives --install /usr/bin/${ENAME}peak ${ENAME}peak 	\
+	/usr/bin/${ENAME}peak.${FLAVOR} ${PRIORITY:-0}
+fi
+mv debian_version debian_compiled_version
+mv ${log} ${ELCDIR}/install.log
+chmod 644 ${ELCDIR}/install.log
+gzip ${ELCDIR}/install.log
+echo "  Compilation log saved to ${ELCDIR}/install.log.gz"
+
+rm -rf ${GNUPGHOME}
+
+exit 0

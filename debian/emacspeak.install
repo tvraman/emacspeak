@@ -1,0 +1,12 @@
+Makefile                        usr/share/emacs/site-lisp/emacspeak
+debian/*.blurb                  usr/share/emacs/site-lisp/emacspeak/blurbs
+debian/emacspeakconfig          usr/sbin
+debian_version                  usr/share/emacs/site-lisp/emacspeak
+etc/emacspeak.sh.def            usr/share/emacs/site-lisp/emacspeak/etc
+etc/Makefile                    usr/share/emacs/site-lisp/emacspeak/etc
+lisp/Makefile                   usr/share/emacs/site-lisp/emacspeak/lisp
+lisp/g-client/Makefile          usr/share/emacs/site-lisp/emacspeak/lisp/g-client
+lisp/g-client/g-client.org      usr/share/emacs/site-lisp/emacspeak/lisp/g-client
+lisp/g-client/g-cus-load.el.in  usr/share/emacs/site-lisp/emacspeak/lisp/g-client
+lisp/g-client/g-loaddefs.el.in  usr/share/emacs/site-lisp/emacspeak/lisp/g-client
+usr/share/emacs/site-lisp/emacspeak/

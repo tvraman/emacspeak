@@ -1,0 +1,199 @@
+# translation of emacspeak.po to swedish
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Martin Bagge <brother@bsnet.se>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: emacspeak\n"
+"Report-Msgid-Bugs-To: emacspeak@packages.debian.org\n"
+"POT-Creation-Date: 2008-12-09 07:29+0100\n"
+"PO-Revision-Date: 2008-12-06 11:26+0100\n"
+"Last-Translator: Martin Bagge <brother@bsnet.se>\n"
+"Language-Team: swedish <debian-l10n-swedish@lists.debian.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#. Type: select
+#. Description
+#: ../templates:3001
+msgid "Default speech server:"
+msgstr "Standardserver för speech:"
+
+#. Type: select
+#. Description
+#: ../templates:3001
+msgid ""
+"The /etc/emacspeak.conf file will be configured so that the command '/usr/"
+"bin/emacspeak' will start Emacs with emacspeak support using this server."
+msgstr ""
+"Filen /etc/emacspeak.conf skapas så att kommandot \"/usr/bin/emacspeak\" "
+"startar Emacs med emacspeak-stöd på den här servern. "
+
+#. Type: select
+#. Description
+#: ../templates:3001
+msgid ""
+"You may change the selection later by running 'dpkg-reconfigure emacspeak' "
+"as root, or temporarily override the selection by setting the environment "
+"variable DTK_PROGRAM."
+msgstr ""
+"Du kan ändra valet senare genom att köra \"dpkg-reconfigure emacspeak\" som "
+"root eller temporärt överlagra inställningen via miljövariabeln DTK_PROGRAM."
+
+#. Type: string
+#. Description
+#: ../templates:4001
+msgid "Hardware port of the speech generation device:"
+msgstr "Adress till speech-enhet."
+
+#. Type: string
+#. Description
+#: ../templates:4001
+msgid ""
+"If a hardware device is used to generate speech, please enter the Unix "
+"device file associated with it, such as '/dev/ttyS0' or '/dev/ttyUSB0'."
+msgstr ""
+"Om en enhet i hårdvaran ska användas för att skapa speech måste dess "
+"Unixenhet anges. Exempelvis \"/dev/ttyS0\" eller \"/dev/ttyUSB0\""
+
+#. Type: string
+#. Description
+#. Translators, please do not translate "none"
+#: ../templates:4001
+msgid "If you use a software method to generate speech, please enter 'none'."
+msgstr "Om speech skapas av mjukvaran anger du \"none\"."
+
+#. Type: error
+#. Description
+#: ../templates:5001
+msgid "${port} is not a character special device"
+msgstr "${port} är inte en specialenhet"
+
+#. Type: string
+#. Description
+#: ../templates:6001
+msgid "Users of speech server:"
+msgstr "Användare av speechsevern:"
+
+#. Type: string
+#. Description
+#: ../templates:6001
+msgid ""
+"Users must be members of group ${group} to access the speech server "
+"connected to ${port}. Please review the space-separated list of current "
+"members of that group, and add or remove usernames if needed."
+msgstr ""
+"Användare måste vara med i gruppen ${group} för att komma åt speech-servern "
+"ansluten på ${port}. Kontrollera listan med användare, lägg till eller ta "
+"bort användarnamn om så behövs. Listan separeras med mellanslag."
+
+#. Type: string
+#. Description
+#: ../templates:6001
+msgid ""
+"If you later add users to the system, you can either reconfigure the "
+"emacspeak package afterwards, or enroll the user in ${group} with 'adduser "
+"${group} <user>'."
+msgstr ""
+"Om du lägger till användare i systemet framöver kan du antingen köra den här "
+"guiden eller manuellt lägga till användaren eller användarna i rätt grupp. "
+"Använd kommandot dpkg-reconfigure emacspeak eller lägg till användare "
+"manuellt i gruppen ${group} med kommandot \"adduser ${group} <användare>\"."
+
+#. Type: string
+#. Description
+#: ../templates:6001
+msgid ""
+"Group membership is checked at login time, so new members must log out and "
+"log in again before using the speech server."
+msgstr ""
+"Vid inloggningen kontrolleras vilka grupper en användare är medlem i så nya "
+"användare måste logga in och sedan ut igen innan de kan använda "
+"speechservern."
+
+#. Type: error
+#. Description
+#: ../templates:7001
+msgid "Invalid username ${user}"
+msgstr "Felaktigt användarnamn ${user}"
+
+#. Type: error
+#. Description
+#: ../templates:7001
+msgid ""
+"There is no user named ${user}, so no such user could be added to ${group}."
+msgstr ""
+"Det finns ingen användare ${user}, med andra ord så kunde inte användaren "
+"läggas till i gruppen ${group}."
+
+#. Type: error
+#. Description
+#: ../templates:8001
+msgid "${port} non-writable by unprivileged users"
+msgstr "${port} är inte skrivbar för vanliga användare"
+
+#. Type: error
+#. Description
+#: ../templates:8001
+msgid ""
+"Since the speech device is connected to ${port}, unprivileged users must "
+"have read/write access to that device."
+msgstr ""
+"I och med att speech-enheten är ansluten på ${port} måste vanliga användare "
+"ha rättighet att skriva till enheten."
+
+#. Type: error
+#. Description
+#: ../templates:8001
+msgid ""
+"You should modify the device permissions with 'chmod a+rw ${port}' or modify "
+"the device group with 'chown root:dialout ${port}', then reconfigure "
+"emacspeak with 'dpkg-reconfigure emacspeak'."
+msgstr ""
+"Du måste ändra tillståndet med kommandot \"chmod a +rw ${port}\" eller "
+"grupptillståndet med \"chown root.dialout ${port}\" konfigurera sedan om "
+"emacspeak med \"dpkg-reconfigure emacspeak\"."
+
+#~ msgid ""
+#~ "The file /etc/emacspeak.conf will be configured so that the command \"/"
+#~ "usr/bin/emacspeak\" will start emacs with emacspeak support using this "
+#~ "server.  You may change the selection later by running \"dpkg-reconfigure "
+#~ "emacspeak\" as root, or temporarily override the selection by setting the "
+#~ "environment variable DTK_PROGRAM.  If you want to use a server in a "
+#~ "separate package, which does not appear in the list, just accept the "
+#~ "default now, and you should be asked again when that other package is "
+#~ "installed."
+#~ msgstr ""
+#~ "Filen /etc/emacspeak.conf skapas såatt kommandot \"/usr/bin/emacspeak\" "
+#~ "startar emacs med emacspeak-stöd på den här servern. Du kan ändra valet "
+#~ "senare genom att köra \"dpkg-reconfigure macspeak\" som rppt eller "
+#~ "temporärt överlagra inställningen via miljövariabeln DTK_PROGRAM. Om du "
+#~ "vill använda servern som ett separat paket, som inte visas i lista, ange "
+#~ "bara standardvärdet nu så får du frågorna när paketet installeras."
+
+#~ msgid "hardware port:"
+#~ msgstr "Hårdvaruenhet:"
+
+#~ msgid ""
+#~ "For a user whose account doesn't exist yet, please reconfigure emacspeak "
+#~ "after creating the account, with the command"
+#~ msgstr ""
+#~ "För att lägga till en eller flera användare som ännu inte existerar i "
+#~ "systemet måste du konfigurera om emacspeak efter att kontot eller kontona "
+#~ "skapats. Använd kommandot"
+
+#~ msgid "  dpkg-reconfigure emacspeak"
+#~ msgstr "  dpkg-reconfigure emacspeak"
+
+#~ msgid "or manually enroll the user in ${group} with the command"
+#~ msgstr "eller lägg till användare manuellt i gruppen ${group} med kommandot"
+
+#~ msgid "  adduser ${group} mary"
+#~ msgstr "  adduser ${group} mary"
+
+#~ msgid "ERROR: no normal user can use ${port}."
+#~ msgstr "FEL: inga vanliga användare kan använda ${port}."

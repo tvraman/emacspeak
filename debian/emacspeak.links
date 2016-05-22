@@ -1,0 +1,7 @@
+usr/share/doc/emacspeak/DTK			usr/share/emacs/site-lisp/emacspeak/softwafe-dtk/DTK
+usr/share/doc/emacspeak/NEWS			usr/share/emacs/site-lisp/emacspeak/etc/NEWS
+usr/share/doc/emacspeak/applications.html	usr/share/emacs/site-lisp/emacspeak/etc/applications.html
+usr/share/doc/emacspeak/g-client.html		usr/share/emacs/site-lisp/emacspeak/lisp/g-client/g-client.html
+usr/share/doc/emacspeak/remote.txt		usr/share/emacs/site-lisp/emacspeak/etc/remote.txt
+# tips is currently empty and apperently for that reason not installed by dh_installdocs
+#usr/share/doc/emacspeak/tips.html		usr/share/emacs/site-lisp/emacspeak/etc/tips.html

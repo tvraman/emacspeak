@@ -1,0 +1,16 @@
+Description: Upstream puts arch dependent files in /usr/share
+Author: Paul Gevers <elbrus@debian.org>
+
+--- a/servers/espeak
++++ b/servers/espeak
+@@ -548,9 +548,7 @@
+ if {[info exists server_p]} {
+     set tts(input) sock0
+ }
+-set servers [file dirname $argv0]
+-set tclTTS $servers/linux-espeak
+-load $tclTTS/tclespeak.so
++load /usr/lib/emacspeak/tclespeak.so
+ if {[file exists /proc/asound]} {
+     set tts(play) /usr/bin/aplay
+ }

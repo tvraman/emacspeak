@@ -1,0 +1,15 @@
+Description: Taken over from old package
+Author: Paul Gevers <elbrus@debian.org>
+
+--- a/etc/Makefile
++++ b/etc/Makefile
+@@ -49,7 +49,8 @@
+ # {{{ User level target--  config 
+ config:
+ 	@rm -f    emacspeak.sh
+-	@sed "s@<emacspeak-dir>@$(SRC)/lisp@g" \
++	@sed -e "s@<emacspeak-dir>@/usr/share/$(FLAVOR)/site-lisp/emacspeak/lisp@g" \
++		-e 's/exec emacs/exec $(FLAVOR)/' \
+ 		emacspeak.sh.def > emacspeak.sh
+ 	@chmod 755   emacspeak.sh
+ 	@chmod 755   *.pl

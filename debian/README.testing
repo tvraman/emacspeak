@@ -1,0 +1,109 @@
+This document describes how one could quickly test if a new package works
+resonably well. The idea was posted on
+http://lists.debian.org/debian-accessibility/2013/10/msg00026.html
+
+Emacspeak comes with a software synthesiser in the package
+emacspeak-espeak-server I recommend to test emacspeak with that
+synthesiser to also confirm that that works. If not the case after
+installation of emacspeak-espeak-server, you need the following in
+/etc/emacspeak.conf:
+
+paul@wollumbin ~ $ cat /etc/emacspeak.conf
+# emacspeak configuration file
+#
+#
+if [ "$DTK_PROGRAM" = "" ]; then
+DTK_PROGRAM=espeak
+fi
+if [ "$DTK_TCL" = "" ]; then
+DTK_TCL=tcl
+fi
+if [ "$DTK_PORT" = "" ]; then
+DTK_PORT=none
+fi
+if [ "$DTK_DEVICE" = "" ]; then
+DTK_DEVICE="espeak"
+fi
+export DTK_PROGRAM DTK_PORT DTK_DEVICE
+if [ "$DTK_TCL" != "" ]; then export DTK_TCL; fi
+# End of /etc/emacspeak.conf
+
+=================
+
+Below you find the contents of the EmacspeakTestingGuide wiki
+(https://wiki.debian.org/EmacspeakTestingGuide) as it appeared on 20 June 2014. I
+recommend checking that page if there is more up-to-date information
+(and update this file if there is).
+
+These are the steps to test whether Emacspeak release (our releases) works
+correctly.
+
+Startup
+
+Start Emacspeak using "emacspeak -q" command, that is without launching user
+init file. On startup Emacspeak plays a melody and speaks a message "Press
+... perfectly". However the melody is only heard when a required mp3 playback
+program is present, probably mplayer. So don't worry if you don't hear the
+melody, but the message should be there.
+
+Movement
+
+Every movement command should cause the part that was moved by to be
+spoken. Try moving with arrows to hear the letters or lines. Try M-f M-b to
+hear the words. This may be tested on welcome page.
+
+Vulnerable commands
+
+Try these commands whether they don't cause an unwanted behaviour or errors.
+
+    S-down moves down bypassing empty lines C-right goes to next buffer M-x
+    rmail - opens rmail application
+
+Read only message
+
+Create a new buffer, mark it as read only, try to type something. You should
+hear: "capital buffer is read hyphen only".
+
+    C-x C-f aaa M-x toggle-read-only type a letter
+
+Info pages
+
+Info pages were not always working correctly. In gui Emacs some of them were
+silent. Try movement commands (char, word, line) in 2 info buffers:
+
+    M-: (info "(Emacs)") press Next to go to another info page
+
+Transient mode
+
+Try if transient mark mode works as expected. In some version it did not.
+
+    C-x C-b - select "scratch" buffer with enter key or mouse go to the
+    beginning of line 3 C-space - mark the end of selection move to the
+    beginning of line 2, line 2 highlights in yellow
+
+    M-x replace-string <enter> t <enter> X <enter>
+
+The letter t should change to X, but only in the second line.
+
+Auditory icons
+
+Auditory icons are funny sounds announcing things happening during edition and
+movement.
+
+    C-e C-a - turn them on C-home - icon is played C-spc - another icon is
+    played C-/ - undo, yet another icon
+
+Undo
+
+Check if undo bug is present:
+
+    C-x C-f bbb - creates a new buffer Type "12" Go left delete (only "1"
+    remains) Type "3" Buffer consists of "13" C-/ - undo, several undo presses
+    should make the buffer empty again. The bug caused switching back and forth
+    the last change.
+
+Emacspeak version
+
+Test if the version Emacspeak presents is really the one it should be.
+
+    M-: emacspeak-version

@@ -1,0 +1,196 @@
+#! /bin/sh
+# prerm script for emacspeak
+#
+# see: dh_installdeb(1)
+
+set -e
+
+# summary of how this script can be called:
+#        * <prerm> `remove'
+#        * <old-prerm> `upgrade' <new-version>
+#        * <new-prerm> `failed-upgrade' <old-version>
+#        * <conflictor's-prerm> `remove' `in-favour' <package> <new-version>
+#        * <deconfigured's-prerm> `deconfigure' `in-favour'
+#          <package-being-installed> <version> `removing'
+#          <conflicting-package> <version>
+# for details, see http://www.debian.org/doc/debian-policy/ or
+# the debian-policy package
+
+case "$1" in
+    upgrade)
+	exit 0
+        ;;
+    remove|deconfigure)
+        ;;
+    failed-upgrade)
+        ;;
+    *)
+        echo "prerm called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+#echo "  deconfiguring" >>/var/log/emacspeak
+
+if [ -e /usr/share/debconf/confmodule ]; then # {{{
+    . /usr/share/debconf/confmodule
+
+    if db_get shared/emacspeak/fake; then
+        # I no longer claim these questions.
+        db_unregister shared/emacspeak/fake
+        db_unregister shared/emacspeak/device
+        db_unregister shared/emacspeak/port
+        db_unregister shared/emacspeak/invalidport
+        db_unregister shared/emacspeak/groupies
+        db_unregister shared/emacspeak/invaliduser
+        db_unregister shared/emacspeak/rootgroup
+        db_unregister shared/emacspeak/program
+        db_unregister shared/emacspeak/tcl
+        db_unregister shared/emacspeak/database
+    fi
+
+            # See if the shared question still exists.
+    if db_get shared/emacspeak/fake; then
+	db_metaget shared/emacspeak/fake owners
+	db_subst shared/emacspeak/fake choices $RET
+
+	export task=$1	  # save argument
+
+	perl -x $0        # execute this file as a perl program
+	true <<EOF        # bash discards everything from here to EOF
+# perl ignores everything until the next line, due to the "-x" option above
+#!/usr/bin/perl -w $*
+
+use strict;
+use Debconf::Client::ConfModule q(:all);
+
+# get choices already in the debconf database
+my $deleted_devices='DECtalk Express, DECtalk Multivoice, sound card with Software DECtalk, DECtalk 3, Software DECtalk, ViaVoice Outloud, a speech server on another computer';
+
+my ($b, $p, $t, $device, $olddevice, 
+    %blurb, %program, %tcl, %device, %db);
+my ($ret, $database) = metaget ('shared/emacspeak/database', 'choices');
+foreach (split (/, */, $database)){ # debconf database is comma separated
+    ($b, $p, $t, $device)=split(/:/);
+    if ($deleted_devices !~ m/$device/){
+	    $blurb{$device}=$b;
+	    $program{$device}=$p;
+	    $tcl{$device}=$t;
+	    $db{$device}="$b:$p:$t";
+	}
+}
+
+# Add choices from unpacked .blurb files from other packages, in case
+# they aren't debconf compliant
+my $dirname='/usr/share/emacs/site-lisp/emacspeak/blurbs';
+if (opendir(DIR,$dirname)){
+    my @fnames=readdir(DIR);
+    closedir(DIR);
+    foreach (@fnames){
+	if (/.blurb$/){
+	    open(IF,"$dirname/$_");
+	    while(<IF>){
+		if (/^blurb: *(.*)$/) {$b=$1;}
+		if (/^program: *(.*)$/) {$p=$1;}
+		if (/^tcl: *(.*)$/) {$t=$1;}
+		if (/^device: *(.*)$/) {$device=$1;}
+	    }
+	    if ($deleted_devices !~ m/$device/){
+		$blurb{$device}=$b;
+		$program{$device}=$p;
+		$tcl{$device}=$t;
+		$db{$device}="$b:$p:$t";
+	    }
+	}
+    }
+}
+
+my $newdatabase='';
+foreach $device (sort keys %db) {
+    ($b,$p,$t)=split(':',$db{$device});
+    $newdatabase .= "$b:$p:$t:$device, ";
+}
+
+# update debconf database
+subst ('shared/emacspeak/database', 'choices', $newdatabase);
+my $devicelist=join(', ', sort keys %db);
+subst ('shared/emacspeak/device', 'choices', $devicelist);
+
+# get current settings from the configuration file if it exists
+my $configfile='/etc/emacspeak.conf';
+my $program='';
+my $port='';
+my $tcl='';
+
+if (-e $configfile){
+    open(CF,$configfile) 
+	or die("$configfile exists but could not be opened for reading\n");
+    while (<CF>){
+	/^\s*DTK_PROGRAM\s*=\s*(\S+)/ and     
+	    set('shared/emacspeak/program',$1);
+	/^\s*DTK_PORT\s*=\s*(\S+)/ and 
+	    set('shared/emacspeak/port',$1);
+	/^\s*DTK_TCL\s*=\s*(\S+)/ and
+	    set('shared/emacspeak/tcl',$1);
+	/^\s*DTK_DEVICE\s*=\s*(\S+)/ and
+	    set('shared/emacspeak/device',$1);
+        # If device is a quoted string, rescan to get the whole thing
+	/^\s*DTK_DEVICE\s*=\s*\"(.+)\"/ and
+	    set('shared/emacspeak/device',$1);
+	/^\s*DTK_DEVICE\s*=\s*\'(.+)\'/ and
+	    set('shared/emacspeak/device',$1);
+    }
+    close(CF);
+}
+
+if ($ENV{task} eq "remove" && $deleted_devices =~ m/$device/){
+    # the currently configured device is being removed, 
+    # so ask which remaining device to use
+    fset('shared/emacspeak/device', 'seen', 'false');
+
+    title('emacspeak speech server configuration');
+    input('high', 'shared/emacspeak/device'); go();
+    $device=get('shared/emacspeak/device');
+
+    if (get('shared/emacspeak/program') eq ''){
+	set('shared/emacspeak/program',$program{$device});
+    }
+    if (get('shared/emacspeak/tcl') eq ''){
+	set('shared/emacspeak/tcl',$tcl{$device});
+    }
+    if ($device eq "DoubleTalk PC" and $port =~ m./dev/tty.){
+	set('shared/emacspeak/port','/dev/dtlk');
+    }
+
+    set('shared/emacspeak/program',$program{$device});
+    fset('shared/emacspeak/port', 'seen', 'false');
+    set('shared/emacspeak/tcl',$tcl{$device});
+
+    my $valid=0;
+    while (!$valid) {
+	input('high', 'shared/emacspeak/port'); go();
+	$port=get('shared/emacspeak/port');
+	if (($port eq "none") || (-c $port)){
+	    $valid=1;
+	} else {
+	    subst("shared/emacspeak/invalidport",'port',$port);
+	    input('high','shared/emacspeak/invalidport'); go();
+	}
+    }
+    # we don't check port permissions or ownership, or add or delete
+    # users from the port's group
+} # if ($deleted_devices =~ m/$device/)
+
+__END__         # perl ignores everything after this
+EOF
+
+    fi				# shared question still exists
+fi				# debconf is installed
+
+
+# dh_installdeb will replace this with shell code automatically
+# generated by other debhelper scripts.
+
+#DEBHELPER#
+
+exit 0
