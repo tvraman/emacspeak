@@ -528,7 +528,8 @@ Retain previously set punctuations  mode."
     (cond
      ((and (ems-interactive-p)
            (boundp 'emacspeak-we-url-executor)
-           (fboundp emacspeak-we-url-executor))
+           (fboundp emacspeak-we-url-executor)
+           (y-or-n-p "Use custom executor? "))
       (let ((url (get-text-property (point) 'shr-url)))
         (unless url (error "No URL  under point"))
         (funcall emacspeak-we-url-executor url)))
