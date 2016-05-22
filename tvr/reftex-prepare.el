@@ -1,4 +1,3 @@
-;(augment-load-path "reftex" "reftex-parse")
 (load-library "reftex")
 (setq reftex-enable-partial-scans t)
 (setq reftex-save-parse-info t)
