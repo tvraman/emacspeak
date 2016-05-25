@@ -301,6 +301,7 @@ See  \\{soundscape-default-theme} for details."
     ("LightWind" (comint-mode elfeed-search-mode))
     ("LoopStew" nil)
     ("ManyMockingBirds" nil)
+    ("ManyNightingales" nil)
     ("MockingBirds" nil)
     ("MockingCuckoos" nil)
     ("Nightscape" nil)
