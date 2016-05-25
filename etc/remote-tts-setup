@@ -1,10 +1,10 @@
 #!/bin/sh
-# usage: remote-tts-setup server-script synthesizer-server hostname
+# usage: remote-tts-setup server-script synthesizer-server 
 # starts a local server, then ssh to remote-host,
 # and set up reverse port forwarding.
 #Examples:
-# remote-tts-setup speech-server outloud host.example.com
-# remote-tts-setup 32-speech-server 32-outloud host.example.com
+# remote-tts-setup speech-server outloud 
+# remote-tts-setup 32-speech-server 32-outloud 
 
 REMOTE=#host.example.com
 EMACSPEAK=#emacspeak install directory 
