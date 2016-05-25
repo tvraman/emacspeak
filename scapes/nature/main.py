@@ -8,7 +8,6 @@ from boodle import builtin
 manage = bimport('org.boodler.manage')
 play = bimport('org.boodler.play')
 
-
 birds = bimport('org.emacspeak.birds')
 water = bimport('org.boodler.sample.water')
 wind = bimport('org.boodler.sample.wind')
@@ -38,7 +37,6 @@ nightingales = [
     birds.nightingale_015, birds.nightingale_016, birds.nightingale_017,
     birds.nightingale_018, birds.nightingale_019,
     birds.nightingale_020, birds.nightingale_021]
-
 
 ia_birds = [
     birds.wren_01,
@@ -95,8 +93,8 @@ bugs = [
     trill.crickets_one_swell,
 ]
 
-
 # helper: Pendulum generator:
+
 
 def pendulum(n):
     """Generate an oscilating sequence."""
@@ -123,14 +121,14 @@ class GardenBackground (agent.Agent):
             pitch = random.uniform(0.5, 1.1)
         else:
             pitch = random.uniform(0.7, 1.3)
-        pan = (count - 30) * 0.05  # [-1.5, 1.5]
-        d0 = self.sched_note_pan(gurgle, pan, pitch, vol, self.time)
-        self.sched_note_pan(breeze, -1 * pan, pitch, vol, self.time)
+            pan = (count - 30) * 0.05  # [-1.5, 1.5]
+            d0 = self.sched_note_pan(gurgle, pan, pitch, vol, self.time)
+            self.sched_note_pan(breeze, -1 * pan, pitch, vol, self.time)
         if ((count % 15) == 0):
             shower = random.choice(showers)
             self.sched_note_pan(shower, -1.2 * pan, pitch,
                                 vol,  abs(d0 + random.uniform(-2.0, 2.0)))
-        self.resched(2 * d0)
+            self.resched(2 * d0)
 
 
 class FlMockingBirds(agent.Agent):
@@ -264,6 +262,17 @@ class Nightingales(agent.Agent):
             self.pan,
             nightingales)
         self.sched_agent(ag)
+
+
+class ManyNightingales (agent.Agent):
+
+    def run(self):
+        nature = GardenBackground(0.0)
+        self.sched_agent(manage.VolumeModulateAgent(nature, 0.75))
+
+        for _ in xrange(10):
+            ag = Nightingales(0.0, 20.0, 0.1, 0.2, 1.2)
+            self.sched_agent(ag)
 
 
 class SongBirds(agent.Agent):

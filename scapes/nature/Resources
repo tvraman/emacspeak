@@ -21,6 +21,12 @@ boodler.use: agent
 dc.title: Nature Sounds Mocking Birds
 dc.description: Larger flock of CA and FL Mocking Birds
 
+
+:ManyNightingales
+boodler.use: agent
+dc.title: Nature Sounds Nightingales
+dc.description: Larger flock of Nightingales
+
 :GardenBackground
 boodler.use: agent
 dc.title: Nature Sounds Stream Rushing with breeze
