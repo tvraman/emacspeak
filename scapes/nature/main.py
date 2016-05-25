@@ -52,8 +52,8 @@ song_birds = [
     birds.songbird_004, birds.songbird_005, birds.songbird_006,
     birds.songbird_007, birds.songbird_008, birds.songbird_009, birds.songbird_010]
 
-for b in [tropical_birds,  ca_mocks, fl_mocks, cuckoos, ia_birds, nightingales]:
-    song_birds.extend(b)
+#for b in [tropical_birds,  ca_mocks, fl_mocks, cuckoos, ia_birds, nightingales]:
+    #song_birds.extend(b)
 
 showers = [
     rain.rain_thin, rain.rain_splatter,
