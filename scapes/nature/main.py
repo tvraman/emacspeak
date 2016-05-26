@@ -121,14 +121,14 @@ class GardenBackground (agent.Agent):
             pitch = random.uniform(0.5, 1.1)
         else:
             pitch = random.uniform(0.7, 1.3)
-            pan = (count - 30) * 0.05  # [-1.5, 1.5]
-            d0 = self.sched_note_pan(gurgle, pan, pitch, vol, self.time)
-            self.sched_note_pan(breeze, -1 * pan, pitch, vol, self.time)
+        pan = (count - 30) * 0.05  # [-1.5, 1.5]
+        d0 = self.sched_note_pan(gurgle, pan, pitch, vol, self.time)
+        self.sched_note_pan(breeze, -1 * pan, pitch, vol, self.time)
         if ((count % 15) == 0):
             shower = random.choice(showers)
             self.sched_note_pan(shower, -1.2 * pan, pitch,
                                 vol,  abs(d0 + random.uniform(-2.0, 2.0)))
-            self.resched(2 * d0)
+        self.resched(2 * d0)
 
 
 class FlMockingBirds(agent.Agent):
