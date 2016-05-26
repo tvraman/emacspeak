@@ -653,7 +653,8 @@ icon."
   (declare (special eldoc-documentation-function))
   (cond
    (eldoc-documentation-function
-    (message (or (funcall eldoc-documentation-function) "No ElDoc here ")))
+    (tts-with-punctuations 'all
+    (dtk-speak-and-echo (or (funcall eldoc-documentation-function) "No ElDoc here "))))
    (t (message "No ElDoc here. "))))
 
 (defvar emacspeak-ange-ftp-last-percent nil
