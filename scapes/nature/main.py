@@ -52,8 +52,8 @@ song_birds = [
     birds.songbird_004, birds.songbird_005, birds.songbird_006,
     birds.songbird_007, birds.songbird_008, birds.songbird_009, birds.songbird_010]
 
-#for b in [tropical_birds,  ca_mocks, fl_mocks, cuckoos, ia_birds, nightingales]:
-    #song_birds.extend(b)
+# for b in [tropical_birds,  ca_mocks, fl_mocks, cuckoos, ia_birds, nightingales]:
+# song_birds.extend(b)
 
 showers = [
     rain.rain_thin, rain.rain_splatter,
@@ -268,11 +268,21 @@ class ManyNightingales (agent.Agent):
 
     def run(self):
         nature = GardenBackground(0.0)
-        self.sched_agent(manage.VolumeModulateAgent(nature, 0.75))
+        nc = self.new_channel_pan(
+            stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.5)))  # in front
+        self.sched_agent(nature, 0, nc)
 
-        for _ in xrange(10):
-            ag = Nightingales(0.0, 20.0, 0.1, 0.2, 1.2)
-            self.sched_agent(ag)
+        nature = GardenBackground(60.0)
+        nc = self.new_channel_pan(
+            stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, -1.5)))  # behind
+        self.sched_agent(nature, 0, nc)
+
+        y = [-1.25, -1.2, -1.15, -1.1, -1.05, -1, 1, 1.05, 1.1, 1.15, 1.2]
+        for i in xrange(10):
+            bc = self.new_channel_pan(
+                stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, y[i])))
+            ag = Nightingales(0.0, 10 + 2 * i, 0.1, 0.6, 1.2)
+            self.sched_agent(ag, 0, bc)
 
 
 class SongBirds(agent.Agent):
