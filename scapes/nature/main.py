@@ -409,8 +409,8 @@ class Nightscape (agent.Agent):
         nc = self.new_channel_pan(stereo.shiftxy(0, -1.3))  # in back
         self.sched_agent(nature, 0, nc)
 
-        for i in xrange(6):
-            y = 1 + i * 0.1
+        for i in xrange(12):
+            y = 1 + i * 0.05
             nc = self.new_channel_pan(
                 stereo.compose(stereo.scalexy(1.4), stereo.shiftxy(0, y)))
             ag = Crickets(
