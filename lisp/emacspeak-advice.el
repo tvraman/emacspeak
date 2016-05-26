@@ -625,11 +625,11 @@ icon."
              (setq emacspeak-lazy-message-time (nth 1 (current-time)))))
       (setq emacspeak-last-message (ansi-color-apply (current-message)))
       ;; so we really need to speak it
-      (let ((dtk-speaker-process (dtk-notify-process)))
-        (tts-with-punctuations 'all
-                               (dtk-notify-using-voice voice-annotate  emacspeak-last-message))))
+      (tts-with-punctuations 'all
+                               (dtk-notify-using-voice voice-annotate  emacspeak-last-message)))
     ad-return-value))
-(defcustom emacspeak-eldoc-speak-explicitly nil
+(defcustom emacspeak-eldoc-speak-explicitly
+  (not emacspeak-tts-use-notify-stream)
   "Set to T if not using a separate TTS notification stream."
   :type 'boolean
   :group 'emacspeak-eldoc)
