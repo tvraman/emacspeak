@@ -637,16 +637,15 @@ icon."
 (defadvice eldoc-message (around emacspeak pre act comp)
   "Speech enable ELDoc."
  ;;; eldoc flashes message temporarily, we speak from cache."
-  (cond
-   (emacspeak-eldoc-speak-explicitly
-    (lexical-let ((emacspeak-speak-messages nil)
+  (lexical-let ((emacspeak-speak-messages nil)
                   (cached-message eldoc-last-message))
       ad-do-it
       (when (and eldoc-last-message
+                 emacspeak-eldoc-speak-explicitly
                  (not (string-equal cached-message eldoc-last-message)))
-        (dtk-speak-and-echo eldoc-last-message))))
-   (t ad-do-it))
-  ad-return-value)
+        (dtk-speak-and-echo eldoc-last-message))
+   ad-return-value))
+  
 
 (defun emacspeak-eldoc-speak-doc ()
   "Speak Eldoc documentation if available."
@@ -656,6 +655,7 @@ icon."
    (eldoc-documentation-function
     (message (or (funcall eldoc-documentation-function) "No ElDoc here ")))
    (t (message "No ElDoc here. "))))
+
 (defvar emacspeak-ange-ftp-last-percent nil
   "Cache the last percentage that emacspeak spoke.")
 
