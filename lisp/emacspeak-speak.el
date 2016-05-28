@@ -270,8 +270,7 @@ Argument BODY specifies forms to execute."
       (let ((sound-cue 'paragraph))
         (while (not (bobp))
           (backward-paragraph)
-          (put-text-property  (point)
-                              (+ 2    (point))
+          (put-text-property  (point) (+ 2    (point))
                               'auditory-icon sound-cue))))))
 
 (defcustom  emacspeak-speak-paragraph-personality voice-animate
