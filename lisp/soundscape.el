@@ -323,13 +323,22 @@ this list) must be the NullAgent written as (). ")
 
 (soundscape-load-theme soundscape-default-theme)
 
+(defun soundscape-read-major-mode-name ()
+  "Helper to read major-mode name with completion."
+  (let ((completion-regexp-list '("-mode\\'")))
+	(intern
+	 (completing-read "Major mode: "
+			  obarray
+			  'identity
+			  t nil nil nil))))
+
 (defun soundscape-update-mood (&optional prompt-mode)
   "Update mood/scape mapping for current major mode.
 The  updated mapping is not persisted.
 Optional interactive prefix arg `prompt-mode' prompts for the mode."
   (interactive "P")
   (let* ((completion-ignore-case t)
-         (mode (if prompt-mode (read-minibuffer "Mode:") major-mode))
+         (mode (if prompt-mode (soundscape-read-major-mode-name) major-mode))
          (scape
           (soundscape-lookup-name
            (completing-read "Scape:" (mapcar 'car soundscape-default-theme)))))
