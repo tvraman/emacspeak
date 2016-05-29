@@ -61,6 +61,7 @@
 ;;;@item  org-mode structure nav: <C-c SPC> Structure navigation  for org-mode.
 ;;;@item  org-mode tables: <C-c t> Table UI for org-mode tables.
 ;;;@item m-player: <s-m> Emacspeak-M-Player Commands
+;;;@item pianobar <s-'> Emacspeak-M-pianobar Commands
 ;;; @item hideshow: C-c h Provide HideShow bindings.
 ;;; @item toggle-option:  <C-c o> Single binding for toggling options.
 ;;; @item outliner: <C-c .> Bindings from outline-minor-mode.
