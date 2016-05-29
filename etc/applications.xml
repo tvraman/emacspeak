@@ -644,6 +644,9 @@ type="text/xsl"?>
       Editting support for interactive Python development.
       Features aural highlighting, structured browsing and debugging.
     </application>
+<application name="elpy">
+      IDE for interactive Python development.
+    </application>
     <application name="tcl">
       Support for interactive TCL development including aural highlighting,
       structured browsing and interactive  help.
