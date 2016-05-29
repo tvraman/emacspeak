@@ -1,0 +1,8 @@
+#!/bin/bash
+# Description: Headless Chrome
+set -x
+
+
+pidof Xvfb ||  Xvfb -ac :5 -screen 0 800x200x16 &
+export DISPLAY=:5
+google-chrome "$@"  2>&1 > /dev/null &
