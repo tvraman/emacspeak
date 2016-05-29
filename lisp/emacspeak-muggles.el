@@ -128,10 +128,11 @@ Argument `k-map' is a symbol  that names a keymap."
  (kbd "s-m")
  (emacspeak-muggles-generate 'emacspeak-m-player-mode-map))
 
-;; Create one for pianobar 
-(global-set-key
+;; Create one for pianobar
+(when (featurep 'pianobar)
+  (global-set-key
  (kbd "s-'")
- (emacspeak-muggles-generate 'pianobar-key-map))
+ (emacspeak-muggles-generate 'pianobar-key-map)))
 
 ;;}}}
 ;;{{{ Map Hydra Colors To Voices:
