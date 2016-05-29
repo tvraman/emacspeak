@@ -10539,9 +10539,9 @@ Call emacspeak-m-player with specified URL.
 
 @subsubsection emacspeak-m-player-using-openal
 @deffn {Command} emacspeak-m-player-using-openal   
-@kbd{C-; : C-x @@ h :}
+@kbd{C-; ; C-x @@ h ;}
 
-@kindex C-; : C-x @@ h :
+@kindex C-; ; C-x @@ h ;
 @findex emacspeak-m-player-using-openal
 
 @format
@@ -19423,6 +19423,9 @@ Launch sudo vi on specified file in a terminal.
 
 @subsubsection emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 @deffn {Command} emacspeak-wizards-view-buffers-filtered-by-m-player-mode   
+@kbd{C-; : C-x @@ h :}
+
+@kindex C-; : C-x @@ h :
 @findex emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 
 @format
@@ -20656,7 +20659,7 @@ Run command M-x soundscape-theme to see the default mode->mood mapping.
 @end deffn
 
 @subsubsection soundscape-update-mood
-@deffn {Command} soundscape-update-mood   
+@deffn {Command} soundscape-update-mood  (&optional prompt-mode)
 @kbd{C-' u C-x @@ s u}
 
 @kindex C-' u C-x @@ s u
@@ -20664,7 +20667,8 @@ Run command M-x soundscape-theme to see the default mode->mood mapping.
 
 @format
 Update mood/scape mapping for current major mode.
-This updated mapping is not persisted.
+The  updated mapping is not persisted.
+Optional interactive prefix arg ``prompt-mode'' prompts for the mode.
 @end format
 @end deffn
 

@@ -4504,7 +4504,7 @@ http://www.mplayerhq.hu/DOCS/
 ...........................................
 
  -- Command: emacspeak-m-player-using-openal
-     ‘C-; : C-x @ h :’
+     ‘C-; ; C-x @ h ;’
 
      Use openal as the audio output driver. Adding hrtf=true to
      ~/.alsoftrc gives HRTF. You need to have openal installed and have an
