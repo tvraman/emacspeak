@@ -328,7 +328,7 @@ The  updated mapping is not persisted.
 Optional interactive prefix arg `prompt-mode' prompts for the mode."
   (interactive "P")
   (let* ((completion-ignore-case t)
-         (mode (if prompt-mode (read-minibuffer "Mode:")special-mode major-mode))
+         (mode (if prompt-mode (read-minibuffer "Mode:") major-mode))
          (scape
           (soundscape-lookup-name
            (completing-read "Scape:" (mapcar 'car soundscape-default-theme)))))
