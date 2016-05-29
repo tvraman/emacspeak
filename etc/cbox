@@ -3,6 +3,6 @@
 set -x
 
 
-nice -n 10 pidof Xvfb ||  Xvfb -ac :5 -screen 0 800x200x16 &
+pidof Xvfb ||  nice -n 15 Xvfb -ac :5 -screen 0 800x200x16 &
 export DISPLAY=:5
 nice -n 15 google-chrome "$@"  2>&1 > /dev/null &
