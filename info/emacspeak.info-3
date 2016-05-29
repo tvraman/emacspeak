@@ -5271,7 +5271,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <C-left>:                              emacspeak-wizards.  (line  177)
 * <C-right>:                             emacspeak-wizards.  (line  168)
 * <C-up>:                                emacspeak-speak.    (line   84)
-* <print>:                               emacspeak-muggles.  (line   47)
+* <print>:                               emacspeak-muggles.  (line   48)
 * <S-down>:                              emacspeak-wizards.  (line  256)
 * <S-up>:                                emacspeak-wizards.  (line  246)
 * <search>:                              emacspeak-speak.    (line  191)
@@ -5353,13 +5353,13 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
                                                              (line  146)
 * C-c e:                                 Running Terminal Based Applications.
                                                              (line  112)
-* C-c h:                                 emacspeak-muggles.  (line   74)
+* C-c h:                                 emacspeak-muggles.  (line   75)
 * C-c k:                                 Running Terminal Based Applications.
                                                              (line   72)
 * C-c o:                                 Running Terminal Based Applications.
                                                              (line   56)
-* C-c o <1>:                             emacspeak-muggles.  (line  292)
-* C-c v C-; v C-x @ h v:                 emacspeak-muggles.  (line  318)
+* C-c o <1>:                             emacspeak-muggles.  (line  293)
+* C-c v C-; v C-x @ h v:                 emacspeak-muggles.  (line  319)
 * C-e ! <XF86WakeUp> !:                  emacspeak-wizards.  (line  277)
 * C-e " <XF86WakeUp> ":                  emacspeak-speak.    (line  794)
 * C-e # a <XF86WakeUp> # a:              emacspeak-gridtext. (line   27)
@@ -5678,6 +5678,6 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * ESCAPE up:                             Reading.            (line  124)
 * M-ESC ::                               emacspeak-wizards.  (line  908)
 * pause control e s:                     Miscellaneous.      (line   12)
-* s-m:                                   emacspeak-muggles.  (line   66)
-* s-n:                                   emacspeak-muggles.  (line  204)
+* s-m:                                   emacspeak-muggles.  (line   67)
+* s-n:                                   emacspeak-muggles.  (line  205)
 
