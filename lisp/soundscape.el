@@ -294,7 +294,7 @@ See  \\{soundscape-default-theme} for details."
     ("BirdChorus" nil)
     ("BirdCalls" nil)
     ("BirdSongs" (shell-mode term-mode))
-    ("BuddhaLoop" (special-mode))
+    ("ChangingLoops" (special-mode))
     ("Cavern" (prog-mode))
     ("ChangingLoops" (emacspeak-m-player-mode))
     ("Drip" ,soundscape-communication-modes)
