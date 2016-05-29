@@ -156,6 +156,7 @@ DTDs
 dtk
 dvi
 DVI
+EasyPG
 ebook
 ebooks
 EBooks
@@ -183,6 +184,8 @@ elpa
 ELPA
 elpy
 ELPY
+elscreen
+ELSCREEN
 elsif
 emacspeak
 Emacspeak
@@ -262,6 +265,7 @@ GoLang
 gomoku
 googles
 goto
+GPG
 gphoto
 greader
 gridtext
@@ -353,7 +357,6 @@ magit
 MAGIT
 maildrops
 makefile
-Makefile
 makeinfo
 makepp
 manpage
@@ -439,6 +442,7 @@ ppthtml
 PPTHTML
 pre
 Pre
+prebuilt
 precompiled
 preformatted
 Prepend
@@ -508,7 +512,6 @@ searchable
 Searchable
 Sep
 ses
-setenv
 sexp
 SFO
 sha
@@ -536,7 +539,6 @@ sox
 Sox
 SoX
 soxplay
-spamassassin
 SPC
 speedbar
 Speedbar
@@ -552,7 +554,6 @@ StreamId
 StreamTheWorld
 StreamWorld
 strikethru
-stty
 stylesheet
 stylesheets
 su
@@ -574,7 +575,6 @@ symlinks
 tbm
 tcl
 TCL
-TclX
 TCP
 tdtd
 tetris
@@ -605,6 +605,8 @@ TTS
 tty
 TuneIn
 tvr
+txicodequotebacktick
+txicodequoteundirected
 txt
 ui
 UI
@@ -641,8 +643,10 @@ voiceifying
 voicemail
 Voicification
 Voicifies
+voxin
 Voxin
 wah
+WakeUp
 wav
 wdired
 wearables
@@ -668,6 +672,7 @@ wvText
 xa
 xbacklight
 xdvi
+XF
 xheader
 xkcd
 XKCD
