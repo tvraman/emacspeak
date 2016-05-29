@@ -329,8 +329,7 @@ this list) must be the NullAgent written as (). ")
 	(intern
 	 (completing-read "Major mode: "
 			  obarray
-			  'identity
-			  t nil nil nil))))
+			  nil t nil nil nil))))
 
 (defun soundscape-update-mood (&optional prompt-mode)
   "Update mood/scape mapping for current major mode.
