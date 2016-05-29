@@ -323,7 +323,7 @@ this list) must be the NullAgent written as (). ")
 
 (soundscape-load-theme soundscape-default-theme)
 
-(defun soundscape-read-major-mode-name ()
+(defsubst soundscape-read-major-mode-name ()
   "Helper to read major-mode name with completion."
   (let ((completion-regexp-list '("-mode\\'")))
 	(intern
