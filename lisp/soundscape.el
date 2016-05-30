@@ -295,9 +295,8 @@ See  \\{soundscape-default-theme} for details."
     ("BirdCalls" nil)
     ("BirdSongs" (shell-mode term-mode))
     ("ChangingLoops" (special-mode))
-    ("ChangingLoopsPitches" nil)
-    
-("LoopStew"  nil)
+    ("ChangingLoopsPitches" (lisp-interaction-mode))
+    ("LoopStew"  nil)
     ("Cavern" (prog-mode))
     ("ChangingLoops" (emacspeak-m-player-mode))
     ("Drip" ,soundscape-communication-modes)
