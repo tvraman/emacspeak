@@ -327,7 +327,7 @@ this list) must be the NullAgent written as (). ")
 
 (defsubst soundscape--read-mode-name ()
   "Helper to read major-mode name with completion."
-  (let ((completion-regexp-list '("-mode\\'")))
+  (let ((completion-regexp-list '("-mode$")))
     (intern (completing-read "Major mode: " obarray #'functionp 'must-match))))
 
 (defun soundscape-update-mood (&optional prompt-mode)
