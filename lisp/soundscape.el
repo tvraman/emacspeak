@@ -337,8 +337,7 @@ this list) must be the NullAgent written as (). ")
 The  updated mapping is not persisted.
 Optional interactive prefix arg `prompt-mode' prompts for the mode."
   (interactive "P")
-  (let* ((completion-ignore-case t)
-         (mode (if prompt-mode (soundscape-read-major-mode-name) major-mode))
+  (let* ((mode (if prompt-mode (soundscape-read-major-mode-name) major-mode))
          (scape
           (soundscape-lookup-name
            (completing-read "Scape:" (mapcar 'car soundscape-default-theme)))))
