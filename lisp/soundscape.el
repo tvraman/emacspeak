@@ -327,12 +327,8 @@ this list) must be the NullAgent written as (). ")
 
 (defsubst soundscape-read-major-mode-name ()
   "Helper to read major-mode name with completion."
-	(intern
-   (completing-read
-    "Major mode: "
-    obarray 
-    #'(lambda (m) (and (functionp m) (string-match "-mode$" (symbol-name m))))
-                    'must-match)))
+  (let ((completion-regexp-list '("-mode\\'")))
+    (intern (completing-read "Major mode: " obarray #'functionp 'must-match))))
 
 (defun soundscape-update-mood (&optional prompt-mode)
   "Update mood/scape mapping for current major mode.
@@ -494,7 +490,7 @@ Optional interactive prefix arg `force' skips optimization checks."
 
 ;;; Advice on select-window, force-mode-line-update etc fire too often.
 ;;; Ditto with buffer-list-update-hook
-;;; Running on an idle timer can 
+;;; Running on an idle timer can
 ;;;  soundscape-delay (default is 0.1)
 ;;;   triggers fewer spurious changes than running on advice.
 
@@ -556,8 +552,8 @@ Caches most recently used device, which then becomes the default for future invo
          (append
           (copy-sequence soundscape-manager-options) ; clone default options
           (when soundscape--cached-device `("--device" ,soundscape--cached-device)))))
-    (when soundscape--auto 
-      (soundscape-toggle) 
+    (when soundscape--auto
+      (soundscape-toggle)
       (soundscape-listener-shutdown))
     (soundscape-toggle)
     (sit-for 0.1)
