@@ -4933,7 +4933,7 @@ attempt to automatically install package hydra if it is not found.
      org-mode.
    • org-mode tables: <C-c t> Table UI for org-mode tables.
    • m-player: <s-m> Emacspeak-M-Player Commands
-   • pianobar <s-’> Emacspeak-M-pianobar Commands
+   • pianobar: <s-’> Emacspeak-M-pianobar Commands
    • hideshow: C-c h Provide HideShow bindings.
    • toggle-option: <C-c o> Single binding for toggling options.
    • outliner: <C-c .> Bindings from outline-minor-mode.
