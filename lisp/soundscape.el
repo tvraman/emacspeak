@@ -329,7 +329,7 @@ this list) must be the NullAgent written as (). ")
    (completing-read
     "Major mode: "
     obarray 
-    #'(lambda (m) (and (string-match "-mode$" (symbol-name m)) (functionp m)))
+    #'(lambda (m) (and (functionp m) (string-match "-mode$" (symbol-name m))))
                     'must-match)))
 
 (defun soundscape-update-mood (&optional prompt-mode)
