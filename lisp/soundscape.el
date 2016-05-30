@@ -325,11 +325,12 @@ this list) must be the NullAgent written as (). ")
 
 (defsubst soundscape-read-major-mode-name ()
   "Helper to read major-mode name with completion."
-  (let ((completion-regexp-list '("-mode\\'")))
 	(intern
-	 (completing-read "Major mode: "
-			  obarray
-			  nil t nil nil nil))))
+   (completing-read
+    "Major mode: "
+    obarray 
+    #'(lambda (m) (and (string-match "-mode$" (symbol-name m)) (functionp m)))
+                    'must-match)))
 
 (defun soundscape-update-mood (&optional prompt-mode)
   "Update mood/scape mapping for current major mode.
