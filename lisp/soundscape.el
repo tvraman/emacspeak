@@ -223,7 +223,6 @@ Default is to return NullAgent if name not found."
 
 (defsubst soundscape-running-p (scape)
   "Predicate to check if soundscape is running."
-  (declare (special soundscape-processes))
   (process-live-p (gethash  scape soundscape-processes)))
 
 (defun soundscape-current ()
@@ -239,7 +238,6 @@ Default is to return NullAgent if name not found."
 
 (defsubst  soundscape-for-mode (mode)
   "Return associated soundscape for this mode if any."
-  (declare (special soundscape-mode-table))
   (let ((result nil))
     (while mode
       (cl-pushnew (gethash mode soundscape-mode-table) result)
@@ -248,7 +246,6 @@ Default is to return NullAgent if name not found."
 
 (defsubst  soundscape-map-mode (mode scape)
   "Associate soundscape for this mode."
-  (declare (special soundscape-mode-table))
   (when mode
     (puthash mode scape soundscape-mode-table)))
 
@@ -499,7 +496,6 @@ Optional interactive prefix arg `force' skips optimization checks."
 ;;{{{ SoundScape Toggle:
 (defsubst soundscape-quiet ()
   "Activate NullAgent."
-  (declare (special soundscape-remote-control))
   (when (process-live-p soundscape-remote-control)
     (process-send-string soundscape-remote-control "soundscape 0\n")))
 
