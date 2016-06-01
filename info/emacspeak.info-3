@@ -12,6 +12,204 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: emacspeak-sql,  Next: emacspeak-sudoku,  Prev: emacspeak-speedbar,  Up: Emacspeak Commands And Options
+
+12.161 emacspeak-sql
+====================
+
+This module speech enables sql-mode– available from
+http://paddington.ic.uva.nl/public/sql-modes.zip sql-mode.el implemented
+by the above package sets up an Emacs to SQL interface where you can
+interactively evaluate SQL expressions.
+
+
+File: emacspeak.info,  Node: emacspeak-sudoku,  Next: emacspeak-supercite,  Prev: emacspeak-sql,  Up: Emacspeak Commands And Options
+
+12.162 emacspeak-sudoku
+=======================
+
+Playing SuDoku using speech output.  Written to discover what type of
+feedback one needs for this task.  See
+http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.html
+
+12.162.1 emacspeak-sudoku Commands
+----------------------------------
+
+12.162.1.1 emacspeak-sudoku-board-columns-summarize
+...................................................
+
+ -- Command: emacspeak-sudoku-board-columns-summarize
+
+     Summarize columns — speaks number of remaining cells.
+
+12.162.1.2 emacspeak-sudoku-board-distribution-summarize
+........................................................
+
+ -- Command: emacspeak-sudoku-board-distribution-summarize
+
+     Shows distribution of filled numbers.
+
+12.162.1.3 emacspeak-sudoku-board-rows-summarize
+................................................
+
+ -- Command: emacspeak-sudoku-board-rows-summarize
+
+     Summarize rows — speaks number of remaining cells.
+
+12.162.1.4 emacspeak-sudoku-board-sub-squares-summarize
+.......................................................
+
+ -- Command: emacspeak-sudoku-board-sub-squares-summarize
+
+     Summarize sub-squares — speaks number of remaining cells.
+
+12.162.1.5 emacspeak-sudoku-board-summarizer
+............................................
+
+ -- Command: emacspeak-sudoku-board-summarizer
+
+     Dispatch to  appropriate summarizer.
+
+     d   Number Distribution
+     r   Row Distribution
+     c   Column Distribution
+     s   Sub-square Distribution.
+
+
+12.162.1.6 emacspeak-sudoku-down-sub-square
+...........................................
+
+ -- Command: emacspeak-sudoku-down-sub-square
+
+     Move to top-left corner of  sub-square below current one.
+
+12.162.1.7 emacspeak-sudoku-erase-current-column
+................................................
+
+ -- Command: emacspeak-sudoku-erase-current-column
+
+     Erase current column.
+
+12.162.1.8 emacspeak-sudoku-erase-current-row
+.............................................
+
+ -- Command: emacspeak-sudoku-erase-current-row
+
+     Erase current row.
+
+12.162.1.9 emacspeak-sudoku-erase-current-sub-square
+....................................................
+
+ -- Command: emacspeak-sudoku-erase-current-sub-square
+
+     Erase current sub-square.
+
+12.162.1.10 emacspeak-sudoku-hint
+.................................
+
+ -- Command: emacspeak-sudoku-hint
+
+     Provide hint for current cell.
+
+12.162.1.11 emacspeak-sudoku-history-pop
+........................................
+
+ -- Command: emacspeak-sudoku-history-pop
+
+     Pop saved state off stack and redraw board.
+
+12.162.1.12 emacspeak-sudoku-history-push
+.........................................
+
+ -- Command: emacspeak-sudoku-history-push
+
+     Push current state on to history stack.
+
+12.162.1.13 emacspeak-sudoku-how-many-remaining
+...............................................
+
+ -- Command: emacspeak-sudoku-how-many-remaining
+
+     Speak number of remaining squares to fill.
+
+12.162.1.14 emacspeak-sudoku-next-sub-square
+............................................
+
+ -- Command: emacspeak-sudoku-next-sub-square
+
+     Move to top-left corner of next sub-square.
+
+12.162.1.15 emacspeak-sudoku-previous-sub-square
+................................................
+
+ -- Command: emacspeak-sudoku-previous-sub-square
+
+     Move to top-left corner of previous sub-square.
+
+12.162.1.16 emacspeak-sudoku-speak-current-cell-coordinates
+...........................................................
+
+ -- Command: emacspeak-sudoku-speak-current-cell-coordinates
+
+     speak current cell coordinates.
+
+12.162.1.17 emacspeak-sudoku-speak-current-cell-value
+.....................................................
+
+ -- Command: emacspeak-sudoku-speak-current-cell-value
+
+     Speak value in current cell.
+
+12.162.1.18 emacspeak-sudoku-speak-current-column
+.................................................
+
+ -- Command: emacspeak-sudoku-speak-current-column
+
+     Speak current column.
+
+12.162.1.19 emacspeak-sudoku-speak-current-row
+..............................................
+
+ -- Command: emacspeak-sudoku-speak-current-row
+
+     Speak current row.
+
+12.162.1.20 emacspeak-sudoku-speak-current-sub-square
+.....................................................
+
+ -- Command: emacspeak-sudoku-speak-current-sub-square
+
+     Speak current sub-square.
+
+12.162.1.21 emacspeak-sudoku-speak-remaining-in-column
+......................................................
+
+ -- Command: emacspeak-sudoku-speak-remaining-in-column
+
+     Speaks number of remaining cells in current column.
+
+12.162.1.22 emacspeak-sudoku-speak-remaining-in-row
+...................................................
+
+ -- Command: emacspeak-sudoku-speak-remaining-in-row
+
+     Speaks number of remaining cells in current row.
+
+12.162.1.23 emacspeak-sudoku-speak-remaining-in-sub-square
+..........................................................
+
+ -- Command: emacspeak-sudoku-speak-remaining-in-sub-square
+
+     Speaks number of remaining cells in current sub-square.
+
+12.162.1.24 emacspeak-sudoku-up-sub-square
+..........................................
+
+ -- Command: emacspeak-sudoku-up-sub-square
+
+     Move to top-left corner of  sub-square above current one.
+
+
 File: emacspeak.info,  Node: emacspeak-supercite,  Next: emacspeak-table,  Prev: emacspeak-sudoku,  Up: Emacspeak Commands And Options
 
 12.163 emacspeak-supercite
@@ -595,19 +793,6 @@ broken.
  -- Command: emacspeak-twittering-speak-this-tweet
 
      Speak tweet under point.
-
-12.175.2 emacspeak-twittering Options
--------------------------------------
-
- -- Variable: User Option emacspeak-twittering-uri-personality
-     Personality used for twittering-uri-face This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option emacspeak-twittering-username-personality
-     Personality used for twittering-username-face This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-url-template,  Next: emacspeak-view,  Prev: emacspeak-twittering,  Up: Emacspeak Commands And Options
@@ -4115,7 +4300,7 @@ email, IM, ...  map to the same _mood_.
  -- Command: soundscape-update-mood (&optional prompt-mode)
      ‘C-' u C-x @ s u’
 
-     Update mood/scape mapping for current major mode.
+     Update mood/scape mapping for current  mode.
      The  updated mapping is not persisted.
      Optional interactive prefix arg “prompt-mode” prompts for the mode.
 
