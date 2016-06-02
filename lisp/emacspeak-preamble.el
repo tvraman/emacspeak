@@ -56,7 +56,7 @@
   "URL encode string."
   (mapconcat
    #'(lambda (c)
-       (cond ((= c 32) "+")
+       (cond ((= c 32) "%20")
              ((or (and (>= c ?a) (<= c ?z))
                   (and (>= c ?A) (<= c ?Z))
                   (and (>= c ?0) (<= c ?9)))

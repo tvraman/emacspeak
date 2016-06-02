@@ -1364,6 +1364,14 @@ prompts for a location and speaks the forecast. \n\n"
  "Search WikiData.")
 
 ;;}}}
+;;{{{ Search NLS Bard:
+(emacspeak-url-template-define
+ "NLS Bard Search"
+ "https://nlsbard.loc.gov:443/nlsbardprod/search_collection/collection/page/1/sort/s/srch/%s/local/0"
+ (list "Search For: ")
+ nil
+ "Search NLS Bard Catalog. Login once before using this template.")
+;;}}}
 (provide 'emacspeak-url-template)
 ;;{{{ end of file
 
