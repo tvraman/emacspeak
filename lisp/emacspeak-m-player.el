@@ -556,15 +556,17 @@ necessary."
   "Scale speed by specified factor."
   (interactive "nFactor:")
   (emacspeak-m-player-dispatch
-   (format "speed_mult %f" factor)))
+   (format "af_add scaletempo=scale=%f:speed=pitch" factor)))
 
 (defun emacspeak-m-player-slower ()
-  "Slow down playback."
+  "Slow down playback.
+This affects pitch."
   (interactive)
   (emacspeak-m-player-scale-speed 0.9091))
 
 (defun emacspeak-m-player-faster ()
-  "Speed up  playback."
+  "Speed up  playback.
+This affects pitch."
   (interactive)
   (emacspeak-m-player-scale-speed 1.1))
 
