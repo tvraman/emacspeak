@@ -343,6 +343,15 @@ dont-url-encode if true then url arguments are not url-encoded "
  "Display comparative trends."
  nil 'dont-escape)
 
+
+(emacspeak-url-template-define
+ "Google Related Trends"
+ "http://www.google.com/trends/fetchComponent?hl=en-US&q=%s&geo=US&cid=RISING_QUERIES_0_0"
+ (list "Comma Separated Keywords: ")
+ nil 
+ "Display Related Query Trends."
+ nil 'dont-escape)
+
 ;;}}}
 ;;{{{ market summary from google finance
 
