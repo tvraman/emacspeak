@@ -326,6 +326,16 @@ dont-url-encode if true then url arguments are not url-encoded "
  "Show HTML5 IRC log.")
 
 ;;}}}
+;;{{{ Google Trends:
+
+(emacspeak-url-template-define
+ "Google Trends"
+ "http://www.google.com/trends/hottrends/atom/feed?pn=p1"
+ nil nil
+ "Google Trends"
+#'emacspeak-feeds-rss-display)
+
+;;}}}
 ;;{{{ market summary from google finance
 
 (emacspeak-url-template-define
