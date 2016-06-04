@@ -21,3 +21,6 @@ Module ~emacspeak-elscreen~ speech-enables package ~elscreen~.
 
 Added completion support for browsing Librivox by genre. All searches
 now accept an interactive prefix arg for getting next set of results.
+
+** Switching Among Related Buffers:
+Module ~emacspeak-related~ speech-enables package  ~related~ from Melpa.
