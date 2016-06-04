@@ -148,6 +148,7 @@ This chapter documents a total of 1151 commands and 951 options.
 * emacspeak-re-builder::
 * emacspeak-redefine::
 * emacspeak-reftex::
+* emacspeak-related::
 * emacspeak-remote::
 * emacspeak-replace::
 * emacspeak-rmail::
@@ -13135,6 +13136,12 @@ Speech flushes as you type.
 This module speech-enables refteex --
 reftex is a minor mode that makes navigation of TeX
 documents  possible via a table of contents buffer.
+
+@node emacspeak-related
+@section emacspeak-related
+
+RELATED ==  Switch among related buffers (melpa).
+Speech-enable interactive commands.
 
 @node emacspeak-remote
 @section emacspeak-remote
