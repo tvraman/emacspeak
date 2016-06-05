@@ -664,7 +664,7 @@ interactive command that the key sequence executes."
     ("t" twit)
     ("u" browse-url)
     ("v" emacspeak-muggles-view/body)
-)
+    )
   "*Specifies hyper key bindings for the audio desktop. Emacs can
 use the `hyper' key as a modifier key. You can turn the `windows'
 keys on your Linux PC keyboard into a `hyper' key on Linux by

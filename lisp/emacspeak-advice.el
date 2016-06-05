@@ -626,7 +626,7 @@ icon."
       (setq emacspeak-last-message (ansi-color-apply (current-message)))
       ;; so we really need to speak it
       (tts-with-punctuations 'all
-                               (dtk-notify-using-voice voice-annotate  emacspeak-last-message)))
+                             (dtk-notify-using-voice voice-annotate  emacspeak-last-message)))
     ad-return-value))
 (defcustom emacspeak-eldoc-speak-explicitly
   (not emacspeak-tts-use-notify-stream)
@@ -638,14 +638,13 @@ icon."
   "Speech enable ELDoc."
  ;;; eldoc flashes message temporarily, we speak from cache."
   (lexical-let ((emacspeak-speak-messages nil)
-                  (cached-message eldoc-last-message))
-      ad-do-it
-      (when (and eldoc-last-message
-                 emacspeak-eldoc-speak-explicitly
-                 (not (string-equal cached-message eldoc-last-message)))
-        (dtk-speak-and-echo eldoc-last-message))
-   ad-return-value))
-  
+                (cached-message eldoc-last-message))
+    ad-do-it
+    (when (and eldoc-last-message
+               emacspeak-eldoc-speak-explicitly
+               (not (string-equal cached-message eldoc-last-message)))
+      (dtk-speak-and-echo eldoc-last-message))
+    ad-return-value))
 
 (defun emacspeak-eldoc-speak-doc ()
   "Speak Eldoc documentation if available."
@@ -654,7 +653,7 @@ icon."
   (cond
    (eldoc-documentation-function
     (tts-with-punctuations 'all
-    (dtk-speak-and-echo (or (funcall eldoc-documentation-function) "No ElDoc here "))))
+                           (dtk-speak-and-echo (or (funcall eldoc-documentation-function) "No ElDoc here "))))
    (t (message "No ElDoc here. "))))
 
 (defvar emacspeak-ange-ftp-last-percent nil

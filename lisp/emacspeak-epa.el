@@ -105,7 +105,7 @@
  for f in
  '(
    epa-mail-mode epa-global-mail-mode
-                 epa-file-disable epa-file-enable )
+                 epa-file-disable epa-file-enable)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

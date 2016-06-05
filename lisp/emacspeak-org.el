@@ -207,11 +207,11 @@
  '(
    org-delete-indentation
    org-insert-heading org-insert-todo-heading
-                      org-promote-subtree org-demote-subtree
-                      org-do-promote org-do-demote
-                      org-move-subtree-up org-move-subtree-down
-                      org-convert-to-odd-levels org-convert-to-oddeven-levels
-                      )
+   org-promote-subtree org-demote-subtree
+   org-do-promote org-do-demote
+   org-move-subtree-up org-move-subtree-down
+   org-convert-to-odd-levels org-convert-to-oddeven-levels
+   )
  do
  (eval
   `(defadvice ,f(after emacspeak pre act comp)

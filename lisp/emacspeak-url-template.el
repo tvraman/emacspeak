@@ -333,7 +333,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  "http://www.google.com/trends/hottrends/atom/feed?pn=p1"
  nil nil
  "Google Trends"
-#'emacspeak-feeds-rss-display)
+ #'emacspeak-feeds-rss-display)
 
 (emacspeak-url-template-define
  "Google Compare Trends"
@@ -342,7 +342,6 @@ dont-url-encode if true then url arguments are not url-encoded "
  nil 
  "Display comparative trends."
  nil 'dont-escape)
-
 
 (emacspeak-url-template-define
  "Google Related Trends"

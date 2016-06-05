@@ -424,7 +424,6 @@ On a directory line, run du -s on the directory to speak its size."
   (interactive)
   (eww-open-file (dired-get-filename)))
 
-
 (defun emacspeak-dired-md-open ()
   "Preview markdown  file on current dired line."
   (interactive)

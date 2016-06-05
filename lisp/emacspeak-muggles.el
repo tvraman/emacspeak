@@ -85,8 +85,8 @@
 (require 'hideshow)
 (require 'outline)
 (cl-eval-when '(load)
-(when (locate-library "package")
-  (unless (locate-library "hydra") (package-install 'hydra))))
+  (when (locate-library "package")
+    (unless (locate-library "hydra") (package-install 'hydra))))
 (require 'hydra "hydra" 'no-error)(require 'xbacklight)
 (require 'view)
 (require 'org)
@@ -131,8 +131,8 @@ Argument `k-map' is a symbol  that names a keymap."
 ;; Create one for pianobar
 (when (featurep 'pianobar)
   (global-set-key
- (kbd "s-'")
- (emacspeak-muggles-generate 'pianobar-key-map)))
+   (kbd "s-'")
+   (emacspeak-muggles-generate 'pianobar-key-map)))
 
 ;;}}}
 ;;{{{ Map Hydra Colors To Voices:

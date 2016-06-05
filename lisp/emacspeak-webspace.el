@@ -636,8 +636,6 @@ Optional interactive prefix arg `limit' prompts for number of results, default i
       (emacspeak-webutils-autospeak)
       (browse-url-of-buffer))))
 
-
-
 ;;}}}
 (provide 'emacspeak-webspace)
 ;;{{{ end of file

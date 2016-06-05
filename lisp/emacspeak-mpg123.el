@@ -175,14 +175,14 @@ mpg123 defines this as a macro which causes compile trouble."
   (declare (special mpg123-mode-map))
   (define-key mpg123-mode-map "t" 'emacspeak-mpg123-speak-title)
   (define-key mpg123-mode-map "l"
-  'emacspeak-mpg123-speak-length)
+    'emacspeak-mpg123-speak-length)
   (define-key mpg123-mode-map '[left]
     'emacspeak-aumix-wave-decrease)
-(define-key mpg123-mode-map '[right] 'emacspeak-aumix-wave-increase)
-(define-key mpg123-mode-map "c"
-  'emacspeak-mpg123-speak-current-time)
-(define-key mpg123-mode-map "."
-  'emacspeak-mpg123-speak-filename))
+  (define-key mpg123-mode-map '[right] 'emacspeak-aumix-wave-increase)
+  (define-key mpg123-mode-map "c"
+    'emacspeak-mpg123-speak-current-time)
+  (define-key mpg123-mode-map "."
+    'emacspeak-mpg123-speak-filename))
 
 (when (featurep 'mpg123) (emacspeak-mpg123-setup-keys))
 ;;}}}

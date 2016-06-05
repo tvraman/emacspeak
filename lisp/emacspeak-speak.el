@@ -3406,7 +3406,7 @@ This command  is designed for use in a windowing environment like X."
   (when  (get-buffer "*Completions*")
     (with-current-buffer (get-buffer "*Completions*")
       (let ((voice-lock-mode nil))
-      (funcall-interactively #'next-completion 1)))))
+        (funcall-interactively #'next-completion 1)))))
 
 (defun emacspeak-minibuffer-previous-completion ()
   "Move to previous available minibuffer completion."
