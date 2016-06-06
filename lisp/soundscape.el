@@ -297,7 +297,7 @@ See  \\{soundscape-default-theme} for details."
     ("Cavern" (prog-mode))
     ("ChangingLoops" (emacspeak-m-player-mode))
     ("Drip" ,soundscape-communication-modes)
-    ("LightWind" (comint-mode))
+    ("BuddhaLoop" (comint-mode))
     ("BuddhaLoop"  (elfeed-search-mode))
     ("LoopStew" nil)
     ("ManyMockingBirds" nil)
