@@ -348,25 +348,25 @@ command \\[customize-variable] on <personality>-settings.. "
 (defvoice voice-brighten-extra (list nil nil nil 7 8)
   "Extra brighten current voice.")
 
-(defvoice voice-bolden (list nil 1 6 6  nil)
+(defvoice voice-bolden (list nil 3 6 6  nil)
   "Bolden current voice.")
 
-(defvoice voice-bolden-extra (list nil 0 6 7 8)
+(defvoice voice-bolden-extra (list nil 1 6 7 8)
   "Extra bolden current voice.")
 
-(defvoice voice-bolden-medium (list nil 3 6 6  nil)
+(defvoice voice-bolden-medium (list nil 2 6 7  nil)
   "Add medium bolden current voice.")
 
-(defvoice voice-lighten (list nil 7 7  1  nil)
+(defvoice voice-lighten (list nil 7 7  3  nil)
   "Lighten current voice.")
 
-(defvoice voice-lighten-medium (list nil 6 6 3  nil)
+(defvoice voice-lighten-medium (list nil 6 6 2  nil)
   "Add medium lighten current voice.")
 
-(defvoice voice-lighten-extra (list nil 9 8 7   9)
+(defvoice voice-lighten-extra (list nil 9 8 7   nil)
   "Add extra lighten current voice.")
 
-(defvoice voice-bolden-and-animate (list nil 8 8 8 8)
+(defvoice voice-bolden-and-animate (list nil 4 8 8 8)
   "Bolden and animate  current voice.")
 
 (defvoice voice-womanize-1 (list 'betty 5 nil nil nil nil)
