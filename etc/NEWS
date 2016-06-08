@@ -5,14 +5,15 @@ Emacspeak News --History Of User-Visible Changes
 Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
-* Emacspeak 45 -- Emacspeak 44 User Visible Changes
+* Emacspeak 45 -- Emacspeak 45 User Visible Changes
+
 ** GPG Integration In Emacs:
 
 Speech-enables package ~epa~ for GPG integration. Also supports the
 use of module ~pinentry~ with ~gpg-agent~
 with newer versions of ~gpg-agent~.
 
-** Emacs Window Session Manager:
+** Emacs Screen  Session Manager:
 
 Module ~emacspeak-elscreen~ speech-enables package ~elscreen~.
 
