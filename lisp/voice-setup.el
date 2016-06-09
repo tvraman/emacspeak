@@ -357,10 +357,10 @@ command \\[customize-variable] on <personality>-settings.. "
 (defvoice voice-bolden-medium (list nil 2 6 7  nil)
   "Add medium bolden current voice.")
 
-(defvoice voice-lighten (list nil 7 7  3  nil)
+(defvoice voice-lighten (list nil 6 6 2   nil)
   "Lighten current voice.")
 
-(defvoice voice-lighten-medium (list nil 6 6 2  nil)
+(defvoice voice-lighten-medium (list nil 7 7 3  nil)
   "Add medium lighten current voice.")
 
 (defvoice voice-lighten-extra (list nil 9 8 7   nil)
