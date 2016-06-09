@@ -318,29 +318,32 @@ command \\[customize-variable] on <personality>-settings.. "
 (defvoice  voice-monotone (list nil nil 0 0 nil 'all)
   "Turns current voice into a monotone and speaks all punctuations.")
 
-(defvoice  voice-monotone-medium (list nil nil 2 2  nil 'all)
+(defvoice  voice-monotone-light (list nil nil 2 2  nil 'all)
+  "Turns current voice into a light monotone.")
+
+(defvoice  voice-monotone-medium (list nil nil 1  1  nil 'all)
   "Turns current voice into a medium monotone.")
 
-(defvoice voice-animate (list nil 7 7 6)
+(defvoice voice-animate (list nil 7 7 4)
   "Animates current voice.")
 
 (defvoice voice-animate-medium (list nil 6 6  5)
   "Adds medium animation  current voice.")
 
-(defvoice voice-animate-extra (list nil 8 8 7)
+(defvoice voice-animate-extra (list nil 8 8 6)
   "Adds extra animation  to current voice.")
 
 (defvoice voice-smoothen (list nil nil nil 3 4)
   "Smoothen current voice.")
 
-(defvoice voice-smoothen-extra (list nil nil nil 3 2)
+(defvoice voice-smoothen-extra (list nil nil nil 2 2)
   "Extra smoothen current voice.")
 
 (defvoice voice-smoothen-medium (list nil nil nil 3 3)
   "Add medium smoothen current voice.")
 
 (defvoice voice-brighten-medium (list nil nil nil 5 6)
-  "Brighten current voice.")
+  "Brighten  (medium) current voice.")
 
 (defvoice voice-brighten (list nil nil nil 6 7)
   "Brighten current voice.")
@@ -351,22 +354,22 @@ command \\[customize-variable] on <personality>-settings.. "
 (defvoice voice-bolden (list nil 3 6 6  nil)
   "Bolden current voice.")
 
-(defvoice voice-bolden-extra (list nil 1 6 7 8)
-  "Extra bolden current voice.")
-
 (defvoice voice-bolden-medium (list nil 2 6 7  nil)
   "Add medium bolden current voice.")
+
+(defvoice voice-bolden-extra (list nil 1 6 7 8)
+  "Extra bolden current voice.")
 
 (defvoice voice-lighten (list nil 6 6 2   nil)
   "Lighten current voice.")
 
 (defvoice voice-lighten-medium (list nil 7 7 3  nil)
-  "Add medium lighten current voice.")
+  "Add medium lightness to  current voice.")
 
 (defvoice voice-lighten-extra (list nil 9 8 7   nil)
-  "Add extra lighten current voice.")
+  "Add extra lightness to  current voice.")
 
-(defvoice voice-bolden-and-animate (list nil 4 8 8 8)
+(defvoice voice-bolden-and-animate (list nil 3 8 8 8)
   "Bolden and animate  current voice.")
 
 (defvoice voice-womanize-1 (list 'betty 5 nil nil nil nil)
