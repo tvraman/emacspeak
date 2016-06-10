@@ -104,7 +104,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     (unless (featurep 'emacspeak)
       (load-file
        (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el")))
-(when (featurep 'emacspeak)
+    (when (featurep 'emacspeak)
       (emacspeak-tts-startup-hook)
       (emacspeak-sounds-select-theme "pan-chimes/"))
     (add-to-list 'load-path (expand-file-name "tvr/" emacspeak-directory))
@@ -171,7 +171,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     ;;{{{ Prepare needed libraries
 
     (package-initialize)
-
+    (add-hook 'mail-mode-hook 'mail-abbrevs-setup)
+    (add-hook 'vm-mail-mode-hook 'mail-abbrevs-setup)
     (mapc
      #'load-library-if-available
      '(
@@ -181,10 +182,10 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "mspools-prepare" "sigbegone"
 ;;; Web:
        "w3-prepare" "elfeed-prepare"
-       ;;; Authoring:
+;;; Authoring:
        "auctex-prepare" "nxml-prepare" "folding-prepare"
        "calc-prepare"
-       "hydra-prepare" "helm-prepare" ;helm not activated 
+       "hydra-prepare" "helm-prepare"   ;helm not activated 
        "js-prepare" "tcl-prepare" "slime-prepare" "company-prepare" "python-mode-prepare"
                                         ; jde and ecb will pull in cedet.
                                         ;"jde-prepare" "ecb-prepare"
