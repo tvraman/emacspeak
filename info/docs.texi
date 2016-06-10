@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1151 commands and 951 options.
+This chapter documents a total of 1151 commands and 952 options.
 
 @menu
 * acss-structure::
@@ -21169,7 +21169,7 @@ Extra brighten current voice.
 @end defvar
 
 @defvar {User Option} voice-brighten-medium-settings
-Brighten current voice.
+Brighten  (medium) current voice.
 
 @end defvar
 
@@ -21184,12 +21184,12 @@ Indicate indentation .
 @end defvar
 
 @defvar {User Option} voice-lighten-extra-settings
-Add extra lighten current voice.
+Add extra lightness to  current voice.
 
 @end defvar
 
 @defvar {User Option} voice-lighten-medium-settings
-Add medium lighten current voice.
+Add medium lightness to  current voice.
 
 @end defvar
 
@@ -21215,6 +21215,11 @@ Overlay voice that sets dimension 2 of ACSS structure to 8.
 
 @defvar {User Option} voice-lock-overlay-3-settings
 Overlay voice that sets dimension 3 of ACSS structure to 8.
+
+@end defvar
+
+@defvar {User Option} voice-monotone-light-settings
+Turns current voice into a light monotone.
 
 @end defvar
 

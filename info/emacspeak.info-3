@@ -4553,7 +4553,7 @@ be customized via custom see the documentation for defvoice.
      Extra brighten current voice.
 
  -- Variable: User Option voice-brighten-medium-settings
-     Brighten current voice.
+     Brighten (medium) current voice.
 
  -- Variable: User Option voice-brighten-settings
      Brighten current voice.
@@ -4562,10 +4562,10 @@ be customized via custom see the documentation for defvoice.
      Indicate indentation .
 
  -- Variable: User Option voice-lighten-extra-settings
-     Add extra lighten current voice.
+     Add extra lightness to current voice.
 
  -- Variable: User Option voice-lighten-medium-settings
-     Add medium lighten current voice.
+     Add medium lightness to current voice.
 
  -- Variable: User Option voice-lighten-settings
      Lighten current voice.
@@ -4581,6 +4581,9 @@ be customized via custom see the documentation for defvoice.
 
  -- Variable: User Option voice-lock-overlay-3-settings
      Overlay voice that sets dimension 3 of ACSS structure to 8.
+
+ -- Variable: User Option voice-monotone-light-settings
+     Turns current voice into a light monotone.
 
  -- Variable: User Option voice-monotone-medium-settings
      Turns current voice into a medium monotone.
