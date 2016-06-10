@@ -209,6 +209,7 @@ emacspeak-pydoc.elc \
 emacspeak-python.elc \
 emacspeak-re-builder.elc \
 emacspeak-reftex.elc \
+emacspeak-rst.elc \
 emacspeak-related.elc \
 emacspeak-rpm-spec.elc \
 emacspeak-remote.elc \
@@ -460,6 +461,7 @@ emacspeak-pydoc.elc: emacspeak-pydoc.el dtk-speak.elc
 emacspeak-re-builder.elc: emacspeak-re-builder.el dtk-speak.elc voice-setup.elc
 emacspeak-redefine.elc: emacspeak-redefine.el  dtk-speak.elc voice-setup.elc
 emacspeak-reftex.elc: emacspeak-reftex.el dtk-speak.elc voice-setup.elc
+emacspeak-rst.elc: emacspeak-rst.el dtk-speak.elc voice-setup.elc
 emacspeak-related.elc: emacspeak-related.el dtk-speak.elc voice-setup.elc
 emacspeak-rpm-spec.elc: emacspeak-rpm-spec.el dtk-speak.elc voice-setup.elc
 emacspeak-remote.elc: emacspeak-remote.el
