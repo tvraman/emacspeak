@@ -114,11 +114,10 @@
     (emacspeak-speak-line)))
 
 (defadvice rst-toc-quit-window (after emacspeak pre act comp)
-"Provide auditory feedback."
+  "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
-
 
 '(
   rst-bullet-list-region
@@ -137,10 +136,10 @@
   rst-straighten-adornments
   rst-straighten-bullets-region
   rst-toc-insert
-  
+  )
 
-  )
-  )
+
+
 
 ;;}}}
 (provide 'emacspeak-rst)
