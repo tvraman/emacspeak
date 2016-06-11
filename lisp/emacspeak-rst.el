@@ -75,6 +75,17 @@
 
 ;;}}}
 ;;{{{ Speech-enable interactive commands:
+(loop
+ for f in
+ '(rst-promote-region
+   rst-shift-region)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'arge-movement)
+       (emacspeak-speak-line)))))
 
 (loop
  for f in
@@ -93,7 +104,8 @@
  '(rst-compile rst-compile-alt-toolset
                rst-adjust rst-adjust-section-title
                rst-compile-find-conf rst-compile-pdf-preview
-               rst-compile-pseudo-region rst-compile-slides-preview)
+               rst-compile-pseudo-region rst-compile-slides-preview
+               rst-display-adornments-hierarchy)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -130,22 +142,39 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (emacspeak-speak-line)))
+(loop
+ for f in
+ '(rst-bullet-list-region rst-convert-bullets-to-enumeration rst-enumerate-region)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'item)
+       (message "Bulletized. ")))))
 
-'(
-  rst-bullet-list-region rst-convert-bullets-to-enumeration rst-enumerate-region
-  rst-display-adornments-hierarchy
-  
-  rst-insert-list
-  rst-insert-list-new-item
-  rst-join-paragraph
-  rst-line-block-region
+(loop
+ for f in
+ '(rst-insert-list rst-insert-list-new-item rst-toc-insert)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-speak-line)))))
+(loop
+ for f in
+ '(rst-join-paragraph rst-line-block-region
+                      rst-straighten-adornments rst-straighten-bullets-region)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'task-done)
+       (emacspeak-speak-line)))))
 
-  rst-promote-region
-
-  rst-shift-region
-  rst-straighten-adornments rst-straighten-bullets-region
-  rst-toc-insert
-  )
 
 ;;}}}
 (provide 'emacspeak-rst)
