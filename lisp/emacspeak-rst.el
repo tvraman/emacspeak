@@ -120,9 +120,7 @@
     (emacspeak-speak-mode-line)))
 
 '(
-  rst-bullet-list-region
-  rst-convert-bullets-to-enumeration
-  rst-enumerate-region
+  rst-bullet-list-region rst-convert-bullets-to-enumeration rst-enumerate-region
   rst-display-adornments-hierarchy
   rst-force-fill-paragraph
   rst-insert-list
@@ -131,10 +129,9 @@
   rst-line-block-region
   rst-mark-section
   rst-promote-region
-  rst-replace-lines
+  
   rst-shift-region
-  rst-straighten-adornments
-  rst-straighten-bullets-region
+  rst-straighten-adornments rst-straighten-bullets-region
   rst-toc-insert
   )
 
