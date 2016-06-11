@@ -52,13 +52,87 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
-;;{{{ Map Faces:
+;;{{{ Map Faces
+
+(voice-setup-add-map
+ '(
+   (rst-block   voice-annotate)
+   (rst-external   voice-animate)
+   (rst-definition   voice-bolden-medium)
+   (rst-directive voice-smoothen)
+   (rst-comment   voice-monotone)
+   (rst-emphasis1   voice-animate)
+   (rst-emphasis2   voice-animate-extra)
+   (rst-literal   voice-monotone-medium)
+   (rst-reference   voice-bolden)
+   (rst-transition   voice-lighten)
+   (rst-adornment   voice-animate)
+   (rst-level-1 voice-bolden)
+   (rst-level-2  voice-bolden-medium)
+   (rst-level-3  voice-lighten-medium)
+   (rst-level-4 voice-lighten-extra)
+   ))
 
 ;;}}}
 ;;{{{ Speech-enable interactive commands:
 
-;;}}}
+(loop
+ for f in
+ '(rst-goto-section rst-forward-section rst-backward-section
+                    rst-forward-indented-block)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-line)))))
 
+(loop
+ for f in
+ '(rst-compile rst-compile-alt-toolset
+               rst-adjust rst-adjust-section-title
+               rst-compile-find-conf rst-compile-pdf-preview
+               rst-compile-pseudo-region rst-compile-slides-preview)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'task-done)
+       (emacspeak-speak-line)))))
+
+'(
+  rst-bullet-list-region
+  rst-convert-bullets-to-enumeration
+  rst-enumerate-region
+  rst-display-adornments-hierarchy
+
+  rst-force-fill-paragraph
+
+
+
+  rst-insert-list
+  rst-insert-list-new-item
+  rst-join-paragraph
+  rst-line-block-region
+  rst-mark-section
+
+
+  rst-promote-region
+
+  rst-replace-lines
+  rst-shift-region
+  rst-straighten-adornments
+  rst-straighten-bullets-region
+  rst-toc
+  rst-toc-insert
+  rst-toc-insert-update
+  rst-toc-mode-goto-section
+  rst-toc-quit-window
+  rst-toc-update)
+
+;;}}}
 (provide 'emacspeak-rst)
 ;;{{{ end of file
 
