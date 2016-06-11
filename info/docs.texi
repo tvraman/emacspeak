@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1151 commands and 952 options.
+This chapter documents a total of 1151 commands and 967 options.
 
 @menu
 * acss-structure::
@@ -154,6 +154,7 @@ This chapter documents a total of 1151 commands and 952 options.
 * emacspeak-rmail::
 * emacspeak-rpm::
 * emacspeak-rpm-spec::
+* emacspeak-rst::
 * emacspeak-ruby::
 * emacspeak-sawfish::
 * emacspeak-ses::
@@ -13323,6 +13324,104 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 @defvar {User Option} emacspeak-rpm-spec-tag-personality
 Personality used for rpm-spec-tag-face
 This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@node emacspeak-rst
+@section emacspeak-rst
+
+RST ==  rst-mode for editing rst text files.
+This module speech-enables rst-mode.
+
+@subsection emacspeak-rst Options
+
+@defvar {User Option} emacspeak-rst-adornment-voice
+Personality used for rst-adornment
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-rst-block-voice
+Personality used for rst-block
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-rst-comment-voice
+Personality used for rst-comment
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-rst-definition-voice
+Personality used for rst-definition
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-rst-directive-voice
+Personality used for rst-directive
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-rst-emphasis1-voice
+Personality used for rst-emphasis1
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-rst-emphasis2-voice
+Personality used for rst-emphasis2
+This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-rst-external-voice
+Personality used for rst-external
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-rst-level-1-voice
+Personality used for rst-level-1
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-rst-level-2-voice
+Personality used for rst-level-2
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-rst-level-3-voice
+Personality used for rst-level-3
+This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-rst-level-4-voice
+Personality used for rst-level-4
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-rst-literal-voice
+Personality used for rst-literal
+This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-rst-reference-voice
+Personality used for rst-reference
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-rst-transition-voice
+Personality used for rst-transition
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 
 @end defvar
 
