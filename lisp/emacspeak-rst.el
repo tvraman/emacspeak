@@ -119,6 +119,12 @@
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
+(defadvice rst-force-fill-paragraph (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'fill-object)
+    (emacspeak-speak-mode-line)))
+
 (defadvice rst-mark-section   (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
@@ -127,19 +133,19 @@
 
 '(
   rst-bullet-list-region rst-convert-bullets-to-enumeration rst-enumerate-region
-                         rst-display-adornments-hierarchy
-                         rst-force-fill-paragraph
-                         rst-insert-list
-                         rst-insert-list-new-item
-                         rst-join-paragraph
-                         rst-line-block-region
+  rst-display-adornments-hierarchy
+  
+  rst-insert-list
+  rst-insert-list-new-item
+  rst-join-paragraph
+  rst-line-block-region
 
-                         rst-promote-region
+  rst-promote-region
 
-                         rst-shift-region
-                         rst-straighten-adornments rst-straighten-bullets-region
-                         rst-toc-insert
-                         )
+  rst-shift-region
+  rst-straighten-adornments rst-straighten-bullets-region
+  rst-toc-insert
+  )
 
 ;;}}}
 (provide 'emacspeak-rst)
