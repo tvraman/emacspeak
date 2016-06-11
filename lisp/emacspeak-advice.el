@@ -626,8 +626,9 @@ icon."
       (setq emacspeak-last-message (ansi-color-apply (current-message)))
       ;; so we really need to speak it
       (tts-with-punctuations 'all
-                             (dtk-notify-using-voice voice-annotate  emacspeak-last-message)))
+                             (dtk-notify-speak  emacspeak-last-message)))
     ad-return-value))
+
 (defcustom emacspeak-eldoc-speak-explicitly
   (not emacspeak-tts-use-notify-stream)
   "Set to T if not using a separate TTS notification stream."
