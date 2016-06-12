@@ -53,7 +53,7 @@
   :group 'message
   :prefix "emacspeak-message-")
 
-(defcustom emacspeak-message-punctuation-mode  'some
+(defcustom emacspeak-message-punctuation-mode  'all
   "Pronunciation mode to use for message buffers."
   :type '(choice
           (const  :tag "Ignore" nil)
