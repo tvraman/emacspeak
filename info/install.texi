@@ -72,7 +72,7 @@ cd servers/linux-espeak; make
 @item ViaVoice Outloud (AKA Eloquent). You need to purchase this engine
 from the voxin.org site. That purchase will give you install-ready
 packages for installing the speech engine as well as Emacspeak.
-@item On the Mac, you can use the builtin Mac TTS engine  ---emacspeak
+@item On the Mac, you can use the builtin Mac TTS engine  --- emacspeak
 comes with a speech server for that TTS  engine written in Python.
 @end itemize
 @item Having installed and configured the TTS engine of your choice, and

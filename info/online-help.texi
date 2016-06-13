@@ -25,7 +25,7 @@ which is bound to the next key that you type.
 For learning about the various  options  that are available via the
 @kbd{C-h} mechanism described above,
 view the online help for command @code{help-for-help} 
-bound to @kbd{C-h C-h} ---using what has been described so far,
+bound to @kbd{C-h C-h} --- using what has been described so far,
 you would achieve this by pressing @kbd{C-h k} followed by @kbd{C-h
 C-h}.
 

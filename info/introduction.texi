@@ -21,7 +21,7 @@ means that most visually impaired computer users face the additional
 handicap of being DOS-impaired --- a far more serious problem:-)
 
 Emacspeak is an emacs subsystem that provides complete speech access.
-It is @emph{not} a screen-reader ---rather, it is a complete user
+It is @emph{not} a screen-reader --- rather, it is a complete user
 environment with built-in speech  feedback.  Emacspeak has a
 significant advantage; since it runs inside Emacs, a
 structure-sensitive, fully customizable environment, Emacspeak has more
