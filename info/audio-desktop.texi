@@ -139,7 +139,7 @@ An example of content-sensitive navigation is provided by the imenu
 package which dynamically creates a "table of contents" based on the
 content that is being displayed in a given buffer.  Emacs @dfn{Selective
 Display} lets one easily hide and expose portions of a buffer based on
-indentation --- this feature can be used to advantage when working with
+indentation  ---  this feature can be used to advantage when working with
 program source code.
 
 
