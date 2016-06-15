@@ -2566,8 +2566,12 @@ Produce auditory icons if possible."
 
 (defadvice expand-mail-aliases (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)))
+  (when(ems-interactive-p)
+    (let ((end (point))
+          (start (re-search-backward  " " nil t)))
+      (message (buffer-substring start end))
+    (emacspeak-auditory-icon 'select-object))))
+
 
 ;;}}}
 ;;{{{ elint
