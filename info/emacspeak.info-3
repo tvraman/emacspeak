@@ -848,6 +848,19 @@ broken.
 
      Speak tweet under point.
 
+12.177.2 emacspeak-twittering Options
+-------------------------------------
+
+ -- Variable: User Option emacspeak-twittering-uri-personality
+     Personality used for twittering-uri-face This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option emacspeak-twittering-username-personality
+     Personality used for twittering-username-face This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
 
 File: emacspeak.info,  Node: emacspeak-url-template,  Next: emacspeak-view,  Prev: emacspeak-twittering,  Up: Emacspeak Commands And Options
 

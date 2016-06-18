@@ -189,7 +189,6 @@ emacspeak-midge.elc \
 emacspeak-mpg123.elc \
 emacspeak-muse.elc \
 emacspeak-mspools.elc \
-emacspeak-muggles.elc \
 emacspeak-net-utils.elc \
 emacspeak-newsticker.elc \
 emacspeak-ocr.elc \
