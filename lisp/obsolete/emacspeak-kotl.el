@@ -65,59 +65,59 @@
 (ad-set-advice-info 'kotl-mode:next-line nil)
 (defadvice kotl-mode:next-line (after emacspeak pre act)
   "Speak line that you just moved to. "
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-speak-line  )))
 (ad-set-advice-info 'kotl-mode:previous-line nil)
 (defadvice kotl-mode:previous-line (after emacspeak pre act)
   "Speak line that you just moved to. "
-  (when (interactive-p) (emacspeak-speak-line  )))
+  (when (ems-interactive-p) (emacspeak-speak-line  )))
 (ad-set-advice-info 'kotl-mode:forward-word nil)
 (defadvice kotl-mode:forward-word (after emacspeak pre act)
   "Speak the word you just moved to. "
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (skip-syntax-forward  " ")
     (emacspeak-speak-word )))
 (ad-set-advice-info 'kotl-mode:backward-word nil)
 (defadvice kotl-mode:backward-word (after emacspeak pre act)
   "Speak the word you just moved to. "
-  (when (interactive-p) (emacspeak-speak-word )))
+  (when (ems-interactive-p) (emacspeak-speak-word )))
 
 (ad-set-advice-info 'kotl-mode:beginning-of-buffer  nil)
 (defadvice kotl-mode:beginning-of-buffer (after emacspeak pre act)
   "Speak the line. "
-  (when (interactive-p) (emacspeak-speak-line  )))
+  (when (ems-interactive-p) (emacspeak-speak-line  )))
 (ad-set-advice-info 'kotl-mode:end-of-buffer nil)
 (defadvice kotl-mode:end-of-buffer (after emacspeak pre act)
   "Speak the line. "
-  (when (interactive-p) (emacspeak-speak-line   )))
+  (when (ems-interactive-p) (emacspeak-speak-line   )))
 (ad-set-advice-info 'kotl-mode:back-to-indentation nil)
 (defadvice kotl-mode:back-to-indentation (after emacspeak pre act)
   "Speak the entire line. "
-  (when (interactive-p) (emacspeak-speak-line  )))
+  (when (ems-interactive-p) (emacspeak-speak-line  )))
 (ad-set-advice-info 'kotl-mode:forward-sentence nil)
 (defadvice kotl-mode:forward-sentence (after emacspeak pre act)
   "Speak  sentence  after moving. "
-  (when (interactive-p) (emacspeak-speak-sentence    )))
+  (when (ems-interactive-p) (emacspeak-speak-sentence    )))
 (ad-set-advice-info 'kotl-mode:backward-sentence nil)
 (defadvice kotl-mode:backward-sentence (after emacspeak pre act)
   "Speak  sentence  after moving. "
-  (when (interactive-p) (emacspeak-speak-sentence    )))
+  (when (ems-interactive-p) (emacspeak-speak-sentence    )))
 
 (ad-set-advice-info 'kotl-mode:forward-paragraph nil)
 (defadvice kotl-mode:forward-paragraph (after emacspeak pre act )
   "Speak the paragraph. "
-  (when(interactive-p)
+  (when(ems-interactive-p)
     (emacspeak-speak-paragraph))
   )
 (ad-set-advice-info 'kotl-mode:backward-paragraph nil)
 (defadvice kotl-mode:backward-paragraph (after emacspeak pre act )
   "Speak the paragraph. "
-  (when(interactive-p) 
+  (when(ems-interactive-p) 
     (emacspeak-speak-paragraph  nil )))
 (ad-set-advice-info 'kotl-mode:scroll-up nil)
 (defadvice kotl-mode:scroll-up (after emacspeak pre act)
   "Speak the screenful"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (let ((start (point )))
       (emacspeak-auditory-icon 'scroll)
       (save-excursion
@@ -126,7 +126,7 @@
 (ad-set-advice-info 'kotl-mode:scroll-down nil)
 (defadvice kotl-mode:scroll-down (after emacspeak pre act)
   "Speak the screenful"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (let ((start (point )))
       (emacspeak-auditory-icon 'scroll)
       (save-excursion
@@ -136,13 +136,13 @@
 (ad-set-advice-info 'kotl-mode:beginning-of-line nil)
 (defadvice kotl-mode:beginning-of-line (after emacspeak pre act )
   "Stop speech after moving"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (dtk-stop )))
 
 (ad-set-advice-info 'kotl-mode:end-of-line nil)
 (defadvice kotl-mode:end-of-line (after emacspeak pre act )
   "Stop speech after moving"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (dtk-stop )))
 
 ;;}}}
@@ -151,14 +151,14 @@
 (ad-set-advice-info 'kotl-mode:kill-line nil)
 (defadvice kotl-mode:kill-line(before emacspeak pre act)
   "Speak line before killing it. " 
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-line 1)
     (dtk-tone 500 30)))
 (ad-set-advice-info 'kotl-mode:kill-word nil)
 (defadvice kotl-mode:kill-word (before emacspeak pre act )
   "Speak word before killing it. "
-  (when (interactive-p )
+  (when (ems-interactive-p )
     (save-excursion
       (skip-syntax-forward " ")
       (emacspeak-speak-word 1 ))
@@ -166,7 +166,7 @@
 (ad-set-advice-info 'kotl-mode:backward-kill-word nil)
 (defadvice kotl-mode:backward-kill-word (before emacspeak pre act)
   "Speak word before killing it. "
-  (when (interactive-p )
+  (when (ems-interactive-p )
     (let ((start (point )))
       (save-excursion
         (forward-word -1)
@@ -177,7 +177,7 @@
 (ad-set-advice-info 'kotl-mode:kill-sentence nil)
 (defadvice kotl-mode:kill-sentence (before emacspeak pre act )
   "Speak the line  you killed. "
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-line 1 )
     (dtk-tone 500 30)))
@@ -185,7 +185,7 @@
 (defadvice kotl-mode:kill-ring-save (after emacspeak pre act)
   "Indicate that region has been copied to the kill ring.
   Produce an auditory icon if possible."
-  (when (interactive-p ) 
+  (when (ems-interactive-p ) 
     (emacspeak-auditory-icon 'mark-object )
     (message "region copied to kill ring ")))
 
@@ -193,7 +193,7 @@
 (defadvice kotl-mode:yank (after emacspeak pre act)
   "Say what you yanked.
    Produce an auditory icon if possible."
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object )
     (emacspeak-speak-region (mark) (point))))
 
@@ -201,14 +201,14 @@
 (defadvice kotl-mode:yank-pop (after emacspeak pre act)
   "Say what you yanked.
   Also produce an auditory icon if possible. "
-  (when (interactive-p )
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-speak-region (point) (mark))))
 
 (ad-set-advice-info 'kotl-mode:open-line nil)
 (defadvice kotl-mode:open-line (after emacspeak pre act )
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (let ((count (ad-get-arg 0)))
       (emacspeak-auditory-icon 'open-object)
       (message "Opened %s blank line%s"
@@ -217,44 +217,44 @@
 (ad-set-advice-info 'kotl-mode:delete-char nil)
 (defadvice kotl-mode:delete-char (before emacspeak pre act)
   "Speak character you're deleting. "
-  (when (interactive-p )
+  (when (ems-interactive-p )
     (emacspeak-speak-char t)
     (dtk-tone 500 30)))
 (ad-set-advice-info 'kotl-mode:delete-backward-char nil)
 (defadvice kotl-mode:delete-backward-char (before emacspeak pre act)
   "Speak character you're deleting. " 
-  (when (interactive-p )
+  (when (ems-interactive-p )
     (emacspeak-speak-this-char (preceding-char ))
     (dtk-tone 500 30)))
 (ad-set-advice-info 'kotl-mode:transpose-chars nil)
 (defadvice kotl-mode:transpose-chars (after emacspeak pre act )
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-speak-char  t)))
 (ad-set-advice-info 'kotl-mode:transpose-lines nil)
 (defadvice kotl-mode:transpose-lines (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object )
     (emacspeak-speak-line )))
 (ad-set-advice-info 'kotl-mode:transpose-words nil)
 (defadvice kotl-mode:transpose-words (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object )
     (emacspeak-speak-word )))
 
 (ad-set-advice-info 'kotl-mode:transpose-sexps nil)
 (defadvice kotl-mode:transpose-sexps (after emacspeak pre act comp)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object )
     (emacspeak-speak-sexp )))
 (ad-set-advice-info 'kotl-mode:open-line nil)
 (defadvice kotl-mode:open-line (after emacspeak pre act )
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (let ((count (ad-get-arg 0)))
       (emacspeak-auditory-icon 'open-object)
       (message "Opened %s blank line%s"
@@ -267,13 +267,13 @@
 (ad-set-advice-info 'kotl-mode:mark-whole-buffer nil)
 (defadvice kotl-mode:mark-whole-buffer (after emacspeak pre act)
   "Produce an auditory icon if possible. "
-  (when (interactive-p )
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'mark-object)))
 
 (ad-set-advice-info 'kotl-mode:mark-paragraph nil)
 (defadvice kotl-mode:mark-paragraph(after emacspeak pre act)
   "Produce an auditory icon if possible. "
-  (when (interactive-p )
+  (when (ems-interactive-p )
     (emacspeak-auditory-icon 'mark-object)))
 
 ;;}}}
@@ -281,7 +281,7 @@
 
 (defadvice kotl-mode:copy-to-register (before emacspeak pre act)
   "Acknowledge the copy"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (let ((start (ad-get-arg 1))
           (end (ad-get-arg 2 ))
           (register (ad-get-arg 0)))
@@ -296,20 +296,20 @@
 (ad-set-advice-info 'kotl-mode: nil)
 (defadvice kotl-mode:center-line (after emacspeak pre act)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (message"Centered current line")))
 
 (ad-set-advice-info 'kotl-mode: nil)
 (defadvice kotl-mode:center-paragraph (after emacspeak pre act)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (message"Centered current paragraph")))
 (ad-set-advice-info 'kotl-mode: nil)
 (defadvice kotl-mode:fill-paragraph (after emacspeak pre act)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object )
     (message "Filled current paragraph")))
 
@@ -320,76 +320,76 @@
 
 (defadvice kotl-mode:up-level (after emacspeak pre act)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 
 (defadvice kotl-mode:down-level (after emacspeak pre act)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 (defadvice kotl-mode:forward-cell (after emacspeak pre act)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 (defadvice kotl-mode:backward-cell (after emacspeak pre act)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 (defadvice kotl-mode:next-cell (after emacspeak pre act)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 
 (defadvice kotl-mode:previous-cell (after emacspeak pre act)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 
 (defadvice kotl-mode:goto-cell (after emacspeak pre act)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 
 (defadvice kotl-mode:beginning-of-tree(after emacspeak pre act)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 
 (defadvice kotl-mode:end-of-tree(after emacspeak pre act)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 
 (defadvice kotl-mode:first-sibling(after emacspeak pre act)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 
 (defadvice kotl-mode:last-sibling(after emacspeak pre act)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 
 (defadvice kotl-mode:beginning-of-cell(after emacspeak pre act)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 
 (defadvice kotl-mode:end-of-cell(after emacspeak pre act)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line )))
 
@@ -398,33 +398,33 @@
 
 (defadvice kotl-mode:demote-tree (after emacspeak pre act )
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-speak-line )))
 
 (defadvice kotl-mode:promote-tree (after emacspeak pre act )
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-speak-line )))
 
 (defadvice kotl-mode:transpose-cells (after emacspeak pre act )
   "Provie auditory feedback"
-  (when (interactive-p )
+  (when (ems-interactive-p )
     (emacspeak-speak-line )))
 
 (defadvice kotl-mode:split-cell (after emacspeak pre act )
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-speak-line)))
 
 (defadvice kotl-mode:kill-contents (after emacspeak pre act)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (message "Killed cell contents")))
 
 (defadvice kotl-mode:kill-tree (after emacspeak pre act)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (message "Killed current tree")))
 
@@ -433,13 +433,13 @@
 
 (defadvice kotl-mode:fill-cell(after emacspeak pre act)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object )
     (message "Filled current paragraph")))
 
 (defadvice kotl-mode:fill-tree(after emacspeak pre act)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'fill-object )
     (message "Filled current paragraph")))
 
@@ -451,26 +451,26 @@
 
 (defadvice kotl-mode:hide-tree (after emacspeak pre act )
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-line)))
 (defadvice kotl-mode:show-tree (after emacspeak pre act )
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
 
 (ad-set-advice-info 'kotl-mode: nil)
 (defadvice kotl-mode:show-all (after emacspeak pre act comp)
   "Produce an auditory icon"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Exposed all text in the buffer")))
 
 (ad-set-advice-info 'kotl-mode: nil)
 (defadvice kotl-mode:hide-sublevels (after emacspeak pre act comp)
   "Produce an auditory icon"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (message "Hid everything except the top  %s levels"
              (ad-get-arg 0))))
@@ -478,13 +478,13 @@
 (ad-set-advice-info 'kotl-mode: nil)
 (defadvice kotl-mode:hide-subtree (after emacspeak pre act comp)
   "Produce an auditory icon"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (message "Hid everything at deeper levels from current heading")))
 
 (defadvice kotl-mode:top-cells (after emacspeak pre act)
   "provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (message "Showing only top-level headings")))
 
@@ -493,55 +493,55 @@
 
 (defadvice kotl-mode:add-parent (after emacspeak pre act )
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon'yank-object)
     (message "Added sibling to parent of current cell")))
 
 (defadvice kotl-mode:add-cell (after emacspeak pre act )
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-speak-line )))
 
 (defadvice kotl-mode:add-child (after emacspeak pre act )
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)
     (emacspeak-speak-line )))
 
 (defadvice kotl-mode:move-before (after emacspeak pre act)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-speak-line )))
 
 (defadvice kotl-mode:move-after (after emacspeak pre act)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-speak-line )))
 
 (defadvice kotl-mode:exchange-cells (after emacspeak pre act )
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-speak-line )))
 (defadvice kotl-mode:copy-before (after emacspeak pre act)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-speak-line )))
 
 (defadvice kotl-mode:copy-after (after emacspeak pre act)
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-speak-line )))
 
 (defadvice kotl-mode:mail-tree(after emacspeak pre act )
   "Provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line )))
 
 (defadvice kotl-mode:copy-to-buffer (after emacspeak pre act )
   "provide auditory feedback"
-  (when (interactive-p)
+  (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)
     (message "Copied  tree %s to buffer %s"
              (ad-get-arg 0)
