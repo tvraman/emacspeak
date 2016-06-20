@@ -1635,10 +1635,6 @@ program. Port defaults to dtk-local-server-port"
     current-prefix-arg))
   (declare (special    dtk-servers-alist dtk-local-server-port
                        dtk-local-server-process emacspeak-servers-directory))
-  (when (and
-         dtk-local-server-process
-         (eq 'run (process-status dtk-local-server-process)))
-    (kill-process dtk-local-server-process))
   (setq dtk-local-server-process
         (start-process
          "LocalTTS"
