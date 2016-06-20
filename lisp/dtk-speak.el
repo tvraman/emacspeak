@@ -1908,8 +1908,7 @@ Optional argument group-count specifies grouping for intonation."
       (cond
        ((null dtk-notify-process) dtk-speaker-process)
        ((memq state '(open run)) dtk-notify-process)
-       (t (or (dtk-notify-initialize)
-              dtk-speaker-process)))))
+       (t dtk-speaker-process))))
    (t dtk-speaker-process)))
 
 ;;;###autoload
