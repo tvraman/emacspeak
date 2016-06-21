@@ -1933,12 +1933,13 @@ Optional argument group-count specifies grouping for intonation."
   (let ((dtk-speaker-process (dtk-notify-process)))
     (dtk-letter letter)))
 
-(defun dtk-get-notify-alsa-device ()
-  "Returns name of Alsa device if available."
-  (when
-      (string-match "tts_mono_right"
+(defsubst dtk-get-notify-alsa-device ()
+  "Returns name of Alsa device for use as the notification stream."
+  (cond
+   ((string-match "tts_mono_right"
                     (shell-command-to-string  "aplay -L | grep tts_mono_right"))
-    "tts_mono_right"))
+    "tts_mono_right")
+   (t (getenv "ALSA_DEFAULT"))))
 
 ;;;###autoload
 (defun  dtk-notify-initialize ()
@@ -1946,7 +1947,7 @@ Optional argument group-count specifies grouping for intonation."
   (interactive)
   (declare (special dtk-notify-process ))
   (let* ((save-device (getenv "ALSA_DEFAULT"))
-         (device (or (dtk-get-notify-alsa-device) save-device))
+         (device  (dtk-get-notify-alsa-device))
          (dtk-program
           (if
               (string-match "cloud" dtk-program)
