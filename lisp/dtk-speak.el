@@ -1946,15 +1946,15 @@ Optional argument group-count specifies grouping for intonation."
   (interactive)
   (declare (special dtk-notify-process ))
   (let* ((save-device (getenv "ALSA_DEFAULT"))
-         (device
-          (setenv "ALSA_DEFAULT"
-                  (or (dtk-get-notify-alsa-device) save-device)))
+         (device (or (dtk-get-notify-alsa-device) save-device))
          (dtk-program
           (if
               (string-match "cloud" dtk-program)
               "cloud-notify"
             dtk-program))
-         (new-process (dtk-make-process "Notify")))
+         (new-process nil))
+    (setenv "ALSA_DEFAULT" device)
+    (setq new-process (dtk-make-process "Notify"))
     (when
         (memq (process-status new-process) '(run open))
       (when (and dtk-notify-process (process-live-p dtk-notify-process))
