@@ -1944,7 +1944,7 @@ Optional argument group-count specifies grouping for intonation."
 (defun  dtk-notify-initialize ()
   "Initialize notification TTS stream."
   (interactive)
-  (declare (special dtk-notify-process process-environment))
+  (declare (special dtk-notify-process ))
   (let* ((save-device (getenv "ALSA_DEFAULT"))
          (device (setenv "ALSA_DEFAULT"
                          (cond
