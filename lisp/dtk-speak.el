@@ -1954,11 +1954,9 @@ Optional argument group-count specifies grouping for intonation."
               (string-match "cloud" dtk-program)
               "cloud-notify"
             dtk-program))
-         (new-process (dtk-make-process "Notify"))
-         (state (process-status new-process))
-         (success(memq state '(run open))))
-    
-    (when success ;; nuke old server
+         (new-process (dtk-make-process "Notify")))
+    (when
+        (memq (process-status new-process) '(run open))
       (when (and dtk-notify-process (process-live-p dtk-notify-process))
         (delete-process dtk-notify-process))
       (when save-device (setenv "ALSA_DEFAULT" save-device))
