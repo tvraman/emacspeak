@@ -1958,12 +1958,12 @@ Optional argument group-count specifies grouping for intonation."
          (new-process (dtk-make-process "Notify"))
          (state (process-status new-process))
          (success(memq state '(run open))))
-    (cond
-     (success ;; nuke old server
+    
+    (when success ;; nuke old server
       (when (and dtk-notify-process (process-live-p dtk-notify-process))
         (delete-process dtk-notify-process))
       (when save-device (setenv "ALSA_DEFAULT" save-device))
-      (setq dtk-notify-process new-process)))))
+      (setq dtk-notify-process new-process))))
 
 ;;;###autoload
 (defun dtk-notify-using-voice (voice text)
