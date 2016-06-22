@@ -54,7 +54,7 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
                        'text-rendered-by-shr t))
 
 
-(setq vm-mime-text/html-handler 'vm-mime-display-internal-shr-text/html)
+(setq vm-mime-text/html-handler'vm-mime-display-internal-emacs-w3m-text/html  )
 (defalias 'vm-mime-display-internal-emacs-w3m-text/html  'vm-mime-display-internal-shr-text/html)
 
 (defun vm-chromium ()
