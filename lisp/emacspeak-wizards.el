@@ -1773,15 +1773,6 @@ prompts for and sets value of the file local pattern."
 ;;{{{   Switching buffers, killing buffers etc
 
 ;;;###autoload
-(defun emacspeak-switch-to-previous-buffer  ()
-  "Switch to most recently used interesting buffer.
-Obsoleted by `previous-buffer' in Emacs 22"
-  (interactive)
-  (switch-to-buffer (other-buffer
-                     (current-buffer) 'visible-ok))
-  (emacspeak-speak-mode-line)
-  (emacspeak-auditory-icon 'select-object))
-;;;###autoload
 (defun emacspeak-kill-buffer-quietly   ()
   "Kill current buffer without asking for confirmation."
   (interactive)
