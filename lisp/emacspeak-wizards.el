@@ -1070,11 +1070,8 @@ Signals beginning  of buffer."
 ;;;###autoload
 (defun emacspeak-curl (url)
   "Grab URL using Curl, and preview it with a browser ."
-  (interactive
-   (list
-    (read-from-minibuffer "URL: ")))
-  (declare (special emacspeak-wizards-curl-program
-                    emacspeak-curl-cookie-store))
+  (interactive "sURL: ")
+  (declare (special emacspeak-wizards-curl-program emacspeak-curl-cookie-store))
   (let ((results (get-buffer-create " *curl-download* ")))
     (erase-buffer)
     (kill-all-local-variables)
