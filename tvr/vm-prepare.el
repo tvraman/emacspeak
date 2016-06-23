@@ -53,8 +53,10 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
     (put-text-property start end
                        'text-rendered-by-shr t))
 
+;;; has to be done indirectly
+;;; Fake emacs-w3m, though we actually use shr
 
-(setq vm-mime-text/html-handler'vm-mime-display-internal-emacs-w3m-text/html  )
+(setq vm-mime-text/html-handler'emacs-w3m  )
 (defalias 'vm-mime-display-internal-emacs-w3m-text/html  'vm-mime-display-internal-shr-text/html)
 
 (defun vm-chromium ()
