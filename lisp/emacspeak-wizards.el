@@ -1254,8 +1254,7 @@ annotation is inserted into the working buffer when complete."
   (let ((dir default-directory))
     (shell)
     (unless (string-equal (expand-file-name dir)
-                          (expand-file-name
-                           default-directory))
+                          (expand-file-name default-directory))
       (goto-char (point-max))
       (insert (format "pushd %s" dir))
       (comint-send-input)
