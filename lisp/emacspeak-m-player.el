@@ -1103,10 +1103,11 @@ arg `reset' starts with all filters set to 0."
   (unless (file-executable-p emacspeak-m-player-youtube-dl)
     (error "Please install youtube-dl first."))
   (let ((u
-         (substring
           (shell-command-to-string
-           (format "%s -g '%s' 2> /dev/null" emacspeak-m-player-youtube-dl url)) 0 -1)))
-  (emacspeak-m-player u)))
+           (format "%s -g '%s' 2> /dev/null" emacspeak-m-player-youtube-dl url))))
+    (when (= 0 (length  u)) (error "Error retrieving Media URL "))
+    (setq u (substring u 0 -1))
+    (emacspeak-m-player u)))
 
 ;;}}}
 ;;{{{ pause/resume
