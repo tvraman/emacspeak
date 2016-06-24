@@ -49,7 +49,7 @@ In Emacs 24 and later, you can use Emacs'  builtin package manager  to install a
 @cindex Browsing Structure
 
 This section describes packages that allow you to browse structured
-information --these are distinct from the tools described in
+information --- these are distinct from the tools described in
 @ref{Structured Editing}, in that they are typically used for working
 with content that is read-only e.g., online documentation.
 @node Web Browsing
@@ -92,7 +92,7 @@ Speech-enabling these modes includes providing
 a rich set of navigational commands that allow you to move
 through the source efficiently. In addition, Emacspeak's core
 @b{voice-lock} facilities are used to produce audio formatted output
---this helps you spot errors quickly.
+--- this helps you spot errors quickly.
 
 @node Development Environment
 @section Development Environment
@@ -174,7 +174,7 @@ associating meaning to the fields of such structured data files.
 For details on it use, see the forms-mode section of the online Emacs
 info documentation.
 
-@subsection OCR --Reading Print Documents
+@subsection OCR --- Reading Print Documents
 Module @code{emacspeak-ocr} implements an OCR front-end for the
 Emacspeak desktop.
 
@@ -223,7 +223,7 @@ The Emacspeak OCR front-end is launched by command @dfn{emacspeak-ocr} bound
 to @kbd{C-e C-o}.
 
 This command switches to a special buffer that has OCR
-commands bounds to single keystrokes-- see the key-binding
+commands bounds to single keystrokes --- see the key-binding
 list at the end of this description. Use Emacs online help
 facility to look up help on these commands.
 

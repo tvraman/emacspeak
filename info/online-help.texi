@@ -36,7 +36,7 @@ Once you've asked for help, you can have the
 displayed documentation as many times as you wish using Emacspeak
 command @code{emacspeak-speak-help} bound to @kbd{C-e h}.
 If you want to move through the displayed help a line at a time, switch
-to the buffer where the help is displayed --the buffer is called 
+to the buffer where the help is displayed --- the buffer is called 
 @code{*Help*}.
 
  Often, in adding an auditory interface to an Emacs extension, such as a

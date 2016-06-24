@@ -169,7 +169,7 @@ from point.  Negative prefix optional arg speaks from start of line
   to point.  Voicifies if option `voice-lock-mode' is on.  Indicates
   indentation with a tone or a spoken cue if audio indentation is in use.  Indicates
   position of point with an aural highlight if option
-  `emacspeak-show-point' is turned on --see command `emacspeak-show-point'
+  `emacspeak-show-point' is turned on --- see command `emacspeak-show-point'
   bound to M-x emacspeak-show-point.
 Lines that start hidden blocks of text,
 e.g.  outline header lines,
@@ -552,7 +552,7 @@ emacspeak-view-register
 emacspeak-speak-current-mark
  Speak the line containing the mark.
 With no argument, speaks the
-line containing the mark--this is where `exchange-point-and-mark'
+line containing the mark --- this is where `exchange-point-and-mark'
 C-x C-x would jump.  Numeric prefix arg 'COUNT' speaks
 line containing mark 'n' where 'n' is one less than the number of
 times one has to jump using `set-mark-command' to get to this marked

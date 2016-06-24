@@ -2,7 +2,7 @@
 @c$Id$
 @setfilename./emacspeak.info 
 @include style.texi
-@settitle Emacspeak User's Manual --2nd Edition.
+@settitle Emacspeak User's Manual --- 2nd Edition.
 @dircategory Accessibility
 @direntry
 * Emacspeak:(emacspeak).		Speech-enabled Audio Desktop.
@@ -14,7 +14,7 @@
 
 @titlepage
 
-     @title Emacspeak --The Complete Audio Desktop
+     @title Emacspeak --- The Complete Audio Desktop
 @subtitle User Manual
 @author T. V. Raman 
      Last Updated:  @today{}

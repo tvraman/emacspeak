@@ -16,7 +16,7 @@ eterm mode use a prefix of C-t.  Anything else is a normal shell command.
 
 There are two sub-modes of term mode: char sub-mode and line sub-mode.
 In char sub-mode, emacspeak will only speak the final chunk of output
---typically the last line displayed.
+--- typically the last line displayed.
 Each character typed (except `term-escape-char`) is sent immediately.
 Use char sub-mode for screen oriented programs like vi or pine.  
 
