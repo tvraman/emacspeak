@@ -65,7 +65,7 @@ File: emacspeak.info,  Node: Announce,  Next: Background,  Prev: Copyright,  Up:
 *******************************************************************
 
 This is to announce the launch of a new open source project to create a
-user manual for Emacspeak –an Emacs speech extension that provides a
+user manual for Emacspeak — an Emacs speech extension that provides a
 complete audio desktop.
 
 * Menu:
@@ -86,7 +86,7 @@ section, send out a message to the Emacspeak mailing list
 ‘emacspeak@cs.vassar.edu’.  You can then start adding content to a local
 copy of the chapter to which you are contributing.  When you feel you
 have something to submit, mail out the file to the emacspeak mailing
-list– I’ll integrate new content as it comes in.
+list — I’ll integrate new content as it comes in.
 
 
 File: emacspeak.info,  Node: Authoring Guidelines,  Next: Credits,  Prev: Contributing,  Up: Announce
@@ -97,14 +97,14 @@ File: emacspeak.info,  Node: Authoring Guidelines,  Next: Credits,  Prev: Contri
 For this manual to hang together and make sense to the new user at whom
 it is targeted, contributors need to stick to a consistent style.  If
 you plan to contribute content, you should take some time to read the
-existing sections –note that many of these are skeletal and the first
+existing sections — note that many of these are skeletal and the first
 contributions will be to flesh these sections out.
 
    If you are familiar with texinfo, go ahead and mark up your content
 using texinfo.  If you are not, simply author the documentation you
 create as plain formatted ASCII. If you do submit files as texinfo
 source, make sure to validate them at your end first by running the
-files through ‘makeinfo’ –badly created or malformed texinfo source
+files through ‘makeinfo’ — badly created or malformed texinfo source
 takes more time to fix than marking up straight text.
 
 
@@ -568,7 +568,7 @@ terminology for the editing cursor).
      ‘voice-lock-mode’ is on.  Indicates indentation with a tone or a
      spoken cue if audio indentation is in use.  Indicates position of
      point with an aural highlight if option ‘emacspeak-show-point’ is
-     turned on –see command ‘emacspeak-show-point’ bound to M-x
+     turned on — see command ‘emacspeak-show-point’ bound to M-x
      emacspeak-show-point.  Lines that start hidden blocks of text, e.g.
      outline header lines, or header lines of blocks created by command
      ‘emacspeak-hide-or-expose-block’ are indicated with auditory icon
@@ -709,13 +709,13 @@ File: emacspeak.info,  Node: Controlling Echo,  Next: Speech Output Control,  Up
 6.4.1 Character, Word And Line Echo.
 ------------------------------------
 
-By default, Emacspeak speaks characters as they are typed –this is
-called character echo; Words are spoken as they are completed –this is
+By default, Emacspeak speaks characters as they are typed — this is
+called character echo; Words are spoken as they are completed — this is
 called word echo.  Emacspeak can also optionally speak each line as it
-is typed –this is called line echo.
+is typed — this is called line echo.
 
-   Character, word and line echo can be toggled –either in the current
-buffer– or for all buffers (globally).  To toggle the specific echo
+   Character, word and line echo can be toggled — either in the current
+buffer — or for all buffers (globally).  To toggle the specific echo
 functionality for all buffers, precede the specific command with ‘C-u’.
 Note that in the documentation below, this use of ‘C-u’ is indicated
 using the common Emacs terminology of _prefix arg_ or _interactive
@@ -832,10 +832,10 @@ File: emacspeak.info,  Node: Miscellaneous,  Prev: Speech Output Control,  Up: S
 6.4.3 Miscellaneous Speech Commands
 -----------------------------------
 
-Speech can be stopped using command ‘dtk-stop’ –though in normal use,
+Speech can be stopped using command ‘dtk-stop’ — though in normal use,
 the action of moving the cursor will stop ongoing speech.  The speech
 server can be stopped and restarted for cases where the user wants to
-switch to a different server –or in the rare case to nuke a runaway
+switch to a different server — or in the rare case to nuke a runaway
 speech server.
 
 ‘Control e s’
@@ -997,12 +997,13 @@ The following commands provide miscellaneous information.
 
 ‘ control e control @ ’
      emacspeak-speak-current-mark Speak the line containing the mark.
-     With no argument, speaks the line containing the mark–this is where
-     ‘exchange-point-and-mark’ C-x C-x would jump.  Numeric prefix arg
-     ’COUNT’ speaks line containing mark ’n’ where ’n’ is one less than
-     the number of times one has to jump using ‘set-mark-command’ to get
-     to this marked position.  The location of the mark is indicated by
-     an aural highlight achieved by a change in voice personality.
+     With no argument, speaks the line containing the mark — this is
+     where ‘exchange-point-and-mark’ C-x C-x would jump.  Numeric prefix
+     arg ’COUNT’ speaks line containing mark ’n’ where ’n’ is one less
+     than the number of times one has to jump using ‘set-mark-command’
+     to get to this marked position.  The location of the mark is
+     indicated by an aural highlight achieved by a change in voice
+     personality.
 
 ‘ control e control l ’
      emacspeak-speak-line-number Speak the line number of the current
@@ -1028,7 +1029,7 @@ tricks for making use of many of Emacs’ powerful features.
 trade and the information objects relevant to your current activities.
 In the conventional world of visual GUI-based computing, these tools and
 information objects manifest themselves as a collection of icons
-organized in a two-dimensional work-area –this organization is designed
+organized in a two-dimensional work-area — this organization is designed
 to place frequently used objects within easy reach.
 
    Notice that organizing one’s work area in terms of visual icons
@@ -1149,9 +1150,9 @@ program source code.
 In addition to navigating individual information objects, the Emacspeak
 environment provides speech-enabled navigation of the various buffers
 that are currently open on the Emacspeak desktop via Emacs’ built-in
-list-buffers feature.  Emacs’ dired –directory editor– for browsing the
-file system, along with the new speedbar package that combines features
-from dired and imenu round off the suite of navigational tools.
+list-buffers feature.  Emacs’ dired — directory editor — for browsing
+the file system, along with the new speedbar package that combines
+features from dired and imenu round off the suite of navigational tools.
 
 7.3.4 Everything Is Searchable:
 -------------------------------
@@ -1162,10 +1163,10 @@ via a uniform and powerful search interface.  Emacs’ incremental search
 works efficiently and consistently to enable you locate "objects" of
 interest either within a given document or to locate a given object from
 among the various objects that are currently open on the Emacspeak
-desktop.  This is very powerful –where a GUI user is typically limited
-to quickly locating an object from a relatively small collection –the
+desktop.  This is very powerful — where a GUI user is typically limited
+to quickly locating an object from a relatively small collection — the
 size of the collection being a direct function of available display
-real-estate– the Emacspeak user can typically work with a far larger
+real-estate — the Emacspeak user can typically work with a far larger
 collection of objects.  This is well-suited to the eyes-free
 environment, where display real-estate has no meaning; so bringing up a
 list of currently open buffers and performing an incremental search to
@@ -1173,21 +1174,22 @@ locate a specific buffer is just as efficient independent of whether you
 have a few dozen or a few hundred buffers open.
 
    To illustrate the above, my typical working Emacs session lasts
-between two and three weeks– over that time I typically accumulate
+between two and three weeks — over that time I typically accumulate
 several hundred open buffers holding a large variety of content ranging
 from program source code to email messages and WWW pages.
 
-   Ubiquitous search in the eyes-free environment is critical– as a
+   Ubiquitous search in the eyes-free environment is critical — as a
 comparison, when using a conventional, purely visual WWW browser, users
 have no means of easily "searching" for say the "submit" button on a WWW
 page.  This inability is a minor annoyance in visual interaction, and
 the typical mouse-enabled user never uses the find dialog to find a
-submit button– it is simply more efficient to point at the submit button
-given the eye’s ability to quickly scan the two-dimensional display.
-This luxury is absent in an eyes-free environment; as a consequence,
-blind users confronted by the combination of a visual interface and
-screen-reader are typically limited to either tabbing through all the
-controls on a WWW page, or using the sub-optimal find dialog.
+submit button — it is simply more efficient to point at the submit
+button given the eye’s ability to quickly scan the two-dimensional
+display.  This luxury is absent in an eyes-free environment; as a
+consequence, blind users confronted by the combination of a visual
+interface and screen-reader are typically limited to either tabbing
+through all the controls on a WWW page, or using the sub-optimal find
+dialog.
 
 
 File: emacspeak.info,  Node: Voice Lock,  Next: Using Online Help,  Prev: Audio Desktop,  Up: Top
@@ -1340,7 +1342,7 @@ will automatically speak the displayed help.  Once you’ve asked for
 help, you can have the displayed documentation as many times as you wish
 using Emacspeak command ‘emacspeak-speak-help’ bound to ‘C-e h’.  If you
 want to move through the displayed help a line at a time, switch to the
-buffer where the help is displayed –the buffer is called ‘*Help*’.
+buffer where the help is displayed — the buffer is called ‘*Help*’.
 
    Often, in adding an auditory interface to an Emacs extension, such as
 a web browser or mail reader, Emacspeak defines additional commands and
@@ -1426,7 +1428,7 @@ File: emacspeak.info,  Node: Document Authoring,  Next: Structured Editing,  Up:
 
 The Emacspeak environment provides a rich collection of structured
 document authoring tools.  These are well-suited for working in an
-eyes-free environment –you clearly do not want to use a What You See Is
+eyes-free environment — you clearly do not want to use a What You See Is
 What You Get (WYSIWYG) authoring tool if you cannot see what you’re
 getting.  Structure-based authoring tools allow you to focus on the act
 of content creation, leaving the minutiae of visual layout to the
@@ -1757,7 +1759,7 @@ File: emacspeak.info,  Node: Browsing Structure,  Next: Web Browsing,  Prev: Str
 =======================
 
 This section describes packages that allow you to browse structured
-information –these are distinct from the tools described in *note
+information — these are distinct from the tools described in *note
 Structured Editing::, in that they are typically used for working with
 content that is read-only e.g., online documentation.
 
@@ -1773,7 +1775,7 @@ and in *Note emacspeak-eww::.  For Emacs 24.4 and later, note that the
 built-in Web browser EWW is also the browser of choice for emacspeak.
 W3 still has its place, especially when working out with fill-out forms.
 
-   –T. V. Raman, October 2014.
+   — T. V. Raman, October 2014.
 
    This document, “The State of Web Browsing in Emacspeak” describes the
 primary web browsers in use under emacspeak and ways they might be used
@@ -2515,7 +2517,7 @@ languages.  Many of these editing modes are speech-enabled by Emacspeak.
 Speech-enabling these modes includes providing a rich set of
 navigational commands that allow you to move through the source
 efficiently.  In addition, Emacspeak’s core voice-lock facilities are
-used to produce audio formatted output –this helps you spot errors
+used to produce audio formatted output — this helps you spot errors
 quickly.
 
 
@@ -2602,8 +2604,8 @@ associating meaning to the fields of such structured data files.  For
 details on it use, see the forms-mode section of the online Emacs info
 documentation.
 
-10.10.3 OCR –Reading Print Documents
-------------------------------------
+10.10.3 OCR — Reading Print Documents
+-------------------------------------
 
 Module ‘emacspeak-ocr’ implements an OCR front-end for the Emacspeak
 desktop.
@@ -2649,9 +2651,9 @@ enable easy OCR access from within Emacspeak.
 bound to ‘C-e C-o’.
 
    This command switches to a special buffer that has OCR commands
-bounds to single keystrokes– see the key-binding list at the end of this
-description.  Use Emacs online help facility to look up help on these
-commands.
+bounds to single keystrokes — see the key-binding list at the end of
+this description.  Use Emacs online help facility to look up help on
+these commands.
 
    Mode "emacspeak-ocr-mode" provides the necessary functionality to
 scan, OCR, read and save documents.  By default, scanned images and the
@@ -2747,7 +2749,7 @@ command.
 
    There are two sub-modes of term mode: char sub-mode and line
 sub-mode.  In char sub-mode, emacspeak will only speak the final chunk
-of output –typically the last line displayed.  Each character typed
+of output — typically the last line displayed.  Each character typed
 (except ‘term-escape-char‘) is sent immediately.  Use char sub-mode for
 screen oriented programs like vi or pine.
 
