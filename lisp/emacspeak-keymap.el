@@ -149,6 +149,7 @@
         ("C-r" info-display-manual)
         ("SPC" customize-group)
         ("TAB" emacspeak-info-wizard)
+        ("'" describe-text-properties)
         ("," emacspeak-wizards-color-at-point)
         ("\;" describe-font)
         ("p" list-packages)
