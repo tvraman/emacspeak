@@ -150,6 +150,7 @@
         ("SPC" customize-group)
         ("TAB" emacspeak-info-wizard)
         ("," emacspeak-wizards-color-at-point)
+        ("\;" describe-font)
         ("p" list-packages)
         )
       do
