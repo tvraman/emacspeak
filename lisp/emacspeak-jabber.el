@@ -182,14 +182,15 @@
 (defun emacspeak-jabber-popup-roster ()
   "Pop to Jabber roster."
   (interactive)
-  (declare (special jabber-roster-buffer *jabber-connected*))
-  (unless *jabber-connected* (call-interactively 'jabber-connect))
+  (declare (special jabber-roster-buffer ))
+  (unless jabber-connections  (call-interactively 'jabber-connect))
   (unless (buffer-live-p jabber-roster-buffer) (call-interactively 'jabber-display-roster))
   (pop-to-buffer jabber-roster-buffer)
   (goto-char (point-min))
   (forward-line 4)
   (emacspeak-auditory-icon 'select-object)
   (emacspeak-speak-line))
+
 (defadvice jabber-connect-all (after emacspeak pre act comp)
   "switch to roster so we give it a chance to update."
   (when (ems-interactive-p)
