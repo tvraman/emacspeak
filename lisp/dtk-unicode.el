@@ -214,7 +214,10 @@ charsets returned by operations such as `find-charset-region'."
 (defsubst dtk-unicode-name-for-char (char)
   "Return unicode name for character CHAR.
 nil if CHAR is not in Unicode."
-  (downcase (string-to-multibyte (char-to-string char))))
+  (downcase
+   (or
+    (get-char-code-property char 'name)
+    (get-char-code-property char 'old-name))))
 
 (defsubst dtk-unicode-char-properties (char)
   "Return unicode properties for CHAR."
