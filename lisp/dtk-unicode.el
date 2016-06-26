@@ -217,7 +217,8 @@ nil if CHAR is not in Unicode."
   (downcase
    (or
     (get-char-code-property char 'name)
-    (get-char-code-property char 'old-name))))
+    (get-char-code-property char 'old-name)
+    (format "%c" char))))
 
 (defsubst dtk-unicode-char-properties (char)
   "Return unicode properties for CHAR."
