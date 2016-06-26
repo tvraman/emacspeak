@@ -515,7 +515,6 @@ interactive command that the key sequence executes."
 (defcustom emacspeak-super-keys 
   '(
     ("." auto-correct-update)
-    ("c" emacspeak-wizards-color-at-point)
     ("r" soundscape-restart)
     ("s" soundscape)
     ("t" soundscape-toggle)
