@@ -2458,7 +2458,7 @@ Contains various wizards for the Emacspeak desktop.
 ............................................
 
  -- Command: emacspeak-wizards-color-at-point
-     ‘C-h , C-' c <f1> , <help> , C-x @ s c’
+     ‘C-h , <f1> , <help> ,’
 
      Echo foreground/background color at point.
 
@@ -5696,7 +5696,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e { C-e p <XF86WakeUp> { <XF86WakeUp> p: emacspeak-speak.
                                                              (line  645)
 * C-e | <XF86WakeUp> |:                  emacspeak-speak.    (line  481)
-* C-h , C-' c <f1> , <help> , C-x @ s c: emacspeak-wizards.  (line  410)
+* C-h , <f1> , <help> ,:                 emacspeak-wizards.  (line  410)
 * C-h C-e <f1> C-e <help> C-e:           emacspeak.          (line  317)
 * C-h M <f1> M <help> M:                 emacspeak-wizards.  (line  266)
 * C-h TAB <f1> TAB <help> TAB:           emacspeak-info.     (line   24)
