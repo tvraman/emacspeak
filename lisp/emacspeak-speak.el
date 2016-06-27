@@ -1714,9 +1714,10 @@ current coding system, then we return an empty string."
                    'personality voice-annotate emacspeak-minor-mode-prefix)
 
 ;;;###autoload
-(defun emacspeak-speak-minor-mode-line ()
-  "Speak the minor mode-information."
-  (interactive)
+(defun emacspeak-speak-minor-mode-line (&optional copy-as-kill )
+  "Speak the minor mode-information.
+Optional  interactive prefix arg `copy-as-kill' copies spoken info to kill ring."
+  (interactive "P")
   (declare (special minor-mode-alist emacspeak-minor-mode-prefix vc-mode))
   (force-mode-line-update)
   (let ((info 
@@ -1729,7 +1730,7 @@ current coding system, then we return an empty string."
                   "")))
           minor-mode-alist
           " ")))
-    (kill-new info)
+    (when copy-as-kill (kill-new info))
     (dtk-speak
      (concat
       emacspeak-minor-mode-prefix vc-mode info (ems-get-buffer-coding-system)
