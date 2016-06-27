@@ -1733,8 +1733,10 @@ Optional  interactive prefix arg `copy-as-kill' copies spoken info to kill ring.
     (when copy-as-kill (kill-new info))
     (dtk-speak
      (concat
-      emacspeak-minor-mode-prefix vc-mode info (ems-get-buffer-coding-system)
-      ))))
+      emacspeak-minor-mode-prefix
+      (when vc-mode (propertize vc-mode  'personality voice-smoothen))
+      info
+      (ems-get-buffer-coding-system)))))
 
 (defalias 'emacspeak-speak-line-number 'what-line)
 
