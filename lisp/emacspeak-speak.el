@@ -1717,24 +1717,23 @@ current coding system, then we return an empty string."
 (defun emacspeak-speak-minor-mode-line ()
   "Speak the minor mode-information."
   (interactive)
-  (declare (special minor-mode-alist emacspeak-minor-mode-prefix
-                    vc-mode))
+  (declare (special minor-mode-alist emacspeak-minor-mode-prefix vc-mode))
   (force-mode-line-update)
-  (let ((info nil))
-    (setq info
-          (mapconcat
-           #'(lambda(item)
-               (let ((var (car item))
-                     (value (cadr item)))
-                 (if (and (boundp var) (eval var))
-                     (format-mode-line  value)
-                   "")))
-           minor-mode-alist
-           " "))
+  (let ((info 
+         (mapconcat
+          #'(lambda(item)
+              (let ((var (car item))
+                    (value (cadr item)))
+                (if (and (boundp var) (eval var))
+                    (format-mode-line  value)
+                  "")))
+          minor-mode-alist
+          " ")))
+    (kill-new info)
     (dtk-speak
-     (concat emacspeak-minor-mode-prefix
-             vc-mode info
-             (ems-get-buffer-coding-system)))))
+     (concat
+      emacspeak-minor-mode-prefix vc-mode info (ems-get-buffer-coding-system)
+      ))))
 
 (defalias 'emacspeak-speak-line-number 'what-line)
 
