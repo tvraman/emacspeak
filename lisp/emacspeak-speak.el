@@ -1719,7 +1719,7 @@ current coding system, then we return an empty string."
   "Speak the minor mode-information.
 Optional  interactive prefix arg `copy-as-kill' copies spoken info to kill ring."
   (interactive "P")
-  (declare (special minor-mode-alist emacspeak-minor-mode-prefix vc-mode))
+  (declare (special minor-mode-alist emacspeak-minor-mode-prefix))
   (force-mode-line-update)
   (let ((info 
          (mapconcat
@@ -1735,7 +1735,6 @@ Optional  interactive prefix arg `copy-as-kill' copies spoken info to kill ring.
     (dtk-speak
      (concat
       emacspeak-minor-mode-prefix
-      (when vc-mode (propertize vc-mode  'personality voice-smoothen))
       info
       (ems-get-buffer-coding-system)))))
 
