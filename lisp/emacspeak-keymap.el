@@ -526,7 +526,6 @@ interactive command that the key sequence executes."
     ("h" emacspeak-webspace-headlines-browse)
     ("l" emacspeak-m-player-locate-media)
     ("m" emacspeak-wizards-view-buffers-filtered-by-this-mode)
-    ("n" gweb-news-view)
     ("p" proced)
     ("R" emacspeak-webspace-feed-reader))
   "*Specifies super key bindings for the audio desktop. You can
