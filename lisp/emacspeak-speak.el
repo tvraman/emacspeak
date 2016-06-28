@@ -1629,7 +1629,7 @@ semantic to do the work."
 Speaks header-line if that is set when called non-interactively.
 Interactive prefix arg speaks buffer info."
   (interactive "P")
-  (declare (special  mode-name  major-mode
+  (declare (special  mode-name  major-mode vc-mode
                      header-line-format global-mode-string
                      column-number-mode line-number-mode
                      emacspeak-mail-alert mode-line-format))
@@ -1664,6 +1664,7 @@ Interactive prefix arg speaks buffer info."
           (concat
            dir-info
            (emacspeak-get-voicefied-buffer-name (buffer-name))
+           (when vc-mode (propertize vc-mode  'personality voice-smoothen))
            (when line-number-mode
              (format "line %d" (emacspeak-get-current-line-number)))
            (when column-number-mode
