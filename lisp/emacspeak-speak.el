@@ -1708,11 +1708,8 @@ current coding system, then we return an empty string."
    (t "")))
 
 (defvar emacspeak-minor-mode-prefix
-  "Active: "
+  (propertize "Active: " 'personality voice-annotate )
   "Prefix used in composing utterance produced by emacspeak-speak-minor-mode-line.")
-
-(put-text-property 0 (length emacspeak-minor-mode-prefix)
-                   'personality voice-annotate emacspeak-minor-mode-prefix)
 
 ;;;###autoload
 (defun emacspeak-speak-minor-mode-line (&optional copy-as-kill )
