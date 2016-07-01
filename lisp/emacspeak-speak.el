@@ -1642,6 +1642,7 @@ Interactive prefix arg speaks buffer info."
    (buffer-info (emacspeak-speak-buffer-info))
    (t                                   ; main branch
     (let ((global-info (format-mode-line global-mode-string))
+          (vc-state (when vc-mode  (vc-state (buffer-file-name ))))
           (frame-info (emacspeak-get-voicefied-frame-info (selected-frame)))
           (recursion-info (emacspeak-get-voicefied-recursion-info  (recursion-depth)))
           (dir-info (when (or (eq major-mode 'shell-mode)
@@ -1665,6 +1666,7 @@ Interactive prefix arg speaks buffer info."
            dir-info
            (emacspeak-get-voicefied-buffer-name (buffer-name))
            (when vc-mode (propertize vc-mode  'personality voice-smoothen))
+           (when vc-state (format "%s" vc-state))
            (when line-number-mode
              (format "line %d" (emacspeak-get-current-line-number)))
            (when column-number-mode
