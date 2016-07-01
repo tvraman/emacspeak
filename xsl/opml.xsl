@@ -14,8 +14,8 @@ View OPML feeds as XHTML
     </html>
   </xsl:template>
   <xsl:template match="head">
-    <h1>
-    <xsl:value-of select="title"/> </h1>
+    <xsl:copy-of select="."/>
+
     <xsl:if test="dateModified">
       <h2>Date Modified: <xsl:copy-of
       select="dateModified"/></h2>
@@ -23,7 +23,8 @@ View OPML feeds as XHTML
   </xsl:template>
   <xsl:template match="body">
     <body>
-      
+      <h1>
+    <xsl:value-of select="/opml/head/title"/> </h1>
       <ol>
         <xsl:apply-templates select=".//outline"/>
       </ol>
