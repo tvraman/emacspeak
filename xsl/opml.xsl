@@ -14,17 +14,18 @@ View OPML feeds as XHTML
     </html>
   </xsl:template>
   <xsl:template match="head">
-    <xsl:copy-of select="."/>
-
-    <xsl:if test="dateModified">
-      <h2>Date Modified: <xsl:copy-of
-      select="dateModified"/></h2>
-    </xsl:if>
+<head>
+    <xsl:copy-of select="title"/>
+</head>
   </xsl:template>
   <xsl:template match="body">
     <body>
       <h1>
     <xsl:value-of select="/opml/head/title"/> </h1>
+<xsl:if test="/opml/head/dateModified">
+      <h2>Date Modified: <xsl:copy-of
+      select="/opml/head/dateModified"/></h2>
+    </xsl:if>
       <ol>
         <xsl:apply-templates select=".//outline"/>
       </ol>
