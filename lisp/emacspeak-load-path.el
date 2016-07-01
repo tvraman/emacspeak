@@ -58,7 +58,7 @@
 ;;{{{ Interactive Check Implementation:
 
 ;;; Notes:
-;;; This implementation below appears to work for 99% of emacspeak.
+;;; This implementation below appears to work for  emacspeak.
 ;;; Updating  the advice on call-interactively to remember the state of our flag
 ;;; catches cases where the minibuffer is called recursively.
 
