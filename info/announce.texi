@@ -5,7 +5,7 @@
 
 
 This is to announce the launch of a new open source project
-to create a user manual for Emacspeak --- an Emacs speech extension that
+to create a user manual for Emacspeak  @MDash  an Emacs speech extension that
 provides a complete audio desktop.
 
 @menu
@@ -25,7 +25,7 @@ send out a message to the Emacspeak mailing list
 You can then start adding content to a local copy of the chapter to
 which you are contributing.
 When you feel you have something to submit, mail out the file to the
-emacspeak mailing list ---
+emacspeak mailing list  @MDash 
 I'll integrate new content as it comes in.
 
 @node Authoring Guidelines
@@ -34,7 +34,7 @@ I'll integrate new content as it comes in.
 For this manual to hang together and make sense to the new user at whom
 it is targeted, contributors need to stick to a consistent style.
 If you plan to contribute content, you should take some time to read the
-existing sections --- note that many of these are skeletal and 
+existing sections  @MDash  note that many of these are skeletal and 
 the first contributions will be to flesh these sections out.
 
 If you are familiar with texinfo, go ahead and mark up your content
@@ -42,7 +42,7 @@ using texinfo.
 If you are not, simply author the documentation you create as plain
 formatted ASCII.
 If you do submit files as texinfo source, make sure to validate them at
-your end first by running the files through @code{makeinfo} --- badly
+your end first by running the files through @code{makeinfo}  @MDash  badly
 created or malformed texinfo source takes more time to fix than marking
 up straight text.
 

@@ -11,7 +11,7 @@ your trade and the information objects relevant to your
 current activities.  In the conventional world of visual
 GUI-based computing, these tools and information objects
 manifest themselves as a collection of icons organized in a
-two-dimensional work-area --- this organization is designed to
+two-dimensional work-area@MDash this organization is designed to
 place frequently used objects within easy reach.
 
 Notice that organizing one's work area in terms of visual
@@ -139,7 +139,7 @@ An example of content-sensitive navigation is provided by the imenu
 package which dynamically creates a "table of contents" based on the
 content that is being displayed in a given buffer.  Emacs @dfn{Selective
 Display} lets one easily hide and expose portions of a buffer based on
-indentation  ---  this feature can be used to advantage when working with
+indentation @MDash  this feature can be used to advantage when working with
 program source code.
 
 
@@ -152,7 +152,7 @@ In addition to navigating individual information objects,
 the Emacspeak environment provides speech-enabled navigation
 of the various buffers that are currently open on the
 Emacspeak desktop via Emacs' built-in list-buffers feature.
-Emacs' dired  --- directory editor --- for browsing the file
+Emacs' dired @MDash directory editor@MDash for browsing the file
 system, along with the new speedbar package 
 that combines features from dired and imenu round off the
 suite of navigational tools.
@@ -168,10 +168,10 @@ via a uniform and powerful search interface.  Emacs' incremental search
 works efficiently and consistently to enable you locate "objects" of
 interest either within a given document or to locate a given object from
 among the various objects that are currently open on the Emacspeak
-desktop.  This is @b{very powerful} --- where a GUI user is typically
+desktop.  This is @b{very powerful}@MDash where a GUI user is typically
 limited to quickly locating an object from a relatively small collection
---- the size of the collection being a direct function of available
-display real-estate --- the Emacspeak user can typically work with a far
+@MDash  the size of the collection being a direct function of available
+display real-estate@MDash the Emacspeak user can typically work with a far
 larger collection of objects.  This is well-suited to the eyes-free
 environment, where display real-estate has no meaning; so bringing up a
 list of currently open buffers and performing an incremental search to
@@ -179,17 +179,17 @@ locate a specific buffer is just as efficient independent of whether you
 have a few dozen or a few hundred buffers open.
 
 To illustrate the above, my typical working Emacs session
-lasts between two and three weeks --- over that time I
+lasts between two and three weeks@MDash over that time I
 typically accumulate several hundred open buffers holding a
 large variety of content ranging from program source code to
 email messages and WWW pages.
 
-Ubiquitous search in the eyes-free environment is critical --- as a
+Ubiquitous search in the eyes-free environment is critical@MDash as a
 comparison, when using a conventional, purely visual WWW browser, users
 have no means of easily "searching" for say the "submit" button on a WWW
 page.  This inability is a minor annoyance in visual interaction, and
 the typical mouse-enabled user @b{never} uses the find dialog to find a
-submit button --- it is simply more efficient to point at the submit
+submit button@MDash it is simply more efficient to point at the submit
 button given the eye's ability to quickly scan the two-dimensional
 display.  This luxury is absent in an eyes-free environment; as a
 consequence, blind users confronted by the combination of a visual
