@@ -29,3 +29,9 @@ Module ~emacspeak-related~ speech-enables package  ~related~ from Melpa.
 ** RST Text Mode:
 
 Module ~emacspeak-rst~ speech-enables ~rst~ mode.
+
+
+** Mode-Line Info:
+
+Emacspeak's spoken mode-line includes version-control state for files
+under VC.
