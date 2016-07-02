@@ -44,11 +44,11 @@ work on AsTeR coincided with the  Web being at its infancy. As
 the Web evolved to acquire Cascaded Style Sheets (CSS), ideas
 from AsTeR  were used to define Aural CSS as an appendix to CSS1
 in 1995. Emacspeak proved an ideal platform to prototype the
-ideas within Aural CSS --- first within the Emacs/W3
+ideas within Aural CSS @MDash  first within the Emacs/W3
 browser. Around this time, Emacs itself evolved to support
 multiple fonts and /font-locking/  to implement syntax coloring
 for various types of content. Emacspeak applied the ideas of
-audio formatting to create the auditory analog of /font-lock/ --
+audio formatting to create the auditory analog of /font-lock/  @MDash
 Emacspeak calls this /voice locking/.
 
 Voice locking in Emacspeak continues to be a unique feature among
@@ -61,19 +61,19 @@ all aspects of voice-locking, rather than just for Web content.
 Emacspeak augments spoken feedback with short auditory icons that
 vastly speed up interaction. Combined with audio formatting, the
 resulting experience is analogous to moving from a monochrome
-character-cell display to a high-quality color display --- the
+character-cell display to a high-quality color display @MDash  the
 overall user experience is rich in comparison. This enabled
 Emacspeak to explore innovative means of auditory communication
---- as an example,  see my Assets-98 paper entitled
+@MDash  as an example,  see my Assets-98 paper entitled
 /Conversational Gestures For The Audio Desktop/ that details how
 one can play Tetris on the Emacspeak desktop.
 
 ** Summary
 
-The lessons learnt from developing Emacspeak are many ---   here
+The lessons learnt from developing Emacspeak are many @MDash    here
 are a few highlights:
 
-  - A model for browsing tabular data --- see relevant chapter in
+  - A model for browsing tabular data @MDash  see relevant chapter in
     my book /Auditory User Interfaces/
   - Audio formatting and Aural CSS
   - Auditory icons for efficient feedback.
