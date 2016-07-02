@@ -18,10 +18,11 @@ of console-level Linux screenreaders such as @code{speakup}.  Such Linux
 screenreaders provide the same level of UNIX accessibility provided in
 the late 80's by PC terminal emulators running a DOS screenreader.  This
 means that most visually impaired computer users face the additional
-handicap of being DOS-impaired --- a far more serious problem:-)
+handicap of being DOS-impaired @MDash  a far more serious problem:-)
 
 Emacspeak is an emacs subsystem that provides complete speech access.
-It is @emph{not} a screen-reader --- rather, it is a complete user
+It is @emph{not} a screen-reader @MDash 
+ rather, it is a complete user
 environment with built-in speech  feedback.  Emacspeak has a
 significant advantage; since it runs inside Emacs, a
 structure-sensitive, fully customizable environment, Emacspeak has more
