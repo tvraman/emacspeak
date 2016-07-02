@@ -182,7 +182,7 @@ ideal platform to prototype the ideas within Aural CSS — first within
 the Emacs/W3 browser.  Around this time, Emacs itself evolved to support
 multiple fonts and _font-locking_ to implement syntax coloring for
 various types of content.  Emacspeak applied the ideas of audio
-formatting to create the auditory analog of _font-lock_ – Emacspeak
+formatting to create the auditory analog of _font-lock_ — Emacspeak
 calls this _voice locking_.
 
    Voice locking in Emacspeak continues to be a unique feature among
@@ -806,7 +806,7 @@ applied to all buffers by preceding these commands with ‘C-u’.
      reading documents.
 
    In addition, Emacspeak can convey the indentation of lines as they
-are spoken– this is relevant when programming and is the default when
+are spoken — this is relevant when programming and is the default when
 working with program source.
 
 ‘ control e d i ’
@@ -1392,7 +1392,7 @@ File: emacspeak.info,  Node: Emacs Packages,  Next: Running Terminal Based Appli
 10 Emacs Packages.
 ******************
 
-Emacs – The extensible, self-documenting editor, derives its
+Emacs — The extensible, self-documenting editor, derives its
 functionality from its powerful extension mechanism.  This extension
 mechanism is used to implement many user-level applications such as mail
 readers, web browsers, software development environments and so on.
@@ -1459,7 +1459,7 @@ as voice locking for audio formatted feedback as you work.
 
    If the document being authored is more complex, you are usually
 better off creating it in LaTeX. Note that LaTeX documents can be
-converted to HTML either via package ‘tex4ht’ – available on the WWW.
+converted to HTML either via package ‘tex4ht’ — available on the WWW.
 
    The TeX family of typesetting languages is suitable for producing
 well-formatted documents in an eyes-free environment.  Unlike WYSIWYG
@@ -1781,7 +1781,7 @@ W3 still has its place, especially when working out with fill-out forms.
 primary web browsers in use under emacspeak and ways they might be used
 more efficiently.
 
-   Version 1.0 – February, 2007.
+   Version 1.0 — February, 2007.
 
    Copyright © 2007 Robert D. Crawford <rdc1x@comcast.net>
 
@@ -2893,7 +2893,7 @@ find a file, and so forth).
 ‘C-c C-a’
 ‘M-x term-bol’
      Goes to the beginning of line, then skips past the prompt, if any.
-     If a prefix argument is given (C-u), then no prompt skip – go
+     If a prefix argument is given (C-u), then no prompt skip — go
      straight to column 0.
 
 ‘C-c C-d’
