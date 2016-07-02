@@ -50,7 +50,7 @@ distributions, use the install instructions that come with that package.
 
 @itemize @bullet
 @item 
-Obtain the source code --- either by downloading the tar.bz2 file for the latest release --- or by cloning the git repository.
+Obtain the source code @MDash  either by downloading the tar.bz2 file for the latest release @MDash  or by cloning the git repository.
 @samp{git clone https://github.com/tvraman/emacspeak}
 @item
 Change to the @code{emacspeak} directory.
@@ -72,7 +72,7 @@ cd servers/linux-espeak; make
 @item ViaVoice Outloud (AKA Eloquent). You need to purchase this engine
 from the voxin.org site. That purchase will give you install-ready
 packages for installing the speech engine as well as Emacspeak.
-@item On the Mac, you can use the builtin Mac TTS engine  --- emacspeak
+@item On the Mac, you can use the builtin Mac TTS engine  @MDash  emacspeak
 comes with a speech server for that TTS  engine written in Python.
 @end itemize
 @item Having installed and configured the TTS engine of your choice, and
@@ -119,7 +119,8 @@ not depend on any native code.
 @item Outloud: @code{servers/outloud} or @code{servres/32-outloud} (for
 64-bit machines). This is a TCL script that uses the library built in
 @code{servers/linux-outloud}. Note that a checkout from GitHub gives you
-a prebuilt library --- however you will need to purchase  the TTS engine
+a prebuilt library @MDash 
+ however you will need to purchase  the TTS engine
 from @url{http://voxin.org}.
 @item Mac: @code{servers/mac}. This is a Python script that binds to the
 native Mac TTS.
