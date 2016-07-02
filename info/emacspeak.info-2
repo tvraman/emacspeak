@@ -7907,10 +7907,11 @@ of emacspeak from becoming dependent on the speech server modules
 12.161.1.59 emacspeak-speak-minor-mode-line
 ...........................................
 
- -- Command: emacspeak-speak-minor-mode-line
+ -- Command: emacspeak-speak-minor-mode-line (&optional copy-as-kill)
      ‘C-e M <XF86WakeUp> M’
 
      Speak the minor mode-information.
+     Optional  interactive prefix arg “copy-as-kill” copies spoken info to kill ring.
 
 12.161.1.60 emacspeak-speak-mode-line
 .....................................
