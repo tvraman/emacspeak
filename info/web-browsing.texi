@@ -8,13 +8,14 @@ the browser of choice for emacspeak.
 W3 still has its place, especially when working out with fill-out forms.
 
 
---- T. V. Raman, October 2014.
+@MDash 
+ T. V. Raman, October 2014.
 
 This document, ``The State of Web Browsing in Emacspeak'' describes
 the primary web browsers in use under emacspeak and ways they might be
 used more efficiently.  
 
-Version 1.0 --  February, 2007.
+Version 1.0 @MDash   February, 2007.
 
 Copyright @copyright{} 2007 Robert D. Crawford @email{rdc1x@@comcast.net}
 
