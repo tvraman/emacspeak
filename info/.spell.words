@@ -362,6 +362,7 @@ makepp
 manpage
 mashup
 mcp
+MDash
 melpa
 metadata
 metapost
@@ -393,6 +394,7 @@ multitrack
 namespace
 nav
 NCSA
+NDash
 newsticker
 Newsticker
 NLS
@@ -497,6 +499,8 @@ ro
 rpmfind
 rss
 RSS
+rst
+RST
 runtime
 rw
 Sametime
