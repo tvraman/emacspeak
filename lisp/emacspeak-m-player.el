@@ -365,8 +365,8 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
 (defun emacspeak-m-player-process-filter (process output)
   "Filter function that captures metadata."
   (declare (special emacspeak-m-player-cue-info))
-  (when emacspeak-m-player-process
-    (with-current-buffer (process-buffer emacspeak-m-player-process)
+  (when (process-live-p process)
+    (with-current-buffer (process-buffer process)
       (when (and emacspeak-m-player-metadata
                  (emacspeak-m-player-metadata-p emacspeak-m-player-metadata)
                  (string-match "ICY Info:" output))
