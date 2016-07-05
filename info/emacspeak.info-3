@@ -1897,7 +1897,16 @@ avoid duplication of code between emacspeak-w3.el and emacspeak-w3m.el
 12.187.1 emacspeak-webutils Commands
 ------------------------------------
 
-12.187.1.1 emacspeak-webutils-google-extract-from-cache
+12.187.1.1 emacspeak-webutils-curl-play-media-at-point
+......................................................
+
+ -- Command: emacspeak-webutils-curl-play-media-at-point
+
+     Use Curl to pull a URL, then pass
+     the first line to MPlayer as a playlist.
+     Useful in handling double-redirect from TuneIn.
+
+12.187.1.2 emacspeak-webutils-google-extract-from-cache
 .......................................................
 
  -- Command: emacspeak-webutils-google-extract-from-cache (&optional
@@ -1906,21 +1915,21 @@ avoid duplication of code between emacspeak-w3.el and emacspeak-w3m.el
      Extract current  page from the Google cache.
      With a prefix argument, extracts url under point.
 
-12.187.1.2 emacspeak-webutils-google-on-this-site
+12.187.1.3 emacspeak-webutils-google-on-this-site
 .................................................
 
  -- Command: emacspeak-webutils-google-on-this-site
 
      Perform a google search restricted to the current WWW site.
 
-12.187.1.3 emacspeak-webutils-google-similar-to-this-page
+12.187.1.4 emacspeak-webutils-google-similar-to-this-page
 .........................................................
 
  -- Command: emacspeak-webutils-google-similar-to-this-page (url)
 
      Ask Google to find documents similar to this one.
 
-12.187.1.4 emacspeak-webutils-google-who-links-to-this-page
+12.187.1.5 emacspeak-webutils-google-who-links-to-this-page
 ...........................................................
 
  -- Command: emacspeak-webutils-google-who-links-to-this-page
@@ -1928,7 +1937,7 @@ avoid duplication of code between emacspeak-w3.el and emacspeak-w3m.el
      Perform a google search to locate documents that link to the
      current page.
 
-12.187.1.5 emacspeak-webutils-jump-to-title-in-content
+12.187.1.6 emacspeak-webutils-jump-to-title-in-content
 ......................................................
 
  -- Command: emacspeak-webutils-jump-to-title-in-content
@@ -1938,14 +1947,14 @@ avoid duplication of code between emacspeak-w3.el and emacspeak-w3m.el
      instance  of the title.  Repeated calls jump to further
      instances.
 
-12.187.1.6 emacspeak-webutils-open-in-other-browser
+12.187.1.7 emacspeak-webutils-open-in-other-browser
 ...................................................
 
  -- Command: emacspeak-webutils-open-in-other-browser
 
      Opens link in alternate browser.
 
-12.187.1.7 emacspeak-webutils-play-media-at-point
+12.187.1.8 emacspeak-webutils-play-media-at-point
 .................................................
 
  -- Command: emacspeak-webutils-play-media-at-point (&optional
@@ -1956,7 +1965,7 @@ avoid duplication of code between emacspeak-w3.el and emacspeak-w3m.el
      Optional interactive prefix arg “playlist-p” says to treat the link as a playlist.
       A second interactive prefix arg adds mplayer option -allow-dangerous-playlist-parsing
 
-12.187.1.8 emacspeak-webutils-transcode-current-url-via-google
+12.187.1.9 emacspeak-webutils-transcode-current-url-via-google
 ..............................................................
 
  -- Command: emacspeak-webutils-transcode-current-url-via-google
@@ -1965,8 +1974,8 @@ avoid duplication of code between emacspeak-w3.el and emacspeak-w3m.el
      Transcode current URL via Google.
        Reverse effect with prefix arg.
 
-12.187.1.9 emacspeak-webutils-transcode-via-google
-..................................................
+12.187.1.10 emacspeak-webutils-transcode-via-google
+...................................................
 
  -- Command: emacspeak-webutils-transcode-via-google (&optional
           untranscode)
@@ -5606,7 +5615,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e M <XF86WakeUp> M:                  emacspeak-speak.    (line  553)
 * C-e m <XF86WakeUp> m:                  emacspeak-speak.    (line  562)
 * C-e M-% <XF86WakeUp> M-%:              emacspeak-speak.    (line   65)
-* C-e M-; <XF86WakeUp> M-;:              emacspeak-webutils. (line   67)
+* C-e M-; <XF86WakeUp> M-;:              emacspeak-webutils. (line   76)
 * C-e M-a <XF86WakeUp> M-a:              emacspeak-sounds.   (line   40)
 * C-e M-b <XF86WakeUp> M-b:              emacspeak-speak.    (line  604)
 * C-e M-c <XF86WakeUp> M-c:              emacspeak-wizards.  (line   60)

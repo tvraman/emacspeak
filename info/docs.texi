@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1150 commands and 967 options.
+This chapter documents a total of 1151 commands and 967 options.
 
 @menu
 * acss-structure::
@@ -17962,6 +17962,17 @@ This is to avoid duplication of code between emacspeak-w3.el
 and emacspeak-w3m.el
 
 @subsection emacspeak-webutils Commands
+
+@subsubsection emacspeak-webutils-curl-play-media-at-point
+@deffn {Command} emacspeak-webutils-curl-play-media-at-point   
+@findex emacspeak-webutils-curl-play-media-at-point
+
+@format
+Use Curl to pull a URL, then pass
+the first line to MPlayer as a playlist.
+Useful in handling double-redirect from TuneIn.
+@end format
+@end deffn
 
 @subsubsection emacspeak-webutils-google-extract-from-cache
 @deffn {Command} emacspeak-webutils-google-extract-from-cache  (&optional prefix)
