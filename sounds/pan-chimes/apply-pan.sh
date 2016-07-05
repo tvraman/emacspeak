@@ -30,7 +30,7 @@ function swapchan () {
 # pan fill-object.wav 1 
 # pan help.wav 2 
 # pan item.wav 1 
-# pan large-movement.wav 3 
+# pan large-movement.wav 4 
 # pan left.wav 1 
 # pan mark-object.wav 1
 # pan modified-object.wav 1
@@ -75,5 +75,4 @@ function swapchan () {
 # swapchan n-answer.wav
 # swapchan no-answer.wav
 # swapchan mark-object.wav
-# swapchan large-movement.wav
 # swapchan scroll.wav
