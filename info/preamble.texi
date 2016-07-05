@@ -1,12 +1,4 @@
 @c $Id$
-@macro MDash 
- ---
-@end macro 
-
-@macro NDash 
- -- 
-@end macro 
-
 @node Top
 @top Emacspeak
 

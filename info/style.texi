@@ -8,3 +8,10 @@
 @end ignore
 @set txicodequoteundirected
 @set txicodequotebacktick
+@macro MDash 
+ ---
+@end macro 
+
+@macro NDash 
+ -- 
+@end macro 
