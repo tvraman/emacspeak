@@ -1399,6 +1399,16 @@ prompts for a location and speaks the forecast. \n\n"
  "Search NLS Bard Catalog. Login once before using this template.")
 
 ;;}}}
+;;{{{ Bloomberg:
+(emacspeak-url-template-define
+ "Bloomberg Stock  Lookup"
+ "http://www.bloomberg.com/quote/%s"
+ (list "Lookup Ticker:Country")
+ nil
+ "Lookup Stock Quote information on Bloomberg. Ticker is of the form goog:us")
+
+;;}}}
+
 (provide 'emacspeak-url-template)
 ;;{{{ end of file
 
