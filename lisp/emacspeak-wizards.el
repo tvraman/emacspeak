@@ -3251,6 +3251,14 @@ Optional interactive prefix arg shows  unprocessed results."
   (emacspeak-speak-mode-line))
 
 ;;}}}
+;;{{{ Market Data On Demand 
+
+(defvar emacspeak-wizards-market-data-endpoint
+  "http://dev.markitondemand.com/MODApis/Api/v2/Quote/json?symbol=%s"
+  "Rest end-point for retrieving stock quote data from Market Data On Demand.")
+
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
