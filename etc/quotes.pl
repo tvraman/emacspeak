@@ -1,10 +1,8 @@
 #!/usr/bin/perl -w
 #$Id$
 use Finance::Quote;
-#my @symbols = <>;
-#chomp (@symbols);
-my @symbols =qw/ibm msft adbe goog googl fb/;
-
+my @symbols = <>;
+chomp (@symbols);
 my @labels=qw(
   ask avg_vol bid cap
 close currency date day_range
@@ -25,7 +23,7 @@ my $cl='';
 print join(",", @labels), "\n";
 foreach $sym (@symbols) {
   foreach $l (@labels) {
-my $v = $quotes{$sym.$cl.$l},;
+my $v = $quotes{$sym, $l},;
     print $v, ","  if defined ($v);
   }
   print "\n";
