@@ -3259,6 +3259,14 @@ Optional interactive prefix arg shows  unprocessed results."
 
 
 ;;}}}
+;;{{{ Google Finance Rest API
+;;; 
+(defvar emacspeak-wizards-google-finance-quotes-uri 
+"http://finance.google.com/finance/info?client=ig&q=%s"
+"Rest end-point for stock quote data from Google finance.")
+
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
