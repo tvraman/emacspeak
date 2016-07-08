@@ -1,6 +1,7 @@
 #!/usr/bin/perl -w
 #$Id$
-use Finance::YahooQuote;
+#use Finance::YahooQuote;
+use Finance::Quote;
 my @symbols = <>;
 chomp (@symbols);
 my @labels=qw(
@@ -28,9 +29,18 @@ my @labels=qw(
               Stock-Exchange
              );
 
-@quotes = getquote @symbols;
-print join (", ", @labels ),"\n";
+#@quotes = getquote @symbols;
+$q = Finance::Quote->new;
+#$q->require_labels(@labels);
+$quotes  = $q->fetch("usa",@symbols);
+#print join (", ", @labels ),"\n";
 my $sep = q(",");
-foreach $q (@quotes ) {
-  print "\"",join($sep, @$q),"\"\n";
+
+
+  foreach $sym (@symbols) {
+    print "Sym: $sym\n";
+     foreach $key (keys $quotes->{$sym}) {
+  print "$quotes{$key},, ";
+  }
+     print "\n";
 }
