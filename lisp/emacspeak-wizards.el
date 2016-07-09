@@ -2783,11 +2783,10 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
   (interactive "SMode: ")
   (switch-to-buffer
    (emacspeak-wizards-view-buffers-filtered-by-predicate
-
     #'(lambda (buffer)
         (with-current-buffer buffer
           (eq  major-mode mode)))))
-  (rename-buffer (format "Buffers Filtered By Major Mode %s" mode))
+  (rename-buffer (format "Buffers Filtered By Major Mode %s" mode) 'unique)
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-mode-line))
 
