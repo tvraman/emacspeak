@@ -281,7 +281,7 @@ class ManyNightingales (agent.Agent):
         for i in xrange(10):
             bc = self.new_channel_pan(
                 stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, y[i])))
-            ag = Nightingales(0.0, 50 - 2*i, 0.1, 0.4, 1.0)
+            ag = Nightingales(0.0, 50 - 2 * i, 0.1, 0.4, 1.0)
             self.sched_agent(ag, 0, bc)
 
 
@@ -408,6 +408,11 @@ class Nightscape (agent.Agent):
         nature = GardenBackground(60.0)
         nc = self.new_channel_pan(stereo.shiftxy(0, -1.3))  # in back
         self.sched_agent(nature, 0, nc)
+
+bc = self.new_channel_pan(
+                stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.0)))
+            ag = Nightingales(0.0, 50, 0.1, 0.4, 1.0)
+            self.sched_agent(ag, 0, bc)
 
         for i in xrange(12):
             y = 1 + i * 0.025
