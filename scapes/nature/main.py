@@ -411,7 +411,7 @@ class Nightscape (agent.Agent):
 
 bc = self.new_channel_pan(
                 stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.0)))
-            ag = Nightingales(0.0, 50, 0.1, 0.4, 1.0)
+            ag = Nightingales(0.0, 50, 0.1, 1.0, 1.0)
             self.sched_agent(ag, 0, bc)
 
         for i in xrange(12):
