@@ -13,13 +13,13 @@ my @labels=qw(
   success symbol time volume
   year_range);
 
-$q = Finance::Quote->new;
+my $q = Finance::Quote->new;
 $q->require_labels(@labels);
-%quotes  = $q->fetch("usa",@symbols);
+my %quotes  = $q->fetch("usa",@symbols);
 
 print join(",", @labels), "\n";
-foreach $sym (@symbols) {
-  foreach $l (@labels) {
+foreach my $sym (@symbols) {
+  foreach my $l (@labels) {
 my $v = $quotes{$sym, $l},;
     print $v  if defined ($v);
 print ", ";
