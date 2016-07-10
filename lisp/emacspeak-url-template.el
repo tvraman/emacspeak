@@ -339,7 +339,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  "Google Compare Trends"
  "http://www.google.com/trends/fetchComponent?hl=en-US&q=%s&geo=US&cid=RISING_QUERIES_0_0"
  (list "Comma Separated Keywords: ")
- nil 
+ nil
  "Display comparative trends."
  nil 'dont-escape)
 
@@ -347,7 +347,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  "Google Related Trends"
  "http://www.google.com/trends/fetchComponent?hl=en-US&q=%s&geo=US&cid=RISING_QUERIES_0_0"
  (list "Comma Separated Keywords: ")
- nil 
+ nil
  "Display Related Query Trends."
  nil 'dont-escape)
 
@@ -1203,6 +1203,21 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS stations that
      (declare (special emacspeak-we-url-executor))
      (setq emacspeak-we-url-executor 'emacspeak-feeds-opml-display))
  "RadioTime Search."
+ #'emacspeak-feeds-opml-display)
+(defvar emacspeak-url-template--radiotime-categories
+  '("world" "music" "sports" "podcasts"
+    "local" "talk" "sports" "lang"
+    "podcast""popular" "best")
+  "Categories from Radio Time.")
+
+(emacspeak-url-template-define
+ "RadioTime Categories"
+ "http://opml.radiotime.com/browse.ashx?c=%s"
+ (list
+  #'(lambda ()
+      (completing-read "Category: " emacspeak-url-template--radiotime-categories)))
+ nil
+ "RadioTime Categories ."
  #'emacspeak-feeds-opml-display)
 
 ;;}}}
