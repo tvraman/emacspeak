@@ -1,0 +1,4 @@
+#hrtf=true
+  cf_level=1
+drivers=alsa
+#default-reverb= Mountains 
