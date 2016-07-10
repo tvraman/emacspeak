@@ -51,6 +51,7 @@ biblio
 bibtex
 Bing
 blockquote
+Bloomberg
 bmk
 bolden
 Bolden
@@ -232,6 +233,7 @@ filenames
 filesystem
 filladapt
 filtertext
+filtrs
 flipflop
 Flite
 flycheck
@@ -263,6 +265,7 @@ gmaps
 gnuplot
 GoLang
 gomoku
+goog
 googles
 goto
 GPG
