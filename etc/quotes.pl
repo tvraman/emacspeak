@@ -4,11 +4,11 @@ use Finance::Quote;
 my @symbols = <>;
 chomp (@symbols);
 my @labels=qw(
-  ask avg_vol bid cap
+  name ask avg_vol bid cap
   close currency date day_range
   div div_date div_yield eps
   ex_div high  last
-  low  name net
+  low   net
   open p_change pe price
   success symbol time volume year_range
     );
