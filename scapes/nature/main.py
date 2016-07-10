@@ -419,7 +419,7 @@ bc = self.new_channel_pan(
             nc = self.new_channel_pan(
                 stereo.compose(stereo.scalexy(1.4), stereo.shiftxy(0, y)))
             ag = Crickets(
-                0.0, 20.0, 0.1, 0.6, 1.2)
+                0.0, 20.0, 0.1, 0.4, 1.2)
             self.sched_agent(ag, 0, nc)
 
 
