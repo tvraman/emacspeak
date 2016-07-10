@@ -261,8 +261,9 @@
              c c 
              (or (help-function-arglist c t) " ")))
     (when key
-      (setq keys (sd-texinfo-escape (mapconcat #'key-description key " ")))
-      (insert (format "@kbd{%s}\n\n" keys))
+      (setq keys (mapcar #'sd-texinfo-escape (mapcar #'key-description key )))
+      (cl-loop for k in keys do 
+      (insert (format "@kbd{%s}\n" k)))
       (insert (format "@kindex %s\n" keys)))
     (insert (format "@findex %s\n\n" c))
     (insert

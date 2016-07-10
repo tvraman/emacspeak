@@ -131,7 +131,9 @@ advantages of speech-enabled interaction.
 ............................................
 
  -- Command: emacspeak-appt-repeat-announcement
-     ‘C-e A <XF86WakeUp> A’
+     ‘C-e A’
+
+     ‘<fn> A’
 
      Speaks the most recently displayed appointment message if any.
 
@@ -347,7 +349,7 @@ buffer Voicification is used to indicate directories, marked files etc.
 
      Labels the fields of the listing in the dired buffer.
      Currently is a no-op  unless
-     unless “dired-listing-switches” contains -l
+     unless ‘dired-listing-switches’ contains -l
 
 12.48.1.5 emacspeak-dired-md-open
 .................................
@@ -377,8 +379,8 @@ buffer Voicification is used to indicate directories, marked files etc.
           deref-symlinks)
 
      Displays type of current file by running command file.
-     Like Emacs” built-in dired-show-file-type but allows user to customize
-     options passed to command “file”.
+     Like Emacs’ built-in dired-show-file-type but allows user to customize
+     options passed to command ‘file’.
 
 12.48.1.9 emacspeak-dired-speak-file-access-time
 ................................................
@@ -427,7 +429,7 @@ buffer Voicification is used to indicate directories, marked files etc.
 -------------------------------
 
  -- Variable: User Option emacspeak-dired-file-cmd-options
-     Options passed to Unix builtin “file” command.
+     Options passed to Unix builtin ‘file’ command.
 
 
 File: emacspeak.info,  Node: emacspeak-dismal,  Next: emacspeak-dmacro,  Prev: emacspeak-dired,  Up: Emacspeak Commands And Options
@@ -484,7 +486,7 @@ emacspeak extensions to the dismal spreadsheet.
  -- Command: emacspeak-dismal-display-cell-with-col-header
 
      Display current cell along with its column header.
-     The “column header” is the entry in row 0.
+     The ‘column header’ is the entry in row 0.
 
 12.49.1.7 emacspeak-dismal-display-cell-with-row-header
 .......................................................
@@ -492,7 +494,7 @@ emacspeak extensions to the dismal spreadsheet.
  -- Command: emacspeak-dismal-display-cell-with-row-header
 
      Displays current cell along with its row header.
-     The “row header” is the entry in column 0.
+     The ‘row header’ is the entry in column 0.
 
 12.49.1.8 emacspeak-dismal-forward-col-and-summarize
 ....................................................
@@ -1102,15 +1104,17 @@ layers etc., perhaps via a simplified smil implementation.
 
      <Return>	emacspeak-epub-calibre-dired-at-point
 
-     In addition to any hooks its parent mode “special-mode” might have run,
-     this mode runs the hook “emacspeak-calibre-mode-hook”, as the final step
+     In addition to any hooks its parent mode ‘special-mode’ might have run,
+     this mode runs the hook ‘emacspeak-calibre-mode-hook’, as the final step
      during initialization.
 
 12.64.1.2 emacspeak-epub
 ........................
 
  -- Command: emacspeak-epub
-     ‘C-e g <XF86WakeUp> g’
+     ‘C-e g’
+
+     ‘<fn> g’
 
      EPub  Interaction.
      For detailed documentation, see M-x emacspeak-epub-mode
@@ -1219,7 +1223,7 @@ layers etc., perhaps via a simplified smil implementation.
  -- Command: emacspeak-epub-bookshelf-rename (name &optional overwrite)
 
      Saves current bookshelf to  specified name.
-     Interactive prefix arg “overwrite” will overwrite existing file.
+     Interactive prefix arg ‘overwrite’ will overwrite existing file.
 
 12.64.1.17 emacspeak-epub-bookshelf-save
 ........................................
@@ -1346,8 +1350,8 @@ layers etc., perhaps via a simplified smil implementation.
      C-x C-q		emacspeak-epub-bookshelf-refresh
      C-x C-s		emacspeak-epub-bookshelf-save
 
-     In addition to any hooks its parent mode “special-mode” might have run,
-     this mode runs the hook “emacspeak-epub-mode-hook”, as the final step
+     In addition to any hooks its parent mode ‘special-mode’ might have run,
+     this mode runs the hook ‘emacspeak-epub-mode-hook’, as the final step
      during initialization.
 
 12.64.1.29 emacspeak-epub-next
@@ -1424,7 +1428,7 @@ http://www.cs.cmu.edu/~berez/irc/erc.el
 
      Add people to monitor in this room.
      Optional interactive prefix  arg defines a pronunciation that
-       silences speaking of this perso”s name.
+       silences speaking of this perso’s name.
 
 12.65.1.2 emacspeak-erc-delete-name-from-monitor
 ................................................
@@ -1561,7 +1565,7 @@ move around the terminal and have different parts spoken.
 
  -- Command: emacspeak-eterm-copy-region-to-register (&rest rest)
 
-     :around advice: “ad-Advice-emacspeak-eterm-copy-region-to-register”
+     :around advice: ‘ad-Advice-emacspeak-eterm-copy-region-to-register’
 
      Copy text from terminal to an Emacs REGISTER.
      This copies  region delimited by the emacspeak eterm marker
@@ -1620,7 +1624,7 @@ move around the terminal and have different parts spoken.
 
  -- Command: emacspeak-eterm-paste-register (&rest rest)
 
-     :around advice: “ad-Advice-emacspeak-eterm-paste-register”
+     :around advice: ‘ad-Advice-emacspeak-eterm-paste-register’
 
      Paste contents of REGISTER at current location.
      If the specified register contains text, then that text is
@@ -1760,8 +1764,8 @@ move around the terminal and have different parts spoken.
  -- Command: emacspeak-eterm-set-filter-window (flag)
 
      Prompt for the id of a predefined window,
-     and set the “filter” window to it.
-     Non-nil interactive prefix arg “unsets” the filter window;
+     and set the ‘filter’ window to it.
+     Non-nil interactive prefix arg ‘unsets’ the filter window;
      this is equivalent to having the entire terminal as the filter window (this is
      what eterm starts up with).
      Setting the filter window results in emacspeak  only monitoring screen
@@ -1773,8 +1777,8 @@ move around the terminal and have different parts spoken.
  -- Command: emacspeak-eterm-set-focus-window (flag)
 
      Prompt for the id of a predefined window,
-     and set the “focus” window to it.
-     Non-nil interactive prefix arg “unsets” the focus window;
+     and set the ‘focus’ window to it.
+     Non-nil interactive prefix arg ‘unsets’ the focus window;
      this is equivalent to having the entire terminal as the focus window (this is
      what eterm starts up with).
      Setting the focus window results in emacspeak  monitoring screen
@@ -2106,7 +2110,7 @@ as id, class and role.
 
  -- Command: emacspeak-eww-phantom (url)
 
-     Retrieve “url”  using PhantomJS and render with EWW.
+     Retrieve ‘url’  using PhantomJS and render with EWW.
 
 12.72.1.20 emacspeak-eww-previous-element
 .........................................
@@ -2288,7 +2292,9 @@ This module provides Feeds support for Emacspeak
 ..................................
 
  -- Command: emacspeak-feeds-add-feed (title url type)
-     ‘C-e M-u <XF86WakeUp> M-u’
+     ‘C-e M-u’
+
+     ‘<fn> M-u’
 
      Add specified feed to our feed store.
 
@@ -2304,7 +2310,9 @@ This module provides Feeds support for Emacspeak
 ......................................
 
  -- Command: emacspeak-feeds-atom-display (feed-url)
-     ‘C-, a C-x @ a a’
+     ‘C-, a’
+
+     ‘C-x @ a a’
 
      Display ATOM feed.
 
@@ -2312,7 +2320,9 @@ This module provides Feeds support for Emacspeak
 ................................
 
  -- Command: emacspeak-feeds-browse (feed)
-     ‘C-e C-u <XF86WakeUp> C-u’
+     ‘C-e C-u’
+
+     ‘<fn> C-u’
 
      Browse specified  feed.
 
@@ -2328,7 +2338,9 @@ This module provides Feeds support for Emacspeak
 ....................................
 
  -- Command: emacspeak-feeds-find-feeds (query)
-     ‘C-, f C-x @ a f’
+     ‘C-, f’
+
+     ‘C-x @ a f’
 
      Browse feeds matching specified query.
 
@@ -2336,7 +2348,9 @@ This module provides Feeds support for Emacspeak
 .........................................
 
  -- Command: emacspeak-feeds-lookup-and-view (site)
-     ‘C-' f C-x @ s f’
+     ‘C-' f’
+
+     ‘C-x @ s f’
 
      Lookup feed URL for a site and browse result.
 
@@ -2344,7 +2358,9 @@ This module provides Feeds support for Emacspeak
 ......................................
 
  -- Command: emacspeak-feeds-opml-display (feed-url)
-     ‘C-, o C-x @ a o’
+     ‘C-, o’
+
+     ‘C-x @ a o’
 
      Display OPML feed.
 
@@ -2360,7 +2376,9 @@ This module provides Feeds support for Emacspeak
 ......................................
 
  -- Command: emacspeak-feeds-rss-display (feed-url)
-     ‘C-, r C-x @ a r’
+     ‘C-, r’
+
+     ‘C-x @ a r’
 
      Display RSS feed.
 
@@ -2402,7 +2420,9 @@ intermediate filters.
 ..............................
 
  -- Command: emacspeak-filtertext (start end)
-     ‘C-e ^ <XF86WakeUp> ^’
+     ‘C-e ^’
+
+     ‘<fn> ^’
 
      Copy over text in region to special filtertext buffer in
      preparation for interactively filtering text.
@@ -2421,8 +2441,8 @@ intermediate filters.
      ^		flush-lines
      r		emacspeak-filtertext-revert
 
-     In addition to any hooks its parent mode “text-mode” might have run,
-     this mode runs the hook “emacspeak-filtertext-mode-hook”, as the final step
+     In addition to any hooks its parent mode ‘text-mode’ might have run,
+     this mode runs the hook ‘emacspeak-filtertext-mode-hook’, as the final step
      during initialization.
 
 12.75.1.3 emacspeak-filtertext-revert
@@ -2472,7 +2492,7 @@ enable such functions.
  -- Command: emacspeak-fix-all-recent-commands
 
      Fix recently loaded interactive commands.
-     This command looks through “load-history” and fixes commands if necessary.
+     This command looks through ‘load-history’ and fixes commands if necessary.
      Memoizes call in emacspeak-load-history-pointer to memoize this call.
 
 12.78.1.2 emacspeak-fix-commands-loaded-from
@@ -2683,7 +2703,7 @@ is nearly 20 years old)
  -- Command: emacspeak-gnus-summary-hide-all-headers
 
      Hide all headers in the article.
-     Use this command if you don”t want to listen to any article headers when
+     Use this command if you don’t want to listen to any article headers when
      reading news.
 
 12.86.1.3 emacspeak-gnus-summary-show-some-headers
@@ -2771,14 +2791,14 @@ Auditory interface to gomoku
 
  -- Command: emacspeak-gomoku-speak-emacs-previous-move
 
-     Speak emacs” previous move
+     Speak emacs’ previous move
 
 12.88.1.8 emacspeak-gomoku-speak-humans-previous-move
 .....................................................
 
  -- Command: emacspeak-gomoku-speak-humans-previous-move
 
-     Speak human” previous move
+     Speak human’ previous move
 
 12.88.1.9 emacspeak-gomoku-speak-number-of-moves
 ................................................
@@ -3100,7 +3120,9 @@ also useful for handling multicolumn text.
 ..................................
 
  -- Command: emacspeak-gridtext-apply (start end grid)
-     ‘C-e # a <XF86WakeUp> # a’
+     ‘C-e # a’
+
+     ‘<fn> # a’
 
      Apply grid to region.
 
@@ -3108,7 +3130,9 @@ also useful for handling multicolumn text.
 .................................
 
  -- Command: emacspeak-gridtext-load (file)
-     ‘C-e # l <XF86WakeUp> # l’
+     ‘C-e # l’
+
+     ‘<fn> # l’
 
      Load saved grid settings.
 
@@ -3116,7 +3140,9 @@ also useful for handling multicolumn text.
 .................................
 
  -- Command: emacspeak-gridtext-save (file)
-     ‘C-e # s <XF86WakeUp> # s’
+     ‘C-e # s’
+
+     ‘<fn> # s’
 
      Save out grid settings.
 
@@ -3174,7 +3200,9 @@ filladapt.el
 ........................................
 
  -- Command: emacspeak-hide-or-expose-block (&optional prefix)
-     ‘C-e j <XF86WakeUp> j’
+     ‘C-e j’
+
+     ‘<fn> j’
 
      Hide or expose a block of text.
      This command either hides or exposes a block of text
@@ -3187,7 +3215,9 @@ filladapt.el
 ................................................
 
  -- Command: emacspeak-hide-speak-block-sans-prefix
-     ‘C-e C-j <XF86WakeUp> C-j’
+     ‘C-e C-j’
+
+     ‘<fn> C-j’
 
      Speaks current block after stripping its prefix.
      If the current block is not hidden, it first hides it.
@@ -3294,11 +3324,15 @@ This module speech-enables the Emacs Info Reader.
 ...............................
 
  -- Command: emacspeak-info-wizard (node-spec)
-     ‘C-h TAB <f1> TAB <help> TAB’
+     ‘C-h TAB’
+
+     ‘<f1> TAB’
+
+     ‘<help> TAB’
 
      Read a node spec from the minibuffer and launch
      Info-goto-node.
-     See documentation for command “Info-goto-node” for details on
+     See documentation for command ‘Info-goto-node’ for details on
      node-spec.
 
 12.99.2 emacspeak-info Options
@@ -3371,7 +3405,9 @@ hosted at sourceforge.  I use emacs-jabber with my gmail.com account
 ........................................
 
  -- Command: emacspeak-jabber-popup-roster
-     ‘C-e x j <XF86WakeUp> x j’
+     ‘C-e x j’
+
+     ‘<fn> x j’
 
      Pop to Jabber roster.
 
@@ -3613,7 +3649,8 @@ File: emacspeak.info,  Node: emacspeak-keymap,  Next: emacspeak-kite,  Prev: ema
 12.105 emacspeak-keymap
 =======================
 
-This module defines the emacspeak keybindings.
+This module defines the emacspeak keybindings.  Note that the <fn> key
+found on laptops is denoted <fn>
 
 12.105.1 emacspeak-keymap Commands
 ----------------------------------
@@ -3638,7 +3675,7 @@ This module defines the emacspeak keybindings.
  -- Command: emacspeak-keymap-choose-new-emacspeak-prefix (prefix-key)
 
      Interactively select a new prefix key to use for all emacspeak
-     commands.  The default is to use “C-e”  This command
+     commands.  The default is to use ‘C-e’  This command
      lets you switch the prefix to something else.  This is a useful thing
      to do if you run emacspeak on a remote machine from inside a terminal
      that is running inside a local emacspeak session.  You can have the
@@ -3650,16 +3687,16 @@ This module defines the emacspeak keybindings.
 
  -- Variable: User Option emacspeak-alt-keys
      *Specifies alt key bindings for the audio desktop.  You can turn
-     the “Pause” key on your Linux PC keyboard into a “alt” key on Linux
-     by having it emit the sequence “C-x@a”.
+     the ‘Pause’ key on your Linux PC keyboard into a ‘alt’ key on Linux
+     by having it emit the sequence ‘C-x@a’.
 
-     Bindings specified here are available on prefix key “alt” (not to
-     be confused with alt==meta) for example, if you bind “s” to command
+     Bindings specified here are available on prefix key ‘alt’ (not to
+     be confused with alt==meta) for example, if you bind ‘s’ to command
      emacspeak-emergency-tts-restart then that command will be available
-     on key “ALT s”
+     on key ‘ALT s’
 
      KEYS should be a string constant in the format used for saving
-     keyboard macros (see “edmacro-mode”).
+     keyboard macros (see ‘edmacro-mode’).
 
      Command is an interactive command or a prefix-command that can be
      bound to a key.
@@ -3670,16 +3707,16 @@ This module defines the emacspeak keybindings.
 
  -- Variable: User Option emacspeak-hyper-keys
      *Specifies hyper key bindings for the audio desktop.  Emacs can use
-     the “hyper” key as a modifier key.  You can turn the “windows” keys
-     on your Linux PC keyboard into a “hyper” key on Linux by having it
-     emit the sequence “C-x@h”.
+     the ‘hyper’ key as a modifier key.  You can turn the ‘windows’ keys
+     on your Linux PC keyboard into a ‘hyper’ key on Linux by having it
+     emit the sequence ‘C-x@h’.
 
-     Bindings specified here are available on prefix key “hyper” for
-     example, if you bind “b” to command “bbdb ” then that command will
-     be available on key “hyper b”.
+     Bindings specified here are available on prefix key ‘hyper’ for
+     example, if you bind ‘b’ to command ‘bbdb ’ then that command will
+     be available on key ‘hyper b’.
 
      KEYS should be a string constant in the format used for saving
-     keyboard macros (see “edmacro-mode”).
+     keyboard macros (see ‘edmacro-mode’).
 
      Command is an interactive command or a prefix-command that can be
      bound to a key.
@@ -3691,10 +3728,10 @@ This module defines the emacspeak keybindings.
  -- Variable: User Option emacspeak-personal-ctlx-keys
      *Specifies personal-ctlx key bindings for use with C-e C-x for the
      audio desktop.  Bindings specified here are available on prefix key
-     C-e C-x for example, if you bind “C-s” to command
+     C-e C-x for example, if you bind ‘C-s’ to command
      emacspeak-emergency-tts-restart then that command will be available
      on key C-e C-x C-s.  KEYS should be a string constant in the format
-     used for saving keyboard macros (see “edmacro-mode”).
+     used for saving keyboard macros (see ‘edmacro-mode’).
 
      Command is an interactive command or a prefix-command that can be
      bound to a key.
@@ -3706,11 +3743,11 @@ This module defines the emacspeak keybindings.
  -- Variable: User Option emacspeak-personal-keys
      *Specifies personal key bindings for the audio desktop.  Bindings
      specified here are available on prefix key C-e x for example, if
-     you bind “s” to command emacspeak-emergency-tts-restart then that
+     you bind ‘s’ to command emacspeak-emergency-tts-restart then that
      command will be available on key C-e x s.
 
      KEYS should be a string constant in the format used for saving
-     keyboard macros (see “edmacro-mode”).
+     keyboard macros (see ‘edmacro-mode’).
 
      Command is an interactive command or a prefix-command that can be
      bound to a key.
@@ -3721,14 +3758,14 @@ This module defines the emacspeak keybindings.
 
  -- Variable: User Option emacspeak-super-keys
      *Specifies super key bindings for the audio desktop.  You can turn
-     the right “windows menu” keys on your Linux PC keyboard into a
-     “super” key on Linux by having it emit the sequence “C-x@s”.
+     the right ‘windows menu’ keys on your Linux PC keyboard into a
+     ‘super’ key on Linux by having it emit the sequence ‘C-x@s’.
 
-     Bindings specified here are available on prefix key “super” for
-     example, if you bind “s” to command emacspeak-emergency-tts-restart
-     then that command will be available on key “super s”.  KEYS should
+     Bindings specified here are available on prefix key ‘super’ for
+     example, if you bind ‘s’ to command emacspeak-emergency-tts-restart
+     then that command will be available on key ‘super s’.  KEYS should
      be a string constant in the format used for saving keyboard macros
-     (see “edmacro-mode”).
+     (see ‘edmacro-mode’).
 
      Command is an interactive command or a prefix-command that can be
      bound to a key.
@@ -3891,7 +3928,9 @@ implements an Emacspeak Librivox client.
 .............................
 
  -- Command: emacspeak-librivox (search-type)
-     ‘C-; l C-x @ h l’
+     ‘C-; l’
+
+     ‘C-x @ h l’
 
      Launch a Librivox Search.
 
@@ -3909,8 +3948,8 @@ implements an Emacspeak Librivox client.
           offset)
 
      Search by author.
-     Both exact and partial matches for “author”.
-     Optional interactive prefix arg “offset” prompts for offset — use this for retrieving next set of results.
+     Both exact and partial matches for ‘author’.
+     Optional interactive prefix arg ‘offset’ prompts for offset — use this for retrieving next set of results.
 
 12.108.1.4 emacspeak-librivox-search-by-genre
 .............................................
@@ -3918,7 +3957,7 @@ implements an Emacspeak Librivox client.
  -- Command: emacspeak-librivox-search-by-genre (genre &optional offset)
 
      Search by genre.
-     Optional prefix arg “offset” prompts for offset.
+     Optional prefix arg ‘offset’ prompts for offset.
 
 12.108.1.5 emacspeak-librivox-search-by-title
 .............................................
@@ -3926,8 +3965,8 @@ implements an Emacspeak Librivox client.
  -- Command: emacspeak-librivox-search-by-title (title &optional offset)
 
      Search by title.
-     Both exact and partial matches for “title”.
-     Optional prefix arg “offset” prompts for offset — use this for retrieving more results.
+     Both exact and partial matches for ‘title’.
+     Optional prefix arg ‘offset’ prompts for offset — use this for retrieving more results.
 
 12.108.2 emacspeak-librivox Options
 -----------------------------------
@@ -3984,7 +4023,7 @@ http://www.mplayerhq.hu/DOCS/
 
      Add equalizer to playing stream.  Equalizer is applied as each change
      is made, and the final effect set by pressing RET.  Interactive prefix
-     arg “reset” starts with all filters set to 0.
+     arg ‘reset’ starts with all filters set to 0.
 
 12.110.1.4 emacspeak-m-player-add-filter
 ........................................
@@ -4020,7 +4059,7 @@ http://www.mplayerhq.hu/DOCS/
  -- Command: emacspeak-m-player-amark-add (name &optional
           prompt-position)
 
-     Set AMark “name” at current position in current audio stream.
+     Set AMark ‘name’ at current position in current audio stream.
      Interactive prefix arg prompts for position.
      As the default, use current position.
 
@@ -4246,7 +4285,9 @@ http://www.mplayerhq.hu/DOCS/
 ...........................................
 
  -- Command: emacspeak-m-player-locate-media (pattern)
-     ‘C-' l C-x @ s l’
+     ‘C-' l’
+
+     ‘C-x @ s l’
 
      Locate media matching specified pattern.
      Results are placed in a Locate buffer and can be played using M-Player.
@@ -4327,8 +4368,8 @@ http://www.mplayerhq.hu/DOCS/
 
      M-l		emacspeak-m-player-load-playlist
 
-     In addition to any hooks its parent mode “comint-mode” might have run,
-     this mode runs the hook “emacspeak-m-player-mode-hook”, as the final step
+     In addition to any hooks its parent mode ‘comint-mode’ might have run,
+     this mode runs the hook ‘emacspeak-m-player-mode-hook’, as the final step
      during initialization.
 
 12.110.1.41 emacspeak-m-player-next-track
@@ -4463,7 +4504,9 @@ http://www.mplayerhq.hu/DOCS/
 ......................................
 
  -- Command: emacspeak-m-player-shuffle
-     ‘C-e : <XF86WakeUp> :’
+     ‘C-e :’
+
+     ‘<fn> :’
 
      Launch M-Player with shuffle turned on.
 
@@ -4501,7 +4544,9 @@ http://www.mplayerhq.hu/DOCS/
 ..................................
 
  -- Command: emacspeak-m-player-url (url &optional playlist-p)
-     ‘C-, u C-x @ a u’
+     ‘C-, u’
+
+     ‘C-x @ a u’
 
      Call emacspeak-m-player with specified URL.
 
@@ -4509,7 +4554,9 @@ http://www.mplayerhq.hu/DOCS/
 ...........................................
 
  -- Command: emacspeak-m-player-using-openal
-     ‘C-; ; C-x @ h ;’
+     ‘C-; ;’
+
+     ‘C-x @ h ;’
 
      Use openal as the audio output driver. Adding hrtf=true to
      ~/.alsoftrc gives HRTF. You need to have openal installed and have an
@@ -4548,7 +4595,9 @@ http://www.mplayerhq.hu/DOCS/
 ................................
 
  -- Command: emacspeak-multimedia
-     ‘C-e ; <XF86WakeUp> ;’
+     ‘C-e ;’
+
+     ‘<fn> ;’
 
      Start or control Emacspeak multimedia player.
 
@@ -4961,16 +5010,16 @@ binds ‘s’ to this command.
 
      Create a hydra with no body and the heads:
 
-     "s":    “xbacklight-set”,
-     "g":    “xbacklight-get”,
-     "<print>":    “xbacklight-black”,
-     "0":    “xbacklight-black”,
-     "1":    “xbacklight-white”,
-     "d":    “xbacklight-decrement”,
-     "i":    “xbacklight-increment”,
-     "SPC":    “xbacklight-increment”
+     "s":    ‘xbacklight-set’,
+     "g":    ‘xbacklight-get’,
+     "<print>":    ‘xbacklight-black’,
+     "0":    ‘xbacklight-black’,
+     "1":    ‘xbacklight-white’,
+     "d":    ‘xbacklight-decrement’,
+     "i":    ‘xbacklight-increment’,
+     "SPC":    ‘xbacklight-increment’
 
-     The body can be accessed via “emacspeak-muggles-brightness/body”.
+     The body can be accessed via ‘emacspeak-muggles-brightness/body’.
 
 12.120.2.2 emacspeak-muggles-emacspeak-m-player-mode-map-cmd
 ............................................................
@@ -4988,13 +5037,13 @@ binds ‘s’ to this command.
 
      Create a hydra with no body and the heads:
 
-     "h":    “hs-hide-block”,
-     "s":    “hs-show-block”,
-     "H":    “hs-hide-all”,
-     "S":    “hs-show-all”,
-     "i":    “hs-hide-initial-comment-block”
+     "h":    ‘hs-hide-block’,
+     "s":    ‘hs-show-block’,
+     "H":    ‘hs-hide-all’,
+     "S":    ‘hs-show-all’,
+     "i":    ‘hs-hide-initial-comment-block’
 
-     The body can be accessed via “emacspeak-muggles-hideshow/body”.
+     The body can be accessed via ‘emacspeak-muggles-hideshow/body’.
 
 12.120.2.4 emacspeak-muggles-info-summary/body
 ..............................................
@@ -5003,48 +5052,48 @@ binds ‘s’ to this command.
 
      Create a hydra with no body and the heads:
 
-     "]":    “Info-forward-node”,
-     "[":    “Info-backward-node”,
-     "n":    “Info-next”,
-     "p":    “Info-prev”,
-     "s":    “Info-search”,
-     "S":    “Info-search-case-sensitively”,
-     "l":    “Info-history-back”,
-     "r":    “Info-history-forward”,
-     "H":    “Info-history”,
-     "t":    “Info-top-node”,
-     "<":    “Info-top-node”,
-     ">":    “Info-final-node”,
-     "u":    “Info-up”,
-     "^":    “Info-up”,
-     "m":    “Info-menu”,
-     "g":    “Info-goto-node”,
-     "b":    “beginning-of-buffer”,
-     "e":    “end-of-buffer”,
-     "f":    “Info-follow-reference”,
-     "i":    “Info-index”,
-     ",":    “Info-index-next”,
-     "I":    “Info-virtual-index”,
-     "T":    “Info-toc”,
-     "d":    “Info-directory”,
-     "c":    “Info-copy-current-node-name”,
-     "C":    “clone-buffer”,
-     "a":    “info-apropos”,
-     "1":    “Info-nth-menu-item”,
-     "2":    “Info-nth-menu-item”,
-     "3":    “Info-nth-menu-item”,
-     "4":    “Info-nth-menu-item”,
-     "5":    “Info-nth-menu-item”,
-     "6":    “Info-nth-menu-item”,
-     "7":    “Info-nth-menu-item”,
-     "8":    “Info-nth-menu-item”,
-     "9":    “Info-nth-menu-item”,
-     "?":    “Info-summary”,
-     "h":    “Info-help”,
-     "q":    “Info-exit”,
-     "C-g":    “nil”
+     "]":    ‘Info-forward-node’,
+     "[":    ‘Info-backward-node’,
+     "n":    ‘Info-next’,
+     "p":    ‘Info-prev’,
+     "s":    ‘Info-search’,
+     "S":    ‘Info-search-case-sensitively’,
+     "l":    ‘Info-history-back’,
+     "r":    ‘Info-history-forward’,
+     "H":    ‘Info-history’,
+     "t":    ‘Info-top-node’,
+     "<":    ‘Info-top-node’,
+     ">":    ‘Info-final-node’,
+     "u":    ‘Info-up’,
+     "^":    ‘Info-up’,
+     "m":    ‘Info-menu’,
+     "g":    ‘Info-goto-node’,
+     "b":    ‘beginning-of-buffer’,
+     "e":    ‘end-of-buffer’,
+     "f":    ‘Info-follow-reference’,
+     "i":    ‘Info-index’,
+     ",":    ‘Info-index-next’,
+     "I":    ‘Info-virtual-index’,
+     "T":    ‘Info-toc’,
+     "d":    ‘Info-directory’,
+     "c":    ‘Info-copy-current-node-name’,
+     "C":    ‘clone-buffer’,
+     "a":    ‘info-apropos’,
+     "1":    ‘Info-nth-menu-item’,
+     "2":    ‘Info-nth-menu-item’,
+     "3":    ‘Info-nth-menu-item’,
+     "4":    ‘Info-nth-menu-item’,
+     "5":    ‘Info-nth-menu-item’,
+     "6":    ‘Info-nth-menu-item’,
+     "7":    ‘Info-nth-menu-item’,
+     "8":    ‘Info-nth-menu-item’,
+     "9":    ‘Info-nth-menu-item’,
+     "?":    ‘Info-summary’,
+     "h":    ‘Info-help’,
+     "q":    ‘Info-exit’,
+     "C-g":    ‘nil’
 
-     The body can be accessed via “emacspeak-muggles-info-summary/body”.
+     The body can be accessed via ‘emacspeak-muggles-info-summary/body’.
 
 12.120.2.5 emacspeak-muggles-m-player/body
 ..........................................
@@ -5053,62 +5102,62 @@ binds ‘s’ to this command.
 
      Create a hydra with no body and the heads:
 
-     ";":    “emacspeak-m-player”,
-     "+":    “emacspeak-m-player-volume-up”,
-     ",":    “emacspeak-m-player-backward-10s”,
-     "%":    “emacspeak-m-player-display-percent”,
-     "-":    “emacspeak-m-player-volume-down”,
-     ".":    “emacspeak-m-player-forward-10s”,
-     "<":    “emacspeak-m-player-backward-1min”,
-     "<down>":    “emacspeak-m-player-forward-1min”,
-     "<end>":    “emacspeak-m-player-end-of-track”,
-     "<home>":    “emacspeak-m-player-beginning-of-track”,
-     "<left>":    “emacspeak-m-player-backward-10s”,
-     "<next>":    “emacspeak-m-player-forward-10min”,
-     "<prior>":    “emacspeak-m-player-backward-10min”,
-     "<right>":    “emacspeak-m-player-forward-10s”,
-     "<up>":    “emacspeak-m-player-backward-1min”,
-     "=":    “emacspeak-m-player-volume-up”,
-     ">":    “emacspeak-m-player-forward-1min”,
-     "?":    “emacspeak-m-player-display-position”,
-     "C":    “emacspeak-m-player-clear-filters”,
-     "C-m":    “emacspeak-m-player-load”,
-     "DEL":    “emacspeak-m-player-reset-speed”,
-     "L":    “emacspeak-m-player-load-file”,
-     "M-l":    “emacspeak-m-player-load-playlist”,
-     "O":    “emacspeak-m-player-reset-options”,
-     "P":    “emacspeak-m-player-apply-reverb-preset”,
-     "Q":    “emacspeak-m-player-quit”,
-     "R":    “emacspeak-m-player-edit-reverb”,
-     "S":    “emacspeak-amark-save”,
-     "SPC":    “emacspeak-m-player-pause”,
-     "[":    “emacspeak-m-player-slower”,
-     "]":    “emacspeak-m-player-faster”,
-     "a":    “emacspeak-m-player-amark-add”,
-     "b":    “emacspeak-m-player-balance”,
-     "c":    “emacspeak-m-player-slave-command”,
-     "d":    “emacspeak-m-player-delete-filter”,
-     "e":    “emacspeak-m-player-add-equalizer”,
-     "f":    “emacspeak-m-player-add-filter”,
-     "g":    “emacspeak-m-player-seek-absolute”,
-     "j":    “emacspeak-m-player-amark-jump”,
-     "l":    “emacspeak-m-player-get-length”,
-     "m":    “emacspeak-m-player-speak-mode-line”,
-     "n":    “emacspeak-m-player-next-track”,
-     "o":    “emacspeak-m-player-customize-options”,
-     "p":    “emacspeak-m-player-previous-track”,
-     "q":    “bury-buffer”,
-     "r":    “emacspeak-m-player-seek-relative”,
-     "s":    “emacspeak-m-player-scale-speed”,
-     "t":    “emacspeak-m-player-play-tracks-jump”,
-     "u":    “emacspeak-m-player-url”,
-     "v":    “emacspeak-m-player-volume-change”,
-     "(":    “emacspeak-m-player-left-channel”,
-     ")":    “emacspeak-m-player-right-channel”,
-     "{":    “emacspeak-m-player-half-speed”,
-     "}":    “emacspeak-m-player-double-speed”
+     ";":    ‘emacspeak-m-player’,
+     "+":    ‘emacspeak-m-player-volume-up’,
+     ",":    ‘emacspeak-m-player-backward-10s’,
+     "%":    ‘emacspeak-m-player-display-percent’,
+     "-":    ‘emacspeak-m-player-volume-down’,
+     ".":    ‘emacspeak-m-player-forward-10s’,
+     "<":    ‘emacspeak-m-player-backward-1min’,
+     "<down>":    ‘emacspeak-m-player-forward-1min’,
+     "<end>":    ‘emacspeak-m-player-end-of-track’,
+     "<home>":    ‘emacspeak-m-player-beginning-of-track’,
+     "<left>":    ‘emacspeak-m-player-backward-10s’,
+     "<next>":    ‘emacspeak-m-player-forward-10min’,
+     "<prior>":    ‘emacspeak-m-player-backward-10min’,
+     "<right>":    ‘emacspeak-m-player-forward-10s’,
+     "<up>":    ‘emacspeak-m-player-backward-1min’,
+     "=":    ‘emacspeak-m-player-volume-up’,
+     ">":    ‘emacspeak-m-player-forward-1min’,
+     "?":    ‘emacspeak-m-player-display-position’,
+     "C":    ‘emacspeak-m-player-clear-filters’,
+     "C-m":    ‘emacspeak-m-player-load’,
+     "DEL":    ‘emacspeak-m-player-reset-speed’,
+     "L":    ‘emacspeak-m-player-load-file’,
+     "M-l":    ‘emacspeak-m-player-load-playlist’,
+     "O":    ‘emacspeak-m-player-reset-options’,
+     "P":    ‘emacspeak-m-player-apply-reverb-preset’,
+     "Q":    ‘emacspeak-m-player-quit’,
+     "R":    ‘emacspeak-m-player-edit-reverb’,
+     "S":    ‘emacspeak-amark-save’,
+     "SPC":    ‘emacspeak-m-player-pause’,
+     "[":    ‘emacspeak-m-player-slower’,
+     "]":    ‘emacspeak-m-player-faster’,
+     "a":    ‘emacspeak-m-player-amark-add’,
+     "b":    ‘emacspeak-m-player-balance’,
+     "c":    ‘emacspeak-m-player-slave-command’,
+     "d":    ‘emacspeak-m-player-delete-filter’,
+     "e":    ‘emacspeak-m-player-add-equalizer’,
+     "f":    ‘emacspeak-m-player-add-filter’,
+     "g":    ‘emacspeak-m-player-seek-absolute’,
+     "j":    ‘emacspeak-m-player-amark-jump’,
+     "l":    ‘emacspeak-m-player-get-length’,
+     "m":    ‘emacspeak-m-player-speak-mode-line’,
+     "n":    ‘emacspeak-m-player-next-track’,
+     "o":    ‘emacspeak-m-player-customize-options’,
+     "p":    ‘emacspeak-m-player-previous-track’,
+     "q":    ‘bury-buffer’,
+     "r":    ‘emacspeak-m-player-seek-relative’,
+     "s":    ‘emacspeak-m-player-scale-speed’,
+     "t":    ‘emacspeak-m-player-play-tracks-jump’,
+     "u":    ‘emacspeak-m-player-url’,
+     "v":    ‘emacspeak-m-player-volume-change’,
+     "(":    ‘emacspeak-m-player-left-channel’,
+     ")":    ‘emacspeak-m-player-right-channel’,
+     "{":    ‘emacspeak-m-player-half-speed’,
+     "}":    ‘emacspeak-m-player-double-speed’
 
-     The body can be accessed via “emacspeak-muggles-m-player/body”.
+     The body can be accessed via ‘emacspeak-muggles-m-player/body’.
 
 12.120.2.6 emacspeak-muggles-navigate/body
 ..........................................
@@ -5118,22 +5167,22 @@ binds ‘s’ to this command.
 
      Create a hydra with no body and the heads:
 
-     "s":    “emacspeak-muggles-toggle-talkative”,
-     "n":    “next-line”,
-     "p":    “previous-line”,
-     "f":    “forward-char”,
-     "b":    “backward-char”,
-     "a":    “beginning-of-line”,
-     "e":    “move-end-of-line”,
-     "j":    “next-line”,
-     "k":    “previous-line”,
-     "v":    “scroll-up-command”,
-     "V":    “scroll-down-command”,
-     "l":    “recenter-top-bottom”,
-     "<":    “beginning-of-buffer”,
-     ">":    “end-of-buffer”
+     "s":    ‘emacspeak-muggles-toggle-talkative’,
+     "n":    ‘next-line’,
+     "p":    ‘previous-line’,
+     "f":    ‘forward-char’,
+     "b":    ‘backward-char’,
+     "a":    ‘beginning-of-line’,
+     "e":    ‘move-end-of-line’,
+     "j":    ‘next-line’,
+     "k":    ‘previous-line’,
+     "v":    ‘scroll-up-command’,
+     "V":    ‘scroll-down-command’,
+     "l":    ‘recenter-top-bottom’,
+     "<":    ‘beginning-of-buffer’,
+     ">":    ‘end-of-buffer’
 
-     The body can be accessed via “emacspeak-muggles-navigate/body”.
+     The body can be accessed via ‘emacspeak-muggles-navigate/body’.
 
 12.120.2.7 emacspeak-muggles-org-nav/body
 .........................................
@@ -5142,15 +5191,15 @@ binds ‘s’ to this command.
 
      Create a hydra with no body and the heads:
 
-     "SPC":    “emacspeak-outline-speak-this-heading”,
-     "n":    “outline-next-visible-heading”,
-     "p":    “outline-previous-visible-heading”,
-     "N":    “org-forward-heading-same-level”,
-     "P":    “org-backward-heading-same-level”,
-     "u":    “outline-up-heading”,
-     "g":    “org-goto”
+     "SPC":    ‘emacspeak-outline-speak-this-heading’,
+     "n":    ‘outline-next-visible-heading’,
+     "p":    ‘outline-previous-visible-heading’,
+     "N":    ‘org-forward-heading-same-level’,
+     "P":    ‘org-backward-heading-same-level’,
+     "u":    ‘outline-up-heading’,
+     "g":    ‘org-goto’
 
-     The body can be accessed via “emacspeak-muggles-org-nav/body”.
+     The body can be accessed via ‘emacspeak-muggles-org-nav/body’.
 
 12.120.2.8 emacspeak-muggles-org-table/body
 ...........................................
@@ -5159,17 +5208,17 @@ binds ‘s’ to this command.
 
      Create a hydra with no body and the heads:
 
-     "j":    “org-table-next-row”,
-     "k":    “org-table-previous-row”,
-     "h":    “org-table-previous-field”,
-     "l":    “org-table-next-field”,
-     "SPC":    “emacspeak-org-table-speak-current-element”,
-     ".":    “emacspeak-org-table-speak-coordinates”,
-     "b":    “emacspeak-org-table-speak-both-headers-and-element”,
-     "r":    “emacspeak-org-table-speak-row-header-and-element”,
-     "c":    “emacspeak-org-table-speak-column-header-and-element”
+     "j":    ‘org-table-next-row’,
+     "k":    ‘org-table-previous-row’,
+     "h":    ‘org-table-previous-field’,
+     "l":    ‘org-table-next-field’,
+     "SPC":    ‘emacspeak-org-table-speak-current-element’,
+     ".":    ‘emacspeak-org-table-speak-coordinates’,
+     "b":    ‘emacspeak-org-table-speak-both-headers-and-element’,
+     "r":    ‘emacspeak-org-table-speak-row-header-and-element’,
+     "c":    ‘emacspeak-org-table-speak-column-header-and-element’
 
-     The body can be accessed via “emacspeak-muggles-org-table/body”.
+     The body can be accessed via ‘emacspeak-muggles-org-table/body’.
 
 12.120.2.9 emacspeak-muggles-outliner/body
 ..........................................
@@ -5178,25 +5227,25 @@ binds ‘s’ to this command.
 
      Create a hydra with no body and the heads:
 
-     "q":    “outline-hide-sublevels”,
-     "t":    “outline-hide-body”,
-     "o":    “outline-hide-other”,
-     "c":    “outline-hide-entry”,
-     "l":    “outline-hide-leaves”,
-     "d":    “outline-hide-subtree”,
-     "a":    “outline-show-all”,
-     "e":    “outline-show-entry”,
-     "i":    “outline-show-children”,
-     "k":    “outline-show-branches”,
-     "s":    “outline-show-subtree”,
-     "u":    “outline-up-heading”,
-     "n":    “outline-next-visible-heading”,
-     "p":    “outline-previous-visible-heading”,
-     "f":    “outline-forward-same-level”,
-     "b":    “outline-backward-same-level”,
-     "z":    “nil”
+     "q":    ‘outline-hide-sublevels’,
+     "t":    ‘outline-hide-body’,
+     "o":    ‘outline-hide-other’,
+     "c":    ‘outline-hide-entry’,
+     "l":    ‘outline-hide-leaves’,
+     "d":    ‘outline-hide-subtree’,
+     "a":    ‘outline-show-all’,
+     "e":    ‘outline-show-entry’,
+     "i":    ‘outline-show-children’,
+     "k":    ‘outline-show-branches’,
+     "s":    ‘outline-show-subtree’,
+     "u":    ‘outline-up-heading’,
+     "n":    ‘outline-next-visible-heading’,
+     "p":    ‘outline-previous-visible-heading’,
+     "f":    ‘outline-forward-same-level’,
+     "b":    ‘outline-backward-same-level’,
+     "z":    ‘nil’
 
-     The body can be accessed via “emacspeak-muggles-outliner/body”.
+     The body can be accessed via ‘emacspeak-muggles-outliner/body’.
 
 12.120.2.10 emacspeak-muggles-toggle-option/body
 ................................................
@@ -5206,16 +5255,16 @@ binds ‘s’ to this command.
 
      Create a hydra with no body and the heads:
 
-     "a":    “abbrev-mode”,
-     "d":    “toggle-debug-on-error”,
-     "f":    “auto-fill-mode”,
-     "g":    “toggle-debug-on-quit”,
-     "h":    “(setq hydra-is-helpful (not hydra-is-helpful))”,
-     "t":    “toggle-truncate-lines”,
-     "w":    “whitespace-mode”,
-     "q":    “nil”
+     "a":    ‘abbrev-mode’,
+     "d":    ‘toggle-debug-on-error’,
+     "f":    ‘auto-fill-mode’,
+     "g":    ‘toggle-debug-on-quit’,
+     "h":    ‘(setq hydra-is-helpful (not hydra-is-helpful))’,
+     "t":    ‘toggle-truncate-lines’,
+     "w":    ‘whitespace-mode’,
+     "q":    ‘nil’
 
-     The body can be accessed via “emacspeak-muggles-toggle-option/body”.
+     The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
 
 12.120.2.11 emacspeak-muggles-toggle-talkative
 ..............................................
@@ -5228,57 +5277,61 @@ binds ‘s’ to this command.
 .......................................
 
  -- Command: emacspeak-muggles-view/body
-     ‘C-c v C-; v C-x @ h v’
+     ‘C-c v’
+
+     ‘C-; v’
+
+     ‘C-x @ h v’
 
      Create a hydra with no body and the heads:
 
-     "$":    “set-selective-display”,
-     "%":    “View-goto-percent”,
-     "”":    “register-to-point”,
-     "(":    “backward-sexp”,
-     ")":    “forward-sexp”,
-     ".":    “set-mark-command”,
-     "/":    “View-search-regexp-forward”,
-     "<":    “beginning-of-buffer”,
-     "<return>":    “nil”,
-     "=":    “what-line”,
-     ">":    “end-of-buffer”,
-     "@":    “View-back-to-mark”,
-     "A":    “beginning-of-defun”,
-     "DEL":    “View-scroll-page-backward”,
-     "E":    “end-of-defun”,
-     "J":    “(emacspeak-hide-or-expose-block (quote all))”,
-     "SPC":    “View-scroll-page-forward”,
-     "[":    “backward-page”,
-     "\":    “View-search-regexp-backward”,
-     "]":    “forward-page”,
-     "a":    “move-beginning-of-line”,
-     "b":    “backward-word”,
-     "c":    “emacspeak-speak-char”,
-     "d":    “View-scroll-half-page-forward”,
-     "e":    “move-end-of-line”,
-     "f":    “forward-word”,
-     "g":    “goto-line”,
-     "h":    “backward-char”,
-     "i":    “emacspeak-speak-mode-line”,
-     "j":    “next-line”,
-     "k":    “previous-line”,
-     "l":    “forward-char”,
-     "m":    “point-to-register”,
-     "n":    “View-search-last-regexp-forward”,
-     "p":    “View-search-last-regexp-backward”,
-     "q":    “nil”,
-     "r":    “copy-to-register”,
-     "s":    “emacspeak-muggles-toggle-talkative”,
-     "t":    “(recenter 0)”,
-     "u":    “View-scroll-half-page-backward”,
-     "w":    “emacspeak-speak-word”,
-     "x":    “exchange-point-and-mark”,
-     "y":    “kill-ring-save”,
-     "{":    “backward-paragraph”,
-     "}":    “forward-paragraph”
+     "$":    ‘set-selective-display’,
+     "%":    ‘View-goto-percent’,
+     "’":    ‘register-to-point’,
+     "(":    ‘backward-sexp’,
+     ")":    ‘forward-sexp’,
+     ".":    ‘set-mark-command’,
+     "/":    ‘View-search-regexp-forward’,
+     "<":    ‘beginning-of-buffer’,
+     "<return>":    ‘nil’,
+     "=":    ‘what-line’,
+     ">":    ‘end-of-buffer’,
+     "@":    ‘View-back-to-mark’,
+     "A":    ‘beginning-of-defun’,
+     "DEL":    ‘View-scroll-page-backward’,
+     "E":    ‘end-of-defun’,
+     "J":    ‘(emacspeak-hide-or-expose-block (quote all))’,
+     "SPC":    ‘View-scroll-page-forward’,
+     "[":    ‘backward-page’,
+     "\":    ‘View-search-regexp-backward’,
+     "]":    ‘forward-page’,
+     "a":    ‘move-beginning-of-line’,
+     "b":    ‘backward-word’,
+     "c":    ‘emacspeak-speak-char’,
+     "d":    ‘View-scroll-half-page-forward’,
+     "e":    ‘move-end-of-line’,
+     "f":    ‘forward-word’,
+     "g":    ‘goto-line’,
+     "h":    ‘backward-char’,
+     "i":    ‘emacspeak-speak-mode-line’,
+     "j":    ‘next-line’,
+     "k":    ‘previous-line’,
+     "l":    ‘forward-char’,
+     "m":    ‘point-to-register’,
+     "n":    ‘View-search-last-regexp-forward’,
+     "p":    ‘View-search-last-regexp-backward’,
+     "q":    ‘nil’,
+     "r":    ‘copy-to-register’,
+     "s":    ‘emacspeak-muggles-toggle-talkative’,
+     "t":    ‘(recenter 0)’,
+     "u":    ‘View-scroll-half-page-backward’,
+     "w":    ‘emacspeak-speak-word’,
+     "x":    ‘exchange-point-and-mark’,
+     "y":    ‘kill-ring-save’,
+     "{":    ‘backward-paragraph’,
+     "}":    ‘forward-paragraph’
 
-     The body can be accessed via “emacspeak-muggles-view/body”.
+     The body can be accessed via ‘emacspeak-muggles-view/body’.
 
 
 File: emacspeak.info,  Node: emacspeak-muse,  Next: emacspeak-net-utils,  Prev: emacspeak-muggles,  Up: Emacspeak Commands And Options
@@ -5409,7 +5462,9 @@ completion.  Streams can be played from within the displayed listing.
 ................................
 
  -- Command: emacspeak-npr-listing (&optional search)
-     ‘C-; N C-x @ h N’
+     ‘C-; N’
+
+     ‘C-x @ h N’
 
      Display specified listing.
      Interactive prefix arg prompts for search.
@@ -5426,7 +5481,9 @@ completion.  Streams can be played from within the displayed listing.
 .....................................
 
  -- Command: emacspeak-npr-play-program (pid &optional get-date)
-     ‘C-; n C-x @ h n’
+     ‘C-; n’
+
+     ‘C-x @ h n’
 
      Play specified NPR program.
      Optional interactive prefix arg prompts for a date.
@@ -5688,7 +5745,9 @@ named "ocr"
 ........................
 
  -- Command: emacspeak-ocr
-     ‘C-e C-o <XF86WakeUp> C-o’
+     ‘C-e C-o’
+
+     ‘<fn> C-o’
 
      An OCR front-end for the Emacspeak desktop.
 
@@ -5699,7 +5758,7 @@ named "ocr"
 
      For detailed help, invoke command emacspeak-ocr bound to
      C-e C-o to launch emacspeak-ocr-mode, and press
-     “?” to display mode-specific help for emacspeak-ocr-mode.
+     ‘?’ to display mode-specific help for emacspeak-ocr-mode.
 
 12.126.1.2 emacspeak-ocr-backward-page
 ......................................
@@ -5721,10 +5780,10 @@ named "ocr"
  -- Command: emacspeak-ocr-flipflop-and-recognize-image
 
      Run OCR engine on current image after flip-flopping it.
-     Useful if you”ve scanned a page upside down and are using an engine that does not automatically flip the image for you.
+     Useful if you’ve scanned a page upside down and are using an engine that does not automatically flip the image for you.
      You need the imagemagik family of tools — we use mogrify to transform the image.
      Prompts for image file if file corresponding to the expected
-     “current page” is not found.
+     ‘current page’ is not found.
 
 12.126.1.5 emacspeak-ocr-forward-page
 .....................................
@@ -5750,12 +5809,12 @@ named "ocr"
      the utilities to scan a document and acquire an image as a
      tiff file.  Then set variable
      emacspeak-ocr-scan-image-program to point at this utility.
-     By default, this is set to “scanimage” which is the image
+     By default, this is set to ‘scanimage’ which is the image
      scanning utility provided by SANE.
 
      By default, this front-end attempts to compress the acquired
      tiff image; make sure you have a utility like tiffcp.
-     Variable emacspeak-ocr-compress-image is set to “tiffcp” by
+     Variable emacspeak-ocr-compress-image is set to ‘tiffcp’ by
      default; if you use something else, you should customize
      this variable.
 
@@ -5783,7 +5842,7 @@ named "ocr"
      Invoking command emacspeak-ocr-open-working-directory bound
      to M-x emacspeak-ocr-open-working-directory will open this directory.
 
-     By default, the document being scanned is named “untitled”.
+     By default, the document being scanned is named ‘untitled’.
      You can name the document by using command
      emacspeak-ocr-name-document bound to
      M-x emacspeak-ocr-name-document.  The document name is used
@@ -5816,8 +5875,8 @@ named "ocr"
 
      .
 
-     In addition to any hooks its parent mode “text-mode” might have run,
-     this mode runs the hook “emacspeak-ocr-mode-hook”, as the final step
+     In addition to any hooks its parent mode ‘text-mode’ might have run,
+     this mode runs the hook ‘emacspeak-ocr-mode-hook’, as the final step
      during initialization.
 
 12.126.1.7 emacspeak-ocr-name-document
@@ -5856,7 +5915,7 @@ named "ocr"
 
      Run OCR engine on current image.
      Prompts for image file if file corresponding to the expected
-     “current page” is not found.
+     ‘current page’ is not found.
 
 12.126.1.12 emacspeak-ocr-save-current-page
 ...........................................
@@ -5872,7 +5931,7 @@ named "ocr"
  -- Command: emacspeak-ocr-scan-and-recognize
 
      Scan in a page and run OCR engine on it.
-     Use this command once you”ve verified that the separate
+     Use this command once you’ve verified that the separate
      steps of acquiring an image and running the OCR engine work
      correctly by themselves.
 
@@ -5982,11 +6041,13 @@ http://orgmode.org/
 .....................................
 
  -- Command: emacspeak-org-capture-link
-     ‘C-; h C-x @ h h’
+     ‘C-; h’
+
+     ‘C-x @ h h’
 
      Capture hyperlink to current context.
-     To use this command, first  do “customize-variable” “org-capture-template”
-     and assign  letter “h” to a template that creates the hyperlink on capture.
+     To use this command, first  do ‘customize-variable’ ‘org-capture-template’
+     and assign  letter ‘h’ to a template that creates the hyperlink on capture.
 
 12.127.1.3 emacspeak-org-popup-input
 ....................................
@@ -6304,7 +6365,9 @@ keys from ‘pianobar-key-map’.
 .............................
 
  -- Command: emacspeak-pianobar
-     ‘C-e ' <XF86WakeUp> '’
+     ‘C-e '’
+
+     ‘<fn> '’
 
      Start or control Emacspeak Pianobar player.
 
@@ -6502,9 +6565,11 @@ given file.
 .......................................
 
  -- Command: emacspeak-pronounce-dispatch
-     ‘C-e M-d <XF86WakeUp> M-d’
+     ‘C-e M-d’
 
-     Provides the user interface front-end to Emacspeak”s pronunciation dictionaries.
+     ‘<fn> M-d’
+
+     Provides the user interface front-end to Emacspeak’s pronunciation dictionaries.
 
 12.137.1.6 emacspeak-pronounce-edit-pronunciations
 ..................................................
@@ -6836,7 +6901,9 @@ talking to a remote speech server, after prompting for host and port
 .............................................
 
  -- Command: emacspeak-remote-connect-to-server (host port)
-     ‘C-e M-r <XF86WakeUp> M-r’
+     ‘C-e M-r’
+
+     ‘<fn> M-r’
 
      Connect to and start using remote speech server running on
      host host and listening on port port. Host is the hostname of the
@@ -6857,13 +6924,15 @@ talking to a remote speech server, after prompting for host and port
  -- Command: emacspeak-remote-home
 
      Open ssh session to where we came from.
-     Uses value returned by “emacspeak-remote-get-current-remote-hostname”.
+     Uses value returned by ‘emacspeak-remote-get-current-remote-hostname’.
 
 12.145.1.4 emacspeak-remote-quick-connect-to-server
 ...................................................
 
  -- Command: emacspeak-remote-quick-connect-to-server
-     ‘C-; q C-x @ h q’
+     ‘C-; q’
+
+     ‘C-x @ h q’
 
      Connect to remote server.
      Does not prompt for host or port, but quietly uses the guesses
@@ -6876,7 +6945,7 @@ talking to a remote speech server, after prompting for host and port
  -- Command: emacspeak-remote-quick-connect-via-ssh
 
      Connect via ssh to remote Emacspeak server.
-     Server is specified via custom option “emacspeak-remote-default-ssh-server”.
+     Server is specified via custom option ‘emacspeak-remote-default-ssh-server’.
 
 12.145.1.6 emacspeak-remote-ssh-to-server
 .........................................
@@ -7284,7 +7353,9 @@ appropriate subdirectories of emacspeak-sounds-directory
 ................................
 
  -- Command: emacspeak-audio-setup (&optional prefix)
-     ‘C-e ( <XF86WakeUp> (’
+     ‘C-e (’
+
+     ‘<fn> (’
 
      Call appropriate audio environment set command.
 
@@ -7292,7 +7363,9 @@ appropriate subdirectories of emacspeak-sounds-directory
 .............................................
 
  -- Command: emacspeak-set-auditory-icon-player (player)
-     ‘C-e M-a <XF86WakeUp> M-a’
+     ‘C-e M-a’
+
+     ‘<fn> M-a’
 
      Select  player used for producing auditory icons.
      Recommended choices:
@@ -7307,7 +7380,7 @@ appropriate subdirectories of emacspeak-sounds-directory
 
      Ask Emacspeak to use a local audio player.
      This lets me have Emacspeak switch to using audioplay on
-     solaris after I”ve used it for a while from a remote session
+     solaris after I’ve used it for a while from a remote session
      where it would use the more primitive speech-server based
      audio player.
 
@@ -7322,7 +7395,9 @@ appropriate subdirectories of emacspeak-sounds-directory
 ........................................
 
  -- Command: emacspeak-sounds-select-theme (theme)
-     ‘C-e ) <XF86WakeUp> )’
+     ‘C-e )’
+
+     ‘<fn> )’
 
      Select theme for auditory icons.
 
@@ -7330,7 +7405,9 @@ appropriate subdirectories of emacspeak-sounds-directory
 ..........................................
 
  -- Command: emacspeak-toggle-auditory-icons (&optional prefix)
-     ‘C-e C-a <XF86WakeUp> C-a’
+     ‘C-e C-a’
+
+     ‘<fn> C-a’
 
      Toggle use of auditory icons.
      Optional interactive PREFIX arg toggles global value.
@@ -7342,7 +7419,7 @@ appropriate subdirectories of emacspeak-sounds-directory
      *Function that plays auditory icons.  play : Launches play-program
      to play.  Serve: Send a command to the speech-server to play.
      Queue : Add auditory icon to speech queue.  soxplay: Use sox to
-     apply effect earwax for headphones.  Native : Use Emacs” builtin
+     apply effect earwax for headphones.  Native : Use Emacs’ builtin
      sound support.  Use Serve when working with remote speech servers.
 
  -- Variable: User Option emacspeak-play-args
@@ -7408,7 +7485,9 @@ of emacspeak from becoming dependent on the speech server modules
 .............................
 
  -- Command: emacspeak-dial-dtk (number)
-     ‘C-e d t <XF86WakeUp> d t’
+     ‘C-e d t’
+
+     ‘<fn> d t’
 
      Prompt for and dial a phone NUMBER with the Dectalk.
 
@@ -7423,7 +7502,9 @@ of emacspeak from becoming dependent on the speech server modules
 .................................
 
  -- Command: emacspeak-goto-percent (percent)
-     ‘C-e M-% <XF86WakeUp> M-%’
+     ‘C-e M-%’
+
+     ‘<fn> M-%’
 
      Move to end  PERCENT of buffer like in View mode.
      Display is centered at point.
@@ -7491,7 +7572,7 @@ of emacspeak from becoming dependent on the speech server modules
  -- Command: emacspeak-owindow-scroll-down
      ‘ESC <prior>’
 
-     Scroll down  the window that command “other-window” would move to.
+     Scroll down  the window that command ‘other-window’ would move to.
      Speak the window contents after scrolling.
 
 12.161.1.16 emacspeak-owindow-scroll-up
@@ -7500,7 +7581,7 @@ of emacspeak from becoming dependent on the speech server modules
  -- Command: emacspeak-owindow-scroll-up
      ‘ESC <next>’
 
-     Scroll up the window that command “other-window” would move to.
+     Scroll up the window that command ‘other-window’ would move to.
      Speak the window contents after scrolling.
 
 12.161.1.17 emacspeak-owindow-speak-line
@@ -7515,7 +7596,9 @@ of emacspeak from becoming dependent on the speech server modules
 ....................................
 
  -- Command: emacspeak-read-next-line (&optional arg)
-     ‘C-e <down> <XF86WakeUp> <down>’
+     ‘C-e <down>’
+
+     ‘<fn> <down>’
 
      Read next line, specified by an offset, without moving.
      Default is to read the next line.
@@ -7532,7 +7615,9 @@ of emacspeak from becoming dependent on the speech server modules
 ........................................
 
  -- Command: emacspeak-read-previous-line (&optional arg)
-     ‘C-e <up> <XF86WakeUp> <up>’
+     ‘C-e <up>’
+
+     ‘<fn> <up>’
 
      Read previous line, specified by an offset, without moving.
      Default is to read the previous line.
@@ -7568,7 +7653,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      Silence is golden. Stop speech, and pause/resume any media
      streams.
-     Runs “emacspeak-silence-hook” which can be used to configure
+     Runs ‘emacspeak-silence-hook’ which can be used to configure
      which media players get silenced or paused/resumed.
 
 12.161.1.25 emacspeak-speak-and-skip-extent-upto-char
@@ -7590,35 +7675,41 @@ of emacspeak from becoming dependent on the speech server modules
 .........................................
 
  -- Command: emacspeak-speak-browse-buffer (&optional browse)
-     ‘C-e , <XF86WakeUp> ,’
+     ‘C-e ,’
+
+     ‘<fn> ,’
 
      Browse current buffer.
      Default is to speak chunk having current personality.
-     Interactive prefix arg “browse”  repeatedly browses  through
+     Interactive prefix arg ‘browse’  repeatedly browses  through
        chunks having same personality as the current text chunk.
 
 12.161.1.28 emacspeak-speak-buffer
 ..................................
 
  -- Command: emacspeak-speak-buffer (&optional arg)
-     ‘C-e b <XF86WakeUp> b’
+     ‘C-e b’
+
+     ‘<fn> b’
 
      Speak current buffer  contents.
      With prefix ARG, speaks the rest of the buffer from point.
      Negative prefix arg speaks from start of buffer to point.
       If voice lock mode is on, the paragraphs in the buffer are
-     voice annotated first,  see command “emacspeak-speak-voice-annotate-paragraphs”.
+     voice annotated first,  see command ‘emacspeak-speak-voice-annotate-paragraphs’.
 
 12.161.1.29 emacspeak-speak-buffer-filename
 ...........................................
 
  -- Command: emacspeak-speak-buffer-filename (&optional filename)
-     ‘C-e f <XF86WakeUp> f’
+     ‘C-e f’
+
+     ‘<fn> f’
 
      Speak name of file being visited in current buffer.
      Speak default directory if invoked in a dired buffer,
      or when the buffer is not visiting any file.
-     Interactive prefix arg “filename” speaks only the final path
+     Interactive prefix arg ‘filename’ speaks only the final path
      component.
      The result is put in the kill ring for convenience.
 
@@ -7626,18 +7717,22 @@ of emacspeak from becoming dependent on the speech server modules
 ................................................
 
  -- Command: emacspeak-speak-buffer-interactively
-     ‘C-e B <XF86WakeUp> B’
+     ‘C-e B’
+
+     ‘<fn> B’
 
      Speak the start of, rest of, or the entire buffer.
-     ”s” to speak the start.
-     ”r” to speak the rest.
+     ’s’ to speak the start.
+     ’r’ to speak the rest.
      any other key to speak entire buffer.
 
 12.161.1.31 emacspeak-speak-char
 ................................
 
  -- Command: emacspeak-speak-char (&optional prefix)
-     ‘C-e c <XF86WakeUp> c’
+     ‘C-e c’
+
+     ‘<fn> c’
 
      Speak character under point.
      Pronounces character phonetically unless  called with a PREFIX arg.
@@ -7660,7 +7755,9 @@ of emacspeak from becoming dependent on the speech server modules
 ........................................
 
  -- Command: emacspeak-speak-continuously
-     ‘C-e RET <XF86WakeUp> RET’
+     ‘C-e RET’
+
+     ‘<fn> RET’
 
      Speak a buffer continuously.
      First prompts using the minibuffer for the kind of action to
@@ -7673,7 +7770,9 @@ of emacspeak from becoming dependent on the speech server modules
 ..........................................
 
  -- Command: emacspeak-speak-current-column
-     ‘C-e = <XF86WakeUp> =’
+     ‘C-e =’
+
+     ‘<fn> =’
 
      Speak the current column.
 
@@ -7688,7 +7787,9 @@ of emacspeak from becoming dependent on the speech server modules
 ........................................
 
  -- Command: emacspeak-speak-current-kill (count)
-     ‘C-e k <XF86WakeUp> k’
+     ‘C-e k’
+
+     ‘<fn> k’
 
      Speak the current kill entry.
      This is the text that will be yanked in by the next C-y.
@@ -7703,14 +7804,20 @@ of emacspeak from becoming dependent on the speech server modules
 ........................................
 
  -- Command: emacspeak-speak-current-mark (count)
-     ‘C-e C-SPC C-e C-@ <XF86WakeUp> C-SPC <XF86WakeUp> C-@’
+     ‘C-e C-SPC’
+
+     ‘C-e C-@’
+
+     ‘<fn> C-SPC’
+
+     ‘<fn> C-@’
 
      Speak the line containing the mark.
      With no argument, speaks the
-     line containing the mark–this is where “exchange-point-and-mark”
-     C-x C-x would jump.  Numeric prefix arg ”COUNT” speaks
-     line containing mark ”n” where ”n” is one less than the number of
-     times one has to jump using “set-mark-command” to get to this marked
+     line containing the mark–this is where ‘exchange-point-and-mark’
+     C-x C-x would jump.  Numeric prefix arg ’COUNT’ speaks
+     line containing mark ’n’ where ’n’ is one less than the number of
+     times one has to jump using ‘set-mark-command’ to get to this marked
      position.  The location of the mark is indicated by an aural highlight
      achieved by a change in voice personality.
 
@@ -7718,7 +7825,9 @@ of emacspeak from becoming dependent on the speech server modules
 ..............................................
 
  -- Command: emacspeak-speak-current-percentage
-     ‘C-e % <XF86WakeUp> %’
+     ‘C-e %’
+
+     ‘<fn> %’
 
      Announce the percentage into the current buffer.
 
@@ -7744,7 +7853,7 @@ of emacspeak from becoming dependent on the speech server modules
  -- Command: emacspeak-speak-display-char (&optional prefix)
 
      Display char under point using current speech display table.
-     Behavior is the same as command “emacspeak-speak-char”
+     Behavior is the same as command ‘emacspeak-speak-char’
      bound to C-e c
      for characters in the range 0–127.
      Optional argument PREFIX  specifies that the character should be spoken phonetically.
@@ -7767,7 +7876,9 @@ of emacspeak from becoming dependent on the speech server modules
 .......................................
 
  -- Command: emacspeak-speak-header-line
-     ‘C-e SPC <XF86WakeUp> SPC’
+     ‘C-e SPC’
+
+     ‘<fn> SPC’
 
      Speak header line if set.
 
@@ -7775,7 +7886,9 @@ of emacspeak from becoming dependent on the speech server modules
 ................................
 
  -- Command: emacspeak-speak-help (&optional arg)
-     ‘C-e h <XF86WakeUp> h’
+     ‘C-e h’
+
+     ‘<fn> h’
 
      Speak help buffer if one present.
      With prefix arg, speaks the rest of the buffer from point.
@@ -7787,15 +7900,17 @@ of emacspeak from becoming dependent on the speech server modules
  -- Command: emacspeak-speak-help-interactively
 
      Speak the start of, rest of, or the entire help.
-     ”s” to speak the start.
-     ”r” to speak the rest.
+     ’s’ to speak the start.
+     ’r’ to speak the rest.
      any other key to speak entire help.
 
 12.161.1.48 emacspeak-speak-hostname
 ....................................
 
  -- Command: emacspeak-speak-hostname
-     ‘C-e M-h <XF86WakeUp> M-h’
+     ‘C-e M-h’
+
+     ‘<fn> M-h’
 
      Speak host name.
 
@@ -7803,35 +7918,41 @@ of emacspeak from becoming dependent on the speech server modules
 ................................
 
  -- Command: emacspeak-speak-line (&optional arg)
-     ‘C-e l <XF86WakeUp> l’
+     ‘C-e l’
+
+     ‘<fn> l’
 
      Speaks current line.  With prefix ARG, speaks the rest of the line
      from point.  Negative prefix optional arg speaks from start of line to
-     point.  Voicifies if option “voice-lock-mode” is on.  Indicates
+     point.  Voicifies if option ‘voice-lock-mode’ is on.  Indicates
      indentation with a tone if audio indentation is in use.  Indicates
      position of point with an aural highlight if option
-     “emacspeak-show-point” is turned on –see command
-     “emacspeak-show-point” bound to M-x emacspeak-show-point.  Lines that
+     ‘emacspeak-show-point’ is turned on –see command
+     ‘emacspeak-show-point’ bound to M-x emacspeak-show-point.  Lines that
      start hidden blocks of text, e.g.  outline header lines, or header
-     lines of blocks created by command “emacspeak-hide-or-expose-block”
+     lines of blocks created by command ‘emacspeak-hide-or-expose-block’
      are indicated with auditory icon ellipses.
 
 12.161.1.50 emacspeak-speak-line-interactively
 ..............................................
 
  -- Command: emacspeak-speak-line-interactively
-     ‘C-e L <XF86WakeUp> L’
+     ‘C-e L’
+
+     ‘<fn> L’
 
      Speak the start of, rest of, or the entire line.
-     ”s” to speak the start.
-     ”r” to speak the rest.
+     ’s’ to speak the start.
+     ’r’ to speak the rest.
      any other key to speak entire line.
 
 12.161.1.51 emacspeak-speak-line-number
 .......................................
 
  -- Command: emacspeak-speak-line-number
-     ‘C-e C-l <XF86WakeUp> C-l’
+     ‘C-e C-l’
+
+     ‘<fn> C-l’
 
      Print the current buffer line number and narrowed line number of point.
 
@@ -7839,7 +7960,9 @@ of emacspeak from becoming dependent on the speech server modules
 ..................................................
 
  -- Command: emacspeak-speak-line-set-column-filter (filter)
-     ‘C-e | <XF86WakeUp> |’
+     ‘C-e |’
+
+     ‘<fn> |’
 
      Set up filter for selectively speaking or ignoring portions of lines.
      The filter is specified as a list of pairs.
@@ -7868,17 +7991,21 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-message-again (&optional
           from-message-cache)
-     ‘C-e a <XF86WakeUp> a’
+     ‘C-e a’
+
+     ‘<fn> a’
 
      Speak the last message from Emacs once again.
      The message is also placed in the kill ring for convenient yanking
-     if “emacspeak-speak-message-again-should-copy-to-kill-ring” is set.
+     if ‘emacspeak-speak-message-again-should-copy-to-kill-ring’ is set.
 
 12.161.1.55 emacspeak-speak-message-at-time
 ...........................................
 
  -- Command: emacspeak-speak-message-at-time (time message)
-     ‘C-e @ <XF86WakeUp> @’
+     ‘C-e @’
+
+     ‘<fn> @’
 
      Set up ring-at-time to speak message at specified time.
      Provides simple stop watch functionality in addition to other things.
@@ -7911,16 +8038,20 @@ of emacspeak from becoming dependent on the speech server modules
 ...........................................
 
  -- Command: emacspeak-speak-minor-mode-line (&optional copy-as-kill)
-     ‘C-e M <XF86WakeUp> M’
+     ‘C-e M’
+
+     ‘<fn> M’
 
      Speak the minor mode-information.
-     Optional  interactive prefix arg “copy-as-kill” copies spoken info to kill ring.
+     Optional  interactive prefix arg ‘copy-as-kill’ copies spoken info to kill ring.
 
 12.161.1.60 emacspeak-speak-mode-line
 .....................................
 
  -- Command: emacspeak-speak-mode-line (&optional buffer-info)
-     ‘C-e m <XF86WakeUp> m’
+     ‘C-e m’
+
+     ‘<fn> m’
 
      Speak the mode-line.
      Speaks header-line if that is set when called non-interactively.
@@ -7938,7 +8069,9 @@ of emacspeak from becoming dependent on the speech server modules
 ......................................
 
  -- Command: emacspeak-speak-next-field
-     ‘C-e > <XF86WakeUp> >’
+     ‘C-e >’
+
+     ‘<fn> >’
 
      Move to and speak next field.
 
@@ -7954,7 +8087,9 @@ of emacspeak from becoming dependent on the speech server modules
 .......................................
 
  -- Command: emacspeak-speak-next-window
-     ‘C-e C-n <XF86WakeUp> C-n’
+     ‘C-e C-n’
+
+     ‘<fn> C-n’
 
      Speak the next window.
 
@@ -7962,7 +8097,9 @@ of emacspeak from becoming dependent on the speech server modules
 ........................................
 
  -- Command: emacspeak-speak-other-buffer (buffer)
-     ‘C-e M-b <XF86WakeUp> M-b’
+     ‘C-e M-b’
+
+     ‘<fn> M-b’
 
      Speak specified buffer.
      Useful to listen to a buffer without switching  contexts.
@@ -7972,39 +8109,49 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-other-window (&optional arg)
 
-     Speak contents of “other” window.
+     Speak contents of ‘other’ window.
      Speaks entire window irrespective of point.
-     Semantics  of “other” is the same as for the builtin Emacs command
-     “other-window”.
-     Optional argument ARG  specifies “other” window to speak.
+     Semantics  of ‘other’ is the same as for the builtin Emacs command
+     ‘other-window’.
+     Optional argument ARG  specifies ‘other’ window to speak.
 
 12.161.1.67 emacspeak-speak-page
 ................................
 
  -- Command: emacspeak-speak-page (&optional arg)
-     ‘C-e [ <XF86WakeUp> [’
+     ‘C-e [’
+
+     ‘<fn> [’
 
      Speak a page.
      With prefix ARG, speaks rest of current page.
      Negative prefix arg will read from start of current page to point.
-     If option  “voice-lock-mode” is on, then it will use any defined personality.
+     If option  ‘voice-lock-mode’ is on, then it will use any defined personality.
 
 12.161.1.68 emacspeak-speak-page-interactively
 ..............................................
 
  -- Command: emacspeak-speak-page-interactively
-     ‘C-e ] <XF86WakeUp> ]’
+     ‘C-e ]’
+
+     ‘<fn> ]’
 
      Speak the start of, rest of, or the entire page.
-     ”s” to speak the start.
-     ”r” to speak the rest.
+     ’s’ to speak the start.
+     ’r’ to speak the rest.
      any other key to speak entire page.
 
 12.161.1.69 emacspeak-speak-paragraph
 .....................................
 
  -- Command: emacspeak-speak-paragraph (&optional arg)
-     ‘C-e { C-e p <XF86WakeUp> { <XF86WakeUp> p’
+     ‘C-e {’
+
+     ‘C-e p’
+
+     ‘<fn> {’
+
+     ‘<fn> p’
 
      Speak paragraph.
      With prefix arg, speaks rest of current paragraph.
@@ -8015,11 +8162,13 @@ of emacspeak from becoming dependent on the speech server modules
 ...................................................
 
  -- Command: emacspeak-speak-paragraph-interactively
-     ‘C-e P <XF86WakeUp> P’
+     ‘C-e P’
+
+     ‘<fn> P’
 
      Speak the start of, rest of, or the entire paragraph.
-     ”s” to speak the start.
-     ”r” to speak the rest.
+     ’s’ to speak the start.
+     ’r’ to speak the rest.
      any other key to speak entire paragraph.
 
 12.161.1.71 emacspeak-speak-preceding-char
@@ -8033,18 +8182,53 @@ of emacspeak from becoming dependent on the speech server modules
 .............................................
 
  -- Command: emacspeak-speak-predefined-window (&optional arg)
-     ‘C-e 9 C-e 8 C-e 7 C-e 6 C-e 5 C-e 4 C-e 3 C-e 2 C-e 1 C-e 0
-     <XF86WakeUp> 9 <XF86WakeUp> 8 <XF86WakeUp> 7 <XF86WakeUp> 6
-     <XF86WakeUp> 5 <XF86WakeUp> 4 <XF86WakeUp> 3 <XF86WakeUp> 2
-     <XF86WakeUp> 1 <XF86WakeUp> 0’
+     ‘C-e 9’
+
+     ‘C-e 8’
+
+     ‘C-e 7’
+
+     ‘C-e 6’
+
+     ‘C-e 5’
+
+     ‘C-e 4’
+
+     ‘C-e 3’
+
+     ‘C-e 2’
+
+     ‘C-e 1’
+
+     ‘C-e 0’
+
+     ‘<fn> 9’
+
+     ‘<fn> 8’
+
+     ‘<fn> 7’
+
+     ‘<fn> 6’
+
+     ‘<fn> 5’
+
+     ‘<fn> 4’
+
+     ‘<fn> 3’
+
+     ‘<fn> 2’
+
+     ‘<fn> 1’
+
+     ‘<fn> 0’
 
      Speak one of the first 10 windows on the screen.
      Speaks entire window irrespective of point.
-     In general, you”ll never have Emacs split the screen into more than
+     In general, you’ll never have Emacs split the screen into more than
      two or three.
-     Argument ARG determines the ”other” window to speak.
-     Semantics  of “other” is the same as for the builtin Emacs command
-     “other-window”.
+     Argument ARG determines the ’other’ window to speak.
+     Semantics  of ‘other’ is the same as for the builtin Emacs command
+     ‘other-window’.
 
 12.161.1.73 emacspeak-speak-previous-face-chunk
 ...............................................
@@ -8058,7 +8242,9 @@ of emacspeak from becoming dependent on the speech server modules
 ..........................................
 
  -- Command: emacspeak-speak-previous-field
-     ‘C-e < <XF86WakeUp> <’
+     ‘C-e <’
+
+     ‘<fn> <’
 
      Move to previous field and speak it.
 
@@ -8074,7 +8260,9 @@ of emacspeak from becoming dependent on the speech server modules
 ...........................................
 
  -- Command: emacspeak-speak-previous-window
-     ‘C-e C-p <XF86WakeUp> C-p’
+     ‘C-e C-p’
+
+     ‘<fn> C-p’
 
      Speak the previous window.
 
@@ -8082,7 +8270,9 @@ of emacspeak from becoming dependent on the speech server modules
 .....................................
 
  -- Command: emacspeak-speak-rectangle (start end)
-     ‘C-e R <XF86WakeUp> R’
+     ‘C-e R’
+
+     ‘<fn> R’
 
      Speak a rectangle of text.
      Rectangle is delimited by point and mark.
@@ -8093,7 +8283,9 @@ of emacspeak from becoming dependent on the speech server modules
 ..................................
 
  -- Command: emacspeak-speak-region (start end)
-     ‘C-e r <XF86WakeUp> r’
+     ‘C-e r’
+
+     ‘<fn> r’
 
      Speak region.
      Argument START  and END specify region to speak.
@@ -8102,7 +8294,9 @@ of emacspeak from becoming dependent on the speech server modules
 ..........................................
 
  -- Command: emacspeak-speak-rest-of-buffer
-     ‘C-e n <XF86WakeUp> n’
+     ‘C-e n’
+
+     ‘<fn> n’
 
      Speak remainder of the buffer starting at point
 
@@ -8135,7 +8329,9 @@ of emacspeak from becoming dependent on the speech server modules
 .................................................
 
  -- Command: emacspeak-speak-set-mode-punctuations (setting)
-     ‘C-e d m <XF86WakeUp> d m’
+     ‘C-e d m’
+
+     ‘<fn> d m’
 
      Set punctuation mode for all buffers in current mode.
 
@@ -8147,17 +8343,19 @@ of emacspeak from becoming dependent on the speech server modules
      Speak current sexp.
      With prefix ARG, speaks the rest of the sexp  from point.
      Negative prefix arg speaks from start of sexp to point.
-     If option  “voice-lock-mode” is on, then uses the personality.
+     If option  ‘voice-lock-mode’ is on, then uses the personality.
 
 12.161.1.85 emacspeak-speak-sexp-interactively
 ..............................................
 
  -- Command: emacspeak-speak-sexp-interactively
-     ‘C-e " <XF86WakeUp> "’
+     ‘C-e "’
+
+     ‘<fn> "’
 
      Speak the start of, rest of, or the entire sexp.
-     ”s” to speak the start.
-     ”r” to speak the rest.
+     ’s’ to speak the start.
+     ’r’ to speak the rest.
      any other key to speak entire sexp.
 
 12.161.1.86 emacspeak-speak-show-active-network-interfaces
@@ -8165,7 +8363,9 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-show-active-network-interfaces (&optional
           address)
-     ‘C-e I <XF86WakeUp> I’
+     ‘C-e I’
+
+     ‘<fn> I’
 
      Shows all active network interfaces in the echo area.
      With interactive prefix argument ADDRESS it prompts for a
@@ -8200,7 +8400,13 @@ of emacspeak from becoming dependent on the speech server modules
 ...........................................
 
  -- Command: emacspeak-speak-spaces-at-point
-     ‘C-e C-M-SPC C-e C-M-@ <XF86WakeUp> C-M-SPC <XF86WakeUp> C-M-@’
+     ‘C-e C-M-SPC’
+
+     ‘C-e C-M-@’
+
+     ‘<fn> C-M-SPC’
+
+     ‘<fn> C-M-@’
 
      Speak the white space at point.
 
@@ -8237,10 +8443,12 @@ of emacspeak from becoming dependent on the speech server modules
 ................................
 
  -- Command: emacspeak-speak-time (&optional world)
-     ‘C-e t <XF86WakeUp> t’
+     ‘C-e t’
+
+     ‘<fn> t’
 
      Speak the time.
-     Optional interactive prefix arg “C-u”invokes world clock.
+     Optional interactive prefix arg ‘C-u’invokes world clock.
      Timezone is specified using minibuffer completion.
      Second interactive prefix sets clock to new timezone.
 
@@ -8248,7 +8456,9 @@ of emacspeak from becoming dependent on the speech server modules
 ...................................
 
  -- Command: emacspeak-speak-version (&optional update)
-     ‘C-e V <XF86WakeUp> V’
+     ‘C-e V’
+
+     ‘<fn> V’
 
      Announce version information for running emacspeak.
 
@@ -8265,7 +8475,9 @@ of emacspeak from becoming dependent on the speech server modules
 ..............................................
 
  -- Command: emacspeak-speak-window-information
-     ‘C-e C-w <XF86WakeUp> C-w’
+     ‘C-e C-w’
+
+     ‘<fn> C-w’
 
      Speaks information about current window.
 
@@ -8273,7 +8485,9 @@ of emacspeak from becoming dependent on the speech server modules
 ................................
 
  -- Command: emacspeak-speak-word (&optional arg)
-     ‘C-e w <XF86WakeUp> w’
+     ‘C-e w’
+
+     ‘<fn> w’
 
      Speak current word.
      With prefix ARG, speaks the rest of the word from point.
@@ -8287,8 +8501,8 @@ of emacspeak from becoming dependent on the speech server modules
  -- Command: emacspeak-speak-word-interactively
 
      Speak the start of, rest of, or the entire word.
-     ”s” to speak the start.
-     ”r” to speak the rest.
+     ’s’ to speak the start.
+     ’r’ to speak the rest.
      any other key to speak entire word.
 
 12.161.1.101 emacspeak-speak-world-clock
@@ -8297,7 +8511,7 @@ of emacspeak from becoming dependent on the speech server modules
  -- Command: emacspeak-speak-world-clock (zone &optional set)
 
      Display current date and time  for specified zone.
-     Optional second arg “set” sets the TZ environment variable as well.
+     Optional second arg ‘set’ sets the TZ environment variable as well.
 
 12.161.1.102 emacspeak-switch-to-reference-buffer
 .................................................
@@ -8319,21 +8533,25 @@ of emacspeak from becoming dependent on the speech server modules
 ...............................................
 
  -- Command: emacspeak-toggle-audio-indentation (&optional prefix)
-     ‘C-e d i <XF86WakeUp> d i’
+     ‘C-e d i’
+
+     ‘<fn> d i’
 
      Toggle state of  Emacspeak  audio indentation.
      Interactive PREFIX arg means toggle  the global default value, and then set the
      current local  value to the result.
-     Specifying the method of indentation as “tones”
+     Specifying the method of indentation as ‘tones’
      results in the Dectalk producing a tone whose length is a function of the
-     line”s indentation.  Specifying “speak”
+     line’s indentation.  Specifying ‘speak’
      results in the number of initial spaces being spoken.
 
 12.161.1.105 emacspeak-toggle-character-echo
 ............................................
 
  -- Command: emacspeak-toggle-character-echo (&optional prefix)
-     ‘C-e d k <XF86WakeUp> d k’
+     ‘C-e d k’
+
+     ‘<fn> d k’
 
      Toggle state of  Emacspeak  character echo.
      Interactive PREFIX arg means toggle  the global default value, and then set the
@@ -8343,7 +8561,9 @@ of emacspeak from becoming dependent on the speech server modules
 ..............................................
 
  -- Command: emacspeak-toggle-comint-autospeak (&optional prefix)
-     ‘C-e C-q <XF86WakeUp> C-q’
+     ‘C-e C-q’
+
+     ‘<fn> C-q’
 
      Toggle state of Emacspeak comint autospeak.
      When turned on, comint output is automatically spoken.  Turn this on if
@@ -8355,7 +8575,9 @@ of emacspeak from becoming dependent on the speech server modules
 ...................................................
 
  -- Command: emacspeak-toggle-comint-output-monitor (&optional prefix)
-     ‘C-e o <XF86WakeUp> o’
+     ‘C-e o’
+
+     ‘<fn> o’
 
      Toggle state of Emacspeak comint monitor.
      When turned on, comint output is automatically spoken.  Turn this on if
@@ -8368,13 +8590,15 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-toggle-header-line
 
-     Toggle Emacspeak”s default header line.
+     Toggle Emacspeak’s default header line.
 
 12.161.1.109 emacspeak-toggle-line-echo
 .......................................
 
  -- Command: emacspeak-toggle-line-echo (&optional prefix)
-     ‘C-e d l <XF86WakeUp> d l’
+     ‘C-e d l’
+
+     ‘<fn> d l’
 
      Toggle state of  Emacspeak  line echo.
      Interactive PREFIX arg means toggle  the global default value, and then set the
@@ -8384,7 +8608,9 @@ of emacspeak from becoming dependent on the speech server modules
 ........................................
 
  -- Command: emacspeak-toggle-mail-alert (&optional prefix)
-     ‘C-e M-m <XF86WakeUp> M-m’
+     ‘C-e M-m’
+
+     ‘<fn> M-m’
 
      Toggle state of  Emacspeak  mail alert.
      Interactive PREFIX arg means toggle  the global default value, and then set the
@@ -8396,7 +8622,9 @@ of emacspeak from becoming dependent on the speech server modules
 ........................................
 
  -- Command: emacspeak-toggle-show-point (&optional prefix)
-     ‘C-e C-d <XF86WakeUp> C-d’
+     ‘C-e C-d’
+
+     ‘<fn> C-d’
 
      Toggle state of  Emacspeak-show-point.
      Interactive PREFIX arg means toggle  the global default value, and then set the
@@ -8407,7 +8635,9 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-toggle-speak-line-invert-filter (&optional
           prefix)
-     ‘C-e \ <XF86WakeUp> \’
+     ‘C-e \’
+
+     ‘<fn> \’
 
      Toggle state of   how column filter is interpreted.
      Interactive PREFIX arg means toggle  the global default value, and then set the
@@ -8417,7 +8647,9 @@ of emacspeak from becoming dependent on the speech server modules
 ............................................
 
  -- Command: emacspeak-toggle-speak-messages (&optional prefix)
-     ‘C-e q <XF86WakeUp> q’
+     ‘C-e q’
+
+     ‘<fn> q’
 
      Toggle the state of whether emacspeak echoes messages.
 
@@ -8425,7 +8657,9 @@ of emacspeak from becoming dependent on the speech server modules
 .......................................
 
  -- Command: emacspeak-toggle-word-echo (&optional prefix)
-     ‘C-e d w <XF86WakeUp> d w’
+     ‘C-e d w’
+
+     ‘<fn> d w’
 
      Toggle state of  Emacspeak  word echo.
      Interactive PREFIX arg means toggle  the global default value, and then set the
@@ -8465,7 +8699,9 @@ of emacspeak from becoming dependent on the speech server modules
 ..............................
 
  -- Command: emacspeak-zap-tts
-     ‘C-e d z <XF86WakeUp> d z’
+     ‘C-e d z’
+
+     ‘<fn> d z’
 
      Send this command to the TTS directly.
 
@@ -8475,12 +8711,12 @@ of emacspeak from becoming dependent on the speech server modules
  -- Variable: User Option emacspeak-audio-indentation
      Option indicating if line indentation is cued.  If non-nil , then
      speaking a line indicates its indentation.  You can use command
-     “emacspeak-toggle-audio-indentation” bound to C-e d i to toggle
+     ‘emacspeak-toggle-audio-indentation’ bound to C-e d i to toggle
      this setting..
 
  -- Variable: User Option emacspeak-audio-indentation-method
-     *Current technique used to cue indentation.  Default is “speak”.
-     You can specify “tone” for producing a beep indicating the
+     *Current technique used to cue indentation.  Default is ‘speak’.
+     You can specify ‘tone’ for producing a beep indicating the
      indentation.  Automatically becomes local in any buffer where it is
      set.
 
@@ -8490,7 +8726,7 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Variable: User Option emacspeak-comint-autospeak
      Says if comint output is automatically spoken.  You can use
-     “emacspeak-toggle-comint-autospeak“ bound to C-e C-q to toggle this
+     ‘emacspeak-toggle-comint-autospeak‘ bound to C-e C-q to toggle this
      setting.
 
  -- Variable: User Option emacspeak-decoration-rule
@@ -8507,7 +8743,7 @@ of emacspeak from becoming dependent on the speech server modules
  -- Variable: User Option emacspeak-mail-alert
      *Option to indicate cueing of new mail.  If t, emacspeak will alert
      you about newly arrived mail with an auditory icon when displaying
-     the mode line.  You can use command “emacspeak-toggle-mail-alert”
+     the mode line.  You can use command ‘emacspeak-toggle-mail-alert’
      bound to C-e M-m to set this option.  If you have online access to
      a voicemail drop, you can have a voice-mail alert set up by
      specifying the location of the voice-mail drop via custom option
@@ -8542,7 +8778,7 @@ of emacspeak from becoming dependent on the speech server modules
      –this is inspired by cut -c on UNIX.
 
  -- Variable: User Option emacspeak-speak-line-invert-filter
-     Non-nil means the sense of “filter” is inverted when filtering
+     Non-nil means the sense of ‘filter’ is inverted when filtering
      columns in a line –see command
      emacspeak-speak-line-set-column-filter.
 
@@ -8553,7 +8789,7 @@ of emacspeak from becoming dependent on the speech server modules
      specific settings.
 
  -- Variable: User Option emacspeak-speak-maximum-line-length
-     *Threshold for determining “long” lines.  Emacspeak will ask for
+     *Threshold for determining ‘long’ lines.  Emacspeak will ask for
      confirmation before speaking lines that are longer than this
      length.  This is to avoid accidentally opening a binary file and
      torturing the speech synthesizer with a long string of gibberish.
@@ -8561,7 +8797,7 @@ of emacspeak from becoming dependent on the speech server modules
  -- Variable: User Option emacspeak-speak-messages
      *Option indicating if messages are spoken.  If nil, emacspeak will
      not speak messages as they are echoed to the message area.  You can
-     use command “emacspeak-toggle-speak-messages” bound to C-e q.
+     use command ‘emacspeak-toggle-speak-messages’ bound to C-e q.
 
  -- Variable: User Option emacspeak-speak-paragraph-personality
      *Personality used to mark start of paragraph.
@@ -8571,7 +8807,7 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Variable: User Option emacspeak-speak-time-format-string
      *Format string that specifies how the time should be spoken.  See
-     the documentation for function “format-time-string”
+     the documentation for function ‘format-time-string’
 
  -- Variable: User Option emacspeak-speak-zoneinfo-directory
      Directory containing timezone data.

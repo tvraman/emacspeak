@@ -43,7 +43,9 @@ User interface to tables
 ............................................................
 
  -- Command: emacspeak-table-copy-current-element-to-kill-ring
-     ‘C-e C-t w <XF86WakeUp> C-t w’
+     ‘C-e C-t w’
+
+     ‘<fn> C-t w’
 
      Copy current table element to kill ring.
 
@@ -52,9 +54,11 @@ User interface to tables
 
  -- Command: emacspeak-table-copy-current-element-to-register (&rest
           rest)
-     ‘C-e C-t x <XF86WakeUp> C-t x’
+     ‘C-e C-t x’
 
-     :around advice: “ad-Advice-emacspeak-table-copy-current-element-to-register”
+     ‘<fn> C-t x’
+
+     :around advice: ‘ad-Advice-emacspeak-table-copy-current-element-to-register’
 
      Copy current table element to specified register.
 
@@ -64,7 +68,9 @@ User interface to tables
 ............................................
 
  -- Command: emacspeak-table-copy-to-clipboard
-     ‘C-e C-t k <XF86WakeUp> C-t k’
+     ‘C-e C-t k’
+
+     ‘<fn> C-t k’
 
      Copy table in current buffer to the table clipboard.
      Current buffer must be in emacspeak-table mode.
@@ -73,7 +79,9 @@ User interface to tables
 ..................................................
 
  -- Command: emacspeak-table-display-table-in-region (start end)
-     ‘C-e TAB <XF86WakeUp> TAB’
+     ‘C-e TAB’
+
+     ‘<fn> TAB’
 
      Recognize tabular data in current region and display it in table
      browsing mode in a a separate buffer.
@@ -81,7 +89,7 @@ User interface to tables
      all the power of the two-dimensional spatial layout while giving you
      sufficient contextual information.  The tables subdirectory of the
      emacspeak distribution contains some sample tables –these are the
-     CalTrain schedules.  Execute command “describe-mode” bound to
+     CalTrain schedules.  Execute command ‘describe-mode’ bound to
      C-h m in a buffer that is in emacspeak table mode to read
      the documentation on the table browser.
 
@@ -89,7 +97,9 @@ User interface to tables
 ........................................
 
  -- Command: emacspeak-table-find-csv-file (filename)
-     ‘C-e C-t , <XF86WakeUp> C-t ,’
+     ‘C-e C-t ,’
+
+     ‘<fn> C-t ,’
 
      Process a csv (comma separated values) file.
      The processed  data is presented using emacspeak table navigation.
@@ -104,7 +114,7 @@ User interface to tables
      all the power of the two-dimensional spatial layout while giving you
      sufficient contextual information.  The etc/tables subdirectory of the
      emacspeak distribution contains some sample tables –these are the
-     CalTrain schedules.  Execute command “describe-mode” bound to
+     CalTrain schedules.  Execute command ‘describe-mode’ bound to
      C-h m in a buffer that is in emacspeak table mode to read
      the documentation on the table browser.
 
@@ -112,7 +122,9 @@ User interface to tables
 ...............................
 
  -- Command: emacspeak-table-goto (row column)
-     ‘C-e C-t j <XF86WakeUp> C-t j’
+     ‘C-e C-t j’
+
+     ‘<fn> C-t j’
 
      Prompt for a table cell coordinates and jump to it.
 
@@ -120,7 +132,13 @@ User interface to tables
 ......................................
 
  -- Command: emacspeak-table-goto-bottom
-     ‘C-e C-t B <XF86WakeUp> C-t B C-e C-t M-> <XF86WakeUp> C-t M->’
+     ‘C-e C-t B’
+
+     ‘<fn> C-t B’
+
+     ‘C-e C-t M->’
+
+     ‘<fn> C-t M->’
 
      Goes to the bottom of the current column.
 
@@ -128,7 +146,13 @@ User interface to tables
 ....................................
 
  -- Command: emacspeak-table-goto-left
-     ‘C-e C-t A C-e C-t < <XF86WakeUp> C-t A <XF86WakeUp> C-t <’
+     ‘C-e C-t A’
+
+     ‘C-e C-t <’
+
+     ‘<fn> C-t A’
+
+     ‘<fn> C-t <’
 
      Goes to the left of the current row.
 
@@ -136,7 +160,13 @@ User interface to tables
 ......................................
 
  -- Command: emacspeak-table-goto-right
-     ‘C-e C-t E C-e C-t > <XF86WakeUp> C-t E <XF86WakeUp> C-t >’
+     ‘C-e C-t E’
+
+     ‘C-e C-t >’
+
+     ‘<fn> C-t E’
+
+     ‘<fn> C-t >’
 
      Goes to the right of the current row.
 
@@ -144,7 +174,13 @@ User interface to tables
 ....................................
 
  -- Command: emacspeak-table-goto-top
-     ‘C-e C-t T <XF86WakeUp> C-t T C-e C-t M-< <XF86WakeUp> C-t M-<’
+     ‘C-e C-t T’
+
+     ‘<fn> C-t T’
+
+     ‘C-e C-t M-<’
+
+     ‘<fn> C-t M-<’
 
      Goes to the top of the current column.
 
@@ -152,8 +188,17 @@ User interface to tables
 .......................................
 
  -- Command: emacspeak-table-next-column (&optional count)
-     ‘C-e C-t TAB C-e C-t C-f C-e C-t <right> <XF86WakeUp> C-t TAB
-     <XF86WakeUp> C-t C-f <XF86WakeUp> C-t <right>’
+     ‘C-e C-t TAB’
+
+     ‘C-e C-t C-f’
+
+     ‘C-e C-t <right>’
+
+     ‘<fn> C-t TAB’
+
+     ‘<fn> C-t C-f’
+
+     ‘<fn> C-t <right>’
 
      Move to the next column if possible
 
@@ -161,8 +206,17 @@ User interface to tables
 ....................................
 
  -- Command: emacspeak-table-next-row (&optional count)
-     ‘C-e C-t n C-e C-t C-n C-e C-t <down> <XF86WakeUp> C-t n
-     <XF86WakeUp> C-t C-n <XF86WakeUp> C-t <down>’
+     ‘C-e C-t n’
+
+     ‘C-e C-t C-n’
+
+     ‘C-e C-t <down>’
+
+     ‘<fn> C-t n’
+
+     ‘<fn> C-t C-n’
+
+     ‘<fn> C-t <down>’
 
      Move to the next row if possible
 
@@ -179,8 +233,17 @@ User interface to tables
 ...........................................
 
  -- Command: emacspeak-table-previous-column (&optional count)
-     ‘C-e C-t C-b C-e C-t <left> C-e C-t <S-tab> <XF86WakeUp> C-t C-b
-     <XF86WakeUp> C-t <left> <XF86WakeUp> C-t <S-tab>’
+     ‘C-e C-t C-b’
+
+     ‘C-e C-t <left>’
+
+     ‘C-e C-t <S-tab>’
+
+     ‘<fn> C-t C-b’
+
+     ‘<fn> C-t <left>’
+
+     ‘<fn> C-t <S-tab>’
 
      Move to the previous column  if possible
 
@@ -188,8 +251,17 @@ User interface to tables
 ........................................
 
  -- Command: emacspeak-table-previous-row (&optional count)
-     ‘C-e C-t p C-e C-t C-p C-e C-t <up> <XF86WakeUp> C-t p <XF86WakeUp>
-     C-t C-p <XF86WakeUp> C-t <up>’
+     ‘C-e C-t p’
+
+     ‘C-e C-t C-p’
+
+     ‘C-e C-t <up>’
+
+     ‘<fn> C-t p’
+
+     ‘<fn> C-t C-p’
+
+     ‘<fn> C-t <up>’
 
      Move to the previous row if possible
 
@@ -197,18 +269,22 @@ User interface to tables
 ..................................
 
  -- Command: emacspeak-table-search (&optional what)
-     ‘C-e C-t s <XF86WakeUp> C-t s’
+     ‘C-e C-t s’
+
+     ‘<fn> C-t s’
 
      Search the table for matching elements.  Interactively prompts for
      row or column to search and pattern to look for.    If there is a match, makes
-     the matching cell current. When called from a program, “what” can
-       be either “row” or “column”.
+     the matching cell current. When called from a program, ‘what’ can
+       be either ‘row’ or ‘column’.
 
 12.167.1.18 emacspeak-table-search-column
 .........................................
 
  -- Command: emacspeak-table-search-column
-     ‘C-e C-t C <XF86WakeUp> C-t C’
+     ‘C-e C-t C’
+
+     ‘<fn> C-t C’
 
      Search in current table column.
 
@@ -216,7 +292,9 @@ User interface to tables
 ..........................................
 
  -- Command: emacspeak-table-search-headers
-     ‘C-e C-t h <XF86WakeUp> C-t h’
+     ‘C-e C-t h’
+
+     ‘<fn> C-t h’
 
      Search the table row or column headers.  Interactively prompts for
      row or column to search and pattern to look for.  If there is a
@@ -226,7 +304,9 @@ User interface to tables
 ......................................
 
  -- Command: emacspeak-table-search-row
-     ‘C-e C-t R <XF86WakeUp> C-t R’
+     ‘C-e C-t R’
+
+     ‘<fn> C-t R’
 
      Search in current table row.
 
@@ -234,7 +314,9 @@ User interface to tables
 ............................................................
 
  -- Command: emacspeak-table-select-automatic-speaking-method
-     ‘C-e C-t a <XF86WakeUp> C-t a’
+     ‘C-e C-t a’
+
+     ‘<fn> C-t a’
 
      Interactively select the kind of automatic speech to produce when
      browsing table elements
@@ -243,7 +325,9 @@ User interface to tables
 ..................................................
 
  -- Command: emacspeak-table-sort-on-current-column
-     ‘C-e C-t # <XF86WakeUp> C-t #’
+     ‘C-e C-t #’
+
+     ‘<fn> C-t #’
 
      Sort table on current column.
 
@@ -251,7 +335,9 @@ User interface to tables
 ..........................................................
 
  -- Command: emacspeak-table-speak-both-headers-and-element
-     ‘C-e C-t b <XF86WakeUp> C-t b’
+     ‘C-e C-t b’
+
+     ‘<fn> C-t b’
 
      Speak  both row and column header and table element
 
@@ -259,7 +345,9 @@ User interface to tables
 .................................................
 
  -- Command: emacspeak-table-speak-column-filtered (&optional prefix)
-     ‘C-e C-t g <XF86WakeUp> C-t g’
+     ‘C-e C-t g’
+
+     ‘<fn> C-t g’
 
      Speaks a table column after applying a specified column filter.
      Optional prefix arg prompts for a new filter.
@@ -268,7 +356,9 @@ User interface to tables
 ...........................................................
 
  -- Command: emacspeak-table-speak-column-header-and-element
-     ‘C-e C-t c <XF86WakeUp> C-t c’
+     ‘C-e C-t c’
+
+     ‘<fn> C-t c’
 
      Speak  column header and table element
 
@@ -276,7 +366,9 @@ User interface to tables
 .............................................
 
  -- Command: emacspeak-table-speak-coordinates
-     ‘C-e C-t . <XF86WakeUp> C-t .’
+     ‘C-e C-t .’
+
+     ‘<fn> C-t .’
 
      Speak current table coordinates.
 
@@ -284,7 +376,9 @@ User interface to tables
 .................................................
 
  -- Command: emacspeak-table-speak-current-element
-     ‘C-e C-t SPC <XF86WakeUp> C-t SPC’
+     ‘C-e C-t SPC’
+
+     ‘<fn> C-t SPC’
 
      Speak current table element
 
@@ -292,7 +386,9 @@ User interface to tables
 ............................................
 
  -- Command: emacspeak-table-speak-dimensions
-     ‘C-e C-t = <XF86WakeUp> C-t =’
+     ‘C-e C-t =’
+
+     ‘<fn> C-t =’
 
      Speak current table dimensions.
 
@@ -300,7 +396,9 @@ User interface to tables
 ..............................................
 
  -- Command: emacspeak-table-speak-row-filtered (&optional prefix)
-     ‘C-e C-t f <XF86WakeUp> C-t f’
+     ‘C-e C-t f’
+
+     ‘<fn> C-t f’
 
      Speaks a table row after applying a specified row filter.
      Optional prefix arg prompts for a new filter.
@@ -309,7 +407,9 @@ User interface to tables
 ........................................................
 
  -- Command: emacspeak-table-speak-row-header-and-element
-     ‘C-e C-t r <XF86WakeUp> C-t r’
+     ‘C-e C-t r’
+
+     ‘<fn> C-t r’
 
      Speak  row header and table element
 
@@ -317,7 +417,9 @@ User interface to tables
 ..........................................
 
  -- Command: emacspeak-table-ui-filter-load (file)
-     ‘C-e C-t M-l <XF86WakeUp> C-t M-l’
+     ‘C-e C-t M-l’
+
+     ‘<fn> C-t M-l’
 
      Load saved filter settings.
 
@@ -325,7 +427,9 @@ User interface to tables
 ..........................................
 
  -- Command: emacspeak-table-ui-filter-save (file)
-     ‘C-e C-t M-s <XF86WakeUp> C-t M-s’
+     ‘C-e C-t M-s’
+
+     ‘<fn> C-t M-s’
 
      Save out filter settings.
 
@@ -333,7 +437,9 @@ User interface to tables
 ...........................................
 
  -- Command: emacspeak-table-view-csv-buffer (&optional buffer-name)
-     ‘C-e C-t v <XF86WakeUp> C-t v’
+     ‘C-e C-t v’
+
+     ‘<fn> C-t v’
 
      Process a csv (comma separated values) data.
      The processed  data is  presented using emacspeak table navigation.
@@ -354,7 +460,9 @@ tabulated output, e.g.  ps, ls output
 ....................................
 
  -- Command: emacspeak-tabulate-region (start end &optional mark-fields)
-     ‘C-e i <XF86WakeUp> i’
+     ‘C-e i’
+
+     ‘<fn> i’
 
      Voicifies the white-space of a table if one found.  Optional interactive prefix
      arg mark-fields specifies if the header row information is used to mark fields
@@ -384,7 +492,9 @@ emacspeak extensions to speak window widnow layouts
 ...............................................
 
  -- Command: emacspeak-tapestry-describe-tapestry (&optional details)
-     ‘C-e M-t <XF86WakeUp> M-t’
+     ‘C-e M-t’
+
+     ‘<fn> M-t’
 
      Describe the current layout of visible buffers in current frame.
      Use interactive prefix arg to get coordinate positions of the
@@ -394,7 +504,9 @@ emacspeak extensions to speak window widnow layouts
 ...................................................
 
  -- Command: emacspeak-tapestry-select-window-by-name (buffer-name)
-     ‘C-e W <XF86WakeUp> W’
+     ‘C-e W’
+
+     ‘<fn> W’
 
      Select window by the name of the buffer it displays.
      This is useful when using modes like ECB or the new GDB UI where
@@ -628,7 +740,9 @@ presently defined.
 .......................................
 
  -- Command: emacspeak-url-template-fetch (&optional documentation)
-     ‘C-e u <XF86WakeUp> u’
+     ‘C-e u’
+
+     ‘<fn> u’
 
      Fetch a pre-defined resource.
      Use Emacs completion to obtain a list of available resources.
@@ -715,7 +829,7 @@ headers and cited messages
  -- Command: emacspeak-vm-locate-subject-line
 
      Locates the subject line in a message being read.
-     Useful when you”re reading a message
+     Useful when you’re reading a message
      that has been forwarded multiple times.
 
 12.180.1.4 emacspeak-vm-mode-line
@@ -738,7 +852,7 @@ headers and cited messages
 
  -- Command: emacspeak-vm-speak-labels
 
-     Speak a message”s labels
+     Speak a message’s labels
 
 12.180.1.7 emacspeak-vm-speak-message
 .....................................
@@ -1088,7 +1202,9 @@ browse-url
 ...............................................
 
  -- Command: emacspeak-we-class-filter-and-follow (class url)
-     ‘C-e x e y <XF86WakeUp> x e y’
+     ‘C-e x e y’
+
+     ‘<fn> x e y’
 
      Follow url and point, and filter the result by specified class.
      Class can be set locally for a buffer, and overridden with an
@@ -1100,7 +1216,9 @@ browse-url
 
  -- Command: emacspeak-we-class-filter-and-follow-link (&optional
           prompt)
-     ‘C-e x e v <XF86WakeUp> x e v’
+     ‘C-e x e v’
+
+     ‘<fn> x e v’
 
      Follow url and point, and filter the result by specified class.
      Class can be set locally for a buffer, and overridden with an
@@ -1111,7 +1229,9 @@ browse-url
 .....................................
 
  -- Command: emacspeak-we-count-matches (url locator)
-     ‘C-e x e C-f <XF86WakeUp> x e C-f’
+     ‘C-e x e C-f’
+
+     ‘<fn> x e C-f’
 
      Count matches for locator  in Web page.
 
@@ -1119,7 +1239,9 @@ browse-url
 ...........................................
 
  -- Command: emacspeak-we-count-nested-tables (url)
-     ‘C-e x e C-x <XF86WakeUp> x e C-x’
+     ‘C-e x e C-x’
+
+     ‘<fn> x e C-x’
 
      Count nested tables in Web page.
 
@@ -1127,7 +1249,9 @@ browse-url
 ....................................
 
  -- Command: emacspeak-we-count-tables (url)
-     ‘C-e x e C-t <XF86WakeUp> x e C-t’
+     ‘C-e x e C-t’
+
+     ‘<fn> x e C-t’
 
      Count  tables in Web page.
 
@@ -1135,7 +1259,9 @@ browse-url
 ........................................
 
  -- Command: emacspeak-we-extract-by-class (class url &optional speak)
-     ‘C-e x e c <XF86WakeUp> x e c’
+     ‘C-e x e c’
+
+     ‘<fn> x e c’
 
      Extract elements having specified class attribute from HTML. Extracts
      specified elements from current WWW page and displays it in a separate
@@ -1146,9 +1272,11 @@ browse-url
 
  -- Command: emacspeak-we-extract-by-class-list (classes url &optional
           speak)
-     ‘C-e x e C <XF86WakeUp> x e C’
+     ‘C-e x e C’
 
-     Extract elements having class specified in list “classes” from HTML.
+     ‘<fn> x e C’
+
+     Extract elements having class specified in list ‘classes’ from HTML.
      Extracts specified elements from current WWW page and displays it
      in a separate buffer.  Interactive use provides list of class
      values as completion.
@@ -1157,7 +1285,9 @@ browse-url
 .....................................
 
  -- Command: emacspeak-we-extract-by-id (id url &optional speak)
-     ‘C-e x e i <XF86WakeUp> x e i’
+     ‘C-e x e i’
+
+     ‘<fn> x e i’
 
      Extract elements having specified id attribute from HTML. Extracts
      specified elements from current WWW page and displays it in a separate
@@ -1168,9 +1298,11 @@ browse-url
 ..........................................
 
  -- Command: emacspeak-we-extract-by-id-list (ids url &optional speak)
-     ‘C-e x e I <XF86WakeUp> x e I’
+     ‘C-e x e I’
 
-     Extract elements having id specified in list “ids” from HTML.
+     ‘<fn> x e I’
+
+     Extract elements having id specified in list ‘ids’ from HTML.
      Extracts specified elements from current WWW page and displays it in a
      separate buffer. Interactive use provides list of id values as completion.
 
@@ -1178,7 +1310,9 @@ browse-url
 ............................................
 
  -- Command: emacspeak-we-extract-by-property (url &optional speak)
-     ‘C-e x e w <XF86WakeUp> x e w’
+     ‘C-e x e w’
+
+     ‘<fn> x e w’
 
      Interactively prompt for an HTML property, e.g. id or class,
      and provide a completion list of applicable  property values. Filter document by property that is specified.
@@ -1187,7 +1321,9 @@ browse-url
 ........................................
 
  -- Command: emacspeak-we-extract-by-role (role url &optional speak)
-     ‘C-e x e r <XF86WakeUp> x e r’
+     ‘C-e x e r’
+
+     ‘<fn> x e r’
 
      Extract elements having specified role attribute from HTML. Extracts
      specified elements from current WWW page and displays it in a separate
@@ -1198,7 +1334,7 @@ browse-url
 
  -- Command: emacspeak-we-extract-id-list-text (ids url &optional speak)
 
-     Extract text nodes from elements having id specified in list “ids” from HTML.
+     Extract text nodes from elements having id specified in list ‘ids’ from HTML.
      Extracts specified elements from current WWW page and displays it in a
      separate buffer. Interactive use provides list of id values as completion.
 
@@ -1217,7 +1353,9 @@ browse-url
 
  -- Command: emacspeak-we-extract-matching-urls (pattern url &optional
           speak)
-     ‘C-e x e u <XF86WakeUp> x e u’
+     ‘C-e x e u’
+
+     ‘<fn> x e u’
 
      Extracts links whose URL matches pattern.
 
@@ -1228,7 +1366,7 @@ browse-url
 
      Extract links to media streams.
      operate on current web page when in a browser buffer; otherwise
-      prompt for url.  Optional arg “speak” specifies if the result
+      prompt for url.  Optional arg ‘speak’ specifies if the result
       should be spoken automatically.
 
 12.184.1.16 emacspeak-we-extract-media-streams-under-point
@@ -1243,11 +1381,13 @@ browse-url
 
  -- Command: emacspeak-we-extract-nested-table (index url &optional
           speak)
-     ‘C-e x e x <XF86WakeUp> x e x’
+     ‘C-e x e x’
 
-     Extract nested table specified by “table-index”. Default is to
+     ‘<fn> x e x’
+
+     Extract nested table specified by ‘table-index’. Default is to
      operate on current web page when in a browser buffer; otherwise
-     prompt for URL. Optional arg “speak” specifies if the result should be
+     prompt for URL. Optional arg ‘speak’ specifies if the result should be
      spoken automatically.
 
 12.184.1.18 emacspeak-we-extract-nested-table-list
@@ -1255,7 +1395,9 @@ browse-url
 
  -- Command: emacspeak-we-extract-nested-table-list (tables url
           &optional speak)
-     ‘C-e x e X <XF86WakeUp> x e X’
+     ‘C-e x e X’
+
+     ‘<fn> x e X’
 
      Extract specified list of tables from a Web page.
 
@@ -1266,7 +1408,7 @@ browse-url
 
      Extract links to printable  streams.
      operate on current web page when in a browser buffer; otherwise
-      prompt for url.  Optional arg “speak” specifies if the result
+      prompt for url.  Optional arg ‘speak’ specifies if the result
       should be spoken automatically.
 
 12.184.1.20 emacspeak-we-extract-table-by-match
@@ -1274,7 +1416,9 @@ browse-url
 
  -- Command: emacspeak-we-extract-table-by-match (match url &optional
           speak)
-     ‘C-e x e m <XF86WakeUp> x e m’
+     ‘C-e x e m’
+
+     ‘<fn> x e m’
 
      Extract table containing  specified match.
       Optional arg url specifies the page to extract content from.
@@ -1284,7 +1428,9 @@ browse-url
 
  -- Command: emacspeak-we-extract-table-by-position (position url
           &optional speak)
-     ‘C-e x e t <XF86WakeUp> x e t’
+     ‘C-e x e t’
+
+     ‘<fn> x e t’
 
      Extract table at specified position.
      Default is to extract from current page.
@@ -1294,7 +1440,9 @@ browse-url
 
  -- Command: emacspeak-we-extract-tables-by-match-list (match-list url
           &optional speak)
-     ‘C-e x e M <XF86WakeUp> x e M’
+     ‘C-e x e M’
+
+     ‘<fn> x e M’
 
      Extract specified  tables from a WWW page.
      Tables are specified by containing  match pattern
@@ -1305,7 +1453,9 @@ browse-url
 
  -- Command: emacspeak-we-extract-tables-by-position-list (positions url
           &optional speak)
-     ‘C-e x e T <XF86WakeUp> x e T’
+     ‘C-e x e T’
+
+     ‘<fn> x e T’
 
      Extract specified list of nested tables from a WWW page.
      Tables are specified by their position in the list
@@ -1315,7 +1465,9 @@ browse-url
 ................................................
 
  -- Command: emacspeak-we-follow-and-extract-main (&optional speak)
-     ‘C-e x e P <XF86WakeUp> x e P’
+     ‘C-e x e P’
+
+     ‘<fn> x e P’
 
      Follow URL, then extract role=main.
 
@@ -1323,7 +1475,9 @@ browse-url
 ................................................
 
  -- Command: emacspeak-we-follow-and-filter-by-id (id)
-     ‘C-e x e b <XF86WakeUp> x e b’
+     ‘C-e x e b’
+
+     ‘<fn> x e b’
 
      Follow url and point, and filter the result by specified id.
      Id can be set locally for a buffer, and overridden with an
@@ -1334,7 +1488,9 @@ browse-url
 ......................................
 
  -- Command: emacspeak-we-junk-by-class (class url &optional speak)
-     ‘C-e x e d <XF86WakeUp> x e d’
+     ‘C-e x e d’
+
+     ‘<fn> x e d’
 
      Extract elements not having specified class attribute from HTML. Extracts
      specified elements from current WWW page and displays it in a separate
@@ -1345,9 +1501,15 @@ browse-url
 
  -- Command: emacspeak-we-junk-by-class-list (classes url &optional
           speak)
-     ‘C-e x e D C-e x e C-c <XF86WakeUp> x e D <XF86WakeUp> x e C-c’
+     ‘C-e x e D’
 
-     Extract elements not having class specified in list “classes” from HTML.
+     ‘C-e x e C-c’
+
+     ‘<fn> x e D’
+
+     ‘<fn> x e C-c’
+
+     Extract elements not having class specified in list ‘classes’ from HTML.
      Extracts specified elements from current WWW page and displays it
      in a separate buffer.  Interactive use provides list of class
      values as completion.
@@ -1356,7 +1518,9 @@ browse-url
 .....................................
 
  -- Command: emacspeak-we-style-filter (style url &optional speak)
-     ‘C-e x e S <XF86WakeUp> x e S’
+     ‘C-e x e S’
+
+     ‘<fn> x e S’
 
      Extract elements matching specified style
      from HTML.  Extracts specified elements from current WWW
@@ -1367,7 +1531,9 @@ browse-url
 ...............................................
 
  -- Command: emacspeak-we-toggle-xsl-keep-result
-     ‘C-e x e k <XF86WakeUp> x e k’
+     ‘C-e x e k’
+
+     ‘<fn> x e k’
 
      Toggle xsl keep result flag.
 
@@ -1375,7 +1541,9 @@ browse-url
 ...............................................
 
  -- Command: emacspeak-we-url-expand-and-execute (&optional prefix)
-     ‘C-e x e e <XF86WakeUp> x e e’
+     ‘C-e x e e’
+
+     ‘<fn> x e e’
 
      Applies buffer-specific URL expander/executor function.
 
@@ -1387,7 +1555,7 @@ browse-url
      Apply a url rewrite rule as specified in the current buffer
      before following link under point.  If no rewrite rule is
      defined, first prompt for one.  Rewrite rules are of the
-     form “(from to)” where from and to are strings.  Typically, the
+     form ‘(from to)’ where from and to are strings.  Typically, the
      rewrite rule is automatically set up by Emacspeak tools like
      websearch where a rewrite rule is known.  Rewrite rules are
      useful in jumping directly to the printer friendly version of an
@@ -1398,7 +1566,9 @@ browse-url
 ................................................
 
  -- Command: emacspeak-we-xpath-filter-and-follow (&optional prompt)
-     ‘C-e x e p <XF86WakeUp> x e p’
+     ‘C-e x e p’
+
+     ‘<fn> x e p’
 
      Follow url and point, and filter the result by specified xpath.
      XPath can be set locally for a buffer, and overridden with an
@@ -1409,7 +1579,9 @@ browse-url
 ..............................................
 
  -- Command: emacspeak-we-xpath-junk-and-follow (&optional prompt)
-     ‘C-e x e C-p <XF86WakeUp> x e C-p’
+     ‘C-e x e C-p’
+
+     ‘<fn> x e C-p’
 
      Follow url and point, and filter the result by junking
      elements specified by xpath.
@@ -1421,7 +1593,9 @@ browse-url
 ...................................
 
  -- Command: emacspeak-we-xsl-toggle
-     ‘C-e x e o <XF86WakeUp> x e o’
+     ‘C-e x e o’
+
+     ‘<fn> x e o’
 
      Toggle  application of XSL transformations.
 
@@ -1429,7 +1603,9 @@ browse-url
 ...................................
 
  -- Command: emacspeak-we-xslt-apply (xsl)
-     ‘C-e x e a <XF86WakeUp> x e a’
+     ‘C-e x e a’
+
+     ‘<fn> x e a’
 
      Apply specified transformation to current Web page.
 
@@ -1437,7 +1613,9 @@ browse-url
 ....................................
 
  -- Command: emacspeak-we-xslt-filter (path url &optional speak)
-     ‘C-e x e f <XF86WakeUp> x e f’
+     ‘C-e x e f’
+
+     ‘<fn> x e f’
 
      Extract elements matching specified XPath path locator
      from Web page – default is the current page being viewed.
@@ -1446,7 +1624,9 @@ browse-url
 ..................................
 
  -- Command: emacspeak-we-xslt-junk (path url &optional speak)
-     ‘C-e x e j <XF86WakeUp> x e j’
+     ‘C-e x e j’
+
+     ‘<fn> x e j’
 
      Junk elements matching specified locator.
 
@@ -1454,7 +1634,9 @@ browse-url
 ....................................
 
  -- Command: emacspeak-we-xslt-select (xsl)
-     ‘C-e x e s <XF86WakeUp> x e s’
+     ‘C-e x e s’
+
+     ‘<fn> x e s’
 
      Select XSL transformation applied to Web pages before they are displayed .
 
@@ -1562,9 +1744,11 @@ This module provides utility functions for searching the WWW
 .......................................
 
  -- Command: emacspeak-websearch-dispatch (&optional prefix)
-     ‘C-e ? <XF86WakeUp> ?’
+     ‘C-e ?’
 
-      Press “?” to list available search engines.
+     ‘<fn> ?’
+
+      Press ‘?’ to list available search engines.
      When using supported browsers,  this interface attempts to speak the most relevant information on the result page.
 
 12.185.1.10 emacspeak-websearch-exchange-rate-converter
@@ -1588,15 +1772,15 @@ This module provides utility functions for searching the WWW
  -- Command: emacspeak-websearch-google (query &optional flag)
 
      Perform a Google search.  First optional interactive prefix arg
-     “flag” prompts for additional search options. Second interactive
-     prefix arg is equivalent to hitting the I”m Feeling Lucky button on Google.
+     ‘flag’ prompts for additional search options. Second interactive
+     prefix arg is equivalent to hitting the I’m Feeling Lucky button on Google.
 
 12.185.1.13 emacspeak-websearch-google-feeling-lucky
 ....................................................
 
  -- Command: emacspeak-websearch-google-feeling-lucky (query)
 
-     Do a I”m Feeling Lucky Google search.
+     Do a I’m Feeling Lucky Google search.
 
 12.185.1.14 emacspeak-websearch-google-news
 ...........................................
@@ -1743,7 +1927,9 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
 .........................................
 
  -- Command: emacspeak-webspace-feed-reader (&optional refresh)
-     ‘C-' R C-x @ s R’
+     ‘C-' R’
+
+     ‘C-x @ s R’
 
      Display Feed Reader Feed list in a WebSpace buffer.
      Optional interactive prefix arg forces a refresh.
@@ -1759,7 +1945,9 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
 .............................................
 
  -- Command: emacspeak-webspace-freebase-search (query)
-     ‘C-; f C-x @ h f’
+     ‘C-; f’
+
+     ‘C-x @ h f’
 
      Perform a Freebase search and display results.
 
@@ -1774,7 +1962,9 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
 .......................................
 
  -- Command: emacspeak-webspace-headlines
-     ‘C-; SPC h C-x @ h SPC h’
+     ‘C-; SPC h’
+
+     ‘C-x @ h SPC h’
 
      Startup Headlines ticker.
 
@@ -1782,7 +1972,13 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
 ..............................................
 
  -- Command: emacspeak-webspace-headlines-browse
-     ‘C-' h C-; SPC SPC C-x @ s h C-x @ h SPC SPC’
+     ‘C-' h’
+
+     ‘C-; SPC SPC’
+
+     ‘C-x @ s h’
+
+     ‘C-x @ h SPC SPC’
 
      Display buffer of browsable headlines.
 
@@ -1798,10 +1994,12 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
 ..............................................
 
  -- Command: emacspeak-webspace-knowledge-search (query &optional limit)
-     ‘C-; k C-x @ h k’
+     ‘C-; k’
+
+     ‘C-x @ h k’
 
      Perform a Google Knowledge Graph search.
-     Optional interactive prefix arg “limit” prompts for number of results, default is 1.
+     Optional interactive prefix arg ‘limit’ prompts for number of results, default is 1.
 
 12.186.1.9 emacspeak-webspace-mode
 ..................................
@@ -1831,8 +2029,8 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
 
      C-M-i		backward-button
 
-     In addition to any hooks its parent mode “special-mode” might have run,
-     this mode runs the hook “emacspeak-webspace-mode-hook”, as the final step
+     In addition to any hooks its parent mode ‘special-mode’ might have run,
+     this mode runs the hook ‘emacspeak-webspace-mode-hook’, as the final step
      during initialization.
 
 12.186.1.10 emacspeak-webspace-open
@@ -1853,7 +2051,9 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
 ......................................
 
  -- Command: emacspeak-webspace-weather
-     ‘C-; SPC w C-x @ h SPC w’
+     ‘C-; SPC w’
+
+     ‘C-x @ h SPC w’
 
      Speak current weather.
 
@@ -1863,7 +2063,7 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
  -- Command: emacspeak-webspace-weather-update
 
      Setup periodic weather updates.
-     Updated weather is found in “emacspeak-webspace-current-weather”.
+     Updated weather is found in ‘emacspeak-webspace-current-weather’.
 
 12.186.1.14 emacspeak-webspace-yank-link
 ........................................
@@ -1952,10 +2152,12 @@ avoid duplication of code between emacspeak-w3.el and emacspeak-w3m.el
 
  -- Command: emacspeak-webutils-play-media-at-point (&optional
           playlist-p)
-     ‘C-e M-; <XF86WakeUp> M-;’
+     ‘C-e M-;’
+
+     ‘<fn> M-;’
 
      Play media url under point.
-     Optional interactive prefix arg “playlist-p” says to treat the link as a playlist.
+     Optional interactive prefix arg ‘playlist-p’ says to treat the link as a playlist.
       A second interactive prefix arg adds mplayer option -allow-dangerous-playlist-parsing
 
 12.187.1.9 emacspeak-webutils-transcode-current-url-via-google
@@ -2070,7 +2272,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Add annotation to the annotation working buffer.
      Prompt for annotation buffer if not already set.
-     Interactive prefix arg “reset” prompts for the annotation
+     Interactive prefix arg ‘reset’ prompts for the annotation
      buffer even if one is already set.
      Annotation is entered in a temporary buffer and the
      annotation is inserted into the working buffer when complete.
@@ -2079,14 +2281,16 @@ Contains various wizards for the Emacspeak desktop.
 ...................................
 
  -- Command: emacspeak-clipboard-copy (start end &optional prompt)
-     ‘C-e C-c <XF86WakeUp> C-c’
+     ‘C-e C-c’
+
+     ‘<fn> C-c’
 
      Copy contents of the region to the emacspeak clipboard.
      Previous contents of the clipboard will be overwritten.  The Emacspeak
      clipboard is a convenient way of sharing information between
      independent Emacspeak sessions running on the same or different
      machines.  Do not use this for sharing information within an Emacs
-     session –Emacs” register commands are far more efficient and
+     session –Emacs’ register commands are far more efficient and
      light-weight.  Optional interactive prefix arg results in Emacspeak
      prompting for the clipboard file to use.
      Argument START and END specifies  region.
@@ -2096,13 +2300,15 @@ Contains various wizards for the Emacspeak desktop.
 ....................................
 
  -- Command: emacspeak-clipboard-paste (&optional paste-table)
-     ‘C-e C-y <XF86WakeUp> C-y’
+     ‘C-e C-y’
+
+     ‘<fn> C-y’
 
      Yank contents of the Emacspeak clipboard at point.
      The Emacspeak clipboard is a convenient way of sharing information between
      independent Emacspeak sessions running on the same or different
      machines.  Do not use this for sharing information within an Emacs
-     session –Emacs” register commands are far more efficient and
+     session –Emacs’ register commands are far more efficient and
      light-weight.  Optional interactive prefix arg pastes from
      the emacspeak table clipboard instead.
 
@@ -2110,7 +2316,9 @@ Contains various wizards for the Emacspeak desktop.
 ......................................
 
  -- Command: emacspeak-copy-current-file
-     ‘C-e M-c <XF86WakeUp> M-c’
+     ‘C-e M-c’
+
+     ‘<fn> M-c’
 
      Copy file visited in current buffer to new location.
      Prompts for the new location and preserves modification time
@@ -2131,7 +2339,9 @@ Contains various wizards for the Emacspeak desktop.
 ..............................
 
  -- Command: emacspeak-customize
-     ‘C-e C <XF86WakeUp> C’
+     ‘C-e C’
+
+     ‘<fn> C’
 
      Customize Emacspeak.
 
@@ -2147,7 +2357,13 @@ Contains various wizards for the Emacspeak desktop.
 ..........................................
 
  -- Command: emacspeak-emergency-tts-restart
-     ‘C-e <insert> <XF86WakeUp> <insert> C-e x s <XF86WakeUp> x s’
+     ‘C-e <insert>’
+
+     ‘<fn> <insert>’
+
+     ‘C-e x s’
+
+     ‘<fn> x s’
 
      For use in an emergency.
      Will start TTS engine specified by
@@ -2158,7 +2374,9 @@ Contains various wizards for the Emacspeak desktop.
 
  -- Command: emacspeak-frame-label-or-switch-to-labelled-frame
           (&optional prefix)
-     ‘C-e M-f <XF86WakeUp> M-f’
+     ‘C-e M-f’
+
+     ‘<fn> M-f’
 
      Switch to labelled frame.
      With optional PREFIX argument, label current frame.
@@ -2174,7 +2392,9 @@ Contains various wizards for the Emacspeak desktop.
 .........................................
 
  -- Command: emacspeak-kill-buffer-quietly
-     ‘C-e C-t Q <XF86WakeUp> C-t Q’
+     ‘C-e C-t Q’
+
+     ‘<fn> C-t Q’
 
      Kill current buffer without asking for confirmation.
 
@@ -2182,7 +2402,15 @@ Contains various wizards for the Emacspeak desktop.
 ......................................
 
  -- Command: emacspeak-learn-emacs-mode
-     ‘C-e <f1> C-h C-l <XF86WakeUp> <f1> <f1> C-l <help> C-l’
+     ‘C-e <f1>’
+
+     ‘C-h C-l’
+
+     ‘<fn> <f1>’
+
+     ‘<f1> C-l’
+
+     ‘<help> C-l’
 
      Helps you learn the keys.  You can press keys and hear what they do.
      To leave, press C-g.
@@ -2191,7 +2419,9 @@ Contains various wizards for the Emacspeak desktop.
 .......................................
 
  -- Command: emacspeak-link-current-file
-     ‘C-e M-l <XF86WakeUp> M-l’
+     ‘C-e M-l’
+
+     ‘<fn> M-l’
 
      Link (hard link) file visited in current buffer to new location.
      Prompts for the new location and preserves modification time
@@ -2221,7 +2451,7 @@ Contains various wizards for the Emacspeak desktop.
      ‘<C-right>’
 
      Move to next buffer.
-     With optional interactive prefix arg “frame”, move to next frame instead.
+     With optional interactive prefix arg ‘frame’, move to next frame instead.
 
 12.191.1.17 emacspeak-previous-frame-or-buffer
 ..............................................
@@ -2230,18 +2460,20 @@ Contains various wizards for the Emacspeak desktop.
      ‘<C-left>’
 
      Move to previous buffer.
-     With optional interactive prefix arg “frame”, move to previous frame instead.
+     With optional interactive prefix arg ‘frame’, move to previous frame instead.
 
 12.191.1.18 emacspeak-select-this-buffer-next-display
 .....................................................
 
  -- Command: emacspeak-select-this-buffer-next-display
-     ‘C-e <C-<right> <XF86WakeUp> <C-<right>’
+     ‘C-e <C-<right>’
 
-     Select this buffer as displayed in a “next” frame.
+     ‘<fn> <C-<right>’
+
+     Select this buffer as displayed in a ‘next’ frame.
      See documentation for command
-     “emacspeak-select-this-buffer-other-window-display” for the
-     meaning of “next”.
+     ‘emacspeak-select-this-buffer-other-window-display’ for the
+     meaning of ‘next’.
 
 12.191.1.19 emacspeak-select-this-buffer-other-window-display
 .............................................................
@@ -2265,18 +2497,22 @@ Contains various wizards for the Emacspeak desktop.
 .........................................................
 
  -- Command: emacspeak-select-this-buffer-previous-display
-     ‘C-e <C-<left> <XF86WakeUp> <C-<left>’
+     ‘C-e <C-<left>’
 
-     Select this buffer as displayed in a “previous” window.
+     ‘<fn> <C-<left>’
+
+     Select this buffer as displayed in a ‘previous’ window.
      See documentation for command
-     “emacspeak-select-this-buffer-other-window-display” for the
-     meaning of “previous”.
+     ‘emacspeak-select-this-buffer-other-window-display’ for the
+     meaning of ‘previous’.
 
 12.191.1.21 emacspeak-show-personality-at-point
 ...............................................
 
  -- Command: emacspeak-show-personality-at-point
-     ‘C-e M-v <XF86WakeUp> M-v’
+     ‘C-e M-v’
+
+     ‘<fn> M-v’
 
      Show value of property personality (and possibly face)
      at point.
@@ -2285,7 +2521,9 @@ Contains various wizards for the Emacspeak desktop.
 ............................................
 
  -- Command: emacspeak-show-property-at-point (&optional property)
-     ‘C-e M-P <XF86WakeUp> M-P’
+     ‘C-e M-P’
+
+     ‘<fn> M-P’
 
      Show value of PROPERTY at point.
      If optional arg property is not supplied, read it interactively.
@@ -2316,7 +2554,11 @@ Contains various wizards for the Emacspeak desktop.
 ..........................................
 
  -- Command: emacspeak-speak-popup-messages
-     ‘C-h M <f1> M <help> M’
+     ‘C-h M’
+
+     ‘<f1> M’
+
+     ‘<help> M’
 
      Pop up messages buffer.
      If it is already selected then hide it and try to restore
@@ -2327,23 +2569,27 @@ Contains various wizards for the Emacspeak desktop.
 
  -- Command: emacspeak-speak-run-shell-command (command &optional
           read-as-csv)
-     ‘C-e ! <XF86WakeUp> !’
+     ‘C-e !’
+
+     ‘<fn> !’
 
      Invoke shell COMMAND and display its output as a table. The
-     results are placed in a buffer in Emacspeak”s table browsing
+     results are placed in a buffer in Emacspeak’s table browsing
      mode. Optional interactive prefix arg read-as-csv interprets the
      result as csv. . Use this for running shell commands that produce
      tabulated output. This command should be used for shell commands
-     that produce tabulated output that works with Emacspeak”s table
+     that produce tabulated output that works with Emacspeak’s table
      recognizer. Verify this first by running the command in a shell
-     and executing command “emacspeak-table-display-table-in-region”
+     and executing command ‘emacspeak-table-display-table-in-region’
      normally bound to C-e TAB.
 
 12.191.1.27 emacspeak-speak-telephone-directory
 ...............................................
 
  -- Command: emacspeak-speak-telephone-directory (&optional edit)
-     ‘C-e x t <XF86WakeUp> x t’
+     ‘C-e x t’
+
+     ‘<fn> x t’
 
      Lookup and display a phone number.
      With prefix arg, opens the phone book for editing.
@@ -2352,19 +2598,23 @@ Contains various wizards for the Emacspeak desktop.
 ....................................................
 
  -- Command: emacspeak-speak-this-buffer-next-display
-     ‘C-e <right> <XF86WakeUp> <right>’
+     ‘C-e <right>’
 
-     Speak this buffer as displayed in a “previous” window.
+     ‘<fn> <right>’
+
+     Speak this buffer as displayed in a ‘previous’ window.
      See documentation for command
-     “emacspeak-speak-this-buffer-other-window-display” for the
-     meaning of “next”.
+     ‘emacspeak-speak-this-buffer-other-window-display’ for the
+     meaning of ‘next’.
 
 12.191.1.29 emacspeak-speak-this-buffer-other-window-display
 ............................................................
 
  -- Command: emacspeak-speak-this-buffer-other-window-display (&optional
           arg)
-     ‘C-e / <XF86WakeUp> /’
+     ‘C-e /’
+
+     ‘<fn> /’
 
      Speak this buffer as displayed in a different frame.  Emacs
      allows you to display the same buffer in multiple windows or
@@ -2382,19 +2632,26 @@ Contains various wizards for the Emacspeak desktop.
 ........................................................
 
  -- Command: emacspeak-speak-this-buffer-previous-display
-     ‘C-e <left> <XF86WakeUp> <left>’
+     ‘C-e <left>’
 
-     Speak this buffer as displayed in a “previous” window.
+     ‘<fn> <left>’
+
+     Speak this buffer as displayed in a ‘previous’ window.
      See documentation for command
-     “emacspeak-speak-this-buffer-other-window-display” for the
-     meaning of “previous”.
+     ‘emacspeak-speak-this-buffer-other-window-display’ for the
+     meaning of ‘previous’.
 
 12.191.1.31 emacspeak-ssh-tts-restart
 .....................................
 
  -- Command: emacspeak-ssh-tts-restart
-     ‘C-e <delete> C-e <(deletechar> <XF86WakeUp> <delete> <XF86WakeUp>
-     <(deletechar>’
+     ‘C-e <delete>’
+
+     ‘C-e <(deletechar>’
+
+     ‘<fn> <delete>’
+
+     ‘<fn> <(deletechar>’
 
      Restart specified ssh tts server.
 
@@ -2402,7 +2659,9 @@ Contains various wizards for the Emacspeak desktop.
 ..........................................
 
  -- Command: emacspeak-symlink-current-file
-     ‘C-e M-s <XF86WakeUp> M-s’
+     ‘C-e M-s’
+
+     ‘<fn> M-s’
 
      Link (symbolic link) file visited in current buffer to new location.
      Prompts for the new location and preserves modification time
@@ -2415,7 +2674,9 @@ Contains various wizards for the Emacspeak desktop.
 .........................................
 
  -- Command: emacspeak-view-emacspeak-news
-     ‘C-e N <XF86WakeUp> N’
+     ‘C-e N’
+
+     ‘<fn> N’
 
      Display info on recent change to Emacspeak.
 
@@ -2423,7 +2684,9 @@ Contains various wizards for the Emacspeak desktop.
 .........................................
 
  -- Command: emacspeak-view-emacspeak-tips
-     ‘C-e T <XF86WakeUp> T’
+     ‘C-e T’
+
+     ‘<fn> T’
 
      Browse  Emacspeak productivity tips.
 
@@ -2460,7 +2723,11 @@ Contains various wizards for the Emacspeak desktop.
 ............................................
 
  -- Command: emacspeak-wizards-color-at-point
-     ‘C-h , <f1> , <help> ,’
+     ‘C-h ,’
+
+     ‘<f1> ,’
+
+     ‘<help> ,’
 
      Echo foreground/background color at point.
 
@@ -2482,7 +2749,9 @@ Contains various wizards for the Emacspeak desktop.
 ...........................................
 
  -- Command: emacspeak-wizards-cycle-browser
-     ‘C-e x 3 <XF86WakeUp> x 3’
+     ‘C-e x 3’
+
+     ‘<fn> x 3’
 
      Cycles through available browsers.
 
@@ -2490,7 +2759,9 @@ Contains various wizards for the Emacspeak desktop.
 ..................................................
 
  -- Command: emacspeak-wizards-cycle-to-next-buffer
-     ‘C-, n C-x @ a n’
+     ‘C-, n’
+
+     ‘C-x @ a n’
 
      Cycles to next buffer having same mode.
 
@@ -2498,7 +2769,9 @@ Contains various wizards for the Emacspeak desktop.
 ......................................................
 
  -- Command: emacspeak-wizards-cycle-to-previous-buffer
-     ‘C-, p C-x @ a p’
+     ‘C-, p’
+
+     ‘C-x @ a p’
 
      Cycles to previous buffer having same mode.
 
@@ -2528,7 +2801,7 @@ Contains various wizards for the Emacspeak desktop.
 
      DVI files  are converted to text and previewed using text mode.
 
-     This mode runs the hook “emacspeak-wizards-dvi-mode-hook”, as the final step
+     This mode runs the hook ‘emacspeak-wizards-dvi-mode-hook’, as the final step
      during initialization.
 
      key             binding
@@ -2591,13 +2864,15 @@ Contains various wizards for the Emacspeak desktop.
  -- Command: emacspeak-wizards-espeak-string (string)
 
      Speak string in lang via ESpeak.
-     Lang is obtained from property “lang” on string, or  via an interactive prompt.
+     Lang is obtained from property ‘lang’ on string, or  via an interactive prompt.
 
 12.191.1.56 emacspeak-wizards-eww-buffer-list
 .............................................
 
  -- Command: emacspeak-wizards-eww-buffer-list
-     ‘C-; w m C-x @ h w m’
+     ‘C-; w m’
+
+     ‘C-x @ h w m’
 
      Display list of open EWW buffers.
 
@@ -2613,7 +2888,7 @@ Contains various wizards for the Emacspeak desktop.
 
  -- Command: emacspeak-wizards-find-file-as-root
 
-     Like “ido-find-file, but automatically edit the file with
+     Like ‘ido-find-file, but automatically edit the file with
      root-privileges (using tramp/sudo), if the file is not writable by
      user.
 
@@ -2629,7 +2904,9 @@ Contains various wizards for the Emacspeak desktop.
 .........................................................
 
  -- Command: emacspeak-wizards-find-longest-line-in-region (start end)
-     ‘C-e x = <XF86WakeUp> x =’
+     ‘C-e x =’
+
+     ‘<fn> x =’
 
      Find longest line in region.
      Moves to the longest line when called interactively.
@@ -2666,7 +2943,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Emacspeak Finder
 
-     This mode runs the hook “emacspeak-wizards-finder-mode-hook”, as the final step
+     This mode runs the hook ‘emacspeak-wizards-finder-mode-hook’, as the final step
      during initialization.
 
      key             binding
@@ -2685,8 +2962,8 @@ Contains various wizards for the Emacspeak desktop.
 
  -- Command: emacspeak-wizards-fix-typo (ext word correction)
 
-     Search and replace  recursively in all files with extension “ext”
-     for “word” and replace it with correction.
+     Search and replace  recursively in all files with extension ‘ext’
+     for ‘word’ and replace it with correction.
      Use with caution.
 
 12.191.1.67 emacspeak-wizards-generate-finder
@@ -2736,12 +3013,14 @@ Contains various wizards for the Emacspeak desktop.
 
  -- Command: emacspeak-wizards-how-many-matches (start end &optional
           prefix)
-     ‘C-e x h <XF86WakeUp> x h’
+     ‘C-e x h’
+
+     ‘<fn> x h’
 
      If you define a file local variable
-     called “emacspeak-occur-pattern” that holds a regular expression
+     called ‘emacspeak-occur-pattern’ that holds a regular expression
      that matches  lines of interest, you can use this command to conveniently
-     run “how-many” to count  matching header lines.
+     run ‘how-many’ to count  matching header lines.
      With interactive prefix arg, prompts for and remembers the file local pattern.
 
 12.191.1.73 emacspeak-wizards-lacheck-buffer-file
@@ -2791,7 +3070,7 @@ Contains various wizards for the Emacspeak desktop.
 
  -- Command: emacspeak-wizards-next-bullet
 
-     Navigate to and speak next “bullet”.
+     Navigate to and speak next ‘bullet’.
 
 12.191.1.79 emacspeak-wizards-next-interactive-defun
 ....................................................
@@ -2812,19 +3091,23 @@ Contains various wizards for the Emacspeak desktop.
 
  -- Command: emacspeak-wizards-occur-header-lines (start end &optional
           prefix)
-     ‘C-e x o <XF86WakeUp> x o’
+     ‘C-e x o’
+
+     ‘<fn> x o’
 
      If you define a file local variable called
-     “emacspeak-occur-pattern” that holds a regular expression that
+     ‘emacspeak-occur-pattern’ that holds a regular expression that
      matches header lines, you can use this command to conveniently
-     run “occur” to find matching header lines. With prefix arg,
+     run ‘occur’ to find matching header lines. With prefix arg,
      prompts for and sets value of the file local pattern.
 
 12.191.1.82 emacspeak-wizards-pdf-open
 ......................................
 
  -- Command: emacspeak-wizards-pdf-open (filename &optional ask-pwd)
-     ‘C-; p C-x @ h p’
+     ‘C-; p’
+
+     ‘C-x @ h p’
 
      Open pdf file as text.
      Optional interactive prefix arg ask-pwd prompts for password.
@@ -2855,8 +3138,8 @@ Contains various wizards for the Emacspeak desktop.
 
      PPT files  are converted to HTML and previewed using a browser.
 
-     In addition to any hooks its parent mode “text-mode” might have run,
-     this mode runs the hook “emacspeak-wizards-ppt-mode-hook”, as the final step
+     In addition to any hooks its parent mode ‘text-mode’ might have run,
+     this mode runs the hook ‘emacspeak-wizards-ppt-mode-hook’, as the final step
      during initialization.
 
      key             binding
@@ -2868,7 +3151,7 @@ Contains various wizards for the Emacspeak desktop.
 
  -- Command: emacspeak-wizards-previous-bullet
 
-     Navigate to and speak previous “bullet”.
+     Navigate to and speak previous ‘bullet’.
 
 12.191.1.87 emacspeak-wizards-previous-shell
 ............................................
@@ -2910,16 +3193,20 @@ Contains various wizards for the Emacspeak desktop.
 ...................................
 
  -- Command: emacspeak-wizards-shell (&optional prefix)
-     ‘C-; s C-x @ h s’
+     ‘C-; s’
 
-     Run Emacs built-in “shell” command when not in a shell buffer, or when called with a prefix argument.
-     When called from a shell buffer, switches to “next” shell buffer.
+     ‘C-x @ h s’
+
+     Run Emacs built-in ‘shell’ command when not in a shell buffer, or when called with a prefix argument.
+     When called from a shell buffer, switches to ‘next’ shell buffer.
 
 12.191.1.92 emacspeak-wizards-shell-command-on-current-file
 ...........................................................
 
  -- Command: emacspeak-wizards-shell-command-on-current-file (command)
-     ‘C-e & <XF86WakeUp> &’
+     ‘C-e &’
+
+     ‘<fn> &’
 
      Prompts for and runs shell command on current file.
 
@@ -2927,7 +3214,9 @@ Contains various wizards for the Emacspeak desktop.
 ..........................................
 
  -- Command: emacspeak-wizards-shell-toggle
-     ‘C-e <f11> <XF86WakeUp> <f11>’
+     ‘C-e <f11>’
+
+     ‘<fn> <f11>’
 
      Switch to the shell buffer and cd to
       the directory of the current buffer.
@@ -2980,14 +3269,16 @@ Contains various wizards for the Emacspeak desktop.
 
  -- Command: emacspeak-wizards-spot-words (ext word)
 
-     Searches recursively in all files with extension “ext”
-     for “word” and displays hits in a compilation buffer.
+     Searches recursively in all files with extension ‘ext’
+     for ‘word’ and displays hits in a compilation buffer.
 
 12.191.1.101 emacspeak-wizards-squeeze-blanks
 .............................................
 
  -- Command: emacspeak-wizards-squeeze-blanks (start end)
-     ‘C-e x | <XF86WakeUp> x |’
+     ‘C-e x |’
+
+     ‘<fn> x |’
 
      Squeeze multiple blank lines in current buffer.
 
@@ -3002,7 +3293,9 @@ Contains various wizards for the Emacspeak desktop.
 ...................................
 
  -- Command: emacspeak-wizards-term (create)
-     ‘C-; a C-x @ h a’
+     ‘C-; a’
+
+     ‘C-x @ h a’
 
      Switch to an ansi-term buffer or create one.
      With prefix arg, always creates a new terminal.
@@ -3056,16 +3349,20 @@ Contains various wizards for the Emacspeak desktop.
 ...................................................
 
  -- Command: emacspeak-wizards-tune-in-radio-browse (&optional category)
-     ‘C-, t C-x @ a t’
+     ‘C-, t’
+
+     ‘C-x @ a t’
 
      Browse Tune-In Radio.
-     Optional interactive prefix arg “category” prompts for a category.
+     Optional interactive prefix arg ‘category’ prompts for a category.
 
 12.191.1.111 emacspeak-wizards-tune-in-radio-search
 ...................................................
 
  -- Command: emacspeak-wizards-tune-in-radio-search
-     ‘C-, s C-x @ a s’
+     ‘C-, s’
+
+     ‘C-x @ a s’
 
      Search Tune-In Radio.
 
@@ -3080,7 +3377,9 @@ Contains various wizards for the Emacspeak desktop.
 ....................................
 
  -- Command: emacspeak-wizards-units
-     ‘C-e x u <XF86WakeUp> x u’
+     ‘C-e x u’
+
+     ‘<fn> x u’
 
      Run units in a comint sub-process.
 
@@ -3095,7 +3394,9 @@ Contains various wizards for the Emacspeak desktop.
 ........................................
 
  -- Command: emacspeak-wizards-vc-viewer (console)
-     ‘C-e x v <XF86WakeUp> x v’
+     ‘C-e x v’
+
+     ‘<fn> x v’
 
      View contents of specified virtual console.
 
@@ -3111,7 +3412,7 @@ Contains various wizards for the Emacspeak desktop.
 
      C-l		emacspeak-wizards-vc-viewer-refresh
 
-     This mode runs the hook “emacspeak-wizards-vc-viewer-mode-hook”, as the final step
+     This mode runs the hook ‘emacspeak-wizards-vc-viewer-mode-hook’, as the final step
      during initialization.
 
 12.191.1.117 emacspeak-wizards-vc-viewer-refresh
@@ -3119,7 +3420,7 @@ Contains various wizards for the Emacspeak desktop.
 
  -- Command: emacspeak-wizards-vc-viewer-refresh
 
-     Refresh view of VC we”re viewing.
+     Refresh view of VC we’re viewing.
 
 12.191.1.118 emacspeak-wizards-vi-as-su-file
 ............................................
@@ -3132,7 +3433,9 @@ Contains various wizards for the Emacspeak desktop.
 .....................................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-m-player-mode
-     ‘C-; : C-x @ h :’
+     ‘C-; :’
+
+     ‘C-x @ h :’
 
      Buffer menu filtered by  m-player mode.
 
@@ -3147,7 +3450,13 @@ Contains various wizards for the Emacspeak desktop.
 .................................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-this-mode
-     ‘C-' m C-, c C-x @ a c C-x @ s m’
+     ‘C-' m’
+
+     ‘C-, c’
+
+     ‘C-x @ a c’
+
+     ‘C-x @ s m’
 
      Buffer menu filtered by  mode of current-buffer.
 
@@ -3177,8 +3486,8 @@ Contains various wizards for the Emacspeak desktop.
 
      XL Sheets are converted to HTML and previewed using a browser.
 
-     In addition to any hooks its parent mode “text-mode” might have run,
-     this mode runs the hook “emacspeak-wizards-xl-mode-hook”, as the final step
+     In addition to any hooks its parent mode ‘text-mode’ might have run,
+     this mode runs the hook ‘emacspeak-wizards-xl-mode-hook’, as the final step
      during initialization.
 
      key             binding
@@ -3189,7 +3498,9 @@ Contains various wizards for the Emacspeak desktop.
 .........................................
 
  -- Command: emacspeak-wizards-yql-lookup (symbols)
-     ‘C-e x Q <XF86WakeUp> x Q’
+     ‘C-e x Q’
+
+     ‘<fn> x Q’
 
      Lookup quotes for specified stock symbols.
      Symbols are separated by whitespace.
@@ -3198,10 +3509,12 @@ Contains various wizards for the Emacspeak desktop.
 .........................................
 
  -- Command: emacspeak-wizards-yql-quotes
-     ‘C-e x q <XF86WakeUp> x q’
+     ‘C-e x q’
+
+     ‘<fn> x q’
 
      Display quotes using YQL API.
-     Symbols are taken from “emacspeak-wizards-personal-portfolio”.
+     Symbols are taken from ‘emacspeak-wizards-personal-portfolio’.
 
 12.191.1.127 emacspeak-wizards-yql-weather
 ..........................................
@@ -3226,7 +3539,7 @@ Contains various wizards for the Emacspeak desktop.
      is known to work at all times.  If you are debugging another speech
      server and that server gets wedged for some reason, you can use
      command emacspeak-emergency-tts-restart to get speech back using
-     the reliable TTS server.  It”s useful to bind the above command to
+     the reliable TTS server.  It’s useful to bind the above command to
      a convenient key.
 
  -- Variable: User Option emacspeak-speak-telephone-directory
@@ -3286,7 +3599,7 @@ Contains various wizards for the Emacspeak desktop.
  -- Variable: User Option emacspeak-wizards-vc-viewer-command
      Command line for dumping out virtual console.  Make sure you have
      access to /dev/vcs* by adding yourself to the appropriate group.
-     On Ubuntu and Debian this is group “tty”.
+     On Ubuntu and Debian this is group ‘tty’.
 
  -- Variable: User Option emacspeak-wizards-xlhtml-program
      Program for converting XL to HTML. Set this to nil if you do not
@@ -3407,8 +3720,8 @@ traversal are transformed using xsltproc from libxslt
      C-c C-v		emacspeak-xml-shell-browse-result
      C-c v		emacspeak-xml-shell-browse-current
 
-     In addition to any hooks its parent mode “comint-mode” might have run,
-     this mode runs the hook “emacspeak-xml-shell-mode-hook”, as the final step
+     In addition to any hooks its parent mode ‘comint-mode’ might have run,
+     this mode runs the hook ‘emacspeak-xml-shell-mode-hook’, as the final step
      during initialization.
 
 12.194.2 emacspeak-xml-shell Options
@@ -3462,14 +3775,16 @@ transformations using xsltproc
 
  -- Command: emacspeak-xslt-view-file (style file)
 
-     Transform “file” using “style” and preview via browse-url.
+     Transform ‘file’ using ‘style’ and preview via browse-url.
 
 12.196.1.3 emacspeak-xslt-view-region
 .....................................
 
  -- Command: emacspeak-xslt-view-region (style start end &optional
           unescape-charent)
-     ‘C-; w R C-x @ h w R’
+     ‘C-; w R’
+
+     ‘C-x @ h w R’
 
      Browse XML region with specified XSL style.
 
@@ -3529,7 +3844,9 @@ ESpeak TTS engine.
 .................
 
  -- Command: espeak
-     ‘C-e d C-e <XF86WakeUp> d C-e’
+     ‘C-e d C-e’
+
+     ‘<fn> d C-e’
 
      Start ESpeak engine.
 
@@ -3561,11 +3878,11 @@ Common Code For Google Apps Used by modules like gphoto, gblogger etc.
 
      Major mode for APP interaction
 
-     Uses keymap “g-app-mode-map
+     Uses keymap ‘g-app-mode-map
 
      In addition to any hooks its parent mode ‘nxml-mode’ might have run,
      this mode runs the hook ‘g-app-mode-hook’, as the final step
-     during initialization.”, which is not currently defined.
+     during initialization.’, which is not currently defined.
 
 
 12.200.1.2 g-app-post-entry
@@ -3681,7 +3998,7 @@ Fast feed access from Google for use in Emacs
 
  -- Command: gfeeds-view (&rest rest)
 
-     :around advice: “ad-Advice-gfeeds-view”
+     :around advice: ‘ad-Advice-gfeeds-view’
 
      Display Feed in a browser.
      Interactive prefix arg causes the feed url to be looked up given a Web site.
@@ -3742,9 +4059,11 @@ Implements the Google Maps API
 ................
 
  -- Command: gmaps (&rest rest)
-     ‘C-; e C-x @ h e’
+     ‘C-; e’
 
-     :around advice: “ad-Advice-gmaps”
+     ‘C-x @ h e’
+
+     :around advice: ‘ad-Advice-gmaps’
 
      Google Maps Interaction.
 
@@ -3755,7 +4074,7 @@ Implements the Google Maps API
 
  -- Command: gmaps-bicycling-directions (&rest rest)
 
-     :around advice: “ad-Advice-gmaps-bicycling-directions”
+     :around advice: ‘ad-Advice-gmaps-bicycling-directions’
 
      Biking directions from Google Maps.
 
@@ -3773,7 +4092,7 @@ Implements the Google Maps API
 
  -- Command: gmaps-driving-directions (&rest rest)
 
-     :around advice: “ad-Advice-gmaps-driving-directions”
+     :around advice: ‘ad-Advice-gmaps-driving-directions’
 
      Driving directions from Google Maps.
 
@@ -3786,8 +4105,8 @@ Implements the Google Maps API
 
      A Google Maps front-end for the Emacspeak desktop.
 
-     In addition to any hooks its parent mode “special-mode” might have run,
-     this mode runs the hook “gmaps-mode-hook”, as the final step
+     In addition to any hooks its parent mode ‘special-mode’ might have run,
+     this mode runs the hook ‘gmaps-mode-hook’, as the final step
      during initialization.
 
      key             binding
@@ -3816,7 +4135,7 @@ Implements the Google Maps API
 
  -- Command: gmaps-place-details (&rest rest)
 
-     :around advice: “ad-Advice-gmaps-place-details”
+     :around advice: ‘ad-Advice-gmaps-place-details’
 
      Display details for place at point.
      Insert reviews if already displaying details.
@@ -3836,7 +4155,7 @@ Implements the Google Maps API
 
  -- Command: gmaps-places-nearby (&rest rest)
 
-     :around advice: “ad-Advice-gmaps-places-nearby”
+     :around advice: ‘ad-Advice-gmaps-places-nearby’
 
      Find places near current location.
      Uses default radius. optional interactive prefix arg clears any active filters.
@@ -3848,10 +4167,10 @@ Implements the Google Maps API
 
  -- Command: gmaps-places-search (&rest rest)
 
-     :around advice: “ad-Advice-gmaps-places-search”
+     :around advice: ‘ad-Advice-gmaps-places-search’
 
      Perform a places search.
-     Use this only if you dont know the locality  of the place you”re looking for.
+     Use this only if you dont know the locality  of the place you’re looking for.
      Optional  prefix arg clears any active filters.
 
      (fn QUERY &optional CLEAR-FILTER)
@@ -3869,7 +4188,7 @@ Implements the Google Maps API
 
  -- Command: gmaps-set-current-location (&rest rest)
 
-     :around advice: “ad-Advice-gmaps-set-current-location”
+     :around advice: ‘ad-Advice-gmaps-set-current-location’
 
       Set current location.
 
@@ -3880,7 +4199,7 @@ Implements the Google Maps API
 
  -- Command: gmaps-set-current-radius (&rest rest)
 
-     :around advice: “ad-Advice-gmaps-set-current-radius”
+     :around advice: ‘ad-Advice-gmaps-set-current-radius’
 
      Set current radius
 
@@ -3891,7 +4210,7 @@ Implements the Google Maps API
 
  -- Command: gmaps-transit-directions (&rest rest)
 
-     :around advice: “ad-Advice-gmaps-transit-directions”
+     :around advice: ‘ad-Advice-gmaps-transit-directions’
 
      Transit directions from Google Maps.
 
@@ -3902,7 +4221,7 @@ Implements the Google Maps API
 
  -- Command: gmaps-walking-directions (&rest rest)
 
-     :around advice: “ad-Advice-gmaps-walking-directions”
+     :around advice: ‘ad-Advice-gmaps-walking-directions’
 
      Walking directions from Google Maps.
 
@@ -4010,8 +4329,8 @@ invada-studio-plugins-ladspa fil-plugins
 
      A Ladspa workbench for the Emacspeak desktop.
 
-     In addition to any hooks its parent mode “special-mode” might have run,
-     this mode runs the hook “ladspa-mode-hook”, as the final step
+     In addition to any hooks its parent mode ‘special-mode’ might have run,
+     this mode runs the hook ‘ladspa-mode-hook’, as the final step
      during initialization.
 
      key             binding
@@ -4051,7 +4370,9 @@ module is IBM ViaVoice Outloud specific.
 ..................
 
  -- Command: outloud
-     ‘C-e d C-o <XF86WakeUp> d C-o’
+     ‘C-e d C-o’
+
+     ‘<fn> d C-o’
 
      Select Outloud server.
 
@@ -4059,7 +4380,9 @@ module is IBM ViaVoice Outloud specific.
 .....................
 
  -- Command: outloud-32
-     ‘C-e d C-v <XF86WakeUp> d C-v’
+     ‘C-e d C-v’
+
+     ‘<fn> d C-v’
 
      Select 32-Outloud server.
 
@@ -4120,7 +4443,9 @@ email, IM, ...  map to the same _mood_.
 .....................
 
  -- Command: soundscape (scape)
-     ‘C-' s C-x @ s s’
+     ‘C-' s’
+
+     ‘C-x @ s s’
 
      Play soundscape.
 
@@ -4137,7 +4462,7 @@ email, IM, ...  map to the same _mood_.
  -- Command: soundscape-listener (&optional restart)
 
      Start  a Soundscape listener.
-     Listener is loaded with all Soundscapes defined in “soundscape-default-theme” .
+     Listener is loaded with all Soundscapes defined in ‘soundscape-default-theme’ .
      Optional interactive prefix arg restarts the listener if already running.
 
 12.213.1.4 soundscape-listener-shutdown
@@ -4158,17 +4483,21 @@ email, IM, ...  map to the same _mood_.
 .............................
 
  -- Command: soundscape-restart (&optional device)
-     ‘C-' r C-x @ s r’
+     ‘C-' r’
+
+     ‘C-x @ s r’
 
      Restart Soundscape  environment.
-     With prefix arg “device”, prompt for a alsa/ladspa device.
+     With prefix arg ‘device’, prompt for a alsa/ladspa device.
      Caches most recently used device, which then becomes the default for future invocations.
 
 12.213.1.7 soundscape-stop
 ..........................
 
  -- Command: soundscape-stop (scape)
-     ‘C-' S C-x @ s S’
+     ‘C-' S’
+
+     ‘C-x @ s S’
 
      Stop running Soundscape.
 
@@ -4183,7 +4512,9 @@ email, IM, ...  map to the same _mood_.
 ............................
 
  -- Command: soundscape-toggle
-     ‘C-' t C-x @ s t’
+     ‘C-' t’
+
+     ‘C-x @ s t’
 
      Toggle automatic SoundScapes.
      When turned on, Soundscapes are automatically run based on current major mode.
@@ -4193,11 +4524,13 @@ email, IM, ...  map to the same _mood_.
 ..................................
 
  -- Command: soundscape-update-mood (&optional prompt-mode)
-     ‘C-' u C-x @ s u’
+     ‘C-' u’
+
+     ‘C-x @ s u’
 
      Update mood/scape mapping for current  mode.
      The  updated mapping is not persisted.
-     Optional interactive prefix arg “prompt-mode” prompts for the mode.
+     Optional interactive prefix arg ‘prompt-mode’ prompts for the mode.
 
 12.213.2 soundscape Options
 ---------------------------
@@ -4248,7 +4581,7 @@ always work.  This module can be used independent of Emacspeak.
 
  -- Command: sox-delete-effect-at-point (&rest rest)
 
-     :around advice: “ad-Advice-sox-delete-effect-at-point”
+     :around advice: ‘ad-Advice-sox-delete-effect-at-point’
 
      Delete effect at point.
 
@@ -4268,8 +4601,8 @@ always work.  This module can be used independent of Emacspeak.
 
      An audio workbench for the Emacspeak desktop.
 
-     In addition to any hooks its parent mode “special-mode” might have run,
-     this mode runs the hook “sox-mode-hook”, as the final step
+     In addition to any hooks its parent mode ‘special-mode’ might have run,
+     this mode runs the hook ‘sox-mode-hook’, as the final step
      during initialization.
 
      key             binding
@@ -4281,7 +4614,7 @@ always work.  This module can be used independent of Emacspeak.
 
  -- Command: sox-open-file (&rest rest)
 
-     :around advice: “ad-Advice-sox-open-file”
+     :around advice: ‘ad-Advice-sox-open-file’
 
      Open specified snd-file on the Audio Workbench.
 
@@ -4299,7 +4632,7 @@ always work.  This module can be used independent of Emacspeak.
 
  -- Command: sox-refresh (&rest rest)
 
-     :around advice: “ad-Advice-sox-refresh”
+     :around advice: ‘ad-Advice-sox-refresh’
 
      Redraw Audio Workbench.
 
@@ -4567,7 +4900,9 @@ be customized via custom see the documentation for defvoice.
 ..........................
 
  -- Command: voice-lock-mode (&optional arg)
-     ‘C-e d v <XF86WakeUp> d v’
+     ‘C-e d v’
+
+     ‘<fn> d v’
 
      Toggle voice lock mode.
 
@@ -4585,13 +4920,15 @@ be customized via custom see the documentation for defvoice.
 
      Show all defined voice-face mappings  in a help buffer.
      Sample text to use comes from variable
-       “voice-setup-sample-text”.
+       ‘voice-setup-sample-text’.
 
 12.222.1.4 voice-setup-toggle-silence-personality
 .................................................
 
  -- Command: voice-setup-toggle-silence-personality
-     ‘C-e M-q <XF86WakeUp> M-q’
+     ‘C-e M-q’
+
+     ‘<fn> M-q’
 
      Toggle audibility of personality under point  .
      If personality at point is currently audible, its
@@ -4745,7 +5082,7 @@ package-install hydra
  -- Command: xbacklight-set (brightness)
 
      Set brightness to  specified level.
-     “brightness” is a percentage value.
+     ‘brightness’ is a percentage value.
 
 12.223.1.6 xbacklight-white
 ...........................
@@ -4769,8 +5106,8 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 This section documents a total of 80 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
-emacspeak-url-template-fetch’ normally bound to ‘C-e u <XF86WakeUp> u’.
-This command prompts for the name of the template, and completion is
+emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
+command prompts for the name of the template, and completion is
 available via Emacs’ minibuffer completion.  Each URL template carries
 out the following steps:
    • Prompt for the relevant information.
@@ -5376,54 +5713,305 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
  [index ]
 * Menu:
 
-* <C-left>:                              emacspeak-wizards.  (line  177)
-* <C-right>:                             emacspeak-wizards.  (line  168)
-* <C-up>:                                emacspeak-speak.    (line   84)
-* <print>:                               emacspeak-muggles.  (line   48)
-* <S-down>:                              emacspeak-wizards.  (line  256)
-* <S-up>:                                emacspeak-wizards.  (line  246)
-* <search>:                              emacspeak-speak.    (line  191)
-* <silence>:                             emacspeak-speak.    (line  206)
-* C-&:                                   emacspeak-speak.    (line   75)
-* C-' b C-x @ s b:                       emacspeak-bbc.      (line   28)
-* C-' f C-x @ s f:                       emacspeak-feeds.    (line   65)
-* C-' h C-; SPC SPC C-x @ s h C-x @ h SPC SPC: emacspeak-webspace.
-                                                             (line   56)
-* C-' l C-x @ s l:                       emacspeak-m-player. (line  305)
-* C-' m C-, c C-x @ a c C-x @ s m:       emacspeak-wizards.  (line 1097)
-* C-' R C-x @ s R:                       emacspeak-webspace. (line   17)
-* C-' r C-x @ s r:                       soundscape.         (line   87)
-* C-' s C-x @ s s:                       soundscape.         (line   49)
-* C-' S C-x @ s S:                       soundscape.         (line   97)
-* C-' t C-x @ s t:                       soundscape.         (line  112)
-* C-' u C-x @ s u:                       soundscape.         (line  122)
-* C-, , C-x @ a ,:                       emacspeak-advice.   (line   26)
-* C-, a C-x @ a a:                       emacspeak-feeds.    (line   33)
-* C-, f C-x @ a f:                       emacspeak-feeds.    (line   57)
-* C-, n C-x @ a n:                       emacspeak-wizards.  (line  440)
-* C-, o C-x @ a o:                       emacspeak-feeds.    (line   73)
-* C-, p C-x @ a p:                       emacspeak-wizards.  (line  448)
-* C-, r C-x @ a r:                       emacspeak-feeds.    (line   89)
-* C-, s C-x @ a s:                       emacspeak-wizards.  (line 1015)
-* C-, t C-x @ a t:                       emacspeak-wizards.  (line 1006)
-* C-, u C-x @ a u:                       emacspeak-m-player. (line  560)
-* C-; : C-x @ h ::                       emacspeak-wizards.  (line 1082)
-* C-; ; C-x @ h ;:                       emacspeak-m-player. (line  568)
-* C-; a C-x @ h a:                       emacspeak-wizards.  (line  952)
-* C-; e C-x @ h e:                       gmaps.              (line   17)
-* C-; f C-x @ h f:                       emacspeak-webspace. (line   33)
-* C-; h C-x @ h h:                       emacspeak-org.      (line   26)
-* C-; k C-x @ h k:                       emacspeak-webspace. (line   72)
-* C-; l C-x @ h l:                       emacspeak-librivox. (line   19)
-* C-; N C-x @ h N:                       emacspeak-npr.      (line   30)
-* C-; n C-x @ h n:                       emacspeak-npr.      (line   47)
-* C-; p C-x @ h p:                       emacspeak-wizards.  (line  774)
-* C-; q C-x @ h q:                       emacspeak-remote.   (line   45)
-* C-; s C-x @ h s:                       emacspeak-wizards.  (line  860)
-* C-; SPC h C-x @ h SPC h:               emacspeak-webspace. (line   48)
-* C-; SPC w C-x @ h SPC w:               emacspeak-webspace. (line  127)
-* C-; w m C-x @ h w m:                   emacspeak-wizards.  (line  547)
-* C-; w R C-x @ h w R:                   emacspeak-xslt.     (line   34)
+* (<C-left>):                            emacspeak-wizards.  (line  205)
+* (<C-right>):                           emacspeak-wizards.  (line  196)
+* (<C-up>):                              emacspeak-speak.    (line   88)
+* (<print>):                             emacspeak-muggles.  (line   48)
+* (<S-down>):                            emacspeak-wizards.  (line  292)
+* (<S-up>):                              emacspeak-wizards.  (line  282)
+* (<search>):                            emacspeak-speak.    (line  199)
+* (<silence>):                           emacspeak-speak.    (line  214)
+* (C-&):                                 emacspeak-speak.    (line   79)
+* (C-' b C-x @ s b):                     emacspeak-bbc.      (line   30)
+* (C-' f C-x @ s f):                     emacspeak-feeds.    (line   75)
+* (C-' h C-; SPC SPC C-x @ s h C-x @ h SPC SPC): emacspeak-webspace.
+                                                             (line   68)
+* (C-' l C-x @ s l):                     emacspeak-m-player. (line  307)
+* (C-' m C-, c C-x @ a c C-x @ s m):     emacspeak-wizards.  (line 1204)
+* (C-' R C-x @ s R):                     emacspeak-webspace. (line   19)
+* (C-' r C-x @ s r):                     soundscape.         (line   91)
+* (C-' s C-x @ s s):                     soundscape.         (line   51)
+* (C-' S C-x @ s S):                     soundscape.         (line  103)
+* (C-' t C-x @ s t):                     soundscape.         (line  120)
+* (C-' u C-x @ s u):                     soundscape.         (line  132)
+* (C-, , C-x @ a ,):                     emacspeak-advice.   (line   28)
+* (C-, a C-x @ a a):                     emacspeak-feeds.    (line   37)
+* (C-, f C-x @ a f):                     emacspeak-feeds.    (line   65)
+* (C-, n C-x @ a n):                     emacspeak-wizards.  (line  509)
+* (C-, o C-x @ a o):                     emacspeak-feeds.    (line   85)
+* (C-, p C-x @ a p):                     emacspeak-wizards.  (line  519)
+* (C-, r C-x @ a r):                     emacspeak-feeds.    (line  103)
+* (C-, s C-x @ a s):                     emacspeak-wizards.  (line 1110)
+* (C-, t C-x @ a t):                     emacspeak-wizards.  (line 1099)
+* (C-, u C-x @ a u):                     emacspeak-m-player. (line  566)
+* (C-; : C-x @ h :):                     emacspeak-wizards.  (line 1183)
+* (C-; ; C-x @ h ;):                     emacspeak-m-player. (line  576)
+* (C-; a C-x @ h a):                     emacspeak-wizards.  (line 1043)
+* (C-; e C-x @ h e):                     gmaps.              (line   19)
+* (C-; f C-x @ h f):                     emacspeak-webspace. (line   37)
+* (C-; h C-x @ h h):                     emacspeak-org.      (line   28)
+* (C-; k C-x @ h k):                     emacspeak-webspace. (line   86)
+* (C-; l C-x @ h l):                     emacspeak-librivox. (line   21)
+* (C-; N C-x @ h N):                     emacspeak-npr.      (line   32)
+* (C-; n C-x @ h n):                     emacspeak-npr.      (line   51)
+* (C-; p C-x @ h p):                     emacspeak-wizards.  (line  855)
+* (C-; q C-x @ h q):                     emacspeak-remote.   (line   49)
+* (C-; s C-x @ h s):                     emacspeak-wizards.  (line  943)
+* (C-; SPC h C-x @ h SPC h):             emacspeak-webspace. (line   54)
+* (C-; SPC w C-x @ h SPC w):             emacspeak-webspace. (line  143)
+* (C-; w m C-x @ h w m):                 emacspeak-wizards.  (line  620)
+* (C-; w R C-x @ h w R):                 emacspeak-xslt.     (line   36)
+* (C-c h):                               emacspeak-muggles.  (line   75)
+* (C-c o):                               emacspeak-muggles.  (line  293)
+* (C-c v C-; v C-x @ h v):               emacspeak-muggles.  (line  323)
+* (C-e ! <fn> !):                        emacspeak-wizards.  (line  319)
+* (C-e " <fn> "):                        emacspeak-speak.    (line  916)
+* (C-e # a <fn> # a):                    emacspeak-gridtext. (line   29)
+* (C-e # l <fn> # l):                    emacspeak-gridtext. (line   39)
+* (C-e # s <fn> # s):                    emacspeak-gridtext. (line   49)
+* (C-e % <fn> %):                        emacspeak-speak.    (line  392)
+* (C-e & <fn> &):                        emacspeak-wizards.  (line  954)
+* (C-e ' <fn> '):                        emacspeak-pianobar. (line   48)
+* (C-e ( <fn> ():                        emacspeak-sounds.   (line   34)
+* (C-e ) <fn> )):                        emacspeak-sounds.   (line   76)
+* (C-e , <fn> ,):                        emacspeak-speak.    (line  242)
+* (C-e . <fn> .):                        dtk-speak.          (line   81)
+* (C-e / <fn> /):                        emacspeak-wizards.  (line  362)
+* (C-e 9 C-e 8 C-e 7 C-e 6 C-e 5 C-e 4 C-e 3 C-e 2 C-e 1 C-e 0 <fn> 9 <fn> 8 <fn> 7 <fn> 6 <fn> 5 <fn> 4 <fn> 3 <fn> 2 <fn> 1 <fn> 0): emacspeak-speak.
+                                                             (line  785)
+* (C-e : <fn> :):                        emacspeak-m-player. (line  526)
+* (C-e ; <fn> ;):                        emacspeak-m-player. (line  617)
+* (C-e < <fn> <):                        emacspeak-speak.    (line  809)
+* (C-e <C-<left> <fn> <C-<left>):        emacspeak-wizards.  (line  247)
+* (C-e <C-<right> <fn> <C-<right>):      emacspeak-wizards.  (line  216)
+* (C-e <delete> C-e <(deletechar> <fn> <delete> <fn> <(deletechar>): emacspeak-wizards.
+                                                             (line  399)
+* (C-e <down> <fn> <down>):              emacspeak-speak.    (line  163)
+* (C-e <f11> <fn> <f11>):                emacspeak-wizards.  (line  964)
+* (C-e <f1> C-h C-l <fn> <f1> <f1> C-l <help> C-l): emacspeak-wizards.
+                                                             (line  158)
+* (C-e <insert> <fn> <insert> C-e x s <fn> x s): emacspeak-wizards.
+                                                             (line  111)
+* (C-e <left> <fn> <left>):              emacspeak-wizards.  (line  382)
+* (C-e <right> <fn> <right>):            emacspeak-wizards.  (line  348)
+* (C-e <up> <fn> <up>):                  emacspeak-speak.    (line  182)
+* (C-e = <fn> =):                        emacspeak-speak.    (line  337)
+* (C-e > <fn> >):                        emacspeak-speak.    (line  636)
+* (C-e ? <fn> ?):                        emacspeak-websearch.
+                                                             (line   78)
+* (C-e @ <fn> @):                        emacspeak-speak.    (line  570)
+* (C-e A <fn> A):                        emacspeak-calendar. (line   21)
+* (C-e a <fn> a):                        emacspeak-speak.    (line  558)
+* (C-e b <fn> b):                        emacspeak-speak.    (line  255)
+* (C-e B <fn> B):                        emacspeak-speak.    (line  284)
+* (C-e c <fn> c):                        emacspeak-speak.    (line  297)
+* (C-e C <fn> C):                        emacspeak-wizards.  (line   89)
+* (C-e C-a <fn> C-a):                    emacspeak-sounds.   (line   86)
+* (C-e C-b <fn> C-b):                    emacspeak-bookshare.
+                                                             (line   24)
+* (C-e C-c <fn> C-c):                    emacspeak-wizards.  (line   31)
+* (C-e C-d <fn> C-d):                    emacspeak-speak.    (line 1189)
+* (C-e C-j <fn> C-j):                    emacspeak-hide.     (line   45)
+* (C-e C-l <fn> C-l):                    emacspeak-speak.    (line  517)
+* (C-e C-M-b <fn> C-M-b):                emacspeak.          (line  331)
+* (C-e C-M-SPC C-e C-M-@ <fn> C-M-SPC <fn> C-M-@): emacspeak-speak.
+                                                             (line  971)
+* (C-e C-n <fn> C-n):                    emacspeak-speak.    (line  654)
+* (C-e C-o <fn> C-o):                    emacspeak-ocr.      (line   25)
+* (C-e C-p <fn> C-p):                    emacspeak-speak.    (line  827)
+* (C-e C-q <fn> C-q):                    emacspeak-speak.    (line 1128)
+* (C-e C-s <fn> C-s):                    dtk-speak.          (line  411)
+* (C-e C-SPC C-e C-@ <fn> C-SPC <fn> C-@): emacspeak-speak.  (line  375)
+* (C-e C-t # <fn> C-t #):                emacspeak-table-ui. (line  301)
+* (C-e C-t , <fn> C-t ,):                emacspeak-table-ui. (line   73)
+* (C-e C-t . <fn> C-t .):                emacspeak-table-ui. (line  342)
+* (C-e C-t = <fn> C-t =):                emacspeak-table-ui. (line  362)
+* (C-e C-t a <fn> C-t a):                emacspeak-table-ui. (line  290)
+* (C-e C-t A C-e C-t < <fn> C-t A <fn> C-t <): emacspeak-table-ui.
+                                                             (line  126)
+* (C-e C-t B <fn> C-t B C-e C-t M-> <fn> C-t M->): emacspeak-table-ui.
+                                                             (line  112)
+* (C-e C-t b <fn> C-t b):                emacspeak-table-ui. (line  311)
+* (C-e C-t C <fn> C-t C):                emacspeak-table-ui. (line  258)
+* (C-e C-t c <fn> C-t c):                emacspeak-table-ui. (line  332)
+* (C-e C-t C-b C-e C-t <left> C-e C-t <S-tab> <fn> C-t C-b <fn> C-t <left> <fn> C-t <S-tab>): emacspeak-table-ui.
+                                                             (line  217)
+* (C-e C-t E C-e C-t > <fn> C-t E <fn> C-t >): emacspeak-table-ui.
+                                                             (line  140)
+* (C-e C-t f <fn> C-t f):                emacspeak-table-ui. (line  372)
+* (C-e C-t g <fn> C-t g):                emacspeak-table-ui. (line  321)
+* (C-e C-t h <fn> C-t h):                emacspeak-table-ui. (line  268)
+* (C-e C-t j <fn> C-t j):                emacspeak-table-ui. (line   98)
+* (C-e C-t k <fn> C-t k):                emacspeak-table-ui. (line   44)
+* (C-e C-t M-l <fn> C-t M-l):            emacspeak-table-ui. (line  393)
+* (C-e C-t M-s <fn> C-t M-s):            emacspeak-table-ui. (line  403)
+* (C-e C-t n C-e C-t C-n C-e C-t <down> <fn> C-t n <fn> C-t C-n <fn> C-t <down>): emacspeak-table-ui.
+                                                             (line  190)
+* (C-e C-t p C-e C-t C-p C-e C-t <up> <fn> C-t p <fn> C-t C-p <fn> C-t <up>): emacspeak-table-ui.
+                                                             (line  235)
+* (C-e C-t Q <fn> C-t Q):                emacspeak-wizards.  (line  142)
+* (C-e C-t R <fn> C-t R):                emacspeak-table-ui. (line  280)
+* (C-e C-t r <fn> C-t r):                emacspeak-table-ui. (line  383)
+* (C-e C-t s <fn> C-t s):                emacspeak-table-ui. (line  245)
+* (C-e C-t SPC <fn> C-t SPC):            emacspeak-table-ui. (line  352)
+* (C-e C-t T <fn> C-t T C-e C-t M-< <fn> C-t M-<): emacspeak-table-ui.
+                                                             (line  154)
+* (C-e C-t TAB C-e C-t C-f C-e C-t <right> <fn> C-t TAB <fn> C-t C-f <fn> C-t <right>): emacspeak-table-ui.
+                                                             (line  172)
+* (C-e C-t v <fn> C-t v):                emacspeak-table-ui. (line  413)
+* (C-e C-t w <fn> C-t w):                emacspeak-table-ui. (line   19)
+* (C-e C-t x <fn> C-t x):                emacspeak-table-ui. (line   30)
+* (C-e C-u <fn> C-u):                    emacspeak-feeds.    (line   47)
+* (C-e C-w <fn> C-w):                    emacspeak-speak.    (line 1042)
+* (C-e C-y <fn> C-y):                    emacspeak-wizards.  (line   50)
+* (C-e d , <fn> d ,):                    dtk-speak.          (line  318)
+* (C-e d 9 C-e d 8 C-e d 7 C-e d 6 C-e d 5 C-e d 4 C-e d 3 C-e d 2 C-e d 1 C-e d 0 <fn> d 9 <fn> d 8 <fn> d 7 <fn> d 6 <fn> d 5 <fn> d 4 <fn> d 3 <fn> d 2 <fn> d 1 <fn> d 0): dtk-speak.
+                                                             (line  199)
+* (C-e d a <fn> d a):                    dtk-speak.          (line   19)
+* (C-e d C <fn> d C):                    dtk-speak.          (line  290)
+* (C-e d c <fn> d c):                    dtk-speak.          (line  305)
+* (C-e d C-c <fn> d C-c):                dtk-speak.          (line   38)
+* (C-e d C-d <fn> d C-d):                dectalk-voices.     (line   20)
+* (C-e d C-e <fn> d C-e):                espeak-voices.      (line   20)
+* (C-e d C-n <fn> d C-n):                dtk-speak.          (line   61)
+* (C-e d C-o <fn> d C-o):                outloud-voices.     (line   20)
+* (C-e d C-s <fn> d C-s):                dtk-speak.          (line   71)
+* (C-e d C-v <fn> d C-v):                outloud-voices.     (line   30)
+* (C-e d d <fn> d d):                    dtk-speak.          (line  102)
+* (C-e d f <fn> d f):                    dtk-speak.          (line  116)
+* (C-e d i <fn> d i):                    emacspeak-speak.    (line 1100)
+* (C-e d k <fn> d k):                    emacspeak-speak.    (line 1116)
+* (C-e d L <fn> d L):                    dtk-speak.          (line   48)
+* (C-e d l <fn> d l):                    emacspeak-speak.    (line 1163)
+* (C-e d m <fn> d m):                    emacspeak-speak.    (line  896)
+* (C-e d N <fn> d N):                    dtk-speak.          (line  153)
+* (C-e d n <fn> d n):                    dtk-speak.          (line  341)
+* (C-e d o <fn> d o):                    dtk-speak.          (line  390)
+* (C-e d P <fn> d P):                    dtk-speak.          (line  224)
+* (C-e d p <fn> d p):                    dtk-speak.          (line  234)
+* (C-e d q <fn> d q):                    dtk-speak.          (line  329)
+* (C-e d R <fn> d R):                    dtk-speak.          (line   91)
+* (C-e d r <fn> d r):                    dtk-speak.          (line  263)
+* (C-e d RET <fn> d RET):                dtk-speak.          (line  130)
+* (C-e d S <fn> d S):                    dtk-speak.          (line  143)
+* (C-e d s <fn> d s):                    dtk-speak.          (line  354)
+* (C-e d SPC <fn> d SPC):                dtk-speak.          (line  368)
+* (C-e d t <fn> d t):                    emacspeak-speak.    (line   52)
+* (C-e d V <fn> d V):                    dtk-speak.          (line  421)
+* (C-e d v <fn> d v):                    voice-setup.        (line   54)
+* (C-e d w <fn> d w):                    emacspeak-speak.    (line 1224)
+* (C-e d z <fn> d z):                    emacspeak-speak.    (line 1266)
+* (C-e DEL <fn> DEL):                    cd-tool.            (line   23)
+* (C-e f <fn> f):                        emacspeak-speak.    (line  269)
+* (C-e g <fn> g):                        emacspeak-epub.     (line   43)
+* (C-e h <fn> h):                        emacspeak-speak.    (line  453)
+* (C-e I <fn> I):                        emacspeak-speak.    (line  930)
+* (C-e i <fn> i):                        emacspeak-tabulate. (line   20)
+* (C-e j <fn> j):                        emacspeak-hide.     (line   30)
+* (C-e k <fn> k):                        emacspeak-speak.    (line  354)
+* (C-e l <fn> l):                        emacspeak-speak.    (line  485)
+* (C-e L <fn> L):                        emacspeak-speak.    (line  504)
+* (C-e M <fn> M):                        emacspeak-speak.    (line  605)
+* (C-e m <fn> m):                        emacspeak-speak.    (line  616)
+* (C-e M-% <fn> M-%):                    emacspeak-speak.    (line   69)
+* (C-e M-; <fn> M-;):                    emacspeak-webutils. (line   78)
+* (C-e M-a <fn> M-a):                    emacspeak-sounds.   (line   44)
+* (C-e M-b <fn> M-b):                    emacspeak-speak.    (line  664)
+* (C-e M-c <fn> M-c):                    emacspeak-wizards.  (line   66)
+* (C-e M-d <fn> M-d):                    emacspeak-pronounce.
+                                                             (line   65)
+* (C-e M-f <fn> M-f):                    emacspeak-wizards.  (line  124)
+* (C-e M-h <fn> M-h):                    emacspeak-speak.    (line  475)
+* (C-e M-l <fn> M-l):                    emacspeak-wizards.  (line  169)
+* (C-e M-m <fn> M-m):                    emacspeak-speak.    (line 1175)
+* (C-e M-P <fn> M-P):                    emacspeak-wizards.  (line  271)
+* (C-e M-q <fn> M-q):                    voice-setup.        (line   80)
+* (C-e M-r <fn> M-r):                    emacspeak-remote.   (line   20)
+* (C-e M-s <fn> M-s):                    emacspeak-wizards.  (line  409)
+* (C-e M-t <fn> M-t):                    emacspeak-tapestry. (line   28)
+* (C-e M-u <fn> M-u):                    emacspeak-feeds.    (line   19)
+* (C-e M-v <fn> M-v):                    emacspeak-wizards.  (line  260)
+* (C-e n <fn> n):                        emacspeak-speak.    (line  861)
+* (C-e N <fn> N):                        emacspeak-wizards.  (line  424)
+* (C-e o <fn> o):                        emacspeak-speak.    (line 1142)
+* (C-e P <fn> P):                        emacspeak-speak.    (line  729)
+* (C-e q <fn> q):                        emacspeak-speak.    (line 1214)
+* (C-e R <fn> R):                        emacspeak-speak.    (line  837)
+* (C-e r <fn> r):                        emacspeak-speak.    (line  850)
+* (C-e RET <fn> RET):                    emacspeak-speak.    (line  322)
+* (C-e s C-e <fn> <fn> s <fn> <fn>):     dtk-speak.          (line  279)
+* (C-e SPC <fn> SPC):                    emacspeak-speak.    (line  443)
+* (C-e t <fn> t):                        emacspeak-speak.    (line 1010)
+* (C-e T <fn> T):                        emacspeak-wizards.  (line  434)
+* (C-e TAB <fn> TAB):                    emacspeak-table-ui. (line   55)
+* (C-e u <fn> u):                        emacspeak-url-template.
+                                                             (line   23)
+* (C-e V <fn> V):                        emacspeak-speak.    (line 1023)
+* (C-e w <fn> w):                        emacspeak-speak.    (line 1052)
+* (C-e W <fn> W):                        emacspeak-tapestry. (line   40)
+* (C-e x 3 <fn> x 3):                    emacspeak-wizards.  (line  499)
+* (C-e x = <fn> x =):                    emacspeak-wizards.  (line  654)
+* (C-e x e a <fn> x e a):                emacspeak-we.       (line  425)
+* (C-e x e b <fn> x e b):                emacspeak-we.       (line  297)
+* (C-e x e c <fn> x e c):                emacspeak-we.       (line   81)
+* (C-e x e C <fn> x e C):                emacspeak-we.       (line   94)
+* (C-e x e C-f <fn> x e C-f):            emacspeak-we.       (line   51)
+* (C-e x e C-p <fn> x e C-p):            emacspeak-we.       (line  401)
+* (C-e x e C-t <fn> x e C-t):            emacspeak-we.       (line   71)
+* (C-e x e C-x <fn> x e C-x):            emacspeak-we.       (line   61)
+* (C-e x e d <fn> x e d):                emacspeak-we.       (line  310)
+* (C-e x e D C-e x e C-c <fn> x e D <fn> x e C-c): emacspeak-we.
+                                                             (line  327)
+* (C-e x e e <fn> x e e):                emacspeak-we.       (line  363)
+* (C-e x e f <fn> x e f):                emacspeak-we.       (line  435)
+* (C-e x e i <fn> x e i):                emacspeak-we.       (line  107)
+* (C-e x e I <fn> x e I):                emacspeak-we.       (line  120)
+* (C-e x e j <fn> x e j):                emacspeak-we.       (line  446)
+* (C-e x e k <fn> x e k):                emacspeak-we.       (line  353)
+* (C-e x e m <fn> x e m):                emacspeak-we.       (line  238)
+* (C-e x e M <fn> x e M):                emacspeak-we.       (line  262)
+* (C-e x e o <fn> x e o):                emacspeak-we.       (line  415)
+* (C-e x e P <fn> x e P):                emacspeak-we.       (line  287)
+* (C-e x e p <fn> x e p):                emacspeak-we.       (line  388)
+* (C-e x e r <fn> x e r):                emacspeak-we.       (line  143)
+* (C-e x e S <fn> x e S):                emacspeak-we.       (line  340)
+* (C-e x e s <fn> x e s):                emacspeak-we.       (line  456)
+* (C-e x e t <fn> x e t):                emacspeak-we.       (line  250)
+* (C-e x e T <fn> x e T):                emacspeak-we.       (line  275)
+* (C-e x e u <fn> x e u):                emacspeak-we.       (line  175)
+* (C-e x e v <fn> x e v):                emacspeak-we.       (line   38)
+* (C-e x e w <fn> x e w):                emacspeak-we.       (line  132)
+* (C-e x e x <fn> x e x):                emacspeak-we.       (line  203)
+* (C-e x e X <fn> x e X):                emacspeak-we.       (line  217)
+* (C-e x e y <fn> x e y):                emacspeak-we.       (line   24)
+* (C-e x h <fn> x h):                    emacspeak-wizards.  (line  763)
+* (C-e x j <fn> x j):                    emacspeak-jabber.   (line   45)
+* (C-e x o <fn> x o):                    emacspeak-wizards.  (line  841)
+* (C-e x Q <fn> x Q):                    emacspeak-wizards.  (line 1248)
+* (C-e x q <fn> x q):                    emacspeak-wizards.  (line 1259)
+* (C-e x t <fn> x t):                    emacspeak-wizards.  (line  337)
+* (C-e x u <fn> x u):                    emacspeak-wizards.  (line 1127)
+* (C-e x v <fn> x v):                    emacspeak-wizards.  (line 1144)
+* (C-e x | <fn> x |):                    emacspeak-wizards.  (line 1026)
+* (C-e [ <fn> [):                        emacspeak-speak.    (line  686)
+* (C-e \ <fn> \):                        emacspeak-speak.    (line 1202)
+* (C-e ] <fn> ]):                        emacspeak-speak.    (line  699)
+* (C-e ^ <fn> ^):                        emacspeak-filtertext.
+                                                             (line   27)
+* (C-e { C-e p <fn> { <fn> p):           emacspeak-speak.    (line  716)
+* (C-e | <fn> |):                        emacspeak-speak.    (line  527)
+* (C-h , <f1> , <help> ,):               emacspeak-wizards.  (line  475)
+* (C-h C-e <f1> C-e <help> C-e):         emacspeak.          (line  321)
+* (C-h M <f1> M <help> M):               emacspeak-wizards.  (line  306)
+* (C-h TAB <f1> TAB <help> TAB):         emacspeak-info.     (line   28)
+* (ESC <down>):                          emacspeak-speak.    (line  117)
+* (ESC <next>):                          emacspeak-speak.    (line  144)
+* (ESC <prior>):                         emacspeak-speak.    (line  135)
+* (ESC <select>):                        emacspeak-speak.    (line  153)
+* (ESC <up>):                            emacspeak-speak.    (line  126)
+* (M-ESC :):                             emacspeak-wizards.  (line  987)
+* (s-m):                                 emacspeak-muggles.  (line   67)
+* (s-n):                                 emacspeak-muggles.  (line  205)
 * C-c (:                                 Running Terminal Based Applications.
                                                              (line   96)
 * C-c ):                                 Running Terminal Based Applications.
@@ -5460,256 +6048,10 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
                                                              (line  146)
 * C-c e:                                 Running Terminal Based Applications.
                                                              (line  112)
-* C-c h:                                 emacspeak-muggles.  (line   75)
 * C-c k:                                 Running Terminal Based Applications.
                                                              (line   72)
 * C-c o:                                 Running Terminal Based Applications.
                                                              (line   56)
-* C-c o <1>:                             emacspeak-muggles.  (line  293)
-* C-c v C-; v C-x @ h v:                 emacspeak-muggles.  (line  319)
-* C-e ! <XF86WakeUp> !:                  emacspeak-wizards.  (line  277)
-* C-e " <XF86WakeUp> ":                  emacspeak-speak.    (line  795)
-* C-e # a <XF86WakeUp> # a:              emacspeak-gridtext. (line   27)
-* C-e # l <XF86WakeUp> # l:              emacspeak-gridtext. (line   35)
-* C-e # s <XF86WakeUp> # s:              emacspeak-gridtext. (line   43)
-* C-e % <XF86WakeUp> %:                  emacspeak-speak.    (line  360)
-* C-e & <XF86WakeUp> &:                  emacspeak-wizards.  (line  869)
-* C-e ' <XF86WakeUp> ':                  emacspeak-pianobar. (line   46)
-* C-e ( <XF86WakeUp> (:                  emacspeak-sounds.   (line   32)
-* C-e ) <XF86WakeUp> ):                  emacspeak-sounds.   (line   70)
-* C-e , <XF86WakeUp> ,:                  emacspeak-speak.    (line  232)
-* C-e . <XF86WakeUp> .:                  dtk-speak.          (line   69)
-* C-e / <XF86WakeUp> /:                  emacspeak-wizards.  (line  314)
-* C-e 9 C-e 8 C-e 7 C-e 6 C-e 5 C-e 4 C-e 3 C-e 2 C-e 1 C-e 0 <XF86WakeUp> 9 <XF86WakeUp> 8 <XF86WakeUp> 7 <XF86WakeUp> 6 <XF86WakeUp> 5 <XF86WakeUp> 4 <XF86WakeUp> 3 <XF86WakeUp> 2 <XF86WakeUp> 1 <XF86WakeUp> 0: emacspeak-speak.
-                                                             (line  678)
-* C-e : <XF86WakeUp> ::                  emacspeak-m-player. (line  522)
-* C-e ; <XF86WakeUp> ;:                  emacspeak-m-player. (line  607)
-* C-e < <XF86WakeUp> <:                  emacspeak-speak.    (line  700)
-* C-e <C-<left> <XF86WakeUp> <C-<left>:  emacspeak-wizards.  (line  215)
-* C-e <C-<right> <XF86WakeUp> <C-<right>: emacspeak-wizards. (line  186)
-* C-e <delete> C-e <(deletechar> <XF86WakeUp> <delete> <XF86WakeUp> <(deletechar>: emacspeak-wizards.
-                                                             (line  344)
-* C-e <down> <XF86WakeUp> <down>:        emacspeak-speak.    (line  157)
-* C-e <f11> <XF86WakeUp> <f11>:          emacspeak-wizards.  (line  877)
-* C-e <f1> C-h C-l <XF86WakeUp> <f1> <f1> C-l <help> C-l: emacspeak-wizards.
-                                                             (line  132)
-* C-e <insert> <XF86WakeUp> <insert> C-e x s <XF86WakeUp> x s: emacspeak-wizards.
-                                                             (line   97)
-* C-e <left> <XF86WakeUp> <left>:        emacspeak-wizards.  (line  332)
-* C-e <right> <XF86WakeUp> <right>:      emacspeak-wizards.  (line  302)
-* C-e <up> <XF86WakeUp> <up>:            emacspeak-speak.    (line  174)
-* C-e = <XF86WakeUp> =:                  emacspeak-speak.    (line  315)
-* C-e > <XF86WakeUp> >:                  emacspeak-speak.    (line  580)
-* C-e ? <XF86WakeUp> ?:                  emacspeak-websearch.
-                                                             (line   76)
-* C-e @ <XF86WakeUp> @:                  emacspeak-speak.    (line  520)
-* C-e A <XF86WakeUp> A:                  emacspeak-calendar. (line   19)
-* C-e a <XF86WakeUp> a:                  emacspeak-speak.    (line  510)
-* C-e b <XF86WakeUp> b:                  emacspeak-speak.    (line  243)
-* C-e B <XF86WakeUp> B:                  emacspeak-speak.    (line  268)
-* C-e c <XF86WakeUp> c:                  emacspeak-speak.    (line  279)
-* C-e C <XF86WakeUp> C:                  emacspeak-wizards.  (line   81)
-* C-e C-a <XF86WakeUp> C-a:              emacspeak-sounds.   (line   78)
-* C-e C-b <XF86WakeUp> C-b:              emacspeak-bookshare.
-                                                             (line   22)
-* C-e C-c <XF86WakeUp> C-c:              emacspeak-wizards.  (line   29)
-* C-e C-d <XF86WakeUp> C-d:              emacspeak-speak.    (line 1038)
-* C-e C-j <XF86WakeUp> C-j:              emacspeak-hide.     (line   41)
-* C-e C-l <XF86WakeUp> C-l:              emacspeak-speak.    (line  473)
-* C-e C-M-b <XF86WakeUp> C-M-b:          emacspeak.          (line  325)
-* C-e C-M-SPC C-e C-M-@ <XF86WakeUp> C-M-SPC <XF86WakeUp> C-M-@: emacspeak-speak.
-                                                             (line  842)
-* C-e C-n <XF86WakeUp> C-n:              emacspeak-speak.    (line  596)
-* C-e C-o <XF86WakeUp> C-o:              emacspeak-ocr.      (line   23)
-* C-e C-p <XF86WakeUp> C-p:              emacspeak-speak.    (line  716)
-* C-e C-q <XF86WakeUp> C-q:              emacspeak-speak.    (line  985)
-* C-e C-s <XF86WakeUp> C-s:              dtk-speak.          (line  322)
-* C-e C-SPC C-e C-@ <XF86WakeUp> C-SPC <XF86WakeUp> C-@: emacspeak-speak.
-                                                             (line  345)
-* C-e C-t # <XF86WakeUp> C-t #:          emacspeak-table-ui. (line  217)
-* C-e C-t , <XF86WakeUp> C-t ,:          emacspeak-table-ui. (line   63)
-* C-e C-t . <XF86WakeUp> C-t .:          emacspeak-table-ui. (line  250)
-* C-e C-t = <XF86WakeUp> C-t =:          emacspeak-table-ui. (line  266)
-* C-e C-t a <XF86WakeUp> C-t a:          emacspeak-table-ui. (line  208)
-* C-e C-t A C-e C-t < <XF86WakeUp> C-t A <XF86WakeUp> C-t <: emacspeak-table-ui.
-                                                             (line  102)
-* C-e C-t b <XF86WakeUp> C-t b:          emacspeak-table-ui. (line  225)
-* C-e C-t B <XF86WakeUp> C-t B C-e C-t M-> <XF86WakeUp> C-t M->: emacspeak-table-ui.
-                                                             (line   94)
-* C-e C-t C <XF86WakeUp> C-t C:          emacspeak-table-ui. (line  182)
-* C-e C-t c <XF86WakeUp> C-t c:          emacspeak-table-ui. (line  242)
-* C-e C-t C-b C-e C-t <left> C-e C-t <S-tab> <XF86WakeUp> C-t C-b <XF86WakeUp> C-t <left> <XF86WakeUp> C-t <S-tab>: emacspeak-table-ui.
-                                                             (line  154)
-* C-e C-t E C-e C-t > <XF86WakeUp> C-t E <XF86WakeUp> C-t >: emacspeak-table-ui.
-                                                             (line  110)
-* C-e C-t f <XF86WakeUp> C-t f:          emacspeak-table-ui. (line  274)
-* C-e C-t g <XF86WakeUp> C-t g:          emacspeak-table-ui. (line  233)
-* C-e C-t h <XF86WakeUp> C-t h:          emacspeak-table-ui. (line  190)
-* C-e C-t j <XF86WakeUp> C-t j:          emacspeak-table-ui. (line   86)
-* C-e C-t k <XF86WakeUp> C-t k:          emacspeak-table-ui. (line   38)
-* C-e C-t M-l <XF86WakeUp> C-t M-l:      emacspeak-table-ui. (line  291)
-* C-e C-t M-s <XF86WakeUp> C-t M-s:      emacspeak-table-ui. (line  299)
-* C-e C-t n C-e C-t C-n C-e C-t <down> <XF86WakeUp> C-t n <XF86WakeUp> C-t C-n <XF86WakeUp> C-t <down>: emacspeak-table-ui.
-                                                             (line  136)
-* C-e C-t p C-e C-t C-p C-e C-t <up> <XF86WakeUp> C-t p <XF86WakeUp> C-t C-p <XF86WakeUp> C-t <up>: emacspeak-table-ui.
-                                                             (line  163)
-* C-e C-t Q <XF86WakeUp> C-t Q:          emacspeak-wizards.  (line  124)
-* C-e C-t R <XF86WakeUp> C-t R:          emacspeak-table-ui. (line  200)
-* C-e C-t r <XF86WakeUp> C-t r:          emacspeak-table-ui. (line  283)
-* C-e C-t s <XF86WakeUp> C-t s:          emacspeak-table-ui. (line  171)
-* C-e C-t SPC <XF86WakeUp> C-t SPC:      emacspeak-table-ui. (line  258)
-* C-e C-t T <XF86WakeUp> C-t T C-e C-t M-< <XF86WakeUp> C-t M-<: emacspeak-table-ui.
-                                                             (line  118)
-* C-e C-t TAB C-e C-t C-f C-e C-t <right> <XF86WakeUp> C-t TAB <XF86WakeUp> C-t C-f <XF86WakeUp> C-t <right>: emacspeak-table-ui.
-                                                             (line  127)
-* C-e C-t v <XF86WakeUp> C-t v:          emacspeak-table-ui. (line  307)
-* C-e C-t w <XF86WakeUp> C-t w:          emacspeak-table-ui. (line   17)
-* C-e C-t x <XF86WakeUp> C-t x:          emacspeak-table-ui. (line   26)
-* C-e C-u <XF86WakeUp> C-u:              emacspeak-feeds.    (line   41)
-* C-e C-w <XF86WakeUp> C-w:              emacspeak-speak.    (line  907)
-* C-e C-y <XF86WakeUp> C-y:              emacspeak-wizards.  (line   46)
-* C-e d , <XF86WakeUp> d ,:              dtk-speak.          (line  241)
-* C-e d 9 C-e d 8 C-e d 7 C-e d 6 C-e d 5 C-e d 4 C-e d 3 C-e d 2 C-e d 1 C-e d 0 <XF86WakeUp> d 9 <XF86WakeUp> d 8 <XF86WakeUp> d 7 <XF86WakeUp> d 6 <XF86WakeUp> d 5 <XF86WakeUp> d 4 <XF86WakeUp> d 3 <XF86WakeUp> d 2 <XF86WakeUp> d 1 <XF86WakeUp> d 0: dtk-speak.
-                                                             (line  140)
-* C-e d a <XF86WakeUp> d a:              dtk-speak.          (line   17)
-* C-e d C <XF86WakeUp> d C:              dtk-speak.          (line  217)
-* C-e d c <XF86WakeUp> d c:              dtk-speak.          (line  230)
-* C-e d C-c <XF86WakeUp> d C-c:          dtk-speak.          (line   34)
-* C-e d C-d <XF86WakeUp> d C-d:          dectalk-voices.     (line   18)
-* C-e d C-e <XF86WakeUp> d C-e:          espeak-voices.      (line   18)
-* C-e d C-n <XF86WakeUp> d C-n:          dtk-speak.          (line   53)
-* C-e d C-o <XF86WakeUp> d C-o:          outloud-voices.     (line   18)
-* C-e d C-s <XF86WakeUp> d C-s:          dtk-speak.          (line   61)
-* C-e d C-v <XF86WakeUp> d C-v:          outloud-voices.     (line   26)
-* C-e d d <XF86WakeUp> d d:              dtk-speak.          (line   86)
-* C-e d f <XF86WakeUp> d f:              dtk-speak.          (line   98)
-* C-e d i <XF86WakeUp> d i:              emacspeak-speak.    (line  961)
-* C-e d k <XF86WakeUp> d k:              emacspeak-speak.    (line  975)
-* C-e d L <XF86WakeUp> d L:              dtk-speak.          (line   42)
-* C-e d l <XF86WakeUp> d l:              emacspeak-speak.    (line 1016)
-* C-e d m <XF86WakeUp> d m:              emacspeak-speak.    (line  777)
-* C-e d N <XF86WakeUp> d N:              dtk-speak.          (line  129)
-* C-e d n <XF86WakeUp> d n:              dtk-speak.          (line  260)
-* C-e d o <XF86WakeUp> d o:              dtk-speak.          (line  303)
-* C-e d P <XF86WakeUp> d P:              dtk-speak.          (line  163)
-* C-e d p <XF86WakeUp> d p:              dtk-speak.          (line  171)
-* C-e d q <XF86WakeUp> d q:              dtk-speak.          (line  250)
-* C-e d R <XF86WakeUp> d R:              dtk-speak.          (line   77)
-* C-e d r <XF86WakeUp> d r:              dtk-speak.          (line  198)
-* C-e d RET <XF86WakeUp> d RET:          dtk-speak.          (line  110)
-* C-e d S <XF86WakeUp> d S:              dtk-speak.          (line  121)
-* C-e d s <XF86WakeUp> d s:              dtk-speak.          (line  271)
-* C-e d SPC <XF86WakeUp> d SPC:          dtk-speak.          (line  283)
-* C-e d t <XF86WakeUp> d t:              emacspeak-speak.    (line   50)
-* C-e d V <XF86WakeUp> d V:              dtk-speak.          (line  330)
-* C-e d v <XF86WakeUp> d v:              voice-setup.        (line   52)
-* C-e d w <XF86WakeUp> d w:              emacspeak-speak.    (line 1067)
-* C-e d z <XF86WakeUp> d z:              emacspeak-speak.    (line 1107)
-* C-e DEL <XF86WakeUp> DEL:              cd-tool.            (line   21)
-* C-e f <XF86WakeUp> f:                  emacspeak-speak.    (line  255)
-* C-e g <XF86WakeUp> g:                  emacspeak-epub.     (line   41)
-* C-e h <XF86WakeUp> h:                  emacspeak-speak.    (line  417)
-* C-e I <XF86WakeUp> I:                  emacspeak-speak.    (line  807)
-* C-e i <XF86WakeUp> i:                  emacspeak-tabulate. (line   18)
-* C-e j <XF86WakeUp> j:                  emacspeak-hide.     (line   28)
-* C-e k <XF86WakeUp> k:                  emacspeak-speak.    (line  330)
-* C-e l <XF86WakeUp> l:                  emacspeak-speak.    (line  445)
-* C-e L <XF86WakeUp> L:                  emacspeak-speak.    (line  462)
-* C-e M <XF86WakeUp> M:                  emacspeak-speak.    (line  553)
-* C-e m <XF86WakeUp> m:                  emacspeak-speak.    (line  562)
-* C-e M-% <XF86WakeUp> M-%:              emacspeak-speak.    (line   65)
-* C-e M-; <XF86WakeUp> M-;:              emacspeak-webutils. (line   76)
-* C-e M-a <XF86WakeUp> M-a:              emacspeak-sounds.   (line   40)
-* C-e M-b <XF86WakeUp> M-b:              emacspeak-speak.    (line  604)
-* C-e M-c <XF86WakeUp> M-c:              emacspeak-wizards.  (line   60)
-* C-e M-d <XF86WakeUp> M-d:              emacspeak-pronounce.
-                                                             (line   63)
-* C-e M-f <XF86WakeUp> M-f:              emacspeak-wizards.  (line  108)
-* C-e M-h <XF86WakeUp> M-h:              emacspeak-speak.    (line  437)
-* C-e M-l <XF86WakeUp> M-l:              emacspeak-wizards.  (line  141)
-* C-e M-m <XF86WakeUp> M-m:              emacspeak-speak.    (line 1026)
-* C-e M-P <XF86WakeUp> M-P:              emacspeak-wizards.  (line  235)
-* C-e M-q <XF86WakeUp> M-q:              voice-setup.        (line   76)
-* C-e M-r <XF86WakeUp> M-r:              emacspeak-remote.   (line   18)
-* C-e M-s <XF86WakeUp> M-s:              emacspeak-wizards.  (line  352)
-* C-e M-t <XF86WakeUp> M-t:              emacspeak-tapestry. (line   26)
-* C-e M-u <XF86WakeUp> M-u:              emacspeak-feeds.    (line   17)
-* C-e M-v <XF86WakeUp> M-v:              emacspeak-wizards.  (line  226)
-* C-e n <XF86WakeUp> n:                  emacspeak-speak.    (line  744)
-* C-e N <XF86WakeUp> N:                  emacspeak-wizards.  (line  365)
-* C-e o <XF86WakeUp> o:                  emacspeak-speak.    (line  997)
-* C-e P <XF86WakeUp> P:                  emacspeak-speak.    (line  657)
-* C-e q <XF86WakeUp> q:                  emacspeak-speak.    (line 1059)
-* C-e R <XF86WakeUp> R:                  emacspeak-speak.    (line  724)
-* C-e r <XF86WakeUp> r:                  emacspeak-speak.    (line  735)
-* C-e RET <XF86WakeUp> RET:              emacspeak-speak.    (line  302)
-* C-e s C-e <XF86WakeUp> <XF86WakeUp> s <XF86WakeUp> <XF86WakeUp>: dtk-speak.
-                                                             (line  208)
-* C-e SPC <XF86WakeUp> SPC:              emacspeak-speak.    (line  409)
-* C-e t <XF86WakeUp> t:                  emacspeak-speak.    (line  879)
-* C-e T <XF86WakeUp> T:                  emacspeak-wizards.  (line  373)
-* C-e TAB <XF86WakeUp> TAB:              emacspeak-table-ui. (line   47)
-* C-e u <XF86WakeUp> u:                  emacspeak-url-template.
-                                                             (line   21)
-* C-e V <XF86WakeUp> V:                  emacspeak-speak.    (line  890)
-* C-e w <XF86WakeUp> w:                  emacspeak-speak.    (line  915)
-* C-e W <XF86WakeUp> W:                  emacspeak-tapestry. (line   36)
-* C-e x 3 <XF86WakeUp> x 3:              emacspeak-wizards.  (line  432)
-* C-e x = <XF86WakeUp> x =:              emacspeak-wizards.  (line  579)
-* C-e x e a <XF86WakeUp> x e a:          emacspeak-we.       (line  363)
-* C-e x e b <XF86WakeUp> x e b:          emacspeak-we.       (line  257)
-* C-e x e c <XF86WakeUp> x e c:          emacspeak-we.       (line   69)
-* C-e x e C <XF86WakeUp> x e C:          emacspeak-we.       (line   80)
-* C-e x e C-f <XF86WakeUp> x e C-f:      emacspeak-we.       (line   45)
-* C-e x e C-p <XF86WakeUp> x e C-p:      emacspeak-we.       (line  343)
-* C-e x e C-t <XF86WakeUp> x e C-t:      emacspeak-we.       (line   61)
-* C-e x e C-x <XF86WakeUp> x e C-x:      emacspeak-we.       (line   53)
-* C-e x e d <XF86WakeUp> x e d:          emacspeak-we.       (line  268)
-* C-e x e D C-e x e C-c <XF86WakeUp> x e D <XF86WakeUp> x e C-c: emacspeak-we.
-                                                             (line  279)
-* C-e x e e <XF86WakeUp> x e e:          emacspeak-we.       (line  309)
-* C-e x e f <XF86WakeUp> x e f:          emacspeak-we.       (line  371)
-* C-e x e i <XF86WakeUp> x e i:          emacspeak-we.       (line   91)
-* C-e x e I <XF86WakeUp> x e I:          emacspeak-we.       (line  102)
-* C-e x e j <XF86WakeUp> x e j:          emacspeak-we.       (line  380)
-* C-e x e k <XF86WakeUp> x e k:          emacspeak-we.       (line  301)
-* C-e x e m <XF86WakeUp> x e m:          emacspeak-we.       (line  208)
-* C-e x e M <XF86WakeUp> x e M:          emacspeak-we.       (line  228)
-* C-e x e o <XF86WakeUp> x e o:          emacspeak-we.       (line  355)
-* C-e x e P <XF86WakeUp> x e P:          emacspeak-we.       (line  249)
-* C-e x e p <XF86WakeUp> x e p:          emacspeak-we.       (line  332)
-* C-e x e r <XF86WakeUp> x e r:          emacspeak-we.       (line  121)
-* C-e x e S <XF86WakeUp> x e S:          emacspeak-we.       (line  290)
-* C-e x e s <XF86WakeUp> x e s:          emacspeak-we.       (line  388)
-* C-e x e t <XF86WakeUp> x e t:          emacspeak-we.       (line  218)
-* C-e x e T <XF86WakeUp> x e T:          emacspeak-we.       (line  239)
-* C-e x e u <XF86WakeUp> x e u:          emacspeak-we.       (line  151)
-* C-e x e v <XF86WakeUp> x e v:          emacspeak-we.       (line   34)
-* C-e x e w <XF86WakeUp> x e w:          emacspeak-we.       (line  112)
-* C-e x e x <XF86WakeUp> x e x:          emacspeak-we.       (line  177)
-* C-e x e X <XF86WakeUp> x e X:          emacspeak-we.       (line  189)
-* C-e x e y <XF86WakeUp> x e y:          emacspeak-we.       (line   22)
-* C-e x h <XF86WakeUp> x h:              emacspeak-wizards.  (line  686)
-* C-e x j <XF86WakeUp> x j:              emacspeak-jabber.   (line   43)
-* C-e x o <XF86WakeUp> x o:              emacspeak-wizards.  (line  762)
-* C-e x Q <XF86WakeUp> x Q:              emacspeak-wizards.  (line 1139)
-* C-e x q <XF86WakeUp> x q:              emacspeak-wizards.  (line 1148)
-* C-e x t <XF86WakeUp> x t:              emacspeak-wizards.  (line  293)
-* C-e x u <XF86WakeUp> x u:              emacspeak-wizards.  (line 1030)
-* C-e x v <XF86WakeUp> x v:              emacspeak-wizards.  (line 1045)
-* C-e x | <XF86WakeUp> x |:              emacspeak-wizards.  (line  937)
-* C-e [ <XF86WakeUp> [:                  emacspeak-speak.    (line  624)
-* C-e \ <XF86WakeUp> \:                  emacspeak-speak.    (line 1049)
-* C-e ] <XF86WakeUp> ]:                  emacspeak-speak.    (line  635)
-* C-e ^ <XF86WakeUp> ^:                  emacspeak-filtertext.
-                                                             (line   25)
-* C-e { C-e p <XF86WakeUp> { <XF86WakeUp> p: emacspeak-speak.
-                                                             (line  646)
-* C-e | <XF86WakeUp> |:                  emacspeak-speak.    (line  481)
-* C-h , <f1> , <help> ,:                 emacspeak-wizards.  (line  410)
-* C-h C-e <f1> C-e <help> C-e:           emacspeak.          (line  317)
-* C-h M <f1> M <help> M:                 emacspeak-wizards.  (line  266)
-* C-h TAB <f1> TAB <help> TAB:           emacspeak-info.     (line   24)
 * control e cap M:                       Status Information. (line   15)
 * control e cap R:                       Reading.            (line   57)
 * control e %:                           Status Information. (line   70)
@@ -5774,17 +6116,9 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * control e w:                           Reading.            (line   19)
 * control e [:                           Reading.            (line   98)
 * control e {:                           Reading.            (line   46)
-* ESC <down>:                            emacspeak-speak.    (line  113)
-* ESC <next>:                            emacspeak-speak.    (line  140)
-* ESC <prior>:                           emacspeak-speak.    (line  131)
-* ESC <select>:                          emacspeak-speak.    (line  149)
-* ESC <up>:                              emacspeak-speak.    (line  122)
 * ESCAPE down:                           Reading.            (line  129)
 * ESCAPE next:                           Reading.            (line  134)
 * ESCAPE prior:                          Reading.            (line  139)
 * ESCAPE up:                             Reading.            (line  124)
-* M-ESC ::                               emacspeak-wizards.  (line  900)
 * pause control e s:                     Miscellaneous.      (line   12)
-* s-m:                                   emacspeak-muggles.  (line   67)
-* s-n:                                   emacspeak-muggles.  (line  205)
 

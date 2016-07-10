@@ -3246,7 +3246,9 @@ is a cd to wav converter.
 ................
 
  -- Command: cd-tool
-     ‘C-e DEL <XF86WakeUp> DEL’
+     ‘C-e DEL’
+
+     ‘<fn> DEL’
 
      Front-end to CDTool.
      Bind this function to a convenient key-
@@ -3310,7 +3312,9 @@ module is Dectalk specific.
 ................
 
  -- Command: dectalk
-     ‘C-e d C-d <XF86WakeUp> d C-d’
+     ‘C-e d C-d’
+
+     ‘<fn> d C-d’
 
      Select Dectalk TTS server.
 
@@ -3361,7 +3365,9 @@ Defines the TTS interface.
 ................................
 
  -- Command: dtk-add-cleanup-pattern (&optional delete)
-     ‘C-e d a <XF86WakeUp> d a’
+     ‘C-e d a’
+
+     ‘<fn> d a’
 
      Add this pattern to the list of repeating patterns that
      are cleaned up.  Optional interactive prefix arg deletes
@@ -3369,16 +3375,18 @@ Defines the TTS interface.
      patterns results in emacspeak speaking the pattern followed
      by a repeat count instead of speaking all the characters
      making up the pattern.  Thus, by adding the repeating
-     pattern “.” (this is already added by default) emacspeak
-     will say ““aw fifteen dot”” when speaking the string
-     ““...............”” instead of ““period period period period
-     ””
+     pattern ‘.’ (this is already added by default) emacspeak
+     will say ‘‘aw fifteen dot’’ when speaking the string
+     ‘‘...............’’ instead of ‘‘period period period period
+     ’’
 
 12.9.1.2 dtk-cloud
 ..................
 
  -- Command: dtk-cloud
-     ‘C-e d C-c <XF86WakeUp> d C-c’
+     ‘C-e d C-c’
+
+     ‘<fn> d C-c’
 
      Select preferred Cloud TTS server.
 
@@ -3386,7 +3394,9 @@ Defines the TTS interface.
 .........................
 
  -- Command: dtk-local-server (program &optional prompt-port)
-     ‘C-e d L <XF86WakeUp> d L’
+     ‘C-e d L’
+
+     ‘<fn> d L’
 
      Select and start an local speech server interactively. Local server
      lets Emacspeak on a remote host connect back via SSH port forwarding
@@ -3397,7 +3407,9 @@ Defines the TTS interface.
 ..............................
 
  -- Command: dtk-notify-initialize
-     ‘C-e d C-n <XF86WakeUp> d C-n’
+     ‘C-e d C-n’
+
+     ‘<fn> d C-n’
 
      Initialize notification TTS stream.
 
@@ -3405,7 +3417,9 @@ Defines the TTS interface.
 ............................
 
  -- Command: dtk-notify-shutdown
-     ‘C-e d C-s <XF86WakeUp> d C-s’
+     ‘C-e d C-s’
+
+     ‘<fn> d C-s’
 
      Shutdown notification TTS stream.
 
@@ -3413,7 +3427,9 @@ Defines the TTS interface.
 ........................
 
  -- Command: dtk-notify-stop
-     ‘C-e . <XF86WakeUp> .’
+     ‘C-e .’
+
+     ‘<fn> .’
 
      Stop  speech on notification stream.
 
@@ -3421,7 +3437,9 @@ Defines the TTS interface.
 ........................
 
  -- Command: dtk-reset-state
-     ‘C-e d R <XF86WakeUp> d R’
+     ‘C-e d R’
+
+     ‘<fn> d R’
 
      Restore sanity to the Dectalk.
      Typically used after the Dectalk has been power   cycled.
@@ -3430,7 +3448,9 @@ Defines the TTS interface.
 ..........................
 
  -- Command: dtk-select-server (program &optional device)
-     ‘C-e d d <XF86WakeUp> d d’
+     ‘C-e d d’
+
+     ‘<fn> d d’
 
      Select a speech server interactively.
      When called interactively, restarts speech server.
@@ -3442,7 +3462,9 @@ Defines the TTS interface.
 ................................
 
  -- Command: dtk-set-character-scale (factor &optional prefix)
-     ‘C-e d f <XF86WakeUp> d f’
+     ‘C-e d f’
+
+     ‘<fn> d f’
 
      Set scale FACTOR for   speech rate.
      Speech rate is scaled by this factor
@@ -3454,7 +3476,9 @@ Defines the TTS interface.
 ........................................
 
  -- Command: dtk-set-chunk-separator-syntax (s)
-     ‘C-e d RET <XF86WakeUp> d RET’
+     ‘C-e d RET’
+
+     ‘<fn> d RET’
 
      Interactively set how text is split in chunks.
      See the Emacs documentation on syntax tables for details on how characters are
@@ -3465,7 +3489,9 @@ Defines the TTS interface.
 ..........................
 
  -- Command: dtk-set-language (lang)
-     ‘C-e d S <XF86WakeUp> d S’
+     ‘C-e d S’
+
+     ‘<fn> d S’
 
      Set language according to the argument lang.
 
@@ -3473,7 +3499,9 @@ Defines the TTS interface.
 ...............................
 
  -- Command: dtk-set-next-language
-     ‘C-e d N <XF86WakeUp> d N’
+     ‘C-e d N’
+
+     ‘<fn> d N’
 
      Switch to the next available language
 
@@ -3481,10 +3509,45 @@ Defines the TTS interface.
 ........................................
 
  -- Command: dtk-set-predefined-speech-rate (&optional prefix)
-     ‘C-e d 9 C-e d 8 C-e d 7 C-e d 6 C-e d 5 C-e d 4 C-e d 3 C-e d 2
-     C-e d 1 C-e d 0 <XF86WakeUp> d 9 <XF86WakeUp> d 8 <XF86WakeUp> d 7
-     <XF86WakeUp> d 6 <XF86WakeUp> d 5 <XF86WakeUp> d 4 <XF86WakeUp> d 3
-     <XF86WakeUp> d 2 <XF86WakeUp> d 1 <XF86WakeUp> d 0’
+     ‘C-e d 9’
+
+     ‘C-e d 8’
+
+     ‘C-e d 7’
+
+     ‘C-e d 6’
+
+     ‘C-e d 5’
+
+     ‘C-e d 4’
+
+     ‘C-e d 3’
+
+     ‘C-e d 2’
+
+     ‘C-e d 1’
+
+     ‘C-e d 0’
+
+     ‘<fn> d 9’
+
+     ‘<fn> d 8’
+
+     ‘<fn> d 7’
+
+     ‘<fn> d 6’
+
+     ‘<fn> d 5’
+
+     ‘<fn> d 4’
+
+     ‘<fn> d 3’
+
+     ‘<fn> d 2’
+
+     ‘<fn> d 1’
+
+     ‘<fn> d 0’
 
      Set speech rate to one of nine predefined levels.
      Interactive PREFIX arg says to set the rate globally.
@@ -3507,7 +3570,9 @@ Defines the TTS interface.
 ...................................
 
  -- Command: dtk-set-previous-language
-     ‘C-e d P <XF86WakeUp> d P’
+     ‘C-e d P’
+
+     ‘<fn> d P’
 
      Switch to the previous available language
 
@@ -3515,10 +3580,12 @@ Defines the TTS interface.
 ..............................
 
  -- Command: dtk-set-punctuations (mode &optional prefix)
-     ‘C-e d p <XF86WakeUp> d p’
+     ‘C-e d p’
+
+     ‘<fn> d p’
 
      Set punctuation mode to MODE.
-     Possible values are “some”, “all”, or “none”.
+     Possible values are ‘some’, ‘all’, or ‘none’.
      Interactive PREFIX arg means set   the global default value, and then set the
      current local  value to the result.
 
@@ -3542,7 +3609,9 @@ Defines the TTS interface.
 ......................
 
  -- Command: dtk-set-rate (rate &optional prefix)
-     ‘C-e d r <XF86WakeUp> d r’
+     ‘C-e d r’
+
+     ‘<fn> d r’
 
      Set speaking RATE for the tts.
      Interactive PREFIX arg means set   the global default value, and then set the
@@ -3552,7 +3621,13 @@ Defines the TTS interface.
 ..................
 
  -- Command: dtk-stop
-     ‘C-e s C-e <XF86WakeUp> <XF86WakeUp> s <XF86WakeUp> <XF86WakeUp>’
+     ‘C-e s’
+
+     ‘C-e <fn>’
+
+     ‘<fn> s’
+
+     ‘<fn> <fn>’
 
      Stop speech now.
      Interactive call   silences notification stream as well.
@@ -3561,7 +3636,9 @@ Defines the TTS interface.
 .................................
 
  -- Command: dtk-toggle-allcaps-beep (&optional prefix)
-     ‘C-e d C <XF86WakeUp> d C’
+     ‘C-e d C’
+
+     ‘<fn> d C’
 
      Toggle allcaps-beep.
      when set, allcaps words  are  indicated by a
@@ -3574,7 +3651,9 @@ Defines the TTS interface.
 ...................................
 
  -- Command: dtk-toggle-capitalization (&optional prefix)
-     ‘C-e d c <XF86WakeUp> d c’
+     ‘C-e d c’
+
+     ‘<fn> d c’
 
      Toggle capitalization.
      when set, capitalization is indicated by a
@@ -3585,7 +3664,9 @@ Defines the TTS interface.
 .....................................
 
  -- Command: dtk-toggle-punctuation-mode (&optional prefix)
-     ‘C-e d , <XF86WakeUp> d ,’
+     ‘C-e d ,’
+
+     ‘<fn> d ,’
 
      Toggle punctuation mode between "some" and "all".
      Interactive PREFIX arg makes the new setting global.
@@ -3594,7 +3675,9 @@ Defines the TTS interface.
 ..........................
 
  -- Command: dtk-toggle-quiet (&optional prefix)
-     ‘C-e d q <XF86WakeUp> d q’
+     ‘C-e d q’
+
+     ‘<fn> d q’
 
      Toggles state of  dtk-quiet.
      Turning on this switch silences speech.
@@ -3604,7 +3687,9 @@ Defines the TTS interface.
 ............................................
 
  -- Command: dtk-toggle-speak-nonprinting-chars (&optional prefix)
-     ‘C-e d n <XF86WakeUp> d n’
+     ‘C-e d n’
+
+     ‘<fn> d n’
 
      Toggle speak-nonprinting-chars.
      Switches behavior of how characters with the high bit set are handled.
@@ -3615,7 +3700,9 @@ Defines the TTS interface.
 ...............................
 
  -- Command: dtk-toggle-split-caps (&optional prefix)
-     ‘C-e d s <XF86WakeUp> d s’
+     ‘C-e d s’
+
+     ‘<fn> d s’
 
      Toggle split caps mode.
      Split caps mode is useful when reading
@@ -3627,19 +3714,21 @@ Defines the TTS interface.
 .............................................
 
  -- Command: dtk-toggle-splitting-on-white-space
-     ‘C-e d SPC <XF86WakeUp> d SPC’
+     ‘C-e d SPC’
+
+     ‘<fn> d SPC’
 
      Toggle splitting of speech on white space.
      This affects the internal state of emacspeak that decides if we split
      text purely by clause boundaries, or also include
      whitespace.  By default, emacspeak sends a clause at a time
      to the speech device.  This produces fluent speech for
-     normal use.  However in modes such as “shell-mode” and some
+     normal use.  However in modes such as ‘shell-mode’ and some
      programming language modes, clause markers appear
      infrequently, and this can result in large amounts of text
      being sent to the speech device at once, making the system
      unresponsive when asked to stop talking.  Splitting on white
-     space makes emacspeak”s stop command responsive.  However,
+     space makes emacspeak’s stop command responsive.  However,
      when splitting on white space, the speech sounds choppy
      since the synthesizer is getting a word at a time.
 
@@ -3647,7 +3736,9 @@ Defines the TTS interface.
 .................................
 
  -- Command: dtk-toggle-strip-octals (&optional prefix)
-     ‘C-e d o <XF86WakeUp> d o’
+     ‘C-e d o’
+
+     ‘<fn> d o’
 
      Toggle stripping of octals.
      Interactive prefix arg means
@@ -3666,7 +3757,9 @@ Defines the TTS interface.
 .....................
 
  -- Command: tts-restart
-     ‘C-e C-s <XF86WakeUp> C-s’
+     ‘C-e C-s’
+
+     ‘<fn> C-s’
 
      Use this to nuke the currently running TTS server and restart it.
 
@@ -3674,7 +3767,9 @@ Defines the TTS interface.
 ...........................
 
  -- Command: tts-speak-version
-     ‘C-e d V <XF86WakeUp> d V’
+     ‘C-e d V’
+
+     ‘<fn> d V’
 
      Speak version.
 
@@ -3683,7 +3778,7 @@ Defines the TTS interface.
 
  -- Variable: User Option dtk-cleanup-patterns
      List of repeating patterns to clean up.  You can use command
-     “dtk-add-cleanup-pattern” bound to C-e d a to add more patterns.
+     ‘dtk-add-cleanup-pattern’ bound to C-e d a to add more patterns.
      Specify patterns that people use to decorate their ASCII files, and
      cause untold pain to the speech synthesizer.
 
@@ -3708,7 +3803,7 @@ Defines the TTS interface.
  -- Variable: User Option dtk-speech-rate-step
      *Value of speech rate increment.  This determines step size used
      when setting speech rate via command
-     “dtk-set-predefined-speech-rate”.  Formula used is
+     ‘dtk-set-predefined-speech-rate’.  Formula used is
      dtk-speech-rate-base + dtk-speech-rate-step*level.
 
  -- Variable: User Option dtk-speech-server-program
@@ -3909,7 +4004,7 @@ system.
      <(deletechar>	emacspeak-ssh-tts-restart
      <C-<left>	emacspeak-select-this-buffer-previous-display
      <C-<right>	emacspeak-select-this-buffer-next-display
-     <XF86WakeUp>	dtk-stop
+     <fn>	dtk-stop
      <delete>	emacspeak-ssh-tts-restart
      <down>		emacspeak-read-next-line
      <f1>		emacspeak-learn-emacs-mode
@@ -4089,7 +4184,11 @@ system.
 ......................................
 
  -- Command: emacspeak-describe-emacspeak
-     ‘C-h C-e <f1> C-e <help> C-e’
+     ‘C-h C-e’
+
+     ‘<f1> C-e’
+
+     ‘<help> C-e’
 
      Give a brief overview of emacspeak.
 
@@ -4097,7 +4196,9 @@ system.
 ..............................
 
  -- Command: emacspeak-submit-bug
-     ‘C-e C-M-b <XF86WakeUp> C-M-b’
+     ‘C-e C-M-b’
+
+     ‘<fn> C-M-b’
 
      Function to submit a bug to the programs maintainer.
 
@@ -6365,7 +6466,9 @@ versions of Emacs older than Emacs 21, And preferably only run on Emacs
 ...................................
 
  -- Command: emacspeak-eldoc-speak-doc
-     ‘C-, , C-x @ a ,’
+     ‘C-, ,’
+
+     ‘C-x @ a ,’
 
      Speak Eldoc documentation if available.
 
@@ -6412,7 +6515,7 @@ alsaplayer navigation commands work via single keystrokes.
  -- Command: emacspeak-alsaplayer-amark-add (name &optional
           prompt-position)
 
-     Set AMark “name” at current position in current audio stream.
+     Set AMark ‘name’ at current position in current audio stream.
      Interactive prefix arg prompts for position.
      As the default, use current position.
 
@@ -6570,8 +6673,8 @@ alsaplayer navigation commands work via single keystrokes.
      M-l		emacspeak-amark-load
      M-s		emacspeak-amark-save
 
-     In addition to any hooks its parent mode “special-mode” might have run,
-     this mode runs the hook “emacspeak-alsaplayer-mode-hook”, as the final step
+     In addition to any hooks its parent mode ‘special-mode’ might have run,
+     this mode runs the hook ‘emacspeak-alsaplayer-mode-hook’, as the final step
      during initialization.
 
 12.16.1.19 emacspeak-alsaplayer-next
@@ -7018,7 +7121,9 @@ available.  For downloading a program etc., use Emacs package iplayer.
 .......................
 
  -- Command: emacspeak-bbc (&optional genre)
-     ‘C-' b C-x @ s b’
+     ‘C-' b’
+
+     ‘C-x @ s b’
 
      Launch BBC Interaction.
      See http://www.bbc.co.uk/radio/stations for full list of stations.
@@ -7101,7 +7206,9 @@ higher.
 .............................
 
  -- Command: emacspeak-bookshare
-     ‘C-e C-b <XF86WakeUp> C-b’
+     ‘C-e C-b’
+
+     ‘<fn> C-b’
 
      Bookshare  Interaction.
 
@@ -7324,8 +7431,8 @@ higher.
      M-n		emacspeak-bookshare-next-result
      M-p		emacspeak-bookshare-previous-result
 
-     In addition to any hooks its parent mode “special-mode” might have run,
-     this mode runs the hook “emacspeak-bookshare-mode-hook”, as the final step
+     In addition to any hooks its parent mode ‘special-mode’ might have run,
+     this mode runs the hook ‘emacspeak-bookshare-mode-hook’, as the final step
      during initialization.
 
 12.29.1.24 emacspeak-bookshare-next-result
@@ -7392,7 +7499,7 @@ higher.
  -- Command: emacspeak-bookshare-toc-at-point
 
      View TOC for book at point.
-     Make sure it”s downloaded and unpacked first.
+     Make sure it’s downloaded and unpacked first.
 
 12.29.1.33 emacspeak-bookshare-unpack-at-point
 ..............................................
@@ -7431,7 +7538,7 @@ higher.
  -- Command: emacspeak-bookshare-view-at-point
 
      View book at point.
-     Make sure it”s downloaded and unpacked first.
+     Make sure it’s downloaded and unpacked first.
 
 12.29.1.38 emacspeak-bookshare-view-page-range
 ..............................................
