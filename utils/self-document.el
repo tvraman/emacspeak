@@ -262,9 +262,11 @@
              (or (help-function-arglist c t) " ")))
     (when key
       (setq keys (mapcar #'sd-texinfo-escape (mapcar #'key-description key )))
+      (insert "@table @kbd\n")
       (cl-loop for k in keys do 
-      (insert (format "@kbd{%s}\n" k))
-      (insert (format "@kindex %s\n" k))))
+               (insert (format "@item @kbd{%s}\n" k))
+               (insert (format "@kindex %s\n" k)))
+      (insert "@end table\n\n"))
     (insert (format "@findex %s\n\n" c))
     (insert
      (if
