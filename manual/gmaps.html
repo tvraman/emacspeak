@@ -107,14 +107,14 @@
     <strong>gmaps</strong> <em>(&amp;rest rest)</em></dt>
 
     <dd>
-      <p><kbd>C-; e C-x @ h e</kbd></p><a name=
-      "index-C_002d_003b-e-C_002dx-_0040-h-e" id=
-      "index-C_002d_003b-e-C_002dx-_0040-h-e"></a> <a name=
-      "index-gmaps-1" id="index-gmaps-1"></a>
+      <p><kbd>C-; e</kbd> <kbd>C-x @ h e</kbd> <a name=
+      "index-_0028C_002d_003b-e-C_002dx-_0040-h-e_0029" id=
+      "index-_0028C_002d_003b-e-C_002dx-_0040-h-e_0029"></a>
+      <a name="index-gmaps-1" id="index-gmaps-1"></a></p>
 
       <div class="format">
         <pre class="format">
-:around advice: “ad-Advice-gmaps”
+:around advice: ‘ad-Advice-gmaps’
 
 Google Maps Interaction.
 
@@ -140,7 +140,7 @@ Google Maps Interaction.
 
       <div class="format">
         <pre class="format">
-:around advice: “ad-Advice-gmaps-bicycling-directions”
+:around advice: ‘ad-Advice-gmaps-bicycling-directions’
 
 Biking directions from Google Maps.
 
@@ -187,7 +187,7 @@ Display  directions obtained from Google Maps.
 
       <div class="format">
         <pre class="format">
-:around advice: “ad-Advice-gmaps-driving-directions”
+:around advice: ‘ad-Advice-gmaps-driving-directions’
 
 Driving directions from Google Maps.
 
@@ -212,8 +212,8 @@ Driving directions from Google Maps.
         <pre class="format">
 A Google Maps front-end for the Emacspeak desktop.
 
-In addition to any hooks its parent mode “special-mode” might have run,
-this mode runs the hook “gmaps-mode-hook”, as the final step
+In addition to any hooks its parent mode ‘special-mode’ might have run,
+this mode runs the hook ‘gmaps-mode-hook’, as the final step
 during initialization.
 
 key             binding
@@ -256,7 +256,7 @@ M-i             backward-button
 
       <div class="format">
         <pre class="format">
-:around advice: “ad-Advice-gmaps-place-details”
+:around advice: ‘ad-Advice-gmaps-place-details’
 
 Display details for place at point.
 Insert reviews if already displaying details.
@@ -303,7 +303,7 @@ Place details need to have been expanded first.
 
       <div class="format">
         <pre class="format">
-:around advice: “ad-Advice-gmaps-places-nearby”
+:around advice: ‘ad-Advice-gmaps-places-nearby’
 
 Find places near current location.
 Uses default radius. optional interactive prefix arg clears any active filters.
@@ -329,10 +329,10 @@ Uses default radius. optional interactive prefix arg clears any active filters.
 
       <div class="format">
         <pre class="format">
-:around advice: “ad-Advice-gmaps-places-search”
+:around advice: ‘ad-Advice-gmaps-places-search’
 
 Perform a places search.
-Use this only if you dont know the locality  of the place you”re looking for.
+Use this only if you dont know the locality  of the place you’re looking for.
 Optional  prefix arg clears any active filters.
 
 (fn QUERY &amp;optional CLEAR-FILTER)
@@ -380,7 +380,7 @@ Optional interactive prefix arg prompts for all filter fields.
 
       <div class="format">
         <pre class="format">
-:around advice: “ad-Advice-gmaps-set-current-location”
+:around advice: ‘ad-Advice-gmaps-set-current-location’
 
  Set current location.
 
@@ -406,7 +406,7 @@ Optional interactive prefix arg prompts for all filter fields.
 
       <div class="format">
         <pre class="format">
-:around advice: “ad-Advice-gmaps-set-current-radius”
+:around advice: ‘ad-Advice-gmaps-set-current-radius’
 
 Set current radius
 
@@ -432,7 +432,7 @@ Set current radius
 
       <div class="format">
         <pre class="format">
-:around advice: “ad-Advice-gmaps-transit-directions”
+:around advice: ‘ad-Advice-gmaps-transit-directions’
 
 Transit directions from Google Maps.
 
@@ -458,7 +458,7 @@ Transit directions from Google Maps.
 
       <div class="format">
         <pre class="format">
-:around advice: “ad-Advice-gmaps-walking-directions”
+:around advice: ‘ad-Advice-gmaps-walking-directions’
 
 Walking directions from Google Maps.
 
