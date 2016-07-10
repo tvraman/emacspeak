@@ -45,7 +45,7 @@
 ;;; EWW is a light-weight Web browser built into Emacs 24.4.
 ;;; This module speech-enables EWW.
 ;;; It implements additional interactive commands for navigating the DOM.
-;;; It also provides a set of filtrs for interactively filtering the DOM by various attributes such as id, class and role.
+;;; It also provides a set of filters for interactively filtering the DOM by various attributes such as id, class and role.
 
 
 ;;; Code:
