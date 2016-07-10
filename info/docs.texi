@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1151 commands and 967 options.
+This chapter documents a total of 1150 commands and 967 options.
 
 @menu
 * acss-structure::
@@ -7464,7 +7464,9 @@ Personality t use for voiceifying attribute values.
 
 EWW == Emacs Web Browser
 EWW is a light-weight Web browser built into Emacs 24.4.
-This module speech-enables EWW
+This module speech-enables EWW.
+It implements additional interactive commands for navigating the DOM.
+It also provides a set of filtrs for interactively filtering the DOM by various attributes such as id, class and role.
 
 @subsection emacspeak-eww Commands
 
@@ -16376,15 +16378,6 @@ Optional interactive prefix arg displays documentation for specified resource.
 @end format
 @end deffn
 
-@subsubsection emacspeak-url-template-google-atom-news-display
-@deffn {Command} emacspeak-url-template-google-atom-news-display  (feed-url)
-@findex emacspeak-url-template-google-atom-news-display
-
-@format
-View Google Atom news feed pulled using Curl.
-@end format
-@end deffn
-
 @subsubsection emacspeak-url-template-help
 @deffn {Command} emacspeak-url-template-help   
 @findex emacspeak-url-template-help
@@ -19432,7 +19425,7 @@ Location is specified by name.
 @end deffn
 
 @subsubsection emacspeak-wizards-tune-in-radio-browse
-@deffn {Command} emacspeak-wizards-tune-in-radio-browse   
+@deffn {Command} emacspeak-wizards-tune-in-radio-browse  (&optional category)
 @kbd{C-, t C-x @@ a t}
 
 @kindex C-, t C-x @@ a t
@@ -19440,6 +19433,7 @@ Location is specified by name.
 
 @format
 Browse Tune-In Radio.
+Optional interactive prefix arg ``category'' prompts for a category.
 @end format
 @end deffn
 

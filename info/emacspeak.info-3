@@ -636,14 +636,7 @@ presently defined.
      before completing the request.
      Optional interactive prefix arg displays documentation for specified resource.
 
-12.178.1.2 emacspeak-url-template-google-atom-news-display
-..........................................................
-
- -- Command: emacspeak-url-template-google-atom-news-display (feed-url)
-
-     View Google Atom news feed pulled using Curl.
-
-12.178.1.3 emacspeak-url-template-help
+12.178.1.2 emacspeak-url-template-help
 ......................................
 
  -- Command: emacspeak-url-template-help
@@ -652,14 +645,14 @@ presently defined.
      Use Emacs completion to obtain a list of available
      resources.
 
-12.178.1.4 emacspeak-url-template-load
+12.178.1.3 emacspeak-url-template-load
 ......................................
 
  -- Command: emacspeak-url-template-load (file)
 
      Load URL template resources from specified location.
 
-12.178.1.5 emacspeak-url-template-save
+12.178.1.4 emacspeak-url-template-save
 ......................................
 
  -- Command: emacspeak-url-template-save (file)
@@ -3062,10 +3055,11 @@ Contains various wizards for the Emacspeak desktop.
 12.191.1.110 emacspeak-wizards-tune-in-radio-browse
 ...................................................
 
- -- Command: emacspeak-wizards-tune-in-radio-browse
+ -- Command: emacspeak-wizards-tune-in-radio-browse (&optional category)
      ‘C-, t C-x @ a t’
 
      Browse Tune-In Radio.
+     Optional interactive prefix arg “category” prompts for a category.
 
 12.191.1.111 emacspeak-wizards-tune-in-radio-search
 ...................................................
@@ -5396,7 +5390,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-' h C-; SPC SPC C-x @ s h C-x @ h SPC SPC: emacspeak-webspace.
                                                              (line   56)
 * C-' l C-x @ s l:                       emacspeak-m-player. (line  305)
-* C-' m C-, c C-x @ a c C-x @ s m:       emacspeak-wizards.  (line 1096)
+* C-' m C-, c C-x @ a c C-x @ s m:       emacspeak-wizards.  (line 1097)
 * C-' R C-x @ s R:                       emacspeak-webspace. (line   17)
 * C-' r C-x @ s r:                       soundscape.         (line   87)
 * C-' s C-x @ s s:                       soundscape.         (line   49)
@@ -5410,10 +5404,10 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-, o C-x @ a o:                       emacspeak-feeds.    (line   73)
 * C-, p C-x @ a p:                       emacspeak-wizards.  (line  448)
 * C-, r C-x @ a r:                       emacspeak-feeds.    (line   89)
-* C-, s C-x @ a s:                       emacspeak-wizards.  (line 1014)
+* C-, s C-x @ a s:                       emacspeak-wizards.  (line 1015)
 * C-, t C-x @ a t:                       emacspeak-wizards.  (line 1006)
 * C-, u C-x @ a u:                       emacspeak-m-player. (line  560)
-* C-; : C-x @ h ::                       emacspeak-wizards.  (line 1081)
+* C-; : C-x @ h ::                       emacspeak-wizards.  (line 1082)
 * C-; ; C-x @ h ;:                       emacspeak-m-player. (line  568)
 * C-; a C-x @ h a:                       emacspeak-wizards.  (line  952)
 * C-; e C-x @ h e:                       gmaps.              (line   17)
@@ -5698,11 +5692,11 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e x h <XF86WakeUp> x h:              emacspeak-wizards.  (line  686)
 * C-e x j <XF86WakeUp> x j:              emacspeak-jabber.   (line   43)
 * C-e x o <XF86WakeUp> x o:              emacspeak-wizards.  (line  762)
-* C-e x Q <XF86WakeUp> x Q:              emacspeak-wizards.  (line 1138)
-* C-e x q <XF86WakeUp> x q:              emacspeak-wizards.  (line 1147)
+* C-e x Q <XF86WakeUp> x Q:              emacspeak-wizards.  (line 1139)
+* C-e x q <XF86WakeUp> x q:              emacspeak-wizards.  (line 1148)
 * C-e x t <XF86WakeUp> x t:              emacspeak-wizards.  (line  293)
-* C-e x u <XF86WakeUp> x u:              emacspeak-wizards.  (line 1029)
-* C-e x v <XF86WakeUp> x v:              emacspeak-wizards.  (line 1044)
+* C-e x u <XF86WakeUp> x u:              emacspeak-wizards.  (line 1030)
+* C-e x v <XF86WakeUp> x v:              emacspeak-wizards.  (line 1045)
 * C-e x | <XF86WakeUp> x |:              emacspeak-wizards.  (line  937)
 * C-e [ <XF86WakeUp> [:                  emacspeak-speak.    (line  624)
 * C-e \ <XF86WakeUp> \:                  emacspeak-speak.    (line 1049)
