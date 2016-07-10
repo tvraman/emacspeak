@@ -41,6 +41,7 @@
 ;;; Commentary:
 
 ;;; This module defines the emacspeak keybindings.
+;;; Note that the <fn> key found on laptops is denoted <XF86WakeUp>
 
 ;;; Code:
 
