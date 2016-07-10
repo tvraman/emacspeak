@@ -4772,7 +4772,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.224 URL Templates
 ====================
 
-This section documents a total of 78 URL Templates.
+This section documents a total of 80 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <XF86WakeUp> u’.
@@ -4845,6 +4845,11 @@ location and speaks the forecast.
    Bing Search
 
    Bing results as RSS feed.
+
+   Bloomberg Stock Lookup
+
+   Lookup Stock Quote information on Bloomberg.  Ticker is of the form
+goog:us
 
    CNN Content
 
@@ -5003,6 +5008,10 @@ English to German
    RadioTime Browser
 
    RadioTime Entry point.
+
+   RadioTime Categories
+
+   RadioTime Categories .
 
    RadioTime Search
 

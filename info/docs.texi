@@ -21449,7 +21449,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 78 URL Templates.
+This section documents a total of 80 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -21526,6 +21526,10 @@ Bing News results as RSS feed.
 @b{Bing Search}
 
 Bing results as RSS feed.
+
+@b{Bloomberg Stock  Lookup}
+
+Lookup Stock Quote information on Bloomberg. Ticker is of the form goog:us
 
 @b{CNN Content}
 
@@ -21685,6 +21689,10 @@ Play Podcast from CNET
 @b{RadioTime Browser}
 
 RadioTime Entry point.
+
+@b{RadioTime Categories}
+
+RadioTime Categories .
 
 @b{RadioTime Search}
 
