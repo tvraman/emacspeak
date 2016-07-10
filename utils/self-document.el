@@ -263,8 +263,8 @@
     (when key
       (setq keys (mapcar #'sd-texinfo-escape (mapcar #'key-description key )))
       (cl-loop for k in keys do 
-      (insert (format "@kbd{%s}\n" k)))
-      (insert (format "@kindex %s\n" keys)))
+      (insert (format "@kbd{%s} " k))
+      (insert (format "@kindex %s\n" k))))
     (insert (format "@findex %s\n\n" c))
     (insert
      (if
