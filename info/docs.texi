@@ -308,9 +308,9 @@ cdda2wav is a cd to wav converter.
 
 @subsubsection cd-tool
 @deffn {Command} cd-tool   
-@kbd{C-e DEL <XF86WakeUp> DEL}
+@kbd{C-e DEL <fn> DEL}
 
-@kindex C-e DEL <XF86WakeUp> DEL
+@kindex C-e DEL <fn> DEL
 @findex cd-tool
 
 @format
@@ -367,9 +367,9 @@ This module is Dectalk specific.
 
 @subsubsection dectalk
 @deffn {Command} dectalk   
-@kbd{C-e d C-d <XF86WakeUp> d C-d}
+@kbd{C-e d C-d <fn> d C-d}
 
-@kindex C-e d C-d <XF86WakeUp> d C-d
+@kindex C-e d C-d <fn> d C-d
 @findex dectalk
 
 @format
@@ -414,9 +414,9 @@ Defines the TTS interface.
 
 @subsubsection dtk-add-cleanup-pattern
 @deffn {Command} dtk-add-cleanup-pattern  (&optional delete)
-@kbd{C-e d a <XF86WakeUp> d a}
+@kbd{C-e d a <fn> d a}
 
-@kindex C-e d a <XF86WakeUp> d a
+@kindex C-e d a <fn> d a
 @findex dtk-add-cleanup-pattern
 
 @format
@@ -426,18 +426,18 @@ this pattern if previously added.  Cleaning up repeated
 patterns results in emacspeak speaking the pattern followed
 by a repeat count instead of speaking all the characters
 making up the pattern.  Thus, by adding the repeating
-pattern ``.'' (this is already added by default) emacspeak
-will say ````aw fifteen dot'''' when speaking the string
-````...............'''' instead of ````period period period period
-''''
+pattern ‘.’ (this is already added by default) emacspeak
+will say ‘‘aw fifteen dot’’ when speaking the string
+‘‘...............’’ instead of ‘‘period period period period
+’’
 @end format
 @end deffn
 
 @subsubsection dtk-cloud
 @deffn {Command} dtk-cloud   
-@kbd{C-e d C-c <XF86WakeUp> d C-c}
+@kbd{C-e d C-c <fn> d C-c}
 
-@kindex C-e d C-c <XF86WakeUp> d C-c
+@kindex C-e d C-c <fn> d C-c
 @findex dtk-cloud
 
 @format
@@ -447,9 +447,9 @@ Select preferred Cloud TTS server.
 
 @subsubsection dtk-local-server
 @deffn {Command} dtk-local-server  (program &optional prompt-port)
-@kbd{C-e d L <XF86WakeUp> d L}
+@kbd{C-e d L <fn> d L}
 
-@kindex C-e d L <XF86WakeUp> d L
+@kindex C-e d L <fn> d L
 @findex dtk-local-server
 
 @format
@@ -462,9 +462,9 @@ program. Port defaults to dtk-local-server-port
 
 @subsubsection dtk-notify-initialize
 @deffn {Command} dtk-notify-initialize   
-@kbd{C-e d C-n <XF86WakeUp> d C-n}
+@kbd{C-e d C-n <fn> d C-n}
 
-@kindex C-e d C-n <XF86WakeUp> d C-n
+@kindex C-e d C-n <fn> d C-n
 @findex dtk-notify-initialize
 
 @format
@@ -474,9 +474,9 @@ Initialize notification TTS stream.
 
 @subsubsection dtk-notify-shutdown
 @deffn {Command} dtk-notify-shutdown   
-@kbd{C-e d C-s <XF86WakeUp> d C-s}
+@kbd{C-e d C-s <fn> d C-s}
 
-@kindex C-e d C-s <XF86WakeUp> d C-s
+@kindex C-e d C-s <fn> d C-s
 @findex dtk-notify-shutdown
 
 @format
@@ -486,9 +486,9 @@ Shutdown notification TTS stream.
 
 @subsubsection dtk-notify-stop
 @deffn {Command} dtk-notify-stop   
-@kbd{C-e . <XF86WakeUp> .}
+@kbd{C-e . <fn> .}
 
-@kindex C-e . <XF86WakeUp> .
+@kindex C-e . <fn> .
 @findex dtk-notify-stop
 
 @format
@@ -498,9 +498,9 @@ Stop  speech on notification stream.
 
 @subsubsection dtk-reset-state
 @deffn {Command} dtk-reset-state   
-@kbd{C-e d R <XF86WakeUp> d R}
+@kbd{C-e d R <fn> d R}
 
-@kindex C-e d R <XF86WakeUp> d R
+@kindex C-e d R <fn> d R
 @findex dtk-reset-state
 
 @format
@@ -511,9 +511,9 @@ Typically used after the Dectalk has been power   cycled.
 
 @subsubsection dtk-select-server
 @deffn {Command} dtk-select-server  (program &optional device)
-@kbd{C-e d d <XF86WakeUp> d d}
+@kbd{C-e d d <fn> d d}
 
-@kindex C-e d d <XF86WakeUp> d d
+@kindex C-e d d <fn> d d
 @findex dtk-select-server
 
 @format
@@ -527,9 +527,9 @@ ALSA_DEFAULT to specified device before starting the server.
 
 @subsubsection dtk-set-character-scale
 @deffn {Command} dtk-set-character-scale  (factor &optional prefix)
-@kbd{C-e d f <XF86WakeUp> d f}
+@kbd{C-e d f <fn> d f}
 
-@kindex C-e d f <XF86WakeUp> d f
+@kindex C-e d f <fn> d f
 @findex dtk-set-character-scale
 
 @format
@@ -543,9 +543,9 @@ current local  value to the result.
 
 @subsubsection dtk-set-chunk-separator-syntax
 @deffn {Command} dtk-set-chunk-separator-syntax  (s)
-@kbd{C-e d RET <XF86WakeUp> d RET}
+@kbd{C-e d RET <fn> d RET}
 
-@kindex C-e d RET <XF86WakeUp> d RET
+@kindex C-e d RET <fn> d RET
 @findex dtk-set-chunk-separator-syntax
 
 @format
@@ -558,9 +558,9 @@ Argument S specifies the syntax class.
 
 @subsubsection dtk-set-language
 @deffn {Command} dtk-set-language  (lang)
-@kbd{C-e d S <XF86WakeUp> d S}
+@kbd{C-e d S <fn> d S}
 
-@kindex C-e d S <XF86WakeUp> d S
+@kindex C-e d S <fn> d S
 @findex dtk-set-language
 
 @format
@@ -570,9 +570,9 @@ Set language according to the argument lang.
 
 @subsubsection dtk-set-next-language
 @deffn {Command} dtk-set-next-language   
-@kbd{C-e d N <XF86WakeUp> d N}
+@kbd{C-e d N <fn> d N}
 
-@kindex C-e d N <XF86WakeUp> d N
+@kindex C-e d N <fn> d N
 @findex dtk-set-next-language
 
 @format
@@ -582,9 +582,9 @@ Switch to the next available language
 
 @subsubsection dtk-set-predefined-speech-rate
 @deffn {Command} dtk-set-predefined-speech-rate  (&optional prefix)
-@kbd{C-e d 9 C-e d 8 C-e d 7 C-e d 6 C-e d 5 C-e d 4 C-e d 3 C-e d 2 C-e d 1 C-e d 0 <XF86WakeUp> d 9 <XF86WakeUp> d 8 <XF86WakeUp> d 7 <XF86WakeUp> d 6 <XF86WakeUp> d 5 <XF86WakeUp> d 4 <XF86WakeUp> d 3 <XF86WakeUp> d 2 <XF86WakeUp> d 1 <XF86WakeUp> d 0}
+@kbd{C-e d 9 C-e d 8 C-e d 7 C-e d 6 C-e d 5 C-e d 4 C-e d 3 C-e d 2 C-e d 1 C-e d 0 <fn> d 9 <fn> d 8 <fn> d 7 <fn> d 6 <fn> d 5 <fn> d 4 <fn> d 3 <fn> d 2 <fn> d 1 <fn> d 0}
 
-@kindex C-e d 9 C-e d 8 C-e d 7 C-e d 6 C-e d 5 C-e d 4 C-e d 3 C-e d 2 C-e d 1 C-e d 0 <XF86WakeUp> d 9 <XF86WakeUp> d 8 <XF86WakeUp> d 7 <XF86WakeUp> d 6 <XF86WakeUp> d 5 <XF86WakeUp> d 4 <XF86WakeUp> d 3 <XF86WakeUp> d 2 <XF86WakeUp> d 1 <XF86WakeUp> d 0
+@kindex C-e d 9 C-e d 8 C-e d 7 C-e d 6 C-e d 5 C-e d 4 C-e d 3 C-e d 2 C-e d 1 C-e d 0 <fn> d 9 <fn> d 8 <fn> d 7 <fn> d 6 <fn> d 5 <fn> d 4 <fn> d 3 <fn> d 2 <fn> d 1 <fn> d 0
 @findex dtk-set-predefined-speech-rate
 
 @format
@@ -611,9 +611,9 @@ will set "en_GB".
 
 @subsubsection dtk-set-previous-language
 @deffn {Command} dtk-set-previous-language   
-@kbd{C-e d P <XF86WakeUp> d P}
+@kbd{C-e d P <fn> d P}
 
-@kindex C-e d P <XF86WakeUp> d P
+@kindex C-e d P <fn> d P
 @findex dtk-set-previous-language
 
 @format
@@ -623,14 +623,14 @@ Switch to the previous available language
 
 @subsubsection dtk-set-punctuations
 @deffn {Command} dtk-set-punctuations  (mode &optional prefix)
-@kbd{C-e d p <XF86WakeUp> d p}
+@kbd{C-e d p <fn> d p}
 
-@kindex C-e d p <XF86WakeUp> d p
+@kindex C-e d p <fn> d p
 @findex dtk-set-punctuations
 
 @format
 Set punctuation mode to MODE.
-Possible values are ``some'', ``all'', or ``none''.
+Possible values are ‘some’, ‘all’, or ‘none’.
 Interactive PREFIX arg means set   the global default value, and then set the
 current local  value to the result.
 @end format
@@ -658,9 +658,9 @@ Interactive PREFIX arg sets punctuation mode globally.
 
 @subsubsection dtk-set-rate
 @deffn {Command} dtk-set-rate  (rate &optional prefix)
-@kbd{C-e d r <XF86WakeUp> d r}
+@kbd{C-e d r <fn> d r}
 
-@kindex C-e d r <XF86WakeUp> d r
+@kindex C-e d r <fn> d r
 @findex dtk-set-rate
 
 @format
@@ -672,9 +672,9 @@ current local  value to the result.
 
 @subsubsection dtk-stop
 @deffn {Command} dtk-stop   
-@kbd{C-e s C-e <XF86WakeUp> <XF86WakeUp> s <XF86WakeUp> <XF86WakeUp>}
+@kbd{C-e s C-e <fn> <fn> s <fn> <fn>}
 
-@kindex C-e s C-e <XF86WakeUp> <XF86WakeUp> s <XF86WakeUp> <XF86WakeUp>
+@kindex C-e s C-e <fn> <fn> s <fn> <fn>
 @findex dtk-stop
 
 @format
@@ -685,9 +685,9 @@ Interactive call   silences notification stream as well.
 
 @subsubsection dtk-toggle-allcaps-beep
 @deffn {Command} dtk-toggle-allcaps-beep  (&optional prefix)
-@kbd{C-e d C <XF86WakeUp> d C}
+@kbd{C-e d C <fn> d C}
 
-@kindex C-e d C <XF86WakeUp> d C
+@kindex C-e d C <fn> d C
 @findex dtk-toggle-allcaps-beep
 
 @format
@@ -702,9 +702,9 @@ However it is irritating to have it on when reading documents.
 
 @subsubsection dtk-toggle-capitalization
 @deffn {Command} dtk-toggle-capitalization  (&optional prefix)
-@kbd{C-e d c <XF86WakeUp> d c}
+@kbd{C-e d c <fn> d c}
 
-@kindex C-e d c <XF86WakeUp> d c
+@kindex C-e d c <fn> d c
 @findex dtk-toggle-capitalization
 
 @format
@@ -717,9 +717,9 @@ value, and then set the current local value to the result.
 
 @subsubsection dtk-toggle-punctuation-mode
 @deffn {Command} dtk-toggle-punctuation-mode  (&optional prefix)
-@kbd{C-e d , <XF86WakeUp> d ,}
+@kbd{C-e d , <fn> d ,}
 
-@kindex C-e d , <XF86WakeUp> d ,
+@kindex C-e d , <fn> d ,
 @findex dtk-toggle-punctuation-mode
 
 @format
@@ -730,9 +730,9 @@ Interactive PREFIX arg makes the new setting global.
 
 @subsubsection dtk-toggle-quiet
 @deffn {Command} dtk-toggle-quiet  (&optional prefix)
-@kbd{C-e d q <XF86WakeUp> d q}
+@kbd{C-e d q <fn> d q}
 
-@kindex C-e d q <XF86WakeUp> d q
+@kindex C-e d q <fn> d q
 @findex dtk-toggle-quiet
 
 @format
@@ -744,9 +744,9 @@ Optional interactive prefix arg causes this setting to become global.
 
 @subsubsection dtk-toggle-speak-nonprinting-chars
 @deffn {Command} dtk-toggle-speak-nonprinting-chars  (&optional prefix)
-@kbd{C-e d n <XF86WakeUp> d n}
+@kbd{C-e d n <fn> d n}
 
-@kindex C-e d n <XF86WakeUp> d n
+@kindex C-e d n <fn> d n
 @findex dtk-toggle-speak-nonprinting-chars
 
 @format
@@ -759,9 +759,9 @@ value, and then set the current local value to the result.
 
 @subsubsection dtk-toggle-split-caps
 @deffn {Command} dtk-toggle-split-caps  (&optional prefix)
-@kbd{C-e d s <XF86WakeUp> d s}
+@kbd{C-e d s <fn> d s}
 
-@kindex C-e d s <XF86WakeUp> d s
+@kindex C-e d s <fn> d s
 @findex dtk-toggle-split-caps
 
 @format
@@ -775,9 +775,9 @@ value to the result.
 
 @subsubsection dtk-toggle-splitting-on-white-space
 @deffn {Command} dtk-toggle-splitting-on-white-space   
-@kbd{C-e d SPC <XF86WakeUp> d SPC}
+@kbd{C-e d SPC <fn> d SPC}
 
-@kindex C-e d SPC <XF86WakeUp> d SPC
+@kindex C-e d SPC <fn> d SPC
 @findex dtk-toggle-splitting-on-white-space
 
 @format
@@ -786,12 +786,12 @@ This affects the internal state of emacspeak that decides if we split
 text purely by clause boundaries, or also include
 whitespace.  By default, emacspeak sends a clause at a time
 to the speech device.  This produces fluent speech for
-normal use.  However in modes such as ``shell-mode'' and some
+normal use.  However in modes such as ‘shell-mode’ and some
 programming language modes, clause markers appear
 infrequently, and this can result in large amounts of text
 being sent to the speech device at once, making the system
 unresponsive when asked to stop talking.  Splitting on white
-space makes emacspeak''s stop command responsive.  However,
+space makes emacspeak’s stop command responsive.  However,
 when splitting on white space, the speech sounds choppy
 since the synthesizer is getting a word at a time.
 @end format
@@ -799,9 +799,9 @@ since the synthesizer is getting a word at a time.
 
 @subsubsection dtk-toggle-strip-octals
 @deffn {Command} dtk-toggle-strip-octals  (&optional prefix)
-@kbd{C-e d o <XF86WakeUp> d o}
+@kbd{C-e d o <fn> d o}
 
-@kindex C-e d o <XF86WakeUp> d o
+@kindex C-e d o <fn> d o
 @findex dtk-toggle-strip-octals
 
 @format
@@ -824,9 +824,9 @@ Optional interactive prefix arg restarts current TTS server.
 
 @subsubsection tts-restart
 @deffn {Command} tts-restart   
-@kbd{C-e C-s <XF86WakeUp> C-s}
+@kbd{C-e C-s <fn> C-s}
 
-@kindex C-e C-s <XF86WakeUp> C-s
+@kindex C-e C-s <fn> C-s
 @findex tts-restart
 
 @format
@@ -836,9 +836,9 @@ Use this to nuke the currently running TTS server and restart it.
 
 @subsubsection tts-speak-version
 @deffn {Command} tts-speak-version   
-@kbd{C-e d V <XF86WakeUp> d V}
+@kbd{C-e d V <fn> d V}
 
-@kindex C-e d V <XF86WakeUp> d V
+@kindex C-e d V <fn> d V
 @findex tts-speak-version
 
 @format
@@ -850,7 +850,7 @@ Speak version.
 
 @defvar {User Option} dtk-cleanup-patterns
 List of repeating patterns to clean up.
-You can use  command  ``dtk-add-cleanup-pattern''
+You can use  command  ‘dtk-add-cleanup-pattern’
  bound to C-e d a  to add more patterns.
 Specify patterns that people use to decorate their ASCII files, and cause
 untold pain to the speech synthesizer.
@@ -888,7 +888,7 @@ it seems some accented characters in certain contexts.
 @defvar {User Option} dtk-speech-rate-step
 *Value of speech rate increment.
 This determines step size used when setting speech rate via command
-``dtk-set-predefined-speech-rate''.  Formula used is
+‘dtk-set-predefined-speech-rate’.  Formula used is
 dtk-speech-rate-base  +  dtk-speech-rate-step*level.
 
 @end defvar
@@ -1104,7 +1104,7 @@ C-SPC		emacspeak-speak-current-mark
 <(deletechar>	emacspeak-ssh-tts-restart
 <C-<left>	emacspeak-select-this-buffer-previous-display
 <C-<right>	emacspeak-select-this-buffer-next-display
-<XF86WakeUp>	dtk-stop
+<fn>	dtk-stop
 <delete>	emacspeak-ssh-tts-restart
 <down>		emacspeak-read-next-line
 <f1>		emacspeak-learn-emacs-mode
@@ -1296,9 +1296,9 @@ Give a brief overview of emacspeak.
 
 @subsubsection emacspeak-submit-bug
 @deffn {Command} emacspeak-submit-bug   
-@kbd{C-e C-M-b <XF86WakeUp> C-M-b}
+@kbd{C-e C-M-b <fn> C-M-b}
 
-@kindex C-e C-M-b <XF86WakeUp> C-M-b
+@kindex C-e C-M-b <fn> C-M-b
 @findex emacspeak-submit-bug
 
 @format
@@ -4058,7 +4058,7 @@ Add specified resource to queue.
 @findex emacspeak-alsaplayer-amark-add
 
 @format
-Set AMark ``name'' at current position in current audio stream.
+Set AMark ‘name’ at current position in current audio stream.
 Interactive prefix arg prompts for position.
 As the default, use current position.
 @end format
@@ -4248,8 +4248,8 @@ x		emacspeak-alsaplayer-clip
 M-l		emacspeak-amark-load
 M-s		emacspeak-amark-save
 
-In addition to any hooks its parent mode ``special-mode'' might have run,
-this mode runs the hook ``emacspeak-alsaplayer-mode-hook'', as the final step
+In addition to any hooks its parent mode ‘special-mode’ might have run,
+this mode runs the hook ‘emacspeak-alsaplayer-mode-hook’, as the final step
 during initialization.
 @end format
 @end deffn
@@ -4841,9 +4841,9 @@ You need Emacs 24.1 or higher.
 
 @subsubsection emacspeak-bookshare
 @deffn {Command} emacspeak-bookshare   
-@kbd{C-e C-b <XF86WakeUp> C-b}
+@kbd{C-e C-b <fn> C-b}
 
-@kindex C-e C-b <XF86WakeUp> C-b
+@kindex C-e C-b <fn> C-b
 @findex emacspeak-bookshare
 
 @format
@@ -5111,8 +5111,8 @@ v		emacspeak-bookshare-view
 M-n		emacspeak-bookshare-next-result
 M-p		emacspeak-bookshare-previous-result
 
-In addition to any hooks its parent mode ``special-mode'' might have run,
-this mode runs the hook ``emacspeak-bookshare-mode-hook'', as the final step
+In addition to any hooks its parent mode ‘special-mode’ might have run,
+this mode runs the hook ‘emacspeak-bookshare-mode-hook’, as the final step
 during initialization.
 @end format
 @end deffn
@@ -5197,7 +5197,7 @@ View TOC for book in specified directory.
 
 @format
 View TOC for book at point.
-Make sure it''s downloaded and unpacked first.
+Make sure it’s downloaded and unpacked first.
 @end format
 @end deffn
 
@@ -5246,7 +5246,7 @@ View book in specified directory.
 
 @format
 View book at point.
-Make sure it''s downloaded and unpacked first.
+Make sure it’s downloaded and unpacked first.
 @end format
 @end deffn
 
@@ -5408,9 +5408,9 @@ This is an excellent example of the advantages of speech-enabled  interaction.
 
 @subsubsection emacspeak-appt-repeat-announcement
 @deffn {Command} emacspeak-appt-repeat-announcement   
-@kbd{C-e A <XF86WakeUp> A}
+@kbd{C-e A <fn> A}
 
-@kindex C-e A <XF86WakeUp> A
+@kindex C-e A <fn> A
 @findex emacspeak-appt-repeat-announcement
 
 @format
@@ -5614,7 +5614,7 @@ Open HTML file on current dired line.
 @format
 Labels the fields of the listing in the dired buffer.
 Currently is a no-op  unless
-unless ``dired-listing-switches'' contains -l
+unless ‘dired-listing-switches’ contains -l
 @end format
 @end deffn
 
@@ -5651,8 +5651,8 @@ Open PDF file on current dired line.
 
 @format
 Displays type of current file by running command file.
-Like Emacs'' built-in dired-show-file-type but allows user to customize
-options passed to command ``file''.
+Like Emacs’ built-in dired-show-file-type but allows user to customize
+options passed to command ‘file’.
 @end format
 @end deffn
 
@@ -5714,7 +5714,7 @@ Speaks the target of the symlink on the current line.
 @subsection emacspeak-dired Options
 
 @defvar {User Option} emacspeak-dired-file-cmd-options
-Options passed to Unix builtin ``file'' command.
+Options passed to Unix builtin ‘file’ command.
 
 @end defvar
 
@@ -5779,7 +5779,7 @@ Display the cell value in the message area
 
 @format
 Display current cell along with its column header.
-The ``column header'' is the entry in row 0.
+The ‘column header’ is the entry in row 0.
 @end format
 @end deffn
 
@@ -5789,7 +5789,7 @@ The ``column header'' is the entry in row 0.
 
 @format
 Displays current cell along with its row header.
-The ``row header'' is the entry in column 0.
+The ‘row header’ is the entry in column 0.
 @end format
 @end deffn
 
@@ -6448,17 +6448,17 @@ key             binding
 
 <Return>	emacspeak-epub-calibre-dired-at-point
 
-In addition to any hooks its parent mode ``special-mode'' might have run,
-this mode runs the hook ``emacspeak-calibre-mode-hook'', as the final step
+In addition to any hooks its parent mode ‘special-mode’ might have run,
+this mode runs the hook ‘emacspeak-calibre-mode-hook’, as the final step
 during initialization.
 @end format
 @end deffn
 
 @subsubsection emacspeak-epub
 @deffn {Command} emacspeak-epub   
-@kbd{C-e g <XF86WakeUp> g}
+@kbd{C-e g <fn> g}
 
-@kindex C-e g <XF86WakeUp> g
+@kindex C-e g <fn> g
 @findex emacspeak-epub
 
 @format
@@ -6595,7 +6595,7 @@ No book files are deleted.
 
 @format
 Saves current bookshelf to  specified name.
-Interactive prefix arg ``overwrite'' will overwrite existing file.
+Interactive prefix arg ‘overwrite’ will overwrite existing file.
 @end format
 @end deffn
 
@@ -6746,8 +6746,8 @@ M-s		emacspeak-epub-bookshelf-save
 C-x C-q		emacspeak-epub-bookshelf-refresh
 C-x C-s		emacspeak-epub-bookshelf-save
 
-In addition to any hooks its parent mode ``special-mode'' might have run,
-this mode runs the hook ``emacspeak-epub-mode-hook'', as the final step
+In addition to any hooks its parent mode ‘special-mode’ might have run,
+this mode runs the hook ‘emacspeak-epub-mode-hook’, as the final step
 during initialization.
 @end format
 @end deffn
@@ -6843,7 +6843,7 @@ http://www.cs.cmu.edu/~berez/irc/erc.el
 @format
 Add people to monitor in this room.
 Optional interactive prefix  arg defines a pronunciation that
-  silences speaking of this perso''s name.
+  silences speaking of this perso’s name.
 @end format
 @end deffn
 
@@ -6988,7 +6988,7 @@ To move around the terminal and have different parts spoken.
 @findex emacspeak-eterm-copy-region-to-register
 
 @format
-:around advice: ``ad-Advice-emacspeak-eterm-copy-region-to-register''
+:around advice: ‘ad-Advice-emacspeak-eterm-copy-region-to-register’
 
 Copy text from terminal to an Emacs REGISTER.
 This copies  region delimited by the emacspeak eterm marker 
@@ -7059,7 +7059,7 @@ in a non eterm buffer if executed via C-e C-e
 @findex emacspeak-eterm-paste-register
 
 @format
-:around advice: ``ad-Advice-emacspeak-eterm-paste-register''
+:around advice: ‘ad-Advice-emacspeak-eterm-paste-register’
 
 Paste contents of REGISTER at current location.
 If the specified register contains text, then that text is
@@ -7231,8 +7231,8 @@ Search forward on the terminal.
 
 @format
 Prompt for the id of a predefined window,
-and set the ``filter'' window to it.
-Non-nil interactive prefix arg ``unsets'' the filter window;
+and set the ‘filter’ window to it.
+Non-nil interactive prefix arg ‘unsets’ the filter window;
 this is equivalent to having the entire terminal as the filter window (this is
 what eterm starts up with).
 Setting the filter window results in emacspeak  only monitoring screen
@@ -7246,8 +7246,8 @@ activity within the filter window.
 
 @format
 Prompt for the id of a predefined window,
-and set the ``focus'' window to it.
-Non-nil interactive prefix arg ``unsets'' the focus window;
+and set the ‘focus’ window to it.
+Non-nil interactive prefix arg ‘unsets’ the focus window;
 this is equivalent to having the entire terminal as the focus window (this is
 what eterm starts up with).
 Setting the focus window results in emacspeak  monitoring screen
@@ -7653,7 +7653,7 @@ Optional interactive prefix arg speaks the structural unit.
 @findex emacspeak-eww-phantom
 
 @format
-Retrieve ``url''  using PhantomJS and render with EWW.
+Retrieve ‘url’  using PhantomJS and render with EWW.
 @end format
 @end deffn
 
@@ -7869,9 +7869,9 @@ This module provides Feeds support for Emacspeak
 
 @subsubsection emacspeak-feeds-add-feed
 @deffn {Command} emacspeak-feeds-add-feed  (title url type)
-@kbd{C-e M-u <XF86WakeUp> M-u}
+@kbd{C-e M-u <fn> M-u}
 
-@kindex C-e M-u <XF86WakeUp> M-u
+@kindex C-e M-u <fn> M-u
 @findex emacspeak-feeds-add-feed
 
 @format
@@ -7903,9 +7903,9 @@ Display ATOM feed.
 
 @subsubsection emacspeak-feeds-browse
 @deffn {Command} emacspeak-feeds-browse  (feed)
-@kbd{C-e C-u <XF86WakeUp> C-u}
+@kbd{C-e C-u <fn> C-u}
 
-@kindex C-e C-u <XF86WakeUp> C-u
+@kindex C-e C-u <fn> C-u
 @findex emacspeak-feeds-browse
 
 @format
@@ -8025,9 +8025,9 @@ intermediate filters.
 
 @subsubsection emacspeak-filtertext
 @deffn {Command} emacspeak-filtertext  (start end)
-@kbd{C-e ^ <XF86WakeUp> ^}
+@kbd{C-e ^ <fn> ^}
 
-@kindex C-e ^ <XF86WakeUp> ^
+@kindex C-e ^ <fn> ^
 @findex emacspeak-filtertext
 
 @format
@@ -8050,8 +8050,8 @@ key             binding
 ^		flush-lines
 r		emacspeak-filtertext-revert
 
-In addition to any hooks its parent mode ``text-mode'' might have run,
-this mode runs the hook ``emacspeak-filtertext-mode-hook'', as the final step
+In addition to any hooks its parent mode ‘text-mode’ might have run,
+this mode runs the hook ‘emacspeak-filtertext-mode-hook’, as the final step
 during initialization.
 @end format
 @end deffn
@@ -8097,7 +8097,7 @@ To speech enable such functions.
 
 @format
 Fix recently loaded interactive commands.
-This command looks through ``load-history'' and fixes commands if necessary.
+This command looks through ‘load-history’ and fixes commands if necessary.
 Memoizes call in emacspeak-load-history-pointer to memoize this call. 
 @end format
 @end deffn
@@ -8312,7 +8312,7 @@ Catch up on all articles in current group.
 
 @format
 Hide all headers in the article.
-Use this command if you don''t want to listen to any article headers when
+Use this command if you don’t want to listen to any article headers when
 reading news.
 @end format
 @end deffn
@@ -8413,7 +8413,7 @@ Aurally display current row
 @findex emacspeak-gomoku-speak-emacs-previous-move
 
 @format
-Speak emacs'' previous move
+Speak emacs’ previous move
 @end format
 @end deffn
 
@@ -8422,7 +8422,7 @@ Speak emacs'' previous move
 @findex emacspeak-gomoku-speak-humans-previous-move
 
 @format
-Speak human'' previous move
+Speak human’ previous move
 @end format
 @end deffn
 
@@ -8821,9 +8821,9 @@ It's also useful for handling multicolumn text.
 
 @subsubsection emacspeak-gridtext-apply
 @deffn {Command} emacspeak-gridtext-apply  (start end grid)
-@kbd{C-e # a <XF86WakeUp> # a}
+@kbd{C-e # a <fn> # a}
 
-@kindex C-e # a <XF86WakeUp> # a
+@kindex C-e # a <fn> # a
 @findex emacspeak-gridtext-apply
 
 @format
@@ -8833,9 +8833,9 @@ Apply grid to region.
 
 @subsubsection emacspeak-gridtext-load
 @deffn {Command} emacspeak-gridtext-load  (file)
-@kbd{C-e # l <XF86WakeUp> # l}
+@kbd{C-e # l <fn> # l}
 
-@kindex C-e # l <XF86WakeUp> # l
+@kindex C-e # l <fn> # l
 @findex emacspeak-gridtext-load
 
 @format
@@ -8845,9 +8845,9 @@ Load saved grid settings.
 
 @subsubsection emacspeak-gridtext-save
 @deffn {Command} emacspeak-gridtext-save  (file)
-@kbd{C-e # s <XF86WakeUp> # s}
+@kbd{C-e # s <fn> # s}
 
-@kindex C-e # s <XF86WakeUp> # s
+@kindex C-e # s <fn> # s
 @findex emacspeak-gridtext-save
 
 @format
@@ -8898,9 +8898,9 @@ Hide or expose all blocks in buffer.
 
 @subsubsection emacspeak-hide-or-expose-block
 @deffn {Command} emacspeak-hide-or-expose-block  (&optional prefix)
-@kbd{C-e j <XF86WakeUp> j}
+@kbd{C-e j <fn> j}
 
-@kindex C-e j <XF86WakeUp> j
+@kindex C-e j <fn> j
 @findex emacspeak-hide-or-expose-block
 
 @format
@@ -8915,9 +8915,9 @@ blocks in current buffer to be hidden or exposed.
 
 @subsubsection emacspeak-hide-speak-block-sans-prefix
 @deffn {Command} emacspeak-hide-speak-block-sans-prefix   
-@kbd{C-e C-j <XF86WakeUp> C-j}
+@kbd{C-e C-j <fn> C-j}
 
-@kindex C-e C-j <XF86WakeUp> C-j
+@kindex C-e C-j <fn> C-j
 @findex emacspeak-hide-speak-block-sans-prefix
 
 @format
@@ -9031,7 +9031,7 @@ Speak info header line.
 @format
 Read a node spec from the minibuffer and launch
 Info-goto-node.
-See documentation for command ``Info-goto-node'' for details on
+See documentation for command ‘Info-goto-node’ for details on
 node-spec.
 @end format
 @end deffn
@@ -9109,9 +9109,9 @@ Returns a cons (start . end) that delimits the message.
 
 @subsubsection emacspeak-jabber-popup-roster
 @deffn {Command} emacspeak-jabber-popup-roster   
-@kbd{C-e x j <XF86WakeUp> x j}
+@kbd{C-e x j <fn> x j}
 
-@kindex C-e x j <XF86WakeUp> x j
+@kindex C-e x j <fn> x j
 @findex emacspeak-jabber-popup-roster
 
 @format
@@ -9379,6 +9379,7 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 @section emacspeak-keymap
 
 This module defines the emacspeak keybindings.
+Note that the <fn> key found on laptops is denoted <fn>
 
 @subsection emacspeak-keymap Commands
 
@@ -9406,7 +9407,7 @@ Persists mapping to org file.
 
 @format
 Interactively select a new prefix key to use for all emacspeak
-commands.  The default is to use ``C-e''  This command
+commands.  The default is to use ‘C-e’  This command
 lets you switch the prefix to something else.  This is a useful thing
 to do if you run emacspeak on a remote machine from inside a terminal
 that is running inside a local emacspeak session.  You can have the
@@ -9419,17 +9420,17 @@ relief.
 
 @defvar {User Option} emacspeak-alt-keys
 *Specifies alt key bindings for the audio desktop.
-You can turn the ``Pause'' key  on your Linux PC keyboard into a ``alt'' key
-on Linux by having it emit the sequence ``C-x@@a''.
+You can turn the ‘Pause’ key  on your Linux PC keyboard into a ‘alt’ key
+on Linux by having it emit the sequence ‘C-x@@a’.
 
-Bindings specified here are available on prefix key ``alt''
+Bindings specified here are available on prefix key ‘alt’
 (not to be confused with alt==meta)
 for example, if you bind
-``s'' to command emacspeak-emergency-tts-restart
-then that command will be available on key ``ALT  s''
+‘s’ to command emacspeak-emergency-tts-restart
+then that command will be available on key ‘ALT  s’
 
 KEYS should be a string constant in the format used for saving
-keyboard macros (see ``edmacro-mode'').
+keyboard macros (see ‘edmacro-mode’).
 
 Command is an interactive command or a prefix-command that can be
 bound to a key. 
@@ -9442,16 +9443,16 @@ interactive command that the key sequence executes.
 
 @defvar {User Option} emacspeak-hyper-keys
 *Specifies hyper key bindings for the audio desktop. Emacs can
-use the ``hyper'' key as a modifier key. You can turn the ``windows''
-keys on your Linux PC keyboard into a ``hyper'' key on Linux by
-having it emit the sequence ``C-x@@h''.
+use the ‘hyper’ key as a modifier key. You can turn the ‘windows’
+keys on your Linux PC keyboard into a ‘hyper’ key on Linux by
+having it emit the sequence ‘C-x@@h’.
 
-Bindings specified here are available on prefix key ``hyper'' for
-example, if you bind ``b'' to command ``bbdb '' then that command
-will be available on key ``hyper b''.
+Bindings specified here are available on prefix key ‘hyper’ for
+example, if you bind ‘b’ to command ‘bbdb ’ then that command
+will be available on key ‘hyper b’.
 
 KEYS should be a string constant in the format used for saving
-keyboard macros (see ``edmacro-mode'').
+keyboard macros (see ‘edmacro-mode’).
 
 Command is an interactive command or a prefix-command that can be
 bound to a key. 
@@ -9465,10 +9466,10 @@ interactive command that the key sequence executes.
 @defvar {User Option} emacspeak-personal-ctlx-keys
 *Specifies personal-ctlx key bindings for use with C-e C-x for
 the audio desktop. Bindings specified here are available on
-prefix key C-e C-x for example, if you bind ``C-s'' to command
+prefix key C-e C-x for example, if you bind ‘C-s’ to command
 emacspeak-emergency-tts-restart then that command will be
 available on key C-e C-x C-s. KEYS should be a string constant in
-the format used for saving keyboard macros (see ``edmacro-mode'').
+the format used for saving keyboard macros (see ‘edmacro-mode’).
 
 Command is an interactive command or a prefix-command that can be
 bound to a key.
@@ -9483,11 +9484,11 @@ interactive command that the key sequence executes.
 *Specifies personal key bindings for the audio desktop.
 Bindings specified here are available on prefix key C-e x
 for example, if you bind
-``s'' to command emacspeak-emergency-tts-restart
+‘s’ to command emacspeak-emergency-tts-restart
 then that command will be available on key C-e x s.
 
 KEYS should be a string constant in the format used for saving
-keyboard macros (see ``edmacro-mode'').
+keyboard macros (see ‘edmacro-mode’).
 
 Command is an interactive command or a prefix-command that can be
 bound to a key. 
@@ -9500,14 +9501,14 @@ interactive command that the key sequence executes.
 
 @defvar {User Option} emacspeak-super-keys
 *Specifies super key bindings for the audio desktop. You can
-turn the right ``windows menu'' keys on your Linux PC keyboard into
-a ``super'' key on Linux by having it emit the sequence ``C-x@@s''.
+turn the right ‘windows menu’ keys on your Linux PC keyboard into
+a ‘super’ key on Linux by having it emit the sequence ‘C-x@@s’.
 
-Bindings specified here are available on prefix key ``super'' for
-example, if you bind ``s'' to command
+Bindings specified here are available on prefix key ‘super’ for
+example, if you bind ‘s’ to command
 emacspeak-emergency-tts-restart then that command will be
-available on key ``super s''. KEYS should be a string constant in
-the format used for saving keyboard macros (see ``edmacro-mode'').
+available on key ‘super s’. KEYS should be a string constant in
+the format used for saving keyboard macros (see ‘edmacro-mode’).
 
 Command is an interactive command or a prefix-command that can be
 bound to a key.
@@ -9709,8 +9710,8 @@ Play book stream
 
 @format
 Search by author.
-Both exact and partial matches for ``author''.
-Optional interactive prefix arg ``offset'' prompts for offset --- use this for retrieving next set of results.
+Both exact and partial matches for ‘author’.
+Optional interactive prefix arg ‘offset’ prompts for offset --- use this for retrieving next set of results.
 @end format
 @end deffn
 
@@ -9720,7 +9721,7 @@ Optional interactive prefix arg ``offset'' prompts for offset --- use this for r
 
 @format
 Search by genre.
-Optional prefix arg ``offset'' prompts for offset.
+Optional prefix arg ‘offset’ prompts for offset.
 @end format
 @end deffn
 
@@ -9730,8 +9731,8 @@ Optional prefix arg ``offset'' prompts for offset.
 
 @format
 Search by title.
-Both exact and partial matches for ``title''.
-Optional prefix arg ``offset'' prompts for offset --- use this for retrieving more results.
+Both exact and partial matches for ‘title’.
+Optional prefix arg ‘offset’ prompts for offset --- use this for retrieving more results.
 @end format
 @end deffn
 
@@ -9791,7 +9792,7 @@ Add predefined autopan effect.
 @format
 Add equalizer to playing stream.  Equalizer is applied as each change
 is made, and the final effect set by pressing RET.  Interactive prefix
-arg ``reset'' starts with all filters set to 0.
+arg ‘reset’ starts with all filters set to 0.
 @end format
 @end deffn
 
@@ -9836,7 +9837,7 @@ Move within an ASF playlist.
 @findex emacspeak-m-player-amark-add
 
 @format
-Set AMark ``name'' at current position in current audio stream.
+Set AMark ‘name’ at current position in current audio stream.
 Interactive prefix arg prompts for position.
 As the default, use current position.
 @end format
@@ -10209,8 +10210,8 @@ DEL		emacspeak-m-player-reset-speed
 
 M-l		emacspeak-m-player-load-playlist
 
-In addition to any hooks its parent mode ``comint-mode'' might have run,
-this mode runs the hook ``emacspeak-m-player-mode-hook'', as the final step
+In addition to any hooks its parent mode ‘comint-mode’ might have run,
+this mode runs the hook ‘emacspeak-m-player-mode-hook’, as the final step
 during initialization.
 @end format
 @end deffn
@@ -10381,9 +10382,9 @@ Seek  by offset into stream from current position.
 
 @subsubsection emacspeak-m-player-shuffle
 @deffn {Command} emacspeak-m-player-shuffle   
-@kbd{C-e : <XF86WakeUp> :}
+@kbd{C-e : <fn> :}
 
-@kindex C-e : <XF86WakeUp> :
+@kindex C-e : <fn> :
 @findex emacspeak-m-player-shuffle
 
 @format
@@ -10494,9 +10495,9 @@ Use youtube-dl and mplayer to stream YouTube content.
 
 @subsubsection emacspeak-multimedia
 @deffn {Command} emacspeak-multimedia   
-@kbd{C-e ; <XF86WakeUp> ;}
+@kbd{C-e ; <fn> ;}
 
-@kindex C-e ; <XF86WakeUp> ;
+@kindex C-e ; <fn> ;
 @findex emacspeak-multimedia
 
 @format
@@ -10952,16 +10953,16 @@ example, Muggle @samp{ViewMode} binds @code{s} to this command.
 @format
 Create a hydra with no body and the heads:
 
-"s":    ``xbacklight-set'',
-"g":    ``xbacklight-get'',
-"<print>":    ``xbacklight-black'',
-"0":    ``xbacklight-black'',
-"1":    ``xbacklight-white'',
-"d":    ``xbacklight-decrement'',
-"i":    ``xbacklight-increment'',
-"SPC":    ``xbacklight-increment''
+"s":    ‘xbacklight-set’,
+"g":    ‘xbacklight-get’,
+"<print>":    ‘xbacklight-black’,
+"0":    ‘xbacklight-black’,
+"1":    ‘xbacklight-white’,
+"d":    ‘xbacklight-decrement’,
+"i":    ‘xbacklight-increment’,
+"SPC":    ‘xbacklight-increment’
 
-The body can be accessed via ``emacspeak-muggles-brightness/body''.
+The body can be accessed via ‘emacspeak-muggles-brightness/body’.
 @end format
 @end deffn
 
@@ -10987,13 +10988,13 @@ Temporarily use keymap emacspeak-m-player-mode-map
 @format
 Create a hydra with no body and the heads:
 
-"h":    ``hs-hide-block'',
-"s":    ``hs-show-block'',
-"H":    ``hs-hide-all'',
-"S":    ``hs-show-all'',
-"i":    ``hs-hide-initial-comment-block''
+"h":    ‘hs-hide-block’,
+"s":    ‘hs-show-block’,
+"H":    ‘hs-hide-all’,
+"S":    ‘hs-show-all’,
+"i":    ‘hs-hide-initial-comment-block’
 
-The body can be accessed via ``emacspeak-muggles-hideshow/body''.
+The body can be accessed via ‘emacspeak-muggles-hideshow/body’.
 @end format
 @end deffn
 
@@ -11004,48 +11005,48 @@ The body can be accessed via ``emacspeak-muggles-hideshow/body''.
 @format
 Create a hydra with no body and the heads:
 
-"]":    ``Info-forward-node'',
-"[":    ``Info-backward-node'',
-"n":    ``Info-next'',
-"p":    ``Info-prev'',
-"s":    ``Info-search'',
-"S":    ``Info-search-case-sensitively'',
-"l":    ``Info-history-back'',
-"r":    ``Info-history-forward'',
-"H":    ``Info-history'',
-"t":    ``Info-top-node'',
-"<":    ``Info-top-node'',
-">":    ``Info-final-node'',
-"u":    ``Info-up'',
-"^":    ``Info-up'',
-"m":    ``Info-menu'',
-"g":    ``Info-goto-node'',
-"b":    ``beginning-of-buffer'',
-"e":    ``end-of-buffer'',
-"f":    ``Info-follow-reference'',
-"i":    ``Info-index'',
-",":    ``Info-index-next'',
-"I":    ``Info-virtual-index'',
-"T":    ``Info-toc'',
-"d":    ``Info-directory'',
-"c":    ``Info-copy-current-node-name'',
-"C":    ``clone-buffer'',
-"a":    ``info-apropos'',
-"1":    ``Info-nth-menu-item'',
-"2":    ``Info-nth-menu-item'',
-"3":    ``Info-nth-menu-item'',
-"4":    ``Info-nth-menu-item'',
-"5":    ``Info-nth-menu-item'',
-"6":    ``Info-nth-menu-item'',
-"7":    ``Info-nth-menu-item'',
-"8":    ``Info-nth-menu-item'',
-"9":    ``Info-nth-menu-item'',
-"?":    ``Info-summary'',
-"h":    ``Info-help'',
-"q":    ``Info-exit'',
-"C-g":    ``nil''
+"]":    ‘Info-forward-node’,
+"[":    ‘Info-backward-node’,
+"n":    ‘Info-next’,
+"p":    ‘Info-prev’,
+"s":    ‘Info-search’,
+"S":    ‘Info-search-case-sensitively’,
+"l":    ‘Info-history-back’,
+"r":    ‘Info-history-forward’,
+"H":    ‘Info-history’,
+"t":    ‘Info-top-node’,
+"<":    ‘Info-top-node’,
+">":    ‘Info-final-node’,
+"u":    ‘Info-up’,
+"^":    ‘Info-up’,
+"m":    ‘Info-menu’,
+"g":    ‘Info-goto-node’,
+"b":    ‘beginning-of-buffer’,
+"e":    ‘end-of-buffer’,
+"f":    ‘Info-follow-reference’,
+"i":    ‘Info-index’,
+",":    ‘Info-index-next’,
+"I":    ‘Info-virtual-index’,
+"T":    ‘Info-toc’,
+"d":    ‘Info-directory’,
+"c":    ‘Info-copy-current-node-name’,
+"C":    ‘clone-buffer’,
+"a":    ‘info-apropos’,
+"1":    ‘Info-nth-menu-item’,
+"2":    ‘Info-nth-menu-item’,
+"3":    ‘Info-nth-menu-item’,
+"4":    ‘Info-nth-menu-item’,
+"5":    ‘Info-nth-menu-item’,
+"6":    ‘Info-nth-menu-item’,
+"7":    ‘Info-nth-menu-item’,
+"8":    ‘Info-nth-menu-item’,
+"9":    ‘Info-nth-menu-item’,
+"?":    ‘Info-summary’,
+"h":    ‘Info-help’,
+"q":    ‘Info-exit’,
+"C-g":    ‘nil’
 
-The body can be accessed via ``emacspeak-muggles-info-summary/body''.
+The body can be accessed via ‘emacspeak-muggles-info-summary/body’.
 @end format
 @end deffn
 
@@ -11056,62 +11057,62 @@ The body can be accessed via ``emacspeak-muggles-info-summary/body''.
 @format
 Create a hydra with no body and the heads:
 
-";":    ``emacspeak-m-player'',
-"+":    ``emacspeak-m-player-volume-up'',
-",":    ``emacspeak-m-player-backward-10s'',
-"%":    ``emacspeak-m-player-display-percent'',
-"-":    ``emacspeak-m-player-volume-down'',
-".":    ``emacspeak-m-player-forward-10s'',
-"<":    ``emacspeak-m-player-backward-1min'',
-"<down>":    ``emacspeak-m-player-forward-1min'',
-"<end>":    ``emacspeak-m-player-end-of-track'',
-"<home>":    ``emacspeak-m-player-beginning-of-track'',
-"<left>":    ``emacspeak-m-player-backward-10s'',
-"<next>":    ``emacspeak-m-player-forward-10min'',
-"<prior>":    ``emacspeak-m-player-backward-10min'',
-"<right>":    ``emacspeak-m-player-forward-10s'',
-"<up>":    ``emacspeak-m-player-backward-1min'',
-"=":    ``emacspeak-m-player-volume-up'',
-">":    ``emacspeak-m-player-forward-1min'',
-"?":    ``emacspeak-m-player-display-position'',
-"C":    ``emacspeak-m-player-clear-filters'',
-"C-m":    ``emacspeak-m-player-load'',
-"DEL":    ``emacspeak-m-player-reset-speed'',
-"L":    ``emacspeak-m-player-load-file'',
-"M-l":    ``emacspeak-m-player-load-playlist'',
-"O":    ``emacspeak-m-player-reset-options'',
-"P":    ``emacspeak-m-player-apply-reverb-preset'',
-"Q":    ``emacspeak-m-player-quit'',
-"R":    ``emacspeak-m-player-edit-reverb'',
-"S":    ``emacspeak-amark-save'',
-"SPC":    ``emacspeak-m-player-pause'',
-"[":    ``emacspeak-m-player-slower'',
-"]":    ``emacspeak-m-player-faster'',
-"a":    ``emacspeak-m-player-amark-add'',
-"b":    ``emacspeak-m-player-balance'',
-"c":    ``emacspeak-m-player-slave-command'',
-"d":    ``emacspeak-m-player-delete-filter'',
-"e":    ``emacspeak-m-player-add-equalizer'',
-"f":    ``emacspeak-m-player-add-filter'',
-"g":    ``emacspeak-m-player-seek-absolute'',
-"j":    ``emacspeak-m-player-amark-jump'',
-"l":    ``emacspeak-m-player-get-length'',
-"m":    ``emacspeak-m-player-speak-mode-line'',
-"n":    ``emacspeak-m-player-next-track'',
-"o":    ``emacspeak-m-player-customize-options'',
-"p":    ``emacspeak-m-player-previous-track'',
-"q":    ``bury-buffer'',
-"r":    ``emacspeak-m-player-seek-relative'',
-"s":    ``emacspeak-m-player-scale-speed'',
-"t":    ``emacspeak-m-player-play-tracks-jump'',
-"u":    ``emacspeak-m-player-url'',
-"v":    ``emacspeak-m-player-volume-change'',
-"(":    ``emacspeak-m-player-left-channel'',
-")":    ``emacspeak-m-player-right-channel'',
-"@{":    ``emacspeak-m-player-half-speed'',
-"@}":    ``emacspeak-m-player-double-speed''
+";":    ‘emacspeak-m-player’,
+"+":    ‘emacspeak-m-player-volume-up’,
+",":    ‘emacspeak-m-player-backward-10s’,
+"%":    ‘emacspeak-m-player-display-percent’,
+"-":    ‘emacspeak-m-player-volume-down’,
+".":    ‘emacspeak-m-player-forward-10s’,
+"<":    ‘emacspeak-m-player-backward-1min’,
+"<down>":    ‘emacspeak-m-player-forward-1min’,
+"<end>":    ‘emacspeak-m-player-end-of-track’,
+"<home>":    ‘emacspeak-m-player-beginning-of-track’,
+"<left>":    ‘emacspeak-m-player-backward-10s’,
+"<next>":    ‘emacspeak-m-player-forward-10min’,
+"<prior>":    ‘emacspeak-m-player-backward-10min’,
+"<right>":    ‘emacspeak-m-player-forward-10s’,
+"<up>":    ‘emacspeak-m-player-backward-1min’,
+"=":    ‘emacspeak-m-player-volume-up’,
+">":    ‘emacspeak-m-player-forward-1min’,
+"?":    ‘emacspeak-m-player-display-position’,
+"C":    ‘emacspeak-m-player-clear-filters’,
+"C-m":    ‘emacspeak-m-player-load’,
+"DEL":    ‘emacspeak-m-player-reset-speed’,
+"L":    ‘emacspeak-m-player-load-file’,
+"M-l":    ‘emacspeak-m-player-load-playlist’,
+"O":    ‘emacspeak-m-player-reset-options’,
+"P":    ‘emacspeak-m-player-apply-reverb-preset’,
+"Q":    ‘emacspeak-m-player-quit’,
+"R":    ‘emacspeak-m-player-edit-reverb’,
+"S":    ‘emacspeak-amark-save’,
+"SPC":    ‘emacspeak-m-player-pause’,
+"[":    ‘emacspeak-m-player-slower’,
+"]":    ‘emacspeak-m-player-faster’,
+"a":    ‘emacspeak-m-player-amark-add’,
+"b":    ‘emacspeak-m-player-balance’,
+"c":    ‘emacspeak-m-player-slave-command’,
+"d":    ‘emacspeak-m-player-delete-filter’,
+"e":    ‘emacspeak-m-player-add-equalizer’,
+"f":    ‘emacspeak-m-player-add-filter’,
+"g":    ‘emacspeak-m-player-seek-absolute’,
+"j":    ‘emacspeak-m-player-amark-jump’,
+"l":    ‘emacspeak-m-player-get-length’,
+"m":    ‘emacspeak-m-player-speak-mode-line’,
+"n":    ‘emacspeak-m-player-next-track’,
+"o":    ‘emacspeak-m-player-customize-options’,
+"p":    ‘emacspeak-m-player-previous-track’,
+"q":    ‘bury-buffer’,
+"r":    ‘emacspeak-m-player-seek-relative’,
+"s":    ‘emacspeak-m-player-scale-speed’,
+"t":    ‘emacspeak-m-player-play-tracks-jump’,
+"u":    ‘emacspeak-m-player-url’,
+"v":    ‘emacspeak-m-player-volume-change’,
+"(":    ‘emacspeak-m-player-left-channel’,
+")":    ‘emacspeak-m-player-right-channel’,
+"@{":    ‘emacspeak-m-player-half-speed’,
+"@}":    ‘emacspeak-m-player-double-speed’
 
-The body can be accessed via ``emacspeak-muggles-m-player/body''.
+The body can be accessed via ‘emacspeak-muggles-m-player/body’.
 @end format
 @end deffn
 
@@ -11125,22 +11126,22 @@ The body can be accessed via ``emacspeak-muggles-m-player/body''.
 @format
 Create a hydra with no body and the heads:
 
-"s":    ``emacspeak-muggles-toggle-talkative'',
-"n":    ``next-line'',
-"p":    ``previous-line'',
-"f":    ``forward-char'',
-"b":    ``backward-char'',
-"a":    ``beginning-of-line'',
-"e":    ``move-end-of-line'',
-"j":    ``next-line'',
-"k":    ``previous-line'',
-"v":    ``scroll-up-command'',
-"V":    ``scroll-down-command'',
-"l":    ``recenter-top-bottom'',
-"<":    ``beginning-of-buffer'',
-">":    ``end-of-buffer''
+"s":    ‘emacspeak-muggles-toggle-talkative’,
+"n":    ‘next-line’,
+"p":    ‘previous-line’,
+"f":    ‘forward-char’,
+"b":    ‘backward-char’,
+"a":    ‘beginning-of-line’,
+"e":    ‘move-end-of-line’,
+"j":    ‘next-line’,
+"k":    ‘previous-line’,
+"v":    ‘scroll-up-command’,
+"V":    ‘scroll-down-command’,
+"l":    ‘recenter-top-bottom’,
+"<":    ‘beginning-of-buffer’,
+">":    ‘end-of-buffer’
 
-The body can be accessed via ``emacspeak-muggles-navigate/body''.
+The body can be accessed via ‘emacspeak-muggles-navigate/body’.
 @end format
 @end deffn
 
@@ -11151,15 +11152,15 @@ The body can be accessed via ``emacspeak-muggles-navigate/body''.
 @format
 Create a hydra with no body and the heads:
 
-"SPC":    ``emacspeak-outline-speak-this-heading'',
-"n":    ``outline-next-visible-heading'',
-"p":    ``outline-previous-visible-heading'',
-"N":    ``org-forward-heading-same-level'',
-"P":    ``org-backward-heading-same-level'',
-"u":    ``outline-up-heading'',
-"g":    ``org-goto''
+"SPC":    ‘emacspeak-outline-speak-this-heading’,
+"n":    ‘outline-next-visible-heading’,
+"p":    ‘outline-previous-visible-heading’,
+"N":    ‘org-forward-heading-same-level’,
+"P":    ‘org-backward-heading-same-level’,
+"u":    ‘outline-up-heading’,
+"g":    ‘org-goto’
 
-The body can be accessed via ``emacspeak-muggles-org-nav/body''.
+The body can be accessed via ‘emacspeak-muggles-org-nav/body’.
 @end format
 @end deffn
 
@@ -11170,17 +11171,17 @@ The body can be accessed via ``emacspeak-muggles-org-nav/body''.
 @format
 Create a hydra with no body and the heads:
 
-"j":    ``org-table-next-row'',
-"k":    ``org-table-previous-row'',
-"h":    ``org-table-previous-field'',
-"l":    ``org-table-next-field'',
-"SPC":    ``emacspeak-org-table-speak-current-element'',
-".":    ``emacspeak-org-table-speak-coordinates'',
-"b":    ``emacspeak-org-table-speak-both-headers-and-element'',
-"r":    ``emacspeak-org-table-speak-row-header-and-element'',
-"c":    ``emacspeak-org-table-speak-column-header-and-element''
+"j":    ‘org-table-next-row’,
+"k":    ‘org-table-previous-row’,
+"h":    ‘org-table-previous-field’,
+"l":    ‘org-table-next-field’,
+"SPC":    ‘emacspeak-org-table-speak-current-element’,
+".":    ‘emacspeak-org-table-speak-coordinates’,
+"b":    ‘emacspeak-org-table-speak-both-headers-and-element’,
+"r":    ‘emacspeak-org-table-speak-row-header-and-element’,
+"c":    ‘emacspeak-org-table-speak-column-header-and-element’
 
-The body can be accessed via ``emacspeak-muggles-org-table/body''.
+The body can be accessed via ‘emacspeak-muggles-org-table/body’.
 @end format
 @end deffn
 
@@ -11191,25 +11192,25 @@ The body can be accessed via ``emacspeak-muggles-org-table/body''.
 @format
 Create a hydra with no body and the heads:
 
-"q":    ``outline-hide-sublevels'',
-"t":    ``outline-hide-body'',
-"o":    ``outline-hide-other'',
-"c":    ``outline-hide-entry'',
-"l":    ``outline-hide-leaves'',
-"d":    ``outline-hide-subtree'',
-"a":    ``outline-show-all'',
-"e":    ``outline-show-entry'',
-"i":    ``outline-show-children'',
-"k":    ``outline-show-branches'',
-"s":    ``outline-show-subtree'',
-"u":    ``outline-up-heading'',
-"n":    ``outline-next-visible-heading'',
-"p":    ``outline-previous-visible-heading'',
-"f":    ``outline-forward-same-level'',
-"b":    ``outline-backward-same-level'',
-"z":    ``nil''
+"q":    ‘outline-hide-sublevels’,
+"t":    ‘outline-hide-body’,
+"o":    ‘outline-hide-other’,
+"c":    ‘outline-hide-entry’,
+"l":    ‘outline-hide-leaves’,
+"d":    ‘outline-hide-subtree’,
+"a":    ‘outline-show-all’,
+"e":    ‘outline-show-entry’,
+"i":    ‘outline-show-children’,
+"k":    ‘outline-show-branches’,
+"s":    ‘outline-show-subtree’,
+"u":    ‘outline-up-heading’,
+"n":    ‘outline-next-visible-heading’,
+"p":    ‘outline-previous-visible-heading’,
+"f":    ‘outline-forward-same-level’,
+"b":    ‘outline-backward-same-level’,
+"z":    ‘nil’
 
-The body can be accessed via ``emacspeak-muggles-outliner/body''.
+The body can be accessed via ‘emacspeak-muggles-outliner/body’.
 @end format
 @end deffn
 
@@ -11223,16 +11224,16 @@ The body can be accessed via ``emacspeak-muggles-outliner/body''.
 @format
 Create a hydra with no body and the heads:
 
-"a":    ``abbrev-mode'',
-"d":    ``toggle-debug-on-error'',
-"f":    ``auto-fill-mode'',
-"g":    ``toggle-debug-on-quit'',
-"h":    ``(setq hydra-is-helpful (not hydra-is-helpful))'',
-"t":    ``toggle-truncate-lines'',
-"w":    ``whitespace-mode'',
-"q":    ``nil''
+"a":    ‘abbrev-mode’,
+"d":    ‘toggle-debug-on-error’,
+"f":    ‘auto-fill-mode’,
+"g":    ‘toggle-debug-on-quit’,
+"h":    ‘(setq hydra-is-helpful (not hydra-is-helpful))’,
+"t":    ‘toggle-truncate-lines’,
+"w":    ‘whitespace-mode’,
+"q":    ‘nil’
 
-The body can be accessed via ``emacspeak-muggles-toggle-option/body''.
+The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
 @end format
 @end deffn
 
@@ -11255,53 +11256,53 @@ Toggle state of emacspeak-muggles-talkative-p.
 @format
 Create a hydra with no body and the heads:
 
-"$":    ``set-selective-display'',
-"%":    ``View-goto-percent'',
-"''":    ``register-to-point'',
-"(":    ``backward-sexp'',
-")":    ``forward-sexp'',
-".":    ``set-mark-command'',
-"/":    ``View-search-regexp-forward'',
-"<":    ``beginning-of-buffer'',
-"<return>":    ``nil'',
-"=":    ``what-line'',
-">":    ``end-of-buffer'',
-"@@":    ``View-back-to-mark'',
-"A":    ``beginning-of-defun'',
-"DEL":    ``View-scroll-page-backward'',
-"E":    ``end-of-defun'',
-"J":    ``(emacspeak-hide-or-expose-block (quote all))'',
-"SPC":    ``View-scroll-page-forward'',
-"[":    ``backward-page'',
-"\":    ``View-search-regexp-backward'',
-"]":    ``forward-page'',
-"a":    ``move-beginning-of-line'',
-"b":    ``backward-word'',
-"c":    ``emacspeak-speak-char'',
-"d":    ``View-scroll-half-page-forward'',
-"e":    ``move-end-of-line'',
-"f":    ``forward-word'',
-"g":    ``goto-line'',
-"h":    ``backward-char'',
-"i":    ``emacspeak-speak-mode-line'',
-"j":    ``next-line'',
-"k":    ``previous-line'',
-"l":    ``forward-char'',
-"m":    ``point-to-register'',
-"n":    ``View-search-last-regexp-forward'',
-"p":    ``View-search-last-regexp-backward'',
-"q":    ``nil'',
-"r":    ``copy-to-register'',
-"s":    ``emacspeak-muggles-toggle-talkative'',
-"t":    ``(recenter 0)'',
-"u":    ``View-scroll-half-page-backward'',
-"w":    ``emacspeak-speak-word'',
-"x":    ``exchange-point-and-mark'',
-"y":    ``kill-ring-save'',
-"@{":    ``backward-paragraph'',
-"@}":    ``forward-paragraph''
+"$":    ‘set-selective-display’,
+"%":    ‘View-goto-percent’,
+"’":    ‘register-to-point’,
+"(":    ‘backward-sexp’,
+")":    ‘forward-sexp’,
+".":    ‘set-mark-command’,
+"/":    ‘View-search-regexp-forward’,
+"<":    ‘beginning-of-buffer’,
+"<return>":    ‘nil’,
+"=":    ‘what-line’,
+">":    ‘end-of-buffer’,
+"@@":    ‘View-back-to-mark’,
+"A":    ‘beginning-of-defun’,
+"DEL":    ‘View-scroll-page-backward’,
+"E":    ‘end-of-defun’,
+"J":    ‘(emacspeak-hide-or-expose-block (quote all))’,
+"SPC":    ‘View-scroll-page-forward’,
+"[":    ‘backward-page’,
+"\":    ‘View-search-regexp-backward’,
+"]":    ‘forward-page’,
+"a":    ‘move-beginning-of-line’,
+"b":    ‘backward-word’,
+"c":    ‘emacspeak-speak-char’,
+"d":    ‘View-scroll-half-page-forward’,
+"e":    ‘move-end-of-line’,
+"f":    ‘forward-word’,
+"g":    ‘goto-line’,
+"h":    ‘backward-char’,
+"i":    ‘emacspeak-speak-mode-line’,
+"j":    ‘next-line’,
+"k":    ‘previous-line’,
+"l":    ‘forward-char’,
+"m":    ‘point-to-register’,
+"n":    ‘View-search-last-regexp-forward’,
+"p":    ‘View-search-last-regexp-backward’,
+"q":    ‘nil’,
+"r":    ‘copy-to-register’,
+"s":    ‘emacspeak-muggles-toggle-talkative’,
+"t":    ‘(recenter 0)’,
+"u":    ‘View-scroll-half-page-backward’,
+"w":    ‘emacspeak-speak-word’,
+"x":    ‘exchange-point-and-mark’,
+"y":    ‘kill-ring-save’,
+"@{":    ‘backward-paragraph’,
+"@}":    ‘forward-paragraph’
 
-The body can be accessed via ``emacspeak-muggles-view/body''.
+The body can be accessed via ‘emacspeak-muggles-view/body’.
 @end format
 @end deffn
 
@@ -11758,9 +11759,9 @@ is named "ocr"
 
 @subsubsection emacspeak-ocr
 @deffn {Command} emacspeak-ocr   
-@kbd{C-e C-o <XF86WakeUp> C-o}
+@kbd{C-e C-o <fn> C-o}
 
-@kindex C-e C-o <XF86WakeUp> C-o
+@kindex C-e C-o <fn> C-o
 @findex emacspeak-ocr
 
 @format
@@ -11773,7 +11774,7 @@ suitable for browsing the results.
 
 For detailed help, invoke command emacspeak-ocr bound to
 C-e C-o to launch emacspeak-ocr-mode, and press
-``?'' to display mode-specific help for emacspeak-ocr-mode.
+‘?’ to display mode-specific help for emacspeak-ocr-mode.
 @end format
 @end deffn
 
@@ -11801,10 +11802,10 @@ Customize OCR settings.
 
 @format
 Run OCR engine on current image after flip-flopping it.
-Useful if you''ve scanned a page upside down and are using an engine that does not automatically flip the image for you.
+Useful if you’ve scanned a page upside down and are using an engine that does not automatically flip the image for you.
 You need the imagemagik family of tools --- we use mogrify to transform the image.
 Prompts for image file if file corresponding to the expected
-``current page'' is not found.
+‘current page’ is not found.
 @end format
 @end deffn
 
@@ -11834,12 +11835,12 @@ Pre-requisites:
 the utilities to scan a document and acquire an image as a
 tiff file.  Then set variable
 emacspeak-ocr-scan-image-program to point at this utility.
-By default, this is set to ``scanimage'' which is the image
+By default, this is set to ‘scanimage’ which is the image
 scanning utility provided by SANE.
 
 By default, this front-end attempts to compress the acquired
 tiff image; make sure you have a utility like tiffcp.
-Variable emacspeak-ocr-compress-image is set to ``tiffcp'' by
+Variable emacspeak-ocr-compress-image is set to ‘tiffcp’ by
 default; if you use something else, you should customize
 this variable.
 
@@ -11867,7 +11868,7 @@ images and the resulting text are saved under directory
 Invoking command emacspeak-ocr-open-working-directory bound
 to M-x emacspeak-ocr-open-working-directory will open this directory.
 
-By default, the document being scanned is named ``untitled''.
+By default, the document being scanned is named ‘untitled’.
 You can name the document by using command
 emacspeak-ocr-name-document bound to
 M-x emacspeak-ocr-name-document.  The document name is used
@@ -11900,8 +11901,8 @@ w		emacspeak-ocr-write-document
 
 .
 
-In addition to any hooks its parent mode ``text-mode'' might have run,
-this mode runs the hook ``emacspeak-ocr-mode-hook'', as the final step
+In addition to any hooks its parent mode ‘text-mode’ might have run,
+this mode runs the hook ‘emacspeak-ocr-mode-hook’, as the final step
 during initialization.
 @end format
 @end deffn
@@ -11950,7 +11951,7 @@ Speaks current page.
 @format
 Run OCR engine on current image.
 Prompts for image file if file corresponding to the expected
-``current page'' is not found.
+‘current page’ is not found.
 @end format
 @end deffn
 
@@ -11970,7 +11971,7 @@ to an appropriately named file.
 
 @format
 Scan in a page and run OCR engine on it.
-Use this command once you''ve verified that the separate
+Use this command once you’ve verified that the separate
 steps of acquiring an image and running the OCR engine work
 correctly by themselves.
 @end format
@@ -12122,8 +12123,8 @@ Bookmark from org.
 
 @format
 Capture hyperlink to current context.
-To use this command, first  do ``customize-variable'' ``org-capture-template''
-and assign  letter ``h'' to a template that creates the hyperlink on capture.
+To use this command, first  do ‘customize-variable’ ‘org-capture-template’
+and assign  letter ‘h’ to a template that creates the hyperlink on capture.
 @end format
 @end deffn
 
@@ -12465,9 +12466,9 @@ keys from @code{pianobar-key-map}.
 
 @subsubsection emacspeak-pianobar
 @deffn {Command} emacspeak-pianobar   
-@kbd{C-e ' <XF86WakeUp> '}
+@kbd{C-e ' <fn> '}
 
-@kindex C-e ' <XF86WakeUp> '
+@kindex C-e ' <fn> '
 @findex emacspeak-pianobar
 
 @format
@@ -12696,13 +12697,13 @@ First loads any persistent dictionaries if not already loaded.
 
 @subsubsection emacspeak-pronounce-dispatch
 @deffn {Command} emacspeak-pronounce-dispatch   
-@kbd{C-e M-d <XF86WakeUp> M-d}
+@kbd{C-e M-d <fn> M-d}
 
-@kindex C-e M-d <XF86WakeUp> M-d
+@kindex C-e M-d <fn> M-d
 @findex emacspeak-pronounce-dispatch
 
 @format
-Provides the user interface front-end to Emacspeak''s pronunciation dictionaries.
+Provides the user interface front-end to Emacspeak’s pronunciation dictionaries.
 @end format
 @end deffn
 
@@ -13055,9 +13056,9 @@ after prompting for host and port
 
 @subsubsection emacspeak-remote-connect-to-server
 @deffn {Command} emacspeak-remote-connect-to-server  (host port)
-@kbd{C-e M-r <XF86WakeUp> M-r}
+@kbd{C-e M-r <fn> M-r}
 
-@kindex C-e M-r <XF86WakeUp> M-r
+@kindex C-e M-r <fn> M-r
 @findex emacspeak-remote-connect-to-server
 
 @format
@@ -13084,7 +13085,7 @@ Value is persisted for use with ssh servers.
 
 @format
 Open ssh session to where we came from.
-Uses value returned by ``emacspeak-remote-get-current-remote-hostname''.
+Uses value returned by ‘emacspeak-remote-get-current-remote-hostname’.
 @end format
 @end deffn
 
@@ -13109,7 +13110,7 @@ sure the guesses are usually correct.
 
 @format
 Connect via ssh to remote Emacspeak server.
-Server is specified via custom option ``emacspeak-remote-default-ssh-server''.
+Server is specified via custom option ‘emacspeak-remote-default-ssh-server’.
 @end format
 @end deffn
 
@@ -13536,9 +13537,9 @@ appropriate subdirectories of emacspeak-sounds-directory
 
 @subsubsection emacspeak-audio-setup
 @deffn {Command} emacspeak-audio-setup  (&optional prefix)
-@kbd{C-e ( <XF86WakeUp> (}
+@kbd{C-e ( <fn> (}
 
-@kindex C-e ( <XF86WakeUp> (
+@kindex C-e ( <fn> (
 @findex emacspeak-audio-setup
 
 @format
@@ -13548,9 +13549,9 @@ Call appropriate audio environment set command.
 
 @subsubsection emacspeak-set-auditory-icon-player
 @deffn {Command} emacspeak-set-auditory-icon-player  (player)
-@kbd{C-e M-a <XF86WakeUp> M-a}
+@kbd{C-e M-a <fn> M-a}
 
-@kindex C-e M-a <XF86WakeUp> M-a
+@kindex C-e M-a <fn> M-a
 @findex emacspeak-set-auditory-icon-player
 
 @format
@@ -13569,7 +13570,7 @@ emacspeak-queue-auditory-icon when using software TTS.
 @format
 Ask Emacspeak to use a local audio player.
 This lets me have Emacspeak switch to using audioplay on
-solaris after I''ve used it for a while from a remote session
+solaris after I’ve used it for a while from a remote session
 where it would use the more primitive speech-server based
 audio player.
 @end format
@@ -13586,9 +13587,9 @@ Reload sound drivers.
 
 @subsubsection emacspeak-sounds-select-theme
 @deffn {Command} emacspeak-sounds-select-theme  (theme)
-@kbd{C-e ) <XF86WakeUp> )}
+@kbd{C-e ) <fn> )}
 
-@kindex C-e ) <XF86WakeUp> )
+@kindex C-e ) <fn> )
 @findex emacspeak-sounds-select-theme
 
 @format
@@ -13598,9 +13599,9 @@ Select theme for auditory icons.
 
 @subsubsection emacspeak-toggle-auditory-icons
 @deffn {Command} emacspeak-toggle-auditory-icons  (&optional prefix)
-@kbd{C-e C-a <XF86WakeUp> C-a}
+@kbd{C-e C-a <fn> C-a}
 
-@kindex C-e C-a <XF86WakeUp> C-a
+@kindex C-e C-a <fn> C-a
 @findex emacspeak-toggle-auditory-icons
 
 @format
@@ -13617,7 +13618,7 @@ play : Launches play-program to play.
 Serve: Send a command to the speech-server to play.
 Queue : Add auditory icon to speech queue.
 soxplay: Use sox to apply effect earwax for headphones.
-Native : Use Emacs'' builtin sound support.
+Native : Use Emacs’ builtin sound support.
 Use Serve when working with remote speech servers.
 
 @end defvar
@@ -13698,9 +13699,9 @@ char, or dont move.
 
 @subsubsection emacspeak-dial-dtk
 @deffn {Command} emacspeak-dial-dtk  (number)
-@kbd{C-e d t <XF86WakeUp> d t}
+@kbd{C-e d t <fn> d t}
 
-@kindex C-e d t <XF86WakeUp> d t
+@kindex C-e d t <fn> d t
 @findex emacspeak-dial-dtk
 
 @format
@@ -13719,9 +13720,9 @@ Execute COMMAND repeatedly.
 
 @subsubsection emacspeak-goto-percent
 @deffn {Command} emacspeak-goto-percent  (percent)
-@kbd{C-e M-% <XF86WakeUp> M-%}
+@kbd{C-e M-% <fn> M-%}
 
-@kindex C-e M-% <XF86WakeUp> M-%
+@kindex C-e M-% <fn> M-%
 @findex emacspeak-goto-percent
 
 @format
@@ -13817,7 +13818,7 @@ Numeric prefix arg COUNT specifies number of lines to move.
 @findex emacspeak-owindow-scroll-down
 
 @format
-Scroll down  the window that command ``other-window'' would move to.
+Scroll down  the window that command ‘other-window’ would move to.
 Speak the window contents after scrolling.
 @end format
 @end deffn
@@ -13830,7 +13831,7 @@ Speak the window contents after scrolling.
 @findex emacspeak-owindow-scroll-up
 
 @format
-Scroll up the window that command ``other-window'' would move to.
+Scroll up the window that command ‘other-window’ would move to.
 Speak the window contents after scrolling.
 @end format
 @end deffn
@@ -13849,9 +13850,9 @@ Speak the current line in the other window.
 
 @subsubsection emacspeak-read-next-line
 @deffn {Command} emacspeak-read-next-line  (&optional arg)
-@kbd{C-e <down> <XF86WakeUp> <down>}
+@kbd{C-e <down> <fn> <down>}
 
-@kindex C-e <down> <XF86WakeUp> <down>
+@kindex C-e <down> <fn> <down>
 @findex emacspeak-read-next-line
 
 @format
@@ -13872,9 +13873,9 @@ Default is to read the next word.
 
 @subsubsection emacspeak-read-previous-line
 @deffn {Command} emacspeak-read-previous-line  (&optional arg)
-@kbd{C-e <up> <XF86WakeUp> <up>}
+@kbd{C-e <up> <fn> <up>}
 
-@kindex C-e <up> <XF86WakeUp> <up>
+@kindex C-e <up> <fn> <up>
 @findex emacspeak-read-previous-line
 
 @format
@@ -13924,7 +13925,7 @@ Run shell command and speak its output.
 @format
 Silence is golden. Stop speech, and pause/resume any media
 streams.
-Runs ``emacspeak-silence-hook'' which can be used to configure
+Runs ‘emacspeak-silence-hook’ which can be used to configure
 which media players get silenced or paused/resumed.
 @end format
 @end deffn
@@ -13950,24 +13951,24 @@ Speak extent delimited by point and last character typed.
 
 @subsubsection emacspeak-speak-browse-buffer
 @deffn {Command} emacspeak-speak-browse-buffer  (&optional browse)
-@kbd{C-e , <XF86WakeUp> ,}
+@kbd{C-e , <fn> ,}
 
-@kindex C-e , <XF86WakeUp> ,
+@kindex C-e , <fn> ,
 @findex emacspeak-speak-browse-buffer
 
 @format
 Browse current buffer.
 Default is to speak chunk having current personality.
-Interactive prefix arg ``browse''  repeatedly browses  through
+Interactive prefix arg ‘browse’  repeatedly browses  through
   chunks having same personality as the current text chunk.
 @end format
 @end deffn
 
 @subsubsection emacspeak-speak-buffer
 @deffn {Command} emacspeak-speak-buffer  (&optional arg)
-@kbd{C-e b <XF86WakeUp> b}
+@kbd{C-e b <fn> b}
 
-@kindex C-e b <XF86WakeUp> b
+@kindex C-e b <fn> b
 @findex emacspeak-speak-buffer
 
 @format
@@ -13975,22 +13976,22 @@ Speak current buffer  contents.
 With prefix ARG, speaks the rest of the buffer from point.
 Negative prefix arg speaks from start of buffer to point.
  If voice lock mode is on, the paragraphs in the buffer are
-voice annotated first,  see command ``emacspeak-speak-voice-annotate-paragraphs''.
+voice annotated first,  see command ‘emacspeak-speak-voice-annotate-paragraphs’.
 @end format
 @end deffn
 
 @subsubsection emacspeak-speak-buffer-filename
 @deffn {Command} emacspeak-speak-buffer-filename  (&optional filename)
-@kbd{C-e f <XF86WakeUp> f}
+@kbd{C-e f <fn> f}
 
-@kindex C-e f <XF86WakeUp> f
+@kindex C-e f <fn> f
 @findex emacspeak-speak-buffer-filename
 
 @format
 Speak name of file being visited in current buffer.
 Speak default directory if invoked in a dired buffer,
 or when the buffer is not visiting any file.
-Interactive prefix arg ``filename'' speaks only the final path
+Interactive prefix arg ‘filename’ speaks only the final path
 component.
 The result is put in the kill ring for convenience.
 @end format
@@ -13998,24 +13999,24 @@ The result is put in the kill ring for convenience.
 
 @subsubsection emacspeak-speak-buffer-interactively
 @deffn {Command} emacspeak-speak-buffer-interactively   
-@kbd{C-e B <XF86WakeUp> B}
+@kbd{C-e B <fn> B}
 
-@kindex C-e B <XF86WakeUp> B
+@kindex C-e B <fn> B
 @findex emacspeak-speak-buffer-interactively
 
 @format
 Speak the start of, rest of, or the entire buffer.
-''s'' to speak the start.
-''r'' to speak the rest.
+’s’ to speak the start.
+’r’ to speak the rest.
 any other key to speak entire buffer.
 @end format
 @end deffn
 
 @subsubsection emacspeak-speak-char
 @deffn {Command} emacspeak-speak-char  (&optional prefix)
-@kbd{C-e c <XF86WakeUp> c}
+@kbd{C-e c <fn> c}
 
-@kindex C-e c <XF86WakeUp> c
+@kindex C-e c <fn> c
 @findex emacspeak-speak-char
 
 @format
@@ -14044,9 +14045,9 @@ Speak completions if available.
 
 @subsubsection emacspeak-speak-continuously
 @deffn {Command} emacspeak-speak-continuously   
-@kbd{C-e RET <XF86WakeUp> RET}
+@kbd{C-e RET <fn> RET}
 
-@kindex C-e RET <XF86WakeUp> RET
+@kindex C-e RET <fn> RET
 @findex emacspeak-speak-continuously
 
 @format
@@ -14061,9 +14062,9 @@ was spoken.  Any other key continues to speak the buffer.
 
 @subsubsection emacspeak-speak-current-column
 @deffn {Command} emacspeak-speak-current-column   
-@kbd{C-e = <XF86WakeUp> =}
+@kbd{C-e = <fn> =}
 
-@kindex C-e = <XF86WakeUp> =
+@kindex C-e = <fn> =
 @findex emacspeak-speak-current-column
 
 @format
@@ -14082,9 +14083,9 @@ Speak current field.
 
 @subsubsection emacspeak-speak-current-kill
 @deffn {Command} emacspeak-speak-current-kill  (count)
-@kbd{C-e k <XF86WakeUp> k}
+@kbd{C-e k <fn> k}
 
-@kindex C-e k <XF86WakeUp> k
+@kindex C-e k <fn> k
 @findex emacspeak-speak-current-kill
 
 @format
@@ -14101,18 +14102,18 @@ to command yank.
 
 @subsubsection emacspeak-speak-current-mark
 @deffn {Command} emacspeak-speak-current-mark  (count)
-@kbd{C-e C-SPC C-e C-@@ <XF86WakeUp> C-SPC <XF86WakeUp> C-@@}
+@kbd{C-e C-SPC C-e C-@@ <fn> C-SPC <fn> C-@@}
 
-@kindex C-e C-SPC C-e C-@@ <XF86WakeUp> C-SPC <XF86WakeUp> C-@@
+@kindex C-e C-SPC C-e C-@@ <fn> C-SPC <fn> C-@@
 @findex emacspeak-speak-current-mark
 
 @format
 Speak the line containing the mark.
 With no argument, speaks the
-line containing the mark--this is where ``exchange-point-and-mark''
-C-x C-x would jump.  Numeric prefix arg ''COUNT'' speaks
-line containing mark ''n'' where ''n'' is one less than the number of
-times one has to jump using ``set-mark-command'' to get to this marked
+line containing the mark--this is where ‘exchange-point-and-mark’
+C-x C-x would jump.  Numeric prefix arg ’COUNT’ speaks
+line containing mark ’n’ where ’n’ is one less than the number of
+times one has to jump using ‘set-mark-command’ to get to this marked
 position.  The location of the mark is indicated by an aural highlight
 achieved by a change in voice personality.
 @end format
@@ -14120,9 +14121,9 @@ achieved by a change in voice personality.
 
 @subsubsection emacspeak-speak-current-percentage
 @deffn {Command} emacspeak-speak-current-percentage   
-@kbd{C-e % <XF86WakeUp> %}
+@kbd{C-e % <fn> %}
 
-@kindex C-e % <XF86WakeUp> %
+@kindex C-e % <fn> %
 @findex emacspeak-speak-current-percentage
 
 @format
@@ -14156,7 +14157,7 @@ Seconds value is also placed in the kill-ring.
 
 @format
 Display char under point using current speech display table.
-Behavior is the same as command ``emacspeak-speak-char''
+Behavior is the same as command ‘emacspeak-speak-char’
 bound to C-e c
 for characters in the range 0--127.
 Optional argument PREFIX  specifies that the character should be spoken phonetically.
@@ -14183,9 +14184,9 @@ Speak   the buffer from start to   point
 
 @subsubsection emacspeak-speak-header-line
 @deffn {Command} emacspeak-speak-header-line   
-@kbd{C-e SPC <XF86WakeUp> SPC}
+@kbd{C-e SPC <fn> SPC}
 
-@kindex C-e SPC <XF86WakeUp> SPC
+@kindex C-e SPC <fn> SPC
 @findex emacspeak-speak-header-line
 
 @format
@@ -14195,9 +14196,9 @@ Speak header line if set.
 
 @subsubsection emacspeak-speak-help
 @deffn {Command} emacspeak-speak-help  (&optional arg)
-@kbd{C-e h <XF86WakeUp> h}
+@kbd{C-e h <fn> h}
 
-@kindex C-e h <XF86WakeUp> h
+@kindex C-e h <fn> h
 @findex emacspeak-speak-help
 
 @format
@@ -14213,17 +14214,17 @@ Negative prefix arg speaks from start of buffer to point.
 
 @format
 Speak the start of, rest of, or the entire help.
-''s'' to speak the start.
-''r'' to speak the rest.
+’s’ to speak the start.
+’r’ to speak the rest.
 any other key to speak entire help.
 @end format
 @end deffn
 
 @subsubsection emacspeak-speak-hostname
 @deffn {Command} emacspeak-speak-hostname   
-@kbd{C-e M-h <XF86WakeUp> M-h}
+@kbd{C-e M-h <fn> M-h}
 
-@kindex C-e M-h <XF86WakeUp> M-h
+@kindex C-e M-h <fn> M-h
 @findex emacspeak-speak-hostname
 
 @format
@@ -14233,45 +14234,45 @@ Speak host name.
 
 @subsubsection emacspeak-speak-line
 @deffn {Command} emacspeak-speak-line  (&optional arg)
-@kbd{C-e l <XF86WakeUp> l}
+@kbd{C-e l <fn> l}
 
-@kindex C-e l <XF86WakeUp> l
+@kindex C-e l <fn> l
 @findex emacspeak-speak-line
 
 @format
 Speaks current line.  With prefix ARG, speaks the rest of the line
 from point.  Negative prefix optional arg speaks from start of line to
-point.  Voicifies if option ``voice-lock-mode'' is on.  Indicates
+point.  Voicifies if option ‘voice-lock-mode’ is on.  Indicates
 indentation with a tone if audio indentation is in use.  Indicates
 position of point with an aural highlight if option
-``emacspeak-show-point'' is turned on --see command
-``emacspeak-show-point'' bound to M-x emacspeak-show-point.  Lines that
+‘emacspeak-show-point’ is turned on --see command
+‘emacspeak-show-point’ bound to M-x emacspeak-show-point.  Lines that
 start hidden blocks of text, e.g.  outline header lines, or header
-lines of blocks created by command ``emacspeak-hide-or-expose-block''
+lines of blocks created by command ‘emacspeak-hide-or-expose-block’
 are indicated with auditory icon ellipses.
 @end format
 @end deffn
 
 @subsubsection emacspeak-speak-line-interactively
 @deffn {Command} emacspeak-speak-line-interactively   
-@kbd{C-e L <XF86WakeUp> L}
+@kbd{C-e L <fn> L}
 
-@kindex C-e L <XF86WakeUp> L
+@kindex C-e L <fn> L
 @findex emacspeak-speak-line-interactively
 
 @format
 Speak the start of, rest of, or the entire line.
-''s'' to speak the start.
-''r'' to speak the rest.
+’s’ to speak the start.
+’r’ to speak the rest.
 any other key to speak entire line.
 @end format
 @end deffn
 
 @subsubsection emacspeak-speak-line-number
 @deffn {Command} emacspeak-speak-line-number   
-@kbd{C-e C-l <XF86WakeUp> C-l}
+@kbd{C-e C-l <fn> C-l}
 
-@kindex C-e C-l <XF86WakeUp> C-l
+@kindex C-e C-l <fn> C-l
 @findex emacspeak-speak-line-number
 
 @format
@@ -14281,9 +14282,9 @@ Print the current buffer line number and narrowed line number of point.
 
 @subsubsection emacspeak-speak-line-set-column-filter
 @deffn {Command} emacspeak-speak-line-set-column-filter  (filter)
-@kbd{C-e | <XF86WakeUp> |}
+@kbd{C-e | <fn> |}
 
-@kindex C-e | <XF86WakeUp> |
+@kindex C-e | <fn> |
 @findex emacspeak-speak-line-set-column-filter
 
 @format
@@ -14314,23 +14315,23 @@ directory.
 
 @subsubsection emacspeak-speak-message-again
 @deffn {Command} emacspeak-speak-message-again  (&optional from-message-cache)
-@kbd{C-e a <XF86WakeUp> a}
+@kbd{C-e a <fn> a}
 
-@kindex C-e a <XF86WakeUp> a
+@kindex C-e a <fn> a
 @findex emacspeak-speak-message-again
 
 @format
 Speak the last message from Emacs once again.
 The message is also placed in the kill ring for convenient yanking
-if ``emacspeak-speak-message-again-should-copy-to-kill-ring'' is set.
+if ‘emacspeak-speak-message-again-should-copy-to-kill-ring’ is set.
 @end format
 @end deffn
 
 @subsubsection emacspeak-speak-message-at-time
 @deffn {Command} emacspeak-speak-message-at-time  (time message)
-@kbd{C-e @@ <XF86WakeUp> @@}
+@kbd{C-e @@ <fn> @@}
 
-@kindex C-e @@ <XF86WakeUp> @@
+@kindex C-e @@ <fn> @@
 @findex emacspeak-speak-message-at-time
 
 @format
@@ -14371,22 +14372,22 @@ Negative prefix arg speaks from start of buffer to point.
 
 @subsubsection emacspeak-speak-minor-mode-line
 @deffn {Command} emacspeak-speak-minor-mode-line  (&optional copy-as-kill)
-@kbd{C-e M <XF86WakeUp> M}
+@kbd{C-e M <fn> M}
 
-@kindex C-e M <XF86WakeUp> M
+@kindex C-e M <fn> M
 @findex emacspeak-speak-minor-mode-line
 
 @format
 Speak the minor mode-information.
-Optional  interactive prefix arg ``copy-as-kill'' copies spoken info to kill ring.
+Optional  interactive prefix arg ‘copy-as-kill’ copies spoken info to kill ring.
 @end format
 @end deffn
 
 @subsubsection emacspeak-speak-mode-line
 @deffn {Command} emacspeak-speak-mode-line  (&optional buffer-info)
-@kbd{C-e m <XF86WakeUp> m}
+@kbd{C-e m <fn> m}
 
-@kindex C-e m <XF86WakeUp> m
+@kindex C-e m <fn> m
 @findex emacspeak-speak-mode-line
 
 @format
@@ -14408,9 +14409,9 @@ Speak that chunk after moving.
 
 @subsubsection emacspeak-speak-next-field
 @deffn {Command} emacspeak-speak-next-field   
-@kbd{C-e > <XF86WakeUp> >}
+@kbd{C-e > <fn> >}
 
-@kindex C-e > <XF86WakeUp> >
+@kindex C-e > <fn> >
 @findex emacspeak-speak-next-field
 
 @format
@@ -14430,9 +14431,9 @@ Speak that chunk after moving.
 
 @subsubsection emacspeak-speak-next-window
 @deffn {Command} emacspeak-speak-next-window   
-@kbd{C-e C-n <XF86WakeUp> C-n}
+@kbd{C-e C-n <fn> C-n}
 
-@kindex C-e C-n <XF86WakeUp> C-n
+@kindex C-e C-n <fn> C-n
 @findex emacspeak-speak-next-window
 
 @format
@@ -14442,9 +14443,9 @@ Speak the next window.
 
 @subsubsection emacspeak-speak-other-buffer
 @deffn {Command} emacspeak-speak-other-buffer  (buffer)
-@kbd{C-e M-b <XF86WakeUp> M-b}
+@kbd{C-e M-b <fn> M-b}
 
-@kindex C-e M-b <XF86WakeUp> M-b
+@kindex C-e M-b <fn> M-b
 @findex emacspeak-speak-other-buffer
 
 @format
@@ -14458,49 +14459,49 @@ Useful to listen to a buffer without switching  contexts.
 @findex emacspeak-speak-other-window
 
 @format
-Speak contents of ``other'' window.
+Speak contents of ‘other’ window.
 Speaks entire window irrespective of point.
-Semantics  of ``other'' is the same as for the builtin Emacs command
-``other-window''.
-Optional argument ARG  specifies ``other'' window to speak.
+Semantics  of ‘other’ is the same as for the builtin Emacs command
+‘other-window’.
+Optional argument ARG  specifies ‘other’ window to speak.
 @end format
 @end deffn
 
 @subsubsection emacspeak-speak-page
 @deffn {Command} emacspeak-speak-page  (&optional arg)
-@kbd{C-e [ <XF86WakeUp> [}
+@kbd{C-e [ <fn> [}
 
-@kindex C-e [ <XF86WakeUp> [
+@kindex C-e [ <fn> [
 @findex emacspeak-speak-page
 
 @format
 Speak a page.
 With prefix ARG, speaks rest of current page.
 Negative prefix arg will read from start of current page to point.
-If option  ``voice-lock-mode'' is on, then it will use any defined personality.
+If option  ‘voice-lock-mode’ is on, then it will use any defined personality.
 @end format
 @end deffn
 
 @subsubsection emacspeak-speak-page-interactively
 @deffn {Command} emacspeak-speak-page-interactively   
-@kbd{C-e ] <XF86WakeUp> ]}
+@kbd{C-e ] <fn> ]}
 
-@kindex C-e ] <XF86WakeUp> ]
+@kindex C-e ] <fn> ]
 @findex emacspeak-speak-page-interactively
 
 @format
 Speak the start of, rest of, or the entire page.
-''s'' to speak the start.
-''r'' to speak the rest.
+’s’ to speak the start.
+’r’ to speak the rest.
 any other key to speak entire page.
 @end format
 @end deffn
 
 @subsubsection emacspeak-speak-paragraph
 @deffn {Command} emacspeak-speak-paragraph  (&optional arg)
-@kbd{C-e @{ C-e p <XF86WakeUp> @{ <XF86WakeUp> p}
+@kbd{C-e @{ C-e p <fn> @{ <fn> p}
 
-@kindex C-e @{ C-e p <XF86WakeUp> @{ <XF86WakeUp> p
+@kindex C-e @{ C-e p <fn> @{ <fn> p
 @findex emacspeak-speak-paragraph
 
 @format
@@ -14513,15 +14514,15 @@ If voice-lock-mode is on, then it will use any defined personality.
 
 @subsubsection emacspeak-speak-paragraph-interactively
 @deffn {Command} emacspeak-speak-paragraph-interactively   
-@kbd{C-e P <XF86WakeUp> P}
+@kbd{C-e P <fn> P}
 
-@kindex C-e P <XF86WakeUp> P
+@kindex C-e P <fn> P
 @findex emacspeak-speak-paragraph-interactively
 
 @format
 Speak the start of, rest of, or the entire paragraph.
-''s'' to speak the start.
-''r'' to speak the rest.
+’s’ to speak the start.
+’r’ to speak the rest.
 any other key to speak entire paragraph.
 @end format
 @end deffn
@@ -14537,19 +14538,19 @@ Speak character before point.
 
 @subsubsection emacspeak-speak-predefined-window
 @deffn {Command} emacspeak-speak-predefined-window  (&optional arg)
-@kbd{C-e 9 C-e 8 C-e 7 C-e 6 C-e 5 C-e 4 C-e 3 C-e 2 C-e 1 C-e 0 <XF86WakeUp> 9 <XF86WakeUp> 8 <XF86WakeUp> 7 <XF86WakeUp> 6 <XF86WakeUp> 5 <XF86WakeUp> 4 <XF86WakeUp> 3 <XF86WakeUp> 2 <XF86WakeUp> 1 <XF86WakeUp> 0}
+@kbd{C-e 9 C-e 8 C-e 7 C-e 6 C-e 5 C-e 4 C-e 3 C-e 2 C-e 1 C-e 0 <fn> 9 <fn> 8 <fn> 7 <fn> 6 <fn> 5 <fn> 4 <fn> 3 <fn> 2 <fn> 1 <fn> 0}
 
-@kindex C-e 9 C-e 8 C-e 7 C-e 6 C-e 5 C-e 4 C-e 3 C-e 2 C-e 1 C-e 0 <XF86WakeUp> 9 <XF86WakeUp> 8 <XF86WakeUp> 7 <XF86WakeUp> 6 <XF86WakeUp> 5 <XF86WakeUp> 4 <XF86WakeUp> 3 <XF86WakeUp> 2 <XF86WakeUp> 1 <XF86WakeUp> 0
+@kindex C-e 9 C-e 8 C-e 7 C-e 6 C-e 5 C-e 4 C-e 3 C-e 2 C-e 1 C-e 0 <fn> 9 <fn> 8 <fn> 7 <fn> 6 <fn> 5 <fn> 4 <fn> 3 <fn> 2 <fn> 1 <fn> 0
 @findex emacspeak-speak-predefined-window
 
 @format
 Speak one of the first 10 windows on the screen.
 Speaks entire window irrespective of point.
-In general, you''ll never have Emacs split the screen into more than
+In general, you’ll never have Emacs split the screen into more than
 two or three.
-Argument ARG determines the ''other'' window to speak.
-Semantics  of ``other'' is the same as for the builtin Emacs command
-``other-window''.
+Argument ARG determines the ’other’ window to speak.
+Semantics  of ‘other’ is the same as for the builtin Emacs command
+‘other-window’.
 @end format
 @end deffn
 
@@ -14565,9 +14566,9 @@ Speak that chunk after moving.
 
 @subsubsection emacspeak-speak-previous-field
 @deffn {Command} emacspeak-speak-previous-field   
-@kbd{C-e < <XF86WakeUp> <}
+@kbd{C-e < <fn> <}
 
-@kindex C-e < <XF86WakeUp> <
+@kindex C-e < <fn> <
 @findex emacspeak-speak-previous-field
 
 @format
@@ -14587,9 +14588,9 @@ Speak that chunk after moving.
 
 @subsubsection emacspeak-speak-previous-window
 @deffn {Command} emacspeak-speak-previous-window   
-@kbd{C-e C-p <XF86WakeUp> C-p}
+@kbd{C-e C-p <fn> C-p}
 
-@kindex C-e C-p <XF86WakeUp> C-p
+@kindex C-e C-p <fn> C-p
 @findex emacspeak-speak-previous-window
 
 @format
@@ -14599,9 +14600,9 @@ Speak the previous window.
 
 @subsubsection emacspeak-speak-rectangle
 @deffn {Command} emacspeak-speak-rectangle  (start end)
-@kbd{C-e R <XF86WakeUp> R}
+@kbd{C-e R <fn> R}
 
-@kindex C-e R <XF86WakeUp> R
+@kindex C-e R <fn> R
 @findex emacspeak-speak-rectangle
 
 @format
@@ -14614,9 +14615,9 @@ arguments specify the START and END of the rectangle.
 
 @subsubsection emacspeak-speak-region
 @deffn {Command} emacspeak-speak-region  (start end)
-@kbd{C-e r <XF86WakeUp> r}
+@kbd{C-e r <fn> r}
 
-@kindex C-e r <XF86WakeUp> r
+@kindex C-e r <fn> r
 @findex emacspeak-speak-region
 
 @format
@@ -14627,9 +14628,9 @@ Argument START  and END specify region to speak.
 
 @subsubsection emacspeak-speak-rest-of-buffer
 @deffn {Command} emacspeak-speak-rest-of-buffer   
-@kbd{C-e n <XF86WakeUp> n}
+@kbd{C-e n <fn> n}
 
-@kindex C-e n <XF86WakeUp> n
+@kindex C-e n <fn> n
 @findex emacspeak-speak-rest-of-buffer
 
 @format
@@ -14670,9 +14671,9 @@ setting to be global.
 
 @subsubsection emacspeak-speak-set-mode-punctuations
 @deffn {Command} emacspeak-speak-set-mode-punctuations  (setting)
-@kbd{C-e d m <XF86WakeUp> d m}
+@kbd{C-e d m <fn> d m}
 
-@kindex C-e d m <XF86WakeUp> d m
+@kindex C-e d m <fn> d m
 @findex emacspeak-speak-set-mode-punctuations
 
 @format
@@ -14688,30 +14689,30 @@ Set punctuation mode for all buffers in current mode.
 Speak current sexp.
 With prefix ARG, speaks the rest of the sexp  from point.
 Negative prefix arg speaks from start of sexp to point.
-If option  ``voice-lock-mode'' is on, then uses the personality.
+If option  ‘voice-lock-mode’ is on, then uses the personality.
 @end format
 @end deffn
 
 @subsubsection emacspeak-speak-sexp-interactively
 @deffn {Command} emacspeak-speak-sexp-interactively   
-@kbd{C-e " <XF86WakeUp> "}
+@kbd{C-e " <fn> "}
 
-@kindex C-e " <XF86WakeUp> "
+@kindex C-e " <fn> "
 @findex emacspeak-speak-sexp-interactively
 
 @format
 Speak the start of, rest of, or the entire sexp.
-''s'' to speak the start.
-''r'' to speak the rest.
+’s’ to speak the start.
+’r’ to speak the rest.
 any other key to speak entire sexp.
 @end format
 @end deffn
 
 @subsubsection emacspeak-speak-show-active-network-interfaces
 @deffn {Command} emacspeak-speak-show-active-network-interfaces  (&optional address)
-@kbd{C-e I <XF86WakeUp> I}
+@kbd{C-e I <fn> I}
 
-@kindex C-e I <XF86WakeUp> I
+@kindex C-e I <fn> I
 @findex emacspeak-speak-show-active-network-interfaces
 
 @format
@@ -14754,9 +14755,9 @@ Speech is scaled by the value of dtk-speak-skim-scale
 
 @subsubsection emacspeak-speak-spaces-at-point
 @deffn {Command} emacspeak-speak-spaces-at-point   
-@kbd{C-e C-M-SPC C-e C-M-@@ <XF86WakeUp> C-M-SPC <XF86WakeUp> C-M-@@}
+@kbd{C-e C-M-SPC C-e C-M-@@ <fn> C-M-SPC <fn> C-M-@@}
 
-@kindex C-e C-M-SPC C-e C-M-@@ <XF86WakeUp> C-M-SPC <XF86WakeUp> C-M-@@
+@kindex C-e C-M-SPC C-e C-M-@@ <fn> C-M-SPC <fn> C-M-@@
 @findex emacspeak-speak-spaces-at-point
 
 @format
@@ -14803,14 +14804,14 @@ personality.
 
 @subsubsection emacspeak-speak-time
 @deffn {Command} emacspeak-speak-time  (&optional world)
-@kbd{C-e t <XF86WakeUp> t}
+@kbd{C-e t <fn> t}
 
-@kindex C-e t <XF86WakeUp> t
+@kindex C-e t <fn> t
 @findex emacspeak-speak-time
 
 @format
 Speak the time.
-Optional interactive prefix arg ``C-u''invokes world clock.
+Optional interactive prefix arg ‘C-u’invokes world clock.
 Timezone is specified using minibuffer completion.
 Second interactive prefix sets clock to new timezone.
 @end format
@@ -14818,9 +14819,9 @@ Second interactive prefix sets clock to new timezone.
 
 @subsubsection emacspeak-speak-version
 @deffn {Command} emacspeak-speak-version  (&optional update)
-@kbd{C-e V <XF86WakeUp> V}
+@kbd{C-e V <fn> V}
 
-@kindex C-e V <XF86WakeUp> V
+@kindex C-e V <fn> V
 @findex emacspeak-speak-version
 
 @format
@@ -14841,9 +14842,9 @@ Useful to do this before you listen to an entire buffer.
 
 @subsubsection emacspeak-speak-window-information
 @deffn {Command} emacspeak-speak-window-information   
-@kbd{C-e C-w <XF86WakeUp> C-w}
+@kbd{C-e C-w <fn> C-w}
 
-@kindex C-e C-w <XF86WakeUp> C-w
+@kindex C-e C-w <fn> C-w
 @findex emacspeak-speak-window-information
 
 @format
@@ -14853,9 +14854,9 @@ Speaks information about current window.
 
 @subsubsection emacspeak-speak-word
 @deffn {Command} emacspeak-speak-word  (&optional arg)
-@kbd{C-e w <XF86WakeUp> w}
+@kbd{C-e w <fn> w}
 
-@kindex C-e w <XF86WakeUp> w
+@kindex C-e w <fn> w
 @findex emacspeak-speak-word
 
 @format
@@ -14873,8 +14874,8 @@ spelled out  instead of being spoken.
 
 @format
 Speak the start of, rest of, or the entire word.
-''s'' to speak the start.
-''r'' to speak the rest.
+’s’ to speak the start.
+’r’ to speak the rest.
 any other key to speak entire word.
 @end format
 @end deffn
@@ -14885,7 +14886,7 @@ any other key to speak entire word.
 
 @format
 Display current date and time  for specified zone.
-Optional second arg ``set'' sets the TZ environment variable as well.
+Optional second arg ‘set’ sets the TZ environment variable as well.
 @end format
 @end deffn
 
@@ -14911,27 +14912,27 @@ current local  value to the result.
 
 @subsubsection emacspeak-toggle-audio-indentation
 @deffn {Command} emacspeak-toggle-audio-indentation  (&optional prefix)
-@kbd{C-e d i <XF86WakeUp> d i}
+@kbd{C-e d i <fn> d i}
 
-@kindex C-e d i <XF86WakeUp> d i
+@kindex C-e d i <fn> d i
 @findex emacspeak-toggle-audio-indentation
 
 @format
 Toggle state of  Emacspeak  audio indentation.
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.
-Specifying the method of indentation as ``tones''
+Specifying the method of indentation as ‘tones’
 results in the Dectalk producing a tone whose length is a function of the
-line''s indentation.  Specifying ``speak''
+line’s indentation.  Specifying ‘speak’
 results in the number of initial spaces being spoken.
 @end format
 @end deffn
 
 @subsubsection emacspeak-toggle-character-echo
 @deffn {Command} emacspeak-toggle-character-echo  (&optional prefix)
-@kbd{C-e d k <XF86WakeUp> d k}
+@kbd{C-e d k <fn> d k}
 
-@kindex C-e d k <XF86WakeUp> d k
+@kindex C-e d k <fn> d k
 @findex emacspeak-toggle-character-echo
 
 @format
@@ -14943,9 +14944,9 @@ current local  value to the result.
 
 @subsubsection emacspeak-toggle-comint-autospeak
 @deffn {Command} emacspeak-toggle-comint-autospeak  (&optional prefix)
-@kbd{C-e C-q <XF86WakeUp> C-q}
+@kbd{C-e C-q <fn> C-q}
 
-@kindex C-e C-q <XF86WakeUp> C-q
+@kindex C-e C-q <fn> C-q
 @findex emacspeak-toggle-comint-autospeak
 
 @format
@@ -14959,9 +14960,9 @@ set the current local value to the result.
 
 @subsubsection emacspeak-toggle-comint-output-monitor
 @deffn {Command} emacspeak-toggle-comint-output-monitor  (&optional prefix)
-@kbd{C-e o <XF86WakeUp> o}
+@kbd{C-e o <fn> o}
 
-@kindex C-e o <XF86WakeUp> o
+@kindex C-e o <fn> o
 @findex emacspeak-toggle-comint-output-monitor
 
 @format
@@ -14978,15 +14979,15 @@ set the current local value to the result.
 @findex emacspeak-toggle-header-line
 
 @format
-Toggle Emacspeak''s default header line.
+Toggle Emacspeak’s default header line.
 @end format
 @end deffn
 
 @subsubsection emacspeak-toggle-line-echo
 @deffn {Command} emacspeak-toggle-line-echo  (&optional prefix)
-@kbd{C-e d l <XF86WakeUp> d l}
+@kbd{C-e d l <fn> d l}
 
-@kindex C-e d l <XF86WakeUp> d l
+@kindex C-e d l <fn> d l
 @findex emacspeak-toggle-line-echo
 
 @format
@@ -14998,9 +14999,9 @@ current local  value to the result.
 
 @subsubsection emacspeak-toggle-mail-alert
 @deffn {Command} emacspeak-toggle-mail-alert  (&optional prefix)
-@kbd{C-e M-m <XF86WakeUp> M-m}
+@kbd{C-e M-m <fn> M-m}
 
-@kindex C-e M-m <XF86WakeUp> M-m
+@kindex C-e M-m <fn> M-m
 @findex emacspeak-toggle-mail-alert
 
 @format
@@ -15014,9 +15015,9 @@ indicating the arrival  of new mail when displaying the mode line.
 
 @subsubsection emacspeak-toggle-show-point
 @deffn {Command} emacspeak-toggle-show-point  (&optional prefix)
-@kbd{C-e C-d <XF86WakeUp> C-d}
+@kbd{C-e C-d <fn> C-d}
 
-@kindex C-e C-d <XF86WakeUp> C-d
+@kindex C-e C-d <fn> C-d
 @findex emacspeak-toggle-show-point
 
 @format
@@ -15028,9 +15029,9 @@ current local  value to the result.
 
 @subsubsection emacspeak-toggle-speak-line-invert-filter
 @deffn {Command} emacspeak-toggle-speak-line-invert-filter  (&optional prefix)
-@kbd{C-e \ <XF86WakeUp> \}
+@kbd{C-e \ <fn> \}
 
-@kindex C-e \ <XF86WakeUp> \
+@kindex C-e \ <fn> \
 @findex emacspeak-toggle-speak-line-invert-filter
 
 @format
@@ -15042,9 +15043,9 @@ current local  value to the result.
 
 @subsubsection emacspeak-toggle-speak-messages
 @deffn {Command} emacspeak-toggle-speak-messages  (&optional prefix)
-@kbd{C-e q <XF86WakeUp> q}
+@kbd{C-e q <fn> q}
 
-@kindex C-e q <XF86WakeUp> q
+@kindex C-e q <fn> q
 @findex emacspeak-toggle-speak-messages
 
 @format
@@ -15054,9 +15055,9 @@ Toggle the state of whether emacspeak echoes messages.
 
 @subsubsection emacspeak-toggle-word-echo
 @deffn {Command} emacspeak-toggle-word-echo  (&optional prefix)
-@kbd{C-e d w <XF86WakeUp> d w}
+@kbd{C-e d w <fn> d w}
 
-@kindex C-e d w <XF86WakeUp> d w
+@kindex C-e d w <fn> d w
 @findex emacspeak-toggle-word-echo
 
 @format
@@ -15103,9 +15104,9 @@ Prompts for PERSONALITY  with completion when called interactively.
 
 @subsubsection emacspeak-zap-tts
 @deffn {Command} emacspeak-zap-tts   
-@kbd{C-e d z <XF86WakeUp> d z}
+@kbd{C-e d z <fn> d z}
 
-@kindex C-e d z <XF86WakeUp> d z
+@kindex C-e d z <fn> d z
 @findex emacspeak-zap-tts
 
 @format
@@ -15118,7 +15119,7 @@ Send this command to the TTS directly.
 @defvar {User Option} emacspeak-audio-indentation
 Option indicating if line indentation is cued.
 If non-nil , then speaking a line indicates its indentation.
-You can use  command ``emacspeak-toggle-audio-indentation'' bound
+You can use  command ‘emacspeak-toggle-audio-indentation’ bound
 to C-e d i to toggle this
 setting..
 
@@ -15126,7 +15127,7 @@ setting..
 
 @defvar {User Option} emacspeak-audio-indentation-method
 *Current technique used to cue indentation.  Default is
-``speak''.  You can specify ``tone'' for producing a beep
+‘speak’.  You can specify ‘tone’ for producing a beep
 indicating the indentation.  Automatically becomes local in
 any buffer where it is set.
 
@@ -15143,7 +15144,7 @@ setting.
 @defvar {User Option} emacspeak-comint-autospeak
 Says if comint output is automatically spoken.
 You can use
-  ``emacspeak-toggle-comint-autospeak`` bound to
+  ‘emacspeak-toggle-comint-autospeak‘ bound to
   C-e C-q to toggle this
 setting.
 
@@ -15174,7 +15175,7 @@ If t, emacspeak will alert you about newly arrived mail
 with an auditory icon when
 displaying the mode line.
 You can use command
-``emacspeak-toggle-mail-alert'' bound to
+‘emacspeak-toggle-mail-alert’ bound to
 C-e M-m to set this option.
 If you have online access to a voicemail drop, you can have a
   voice-mail alert set up by specifying the location of the
@@ -15230,7 +15231,7 @@ by cut -c on UNIX.
 @end defvar
 
 @defvar {User Option} emacspeak-speak-line-invert-filter
-Non-nil means the sense of ``filter'' is inverted when filtering
+Non-nil means the sense of ‘filter’ is inverted when filtering
 columns in a line --see
 command emacspeak-speak-line-set-column-filter.
 
@@ -15244,7 +15245,7 @@ directory specific settings.
 @end defvar
 
 @defvar {User Option} emacspeak-speak-maximum-line-length
-*Threshold for determining ``long'' lines.
+*Threshold for determining ‘long’ lines.
 Emacspeak will ask for confirmation before speaking lines
 that are longer than this length.  This is to avoid accidentally
 opening a binary file and torturing the speech synthesizer
@@ -15256,7 +15257,7 @@ with a long string of gibberish.
 *Option indicating if messages are spoken.  If nil,
 emacspeak will not speak messages as they are echoed to the
 message area.  You can use command
-``emacspeak-toggle-speak-messages'' bound to
+‘emacspeak-toggle-speak-messages’ bound to
 C-e q.
 
 @end defvar
@@ -15274,7 +15275,7 @@ Pattern that matches white space.
 @defvar {User Option} emacspeak-speak-time-format-string
 *Format string that specifies how the time should be spoken.
 See the documentation for function
-``format-time-string''
+‘format-time-string’
 
 @end defvar
 
@@ -15642,9 +15643,9 @@ User interface to tables
 
 @subsubsection emacspeak-table-copy-current-element-to-kill-ring
 @deffn {Command} emacspeak-table-copy-current-element-to-kill-ring   
-@kbd{C-e C-t w <XF86WakeUp> C-t w}
+@kbd{C-e C-t w <fn> C-t w}
 
-@kindex C-e C-t w <XF86WakeUp> C-t w
+@kindex C-e C-t w <fn> C-t w
 @findex emacspeak-table-copy-current-element-to-kill-ring
 
 @format
@@ -15654,13 +15655,13 @@ Copy current table element to kill ring.
 
 @subsubsection emacspeak-table-copy-current-element-to-register
 @deffn {Command} emacspeak-table-copy-current-element-to-register  (&rest rest)
-@kbd{C-e C-t x <XF86WakeUp> C-t x}
+@kbd{C-e C-t x <fn> C-t x}
 
-@kindex C-e C-t x <XF86WakeUp> C-t x
+@kindex C-e C-t x <fn> C-t x
 @findex emacspeak-table-copy-current-element-to-register
 
 @format
-:around advice: ``ad-Advice-emacspeak-table-copy-current-element-to-register''
+:around advice: ‘ad-Advice-emacspeak-table-copy-current-element-to-register’
 
 Copy current table element to specified register.
 
@@ -15670,9 +15671,9 @@ Copy current table element to specified register.
 
 @subsubsection emacspeak-table-copy-to-clipboard
 @deffn {Command} emacspeak-table-copy-to-clipboard   
-@kbd{C-e C-t k <XF86WakeUp> C-t k}
+@kbd{C-e C-t k <fn> C-t k}
 
-@kindex C-e C-t k <XF86WakeUp> C-t k
+@kindex C-e C-t k <fn> C-t k
 @findex emacspeak-table-copy-to-clipboard
 
 @format
@@ -15683,9 +15684,9 @@ Current buffer must be in emacspeak-table mode.
 
 @subsubsection emacspeak-table-display-table-in-region
 @deffn {Command} emacspeak-table-display-table-in-region  (start end)
-@kbd{C-e TAB <XF86WakeUp> TAB}
+@kbd{C-e TAB <fn> TAB}
 
-@kindex C-e TAB <XF86WakeUp> TAB
+@kindex C-e TAB <fn> TAB
 @findex emacspeak-table-display-table-in-region
 
 @format
@@ -15695,7 +15696,7 @@ emacspeak table mode is designed to let you browse tabular data using
 all the power of the two-dimensional spatial layout while giving you
 sufficient contextual information.  The tables subdirectory of the
 emacspeak distribution contains some sample tables --these are the
-CalTrain schedules.  Execute command ``describe-mode'' bound to
+CalTrain schedules.  Execute command ‘describe-mode’ bound to
 C-h m in a buffer that is in emacspeak table mode to read
 the documentation on the table browser.
 @end format
@@ -15703,9 +15704,9 @@ the documentation on the table browser.
 
 @subsubsection emacspeak-table-find-csv-file
 @deffn {Command} emacspeak-table-find-csv-file  (filename)
-@kbd{C-e C-t , <XF86WakeUp> C-t ,}
+@kbd{C-e C-t , <fn> C-t ,}
 
-@kindex C-e C-t , <XF86WakeUp> C-t ,
+@kindex C-e C-t , <fn> C-t ,
 @findex emacspeak-table-find-csv-file
 
 @format
@@ -15724,7 +15725,7 @@ emacspeak table mode is designed to let you browse tabular data using
 all the power of the two-dimensional spatial layout while giving you
 sufficient contextual information.  The etc/tables subdirectory of the
 emacspeak distribution contains some sample tables --these are the
-CalTrain schedules.  Execute command ``describe-mode'' bound to
+CalTrain schedules.  Execute command ‘describe-mode’ bound to
 C-h m in a buffer that is in emacspeak table mode to read
 the documentation on the table browser.
 @end format
@@ -15732,9 +15733,9 @@ the documentation on the table browser.
 
 @subsubsection emacspeak-table-goto
 @deffn {Command} emacspeak-table-goto  (row column)
-@kbd{C-e C-t j <XF86WakeUp> C-t j}
+@kbd{C-e C-t j <fn> C-t j}
 
-@kindex C-e C-t j <XF86WakeUp> C-t j
+@kindex C-e C-t j <fn> C-t j
 @findex emacspeak-table-goto
 
 @format
@@ -15744,9 +15745,9 @@ Prompt for a table cell coordinates and jump to it.
 
 @subsubsection emacspeak-table-goto-bottom
 @deffn {Command} emacspeak-table-goto-bottom   
-@kbd{C-e C-t B <XF86WakeUp> C-t B C-e C-t M-> <XF86WakeUp> C-t M->}
+@kbd{C-e C-t B <fn> C-t B C-e C-t M-> <fn> C-t M->}
 
-@kindex C-e C-t B <XF86WakeUp> C-t B C-e C-t M-> <XF86WakeUp> C-t M->
+@kindex C-e C-t B <fn> C-t B C-e C-t M-> <fn> C-t M->
 @findex emacspeak-table-goto-bottom
 
 @format
@@ -15756,9 +15757,9 @@ Goes to the bottom of the current column.
 
 @subsubsection emacspeak-table-goto-left
 @deffn {Command} emacspeak-table-goto-left   
-@kbd{C-e C-t A C-e C-t < <XF86WakeUp> C-t A <XF86WakeUp> C-t <}
+@kbd{C-e C-t A C-e C-t < <fn> C-t A <fn> C-t <}
 
-@kindex C-e C-t A C-e C-t < <XF86WakeUp> C-t A <XF86WakeUp> C-t <
+@kindex C-e C-t A C-e C-t < <fn> C-t A <fn> C-t <
 @findex emacspeak-table-goto-left
 
 @format
@@ -15768,9 +15769,9 @@ Goes to the left of the current row.
 
 @subsubsection emacspeak-table-goto-right
 @deffn {Command} emacspeak-table-goto-right   
-@kbd{C-e C-t E C-e C-t > <XF86WakeUp> C-t E <XF86WakeUp> C-t >}
+@kbd{C-e C-t E C-e C-t > <fn> C-t E <fn> C-t >}
 
-@kindex C-e C-t E C-e C-t > <XF86WakeUp> C-t E <XF86WakeUp> C-t >
+@kindex C-e C-t E C-e C-t > <fn> C-t E <fn> C-t >
 @findex emacspeak-table-goto-right
 
 @format
@@ -15780,9 +15781,9 @@ Goes to the right of the current row.
 
 @subsubsection emacspeak-table-goto-top
 @deffn {Command} emacspeak-table-goto-top   
-@kbd{C-e C-t T <XF86WakeUp> C-t T C-e C-t M-< <XF86WakeUp> C-t M-<}
+@kbd{C-e C-t T <fn> C-t T C-e C-t M-< <fn> C-t M-<}
 
-@kindex C-e C-t T <XF86WakeUp> C-t T C-e C-t M-< <XF86WakeUp> C-t M-<
+@kindex C-e C-t T <fn> C-t T C-e C-t M-< <fn> C-t M-<
 @findex emacspeak-table-goto-top
 
 @format
@@ -15792,9 +15793,9 @@ Goes to the top of the current column.
 
 @subsubsection emacspeak-table-next-column
 @deffn {Command} emacspeak-table-next-column  (&optional count)
-@kbd{C-e C-t TAB C-e C-t C-f C-e C-t <right> <XF86WakeUp> C-t TAB <XF86WakeUp> C-t C-f <XF86WakeUp> C-t <right>}
+@kbd{C-e C-t TAB C-e C-t C-f C-e C-t <right> <fn> C-t TAB <fn> C-t C-f <fn> C-t <right>}
 
-@kindex C-e C-t TAB C-e C-t C-f C-e C-t <right> <XF86WakeUp> C-t TAB <XF86WakeUp> C-t C-f <XF86WakeUp> C-t <right>
+@kindex C-e C-t TAB C-e C-t C-f C-e C-t <right> <fn> C-t TAB <fn> C-t C-f <fn> C-t <right>
 @findex emacspeak-table-next-column
 
 @format
@@ -15804,9 +15805,9 @@ Move to the next column if possible
 
 @subsubsection emacspeak-table-next-row
 @deffn {Command} emacspeak-table-next-row  (&optional count)
-@kbd{C-e C-t n C-e C-t C-n C-e C-t <down> <XF86WakeUp> C-t n <XF86WakeUp> C-t C-n <XF86WakeUp> C-t <down>}
+@kbd{C-e C-t n C-e C-t C-n C-e C-t <down> <fn> C-t n <fn> C-t C-n <fn> C-t <down>}
 
-@kindex C-e C-t n C-e C-t C-n C-e C-t <down> <XF86WakeUp> C-t n <XF86WakeUp> C-t C-n <XF86WakeUp> C-t <down>
+@kindex C-e C-t n C-e C-t C-n C-e C-t <down> <fn> C-t n <fn> C-t C-n <fn> C-t <down>
 @findex emacspeak-table-next-row
 
 @format
@@ -15827,9 +15828,9 @@ markup to use.
 
 @subsubsection emacspeak-table-previous-column
 @deffn {Command} emacspeak-table-previous-column  (&optional count)
-@kbd{C-e C-t C-b C-e C-t <left> C-e C-t <S-tab> <XF86WakeUp> C-t C-b <XF86WakeUp> C-t <left> <XF86WakeUp> C-t <S-tab>}
+@kbd{C-e C-t C-b C-e C-t <left> C-e C-t <S-tab> <fn> C-t C-b <fn> C-t <left> <fn> C-t <S-tab>}
 
-@kindex C-e C-t C-b C-e C-t <left> C-e C-t <S-tab> <XF86WakeUp> C-t C-b <XF86WakeUp> C-t <left> <XF86WakeUp> C-t <S-tab>
+@kindex C-e C-t C-b C-e C-t <left> C-e C-t <S-tab> <fn> C-t C-b <fn> C-t <left> <fn> C-t <S-tab>
 @findex emacspeak-table-previous-column
 
 @format
@@ -15839,9 +15840,9 @@ Move to the previous column  if possible
 
 @subsubsection emacspeak-table-previous-row
 @deffn {Command} emacspeak-table-previous-row  (&optional count)
-@kbd{C-e C-t p C-e C-t C-p C-e C-t <up> <XF86WakeUp> C-t p <XF86WakeUp> C-t C-p <XF86WakeUp> C-t <up>}
+@kbd{C-e C-t p C-e C-t C-p C-e C-t <up> <fn> C-t p <fn> C-t C-p <fn> C-t <up>}
 
-@kindex C-e C-t p C-e C-t C-p C-e C-t <up> <XF86WakeUp> C-t p <XF86WakeUp> C-t C-p <XF86WakeUp> C-t <up>
+@kindex C-e C-t p C-e C-t C-p C-e C-t <up> <fn> C-t p <fn> C-t C-p <fn> C-t <up>
 @findex emacspeak-table-previous-row
 
 @format
@@ -15851,24 +15852,24 @@ Move to the previous row if possible
 
 @subsubsection emacspeak-table-search
 @deffn {Command} emacspeak-table-search  (&optional what)
-@kbd{C-e C-t s <XF86WakeUp> C-t s}
+@kbd{C-e C-t s <fn> C-t s}
 
-@kindex C-e C-t s <XF86WakeUp> C-t s
+@kindex C-e C-t s <fn> C-t s
 @findex emacspeak-table-search
 
 @format
 Search the table for matching elements.  Interactively prompts for
 row or column to search and pattern to look for.    If there is a match, makes
-the matching cell current. When called from a program, ``what'' can
-  be either ``row'' or ``column''.
+the matching cell current. When called from a program, ‘what’ can
+  be either ‘row’ or ‘column’.
 @end format
 @end deffn
 
 @subsubsection emacspeak-table-search-column
 @deffn {Command} emacspeak-table-search-column   
-@kbd{C-e C-t C <XF86WakeUp> C-t C}
+@kbd{C-e C-t C <fn> C-t C}
 
-@kindex C-e C-t C <XF86WakeUp> C-t C
+@kindex C-e C-t C <fn> C-t C
 @findex emacspeak-table-search-column
 
 @format
@@ -15878,9 +15879,9 @@ Search in current table column.
 
 @subsubsection emacspeak-table-search-headers
 @deffn {Command} emacspeak-table-search-headers   
-@kbd{C-e C-t h <XF86WakeUp> C-t h}
+@kbd{C-e C-t h <fn> C-t h}
 
-@kindex C-e C-t h <XF86WakeUp> C-t h
+@kindex C-e C-t h <fn> C-t h
 @findex emacspeak-table-search-headers
 
 @format
@@ -15892,9 +15893,9 @@ match, makes the matching row or column current.
 
 @subsubsection emacspeak-table-search-row
 @deffn {Command} emacspeak-table-search-row   
-@kbd{C-e C-t R <XF86WakeUp> C-t R}
+@kbd{C-e C-t R <fn> C-t R}
 
-@kindex C-e C-t R <XF86WakeUp> C-t R
+@kindex C-e C-t R <fn> C-t R
 @findex emacspeak-table-search-row
 
 @format
@@ -15904,9 +15905,9 @@ Search in current table row.
 
 @subsubsection emacspeak-table-select-automatic-speaking-method
 @deffn {Command} emacspeak-table-select-automatic-speaking-method   
-@kbd{C-e C-t a <XF86WakeUp> C-t a}
+@kbd{C-e C-t a <fn> C-t a}
 
-@kindex C-e C-t a <XF86WakeUp> C-t a
+@kindex C-e C-t a <fn> C-t a
 @findex emacspeak-table-select-automatic-speaking-method
 
 @format
@@ -15917,9 +15918,9 @@ browsing table elements
 
 @subsubsection emacspeak-table-sort-on-current-column
 @deffn {Command} emacspeak-table-sort-on-current-column   
-@kbd{C-e C-t # <XF86WakeUp> C-t #}
+@kbd{C-e C-t # <fn> C-t #}
 
-@kindex C-e C-t # <XF86WakeUp> C-t #
+@kindex C-e C-t # <fn> C-t #
 @findex emacspeak-table-sort-on-current-column
 
 @format
@@ -15929,9 +15930,9 @@ Sort table on current column.
 
 @subsubsection emacspeak-table-speak-both-headers-and-element
 @deffn {Command} emacspeak-table-speak-both-headers-and-element   
-@kbd{C-e C-t b <XF86WakeUp> C-t b}
+@kbd{C-e C-t b <fn> C-t b}
 
-@kindex C-e C-t b <XF86WakeUp> C-t b
+@kindex C-e C-t b <fn> C-t b
 @findex emacspeak-table-speak-both-headers-and-element
 
 @format
@@ -15941,9 +15942,9 @@ Speak  both row and column header and table element
 
 @subsubsection emacspeak-table-speak-column-filtered
 @deffn {Command} emacspeak-table-speak-column-filtered  (&optional prefix)
-@kbd{C-e C-t g <XF86WakeUp> C-t g}
+@kbd{C-e C-t g <fn> C-t g}
 
-@kindex C-e C-t g <XF86WakeUp> C-t g
+@kindex C-e C-t g <fn> C-t g
 @findex emacspeak-table-speak-column-filtered
 
 @format
@@ -15954,9 +15955,9 @@ Optional prefix arg prompts for a new filter.
 
 @subsubsection emacspeak-table-speak-column-header-and-element
 @deffn {Command} emacspeak-table-speak-column-header-and-element   
-@kbd{C-e C-t c <XF86WakeUp> C-t c}
+@kbd{C-e C-t c <fn> C-t c}
 
-@kindex C-e C-t c <XF86WakeUp> C-t c
+@kindex C-e C-t c <fn> C-t c
 @findex emacspeak-table-speak-column-header-and-element
 
 @format
@@ -15966,9 +15967,9 @@ Speak  column header and table element
 
 @subsubsection emacspeak-table-speak-coordinates
 @deffn {Command} emacspeak-table-speak-coordinates   
-@kbd{C-e C-t . <XF86WakeUp> C-t .}
+@kbd{C-e C-t . <fn> C-t .}
 
-@kindex C-e C-t . <XF86WakeUp> C-t .
+@kindex C-e C-t . <fn> C-t .
 @findex emacspeak-table-speak-coordinates
 
 @format
@@ -15978,9 +15979,9 @@ Speak current table coordinates.
 
 @subsubsection emacspeak-table-speak-current-element
 @deffn {Command} emacspeak-table-speak-current-element   
-@kbd{C-e C-t SPC <XF86WakeUp> C-t SPC}
+@kbd{C-e C-t SPC <fn> C-t SPC}
 
-@kindex C-e C-t SPC <XF86WakeUp> C-t SPC
+@kindex C-e C-t SPC <fn> C-t SPC
 @findex emacspeak-table-speak-current-element
 
 @format
@@ -15990,9 +15991,9 @@ Speak current table element
 
 @subsubsection emacspeak-table-speak-dimensions
 @deffn {Command} emacspeak-table-speak-dimensions   
-@kbd{C-e C-t = <XF86WakeUp> C-t =}
+@kbd{C-e C-t = <fn> C-t =}
 
-@kindex C-e C-t = <XF86WakeUp> C-t =
+@kindex C-e C-t = <fn> C-t =
 @findex emacspeak-table-speak-dimensions
 
 @format
@@ -16002,9 +16003,9 @@ Speak current table dimensions.
 
 @subsubsection emacspeak-table-speak-row-filtered
 @deffn {Command} emacspeak-table-speak-row-filtered  (&optional prefix)
-@kbd{C-e C-t f <XF86WakeUp> C-t f}
+@kbd{C-e C-t f <fn> C-t f}
 
-@kindex C-e C-t f <XF86WakeUp> C-t f
+@kindex C-e C-t f <fn> C-t f
 @findex emacspeak-table-speak-row-filtered
 
 @format
@@ -16015,9 +16016,9 @@ Optional prefix arg prompts for a new filter.
 
 @subsubsection emacspeak-table-speak-row-header-and-element
 @deffn {Command} emacspeak-table-speak-row-header-and-element   
-@kbd{C-e C-t r <XF86WakeUp> C-t r}
+@kbd{C-e C-t r <fn> C-t r}
 
-@kindex C-e C-t r <XF86WakeUp> C-t r
+@kindex C-e C-t r <fn> C-t r
 @findex emacspeak-table-speak-row-header-and-element
 
 @format
@@ -16027,9 +16028,9 @@ Speak  row header and table element
 
 @subsubsection emacspeak-table-ui-filter-load
 @deffn {Command} emacspeak-table-ui-filter-load  (file)
-@kbd{C-e C-t M-l <XF86WakeUp> C-t M-l}
+@kbd{C-e C-t M-l <fn> C-t M-l}
 
-@kindex C-e C-t M-l <XF86WakeUp> C-t M-l
+@kindex C-e C-t M-l <fn> C-t M-l
 @findex emacspeak-table-ui-filter-load
 
 @format
@@ -16039,9 +16040,9 @@ Load saved filter settings.
 
 @subsubsection emacspeak-table-ui-filter-save
 @deffn {Command} emacspeak-table-ui-filter-save  (file)
-@kbd{C-e C-t M-s <XF86WakeUp> C-t M-s}
+@kbd{C-e C-t M-s <fn> C-t M-s}
 
-@kindex C-e C-t M-s <XF86WakeUp> C-t M-s
+@kindex C-e C-t M-s <fn> C-t M-s
 @findex emacspeak-table-ui-filter-save
 
 @format
@@ -16051,9 +16052,9 @@ Save out filter settings.
 
 @subsubsection emacspeak-table-view-csv-buffer
 @deffn {Command} emacspeak-table-view-csv-buffer  (&optional buffer-name)
-@kbd{C-e C-t v <XF86WakeUp> C-t v}
+@kbd{C-e C-t v <fn> C-t v}
 
-@kindex C-e C-t v <XF86WakeUp> C-t v
+@kindex C-e C-t v <fn> C-t v
 @findex emacspeak-table-view-csv-buffer
 
 @format
@@ -16072,9 +16073,9 @@ Can recognize the columns in tabulated output, e.g. ps, ls output
 
 @subsubsection emacspeak-tabulate-region
 @deffn {Command} emacspeak-tabulate-region  (start end &optional mark-fields)
-@kbd{C-e i <XF86WakeUp> i}
+@kbd{C-e i <fn> i}
 
-@kindex C-e i <XF86WakeUp> i
+@kindex C-e i <fn> i
 @findex emacspeak-tabulate-region
 
 @format
@@ -16104,9 +16105,9 @@ displayed buffers.
 
 @subsubsection emacspeak-tapestry-describe-tapestry
 @deffn {Command} emacspeak-tapestry-describe-tapestry  (&optional details)
-@kbd{C-e M-t <XF86WakeUp> M-t}
+@kbd{C-e M-t <fn> M-t}
 
-@kindex C-e M-t <XF86WakeUp> M-t
+@kindex C-e M-t <fn> M-t
 @findex emacspeak-tapestry-describe-tapestry
 
 @format
@@ -16118,9 +16119,9 @@ displayed buffers.
 
 @subsubsection emacspeak-tapestry-select-window-by-name
 @deffn {Command} emacspeak-tapestry-select-window-by-name  (buffer-name)
-@kbd{C-e W <XF86WakeUp> W}
+@kbd{C-e W <fn> W}
 
-@kindex C-e W <XF86WakeUp> W
+@kindex C-e W <fn> W
 @findex emacspeak-tapestry-select-window-by-name
 
 @format
@@ -16364,9 +16365,9 @@ that are presently defined.
 
 @subsubsection emacspeak-url-template-fetch
 @deffn {Command} emacspeak-url-template-fetch  (&optional documentation)
-@kbd{C-e u <XF86WakeUp> u}
+@kbd{C-e u <fn> u}
 
-@kindex C-e u <XF86WakeUp> u
+@kindex C-e u <fn> u
 @findex emacspeak-url-template-fetch
 
 @format
@@ -16462,7 +16463,7 @@ Mark all messages in folder to be deleted. Use with caution.
 
 @format
 Locates the subject line in a message being read.
-Useful when you''re reading a message
+Useful when you’re reading a message
 that has been forwarded multiple times.
 @end format
 @end deffn
@@ -16491,7 +16492,7 @@ If N is negative, move backward instead.
 @findex emacspeak-vm-speak-labels
 
 @format
-Speak a message''s labels
+Speak a message’s labels
 @end format
 @end deffn
 
@@ -16916,9 +16917,9 @@ abstractions not already covered by browse-url
 
 @subsubsection emacspeak-we-class-filter-and-follow
 @deffn {Command} emacspeak-we-class-filter-and-follow  (class url)
-@kbd{C-e x e y <XF86WakeUp> x e y}
+@kbd{C-e x e y <fn> x e y}
 
-@kindex C-e x e y <XF86WakeUp> x e y
+@kindex C-e x e y <fn> x e y
 @findex emacspeak-we-class-filter-and-follow
 
 @format
@@ -16931,9 +16932,9 @@ used as well.
 
 @subsubsection emacspeak-we-class-filter-and-follow-link
 @deffn {Command} emacspeak-we-class-filter-and-follow-link  (&optional prompt)
-@kbd{C-e x e v <XF86WakeUp> x e v}
+@kbd{C-e x e v <fn> x e v}
 
-@kindex C-e x e v <XF86WakeUp> x e v
+@kindex C-e x e v <fn> x e v
 @findex emacspeak-we-class-filter-and-follow-link
 
 @format
@@ -16946,9 +16947,9 @@ used as well.
 
 @subsubsection emacspeak-we-count-matches
 @deffn {Command} emacspeak-we-count-matches  (url locator)
-@kbd{C-e x e C-f <XF86WakeUp> x e C-f}
+@kbd{C-e x e C-f <fn> x e C-f}
 
-@kindex C-e x e C-f <XF86WakeUp> x e C-f
+@kindex C-e x e C-f <fn> x e C-f
 @findex emacspeak-we-count-matches
 
 @format
@@ -16958,9 +16959,9 @@ Count matches for locator  in Web page.
 
 @subsubsection emacspeak-we-count-nested-tables
 @deffn {Command} emacspeak-we-count-nested-tables  (url)
-@kbd{C-e x e C-x <XF86WakeUp> x e C-x}
+@kbd{C-e x e C-x <fn> x e C-x}
 
-@kindex C-e x e C-x <XF86WakeUp> x e C-x
+@kindex C-e x e C-x <fn> x e C-x
 @findex emacspeak-we-count-nested-tables
 
 @format
@@ -16970,9 +16971,9 @@ Count nested tables in Web page.
 
 @subsubsection emacspeak-we-count-tables
 @deffn {Command} emacspeak-we-count-tables  (url)
-@kbd{C-e x e C-t <XF86WakeUp> x e C-t}
+@kbd{C-e x e C-t <fn> x e C-t}
 
-@kindex C-e x e C-t <XF86WakeUp> x e C-t
+@kindex C-e x e C-t <fn> x e C-t
 @findex emacspeak-we-count-tables
 
 @format
@@ -16982,9 +16983,9 @@ Count  tables in Web page.
 
 @subsubsection emacspeak-we-extract-by-class
 @deffn {Command} emacspeak-we-extract-by-class  (class url &optional speak)
-@kbd{C-e x e c <XF86WakeUp> x e c}
+@kbd{C-e x e c <fn> x e c}
 
-@kindex C-e x e c <XF86WakeUp> x e c
+@kindex C-e x e c <fn> x e c
 @findex emacspeak-we-extract-by-class
 
 @format
@@ -16996,13 +16997,13 @@ buffer. Interactive use provides list of class values as completion.
 
 @subsubsection emacspeak-we-extract-by-class-list
 @deffn {Command} emacspeak-we-extract-by-class-list  (classes url &optional speak)
-@kbd{C-e x e C <XF86WakeUp> x e C}
+@kbd{C-e x e C <fn> x e C}
 
-@kindex C-e x e C <XF86WakeUp> x e C
+@kindex C-e x e C <fn> x e C
 @findex emacspeak-we-extract-by-class-list
 
 @format
-Extract elements having class specified in list ``classes'' from HTML.
+Extract elements having class specified in list ‘classes’ from HTML.
 Extracts specified elements from current WWW page and displays it
 in a separate buffer.  Interactive use provides list of class
 values as completion. 
@@ -17011,9 +17012,9 @@ values as completion.
 
 @subsubsection emacspeak-we-extract-by-id
 @deffn {Command} emacspeak-we-extract-by-id  (id url &optional speak)
-@kbd{C-e x e i <XF86WakeUp> x e i}
+@kbd{C-e x e i <fn> x e i}
 
-@kindex C-e x e i <XF86WakeUp> x e i
+@kindex C-e x e i <fn> x e i
 @findex emacspeak-we-extract-by-id
 
 @format
@@ -17026,13 +17027,13 @@ Interactive use provides list of id values as completion.
 
 @subsubsection emacspeak-we-extract-by-id-list
 @deffn {Command} emacspeak-we-extract-by-id-list  (ids url &optional speak)
-@kbd{C-e x e I <XF86WakeUp> x e I}
+@kbd{C-e x e I <fn> x e I}
 
-@kindex C-e x e I <XF86WakeUp> x e I
+@kindex C-e x e I <fn> x e I
 @findex emacspeak-we-extract-by-id-list
 
 @format
-Extract elements having id specified in list ``ids'' from HTML.
+Extract elements having id specified in list ‘ids’ from HTML.
 Extracts specified elements from current WWW page and displays it in a
 separate buffer. Interactive use provides list of id values as completion. 
 @end format
@@ -17040,9 +17041,9 @@ separate buffer. Interactive use provides list of id values as completion.
 
 @subsubsection emacspeak-we-extract-by-property
 @deffn {Command} emacspeak-we-extract-by-property  (url &optional speak)
-@kbd{C-e x e w <XF86WakeUp> x e w}
+@kbd{C-e x e w <fn> x e w}
 
-@kindex C-e x e w <XF86WakeUp> x e w
+@kindex C-e x e w <fn> x e w
 @findex emacspeak-we-extract-by-property
 
 @format
@@ -17053,9 +17054,9 @@ and provide a completion list of applicable  property values. Filter document by
 
 @subsubsection emacspeak-we-extract-by-role
 @deffn {Command} emacspeak-we-extract-by-role  (role url &optional speak)
-@kbd{C-e x e r <XF86WakeUp> x e r}
+@kbd{C-e x e r <fn> x e r}
 
-@kindex C-e x e r <XF86WakeUp> x e r
+@kindex C-e x e r <fn> x e r
 @findex emacspeak-we-extract-by-role
 
 @format
@@ -17070,7 +17071,7 @@ buffer. Interactive use provides list of role values as completion.
 @findex emacspeak-we-extract-id-list-text
 
 @format
-Extract text nodes from elements having id specified in list ``ids'' from HTML.
+Extract text nodes from elements having id specified in list ‘ids’ from HTML.
 Extracts specified elements from current WWW page and displays it in a
 separate buffer. Interactive use provides list of id values as completion. 
 @end format
@@ -17090,9 +17091,9 @@ Interactive use provides list of id values as completion.
 
 @subsubsection emacspeak-we-extract-matching-urls
 @deffn {Command} emacspeak-we-extract-matching-urls  (pattern url &optional speak)
-@kbd{C-e x e u <XF86WakeUp> x e u}
+@kbd{C-e x e u <fn> x e u}
 
-@kindex C-e x e u <XF86WakeUp> x e u
+@kindex C-e x e u <fn> x e u
 @findex emacspeak-we-extract-matching-urls
 
 @format
@@ -17107,7 +17108,7 @@ Extracts links whose URL matches pattern.
 @format
 Extract links to media streams.
 operate on current web page when in a browser buffer; otherwise
- prompt for url.  Optional arg ``speak'' specifies if the result
+ prompt for url.  Optional arg ‘speak’ specifies if the result
  should be spoken automatically.
 @end format
 @end deffn
@@ -17123,24 +17124,24 @@ In browser buffers, extract media streams from url under point.
 
 @subsubsection emacspeak-we-extract-nested-table
 @deffn {Command} emacspeak-we-extract-nested-table  (index url &optional speak)
-@kbd{C-e x e x <XF86WakeUp> x e x}
+@kbd{C-e x e x <fn> x e x}
 
-@kindex C-e x e x <XF86WakeUp> x e x
+@kindex C-e x e x <fn> x e x
 @findex emacspeak-we-extract-nested-table
 
 @format
-Extract nested table specified by ``table-index''. Default is to
+Extract nested table specified by ‘table-index’. Default is to
 operate on current web page when in a browser buffer; otherwise
-prompt for URL. Optional arg ``speak'' specifies if the result should be
+prompt for URL. Optional arg ‘speak’ specifies if the result should be
 spoken automatically.
 @end format
 @end deffn
 
 @subsubsection emacspeak-we-extract-nested-table-list
 @deffn {Command} emacspeak-we-extract-nested-table-list  (tables url &optional speak)
-@kbd{C-e x e X <XF86WakeUp> x e X}
+@kbd{C-e x e X <fn> x e X}
 
-@kindex C-e x e X <XF86WakeUp> x e X
+@kindex C-e x e X <fn> x e X
 @findex emacspeak-we-extract-nested-table-list
 
 @format
@@ -17155,16 +17156,16 @@ Extract specified list of tables from a Web page.
 @format
 Extract links to printable  streams.
 operate on current web page when in a browser buffer; otherwise
- prompt for url.  Optional arg ``speak'' specifies if the result
+ prompt for url.  Optional arg ‘speak’ specifies if the result
  should be spoken automatically.
 @end format
 @end deffn
 
 @subsubsection emacspeak-we-extract-table-by-match
 @deffn {Command} emacspeak-we-extract-table-by-match  (match url &optional speak)
-@kbd{C-e x e m <XF86WakeUp> x e m}
+@kbd{C-e x e m <fn> x e m}
 
-@kindex C-e x e m <XF86WakeUp> x e m
+@kindex C-e x e m <fn> x e m
 @findex emacspeak-we-extract-table-by-match
 
 @format
@@ -17175,9 +17176,9 @@ Extract table containing  specified match.
 
 @subsubsection emacspeak-we-extract-table-by-position
 @deffn {Command} emacspeak-we-extract-table-by-position  (position url &optional speak)
-@kbd{C-e x e t <XF86WakeUp> x e t}
+@kbd{C-e x e t <fn> x e t}
 
-@kindex C-e x e t <XF86WakeUp> x e t
+@kindex C-e x e t <fn> x e t
 @findex emacspeak-we-extract-table-by-position
 
 @format
@@ -17188,9 +17189,9 @@ Default is to extract from current page.
 
 @subsubsection emacspeak-we-extract-tables-by-match-list
 @deffn {Command} emacspeak-we-extract-tables-by-match-list  (match-list url &optional speak)
-@kbd{C-e x e M <XF86WakeUp> x e M}
+@kbd{C-e x e M <fn> x e M}
 
-@kindex C-e x e M <XF86WakeUp> x e M
+@kindex C-e x e M <fn> x e M
 @findex emacspeak-we-extract-tables-by-match-list
 
 @format
@@ -17202,9 +17203,9 @@ Tables are specified by containing  match pattern
 
 @subsubsection emacspeak-we-extract-tables-by-position-list
 @deffn {Command} emacspeak-we-extract-tables-by-position-list  (positions url &optional speak)
-@kbd{C-e x e T <XF86WakeUp> x e T}
+@kbd{C-e x e T <fn> x e T}
 
-@kindex C-e x e T <XF86WakeUp> x e T
+@kindex C-e x e T <fn> x e T
 @findex emacspeak-we-extract-tables-by-position-list
 
 @format
@@ -17216,9 +17217,9 @@ Tables are specified by their position in the list
 
 @subsubsection emacspeak-we-follow-and-extract-main
 @deffn {Command} emacspeak-we-follow-and-extract-main  (&optional speak)
-@kbd{C-e x e P <XF86WakeUp> x e P}
+@kbd{C-e x e P <fn> x e P}
 
-@kindex C-e x e P <XF86WakeUp> x e P
+@kindex C-e x e P <fn> x e P
 @findex emacspeak-we-follow-and-extract-main
 
 @format
@@ -17228,9 +17229,9 @@ Follow URL, then extract role=main.
 
 @subsubsection emacspeak-we-follow-and-filter-by-id
 @deffn {Command} emacspeak-we-follow-and-filter-by-id  (id)
-@kbd{C-e x e b <XF86WakeUp> x e b}
+@kbd{C-e x e b <fn> x e b}
 
-@kindex C-e x e b <XF86WakeUp> x e b
+@kindex C-e x e b <fn> x e b
 @findex emacspeak-we-follow-and-filter-by-id
 
 @format
@@ -17243,9 +17244,9 @@ used as well.
 
 @subsubsection emacspeak-we-junk-by-class
 @deffn {Command} emacspeak-we-junk-by-class  (class url &optional speak)
-@kbd{C-e x e d <XF86WakeUp> x e d}
+@kbd{C-e x e d <fn> x e d}
 
-@kindex C-e x e d <XF86WakeUp> x e d
+@kindex C-e x e d <fn> x e d
 @findex emacspeak-we-junk-by-class
 
 @format
@@ -17257,13 +17258,13 @@ buffer. Interactive use provides list of class values as completion.
 
 @subsubsection emacspeak-we-junk-by-class-list
 @deffn {Command} emacspeak-we-junk-by-class-list  (classes url &optional speak)
-@kbd{C-e x e D C-e x e C-c <XF86WakeUp> x e D <XF86WakeUp> x e C-c}
+@kbd{C-e x e D C-e x e C-c <fn> x e D <fn> x e C-c}
 
-@kindex C-e x e D C-e x e C-c <XF86WakeUp> x e D <XF86WakeUp> x e C-c
+@kindex C-e x e D C-e x e C-c <fn> x e D <fn> x e C-c
 @findex emacspeak-we-junk-by-class-list
 
 @format
-Extract elements not having class specified in list ``classes'' from HTML.
+Extract elements not having class specified in list ‘classes’ from HTML.
 Extracts specified elements from current WWW page and displays it
 in a separate buffer.  Interactive use provides list of class
 values as completion. 
@@ -17272,9 +17273,9 @@ values as completion.
 
 @subsubsection emacspeak-we-style-filter
 @deffn {Command} emacspeak-we-style-filter  (style url &optional speak)
-@kbd{C-e x e S <XF86WakeUp> x e S}
+@kbd{C-e x e S <fn> x e S}
 
-@kindex C-e x e S <XF86WakeUp> x e S
+@kindex C-e x e S <fn> x e S
 @findex emacspeak-we-style-filter
 
 @format
@@ -17287,9 +17288,9 @@ specifies the page to extract contents  from.
 
 @subsubsection emacspeak-we-toggle-xsl-keep-result
 @deffn {Command} emacspeak-we-toggle-xsl-keep-result   
-@kbd{C-e x e k <XF86WakeUp> x e k}
+@kbd{C-e x e k <fn> x e k}
 
-@kindex C-e x e k <XF86WakeUp> x e k
+@kindex C-e x e k <fn> x e k
 @findex emacspeak-we-toggle-xsl-keep-result
 
 @format
@@ -17299,9 +17300,9 @@ Toggle xsl keep result flag.
 
 @subsubsection emacspeak-we-url-expand-and-execute
 @deffn {Command} emacspeak-we-url-expand-and-execute  (&optional prefix)
-@kbd{C-e x e e <XF86WakeUp> x e e}
+@kbd{C-e x e e <fn> x e e}
 
-@kindex C-e x e e <XF86WakeUp> x e e
+@kindex C-e x e e <fn> x e e
 @findex emacspeak-we-url-expand-and-execute
 
 @format
@@ -17317,7 +17318,7 @@ Applies buffer-specific URL expander/executor function.
 Apply a url rewrite rule as specified in the current buffer
 before following link under point.  If no rewrite rule is
 defined, first prompt for one.  Rewrite rules are of the
-form ``(from to)'' where from and to are strings.  Typically, the
+form ‘(from to)’ where from and to are strings.  Typically, the
 rewrite rule is automatically set up by Emacspeak tools like
 websearch where a rewrite rule is known.  Rewrite rules are
 useful in jumping directly to the printer friendly version of an
@@ -17328,9 +17329,9 @@ a rewrite rule even if one is already defined.
 
 @subsubsection emacspeak-we-xpath-filter-and-follow
 @deffn {Command} emacspeak-we-xpath-filter-and-follow  (&optional prompt)
-@kbd{C-e x e p <XF86WakeUp> x e p}
+@kbd{C-e x e p <fn> x e p}
 
-@kindex C-e x e p <XF86WakeUp> x e p
+@kindex C-e x e p <fn> x e p
 @findex emacspeak-we-xpath-filter-and-follow
 
 @format
@@ -17343,9 +17344,9 @@ used as well.
 
 @subsubsection emacspeak-we-xpath-junk-and-follow
 @deffn {Command} emacspeak-we-xpath-junk-and-follow  (&optional prompt)
-@kbd{C-e x e C-p <XF86WakeUp> x e C-p}
+@kbd{C-e x e C-p <fn> x e C-p}
 
-@kindex C-e x e C-p <XF86WakeUp> x e C-p
+@kindex C-e x e C-p <fn> x e C-p
 @findex emacspeak-we-xpath-junk-and-follow
 
 @format
@@ -17359,9 +17360,9 @@ used as well.
 
 @subsubsection emacspeak-we-xsl-toggle
 @deffn {Command} emacspeak-we-xsl-toggle   
-@kbd{C-e x e o <XF86WakeUp> x e o}
+@kbd{C-e x e o <fn> x e o}
 
-@kindex C-e x e o <XF86WakeUp> x e o
+@kindex C-e x e o <fn> x e o
 @findex emacspeak-we-xsl-toggle
 
 @format
@@ -17371,9 +17372,9 @@ Toggle  application of XSL transformations.
 
 @subsubsection emacspeak-we-xslt-apply
 @deffn {Command} emacspeak-we-xslt-apply  (xsl)
-@kbd{C-e x e a <XF86WakeUp> x e a}
+@kbd{C-e x e a <fn> x e a}
 
-@kindex C-e x e a <XF86WakeUp> x e a
+@kindex C-e x e a <fn> x e a
 @findex emacspeak-we-xslt-apply
 
 @format
@@ -17383,9 +17384,9 @@ Apply specified transformation to current Web page.
 
 @subsubsection emacspeak-we-xslt-filter
 @deffn {Command} emacspeak-we-xslt-filter  (path url &optional speak)
-@kbd{C-e x e f <XF86WakeUp> x e f}
+@kbd{C-e x e f <fn> x e f}
 
-@kindex C-e x e f <XF86WakeUp> x e f
+@kindex C-e x e f <fn> x e f
 @findex emacspeak-we-xslt-filter
 
 @format
@@ -17396,9 +17397,9 @@ from Web page -- default is the current page being viewed.
 
 @subsubsection emacspeak-we-xslt-junk
 @deffn {Command} emacspeak-we-xslt-junk  (path url &optional speak)
-@kbd{C-e x e j <XF86WakeUp> x e j}
+@kbd{C-e x e j <fn> x e j}
 
-@kindex C-e x e j <XF86WakeUp> x e j
+@kindex C-e x e j <fn> x e j
 @findex emacspeak-we-xslt-junk
 
 @format
@@ -17408,9 +17409,9 @@ Junk elements matching specified locator.
 
 @subsubsection emacspeak-we-xslt-select
 @deffn {Command} emacspeak-we-xslt-select  (xsl)
-@kbd{C-e x e s <XF86WakeUp> x e s}
+@kbd{C-e x e s <fn> x e s}
 
-@kindex C-e x e s <XF86WakeUp> x e s
+@kindex C-e x e s <fn> x e s
 @findex emacspeak-we-xslt-select
 
 @format
@@ -17546,13 +17547,13 @@ Search CTAN Comprehensive TeX Archive Network   Site.
 
 @subsubsection emacspeak-websearch-dispatch
 @deffn {Command} emacspeak-websearch-dispatch  (&optional prefix)
-@kbd{C-e ? <XF86WakeUp> ?}
+@kbd{C-e ? <fn> ?}
 
-@kindex C-e ? <XF86WakeUp> ?
+@kindex C-e ? <fn> ?
 @findex emacspeak-websearch-dispatch
 
 @format
- Press ``?'' to list available search engines.
+ Press ‘?’ to list available search engines.
 When using supported browsers,  this interface attempts to speak the most relevant information on the result page.
 @end format
 @end deffn
@@ -17581,8 +17582,8 @@ Perform a FolDoc search.
 
 @format
 Perform a Google search.  First optional interactive prefix arg
-``flag'' prompts for additional search options. Second interactive
-prefix arg is equivalent to hitting the I''m Feeling Lucky button on Google. 
+‘flag’ prompts for additional search options. Second interactive
+prefix arg is equivalent to hitting the I’m Feeling Lucky button on Google. 
 @end format
 @end deffn
 
@@ -17591,7 +17592,7 @@ prefix arg is equivalent to hitting the I''m Feeling Lucky button on Google.
 @findex emacspeak-websearch-google-feeling-lucky
 
 @format
-Do a I''m Feeling Lucky Google search.
+Do a I’m Feeling Lucky Google search.
 @end format
 @end deffn
 
@@ -17853,7 +17854,7 @@ Updated headlines found in emacspeak-webspace-headlines.
 
 @format
 Perform a Google Knowledge Graph search.
-Optional interactive prefix arg ``limit'' prompts for number of results, default is 1.
+Optional interactive prefix arg ‘limit’ prompts for number of results, default is 1.
 @end format
 @end deffn
 
@@ -17885,8 +17886,8 @@ y		emacspeak-webspace-yank-link
 
 C-M-i		backward-button
 
-In addition to any hooks its parent mode ``special-mode'' might have run,
-this mode runs the hook ``emacspeak-webspace-mode-hook'', as the final step
+In addition to any hooks its parent mode ‘special-mode’ might have run,
+this mode runs the hook ‘emacspeak-webspace-mode-hook’, as the final step
 during initialization.
 @end format
 @end deffn
@@ -17927,7 +17928,7 @@ Speak current weather.
 
 @format
 Setup periodic weather updates.
-Updated weather is found in ``emacspeak-webspace-current-weather''.
+Updated weather is found in ‘emacspeak-webspace-current-weather’.
 @end format
 @end deffn
 
@@ -18028,14 +18029,14 @@ Opens link in alternate browser.
 
 @subsubsection emacspeak-webutils-play-media-at-point
 @deffn {Command} emacspeak-webutils-play-media-at-point  (&optional playlist-p)
-@kbd{C-e M-; <XF86WakeUp> M-;}
+@kbd{C-e M-; <fn> M-;}
 
-@kindex C-e M-; <XF86WakeUp> M-;
+@kindex C-e M-; <fn> M-;
 @findex emacspeak-webutils-play-media-at-point
 
 @format
 Play media url under point.
-Optional interactive prefix arg ``playlist-p'' says to treat the link as a playlist.
+Optional interactive prefix arg ‘playlist-p’ says to treat the link as a playlist.
  A second interactive prefix arg adds mplayer option -allow-dangerous-playlist-parsing
 @end format
 @end deffn
@@ -18152,7 +18153,7 @@ Contains various wizards for the Emacspeak desktop.
 @format
 Add annotation to the annotation working buffer.
 Prompt for annotation buffer if not already set.
-Interactive prefix arg ``reset'' prompts for the annotation
+Interactive prefix arg ‘reset’ prompts for the annotation
 buffer even if one is already set.
 Annotation is entered in a temporary buffer and the
 annotation is inserted into the working buffer when complete.
@@ -18161,9 +18162,9 @@ annotation is inserted into the working buffer when complete.
 
 @subsubsection emacspeak-clipboard-copy
 @deffn {Command} emacspeak-clipboard-copy  (start end &optional prompt)
-@kbd{C-e C-c <XF86WakeUp> C-c}
+@kbd{C-e C-c <fn> C-c}
 
-@kindex C-e C-c <XF86WakeUp> C-c
+@kindex C-e C-c <fn> C-c
 @findex emacspeak-clipboard-copy
 
 @format
@@ -18172,7 +18173,7 @@ Previous contents of the clipboard will be overwritten.  The Emacspeak
 clipboard is a convenient way of sharing information between
 independent Emacspeak sessions running on the same or different
 machines.  Do not use this for sharing information within an Emacs
-session --Emacs'' register commands are far more efficient and
+session --Emacs’ register commands are far more efficient and
 light-weight.  Optional interactive prefix arg results in Emacspeak
 prompting for the clipboard file to use.
 Argument START and END specifies  region.
@@ -18182,9 +18183,9 @@ Optional argument PROMPT  specifies whether we prompt for the name of a clipboar
 
 @subsubsection emacspeak-clipboard-paste
 @deffn {Command} emacspeak-clipboard-paste  (&optional paste-table)
-@kbd{C-e C-y <XF86WakeUp> C-y}
+@kbd{C-e C-y <fn> C-y}
 
-@kindex C-e C-y <XF86WakeUp> C-y
+@kindex C-e C-y <fn> C-y
 @findex emacspeak-clipboard-paste
 
 @format
@@ -18192,7 +18193,7 @@ Yank contents of the Emacspeak clipboard at point.
 The Emacspeak clipboard is a convenient way of sharing information between
 independent Emacspeak sessions running on the same or different
 machines.  Do not use this for sharing information within an Emacs
-session --Emacs'' register commands are far more efficient and
+session --Emacs’ register commands are far more efficient and
 light-weight.  Optional interactive prefix arg pastes from
 the emacspeak table clipboard instead.
 @end format
@@ -18200,9 +18201,9 @@ the emacspeak table clipboard instead.
 
 @subsubsection emacspeak-copy-current-file
 @deffn {Command} emacspeak-copy-current-file   
-@kbd{C-e M-c <XF86WakeUp> M-c}
+@kbd{C-e M-c <fn> M-c}
 
-@kindex C-e M-c <XF86WakeUp> M-c
+@kindex C-e M-c <fn> M-c
 @findex emacspeak-copy-current-file
 
 @format
@@ -18227,9 +18228,9 @@ Grab URL using Curl, and preview it with a browser .
 
 @subsubsection emacspeak-customize
 @deffn {Command} emacspeak-customize   
-@kbd{C-e C <XF86WakeUp> C}
+@kbd{C-e C <fn> C}
 
-@kindex C-e C <XF86WakeUp> C
+@kindex C-e C <fn> C
 @findex emacspeak-customize
 
 @format
@@ -18249,9 +18250,9 @@ personal customizations.
 
 @subsubsection emacspeak-emergency-tts-restart
 @deffn {Command} emacspeak-emergency-tts-restart   
-@kbd{C-e <insert> <XF86WakeUp> <insert> C-e x s <XF86WakeUp> x s}
+@kbd{C-e <insert> <fn> <insert> C-e x s <fn> x s}
 
-@kindex C-e <insert> <XF86WakeUp> <insert> C-e x s <XF86WakeUp> x s
+@kindex C-e <insert> <fn> <insert> C-e x s <fn> x s
 @findex emacspeak-emergency-tts-restart
 
 @format
@@ -18263,9 +18264,9 @@ emacspeak-emergency-tts-server.
 
 @subsubsection emacspeak-frame-label-or-switch-to-labelled-frame
 @deffn {Command} emacspeak-frame-label-or-switch-to-labelled-frame  (&optional prefix)
-@kbd{C-e M-f <XF86WakeUp> M-f}
+@kbd{C-e M-f <fn> M-f}
 
-@kindex C-e M-f <XF86WakeUp> M-f
+@kindex C-e M-f <fn> M-f
 @findex emacspeak-frame-label-or-switch-to-labelled-frame
 
 @format
@@ -18285,9 +18286,9 @@ Read a frame label with completion.
 
 @subsubsection emacspeak-kill-buffer-quietly
 @deffn {Command} emacspeak-kill-buffer-quietly   
-@kbd{C-e C-t Q <XF86WakeUp> C-t Q}
+@kbd{C-e C-t Q <fn> C-t Q}
 
-@kindex C-e C-t Q <XF86WakeUp> C-t Q
+@kindex C-e C-t Q <fn> C-t Q
 @findex emacspeak-kill-buffer-quietly
 
 @format
@@ -18297,9 +18298,9 @@ Kill current buffer without asking for confirmation.
 
 @subsubsection emacspeak-learn-emacs-mode
 @deffn {Command} emacspeak-learn-emacs-mode   
-@kbd{C-e <f1> C-h C-l <XF86WakeUp> <f1> <f1> C-l <help> C-l}
+@kbd{C-e <f1> C-h C-l <fn> <f1> <f1> C-l <help> C-l}
 
-@kindex C-e <f1> C-h C-l <XF86WakeUp> <f1> <f1> C-l <help> C-l
+@kindex C-e <f1> C-h C-l <fn> <f1> <f1> C-l <help> C-l
 @findex emacspeak-learn-emacs-mode
 
 @format
@@ -18310,9 +18311,9 @@ To leave, press C-g.
 
 @subsubsection emacspeak-link-current-file
 @deffn {Command} emacspeak-link-current-file   
-@kbd{C-e M-l <XF86WakeUp> M-l}
+@kbd{C-e M-l <fn> M-l}
 
-@kindex C-e M-l <XF86WakeUp> M-l
+@kindex C-e M-l <fn> M-l
 @findex emacspeak-link-current-file
 
 @format
@@ -18352,7 +18353,7 @@ Launch lynx on  specified URL in a new terminal.
 
 @format
 Move to next buffer.
-With optional interactive prefix arg ``frame'', move to next frame instead.
+With optional interactive prefix arg ‘frame’, move to next frame instead.
 @end format
 @end deffn
 
@@ -18365,22 +18366,22 @@ With optional interactive prefix arg ``frame'', move to next frame instead.
 
 @format
 Move to previous buffer.
-With optional interactive prefix arg ``frame'', move to previous frame instead.
+With optional interactive prefix arg ‘frame’, move to previous frame instead.
 @end format
 @end deffn
 
 @subsubsection emacspeak-select-this-buffer-next-display
 @deffn {Command} emacspeak-select-this-buffer-next-display   
-@kbd{C-e <C-<right> <XF86WakeUp> <C-<right>}
+@kbd{C-e <C-<right> <fn> <C-<right>}
 
-@kindex C-e <C-<right> <XF86WakeUp> <C-<right>
+@kindex C-e <C-<right> <fn> <C-<right>
 @findex emacspeak-select-this-buffer-next-display
 
 @format
-Select this buffer as displayed in a ``next'' frame.
+Select this buffer as displayed in a ‘next’ frame.
 See documentation for command
-``emacspeak-select-this-buffer-other-window-display'' for the
-meaning of ``next''.
+‘emacspeak-select-this-buffer-other-window-display’ for the
+meaning of ‘next’.
 @end format
 @end deffn
 
@@ -18405,24 +18406,24 @@ the display to select.
 
 @subsubsection emacspeak-select-this-buffer-previous-display
 @deffn {Command} emacspeak-select-this-buffer-previous-display   
-@kbd{C-e <C-<left> <XF86WakeUp> <C-<left>}
+@kbd{C-e <C-<left> <fn> <C-<left>}
 
-@kindex C-e <C-<left> <XF86WakeUp> <C-<left>
+@kindex C-e <C-<left> <fn> <C-<left>
 @findex emacspeak-select-this-buffer-previous-display
 
 @format
-Select this buffer as displayed in a ``previous'' window.
+Select this buffer as displayed in a ‘previous’ window.
 See documentation for command
-``emacspeak-select-this-buffer-other-window-display'' for the
-meaning of ``previous''.
+‘emacspeak-select-this-buffer-other-window-display’ for the
+meaning of ‘previous’.
 @end format
 @end deffn
 
 @subsubsection emacspeak-show-personality-at-point
 @deffn {Command} emacspeak-show-personality-at-point   
-@kbd{C-e M-v <XF86WakeUp> M-v}
+@kbd{C-e M-v <fn> M-v}
 
-@kindex C-e M-v <XF86WakeUp> M-v
+@kindex C-e M-v <fn> M-v
 @findex emacspeak-show-personality-at-point
 
 @format
@@ -18433,9 +18434,9 @@ at point.
 
 @subsubsection emacspeak-show-property-at-point
 @deffn {Command} emacspeak-show-property-at-point  (&optional property)
-@kbd{C-e M-P <XF86WakeUp> M-P}
+@kbd{C-e M-P <fn> M-P}
 
-@kindex C-e M-P <XF86WakeUp> M-P
+@kindex C-e M-P <fn> M-P
 @findex emacspeak-show-property-at-point
 
 @format
@@ -18490,29 +18491,29 @@ previous window configuration.
 
 @subsubsection emacspeak-speak-run-shell-command
 @deffn {Command} emacspeak-speak-run-shell-command  (command &optional read-as-csv)
-@kbd{C-e ! <XF86WakeUp> !}
+@kbd{C-e ! <fn> !}
 
-@kindex C-e ! <XF86WakeUp> !
+@kindex C-e ! <fn> !
 @findex emacspeak-speak-run-shell-command
 
 @format
 Invoke shell COMMAND and display its output as a table. The
-results are placed in a buffer in Emacspeak''s table browsing
+results are placed in a buffer in Emacspeak’s table browsing
 mode. Optional interactive prefix arg read-as-csv interprets the
 result as csv. . Use this for running shell commands that produce
 tabulated output. This command should be used for shell commands
-that produce tabulated output that works with Emacspeak''s table
+that produce tabulated output that works with Emacspeak’s table
 recognizer. Verify this first by running the command in a shell
-and executing command ``emacspeak-table-display-table-in-region''
+and executing command ‘emacspeak-table-display-table-in-region’
 normally bound to C-e TAB.
 @end format
 @end deffn
 
 @subsubsection emacspeak-speak-telephone-directory
 @deffn {Command} emacspeak-speak-telephone-directory  (&optional edit)
-@kbd{C-e x t <XF86WakeUp> x t}
+@kbd{C-e x t <fn> x t}
 
-@kindex C-e x t <XF86WakeUp> x t
+@kindex C-e x t <fn> x t
 @findex emacspeak-speak-telephone-directory
 
 @format
@@ -18523,24 +18524,24 @@ With prefix arg, opens the phone book for editing.
 
 @subsubsection emacspeak-speak-this-buffer-next-display
 @deffn {Command} emacspeak-speak-this-buffer-next-display   
-@kbd{C-e <right> <XF86WakeUp> <right>}
+@kbd{C-e <right> <fn> <right>}
 
-@kindex C-e <right> <XF86WakeUp> <right>
+@kindex C-e <right> <fn> <right>
 @findex emacspeak-speak-this-buffer-next-display
 
 @format
-Speak this buffer as displayed in a ``previous'' window.
+Speak this buffer as displayed in a ‘previous’ window.
 See documentation for command
-``emacspeak-speak-this-buffer-other-window-display'' for the
-meaning of ``next''.
+‘emacspeak-speak-this-buffer-other-window-display’ for the
+meaning of ‘next’.
 @end format
 @end deffn
 
 @subsubsection emacspeak-speak-this-buffer-other-window-display
 @deffn {Command} emacspeak-speak-this-buffer-other-window-display  (&optional arg)
-@kbd{C-e / <XF86WakeUp> /}
+@kbd{C-e / <fn> /}
 
-@kindex C-e / <XF86WakeUp> /
+@kindex C-e / <fn> /
 @findex emacspeak-speak-this-buffer-other-window-display
 
 @format
@@ -18560,24 +18561,24 @@ the display to speak.
 
 @subsubsection emacspeak-speak-this-buffer-previous-display
 @deffn {Command} emacspeak-speak-this-buffer-previous-display   
-@kbd{C-e <left> <XF86WakeUp> <left>}
+@kbd{C-e <left> <fn> <left>}
 
-@kindex C-e <left> <XF86WakeUp> <left>
+@kindex C-e <left> <fn> <left>
 @findex emacspeak-speak-this-buffer-previous-display
 
 @format
-Speak this buffer as displayed in a ``previous'' window.
+Speak this buffer as displayed in a ‘previous’ window.
 See documentation for command
-``emacspeak-speak-this-buffer-other-window-display'' for the
-meaning of ``previous''.
+‘emacspeak-speak-this-buffer-other-window-display’ for the
+meaning of ‘previous’.
 @end format
 @end deffn
 
 @subsubsection emacspeak-ssh-tts-restart
 @deffn {Command} emacspeak-ssh-tts-restart   
-@kbd{C-e <delete> C-e <(deletechar> <XF86WakeUp> <delete> <XF86WakeUp> <(deletechar>}
+@kbd{C-e <delete> C-e <(deletechar> <fn> <delete> <fn> <(deletechar>}
 
-@kindex C-e <delete> C-e <(deletechar> <XF86WakeUp> <delete> <XF86WakeUp> <(deletechar>
+@kindex C-e <delete> C-e <(deletechar> <fn> <delete> <fn> <(deletechar>
 @findex emacspeak-ssh-tts-restart
 
 @format
@@ -18587,9 +18588,9 @@ Restart specified ssh tts server.
 
 @subsubsection emacspeak-symlink-current-file
 @deffn {Command} emacspeak-symlink-current-file   
-@kbd{C-e M-s <XF86WakeUp> M-s}
+@kbd{C-e M-s <fn> M-s}
 
-@kindex C-e M-s <XF86WakeUp> M-s
+@kindex C-e M-s <fn> M-s
 @findex emacspeak-symlink-current-file
 
 @format
@@ -18604,9 +18605,9 @@ Prompts for the new location and preserves modification time
 
 @subsubsection emacspeak-view-emacspeak-news
 @deffn {Command} emacspeak-view-emacspeak-news   
-@kbd{C-e N <XF86WakeUp> N}
+@kbd{C-e N <fn> N}
 
-@kindex C-e N <XF86WakeUp> N
+@kindex C-e N <fn> N
 @findex emacspeak-view-emacspeak-news
 
 @format
@@ -18616,9 +18617,9 @@ Display info on recent change to Emacspeak.
 
 @subsubsection emacspeak-view-emacspeak-tips
 @deffn {Command} emacspeak-view-emacspeak-tips   
-@kbd{C-e T <XF86WakeUp> T}
+@kbd{C-e T <fn> T}
 
-@kindex C-e T <XF86WakeUp> T
+@kindex C-e T <fn> T
 @findex emacspeak-view-emacspeak-tips
 
 @format
@@ -18695,9 +18696,9 @@ Count slides starting from point.
 
 @subsubsection emacspeak-wizards-cycle-browser
 @deffn {Command} emacspeak-wizards-cycle-browser   
-@kbd{C-e x 3 <XF86WakeUp> x 3}
+@kbd{C-e x 3 <fn> x 3}
 
-@kindex C-e x 3 <XF86WakeUp> x 3
+@kindex C-e x 3 <fn> x 3
 @findex emacspeak-wizards-cycle-browser
 
 @format
@@ -18759,7 +18760,7 @@ Major mode for browsing DVI files.
 
 DVI files  are converted to text and previewed using text mode.
 
-This mode runs the hook ``emacspeak-wizards-dvi-mode-hook'', as the final step
+This mode runs the hook ‘emacspeak-wizards-dvi-mode-hook’, as the final step
 during initialization.
 
 key             binding
@@ -18837,7 +18838,7 @@ Speak region using ESpeak polyglot wizard.
 
 @format
 Speak string in lang via ESpeak.
-Lang is obtained from property ``lang'' on string, or  via an interactive prompt.
+Lang is obtained from property ‘lang’ on string, or  via an interactive prompt.
 @end format
 @end deffn
 
@@ -18867,7 +18868,7 @@ Like find-file, but binds default-directory to emacspeak-directory.
 @findex emacspeak-wizards-find-file-as-root
 
 @format
-Like ``ido-find-file, but automatically edit the file with
+Like ‘ido-find-file, but automatically edit the file with
 root-privileges (using tramp/sudo), if the file is not writable by
 user.
 @end format
@@ -18885,9 +18886,9 @@ Interactive  arguments specify filename pattern and search pattern.
 
 @subsubsection emacspeak-wizards-find-longest-line-in-region
 @deffn {Command} emacspeak-wizards-find-longest-line-in-region  (start end)
-@kbd{C-e x = <XF86WakeUp> x =}
+@kbd{C-e x = <fn> x =}
 
-@kindex C-e x = <XF86WakeUp> x =
+@kindex C-e x = <fn> x =
 @findex emacspeak-wizards-find-longest-line-in-region
 
 @format
@@ -18933,7 +18934,7 @@ directory to where find is to be launched.
 @format
 Emacspeak Finder
 
-This mode runs the hook ``emacspeak-wizards-finder-mode-hook'', as the final step
+This mode runs the hook ‘emacspeak-wizards-finder-mode-hook’, as the final step
 during initialization.
 
 key             binding
@@ -18956,8 +18957,8 @@ Nuke read-only property on text range.
 @findex emacspeak-wizards-fix-typo
 
 @format
-Search and replace  recursively in all files with extension ``ext''
-for ``word'' and replace it with correction.
+Search and replace  recursively in all files with extension ‘ext’
+for ‘word’ and replace it with correction.
 Use with caution.
 @end format
 @end deffn
@@ -19014,16 +19015,16 @@ View Web through Google Transcoder.
 
 @subsubsection emacspeak-wizards-how-many-matches
 @deffn {Command} emacspeak-wizards-how-many-matches  (start end &optional prefix)
-@kbd{C-e x h <XF86WakeUp> x h}
+@kbd{C-e x h <fn> x h}
 
-@kindex C-e x h <XF86WakeUp> x h
+@kindex C-e x h <fn> x h
 @findex emacspeak-wizards-how-many-matches
 
 @format
 If you define a file local variable
-called ``emacspeak-occur-pattern'' that holds a regular expression
+called ‘emacspeak-occur-pattern’ that holds a regular expression
 that matches  lines of interest, you can use this command to conveniently
-run ``how-many'' to count  matching header lines.
+run ‘how-many’ to count  matching header lines.
 With interactive prefix arg, prompts for and remembers the file local pattern.
 @end format
 @end deffn
@@ -19085,7 +19086,7 @@ Optional interactive prefix arg shows  unprocessed results.
 @findex emacspeak-wizards-next-bullet
 
 @format
-Navigate to and speak next ``bullet''.
+Navigate to and speak next ‘bullet’.
 @end format
 @end deffn
 
@@ -19109,16 +19110,16 @@ Switch to next shell.
 
 @subsubsection emacspeak-wizards-occur-header-lines
 @deffn {Command} emacspeak-wizards-occur-header-lines  (start end &optional prefix)
-@kbd{C-e x o <XF86WakeUp> x o}
+@kbd{C-e x o <fn> x o}
 
-@kindex C-e x o <XF86WakeUp> x o
+@kindex C-e x o <fn> x o
 @findex emacspeak-wizards-occur-header-lines
 
 @format
 If you define a file local variable called
-``emacspeak-occur-pattern'' that holds a regular expression that
+‘emacspeak-occur-pattern’ that holds a regular expression that
 matches header lines, you can use this command to conveniently
-run ``occur'' to find matching header lines. With prefix arg,
+run ‘occur’ to find matching header lines. With prefix arg,
 prompts for and sets value of the file local pattern.
 @end format
 @end deffn
@@ -19166,8 +19167,8 @@ Major mode for browsing PPT slides.
 
 PPT files  are converted to HTML and previewed using a browser.
 
-In addition to any hooks its parent mode ``text-mode'' might have run,
-this mode runs the hook ``emacspeak-wizards-ppt-mode-hook'', as the final step
+In addition to any hooks its parent mode ‘text-mode’ might have run,
+this mode runs the hook ‘emacspeak-wizards-ppt-mode-hook’, as the final step
 during initialization.
 
 key             binding
@@ -19181,7 +19182,7 @@ key             binding
 @findex emacspeak-wizards-previous-bullet
 
 @format
-Navigate to and speak previous ``bullet''.
+Navigate to and speak previous ‘bullet’.
 @end format
 @end deffn
 
@@ -19236,16 +19237,16 @@ Run rpm -qi on current dired entry.
 @findex emacspeak-wizards-shell
 
 @format
-Run Emacs built-in ``shell'' command when not in a shell buffer, or when called with a prefix argument.
-When called from a shell buffer, switches to ``next'' shell buffer.
+Run Emacs built-in ‘shell’ command when not in a shell buffer, or when called with a prefix argument.
+When called from a shell buffer, switches to ‘next’ shell buffer.
 @end format
 @end deffn
 
 @subsubsection emacspeak-wizards-shell-command-on-current-file
 @deffn {Command} emacspeak-wizards-shell-command-on-current-file  (command)
-@kbd{C-e & <XF86WakeUp> &}
+@kbd{C-e & <fn> &}
 
-@kindex C-e & <XF86WakeUp> &
+@kindex C-e & <fn> &
 @findex emacspeak-wizards-shell-command-on-current-file
 
 @format
@@ -19255,9 +19256,9 @@ Prompts for and runs shell command on current file.
 
 @subsubsection emacspeak-wizards-shell-toggle
 @deffn {Command} emacspeak-wizards-shell-toggle   
-@kbd{C-e <f11> <XF86WakeUp> <f11>}
+@kbd{C-e <f11> <fn> <f11>}
 
-@kindex C-e <f11> <XF86WakeUp> <f11>
+@kindex C-e <f11> <fn> <f11>
 @findex emacspeak-wizards-shell-toggle
 
 @format
@@ -19328,16 +19329,16 @@ Make ISO date-time speech friendly.
 @findex emacspeak-wizards-spot-words
 
 @format
-Searches recursively in all files with extension ``ext''
-for ``word'' and displays hits in a compilation buffer.
+Searches recursively in all files with extension ‘ext’
+for ‘word’ and displays hits in a compilation buffer.
 @end format
 @end deffn
 
 @subsubsection emacspeak-wizards-squeeze-blanks
 @deffn {Command} emacspeak-wizards-squeeze-blanks  (start end)
-@kbd{C-e x | <XF86WakeUp> x |}
+@kbd{C-e x | <fn> x |}
 
-@kindex C-e x | <XF86WakeUp> x |
+@kindex C-e x | <fn> x |
 @findex emacspeak-wizards-squeeze-blanks
 
 @format
@@ -19433,7 +19434,7 @@ Location is specified by name.
 
 @format
 Browse Tune-In Radio.
-Optional interactive prefix arg ``category'' prompts for a category.
+Optional interactive prefix arg ‘category’ prompts for a category.
 @end format
 @end deffn
 
@@ -19460,9 +19461,9 @@ UnEscape URI
 
 @subsubsection emacspeak-wizards-units
 @deffn {Command} emacspeak-wizards-units   
-@kbd{C-e x u <XF86WakeUp> x u}
+@kbd{C-e x u <fn> x u}
 
-@kindex C-e x u <XF86WakeUp> x u
+@kindex C-e x u <fn> x u
 @findex emacspeak-wizards-units
 
 @format
@@ -19481,9 +19482,9 @@ Accelerator for VC viewer.
 
 @subsubsection emacspeak-wizards-vc-viewer
 @deffn {Command} emacspeak-wizards-vc-viewer  (console)
-@kbd{C-e x v <XF86WakeUp> x v}
+@kbd{C-e x v <fn> x v}
 
-@kindex C-e x v <XF86WakeUp> x v
+@kindex C-e x v <fn> x v
 @findex emacspeak-wizards-vc-viewer
 
 @format
@@ -19503,7 +19504,7 @@ key             binding
 
 C-l		emacspeak-wizards-vc-viewer-refresh
 
-This mode runs the hook ``emacspeak-wizards-vc-viewer-mode-hook'', as the final step
+This mode runs the hook ‘emacspeak-wizards-vc-viewer-mode-hook’, as the final step
 during initialization.
 @end format
 @end deffn
@@ -19513,7 +19514,7 @@ during initialization.
 @findex emacspeak-wizards-vc-viewer-refresh
 
 @format
-Refresh view of VC we''re viewing.
+Refresh view of VC we’re viewing.
 @end format
 @end deffn
 
@@ -19589,8 +19590,8 @@ Major mode for browsing XL spreadsheets.
 
 XL Sheets are converted to HTML and previewed using a browser.
 
-In addition to any hooks its parent mode ``text-mode'' might have run,
-this mode runs the hook ``emacspeak-wizards-xl-mode-hook'', as the final step
+In addition to any hooks its parent mode ‘text-mode’ might have run,
+this mode runs the hook ‘emacspeak-wizards-xl-mode-hook’, as the final step
 during initialization.
 
 key             binding
@@ -19601,9 +19602,9 @@ key             binding
 
 @subsubsection emacspeak-wizards-yql-lookup
 @deffn {Command} emacspeak-wizards-yql-lookup  (symbols)
-@kbd{C-e x Q <XF86WakeUp> x Q}
+@kbd{C-e x Q <fn> x Q}
 
-@kindex C-e x Q <XF86WakeUp> x Q
+@kindex C-e x Q <fn> x Q
 @findex emacspeak-wizards-yql-lookup
 
 @format
@@ -19614,14 +19615,14 @@ Symbols are separated by whitespace.
 
 @subsubsection emacspeak-wizards-yql-quotes
 @deffn {Command} emacspeak-wizards-yql-quotes   
-@kbd{C-e x q <XF86WakeUp> x q}
+@kbd{C-e x q <fn> x q}
 
-@kindex C-e x q <XF86WakeUp> x q
+@kindex C-e x q <fn> x q
 @findex emacspeak-wizards-yql-quotes
 
 @format
 Display quotes using YQL API.
-Symbols are taken from ``emacspeak-wizards-personal-portfolio''.
+Symbols are taken from ‘emacspeak-wizards-personal-portfolio’.
 @end format
 @end deffn
 
@@ -19655,7 +19656,7 @@ If you are debugging another speech server and that server
 gets wedged for some reason,
 you can use command emacspeak-emergency-tts-restart
 to get speech back using the reliable TTS server.
-It''s useful to bind the above command to a convenient key.
+It’s useful to bind the above command to a convenient key.
 
 @end defvar
 
@@ -19746,7 +19747,7 @@ bound to M-x emacspeak-wizards-tramp-open-location.
 @defvar {User Option} emacspeak-wizards-vc-viewer-command
 Command line for dumping out virtual console.
 Make sure you have access to /dev/vcs* by adding yourself to the appropriate group.
-On Ubuntu and Debian this is group ``tty''.
+On Ubuntu and Debian this is group ‘tty’.
 
 @end defvar
 
@@ -19884,8 +19885,8 @@ C-c		Prefix Command
 C-c C-v		emacspeak-xml-shell-browse-result
 C-c v		emacspeak-xml-shell-browse-current
 
-In addition to any hooks its parent mode ``comint-mode'' might have run,
-this mode runs the hook ``emacspeak-xml-shell-mode-hook'', as the final step
+In addition to any hooks its parent mode ‘comint-mode’ might have run,
+this mode runs the hook ‘emacspeak-xml-shell-mode-hook’, as the final step
 during initialization.
 @end format
 @end deffn
@@ -19946,7 +19947,7 @@ Browse URL with specified XSL style.
 @findex emacspeak-xslt-view-file
 
 @format
-Transform ``file'' using ``style'' and preview via browse-url.
+Transform ‘file’ using ‘style’ and preview via browse-url.
 @end format
 @end deffn
 
@@ -20016,9 +20017,9 @@ This module defines the various voices used in voice-lock mode by the ESpeak TTS
 
 @subsubsection espeak
 @deffn {Command} espeak   
-@kbd{C-e d C-e <XF86WakeUp> d C-e}
+@kbd{C-e d C-e <fn> d C-e}
 
-@kindex C-e d C-e <XF86WakeUp> d C-e
+@kindex C-e d C-e <fn> d C-e
 @findex espeak
 
 @format
@@ -20052,11 +20053,11 @@ Used by modules like gphoto, gblogger etc.
 @format
 Major mode for APP interaction
 
-Uses keymap ``g-app-mode-map
+Uses keymap ‘g-app-mode-map
 
 In addition to any hooks its parent mode `nxml-mode' might have run,
 this mode runs the hook `g-app-mode-hook', as the final step
-during initialization.'', which is not currently defined.
+during initialization.’, which is not currently defined.
 
 @end format
 @end deffn
@@ -20189,7 +20190,7 @@ Fast feed access from Google for use in Emacs
 @findex gfeeds-view
 
 @format
-:around advice: ``ad-Advice-gfeeds-view''
+:around advice: ‘ad-Advice-gfeeds-view’
 
 Display Feed in a browser.
 Interactive prefix arg causes the feed url to be looked up given a Web site.
@@ -20255,7 +20256,7 @@ Implements the Google Maps API
 @findex gmaps
 
 @format
-:around advice: ``ad-Advice-gmaps''
+:around advice: ‘ad-Advice-gmaps’
 
 Google Maps Interaction.
 
@@ -20268,7 +20269,7 @@ Google Maps Interaction.
 @findex gmaps-bicycling-directions
 
 @format
-:around advice: ``ad-Advice-gmaps-bicycling-directions''
+:around advice: ‘ad-Advice-gmaps-bicycling-directions’
 
 Biking directions from Google Maps.
 
@@ -20290,7 +20291,7 @@ Display  directions obtained from Google Maps.
 @findex gmaps-driving-directions
 
 @format
-:around advice: ``ad-Advice-gmaps-driving-directions''
+:around advice: ‘ad-Advice-gmaps-driving-directions’
 
 Driving directions from Google Maps.
 
@@ -20305,8 +20306,8 @@ Driving directions from Google Maps.
 @format
 A Google Maps front-end for the Emacspeak desktop.
 
-In addition to any hooks its parent mode ``special-mode'' might have run,
-this mode runs the hook ``gmaps-mode-hook'', as the final step
+In addition to any hooks its parent mode ‘special-mode’ might have run,
+this mode runs the hook ‘gmaps-mode-hook’, as the final step
 during initialization.
 
 key             binding
@@ -20337,7 +20338,7 @@ M-i		backward-button
 @findex gmaps-place-details
 
 @format
-:around advice: ``ad-Advice-gmaps-place-details''
+:around advice: ‘ad-Advice-gmaps-place-details’
 
 Display details for place at point.
 Insert reviews if already displaying details.
@@ -20361,7 +20362,7 @@ Place details need to have been expanded first.
 @findex gmaps-places-nearby
 
 @format
-:around advice: ``ad-Advice-gmaps-places-nearby''
+:around advice: ‘ad-Advice-gmaps-places-nearby’
 
 Find places near current location.
 Uses default radius. optional interactive prefix arg clears any active filters.
@@ -20375,10 +20376,10 @@ Uses default radius. optional interactive prefix arg clears any active filters.
 @findex gmaps-places-search
 
 @format
-:around advice: ``ad-Advice-gmaps-places-search''
+:around advice: ‘ad-Advice-gmaps-places-search’
 
 Perform a places search.
-Use this only if you dont know the locality  of the place you''re looking for.
+Use this only if you dont know the locality  of the place you’re looking for.
 Optional  prefix arg clears any active filters.
 
 (fn QUERY &optional CLEAR-FILTER)
@@ -20400,7 +20401,7 @@ Optional interactive prefix arg prompts for all filter fields.
 @findex gmaps-set-current-location
 
 @format
-:around advice: ``ad-Advice-gmaps-set-current-location''
+:around advice: ‘ad-Advice-gmaps-set-current-location’
 
  Set current location.
 
@@ -20413,7 +20414,7 @@ Optional interactive prefix arg prompts for all filter fields.
 @findex gmaps-set-current-radius
 
 @format
-:around advice: ``ad-Advice-gmaps-set-current-radius''
+:around advice: ‘ad-Advice-gmaps-set-current-radius’
 
 Set current radius
 
@@ -20426,7 +20427,7 @@ Set current radius
 @findex gmaps-transit-directions
 
 @format
-:around advice: ``ad-Advice-gmaps-transit-directions''
+:around advice: ‘ad-Advice-gmaps-transit-directions’
 
 Transit directions from Google Maps.
 
@@ -20439,7 +20440,7 @@ Transit directions from Google Maps.
 @findex gmaps-walking-directions
 
 @format
-:around advice: ``ad-Advice-gmaps-walking-directions''
+:around advice: ‘ad-Advice-gmaps-walking-directions’
 
 Walking directions from Google Maps.
 
@@ -20552,8 +20553,8 @@ Instantiate plugin at point by prompting for control values.
 @format
 A Ladspa workbench for the Emacspeak desktop.
 
-In addition to any hooks its parent mode ``special-mode'' might have run,
-this mode runs the hook ``ladspa-mode-hook'', as the final step
+In addition to any hooks its parent mode ‘special-mode’ might have run,
+this mode runs the hook ‘ladspa-mode-hook’, as the final step
 during initialization.
 
 key             binding
@@ -20585,9 +20586,9 @@ This module is IBM ViaVoice Outloud specific.
 
 @subsubsection outloud
 @deffn {Command} outloud   
-@kbd{C-e d C-o <XF86WakeUp> d C-o}
+@kbd{C-e d C-o <fn> d C-o}
 
-@kindex C-e d C-o <XF86WakeUp> d C-o
+@kindex C-e d C-o <fn> d C-o
 @findex outloud
 
 @format
@@ -20597,9 +20598,9 @@ Select Outloud server.
 
 @subsubsection outloud-32
 @deffn {Command} outloud-32   
-@kbd{C-e d C-v <XF86WakeUp> d C-v}
+@kbd{C-e d C-v <fn> d C-v}
 
-@kindex C-e d C-v <XF86WakeUp> d C-v
+@kindex C-e d C-v <fn> d C-v
 @findex outloud-32
 
 @format
@@ -20688,7 +20689,7 @@ Stop all running soundscapes.
 
 @format
 Start  a Soundscape listener.
-Listener is loaded with all Soundscapes defined in ``soundscape-default-theme'' .
+Listener is loaded with all Soundscapes defined in ‘soundscape-default-theme’ .
 Optional interactive prefix arg restarts the listener if already running.
 @end format
 @end deffn
@@ -20720,7 +20721,7 @@ Activate scapes named names.
 
 @format
 Restart Soundscape  environment.
-With prefix arg ``device'', prompt for a alsa/ladspa device.
+With prefix arg ‘device’, prompt for a alsa/ladspa device.
 Caches most recently used device, which then becomes the default for future invocations.
 @end format
 @end deffn
@@ -20770,7 +20771,7 @@ Run command M-x soundscape-theme to see the default mode->mood mapping.
 @format
 Update mood/scape mapping for current  mode.
 The  updated mapping is not persisted.
-Optional interactive prefix arg ``prompt-mode'' prompts for the mode.
+Optional interactive prefix arg ‘prompt-mode’ prompts for the mode.
 @end format
 @end deffn
 
@@ -20827,7 +20828,7 @@ Adds  effect at the end of the effect list
 @findex sox-delete-effect-at-point
 
 @format
-:around advice: ``ad-Advice-sox-delete-effect-at-point''
+:around advice: ‘ad-Advice-sox-delete-effect-at-point’
 
 Delete effect at point.
 
@@ -20851,8 +20852,8 @@ Edit effect at point.
 @format
 An audio workbench for the Emacspeak desktop.
 
-In addition to any hooks its parent mode ``special-mode'' might have run,
-this mode runs the hook ``sox-mode-hook'', as the final step
+In addition to any hooks its parent mode ‘special-mode’ might have run,
+this mode runs the hook ‘sox-mode-hook’, as the final step
 during initialization.
 
 key             binding
@@ -20866,7 +20867,7 @@ key             binding
 @findex sox-open-file
 
 @format
-:around advice: ``ad-Advice-sox-open-file''
+:around advice: ‘ad-Advice-sox-open-file’
 
 Open specified snd-file on the Audio Workbench.
 
@@ -20888,7 +20889,7 @@ Play sound from current context.
 @findex sox-refresh
 
 @format
-:around advice: ``ad-Advice-sox-refresh''
+:around advice: ‘ad-Advice-sox-refresh’
 
 Redraw Audio Workbench.
 
@@ -21164,9 +21165,9 @@ documentation for defvoice.
 
 @subsubsection voice-lock-mode
 @deffn {Command} voice-lock-mode  (&optional arg)
-@kbd{C-e d v <XF86WakeUp> d v}
+@kbd{C-e d v <fn> d v}
 
-@kindex C-e d v <XF86WakeUp> d v
+@kindex C-e d v <fn> d v
 @findex voice-lock-mode
 
 @format
@@ -21190,15 +21191,15 @@ Interactively toggle voice lock.
 @format
 Show all defined voice-face mappings  in a help buffer.
 Sample text to use comes from variable
-  ``voice-setup-sample-text''. 
+  ‘voice-setup-sample-text’. 
 @end format
 @end deffn
 
 @subsubsection voice-setup-toggle-silence-personality
 @deffn {Command} voice-setup-toggle-silence-personality   
-@kbd{C-e M-q <XF86WakeUp> M-q}
+@kbd{C-e M-q <fn> M-q}
 
-@kindex C-e M-q <XF86WakeUp> M-q
+@kindex C-e M-q <fn> M-q
 @findex voice-setup-toggle-silence-personality
 
 @format
@@ -21420,7 +21421,7 @@ Increase brightness by  by one step.
 
 @format
 Set brightness to  specified level.
-``brightness'' is a percentage value.
+‘brightness’ is a percentage value.
 @end format
 @end deffn
 
@@ -21447,7 +21448,7 @@ This section documents a total of 80 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
- @kbd{C-e u <XF86WakeUp> u}.
+ @kbd{C-e u <fn> u}.
 This command prompts for the name of the template, and completion
  is available via Emacs' minibuffer completion.
 Each URL template carries out the following steps:

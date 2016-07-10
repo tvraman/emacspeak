@@ -77,6 +77,11 @@
                     nil ".elc$"))
   "List of elisp modules  to document.")
 (defvar emacspeak-muggles-activate-p t)
+(defvar self-document-fn-key
+  "<XF86WakeUp>"
+  "Notation for Laptop <fn> key.")
+
+
 (defvar self-document-map
   (make-hash-table :test #'equal)
   "Maps modules to commands and options they define.")
@@ -304,6 +309,15 @@
       (search-forward (format "%c" 8217) (point-max) 'no-error)
     (replace-match "''")))
 
+
+(defun self-document-fix-fn-key ()
+  "Change <XF86WakeUp> to <fn>."
+  (goto-char (point-min))
+  (while
+      (search-forward self-document-fn-key (point-max) 'no-error)
+    (replace-match "<fn>")))
+  
+  
 (defun self-document-all-modules()
   "Generate documentation for all modules."
   (declare (special self-document-map))
@@ -330,7 +344,7 @@ This chapter documents a total of %d commands and %d options.\n\n"
       (emacspeak-url-template-generate-texinfo-documentation (current-buffer))
       (texinfo-all-menus-update)
       (flush-lines "^Commentary: *$" (point-min) (point-max))
-      (self-document-fix-quotes)
+      (self-document-fix-fn-key)
       (shell-command-on-region          ; squeeze blanks
        (point-min) (point-max)
        "cat -s" (current-buffer) 'replace)
