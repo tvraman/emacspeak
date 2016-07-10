@@ -574,7 +574,6 @@ from English to German")
 
 (defun emacspeak-url-template-google-atom-news-display (feed-url)
   "View Google Atom news feed pulled using Curl."
-  (interactive)
   (declare (special g-atom-view-xsl
                     g-curl-program g-curl-common-options))
   (emacspeak-webutils-autospeak)
