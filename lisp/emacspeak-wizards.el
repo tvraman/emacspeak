@@ -2820,11 +2820,12 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
 ;;{{{ TuneIn:
 
 ;;;###autoload
-(defun emacspeak-wizards-tune-in-radio-browse  ()
-  "Browse Tune-In Radio."
-  (interactive)
+(defun emacspeak-wizards-tune-in-radio-browse  (&optional category)
+  "Browse Tune-In Radio.
+Optional interactive prefix arg `category' prompts for a category."
+  (interactive "P")
   (require 'emacspeak-url-template)
-  (let ((name   "RadioTime Browser"))
+  (let ((name (if category "RadioTime Categories" "RadioTime Browser")))
     (emacspeak-url-template-open (emacspeak-url-template-get name))))
 
 ;;;###autoload
