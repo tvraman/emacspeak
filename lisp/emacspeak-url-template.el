@@ -1175,7 +1175,7 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS stations that
                                         ; "http://stream.radiotime.com/listen.stream?streamIds=4299203"wget -O t
 (emacspeak-url-template-define
  "TuneIn Radio"
- "http://stream.radiotime.com/listen.stream?streamIds=%s"
+ "http://opml.radiotime.com/Tune.ashx?id=%s"
  (list "StreamId: ")
  nil
  "Translate StreamId to playable stream."
