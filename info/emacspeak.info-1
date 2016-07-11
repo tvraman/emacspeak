@@ -950,52 +950,52 @@ File: emacspeak.info,  Node: Status Information,  Prev: Voice-lock,  Up: Basic U
 
 The following commands provide miscellaneous information.
 
-‘ control e a ’
+‘control e a’
      emacspeak-speak-message-again Speak the last message from Emacs
      once again.
 
-‘ control e m ’
+‘control e m’
      emacspeak-speak-mode-line Speak the mode-line.
 
-‘ control e cap M ’
+‘control e cap M’
      emacspeak-speak-minor-mode-line Speak the minor mode-information.
 
-‘ control e SPC ’
+‘control e SPC’
      emacspeak-speak-header-line Speak the header-line.
 
-‘ control e control w ’
+‘control e control w’
      emacspeak-speak-window-information Speaks information about current
      windows.
 
-‘ control e t ’
+‘control e t’
      emacspeak-speak-time Speak the time.
 
-‘ control e cap V ’
+‘control e cap V’
      emacspeak-speak-version Announce version information for running
      emacspeak.
 
-‘ control e f ’
+‘control e f’
      emacspeak-speak-buffer-filename Speak name of file being visited in
      current buffer.  Speak default directory if invoked in a dired
      buffer, or when the buffer is not visiting any file.
 
-‘ control e h ’
+‘control e h’
      emacspeak-speak-help Speak help buffer if one present.  With prefix
      arg, speaks the rest of the buffer from point.  Negative prefix arg
      speaks from start of buffer to point.
 
-‘ control e k ’
+‘control e k’
      emacspeak-speak-current-kill Speak the current kill entry.  This is
      the text that will be yanked in by the next C-y.  Prefix numeric
      arg, COUNT, specifies that the text that will be yanked as a result
      of a C-y followed by count-1 M-y be spoken.  The kill number that
      is spoken says what numeric prefix arg to give to command ‘yank’.
 
-‘ control e v ’
+‘control e v’
      emacspeak-view-register Display the contents of a register, and
      then speak it.
 
-‘ control e control @ ’
+‘control e control @’
      emacspeak-speak-current-mark Speak the line containing the mark.
      With no argument, speaks the line containing the mark — this is
      where ‘exchange-point-and-mark’ C-x C-x would jump.  Numeric prefix
@@ -1005,14 +1005,14 @@ The following commands provide miscellaneous information.
      indicated by an aural highlight achieved by a change in voice
      personality.
 
-‘ control e control l ’
+‘control e control l’
      emacspeak-speak-line-number Speak the line number of the current
      line.
 
-‘ control e = ’
+‘control e =’
      emacspeak-speak-current-column Speak the current column.
 
-‘ control e % ’
+‘control e %’
      emacspeak-speak-current-percentage Announce the percentage into the
      current buffer.
 
