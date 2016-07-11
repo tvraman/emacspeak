@@ -37,7 +37,7 @@ using the common Emacs terminology of @emph{prefix arg} or
 @table @kbd 
 @findex  emacspeak-toggle-character-echo
  @kindex  control e d k 
-@item  @kbd{control e d k }
+@item  control e d k 
 emacspeak-toggle-character-echo
  Toggle state of  Emacspeak  character echo.
 Interactive PREFIX arg means toggle  the global default value, and then set the
@@ -47,7 +47,7 @@ current local  value to the result.
 @findex  emacspeak-toggle-word-echo
  @kindex  control e d w 
  
-@item @kbd{ control e d w }
+@item  control e d w 
 emacspeak-toggle-word-echo
  Toggle state of  Emacspeak  word echo.
 Interactive PREFIX arg means toggle  the global default value, and then set the
@@ -57,7 +57,7 @@ current local  value to the result.
 @findex  emacspeak-toggle-line-echo
  @kindex  control e d l 
  
-@item @kbd{ control e d l }
+@item  control e d l 
 emacspeak-toggle-line-echo
  Toggle state of  Emacspeak  line echo.
 Interactive PREFIX arg means toggle  the global default value, and then set the
@@ -84,7 +84,7 @@ all buffers by preceding these commands with @kbd{C-u}.
 @findex  dtk-set-rate
  @kindex  control e d r 
  
-@item @kbd{ control e d r }
+@item  control e d r 
 dtk-set-rate
  Set speaking RATE for the tts.
 Interactive PREFIX arg means set   the global default value, and then set the
@@ -94,7 +94,7 @@ current local  value to the result.
 @findex  dtk-set-character-scale
  @kindex  control e d f 
  
-@item @kbd{ control e d f }
+@item  control e d f 
 dtk-set-character-scale
  Set scale FACTOR for   speech rate.
 Speech rate is scaled by this factor
@@ -111,7 +111,7 @@ Automatically defined advice to speak interactive prompts.
 @findex  dtk-set-predefined-speech-rate
  @kindex  control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0 
  
-@item @kbd{ control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0 }
+@item  control e d 9   control e d 8   control e d 7   control e d 6   control e d 5   control e d 4   control e d 3   control e d 2   control e d 1   control e d 0 
 dtk-set-predefined-speech-rate
  Set speech rate to one of nine predefined levels.
 Interactive PREFIX arg says to set the rate globally.
@@ -120,7 +120,7 @@ Interactive PREFIX arg says to set the rate globally.
 @findex  dtk-set-punctuations
  @kindex  control e d p 
  
-@item @kbd{ control e d p }
+@item  control e d p 
 dtk-set-punctuations
  Set punctuation mode to MODE.
 Possible values are `some', `all', or `none'.
@@ -132,7 +132,7 @@ current local  value to the result.
 @findex  dtk-set-pronunciation-mode
  @kindex  control e d m 
  
-@item @kbd{ control e d m }
+@item  control e d m 
 dtk-set-pronunciation-mode
  Set pronunciation MODE.
 This command is valid only for newer
@@ -145,7 +145,7 @@ Argument STATE specifies new state.
 @findex  dtk-toggle-split-caps
  @kindex  control e d s 
 
-@item @kbd{ control e d s }
+@item  control e d s 
 dtk-toggle-split-caps
  Toggle split caps mode.
 Split caps mode is useful when reading
@@ -157,7 +157,7 @@ value to the result.
 @findex  dtk-toggle-capitalization
  @kindex  control e d c 
  
-@item @kbd{ control e d c }
+@item  control e d c 
 dtk-toggle-capitalization
  Toggle capitalization.
 when set, capitalization is indicated by a
@@ -168,7 +168,7 @@ value, and then set the current local value to the result.
 @findex  dtk-toggle-allcaps-beep
  @kindex  control e d  cap C  
  
-@item @kbd{ control e d  cap C  }
+@item  control e d  cap C  
 dtk-toggle-allcaps-beep
  Toggle allcaps-beep.
 when set, allcaps words  are  indicated by a
@@ -185,12 +185,11 @@ program source.
 
 
 
-@table @kbd
-
+@table  @kbd
 @findex  emacspeak-toggle-audio-indentation
  @kindex  control e d i 
  
-@item @kbd{ control e d i }
+@item  control e d i 
 emacspeak-toggle-audio-indentation
  Toggle state of  Emacspeak  audio indentation.
 Interactive PREFIX arg means toggle  the global default value, and then set the
@@ -228,14 +227,14 @@ runaway speech server.
 @findex  dtk-stop
  @kindex     pause   control e s   
  
-@item @kbd{Control e s}
+@item Control e s
 dtk-stop
  Stop speech now.
 
 @findex  dtk-toggle-quiet
  @kindex  control e d q 
  
-@item @kbd{ control e d q }
+@item  control e d q 
 dtk-toggle-quiet
  Toggle state of the speech device between being quiet and talkative.
 Useful if you want to continue using an Emacs session that has
@@ -247,7 +246,7 @@ Optional argument PREFIX specifies whether speech is turned off in the current b
 @findex  dtk-emergency-restart
  @kindex  control e control s 
  
-@item @kbd{ control e control s }
+@item  control e control s 
 dtk-emergency-restart
  Use this to nuke the currently running dtk server and restart it.
 Useful if you want to switch to another synthesizer while emacspeak is
@@ -265,7 +264,7 @@ keymap @kbd{C-e d}.
 @findex  dtk-add-cleanup-pattern
  @kindex  control e d a 
  
-@item @kbd{ control e d a }
+@item  control e d a 
 dtk-add-cleanup-pattern
  Add this pattern to the list of repeating patterns that are cleaned up.
 Optional interactive prefix arg deletes  this pattern if
@@ -282,7 +281,7 @@ will say ``aw fifteen dot'' when speaking the string
 @findex  dtk-select-server
  @kindex  control e d d 
  
-@item @kbd{ control e d d }
+@item  control e d d 
 dtk-select-server
  Select a speech server interactively.
 This will be the server that is used when you next call either
@@ -293,7 +292,7 @@ Argument PROGRAM specifies the speech server program.
 @findex  dtk-toggle-splitting-on-white-space
  @kindex  control e d SPACE 
  
-@item @kbd{ control e d SPACE }
+@item  control e d SPACE 
 dtk-toggle-splitting-on-white-space
  Toggle splitting of speech on white space.
 This affects the internal state of emacspeak that decides if we split
@@ -314,7 +313,7 @@ since the synthesizer is getting a word at a time.
 @findex  dtk-set-chunk-separator-syntax
  @kindex  control e d RETURN 
  
-@item @kbd{ control e d RETURN }
+@item  control e d RETURN 
 dtk-set-chunk-separator-syntax
  Interactively set how text is split in chunks.
 See the Emacs documentation on syntax tables for details on how characters are
@@ -325,7 +324,7 @@ Argument S specifies the syntax class.
 @findex  emacspeak-dial-dtk
  @kindex  control e d t 
  
-@item @kbd{ control e d t }
+@item  control e d t 
 emacspeak-dial-dtk
  Prompt for and dial a phone NUMBER with the Dectalk.
 
@@ -333,7 +332,7 @@ emacspeak-dial-dtk
 @findex  emacspeak-dtk-speak-version
  @kindex  control e d  cap V  
  
-@item @kbd{ control e d  cap V  }
+@item  control e d  cap V  
 emacspeak-dtk-speak-version
  Use this to find out which version of the TTS firmware you are running.
 
@@ -341,7 +340,7 @@ emacspeak-dtk-speak-version
 @findex  emacspeak-zap-dtk
  @kindex  control e d z 
  
-@item @kbd{ control e d z }
+@item  control e d z 
 emacspeak-zap-dtk
  Send this command to the TTS engine  directly.
 

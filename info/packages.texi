@@ -243,74 +243,74 @@ in constructing the name of the image and text files.
 Here is a list of all emacspeak OCR commands along with their
 key-bindings and a brief description:
 @table @kbd
-@item @kbd{digit}
+@item digit
  @dfn{emacspeak-ocr-page}
 Jumps to specified page in the OCR output.
 
-@item @kbd{c}
+@item c
  @dfn{emacspeak-ocr-set-compress-image-options}
 
 Interactively update image compression options.
 Prompts with current setting in the minibuffer.
 Setting persists for current Emacs session.
 
-@item @kbd{i}
+@item i
  @dfn{emacspeak-ocr-set-scan-image-options}
 Interactively update scan image options.
 Prompts with current setting in the minibuffer.
 Setting persists for current Emacs session.
 
-@item @kbd{spc}
+@item spc
  @dfn{emacspeak-ocr-read-current-page}
 Speaks current page.
-@item @kbd{s}
+@item s
  @dfn{emacspeak-ocr-save-current-page}
 Saves current page as a text file.
 
-@item @kbd{p}
+@item p
  @dfn{emacspeak-ocr-page}
 Prompts for a page number and moves to the specified page.
 
-@item @kbd{]}
+@item ]
  @dfn{emacspeak-ocr-forward-page}
 Move forward to the next page.
 
-@item @kbd{[}
+@item [
  @dfn{emacspeak-ocr-backward-page}
 Move back to the previous page.
 
-@item @kbd{d}
+@item d
  @dfn{emacspeak-ocr-open-working-directory}
 Open directory containing the results of OCR.
 
-@item @kbd{n}
+@item n
  @dfn{emacspeak-ocr-name-document}
 Name current document.
 
-@item @kbd{o}
+@item o
  @dfn{emacspeak-ocr-recognize-image}
 Launch OCR engine on a scanned image.
 
-@item @kbd{i}
+@item i
  @dfn{emacspeak-ocr-scan-image}
 Acquire an image using @code{scanimage}.
 
-@item @kbd{RET}
+@item RET
  @dfn{emacspeak-ocr-scan-and-recognize}
 Scan and recognize a page.
 
-@item @kbd{w}
+@item w
  @dfn{emacspeak-ocr-write-document}
 Write all pages of current document to a text file.
 
-@item @kbd{q}
+@item q
  @dfn{bury-buffer}
 Bury the OCR buffer.
-@item @kbd{c}
+@item c
  @dfn{emacspeak-ocr-customize}
 Customize Emacspeak OCR settings.
 
-@item @kbd{?}
+@item ?
  @dfn{describe-mode}
 Describe OCR mode.
 @end table

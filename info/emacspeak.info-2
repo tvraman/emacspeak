@@ -132,7 +132,6 @@ advantages of speech-enabled interaction.
 
  -- Command: emacspeak-appt-repeat-announcement
      ‘C-e A’
-
      ‘<fn> A’
 
      Speaks the most recently displayed appointment message if any.
@@ -1113,7 +1112,6 @@ layers etc., perhaps via a simplified smil implementation.
 
  -- Command: emacspeak-epub
      ‘C-e g’
-
      ‘<fn> g’
 
      EPub  Interaction.
@@ -2293,7 +2291,6 @@ This module provides Feeds support for Emacspeak
 
  -- Command: emacspeak-feeds-add-feed (title url type)
      ‘C-e M-u’
-
      ‘<fn> M-u’
 
      Add specified feed to our feed store.
@@ -2311,7 +2308,6 @@ This module provides Feeds support for Emacspeak
 
  -- Command: emacspeak-feeds-atom-display (feed-url)
      ‘C-, a’
-
      ‘C-x @ a a’
 
      Display ATOM feed.
@@ -2321,7 +2317,6 @@ This module provides Feeds support for Emacspeak
 
  -- Command: emacspeak-feeds-browse (feed)
      ‘C-e C-u’
-
      ‘<fn> C-u’
 
      Browse specified  feed.
@@ -2339,7 +2334,6 @@ This module provides Feeds support for Emacspeak
 
  -- Command: emacspeak-feeds-find-feeds (query)
      ‘C-, f’
-
      ‘C-x @ a f’
 
      Browse feeds matching specified query.
@@ -2349,7 +2343,6 @@ This module provides Feeds support for Emacspeak
 
  -- Command: emacspeak-feeds-lookup-and-view (site)
      ‘C-' f’
-
      ‘C-x @ s f’
 
      Lookup feed URL for a site and browse result.
@@ -2359,7 +2352,6 @@ This module provides Feeds support for Emacspeak
 
  -- Command: emacspeak-feeds-opml-display (feed-url)
      ‘C-, o’
-
      ‘C-x @ a o’
 
      Display OPML feed.
@@ -2377,7 +2369,6 @@ This module provides Feeds support for Emacspeak
 
  -- Command: emacspeak-feeds-rss-display (feed-url)
      ‘C-, r’
-
      ‘C-x @ a r’
 
      Display RSS feed.
@@ -2421,7 +2412,6 @@ intermediate filters.
 
  -- Command: emacspeak-filtertext (start end)
      ‘C-e ^’
-
      ‘<fn> ^’
 
      Copy over text in region to special filtertext buffer in
@@ -3121,7 +3111,6 @@ also useful for handling multicolumn text.
 
  -- Command: emacspeak-gridtext-apply (start end grid)
      ‘C-e # a’
-
      ‘<fn> # a’
 
      Apply grid to region.
@@ -3131,7 +3120,6 @@ also useful for handling multicolumn text.
 
  -- Command: emacspeak-gridtext-load (file)
      ‘C-e # l’
-
      ‘<fn> # l’
 
      Load saved grid settings.
@@ -3141,7 +3129,6 @@ also useful for handling multicolumn text.
 
  -- Command: emacspeak-gridtext-save (file)
      ‘C-e # s’
-
      ‘<fn> # s’
 
      Save out grid settings.
@@ -3201,7 +3188,6 @@ filladapt.el
 
  -- Command: emacspeak-hide-or-expose-block (&optional prefix)
      ‘C-e j’
-
      ‘<fn> j’
 
      Hide or expose a block of text.
@@ -3216,7 +3202,6 @@ filladapt.el
 
  -- Command: emacspeak-hide-speak-block-sans-prefix
      ‘C-e C-j’
-
      ‘<fn> C-j’
 
      Speaks current block after stripping its prefix.
@@ -3325,9 +3310,7 @@ This module speech-enables the Emacs Info Reader.
 
  -- Command: emacspeak-info-wizard (node-spec)
      ‘C-h TAB’
-
      ‘<f1> TAB’
-
      ‘<help> TAB’
 
      Read a node spec from the minibuffer and launch
@@ -3406,7 +3389,6 @@ hosted at sourceforge.  I use emacs-jabber with my gmail.com account
 
  -- Command: emacspeak-jabber-popup-roster
      ‘C-e x j’
-
      ‘<fn> x j’
 
      Pop to Jabber roster.
@@ -3929,7 +3911,6 @@ implements an Emacspeak Librivox client.
 
  -- Command: emacspeak-librivox (search-type)
      ‘C-; l’
-
      ‘C-x @ h l’
 
      Launch a Librivox Search.
@@ -4286,7 +4267,6 @@ http://www.mplayerhq.hu/DOCS/
 
  -- Command: emacspeak-m-player-locate-media (pattern)
      ‘C-' l’
-
      ‘C-x @ s l’
 
      Locate media matching specified pattern.
@@ -4505,7 +4485,6 @@ http://www.mplayerhq.hu/DOCS/
 
  -- Command: emacspeak-m-player-shuffle
      ‘C-e :’
-
      ‘<fn> :’
 
      Launch M-Player with shuffle turned on.
@@ -4545,7 +4524,6 @@ http://www.mplayerhq.hu/DOCS/
 
  -- Command: emacspeak-m-player-url (url &optional playlist-p)
      ‘C-, u’
-
      ‘C-x @ a u’
 
      Call emacspeak-m-player with specified URL.
@@ -4555,7 +4533,6 @@ http://www.mplayerhq.hu/DOCS/
 
  -- Command: emacspeak-m-player-using-openal
      ‘C-; ;’
-
      ‘C-x @ h ;’
 
      Use openal as the audio output driver. Adding hrtf=true to
@@ -4596,7 +4573,6 @@ http://www.mplayerhq.hu/DOCS/
 
  -- Command: emacspeak-multimedia
      ‘C-e ;’
-
      ‘<fn> ;’
 
      Start or control Emacspeak multimedia player.
@@ -5278,9 +5254,7 @@ binds ‘s’ to this command.
 
  -- Command: emacspeak-muggles-view/body
      ‘C-c v’
-
      ‘C-; v’
-
      ‘C-x @ h v’
 
      Create a hydra with no body and the heads:
@@ -5463,7 +5437,6 @@ completion.  Streams can be played from within the displayed listing.
 
  -- Command: emacspeak-npr-listing (&optional search)
      ‘C-; N’
-
      ‘C-x @ h N’
 
      Display specified listing.
@@ -5482,7 +5455,6 @@ completion.  Streams can be played from within the displayed listing.
 
  -- Command: emacspeak-npr-play-program (pid &optional get-date)
      ‘C-; n’
-
      ‘C-x @ h n’
 
      Play specified NPR program.
@@ -5746,7 +5718,6 @@ named "ocr"
 
  -- Command: emacspeak-ocr
      ‘C-e C-o’
-
      ‘<fn> C-o’
 
      An OCR front-end for the Emacspeak desktop.
@@ -6042,7 +6013,6 @@ http://orgmode.org/
 
  -- Command: emacspeak-org-capture-link
      ‘C-; h’
-
      ‘C-x @ h h’
 
      Capture hyperlink to current context.
@@ -6366,7 +6336,6 @@ keys from ‘pianobar-key-map’.
 
  -- Command: emacspeak-pianobar
      ‘C-e '’
-
      ‘<fn> '’
 
      Start or control Emacspeak Pianobar player.
@@ -6566,7 +6535,6 @@ given file.
 
  -- Command: emacspeak-pronounce-dispatch
      ‘C-e M-d’
-
      ‘<fn> M-d’
 
      Provides the user interface front-end to Emacspeak’s pronunciation dictionaries.
@@ -6902,7 +6870,6 @@ talking to a remote speech server, after prompting for host and port
 
  -- Command: emacspeak-remote-connect-to-server (host port)
      ‘C-e M-r’
-
      ‘<fn> M-r’
 
      Connect to and start using remote speech server running on
@@ -6931,7 +6898,6 @@ talking to a remote speech server, after prompting for host and port
 
  -- Command: emacspeak-remote-quick-connect-to-server
      ‘C-; q’
-
      ‘C-x @ h q’
 
      Connect to remote server.
@@ -7354,7 +7320,6 @@ appropriate subdirectories of emacspeak-sounds-directory
 
  -- Command: emacspeak-audio-setup (&optional prefix)
      ‘C-e (’
-
      ‘<fn> (’
 
      Call appropriate audio environment set command.
@@ -7364,7 +7329,6 @@ appropriate subdirectories of emacspeak-sounds-directory
 
  -- Command: emacspeak-set-auditory-icon-player (player)
      ‘C-e M-a’
-
      ‘<fn> M-a’
 
      Select  player used for producing auditory icons.
@@ -7396,7 +7360,6 @@ appropriate subdirectories of emacspeak-sounds-directory
 
  -- Command: emacspeak-sounds-select-theme (theme)
      ‘C-e )’
-
      ‘<fn> )’
 
      Select theme for auditory icons.
@@ -7406,7 +7369,6 @@ appropriate subdirectories of emacspeak-sounds-directory
 
  -- Command: emacspeak-toggle-auditory-icons (&optional prefix)
      ‘C-e C-a’
-
      ‘<fn> C-a’
 
      Toggle use of auditory icons.
@@ -7486,7 +7448,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-dial-dtk (number)
      ‘C-e d t’
-
      ‘<fn> d t’
 
      Prompt for and dial a phone NUMBER with the Dectalk.
@@ -7503,7 +7464,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-goto-percent (percent)
      ‘C-e M-%’
-
      ‘<fn> M-%’
 
      Move to end  PERCENT of buffer like in View mode.
@@ -7597,7 +7557,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-read-next-line (&optional arg)
      ‘C-e <down>’
-
      ‘<fn> <down>’
 
      Read next line, specified by an offset, without moving.
@@ -7616,7 +7575,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-read-previous-line (&optional arg)
      ‘C-e <up>’
-
      ‘<fn> <up>’
 
      Read previous line, specified by an offset, without moving.
@@ -7676,7 +7634,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-browse-buffer (&optional browse)
      ‘C-e ,’
-
      ‘<fn> ,’
 
      Browse current buffer.
@@ -7689,7 +7646,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-buffer (&optional arg)
      ‘C-e b’
-
      ‘<fn> b’
 
      Speak current buffer  contents.
@@ -7703,7 +7659,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-buffer-filename (&optional filename)
      ‘C-e f’
-
      ‘<fn> f’
 
      Speak name of file being visited in current buffer.
@@ -7718,7 +7673,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-buffer-interactively
      ‘C-e B’
-
      ‘<fn> B’
 
      Speak the start of, rest of, or the entire buffer.
@@ -7731,7 +7685,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-char (&optional prefix)
      ‘C-e c’
-
      ‘<fn> c’
 
      Speak character under point.
@@ -7756,7 +7709,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-continuously
      ‘C-e RET’
-
      ‘<fn> RET’
 
      Speak a buffer continuously.
@@ -7771,7 +7723,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-current-column
      ‘C-e =’
-
      ‘<fn> =’
 
      Speak the current column.
@@ -7788,7 +7739,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-current-kill (count)
      ‘C-e k’
-
      ‘<fn> k’
 
      Speak the current kill entry.
@@ -7805,11 +7755,8 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-current-mark (count)
      ‘C-e C-SPC’
-
      ‘C-e C-@’
-
      ‘<fn> C-SPC’
-
      ‘<fn> C-@’
 
      Speak the line containing the mark.
@@ -7826,7 +7773,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-current-percentage
      ‘C-e %’
-
      ‘<fn> %’
 
      Announce the percentage into the current buffer.
@@ -7877,7 +7823,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-header-line
      ‘C-e SPC’
-
      ‘<fn> SPC’
 
      Speak header line if set.
@@ -7887,7 +7832,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-help (&optional arg)
      ‘C-e h’
-
      ‘<fn> h’
 
      Speak help buffer if one present.
@@ -7909,7 +7853,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-hostname
      ‘C-e M-h’
-
      ‘<fn> M-h’
 
      Speak host name.
@@ -7919,7 +7862,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-line (&optional arg)
      ‘C-e l’
-
      ‘<fn> l’
 
      Speaks current line.  With prefix ARG, speaks the rest of the line
@@ -7938,7 +7880,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-line-interactively
      ‘C-e L’
-
      ‘<fn> L’
 
      Speak the start of, rest of, or the entire line.
@@ -7951,7 +7892,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-line-number
      ‘C-e C-l’
-
      ‘<fn> C-l’
 
      Print the current buffer line number and narrowed line number of point.
@@ -7961,7 +7901,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-line-set-column-filter (filter)
      ‘C-e |’
-
      ‘<fn> |’
 
      Set up filter for selectively speaking or ignoring portions of lines.
@@ -7992,7 +7931,6 @@ of emacspeak from becoming dependent on the speech server modules
  -- Command: emacspeak-speak-message-again (&optional
           from-message-cache)
      ‘C-e a’
-
      ‘<fn> a’
 
      Speak the last message from Emacs once again.
@@ -8004,7 +7942,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-message-at-time (time message)
      ‘C-e @’
-
      ‘<fn> @’
 
      Set up ring-at-time to speak message at specified time.
@@ -8039,7 +7976,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-minor-mode-line (&optional copy-as-kill)
      ‘C-e M’
-
      ‘<fn> M’
 
      Speak the minor mode-information.
@@ -8050,7 +7986,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-mode-line (&optional buffer-info)
      ‘C-e m’
-
      ‘<fn> m’
 
      Speak the mode-line.
@@ -8070,7 +8005,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-next-field
      ‘C-e >’
-
      ‘<fn> >’
 
      Move to and speak next field.
@@ -8088,7 +8022,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-next-window
      ‘C-e C-n’
-
      ‘<fn> C-n’
 
      Speak the next window.
@@ -8098,7 +8031,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-other-buffer (buffer)
      ‘C-e M-b’
-
      ‘<fn> M-b’
 
      Speak specified buffer.
@@ -8120,7 +8052,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-page (&optional arg)
      ‘C-e [’
-
      ‘<fn> [’
 
      Speak a page.
@@ -8133,7 +8064,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-page-interactively
      ‘C-e ]’
-
      ‘<fn> ]’
 
      Speak the start of, rest of, or the entire page.
@@ -8146,11 +8076,8 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-paragraph (&optional arg)
      ‘C-e {’
-
      ‘C-e p’
-
      ‘<fn> {’
-
      ‘<fn> p’
 
      Speak paragraph.
@@ -8163,7 +8090,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-paragraph-interactively
      ‘C-e P’
-
      ‘<fn> P’
 
      Speak the start of, rest of, or the entire paragraph.
@@ -8183,43 +8109,24 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-predefined-window (&optional arg)
      ‘C-e 9’
-
      ‘C-e 8’
-
      ‘C-e 7’
-
      ‘C-e 6’
-
      ‘C-e 5’
-
      ‘C-e 4’
-
      ‘C-e 3’
-
      ‘C-e 2’
-
      ‘C-e 1’
-
      ‘C-e 0’
-
      ‘<fn> 9’
-
      ‘<fn> 8’
-
      ‘<fn> 7’
-
      ‘<fn> 6’
-
      ‘<fn> 5’
-
      ‘<fn> 4’
-
      ‘<fn> 3’
-
      ‘<fn> 2’
-
      ‘<fn> 1’
-
      ‘<fn> 0’
 
      Speak one of the first 10 windows on the screen.
@@ -8243,7 +8150,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-previous-field
      ‘C-e <’
-
      ‘<fn> <’
 
      Move to previous field and speak it.
@@ -8261,7 +8167,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-previous-window
      ‘C-e C-p’
-
      ‘<fn> C-p’
 
      Speak the previous window.
@@ -8271,7 +8176,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-rectangle (start end)
      ‘C-e R’
-
      ‘<fn> R’
 
      Speak a rectangle of text.
@@ -8284,7 +8188,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-region (start end)
      ‘C-e r’
-
      ‘<fn> r’
 
      Speak region.
@@ -8295,7 +8198,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-rest-of-buffer
      ‘C-e n’
-
      ‘<fn> n’
 
      Speak remainder of the buffer starting at point
@@ -8330,7 +8232,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-set-mode-punctuations (setting)
      ‘C-e d m’
-
      ‘<fn> d m’
 
      Set punctuation mode for all buffers in current mode.
@@ -8350,7 +8251,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-sexp-interactively
      ‘C-e "’
-
      ‘<fn> "’
 
      Speak the start of, rest of, or the entire sexp.
@@ -8364,7 +8264,6 @@ of emacspeak from becoming dependent on the speech server modules
  -- Command: emacspeak-speak-show-active-network-interfaces (&optional
           address)
      ‘C-e I’
-
      ‘<fn> I’
 
      Shows all active network interfaces in the echo area.
@@ -8401,11 +8300,8 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-spaces-at-point
      ‘C-e C-M-SPC’
-
      ‘C-e C-M-@’
-
      ‘<fn> C-M-SPC’
-
      ‘<fn> C-M-@’
 
      Speak the white space at point.
@@ -8444,7 +8340,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-time (&optional world)
      ‘C-e t’
-
      ‘<fn> t’
 
      Speak the time.
@@ -8457,7 +8352,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-version (&optional update)
      ‘C-e V’
-
      ‘<fn> V’
 
      Announce version information for running emacspeak.
@@ -8476,7 +8370,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-window-information
      ‘C-e C-w’
-
      ‘<fn> C-w’
 
      Speaks information about current window.
@@ -8486,7 +8379,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-speak-word (&optional arg)
      ‘C-e w’
-
      ‘<fn> w’
 
      Speak current word.
@@ -8534,7 +8426,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-toggle-audio-indentation (&optional prefix)
      ‘C-e d i’
-
      ‘<fn> d i’
 
      Toggle state of  Emacspeak  audio indentation.
@@ -8550,7 +8441,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-toggle-character-echo (&optional prefix)
      ‘C-e d k’
-
      ‘<fn> d k’
 
      Toggle state of  Emacspeak  character echo.
@@ -8562,7 +8452,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-toggle-comint-autospeak (&optional prefix)
      ‘C-e C-q’
-
      ‘<fn> C-q’
 
      Toggle state of Emacspeak comint autospeak.
@@ -8576,7 +8465,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-toggle-comint-output-monitor (&optional prefix)
      ‘C-e o’
-
      ‘<fn> o’
 
      Toggle state of Emacspeak comint monitor.
@@ -8597,7 +8485,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-toggle-line-echo (&optional prefix)
      ‘C-e d l’
-
      ‘<fn> d l’
 
      Toggle state of  Emacspeak  line echo.
@@ -8609,7 +8496,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-toggle-mail-alert (&optional prefix)
      ‘C-e M-m’
-
      ‘<fn> M-m’
 
      Toggle state of  Emacspeak  mail alert.
@@ -8623,7 +8509,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-toggle-show-point (&optional prefix)
      ‘C-e C-d’
-
      ‘<fn> C-d’
 
      Toggle state of  Emacspeak-show-point.
@@ -8636,7 +8521,6 @@ of emacspeak from becoming dependent on the speech server modules
  -- Command: emacspeak-toggle-speak-line-invert-filter (&optional
           prefix)
      ‘C-e \’
-
      ‘<fn> \’
 
      Toggle state of   how column filter is interpreted.
@@ -8648,7 +8532,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-toggle-speak-messages (&optional prefix)
      ‘C-e q’
-
      ‘<fn> q’
 
      Toggle the state of whether emacspeak echoes messages.
@@ -8658,7 +8541,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-toggle-word-echo (&optional prefix)
      ‘C-e d w’
-
      ‘<fn> d w’
 
      Toggle state of  Emacspeak  word echo.
@@ -8700,7 +8582,6 @@ of emacspeak from becoming dependent on the speech server modules
 
  -- Command: emacspeak-zap-tts
      ‘C-e d z’
-
      ‘<fn> d z’
 
      Send this command to the TTS directly.
