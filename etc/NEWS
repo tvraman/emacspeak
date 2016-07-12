@@ -35,3 +35,8 @@ Module ~emacspeak-rst~ speech-enables ~rst~ mode.
 
 Emacspeak's spoken mode-line includes version-control state for files
 under VC.
+
+** Invoke Emacspeak M-Player From Outside Emacs
+
+Simple shell-script etc/emplay  can hand off a media URL to Emacspeak
+from outside Emacs.
