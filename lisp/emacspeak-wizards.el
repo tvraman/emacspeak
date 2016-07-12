@@ -2957,7 +2957,9 @@ order with duplicates removed  when saving."
            Volume
            YearRange
            StockExchange
-           PercentChange)
+           PercentChange
+           DividendShare ExDividendDate 
+DividendPayDate DividendYield )
   "List of headers we care about.")
 
 (defun emacspeak-wizards-yq-filter (r)
