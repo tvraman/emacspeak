@@ -1468,6 +1468,20 @@ Warning, this is fragile, and depends on a stable id for the
     (browse-url-of-buffer)))
 
 ;;}}}
+;;{{{ Handling Media (audio/video)
+
+;;; This should ideally be handled through mailcap.
+;;; At present, EWW sets  eww-use-external-browser-for-content-type
+;;; to match audio/video (only) and hands those off to eww-browse-with-external-browser.
+;;; Below, we advice eww-browse-with-external-browser to use emacspeak-m-player instead.
+(defadvice eww-browse-with-external-browser(around emacspeak pre act comp)
+  "Use our m-player integration."
+  (let ((url (ad-get-arg 0))
+        (media-p (string-match emacspeak-media-extensions url)))
+    (emacspeak-m-player url (not media-p))))
+
+
+;;}}}
 (provide 'emacspeak-eww)
 ;;{{{ end of file
 
