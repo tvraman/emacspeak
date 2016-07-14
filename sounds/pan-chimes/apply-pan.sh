@@ -56,7 +56,7 @@ function swapchan () {
 # pan task-done.wav 1
 # pan unmodified-object.wav 2
 # pan voice-mail.wav 1
-# pan warn-user.wav 3
+# pan warn-user.wav 12
 # pan window-resize.wav 1
 # pan working.wav 1
 # pan yank-object.wav 5
