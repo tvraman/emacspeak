@@ -1456,6 +1456,7 @@ Alert the user only if mail has arrived since this time in the
          (size (emacspeak-get-file-size f))
          (result (and (> size 0)
                       (or
+                       (null emacspeak-mail-last-alerted-time)
                        (time-less-p emacspeak-mail-last-alerted-time mod-time) ; new mail
                        (time-less-p     ;unattended mail
                         (time-add emacspeak-mail-last-alerted-time
