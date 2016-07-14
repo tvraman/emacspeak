@@ -449,9 +449,11 @@ See the online documentation for individual commands and
 functions for details.   "
   (interactive)
   (declare (special emacspeak-pronounce-load-pronunciations-on-startup
+                    use-dialog-box
                     emacspeak-pronounce-dictionaries-file
                     emacspeak-play-program emacspeak-sounds-directory))
   (emacspeak-export-environment)
+  (setq use-dialog-box nil)
   (require 'emacspeak-personality)
   (dtk-initialize)
   (tts-configure-synthesis-setup)
