@@ -1188,9 +1188,7 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS stations that
  "RadioTime Browser"
  "http://opml.radiotime.com/"
  nil
- #'(lambda ()
-     (declare (special emacspeak-we-url-executor))
-     (setq emacspeak-we-url-executor 'emacspeak-feeds-opml-display))
+ nil
  "RadioTime Entry point."
  #'emacspeak-feeds-opml-display)
 
@@ -1198,11 +1196,10 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS stations that
  "RadioTime Search"
  "http://opml.radiotime.com/Search.ashx?query=%s"
  (list "Search: ")
- #'(lambda ()
-     (declare (special emacspeak-we-url-executor))
-     (setq emacspeak-we-url-executor 'emacspeak-feeds-opml-display))
+ nil
  "RadioTime Search."
  #'emacspeak-feeds-opml-display)
+
 (defvar emacspeak-url-template--radiotime-categories
   '("world" "music" "sports" "podcasts"
     "local" "talk" "sports" "lang"
