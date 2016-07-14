@@ -23,7 +23,7 @@ function swapchan () {
 # pan button.wav 5
 # pan center.wav 1
 # pan close-object.wav 2
-# pan complete.wav 5
+# pan complete.wav 2
 # pan delete-object.wav 1 
 # pan deselect-object.wav 2 
 # pan ellipses.wav 2 
