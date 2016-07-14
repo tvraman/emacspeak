@@ -10,6 +10,13 @@ function pan () {
 }
 
 
+function pan_depth () {
+    mplayer -af ladspa=tap_autopan:tap_autopan:$2:$3:0  -ao pcm:file=tmp.wav ../chimes/$1
+    sox tmp.wav -b 16 -r 44100  $1
+    \rm  tmp.wav
+}
+
+
 function swapchan () {
     mv $1 tmp.wav
     sox  tmp.wav $1 remix 2 1
@@ -29,7 +36,7 @@ function swapchan () {
 # pan ellipses.wav 2 
 # pan fill-object.wav 1 
 # pan help.wav 2 
-# pan item.wav 1 
+# pan_depth item.wav 1  60
 # pan large-movement.wav 4 
 # pan left.wav 1 
 # pan mark-object.wav 1
@@ -44,7 +51,7 @@ function swapchan () {
 # pan on.wav 1
 # pan open-object.wav 2
 # pan paragraph.wav 1
-# pan progress.wav 1
+# pan_depth progress.wav 1 60
 # pan right.wav 1
 # pan save-object.wav 2
 # pan scroll.wav 1
