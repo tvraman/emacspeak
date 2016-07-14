@@ -37,7 +37,7 @@ function swapchan () {
 # pan fill-object.wav 1 
 # pan help.wav 2 
 # pan_depth item.wav 1  60
-# pan large-movement.wav 4 
+# pan_depth large-movement.wav 1 45
 # pan left.wav 1 
 # pan mark-object.wav 1
 # pan modified-object.wav 1
