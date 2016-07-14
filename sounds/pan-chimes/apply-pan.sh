@@ -29,7 +29,7 @@ function swapchan () {
 # pan ask-short-question.wav 1
 # pan button.wav 5
 # pan center.wav 1
-# pan close-object.wav 2
+# pan_depth close-object.wav 2 50 
 # pan complete.wav 2
 # pan delete-object.wav 1 
 # pan deselect-object.wav 2 
