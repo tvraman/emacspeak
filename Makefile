@@ -302,8 +302,6 @@ q:
 
 clean:
 	cd lisp; $(MAKE) clean
-		cd info; $(MAKE) clean
-
 # }}}
 # {{{ labeling releases
 
