@@ -1904,14 +1904,15 @@ Timezone is specified using minibuffer completion.
 Second interactive prefix sets clock to new timezone."
   (interactive "P")
   (declare (special emacspeak-speak-time-format-string))
-  (emacspeak-auditory-icon 'progress)
+  (emacspeak-auditory-icon 'item)
   (cond
    (world (call-interactively 'emacspeak-speak-world-clock))
    (t
     (tts-with-punctuations
      'some
      (dtk-notify-speak
-       (format-time-string emacspeak-speak-time-format-string (current-time) (getenv "TZ")))))))
+      (format-time-string emacspeak-speak-time-format-string
+                          (current-time) (getenv "TZ")))))))
 
 ;;;###autoload
 (defun emacspeak-speak-seconds-since-epoch (seconds)
