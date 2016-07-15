@@ -62,7 +62,8 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
 (defun vm-chromium ()
   "Run Chromium on current link."
   (interactive)
-  (let ((url (get-text-property (point) 'shr-url)))
+  (let ((url
+         (or (get-text-property (point) 'shr-url) (browse-url-url-at-point))))
     (unless url (error "No link here."))
     (browse-url-chromium url)))
 
