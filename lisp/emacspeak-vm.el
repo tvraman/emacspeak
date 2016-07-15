@@ -622,7 +622,10 @@ Emacspeak."
             vm-delete-after-saving
             vm-url-browser
             vm-confirm-new-folders
+            vm-mime-alternative-select-method
             vm-move-after-deleting))
+  (setq vm-mime-alternative-select-method
+'(favorite-internal  "text/plain" "text/enriched" "text/html" "application/xml+xhtml"))
   (setq vm-mime-charset-converter-alist
         '(
           ("utf-8" "iso-8859-1" "iconv -f utf-8 -t iso-8859-1")
