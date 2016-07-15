@@ -225,7 +225,7 @@ We use module gfeeds to efficiently fetch feed contents using the
   (with-local-quit
     (emacspeak-webspace-headlines-fetch
      (emacspeak-webspace-fs-next emacspeak-webspace-headlines)))
-  (emacspeak-auditory-icon 'working)
+  (emacspeak-auditory-icon 'progress)
   t)
 
 (defun emacspeak-webspace-headlines-update ()
