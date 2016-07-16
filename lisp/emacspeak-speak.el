@@ -1904,7 +1904,7 @@ Timezone is specified using minibuffer completion.
 Second interactive prefix sets clock to new timezone."
   (interactive "P")
   (declare (special emacspeak-speak-time-format-string))
-  (emacspeak-auditory-icon 'item)
+  (emacspeak-auditory-icon 'tick-tock)
   (cond
    (world (call-interactively 'emacspeak-speak-world-clock))
    (t
