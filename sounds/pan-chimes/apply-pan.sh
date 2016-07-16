@@ -49,7 +49,7 @@ function swapchan () {
 # pan no-answer.wav 1
 # pan off.wav 1
 # pan on.wav 1
-# pan open-object.wav 2
+# pan_depth open-object.wav 1 60 
 # pan paragraph.wav 1
 # pan_depth progress.wav 1 50
 # pan right.wav 1
