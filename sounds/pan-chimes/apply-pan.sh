@@ -24,7 +24,7 @@ function swapchan () {
 }
 
 # pan alarm.wav 3
-# pan alert-user.wav 1
+#pan_depth alert-user.wav 1 30 
 # pan ask-question.wav 2
 # pan ask-short-question.wav 1
 # pan button.wav 5
