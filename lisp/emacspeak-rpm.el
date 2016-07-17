@@ -89,7 +89,7 @@
   "Provide speech feedback."
   (when (ems-interactive-p)
     (message "Rebuilt index")
-    (emacspeak-auditory-icon 'rask-done)))
+    (emacspeak-auditory-icon 'task-done)))
 
 ;;}}}
 ;;{{{ fix interactive commands 
