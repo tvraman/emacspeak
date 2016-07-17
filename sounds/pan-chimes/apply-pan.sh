@@ -2,7 +2,10 @@
 #This script is used to generate panned chimes.
 #The only variation among icons is the frequency of the autopan effect.
 #Usage pan filename frequency 
-
+function bs2b () {
+mplayer -af bs2b -ao pcm:file=tmp.wav $1
+/bin/mv tmp.wav $1
+}
 function pan () {
     mplayer -af ladspa=tap_autopan:tap_autopan:$2:100:0  -ao pcm:file=tmp.wav ../chimes/$1
     sox tmp.wav -b 16 -r 44100  $1
