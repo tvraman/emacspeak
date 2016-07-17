@@ -2616,7 +2616,7 @@ Produce auditory icons if possible."
 (defadvice push-button (after emacspeak pre act comp)
   "Produce auditory icon."
   (when  (ems-interactive-p)
-    (emacspeak-auditory-icon 'push-button)
+    (emacspeak-auditory-icon 'button)
     (emacspeak-speak-line)))
 
 ;;}}}
