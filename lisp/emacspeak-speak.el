@@ -332,7 +332,7 @@ Useful to do this before you listen to an entire buffer."
   (ems-sync-mode-punctuation-setting major-mode)
   (when (ems-interactive-p)
     (message "Set punctuations to %s in %s" setting mode-name)
-    (emacspeak-auditory-icon 'select-objjjject)))
+    (emacspeak-auditory-icon 'select-object)))
 
 ;;}}}
 ;;{{{ helper function --decode ISO date-time used in ical:
