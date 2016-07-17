@@ -76,7 +76,7 @@
 (defadvice pydoc (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'help-object)
+    (emacspeak-auditory-icon 'help)
     (emacspeak-speak-buffer)))
 
 ;;}}}
