@@ -111,7 +111,7 @@
                               (or file this-buffer-directory))
                     "")
                   this-buffer-size))))
-     (t(emacspeak-auditory-icon 'error)
+     (t(emacspeak-auditory-icon 'warn-user)
        (emacspeak-speak-line)))))
 
 (defun emacspeak-list-buffers-next-line (count)

@@ -111,7 +111,7 @@
             "")
           with
           (format " %s "this-buffer-size)))))
-     (t(emacspeak-auditory-icon 'error)
+     (t(emacspeak-auditory-icon 'warn-user)
        (emacspeak-speak-line)))))
 
 ;;}}}
