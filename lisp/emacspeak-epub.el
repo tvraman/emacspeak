@@ -691,7 +691,7 @@ Suitable for text searches."
   (goto-char (next-single-property-change (point) 'epub))
   (beginning-of-line)
   (emacspeak-speak-line)
-  (emacspeak-auditory-icon 'select-obect))
+  (emacspeak-auditory-icon 'select-object))
 
 (defun emacspeak-epub-previous ()
   "Move to previous book."
@@ -700,7 +700,7 @@ Suitable for text searches."
   (goto-char (previous-single-property-change (point) 'epub))
   (beginning-of-line)
   (emacspeak-speak-line)
-  (emacspeak-auditory-icon 'select-obect))
+  (emacspeak-auditory-icon 'select-object))
 
 (defun emacspeak-epub-delete ()
   "Delete EPub under point."
