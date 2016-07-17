@@ -34,7 +34,7 @@ function swapchan () {
 #pan_depth alert-user.wav 1 30 
 # pan ask-question.wav 2
 # pan ask-short-question.wav 1
-# pan button.wav 5
+# pan button.wav 20
 # pan center.wav 1
 # pan_depth close-object.wav 2 50 
 # pan complete.wav 2
