@@ -2,6 +2,10 @@
 #This script is used to generate panned chimes.
 #The only variation among icons is the frequency of the autopan effect.
 #Usage pan filename frequency 
+# For generating one full sweep,
+# use pan frequency of 1/duration-of-icon.
+
+
 function bs2b () {
 mplayer -af bs2b -ao pcm:file=tmp.wav $1
 /bin/mv tmp.wav $1
@@ -40,7 +44,7 @@ function swapchan () {
 # pan fill-object.wav 1 
 # pan help.wav 2 
 # pan_depth item.wav 1  60
-# pan large-movement.wav 1
+# pan large-movement.wav 0.641025641025641 ;bs2b
 # pan left.wav 1 
 # pan mark-object.wav 1
 # pan modified-object.wav 1
