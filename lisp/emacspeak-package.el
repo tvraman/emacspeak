@@ -93,7 +93,7 @@
      ((string= state "obsolete")
       (emacspeak-auditory-icon 'deselect-object))
      ((string= state "incompat")
-      (emacspeak-auditory-icon 'warn-user))
+      (emacspeak-auditory-icon 'alert-user))
      (t (emacspeak-auditory-icon 'item)))
     (put-text-property 0 (length name)
                        'personality voice-bolden-medium name)
