@@ -359,8 +359,7 @@
   "Provide auditory feedback."
   (declare (special orgtbl-mode))
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon
-     (if orgtbl-mode 'on 'off))
+    (emacspeak-auditory-icon (if orgtbl-mode 'on 'off))
     (message "Turned %s org table mode."
              (if orgtbl-mode 'on 'off))))
 

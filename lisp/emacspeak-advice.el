@@ -2231,16 +2231,14 @@ Produce auditory icons if possible."
 
 (defadvice isearch-toggle-case-fold (after emacspeak pre act comp)
   "Provide auditory confirmation"
-  (emacspeak-auditory-icon
-   (if isearch-case-fold-search 'off 'on))
+  (emacspeak-auditory-icon (if isearch-case-fold-search 'off 'on))
   (dtk-speak
    (format " Case is %s significant in search"
            (if isearch-case-fold-search " not" " "))))
 
 (defadvice isearch-toggle-regexp (after emacspeak pre act comp)
   "Provide auditory confirmation"
-  (emacspeak-auditory-icon
-   (if isearch-regexp 'on 'off))
+  (emacspeak-auditory-icon (if isearch-regexp 'on 'off))
   (dtk-speak
    (if isearch-regexp "Regexp search" "text search")))
 
@@ -2678,8 +2676,7 @@ Produce auditory icons if possible."
 (defadvice toggle-input-method (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon
-     (if current-input-method 'on 'off))
+    (emacspeak-auditory-icon (if current-input-method 'on 'off))
     (dtk-speak
      (format "Current input method is %s"
              (or current-input-method "none")))))

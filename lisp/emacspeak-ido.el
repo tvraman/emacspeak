@@ -94,8 +94,7 @@ Tip: Use M-x customize to set ido-max-prospects to a small value
   when using Emacspeak --- I set it to 3.
 The default value of 12 is too high for using ido effectively with speech. "
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon
-     (if ido-mode 'on 'off))
+    (emacspeak-auditory-icon (if ido-mode 'on 'off))
     (dtk-speak (format "IDo set to %s" ido-mode))))
 
 (defadvice ido-everywhere (after emacspeak pre act comp)
@@ -108,8 +107,7 @@ The default value of 12 is too high for using ido effectively with speech. "
 (defadvice ido-toggle-case (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon
-     (if ido-case-fold 'on 'off))
+    (emacspeak-auditory-icon (if ido-case-fold 'on 'off))
     (dtk-speak
      (format "Case %s"
              (if ido-case-fold 'on 'off)))))
@@ -117,16 +115,14 @@ The default value of 12 is too high for using ido effectively with speech. "
 (defadvice ido-toggle-regexp (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon
-     (if ido-enable-regexp 'on 'off))
+    (emacspeak-auditory-icon (if ido-enable-regexp 'on 'off))
     (dtk-speak
      (format "Case %s"
              (if ido-enable-regexp 'on 'off)))))
 (defadvice ido-toggle-prefix (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon
-     (if ido-enable-prefix 'on 'off))
+    (emacspeak-auditory-icon (if ido-enable-prefix 'on 'off))
     (dtk-speak
      (format "Prefix %s"
              (if ido-enable-prefix 'on 'off)))))
@@ -135,8 +131,7 @@ The default value of 12 is too high for using ido effectively with speech. "
 (defadvice ido-toggle-ignore (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon
-     (if ido-process-ignore-lists 'on 'off))
+    (emacspeak-auditory-icon (if ido-process-ignore-lists 'on 'off))
     (dtk-speak
      (format "Case %s"
              (if ido-process-ignore-lists

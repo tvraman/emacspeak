@@ -126,8 +126,7 @@
       ad-do-it
       (setq state
             (makefile-browser-get-state-for-line this-line))
-      (emacspeak-auditory-icon
-       (if state 'on 'off))
+      (emacspeak-auditory-icon (if state 'on 'off))
       (emacspeak-speak-line)))
    (t ad-do-it))
   ad-return-value)

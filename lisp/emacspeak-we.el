@@ -247,9 +247,7 @@ Default is to apply sort-tables."
   (setq emacspeak-we-xsl-keep-result
         (not emacspeak-we-xsl-keep-result))
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon
-     (if emacspeak-we-xsl-keep-result
-         'on 'off))
+    (emacspeak-auditory-icon (if emacspeak-we-xsl-keep-result 'on 'off))
     (message "Turned %s xslt keep results."
              (if emacspeak-we-xsl-keep-result
                  'on 'off))))

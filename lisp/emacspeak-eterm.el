@@ -563,8 +563,7 @@ without sending input to the terminal itself."
         (use-local-map emacspeak-eterm-keymap)))
     (message
      "Terminal review should be used when eterm is in character mode "))
-  (emacspeak-auditory-icon
-   (if emacspeak-eterm-review-p 'on 'off)))
+  (emacspeak-auditory-icon (if emacspeak-eterm-review-p 'on 'off)))
 
 ;;}}}
 ;;{{{  Cut and paste while reviewing:
@@ -979,8 +978,7 @@ activity within the filter window."
       (setq emacspeak-eterm-focus-window nil)
     (setq emacspeak-eterm-focus-window 1))
   (dtk-stop)
-  (emacspeak-auditory-icon
-   (if emacspeak-eterm-focus-window
+  (emacspeak-auditory-icon (if emacspeak-eterm-focus-window
        'on 'off)))
 
 (defun emacspeak-eterm-toggle-filter-window ()
@@ -991,8 +989,7 @@ activity within the filter window."
       (setq emacspeak-eterm-filter-window nil)
     (setq emacspeak-eterm-filter-window 1))
   (dtk-stop)
-  (emacspeak-auditory-icon
-   (if emacspeak-eterm-filter-window
+  (emacspeak-auditory-icon (if emacspeak-eterm-filter-window
        'on 'off)))
 
 (defun emacspeak-eterm-speak-predefined-window ()

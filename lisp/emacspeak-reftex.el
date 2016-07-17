@@ -135,8 +135,7 @@
 (defadvice reftex-toc-toggle-follow (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon
-     (if reftex-toc-follow-mode
+    (emacspeak-auditory-icon (if reftex-toc-follow-mode
          'on
        'off))
     (message "Turned %s follow mode. "
@@ -144,8 +143,7 @@
 (defadvice reftex-toc-toggle-labels (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon
-     (if reftex-toc-include-labels
+    (emacspeak-auditory-icon (if reftex-toc-include-labels
          'on
        'off))
     (message "Turned %s labels. "
@@ -154,8 +152,7 @@
 (defadvice reftex-toc-toggle-file-boundary (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon
-     (if reftex-toc-include-file-boundaries
+    (emacspeak-auditory-icon (if reftex-toc-include-file-boundaries
          'on
        'off))
     (message "Turned %s file boundary markers. "
@@ -164,8 +161,7 @@
 (defadvice reftex-toc-toggle-context (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon
-     (if reftex-toc-include-context
+    (emacspeak-auditory-icon (if reftex-toc-include-context
          'on
        'off))
     (message "Turned %s context markers. "
@@ -213,8 +209,7 @@
 (defadvice reftex-index-toggle-follow (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon
-     (if reftex-index-follow-mode
+    (emacspeak-auditory-icon (if reftex-index-follow-mode
          'on
        'off))
     (message "Turned %s follow mode. "
@@ -223,8 +218,7 @@
 (defadvice reftex-index-toggle-labels (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon
-     (if reftex-index-include-labels
+    (emacspeak-auditory-icon (if reftex-index-include-labels
          'on
        'off))
     (message "Turned %s labels. "
@@ -233,8 +227,7 @@
 (defadvice reftex-index-toggle-file-boundary (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon
-     (if reftex-index-include-file-boundaries
+    (emacspeak-auditory-icon (if reftex-index-include-file-boundaries
          'on
        'off))
     (message "Turned %s file boundary markers. "
@@ -243,8 +236,7 @@
 (defadvice reftex-index-toggle-context (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon
-     (if reftex-index-include-context
+    (emacspeak-auditory-icon (if reftex-index-include-context
          'on
        'off))
     (message "Turned %s context markers. "

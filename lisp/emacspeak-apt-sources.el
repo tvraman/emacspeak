@@ -91,8 +91,7 @@
 (defadvice apt-sources-around-lines (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon
-     (if apt-sources-around-lines
+    (emacspeak-auditory-icon (if apt-sources-around-lines
          'on
        'off))))
 

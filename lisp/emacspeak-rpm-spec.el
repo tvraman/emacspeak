@@ -143,8 +143,7 @@
                      (replace-regexp-in-string "toggle"
                                                "spec"
                                                toggle)))
-              (emacspeak-auditory-icon
-               (if (eval switch) 'on 'off)))))))
+              (emacspeak-auditory-icon (if (eval switch) 'on 'off)))))))
 
 ;;}}}
 ;;{{{ voice locking 

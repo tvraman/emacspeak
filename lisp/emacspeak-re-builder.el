@@ -96,8 +96,7 @@
   (when (ems-interactive-p)
     (save-excursion
       (set-buffer reb-target-buffer)
-      (emacspeak-auditory-icon
-       (if case-fold-search 'on 'off)))))
+      (emacspeak-auditory-icon (if case-fold-search 'on 'off)))))
 
 (defadvice reb-copy (after emacspeak pre act comp)
   "Provide auditory feedback."

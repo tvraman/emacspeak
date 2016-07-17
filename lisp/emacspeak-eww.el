@@ -208,8 +208,7 @@ are available are cued by an auditory icon on the header line."
   (setq emacspeak-eww-masquerade (not emacspeak-eww-masquerade))
   (message "Turned %s masquerade"
            (if emacspeak-eww-masquerade "on" "off"))
-  (emacspeak-auditory-icon
-   (if emacspeak-eww-masquerade 'on 'off)))
+  (emacspeak-auditory-icon (if emacspeak-eww-masquerade 'on 'off)))
 
 (defcustom  emacspeak-eww-masquerade-as
   (format "User-Agent: %s %s %s\r\n"

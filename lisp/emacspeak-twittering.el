@@ -70,16 +70,14 @@
 (defadvice twittering-toggle-activate-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon
-     (if twittering-active-mode 'on 'off))
+    (emacspeak-auditory-icon (if twittering-active-mode 'on 'off))
     (message "Turned %s twittering-active-mode"
              (if twittering-active-mode 'on 'off))))
 
 (defadvice twittering-scroll-mode (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon
-     (if twittering-scroll-mode 'on 'off))
+    (emacspeak-auditory-icon (if twittering-scroll-mode 'on 'off))
     (message "Turned %s twittering-scroll-mode"
              (if twittering-scroll-mode 'on 'off))))
 (defadvice twit (after emacspeak pre act comp)
