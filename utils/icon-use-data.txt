@@ -45,6 +45,7 @@ button
 button
 button
 button
+center
 close-object
 close-object
 close-object
