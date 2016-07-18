@@ -167,7 +167,7 @@ Provide contextual feedback when closing blocks"
 (defadvice py-shift-region-left (after emacspeak pre act comp)
   "Speak number of lines that were shifted"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-auditory-icon 'left)
     (dtk-speak
      (format "Left shifted block  containing %s lines"
              (count-lines  (region-beginning)
@@ -184,7 +184,7 @@ Provide contextual feedback when closing blocks"
 (defadvice py-indent-region (after emacspeak pre act comp)
   "Speak number of lines that were shifted"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-auditory-icon 'right)
     (dtk-speak
      (format "Indented region   containing %s lines"
              (count-lines  (region-beginning)
@@ -304,7 +304,7 @@ Provide contextual feedback when closing blocks"
      "Speak current statement after moving"
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'large-movement)))))
+       (emacspeak-auditory-icon 'paragraph)))))
 
 (loop
  for  f in
