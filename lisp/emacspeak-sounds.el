@@ -195,9 +195,11 @@ Do not set this by hand;
                   sound-name
                   (emacspeak-sounds-theme-get-extension emacspeak-sounds-current-theme))
           emacspeak-sounds-current-theme)))
-    (if  (file-exists-p f)
-        f
-      emacspeak-default-sound)))
+    (cond
+     ((file-exists-p f) f)
+     (t
+      (message "Icon %s not defined." sound-name)
+      emacspeak-default-sound))))
 
 ;;}}}
 ;;{{{  queue an auditory icon

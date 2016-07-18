@@ -724,19 +724,18 @@ emacspeak-speak-filter-table)\n" k v)))
       (kill-buffer buffer))))
 
 (defsubst emacspeak-speak-load-filter-settings ()
-  "Load emacspeak filter settings.."
+  "Load emacspeak filter settings."
   (declare (special emacspeak-speak-filter-persistent-store
                     emacspeak-speak-filter-table
                     emacspeak-speak-filters-loaded-p))
   (unless emacspeak-speak-filters-loaded-p
     (load-file emacspeak-speak-filter-persistent-store)
     (setq emacspeak-speak-filters-loaded-p t)
-    (add-hook
-     'kill-emacs-hook
-     #'(lambda nil
-         (emacspeak-auditory-icon 'shutdown)
-         (emacspeak-speak-persist-filter-settings))))
-
+    (add-hook 'kill-emacs-hook 'emacspeak-speak-persist-filter-settings)))
+(add-hook
+ 'kill-emacs-hook
+ #'(lambda nil
+     9emacspeak-auditory-icon 'shutdown))
 (defun emacspeak-speak-line-set-column-filter (filter)
   "Set up filter for selectively speaking or ignoring portions of lines.
 The filter is specified as a list of pairs.
@@ -1724,7 +1723,7 @@ Optional  interactive prefix arg `copy-as-kill' copies spoken info to kill ring.
   (interactive "P")
   (declare (special minor-mode-alist emacspeak-minor-mode-prefix))
   (force-mode-line-update)
-  (let ((info 
+  (let ((info
          (mapconcat
           #'(lambda(item)
               (let ((var (car item))
