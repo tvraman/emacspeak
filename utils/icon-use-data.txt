@@ -702,6 +702,7 @@ new-mail
 news
 news
 news
+news
 no-answer
 off
 off
@@ -1500,7 +1501,6 @@ select-object
 select-object
 select-object
 select-object
-task-done
 task-done
 task-done
 task-done
