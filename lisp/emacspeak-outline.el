@@ -202,14 +202,14 @@ commands. "
   "Analogous to outline-next-visible-heading,
 except that the outline section is  spoken"
   (interactive)
-  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-auditory-icon 'section)
   (emacspeak-outline-speak-heading 'outline-next-visible-heading 1))
 
 (defun emacspeak-outline-speak-previous-heading ()
   "Analogous to outline-previous-visible-heading,
 except that the outline section is  spoken"
   (interactive)
-  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-auditory-icon 'section)
   (emacspeak-outline-speak-heading 'outline-next-visible-heading -1))
 
 (defun emacspeak-outline-speak-forward-heading ()
