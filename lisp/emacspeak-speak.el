@@ -735,7 +735,7 @@ emacspeak-speak-filter-table)\n" k v)))
 (add-hook
  'kill-emacs-hook
  #'(lambda nil
-     9emacspeak-auditory-icon 'shutdown))
+     (emacspeak-auditory-icon 'shutdown)))
 (defun emacspeak-speak-line-set-column-filter (filter)
   "Set up filter for selectively speaking or ignoring portions of lines.
 The filter is specified as a list of pairs.
