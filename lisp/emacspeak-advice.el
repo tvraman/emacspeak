@@ -220,7 +220,9 @@
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Speak the paragraph."
-     (when(ems-interactive-p) (emacspeak-speak-paragraph)))))
+     (when(ems-interactive-p)
+       (emacspeak-auditory-icon 'paragraph)
+       (emacspeak-speak-paragraph)))))
 
 ;;; list navigation:
 
