@@ -131,8 +131,10 @@
     (unless e (message "No entry here"))
     (when title
       (dtk-speak (propertize title 'personality voice-brighten))
-      (when (memq 'read tags) (emacspeak-auditory-icon 'modified-object))
-      (when (memq 'seen  tags) (emacspeak-auditory-icon 'mark-object))
+      (when (memq 'read tags)
+        (emacspeak-auditory-icon 'modified-object))
+      (when (memq 'seen  tags)
+        (emacspeak-auditory-icon 'mark-object))
       (emacspeak-auditory-icon 'item)
       (elfeed-tag e 'seen))))
 
