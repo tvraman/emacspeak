@@ -202,25 +202,25 @@
   "Speak the date. "
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date)
-    (emacspeak-auditory-icon 'large-movement)))
+    (emacspeak-auditory-icon 'paragraph)))
 
 (defadvice calendar-forward-week (after emacspeak pre act)
   "Speak the date. "
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date)
-    (emacspeak-auditory-icon 'large-movement)))
+    (emacspeak-auditory-icon 'paragraph)))
 
 (defadvice calendar-backward-month (after emacspeak pre act)
   "Speak the date. "
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date)
-    (emacspeak-auditory-icon 'large-movement)))
+    (emacspeak-auditory-icon 'secrtion)))
 
 (defadvice calendar-forward-month (after emacspeak pre act)
   "Speak the date. "
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date)
-    (emacspeak-auditory-icon 'large-movement)))
+    (emacspeak-auditory-icon 'section)))
 
 (defadvice calendar-backward-year (after emacspeak pre act)
   "Speak the date. "
@@ -238,13 +238,13 @@
   "Speak the date. "
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date)
-    (emacspeak-auditory-icon 'large-movement)))
+    (emacspeak-auditory-icon 'paragraph)))
 
 (defadvice calendar-beginning-of-month (after emacspeak pre act)
   "Speak the date. "
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date)
-    (emacspeak-auditory-icon 'large-movement)))
+    (emacspeak-auditory-icon 'section)))
 
 (defadvice calendar-beginning-of-year (after emacspeak pre act)
   "Speak the date. "
@@ -256,13 +256,13 @@
   "Speak the date. "
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date)
-    (emacspeak-auditory-icon 'large-movement)))
+    (emacspeak-auditory-icon 'paragraph)))
 
 (defadvice calendar-end-of-month (after emacspeak pre act)
   "Speak the date. "
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-auditory-icon 'section)))
 
 (defadvice calendar-end-of-year (after emacspeak pre act)
   "Speak the date. "
