@@ -68,7 +68,7 @@
           "Provide auditory feedback."
           (when (ems-interactive-p)
             (emacspeak-speak-line)
-            (emacspeak-auditory-icon 'large-movement)))))
+            (emacspeak-auditory-icon 'paragraph)))))
 
 ;;}}}
 ;;{{{ Advice insertion and electric:
