@@ -732,20 +732,7 @@ icon."
 
 ;;}}}
 
-(defadvice y-or-n-p (around emacspeak pre act comp)
-  "Use speech when prompting.
-Produce an auditory icon if possible."
-  (emacspeak-auditory-icon 'ask-short-question)
-  (tts-with-punctuations 'all
-                         (dtk-speak (format "%s y or n" (ad-get-arg 0))))
-  ad-do-it
-  (cond
-   (ad-return-value
-    (emacspeak-auditory-icon 'y-answer)
-    (dtk-say "y"))
-   (t (emacspeak-auditory-icon 'n-answer)
-      (dtk-say "n")))
-  ad-return-value)
+
 
 ;;}}}
 ;;{{{ Advice completion-at-point:
