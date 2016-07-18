@@ -152,7 +152,7 @@
        `(defadvice ,command (after emacspeak pre act comp)
           "Provide spoken and auditory feedback."
           (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'task-done)
+            (emacspeak-auditory-icon 'news)
             (emacspeak-speak-mode-line)))))
 (defadvice twittering-kill-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
