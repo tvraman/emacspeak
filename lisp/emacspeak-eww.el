@@ -1136,7 +1136,14 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
 
 (defvar emacspeak-eww-element-navigation-history nil
   "History for element navigation.")
-
+(defsubst emacspeak-eww-icon-for-element (el)
+  "Return auditory icon for element `el'."
+  (cond
+   ((memq el '(li dt)) 'item)
+   ((memq el '(h h1 h2 h3 h4 h5 h6)) 'section)
+   ((memq el '(p ul ol dd dl)) 'paragraph)
+   (t 'large-movement)))
+   
 (defun emacspeak-eww-next-element (el)
   "Move forward to the next specified element."
   (interactive
@@ -1161,7 +1168,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
       (setq emacspeak-eww-element-navigation-history
             (delq el emacspeak-eww-element-navigation-history))
       (push  el emacspeak-eww-element-navigation-history)
-      (emacspeak-auditory-icon 'large-movement)
+      (emacspeak-auditory-icon (emacspeak-eww-icon-for-element el))
       (emacspeak-speak-region next (next-single-property-change next el)))
      (t (message "No next %s" el)))))
 
