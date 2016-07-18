@@ -80,7 +80,7 @@ Also provide an auditory icon"
 (defadvice   Man-goto-section  (after emacspeak pre act)
   "Speak the line"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-auditory-icon 'section)
     (emacspeak-speak-line)))
 
 (defadvice   Man-goto-page  (after emacspeak pre act)
@@ -102,13 +102,13 @@ Also provide an auditory icon"
 (defadvice Man-next-section (after emacspeak pre act)
   "Speak the line"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-auditory-icon 'section)
     (emacspeak-speak-line)))
 
 (defadvice Man-previous-section (after emacspeak pre act)
   "Speak the line"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-auditory-icon 'section)
     (emacspeak-speak-line)))
 
 (defadvice Man-goto-see-also-section (after emacspeak pre act)
