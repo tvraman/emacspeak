@@ -1,8 +1,8 @@
 #!/usr/bin/perl -w
 # Reads Emacspeak Lisp sources,
-# Looks for calls to emacspeak-auditory-icon,
-# Extracts icon names,
-# And counts them.
+# Look for calls to emacspeak-auditory-icon,
+# Extract icon names,
+# And count them.
 
 use strict;
 my $pattern = qq@\"\(emacspeak-auditory-icon\"@; #pattern  to match calls
@@ -13,16 +13,21 @@ chomp(@raw);
 my @icons = qx(ls ../sounds/pan-chimes/*.wav);
 chomp(@icons);
 my %hash;
-# clean up icon names 
-foreach my $w (@icons) {
+
+foreach my $w (@icons) { # clean up icon names 
   $w =qx(basename $w .wav);
   chomp($w);
   $hash{$w}=0;
 }
 
 foreach my $i  (@raw) {
+  if ($i =~ m/\(if/) {
+    $hash{off}++;
+    $hash{on}++;
+    next;
+  }
   $i =~ m/\'([a-z-]+)/;
-  $i = $1; #icon name 
+  $i = $1 if defined ($1); #icon name
   next unless defined ($i);
   if (defined ($hash{$i})) {
     $hash{$i}++;
