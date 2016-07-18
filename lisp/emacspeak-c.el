@@ -179,13 +179,13 @@
 (defadvice c-beginning-of-statement (after emacspeak pre act)
   "Speak the line moved to."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-auditory-icon 'item)
     (emacspeak-speak-line)))
 
 (defadvice c-end-of-statement (after emacspeak pre act)
   "Speak the line moved to."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-auditory-icon 'item)
     (emacspeak-speak-line)))
 
 (defadvice c-mark-function (after emacspeak pre act)
@@ -202,13 +202,13 @@
 (defadvice  c-beginning-of-defun (after emacspeak pre act)
   "Speak the line."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-auditory-icon 'paragraph)
     (emacspeak-speak-line)))
 
 (defadvice  c-end-of-defun (after emacspeak pre act)
   "Speak the line."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-auditory-icon 'paragraph)
     (emacspeak-speak-line)))
 
 ;;}}}
@@ -225,7 +225,7 @@
 (defun c-previous-statement (count)
   "Move to the previous  C statement. "
   (interactive "P")
-  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-auditory-icon 'item)
   (let  ((opoint (point))
          (semantics (c-guess-basic-syntax)))
 ;;; skip across a comment
@@ -255,7 +255,7 @@ this level")
 (defun c-next-statement (count)
   "Move to the next C statement. "
   (interactive "P")
-  (emacspeak-auditory-icon 'large-movement)
+  (emacspeak-auditory-icon 'item)
   (let  ((opoint (point))
          (semantics (c-guess-basic-syntax)))
 ;;; skip across a comment
