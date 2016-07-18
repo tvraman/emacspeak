@@ -99,7 +99,7 @@
 (defadvice python-indent-shift-left (after emacspeak pre act comp)
   "Speak number of lines that were shifted"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-auditory-icon 'left)
     (dtk-speak
      (format "Left shifted block  containing %s lines"
              (count-lines  (region-beginning)
@@ -114,7 +114,7 @@
 (defadvice python-indent-region (after emacspeak pre act comp)
   "Speak number of lines that were shifted"
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-auditory-icon 'right)
     (dtk-speak
      (format "Indented region   containing %s lines"
              (count-lines  (region-beginning)
@@ -139,7 +139,7 @@
      "Provide auditory feedback."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'large-movement)))))
+       (emacspeak-auditory-icon 'paragraph)))))
 
 ;;}}}
 (provide 'emacspeak-python)
