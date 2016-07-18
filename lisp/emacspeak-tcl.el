@@ -178,13 +178,13 @@ is a Tcl expression, and the last argument is Tcl commands.")
 (defadvice tcl-beginning-of-defun (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-auditory-icon 'paragraph)
     (emacspeak-speak-line)))
 
 (defadvice tcl-end-of-defun (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)))
+    (emacspeak-auditory-icon 'paragraph)))
 
 (defadvice indent-tcl-exp (after emacspeak pre act)
   "Produce an auditory icon"
