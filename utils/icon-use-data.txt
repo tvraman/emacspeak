@@ -1502,6 +1502,7 @@ select-object
 select-object
 select-object
 select-object
+shutdown
 task-done
 task-done
 task-done
