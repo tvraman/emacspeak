@@ -1,6 +1,7 @@
 #!/usr/bin/perl -w
 use strict;
-my @raw = <>;
+my $pattern = qq@\"\(emacspeak-auditory-icon\"@;
+my @raw = qx(cat ../lisp/*.el | grep $pattern);
 chomp(@raw);
 my @icons = qx(ls ../sounds/pan-chimes/*.wav);
 chomp(@icons);
@@ -12,6 +13,8 @@ foreach my $w (@icons) {
 }
 
 foreach my $i  (@raw) {
+  $i =~ m/\'([a-z-]+)/;
+  $i = $1;
     next unless defined ($i);
     if (defined ($hash{$i})) {
 $hash{$i}++;
