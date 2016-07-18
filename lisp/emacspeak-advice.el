@@ -1327,14 +1327,14 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
 (defadvice center-region (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-auditory-icon 'center)
     (message"Centered current region containing %s lines"
             (count-lines (region-beginning) (region-end)))))
 
 (defadvice center-paragraph (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-auditory-icon 'center)
     (message"Centered current paragraph")))
 
 (loop
