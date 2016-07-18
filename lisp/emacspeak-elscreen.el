@@ -77,7 +77,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-auditory-icon 'window-resize)
        (dtk-notify-using-voice
         voice-smoothen
         (or
