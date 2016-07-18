@@ -162,8 +162,7 @@
 (loop
  for f in
  '(
-   beginning-of-buffer end-of-buffer
-                       beginning-of-defun end-of-defun)
+   beginning-of-buffer end-of-buffer)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -196,7 +195,8 @@
 
 (loop
  for f in
- '(forward-sexp backward-sexp)
+ '(forward-sexp backward-sexp
+                beginning-of-defun end-of-defun)
  do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
@@ -205,7 +205,7 @@
          (let ((start (point))
                (end (line-end-position)))
            ad-do-it
-           (emacspeak-auditory-icon 'large-movement)
+           (emacspeak-auditory-icon 'paragraph)
            (cond
             ((>= end (point))
              (emacspeak-speak-region start (point)))
@@ -235,7 +235,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Speak line."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-auditory-icon 'section)
        (let ((emacspeak-show-point t))
          (emacspeak-speak-line))))))
 
@@ -1077,8 +1077,7 @@ icon."
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'select-object))))
 
-(defadvice comint-show-output (after emacspeak pre act
-                                     comp)
+(defadvice comint-show-output (after emacspeak pre act comp)
   "Speak the line showing where point is."
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t)
