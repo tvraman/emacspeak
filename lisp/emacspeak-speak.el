@@ -732,10 +732,7 @@ emacspeak-speak-filter-table)\n" k v)))
     (load-file emacspeak-speak-filter-persistent-store)
     (setq emacspeak-speak-filters-loaded-p t)
     (add-hook 'kill-emacs-hook 'emacspeak-speak-persist-filter-settings)))
-(add-hook
- 'kill-emacs-hook
- #'(lambda nil
-     (emacspeak-auditory-icon 'shutdown)))
+
 (defun emacspeak-speak-line-set-column-filter (filter)
   "Set up filter for selectively speaking or ignoring portions of lines.
 The filter is specified as a list of pairs.
