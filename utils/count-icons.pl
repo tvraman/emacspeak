@@ -2,8 +2,15 @@
 use strict;
 my @raw = <>;
 chomp(@raw);
-
+my @icons = qx(ls ../sounds/pan-chimes/*.wav);
+chomp(@icons);
 my %hash;
+foreach my $w (@icons) {
+    $w =qx(basename $w .wav);
+    chomp($w);
+    $hash{$w}=0;
+}
+
 foreach my $i  (@raw) {
     next unless defined ($i);
     if (defined ($hash{$i})) {
