@@ -1,3 +1,4 @@
+
 alarm
 alarm
 alarm
@@ -1503,7 +1504,6 @@ select-object
 select-object
 select-object
 select-object
-select-object
 shutdown
 task-done
 task-done
@@ -1652,6 +1652,7 @@ warn-user
 warn-user
 warn-user
 warn-user
+window-resize
 window-resize
 window-resize
 y-answer
