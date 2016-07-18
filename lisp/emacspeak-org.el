@@ -156,7 +156,7 @@
      "Provide spoken feedback."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'large-movement)))))
+       (emacspeak-auditory-icon 'paragraph)))))
 
 (defadvice org-cycle-list-bullet (after emacspeak pre act comp)
   "Provide spoken feedback."
