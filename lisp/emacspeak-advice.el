@@ -1199,7 +1199,7 @@ icon."
 (defadvice comint-previous-prompt (after emacspeak pre act comp)
   "Provide spoken feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-auditory-icon 'item)
     (if (eolp)
         (emacspeak-speak-line)
       (emacspeak-speak-line 1))))
@@ -1207,7 +1207,7 @@ icon."
 (defadvice comint-next-prompt (after emacspeak pre act comp)
   "Provide spoken feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-auditory-icon 'item)
     (if (eolp)
         (emacspeak-speak-line)
       (emacspeak-speak-line 1))))
