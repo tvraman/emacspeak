@@ -96,7 +96,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-auditory-icon 'section)
        (emacspeak-speak-line)))))
 
 (loop
