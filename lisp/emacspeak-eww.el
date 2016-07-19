@@ -454,7 +454,8 @@ Retain previously set punctuations  mode."
 
 (defadvice eww-beginning-of-text (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (when (ems-interactive-p) (emacspeak-auditory-icon 'large-movement)))
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'large-movement)))
 
 (defadvice eww-end-of-text(after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -516,7 +517,7 @@ Retain previously set punctuations  mode."
      (let ((emacspeak-speak-messages nil))
        ad-do-it
        (when (ems-interactive-p)
-         (emacspeak-auditory-icon 'large-movement)
+         (emacspeak-auditory-icon 'button)
          (emacspeak-speak-region
           (point)
           (next-single-property-change (point) 'help-echo
@@ -1195,7 +1196,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
       (setq emacspeak-eww-element-navigation-history
             (delq el emacspeak-eww-element-navigation-history))
       (push  el emacspeak-eww-element-navigation-history)
-      (emacspeak-auditory-icon 'large-movement)
+      (emacspeak-auditory-icon (emacspeak-eww-icon-for-element el))
       (emacspeak-speak-region (point) previous))
      (t (message "No previous  %s" el)))))
 
