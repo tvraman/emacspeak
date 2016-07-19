@@ -64,7 +64,7 @@ function swapchan () {
 # pan scroll.wav 1
 # pan search-hit.wav 1
 # pan search-miss.wav 1
-# pan section.wav 2
+# pan section.wav 0 
 # pan select-object.wav 1
 # pan shutdown.wav 1
 # pan task-done.wav 1
