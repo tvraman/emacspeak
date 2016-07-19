@@ -214,7 +214,7 @@
   "Speak the date. "
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date)
-    (emacspeak-auditory-icon 'secrtion)))
+    (emacspeak-auditory-icon 'section)))
 
 (defadvice calendar-forward-month (after emacspeak pre act)
   "Speak the date. "
