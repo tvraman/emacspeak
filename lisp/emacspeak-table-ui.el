@@ -835,7 +835,7 @@ browsing table elements"
    (emacspeak-table-current-row emacspeak-table) 0)
   (emacspeak-table-synchronize-display)
   (funcall emacspeak-table-speak-element)
-  (emacspeak-auditory-icon 'large-movement))
+  (emacspeak-auditory-icon 'left))
 
 (defun emacspeak-table-goto-right ()
   "Goes to the right of the current row."
@@ -848,7 +848,7 @@ browsing table elements"
    (1- (emacspeak-table-num-columns emacspeak-table)))
   (emacspeak-table-synchronize-display)
   (funcall emacspeak-table-speak-element)
-  (emacspeak-auditory-icon 'large-movement))
+  (emacspeak-auditory-icon 'right))
 
 ;;}}}
 ;;{{{ searching and finding:
