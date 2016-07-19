@@ -61,28 +61,28 @@
   "Speech enable  by speaking toc entry."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-auditory-icon 'section)))
 
 (defadvice reftex-select-next-heading (after emacspeak pre act
                                              comp)
   "Speech enable  by speaking toc entry."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-auditory-icon 'section)))
 
 (defadvice reftex-toc-previous (after emacspeak pre act
                                       comp)
   "Speech enable  by speaking toc entry."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-auditory-icon 'item)))
 
 (defadvice reftex-toc-next (after emacspeak pre act
                                   comp)
   "Speech enable  by speaking toc entry."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-auditory-icon 'item)))
 
 (defadvice reftex-toc-goto-line (after emacspeak pre act comp)
   "Speech enable  by speaking toc entry."
@@ -116,7 +116,7 @@
   "Speech enable  by speaking toc entry."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-auditory-icon 'item)))
 
 (defadvice reftex-select-next (after emacspeak pre act
                                      comp)
@@ -171,13 +171,13 @@
   "Speech enable  by speaking  entry."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-auditory-icon 'item)))
 
 (defadvice reftex-index-previous (after emacspeak pre act comp)
   "Speech enable  by speaking  entry."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-auditory-icon 'item)))
 (defadvice reftex-index-goto-entry (after emacspeak pre act comp)
   "Speech enable  by speaking index entry."
   (when (ems-interactive-p)

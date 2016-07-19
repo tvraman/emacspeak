@@ -78,7 +78,7 @@
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-auditory-icon 'right)))
 
 (defadvice  python-indent-dedent-line-backspace (around emacspeak pre act)
   "Speak character you're deleting."

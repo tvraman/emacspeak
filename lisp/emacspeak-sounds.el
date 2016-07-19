@@ -345,11 +345,11 @@ Recommended choices:
 emacspeak-serve-auditory-icon for  the wave device.
 emacspeak-queue-auditory-icon when using software TTS."
   (interactive
-   (list
-    (emacspeak-select-auditory-icon-player)))
+   (list (emacspeak-select-auditory-icon-player)))
   (declare (special emacspeak-auditory-icon-function))
-  (setq emacspeak-auditory-icon-function player))  (when (ems-interactive-p)
-                                                     (emacspeak-auditory-icon 'select-object))
+  (setq emacspeak-auditory-icon-function player)
+  (when (ems-interactive-p)
+  (emacspeak-auditory-icon 'select-object)))
 
 ;;}}}
 ;;{{{ reset local player
