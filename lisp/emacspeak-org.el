@@ -161,7 +161,7 @@
 (defadvice org-cycle-list-bullet (after emacspeak pre act comp)
   "Provide spoken feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-auditory-icon 'item)
     (emacspeak-speak-line)))
 
 (loop
@@ -276,15 +276,16 @@
 ;;}}}
 ;;{{{ timestamps and calendar:
 
-(loop for f in
-      '(org-timestamp-down-day org-timestamp-up-day)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'select-object)
-            (emacspeak-speak-line)))))
+(loop
+ for f in
+ '(org-timestamp-down-day org-timestamp-up-day)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-speak-line)))))
 
 (loop for f in
       '(org-timestamp-down org-timestamp-up)

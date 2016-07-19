@@ -203,7 +203,7 @@ the opening line of the newly inserted environment. "
 (defadvice TeX-next-error (after emacspeak pre act)
   "Speak the error line. "
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-auditory-icon 'item)
     (emacspeak-speak-line)))
 
 ;;}}}

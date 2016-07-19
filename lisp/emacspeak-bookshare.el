@@ -881,7 +881,7 @@ b Browse
 Once retrieved, memoize to avoid multiple retrievals."
   (interactive)
   (emacspeak-bookshare-assert)
-  (emacspeak-auditory-icon 'select-object)
+  (emacspeak-auditory-icon 'open-object)
   (let* ((inhibit-read-only t)
          (id (emacspeak-bookshare-get-id))
          (author (emacspeak-bookshare-get-author))

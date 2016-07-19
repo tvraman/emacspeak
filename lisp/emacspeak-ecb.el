@@ -72,24 +72,25 @@
     (emacspeak-auditory-icon 'help)
     (emacspeak-speak-mode-line)))
 
-(loop for f in 
-      '(
-        ecb-nav-goto-next
-        ecb-nav-goto-previous
-        ecb-goto-window-compilation
-        ecb-goto-window-directories 
-        ecb-goto-window-sources 
-        ecb-goto-window-methods 
-        ecb-goto-window-history 
-        ecb-goto-window-edit1 
-        ecb-goto-window-edit2)
-      do
-      (eval 
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-speak-line)
-            (emacspeak-auditory-icon 'select-object)))))
+(loop
+ for f in 
+ '(
+   ecb-nav-goto-next
+   ecb-nav-goto-previous
+   ecb-goto-window-compilation
+   ecb-goto-window-directories 
+   ecb-goto-window-sources 
+   ecb-goto-window-methods 
+   ecb-goto-window-history 
+   ecb-goto-window-edit1 
+   ecb-goto-window-edit2)
+ do
+ (eval 
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'select-object)))))
 
 (defadvice ecb-select-ecb-frame (after emacspeak pre act comp)
   "Provide auditory feedback."

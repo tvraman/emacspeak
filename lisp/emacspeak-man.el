@@ -148,7 +148,7 @@ Also provide an auditory icon"
             (Man-next-section 1)
             (setq end (point)))
         (error (setq end (point-max))))
-      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-auditory-icon 'section)
       (emacspeak-speak-region start end))))
 
 (defun emacspeak-man-browse-man-page ()

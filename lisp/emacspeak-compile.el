@@ -106,7 +106,7 @@
   "provide auditory confirmation"
   (when (ems-interactive-p)
     (message "Launched compilation")
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-auditory-icon 'task-done)))
 
 (defadvice  compilation-sentinel (after emacspeak pre act)
   "Provide auditory feedback"

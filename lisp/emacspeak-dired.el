@@ -268,7 +268,7 @@ options passed to command `file'."
 (defun emacspeak-dired-speak-header-line()
   "Speak the header line of the dired buffer. "
   (interactive)
-  (emacspeak-auditory-icon 'select-object)
+  (emacspeak-auditory-icon 'section)
   (save-excursion (goto-char (point-min))
                   (forward-line 2)
                   (emacspeak-speak-region (point-min) (point))))

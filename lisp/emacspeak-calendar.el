@@ -268,7 +268,7 @@
   "Speak the date. "
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-auditory-icon 'large-movement)))
 (loop for f in
       '(exit-calendar calendar-exit calendar-quit)
       do
