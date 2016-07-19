@@ -572,9 +572,14 @@ Retain previously set punctuations  mode."
   (defadvice ,(intern (format "shr-tag-%s" tag)) (around emacspeak pre act comp)
     (let ((start (point)))
       ad-do-it
-      (let ((start (if (char-equal (following-char) ?\n)
-                       (min (point-max) (1+ start))start))
-            (end (if (> (point) start) (1- (point)) (point))))
+      (let ((start
+             (if (char-equal (following-char) ?\n)
+                       (min (point-max) (1+ start))
+               start))
+            (end
+             (if (> (point) start)
+                 (1- (point))
+               (point))))
         (put-text-property start end
                            (quote ,tag) 'eww-tag)
         (when (memq (quote ,tag) '(h1 h2 h3 h4 h5 h6))
