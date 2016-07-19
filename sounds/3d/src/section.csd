@@ -31,8 +31,8 @@ aright =ar1+ar2+ar3
 
 <CsScore>
 f1   0    4096 10 1      ; sine wave
-
-i4   0    1    100   8.04      0.1       0.7
+;ins strt dur  amp  freq      attack    release
+i4   0    1    92   8.04      0.1       0.7
 ;i4   0    1    90   8.02      0.07      0.6
 
 </CsScore>
