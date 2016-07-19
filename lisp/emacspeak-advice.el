@@ -887,7 +887,7 @@ icon."
 (defadvice choose-completion (before emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-auditory-icon 'button)))
 
 (defadvice minibuffer-message (around emacspeak pre act comp)
   "Speak the message if appropriate."
@@ -945,12 +945,13 @@ icon."
           (count (ad-get-arg 0)))
       (setq count (or count 1))
       ad-do-it
+      (emacspeak-auditory-icon 'complete)
       (cond
        ((= (point) (+ count orig))
         (save-excursion
           (forward-word -1)
           (emacspeak-speak-word)))
-       (t (emacspeak-auditory-icon 'select-object)
+       (t 
           (emacspeak-speak-region
            (comint-line-beginning-position) (point))))))
    (t ad-do-it))
@@ -1067,7 +1068,7 @@ icon."
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line)
-      (emacspeak-auditory-icon 'select-object))))
+      (emacspeak-auditory-icon 'item))))
 
 (defadvice shell-backward-command (after emacspeak pre act
                                          comp)
@@ -1075,7 +1076,7 @@ icon."
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line)
-      (emacspeak-auditory-icon 'select-object))))
+      (emacspeak-auditory-icon 'item))))
 
 (defadvice comint-show-output (after emacspeak pre act comp)
   "Speak the line showing where point is."
@@ -1092,7 +1093,7 @@ icon."
     (let ((emacspeak-show-point t)
           )
       (emacspeak-speak-line)
-      (emacspeak-auditory-icon 'select-object))))
+      (emacspeak-auditory-icon 'scroll))))
 
 (defadvice comint-bol-or-process-mark (after emacspeak pre act
                                              comp)
@@ -1167,21 +1168,21 @@ icon."
   (when (ems-interactive-p)
     (tts-with-punctuations 'all
                            (emacspeak-speak-line))
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-auditory-icon 'item)))
 
 (defadvice comint-next-matching-input (after emacspeak pre act comp)
   "Speak the line."
   (when (ems-interactive-p)
     (tts-with-punctuations 'all
                            (emacspeak-speak-line))
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-auditory-icon 'item)))
 
 (defadvice comint-previous-input (after emacspeak pre act comp)
   "Speak the line."
   (when (ems-interactive-p)
     (tts-with-punctuations 'all
                            (emacspeak-speak-line))
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-auditory-icon 'item)))
 
 (defadvice comint-previous-matching-input (after emacspeak pre act comp)
   "Speak the line."
@@ -1189,7 +1190,7 @@ icon."
     (comint-skip-prompt)
     (tts-with-punctuations 'all
                            (emacspeak-speak-line))
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-auditory-icon 'item)))
 
 (defadvice comint-send-input (after emacspeak pre act comp)
   "Flush any ongoing speech."
@@ -2130,7 +2131,7 @@ Produce an auditory icon if possible."
      "Speak line we land on."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'select-object)))))
+       (emacspeak-auditory-icon 'search-hit)))))
 
 ;;}}}
 ;;{{{ customize isearch:
@@ -2210,7 +2211,7 @@ Produce auditory icons if possible."
      "Provide auditory feedback."
      (when (ems-interactive-p)
        (emacspeak-speak-string isearch-string voice-bolden)
-       (emacspeak-auditory-icon 'select-object)))))
+       (emacspeak-auditory-icon 'item)))))
 
 ;;; Note the advice on the next two toggle commands
 ;;; checks the variable being toggled.
@@ -2481,7 +2482,7 @@ Produce auditory icons if possible."
   "Speak modeline when done."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-auditory-icon 'task-done)))
 
 ;;}}}
 ;;{{{ toggling debug state
