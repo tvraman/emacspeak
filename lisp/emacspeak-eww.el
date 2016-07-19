@@ -570,12 +570,12 @@ Retain previously set punctuations  mode."
  (eval
   `
   (defadvice ,(intern (format "shr-tag-%s" tag)) (around emacspeak pre act comp)
-    (let ((start (point)))
+    (let ((orig (point)))
       ad-do-it
       (let ((start
              (if (char-equal (following-char) ?\n)
-                       (min (point-max) (1+ start))
-               start))
+                       (min (point-max) (1+ orig))
+               orig))
             (end
              (if (> (point) start)
                  (1- (point))
