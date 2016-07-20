@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <C  sOptions>
-  -o ../../chimes/ellipses.wav
+  -o ellipses.wav
 </CsOptions>
 <CsInstruments>
 sr		=		44100
@@ -20,12 +20,15 @@ aleft,aright hrtfmove2 aout, 0,kelev, "hrtf-44100-left.dat","hrtf-44100-right.da
 <CsScore>
 
  i2 0 0.1 8000 
-i2 0.02 0.08 4000 
+i2 0.02 0.08 5000 
 
-i2 0.1 0.08 6000 
-i2 0.12 0.06 2000 
+i2 0.1 0.08 7000 
+i2 0.12 0.06 4000 
 
-i2 0.18 0.06 4000 
-i2 0.20 0.04 800 
+i2 0.18 0.06 5000 
+i2 0.20 0.04 2000 
+
+i2 0.24 0.04 4000 
+i2 0.26 0.04 1000 
 </CsScore>
 </CsoundSynthesizer>
