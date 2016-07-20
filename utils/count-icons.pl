@@ -37,6 +37,7 @@ foreach my $i  (@raw) {
 }
 
 # Report icons sorted by usage
+print "Icon Name:\tCount\n";
 foreach  my $k   (sort {$hash{$a} <=>  $hash{$b} or $a cmp $b } keys %hash) {
   print "$k:\t$hash{$k}\n";
 }
