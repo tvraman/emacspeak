@@ -945,13 +945,14 @@ icon."
           (count (ad-get-arg 0)))
       (setq count (or count 1))
       ad-do-it
-      (emacspeak-auditory-icon 'complete)
+      m
       (cond
        ((= (point) (+ count orig))
         (save-excursion
           (forward-word -1)
           (emacspeak-speak-word)))
-       (t 
+       (t
+        (emacspeak-auditory-icon 'complete)
           (emacspeak-speak-region
            (comint-line-beginning-position) (point))))))
    (t ad-do-it))
