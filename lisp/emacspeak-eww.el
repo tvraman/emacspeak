@@ -577,7 +577,7 @@ Retain previously set punctuations  mode."
                        (min (point-max) (1+ orig))
                orig))
             (end
-             (if (> (point) start)
+             (if (> (point) orig)
                  (1- (point))
                (point))))
         (put-text-property start end
