@@ -40,7 +40,7 @@ function swapchan () {
 # pan complete.wav 8.333333333333334 # then increase gain
 # pan delete-object.wav 1 
 # pan deselect-object.wav 2 
-# pan ellipses.wav 3.3333333333333335
+# pan ellipses.wav 3.3333333333333335; bs2b
 # pan fill-object.wav 1 
 # pan help.wav 2 
 # pan_depth item.wav 1  60
