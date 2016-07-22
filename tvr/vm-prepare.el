@@ -65,6 +65,7 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
   (let ((url
          (or (get-text-property (point) 'shr-url) (browse-url-url-at-point))))
     (unless url (error "No link here."))
-    (browse-url-chromium url)))
+    (browse-url-chrome url)
+    (message "Opening %s with Chrome" %s)))
 
 (define-key vm-mode-map "C" 'vm-chromium)
