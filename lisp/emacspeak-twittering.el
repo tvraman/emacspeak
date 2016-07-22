@@ -113,8 +113,7 @@
         twittering-goto-previous-status
         twittering-goto-next-status-of-user
         twittering-goto-previous-status-of-user
-        twittering-goto-previous-status-of-user
-        twittering-goto-previous-status-of-user)
+        )
       do
       (eval
        `(defadvice ,command (after emacspeak pre act comp)
