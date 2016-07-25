@@ -1969,11 +1969,7 @@ Optional argument group-count specifies grouping for intonation."
   (declare (special  dtk-quiet))
   (unless dtk-quiet
     (let ((dtk-speaker-process (dtk-notify-process)))
-      (dtk-interp-queue-code (tts-voice-reset-code))
-      (dtk-interp-queue-code (tts-get-voice-command voice))
-      (dtk-interp-queue text)
-      (dtk-interp-speak))))
-
+      (dtk-speak-using-voice voice text))))
 ;;;###autoload
 (defun dtk-notify-shutdown ()
   "Shutdown notification TTS stream."
