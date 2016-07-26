@@ -96,12 +96,12 @@ many available corrections."
        ((< (length choices) emacspeak-ispell-max-choices)
         (loop for choice in choices
               do
-              (insert (format "%s %s\n" position choice))
+              (insert (format "%s %s,\n" position choice))
               (incf position)))
        (t
         (insert (format "%s corrections available." (length choices)))))
       (modify-syntax-entry 10 ">")
-      (dtk-speak (buffer-string)))))
+      (tts-with-punctuations 'some (dtk-speak (buffer-string))))))
 
 (defadvice ispell-comments-and-strings (around emacspeak pre act comp)
   "Stop chatter by turning off messages"
