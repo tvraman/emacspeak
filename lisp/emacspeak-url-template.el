@@ -336,7 +336,7 @@ dont-url-encode if true then url arguments are not url-encoded "
  #'emacspeak-feeds-rss-display)
 
 (emacspeak-url-template-define
- "Google Compare Trends"
+ "Google Trends Compared"
  "http://www.google.com/trends/fetchComponent?hl=en-US&q=%s&geo=US&cid=RISING_QUERIES_0_0"
  (list "Comma Separated Keywords: ")
  nil
@@ -589,6 +589,37 @@ from English to German")
  (list "Google News: ")
  nil
  "Search Google news."
+ #'emacspeak-url-template-google-atom-news-display)
+
+
+
+(defvar emacspeak-url-template--google-news-categories
+  '(
+    ("World".  "w")
+    ("U.S.".  "n")
+    ("Elections".  "el")
+    ("Business".  "b")
+    ("Technology".  "tc")
+    ("Entertainment".  "e")
+    ("Sports".  "s")
+    ("Science" .  "snc")
+    ("Health".  "m")
+    ("Spotlight"  . "ir"))
+  "Completion table for reading news category.")
+(emacspeak-url-template-define
+ "Google Category News"
+ "http://news.google.com/news?hl=en&ned=tus&topic=%s&btnG=Google+Search&output=atom"
+ (list
+  #'(lambda ()
+      (let* ((completion-ignore-case t)
+             (topic
+      (completing-read
+       "Category: "
+       emacspeak-url-template--google-news-categories
+       nil 'must-match)))
+        (cdr (assoc topic emacspeak-url-template--google-news-categories)))))
+ nil
+ "Google News By Category."
  #'emacspeak-url-template-google-atom-news-display)
 
 (defvar emacspeak-url-template-google-transcoder-url
