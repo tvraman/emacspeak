@@ -1966,10 +1966,10 @@ Optional argument group-count specifies grouping for intonation."
 ;;;###autoload
 (defun dtk-notify-using-voice (voice text)
   "Use voice VOICE to speak text TEXT on notification stream."
-  (declare (special  dtk-quiet))
-  (unless dtk-quiet
-    (let ((dtk-speaker-process (dtk-notify-process)))
-      (dtk-speak-using-voice voice text))))
+  (let ((dtk-speaker-process (dtk-notify-process)))
+    (dtk-speak-using-voice voice text)
+    (dtk-force)))
+
 ;;;###autoload
 (defun dtk-notify-shutdown ()
   "Shutdown notification TTS stream."
