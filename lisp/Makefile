@@ -165,6 +165,7 @@ emacspeak-gud.elc \
 emacspeak-helm.elc \
 emacspeak-hide.elc \
 emacspeak-hideshow.elc \
+emacspeak-hyperbole.elc \
 emacspeak-ibuffer.elc \
 emacspeak-ido.elc \
 emacspeak-imenu.elc \
@@ -176,6 +177,7 @@ emacspeak-js2.elc \
 emacspeak-jss.elc \
 emacspeak-kite.elc \
 emacspeak-kmacro.elc  \
+emacspeak-kotl.elc \
 emacspeak-librivox.elc \
 emacspeak-lua.elc \
 emacspeak-magit.elc \
@@ -257,6 +259,7 @@ emacspeak-windmove.elc \
 emacspeak-winring.elc \
 emacspeak-woman.elc \
 emacspeak-wizards.elc  \
+emacspeak-wrolo.elc \
 emacspeak-xref.elc \
 emacspeak-xml-shell.elc \
 emacspeak-xslt.elc \
@@ -408,6 +411,7 @@ emacspeak-gtags.elc: emacspeak-gtags.el dtk-speak.elc voice-setup.elc
 emacspeak-gud.elc: emacspeak-gud.el dtk-speak.elc voice-setup.elc
 emacspeak-helm.elc: emacspeak-helm.el dtk-speak.elc
 emacspeak-hide.elc: emacspeak-hide.el emacspeak-speak.elc
+emacspeak-hyperbole.elc: emacspeak-hyperbole.el dtk-speak.elc
 emacspeak-hideshow.elc: emacspeak-hideshow.el dtk-speak.elc voice-setup.elc
 emacspeak-ibuffer.elc: emacspeak-ibuffer.el dtk-speak.elc voice-setup.elc
 emacspeak-ido.elc: emacspeak-ido.el dtk-speak.elc voice-setup.elc
@@ -420,6 +424,7 @@ emacspeak-js2.elc: emacspeak-js2.el dtk-speak.elc voice-setup.elc
 emacspeak-keymap.elc: emacspeak-keymap.el
 emacspeak-jss.elc: emacspeak-jss.el dtk-speak.elc voice-setup.elc
 emacspeak-kite.elc: emacspeak-kite.el dtk-speak.elc voice-setup.elc
+emacspeak-kotl.elc: emacspeak-kotl.el dtk-speak.elc
 emacspeak-kmacro.elc: emacspeak-kmacro.el dtk-speak.elc voice-setup.elc
 emacspeak-librivox.elc: emacspeak-librivox.el emacspeak-m-player.elc dtk-speak.elc voice-setup.elc
 emacspeak-lua.elc: emacspeak-lua.el dtk-speak.elc
@@ -516,6 +521,7 @@ emacspeak-winring.elc: emacspeak-winring.el dtk-speak.elc voice-setup.elc
 emacspeak-woman.elc: emacspeak-woman.el dtk-speak.elc
 emacspeak-windmove.elc: emacspeak-windmove.el dtk-speak.elc voice-setup.elc
 emacspeak-wizards.elc: emacspeak-wizards.el dtk-speak.elc voice-setup.elc
+emacspeak-wrolo.elc: emacspeak-wrolo.el dtk-speak.elc
 emacspeak-xref.elc: emacspeak-xref.el dtk-speak.elc
 emacspeak-xml-shell.elc: emacspeak-xml-shell.el dtk-speak.elc voice-setup.elc
 emacspeak-xslt.elc: emacspeak-xslt.el
