@@ -80,6 +80,7 @@ many available corrections."
   (let ((scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
         (choices  (ad-get-arg 0))
         (line nil)
+        (pos "")
         (start (ad-get-arg 3))
         (end (ad-get-arg 4)))
     (setq line
@@ -96,14 +97,13 @@ many available corrections."
         (loop
          for choice in choices
          and position from 0 do
-         (propertize choice 'personality voice-bolden)
-         (insert (format "%s " position ))
-         (insert choice)
-         (insert "\n")))
+         (setq pos
+               (propertize (format "%d" position) 'personality voice-smoothen))
+         (insert pos)
+         (insert (format " %s\n" choice))))
        (t
         (insert (format "%s corrections available." (length choices)))))
       (modify-syntax-entry 10 ">")
-      (print (buffer-string))
       (dtk-speak (buffer-string)))))
 
 (defadvice ispell-comments-and-strings (around emacspeak pre act comp)
