@@ -81,8 +81,7 @@ many available corrections."
         (choices  (ad-get-arg 0))
         (line nil)
         (start (ad-get-arg 3))
-        (end (ad-get-arg 4))
-        (position 0))
+        (end (ad-get-arg 4)))
     (setq line
           (ems-set-personality-temporarily
            start end voice-bolden (thing-at-point 'line)))
@@ -94,13 +93,17 @@ many available corrections."
       (insert line)
       (cond
        ((< (length choices) emacspeak-ispell-max-choices)
-        (loop for choice in choices
-              do
-              (insert (format "%s %s\n" position choice))
-              (incf position)))
+        (loop
+         for choice in choices
+         and position from 0 do
+         (propertize choice 'personality voice-bolden)
+         (insert (format "%s " position ))
+         (insert choice)
+         (insert "\n")))
        (t
         (insert (format "%s corrections available." (length choices)))))
       (modify-syntax-entry 10 ">")
+      (print (buffer-string))
       (dtk-speak (buffer-string)))))
 
 (defadvice ispell-comments-and-strings (around emacspeak pre act comp)
