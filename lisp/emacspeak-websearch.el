@@ -737,6 +737,22 @@ https://www.google.com/options/specialsearches.html "
      (emacspeak-url-template-get name))))
 
 ;;}}}
+;;{{{ Google Category news:
+
+(emacspeak-websearch-set-searcher
+ 'google-category-news
+ 'emacspeak-websearch-google-category-news)
+
+(emacspeak-websearch-set-key ?u 'google-category-news)
+
+;;;###autoload
+(defun emacspeak-websearch-google-category-news ()
+  "Browse Google News by category."
+  (interactive)
+  (let ((name   "Google Category News"))
+    (emacspeak-url-template-open (emacspeak-url-template-get name))))
+
+;;}}}
 ;;{{{  Ask Jeeves
 
 (emacspeak-websearch-set-searcher 'jeeves
@@ -899,7 +915,7 @@ Optional prefix arg  avoids scraping  information from HTML."
 
 (emacspeak-websearch-set-searcher 'yahoo
                                   'emacspeak-websearch-yahoo)
-(emacspeak-websearch-set-key ?y 'yahoo)
+(emacspeak-websearch-set-key ?Y 'yahoo)
 
 (defvar emacspeak-websearch-yahoo-uri
   "http://search.yahoo.com/bin/search?p="
