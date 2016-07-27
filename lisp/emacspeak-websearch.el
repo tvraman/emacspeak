@@ -742,8 +742,8 @@ https://www.google.com/options/specialsearches.html "
 (emacspeak-websearch-set-searcher
  'google-category-news
  'emacspeak-websearch-google-category-news)
-
 (emacspeak-websearch-set-key ?u 'google-category-news)
+(emacspeak-websearch-set-key 14 'google-category-news)
 
 ;;;###autoload
 (defun emacspeak-websearch-google-category-news ()
