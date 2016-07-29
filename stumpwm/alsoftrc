@@ -1,4 +1,13 @@
 #hrtf=true
-  cf_level=1
+## cf_level:
+#  Sets the crossfeed level for stereo output. Valid values are:
+#  0 - No crossfeed
+#  1 - Low crossfeed
+#  2 - Middle crossfeed
+#  3 - High crossfeed (virtual speakers are closer to itself)
+#  4 - Low easy crossfeed
+#  5 - Middle easy crossfeed
+#  6 - High easy crossfeed
+cf_level=5
 drivers=alsa
 #default-reverb= Mountains 
