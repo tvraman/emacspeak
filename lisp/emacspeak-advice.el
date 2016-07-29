@@ -1689,7 +1689,7 @@ Indicate change of selection with an auditory icon
  '(
    describe-function describe-variable
                      describe-face describe-font
-                     describe-text-properties
+                     describe-text-properties describe-syntax
                      describe-package describe-key)
  do
  (eval
