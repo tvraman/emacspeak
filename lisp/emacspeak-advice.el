@@ -94,6 +94,7 @@
 (loop
  for f in
  '(next-line previous-line goto-line
+             next-logical-line previous-logical-line
              delete-indentation back-to-indentation lisp-indent-line)
  do
  (eval
