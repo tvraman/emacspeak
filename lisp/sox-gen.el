@@ -116,7 +116,7 @@ Freq can be specified as a frequency, note (%nn) or frequency range."
                    sin %-14 sin %-21 fade h .01 2 1.5 delay \
                    1.3 1 .76 .54 .27 remix - fade h 0 2.7 2.5 norm -1"
   "Command-line that produces a simple chime.")
-
+;;;###autoload
 (defun sox-chime (&optional tempo speed)
   "Play chime --- optional args tempo and speed default to 1."
   (declare (special sox-chime-cmd))
