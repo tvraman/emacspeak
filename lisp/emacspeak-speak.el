@@ -1659,10 +1659,11 @@ Speaks header-line if that is set when called non-interactively.
 Interactive prefix arg speaks buffer info."
   (interactive "P")
   (declare (special  mode-name  major-mode vc-mode
-                     header-line-format global-mode-string
+                     visual-line-mode header-line-format global-mode-string
                      column-number-mode line-number-mode
                      emacspeak-mail-alert mode-line-format))
   (force-mode-line-update)
+  (when visual-line-mode  (sox-chime 2 2))
   (ems-sync-mode-punctuation-setting major-mode)
   (when   emacspeak-mail-alert (emacspeak-mail-alert-user))
   (cond
