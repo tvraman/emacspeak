@@ -112,7 +112,7 @@ such as pronunciation dictionaries are stored. ")
   (let
       ((ext
         '("wma" "wmv" "flv" "m4a" "m4b"  "flac" ".aiff"
-          "ogg" "mp3"  "mp4" "webm" "wav")))
+          "ogv" "oga""ogg" "mp3"  "mp4" "webm" "wav")))
     (concat
      "\\."
      (regexp-opt
