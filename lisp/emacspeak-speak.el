@@ -955,7 +955,7 @@ are indicated with auditory icon ellipses."
                 (dtk-speak (concat indent line)))
                (t (dtk-speak line)))))))))))
 
-
+;;;###autoload
 (defun emacspeak-speak-visual-line ()
   "Speaks current visual line."
   (interactive)
@@ -968,6 +968,9 @@ are indicated with auditory icon ellipses."
         (inhibit-point-motion-hooks t)
         (line nil)
         (orig (point)))
+    (cond
+     ((looking-at "^ *") (emacspeak-auditory-icon 'left))
+     ((looking-at " *$") (emacspeak-auditory-icon 'right)))
     (save-excursion
       (beginning-of-visual-line)
       (setq start (point))
