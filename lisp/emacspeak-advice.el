@@ -103,6 +103,13 @@
         (visual-line-mode (emacspeak-speak-visual-line))
         (t (emacspeak-speak-line)))))))
 
+
+(defadvice kill-visual-line (before emacspeak pre act comp)
+  "Speak line we're about to delete."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-speak-visual-line)))
+
 (loop
  for f in
  '(beginning-of-visual-line end-of-visual-line)
