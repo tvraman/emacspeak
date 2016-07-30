@@ -978,7 +978,8 @@ are indicated with auditory icon ellipses."
                 (ems-set-personality-temporarily
                  orig (1+ orig)
                  voice-animate (buffer-substring  start end))
-              (buffer-substring start end))))))
+              (buffer-substring start end)))
+      (dtk-speak line))))
 
 (defvar emacspeak-speak-last-spoken-word-position nil
   "Records position of the last word that was spoken.
