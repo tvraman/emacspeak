@@ -955,6 +955,31 @@ are indicated with auditory icon ellipses."
                 (dtk-speak (concat indent line)))
                (t (dtk-speak line)))))))))))
 
+
+(defun emacspeak-speak-visual-line ()
+  "Speaks current visual line."
+  (interactive)
+  (declare (special dtk-stop-immediately emacspeak-show-point))
+  (when dtk-stop-immediately (dtk-stop))
+  (save-excursion
+    (let ((inhibit-field-text-motion t)
+          (inhibit-read-only t)
+          (start  nil)
+          (end nil)
+          (inhibit-point-motion-hooks t)
+          (line nil)
+          (orig (point)))
+        (beginning-of-visual-line)
+        (setq start (point))
+        (end-of-visual-line)
+        (setq end (point))
+        (setq line
+              (when emacspeak-show-point
+                  (ems-set-personality-temporarily
+                   orig (1+ orig)
+                   voice-animate (buffer-substring  start end)))
+                (buffer-substring start end)))))
+
 (defvar emacspeak-speak-last-spoken-word-position nil
   "Records position of the last word that was spoken.
 Local to each buffer.  Used to decide if we should spell the word
