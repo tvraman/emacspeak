@@ -93,9 +93,32 @@
 
 (loop
  for f in
- '(next-line previous-line goto-line
-             next-logical-line previous-logical-line
-             delete-indentation back-to-indentation lisp-indent-line)
+ '(next-line previous-line  )
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Speak line that you just moved to."
+     (when (ems-interactive-p)
+       (cond
+        (visual-line-mode (emacspeak-speak-visual-line))
+        (t (emacspeak-speak-line)))))))
+
+(loop
+ for f in
+ '(beginning-of-visual-line end-of-visual-line)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Speak visual line with show-point enabled."
+     (when (ems-interactive-p)
+       (let ((emacspeak-show-point t))
+         (emacspeak-speak-visual-line))))))
+(loop
+ for f in
+ '(
+   next-logical-line previous-logical-line
+                     delete-indentation back-to-indentation
+                     lisp-indent-line goto-line)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -735,8 +758,6 @@ icon."
 
 ;;}}}
 
-
-
 ;;}}}
 ;;{{{ Advice completion-at-point:
 (defadvice completion-at-point (around emacspeak pre act comp)
@@ -954,8 +975,8 @@ icon."
           (emacspeak-speak-word)))
        (t
         (emacspeak-auditory-icon 'complete)
-          (emacspeak-speak-region
-           (comint-line-beginning-position) (point))))))
+        (emacspeak-speak-region
+         (comint-line-beginning-position) (point))))))
    (t ad-do-it))
   ad-return-value)
 
@@ -2560,8 +2581,7 @@ Produce auditory icons if possible."
     (let ((end (point))
           (start (re-search-backward  " " nil t)))
       (message (buffer-substring start end))
-    (emacspeak-auditory-icon 'select-object))))
-
+      (emacspeak-auditory-icon 'select-object))))
 
 ;;}}}
 ;;{{{ elint
@@ -2596,7 +2616,7 @@ Produce auditory icons if possible."
            (end (ad-get-arg 1)))
        (with-silent-modifications
          (condition-case nil
-             (progn 
+             (progn
                (put-text-property start end  'auditory-icon 'button)
                (when emacspeak-personality-voiceify-faces
                  (put-text-property start end 'personality voice-bolden)))
@@ -2753,7 +2773,7 @@ Produce auditory icons if possible."
    (t (emacspeak-auditory-icon 'n-answer))))
 
 ;;}}}
-;;{{{ Advice process-menu 
+;;{{{ Advice process-menu
 
 (defadvice process-menu-delete-process (after emacspeak pre act comp)
   "Provide auditory feedback."
