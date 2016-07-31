@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1154 commands and 967 options.
+This chapter documents a total of 1156 commands and 967 options.
 
 @menu
 * acss-structure::
@@ -180,6 +180,7 @@ This chapter documents a total of 1154 commands and 967 options.
 * emacspeak-tempo::
 * emacspeak-tetris::
 * emacspeak-texinfo::
+* emacspeak-threes::
 * emacspeak-todo-mode::
 * emacspeak-twittering::
 * emacspeak-url-template::
@@ -17120,6 +17121,32 @@ Speak current position
 @section emacspeak-texinfo
 
 This module speech enables net-texinfo mode
+
+@node emacspeak-threes
+@section emacspeak-threes
+
+THREES ==  threes game.
+Speech-enable the game.
+
+@subsection emacspeak-threes Commands
+
+@subsubsection emacspeak-threes-score
+@deffn {Command} emacspeak-threes-score   
+@findex emacspeak-threes-score
+
+@format
+Speak the score.
+@end format
+@end deffn
+
+@subsubsection emacspeak-threes-speak-board
+@deffn {Command} emacspeak-threes-speak-board   
+@findex emacspeak-threes-speak-board
+
+@format
+Speak the board.
+@end format
+@end deffn
 
 @node emacspeak-todo-mode
 @section emacspeak-todo-mode
