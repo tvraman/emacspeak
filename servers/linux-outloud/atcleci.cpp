@@ -746,7 +746,7 @@ int Stop(ClientData eciHandle, Tcl_Interp *interp, int objc,
          Tcl_Obj *CONST objv[]) {
   if (_eciStop(eciHandle)) {
     alsa_reset();
-    usleep(5);
+    usleep(1);
     return TCL_OK;
   }
   Tcl_SetResult(interp, const_cast<char *>("Could not stop synthesis"),
