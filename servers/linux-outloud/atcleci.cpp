@@ -88,6 +88,7 @@
 static snd_pcm_t *AHandle = NULL;
 static snd_output_t *Log = NULL;
 short *waveBuffer = NULL;
+int buffsize;
 
 //>
 //<decls and function prototypes
@@ -536,6 +537,7 @@ int Atcleci_Init(Tcl_Interp *interp) {
 
   fprintf(stderr, "allocating %d samples\n", (int)chunk_bytes);
   waveBuffer = (short *)malloc(chunk_bytes * sizeof(short));
+  buffsize = chunk_bytes * sizeof(short);
   if (waveBuffer == NULL) {
     fprintf(stderr, "not enough memory");
     alsa_close();
@@ -610,6 +612,7 @@ set tts(last_index) $x}");
 
 int playTTS(size_t count) {
   pcm_write(waveBuffer, count);
+  bzero(waveBuffer, buffsize);
   return eciDataProcessed;
 }
 
