@@ -63,21 +63,24 @@
        (when threes-game-over-p
          (emacspeak-threes-score))))
 
-(declaim (special threes-mode-map))
-(define-key threes-mode-map "g" 'threes)
-(define-key threes-mode-map " " 'emacspeak-threes-speak-board)
-(define-key threes-mode-map "." 'emacspeak-threes-score)
-(define-key threes-mode-map "n" 'threes-down)
-(define-key threes-mode-map "p" 'threes-up)
-(define-key threes-mode-map "f" 'threes-right)
-(define-key threes-mode-map "b" 'threes-left)
-
+(defun emacspeak-threes-setup ()
+  "Set up additional key-bindings."
+  (declare (special threes-mode-map))
+  (define-key threes-mode-map "g" 'threes)
+  (define-key threes-mode-map " " 'emacspeak-threes-speak-board)
+  (define-key threes-mode-map "." 'emacspeak-threes-score)
+  (define-key threes-mode-map "n" 'threes-down)
+  (define-key threes-mode-map "p" 'threes-up)
+  (define-key threes-mode-map "f" 'threes-right)
+  (define-key threes-mode-map "b" 'threes-left)
+  )
 (defadvice threes (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
-(emacspeak-threes-speak-board)))
+    (emacspeak-threes-speak-board)))
 
+(eval-when '(load) (emacspeak-threes-setup))
 (defun emacspeak-threes-score ()
   "Speak the score."
   (interactive)
