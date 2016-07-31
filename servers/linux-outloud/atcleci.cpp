@@ -88,7 +88,7 @@
 static snd_pcm_t *AHandle = NULL;
 static snd_output_t *Log = NULL;
 short *waveBuffer = NULL;
-int buffsize;
+static int buffsize;
 
 //>
 //<decls and function prototypes
