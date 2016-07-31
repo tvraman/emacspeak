@@ -54,6 +54,27 @@
 
 ;;}}}
 ;;{{{ Advice interactive commands:
+(defun emacspeak-threes-speak-board ()
+  "Speak the board."
+  (interactive)
+(tts-with-punctuations 'some 
+       (dtk-speak-list   threes-cells 4)
+       (emacspeak-auditory-icon 'item)))
+(declaim (special threes-mode-map))
+(define-key threes-mode-map " " 'emacspeak-threes-speak-board)
+(define-key threes-mode-map "." 'emacspeak-threes-score)
+
+(defadvice threes (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+(emacspeak-threes-speak-board)))
+
+(defun emacspeak-threes-score ()
+  "Speak the score."
+  (interactive)
+(message (format "Score: %s" (number-to-string (threes-cells-score)))))
+
 (loop
  for f in
  '(threes-up threes-down threes-left threes-right)
@@ -62,8 +83,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback"
      (when (ems-interactive-p)
-       (dtk-speak-list   threes-cells 4)
-       (emacspeak-auditory-icon 'item)))))
+       (emacspeak-threes-speak-board)))))
 
 ;;}}}
 (provide 'emacspeak-threes)
