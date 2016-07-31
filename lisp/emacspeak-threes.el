@@ -59,7 +59,9 @@
   (interactive)
 (tts-with-punctuations 'some 
        (dtk-speak-list   threes-cells 4)
-       (emacspeak-auditory-icon 'item)))
+       (emacspeak-auditory-icon 'item)
+       (when threes-game-over-p
+         (emacspeak-threes-score))))
 
 (declaim (special threes-mode-map))
 (define-key threes-mode-map "g" 'threes)
