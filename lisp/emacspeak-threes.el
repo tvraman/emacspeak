@@ -60,9 +60,15 @@
 (tts-with-punctuations 'some 
        (dtk-speak-list   threes-cells 4)
        (emacspeak-auditory-icon 'item)))
+
 (declaim (special threes-mode-map))
+(define-key threes-mode-map "g" 'threes)
 (define-key threes-mode-map " " 'emacspeak-threes-speak-board)
 (define-key threes-mode-map "." 'emacspeak-threes-score)
+(define-key threes-mode-map "n" 'threes-down)
+(define-key threes-mode-map "p" 'threes-up)
+(define-key threes-mode-map "f" 'threes-right)
+(define-key threes-mode-map "b" 'threes-left)
 
 (defadvice threes (after emacspeak pre act comp)
   "Provide auditory feedback."
