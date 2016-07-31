@@ -449,6 +449,8 @@ and return a suitable effect structure." name)
 
 (sox-def-effect "echo" '("gain-in" "gain-out" "delay" "decay") t)
 
+(sox-def-effect "echos" '("gain-in" "gain-out" "delay" "decay") t)
+
 (sox-def-effect "channels" '("count") nil)
 
 (sox-def-effect "remix" '("out-spec") t)
