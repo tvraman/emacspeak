@@ -57,6 +57,7 @@
 (defun emacspeak-threes-speak-board ()
   "Speak the board."
   (interactive)
+  (declare (special threes-cells threes-game-over-p))
 (tts-with-punctuations 'some 
        (dtk-speak-list   threes-cells 4)
        (emacspeak-auditory-icon 'item)
