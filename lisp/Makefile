@@ -240,6 +240,7 @@ emacspeak-tcl.elc \
 emacspeak-tdtd.elc \
 emacspeak-tempo.elc \
 emacspeak-tetris.elc \
+emacspeak-threes.elc \
 emacspeak-2048.elc \
 emacspeak-texinfo.elc \
 emacspeak-todo-mode.elc \
@@ -501,6 +502,7 @@ emacspeak-tcl.elc: emacspeak-tcl.el dtk-speak.elc voice-setup.elc
 emacspeak-tdtd.elc: emacspeak-tdtd.el dtk-speak.elc voice-setup.elc
 emacspeak-tempo.elc: emacspeak-tempo.el dtk-speak.elc voice-setup.elc
 emacspeak-tetris.elc: emacspeak-tetris.el dtk-speak.elc voice-setup.elc
+emacspeak-threes.elc: emacspeak-threes.el dtk-speak.elc
 emacspeak-2048.elc: emacspeak-2048.el dtk-speak.elc
 emacspeak-texinfo.elc: emacspeak-texinfo.el dtk-speak.elc voice-setup.elc
 emacspeak-todo-mode.elc: emacspeak-todo-mode.el dtk-speak.elc voice-setup.elc
