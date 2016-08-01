@@ -66,6 +66,6 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
          (or (get-text-property (point) 'shr-url) (browse-url-url-at-point))))
     (unless url (error "No link here."))
     (browse-url-chrome url)
-    (message "Opening %s with Chrome" %s)))
+    (message "Opening %s with Chrome" url)))
 
 (define-key vm-mode-map "C" 'vm-chromium)
