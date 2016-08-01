@@ -59,8 +59,7 @@
   (interactive)
   (declare (special threes-cells threes-game-over-p))
 (tts-with-punctuations 'some (dtk-speak-list   threes-cells 4))
-(emacspeak-auditory-icon 'item)
-       (when threes-game-over-p (emacspeak-threes-score)))
+(emacspeak-auditory-icon 'item))
 
 (defun emacspeak-threes-setup ()
   "Set up additional key-bindings."
