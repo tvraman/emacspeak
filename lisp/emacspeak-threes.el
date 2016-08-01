@@ -91,8 +91,7 @@
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback"
-     (when (ems-interactive-p)
-       (emacspeak-threes-speak-board)))))
+     (when (ems-interactive-p) (emacspeak-threes-speak-board)))))
 
 ;;}}}
 (provide 'emacspeak-threes)
