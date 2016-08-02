@@ -78,7 +78,7 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-threes-speak-board)))
 
-(eval-when '(load) (emacspeak-threes-setup))
+(emacspeak-threes-setup)
 (defun emacspeak-threes-score ()
   "Speak the score."
   (interactive)
