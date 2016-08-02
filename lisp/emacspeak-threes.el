@@ -57,9 +57,18 @@
 (defun emacspeak-threes-speak-board ()
   "Speak the board."
   (interactive)
-  (declare (special threes-cells threes-game-over-p))
-(tts-with-punctuations 'some (dtk-speak-list   threes-cells 4))
-(emacspeak-auditory-icon 'item))
+  (declare (special threes-cells))
+  (tts-with-punctuations 'some (dtk-speak-list   threes-cells 4))
+  (emacspeak-auditory-icon 'item))
+
+(defun emacspeak-threes-speak-transposed-board ()
+  "Speak the board by columns."
+  (interactive)
+  (declare (special threes-cells ))
+  (tts-with-punctuations
+   'some
+   (dtk-speak-list   (threes-cells-transpose threes-cells) 4))
+  (emacspeak-auditory-icon 'progress))
 
 (defun emacspeak-threes-setup ()
   "Set up additional key-bindings."
@@ -67,6 +76,7 @@
   (define-key threes-mode-map "g" 'threes)
   (define-key threes-mode-map " " 'emacspeak-threes-speak-board)
   (define-key threes-mode-map "." 'emacspeak-threes-score)
+  (define-key threes-mode-map "/" 'emacspeak-threes-speak-transposed-board)
   (define-key threes-mode-map "n" 'threes-down)
   (define-key threes-mode-map "p" 'threes-up)
   (define-key threes-mode-map "f" 'threes-right)
@@ -78,12 +88,11 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-threes-speak-board)))
 
-
 (declare-function threes-cells-score "threes" nil)
 (defun emacspeak-threes-score ()
   "Speak the score."
   (interactive)
-(message (format "Score: %s" (number-to-string (threes-cells-score)))))
+  (message (format "Score: %s" (number-to-string (threes-cells-score)))))
 
 (loop
  for f in
@@ -94,7 +103,7 @@
      "Provide auditory feedback"
      (when (ems-interactive-p) (emacspeak-threes-speak-board)))))
 (when (boundp 'threes-mode-map)
-(emacspeak-threes-setup))
+  (emacspeak-threes-setup))
 ;;}}}
 (provide 'emacspeak-threes)
 ;;{{{ end of file
