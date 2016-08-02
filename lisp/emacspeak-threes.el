@@ -78,7 +78,8 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-threes-speak-board)))
 
-(emacspeak-threes-setup)
+
+(declare-function threes-cells-score "threes" nil)
 (defun emacspeak-threes-score ()
   "Speak the score."
   (interactive)
@@ -92,7 +93,8 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback"
      (when (ems-interactive-p) (emacspeak-threes-speak-board)))))
-
+(when (boundp 'threes-mode-map)
+(emacspeak-threes-setup))
 ;;}}}
 (provide 'emacspeak-threes)
 ;;{{{ end of file
