@@ -172,6 +172,7 @@ emacspeak-imenu.elc \
 emacspeak-info.elc\
 emacspeak-ispell.elc \
 emacspeak-jabber.elc \
+emacspeak-jade.elc \
 emacspeak-jde.elc \
 emacspeak-js2.elc \
 emacspeak-jss.elc \
@@ -419,7 +420,8 @@ emacspeak-ido.elc: emacspeak-ido.el dtk-speak.elc voice-setup.elc
 emacspeak-imenu.elc: emacspeak-imenu.el dtk-speak.elc voice-setup.elc
 emacspeak-info.elc: emacspeak-info.el dtk-speak.elc voice-setup.elc
 emacspeak-ispell.elc: emacspeak-ispell.el dtk-speak.elc voice-setup.elc
-emacspeak-jabber.elc: emacspeak-jabber.el dtk-speak.elc
+emacspeak-jabber.elc: emacspeak-jabber.el dtk-speak.elc voice-setup.elc
+emacspeak-jade.elc: emacspeak-jade.el dtk-speak.elc voice-setup.elc
 emacspeak-jde.elc: emacspeak-jde.el dtk-speak.elc voice-setup.elc
 emacspeak-js2.elc: emacspeak-js2.el dtk-speak.elc voice-setup.elc
 emacspeak-keymap.elc: emacspeak-keymap.el
