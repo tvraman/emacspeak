@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents Emacspeak, The Complete Audio Desktop.  This
-document was last updated on August 2, 2016.
+document was last updated on August 4, 2016.
 
    The manual is divided into the following chapters.
 
@@ -2941,7 +2941,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: TTS Servers,
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1156 commands and 967 options.
+This chapter documents a total of 1157 commands and 975 options.
 
 * Menu:
 
@@ -3046,6 +3046,7 @@ This chapter documents a total of 1156 commands and 967 options.
 * emacspeak-info::
 * emacspeak-ispell::
 * emacspeak-jabber::
+* emacspeak-jade::
 * emacspeak-jde::
 * emacspeak-js2::
 * emacspeak-jss::

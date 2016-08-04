@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1156 commands and 967 options.
+This chapter documents a total of 1157 commands and 975 options.
 
 @menu
 * acss-structure::
@@ -106,6 +106,7 @@ This chapter documents a total of 1156 commands and 967 options.
 * emacspeak-info::
 * emacspeak-ispell::
 * emacspeak-jabber::
+* emacspeak-jade::
 * emacspeak-jde::
 * emacspeak-js2::
 * emacspeak-jss::
@@ -9483,6 +9484,62 @@ This personality uses  voice-lighten whose  effect can be changed globally by cu
 
 @end defvar
 
+@node emacspeak-jade
+@section emacspeak-jade
+
+JADE ==  Javascript IDE 
+This module speech-enables Jade.
+
+@subsection emacspeak-jade Options
+
+@defvar {User Option} emacspeak-jade-button-personality
+Personality used for jade-button-face
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-jade-header-personality
+Personality used for jade-header-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-jade-highlight-personality
+Personality used for jade-highlight-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-jade-keyword-personality
+Personality used for jade-keyword-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-jade-link-personality
+Personality used for jade-link-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-jade-repl-error-personality
+Personality used for jade-repl-error-face
+This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-jade-repl-prompt-personality
+Personality used for jade-repl-prompt-face
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-jade-repl-stdout-personality
+Personality used for jade-repl-stdout-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
 @node emacspeak-jde
 @section emacspeak-jde
 
@@ -17145,6 +17202,15 @@ Speak the score.
 
 @format
 Speak the board.
+@end format
+@end deffn
+
+@subsubsection emacspeak-threes-speak-transposed-board
+@deffn {Command} emacspeak-threes-speak-transposed-board   
+@findex emacspeak-threes-speak-transposed-board
+
+@format
+Speak the board by columns.
 @end format
 @end deffn
 
