@@ -89,9 +89,27 @@
 ;;}}}
 ;;{{{ Advice jade-chrome.el
 
+(defadvice jade-connect-to-chrome (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'task-done)))
+
 ;;}}}
 ;;{{{ Advice jade-debugger.el
 
+
+'(jade-debugger-eval-last-node
+  jade-debugger-evaluate
+  jade-debugger-here
+  jade-debugger-inspect-last-node
+  jade-debugger-locals
+  jade-debugger-locals-maybe-refresh
+  
+  
+  jade-debugger-resume
+  jade-debugger-step-into
+  jade-debugger-step-out
+  jade-debugger-step-over)
 ;;}}}
 ;;{{{ Advice jade-inspector.el
 
