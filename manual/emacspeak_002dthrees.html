@@ -98,7 +98,62 @@
 
   <h3 class="section">12.177 emacspeak-threes</h3>
 
-  <p>THREES == threes game. Speech-enable the game.</p><a name=
+  <p>THREES == threes game. This module speech-enable the game.
+  <a href=
+  "https://en.wikipedia.org/wiki/Threes">https://en.wikipedia.org/wiki/Threes</a>
+  for history of the game and details of game play. This module
+  adds additional convenience keybindings to the default arrow-key
+  bindings implemented in threes.el. In addition, this module
+  implements commands that speak the board as well as getting a
+  column-specific view of the board.</p>
+
+  <dl compact="compact">
+    <dt><kbd>f</kbd></dt>
+
+    <dd>
+      <p>Move right</p>
+    </dd>
+
+    <dt><kbd>b</kbd></dt>
+
+    <dd>
+      <p>Move left</p>
+    </dd>
+
+    <dt><kbd>n</kbd></dt>
+
+    <dd>
+      <p>Move down</p>
+    </dd>
+
+    <dt><kbd>p</kbd></dt>
+
+    <dd>
+      <p>Move up</p>
+    </dd>
+
+    <dt><kbd>SPC</kbd></dt>
+
+    <dd>
+      <p>Speak the board</p>
+    </dd>
+
+    <dt><kbd>/</kbd></dt>
+
+    <dd>
+      <p>Speak board by column.</p>
+    </dd>
+
+    <dt><kbd>.</kbd></dt>
+
+    <dd>
+      <p>Speak current score.</p>
+    </dd>
+  </dl>
+
+  <p>The updated board is spoken after each turn. The next upcoming
+  tile is spoken after the current state of the board. You can use
+  <kbd>SPC</kbd> and <kbd>/</kbd> to review the board.</p><a name=
   "emacspeak_002dthrees-Commands" id=
   "emacspeak_002dthrees-Commands"></a>
 
