@@ -59,9 +59,9 @@
   (interactive)
   (declare (special threes-cells threes-next-number))
   (let ((cells (copy-sequence threes-cells)))
-    (push
-     (propertize (format "%s" threes-next-number) 'personality voice-bolden)
-     cells)
+    (nconc
+     cells
+     (list (propertize (format "%s" threes-next-number) 'personality voice-bolden)))
     (tts-with-punctuations 'some (dtk-speak-list   cells ))
     (emacspeak-auditory-icon 'item)))
 
