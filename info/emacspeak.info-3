@@ -12,6 +12,60 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: emacspeak-speedbar,  Next: emacspeak-sql,  Prev: emacspeak-speak,  Up: Emacspeak Commands And Options
+
+12.163 emacspeak-speedbar
+=========================
+
+This module advises speedbar.el for use with Emacs.  The latest speedbar
+can be obtained from ftp://ftp.ultranet.com/pub/zappo/ This module
+ensures that speedbar works smoothly outside a windowing system in
+addition to speech enabling all interactive commands.  Emacspeak also
+adds an Emacspeak environment specific entry point to speedbar
+–emacspeak-speedbar-goto-speedbar– and binds this
+
+12.163.1 emacspeak-speedbar Commands
+------------------------------------
+
+12.163.1.1 emacspeak-speedbar-click
+...................................
+
+ -- Command: emacspeak-speedbar-click
+
+     Does the equivalent of the mouse click from the keyboard
+
+12.163.1.2 emacspeak-speedbar-goto-speedbar
+...........................................
+
+ -- Command: emacspeak-speedbar-goto-speedbar
+
+     Switch to the speedbar
+
+12.163.2 emacspeak-speedbar Options
+-----------------------------------
+
+ -- Variable: User Option emacspeak-speedbar-button-personality
+     personality used for speedbar buttons
+
+ -- Variable: User Option emacspeak-speedbar-default-personality
+     Default personality used in speedbar buffers
+
+ -- Variable: User Option emacspeak-speedbar-directory-personality
+     Speedbar personality for directory buttons
+
+ -- Variable: User Option emacspeak-speedbar-file-personality
+     Personality used for file buttons
+
+ -- Variable: User Option emacspeak-speedbar-highlight-personality
+     Personality used for for speedbar highlight.
+
+ -- Variable: User Option emacspeak-speedbar-selected-personality
+     Personality used to indicate speedbar selection
+
+ -- Variable: User Option emacspeak-speedbar-tag-personality
+     Personality used for speedbar tags
+
+
 File: emacspeak.info,  Node: emacspeak-sql,  Next: emacspeak-sudoku,  Prev: emacspeak-speedbar,  Up: Emacspeak Commands And Options
 
 12.164 emacspeak-sql
@@ -835,7 +889,8 @@ well as getting a column-specific view of the board.
 ‘/’
      Speak board by column.
 ‘.’
-     Speak current score.
+     Speak current score.  s Save current state u Pop state from stack ?
+     Speak next tile
    The updated board is spoken after each turn.  The next upcoming tile
 is spoken after the current state of the board.  You can use ‘SPC’ and
 ‘/’ to review the board.
@@ -843,21 +898,49 @@ is spoken after the current state of the board.  You can use ‘SPC’ and
 12.177.1 emacspeak-threes Commands
 ----------------------------------
 
-12.177.1.1 emacspeak-threes-score
+12.177.1.1 emacspeak-threes-pop-state
+.....................................
+
+ -- Command: emacspeak-threes-pop-state
+
+     Reset state from stack.
+
+12.177.1.2 emacspeak-threes-prune-stack
+.......................................
+
+ -- Command: emacspeak-threes-prune-stack (drop)
+
+     Prune game stack to specified length.
+
+12.177.1.3 emacspeak-threes-push-state
+......................................
+
+ -- Command: emacspeak-threes-push-state
+
+     Push current game state on stack.
+
+12.177.1.4 emacspeak-threes-score
 .................................
 
  -- Command: emacspeak-threes-score
 
      Speak the score.
 
-12.177.1.2 emacspeak-threes-speak-board
+12.177.1.5 emacspeak-threes-speak-board
 .......................................
 
  -- Command: emacspeak-threes-speak-board
 
      Speak the board.
 
-12.177.1.3 emacspeak-threes-speak-transposed-board
+12.177.1.6 emacspeak-threes-speak-next
+......................................
+
+ -- Command: emacspeak-threes-speak-next
+
+     Speak upcoming tile.
+
+12.177.1.7 emacspeak-threes-speak-transposed-board
 ..................................................
 
  -- Command: emacspeak-threes-speak-transposed-board
@@ -902,19 +985,6 @@ broken.
  -- Command: emacspeak-twittering-speak-this-tweet
 
      Speak tweet under point.
-
-12.179.2 emacspeak-twittering Options
--------------------------------------
-
- -- Variable: User Option emacspeak-twittering-uri-personality
-     Personality used for twittering-uri-face This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option emacspeak-twittering-username-personality
-     Personality used for twittering-username-face This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-url-template,  Next: emacspeak-view,  Prev: emacspeak-twittering,  Up: Emacspeak Commands And Options
@@ -1277,96 +1347,10 @@ File: emacspeak.info,  Node: emacspeak-w3m,  Next: emacspeak-wdired,  Prev: emac
 12.184.2 emacspeak-w3m Options
 ------------------------------
 
- -- Variable: User Option emacspeak-w3m-anchor-voice
-     Personality used for w3m-anchor This personality uses voice-lighten
-     whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option emacspeak-w3m-arrived-anchor-voice
-     Personality used for w3m-arrived-anchor This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option emacspeak-w3m-bold-voice
-     Personality used for w3m-bold This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option emacspeak-w3m-current-anchor-voice
-     Personality used for w3m-current-anchor This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option emacspeak-w3m-form-button-pressed-voice
-     Personality used for w3m-form-button-pressed This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option emacspeak-w3m-form-button-voice
-     Personality used for w3m-form-button This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option emacspeak-w3m-form-voice
-     Personality used for w3m-form This personality uses voice-brighten
-     whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option
-          emacspeak-w3m-header-line-location-content-voice
-     Personality used for w3m-header-line-location-content This
-     personality uses voice-animate whose effect can be changed globally
-     by customizing voice-animate-settings.
-
- -- Variable: User Option emacspeak-w3m-header-line-location-title-voice
-     Personality used for w3m-header-line-location-title This
-     personality uses voice-bolden whose effect can be changed globally
-     by customizing voice-bolden-settings.
-
- -- Variable: User Option emacspeak-w3m-history-current-url-voice
-     Personality used for w3m-history-current-url This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option emacspeak-w3m-image-voice
-     Personality used for w3m-image This personality uses voice-brighten
-     whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option emacspeak-w3m-insert-voice
-     Personality used for w3m-insert This personality uses voice-bolden
-     whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option emacspeak-w3m-italic-voice
-     Personality used for w3m-italic This personality uses voice-animate
-     whose effect can be changed globally by customizing
-     voice-animate-settings.
-
  -- Variable: User Option emacspeak-w3m-speak-titles-on-switch
      Speak the document title when switching between w3m buffers.  If
      non-nil, switching between w3m buffers will speak the title instead
      of the modeline.
-
- -- Variable: User Option emacspeak-w3m-strike-through-voice
-     Personality used for w3m-strike-through This personality uses
-     voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option emacspeak-w3m-tab-selected-voice
-     Personality used for w3m-tab-selected This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option emacspeak-w3m-tab-unselected-voice
-     Personality used for w3m-tab-unselected This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option emacspeak-w3m-underline-voice
-     Personality used for w3m-underline This personality uses
-     voice-brighten-extra whose effect can be changed globally by
-     customizing voice-brighten-extra-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-wdired,  Next: emacspeak-we,  Prev: emacspeak-w3m,  Up: Emacspeak Commands And Options
@@ -6121,13 +6105,14 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-; SPC h:                             emacspeak-webspace. (line   49)
 * C-; SPC SPC:                           emacspeak-webspace. (line   59)
 * C-; SPC w:                             emacspeak-webspace. (line  133)
-* C-; v:                                 emacspeak-muggles.  (line  319)
+* C-; v:                                 emacspeak-muggles.  (line  320)
 * C-; w m:                               emacspeak-wizards.  (line  581)
 * C-; w R:                               emacspeak-xslt.     (line   33)
 * C-c (:                                 Running Terminal Based Applications.
                                                              (line   96)
 * C-c ):                                 Running Terminal Based Applications.
                                                              (line  105)
+* C-c .:                                 emacspeak-muggles.  (line  265)
 * C-c 0:                                 Running Terminal Based Applications.
                                                              (line   68)
 * C-c 1:                                 Running Terminal Based Applications.
@@ -6165,8 +6150,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
                                                              (line   72)
 * C-c o:                                 Running Terminal Based Applications.
                                                              (line   56)
-* C-c o <1>:                             emacspeak-muggles.  (line  292)
-* C-c v:                                 emacspeak-muggles.  (line  318)
+* C-c o <1>:                             emacspeak-muggles.  (line  293)
+* C-c v:                                 emacspeak-muggles.  (line  319)
 * C-e !:                                 emacspeak-wizards.  (line  296)
 * C-e ":                                 emacspeak-speak.    (line  852)
 * C-e # a:                               emacspeak-gridtext. (line   26)
@@ -6457,7 +6442,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ h SPC h:                         emacspeak-webspace. (line   50)
 * C-x @ h SPC SPC:                       emacspeak-webspace. (line   61)
 * C-x @ h SPC w:                         emacspeak-webspace. (line  134)
-* C-x @ h v:                             emacspeak-muggles.  (line  320)
+* C-x @ h v:                             emacspeak-muggles.  (line  321)
 * C-x @ h w m:                           emacspeak-wizards.  (line  582)
 * C-x @ h w R:                           emacspeak-xslt.     (line   34)
 * C-x @ s b:                             emacspeak-bbc.      (line   28)

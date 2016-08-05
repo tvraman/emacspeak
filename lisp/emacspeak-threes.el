@@ -63,6 +63,12 @@
 ;;; Speak board by column.
 ;;; @item .
 ;;; Speak current score.
+;;; s
+;;; Save current state
+;;; u
+;;; Pop state from stack
+;;; ?
+;;; Speak next tile
 ;;; @end table
 ;;; The updated board is spoken after each turn.
 ;;;The next upcoming tile is spoken after the  current state of the board.
@@ -102,7 +108,14 @@
     (tts-with-punctuations 'some (dtk-speak-list   cells ))
     (emacspeak-auditory-icon 'item)
     (unless  (equal (emacspeak-threes-get-rows-max) emacspeak-threes-rows-max)
-      (emacspeak-auditory-icon 'large-movement))))
+      (emacspeak-auditory-icon 'close-object))))
+
+
+(defun emacspeak-threes-speak-next ()
+  "Speak upcoming tile."
+  (interactive)
+  (dtk-speak-using-voice voice-bolden (format "%s" threes-next-number)))
+  
 
 (defun emacspeak-threes-speak-transposed-board ()
   "Speak the board by columns."
@@ -122,6 +135,7 @@
   (define-key threes-mode-map " " 'emacspeak-threes-speak-board)
   (define-key threes-mode-map "." 'emacspeak-threes-score)
   (define-key threes-mode-map "/" 'emacspeak-threes-speak-transposed-board)
+  (define-key threes-mode-map "?" 'emacspeak-threes-speak-next)
   (define-key threes-mode-map "n" 'threes-down)
   (define-key threes-mode-map "p" 'threes-up)
   (define-key threes-mode-map "f" 'threes-right)
