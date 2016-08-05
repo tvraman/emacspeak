@@ -78,17 +78,31 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
+;;{{{ Variables:
+
+(defvar emacspeak-threes-rows-max '(0 0 0 0)
+  "Max for each row.")
+
+(defsubst emacspeak-threes-get-rows-max ()
+  "Return max for each row."
+  (declare (special threes-cells))
+  (mapcar #'(lambda (r) (apply #'max   r)) threes-cells))
+
+;;}}}
 ;;{{{ Advice interactive commands:
 (defun emacspeak-threes-speak-board ()
   "Speak the board."
   (interactive)
-  (declare (special threes-cells threes-next-number))
+  (declare (special threes-cells threes-next-number
+                    emacspeak-threes-rows-max))
   (let ((cells (copy-sequence threes-cells)))
     (nconc
      cells
      (list (propertize (format "%s" threes-next-number) 'personality voice-bolden)))
     (tts-with-punctuations 'some (dtk-speak-list   cells ))
-    (emacspeak-auditory-icon 'item)))
+    (emacspeak-auditory-icon 'item)
+    (unless  (equal (emacspeak-threes-get-rows-max) emacspeak-threes-rows-max)
+      (emacspeak-auditory-icon 'large-movement))))
 
 (defun emacspeak-threes-speak-transposed-board ()
   "Speak the board by columns."
@@ -109,8 +123,8 @@
   (define-key threes-mode-map "n" 'threes-down)
   (define-key threes-mode-map "p" 'threes-up)
   (define-key threes-mode-map "f" 'threes-right)
-  (define-key threes-mode-map "b" 'threes-left)
-  )
+  (define-key threes-mode-map "b" 'threes-left))
+
 (defadvice threes (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
@@ -118,6 +132,8 @@
     (emacspeak-threes-speak-board)))
 
 (declare-function threes-cells-score "threes" nil)
+(declare-function threes-cells-transpose "threes" (cells))
+
 (defun emacspeak-threes-score ()
   "Speak the score."
   (interactive)
@@ -130,7 +146,9 @@
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback"
-     (when (ems-interactive-p) (emacspeak-threes-speak-board)))))
+     (when (ems-interactive-p)
+       (setq emacspeak-threes-rows-max (emacspeak-threes-get-rows-max))
+       (emacspeak-threes-speak-board)))))
 (when (boundp 'threes-mode-map)
   (emacspeak-threes-setup))
 ;;}}}
