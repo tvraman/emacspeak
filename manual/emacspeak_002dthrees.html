@@ -147,7 +147,8 @@
     <dt><kbd>.</kbd></dt>
 
     <dd>
-      <p>Speak current score.</p>
+      <p>Speak current score. s Save current state u Pop state from
+      stack ? Speak next tile</p>
     </dd>
   </dl>
 
@@ -158,10 +159,74 @@
   "emacspeak_002dthrees-Commands"></a>
 
   <h4 class="subsection">12.177.1 emacspeak-threes
-  Commands</h4><a name="emacspeak_002dthrees_002dscore" id=
+  Commands</h4><a name="emacspeak_002dthrees_002dpop_002dstate" id=
+  "emacspeak_002dthrees_002dpop_002dstate"></a>
+
+  <h4 class="subsubsection">12.177.1.1
+  emacspeak-threes-pop-state</h4>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dthrees_002dpop_002dstate" id=
+    "index-emacspeak_002dthrees_002dpop_002dstate"></a>Command:
+    <strong>emacspeak-threes-pop-state</strong></dt>
+
+    <dd>
+      <a name="index-emacspeak_002dthrees_002dpop_002dstate-1" id=
+      "index-emacspeak_002dthrees_002dpop_002dstate-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Reset state from stack.
+</pre>
+      </div>
+    </dd>
+  </dl><a name="emacspeak_002dthrees_002dprune_002dstack" id=
+  "emacspeak_002dthrees_002dprune_002dstack"></a>
+
+  <h4 class="subsubsection">12.177.1.2
+  emacspeak-threes-prune-stack</h4>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dthrees_002dprune_002dstack"
+    id="index-emacspeak_002dthrees_002dprune_002dstack"></a>Command:
+    <strong>emacspeak-threes-prune-stack</strong>
+    <em>(drop)</em></dt>
+
+    <dd>
+      <a name="index-emacspeak_002dthrees_002dprune_002dstack-1"
+      id="index-emacspeak_002dthrees_002dprune_002dstack-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Prune game stack to specified length.
+</pre>
+      </div>
+    </dd>
+  </dl><a name="emacspeak_002dthrees_002dpush_002dstate" id=
+  "emacspeak_002dthrees_002dpush_002dstate"></a>
+
+  <h4 class="subsubsection">12.177.1.3
+  emacspeak-threes-push-state</h4>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dthrees_002dpush_002dstate" id=
+    "index-emacspeak_002dthrees_002dpush_002dstate"></a>Command:
+    <strong>emacspeak-threes-push-state</strong></dt>
+
+    <dd>
+      <a name="index-emacspeak_002dthrees_002dpush_002dstate-1" id=
+      "index-emacspeak_002dthrees_002dpush_002dstate-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Push current game state on stack.
+</pre>
+      </div>
+    </dd>
+  </dl><a name="emacspeak_002dthrees_002dscore" id=
   "emacspeak_002dthrees_002dscore"></a>
 
-  <h4 class="subsubsection">12.177.1.1 emacspeak-threes-score</h4>
+  <h4 class="subsubsection">12.177.1.4 emacspeak-threes-score</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002dthrees_002dscore" id=
@@ -181,7 +246,7 @@ Speak the score.
   </dl><a name="emacspeak_002dthrees_002dspeak_002dboard" id=
   "emacspeak_002dthrees_002dspeak_002dboard"></a>
 
-  <h4 class="subsubsection">12.177.1.2
+  <h4 class="subsubsection">12.177.1.5
   emacspeak-threes-speak-board</h4>
 
   <dl>
@@ -199,11 +264,32 @@ Speak the board.
 </pre>
       </div>
     </dd>
+  </dl><a name="emacspeak_002dthrees_002dspeak_002dnext" id=
+  "emacspeak_002dthrees_002dspeak_002dnext"></a>
+
+  <h4 class="subsubsection">12.177.1.6
+  emacspeak-threes-speak-next</h4>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dthrees_002dspeak_002dnext" id=
+    "index-emacspeak_002dthrees_002dspeak_002dnext"></a>Command:
+    <strong>emacspeak-threes-speak-next</strong></dt>
+
+    <dd>
+      <a name="index-emacspeak_002dthrees_002dspeak_002dnext-1" id=
+      "index-emacspeak_002dthrees_002dspeak_002dnext-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Speak upcoming tile.
+</pre>
+      </div>
+    </dd>
   </dl><a name=
   "emacspeak_002dthrees_002dspeak_002dtransposed_002dboard" id=
   "emacspeak_002dthrees_002dspeak_002dtransposed_002dboard"></a>
 
-  <h4 class="subsubsection">12.177.1.3
+  <h4 class="subsubsection">12.177.1.7
   emacspeak-threes-speak-transposed-board</h4>
 
   <dl>
@@ -228,5 +314,20 @@ Speak the board by columns.
       </div>
     </dd>
   </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dtodo_002dmode.html#emacspeak_002dtodo_002dmode"
+    accesskey="n" rel="next">emacspeak-todo-mode</a>, Previous:
+    <a href="emacspeak_002dtexinfo.html#emacspeak_002dtexinfo"
+    accesskey="p" rel="prev">emacspeak-texinfo</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>
