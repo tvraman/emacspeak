@@ -147,8 +147,9 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback"
      (when (ems-interactive-p)
-       (setq emacspeak-threes-rows-max (emacspeak-threes-get-rows-max))
-       (emacspeak-threes-speak-board)))))
+       (emacspeak-threes-speak-board)
+       (setq emacspeak-threes-rows-max (emacspeak-threes-get-rows-max))))))
+
 (when (boundp 'threes-mode-map)
   (emacspeak-threes-setup))
 ;;}}}
