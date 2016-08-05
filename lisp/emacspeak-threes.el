@@ -108,7 +108,7 @@
     (tts-with-punctuations 'some (dtk-speak-list   cells ))
     (emacspeak-auditory-icon 'item)
     (unless  (equal (emacspeak-threes-get-rows-max) emacspeak-threes-rows-max)
-      (emacspeak-auditory-icon 'close-object))))
+      (emacspeak-auditory-icon 'complete))))
 
 
 (defun emacspeak-threes-speak-next ()
