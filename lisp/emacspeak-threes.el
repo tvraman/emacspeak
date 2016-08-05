@@ -114,7 +114,7 @@
 (defun emacspeak-threes-speak-next ()
   "Speak upcoming tile."
   (interactive)
-  (dtk-speak-using-voice voice-bolden (format "%s" threes-next-number)))
+  (dtk-speak (format "%s" threes-next-number)))
   
 
 (defun emacspeak-threes-speak-transposed-board ()
