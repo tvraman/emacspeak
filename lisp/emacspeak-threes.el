@@ -58,9 +58,12 @@
   "Speak the board."
   (interactive)
   (declare (special threes-cells threes-next-number))
-  (tts-with-punctuations 'some (dtk-speak-list   threes-cells 4))
-  (dtk-notify-using-voice voice-bolden (format "%s" threes-next-number))
-  (emacspeak-auditory-icon 'item))
+  (let ((cells (copy-sequence threes-cells)))
+    (push
+     (propertize (format "%s" threes-next-number) 'personality voice-bolden)
+     cells)
+    (tts-with-punctuations 'some (dtk-speak-list   cells ))
+    (emacspeak-auditory-icon 'item)))
 
 (defun emacspeak-threes-speak-transposed-board ()
   "Speak the board by columns."
