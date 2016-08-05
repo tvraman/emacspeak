@@ -116,6 +116,8 @@
 (defun emacspeak-threes-setup ()
   "Set up additional key-bindings."
   (declare (special threes-mode-map))
+  (define-key threes-mode-map "s" 'emacspeak-threes-push-state)
+  (define-key threes-mode-map "u" 'emacspeak-threes-pop-state)
   (define-key threes-mode-map "g" 'threes)
   (define-key threes-mode-map " " 'emacspeak-threes-speak-board)
   (define-key threes-mode-map "." 'emacspeak-threes-score)
@@ -155,6 +157,57 @@
   (setq emacspeak-threes-rows-max (emacspeak-threes-get-rows-max)))
 (when (boundp 'threes-mode-map)
   (emacspeak-threes-setup))
+;;}}}
+;;{{{ Push And Pop states:
+
+(defstruct emacspeak-threes-game-state
+  board )
+
+(defvar emacspeak-threes-game-stack nil
+  "Stack of saved states.")
+
+(defun emacspeak-threes-push-state ()
+  "Push current game state on stack."
+  (interactive)
+  (declare (special emacspeak-threes-game-stack threes-cells ))
+  (push
+   (make-emacspeak-threes-game-state
+    :board (copy-sequence threes-cells))
+   emacspeak-threes-game-stack)
+  (emacspeak-auditory-icon 'mark-object)
+  (message "Saved state."))
+(declare-function threes-print-board "threes.el" nil)
+(defun emacspeak-threes-pop-state ()
+  "Reset state from stack."
+  (interactive)
+  (declare (special emacspeak-threes-game-stack threes-cells))
+  (cond
+   ((null emacspeak-threes-game-stack) (error "No saved  states."))
+   (t
+    (let ((state (pop emacspeak-threes-game-stack)))
+      (setq threes-cells (emacspeak-threes-game-state-board state))
+      (threes-print-board)
+      (emacspeak-auditory-icon 'yank-object)
+      (message "Popped: Score is now %s" (threes-cells-score))))))
+
+(defun emacspeak-threes-prune-stack (drop)
+  "Prune game stack to specified length."
+  (interactive 
+   (list
+    (cond
+     ((null emacspeak-threes-game-stack) (error "No saved  states."))
+     (t (read-number
+         (format "Stack: %s New? "
+                 (length emacspeak-threes-game-stack))
+         (/ (length emacspeak-threes-game-stack) 2))))))
+  (declare (special emacspeak-threes-game-stack))
+  (setq emacspeak-threes-game-stack
+        (butlast emacspeak-threes-game-stack
+                 (- (length emacspeak-threes-game-stack) drop)))
+  (message "Stack is now %s deep"
+           (length emacspeak-threes-game-stack))
+  (emacspeak-auditory-icon 'delete-object))
+
 ;;}}}
 (provide 'emacspeak-threes)
 ;;{{{ end of file

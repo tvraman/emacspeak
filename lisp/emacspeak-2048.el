@@ -116,7 +116,6 @@
   (emacspeak-auditory-icon 'delete-object))
 
 ;;}}}
-
 ;;{{{ Export And Import Games:
 
 (defvar emacspeak-2048-game-file
