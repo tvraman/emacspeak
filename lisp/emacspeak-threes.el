@@ -194,10 +194,12 @@
 (defun emacspeak-threes-pop-state ()
   "Reset state from stack."
   (interactive)
-  (declare (special emacspeak-threes-game-stack threes-cells))
+  (declare (special emacspeak-threes-game-stack threes-cells
+                    threes-game-over-p))
   (cond
    ((null emacspeak-threes-game-stack) (error "No saved  states."))
    (t
+    (setq threes-game-over-p nil)
     (let ((state (pop emacspeak-threes-game-stack)))
       (setq threes-cells (emacspeak-threes-game-state-board state))
       (threes-print-board)
