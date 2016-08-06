@@ -122,9 +122,9 @@
      cells
      (list (propertize (format "%s" threes-next-number) 'personality voice-bolden)))
     (tts-with-punctuations 'some (dtk-speak-list   cells ))
-    (emacspeak-auditory-icon 'item)
+    (emacspeak-auditory-icon 'complete)
     (unless  (equal (emacspeak-threes-get-rows-max) emacspeak-threes-rows-max)
-      (emacspeak-auditory-icon 'complete))))
+      (emacspeak-auditory-icon 'item))))
 
 (defun emacspeak-threes-speak-next ()
   "Speak upcoming tile."
