@@ -82,6 +82,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'sox-gen)
 
 ;;}}}
 ;;{{{ Variables:
@@ -95,12 +96,27 @@
   (mapcar #'(lambda (r) (apply #'max   r)) threes-cells))
 
 ;;}}}
+;;{{{ Helpers:
+
+(defsubst emacspeak-threes-sox-gen (number)
+  "Generate a tone  that indicates 1, 2 or 3."
+  (cond
+   ((= 1 number)
+    (sox-sin .5 "%6" "fade h .1 .1 "))
+   ((= 2 number)
+    (sox-sin .5 "%9" "fade h .1 .1 "))
+   ((= 3 number)
+    (sox-sin .5 "%12" "fade h .1 .1 "))))
+
+;;}}}
 ;;{{{ Advice interactive commands:
+
 (defun emacspeak-threes-speak-board ()
   "Speak the board."
   (interactive)
   (declare (special threes-cells threes-next-number
                     emacspeak-threes-rows-max))
+  (emacspeak-threes-sox-gen threes-next-number)
   (let ((cells (copy-sequence threes-cells)))
     (nconc
      cells
@@ -110,12 +126,12 @@
     (unless  (equal (emacspeak-threes-get-rows-max) emacspeak-threes-rows-max)
       (emacspeak-auditory-icon 'complete))))
 
-
 (defun emacspeak-threes-speak-next ()
   "Speak upcoming tile."
   (interactive)
+  (emacspeak-threes-sox-gen threes-next-number)
   (dtk-speak (format "%s" threes-next-number)))
-  
+
 
 (defun emacspeak-threes-speak-transposed-board ()
   "Speak the board by columns."
@@ -165,12 +181,12 @@
      (when (ems-interactive-p)
        (emacspeak-threes-speak-board)))))
 
-
 (defadvice threes-check-before-move (before emacspeak pre act comp)
   "Cache max"
   (setq emacspeak-threes-rows-max (emacspeak-threes-get-rows-max)))
 (when (boundp 'threes-mode-map)
   (emacspeak-threes-setup))
+
 ;;}}}
 ;;{{{ Push And Pop states:
 
@@ -208,7 +224,7 @@
 
 (defun emacspeak-threes-prune-stack (drop)
   "Prune game stack to specified length."
-  (interactive 
+  (interactive
    (list
     (cond
      ((null emacspeak-threes-game-stack) (error "No saved  states."))
