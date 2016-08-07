@@ -67,6 +67,9 @@ type="text/xsl"?>
       Provides seamless browsing of the entire file system or a
       single file with the same consistent interface.
     </application>
+    <application name="elscreen">
+      Speech-enables package ElScreen for managing Emacs window layouts.
+    </application>
     <application name="sawfish">
       Speech-enables the Sawfish window-manager.
     </application>
@@ -371,6 +374,12 @@ type="text/xsl"?>
     </application>
     <application name="auctex">
       Authoring environment for TeX
+      and LaTeX documents;
+      template based authoring, voice locking support and structured browsing.
+    </application>
+
+<application name="rst">
+      Authoring environment for RST documents.
       and LaTeX documents;
       template based authoring, voice locking support and structured browsing.
     </application>
@@ -697,7 +706,12 @@ type="text/xsl"?>
       adventure, a multiplication puzzle and
       Hangman.
     </application>
-
+<application name="2048">
+      Speech-enabled access to the 2048 game.
+      </application>
+<application name="threes">
+      Speech-enabled access to  the Threes puzzle.
+      </application>
     <application name="sudoku">
       Speech-enabled access to SuDoku --- the number placement game.
       </application><application name="gomoku">
