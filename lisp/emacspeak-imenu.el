@@ -96,8 +96,15 @@
 (defadvice imenu (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
 
+
+(defadvice imenu-anywhere (after emacspeak pre act comp)
+  "Provide auditory feedback"
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'large-movement)
+    (emacspeak-speak-line)))
 ;;}}}
 ;;{{{  Navigation
 
