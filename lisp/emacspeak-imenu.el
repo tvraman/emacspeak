@@ -92,19 +92,17 @@
 
 ;;}}}
 ;;{{{ advice
-
-(defadvice imenu (after emacspeak pre act comp)
+(loop
+ for f in
+ '(imenu imenu-anywhere ido-imenu-anywhere)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line)))
+    (emacspeak-speak-line)))))
 
-
-(defadvice imenu-anywhere (after emacspeak pre act comp)
-  "Provide auditory feedback"
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'large-movement)
-    (emacspeak-speak-line)))
 ;;}}}
 ;;{{{  Navigation
 
