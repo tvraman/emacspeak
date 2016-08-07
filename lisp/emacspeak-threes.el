@@ -63,11 +63,11 @@
 ;;; Speak board by column.
 ;;; @item .
 ;;; Speak current score.
-;;; s
+;;; @item s
 ;;; Save current state
-;;; u
+;;; @item u
 ;;; Pop state from stack
-;;; ?
+;;; @item ?
 ;;; Speak next tile
 ;;; @end table
 ;;; The updated board is spoken after each turn.
