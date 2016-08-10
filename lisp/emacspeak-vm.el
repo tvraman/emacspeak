@@ -174,6 +174,7 @@ s(defun emacspeak-vm-yank-header ()
                  (string-match (user-full-name) to)
                  (string-match  (user-login-name) to)))
             (lines (vm-su-line-count message)))
+      (with-current-buffer vm-presentation-buffer
       (dtk-speak
        (vm-decode-mime-encoded-words-in-string
         (concat
@@ -189,7 +190,7 @@ s(defun emacspeak-vm-yank-header ()
               (propertize " to " 'personality voice-smoothen)
               (propertize  to 'personality voice-annotate))
            "")
-         (if lines (format "%s lines" lines) ""))))
+         (if lines (format "%s lines" lines) "")))))
       (goto-char (point-min))
       (search-forward  (format "%c%c" 10 10) nil)
       (cond
