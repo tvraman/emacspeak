@@ -180,8 +180,9 @@ File: emacspeak.info,  Node: emacspeak-ciel,  Next: emacspeak-cmuscheme,  Prev: 
 12.39 emacspeak-ciel
 ====================
 
-Package ciel provides vim’s "copy inside" and "kill inside" commands.
-This module speech-enables ciel.
+Package ciel provides vim’s "copy inside" and "clear inside" commands.
+Emacspeak binds these commands to <Super i> and <Super o>.  This module
+speech-enables ciel.
 
 
 File: emacspeak.info,  Node: emacspeak-cmuscheme,  Next: emacspeak-company,  Prev: emacspeak-ciel,  Up: Emacspeak Commands And Options
