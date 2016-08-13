@@ -40,7 +40,8 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; Package ciel provides vim's "copy inside" and "kill inside" commands.
+;;; Package ciel provides vim's "copy inside" and "clear inside" commands.
+;;; Emacspeak binds these commands to <Super i> and <Super o>.
 ;;; This module speech-enables ciel.
 
 ;;; Code:
