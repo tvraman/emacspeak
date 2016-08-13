@@ -52,3 +52,9 @@ Emacspeak now   supports   ~visual_line-mode~
 ** Entertain: Threes
 
 Speech-enables the simple puzzle game ~threes~.
+
+
+** Ciel: Clear Inside, Copy Inside 
+
+Package ~ciel~ provides an implementation of VIM's clear/copy
+inside. Module ~emacspeak-ciel~ speech-enables package ~ciel~.
