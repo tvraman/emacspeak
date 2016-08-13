@@ -164,6 +164,7 @@ that implements the speech-enabling extensions."
 (emacspeak-do-package-setup "semantic" 'emacspeak-cedet)
 (emacspeak-do-package-setup "checkdoc" 'emacspeak-checkdoc)
 (emacspeak-do-package-setup "cmuscheme" 'emacspeak-cmuscheme)
+(emacspeak-do-package-setup "ciel" 'emacspeak-ciel)
 (emacspeak-do-package-setup "company" 'emacspeak-company)
 (emacspeak-do-package-setup "compile" 'emacspeak-compile)
 (emacspeak-do-package-setup "cperl-mode" 'emacspeak-cperl)
