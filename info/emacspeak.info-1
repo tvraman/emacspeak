@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents Emacspeak, The Complete Audio Desktop.  This
-document was last updated on August 7, 2016.
+document was last updated on August 13, 2016.
 
    The manual is divided into the following chapters.
 
@@ -2983,6 +2983,7 @@ This chapter documents a total of 1161 commands and 975 options.
 * emacspeak-calendar::
 * emacspeak-cedet::
 * emacspeak-checkdoc::
+* emacspeak-ciel::
 * emacspeak-cmuscheme::
 * emacspeak-company::
 * emacspeak-compile::

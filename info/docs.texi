@@ -43,6 +43,7 @@ This chapter documents a total of 1161 commands and 975 options.
 * emacspeak-calendar::
 * emacspeak-cedet::
 * emacspeak-checkdoc::
+* emacspeak-ciel::
 * emacspeak-cmuscheme::
 * emacspeak-company::
 * emacspeak-compile::
@@ -5639,6 +5640,12 @@ senator and friends
 @section emacspeak-checkdoc
 
 Speech-enable checkdoc.el
+
+@node emacspeak-ciel
+@section emacspeak-ciel
+
+Package ciel provides vim's "copy inside" and "kill inside" commands.
+This module speech-enables ciel.
 
 @node emacspeak-cmuscheme
 @section emacspeak-cmuscheme

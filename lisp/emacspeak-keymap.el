@@ -516,7 +516,9 @@ interactive command that the key sequence executes."
 (defcustom emacspeak-super-keys 
   '(
     ("." auto-correct-update)
+    ("i" ciel-ci)
     ("j" ido-imenu-anywhere)
+    ("o" ciel-co)
     ("r" soundscape-restart)
     ("s" soundscape)
     ("t" soundscape-toggle)
