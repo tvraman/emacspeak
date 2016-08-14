@@ -1,4 +1,4 @@
 #!/bin/sh
-#cat > /tmp/tts-$$.log
-LOG=/tmp/tts-$$.log
+
+LOG=/tmp/outloud-$$.log
 tee -a $LOG | `dirname $0`/32-outloud
