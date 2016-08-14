@@ -80,7 +80,7 @@
 
 (defconst sox-sin-cmd
   "play -q -n synth  %s sin %s "
-  "Command-line that produces a simple sine wave..")
+  "Command-line that produces a simple sine wave.")
 
 (defun sox-sin (length freq &rest args)
   "Play sine wave specified by length and freq.
@@ -92,7 +92,16 @@ Remaining args specify additional commandline args."
     (format sox-sin-cmd length freq)
     (mapconcat #'identity args " "))))
 
-;;}}}
+
+(defconst sox-binaural-cmd
+  "play -q -n synth  %s sin %s  sin %s gain %s"
+  "Command-line that produces a binaural beat.")
+
+
+(defun sox-binaural (length f1 f2 gain)
+  "Play binaural beat with beat frequency f2-f1 and gain gain."
+  (declare (special sox-binaural-cmd))
+  (sox-gen-cmd (format sox-sin-cmd length f1 f2 gain)));;}}}
 ;;{{{ Pluck:
 
 (defconst sox-pluck-cmd
