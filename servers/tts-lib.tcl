@@ -215,7 +215,8 @@ proc beep {{freq 523} {length 100}} {
     if {[info exists tts(beep)]
         && $tts(beep) == 1}  {
         set l  [expr $length / 1000.0]
-        exec play -q -n synth $l sin $freq fade  0.01 $l 0.01 &
+        set f  [expr $l/ 5.0]
+        exec play -q -n synth $l sin $freq fade  $f $l $f &
     }
 }
 
