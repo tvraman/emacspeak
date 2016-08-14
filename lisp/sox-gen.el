@@ -101,7 +101,7 @@ Remaining args specify additional commandline args."
 (defun sox-binaural (length f1 f2 gain)
   "Play binaural beat with beat frequency f2-f1 and gainume gain."
   (declare (special sox-binaural-cmd))
-  (sox-gen-cmd (format sox-sin-cmd length f1 f2 gain)))
+  (sox-gen-cmd (format sox-binaural-cmd length f1 f2 gain)))
 
 ;;}}}
 ;;{{{ Pluck:
