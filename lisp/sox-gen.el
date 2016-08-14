@@ -94,14 +94,14 @@ Remaining args specify additional commandline args."
 
 
 (defconst sox-binaural-cmd
-  "play -q -n synth  %s sin %s  sin %s gain %s"
+  "play -q -n synth  %s sin %s  sin %s vol %s"
   "Command-line that produces a binaural beat.")
 
 
-(defun sox-binaural (length f1 f2 gain)
-  "Play binaural beat with beat frequency f2-f1 and gain gain."
+(defun sox-binaural (length f1 f2 vol)
+  "Play binaural beat with beat frequency f2-f1 and volume vol."
   (declare (special sox-binaural-cmd))
-  (sox-gen-cmd (format sox-sin-cmd length f1 f2 gain)));;}}}
+  (sox-gen-cmd (format sox-sin-cmd length f1 f2 vol)));;}}}
 ;;{{{ Pluck:
 
 (defconst sox-pluck-cmd
