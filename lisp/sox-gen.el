@@ -94,7 +94,7 @@ Remaining args specify additional commandline args."
 
 
 (defconst sox-binaural-cmd
-  "play -q -n synth  %s sin %s  sin %s gain %s"
+  "play -q -n synth  %s sin %s  sin %s gain %s channels 2"
   "Command-line that produces a binaural beat.")
 
 
