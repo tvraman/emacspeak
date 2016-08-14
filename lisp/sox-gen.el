@@ -58,7 +58,7 @@
 
 (defun sox-gen-cmd (cmd)
   "Play specified command."
-  (start-process "Shell" "*sox*" shell-file-name shell-command-switch cmd))
+  (start-process "Shell" nil shell-file-name shell-command-switch cmd))
 
 ;;}}}
 ;;{{{ synth:
