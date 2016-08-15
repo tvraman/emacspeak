@@ -58,6 +58,7 @@
 
 (defun sox-gen-cmd (cmd)
   "Play specified command."
+  (declare (special sox-play))
   (apply #'start-process "SoX" nil sox-play  (split-string cmd)))
 
 ;;}}}
