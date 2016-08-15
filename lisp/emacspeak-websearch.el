@@ -546,10 +546,6 @@ Optional second arg as-html processes the results as HTML rather than data."
   :type 'boolean
   :group 'emacspeak-websearch)
 
-(emacspeak-websearch-set-searcher 'realtime-google
-                                  'emacspeak-google-realtime-search)
-(emacspeak-websearch-set-key ?R 'realtime-google)
-
 (emacspeak-websearch-set-searcher 'google
                                   'emacspeak-websearch-google)
 (emacspeak-websearch-set-key ?g 'google)
@@ -750,6 +746,22 @@ https://www.google.com/options/specialsearches.html "
   "Browse Google News by category."
   (interactive)
   (let ((name   "Google Category News"))
+    (emacspeak-url-template-open (emacspeak-url-template-get name))))
+
+;;}}}
+;;{{{ Google Regional News:
+
+(emacspeak-websearch-set-searcher
+ 'google-regional-news
+ 'emacspeak-websearch-google-regional-news)
+
+(emacspeak-websearch-set-key ?r 'google-regional-news)
+
+;;;###autoload
+(defun emacspeak-websearch-google-regional-news ()
+  "Browse Google News by region."
+  (interactive)
+  (let ((name   "Google Regional News"))
     (emacspeak-url-template-open (emacspeak-url-template-get name))))
 
 ;;}}}
