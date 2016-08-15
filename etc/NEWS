@@ -58,3 +58,7 @@ Speech-enables the simple puzzle game ~threes~.
 
 Package ~ciel~ provides an implementation of VIM's clear/copy
 inside. Module ~emacspeak-ciel~ speech-enables package ~ciel~.
+
+** Google News:
+
+Added URL Templates for Google Category News and Google Regional News.
