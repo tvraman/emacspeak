@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1161 commands and 975 options.
+This chapter documents a total of 1162 commands and 975 options.
 
 @menu
 * acss-structure::
@@ -18744,6 +18744,15 @@ Invoke Google News url template.
 @end format
 @end deffn
 
+@subsubsection emacspeak-websearch-google-regional-news
+@deffn {Command} emacspeak-websearch-google-regional-news   
+@findex emacspeak-websearch-google-regional-news
+
+@format
+Browse Google News by region.
+@end format
+@end deffn
+
 @subsubsection emacspeak-websearch-google-search-in-date-range
 @deffn {Command} emacspeak-websearch-google-search-in-date-range   
 @findex emacspeak-websearch-google-search-in-date-range
@@ -22875,7 +22884,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 81 URL Templates.
+This section documents a total of 82 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -23028,6 +23037,10 @@ Search Google news.
 @b{Google NewsPaper}
 
 Retrieve and speak Google News Overview.
+
+@b{Google Regional News}
+
+Google News By Region.
 
 @b{Google Related Trends}
 

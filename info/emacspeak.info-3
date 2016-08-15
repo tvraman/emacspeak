@@ -1989,14 +1989,21 @@ This module provides utility functions for searching the WWW
 
      Invoke Google News url template.
 
-12.188.1.16 emacspeak-websearch-google-search-in-date-range
+12.188.1.16 emacspeak-websearch-google-regional-news
+....................................................
+
+ -- Command: emacspeak-websearch-google-regional-news
+
+     Browse Google News by region.
+
+12.188.1.17 emacspeak-websearch-google-search-in-date-range
 ...........................................................
 
  -- Command: emacspeak-websearch-google-search-in-date-range
 
      Use this from inside the calendar to do Google date-range searches.
 
-12.188.1.17 emacspeak-websearch-google-specialize
+12.188.1.18 emacspeak-websearch-google-specialize
 .................................................
 
  -- Command: emacspeak-websearch-google-specialize (specialize query)
@@ -2005,35 +2012,35 @@ This module provides utility functions for searching the WWW
        what is possible here:
      https://www.google.com/options/specialsearches.html
 
-12.188.1.18 emacspeak-websearch-google-with-toolbelt
+12.188.1.19 emacspeak-websearch-google-with-toolbelt
 ....................................................
 
  -- Command: emacspeak-websearch-google-with-toolbelt (query)
 
      Launch Google search with toolbelt.
 
-12.188.1.19 emacspeak-websearch-gutenberg
+12.188.1.20 emacspeak-websearch-gutenberg
 .........................................
 
  -- Command: emacspeak-websearch-gutenberg (type query)
 
      Perform an Gutenberg search
 
-12.188.1.20 emacspeak-websearch-help
+12.188.1.21 emacspeak-websearch-help
 ....................................
 
  -- Command: emacspeak-websearch-help
 
      Displays key mapping used by Emacspeak Websearch.
 
-12.188.1.21 emacspeak-websearch-merriam-webster-search
+12.188.1.22 emacspeak-websearch-merriam-webster-search
 ......................................................
 
  -- Command: emacspeak-websearch-merriam-webster-search (query)
 
      Search the Merriam Webster Dictionary.
 
-12.188.1.22 emacspeak-websearch-news-yahoo
+12.188.1.23 emacspeak-websearch-news-yahoo
 ..........................................
 
  -- Command: emacspeak-websearch-news-yahoo (query &optional rss)
@@ -2041,49 +2048,49 @@ This module provides utility functions for searching the WWW
      Perform an Yahoo News search.
      Optional prefix arg  avoids scraping  information from HTML.
 
-12.188.1.23 emacspeak-websearch-open-directory-search
+12.188.1.24 emacspeak-websearch-open-directory-search
 .....................................................
 
  -- Command: emacspeak-websearch-open-directory-search (query)
 
      Perform an Open Directory search
 
-12.188.1.24 emacspeak-websearch-software-search
+12.188.1.25 emacspeak-websearch-software-search
 ...............................................
 
  -- Command: emacspeak-websearch-software-search
 
      Search SourceForge, Freshmeat and other sites.
 
-12.188.1.25 emacspeak-websearch-sourceforge-search
+12.188.1.26 emacspeak-websearch-sourceforge-search
 ..................................................
 
  -- Command: emacspeak-websearch-sourceforge-search (query)
 
      Search SourceForge Site.
 
-12.188.1.26 emacspeak-websearch-weather
+12.188.1.27 emacspeak-websearch-weather
 .......................................
 
  -- Command: emacspeak-websearch-weather (query)
 
      Get weather forecast for specified zip code.
 
-12.188.1.27 emacspeak-websearch-wikipedia-search
+12.188.1.28 emacspeak-websearch-wikipedia-search
 ................................................
 
  -- Command: emacspeak-websearch-wikipedia-search (query)
 
      Search Wikipedia using Google.
 
-12.188.1.28 emacspeak-websearch-yahoo
+12.188.1.29 emacspeak-websearch-yahoo
 .....................................
 
  -- Command: emacspeak-websearch-yahoo (query)
 
      Perform an Yahoo  search
 
-12.188.1.29 emacspeak-websearch-yahoo-exchange-rate-converter
+12.188.1.30 emacspeak-websearch-yahoo-exchange-rate-converter
 .............................................................
 
  -- Command: emacspeak-websearch-yahoo-exchange-rate-converter
@@ -2091,7 +2098,7 @@ This module provides utility functions for searching the WWW
 
      Currency converter.
 
-12.188.1.30 emacspeak-websearch-yahoo-historical-chart
+12.188.1.31 emacspeak-websearch-yahoo-historical-chart
 ......................................................
 
  -- Command: emacspeak-websearch-yahoo-historical-chart (ticker
@@ -5226,7 +5233,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.227 URL Templates
 ====================
 
-This section documents a total of 81 URL Templates.
+This section documents a total of 82 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -5376,6 +5383,10 @@ goog:us
    Google NewsPaper
 
    Retrieve and speak Google News Overview.
+
+   Google Regional News
+
+   Google News By Region.
 
    Google Related Trends
 
