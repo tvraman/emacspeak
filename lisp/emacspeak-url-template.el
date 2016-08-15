@@ -608,7 +608,7 @@ from English to German")
   "Completion table for reading news category.")
 (emacspeak-url-template-define
  "Google Category News"
- "http://news.google.com/news?hl=en&ned=tus&topic=%s&btnG=Google+Search&output=atom"
+ "http://news.google.com/news?hl=en&topic=%s&output=atom"
  (list
   #'(lambda ()
       (let* ((completion-ignore-case t)
@@ -625,7 +625,7 @@ from English to German")
 
 (emacspeak-url-template-define
  "Google Regional News"
- "https://news.google.com/news?hl=en&cf=all&pz=1&ned=us&geo=%s&btnG=Google+Search&output=atom"
+ "https://news.google.com/news?hl=en&pz=1&geo=%s&output=atom"
  (list
   #'(lambda ()
         (read-from-minibuffer "City/Zip: ")))
