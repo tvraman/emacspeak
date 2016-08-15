@@ -628,10 +628,7 @@ from English to German")
  "https://news.google.com/news?hl=en&cf=all&pz=1&ned=us&geo=%s&btnG=Google+Search&output=atom"
  (list
   #'(lambda ()
-        (read-from-minibuffer
-         "Region: "
-         nil nil nil  nil 
-         "detect_metro_area")))
+        (read-from-minibuffer "City/Zip: ")))
  nil
  "Google News By Region."
  #'emacspeak-url-template-google-atom-news-display)
