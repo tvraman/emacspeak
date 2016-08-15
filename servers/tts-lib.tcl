@@ -216,7 +216,7 @@ proc beep {{freq 523} {length 100}} {
         && $tts(beep) == 1}  {
         set l  [expr $length / 1000.0]
         set f  [expr $l/ 10.0]
-        exec play -q -n synth $l sin $freq fade  $f $l $f channels 2 &
+        exec play -q -n synth $l sin $freq fade  $f   0 channels 2 2>&1 > /dev/null &
     }
 }
 
