@@ -58,13 +58,13 @@
 
 (defun sox-gen-cmd (cmd)
   "Play specified command."
-  (start-process "Shell" nil shell-file-name shell-command-switch cmd))
+  (apply #'start-process "SoX" nil sox-play  (split-string cmd)))
 
 ;;}}}
 ;;{{{ synth:
 
 (defconst sox-synth-cmd
-  "play -q -n synth %s "
+  "-q -n synth %s "
   "Invoke synth generation.")
 
 (defun sox-synth (length  &rest args)
@@ -79,7 +79,7 @@
 ;;{{{ Sin:
 
 (defconst sox-sin-cmd
-  "play -q -n synth  %s sin %s "
+  "-q -n synth %s sin %s "
   "Command-line that produces a simple sine wave.")
 
 (defun sox-sin (length freq &rest args)
@@ -94,7 +94,7 @@ Remaining args specify additional commandline args."
 
 
 (defconst sox-binaural-cmd
-  "play -q -n synth  %s sin %s  sin %s gain %s channels 2"
+  "-q -n synth %s sin %s sin %s gain %s channels 2 "
   "Command-line that produces a binaural beat.")
 
 
@@ -107,7 +107,7 @@ Remaining args specify additional commandline args."
 ;;{{{ Pluck:
 
 (defconst sox-pluck-cmd
-  "play -q -n synth  %s pluck %s channels 2"
+  "-q -n synth %s pluck %s channels 2 "
   "Command-line that produces a simple plucke.")
 
 (defun sox-pluck (length freq &rest args)
@@ -123,7 +123,7 @@ Freq can be specified as a frequency, note (%nn) or frequency range."
 ;;{{{ Chime:
 
 (defconst sox-chime-cmd
-  "play -q -n synth -j 3 sin %3 sin %-2 sin %-5 sin %-9 \
+  "-q -n synth -j 3 sin %3 sin %-2 sin %-5 sin %-9 \
                    sin %-14 sin %-21 fade h .01 2 1.5 delay \
                    1.3 1 .76 .54 .27 remix - fade h 0 2.7 2.5 norm -1 channels 2"
   "Command-line that produces a simple chime.")
@@ -142,7 +142,7 @@ Freq can be specified as a frequency, note (%nn) or frequency range."
 ;;{{{ Guitar Chord:
 
 (defconst sox-guitar-chord-cmd
-  "play -q -n synth pl G2 pl B2 pl D3 pl G3 pl D4 pl G4 \
+  "-q -n synth pl G2 pl B2 pl D3 pl G3 pl D4 pl G4 \
                    delay 0 .05 .1 .15 .2 .25 remix - fade 0 4 .1 norm -1 channels 2"
   "Play a guitar chord.")
 
