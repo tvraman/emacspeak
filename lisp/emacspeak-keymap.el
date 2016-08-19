@@ -656,6 +656,7 @@ interactive command that the key sequence executes."
     ("g" gnus)
     ("h" emacspeak-org-capture-link)
     ("i" ido-everywhere)
+    ("j" emacspeak-wizards-shell-toggle)
     ("k" emacspeak-webspace-knowledge-search)
     ("l" emacspeak-librivox)
     ("m" vm)
