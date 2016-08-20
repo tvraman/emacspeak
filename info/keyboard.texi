@@ -1,0 +1,44 @@
+@node Emacspeak Keyboard Commands 
+@chapter Emacspeak Keyboard Commands.
+
+@cindex Emacs Keyboard Commands 
+
+This chapter details all of the keymaps used by Emacspeak. It is meant
+as a complete reference; for basic usage, see @xref{Basic Usage}.
+
+Emacspeak uses the following keymaps, each of which are invoked by a
+specific prefix key. Subsequent sections of this chapter enumerate the
+keys bound in each of these keymaps.
+
+@table @kbd
+@item C-e 
+The main Emacspeak keymap.
+@item C-e d
+The text-to-speech keymap.
+@item C-;
+The Emacspeak hyper keymap.
+@item C-'
+The emacspeak super keymap.
+@item C-,
+The Emacspeak alt keymap.
+@item C-.
+The Emacspeak super keymap.
+@item C-e x
+The emacspeak  @kbd{x} keymap.
+@item C-e C-x
+The Emacspeak @kbd{C-x} keymap.
+@end table 
+
+Primary Emacspeak commands start with @kbd{C-e}. Following @kbd{C-e}
+with @kbd{d} invokes commands that control the text-to-speech engine.
+In addition, Emacspeak introduces four additional keymaps for binding
+its extensive set of facilities to convenient keystrokes.
+
+When running  under a windowing system, Emacs automatically receives
+keys @kbd{C-;}, @kbd{C-'}, @kbd{C-,} and @kbd{C-.}.
+When running on the Linux console, these keys become available after
+loading the custom Linux keymap found  in 
+@code{emacspeak/tvr/console-keymaps} after  checking out the emacspeak
+repository from @code{https://github.com/tvraman/emacspeak}.
+
+
