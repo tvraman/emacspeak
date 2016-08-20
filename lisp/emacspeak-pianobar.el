@@ -126,7 +126,7 @@
     (define-key  pianobar-key-map [up] 'emacspeak-pianobar-previous-preset)
     (define-key  pianobar-key-map [down] 'emacspeak-pianobar-next-preset)
     (define-key  pianobar-key-map "," 'emacspeak-pianobar-previous-preset)
-    (define-key  pianobar-key-map [down]".")
+    (define-key  pianobar-key-map "." 'emacspeak-pianobar-next-preset)
     (define-key  pianobar-key-map "<" 'emacspeak-pianobar-previous-preset)
     (define-key  pianobar-key-map">" 'emacspeak-pianobar-next-preset)
     (define-key pianobar-key-map "("
