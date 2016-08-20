@@ -41,4 +41,16 @@ loading the custom Linux keymap found  in
 @code{emacspeak/tvr/console-keymaps} after  checking out the emacspeak
 repository from @code{https://github.com/tvraman/emacspeak}.
 
+@menu
+* Emacspeak Keybindings from emacspeak-keymap::
+* Emacspeak Keybindings from emacspeak-dtk-submap::
+* Emacspeak Keybindings from emacspeak-personal-keymap::
+* Emacspeak Keybindings from emacspeak-personal-ctlx-keymap::
+* Emacspeak Keybindings from emacspeak-hyper-keymap::
+* Emacspeak Keybindings from emacspeak-super-keymap::
+* Emacspeak Keybindings from emacspeak-alt-keymap::
 
+@end menu 
+
+
+@include keys.texi

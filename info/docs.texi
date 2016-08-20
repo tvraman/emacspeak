@@ -20601,8 +20601,12 @@ Prompts for and runs shell command on current file.
 @table @kbd
 @item C-e <f11>
 @kindex C-e <f11>
+@item C-; j
+@kindex C-; j
 @item <fn> <f11>
 @kindex <fn> <f11>
+@item C-x @@ h j
+@kindex C-x @@ h j
 @end table
 
 @findex emacspeak-wizards-shell-toggle
