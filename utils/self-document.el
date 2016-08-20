@@ -374,8 +374,9 @@ This chapter documents a total of %d commands and %d options.\n\n"
                   (not (keymapp  (cdr binding))))
         do 
         (insert
-         (format "@item %c\n %s\n\n"
-                  (car binding)(cdr binding))))
+         (format "@item %s\n %s\n\n"
+                 (sd-texinfo-escape (key-description (format "%c" (car binding))))
+(cdr binding))))
   (insert "@end table\n"))
 
 

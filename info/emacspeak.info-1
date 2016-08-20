@@ -1233,6 +1233,679 @@ these keys become available after loading the custom Linux keymap found
 in ‘emacspeak/tvr/console-keymaps’ after checking out the emacspeak
 repository from ‘https://github.com/tvraman/emacspeak’.
 
+* Menu:
+
+* Emacspeak Keybindings from emacspeak-keymap::
+* Emacspeak Keybindings from emacspeak-dtk-submap::
+* Emacspeak Keybindings from emacspeak-personal-keymap::
+* Emacspeak Keybindings from emacspeak-personal-ctlx-keymap::
+* Emacspeak Keybindings from emacspeak-hyper-keymap::
+* Emacspeak Keybindings from emacspeak-super-keymap::
+* Emacspeak Keybindings from emacspeak-alt-keymap::
+
+
+File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-keymap,  Next: Emacspeak Keybindings from emacspeak-dtk-submap,  Up: Emacspeak Keyboard Commands
+
+8.1 Emacspeak Keybindings from emacspeak-keymap
+===============================================
+
+‘9’
+     emacspeak-speak-predefined-window
+
+‘8’
+     emacspeak-speak-predefined-window
+
+‘7’
+     emacspeak-speak-predefined-window
+
+‘6’
+     emacspeak-speak-predefined-window
+
+‘5’
+     emacspeak-speak-predefined-window
+
+‘4’
+     emacspeak-speak-predefined-window
+
+‘3’
+     emacspeak-speak-predefined-window
+
+‘2’
+     emacspeak-speak-predefined-window
+
+‘1’
+     emacspeak-speak-predefined-window
+
+‘0’
+     emacspeak-speak-predefined-window
+
+‘|’
+     emacspeak-speak-line-set-column-filter
+
+‘{’
+     emacspeak-speak-paragraph
+
+‘w’
+     emacspeak-speak-word
+
+‘v’
+     view-register
+
+‘u’
+     emacspeak-url-template-fetch
+
+‘t’
+     emacspeak-speak-time
+
+‘s’
+     dtk-stop
+
+‘r’
+     emacspeak-speak-region
+
+‘q’
+     emacspeak-toggle-speak-messages
+
+‘p’
+     emacspeak-speak-paragraph
+
+‘o’
+     emacspeak-toggle-comint-output-monitor
+
+‘n’
+     emacspeak-speak-rest-of-buffer
+
+‘m’
+     emacspeak-speak-mode-line
+
+‘l’
+     emacspeak-speak-line
+
+‘k’
+     emacspeak-speak-current-kill
+
+‘j’
+     emacspeak-hide-or-expose-block
+
+‘i’
+     emacspeak-tabulate-region
+
+‘h’
+     emacspeak-speak-help
+
+‘g’
+     emacspeak-epub
+
+‘f’
+     emacspeak-speak-buffer-filename
+
+‘c’
+     emacspeak-speak-char
+
+‘b’
+     emacspeak-speak-buffer
+
+‘a’
+     emacspeak-speak-message-again
+
+‘^’
+     emacspeak-filtertext
+
+‘]’
+     emacspeak-speak-page-interactively
+
+‘\’
+     emacspeak-toggle-speak-line-invert-filter
+
+‘"’
+     emacspeak-speak-sexp-interactively
+
+‘[’
+     emacspeak-speak-page
+
+‘W’
+     emacspeak-tapestry-select-window-by-name
+
+‘V’
+     emacspeak-speak-version
+
+‘T’
+     emacspeak-view-emacspeak-tips
+
+‘SPC’
+     emacspeak-speak-header-line
+
+‘R’
+     emacspeak-speak-rectangle
+
+‘P’
+     emacspeak-speak-paragraph-interactively
+
+‘N’
+     emacspeak-view-emacspeak-news
+
+‘M’
+     emacspeak-speak-minor-mode-line
+
+‘L’
+     emacspeak-speak-line-interactively
+
+‘I’
+     emacspeak-speak-show-active-network-interfaces
+
+‘DEL’
+     cd-tool
+
+‘C-y’
+     emacspeak-clipboard-paste
+
+‘C-w’
+     emacspeak-speak-window-information
+
+‘C-v’
+     view-mode
+
+‘C-u’
+     emacspeak-feeds-browse
+
+‘C-s’
+     tts-restart
+
+‘C-q’
+     emacspeak-toggle-comint-autospeak
+
+‘C-p’
+     emacspeak-speak-previous-window
+
+‘C-o’
+     emacspeak-ocr
+
+‘C-n’
+     emacspeak-speak-next-window
+
+‘RET’
+     emacspeak-speak-continuously
+
+‘C-l’
+     emacspeak-speak-line-number
+
+‘C-j’
+     emacspeak-hide-speak-block-sans-prefix
+
+‘TAB’
+     emacspeak-table-display-table-in-region
+
+‘C-d’
+     emacspeak-toggle-show-point
+
+‘C-c’
+     emacspeak-clipboard-copy
+
+‘C-b’
+     emacspeak-bookshare
+
+‘C-@’
+     emacspeak-speak-current-mark
+
+‘C’
+     emacspeak-customize
+
+‘B’
+     emacspeak-speak-buffer-interactively
+
+‘A’
+     emacspeak-appt-repeat-announcement
+
+‘@’
+     emacspeak-speak-message-at-time
+
+‘?’
+     emacspeak-websearch-dispatch
+
+‘>’
+     emacspeak-speak-next-field
+
+‘=’
+     emacspeak-speak-current-column
+
+‘<’
+     emacspeak-speak-previous-field
+
+‘;’
+     emacspeak-multimedia
+
+‘:’
+     emacspeak-m-player-shuffle
+
+‘/’
+     emacspeak-speak-this-buffer-other-window-display
+
+‘.’
+     dtk-notify-stop
+
+‘,’
+     emacspeak-speak-browse-buffer
+
+‘)’
+     emacspeak-sounds-select-theme
+
+‘(’
+     emacspeak-audio-setup
+
+‘'’
+     emacspeak-pianobar
+
+‘&’
+     emacspeak-wizards-shell-command-on-current-file
+
+‘%’
+     emacspeak-speak-current-percentage
+
+‘!’
+     emacspeak-speak-run-shell-command
+
+‘C-a’
+     emacspeak-toggle-auditory-icons
+
+‘C-e’
+     end-of-line
+
+‘e’
+     end-of-line
+
+
+File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-dtk-submap,  Next: Emacspeak Keybindings from emacspeak-personal-keymap,  Prev: Emacspeak Keybindings from emacspeak-keymap,  Up: Emacspeak Keyboard Commands
+
+8.2 Emacspeak Keybindings from emacspeak-dtk-submap
+===================================================
+
+‘9’
+     dtk-set-predefined-speech-rate
+
+‘8’
+     dtk-set-predefined-speech-rate
+
+‘7’
+     dtk-set-predefined-speech-rate
+
+‘6’
+     dtk-set-predefined-speech-rate
+
+‘5’
+     dtk-set-predefined-speech-rate
+
+‘4’
+     dtk-set-predefined-speech-rate
+
+‘3’
+     dtk-set-predefined-speech-rate
+
+‘2’
+     dtk-set-predefined-speech-rate
+
+‘1’
+     dtk-set-predefined-speech-rate
+
+‘0’
+     dtk-set-predefined-speech-rate
+
+‘C-s’
+     dtk-notify-shutdown
+
+‘C-n’
+     dtk-notify-initialize
+
+‘z’
+     emacspeak-zap-tts
+
+‘w’
+     emacspeak-toggle-word-echo
+
+‘v’
+     voice-lock-mode
+
+‘t’
+     emacspeak-dial-dtk
+
+‘s’
+     dtk-toggle-split-caps
+
+‘r’
+     dtk-set-rate
+
+‘q’
+     dtk-toggle-quiet
+
+‘p’
+     dtk-set-punctuations
+
+‘o’
+     dtk-toggle-strip-octals
+
+‘n’
+     dtk-toggle-speak-nonprinting-chars
+
+‘m’
+     emacspeak-speak-set-mode-punctuations
+
+‘l’
+     emacspeak-toggle-line-echo
+
+‘k’
+     emacspeak-toggle-character-echo
+
+‘i’
+     emacspeak-toggle-audio-indentation
+
+‘f’
+     dtk-set-character-scale
+
+‘d’
+     dtk-select-server
+
+‘c’
+     dtk-toggle-capitalization
+
+‘a’
+     dtk-add-cleanup-pattern
+
+‘C-v’
+     outloud-32
+
+‘C-o’
+     outloud
+
+‘RET’
+     dtk-set-chunk-separator-syntax
+
+‘C-e’
+     espeak
+
+‘C-d’
+     dectalk
+
+‘C-c’
+     dtk-cloud
+
+‘V’
+     tts-speak-version
+
+‘SPC’
+     dtk-toggle-splitting-on-white-space
+
+‘S’
+     dtk-set-language
+
+‘R’
+     dtk-reset-state
+
+‘P’
+     dtk-set-previous-language
+
+‘N’
+     dtk-set-next-language
+
+‘L’
+     dtk-local-server
+
+‘C’
+     dtk-toggle-allcaps-beep
+
+‘,’
+     dtk-toggle-punctuation-mode
+
+
+File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-personal-keymap,  Next: Emacspeak Keybindings from emacspeak-personal-ctlx-keymap,  Prev: Emacspeak Keybindings from emacspeak-dtk-submap,  Up: Emacspeak Keyboard Commands
+
+8.3 Emacspeak Keybindings from emacspeak-personal-keymap
+========================================================
+
+‘DEL’
+     desktop-clear
+
+‘|’
+     emacspeak-wizards-squeeze-blanks
+
+‘v’
+     emacspeak-wizards-vc-viewer
+
+‘u’
+     emacspeak-wizards-units
+
+‘t’
+     emacspeak-speak-telephone-directory
+
+‘s’
+     emacspeak-emergency-tts-restart
+
+‘r’
+     jabber-activity-switch-to
+
+‘q’
+     emacspeak-wizards-yql-quotes
+
+‘o’
+     emacspeak-wizards-occur-header-lines
+
+‘m’
+     mspools-show
+
+‘j’
+     emacspeak-jabber-popup-roster
+
+‘h’
+     emacspeak-wizards-how-many-matches
+
+‘b’
+     battery
+
+‘Q’
+     emacspeak-wizards-yql-lookup
+
+‘=’
+     emacspeak-wizards-find-longest-line-in-region
+
+‘3’
+     emacspeak-wizards-cycle-browser
+
+
+File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-personal-ctlx-keymap,  Next: Emacspeak Keybindings from emacspeak-hyper-keymap,  Prev: Emacspeak Keybindings from emacspeak-personal-keymap,  Up: Emacspeak Keyboard Commands
+
+8.4 Emacspeak Keybindings from emacspeak-personal-ctlx-keymap
+=============================================================
+
+
+File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-hyper-keymap,  Next: Emacspeak Keybindings from emacspeak-super-keymap,  Prev: Emacspeak Keybindings from emacspeak-personal-ctlx-keymap,  Up: Emacspeak Keyboard Commands
+
+8.5 Emacspeak Keybindings from emacspeak-hyper-keymap
+=====================================================
+
+‘v’
+     emacspeak-muggles-view/body
+
+‘u’
+     browse-url
+
+‘t’
+     twit
+
+‘s’
+     emacspeak-wizards-shell
+
+‘r’
+     org-capture
+
+‘q’
+     emacspeak-remote-quick-connect-to-server
+
+‘p’
+     emacspeak-wizards-pdf-open
+
+‘o’
+     other-frame
+
+‘n’
+     emacspeak-npr-play-program
+
+‘m’
+     vm
+
+‘l’
+     emacspeak-librivox
+
+‘k’
+     emacspeak-webspace-knowledge-search
+
+‘j’
+     emacspeak-wizards-shell-toggle
+
+‘i’
+     ido-everywhere
+
+‘h’
+     emacspeak-org-capture-link
+
+‘g’
+     gnus
+
+‘f’
+     emacspeak-webspace-freebase-search
+
+‘e’
+     gmaps
+
+‘d’
+     magit-dispatch-popup
+
+‘c’
+     browse-url-chromium
+
+‘b’
+     eww-list-buffers
+
+‘a’
+     emacspeak-wizards-term
+
+‘N’
+     emacspeak-npr-listing
+
+‘C’
+     apu-chars
+
+‘B’
+     eww-list-bookmarks
+
+‘;’
+     emacspeak-m-player-using-openal
+
+‘:’
+     emacspeak-wizards-view-buffers-filtered-by-m-player-mode
+
+
+File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-super-keymap,  Next: Emacspeak Keybindings from emacspeak-alt-keymap,  Prev: Emacspeak Keybindings from emacspeak-hyper-keymap,  Up: Emacspeak Keyboard Commands
+
+8.6 Emacspeak Keybindings from emacspeak-super-keymap
+=====================================================
+
+‘u’
+     soundscape-update-mood
+
+‘t’
+     soundscape-toggle
+
+‘s’
+     soundscape
+
+‘r’
+     soundscape-restart
+
+‘p’
+     proced
+
+‘o’
+     ciel-co
+
+‘m’
+     emacspeak-wizards-view-buffers-filtered-by-this-mode
+
+‘l’
+     emacspeak-m-player-locate-media
+
+‘j’
+     ido-imenu-anywhere
+
+‘i’
+     ciel-ci
+
+‘h’
+     emacspeak-webspace-headlines-browse
+
+‘f’
+     emacspeak-feeds-lookup-and-view
+
+‘e’
+     elfeed
+
+‘b’
+     emacspeak-bbc
+
+‘S’
+     soundscape-stop
+
+‘R’
+     emacspeak-webspace-feed-reader
+
+‘.’
+     auto-correct-update
+
+
+File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-alt-keymap,  Prev: Emacspeak Keybindings from emacspeak-super-keymap,  Up: Emacspeak Keyboard Commands
+
+8.7 Emacspeak Keybindings from emacspeak-alt-keymap
+===================================================
+
+‘u’
+     emacspeak-m-player-url
+
+‘t’
+     emacspeak-wizards-tune-in-radio-browse
+
+‘s’
+     emacspeak-wizards-tune-in-radio-search
+
+‘r’
+     emacspeak-feeds-rss-display
+
+‘p’
+     emacspeak-wizards-cycle-to-previous-buffer
+
+‘o’
+     emacspeak-feeds-opml-display
+
+‘n’
+     emacspeak-wizards-cycle-to-next-buffer
+
+‘m’
+     magit-status
+
+‘l’
+     eww-open-file
+
+‘f’
+     emacspeak-feeds-find-feeds
+
+‘e’
+     eww
+
+‘c’
+     emacspeak-wizards-view-buffers-filtered-by-this-mode
+
+‘a’
+     emacspeak-feeds-atom-display
+
+‘,’
+     emacspeak-eldoc-speak-doc
+
 
 File: emacspeak.info,  Node: Voice Lock,  Next: Using Online Help,  Prev: Emacspeak Keyboard Commands,  Up: Top
 
@@ -7086,482 +7759,4 @@ is presently Linux specific
 
  -- Variable: User Option emacspeak-aumix-settings-file
      *Name of file containing personal aumix settings.
-
-
-File: emacspeak.info,  Node: emacspeak-bbc,  Next: emacspeak-bbdb,  Prev: emacspeak-aumix,  Up: Emacspeak Commands And Options
-
-13.25 emacspeak-bbc
-===================
-
-BBC: http://www.bbc.co.uk This module uses publicly available REST APIs
-to implement a native Emacs client for browsing and listening to BBC
-programs.
-
-   See http://www.bbc.co.uk/programmes/developers The BBC API helps
-locate a PID for a given program stream.  We then construct the BBC
-IPlayer URL for that PID, And either hand that link off to Chrome, Or
-stream it via get_iplayer and mplayer.  get_iplayer:
-https://github.com/get-iplayer/get_iplayer.git get_player vs Chrome:
-Pro/Con: Chrome: Has the UI for seeking in the stream.  get_iplayer: We
-use a named pipe, and cannot seek, but the rest of emacspeak-m-player is
-available.  For downloading a program etc., use Emacs package iplayer.
-
-13.25.1 emacspeak-bbc Commands
-------------------------------
-
-13.25.1.1 emacspeak-bbc
-.......................
-
- -- Command: emacspeak-bbc (&optional genre)
-     ‘C-' b’
-     ‘C-x @ s b’
-
-     Launch BBC Interaction.
-     See http://www.bbc.co.uk/radio/stations for full list of stations.
-     See http://www.bbc.co.uk/radio/programmes/genres for list of genres.
-     Interactive prefix arg filters  content by genre.
-
-13.25.1.2 emacspeak-bbc-genre
-.............................
-
- -- Command: emacspeak-bbc-genre
-
-     Launch BBC Interaction for specified Genre.
-
-13.25.1.3 emacspeak-bbc-get-iplayer-stream-pid
-..............................................
-
- -- Command: emacspeak-bbc-get-iplayer-stream-pid (pid)
-
-     Stream using get_iplayer.
-
-13.25.1.4 emacspeak-bbc-get-iplayer-stream-url
-..............................................
-
- -- Command: emacspeak-bbc-get-iplayer-stream-url (url)
-
-     Stream using get_iplayer.
-
-13.25.2 emacspeak-bbc Options
------------------------------
-
- -- Variable: User Option emacspeak-bbc-button-action
-     Action to use for BBC iPlayer buttons.  get-iplayer: use
-     get_iplayer.  chrome: Hand off URL to Chrome.
-
- -- Variable: User Option emacspeak-bbc-get-iplayer
-     Name of get_iplayer executable.
-
-
-File: emacspeak.info,  Node: emacspeak-bbdb,  Next: emacspeak-bibtex,  Prev: emacspeak-bbc,  Up: Emacspeak Commands And Options
-
-13.26 emacspeak-bbdb
-====================
-
-Speech-enables BBDB. I have used BBDB to manage email address and
-contact information since 1991.
-
-
-File: emacspeak.info,  Node: emacspeak-bibtex,  Next: emacspeak-bookmark,  Prev: emacspeak-bbdb,  Up: Emacspeak Commands And Options
-
-13.27 emacspeak-bibtex
-======================
-
-Speech extensions for bibtex mode.
-
-
-File: emacspeak.info,  Node: emacspeak-bookmark,  Next: emacspeak-bookshare,  Prev: emacspeak-bibtex,  Up: Emacspeak Commands And Options
-
-13.28 emacspeak-bookmark
-========================
-
-Speech enable bookmarks
-
-
-File: emacspeak.info,  Node: emacspeak-bookshare,  Next: emacspeak-browse-kill-ring,  Prev: emacspeak-bookmark,  Up: Emacspeak Commands And Options
-
-13.29 emacspeak-bookshare
-=========================
-
-BOOKSHARE == http://www.bookshare.org provides book access to
-print-disabled users.  It provides a simple Web API
-http://developer.bookshare.org This module implements an Emacspeak
-Bookshare client.  For now, users will need to get their own API key
-This version needs Emacs with libxml2 support You need Emacs 24.1 or
-higher.
-
-13.29.1 emacspeak-bookshare Commands
-------------------------------------
-
-13.29.1.1 emacspeak-bookshare
-.............................
-
- -- Command: emacspeak-bookshare
-     ‘C-e C-b’
-     ‘<fn> C-b’
-
-     Bookshare  Interaction.
-
-13.29.1.2 emacspeak-bookshare-action
-....................................
-
- -- Command: emacspeak-bookshare-action
-
-     Call action specified by  invoking key.
-
-13.29.1.3 emacspeak-bookshare-author-search
-...........................................
-
- -- Command: emacspeak-bookshare-author-search (query &optional
-          category)
-
-     Perform a Bookshare author search.
-     Interactive prefix arg filters search by category.
-
-13.29.1.4 emacspeak-bookshare-browse
-....................................
-
- -- Command: emacspeak-bookshare-browse
-
-     Browse Bookshare.
-
-13.29.1.5 emacspeak-bookshare-browse-latest
-...........................................
-
- -- Command: emacspeak-bookshare-browse-latest
-
-     Return latest books.
-
-13.29.1.6 emacspeak-bookshare-browse-popular
-............................................
-
- -- Command: emacspeak-bookshare-browse-popular (&optional category)
-
-     Browse popular books.
-     Optional interactive prefix arg prompts for a category to use as a filter.
-
-13.29.1.7 emacspeak-bookshare-download-brf
-..........................................
-
- -- Command: emacspeak-bookshare-download-brf (id target)
-
-     Download Daisy format of specified book to target location.
-
-13.29.1.8 emacspeak-bookshare-download-brf-at-point
-...................................................
-
- -- Command: emacspeak-bookshare-download-brf-at-point
-
-     Download Braille version of book under point.
-     Target location is generated from author and title.
-
-13.29.1.9 emacspeak-bookshare-download-daisy
-............................................
-
- -- Command: emacspeak-bookshare-download-daisy (id target)
-
-     Download Daisy format of specified book to target location.
-
-13.29.1.10 emacspeak-bookshare-download-daisy-at-point
-......................................................
-
- -- Command: emacspeak-bookshare-download-daisy-at-point
-
-     Download Daisy version of book under point.
-     Target location is generated from author and title.
-
-13.29.1.11 emacspeak-bookshare-download-internal
-................................................
-
- -- Command: emacspeak-bookshare-download-internal (url target)
-
-     Download content  to target location.
-
-13.29.1.12 emacspeak-bookshare-eww
-..................................
-
- -- Command: emacspeak-bookshare-eww (directory)
-
-     Render complete book using EWW if available.
-
-13.29.1.13 emacspeak-bookshare-expand-at-point
-..............................................
-
- -- Command: emacspeak-bookshare-expand-at-point
-
-     Expand entry at point by retrieving metadata.
-     Once retrieved, memoize to avoid multiple retrievals.
-
-13.29.1.14 emacspeak-bookshare-extract-and-view
-...............................................
-
- -- Command: emacspeak-bookshare-extract-and-view (url)
-
-     Extract content referred to by link under point, and render via the browser.
-
-13.29.1.15 emacspeak-bookshare-extract-xml
-..........................................
-
- -- Command: emacspeak-bookshare-extract-xml (url)
-
-     Extract content referred to by link under point, and return an XML buffer.
-
-13.29.1.16 emacspeak-bookshare-flush-lines
-..........................................
-
- -- Command: emacspeak-bookshare-flush-lines (regexp)
-
-     Flush lines matching regexp in Bookshare buffer.
-
-13.29.1.17 emacspeak-bookshare-fulltext
-.......................................
-
- -- Command: emacspeak-bookshare-fulltext (directory)
-
-     Display fulltext contents of  book in specified directory.
-     Useful for fulltext search in a book.
-
-13.29.1.18 emacspeak-bookshare-fulltext-search
-..............................................
-
- -- Command: emacspeak-bookshare-fulltext-search (query)
-
-     Perform a Bookshare fulltext search.
-
-13.29.1.19 emacspeak-bookshare-get-more-results
-...............................................
-
- -- Command: emacspeak-bookshare-get-more-results
-
-     Get next page of results for last query.
-
-13.29.1.20 emacspeak-bookshare-id-search
-........................................
-
- -- Command: emacspeak-bookshare-id-search (query)
-
-     Perform a Bookshare id search.
-
-13.29.1.21 emacspeak-bookshare-isbn-search
-..........................................
-
- -- Command: emacspeak-bookshare-isbn-search (query)
-
-     Perform a Bookshare isbn search.
-
-13.29.1.22 emacspeak-bookshare-list-preferences
-...............................................
-
- -- Command: emacspeak-bookshare-list-preferences
-
-     Return preference list.
-
-13.29.1.23 emacspeak-bookshare-mode
-...................................
-
- -- Command: emacspeak-bookshare-mode
-
-     A Bookshare front-end for the Emacspeak desktop.
-
-     The Emacspeak Bookshare front-end is launched by command
-     emacspeak-bookshare bound to C-e C-b
-
-     This command switches to a special buffer that has Bookshare
-     commands bounds to single keystrokes– see the key-binding list at
-     the end of this description. Use Emacs online help facility to
-     look up help on these commands.
-
-     emacspeak-bookshare-mode provides the necessary functionality to
-     Search and download Bookshare material,
-     Manage a local library of downloaded Bookshare content,
-     And commands to easily read newer Daisy books from Bookshare.
-
-     Here is a list of all emacspeak Bookshare commands  with their key-bindings:
-     a Author Search
-     A Author/Title Search
-     t Title Search
-     s Full Text Search
-     d Date Search
-     b Browse
-
-     key             binding
-     —             ——-
-
-     RET		emacspeak-bookshare-toc-at-point
-     ESC		Prefix Command
-     SPC		emacspeak-bookshare-expand-at-point
-     +		emacspeak-bookshare-action
-     A		emacspeak-bookshare-action
-     B		emacspeak-bookshare-download-brf-at-point
-     C		emacspeak-bookshare-fulltext
-     D		emacspeak-bookshare-download-daisy-at-point
-     E		emacspeak-bookshare-eww
-     I		emacspeak-bookshare-action
-     P		emacspeak-bookshare-action
-     S		emacspeak-bookshare-action
-     U		emacspeak-bookshare-unpack-at-point
-     V		emacspeak-bookshare-view-at-point
-     [		backward-page
-     ]		forward-page
-     a		emacspeak-bookshare-action
-     b		emacspeak-bookshare-browse
-     c		emacspeak-bookshare-toc-at-point
-     d		emacspeak-bookshare-action
-     e		emacspeak-epub
-     f		emacspeak-bookshare-flush-lines
-     i		emacspeak-bookshare-action
-     j		next-line
-     k		previous-line
-     l .. m		emacspeak-bookshare-action
-     p		emacspeak-bookshare-action
-     q		bury-buffer
-     s .. t		emacspeak-bookshare-action
-     v		emacspeak-bookshare-view
-
-     M-n		emacspeak-bookshare-next-result
-     M-p		emacspeak-bookshare-previous-result
-
-     In addition to any hooks its parent mode ‘special-mode’ might have run,
-     this mode runs the hook ‘emacspeak-bookshare-mode-hook’, as the final step
-     during initialization.
-
-13.29.1.24 emacspeak-bookshare-next-result
-..........................................
-
- -- Command: emacspeak-bookshare-next-result
-
-     Move to next result.
-
-13.29.1.25 emacspeak-bookshare-periodical-list
-..............................................
-
- -- Command: emacspeak-bookshare-periodical-list
-
-     Return list of periodicals.
-
-13.29.1.26 emacspeak-bookshare-previous-result
-..............................................
-
- -- Command: emacspeak-bookshare-previous-result
-
-     Move to previous result.
-
-13.29.1.27 emacspeak-bookshare-set-preference
-.............................................
-
- -- Command: emacspeak-bookshare-set-preference (preference-id value)
-
-     Set preference preference-id to value.
-
-13.29.1.28 emacspeak-bookshare-sign-out
-.......................................
-
- -- Command: emacspeak-bookshare-sign-out
-
-     Sign out, clearing password.
-
-13.29.1.29 emacspeak-bookshare-since-search
-...........................................
-
- -- Command: emacspeak-bookshare-since-search (query &optional category)
-
-     Perform a Bookshare date  search.
-     Optional interactive prefix arg filters by category.
-
-13.29.1.30 emacspeak-bookshare-title-search
-...........................................
-
- -- Command: emacspeak-bookshare-title-search (query &optional category)
-
-     Perform a Bookshare title search.
-     Interactive prefix arg filters search by category.
-
-13.29.1.31 emacspeak-bookshare-toc
-..................................
-
- -- Command: emacspeak-bookshare-toc (directory)
-
-     View TOC for book in specified directory.
-
-13.29.1.32 emacspeak-bookshare-toc-at-point
-...........................................
-
- -- Command: emacspeak-bookshare-toc-at-point
-
-     View TOC for book at point.
-     Make sure it’s downloaded and unpacked first.
-
-13.29.1.33 emacspeak-bookshare-unpack-at-point
-..............................................
-
- -- Command: emacspeak-bookshare-unpack-at-point
-
-     Unpack downloaded content if necessary.
-
-13.29.1.34 emacspeak-bookshare-url-executor
-...........................................
-
- -- Command: emacspeak-bookshare-url-executor (url)
-
-     Custom URL executor for use in Bookshare TOC.
-
-13.29.1.35 emacspeak-bookshare-version-handler
-..............................................
-
- -- Command: emacspeak-bookshare-version-handler (&rest ignore)
-
-     Do nothing and return nil.
-     This function accepts any number of arguments, but ignores them.
-
-     (fn &rest IGNORE)
-
-13.29.1.36 emacspeak-bookshare-view
-...................................
-
- -- Command: emacspeak-bookshare-view (directory)
-
-     View book in specified directory.
-
-13.29.1.37 emacspeak-bookshare-view-at-point
-............................................
-
- -- Command: emacspeak-bookshare-view-at-point
-
-     View book at point.
-     Make sure it’s downloaded and unpacked first.
-
-13.29.1.38 emacspeak-bookshare-view-page-range
-..............................................
-
- -- Command: emacspeak-bookshare-view-page-range (url)
-
-     Play pages in specified page range from URL.
-
-13.29.2 emacspeak-bookshare Options
------------------------------------
-
- -- Variable: User Option emacspeak-bookshare-api-key
-     Web API key for this application.  See
-     http://developer.bookshare.org/docs for details on how to get an
-     API key.
-
- -- Variable: User Option emacspeak-bookshare-browser-function
-     Function to display Bookshare Book content in a WWW browser.  This
-     is used by the various Bookshare view commands to display content
-     from Daisy books.
-
- -- Variable: User Option emacspeak-bookshare-directory
-     Customize this to the root of where books are organized.
-
- -- Variable: User Option emacspeak-bookshare-downloads-directory
-     Customize this to the root of where books are organized.
-
- -- Variable: User Option emacspeak-bookshare-html-to-text-command
-     Command to convert html to text on stdin.
-
- -- Variable: User Option emacspeak-bookshare-user-id
-     Bookshare user Id.
-
- -- Variable: User Option emacspeak-bookshare-xslt
-     Name of bookshare XSL transform.
 
