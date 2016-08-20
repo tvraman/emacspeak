@@ -351,6 +351,51 @@ This chapter documents a total of %d commands and %d options.\n\n"
       (shell-command-on-region          ; squeeze blanks
        (point-min) (point-max)
        "cat -s" (current-buffer) 'replace)
+      (save-buffer))
+    (self-document-all-keymaps
+     )))
+
+;;}}}
+;;{{{ Document all keybindings:
+
+(defvar self-document-keymap-list
+  '(
+    emacspeak-keymap emacspeak-dtk-submap
+    emacspeak-personal-keymap emacspeak-personal-ctlx-keymap
+    emacspeak-hyper-keymap emacspeak-super-keymap emacspeak-alt-keymap)
+"List of keymaps that we document.")
+
+(defun self-document-keymap (keymap)
+  "Output Texinfo documentation for bindings in keymap."
+  (cl-assert  (keymapp keymap) t "Not a valid keymap: %s")
+  (insert "@table @kbd\n")
+  (loop for binding in (cdr keymap) 
+        when (and (characterp (car binding))
+                  (not (keymapp  (cdr binding))))
+        do 
+        (insert
+         (format "@item %c\n %s\n\n"
+                  (car binding)(cdr binding))))
+  (insert "@end table\n"))
+
+
+(defun self-document-all-keymaps()
+  "Generate documentation for all Emacspeak keymaps."
+  (declare (special self-document-keymap-list))
+  (let ((output (find-file-noselect "keys.texi"))
+        (title nil))
+    (with-current-buffer output
+      (erase-buffer)
+      (texinfo-mode)
+      (cl-loop
+       for keymap in self-document-keymap-list do
+       (setq title (format "Emacspeak Keybindings from %s" (symbol-name keymap)))
+       (insert (format "\n@node %s\n @section %s\n\n" title title))
+       (self-document-keymap (symbol-value keymap)))
+      ;(texinfo-all-menus-update)
+      (shell-command-on-region          ; squeeze blanks
+       (point-min) (point-max)
+       "cat -s" (current-buffer) 'replace)
       (save-buffer))))
 
 ;;}}}
