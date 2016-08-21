@@ -5619,7 +5619,7 @@ silencing speech is an exception to this rule — Speech silence commands
 are placed directly on the primary emacspeak-keymap (‘C-e s’ and ‘C-e
 .’).
 
-   In addition, Emacspeak introduces four additional keymaps for binding
+   In addition, Emacspeak introduces five additional keymaps for binding
 its extensive set of facilities to convenient keystrokes.
 
    When running under a windowing system, Emacs automatically receives
@@ -5628,6 +5628,16 @@ these keys become available after loading the custom Linux keymap found
 in ‘emacspeak/tvr/console-keymaps’ after checking out the emacspeak
 repository from ‘https://github.com/tvraman/emacspeak’.
 
+   Emacspeak defines personal keymaps accessible via ‘C-e x’ and ‘C-e
+C-x’.  For now, emacspeak does not bind any commands in keymap ‘C-e C-x’
+— this keymap is left for end-user personalization.
+
+   Note finally that the information presented in the following
+subsections can also be viewed via Emacs’ built-in Help system; e.g.,
+Press ‘C-; C-h’ to get a ‘*Help*’ buffer that displays all keys bound in
+‘emacspeak-hyper-keymap’.
+
+   subsections
 * Menu:
 
 * Emacspeak Keybindings from emacspeak-keymap::
