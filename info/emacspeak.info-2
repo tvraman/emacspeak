@@ -7508,8 +7508,6 @@ of emacspeak from becoming dependent on the speech server modules
 .............................
 
  -- Command: emacspeak-dial-dtk (number)
-     ‘C-e d t’
-     ‘<fn> d t’
 
      Prompt for and dial a phone NUMBER with the Dectalk.
 
