@@ -49,12 +49,12 @@ Emacspeak defines personal keymaps accessible via @kbd{C-e x} and
 @kbd{C-e C-x}. For now, emacspeak does not bind any commands in keymap
 @kbd{C-e C-x} @MDash{} this keymap is left for end-user personalization.
 
-Note finally that the information presented in the following subsections
+Note  that the information presented in the following subsections
 can also be viewed via Emacs' built-in Help system; e.g., Press @kbd{C-;
 C-h} to  get a @code{*Help*} buffer    that displays all keys bound in
 @code{emacspeak-hyper-keymap}.
 
-subsections 
+
 @menu
 * Emacspeak Keybindings from emacspeak-keymap::
 * Emacspeak Keybindings from emacspeak-dtk-submap::
