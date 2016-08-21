@@ -31,7 +31,7 @@ The Emacspeak @kbd{C-x} keymap.
 
 Primary Emacspeak commands start with @kbd{C-e}. Following @kbd{C-e}
 with @kbd{d} invokes commands that control the text-to-speech engine.
-Note that silencing speech is an exception to this rule @mdash{} Speech
+Note that silencing speech is an exception to this rule @MDash{} Speech
 silence commands are placed directly on the primary emacspeak-keymap
 (@kbd{C-e s} and @kbd{C-e .}).
 
@@ -48,12 +48,11 @@ repository from @code{https://github.com/tvraman/emacspeak}.
 @menu
 * Emacspeak Keybindings from emacspeak-keymap::
 * Emacspeak Keybindings from emacspeak-dtk-submap::
-* Emacspeak Keybindings from emacspeak-personal-keymap::
-* Emacspeak Keybindings from emacspeak-personal-ctlx-keymap::
 * Emacspeak Keybindings from emacspeak-hyper-keymap::
 * Emacspeak Keybindings from emacspeak-super-keymap::
 * Emacspeak Keybindings from emacspeak-alt-keymap::
-
+* Emacspeak Keybindings from emacspeak-personal-keymap::
+* Emacspeak Keybindings from emacspeak-personal-ctlx-keymap::
 @end menu 
 
 
