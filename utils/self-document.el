@@ -358,6 +358,18 @@ This chapter documents a total of %d commands and %d options.\n\n"
 ;;}}}
 ;;{{{ Document all keybindings:
 
+(defun sd-sort-keymap (key-entries)
+  "Safely sort and return keymap entries."
+  (let ((temp (copy-sequence key-entries)))
+  (cl-sort
+   temp
+   #'(lambda (a b)
+       (when (and (characterp (car a))
+(characterp (car b)))
+       (string-lessp
+        (key-description (format "%c" (car a)))
+        (key-description (format "%c" (car b)))))))))
+
 (defvar self-document-keymap-list
   '(
     emacspeak-keymap emacspeak-dtk-submap
@@ -369,7 +381,7 @@ This chapter documents a total of %d commands and %d options.\n\n"
 (defun self-document-keymap (keymap)
   "Output Texinfo documentation for bindings in keymap."
   (cl-assert  (keymapp keymap) t "Not a valid keymap: %s")
-  (let ((entries (reverse (cdr keymap))))
+  (let ((entries (sd-sort-keymap (cdr (copy-keymap keymap )))))
     (insert "@table @kbd\n")
     (loop for binding in
           entries

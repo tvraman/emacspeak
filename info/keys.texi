@@ -3,50 +3,38 @@
  @section Emacspeak Keybindings from emacspeak-keymap
 
 @table @kbd
-@item e
- end-of-line
+@item "
+ emacspeak-speak-sexp-interactively
 
-@item C-e
- end-of-line
+@item 0
+ emacspeak-speak-predefined-window
 
-@item C-a
- emacspeak-toggle-auditory-icons
+@item 1
+ emacspeak-speak-predefined-window
 
-@item !
- emacspeak-speak-run-shell-command
+@item 2
+ emacspeak-speak-predefined-window
 
-@item %
- emacspeak-speak-current-percentage
+@item 3
+ emacspeak-speak-predefined-window
 
-@item &
- emacspeak-wizards-shell-command-on-current-file
+@item 4
+ emacspeak-speak-predefined-window
 
-@item '
- emacspeak-pianobar
+@item 5
+ emacspeak-speak-predefined-window
 
-@item (
- emacspeak-audio-setup
+@item 6
+ emacspeak-speak-predefined-window
 
-@item )
- emacspeak-sounds-select-theme
+@item 7
+ emacspeak-speak-predefined-window
 
-@item ,
- emacspeak-speak-browse-buffer
+@item 8
+ emacspeak-speak-predefined-window
 
-@item .
- dtk-notify-stop
-
-@item /
- emacspeak-speak-this-buffer-other-window-display
-
-@item :
- emacspeak-m-player-shuffle
-
-@item ;
- emacspeak-multimedia
-
-@item <
- emacspeak-speak-previous-field
+@item 9
+ emacspeak-speak-predefined-window
 
 @item =
  emacspeak-speak-current-column
@@ -69,9 +57,6 @@
 @item C
  emacspeak-customize
 
-@item C-@@
- emacspeak-speak-current-mark
-
 @item C-b
  emacspeak-bookshare
 
@@ -81,17 +66,11 @@
 @item C-d
  emacspeak-toggle-show-point
 
-@item TAB
- emacspeak-table-display-table-in-region
-
 @item C-j
  emacspeak-hide-speak-block-sans-prefix
 
 @item C-l
  emacspeak-speak-line-number
-
-@item RET
- emacspeak-speak-continuously
 
 @item C-n
  emacspeak-speak-next-window
@@ -141,11 +120,17 @@
 @item R
  emacspeak-speak-rectangle
 
+@item RET
+ emacspeak-speak-continuously
+
 @item SPC
  emacspeak-speak-header-line
 
 @item T
  emacspeak-view-emacspeak-tips
+
+@item TAB
+ emacspeak-table-display-table-in-region
 
 @item V
  emacspeak-speak-version
@@ -155,9 +140,6 @@
 
 @item [
  emacspeak-speak-page
-
-@item "
- emacspeak-speak-sexp-interactively
 
 @item \
  emacspeak-toggle-speak-line-invert-filter
@@ -237,35 +219,53 @@
 @item |
  emacspeak-speak-line-set-column-filter
 
-@item 0
- emacspeak-speak-predefined-window
+@item C-@@
+ emacspeak-speak-current-mark
 
-@item 1
- emacspeak-speak-predefined-window
+@item !
+ emacspeak-speak-run-shell-command
 
-@item 2
- emacspeak-speak-predefined-window
+@item %
+ emacspeak-speak-current-percentage
 
-@item 3
- emacspeak-speak-predefined-window
+@item &
+ emacspeak-wizards-shell-command-on-current-file
 
-@item 4
- emacspeak-speak-predefined-window
+@item '
+ emacspeak-pianobar
 
-@item 5
- emacspeak-speak-predefined-window
+@item (
+ emacspeak-audio-setup
 
-@item 6
- emacspeak-speak-predefined-window
+@item )
+ emacspeak-sounds-select-theme
 
-@item 7
- emacspeak-speak-predefined-window
+@item ,
+ emacspeak-speak-browse-buffer
 
-@item 8
- emacspeak-speak-predefined-window
+@item .
+ dtk-notify-stop
 
-@item 9
- emacspeak-speak-predefined-window
+@item /
+ emacspeak-speak-this-buffer-other-window-display
+
+@item :
+ emacspeak-m-player-shuffle
+
+@item ;
+ emacspeak-multimedia
+
+@item <
+ emacspeak-speak-previous-field
+
+@item C-a
+ emacspeak-toggle-auditory-icons
+
+@item C-e
+ end-of-line
+
+@item e
+ end-of-line
 
 @end table
 
@@ -276,8 +276,59 @@
 @item ,
  dtk-toggle-punctuation-mode
 
+@item 0
+ dtk-set-predefined-speech-rate
+
+@item 1
+ dtk-set-predefined-speech-rate
+
+@item 2
+ dtk-set-predefined-speech-rate
+
+@item 3
+ dtk-set-predefined-speech-rate
+
+@item 4
+ dtk-set-predefined-speech-rate
+
+@item 5
+ dtk-set-predefined-speech-rate
+
+@item 6
+ dtk-set-predefined-speech-rate
+
+@item 7
+ dtk-set-predefined-speech-rate
+
+@item 8
+ dtk-set-predefined-speech-rate
+
+@item 9
+ dtk-set-predefined-speech-rate
+
 @item C
  dtk-toggle-allcaps-beep
+
+@item C-c
+ dtk-cloud
+
+@item C-d
+ dectalk
+
+@item C-e
+ espeak
+
+@item C-n
+ dtk-notify-initialize
+
+@item C-o
+ outloud
+
+@item C-s
+ dtk-notify-shutdown
+
+@item C-v
+ outloud-32
 
 @item L
  dtk-local-server
@@ -291,6 +342,9 @@
 @item R
  dtk-reset-state
 
+@item RET
+ dtk-set-chunk-separator-syntax
+
 @item S
  dtk-set-language
 
@@ -299,24 +353,6 @@
 
 @item V
  tts-speak-version
-
-@item C-c
- dtk-cloud
-
-@item C-d
- dectalk
-
-@item C-e
- espeak
-
-@item RET
- dtk-set-chunk-separator-syntax
-
-@item C-o
- outloud
-
-@item C-v
- outloud-32
 
 @item a
  dtk-add-cleanup-pattern
@@ -371,42 +407,6 @@
 
 @item z
  emacspeak-zap-tts
-
-@item C-n
- dtk-notify-initialize
-
-@item C-s
- dtk-notify-shutdown
-
-@item 0
- dtk-set-predefined-speech-rate
-
-@item 1
- dtk-set-predefined-speech-rate
-
-@item 2
- dtk-set-predefined-speech-rate
-
-@item 3
- dtk-set-predefined-speech-rate
-
-@item 4
- dtk-set-predefined-speech-rate
-
-@item 5
- dtk-set-predefined-speech-rate
-
-@item 6
- dtk-set-predefined-speech-rate
-
-@item 7
- dtk-set-predefined-speech-rate
-
-@item 8
- dtk-set-predefined-speech-rate
-
-@item 9
- dtk-set-predefined-speech-rate
 
 @end table
 
@@ -612,6 +612,9 @@
 @item =
  emacspeak-wizards-find-longest-line-in-region
 
+@item DEL
+ desktop-clear
+
 @item Q
  emacspeak-wizards-yql-lookup
 
@@ -650,9 +653,6 @@
 
 @item |
  emacspeak-wizards-squeeze-blanks
-
-@item DEL
- desktop-clear
 
 @end table
 

@@ -1253,50 +1253,38 @@ File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-keymap,  Next:
 8.1 Emacspeak Keybindings from emacspeak-keymap
 ===============================================
 
-‘e’
-     end-of-line
+‘"’
+     emacspeak-speak-sexp-interactively
 
-‘C-e’
-     end-of-line
+‘0’
+     emacspeak-speak-predefined-window
 
-‘C-a’
-     emacspeak-toggle-auditory-icons
+‘1’
+     emacspeak-speak-predefined-window
 
-‘!’
-     emacspeak-speak-run-shell-command
+‘2’
+     emacspeak-speak-predefined-window
 
-‘%’
-     emacspeak-speak-current-percentage
+‘3’
+     emacspeak-speak-predefined-window
 
-‘&’
-     emacspeak-wizards-shell-command-on-current-file
+‘4’
+     emacspeak-speak-predefined-window
 
-‘'’
-     emacspeak-pianobar
+‘5’
+     emacspeak-speak-predefined-window
 
-‘(’
-     emacspeak-audio-setup
+‘6’
+     emacspeak-speak-predefined-window
 
-‘)’
-     emacspeak-sounds-select-theme
+‘7’
+     emacspeak-speak-predefined-window
 
-‘,’
-     emacspeak-speak-browse-buffer
+‘8’
+     emacspeak-speak-predefined-window
 
-‘.’
-     dtk-notify-stop
-
-‘/’
-     emacspeak-speak-this-buffer-other-window-display
-
-‘:’
-     emacspeak-m-player-shuffle
-
-‘;’
-     emacspeak-multimedia
-
-‘<’
-     emacspeak-speak-previous-field
+‘9’
+     emacspeak-speak-predefined-window
 
 ‘=’
      emacspeak-speak-current-column
@@ -1319,9 +1307,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-keymap,  Next:
 ‘C’
      emacspeak-customize
 
-‘C-@’
-     emacspeak-speak-current-mark
-
 ‘C-b’
      emacspeak-bookshare
 
@@ -1331,17 +1316,11 @@ File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-keymap,  Next:
 ‘C-d’
      emacspeak-toggle-show-point
 
-‘TAB’
-     emacspeak-table-display-table-in-region
-
 ‘C-j’
      emacspeak-hide-speak-block-sans-prefix
 
 ‘C-l’
      emacspeak-speak-line-number
-
-‘RET’
-     emacspeak-speak-continuously
 
 ‘C-n’
      emacspeak-speak-next-window
@@ -1391,11 +1370,17 @@ File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-keymap,  Next:
 ‘R’
      emacspeak-speak-rectangle
 
+‘RET’
+     emacspeak-speak-continuously
+
 ‘SPC’
      emacspeak-speak-header-line
 
 ‘T’
      emacspeak-view-emacspeak-tips
+
+‘TAB’
+     emacspeak-table-display-table-in-region
 
 ‘V’
      emacspeak-speak-version
@@ -1405,9 +1390,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-keymap,  Next:
 
 ‘[’
      emacspeak-speak-page
-
-‘"’
-     emacspeak-speak-sexp-interactively
 
 ‘\’
      emacspeak-toggle-speak-line-invert-filter
@@ -1487,35 +1469,53 @@ File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-keymap,  Next:
 ‘|’
      emacspeak-speak-line-set-column-filter
 
-‘0’
-     emacspeak-speak-predefined-window
+‘C-@’
+     emacspeak-speak-current-mark
 
-‘1’
-     emacspeak-speak-predefined-window
+‘!’
+     emacspeak-speak-run-shell-command
 
-‘2’
-     emacspeak-speak-predefined-window
+‘%’
+     emacspeak-speak-current-percentage
 
-‘3’
-     emacspeak-speak-predefined-window
+‘&’
+     emacspeak-wizards-shell-command-on-current-file
 
-‘4’
-     emacspeak-speak-predefined-window
+‘'’
+     emacspeak-pianobar
 
-‘5’
-     emacspeak-speak-predefined-window
+‘(’
+     emacspeak-audio-setup
 
-‘6’
-     emacspeak-speak-predefined-window
+‘)’
+     emacspeak-sounds-select-theme
 
-‘7’
-     emacspeak-speak-predefined-window
+‘,’
+     emacspeak-speak-browse-buffer
 
-‘8’
-     emacspeak-speak-predefined-window
+‘.’
+     dtk-notify-stop
 
-‘9’
-     emacspeak-speak-predefined-window
+‘/’
+     emacspeak-speak-this-buffer-other-window-display
+
+‘:’
+     emacspeak-m-player-shuffle
+
+‘;’
+     emacspeak-multimedia
+
+‘<’
+     emacspeak-speak-previous-field
+
+‘C-a’
+     emacspeak-toggle-auditory-icons
+
+‘C-e’
+     end-of-line
+
+‘e’
+     end-of-line
 
 
 File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-dtk-submap,  Next: Emacspeak Keybindings from emacspeak-hyper-keymap,  Prev: Emacspeak Keybindings from emacspeak-keymap,  Up: Emacspeak Keyboard Commands
@@ -1526,8 +1526,59 @@ File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-dtk-submap,  N
 ‘,’
      dtk-toggle-punctuation-mode
 
+‘0’
+     dtk-set-predefined-speech-rate
+
+‘1’
+     dtk-set-predefined-speech-rate
+
+‘2’
+     dtk-set-predefined-speech-rate
+
+‘3’
+     dtk-set-predefined-speech-rate
+
+‘4’
+     dtk-set-predefined-speech-rate
+
+‘5’
+     dtk-set-predefined-speech-rate
+
+‘6’
+     dtk-set-predefined-speech-rate
+
+‘7’
+     dtk-set-predefined-speech-rate
+
+‘8’
+     dtk-set-predefined-speech-rate
+
+‘9’
+     dtk-set-predefined-speech-rate
+
 ‘C’
      dtk-toggle-allcaps-beep
+
+‘C-c’
+     dtk-cloud
+
+‘C-d’
+     dectalk
+
+‘C-e’
+     espeak
+
+‘C-n’
+     dtk-notify-initialize
+
+‘C-o’
+     outloud
+
+‘C-s’
+     dtk-notify-shutdown
+
+‘C-v’
+     outloud-32
 
 ‘L’
      dtk-local-server
@@ -1541,6 +1592,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-dtk-submap,  N
 ‘R’
      dtk-reset-state
 
+‘RET’
+     dtk-set-chunk-separator-syntax
+
 ‘S’
      dtk-set-language
 
@@ -1549,24 +1603,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-dtk-submap,  N
 
 ‘V’
      tts-speak-version
-
-‘C-c’
-     dtk-cloud
-
-‘C-d’
-     dectalk
-
-‘C-e’
-     espeak
-
-‘RET’
-     dtk-set-chunk-separator-syntax
-
-‘C-o’
-     outloud
-
-‘C-v’
-     outloud-32
 
 ‘a’
      dtk-add-cleanup-pattern
@@ -1621,42 +1657,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-dtk-submap,  N
 
 ‘z’
      emacspeak-zap-tts
-
-‘C-n’
-     dtk-notify-initialize
-
-‘C-s’
-     dtk-notify-shutdown
-
-‘0’
-     dtk-set-predefined-speech-rate
-
-‘1’
-     dtk-set-predefined-speech-rate
-
-‘2’
-     dtk-set-predefined-speech-rate
-
-‘3’
-     dtk-set-predefined-speech-rate
-
-‘4’
-     dtk-set-predefined-speech-rate
-
-‘5’
-     dtk-set-predefined-speech-rate
-
-‘6’
-     dtk-set-predefined-speech-rate
-
-‘7’
-     dtk-set-predefined-speech-rate
-
-‘8’
-     dtk-set-predefined-speech-rate
-
-‘9’
-     dtk-set-predefined-speech-rate
 
 
 File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-hyper-keymap,  Next: Emacspeak Keybindings from emacspeak-super-keymap,  Prev: Emacspeak Keybindings from emacspeak-dtk-submap,  Up: Emacspeak Keyboard Commands
@@ -1862,6 +1862,9 @@ File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-personal-keyma
 ‘=’
      emacspeak-wizards-find-longest-line-in-region
 
+‘DEL’
+     desktop-clear
+
 ‘Q’
      emacspeak-wizards-yql-lookup
 
@@ -1900,9 +1903,6 @@ File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-personal-keyma
 
 ‘|’
      emacspeak-wizards-squeeze-blanks
-
-‘DEL’
-     desktop-clear
 
 
 File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-personal-ctlx-keymap,  Prev: Emacspeak Keybindings from emacspeak-personal-keymap,  Up: Emacspeak Keyboard Commands
