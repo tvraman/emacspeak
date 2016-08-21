@@ -389,8 +389,9 @@ This chapter documents a total of %d commands and %d options.\n\n"
                     (not (keymapp  (cdr binding))))
           do 
           (insert
-           (format "@item %s\n %s\n\n"
+           (format "@item %s\n %s\n@findex %s\n"
                    (sd-texinfo-escape (key-description (format "%c" (car binding))))
+                   (cdr binding)
                    (cdr binding))))
     (insert "@end table\n")))
 

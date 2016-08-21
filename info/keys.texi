@@ -5,268 +5,268 @@
 @table @kbd
 @item "
  emacspeak-speak-sexp-interactively
-
+@findex emacspeak-speak-sexp-interactively
 @item 0
  emacspeak-speak-predefined-window
-
+@findex emacspeak-speak-predefined-window
 @item 1
  emacspeak-speak-predefined-window
-
+@findex emacspeak-speak-predefined-window
 @item 2
  emacspeak-speak-predefined-window
-
+@findex emacspeak-speak-predefined-window
 @item 3
  emacspeak-speak-predefined-window
-
+@findex emacspeak-speak-predefined-window
 @item 4
  emacspeak-speak-predefined-window
-
+@findex emacspeak-speak-predefined-window
 @item 5
  emacspeak-speak-predefined-window
-
+@findex emacspeak-speak-predefined-window
 @item 6
  emacspeak-speak-predefined-window
-
+@findex emacspeak-speak-predefined-window
 @item 7
  emacspeak-speak-predefined-window
-
+@findex emacspeak-speak-predefined-window
 @item 8
  emacspeak-speak-predefined-window
-
+@findex emacspeak-speak-predefined-window
 @item 9
  emacspeak-speak-predefined-window
-
+@findex emacspeak-speak-predefined-window
 @item =
  emacspeak-speak-current-column
-
+@findex emacspeak-speak-current-column
 @item >
  emacspeak-speak-next-field
-
+@findex emacspeak-speak-next-field
 @item ?
  emacspeak-websearch-dispatch
-
+@findex emacspeak-websearch-dispatch
 @item @@
  emacspeak-speak-message-at-time
-
+@findex emacspeak-speak-message-at-time
 @item A
  emacspeak-appt-repeat-announcement
-
+@findex emacspeak-appt-repeat-announcement
 @item B
  emacspeak-speak-buffer-interactively
-
+@findex emacspeak-speak-buffer-interactively
 @item C
  emacspeak-customize
-
+@findex emacspeak-customize
 @item C-b
  emacspeak-bookshare
-
+@findex emacspeak-bookshare
 @item C-c
  emacspeak-clipboard-copy
-
+@findex emacspeak-clipboard-copy
 @item C-d
  emacspeak-toggle-show-point
-
+@findex emacspeak-toggle-show-point
 @item C-j
  emacspeak-hide-speak-block-sans-prefix
-
+@findex emacspeak-hide-speak-block-sans-prefix
 @item C-l
  emacspeak-speak-line-number
-
+@findex emacspeak-speak-line-number
 @item C-n
  emacspeak-speak-next-window
-
+@findex emacspeak-speak-next-window
 @item C-o
  emacspeak-ocr
-
+@findex emacspeak-ocr
 @item C-p
  emacspeak-speak-previous-window
-
+@findex emacspeak-speak-previous-window
 @item C-q
  emacspeak-toggle-comint-autospeak
-
+@findex emacspeak-toggle-comint-autospeak
 @item C-s
  tts-restart
-
+@findex tts-restart
 @item C-u
  emacspeak-feeds-browse
-
+@findex emacspeak-feeds-browse
 @item C-v
  view-mode
-
+@findex view-mode
 @item C-w
  emacspeak-speak-window-information
-
+@findex emacspeak-speak-window-information
 @item C-y
  emacspeak-clipboard-paste
-
+@findex emacspeak-clipboard-paste
 @item DEL
  cd-tool
-
+@findex cd-tool
 @item I
  emacspeak-speak-show-active-network-interfaces
-
+@findex emacspeak-speak-show-active-network-interfaces
 @item L
  emacspeak-speak-line-interactively
-
+@findex emacspeak-speak-line-interactively
 @item M
  emacspeak-speak-minor-mode-line
-
+@findex emacspeak-speak-minor-mode-line
 @item N
  emacspeak-view-emacspeak-news
-
+@findex emacspeak-view-emacspeak-news
 @item P
  emacspeak-speak-paragraph-interactively
-
+@findex emacspeak-speak-paragraph-interactively
 @item R
  emacspeak-speak-rectangle
-
+@findex emacspeak-speak-rectangle
 @item RET
  emacspeak-speak-continuously
-
+@findex emacspeak-speak-continuously
 @item SPC
  emacspeak-speak-header-line
-
+@findex emacspeak-speak-header-line
 @item T
  emacspeak-view-emacspeak-tips
-
+@findex emacspeak-view-emacspeak-tips
 @item TAB
  emacspeak-table-display-table-in-region
-
+@findex emacspeak-table-display-table-in-region
 @item V
  emacspeak-speak-version
-
+@findex emacspeak-speak-version
 @item W
  emacspeak-tapestry-select-window-by-name
-
+@findex emacspeak-tapestry-select-window-by-name
 @item [
  emacspeak-speak-page
-
+@findex emacspeak-speak-page
 @item \
  emacspeak-toggle-speak-line-invert-filter
-
+@findex emacspeak-toggle-speak-line-invert-filter
 @item ]
  emacspeak-speak-page-interactively
-
+@findex emacspeak-speak-page-interactively
 @item ^
  emacspeak-filtertext
-
+@findex emacspeak-filtertext
 @item a
  emacspeak-speak-message-again
-
+@findex emacspeak-speak-message-again
 @item b
  emacspeak-speak-buffer
-
+@findex emacspeak-speak-buffer
 @item c
  emacspeak-speak-char
-
+@findex emacspeak-speak-char
 @item f
  emacspeak-speak-buffer-filename
-
+@findex emacspeak-speak-buffer-filename
 @item g
  emacspeak-epub
-
+@findex emacspeak-epub
 @item h
  emacspeak-speak-help
-
+@findex emacspeak-speak-help
 @item i
  emacspeak-tabulate-region
-
+@findex emacspeak-tabulate-region
 @item j
  emacspeak-hide-or-expose-block
-
+@findex emacspeak-hide-or-expose-block
 @item k
  emacspeak-speak-current-kill
-
+@findex emacspeak-speak-current-kill
 @item l
  emacspeak-speak-line
-
+@findex emacspeak-speak-line
 @item m
  emacspeak-speak-mode-line
-
+@findex emacspeak-speak-mode-line
 @item n
  emacspeak-speak-rest-of-buffer
-
+@findex emacspeak-speak-rest-of-buffer
 @item o
  emacspeak-toggle-comint-output-monitor
-
+@findex emacspeak-toggle-comint-output-monitor
 @item p
  emacspeak-speak-paragraph
-
+@findex emacspeak-speak-paragraph
 @item q
  emacspeak-toggle-speak-messages
-
+@findex emacspeak-toggle-speak-messages
 @item r
  emacspeak-speak-region
-
+@findex emacspeak-speak-region
 @item s
  dtk-stop
-
+@findex dtk-stop
 @item t
  emacspeak-speak-time
-
+@findex emacspeak-speak-time
 @item u
  emacspeak-url-template-fetch
-
+@findex emacspeak-url-template-fetch
 @item v
  view-register
-
+@findex view-register
 @item w
  emacspeak-speak-word
-
+@findex emacspeak-speak-word
 @item @{
  emacspeak-speak-paragraph
-
+@findex emacspeak-speak-paragraph
 @item |
  emacspeak-speak-line-set-column-filter
-
+@findex emacspeak-speak-line-set-column-filter
 @item C-@@
  emacspeak-speak-current-mark
-
+@findex emacspeak-speak-current-mark
 @item !
  emacspeak-speak-run-shell-command
-
+@findex emacspeak-speak-run-shell-command
 @item %
  emacspeak-speak-current-percentage
-
+@findex emacspeak-speak-current-percentage
 @item &
  emacspeak-wizards-shell-command-on-current-file
-
+@findex emacspeak-wizards-shell-command-on-current-file
 @item '
  emacspeak-pianobar
-
+@findex emacspeak-pianobar
 @item (
  emacspeak-audio-setup
-
+@findex emacspeak-audio-setup
 @item )
  emacspeak-sounds-select-theme
-
+@findex emacspeak-sounds-select-theme
 @item ,
  emacspeak-speak-browse-buffer
-
+@findex emacspeak-speak-browse-buffer
 @item .
  dtk-notify-stop
-
+@findex dtk-notify-stop
 @item /
  emacspeak-speak-this-buffer-other-window-display
-
+@findex emacspeak-speak-this-buffer-other-window-display
 @item :
  emacspeak-m-player-shuffle
-
+@findex emacspeak-m-player-shuffle
 @item ;
  emacspeak-multimedia
-
+@findex emacspeak-multimedia
 @item <
  emacspeak-speak-previous-field
-
+@findex emacspeak-speak-previous-field
 @item C-a
  emacspeak-toggle-auditory-icons
-
+@findex emacspeak-toggle-auditory-icons
 @item C-e
  end-of-line
-
+@findex end-of-line
 @item e
  end-of-line
-
+@findex end-of-line
 @end table
 
 @node Emacspeak Keybindings from emacspeak-dtk-submap
@@ -275,139 +275,139 @@
 @table @kbd
 @item ,
  dtk-toggle-punctuation-mode
-
+@findex dtk-toggle-punctuation-mode
 @item 0
  dtk-set-predefined-speech-rate
-
+@findex dtk-set-predefined-speech-rate
 @item 1
  dtk-set-predefined-speech-rate
-
+@findex dtk-set-predefined-speech-rate
 @item 2
  dtk-set-predefined-speech-rate
-
+@findex dtk-set-predefined-speech-rate
 @item 3
  dtk-set-predefined-speech-rate
-
+@findex dtk-set-predefined-speech-rate
 @item 4
  dtk-set-predefined-speech-rate
-
+@findex dtk-set-predefined-speech-rate
 @item 5
  dtk-set-predefined-speech-rate
-
+@findex dtk-set-predefined-speech-rate
 @item 6
  dtk-set-predefined-speech-rate
-
+@findex dtk-set-predefined-speech-rate
 @item 7
  dtk-set-predefined-speech-rate
-
+@findex dtk-set-predefined-speech-rate
 @item 8
  dtk-set-predefined-speech-rate
-
+@findex dtk-set-predefined-speech-rate
 @item 9
  dtk-set-predefined-speech-rate
-
+@findex dtk-set-predefined-speech-rate
 @item C
  dtk-toggle-allcaps-beep
-
+@findex dtk-toggle-allcaps-beep
 @item C-c
  dtk-cloud
-
+@findex dtk-cloud
 @item C-d
  dectalk
-
+@findex dectalk
 @item C-e
  espeak
-
+@findex espeak
 @item C-n
  dtk-notify-initialize
-
+@findex dtk-notify-initialize
 @item C-o
  outloud
-
+@findex outloud
 @item C-s
  dtk-notify-shutdown
-
+@findex dtk-notify-shutdown
 @item C-v
  outloud-32
-
+@findex outloud-32
 @item L
  dtk-local-server
-
+@findex dtk-local-server
 @item N
  dtk-set-next-language
-
+@findex dtk-set-next-language
 @item P
  dtk-set-previous-language
-
+@findex dtk-set-previous-language
 @item R
  dtk-reset-state
-
+@findex dtk-reset-state
 @item RET
  dtk-set-chunk-separator-syntax
-
+@findex dtk-set-chunk-separator-syntax
 @item S
  dtk-set-language
-
+@findex dtk-set-language
 @item SPC
  dtk-toggle-splitting-on-white-space
-
+@findex dtk-toggle-splitting-on-white-space
 @item V
  tts-speak-version
-
+@findex tts-speak-version
 @item a
  dtk-add-cleanup-pattern
-
+@findex dtk-add-cleanup-pattern
 @item c
  dtk-toggle-capitalization
-
+@findex dtk-toggle-capitalization
 @item d
  dtk-select-server
-
+@findex dtk-select-server
 @item f
  dtk-set-character-scale
-
+@findex dtk-set-character-scale
 @item i
  emacspeak-toggle-audio-indentation
-
+@findex emacspeak-toggle-audio-indentation
 @item k
  emacspeak-toggle-character-echo
-
+@findex emacspeak-toggle-character-echo
 @item l
  emacspeak-toggle-line-echo
-
+@findex emacspeak-toggle-line-echo
 @item m
  emacspeak-speak-set-mode-punctuations
-
+@findex emacspeak-speak-set-mode-punctuations
 @item n
  dtk-toggle-speak-nonprinting-chars
-
+@findex dtk-toggle-speak-nonprinting-chars
 @item o
  dtk-toggle-strip-octals
-
+@findex dtk-toggle-strip-octals
 @item p
  dtk-set-punctuations
-
+@findex dtk-set-punctuations
 @item q
  dtk-toggle-quiet
-
+@findex dtk-toggle-quiet
 @item r
  dtk-set-rate
-
+@findex dtk-set-rate
 @item s
  dtk-toggle-split-caps
-
+@findex dtk-toggle-split-caps
 @item t
  emacspeak-dial-dtk
-
+@findex emacspeak-dial-dtk
 @item v
  voice-lock-mode
-
+@findex voice-lock-mode
 @item w
  emacspeak-toggle-word-echo
-
+@findex emacspeak-toggle-word-echo
 @item z
  emacspeak-zap-tts
-
+@findex emacspeak-zap-tts
 @end table
 
 @node Emacspeak Keybindings from emacspeak-hyper-keymap
@@ -416,85 +416,85 @@
 @table @kbd
 @item :
  emacspeak-wizards-view-buffers-filtered-by-m-player-mode
-
+@findex emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 @item ;
  emacspeak-m-player-using-openal
-
+@findex emacspeak-m-player-using-openal
 @item B
  eww-list-bookmarks
-
+@findex eww-list-bookmarks
 @item C
  apu-chars
-
+@findex apu-chars
 @item N
  emacspeak-npr-listing
-
+@findex emacspeak-npr-listing
 @item a
  emacspeak-wizards-term
-
+@findex emacspeak-wizards-term
 @item b
  eww-list-buffers
-
+@findex eww-list-buffers
 @item c
  browse-url-chromium
-
+@findex browse-url-chromium
 @item d
  magit-dispatch-popup
-
+@findex magit-dispatch-popup
 @item e
  gmaps
-
+@findex gmaps
 @item f
  emacspeak-webspace-freebase-search
-
+@findex emacspeak-webspace-freebase-search
 @item g
  gnus
-
+@findex gnus
 @item h
  emacspeak-org-capture-link
-
+@findex emacspeak-org-capture-link
 @item i
  ido-everywhere
-
+@findex ido-everywhere
 @item j
  emacspeak-wizards-shell-toggle
-
+@findex emacspeak-wizards-shell-toggle
 @item k
  emacspeak-webspace-knowledge-search
-
+@findex emacspeak-webspace-knowledge-search
 @item l
  emacspeak-librivox
-
+@findex emacspeak-librivox
 @item m
  vm
-
+@findex vm
 @item n
  emacspeak-npr-play-program
-
+@findex emacspeak-npr-play-program
 @item o
  other-frame
-
+@findex other-frame
 @item p
  emacspeak-wizards-pdf-open
-
+@findex emacspeak-wizards-pdf-open
 @item q
  emacspeak-remote-quick-connect-to-server
-
+@findex emacspeak-remote-quick-connect-to-server
 @item r
  org-capture
-
+@findex org-capture
 @item s
  emacspeak-wizards-shell
-
+@findex emacspeak-wizards-shell
 @item t
  twit
-
+@findex twit
 @item u
  browse-url
-
+@findex browse-url
 @item v
  emacspeak-muggles-view/body
-
+@findex emacspeak-muggles-view/body
 @end table
 
 @node Emacspeak Keybindings from emacspeak-super-keymap
@@ -503,55 +503,55 @@
 @table @kbd
 @item .
  auto-correct-update
-
+@findex auto-correct-update
 @item R
  emacspeak-webspace-feed-reader
-
+@findex emacspeak-webspace-feed-reader
 @item S
  soundscape-stop
-
+@findex soundscape-stop
 @item b
  emacspeak-bbc
-
+@findex emacspeak-bbc
 @item e
  elfeed
-
+@findex elfeed
 @item f
  emacspeak-feeds-lookup-and-view
-
+@findex emacspeak-feeds-lookup-and-view
 @item h
  emacspeak-webspace-headlines-browse
-
+@findex emacspeak-webspace-headlines-browse
 @item i
  ciel-ci
-
+@findex ciel-ci
 @item j
  ido-imenu-anywhere
-
+@findex ido-imenu-anywhere
 @item l
  emacspeak-m-player-locate-media
-
+@findex emacspeak-m-player-locate-media
 @item m
  emacspeak-wizards-view-buffers-filtered-by-this-mode
-
+@findex emacspeak-wizards-view-buffers-filtered-by-this-mode
 @item o
  ciel-co
-
+@findex ciel-co
 @item p
  proced
-
+@findex proced
 @item r
  soundscape-restart
-
+@findex soundscape-restart
 @item s
  soundscape
-
+@findex soundscape
 @item t
  soundscape-toggle
-
+@findex soundscape-toggle
 @item u
  soundscape-update-mood
-
+@findex soundscape-update-mood
 @end table
 
 @node Emacspeak Keybindings from emacspeak-alt-keymap
@@ -560,46 +560,46 @@
 @table @kbd
 @item ,
  emacspeak-eldoc-speak-doc
-
+@findex emacspeak-eldoc-speak-doc
 @item a
  emacspeak-feeds-atom-display
-
+@findex emacspeak-feeds-atom-display
 @item c
  emacspeak-wizards-view-buffers-filtered-by-this-mode
-
+@findex emacspeak-wizards-view-buffers-filtered-by-this-mode
 @item e
  eww
-
+@findex eww
 @item f
  emacspeak-feeds-find-feeds
-
+@findex emacspeak-feeds-find-feeds
 @item l
  eww-open-file
-
+@findex eww-open-file
 @item m
  magit-status
-
+@findex magit-status
 @item n
  emacspeak-wizards-cycle-to-next-buffer
-
+@findex emacspeak-wizards-cycle-to-next-buffer
 @item o
  emacspeak-feeds-opml-display
-
+@findex emacspeak-feeds-opml-display
 @item p
  emacspeak-wizards-cycle-to-previous-buffer
-
+@findex emacspeak-wizards-cycle-to-previous-buffer
 @item r
  emacspeak-feeds-rss-display
-
+@findex emacspeak-feeds-rss-display
 @item s
  emacspeak-wizards-tune-in-radio-search
-
+@findex emacspeak-wizards-tune-in-radio-search
 @item t
  emacspeak-wizards-tune-in-radio-browse
-
+@findex emacspeak-wizards-tune-in-radio-browse
 @item u
  emacspeak-m-player-url
-
+@findex emacspeak-m-player-url
 @end table
 
 @node Emacspeak Keybindings from emacspeak-personal-keymap
@@ -608,52 +608,52 @@
 @table @kbd
 @item 3
  emacspeak-wizards-cycle-browser
-
+@findex emacspeak-wizards-cycle-browser
 @item =
  emacspeak-wizards-find-longest-line-in-region
-
+@findex emacspeak-wizards-find-longest-line-in-region
 @item DEL
  desktop-clear
-
+@findex desktop-clear
 @item Q
  emacspeak-wizards-yql-lookup
-
+@findex emacspeak-wizards-yql-lookup
 @item b
  battery
-
+@findex battery
 @item h
  emacspeak-wizards-how-many-matches
-
+@findex emacspeak-wizards-how-many-matches
 @item j
  emacspeak-jabber-popup-roster
-
+@findex emacspeak-jabber-popup-roster
 @item m
  mspools-show
-
+@findex mspools-show
 @item o
  emacspeak-wizards-occur-header-lines
-
+@findex emacspeak-wizards-occur-header-lines
 @item q
  emacspeak-wizards-yql-quotes
-
+@findex emacspeak-wizards-yql-quotes
 @item r
  jabber-activity-switch-to
-
+@findex jabber-activity-switch-to
 @item s
  emacspeak-emergency-tts-restart
-
+@findex emacspeak-emergency-tts-restart
 @item t
  emacspeak-speak-telephone-directory
-
+@findex emacspeak-speak-telephone-directory
 @item u
  emacspeak-wizards-units
-
+@findex emacspeak-wizards-units
 @item v
  emacspeak-wizards-vc-viewer
-
+@findex emacspeak-wizards-vc-viewer
 @item |
  emacspeak-wizards-squeeze-blanks
-
+@findex emacspeak-wizards-squeeze-blanks
 @end table
 
 @node Emacspeak Keybindings from emacspeak-personal-ctlx-keymap
