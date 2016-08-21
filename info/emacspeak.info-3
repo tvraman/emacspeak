@@ -5632,12 +5632,11 @@ repository from ‘https://github.com/tvraman/emacspeak’.
 C-x’.  For now, emacspeak does not bind any commands in keymap ‘C-e C-x’
 — this keymap is left for end-user personalization.
 
-   Note finally that the information presented in the following
-subsections can also be viewed via Emacs’ built-in Help system; e.g.,
-Press ‘C-; C-h’ to get a ‘*Help*’ buffer that displays all keys bound in
+   Note that the information presented in the following subsections can
+also be viewed via Emacs’ built-in Help system; e.g., Press ‘C-; C-h’ to
+get a ‘*Help*’ buffer that displays all keys bound in
 ‘emacspeak-hyper-keymap’.
 
-   subsections
 * Menu:
 
 * Emacspeak Keybindings from emacspeak-keymap::
