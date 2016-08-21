@@ -43,12 +43,12 @@ notice are preserved on all copies.
 @include install.texi
 @include using.texi
 @include audio-desktop.texi
-@include keyboard.texi
 @include voices.texi
 @include online-help.texi
 @include packages.texi
 @include eterm.texi
           @include docs.texi
+          @include keyboard.texi
 @include tts-server.texi
 @include acknowledge.texi
 @c trailer
