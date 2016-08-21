@@ -31,6 +31,10 @@ The Emacspeak @kbd{C-x} keymap.
 
 Primary Emacspeak commands start with @kbd{C-e}. Following @kbd{C-e}
 with @kbd{d} invokes commands that control the text-to-speech engine.
+Note that silencing speech is an exception to this rule @mdash{} Speech
+silence commands are placed directly on the primary emacspeak-keymap
+(@kbd{C-e s} and @kbd{C-e .}).
+
 In addition, Emacspeak introduces four additional keymaps for binding
 its extensive set of facilities to convenient keystrokes.
 
