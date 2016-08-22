@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents Emacspeak, The Complete Audio Desktop.  This
-document was last updated on August 21, 2016.
+document was last updated on August 22, 2016.
 
    The manual is divided into the following chapters.
 
@@ -413,7 +413,8 @@ File: emacspeak.info,  Node: Basic Usage,  Next: Audio Desktop,  Prev: Installat
 6 Basic Usage.
 **************
 
-This chapter gives an overview of how to use Emacspeak.  Note: This
+This chapter gives an overview of how to use Emacspeak; for a full
+listing of Emacspeak keybindings, see *Note emacspeak::.  Note: This
 documentation should be used in conjunction with the online Emacs info
 pages that extensively document Emacs itself.  These sections briefly
 describe the speech-enabling extensions.  However, they should not be

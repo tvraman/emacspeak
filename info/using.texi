@@ -2,7 +2,8 @@
 @node Basic Usage
 @chapter Basic Usage.
 
-This chapter gives an overview of how to use Emacspeak.  Note: This
+This chapter gives an overview of how to use Emacspeak; for a full
+listing of Emacspeak keybindings, see @xref{emacspeak}.  Note: This
 documentation should be used in conjunction with the online Emacs info
 pages that extensively document Emacs itself.  These sections briefly
 describe the speech-enabling extensions.  However, they should not be

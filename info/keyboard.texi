@@ -3,13 +3,12 @@
 
 @cindex Emacs Keyboard Commands 
 
-This chapter details all of the keymaps used by Emacspeak. It is meant
-as a complete reference; for basic usage, see @xref{Basic Usage}.
+This chapter gives an overview of all the keymaps used by Emacspeak. For
+a complete reference, see @xref{emacspeak}. For basic usage, see
+@xref{Basic Usage}.
 
 Emacspeak uses the following keymaps, each of which are invoked by a
-specific prefix key. Subsequent sections of this chapter enumerate the
-keys bound in each of these keymaps.
-
+specific prefix key. 
 @table @kbd
 @item C-e 
 The main Emacspeak keymap.
@@ -53,17 +52,3 @@ Note  that the information presented in the following subsections
 can also be viewed via Emacs' built-in Help system; e.g., Press @kbd{C-;
 C-h} to  get a @code{*Help*} buffer    that displays all keys bound in
 @code{emacspeak-hyper-keymap}.
-
-
-@menu
-* Emacspeak Keybindings from emacspeak-keymap::
-* Emacspeak Keybindings from emacspeak-dtk-submap::
-* Emacspeak Keybindings from emacspeak-hyper-keymap::
-* Emacspeak Keybindings from emacspeak-super-keymap::
-* Emacspeak Keybindings from emacspeak-alt-keymap::
-* Emacspeak Keybindings from emacspeak-personal-keymap::
-* Emacspeak Keybindings from emacspeak-personal-ctlx-keymap::
-@end menu 
-
-
-@include keys.texi
