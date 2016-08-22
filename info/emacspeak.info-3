@@ -12,6 +12,60 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: emacspeak-speedbar,  Next: emacspeak-sql,  Prev: emacspeak-speak,  Up: Emacspeak Commands And Options
+
+12.164 emacspeak-speedbar
+=========================
+
+This module advises speedbar.el for use with Emacs.  The latest speedbar
+can be obtained from ftp://ftp.ultranet.com/pub/zappo/ This module
+ensures that speedbar works smoothly outside a windowing system in
+addition to speech enabling all interactive commands.  Emacspeak also
+adds an Emacspeak environment specific entry point to speedbar
+–emacspeak-speedbar-goto-speedbar– and binds this
+
+12.164.1 emacspeak-speedbar Commands
+------------------------------------
+
+12.164.1.1 emacspeak-speedbar-click
+...................................
+
+ -- Command: emacspeak-speedbar-click
+
+     Does the equivalent of the mouse click from the keyboard
+
+12.164.1.2 emacspeak-speedbar-goto-speedbar
+...........................................
+
+ -- Command: emacspeak-speedbar-goto-speedbar
+
+     Switch to the speedbar
+
+12.164.2 emacspeak-speedbar Options
+-----------------------------------
+
+ -- Variable: User Option emacspeak-speedbar-button-personality
+     personality used for speedbar buttons
+
+ -- Variable: User Option emacspeak-speedbar-default-personality
+     Default personality used in speedbar buffers
+
+ -- Variable: User Option emacspeak-speedbar-directory-personality
+     Speedbar personality for directory buttons
+
+ -- Variable: User Option emacspeak-speedbar-file-personality
+     Personality used for file buttons
+
+ -- Variable: User Option emacspeak-speedbar-highlight-personality
+     Personality used for for speedbar highlight.
+
+ -- Variable: User Option emacspeak-speedbar-selected-personality
+     Personality used to indicate speedbar selection
+
+ -- Variable: User Option emacspeak-speedbar-tag-personality
+     Personality used for speedbar tags
+
+
 File: emacspeak.info,  Node: emacspeak-sql,  Next: emacspeak-sudoku,  Prev: emacspeak-speedbar,  Up: Emacspeak Commands And Options
 
 12.165 emacspeak-sql
@@ -5655,178 +5709,265 @@ File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-keymap,  Next:
 
 ‘"’
      emacspeak-speak-sexp-interactively
+
 ‘0’
      emacspeak-speak-predefined-window
+
 ‘1’
      emacspeak-speak-predefined-window
+
 ‘2’
      emacspeak-speak-predefined-window
+
 ‘3’
      emacspeak-speak-predefined-window
+
 ‘4’
      emacspeak-speak-predefined-window
+
 ‘5’
      emacspeak-speak-predefined-window
+
 ‘6’
      emacspeak-speak-predefined-window
+
 ‘7’
      emacspeak-speak-predefined-window
+
 ‘8’
      emacspeak-speak-predefined-window
+
 ‘9’
      emacspeak-speak-predefined-window
+
 ‘=’
      emacspeak-speak-current-column
+
 ‘>’
      emacspeak-speak-next-field
+
 ‘?’
      emacspeak-websearch-dispatch
+
 ‘@’
      emacspeak-speak-message-at-time
+
 ‘A’
      emacspeak-appt-repeat-announcement
+
 ‘B’
      emacspeak-speak-buffer-interactively
+
 ‘C’
      emacspeak-customize
+
 ‘C-b’
      emacspeak-bookshare
+
 ‘C-c’
      emacspeak-clipboard-copy
+
 ‘C-d’
      emacspeak-toggle-show-point
+
 ‘C-j’
      emacspeak-hide-speak-block-sans-prefix
+
 ‘C-l’
      emacspeak-speak-line-number
+
 ‘C-n’
      emacspeak-speak-next-window
+
 ‘C-o’
      emacspeak-ocr
+
 ‘C-p’
      emacspeak-speak-previous-window
+
 ‘C-q’
      emacspeak-toggle-comint-autospeak
+
 ‘C-s’
      tts-restart
+
 ‘C-u’
      emacspeak-feeds-browse
+
 ‘C-v’
      view-mode
+
 ‘C-w’
      emacspeak-speak-window-information
+
 ‘C-y’
      emacspeak-clipboard-paste
+
 ‘DEL’
      cd-tool
+
 ‘I’
      emacspeak-speak-show-active-network-interfaces
+
 ‘L’
      emacspeak-speak-line-interactively
+
 ‘M’
      emacspeak-speak-minor-mode-line
+
 ‘N’
      emacspeak-view-emacspeak-news
+
 ‘P’
      emacspeak-speak-paragraph-interactively
+
 ‘R’
      emacspeak-speak-rectangle
+
 ‘RET’
      emacspeak-speak-continuously
+
 ‘SPC’
      emacspeak-speak-header-line
+
 ‘T’
      emacspeak-view-emacspeak-tips
+
 ‘TAB’
      emacspeak-table-display-table-in-region
+
 ‘V’
      emacspeak-speak-version
+
 ‘W’
      emacspeak-tapestry-select-window-by-name
+
 ‘[’
      emacspeak-speak-page
+
 ‘\’
      emacspeak-toggle-speak-line-invert-filter
+
 ‘]’
      emacspeak-speak-page-interactively
+
 ‘^’
      emacspeak-filtertext
+
 ‘a’
      emacspeak-speak-message-again
+
 ‘b’
      emacspeak-speak-buffer
+
 ‘c’
      emacspeak-speak-char
+
 ‘f’
      emacspeak-speak-buffer-filename
+
 ‘g’
      emacspeak-epub
+
 ‘h’
      emacspeak-speak-help
+
 ‘i’
      emacspeak-tabulate-region
+
 ‘j’
      emacspeak-hide-or-expose-block
+
 ‘k’
      emacspeak-speak-current-kill
+
 ‘l’
      emacspeak-speak-line
+
 ‘m’
      emacspeak-speak-mode-line
+
 ‘n’
      emacspeak-speak-rest-of-buffer
+
 ‘o’
      emacspeak-toggle-comint-output-monitor
+
 ‘p’
      emacspeak-speak-paragraph
+
 ‘q’
      emacspeak-toggle-speak-messages
+
 ‘r’
      emacspeak-speak-region
+
 ‘s’
      dtk-stop
+
 ‘t’
      emacspeak-speak-time
+
 ‘u’
      emacspeak-url-template-fetch
+
 ‘v’
      view-register
+
 ‘w’
      emacspeak-speak-word
+
 ‘{’
      emacspeak-speak-paragraph
+
 ‘|’
      emacspeak-speak-line-set-column-filter
+
 ‘C-@’
      emacspeak-speak-current-mark
+
 ‘!’
      emacspeak-speak-run-shell-command
+
 ‘%’
      emacspeak-speak-current-percentage
+
 ‘&’
      emacspeak-wizards-shell-command-on-current-file
+
 ‘'’
      emacspeak-pianobar
+
 ‘(’
      emacspeak-audio-setup
+
 ‘)’
      emacspeak-sounds-select-theme
+
 ‘,’
      emacspeak-speak-browse-buffer
+
 ‘.’
      dtk-notify-stop
+
 ‘/’
      emacspeak-speak-this-buffer-other-window-display
+
 ‘:’
      emacspeak-m-player-shuffle
+
 ‘;’
      emacspeak-multimedia
+
 ‘<’
      emacspeak-speak-previous-field
+
 ‘C-a’
      emacspeak-toggle-auditory-icons
+
 ‘C-e’
      end-of-line
+
 ‘e’
      end-of-line
 
@@ -5838,90 +5979,133 @@ File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-dtk-submap,  N
 
 ‘,’
      dtk-toggle-punctuation-mode
+
 ‘0’
      dtk-set-predefined-speech-rate
+
 ‘1’
      dtk-set-predefined-speech-rate
+
 ‘2’
      dtk-set-predefined-speech-rate
+
 ‘3’
      dtk-set-predefined-speech-rate
+
 ‘4’
      dtk-set-predefined-speech-rate
+
 ‘5’
      dtk-set-predefined-speech-rate
+
 ‘6’
      dtk-set-predefined-speech-rate
+
 ‘7’
      dtk-set-predefined-speech-rate
+
 ‘8’
      dtk-set-predefined-speech-rate
+
 ‘9’
      dtk-set-predefined-speech-rate
+
 ‘C’
      dtk-toggle-allcaps-beep
+
 ‘C-c’
      dtk-cloud
+
 ‘C-d’
      dectalk
+
 ‘C-e’
      espeak
+
 ‘C-n’
      dtk-notify-initialize
+
 ‘C-o’
      outloud
+
 ‘C-s’
      dtk-notify-shutdown
+
 ‘C-v’
      outloud-32
+
 ‘L’
      dtk-local-server
+
 ‘N’
      dtk-set-next-language
+
 ‘P’
      dtk-set-previous-language
+
 ‘R’
      dtk-reset-state
+
 ‘RET’
      dtk-set-chunk-separator-syntax
+
 ‘S’
      dtk-set-language
+
 ‘SPC’
      dtk-toggle-splitting-on-white-space
+
 ‘V’
      tts-speak-version
+
 ‘a’
      dtk-add-cleanup-pattern
+
 ‘c’
      dtk-toggle-capitalization
+
 ‘d’
      dtk-select-server
+
 ‘f’
      dtk-set-character-scale
+
 ‘i’
      emacspeak-toggle-audio-indentation
+
 ‘k’
      emacspeak-toggle-character-echo
+
 ‘l’
      emacspeak-toggle-line-echo
+
 ‘m’
      emacspeak-speak-set-mode-punctuations
+
 ‘n’
      dtk-toggle-speak-nonprinting-chars
+
 ‘o’
      dtk-toggle-strip-octals
+
 ‘p’
      dtk-set-punctuations
+
 ‘q’
      dtk-toggle-quiet
+
 ‘r’
      dtk-set-rate
+
 ‘s’
      dtk-toggle-split-caps
+
 ‘v’
      voice-lock-mode
+
 ‘w’
      emacspeak-toggle-word-echo
+
 ‘z’
      emacspeak-zap-tts
 
@@ -5933,56 +6117,82 @@ File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-hyper-keymap, 
 
 ‘:’
      emacspeak-wizards-view-buffers-filtered-by-m-player-mode
+
 ‘;’
      emacspeak-m-player-using-openal
+
 ‘B’
      eww-list-bookmarks
+
 ‘C’
      apu-chars
+
 ‘N’
      emacspeak-npr-listing
+
 ‘a’
      emacspeak-wizards-term
+
 ‘b’
      eww-list-buffers
+
 ‘c’
      browse-url-chromium
+
 ‘d’
      magit-dispatch-popup
+
 ‘e’
      gmaps
+
 ‘f’
      emacspeak-webspace-freebase-search
+
 ‘g’
      gnus
+
 ‘h’
      emacspeak-org-capture-link
+
 ‘i’
      ido-everywhere
+
 ‘j’
      emacspeak-wizards-shell-toggle
+
 ‘k’
      emacspeak-webspace-knowledge-search
+
 ‘l’
      emacspeak-librivox
+
 ‘m’
      vm
+
 ‘n’
      emacspeak-npr-play-program
+
 ‘o’
      other-frame
+
 ‘p’
      emacspeak-wizards-pdf-open
+
 ‘q’
      emacspeak-remote-quick-connect-to-server
+
 ‘r’
      org-capture
+
 ‘s’
      emacspeak-wizards-shell
+
 ‘t’
      twit
+
 ‘u’
      browse-url
+
 ‘v’
      emacspeak-muggles-view/body
 
@@ -5994,36 +6204,52 @@ File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-super-keymap, 
 
 ‘.’
      auto-correct-update
+
 ‘R’
      emacspeak-webspace-feed-reader
+
 ‘S’
      soundscape-stop
+
 ‘b’
      emacspeak-bbc
+
 ‘e’
      elfeed
+
 ‘f’
      emacspeak-feeds-lookup-and-view
+
 ‘h’
      emacspeak-webspace-headlines-browse
+
 ‘i’
      ciel-ci
+
 ‘j’
      ido-imenu-anywhere
+
 ‘l’
      emacspeak-m-player-locate-media
+
 ‘m’
      emacspeak-wizards-view-buffers-filtered-by-this-mode
+
 ‘o’
      ciel-co
+
 ‘p’
      proced
+
 ‘r’
      soundscape-restart
+
 ‘s’
      soundscape
+
 ‘t’
      soundscape-toggle
+
 ‘u’
      soundscape-update-mood
 
@@ -6035,30 +6261,43 @@ File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-alt-keymap,  N
 
 ‘,’
      emacspeak-eldoc-speak-doc
+
 ‘a’
      emacspeak-feeds-atom-display
+
 ‘c’
      emacspeak-wizards-view-buffers-filtered-by-this-mode
+
 ‘e’
      eww
+
 ‘f’
      emacspeak-feeds-find-feeds
+
 ‘l’
      eww-open-file
+
 ‘m’
      magit-status
+
 ‘n’
      emacspeak-wizards-cycle-to-next-buffer
+
 ‘o’
      emacspeak-feeds-opml-display
+
 ‘p’
      emacspeak-wizards-cycle-to-previous-buffer
+
 ‘r’
      emacspeak-feeds-rss-display
+
 ‘s’
      emacspeak-wizards-tune-in-radio-search
+
 ‘t’
      emacspeak-wizards-tune-in-radio-browse
+
 ‘u’
      emacspeak-m-player-url
 
@@ -6070,34 +6309,49 @@ File: emacspeak.info,  Node: Emacspeak Keybindings from emacspeak-personal-keyma
 
 ‘3’
      emacspeak-wizards-cycle-browser
+
 ‘=’
      emacspeak-wizards-find-longest-line-in-region
+
 ‘DEL’
      desktop-clear
+
 ‘Q’
      emacspeak-wizards-yql-lookup
+
 ‘b’
      battery
+
 ‘h’
      emacspeak-wizards-how-many-matches
+
 ‘j’
      emacspeak-jabber-popup-roster
+
 ‘m’
      mspools-show
+
 ‘o’
      emacspeak-wizards-occur-header-lines
+
 ‘q’
      emacspeak-wizards-yql-quotes
+
 ‘r’
      jabber-activity-switch-to
+
 ‘s’
      emacspeak-emergency-tts-restart
+
 ‘t’
      emacspeak-speak-telephone-directory
+
 ‘u’
      emacspeak-wizards-units
+
 ‘v’
      emacspeak-wizards-vc-viewer
+
 ‘|’
      emacspeak-wizards-squeeze-blanks
 
@@ -6383,7 +6637,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <C-right>:                             emacspeak-wizards.  (line  181)
 * <C-up>:                                emacspeak-speak.    (line   83)
 * <f1> ,:                                emacspeak-wizards.  (line  440)
-* <f1> C-e:                              emacspeak.          (line  316)
+* <f1> C-e:                              emacspeak.          (line  466)
 * <f1> C-l:                              emacspeak-wizards.  (line  143)
 * <f1> M:                                emacspeak-wizards.  (line  284)
 * <f1> TAB:                              emacspeak-info.     (line   24)
@@ -6445,7 +6699,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> C-j:                              emacspeak-hide.     (line   42)
 * <fn> C-l:                              emacspeak-speak.    (line  492)
 * <fn> C-M-@:                            emacspeak-speak.    (line  902)
-* <fn> C-M-b:                            emacspeak.          (line  326)
+* <fn> C-M-b:                            emacspeak.          (line  476)
 * <fn> C-M-SPC:                          emacspeak-speak.    (line  901)
 * <fn> C-n:                              emacspeak-speak.    (line  622)
 * <fn> C-o:                              emacspeak-ocr.      (line   23)
@@ -6645,7 +6899,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> {:                                emacspeak-speak.    (line  677)
 * <fn> |:                                emacspeak-speak.    (line  501)
 * <help> ,:                              emacspeak-wizards.  (line  441)
-* <help> C-e:                            emacspeak.          (line  317)
+* <help> C-e:                            emacspeak.          (line  467)
 * <help> C-l:                            emacspeak-wizards.  (line  144)
 * <help> M:                              emacspeak-wizards.  (line  285)
 * <help> TAB:                            emacspeak-info.     (line   25)
@@ -6798,7 +7052,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C-j:                               emacspeak-hide.     (line   41)
 * C-e C-l:                               emacspeak-speak.    (line  491)
 * C-e C-M-@:                             emacspeak-speak.    (line  900)
-* C-e C-M-b:                             emacspeak.          (line  325)
+* C-e C-M-b:                             emacspeak.          (line  475)
 * C-e C-M-SPC:                           emacspeak-speak.    (line  899)
 * C-e C-n:                               emacspeak-speak.    (line  621)
 * C-e C-o:                               emacspeak-ocr.      (line   22)
@@ -6998,7 +7252,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e {:                                 emacspeak-speak.    (line  675)
 * C-e |:                                 emacspeak-speak.    (line  500)
 * C-h ,:                                 emacspeak-wizards.  (line  439)
-* C-h C-e:                               emacspeak.          (line  315)
+* C-h C-e:                               emacspeak.          (line  465)
 * C-h C-l:                               emacspeak-wizards.  (line  141)
 * C-h M:                                 emacspeak-wizards.  (line  283)
 * C-h TAB:                               emacspeak-info.     (line   23)
