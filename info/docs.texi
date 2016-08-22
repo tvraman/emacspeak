@@ -1527,64 +1527,6 @@ u		emacspeak-m-player-url
 
 .
 
-Press C-e x to access keybindings in emacspeak-hyper-keymap:
-key             binding
----             -------
-
-3		emacspeak-wizards-cycle-browser
-=		emacspeak-wizards-find-longest-line-in-region
-Q		emacspeak-wizards-yql-lookup
-b		battery
-e		emacspeak-we-xsl-map
-h		emacspeak-wizards-how-many-matches
-j		emacspeak-jabber-popup-roster
-m		mspools-show
-o		emacspeak-wizards-occur-header-lines
-q		emacspeak-wizards-yql-quotes
-r		jabber-activity-switch-to
-s		emacspeak-emergency-tts-restart
-t		emacspeak-speak-telephone-directory
-u		emacspeak-wizards-units
-v		emacspeak-wizards-vc-viewer
-|		emacspeak-wizards-squeeze-blanks
-DEL		desktop-clear
-
-e C-c		emacspeak-we-junk-by-class-list
-e C-f		emacspeak-we-count-matches
-e C-p		emacspeak-we-xpath-junk-and-follow
-e C-t		emacspeak-we-count-tables
-e C-x		emacspeak-we-count-nested-tables
-e C		emacspeak-we-extract-by-class-list
-e D		emacspeak-we-junk-by-class-list
-e I		emacspeak-we-extract-by-id-list
-e M		emacspeak-we-extract-tables-by-match-list
-e P		emacspeak-we-follow-and-extract-main
-e S		emacspeak-we-style-filter
-e T		emacspeak-we-extract-tables-by-position-list
-e X		emacspeak-we-extract-nested-table-list
-e a		emacspeak-we-xslt-apply
-e b		emacspeak-we-follow-and-filter-by-id
-e c		emacspeak-we-extract-by-class
-e d		emacspeak-we-junk-by-class
-e e		emacspeak-we-url-expand-and-execute
-e f		emacspeak-we-xslt-filter
-e i		emacspeak-we-extract-by-id
-e j		emacspeak-we-xslt-junk
-e k		emacspeak-we-toggle-xsl-keep-result
-e m		emacspeak-we-extract-table-by-match
-e o		emacspeak-we-xsl-toggle
-e p		emacspeak-we-xpath-filter-and-follow
-e r		emacspeak-we-extract-by-role
-e s		emacspeak-we-xslt-select
-e t		emacspeak-we-extract-table-by-position
-e u		emacspeak-we-extract-matching-urls
-e v		emacspeak-we-class-filter-and-follow-link
-e w		emacspeak-we-extract-by-property
-e x		emacspeak-we-extract-nested-table
-e y		emacspeak-we-class-filter-and-follow
-
-.
-
 See the online documentation for individual commands and
 functions for details.   
 @end format

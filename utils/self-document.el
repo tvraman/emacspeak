@@ -351,9 +351,7 @@ This chapter documents a total of %d commands and %d options.\n\n"
       (shell-command-on-region          ; squeeze blanks
        (point-min) (point-max)
        "cat -s" (current-buffer) 'replace)
-      (save-buffer))
-    (self-document-all-keymaps
-     )))
+      (save-buffer))))
 
 ;;}}}
 ;;{{{ Document all keybindings:
