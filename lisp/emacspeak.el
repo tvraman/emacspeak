@@ -448,6 +448,20 @@ term package that comes with emacs-19.29 and later.
 
 \\{emacspeak-keymap}
 
+Emacspeak provides a set of additional keymaps to give easy access to its extensive facilities.
+
+Press C-; to access keybindings in emacspeak-hyper-keymap:
+\\{emacspeak-hyper-keymap}.
+
+Press C-' or C-. to access keybindings in emacspeak-super-keymap:
+\\{emacspeak-super-keymap}.
+
+Press C-, to access keybindings in emacspeak-alt-keymap:
+\\{emacspeak-alt-keymap}.
+
+Press C-e x to access keybindings in emacspeak-hyper-keymap:
+\\{emacspeak-personal-keymap}.
+
 See the online documentation for individual commands and
 functions for details.   "
   (interactive)
