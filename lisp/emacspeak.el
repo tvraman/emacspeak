@@ -459,9 +459,6 @@ Press C-' or C-. to access keybindings in emacspeak-super-keymap:
 Press C-, to access keybindings in emacspeak-alt-keymap:
 \\{emacspeak-alt-keymap}.
 
-Press C-e x to access keybindings in emacspeak-hyper-keymap:
-\\{emacspeak-personal-keymap}.
-
 See the online documentation for individual commands and
 functions for details.   "
   (interactive)
