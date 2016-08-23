@@ -98,6 +98,16 @@
 ;;}}}
 ;;{{{ Helpers:
 
+(loop
+ for i in'(1 2 3) do
+ (eval
+  `(defun  ,(intern  (format "emacspeak-threes-%s" i)) ()
+     "Set next tile."
+     (interactive)
+     (declare (special threes-next-number))
+     (setq threes-next-number ,i)
+     (emacspeak-threes-speak-board))))
+      
 (defsubst emacspeak-threes-sox-gen (number)
   "Generate a tone  that indicates 1, 2 or 3."
   (cond
@@ -145,6 +155,9 @@
 (defun emacspeak-threes-setup ()
   "Set up additional key-bindings."
   (declare (special threes-mode-map))
+  (define-key threes-mode-map "1" 'emacspeak-threes-1)
+  (define-key threes-mode-map "2" 'emacspeak-threes-2)
+  (define-key threes-mode-map "3" 'emacspeak-threes-3)
   (define-key threes-mode-map "s" 'emacspeak-threes-push-state)
   (define-key threes-mode-map "u" 'emacspeak-threes-pop-state)
   (define-key threes-mode-map "g" 'threes)
