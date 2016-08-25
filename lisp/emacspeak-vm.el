@@ -602,11 +602,19 @@ If N is negative, move backward instead."
   "Should VM  use the customizations used by the author of Emacspeak."
   :type 'boolean
   :group 'emacspeak-vm)
+(defvar emacspeak-vm-demote-html-attachments
+  '(favorite-internal  "text/plain" "text/enriched" "text/html" "application/xml+xhtml")
+  "Setting that prefers text/plain alternatives over html/xhtml.")
+
+(defvar emacspeak-vm-promote-html-attachments
+  '(favorite-internal   "text/html" "application/xml+xhtml" "text/plain" "text/enriched")
+  "Setting that prefers  alternatives  html/xhtml over text/plain.")
 
 (defun emacspeak-vm-use-raman-settings ()
   "Customization settings for VM used by the author of
 Emacspeak."
-  (declare (special
+  (declare (special emacspeak-vm-demote-html-attachments
+                    emacspeak-vm-promote-html-attachments
             vm-mime-charset-converter-alist
             vm-mime-default-face-charsets
             vm-frame-per-folder
@@ -627,7 +635,7 @@ Emacspeak."
             vm-mime-alternative-select-method
             vm-move-after-deleting))
   (setq vm-mime-alternative-select-method
-'(favorite-internal  "text/plain" "text/enriched" "text/html" "application/xml+xhtml"))
+emacspeak-vm-demote-html-attachments)
   (setq vm-mime-charset-converter-alist
         '(
           ("utf-8" "iso-8859-1" "iconv -f utf-8 -t iso-8859-1")
@@ -652,6 +660,23 @@ Emacspeak."
         vm-confirm-new-folders t
         vm-move-after-deleting nil)
   t)
+
+
+(defun emacspeak-vm-toggle-html-mime-demotion ()
+  "Toggle state of HTML Mime Demotion."
+  (interactive)
+(declare (special emacspeak-vm-demote-html-attachments
+                  emacspeak-vm-promote-html-attachments
+                  vm-mime-alternative-select-method))
+(cond
+ ((eq vm-mime-alternative-select-method emacspeak-vm-demote-html-attachments)
+  (setq vm-mime-alternative-select-method emacspeak-vm-promote-html-attachments)
+  (message "Prefering HTML Mime alternative."))
+ ((eq vm-mime-alternative-select-method emacspeak-vm-promote-html-attachments)
+  (setq vm-mime-alternative-select-method emacspeak-vm-demote-html-attachments)
+  (message "Prefering Text/Plain Mime alternative."))
+ (t (message "Resetting state to HTML Mime demotion.")
+    (setq vm-mime-alternative-select-method emacspeak-vm-demote-html-attachments))))
 
 (when emacspeak-vm-use-raman-settings
   (emacspeak-vm-use-raman-settings))
