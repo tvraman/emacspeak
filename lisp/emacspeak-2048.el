@@ -267,6 +267,7 @@ Optional interactive prefix arg prompts for a filename."
   "Emacspeak setup for 2048."
   (declaim (special  2048-mode-map))
   (voice-lock-mode -1)
+  (define-key 2048-mode-map "#" 'emacspeak-2048-prune-stack)
   (define-key 2048-mode-map "D" 'emacspeak-2048-drop-row)
   (define-key 2048-mode-map "P" 'emacspeak-2048-prune-stack)
   (define-key 2048-mode-map "R" 'emacspeak-2048-add-row)
