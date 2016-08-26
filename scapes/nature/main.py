@@ -267,7 +267,7 @@ class Nightingales(agent.Agent):
 class ManyNightingales (agent.Agent):
 
     def run(self):
-        nature = builtin.FadeInOutAgent(GardenBackground(0.0),15, 5)
+        nature = builtin.FadeInOutAgent(GardenBackground(0.0),45, 5)
         nc = self.new_channel_pan(
             stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.5)))  # in front
         self.sched_agent(nature, 0, nc)
@@ -342,7 +342,7 @@ class IABirds(agent.Agent):
 class MockingBirds (agent.Agent):
 
     def run(self):
-        nature = builtin.FadeInOutAgent(GardenBackground(0.0), 15, 5)
+        nature = builtin.FadeInOutAgent(GardenBackground(0.0), 45, 5)
         self.sched_agent(nature)
 
         ag = CaMockingBirds(5.0, 10.0, 0.1, 0.5, 1.0)
@@ -401,7 +401,7 @@ class Crickets(agent.Agent):
 class Nightscape (agent.Agent):
 
     def run(self):
-        nature = builtin.FadeInOutAgent(GardenBackground(0.0), 15, 5)
+        nature = builtin.FadeInOutAgent(GardenBackground(0.0), 45, 5)
         nc = self.new_channel_pan(stereo.shiftxy(0, 1.3))  # in front
         self.sched_agent(nature, 0, nc)
 
@@ -428,7 +428,7 @@ class BirdChorus (agent.Agent):
                        TropicalBirds, Nightingales]
 
     def run(self):
-        nature = builtin.FadeInOutAgent(GardenBackground(0.0), 15, 5)
+        nature = builtin.FadeInOutAgent(GardenBackground(0.0), 45, 5)
         self.sched_agent(manage.VolumeModulateAgent(nature, 0.5))
 
         for i in xrange(len(self.agents)):
@@ -452,7 +452,7 @@ class MockingCuckoos (agent.Agent):
             stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.5)))  # in front
         self.sched_agent(nature, 0, nc)
 
-        nature = builtin.FadeInOutAgent(GardenBackground(60.0), 15, 5)
+        nature = builtin.FadeInOutAgent(GardenBackground(60.0), 45, 5)
         nc = self.new_channel_pan(
             stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, -1.5)))  # behind
         self.sched_agent(nature, 0, nc)
@@ -504,7 +504,7 @@ class BirdSongs (agent.Agent):
             stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.5)))  # in front
         self.sched_agent(nature, 0, nc)
 
-        nature = builtin.FadeInOutAgent(GardenBackground(60.0), 15, 5)
+        nature = builtin.FadeInOutAgent(GardenBackground(60.0), 45, 5)
         nc = self.new_channel_pan(
             stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, -1.5)))  # behind
         self.sched_agent(nature, 0, nc)
