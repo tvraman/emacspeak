@@ -119,7 +119,7 @@
     (sox-sin .5 "%14" "fade h .15 .15 "))))
 
 ;;}}}
-;;{{{ Advice interactive commands:
+h;;{{{ Advice interactive commands:
 
 (defun emacspeak-threes-speak-board ()
   "Speak the board."
@@ -175,6 +175,7 @@
 
 (defadvice threes (after emacspeak pre act comp)
   "Provide auditory feedback."
+  (random t)
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-threes-speak-board)))
