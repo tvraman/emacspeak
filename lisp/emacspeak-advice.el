@@ -995,7 +995,7 @@ icon."
     (let ((orig (point)))
       ad-do-it
       (emacspeak-speak-region orig (point))
-      (emacspeak-auditory-icon 'select-object)))
+      (emacspeak-auditory-icon 'yank-object)))
    (t ad-do-it))
   ad-return-value)
 
@@ -1830,7 +1830,7 @@ the newly created blank line."
   "Announce switching to shell mode.
 Provide an auditory icon if possible."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
 (loop
@@ -1905,7 +1905,7 @@ Provide an auditory icon if possible."
   `(defadvice ,f (after emacspeak pre act comp)
      "Announce yourself."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-auditory-icon 'mark-object)
        (message "Narrowed editing region to %s lines"
                 (count-lines (region-beginning)
                              (region-end)))))))
@@ -1914,7 +1914,7 @@ Provide an auditory icon if possible."
   "Announce yourself."
   (when (ems-interactive-p)
     (require 'which-func)
-    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-auditory-icon 'mark-object)
     (message "Narrowed to function %s"
              (which-function))))
 
