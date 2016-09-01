@@ -297,6 +297,7 @@ Useful to do this before you listen to an entire buffer."
           (let ((start nil)
                 (blank-line "\n[ \t\n\r]*\n")
                 (inhibit-point-motion-hooks t)
+                (inhibit-modification-hooks t)
                 (deactivate-mark nil))
             (with-silent-modifications
               (while (re-search-forward blank-line nil t)
@@ -782,6 +783,7 @@ Argument START  and END specify region to speak."
   (declare (special emacspeak-speak-voice-annotated-paragraphs
                     inhibit-point-motion-hooks))
   (let ((inhibit-point-motion-hooks t)
+        (inhibit-modification-hooks t)
         (deactivate-mark nil))
     (when (not emacspeak-speak-voice-annotated-paragraphs)
       (save-restriction
@@ -880,6 +882,7 @@ are indicated with auditory icon ellipses."
             (start  nil)
             (end nil)
             (inhibit-point-motion-hooks t)
+            (inhibit-modification-hooks t)
             (line nil)
             (orig (point))
             (indent nil))
