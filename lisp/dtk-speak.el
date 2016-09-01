@@ -1772,7 +1772,7 @@ only speak upto the first ctrl-m."
              (emacspeak-auditory-icon 'ellipses))))
     (let ((inhibit-point-motion-hooks t) ;snapshot relevant state
           (inhibit-read-only t)
-          (inhibit-modification-hooks nil)
+          (inhibit-modification-hooks t)
           (deactivate-mark nil)
           (invisibility-spec buffer-invisibility-spec)
           (syntax-table (syntax-table))
