@@ -1743,7 +1743,7 @@ If option `outline-minor-mode' is on and selective display is in effect,
 only speak upto the first ctrl-m."
   (declare (special dtk-speaker-process dtk-stop-immediately
                     tts-strip-octals inhibit-point-motion-hooks
-                    inhibit-motion-hooks
+                    inhibit-modification-hooks
                     dtk-speak-server-initialized emacspeak-use-auditory-icons
                     dtk-speech-rate dtk-speak-nonprinting-chars
                     dtk-speak-treat-embedded-punctuations-specially
@@ -1772,7 +1772,7 @@ only speak upto the first ctrl-m."
              (emacspeak-auditory-icon 'ellipses))))
     (let ((inhibit-point-motion-hooks t) ;snapshot relevant state
           (inhibit-read-only t)
-          (inhibit-motion-hooks nil)
+          (inhibit-modification-hooks nil)
           (deactivate-mark nil)
           (invisibility-spec buffer-invisibility-spec)
           (syntax-table (syntax-table))
