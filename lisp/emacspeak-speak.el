@@ -969,6 +969,7 @@ are indicated with auditory icon ellipses."
         (start  nil)
         (end nil)
         (inhibit-point-motion-hooks t)
+        (inhibit-modification-hooks t)
         (line nil)
         (orig (point)))
     (cond
@@ -1032,6 +1033,7 @@ spelled out  instead of being spoken."
   (save-excursion
     (let ((orig (point))
           (inhibit-point-motion-hooks t)
+          (inhibit-modification-hooks t)
           (start nil)
           (end nil)
           (speaker 'dtk-speak))
@@ -1245,6 +1247,7 @@ Negative prefix arg speaks from start of sentence to point."
   (save-excursion
     (let ((orig (point))
           (inhibit-point-motion-hooks t)
+          (inhibit-modification-hooks t)
           (start nil)
           (end nil))
       (forward-sentence 1)
@@ -1269,6 +1272,7 @@ If option  `voice-lock-mode' is on, then uses the personality."
   (save-excursion
     (let ((orig (point))
           (inhibit-point-motion-hooks t)
+          (inhibit-modification-hooks t)
           (start nil)
           (end nil))
       (condition-case nil
