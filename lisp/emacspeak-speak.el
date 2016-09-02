@@ -2010,13 +2010,11 @@ Seconds value is also placed in the kill-ring."
 ;;;###autoload
 (defun emacspeak-speak-current-kill (count)
   "Speak the current kill entry.
-This is the text that will be yanked in by the next \\[yank].
-Prefix numeric arg, COUNT, specifies that the text that will be yanked as a
-result of a
-\\[yank]  followed by count-1 \\[yank-pop]
-be spoken.
- The kill number that is spoken says what numeric prefix arg to give
-to command yank."
+This is the text that will be yanked in
+by the next \\[yank]. Prefix numeric arg, COUNT, specifies that the
+text that will be yanked as a result of a \\[yank] followed by count-1
+\\[yank-pop] be spoken. The kill number that is spoken says what
+numeric prefix arg to give to command yank."
   (interactive "p")
   (let (
         (context
