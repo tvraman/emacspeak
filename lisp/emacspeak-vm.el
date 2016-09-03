@@ -539,6 +539,7 @@ If N is negative, move backward instead."
   (let ((function (if (< n 0) 'previous-single-property-change
                     'next-single-property-change))
         (inhibit-point-motion-hooks t)
+        (inhibit-modification-hooks t)
         (backward (< n 0))
         (limit (if (< n 0) (point-min) (point-max))))
     (setq n (abs n))
