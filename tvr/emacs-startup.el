@@ -208,6 +208,15 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     (bbdb-insinuate-vm)
 
     ;;}}}
+;;{{{ Save abbrevs On Quit:
+
+(when (file-exists-p abbrev-file-name)
+  (read-abbrev-file)
+  (add-hook
+   #'kill-emacs-hook
+   #'(lambda () (write-abbrev-file))))
+
+;;}}}
     ))                                  ; end defun
 ;;{{{  start it up
 
