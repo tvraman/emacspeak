@@ -478,8 +478,10 @@ command \\[customize-variable] on <personality>-settings.. "
   (if voice-lock-mode
       (turn-off-voice-lock)
     (turn-on-voice-lock))
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon (if voice-lock-mode 'on 'off))))
+  (when (called-interactively-p 'interactive)
+    (message "Turned %s voice lock mode in buffer. " 
+(if voice-lock-mode " on " " off "))
+(emacspeak-auditory-icon (if voice-lock-mode 'on 'off))))
 
 ;;;###autoload
 (defvar global-voice-lock-mode t
