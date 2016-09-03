@@ -93,18 +93,20 @@
 
   <h3 class="section">6.5 Voice Lock Mode</h3>
 
-  <p>The status of voice lock mode can be toggled on and off by
-  issuing the command <kbd>C-e d v</kbd> (M-x voice-lock-mode).
-  With a prefix arg, this function applies globally; otherwise, it
-  is local to the current buffer. Voice-lock is turned on
-  automatically when Emacspeak is started. Alternatively, Emacspeak
-  can be set to enable voice lock automatically in all of the major
+  <p>The status of voice lock mode can be toggled on and off in the
+  current buffer by issuing the command <kbd>C-e d v</kbd> (M-x
+  voice-lock-toggle).</p>
+
+  <p>Voice-lock is turned on automatically in all buffers that
+  support it when Emacspeak is started.</p>
+
+  <p>Emacspeak can be set to disable voice lock in all of the major
   modes that support it. To do so, insert the following statement
   into your Emacs initialization file:</p>
 
   <div class="lisp">
     <pre class="lisp">
-(global-voice-lock-mode t)
+(global-voice-lock-mode -1)
 </pre>
   </div>
 

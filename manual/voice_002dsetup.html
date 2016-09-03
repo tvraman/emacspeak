@@ -148,17 +148,7 @@
     arg)</em></dt>
 
     <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e d v</kbd></dt>
-
-        <dd><a name="index-C_002de-d-v" id=
-        "index-C_002de-d-v"></a></dd>
-
-        <dt><kbd>&lt;fn&gt; d v</kbd></dt>
-
-        <dd><a name="index-_003cfn_003e-d-v" id=
-        "index-_003cfn_003e-d-v"></a></dd>
-      </dl><a name="index-voice_002dlock_002dmode-1" id=
+      <a name="index-voice_002dlock_002dmode-1" id=
       "index-voice_002dlock_002dmode-1"></a>
 
       <div class="format">
@@ -178,7 +168,17 @@ Toggle voice lock mode.
     <strong>voice-lock-toggle</strong></dt>
 
     <dd>
-      <a name="index-voice_002dlock_002dtoggle-1" id=
+      <dl compact="compact">
+        <dt><kbd>C-e d v</kbd></dt>
+
+        <dd><a name="index-C_002de-d-v" id=
+        "index-C_002de-d-v"></a></dd>
+
+        <dt><kbd>&lt;fn&gt; d v</kbd></dt>
+
+        <dd><a name="index-_003cfn_003e-d-v" id=
+        "index-_003cfn_003e-d-v"></a></dd>
+      </dl><a name="index-voice_002dlock_002dtoggle-1" id=
       "index-voice_002dlock_002dtoggle-1"></a>
 
       <div class="format">
@@ -411,6 +411,25 @@ take effect.
   <dl>
     <dt><a name="index-User-Option-959" id=
     "index-User-Option-959"></a>Variable: <strong>User
+    Option</strong> <em>voice-lock-global-modes</em></dt>
+
+    <dd>
+      <p>Modes for which Voice Lock mode is automagically turned
+      on. Global Voice Lock mode is controlled by the command
+      ‘global-voice-lock-mode’. If nil, means no modes have Voice
+      Lock mode automatically turned on. If t, all modes that
+      support Voice Lock mode have it automatically turned on. If a
+      list, it should be a list of ‘major-mode’ symbol names for
+      which Voice Lock mode should be automatically turned on. The
+      sense of the list is negated if it begins with ‘not’. For
+      example: (c-mode c++-mode) means that Voice Lock mode is
+      turned on for buffers in C and C++ modes only.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-960" id=
+    "index-User-Option-960"></a>Variable: <strong>User
     Option</strong> <em>voice-lock-overlay-0-settings</em></dt>
 
     <dd>
@@ -420,8 +439,8 @@ take effect.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-960" id=
-    "index-User-Option-960"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-961" id=
+    "index-User-Option-961"></a>Variable: <strong>User
     Option</strong> <em>voice-lock-overlay-1-settings</em></dt>
 
     <dd>
@@ -431,8 +450,8 @@ take effect.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-961" id=
-    "index-User-Option-961"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-962" id=
+    "index-User-Option-962"></a>Variable: <strong>User
     Option</strong> <em>voice-lock-overlay-2-settings</em></dt>
 
     <dd>
@@ -442,8 +461,8 @@ take effect.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-962" id=
-    "index-User-Option-962"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-963" id=
+    "index-User-Option-963"></a>Variable: <strong>User
     Option</strong> <em>voice-lock-overlay-3-settings</em></dt>
 
     <dd>
@@ -453,8 +472,8 @@ take effect.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-963" id=
-    "index-User-Option-963"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-964" id=
+    "index-User-Option-964"></a>Variable: <strong>User
     Option</strong> <em>voice-monotone-light-settings</em></dt>
 
     <dd>
@@ -463,8 +482,8 @@ take effect.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-964" id=
-    "index-User-Option-964"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-965" id=
+    "index-User-Option-965"></a>Variable: <strong>User
     Option</strong> <em>voice-monotone-medium-settings</em></dt>
 
     <dd>
@@ -473,8 +492,8 @@ take effect.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-965" id=
-    "index-User-Option-965"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-966" id=
+    "index-User-Option-966"></a>Variable: <strong>User
     Option</strong> <em>voice-monotone-settings</em></dt>
 
     <dd>
@@ -484,8 +503,8 @@ take effect.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-966" id=
-    "index-User-Option-966"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-967" id=
+    "index-User-Option-967"></a>Variable: <strong>User
     Option</strong> <em>voice-punctuations-all-settings</em></dt>
 
     <dd>
@@ -495,8 +514,8 @@ take effect.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-967" id=
-    "index-User-Option-967"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-968" id=
+    "index-User-Option-968"></a>Variable: <strong>User
     Option</strong> <em>voice-punctuations-none-settings</em></dt>
 
     <dd>
@@ -506,8 +525,8 @@ take effect.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-968" id=
-    "index-User-Option-968"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-969" id=
+    "index-User-Option-969"></a>Variable: <strong>User
     Option</strong> <em>voice-punctuations-some-settings</em></dt>
 
     <dd>
@@ -517,8 +536,8 @@ take effect.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-969" id=
-    "index-User-Option-969"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-970" id=
+    "index-User-Option-970"></a>Variable: <strong>User
     Option</strong> <em>voice-setup-sample-text</em></dt>
 
     <dd>
@@ -527,8 +546,8 @@ take effect.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-970" id=
-    "index-User-Option-970"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-971" id=
+    "index-User-Option-971"></a>Variable: <strong>User
     Option</strong> <em>voice-smoothen-extra-settings</em></dt>
 
     <dd>
@@ -537,8 +556,8 @@ take effect.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-971" id=
-    "index-User-Option-971"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-972" id=
+    "index-User-Option-972"></a>Variable: <strong>User
     Option</strong> <em>voice-smoothen-medium-settings</em></dt>
 
     <dd>
@@ -547,8 +566,8 @@ take effect.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-972" id=
-    "index-User-Option-972"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-973" id=
+    "index-User-Option-973"></a>Variable: <strong>User
     Option</strong> <em>voice-smoothen-settings</em></dt>
 
     <dd>
@@ -557,8 +576,8 @@ take effect.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-973" id=
-    "index-User-Option-973"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-974" id=
+    "index-User-Option-974"></a>Variable: <strong>User
     Option</strong> <em>voice-womanize-1-settings</em></dt>
 
     <dd>
