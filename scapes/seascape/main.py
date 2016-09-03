@@ -25,7 +25,7 @@ class SurfWaves(agent.Agent):
             nature.Nightingales(
                 0, 10,  # Duration
                 0.25, 1.0,  # volume
-                1)
+                1),
             75, 15)
         self.sched_agent(ag, 0, bc)
 
