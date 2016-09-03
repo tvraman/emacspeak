@@ -991,13 +991,6 @@ Use this to nuke the currently running TTS server and restart it.
 
 @subsubsection tts-speak-version
 @deffn {Command} tts-speak-version   
-@table @kbd
-@item C-e d V
-@kindex C-e d V
-@item <fn> d V
-@kindex <fn> d V
-@end table
-
 @findex tts-speak-version
 
 @format
@@ -1377,7 +1370,7 @@ d N		dtk-set-next-language
 d P		dtk-set-previous-language
 d R		dtk-reset-state
 d S		dtk-set-language
-d V		tts-speak-version
+d V		global-voice-lock-mode
 d a		dtk-add-cleanup-pattern
 d c		dtk-toggle-capitalization
 d d		dtk-select-server
