@@ -5162,8 +5162,6 @@ be customized via custom see the documentation for defvoice.
 ..........................
 
  -- Command: voice-lock-mode (&optional arg)
-     ‘C-e d v’
-     ‘<fn> d v’
 
      Toggle voice lock mode.
 
@@ -5171,6 +5169,8 @@ be customized via custom see the documentation for defvoice.
 ............................
 
  -- Command: voice-lock-toggle
+     ‘C-e d v’
+     ‘<fn> d v’
 
      Interactively toggle voice lock.
 
@@ -5246,6 +5246,18 @@ be customized via custom see the documentation for defvoice.
 
  -- Variable: User Option voice-lighten-settings
      Lighten current voice.
+
+ -- Variable: User Option voice-lock-global-modes
+     Modes for which Voice Lock mode is automagically turned on.  Global
+     Voice Lock mode is controlled by the command
+     ‘global-voice-lock-mode’.  If nil, means no modes have Voice Lock
+     mode automatically turned on.  If t, all modes that support Voice
+     Lock mode have it automatically turned on.  If a list, it should be
+     a list of ‘major-mode’ symbol names for which Voice Lock mode
+     should be automatically turned on.  The sense of the list is
+     negated if it begins with ‘not’.  For example: (c-mode c++-mode)
+     means that Voice Lock mode is turned on for buffers in C and C++
+     modes only.
 
  -- Variable: User Option voice-lock-overlay-0-settings
      Overlay voice that sets dimension 0 of ACSS structure to 8.
@@ -6197,7 +6209,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> d s:                              dtk-speak.          (line  310)
 * <fn> d SPC:                            dtk-speak.          (line  323)
 * <fn> d V:                              dtk-speak.          (line  373)
-* <fn> d v:                              voice-setup.        (line   52)
+* <fn> d v:                              voice-setup.        (line   59)
 * <fn> d w:                              emacspeak-speak.    (line 1146)
 * <fn> d z:                              emacspeak-speak.    (line 1187)
 * <fn> DEL:                              cd-tool.            (line   21)
@@ -6550,7 +6562,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e d s:                               dtk-speak.          (line  309)
 * C-e d SPC:                             dtk-speak.          (line  322)
 * C-e d V:                               dtk-speak.          (line  372)
-* C-e d v:                               voice-setup.        (line   51)
+* C-e d v:                               voice-setup.        (line   58)
 * C-e d w:                               emacspeak-speak.    (line 1145)
 * C-e d z:                               emacspeak-speak.    (line 1186)
 * C-e DEL:                               cd-tool.            (line   20)

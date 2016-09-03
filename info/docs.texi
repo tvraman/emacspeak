@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1169 commands and 975 options.
+This chapter documents a total of 1169 commands and 976 options.
 
 @menu
 * acss-structure::
@@ -1392,7 +1392,7 @@ d p		dtk-set-punctuations
 d q		dtk-toggle-quiet
 d r		dtk-set-rate
 d s		dtk-toggle-split-caps
-d v		voice-lock-mode
+d v		voice-lock-toggle
 d w		emacspeak-toggle-word-echo
 d z		emacspeak-zap-tts
 
@@ -22754,13 +22754,6 @@ documentation for defvoice.
 
 @subsubsection voice-lock-mode
 @deffn {Command} voice-lock-mode  (&optional arg)
-@table @kbd
-@item C-e d v
-@kindex C-e d v
-@item <fn> d v
-@kindex <fn> d v
-@end table
-
 @findex voice-lock-mode
 
 @format
@@ -22770,6 +22763,13 @@ Toggle voice lock mode.
 
 @subsubsection voice-lock-toggle
 @deffn {Command} voice-lock-toggle   
+@table @kbd
+@item C-e d v
+@kindex C-e d v
+@item <fn> d v
+@kindex <fn> d v
+@end table
+
 @findex voice-lock-toggle
 
 @format
@@ -22885,6 +22885,19 @@ Add medium lightness to  current voice.
 
 @defvar {User Option} voice-lighten-settings
 Lighten current voice.
+
+@end defvar
+
+@defvar {User Option} voice-lock-global-modes
+Modes for which Voice Lock mode is automagically turned on.
+Global Voice Lock mode is controlled by the command ‘global-voice-lock-mode’.
+If nil, means no modes have Voice Lock mode automatically turned on.
+If t, all modes that support Voice Lock mode have it automatically turned on.
+If a list, it should be a list of ‘major-mode’ symbol names for which Voice Lock
+mode should be automatically turned on.  The sense of the list is negated if it
+begins with ‘not’.  For example:
+ (c-mode c++-mode)
+means that Voice Lock mode is turned on for buffers in C and C++ modes only.
 
 @end defvar
 

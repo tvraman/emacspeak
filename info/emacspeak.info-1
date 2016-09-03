@@ -913,15 +913,17 @@ File: emacspeak.info,  Node: Voice-lock,  Next: Status Information,  Prev: Speec
 6.5 Voice Lock Mode
 ===================
 
-The status of voice lock mode can be toggled on and off by issuing the
-command ‘C-e d v’ (M-x voice-lock-mode).  With a prefix arg, this
-function applies globally; otherwise, it is local to the current buffer.
-Voice-lock is turned on automatically when Emacspeak is started.
-Alternatively, Emacspeak can be set to enable voice lock automatically
-in all of the major modes that support it.  To do so, insert the
-following statement into your Emacs initialization file:
+The status of voice lock mode can be toggled on and off in the current
+buffer by issuing the command ‘C-e d v’ (M-x voice-lock-toggle).
 
-     (global-voice-lock-mode t)
+   Voice-lock is turned on automatically in all buffers that support it
+when Emacspeak is started.
+
+   Emacspeak can be set to disable voice lock in all of the major modes
+that support it.  To do so, insert the following statement into your
+Emacs initialization file:
+
+     (global-voice-lock-mode -1)
 
    Note that the list of major modes in which ‘global-voice-lock-mode’
 will provide automatic activation is specified in the variable
@@ -2943,7 +2945,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1169 commands and 975 options.
+This chapter documents a total of 1169 commands and 976 options.
 
 * Menu:
 
@@ -4089,7 +4091,7 @@ system.
      d q		dtk-toggle-quiet
      d r		dtk-set-rate
      d s		dtk-toggle-split-caps
-     d v		voice-lock-mode
+     d v		voice-lock-toggle
      d w		emacspeak-toggle-word-echo
      d z		emacspeak-zap-tts
 
