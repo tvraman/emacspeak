@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1162 commands and 975 options.
+This chapter documents a total of 1169 commands and 975 options.
 
 @menu
 * acss-structure::
@@ -4113,33 +4113,6 @@ Note that the file is overwritten silently.
 @format
 Import game.
 Optional interactive prefix arg prompts for a filename.
-@end format
-@end deffn
-
-@subsubsection emacspeak-2048-pop-state
-@deffn {Command} emacspeak-2048-pop-state   
-@findex emacspeak-2048-pop-state
-
-@format
-Reset state from stack.
-@end format
-@end deffn
-
-@subsubsection emacspeak-2048-prune-stack
-@deffn {Command} emacspeak-2048-prune-stack  (drop)
-@findex emacspeak-2048-prune-stack
-
-@format
-Prune game stack to specified length.
-@end format
-@end deffn
-
-@subsubsection emacspeak-2048-push-state
-@deffn {Command} emacspeak-2048-push-state   
-@findex emacspeak-2048-push-state
-
-@format
-Push current game state on stack.
 @end format
 @end deffn
 
@@ -14642,13 +14615,11 @@ Speak current field.
 
 @format
 Speak the current kill entry.
-This is the text that will be yanked in by the next C-y.
-Prefix numeric arg, COUNT, specifies that the text that will be yanked as a
-result of a
-C-y  followed by count-1 M-y
-be spoken.
- The kill number that is spoken says what numeric prefix arg to give
-to command yank.
+This is the text that will be yanked in
+by the next C-y. Prefix numeric arg, COUNT, specifies that the
+text that will be yanked as a result of a C-y followed by count-1
+M-y be spoken. The kill number that is spoken says what
+numeric prefix arg to give to command yank.
 @end format
 @end deffn
 
@@ -17309,6 +17280,81 @@ You can use @kbd{SPC} and @kbd{/} to review the board.
 
 @subsection emacspeak-threes Commands
 
+@subsubsection emacspeak-2048-pop-state
+@deffn {Command} emacspeak-2048-pop-state   
+@findex emacspeak-2048-pop-state
+
+@format
+Reset state from stack.
+@end format
+@end deffn
+
+@subsubsection emacspeak-2048-prune-stack
+@deffn {Command} emacspeak-2048-prune-stack  (drop)
+@findex emacspeak-2048-prune-stack
+
+@format
+Prune game stack to specified length.
+@end format
+@end deffn
+
+@subsubsection emacspeak-2048-push-state
+@deffn {Command} emacspeak-2048-push-state   
+@findex emacspeak-2048-push-state
+
+@format
+Push current game state on stack.
+@end format
+@end deffn
+
+@subsubsection emacspeak-threes-1
+@deffn {Command} emacspeak-threes-1   
+@findex emacspeak-threes-1
+
+@format
+Set next tile.
+@end format
+@end deffn
+
+@subsubsection emacspeak-threes-2
+@deffn {Command} emacspeak-threes-2   
+@findex emacspeak-threes-2
+
+@format
+Set next tile.
+@end format
+@end deffn
+
+@subsubsection emacspeak-threes-3
+@deffn {Command} emacspeak-threes-3   
+@findex emacspeak-threes-3
+
+@format
+Set next tile.
+@end format
+@end deffn
+
+@subsubsection emacspeak-threes-export
+@deffn {Command} emacspeak-threes-export  (&optional prompt)
+@findex emacspeak-threes-export
+
+@format
+Exports game stack to a file.
+Optional interactive prefix arg prompts for a file.
+Note that the file is overwritten silently.
+@end format
+@end deffn
+
+@subsubsection emacspeak-threes-import
+@deffn {Command} emacspeak-threes-import  (&optional prompt)
+@findex emacspeak-threes-import
+
+@format
+Import game.
+Optional interactive prefix arg prompts for a filename.
+@end format
+@end deffn
+
 @subsubsection emacspeak-threes-pop-state
 @deffn {Command} emacspeak-threes-pop-state   
 @findex emacspeak-threes-pop-state
@@ -17580,6 +17626,15 @@ Speak a message’s labels
 
 @format
 Move point to the message body.
+@end format
+@end deffn
+
+@subsubsection emacspeak-vm-toggle-html-mime-demotion
+@deffn {Command} emacspeak-vm-toggle-html-mime-demotion   
+@findex emacspeak-vm-toggle-html-mime-demotion
+
+@format
+Toggle state of HTML Mime Demotion.
 @end format
 @end deffn
 
@@ -20436,6 +20491,20 @@ called ‘emacspeak-occur-pattern’ that holds a regular expression
 that matches  lines of interest, you can use this command to conveniently
 run ‘how-many’ to count  matching header lines.
 With interactive prefix arg, prompts for and remembers the file local pattern.
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-ido-yank
+@deffn {Command} emacspeak-wizards-ido-yank   
+@table @kbd
+@item C-M-y
+@kindex C-M-y
+@end table
+
+@findex emacspeak-wizards-ido-yank
+
+@format
+Pick what to yank using ido completion.
 @end format
 @end deffn
 

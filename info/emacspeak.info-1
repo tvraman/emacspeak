@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents Emacspeak, The Complete Audio Desktop.  This
-document was last updated on August 22, 2016.
+document was last updated on September 3, 2016.
 
    The manual is divided into the following chapters.
 
@@ -2943,7 +2943,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1162 commands and 975 options.
+This chapter documents a total of 1169 commands and 975 options.
 
 * Menu:
 
@@ -6382,50 +6382,29 @@ Speech-enable 2048 Game
      Import game.
      Optional interactive prefix arg prompts for a filename.
 
-12.12.1.6 emacspeak-2048-pop-state
-..................................
-
- -- Command: emacspeak-2048-pop-state
-
-     Reset state from stack.
-
-12.12.1.7 emacspeak-2048-prune-stack
-....................................
-
- -- Command: emacspeak-2048-prune-stack (drop)
-
-     Prune game stack to specified length.
-
-12.12.1.8 emacspeak-2048-push-state
-...................................
-
- -- Command: emacspeak-2048-push-state
-
-     Push current game state on stack.
-
-12.12.1.9 emacspeak-2048-randomize-game
+12.12.1.6 emacspeak-2048-randomize-game
 .......................................
 
  -- Command: emacspeak-2048-randomize-game (&optional count)
 
      Puts game in a randomized new state.
 
-12.12.1.10 emacspeak-2048-score
-...............................
+12.12.1.7 emacspeak-2048-score
+..............................
 
  -- Command: emacspeak-2048-score
 
      Show total on board.
 
-12.12.1.11 emacspeak-2048-speak-board
-.....................................
+12.12.1.8 emacspeak-2048-speak-board
+....................................
 
  -- Command: emacspeak-2048-speak-board
 
      Speak board.
 
-12.12.1.12 emacspeak-2048-speak-transposed-board
-................................................
+12.12.1.9 emacspeak-2048-speak-transposed-board
+...............................................
 
  -- Command: emacspeak-2048-speak-transposed-board
 
