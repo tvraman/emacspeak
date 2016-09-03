@@ -314,7 +314,7 @@
    ("q" dtk-toggle-quiet)
    ("r" dtk-set-rate)
    ("s" dtk-toggle-split-caps)
-   ("v" voice-lock-mode)
+   ("v" voice-lock-toggle)
    ("w" emacspeak-toggle-word-echo)
    ("z" emacspeak-zap-tts)
    ("C-n" dtk-notify-initialize)
