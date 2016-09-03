@@ -293,7 +293,7 @@
    ("R" dtk-reset-state)
    ("S" dtk-set-language)
    ("SPC" dtk-toggle-splitting-on-white-space)
-   ("V" tts-speak-version)
+   ("V" global-voice-lock-mode)
    ("\C-c" dtk-cloud)
    ("\C-d" dectalk)
    ("\C-e" espeak)
