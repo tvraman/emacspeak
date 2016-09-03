@@ -706,6 +706,10 @@ interactive command that the key sequence executes."
                 'emacspeak-hyper-keymap)
 (define-key emacspeak-hyper-keymap " " 'emacspeak-webspace)
 ;;}}}
+;;{{{ Wizard bindings:
+(global-set-key (kbd "M-C-y") 'emacspeak-wizards-ido-yank)
+
+;;}}}
 ;;{{{ Keymaps <-> Org (text) Files :
 
 ;;; This makes it easy to consolidate personal bindings across machines.

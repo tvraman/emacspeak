@@ -3278,7 +3278,7 @@ Optional interactive prefix arg shows  unprocessed results."
   (insert-string
    (ido-completing-read "Yank what? " (mapcar 'substring-no-properties kill-ring))))
 
-(global-set-key (kbd "M-C-y") 'emacspeak-wizards-ido-yank)
+
 ;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
