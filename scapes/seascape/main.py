@@ -21,31 +21,35 @@ class SurfWaves(agent.Agent):
 
         bc = self.new_channel_pan(
             stereo.compose(stereo.scalexy(1.1), stereo.shiftxy(0, 1.25)))
-        ag = nature.Nightingales(
-            0, 10,  # Duration
-            0.25, 1.0,  # volume
-            1)
+        ag = builtin.FadeInOutAgent(
+            nature.Nightingales(
+                0, 10,  # Duration
+                0.25, 1.0,  # volume
+                1)
+            75, 15)
         self.sched_agent(ag, 0, bc)
 
         bc = self.new_channel_pan(
             stereo.compose(stereo.scalexy(1.3), stereo.shiftxy(0, -1.25)))
-        ag = nature.Cuckoos(
-            0, 35,  # Duration
-            0.05, 0.75,  # volume
-            1)
+        ag = builtin.FadeInOutAgent(
+            nature.Cuckoos(
+                0, 35,  # Duration
+                0.05, 0.75,  # volume
+                1),
+            90, 15)
         self.sched_agent(ag, 0, bc)
         for i in range(16):
             y = 1 + i * 0.025
             sc = self.new_channel_pan(
                 stereo.compose(stereo.scalexy(1.4), stereo.shiftxy(0, y)))
-            ag = builtin.FadeInOutAgent(SurfBackgroundWaves(), 60, 15)
+            ag = builtin.FadeInOutAgent(SurfBackgroundWaves(), 90, 15)
             self.sched_agent(ag, i * 2, sc)
 
         for i in range(16):
             y = 1 + i * 0.025
             sc = self.new_channel_pan(
                 stereo.compose(stereo.scalexy(1.4), stereo.shiftxy(0, y)))
-            ag = builtin.FadeInOutAgent(SurfWaveSounds(), 60, 10)
+            ag = builtin.FadeInOutAgent(SurfWaveSounds(), 90, 10)
             self.sched_agent(ag, i * 8, sc)
 
 
