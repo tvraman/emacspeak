@@ -42,14 +42,14 @@ class SurfWaves(agent.Agent):
             y = 1 + i * 0.025
             sc = self.new_channel_pan(
                 stereo.compose(stereo.scalexy(1.4), stereo.shiftxy(0, y)))
-            ag = builtin.FadeInOutAgent(SurfBackgroundWaves(), 90, 15)
+            ag = builtin.FadeInOutAgent(SurfBackgroundWaves(), 150, 30)
             self.sched_agent(ag, i * 2, sc)
 
         for i in range(16):
             y = 1 + i * 0.025
             sc = self.new_channel_pan(
                 stereo.compose(stereo.scalexy(1.4), stereo.shiftxy(0, y)))
-            ag = builtin.FadeInOutAgent(SurfWaveSounds(), 90, 10)
+            ag = builtin.FadeInOutAgent(SurfWaveSounds(), 180, 30)
             self.sched_agent(ag, i * 8, sc)
 
 
