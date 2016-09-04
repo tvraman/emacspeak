@@ -33,7 +33,7 @@ class SurfWaves(agent.Agent):
             0, 35,  # Duration
             0.05, 0.75,  # volume
             1)
-            
+
         self.sched_agent(ag, 0, bc)
         for i in range(16):
             y = 1 + i * 0.025
@@ -41,9 +41,6 @@ class SurfWaves(agent.Agent):
                 stereo.compose(stereo.scalexy(1.4), stereo.shiftxy(0, y)))
             ag = builtin.FadeInOutAgent(SurfBackgroundWaves(), 150, 30)
             self.sched_agent(ag, i * 2, sc)
-
-        for i in range(16):
-            y = 1 + i * 0.025
             sc = self.new_channel_pan(
                 stereo.compose(stereo.scalexy(1.4), stereo.shiftxy(0, y)))
             ag = builtin.FadeInOutAgent(SurfWaveSounds(), 180, 30)
@@ -56,7 +53,7 @@ class SurfWaveSounds(agent.Agent):
         ag = play.IntermittentSoundsList(
             mindelay=1.0, maxdelay=8.0,
             minpitch=0.2, maxpitch=1.0,
-            minvol=0.02, maxvol=0.25,
+            minvol=0.02, maxvol=0.75,
             maxpan=1.25, sounds=wavesounds)
         self.sched_agent(ag)
 
@@ -65,7 +62,7 @@ class SurfBackgroundWaves(agent.Agent):
 
     def run(self):
         p = random.uniform(0.2, 1.0)
-        v = random.uniform(0.01, 0.1)
+        v = random.uniform(0.1, 0.9)
         d = random.uniform(0.3, 12.0)
         pan = random.uniform(-1.25, 1.25)
         dur = self.sched_note_pan(water.waves_light, pan, pitch=p, volume=v)
