@@ -111,7 +111,7 @@ such as pronunciation dictionaries are stored. ")
 (defvar emacspeak-media-extensions
   (let
       ((ext
-        '("wma" "wmv" "flv" "m4a" "m4b"  "flac" ".aiff"
+        '("wma" "wmv" "flv" "m4a" "m4b"  "flac" ".aiff" ".aac"
           "ogv" "oga""ogg" "mp3"  "mp4" "webm" "wav")))
     (concat
      "\\."
