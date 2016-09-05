@@ -35,7 +35,7 @@ class SurfWaves(agent.Agent):
             1)
 
         self.sched_agent(ag, 0, bc)
-        for i in range(16):
+        for i in range(8):
             y = 1 + i * 0.025
             sc = self.new_channel_pan(
                 stereo.compose(stereo.scalexy(1.4), stereo.shiftxy(0, y)))
@@ -53,7 +53,7 @@ class SurfWaveSounds(agent.Agent):
         ag = play.IntermittentSoundsList(
             mindelay=1.0, maxdelay=8.0,
             minpitch=0.2, maxpitch=1.0,
-            minvol=0.02, maxvol=0.75,
+            minvol=0.02, maxvol=0.5,
             maxpan=1.25, sounds=wavesounds)
         self.sched_agent(ag)
 
