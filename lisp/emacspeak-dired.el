@@ -130,11 +130,12 @@
    ((ems-interactive-p)
     (let ((directory-p (file-directory-p (dired-get-filename t t))))
       ad-do-it
-      (when directory-p
-        (emacspeak-dired-label-fields))
+      (when directory-p (emacspeak-dired-label-fields))
+      (emacspeak-speak-mode-line)
       (emacspeak-auditory-icon 'open-object)))
    (t ad-do-it))
   ad-return-value)
+
 (loop
  for  f in
  '(
@@ -418,7 +419,7 @@ On a directory line, run du -s on the directory to speak its size."
      ((and handler (fboundp handler))
       (emacspeak-auditory-icon 'task-done)
       (funcall handler))
-     (t (error  "No known handler")))))
+     (t (call-interactively #'dired-find-file)))))
 
 (defun emacspeak-dired-eww-open ()
   "Open HTML file on current dired line."
