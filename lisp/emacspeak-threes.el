@@ -409,7 +409,7 @@ Optional interactive prefix arg prompts for a filename."
   (interactive "P")
   (let ((file
          (if prompt
-             (read-file-name "File to save game to: ")
+             (read-file-name "File to import game from: ")
            emacspeak-threes-game-file)))
     (load-file file)
     (loop
