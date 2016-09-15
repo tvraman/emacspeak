@@ -116,7 +116,7 @@
    ((= 2 number)
     (sox-sin .5 "%2" "fade h .15 .15 "))
    ((= 3 number)
-    (sox-sin .5 "%14" "fade h .15 .15 "))))
+    (sox-sin .7 "%6" "fade h .2 .2 "))))
 
 ;;}}}
 h;;{{{ Advice interactive commands:
