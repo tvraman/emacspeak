@@ -110,13 +110,11 @@
       
 (defsubst emacspeak-threes-sox-gen (number)
   "Generate a tone  that indicates 1, 2 or 3."
-  (cond
-   ((= 1 number)
-    (sox-sin .1 "E3" ))
-   ((= 2 number)
-    (sox-sin .5 "D3" "fade h .15 .15 "))
-   ((= 3 number)
-    (sox-sin .5 "C5" "fade h .1 .1 "))))
+  (let ((fade "fade h .1 .1 "))
+    (cond
+     ((= 1 number) (sox-sin .1 "E3"fade ))
+     ((= 2 number) (sox-sin .5 "D3" fade))
+     ((= 3 number) (sox-sin .5 "C5"fade)))))
 
 ;;}}}
 h;;{{{ Advice interactive commands:
