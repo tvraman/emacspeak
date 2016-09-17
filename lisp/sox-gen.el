@@ -98,9 +98,10 @@ Remaining args specify additional commandline args."
   "-q -n synth %s sin %s sin %s gain %s channels 2 "
   "Command-line that produces a binaural beat.")
 
-
+;;;###autoload
 (defun sox-binaural (length f1 f2 gain)
-  "Play binaural beat with beat frequency f2-f1 and gainume gain."
+  "Play binaural beat with beat frequency f2-f1 and gain gain."
+  (interactive "sDuration\nsFrequency 1\nsFrequency 2\nsGain:")
   (declare (special sox-binaural-cmd))
   (sox-gen-cmd (format sox-binaural-cmd length f1 f2 gain)))
 
