@@ -62,3 +62,9 @@ inside. Module ~emacspeak-ciel~ speech-enables package ~ciel~.
 ** Google News:
 
 Added URL Templates for Google Category News and Google Regional News.
+
+
+** Speech-Enable Package Jade
+
+Module emacspeak-jade.el speech-enables package Jade for interactively
+debugging Webapps in  browsers like Chrome.
