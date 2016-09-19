@@ -110,6 +110,46 @@ Remaining args specify additional commandline args."
   (declare (special sox-binaural-cmd))
   (sox-gen-cmd (format sox-binaural-cmd length freq (+ freq beat) gain)))
 
+
+(defconst sox-beats-binaural-cmd
+  "-q -n synth %s %s gain %s channels 2 "
+  "Command-line that produces multiple  binaural beats.")
+
+(defsubst sox-read-binaural-beats ()
+  "Read and return a list of binaural beat-spec tupples."
+  (let ((specs nil)
+        (this-freq 0)
+        (this-beat nil))
+    (while  this-freq
+      (setq this-freq  (read-number "Carrier Frequency [50-800]: " 0))
+      (when (zerop this-freq) (setq this-freq nil))
+      (when this-freq
+        (setq this-beat (read-number "Beat Frequency [0.5 -- 40]: " 4.5))
+        (push (list this-freq this-beat) specs)))
+    (nreverse specs)))
+
+;;;###autoload
+(defun sox-beats-binaural (length beat-spec-list  gain)
+  "Play binaural audio with beat-spec specifying the various tones.
+Param `beat-spec' is a list of `(carrier beat) tupples."
+  (interactive
+   (list
+    (read-number "Duration in seconds: " 60)
+    (sox-read-binaural-beats)
+    (read-number "Gain [Use negative values]: " -10)))
+  (declare (special sox-beats-binaural-cmd))
+  (sox-gen-cmd
+   (format sox-beats-binaural-cmd
+           length
+           (mapconcat 
+            #'(lambda (spec)
+                (format "sin %s sin %s"
+                        (first spec)
+                        (+ (first spec) (second spec))))
+            beat-spec-list " ")
+           gain)))
+
+
 ;;}}}
 ;;{{{ Pluck:
 
