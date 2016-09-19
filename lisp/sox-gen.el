@@ -99,11 +99,16 @@ Remaining args specify additional commandline args."
   "Command-line that produces a binaural beat.")
 
 ;;;###autoload
-(defun sox-binaural (length f1 f2 gain)
-  "Play binaural beat with beat frequency f2-f1 and gain gain."
-  (interactive "sDuration\nsFrequency 1\nsFrequency 2\nsGain:")
+(defun sox-binaural (length freq beat gain)
+  "Play binaural audio with carrier frequency `freq', beat `beat',  and gain `gain'."
+  (interactive
+   (list
+    (read-number "Duration in seconds: " 60)
+    (read-number "Carrier Frequency [50 -- 800]: " 100)
+    (read-number "Beat Frequency [0.5 -- 40]: " 4.5)
+    (read-number "Gain [Use negative gain for lower frequencies]: " -10)))
   (declare (special sox-binaural-cmd))
-  (sox-gen-cmd (format sox-binaural-cmd length f1 f2 gain)))
+  (sox-gen-cmd (format sox-binaural-cmd length freq (+ freq beat) gain)))
 
 ;;}}}
 ;;{{{ Pluck:
