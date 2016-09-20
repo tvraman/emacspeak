@@ -1050,6 +1050,19 @@ broken.
 
      Speak tweet under point.
 
+12.180.2 emacspeak-twittering Options
+-------------------------------------
+
+ -- Variable: User Option emacspeak-twittering-uri-personality
+     Personality used for twittering-uri-face This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option emacspeak-twittering-username-personality
+     Personality used for twittering-username-face This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
 
 File: emacspeak.info,  Node: emacspeak-url-template,  Next: emacspeak-view,  Prev: emacspeak-twittering,  Up: Emacspeak Commands And Options
 
@@ -1418,10 +1431,96 @@ File: emacspeak.info,  Node: emacspeak-w3m,  Next: emacspeak-wdired,  Prev: emac
 12.185.2 emacspeak-w3m Options
 ------------------------------
 
+ -- Variable: User Option emacspeak-w3m-anchor-voice
+     Personality used for w3m-anchor This personality uses voice-lighten
+     whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-w3m-arrived-anchor-voice
+     Personality used for w3m-arrived-anchor This personality uses
+     voice-lighten-extra whose effect can be changed globally by
+     customizing voice-lighten-extra-settings.
+
+ -- Variable: User Option emacspeak-w3m-bold-voice
+     Personality used for w3m-bold This personality uses
+     voice-bolden-medium whose effect can be changed globally by
+     customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option emacspeak-w3m-current-anchor-voice
+     Personality used for w3m-current-anchor This personality uses
+     voice-bolden-extra whose effect can be changed globally by
+     customizing voice-bolden-extra-settings.
+
+ -- Variable: User Option emacspeak-w3m-form-button-pressed-voice
+     Personality used for w3m-form-button-pressed This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option emacspeak-w3m-form-button-voice
+     Personality used for w3m-form-button This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-w3m-form-voice
+     Personality used for w3m-form This personality uses voice-brighten
+     whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option
+          emacspeak-w3m-header-line-location-content-voice
+     Personality used for w3m-header-line-location-content This
+     personality uses voice-animate whose effect can be changed globally
+     by customizing voice-animate-settings.
+
+ -- Variable: User Option emacspeak-w3m-header-line-location-title-voice
+     Personality used for w3m-header-line-location-title This
+     personality uses voice-bolden whose effect can be changed globally
+     by customizing voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-w3m-history-current-url-voice
+     Personality used for w3m-history-current-url This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-w3m-image-voice
+     Personality used for w3m-image This personality uses voice-brighten
+     whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option emacspeak-w3m-insert-voice
+     Personality used for w3m-insert This personality uses voice-bolden
+     whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-w3m-italic-voice
+     Personality used for w3m-italic This personality uses voice-animate
+     whose effect can be changed globally by customizing
+     voice-animate-settings.
+
  -- Variable: User Option emacspeak-w3m-speak-titles-on-switch
      Speak the document title when switching between w3m buffers.  If
      non-nil, switching between w3m buffers will speak the title instead
      of the modeline.
+
+ -- Variable: User Option emacspeak-w3m-strike-through-voice
+     Personality used for w3m-strike-through This personality uses
+     voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option emacspeak-w3m-tab-selected-voice
+     Personality used for w3m-tab-selected This personality uses
+     voice-animate-extra whose effect can be changed globally by
+     customizing voice-animate-extra-settings.
+
+ -- Variable: User Option emacspeak-w3m-tab-unselected-voice
+     Personality used for w3m-tab-unselected This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-w3m-underline-voice
+     Personality used for w3m-underline This personality uses
+     voice-brighten-extra whose effect can be changed globally by
+     customizing voice-brighten-extra-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-wdired,  Next: emacspeak-we,  Prev: emacspeak-w3m,  Up: Emacspeak Commands And Options
@@ -4851,10 +4950,25 @@ This module can be used independent of Emacspeak.
 12.218.1 sox-gen Commands
 -------------------------
 
-12.218.1.1 sox-binaural
+12.218.1.1 sox-beats-binaural
+.............................
+
+ -- Command: sox-beats-binaural (length beat-spec-list gain)
+
+     Play binaural audio with beat-spec specifying the various tones.
+     Param ‘beat-spec’ is a list of ‘(carrier beat) tupples.
+
+12.218.1.2 sox-binaural
 .......................
 
- -- Command: sox-binaural (length freq beat gain)
+ -- Command: sox-binaural (name duration)
+
+     Play specified binaural effect.
+
+12.218.1.3 sox-tone-binaural
+............................
+
+ -- Command: sox-tone-binaural (length freq beat gain)
 
      Play binaural audio with carrier frequency ‘freq’, beat ‘beat’,  and gain ‘gain’.
 
@@ -6273,14 +6387,13 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-; SPC h:                             emacspeak-webspace. (line   49)
 * C-; SPC SPC:                           emacspeak-webspace. (line   59)
 * C-; SPC w:                             emacspeak-webspace. (line  133)
-* C-; v:                                 emacspeak-muggles.  (line  320)
+* C-; v:                                 emacspeak-muggles.  (line  319)
 * C-; w m:                               emacspeak-wizards.  (line  581)
 * C-; w R:                               emacspeak-xslt.     (line   33)
 * C-c (:                                 Running Terminal Based Applications.
                                                              (line   96)
 * C-c ):                                 Running Terminal Based Applications.
                                                              (line  105)
-* C-c .:                                 emacspeak-muggles.  (line  265)
 * C-c 0:                                 Running Terminal Based Applications.
                                                              (line   68)
 * C-c 1:                                 Running Terminal Based Applications.
@@ -6318,8 +6431,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
                                                              (line   72)
 * C-c o:                                 Running Terminal Based Applications.
                                                              (line   56)
-* C-c o <1>:                             emacspeak-muggles.  (line  293)
-* C-c v:                                 emacspeak-muggles.  (line  319)
+* C-c o <1>:                             emacspeak-muggles.  (line  292)
+* C-c v:                                 emacspeak-muggles.  (line  318)
 * C-e !:                                 emacspeak-wizards.  (line  296)
 * C-e ":                                 emacspeak-speak.    (line  848)
 * C-e # a:                               emacspeak-gridtext. (line   26)
@@ -6610,7 +6723,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ h SPC h:                         emacspeak-webspace. (line   50)
 * C-x @ h SPC SPC:                       emacspeak-webspace. (line   61)
 * C-x @ h SPC w:                         emacspeak-webspace. (line  134)
-* C-x @ h v:                             emacspeak-muggles.  (line  321)
+* C-x @ h v:                             emacspeak-muggles.  (line  320)
 * C-x @ h w m:                           emacspeak-wizards.  (line  582)
 * C-x @ h w R:                           emacspeak-xslt.     (line   34)
 * C-x @ s b:                             emacspeak-bbc.      (line   28)
