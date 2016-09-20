@@ -42,7 +42,7 @@
 ;;; Commentary:
 ;;; Contains a collection of functions that generate sound using SoX.
 ;;; These functions are primarily for use from other Emacs/Emacspeak modules.
-;;; This module can be used independent of Emacspeak. 
+;;; This module can be used independent of Emacspeak.
 
 ;;; Code:
 
@@ -96,13 +96,12 @@ Remaining args specify additional commandline args."
 ;;}}}
 ;;{{{ Binaural Audio:
 
-
 (defconst sox-binaural-cmd
   "-q -n synth %s sin %s sin %s gain %s channels 2 "
   "Command-line that produces a binaural beat.")
 
 ;;;###autoload
-(defun sox-binaural (length freq beat gain)
+(defun sox-tone-binaural (length freq beat gain)
   "Play binaural audio with carrier frequency `freq', beat `beat',  and gain `gain'."
   (interactive
    (list
@@ -112,7 +111,6 @@ Remaining args specify additional commandline args."
     (read-number "Gain [Use negative values]: " -10)))
   (declare (special sox-binaural-cmd))
   (sox-gen-cmd (format sox-binaural-cmd length freq (+ freq beat) gain)))
-
 
 (defconst sox-beats-binaural-cmd
   "-q -n synth %s %s gain %s channels 2 "
@@ -145,7 +143,7 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
   (sox-gen-cmd
    (format sox-beats-binaural-cmd
            length
-           (mapconcat 
+           (mapconcat
             #'(lambda (spec)
                 (format "sin %s sin %s"
                         (first spec)
@@ -153,20 +151,44 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
             beat-spec-list " ")
            gain)))
 
-
 (defstruct sox--binaural
-  beats ; list of beat-specs 
+  beats ; list of beat-specs
   gain ; overall gain
   )
 
-
 ;;; Helper:
 
-(defun sox--binaural-play-binaural  (length binaural)
+(defun sox--binaural-play  (length binaural)
   "Plays an instance of sox-binaural."
   (sox-beats-binaural  length
-                       (sox--binaural-beats  beats)
-                       (sox--binaural-gain beats)))
+                       (sox--binaural-beats  binaural)
+                       (sox--binaural-gain binaural)))
+
+(defvar sox-binaural-effects-table (make-hash-table :test #'equal)
+  "Hash table mapping binaural effect names to effect structures.")
+
+(defun sox-define-binaural-effect   (name effect)
+  "Setup mapping  from name to binaural effect."
+  (declare (special sox-binaural-effects-table))
+  (puthash name effect sox-binaural-effects-table))
+
+;;;###autoload
+(defun sox-binaural (name duration)
+  "Play specified binaural effect."
+  (interactive
+   (list
+    (completing-read "Binaural Effect: " sox-binaural-effects-table nil 'must-match)
+    (read-number "Duration: " 600)))
+  (declare (special sox-binaural-effects-table))
+  (sox--binaural-play duration
+                      (gethash name sox-binaural-effects-table)))
+
+;;; Define the various effects:
+(sox-define-binaural-effect
+ "sleep"
+ (make-sox--binaural
+  :beats '((100 0.5) (200 1.5) (250 1.5))
+  :gain -12))
 
 ;;}}}
 ;;{{{ Pluck:
@@ -180,7 +202,7 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
 Freq can be specified as a frequency, note (%nn) or frequency range."
   (declare (special sox-pluck-cmd))
   (sox-gen-cmd
-   (concat 
+   (concat
     (format sox-pluck-cmd length freq)
     (mapconcat #'identity args " "))))
 
@@ -198,7 +220,7 @@ Freq can be specified as a frequency, note (%nn) or frequency range."
   "Play chime --- optional args tempo and speed default to 1."
   (declare (special sox-chime-cmd))
   (sox-gen-cmd
-   (concat 
+   (concat
     sox-chime-cmd
     (when tempo (format " tempo %s" tempo))
     (when speed (format " speed %s" speed)))))
