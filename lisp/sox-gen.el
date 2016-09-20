@@ -93,6 +93,9 @@ Remaining args specify additional commandline args."
     (format sox-sin-cmd length freq)
     (mapconcat #'identity args " "))))
 
+;;}}}
+;;{{{ Binaural Audio:
+
 
 (defconst sox-binaural-cmd
   "-q -n synth %s sin %s sin %s gain %s channels 2 "
@@ -150,6 +153,20 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
             beat-spec-list " ")
            gain)))
 
+
+(defstruct sox--binaural
+  beats ; list of beat-specs 
+  gain ; overall gain
+  )
+
+
+;;; Helper:
+
+(defun sox--binaural-play-binaural  (length binaural)
+  "Plays an instance of sox-binaural."
+  (sox-beats-binaural  length
+                       (sox--binaural-beats  beats)
+                       (sox--binaural-gain beats)))
 
 ;;}}}
 ;;{{{ Pluck:
