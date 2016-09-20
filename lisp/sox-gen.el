@@ -182,13 +182,39 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
   (declare (special sox-binaural-effects-table))
   (sox--binaural-play duration
                       (gethash name sox-binaural-effects-table)))
+;;{{{  Define Effects:
 
-;;; Define the various effects:
+;;; delta, theta, alpha, beta 
+;;; sleep, dream, think, act 
+
 (sox-define-binaural-effect
  "sleep"
  (make-sox--binaural
-  :beats '((100 0.5) (200 1.5) (250 1.5))
-  :gain -12))
+  :beats '((100 0.5) (200 1.5) (250 2.5) (400 3.75))
+  :gain -14))
+
+
+(sox-define-binaural-effect
+ "dream"
+ (make-sox--binaural
+  :beats '((100 4.5) (200 5.0) (250 6.5) (400 7.0))
+  :gain -14))
+
+
+(sox-define-binaural-effect
+ "think"
+ (make-sox--binaural
+  :beats '((100 8.5) (200 8.8) (250 10.0) (400 12.0))
+  :gain -14))
+
+
+(sox-define-binaural-effect
+ "act"
+ (make-sox--binaural
+  :beats '((100 13.5) (200 18.0) (250 23.0) (400 40.0))
+  :gain -14))
+
+;;}}}
 
 ;;}}}
 ;;{{{ Pluck:
