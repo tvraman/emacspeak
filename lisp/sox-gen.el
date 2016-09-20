@@ -188,27 +188,27 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
 ;;; sleep, dream, think, act
 
 (sox-define-binaural-effect
- "sleep"
+ "sleep" ; delta 
  (make-sox--binaural
   :beats '((100 0.5) (200 1.5) (250 2.5) (400 3.75))
   :gain -14))
 
 (sox-define-binaural-effect
- "dream"
+ "dream" ; theta 
  (make-sox--binaural
-  :beats '((100 4.5) (200 5.0) (250 6.5) (400 7.0))
+  :beats '((100 4.5) (200 5.0) (250 7.0) (400 7.34))
   :gain -14))
 
 (sox-define-binaural-effect
- "think"
+ "think" ;alpha 
  (make-sox--binaural
-  :beats '((100 8.5) (200 8.8) (250 10.0) (400 12.0))
+  :beats '((150 8.5) (225 8.8) (300 10.0) (400 12.0))
   :gain -14))
 
 (sox-define-binaural-effect
- "act"
+ "act" ; beta 
  (make-sox--binaural
-  :beats '((100 13.5) (200 18.0) (250 23.0) (400 40.0))
+  :beats '((100 13.5) (200 18.0) (300 23.0) (400 40.0))
   :gain -14))
 
 ;;}}}
