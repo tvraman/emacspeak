@@ -138,6 +138,7 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
     (sox-read-binaural-beats)
     (read-number "Gain [Use negative values]: " -10)))
   (declare (special sox-beats-binaural-cmd))
+  (unless beat-spec-list (error "No beats specified. "))
   (sox-gen-cmd
    (format sox-beats-binaural-cmd
            length
