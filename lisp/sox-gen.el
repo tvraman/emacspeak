@@ -240,7 +240,7 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
   (first s)
   (make-sox--binaural
    :beats `(,(cdr s))
-   :gain -18)))
+   :gain -20)))
 
 ;;}}}
 
