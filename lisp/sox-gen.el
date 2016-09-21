@@ -242,15 +242,46 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
   (make-sox--binaural
    :beats `(,(cdr s))
    :gain -20)))
+(iter-defun sox--list-iter (l)
+  "Return an iterator that iterates over list `l'."
+  (let ((local(copy-sequence l)))
+    (while local (iter-yield (pop local)))))
 
-(iter-defun sox--chakra-iter ()
-  "Iterator that returns names in sequence."
-  (declare (special sox--chakra-settings))
-  (let ((names (mapcar #'car sox--chakra-settings)))
-    (while names (iter-yield (pop names)))))
-  
+;;;###autoload
+(defun sox-chakras (duration)
+  "Play each chakra for specified duration."
+  (interactive "nDuration: ")
+  (let ((names (sox--list-iter (mapcar #'car sox--chakra-settings))))
+    (run-with-timer ; start now, repeat after duration
+     0 duration
+     #'(lambda () (sox-binaural (iter-next names) duration)))))
+(defconst sox-rev-up-beats
+  '("dream" "think" "act")
+  "List of  beats to use for rev-up in the morning.")
 
+;;;#autoload
+(defun sox-rev-up (duration)
+  "Play rev-up set of  binaural beats."
+  (interactive "nDuration: ")
+  (declare (special sox-rev-up-beats))
+  (let ((beats (sox--list-iter sox-rev-up-beats)))
+    (run-with-timer                 ; start now, repeat after duration
+     0 duration
+     #'(lambda () (sox-binaural (iter-next beats) duration)))))
 
+(defconst sox-wind-down-beats
+  '("think" "dream" "sleep")
+  "List of  beats to use for wind-down in the morning.")
+
+;;;#autoload
+(defun sox-wind-down (duration)
+  "Play wind-down set of  binaural beats."
+  (interactive "nDuration: ")
+  (declare (special sox-wind-down-beats))
+  (let ((beats (sox--list-iter sox-wind-down-beats)))
+    (run-with-timer                 ; start now, repeat after duration
+     0 duration
+     #'(lambda () (sox-binaural (iter-next beats) duration)))))
 
 ;;}}}
 
