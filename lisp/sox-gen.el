@@ -1,4 +1,4 @@
-;;; $Id: sox-gen.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
+;;; sox-gen.el: -*- lexical-binding: t -*-
 ;;; $Author: tv.raman.tv $
 ;;; Description:  collection of SoX  sound generators
 ;;; Keywords: Emacspeak,  Audio Desktop sox
