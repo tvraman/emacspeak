@@ -220,15 +220,17 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
 ;;; throat:       384 Hz
 ;;; 3rd eye:      426.7 Hz
 ;;; crown:        480 Hz
+
+;;; Use theta (4.5 --7 as the beat frequency)
 (defconst sox--chakra-settings
   '(
-    ("root" 256)
-    ("navel" 288)
-    ("solar-plexus" 320)
-    ("heart" 341.3)
-    ("throat" 384)
-    ("3rd-eye" 426.7)
-    ("crown" 480)
+    ("root" 256 7.0)
+    ("navel" 288 6.5)
+    ("solar-plexus" 320 6.0)
+    ("heart" 341.3 5.5)
+    ("throat" 384 5.0)
+    ("3rd-eye" 426.7 5.2)
+    ("crown" 480 4.75)
     )
   "Frequency settings.")
 
@@ -237,7 +239,7 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
  (sox-define-binaural-effect
   (first s)
   (make-sox--binaural
-   :beats `((,(second s) 7.5))
+   :beats `(,(cdr s))
    :gain -18)))
 
 ;;}}}
