@@ -580,6 +580,7 @@ interactive command that the key sequence executes."
   '(
     ("," emacspeak-eldoc-speak-doc)
     ("a" emacspeak-feeds-atom-display)
+    ("b" sox-binaural)
     ("c" emacspeak-wizards-view-buffers-filtered-by-this-mode)
     ("e" eww)
     ("f" emacspeak-feeds-find-feeds)
