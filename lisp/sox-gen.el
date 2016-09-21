@@ -243,6 +243,15 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
    :beats `(,(cdr s))
    :gain -20)))
 
+(iter-defun sox--chakra-iter ()
+  "Iterator that returns names in sequence."
+  (declare (special sox--chakra-settings))
+  (let ((names (mapcar #'car sox--chakra-settings)))
+    (while names (iter-yield (pop names)))))
+  
+
+
+
 ;;}}}
 
 ;;}}}
