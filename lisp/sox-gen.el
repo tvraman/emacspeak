@@ -188,28 +188,57 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
 ;;; sleep, dream, think, act
 
 (sox-define-binaural-effect
- "sleep" ; delta 
+ "sleep" ; delta
  (make-sox--binaural
   :beats '((100 0.5) (200 1.5) (250 2.5) (400 3.75))
   :gain -14))
 
 (sox-define-binaural-effect
- "dream" ; theta 
+ "dream" ; theta
  (make-sox--binaural
   :beats '((100 4.5) (200 5.0) (250 7.0) (400 7.34))
   :gain -14))
 
 (sox-define-binaural-effect
- "think" ;alpha 
+ "think" ;alpha
  (make-sox--binaural
   :beats '((150 8.5) (225 8.8) (300 10.0) (400 12.0))
   :gain -14))
 
 (sox-define-binaural-effect
- "act" ; beta 
+ "act" ; beta
  (make-sox--binaural
   :beats '((100 13.5) (200 18.0) (300 23.0) (400 40.0))
   :gain -14))
+;;; Chakras: Carrier frequencies taken from  the Web.
+;;; https://sourceforge.net/p/sbagen/mailman/message/3047882/
+
+;;; root:         256 Hz
+;;; navel:        288 Hz
+;;; solar plexus: 320 Hz
+;;; heart:        341.3 Hz
+;;; throat:       384 Hz
+;;; 3rd eye:      426.7 Hz
+;;; crown:        480 Hz
+(defconst sox--chakra-settings
+  '(
+    ("root" 256)
+    ("navel" 288)
+    ("solar-plexus" 320)
+    ("heart" 341.3)
+    ("throat" 384)
+    ("3rd-eye" 426.7)
+    ("crown" 480)
+    )
+  "Frequency settings.")
+
+(cl-loop
+ for s in sox--chakra-settings do
+ (sox-define-binaural-effect
+  (first s)
+  (make-sox--binaural
+   :beats `((,(second s) 7.5))
+   :gain -18)))
 
 ;;}}}
 
