@@ -109,7 +109,7 @@ Remaining args specify additional commandline args."
     (read-number "Duration in seconds: " 60)
     (read-number "Carrier Frequency [50 -- 800]: " 100)
     (read-number "Beat Frequency [0.5 -- 40]: " 4.5)
-    (read-number "Gain [Use negative values]: " -10)))
+    (read-number "Gain [Use negative values]: " -18)))
   (declare (special sox-binaural-cmd))
   (sox-gen-cmd (format sox-binaural-cmd length freq (+ freq beat) gain)))
 
@@ -138,7 +138,7 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
    (list
     (read-number "Duration in seconds: " 60)
     (sox-read-binaural-beats)
-    (read-number "Gain [Use negative values]: " -10)))
+    (read-number "Gain [Use negative values]: " -18)))
   (declare (special sox-beats-binaural-cmd))
   (unless beat-spec-list (error "No beats specified. "))
   (sox-gen-cmd
@@ -183,6 +183,7 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
   (declare (special sox-binaural-effects-table))
   (sox--binaural-play duration
                       (gethash name sox-binaural-effects-table)))
+
 ;;{{{  Define Effects:
 
 ;;; delta, theta, alpha, beta
@@ -191,26 +192,27 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
 (sox-define-binaural-effect
  "sleep" ; delta
  (make-sox--binaural
-  :beats '((100 0.5) (200 1.5) (250 2.5) (400 3.75))
+  :beats '((75 0.5) (150 1.0) (225 2.0) (300 4.0))
   :gain -14))
 
 (sox-define-binaural-effect
  "dream" ; theta
  (make-sox--binaural
-  :beats '((100 4.5) (200 5.0) (250 7.0) (400 7.34))
+  :beats '((75 4.0) (150 5.0) (225 6.0) (400 7.34))
   :gain -14))
 
 (sox-define-binaural-effect
  "think" ;alpha
  (make-sox--binaural
-  :beats '((150 8.5) (225 8.8) (300 10.0) (400 12.0))
+  :beats '((75 8.5) (150 9.0) (225 10.0) (300 12.0))
   :gain -14))
 
 (sox-define-binaural-effect
  "act" ; beta
  (make-sox--binaural
-  :beats '((100 13.5) (200 18.0) (300 23.0) (400 40.0))
+  :beats '((75 13.5) (150 18.0) (225 23.0) (300 40.0))
   :gain -14))
+
 ;;; Chakras: Carrier frequencies taken from  the Web.
 ;;; https://sourceforge.net/p/sbagen/mailman/message/3047882/
 
