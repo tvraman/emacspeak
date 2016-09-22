@@ -1,4 +1,4 @@
-;;; ladspa.el --- Ladspa Tools For Emacs
+;;; ladspa.el --- Ladspa Tools For Emacs  -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Expose Ladspa Plugins to Emacs/Emacspeak
 ;;; Keywords: Emacspeak,  Audio Desktop Ladspa
@@ -262,9 +262,8 @@ list of parsed ladspa-plugin structures, one per label."
     (message "%s plugins in %s libs"
              (length (ladspa-plugins))
              (length (ladspa-libs)))
-    (switch-to-buffer buffer)
-    (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'open-object)))
+    (funcall-interactively #'switch-to-buffer buffer)
+    ))
 
 (declare-function emacspeak-m-player-add-ladspa "emacspeak-m-player.el")
 (declare-function emacspeak-m-player-delete-ladspa "emacspeak-m-player.el")
@@ -350,9 +349,7 @@ list of parsed ladspa-plugin structures, one per label."
                 (concat
                  "Ladspa: "
                  (propertize (ladspa-plugin-label plugin) 'face 'font-lock-keyword-face))))
-        (switch-to-buffer buffer)
-        (emacspeak-speak-mode-line)
-        (emacspeak-auditory-icon 'open-object))))))
+        (funcall-interactively #'switch-to-buffer buffer))))))
 
 ;;}}}
 ;;{{{ Edit Ladspa Plugin:
