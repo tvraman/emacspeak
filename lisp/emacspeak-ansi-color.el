@@ -62,7 +62,6 @@
   (condition-case nil
       (let* ((voice-name nil)
              (style (cadr face-spec))
-             (style-index (position style ansi-color-faces-vector))
              (color (cdr (assq 'foreground-color  face-spec)))
              (color-index
               (when color

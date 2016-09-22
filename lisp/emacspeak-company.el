@@ -110,7 +110,7 @@
    #'(lambda (&rest _ignore) (emacspeak-auditory-icon 'help)))
   (add-hook
    'company-completion-finished-hook
-   #'(lambda (&rest ignore) (emacspeak-auditory-icon 'close-object))))
+   #'(lambda (&rest _ignore) (emacspeak-auditory-icon 'close-object))))
 
 ;;}}}
 ;;{{{ Silence YCMD Chatter:

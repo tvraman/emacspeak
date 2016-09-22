@@ -173,6 +173,16 @@ current local  value to the result.")
 ;;; This replacement is used within Emacspeak to invoke commands
 ;;; whose output we want to hear.
 
+(defcustom emacspeak-speak-messages t
+  "*Option indicating if messages are spoken.  If nil,
+emacspeak will not speak messages as they are echoed to the
+message area.  You can use command
+`emacspeak-toggle-speak-messages' bound to
+\\[emacspeak-toggle-speak-messages]."
+
+  :group 'emacspeak-speak
+  :type 'boolean)
+
 (defsubst  emacspeak-shell-command (command)
   "Run shell command and speak its output."
   (interactive)
@@ -235,15 +245,7 @@ Argument BODY specifies forms to execute."
          (emacspeak-use-auditory-icons nil)
          (emacspeak-speak-messages nil))
      ,@body))
-(defcustom emacspeak-speak-messages t
-  "*Option indicating if messages are spoken.  If nil,
-emacspeak will not speak messages as they are echoed to the
-message area.  You can use command
-`emacspeak-toggle-speak-messages' bound to
-\\[emacspeak-toggle-speak-messages]."
 
-  :group 'emacspeak-speak
-  :type 'boolean)
 
 
 
@@ -2342,8 +2344,7 @@ Speech is scaled by the value of dtk-speak-skim-scale"
       (setq end (point))
       (backward-paragraph 1)
       (setq start (point))
-      (dtk-speak (buffer-substring  start end)
-                 'skim))))
+      (dtk-speak (buffer-substring  start end)))))
 
 ;;;###autoload
 (defun emacspeak-speak-skim-next-paragraph()

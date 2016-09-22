@@ -355,7 +355,7 @@ operate on current web page when in a browser buffer; otherwise
    (list
     (ems-interactive-p)))
   (emacspeak-we-extract-by-role "main"
-                                (funcall emacspeak-webutils-url-at-point) 'speak))
+                                (funcall emacspeak-webutils-url-at-point) speak))
 
 ;;;###autoload
 (defun emacspeak-we-extract-media-streams-under-point ()
@@ -828,19 +828,20 @@ separate buffer. Interactive use provides list of id values as completion. "
 (make-variable-buffer-local 'emacspeak-we-class-filter)
 
 ;;;###autoload
-(defun emacspeak-we-class-filter-and-follow (class url)
+(defun emacspeak-we-class-filter-and-follow (class url &optional prompt)
   "Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well."
   (interactive
    (list
-    (or emacspeak-we-class-filter
-        (setq emacspeak-we-class-filter
-              (read-from-minibuffer "Class: ")))
-    (emacspeak-webutils-read-this-url)))
-  (declare (special emacspeak-we-class-filter
-                    emacspeak-we-url-rewrite-rule))
+    (cond
+     ((and (not prompt)emacspeak-we-class-filter) emacspeak-we-class-filter)
+     (t (setq emacspeak-we-class-filter
+              (read-from-minibuffer "Class: "))))
+    (emacspeak-webutils-read-this-url)
+    current-prefix-arg))
+  (declare (special emacspeak-we-class-filter emacspeak-we-url-rewrite-rule))
   (let ((redirect nil))
     (when emacspeak-we-url-rewrite-rule
       (setq redirect
@@ -849,7 +850,7 @@ used as well."
              (second emacspeak-we-url-rewrite-rule)
              url)))
     (emacspeak-we-extract-by-class
-     emacspeak-we-class-filter
+     class
      (or redirect url)
      'speak)
     (emacspeak-auditory-icon 'open-object)))
@@ -860,16 +861,19 @@ used as well."
 (make-variable-buffer-local 'emacspeak-we-id-filter)
 
 ;;;###autoload
-(defun emacspeak-we-follow-and-filter-by-id (id)
+(defun emacspeak-we-follow-and-filter-by-id (id prompt)
   "Follow url and point, and filter the result by specified id.
 Id can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well."
   (interactive
    (list
-    (or emacspeak-we-id-filter
-        (setq emacspeak-we-id-filter
-              (read-from-minibuffer "Id: ")))))
+    (cond
+     ((and (not prompt)emacspeak-we-id-filter) emacspeak-we-id-filter)
+        (t
+         (setq emacspeak-we-id-filter
+              (read-from-minibuffer "Id: "))))
+    current-prefix-arg))
   (declare (special emacspeak-we-id-filter
                     emacspeak-we-url-rewrite-rule))
   (emacspeak-webutils-browser-check)

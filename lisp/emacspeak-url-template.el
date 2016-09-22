@@ -878,8 +878,8 @@ name of the list.")
  nil
  nil
  "Display MLB standings."
- #'(lambda (url)
-     (emacspeak-wizards-mlb-standings)))
+ 
+     #'emacspeak-wizards-mlb-standings)
 
 (emacspeak-url-template-define
  "Baseball Game Index"
@@ -1040,8 +1040,7 @@ JSON is retrieved from `url'."
  nil
  nil
  "Display NBA standings."
- #'(lambda (url)
-     (emacspeak-wizards-nba-standings)))
+     #'emacspeak-wizards-nba-standings)
 
 ;;}}}
 ;;{{{ Listening to Air Traffic control
@@ -1314,8 +1313,7 @@ See http://www.cbsradio.com/streaming/index.html for a list of CBS stations that
   (declare (special emacspeak-web-post-process-hook))
   (let ((fetcher (or (emacspeak-url-template-fetcher ut) 'browse-url))
         (url (emacspeak-url-template-url ut))
-        (action (emacspeak-url-template-post-action ut))
-        (name (emacspeak-url-template-name ut)))
+        (action (emacspeak-url-template-post-action ut)))
     (when action (add-hook 'emacspeak-web-post-process-hook action))
     (kill-new url)
     (funcall fetcher url)))

@@ -509,7 +509,7 @@ Optional prefix arg prompts for a new filter."
       (when filename (setq buffer-file-name filename))
       (setq count (1-  (emacspeak-table-num-columns table)))
       (loop
-       for _row across (emacspeak-table-elements table) do
+       for row across (emacspeak-table-elements table) do
        (loop
         for _element across row do
         (puthash
@@ -673,7 +673,7 @@ the documentation on the table browser."
         (set (make-local-variable 'emacspeak-table) table)
         (set (make-local-variable 'positions) (make-hash-table))
         (setq count (1-  (emacspeak-table-num-columns table)))
-        (loop for _row across (emacspeak-table-elements table)
+        (loop for row across (emacspeak-table-elements table)
               do
               (loop for _element across row
                     do
