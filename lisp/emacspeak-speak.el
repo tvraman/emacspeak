@@ -245,12 +245,7 @@ message area.  You can use command
   :group 'emacspeak-speak
   :type 'boolean)
 
-(defmacro ems-with-messages-silenced  (&rest body)
-  "Evaluate body  after temporarily silencing auditory error feedback."
-  `(let ((emacspeak-speak-messages nil)
-         (inhibit-message t)
-         (emacspeak-use-auditory-icons nil))
-     ,@body))
+
 
 ;;}}}
 ;;{{{ getting and speaking text ranges

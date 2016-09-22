@@ -1832,6 +1832,14 @@ only speak upto the first ctrl-m."
              (dtk-format-text-and-speak start (point-max)))))
     (dtk-force)))
 
+(defmacro ems-with-messages-silenced  (&rest body)
+  "Evaluate body  after temporarily silencing auditory error feedback."
+  `(let ((emacspeak-speak-messages nil)
+         (inhibit-message t)
+         (emacspeak-use-auditory-icons nil))
+     ,@body))
+
+
 (defsubst dtk-speak-and-echo (message)
   "Speak message and echo it to the message area."
   (ems-with-messages-silenced
