@@ -1,4 +1,4 @@
-;;; emacspeak-speedbar.el --- Speech enable speedbar -- Tool for context-sensitive navigation
+;;; emacspeak-speedbar.el --- Speech enable speedbar -- Tool for context-sensitive navigation  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description: Auditory interface to speedbar

@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (load-library "iplayer")
 (push '("w" "BBC World Service") iplayer-presets)
 (push '("a" "BBC Asian Network") iplayer-presets)

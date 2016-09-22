@@ -1,4 +1,4 @@
-;;; gnotebook.el --- Google Notebook
+;;; gnotebook.el --- Google Notebook  -*- lexical-binding: t; -*-
 ;;;$Id$
 ;;; $Author: raman $
 ;;; Description:  Google Notebook

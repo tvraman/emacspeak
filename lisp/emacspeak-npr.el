@@ -1,4 +1,4 @@
-;;; emacspeak-npr.el --- Speech-enabled  NPR client
+;;; emacspeak-npr.el --- Speech-enabled  NPR client  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-npr.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable NPR An Emacs Interface to npr

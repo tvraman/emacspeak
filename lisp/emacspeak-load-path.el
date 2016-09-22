@@ -1,4 +1,4 @@
-;;; emacspeak-load-path.el -- Setup Emacs load-path for compiling Emacspeak
+;;; emacspeak-load-path.el -- Setup Emacs load-path for compiling Emacspeak  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Sets up load-path for emacspeak compilation and installation

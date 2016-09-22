@@ -1,4 +1,4 @@
-;;; gf.el --- Google Freebase API
+;;; gf.el --- Google Freebase API  -*- lexical-binding: t; -*-
 ;;;$Id: gf.el 8387 2013-08-18 00:02:05Z tv.raman.tv $
 ;;; $Author: raman $
 ;;; Description:  AJAX FreeBase API  -> Lisp

@@ -1,4 +1,4 @@
-;;; g.el --- Google Client
+;;; g.el --- Google Client  -*- lexical-binding: t; -*-
 ;;;$Id$
 ;;; $Author: raman $
 ;;; Description:  Google Client

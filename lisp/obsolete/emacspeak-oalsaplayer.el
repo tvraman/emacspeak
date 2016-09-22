@@ -1,4 +1,4 @@
-;;; emacspeak-alsaplayer.el --- Control alsaplayer from Emacs
+;;; emacspeak-alsaplayer.el --- Control alsaplayer from Emacs  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-alsaplayer.el 4202 2006-09-29 13:29:00Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description: Controlling alsaplayer from emacs 

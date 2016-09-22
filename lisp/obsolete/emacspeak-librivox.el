@@ -1,4 +1,4 @@
-;;; emacspeak-librivox.el --- Speech-enabled  LIBRIVOX API client
+;;; emacspeak-librivox.el --- Speech-enabled  LIBRIVOX API client  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-librivox.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable LIBRIVOX An Emacs Interface to Free Audio Books

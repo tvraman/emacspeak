@@ -1,4 +1,4 @@
-;;; emacspeak-xml-shell.el --- Implements a simple XML browser
+;;; emacspeak-xml-shell.el --- Implements a simple XML browser  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Contains  xml-shell
@@ -119,7 +119,7 @@ Interactive XML browser.
   nil
   "System ID of document being browsed.")
 
-(defun emacspeak-xml-shell-process-sentinel  (proc status)
+(defun emacspeak-xml-shell-process-sentinel  (_proc _status)
   "Process sentinel for XML shell."
   (declare (special emacspeak-xml-shell-document))
   (setq emacspeak-xml-shell-document nil))

@@ -1,4 +1,4 @@
-;;; emacspeak-babel.el --- Speech-enable BabelFish
+;;; emacspeak-babel.el --- Speech-enable BabelFish  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak extension to use BabelFish

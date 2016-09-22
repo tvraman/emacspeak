@@ -1,4 +1,4 @@
-;;; emacspeak-table-ui.el --- Emacspeak's current notion of an ideal table UI
+;;; emacspeak-table-ui.el --- Emacspeak's current notion of an ideal table UI  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description: Emacspeak table handling module
@@ -491,8 +491,7 @@ Optional prefix arg prompts for a new filter."
 
 ;;}}}
 
-(defsubst emacspeak-table-prepare-table-buffer (table buffer
-                                                      &optional filename)
+(defsubst emacspeak-table-prepare-table-buffer (table buffer &optional filename)
   "Prepare tabular data."
   (declare (special emacspeak-table positions))
   (with-current-buffer buffer
@@ -510,9 +509,9 @@ Optional prefix arg prompts for a new filter."
       (when filename (setq buffer-file-name filename))
       (setq count (1-  (emacspeak-table-num-columns table)))
       (loop
-       for row across (emacspeak-table-elements table) do
+       for _row across (emacspeak-table-elements table) do
        (loop
-        for element across row do
+        for _element across row do
         (puthash
          (intern (format "element:%s:%s" i j))  ; compute key 
          (point) ; insertion point  is the value 
@@ -648,7 +647,6 @@ the documentation on the table browser."
                           (or (buffer-name)
                               "scratch"))))
         (table nil)
-        (data nil)
         (i 0)
         (j 0)
         (count 0)
@@ -675,9 +673,9 @@ the documentation on the table browser."
         (set (make-local-variable 'emacspeak-table) table)
         (set (make-local-variable 'positions) (make-hash-table))
         (setq count (1-  (emacspeak-table-num-columns table)))
-        (loop for row across (emacspeak-table-elements table)
+        (loop for _row across (emacspeak-table-elements table)
               do
-              (loop for element across row
+              (loop for _element across row
                     do
                     (setf
                      (gethash

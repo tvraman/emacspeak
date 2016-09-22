@@ -1,4 +1,4 @@
-;;; gblogger.el ---  new Atom Blogger API client
+;;; gblogger.el ---  new Atom Blogger API client  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author:$
 ;;; Description:  ATOM Blogger API

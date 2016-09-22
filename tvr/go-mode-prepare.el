@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (augment-load-path "go-mode.el" "go-mode")
 (require 'go-mode)
 (when (featurep 'yasnippet)

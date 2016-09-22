@@ -1,4 +1,4 @@
-;;; flite.el --- Emacspeak FLite
+;;; flite.el --- Emacspeak FLite  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  FLite interface 

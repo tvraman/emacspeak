@@ -1,4 +1,4 @@
-;;; emacspeak-zinf.el --- Control zinf from Emacs
+;;; emacspeak-zinf.el --- Control zinf from Emacs  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description: Controlling zinf from emacs 

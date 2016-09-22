@@ -1,4 +1,4 @@
-;;      Filename: /home/tcross/projects/emacs-convert/txutils.el
+;;      Filename: /home/tcross/projects/emacs-convert/txutils.el  -*- lexical-binding: t; -*-
 ;; Creation Date: Wednesday, 20 September 2006 10:13 PM EST
 ;; Last Modified: Monday, 19 July 2010 04:37 PM EST
 ;;       Version: 2.0

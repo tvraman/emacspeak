@@ -1,4 +1,4 @@
-;;; emacspeak-fix-interactive.el --- Tools to make  Emacs' builtin prompts   speak
+;;; emacspeak-fix-interactive.el --- Tools to make  Emacs' builtin prompts   speak  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description: Fixes functions that use interactive to prompt for args.

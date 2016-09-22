@@ -1,4 +1,4 @@
-;;; Special keys 
+;;; Special keys  -*- lexical-binding: t; -*- 
 (define-key function-key-map "\e[50~" '[f50])
 (define-key function-key-map "\e[51~" '[f51])
 (define-key function-key-map "\e[52~" '[f52])

@@ -1,4 +1,4 @@
-;;; emacspeak-filtertext.el --- Utilities to filter text
+;;; emacspeak-filtertext.el --- Utilities to filter text  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:   Implement text filters 

@@ -1,4 +1,4 @@
-;http://dirble.com/inlogged/apikeys
+;http://dirble.com/inlogged/apikeys  -*- lexical-binding: t; -*-
 (defcustom  emacspeak-dirbal-api-key 
 ""
 "API key."

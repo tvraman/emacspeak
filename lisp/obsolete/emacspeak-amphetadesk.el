@@ -1,4 +1,4 @@
-;;; emacspeak-amphetadesk.el --- Emacspeak News Portal Interface
+;;; emacspeak-amphetadesk.el --- Emacspeak News Portal Interface  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  RSS Wizard for the emacspeak desktop

@@ -1,4 +1,4 @@
-;;; emacspeak/forms.el --- Speech friendly interface   pilot address books 
+;;; emacspeak/forms.el --- Speech friendly interface   pilot address books  -*- lexical-binding: t; -*- 
 ;;;$Id$
 ;;; $Author$
 ;;; Keywords: forms

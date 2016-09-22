@@ -1,4 +1,4 @@
-;; ruby-mode-init.el
+;; ruby-mode-init.el  -*- lexical-binding: t; -*-
 
 
 (augment-load-path "ruby-mode" "ruby-mode")

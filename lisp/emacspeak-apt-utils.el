@@ -1,4 +1,4 @@
-;;; emacspeak-apt-utils.el --- speech-enable APT interface
+;;; emacspeak-apt-utils.el --- speech-enable APT interface  -*- lexical-binding: t; -*-
 ;;; Description:  Emacspeak extension to speech-enable APT utilities
 ;;; Keywords: Emacspeak, apt, Debian Package Manager
 ;;{{{  LCD Archive entry:

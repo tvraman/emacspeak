@@ -1,4 +1,4 @@
-;;; g-skeleton.el --- Skeleton Google  Client
+;;; g-skeleton.el --- Skeleton Google  Client  -*- lexical-binding: t; -*-
 ;;;$Id$
 ;;; $Author: raman $
 ;;; Description:  Skeleton that all clients start from.

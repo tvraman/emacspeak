@@ -1,4 +1,4 @@
-;;; emacspeak-ja-setup.el --- Setup emacspeak with Japanese extension
+;;; emacspeak-ja-setup.el --- Setup emacspeak with Japanese extension  -*- lexical-binding: t; -*-
 
 ;;; $Id$
 ;;; $Author$

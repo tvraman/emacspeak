@@ -1,4 +1,4 @@
-;;; emacspeak-xkcd.el --- Speech-enable XKCD
+;;; emacspeak-xkcd.el --- Speech-enable XKCD  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-xkcd.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable XKCD An Emacs Interface to xkcd

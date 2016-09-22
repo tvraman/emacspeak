@@ -1,4 +1,4 @@
-;;; emacspeak-dbus.el --- DBus Tools For Emacspeak Desktop
+;;; emacspeak-dbus.el --- DBus Tools For Emacspeak Desktop  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-dbus.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  DBus Tools For The Emacspeak Desktop

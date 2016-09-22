@@ -1,4 +1,4 @@
-;;; emacspeak-semi.el --- Speech enable semi -- Fluent spoken access to MIME User Interface on emacsen
+;;; emacspeak-semi.el --- Speech enable semi -- Fluent spoken access to MIME User Interface on emacsen  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author$ 
 ;;; Description:  Emacspeak extension to speech enable semi

@@ -1,4 +1,4 @@
-;;; $Id: view-process-system-specific.el,v 1.5 1995/03/18 08:20:52 muenkel Exp $
+;;; $Id: view-process-system-specific.el,v 1.5 1995/03/18 08:20:52 muenkel Exp $  -*- lexical-binding: t; -*-
 ;;;
 ;;; Copyright (C) 1995 Heiko Muenkel
 ;;; email: muenkel@tnt.uni-hannover.de

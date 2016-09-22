@@ -1,4 +1,4 @@
-;;; emacspeak/forms/aumix-rc.el --- maintain personal aumixrc
+;;; emacspeak/forms/aumix-rc.el --- maintain personal aumixrc  -*- lexical-binding: t; -*-
 ;;;$Id$
 ;;; $Author$
 ;;; Description:  Emacspeak extension to speech enable  forms

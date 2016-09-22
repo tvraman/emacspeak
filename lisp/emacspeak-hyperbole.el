@@ -1,4 +1,4 @@
-;;; emacspeak-hyperbole.el --- Speech enable Hyperbole -- A Powerful Information Manager
+;;; emacspeak-hyperbole.el --- Speech enable Hyperbole -- A Powerful Information Manager  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author$ 
 ;;; Description:  Emacspeak extensions for Bob Weiner's excellent Hyperbole system

@@ -1,4 +1,4 @@
-;;; emacspeak-ciel.el --- Speech-enable CIEL buffer switching
+;;; emacspeak-ciel.el --- Speech-enable CIEL buffer switching  -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable CIEL An Emacs Interface to ciel
 ;;; Keywords: Emacspeak,  Audio Desktop ciel

@@ -1,4 +1,4 @@
-;;; Taken from endless' Blog:
+;;; Taken from endless' Blog:  -*- lexical-binding: t; -*-
 
 (define-key ctl-x-map "\C-i" #'auto-correct-update)
 

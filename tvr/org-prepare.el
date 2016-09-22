@@ -1,4 +1,4 @@
-;;;$Id: org-prepare.el 6727 2011-01-14 23:22:20Z tv.raman.tv $
+;;;$Id: org-prepare.el 6727 2011-01-14 23:22:20Z tv.raman.tv $  -*- lexical-binding: t; -*-
 
 (load-library "org")
 

@@ -1,4 +1,4 @@
-;;; tetris.el --- implementation of Tetris for Emacs
+;;; tetris.el --- implementation of Tetris for Emacs  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 1997, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008,
 ;;   2009, 2011  Free Software Foundation, Inc.
@@ -246,7 +246,7 @@ Element 0 is ignored."
 
 (defconst tetris-space 9)
 
-(defun tetris-default-update-speed-function (shapes rows)
+(defun tetris-default-update-speed-function (_shapes rows)
   (/ 20.0 (+ 50.0 rows)))
 
 ;; ;;;;;;;;;;;;; variables ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

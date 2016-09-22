@@ -1,4 +1,4 @@
-;;; emacspeak-ediary.el --- Speech-enable ediary
+;;; emacspeak-ediary.el --- Speech-enable ediary  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak speech-enabler for ediary 

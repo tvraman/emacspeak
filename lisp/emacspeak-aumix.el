@@ -1,4 +1,4 @@
-;;; emacspeak-aumix.el --- Configure audio device settings
+;;; emacspeak-aumix.el --- Configure audio device settings  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak extension to conveniently set audio display

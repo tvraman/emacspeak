@@ -1,4 +1,4 @@
-;;; emacspeak-sigbegone.el --- Speech-enable sigbegone
+;;; emacspeak-sigbegone.el --- Speech-enable sigbegone  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak module for SIGBEGONE --signature exorciser 

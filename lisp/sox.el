@@ -1,4 +1,4 @@
-;;; sox.el --- An Audio Work-Bench -*- lexical-binding: t -*-
+;;; sox.el --- An Audio Work-Bench -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable SOX An Emacs Interface to sox
 ;;; Keywords: Emacspeak,  Audio Desktop sox

@@ -1,4 +1,4 @@
-;;; load advice on startup:
+;;; load advice on startup:  -*- lexical-binding: t; -*-
 (require 'advice)
 ;;{{{  rcs advice: 
 

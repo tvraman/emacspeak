@@ -1,4 +1,4 @@
-;;; xml-sexp.el --- Convert XML to S-Expressions
+;;; xml-sexp.el --- Convert XML to S-Expressions  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author$
 ;;; Description:  Convert XML to S-Expressions

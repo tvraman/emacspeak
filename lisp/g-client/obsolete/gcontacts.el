@@ -1,4 +1,4 @@
-;;; g-contacts.el --- Contacts API
+;;; g-contacts.el --- Contacts API  -*- lexical-binding: t; -*-
 ;;;$Id: gcontacts.el 5798 2008-08-22 17:35:01Z tv.raman.tv $
 ;;; $Author: raman $
 ;;; Description:  Contacts that all clients start from.

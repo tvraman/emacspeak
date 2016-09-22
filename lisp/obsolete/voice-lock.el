@@ -1,4 +1,4 @@
-;;; voice-lock.el --- Provide voice locking for Emacspeak
+;;; voice-lock.el --- Provide voice locking for Emacspeak  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author$ 
 ;;; Description:  Voice lock mode for Emacspeak

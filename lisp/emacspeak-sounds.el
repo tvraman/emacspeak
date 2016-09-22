@@ -1,4 +1,4 @@
-;;; emacspeak-sounds.el --- Defines Emacspeak auditory icons
+;;; emacspeak-sounds.el --- Defines Emacspeak auditory icons  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Module for adding sound cues to emacspeak
@@ -88,8 +88,8 @@ use `emacspeak-toggle-auditory-icons' bound to
   (interactive "P")
   (cond
    ((executable-find "amixer")
-    (call-interactively 'amixer))
-   (t (call-interactively 'emacspeak-aumix)))
+    (funcall-interactively #'amixer prefix))
+   (t (funcall-interactively #'emacspeak-aumix)))
   (emacspeak-auditory-icon 'close-object))
 
 ;;}}}

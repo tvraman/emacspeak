@@ -1,4 +1,4 @@
-;;; emacspeak-rpm.el --- speech-enable RPM
+;;; emacspeak-rpm.el --- speech-enable RPM  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak extension to speech-enable RPM

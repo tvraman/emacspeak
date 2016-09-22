@@ -1,4 +1,4 @@
-;;;$Id: my-functions.el,v 1.3 2002/08/25 15:35:11 tvraman Exp raman $(require 'cl)
+;;;$Id: my-functions.el,v 1.3 2002/08/25 15:35:11 tvraman Exp raman $(require 'cl)  -*- lexical-binding: t; -*-
 (defalias 'my-debug 'toggle-debug-on-error)
 
 (defun my-thanks-mail-signature()

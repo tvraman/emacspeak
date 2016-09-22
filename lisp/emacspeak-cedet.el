@@ -1,4 +1,4 @@
-;;; emacspeak-cedet.el --- Speech enable CEDET
+;;; emacspeak-cedet.el --- Speech enable CEDET  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description: Auditory interface to CEDET

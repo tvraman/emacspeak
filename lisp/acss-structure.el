@@ -1,4 +1,4 @@
-;;; acss-structure.el --- CSS -- Cascaded Speech Style structure
+;;; acss-structure.el --- CSS -- Cascaded Speech Style structure  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description: DTK Interface for Cascaded Speech Style Sheets

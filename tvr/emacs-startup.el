@@ -1,4 +1,4 @@
-;;{{{ History: Emacs initialization file for Raman:
+;;{{{ History: Emacs initialization file for Raman:  -*- lexical-binding: t; -*-
 
 ;;; $Id: emacs-startup.el 7753 2012-05-06 22:43:52Z tv.raman.tv $
 ;;; Segre March 22 1991

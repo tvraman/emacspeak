@@ -1,4 +1,4 @@
-;;; emacspeak-m-player.el --- Control mplayer from Emacs
+;;; emacspeak-m-player.el --- Control mplayer from Emacs  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description: Controlling mplayer from emacs

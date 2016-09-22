@@ -1,4 +1,4 @@
-;;; emacspeak-xslt-process.el --- speech-enable xslt-process 
+;;; emacspeak-xslt-process.el --- speech-enable xslt-process  -*- lexical-binding: t; -*- 
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak module for speech-enabling

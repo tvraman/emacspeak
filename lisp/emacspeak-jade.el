@@ -1,4 +1,4 @@
-;;; emacspeak-jade.el --- Speech-enable JADE
+;;; emacspeak-jade.el --- Speech-enable JADE  -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable JADE An Emacs Interface to jade
 ;;; Keywords: Emacspeak,  Audio Desktop jade

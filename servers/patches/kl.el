@@ -1,4 +1,4 @@
-;;Author: Qianli Liao
+;;Author: Qianli Liao  -*- lexical-binding: t; -*-
 ;;March 16 2012
 ;;Version: 0.1
 ;;Content: 

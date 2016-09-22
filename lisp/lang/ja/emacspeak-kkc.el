@@ -1,4 +1,4 @@
-;;; emacspeak-kkc.el -- voicifying KKC(Kana Kanji Conversion)
+;;; emacspeak-kkc.el -- voicifying KKC(Kana Kanji Conversion)  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author$ 
 ;;; Description:  Emacspeak extension to speech enable mew

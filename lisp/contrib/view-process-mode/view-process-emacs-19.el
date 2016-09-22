@@ -1,4 +1,4 @@
-;;; $Id: view-process-emacs-19.el,v 1.26 1995/06/03 15:49:10 muenkel Exp $
+;;; $Id: view-process-emacs-19.el,v 1.26 1995/06/03 15:49:10 muenkel Exp $  -*- lexical-binding: t; -*-
 ;;;
 ;;; Copyright (C) 1995 Heiko Muenkel
 ;;; email: muenkel@tnt.uni-hannover.de

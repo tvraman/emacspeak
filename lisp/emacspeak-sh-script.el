@@ -1,4 +1,4 @@
-;;; emacspeak-sh-script.el --- Speech enable  sh-script mode
+;;; emacspeak-sh-script.el --- Speech enable  sh-script mode  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:   extension to speech enable sh-script 

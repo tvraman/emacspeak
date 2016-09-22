@@ -1,4 +1,4 @@
-;;; emacspeak-calendar.el --- Speech enable Emacs Calendar -- maintain a diary and appointments
+;;; emacspeak-calendar.el --- Speech enable Emacs Calendar -- maintain a diary and appointments  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak extensions to speech enable the calendar.
@@ -398,11 +398,10 @@
 
 (defun emacspeak-appt-speak-appointment (minutes-left new-time message)
   "Speak the appointment in addition to  displaying it visually."
-  (let ((emacspeak-speak-messages-pause nil))
     (emacspeak-auditory-icon 'alarm)
     (message "You have an appointment in %s minutes. %s"
              minutes-left message)
-    (appt-disp-window minutes-left new-time  message)))
+    (appt-disp-window minutes-left new-time  message))
 
 (defun emacspeak-appt-delete-display ()
   "Function to delete appointment message"

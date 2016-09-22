@@ -1,4 +1,4 @@
-;;; voice-setup.el --- Setup voices for voice-lock
+;;; voice-setup.el --- Setup voices for voice-lock  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Voice lock mode for Emacspeak

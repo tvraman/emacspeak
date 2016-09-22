@@ -1,4 +1,4 @@
-;;; emacspeak-redefine.el --- Redefines some key Emacs builtins to speak
+;;; emacspeak-redefine.el --- Redefines some key Emacs builtins to speak  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak's redefinition of some key functions.

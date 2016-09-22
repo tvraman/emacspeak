@@ -1,4 +1,4 @@
-;;; Description: Generate commands.texi
+;;; Description: Generate commands.texi  -*- lexical-binding: t; -*-
 ;;; Load all emacspeak modules and write commands.texi
 
 ;;; Code:

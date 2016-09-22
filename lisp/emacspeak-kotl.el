@@ -1,4 +1,4 @@
-;;; emacspeak-kotl.el --- Speech enable KOtl -- Hyperbole's outlining editor
+;;; emacspeak-kotl.el --- Speech enable KOtl -- Hyperbole's outlining editor  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author$ 
 ;;; Description:  Emacspeak extensions for Bob Weiner's excellent Outliner

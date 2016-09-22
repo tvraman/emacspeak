@@ -1,4 +1,4 @@
-;;; emacspeak-ruby.el --- Speech enable Ruby Mode 
+;;; emacspeak-ruby.el --- Speech enable Ruby Mode  -*- lexical-binding: t; -*- 
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; DescriptionEmacspeak extensions for Ruby mode

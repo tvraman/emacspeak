@@ -1,4 +1,4 @@
-;;{{{  font to voice 
+;;{{{  font to voice  -*- lexical-binding: t; -*- 
 
 ;;; let's define the standard symbols used as fonts as
 ;;; personalities here.

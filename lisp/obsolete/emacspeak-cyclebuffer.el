@@ -1,4 +1,4 @@
-;; emacspeak-cyclebuffer.el --- Speech-enable cyclebuffer.el 
+;; emacspeak-cyclebuffer.el --- Speech-enable cyclebuffer.el  -*- lexical-binding: t; -*- 
 ;;;$Id$
 ;; Copyright  (C)  2005  Sergei V. Fleytin <fleytin@mail.ru>
 ;; Version: 1.0

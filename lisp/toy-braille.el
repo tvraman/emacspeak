@@ -1,4 +1,4 @@
-;;; Saved through ges-version 0.3.3dev at 2004-11-20 18:20
+;;; Saved through ges-version 0.3.3dev at 2004-11-20 18:20  -*- lexical-binding: t; -*-
 ;;; From: Marco Parrone <marc0@autistici.org>
 ;;; Subject: toy-braille.el  ---  Code to get "toy" UCS braille strings
 ;;; Keywords: Emacs, Unicode, UCS, toy, braille

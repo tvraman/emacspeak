@@ -1,4 +1,4 @@
-;;; shr-url.el --- Speech-enable SHR
+;;; shr-url.el --- Speech-enable SHR  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-shr.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable SHR An Emacs Interface to shr

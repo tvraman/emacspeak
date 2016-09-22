@@ -1,4 +1,4 @@
-;;; emacspeak-tabulate.el --- Interpret tabulated information as a table
+;;; emacspeak-tabulate.el --- Interpret tabulated information as a table  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description:  Utility to help emacspeak identify tabulated information

@@ -1,4 +1,4 @@
-;;{{{  Settings from Janet Cahn's thesis.
+;;{{{  Settings from Janet Cahn's thesis.  -*- lexical-binding: t; -*-
 
 ;;; the  following are taken from Janet Cahn's Masters thesis.
 ;;; I've modified them for the Dectalk Express.

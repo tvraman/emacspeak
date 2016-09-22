@@ -1,4 +1,4 @@
-;;; emacspeak-nxml.el --- Speech enable nxml mode
+;;; emacspeak-nxml.el --- Speech enable nxml mode  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description: Controlling mplayer from emacs 
@@ -245,8 +245,7 @@
   (declare (special o-close))
   (cond
    ((get-text-property (point) 'nxml-outline-state)
-    (let ((o-open nil)
-          (o-end nil))
+    (let ((o-open nil))
       (save-excursion
         (setq o-open (car (overlays-at (point))))
         (next-line 1)

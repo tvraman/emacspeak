@@ -1,4 +1,4 @@
-;;; emacspeak-lua.el --- Speech-enable LUA
+;;; emacspeak-lua.el --- Speech-enable LUA  -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable LUA An Emacs Interface to lua
 ;;; Keywords: Emacspeak,  Audio Desktop lua

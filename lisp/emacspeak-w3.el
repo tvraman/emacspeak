@@ -1,4 +1,4 @@
-;;; emacspeak-w3.el --- Speech enable W3 WWW browser -- includes ACSS Support
+;;; emacspeak-w3.el --- Speech enable W3 WWW browser -- includes ACSS Support  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak enhancements for W3

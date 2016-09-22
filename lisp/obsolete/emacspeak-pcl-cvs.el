@@ -1,4 +1,4 @@
-;;; emacspeak-pcl-cvs.el --- Speech enabled CVS access 
+;;; emacspeak-pcl-cvs.el --- Speech enabled CVS access  -*- lexical-binding: t; -*- 
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak extension to speech-enable CVS

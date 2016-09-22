@@ -1,4 +1,4 @@
-;;; emacspeak-remote.el --- Enables running remote Emacspeak sessions
+;;; emacspeak-remote.el --- Enables running remote Emacspeak sessions  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description: Auditory interface to remote speech server

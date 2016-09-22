@@ -1,4 +1,4 @@
-;;; emacspeak-paradox.el --- Speech-enable PARADOX
+;;; emacspeak-paradox.el --- Speech-enable PARADOX  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-paradox.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable PARADOX An Emacs Interface to paradox

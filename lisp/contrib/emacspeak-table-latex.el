@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (require 'pymacs) 
 ;;;###autoload
 (defvar  emacspeak-table-latex-py-helper

@@ -1,4 +1,4 @@
-;;; tts-cmds.el --- Engine-specific TTS Commands
+;;; tts-cmds.el --- Engine-specific TTS Commands  -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv $
 ;;; Description:  TTS Commands Implements Using Module tts.el
 ;;; Keywords: Emacspeak,  Audio Desktop tts

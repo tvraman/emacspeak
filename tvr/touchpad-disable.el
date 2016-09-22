@@ -1,4 +1,4 @@
-;;; Disable mouse buttons and touchpad.
+;;; Disable mouse buttons and touchpad.  -*- lexical-binding: t; -*-
 ;;; Avoids accidental touches 
 (define-minor-mode disable-mouse-mode
   "A minor-mode that disables all mouse keybinds."

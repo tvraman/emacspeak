@@ -1,4 +1,4 @@
-;;; emacspeak-reftex.el --- speech enable reftex
+;;; emacspeak-reftex.el --- speech enable reftex  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak extension to speech enable

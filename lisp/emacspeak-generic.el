@@ -1,4 +1,4 @@
-;;; emacspeak-generic.el --- Speech enable  generic modes
+;;; emacspeak-generic.el --- Speech enable  generic modes  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:   extension to speech enable generic

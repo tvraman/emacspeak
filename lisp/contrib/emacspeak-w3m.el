@@ -1,4 +1,4 @@
-;;;$Id$;;; emacspeak-w3m.el --- speech-enables w3m-el
+;;;$Id$;;; emacspeak-w3m.el --- speech-enables w3m-el  -*- lexical-binding: t; -*-
 ;;; This file is not part of Emacspeak, but the same terms and
 ;;; conditions apply.
 ;; Copyright (C) 2001,2002  Dimitri V. Paduchih

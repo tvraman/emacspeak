@@ -1,4 +1,4 @@
-;;; emacspeak-xref.el --- Speech-enable XREF
+;;; emacspeak-xref.el --- Speech-enable XREF  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-xref.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable XREF An Emacs Interface to xref

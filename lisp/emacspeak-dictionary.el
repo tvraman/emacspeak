@@ -1,4 +1,4 @@
-;;; emacspeak-dictionary.el --- speech-enable dictionaries 
+;;; emacspeak-dictionary.el --- speech-enable dictionaries  -*- lexical-binding: t; -*- 
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:   Speech enable dictionary mode

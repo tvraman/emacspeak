@@ -1,4 +1,4 @@
-;;; emacspeak-webutils.el --- Common Web Utilities For Emacspeak
+;;; emacspeak-webutils.el --- Common Web Utilities For Emacspeak  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak Webutils
@@ -98,7 +98,7 @@
 (defvar emacspeak-web-pre-process-hook nil
   "Pre-process hook -- to be used for XSL preprocessing etc.")
 
-(defsubst emacspeak-webutils-run-pre-process-hook (&rest ignore)
+(defsubst emacspeak-webutils-run-pre-process-hook (&rest _ignore)
   "Run web pre process hook."
   (declare (special emacspeak-web-pre-process-hook))
   (when     emacspeak-web-pre-process-hook
@@ -117,7 +117,7 @@
   "Set locally to a  site specific post processor.
 Note that the Web browser should reset this hook after using it.")
 
-(defsubst emacspeak-webutils-run-post-process-hook (&rest ignore)
+(defsubst emacspeak-webutils-run-post-process-hook (&rest _ignore)
   "Use web post process hook."
   (declare (special emacspeak-web-post-process-hook
                     emacspeak-web-pre-process-hook))

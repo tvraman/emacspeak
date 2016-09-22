@@ -1,4 +1,4 @@
-;;; dtk-interp.el --- Language specific (e.g. TCL) interface to speech server
+;;; dtk-interp.el --- Language specific (e.g. TCL) interface to speech server  -*- lexical-binding: t; -*- 
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Interfacing to the speech server
@@ -218,30 +218,29 @@
 ;;}}}
 ;;{{{  split caps
 
-(defsubst dtk-interp-toggle-split-caps (dtk-split-caps)
+(defsubst dtk-interp-toggle-split-caps (flag)
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "tts_split_caps %s\n"
-                               (if dtk-split-caps 1 0))))
+                               (if flag 1 0))))
 
 ;;}}}
 ;;{{{ capitalization
 
-(defsubst dtk-interp-toggle-capitalization (dtk-capitalize)
+(defsubst dtk-interp-toggle-capitalization (flag)
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "tts_capitalize  %s\n"
-                               (if dtk-capitalize  1 0))))
+                               (if flag  1 0))))
 
 ;;}}}
 ;;{{{ allcaps beep
 
-(defsubst dtk-interp-toggle-allcaps-beep  (dtk-allcaps-beep)
+(defsubst dtk-interp-toggle-allcaps-beep  (flag)
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "tts_allcaps_beep  %s\n"
-                               (if dtk-allcaps-beep  1 0
-                                   ))))
+                               (if flag  1 0))))
 
 ;;}}}
 ;;{{{ punctuations

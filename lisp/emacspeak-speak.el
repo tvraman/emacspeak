@@ -1,4 +1,4 @@
-;;; emacspeak-speak.el --- Implements Emacspeak's core speech services
+;;; emacspeak-speak.el --- Implements Emacspeak's core speech services  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Contains the functions for speaking various chunks of text
@@ -235,6 +235,15 @@ Argument BODY specifies forms to execute."
          (emacspeak-use-auditory-icons nil)
          (emacspeak-speak-messages nil))
      ,@body))
+(defcustom emacspeak-speak-messages t
+  "*Option indicating if messages are spoken.  If nil,
+emacspeak will not speak messages as they are echoed to the
+message area.  You can use command
+`emacspeak-toggle-speak-messages' bound to
+\\[emacspeak-toggle-speak-messages]."
+
+  :group 'emacspeak-speak
+  :type 'boolean)
 
 (defmacro ems-with-messages-silenced  (&rest body)
   "Evaluate body  after temporarily silencing auditory error feedback."
@@ -1541,13 +1550,13 @@ indicating the arrival  of new mail when displaying the mode line.")
   (make-hash-table :test 'eq)
   "Hash table mapping mode-names to their voicefied equivalents.")
 
-(defsubst emacspeak-get-voicefied-mode-name (mode-name)
-  "Return voicefied version of this mode-name."
+(defsubst emacspeak-get-voicefied-mode-name (m-name)
+  "Return voicefied version of mode-name `m-name'"
   (declare (special emacspeak-voicefied-mode-names))
   (let* ((mode-name-str
-          (if (stringp mode-name)
-              mode-name
-            (format-mode-line mode-name)))
+          (if (stringp m-name)
+              m-name
+            (format-mode-line m-name)))
          (result (gethash mode-name-str emacspeak-voicefied-mode-names)))
     (or result
         (progn
@@ -2133,8 +2142,7 @@ achieved by a change in voice personality."
   "Speak chunk of text around point that has current
 personality."
   (interactive)
-  (let ((personality (dtk-get-style))
-        (start (dtk-previous-style-change (point)))
+  (let ((start (dtk-previous-style-change (point)))
         (end (dtk-next-style-change (point))))
     (emacspeak-speak-region
      (or start (point-min))
@@ -2167,11 +2175,13 @@ Speak that chunk after moving."
                                                setting.
 Return buffer position or nil on failure."
   (let ((result nil)
-        (start nil)
+        (start max)
         (continue t))
     (save-excursion
       (while (and continue
-                  (not (bobp)))
+                  (not
+                   (or (< (point) min)
+                   (bobp ))))
         (backward-char 1)
         (setq start (previous-single-property-change  (point) property))
         (if (null start)
@@ -2188,9 +2198,7 @@ Return buffer position or nil on failure."
   "Moves to the front of previous chunk having current personality.
 Speak that chunk after moving."
   (interactive)
-  (let ((personality (dtk-get-style))
-        (this-start (dtk-previous-style-change (point)))
-        (next-end nil))
+  (let ((this-start (dtk-previous-style-change (point))))
     (cond
      ((and (> this-start (point-min))
            (goto-char (dtk-previous-style-change (point)))
@@ -2224,8 +2232,7 @@ Speak that chunk after moving."
 (defun emacspeak-speak-this-face-chunk ()
   "Speak chunk of text around point that has current face."
   (interactive)
-  (let ((face (get-char-property (point) 'face))
-        (start (previous-char-property-change (point)))
+  (let ((start (previous-char-property-change (point)))
         (end (next-char-property-change  (point))))
     (emacspeak-speak-region
      (or start (point-min))
@@ -2431,15 +2438,7 @@ set the current local value to the result.")
 ;;}}}
 ;;{{{   quieten messages
 
-(defcustom emacspeak-speak-messages t
-  "*Option indicating if messages are spoken.  If nil,
-emacspeak will not speak messages as they are echoed to the
-message area.  You can use command
-`emacspeak-toggle-speak-messages' bound to
-\\[emacspeak-toggle-speak-messages]."
 
-  :group 'emacspeak-speak
-  :type 'boolean)
 
 (ems-generate-switcher 'emacspeak-toggle-speak-messages
                        'emacspeak-speak-messages
@@ -2843,8 +2842,8 @@ Prompts for PERSONALITY  with completion when called interactively."
                               personality-table nil t))))
     (with-silent-modifications
       (operate-on-rectangle
-       (function (lambda (start-seg begextra endextra)
-                   (emacspeak-put-personality start-seg  (point) personality)))
+       #' (lambda (start-seg _begextra _endextra)
+                   (emacspeak-put-personality start-seg  (point) personality))
        start end  nil))))
 
 ;;;###autoload

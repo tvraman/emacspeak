@@ -1,4 +1,4 @@
-;;; emacspeak-custom.el --- Speech enable interactive Emacs customization 
+;;; emacspeak-custom.el --- Speech enable interactive Emacs customization  -*- lexical-binding: t; -*- 
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description: Auditory interface to custom
@@ -143,10 +143,9 @@
 (defadvice customize-apropos (after emacspeak pre act comp)
   "Provide auditory feedback"
   (when (ems-interactive-p)
-    (let ((symbol (ad-get-arg 0)))
-      (emacspeak-auditory-icon 'open-object)
-      (forward-line 0)
-      (emacspeak-speak-line))))
+    (emacspeak-auditory-icon 'open-object)
+    (forward-line 0)
+    (emacspeak-speak-line)))
 
 (defadvice customize-variable (after emacspeak pre act comp)
   "Provide auditory feedback"

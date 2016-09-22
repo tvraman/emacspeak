@@ -1,4 +1,4 @@
-;;; emacspeak-php-mode.el --- Speech-Enable php-mode 
+;;; emacspeak-php-mode.el --- Speech-Enable php-mode  -*- lexical-binding: t; -*- 
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description: speech-enable php-mode

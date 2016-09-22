@@ -1,4 +1,4 @@
-;;; emacspeak-piglets.el.el --- Result of large pigs connecting over a socket
+;;; emacspeak-piglets.el.el --- Result of large pigs connecting over a socket  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Result of connecting Emacs and Firefox

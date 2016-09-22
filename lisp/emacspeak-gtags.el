@@ -1,4 +1,4 @@
-;;; emacspeak-gtags.el --- Speech-enable GTAGS
+;;; emacspeak-gtags.el --- Speech-enable GTAGS  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-gtags.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable GTAGS An Emacs Interface to gtags

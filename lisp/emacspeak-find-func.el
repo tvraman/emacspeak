@@ -1,4 +1,4 @@
-;;; emacspeak-find-func.el --- Speech enable emacs' code finder
+;;; emacspeak-find-func.el --- Speech enable emacs' code finder  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description:  Emacspeak extension to speech enable find-func

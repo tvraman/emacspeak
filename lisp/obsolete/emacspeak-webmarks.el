@@ -1,4 +1,4 @@
-;;; emacspeak-webmarks.el --- Web Bookmarks Via Google
+;;; emacspeak-webmarks.el --- Web Bookmarks Via Google  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  WebMarks are Web Bookmarks stored at Google

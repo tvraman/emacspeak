@@ -1,4 +1,4 @@
-;;; emacspeak-rss.el --- Emacspeak RSS Wizard
+;;; emacspeak-rss.el --- Emacspeak RSS Wizard  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  RSS Wizard for the emacspeak desktop

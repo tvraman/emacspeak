@@ -1,4 +1,4 @@
-;;; emacspeak-threes.el --- Speech-enable THREES
+;;; emacspeak-threes.el --- Speech-enable THREES  -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable THREES An Emacs Interface to threes
 ;;; Keywords: Emacspeak,  Audio Desktop threes

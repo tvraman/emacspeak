@@ -1,4 +1,4 @@
-;;; emacspeak-ems-new-interactive.el --- Speech-enable EMS-NEW-INTERACTIVE
+;;; emacspeak-ems-new-interactive.el --- Speech-enable EMS-NEW-INTERACTIVE  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-ems-new-interactive.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable EMS-NEW-INTERACTIVE An Emacs Interface to ems-new-interactive

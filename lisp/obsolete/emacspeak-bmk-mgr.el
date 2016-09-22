@@ -1,4 +1,4 @@
-;;; emacspeak-bmk-mgr.el --- speech-enables bmk-mgr.el
+;;; emacspeak-bmk-mgr.el --- speech-enables bmk-mgr.el  -*- lexical-binding: t; -*-
 ;;;$Id: emacspeak-bmk-mgr.el 
 ;;4332 2007-01-21 14:14:20Z tv.raman.tv $
 ;; Original Author: rdc1x@comcast.net (Robert D Crawford)

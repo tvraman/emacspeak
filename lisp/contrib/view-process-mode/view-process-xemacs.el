@@ -1,4 +1,4 @@
-;;; $Id: view-process-xemacs.el,v 1.26 1996/08/17 14:22:09 muenkel Exp $
+;;; $Id: view-process-xemacs.el,v 1.26 1996/08/17 14:22:09 muenkel Exp $  -*- lexical-binding: t; -*-
 ;;;
 ;;; Copyright (C) 1995, 1996 Heiko Muenkel
 ;;; email: muenkel@tnt.uni-hannover.de

@@ -1,4 +1,4 @@
-;;; g-docs.el --- Docs Google  Client
+;;; g-docs.el --- Docs Google  Client  -*- lexical-binding: t; -*-
 ;;;$Id: gdocs.el 5798 2008-08-22 17:35:01Z tv.raman.tv $
 ;;; $Author: raman $
 ;;; Description:  Implement Google Docs in Emacs

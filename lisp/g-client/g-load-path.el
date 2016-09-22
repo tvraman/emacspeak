@@ -1,4 +1,4 @@
-;;; g-load-path.el -- Setup Emacs load-path for compiling grep
+;;; g-load-path.el -- Setup Emacs load-path for compiling grep  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Sets up load-path for g-client compilation

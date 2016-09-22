@@ -1,4 +1,4 @@
-;;; Russian spelling data
+;;; Russian spelling data  -*- lexical-binding: t; -*-
 (nconc emacspeak-char-to-phonetic-table
        '(
          ("Á" . "ÁÎÎÁ")

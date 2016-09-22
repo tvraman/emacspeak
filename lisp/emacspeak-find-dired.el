@@ -1,4 +1,4 @@
-;;; emacspeak-find-dired.el --- Speech enable  find-dired
+;;; emacspeak-find-dired.el --- Speech enable  find-dired  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:   extension to speech enable find-dired 

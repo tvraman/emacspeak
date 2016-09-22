@@ -1,4 +1,4 @@
-;;; emacspeak-preamble.el --- standard  include for Emacspeak modules
+;;; emacspeak-preamble.el --- standard  include for Emacspeak modules  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; DescriptionEmacspeak extensions for auctex-mode

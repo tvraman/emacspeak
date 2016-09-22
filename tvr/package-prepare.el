@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (require 'package)
 (setq package-archive-priorities
       '(("melpa-stable" . 20)

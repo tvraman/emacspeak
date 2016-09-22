@@ -1,4 +1,4 @@
-;;; emacspeak-gnus.el --- Speech enable GNUS -- Fluent spoken access to usenet
+;;; emacspeak-gnus.el --- Speech enable GNUS -- Fluent spoken access to usenet  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description:  Emacspeak extension to speech enable Gnus

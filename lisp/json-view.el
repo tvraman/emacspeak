@@ -1,4 +1,4 @@
-;;; json-view.el --- Light-Weight JSON-Viewer 
+;;; json-view.el --- Light-Weight JSON-Viewer  -*- lexical-binding: t; -*- 
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Light-weight JSON viewer
 ;;; Keywords: Emacspeak,  Audio Desktop JSON, Data Exploration
@@ -56,8 +56,7 @@
 (define-derived-mode json-view-mode special-mode
   "JSON Interaction."
   "View, Explore JSON-encoded data on the Emacspeak Audio Desktop."
-  (let ((inhibit-read-only t)
-        (start (point)))
+  (let ((inhibit-read-only t))
     (goto-char (point-min))
     ))
 (defvar json-view-buffer-name "*JSON Viewer"

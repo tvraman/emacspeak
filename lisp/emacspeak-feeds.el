@@ -1,4 +1,4 @@
-;;; emacspeak-feeds.el --- Feeds Support (Atom, RSS) For Emacspeak
+;;; emacspeak-feeds.el --- Feeds Support (Atom, RSS) For Emacspeak  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-webutils.el 8904 2014-03-21 20:28:21Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak Feeds Support 
@@ -340,7 +340,7 @@ Argument `feed' is a feed structure (label url type)."
         (link (button-get button 'link)))
     (cond
      ((zerop (length url)) ; missing feed url 
-      (browse-url (button-get button 'link)))
+      (browse-url link))
      ((string-match "atom" url)
       (emacspeak-feeds-atom-display url))
      ((string-match "blogspot" url)

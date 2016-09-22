@@ -1,4 +1,4 @@
-;;; emacspeak-mspools.el --- Speech enable MSpools -- Monitor multiple mail drops
+;;; emacspeak-mspools.el --- Speech enable MSpools -- Monitor multiple mail drops  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description: Auditory interface to mail spool tracker

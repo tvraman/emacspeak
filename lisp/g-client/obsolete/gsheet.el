@@ -1,4 +1,4 @@
-;;; gsheet.el --- Google Spreadsheets
+;;; gsheet.el --- Google Spreadsheets  -*- lexical-binding: t; -*-
 ;;;$Id$
 ;;; $Author: raman $
 ;;; Description:  Google Spreadsheet

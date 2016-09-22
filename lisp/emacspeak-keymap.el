@@ -1,4 +1,4 @@
-;;; emacspeak-keymap.el --- Setup  keymaps and keybindings provided by Emacspeak
+;;; emacspeak-keymap.el --- Setup  keymaps and keybindings provided by Emacspeak  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Module for setting up emacspeak keybindings

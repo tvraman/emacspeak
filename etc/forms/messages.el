@@ -1,4 +1,4 @@
-;;; emacspeak/forms.el --- Speech friendly interface to /var/adm/messages
+;;; emacspeak/forms.el --- Speech friendly interface to /var/adm/messages  -*- lexical-binding: t; -*-
 ;;;$Id$
 ;;; $Author$
 ;;; Description:  Emacspeak extension to speech enable sql-mode

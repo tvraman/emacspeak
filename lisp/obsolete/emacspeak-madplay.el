@@ -1,4 +1,4 @@
-;;; emacspeak-madplay.el --- Control madplay from Emacs
+;;; emacspeak-madplay.el --- Control madplay from Emacs  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description: Controlling madplay from emacs 

@@ -1,4 +1,4 @@
-;;; emacspeak-bookmark.el --- Speech enable Emacs' builtin bookmarks
+;;; emacspeak-bookmark.el --- Speech enable Emacs' builtin bookmarks  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description: Auditory interface to bookmark

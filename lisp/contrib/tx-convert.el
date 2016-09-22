@@ -1,4 +1,4 @@
-;; Hi All,
+;; Hi All,  -*- lexical-binding: t; -*-
 
 ;; I thought it was about time I started offering up some of my rough and
 ;; ready elisp code which others might find useful. To start of, I

@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 
 (load-library "tcl")(declare (special inferior-tcl-mode-map 
                       tcl-prompt-regexp

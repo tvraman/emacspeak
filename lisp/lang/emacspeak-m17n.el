@@ -1,4 +1,4 @@
-;;; emacspeak-m17n.el --- set up for Multilingual support in Emacspeak.
+;;; emacspeak-m17n.el --- set up for Multilingual support in Emacspeak.  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2001  Free Software Foundation, Inc.
 

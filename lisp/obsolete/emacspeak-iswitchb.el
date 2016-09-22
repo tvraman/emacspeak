@@ -1,4 +1,4 @@
-;;; emacspeak-iswitchb.el --- speech-enable iswitchb buffer selection
+;;; emacspeak-iswitchb.el --- speech-enable iswitchb buffer selection  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:   extension to speech enable iswitchb

@@ -1,4 +1,4 @@
-;;; emacspeak-atom-blogger.el --- Speech-enable atom-blogger
+;;; emacspeak-atom-blogger.el --- Speech-enable atom-blogger  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable atom-blogger

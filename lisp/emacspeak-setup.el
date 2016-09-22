@@ -1,4 +1,4 @@
-;;; emacspeak-setup.el --- Setup Emacspeak environment --loaded to start Emacspeak
+;;; emacspeak-setup.el --- Setup Emacspeak environment --loaded to start Emacspeak  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  File for setting up and starting Emacspeak
@@ -204,6 +204,12 @@ such as pronunciation dictionaries are stored. ")
   "Set to true to use a separate TTS stream for notifications."
   :type 'boolean
   :group 'emacspeak)
+
+
+(defun emacspeak-tts-use-notify-stream-p ()
+  "Predicate to check if we use a separate notify stream."
+  (declare (special emacspeak-tts-use-notify-stream))
+  emacspeak-tts-use-notify-stream)
 
 (defun emacspeak-tts-notify-hook ()
   "Starts up a notification stream if current synth supports  multiple invocations.

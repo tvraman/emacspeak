@@ -1,4 +1,4 @@
-;(augment-load-path "erc" "erc")
+;(augment-load-path "erc" "erc")  -*- lexical-binding: t; -*-
 ;(load-library "erc")
 (defun erc-w3 ()
   "Join W3C IRC server."

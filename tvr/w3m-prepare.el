@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (augment-load-path "w3m" "w3m")
 (load-library "w3m")
 (defvar coding-category-utf-16-be nil)

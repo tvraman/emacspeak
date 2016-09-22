@@ -1,4 +1,4 @@
-;;; emacspeak-bookshare.el --- Speech-enabled  BOOKSHARE client
+;;; emacspeak-bookshare.el --- Speech-enabled  BOOKSHARE client  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-bookshare.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable BOOKSHARE An Emacs Interface to bookshare
@@ -968,8 +968,6 @@ Target location is generated from author and title."
   (emacspeak-bookshare-assert)
   (let ((inhibit-read-only t)
         (target (emacspeak-bookshare-get-target))
-        (author (emacspeak-bookshare-get-author))
-        (title (emacspeak-bookshare-get-title))
         (directory nil))
     (when (null target) (error  "No downloaded content here."))
     (unless   (file-exists-p target) (error "First download this content."))
@@ -1025,7 +1023,6 @@ Make sure it's downloaded and unpacked first."
   (interactive)
   (let* ((target (emacspeak-bookshare-get-target))
          (directory (emacspeak-bookshare-get-directory))
-         (title (emacspeak-bookshare-get-title))
          (xsl (emacspeak-bookshare-xslt  directory)))
     (unless (file-exists-p target)
       (error "First download this content."))
@@ -1054,7 +1051,6 @@ Make sure it's downloaded and unpacked first."
   (interactive)
   (let ((target (emacspeak-bookshare-get-target))
         (directory (emacspeak-bookshare-get-directory))
-        (title (emacspeak-bookshare-get-title))
         (xsl (emacspeak-bookshare-toc-xslt)))
     (cond
      ((null target) (call-interactively 'emacspeak-bookshare-toc))

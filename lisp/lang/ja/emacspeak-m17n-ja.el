@@ -1,4 +1,4 @@
-;;; -*- coding: iso-2022-7bit-unix -*-
+;;; -*- coding: iso-2022-7bit-unix; lexical-binding: t; -*-
 ;;; emacspeak-m17n-ja.el --- Bilingual extension to emacspeak
 ;;; $Id$
 ;;; $Author$

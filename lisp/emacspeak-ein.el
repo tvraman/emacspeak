@@ -1,4 +1,4 @@
-;;; emacspeak-ein.el --- Speech-enable EIN
+;;; emacspeak-ein.el --- Speech-enable EIN  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-ein.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable EIN An Emacs Interface to ein

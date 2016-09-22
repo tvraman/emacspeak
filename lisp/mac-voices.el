@@ -1,4 +1,4 @@
-;;; mac-voices.el --- Define various device independent voices in terms of Mac tags
+;;; mac-voices.el --- Define various device independent voices in terms of Mac tags  -*- lexical-binding: t; -*-
 ;;; $Id: mac-voices.el 6342 2009-10-20 19:12:40Z tv.raman.tv $
 ;;; $Author: Dave $
 ;;; Description:  Module to set up Mac voices and personalities

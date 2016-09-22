@@ -1,4 +1,4 @@
-;;; emacspeak-dired.el --- Speech enable Dired Mode -- A powerful File Manager
+;;; emacspeak-dired.el --- Speech enable Dired Mode -- A powerful File Manager  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak extension to speech enable dired

@@ -1,4 +1,4 @@
-;;; atom-blogger.el --- Utilities for Atom Blogger API
+;;; atom-blogger.el --- Utilities for Atom Blogger API  -*- lexical-binding: t; -*-
 ;;;$Id: atom-blogger.el 4201 2006-09-28 16:37:06Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  ATOM Blogger API

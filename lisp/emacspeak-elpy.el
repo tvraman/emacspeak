@@ -1,4 +1,4 @@
-;;; emacspeak-elpy.el --- Speech-enable ELPY
+;;; emacspeak-elpy.el --- Speech-enable ELPY  -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable ELPY An Emacs Interface to elpy
 ;;; Keywords: Emacspeak,  Audio Desktop elpy

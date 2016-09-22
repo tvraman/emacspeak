@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (augment-load-path "emms/lisp" "emms")
 (require 'emms-setup)
 (emms-all)

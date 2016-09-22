@@ -1,4 +1,4 @@
-;;; emacspeak-perl.el --- Speech enable Perl Mode 
+;;; emacspeak-perl.el --- Speech enable Perl Mode  -*- lexical-binding: t; -*- 
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; DescriptionEmacspeak extensions for perl-mode

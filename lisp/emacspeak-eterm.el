@@ -1,4 +1,4 @@
-;;; emacspeak-eterm.el --- Speech enable eterm -- Emacs' terminal emulator  term.el
+;;; emacspeak-eterm.el --- Speech enable eterm -- Emacs' terminal emulator  term.el  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description:  Emacspeak extension to speech enable eterm. 
@@ -1100,17 +1100,14 @@ emacspeak-toggle-eterm-autospeak bound to
   (let ((emacspeak-eterm-window (get-buffer-window (process-buffer (ad-get-arg 0))))
         (emacspeak-eterm-row (term-current-row))
         (emacspeak-eterm-column (term-current-column))
-        (end (point-max))
         (current-char (preceding-char))
-        (new-end nil)
         (new-row nil)
         (new-column nil)
         (old-point (point))
         (dtk-stop-immediately (not eterm-line-mode)))
     ad-do-it
     (setq new-row (term-current-row)
-          new-column (term-current-column)
-          new-end (point-max))
+          new-column (term-current-column))
     (when                        ; do something if in active area
         (and  emacspeak-eterm-autospeak
               (window-live-p emacspeak-eterm-window)

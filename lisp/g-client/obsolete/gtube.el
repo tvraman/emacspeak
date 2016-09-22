@@ -1,4 +1,4 @@
-;;; g-tube.el --- YouTube Google  Client
+;;; g-tube.el --- YouTube Google  Client  -*- lexical-binding: t; -*-
 ;;;$Id$
 ;;; $Author: raman $
 ;;; Description:  YouTube API Client

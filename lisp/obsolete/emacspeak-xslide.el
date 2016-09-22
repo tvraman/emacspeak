@@ -1,4 +1,4 @@
-;;; emacspeak-xslide.el --- Speech enable  XSL authoring
+;;; emacspeak-xslide.el --- Speech enable  XSL authoring  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:   extension to speech enable xslide

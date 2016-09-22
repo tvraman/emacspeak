@@ -1,4 +1,4 @@
-;;; emacspeak-atom.el --- Emacspeak ATOM Wizard
+;;; emacspeak-atom.el --- Emacspeak ATOM Wizard  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  ATOM Wizard for the emacspeak desktop

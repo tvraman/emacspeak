@@ -1,4 +1,4 @@
-;;;$Id$
+;;;$Id$  -*- lexical-binding: t; -*-
 ;;;Description: Emacs interface to beeps program.
 (require 'cl)
 ;;{{{ Variables

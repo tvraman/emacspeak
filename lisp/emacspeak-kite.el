@@ -1,4 +1,4 @@
-;;; emacspeak-kite.el --- Speech-enable KITE
+;;; emacspeak-kite.el --- Speech-enable KITE  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-kite.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable KITE An Emacs Interface to kite

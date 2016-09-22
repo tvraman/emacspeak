@@ -1,4 +1,4 @@
-;;; emacspeak-mpg123.el --- Speech enable MP3 Player
+;;; emacspeak-mpg123.el --- Speech enable MP3 Player  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak extension to speech-enable MP3 player

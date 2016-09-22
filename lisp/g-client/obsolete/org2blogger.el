@@ -1,4 +1,4 @@
-;;;_ org2blogger.el --- Code for exporting org-mode to g-client
+;;;_ org2blogger.el --- Code for exporting org-mode to g-client  -*- lexical-binding: t; -*-
 
 ;;;_. Headers
 ;;;_ , License

@@ -1,4 +1,4 @@
-;;; emacspeak-oo-browser.el --- Speech enable OO Browser -- For Browsing large OO Systems
+;;; emacspeak-oo-browser.el --- Speech enable OO Browser -- For Browsing large OO Systems  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author$ 
 ;;; Description:  Emacspeak extensions for Bob Weiner's excellent OO-Browser.

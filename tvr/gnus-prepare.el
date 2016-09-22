@@ -1,4 +1,4 @@
-;;;  Gnus Setup For GMail imap:
+;;;  Gnus Setup For GMail imap:  -*- lexical-binding: t; -*-
 ;;{{{  News Source etc 
 ;;; Example: http://www.google.com/url?q=http://blogs.openaether.org/data/gnus.example.el&sa=U&ei=R1DdUuLMCYiDogTV0YHYDg&ved=0CCkQFjAC&usg=AFQjCNF4T3kHZQ8CDmpFbzJeJcXbdTYOXw
 (require 'nnimap)

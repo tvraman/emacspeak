@@ -1,4 +1,4 @@
-;;; outloud-css-speech.el --- CSS -- Cascaded Speech Style Interface
+;;; outloud-css-speech.el --- CSS -- Cascaded Speech Style Interface  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author$
 ;;; Description: Outloud Interface for Cascaded Speech Style Sheets

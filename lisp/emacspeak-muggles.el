@@ -1,4 +1,4 @@
-;;; emacspeak-muggles.el --- Convenience Hydras For The Emacspeak Desktop
+;;; emacspeak-muggles.el --- Convenience Hydras For The Emacspeak Desktop  -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable MUGGLES An Emacs Interface to muggles
 ;;; Keywords: Emacspeak,  Audio Desktop muggles

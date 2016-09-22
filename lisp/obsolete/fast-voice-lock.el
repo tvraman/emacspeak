@@ -1,4 +1,4 @@
-;;; fast-voice-lock.el --- Support mode for voice locking
+;;; fast-voice-lock.el --- Support mode for voice locking  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author$ 
 ;;; Description:  lazy Voice lock mode for Emacspeak

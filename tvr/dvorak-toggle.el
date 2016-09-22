@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 
 (defcustom keytables-directory
   "/lib/kbd/keymaps/i386/"

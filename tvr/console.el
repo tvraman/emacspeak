@@ -1,4 +1,4 @@
-;;; Function keymap for linux console:
+;;; Function keymap for linux console:  -*- lexical-binding: t; -*-
 ;;;Following lines taken from lk20.el
 ;;; Fix some keypad keys:
 (global-unset-key "\e\e")

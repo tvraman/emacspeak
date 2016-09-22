@@ -1,4 +1,4 @@
-;;; g-books.el --- Books Google  Client
+;;; g-books.el --- Books Google  Client  -*- lexical-binding: t; -*-
 ;;;$Id: gbooks.el 6262 2009-09-25 21:54:09Z tv.raman.tv $
 ;;; $Author: raman $
 ;;; Description:  Books that all clients start from.

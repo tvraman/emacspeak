@@ -1,4 +1,4 @@
-;;; emacspeak-sudoku.el --- Play SuDoku 
+;;; emacspeak-sudoku.el --- Play SuDoku  -*- lexical-binding: t; -*- 
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description: Playing SuDoku ;;; Keywords: Emacspeak, sudoku

@@ -1,4 +1,4 @@
-;;; emacspeak-cider-mode.el --- Speech-Enable cider-mode 
+;;; emacspeak-cider-mode.el --- Speech-Enable cider-mode  -*- lexical-binding: t; -*- 
 ;;; $Author: marshall.flax@gmail.com, but under GPL 2+ and copyright assigned to T.V. Raman, and/or the emacspeak project $
 ;;; Description: speech-enable cider-mode
 ;;; Keywords: Emacspeak, Cider, Clojure

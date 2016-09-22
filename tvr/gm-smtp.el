@@ -1,4 +1,4 @@
-;;; Configuring Emacs to send GMail:
+;;; Configuring Emacs to send GMail:  -*- lexical-binding: t; -*-
 ;;; Auth credentials are taken from .authinfo.gpg
 
 (require 'smtpmail)

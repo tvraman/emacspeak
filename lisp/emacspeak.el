@@ -1,4 +1,4 @@
-;;; emacspeak.el --- Emacspeak -- The Complete Audio Desktop
+;;; emacspeak.el --- Emacspeak -- The Complete Audio Desktop  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak: A speech interface to Emacs

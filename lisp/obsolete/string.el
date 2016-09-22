@@ -1,4 +1,4 @@
-;;;; $Id$
+;;;; $Id$  -*- lexical-binding: t; -*-
 ;;;; This file contains some miscellaneous string functions
 
 ;; Copyright (C) 1991-1995 Free Software Foundation

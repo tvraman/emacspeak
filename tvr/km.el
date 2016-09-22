@@ -1,4 +1,4 @@
-;;; Move emacspeak-hyper-keys etc from a list of conses to a list of lists
+;;; Move emacspeak-hyper-keys etc from a list of conses to a list of lists  -*- lexical-binding: t; -*-
 ;;; Loading this file once should suffice to complete the migration.
 ;;; Make sure to save the customized settings after loading this.
 

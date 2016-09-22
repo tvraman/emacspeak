@@ -1,4 +1,4 @@
-;;; emacspeak-ftf.el --- Speech-enable find-things-fast
+;;; emacspeak-ftf.el --- Speech-enable find-things-fast  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-ftf.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable find-things-fast -- a tool to find things fast in a project

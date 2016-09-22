@@ -1,4 +1,4 @@
-;;; emacspeak-imenu.el --- Speech enable Imenu -- produce buffer-specific table of contents
+;;; emacspeak-imenu.el --- Speech enable Imenu -- produce buffer-specific table of contents  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description: Auditory interface buffer indices

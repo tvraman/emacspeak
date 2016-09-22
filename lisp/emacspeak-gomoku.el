@@ -1,4 +1,4 @@
-;;; emacspeak-gomoku.el --- Speech enable the game of Gomoku
+;;; emacspeak-gomoku.el --- Speech enable the game of Gomoku  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description: Auditory interface to gomoku

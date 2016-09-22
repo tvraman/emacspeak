@@ -1,4 +1,4 @@
-;;; emacspeak-jawbreaker.el --- Talk to Firefox/JawBreaker  via MozRepl
+;;; emacspeak-jawbreaker.el --- Talk to Firefox/JawBreaker  via MozRepl  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Play JawBreaker game from Emacs in Firefox

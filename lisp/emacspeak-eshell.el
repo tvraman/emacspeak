@@ -1,4 +1,4 @@
-;;; emacspeak-eshell.el --- Speech-enable EShell - Emacs Shell
+;;; emacspeak-eshell.el --- Speech-enable EShell - Emacs Shell  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:   Speech-enable EShell

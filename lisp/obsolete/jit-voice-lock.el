@@ -1,4 +1,4 @@
-;;; jit-lock.el --- just-in-time voiceification.
+;;; jit-lock.el --- just-in-time voiceification.  -*- lexical-binding: t; -*-
 ;;;Shamelessly cloned from jim-lock.el
 ;;;$Id$
 ;; Copyright (C) 1998 Free Software Foundation, Inc.

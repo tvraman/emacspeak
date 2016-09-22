@@ -1,4 +1,4 @@
-;;; emacspeak-browse-kill-ring.el --- browse-kill-ring  for emacspeak desktop
+;;; emacspeak-browse-kill-ring.el --- browse-kill-ring  for emacspeak desktop  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak front-end for BROWSE-KILL-RING

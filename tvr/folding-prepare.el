@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (load-library "folding")
 (declare (special fold-fold-on-startup
                   fold-keys-already-setup

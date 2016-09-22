@@ -1,4 +1,4 @@
-;;; g-autogen.el --- Generate autoloads for G
+;;; g-autogen.el --- Generate autoloads for G  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: raman $
 ;;; Description:  autoload Wizard for the G client

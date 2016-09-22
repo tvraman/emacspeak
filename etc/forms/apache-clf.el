@@ -1,4 +1,4 @@
-;;; emacspeak/forms/apache-clf.el --- Speech friendly
+;;; emacspeak/forms/apache-clf.el --- Speech friendly  -*- lexical-binding: t; -*-
 ;;; interface to apache logs (CLF)
 ;;;$Id$
 ;;; $Author$

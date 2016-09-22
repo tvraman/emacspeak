@@ -1,4 +1,4 @@
-;;; bep-voices.el --- Define various device independent voices in terms of BEP codes.
+;;; bep-voices.el --- Define various device independent voices in terms of BEP codes.  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author$
 ;;; Description:  Module to set up dtk voices and personalities

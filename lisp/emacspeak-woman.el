@@ -1,4 +1,4 @@
-;;; emacspeak-woman.el --- Speech-enable WOMAN
+;;; emacspeak-woman.el --- Speech-enable WOMAN  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-woman.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable WOMAN An Emacs Interface to Man pages

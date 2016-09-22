@@ -1,4 +1,4 @@
-;;; emacspeak-nero.el --- Speech-Enable nero (interface to lynx)
+;;; emacspeak-nero.el --- Speech-Enable nero (interface to lynx)  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author$
 ;;; Description: speech-enable nero (light-weight lynx rapper).

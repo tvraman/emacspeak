@@ -1,4 +1,4 @@
-;;;$Id$
+;;;$Id$  -*- lexical-binding: t; -*-
 
 (augment-load-path "w3/lisp" "w3")
 (load-library "url")

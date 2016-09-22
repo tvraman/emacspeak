@@ -1,4 +1,4 @@
-;;; html-outline.el --- Extends html-helper-mode to provide outline and imenu support
+;;; html-outline.el --- Extends html-helper-mode to provide outline and imenu support  -*- lexical-binding: t; -*-
 ;;; Author: T. V. Raman
 ;;; $Id$
 ;;; Description: Outlining for HTML helper mode

@@ -1,4 +1,4 @@
-;;; emacspeak-view-process.el --- Speech enable View Processes -- A powerful task manager
+;;; emacspeak-view-process.el --- Speech enable View Processes -- A powerful task manager  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description: Emacspeak extension for flexible viewing of processes

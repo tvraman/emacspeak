@@ -1,4 +1,4 @@
-;;; emacspeak-ses.el --- Speech-enable ses spread-sheet
+;;; emacspeak-ses.el --- Speech-enable ses spread-sheet  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak front-end for SES 
@@ -92,7 +92,7 @@
              (emacspeak-ses-get-cell-value-by-name cell-name))))
    (t (message "No cell here"))))
 
-(defun emacspeak-ses-summarize-current-cell (&rest ignore)
+(defun emacspeak-ses-summarize-current-cell (&rest _ignore)
   "Summarize current cell."
   (interactive)
   (emacspeak-ses-summarize-cell

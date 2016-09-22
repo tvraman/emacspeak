@@ -1,4 +1,4 @@
-;;; emacspeak-personality.el ---Emacspeak's new personality interface
+;;; emacspeak-personality.el ---Emacspeak's new personality interface  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Voice lock implementation

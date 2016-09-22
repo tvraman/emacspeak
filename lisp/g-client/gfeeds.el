@@ -1,4 +1,4 @@
-;;; gfeeds.el --- Google Access To Feeds
+;;; gfeeds.el --- Google Access To Feeds  -*- lexical-binding: t; -*-
 ;;;$Id$
 ;;; $Author: raman $
 ;;; Description:  AJAX Feeds -> Lisp

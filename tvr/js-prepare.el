@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (when (locate-library "js2-mode")
   (load "js2-mode-autoloads"))
 (when (locate-library "tern")

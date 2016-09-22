@@ -1,4 +1,4 @@
-;;; voice-settings.el --- Defines voice settings used to voice lock different modes
+;;; voice-settings.el --- Defines voice settings used to voice lock different modes  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author$ 
 ;;; Description:  Voice lock mode for Emacspeak

@@ -1,4 +1,4 @@
-;;; emacspeak-compile.el --- Speech enable  navigation of  compile errors, grep matches
+;;; emacspeak-compile.el --- Speech enable  navigation of  compile errors, grep matches  -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv $ 
 ;;; Description:  Emacspeak extensions to  the compile package 
 ;;; Keywords: Emacspeak compile

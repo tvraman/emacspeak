@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (augment-load-path "jabber")
 (load-library "jabber")
 (load-library "jabber-autoloads")

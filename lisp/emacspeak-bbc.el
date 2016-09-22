@@ -1,4 +1,4 @@
-;;; emacspeak-bbc.el --- Speech-enabled  BBC client
+;;; emacspeak-bbc.el --- Speech-enabled  BBC client  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-bbc.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable BBC An Emacs Interface to bbc

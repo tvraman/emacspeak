@@ -1,4 +1,4 @@
-;;; emacspeak-finder.el --- Generate a database of keywords and descriptions for all Emacspeak  packages
+;;; emacspeak-finder.el --- Generate a database of keywords and descriptions for all Emacspeak  packages  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description: Auditory interface

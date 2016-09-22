@@ -1,4 +1,4 @@
-;;; emacspeak-damlite.el --- Speech-enable damlite
+;;; emacspeak-damlite.el --- Speech-enable damlite  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak front-end for daml  authoring mode 

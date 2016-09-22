@@ -1,4 +1,4 @@
-;;; emacspeak-python.el --- Speech enable Python development environment
+;;; emacspeak-python.el --- Speech enable Python development environment  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description: Auditory interface to python mode
@@ -67,7 +67,7 @@
                             python-shell-send-string python-shell-send-string-no-output)
  do
  (eval
-  `(defadvice python-shell-send-region (after emacspeak pre act comp)
+  `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback"
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)))))

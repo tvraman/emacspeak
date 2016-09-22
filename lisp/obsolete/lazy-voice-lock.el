@@ -1,4 +1,4 @@
-;;; lazy-voice-lock.el --- Support mode for voice locking  parts of a buffer
+;;; lazy-voice-lock.el --- Support mode for voice locking  parts of a buffer  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author$ 
 ;;; Description:  lazy Voice lock mode for Emacspeak

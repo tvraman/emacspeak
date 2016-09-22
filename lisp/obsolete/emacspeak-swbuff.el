@@ -1,4 +1,4 @@
-;;; emacspeak-swbuff.el --- speech-enable swbuff mode
+;;; emacspeak-swbuff.el --- speech-enable swbuff mode  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak module for speech-enabling swbuff 

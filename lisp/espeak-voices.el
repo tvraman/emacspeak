@@ -1,4 +1,4 @@
-;;; espeak-voices.el --- Define various device independent voices in terms of Espeak tags
+;;; espeak-voices.el --- Define various device independent voices in terms of Espeak tags  -*- lexical-binding: t; -*-
 ;;; Description:  Module to set up Espeak voices and personalities
 ;;; Keywords: Voice, Personality, Espeak
 ;;{{{  LCD Archive entry:

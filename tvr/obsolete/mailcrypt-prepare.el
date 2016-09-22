@@ -1,4 +1,4 @@
-;;; setting up mailcrypt to use gpg:
+;;; setting up mailcrypt to use gpg:  -*- lexical-binding: t; -*-
 ;;;
 (augment-load-path "mailcrypt" "mailcrypt")
 (setq mc-gpg-comment nil)

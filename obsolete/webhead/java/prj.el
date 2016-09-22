@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (jde-project-file-version "1.0")
 
 (defsubst webhead-classpath ()

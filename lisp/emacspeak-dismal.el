@@ -1,4 +1,4 @@
-;;; emacspeak-dismal.el --- Speech enable Dismal -- An Emacs Spreadsheet program
+;;; emacspeak-dismal.el --- Speech enable Dismal -- An Emacs Spreadsheet program  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description: spread sheet extension
@@ -205,33 +205,29 @@ The `column header' is the entry in row 0."
   "Move forward by arg rows
  (the next row by default)and summarize it."
   (interactive "p")
-  (let ((dismal-ems-interactive-p  nil))
-    (dis-forward-row rows)
-    (emacspeak-dismal-row-summarize)))
+  (dis-forward-row rows)
+  (emacspeak-dismal-row-summarize))
 
 (defun emacspeak-dismal-backward-row-and-summarize (rows)
   "Move backward by arg rows
  (the previous row by default)and summarize it."
   (interactive "p")
-  (let ((dismal-ems-interactive-p  nil))
-    (dis-backward-row rows)
-    (emacspeak-dismal-row-summarize)))
+  (dis-backward-row rows)
+  (emacspeak-dismal-row-summarize))
 
 (defun emacspeak-dismal-forward-col-and-summarize (cols)
   "Move forward by arg columns
  (the next column by default)and summarize it."
   (interactive "p")
-  (let ((dismal-ems-interactive-p  nil))
-    (dis-forward-column cols)
-    (emacspeak-dismal-col-summarize)))
+  (dis-forward-column cols)
+  (emacspeak-dismal-col-summarize))
 
 (defun emacspeak-dismal-backward-col-and-summarize (cols)
   "Move backward by arg columns
  (the previous column by default)and summarize it."
   (interactive "p")
-  (let ((dismal-ems-interactive-p  nil))
-    (dis-backward-column cols)
-    (emacspeak-dismal-col-summarize)))
+  (dis-backward-column cols)
+  (emacspeak-dismal-col-summarize))
 
 ;;}}}
 ;;{{{  Intelligent summaries

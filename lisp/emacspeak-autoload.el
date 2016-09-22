@@ -1,4 +1,4 @@
-;;; emacspeak-autoload.el --- Emacspeak Autoload Generator
+;;; emacspeak-autoload.el --- Emacspeak Autoload Generator  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  autoload Wizard for the emacspeak desktop

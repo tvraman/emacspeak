@@ -1,4 +1,4 @@
-;;;; $Id$
+;;;; $Id$  -*- lexical-binding: t; -*-
 ;;;; This file implements a simple LIFO stack.
 
 ;; Copyright (C) 1991-1995, 2011 Free Software Foundation

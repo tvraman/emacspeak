@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (require 'cl)
   (augment-load-path "view-process-mode" "view-process-mode")
 (autoload 'view-processes "view-process-mode"

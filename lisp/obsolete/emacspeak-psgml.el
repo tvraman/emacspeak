@@ -1,4 +1,4 @@
-;;; emacspeak-sgml-mode.el --- Speech enable psgml package
+;;; emacspeak-sgml-mode.el --- Speech enable psgml package  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description: Emacspeak extension for psgml

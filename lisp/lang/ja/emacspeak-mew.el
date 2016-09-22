@@ -1,4 +1,4 @@
-;;; emacspeak-mew.el --- Speech enable Mew -- Fluent spoken access to internet message
+;;; emacspeak-mew.el --- Speech enable Mew -- Fluent spoken access to internet message  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author$ 
 ;;; Description:  Emacspeak extension to speech enable Mew

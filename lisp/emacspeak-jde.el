@@ -1,4 +1,4 @@
-;;; emacspeak-jde.el --- Speech enable JDE -- An integrated Java Development Environment
+;;; emacspeak-jde.el --- Speech enable JDE -- An integrated Java Development Environment  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description: Auditory interface to JDE

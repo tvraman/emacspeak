@@ -1,4 +1,4 @@
-;;; emacspeak-tnt.el --- Instant Messenger 
+;;; emacspeak-tnt.el --- Instant Messenger  -*- lexical-binding: t; -*- 
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable AOL Instant Messenger Client TNT

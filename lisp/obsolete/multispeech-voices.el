@@ -1,4 +1,4 @@
-;;; multispeech-voices.el --- Define various device independent voices in terms of Multispeech tags
+;;; multispeech-voices.el --- Define various device independent voices in terms of Multispeech tags  -*- lexical-binding: t; -*-
 ;;; Description:  Module to set up Multispeech voices and personalities
 ;;; Keywords: Voice, Personality, Multispeech
 ;;{{{  LCD Archive entry:

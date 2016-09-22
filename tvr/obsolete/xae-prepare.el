@@ -1,4 +1,4 @@
-;;;$Id$
+;;;$Id$  -*- lexical-binding: t; -*-
 (augment-load-path "xae/lisp" "xae")
 (load-library "sb-image")
 (load-library "xae")

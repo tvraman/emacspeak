@@ -1,4 +1,4 @@
-;;; outloud-voices.el --- Define various device independent voices in terms of OutLoud tags
+;;; outloud-voices.el --- Define various device independent voices in terms of OutLoud tags  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Module to set up Eloquent voices and personalities
@@ -438,7 +438,7 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{  punctuations
 
-(defsubst outloud-get-punctuations-code (value)
+(defsubst outloud-get-punctuations-code (_value)
   "Return string needed to set specified punctuations mode."
   "")
 

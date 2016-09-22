@@ -1,4 +1,4 @@
-;;; $Id: view-process-mode.el,v 1.1 1996/10/15 22:52:59 raman Exp raman $
+;;; $Id: view-process-mode.el,v 1.1 1996/10/15 22:52:59 raman Exp raman $  -*- lexical-binding: t; -*-
 ;;; 
 ;;; Copyright (C) 1994, 1995, 1996 Heiko Muenkel
 ;;; email: muenkel@tnt.uni-hannover.de

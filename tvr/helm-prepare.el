@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (augment-load-path "helm" "helm")
 ;;; Taken from http://tuhdo.github.io/helm-intro.html
 

@@ -1,4 +1,4 @@
-;;; emacspeak-ediff.el --- Speech enable Emacs interface to diff and merge
+;;; emacspeak-ediff.el --- Speech enable Emacs interface to diff and merge  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; DescriptionEmacspeak extensions for ediff

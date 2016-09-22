@@ -1,4 +1,4 @@
-;;; emacspeak-freeamp.el --- Control freeamp from Emacs
+;;; emacspeak-freeamp.el --- Control freeamp from Emacs  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author$
 ;;; Description: Controlling freeamp from emacs 

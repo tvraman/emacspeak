@@ -1,4 +1,4 @@
-;;; emacspeak-sawfish.el --- speech-enable sawfish mode
+;;; emacspeak-sawfish.el --- speech-enable sawfish mode  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak extension to speech-enable

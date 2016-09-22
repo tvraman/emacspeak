@@ -1,4 +1,4 @@
-;;; emacspeak-buff-sel.el --- Speech enable buf-sel -- an alternative technique for switching buffers
+;;; emacspeak-buff-sel.el --- Speech enable buf-sel -- an alternative technique for switching buffers  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author$ 
 ;;; Description: Emacspeak pronunciation dictionaries

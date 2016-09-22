@@ -1,4 +1,4 @@
-;;; emacspeak-tdtd.el --- Speech enable  DTD authoring 
+;;; emacspeak-tdtd.el --- Speech enable  DTD authoring  -*- lexical-binding: t; -*- 
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:   extension to speech enable tdtd 

@@ -1,4 +1,4 @@
-;;; g-auth.el --- Google Authentication Module
+;;; g-auth.el --- Google Authentication Module  -*- lexical-binding: t; -*-
 ;;;$Id$
 ;;; $Author: raman $
 ;;; Description:  Google Authentication Module

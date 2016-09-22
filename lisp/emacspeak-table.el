@@ -1,4 +1,4 @@
-;;; emacspeak-table.el --- Implements data model for table browsing
+;;; emacspeak-table.el --- Implements data model for table browsing  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description: Emacspeak table handling module

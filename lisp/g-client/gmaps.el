@@ -1,4 +1,4 @@
-;;; gmaps.el --- Google Maps
+;;; gmaps.el --- Google Maps  -*- lexical-binding: t; -*-
 ;;;$Id: gmaps.el 8157 2013-02-19 01:31:05Z tv.raman.tv $
 ;;; $Author: raman $
 ;;; Description:  Google Maps -> Lisp

@@ -1,4 +1,4 @@
-;;; emacspeak-wdired.el --- Speech-enable wdired
+;;; emacspeak-wdired.el --- Speech-enable wdired  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak extension to speech-enable WDIRED

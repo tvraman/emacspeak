@@ -1,4 +1,4 @@
-;;; xbacklight.el --- Control Display Brightness From Emacs
+;;; xbacklight.el --- Control Display Brightness From Emacs  -*- lexical-binding: t; -*-
 ;;;$Id$
 ;;;Emacs front-end to XBacklight
 ;;{{{  Copyright:
@@ -67,7 +67,7 @@
   "Set brightness to  specified level.
 `brightness' is a percentage value."
   (interactive "nBrightness: ")
-  (let ((emacspeak-speak-messages nil))
+  (ems-with-messages-silenced
     (shell-command (format "%s -set %s"
                            xbacklight-cmd brightness)))
   (xbacklight-get))
@@ -85,7 +85,7 @@
 (defun xbacklight-increment ()
   "Increase brightness by  by one step."
   (interactive)
-  (let ((emacspeak-speak-messages nil))
+  (ems-with-messages-silenced
     (shell-command (format "%s -inc %s" xbacklight-cmd xbacklight-step))
     (xbacklight-get))
   (xbacklight-get))
@@ -94,7 +94,7 @@
 (defun xbacklight-decrement ()
   "Decrease brightness by  by one step."
   (interactive)
-  (let ((emacspeak-speak-messages nil))
+  (ems-with-messages-silenced
     (shell-command (format "%s -dec %s" xbacklight-cmd xbacklight-step)))
   (xbacklight-get))
 

@@ -1,4 +1,4 @@
-;;; $Id: view-process-adapt.el,v 1.1 1996/09/04 22:22:11 raman Exp raman $
+;;; $Id: view-process-adapt.el,v 1.1 1996/09/04 22:22:11 raman Exp raman $  -*- lexical-binding: t; -*-
 ;;;
 ;;; Copyright (C) 1995 Heiko Muenkel
 ;;; email: muenkel@tnt.uni-hannover.de

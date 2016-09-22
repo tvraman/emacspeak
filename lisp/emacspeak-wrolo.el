@@ -1,4 +1,4 @@
-;;; emacspeak-wrolo.el --- Speech enable hyperbole's Rolodex
+;;; emacspeak-wrolo.el --- Speech enable hyperbole's Rolodex  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author$ 
 ;;; Description:  Emacspeak enhancements for Rolodex (part of hyperbole)

@@ -1,4 +1,4 @@
-;;; emacspeak-ocr.el --- ocr Front-end for emacspeak desktop
+;;; emacspeak-ocr.el --- ocr Front-end for emacspeak desktop  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak front-end for OCR
@@ -499,7 +499,7 @@ to an appropriately named file."
        (emacspeak-ocr-get-page-name))
       (emacspeak-auditory-icon 'save-object))))
 
-(defun emacspeak-ocr-process-sentinel  (process state)
+(defun emacspeak-ocr-process-sentinel  (_process _state)
   "Alert user when OCR is complete."
   (declare (special emacspeak-ocr-page-positions
                     emacspeak-ocr-last-page-number
@@ -619,7 +619,7 @@ correctly by themselves."
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-mode-line))
 ;;;###autoload
-(defun emacspeak-ocr-forward-page (&optional count-ignored)
+(defun emacspeak-ocr-forward-page (&optional _count-ignored)
   "Like forward page, but tracks page number of current document."
   (interactive "p")
   (declare (special emacspeak-ocr-page-positions
@@ -642,7 +642,7 @@ correctly by themselves."
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'large-movement))))
 ;;;###autoload
-(defun emacspeak-ocr-backward-page (&optional count-ignored)
+(defun emacspeak-ocr-backward-page (&optional _count-ignored)
   "Like backward page, but tracks page number of current document."
   (interactive "p")
   (declare (special emacspeak-ocr-page-positions

@@ -1,4 +1,4 @@
-;;; emacspeak-wizards.el --- Implements Emacspeak  convenience wizards
+;;; emacspeak-wizards.el --- Implements Emacspeak  convenience wizards  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Contains convenience wizards

@@ -1,4 +1,4 @@
-;;; emacspeak-<skeleton>.el --- Speech-enable <SKELETON>
+;;; emacspeak-<skeleton>.el --- Speech-enable <SKELETON>  -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable <SKELETON> An Emacs Interface to <skeleton>
 ;;; Keywords: Emacspeak,  Audio Desktop <skeleton>

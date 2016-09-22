@@ -1,4 +1,4 @@
-;;; -*- coding: japanese-shift-jis-unix -*-
+;;; -*- coding: japanese-shift-jis-unix; lexical-binding: t; -*-
 ;;; emacspeak-ja-tbl.el:
 ;;;     This module defines an explanatory-reading dictionary of 2-byte
 ;;;     Japanese characters and provides some functions to access it.

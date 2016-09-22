@@ -1,4 +1,4 @@
-;;; emacspeak-eclim.el --- Speech-enable ECLIM: emacs/eclipse integration
+;;; emacspeak-eclim.el --- Speech-enable ECLIM: emacs/eclipse integration  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-eclim.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable ECLIM An Emacs Interface to eclim: eclipse/emacs integration    

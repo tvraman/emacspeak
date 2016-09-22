@@ -1,4 +1,4 @@
-;;; self-document.el --- Documentation Generator For Emacspeak
+;;; self-document.el --- Documentation Generator For Emacspeak  -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Documentation Generator
 ;;; Keywords: Emacspeak,  Audio Desktop self-document

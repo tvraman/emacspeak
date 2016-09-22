@@ -1,4 +1,4 @@
-;;; emacspeak-moz.el.el --- Talk to Firefox via MozRepl
+;;; emacspeak-moz.el.el --- Talk to Firefox via MozRepl  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Control Firefox from Emacs

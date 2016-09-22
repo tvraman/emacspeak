@@ -1,4 +1,4 @@
-;;; emacspeak-m17n-speak.el --- Overriding extended functions for emacspeak-speak
+;;; emacspeak-m17n-speak.el --- Overriding extended functions for emacspeak-speak  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2002  Free Software Foundation, Inc.
 

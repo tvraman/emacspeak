@@ -1,4 +1,4 @@
-;;; dtk-tcl.el --- Interface to TCL speech server --uses module dtk-interp.el
+;;; dtk-tcl.el --- Interface to TCL speech server --uses module dtk-interp.el  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author$
 ;;; Description:  Interfacing to the Dectalk via TCL.

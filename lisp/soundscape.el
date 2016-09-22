@@ -1,4 +1,4 @@
-;;; soundscape.el -- Soundscapes for The Emacspeak Desktop
+;;; soundscape.el -- Soundscapes for The Emacspeak Desktop  -*- lexical-binding: t; -*-
 ;;; Description:  Soundscapes Using Boodler
 ;;; Keywords: Emacspeak,  Audio Desktop Soundscapes
 ;;{{{  LCD Archive entry:
@@ -346,7 +346,7 @@ Optional interactive prefix arg `prompt-mode' prompts for the mode."
   (make-temp-name "/tmp/soundscape")
   "Name of Unix Domain socket used to control Soundscape.")
 
-(defun soundscape-sentinel (proc state)
+(defun soundscape-sentinel (proc _state)
   "Delete remote control end point on exit."
   (declare (special soundscape--remote))
   (unless (process-live-p  proc)

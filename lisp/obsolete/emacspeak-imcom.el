@@ -1,4 +1,4 @@
-;;; emacspeak-imcom.el --- Emacspeak interface to IMCom/Jabber
+;;; emacspeak-imcom.el --- Emacspeak interface to IMCom/Jabber  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author$
 ;;; Description:  Contains convenience imcom

@@ -1,4 +1,4 @@
-;;; emacspeak-js2.el --- Speech-enable JS2
+;;; emacspeak-js2.el --- Speech-enable JS2  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: raman $
 ;;; Description:  Speech-enable JS2 An Emacs Interface to js2

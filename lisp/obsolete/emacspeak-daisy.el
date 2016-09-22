@@ -1,4 +1,4 @@
-;;; emacspeak-daisy.el --- daisy Front-end for emacspeak desktop
+;;; emacspeak-daisy.el --- daisy Front-end for emacspeak desktop  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak front-end for DAISY Talking Books

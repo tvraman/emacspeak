@@ -1,4 +1,4 @@
-;;; emacspeak-dmacro.el --- Speech enable DMacro -- Dynamic  Macros 
+;;; emacspeak-dmacro.el --- Speech enable DMacro -- Dynamic  Macros  -*- lexical-binding: t; -*- 
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; DescriptionEmacspeak extensions for dmacro

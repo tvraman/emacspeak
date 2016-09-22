@@ -1,4 +1,4 @@
-;;; emacspeak-man.el --- Speech enable Man mode -- Use this for UNIX Man pages
+;;; emacspeak-man.el --- Speech enable Man mode -- Use this for UNIX Man pages  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; DescriptionEmacspeak extensions for man-mode

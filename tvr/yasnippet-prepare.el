@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (setq yas-dir (augment-load-path "yasnippet" "yasnippet"))
 (load-library "yasnippet")
 (when yas-dir 

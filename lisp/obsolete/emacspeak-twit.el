@@ -1,4 +1,4 @@
-;;; emacspeak-twit.el --- Speech-enable Twitter
+;;; emacspeak-twit.el --- Speech-enable Twitter  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-twit.el 6133 2009-03-17 02:36:43Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable twit.el and twitter.el --- Twitter from Emacs

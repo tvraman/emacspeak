@@ -1,4 +1,4 @@
-;;; emacspeak-we.el --- Transform Web Pages Using XSLT
+;;; emacspeak-we.el --- Transform Web Pages Using XSLT  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Edit/Transform Web Pages using XSLT

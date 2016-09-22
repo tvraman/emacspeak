@@ -1,4 +1,4 @@
-;;; emacspeak-org-drill.el --- Speech-enable org-drill
+;;; emacspeak-org-drill.el --- Speech-enable org-drill  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: Bart Bunting $
 ;;; Description:  Emacspeak front-end for ORG drill

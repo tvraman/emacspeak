@@ -1,4 +1,4 @@
-;;; dtk-speak.el --- Provides Emacs Lisp interface to speech server
+;;; dtk-speak.el --- Provides Emacs Lisp interface to speech server  -*- lexical-binding: t; -*-
 ;;;$Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacs interface to TTS
@@ -207,8 +207,7 @@ Modifies text and point in buffer."
      for w in words do
      (when w
        (let ((pronunciation (gethash  w pronunciation-table))
-             (pp nil)
-             (personality nil))
+             (pp nil))
          (goto-char (point-min))
          (cond
           ((stringp pronunciation)
@@ -1594,7 +1593,7 @@ Optional interactive prefix arg restarts current TTS server."
              tts-device-list))
       (setenv "ALSA_DEFAULT" tts-device)
       (message "ALSA_DEFAULT: %s" tts-device)
-      (when current-prefix-arg (tts-restart))))))
+      (when restart (tts-restart))))))
 
 ;;;###autoload
 (defvar dtk-local-server-process nil
@@ -1641,7 +1640,7 @@ program. Port defaults to dtk-local-server-port"
          "LocalTTS"
          "*localTTS*"
          (expand-file-name  dtk-speech-server-program emacspeak-servers-directory)
-         (if current-prefix-arg
+         (if prompt-port
              (read-from-minibuffer "Port:" "3333")
            dtk-local-server-port)
          (expand-file-name program  emacspeak-servers-directory))))
@@ -1735,7 +1734,7 @@ Argument S specifies the syntax class."
 ;;}}}
 ;;{{{ speak text
 
-(defun dtk-speak (text &optional ignore-skim)
+(defun dtk-speak (text)
   "Speak the TEXT string on the  tts.
 This is achieved by sending the text to the speech server.
 No-op if variable `dtk-quiet' is set to t.
@@ -1835,7 +1834,7 @@ only speak upto the first ctrl-m."
 
 (defsubst dtk-speak-and-echo (message)
   "Speak message and echo it to the message area."
-  (let ((emacspeak-speak-messages nil))
+  (ems-with-messages-silenced
     (dtk-speak message)
     (message "%s" message)))
 

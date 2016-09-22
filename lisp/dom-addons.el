@@ -1,4 +1,4 @@
-;;; dom-addons.el --- dom.el addons
+;;; dom-addons.el --- dom.el addons  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-<skeleton>.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable <SKELETON> An Emacs Interface to <skeleton>

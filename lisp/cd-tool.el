@@ -1,4 +1,4 @@
-;;; cd-tool.el --- Play  CDs from Emacs
+;;; cd-tool.el --- Play  CDs from Emacs  -*- lexical-binding: t; -*-
 ;;;$Id$
 ;;;Emacs front-end to CDTool
 ;;{{{  Copyright:

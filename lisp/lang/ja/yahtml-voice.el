@@ -1,4 +1,4 @@
-;;; html-voice.el --- Voice locking for html-helper-mode
+;;; html-voice.el --- Voice locking for html-helper-mode  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author$ 
 ;;; Description:  Voice locking for html helper  mode. Cloned from html-font.el

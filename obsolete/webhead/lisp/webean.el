@@ -1,4 +1,4 @@
-;;; webean.el --- run net.emacspeak.web.Client in beanshell
+;;; webean.el --- run net.emacspeak.web.Client in beanshell  -*- lexical-binding: t; -*-
 ;;; $Id: webean.el 6333 2009-10-19 15:21:20Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $ 
 ;;; Description: Launch net.emacspeak.web.Client from inside BeanShell

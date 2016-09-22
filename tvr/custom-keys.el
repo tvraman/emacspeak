@@ -1,4 +1,4 @@
-;;; Emacspeak custom key-bindings I use.
+;;; Emacspeak custom key-bindings I use.  -*- lexical-binding: t; -*-
 ;;; These are usually setup via M-x customize-variable
 ;;; I'm snapshotting it here,
 ;;; Both as an example of what can be done,

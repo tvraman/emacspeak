@@ -1,4 +1,4 @@
-;;; emacspeak-w3m.el --- speech-enables w3m-el
+;;; emacspeak-w3m.el --- speech-enables w3m-el  -*- lexical-binding: t; -*-
 ;;;$Id$
 ;;{{{ Copyright
 

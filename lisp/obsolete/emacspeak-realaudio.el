@@ -1,4 +1,4 @@
-;;; emacspeak-realaudio.el --- Play realaudio from Emacs
+;;; emacspeak-realaudio.el --- Play realaudio from Emacs  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description: Single click access to RealAudio from emacspeak

@@ -1,4 +1,4 @@
-;;; gwis.el --- Google Web Incremental Search For Emacs
+;;; gwis.el --- Google Web Incremental Search For Emacs  -*- lexical-binding: t; -*-
 ;;;$Id: gwis.el,v 1.5 2006/01/13 23:18:23 raman Exp raman $
 ;;; $Author: raman $
 ;;; Description:  Web Incremental Search via Google

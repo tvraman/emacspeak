@@ -1,4 +1,4 @@
-;;; emacspeak-cperl.el --- Speech enable CPerl Mode 
+;;; emacspeak-cperl.el --- Speech enable CPerl Mode  -*- lexical-binding: t; -*- 
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; DescriptionEmacspeak extensions for CPerl mode

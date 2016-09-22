@@ -1,4 +1,4 @@
-;;; xml-compat.el --- Compatibility  for xml.el and libxml
+;;; xml-compat.el --- Compatibility  for xml.el and libxml  -*- lexical-binding: t; -*-
 ;;; $Id: xml-compat>.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Compatibility  layer for cutting over to xml.el

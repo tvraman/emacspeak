@@ -1,4 +1,4 @@
-;;; emacspeak-etable.el --- Speech enable table.el
+;;; emacspeak-etable.el --- Speech enable table.el  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; DescriptionEmacspeak extensions for table.el

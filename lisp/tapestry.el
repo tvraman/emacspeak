@@ -1,4 +1,4 @@
-;;;  Tools to configure your GNU Emacs windows
+;;;  Tools to configure your GNU Emacs windows  -*- lexical-binding: t; -*-
 ;;; Copyright (C) 1991, 1993, 1994, 1995, 1997, 2011 Kyle E. Jones 
 ;;;
 

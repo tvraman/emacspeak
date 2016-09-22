@@ -1,4 +1,4 @@
-;;; emacspeak-zenirc.el --- Speech-enabling extension for the Emacs IRC Client Zenirc.
+;;; emacspeak-zenirc.el --- Speech-enabling extension for the Emacs IRC Client Zenirc.  -*- lexical-binding: t; -*-
 ;;{{{ Copyright
 
 ;;; Copyright (C) 2000 Ben van Poppel

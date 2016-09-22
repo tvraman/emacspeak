@@ -1,4 +1,4 @@
-;;; emacspeak-liece.el --- Speech enable liece -- Fluent spoken access to IRC
+;;; emacspeak-liece.el --- Speech enable liece -- Fluent spoken access to IRC  -*- lexical-binding: t; -*-
 ;;; This file is not part of GNU Emacs, but the same permissions apply.
 ;;;
 ;;; GNU Emacs is free software; you can redistribute it and/or modify

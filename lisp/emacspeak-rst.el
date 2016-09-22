@@ -1,4 +1,4 @@
-;;; emacspeak-rst.el --- Speech-enable RST
+;;; emacspeak-rst.el --- Speech-enable RST  -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable RST An Emacs Interface to rst
 ;;; Keywords: Emacspeak,  Audio Desktop rst

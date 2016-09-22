@@ -1,4 +1,4 @@
-;;; emacspeak-erc.el --- speech-enable erc irc client
+;;; emacspeak-erc.el --- speech-enable erc irc client  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak module for speech-enabling erc.el
@@ -201,7 +201,7 @@ Optional interactive prefix  arg defines a pronunciation that
 
 (make-variable-buffer-local 'emacspeak-erc-speak-all-participants)
 
-(defun emacspeak-erc-compute-message (string buffer)
+(defun emacspeak-erc-compute-message (string _buffer)
   "Uses environment of buffer to decide what message to
 display. String is the original message."
   (declare (special emacspeak-erc-people-to-monitor

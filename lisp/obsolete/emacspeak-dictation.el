@@ -1,4 +1,4 @@
-;;; emacspeak-dictation.el --- Speech enable dictation -- Dictation Interface
+;;; emacspeak-dictation.el --- Speech enable dictation -- Dictation Interface  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description: Auditory interface to dictation

@@ -1,4 +1,4 @@
-;;;$Id: elint-files.el 7425 2011-11-22 01:55:17Z tv.raman.tv $
+;;;$Id: elint-files.el 7425 2011-11-22 01:55:17Z tv.raman.tv $  -*- lexical-binding: t; -*-
 
 (require 'cl)
 (require 'advice)

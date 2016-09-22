@@ -1,4 +1,4 @@
-;;; emacspeak-egg.el --- Fluent spoken access to Egg4 Input Methods
+;;; emacspeak-egg.el --- Fluent spoken access to Egg4 Input Methods  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author$ 
 ;;; Description:  Emacspeak extension to speech enable mew

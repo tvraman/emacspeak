@@ -1,4 +1,4 @@
-;;; g-app.el --- Google Client APP methods
+;;; g-app.el --- Google Client APP methods  -*- lexical-binding: t; -*-
 ;;;$Id$
 ;;; $Author: raman $
 ;;; Description:  Google Client App

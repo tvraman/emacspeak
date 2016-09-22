@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (require 'epa)
 (augment-load-path "twittering-mode" "twittering-mode")
 (load-library "twittering-mode")

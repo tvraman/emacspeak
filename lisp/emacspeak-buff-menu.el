@@ -1,4 +1,4 @@
-;;; emacspeak-buff-menu.el --- Speech enable Buffer Menu Mode -- used to manage buffers
+;;; emacspeak-buff-menu.el --- Speech enable Buffer Menu Mode -- used to manage buffers  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description: Auditory interface to buff-menu

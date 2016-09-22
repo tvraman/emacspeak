@@ -1,4 +1,4 @@
-;;; emacspeak-checkdoc.el --- Speech-enable checkdoc
+;;; emacspeak-checkdoc.el --- Speech-enable checkdoc  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:Speech-enable checkdoc

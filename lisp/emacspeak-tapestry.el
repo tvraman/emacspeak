@@ -1,4 +1,4 @@
-;;; emacspeak-tapestry.el --- Speak information about current layout of windows
+;;; emacspeak-tapestry.el --- Speak information about current layout of windows  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description: Emacspeak module to speak window tapestries

@@ -1,4 +1,4 @@
-;;; emacspeak-advice.el --- Advice all core Emacs functionality to speak
+;;; emacspeak-advice.el --- Advice all core Emacs functionality to speak  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description: Core advice forms that make emacspeak work
@@ -663,7 +663,7 @@ icon."
     ad-return-value))
 
 (defcustom emacspeak-eldoc-speak-explicitly
-  (not emacspeak-tts-use-notify-stream)
+  (not (emacspeak-tts-use-notify-stream-p))
   "Set to T if not using a separate TTS notification stream."
   :type 'boolean
   :group 'emacspeak-eldoc)
@@ -724,7 +724,7 @@ icon."
 (when (boundp 'command-error-function)
   (setq command-error-function 'emacspeak-error-handler))
 
-(defun emacspeak-error-handler (data context calling-function)
+(defun emacspeak-error-handler (data context _calling-function)
   "Emacspeak custom error handling function."
   (emacspeak-auditory-icon 'warn-user)
   (message "%s %s"
@@ -1732,11 +1732,10 @@ Indicate change of selection with an auditory icon
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
-    (let ((extent nil))
       (save-excursion
         (goto-char (point-min))
         (forward-line (window-height))
-        (emacspeak-speak-region (point-min) (point))))))
+        (emacspeak-speak-region (point-min) (point)))))
 (defsubst ems-canonicalize-key-description (desc)
   "Change key description to a speech-friendly form."
   (let ((shift-regexp "S-\\(.\\)")

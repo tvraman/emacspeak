@@ -1,4 +1,4 @@
-;;; Original Author: Tim Cross
+;;; Original Author: Tim Cross  -*- lexical-binding: t; -*-
 ;;; Updated for inclusion in the Emacspeak contrib section.
 ;;      Filename: 10speech.el
 ;; Creation Date: Sunday, 16 January 2005 01:38 PM EST

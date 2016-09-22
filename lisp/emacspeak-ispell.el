@@ -1,4 +1,4 @@
-;;; emacspeak-ispell.el --- Speech enable Ispell -- Emacs' interactive spell checker
+;;; emacspeak-ispell.el --- Speech enable Ispell -- Emacs' interactive spell checker  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Emacspeak extension to speech enable ispell

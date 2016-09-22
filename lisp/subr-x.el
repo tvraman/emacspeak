@@ -1,4 +1,4 @@
-;;; subr-x.el --- extra Lisp functions  -*- lexical-binding:t -*-
+;;; subr-x.el --- extra Lisp functions  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2013-2016 Free Software Foundation, Inc.
 

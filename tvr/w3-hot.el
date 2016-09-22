@@ -1,4 +1,4 @@
-;;; w3-hot.el --- Main functions for emacs-w3 on all platforms/versions
+;;; w3-hot.el --- Main functions for emacs-w3 on all platforms/versions  -*- lexical-binding: t; -*-
 ;; Author: $Author$
 ;; Created: $Date$
 ;; Version: $Revision$

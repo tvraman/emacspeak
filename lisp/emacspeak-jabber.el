@@ -1,4 +1,4 @@
-;;; emacspeak-jabber.el --- Speech-Enable jabber
+;;; emacspeak-jabber.el --- Speech-Enable jabber  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description: speech-enable jabber

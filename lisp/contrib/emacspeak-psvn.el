@@ -1,4 +1,4 @@
-;;; emacspeak-psvn.el --- Speech enable Emacs interface for working with svn
+;;; emacspeak-psvn.el --- Speech enable Emacs interface for working with svn  -*- lexical-binding: t; -*-
 ;;; $Author: LukasLoehrer $ 
 ;;; DescriptionEmacspeak extensions psvn
 ;;; Keywords:emacspeak, audio interface to emacs, version control 

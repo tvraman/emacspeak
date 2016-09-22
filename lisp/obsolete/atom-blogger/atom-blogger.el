@@ -1,4 +1,4 @@
-;;; atom-blogger.el --- Utilities for Atom Blogger API
+;;; atom-blogger.el --- Utilities for Atom Blogger API  -*- lexical-binding: t; -*-
 ;;;$Id$
 ;;; $Author$
 ;;; Description:  ATOM Blogger API

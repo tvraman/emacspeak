@@ -1,4 +1,4 @@
-;;; emacspeak-jss.el --- Speech-enable JSS
+;;; emacspeak-jss.el --- Speech-enable JSS  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-jss.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable JSS An Emacs Interface to Browser Debuggers 

@@ -1,4 +1,4 @@
-;;; gcal.el --- Google Calendar
+;;; gcal.el --- Google Calendar  -*- lexical-binding: t; -*-
 ;;;$Id$
 ;;; $Author: raman $
 ;;; Description:  Google Calendar

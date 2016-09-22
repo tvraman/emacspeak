@@ -1,4 +1,4 @@
-;;; emacspeak-vm.el --- Speech enable VM -- A powerful mail agent
+;;; emacspeak-vm.el --- Speech enable VM -- A powerful mail agent  -*- lexical-binding: t; -*-
 ;;;(and the one I use)
 ;;; $Id$
 ;;; $Author: tv.raman.tv $

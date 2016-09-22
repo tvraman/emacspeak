@@ -1,4 +1,4 @@
-;;; emacspeak-elscreen.el --- Speech-enable ELSCREEN
+;;; emacspeak-elscreen.el --- Speech-enable ELSCREEN  -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable ELSCREEN An Emacs Interface to elscreen
 ;;; Keywords: Emacspeak,  Audio Desktop elscreen

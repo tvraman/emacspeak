@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 
 (augment-load-path "slime" "slime")
 (augment-load-path "slime/contrib" "slime-repl")

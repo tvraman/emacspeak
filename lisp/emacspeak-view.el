@@ -1,4 +1,4 @@
-;;; emacspeak-view.el --- Speech enable View mode -- Efficient browsing of read-only content
+;;; emacspeak-view.el --- Speech enable View mode -- Efficient browsing of read-only content  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; DescriptionEmacspeak extensions for view

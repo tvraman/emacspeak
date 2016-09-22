@@ -1,4 +1,4 @@
-;;; emacspeak-make-mode.el --- Speech enable make-mode
+;;; emacspeak-make-mode.el --- Speech enable make-mode  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description:  Emacspeak extension to speech enable make-mode

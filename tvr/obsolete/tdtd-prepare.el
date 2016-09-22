@@ -1,4 +1,4 @@
-;; $Id$
+;; $Id$  -*- lexical-binding: t; -*-
 
 ;; DTD mode
 (augment-load-path "tdtd" "tdtd")

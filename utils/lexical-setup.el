@@ -52,8 +52,8 @@
 
 (defconst lexical-setup-files
   (directory-files-recursively
-   (expand-file-name "./" (file-name-directory load-file-name))
-  ".elc$")
+   (expand-file-name "../" (file-name-directory load-file-name))
+  ".el$")
 "List of files.")
 
 (defun lexical-setup-add-to-files ()
@@ -61,6 +61,7 @@
   (declare (special lexical-setup-files))
   (cl-loop
    for f in   lexical-setup-files do
+   (message "File: %s" f)
    (let ((buffer (find-file-noselect f)))
      (with-current-buffer buffer
        (modify-file-local-variable-prop-line 'lexical-binding t 'add-or-replace)

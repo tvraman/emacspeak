@@ -1,4 +1,4 @@
-;;; emacspeak-desktop.el ---  Speech-enable desktop
+;;; emacspeak-desktop.el ---  Speech-enable desktop  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  desktop transformation routines

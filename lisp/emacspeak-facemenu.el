@@ -1,4 +1,4 @@
-;;; emacspeak-facemenu.el --- Map default Emacs faces like bold to appropriate speech personalities 
+;;; emacspeak-facemenu.el --- Map default Emacs faces like bold to appropriate speech personalities  -*- lexical-binding: t; -*- 
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description: Emacspeak module to map standard faces to voices

@@ -1,4 +1,4 @@
-;;; emacspeak-widget.el --- Speech enable Emacs' native GUI widget library
+;;; emacspeak-widget.el --- Speech enable Emacs' native GUI widget library  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $ 
 ;;; Description: Emacspeak extensions to widgets

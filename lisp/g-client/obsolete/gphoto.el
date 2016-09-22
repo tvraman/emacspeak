@@ -1,4 +1,4 @@
-;;; g-photo.el ---  Google  Picasa Client
+;;; g-photo.el ---  Google  Picasa Client  -*- lexical-binding: t; -*-
 ;;;$Id$
 ;;; $Author: raman $
 ;;; Description:   Client  For Accessing Picasa (Photo Albums)

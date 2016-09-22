@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 
 (require 'winring)
 (setq winring-keymap-prefix "\M-O")

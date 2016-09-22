@@ -1,4 +1,4 @@
-;;; emacspeak-ibuffer.el --- speech-enable ibuffer buffer selection
+;;; emacspeak-ibuffer.el --- speech-enable ibuffer buffer selection  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:   extension to speech enable ibuffer

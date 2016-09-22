@@ -1,4 +1,4 @@
-;;; bep-css-speech.el --- CSS -- Cascaded Speech Style Interface
+;;; bep-css-speech.el --- CSS -- Cascaded Speech Style Interface  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author$
 ;;; Description: BEP Interface for Cascaded Speech Style Sheets

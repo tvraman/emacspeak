@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (when (locate-library "python-mode-autoloads")
   (load-library "python-mode-autoloads"))
 

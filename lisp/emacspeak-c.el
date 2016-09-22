@@ -1,4 +1,4 @@
-;;; emacspeak-c.el --- Speech enable CC-mode and friends -- supports C, C++, Java
+;;; emacspeak-c.el --- Speech enable CC-mode and friends -- supports C, C++, Java  -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; DescriptionEmacspeak extensions for C and C++ mode

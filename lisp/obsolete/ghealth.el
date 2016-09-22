@@ -1,4 +1,4 @@
-;;; g-health.el --- Health Google  Client
+;;; g-health.el --- Health Google  Client  -*- lexical-binding: t; -*-
 ;;;$Id: ghealth.el 5798 2008-08-22 17:35:01Z tv.raman.tv $
 ;;; $Author: raman $
 ;;; Description:  Health that all clients start from.

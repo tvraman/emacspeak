@@ -1,4 +1,4 @@
-;;; emacspeak-package.el --- Speech-enable PACKAGE
+;;; emacspeak-package.el --- Speech-enable PACKAGE  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-package.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable PACKAGE An Emacs Interface to package
