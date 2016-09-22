@@ -259,7 +259,7 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
   '("dream" "think" "act")
   "List of  beats to use for rev-up in the morning.")
 
-;;;#autoload
+;;;###autoload
 (defun sox-rev-up (duration)
   "Play rev-up set of  binaural beats."
   (interactive "nDuration: ")
@@ -271,14 +271,29 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
 
 (defconst sox-wind-down-beats
   '("think" "dream" "sleep")
-  "List of  beats to use for wind-down in the morning.")
+  "List of  beats to use for wind-down in the evening.")
 
-;;;#autoload
+;;;###autoload
 (defun sox-wind-down (duration)
   "Play wind-down set of  binaural beats."
   (interactive "nDuration: ")
   (declare (special sox-wind-down-beats))
   (let ((beats (sox--list-iter sox-wind-down-beats)))
+    (run-with-timer                 ; start now, repeat after duration
+     0 duration
+     #'(lambda () (sox-binaural (iter-next beats) duration)))))
+
+
+(defconst sox-relax-beats
+  '("dream" "sleep")
+  "List of  beats to use for relaxing.")
+
+;;;###autoload
+(defun sox-relax (duration)
+  "Play relax set of  binaural beats."
+  (interactive "nDuration: ")
+  (declare (special sox-relax-beats))
+  (let ((beats (sox--list-iter sox-relax-beats)))
     (run-with-timer                 ; start now, repeat after duration
      0 duration
      #'(lambda () (sox-binaural (iter-next beats) duration)))))
