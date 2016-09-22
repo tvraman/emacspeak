@@ -1,4 +1,4 @@
-;;; sox.el --- An Audio Work-Bench For The Emacspeak Desktop
+;;; sox.el --- An Audio Work-Bench -*- lexical-binding: t -*-
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable SOX An Emacs Interface to sox
 ;;; Keywords: Emacspeak,  Audio Desktop sox
@@ -165,9 +165,7 @@
       (with-current-buffer buffer
         (sox-mode)
         (sox-setup-keys))))
-  (switch-to-buffer sox-buffer)
-  (emacspeak-speak-mode-line)
-  (emacspeak-auditory-icon 'open-object))
+  (funcall-interactively #'switch-to-buffer sox-buffer))
 
 (defun sox-setup-keys ()
   "Set up sox keymap."
