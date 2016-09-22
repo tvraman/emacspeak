@@ -205,6 +205,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     (save-place-mode)
     (midnight-mode)
     (server-start)
+    (pinentry-start)
     (bbdb-insinuate-vm)
 
     ;;}}}
