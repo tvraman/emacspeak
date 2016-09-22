@@ -4958,19 +4958,63 @@ This module can be used independent of Emacspeak.
      Play binaural audio with beat-spec specifying the various tones.
      Param ‘beat-spec’ is a list of ‘(carrier beat) tupples.
 
+     (fn LENGTH BEAT-SPEC-LIST GAIN)
+
 12.218.1.2 sox-binaural
 .......................
 
  -- Command: sox-binaural (name duration)
+     ‘C-, b’
+     ‘C-x @ a b’
 
      Play specified binaural effect.
 
-12.218.1.3 sox-tone-binaural
+     (fn NAME DURATION)
+
+12.218.1.3 sox-chakras
+......................
+
+ -- Command: sox-chakras (duration)
+
+     Play each chakra for specified duration.
+
+     (fn DURATION)
+
+12.218.1.4 sox-relax
+....................
+
+ -- Command: sox-relax (duration)
+
+     Play relax set of  binaural beats.
+
+     (fn DURATION)
+
+12.218.1.5 sox-rev-up
+.....................
+
+ -- Command: sox-rev-up (duration)
+
+     Play rev-up set of  binaural beats.
+
+     (fn DURATION)
+
+12.218.1.6 sox-tone-binaural
 ............................
 
  -- Command: sox-tone-binaural (length freq beat gain)
 
      Play binaural audio with carrier frequency ‘freq’, beat ‘beat’,  and gain ‘gain’.
+
+     (fn LENGTH FREQ BEAT GAIN)
+
+12.218.1.7 sox-wind-down
+........................
+
+ -- Command: sox-wind-down (duration)
+
+     Play wind-down set of  binaural beats.
+
+     (fn DURATION)
 
 
 File: emacspeak.info,  Node: stack-f,  Next: subr-x,  Prev: sox-gen,  Up: Emacspeak Commands And Options
@@ -6077,7 +6121,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <C-right>:                             emacspeak-wizards.  (line  181)
 * <C-up>:                                emacspeak-speak.    (line   83)
 * <f1> ,:                                emacspeak-wizards.  (line  440)
-* <f1> C-e:                              emacspeak.          (line  408)
+* <f1> C-e:                              emacspeak.          (line  409)
 * <f1> C-l:                              emacspeak-wizards.  (line  143)
 * <f1> M:                                emacspeak-wizards.  (line  284)
 * <f1> TAB:                              emacspeak-info.     (line   24)
@@ -6139,7 +6183,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> C-j:                              emacspeak-hide.     (line   42)
 * <fn> C-l:                              emacspeak-speak.    (line  490)
 * <fn> C-M-@:                            emacspeak-speak.    (line  900)
-* <fn> C-M-b:                            emacspeak.          (line  418)
+* <fn> C-M-b:                            emacspeak.          (line  419)
 * <fn> C-M-SPC:                          emacspeak-speak.    (line  899)
 * <fn> C-n:                              emacspeak-speak.    (line  620)
 * <fn> C-o:                              emacspeak-ocr.      (line   23)
@@ -6338,7 +6382,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> {:                                emacspeak-speak.    (line  675)
 * <fn> |:                                emacspeak-speak.    (line  499)
 * <help> ,:                              emacspeak-wizards.  (line  441)
-* <help> C-e:                            emacspeak.          (line  409)
+* <help> C-e:                            emacspeak.          (line  410)
 * <help> C-l:                            emacspeak-wizards.  (line  144)
 * <help> M:                              emacspeak-wizards.  (line  285)
 * <help> TAB:                            emacspeak-info.     (line   25)
@@ -6361,6 +6405,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-' u:                                 soundscape.         (line  125)
 * C-, ,:                                 emacspeak-advice.   (line   25)
 * C-, a:                                 emacspeak-feeds.    (line   33)
+* C-, b:                                 sox-gen.            (line   28)
 * C-, c:                                 emacspeak-wizards.  (line 1157)
 * C-, f:                                 emacspeak-feeds.    (line   59)
 * C-, n:                                 emacspeak-wizards.  (line  472)
@@ -6491,7 +6536,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C-j:                               emacspeak-hide.     (line   41)
 * C-e C-l:                               emacspeak-speak.    (line  489)
 * C-e C-M-@:                             emacspeak-speak.    (line  898)
-* C-e C-M-b:                             emacspeak.          (line  417)
+* C-e C-M-b:                             emacspeak.          (line  418)
 * C-e C-M-SPC:                           emacspeak-speak.    (line  897)
 * C-e C-n:                               emacspeak-speak.    (line  619)
 * C-e C-o:                               emacspeak-ocr.      (line   22)
@@ -6690,13 +6735,14 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e {:                                 emacspeak-speak.    (line  673)
 * C-e |:                                 emacspeak-speak.    (line  498)
 * C-h ,:                                 emacspeak-wizards.  (line  439)
-* C-h C-e:                               emacspeak.          (line  407)
+* C-h C-e:                               emacspeak.          (line  408)
 * C-h C-l:                               emacspeak-wizards.  (line  141)
 * C-h M:                                 emacspeak-wizards.  (line  283)
 * C-h TAB:                               emacspeak-info.     (line   23)
 * C-M-y:                                 emacspeak-wizards.  (line  735)
 * C-x @ a ,:                             emacspeak-advice.   (line   26)
 * C-x @ a a:                             emacspeak-feeds.    (line   34)
+* C-x @ a b:                             sox-gen.            (line   29)
 * C-x @ a c:                             emacspeak-wizards.  (line 1158)
 * C-x @ a f:                             emacspeak-feeds.    (line   60)
 * C-x @ a n:                             emacspeak-wizards.  (line  473)

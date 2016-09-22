@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1172 commands and 976 options.
+This chapter documents a total of 1176 commands and 976 options.
 
 @menu
 * acss-structure::
@@ -1505,6 +1505,7 @@ key             binding
 
 ,		emacspeak-eldoc-speak-doc
 a		emacspeak-feeds-atom-display
+b		sox-binaural
 c		emacspeak-wizards-view-buffers-filtered-by-this-mode
 e		eww
 f		emacspeak-feeds-find-feeds
@@ -22543,15 +22544,59 @@ This module can be used independent of Emacspeak.
 @format
 Play binaural audio with beat-spec specifying the various tones.
 Param ‘beat-spec’ is a list of ‘(carrier beat) tupples.
+
+(fn LENGTH BEAT-SPEC-LIST GAIN)
 @end format
 @end deffn
 
 @subsubsection sox-binaural
 @deffn {Command} sox-binaural  (name duration)
+@table @kbd
+@item C-, b
+@kindex C-, b
+@item C-x @@ a b
+@kindex C-x @@ a b
+@end table
+
 @findex sox-binaural
 
 @format
 Play specified binaural effect.
+
+(fn NAME DURATION)
+@end format
+@end deffn
+
+@subsubsection sox-chakras
+@deffn {Command} sox-chakras  (duration)
+@findex sox-chakras
+
+@format
+Play each chakra for specified duration.
+
+(fn DURATION)
+@end format
+@end deffn
+
+@subsubsection sox-relax
+@deffn {Command} sox-relax  (duration)
+@findex sox-relax
+
+@format
+Play relax set of  binaural beats.
+
+(fn DURATION)
+@end format
+@end deffn
+
+@subsubsection sox-rev-up
+@deffn {Command} sox-rev-up  (duration)
+@findex sox-rev-up
+
+@format
+Play rev-up set of  binaural beats.
+
+(fn DURATION)
 @end format
 @end deffn
 
@@ -22561,6 +22606,19 @@ Play specified binaural effect.
 
 @format
 Play binaural audio with carrier frequency ‘freq’, beat ‘beat’,  and gain ‘gain’.
+
+(fn LENGTH FREQ BEAT GAIN)
+@end format
+@end deffn
+
+@subsubsection sox-wind-down
+@deffn {Command} sox-wind-down  (duration)
+@findex sox-wind-down
+
+@format
+Play wind-down set of  binaural beats.
+
+(fn DURATION)
 @end format
 @end deffn
 
