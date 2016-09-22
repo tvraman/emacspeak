@@ -491,7 +491,7 @@ Optional prefix arg prompts for a new filter."
 
 ;;}}}
 
-(defsubst emacspeak-table-prepare-table-buffer (table buffer &optional filename)
+(defun emacspeak-table-prepare-table-buffer (table buffer &optional filename)
   "Prepare tabular data."
   (declare (special emacspeak-table positions))
   (with-current-buffer buffer
@@ -511,7 +511,7 @@ Optional prefix arg prompts for a new filter."
       (loop
        for row across (emacspeak-table-elements table) do
        (loop
-        for _element across row do
+        for element across row do
         (puthash
          (intern (format "element:%s:%s" i j))  ; compute key 
          (point) ; insertion point  is the value 
