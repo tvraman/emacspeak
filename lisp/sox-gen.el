@@ -258,47 +258,63 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
      0 duration
      #'(lambda () (sox-binaural (iter-next names) duration)))))
 (defconst sox-rev-up-beats
-  '("dream" "think" "act")
+  '(("dream" 1) ( "think"  4) ("act" 2))
   "List of  beats to use for rev-up in the morning.")
 
-;;;###autoload
-(defun sox-rev-up (duration)
-  "Play rev-up set of  binaural beats."
-  (interactive "nDuration: ")
-  (declare (special sox-rev-up-beats))
-  (let ((beats (sox--list-iter sox-rev-up-beats)))
-    (run-with-timer                 ; start now, repeat after duration
-     0 duration
-     #'(lambda () (sox-binaural (iter-next beats) duration)))))
 
 (defconst sox-wind-down-beats
-  '("think" "dream" "sleep")
+  '(("think"3)( "dream" 4) ( "sleep" 1))
   "List of  beats to use for wind-down in the evening.")
 
-;;;###autoload
-(defun sox-wind-down (duration)
-  "Play wind-down set of  binaural beats."
-  (interactive "nDuration: ")
-  (declare (special sox-wind-down-beats))
-  (let ((beats (sox--list-iter sox-wind-down-beats)))
-    (run-with-timer                 ; start now, repeat after duration
-     0 duration
-     #'(lambda () (sox-binaural (iter-next beats) duration)))))
-
-
 (defconst sox-relax-beats
-  '("dream" "sleep")
+  '(("dream" 4) ( "sleep" 1))
   "List of  beats to use for relaxing.")
 
+
+
+;;; Theme Helper:
+
+(defun sox--theme-play (theme duration-scale)
+  "Play  set of  binaural beats specified in theme."
+  (interactive "nDuration: ")
+  (let ((start 0)
+        (end 0))
+  (cl-loop
+   for beat in theme
+   and i from 1 do
+   (setq end (* duration-scale  (second beat)))
+   (run-with-timer                 ; start now
+     start nil ; no repeat 
+     #'(lambda () (sox-binaural (first beat) end)))
+    (setq start (+ start end)))))
+
 ;;;###autoload
-(defun sox-relax (duration)
-  "Play relax set of  binaural beats."
+(defun sox-rev-up (duration-scale)
+  "Play rev-up set of  binaural beats.
+Each segment is scaled by `duration-scale' in seconds."
+  (interactive "nDuration: ")
+  (declare (special sox-rev-up-beats))
+  (sox--theme-play sox-rev-up-beats duration-scale))
+
+
+;;;###autoload
+(defun sox-wind-down (duration-scale)
+  "Play wind-down set of  binaural beats.
+Each segment is scaled by `duration-scale' in seconds."
+  (interactive "nDuration: ")
+  (declare (special sox-wind-down-beats))
+  (sox--theme-play sox-wind-down-beats duration-scale))
+
+
+;;;###autoload
+(defun sox-relax (duration-scale)
+  "Play relax set of  binaural beats.
+Each segment is scaled by `duration-scale' in seconds."
   (interactive "nDuration: ")
   (declare (special sox-relax-beats))
-  (let ((beats (sox--list-iter sox-relax-beats)))
-    (run-with-timer                 ; start now, repeat after duration
-     0 duration
-     #'(lambda () (sox-binaural (iter-next beats) duration)))))
+  (sox--theme-play sox-relax-beats duration-scale))
+
+
 
 ;;}}}
 
