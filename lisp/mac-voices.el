@@ -349,7 +349,7 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{  punctuations
 
-(defsubst mac-get-punctuations-code (value)
+(defsubst mac-get-punctuations-code (_value)
   "Return string needed to set specified punctuations mode."
   "")
 
