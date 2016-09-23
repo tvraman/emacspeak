@@ -1,4 +1,4 @@
-;;; tetris.el --- implementation of Tetris for Emacs  -*- lexical-binding: t; -*-
+;;; tetris.el --- implementation of Tetris for Emacs  -*- lexical-binding: nil; -*-
 
 ;; Copyright (C) 1997, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008,
 ;;   2009, 2011  Free Software Foundation, Inc.
