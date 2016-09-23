@@ -216,7 +216,7 @@ We use module gfeeds to efficiently fetch feed contents using the
 (defun emacspeak-webspace-headlines-populate ()
   "populate fs with headlines from all feeds."
   (declare (special emacspeak-webspace-headlines))
-  (dotimes (i (length (emacspeak-webspace-fs-feeds emacspeak-webspace-headlines)))
+  (dotimes (_i (length (emacspeak-webspace-fs-feeds emacspeak-webspace-headlines)))
     (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines))))
 
 (defsubst emacspeak-webspace-headlines-refresh ()
@@ -528,7 +528,6 @@ Optional interactive prefix arg forces a refresh."
    (list
     (read-from-minibuffer "Freebase Query: ")))
   (let ((buffer (get-buffer-create (format "Feedbase: %s" query)))
-        (start nil)
         (results (gf-search-results (emacspeak-url-encode query)))
         (inhibit-read-only t)
         (title nil)

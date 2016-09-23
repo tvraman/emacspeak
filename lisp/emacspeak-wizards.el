@@ -843,8 +843,7 @@ personal customizations."
     (read-file-name "Customization file: "
                     nil
                     custom-file)))
-  (declare (special custom-file))
-  (let* ((buffer (find-file-noselect custom-file))
+  (let* ((buffer (find-file-noselect file))
          (settings
           (save-current-buffer
             (set-buffer buffer)
@@ -1598,7 +1597,7 @@ visiting the DVI file."
       (widget-create 'push-button
                      :tag "Find Matching Files"
                      :notify
-                     #'(lambda (&rest ignore)
+                     #'(lambda (&rest _ignore)
                          (call-interactively
                           'emacspeak-wizards-finder-find)))
       (widget-create 'info-link
@@ -1745,17 +1744,13 @@ With interactive prefix arg, prompts for and remembers the file local pattern."
       (how-many pattern start end 'interactive)))))
 
 ;;;###autoload
-(defun emacspeak-wizards-occur-header-lines (start end &optional prefix)
+(defun emacspeak-wizards-occur-header-lines (&optional prefix)
   "If you define a file local variable called
 `emacspeak-occur-pattern' that holds a regular expression that
 matches header lines, you can use this command to conveniently
 run `occur' to find matching header lines. With prefix arg,
 prompts for and sets value of the file local pattern."
-  (interactive
-   (list
-    (point)
-    (mark)
-    current-prefix-arg))
+  (interactive "P")
   (declare (special emacspeak-occur-pattern))
   (cond
    ((and (not prefix)
@@ -3275,7 +3270,7 @@ Optional interactive prefix arg shows  unprocessed results."
   "Pick what to yank using ido completion."
   (interactive)
   (require 'ido)
-  (insert-string
+  (insert
    (ido-completing-read "Yank what? " (mapcar 'substring-no-properties kill-ring))))
 
 

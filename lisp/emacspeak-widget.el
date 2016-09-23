@@ -362,8 +362,7 @@ Returns a string with appropriate personality."
 
 (defun emacspeak-widget-help-menu-choice  (widget)
   "Summarize a pull down list"
-  (let* ((help-echo (emacspeak-widget-help-echo widget))(label (emacspeak-widget-label widget))
-         (value (format " %s " (widget-get widget :value)))
+  (let* ((label (emacspeak-widget-label widget)) (value (format " %s " (widget-get widget :value)))
          (child (car (widget-get widget :children))))
     (concat label
             " is "
@@ -679,10 +678,10 @@ widget before summarizing."
 ;;}}}
 ;;{{{ augment widgets 
 
-(defun emacspeak-widget-update-from-minibuffer (point)
-  "Sets widget at point by invoking its prompter."
+(defun emacspeak-widget-update-from-minibuffer (pos)
+  "Sets widget at `pos' by invoking its prompter."
   (interactive "d")
-  (let ((w (widget-at (point))))
+  (let ((w (widget-at pos)))
     (widget-value-set w
                       (widget-apply w
                                     :prompt-value

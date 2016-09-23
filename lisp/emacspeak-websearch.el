@@ -152,7 +152,7 @@ When using supported browsers,  this interface attempts to speak the most releva
                       (documentation this-command))))))
     (setq searcher (emacspeak-websearch-get-searcher engine))
     (if searcher
-        (call-interactively searcher)
+        (funcall-interactively searcher prefix)
       (error "I do not know how to search using %s" engine))))
 
 ;;}}}
