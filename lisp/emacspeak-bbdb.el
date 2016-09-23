@@ -147,7 +147,6 @@
     (let ((prior (point))
           (completion-ignore-case t)
           (completions nil)
-          (window (selected-window))
           (buffer (current-buffer)))
       ad-do-it
       (cond

@@ -182,7 +182,7 @@
 (defun emacspeak-jabber-popup-roster ()
   "Pop to Jabber roster."
   (interactive)
-  (declare (special jabber-roster-buffer ))
+  (declare (special jabber-roster-buffer jabber-connections ))
   (unless jabber-connections  (call-interactively 'jabber-connect))
   (unless (buffer-live-p jabber-roster-buffer) (call-interactively 'jabber-display-roster))
   (pop-to-buffer jabber-roster-buffer)

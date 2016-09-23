@@ -828,7 +828,7 @@ separate buffer. Interactive use provides list of id values as completion. "
 (make-variable-buffer-local 'emacspeak-we-class-filter)
 
 ;;;###autoload
-(defun emacspeak-we-class-filter-and-follow (class url &optional prompt)
+(defun emacspeak-we-class-filter-and-follow (class url &optional _prompt)
   "Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
@@ -836,7 +836,7 @@ used as well."
   (interactive
    (list
     (cond
-     ((and (not prompt)emacspeak-we-class-filter) emacspeak-we-class-filter)
+     ((and (not _prompt)emacspeak-we-class-filter) emacspeak-we-class-filter)
      (t (setq emacspeak-we-class-filter
               (read-from-minibuffer "Class: "))))
     (emacspeak-webutils-read-this-url)
@@ -861,7 +861,7 @@ used as well."
 (make-variable-buffer-local 'emacspeak-we-id-filter)
 
 ;;;###autoload
-(defun emacspeak-we-follow-and-filter-by-id (id prompt)
+(defun emacspeak-we-follow-and-filter-by-id (id _prompt)
   "Follow url and point, and filter the result by specified id.
 Id can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
@@ -869,7 +869,7 @@ used as well."
   (interactive
    (list
     (cond
-     ((and (not prompt)emacspeak-we-id-filter) emacspeak-we-id-filter)
+     ((and (not _prompt)emacspeak-we-id-filter) emacspeak-we-id-filter)
         (t
          (setq emacspeak-we-id-filter
               (read-from-minibuffer "Id: "))))
@@ -888,7 +888,7 @@ used as well."
              (second emacspeak-we-url-rewrite-rule)
              url)))
     (emacspeak-we-extract-by-id
-     emacspeak-we-id-filter
+     id
      (or redirect url)
      'speak)))
 

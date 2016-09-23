@@ -162,7 +162,7 @@ s(defun emacspeak-vm-yank-header ()
 (defun emacspeak-vm-summarize-message ()
   "Summarize the current vm message. "
   (declare (special vm-message-pointer smtpmail-local-domain
-                    emacspeak-vm-headers-strip-octals))
+                    vm-presentation-buffer  emacspeak-vm-headers-strip-octals))
   (when vm-message-pointer
     (let*  ((message (car vm-message-pointer))
             (number (emacspeak-vm-number-of  message))
@@ -503,16 +503,16 @@ Leave point at front of decoded attachment."
   mode
   emacspeak-speak-embedded-url-pattern
   (cons
-   're-search-forward
-   #'(lambda (url) " Link ")))
+   #'re-search-forward
+   #'(lambda (_url) " Link ")))
  (emacspeak-pronounce-add-dictionary-entry
   mode
   emacspeak-speak-rfc-3339-datetime-pattern
-  (cons 're-search-forward 'emacspeak-speak-decode-rfc-3339-datetime))
+  (cons #'re-search-forward #'emacspeak-speak-decode-rfc-3339-datetime))
  (emacspeak-pronounce-add-dictionary-entry
   mode
   emacspeak-speak-iso-datetime-pattern
-  (cons 're-search-forward 'emacspeak-speak-decode-iso-datetime)))
+  (cons #'re-search-forward #'emacspeak-speak-decode-iso-datetime)))
 
 ;;}}}
 ;;{{{ advice button motion

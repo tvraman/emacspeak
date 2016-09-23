@@ -376,43 +376,42 @@ are available are cued by an auditory icon on the header line."
 If buffer was result of displaying a feed, reload feed.
 If we came from a url-template, reload that template.
 Retain previously set punctuations  mode."
-  (let ((soundscape-auto nil))
-    (add-hook 'emacspeak-web-post-process-hook 'emacspeak-eww-post-render-actions)
-    (cond
-     ((and (emacspeak-eww-current-url)
-           emacspeak-eww-feed
-           emacspeak-eww-style)
+  (let () (add-hook 'emacspeak-web-post-process-hook 'emacspeak-eww-post-render-actions)
+       (cond
+        ((and (emacspeak-eww-current-url)
+              emacspeak-eww-feed
+              emacspeak-eww-style)
                                         ; this is a displayed feed
-      (lexical-let
-          ((p dtk-punctuation-mode)
-           (r dtk-speech-rate)
-           (u (emacspeak-eww-current-url))
-           (s emacspeak-eww-style))
-        (kill-buffer)
-        (add-hook
-         'emacspeak-web-post-process-hook
-         #'(lambda ()
-             (dtk-set-punctuations p)
-             (dtk-set-rate r)
-             (emacspeak-dtk-sync))
-         'at-end)
-        (emacspeak-feeds-feed-display u s 'speak)))
-     ((and (emacspeak-eww-current-url) emacspeak-eww-url-template)
+         (lexical-let
+             ((p dtk-punctuation-mode)
+              (r dtk-speech-rate)
+              (u (emacspeak-eww-current-url))
+              (s emacspeak-eww-style))
+           (kill-buffer)
+           (add-hook
+            'emacspeak-web-post-process-hook
+            #'(lambda ()
+                (dtk-set-punctuations p)
+                (dtk-set-rate r)
+                (emacspeak-dtk-sync))
+            'at-end)
+           (emacspeak-feeds-feed-display u s 'speak)))
+        ((and (emacspeak-eww-current-url) emacspeak-eww-url-template)
                                         ; this is a url template
-      (lexical-let
-          ((n emacspeak-eww-url-template)
-           (p dtk-punctuation-mode)
-           (r dtk-speech-rate))
-        (add-hook
-         'emacspeak-web-post-process-hook
-         #'(lambda nil
-             (dtk-set-punctuations p)
-             (dtk-set-rate r)
-             (emacspeak-dtk-sync))
-         'at-end)
-        (kill-buffer)
-        (emacspeak-url-template-open (emacspeak-url-template-get  n))))
-     (t ad-do-it))))
+         (lexical-let
+             ((n emacspeak-eww-url-template)
+              (p dtk-punctuation-mode)
+              (r dtk-speech-rate))
+           (add-hook
+            'emacspeak-web-post-process-hook
+            #'(lambda nil
+                (dtk-set-punctuations p)
+                (dtk-set-rate r)
+                (emacspeak-dtk-sync))
+            'at-end)
+           (kill-buffer)
+           (emacspeak-url-template-open (emacspeak-url-template-get  n))))
+        (t ad-do-it))))
 
 (loop
  for f in

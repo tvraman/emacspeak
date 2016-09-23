@@ -223,7 +223,7 @@
   :type 'file
   :group 'emacspeak-w3)
 
-(defun emacspeak-w3-lynx-done-alert (process state)
+(defun emacspeak-w3-lynx-done-alert (process _state)
   "Alert user when lynx is done dumping the document"
   (declare (special view-exit-action))
   (when (y-or-n-p
@@ -751,7 +751,7 @@ HTML."
       (pushnew
        (list mm
              'mm-inline-text-html-render-with-w3
-             #'(lambda (&rest args) mm-text-html-renderer))
+             #'(lambda (&rest _args) mm-text-html-renderer))
        mm-inline-media-tests))
 
 ;;}}}

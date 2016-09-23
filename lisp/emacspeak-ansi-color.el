@@ -61,7 +61,6 @@
   (declare (special ansi-color-names-vector ansi-color-faces-vector))
   (condition-case nil
       (let* ((voice-name nil)
-             (style (cadr face-spec))
              (color (cdr (assq 'foreground-color  face-spec)))
              (color-index
               (when color

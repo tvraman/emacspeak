@@ -1385,6 +1385,7 @@ resources."
 (defun emacspeak-url-template-generate-texinfo-documentation (buffer)
   "Generates texinfo section documenting all defined URL templates."
   (declare (special emacspeak-url-template-table))
+  (with-current-buffer buffer 
   (insert
    "@node URL Templates \n@section URL Templates\n\n")
   (insert
@@ -1425,7 +1426,7 @@ prompts for a location and speaks the forecast. \n\n"
      (insert
       (emacspeak-url-template-documentation
        (emacspeak-url-template-get key)))
-     (insert "\n\n"))))
+     (insert "\n\n")))))
 
 ;;}}}
 ;;{{{ wikiData:
