@@ -56,6 +56,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'time-date)
+(require 'rect)
 (require 'voice-setup)
 (require 'thingatpt)
 (require 'dtk-speak)
@@ -82,7 +83,7 @@
 (defvar voice-punctuations-some)
 (defvar voice-smoothen)
 
-(declare-function operate-on-rectangle(start end coerse-tabs))
+
 
 ;;}}}
 ;;{{{  custom group
