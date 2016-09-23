@@ -826,8 +826,7 @@ Insert reviews if already displaying details."
    ((get-text-property (point) 'place-details)
     (gmaps-place-reviews))
    (t
-    (let* ((start nil)
-           (inhibit-read-only t)
+    (let* ((inhibit-read-only t)
            (place-ref
             (g-json-get 'reference (get-text-property (point)'maps-data )))
            (result

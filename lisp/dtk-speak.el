@@ -1831,7 +1831,8 @@ only speak upto the first ctrl-m."
         (or  (= start (point-max))
              (dtk-format-text-and-speak start (point-max)))))
     (dtk-force)))
-(defvar emacspeak-speak-messages nil)
+;;; forward Declaration:
+(defvar emacspeak-speak-messages)
 
 (defmacro ems-with-messages-silenced  (&rest body)
   "Evaluate body  after temporarily silencing auditory error feedback."

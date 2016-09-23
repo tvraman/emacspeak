@@ -62,6 +62,9 @@
       (message "Brightness is %d" (round  (read value))))
      (t (message "Brightness is %s" value)))))
 
+;;; forward declaration:
+(defvar emacspeak-speak-messages)
+(defvar emacspeak-use-auditory-icons)
 ;;;###autoload
 (defun xbacklight-set (brightness)
   "Set brightness to  specified level.
