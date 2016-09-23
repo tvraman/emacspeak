@@ -114,7 +114,7 @@ COMMAND-STRING to the TTS engine."
 
 ;;{{{ voice family codes
 
-(defsubst espeak-get-family-code (name)
+(defsubst espeak-get-family-code (_name)
   "Get control code for voice family NAME."
   "")
 
@@ -324,7 +324,7 @@ and TABLE gives the values along that dimension."
 
 ;;;  Not implemented fo Espeak now.
 
-(defsubst espeak-get-stress-code (value family)
+(defsubst espeak-get-stress-code (_value _family)
   "Just a dummy."
   "")
 
@@ -424,7 +424,7 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{  punctuations
 
-(defsubst espeak-get-punctuations-code (value)
+(defsubst espeak-get-punctuations-code (_value)
   "Return string needed to set specified punctuations mode."
   "")
 
