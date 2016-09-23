@@ -353,7 +353,9 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 ;;}}}
 ;;{{{ market summary from google finance
+;;; Forward Declaration:
 
+(defvar w3-auto-image-alt)
 (emacspeak-url-template-define
  "Market summary from Google"
  "http://finance.google.com/finance"
