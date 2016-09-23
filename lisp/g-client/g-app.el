@@ -57,6 +57,7 @@
 (require 'backquote)
 (require 'g-utils)
 (require 'g-auth)
+(require 'nxml-mode)
 (declaim  (optimize  (safety 0) (speed 3)))
 
 ;;}}}
