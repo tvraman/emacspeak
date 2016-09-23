@@ -2866,8 +2866,8 @@ Argument PROP specifies the property and VALUE gives the
 value to apply."
   (require 'rect)
   (operate-on-rectangle
-   (function (lambda (start-seg begextra endextra)
-               (put-text-property  start-seg (point)    prop value)))
+    #'(lambda (start-seg _begextra _endextra)
+               (put-text-property  start-seg (point)    prop value))
    start end  nil))
 
 ;;}}}

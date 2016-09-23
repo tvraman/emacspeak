@@ -508,10 +508,10 @@ Optional prefix arg prompts for a new filter."
       (set (make-local-variable 'positions) (make-hash-table))
       (when filename (setq buffer-file-name filename))
       (setq count (1-  (emacspeak-table-num-columns table)))
-      (loop
+      (cl-loop
        for row across (emacspeak-table-elements table) do
-       (loop
-        for element across row do
+       (cl-loop
+        for _element across row do
         (puthash
          (intern (format "element:%s:%s" i j))  ; compute key 
          (point) ; insertion point  is the value 

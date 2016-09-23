@@ -661,6 +661,7 @@ icon."
       (tts-with-punctuations 'all
                              (dtk-notify-speak  emacspeak-last-message)))
     ad-return-value))
+(declare-function  emacspeak-tts-use-notify-stream-p "emacspeak-setup.el" nil)
 
 (defcustom emacspeak-eldoc-speak-explicitly
   (not (emacspeak-tts-use-notify-stream-p))
