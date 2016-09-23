@@ -42,6 +42,7 @@
 
 (require 'emacspeak-preamble)
 (require 'emacspeak-webutils)
+(require 'eww)
 (require 'emacspeak-eww)
 (require 'emacspeak-google)
 (require 'gweb)
