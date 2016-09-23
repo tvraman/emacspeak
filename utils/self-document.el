@@ -87,13 +87,13 @@
   "Maps modules to commands and options they define.")
 
 (cl-defstruct self-document name commentary commands options)
-
+(defvar emacspeak-play-emacspeak-startup-icon nil)
+(defvar dtk-program "log-null")
 (defun self-document-load-modules ()
   "Load all modules"
   (declare (special dtk-program
                     self-document-files emacspeak-play-emacspeak-startup-icon))
-  (let ((emacspeak-play-emacspeak-startup-icon nil)
-        (dtk-program "log-null"))
+  (let ((emacspeak-play-emacspeak-startup-icon nil))
     (package-initialize) ; bootstrap emacs package system
     ;;; Bootstrap Emacspeak
     (load-library "emacspeak-load-path")
@@ -380,7 +380,7 @@ This chapter documents a total of %d commands and %d options.\n\n"
   (cl-assert  (keymapp keymap) t "Not a valid keymap: %s")
   (let ((entries (sd-sort-keymap (cdr (copy-keymap keymap )))))
     (insert "@table @kbd\n")
-    (loop for binding in
+    (cl-loop for binding in
           entries
           when (and (characterp (car binding))
                     (not (keymapp  (cdr binding))))

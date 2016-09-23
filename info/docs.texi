@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1176 commands and 976 options.
+This chapter documents a total of 1177 commands and 976 options.
 
 @menu
 * acss-structure::
@@ -285,6 +285,8 @@ amixer is part of ALSA.
 @format
 Interactively manipulate ALSA settings.
 Interactive prefix arg refreshes cache.
+
+(fn &optional REFRESH)
 @end format
 @end deffn
 
@@ -445,6 +447,8 @@ pattern ‘.’ (this is already added by default) emacspeak
 will say ‘‘aw fifteen dot’’ when speaking the string
 ‘‘...............’’ instead of ‘‘period period period period
 ’’
+
+(fn &optional DELETE)
 @end format
 @end deffn
 
@@ -480,6 +484,8 @@ Select and start an local speech server interactively. Local server
 lets Emacspeak on a remote host connect back via SSH port forwarding
 for instance. Argument PROGRAM specifies the speech server
 program. Port defaults to dtk-local-server-port
+
+(fn PROGRAM &optional PROMPT-PORT)
 @end format
 @end deffn
 
@@ -565,6 +571,8 @@ When called interactively, restarts speech server.
 Argument PROGRAM specifies the speech server program.
  Optional arg device sets up environment variable
 ALSA_DEFAULT to specified device before starting the server.
+
+(fn PROGRAM &optional DEVICE)
 @end format
 @end deffn
 
@@ -585,6 +593,8 @@ Speech rate is scaled by this factor
 when speaking characters.
 Interactive PREFIX arg means set   the global default value, and then set the
 current local  value to the result.
+
+(fn FACTOR &optional PREFIX)
 @end format
 @end deffn
 
@@ -604,6 +614,8 @@ Interactively set how text is split in chunks.
 See the Emacs documentation on syntax tables for details on how characters are
 classified into various syntactic classes.
 Argument S specifies the syntax class.
+
+(fn S)
 @end format
 @end deffn
 
@@ -620,6 +632,8 @@ Argument S specifies the syntax class.
 
 @format
 Set language according to the argument lang.
+
+(fn LANG)
 @end format
 @end deffn
 
@@ -691,6 +705,8 @@ Set speech rate to one of nine predefined levels.
 Interactive PREFIX arg says to set the rate globally.
 Formula used is:
 rate = dtk-speech-rate-base + dtk-speech-rate-step * level.
+
+(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -705,6 +721,7 @@ then the following call:
  dtk-set-language("en")
 will set "en_GB".
 
+(fn ALIAS LANG)
 @end format
 @end deffn
 
@@ -740,6 +757,8 @@ Set punctuation mode to MODE.
 Possible values are ‘some’, ‘all’, or ‘none’.
 Interactive PREFIX arg means set   the global default value, and then set the
 current local  value to the result.
+
+(fn MODE &optional PREFIX)
 @end format
 @end deffn
 
@@ -750,6 +769,8 @@ current local  value to the result.
 @format
 Set punctuation  mode to all.
 Interactive PREFIX arg sets punctuation mode globally.
+
+(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -760,6 +781,8 @@ Interactive PREFIX arg sets punctuation mode globally.
 @format
 Set punctuation  mode to some.
 Interactive PREFIX arg sets punctuation mode globally.
+
+(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -778,6 +801,8 @@ Interactive PREFIX arg sets punctuation mode globally.
 Set speaking RATE for the tts.
 Interactive PREFIX arg means set   the global default value, and then set the
 current local  value to the result.
+
+(fn RATE &optional PREFIX)
 @end format
 @end deffn
 
@@ -856,6 +881,8 @@ value, and then set the current local value to the result.
 @format
 Toggle punctuation mode between "some" and "all".
 Interactive PREFIX arg makes the new setting global.
+
+(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -970,6 +997,8 @@ value to the result.
 @format
 Cycle through available ALSA devices.
 Optional interactive prefix arg restarts current TTS server.
+
+(fn &optional RESTART)
 @end format
 @end deffn
 
@@ -1088,6 +1117,8 @@ This  Provides Unicode support to the speech layer.
 Add a custom replacement string for CHAR.
 
 When called interactively, CHAR defaults to the character after point.
+
+(fn CHAR REPLACEMENT)
 @end format
 @end deffn
 
@@ -1099,6 +1130,8 @@ When called interactively, CHAR defaults to the character after point.
 Delete custom replacement for CHAR.
 
 When called interactively, CHAR defaults to the character after point.
+
+(fn CHAR)
 @end format
 @end deffn
 
@@ -4097,6 +4130,8 @@ Drop last  row  from  the current board.
 Exports game stack to a file.
 Optional interactive prefix arg prompts for a file.
 Note that the file is overwritten silently.
+
+(fn &optional PROMPT)
 @end format
 @end deffn
 
@@ -4107,6 +4142,8 @@ Note that the file is overwritten silently.
 @format
 Import game.
 Optional interactive prefix arg prompts for a filename.
+
+(fn &optional PROMPT)
 @end format
 @end deffn
 
@@ -4116,6 +4153,8 @@ Optional interactive prefix arg prompts for a filename.
 
 @format
 Puts game in a randomized new state.
+
+(fn &optional COUNT)
 @end format
 @end deffn
 
@@ -4281,6 +4320,8 @@ alsaplayer navigation commands  work via single keystrokes.
 
 @format
 Add specified resource to queue.
+
+(fn RESOURCE)
 @end format
 @end deffn
 
@@ -4292,6 +4333,8 @@ Add specified resource to queue.
 Set AMark ‘name’ at current position in current audio stream.
 Interactive prefix arg prompts for position.
 As the default, use current position.
+
+(fn NAME &optional PROMPT-POSITION)
 @end format
 @end deffn
 
@@ -4319,6 +4362,8 @@ Skip backward by  10 seconds.
 
 @format
 Skip backwards by  minutes.
+
+(fn MINUTES)
 @end format
 @end deffn
 
@@ -4328,6 +4373,8 @@ Skip backwards by  minutes.
 
 @format
 Skip backwards by  chunks of minutes.
+
+(fn MINUTES)
 @end format
 @end deffn
 
@@ -4337,6 +4384,8 @@ Skip backwards by  chunks of minutes.
 
 @format
 Change default directory, and silence its pronunciation.
+
+(fn DIRECTORY)
 @end format
 @end deffn
 
@@ -4355,6 +4404,8 @@ Clear or resume alsaplayer
 
 @format
 Invoke mp3splt to clip selected range.
+
+(fn PATH START END)
 @end format
 @end deffn
 
@@ -4364,6 +4415,8 @@ Invoke mp3splt to clip selected range.
 
 @format
 Find  specified resource and add to queue.
+
+(fn PATTERN)
 @end format
 @end deffn
 
@@ -4382,6 +4435,8 @@ Skip forward by  seconds.
 
 @format
 Skip forward by  minutes.
+
+(fn MINUTES)
 @end format
 @end deffn
 
@@ -4391,6 +4446,8 @@ Skip forward by  minutes.
 
 @format
 Skip forward by  chunks of ten minutes.
+
+(fn MINUTES)
 @end format
 @end deffn
 
@@ -4409,6 +4466,8 @@ Speak current path and copy it to kill ring.
 
 @format
 Jump to specified track.
+
+(fn TRACK)
 @end format
 @end deffn
 
@@ -4527,6 +4586,8 @@ Quit  alsaplayer
 
 @format
 Relative seek  alsaplayer
+
+(fn OFFSET)
 @end format
 @end deffn
 
@@ -4536,6 +4597,8 @@ Relative seek  alsaplayer
 
 @format
 Replace currently playing music.
+
+(fn RESOURCE)
 @end format
 @end deffn
 
@@ -4545,6 +4608,8 @@ Replace currently playing music.
 
 @format
 Absolute seek  alsaplayer
+
+(fn OFFSET)
 @end format
 @end deffn
 
@@ -4554,6 +4619,8 @@ Absolute seek  alsaplayer
 
 @format
 Set speed in alsaplayer.
+
+(fn SETTING)
 @end format
 @end deffn
 
@@ -4590,6 +4657,8 @@ Stop  alsaplayer
 
 @format
 Set volume.
+
+(fn SETTING)
 @end format
 @end deffn
 
@@ -4645,6 +4714,8 @@ emacspeak-alsaplayer and friends to set and jump to bookmarks.
 Add an AMark to the buffer local list of AMarks. AMarks are
 bookmarks in audio content. If there is an existing amark of the
 given name, it is updated with path and position.
+
+(fn PATH NAME POSITION)
 @end format
 @end deffn
 
@@ -4654,6 +4725,8 @@ given name, it is updated with path and position.
 
 @format
 Return matching AMark if found in buffer-local AMark list.
+
+(fn NAME)
 @end format
 @end deffn
 
@@ -4916,6 +4989,8 @@ Reset to default audio settings.
 
 @format
 Decrease overall volume. 
+
+(fn &optional GAIN)
 @end format
 @end deffn
 
@@ -4925,6 +5000,8 @@ Decrease overall volume.
 
 @format
 Increase overall volume. 
+
+(fn &optional GAIN)
 @end format
 @end deffn
 
@@ -4934,6 +5011,8 @@ Increase overall volume.
 
 @format
 Decrease volume of wave output. 
+
+(fn &optional GAIN)
 @end format
 @end deffn
 
@@ -4943,6 +5022,8 @@ Decrease volume of wave output.
 
 @format
 Increase volume of wave output. 
+
+(fn &optional GAIN)
 @end format
 @end deffn
 
@@ -5001,6 +5082,8 @@ Launch BBC Interaction.
 See http://www.bbc.co.uk/radio/stations for full list of stations.
 See http://www.bbc.co.uk/radio/programmes/genres for list of genres.
 Interactive prefix arg filters  content by genre.
+
+(fn &optional GENRE)
 @end format
 @end deffn
 
@@ -5019,6 +5102,8 @@ Launch BBC Interaction for specified Genre.
 
 @format
 Stream using get_iplayer.
+
+(fn PID)
 @end format
 @end deffn
 
@@ -5028,6 +5113,8 @@ Stream using get_iplayer.
 
 @format
 Stream using get_iplayer.
+
+(fn URL)
 @end format
 @end deffn
 
@@ -5106,6 +5193,8 @@ Call action specified by  invoking key.
 @format
 Perform a Bookshare author search.
 Interactive prefix arg filters search by category.
+
+(fn QUERY &optional CATEGORY)
 @end format
 @end deffn
 
@@ -5134,6 +5223,8 @@ Return latest books.
 @format
 Browse popular books.
 Optional interactive prefix arg prompts for a category to use as a filter.
+
+(fn &optional CATEGORY)
 @end format
 @end deffn
 
@@ -5143,6 +5234,8 @@ Optional interactive prefix arg prompts for a category to use as a filter.
 
 @format
 Download Daisy format of specified book to target location.
+
+(fn ID TARGET)
 @end format
 @end deffn
 
@@ -5162,6 +5255,8 @@ Target location is generated from author and title.
 
 @format
 Download Daisy format of specified book to target location.
+
+(fn ID TARGET)
 @end format
 @end deffn
 
@@ -5181,6 +5276,8 @@ Target location is generated from author and title.
 
 @format
 Download content  to target location.
+
+(fn URL TARGET)
 @end format
 @end deffn
 
@@ -5190,6 +5287,8 @@ Download content  to target location.
 
 @format
 Render complete book using EWW if available.
+
+(fn DIRECTORY)
 @end format
 @end deffn
 
@@ -5209,6 +5308,8 @@ Once retrieved, memoize to avoid multiple retrievals.
 
 @format
 Extract content referred to by link under point, and render via the browser.
+
+(fn URL)
 @end format
 @end deffn
 
@@ -5218,6 +5319,8 @@ Extract content referred to by link under point, and render via the browser.
 
 @format
 Extract content referred to by link under point, and return an XML buffer.
+
+(fn URL)
 @end format
 @end deffn
 
@@ -5227,6 +5330,8 @@ Extract content referred to by link under point, and return an XML buffer.
 
 @format
 Flush lines matching regexp in Bookshare buffer.
+
+(fn REGEXP)
 @end format
 @end deffn
 
@@ -5237,6 +5342,8 @@ Flush lines matching regexp in Bookshare buffer.
 @format
 Display fulltext contents of  book in specified directory.
 Useful for fulltext search in a book.
+
+(fn DIRECTORY)
 @end format
 @end deffn
 
@@ -5246,6 +5353,8 @@ Useful for fulltext search in a book.
 
 @format
 Perform a Bookshare fulltext search.
+
+(fn QUERY)
 @end format
 @end deffn
 
@@ -5264,6 +5373,8 @@ Get next page of results for last query.
 
 @format
 Perform a Bookshare id search.
+
+(fn QUERY)
 @end format
 @end deffn
 
@@ -5273,6 +5384,8 @@ Perform a Bookshare id search.
 
 @format
 Perform a Bookshare isbn search.
+
+(fn QUERY)
 @end format
 @end deffn
 
@@ -5389,6 +5502,8 @@ Move to previous result.
 
 @format
 Set preference preference-id to value.
+
+(fn PREFERENCE-ID VALUE)
 @end format
 @end deffn
 
@@ -5408,6 +5523,8 @@ Sign out, clearing password.
 @format
 Perform a Bookshare date  search.
 Optional interactive prefix arg filters by category.
+
+(fn QUERY &optional CATEGORY)
 @end format
 @end deffn
 
@@ -5418,6 +5535,8 @@ Optional interactive prefix arg filters by category.
 @format
 Perform a Bookshare title search.
 Interactive prefix arg filters search by category.
+
+(fn QUERY &optional CATEGORY)
 @end format
 @end deffn
 
@@ -5427,6 +5546,8 @@ Interactive prefix arg filters search by category.
 
 @format
 View TOC for book in specified directory.
+
+(fn DIRECTORY)
 @end format
 @end deffn
 
@@ -5455,6 +5576,8 @@ Unpack downloaded content if necessary.
 
 @format
 Custom URL executor for use in Bookshare TOC.
+
+(fn URL)
 @end format
 @end deffn
 
@@ -5476,6 +5599,8 @@ This function accepts any number of arguments, but ignores them.
 
 @format
 View book in specified directory.
+
+(fn DIRECTORY)
 @end format
 @end deffn
 
@@ -5495,6 +5620,8 @@ Make sure it’s downloaded and unpacked first.
 
 @format
 Play pages in specified page range from URL.
+
+(fn URL)
 @end format
 @end deffn
 
@@ -5574,6 +5701,8 @@ Speech-enable buffer-menus.
 
 @format
 Speech enabled buffer menu navigation
+
+(fn COUNT)
 @end format
 @end deffn
 
@@ -5583,6 +5712,8 @@ Speech enabled buffer menu navigation
 
 @format
 Speech enabled buffer menu navigation
+
+(fn COUNT)
 @end format
 @end deffn
 
@@ -5903,6 +6034,8 @@ Open PDF file on current dired line.
 Displays type of current file by running command file.
 Like Emacs’ built-in dired-show-file-type but allows user to customize
 options passed to command ‘file’.
+
+(fn &optional FILE DEREF-SYMLINKS)
 @end format
 @end deffn
 
@@ -5982,6 +6115,8 @@ emacspeak extensions to the dismal spreadsheet.
 @format
 Move backward by arg columns
  (the previous column by default)and summarize it.
+
+(fn COLS)
 @end format
 @end deffn
 
@@ -5992,6 +6127,8 @@ Move backward by arg columns
 @format
 Move backward by arg rows
  (the previous row by default)and summarize it.
+
+(fn ROWS)
 @end format
 @end deffn
 
@@ -6050,6 +6187,8 @@ The ‘row header’ is the entry in column 0.
 @format
 Move forward by arg columns
  (the next column by default)and summarize it.
+
+(fn COLS)
 @end format
 @end deffn
 
@@ -6060,6 +6199,8 @@ Move forward by arg columns
 @format
 Move forward by arg rows
  (the next row by default)and summarize it.
+
+(fn ROWS)
 @end format
 @end deffn
 
@@ -6425,6 +6566,8 @@ emacspeak extensions to voiceify rich  text.
 @format
 Map base fonts to voices.
 Useful in voiceifying rich text.
+
+(fn START END)
 @end format
 @end deffn
 
@@ -6728,6 +6871,8 @@ For detailed documentation, see M-x emacspeak-epub-mode
 @format
 Add EPubs found in specified directory to the bookshelf.
 Interactive prefix arg searches recursively in directory.
+
+(fn DIRECTORY &optional RECURSIVE)
 @end format
 @end deffn
 
@@ -6737,6 +6882,8 @@ Interactive prefix arg searches recursively in directory.
 
 @format
 Add epub file to current bookshelf.
+
+(fn EPUB-FILE)
 @end format
 @end deffn
 
@@ -6746,6 +6893,8 @@ Add epub file to current bookshelf.
 
 @format
 Add results of an author search to current bookshelf.
+
+(fn PATTERN)
 @end format
 @end deffn
 
@@ -6755,6 +6904,8 @@ Add results of an author search to current bookshelf.
 
 @format
 Add results of an title/author search to current bookshelf.
+
+(fn PATTERN)
 @end format
 @end deffn
 
@@ -6764,6 +6915,8 @@ Add results of an title/author search to current bookshelf.
 
 @format
 Add results of an title search to current bookshelf.
+
+(fn PATTERN)
 @end format
 @end deffn
 
@@ -6791,6 +6944,8 @@ Load bookshelf metadata from disk.
 
 @format
 Load bookshelf metadata from specified bookshelf.
+
+(fn BOOKSHELF)
 @end format
 @end deffn
 
@@ -6800,6 +6955,8 @@ Load bookshelf metadata from specified bookshelf.
 
 @format
 Open epub file and add it to current bookshelf.
+
+(fn EPUB-FILE)
 @end format
 @end deffn
 
@@ -6811,6 +6968,8 @@ Open epub file and add it to current bookshelf.
 Redraw Bookshelf.
 Optional interactive prefix arg author-first prints author at the
   left.
+
+(fn &optional AUTHOR-FIRST)
 @end format
 @end deffn
 
@@ -6830,6 +6989,8 @@ Refresh and redraw bookshelf.
 @format
 Remove EPubs found in specified directory from the bookshelf.
 Interactive prefix arg searches recursively in directory.
+
+(fn DIRECTORY &optional RECURSIVE)
 @end format
 @end deffn
 
@@ -6850,6 +7011,8 @@ No book files are deleted.
 @format
 Saves current bookshelf to  specified name.
 Interactive prefix arg ‘overwrite’ will overwrite existing file.
+
+(fn NAME &optional OVERWRITE)
 @end format
 @end deffn
 
@@ -6869,6 +7032,8 @@ Save bookshelf metadata.
 @format
 Browse list of HTML files in an EPub.
 Useful if table of contents in toc.ncx is empty.
+
+(fn EPUB)
 @end format
 @end deffn
 
@@ -6906,6 +7071,8 @@ Delete EPub under point.
 @format
 Display entire book  using EWW from EPub in a buffer.
 Suitable for text searches.
+
+(fn EPUB-FILE)
 @end format
 @end deffn
 
@@ -6916,6 +7083,8 @@ Suitable for text searches.
 @format
 Display fulltext from EPub in a buffer.
 Suitable for text searches.
+
+(fn EPUB-FILE)
 @end format
 @end deffn
 
@@ -6925,6 +7094,8 @@ Suitable for text searches.
 
 @format
 Search for Epubs from Google Books.
+
+(fn QUERY)
 @end format
 @end deffn
 
@@ -6935,6 +7106,8 @@ Search for Epubs from Google Books.
 @format
 Open Gutenberg catalog.
 Fetch if needed, or if refresh is T.
+
+(fn &optional REFRESH)
 @end format
 @end deffn
 
@@ -6944,6 +7117,8 @@ Fetch if needed, or if refresh is T.
 
 @format
 Download specified EBook to local cache
+
+(fn BOOK-ID)
 @end format
 @end deffn
 
@@ -6953,6 +7128,8 @@ Download specified EBook to local cache
 
 @format
 Locate epub files using locate.
+
+(fn PATTERN)
 @end format
 @end deffn
 
@@ -7022,6 +7199,8 @@ Move to next book.
 @format
 Open specified Epub.
 Filename may need to  be shell-quoted when called from Lisp.
+
+(fn EPUB-FILE)
 @end format
 @end deffn
 
@@ -7040,6 +7219,8 @@ Move to previous book.
 
 @format
 Custom URL executor for use in EPub Mode.
+
+(fn URL)
 @end format
 @end deffn
 
@@ -7098,6 +7279,8 @@ http://www.cs.cmu.edu/~berez/irc/erc.el
 Add people to monitor in this room.
 Optional interactive prefix  arg defines a pronunciation that
   silences speaking of this perso’s name.
+
+(fn NAME &optional QUITEN-PRONUNCIATION)
 @end format
 @end deffn
 
@@ -7107,6 +7290,8 @@ Optional interactive prefix  arg defines a pronunciation that
 
 @format
 Remove name to monitor in this room.
+
+(fn NAME)
 @end format
 @end deffn
 
@@ -7263,6 +7448,8 @@ The window is then define to be
 the rectangle delimited by point and eterm mark.  This is to
 be used when emacspeak is set to review mode inside an
 eterm.
+
+(fn ID)
 @end format
 @end deffn
 
@@ -7273,6 +7460,8 @@ eterm.
 @format
 Describe an eterm  window.
 Description indicates eterm window coordinates and whether it is stretchable
+
+(fn ID)
 @end format
 @end deffn
 
@@ -7282,6 +7471,8 @@ Description indicates eterm window coordinates and whether it is stretchable
 
 @format
 Move emacspeak eterm pointer to a specified LINE.
+
+(fn LINE)
 @end format
 @end deffn
 
@@ -7331,6 +7522,8 @@ sent to the terminal as if it were typed by the user.
 Move the pointer backward  by words. 
 Interactive numeric prefix arg specifies number of words to move.
 Argument COUNT specifies number of words by which to move.
+
+(fn COUNT)
 @end format
 @end deffn
 
@@ -7341,6 +7534,8 @@ Argument COUNT specifies number of words by which to move.
 @format
 Move the pointer down a line.
 Argument COUNT specifies number of lines by which to move.
+
+(fn COUNT)
 @end format
 @end deffn
 
@@ -7352,6 +7547,8 @@ Argument COUNT specifies number of lines by which to move.
 Move the pointer forward by words. 
 Interactive numeric prefix arg specifies number of words to move.
 Argument COUNT specifies number of words by which to move.
+
+(fn COUNT)
 @end format
 @end deffn
 
@@ -7362,6 +7559,8 @@ Argument COUNT specifies number of words by which to move.
 @format
 Move the pointer left.
 Argument COUNT specifies number of columns by which to move.
+
+(fn COUNT)
 @end format
 @end deffn
 
@@ -7372,6 +7571,8 @@ Argument COUNT specifies number of columns by which to move.
 @format
 Move the pointer right.
 Argument COUNT specifies number of columns by which to move.
+
+(fn COUNT)
 @end format
 @end deffn
 
@@ -7410,6 +7611,8 @@ Move the pointer to the right edge.
 Move the eterm pointer to the next color change.
 This allows you to move between highlighted regions of the screen.
 Optional argument COUNT specifies how many changes to skip.
+
+(fn &optional COUNT)
 @end format
 @end deffn
 
@@ -7421,6 +7624,8 @@ Optional argument COUNT specifies how many changes to skip.
 Move the eterm pointer to the next color change.
 This allows you to move between highlighted regions of the screen.
 Optional argument COUNT specifies how many changes to skip.
+
+(fn &optional COUNT)
 @end format
 @end deffn
 
@@ -7449,6 +7654,8 @@ Move the pointer to the top of the screen.
 @format
 Move the pointer up a line.
 Argument COUNT .specifies number of lines by which to move.
+
+(fn COUNT)
 @end format
 @end deffn
 
@@ -7458,6 +7665,8 @@ Argument COUNT .specifies number of lines by which to move.
 
 @format
 Start a terminal-emulator in a new buffer.
+
+(fn HOST)
 @end format
 @end deffn
 
@@ -7491,6 +7700,8 @@ this is equivalent to having the entire terminal as the filter window (this is
 what eterm starts up with).
 Setting the filter window results in emacspeak  only monitoring screen
 activity within the filter window.
+
+(fn FLAG)
 @end format
 @end deffn
 
@@ -7506,6 +7717,8 @@ this is equivalent to having the entire terminal as the focus window (this is
 what eterm starts up with).
 Setting the focus window results in emacspeak  monitoring screen
 and speaking that window upon seeing screen activity.
+
+(fn FLAG)
 @end format
 @end deffn
 
@@ -7545,6 +7758,8 @@ Speak current pointer position.
 @format
 Speak char under eterm pointer.
 Pronounces character phonetically unless  called with a PREFIX arg.
+
+(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -7583,6 +7798,8 @@ Speak a predefined eterm window between 1 and 10.
 Speak the screen.  Default is to speak from the emacspeak pointer  to point.
 Optional prefix arg FLAG causes region above
 the Emacspeak pointer to be spoken.
+
+(fn &optional FLAG)
 @end format
 @end deffn
 
@@ -7593,6 +7810,8 @@ the Emacspeak pointer to be spoken.
 @format
 Speak an eterm window.
 Argument ID specifies the window.
+
+(fn ID)
 @end format
 @end deffn
 
@@ -7644,6 +7863,8 @@ without sending input to the terminal itself.
 
 @format
 Yank contents of  an eterm window at point.
+
+(fn ID)
 @end format
 @end deffn
 
@@ -7760,6 +7981,8 @@ Toggle masquerade state.
 
 @format
 Move forward to the next specified element.
+
+(fn EL)
 @end format
 @end deffn
 
@@ -7779,6 +8002,8 @@ Uses element navigation history to decide where we jump.
 @format
 Moves to next element like current.
 Prompts if content at point is enclosed by multiple elements.
+
+(fn ELEMENT)
 @end format
 @end deffn
 
@@ -7908,6 +8133,8 @@ Optional interactive prefix arg speaks the structural unit.
 
 @format
 Retrieve ‘url’  using PhantomJS and render with EWW.
+
+(fn URL)
 @end format
 @end deffn
 
@@ -7917,6 +8144,8 @@ Retrieve ‘url’  using PhantomJS and render with EWW.
 
 @format
 Move backward  to the previous  specified element.
+
+(fn EL)
 @end format
 @end deffn
 
@@ -7936,6 +8165,8 @@ Uses element navigation history to decide where we jump.
 @format
 Moves to next element like current.
 Prompts if content at point is enclosed by multiple elements.
+
+(fn ELEMENT)
 @end format
 @end deffn
 
@@ -8076,6 +8307,8 @@ Restore buffer to pre-filtered canonical state.
 Speaks  to next element like current.
 Uses most recently navigated structural unit.
 Otherwise, prompts if content at point is enclosed by multiple elements.
+
+(fn ELEMENT)
 @end format
 @end deffn
 
@@ -8134,6 +8367,8 @@ This module provides Feeds support for Emacspeak
 
 @format
 Add specified feed to our feed store.
+
+(fn TITLE URL TYPE)
 @end format
 @end deffn
 
@@ -8160,6 +8395,8 @@ Archiving is useful when synchronizing feeds across multiple machines.
 
 @format
 Display ATOM feed.
+
+(fn FEED-URL)
 @end format
 @end deffn
 
@@ -8176,6 +8413,8 @@ Display ATOM feed.
 
 @format
 Browse specified  feed.
+
+(fn FEED)
 @end format
 @end deffn
 
@@ -8202,6 +8441,8 @@ This directly  updates emacspeak-feeds from the archive, rather than adding thos
 
 @format
 Browse feeds matching specified query.
+
+(fn QUERY)
 @end format
 @end deffn
 
@@ -8218,6 +8459,8 @@ Browse feeds matching specified query.
 
 @format
 Lookup feed URL for a site and browse result.
+
+(fn SITE)
 @end format
 @end deffn
 
@@ -8234,6 +8477,8 @@ Lookup feed URL for a site and browse result.
 
 @format
 Display OPML feed.
+
+(fn FEED-URL)
 @end format
 @end deffn
 
@@ -8260,6 +8505,8 @@ Archiving is useful when synchronizing feeds across multiple machines.
 
 @format
 Display RSS feed.
+
+(fn FEED-URL)
 @end format
 @end deffn
 
@@ -8319,6 +8566,8 @@ intermediate filters.
 @format
 Copy over text in region to special filtertext buffer in
 preparation for interactively filtering text. 
+
+(fn START END)
 @end format
 @end deffn
 
@@ -8394,6 +8643,8 @@ Memoizes call in emacspeak-load-history-pointer to memoize this call.
 
 @format
 Fix all commands loaded from a specified module.
+
+(fn MODULE)
 @end format
 @end deffn
 
@@ -8491,6 +8742,8 @@ Provide additional advice to forms-mode
 
 @format
 Visit a forms file
+
+(fn FILENAME)
 @end format
 @end deffn
 
@@ -8655,6 +8908,8 @@ Display statistics from previous games
 
 @format
 Prompt for and go to that square.
+
+(fn X Y)
 @end format
 @end deffn
 
@@ -9064,6 +9319,8 @@ Change  web-history-visited in the currently active toolbelt.
 
 @format
 Speak text using Google Network TTS.
+
+(fn TEXT &optional LANG)
 @end format
 @end deffn
 
@@ -9073,6 +9330,8 @@ Speak text using Google Network TTS.
 
 @format
 Speak region using Google Network TTS.
+
+(fn START END)
 @end format
 @end deffn
 
@@ -9118,6 +9377,8 @@ It's also useful for handling multicolumn text.
 
 @format
 Apply grid to region.
+
+(fn START END GRID)
 @end format
 @end deffn
 
@@ -9134,6 +9395,8 @@ Apply grid to region.
 
 @format
 Load saved grid settings.
+
+(fn FILE)
 @end format
 @end deffn
 
@@ -9150,6 +9413,8 @@ Load saved grid settings.
 
 @format
 Save out grid settings.
+
+(fn FILE)
 @end format
 @end deffn
 
@@ -9212,6 +9477,8 @@ starting on the current line.  A block of text is defined as
 a portion of the buffer in which all lines start with a
 common PREFIX.  Optional interactive prefix arg causes all
 blocks in current buffer to be hidden or exposed.
+
+(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -9345,6 +9612,8 @@ Read a node spec from the minibuffer and launch
 Info-goto-node.
 See documentation for command ‘Info-goto-node’ for details on
 node-spec.
+
+(fn NODE-SPEC)
 @end format
 @end deffn
 
@@ -9761,6 +10030,8 @@ Note that the <fn> key found on laptops is denoted <fn>
 
 @format
 Load bindings from a specified file.
+
+(fn VARIABLE FILENAME)
 @end format
 @end deffn
 
@@ -9770,6 +10041,8 @@ Load bindings from a specified file.
 
 @format
 Persists mapping to org file.
+
+(fn VARIABLE FILENAME)
 @end format
 @end deffn
 
@@ -9785,6 +10058,8 @@ to do if you run emacspeak on a remote machine from inside a terminal
 that is running inside a local emacspeak session.  You can have the
 remote emacspeak use a different control key to give your fingers some
 relief.
+
+(fn PREFIX-KEY)
 @end format
 @end deffn
 
@@ -10068,6 +10343,8 @@ This module implements an Emacspeak Librivox client.
 
 @format
 Launch a Librivox Search.
+
+(fn SEARCH-TYPE)
 @end format
 @end deffn
 
@@ -10077,6 +10354,8 @@ Launch a Librivox Search.
 
 @format
 Play book stream
+
+(fn RSS-URL)
 @end format
 @end deffn
 
@@ -10088,6 +10367,8 @@ Play book stream
 Search by author.
 Both exact and partial matches for ‘author’.
 Optional interactive prefix arg ‘offset’ prompts for offset --- use this for retrieving next set of results.
+
+(fn AUTHOR &optional OFFSET)
 @end format
 @end deffn
 
@@ -10098,6 +10379,8 @@ Optional interactive prefix arg ‘offset’ prompts for offset --- use this for
 @format
 Search by genre.
 Optional prefix arg ‘offset’ prompts for offset.
+
+(fn GENRE &optional OFFSET)
 @end format
 @end deffn
 
@@ -10109,6 +10392,8 @@ Optional prefix arg ‘offset’ prompts for offset.
 Search by title.
 Both exact and partial matches for ‘title’.
 Optional prefix arg ‘offset’ prompts for offset --- use this for retrieving more results.
+
+(fn TITLE &optional OFFSET)
 @end format
 @end deffn
 
@@ -10149,6 +10434,8 @@ play-list interprets resource as a play-list.  Second interactive
 prefix arg adds option -allow-dangerous-playlist-parsing to mplayer.
 Resource is a media resource or playlist containing media resources.
 The player is placed in a buffer in emacspeak-m-player-mode.
+
+(fn RESOURCE &optional PLAY-LIST)
 @end format
 @end deffn
 
@@ -10169,6 +10456,8 @@ Add predefined autopan effect.
 Add equalizer to playing stream.  Equalizer is applied as each change
 is made, and the final effect set by pressing RET.  Interactive prefix
 arg ‘reset’ starts with all filters set to 0.
+
+(fn &optional RESET)
 @end format
 @end deffn
 
@@ -10178,6 +10467,8 @@ arg ‘reset’ starts with all filters set to 0.
 
 @format
 Adds specified filter.
+
+(fn FILTER-NAME)
 @end format
 @end deffn
 
@@ -10205,6 +10496,8 @@ Add slave command af_add.
 
 @format
 Move within an ASF playlist.
+
+(fn STEP)
 @end format
 @end deffn
 
@@ -10216,6 +10509,8 @@ Move within an ASF playlist.
 Set AMark ‘name’ at current position in current audio stream.
 Interactive prefix arg prompts for position.
 As the default, use current position.
+
+(fn NAME &optional PROMPT-POSITION)
 @end format
 @end deffn
 
@@ -10236,6 +10531,8 @@ Jump to specified AMark.
 Prompt for a predefined reverb preset and apply it.
 You need to use mplayer built with ladspa support, and have package
 tap-reverb already installed.
+
+(fn PRESET)
 @end format
 @end deffn
 
@@ -10290,6 +10587,8 @@ Move to beginning of track.
 
 @format
 Binds key to invoke m-player  on specified directory.
+
+(fn DIRECTORY KEY)
 @end format
 @end deffn
 
@@ -10308,6 +10607,8 @@ Clear all active filters
 
 @format
 Invoke MPlayer commands.
+
+(fn KEY)
 @end format
 @end deffn
 
@@ -10326,6 +10627,8 @@ Use Customize to manipulate MPlayer options.
 
 @format
 Delete filter.
+
+(fn FILTER)
 @end format
 @end deffn
 
@@ -10402,6 +10705,8 @@ Move to beginning of track.
 @format
 Manipulate values in specified vector using minibuffer.
 Applies  the resulting value at each step.
+
+(fn V)
 @end format
 @end deffn
 
@@ -10476,6 +10781,8 @@ Play both channels on left channel.
 @format
 Load specified resource into a running  m-player.
 Interactive prefix arg appends the new resource to what is playing.
+
+(fn RESOURCE &optional APPEND)
 @end format
 @end deffn
 
@@ -10485,6 +10792,8 @@ Interactive prefix arg appends the new resource to what is playing.
 
 @format
 Load specified file.
+
+(fn F)
 @end format
 @end deffn
 
@@ -10494,6 +10803,8 @@ Load specified file.
 
 @format
 Load specified playlist file.
+
+(fn F)
 @end format
 @end deffn
 
@@ -10511,6 +10822,8 @@ Load specified playlist file.
 @format
 Locate media matching specified pattern.
 Results are placed in a Locate buffer and can be played using M-Player.
+
+(fn PATTERN)
 @end format
 @end deffn
 
@@ -10630,6 +10943,8 @@ Pause or unpause media player.
 @format
 Persists current m-player process instance by renaming its buffer.
 Optional interactive prefix arg prompts for name to use for  player.
+
+(fn &optional NAME)
 @end format
 @end deffn
 
@@ -10639,6 +10954,8 @@ Optional interactive prefix arg prompts for name to use for  player.
 
 @format
 Play an RSS stream by converting to  an M3U playlist.
+
+(fn RSS-URL)
 @end format
 @end deffn
 
@@ -10648,6 +10965,8 @@ Play an RSS stream by converting to  an M3U playlist.
 
 @format
 Move within the play tree.
+
+(fn STEP)
 @end format
 @end deffn
 
@@ -10657,6 +10976,8 @@ Move within the play tree.
 
 @format
 Move within the play tree.
+
+(fn STEP)
 @end format
 @end deffn
 
@@ -10730,6 +11051,8 @@ Play on right channel.
 
 @format
 Scale speed by specified factor.
+
+(fn FACTOR)
 @end format
 @end deffn
 
@@ -10739,6 +11062,8 @@ Scale speed by specified factor.
 
 @format
 Seek  to absolute specified position in seconds.
+
+(fn POSITION)
 @end format
 @end deffn
 
@@ -10748,6 +11073,8 @@ Seek  to absolute specified position in seconds.
 
 @format
 Seek  to absolute specified position in percent.
+
+(fn POSITION)
 @end format
 @end deffn
 
@@ -10757,6 +11084,8 @@ Seek  to absolute specified position in percent.
 
 @format
 Seek  by offset into stream from current position.
+
+(fn OFFSET)
 @end format
 @end deffn
 
@@ -10782,6 +11111,8 @@ Launch M-Player with shuffle turned on.
 
 @format
 Dispatch slave command read from minibuffer.
+
+(fn COMMAND)
 @end format
 @end deffn
 
@@ -10811,6 +11142,8 @@ Speak mode line
 @format
 Speak and display metadata if available.
 Interactive prefix arg toggles automatic cueing of ICY info updates.
+
+(fn &optional TOGGLE-CUE)
 @end format
 @end deffn
 
@@ -10827,6 +11160,8 @@ Interactive prefix arg toggles automatic cueing of ICY info updates.
 
 @format
 Call emacspeak-m-player with specified URL.
+
+(fn URL &optional PLAYLIST-P)
 @end format
 @end deffn
 
@@ -10855,6 +11190,8 @@ feature.
 
 @format
 Change volume to specified absolute value.
+
+(fn VALUE)
 @end format
 @end deffn
 
@@ -10882,6 +11219,8 @@ Increase volume.
 
 @format
 Use youtube-dl and mplayer to stream YouTube content.
+
+(fn URL)
 @end format
 @end deffn
 
@@ -11218,6 +11557,8 @@ Play a playlist.
 Optional interactive prefix arg says not to shuffle  the list. 
 Use command M-x emacspeak-mp3-playlist-skip 
 to skip to the next track. 
+
+(fn PLAYLIST &optional DONT-SHUFFLE)
 @end format
 @end deffn
 
@@ -11245,6 +11586,8 @@ Kill currently playing playlist.
 
 @format
 Move back by specified number of minutes.
+
+(fn ARG)
 @end format
 @end deffn
 
@@ -11254,6 +11597,8 @@ Move back by specified number of minutes.
 
 @format
 Forward by ARG minutes.
+
+(fn ARG)
 @end format
 @end deffn
 
@@ -11858,6 +12203,8 @@ In all cases, streams are played using module emacspeak-m-player.
 @format
 Display specified listing.
 Interactive prefix arg prompts for search.
+
+(fn &optional SEARCH)
 @end format
 @end deffn
 
@@ -11868,6 +12215,8 @@ Interactive prefix arg prompts for search.
 @format
 Special executor for use in NPR  listings.
 Optional prefix arg prompts for date.
+
+(fn URL &optional GET-DATE)
 @end format
 @end deffn
 
@@ -11885,6 +12234,8 @@ Optional prefix arg prompts for date.
 @format
 Play specified NPR program.
 Optional interactive prefix arg prompts for a date.
+
+(fn PID &optional GET-DATE)
 @end format
 @end deffn
 
@@ -11894,6 +12245,8 @@ Optional interactive prefix arg prompts for a date.
 
 @format
 Refresh program table cache if needed.
+
+(fn &optional FORCE)
 @end format
 @end deffn
 
@@ -11903,6 +12256,8 @@ Refresh program table cache if needed.
 
 @format
 Search NPR
+
+(fn QUERY)
 @end format
 @end deffn
 
@@ -12208,6 +12563,8 @@ C-e C-o to launch emacspeak-ocr-mode, and press
 
 @format
 Like backward page, but tracks page number of current document.
+
+(fn &optional COUNT-IGNORED)
 @end format
 @end deffn
 
@@ -12239,6 +12596,8 @@ Prompts for image file if file corresponding to the expected
 
 @format
 Like forward page, but tracks page number of current document.
+
+(fn &optional COUNT-IGNORED)
 @end format
 @end deffn
 
@@ -12338,6 +12697,8 @@ during initialization.
 @format
 Name document being scanned in the current OCR buffer.
 Pick a short but meaningful name.
+
+(fn NAME)
 @end format
 @end deffn
 
@@ -12417,6 +12778,8 @@ Acquire page image.
 @format
 Scan in a photograph.
 The scanned image is converted to JPEG.
+
+(fn &optional METADATA)
 @end format
 @end deffn
 
@@ -12428,6 +12791,8 @@ The scanned image is converted to JPEG.
 Interactively update  image compression options.
 Prompts with current setting in the minibuffer.
 Setting persists for current Emacs session.
+
+(fn SETTING)
 @end format
 @end deffn
 
@@ -12439,6 +12804,8 @@ Setting persists for current Emacs session.
 Interactively update scan image options.
 Prompts with current setting in the minibuffer.
 Setting persists for current Emacs session.
+
+(fn SETTING)
 @end format
 @end deffn
 
@@ -12535,6 +12902,8 @@ or http://orgmode.org/
 
 @format
 Bookmark from org.
+
+(fn &optional GOTO)
 @end format
 @end deffn
 
@@ -12914,6 +13283,8 @@ Start or control Emacspeak Pianobar player.
 
 @format
 Invoke Pianobar  commands.
+
+(fn KEY)
 @end format
 @end deffn
 
@@ -12994,6 +13365,8 @@ Proced is part of emacs 23.
 
 @format
 Jump to process by name.
+
+(fn NAME)
 @end format
 @end deffn
 
@@ -13039,6 +13412,8 @@ Move to next line and speak a summary.
 
 @format
 Speak value of specified field in current line.
+
+(fn FIELD-NAME)
 @end format
 @end deffn
 
@@ -13057,6 +13432,8 @@ Speak desired field via single keystroke.
 
 @format
 Speak field at specified column --- defaults to current column.
+
+(fn &optional POSITION)
 @end format
 @end deffn
 
@@ -13102,6 +13479,8 @@ Clear all current pronunciation dictionaries.
 @format
 Define buffer local pronunciation.
 Argument WORD specifies the word which should be pronounced as specified by PRONUNCIATION.
+
+(fn WORD PRONUNCIATION)
 @end format
 @end deffn
 
@@ -13150,6 +13529,8 @@ Provides the user interface front-end to Emacspeak’s pronunciation dictionarie
 @format
 Prompt for and launch a pronunciation editor on the
 specified pronunciation dictionary key.
+
+(fn KEY)
 @end format
 @end deffn
 
@@ -13160,6 +13541,8 @@ specified pronunciation dictionary key.
 @format
 Load pronunciation dictionaries.
 Optional argument FILENAME specifies the dictionary file.
+
+(fn &optional FILENAME)
 @end format
 @end deffn
 
@@ -13198,6 +13581,8 @@ After this, the pronunciations will be applied whenever text in the
 buffer is spoken.
 Optional argument state can be used from Lisp programs to
 explicitly turn pronunciations on or off.
+
+(fn &optional STATE)
 @end format
 @end deffn
 
@@ -13443,6 +13828,8 @@ We will need to bind the new functions explicitly to the keys.
 
 @format
 Backward-char redefined to speak char moved to. 
+
+(fn &optional ARG)
 @end format
 @end deffn
 
@@ -13452,6 +13839,8 @@ Backward-char redefined to speak char moved to.
 
 @format
 Forward-char redefined to speak char moved to. 
+
+(fn &optional ARG)
 @end format
 @end deffn
 
@@ -13465,6 +13854,8 @@ Speaks the character if emacspeak-character-echo is true.
 See  command emacspeak-toggle-word-echo bound to
 C-e d w.
 Speech flushes as you type.
+
+(fn &optional ARG)
 @end format
 @end deffn
 
@@ -13506,6 +13897,8 @@ Connect to and start using remote speech server running on
 host host and listening on port port. Host is the hostname of the
 remote server, typically the desktop machine. Port is the tcp
 port that that host is listening on for speech requests.
+
+(fn HOST PORT)
 @end format
 @end deffn
 
@@ -13564,6 +13957,8 @@ Server is specified via custom option ‘emacspeak-remote-default-ssh-server’.
 
 @format
 Open ssh session to where we came from.
+
+(fn LOGIN HOST PORT)
 @end format
 @end deffn
 
@@ -13836,6 +14231,8 @@ Move to next row and summarize.
 
 @format
 Summarize specified  cell.
+
+(fn CELL-NAME)
 @end format
 @end deffn
 
@@ -13845,6 +14242,8 @@ Summarize specified  cell.
 
 @format
 Summarize current cell.
+
+(fn &rest IGNORE)
 @end format
 @end deffn
 
@@ -13992,6 +14391,8 @@ appropriate subdirectories of emacspeak-sounds-directory
 
 @format
 Call appropriate audio environment set command.
+
+(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -14012,6 +14413,8 @@ Recommended choices:
 
 emacspeak-serve-auditory-icon for  the wave device.
 emacspeak-queue-auditory-icon when using software TTS.
+
+(fn PLAYER)
 @end format
 @end deffn
 
@@ -14050,6 +14453,8 @@ Reload sound drivers.
 
 @format
 Select theme for auditory icons.
+
+(fn THEME)
 @end format
 @end deffn
 
@@ -14067,6 +14472,8 @@ Select theme for auditory icons.
 @format
 Toggle use of auditory icons.
 Optional interactive PREFIX arg toggles global value.
+
+(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -14163,6 +14570,8 @@ char, or dont move.
 
 @format
 Prompt for and dial a phone NUMBER with the Dectalk.
+
+(fn NUMBER)
 @end format
 @end deffn
 
@@ -14172,6 +14581,8 @@ Prompt for and dial a phone NUMBER with the Dectalk.
 
 @format
 Execute COMMAND repeatedly.
+
+(fn COMMAND)
 @end format
 @end deffn
 
@@ -14190,6 +14601,8 @@ Execute COMMAND repeatedly.
 Move to end  PERCENT of buffer like in View mode.
 Display is centered at point.
 Also set the mark at the position where point was.
+
+(fn PERCENT)
 @end format
 @end deffn
 
@@ -14205,6 +14618,8 @@ Also set the mark at the position where point was.
 @format
 Launch an application.
 This command  is designed for use in a windowing environment like X.
+
+(fn COMMAND)
 @end format
 @end deffn
 
@@ -14261,6 +14676,8 @@ Move to previous available minibuffer completion.
 @format
 Move to the next line in the other window and speak it.
 Numeric prefix arg COUNT can specify number of lines to move.
+
+(fn COUNT)
 @end format
 @end deffn
 
@@ -14276,6 +14693,8 @@ Numeric prefix arg COUNT can specify number of lines to move.
 @format
 Move to the next line in the other window and speak it.
 Numeric prefix arg COUNT specifies number of lines to move.
+
+(fn COUNT)
 @end format
 @end deffn
 
@@ -14337,6 +14756,8 @@ Speak the current line in the other window.
 @format
 Read next line, specified by an offset, without moving.
 Default is to read the next line. 
+
+(fn &optional ARG)
 @end format
 @end deffn
 
@@ -14347,6 +14768,8 @@ Default is to read the next line.
 @format
 Read next word, specified as a numeric  arg, without moving.
 Default is to read the next word. 
+
+(fn &optional ARG)
 @end format
 @end deffn
 
@@ -14364,6 +14787,8 @@ Default is to read the next word.
 @format
 Read previous line, specified by an offset, without moving.
 Default is to read the previous line. 
+
+(fn &optional ARG)
 @end format
 @end deffn
 
@@ -14374,6 +14799,8 @@ Default is to read the previous line.
 @format
 Read previous word, specified as a prefix arg, without moving.
 Default is to read the previous word. 
+
+(fn &optional ARG)
 @end format
 @end deffn
 
@@ -14397,6 +14824,8 @@ Call search defined in <search>.
 
 @format
 Run shell command and speak its output.
+
+(fn COMMAND)
 @end format
 @end deffn
 
@@ -14424,6 +14853,8 @@ which media players get silenced or paused/resumed.
 @format
 Search forward from point until we hit char.
 Speak text between point and the char we hit.
+
+(fn CHAR)
 @end format
 @end deffn
 
@@ -14452,6 +14883,8 @@ Browse current buffer.
 Default is to speak chunk having current personality.
 Interactive prefix arg ‘browse’  repeatedly browses  through
   chunks having same personality as the current text chunk.
+
+(fn &optional BROWSE)
 @end format
 @end deffn
 
@@ -14472,6 +14905,8 @@ With prefix ARG, speaks the rest of the buffer from point.
 Negative prefix arg speaks from start of buffer to point.
  If voice lock mode is on, the paragraphs in the buffer are
 voice annotated first,  see command ‘emacspeak-speak-voice-annotate-paragraphs’.
+
+(fn &optional ARG)
 @end format
 @end deffn
 
@@ -14493,6 +14928,8 @@ or when the buffer is not visiting any file.
 Interactive prefix arg ‘filename’ speaks only the final path
 component.
 The result is put in the kill ring for convenience.
+
+(fn &optional FILENAME)
 @end format
 @end deffn
 
@@ -14529,6 +14966,8 @@ any other key to speak entire buffer.
 @format
 Speak character under point.
 Pronounces character phonetically unless  called with a PREFIX arg.
+
+(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -14538,6 +14977,8 @@ Pronounces character phonetically unless  called with a PREFIX arg.
 
 @format
 tell me what this is
+
+(fn CHAR)
 @end format
 @end deffn
 
@@ -14614,6 +15055,8 @@ by the next C-y. Prefix numeric arg, COUNT, specifies that the
 text that will be yanked as a result of a C-y followed by count-1
 M-y be spoken. The kill number that is spoken says what
 numeric prefix arg to give to command yank.
+
+(fn COUNT)
 @end format
 @end deffn
 
@@ -14641,6 +15084,8 @@ line containing mark ’n’ where ’n’ is one less than the number of
 times one has to jump using ‘set-mark-command’ to get to this marked
 position.  The location of the mark is indicated by an aural highlight
 achieved by a change in voice personality.
+
+(fn COUNT)
 @end format
 @end deffn
 
@@ -14677,6 +15122,8 @@ Speaks entire window irrespective of point.
 @format
 Read time value as a human-readable string, return seconds.
 Seconds value is also placed in the kill-ring.
+
+(fn TIME)
 @end format
 @end deffn
 
@@ -14690,6 +15137,8 @@ Behavior is the same as command ‘emacspeak-speak-char’
 bound to C-e c
 for characters in the range 0--127.
 Optional argument PREFIX  specifies that the character should be spoken phonetically.
+
+(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -14742,6 +15191,8 @@ Speak header line if set.
 Speak help buffer if one present.
 With prefix arg, speaks the rest of the buffer from point.
 Negative prefix arg speaks from start of buffer to point.
+
+(fn &optional ARG)
 @end format
 @end deffn
 
@@ -14795,6 +15246,8 @@ position of point with an aural highlight if option
 start hidden blocks of text, e.g.  outline header lines, or header
 lines of blocks created by command ‘emacspeak-hide-or-expose-block’
 are indicated with auditory icon ellipses.
+
+(fn &optional ARG)
 @end format
 @end deffn
 
@@ -14855,6 +15308,8 @@ This allows one to accumulate a set of filters for specific files like
 /var/adm/messages and /var/adm/maillog over time.
 Option emacspeak-speak-line-invert-filter determines
 the sense of the filter. 
+
+(fn FILTER)
 @end format
 @end deffn
 
@@ -14867,6 +15322,8 @@ Load a directory specific Emacspeak settings file.
 This is typically used to load up settings that are specific to
 an electronic book consisting of many files in the same
 directory.
+
+(fn &optional DIRECTORY)
 @end format
 @end deffn
 
@@ -14885,6 +15342,8 @@ directory.
 Speak the last message from Emacs once again.
 The message is also placed in the kill ring for convenient yanking
 if ‘emacspeak-speak-message-again-should-copy-to-kill-ring’ is set.
+
+(fn &optional FROM-MESSAGE-CACHE)
 @end format
 @end deffn
 
@@ -14903,6 +15362,8 @@ if ‘emacspeak-speak-message-again-should-copy-to-kill-ring’ is set.
 Set up ring-at-time to speak message at specified time.
 Provides simple stop watch functionality in addition to other things.
 See documentation for command run-at-time for details on time-spec.
+
+(fn TIME MESSAGE)
 @end format
 @end deffn
 
@@ -14912,6 +15373,8 @@ See documentation for command run-at-time for details on time-spec.
 
 @format
 Speaks time value specified as microseconds  since epoch, e.g. as from float-time.
+
+(fn MS)
 @end format
 @end deffn
 
@@ -14921,6 +15384,8 @@ Speaks time value specified as microseconds  since epoch, e.g. as from float-tim
 
 @format
 Speaks time value specified as milliseconds  since epoch, e.g. as from float-time.
+
+(fn MS)
 @end format
 @end deffn
 
@@ -14932,6 +15397,8 @@ Speaks time value specified as milliseconds  since epoch, e.g. as from float-tim
 Speak the minibuffer contents
  With prefix arg, speaks the rest of the buffer from point.
 Negative prefix arg speaks from start of buffer to point.
+
+(fn &optional ARG)
 @end format
 @end deffn
 
@@ -14949,6 +15416,8 @@ Negative prefix arg speaks from start of buffer to point.
 @format
 Speak the minor mode-information.
 Optional  interactive prefix arg ‘copy-as-kill’ copies spoken info to kill ring.
+
+(fn &optional COPY-AS-KILL)
 @end format
 @end deffn
 
@@ -14967,6 +15436,8 @@ Optional  interactive prefix arg ‘copy-as-kill’ copies spoken info to kill r
 Speak the mode-line.
 Speaks header-line if that is set when called non-interactively.
 Interactive prefix arg speaks buffer info.
+
+(fn &optional BUFFER-INFO)
 @end format
 @end deffn
 
@@ -15036,6 +15507,8 @@ Speak the next window.
 @format
 Speak specified buffer.
 Useful to listen to a buffer without switching  contexts.
+
+(fn BUFFER)
 @end format
 @end deffn
 
@@ -15049,6 +15522,8 @@ Speaks entire window irrespective of point.
 Semantics  of ‘other’ is the same as for the builtin Emacs command
 ‘other-window’.
 Optional argument ARG  specifies ‘other’ window to speak.
+
+(fn &optional ARG)
 @end format
 @end deffn
 
@@ -15068,6 +15543,8 @@ Speak a page.
 With prefix ARG, speaks rest of current page.
 Negative prefix arg will read from start of current page to point.
 If option  ‘voice-lock-mode’ is on, then it will use any defined personality.
+
+(fn &optional ARG)
 @end format
 @end deffn
 
@@ -15110,6 +15587,8 @@ Speak paragraph.
 With prefix arg, speaks rest of current paragraph.
 Negative prefix arg will read from start of current paragraph to point.
 If voice-lock-mode is on, then it will use any defined personality. 
+
+(fn &optional ARG)
 @end format
 @end deffn
 
@@ -15196,6 +15675,8 @@ two or three.
 Argument ARG determines the ’other’ window to speak.
 Semantics  of ‘other’ is the same as for the builtin Emacs command
 ‘other-window’.
+
+(fn &optional ARG)
 @end format
 @end deffn
 
@@ -15267,6 +15748,8 @@ Speak a rectangle of text.
 Rectangle is delimited by point and mark.
 When call from a program,
 arguments specify the START and END of the rectangle.
+
+(fn START END)
 @end format
 @end deffn
 
@@ -15284,6 +15767,8 @@ arguments specify the START and END of the rectangle.
 @format
 Speak region.
 Argument START  and END specify region to speak.
+
+(fn START END)
 @end format
 @end deffn
 
@@ -15309,6 +15794,8 @@ Speak remainder of the buffer starting at point
 
 @format
 Speaks time value specified as seconds  since epoch, e.g. as from float-time.
+
+(fn SECONDS)
 @end format
 @end deffn
 
@@ -15320,6 +15807,8 @@ Speaks time value specified as seconds  since epoch, e.g. as from float-time.
 Speak current sentence.
 With prefix ARG, speaks the rest of the sentence  from point.
 Negative prefix arg speaks from start of sentence to point.
+
+(fn &optional ARG)
 @end format
 @end deffn
 
@@ -15331,6 +15820,8 @@ Negative prefix arg speaks from start of sentence to point.
 Sets up buffer specific speech display table that controls how
 special characters are spoken. Interactive prefix argument causes
 setting to be global.
+
+(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -15347,6 +15838,8 @@ setting to be global.
 
 @format
 Set punctuation mode for all buffers in current mode.
+
+(fn SETTING)
 @end format
 @end deffn
 
@@ -15359,6 +15852,8 @@ Speak current sexp.
 With prefix ARG, speaks the rest of the sexp  from point.
 Negative prefix arg speaks from start of sexp to point.
 If option  ‘voice-lock-mode’ is on, then uses the personality.
+
+(fn &optional ARG)
 @end format
 @end deffn
 
@@ -15397,6 +15892,8 @@ Shows all active network interfaces in the echo area.
 With interactive prefix argument ADDRESS it prompts for a
 specific interface and shows its address. The address is
 also copied to the kill ring for convenient yanking.
+
+(fn &optional ADDRESS)
 @end format
 @end deffn
 
@@ -15465,6 +15962,8 @@ Spell word at  point.
 
 @format
 Speak text range identified by this PROPERTY.
+
+(fn PROPERTY)
 @end format
 @end deffn
 
@@ -15503,6 +16002,8 @@ Speak the time.
 Optional interactive prefix arg ‘C-u’invokes world clock.
 Timezone is specified using minibuffer completion.
 Second interactive prefix sets clock to new timezone.
+
+(fn &optional WORLD)
 @end format
 @end deffn
 
@@ -15519,6 +16020,8 @@ Second interactive prefix sets clock to new timezone.
 
 @format
 Announce version information for running emacspeak.
+
+(fn &optional UPDATE)
 @end format
 @end deffn
 
@@ -15575,6 +16078,8 @@ With prefix ARG, speaks the rest of the word from point.
 Negative prefix arg speaks from start of word to point.
 If executed  on the same buffer position a second time, the word is
 spelled out  instead of being spoken.
+
+(fn &optional ARG)
 @end format
 @end deffn
 
@@ -15597,6 +16102,8 @@ any other key to speak entire word.
 @format
 Display current date and time  for specified zone.
 Optional second arg ‘set’ sets the TZ environment variable as well.
+
+(fn ZONE &optional SET)
 @end format
 @end deffn
 
@@ -15837,6 +16344,8 @@ Voicify the current rectangle.
 When calling from a program,arguments are
 START END personality
 Prompts for PERSONALITY  with completion when called interactively.
+
+(fn START END &optional PERSONALITY)
 @end format
 @end deffn
 
@@ -15849,6 +16358,8 @@ Voicify the current region.
 When calling from a program,arguments are
 START END personality.
 Prompts for PERSONALITY  with completion when called interactively.
+
+(fn START END &optional PERSONALITY)
 @end format
 @end deffn
 
@@ -16469,6 +16980,8 @@ emacspeak distribution contains some sample tables --these are the
 CalTrain schedules.  Execute command ‘describe-mode’ bound to
 C-h m in a buffer that is in emacspeak table mode to read
 the documentation on the table browser.
+
+(fn START END)
 @end format
 @end deffn
 
@@ -16486,6 +16999,8 @@ the documentation on the table browser.
 @format
 Process a csv (comma separated values) file.
 The processed  data is presented using emacspeak table navigation. 
+
+(fn FILENAME)
 @end format
 @end deffn
 
@@ -16502,6 +17017,8 @@ emacspeak distribution contains some sample tables --these are the
 CalTrain schedules.  Execute command ‘describe-mode’ bound to
 C-h m in a buffer that is in emacspeak table mode to read
 the documentation on the table browser.
+
+(fn FILENAME)
 @end format
 @end deffn
 
@@ -16518,6 +17035,8 @@ the documentation on the table browser.
 
 @format
 Prompt for a table cell coordinates and jump to it.
+
+(fn ROW COLUMN)
 @end format
 @end deffn
 
@@ -16622,6 +17141,8 @@ Goes to the top of the current column.
 
 @format
 Move to the next column if possible
+
+(fn &optional COUNT)
 @end format
 @end deffn
 
@@ -16646,6 +17167,8 @@ Move to the next column if possible
 
 @format
 Move to the next row if possible
+
+(fn &optional COUNT)
 @end format
 @end deffn
 
@@ -16681,6 +17204,8 @@ markup to use.
 
 @format
 Move to the previous column  if possible
+
+(fn &optional COUNT)
 @end format
 @end deffn
 
@@ -16705,6 +17230,8 @@ Move to the previous column  if possible
 
 @format
 Move to the previous row if possible
+
+(fn &optional COUNT)
 @end format
 @end deffn
 
@@ -16724,6 +17251,8 @@ Search the table for matching elements.  Interactively prompts for
 row or column to search and pattern to look for.    If there is a match, makes
 the matching cell current. When called from a program, ‘what’ can
   be either ‘row’ or ‘column’.
+
+(fn &optional WHAT)
 @end format
 @end deffn
 
@@ -16840,6 +17369,8 @@ Speak  both row and column header and table element
 @format
 Speaks a table column after applying a specified column filter.
 Optional prefix arg prompts for a new filter.
+
+(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -16921,6 +17452,8 @@ Speak current table dimensions.
 @format
 Speaks a table row after applying a specified row filter.
 Optional prefix arg prompts for a new filter.
+
+(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -16953,6 +17486,8 @@ Speak  row header and table element
 
 @format
 Load saved filter settings.
+
+(fn FILE)
 @end format
 @end deffn
 
@@ -16969,6 +17504,8 @@ Load saved filter settings.
 
 @format
 Save out filter settings.
+
+(fn FILE)
 @end format
 @end deffn
 
@@ -16986,6 +17523,8 @@ Save out filter settings.
 @format
 Process a csv (comma separated values) data.
 The processed  data is  presented using emacspeak table navigation. 
+
+(fn &optional BUFFER-NAME)
 @end format
 @end deffn
 
@@ -17012,6 +17551,8 @@ Can recognize the columns in tabulated output, e.g. ps, ls output
 Voicifies the white-space of a table if one found.  Optional interactive prefix
 arg mark-fields specifies if the header row information is used to mark fields
 in the white-space.
+
+(fn START END &optional MARK-FIELDS)
 @end format
 @end deffn
 
@@ -17030,6 +17571,8 @@ emacspeak extensions to speak window widnow layouts
 Describe the current layout of visible buffers in current frame.
 Use interactive prefix arg to get coordinate positions of the
 displayed buffers.
+
+(fn &optional DETAILS)
 @end format
 @end deffn
 
@@ -17048,6 +17591,8 @@ displayed buffers.
 Describe the current layout of visible buffers in current frame.
 Use interactive prefix arg to get coordinate positions of the
 displayed buffers.
+
+(fn &optional DETAILS)
 @end format
 @end deffn
 
@@ -17067,6 +17612,8 @@ Select window by the name of the buffer it displays.
 This is useful when using modes like ECB or the new GDB UI where
   you want to preserve the window layout 
 but quickly switch to a window by name.
+
+(fn BUFFER-NAME)
 @end format
 @end deffn
 
@@ -17156,6 +17703,8 @@ Move to and speak the top row
 
 @format
 Speak  column --default is to speak current column
+
+(fn &optional X)
 @end format
 @end deffn
 
@@ -17289,6 +17838,8 @@ Reset state from stack.
 
 @format
 Prune game stack to specified length.
+
+(fn DROP)
 @end format
 @end deffn
 
@@ -17336,6 +17887,8 @@ Set next tile.
 Exports game stack to a file.
 Optional interactive prefix arg prompts for a file.
 Note that the file is overwritten silently.
+
+(fn &optional PROMPT)
 @end format
 @end deffn
 
@@ -17346,6 +17899,8 @@ Note that the file is overwritten silently.
 @format
 Import game.
 Optional interactive prefix arg prompts for a filename.
+
+(fn &optional PROMPT)
 @end format
 @end deffn
 
@@ -17364,6 +17919,8 @@ Reset state from stack.
 
 @format
 Prune game stack to specified length.
+
+(fn DROP)
 @end format
 @end deffn
 
@@ -17494,6 +18051,8 @@ Use Emacs completion to obtain a list of available resources.
 Resources typically prompt for the relevant information
 before completing the request.
 Optional interactive prefix arg displays documentation for specified resource.
+
+(fn &optional DOCUMENTATION)
 @end format
 @end deffn
 
@@ -17514,6 +18073,8 @@ resources.
 
 @format
 Load URL template resources from specified location.
+
+(fn FILE)
 @end format
 @end deffn
 
@@ -17523,6 +18084,8 @@ Load URL template resources from specified location.
 
 @format
 Save out url templates.
+
+(fn FILE)
 @end format
 @end deffn
 
@@ -17602,6 +18165,8 @@ VM mode line information.
 @format
 Move point to N buttons forward.
 If N is negative, move backward instead.
+
+(fn N)
 @end format
 @end deffn
 
@@ -17782,6 +18347,8 @@ Move by block level displays.
 Move forward  to the next document element.
 Optional interactive prefix argument COUNT
 specifies by how many elements to move.
+
+(fn &optional COUNT)
 @end format
 @end deffn
 
@@ -17802,6 +18369,8 @@ Move to and speak next parsed item.
 Move back  to the previous document element.
 Optional interactive prefix argument COUNT
 specifies by how many elements to move.
+
+(fn &optional COUNT)
 @end format
 @end deffn
 
@@ -18043,7 +18612,7 @@ abstractions not already covered by browse-url
 @subsection emacspeak-we Commands
 
 @subsubsection emacspeak-we-class-filter-and-follow
-@deffn {Command} emacspeak-we-class-filter-and-follow  (class url)
+@deffn {Command} emacspeak-we-class-filter-and-follow  (class url &optional prompt)
 @table @kbd
 @item C-e x e y
 @kindex C-e x e y
@@ -18058,6 +18627,8 @@ Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well.
+
+(fn CLASS URL &optional PROMPT)
 @end format
 @end deffn
 
@@ -18077,6 +18648,8 @@ Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well.
+
+(fn &optional PROMPT)
 @end format
 @end deffn
 
@@ -18093,6 +18666,8 @@ used as well.
 
 @format
 Count matches for locator  in Web page.
+
+(fn URL LOCATOR)
 @end format
 @end deffn
 
@@ -18109,6 +18684,8 @@ Count matches for locator  in Web page.
 
 @format
 Count nested tables in Web page.
+
+(fn URL)
 @end format
 @end deffn
 
@@ -18125,6 +18702,8 @@ Count nested tables in Web page.
 
 @format
 Count  tables in Web page.
+
+(fn URL)
 @end format
 @end deffn
 
@@ -18143,6 +18722,8 @@ Count  tables in Web page.
 Extract elements having specified class attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
 buffer. Interactive use provides list of class values as completion.
+
+(fn CLASS URL &optional SPEAK)
 @end format
 @end deffn
 
@@ -18162,6 +18743,8 @@ Extract elements having class specified in list ‘classes’ from HTML.
 Extracts specified elements from current WWW page and displays it
 in a separate buffer.  Interactive use provides list of class
 values as completion. 
+
+(fn CLASSES URL &optional SPEAK)
 @end format
 @end deffn
 
@@ -18181,6 +18764,8 @@ Extract elements having specified id attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
 buffer.
 Interactive use provides list of id values as completion.
+
+(fn ID URL &optional SPEAK)
 @end format
 @end deffn
 
@@ -18199,6 +18784,8 @@ Interactive use provides list of id values as completion.
 Extract elements having id specified in list ‘ids’ from HTML.
 Extracts specified elements from current WWW page and displays it in a
 separate buffer. Interactive use provides list of id values as completion. 
+
+(fn IDS URL &optional SPEAK)
 @end format
 @end deffn
 
@@ -18216,6 +18803,8 @@ separate buffer. Interactive use provides list of id values as completion.
 @format
 Interactively prompt for an HTML property, e.g. id or class,
 and provide a completion list of applicable  property values. Filter document by property that is specified.
+
+(fn URL &optional SPEAK)
 @end format
 @end deffn
 
@@ -18234,6 +18823,8 @@ and provide a completion list of applicable  property values. Filter document by
 Extract elements having specified role attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
 buffer. Interactive use provides list of role values as completion.
+
+(fn ROLE URL &optional SPEAK)
 @end format
 @end deffn
 
@@ -18245,6 +18836,8 @@ buffer. Interactive use provides list of role values as completion.
 Extract text nodes from elements having id specified in list ‘ids’ from HTML.
 Extracts specified elements from current WWW page and displays it in a
 separate buffer. Interactive use provides list of id values as completion. 
+
+(fn IDS URL &optional SPEAK)
 @end format
 @end deffn
 
@@ -18257,6 +18850,8 @@ Extract text nodes from elements having specified id attribute from HTML. Extrac
 specified elements from current WWW page and displays it in a separate
 buffer.
 Interactive use provides list of id values as completion.
+
+(fn ID URL &optional SPEAK)
 @end format
 @end deffn
 
@@ -18273,6 +18868,8 @@ Interactive use provides list of id values as completion.
 
 @format
 Extracts links whose URL matches pattern.
+
+(fn PATTERN URL &optional SPEAK)
 @end format
 @end deffn
 
@@ -18285,6 +18882,8 @@ Extract links to media streams.
 operate on current web page when in a browser buffer; otherwise
  prompt for url.  Optional arg ‘speak’ specifies if the result
  should be spoken automatically.
+
+(fn URL &optional SPEAK)
 @end format
 @end deffn
 
@@ -18313,6 +18912,8 @@ Extract nested table specified by ‘table-index’. Default is to
 operate on current web page when in a browser buffer; otherwise
 prompt for URL. Optional arg ‘speak’ specifies if the result should be
 spoken automatically.
+
+(fn INDEX URL &optional SPEAK)
 @end format
 @end deffn
 
@@ -18329,6 +18930,8 @@ spoken automatically.
 
 @format
 Extract specified list of tables from a Web page.
+
+(fn TABLES URL &optional SPEAK)
 @end format
 @end deffn
 
@@ -18341,6 +18944,8 @@ Extract links to printable  streams.
 operate on current web page when in a browser buffer; otherwise
  prompt for url.  Optional arg ‘speak’ specifies if the result
  should be spoken automatically.
+
+(fn URL &optional SPEAK)
 @end format
 @end deffn
 
@@ -18358,6 +18963,8 @@ operate on current web page when in a browser buffer; otherwise
 @format
 Extract table containing  specified match.
  Optional arg url specifies the page to extract content from.
+
+(fn MATCH URL &optional SPEAK)
 @end format
 @end deffn
 
@@ -18375,6 +18982,8 @@ Extract table containing  specified match.
 @format
 Extract table at specified position.
 Default is to extract from current page.
+
+(fn POSITION URL &optional SPEAK)
 @end format
 @end deffn
 
@@ -18393,6 +19002,8 @@ Default is to extract from current page.
 Extract specified  tables from a WWW page.
 Tables are specified by containing  match pattern
  found in the match list.
+
+(fn MATCH-LIST URL &optional SPEAK)
 @end format
 @end deffn
 
@@ -18411,6 +19022,8 @@ Tables are specified by containing  match pattern
 Extract specified list of nested tables from a WWW page.
 Tables are specified by their position in the list
  of nested tables found in the page.
+
+(fn POSITIONS URL &optional SPEAK)
 @end format
 @end deffn
 
@@ -18427,11 +19040,13 @@ Tables are specified by their position in the list
 
 @format
 Follow URL, then extract role=main.
+
+(fn &optional SPEAK)
 @end format
 @end deffn
 
 @subsubsection emacspeak-we-follow-and-filter-by-id
-@deffn {Command} emacspeak-we-follow-and-filter-by-id  (id)
+@deffn {Command} emacspeak-we-follow-and-filter-by-id  (id prompt)
 @table @kbd
 @item C-e x e b
 @kindex C-e x e b
@@ -18446,6 +19061,8 @@ Follow url and point, and filter the result by specified id.
 Id can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well.
+
+(fn ID PROMPT)
 @end format
 @end deffn
 
@@ -18464,6 +19081,8 @@ used as well.
 Extract elements not having specified class attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
 buffer. Interactive use provides list of class values as completion.
+
+(fn CLASS URL &optional SPEAK)
 @end format
 @end deffn
 
@@ -18487,6 +19106,8 @@ Extract elements not having class specified in list ‘classes’ from HTML.
 Extracts specified elements from current WWW page and displays it
 in a separate buffer.  Interactive use provides list of class
 values as completion. 
+
+(fn CLASSES URL &optional SPEAK)
 @end format
 @end deffn
 
@@ -18506,6 +19127,8 @@ Extract elements matching specified style
 from HTML.  Extracts specified elements from current WWW
 page and displays it in a separate buffer.  Optional arg url
 specifies the page to extract contents  from.
+
+(fn STYLE URL &optional SPEAK)
 @end format
 @end deffn
 
@@ -18538,6 +19161,8 @@ Toggle xsl keep result flag.
 
 @format
 Applies buffer-specific URL expander/executor function.
+
+(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -18555,6 +19180,8 @@ websearch where a rewrite rule is known.  Rewrite rules are
 useful in jumping directly to the printer friendly version of an
 article for example.  Optional interactive prefix arg prompts for
 a rewrite rule even if one is already defined.
+
+(fn &optional PROMPT)
 @end format
 @end deffn
 
@@ -18574,6 +19201,8 @@ Follow url and point, and filter the result by specified xpath.
 XPath can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well.
+
+(fn &optional PROMPT)
 @end format
 @end deffn
 
@@ -18594,6 +19223,8 @@ elements specified by xpath.
 XPath can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well.
+
+(fn &optional PROMPT)
 @end format
 @end deffn
 
@@ -18626,6 +19257,8 @@ Toggle  application of XSL transformations.
 
 @format
 Apply specified transformation to current Web page.
+
+(fn XSL)
 @end format
 @end deffn
 
@@ -18643,6 +19276,8 @@ Apply specified transformation to current Web page.
 @format
 Extract elements matching specified XPath path locator
 from Web page -- default is the current page being viewed.
+
+(fn PATH URL &optional SPEAK)
 @end format
 @end deffn
 
@@ -18659,6 +19294,8 @@ from Web page -- default is the current page being viewed.
 
 @format
 Junk elements matching specified locator.
+
+(fn PATH URL &optional SPEAK)
 @end format
 @end deffn
 
@@ -18675,6 +19312,8 @@ Junk elements matching specified locator.
 
 @format
 Select XSL transformation applied to Web pages before they are displayed .
+
+(fn XSL)
 @end format
 @end deffn
 
@@ -18737,6 +19376,8 @@ This module provides utility functions for searching the WWW
 @format
 Use Google Lite (Experimental).
 Optional prefix arg prompts for toolbelt options.
+
+(fn QUERY &optional OPTIONS)
 @end format
 @end deffn
 
@@ -18755,6 +19396,8 @@ Amazon search.
 
 @format
 Ask Jeeves for the answer.
+
+(fn QUERY)
 @end format
 @end deffn
 
@@ -18764,6 +19407,8 @@ Ask Jeeves for the answer.
 
 @format
 Search Computer Science Bibliographies.
+
+(fn QUERY)
 @end format
 @end deffn
 
@@ -18773,6 +19418,8 @@ Search Computer Science Bibliographies.
 
 @format
 Perform a CiteSeer search. 
+
+(fn TERM)
 @end format
 @end deffn
 
@@ -18783,6 +19430,8 @@ Perform a CiteSeer search.
 @format
 Perform an company news lookup.
 Retrieves company news, research, profile, insider trades,  or upgrades/downgrades.
+
+(fn TICKER &optional PREFIX)
 @end format
 @end deffn
 
@@ -18792,6 +19441,8 @@ Retrieves company news, research, profile, insider trades,  or upgrades/downgrad
 
 @format
 Search CPAN  Comprehensive Perl Archive Network   Site. 
+
+(fn QUERY)
 @end format
 @end deffn
 
@@ -18801,6 +19452,8 @@ Search CPAN  Comprehensive Perl Archive Network   Site.
 
 @format
 Search CTAN Comprehensive TeX Archive Network   Site. 
+
+(fn QUERY)
 @end format
 @end deffn
 
@@ -18818,6 +19471,8 @@ Search CTAN Comprehensive TeX Archive Network   Site.
 @format
  Press ‘?’ to list available search engines.
 When using supported browsers,  this interface attempts to speak the most relevant information on the result page.
+
+(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -18827,6 +19482,8 @@ When using supported browsers,  this interface attempts to speak the most releva
 
 @format
 Currency converter.
+
+(fn CONVERSION-SPEC)
 @end format
 @end deffn
 
@@ -18836,6 +19493,8 @@ Currency converter.
 
 @format
 Perform a FolDoc search. 
+
+(fn QUERY)
 @end format
 @end deffn
 
@@ -18847,6 +19506,8 @@ Perform a FolDoc search.
 Perform a Google search.  First optional interactive prefix arg
 ‘flag’ prompts for additional search options. Second interactive
 prefix arg is equivalent to hitting the I’m Feeling Lucky button on Google. 
+
+(fn QUERY &optional FLAG)
 @end format
 @end deffn
 
@@ -18865,6 +19526,8 @@ Browse Google News by category.
 
 @format
 Do a I’m Feeling Lucky Google search.
+
+(fn QUERY)
 @end format
 @end deffn
 
@@ -18903,6 +19566,8 @@ Use this from inside the calendar to do Google date-range searches.
 Perform a specialized Google search. See the Google site for
   what is possible here:
 https://www.google.com/options/specialsearches.html 
+
+(fn SPECIALIZE QUERY)
 @end format
 @end deffn
 
@@ -18912,6 +19577,8 @@ https://www.google.com/options/specialsearches.html
 
 @format
 Launch Google search with toolbelt.
+
+(fn QUERY)
 @end format
 @end deffn
 
@@ -18921,6 +19588,8 @@ Launch Google search with toolbelt.
 
 @format
 Perform an Gutenberg search
+
+(fn TYPE QUERY)
 @end format
 @end deffn
 
@@ -18939,6 +19608,8 @@ Displays key mapping used by Emacspeak Websearch.
 
 @format
 Search the Merriam Webster Dictionary.
+
+(fn QUERY)
 @end format
 @end deffn
 
@@ -18949,6 +19620,8 @@ Search the Merriam Webster Dictionary.
 @format
 Perform an Yahoo News search.
 Optional prefix arg  avoids scraping  information from HTML.
+
+(fn QUERY &optional RSS)
 @end format
 @end deffn
 
@@ -18958,6 +19631,8 @@ Optional prefix arg  avoids scraping  information from HTML.
 
 @format
 Perform an Open Directory search
+
+(fn QUERY)
 @end format
 @end deffn
 
@@ -18976,6 +19651,8 @@ Search SourceForge, Freshmeat and other sites.
 
 @format
 Search SourceForge Site. 
+
+(fn QUERY)
 @end format
 @end deffn
 
@@ -18985,6 +19662,8 @@ Search SourceForge Site.
 
 @format
 Get weather forecast for specified zip code.
+
+(fn QUERY)
 @end format
 @end deffn
 
@@ -18994,6 +19673,8 @@ Get weather forecast for specified zip code.
 
 @format
 Search Wikipedia using Google.
+
+(fn QUERY)
 @end format
 @end deffn
 
@@ -19003,6 +19684,8 @@ Search Wikipedia using Google.
 
 @format
 Perform an Yahoo  search
+
+(fn QUERY)
 @end format
 @end deffn
 
@@ -19012,6 +19695,8 @@ Perform an Yahoo  search
 
 @format
 Currency converter.
+
+(fn CONVERSION-SPEC)
 @end format
 @end deffn
 
@@ -19022,6 +19707,8 @@ Currency converter.
 @format
 Look up historical stock data.
 Optional second arg as-html processes the results as HTML rather than data.
+
+(fn TICKER &optional AS-HTML)
 @end format
 @end deffn
 
@@ -19063,6 +19750,8 @@ WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
 @format
 Display Feed Reader Feed list in a WebSpace buffer.
 Optional interactive prefix arg forces a refresh.
+
+(fn &optional REFRESH)
 @end format
 @end deffn
 
@@ -19088,6 +19777,8 @@ Open headline at point by following its link property and filter for content.
 
 @format
 Perform a Freebase search and display results.
+
+(fn QUERY)
 @end format
 @end deffn
 
@@ -19160,6 +19851,8 @@ Updated headlines found in emacspeak-webspace-headlines.
 @format
 Perform a Google Knowledge Graph search.
 Optional interactive prefix arg ‘limit’ prompts for number of results, default is 1.
+
+(fn QUERY &optional LIMIT)
 @end format
 @end deffn
 
@@ -19284,6 +19977,8 @@ Useful in handling double-redirect from TuneIn.
 @format
 Extract current  page from the Google cache.
 With a prefix argument, extracts url under point.
+
+(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -19302,6 +19997,8 @@ Perform a google search restricted to the current WWW site.
 
 @format
 Ask Google to find documents similar to this one.
+
+(fn URL)
 @end format
 @end deffn
 
@@ -19351,6 +20048,8 @@ Opens link in alternate browser.
 Play media url under point.
 Optional interactive prefix arg ‘playlist-p’ says to treat the link as a playlist.
  A second interactive prefix arg adds mplayer option -allow-dangerous-playlist-parsing
+
+(fn &optional PLAYLIST-P)
 @end format
 @end deffn
 
@@ -19361,6 +20060,8 @@ Optional interactive prefix arg ‘playlist-p’ says to treat the link as a pla
 @format
 Transcode current URL via Google.
   Reverse effect with prefix arg.
+
+(fn &optional UNTRANSCODE)
 @end format
 @end deffn
 
@@ -19371,6 +20072,8 @@ Transcode current URL via Google.
 @format
 Transcode URL under point via Google.
  Reverse effect with prefix arg for links on a transcoded page.
+
+(fn &optional UNTRANSCODE)
 @end format
 @end deffn
 
@@ -19424,15 +20127,19 @@ Summarize parent of widget at point.
 Summarize a widget if any under point.
 Optional interactive prefix specifies how many levels to go up from current
 widget before summarizing.
+
+(fn &optional LEVEL)
 @end format
 @end deffn
 
 @subsubsection emacspeak-widget-update-from-minibuffer
-@deffn {Command} emacspeak-widget-update-from-minibuffer  (point)
+@deffn {Command} emacspeak-widget-update-from-minibuffer  (pos)
 @findex emacspeak-widget-update-from-minibuffer
 
 @format
-Sets widget at point by invoking its prompter.
+Sets widget at ‘pos’ by invoking its prompter.
+
+(fn POS)
 @end format
 @end deffn
 
@@ -19470,6 +20177,8 @@ Interactive prefix arg ‘reset’ prompts for the annotation
 buffer even if one is already set.
 Annotation is entered in a temporary buffer and the
 annotation is inserted into the working buffer when complete.
+
+(fn &optional RESET)
 @end format
 @end deffn
 
@@ -19495,6 +20204,8 @@ light-weight.  Optional interactive prefix arg results in Emacspeak
 prompting for the clipboard file to use.
 Argument START and END specifies  region.
 Optional argument PROMPT  specifies whether we prompt for the name of a clipboard file.
+
+(fn START END &optional PROMPT)
 @end format
 @end deffn
 
@@ -19517,6 +20228,8 @@ machines.  Do not use this for sharing information within an Emacs
 session --Emacs’ register commands are far more efficient and
 light-weight.  Optional interactive prefix arg pastes from
 the emacspeak table clipboard instead.
+
+(fn &optional PASTE-TABLE)
 @end format
 @end deffn
 
@@ -19548,6 +20261,8 @@ Prompts for the new location and preserves modification time
 
 @format
 Grab URL using Curl, and preview it with a browser .
+
+(fn URL)
 @end format
 @end deffn
 
@@ -19574,6 +20289,8 @@ Customize Emacspeak.
 @format
 Create a customization buffer for browsing and updating
 personal customizations.
+
+(fn FILE)
 @end format
 @end deffn
 
@@ -19613,6 +20330,8 @@ emacspeak-emergency-tts-server.
 @format
 Switch to labelled frame.
 With optional PREFIX argument, label current frame.
+
+(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -19691,6 +20410,8 @@ Prompts for the new location and preserves modification time
 
 @format
 Launch links on  specified URL in a new terminal.
+
+(fn URL)
 @end format
 @end deffn
 
@@ -19700,6 +20421,8 @@ Launch links on  specified URL in a new terminal.
 
 @format
 Launch lynx on  specified URL in a new terminal.
+
+(fn URL)
 @end format
 @end deffn
 
@@ -19715,6 +20438,8 @@ Launch lynx on  specified URL in a new terminal.
 @format
 Move to next buffer.
 With optional interactive prefix arg ‘frame’, move to next frame instead.
+
+(fn &optional FRAME)
 @end format
 @end deffn
 
@@ -19730,6 +20455,8 @@ With optional interactive prefix arg ‘frame’, move to next frame instead.
 @format
 Move to previous buffer.
 With optional interactive prefix arg ‘frame’, move to previous frame instead.
+
+(fn &optional FRAME)
 @end format
 @end deffn
 
@@ -19768,6 +20495,8 @@ displays you wish to select.  Typically you will have two or
 at most three such displays open.  The current display is 0,
 the next is 1, and so on.  Optional argument ARG specifies
 the display to select.
+
+(fn &optional ARG)
 @end format
 @end deffn
 
@@ -19823,6 +20552,8 @@ Show value of PROPERTY at point.
 If optional arg property is not supplied, read it interactively.
 Provides completion based on properties at point.
 If no property is set, show a message and exit.
+
+(fn &optional PROPERTY)
 @end format
 @end deffn
 
@@ -19899,6 +20630,8 @@ that produce tabulated output that works with Emacspeak’s table
 recognizer. Verify this first by running the command in a shell
 and executing command ‘emacspeak-table-display-table-in-region’
 normally bound to C-e TAB.
+
+(fn COMMAND &optional READ-AS-CSV)
 @end format
 @end deffn
 
@@ -19916,6 +20649,8 @@ normally bound to C-e TAB.
 @format
 Lookup and display a phone number.
 With prefix arg, opens the phone book for editing.
+
+(fn &optional EDIT)
 @end format
 @end deffn
 
@@ -19961,6 +20696,8 @@ displays you wish to speak.  Typically you will have two or
 at most three such displays open.  The current display is 0,
 the next is 1, and so on.  Optional argument ARG specifies
 the display to speak.
+
+(fn &optional ARG)
 @end format
 @end deffn
 
@@ -20063,6 +20800,8 @@ Browse  Emacspeak productivity tips.
 @format
 Add autoload cookies to file f.
 Default is to add autoload cookies to current file.
+
+(fn &optional F)
 @end format
 @end deffn
 
@@ -20072,6 +20811,8 @@ Default is to add autoload cookies to current file.
 
 @format
 Insert Braille string at point.
+
+(fn S)
 @end format
 @end deffn
 
@@ -20126,6 +20867,8 @@ Move to the end of current word and add a comma.
 
 @format
 Count slides starting from point.
+
+(fn START END)
 @end format
 @end deffn
 
@@ -20183,6 +20926,8 @@ Cycles to previous buffer having same mode.
 
 @format
 Create a virtual manpage in Emacs from the Perl Online Documentation.
+
+(fn FILENAME)
 @end format
 @end deffn
 
@@ -20222,6 +20967,8 @@ key             binding
 
 @format
 move to end of word
+
+(fn ARG)
 @end format
 @end deffn
 
@@ -20231,6 +20978,8 @@ move to end of word
 
 @format
 Prompt for a string pattern and return list of commands whose names match pattern.
+
+(fn PATTERN)
 @end format
 @end deffn
 
@@ -20240,6 +20989,8 @@ Prompt for a string pattern and return list of commands whose names match patter
 
 @format
 Enumerate  faces matching pattern.
+
+(fn PATTERN)
 @end format
 @end deffn
 
@@ -20258,6 +21009,8 @@ utility function to enumerate old, obsolete maps that we have still  mapped to v
 
 @format
 Enumerate unadvised commands matching pattern.
+
+(fn PATTERN)
 @end format
 @end deffn
 
@@ -20267,6 +21020,8 @@ Enumerate unadvised commands matching pattern.
 
 @format
 Enumerate unmapped faces matching pattern.
+
+(fn &optional PATTERN)
 @end format
 @end deffn
 
@@ -20276,6 +21031,8 @@ Enumerate unmapped faces matching pattern.
 
 @format
 Speak region using ESpeak polyglot wizard.
+
+(fn START END)
 @end format
 @end deffn
 
@@ -20286,6 +21043,8 @@ Speak region using ESpeak polyglot wizard.
 @format
 Speak string in lang via ESpeak.
 Lang is obtained from property ‘lang’ on string, or  via an interactive prompt.
+
+(fn STRING)
 @end format
 @end deffn
 
@@ -20332,6 +21091,8 @@ user.
 @format
 Run compile using find and grep.
 Interactive  arguments specify filename pattern and search pattern.
+
+(fn GLOB PATTERN)
 @end format
 @end deffn
 
@@ -20349,6 +21110,8 @@ Interactive  arguments specify filename pattern and search pattern.
 @format
 Find longest line in region.
 Moves to the longest line when called interactively.
+
+(fn START END)
 @end format
 @end deffn
 
@@ -20359,6 +21122,8 @@ Moves to the longest line when called interactively.
 @format
 Find longest paragraph in region.
 Moves to the longest paragraph when called interactively.
+
+(fn START END)
 @end format
 @end deffn
 
@@ -20369,6 +21134,8 @@ Moves to the longest paragraph when called interactively.
 @format
 Find shortest line in region.
 Moves to the shortest line when called interactively.
+
+(fn START END)
 @end format
 @end deffn
 
@@ -20379,6 +21146,8 @@ Moves to the shortest line when called interactively.
 @format
 Run find-dired on specified switches after prompting for the
 directory to where find is to be launched.
+
+(fn DIRECTORY)
 @end format
 @end deffn
 
@@ -20404,6 +21173,8 @@ key             binding
 
 @format
 Nuke read-only property on text range.
+
+(fn START END)
 @end format
 @end deffn
 
@@ -20415,6 +21186,8 @@ Nuke read-only property on text range.
 Search and replace  recursively in all files with extension ‘ext’
 for ‘word’ and replace it with correction.
 Use with caution.
+
+(fn EXT WORD CORRECTION)
 @end format
 @end deffn
 
@@ -20434,6 +21207,8 @@ Generate a widget-enabled finder wizard.
 @format
 Generate a buffer that shows a sample line in all the ACSS settings
 for the current voice family.
+
+(fn STEP)
 @end format
 @end deffn
 
@@ -20445,6 +21220,8 @@ for the current voice family.
 Extract table specified by depth and count from HTML
 content at file.
 Extracted content is sent to STDOUT.
+
+(fn FILE DEPTH COUNT)
 @end format
 @end deffn
 
@@ -20456,6 +21233,8 @@ Extracted content is sent to STDOUT.
 Extract table specified by depth and count from HTML
 content at URL.
 Extracted content is placed as a csv file in task.csv.
+
+(fn URL DEPTH COUNT)
 @end format
 @end deffn
 
@@ -20485,6 +21264,8 @@ called ‘emacspeak-occur-pattern’ that holds a regular expression
 that matches  lines of interest, you can use this command to conveniently
 run ‘how-many’ to count  matching header lines.
 With interactive prefix arg, prompts for and remembers the file local pattern.
+
+(fn START END &optional PREFIX)
 @end format
 @end deffn
 
@@ -20527,6 +21308,8 @@ load file into emacs
 @format
 Display MLB standings as of today.
 Optional interactive prefix arg shows  unprocessed results.
+
+(fn &optional RAW)
 @end format
 @end deffn
 
@@ -20541,6 +21324,8 @@ count that specifies how many times to execute that command
 first.  Point is left at the target position.  Interactively,
 command is specified by pressing the key that invokes the
 command.
+
+(fn COMMAND COUNT)
 @end format
 @end deffn
 
@@ -20551,6 +21336,8 @@ command.
 @format
 Display NBA standings as of today.
 Optional interactive prefix arg shows  unprocessed results.
+
+(fn &optional RAW)
 @end format
 @end deffn
 
@@ -20582,7 +21369,7 @@ Switch to next shell.
 @end deffn
 
 @subsubsection emacspeak-wizards-occur-header-lines
-@deffn {Command} emacspeak-wizards-occur-header-lines  (start end &optional prefix)
+@deffn {Command} emacspeak-wizards-occur-header-lines  (&optional prefix)
 @table @kbd
 @item C-e x o
 @kindex C-e x o
@@ -20598,6 +21385,8 @@ If you define a file local variable called
 matches header lines, you can use this command to conveniently
 run ‘occur’ to find matching header lines. With prefix arg,
 prompts for and sets value of the file local pattern.
+
+(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -20615,6 +21404,8 @@ prompts for and sets value of the file local pattern.
 @format
 Open pdf file as text.
 Optional interactive prefix arg ask-pwd prompts for password.
+
+(fn FILENAME &optional ASK-PWD)
 @end format
 @end deffn
 
@@ -20624,6 +21415,8 @@ Optional interactive prefix arg ask-pwd prompts for password.
 
 @format
 Provide an input buffer in a specified mode.
+
+(fn MODE)
 @end format
 @end deffn
 
@@ -20698,6 +21491,8 @@ Prompts for relevant information and schedules a rivo job using
 RIVO is implemented by rivo.pl ---
  a Perl script  that can be used to launch streaming media and record
    streaming media for  a specified duration.
+
+(fn WHEN CHANNEL STOP-TIME OUTPUT DIRECTORY)
 @end format
 @end deffn
 
@@ -20724,6 +21519,8 @@ Run rpm -qi on current dired entry.
 @format
 Run Emacs built-in ‘shell’ command when not in a shell buffer, or when called with a prefix argument.
 When called from a shell buffer, switches to ‘next’ shell buffer.
+
+(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -20740,6 +21537,8 @@ When called from a shell buffer, switches to ‘next’ shell buffer.
 
 @format
 Prompts for and runs shell command on current file.
+
+(fn COMMAND)
 @end format
 @end deffn
 
@@ -20770,6 +21569,8 @@ Switch to the shell buffer and cd to
 
 @format
 Display commentary. Default is to display commentary from current buffer.
+
+(fn &optional FILE)
 @end format
 @end deffn
 
@@ -20779,6 +21580,8 @@ Display commentary. Default is to display commentary from current buffer.
 
 @format
 Display value of specified environment variable.
+
+(fn V)
 @end format
 @end deffn
 
@@ -20793,6 +21596,8 @@ Display value of specified environment variable.
 
 @format
 Convenience command to pretty-print and view Lisp evaluation results.
+
+(fn FORM)
 @end format
 @end deffn
 
@@ -20802,6 +21607,8 @@ Convenience command to pretty-print and view Lisp evaluation results.
 
 @format
 Show salient properties of specified face.
+
+(fn FACE)
 @end format
 @end deffn
 
@@ -20820,6 +21627,8 @@ Convenience command to view state of memory used in this session so far.
 
 @format
 Make ISO date-time speech friendly.
+
+(fn ISO)
 @end format
 @end deffn
 
@@ -20830,6 +21639,8 @@ Make ISO date-time speech friendly.
 @format
 Searches recursively in all files with extension ‘ext’
 for ‘word’ and displays hits in a compilation buffer.
+
+(fn EXT WORD)
 @end format
 @end deffn
 
@@ -20846,6 +21657,8 @@ for ‘word’ and displays hits in a compilation buffer.
 
 @format
 Squeeze multiple blank lines in current buffer.
+
+(fn START END)
 @end format
 @end deffn
 
@@ -20855,6 +21668,8 @@ Squeeze multiple blank lines in current buffer.
 
 @format
 Display sunrise/sunset for specified address.
+
+(fn ADDRESS &optional ARG)
 @end format
 @end deffn
 
@@ -20874,6 +21689,8 @@ Switch to an ansi-term buffer or create one.
 With prefix arg, always creates a new terminal.
 Otherwise cycles through existing terminals, creating the first
 term if needed.
+
+(fn CREATE)
 @end format
 @end deffn
 
@@ -20883,6 +21700,8 @@ term if needed.
 
 @format
 Launch terminal and rename buffer appropriately.
+
+(fn PROGRAM)
 @end format
 @end deffn
 
@@ -20892,6 +21711,8 @@ Launch terminal and rename buffer appropriately.
 
 @format
 Tie the next n  words.
+
+(fn N)
 @end format
 @end deffn
 
@@ -20929,6 +21750,8 @@ Toggle pronunciation of yyyymmdd  dates.
 @format
 Open specified tramp location.
 Location is specified by name.
+
+(fn NAME)
 @end format
 @end deffn
 
@@ -20946,6 +21769,8 @@ Location is specified by name.
 @format
 Browse Tune-In Radio.
 Optional interactive prefix arg ‘category’ prompts for a category.
+
+(fn &optional CATEGORY)
 @end format
 @end deffn
 
@@ -20971,6 +21796,8 @@ Search Tune-In Radio.
 
 @format
 UnEscape URI
+
+(fn URI)
 @end format
 @end deffn
 
@@ -21012,6 +21839,8 @@ Accelerator for VC viewer.
 
 @format
 View contents of specified virtual console.
+
+(fn CONSOLE)
 @end format
 @end deffn
 
@@ -21047,6 +21876,8 @@ Refresh view of VC we’re viewing.
 
 @format
 Launch sudo vi on specified file in a terminal.
+
+(fn FILE)
 @end format
 @end deffn
 
@@ -21072,6 +21903,8 @@ Buffer menu filtered by  m-player mode.
 
 @format
 Display list of buffers filtered by specified mode.
+
+(fn MODE)
 @end format
 @end deffn
 
@@ -21101,6 +21934,8 @@ Buffer menu filtered by  mode of current-buffer.
 
 @format
 Read a personality  and apply it to the current line.
+
+(fn PERSONALITY)
 @end format
 @end deffn
 
@@ -21149,6 +21984,8 @@ key             binding
 @format
 Lookup quotes for specified stock symbols.
 Symbols are separated by whitespace.
+
+(fn SYMBOLS)
 @end format
 @end deffn
 
@@ -21175,6 +22012,8 @@ Symbols are taken from ‘emacspeak-wizards-personal-portfolio’.
 
 @format
 Display weather forecast table.
+
+(fn ZIP)
 @end format
 @end deffn
 
@@ -21351,6 +22190,8 @@ Results of traversal are transformed  using xsltproc from libxslt
 
 @format
 Start Xml-Shell on contents of system-id.
+
+(fn SYSTEM-ID)
 @end format
 @end deffn
 
@@ -21369,6 +22210,8 @@ Display current node.
 
 @format
 Display XPath  and display its result using W3.
+
+(fn XPATH)
 @end format
 @end deffn
 
@@ -21482,6 +22325,8 @@ using xsltproc
 
 @format
 Browse URL with specified XSL style.
+
+(fn STYLE URL)
 @end format
 @end deffn
 
@@ -21491,6 +22336,8 @@ Browse URL with specified XSL style.
 
 @format
 Transform ‘file’ using ‘style’ and preview via browse-url.
+
+(fn STYLE FILE)
 @end format
 @end deffn
 
@@ -21507,6 +22354,8 @@ Transform ‘file’ using ‘style’ and preview via browse-url.
 
 @format
 Browse XML region with specified XSL style.
+
+(fn STYLE START END &optional UNESCAPE-CHARENT)
 @end format
 @end deffn
 
@@ -21516,6 +22365,8 @@ Browse XML region with specified XSL style.
 
 @format
 Browse XML URL with specified XSL style.
+
+(fn STYLE URL &optional UNESCAPE-CHARENT)
 @end format
 @end deffn
 
@@ -21646,6 +22497,8 @@ PUT buffer contents as new entry.
 
 @format
 View feed using auth credentials in auth-handle.
+
+(fn AUTH-HANDLE FEED-URL)
 @end format
 @end deffn
 
@@ -21838,6 +22691,8 @@ Biking directions from Google Maps.
 
 @format
 Display  directions obtained from Google Maps.
+
+(fn ORIGIN DESTINATION MODE)
 @end format
 @end deffn
 
@@ -21948,6 +22803,8 @@ Optional  prefix arg clears any active filters.
 @format
 Set up filter in current buffer.
 Optional interactive prefix arg prompts for all filter fields.
+
+(fn &optional ALL)
 @end format
 @end deffn
 
@@ -22032,6 +22889,8 @@ This is meant to be fast and efficient --- and uses WebAPIs as opposed to HTML  
 Google for term at point, and display top result succinctly.
 Attach URL at point so we can follow it later --- subsequent invocations of this command simply follow that URL.
 Optional interactive prefix arg refresh forces this cached URL to be refreshed.
+
+(fn SEARCH-TERM &optional REFRESH)
 @end format
 @end deffn
 
@@ -22041,6 +22900,8 @@ Optional interactive prefix arg refresh forces this cached URL to be refreshed.
 
 @format
 Display News Search results  in a browser.
+
+(fn QUERY)
 @end format
 @end deffn
 
@@ -22071,6 +22932,8 @@ ladspa-foo-plugins invada-studio-plugins-ladspa fil-plugins
 
 @format
 Launch Ladspa workbench.
+
+(fn &optional REFRESH)
 @end format
 @end deffn
 
@@ -22238,6 +23101,8 @@ communication == email, IM, ... map to  the same @emph{mood}.
 
 @format
 Play soundscape.
+
+(fn SCAPE)
 @end format
 @end deffn
 
@@ -22258,6 +23123,8 @@ Stop all running soundscapes.
 Start  a Soundscape listener.
 Listener is loaded with all Soundscapes defined in ‘soundscape-default-theme’ .
 Optional interactive prefix arg restarts the listener if already running.
+
+(fn &optional RESTART)
 @end format
 @end deffn
 
@@ -22276,6 +23143,8 @@ Shutdown listener.
 
 @format
 Activate scapes named names.
+
+(fn NAMES)
 @end format
 @end deffn
 
@@ -22294,6 +23163,8 @@ Activate scapes named names.
 Restart Soundscape  environment.
 With prefix arg ‘device’, prompt for a alsa/ladspa device.
 Caches most recently used device, which then becomes the default for future invocations.
+
+(fn &optional DEVICE)
 @end format
 @end deffn
 
@@ -22310,6 +23181,8 @@ Caches most recently used device, which then becomes the default for future invo
 
 @format
 Stop running Soundscape.
+
+(fn SCAPE)
 @end format
 @end deffn
 
@@ -22355,6 +23228,8 @@ Run command M-x soundscape-theme to see the default mode->mood mapping.
 Update mood/scape mapping for current  mode.
 The  updated mapping is not persisted.
 Optional interactive prefix arg ‘prompt-mode’ prompts for the mode.
+
+(fn &optional PROMPT-MODE)
 @end format
 @end deffn
 
@@ -22403,6 +23278,8 @@ This module can be used independent of Emacspeak.
 
 @format
 Adds  effect at the end of the effect list
+
+(fn NAME)
 @end format
 @end deffn
 
@@ -22486,6 +23363,8 @@ Redraw Audio Workbench.
 
 @format
 Save context to  file after prompting.
+
+(fn SAVE-FILE)
 @end format
 @end deffn
 
@@ -22495,6 +23374,8 @@ Save context to  file after prompting.
 
 @format
 Set effect.
+
+(fn NAME)
 @end format
 @end deffn
 
@@ -22536,6 +23417,17 @@ These functions are primarily for use from other Emacs/Emacspeak modules.
 This module can be used independent of Emacspeak.
 
 @subsection sox-gen Commands
+
+@subsubsection sox--theme-play
+@deffn {Command} sox--theme-play  (theme duration-scale)
+@findex sox--theme-play
+
+@format
+Play  set of  binaural beats specified in theme.
+
+(fn THEME DURATION-SCALE)
+@end format
+@end deffn
 
 @subsubsection sox-beats-binaural
 @deffn {Command} sox-beats-binaural  (length beat-spec-list gain)
@@ -22579,24 +23471,26 @@ Play each chakra for specified duration.
 @end deffn
 
 @subsubsection sox-relax
-@deffn {Command} sox-relax  (duration)
+@deffn {Command} sox-relax  (duration-scale)
 @findex sox-relax
 
 @format
 Play relax set of  binaural beats.
+Each segment is scaled by ‘duration-scale’ in seconds.
 
-(fn DURATION)
+(fn DURATION-SCALE)
 @end format
 @end deffn
 
 @subsubsection sox-rev-up
-@deffn {Command} sox-rev-up  (duration)
+@deffn {Command} sox-rev-up  (duration-scale)
 @findex sox-rev-up
 
 @format
 Play rev-up set of  binaural beats.
+Each segment is scaled by ‘duration-scale’ in seconds.
 
-(fn DURATION)
+(fn DURATION-SCALE)
 @end format
 @end deffn
 
@@ -22612,13 +23506,14 @@ Play binaural audio with carrier frequency ‘freq’, beat ‘beat’,  and gai
 @end deffn
 
 @subsubsection sox-wind-down
-@deffn {Command} sox-wind-down  (duration)
+@deffn {Command} sox-wind-down  (duration-scale)
 @findex sox-wind-down
 
 @format
 Play wind-down set of  binaural beats.
+Each segment is scaled by ‘duration-scale’ in seconds.
 
-(fn DURATION)
+(fn DURATION-SCALE)
 @end format
 @end deffn
 
@@ -22686,6 +23581,8 @@ When complete, this will  be used by the various engine configuration functions 
 
 @format
 Set tts chunk-separator.
+
+(fn CHUNK-SEPARATOR)
 @end format
 @end deffn
 
@@ -22695,6 +23592,8 @@ Set tts chunk-separator.
 
 @format
 Set tts punctuations.
+
+(fn PUNCTUATIONS)
 @end format
 @end deffn
 
@@ -22704,6 +23603,8 @@ Set tts punctuations.
 
 @format
 Set tts rate.
+
+(fn RATE)
 @end format
 @end deffn
 
@@ -22785,6 +23686,8 @@ dtk-speak.el
 
 @format
 Set speech rate.
+
+(fn RATE &optional PREFIX)
 @end format
 @end deffn
 
@@ -22839,6 +23742,8 @@ documentation for defvoice.
 
 @format
 Toggle voice lock mode.
+
+(fn &optional ARG)
 @end format
 @end deffn
 
@@ -22866,6 +23771,8 @@ Interactively toggle voice lock.
 Show all defined voice-face mappings  in a help buffer.
 Sample text to use comes from variable
   ‘voice-setup-sample-text’. 
+
+(fn PATTERN)
 @end format
 @end deffn
 
@@ -23113,6 +24020,8 @@ Increase brightness by  by one step.
 @format
 Set brightness to  specified level.
 ‘brightness’ is a percentage value.
+
+(fn BRIGHTNESS)
 @end format
 @end deffn
 

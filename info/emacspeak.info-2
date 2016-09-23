@@ -56,12 +56,16 @@ Speech-enable buffer-menus.
 
      Speech enabled buffer menu navigation
 
+     (fn COUNT)
+
 12.32.1.2 emacspeak-list-buffers-previous-line
 ..............................................
 
  -- Command: emacspeak-list-buffers-previous-line (count)
 
      Speech enabled buffer menu navigation
+
+     (fn COUNT)
 
 12.32.1.3 emacspeak-list-buffers-speak-buffer-line
 ..................................................
@@ -391,6 +395,8 @@ buffer Voicification is used to indicate directories, marked files etc.
      Like Emacs’ built-in dired-show-file-type but allows user to customize
      options passed to command ‘file’.
 
+     (fn &optional FILE DEREF-SYMLINKS)
+
 12.49.1.9 emacspeak-dired-speak-file-access-time
 ................................................
 
@@ -459,6 +465,8 @@ emacspeak extensions to the dismal spreadsheet.
      Move backward by arg columns
       (the previous column by default)and summarize it.
 
+     (fn COLS)
+
 12.50.1.2 emacspeak-dismal-backward-row-and-summarize
 .....................................................
 
@@ -466,6 +474,8 @@ emacspeak extensions to the dismal spreadsheet.
 
      Move backward by arg rows
       (the previous row by default)and summarize it.
+
+     (fn ROWS)
 
 12.50.1.3 emacspeak-dismal-col-summarize
 ........................................
@@ -513,6 +523,8 @@ emacspeak extensions to the dismal spreadsheet.
      Move forward by arg columns
       (the next column by default)and summarize it.
 
+     (fn COLS)
+
 12.50.1.9 emacspeak-dismal-forward-row-and-summarize
 ....................................................
 
@@ -520,6 +532,8 @@ emacspeak extensions to the dismal spreadsheet.
 
      Move forward by arg rows
       (the next row by default)and summarize it.
+
+     (fn ROWS)
 
 12.50.1.10 emacspeak-dismal-row-summarize
 .........................................
@@ -867,6 +881,8 @@ emacspeak extensions to voiceify rich text.
      Map base fonts to voices.
      Useful in voiceifying rich text.
 
+     (fn START END)
+
 
 File: emacspeak.info,  Node: emacspeak-entertain,  Next: emacspeak-epa,  Prev: emacspeak-enriched,  Up: Emacspeak Commands And Options
 
@@ -1136,12 +1152,16 @@ layers etc., perhaps via a simplified smil implementation.
      Add EPubs found in specified directory to the bookshelf.
      Interactive prefix arg searches recursively in directory.
 
+     (fn DIRECTORY &optional RECURSIVE)
+
 12.65.1.4 emacspeak-epub-bookshelf-add-epub
 ...........................................
 
  -- Command: emacspeak-epub-bookshelf-add-epub (epub-file)
 
      Add epub file to current bookshelf.
+
+     (fn EPUB-FILE)
 
 12.65.1.5 emacspeak-epub-bookshelf-calibre-author
 .................................................
@@ -1150,6 +1170,8 @@ layers etc., perhaps via a simplified smil implementation.
 
      Add results of an author search to current bookshelf.
 
+     (fn PATTERN)
+
 12.65.1.6 emacspeak-epub-bookshelf-calibre-search
 .................................................
 
@@ -1157,12 +1179,16 @@ layers etc., perhaps via a simplified smil implementation.
 
      Add results of an title/author search to current bookshelf.
 
+     (fn PATTERN)
+
 12.65.1.7 emacspeak-epub-bookshelf-calibre-title
 ................................................
 
  -- Command: emacspeak-epub-bookshelf-calibre-title (pattern)
 
      Add results of an title search to current bookshelf.
+
+     (fn PATTERN)
 
 12.65.1.8 emacspeak-epub-bookshelf-clear
 ........................................
@@ -1185,12 +1211,16 @@ layers etc., perhaps via a simplified smil implementation.
 
      Load bookshelf metadata from specified bookshelf.
 
+     (fn BOOKSHELF)
+
 12.65.1.11 emacspeak-epub-bookshelf-open-epub
 .............................................
 
  -- Command: emacspeak-epub-bookshelf-open-epub (epub-file)
 
      Open epub file and add it to current bookshelf.
+
+     (fn EPUB-FILE)
 
 12.65.1.12 emacspeak-epub-bookshelf-redraw
 ..........................................
@@ -1200,6 +1230,8 @@ layers etc., perhaps via a simplified smil implementation.
      Redraw Bookshelf.
      Optional interactive prefix arg author-first prints author at the
        left.
+
+     (fn &optional AUTHOR-FIRST)
 
 12.65.1.13 emacspeak-epub-bookshelf-refresh
 ...........................................
@@ -1217,6 +1249,8 @@ layers etc., perhaps via a simplified smil implementation.
      Remove EPubs found in specified directory from the bookshelf.
      Interactive prefix arg searches recursively in directory.
 
+     (fn DIRECTORY &optional RECURSIVE)
+
 12.65.1.15 emacspeak-epub-bookshelf-remove-this-book
 ....................................................
 
@@ -1233,6 +1267,8 @@ layers etc., perhaps via a simplified smil implementation.
      Saves current bookshelf to  specified name.
      Interactive prefix arg ‘overwrite’ will overwrite existing file.
 
+     (fn NAME &optional OVERWRITE)
+
 12.65.1.17 emacspeak-epub-bookshelf-save
 ........................................
 
@@ -1247,6 +1283,8 @@ layers etc., perhaps via a simplified smil implementation.
 
      Browse list of HTML files in an EPub.
      Useful if table of contents in toc.ncx is empty.
+
+     (fn EPUB)
 
 12.65.1.19 emacspeak-epub-calibre-dired-at-point
 ................................................
@@ -1277,6 +1315,8 @@ layers etc., perhaps via a simplified smil implementation.
      Display entire book  using EWW from EPub in a buffer.
      Suitable for text searches.
 
+     (fn EPUB-FILE)
+
 12.65.1.23 emacspeak-epub-fulltext
 ..................................
 
@@ -1285,12 +1325,16 @@ layers etc., perhaps via a simplified smil implementation.
      Display fulltext from EPub in a buffer.
      Suitable for text searches.
 
+     (fn EPUB-FILE)
+
 12.65.1.24 emacspeak-epub-google
 ................................
 
  -- Command: emacspeak-epub-google (query)
 
      Search for Epubs from Google Books.
+
+     (fn QUERY)
 
 12.65.1.25 emacspeak-epub-gutenberg-catalog
 ...........................................
@@ -1300,6 +1344,8 @@ layers etc., perhaps via a simplified smil implementation.
      Open Gutenberg catalog.
      Fetch if needed, or if refresh is T.
 
+     (fn &optional REFRESH)
+
 12.65.1.26 emacspeak-epub-gutenberg-download
 ............................................
 
@@ -1307,12 +1353,16 @@ layers etc., perhaps via a simplified smil implementation.
 
      Download specified EBook to local cache
 
+     (fn BOOK-ID)
+
 12.65.1.27 emacspeak-epub-locate-epubs
 ......................................
 
  -- Command: emacspeak-epub-locate-epubs (pattern)
 
      Locate epub files using locate.
+
+     (fn PATTERN)
 
 12.65.1.28 emacspeak-epub-mode
 ..............................
@@ -1377,6 +1427,8 @@ layers etc., perhaps via a simplified smil implementation.
      Open specified Epub.
      Filename may need to  be shell-quoted when called from Lisp.
 
+     (fn EPUB-FILE)
+
 12.65.1.31 emacspeak-epub-previous
 ..................................
 
@@ -1390,6 +1442,8 @@ layers etc., perhaps via a simplified smil implementation.
  -- Command: emacspeak-epub-url-executor (url)
 
      Custom URL executor for use in EPub Mode.
+
+     (fn URL)
 
 12.65.2 emacspeak-epub Options
 ------------------------------
@@ -1438,12 +1492,16 @@ http://www.cs.cmu.edu/~berez/irc/erc.el
      Optional interactive prefix  arg defines a pronunciation that
        silences speaking of this perso’s name.
 
+     (fn NAME &optional QUITEN-PRONUNCIATION)
+
 12.66.1.2 emacspeak-erc-delete-name-from-monitor
 ................................................
 
  -- Command: emacspeak-erc-delete-name-from-monitor (name)
 
      Remove name to monitor in this room.
+
+     (fn NAME)
 
 12.66.1.3 emacspeak-erc-setup-cricket-rules
 ...........................................
@@ -1593,6 +1651,8 @@ move around the terminal and have different parts spoken.
      be used when emacspeak is set to review mode inside an
      eterm.
 
+     (fn ID)
+
 12.71.1.3 emacspeak-eterm-describe-window
 .........................................
 
@@ -1601,12 +1661,16 @@ move around the terminal and have different parts spoken.
      Describe an eterm  window.
      Description indicates eterm window coordinates and whether it is stretchable
 
+     (fn ID)
+
 12.71.1.4 emacspeak-eterm-goto-line
 ...................................
 
  -- Command: emacspeak-eterm-goto-line (line)
 
      Move emacspeak eterm pointer to a specified LINE.
+
+     (fn LINE)
 
 12.71.1.5 emacspeak-eterm-kill-ring-save-region
 ...............................................
@@ -1649,6 +1713,8 @@ move around the terminal and have different parts spoken.
      Interactive numeric prefix arg specifies number of words to move.
      Argument COUNT specifies number of words by which to move.
 
+     (fn COUNT)
+
 12.71.1.9 emacspeak-eterm-pointer-down
 ......................................
 
@@ -1656,6 +1722,8 @@ move around the terminal and have different parts spoken.
 
      Move the pointer down a line.
      Argument COUNT specifies number of lines by which to move.
+
+     (fn COUNT)
 
 12.71.1.10 emacspeak-eterm-pointer-forward-word
 ...............................................
@@ -1666,6 +1734,8 @@ move around the terminal and have different parts spoken.
      Interactive numeric prefix arg specifies number of words to move.
      Argument COUNT specifies number of words by which to move.
 
+     (fn COUNT)
+
 12.71.1.11 emacspeak-eterm-pointer-left
 .......................................
 
@@ -1674,6 +1744,8 @@ move around the terminal and have different parts spoken.
      Move the pointer left.
      Argument COUNT specifies number of columns by which to move.
 
+     (fn COUNT)
+
 12.71.1.12 emacspeak-eterm-pointer-right
 ........................................
 
@@ -1681,6 +1753,8 @@ move around the terminal and have different parts spoken.
 
      Move the pointer right.
      Argument COUNT specifies number of columns by which to move.
+
+     (fn COUNT)
 
 12.71.1.13 emacspeak-eterm-pointer-to-bottom
 ............................................
@@ -1713,6 +1787,8 @@ move around the terminal and have different parts spoken.
      This allows you to move between highlighted regions of the screen.
      Optional argument COUNT specifies how many changes to skip.
 
+     (fn &optional COUNT)
+
 12.71.1.17 emacspeak-eterm-pointer-to-previous-color-change
 ...........................................................
 
@@ -1722,6 +1798,8 @@ move around the terminal and have different parts spoken.
      Move the eterm pointer to the next color change.
      This allows you to move between highlighted regions of the screen.
      Optional argument COUNT specifies how many changes to skip.
+
+     (fn &optional COUNT)
 
 12.71.1.18 emacspeak-eterm-pointer-to-right-edge
 ................................................
@@ -1745,12 +1823,16 @@ move around the terminal and have different parts spoken.
      Move the pointer up a line.
      Argument COUNT .specifies number of lines by which to move.
 
+     (fn COUNT)
+
 12.71.1.21 emacspeak-eterm-remote-term
 ......................................
 
  -- Command: emacspeak-eterm-remote-term (host)
 
      Start a terminal-emulator in a new buffer.
+
+     (fn HOST)
 
 12.71.1.22 emacspeak-eterm-search-backward
 ..........................................
@@ -1779,6 +1861,8 @@ move around the terminal and have different parts spoken.
      Setting the filter window results in emacspeak  only monitoring screen
      activity within the filter window.
 
+     (fn FLAG)
+
 12.71.1.25 emacspeak-eterm-set-focus-window
 ...........................................
 
@@ -1791,6 +1875,8 @@ move around the terminal and have different parts spoken.
      what eterm starts up with).
      Setting the focus window results in emacspeak  monitoring screen
      and speaking that window upon seeing screen activity.
+
+     (fn FLAG)
 
 12.71.1.26 emacspeak-eterm-set-marker
 .....................................
@@ -1823,6 +1909,8 @@ move around the terminal and have different parts spoken.
      Speak char under eterm pointer.
      Pronounces character phonetically unless  called with a PREFIX arg.
 
+     (fn &optional PREFIX)
+
 12.71.1.30 emacspeak-eterm-speak-pointer-line
 .............................................
 
@@ -1853,6 +1941,8 @@ move around the terminal and have different parts spoken.
      Optional prefix arg FLAG causes region above
      the Emacspeak pointer to be spoken.
 
+     (fn &optional FLAG)
+
 12.71.1.34 emacspeak-eterm-speak-window
 .......................................
 
@@ -1860,6 +1950,8 @@ move around the terminal and have different parts spoken.
 
      Speak an eterm window.
      Argument ID specifies the window.
+
+     (fn ID)
 
 12.71.1.35 emacspeak-eterm-toggle-filter-window
 ...............................................
@@ -1901,6 +1993,8 @@ move around the terminal and have different parts spoken.
  -- Command: emacspeak-eterm-yank-window (id)
 
      Yank contents of  an eterm window at point.
+
+     (fn ID)
 
 12.71.1.40 emacspeak-toggle-eterm-autospeak
 ...........................................
@@ -2002,6 +2096,8 @@ as id, class and role.
 
      Move forward to the next specified element.
 
+     (fn EL)
+
 12.73.1.5 emacspeak-eww-next-element-from-history
 .................................................
 
@@ -2016,6 +2112,8 @@ as id, class and role.
 
      Moves to next element like current.
      Prompts if content at point is enclosed by multiple elements.
+
+     (fn ELEMENT)
 
 12.73.1.7 emacspeak-eww-next-h
 ..............................
@@ -2120,12 +2218,16 @@ as id, class and role.
 
      Retrieve ‘url’  using PhantomJS and render with EWW.
 
+     (fn URL)
+
 12.73.1.20 emacspeak-eww-previous-element
 .........................................
 
  -- Command: emacspeak-eww-previous-element (el)
 
      Move backward  to the previous  specified element.
+
+     (fn EL)
 
 12.73.1.21 emacspeak-eww-previous-element-from-history
 ......................................................
@@ -2141,6 +2243,8 @@ as id, class and role.
 
      Moves to next element like current.
      Prompts if content at point is enclosed by multiple elements.
+
+     (fn ELEMENT)
 
 12.73.1.23 emacspeak-eww-previous-h
 ...................................
@@ -2254,6 +2358,8 @@ as id, class and role.
      Uses most recently navigated structural unit.
      Otherwise, prompts if content at point is enclosed by multiple elements.
 
+     (fn ELEMENT)
+
 12.73.1.37 emacspeak-eww-tags-at-point
 ......................................
 
@@ -2305,6 +2411,8 @@ This module provides Feeds support for Emacspeak
 
      Add specified feed to our feed store.
 
+     (fn TITLE URL TYPE)
+
 12.75.1.2 emacspeak-feeds-archive-feeds
 .......................................
 
@@ -2322,6 +2430,8 @@ This module provides Feeds support for Emacspeak
 
      Display ATOM feed.
 
+     (fn FEED-URL)
+
 12.75.1.4 emacspeak-feeds-browse
 ................................
 
@@ -2330,6 +2440,8 @@ This module provides Feeds support for Emacspeak
      ‘<fn> C-u’
 
      Browse specified  feed.
+
+     (fn FEED)
 
 12.75.1.5 emacspeak-feeds-fastload-feeds
 ........................................
@@ -2348,6 +2460,8 @@ This module provides Feeds support for Emacspeak
 
      Browse feeds matching specified query.
 
+     (fn QUERY)
+
 12.75.1.7 emacspeak-feeds-lookup-and-view
 .........................................
 
@@ -2357,6 +2471,8 @@ This module provides Feeds support for Emacspeak
 
      Lookup feed URL for a site and browse result.
 
+     (fn SITE)
+
 12.75.1.8 emacspeak-feeds-opml-display
 ......................................
 
@@ -2365,6 +2481,8 @@ This module provides Feeds support for Emacspeak
      ‘C-x @ a o’
 
      Display OPML feed.
+
+     (fn FEED-URL)
 
 12.75.1.9 emacspeak-feeds-restore-feeds
 .......................................
@@ -2382,6 +2500,8 @@ This module provides Feeds support for Emacspeak
      ‘C-x @ a r’
 
      Display RSS feed.
+
+     (fn FEED-URL)
 
 12.75.2 emacspeak-feeds Options
 -------------------------------
@@ -2426,6 +2546,8 @@ intermediate filters.
 
      Copy over text in region to special filtertext buffer in
      preparation for interactively filtering text.
+
+     (fn START END)
 
 12.76.1.2 emacspeak-filtertext-mode
 ...................................
@@ -2501,6 +2623,8 @@ enable such functions.
  -- Command: emacspeak-fix-commands-loaded-from (module)
 
      Fix all commands loaded from a specified module.
+
+     (fn MODULE)
 
 
 File: emacspeak.info,  Node: emacspeak-flycheck,  Next: emacspeak-flyspell,  Prev: emacspeak-fix-interactive,  Up: Emacspeak Commands And Options
@@ -2603,6 +2727,8 @@ Provide additional advice to forms-mode
  -- Command: emacspeak-forms-find-file (filename)
 
      Visit a forms file
+
+     (fn FILENAME)
 
 12.83.1.2 emacspeak-forms-flush-unwanted-records
 ................................................
@@ -2757,6 +2883,8 @@ Auditory interface to gomoku
  -- Command: emacspeak-gomoku-goto-x-y (x y)
 
      Prompt for and go to that square.
+
+     (fn X Y)
 
 12.89.1.3 emacspeak-gomoku-show-current-column
 ..............................................
@@ -3082,12 +3210,16 @@ e.g.  blog search are tbm=
 
      Speak text using Google Network TTS.
 
+     (fn TEXT &optional LANG)
+
 12.90.1.37 emacspeak-google-tts-region
 ......................................
 
  -- Command: emacspeak-google-tts-region (start end)
 
      Speak region using Google Network TTS.
+
+     (fn START END)
 
 12.90.2 emacspeak-google Options
 --------------------------------
@@ -3125,6 +3257,8 @@ also useful for handling multicolumn text.
 
      Apply grid to region.
 
+     (fn START END GRID)
+
 12.91.1.2 emacspeak-gridtext-load
 .................................
 
@@ -3134,6 +3268,8 @@ also useful for handling multicolumn text.
 
      Load saved grid settings.
 
+     (fn FILE)
+
 12.91.1.3 emacspeak-gridtext-save
 .................................
 
@@ -3142,6 +3278,8 @@ also useful for handling multicolumn text.
      ‘<fn> # s’
 
      Save out grid settings.
+
+     (fn FILE)
 
 
 File: emacspeak.info,  Node: emacspeak-gtags,  Next: emacspeak-gud,  Prev: emacspeak-gridtext,  Up: Emacspeak Commands And Options
@@ -3206,6 +3344,8 @@ filladapt.el
      a portion of the buffer in which all lines start with a
      common PREFIX.  Optional interactive prefix arg causes all
      blocks in current buffer to be hidden or exposed.
+
+     (fn &optional PREFIX)
 
 12.95.1.3 emacspeak-hide-speak-block-sans-prefix
 ................................................
@@ -3327,6 +3467,8 @@ This module speech-enables the Emacs Info Reader.
      Info-goto-node.
      See documentation for command ‘Info-goto-node’ for details on
      node-spec.
+
+     (fn NODE-SPEC)
 
 12.100.2 emacspeak-info Options
 -------------------------------
@@ -3705,12 +3847,16 @@ found on laptops is denoted <fn>
 
      Load bindings from a specified file.
 
+     (fn VARIABLE FILENAME)
+
 12.107.1.2 emacspeak-keymap-bindings-to-org
 ...........................................
 
  -- Command: emacspeak-keymap-bindings-to-org (variable filename)
 
      Persists mapping to org file.
+
+     (fn VARIABLE FILENAME)
 
 12.107.1.3 emacspeak-keymap-choose-new-emacspeak-prefix
 .......................................................
@@ -3724,6 +3870,8 @@ found on laptops is denoted <fn>
      that is running inside a local emacspeak session.  You can have the
      remote emacspeak use a different control key to give your fingers some
      relief.
+
+     (fn PREFIX-KEY)
 
 12.107.2 emacspeak-keymap Options
 ---------------------------------
@@ -3976,12 +4124,16 @@ implements an Emacspeak Librivox client.
 
      Launch a Librivox Search.
 
+     (fn SEARCH-TYPE)
+
 12.110.1.2 emacspeak-librivox-play
 ..................................
 
  -- Command: emacspeak-librivox-play (rss-url)
 
      Play book stream
+
+     (fn RSS-URL)
 
 12.110.1.3 emacspeak-librivox-search-by-author
 ..............................................
@@ -3993,6 +4145,8 @@ implements an Emacspeak Librivox client.
      Both exact and partial matches for ‘author’.
      Optional interactive prefix arg ‘offset’ prompts for offset — use this for retrieving next set of results.
 
+     (fn AUTHOR &optional OFFSET)
+
 12.110.1.4 emacspeak-librivox-search-by-genre
 .............................................
 
@@ -4000,6 +4154,8 @@ implements an Emacspeak Librivox client.
 
      Search by genre.
      Optional prefix arg ‘offset’ prompts for offset.
+
+     (fn GENRE &optional OFFSET)
 
 12.110.1.5 emacspeak-librivox-search-by-title
 .............................................
@@ -4009,6 +4165,8 @@ implements an Emacspeak Librivox client.
      Search by title.
      Both exact and partial matches for ‘title’.
      Optional prefix arg ‘offset’ prompts for offset — use this for retrieving more results.
+
+     (fn TITLE &optional OFFSET)
 
 12.110.2 emacspeak-librivox Options
 -----------------------------------
@@ -4051,6 +4209,8 @@ http://www.mplayerhq.hu/DOCS/
      Resource is a media resource or playlist containing media resources.
      The player is placed in a buffer in emacspeak-m-player-mode.
 
+     (fn RESOURCE &optional PLAY-LIST)
+
 12.112.1.2 emacspeak-m-player-add-autopan
 .........................................
 
@@ -4067,12 +4227,16 @@ http://www.mplayerhq.hu/DOCS/
      is made, and the final effect set by pressing RET.  Interactive prefix
      arg ‘reset’ starts with all filters set to 0.
 
+     (fn &optional RESET)
+
 12.112.1.4 emacspeak-m-player-add-filter
 ........................................
 
  -- Command: emacspeak-m-player-add-filter (filter-name)
 
      Adds specified filter.
+
+     (fn FILTER-NAME)
 
 12.112.1.5 emacspeak-m-player-add-ladspa
 ........................................
@@ -4095,6 +4259,8 @@ http://www.mplayerhq.hu/DOCS/
 
      Move within an ASF playlist.
 
+     (fn STEP)
+
 12.112.1.8 emacspeak-m-player-amark-add
 .......................................
 
@@ -4104,6 +4270,8 @@ http://www.mplayerhq.hu/DOCS/
      Set AMark ‘name’ at current position in current audio stream.
      Interactive prefix arg prompts for position.
      As the default, use current position.
+
+     (fn NAME &optional PROMPT-POSITION)
 
 12.112.1.9 emacspeak-m-player-amark-jump
 ........................................
@@ -4120,6 +4288,8 @@ http://www.mplayerhq.hu/DOCS/
      Prompt for a predefined reverb preset and apply it.
      You need to use mplayer built with ladspa support, and have package
      tap-reverb already installed.
+
+     (fn PRESET)
 
 12.112.1.11 emacspeak-m-player-backward-10min
 .............................................
@@ -4163,6 +4333,8 @@ http://www.mplayerhq.hu/DOCS/
 
      Binds key to invoke m-player  on specified directory.
 
+     (fn DIRECTORY KEY)
+
 12.112.1.17 emacspeak-m-player-clear-filters
 ............................................
 
@@ -4177,6 +4349,8 @@ http://www.mplayerhq.hu/DOCS/
 
      Invoke MPlayer commands.
 
+     (fn KEY)
+
 12.112.1.19 emacspeak-m-player-customize-options
 ................................................
 
@@ -4190,6 +4364,8 @@ http://www.mplayerhq.hu/DOCS/
  -- Command: emacspeak-m-player-delete-filter (filter)
 
      Delete filter.
+
+     (fn FILTER)
 
 12.112.1.21 emacspeak-m-player-delete-ladspa
 ............................................
@@ -4251,6 +4427,8 @@ http://www.mplayerhq.hu/DOCS/
      Manipulate values in specified vector using minibuffer.
      Applies  the resulting value at each step.
 
+     (fn V)
+
 12.112.1.29 emacspeak-m-player-faster
 .....................................
 
@@ -4309,6 +4487,8 @@ http://www.mplayerhq.hu/DOCS/
      Load specified resource into a running  m-player.
      Interactive prefix arg appends the new resource to what is playing.
 
+     (fn RESOURCE &optional APPEND)
+
 12.112.1.37 emacspeak-m-player-load-file
 ........................................
 
@@ -4316,12 +4496,16 @@ http://www.mplayerhq.hu/DOCS/
 
      Load specified file.
 
+     (fn F)
+
 12.112.1.38 emacspeak-m-player-load-playlist
 ............................................
 
  -- Command: emacspeak-m-player-load-playlist (f)
 
      Load specified playlist file.
+
+     (fn F)
 
 12.112.1.39 emacspeak-m-player-locate-media
 ...........................................
@@ -4332,6 +4516,8 @@ http://www.mplayerhq.hu/DOCS/
 
      Locate media matching specified pattern.
      Results are placed in a Locate buffer and can be played using M-Player.
+
+     (fn PATTERN)
 
 12.112.1.40 emacspeak-m-player-mode
 ...................................
@@ -4442,12 +4628,16 @@ http://www.mplayerhq.hu/DOCS/
      Persists current m-player process instance by renaming its buffer.
      Optional interactive prefix arg prompts for name to use for  player.
 
+     (fn &optional NAME)
+
 12.112.1.45 emacspeak-m-player-play-rss
 .......................................
 
  -- Command: emacspeak-m-player-play-rss (rss-url)
 
      Play an RSS stream by converting to  an M3U playlist.
+
+     (fn RSS-URL)
 
 12.112.1.46 emacspeak-m-player-play-tracks-jump
 ...............................................
@@ -4456,12 +4646,16 @@ http://www.mplayerhq.hu/DOCS/
 
      Move within the play tree.
 
+     (fn STEP)
+
 12.112.1.47 emacspeak-m-player-play-tree-up
 ...........................................
 
  -- Command: emacspeak-m-player-play-tree-up (step)
 
      Move within the play tree.
+
+     (fn STEP)
 
 12.112.1.48 emacspeak-m-player-pop-to-player
 ............................................
@@ -4520,12 +4714,16 @@ http://www.mplayerhq.hu/DOCS/
 
      Scale speed by specified factor.
 
+     (fn FACTOR)
+
 12.112.1.56 emacspeak-m-player-seek-absolute
 ............................................
 
  -- Command: emacspeak-m-player-seek-absolute (position)
 
      Seek  to absolute specified position in seconds.
+
+     (fn POSITION)
 
 12.112.1.57 emacspeak-m-player-seek-percentage
 ..............................................
@@ -4534,12 +4732,16 @@ http://www.mplayerhq.hu/DOCS/
 
      Seek  to absolute specified position in percent.
 
+     (fn POSITION)
+
 12.112.1.58 emacspeak-m-player-seek-relative
 ............................................
 
  -- Command: emacspeak-m-player-seek-relative (offset)
 
      Seek  by offset into stream from current position.
+
+     (fn OFFSET)
 
 12.112.1.59 emacspeak-m-player-shuffle
 ......................................
@@ -4556,6 +4758,8 @@ http://www.mplayerhq.hu/DOCS/
  -- Command: emacspeak-m-player-slave-command (command)
 
      Dispatch slave command read from minibuffer.
+
+     (fn COMMAND)
 
 12.112.1.61 emacspeak-m-player-slower
 .....................................
@@ -4580,6 +4784,8 @@ http://www.mplayerhq.hu/DOCS/
      Speak and display metadata if available.
      Interactive prefix arg toggles automatic cueing of ICY info updates.
 
+     (fn &optional TOGGLE-CUE)
+
 12.112.1.64 emacspeak-m-player-url
 ..................................
 
@@ -4588,6 +4794,8 @@ http://www.mplayerhq.hu/DOCS/
      ‘C-x @ a u’
 
      Call emacspeak-m-player with specified URL.
+
+     (fn URL &optional PLAYLIST-P)
 
 12.112.1.65 emacspeak-m-player-using-openal
 ...........................................
@@ -4607,6 +4815,8 @@ http://www.mplayerhq.hu/DOCS/
  -- Command: emacspeak-m-player-volume-change (value)
 
      Change volume to specified absolute value.
+
+     (fn VALUE)
 
 12.112.1.67 emacspeak-m-player-volume-down
 ..........................................
@@ -4628,6 +4838,8 @@ http://www.mplayerhq.hu/DOCS/
  -- Command: emacspeak-m-player-youtube-player (url)
 
      Use youtube-dl and mplayer to stream YouTube content.
+
+     (fn URL)
 
 12.112.1.70 emacspeak-multimedia
 ................................
@@ -4932,6 +5144,8 @@ This module speech-enables MPG123 MPG123 is an MP3 player.
      Use command M-x emacspeak-mp3-playlist-skip
      to skip to the next track.
 
+     (fn PLAYLIST &optional DONT-SHUFFLE)
+
 12.120.1.2 emacspeak-mp3-playlist-skip
 ......................................
 
@@ -4953,12 +5167,16 @@ This module speech-enables MPG123 MPG123 is an MP3 player.
 
      Move back by specified number of minutes.
 
+     (fn ARG)
+
 12.120.1.5 emacspeak-mpg123-forward-minute
 ..........................................
 
  -- Command: emacspeak-mpg123-forward-minute (arg)
 
      Forward by ARG minutes.
+
+     (fn ARG)
 
 12.120.1.6 emacspeak-mpg123-speak-current-time
 ..............................................
@@ -5503,6 +5721,8 @@ completion.  Streams can be played from within the displayed listing.
      Display specified listing.
      Interactive prefix arg prompts for search.
 
+     (fn &optional SEARCH)
+
 12.126.1.2 emacspeak-npr-listing-url-executor
 .............................................
 
@@ -5510,6 +5730,8 @@ completion.  Streams can be played from within the displayed listing.
 
      Special executor for use in NPR  listings.
      Optional prefix arg prompts for date.
+
+     (fn URL &optional GET-DATE)
 
 12.126.1.3 emacspeak-npr-play-program
 .....................................
@@ -5521,6 +5743,8 @@ completion.  Streams can be played from within the displayed listing.
      Play specified NPR program.
      Optional interactive prefix arg prompts for a date.
 
+     (fn PID &optional GET-DATE)
+
 12.126.1.4 emacspeak-npr-refresh-program-table
 ..............................................
 
@@ -5528,12 +5752,16 @@ completion.  Streams can be played from within the displayed listing.
 
      Refresh program table cache if needed.
 
+     (fn &optional FORCE)
+
 12.126.1.5 emacspeak-npr-search
 ...............................
 
  -- Command: emacspeak-npr-search (query)
 
      Search NPR
+
+     (fn QUERY)
 
 12.126.2 emacspeak-npr Options
 ------------------------------
@@ -5799,6 +6027,8 @@ named "ocr"
 
      Like backward page, but tracks page number of current document.
 
+     (fn &optional COUNT-IGNORED)
+
 12.128.1.3 emacspeak-ocr-customize
 ..................................
 
@@ -5823,6 +6053,8 @@ named "ocr"
  -- Command: emacspeak-ocr-forward-page (&optional count-ignored)
 
      Like forward page, but tracks page number of current document.
+
+     (fn &optional COUNT-IGNORED)
 
 12.128.1.6 emacspeak-ocr-mode
 .............................
@@ -5919,6 +6151,8 @@ named "ocr"
      Name document being scanned in the current OCR buffer.
      Pick a short but meaningful name.
 
+     (fn NAME)
+
 12.128.1.8 emacspeak-ocr-open-working-directory
 ...............................................
 
@@ -5982,6 +6216,8 @@ named "ocr"
      Scan in a photograph.
      The scanned image is converted to JPEG.
 
+     (fn &optional METADATA)
+
 12.128.1.16 emacspeak-ocr-set-compress-image-options
 ....................................................
 
@@ -5991,6 +6227,8 @@ named "ocr"
      Prompts with current setting in the minibuffer.
      Setting persists for current Emacs session.
 
+     (fn SETTING)
+
 12.128.1.17 emacspeak-ocr-set-scan-image-options
 ................................................
 
@@ -5999,6 +6237,8 @@ named "ocr"
      Interactively update scan image options.
      Prompts with current setting in the minibuffer.
      Setting persists for current Emacs session.
+
+     (fn SETTING)
 
 12.128.1.18 emacspeak-ocr-write-document
 ........................................
@@ -6068,6 +6308,8 @@ http://orgmode.org/
  -- Command: emacspeak-org-bookmark (&optional goto)
 
      Bookmark from org.
+
+     (fn &optional GOTO)
 
 12.129.1.2 emacspeak-org-capture-link
 .....................................
@@ -6408,6 +6650,8 @@ keys from ‘pianobar-key-map’.
 
      Invoke Pianobar  commands.
 
+     (fn KEY)
+
 12.136.3.3 emacspeak-pianobar-electric-mode-toggle
 ..................................................
 
@@ -6476,6 +6720,8 @@ of emacs 23.
 
      Jump to process by name.
 
+     (fn NAME)
+
 12.137.1.2 emacspeak-proced-next-field
 ......................................
 
@@ -6511,6 +6757,8 @@ of emacs 23.
 
      Speak value of specified field in current line.
 
+     (fn FIELD-NAME)
+
 12.137.1.7 emacspeak-proced-speak-that-field
 ............................................
 
@@ -6524,6 +6772,8 @@ of emacs 23.
  -- Command: emacspeak-proced-speak-this-field (&optional position)
 
      Speak field at specified column — defaults to current column.
+
+     (fn &optional POSITION)
 
 
 File: emacspeak.info,  Node: emacspeak-projectile,  Next: emacspeak-pronounce,  Prev: emacspeak-proced,  Up: Emacspeak Commands And Options
@@ -6573,6 +6823,8 @@ given file.
      Define buffer local pronunciation.
      Argument WORD specifies the word which should be pronounced as specified by PRONUNCIATION.
 
+     (fn WORD PRONUNCIATION)
+
 12.139.1.3 emacspeak-pronounce-define-pronunciation
 ...................................................
 
@@ -6608,6 +6860,8 @@ given file.
      Prompt for and launch a pronunciation editor on the
      specified pronunciation dictionary key.
 
+     (fn KEY)
+
 12.139.1.7 emacspeak-pronounce-load-dictionaries
 ................................................
 
@@ -6615,6 +6869,8 @@ given file.
 
      Load pronunciation dictionaries.
      Optional argument FILENAME specifies the dictionary file.
+
+     (fn &optional FILENAME)
 
 12.139.1.8 emacspeak-pronounce-refresh-pronunciations
 .....................................................
@@ -6648,6 +6904,8 @@ given file.
      buffer is spoken.
      Optional argument state can be used from Lisp programs to
      explicitly turn pronunciations on or off.
+
+     (fn &optional STATE)
 
 12.139.1.11 emacspeak-pronounce-yank-word
 .........................................
@@ -6878,12 +7136,16 @@ explicitly to the keys.
 
      Backward-char redefined to speak char moved to.
 
+     (fn &optional ARG)
+
 12.144.1.2 emacspeak-forward-char
 .................................
 
  -- Command: emacspeak-forward-char (&optional arg)
 
      Forward-char redefined to speak char moved to.
+
+     (fn &optional ARG)
 
 12.144.1.3 emacspeak-self-insert-command
 ........................................
@@ -6895,6 +7157,8 @@ explicitly to the keys.
      See  command emacspeak-toggle-word-echo bound to
      C-e d w.
      Speech flushes as you type.
+
+     (fn &optional ARG)
 
 
 File: emacspeak.info,  Node: emacspeak-reftex,  Next: emacspeak-related,  Prev: emacspeak-redefine,  Up: Emacspeak Commands And Options
@@ -6938,6 +7202,8 @@ talking to a remote speech server, after prompting for host and port
      remote server, typically the desktop machine. Port is the tcp
      port that that host is listening on for speech requests.
 
+     (fn HOST PORT)
+
 12.147.1.2 emacspeak-remote-edit-current-remote-hostname
 ........................................................
 
@@ -6980,6 +7246,8 @@ talking to a remote speech server, after prompting for host and port
  -- Command: emacspeak-remote-ssh-to-server (login host port)
 
      Open ssh session to where we came from.
+
+     (fn LOGIN HOST PORT)
 
 12.147.2 emacspeak-remote Options
 ---------------------------------
@@ -7236,12 +7504,16 @@ speech-enables ses
 
      Summarize specified  cell.
 
+     (fn CELL-NAME)
+
 12.155.1.6 emacspeak-ses-summarize-current-cell
 ...............................................
 
  -- Command: emacspeak-ses-summarize-current-cell (&rest ignore)
 
      Summarize current cell.
+
+     (fn &rest IGNORE)
 
 
 File: emacspeak.info,  Node: emacspeak-setup,  Next: emacspeak-sgml-mode,  Prev: emacspeak-ses,  Up: Emacspeak Commands And Options
@@ -7385,6 +7657,8 @@ appropriate subdirectories of emacspeak-sounds-directory
 
      Call appropriate audio environment set command.
 
+     (fn &optional PREFIX)
+
 12.162.1.2 emacspeak-set-auditory-icon-player
 .............................................
 
@@ -7397,6 +7671,8 @@ appropriate subdirectories of emacspeak-sounds-directory
 
      emacspeak-serve-auditory-icon for  the wave device.
      emacspeak-queue-auditory-icon when using software TTS.
+
+     (fn PLAYER)
 
 12.162.1.3 emacspeak-sounds-reset-local-player
 ..............................................
@@ -7425,6 +7701,8 @@ appropriate subdirectories of emacspeak-sounds-directory
 
      Select theme for auditory icons.
 
+     (fn THEME)
+
 12.162.1.6 emacspeak-toggle-auditory-icons
 ..........................................
 
@@ -7434,6 +7712,8 @@ appropriate subdirectories of emacspeak-sounds-directory
 
      Toggle use of auditory icons.
      Optional interactive PREFIX arg toggles global value.
+
+     (fn &optional PREFIX)
 
 12.162.2 emacspeak-sounds Options
 ---------------------------------
@@ -7511,12 +7791,16 @@ of emacspeak from becoming dependent on the speech server modules
 
      Prompt for and dial a phone NUMBER with the Dectalk.
 
+     (fn NUMBER)
+
 12.163.1.6 emacspeak-execute-repeatedly
 .......................................
 
  -- Command: emacspeak-execute-repeatedly (command)
 
      Execute COMMAND repeatedly.
+
+     (fn COMMAND)
 
 12.163.1.7 emacspeak-goto-percent
 .................................
@@ -7529,6 +7813,8 @@ of emacspeak from becoming dependent on the speech server modules
      Display is centered at point.
      Also set the mark at the position where point was.
 
+     (fn PERCENT)
+
 12.163.1.8 emacspeak-launch-application
 .......................................
 
@@ -7537,6 +7823,8 @@ of emacspeak from becoming dependent on the speech server modules
 
      Launch an application.
      This command  is designed for use in a windowing environment like X.
+
+     (fn COMMAND)
 
 12.163.1.9 emacspeak-mark-backward-mark
 .......................................
@@ -7576,6 +7864,8 @@ of emacspeak from becoming dependent on the speech server modules
      Move to the next line in the other window and speak it.
      Numeric prefix arg COUNT can specify number of lines to move.
 
+     (fn COUNT)
+
 12.163.1.14 emacspeak-owindow-previous-line
 ...........................................
 
@@ -7584,6 +7874,8 @@ of emacspeak from becoming dependent on the speech server modules
 
      Move to the next line in the other window and speak it.
      Numeric prefix arg COUNT specifies number of lines to move.
+
+     (fn COUNT)
 
 12.163.1.15 emacspeak-owindow-scroll-down
 .........................................
@@ -7621,6 +7913,8 @@ of emacspeak from becoming dependent on the speech server modules
      Read next line, specified by an offset, without moving.
      Default is to read the next line.
 
+     (fn &optional ARG)
+
 12.163.1.19 emacspeak-read-next-word
 ....................................
 
@@ -7628,6 +7922,8 @@ of emacspeak from becoming dependent on the speech server modules
 
      Read next word, specified as a numeric  arg, without moving.
      Default is to read the next word.
+
+     (fn &optional ARG)
 
 12.163.1.20 emacspeak-read-previous-line
 ........................................
@@ -7639,6 +7935,8 @@ of emacspeak from becoming dependent on the speech server modules
      Read previous line, specified by an offset, without moving.
      Default is to read the previous line.
 
+     (fn &optional ARG)
+
 12.163.1.21 emacspeak-read-previous-word
 ........................................
 
@@ -7646,6 +7944,8 @@ of emacspeak from becoming dependent on the speech server modules
 
      Read previous word, specified as a prefix arg, without moving.
      Default is to read the previous word.
+
+     (fn &optional ARG)
 
 12.163.1.22 emacspeak-search
 ............................
@@ -7661,6 +7961,8 @@ of emacspeak from becoming dependent on the speech server modules
  -- Command: emacspeak-shell-command (command)
 
      Run shell command and speak its output.
+
+     (fn COMMAND)
 
 12.163.1.24 emacspeak-silence
 .............................
@@ -7681,6 +7983,8 @@ of emacspeak from becoming dependent on the speech server modules
      Search forward from point until we hit char.
      Speak text between point and the char we hit.
 
+     (fn CHAR)
+
 12.163.1.26 emacspeak-speak-and-skip-extent-upto-this-char
 ..........................................................
 
@@ -7700,6 +8004,8 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive prefix arg ‘browse’  repeatedly browses  through
        chunks having same personality as the current text chunk.
 
+     (fn &optional BROWSE)
+
 12.163.1.28 emacspeak-speak-buffer
 ..................................
 
@@ -7712,6 +8018,8 @@ of emacspeak from becoming dependent on the speech server modules
      Negative prefix arg speaks from start of buffer to point.
       If voice lock mode is on, the paragraphs in the buffer are
      voice annotated first,  see command ‘emacspeak-speak-voice-annotate-paragraphs’.
+
+     (fn &optional ARG)
 
 12.163.1.29 emacspeak-speak-buffer-filename
 ...........................................
@@ -7726,6 +8034,8 @@ of emacspeak from becoming dependent on the speech server modules
      Interactive prefix arg ‘filename’ speaks only the final path
      component.
      The result is put in the kill ring for convenience.
+
+     (fn &optional FILENAME)
 
 12.163.1.30 emacspeak-speak-buffer-interactively
 ................................................
@@ -7749,12 +8059,16 @@ of emacspeak from becoming dependent on the speech server modules
      Speak character under point.
      Pronounces character phonetically unless  called with a PREFIX arg.
 
+     (fn &optional PREFIX)
+
 12.163.1.32 emacspeak-speak-char-name
 .....................................
 
  -- Command: emacspeak-speak-char-name (char)
 
      tell me what this is
+
+     (fn CHAR)
 
 12.163.1.33 emacspeak-speak-completions-if-available
 ....................................................
@@ -7807,6 +8121,8 @@ of emacspeak from becoming dependent on the speech server modules
      M-y be spoken. The kill number that is spoken says what
      numeric prefix arg to give to command yank.
 
+     (fn COUNT)
+
 12.163.1.38 emacspeak-speak-current-mark
 ........................................
 
@@ -7824,6 +8140,8 @@ of emacspeak from becoming dependent on the speech server modules
      times one has to jump using ‘set-mark-command’ to get to this marked
      position.  The location of the mark is indicated by an aural highlight
      achieved by a change in voice personality.
+
+     (fn COUNT)
 
 12.163.1.39 emacspeak-speak-current-percentage
 ..............................................
@@ -7850,6 +8168,8 @@ of emacspeak from becoming dependent on the speech server modules
      Read time value as a human-readable string, return seconds.
      Seconds value is also placed in the kill-ring.
 
+     (fn TIME)
+
 12.163.1.42 emacspeak-speak-display-char
 ........................................
 
@@ -7860,6 +8180,8 @@ of emacspeak from becoming dependent on the speech server modules
      bound to C-e c
      for characters in the range 0–127.
      Optional argument PREFIX  specifies that the character should be spoken phonetically.
+
+     (fn &optional PREFIX)
 
 12.163.1.43 emacspeak-speak-face-interval-and-move
 ..................................................
@@ -7894,6 +8216,8 @@ of emacspeak from becoming dependent on the speech server modules
      Speak help buffer if one present.
      With prefix arg, speaks the rest of the buffer from point.
      Negative prefix arg speaks from start of buffer to point.
+
+     (fn &optional ARG)
 
 12.163.1.47 emacspeak-speak-help-interactively
 ..............................................
@@ -7931,6 +8255,8 @@ of emacspeak from becoming dependent on the speech server modules
      start hidden blocks of text, e.g.  outline header lines, or header
      lines of blocks created by command ‘emacspeak-hide-or-expose-block’
      are indicated with auditory icon ellipses.
+
+     (fn &optional ARG)
 
 12.163.1.50 emacspeak-speak-line-interactively
 ..............................................
@@ -7971,6 +8297,8 @@ of emacspeak from becoming dependent on the speech server modules
      Option emacspeak-speak-line-invert-filter determines
      the sense of the filter.
 
+     (fn FILTER)
+
 12.163.1.53 emacspeak-speak-load-directory-settings
 ...................................................
 
@@ -7981,6 +8309,8 @@ of emacspeak from becoming dependent on the speech server modules
      This is typically used to load up settings that are specific to
      an electronic book consisting of many files in the same
      directory.
+
+     (fn &optional DIRECTORY)
 
 12.163.1.54 emacspeak-speak-message-again
 .........................................
@@ -7994,6 +8324,8 @@ of emacspeak from becoming dependent on the speech server modules
      The message is also placed in the kill ring for convenient yanking
      if ‘emacspeak-speak-message-again-should-copy-to-kill-ring’ is set.
 
+     (fn &optional FROM-MESSAGE-CACHE)
+
 12.163.1.55 emacspeak-speak-message-at-time
 ...........................................
 
@@ -8005,6 +8337,8 @@ of emacspeak from becoming dependent on the speech server modules
      Provides simple stop watch functionality in addition to other things.
      See documentation for command run-at-time for details on time-spec.
 
+     (fn TIME MESSAGE)
+
 12.163.1.56 emacspeak-speak-microseconds-since-epoch
 ....................................................
 
@@ -8012,12 +8346,16 @@ of emacspeak from becoming dependent on the speech server modules
 
      Speaks time value specified as microseconds  since epoch, e.g. as from float-time.
 
+     (fn MS)
+
 12.163.1.57 emacspeak-speak-milliseconds-since-epoch
 ....................................................
 
  -- Command: emacspeak-speak-milliseconds-since-epoch (ms)
 
      Speaks time value specified as milliseconds  since epoch, e.g. as from float-time.
+
+     (fn MS)
 
 12.163.1.58 emacspeak-speak-minibuffer
 ......................................
@@ -8027,6 +8365,8 @@ of emacspeak from becoming dependent on the speech server modules
      Speak the minibuffer contents
       With prefix arg, speaks the rest of the buffer from point.
      Negative prefix arg speaks from start of buffer to point.
+
+     (fn &optional ARG)
 
 12.163.1.59 emacspeak-speak-minor-mode-line
 ...........................................
@@ -8038,6 +8378,8 @@ of emacspeak from becoming dependent on the speech server modules
      Speak the minor mode-information.
      Optional  interactive prefix arg ‘copy-as-kill’ copies spoken info to kill ring.
 
+     (fn &optional COPY-AS-KILL)
+
 12.163.1.60 emacspeak-speak-mode-line
 .....................................
 
@@ -8048,6 +8390,8 @@ of emacspeak from becoming dependent on the speech server modules
      Speak the mode-line.
      Speaks header-line if that is set when called non-interactively.
      Interactive prefix arg speaks buffer info.
+
+     (fn &optional BUFFER-INFO)
 
 12.163.1.61 emacspeak-speak-next-face-chunk
 ...........................................
@@ -8093,6 +8437,8 @@ of emacspeak from becoming dependent on the speech server modules
      Speak specified buffer.
      Useful to listen to a buffer without switching  contexts.
 
+     (fn BUFFER)
+
 12.163.1.66 emacspeak-speak-other-window
 ........................................
 
@@ -8103,6 +8449,8 @@ of emacspeak from becoming dependent on the speech server modules
      Semantics  of ‘other’ is the same as for the builtin Emacs command
      ‘other-window’.
      Optional argument ARG  specifies ‘other’ window to speak.
+
+     (fn &optional ARG)
 
 12.163.1.67 emacspeak-speak-page
 ................................
@@ -8115,6 +8463,8 @@ of emacspeak from becoming dependent on the speech server modules
      With prefix ARG, speaks rest of current page.
      Negative prefix arg will read from start of current page to point.
      If option  ‘voice-lock-mode’ is on, then it will use any defined personality.
+
+     (fn &optional ARG)
 
 12.163.1.68 emacspeak-speak-page-interactively
 ..............................................
@@ -8141,6 +8491,8 @@ of emacspeak from becoming dependent on the speech server modules
      With prefix arg, speaks rest of current paragraph.
      Negative prefix arg will read from start of current paragraph to point.
      If voice-lock-mode is on, then it will use any defined personality.
+
+     (fn &optional ARG)
 
 12.163.1.70 emacspeak-speak-paragraph-interactively
 ...................................................
@@ -8194,6 +8546,8 @@ of emacspeak from becoming dependent on the speech server modules
      Semantics  of ‘other’ is the same as for the builtin Emacs command
      ‘other-window’.
 
+     (fn &optional ARG)
+
 12.163.1.73 emacspeak-speak-previous-face-chunk
 ...............................................
 
@@ -8240,6 +8594,8 @@ of emacspeak from becoming dependent on the speech server modules
      When call from a program,
      arguments specify the START and END of the rectangle.
 
+     (fn START END)
+
 12.163.1.78 emacspeak-speak-region
 ..................................
 
@@ -8249,6 +8605,8 @@ of emacspeak from becoming dependent on the speech server modules
 
      Speak region.
      Argument START  and END specify region to speak.
+
+     (fn START END)
 
 12.163.1.79 emacspeak-speak-rest-of-buffer
 ..........................................
@@ -8266,6 +8624,8 @@ of emacspeak from becoming dependent on the speech server modules
 
      Speaks time value specified as seconds  since epoch, e.g. as from float-time.
 
+     (fn SECONDS)
+
 12.163.1.81 emacspeak-speak-sentence
 ....................................
 
@@ -8274,6 +8634,8 @@ of emacspeak from becoming dependent on the speech server modules
      Speak current sentence.
      With prefix ARG, speaks the rest of the sentence  from point.
      Negative prefix arg speaks from start of sentence to point.
+
+     (fn &optional ARG)
 
 12.163.1.82 emacspeak-speak-set-display-table
 .............................................
@@ -8284,6 +8646,8 @@ of emacspeak from becoming dependent on the speech server modules
      special characters are spoken. Interactive prefix argument causes
      setting to be global.
 
+     (fn &optional PREFIX)
+
 12.163.1.83 emacspeak-speak-set-mode-punctuations
 .................................................
 
@@ -8292,6 +8656,8 @@ of emacspeak from becoming dependent on the speech server modules
      ‘<fn> d m’
 
      Set punctuation mode for all buffers in current mode.
+
+     (fn SETTING)
 
 12.163.1.84 emacspeak-speak-sexp
 ................................
@@ -8302,6 +8668,8 @@ of emacspeak from becoming dependent on the speech server modules
      With prefix ARG, speaks the rest of the sexp  from point.
      Negative prefix arg speaks from start of sexp to point.
      If option  ‘voice-lock-mode’ is on, then uses the personality.
+
+     (fn &optional ARG)
 
 12.163.1.85 emacspeak-speak-sexp-interactively
 ..............................................
@@ -8327,6 +8695,8 @@ of emacspeak from becoming dependent on the speech server modules
      With interactive prefix argument ADDRESS it prompts for a
      specific interface and shows its address. The address is
      also copied to the kill ring for convenient yanking.
+
+     (fn &optional ADDRESS)
 
 12.163.1.87 emacspeak-speak-skim-buffer
 .......................................
@@ -8377,6 +8747,8 @@ of emacspeak from becoming dependent on the speech server modules
 
      Speak text range identified by this PROPERTY.
 
+     (fn PROPERTY)
+
 12.163.1.93 emacspeak-speak-this-face-chunk
 ...........................................
 
@@ -8404,6 +8776,8 @@ of emacspeak from becoming dependent on the speech server modules
      Timezone is specified using minibuffer completion.
      Second interactive prefix sets clock to new timezone.
 
+     (fn &optional WORLD)
+
 12.163.1.96 emacspeak-speak-version
 ...................................
 
@@ -8412,6 +8786,8 @@ of emacspeak from becoming dependent on the speech server modules
      ‘<fn> V’
 
      Announce version information for running emacspeak.
+
+     (fn &optional UPDATE)
 
 12.163.1.97 emacspeak-speak-visual-line
 .......................................
@@ -8451,6 +8827,8 @@ of emacspeak from becoming dependent on the speech server modules
      If executed  on the same buffer position a second time, the word is
      spelled out  instead of being spoken.
 
+     (fn &optional ARG)
+
 12.163.1.101 emacspeak-speak-word-interactively
 ...............................................
 
@@ -8468,6 +8846,8 @@ of emacspeak from becoming dependent on the speech server modules
 
      Display current date and time  for specified zone.
      Optional second arg ‘set’ sets the TZ environment variable as well.
+
+     (fn ZONE &optional SET)
 
 12.163.1.103 emacspeak-switch-to-reference-buffer
 .................................................
@@ -8631,6 +9011,8 @@ of emacspeak from becoming dependent on the speech server modules
      START END personality
      Prompts for PERSONALITY  with completion when called interactively.
 
+     (fn START END &optional PERSONALITY)
+
 12.163.1.118 emacspeak-voiceify-region
 ......................................
 
@@ -8640,6 +9022,8 @@ of emacspeak from becoming dependent on the speech server modules
      When calling from a program,arguments are
      START END personality.
      Prompts for PERSONALITY  with completion when called interactively.
+
+     (fn START END &optional PERSONALITY)
 
 12.163.1.119 emacspeak-zap-tts
 ..............................

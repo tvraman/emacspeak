@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents Emacspeak, The Complete Audio Desktop.  This
-document was last updated on September 21, 2016.
+document was last updated on September 23, 2016.
 
    The manual is divided into the following chapters.
 
@@ -2945,7 +2945,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1176 commands and 976 options.
+This chapter documents a total of 1177 commands and 976 options.
 
 * Menu:
 
@@ -3228,6 +3228,8 @@ Provide an emacs front-end to amixer.  amixer is part of ALSA.
      Interactively manipulate ALSA settings.
      Interactive prefix arg refreshes cache.
 
+     (fn &optional REFRESH)
+
 12.2.2 amixer Options
 ---------------------
 
@@ -3384,6 +3386,8 @@ Defines the TTS interface.
      ‘‘...............’’ instead of ‘‘period period period period
      ’’
 
+     (fn &optional DELETE)
+
 12.9.1.2 dtk-cloud
 ..................
 
@@ -3404,6 +3408,8 @@ Defines the TTS interface.
      lets Emacspeak on a remote host connect back via SSH port forwarding
      for instance. Argument PROGRAM specifies the speech server
      program. Port defaults to dtk-local-server-port
+
+     (fn PROGRAM &optional PROMPT-PORT)
 
 12.9.1.4 dtk-notify-initialize
 ..............................
@@ -3455,6 +3461,8 @@ Defines the TTS interface.
       Optional arg device sets up environment variable
      ALSA_DEFAULT to specified device before starting the server.
 
+     (fn PROGRAM &optional DEVICE)
+
 12.9.1.9 dtk-set-character-scale
 ................................
 
@@ -3468,6 +3476,8 @@ Defines the TTS interface.
      Interactive PREFIX arg means set   the global default value, and then set the
      current local  value to the result.
 
+     (fn FACTOR &optional PREFIX)
+
 12.9.1.10 dtk-set-chunk-separator-syntax
 ........................................
 
@@ -3480,6 +3490,8 @@ Defines the TTS interface.
      classified into various syntactic classes.
      Argument S specifies the syntax class.
 
+     (fn S)
+
 12.9.1.11 dtk-set-language
 ..........................
 
@@ -3488,6 +3500,8 @@ Defines the TTS interface.
      ‘<fn> d S’
 
      Set language according to the argument lang.
+
+     (fn LANG)
 
 12.9.1.12 dtk-set-next-language
 ...............................
@@ -3528,6 +3542,8 @@ Defines the TTS interface.
      Formula used is:
      rate = dtk-speech-rate-base + dtk-speech-rate-step * level.
 
+     (fn &optional PREFIX)
+
 12.9.1.14 dtk-set-preferred-language
 ....................................
 
@@ -3539,6 +3555,7 @@ Defines the TTS interface.
       dtk-set-language("en")
      will set "en_GB".
 
+     (fn ALIAS LANG)
 
 12.9.1.15 dtk-set-previous-language
 ...................................
@@ -3561,6 +3578,8 @@ Defines the TTS interface.
      Interactive PREFIX arg means set   the global default value, and then set the
      current local  value to the result.
 
+     (fn MODE &optional PREFIX)
+
 12.9.1.17 dtk-set-punctuations-to-all
 .....................................
 
@@ -3569,6 +3588,8 @@ Defines the TTS interface.
      Set punctuation  mode to all.
      Interactive PREFIX arg sets punctuation mode globally.
 
+     (fn &optional PREFIX)
+
 12.9.1.18 dtk-set-punctuations-to-some
 ......................................
 
@@ -3576,6 +3597,8 @@ Defines the TTS interface.
 
      Set punctuation  mode to some.
      Interactive PREFIX arg sets punctuation mode globally.
+
+     (fn &optional PREFIX)
 
 12.9.1.19 dtk-set-rate
 ......................
@@ -3587,6 +3610,8 @@ Defines the TTS interface.
      Set speaking RATE for the tts.
      Interactive PREFIX arg means set   the global default value, and then set the
      current local  value to the result.
+
+     (fn RATE &optional PREFIX)
 
 12.9.1.20 dtk-stop
 ..................
@@ -3635,6 +3660,8 @@ Defines the TTS interface.
 
      Toggle punctuation mode between "some" and "all".
      Interactive PREFIX arg makes the new setting global.
+
+     (fn &optional PREFIX)
 
 12.9.1.24 dtk-toggle-quiet
 ..........................
@@ -3712,6 +3739,8 @@ Defines the TTS interface.
 
      Cycle through available ALSA devices.
      Optional interactive prefix arg restarts current TTS server.
+
+     (fn &optional RESTART)
 
 12.9.1.30 tts-restart
 .....................
@@ -3799,6 +3828,8 @@ This Provides Unicode support to the speech layer.
 
      When called interactively, CHAR defaults to the character after point.
 
+     (fn CHAR REPLACEMENT)
+
 12.10.1.2 dtk-unicode-uncustomize-char
 ......................................
 
@@ -3807,6 +3838,8 @@ This Provides Unicode support to the speech layer.
      Delete custom replacement for CHAR.
 
      When called interactively, CHAR defaults to the character after point.
+
+     (fn CHAR)
 
 12.10.2 dtk-unicode Options
 ---------------------------
@@ -6375,6 +6408,8 @@ Speech-enable 2048 Game
      Optional interactive prefix arg prompts for a file.
      Note that the file is overwritten silently.
 
+     (fn &optional PROMPT)
+
 12.12.1.5 emacspeak-2048-import
 ...............................
 
@@ -6383,12 +6418,16 @@ Speech-enable 2048 Game
      Import game.
      Optional interactive prefix arg prompts for a filename.
 
+     (fn &optional PROMPT)
+
 12.12.1.6 emacspeak-2048-randomize-game
 .......................................
 
  -- Command: emacspeak-2048-randomize-game (&optional count)
 
      Puts game in a randomized new state.
+
+     (fn &optional COUNT)
 
 12.12.1.7 emacspeak-2048-score
 ..............................
@@ -6532,6 +6571,8 @@ alsaplayer navigation commands work via single keystrokes.
 
      Add specified resource to queue.
 
+     (fn RESOURCE)
+
 12.16.1.2 emacspeak-alsaplayer-amark-add
 ........................................
 
@@ -6541,6 +6582,8 @@ alsaplayer navigation commands work via single keystrokes.
      Set AMark ‘name’ at current position in current audio stream.
      Interactive prefix arg prompts for position.
      As the default, use current position.
+
+     (fn NAME &optional PROMPT-POSITION)
 
 12.16.1.3 emacspeak-alsaplayer-amark-jump
 .........................................
@@ -6563,6 +6606,8 @@ alsaplayer navigation commands work via single keystrokes.
 
      Skip backwards by  minutes.
 
+     (fn MINUTES)
+
 12.16.1.6 emacspeak-alsaplayer-backward-ten-minutes
 ...................................................
 
@@ -6570,12 +6615,16 @@ alsaplayer navigation commands work via single keystrokes.
 
      Skip backwards by  chunks of minutes.
 
+     (fn MINUTES)
+
 12.16.1.7 emacspeak-alsaplayer-cd
 .................................
 
  -- Command: emacspeak-alsaplayer-cd (directory)
 
      Change default directory, and silence its pronunciation.
+
+     (fn DIRECTORY)
 
 12.16.1.8 emacspeak-alsaplayer-clear
 ....................................
@@ -6591,12 +6640,16 @@ alsaplayer navigation commands work via single keystrokes.
 
      Invoke mp3splt to clip selected range.
 
+     (fn PATH START END)
+
 12.16.1.10 emacspeak-alsaplayer-find-and-add-to-queue
 .....................................................
 
  -- Command: emacspeak-alsaplayer-find-and-add-to-queue (pattern)
 
      Find  specified resource and add to queue.
+
+     (fn PATTERN)
 
 12.16.1.11 emacspeak-alsaplayer-forward-10-seconds
 ..................................................
@@ -6612,12 +6665,16 @@ alsaplayer navigation commands work via single keystrokes.
 
      Skip forward by  minutes.
 
+     (fn MINUTES)
+
 12.16.1.13 emacspeak-alsaplayer-forward-ten-minutes
 ...................................................
 
  -- Command: emacspeak-alsaplayer-forward-ten-minutes (minutes)
 
      Skip forward by  chunks of ten minutes.
+
+     (fn MINUTES)
 
 12.16.1.14 emacspeak-alsaplayer-info
 ....................................
@@ -6632,6 +6689,8 @@ alsaplayer navigation commands work via single keystrokes.
  -- Command: emacspeak-alsaplayer-jump (track)
 
      Jump to specified track.
+
+     (fn TRACK)
 
 12.16.1.16 emacspeak-alsaplayer-launch
 ......................................
@@ -6735,12 +6794,16 @@ alsaplayer navigation commands work via single keystrokes.
 
      Relative seek  alsaplayer
 
+     (fn OFFSET)
+
 12.16.1.24 emacspeak-alsaplayer-replace-queue
 .............................................
 
  -- Command: emacspeak-alsaplayer-replace-queue (resource)
 
      Replace currently playing music.
+
+     (fn RESOURCE)
 
 12.16.1.25 emacspeak-alsaplayer-seek
 ....................................
@@ -6749,12 +6812,16 @@ alsaplayer navigation commands work via single keystrokes.
 
      Absolute seek  alsaplayer
 
+     (fn OFFSET)
+
 12.16.1.26 emacspeak-alsaplayer-speed
 .....................................
 
  -- Command: emacspeak-alsaplayer-speed (setting)
 
      Set speed in alsaplayer.
+
+     (fn SETTING)
 
 12.16.1.27 emacspeak-alsaplayer-start
 .....................................
@@ -6783,6 +6850,8 @@ alsaplayer navigation commands work via single keystrokes.
  -- Command: emacspeak-alsaplayer-volume (setting)
 
      Set volume.
+
+     (fn SETTING)
 
 12.16.1.31 emacspeak-alsaplayer-where
 .....................................
@@ -6832,12 +6901,16 @@ emacspeak-alsaplayer and friends to set and jump to bookmarks.
      bookmarks in audio content. If there is an existing amark of the
      given name, it is updated with path and position.
 
+     (fn PATH NAME POSITION)
+
 12.17.1.2 emacspeak-amark-find
 ..............................
 
  -- Command: emacspeak-amark-find (name)
 
      Return matching AMark if found in buffer-local AMark list.
+
+     (fn NAME)
 
 12.17.1.3 emacspeak-amark-load
 ..............................
@@ -7085,12 +7158,16 @@ is presently Linux specific
 
      Decrease overall volume.
 
+     (fn &optional GAIN)
+
 12.24.1.5 emacspeak-aumix-volume-increase
 .........................................
 
  -- Command: emacspeak-aumix-volume-increase (&optional gain)
 
      Increase overall volume.
+
+     (fn &optional GAIN)
 
 12.24.1.6 emacspeak-aumix-wave-decrease
 .......................................
@@ -7099,12 +7176,16 @@ is presently Linux specific
 
      Decrease volume of wave output.
 
+     (fn &optional GAIN)
+
 12.24.1.7 emacspeak-aumix-wave-increase
 .......................................
 
  -- Command: emacspeak-aumix-wave-increase (&optional gain)
 
      Increase volume of wave output.
+
+     (fn &optional GAIN)
 
 12.24.2 emacspeak-aumix Options
 -------------------------------
@@ -7152,6 +7233,8 @@ available.  For downloading a program etc., use Emacs package iplayer.
      See http://www.bbc.co.uk/radio/programmes/genres for list of genres.
      Interactive prefix arg filters  content by genre.
 
+     (fn &optional GENRE)
+
 12.25.1.2 emacspeak-bbc-genre
 .............................
 
@@ -7166,12 +7249,16 @@ available.  For downloading a program etc., use Emacs package iplayer.
 
      Stream using get_iplayer.
 
+     (fn PID)
+
 12.25.1.4 emacspeak-bbc-get-iplayer-stream-url
 ..............................................
 
  -- Command: emacspeak-bbc-get-iplayer-stream-url (url)
 
      Stream using get_iplayer.
+
+     (fn URL)
 
 12.25.2 emacspeak-bbc Options
 -----------------------------
@@ -7249,6 +7336,8 @@ higher.
      Perform a Bookshare author search.
      Interactive prefix arg filters search by category.
 
+     (fn QUERY &optional CATEGORY)
+
 12.29.1.4 emacspeak-bookshare-browse
 ....................................
 
@@ -7271,12 +7360,16 @@ higher.
      Browse popular books.
      Optional interactive prefix arg prompts for a category to use as a filter.
 
+     (fn &optional CATEGORY)
+
 12.29.1.7 emacspeak-bookshare-download-brf
 ..........................................
 
  -- Command: emacspeak-bookshare-download-brf (id target)
 
      Download Daisy format of specified book to target location.
+
+     (fn ID TARGET)
 
 12.29.1.8 emacspeak-bookshare-download-brf-at-point
 ...................................................
@@ -7293,6 +7386,8 @@ higher.
 
      Download Daisy format of specified book to target location.
 
+     (fn ID TARGET)
+
 12.29.1.10 emacspeak-bookshare-download-daisy-at-point
 ......................................................
 
@@ -7308,12 +7403,16 @@ higher.
 
      Download content  to target location.
 
+     (fn URL TARGET)
+
 12.29.1.12 emacspeak-bookshare-eww
 ..................................
 
  -- Command: emacspeak-bookshare-eww (directory)
 
      Render complete book using EWW if available.
+
+     (fn DIRECTORY)
 
 12.29.1.13 emacspeak-bookshare-expand-at-point
 ..............................................
@@ -7330,6 +7429,8 @@ higher.
 
      Extract content referred to by link under point, and render via the browser.
 
+     (fn URL)
+
 12.29.1.15 emacspeak-bookshare-extract-xml
 ..........................................
 
@@ -7337,12 +7438,16 @@ higher.
 
      Extract content referred to by link under point, and return an XML buffer.
 
+     (fn URL)
+
 12.29.1.16 emacspeak-bookshare-flush-lines
 ..........................................
 
  -- Command: emacspeak-bookshare-flush-lines (regexp)
 
      Flush lines matching regexp in Bookshare buffer.
+
+     (fn REGEXP)
 
 12.29.1.17 emacspeak-bookshare-fulltext
 .......................................
@@ -7352,12 +7457,16 @@ higher.
      Display fulltext contents of  book in specified directory.
      Useful for fulltext search in a book.
 
+     (fn DIRECTORY)
+
 12.29.1.18 emacspeak-bookshare-fulltext-search
 ..............................................
 
  -- Command: emacspeak-bookshare-fulltext-search (query)
 
      Perform a Bookshare fulltext search.
+
+     (fn QUERY)
 
 12.29.1.19 emacspeak-bookshare-get-more-results
 ...............................................
@@ -7373,12 +7482,16 @@ higher.
 
      Perform a Bookshare id search.
 
+     (fn QUERY)
+
 12.29.1.21 emacspeak-bookshare-isbn-search
 ..........................................
 
  -- Command: emacspeak-bookshare-isbn-search (query)
 
      Perform a Bookshare isbn search.
+
+     (fn QUERY)
 
 12.29.1.22 emacspeak-bookshare-list-preferences
 ...............................................
@@ -7484,6 +7597,8 @@ higher.
 
      Set preference preference-id to value.
 
+     (fn PREFERENCE-ID VALUE)
+
 12.29.1.28 emacspeak-bookshare-sign-out
 .......................................
 
@@ -7499,6 +7614,8 @@ higher.
      Perform a Bookshare date  search.
      Optional interactive prefix arg filters by category.
 
+     (fn QUERY &optional CATEGORY)
+
 12.29.1.30 emacspeak-bookshare-title-search
 ...........................................
 
@@ -7507,12 +7624,16 @@ higher.
      Perform a Bookshare title search.
      Interactive prefix arg filters search by category.
 
+     (fn QUERY &optional CATEGORY)
+
 12.29.1.31 emacspeak-bookshare-toc
 ..................................
 
  -- Command: emacspeak-bookshare-toc (directory)
 
      View TOC for book in specified directory.
+
+     (fn DIRECTORY)
 
 12.29.1.32 emacspeak-bookshare-toc-at-point
 ...........................................
@@ -7536,6 +7657,8 @@ higher.
 
      Custom URL executor for use in Bookshare TOC.
 
+     (fn URL)
+
 12.29.1.35 emacspeak-bookshare-version-handler
 ..............................................
 
@@ -7553,6 +7676,8 @@ higher.
 
      View book in specified directory.
 
+     (fn DIRECTORY)
+
 12.29.1.37 emacspeak-bookshare-view-at-point
 ............................................
 
@@ -7567,6 +7692,8 @@ higher.
  -- Command: emacspeak-bookshare-view-page-range (url)
 
      Play pages in specified page range from URL.
+
+     (fn URL)
 
 12.29.2 emacspeak-bookshare Options
 -----------------------------------
