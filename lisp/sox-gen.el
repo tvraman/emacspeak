@@ -208,6 +208,13 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
   :gain -14))
 
 (sox-define-binaural-effect
+ "focus" ; beta
+ (make-sox--binaural
+  :beats '((75 40) (150 40) (225 40) (300 40.0))
+  :gain -14))
+
+
+(sox-define-binaural-effect
  "act" ; beta
  (make-sox--binaural
   :beats '((75 13.5) (150 18.0) (225 23.0) (300 40.0))
