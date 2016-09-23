@@ -93,7 +93,6 @@
   "Load all modules"
   (declare (special dtk-program
                     self-document-files emacspeak-play-emacspeak-startup-icon))
-  (let ((emacspeak-play-emacspeak-startup-icon nil))
     (package-initialize) ; bootstrap emacs package system
     ;;; Bootstrap Emacspeak
     (load-library "emacspeak-load-path")
@@ -103,7 +102,7 @@
     (cl-loop
      for f in  self-document-files do
      (unless (string-match "emacspeak-setup" f) ; avoid loading setup twice :
-       (load-library f)))))
+       (load-library f))))
 
 (defconst self-document-patterns
   (concat "^"
