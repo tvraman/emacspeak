@@ -876,12 +876,12 @@ name of the list.")
 
 (emacspeak-url-template-define
  "MLB standings"
- "http://www.mlb.com/NASApp/mlb/mlb/standings/index.jsp"
+ "http://www.mlb.com/NASApp/mlb/mlb/standings/index.jsp" ;;; dummy 
  nil
  nil
  "Display MLB standings."
- 
-     #'emacspeak-wizards-mlb-standings)
+     #'(lambda (_url)
+         (emacspeak-wizards-mlb-standings)))
 
 (emacspeak-url-template-define
  "Baseball Game Index"
@@ -1038,11 +1038,12 @@ JSON is retrieved from `url'."
 
 (emacspeak-url-template-define
  "NBA  standings"
- "http://www.nba.com/NASApp/nba/nba/standings/index.jsp"
+ "http://www.nba.com/NASApp/nba/nba/standings/index.jsp" ;;; dummy 
  nil
  nil
  "Display NBA standings."
-     #'emacspeak-wizards-nba-standings)
+     #'(lambda (_url)
+     (emacspeak-wizards-nba-standings)))
 
 ;;}}}
 ;;{{{ Listening to Air Traffic control
