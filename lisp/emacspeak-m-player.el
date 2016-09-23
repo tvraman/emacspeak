@@ -57,6 +57,7 @@
 (require 'cl-lib)
 (require 'emacspeak-preamble)
 (require 'ladspa)
+(require 'ido)
 (require 'emacspeak-amark)
 (require 'emacspeak-webutils)
 (require 'dired)
