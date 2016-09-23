@@ -89,21 +89,22 @@
  '(title url source dom)
  do
  (cond
-  ((boundp 'eww-data)
+  ((or  (= emacs-major-version 25)
+        (boundp 'eww-data))
    (eval
     `(defsubst
        ,(intern (format "emacspeak-eww-current-%s" name)) ()
        , (format "Return eww-current-%s." name)
-         (declare (special eww-data))
-         (plist-get eww-data
-                    ,(intern (format ":%s" name))))))
+       (declare (special eww-data))
+       (plist-get eww-data
+                  ,(intern (format ":%s" name))))))
   (t
    (eval
     `(defsubst
        ,(intern (format "emacspeak-eww-current-%s" name))
        ()
        , (format "Return eww-current-%s." name)
-         ,(intern (format "eww-current-%s" name)))))))
+       ,(intern (format "eww-current-%s" name)))))))
 
 (loop
  for name in
@@ -319,7 +320,7 @@ are available are cued by an auditory icon on the header line."
    do
    (emacspeak-keymap-update eww-mode-map binding)))
 
-(when (boundp 'eww-mode-map) (emacspeak-eww-setup))
+(emacspeak-eww-setup)
 ;;; Use browse-url-new-window-flag
 (defadvice eww-browse-url (before emacspeak pre act comp)
   "Respect `browse-url-new-window-flag'."
@@ -440,7 +441,8 @@ Retain previously set punctuations  mode."
      (t (emacspeak-speak-mode-line)))))
 
 (cond
- ((boundp  'eww-after-render-hook)      ; emacs 25
+ ((or (= emacs-major-version 25)
+      (boundp  'eww-after-render-hook))      ; emacs 25
   (add-hook 'eww-after-render-hook 'emacspeak-eww-after-render-hook))
  (t
   (defadvice eww-render (after emacspeak pre act comp)
