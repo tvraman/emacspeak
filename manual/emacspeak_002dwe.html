@@ -121,7 +121,7 @@
     "index-emacspeak_002dwe_002dclass_002dfilter_002dand_002dfollow">
     </a>Command:
     <strong>emacspeak-we-class-filter-and-follow</strong>
-    <em>(class url)</em></dt>
+    <em>(class url &amp;optional prompt)</em></dt>
 
     <dd>
       <dl compact="compact">
@@ -145,6 +145,8 @@ Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well.
+
+(fn CLASS URL &amp;optional PROMPT)
 </pre>
       </div>
     </dd>
@@ -187,6 +189,8 @@ Follow url and point, and filter the result by specified class.
 Class can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well.
+
+(fn &amp;optional PROMPT)
 </pre>
       </div>
     </dd>
@@ -219,6 +223,8 @@ used as well.
       <div class="format">
         <pre class="format">
 Count matches for locator  in Web page.
+
+(fn URL LOCATOR)
 </pre>
       </div>
     </dd>
@@ -253,6 +259,8 @@ Count matches for locator  in Web page.
       <div class="format">
         <pre class="format">
 Count nested tables in Web page.
+
+(fn URL)
 </pre>
       </div>
     </dd>
@@ -284,6 +292,8 @@ Count nested tables in Web page.
       <div class="format">
         <pre class="format">
 Count  tables in Web page.
+
+(fn URL)
 </pre>
       </div>
     </dd>
@@ -320,6 +330,8 @@ Count  tables in Web page.
 Extract elements having specified class attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
 buffer. Interactive use provides list of class values as completion.
+
+(fn CLASS URL &amp;optional SPEAK)
 </pre>
       </div>
     </dd>
@@ -360,6 +372,8 @@ Extract elements having class specified in list ‘classes’ from HTML.
 Extracts specified elements from current WWW page and displays it
 in a separate buffer.  Interactive use provides list of class
 values as completion. 
+
+(fn CLASSES URL &amp;optional SPEAK)
 </pre>
       </div>
     </dd>
@@ -397,6 +411,8 @@ Extract elements having specified id attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
 buffer.
 Interactive use provides list of id values as completion.
+
+(fn ID URL &amp;optional SPEAK)
 </pre>
       </div>
     </dd>
@@ -435,6 +451,8 @@ Interactive use provides list of id values as completion.
 Extract elements having id specified in list ‘ids’ from HTML.
 Extracts specified elements from current WWW page and displays it in a
 separate buffer. Interactive use provides list of id values as completion. 
+
+(fn IDS URL &amp;optional SPEAK)
 </pre>
       </div>
     </dd>
@@ -470,6 +488,8 @@ separate buffer. Interactive use provides list of id values as completion.
         <pre class="format">
 Interactively prompt for an HTML property, e.g. id or class,
 and provide a completion list of applicable  property values. Filter document by property that is specified.
+
+(fn URL &amp;optional SPEAK)
 </pre>
       </div>
     </dd>
@@ -506,6 +526,8 @@ and provide a completion list of applicable  property values. Filter document by
 Extract elements having specified role attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
 buffer. Interactive use provides list of role values as completion.
+
+(fn ROLE URL &amp;optional SPEAK)
 </pre>
       </div>
     </dd>
@@ -536,6 +558,8 @@ buffer. Interactive use provides list of role values as completion.
 Extract text nodes from elements having id specified in list ‘ids’ from HTML.
 Extracts specified elements from current WWW page and displays it in a
 separate buffer. Interactive use provides list of id values as completion. 
+
+(fn IDS URL &amp;optional SPEAK)
 </pre>
       </div>
     </dd>
@@ -563,6 +587,8 @@ Extract text nodes from elements having specified id attribute from HTML. Extrac
 specified elements from current WWW page and displays it in a separate
 buffer.
 Interactive use provides list of id values as completion.
+
+(fn ID URL &amp;optional SPEAK)
 </pre>
       </div>
     </dd>
@@ -598,6 +624,8 @@ Interactive use provides list of id values as completion.
       <div class="format">
         <pre class="format">
 Extracts links whose URL matches pattern.
+
+(fn PATTERN URL &amp;optional SPEAK)
 </pre>
       </div>
     </dd>
@@ -626,6 +654,8 @@ Extract links to media streams.
 operate on current web page when in a browser buffer; otherwise
  prompt for url.  Optional arg ‘speak’ specifies if the result
  should be spoken automatically.
+
+(fn URL &amp;optional SPEAK)
 </pre>
       </div>
     </dd>
@@ -693,6 +723,8 @@ Extract nested table specified by ‘table-index’. Default is to
 operate on current web page when in a browser buffer; otherwise
 prompt for URL. Optional arg ‘speak’ specifies if the result should be
 spoken automatically.
+
+(fn INDEX URL &amp;optional SPEAK)
 </pre>
       </div>
     </dd>
@@ -731,6 +763,8 @@ spoken automatically.
       <div class="format">
         <pre class="format">
 Extract specified list of tables from a Web page.
+
+(fn TABLES URL &amp;optional SPEAK)
 </pre>
       </div>
     </dd>
@@ -759,6 +793,8 @@ Extract links to printable  streams.
 operate on current web page when in a browser buffer; otherwise
  prompt for url.  Optional arg ‘speak’ specifies if the result
  should be spoken automatically.
+
+(fn URL &amp;optional SPEAK)
 </pre>
       </div>
     </dd>
@@ -798,6 +834,8 @@ operate on current web page when in a browser buffer; otherwise
         <pre class="format">
 Extract table containing  specified match.
  Optional arg url specifies the page to extract content from.
+
+(fn MATCH URL &amp;optional SPEAK)
 </pre>
       </div>
     </dd>
@@ -837,6 +875,8 @@ Extract table containing  specified match.
         <pre class="format">
 Extract table at specified position.
 Default is to extract from current page.
+
+(fn POSITION URL &amp;optional SPEAK)
 </pre>
       </div>
     </dd>
@@ -878,6 +918,8 @@ Default is to extract from current page.
 Extract specified  tables from a WWW page.
 Tables are specified by containing  match pattern
  found in the match list.
+
+(fn MATCH-LIST URL &amp;optional SPEAK)
 </pre>
       </div>
     </dd>
@@ -919,6 +961,8 @@ Tables are specified by containing  match pattern
 Extract specified list of nested tables from a WWW page.
 Tables are specified by their position in the list
  of nested tables found in the page.
+
+(fn POSITIONS URL &amp;optional SPEAK)
 </pre>
       </div>
     </dd>
@@ -957,6 +1001,8 @@ Tables are specified by their position in the list
       <div class="format">
         <pre class="format">
 Follow URL, then extract role=main.
+
+(fn &amp;optional SPEAK)
 </pre>
       </div>
     </dd>
@@ -973,8 +1019,8 @@ Follow URL, then extract role=main.
     id=
     "index-emacspeak_002dwe_002dfollow_002dand_002dfilter_002dby_002did">
     </a>Command:
-    <strong>emacspeak-we-follow-and-filter-by-id</strong>
-    <em>(id)</em></dt>
+    <strong>emacspeak-we-follow-and-filter-by-id</strong> <em>(id
+    prompt)</em></dt>
 
     <dd>
       <dl compact="compact">
@@ -998,6 +1044,8 @@ Follow url and point, and filter the result by specified id.
 Id can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well.
+
+(fn ID PROMPT)
 </pre>
       </div>
     </dd>
@@ -1034,6 +1082,8 @@ used as well.
 Extract elements not having specified class attribute from HTML. Extracts
 specified elements from current WWW page and displays it in a separate
 buffer. Interactive use provides list of class values as completion.
+
+(fn CLASS URL &amp;optional SPEAK)
 </pre>
       </div>
     </dd>
@@ -1083,6 +1133,8 @@ Extract elements not having class specified in list ‘classes’ from HTML.
 Extracts specified elements from current WWW page and displays it
 in a separate buffer.  Interactive use provides list of class
 values as completion. 
+
+(fn CLASSES URL &amp;optional SPEAK)
 </pre>
       </div>
     </dd>
@@ -1118,6 +1170,8 @@ Extract elements matching specified style
 from HTML.  Extracts specified elements from current WWW
 page and displays it in a separate buffer.  Optional arg url
 specifies the page to extract contents  from.
+
+(fn STYLE URL &amp;optional SPEAK)
 </pre>
       </div>
     </dd>
@@ -1193,6 +1247,8 @@ Toggle xsl keep result flag.
       <div class="format">
         <pre class="format">
 Applies buffer-specific URL expander/executor function.
+
+(fn &amp;optional PREFIX)
 </pre>
       </div>
     </dd>
@@ -1230,6 +1286,8 @@ websearch where a rewrite rule is known.  Rewrite rules are
 useful in jumping directly to the printer friendly version of an
 article for example.  Optional interactive prefix arg prompts for
 a rewrite rule even if one is already defined.
+
+(fn &amp;optional PROMPT)
 </pre>
       </div>
     </dd>
@@ -1271,6 +1329,8 @@ Follow url and point, and filter the result by specified xpath.
 XPath can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well.
+
+(fn &amp;optional PROMPT)
 </pre>
       </div>
     </dd>
@@ -1312,6 +1372,8 @@ elements specified by xpath.
 XPath can be set locally for a buffer, and overridden with an
 interactive prefix arg. If there is a known rewrite url rule, that is
 used as well.
+
+(fn &amp;optional PROMPT)
 </pre>
       </div>
     </dd>
@@ -1374,6 +1436,8 @@ Toggle  application of XSL transformations.
       <div class="format">
         <pre class="format">
 Apply specified transformation to current Web page.
+
+(fn XSL)
 </pre>
       </div>
     </dd>
@@ -1407,6 +1471,8 @@ Apply specified transformation to current Web page.
         <pre class="format">
 Extract elements matching specified XPath path locator
 from Web page – default is the current page being viewed.
+
+(fn PATH URL &amp;optional SPEAK)
 </pre>
       </div>
     </dd>
@@ -1438,6 +1504,8 @@ from Web page – default is the current page being viewed.
       <div class="format">
         <pre class="format">
 Junk elements matching specified locator.
+
+(fn PATH URL &amp;optional SPEAK)
 </pre>
       </div>
     </dd>
@@ -1469,6 +1537,8 @@ Junk elements matching specified locator.
       <div class="format">
         <pre class="format">
 Select XSL transformation applied to Web pages before they are displayed .
+
+(fn XSL)
 </pre>
       </div>
     </dd>

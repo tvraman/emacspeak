@@ -136,6 +136,8 @@ pattern ‘.’ (this is already added by default) emacspeak
 will say ‘‘aw fifteen dot’’ when speaking the string
 ‘‘...............’’ instead of ‘‘period period period period
 ’’
+
+(fn &amp;optional DELETE)
 </pre>
       </div>
     </dd>
@@ -199,6 +201,8 @@ Select and start an local speech server interactively. Local server
 lets Emacspeak on a remote host connect back via SSH port forwarding
 for instance. Argument PROGRAM specifies the speech server
 program. Port defaults to dtk-local-server-port
+
+(fn PROGRAM &amp;optional PROMPT-PORT)
 </pre>
       </div>
     </dd>
@@ -355,6 +359,8 @@ When called interactively, restarts speech server.
 Argument PROGRAM specifies the speech server program.
  Optional arg device sets up environment variable
 ALSA_DEFAULT to specified device before starting the server.
+
+(fn PROGRAM &amp;optional DEVICE)
 </pre>
       </div>
     </dd>
@@ -390,6 +396,8 @@ Speech rate is scaled by this factor
 when speaking characters.
 Interactive PREFIX arg means set   the global default value, and then set the
 current local  value to the result.
+
+(fn FACTOR &amp;optional PREFIX)
 </pre>
       </div>
     </dd>
@@ -427,6 +435,8 @@ Interactively set how text is split in chunks.
 See the Emacs documentation on syntax tables for details on how characters are
 classified into various syntactic classes.
 Argument S specifies the syntax class.
+
+(fn S)
 </pre>
       </div>
     </dd>
@@ -457,6 +467,8 @@ Argument S specifies the syntax class.
       <div class="format">
         <pre class="format">
 Set language according to the argument lang.
+
+(fn LANG)
 </pre>
       </div>
     </dd>
@@ -614,6 +626,8 @@ Set speech rate to one of nine predefined levels.
 Interactive PREFIX arg says to set the rate globally.
 Formula used is:
 rate = dtk-speech-rate-base + dtk-speech-rate-step * level.
+
+(fn &amp;optional PREFIX)
 </pre>
       </div>
     </dd>
@@ -641,6 +655,7 @@ then the following call:
  dtk-set-language("en")
 will set "en_GB".
 
+(fn ALIAS LANG)
 </pre>
       </div>
     </dd>
@@ -706,6 +721,8 @@ Set punctuation mode to MODE.
 Possible values are ‘some’, ‘all’, or ‘none’.
 Interactive PREFIX arg means set   the global default value, and then set the
 current local  value to the result.
+
+(fn MODE &amp;optional PREFIX)
 </pre>
       </div>
     </dd>
@@ -730,6 +747,8 @@ current local  value to the result.
         <pre class="format">
 Set punctuation  mode to all.
 Interactive PREFIX arg sets punctuation mode globally.
+
+(fn &amp;optional PREFIX)
 </pre>
       </div>
     </dd>
@@ -755,6 +774,8 @@ Interactive PREFIX arg sets punctuation mode globally.
         <pre class="format">
 Set punctuation  mode to some.
 Interactive PREFIX arg sets punctuation mode globally.
+
+(fn &amp;optional PREFIX)
 </pre>
       </div>
     </dd>
@@ -788,6 +809,8 @@ Interactive PREFIX arg sets punctuation mode globally.
 Set speaking RATE for the tts.
 Interactive PREFIX arg means set   the global default value, and then set the
 current local  value to the result.
+
+(fn RATE &amp;optional PREFIX)
 </pre>
       </div>
     </dd>
@@ -933,6 +956,8 @@ value, and then set the current local value to the result.
         <pre class="format">
 Toggle punctuation mode between "some" and "all".
 Interactive PREFIX arg makes the new setting global.
+
+(fn &amp;optional PREFIX)
 </pre>
       </div>
     </dd>
@@ -1144,6 +1169,8 @@ value to the result.
         <pre class="format">
 Cycle through available ALSA devices.
 Optional interactive prefix arg restarts current TTS server.
+
+(fn &amp;optional RESTART)
 </pre>
       </div>
     </dd>

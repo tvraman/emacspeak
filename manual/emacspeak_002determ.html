@@ -165,6 +165,8 @@ The window is then define to be
 the rectangle delimited by point and eterm mark.  This is to
 be used when emacspeak is set to review mode inside an
 eterm.
+
+(fn ID)
 </pre>
       </div>
     </dd>
@@ -189,6 +191,8 @@ eterm.
         <pre class="format">
 Describe an eterm  window.
 Description indicates eterm window coordinates and whether it is stretchable
+
+(fn ID)
 </pre>
       </div>
     </dd>
@@ -210,6 +214,8 @@ Description indicates eterm window coordinates and whether it is stretchable
       <div class="format">
         <pre class="format">
 Move emacspeak eterm pointer to a specified LINE.
+
+(fn LINE)
 </pre>
       </div>
     </dd>
@@ -325,6 +331,8 @@ sent to the terminal as if it were typed by the user.
 Move the pointer backward  by words. 
 Interactive numeric prefix arg specifies number of words to move.
 Argument COUNT specifies number of words by which to move.
+
+(fn COUNT)
 </pre>
       </div>
     </dd>
@@ -348,6 +356,8 @@ Argument COUNT specifies number of words by which to move.
         <pre class="format">
 Move the pointer down a line.
 Argument COUNT specifies number of lines by which to move.
+
+(fn COUNT)
 </pre>
       </div>
     </dd>
@@ -378,6 +388,8 @@ Argument COUNT specifies number of lines by which to move.
 Move the pointer forward by words. 
 Interactive numeric prefix arg specifies number of words to move.
 Argument COUNT specifies number of words by which to move.
+
+(fn COUNT)
 </pre>
       </div>
     </dd>
@@ -401,6 +413,8 @@ Argument COUNT specifies number of words by which to move.
         <pre class="format">
 Move the pointer left.
 Argument COUNT specifies number of columns by which to move.
+
+(fn COUNT)
 </pre>
       </div>
     </dd>
@@ -425,6 +439,8 @@ Argument COUNT specifies number of columns by which to move.
         <pre class="format">
 Move the pointer right.
 Argument COUNT specifies number of columns by which to move.
+
+(fn COUNT)
 </pre>
       </div>
     </dd>
@@ -533,6 +549,8 @@ Move the pointer to the right edge.
 Move the eterm pointer to the next color change.
 This allows you to move between highlighted regions of the screen.
 Optional argument COUNT specifies how many changes to skip.
+
+(fn &amp;optional COUNT)
 </pre>
       </div>
     </dd>
@@ -565,6 +583,8 @@ Optional argument COUNT specifies how many changes to skip.
 Move the eterm pointer to the next color change.
 This allows you to move between highlighted regions of the screen.
 Optional argument COUNT specifies how many changes to skip.
+
+(fn &amp;optional COUNT)
 </pre>
       </div>
     </dd>
@@ -639,6 +659,8 @@ Move the pointer to the top of the screen.
         <pre class="format">
 Move the pointer up a line.
 Argument COUNT .specifies number of lines by which to move.
+
+(fn COUNT)
 </pre>
       </div>
     </dd>
@@ -661,6 +683,8 @@ Argument COUNT .specifies number of lines by which to move.
       <div class="format">
         <pre class="format">
 Start a terminal-emulator in a new buffer.
+
+(fn HOST)
 </pre>
       </div>
     </dd>
@@ -736,6 +760,8 @@ this is equivalent to having the entire terminal as the filter window (this is
 what eterm starts up with).
 Setting the filter window results in emacspeak  only monitoring screen
 activity within the filter window.
+
+(fn FLAG)
 </pre>
       </div>
     </dd>
@@ -767,6 +793,8 @@ this is equivalent to having the entire terminal as the focus window (this is
 what eterm starts up with).
 Setting the focus window results in emacspeak  monitoring screen
 and speaking that window upon seeing screen activity.
+
+(fn FLAG)
 </pre>
       </div>
     </dd>
@@ -859,6 +887,8 @@ Speak current pointer position.
         <pre class="format">
 Speak char under eterm pointer.
 Pronounces character phonetically unless  called with a PREFIX arg.
+
+(fn &amp;optional PREFIX)
 </pre>
       </div>
     </dd>
@@ -959,6 +989,8 @@ Speak a predefined eterm window between 1 and 10.
 Speak the screen.  Default is to speak from the emacspeak pointer  to point.
 Optional prefix arg FLAG causes region above
 the Emacspeak pointer to be spoken.
+
+(fn &amp;optional FLAG)
 </pre>
       </div>
     </dd>
@@ -982,6 +1014,8 @@ the Emacspeak pointer to be spoken.
         <pre class="format">
 Speak an eterm window.
 Argument ID specifies the window.
+
+(fn ID)
 </pre>
       </div>
     </dd>
@@ -1111,6 +1145,8 @@ without sending input to the terminal itself.
       <div class="format">
         <pre class="format">
 Yank contents of  an eterm window at point.
+
+(fn ID)
 </pre>
       </div>
     </dd>

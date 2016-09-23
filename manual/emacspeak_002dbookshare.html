@@ -184,6 +184,8 @@ Call action specified by  invoking key.
         <pre class="format">
 Perform a Bookshare author search.
 Interactive prefix arg filters search by category.
+
+(fn QUERY &amp;optional CATEGORY)
 </pre>
       </div>
     </dd>
@@ -253,6 +255,8 @@ Return latest books.
         <pre class="format">
 Browse popular books.
 Optional interactive prefix arg prompts for a category to use as a filter.
+
+(fn &amp;optional CATEGORY)
 </pre>
       </div>
     </dd>
@@ -277,6 +281,8 @@ Optional interactive prefix arg prompts for a category to use as a filter.
       <div class="format">
         <pre class="format">
 Download Daisy format of specified book to target location.
+
+(fn ID TARGET)
 </pre>
       </div>
     </dd>
@@ -331,6 +337,8 @@ Target location is generated from author and title.
       <div class="format">
         <pre class="format">
 Download Daisy format of specified book to target location.
+
+(fn ID TARGET)
 </pre>
       </div>
     </dd>
@@ -386,6 +394,8 @@ Target location is generated from author and title.
       <div class="format">
         <pre class="format">
 Download content  to target location.
+
+(fn URL TARGET)
 </pre>
       </div>
     </dd>
@@ -407,6 +417,8 @@ Download content  to target location.
       <div class="format">
         <pre class="format">
 Render complete book using EWW if available.
+
+(fn DIRECTORY)
 </pre>
       </div>
     </dd>
@@ -462,6 +474,8 @@ Once retrieved, memoize to avoid multiple retrievals.
       <div class="format">
         <pre class="format">
 Extract content referred to by link under point, and render via the browser.
+
+(fn URL)
 </pre>
       </div>
     </dd>
@@ -485,6 +499,8 @@ Extract content referred to by link under point, and render via the browser.
       <div class="format">
         <pre class="format">
 Extract content referred to by link under point, and return an XML buffer.
+
+(fn URL)
 </pre>
       </div>
     </dd>
@@ -508,6 +524,8 @@ Extract content referred to by link under point, and return an XML buffer.
       <div class="format">
         <pre class="format">
 Flush lines matching regexp in Bookshare buffer.
+
+(fn REGEXP)
 </pre>
       </div>
     </dd>
@@ -531,6 +549,8 @@ Flush lines matching regexp in Bookshare buffer.
         <pre class="format">
 Display fulltext contents of  book in specified directory.
 Useful for fulltext search in a book.
+
+(fn DIRECTORY)
 </pre>
       </div>
     </dd>
@@ -555,6 +575,8 @@ Useful for fulltext search in a book.
       <div class="format">
         <pre class="format">
 Perform a Bookshare fulltext search.
+
+(fn QUERY)
 </pre>
       </div>
     </dd>
@@ -605,6 +627,8 @@ Get next page of results for last query.
       <div class="format">
         <pre class="format">
 Perform a Bookshare id search.
+
+(fn QUERY)
 </pre>
       </div>
     </dd>
@@ -628,6 +652,8 @@ Perform a Bookshare id search.
       <div class="format">
         <pre class="format">
 Perform a Bookshare isbn search.
+
+(fn QUERY)
 </pre>
       </div>
     </dd>
@@ -827,6 +853,8 @@ Move to previous result.
       <div class="format">
         <pre class="format">
 Set preference preference-id to value.
+
+(fn PREFERENCE-ID VALUE)
 </pre>
       </div>
     </dd>
@@ -873,6 +901,8 @@ Sign out, clearing password.
         <pre class="format">
 Perform a Bookshare date  search.
 Optional interactive prefix arg filters by category.
+
+(fn QUERY &amp;optional CATEGORY)
 </pre>
       </div>
     </dd>
@@ -898,6 +928,8 @@ Optional interactive prefix arg filters by category.
         <pre class="format">
 Perform a Bookshare title search.
 Interactive prefix arg filters search by category.
+
+(fn QUERY &amp;optional CATEGORY)
 </pre>
       </div>
     </dd>
@@ -919,6 +951,8 @@ Interactive prefix arg filters search by category.
       <div class="format">
         <pre class="format">
 View TOC for book in specified directory.
+
+(fn DIRECTORY)
 </pre>
       </div>
     </dd>
@@ -994,6 +1028,8 @@ Unpack downloaded content if necessary.
       <div class="format">
         <pre class="format">
 Custom URL executor for use in Bookshare TOC.
+
+(fn URL)
 </pre>
       </div>
     </dd>
@@ -1043,6 +1079,8 @@ This function accepts any number of arguments, but ignores them.
       <div class="format">
         <pre class="format">
 View book in specified directory.
+
+(fn DIRECTORY)
 </pre>
       </div>
     </dd>
@@ -1095,6 +1133,8 @@ Make sure it’s downloaded and unpacked first.
       <div class="format">
         <pre class="format">
 Play pages in specified page range from URL.
+
+(fn URL)
 </pre>
       </div>
     </dd>

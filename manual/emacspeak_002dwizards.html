@@ -129,6 +129,8 @@ Interactive prefix arg ‘reset’ prompts for the annotation
 buffer even if one is already set.
 Annotation is entered in a temporary buffer and the
 annotation is inserted into the working buffer when complete.
+
+(fn &amp;optional RESET)
 </pre>
       </div>
     </dd>
@@ -170,6 +172,8 @@ light-weight.  Optional interactive prefix arg results in Emacspeak
 prompting for the clipboard file to use.
 Argument START and END specifies  region.
 Optional argument PROMPT  specifies whether we prompt for the name of a clipboard file.
+
+(fn START END &amp;optional PROMPT)
 </pre>
       </div>
     </dd>
@@ -208,6 +212,8 @@ machines.  Do not use this for sharing information within an Emacs
 session –Emacs’ register commands are far more efficient and
 light-weight.  Optional interactive prefix arg pastes from
 the emacspeak table clipboard instead.
+
+(fn &amp;optional PASTE-TABLE)
 </pre>
       </div>
     </dd>
@@ -265,6 +271,8 @@ Prompts for the new location and preserves modification time
       <div class="format">
         <pre class="format">
 Grab URL using Curl, and preview it with a browser .
+
+(fn URL)
 </pre>
       </div>
     </dd>
@@ -321,6 +329,8 @@ Customize Emacspeak.
         <pre class="format">
 Create a customization buffer for browsing and updating
 personal customizations.
+
+(fn FILE)
 </pre>
       </div>
     </dd>
@@ -406,6 +416,8 @@ emacspeak-emergency-tts-server.
         <pre class="format">
 Switch to labelled frame.
 With optional PREFIX argument, label current frame.
+
+(fn &amp;optional PREFIX)
 </pre>
       </div>
     </dd>
@@ -566,6 +578,8 @@ Prompts for the new location and preserves modification time
       <div class="format">
         <pre class="format">
 Launch links on  specified URL in a new terminal.
+
+(fn URL)
 </pre>
       </div>
     </dd>
@@ -585,6 +599,8 @@ Launch links on  specified URL in a new terminal.
       <div class="format">
         <pre class="format">
 Launch lynx on  specified URL in a new terminal.
+
+(fn URL)
 </pre>
       </div>
     </dd>
@@ -615,6 +631,8 @@ Launch lynx on  specified URL in a new terminal.
         <pre class="format">
 Move to next buffer.
 With optional interactive prefix arg ‘frame’, move to next frame instead.
+
+(fn &amp;optional FRAME)
 </pre>
       </div>
     </dd>
@@ -646,6 +664,8 @@ With optional interactive prefix arg ‘frame’, move to next frame instead.
         <pre class="format">
 Move to previous buffer.
 With optional interactive prefix arg ‘frame’, move to previous frame instead.
+
+(fn &amp;optional FRAME)
 </pre>
       </div>
     </dd>
@@ -728,6 +748,8 @@ displays you wish to select.  Typically you will have two or
 at most three such displays open.  The current display is 0,
 the next is 1, and so on.  Optional argument ARG specifies
 the display to select.
+
+(fn &amp;optional ARG)
 </pre>
       </div>
     </dd>
@@ -842,6 +864,8 @@ Show value of PROPERTY at point.
 If optional arg property is not supplied, read it interactively.
 Provides completion based on properties at point.
 If no property is set, show a message and exit.
+
+(fn &amp;optional PROPERTY)
 </pre>
       </div>
     </dd>
@@ -988,6 +1012,8 @@ that produce tabulated output that works with Emacspeak’s table
 recognizer. Verify this first by running the command in a shell
 and executing command ‘emacspeak-table-display-table-in-region’
 normally bound to C-e TAB.
+
+(fn COMMAND &amp;optional READ-AS-CSV)
 </pre>
       </div>
     </dd>
@@ -1023,6 +1049,8 @@ normally bound to C-e TAB.
         <pre class="format">
 Lookup and display a phone number.
 With prefix arg, opens the phone book for editing.
+
+(fn &amp;optional EDIT)
 </pre>
       </div>
     </dd>
@@ -1112,6 +1140,8 @@ displays you wish to speak.  Typically you will have two or
 at most three such displays open.  The current display is 0,
 the next is 1, and so on.  Optional argument ARG specifies
 the display to speak.
+
+(fn &amp;optional ARG)
 </pre>
       </div>
     </dd>
@@ -1327,6 +1357,8 @@ Browse  Emacspeak productivity tips.
         <pre class="format">
 Add autoload cookies to file f.
 Default is to add autoload cookies to current file.
+
+(fn &amp;optional F)
 </pre>
       </div>
     </dd>
@@ -1348,6 +1380,8 @@ Default is to add autoload cookies to current file.
       <div class="format">
         <pre class="format">
 Insert Braille string at point.
+
+(fn S)
 </pre>
       </div>
     </dd>
@@ -1500,6 +1534,8 @@ Move to the end of current word and add a comma.
       <div class="format">
         <pre class="format">
 Count slides starting from point.
+
+(fn START END)
 </pre>
       </div>
     </dd>
@@ -1637,6 +1673,8 @@ Cycles to previous buffer having same mode.
       <div class="format">
         <pre class="format">
 Create a virtual manpage in Emacs from the Perl Online Documentation.
+
+(fn FILENAME)
 </pre>
       </div>
     </dd>
@@ -1716,6 +1754,8 @@ key             binding
       <div class="format">
         <pre class="format">
 move to end of word
+
+(fn ARG)
 </pre>
       </div>
     </dd>
@@ -1746,6 +1786,8 @@ move to end of word
       <div class="format">
         <pre class="format">
 Prompt for a string pattern and return list of commands whose names match pattern.
+
+(fn PATTERN)
 </pre>
       </div>
     </dd>
@@ -1775,6 +1817,8 @@ Prompt for a string pattern and return list of commands whose names match patter
       <div class="format">
         <pre class="format">
 Enumerate  faces matching pattern.
+
+(fn PATTERN)
 </pre>
       </div>
     </dd>
@@ -1833,6 +1877,8 @@ utility function to enumerate old, obsolete maps that we have still  mapped to v
       <div class="format">
         <pre class="format">
 Enumerate unadvised commands matching pattern.
+
+(fn PATTERN)
 </pre>
       </div>
     </dd>
@@ -1862,6 +1908,8 @@ Enumerate unadvised commands matching pattern.
       <div class="format">
         <pre class="format">
 Enumerate unmapped faces matching pattern.
+
+(fn &amp;optional PATTERN)
 </pre>
       </div>
     </dd>
@@ -1885,6 +1933,8 @@ Enumerate unmapped faces matching pattern.
       <div class="format">
         <pre class="format">
 Speak region using ESpeak polyglot wizard.
+
+(fn START END)
 </pre>
       </div>
     </dd>
@@ -1909,6 +1959,8 @@ Speak region using ESpeak polyglot wizard.
         <pre class="format">
 Speak string in lang via ESpeak.
 Lang is obtained from property ‘lang’ on string, or  via an interactive prompt.
+
+(fn STRING)
 </pre>
       </div>
     </dd>
@@ -2024,6 +2076,8 @@ user.
         <pre class="format">
 Run compile using find and grep.
 Interactive  arguments specify filename pattern and search pattern.
+
+(fn GLOB PATTERN)
 </pre>
       </div>
     </dd>
@@ -2064,6 +2118,8 @@ Interactive  arguments specify filename pattern and search pattern.
         <pre class="format">
 Find longest line in region.
 Moves to the longest line when called interactively.
+
+(fn START END)
 </pre>
       </div>
     </dd>
@@ -2095,6 +2151,8 @@ Moves to the longest line when called interactively.
         <pre class="format">
 Find longest paragraph in region.
 Moves to the longest paragraph when called interactively.
+
+(fn START END)
 </pre>
       </div>
     </dd>
@@ -2126,6 +2184,8 @@ Moves to the longest paragraph when called interactively.
         <pre class="format">
 Find shortest line in region.
 Moves to the shortest line when called interactively.
+
+(fn START END)
 </pre>
       </div>
     </dd>
@@ -2150,6 +2210,8 @@ Moves to the shortest line when called interactively.
         <pre class="format">
 Run find-dired on specified switches after prompting for the
 directory to where find is to be launched.
+
+(fn DIRECTORY)
 </pre>
       </div>
     </dd>
@@ -2208,6 +2270,8 @@ key             binding
       <div class="format">
         <pre class="format">
 Nuke read-only property on text range.
+
+(fn START END)
 </pre>
       </div>
     </dd>
@@ -2232,6 +2296,8 @@ Nuke read-only property on text range.
 Search and replace  recursively in all files with extension ‘ext’
 for ‘word’ and replace it with correction.
 Use with caution.
+
+(fn EXT WORD CORRECTION)
 </pre>
       </div>
     </dd>
@@ -2285,6 +2351,8 @@ Generate a widget-enabled finder wizard.
         <pre class="format">
 Generate a buffer that shows a sample line in all the ACSS settings
 for the current voice family.
+
+(fn STEP)
 </pre>
       </div>
     </dd>
@@ -2317,6 +2385,8 @@ for the current voice family.
 Extract table specified by depth and count from HTML
 content at file.
 Extracted content is sent to STDOUT.
+
+(fn FILE DEPTH COUNT)
 </pre>
       </div>
     </dd>
@@ -2349,6 +2419,8 @@ Extracted content is sent to STDOUT.
 Extract table specified by depth and count from HTML
 content at URL.
 Extracted content is placed as a csv file in task.csv.
+
+(fn URL DEPTH COUNT)
 </pre>
       </div>
     </dd>
@@ -2411,6 +2483,8 @@ called ‘emacspeak-occur-pattern’ that holds a regular expression
 that matches  lines of interest, you can use this command to conveniently
 run ‘how-many’ to count  matching header lines.
 With interactive prefix arg, prompts for and remembers the file local pattern.
+
+(fn START END &amp;optional PREFIX)
 </pre>
       </div>
     </dd>
@@ -2514,6 +2588,8 @@ load file into emacs
         <pre class="format">
 Display MLB standings as of today.
 Optional interactive prefix arg shows  unprocessed results.
+
+(fn &amp;optional RAW)
 </pre>
       </div>
     </dd>
@@ -2544,6 +2620,8 @@ count that specifies how many times to execute that command
 first.  Point is left at the target position.  Interactively,
 command is specified by pressing the key that invokes the
 command.
+
+(fn COMMAND COUNT)
 </pre>
       </div>
     </dd>
@@ -2568,6 +2646,8 @@ command.
         <pre class="format">
 Display NBA standings as of today.
 Optional interactive prefix arg shows  unprocessed results.
+
+(fn &amp;optional RAW)
 </pre>
       </div>
     </dd>
@@ -2655,7 +2735,7 @@ Switch to next shell.
     id="index-emacspeak_002dwizards_002doccur_002dheader_002dlines">
     </a>Command:
     <strong>emacspeak-wizards-occur-header-lines</strong>
-    <em>(start end &amp;optional prefix)</em></dt>
+    <em>(&amp;optional prefix)</em></dt>
 
     <dd>
       <dl compact="compact">
@@ -2680,6 +2760,8 @@ If you define a file local variable called
 matches header lines, you can use this command to conveniently
 run ‘occur’ to find matching header lines. With prefix arg,
 prompts for and sets value of the file local pattern.
+
+(fn &amp;optional PREFIX)
 </pre>
       </div>
     </dd>
@@ -2713,6 +2795,8 @@ prompts for and sets value of the file local pattern.
         <pre class="format">
 Open pdf file as text.
 Optional interactive prefix arg ask-pwd prompts for password.
+
+(fn FILENAME &amp;optional ASK-PWD)
 </pre>
       </div>
     </dd>
@@ -2741,6 +2825,8 @@ Optional interactive prefix arg ask-pwd prompts for password.
       <div class="format">
         <pre class="format">
 Provide an input buffer in a specified mode.
+
+(fn MODE)
 </pre>
       </div>
     </dd>
@@ -2899,6 +2985,8 @@ Prompts for relevant information and schedules a rivo job using
 RIVO is implemented by rivo.pl —
  a Perl script  that can be used to launch streaming media and record
    streaming media for  a specified duration.
+
+(fn WHEN CHANNEL STOP-TIME OUTPUT DIRECTORY)
 </pre>
       </div>
     </dd>
@@ -2960,6 +3048,8 @@ Run rpm -qi on current dired entry.
         <pre class="format">
 Run Emacs built-in ‘shell’ command when not in a shell buffer, or when called with a prefix argument.
 When called from a shell buffer, switches to ‘next’ shell buffer.
+
+(fn &amp;optional PREFIX)
 </pre>
       </div>
     </dd>
@@ -2999,6 +3089,8 @@ When called from a shell buffer, switches to ‘next’ shell buffer.
       <div class="format">
         <pre class="format">
 Prompts for and runs shell command on current file.
+
+(fn COMMAND)
 </pre>
       </div>
     </dd>
@@ -3067,6 +3159,8 @@ Switch to the shell buffer and cd to
       <div class="format">
         <pre class="format">
 Display commentary. Default is to display commentary from current buffer.
+
+(fn &amp;optional FILE)
 </pre>
       </div>
     </dd>
@@ -3096,6 +3190,8 @@ Display commentary. Default is to display commentary from current buffer.
       <div class="format">
         <pre class="format">
 Display value of specified environment variable.
+
+(fn V)
 </pre>
       </div>
     </dd>
@@ -3126,6 +3222,8 @@ Display value of specified environment variable.
       <div class="format">
         <pre class="format">
 Convenience command to pretty-print and view Lisp evaluation results.
+
+(fn FORM)
 </pre>
       </div>
     </dd>
@@ -3148,6 +3246,8 @@ Convenience command to pretty-print and view Lisp evaluation results.
       <div class="format">
         <pre class="format">
 Show salient properties of specified face.
+
+(fn FACE)
 </pre>
       </div>
     </dd>
@@ -3200,6 +3300,8 @@ Convenience command to view state of memory used in this session so far.
       <div class="format">
         <pre class="format">
 Make ISO date-time speech friendly.
+
+(fn ISO)
 </pre>
       </div>
     </dd>
@@ -3223,6 +3325,8 @@ Make ISO date-time speech friendly.
         <pre class="format">
 Searches recursively in all files with extension ‘ext’
 for ‘word’ and displays hits in a compilation buffer.
+
+(fn EXT WORD)
 </pre>
       </div>
     </dd>
@@ -3257,6 +3361,8 @@ for ‘word’ and displays hits in a compilation buffer.
       <div class="format">
         <pre class="format">
 Squeeze multiple blank lines in current buffer.
+
+(fn START END)
 </pre>
       </div>
     </dd>
@@ -3281,6 +3387,8 @@ Squeeze multiple blank lines in current buffer.
       <div class="format">
         <pre class="format">
 Display sunrise/sunset for specified address.
+
+(fn ADDRESS &amp;optional ARG)
 </pre>
       </div>
     </dd>
@@ -3315,6 +3423,8 @@ Switch to an ansi-term buffer or create one.
 With prefix arg, always creates a new terminal.
 Otherwise cycles through existing terminals, creating the first
 term if needed.
+
+(fn CREATE)
 </pre>
       </div>
     </dd>
@@ -3337,6 +3447,8 @@ term if needed.
       <div class="format">
         <pre class="format">
 Launch terminal and rename buffer appropriately.
+
+(fn PROGRAM)
 </pre>
       </div>
     </dd>
@@ -3366,6 +3478,8 @@ Launch terminal and rename buffer appropriately.
       <div class="format">
         <pre class="format">
 Tie the next n  words.
+
+(fn N)
 </pre>
       </div>
     </dd>
@@ -3481,6 +3595,8 @@ Toggle pronunciation of yyyymmdd  dates.
         <pre class="format">
 Open specified tramp location.
 Location is specified by name.
+
+(fn NAME)
 </pre>
       </div>
     </dd>
@@ -3520,6 +3636,8 @@ Location is specified by name.
         <pre class="format">
 Browse Tune-In Radio.
 Optional interactive prefix arg ‘category’ prompts for a category.
+
+(fn &amp;optional CATEGORY)
 </pre>
       </div>
     </dd>
@@ -3579,6 +3697,8 @@ Search Tune-In Radio.
       <div class="format">
         <pre class="format">
 UnEscape URI
+
+(fn URI)
 </pre>
       </div>
     </dd>
@@ -3664,6 +3784,8 @@ Accelerator for VC viewer.
       <div class="format">
         <pre class="format">
 View contents of specified virtual console.
+
+(fn CONSOLE)
 </pre>
       </div>
     </dd>
@@ -3749,6 +3871,8 @@ Refresh view of VC we’re viewing.
       <div class="format">
         <pre class="format">
 Launch sudo vi on specified file in a terminal.
+
+(fn FILE)
 </pre>
       </div>
     </dd>
@@ -3817,6 +3941,8 @@ Buffer menu filtered by  m-player mode.
       <div class="format">
         <pre class="format">
 Display list of buffers filtered by specified mode.
+
+(fn MODE)
 </pre>
       </div>
     </dd>
@@ -3888,6 +4014,8 @@ Buffer menu filtered by  mode of current-buffer.
       <div class="format">
         <pre class="format">
 Read a personality  and apply it to the current line.
+
+(fn PERSONALITY)
 </pre>
       </div>
     </dd>
@@ -3977,6 +4105,8 @@ key             binding
         <pre class="format">
 Lookup quotes for specified stock symbols.
 Symbols are separated by whitespace.
+
+(fn SYMBOLS)
 </pre>
       </div>
     </dd>
@@ -4033,6 +4163,8 @@ Symbols are taken from ‘emacspeak-wizards-personal-portfolio’.
       <div class="format">
         <pre class="format">
 Display weather forecast table.
+
+(fn ZIP)
 </pre>
       </div>
     </dd>

@@ -202,6 +202,8 @@ Summarize parent of widget at point.
 Summarize a widget if any under point.
 Optional interactive prefix specifies how many levels to go up from current
 widget before summarizing.
+
+(fn &amp;optional LEVEL)
 </pre>
       </div>
     </dd>
@@ -219,7 +221,7 @@ widget before summarizing.
     "index-emacspeak_002dwidget_002dupdate_002dfrom_002dminibuffer">
     </a>Command:
     <strong>emacspeak-widget-update-from-minibuffer</strong>
-    <em>(point)</em></dt>
+    <em>(pos)</em></dt>
 
     <dd>
       <a name=
@@ -230,7 +232,9 @@ widget before summarizing.
 
       <div class="format">
         <pre class="format">
-Sets widget at point by invoking its prompter.
+Sets widget at ‘pos’ by invoking its prompter.
+
+(fn POS)
 </pre>
       </div>
     </dd>

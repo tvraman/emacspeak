@@ -164,6 +164,8 @@ C-e C-o to launch emacspeak-ocr-mode, and press
       <div class="format">
         <pre class="format">
 Like backward page, but tracks page number of current document.
+
+(fn &amp;optional COUNT-IGNORED)
 </pre>
       </div>
     </dd>
@@ -239,6 +241,8 @@ Prompts for image file if file corresponding to the expected
       <div class="format">
         <pre class="format">
 Like forward page, but tracks page number of current document.
+
+(fn &amp;optional COUNT-IGNORED)
 </pre>
       </div>
     </dd>
@@ -362,6 +366,8 @@ during initialization.
         <pre class="format">
 Name document being scanned in the current OCR buffer.
 Pick a short but meaningful name.
+
+(fn NAME)
 </pre>
       </div>
     </dd>
@@ -551,6 +557,8 @@ Acquire page image.
         <pre class="format">
 Scan in a photograph.
 The scanned image is converted to JPEG.
+
+(fn &amp;optional METADATA)
 </pre>
       </div>
     </dd>
@@ -582,6 +590,8 @@ The scanned image is converted to JPEG.
 Interactively update  image compression options.
 Prompts with current setting in the minibuffer.
 Setting persists for current Emacs session.
+
+(fn SETTING)
 </pre>
       </div>
     </dd>
@@ -613,6 +623,8 @@ Setting persists for current Emacs session.
 Interactively update scan image options.
 Prompts with current setting in the minibuffer.
 Setting persists for current Emacs session.
+
+(fn SETTING)
 </pre>
       </div>
     </dd>

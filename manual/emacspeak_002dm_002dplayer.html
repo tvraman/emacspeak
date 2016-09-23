@@ -130,6 +130,8 @@ play-list interprets resource as a play-list.  Second interactive
 prefix arg adds option -allow-dangerous-playlist-parsing to mplayer.
 Resource is a media resource or playlist containing media resources.
 The player is placed in a buffer in emacspeak-m-player-mode.
+
+(fn RESOURCE &amp;optional PLAY-LIST)
 </pre>
       </div>
     </dd>
@@ -180,6 +182,8 @@ Add predefined autopan effect.
 Add equalizer to playing stream.  Equalizer is applied as each change
 is made, and the final effect set by pressing RET.  Interactive prefix
 arg ‘reset’ starts with all filters set to 0.
+
+(fn &amp;optional RESET)
 </pre>
       </div>
     </dd>
@@ -204,6 +208,8 @@ arg ‘reset’ starts with all filters set to 0.
       <div class="format">
         <pre class="format">
 Adds specified filter.
+
+(fn FILTER-NAME)
 </pre>
       </div>
     </dd>
@@ -276,6 +282,8 @@ Add slave command af_add.
       <div class="format">
         <pre class="format">
 Move within an ASF playlist.
+
+(fn STEP)
 </pre>
       </div>
     </dd>
@@ -302,6 +310,8 @@ Move within an ASF playlist.
 Set AMark ‘name’ at current position in current audio stream.
 Interactive prefix arg prompts for position.
 As the default, use current position.
+
+(fn NAME &amp;optional PROMPT-POSITION)
 </pre>
       </div>
     </dd>
@@ -356,6 +366,8 @@ Jump to specified AMark.
 Prompt for a predefined reverb preset and apply it.
 You need to use mplayer built with ladspa support, and have package
 tap-reverb already installed.
+
+(fn PRESET)
 </pre>
       </div>
     </dd>
@@ -503,6 +515,8 @@ Move to beginning of track.
       <div class="format">
         <pre class="format">
 Binds key to invoke m-player  on specified directory.
+
+(fn DIRECTORY KEY)
 </pre>
       </div>
     </dd>
@@ -548,6 +562,8 @@ Clear all active filters
       <div class="format">
         <pre class="format">
 Invoke MPlayer commands.
+
+(fn KEY)
 </pre>
       </div>
     </dd>
@@ -600,6 +616,8 @@ Use Customize to manipulate MPlayer options.
       <div class="format">
         <pre class="format">
 Delete filter.
+
+(fn FILTER)
 </pre>
       </div>
     </dd>
@@ -804,6 +822,8 @@ Move to beginning of track.
         <pre class="format">
 Manipulate values in specified vector using minibuffer.
 Applies  the resulting value at each step.
+
+(fn V)
 </pre>
       </div>
     </dd>
@@ -988,6 +1008,8 @@ Play both channels on left channel.
         <pre class="format">
 Load specified resource into a running  m-player.
 Interactive prefix arg appends the new resource to what is playing.
+
+(fn RESOURCE &amp;optional APPEND)
 </pre>
       </div>
     </dd>
@@ -1011,6 +1033,8 @@ Interactive prefix arg appends the new resource to what is playing.
       <div class="format">
         <pre class="format">
 Load specified file.
+
+(fn F)
 </pre>
       </div>
     </dd>
@@ -1036,6 +1060,8 @@ Load specified file.
       <div class="format">
         <pre class="format">
 Load specified playlist file.
+
+(fn F)
 </pre>
       </div>
     </dd>
@@ -1071,6 +1097,8 @@ Load specified playlist file.
         <pre class="format">
 Locate media matching specified pattern.
 Results are placed in a Locate buffer and can be played using M-Player.
+
+(fn PATTERN)
 </pre>
       </div>
     </dd>
@@ -1255,6 +1283,8 @@ Pause or unpause media player.
         <pre class="format">
 Persists current m-player process instance by renaming its buffer.
 Optional interactive prefix arg prompts for name to use for  player.
+
+(fn &amp;optional NAME)
 </pre>
       </div>
     </dd>
@@ -1278,6 +1308,8 @@ Optional interactive prefix arg prompts for name to use for  player.
       <div class="format">
         <pre class="format">
 Play an RSS stream by converting to  an M3U playlist.
+
+(fn RSS-URL)
 </pre>
       </div>
     </dd>
@@ -1307,6 +1339,8 @@ Play an RSS stream by converting to  an M3U playlist.
       <div class="format">
         <pre class="format">
 Move within the play tree.
+
+(fn STEP)
 </pre>
       </div>
     </dd>
@@ -1334,6 +1368,8 @@ Move within the play tree.
       <div class="format">
         <pre class="format">
 Move within the play tree.
+
+(fn STEP)
 </pre>
       </div>
     </dd>
@@ -1526,6 +1562,8 @@ Play on right channel.
       <div class="format">
         <pre class="format">
 Scale speed by specified factor.
+
+(fn FACTOR)
 </pre>
       </div>
     </dd>
@@ -1551,6 +1589,8 @@ Scale speed by specified factor.
       <div class="format">
         <pre class="format">
 Seek  to absolute specified position in seconds.
+
+(fn POSITION)
 </pre>
       </div>
     </dd>
@@ -1576,6 +1616,8 @@ Seek  to absolute specified position in seconds.
       <div class="format">
         <pre class="format">
 Seek  to absolute specified position in percent.
+
+(fn POSITION)
 </pre>
       </div>
     </dd>
@@ -1601,6 +1643,8 @@ Seek  to absolute specified position in percent.
       <div class="format">
         <pre class="format">
 Seek  by offset into stream from current position.
+
+(fn OFFSET)
 </pre>
       </div>
     </dd>
@@ -1657,6 +1701,8 @@ Launch M-Player with shuffle turned on.
       <div class="format">
         <pre class="format">
 Dispatch slave command read from minibuffer.
+
+(fn COMMAND)
 </pre>
       </div>
     </dd>
@@ -1731,6 +1777,8 @@ Speak mode line
         <pre class="format">
 Speak and display metadata if available.
 Interactive prefix arg toggles automatic cueing of ICY info updates.
+
+(fn &amp;optional TOGGLE-CUE)
 </pre>
       </div>
     </dd>
@@ -1762,6 +1810,8 @@ Interactive prefix arg toggles automatic cueing of ICY info updates.
       <div class="format">
         <pre class="format">
 Call emacspeak-m-player with specified URL.
+
+(fn URL &amp;optional PLAYLIST-P)
 </pre>
       </div>
     </dd>
@@ -1823,6 +1873,8 @@ feature.
       <div class="format">
         <pre class="format">
 Change volume to specified absolute value.
+
+(fn VALUE)
 </pre>
       </div>
     </dd>
@@ -1894,6 +1946,8 @@ Increase volume.
       <div class="format">
         <pre class="format">
 Use youtube-dl and mplayer to stream YouTube content.
+
+(fn URL)
 </pre>
       </div>
     </dd>

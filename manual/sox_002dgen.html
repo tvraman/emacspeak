@@ -100,9 +100,33 @@
   "sox_002dgen-Commands"></a>
 
   <h4 class="subsection">12.218.1 sox-gen Commands</h4><a name=
-  "sox_002dbeats_002dbinaural" id="sox_002dbeats_002dbinaural"></a>
+  "sox_002d_002dtheme_002dplay" id=
+  "sox_002d_002dtheme_002dplay"></a>
 
-  <h4 class="subsubsection">12.218.1.1 sox-beats-binaural</h4>
+  <h4 class="subsubsection">12.218.1.1 sox–theme-play</h4>
+
+  <dl>
+    <dt><a name="index-sox_002d_002dtheme_002dplay" id=
+    "index-sox_002d_002dtheme_002dplay"></a>Command:
+    <strong>sox--theme-play</strong> <em>(theme
+    duration-scale)</em></dt>
+
+    <dd>
+      <a name="index-sox_002d_002dtheme_002dplay-1" id=
+      "index-sox_002d_002dtheme_002dplay-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Play  set of  binaural beats specified in theme.
+
+(fn THEME DURATION-SCALE)
+</pre>
+      </div>
+    </dd>
+  </dl><a name="sox_002dbeats_002dbinaural" id=
+  "sox_002dbeats_002dbinaural"></a>
+
+  <h4 class="subsubsection">12.218.1.2 sox-beats-binaural</h4>
 
   <dl>
     <dt><a name="index-sox_002dbeats_002dbinaural" id=
@@ -118,12 +142,14 @@
         <pre class="format">
 Play binaural audio with beat-spec specifying the various tones.
 Param ‘beat-spec’ is a list of ‘(carrier beat) tupples.
+
+(fn LENGTH BEAT-SPEC-LIST GAIN)
 </pre>
       </div>
     </dd>
   </dl><a name="sox_002dbinaural" id="sox_002dbinaural"></a>
 
-  <h4 class="subsubsection">12.218.1.2 sox-binaural</h4>
+  <h4 class="subsubsection">12.218.1.3 sox-binaural</h4>
 
   <dl>
     <dt><a name="index-sox_002dbinaural" id=
@@ -131,19 +157,96 @@ Param ‘beat-spec’ is a list of ‘(carrier beat) tupples.
     <strong>sox-binaural</strong> <em>(name duration)</em></dt>
 
     <dd>
-      <a name="index-sox_002dbinaural-1" id=
+      <dl compact="compact">
+        <dt><kbd>C-, b</kbd></dt>
+
+        <dd><a name="index-C_002d_002c-b" id=
+        "index-C_002d_002c-b"></a></dd>
+
+        <dt><kbd>C-x @ a b</kbd></dt>
+
+        <dd><a name="index-C_002dx-_0040-a-b" id=
+        "index-C_002dx-_0040-a-b"></a></dd>
+      </dl><a name="index-sox_002dbinaural-1" id=
       "index-sox_002dbinaural-1"></a>
 
       <div class="format">
         <pre class="format">
 Play specified binaural effect.
+
+(fn NAME DURATION)
+</pre>
+      </div>
+    </dd>
+  </dl><a name="sox_002dchakras" id="sox_002dchakras"></a>
+
+  <h4 class="subsubsection">12.218.1.4 sox-chakras</h4>
+
+  <dl>
+    <dt><a name="index-sox_002dchakras" id=
+    "index-sox_002dchakras"></a>Command:
+    <strong>sox-chakras</strong> <em>(duration)</em></dt>
+
+    <dd>
+      <a name="index-sox_002dchakras-1" id=
+      "index-sox_002dchakras-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Play each chakra for specified duration.
+
+(fn DURATION)
+</pre>
+      </div>
+    </dd>
+  </dl><a name="sox_002drelax" id="sox_002drelax"></a>
+
+  <h4 class="subsubsection">12.218.1.5 sox-relax</h4>
+
+  <dl>
+    <dt><a name="index-sox_002drelax" id=
+    "index-sox_002drelax"></a>Command: <strong>sox-relax</strong>
+    <em>(duration-scale)</em></dt>
+
+    <dd>
+      <a name="index-sox_002drelax-1" id=
+      "index-sox_002drelax-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Play relax set of  binaural beats.
+Each segment is scaled by ‘duration-scale’ in seconds.
+
+(fn DURATION-SCALE)
+</pre>
+      </div>
+    </dd>
+  </dl><a name="sox_002drev_002dup" id="sox_002drev_002dup"></a>
+
+  <h4 class="subsubsection">12.218.1.6 sox-rev-up</h4>
+
+  <dl>
+    <dt><a name="index-sox_002drev_002dup" id=
+    "index-sox_002drev_002dup"></a>Command:
+    <strong>sox-rev-up</strong> <em>(duration-scale)</em></dt>
+
+    <dd>
+      <a name="index-sox_002drev_002dup-1" id=
+      "index-sox_002drev_002dup-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Play rev-up set of  binaural beats.
+Each segment is scaled by ‘duration-scale’ in seconds.
+
+(fn DURATION-SCALE)
 </pre>
       </div>
     </dd>
   </dl><a name="sox_002dtone_002dbinaural" id=
   "sox_002dtone_002dbinaural"></a>
 
-  <h4 class="subsubsection">12.218.1.3 sox-tone-binaural</h4>
+  <h4 class="subsubsection">12.218.1.7 sox-tone-binaural</h4>
 
   <dl>
     <dt><a name="index-sox_002dtone_002dbinaural" id=
@@ -158,9 +261,47 @@ Play specified binaural effect.
       <div class="format">
         <pre class="format">
 Play binaural audio with carrier frequency ‘freq’, beat ‘beat’,  and gain ‘gain’.
+
+(fn LENGTH FREQ BEAT GAIN)
+</pre>
+      </div>
+    </dd>
+  </dl><a name="sox_002dwind_002ddown" id=
+  "sox_002dwind_002ddown"></a>
+
+  <h4 class="subsubsection">12.218.1.8 sox-wind-down</h4>
+
+  <dl>
+    <dt><a name="index-sox_002dwind_002ddown" id=
+    "index-sox_002dwind_002ddown"></a>Command:
+    <strong>sox-wind-down</strong> <em>(duration-scale)</em></dt>
+
+    <dd>
+      <a name="index-sox_002dwind_002ddown-1" id=
+      "index-sox_002dwind_002ddown-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Play wind-down set of  binaural beats.
+Each segment is scaled by ‘duration-scale’ in seconds.
+
+(fn DURATION-SCALE)
 </pre>
       </div>
     </dd>
   </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href="stack_002df.html#stack_002df" accesskey="n"
+    rel="next">stack-f</a>, Previous: <a href="sox.html#sox"
+    accesskey="p" rel="prev">sox</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
 </body>
 </html>

@@ -220,6 +220,8 @@ char, or dont move.
       <div class="format">
         <pre class="format">
 Prompt for and dial a phone NUMBER with the Dectalk.
+
+(fn NUMBER)
 </pre>
       </div>
     </dd>
@@ -242,6 +244,8 @@ Prompt for and dial a phone NUMBER with the Dectalk.
       <div class="format">
         <pre class="format">
 Execute COMMAND repeatedly.
+
+(fn COMMAND)
 </pre>
       </div>
     </dd>
@@ -274,6 +278,8 @@ Execute COMMAND repeatedly.
 Move to end  PERCENT of buffer like in View mode.
 Display is centered at point.
 Also set the mark at the position where point was.
+
+(fn PERCENT)
 </pre>
       </div>
     </dd>
@@ -302,6 +308,8 @@ Also set the mark at the position where point was.
         <pre class="format">
 Launch an application.
 This command  is designed for use in a windowing environment like X.
+
+(fn COMMAND)
 </pre>
       </div>
     </dd>
@@ -434,6 +442,8 @@ Move to previous available minibuffer completion.
         <pre class="format">
 Move to the next line in the other window and speak it.
 Numeric prefix arg COUNT can specify number of lines to move.
+
+(fn COUNT)
 </pre>
       </div>
     </dd>
@@ -464,6 +474,8 @@ Numeric prefix arg COUNT can specify number of lines to move.
         <pre class="format">
 Move to the next line in the other window and speak it.
 Numeric prefix arg COUNT specifies number of lines to move.
+
+(fn COUNT)
 </pre>
       </div>
     </dd>
@@ -582,6 +594,8 @@ Speak the current line in the other window.
         <pre class="format">
 Read next line, specified by an offset, without moving.
 Default is to read the next line. 
+
+(fn &amp;optional ARG)
 </pre>
       </div>
     </dd>
@@ -605,6 +619,8 @@ Default is to read the next line.
         <pre class="format">
 Read next word, specified as a numeric  arg, without moving.
 Default is to read the next word. 
+
+(fn &amp;optional ARG)
 </pre>
       </div>
     </dd>
@@ -640,6 +656,8 @@ Default is to read the next word.
         <pre class="format">
 Read previous line, specified by an offset, without moving.
 Default is to read the previous line. 
+
+(fn &amp;optional ARG)
 </pre>
       </div>
     </dd>
@@ -663,6 +681,8 @@ Default is to read the previous line.
         <pre class="format">
 Read previous word, specified as a prefix arg, without moving.
 Default is to read the previous word. 
+
+(fn &amp;optional ARG)
 </pre>
       </div>
     </dd>
@@ -710,6 +730,8 @@ Call search defined in &lt;search&gt;.
       <div class="format">
         <pre class="format">
 Run shell command and speak its output.
+
+(fn COMMAND)
 </pre>
       </div>
     </dd>
@@ -769,6 +791,8 @@ which media players get silenced or paused/resumed.
         <pre class="format">
 Search forward from point until we hit char.
 Speak text between point and the char we hit.
+
+(fn CHAR)
 </pre>
       </div>
     </dd>
@@ -835,6 +859,8 @@ Browse current buffer.
 Default is to speak chunk having current personality.
 Interactive prefix arg ‘browse’  repeatedly browses  through
   chunks having same personality as the current text chunk.
+
+(fn &amp;optional BROWSE)
 </pre>
       </div>
     </dd>
@@ -870,6 +896,8 @@ With prefix ARG, speaks the rest of the buffer from point.
 Negative prefix arg speaks from start of buffer to point.
  If voice lock mode is on, the paragraphs in the buffer are
 voice annotated first,  see command ‘emacspeak-speak-voice-annotate-paragraphs’.
+
+(fn &amp;optional ARG)
 </pre>
       </div>
     </dd>
@@ -909,6 +937,8 @@ or when the buffer is not visiting any file.
 Interactive prefix arg ‘filename’ speaks only the final path
 component.
 The result is put in the kill ring for convenience.
+
+(fn &amp;optional FILENAME)
 </pre>
       </div>
     </dd>
@@ -977,6 +1007,8 @@ any other key to speak entire buffer.
         <pre class="format">
 Speak character under point.
 Pronounces character phonetically unless  called with a PREFIX arg.
+
+(fn &amp;optional PREFIX)
 </pre>
       </div>
     </dd>
@@ -998,6 +1030,8 @@ Pronounces character phonetically unless  called with a PREFIX arg.
       <div class="format">
         <pre class="format">
 tell me what this is
+
+(fn CHAR)
 </pre>
       </div>
     </dd>
@@ -1156,6 +1190,8 @@ by the next C-y. Prefix numeric arg, COUNT, specifies that the
 text that will be yanked as a result of a C-y followed by count-1
 M-y be spoken. The kill number that is spoken says what
 numeric prefix arg to give to command yank.
+
+(fn COUNT)
 </pre>
       </div>
     </dd>
@@ -1207,6 +1243,8 @@ line containing mark ’n’ where ’n’ is one less than the number of
 times one has to jump using ‘set-mark-command’ to get to this marked
 position.  The location of the mark is indicated by an aural highlight
 achieved by a change in voice personality.
+
+(fn COUNT)
 </pre>
       </div>
     </dd>
@@ -1288,6 +1326,8 @@ Speaks entire window irrespective of point.
         <pre class="format">
 Read time value as a human-readable string, return seconds.
 Seconds value is also placed in the kill-ring.
+
+(fn TIME)
 </pre>
       </div>
     </dd>
@@ -1314,6 +1354,8 @@ Behavior is the same as command ‘emacspeak-speak-char’
 bound to C-e c
 for characters in the range 0–127.
 Optional argument PREFIX  specifies that the character should be spoken phonetically.
+
+(fn &amp;optional PREFIX)
 </pre>
       </div>
     </dd>
@@ -1431,6 +1473,8 @@ Speak header line if set.
 Speak help buffer if one present.
 With prefix arg, speaks the rest of the buffer from point.
 Negative prefix arg speaks from start of buffer to point.
+
+(fn &amp;optional ARG)
 </pre>
       </div>
     </dd>
@@ -1528,6 +1572,8 @@ position of point with an aural highlight if option
 start hidden blocks of text, e.g.  outline header lines, or header
 lines of blocks created by command ‘emacspeak-hide-or-expose-block’
 are indicated with auditory icon ellipses.
+
+(fn &amp;optional ARG)
 </pre>
       </div>
     </dd>
@@ -1644,6 +1690,8 @@ This allows one to accumulate a set of filters for specific files like
 /var/adm/messages and /var/adm/maillog over time.
 Option emacspeak-speak-line-invert-filter determines
 the sense of the filter. 
+
+(fn FILTER)
 </pre>
       </div>
     </dd>
@@ -1676,6 +1724,8 @@ Load a directory specific Emacspeak settings file.
 This is typically used to load up settings that are specific to
 an electronic book consisting of many files in the same
 directory.
+
+(fn &amp;optional DIRECTORY)
 </pre>
       </div>
     </dd>
@@ -1712,6 +1762,8 @@ directory.
 Speak the last message from Emacs once again.
 The message is also placed in the kill ring for convenient yanking
 if ‘emacspeak-speak-message-again-should-copy-to-kill-ring’ is set.
+
+(fn &amp;optional FROM-MESSAGE-CACHE)
 </pre>
       </div>
     </dd>
@@ -1748,6 +1800,8 @@ if ‘emacspeak-speak-message-again-should-copy-to-kill-ring’ is set.
 Set up ring-at-time to speak message at specified time.
 Provides simple stop watch functionality in addition to other things.
 See documentation for command run-at-time for details on time-spec.
+
+(fn TIME MESSAGE)
 </pre>
       </div>
     </dd>
@@ -1777,6 +1831,8 @@ See documentation for command run-at-time for details on time-spec.
       <div class="format">
         <pre class="format">
 Speaks time value specified as microseconds  since epoch, e.g. as from float-time.
+
+(fn MS)
 </pre>
       </div>
     </dd>
@@ -1806,6 +1862,8 @@ Speaks time value specified as microseconds  since epoch, e.g. as from float-tim
       <div class="format">
         <pre class="format">
 Speaks time value specified as milliseconds  since epoch, e.g. as from float-time.
+
+(fn MS)
 </pre>
       </div>
     </dd>
@@ -1830,6 +1888,8 @@ Speaks time value specified as milliseconds  since epoch, e.g. as from float-tim
 Speak the minibuffer contents
  With prefix arg, speaks the rest of the buffer from point.
 Negative prefix arg speaks from start of buffer to point.
+
+(fn &amp;optional ARG)
 </pre>
       </div>
     </dd>
@@ -1865,6 +1925,8 @@ Negative prefix arg speaks from start of buffer to point.
         <pre class="format">
 Speak the minor mode-information.
 Optional  interactive prefix arg ‘copy-as-kill’ copies spoken info to kill ring.
+
+(fn &amp;optional COPY-AS-KILL)
 </pre>
       </div>
     </dd>
@@ -1899,6 +1961,8 @@ Optional  interactive prefix arg ‘copy-as-kill’ copies spoken info to kill r
 Speak the mode-line.
 Speaks header-line if that is set when called non-interactively.
 Interactive prefix arg speaks buffer info.
+
+(fn &amp;optional BUFFER-INFO)
 </pre>
       </div>
     </dd>
@@ -2049,6 +2113,8 @@ Speak the next window.
         <pre class="format">
 Speak specified buffer.
 Useful to listen to a buffer without switching  contexts.
+
+(fn BUFFER)
 </pre>
       </div>
     </dd>
@@ -2076,6 +2142,8 @@ Speaks entire window irrespective of point.
 Semantics  of ‘other’ is the same as for the builtin Emacs command
 ‘other-window’.
 Optional argument ARG  specifies ‘other’ window to speak.
+
+(fn &amp;optional ARG)
 </pre>
       </div>
     </dd>
@@ -2110,6 +2178,8 @@ Speak a page.
 With prefix ARG, speaks rest of current page.
 Negative prefix arg will read from start of current page to point.
 If option  ‘voice-lock-mode’ is on, then it will use any defined personality.
+
+(fn &amp;optional ARG)
 </pre>
       </div>
     </dd>
@@ -2191,6 +2261,8 @@ Speak paragraph.
 With prefix arg, speaks rest of current paragraph.
 Negative prefix arg will read from start of current paragraph to point.
 If voice-lock-mode is on, then it will use any defined personality. 
+
+(fn &amp;optional ARG)
 </pre>
       </div>
     </dd>
@@ -2381,6 +2453,8 @@ two or three.
 Argument ARG determines the ’other’ window to speak.
 Semantics  of ‘other’ is the same as for the builtin Emacs command
 ‘other-window’.
+
+(fn &amp;optional ARG)
 </pre>
       </div>
     </dd>
@@ -2538,6 +2612,8 @@ Speak a rectangle of text.
 Rectangle is delimited by point and mark.
 When call from a program,
 arguments specify the START and END of the rectangle.
+
+(fn START END)
 </pre>
       </div>
     </dd>
@@ -2570,6 +2646,8 @@ arguments specify the START and END of the rectangle.
         <pre class="format">
 Speak region.
 Argument START  and END specify region to speak.
+
+(fn START END)
 </pre>
       </div>
     </dd>
@@ -2630,6 +2708,8 @@ Speak remainder of the buffer starting at point
       <div class="format">
         <pre class="format">
 Speaks time value specified as seconds  since epoch, e.g. as from float-time.
+
+(fn SECONDS)
 </pre>
       </div>
     </dd>
@@ -2654,6 +2734,8 @@ Speaks time value specified as seconds  since epoch, e.g. as from float-time.
 Speak current sentence.
 With prefix ARG, speaks the rest of the sentence  from point.
 Negative prefix arg speaks from start of sentence to point.
+
+(fn &amp;optional ARG)
 </pre>
       </div>
     </dd>
@@ -2681,6 +2763,8 @@ Negative prefix arg speaks from start of sentence to point.
 Sets up buffer specific speech display table that controls how
 special characters are spoken. Interactive prefix argument causes
 setting to be global.
+
+(fn &amp;optional PREFIX)
 </pre>
       </div>
     </dd>
@@ -2718,6 +2802,8 @@ setting to be global.
       <div class="format">
         <pre class="format">
 Set punctuation mode for all buffers in current mode.
+
+(fn SETTING)
 </pre>
       </div>
     </dd>
@@ -2742,6 +2828,8 @@ Speak current sexp.
 With prefix ARG, speaks the rest of the sexp  from point.
 Negative prefix arg speaks from start of sexp to point.
 If option  ‘voice-lock-mode’ is on, then uses the personality.
+
+(fn &amp;optional ARG)
 </pre>
       </div>
     </dd>
@@ -2820,6 +2908,8 @@ Shows all active network interfaces in the echo area.
 With interactive prefix argument ADDRESS it prompts for a
 specific interface and shows its address. The address is
 also copied to the kill ring for convenient yanking.
+
+(fn &amp;optional ADDRESS)
 </pre>
       </div>
     </dd>
@@ -2981,6 +3071,8 @@ Spell word at  point.
       <div class="format">
         <pre class="format">
 Speak text range identified by this PROPERTY.
+
+(fn PROPERTY)
 </pre>
       </div>
     </dd>
@@ -3066,6 +3158,8 @@ Speak the time.
 Optional interactive prefix arg ‘C-u’invokes world clock.
 Timezone is specified using minibuffer completion.
 Second interactive prefix sets clock to new timezone.
+
+(fn &amp;optional WORLD)
 </pre>
       </div>
     </dd>
@@ -3098,6 +3192,8 @@ Second interactive prefix sets clock to new timezone.
       <div class="format">
         <pre class="format">
 Announce version information for running emacspeak.
+
+(fn &amp;optional UPDATE)
 </pre>
       </div>
     </dd>
@@ -3217,6 +3313,8 @@ With prefix ARG, speaks the rest of the word from point.
 Negative prefix arg speaks from start of word to point.
 If executed  on the same buffer position a second time, the word is
 spelled out  instead of being spoken.
+
+(fn &amp;optional ARG)
 </pre>
       </div>
     </dd>
@@ -3266,6 +3364,8 @@ any other key to speak entire word.
         <pre class="format">
 Display current date and time  for specified zone.
 Optional second arg ‘set’ sets the TZ environment variable as well.
+
+(fn ZONE &amp;optional SET)
 </pre>
       </div>
     </dd>
@@ -3762,6 +3862,8 @@ Voicify the current rectangle.
 When calling from a program,arguments are
 START END personality
 Prompts for PERSONALITY  with completion when called interactively.
+
+(fn START END &amp;optional PERSONALITY)
 </pre>
       </div>
     </dd>
@@ -3787,6 +3889,8 @@ Voicify the current region.
 When calling from a program,arguments are
 START END personality.
 Prompts for PERSONALITY  with completion when called interactively.
+
+(fn START END &amp;optional PERSONALITY)
 </pre>
       </div>
     </dd>

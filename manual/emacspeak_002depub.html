@@ -196,6 +196,8 @@ For detailed documentation, see M-x emacspeak-epub-mode
         <pre class="format">
 Add EPubs found in specified directory to the bookshelf.
 Interactive prefix arg searches recursively in directory.
+
+(fn DIRECTORY &amp;optional RECURSIVE)
 </pre>
       </div>
     </dd>
@@ -221,6 +223,8 @@ Interactive prefix arg searches recursively in directory.
       <div class="format">
         <pre class="format">
 Add epub file to current bookshelf.
+
+(fn EPUB-FILE)
 </pre>
       </div>
     </dd>
@@ -250,6 +254,8 @@ Add epub file to current bookshelf.
       <div class="format">
         <pre class="format">
 Add results of an author search to current bookshelf.
+
+(fn PATTERN)
 </pre>
       </div>
     </dd>
@@ -279,6 +285,8 @@ Add results of an author search to current bookshelf.
       <div class="format">
         <pre class="format">
 Add results of an title/author search to current bookshelf.
+
+(fn PATTERN)
 </pre>
       </div>
     </dd>
@@ -307,6 +315,8 @@ Add results of an title/author search to current bookshelf.
       <div class="format">
         <pre class="format">
 Add results of an title search to current bookshelf.
+
+(fn PATTERN)
 </pre>
       </div>
     </dd>
@@ -374,6 +384,8 @@ Load bookshelf metadata from disk.
       <div class="format">
         <pre class="format">
 Load bookshelf metadata from specified bookshelf.
+
+(fn BOOKSHELF)
 </pre>
       </div>
     </dd>
@@ -399,6 +411,8 @@ Load bookshelf metadata from specified bookshelf.
       <div class="format">
         <pre class="format">
 Open epub file and add it to current bookshelf.
+
+(fn EPUB-FILE)
 </pre>
       </div>
     </dd>
@@ -424,6 +438,8 @@ Open epub file and add it to current bookshelf.
 Redraw Bookshelf.
 Optional interactive prefix arg author-first prints author at the
   left.
+
+(fn &amp;optional AUTHOR-FIRST)
 </pre>
       </div>
     </dd>
@@ -477,6 +493,8 @@ Refresh and redraw bookshelf.
         <pre class="format">
 Remove EPubs found in specified directory from the bookshelf.
 Interactive prefix arg searches recursively in directory.
+
+(fn DIRECTORY &amp;optional RECURSIVE)
 </pre>
       </div>
     </dd>
@@ -531,6 +549,8 @@ No book files are deleted.
         <pre class="format">
 Saves current bookshelf to  specified name.
 Interactive prefix arg ‘overwrite’ will overwrite existing file.
+
+(fn NAME &amp;optional OVERWRITE)
 </pre>
       </div>
     </dd>
@@ -576,6 +596,8 @@ Save bookshelf metadata.
         <pre class="format">
 Browse list of HTML files in an EPub.
 Useful if table of contents in toc.ncx is empty.
+
+(fn EPUB)
 </pre>
       </div>
     </dd>
@@ -667,6 +689,8 @@ Delete EPub under point.
         <pre class="format">
 Display entire book  using EWW from EPub in a buffer.
 Suitable for text searches.
+
+(fn EPUB-FILE)
 </pre>
       </div>
     </dd>
@@ -689,6 +713,8 @@ Suitable for text searches.
         <pre class="format">
 Display fulltext from EPub in a buffer.
 Suitable for text searches.
+
+(fn EPUB-FILE)
 </pre>
       </div>
     </dd>
@@ -709,6 +735,8 @@ Suitable for text searches.
       <div class="format">
         <pre class="format">
 Search for Epubs from Google Books.
+
+(fn QUERY)
 </pre>
       </div>
     </dd>
@@ -734,6 +762,8 @@ Search for Epubs from Google Books.
         <pre class="format">
 Open Gutenberg catalog.
 Fetch if needed, or if refresh is T.
+
+(fn &amp;optional REFRESH)
 </pre>
       </div>
     </dd>
@@ -758,6 +788,8 @@ Fetch if needed, or if refresh is T.
       <div class="format">
         <pre class="format">
 Download specified EBook to local cache
+
+(fn BOOK-ID)
 </pre>
       </div>
     </dd>
@@ -780,6 +812,8 @@ Download specified EBook to local cache
       <div class="format">
         <pre class="format">
 Locate epub files using locate.
+
+(fn PATTERN)
 </pre>
       </div>
     </dd>
@@ -882,6 +916,8 @@ Move to next book.
         <pre class="format">
 Open specified Epub.
 Filename may need to  be shell-quoted when called from Lisp.
+
+(fn EPUB-FILE)
 </pre>
       </div>
     </dd>
@@ -924,6 +960,8 @@ Move to previous book.
       <div class="format">
         <pre class="format">
 Custom URL executor for use in EPub Mode.
+
+(fn URL)
 </pre>
       </div>
     </dd>
