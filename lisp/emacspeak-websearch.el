@@ -42,6 +42,7 @@
 
 (require 'emacspeak-preamble)
 (require 'emacspeak-webutils)
+(require 'emacspeak-eww)
 (require 'emacspeak-google)
 (require 'gweb)
 (require  'emacspeak-we)
@@ -571,7 +572,7 @@ Optional second arg as-html processes the results as HTML rather than data."
        "https://"
      "http://")
    emacspeak-websearch-google-uri-template))
-
+;;;###autoload
 (defcustom emacspeak-websearch-google-options nil
   "Additional options to pass to Google e.g. &xx=yy..."
   :type '(choice
@@ -642,7 +643,8 @@ Optional prefix arg prompts for toolbelt options."
    (list
     (gweb-google-autocomplete "AGoogle: ")
     current-prefix-arg))
-  (declare (special emacspeak-websearch-accessible-google-url emacspeak-google-toolbelt))
+  (declare (special emacspeak-eww-masquerade
+                    emacspeak-websearch-accessible-google-url emacspeak-google-toolbelt))
   (setq emacspeak-google-toolbelt nil)
   (let ((emacspeak-eww-masquerade t)
         (toolbelt (emacspeak-google-toolbelt)))
