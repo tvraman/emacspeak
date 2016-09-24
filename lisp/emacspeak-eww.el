@@ -321,12 +321,7 @@ are available are cued by an auditory icon on the header line."
    (emacspeak-keymap-update eww-mode-map binding)))
 
 (emacspeak-eww-setup)
-;;; Use browse-url-new-window-flag
-(defadvice eww-browse-url (before emacspeak pre act comp)
-  "Respect `browse-url-new-window-flag'."
-  (interactive
-   (list url
-         (or new-window browse-url-new-window-flag))))
+
 ;;}}}
 ;;{{{ Map Faces To Voices:
 
