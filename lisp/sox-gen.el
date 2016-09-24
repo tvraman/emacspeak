@@ -221,7 +221,7 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
   :beats '((75 13.5) (150 18.0) (225 23.0) (300 40.0))
   :gain -14))
 
-;;; Chakras: Carrier frequencies taken from  the Web.
+;;; Chakras: Set 1:Carrier frequencies taken from  the Web.
 ;;; https://sourceforge.net/p/sbagen/mailman/message/3047882/
 
 ;;; root:         256 Hz
@@ -233,38 +233,73 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
 ;;; crown:        480 Hz
 
 ;;; Use theta (4.5 --7 as the beat frequency)
-(defconst sox--chakra-settings
+
+(defconst sox--chakra-settings-0
   '(
-    ("root" 256 7.0)
-    ("navel" 288 6.5)
-    ("solar-plexus" 320 6.0)
-    ("heart" 341.3 5.5)
-    ("throat" 384 5.0)
-    ("3rd-eye" 426.7 5.2)
-    ("crown" 480 4.75)
+    ("root-0" 256 4.5)
+    ("navel-0" 288 4.5)
+    ("solar-plexus-0" 320 4.5)
+    ("heart-0" 341.3 4.5)
+    ("throat-0" 384 4.5) 
+    ("3rd-eye-0" 426.7 4.5)
+    ("crown-0" 480 4.5)
     )
   "Frequency settings.")
 
 (cl-loop
- for s in sox--chakra-settings do
+ for s in sox--chakra-settings-0 do
  (sox-define-binaural-effect
   (first s)
   (make-sox--binaural
    :beats `(,(cdr s))
    :gain -20)))
+
+;;; Second Theme For Chakras:
+;;; From: https://www.youtube.com/watch?v=ARoih8HTPGw
+
+(defconst sox--chakra-settings-1
+  '(
+    ("root-1" 228 8.0)
+    ("navel-1" 303 9.0)
+    ("solar-plexus-1" 182 10.0)
+    ("heart-1" 128.3 10.5)
+    ("throat-1" 192 12.0)
+    ("3rd-eye-1" 144 13)
+    ("crown-1" 216 15)
+    )
+  "Frequency settings.")
+
+(cl-loop
+ for s in sox--chakra-settings-1 do
+ (sox-define-binaural-effect
+  (first s)
+  (make-sox--binaural
+   :beats `(,(cdr s))
+   :gain -20)))
+
+
+
 (iter-defun sox--list-iter (l)
   "Return an iterator that iterates over list `l'."
   (let ((local(copy-sequence l)))
     (while local (iter-yield (pop local)))))
 
 ;;;###autoload
-(defun sox-chakras (duration)
-  "Play each chakra for specified duration."
-  (interactive "nDuration: ")
-  (let ((names (sox--list-iter (mapcar #'car sox--chakra-settings))))
+(defun sox-chakras (theme duration)
+  "Play each chakra for specified duration.
+Parameter `theme' specifies variant."
+  (interactive
+   (list 
+    (intern
+     (completing-read  "Chakra Theme Variant: "
+                       '("sox--chakra-settings-0" "sox--chakra-settings-1")
+                       nil 'must-match))
+    (read-number "Duration: " 60)))
+  (let ((names (sox--list-iter (mapcar #'car (symbol-value theme)))))
     (run-with-timer ; start now, repeat after duration
      0 duration
      #'(lambda () (sox-binaural (iter-next names) duration)))))
+
 (defconst sox-rev-up-beats
   '(("dream" 1) ( "think"  4) ("act" 2))
   "List of  beats to use for rev-up in the morning.")
@@ -287,14 +322,14 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
   (interactive "nDuration: ")
   (let ((start 0)
         (end 0))
-  (cl-loop
-   for beat in theme
-   and i from 1 do
-   (setq end (* duration-scale  (second beat)))
-   (run-with-timer                 ; start now
-     start nil ; no repeat 
-     #'(lambda () (sox-binaural (first beat) end)))
-    (setq start (+ start end)))))
+    (cl-loop
+     for beat in theme
+     and i from 1 do
+     (setq end (* duration-scale  (second beat)))
+     (run-with-timer                 ; start now
+      start nil ; no repeat 
+      #'(lambda () (sox-binaural (first beat) end)))
+     (setq start (+ start end)))))
 
 ;;;###autoload
 (defun sox-rev-up (duration-scale)
