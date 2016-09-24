@@ -214,7 +214,6 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
   :beats '((75 40) (150 40) (225 40) (300 40.0))
   :gain -14))
 
-
 (sox-define-binaural-effect
  "act" ; beta
  (make-sox--binaural
@@ -240,7 +239,7 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
     ("navel-0" 288 4.5)
     ("solar-plexus-0" 320 4.5)
     ("heart-0" 341.3 4.5)
-    ("throat-0" 384 4.5) 
+    ("throat-0" 384 4.5)
     ("3rd-eye-0" 426.7 4.5)
     ("crown-0" 480 4.5)
     )
@@ -277,8 +276,6 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
    :beats `(,(cdr s))
    :gain -20)))
 
-
-
 (iter-defun sox--list-iter (l)
   "Return an iterator that iterates over list `l'."
   (let ((local(copy-sequence l)))
@@ -289,7 +286,7 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
   "Play each chakra for specified duration.
 Parameter `theme' specifies variant."
   (interactive
-   (list 
+   (list
     (intern
      (completing-read  "Chakra Theme Variant: "
                        '("sox--chakra-settings-0" "sox--chakra-settings-1")
@@ -304,7 +301,6 @@ Parameter `theme' specifies variant."
   '(("dream" 1) ( "think"  4) ("act" 2))
   "List of  beats to use for rev-up in the morning.")
 
-
 (defconst sox-wind-down-beats
   '(("think"3)( "dream" 4) ( "sleep" 1))
   "List of  beats to use for wind-down in the evening.")
@@ -312,8 +308,6 @@ Parameter `theme' specifies variant."
 (defconst sox-relax-beats
   '(("dream" 4) ( "sleep" 1))
   "List of  beats to use for relaxing.")
-
-
 
 ;;; Theme Helper:
 
@@ -327,7 +321,7 @@ Parameter `theme' specifies variant."
      and i from 1 do
      (setq end (* duration-scale  (second beat)))
      (run-with-timer                 ; start now
-      start nil ; no repeat 
+      start nil ; no repeat
       #'(lambda () (sox-binaural (first beat) end)))
      (setq start (+ start end)))))
 
@@ -339,7 +333,6 @@ Each segment is scaled by `duration-scale' in seconds."
   (declare (special sox-rev-up-beats))
   (sox--theme-play sox-rev-up-beats duration-scale))
 
-
 ;;;###autoload
 (defun sox-wind-down (duration-scale)
   "Play wind-down set of  binaural beats.
@@ -348,7 +341,6 @@ Each segment is scaled by `duration-scale' in seconds."
   (declare (special sox-wind-down-beats))
   (sox--theme-play sox-wind-down-beats duration-scale))
 
-
 ;;;###autoload
 (defun sox-relax (duration-scale)
   "Play relax set of  binaural beats.
@@ -356,8 +348,6 @@ Each segment is scaled by `duration-scale' in seconds."
   (interactive "nDuration: ")
   (declare (special sox-relax-beats))
   (sox--theme-play sox-relax-beats duration-scale))
-
-
 
 ;;}}}
 
