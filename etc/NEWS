@@ -72,6 +72,7 @@ debugging Webapps in  browsers like Chrome.
 ** SoX And Binaural Audio:
 
 Module ~sox-gen~ now provides the ability to generate a variety of
-binaural tones.
+binaural tones --- this is designed for use with headphones for
+brainwave entrainment.
 
 
