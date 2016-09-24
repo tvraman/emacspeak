@@ -702,12 +702,12 @@ widget before summarizing."
 ;;{{{ voice widgets 
 
 (define-widget 'voice  'menu-choice
-  "Widget for selecting a voice."
   :help-echo "Voice selector"
-  )
+  "Widget for selecting a voice.")
 
 (define-widget 'personality 'item
   "Individual voice in a voice selector.")
+
 ;;; We rely on dectalk-voice-table as our default voice table.
 ;;; Names defined in this --- and other voice tables --- are
 ;;; generic --and  not device specific.
