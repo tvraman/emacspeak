@@ -182,7 +182,8 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
     (read-number "Duration: " 600)))
   (declare (special sox-binaural-effects-table))
   (sox--binaural-play duration
-                      (gethash name sox-binaural-effects-table)))
+                      (gethash name sox-binaural-effects-table))
+  (message "%s" name))
 
 ;;{{{  Define Effects:
 
