@@ -702,7 +702,6 @@ widget before summarizing."
 ;;{{{ voice widgets 
 
 (define-widget 'voice  'menu-choice
-  :help-echo "Voice selector"
   "Widget for selecting a voice.")
 
 (define-widget 'personality 'item
