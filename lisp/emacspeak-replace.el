@@ -108,11 +108,9 @@ that is being replaced."
   "Silence help message."
   (let ((emacspeak-speak-messages nil))
     ad-do-it))
+
 (defadvice replace-highlight (before  emacspeak pre act)
   "Voicify and speak the line containing the replacement. "
-  (declare (special emacspeak-replace-highlight-on
-                    emacspeak-replace-saved-personality
-                    emacspeak-replace-start emacspeak-replace-end))
   (save-match-data
     (let ((from (ad-get-arg 0))
           (to (ad-get-arg 1)))
