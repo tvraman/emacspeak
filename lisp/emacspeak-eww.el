@@ -63,7 +63,7 @@
 (require 'emacspeak-we)
 (require 'emacspeak-webutils)
 (require 'emacspeak-google)
-                                        ;(require 'xml)
+                                        
 ;;}}}
 ;;{{{ Declare generated functions:
 
