@@ -1,6 +1,7 @@
 #!/bin/sh
 #export ALSA_CARD=1
 export SSH_ASKPASS=/usr/local/bin/e-askpass.sh
+export GNUBBY_PROMPT=/usr/local/bin/e-askpass.sh
 eval $(gpg-agent --daemon)
 eval  `ssh-agent -s`
 . $HOME/.bash_profile
