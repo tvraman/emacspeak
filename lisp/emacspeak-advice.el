@@ -97,7 +97,10 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Speak line that you just moved to."
+     "Speak line that you just moved to.
+Speak on-screen (visual) line when `visual-line-mode' is turned on.
+When `visual-line-mode' is on, position of point is indicated via an aural highlight.
+Landing on the beginning or end of  a physical line produces an appropriate auditory icon."
      (when (ems-interactive-p)
        (cond
         (visual-line-mode (emacspeak-speak-visual-line))
