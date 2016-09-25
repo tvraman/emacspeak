@@ -2200,14 +2200,12 @@ This module provides utility functions for searching the WWW
 12.188.1.9 emacspeak-websearch-dispatch
 .......................................
 
- -- Command: emacspeak-websearch-dispatch (&optional prefix)
+ -- Command: emacspeak-websearch-dispatch
      ‘C-e ?’
      ‘<fn> ?’
 
       Press ‘?’ to list available search engines.
      When using supported browsers,  this interface attempts to speak the most relevant information on the result page.
-
-     (fn &optional PREFIX)
 
 12.188.1.10 emacspeak-websearch-exchange-rate-converter
 .......................................................
@@ -5353,11 +5351,12 @@ This module can be used independent of Emacspeak.
 12.218.1.4 sox-chakras
 ......................
 
- -- Command: sox-chakras (duration)
+ -- Command: sox-chakras (theme duration)
 
      Play each chakra for specified duration.
+     Parameter ‘theme’ specifies variant.
 
-     (fn DURATION)
+     (fn THEME DURATION)
 
 12.218.1.5 sox-relax
 ....................

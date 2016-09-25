@@ -19458,7 +19458,7 @@ Search CTAN Comprehensive TeX Archive Network   Site.
 @end deffn
 
 @subsubsection emacspeak-websearch-dispatch
-@deffn {Command} emacspeak-websearch-dispatch  (&optional prefix)
+@deffn {Command} emacspeak-websearch-dispatch   
 @table @kbd
 @item C-e ?
 @kindex C-e ?
@@ -19471,8 +19471,6 @@ Search CTAN Comprehensive TeX Archive Network   Site.
 @format
  Press ‘?’ to list available search engines.
 When using supported browsers,  this interface attempts to speak the most relevant information on the result page.
-
-(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -23460,13 +23458,14 @@ Play specified binaural effect.
 @end deffn
 
 @subsubsection sox-chakras
-@deffn {Command} sox-chakras  (duration)
+@deffn {Command} sox-chakras  (theme duration)
 @findex sox-chakras
 
 @format
 Play each chakra for specified duration.
+Parameter ‘theme’ specifies variant.
 
-(fn DURATION)
+(fn THEME DURATION)
 @end format
 @end deffn
 
