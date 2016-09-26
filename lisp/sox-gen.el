@@ -313,17 +313,15 @@ Parameter `theme' specifies variant."
 
 (defun sox--theme-play (theme duration-scale)
   "Play  set of  binaural beats specified in theme."
-  (interactive "nDuration: ")
-  (let ((start 0)
-        (end 0))
+  (let ((start 0))
     (cl-loop
-     for beat in theme
-     and i from 1 do
-     (setq end (* duration-scale  (second beat)))
-     (run-with-timer                 ; start now
-      start nil ; no repeat
-      #'(lambda () (sox-binaural (first beat) end)))
-     (setq start (+ start end)))))
+     for beat in theme do
+     (let (( end (* duration-scale  (second beat)))
+           (b (first beat)))
+       (run-with-timer                  ; start now
+        start nil                       ; no repeat
+        #'(lambda () (sox-binaural b  end)))
+       (setq start (+ start end))))))
 
 ;;;###autoload
 (defun sox-rev-up (duration-scale)
