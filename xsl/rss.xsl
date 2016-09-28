@@ -10,8 +10,10 @@ View an RSS feed as clean HTML
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                 xmlns:smh="http://www.google.com/searchhistory"
                 xmlns:dc="http://purl.org/dc/elements/1.1/"
+                xmlns:media="http://search.yahoo.com/mrss/" 
                 xmlns:rss="http://purl.org/rss/1.0/"
                 xmlns:nsrss="http://my.netscape.com/rdf/simple/0.9/"
+                xmlns:content="http://purl.org/rss/1.0/modules/content/" 
                 xmlns:str="http://exslt.org/strings"
                 version="1.0">
   <xsl:param name="base"/>
@@ -63,7 +65,7 @@ View an RSS feed as clean HTML
   <!-- } -->
   <!-- {rss 0.9 -naked namespaces -->
 
-  <xsl:template match="channel">
+  <xsl:template match="rss">
     <html>
       <head>
         <title>
