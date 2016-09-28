@@ -592,7 +592,8 @@ interactive command that the key sequence executes."
     ("r" emacspeak-feeds-rss-display)
     ("s" emacspeak-wizards-tune-in-radio-search)
     ("t" emacspeak-wizards-tune-in-radio-browse)
-    ("u" emacspeak-m-player-url)) 
+    ("u" emacspeak-m-player-url)
+    ("v" visual-line-mode)) 
   "*Specifies alt key bindings for the audio desktop.
 You can turn the `Pause' key  on your Linux PC keyboard into a `alt' key
 on Linux by having it emit the sequence `C-x@a'.

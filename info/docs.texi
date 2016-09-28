@@ -1551,6 +1551,7 @@ r		emacspeak-feeds-rss-display
 s		emacspeak-wizards-tune-in-radio-search
 t		emacspeak-wizards-tune-in-radio-browse
 u		emacspeak-m-player-url
+v		visual-line-mode
 
 .
 
