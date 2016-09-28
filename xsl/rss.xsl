@@ -74,7 +74,7 @@ View an RSS feed as clean HTML
       </head>
       <body>
         <ol>
-          <xsl:apply-templates select="item"/>
+          <xsl:apply-templates select="//item"/>
         </ol>
         <p>
           <xsl:apply-templates select="description"/>
