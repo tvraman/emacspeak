@@ -187,8 +187,8 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
 
 ;;{{{  Define Effects:
 
-;;; delta, theta, alpha, beta
-;;; sleep, dream, think, act
+;;; delta, theta, alpha, beta, gamma 
+;;; sleep, dream, think, act, focus 
 
 (sox-define-binaural-effect
  "sleep" ; delta
@@ -209,15 +209,15 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
   :gain -14))
 
 (sox-define-binaural-effect
- "focus" ; beta
- (make-sox--binaural
-  :beats '((75 40) (150 40) (225 40) (300 40.0))
-  :gain -14))
-
-(sox-define-binaural-effect
  "act" ; beta
  (make-sox--binaural
   :beats '((75 13.5) (150 18.0) (225 23.0) (300 40.0))
+  :gain -14))
+
+(sox-define-binaural-effect
+ "focus" ; beta
+ (make-sox--binaural
+  :beats '((75 40) (150 40) (225 40) (300 40.0))
   :gain -14))
 
 ;;; Chakras: Set 1:Carrier frequencies taken from  the Web.
@@ -230,8 +230,6 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
 ;;; throat:       384 Hz
 ;;; 3rd eye:      426.7 Hz
 ;;; crown:        480 Hz
-
-;;; Use theta (4.5 --7 as the beat frequency)
 
 (defconst sox--chakra-settings-0
   '(
