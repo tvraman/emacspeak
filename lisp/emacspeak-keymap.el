@@ -237,7 +237,6 @@
    ("M-u" emacspeak-feeds-add-feed)
    ("M-P" emacspeak-show-property-at-point)
    ("M-v" emacspeak-show-personality-at-point)
-   ("M-w" emacspeak-toggle-which-function)
    ("N" emacspeak-view-emacspeak-news)
    ("P" emacspeak-speak-paragraph-interactively)
    ("R" emacspeak-speak-rectangle)
