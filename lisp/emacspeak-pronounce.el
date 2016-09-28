@@ -611,6 +611,7 @@ See http://www.charm.net/~kmarsh/smiley.html. "
     ("http://schemas.xmlsoap.org/wsdl/" . " WSDL ")
     ("http://www.w3.org/2001/06/soap-envelope" . " SOAP ENV ")
     ("http://schemas.xmlsoap.org/wsdl/soap/" . " SOAP ")
+    ("http://purl.org/dc/elements/1.1/" . "Dublin Core")
     )
   "Pronunciations for well known namespace URIs."
   :type '(repeat
