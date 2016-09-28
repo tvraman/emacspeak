@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1177 commands and 976 options.
+This chapter documents a total of 1176 commands and 976 options.
 
 @menu
 * acss-structure::
@@ -23415,17 +23415,6 @@ These functions are primarily for use from other Emacs/Emacspeak modules.
 This module can be used independent of Emacspeak.
 
 @subsection sox-gen Commands
-
-@subsubsection sox--theme-play
-@deffn {Command} sox--theme-play  (theme duration-scale)
-@findex sox--theme-play
-
-@format
-Play  set of  binaural beats specified in theme.
-
-(fn THEME DURATION-SCALE)
-@end format
-@end deffn
 
 @subsubsection sox-beats-binaural
 @deffn {Command} sox-beats-binaural  (length beat-spec-list gain)

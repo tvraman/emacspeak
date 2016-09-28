@@ -303,20 +303,20 @@ Node: plain-voices753578
 Node: soundscape753933
 Node: sox758654
 Node: sox-gen761520
-Node: stack-f763709
-Node: subr-x763997
-Node: tetris764418
-Node: toy-braille764558
-Node: tts765395
-Node: tts-cmds767398
-Node: voice-setup767907
-Node: xbacklight775077
-Node: URL Templates776541
-Node: Emacspeak Keyboard Commands782427
-Node: TTS Servers784489
-Node: Acknowledgments791532
-Node: Concept Index791682
-Node: Key Index795325
+Node: stack-f763514
+Node: subr-x763802
+Node: tetris764223
+Node: toy-braille764363
+Node: tts765200
+Node: tts-cmds767203
+Node: voice-setup767712
+Node: xbacklight774882
+Node: URL Templates776346
+Node: Emacspeak Keyboard Commands782232
+Node: TTS Servers784294
+Node: Acknowledgments791337
+Node: Concept Index791487
+Node: Key Index795130
 
 End Tag Table
 

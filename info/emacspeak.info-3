@@ -5318,16 +5318,7 @@ This module can be used independent of Emacspeak.
 12.218.1 sox-gen Commands
 -------------------------
 
-12.218.1.1 sox–theme-play
-.........................
-
- -- Command: sox--theme-play (theme duration-scale)
-
-     Play  set of  binaural beats specified in theme.
-
-     (fn THEME DURATION-SCALE)
-
-12.218.1.2 sox-beats-binaural
+12.218.1.1 sox-beats-binaural
 .............................
 
  -- Command: sox-beats-binaural (length beat-spec-list gain)
@@ -5337,7 +5328,7 @@ This module can be used independent of Emacspeak.
 
      (fn LENGTH BEAT-SPEC-LIST GAIN)
 
-12.218.1.3 sox-binaural
+12.218.1.2 sox-binaural
 .......................
 
  -- Command: sox-binaural (name duration)
@@ -5348,7 +5339,7 @@ This module can be used independent of Emacspeak.
 
      (fn NAME DURATION)
 
-12.218.1.4 sox-chakras
+12.218.1.3 sox-chakras
 ......................
 
  -- Command: sox-chakras (theme duration)
@@ -5358,7 +5349,7 @@ This module can be used independent of Emacspeak.
 
      (fn THEME DURATION)
 
-12.218.1.5 sox-relax
+12.218.1.4 sox-relax
 ....................
 
  -- Command: sox-relax (duration-scale)
@@ -5368,7 +5359,7 @@ This module can be used independent of Emacspeak.
 
      (fn DURATION-SCALE)
 
-12.218.1.6 sox-rev-up
+12.218.1.5 sox-rev-up
 .....................
 
  -- Command: sox-rev-up (duration-scale)
@@ -5378,7 +5369,7 @@ This module can be used independent of Emacspeak.
 
      (fn DURATION-SCALE)
 
-12.218.1.7 sox-tone-binaural
+12.218.1.6 sox-tone-binaural
 ............................
 
  -- Command: sox-tone-binaural (length freq beat gain)
@@ -5387,7 +5378,7 @@ This module can be used independent of Emacspeak.
 
      (fn LENGTH FREQ BEAT GAIN)
 
-12.218.1.8 sox-wind-down
+12.218.1.7 sox-wind-down
 ........................
 
  -- Command: sox-wind-down (duration-scale)
@@ -6800,7 +6791,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-' u:                                 soundscape.         (line  135)
 * C-, ,:                                 emacspeak-advice.   (line   25)
 * C-, a:                                 emacspeak-feeds.    (line   35)
-* C-, b:                                 sox-gen.            (line   37)
+* C-, b:                                 sox-gen.            (line   28)
 * C-, c:                                 emacspeak-wizards.  (line 1282)
 * C-, f:                                 emacspeak-feeds.    (line   65)
 * C-, n:                                 emacspeak-wizards.  (line  508)
@@ -7137,7 +7128,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-M-y:                                 emacspeak-wizards.  (line  809)
 * C-x @ a ,:                             emacspeak-advice.   (line   26)
 * C-x @ a a:                             emacspeak-feeds.    (line   36)
-* C-x @ a b:                             sox-gen.            (line   38)
+* C-x @ a b:                             sox-gen.            (line   29)
 * C-x @ a c:                             emacspeak-wizards.  (line 1283)
 * C-x @ a f:                             emacspeak-feeds.    (line   66)
 * C-x @ a n:                             emacspeak-wizards.  (line  509)
