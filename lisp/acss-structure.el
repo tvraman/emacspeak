@@ -82,6 +82,13 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'tts)
 ;;}}}
+;;{{{ Forward Declarations:
+
+(declare-function  tts-voice-defined-p  "dectalk-voices.el" (voice))
+(declare-function tts-define-voice-from-speech-style "dectalk-voices.el" (name style))
+
+;;}}}
+
 ;;{{{ tts common vars 
 (defvar tts-default-voice 'paul 
   "Default voice used. ")
