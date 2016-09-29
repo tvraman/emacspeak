@@ -295,7 +295,7 @@ all: emacspeak
 q:
 	make clean
 	make config 
-	make -j
+	make 
 
 # }}}
 # {{{  user level target-- clean
