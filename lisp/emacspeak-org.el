@@ -52,6 +52,9 @@
 ;;{{{ required modules
 
 (require 'emacspeak-preamble)
+(require 'eww)
+(require 'emacspeak-eww)
+(require 'emacspeak-feeds)
 (require 'org "org" 'no-error)
 (require 'org-table "org-table" 'no-error)
 ;;}}}
