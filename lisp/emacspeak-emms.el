@@ -160,7 +160,7 @@
                                                      pre act
                                                      comp)
   "Silence messages."
-  (let ((emacspeak-speak-messages nil))
+  (ems-with-messages-silenced
     ad-do-it))
 
 ;;}}}

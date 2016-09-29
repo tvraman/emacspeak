@@ -109,12 +109,12 @@
     (setq msg
           (mapconcat
            (lambda (screen)
-             (let ((emacspeak-speak-messages nil)
-                   (screen-name (assoc-default screen screen-to-name-alist)))
+             (ems-with-messages-silenced
+              (let ((screen-name (assoc-default screen screen-to-name-alist)))
                (concat
                 (propertize (format "%d" screen) 'face  'font-lock-keyword-face)
                 (elscreen-status-label screen "")
-                (propertize screen-name 'face 'font-lock-string-face))))
+                (propertize screen-name 'face 'font-lock-string-face)))))
            screen-list "  "))
     (dtk-speak-and-echo msg)))
 

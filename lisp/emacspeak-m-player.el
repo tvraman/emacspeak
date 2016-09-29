@@ -305,7 +305,7 @@ etc to be ignored when guessing directory.")
 (defun emacspeak-m-player-url (url &optional playlist-p)
   "Call emacspeak-m-player with specified URL."
   (interactive (list (car (browse-url-interactive-arg "Media URL: "))))
-  (let ((emacspeak-speak-messages nil))
+  (ems-with-messages-silenced
     (emacspeak-m-player url playlist-p)))
 
 ;;;###autoload
@@ -325,12 +325,12 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
 (defsubst emacspeak-m-player-read-resource ()
   "Read resource from minibuffer with contextual smarts."
   (declare (special ido-work-directory-list))
-  (let ((completion-ignore-case t)
+  (ems-with-messages-silenced
+   (let ((completion-ignore-case t)
         (read-file-name-function
          (if (eq major-mode 'locate-mode)
              #'read-file-name-default
            #'ido-read-file-name))
-        (emacspeak-speak-messages nil)
         (read-file-name-completion-ignore-case t)
         (default
           (when (or (eq major-mode 'dired-mode) (eq major-mode 'locate-mode))
@@ -343,7 +343,7 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
     (read-file-name
      "Media Resource: "
      (emacspeak-m-player-guess-directory)
-     default 'must-match default)))
+     default 'must-match default))))
 
 (defun emacspeak-m-player-refresh-metadata ()
   "Populate metadata fields from currently playing  stream."
@@ -480,8 +480,8 @@ feature."
 Interactive prefix arg appends the new resource to what is playing."
   (interactive
    (list
-    (let ((completion-ignore-case t)
-          (emacspeak-speak-messages nil)
+    (ems-with-messages-silenced
+     (let ((completion-ignore-case t)
           (read-file-name-completion-ignore-case t))
       (read-file-name
        "MP3 Resource: "
@@ -491,7 +491,7 @@ Interactive prefix arg appends the new resource to what is playing."
            default-directory
          emacspeak-media-shortcuts-directory)
        (when (eq major-mode 'dired-mode)
-         (dired-get-filename))))
+         (dired-get-filename)))))
     current-prefix-arg))
   (declare (special emacspeak-media-extensions
                     emacspeak-media-shortcuts-directory))

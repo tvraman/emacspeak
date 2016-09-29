@@ -61,27 +61,28 @@
            (goto-char (marker-position marker))
            (emacspeak-speak-line)))))
 
-(loop for f in
-      '(
-        gud-break
-        gud-tbreak
-        gud-remove
-        gud-step
-        gud-stepi
-        gud-next
-        gud-nexti
-        gud-cont
-        gud-finish
-        gud-jump
-        )
-      do
-      (eval
-       `(defadvice ,f (around emacspeak pre act comp)
-          "Silence minibuffer message that echoes command."
-          (let ((emacspeak-speak-messages nil))
-            ad-do-it
-            (emacspeak-auditory-icon 'select-object)
-            ad-return-value))))
+(loop
+ for f in
+ '(
+   gud-break
+   gud-tbreak
+   gud-remove
+   gud-step
+   gud-stepi
+   gud-next
+   gud-nexti
+   gud-cont
+   gud-finish
+   gud-jump
+   )
+ do
+ (eval
+  `(defadvice ,f (around emacspeak pre act comp)
+     "Silence minibuffer message that echoes command."
+     (ems-with-messages-silenced
+      ad-do-it
+      (emacspeak-auditory-icon 'select-object)
+      ad-return-value))))
 ;;}}}
 ;;{{{ Advise interactive commands:
 

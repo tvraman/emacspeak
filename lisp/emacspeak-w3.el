@@ -537,7 +537,7 @@ element. "
 (defadvice w3-fetch-callback
     (around emacspeak pre act comp)
   "silence spoken messages."
-  (let ((emacspeak-speak-messages nil))
+  (ems-with-messages-silenced
     ad-do-it))
 ;;}}}
 ;;{{{ backward compatibility

@@ -510,14 +510,14 @@ Retain previously set punctuations  mode."
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
      "Provide auditory feedback."
-     (let ((emacspeak-speak-messages nil))
-       ad-do-it
-       (when (ems-interactive-p)
-         (emacspeak-auditory-icon 'button)
-         (emacspeak-speak-region
-          (point)
-          (next-single-property-change (point) 'help-echo
-                                       nil (point-max))))))))
+     (ems-with-messages-silenced
+      ad-do-it
+      (when (ems-interactive-p)
+        (emacspeak-auditory-icon 'button)
+        (emacspeak-speak-region
+         (point)
+         (next-single-property-change (point) 'help-echo
+                                      nil (point-max))))))))
 
 ;;; Handle emacspeak-we-url-executor
 

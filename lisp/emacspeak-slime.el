@@ -86,15 +86,15 @@
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
      "Say what you completed."
-     (let ((prior (point))
-           (emacspeak-speak-messages nil))
+     (ems-with-messages-silenced
+      (let ((prior (point)))
        ad-do-it
        (if (> (point) prior)
            (tts-with-punctuations
             'all
             (dtk-speak (buffer-substring prior (point))))
          (emacspeak-speak-completions-if-available))
-       ad-return-value))))
+       ad-return-value)))))
 
 ;;}}}
 ;;{{{ Writing Code:

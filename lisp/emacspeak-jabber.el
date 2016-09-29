@@ -159,7 +159,8 @@
   "Allow emacspeak to control if the message is spoken."
   (cond
    (emacspeak-jabber-speak-presence-alerts ad-do-it)
-   (t (let ((emacspeak-speak-messages nil))
+   (t
+    (ems-with-messages-silenced
         ad-do-i)))
   ad-return-value)
 

@@ -61,17 +61,17 @@
 
 (defun emacspeak-company-speak-this ()
   "Formatting rule for speaking company selection."
-  (let ((emacspeak-speak-messages nil)
-        (metadata (funcall 'company-fetch-metadata)))
+  (ems-with-messages-silenced
+   (let ((metadata (funcall 'company-fetch-metadata)))
     (when metadata (ems-voiceify-string metadata 'voice-annotate))
     (dtk-speak-and-echo
-     (concat (ems-company-current) " " metadata))))
+     (concat (ems-company-current) " " metadata)))))
 
 ;;}}}
 ;;{{{ Emacspeak Front-End For Company:
 (defun emacspeak-company-frontend (command)
   "Emacspeak front-end for Company."
-  (let ((emacspeak-speak-messages nil))
+  (ems-with-messages-silenced
     (case command
       (pre-command (emacspeak-company-speak-this))
       (post-command (emacspeak-company-speak-this))
