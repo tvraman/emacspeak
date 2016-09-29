@@ -1353,8 +1353,8 @@ Resources typically prompt for the relevant information
 before completing the request.
 Optional interactive prefix arg displays documentation for specified resource."
   (interactive "P")
-  (let ((completion-ignore-case t)
-        (emacspeak-speak-messages nil)
+  (ems-with-messages-silenced
+   (let ((completion-ignore-case t)
         (name nil))
     (setq name
           (completing-read "Resource: "
@@ -1367,7 +1367,7 @@ Optional interactive prefix arg displays documentation for specified resource."
       (add-hook
        'emacspeak-web-post-process-hook
        (emacspeak-url-template-generate-name-setter name))
-      (emacspeak-url-template-open (emacspeak-url-template-get name))))))
+      (emacspeak-url-template-open (emacspeak-url-template-get name)))))))
 
 (defun emacspeak-url-template-help ()
   "Display documentation for a URL template.

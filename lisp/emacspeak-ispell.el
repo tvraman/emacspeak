@@ -110,9 +110,8 @@ many available corrections."
   "Stop chatter by turning off messages"
   (cond
    ((ems-interactive-p)
-    (let ((dtk-stop-immediately t)
-          (emacspeak-speak-messages nil))
-      ad-do-it
+     (let ((dtk-stop-immediately t))
+      (ems-with-messages-silenced ad-do-it)
       (emacspeak-auditory-icon 'task-done)))
    (t ad-do-it)))
 
@@ -128,9 +127,8 @@ many available corrections."
   "Produce auditory icons for ispell."
   (cond
    ((ems-interactive-p)
-    (let ((dtk-stop-immediately t)
-          (emacspeak-speak-messages nil))
-      ad-do-it
+     (let ((dtk-stop-immediately t))
+      (ems-with-messages-silenced ad-do-it)
       (emacspeak-auditory-icon 'task-done)))
    (t ad-do-it))
   ad-return-value)
@@ -139,9 +137,8 @@ many available corrections."
   "Produce auditory icons for ispell."
   (cond
    ((ems-interactive-p)
-    (let ((dtk-stop-immediately t)
-          (emacspeak-speak-messages nil))
-      ad-do-it
+    (let ((dtk-stop-immediately t))
+      (ems-with-messages-silenced ad-do-it)
       (emacspeak-auditory-icon 'task-done)))
    (t ad-do-it))
   ad-return-value)
@@ -151,12 +148,10 @@ many available corrections."
   (declare (special emacspeak-last-message))
   (cond
    ((ems-interactive-p)
-    (let ((dtk-stop-immediately t)
-          (emacspeak-speak-messages nil))
+     (let ((dtk-stop-immediately t))
       (setq emacspeak-last-message nil)
-      ad-do-it
-      (when (ems-interactive-p)
-        (emacspeak-speak-message-again))
+      (ems-with-messages-silenced ad-do-it)
+        (emacspeak-speak-message-again)
       (emacspeak-auditory-icon 'task-done)))
    (t ad-do-it))
   ad-return-value)

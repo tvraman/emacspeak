@@ -706,7 +706,7 @@ Optional argument PROMPT  specifies whether we prompt for the name of a clipboar
            emacspeak-clipboard-file))
         (clipboard nil))
     (setq clipboard (find-file-noselect  clipboard-file))
-    (let ((emacspeak-speak-messages nil))
+    (ems-with-messages-silenced
       (save-current-buffer
         (set-buffer clipboard)
         (erase-buffer)
@@ -1883,8 +1883,8 @@ On Ubuntu and Debian this is group `tty'."
   (declare (special emacspeak-wizards-vc-viewer-command
                     emacspeak-wizards-vc-console
                     temporary-file-directory))
-  (let ((emacspeak-speak-messages nil)
-        (command
+  (ems-with-messages-silenced
+   (let ((command
          (format emacspeak-wizards-vc-viewer-command
                  console
                  (expand-file-name
@@ -1903,7 +1903,7 @@ On Ubuntu and Debian this is group `tty'."
     (emacspeak-wizards-vc-viewer-mode)
     (setq emacspeak-wizards-vc-console console)
     (goto-char (point-min))
-    (when (ems-interactive-p) (emacspeak-speak-line))))
+    (when (ems-interactive-p) (emacspeak-speak-line)))))
 
 ;;;###autoload
 (defun emacspeak-wizards-vc-viewer-refresh ()
@@ -2166,10 +2166,10 @@ Location is specified by name."
    (list
     (read-from-minibuffer "ISO DateTime:"
                           (word-at-point))))
-  (let ((emacspeak-speak-messages nil)
-        (time (emacspeak-speak-decode-iso-datetime iso)))
+  (ems-with-messages-silenced
+   (let ((time (emacspeak-speak-decode-iso-datetime iso)))
     (tts-with-punctuations 'some (dtk-speak time))
-    (message time)))
+    (message time))))
 
 ;;}}}
 ;;{{{ date pronouncer wizard
@@ -2256,8 +2256,8 @@ RIVO is implemented by rivo.pl ---
   (interactive
    (list
     (read-from-minibuffer "At Time: hh:mm Month Day")
-    (let ((completion-ignore-case t)
-          (emacspeak-speak-messages nil)
+    (ems-with-messages-silenced
+     (let ((completion-ignore-case t)
           (minibuffer-history emacspeak-media-history))
       (emacspeak-pronounce-define-local-pronunciation
        emacspeak-media-shortcuts-directory " shortcuts/ ")
@@ -2265,7 +2265,7 @@ RIVO is implemented by rivo.pl ---
                       emacspeak-media-shortcuts-directory
                       (if (eq major-mode 'dired-mode)
                           (dired-get-filename)
-                        emacspeak-media-last-url)))
+                        emacspeak-media-last-url))))
     (read-minibuffer "Length:" "00:30:00")
     (read-minibuffer "Output Name:")
     (read-directory-name "Output Directory:")))

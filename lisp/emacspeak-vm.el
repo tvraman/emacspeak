@@ -439,11 +439,11 @@ Then speak the screenful. "
 ;;{{{  silence mime parsing in vm 6.0 and above
 
 (defadvice vm-mime-parse-entity (around emacspeak pre act comp)
-  (let ((emacspeak-speak-messages nil))
+  (ems-with-messages-silenced
     ad-do-it))
 
 (defadvice vm-decode-mime-message (around emacspeak pre act comp)
-  (let ((emacspeak-speak-messages nil))
+  (ems-with-messages-silenced
     ad-do-it))
 
 (defadvice vm-mime-run-display-function-at-point (around emacspeak pre act comp)
@@ -463,7 +463,7 @@ Leave point at front of decoded attachment."
 
 (defadvice vm-emit-eom-blurb (around emacspeak pre act comp)
   "Stop chattering"
-  (let ((emacspeak-speak-messages nil))
+  (ems-with-messages-silenced
     ad-do-it))
 
 ;;}}}
