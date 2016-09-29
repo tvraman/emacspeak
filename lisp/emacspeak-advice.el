@@ -676,13 +676,14 @@ icon."
   "Speech enable ELDoc."
  ;;; eldoc flashes message temporarily, we speak from cache."
   (ems-with-messages-silenced
-                (cached-message eldoc-last-message))
-    ad-do-it
-    (when (and eldoc-last-message
-               emacspeak-eldoc-speak-explicitly
-               (not (string-equal cached-message eldoc-last-message)))
+   (let ((cached-message eldoc-last-message))
+     ad-do-it
+    (when
+        (and eldoc-last-message
+             emacspeak-eldoc-speak-explicitly
+             (not (string-equal cached-message eldoc-last-message)))
       (dtk-speak-and-echo eldoc-last-message))
-    ad-return-value))
+    ad-return-value)))
 
 (defun emacspeak-eldoc-speak-doc ()
   "Speak Eldoc documentation if available."
