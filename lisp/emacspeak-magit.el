@@ -51,7 +51,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 
-(require 'magit "magit" 'no-error)
+;(eval-when-compile (require 'magit "magit" 'no-error))
 
 ;;}}}
 ;;{{{ Map voices to faces:
