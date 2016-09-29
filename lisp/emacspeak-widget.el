@@ -149,13 +149,13 @@ Returns a string with appropriate personality."
 ;;;###autoload
 (defun emacspeak-widget-summarize(widget)
   "Summarize specified widget."
-  (let ((emacspeak-help (widget-get widget :emacspeak-help))
-        (emacspeak-speak-messages nil))
+  (ems-with-messages-silenced
+   (let ((emacspeak-help (widget-get widget :emacspeak-help)))
     (cond
      ((and emacspeak-help
            (fboundp emacspeak-help))
       (dtk-speak  (funcall emacspeak-help widget)))
-     (t (dtk-speak (current-message))))))
+     (t (dtk-speak (current-message)))))))
 
 ;;}}}
 ;;{{{ advice activators 
@@ -515,7 +515,7 @@ Returns a string with appropriate personality."
 
 ;;; avoid redundant message speech output
 (defadvice widget-echo-help (around emacspeak pre act comp)
-  (let ((emacspeak-speak-messages nil))
+  (ems-with-messages-silenced
     ad-do-it
     ad-return-value))
 (defadvice widget-beginning-of-line (after emacspeak pre act comp)

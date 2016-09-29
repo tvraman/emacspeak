@@ -180,8 +180,7 @@ reading news."
 (defadvice gnus (around emacspeak pre act)
   "Temporarily deactivate advice on message"
   (dtk-speak  "Starting gnus")
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it)
+  (ems-with-messages-silenced ad-do-it)
   (emacspeak-auditory-icon 'news)
   (message "Gnus is ready "))
 
@@ -204,15 +203,13 @@ reading news."
   "Temporarily deactivate advice on message"
   (dtk-speak  "Getting new  gnus")
   (sit-for 2)
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it)
+  (ems-with-messages-silenced ad-do-it)
   (message "Gnus is ready ")
   (emacspeak-auditory-icon 'news))
 
 (defadvice nnheader-message-maybe (around emacspeak pre act comp)
   "Silence emacspeak"
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it))
+  (ems-with-messages-silenced ad-do-it))
 
 ;;}}}
 ;;{{{  Newsgroup selection

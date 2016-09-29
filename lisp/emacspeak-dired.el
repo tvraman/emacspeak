@@ -90,10 +90,9 @@
   "Provide auditory feedback."
   (cond
    ((ems-interactive-p)
-    (let ((emacspeak-speak-messages nil))
-      ad-do-it
+    (ems-with-messages-silenced ad-do-it)
       (emacspeak-auditory-icon 'task-done)
-      (emacspeak-speak-mode-line)))
+      (emacspeak-speak-mode-line))
    (t ad-do-it))
   ad-return-value)
 

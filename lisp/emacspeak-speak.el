@@ -185,17 +185,17 @@ message area.  You can use command
   :group 'emacspeak-speak
   :type 'boolean)
 
-(defsubst  emacspeak-shell-command (command)
+(defun  emacspeak-shell-command (command)
   "Run shell command and speak its output."
   (interactive)
-  (let ((emacspeak-speak-messages nil)
-        (output (get-buffer-create "*Emacspeak Shell Command*")))
+  (ems-with-messages-silenced
+   (let ((output (get-buffer-create "*Emacspeak Shell Command*")))
     (save-current-buffer
       (set-buffer output)
       (erase-buffer)
       (shell-command command output)
       (emacspeak-auditory-icon 'open-object)
-      (dtk-speak (buffer-string)))))
+      (dtk-speak (buffer-string))))))
 
 ;;}}}
 ;;{{{ Completion helper:

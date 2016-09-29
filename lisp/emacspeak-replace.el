@@ -74,8 +74,8 @@ that is being replaced."
   "Stop message from chattering.
  Turn on voice lock temporarily. "
   (declare (special voice-lock-mode))
-  (let ((saved-voice-lock voice-lock-mode)
-        (emacspeak-speak-messages nil))
+  (ems-with-messages-silenced
+  (let ((saved-voice-lock voice-lock-mode))
     (dtk-stop)
     (unwind-protect
         (progn
@@ -86,13 +86,13 @@ that is being replaced."
           (save-match-data ad-do-it))
       (emacspeak-auditory-icon 'task-done)
       (setq voice-lock-mode saved-voice-lock
-            emacspeak-speak-messages t))))
+            emacspeak-speak-messages t)))))
 
 (defadvice query-replace (around emacspeak pre act compile)
   "Stop message from chattering."
   (declare (special voice-lock-mode))
-  (let ((saved-voice-lock voice-lock-mode)
-        (emacspeak-speak-messages nil))
+  (ems-with-messages-silenced
+  (let ((saved-voice-lock voice-lock-mode))
     (dtk-stop)
     (unwind-protect
         (progn
@@ -103,10 +103,11 @@ that is being replaced."
           (save-match-data ad-do-it))
       (emacspeak-auditory-icon 'task-done)
       (setq voice-lock-mode saved-voice-lock
-            emacspeak-speak-messages t))))
+            emacspeak-speak-messages t)))))
+
 (defadvice perform-replace (around emacspeak pre act  comp)
   "Silence help message."
-  (let ((emacspeak-speak-messages nil))
+  (ems-with-messages-silenced
     ad-do-it))
 
 (defadvice replace-highlight (before  emacspeak pre act)

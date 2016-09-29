@@ -128,7 +128,7 @@
 (defadvice view-diary-entries (after emacspeak pre act)
   "Speak the diary entries."
   (when (ems-interactive-p)
-    (let ((emacspeak-speak-messages nil))
+    (ems-with-messages-silenced
       (cond
        ((buffer-live-p (get-buffer "*Fancy Diary Entries*"))
         (save-current-buffer
@@ -359,7 +359,7 @@
 
 (defadvice mark-diary-entries (around emacspeak pre act comp)
   "Silence messages."
-  (let ((emacspeak-speak-messages nil))
+  (ems-with-messages-silenced
     ad-do-it
     ad-return-value))
 

@@ -262,43 +262,41 @@ Returns t if a block was found and hidden."
 ;;;###autoload
 (defun emacspeak-hide-all-blocks-in-buffer ()
   "Hide all blocks in current buffer."
-  (declare (special emacspeak-speak-messages))
-  (let ((count 0)
-        (emacspeak-speak-messages nil)
-        (prefix nil))
-    (save-excursion
-      (goto-char (point-min))
-      (while (not (eobp))
-        (setq prefix (emacspeak-hide-parse-prefix))
-        (cond
-         ((and prefix
-               (emacspeak-hide-current-block prefix))
-          (incf count)
-          (goto-char
-           (next-single-property-change (point)
-                                        'emacspeak-hidden-block
-                                        (current-buffer)
-                                        (point-max))))
-         (t (forward-line 1)))))
-    (dtk-speak
-     (format "Hid %s blocks" count))))
+  (ems-with-messages-silenced
+   (let ((count 0)
+         (prefix nil))
+     (save-excursion
+       (goto-char (point-min))
+       (while (not (eobp))
+         (setq prefix (emacspeak-hide-parse-prefix))
+         (cond
+          ((and prefix
+                (emacspeak-hide-current-block prefix))
+           (incf count)
+           (goto-char
+            (next-single-property-change (point)
+                                         'emacspeak-hidden-block
+                                         (current-buffer)
+                                         (point-max))))
+          (t (forward-line 1)))))
+     (dtk-speak
+      (format "Hid %s blocks" count)))))
 
 (defun emacspeak-hide-expose-hidden-blocks-in-buffer ()
   "Expose any hidden blocks in current buffer."
-  (declare (special emacspeak-speak-messages))
-  (let ((count 0)
-        (emacspeak-speak-messages nil)
-        (block-end nil))
-    (save-excursion
-      (goto-char (point-min))
-      (while (not (eobp))
-        (setq block-end (emacspeak-hide-expose-block))
-        (cond
-         (block-end
-          (goto-char block-end)
-          (incf count))
-         (t (forward-line 1)))))
-    (dtk-speak (format "Exposed %s blocks" count))))
+  (ems-with-messages-silenced
+   (let ((count 0)
+         (block-end nil))
+     (save-excursion
+       (goto-char (point-min))
+       (while (not (eobp))
+         (setq block-end (emacspeak-hide-expose-block))
+         (cond
+          (block-end
+           (goto-char block-end)
+           (incf count))
+          (t (forward-line 1)))))
+     (dtk-speak (format "Exposed %s blocks" count)))))
 
 ;;}}}
 ;;{{{ User interface
