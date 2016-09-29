@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents Emacspeak, The Complete Audio Desktop.  This
-document was last updated on September 28, 2016.
+document was last updated on September 29, 2016.
 
    The manual is divided into the following chapters.
 
@@ -3006,6 +3006,7 @@ This chapter documents a total of 1176 commands and 976 options.
 * emacspeak-ediff::
 * emacspeak-ein::
 * emacspeak-elfeed::
+* emacspeak-elisp-refs::
 * emacspeak-elpy::
 * emacspeak-elscreen::
 * emacspeak-emms::
@@ -4045,7 +4046,6 @@ system.
      M-t		emacspeak-tapestry-describe-tapestry
      M-u		emacspeak-feeds-add-feed
      M-v		emacspeak-show-personality-at-point
-     M-w		emacspeak-toggle-which-function
      C-M-SPC		emacspeak-speak-spaces-at-point
 
      C-t C-b		emacspeak-table-previous-column
