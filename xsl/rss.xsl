@@ -53,7 +53,7 @@ Only supports RSS 1.0
       </h2>
       <xsl:apply-templates
           select="description|rss:description"/>
-      <em><xsl:value-of select="pubdate|rss:pubDate"/></em>
+      <em><xsl:value-of select="pubDate|rss:pubDate"/></em>
     </li>
   </xsl:template>
   <xsl:template match="rss:title|rss:description|title|description">
