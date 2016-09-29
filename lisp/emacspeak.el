@@ -137,6 +137,7 @@ that implements the speech-enabling extensions."
          ,(format "%s" package))))))
 
 ;;; DocView
+(declare-function doc-view-open-text "doc-view")
 (eval-after-load 'doc-view
   `(add-hook 'doc-view-mode-hook #'doc-view-open-text))
 
