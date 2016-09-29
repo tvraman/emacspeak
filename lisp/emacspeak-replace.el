@@ -70,24 +70,6 @@ that is being replaced."
 (defvar emacspeak-replace-start nil)
 (defvar emacspeak-replace-end nil)
 
-(defadvice query-replace-regexp (around emacspeak pre act compile)
-  "Stop message from chattering.
- Turn on voice lock temporarily. "
-  (declare (special voice-lock-mode))
-  (ems-with-messages-silenced
-  (let ((saved-voice-lock voice-lock-mode))
-    (dtk-stop)
-    (unwind-protect
-        (progn
-          (setq voice-lock-mode 1)
-          (setq emacspeak-replace-start nil 
-                emacspeak-replace-end nil 
-                emacspeak-replace-highlight-on nil)
-          (save-match-data ad-do-it))
-      (emacspeak-auditory-icon 'task-done)
-      (setq voice-lock-mode saved-voice-lock
-            emacspeak-speak-messages t)))))
-
 (defadvice query-replace (around emacspeak pre act compile)
   "Stop message from chattering."
   (declare (special voice-lock-mode))
