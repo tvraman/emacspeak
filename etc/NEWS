@@ -69,10 +69,17 @@ Added URL Templates for Google Category News and Google Regional News.
 Module emacspeak-jade.el speech-enables package Jade for interactively
 debugging Webapps in  browsers like Chrome.
 
-** SoX And Binaural Audio:
+** SoX And Binaural Beats:
 
 Module ~sox-gen~ now provides the ability to generate a variety of
-binaural tones --- this is designed for use with headphones for
+binaural tones and beats --- this is designed for use with headphones for
 brainwave entrainment.
+
+
+** Speech-Enabled Elisp-Refs
+
+Module ~emacspeak-elisp-refs~ speech-enables package ~elisp-refs~ ---
+a powerful package for jumping to callers of functions and macros in
+Emacs Lisp.
 
 
