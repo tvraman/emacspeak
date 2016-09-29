@@ -296,7 +296,7 @@ Parameter `theme' specifies variant."
      #'(lambda () (sox-binaural (iter-next names) duration)))))
 
 (defconst sox-rev-up-beats
-  '(("dream" 1) ( "think"  4) ("act" 2) ("focus" 2))
+  '(("dream" 1) ( "think"  4) ("act" 2) ("focus" 1))
   "List of  beats to use for rev-up in the morning.")
 
 (defconst sox-wind-down-beats
@@ -304,7 +304,7 @@ Parameter `theme' specifies variant."
   "List of  beats to use for wind-down in the evening.")
 
 (defconst sox-relax-beats
-  '(("dream" 4) ( "sleep" 1))
+  '(("dream" 4) ( "sleep" 4))
   "List of  beats to use for relaxing.")
 
 ;;; Theme Helper:
