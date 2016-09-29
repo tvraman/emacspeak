@@ -188,14 +188,14 @@ message area.  You can use command
 (defun  emacspeak-shell-command (command)
   "Run shell command and speak its output."
   (interactive)
-  (ems-with-messages-silenced
-   (let ((output (get-buffer-create "*Emacspeak Shell Command*")))
+  (let ((output (get-buffer-create "*Emacspeak Shell Command*")))
     (save-current-buffer
       (set-buffer output)
       (erase-buffer)
-      (shell-command command output)
+      (ems-with-messages-silenced
+       (shell-command command output))
       (emacspeak-auditory-icon 'open-object)
-      (dtk-speak (buffer-string))))))
+      (dtk-speak (buffer-string)))))
 
 ;;}}}
 ;;{{{ Completion helper:
