@@ -104,6 +104,7 @@
   "Customization group for setting voices."
   :group 'emacspeak)
 
+(declare-function tts-list-voices "dectalk-voices" )
 
 (defcustom voice-lock-global-modes t
   "Modes for which Voice Lock mode is automagically turned on.
