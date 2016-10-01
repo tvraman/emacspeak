@@ -28,6 +28,9 @@ Only supports RSS 1.0
         </title>
       </head>
       <body>
+        <p>
+          <xsl:apply-templates select="channel/description|rss:channel/rss:description"/>
+        </p>
         <ol>
           <xsl:apply-templates select="//item|//rss:item"/>
         </ol>
@@ -53,7 +56,9 @@ Only supports RSS 1.0
       </h2>
       <xsl:apply-templates
           select="description|rss:description"/>
-      <em><xsl:value-of select="pubDate|rss:pubDate"/></em>
+      <br/><em><xsl:value-of select="pubDate|rss:pubDate"/></em><br/>
+      <xsl:apply-templates
+          select="enclosure|rss:enclosure"/>
     </li>
   </xsl:template>
   <xsl:template match="rss:title|rss:description|title|description">
@@ -76,7 +81,7 @@ Only supports RSS 1.0
         </xsl:when>
         <xsl:otherwise>Boom</xsl:otherwise>
       </xsl:choose>
-      Enclosure: <!--Type <xsl:value-of select="@type"/>-->
+      Enclosure:
       <xsl:value-of select="@length"/>
     </xsl:element>
   </xsl:template>
