@@ -311,6 +311,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 (emacspeak-url-template-define
  "BBC Podcast Directory"
  "http://www.bbc.co.uk/podcasts.opml"
+ ;"http://www.bbc.co.uk/radio/opml/bbc_podcast_opml.xml"
  nil nil
  "BBC PodCast Directory"
  #'emacspeak-feeds-opml-display)
