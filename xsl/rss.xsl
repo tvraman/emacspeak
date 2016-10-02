@@ -28,12 +28,12 @@ Only supports RSS 1.0
         </title>
       </head>
       <body>
-        <p>
-          <xsl:apply-templates select="channel/description|rss:channel/rss:description"/>
-        </p>
         <ol>
           <xsl:apply-templates select="//item|//rss:item"/>
         </ol>
+        <p>
+          <xsl:apply-templates select="channel/description|rss:channel/rss:description"/>
+        </p>
         <p>
           <xsl:apply-templates select="description|rss:description"/>
           <a>
