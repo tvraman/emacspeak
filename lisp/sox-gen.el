@@ -199,8 +199,8 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
 (sox-define-binaural-effect
  "dream" ; theta
  (make-sox--binaural
-  :beats '((75 4.0) (150 5.0) (225 6.0) (400 7.34))
-  :gain -14))
+  :beats '((75 4.5) (150 6.5)  (300 7.34))
+  :gain -18))
 
 (sox-define-binaural-effect
  "think" ;alpha
