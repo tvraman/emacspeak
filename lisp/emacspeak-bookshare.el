@@ -127,7 +127,7 @@ This is used by the various Bookshare view commands to display
   "Curl executable.")
 
 (defvar emacspeak-bookshare-curl-common-options
-  " --insecure "
+  " --insecure --location "
   "Common Curl options for Bookshare. Includes --insecure as per
 Bookshare docs."
   )
