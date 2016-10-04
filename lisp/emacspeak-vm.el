@@ -365,8 +365,8 @@ Then speak the screenful. "
   "Provide an auditory icon if requested"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
-    (sit-for 0.1)
-    (emacspeak-speak-mode-line)))
+    (with-current-buffer (window-buffer (selected-window))
+    (emacspeak-speak-mode-line))))
 
 ;;}}}
 ;;{{{ catching up on folders
