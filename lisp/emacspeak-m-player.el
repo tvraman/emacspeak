@@ -708,7 +708,8 @@ This affects pitch."
     (unless (eq (process-status emacspeak-m-player-process) 'exit)
       (delete-process  emacspeak-m-player-process))
     (setq emacspeak-m-player-process nil)
-    (emacspeak-speak-mode-line)))
+    (with-current-buffer  (window-buffer (selected-window))
+      (emacspeak-speak-mode-line))))
 
 ;;;###autoload
 (defun emacspeak-m-player-volume-up ()
