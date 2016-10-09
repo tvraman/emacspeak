@@ -48,8 +48,12 @@
 #define ESPEAK_API_REVISION 1
 #endif
 
+#include <set>
 #include <string>
+#include <vector>
+using std::set;
 using std::string;
+using std::vector;
 
 #define PACKAGENAME "tts"
 #define PACKAGEVERSION "1.0"
@@ -76,50 +80,7 @@ int Pause(ClientData, Tcl_Interp *, int, Tcl_Obj *CONST[]);
 int Resume(ClientData, Tcl_Interp *, int, Tcl_Obj *CONST[]);
 
 static void initLanguage(Tcl_Interp *interp);
-static int getLangIndex(Tcl_Interp *interp, int *theIndex);
-
-//>
-//< preferred languages
-
-// Uncomment below your preferred languages
-
-static const char *ThePreferredLanguages[] = {
-    //     "af", // afrikaans
-    //     "cs", // czech-test
-    //     "cy", // welsh-test
-    //     "de", // german
-    //     "el", // greek_test
-    //     "en-r", // en-rhotic
-    //     "en-sc", // en-scottish
-    "en-uk",  // english
-              //     "en-uk-north", // lancashire
-              //     "en-uk-rp", // english_rp
-              //     "en-uk-wmids", // english_wmids
-              //     "eo", // esperanto
-              //     "es", // spanish
-              //     "fi" // finnish
-    "fr",     // french-test
-              //     "fr-ca", // quebec-test
-              //     "hi", // hindi-test
-              //     "hu", // hungarian
-              //     "it", // italian
-              //     "nl", // dutch-test
-              //     "no", // norwegian-test
-              //     "pl", // polish_test
-              //     "pt", // brazil
-              //     "pt-pt", // portugal
-              //     "ro", // romanian
-              //     "ro", // romanian-mbrola
-              //     "ru", // russian_test
-              //     "sk", // slovak-test
-              //     "sv", // swedish-test
-              //     "sw", // swahihi-test
-              //     "vi", // vietnam-test
-              //     "zh", // cantonese-test
-};
-
-#define MaxPreferredLang \
-  (int)(sizeof(ThePreferredLanguages) / sizeof(ThePreferredLanguages[0]))
+static int getLangIndex(Tcl_Interp *interp, unsigned long *theIndex);
 
 //>
 //<TclEspeakFree
@@ -465,16 +426,27 @@ int getTTSVersion(ClientData handle, Tcl_Interp *interp, int objc,
 //>
 //<SetLanguage
 
+static vector<string> available_languages;
+
+static void SetLanguageHelper(Tcl_Interp *interp, size_t aIndex) {
+  espeak_VOICE *current_voice = NULL;
+  espeak_VOICE a_voice;
+  memset(&a_voice, 0, sizeof(espeak_VOICE));
+  a_voice.languages = (char *)available_languages[aIndex].c_str();
+  a_voice.gender = 1;
+  espeak_SetVoiceByProperties(&a_voice);
+  current_voice = espeak_GetCurrentVoice();
+  Tcl_SetVar(interp, "voicename", current_voice->name, 0);
+  // But what if we couldn't set the voice?  Need some better error handling.
+  return;
+}
+
 int SetLanguage(ClientData eciHandle, Tcl_Interp *interp, int objc,
                 Tcl_Obj *CONST objv[]) {
-  int aIndex = 0;
+  unsigned long aIndex = 0;
 
   if (getLangIndex(interp, &aIndex)) {
-    espeak_VOICE a_voice;
-    memset(&a_voice, 0, sizeof(espeak_VOICE));
-    a_voice.languages = (char *)(ThePreferredLanguages[aIndex]);
-    a_voice.gender = 1;
-    espeak_SetVoiceByProperties(&a_voice);
+    SetLanguageHelper(interp, aIndex);
   }
   return TCL_OK;
 }
@@ -482,71 +454,107 @@ int SetLanguage(ClientData eciHandle, Tcl_Interp *interp, int objc,
 //>
 //<initLanguage, getLangIndex
 
+static vector<string> ParseLanguages(const char *lang_str) {
+  vector<string> voice_langs;
+  const char *p = lang_str;
+  // The languages string is a string of (priority-byte, language-name)
+  // pairs.  Each language name ends with a NUL byte, and the whole string
+  // ends with a NUL.  So in BNF:
+  // (priority-byte text NUL-byte)* NUL-byte
+  // We can ignore the priority byte for now.  Revisit it later?
+  while(*p) {
+    voice_langs.push_back(string(p+1));
+    p += strlen(p + 1) + 2;
+  }
+  return voice_langs;
+}
+
 static void initLanguage(Tcl_Interp *interp) {
   // List the available languages
+  set<string> unique_languages;
   int i = 0;
-  int j = 0;
-  char *aDefaultLang = (char *)getenv("LANGUAGE");
-  if (aDefaultLang == NULL) {
-    aDefaultLang = (char *)getenv("LANG");
-    if (aDefaultLang == NULL) {
-      aDefaultLang = (char *)"en";
+  unsigned long ui = 0;
+  char *envDefaultLang = (char *)getenv("LANGUAGE");
+  if (envDefaultLang == NULL) {
+    envDefaultLang = (char *)getenv("LANG");
+    if (envDefaultLang == NULL) {
+      envDefaultLang = (char *)"en";
     }
   }
+  string aDefaultLang = envDefaultLang;
+  size_t remove = aDefaultLang.find('.', 0);
 
-  Tcl_SetVar2(interp, "langsynth", "current", "0", 0);
+  // Snip off everything following a period.  So en-us.utf8 becomes en-us.
+  if (remove != string::npos) {
+    aDefaultLang.erase(aDefaultLang.begin() + remove, aDefaultLang.end());
+  }
+  // And replace _ with -, E.G. en_US becomes en-US.
+  for (string::iterator it = aDefaultLang.begin();
+       it != aDefaultLang.end(); it++) {
+    if (*it == '_') {
+      *it = '-';
+    }
+  }
 
   const espeak_VOICE **voices = espeak_ListVoices(NULL);
 
-  int langInfoMax = 0;
-  for (i = 0; voices[i] != NULL; i++) {
-    char buffer_i[3];
-    snprintf(buffer_i, 3, "%d", i);
-    Tcl_SetVar2(interp, "langalias", (char *)(voices[i]->languages), buffer_i,
-                0);
+  for (i = 0; voices[i] != 0; i++) {
+    vector<string> voice_langs = ParseLanguages(voices[i]->languages);
+    unique_languages.insert(voice_langs.begin(), voice_langs.end());
   }
-
-  langInfoMax = i;
-
-  int aLang;
-  for (aLang = 0; aLang < MaxPreferredLang; aLang++) {
-    char buffer_i[3];
-    char buffer_j[3];
-
-    for (i = 0; i < langInfoMax; i++) {
-      if (voices[i] && voices[i]->languages &&
-          (strcmp(1 + voices[i]->languages, ThePreferredLanguages[aLang]) == 0))
-        break;
+  available_languages.assign(unique_languages.begin(), unique_languages.end());
+  vector<string>::iterator it;
+  size_t lang_count = available_languages.size();
+  size_t english_index = lang_count;
+  size_t default_index = lang_count;
+  char buffer[256];
+  for (ui = 0; ui < lang_count; ui++) {
+    const char *aLangCode = available_languages[ui].c_str();
+    snprintf(buffer, sizeof(buffer), "%lu", ui);
+    Tcl_SetVar2(interp, "langalias", aLangCode, buffer, 0);
+    Tcl_SetVar2(interp, "langcode", buffer, aLangCode, 0);
+    if (default_index == lang_count) {
+    if (strcasecmp(aDefaultLang.c_str(), aLangCode) == 0) {
+        Tcl_SetVar2(interp, "langsynth", "current", buffer, 0);
+        Tcl_SetVar2(interp, "langcode", "current", (char *)aLangCode, 0);
+        default_index = ui;
+      }
     }
-
-    if (i == langInfoMax) {
-      continue;
+    if (strcmp(aLangCode, "en") == 0) {
+      english_index = ui;
     }
-
-    const char *aLangCode = 1 + voices[i]->languages;
-    snprintf(buffer_i, 3, "%d", aLang);
-    snprintf(buffer_j, 3, "%d", j++);
-    Tcl_SetVar2(interp, (char *)"langsynth", buffer_j, buffer_i, 0);
-
-    if (strncmp(aDefaultLang, aLangCode, 2) == 0) {
-      Tcl_SetVar2(interp, "langsynth", "current", buffer_i, 0);
-      Tcl_SetVar2(interp, "langcode", "current", (char *)aLangCode, 0);
-    }
-
-    Tcl_SetVar2(interp, "langlabel", buffer_j, (char *)(voices[i]->name), 0);
-    Tcl_SetVar2(interp, "langcode", buffer_j, (char *)aLangCode, 0);
-    Tcl_SetVar2(interp, "langsynth", "top", buffer_j, 0);
   }
+  if ((default_index == lang_count) && (english_index == lang_count)) {
+    fprintf(stderr, "Could not find your default language, and English\n");
+    fprintf(stderr, "doesn't seem to be available either.  Bailing now.\n");
+    exit(1);
+  }
+  fprintf(stderr, "default_index %d\n", default_index);
+  if(default_index == lang_count) {
+    default_index = english_index;
+    fprintf(stderr, "Couldn't find your default language, using English.\n");
+    snprintf(buffer, sizeof(buffer), "%lu", english_index);
+    Tcl_SetVar2(interp, "langsynth", "current", buffer, 0);
+    Tcl_SetVar2(interp, "langcode", "current", "en", 0);
+  }
+  SetLanguageHelper(interp, default_index);
+  // Presumably we have at least one language, namely English,
+  // so no chance of underflowing size_t with this subtraction:
+  snprintf(buffer, sizeof(buffer), "%lu", lang_count - 1);
+  Tcl_SetVar2(interp, "langsynth", "top", buffer, 0);
 }
 
-static int getLangIndex(Tcl_Interp *interp, int *theIndex) {
+static int getLangIndex(Tcl_Interp *interp, unsigned long *theIndex) {
   int aStatus = 0;
   const char *aInfo = Tcl_GetVar2(interp, "langsynth", "current", 0);
+  char *end = NULL;
   if (aInfo) {
-    *theIndex = atoi(aInfo);
+    *theIndex = strtoul(aInfo, &end, 10);
 
-    if ((*theIndex > 0) && (*theIndex < MaxPreferredLang)) {
-      aStatus = 1;
+    if (end && !*end) {
+      if ((*theIndex > 0) && (*theIndex < available_languages.size())) {
+        aStatus = 1;
+      }
     }
   }
   return aStatus;

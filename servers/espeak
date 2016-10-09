@@ -44,10 +44,7 @@ source $wd/tts-lib.tcl
 
 # Language switching
 #
-# langsynth: available languages of the voice synthesis
-# This variable is set by atcleci
-# For example: langsynth(0)=3
-# 3 is the atcleci code for the finnish language 
+# langsynth: current and max index into table of synth languages.
 
 # langsynth(current): current synthesis language, 
 # Gives the code of the current synth language.
@@ -59,21 +56,19 @@ source $wd/tts-lib.tcl
 # For example, if there are three available languages: 
 # langsynth(top)=2
 
-# langlabel: what will be announced
-# e.g. langlabel(0)="finnish"
+# voicename: name of the current voice for announcements
 # This variable is set by tclespeak
 
 # langcode: language identifier
 # e.g. langcode(0)="fi"
 # This variable is set by tclespeak
 
-# langalias converts a code language ("en", "en_GB",...) to its index in the langsynth array.
+# langalias converts a code language ("en", "en_GB",...) to its index in the language table.
 # e.g. langalias(fi)=3 could mean "fi_FI" will be used if "fi" is required. 
 
-set langsynth(0) 0
 set langsynth(current) 0
 set langsynth(top) 0
-set langlabel(0) "english"
+set voicename "default"
 set langcode(0) "en-uk"
 set langcode(current) "en-uk"
 set mswindows [expr { $tcl_platform(platform) == "windows" } ]
@@ -82,31 +77,29 @@ set mswindows [expr { $tcl_platform(platform) == "windows" } ]
 proc set_next_lang {say_it} {
     global langsynth
     global langalias
-    global langlabel
+    global voicename
     global langcode
 
-    set langsynthkey 0
     set index 0
     while { $index <= $langsynth(top) } {
-	if { $langsynth($index) == $langsynth(current) } {
-	    set langsynthkey $index
+	if { $index == $langsynth(current) } {
 	    break
 	}
 	incr index
     }
 
-    if { $langsynthkey >= $langsynth(top) } {
-	set langsynthkey 0
+    if { $index >= $langsynth(top) } {
+	set index 0
     } else {
-	incr langsynthkey
+	incr index
     }
 
-    set langsynth(current) $langsynth($langsynthkey)
-    set langcode(current) $langcode($langsynthkey)
+    set langsynth(current) $index
+    set langcode(current) $langcode($index)
 
     setLanguage $langsynth(current)
     if { [info exists say_it]} {
-	tts_say "$langlabel($langsynthkey) "
+	tts_say "$voicename"
     }
 }
 
@@ -114,30 +107,28 @@ proc set_next_lang {say_it} {
 proc set_previous_lang {say_it} {
     global langsynth
     global langalias
-    global langlabel
+    global voicename
     global langcode
 
-    set langsynthkey 0
     set index 0
     while { $index <= $langsynth(top) } {
-	if { $langsynth($index) == $langsynth(current) } {
-	    set langsynthkey $index
+	if { $index == $langsynth(current) } {
 	    break
 	}
 	incr index
     }
 
-    if { $langsynthkey <= 0 } {
-	set langsynthkey $langsynth(top)
+    if { $index <= 0 } {
+	set index $langsynth(top)
     } else {
-	incr langsynthkey -1
+	incr index -1
     }
 
-    set langsynth(current) $langsynth($langsynthkey)
-    set langcode(current) $langcode($langsynthkey)
+    set langsynth(current) $index
+    set langcode(current) $langcode($index)
     setLanguage $langsynth(current)
     if { [info exists say_it]} {
-	tts_say "$langlabel($langsynthkey) "
+	tts_say "$voicename "
     }
 }
 
@@ -147,7 +138,7 @@ proc set_lang {{name "en"} {say_it "nil"}} {
     global langsynth
     global langalias
     global langcode
-global langlabel 
+global voicename 
      if { ![info exists langalias($name)]} {
 	return
      }
@@ -157,21 +148,11 @@ global langlabel
      }
     
     set langsynth(current) $langalias($name)
-    set langcode(current) $langcode($langsynthkey)
+    set langcode(current) $langcode($langalias($name))
     setLanguage $langsynth(current)
 
-    set langsynthkey 0
-    set index 0
-    while { $index <= $langsynth(top) } {
-	if { $langsynth($index) == $langsynth(current) } {
-	    set langsynthkey $index
-	    break
-	}
-	incr index
-    }
-
     if { $say_it == "t"} {
-	tts_say "$langlabel($langsynthkey) "
+	tts_say "$voicename"
     }
 }
 
@@ -188,8 +169,8 @@ proc set_preferred_lang {alias lang} {
 
 #debug
 proc list_lang {} {
-    global langsynth
-    echo [ array get langsynth ]
+    global langcode
+    echo [ array get langcode ]
 }
 
 proc list_langalias {} {
@@ -238,7 +219,6 @@ proc tts_set_character_scale {factor} {
 proc tts_say {text} {
     global    tts
     global langcode
-    global langsynth
 
     service 
     set la $langcode(current)
@@ -253,7 +233,6 @@ proc tts_say {text} {
 proc l {text} {
     global tts
     global langcode
-    global langsynth
 
     set la $langcode(current)
     set prefix "<voice xml:lang=\"$la\" gender=\"male\" variant=\"1\">"
@@ -462,7 +441,6 @@ proc service {} {
 proc speech_task {} {
     global queue tts
     global langcode
-    global langsynth
 
     set tts(talking?) 1
     set tts(not_stopped) 1
