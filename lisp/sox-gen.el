@@ -52,7 +52,6 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'sox)
-(require 'generator)
 
 ;;}}}
 ;;{{{ Generator:
@@ -274,10 +273,6 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
    :beats `(,(cdr s))
    :gain -20)))
 
-(iter-defun sox--list-iter (l)
-  "Return an iterator that iterates over list `l'."
-  (let ((local(copy-sequence l)))
-    (while local (iter-yield (pop local)))))
 
 ;;;###autoload
 (defun sox-chakras (theme duration)
@@ -290,10 +285,12 @@ Parameter `theme' specifies variant."
                        '("sox--chakra-settings-0" "sox--chakra-settings-1")
                        nil 'must-match))
     (timer-duration (read-from-minibuffer "Duration: "))))
-  (let ((names (sox--list-iter (mapcar #'car (symbol-value theme)))))
-    (run-with-timer ; start now, repeat after duration
-     0 duration
-     #'(lambda () (sox-binaural (iter-next names) duration)))))
+  (let ((names  (mapcar #'car (symbol-value theme)))
+        (start 0))
+    (cl-loop
+     for name in names do
+     (run-with-timer start nil #'(lambda (n) (sox-binaural n  duration)) name)
+       (setq start (+ start duration)))))
 
 (defconst sox-rev-up-beats
   '(("dream" 1) ( "think"  4) ("act" 2) ("focus" 1))
