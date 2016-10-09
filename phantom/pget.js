@@ -17,7 +17,7 @@ if (system.args.length > 1) {
 var _eCallBack = function () {
     var r = document;
     return (new XMLSerializer()).serializeToString(r)  ;
-}
+};
 
 var _pCallBack = function(status) {
     var result;
@@ -33,6 +33,6 @@ var _pCallBack = function(status) {
         }
     }
     phantom.exit();
-}
+};
 
 page.open(target, _pCallBack);
