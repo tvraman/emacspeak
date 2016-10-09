@@ -106,7 +106,7 @@ Remaining args specify additional commandline args."
   "Play binaural audio with carrier frequency `freq', beat `beat',  and gain `gain'."
   (interactive
    (list
-    (read-number "Duration in seconds: " 60)
+    (timer-duration(read-from-minibuffer "Duration in seconds: " ))
     (read-number "Carrier Frequency [50 -- 800]: " 100)
     (read-number "Beat Frequency [0.5 -- 40]: " 4.5)
     (read-number "Gain [Use negative values]: " -18)))
@@ -136,7 +136,7 @@ Remaining args specify additional commandline args."
 Param `beat-spec' is a list of `(carrier beat) tupples."
   (interactive
    (list
-    (read-number "Duration in seconds: " 60)
+    (timer-duration(read-from-minibuffer "Duration: " ))
     (sox-read-binaural-beats)
     (read-number "Gain [Use negative values]: " -18)))
   (declare (special sox-beats-binaural-cmd))
@@ -179,7 +179,7 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
   (interactive
    (list
     (completing-read "Binaural Effect: " sox-binaural-effects-table nil 'must-match)
-    (read-number "Duration: " 600)))
+    (timer-duration (read-from-minibuffer "Duration: "))))
   (declare (special sox-binaural-effects-table))
   (sox--binaural-play duration
                       (gethash name sox-binaural-effects-table))
@@ -289,7 +289,7 @@ Parameter `theme' specifies variant."
      (completing-read  "Chakra Theme Variant: "
                        '("sox--chakra-settings-0" "sox--chakra-settings-1")
                        nil 'must-match))
-    (read-number "Duration: " 60)))
+    (timer-duration (read-from-minibuffer "Duration: "))))
   (let ((names (sox--list-iter (mapcar #'car (symbol-value theme)))))
     (run-with-timer ; start now, repeat after duration
      0 duration
