@@ -186,8 +186,8 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
 
 ;;{{{  Define Effects:
 
-;;; delta, theta, alpha, beta, gamma 
-;;; sleep, dream, think, act, focus 
+;;; delta, theta, alpha, beta, gamma
+;;; sleep, dream, think, act, focus
 
 (sox-define-binaural-effect
  "sleep" ; delta
@@ -273,7 +273,6 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
    :beats `(,(cdr s))
    :gain -20)))
 
-
 ;;;###autoload
 (defun sox-chakras (theme duration)
   "Play each chakra for specified duration.
@@ -290,7 +289,7 @@ Parameter `theme' specifies variant."
     (cl-loop
      for name in names do
      (run-with-timer start nil #'(lambda (n) (sox-binaural n  duration)) name)
-       (setq start (+ start duration)))))
+     (setq start (+ start duration)))))
 
 (defconst sox-rev-up-beats
   '(("dream" 1) ( "think"  4) ("act" 2) ("focus" 1))
@@ -308,6 +307,7 @@ Parameter `theme' specifies variant."
 
 (defun sox--theme-play (theme duration-scale)
   "Play  set of  binaural beats specified in theme."
+  (setq duration-scale (timer-duration duration-scale))
   (let ((start 0))
     (cl-loop
      for beat in theme do
@@ -321,24 +321,24 @@ Parameter `theme' specifies variant."
 ;;;###autoload
 (defun sox-rev-up (duration-scale)
   "Play rev-up set of  binaural beats.
-Each segment is scaled by `duration-scale' in seconds."
-  (interactive "nDuration: ")
+Each segment is scaled by `duration-scale'."
+  (interactive "sDuration: ")
   (declare (special sox-rev-up-beats))
   (sox--theme-play sox-rev-up-beats duration-scale))
 
 ;;;###autoload
 (defun sox-wind-down (duration-scale)
   "Play wind-down set of  binaural beats.
-Each segment is scaled by `duration-scale' in seconds."
-  (interactive "nDuration: ")
+Each segment is scaled by `duration-scale'."
+  (interactive "sDuration: ")
   (declare (special sox-wind-down-beats))
   (sox--theme-play sox-wind-down-beats duration-scale))
 
 ;;;###autoload
 (defun sox-relax (duration-scale)
   "Play relax set of  binaural beats.
-Each segment is scaled by `duration-scale' in seconds."
-  (interactive "nDuration: ")
+Each segment is scaled by `duration-scale'."
+  (interactive "sDuration: ")
   (declare (special sox-relax-beats))
   (sox--theme-play sox-relax-beats duration-scale))
 
