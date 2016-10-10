@@ -23473,7 +23473,7 @@ Parameter ‘theme’ specifies variant.
 
 @format
 Play relax set of  binaural beats.
-Each segment is scaled by ‘duration-scale’ in seconds.
+Each segment is scaled by ‘duration-scale’.
 
 (fn DURATION-SCALE)
 @end format
@@ -23485,7 +23485,7 @@ Each segment is scaled by ‘duration-scale’ in seconds.
 
 @format
 Play rev-up set of  binaural beats.
-Each segment is scaled by ‘duration-scale’ in seconds.
+Each segment is scaled by ‘duration-scale’.
 
 (fn DURATION-SCALE)
 @end format
@@ -23508,7 +23508,7 @@ Play binaural audio with carrier frequency ‘freq’, beat ‘beat’,  and gai
 
 @format
 Play wind-down set of  binaural beats.
-Each segment is scaled by ‘duration-scale’ in seconds.
+Each segment is scaled by ‘duration-scale’.
 
 (fn DURATION-SCALE)
 @end format

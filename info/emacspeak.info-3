@@ -5355,7 +5355,7 @@ This module can be used independent of Emacspeak.
  -- Command: sox-relax (duration-scale)
 
      Play relax set of  binaural beats.
-     Each segment is scaled by ‘duration-scale’ in seconds.
+     Each segment is scaled by ‘duration-scale’.
 
      (fn DURATION-SCALE)
 
@@ -5365,7 +5365,7 @@ This module can be used independent of Emacspeak.
  -- Command: sox-rev-up (duration-scale)
 
      Play rev-up set of  binaural beats.
-     Each segment is scaled by ‘duration-scale’ in seconds.
+     Each segment is scaled by ‘duration-scale’.
 
      (fn DURATION-SCALE)
 
@@ -5384,7 +5384,7 @@ This module can be used independent of Emacspeak.
  -- Command: sox-wind-down (duration-scale)
 
      Play wind-down set of  binaural beats.
-     Each segment is scaled by ‘duration-scale’ in seconds.
+     Each segment is scaled by ‘duration-scale’.
 
      (fn DURATION-SCALE)
 
