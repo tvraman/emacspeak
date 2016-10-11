@@ -325,8 +325,7 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
 (defsubst emacspeak-m-player-read-resource ()
   "Read resource from minibuffer with contextual smarts."
   (declare (special ido-work-directory-list))
-  (ems-with-messages-silenced
-   (let ((completion-ignore-case t)
+  (let ((completion-ignore-case t)
         (read-file-name-function
          (if (eq major-mode 'locate-mode)
              #'read-file-name-default
@@ -343,7 +342,7 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
     (read-file-name
      "Media Resource: "
      (emacspeak-m-player-guess-directory)
-     default 'must-match default))))
+     default 'must-match default)))
 
 (defun emacspeak-m-player-refresh-metadata ()
   "Populate metadata fields from currently playing  stream."
