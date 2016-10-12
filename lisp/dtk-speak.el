@@ -722,7 +722,9 @@ Arguments START and END specify region to speak."
           (dtk-interp-queue (buffer-substring  start last)))
         (setq
          start  last
-         personality (dtk-get-style last)))))))
+         personality (dtk-get-style last))
+        (when (get-text-property start 'pause)
+    (dtk-interp-silence  (get-text-property start 'pause))))))))
 
 ;;;Force the speech.
 (defalias 'dtk-force 'dtk-interp-speak)
