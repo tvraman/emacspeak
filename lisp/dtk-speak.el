@@ -635,6 +635,9 @@ Argument COMPLEMENT  is the complement of separator."
 ;;; note that property auditory-icon at the start  of a clause
 ;;; causes the sound
 ;;; to be queued.
+;;;
+;;; Similarly, property pause at the start of a clause specifies
+;;; amount of pause to insert.
 
 (defsubst tts-get-overlay-auditory-icon (position)
   "Return auditory icon  at the front of the overlay list at position."
@@ -1825,10 +1828,14 @@ only speak upto the first ctrl-m."
                    (= (char-syntax (preceding-char)) ?.)
                    (not (= 32 (char-syntax (following-char)))))
             (setq end (point))
+            (when (get-text-property start 'pause)
+    (dtk-interp-silence  (get-text-property start 'pause)))
             (dtk-format-text-and-speak  start end)
             (setq start  end)))         ; end while
                                         ; process trailing text
         (or  (= start (point-max))
+             (when (get-text-property start 'pause)
+    (dtk-interp-silence  (get-text-property start 'pause)))
              (dtk-format-text-and-speak start (point-max)))))
     (dtk-force)))
 ;;; forward Declaration:
