@@ -704,7 +704,6 @@ has higher precedence than `face'."
 Arguments START and END specify region to speak."
   (declare (special voice-lock-mode dtk-speaker-process
                     tts-default-voice emacspeak-use-auditory-icons))
-  (skip-syntax-forward " ") ;skip leading whitespace
   (when (and emacspeak-use-auditory-icons
              (get-text-property start 'auditory-icon))
     (emacspeak-queue-auditory-icon (get-text-property start 'auditory-icon)))
@@ -1825,6 +1824,8 @@ only speak upto the first ctrl-m."
         (dtk-quote mode)
         (goto-char (point-min))
         (skip-syntax-forward inherit-chunk-separator-syntax)
+        (skip-syntax-forward " ");skip leading whitespace
+        (setq start (point))
         (while (and (not (eobp))
                     (dtk-move-across-a-chunk
                      inherit-chunk-separator-syntax complement-separator))
@@ -1832,11 +1833,14 @@ only speak upto the first ctrl-m."
               (and (char-after  (point))
                    (= (char-syntax (preceding-char)) ?.)
                    (not (= 32 (char-syntax (following-char)))))
+            (skip-syntax-forward " ");skip  whitespace
             (setq end (point))
             (dtk-format-text-and-speak  start end)
             (setq start  end)))         ; end while
                                         ; process trailing text
         (unless  (= start (point-max))
+          (skip-syntax-forward " ");skip leading whitespace
+          (setq start (point))
              (dtk-format-text-and-speak start (point-max)))))
     (dtk-force)))
 
