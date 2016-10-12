@@ -704,10 +704,13 @@ has higher precedence than `face'."
 Arguments START and END specify region to speak."
   (declare (special voice-lock-mode dtk-speaker-process
                     tts-default-voice emacspeak-use-auditory-icons))
+  (skip-syntax-forward " ") ;skip leading whitespace
   (when (and emacspeak-use-auditory-icons
              (get-text-property start 'auditory-icon))
     (emacspeak-queue-auditory-icon (get-text-property start 'auditory-icon)))
   (dtk-interp-queue-code (tts-voice-reset-code))
+  (when (get-text-property start 'pause)
+    (dtk-interp-silence  (get-text-property start 'pause) nil))
   (cond
    ((not voice-lock-mode) (dtk-interp-queue (buffer-substring start end)))
    (t                                   ; voiceify as we go
@@ -724,7 +727,7 @@ Arguments START and END specify region to speak."
          start  last
          personality (dtk-get-style last))
         (when (get-text-property start 'pause)
-    (dtk-interp-silence (get-text-property start 'pause) nil )))))))
+          (dtk-interp-silence (get-text-property start 'pause) nil )))))))
 
 ;;;Force the speech.
 (defalias 'dtk-force 'dtk-interp-speak)
@@ -1830,14 +1833,10 @@ only speak upto the first ctrl-m."
                    (= (char-syntax (preceding-char)) ?.)
                    (not (= 32 (char-syntax (following-char)))))
             (setq end (point))
-            (when (get-text-property start 'pause)
-    (dtk-interp-silence  (get-text-property start 'pause) nil))
             (dtk-format-text-and-speak  start end)
             (setq start  end)))         ; end while
                                         ; process trailing text
         (unless  (= start (point-max))
-             (when (get-text-property start 'pause)
-    (dtk-interp-silence  (get-text-property start 'pause) nil))
              (dtk-format-text-and-speak start (point-max)))))
     (dtk-force)))
 
