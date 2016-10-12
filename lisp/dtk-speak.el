@@ -724,7 +724,7 @@ Arguments START and END specify region to speak."
          start  last
          personality (dtk-get-style last))
         (when (get-text-property start 'pause)
-    (dtk-interp-silence  (get-text-property start 'pause))))))))
+    (dtk-interp-silence (get-text-property start 'pause) nil )))))))
 
 ;;;Force the speech.
 (defalias 'dtk-force 'dtk-interp-speak)
@@ -1831,15 +1831,16 @@ only speak upto the first ctrl-m."
                    (not (= 32 (char-syntax (following-char)))))
             (setq end (point))
             (when (get-text-property start 'pause)
-    (dtk-interp-silence  (get-text-property start 'pause)))
+    (dtk-interp-silence  (get-text-property start 'pause) nil))
             (dtk-format-text-and-speak  start end)
             (setq start  end)))         ; end while
                                         ; process trailing text
-        (or  (= start (point-max))
+        (unless  (= start (point-max))
              (when (get-text-property start 'pause)
-    (dtk-interp-silence  (get-text-property start 'pause)))
+    (dtk-interp-silence  (get-text-property start 'pause) nil))
              (dtk-format-text-and-speak start (point-max)))))
     (dtk-force)))
+
 ;;; forward Declaration:
 (defvar emacspeak-speak-messages)
 
