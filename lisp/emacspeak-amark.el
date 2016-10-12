@@ -48,7 +48,7 @@
 ;;; Position: time offset from start 
 
 ;;;; This library will be used from emacspeak-m-player,
-;;emacspeak-alsaplayer and friends to set and jump to bookmarks.
+;;emacspeak-mplayer and friends to set and jump to bookmarks.
 ;;; Code:
 ;;}}}
 ;;{{{  Required modules

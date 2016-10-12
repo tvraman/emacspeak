@@ -85,7 +85,6 @@ emacspeak-table-ui.elc \
 emacspeak-tabulate.elc \
 amixer.elc \
 emacspeak-add-log.elc \
-emacspeak-alsaplayer.elc \
 emacspeak-amark.elc \
 emacspeak-analog.elc \
 emacspeak-ansi-color.elc \
@@ -323,7 +322,6 @@ plain-voices.elc: plain-voices.el voice-setup.elc
 mac-voices.elc: mac-voices.el voice-setup.elc 
 espeak-voices.elc: espeak-voices.el voice-setup.elc 
 voice-setup.elc: voice-setup.el acss-structure.elc 
-emacspeak-alsaplayer.elc: emacspeak-alsaplayer.el
 ommacspeak-amark.elc: emacspeak-amark.el
 cd-tool.elc: cd-tool.el
 json-view.elc: json-view.el
