@@ -1823,7 +1823,7 @@ only speak upto the first ctrl-m."
         (dtk-handle-repeating-patterns mode)
         (dtk-quote mode)
         (goto-char (point-min))
-        (skip-syntax-forward inherit-chunk-separator-syntax)
+        ;(skip-syntax-forward inherit-chunk-separator-syntax)
         (skip-syntax-forward " ");skip leading whitespace
         (setq start (point))
         (while (and (not (eobp))
