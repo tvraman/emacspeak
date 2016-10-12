@@ -2108,9 +2108,9 @@ for the current voice family."
     (save-current-buffer
       (set-buffer buffer)
       (erase-buffer)
-      (loop for  s from 0 to 9 by step do
+      (loop for a from 0 to 9 by step do
             (loop for p from 0 to 9 by step do
-                  (loop for a from 0 to 9 by step do
+                  (loop for  s from 0 to 9 by step do
                         (loop for r from 0 to 9 by step do
                               (setq voice (voice-setup-personality-from-style
                                            (list nil a p s r)))
