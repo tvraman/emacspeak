@@ -12,6 +12,7 @@ lisp/TAGS
 info/TAGS
 lisp/g-client/g-cus-load.el
 lisp/g-client/g-loaddefs.el
-js/node/node_modules 
+js/node/node_modules
+.tern-port
 .amarks.el
 *.boop
