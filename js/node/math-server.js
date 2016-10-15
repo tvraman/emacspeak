@@ -79,13 +79,13 @@ handlers.enter = function(expr, socket) {
 };
 
 // Implement Handlers:
-handlers.up = function() {return sre.move('UP');};
-handlers.down = function() {return sre.move('DOWN');};
-handlers.left = function() {return sre.move('LEFT');};
-handlers.right = function() {return sre.move('RIGHT');};
-handlers.repeat = function() {return sre.move('TAB');};
-handlers.depth = function() {return sre.move('SPACE');};
-handlers.root = function() {return sre.move('HOME');};
+handlers.up = function(expr, socket) {socket.write(sre.move('UP'));};
+handlers.down = function(expr, socket) {socket.write(sre.move('DOWN'));};
+handlers.left = function(expr, socket) {socket.write(sre.move('LEFT'));};
+handlers.right = function(expr, socket) {socket.write(sre.move('RIGHT'));};
+handlers.repeat = function(expr, socket) {socket.write(sre.move('TAB'));};
+handlers.depth = function(expr, socket) {socket.write(sre.move('SPACE'));};
+handlers.root = function(expr, socket) {socket.write(sre.move('HOME'));};
 
 // Start a TCP Server on port 5000
 net.createServer(function(socket) {
