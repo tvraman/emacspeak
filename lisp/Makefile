@@ -182,6 +182,7 @@ emacspeak-librivox.elc \
 emacspeak-lua.elc \
 emacspeak-magit.elc \
 emacspeak-m-player.elc \
+emacspeak-maths.elc \
 emacspeak-make-mode.elc \
 emacspeak-markdown.elc \
 emacspeak-man.elc \
@@ -432,6 +433,7 @@ emacspeak-loaddefs.elc: emacspeak-loaddefs.el
 emacspeak-load-path.elc: emacspeak-load-path.elc
 emacspeak-magit.elc: emacspeak-magit.el dtk-speak.elc voice-setup.elc
 emacspeak-m-player.elc: emacspeak-m-player.el dtk-speak.elc ladspa.elc
+emacspeak-maths.elc: emacspeak-maths.el dtk-speak.elc
 emacspeak-make-mode.elc: emacspeak-make-mode.el dtk-speak.elc voice-setup.elc
 emacspeak-markdown.elc: emacspeak-markdown.el dtk-speak.elc
 emacspeak-man.elc: emacspeak-man.el dtk-speak.elc voice-setup.elc
