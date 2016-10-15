@@ -105,7 +105,7 @@ Default value uses the version of `node' set configured via NVM."
   client-process ; network connection
   output ; where output is displayed
   pause ; pending pause to add
-  results
+  result
   )
 
 (defvar emacspeak-maths nil
@@ -278,7 +278,7 @@ All complete chunks of output are consumed. Partial output is left for next run.
 ;;; Parse one complete chunk
                 (setq result (emacspeak-maths-read-output))
 ;;; Todo: reverse later depending on how we use it.
-                (push result (emacspeak-maths-results emacspeak-maths))
+                (setf (emacspeak-maths-result emacspeak-maths) result)
                 (skip-syntax-forward " >")
                 (delete-region start (point))
                 (setq start (point)))
@@ -356,7 +356,7 @@ All complete chunks of output are consumed. Partial output is left for next run.
 
 (cl-loop
  for move in
- '("left" "right" "up" "down" "root" "depth")
+ '("left" "right" "up" "down" "root")
  do
  (eval
   `(defun ,(intern (format "emacspeak-maths-%s" move)) ()
@@ -423,6 +423,7 @@ For use on Wikipedia pages  for example."
    "Spoken Math"
    ("SPC" emacspeak-maths-enter "enter")
    ("a" emacspeak-maths-speak-alt "Alt Text")
+   ("r" emacspeak-maths-root "Root")
    ("<up>" emacspeak-maths-up "Up")
    ("<down>" emacspeak-maths-down"down")
    ("<left>" emacspeak-maths-left "left")
