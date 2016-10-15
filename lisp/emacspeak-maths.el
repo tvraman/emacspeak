@@ -300,6 +300,7 @@ All complete chunks of output are consumed. Partial output is left for next run.
   (message "Started Maths server and client."))
 
 (defun emacspeak-maths-bridge-start ()
+  "Start Maths server bridge."
   (declare (special emacspeak-maths-inferior-program
                     emacspeak-maths emacspeak-maths-server-program))
   (let ((server
@@ -323,6 +324,7 @@ All complete chunks of output are consumed. Partial output is left for next run.
   (message "Shutdown Maths server and client."))
 
 (defun emacspeak-maths-bridge-shutdown ()
+  "Shutdown client and server processes."
   (declare (special emacspeak-maths))
   (when (process-live-p (emacspeak-maths-client-process emacspeak-maths))
     (delete-process (emacspeak-maths-client-process emacspeak-maths)))
