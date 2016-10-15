@@ -172,8 +172,9 @@ Otherwise, Examine head of sexp, and applies associated handler to the tail."
       (insert "\f")
       (goto-char start)
       (display-buffer (emacspeak-maths-output emacspeak-maths))
-      (emacspeak-speak-region start end))))
-
+      (tts-with-punctuations 'some
+                             (emacspeak-speak-region start end)))))
+ 
 (defun emacspeak-maths-acss (acss-alist)
   "Return ACSS voice corresponding to acss-alist."
   (let-alist acss-alist
@@ -232,6 +233,11 @@ Expected: ((acss) string)."
   "Display error message."
   (message "%s" contents))
 
+
+(defun emacspeak-maths-handle-parse-error (contents)
+  "Display parse-error message."
+  (message "%s" contents))
+
 (defun emacspeak-maths-handle-welcome (contents)
   "Handle welcome message."
   (message "%s" contents))
@@ -240,7 +246,7 @@ Expected: ((acss) string)."
 ;;{{{ Map Handlers:
 (cl-loop
  for f in
- '(exp pause text error welcome)
+ '(exp pause text error welcome parse-error)
  do
  (emacspeak-maths-handler-set f
                               (intern (format "emacspeak-maths-handle-%s"  (symbol-name f)))))
@@ -306,7 +312,7 @@ All complete chunks of output are consumed. Partial output is left for next run.
   (let ((server
          (make-comint "Server-Maths" emacspeak-maths-inferior-program nil emacspeak-maths-server-program))
         (client nil))
-    (accept-process-output (get-buffer-process server) 1.0)
+    (accept-process-output (get-buffer-process server) 1.0 nil 'just-this-one)
     (setq client (open-network-stream "Client-Math" "*Client-Math*" "localhost" 5000))
     (setf emacspeak-maths
           (make-emacspeak-maths
@@ -335,6 +341,12 @@ All complete chunks of output are consumed. Partial output is left for next run.
   (when (buffer-live-p (emacspeak-maths-client-buffer emacspeak-maths))
     (kill-buffer (emacspeak-maths-client-buffer emacspeak-maths))))
 
+(defun emacspeak-maths-ensure-server ()
+  "Start up Maths Server bridge if not already running."
+  (declare (special emacspeak-maths))
+  (unless (process-live-p (emacspeak-maths-server-process emacspeak-maths))
+    (emacspeak-maths-bridge-start)))
+
 (defun emacspeak-maths-restart ()
   "Restart Node math-server if running. Otherwise starts a new one."
   (interactive)
@@ -350,6 +362,7 @@ All complete chunks of output are consumed. Partial output is left for next run.
   "Send a LaTeX expression to Maths server."
   (interactive "sLaTeX: ")
   (declare (special emacspeak-maths))
+  (emacspeak-maths-ensure-server)
   (process-send-string
    (emacspeak-maths-client-process emacspeak-maths)
    (format "enter: %s"latex)))

@@ -40,7 +40,10 @@ var net = require('net');
 // Initialize Math rendering system.
 var mjx = require('mathjax-node');
 var sre = require('speech-rule-engine');
-sre.setupEngine({markup: 'acss'});
+sre.setupEngine({markup: 'acss',
+                 domain: 'emacspeak',
+                 rules: ['EmacspeakRules']
+                });
 
 // Auxiliary methods for error handling.
 var errorGen = {};
