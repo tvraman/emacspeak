@@ -1,1 +1,15 @@
-NPM/Node scripts 
+* Maths Server In Node
+
+math-server.js is a NodeJS script that implements a simple socket
+server.
+This server accepts LaTeX math expressions, and then processes them
+using MathJaX MathJax and the Speech-Rule-Engine  to produce spoken
+math using Aural CSS.
+
+Note that this is early, experimental code, i.e. there i sno support,
+and if it breaks, you get to keep both pieces.
+
+* Setup Instructions
+
+  1. Install node and npm.
+  2. type _npm install _ in this directory to install dependencies
