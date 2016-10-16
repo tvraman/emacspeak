@@ -1,15 +1,32 @@
 * Maths Server In Node
 
 math-server.js is a NodeJS script that implements a simple socket
-server.
-This server accepts LaTeX math expressions, and then processes them
-using MathJaX MathJax and the Speech-Rule-Engine  to produce spoken
-math using Aural CSS.
+server. This server accepts LaTeX math expressions, and  processes
+them using MathJax  and the Speech-Rule-Engine to produce
+spoken math using Aural CSS.
 
-Note that this is early, experimental code, i.e. there i sno support,
+Note that this is early, experimental code, i.e. there is no support,
 and if it breaks, you get to keep both pieces.
 
 * Setup Instructions
 
-  1. Install node and npm.
-  2. type _npm install _ in this directory to install dependencies
+** Install ~node~, ~npm~ and ~nvm~
+
+   Install node and npm. You need a newer node than the default node
+     installed in Ubuntu, use nvm to manage the node installation. See
+     file ~nvm-setup~.
+
+** Install Dependencies 
+
+   type _npm install _ in this directory to install dependencies.
+
+** Test the server at the shell
+
+: node math-server.js
+
+Then, from a different shell window, connect to the server.
+: nc localhost 5000
+: expr: \frac{a+b}{c+d}
+
+If all goes well, you'll see an S-expression printed out. Hit _C-d_ to
+close client and server.
