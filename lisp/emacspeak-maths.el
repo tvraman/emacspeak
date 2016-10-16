@@ -78,6 +78,9 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'comint)
 (require 'derived)
+(cl-eval-when '(load)
+  (when (locate-library "package")
+    (unless (locate-library "hydra") (package-install 'hydra))))
 (require 'hydra "hydra" 'no-error)
 (require 'emacspeak-preamble)
 (require 'emacspeak-muggles)
@@ -90,12 +93,9 @@
   :group 'emacspeak)
 
 (defcustom emacspeak-maths-inferior-program
-  (or (executable-find "node")
-      ;; TODO: This is very fragile. Rewrite with nvm current.
-      (expand-file-name "~/.nvm/versions/node/v6.4.0/bin/node"))
-  "Location of `node' executable.
-Default value uses the version of `node' set configured via NVM."
-  :type 'string
+  (executable-find "node")
+  "Location of `node' executable."
+  :type 'file
   :group 'emacspeak-maths)
 
 (cl-defstruct emacspeak-maths
@@ -426,8 +426,8 @@ For use on Wikipedia pages  for example."
 
 ;;}}}
 ;;{{{ Muggle: Speak And Browse Math
-
-(global-set-key
+(when (featurep 'hydra)
+  (global-set-key
  (kbd "s-SPC")
  (defhydra emacspeak-maths-navigator
    (:body-pre (emacspeak-muggles-body-pre "Spoken Math")
@@ -440,7 +440,7 @@ For use on Wikipedia pages  for example."
    ("<up>" emacspeak-maths-up "Up")
    ("<down>" emacspeak-maths-down"down")
    ("<left>" emacspeak-maths-left "left")
-   ("<right>" emacspeak-maths-right "right")))
+   ("<right>" emacspeak-maths-right "right"))))
 
 ;;}}}
 (provide 'emacspeak-maths)
