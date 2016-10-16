@@ -85,6 +85,7 @@
     (?‐ . "-")                      ; hyphen
     (?– . "--")                     ; n-dash
     (?— . "---")                    ; m-dash
+    (?  . " ") ; hair space 
     (?― . "----")                   ; horizontal bar 
     (?‖ . "||")                     ; vertical bar
     (?… . "...")                    ; ellipses
