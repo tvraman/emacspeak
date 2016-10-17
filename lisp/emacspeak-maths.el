@@ -41,33 +41,28 @@
 
 ;;; Commentary:
 
-;;; Spoken mathematics on the emacspeak audio desktop.
-;;; Use a NodeJS based speech-rule-engine for Mathematics as the backend
-;;; for processing mathematical markup.
-;;; The result of this processing is an annotated S-expression that is rendered via Emacspeak's speech  facilities.
-;;; Annotations  follow Aural CSS as implemented in Emacspeak,
-;;; This allows us to map these expressions to aural properties supported by specific TTS engines.
-;;; Basic Usage:
-;;; Startup up the server/client:
-;;; M-x emacspeak-maths-start.
-;;; Once the server and client are started,
-;;; you can browse any number of math expressions using the emacspeak-maths-navigator described below.
+;;; Spoken mathematics on the emacspeak audio desktop. Use a NodeJS
+;;; based speech-rule-engine for Mathematics as the backend for
+;;; processing mathematical markup. The result of this processing is
+;;; an annotated S-expression that is rendered via Emacspeak's speech
+;;; facilities. Annotations follow Aural CSS as implemented in
+;;; Emacspeak, This allows us to map these expressions to aural
+;;; properties supported by specific TTS engines. Basic Usage: Startup
+;;; up the server/client: M-x emacspeak-maths-start. Once the server
+;;; and client are started, you can browse any number of math
+;;; expressions using the emacspeak-maths-navigator described below.
 ;;;
-;;; Invoke the Navigator using s-spc  --- this is the <windows> key on Linux.
-;;; Now you can use these keys:
-;;;@itemize
-;;; @item Enter: <SPC> Enter a LaTeX expression.
-;;; @item Alt-Text <a> Process alt-text under point as LaTeX.
-;;; @item Down <down> Move down a level.
-;;; @item Up <up> Move up a level.
-;;; @item Left <left> Move left.
-;;; @item Right <right> Move right.
-;;; @item Exit <any other key> Exit navigator.
-;;;@end itemize 
-;;; The current expression is spoken after each of the above commands.
-;;; It is also displayed in a special buffer *Spoken Math*.
-;;; That buffer holds all previously generated output,
-;;; And Emacs commands forward-page  and backward-page can be used to move through each chunk of output.
+;;; Invoke the Navigator using s-spc --- this is the <windows> key on
+;;; Linux. Now you can use these keys: @itemize @item Enter: <SPC>
+;;; Enter a LaTeX expression. @item Alt-Text <a> Process alt-text
+;;; under point as LaTeX. @item Down <down> Move down a level. @item
+;;; Up <up> Move up a level. @item Left <left> Move left. @item Right
+;;; <right> Move right. @item Exit <any other key> Exit
+;;; navigator. @end itemize The current expression is spoken after
+;;; each of the above commands. It is also displayed in a special
+;;; buffer *Spoken Math*. That buffer holds all previously generated
+;;; output, And Emacs commands forward-page and backward-page can be
+;;; used to move through each chunk of output.
 
 ;;; Code:
 
@@ -103,6 +98,7 @@
   server-process ; node process handle
   client-buffer ; network socket stream
   client-process ; network connection
+  input  ; LaTeX we send
   output ; where output is displayed
   pause ; pending pause to add
   result
@@ -174,7 +170,7 @@ Otherwise, Examine head of sexp, and applies associated handler to the tail."
       (display-buffer (emacspeak-maths-output emacspeak-maths))
       (tts-with-punctuations 'some
                              (emacspeak-speak-region start end)))))
- 
+
 (defun emacspeak-maths-acss (acss-alist)
   "Return ACSS voice corresponding to acss-alist."
   (let-alist acss-alist
@@ -233,7 +229,6 @@ Expected: ((acss) string)."
   "Display error message."
   (message "%s" contents))
 
-
 (defun emacspeak-maths-handle-parse-error (contents)
   "Display parse-error message."
   (message "%s" contents))
@@ -248,8 +243,9 @@ Expected: ((acss) string)."
  for f in
  '(exp pause text error welcome parse-error)
  do
- (emacspeak-maths-handler-set f
-                              (intern (format "emacspeak-maths-handle-%s"  (symbol-name f)))))
+ (emacspeak-maths-handler-set
+  f
+  (intern (format "emacspeak-maths-handle-%s"  (symbol-name f)))))
 
 ;;}}}
 ;;{{{ Process Filter:
@@ -262,7 +258,8 @@ incomplete parse, that is expected to be caught by the caller."
 
 (defun emacspeak-maths-process-filter (proc string)
   "Handle process output from Node math-server.
-All complete chunks of output are consumed. Partial output is left for next run."
+All complete chunks of output are consumed. Partial output is
+left for next run."
   (declare (special emacspeak-maths))
   (with-current-buffer (process-buffer proc)
     (let ((moving (= (point) (process-mark proc))))
@@ -310,10 +307,13 @@ All complete chunks of output are consumed. Partial output is left for next run.
   (declare (special emacspeak-maths-inferior-program
                     emacspeak-maths emacspeak-maths-server-program))
   (let ((server
-         (make-comint "Server-Maths" emacspeak-maths-inferior-program nil emacspeak-maths-server-program))
+         (make-comint
+          "Server-Maths" emacspeak-maths-inferior-program nil
+          emacspeak-maths-server-program))
         (client nil))
     (accept-process-output (get-buffer-process server) 1.0 nil 'just-this-one)
-    (setq client (open-network-stream "Client-Math" "*Client-Math*" "localhost" 5000))
+    (setq client
+          (open-network-stream "Client-Math" "*Client-Math*" "localhost" 5000))
     (setf emacspeak-maths
           (make-emacspeak-maths
            :output (emacspeak-maths-setup-output)
@@ -344,7 +344,10 @@ All complete chunks of output are consumed. Partial output is left for next run.
 (defun emacspeak-maths-ensure-server ()
   "Start up Maths Server bridge if not already running."
   (declare (special emacspeak-maths))
-  (unless (process-live-p (emacspeak-maths-server-process emacspeak-maths))
+  (unless
+      (and emacspeak-maths
+           (process-live-p (emacspeak-maths-server-process emacspeak-maths))
+           (process-live-p (emacspeak-maths-client-process emacspeak-maths)))
     (emacspeak-maths-bridge-start)))
 
 (defun emacspeak-maths-restart ()
@@ -354,15 +357,41 @@ All complete chunks of output are consumed. Partial output is left for next run.
   (emacspeak-maths-bridge-start)
   (message "Restarting Maths server and client."))
 
-
 ;;}}}
 ;;{{{ Navigators:
+(defun emacspeak-maths-guess-input ()
+  "Examine current mode, text around point etc. to guess Math content to read."
+  (declare (special emacspeak-maths))
+  (setf(emacspeak-maths-input emacspeak-maths)
+       (cond
+        ((or (eq major-mode 'tex-mode)
+             (eq major-mode 'latex-mode))
+         ;;; Placeholder --- need a better test.
+         (let ((start (dtk-previous-style-change (point)))
+               (end (dtk-next-style-change (point))))
+           (buffer-substring
+            (or start (point-min))
+            (or end (point-max)))))
+        ((and (eq major-mode 'eww-mode)
+              (not
+               (string-equal
+                (get-text-property (point) 'shr-alt)
+                "No image under point")))
+         (get-text-property (point) 'shr-alt))
+        (mark-active (buffer-substring (point) (mark))))))
 
 (defun emacspeak-maths-enter (latex)
-  "Send a LaTeX expression to Maths server."
-  (interactive "sLaTeX: ")
+  "Send a LaTeX expression to Maths server.
+Tries to guess default based on context."
+  (interactive
+   (list
+    (progn (emacspeak-maths-guess-input) ;guess based on context
+           (read-from-minibuffer "LaTeX: "
+                                 nil nil nil nil
+                                 (emacspeak-maths-input emacspeak-maths)))))
   (declare (special emacspeak-maths))
   (emacspeak-maths-ensure-server)
+  (setf (emacspeak-maths-input emacspeak-maths) latex)
   (process-send-string
    (emacspeak-maths-client-process emacspeak-maths)
    (format "enter: %s"latex)))
@@ -422,26 +451,25 @@ For use on Wikipedia pages  for example."
   (cl-assert (eq major-mode 'eww-mode) "Not in an EWW buffer.")
   (let ((alt-text (shr-show-alt-text)))
     (unless (string-equal alt-text "No image under point")
-  (funcall-interactively #'emacspeak-maths-enter alt-text))))
+      (funcall-interactively #'emacspeak-maths-enter alt-text))))
 
 ;;}}}
 ;;{{{ Muggle: Speak And Browse Math
-(cl-eval-when '(load)
-  (when (featurep 'hydra)
+(when (featurep 'hydra)
   (global-set-key
- (kbd "s-SPC")
- (defhydra emacspeak-maths-navigator
-   (:body-pre (emacspeak-muggles-body-pre "Spoken Math")
-              :pre emacspeak-muggles-pre
-              :post emacspeak-muggles-post)
-   "Spoken Math"
-   ("SPC" emacspeak-maths-enter "enter")
-   ("a" emacspeak-maths-speak-alt "Alt Text")
-   ("r" emacspeak-maths-root "Root")
-   ("<up>" emacspeak-maths-up "Up")
-   ("<down>" emacspeak-maths-down"down")
-   ("<left>" emacspeak-maths-left "left")
-   ("<right>" emacspeak-maths-right "right")))))
+   (kbd "s-SPC")
+   (defhydra emacspeak-maths-navigator
+     (:body-pre (emacspeak-muggles-body-pre "Spoken Math")
+                :pre emacspeak-muggles-pre
+                :post emacspeak-muggles-post)
+     "Spoken Math"
+     ("SPC" emacspeak-maths-enter "enter")
+     ("a" emacspeak-maths-speak-alt "Alt Text")
+     ("r" emacspeak-maths-root "Root")
+     ("<up>" emacspeak-maths-up "Up")
+     ("<down>" emacspeak-maths-down"down")
+     ("<left>" emacspeak-maths-left "left")
+     ("<right>" emacspeak-maths-right "right"))))
 
 ;;}}}
 (provide 'emacspeak-maths)
