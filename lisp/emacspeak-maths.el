@@ -296,14 +296,10 @@ left for next run."
                     (file-name-directory (or load-file-name default-directory)))
   "NodeJS implementation of math-server.")
 ;;;###autoload
-(defun emacspeak-maths-start ()
-  "Start Node math-server, and connect to it."
-  (interactive)
-  (emacspeak-maths-bridge-start)
-  (message "Started Maths server and client."))
 
-(defun emacspeak-maths-bridge-start ()
+(defun emacspeak-maths-start ()
   "Start Maths server bridge."
+  (interactive)
   (declare (special emacspeak-maths-inferior-program
                     emacspeak-maths emacspeak-maths-server-program))
   (let ((server
@@ -321,16 +317,13 @@ left for next run."
            :server-process (get-buffer-process server)
            :client-process client
            :client-buffer (process-buffer client)))
-    (set-process-filter client #'emacspeak-maths-process-filter)))
+    (set-process-filter client #'emacspeak-maths-process-filter))
+  (when (called-interactively-p 'interactive)
+    (message "Started Maths server and client.")))
 
 (defun emacspeak-maths-shutdown ()
-  "Shutdown math-server and client."
-  (interactive)
-  (emacspeak-maths-bridge-shutdown)
-  (message "Shutdown Maths server and client."))
-
-(defun emacspeak-maths-bridge-shutdown ()
   "Shutdown client and server processes."
+  (interactive)
   (declare (special emacspeak-maths))
   (when (process-live-p (emacspeak-maths-client-process emacspeak-maths))
     (delete-process (emacspeak-maths-client-process emacspeak-maths)))
@@ -339,7 +332,9 @@ left for next run."
   (when (buffer-live-p (emacspeak-maths-server-buffer emacspeak-maths))
     (kill-buffer (emacspeak-maths-server-buffer emacspeak-maths)))
   (when (buffer-live-p (emacspeak-maths-client-buffer emacspeak-maths))
-    (kill-buffer (emacspeak-maths-client-buffer emacspeak-maths))))
+    (kill-buffer (emacspeak-maths-client-buffer emacspeak-maths)))
+  (when (called-interactively-p 'interactive)
+    (message "Shutdown Maths server and client.")))
 
 (defun emacspeak-maths-ensure-server ()
   "Start up Maths Server bridge if not already running."
@@ -348,13 +343,13 @@ left for next run."
       (and emacspeak-maths
            (process-live-p (emacspeak-maths-server-process emacspeak-maths))
            (process-live-p (emacspeak-maths-client-process emacspeak-maths)))
-    (emacspeak-maths-bridge-start)))
+    (emacspeak-maths-start)))
 
 (defun emacspeak-maths-restart ()
   "Restart Node math-server if running. Otherwise starts a new one."
   (interactive)
-  (emacspeak-maths-bridge-shutdown)
-  (emacspeak-maths-bridge-start)
+  (emacspeak-maths-shutdown)
+  (emacspeak-maths-start)
   (message "Restarting Maths server and client."))
 
 ;;}}}
