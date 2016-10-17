@@ -182,7 +182,6 @@ emacspeak-librivox.elc \
 emacspeak-lua.elc \
 emacspeak-magit.elc \
 emacspeak-m-player.elc \
-emacspeak-maths.elc \
 emacspeak-make-mode.elc \
 emacspeak-markdown.elc \
 emacspeak-man.elc \
