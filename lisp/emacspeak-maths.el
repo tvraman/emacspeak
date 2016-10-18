@@ -359,14 +359,6 @@ left for next run."
   (declare (special emacspeak-maths))
   (setf(emacspeak-maths-input emacspeak-maths)
        (cond
-        ((or (eq major-mode 'tex-mode)
-             (eq major-mode 'latex-mode))
-         ;;; Placeholder --- need a better test.
-         (let ((start (dtk-previous-style-change (point)))
-               (end (dtk-next-style-change (point))))
-           (buffer-substring
-            (or start (point-min))
-            (or end (point-max)))))
         ((and (eq major-mode 'eww-mode)
               (not
                (string-equal
@@ -393,7 +385,7 @@ Tries to guess default based on context."
 
 (cl-loop
  for move in
- '("left" "right" "up" "down" "root")
+ '("left" "right" "up" "down" "root" "depth")
  do
  (eval
   `(defun ,(intern (format "emacspeak-maths-%s" move)) ()
@@ -460,6 +452,7 @@ For use on Wikipedia pages  for example."
      "Spoken Math"
      ("SPC" emacspeak-maths-enter "enter")
      ("a" emacspeak-maths-speak-alt "Alt Text")
+     ("d" emacspeak-maths-depth "Depth")
      ("r" emacspeak-maths-root "Root")
      ("<up>" emacspeak-maths-up "Up")
      ("<down>" emacspeak-maths-down"down")
