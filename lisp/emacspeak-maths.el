@@ -365,7 +365,8 @@ left for next run."
                 (get-text-property (point) 'shr-alt)
                 "No image under point")))
          (get-text-property (point) 'shr-alt))
-        (mark-active (buffer-substring (point) (mark))))))
+        (mark-active
+         (buffer-substring (region-beginning)(region-end))))))
 
 (defun emacspeak-maths-enter (latex)
   "Send a LaTeX expression to Maths server.
