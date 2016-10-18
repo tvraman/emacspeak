@@ -58,7 +58,10 @@
 ;;; under point as LaTeX. @item Down <down> Move down a level. @item
 ;;; Up <up> Move up a level. @item Left <left> Move left. @item Right
 ;;; <right> Move right. @item Exit <any other key> Exit
-;;; navigator. @end itemize The current expression is spoken after
+;;; navigator.
+ ;;;
+;;;@end itemize
+;;;The current expression is spoken after
 ;;; each of the above commands. It is also displayed in a special
 ;;; buffer *Spoken Math*. That buffer holds all previously generated
 ;;; output, And Emacs commands forward-page and backward-page can be
