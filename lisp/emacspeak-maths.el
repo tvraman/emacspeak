@@ -436,7 +436,7 @@ Emacs online help facility to look up help on these commands.
 For use on Wikipedia pages  for example."
   (interactive)
   (cl-assert (eq major-mode 'eww-mode) "Not in an EWW buffer.")
-  (let ((alt-text (shr-show-alt-text)))
+  (let ((alt-text (get-text-property (point) 'shr-alt)))
     (unless (string-equal alt-text "No image under point")
       (funcall-interactively #'emacspeak-maths-enter alt-text))))
 
