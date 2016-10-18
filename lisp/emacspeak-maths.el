@@ -354,6 +354,54 @@ left for next run."
 
 ;;}}}
 ;;{{{ Navigators:
+
+;;; Helper: Guess current math expression from TeX/LaTeX
+
+(defun emacspeak-maths-guess-tex ()
+  "Extract math content around point."
+  (declare (special texmathp-why))
+  (cl-assert (require 'texmathp) nil "Install package auctex to get texmathp")
+  (when (texmathp)
+    (let ((delimiter (car texmathp-why))
+          (start (cdr texmathp-why))
+          (begin nil)
+          (end nil))
+      (cond
+;;; $ and $$
+       ((or (string= "$" delimiter)
+            (string= "$$" delimiter))
+        (save-excursion
+          (goto-char start)
+          (forward-char (length delimiter))
+          (setq begin (point))
+          (skip-syntax-forward "^$")
+          (setq end (point))
+          (buffer-substring begin end)))
+;;; \( and \[
+       ((string= "\\(" delimiter)
+        (goto-char start)
+        (setq begin (+ start  2))
+        (search-forward "\\)")
+        (setq end (- (point) 2))
+        (buffer-substring begin end))
+       ((string= "\\[" delimiter)
+        (goto-char start)
+        (setq begin (+ start  2))
+        (search-forward "\\]")
+        (setq end (- (point) 2))
+        (buffer-substring begin end))
+;;; begin equation
+       ((string= "equation" delimiter)
+        (goto-char start)
+        (forward-char (length "\\begin{equation}"))
+        (setq begin (point))
+        (search-forward "\\end{equation}")
+        (backward-char (length "\\begin{equation}"))
+        (setq end (point))
+        (buffer-substring begin end))
+                
+       (t nil)))))
+
 (defun emacspeak-maths-guess-input ()
   "Examine current mode, text around point etc. to guess Math content to read."
   (declare (special emacspeak-maths))
