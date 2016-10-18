@@ -1,0 +1,8 @@
+# .nvm holds git clone of 
+# https://github.com/creationix/nvm.git
+export NVM_DIR=$HOME/.nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" "--no-use"  
+#nvm install stable 
+nvm use --delete-prefix stable --silent
+export NODE_DISABLE_COLORS=1
+export NODE_NO_READLINE=1
