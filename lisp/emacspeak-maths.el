@@ -399,7 +399,7 @@ left for next run."
         (backward-char (length "\\begin{equation}"))
         (setq end (point))
         (buffer-substring begin end))
-                
+
        (t nil)))))
 
 (defun emacspeak-maths-guess-input ()
@@ -510,6 +510,21 @@ For use on Wikipedia pages  for example."
      ("<down>" emacspeak-maths-down"down")
      ("<left>" emacspeak-maths-left "left")
      ("<right>" emacspeak-maths-right "right"))))
+
+;;}}}
+;;{{{ Advice Preview:
+
+(defadvice preview-at-point (after emacspeak pre act comp)
+  "Also preview using speech."
+  (when (and (ems-interactive-p)
+             emacspeak-maths
+             (process-live-p (emacspeak-maths-client-process emacspeak-maths)))
+    (let ((preview-state
+           (mapcar
+            #'(lambda (o) (overlay-get o 'preview-state))
+            (overlays-at (point)))))
+      (when (cl-some   #'identity preview-state)
+        (emacspeak-maths-enter (emacspeak-maths-guess-tex))))))
 
 ;;}}}
 (provide 'emacspeak-maths)
