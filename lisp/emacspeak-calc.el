@@ -69,10 +69,7 @@
   "Provide spoken feedback."
   (cond
    ((ems-interactive-p)
-    (let ((emacspeak-speak-messages nil)
-          (dtk-quiet t)
-          (emacspeak-use-auditory-icons nil))
-      ad-do-it)
+    (ems-with-messages-silenced ad-do-it)
     (tts-with-punctuations 'all
                            (emacspeak-read-previous-line))
     (emacspeak-auditory-icon 'task-done))
@@ -81,11 +78,11 @@
 
 (defadvice  calc-do (around emacspeak pre act comp)
   "Speak previous line of output."
-  (let ((emacspeak-speak-messages nil))
-    ad-do-it
-    (tts-with-punctuations 'all
-                           (emacspeak-read-previous-line))
-    (emacspeak-auditory-icon 'select-object))
+  (ems-with-messages-silenced ad-do-it)
+  (tts-with-punctuations
+   'all
+   (emacspeak-read-previous-line)
+   (emacspeak-auditory-icon 'select-object))
   ad-return-value)
 
 (defadvice  calc-trail-here (after emacspeak pre act comp)
