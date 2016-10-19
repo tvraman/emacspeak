@@ -40,33 +40,43 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-
-;;; Spoken mathematics on the emacspeak audio desktop. Use a NodeJS
-;;; based speech-rule-engine for Mathematics as the backend for
-;;; processing mathematical markup. The result of this processing is
-;;; an annotated S-expression that is rendered via Emacspeak's speech
-;;; facilities. Annotations follow Aural CSS as implemented in
-;;; Emacspeak, This allows us to map these expressions to aural
-;;; properties supported by specific TTS engines. Basic Usage: Startup
-;;; up the server/client: M-x emacspeak-maths-start. Once the server
-;;; and client are started, you can browse any number of math
+;;; 
+;;; Spoken mathematics on the emacspeak audio desktop. 
+;;; 
+;;; Use a NodeJS based speech-rule-engine for Mathematics as the
+;;; backend for processing mathematical markup. The result of this
+;;; processing is an annotated S-expression that is rendered via
+;;; Emacspeak's speech facilities. 
+;;; 
+;;; Annotations follow Aural CSS as implemented in Emacspeak, This
+;;; allows us to map these expressions to aural properties supported
+;;; by specific TTS engines. 
+;;; 
+;;; Basic Usage:
+;;; 
+;;; Start the server/client: M-x emacspeak-maths-start. Once the
+;;; server and client are started, you can browse any number of math
 ;;; expressions using the emacspeak-maths-navigator described below.
-;;;
+;;; 
 ;;; Invoke the Navigator using s-spc --- this is the <windows> key on
-;;; Linux. Now you can use these keys: @itemize @item Enter: <SPC>
-;;; Enter a LaTeX expression. @item Alt-Text <a> Process alt-text
-;;; under point as LaTeX. @item Down <down> Move down a level. @item
-;;; Up <up> Move up a level. @item Left <left> Move left. @item Right
-;;; <right> Move right. @item Exit <any other key> Exit
-;;; navigator.
- ;;;
-;;;@end itemize
-;;;The current expression is spoken after
-;;; each of the above commands. It is also displayed in a special
-;;; buffer *Spoken Math*. That buffer holds all previously generated
-;;; output, And Emacs commands forward-page and backward-page can be
-;;; used to move through each chunk of output.
-
+;;; Linux. Now you can use these keys:
+;;; 
+;;; @itemize 
+;;; @item Enter: <SPC> Enter a LaTeX expression. 
+;;; @item Alt-Text <a> Process alt-text under point as LaTeX. 
+;;; @item Down <down> Move down a level. 
+;;; @item Up <up> Move up a level. 
+;;; @item Left <left> Move left. 
+;;; @item Right <right> Move right. 
+;;; @item Exit <any other key> Exit navigator. 
+;;; @end itemize 
+;;; 
+;;; The current expression is spoken after each of the above
+;;; commands. It is also displayed in a special buffer *Spoken
+;;; Math*. That buffer holds all previously generated output, And
+;;; Emacs commands forward-page and backward-page can be used to move
+;;; through each chunk of output.
+;;; 
 ;;; Code:
 
 ;;}}}
