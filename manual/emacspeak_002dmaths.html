@@ -97,20 +97,14 @@
 
   <h3 class="section">12.117 emacspeak-maths</h3>
 
-  <p>Spoken mathematics on the emacspeak audio desktop.</p>
-
-  <p>Use a NodeJS based speech-rule-engine for Mathematics as the
-  backend for processing mathematical markup. The result of this
-  processing is an annotated S-expression that is rendered via
-  Emacspeak’s speech facilities.</p>
-
-  <p>Annotations follow Aural CSS as implemented in Emacspeak, This
-  allows us to map these expressions to aural properties supported
-  by specific TTS engines.</p>
-
-  <p>Basic Usage:</p>
-
-  <p>Start the server/client: M-x emacspeak-maths-start. Once the
+  <p>Spoken mathematics on the emacspeak audio desktop. Use a
+  NodeJS based speech-rule-engine for Mathematics as the backend
+  for processing mathematical markup. The result of this processing
+  is an annotated S-expression that is rendered via Emacspeak’s
+  speech facilities. Annotations follow Aural CSS as implemented in
+  Emacspeak, This allows us to map these expressions to aural
+  properties supported by specific TTS engines. Basic Usage:
+  Startup up the server/client: M-x emacspeak-maths-start. Once the
   server and client are started, you can browse any number of math
   expressions using the emacspeak-maths-navigator described
   below.</p>
@@ -120,6 +114,9 @@
 
   <ul>
     <li>Enter: &lt;SPC&gt; Enter a LaTeX expression.</li>
+
+    <li>&lt;enter&gt; Enter the guessed expression with no
+    prompting.</li>
 
     <li>Alt-Text &lt;a&gt; Process alt-text under point as
     LaTeX.</li>
@@ -132,7 +129,7 @@
 
     <li>Right &lt;right&gt; Move right.</li>
 
-    <li>Exit &lt;any other key&gt; Exit navigator.</li>
+    <li>Exit &lt;any other key&gt; Exit navigator. ;;;</li>
   </ul>
 
   <p>The current expression is spoken after each of the above
@@ -202,6 +199,7 @@ Move down in current Math expression.
         <pre class="format">
 Send a LaTeX expression to Maths server.
 Tries to guess default based on context.
+Uses guessed default if user enters an empty string.
 </pre>
       </div>
     </dd>
@@ -447,8 +445,8 @@ Move up in current Math expression.
   <h4 class="subsection">12.117.2 emacspeak-maths Options</h4>
 
   <dl>
-    <dt><a name="index-User-Option-660" id=
-    "index-User-Option-660"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-690" id=
+    "index-User-Option-690"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-maths-inferior-program</em></dt>
 
     <dd>
