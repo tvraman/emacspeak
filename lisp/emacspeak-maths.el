@@ -40,43 +40,33 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; 
-;;; Spoken mathematics on the emacspeak audio desktop. 
-;;; 
-;;; Use a NodeJS based speech-rule-engine for Mathematics as the
-;;; backend for processing mathematical markup. The result of this
-;;; processing is an annotated S-expression that is rendered via
-;;; Emacspeak's speech facilities. 
-;;; 
-;;; Annotations follow Aural CSS as implemented in Emacspeak, This
-;;; allows us to map these expressions to aural properties supported
-;;; by specific TTS engines. 
-;;; 
-;;; Basic Usage:
-;;; 
-;;; Start the server/client: M-x emacspeak-maths-start. Once the
-;;; server and client are started, you can browse any number of math
+
+;;; Spoken mathematics on the emacspeak audio desktop. Use a NodeJS
+;;; based speech-rule-engine for Mathematics as the backend for
+;;; processing mathematical markup. The result of this processing is
+;;; an annotated S-expression that is rendered via Emacspeak's speech
+;;; facilities. Annotations follow Aural CSS as implemented in
+;;; Emacspeak, This allows us to map these expressions to aural
+;;; properties supported by specific TTS engines. Basic Usage: Startup
+;;; up the server/client: M-x emacspeak-maths-start. Once the server
+;;; and client are started, you can browse any number of math
 ;;; expressions using the emacspeak-maths-navigator described below.
-;;; 
+;;;
 ;;; Invoke the Navigator using s-spc --- this is the <windows> key on
-;;; Linux. Now you can use these keys:
-;;; 
-;;; @itemize 
-;;; @item Enter: <SPC> Enter a LaTeX expression. 
-;;; @item Alt-Text <a> Process alt-text under point as LaTeX. 
-;;; @item Down <down> Move down a level. 
-;;; @item Up <up> Move up a level. 
-;;; @item Left <left> Move left. 
-;;; @item Right <right> Move right. 
-;;; @item Exit <any other key> Exit navigator. 
-;;; @end itemize 
-;;; 
-;;; The current expression is spoken after each of the above
-;;; commands. It is also displayed in a special buffer *Spoken
-;;; Math*. That buffer holds all previously generated output, And
-;;; Emacs commands forward-page and backward-page can be used to move
-;;; through each chunk of output.
-;;; 
+;;; Linux. Now you can use these keys: @itemize @item Enter: <SPC>
+;;; Enter a LaTeX expression. @item Alt-Text <a> Process alt-text
+;;; under point as LaTeX. @item Down <down> Move down a level. @item
+;;; Up <up> Move up a level. @item Left <left> Move left. @item Right
+;;; <right> Move right. @item Exit <any other key> Exit
+;;; navigator.
+ ;;;
+;;;@end itemize
+;;;The current expression is spoken after
+;;; each of the above commands. It is also displayed in a special
+;;; buffer *Spoken Math*. That buffer holds all previously generated
+;;; output, And Emacs commands forward-page and backward-page can be
+;;; used to move through each chunk of output.
+
 ;;; Code:
 
 ;;}}}
@@ -367,6 +357,14 @@ left for next run."
 
 ;;}}}
 ;;{{{ Navigators:
+;;; Guess expression from Calc:
+(defun emacspeak-maths-guess-calc ()
+  "Guess expression to speak in calc buffers.
+Set calc-language to tex to use this feature."
+  (declare (special calc-last-kill))
+  (cl-assert (eq major-mode 'calc-mode) nil "This is not a Calc buffer.")
+  (calc-kill 1 'no-delete)
+  (substring (car calc-last-kill) 2))
 
 ;;; Helper: Guess current math expression from TeX/LaTeX
 
@@ -420,6 +418,8 @@ left for next run."
   (declare (special emacspeak-maths))
   (setf(emacspeak-maths-input emacspeak-maths)
        (cond
+        ((eq major-mode 'calc-mode)
+         (emacspeak-maths-guess-calc))
         ((and (memq major-mode '(tex-mode plain-tex-mode latex-mode ams-tex-mode))
               (featurep 'texmathp))
          (emacspeak-maths-guess-tex))
@@ -434,7 +434,8 @@ left for next run."
 
 (defun emacspeak-maths-enter (latex)
   "Send a LaTeX expression to Maths server.
-Tries to guess default based on context."
+Tries to guess default based on context.
+Uses guessed default if user enters an empty string."
   (interactive
    (list
     (progn (emacspeak-maths-guess-input) ;guess based on context
@@ -443,6 +444,8 @@ Tries to guess default based on context."
                                  (emacspeak-maths-input emacspeak-maths)))))
   (declare (special emacspeak-maths))
   (emacspeak-maths-ensure-server)
+  (when (string= "" latex)
+    (setq latex (emacspeak-maths-input emacspeak-maths)))
   (setf (emacspeak-maths-input emacspeak-maths) latex)
   (process-send-string
    (emacspeak-maths-client-process emacspeak-maths)
