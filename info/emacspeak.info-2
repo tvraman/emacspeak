@@ -4996,7 +4996,8 @@ emacspeak-maths-navigator described below.
    Invoke the Navigator using s-spc — this is the <windows> key on
 Linux.  Now you can use these keys:
    • Enter: <SPC> Enter a LaTeX expression.
-   • <enter> Enter the guessed expression with no prompting.
+   • Smart-Enter: <enter> Enter the guessed expression with no
+     prompting.
    • Alt-Text <a> Process alt-text under point as LaTeX.
    • Down <down> Move down a level.
    • Up <up> Move up a level.

@@ -57,7 +57,7 @@
 ;;; @itemize 
 ;;; @item Enter: <SPC>
 ;;; Enter a LaTeX expression.
-;;; @item <enter> Enter the guessed expression with no prompting. 
+;;; @item Smart-Enter: <enter> Enter the guessed expression with no prompting. 
 ;;; @item Alt-Text <a> Process alt-text
 ;;; under point as LaTeX. 
 ;;; @item Down <down> Move down a level. 
