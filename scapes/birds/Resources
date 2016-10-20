@@ -133,6 +133,10 @@ boodler.use: sound
 boodler.filename: indian-cuckoo-06.aiff
 boodler.use: sound
 
+# cuckoo saying crossword puzzle
+:cuckoo_07
+boodler.filename: indian-cuckoo-07.aiff
+boodler.use: sound
 
 :chirp_01
 boodler.filename: chirp-01.aiff
