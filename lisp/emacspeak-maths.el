@@ -68,7 +68,7 @@
 ;;; <right> Move right. 
 ;;; @item Exit <any other key> Exit
 ;;; navigator.
- ;;;
+;;;
 ;;;
 ;;; @end itemize
 ;;;The current expression is spoken after
