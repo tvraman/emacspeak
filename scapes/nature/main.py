@@ -27,7 +27,7 @@ fl_mocks = [
 
 cuckoos = [
     birds.cuckoo_01, birds.cuckoo_02, birds.cuckoo_03, birds.cuckoo_04,
-    birds.cuckoo_05, birds.cuckoo_06]
+    birds.cuckoo_05, birds.cuckoo_06, birds.cuckoo_07]
 
 nightingales = [
     birds.nightingale_001, birds.nightingale_002, birds.nightingale_003, birds.nightingale_004,
