@@ -129,7 +129,7 @@
 
     <li>Right &lt;right&gt; Move right.</li>
 
-    <li>Exit &lt;any other key&gt; Exit navigator. ;;;</li>
+    <li>Exit &lt;any other key&gt; Exit navigator.</li>
   </ul>
 
   <p>The current expression is spoken after each of the above
@@ -203,10 +203,32 @@ Uses guessed default if user enters an empty string.
 </pre>
       </div>
     </dd>
+  </dl><a name="emacspeak_002dmaths_002denter_002dguess" id=
+  "emacspeak_002dmaths_002denter_002dguess"></a>
+
+  <h4 class="subsubsection">12.117.1.4
+  emacspeak-maths-enter-guess</h4>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dmaths_002denter_002dguess" id=
+    "index-emacspeak_002dmaths_002denter_002dguess"></a>Command:
+    <strong>emacspeak-maths-enter-guess</strong></dt>
+
+    <dd>
+      <a name="index-emacspeak_002dmaths_002denter_002dguess-1" id=
+      "index-emacspeak_002dmaths_002denter_002dguess-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Send the guessed  LaTeX expression to Maths server.
+Guess is based on context.
+</pre>
+      </div>
+    </dd>
   </dl><a name="emacspeak_002dmaths_002dleft" id=
   "emacspeak_002dmaths_002dleft"></a>
 
-  <h4 class="subsubsection">12.117.1.4 emacspeak-maths-left</h4>
+  <h4 class="subsubsection">12.117.1.5 emacspeak-maths-left</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002dmaths_002dleft" id=
@@ -226,7 +248,7 @@ Move left in current Math expression.
   </dl><a name="emacspeak_002dmaths_002dnavigator_002fbody" id=
   "emacspeak_002dmaths_002dnavigator_002fbody"></a>
 
-  <h4 class="subsubsection">12.117.1.5
+  <h4 class="subsubsection">12.117.1.6
   emacspeak-maths-navigator/body</h4>
 
   <dl>
@@ -249,6 +271,7 @@ Move left in current Math expression.
         <pre class="format">
 Create a hydra with no body and the heads:
 
+"RET":    ‘emacspeak-maths-enter-guess’,
 "SPC":    ‘emacspeak-maths-enter’,
 "a":    ‘emacspeak-maths-speak-alt’,
 "d":    ‘emacspeak-maths-depth’,
@@ -265,7 +288,7 @@ The body can be accessed via ‘emacspeak-maths-navigator/body’.
   </dl><a name="emacspeak_002dmaths_002drestart" id=
   "emacspeak_002dmaths_002drestart"></a>
 
-  <h4 class="subsubsection">12.117.1.6 emacspeak-maths-restart</h4>
+  <h4 class="subsubsection">12.117.1.7 emacspeak-maths-restart</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002dmaths_002drestart" id=
@@ -285,7 +308,7 @@ Restart Node math-server if running. Otherwise starts a new one.
   </dl><a name="emacspeak_002dmaths_002dright" id=
   "emacspeak_002dmaths_002dright"></a>
 
-  <h4 class="subsubsection">12.117.1.7 emacspeak-maths-right</h4>
+  <h4 class="subsubsection">12.117.1.8 emacspeak-maths-right</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002dmaths_002dright" id=
@@ -305,7 +328,7 @@ Move right in current Math expression.
   </dl><a name="emacspeak_002dmaths_002droot" id=
   "emacspeak_002dmaths_002droot"></a>
 
-  <h4 class="subsubsection">12.117.1.8 emacspeak-maths-root</h4>
+  <h4 class="subsubsection">12.117.1.9 emacspeak-maths-root</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002dmaths_002droot" id=
@@ -325,7 +348,7 @@ Move root in current Math expression.
   </dl><a name="emacspeak_002dmaths_002dshutdown" id=
   "emacspeak_002dmaths_002dshutdown"></a>
 
-  <h4 class="subsubsection">12.117.1.9
+  <h4 class="subsubsection">12.117.1.10
   emacspeak-maths-shutdown</h4>
 
   <dl>
@@ -346,7 +369,7 @@ Shutdown client and server processes.
   </dl><a name="emacspeak_002dmaths_002dspeak_002dalt" id=
   "emacspeak_002dmaths_002dspeak_002dalt"></a>
 
-  <h4 class="subsubsection">12.117.1.10
+  <h4 class="subsubsection">12.117.1.11
   emacspeak-maths-speak-alt</h4>
 
   <dl>
@@ -368,7 +391,7 @@ For use on Wikipedia pages  for example.
   </dl><a name="emacspeak_002dmaths_002dspoken_002dmode" id=
   "emacspeak_002dmaths_002dspoken_002dmode"></a>
 
-  <h4 class="subsubsection">12.117.1.11
+  <h4 class="subsubsection">12.117.1.12
   emacspeak-maths-spoken-mode</h4>
 
   <dl>
@@ -402,7 +425,7 @@ during initialization.
   </dl><a name="emacspeak_002dmaths_002dstart" id=
   "emacspeak_002dmaths_002dstart"></a>
 
-  <h4 class="subsubsection">12.117.1.12 emacspeak-maths-start</h4>
+  <h4 class="subsubsection">12.117.1.13 emacspeak-maths-start</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002dmaths_002dstart" id=
@@ -422,7 +445,7 @@ Start Maths server bridge.
   </dl><a name="emacspeak_002dmaths_002dup" id=
   "emacspeak_002dmaths_002dup"></a>
 
-  <h4 class="subsubsection">12.117.1.13 emacspeak-maths-up</h4>
+  <h4 class="subsubsection">12.117.1.14 emacspeak-maths-up</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002dmaths_002dup" id=
@@ -445,8 +468,8 @@ Move up in current Math expression.
   <h4 class="subsection">12.117.2 emacspeak-maths Options</h4>
 
   <dl>
-    <dt><a name="index-User-Option-690" id=
-    "index-User-Option-690"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-660" id=
+    "index-User-Option-660"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-maths-inferior-program</em></dt>
 
     <dd>
