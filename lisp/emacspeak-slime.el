@@ -71,7 +71,22 @@
    (slime-inspector-label-face voice-monotone-medium)
    (slime-inspector-value-face voice-animate)
    (slime-inspector-action-face voice-bolden)
-   (slime-inspector-type-face voice-annotate)))
+   (slime-inspector-type-face voice-annotate)
+   (sldb-catch-tag-face   voice-lighten)
+   (sldb-condition-face  voice-smoothen)
+   (sldb-detailed-frame-line-face voice-monotone)
+   (sldb-frame-label-face voice-annotate)
+   (sldb-frame-line-face voice-lighten-extra)
+   (sldb-local-name-face voice-bolden)
+   (sldb-local-value-face voice-animate)
+   (sldb-non-restartable-frame-line-face voice-animate-extra)
+   (sldb-reference-face voice-smoothen-extra)
+   (sldb-restart-face voice-bolden)
+   (sldb-restart-number-face voice-smoothen)
+   (sldb-restart-type-face voice-animate)
+   (sldb-restartable-frame-line-face voice-bolden)
+   (sldb-section-face voice-bolden-medium)
+   (sldb-topline-face voice-bolden)))
 
 ;;}}}
 ;;{{{ Navigation:
