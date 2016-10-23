@@ -168,13 +168,23 @@
 
 (loop
  for f in
+ '(slime-inspector-next-inspectable-object slime-inspector-previous-inspectable-object)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-speak-this-personality-chunk)
+       (emacspeak-auditory-icon 'large-movement)))))
+
+(loop
+ for f in
  '(
    slime-inspector-operate-on-point slime-inspector-operate-on-click
                                     slime-inspector-show-source
    slime-inspect slime-inspect-definition
    slime-inspector-reinspect slime-inspector-show-source
    slime-inspector-next
-   slime-inspector-next-inspectable-object slime-inspector-previous-inspectable-object
    slime-inspector-fetch-all
    slime-inspect-presentation-at-mouse slime-inspect-presentation-at-point)
  do
