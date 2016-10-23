@@ -60,19 +60,18 @@
 
 (voice-setup-add-map
  '(
- (slime-error-face voice-animate)
- (slime-warning-face voice-animate-medium)
- (slime-style-warning-face voice-animate-medium)
- (slime-note-face voice-monotone)
- (slime-highlight-face voice-bolden)
- (slime-apropos-symbol voice-monotone-light)
- (slime-apropos-label voice-monotone-light)
- (slime-inspector-topline-face voice-bolden-medium)
- (slime-inspector-label-face voice-monotone-medium)
- (slime-inspector-value-face voice-animate)
- (slime-inspector-action-face voice-bolden)
- (slime-inspector-type-face voice-annotate)
-)
+   (slime-error-face voice-animate)
+   (slime-warning-face voice-animate-medium)
+   (slime-style-warning-face voice-animate-medium)
+   (slime-note-face voice-monotone)
+   (slime-highlight-face voice-bolden)
+   (slime-apropos-symbol voice-monotone-light)
+   (slime-apropos-label voice-monotone-light)
+   (slime-inspector-topline-face voice-bolden-medium)
+   (slime-inspector-label-face voice-monotone-medium)
+   (slime-inspector-value-face voice-animate)
+   (slime-inspector-action-face voice-bolden)
+   (slime-inspector-type-face voice-annotate)))
 
 ;;}}}
 ;;{{{ Navigation:
@@ -139,6 +138,55 @@
 
 ;;}}}
 ;;{{{ Inspector:
+
+(loop
+ for f in
+ '(
+   slime-inspect slime-inspect-definition
+   slime-inspector-reinspect slime-inspector-show-source
+   slime-inspector-next
+   slime-inspector-next-inspectable-object slime-inspector-previous-inspectable-object
+   slime-inspector-fetch-all
+   slime-inspect-presentation-at-mouse slime-inspect-presentation-at-point)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (with-current-buffer (get-buffer "*slime-inspector*")
+         (emacspeak-speak-line)
+         (emacspeak-auditory-icon 'open-object))))))
+
+(loop
+ for f in
+ '(slime-inspector-history slime-inspector-describe)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (with-current-buffer (get-buffer"*slime-description*")
+      (emacspeak-speak-buffer)
+      (emacspeak-auditory-icon 'help))))))
+
+'(
+ slime-inspector-copy-down-to-repl
+ 
+ slime-inspector-eval
+ 
+ 
+ 
+ 
+ slime-inspector-next-inspectable-object
+ slime-inspector-operate-on-click
+ slime-inspector-operate-on-point
+ slime-inspector-pop
+ slime-inspector-pprint
+ slime-inspector-previous-inspectable-object
+ slime-inspector-quit
+ 
+ 
+ slime-inspector-toggle-verbose)
 
 ;;}}}
 ;;{{{ Debugger:
