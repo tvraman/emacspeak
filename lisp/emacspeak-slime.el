@@ -142,6 +142,8 @@
 (loop
  for f in
  '(
+   slime-inspector-operate-on-point slime-inspector-operate-on-click
+                                    slime-inspector-show-source
    slime-inspect slime-inspect-definition
    slime-inspector-reinspect slime-inspector-show-source
    slime-inspector-next
