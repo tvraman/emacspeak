@@ -40,7 +40,7 @@
 ;;{{{  introduction
 
 ;;; Commentary:
- ;;; SLIME == Superior  Lisp Interaction Mode For Emacs 
+ ;;; SLIME == Superior  Lisp Interaction Mode For Emacs
 
 ;;; Slime is a powerful IDE for developing in Common Lisp and Clojure.
 ;;; It's similar but more modern than package ILisp that I used as a
@@ -56,21 +56,23 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
+;;{{{ Map Faces:
+
+;;}}}
 ;;{{{ Navigation:
 
 (loop
  for f in
  '(
-   slime-end-of-defun                   ;slime-beginning-of-defun
-   slime-close-all-parens-in-sexp
-   slime-repl-previous-prompt slime-repl-next-prompt
-   slime-next-presentation slime-previous-presentation
-   slime-next-location slime-previous-location
-   slime-edit-definition slime-pop-find-definition-stack
-   slime-edit-definition-other-frame slime-edit-definition-other-window
-   slime-next-note slime-previous-note
-   
-   )
+   slime-end-of-defun                   slime-beginning-of-defun
+                                        slime-close-all-parens-in-sexp
+                                        slime-repl-previous-prompt slime-repl-next-prompt
+                                        slime-next-presentation slime-previous-presentation
+                                        slime-next-location slime-previous-location
+                                        slime-edit-definition slime-pop-find-definition-stack
+                                        slime-edit-definition-other-frame slime-edit-definition-other-window
+                                        slime-next-note slime-previous-note
+                                        )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -88,13 +90,13 @@
      "Say what you completed."
      (ems-with-messages-silenced
       (let ((prior (point)))
-       ad-do-it
-       (if (> (point) prior)
-           (tts-with-punctuations
-            'all
-            (dtk-speak (buffer-substring prior (point))))
-         (emacspeak-speak-completions-if-available))
-       ad-return-value)))))
+        ad-do-it
+        (if (> (point) prior)
+            (tts-with-punctuations
+             'all
+             (dtk-speak (buffer-substring prior (point))))
+          (emacspeak-speak-completions-if-available))
+        ad-return-value)))))
 
 ;;}}}
 ;;{{{ Writing Code:
@@ -104,12 +106,14 @@
 
 ;;}}}
 ;;{{{ Browsing Documentation:
+
 (loop
  for f in
  '(
+   slime-documentation-lookup
    slime-describe-function  slime-describe-symbol slime-describe-presentation
-                            slime-apropos slime-apropos-package slime-apropos-summary
-                            )
+   slime-apropos slime-apropos-package slime-apropos-summary
+   )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -118,7 +122,12 @@
        (emacspeak-auditory-icon 'help)))))
 
 ;;}}}
+;;{{{ Inspector:
 
+;;}}}
+;;{{{ Debugger:
+
+;;}}}
 (provide 'emacspeak-slime)
 ;;{{{ end of file
 
