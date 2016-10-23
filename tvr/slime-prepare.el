@@ -14,7 +14,7 @@
       (if (file-exists-p "/usr/share/doc/hyperspec/")
           "file:///usr/share/doc/hyperspec/"
           "http://www.lispworks.com/reference/HyperSpec/"))
-(global-set-key "\C-c\M-s" 'slime-selector)
+(global-set-key (kbd "C-c s") 'slime-selector)
 
 ;;; Do this at the end:
 (setq slime-contribs '(slime-fancy))
