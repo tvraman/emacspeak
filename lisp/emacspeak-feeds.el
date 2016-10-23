@@ -161,15 +161,14 @@ Archiving is useful when synchronizing feeds across multiple machines."
   (interactive)
   (declare (special emacspeak-feeds-archive-file
                     emacspeak-feeds))
-  (ems-with-messages-silenced
    (let ((buffer (find-file-noselect emacspeak-feeds-archive-file))
         (print-level nil)
         (print-length nil))
     (with-current-buffer buffer
       (erase-buffer)
-      (cl-prettyprint emacspeak-feeds)
+      (ems-with-messages-silenced (cl-prettyprint emacspeak-feeds))
       (save-buffer)
-      (emacspeak-auditory-icon 'save-object))))
+      (emacspeak-auditory-icon 'save-object))
   (message "Archived emacspeak-feeds containing %d feeds in %s"
            (length emacspeak-feeds)
            emacspeak-feeds-archive-file))
@@ -183,8 +182,7 @@ Archiving is useful when synchronizing feeds across multiple machines."
                     emacspeak-feeds))
   (unless (file-exists-p emacspeak-feeds-archive-file)
     (error "No archived feeds to restore. "))
-  (ems-with-messages-silenced
-   (let ((buffer (find-file-noselect emacspeak-feeds-archive-file))
+  (let ((buffer (find-file-noselect emacspeak-feeds-archive-file))
         (feeds  nil))
     (with-current-buffer buffer
       (goto-char (point-min))
@@ -197,7 +195,7 @@ Archiving is useful when synchronizing feeds across multiple machines."
         (y-or-n-p
          (format "After restoring %d feeds, we have a total of %d feeds. Save? "
                  (length feeds) (length emacspeak-feeds)))
-      (customize-save-variable 'emacspeak-feeds emacspeak-feeds)))))
+      (customize-save-variable 'emacspeak-feeds emacspeak-feeds))))
 
 ;;;###autoload
 

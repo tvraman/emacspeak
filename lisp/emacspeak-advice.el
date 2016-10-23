@@ -637,10 +637,10 @@ icon."
 
 (defadvice progress-reporter-do-update (around emacspeak pre act comp)
   "Silence progress reporters for now."
-  (ems-with-messages-silenced
-    (when emacspeak-advice-progress-reporter
-      (emacspeak-auditory-icon 'progress))
-    ad-do-it))
+  (ems-with-messages-silenced ad-do-it)
+  (when emacspeak-advice-progress-reporter
+      (emacspeak-auditory-icon 'progress)))
+    
 ;;; forward decl:
 
 (unless (boundp 'inhibit-message)(defvar inhibit-message nil)

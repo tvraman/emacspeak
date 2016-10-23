@@ -186,7 +186,6 @@ Newly found headlines are inserted into the ring within our feedstore.
 We use module gfeeds to efficiently fetch feed contents using the
   Google AJAX API."
   (declare (special emacspeak-webspace-headlines-period))
-  (ems-with-messages-silenced
   (let* (
          (last-update (get-text-property 0 'last-update feed))
          (gfeeds-freshness-internal
@@ -194,15 +193,16 @@ We use module gfeeds to efficiently fetch feed contents using the
               emacspeak-webspace-headlines-period
             gfeeds-freshness-internal))
          (titles (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
-    (when                ; check if we need to add from this feed
-        (or (null last-update)        ;  at most every half hour
+    (when                     ; check if we need to add from this feed
+        (or (null last-update)          ;  at most every half hour
             (time-less-p emacspeak-webspace-headlines-period  (time-since last-update)))
       (put-text-property 0 1 'last-update (current-time) feed)
-      (mapc
-       #'(lambda (h)
-           (unless (ring-member titles h)
-             (ring-insert titles h)))
-       (gfeeds-titles feed))))))
+      (ems-with-messages-silenced
+       (mapc
+        #'(lambda (h)
+            (unless (ring-member titles h)
+              (ring-insert titles h)))
+        (gfeeds-titles feed))))))
 
 (defsubst emacspeak-webspace-fs-next (fs)
   "Return next feed and increment index for fs."
