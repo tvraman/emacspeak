@@ -58,6 +58,22 @@
 ;;}}}
 ;;{{{ Map Faces:
 
+(voice-setup-add-map
+ '(
+ (slime-error-face voice-animate)
+ (slime-warning-face voice-animate-medium)
+ (slime-style-warning-face voice-animate-medium)
+ (slime-note-face voice-monotone)
+ (slime-highlight-face voice-bolden)
+ (slime-apropos-symbol voice-monotone-light)
+ (slime-apropos-label voice-monotone-light)
+ (slime-inspector-topline-face voice-bolden-medium)
+ (slime-inspector-label-face voice-monotone-medium)
+ (slime-inspector-value-face voice-animate)
+ (slime-inspector-action-face voice-bolden)
+ (slime-inspector-type-face voice-annotate)
+)
+
 ;;}}}
 ;;{{{ Navigation:
 
