@@ -96,3 +96,6 @@ spell:
 	@cat ${FILES} | aspell --ignore-case -t --list --add-filter texinfo   \
  | sort | uniq > .spell.words
 	@diff .spell.tex .spell.words
+
+tags:
+	etags *.texi
