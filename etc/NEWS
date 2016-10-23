@@ -6,6 +6,10 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
 * Emacspeak 45 -- Emacspeak 45 User Visible Changes
+** Updated Slime Support 
+
+Module ~emacspeak-slime~ has been updated to speech-enable more of
+the Superior Lisp Interaction Mode (slime).
 
 ** GPG Integration In Emacs:
 
