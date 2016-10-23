@@ -86,7 +86,14 @@
    (sldb-restart-type-face voice-animate)
    (sldb-restartable-frame-line-face voice-bolden)
    (sldb-section-face voice-bolden-medium)
-   (sldb-topline-face voice-bolden)))
+   (sldb-topline-face voice-bolden)
+   (slime-reader-conditional-face  voice-brighten)
+   (slime-repl-input-face voice-brighten-medium)
+   (slime-repl-inputed-output-face voice-bolden-and-animate)
+   (slime-repl-output-face voice-bolden)
+   (slime-repl-output-mouseover-face voice-bolden-and-animate)
+   (slime-repl-prompt-face voice-smoothen)
+   (slime-repl-result-face voice-animate)))
 
 ;;}}}
 ;;{{{ Navigation:
