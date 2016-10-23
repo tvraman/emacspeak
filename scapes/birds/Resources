@@ -138,6 +138,13 @@ boodler.use: sound
 boodler.filename: indian-cuckoo-07.aiff
 boodler.use: sound
 
+# Asian koel 
+
+:cuckoo_08
+boodler.filename: indian-cuckoo-08.aiff
+boodler.use: sound
+
+
 :chirp_01
 boodler.filename: chirp-01.aiff
 boodler.use: sound
