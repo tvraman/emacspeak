@@ -528,8 +528,14 @@ if {[info exists server_p]} {
     set tts(input) sock0
 }
 set servers [file dirname $argv0]
-set tclTTS $servers/linux-espeak
-load $tclTTS/tclespeak.so
+set os [lindex $tcl_platform(os) 0]
+if {$os == "Darwin"} {
+	set tclTTS $servers/mac-espeak
+} else {
+	set tclTTS $servers/linux-espeak
+}
+echo $tclTTS
+load $tclTTS/tclespeak[info sharedlibextension]
 if {[file exists /proc/asound]} {
     set tts(play) /usr/bin/aplay
 }
