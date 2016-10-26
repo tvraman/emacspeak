@@ -203,6 +203,12 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)))
 
+(defadvice slime-repl-shortcut-help (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'help)
+    (dtk-speak "Displayed help in other window.")))
+
 ;;}}}
 ;;{{{ Writing Code:
 
