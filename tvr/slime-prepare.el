@@ -19,3 +19,4 @@
 ;;; Do this at the end:
 (setq slime-contribs '(slime-fancy))
 (slime-setup)
+(slime-autodoc-mode -1)
