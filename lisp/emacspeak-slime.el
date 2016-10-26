@@ -204,19 +204,25 @@
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)))
+(loop
+ for f in
+ '(slime-list-repl-short-cuts slime-repl-shortcut-help)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
 
-(defadvice slime-repl-shortcut-help (after emacspeak pre act comp)
+ 
+ 
+     (defadvice slime-cheat-sheet (after emacspeak pre act comp)
+       "Provide auditory feedback."
+       (when (ems-interactive-p)
+         (emacspeak-auditory-icon 'help)
+         (dtk-speak "Displaying  help in new frame.")))
 
-(defadvice slime-cheat-sheet (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'help)
-    (dtk-speak "Displaying  help in new frame.")))
-
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'help)
-    (dtk-speak "Displayed help in other window.")))
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'help)
+       (dtk-speak "Displayed help in other window.")))))
 
 ;;}}}
 ;;{{{ Writing Code:
