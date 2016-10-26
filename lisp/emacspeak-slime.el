@@ -107,18 +107,18 @@
  for f in
  '(
    slime-repl-backward-input slime-repl-forward-input
-   slime-repl-previous-matching-input slime-repl-previous-input
-   slime-repl-next-matching-input slime-repl-next-input
-    slime-repl-end-of-defun slime-repl-beginning-of-defun
-   slime-end-of-defun                   slime-beginning-of-defun
-   slime-close-all-parens-in-sexp
-   slime-repl-previous-prompt slime-repl-next-prompt
-   slime-next-presentation slime-previous-presentation
-   slime-next-location slime-previous-location
-   slime-edit-definition slime-pop-find-definition-stack
-   slime-edit-definition-other-frame slime-edit-definition-other-window
-   slime-next-note slime-previous-note
-   )
+                             slime-repl-previous-matching-input slime-repl-previous-input
+                             slime-repl-next-matching-input slime-repl-next-input
+                             slime-repl-end-of-defun slime-repl-beginning-of-defun
+                             slime-end-of-defun                   slime-beginning-of-defun
+                             slime-close-all-parens-in-sexp
+                             slime-repl-previous-prompt slime-repl-next-prompt
+                             slime-next-presentation slime-previous-presentation
+                             slime-next-location slime-previous-location
+                             slime-edit-definition slime-pop-find-definition-stack
+                             slime-edit-definition-other-frame slime-edit-definition-other-window
+                             slime-next-note slime-previous-note
+                             )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -126,6 +126,21 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
+
+(loop
+ for f in
+ '(slime-repl-return slime-repl-closing-return slime-handle-repl-shortcut)
+ do
+ (eval
+  `(defadvice  ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (save-excursion
+         (goto-char
+          (previous-single-property-change (point)   'face nil (point-min)))
+         (emacspeak-speak-this-personality-chunk))
+       (emacspeak-auditory-icon 'close-object)))))
+
 
 (loop
  for f in
@@ -144,54 +159,58 @@
           (emacspeak-speak-completions-if-available))
         ad-return-value)))))
 
+(loop
+ for f in
+ '(
+   slime-repl-delete-from-input-history slime-repl-delete-current-input
+                                        slime-repl-clear-output slime-repl-clear-buffer)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'delete-object)))))
 
-'( 
- 
- slime-repl-browse-system
- slime-repl-clear-buffer
- slime-repl-clear-output
- slime-repl-closing-return
- slime-repl-compile-and-load
- slime-repl-compile-system
- slime-repl-compile/force-system
- slime-repl-defparameter
- slime-repl-delete-current-input
- slime-repl-delete-from-input-history
- slime-repl-delete-system-fasls
- slime-repl-disconnect
- slime-repl-disconnect-all
- 
- 
- slime-repl-inspect
- slime-repl-kill-input
- slime-repl-load-history
- slime-repl-load-system
- slime-repl-load/force-system
- slime-repl-map-mode
- slime-repl-mode
- slime-repl-newline-and-indent
- 
- 
- slime-repl-open-system
- slime-repl-pop-directory
- slime-repl-pop-package
- 
- 
- slime-repl-push-directory
- slime-repl-push-package
- slime-repl-quit
- slime-repl-read-break
- slime-repl-read-mode
- slime-repl-reload-system
- slime-repl-resend
- slime-repl-return
- slime-repl-save-history
- slime-repl-save-merged-history
- slime-repl-sayoonara
- slime-repl-set-package
- slime-repl-shortcut-help
- slime-repl-test-system
- slime-repl-test/force-system)
+
+(loop
+ for f in
+ '(
+   slime-repl-test/force-system slime-repl-test-system
+                                slime-repl-reload-system slime-repl-open-system
+                                slime-repl-load/force-system slime-repl-load-system
+                                slime-repl-delete-system-fasls slime-repl-compile/force-system  slime-repl-compile-system
+                                slime-repl-compile-and-load slime-repl-browse-system)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'task-done)))))
+
+'(
+  
+  slime-repl-disconnect
+  slime-repl-disconnect-all
+  slime-repl-inspect
+  slime-repl-kill-input
+  slime-repl-load-history
+  slime-repl-map-mode
+  slime-repl-mode
+  slime-repl-newline-and-indent
+  slime-repl-pop-directory
+  slime-repl-pop-package
+  slime-repl-push-directory
+  slime-repl-push-package
+  slime-repl-quit
+  slime-repl-read-break
+  slime-repl-read-mode
+  slime-repl-resend
+  slime-repl-save-history
+  slime-repl-save-merged-history
+  slime-repl-sayoonara
+  slime-repl-set-package
+  slime-repl-shortcut-help
+  )
 
 ;;}}}
 ;;{{{ Writing Code:
@@ -235,11 +254,11 @@
  '(
    slime-inspector-operate-on-point slime-inspector-operate-on-click
                                     slime-inspector-show-source
-   slime-inspect slime-inspect-definition
-   slime-inspector-reinspect slime-inspector-show-source
-   slime-inspector-next
-   slime-inspector-fetch-all
-   slime-inspect-presentation-at-mouse slime-inspect-presentation-at-point)
+                                    slime-inspect slime-inspect-definition
+                                    slime-inspector-reinspect slime-inspector-show-source
+                                    slime-inspector-next
+                                    slime-inspector-fetch-all
+                                    slime-inspect-presentation-at-mouse slime-inspect-presentation-at-point)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -255,30 +274,30 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (with-current-buffer (get-buffer"*slime-description*")
-      (emacspeak-speak-buffer)
-      (emacspeak-auditory-icon 'help))))))
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (with-current-buffer (get-buffer"*slime-description*")
+         (emacspeak-speak-buffer)
+         (emacspeak-auditory-icon 'help))))))
 
 '(
- slime-inspector-copy-down-to-repl
- 
- slime-inspector-eval
- 
- 
- 
- 
- slime-inspector-next-inspectable-object
- slime-inspector-operate-on-click
- slime-inspector-operate-on-point
- slime-inspector-pop
- slime-inspector-pprint
- slime-inspector-previous-inspectable-object
- slime-inspector-quit
- 
- 
- slime-inspector-toggle-verbose)
+  slime-inspector-copy-down-to-repl
+
+  slime-inspector-eval
+
+
+
+
+  slime-inspector-next-inspectable-object
+  slime-inspector-operate-on-click
+  slime-inspector-operate-on-point
+  slime-inspector-pop
+  slime-inspector-pprint
+  slime-inspector-previous-inspectable-object
+  slime-inspector-quit
+
+
+  slime-inspector-toggle-verbose)
 
 ;;}}}
 ;;{{{ Debugger:
