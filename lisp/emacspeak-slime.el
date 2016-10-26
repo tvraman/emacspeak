@@ -226,7 +226,19 @@
 
 ;;}}}
 ;;{{{ Writing Code:
-
+(loop
+ for f in
+ '(slime-compile-and-load-file
+   slime-compile-defun slime-compile-file
+   slime-compile-region slime-compiler-macroexpand-1
+   slime-compiler-macroexpand-1-inplace slime-compiler-notes-default-action-or-show-details
+   slime-compiler-notes-default-action-or-show-details/mouse slime-compiler-notes-show-details)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'task-done)))))
 ;;}}}
 ;;{{{ Lisp Interaction:
 
