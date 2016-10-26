@@ -103,6 +103,7 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
+
 (loop
  for f in
  '(
@@ -129,7 +130,8 @@
 
 (loop
  for f in
- '(slime-repl-return slime-repl-closing-return slime-handle-repl-shortcut)
+ '(slime-repl-return slime-repl-closing-return
+                     slime-repl-set-package slime-handle-repl-shortcut)
  do
  (eval
   `(defadvice  ,f (after emacspeak pre act comp)
