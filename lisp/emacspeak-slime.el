@@ -96,7 +96,7 @@
    (slime-repl-result-face voice-animate)))
 
 ;;}}}
-;;{{{ Navigation:
+;;{{{ Navigation And Repl:
 (defadvice slime-selector (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
@@ -106,15 +106,19 @@
 (loop
  for f in
  '(
+   slime-repl-backward-input slime-repl-forward-input
+   slime-repl-previous-matching-input slime-repl-previous-input
+   slime-repl-next-matching-input slime-repl-next-input
+    slime-repl-end-of-defun slime-repl-beginning-of-defun
    slime-end-of-defun                   slime-beginning-of-defun
-                                        slime-close-all-parens-in-sexp
-                                        slime-repl-previous-prompt slime-repl-next-prompt
-                                        slime-next-presentation slime-previous-presentation
-                                        slime-next-location slime-previous-location
-                                        slime-edit-definition slime-pop-find-definition-stack
-                                        slime-edit-definition-other-frame slime-edit-definition-other-window
-                                        slime-next-note slime-previous-note
-                                        )
+   slime-close-all-parens-in-sexp
+   slime-repl-previous-prompt slime-repl-next-prompt
+   slime-next-presentation slime-previous-presentation
+   slime-next-location slime-previous-location
+   slime-edit-definition slime-pop-find-definition-stack
+   slime-edit-definition-other-frame slime-edit-definition-other-window
+   slime-next-note slime-previous-note
+   )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -139,6 +143,55 @@
              (dtk-speak (buffer-substring prior (point))))
           (emacspeak-speak-completions-if-available))
         ad-return-value)))))
+
+
+'( 
+ 
+ slime-repl-browse-system
+ slime-repl-clear-buffer
+ slime-repl-clear-output
+ slime-repl-closing-return
+ slime-repl-compile-and-load
+ slime-repl-compile-system
+ slime-repl-compile/force-system
+ slime-repl-defparameter
+ slime-repl-delete-current-input
+ slime-repl-delete-from-input-history
+ slime-repl-delete-system-fasls
+ slime-repl-disconnect
+ slime-repl-disconnect-all
+ 
+ 
+ slime-repl-inspect
+ slime-repl-kill-input
+ slime-repl-load-history
+ slime-repl-load-system
+ slime-repl-load/force-system
+ slime-repl-map-mode
+ slime-repl-mode
+ slime-repl-newline-and-indent
+ 
+ 
+ slime-repl-open-system
+ slime-repl-pop-directory
+ slime-repl-pop-package
+ 
+ 
+ slime-repl-push-directory
+ slime-repl-push-package
+ slime-repl-quit
+ slime-repl-read-break
+ slime-repl-read-mode
+ slime-repl-reload-system
+ slime-repl-resend
+ slime-repl-return
+ slime-repl-save-history
+ slime-repl-save-merged-history
+ slime-repl-sayoonara
+ slime-repl-set-package
+ slime-repl-shortcut-help
+ slime-repl-test-system
+ slime-repl-test/force-system)
 
 ;;}}}
 ;;{{{ Writing Code:
