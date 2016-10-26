@@ -206,6 +206,13 @@
     (emacspeak-auditory-icon 'open-object)))
 
 (defadvice slime-repl-shortcut-help (after emacspeak pre act comp)
+
+(defadvice slime-cheat-sheet (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'help)
+    (dtk-speak "Displaying  help in new frame.")))
+
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'help)
