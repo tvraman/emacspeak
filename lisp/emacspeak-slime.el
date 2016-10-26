@@ -97,7 +97,17 @@
 
 ;;}}}
 ;;{{{ Navigation And Repl:
-
+(loop
+ for f in
+ '(
+   slime-xref-next-line slime-xref-prev-line slime-goto-xref)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act com)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-line)))))
 (defadvice slime-info (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
