@@ -298,6 +298,28 @@
 ;;}}}
 ;;{{{ Inspector:
 
+(defadvice slime-inspector-pop (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-line)))
+
+(defadvice slime-inspector-pprint (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (dtk-speak "Pretty printed description in other window.")
+    (emacspeak-auditory-icon 'open-object)))
+
+(defadvice slime-inspector-quit (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line)))
+(defadvice slime-inspector-toggle-verbose (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'button)
+    (emacspeak-speak-line)))
 (loop
  for f in
  '(slime-inspector-next-inspectable-object
@@ -305,7 +327,7 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     Provide auditory feedback.
      (when (ems-interactive-p)
        (emacspeak-speak-this-personality-chunk)
        (emacspeak-auditory-icon 'large-movement)))))
@@ -324,9 +346,9 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     Provide auditory feedback.
      (when (ems-interactive-p)
-       (with-current-buffer (get-buffer "*slime-inspector*")
+       (with-current-buffer (get-buffer *slime-inspector*)
          (emacspeak-speak-line)
          (emacspeak-auditory-icon 'open-object))))))
 
@@ -336,9 +358,9 @@
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
+     Provide auditory feedback.
      (when (ems-interactive-p)
-       (with-current-buffer (get-buffer"*slime-description*")
+       (with-current-buffer (get-buffer*slime-description*)
          (emacspeak-speak-buffer)
          (emacspeak-auditory-icon 'help))))))
 
