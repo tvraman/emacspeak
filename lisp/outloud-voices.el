@@ -189,15 +189,14 @@ and TABLE gives the values along that dimension."
 
 (let ((table (make-vector 10 "")))
   (mapcar
-   (function
-    (lambda (setting)
-      (aset table
-            (first setting)
-            (format " `vb%s `vh%s "
-                    (second setting)
-                    (third setting)))))
+    #'(lambda (setting)
+        (aset table
+              (first setting)
+              (format " `vb%s `vh%s "
+                      (second setting)
+                      (third setting))))
    '(
-     (0 54 52)
+     (0 54 58)
      (1 56 55)
      (2 58 54)
      (3 60 53)
@@ -284,12 +283,11 @@ and TABLE gives the values along that dimension."
 
 (let ((table (make-vector 10 "")))
   (mapcar
-   (function
-    (lambda (setting)
+   #'(lambda (setting)
       (aset table
             (first setting)
             (format " `vf%s  "
-                    (second setting)))))
+                    (second setting))))
    '(
      (0 0)
      (1 5)
@@ -404,13 +402,12 @@ and TABLE gives the values along that dimension."
 
 (let ((table (make-vector 10 "")))
   (mapcar
-   (function
-    (lambda (setting)
+   #'(lambda (setting)
       (aset table
             (first setting)
             (format " `vy%s  `vv%s "
                     (second setting)
-                    (third setting)))))
+                    (third setting))))
    '(
      (0 0 60)
      (1 4 78)
