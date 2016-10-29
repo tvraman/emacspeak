@@ -55,6 +55,7 @@
 ;;; Invoke the Navigator using s-spc --- this is the <windows> key on
 ;;; Linux. Now you can use these keys:
 ;;; @itemize
+;;; @item  Show Output <o> Switch to output buffer and quit hydra
 ;;; @item Enter: <SPC>
 ;;; Enter a LaTeX expression.
 ;;; @item Smart-Enter: <enter> Enter the guessed expression with no prompting.
