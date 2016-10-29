@@ -4995,6 +4995,7 @@ emacspeak-maths-navigator described below.
 
    Invoke the Navigator using s-spc — this is the <windows> key on
 Linux.  Now you can use these keys:
+   • Show Output <o> Switch to output buffer and quit hydra
    • Enter: <SPC> Enter a LaTeX expression.
    • Smart-Enter: <enter> Enter the guessed expression with no
      prompting.
@@ -5059,6 +5060,7 @@ and backward-page can be used to move through each chunk of output.
 
      Create a hydra with no body and the heads:
 
+     "o":    ‘emacspeak-maths-switch-to-output’,
      "RET":    ‘emacspeak-maths-enter-guess’,
      "SPC":    ‘emacspeak-maths-enter’,
      "a":    ‘emacspeak-maths-speak-alt’,
@@ -5134,7 +5136,14 @@ and backward-page can be used to move through each chunk of output.
 
      Start Maths server bridge.
 
-12.117.1.14 emacspeak-maths-up
+12.117.1.14 emacspeak-maths-switch-to-output
+............................................
+
+ -- Command: emacspeak-maths-switch-to-output
+
+     Switch to output buffer.
+
+12.117.1.15 emacspeak-maths-up
 ..............................
 
  -- Command: emacspeak-maths-up
