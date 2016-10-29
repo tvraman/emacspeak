@@ -30,3 +30,9 @@ Then, from a different shell window, connect to the server.
 
 If all goes well, you'll see an S-expression printed out. Hit _C-d_ to
 close client and server.
+
+** Connect From Within Emacspeak
+
+  - M-x emacspeak-maths-start --- start the server/client.
+  - Invoke the emacspeak-maths muggle using key _s-SPC_ --- here _s-_
+    means press the Windows key.
