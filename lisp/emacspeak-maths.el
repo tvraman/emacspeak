@@ -53,19 +53,19 @@
 ;;; expressions using the emacspeak-maths-navigator described below.
 ;;;
 ;;; Invoke the Navigator using s-spc --- this is the <windows> key on
-;;; Linux. Now you can use these keys: 
-;;; @itemize 
+;;; Linux. Now you can use these keys:
+;;; @itemize
 ;;; @item Enter: <SPC>
 ;;; Enter a LaTeX expression.
-;;; @item Smart-Enter: <enter> Enter the guessed expression with no prompting. 
+;;; @item Smart-Enter: <enter> Enter the guessed expression with no prompting.
 ;;; @item Alt-Text <a> Process alt-text
-;;; under point as LaTeX. 
-;;; @item Down <down> Move down a level. 
+;;; under point as LaTeX.
+;;; @item Down <down> Move down a level.
 ;;; @item
-;;; Up <up> Move up a level. 
-;;; @item Left <left> Move left. 
+;;; Up <up> Move up a level.
+;;; @item Left <left> Move left.
 ;;; @item Right
-;;; <right> Move right. 
+;;; <right> Move right.
 ;;; @item Exit <any other key> Exit
 ;;; navigator.
 ;;;
@@ -454,7 +454,6 @@ Guess is based on context."
    (format "enter: %s"
            (emacspeak-maths-input emacspeak-maths))))
 
-
 (defun emacspeak-maths-enter (latex)
   "Send a LaTeX expression to Maths server.
 Tries to guess default based on context.
@@ -518,7 +517,11 @@ Emacs online help facility to look up help on these commands.
       (erase-buffer))
     (emacspeak-maths-spoken-mode)
     (current-buffer)))
-
+(defun emacspeak-maths-switch-to-output ()
+  "Switch to output buffer."
+  (interactive)
+  (declare (special emacspeak-maths))
+  (funcall-interactively #'switch-to-buffer (emacspeak-maths-output emacspeak-maths)))
 ;;}}}
 ;;{{{ Helpers:
 
@@ -541,6 +544,7 @@ For use on Wikipedia pages  for example."
                 :pre emacspeak-muggles-pre
                 :post emacspeak-muggles-post)
      "Spoken Math"
+     ("o" emacspeak-maths-switch-to-output :color blue)
      ("RET" emacspeak-maths-enter-guess)
      ("SPC" emacspeak-maths-enter "enter")
      ("a" emacspeak-maths-speak-alt "Alt Text")
