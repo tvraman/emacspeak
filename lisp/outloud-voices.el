@@ -180,6 +180,7 @@ and TABLE gives the values along that dimension."
 
 ;;; Average pitch for standard male voice is 65 --this is mapped to
 ;;; a setting of 5.
+;;; head-size for default male is 50.
 ;;; Average pitch varies inversely with speaker head size --a child
 ;;; has a small head and a higher pitched voice.
 ;;; We change parameter head-size in conjunction with average pitch to
@@ -196,16 +197,16 @@ and TABLE gives the values along that dimension."
                       (second setting)
                       (third setting))))
    '(
-     (0 54 58)
-     (1 56 55)
-     (2 58 54)
-     (3 60 53)
-     (4 63 51)
-     (5 65 50)
-     (6 66 49)
-     (7 68 48)
-     (8 69 47)
-     (9 71 45)))
+     (0 54 65) ; pitch, head-size
+     (1 56 60)
+     (2 58 55)
+     (3 60 51)
+     (4 63 48)
+     (5 65 45)
+     (6 66 40)
+     (7 68 38)
+     (8 69 35)
+     (9 71 32)))
   (outloud-css-set-code-table 'paul 'average-pitch table))
 
 ;;}}}
@@ -362,7 +363,7 @@ and TABLE gives the values along that dimension."
 ;;{{{  stress
 
 ;;; On the outloud we map stress to roughness
-;;; we also use stress markers `00 .. `4 
+;;; we also use stress markers `00 .. `4  (disabled after experimentation)
 ;;{{{  paul stress
 
 (let ((table (make-vector 10 "")))
