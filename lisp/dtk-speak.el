@@ -1961,7 +1961,7 @@ Optional argument group-count specifies grouping for intonation."
 (defun dtk-notify-letter (letter)
   "Speak letter on notification stream. "
   (let ((dtk-speaker-process (dtk-notify-process)))
-    (dtk-letter letter)))
+    (when (process-live-p dtk-speaker-process) (dtk-letter letter))))
 
 (defsubst dtk-get-notify-alsa-device ()
   "Returns name of Alsa device for use as the notification stream."
@@ -1997,8 +1997,9 @@ Optional argument group-count specifies grouping for intonation."
 (defun dtk-notify-using-voice (voice text)
   "Use voice VOICE to speak text TEXT on notification stream."
   (let ((dtk-speaker-process (dtk-notify-process)))
+    (when (process-live-p dtk-speaker-process)
     (dtk-speak-using-voice voice text)
-    (dtk-force)))
+    (dtk-force))))
 
 ;;;###autoload
 (defun dtk-notify-shutdown ()
