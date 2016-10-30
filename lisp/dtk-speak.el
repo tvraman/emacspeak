@@ -1942,13 +1942,20 @@ Returns nil if the result would not be a valid process handle."
       (dtk-stop))))
 
 ;;;###autoload
-(defun dtk-notify-speak (text)
-  "Speak text on notification stream. "
+(defun dtk-notify-speak-internal (text)
+  "Internal helper to speak text on notification stream. "
   (declare (special dtk-speaker-process))
-  (let ((dtk-speaker-process (or (dtk-notify-process) dtk-speaker-process)))
-    (when (process-live-p dtk-speaker-process)
-      (dtk-speak text))))
+  (let ((dtk-speaker-process  (dtk-notify-process)))
+    (dtk-speak text)))
 
+(defun dtk-notify-speak (text)
+  "Speak text on notification stream.
+Fall back to dtk-speak if notification stream not available."
+  (declare (special dtk-speaker-process))
+  (cond
+   ((dtk-notify-process)                ; we have a live notifier
+    (dtk-notify-speak-internal text))
+   (t (dtk-speak text))))
 ;;;###autoload
 (defun dtk-notify-say (text)
   "Say text on notification stream. "
