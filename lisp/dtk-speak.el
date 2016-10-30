@@ -1946,7 +1946,8 @@ Optional argument group-count specifies grouping for intonation."
   "Speak text on notification stream. "
   (declare (special dtk-speaker-process))
   (let ((dtk-speaker-process (dtk-notify-process)))
-    (dtk-speak text)))
+    (when (process-live-p dtk-speaker-process)
+      (dtk-speak text))))
 
 ;;;###autoload
 (defun dtk-notify-say (text)
