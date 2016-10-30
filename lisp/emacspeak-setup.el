@@ -218,8 +218,8 @@ such as pronunciation dictionaries are stored. ")
 TTS engine should use ALSA for this to be usable."
   (declare (special dtk-program dtk-notify-process
                     emacspeak-tts-use-notify-stream))
+  (when (process-live-p dtk-notify-process) (delete-process dtk-notify-process))
   (when (and emacspeak-tts-use-notify-stream (emacspeak-tts-multistream-p dtk-program))
-    (when (process-live-p dtk-notify-process) (delete-process dtk-notify-process))
     (dtk-notify-initialize)))
 
 (when emacspeak-tts-use-notify-stream
