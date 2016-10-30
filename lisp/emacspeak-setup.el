@@ -216,10 +216,11 @@ such as pronunciation dictionaries are stored. ")
 (defun emacspeak-tts-notify-hook ()
   "Starts up a notification stream if current synth supports  multiple invocations.
 TTS engine should use ALSA for this to be usable."
-  (declare (special dtk-program dtk-notify-process))
-  (unless (emacspeak-tts-multistream-p dtk-program)
-    (and (process-live-p dtk-notify-process) (delete-process dtk-notify-process)))
-  (when  (emacspeak-tts-multistream-p dtk-program) (dtk-notify-initialize)))
+  (declare (special dtk-program dtk-notify-process
+                    emacspeak-tts-use-notify-stream))
+  (when (and emacspeak-tts-use-notify-stream (emacspeak-tts-multistream-p dtk-program))
+    (when (process-live-p dtk-notify-process) (delete-process dtk-notify-process))
+    (dtk-notify-initialize)))
 
 (when emacspeak-tts-use-notify-stream
   (add-hook 'dtk-startup-hook 'emacspeak-tts-notify-hook 'at-end))
