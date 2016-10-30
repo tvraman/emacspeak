@@ -749,8 +749,7 @@ Arguments START and END specify region to speak."
   "Stop speech now.
 Interactive call   silences notification stream as well."
   (interactive)
-  (when (process-live-p dtk-speaker-process)
-    (dtk-interp-stop))
+  (when (process-live-p dtk-speaker-process) (dtk-interp-stop))
   (when  (called-interactively-p 'interactive)    (dtk-notify-stop)))
 
 (defsubst dtk-reset-default-voice()
