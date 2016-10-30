@@ -749,7 +749,8 @@ Arguments START and END specify region to speak."
   "Stop speech now.
 Interactive call   silences notification stream as well."
   (interactive)
-  (dtk-interp-stop)
+  (when (process-live-p dtk-speaker-process)
+    (dtk-interp-stop))
   (when  (called-interactively-p 'interactive)    (dtk-notify-stop)))
 
 (defsubst dtk-reset-default-voice()
@@ -1823,7 +1824,7 @@ only speak upto the first ctrl-m."
         (dtk-handle-repeating-patterns mode)
         (dtk-quote mode)
         (goto-char (point-min))
-        ;(skip-syntax-forward inherit-chunk-separator-syntax)
+                                        ;(skip-syntax-forward inherit-chunk-separator-syntax)
         (skip-syntax-forward " ");skip leading whitespace
         (setq start (point))
         (while (and (not (eobp))
@@ -1841,7 +1842,7 @@ only speak upto the first ctrl-m."
         (unless  (= start (point-max))
           (skip-syntax-forward " ");skip leading whitespace
           (setq start (point))
-             (dtk-format-text-and-speak start (point-max)))))
+          (dtk-format-text-and-speak start (point-max)))))
     (dtk-force)))
 
 ;;; forward Declaration:
@@ -1854,12 +1855,11 @@ only speak upto the first ctrl-m."
          (emacspeak-use-auditory-icons nil))
      ,@body))
 
-
 (defsubst dtk-speak-and-echo (message)
   "Speak message and echo it to the message area."
   (ems-with-messages-silenced
-    (dtk-speak message)
-    (message "%s" message)))
+   (dtk-speak message)
+   (message "%s" message)))
 
 (defun dtk-speak-list (text &optional group-count)
   "Speak a  list of strings.
@@ -1931,14 +1931,15 @@ Optional argument group-count specifies grouping for intonation."
           (memq (process-status dtk-notify-process) '(open run)))
     dtk-notify-process)
    (t dtk-speaker-process)))
-   
+
 
 ;;;###autoload
 (defun dtk-notify-stop ()
   "Stop  speech on notification stream."
   (interactive)
   (let ((dtk-speaker-process (dtk-notify-process)))
-    (dtk-stop)))
+    (when (process-live-p dtk-speaker-process)
+      (dtk-stop))))
 
 ;;;###autoload
 (defun dtk-notify-speak (text)
@@ -1962,7 +1963,7 @@ Optional argument group-count specifies grouping for intonation."
   "Returns name of Alsa device for use as the notification stream."
   (cond
    ((string-match "tts_mono_right"
-                    (shell-command-to-string  "aplay -L | grep tts_mono_right"))
+                  (shell-command-to-string  "aplay -L | grep tts_mono_right"))
     "tts_mono_right")
    (t (getenv "ALSA_DEFAULT"))))
 
