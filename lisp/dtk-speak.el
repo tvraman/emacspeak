@@ -1761,9 +1761,7 @@ only speak upto the first ctrl-m."
 ;;; ensure text is a  string
   (unless (stringp text) (setq text (format "%s" text)))
 ;;; ensure  the process  is live
-  (unless (or (eq 'run (process-status dtk-speaker-process))
-              (eq 'open (process-status dtk-speaker-process)))
-    (dtk-initialize))
+  (unless (process-live-p dtk-speaker-process) (dtk-initialize))
 ;;; If you dont want me to talk,or my server is not running,
 ;;; I will remain silent.
 ;;; I also do nothing if text is nil or ""
@@ -1919,17 +1917,20 @@ Optional argument group-count specifies grouping for intonation."
 ;;{{{ Notify:
 
 (defun dtk-notify-process ()
-  "Return valid TTS handle for notifications."
+  "Return valid TTS handle for notifications.
+Returns nil if the result would not be a valid process handle."
   (declare (special dtk-notify-process dtk-speaker-process
                     emacspeak-tts-use-notify-stream dtk-program))
-  (cond
-   ((null emacspeak-tts-use-notify-stream) dtk-speaker-process) ;custom overrides.
-   ((null (emacspeak-tts-multistream-p dtk-program)) dtk-speaker-process)
-   ((null dtk-notify-process) dtk-speaker-process)
-   ((and  (processp dtk-notify-process)
-          (memq (process-status dtk-notify-process) '(open run)))
-    dtk-notify-process)
-   (t dtk-speaker-process)))
+  (let ((result
+         (cond
+          ((null emacspeak-tts-use-notify-stream) dtk-speaker-process) ;custom overrides.
+          ((null (emacspeak-tts-multistream-p dtk-program)) dtk-speaker-process)
+          ((null dtk-notify-process) dtk-speaker-process)
+          ((and  (processp dtk-notify-process)
+                 (memq (process-status dtk-notify-process) '(open run)))
+           dtk-notify-process)
+          (t dtk-speaker-process))))
+    (when (process-live-p result) result)))
 
 
 ;;;###autoload
@@ -1944,7 +1945,7 @@ Optional argument group-count specifies grouping for intonation."
 (defun dtk-notify-speak (text)
   "Speak text on notification stream. "
   (declare (special dtk-speaker-process))
-  (let ((dtk-speaker-process (dtk-notify-process)))
+  (let ((dtk-speaker-process (or (dtk-notify-process) dtk-speaker-process)))
     (when (process-live-p dtk-speaker-process)
       (dtk-speak text))))
 
@@ -1997,8 +1998,8 @@ Optional argument group-count specifies grouping for intonation."
   "Use voice VOICE to speak text TEXT on notification stream."
   (let ((dtk-speaker-process (dtk-notify-process)))
     (when (process-live-p dtk-speaker-process)
-    (dtk-speak-using-voice voice text)
-    (dtk-force))))
+      (dtk-speak-using-voice voice text)
+      (dtk-force))))
 
 ;;;###autoload
 (defun dtk-notify-shutdown ()
