@@ -1932,21 +1932,21 @@ Returns nil if the result would not be a valid process handle."
           (t dtk-speaker-process))))
     (when (process-live-p result) result)))
 
-
 ;;;###autoload
 (defun dtk-notify-stop ()
   "Stop  speech on notification stream."
   (interactive)
   (let ((dtk-speaker-process (dtk-notify-process)))
-    (when (process-live-p dtk-speaker-process)
-      (dtk-stop))))
+    (when dtk-speaker-process (dtk-stop))))
 
-;;;###autoload
-(defun dtk-notify-speak-internal (text)
-  "Internal helper to speak text on notification stream. "
+(defun dtk-notify-apply (func text)
+  "Internal helper to handle notifications.
+Applies func to text with dtk-speaker-process bound to the  notification stream."
   (declare (special dtk-speaker-process))
   (let ((dtk-speaker-process  (dtk-notify-process)))
-    (dtk-speak text)))
+    (funcall func text)))
+
+;;;###autoload
 
 (defun dtk-notify-speak (text)
   "Speak text on notification stream.
@@ -1954,21 +1954,25 @@ Fall back to dtk-speak if notification stream not available."
   (declare (special dtk-speaker-process))
   (cond
    ((dtk-notify-process)                ; we have a live notifier
-    (dtk-notify-speak-internal text))
+    (dtk-notify-apply #'dtk-speak  text))
    (t (dtk-speak text))))
+
 ;;;###autoload
 (defun dtk-notify-say (text)
   "Say text on notification stream. "
   (declare (special dtk-speaker-process))
-  (let ((dtk-speaker-process (dtk-notify-process)))
-    (when (process-live-p dtk-speaker-process)
-      (dtk-say text))))
+  (cond
+   ((dtk-notify-process)                ; we have a live notifier
+    (dtk-notify-apply #'dtk-say  text))
+   (t (dtk-say text))))
 
 ;;;###autoload
 (defun dtk-notify-letter (letter)
   "Speak letter on notification stream. "
-  (let ((dtk-speaker-process (dtk-notify-process)))
-    (when (process-live-p dtk-speaker-process) (dtk-letter letter))))
+  (cond
+   ((dtk-notify-process)                ; we have a live notifier
+    (dtk-notify-apply #'dtk-letter letter))
+   (t (dtk-letter letter))))
 
 (defsubst dtk-get-notify-alsa-device ()
   "Returns name of Alsa device for use as the notification stream."
