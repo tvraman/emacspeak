@@ -1942,7 +1942,6 @@ Returns nil if the result would not be a valid process handle."
 (defun dtk-notify-apply (func text)
   "Internal helper to handle notifications.
 Applies func to text with dtk-speaker-process bound to the  notification stream."
-  (declare (special dtk-speaker-process))
   (let ((dtk-speaker-process  (dtk-notify-process)))
     (funcall func text)))
 
