@@ -801,7 +801,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
           (progn
             (emacspeak-auditory-icon
              (if emacspeak-m-player-cue-info 'on 'off))
-            (message "ICY updates  turned %s."
+            (message "ICY messages  turned %s."
                      (if emacspeak-m-player-cue-info "on" "off")))
         
         (message (format "%s" (or info  "No Stream Info")))))))
