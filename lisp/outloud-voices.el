@@ -187,26 +187,26 @@ and TABLE gives the values along that dimension."
 ;;; produce a more natural change on the TTS engine.
 
 ;;{{{  paul average pitch
-
+;;; median: pitch: 65  head-size 50 
 (let ((table (make-vector 10 "")))
   (mapcar
     #'(lambda (setting)
         (aset table
               (first setting)
-              (format " `vb%s `vh%s "
-                      (second setting)
-                      (third setting))))
+              (format
+               " `vb%s `vh%s "
+                      (second setting) (third setting))))
    '(
-     (0 54 65) ; pitch, head-size
-     (1 56 60)
-     (2 58 55)
-     (3 60 51)
-     (4 63 48)
-     (5 65 45)
-     (6 66 40)
-     (7 68 38)
-     (8 69 35)
-     (9 71 32)))
+     (0 40 75) ; pitch, head-size
+     (1 45 70)
+     (2 50 65)
+     (3 55 60)
+     (4 60 55)
+     (5 65 50)
+     (6 70 45)
+     (7 75 40)
+     (8 80 35)
+     (9 85 30)))
   (outloud-css-set-code-table 'paul 'average-pitch table))
 
 ;;}}}
