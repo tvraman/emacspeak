@@ -287,8 +287,8 @@ and TABLE gives the values along that dimension."
    #'(lambda (setting)
       (aset table
             (first setting)
-            (format " `vf%s  "
-                    (second setting))))
+            (format
+             " `vf%s  " (second setting))))
    '(
      (0 0)
      (1 5)
@@ -406,10 +406,10 @@ and TABLE gives the values along that dimension."
    #'(lambda (setting)
       (aset table
             (first setting)
-            (format " `vy%s  `vv%s "
-                    (second setting)
-                    (third setting))))
-   '(
+            (format
+             " `vy%s  `vv%s "
+             (second setting) (third setting))))
+   '(; whisper, volume 
      (0 0 60)
      (1 4 78)
      (2 8 80)
