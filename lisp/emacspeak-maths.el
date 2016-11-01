@@ -427,6 +427,7 @@ Set calc-language to tex to use this feature."
 (defun emacspeak-maths-guess-input ()
   "Examine current mode, text around point etc. to guess Math content to read."
   (declare (special emacspeak-maths))
+  (unless emacspeak-maths (emacspeak-maths-start))
   (setf(emacspeak-maths-input emacspeak-maths)
        (cond
         ((eq major-mode 'calc-mode)
