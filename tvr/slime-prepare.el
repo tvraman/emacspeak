@@ -7,6 +7,7 @@
 (require 'slime-repl)
 (require 'slime-xref-browser)
 (require 'slime-editing-commands)
+(require 'slime-hyperdoc)
 (require 'slime-asdf)
 (setq inferior-lisp-program (executable-find "clisp"))
 
@@ -19,4 +20,5 @@
 ;;; Do this at the end:
 (setq slime-contribs '(slime-fancy))
 (slime-setup)
-(slime-autodoc-mode -1)
+(slime-autodoc--disable)
+(slime-hyperdoc-init)
