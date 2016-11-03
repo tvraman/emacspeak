@@ -11,3 +11,4 @@
 (setq slime-contribs '(slime-fancy slime-hyperdoc slime-quicklisp))
 (slime-setup)
 (slime-autodoc--disable)
+(setq slime-use-autodoc-mode nil)
