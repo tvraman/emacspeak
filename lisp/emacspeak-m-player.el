@@ -789,8 +789,7 @@ This affects pitch."
   "Speak and display metadata if available.
 Interactive prefix arg toggles automatic cueing of ICY info updates."
   (interactive "P")
-  (declare (special emacspeak-m-player-metadata
-                    emacspeak-m-player-cue-info))
+  (declare (special emacspeak-m-player-metadata emacspeak-m-player-cue-info))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
     (unless   emacspeak-m-player-metadata  (error "No metadata"))
     (let* ((m (emacspeak-m-player-metadata-info  emacspeak-m-player-metadata))
