@@ -182,7 +182,7 @@ Param `beat-spec' is a list of `(carrier beat) tupples."
   (declare (special sox-binaural-effects-table))
   (sox--binaural-play duration
                       (gethash name sox-binaural-effects-table))
-  (emacspeak-auditory-icon 'time)
+  (emacspeak-play-auditory-icon 'time)
   (dtk-notify-say    name))
 
 ;;{{{  Define Effects:
