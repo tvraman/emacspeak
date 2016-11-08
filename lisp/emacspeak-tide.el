@@ -64,12 +64,6 @@
    (tide-match voice-bolden)))
 
 ;;}}}
-;;{{{ Code Navigation:
-
-;;}}}
-;;{{{ Documentation
-
-;;}}}
 ;;{{{ Interactive Commands:
 
 
