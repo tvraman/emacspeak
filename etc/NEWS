@@ -69,9 +69,16 @@ Added URL Templates for Google Category News and Google Regional News.
 
 
 ** Speech-Enable Package Jade
-
+Package ~jade~ implements a Javacript IDE that works alongside
+packages like ~js2-mode~.
 Module emacspeak-jade.el speech-enables package Jade for interactively
 debugging Webapps in  browsers like Chrome.
+
+
+** Speech-Enable Tide:
+
+Package ~tide~ implements a Typescript IDE in Emacs. Module
+~emacspeak-tide~ speech-enables package ~tide~.
 
 ** SoX And Binaural Beats:
 
