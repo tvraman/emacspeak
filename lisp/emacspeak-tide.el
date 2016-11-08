@@ -55,6 +55,14 @@
 ;;}}}
 ;;{{{ Map Faces:
 
+(voice-setup-add-map
+ '(
+   (tide-file voice-lighten)
+    (tide-hl-identifier-face voice-animate)
+ (tide-imenu-type-face voice-annotate)
+ (tide-line-number voice-monotone)
+ (tide-match voice-bolden)))
+
 ;;}}}
 ;;{{{ Code Navigation:
 
