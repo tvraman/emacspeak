@@ -58,10 +58,10 @@
 (voice-setup-add-map
  '(
    (tide-file voice-lighten)
-    (tide-hl-identifier-face voice-animate)
- (tide-imenu-type-face voice-annotate)
- (tide-line-number voice-monotone)
- (tide-match voice-bolden)))
+   (tide-hl-identifier-face voice-animate)
+   (tide-imenu-type-face voice-annotate)
+   (tide-line-number voice-monotone)
+   (tide-match voice-bolden)))
 
 ;;}}}
 ;;{{{ Code Navigation:
@@ -72,6 +72,42 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 
+
+
+(defadvice tide-compile-file (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'task-done)))
+
+(defadvice tide-documentation-at-point (after emacspeak pre act comp)
+  "Speak documentation if any."
+  (let ((documentation (ad-get-arg 0)))
+    (unless (string= documentation "")
+      (dtk-speak documentation)
+      (emacspeak-auditory-icon 'help))))
+(loop
+ for f in
+ '(
+   tide-find-next-reference tide-find-previous-reference tide-goto-reference
+                            tide-jump-back tide-jump-to-definition)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-line)))))
+
+(defadvice tide-format(after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'task-done)))
+
+(defadvice tide-references(after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
 ;;}}}
 (provide 'emacspeak-tide)
 ;;{{{ end of file
