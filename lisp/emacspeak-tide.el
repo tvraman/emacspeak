@@ -76,7 +76,7 @@
 (defadvice tide-documentation-at-point (after emacspeak pre act comp)
   "Speak documentation if any."
   (let ((documentation (ad-get-arg 0)))
-    (unless (string= documentation "")
+    (when documentation
       (dtk-speak documentation)
       (emacspeak-auditory-icon 'help))))
 (loop
