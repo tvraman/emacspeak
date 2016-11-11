@@ -410,9 +410,6 @@ Optional interactive prefix arg prompts for a filename."
              (read-file-name "File to import game from: ")
            emacspeak-threes-game-file)))
     (load-file file)
-    (loop
-     for i in '(4096 8192 16384 32768) do
-     (threes-init-tile i))
     (emacspeak-auditory-icon 'task-done)
     (message "Imported game %s." file)))
 
