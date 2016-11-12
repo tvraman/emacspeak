@@ -191,7 +191,7 @@
   (interactive)
   (let ((moved t))
     (while (and moved
-                (not (looking-at "http")))
+                (not (looking-at "http[s]://")))
       (setq moved (goto-char (next-single-property-change (point) 'uri))))
     (browse-url-at-point)))
 
