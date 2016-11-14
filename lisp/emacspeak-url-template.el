@@ -660,6 +660,16 @@ from English to German")
  #'emacspeak-feeds-atom-display)
 
 ;;}}}
+;;{{{ Google Structured Data Parser:
+
+(emacspeak-url-template-define
+"Structured Data Extractor"
+"https://search.google.com/structured-data/testing-tool/u/0/?url=%s"
+(list "URL: ")
+nil nil
+"Extract/Validate Structured Data.")
+
+;;}}}
 ;;{{{ Google Archive Search
 
 (emacspeak-url-template-define
