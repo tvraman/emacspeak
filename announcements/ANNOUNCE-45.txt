@@ -31,21 +31,23 @@ rich suite of task-oriented tools provides efficient speech-enabled
 access to the evolving service-oriented social Internet cloud.
 
 * Major Enhancements:
+
+  - Speech-enabled ~tide~ for typescript development.  🌊
+  - Speech-enabled ~jade~ for Javascript WebApp development. ⺩
   - Improved ~slime~ support for Lisp programming. Λ
+  - Support for rst-mode for editting ReST files.🖹
+  - Version control info in modeline.⎔
+  - Speech-enabled ~elisp-refs~ to aid in refactoring. ※
   - GPG integration including pinentry support. 🔐
   - ElScreen support for window-layout management. 🆜
   - Updated Librivox client for audio books.  🔊🕮
-  - Support for rst-mode for editting ReST files.🖹
-  - Version control info in modeline.⎔
   - Updated sound themes. 🔉
   - Support for Emacs' visual-line-mode. 🎁
   - Speech-enabled Threes game. 🎮
   - Updated Google News support. 📰
-  - Speech-enabled ~tide~ for typescript development.  🌊
-  - Speech-enabled ~jade~ for Javascript WebApp development. ⺩
   - Binaural audio support  including  several predefined binaural themes. ℗
-  - Speech-enabled ~elisp-refs~ to aid in refactoring. ※
-  - And a lot more than wil fit this margin. …
+    - Updated multilingual support for ESpeak.   󠀁
+  - And a lot more than wil fit this margin. … 🗞
 
 
 * Establishing Liberty, Equality And Freedom:
