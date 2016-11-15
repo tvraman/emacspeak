@@ -133,7 +133,8 @@
 
 (defadvice package-menu-execute(around emacspeak pre act comp)
   "Silence messages while installing packages. "
-  (ems-with-messages-silenced ad-do-it))
+  (ems-with-messages-silenced ad-do-it)
+  (emacspeak-speak-message-again))
 
 (loop
  for f in
