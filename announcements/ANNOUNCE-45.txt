@@ -273,7 +273,7 @@ HeadDog (DM), LiveDog (DM), GoldenDog (DM), BlackDog (DM) etc., are Registered
 Dogmarks of Aster,  Hubbell  and Tilden Labrador.  All other dogs belong to
 their respective owners.
 
-#+TITLE:     Emacspeak 44.0—SteadyDog—Unleashed!
+#+TITLE:     Emacspeak 45.0—IdealDog—Unleashed!
 #+AUTHOR:    T.V Raman
 #+EMAIL:     tv.raman.tv@gmail.com#+DATE:      2009-11-25 Wed
 #+LANGUAGE:  en

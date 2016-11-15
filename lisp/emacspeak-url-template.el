@@ -666,7 +666,7 @@ from English to German")
 "Structured Data Extractor"
 "https://search.google.com/structured-data/testing-tool/u/0/?url=%s"
 (list "URL: ")
-nil nil
+nil 
 "Extract/Validate Structured Data.")
 
 ;;}}}
