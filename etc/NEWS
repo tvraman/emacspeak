@@ -54,7 +54,6 @@ Sound themes have been updated  and tweaked.
 Emacspeak now   supports   ~visual_line-mode~
 
 ** Entertain: Threes
-
 Speech-enables the simple puzzle game ~threes~.
 
 
@@ -64,7 +63,6 @@ Package ~ciel~ provides an implementation of VIM's clear/copy
 inside. Module ~emacspeak-ciel~ speech-enables package ~ciel~.
 
 ** Google News:
-
 Added URL Templates for Google Category News and Google Regional News.
 
 
@@ -81,7 +79,6 @@ Package ~tide~ implements a Typescript IDE in Emacs. Module
 ~emacspeak-tide~ speech-enables package ~tide~.
 
 ** SoX And Binaural Beats:
-
 Module ~sox-gen~ now provides the ability to generate a variety of
 binaural tones and beats --- this is designed for use with headphones for
 brainwave entrainment.
