@@ -90,4 +90,8 @@ Module ~emacspeak-elisp-refs~ speech-enables package ~elisp-refs~ ---
 a powerful package for jumping to callers of functions and macros in
 Emacs Lisp.
 
+** Bootstrap Script 
+
+The GitHub repo now contains  [[https://gist.github.com/08046e9befd9755dc05282ae5c8d32f5][etc/bootstrap.sh]] ---
+a  script for  bootstrapping into Emacspeak on a well-configured Linux system.
 
