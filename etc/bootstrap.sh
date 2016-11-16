@@ -1,4 +1,5 @@
 #!/bin/bash
+# Author: <github.com/tvraman> License: GPL
 # Usage: ./bootstrap [version] 
 # On a well-installed Linux system,
 # This should let a user bootstrap into a talking Emacs.
