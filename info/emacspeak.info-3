@@ -5867,7 +5867,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.227 URL Templates
 ====================
 
-This section documents a total of 82 URL Templates.
+This section documents a total of 83 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -6136,6 +6136,10 @@ English to German
 
    Play radio stream.  See http://www.cbsradio.com/streaming/index.html
 for a list of CBS stations that use StreamTheWorld.
+
+   Structured Data Extractor
+
+   Extract/Validate Structured Data.
 
    Tech News From CNet
 

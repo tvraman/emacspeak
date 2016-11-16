@@ -23885,7 +23885,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 82 URL Templates.
+This section documents a total of 83 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -24158,6 +24158,10 @@ Login to Google.
 
 Play radio stream.
 See http://www.cbsradio.com/streaming/index.html for a list of CBS stations that use StreamTheWorld.
+
+@b{Structured Data Extractor}
+
+Extract/Validate Structured Data.
 
 @b{Tech News From CNet}
 
