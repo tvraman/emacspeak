@@ -649,7 +649,7 @@ interactive command that the key sequence executes."
     ("N" emacspeak-npr-listing)
     ("a" emacspeak-wizards-term)
     ("b" eww-list-buffers)
-    ("c" browse-url-chromium)
+    ("c" browse-url-chrome)
     ("d" magit-dispatch-popup)
     ("e" gmaps)
     ("f" emacspeak-webspace-freebase-search)
