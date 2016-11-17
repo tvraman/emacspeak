@@ -185,13 +185,17 @@
 
 ;;}}}
 ;;{{{ additional interactive comand
+(defvar emacspeak-twittering-protocol-identifier
+  (regexp-opt '("http://" "https://"))
+  "Match http or https")
 
 (defun emacspeak-twittering-jump-to-following-url ()
   "Move to and open closest URI  following point."
   (interactive)
+  (declare (special emacspeak-twittering-protocol-identifier))
   (let ((moved t))
     (while (and moved
-                (not (looking-at "http[s]://")))
+                (not (looking-at emacspeak-twittering-protocol-identifier)))
       (setq moved (goto-char (next-single-property-change (point) 'uri))))
     (browse-url-at-point)))
 
