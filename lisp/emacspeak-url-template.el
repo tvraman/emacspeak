@@ -631,7 +631,8 @@ from English to German")
  "https://news.google.com/news?hl=en&pz=1&geo=%s&output=atom"
  (list
   #'(lambda ()
-        (read-from-minibuffer "City/Zip: ")))
+        (read-from-minibuffer "City/Zip: "
+                              (bound-and-true-p gweb-my-postal-code))))
  nil
  "Google News By Region."
  #'emacspeak-url-template-google-atom-news-display)
@@ -1093,7 +1094,7 @@ Set up URL rewrite rule to get print page."
 ;;{{{ weather underground
 ;;;###autoload
 (defcustom emacspeak-url-template-weather-city-state
-  "95123"
+  (bound-and-true-p  gweb-my-postal-code)
   "Default city/state for weather forecasts"
   :type 'string
   :group 'emacspeak-url-template)
