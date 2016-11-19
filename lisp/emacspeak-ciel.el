@@ -57,17 +57,16 @@
 ;;{{{ Advice Interactive Commands:
 
 (defadvice ciel-ci (after emacspeak pre act comp)
-     "Speech-enabled by emacspeak."
-     (when (ems-interactive-p)
-       (dtk-speak (car  kill-ring))
-       (emacspeak-auditory-icon 'delete-object)))
-
+  "Speech-enabled by emacspeak."
+  (when (ems-interactive-p)
+    (dtk-speak (car  kill-ring))
+    (emacspeak-auditory-icon 'delete-object)))
 
 (defadvice ciel-co (after emacspeak pre act comp)
-     "Speech-enabled by emacspeak."
-     (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'mark-object)
-       (dtk-speak (format "Copied: %s " (car  kill-ring)))))
+  "Speech-enabled by emacspeak."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'mark-object)
+    (dtk-speak (format "Copied: %s " (car  kill-ring)))))
 
 (mapc #'emacspeak-fix-interactive-command-if-necessary '(ciel-ci ciel-co))
 

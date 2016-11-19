@@ -198,15 +198,14 @@ such as pronunciation dictionaries are stored. ")
 (defun emacspeak-tts-multistream-p (tts-engine)
   "Checks if this tts-engine can support multiple streams."
   (and
-  (member tts-engine '("outloud" "32-outloud" "cloud-outloud"))
-  (not (string= (dtk-get-notify-alsa-device) "default"))))
+   (member tts-engine '("outloud" "32-outloud" "cloud-outloud"))
+   (not (string= (dtk-get-notify-alsa-device) "default"))))
 
 (defcustom emacspeak-tts-use-notify-stream
   (when (emacspeak-tts-multistream-p dtk-program) t)
   "Set to true to use a separate TTS stream for notifications."
   :type 'boolean
   :group 'emacspeak)
-
 
 (defun emacspeak-tts-use-notify-stream-p ()
   "Predicate to check if we use a separate notify stream."

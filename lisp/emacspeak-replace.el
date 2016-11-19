@@ -70,8 +70,6 @@ that is being replaced."
 (defvar emacspeak-replace-start nil)
 (defvar emacspeak-replace-end nil)
 
-
-
 (cl-loop
  for f in
  '(query-replace query-replace-regexp)
@@ -84,7 +82,7 @@ that is being replaced."
 (defadvice perform-replace (around emacspeak pre act  comp)
   "Silence help message."
   (ems-with-messages-silenced
-    ad-do-it))
+   ad-do-it))
 
 (defadvice replace-highlight (before  emacspeak pre act)
   "Voicify and speak the line containing the replacement. "

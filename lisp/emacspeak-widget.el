@@ -151,11 +151,11 @@ Returns a string with appropriate personality."
   "Summarize specified widget."
   (ems-with-messages-silenced
    (let ((emacspeak-help (widget-get widget :emacspeak-help)))
-    (cond
-     ((and emacspeak-help
-           (fboundp emacspeak-help))
-      (dtk-speak  (funcall emacspeak-help widget)))
-     (t (dtk-speak (current-message)))))))
+     (cond
+      ((and emacspeak-help
+            (fboundp emacspeak-help))
+       (dtk-speak  (funcall emacspeak-help widget)))
+      (t (dtk-speak (current-message)))))))
 
 ;;}}}
 ;;{{{ advice activators 
@@ -516,8 +516,8 @@ Returns a string with appropriate personality."
 ;;; avoid redundant message speech output
 (defadvice widget-echo-help (around emacspeak pre act comp)
   (ems-with-messages-silenced
-    ad-do-it
-    ad-return-value))
+   ad-do-it
+   ad-return-value))
 (defadvice widget-beginning-of-line (after emacspeak pre act comp)
   "Provide auditory feedback"
   (cond

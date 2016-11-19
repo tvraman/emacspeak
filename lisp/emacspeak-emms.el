@@ -161,7 +161,7 @@
                                                      comp)
   "Silence messages."
   (ems-with-messages-silenced
-    ad-do-it))
+   ad-do-it))
 
 ;;}}}
 ;;{{{ pause/resume if needed

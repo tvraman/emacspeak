@@ -538,7 +538,7 @@ element. "
     (around emacspeak pre act comp)
   "silence spoken messages."
   (ems-with-messages-silenced
-    ad-do-it))
+   ad-do-it))
 ;;}}}
 ;;{{{ backward compatibility
 

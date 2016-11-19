@@ -143,7 +143,7 @@
 (defun emacspeak-websearch-dispatch  ()
   " Press `?' to list available search engines.
 When using supported browsers,  this interface attempts to speak the most relevant information on the result page."
-  (interactive )
+  (interactive)
   (let ((engine nil)
         (searcher nil))
     (while (null engine)
@@ -596,9 +596,9 @@ prefix arg is equivalent to hitting the I'm Feeling Lucky button on Google. "
                     emacspeak-websearch-google-options emacspeak-websearch-google-number-of-results))
   (setq emacspeak-google-toolbelt nil)
   (let ((toolbelt (emacspeak-google-toolbelt))
-                (search-url nil)
-                (add-toolbelt (and flag  (consp flag) (= 4 (car flag))))
-                (lucky (and flag  (consp flag) (= 16 (car flag)))))
+        (search-url nil)
+        (add-toolbelt (and flag  (consp flag) (= 4 (car flag))))
+        (lucky (and flag  (consp flag) (= 16 (car flag)))))
     (emacspeak-webutils-cache-google-query query)
     (emacspeak-webutils-cache-google-toolbelt toolbelt)
     (if lucky

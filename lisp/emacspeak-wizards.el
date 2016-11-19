@@ -707,11 +707,11 @@ Optional argument PROMPT  specifies whether we prompt for the name of a clipboar
         (clipboard nil))
     (setq clipboard (find-file-noselect  clipboard-file))
     (ems-with-messages-silenced
-      (save-current-buffer
-        (set-buffer clipboard)
-        (erase-buffer)
-        (insert clip)
-        (save-buffer)))
+     (save-current-buffer
+       (set-buffer clipboard)
+       (erase-buffer)
+       (insert clip)
+       (save-buffer)))
     (message "Copied %s lines to Emacspeak clipboard %s"
              (count-lines start end)
              clipboard-file)))
@@ -1885,25 +1885,25 @@ On Ubuntu and Debian this is group `tty'."
                     temporary-file-directory))
   (ems-with-messages-silenced
    (let ((command
-         (format emacspeak-wizards-vc-viewer-command
-                 console
-                 (expand-file-name
-                  (format "vc-%s.dump" console)
-                  temporary-file-directory)))
-        (buffer (get-buffer-create
-                 (format "*vc-%s*" console))))
-    (shell-command command buffer)
-    (switch-to-buffer buffer)
-    (kill-all-local-variables)
-    (insert-file-contents
-     (expand-file-name
-      (format "vc-%s.dump" console)
-      temporary-file-directory))
-    (set-buffer-modified-p nil)
-    (emacspeak-wizards-vc-viewer-mode)
-    (setq emacspeak-wizards-vc-console console)
-    (goto-char (point-min))
-    (when (ems-interactive-p) (emacspeak-speak-line)))))
+          (format emacspeak-wizards-vc-viewer-command
+                  console
+                  (expand-file-name
+                   (format "vc-%s.dump" console)
+                   temporary-file-directory)))
+         (buffer (get-buffer-create
+                  (format "*vc-%s*" console))))
+     (shell-command command buffer)
+     (switch-to-buffer buffer)
+     (kill-all-local-variables)
+     (insert-file-contents
+      (expand-file-name
+       (format "vc-%s.dump" console)
+       temporary-file-directory))
+     (set-buffer-modified-p nil)
+     (emacspeak-wizards-vc-viewer-mode)
+     (setq emacspeak-wizards-vc-console console)
+     (goto-char (point-min))
+     (when (ems-interactive-p) (emacspeak-speak-line)))))
 
 ;;;###autoload
 (defun emacspeak-wizards-vc-viewer-refresh ()
@@ -2168,8 +2168,8 @@ Location is specified by name."
                           (word-at-point))))
   (ems-with-messages-silenced
    (let ((time (emacspeak-speak-decode-iso-datetime iso)))
-    (tts-with-punctuations 'some (dtk-speak time))
-    (message time))))
+     (tts-with-punctuations 'some (dtk-speak time))
+     (message time))))
 
 ;;}}}
 ;;{{{ date pronouncer wizard
@@ -2258,14 +2258,14 @@ RIVO is implemented by rivo.pl ---
     (read-from-minibuffer "At Time: hh:mm Month Day")
     (ems-with-messages-silenced
      (let ((completion-ignore-case t)
-          (minibuffer-history emacspeak-media-history))
-      (emacspeak-pronounce-define-local-pronunciation
-       emacspeak-media-shortcuts-directory " shortcuts/ ")
-      (read-file-name "RealAudio resource: "
-                      emacspeak-media-shortcuts-directory
-                      (if (eq major-mode 'dired-mode)
-                          (dired-get-filename)
-                        emacspeak-media-last-url))))
+           (minibuffer-history emacspeak-media-history))
+       (emacspeak-pronounce-define-local-pronunciation
+        emacspeak-media-shortcuts-directory " shortcuts/ ")
+       (read-file-name "RealAudio resource: "
+                       emacspeak-media-shortcuts-directory
+                       (if (eq major-mode 'dired-mode)
+                           (dired-get-filename)
+                         emacspeak-media-last-url))))
     (read-minibuffer "Length:" "00:30:00")
     (read-minibuffer "Output Name:")
     (read-directory-name "Output Directory:")))
@@ -2954,7 +2954,7 @@ order with duplicates removed  when saving."
            StockExchange
            PercentChange
            DividendShare ExDividendDate 
-DividendPayDate DividendYield )
+           DividendPayDate DividendYield)
   "List of headers we care about.")
 
 (defun emacspeak-wizards-yq-filter (r)
@@ -3254,14 +3254,12 @@ Optional interactive prefix arg shows  unprocessed results."
   "http://dev.markitondemand.com/MODApis/Api/v2/Quote/json?symbol=%s"
   "Rest end-point for retrieving stock quote data from Market Data On Demand.")
 
-
 ;;}}}
 ;;{{{ Google Finance Rest API
 ;;; 
 (defvar emacspeak-wizards-google-finance-quotes-uri 
-"http://finance.google.com/finance/info?client=ig&q=%s"
-"Rest end-point for stock quote data from Google finance.")
-
+  "http://finance.google.com/finance/info?client=ig&q=%s"
+  "Rest end-point for stock quote data from Google finance.")
 
 ;;}}}
 ;;{{{ Smart Yank:
@@ -3272,7 +3270,6 @@ Optional interactive prefix arg shows  unprocessed results."
   (require 'ido)
   (insert
    (ido-completing-read "Yank what? " (mapcar 'substring-no-properties kill-ring))))
-
 
 ;;}}}
 (provide 'emacspeak-wizards)

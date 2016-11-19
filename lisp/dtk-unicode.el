@@ -217,11 +217,11 @@ nil if CHAR is not in Unicode."
   (cond
    ((= char 128) "")
    (t
-     (downcase
-      (or
-       (get-char-code-property char 'name)
-       (get-char-code-property char 'old-name)
-       (format "%c" char))))))
+    (downcase
+     (or
+      (get-char-code-property char 'name)
+      (get-char-code-property char 'old-name)
+      (format "%c" char))))))
 (defsubst dtk-unicode-char-properties (char)
   "Return unicode properties for CHAR."
   (let ((unicode (encode-char char 'ucs)))

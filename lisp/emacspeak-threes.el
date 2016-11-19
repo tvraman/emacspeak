@@ -107,12 +107,12 @@
      (declare (special threes-next-number))
      (setq threes-next-number ,i)
      (emacspeak-threes-speak-board))))
-      
+
 (defsubst emacspeak-threes-sox-gen (number)
   "Generate a tone  that indicates 1, 2 or 3."
   (let ((fade "fade h .1 .1 "))
     (cond
-     ((= 1 number) (sox-sin .1 "E3"fade ))
+     ((= 1 number) (sox-sin .1 "E3"fade))
      ((= 2 number) (sox-sin .5 "D3" fade))
      ((= 3 number) (sox-sin .5 "C5"fade)))))
 
@@ -129,7 +129,7 @@ h;;{{{ Advice interactive commands:
     (nconc
      cells
      (list (propertize (format "%s" threes-next-number) 'personality voice-bolden)))
-    (tts-with-punctuations 'some (dtk-speak-list   cells ))
+    (tts-with-punctuations 'some (dtk-speak-list   cells))
     (emacspeak-auditory-icon 'complete)
     (unless  (equal (emacspeak-threes-get-rows-max) emacspeak-threes-rows-max)
       (emacspeak-auditory-icon 'item))))
@@ -140,11 +140,10 @@ h;;{{{ Advice interactive commands:
   (emacspeak-threes-sox-gen threes-next-number)
   (dtk-speak (format "%s" threes-next-number)))
 
-
 (defun emacspeak-threes-speak-transposed-board ()
   "Speak the board by columns."
   (interactive)
-  (declare (special threes-cells ))
+  (declare (special threes-cells))
   (tts-with-punctuations
    'some
    (dtk-speak-list   (threes-cells-transpose threes-cells) 4))
@@ -157,8 +156,8 @@ h;;{{{ Advice interactive commands:
   (define-key threes-mode-map "2" 'emacspeak-threes-2)
   (define-key threes-mode-map "3" 'emacspeak-threes-3)
   (define-key threes-mode-map "#" 'emacspeak-threes-prune-stack)
-(define-key threes-mode-map "e" 'emacspeak-threes-export)
-(define-key threes-mode-map "i" 'emacspeak-threes-import)
+  (define-key threes-mode-map "e" 'emacspeak-threes-export)
+  (define-key threes-mode-map "i" 'emacspeak-threes-import)
   (define-key threes-mode-map "s" 'emacspeak-threes-push-state)
   (define-key threes-mode-map "u" 'emacspeak-threes-pop-state)
   (define-key threes-mode-map "g" 'threes)
@@ -206,7 +205,7 @@ h;;{{{ Advice interactive commands:
 ;;{{{ Push And Pop states:
 
 (defstruct emacspeak-threes-game-state
-  board )
+  board)
 
 (defvar emacspeak-threes-game-stack nil
   "Stack of saved states.")
@@ -214,7 +213,7 @@ h;;{{{ Advice interactive commands:
 (defun emacspeak-threes-push-state ()
   "Push current game state on stack."
   (interactive)
-  (declare (special emacspeak-threes-game-stack threes-cells ))
+  (declare (special emacspeak-threes-game-stack threes-cells))
   (push
    (make-emacspeak-threes-game-state
     :board (copy-sequence threes-cells))
@@ -374,7 +373,7 @@ h;;{{{ Advice interactive commands:
   (emacspeak-auditory-icon 'delete-object))
 
 ;;}}}
- ;;{{{ Export And Import Games:
+;;{{{ Export And Import Games:
 
 (defvar emacspeak-threes-game-file
   (expand-file-name "threes-game-stack"

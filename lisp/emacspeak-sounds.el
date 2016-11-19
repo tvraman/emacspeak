@@ -349,7 +349,7 @@ emacspeak-queue-auditory-icon when using software TTS."
   (declare (special emacspeak-auditory-icon-function))
   (setq emacspeak-auditory-icon-function player)
   (when (ems-interactive-p)
-  (emacspeak-auditory-icon 'select-object)))
+    (emacspeak-auditory-icon 'select-object)))
 
 ;;}}}
 ;;{{{ reset local player

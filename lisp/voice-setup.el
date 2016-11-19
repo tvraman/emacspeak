@@ -104,7 +104,7 @@
   "Customization group for setting voices."
   :group 'emacspeak)
 
-(declare-function tts-list-voices "dectalk-voices" )
+(declare-function tts-list-voices "dectalk-voices")
 
 (defcustom voice-lock-global-modes t
   "Modes for which Voice Lock mode is automagically turned on.
@@ -117,11 +117,11 @@ begins with `not'.  For example:
  (c-mode c++-mode)
 means that Voice Lock mode is turned on for buffers in C and C++ modes only."
   :type '(choice (const :tag "none" nil)
-		 (const :tag "all" t)
-		 (set :menu-tag "mode specific" :tag "modes"
-		      :value (not)
-		      (const :tag "Except" not)
-		      (repeat :inline t (symbol :tag "mode"))))
+                 (const :tag "all" t)
+                 (set :menu-tag "mode specific" :tag "modes"
+                      :value (not)
+                      (const :tag "Except" not)
+                      (repeat :inline t (symbol :tag "mode"))))
   :group 'voice-lock)
 
 ;;}}}
@@ -500,8 +500,8 @@ command \\[customize-variable] on <personality>-settings.. "
     (turn-on-voice-lock))
   (when (called-interactively-p 'interactive)
     (message "Turned %s voice lock mode in buffer. " 
-(if voice-lock-mode " on " " off "))
-(emacspeak-auditory-icon (if voice-lock-mode 'on 'off))))
+             (if voice-lock-mode " on " " off "))
+    (emacspeak-auditory-icon (if voice-lock-mode 'on 'off))))
 
 ;;;###autoload
 (defvar global-voice-lock-mode t

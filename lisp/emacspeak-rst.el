@@ -175,7 +175,6 @@
        (emacspeak-auditory-icon 'task-done)
        (emacspeak-speak-line)))))
 
-
 ;;}}}
 (provide 'emacspeak-rst)
 ;;{{{ end of file

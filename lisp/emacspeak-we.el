@@ -870,9 +870,9 @@ used as well."
    (list
     (cond
      ((and (not _prompt)emacspeak-we-id-filter) emacspeak-we-id-filter)
-        (t
-         (setq emacspeak-we-id-filter
-              (read-from-minibuffer "Id: "))))
+     (t
+      (setq emacspeak-we-id-filter
+            (read-from-minibuffer "Id: "))))
     current-prefix-arg))
   (declare (special emacspeak-we-id-filter
                     emacspeak-we-url-rewrite-rule))

@@ -129,14 +129,14 @@
   "Speak the diary entries."
   (when (ems-interactive-p)
     (ems-with-messages-silenced
-      (cond
-       ((buffer-live-p (get-buffer "*Fancy Diary Entries*"))
-        (save-current-buffer
-          (set-buffer "*Fancy Diary Entries*")
-          (tts-with-punctuations
-           "some"
-           (emacspeak-speak-buffer))))
-       (t (dtk-speak "No diary entries."))))))
+     (cond
+      ((buffer-live-p (get-buffer "*Fancy Diary Entries*"))
+       (save-current-buffer
+         (set-buffer "*Fancy Diary Entries*")
+         (tts-with-punctuations
+          "some"
+          (emacspeak-speak-buffer))))
+      (t (dtk-speak "No diary entries."))))))
 
 (defadvice  mark-visible-calendar-date (after emacspeak pre act)
   "Use voice locking to mark date. "
@@ -360,8 +360,8 @@
 (defadvice mark-diary-entries (around emacspeak pre act comp)
   "Silence messages."
   (ems-with-messages-silenced
-    ad-do-it
-    ad-return-value))
+   ad-do-it
+   ad-return-value))
 
 ;;}}}
 ;;{{{  keymap
@@ -398,10 +398,10 @@
 
 (defun emacspeak-appt-speak-appointment (minutes-left new-time message)
   "Speak the appointment in addition to  displaying it visually."
-    (emacspeak-auditory-icon 'alarm)
-    (message "You have an appointment in %s minutes. %s"
-             minutes-left message)
-    (appt-disp-window minutes-left new-time  message))
+  (emacspeak-auditory-icon 'alarm)
+  (message "You have an appointment in %s minutes. %s"
+           minutes-left message)
+  (appt-disp-window minutes-left new-time  message))
 
 (defun emacspeak-appt-delete-display ()
   "Function to delete appointment message"

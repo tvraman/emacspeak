@@ -311,7 +311,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 (emacspeak-url-template-define
  "BBC Podcast Directory"
  "http://www.bbc.co.uk/podcasts.opml"
- ;"http://www.bbc.co.uk/radio/opml/bbc_podcast_opml.xml"
+                                        ;"http://www.bbc.co.uk/radio/opml/bbc_podcast_opml.xml"
  nil nil
  "BBC PodCast Directory"
  #'emacspeak-feeds-opml-display)
@@ -594,8 +594,6 @@ from English to German")
  "Search Google news."
  #'emacspeak-url-template-google-atom-news-display)
 
-
-
 (defvar emacspeak-url-template--google-news-categories
   '(
     ("World".  "w")
@@ -616,23 +614,22 @@ from English to German")
   #'(lambda ()
       (let* ((completion-ignore-case t)
              (topic
-      (completing-read
-       "Category: "
-       emacspeak-url-template--google-news-categories
-       nil 'must-match)))
+              (completing-read
+               "Category: "
+               emacspeak-url-template--google-news-categories
+               nil 'must-match)))
         (cdr (assoc topic emacspeak-url-template--google-news-categories)))))
  nil
  "Google News By Category."
  #'emacspeak-url-template-google-atom-news-display)
-
 
 (emacspeak-url-template-define
  "Google Regional News"
  "https://news.google.com/news?hl=en&pz=1&geo=%s&output=atom"
  (list
   #'(lambda ()
-        (read-from-minibuffer "City/Zip: "
-                              (bound-and-true-p gweb-my-postal-code))))
+      (read-from-minibuffer "City/Zip: "
+                            (bound-and-true-p gweb-my-postal-code))))
  nil
  "Google News By Region."
  #'emacspeak-url-template-google-atom-news-display)
@@ -664,11 +661,11 @@ from English to German")
 ;;{{{ Google Structured Data Parser:
 
 (emacspeak-url-template-define
-"Structured Data Extractor"
-"https://search.google.com/structured-data/testing-tool/u/0/?url=%s"
-(list "URL: ")
-nil 
-"Extract/Validate Structured Data.")
+ "Structured Data Extractor"
+ "https://search.google.com/structured-data/testing-tool/u/0/?url=%s"
+ (list "URL: ")
+ nil 
+ "Extract/Validate Structured Data.")
 
 ;;}}}
 ;;{{{ Google Archive Search
@@ -892,8 +889,8 @@ name of the list.")
  nil
  nil
  "Display MLB standings."
-     #'(lambda (_url)
-         (emacspeak-wizards-mlb-standings)))
+ #'(lambda (_url)
+     (emacspeak-wizards-mlb-standings)))
 
 (emacspeak-url-template-define
  "Baseball Game Index"
@@ -1054,7 +1051,7 @@ JSON is retrieved from `url'."
  nil
  nil
  "Display NBA standings."
-     #'(lambda (_url)
+ #'(lambda (_url)
      (emacspeak-wizards-nba-standings)))
 
 ;;}}}
@@ -1400,16 +1397,16 @@ resources."
   "Generates texinfo section documenting all defined URL templates."
   (declare (special emacspeak-url-template-table))
   (with-current-buffer buffer 
-  (insert
-   "@node URL Templates \n@section URL Templates\n\n")
-  (insert
-   (format
-    "
+    (insert
+     "@node URL Templates \n@section URL Templates\n\n")
+    (insert
+     (format
+      "
 This section documents a total of %d URL Templates.\n\n"
-    (hash-table-count emacspeak-url-template-table)))
-  (insert
-   (format
-    "All of these URL templates can be invoked via command
+      (hash-table-count emacspeak-url-template-table)))
+    (insert
+     (format
+      "All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
  @kbd{%s}.
 This command prompts for the name of the template, and completion
@@ -1424,23 +1421,23 @@ Each URL template carries out the following steps:
 
 As an example, the URL template for weather forecasts
 prompts for a location and speaks the forecast. \n\n"
-    (mapconcat #'key-description
-               (where-is-internal
-                'emacspeak-url-template-fetch)
-               " ")))
-  (let
-      ((keys
-        (sort
-         (loop for k being the hash-keys of emacspeak-url-template-table collect k)
-         'string-lessp)))
-    (loop
-     for key in keys do
-     (insert
-      (format "@b{%s}\n\n" key))
-     (insert
-      (emacspeak-url-template-documentation
-       (emacspeak-url-template-get key)))
-     (insert "\n\n")))))
+      (mapconcat #'key-description
+                 (where-is-internal
+                  'emacspeak-url-template-fetch)
+                 " ")))
+    (let
+        ((keys
+          (sort
+           (loop for k being the hash-keys of emacspeak-url-template-table collect k)
+           'string-lessp)))
+      (loop
+       for key in keys do
+       (insert
+        (format "@b{%s}\n\n" key))
+       (insert
+        (emacspeak-url-template-documentation
+         (emacspeak-url-template-get key)))
+       (insert "\n\n")))))
 
 ;;}}}
 ;;{{{ wikiData:

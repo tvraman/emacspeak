@@ -84,8 +84,6 @@
 (defvar voice-punctuations-some)
 (defvar voice-smoothen)
 
-
-
 ;;}}}
 ;;{{{  custom group
 
@@ -247,9 +245,6 @@ Argument BODY specifies forms to execute."
          (emacspeak-use-auditory-icons nil)
          (emacspeak-speak-messages nil))
      ,@body))
-
-
-
 
 ;;}}}
 ;;{{{ getting and speaking text ranges
@@ -1688,7 +1683,7 @@ Interactive prefix arg speaks buffer info."
    (buffer-info (emacspeak-speak-buffer-info))
    (t                                   ; main branch
     (let ((global-info (format-mode-line global-mode-string))
-          (vc-state (when vc-mode  (vc-state (buffer-file-name ))))
+          (vc-state (when vc-mode  (vc-state (buffer-file-name))))
           (frame-info (emacspeak-get-voicefied-frame-info (selected-frame)))
           (recursion-info (emacspeak-get-voicefied-recursion-info  (recursion-depth)))
           (dir-info (when (or (eq major-mode 'shell-mode)
@@ -1756,11 +1751,11 @@ current coding system, then we return an empty string."
    (t "")))
 
 (defvar emacspeak-minor-mode-prefix
-  (propertize "Active: " 'personality voice-annotate )
+  (propertize "Active: " 'personality voice-annotate)
   "Prefix used in composing utterance produced by emacspeak-speak-minor-mode-line.")
 
 ;;;###autoload
-(defun emacspeak-speak-minor-mode-line (&optional copy-as-kill )
+(defun emacspeak-speak-minor-mode-line (&optional copy-as-kill)
   "Speak the minor mode-information.
 Optional  interactive prefix arg `copy-as-kill' copies spoken info to kill ring."
   (interactive "P")
@@ -2180,7 +2175,7 @@ Return buffer position or nil on failure."
       (while (and continue
                   (not
                    (or (< (point) min)
-                   (bobp ))))
+                       (bobp))))
         (backward-char 1)
         (setq start (previous-single-property-change  (point) property))
         (if (null start)
@@ -2435,8 +2430,6 @@ set the current local value to the result.")
 
 ;;}}}
 ;;{{{   quieten messages
-
-
 
 (ems-generate-switcher 'emacspeak-toggle-speak-messages
                        'emacspeak-speak-messages
@@ -2841,8 +2834,8 @@ Prompts for PERSONALITY  with completion when called interactively."
     (with-silent-modifications
       (operate-on-rectangle
        #' (lambda (start-seg _begextra _endextra)
-                   (emacspeak-put-personality start-seg  (point) personality))
-       start end  nil))))
+            (emacspeak-put-personality start-seg  (point) personality))
+          start end  nil))))
 
 ;;;###autoload
 (defun emacspeak-voiceify-region (start end &optional personality)
@@ -2867,8 +2860,8 @@ Argument PROP specifies the property and VALUE gives the
 value to apply."
   (require 'rect)
   (operate-on-rectangle
-    #'(lambda (start-seg _begextra _endextra)
-               (put-text-property  start-seg (point)    prop value))
+   #'(lambda (start-seg _begextra _endextra)
+       (put-text-property  start-seg (point)    prop value))
    start end  nil))
 
 ;;}}}

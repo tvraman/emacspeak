@@ -43,7 +43,6 @@
 ;;; JADE ==  Javascript IDE 
 ;;; This module speech-enables Jade.
 
-
 ;;; Code:
 
 ;;}}}
@@ -57,15 +56,14 @@
 ;;{{{ Map Faces:
 (voice-setup-add-map
  '(
- (jade-keyword-face voice-animate)
- (jade-button-face  voice-bolden-medium)
- (jade-header-face voice-smoothen)
- (jade-repl-prompt-face  voice-annotate)
- (jade-repl-stdout-face voice-monotone)
- (jade-repl-error-face  voice-animate-extra)
- (jade-link-face voice-bolden)
- (jade-highlight-face voice-animate)))
-
+   (jade-keyword-face voice-animate)
+   (jade-button-face  voice-bolden-medium)
+   (jade-header-face voice-smoothen)
+   (jade-repl-prompt-face  voice-annotate)
+   (jade-repl-stdout-face voice-monotone)
+   (jade-repl-error-face  voice-animate-extra)
+   (jade-link-face voice-bolden)
+   (jade-highlight-face voice-animate)))
 
 ;;}}}
 ;;{{{ Advice jade-backend.el:
@@ -74,7 +72,7 @@
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
-(emacspeak-speak-mode-line)))
+    (emacspeak-speak-mode-line)))
 
 (loop
  for f in
@@ -90,13 +88,12 @@
 ;;{{{ Advice jade-chrome.el
 
 (defadvice jade-connect-to-chrome (after emacspeak pre act comp)
-     "Provide auditory feedback."
-     (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'task-done)))
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'task-done)))
 
 ;;}}}
 ;;{{{ Advice jade-debugger.el
-
 
 '(jade-debugger-eval-last-node
   jade-debugger-evaluate

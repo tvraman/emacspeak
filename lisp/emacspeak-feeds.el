@@ -170,8 +170,8 @@ Archiving is useful when synchronizing feeds across multiple machines."
       (save-buffer)
       (emacspeak-auditory-icon 'save-object)
       (message "Archived emacspeak-feeds containing %d feeds in %s"
-             (length emacspeak-feeds)
-             emacspeak-feeds-archive-file))))
+               (length emacspeak-feeds)
+               emacspeak-feeds-archive-file))))
 
 ;;;###autoload
 (defun emacspeak-feeds-restore-feeds ()

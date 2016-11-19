@@ -120,7 +120,6 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
-
 (defadvice slime-scratch (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
@@ -131,18 +130,18 @@
  for f in
  '(
    slime-repl-backward-input slime-repl-forward-input
-   slime-repl-previous-matching-input slime-repl-previous-input
-   slime-repl-next-matching-input slime-repl-next-input
-   slime-repl-end-of-defun slime-repl-beginning-of-defun
-   slime-end-of-defun                   slime-beginning-of-defun
-   slime-close-all-parens-in-sexp
-   slime-repl-previous-prompt slime-repl-next-prompt
-   slime-next-presentation slime-previous-presentation
-   slime-next-location slime-previous-location
-   slime-edit-definition slime-pop-find-definition-stack
-   slime-edit-definition-other-frame slime-edit-definition-other-window
-   slime-next-note slime-previous-note
-   )
+                             slime-repl-previous-matching-input slime-repl-previous-input
+                             slime-repl-next-matching-input slime-repl-next-input
+                             slime-repl-end-of-defun slime-repl-beginning-of-defun
+                             slime-end-of-defun                   slime-beginning-of-defun
+                             slime-close-all-parens-in-sexp
+                             slime-repl-previous-prompt slime-repl-next-prompt
+                             slime-next-presentation slime-previous-presentation
+                             slime-next-location slime-previous-location
+                             slime-edit-definition slime-pop-find-definition-stack
+                             slime-edit-definition-other-frame slime-edit-definition-other-window
+                             slime-next-note slime-previous-note
+                             )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -187,9 +186,9 @@
  for f in
  '(
    slime-delete-system-fasls slime-delete-package
-   slime-repl-delete-from-input-history slime-repl-delete-current-input
-   slime-repl-kill-input
-   slime-repl-clear-output slime-repl-clear-buffer)
+                             slime-repl-delete-from-input-history slime-repl-delete-current-input
+                             slime-repl-kill-input
+                             slime-repl-clear-output slime-repl-clear-buffer)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -214,20 +213,20 @@
  for f in
  '(
    slime-eval-buffer slime-eval-defun
-   slime-eval-last-expression slime-eval-last-expression-in-repl
-   slime-eval-macroexpand-inplace slime-eval-print-last-expression
-   slime-eval-region slime-expand-1 slime-expand-1-inplace
-   slime-export-class slime-export-structure slime-export-symbol-at-point
-   slime-format-string-expand
-   slime-connect
-   slime-repl-test/force-system slime-repl-test-system
-   slime-repl-reload-system slime-repl-open-system slime-reload-system
-   slime-repl-load/force-system slime-repl-load-system
-   slime-load-file slime-load-system
-   slime-repl-delete-system-fasls slime-repl-compile/force-system
-   slime-quit-lisp
-   slime-repl-compile-system
-   slime-repl-compile-and-load slime-repl-browse-system)
+                     slime-eval-last-expression slime-eval-last-expression-in-repl
+                     slime-eval-macroexpand-inplace slime-eval-print-last-expression
+                     slime-eval-region slime-expand-1 slime-expand-1-inplace
+                     slime-export-class slime-export-structure slime-export-symbol-at-point
+                     slime-format-string-expand
+                     slime-connect
+                     slime-repl-test/force-system slime-repl-test-system
+                     slime-repl-reload-system slime-repl-open-system slime-reload-system
+                     slime-repl-load/force-system slime-repl-load-system
+                     slime-load-file slime-load-system
+                     slime-repl-delete-system-fasls slime-repl-compile/force-system
+                     slime-quit-lisp
+                     slime-repl-compile-system
+                     slime-repl-compile-and-load slime-repl-browse-system)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -336,13 +335,13 @@
  for f in
  '(
    slime-inspector-operate-on-point slime-inspector-operate-on-click
-   slime-inspector-show-source
-   slime-inspect slime-inspect-definition
-   slime-inspector-reinspect slime-inspector-show-source
-   slime-inspector-next
-   slime-inspector-fetch-all
-   slime-inspect-presentation-at-mouse
-   slime-inspect-presentation-at-point)
+                                    slime-inspector-show-source
+                                    slime-inspect slime-inspect-definition
+                                    slime-inspector-reinspect slime-inspector-show-source
+                                    slime-inspector-next
+                                    slime-inspector-fetch-all
+                                    slime-inspect-presentation-at-mouse
+                                    slime-inspect-presentation-at-point)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

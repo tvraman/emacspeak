@@ -726,7 +726,7 @@ Arguments START and END specify region to speak."
          start  last
          personality (dtk-get-style last))
         (when (get-text-property start 'pause)
-          (dtk-interp-silence (get-text-property start 'pause) nil )))))))
+          (dtk-interp-silence (get-text-property start 'pause) nil)))))))
 
 ;;;Force the speech.
 (defalias 'dtk-force 'dtk-interp-speak)
@@ -1985,7 +1985,7 @@ Fall back to dtk-speak if notification stream not available."
 (defun  dtk-notify-initialize ()
   "Initialize notification TTS stream."
   (interactive)
-  (declare (special dtk-notify-process ))
+  (declare (special dtk-notify-process))
   (let ((save-device (getenv "ALSA_DEFAULT"))
         (device  (dtk-get-notify-alsa-device))
         (dtk-program

@@ -63,19 +63,19 @@
   "Formatting rule for speaking company selection."
   (ems-with-messages-silenced
    (let ((metadata (funcall 'company-fetch-metadata)))
-    (when metadata (ems-voiceify-string metadata 'voice-annotate))
-    (dtk-speak-and-echo
-     (concat (ems-company-current) " " metadata)))))
+     (when metadata (ems-voiceify-string metadata 'voice-annotate))
+     (dtk-speak-and-echo
+      (concat (ems-company-current) " " metadata)))))
 
 ;;}}}
 ;;{{{ Emacspeak Front-End For Company:
 (defun emacspeak-company-frontend (command)
   "Emacspeak front-end for Company."
   (ems-with-messages-silenced
-    (case command
-      (pre-command (emacspeak-company-speak-this))
-      (post-command (emacspeak-company-speak-this))
-      (hide nil))))
+   (case command
+     (pre-command (emacspeak-company-speak-this))
+     (post-command (emacspeak-company-speak-this))
+     (hide nil))))
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:
@@ -88,7 +88,7 @@
 (defadvice company-complete-number (after emacspeak pre act com)
   "Speak what we completed."
   (when (ems-interactive-p)
-      (emacspeak-speak-line)))
+    (emacspeak-speak-line)))
 
 (defadvice company-show-doc-buffer (before emacspeak pre act comp)
   "Provide spoken feedback."

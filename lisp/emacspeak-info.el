@@ -191,13 +191,13 @@ node-spec."
   (declare (special Info-use-header-line
                     Info-header-line))
   (cond
-        ((and (boundp 'Info-use-header-line)
-              (boundp 'Info-header-line)
-              Info-header-line)
-         (dtk-speak Info-header-line))
-        (t (save-excursion
-             (goto-char (point-min))
-             (emacspeak-speak-line)))))
+   ((and (boundp 'Info-use-header-line)
+         (boundp 'Info-header-line)
+         Info-header-line)
+    (dtk-speak Info-header-line))
+   (t (save-excursion
+        (goto-char (point-min))
+        (emacspeak-speak-line)))))
 
 ;;}}}
 ;;{{{ keymaps

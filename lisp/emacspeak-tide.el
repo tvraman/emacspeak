@@ -66,8 +66,6 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 
-
-
 (defadvice tide-compile-file (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)

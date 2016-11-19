@@ -186,7 +186,7 @@
 (defadvice bbdb-update-records (around emacspeak pre act comp)
   "Silence messages."
   (ems-with-messages-silenced
-    ad-do-it))
+   ad-do-it))
 
 ;;}}}
 (provide  'emacspeak-bbdb)

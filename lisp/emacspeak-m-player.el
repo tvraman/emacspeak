@@ -306,7 +306,7 @@ etc to be ignored when guessing directory.")
   "Call emacspeak-m-player with specified URL."
   (interactive (list (car (browse-url-interactive-arg "Media URL: "))))
   (ems-with-messages-silenced
-    (emacspeak-m-player url playlist-p)))
+   (emacspeak-m-player url playlist-p)))
 
 ;;;###autoload
 
@@ -481,16 +481,16 @@ Interactive prefix arg appends the new resource to what is playing."
    (list
     (ems-with-messages-silenced
      (let ((completion-ignore-case t)
-          (read-file-name-completion-ignore-case t))
-      (read-file-name
-       "MP3 Resource: "
-       (if
-           (string-match "\\(mp3\\)\\|\\(audio\\)"
-                         (expand-file-name default-directory))
-           default-directory
-         emacspeak-media-shortcuts-directory)
-       (when (eq major-mode 'dired-mode)
-         (dired-get-filename)))))
+           (read-file-name-completion-ignore-case t))
+       (read-file-name
+        "MP3 Resource: "
+        (if
+            (string-match "\\(mp3\\)\\|\\(audio\\)"
+                          (expand-file-name default-directory))
+            default-directory
+          emacspeak-media-shortcuts-directory)
+        (when (eq major-mode 'dired-mode)
+          (dired-get-filename)))))
     current-prefix-arg))
   (declare (special emacspeak-media-extensions
                     emacspeak-media-shortcuts-directory))
@@ -1111,8 +1111,8 @@ arg `reset' starts with all filters set to 0."
   (unless (file-executable-p emacspeak-m-player-youtube-dl)
     (error "Please install youtube-dl first."))
   (let ((u
-          (shell-command-to-string
-           (format "%s -g '%s' 2> /dev/null" emacspeak-m-player-youtube-dl url))))
+         (shell-command-to-string
+          (format "%s -g '%s' 2> /dev/null" emacspeak-m-player-youtube-dl url))))
     (when (= 0 (length  u)) (error "Error retrieving Media URL "))
     (setq u (substring u 0 -1))
     (emacspeak-m-player u)))

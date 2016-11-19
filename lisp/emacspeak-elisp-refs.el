@@ -59,13 +59,13 @@
 (cl-loop
  for f in
  '(elisp-refs-prev-match elisp-refs-next-match elisp-refs-visit-match)
-do
-(eval
- `(defadvice ,f (after emacspeak pre act comp)
-    "Provide auditory feedback."
-    (when (ems-interactive-p)
-      (emacspeak-auditory-icon 'select-object)
-      (emacspeak-speak-line)))))
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-speak-line)))))
 
 ;;}}}
 (provide 'emacspeak-elisp-refs)

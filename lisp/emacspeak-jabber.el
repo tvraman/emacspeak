@@ -161,7 +161,7 @@
    (emacspeak-jabber-speak-presence-alerts ad-do-it)
    (t
     (ems-with-messages-silenced
-        ad-do-i)))
+     ad-do-i)))
   ad-return-value)
 
 ;;;this is what I use as my jabber alert function:
@@ -183,7 +183,7 @@
 (defun emacspeak-jabber-popup-roster ()
   "Pop to Jabber roster."
   (interactive)
-  (declare (special jabber-roster-buffer jabber-connections ))
+  (declare (special jabber-roster-buffer jabber-connections))
   (unless jabber-connections  (call-interactively 'jabber-connect))
   (unless (buffer-live-p jabber-roster-buffer) (call-interactively 'jabber-display-roster))
   (pop-to-buffer jabber-roster-buffer)

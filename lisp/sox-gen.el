@@ -105,7 +105,7 @@ Remaining args specify additional commandline args."
   "Play binaural audio with carrier frequency `freq', beat `beat',  and gain `gain'."
   (interactive
    (list
-    (timer-duration(read-from-minibuffer "Duration in seconds: " ))
+    (timer-duration(read-from-minibuffer "Duration in seconds: "))
     (read-number "Carrier Frequency [50 -- 800]: " 100)
     (read-number "Beat Frequency [0.5 -- 40]: " 4.5)
     (read-number "Gain [Use negative values]: " -18)))
@@ -135,7 +135,7 @@ Remaining args specify additional commandline args."
 Param `beat-spec' is a list of `(carrier beat) tupples."
   (interactive
    (list
-    (timer-duration(read-from-minibuffer "Duration: " ))
+    (timer-duration(read-from-minibuffer "Duration: "))
     (sox-read-binaural-beats)
     (read-number "Gain [Use negative values]: " -18)))
   (declare (special sox-beats-binaural-cmd))
@@ -293,15 +293,15 @@ Parameter `theme' specifies variant."
      (setq start (+ start duration)))))
 
 (defconst sox-rev-up-beats
-  '(("dream" 1) ( "think"  4) ("act" 2) ("focus" 1))
+  '(("dream" 1) ("think"  4) ("act" 2) ("focus" 1))
   "List of  beats to use for rev-up in the morning.")
 
 (defconst sox-wind-down-beats
-  '(("think"3)( "dream" 4) ( "sleep" 1))
+  '(("think"3)("dream" 4) ("sleep" 1))
   "List of  beats to use for wind-down in the evening.")
 
 (defconst sox-relax-beats
-  '(("dream" 4) ( "sleep" 4))
+  '(("dream" 4) ("sleep" 4))
   "List of  beats to use for relaxing.")
 
 ;;; Theme Helper:
@@ -312,7 +312,7 @@ Parameter `theme' specifies variant."
   (let ((start 0))
     (cl-loop
      for beat in theme do
-     (let (( end (* duration-scale  (second beat)))
+     (let ((end (* duration-scale  (second beat)))
            (b (first beat)))
        (run-with-timer                  ; start now
         start nil                       ; no repeat

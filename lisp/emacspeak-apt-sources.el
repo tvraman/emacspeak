@@ -92,8 +92,8 @@
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon (if apt-sources-around-lines
-         'on
-       'off))))
+                                 'on
+                               'off))))
 
 ;;}}}
 (provide 'emacspeak-apt-sources)

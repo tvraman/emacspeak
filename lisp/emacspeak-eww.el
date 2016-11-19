@@ -47,7 +47,6 @@
 ;;; It implements additional interactive commands for navigating the DOM.
 ;;; It also provides a set of filters for interactively filtering the DOM by various attributes such as id, class and role.
 
-
 ;;; Code:
 ;;}}}
 ;;{{{ Required modules
@@ -63,7 +62,7 @@
 (require 'emacspeak-we)
 (require 'emacspeak-webutils)
 (require 'emacspeak-google)
-                                        
+
 ;;}}}
 ;;{{{ Declare generated functions:
 
@@ -95,16 +94,16 @@
     `(defsubst
        ,(intern (format "emacspeak-eww-current-%s" name)) ()
        , (format "Return eww-current-%s." name)
-       (declare (special eww-data))
-       (plist-get eww-data
-                  ,(intern (format ":%s" name))))))
+         (declare (special eww-data))
+         (plist-get eww-data
+                    ,(intern (format ":%s" name))))))
   (t
    (eval
     `(defsubst
        ,(intern (format "emacspeak-eww-current-%s" name))
        ()
        , (format "Return eww-current-%s." name)
-       ,(intern (format "eww-current-%s" name)))))))
+         ,(intern (format "eww-current-%s" name)))))))
 
 (loop
  for name in
@@ -514,9 +513,9 @@ Retain previously set punctuations  mode."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'button)
        (emacspeak-speak-region
-         (point)
-         (next-single-property-change (point) 'help-echo
-                                      nil (point-max)))))))
+        (point)
+        (next-single-property-change (point) 'help-echo
+                                     nil (point-max)))))))
 
 ;;; Handle emacspeak-we-url-executor
 
@@ -524,14 +523,14 @@ Retain previously set punctuations  mode."
   "Respect emacspeak-we-url-executor if set."
   (emacspeak-auditory-icon 'button)
   (cond
-     ((and (ems-interactive-p)
-           (boundp 'emacspeak-we-url-executor)
-           (fboundp emacspeak-we-url-executor)
-           (y-or-n-p "Use custom executor? "))
-      (let ((url (get-text-property (point) 'shr-url)))
-        (unless url (error "No URL  under point"))
-        (funcall emacspeak-we-url-executor url)))
-     (t ad-do-it)))
+   ((and (ems-interactive-p)
+         (boundp 'emacspeak-we-url-executor)
+         (fboundp emacspeak-we-url-executor)
+         (y-or-n-p "Use custom executor? "))
+    (let ((url (get-text-property (point) 'shr-url)))
+      (unless url (error "No URL  under point"))
+      (funcall emacspeak-we-url-executor url)))
+   (t ad-do-it)))
 
 ;;}}}
 ;;{{{ xslt transform on request:
@@ -568,7 +567,7 @@ Retain previously set punctuations  mode."
       ad-do-it
       (let ((start
              (if (char-equal (following-char) ?\n)
-                       (min (point-max) (1+ orig))
+                 (min (point-max) (1+ orig))
                orig))
             (end
              (if (> (point) orig)
@@ -1143,7 +1142,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
    ((memq el '(h h1 h2 h3 h4 h5 h6)) 'section)
    ((memq el '(p ul ol dd dl)) 'paragraph)
    (t 'large-movement)))
-   
+
 (defun emacspeak-eww-next-element (el)
   "Move forward to the next specified element."
   (interactive
@@ -1485,7 +1484,6 @@ Warning, this is fragile, and depends on a stable id for the
   (let ((url (ad-get-arg 0))
         (media-p (string-match emacspeak-media-extensions url)))
     (emacspeak-m-player url (not media-p))))
-
 
 ;;}}}
 (provide 'emacspeak-eww)

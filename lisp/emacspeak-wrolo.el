@@ -58,7 +58,7 @@
   (when (interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (outline-next-visible-heading 1)
-    (emacspeak-speak-line )))
+    (emacspeak-speak-line)))
 
 ;;; editing rolodex: uses an interactive prompt
 
@@ -68,12 +68,12 @@
   "Speak the line"
   (when (interactive-p)
     (emacspeak-auditory-icon 'open-object)
-    (emacspeak-speak-line )))
+    (emacspeak-speak-line)))
 
 ;;; Searching in the rolodex uses an interactive prompt
 
 ;;; Now speak the number of hits and the first hit.
-(defadvice rolo-fgrep (after emacspeak pre act )
+(defadvice rolo-fgrep (after emacspeak pre act)
   "Speak the number of hits and the first match if any."
   (when   (interactive-p)
     (cond
@@ -86,11 +86,11 @@
                 (let ((start (point)))
                   (save-excursion
                     (end-of-line)
-                    (buffer-substring start (point )))))))
+                    (buffer-substring start (point)))))))
      (t (emacspeak-auditory-icon 'search-miss)
         (dtk-speak "No matches found")))))
 
-(defadvice rolo-grep (after emacspeak pre act )
+(defadvice rolo-grep (after emacspeak pre act)
   "Speak the number of hits and the first match if any."
   (when   (interactive-p)
     (cond
@@ -103,11 +103,11 @@
                 (let ((start (point)))
                   (save-excursion
                     (end-of-line)
-                    (buffer-substring start (point )))))))
+                    (buffer-substring start (point)))))))
      (t (emacspeak-auditory-icon 'search-miss)
         (dtk-speak "No matches found")))))
 
-(defadvice rolo-word (after emacspeak pre act )
+(defadvice rolo-word (after emacspeak pre act)
   "Speak the number of hits and the first match if any."
   (when   (interactive-p)
     (cond
@@ -120,7 +120,7 @@
                 (let ((start (point)))
                   (save-excursion
                     (end-of-line)
-                    (buffer-substring start (point )))))))
+                    (buffer-substring start (point)))))))
      (t(emacspeak-auditory-icon 'search-miss)
        (dtk-speak "No matches found")))))
 
@@ -128,7 +128,7 @@
 ;;; First fix the interactive prompt.
 
 ;;; And provide feedback if you did kill it.
-(defadvice rolo-kill (after emacspeak pre act )
+(defadvice rolo-kill (after emacspeak pre act)
   "Provide auditory confirmation "
   (when (interactive-p)
     (cond
@@ -136,22 +136,22 @@
       (emacspeak-auditory-icon  'delete-object)
       (message "Killed %s records  matching %s"
                ad-return-value 
-               (ad-get-arg 0 )))
+               (ad-get-arg 0)))
      (t (message "Found no entries matching %s to kil"
                  (ad-get-arg 0))))))
 
 ;;; Moving through the matches is kept simple for now:
-(defadvice rolo-next-match (after emacspeak pre act )
+(defadvice rolo-next-match (after emacspeak pre act)
   "Speak the hit"
   (when (interactive-p)
     (emacspeak-auditory-icon 'search-hit)
-    (emacspeak-speak-line )))
+    (emacspeak-speak-line)))
 
-(defadvice rolo-previous-match (after emacspeak pre act )
+(defadvice rolo-previous-match (after emacspeak pre act)
   "Speak the hit"
   (when (interactive-p)
     (emacspeak-auditory-icon 'search-hit)
-    (emacspeak-speak-line )))
+    (emacspeak-speak-line)))
 
 (defadvice rolo-quit (after emacspeak pre act comp)
   "Quitting the rolodex"
@@ -171,12 +171,10 @@
      ((> ad-return-value 0)
       (emacspeak-auditory-icon 'yank-object)
       (message "Yanked record matching %s"
-               (ad-get-arg 0 )))
+               (ad-get-arg 0)))
      (t (message "Found no records matching %s to yank"
-                 (ad-get-arg 0 ))))))
-  
-   
-         
+                 (ad-get-arg 0))))))
+
 ;;}}}
 
 (provide 'emacspeak-wrolo)

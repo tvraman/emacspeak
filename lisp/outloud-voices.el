@@ -190,12 +190,12 @@ and TABLE gives the values along that dimension."
 ;;; median: pitch: 65  head-size 50 
 (let ((table (make-vector 10 "")))
   (mapcar
-    #'(lambda (setting)
-        (aset table
-              (first setting)
-              (format
-               " `vb%s `vh%s "
-                      (second setting) (third setting))))
+   #'(lambda (setting)
+       (aset table
+             (first setting)
+             (format
+              " `vb%s `vh%s "
+              (second setting) (third setting))))
    '(
      (0 40 75) ; pitch, head-size
      (1 45 70)
@@ -285,10 +285,10 @@ and TABLE gives the values along that dimension."
 (let ((table (make-vector 10 "")))
   (mapcar
    #'(lambda (setting)
-      (aset table
-            (first setting)
-            (format
-             " `vf%s  " (second setting))))
+       (aset table
+             (first setting)
+             (format
+              " `vf%s  " (second setting))))
    '(
      (0 0)
      (1 5)
@@ -404,11 +404,11 @@ and TABLE gives the values along that dimension."
 (let ((table (make-vector 10 "")))
   (mapcar
    #'(lambda (setting)
-      (aset table
-            (first setting)
-            (format
-             " `vy%s  `vv%s "
-             (second setting) (third setting))))
+       (aset table
+             (first setting)
+             (format
+              " `vy%s  `vv%s "
+              (second setting) (third setting))))
    '(; whisper, volume 
      (0 0 60)
      (1 4 78)

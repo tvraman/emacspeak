@@ -91,8 +91,8 @@
   (cond
    ((ems-interactive-p)
     (ems-with-messages-silenced ad-do-it)
-      (emacspeak-auditory-icon 'task-done)
-      (emacspeak-speak-mode-line))
+    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-speak-mode-line))
    (t ad-do-it))
   ad-return-value)
 

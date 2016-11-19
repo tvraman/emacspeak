@@ -175,22 +175,22 @@ s(defun emacspeak-vm-yank-header ()
                  (string-match  (user-login-name) to)))
             (lines (vm-su-line-count message)))
       (with-current-buffer vm-presentation-buffer
-      (dtk-speak
-       (vm-decode-mime-encoded-words-in-string
-        (concat
-         number
-         (if from
-             (propertize from   'personality voice-brighten)
-           "")
-         (if subject
-             (propertize subject 'personality voice-lighten)
-           " ")
-         (if (and to (< (length to) 80))
-             (concat
-              (propertize " to " 'personality voice-smoothen)
-              (propertize  to 'personality voice-annotate))
-           "")
-         (if lines (format "%s lines" lines) "")))))
+        (dtk-speak
+         (vm-decode-mime-encoded-words-in-string
+          (concat
+           number
+           (if from
+               (propertize from   'personality voice-brighten)
+             "")
+           (if subject
+               (propertize subject 'personality voice-lighten)
+             " ")
+           (if (and to (< (length to) 80))
+               (concat
+                (propertize " to " 'personality voice-smoothen)
+                (propertize  to 'personality voice-annotate))
+             "")
+           (if lines (format "%s lines" lines) "")))))
       (goto-char (point-min))
       (search-forward  (format "%c%c" 10 10) nil)
       (cond
@@ -366,7 +366,7 @@ Then speak the screenful. "
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (with-current-buffer (window-buffer (selected-window))
-    (emacspeak-speak-mode-line))))
+      (emacspeak-speak-mode-line))))
 
 ;;}}}
 ;;{{{ catching up on folders
@@ -440,11 +440,11 @@ Then speak the screenful. "
 
 (defadvice vm-mime-parse-entity (around emacspeak pre act comp)
   (ems-with-messages-silenced
-    ad-do-it))
+   ad-do-it))
 
 (defadvice vm-decode-mime-message (around emacspeak pre act comp)
   (ems-with-messages-silenced
-    ad-do-it))
+   ad-do-it))
 
 (defadvice vm-mime-run-display-function-at-point (around emacspeak pre act comp)
   "Provide auditory feedback.
@@ -464,7 +464,7 @@ Leave point at front of decoded attachment."
 (defadvice vm-emit-eom-blurb (around emacspeak pre act comp)
   "Stop chattering"
   (ems-with-messages-silenced
-    ad-do-it))
+   ad-do-it))
 
 ;;}}}
 ;;{{{ advice password prompt
@@ -616,27 +616,27 @@ If N is negative, move backward instead."
 Emacspeak."
   (declare (special emacspeak-vm-demote-html-attachments
                     emacspeak-vm-promote-html-attachments
-            vm-mime-charset-converter-alist
-            vm-mime-default-face-charsets
-            vm-frame-per-folder
-            vm-frame-per-composition
-            vm-frame-per-edit
-            vm-frame-per-help
-            vm-frame-per-summary
-            vm-index-file-suffix
-            vm-primary-inbox
-            vm-folder-directory
-            vm-forwarding-subject-format
-            vm-startup-with-summary
-            vm-inhibit-startup-message
-            vm-visible-headers
-            vm-delete-after-saving
-            vm-url-browser
-            vm-confirm-new-folders
-            vm-mime-alternative-select-method
-            vm-move-after-deleting))
+                    vm-mime-charset-converter-alist
+                    vm-mime-default-face-charsets
+                    vm-frame-per-folder
+                    vm-frame-per-composition
+                    vm-frame-per-edit
+                    vm-frame-per-help
+                    vm-frame-per-summary
+                    vm-index-file-suffix
+                    vm-primary-inbox
+                    vm-folder-directory
+                    vm-forwarding-subject-format
+                    vm-startup-with-summary
+                    vm-inhibit-startup-message
+                    vm-visible-headers
+                    vm-delete-after-saving
+                    vm-url-browser
+                    vm-confirm-new-folders
+                    vm-mime-alternative-select-method
+                    vm-move-after-deleting))
   (setq vm-mime-alternative-select-method
-emacspeak-vm-demote-html-attachments)
+        emacspeak-vm-demote-html-attachments)
   (setq vm-mime-charset-converter-alist
         '(
           ("utf-8" "iso-8859-1" "iconv -f utf-8 -t iso-8859-1")
@@ -662,22 +662,21 @@ emacspeak-vm-demote-html-attachments)
         vm-move-after-deleting nil)
   t)
 
-
 (defun emacspeak-vm-toggle-html-mime-demotion ()
   "Toggle state of HTML Mime Demotion."
   (interactive)
-(declare (special emacspeak-vm-demote-html-attachments
-                  emacspeak-vm-promote-html-attachments
-                  vm-mime-alternative-select-method))
-(cond
- ((eq vm-mime-alternative-select-method emacspeak-vm-demote-html-attachments)
-  (setq vm-mime-alternative-select-method emacspeak-vm-promote-html-attachments)
-  (message "Prefering HTML Mime alternative."))
- ((eq vm-mime-alternative-select-method emacspeak-vm-promote-html-attachments)
-  (setq vm-mime-alternative-select-method emacspeak-vm-demote-html-attachments)
-  (message "Prefering Text/Plain Mime alternative."))
- (t (message "Resetting state to HTML Mime demotion.")
-    (setq vm-mime-alternative-select-method emacspeak-vm-demote-html-attachments))))
+  (declare (special emacspeak-vm-demote-html-attachments
+                    emacspeak-vm-promote-html-attachments
+                    vm-mime-alternative-select-method))
+  (cond
+   ((eq vm-mime-alternative-select-method emacspeak-vm-demote-html-attachments)
+    (setq vm-mime-alternative-select-method emacspeak-vm-promote-html-attachments)
+    (message "Prefering HTML Mime alternative."))
+   ((eq vm-mime-alternative-select-method emacspeak-vm-promote-html-attachments)
+    (setq vm-mime-alternative-select-method emacspeak-vm-demote-html-attachments)
+    (message "Prefering Text/Plain Mime alternative."))
+   (t (message "Resetting state to HTML Mime demotion.")
+      (setq vm-mime-alternative-select-method emacspeak-vm-demote-html-attachments))))
 
 (when emacspeak-vm-use-raman-settings
   (emacspeak-vm-use-raman-settings))
