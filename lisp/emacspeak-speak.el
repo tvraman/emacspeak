@@ -2002,7 +2002,7 @@ Seconds value is also placed in the kill-ring."
                     emacspeak-sounds-directory emacspeak-use-auditory-icons))
   (let ((signature "This is  Emacspeak  "))
     (when (and  emacspeak-use-auditory-icons
-                (file-exists-p "/usr/bin/mplayer"))
+                (executable-find "mplayer"))
       (start-process "mp3" nil "mplayer"
                      (expand-file-name "emacspeak.mp3" emacspeak-sounds-directory)))
     (tts-with-punctuations 'some
