@@ -123,7 +123,7 @@ such as pronunciation dictionaries are stored. ")
 
 ;;;###autoload
 (defvar emacspeak-codename
-  "SteadyDog"
+  "IdealDog"
   "Code name of present release.")
 
 ;;;###autoload
