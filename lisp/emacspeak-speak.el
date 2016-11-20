@@ -2005,10 +2005,11 @@ Seconds value is also placed in the kill-ring."
                 (executable-find "mplayer"))
       (start-process "mp3" nil "mplayer"
                      (expand-file-name "emacspeak.mp3" emacspeak-sounds-directory)))
-    (tts-with-punctuations 'some
-                           (dtk-speak-and-echo (concat signature
-                                                       (if update (emacspeak-setup-get-revision)
-                                                         emacspeak-version))))))
+    (tts-with-punctuations
+     'some
+     (dtk-speak-and-echo
+      (concat signature
+              (if update (emacspeak-setup-get-revision) emacspeak-version))))))
 
 ;;;###autoload
 (defun emacspeak-speak-current-kill (count)
