@@ -145,7 +145,7 @@ such as pronunciation dictionaries are stored. ")
 ;;;###autoload
 (defvar emacspeak-version
   (format
-   "44.0 %s:  %s"
+   "45.0 %s:  %s"
    emacspeak-codename
    (emacspeak-setup-get-revision))
   "Version number for Emacspeak.")
