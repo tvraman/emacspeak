@@ -1995,21 +1995,26 @@ Seconds value is also placed in the kill-ring."
     result))
 
 ;;;###autoload
-(defun emacspeak-speak-version (&optional update)
-  "Announce version information for running emacspeak."
+(defun emacspeak-speak-version (&optional speak-rev)
+  "Announce version information for running emacspeak.
+Optional interactive prefix arg `speak-rev' speaks only the Git revision number."
   (interactive "P")
-  (declare (special emacspeak-version
-                    emacspeak-sounds-directory emacspeak-use-auditory-icons))
-  (let ((signature "This is  Emacspeak  "))
-    (when (and  emacspeak-use-auditory-icons
-                (executable-find "mplayer"))
-      (start-process "mp3" nil "mplayer"
-                     (expand-file-name "emacspeak.mp3" emacspeak-sounds-directory)))
+  (declare (special emacspeak-version emacspeak-sounds-directory
+                    emacspeak-use-auditory-icons))
+  (let ((signature "Emacspeak  "))
+    (when
+        (and  (null speak-rev) emacspeak-use-auditory-icons
+              (executable-find "mplayer"))
+      (start-process
+       "mp3" nil "mplayer"
+       (expand-file-name "emacspeak.mp3" emacspeak-sounds-directory)))
     (tts-with-punctuations
      'some
      (dtk-speak-and-echo
-      (concat signature
-              (if update (emacspeak-setup-get-revision) emacspeak-version))))))
+      (concat
+       signature
+              (if speak-rev (emacspeak-setup-get-revision)
+                (concat emacspeak-version (emacspeak-setup-get-revision))))))))
 
 ;;;###autoload
 (defun emacspeak-speak-current-kill (count)
