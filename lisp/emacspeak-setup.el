@@ -123,7 +123,7 @@ such as pronunciation dictionaries are stored. ")
 
 ;;;###autoload
 (defvar emacspeak-codename
-  "IdealDog"
+  (propertize "IdealDog" 'personality voice-bolden)
   "Code name of present release.")
 
 ;;;###autoload
@@ -132,7 +132,9 @@ such as pronunciation dictionaries are stored. ")
   (let ((default-directory emacspeak-directory))
     (if (and (executable-find "git")
              (file-exists-p (expand-file-name ".git"  emacspeak-directory)))
+        (propertize 
         (shell-command-to-string "git show -s --pretty=format:%h HEAD ")
+        'personality voice-smoothen)
       "")))
 
 ;;;###autoload
@@ -142,10 +144,7 @@ such as pronunciation dictionaries are stored. ")
 
 ;;;###autoload
 (defvar emacspeak-version
-  (format
-   "45.0 %s:  %s"
-   emacspeak-codename
-   (emacspeak-setup-get-revision))
+  (concat "45.0  " emacspeak-codename)
   "Version number for Emacspeak.")
 
 ;;}}}
