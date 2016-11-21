@@ -70,7 +70,7 @@
 
 ;;}}}
 ;;{{{ forward declarations:
-(defvar emacspeak-codename)
+
 (defvar emacspeak-last-message)
 (defvar emacspeak-resource-directory)
 (defvar emacspeak-sounds-directory)
@@ -1993,6 +1993,25 @@ Seconds value is also placed in the kill-ring."
     (message "%s" result)
     (kill-new result)
     result))
+
+(defvar emacspeak-codename
+  (propertize "IdealDog" 'personality voice-bolden)
+  "Code name of present release.")
+
+
+(defsubst emacspeak-setup-get-revision ()
+  "Get SHA checksum of current revision that is suitable for spoken output."
+  (let ((default-directory emacspeak-directory))
+    (if (and (executable-find "git")
+             (file-exists-p (expand-file-name ".git"  emacspeak-directory)))
+        (propertize 
+        (shell-command-to-string "git show -s --pretty=format:%h HEAD ")
+        'personality voice-smoothen)
+      "")))
+
+(defvar emacspeak-version
+  (concat "45.0  " emacspeak-codename)
+  "Version number for Emacspeak.")
 
 ;;;###autoload
 (defun emacspeak-speak-version (&optional speak-rev)

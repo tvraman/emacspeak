@@ -122,30 +122,9 @@ such as pronunciation dictionaries are stored. ")
   "Extensions that match media files.")
 
 ;;;###autoload
-(defvar emacspeak-codename
-  "IdealDog"
-  "Code name of present release.")
-
-;;;###autoload
-(defsubst emacspeak-setup-get-revision ()
-  "Get SHA checksum of current revision that is suitable for spoken output."
-  (let ((default-directory emacspeak-directory))
-    (if (and (executable-find "git")
-             (file-exists-p (expand-file-name ".git"  emacspeak-directory)))
-        (propertize 
-        (shell-command-to-string "git show -s --pretty=format:%h HEAD ")
-        'personality voice-smoothen)
-      "")))
-
-;;;###autoload
 (defsubst emacspeak-xslt-get (style)
   "Return fully qualified stylesheet path."
   (expand-file-name style emacspeak-xslt-directory))
-
-;;;###autoload
-(defvar emacspeak-version
-  (concat "45.0  " emacspeak-codename)
-  "Version number for Emacspeak.")
 
 ;;}}}
 ;;{{{ speech rate
