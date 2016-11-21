@@ -2001,7 +2001,7 @@ Optional interactive prefix arg `speak-rev' speaks only the Git revision number.
   (interactive "P")
   (declare (special emacspeak-version emacspeak-sounds-directory
                     emacspeak-use-auditory-icons))
-  (let ((signature "Emacspeak  "))
+  (let ((signature "Emacspeak "))
     (when
         (and  (null speak-rev) emacspeak-use-auditory-icons
               (executable-find "mplayer"))
@@ -2014,7 +2014,7 @@ Optional interactive prefix arg `speak-rev' speaks only the Git revision number.
       (concat
        signature
               (if speak-rev (emacspeak-setup-get-revision)
-                (concat emacspeak-version (emacspeak-setup-get-revision))))))))
+                (concat emacspeak-version " "(emacspeak-setup-get-revision))))))))
 
 ;;;###autoload
 (defun emacspeak-speak-current-kill (count)
