@@ -132,9 +132,7 @@ such as pronunciation dictionaries are stored. ")
   (let ((default-directory emacspeak-directory))
     (if (and (executable-find "git")
              (file-exists-p (expand-file-name ".git"  emacspeak-directory)))
-        (substring
-         (shell-command-to-string  "git show HEAD | head -1 | cut -b 8- ")
-         0 6)
+        (shell-command-to-string "git show -s --pretty=format:%h HEAD ")
       "")))
 
 ;;;###autoload
