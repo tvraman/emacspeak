@@ -421,6 +421,7 @@ relief."
     ("j" emacspeak-jabber-popup-roster)
     ("m" mspools-show)
     ("o" emacspeak-wizards-occur-header-lines)
+    ("p" paradox-list-packages)
     ("Q" emacspeak-wizards-yql-lookup)
     ("q" emacspeak-wizards-yql-quotes)
     ("r" jabber-activity-switch-to)
