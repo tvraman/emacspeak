@@ -1995,18 +1995,17 @@ Seconds value is also placed in the kill-ring."
     result))
 
 (defvar emacspeak-codename
-  (propertize "IdealDog" 'personality voice-bolden)
+  (propertize "IdealDog" 'face 'bold)
   "Code name of present release.")
-
 
 (defsubst emacspeak-setup-get-revision ()
   "Get SHA checksum of current revision that is suitable for spoken output."
   (let ((default-directory emacspeak-directory))
     (if (and (executable-find "git")
              (file-exists-p (expand-file-name ".git"  emacspeak-directory)))
-        (propertize 
-        (shell-command-to-string "git show -s --pretty=format:%h HEAD ")
-        'personality voice-smoothen)
+        (propertize
+         (shell-command-to-string "git show -s --pretty=format:%h HEAD ")
+         'personality voice-smoothen)
       "")))
 
 (defvar emacspeak-version
@@ -2032,8 +2031,9 @@ Optional interactive prefix arg `speak-rev' speaks only the Git revision number.
      (dtk-speak-and-echo
       (concat
        signature
-              (if speak-rev (emacspeak-setup-get-revision)
-                (concat emacspeak-version " "(emacspeak-setup-get-revision))))))))
+       (if speak-rev
+           (emacspeak-setup-get-revision)
+         (concat emacspeak-version " "(emacspeak-setup-get-revision))))))))
 
 ;;;###autoload
 (defun emacspeak-speak-current-kill (count)
@@ -3502,7 +3502,7 @@ This command  is designed for use in a windowing environment like X."
 
 (define-key minibuffer-local-completion-map "\C-n" 'emacspeak-minibuffer-next-completion)
 (define-key minibuffer-local-completion-map "\C-p" 'emacspeak-minibuffer-previous-completion)
-(define-key minibuffer-local-completion-map  (kbd "C-@") 'emacspeak-minibuffer-choose-completion) 
+(define-key minibuffer-local-completion-map  (kbd "C-@") 'emacspeak-minibuffer-choose-completion)
 (define-key minibuffer-local-completion-map
   (kbd "C-SPC") 'emacspeak-minibuffer-choose-completion)
 
