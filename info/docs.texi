@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1143 commands and 1011 options.
+This chapter documents a total of 1143 commands and 1010 options.
 
 @menu
 * acss-structure::
@@ -1308,6 +1308,7 @@ x h		emacspeak-wizards-how-many-matches
 x j		emacspeak-jabber-popup-roster
 x m		mspools-show
 x o		emacspeak-wizards-occur-header-lines
+x p		paradox-list-packages
 x q		emacspeak-wizards-yql-quotes
 x r		jabber-activity-switch-to
 x s		emacspeak-emergency-tts-restart
@@ -15823,7 +15824,7 @@ Second interactive prefix sets clock to new timezone.
 @end deffn
 
 @subsubsection emacspeak-speak-version
-@deffn {Command} emacspeak-speak-version  (&optional update)
+@deffn {Command} emacspeak-speak-version  (&optional speak-rev)
 @table @kbd
 @item C-e V
 @kindex C-e V
@@ -15835,8 +15836,9 @@ Second interactive prefix sets clock to new timezone.
 
 @format
 Announce version information for running emacspeak.
+Optional interactive prefix arg ‘speak-rev’ speaks only the Git revision number.
 
-(fn &optional UPDATE)
+(fn &optional SPEAK-REV)
 @end format
 @end deffn
 
@@ -17941,13 +17943,6 @@ Save out url templates.
 (fn FILE)
 @end format
 @end deffn
-
-@subsection emacspeak-url-template Options
-
-@defvar {User Option} emacspeak-url-template-weather-city-state
-Default city/state for weather forecasts
-
-@end defvar
 
 @node emacspeak-view
 @section emacspeak-view

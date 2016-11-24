@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents Emacspeak, The Complete Audio Desktop.  This
-document was last updated on November 19, 2016.
+document was last updated on November 23, 2016.
 
    The manual is divided into the following chapters.
 
@@ -2945,7 +2945,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1143 commands and 1011 options.
+This chapter documents a total of 1143 commands and 1010 options.
 
 * Menu:
 
@@ -4012,6 +4012,7 @@ system.
      x j		emacspeak-jabber-popup-roster
      x m		mspools-show
      x o		emacspeak-wizards-occur-header-lines
+     x p		paradox-list-packages
      x q		emacspeak-wizards-yql-quotes
      x r		jabber-activity-switch-to
      x s		emacspeak-emergency-tts-restart

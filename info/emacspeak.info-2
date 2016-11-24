@@ -8838,13 +8838,14 @@ of emacspeak from becoming dependent on the speech server modules
 12.162.1.96 emacspeak-speak-version
 ...................................
 
- -- Command: emacspeak-speak-version (&optional update)
+ -- Command: emacspeak-speak-version (&optional speak-rev)
      ‘C-e V’
      ‘<fn> V’
 
      Announce version information for running emacspeak.
+     Optional interactive prefix arg ‘speak-rev’ speaks only the Git revision number.
 
-     (fn &optional UPDATE)
+     (fn &optional SPEAK-REV)
 
 12.162.1.97 emacspeak-speak-visual-line
 .......................................

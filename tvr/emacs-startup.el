@@ -227,7 +227,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      ;;; Need to do this for Emacspeak Customizations having :set
      (mapcar
       #'custom-reevaluate-setting
-      '(emacspeak-media-location-bindings))
+      '(emacspeak-media-location-bindings gweb-my-address))
      (soundscape-toggle)
      (shell)
      (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
