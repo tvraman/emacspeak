@@ -3108,9 +3108,9 @@ Symbols are taken from `emacspeak-wizards-personal-portfolio'."
   (interactive
    (list
     (read-from-minibuffer "State/City:"
-                          emacspeak-url-template-weather-city-state)))
+                          (bound-and-true-p  gweb-my-postal-code))))
   (declare (special emacspeak-wizards-yql-weather-header-row
-                    emacspeak-url-template-weather-city-stateemacspeak-wizards-yql-weather-filter))
+                     emacspeak-wizards-yql-weather-filter))
   (let* ((buff (format "*Weather %s*" zip))
          (result (emacspeak-wizards-yql-weather-results zip))
          (table (make-vector (1+ (length result)) nil)))

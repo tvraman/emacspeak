@@ -1089,21 +1089,14 @@ Set up URL rewrite rule to get print page."
 
 ;;}}}
 ;;{{{ weather underground
-;;;###autoload
-(defcustom emacspeak-url-template-weather-city-state
-  (bound-and-true-p  gweb-my-postal-code)
-  "Default city/state for weather forecasts"
-  :type 'string
-  :group 'emacspeak-url-template)
 
 (emacspeak-url-template-define
  "rss weather from wunderground"
  "http://www.wunderground.com/auto/rss_full/%s.xml?units=both"
  (list
   #'(lambda nil
-      (declare (special emacspeak-url-template-weather-city-state))
       (read-from-minibuffer "State/City:"
-                            emacspeak-url-template-weather-city-state)))
+                            (bound-and-true-p  gweb-my-postal-code))))
  nil
  "Pull RSS weather feed for specified state/city."
  #'emacspeak-feeds-rss-display)
@@ -1112,7 +1105,8 @@ Set up URL rewrite rule to get print page."
  "Weather forecast from Weather Underground"
  "http://mobile.wunderground.com/cgi-bin/findweather/getForecast?query=%s"
  (list
-  #'(lambda () (read-from-minibuffer "Zip: " emacspeak-url-template-weather-city-state)))
+  #'(lambda () (read-from-minibuffer "Zip: "
+                                     (bound-and-true-p  gweb-my-postal-code))))
  'emacspeak-speak-buffer
  "Weather forecast from weather underground mobile."
  )

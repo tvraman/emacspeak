@@ -337,18 +337,17 @@ Updated headlines found in emacspeak-webspace-headlines."
   "URL template for weather feed.")
 
 (defun emacspeak-webspace-weather-conditions ()
-  "Return weather conditions for `emacspeak-url-template-weather-city-state'."
-  (declare (special emacspeak-url-template-weather-city-state
-                    emacspeak-webspace-weather-url-template))
+  "Return weather conditions for user's zip-code."
+  (declare (special emacspeak-webspace-weather-url-template))
   (when (and emacspeak-webspace-weather-url-template
-             emacspeak-url-template-weather-city-state)
+             (bound-and-true-p  gweb-my-postal-code))
     (with-local-quit
       (format "%s at %s"
               (first
                (gfeeds-titles
                 (format emacspeak-webspace-weather-url-template
-                        emacspeak-url-template-weather-city-state)))
-              emacspeak-url-template-weather-city-state))))
+                        (bound-and-true-p  gweb-my-postal-code))))
+              (bound-and-true-p  gweb-my-postal-code)))))
 
 (defvar emacspeak-webspace-current-weather nil
   "Holds cached value of current weather conditions.")
@@ -366,9 +365,9 @@ Updated headlines found in emacspeak-webspace-headlines."
 Updated weather is found in `emacspeak-webspace-current-weather'."
   (interactive)
   (declare (special emacspeak-webspace-weather-timer))
-  (unless emacspeak-url-template-weather-city-state
+  (unless (bound-and-true-p  gweb-my-postal-code)
     (error
-     "First set option emacspeak-url-template-weather-city-state to your city/state."))
+     "First set option gweb-my-address"))
   (emacspeak-webspace-weather-get)
   (setq emacspeak-webspace-weather-timer
         (run-with-idle-timer 600 'repeat
