@@ -77,20 +77,19 @@ many available corrections."
 (defadvice ispell-command-loop (before emacspeak pre act)
   "Speak the line containing the incorrect word.
  Then speak the possible corrections. "
-  (let ((scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
-        (choices  (ad-get-arg 0))
+  (let ((choices  (ad-get-arg 0))
         (line nil)
         (pos "")
         (start (ad-get-arg 3))
         (end (ad-get-arg 4)))
     (setq line
           (ems-set-personality-temporarily
-           start end voice-bolden (thing-at-point 'line)))
-    (with-current-buffer scratch-buffer
+           start end voice-bolden
+           (buffer-substring (line-beginning-position) (line-end-position))))
+    (with-temp-buffer
       (setq voice-lock-mode t)
       (setq buffer-undo-list t)
       (dtk-set-punctuations 'all)
-      (erase-buffer)
       (insert line)
       (cond
        ((< (length choices) emacspeak-ispell-max-choices)
