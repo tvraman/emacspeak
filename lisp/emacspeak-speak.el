@@ -2155,8 +2155,7 @@ achieved by a change in voice personality."
       (goto-char position)
       (ems-set-personality-temporarily
        position (1+ position) voice-animate
-       (setq line
-             (thing-at-point  'line))))
+       (setq line (ems-this-line))))
     (dtk-speak
      (concat context line))))
 

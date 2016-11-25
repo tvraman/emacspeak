@@ -97,8 +97,7 @@
       (setq indent 
             (if (zerop indent) "" indent))
       (dtk-speak 
-       (concat indent 
-               (thing-at-point 'line))))))
+       (concat indent (ems-this-line))))))
 
 ;;}}}
 ;;{{{ Advice interactive commands:

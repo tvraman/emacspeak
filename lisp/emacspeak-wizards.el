@@ -949,8 +949,7 @@ Signals end of buffer."
                                   voice-annotate skipped))
             (emacspeak-auditory-icon 'select-object)
             (dtk-speak
-             (concat skipped
-                     (thing-at-point 'line))))))
+             (concat skipped (ems-this-line))))))
       (modify-syntax-entry 10 (format "%c" save-syntax)))))
 ;;;###autoload
 (defun emacspeak-skip-blank-lines-backward ()
@@ -983,8 +982,7 @@ Signals beginning  of buffer."
                                   voice-annotate skipped))
             (emacspeak-auditory-icon 'select-object)
             (dtk-speak
-             (concat skipped
-                     (thing-at-point 'line))))))
+             (concat skipped (ems-this-line))))))
       (modify-syntax-entry 10 (format "%c" save-syntax)))))
 
 ;;}}}
