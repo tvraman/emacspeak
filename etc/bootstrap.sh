@@ -12,7 +12,7 @@ v=$1
 
 if [ ! -n "$1" ]
 then
-  v=44.0
+  v=45.0
 fi  
 
 u="https://github.com/tvraman/emacspeak/releases/download/${v}/emacspeak-${v}.tar.bz2"
