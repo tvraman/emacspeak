@@ -92,6 +92,13 @@
   :group 'emacspeak)
 
 ;;}}}
+m;;{{{ This line:
+
+(defsubst ems-this-line ()
+  "Return current line as string."
+  (buffer-substring (line-beginning-position) (line-end-position)))
+
+;;}}}
 ;;{{{ same-line-p
 
 (defsubst ems-same-line-p (start end)
