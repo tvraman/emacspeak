@@ -105,7 +105,7 @@ Remaining args specify additional commandline args."
   "Play binaural audio with carrier frequency `freq', beat `beat',  and gain `gain'."
   (interactive
    (list
-    (timer-duration(read-from-minibuffer "Duration in seconds: "))
+    (timer-duration(read-from-minibuffer "Duration: "))
     (read-number "Carrier Frequency [50 -- 800]: " 100)
     (read-number "Beat Frequency [0.5 -- 40]: " 4.5)
     (read-number "Gain [Use negative values]: " -18)))
