@@ -1182,7 +1182,8 @@ Set up URL rewrite rule to get print page."
   #'(lambda () (upcase (read-from-minibuffer "Station ID: "))))
  nil
  "Play radio stream.
-See http://www.cbsradio.com/streaming/index.html for a list of CBS stations that use StreamTheWorld."
+Example: kcbsFM.
+Format is stationid+AM/FM."
  #'(lambda (url)
      (emacspeak-m-player url 'playlist)))
 
