@@ -584,6 +584,7 @@ interactive command that the key sequence executes."
     ("c" emacspeak-wizards-view-buffers-filtered-by-this-mode)
     ("e" eww)
     ("f" emacspeak-feeds-find-feeds)
+    ("i" emacspeak-wizards-iheart)
     ("l" eww-open-file)
     ("m" magit-status)
     ("n" emacspeak-wizards-cycle-to-next-buffer)
@@ -594,25 +595,24 @@ interactive command that the key sequence executes."
     ("t" emacspeak-wizards-tune-in-radio-browse)
     ("u" emacspeak-m-player-url)
     ("v" visual-line-mode)) 
-  "*Specifies alt key bindings for the audio desktop.
-You can turn the `Pause' key  on your Linux PC keyboard into a `alt' key
-on Linux by having it emit the sequence `C-x@a'.
+  "*Specifies alt key bindings for the audio desktop. You can turn the
+`Pause' key on your Linux PC keyboard into a `alt' key on Linux by
+having it emit the sequence `C-x@a'.
 
-Bindings specified here are available on prefix key `alt'
-(not to be confused with alt==meta)
-for example, if you bind
-`s' to command emacspeak-emergency-tts-restart
-then that command will be available on key `ALT  s'
+Bindings specified here are available on prefix key `alt' (not to be
+ confused with alt==meta) for example, if you bind `s' to command
+ emacspeak-emergency-tts-restart then that command will be available
+ on key `ALT s'
 
 KEYS should be a string constant in the format used for saving
 keyboard macros (see `edmacro-mode').
 
 Command is an interactive command or a prefix-command that can be
-bound to a key. 
+bound to a key.
 
-The value of this variable is an association list. The car of
-each element specifies a key sequence. The cdr specifies an
-interactive command that the key sequence executes."
+The value of this variable is an association list. The car of each
+element specifies a key sequence. The cdr specifies an interactive
+command that the key sequence executes."
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Alt Keymap"
