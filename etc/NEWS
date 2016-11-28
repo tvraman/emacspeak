@@ -5,93 +5,10 @@ Emacspeak News --History Of User-Visible Changes
 Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
-* Emacspeak 45 -- Emacspeak 45 User Visible Changes
-** Updated Slime Support 
+* Emacspeak 46 -- Emacspeak 46 User Visible Changes
 
-Module ~emacspeak-slime~ has been updated to speech-enable more of
-the Superior Lisp Interaction Mode (slime).
+** IHeart Radio
 
-** GPG Integration In Emacs:
-
-Speech-enables package ~epa~ for GPG integration. Also supports the
-use of module ~pinentry~ with ~gpg-agent~
-with newer versions of ~gpg-agent~.
-
-** Emacs Screen  Session Manager:
-
-Module ~emacspeak-elscreen~ speech-enables package ~elscreen~.
-
-
-** Librivox Client:
-
-Added completion support for browsing Librivox by genre. All searches
-now accept an interactive prefix arg for getting next set of results.
-
-** Switching Among Related Buffers:
-Module ~emacspeak-related~ speech-enables package  ~related~ from Melpa.
-
-** RST Text Mode:
-
-Module ~emacspeak-rst~ speech-enables ~rst~ mode.
-
-
-** Mode-Line Info:
-
-Emacspeak's spoken mode-line includes version-control state for files
-under VC.
-
-** Invoke Emacspeak M-Player From Outside Emacs
-
-Simple shell-script etc/emplay  can hand off a media URL to Emacspeak
-from outside Emacs.
-
-** Updated sound Themes 
-
-Sound themes have been updated  and tweaked.
-
-** Visual Line Mode
-
-Emacspeak now   supports   ~visual_line-mode~
-
-** Entertain: Threes
-Speech-enables the simple puzzle game ~threes~.
-
-
-** Ciel: Clear Inside, Copy Inside 
-
-Package ~ciel~ provides an implementation of VIM's clear/copy
-inside. Module ~emacspeak-ciel~ speech-enables package ~ciel~.
-
-** Google News:
-Added URL Templates for Google Category News and Google Regional News.
-
-
-** Speech-Enable Package Jade
-Package ~jade~ implements a Javacript IDE that works alongside
-packages like ~js2-mode~.
-Module emacspeak-jade.el speech-enables package Jade for interactively
-debugging Webapps in  browsers like Chrome.
-
-
-** Speech-Enable Tide:
-
-Package ~tide~ implements a Typescript IDE in Emacs. Module
-~emacspeak-tide~ speech-enables package ~tide~.
-
-** SoX And Binaural Beats:
-Module ~sox-gen~ now provides the ability to generate a variety of
-binaural tones and beats --- this is designed for use with headphones for
-brainwave entrainment.
-
-
-** Speech-Enabled Elisp-Refs
-
-Module ~emacspeak-elisp-refs~ speech-enables package ~elisp-refs~ ---
-a powerful package for jumping to callers of functions and macros in
-Emacs Lisp.
-
-** Bootstrap Script 
-
-The GitHub repo now contains  [[https://gist.github.com/08046e9befd9755dc05282ae5c8d32f5][etc/bootstrap.sh]] ---
-a  script for  bootstrapping into Emacspeak on a well-configured Linux system.
+Module _emacspeak-wizards_ now  provides ~emacspeak-wizards-iheart~
+--- this uses ~iheart-url~ to play IHeart Radio stations.
 
