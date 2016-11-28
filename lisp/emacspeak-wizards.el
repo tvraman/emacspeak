@@ -2829,6 +2829,60 @@ Optional interactive prefix arg `category' prompts for a category."
   (let ((name   "RadioTime Search"))
     (emacspeak-url-template-open (emacspeak-url-template-get name))))
 ;;}}}
+;;{{{ IHeart Radio:
+
+(defun emacspeak-wizards-iheart-radio-play (station-id)
+  "Play specified   station from IHeart Radio."
+  (interactive "sId: ")
+  (let ((ih-url "https://github.com/oldlaptop/iheart-mplayer.git "))
+    (unless (executable-find "iheart-url")
+      (error "First install iheart-url from %s" ih-url))
+    (emacspeak-m-player-url
+     (string-trim
+      (shell-command-to-string
+       (format "iheart-url %s" id))))))
+
+(defun ems--iheart-at-point ()
+  "Play station at point if any."
+  (interactive)
+  (let ((id (get-text-property (point) 'ihr-id)))
+    (cl-assert id  nil "No station id here.")
+    (emacspeak-wizards-iheart-radio-play id)))
+
+
+(defun emacspeak-wizards-iheart (station-q)
+  "Perform IHeart Radio search and display clickable results."
+  (interactive "sIHeart Radio Query: ")
+  (let ((ih-url "https://github.com/oldlaptop/iheart-mplayer.git ")
+        (inhibit-read-only t)
+        (results nil)
+        (hits nil)
+        (ihr "*IHeart Radio Results*"))
+    (unless (executable-find "iheart-url")
+      (error "First install iheart-url from %s" ih-url))
+    (setq results
+          (split-string
+           (shell-command-to-string
+            (format "iheart-url -s %s" q))
+           "\n"))
+    (setq hits (split-string (pop results) ":"))
+    (when (zerop (read (second hits))) (error "No matches found."))
+    (with-current-buffer (get-buffer-create ihr)
+      (erase-buffer)
+      (cl-loop
+       for r in results do
+       (insert r)
+       (put-text-property
+        (line-beginning-position) (line-end-position)
+        'ihr-id
+        (second (split-string r ":")))
+       (insert "\n"))
+      (special-mode)
+      (local-set-key (kbd "RET") 'ems--iheart-at-point)
+      (goto-char (point-min)))
+    (funcall-interactively #'switch-to-buffer ihr)))
+
+;;}}}
 ;;{{{ Generic YQL Implementation:
 
 (defvar yql-public-base
