@@ -122,9 +122,9 @@ Optional argument `raw-p' returns raw JSON  object."
   "Reverse geocode location and return postal coe."
   (g-json-get
    'short_name 
-   (find-if 
+   (find-if  ; component whose type contains postal_code
     #'(lambda (v) (find "postal_code" (g-json-get 'types v) :test #'string=)) 
-    (g-json-get
+    (g-json-get ; from address_components at finest granularity
      'address_components
      (aref (gmaps-reverse-geocode location 'raw) 0)))))
 
