@@ -2831,7 +2831,7 @@ Optional interactive prefix arg `category' prompts for a category."
 ;;}}}
 ;;{{{ IHeart Radio:
 
-(defun emacspeak-wizards-iheart-radio-play (station-id)
+(defun emacspeak-wizards-iheart-radio-play (id)
   "Play specified   station from IHeart Radio."
   (interactive "sId: ")
   (let ((ih-url "https://github.com/oldlaptop/iheart-mplayer.git "))
@@ -2850,7 +2850,7 @@ Optional interactive prefix arg `category' prompts for a category."
     (emacspeak-wizards-iheart-radio-play id)))
 
 
-(defun emacspeak-wizards-iheart (station-q)
+(defun emacspeak-wizards-iheart (q)
   "Perform IHeart Radio search and display clickable results."
   (interactive "sIHeart Radio Query: ")
   (let ((ih-url "https://github.com/oldlaptop/iheart-mplayer.git ")
