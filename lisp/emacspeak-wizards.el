@@ -2869,7 +2869,7 @@ Optional interactive prefix arg `category' prompts for a category."
       (error "First install iheart-url from %s" ih-url))
     (setq results
           (split-string
-           (shell-command-to-string (format "iheart-url -s %s" q))
+           (shell-command-to-string (format "iheart-url -s '%s'" q))
            "\n"))
     (setq hits (split-string (pop results) ":"))
     (when (zerop (read (second hits))) (error "No matches found."))
