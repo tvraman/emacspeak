@@ -2855,7 +2855,7 @@ Optional interactive prefix arg `category' prompts for a category."
     (cl-assert id  nil "No station id here.")
     (emacspeak-wizards-iheart-radio-play id)))
 
-
+;;;###autoload
 (defun emacspeak-wizards-iheart (q)
   "Perform IHeart Radio search and display clickable results."
   (interactive "sIHeart Radio Query: ")
