@@ -2831,6 +2831,12 @@ Optional interactive prefix arg `category' prompts for a category."
 ;;}}}
 ;;{{{ IHeart Radio:
 
+(defvar emacspeak-wizards-iheart-map
+  (let ((map (make-sparse-keymap)))
+    (define-key map (kbd "RET") 'ems--iheart-at-point)
+    map)
+  "Keymap used in IHeart Radio Results buffer.")
+
 (defun emacspeak-wizards-iheart-radio-play (id)
   "Play specified   station from IHeart Radio."
   (interactive "sId: ")
@@ -2853,33 +2859,35 @@ Optional interactive prefix arg `category' prompts for a category."
 (defun emacspeak-wizards-iheart (q)
   "Perform IHeart Radio search and display clickable results."
   (interactive "sIHeart Radio Query: ")
+  (declare (special emacspeak-wizards-iheart-map))
   (let ((ih-url "https://github.com/oldlaptop/iheart-mplayer.git ")
         (inhibit-read-only t)
         (results nil)
         (hits nil)
-        (ihr "*IHeart Radio Results*"))
+        (ihr (format "*IHeart Radio: Results For %s" q)))
     (unless (executable-find "iheart-url")
       (error "First install iheart-url from %s" ih-url))
     (setq results
           (split-string
-           (shell-command-to-string
-            (format "iheart-url -s %s" q))
+           (shell-command-to-string (format "iheart-url -s %s" q))
            "\n"))
     (setq hits (split-string (pop results) ":"))
     (when (zerop (read (second hits))) (error "No matches found."))
     (with-current-buffer (get-buffer-create ihr)
       (erase-buffer)
+      (insert (propertize "Press <enter> to play selected station.\n\n" 'face 'bold))
       (cl-loop
        for r in results do
        (insert r)
-       (put-text-property
+       (add-text-properties
         (line-beginning-position) (line-end-position)
-        'ihr-id
-        (second (split-string r ":")))
+        (list 
+        'keymap emacspeak-wizards-iheart-map
+        'ihr-id (second (split-string r ":"))))
        (insert "\n"))
       (special-mode)
-      (local-set-key (kbd "RET") 'ems--iheart-at-point)
-      (goto-char (point-min)))
+      (goto-char (point-min))
+      (forward-line 2))
     (funcall-interactively #'switch-to-buffer ihr)))
 
 ;;}}}
