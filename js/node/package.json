@@ -25,8 +25,5 @@
     "net": ">=1.0.2",
     "mathjax-node": ">=0.5.1",
     "speech-rule-engine": ">=1.0.0"
-  },
-  "scripts": {
-    "postinstall": "rm node_modules/speech-rule-engine/lib/sre.js; cd node_modules/speech-rule-engine/lib/; ln -s ../../../sre.js"
   }
 }
