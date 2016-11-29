@@ -806,7 +806,7 @@ will say ``aw fifteen dot'' when speaking the string
    `(defun ,command  (&optional prefix)
       ,documentation
       (interactive "P")
-      (declare (special dtk-speaker-process ,switch))
+      (declare (special  ,switch))
       (cond
        (prefix
         (setq-default  ,switch
