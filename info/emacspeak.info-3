@@ -3610,21 +3610,41 @@ Contains various wizards for the Emacspeak desktop.
 
      Pick what to yank using ido completion.
 
-12.194.1.74 emacspeak-wizards-lacheck-buffer-file
+12.194.1.74 emacspeak-wizards-iheart
+....................................
+
+ -- Command: emacspeak-wizards-iheart (q)
+     ‘C-, i’
+     ‘C-x @ a i’
+
+     Perform IHeart Radio search and display clickable results.
+
+     (fn Q)
+
+12.194.1.75 emacspeak-wizards-iheart-radio-play
+...............................................
+
+ -- Command: emacspeak-wizards-iheart-radio-play (id)
+
+     Play specified   station from IHeart Radio.
+
+     (fn ID)
+
+12.194.1.76 emacspeak-wizards-lacheck-buffer-file
 .................................................
 
  -- Command: emacspeak-wizards-lacheck-buffer-file
 
      Run Lacheck on current buffer.
 
-12.194.1.75 emacspeak-wizards-load-current-file
+12.194.1.77 emacspeak-wizards-load-current-file
 ...............................................
 
  -- Command: emacspeak-wizards-load-current-file
 
      load file into emacs
 
-12.194.1.76 emacspeak-wizards-mlb-standings
+12.194.1.78 emacspeak-wizards-mlb-standings
 ...........................................
 
  -- Command: emacspeak-wizards-mlb-standings (&optional raw)
@@ -3634,7 +3654,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional RAW)
 
-12.194.1.77 emacspeak-wizards-move-and-speak
+12.194.1.79 emacspeak-wizards-move-and-speak
 ............................................
 
  -- Command: emacspeak-wizards-move-and-speak (command count)
@@ -3648,7 +3668,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn COMMAND COUNT)
 
-12.194.1.78 emacspeak-wizards-nba-standings
+12.194.1.80 emacspeak-wizards-nba-standings
 ...........................................
 
  -- Command: emacspeak-wizards-nba-standings (&optional raw)
@@ -3658,28 +3678,28 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional RAW)
 
-12.194.1.79 emacspeak-wizards-next-bullet
+12.194.1.81 emacspeak-wizards-next-bullet
 .........................................
 
  -- Command: emacspeak-wizards-next-bullet
 
      Navigate to and speak next ‘bullet’.
 
-12.194.1.80 emacspeak-wizards-next-interactive-defun
+12.194.1.82 emacspeak-wizards-next-interactive-defun
 ....................................................
 
  -- Command: emacspeak-wizards-next-interactive-defun
 
      Move point to the next interactive defun
 
-12.194.1.81 emacspeak-wizards-next-shell
+12.194.1.83 emacspeak-wizards-next-shell
 ........................................
 
  -- Command: emacspeak-wizards-next-shell
 
      Switch to next shell.
 
-12.194.1.82 emacspeak-wizards-occur-header-lines
+12.194.1.84 emacspeak-wizards-occur-header-lines
 ................................................
 
  -- Command: emacspeak-wizards-occur-header-lines (&optional prefix)
@@ -3694,7 +3714,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional PREFIX)
 
-12.194.1.83 emacspeak-wizards-pdf-open
+12.194.1.85 emacspeak-wizards-pdf-open
 ......................................
 
  -- Command: emacspeak-wizards-pdf-open (filename &optional ask-pwd)
@@ -3706,7 +3726,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn FILENAME &optional ASK-PWD)
 
-12.194.1.84 emacspeak-wizards-popup-input-buffer
+12.194.1.86 emacspeak-wizards-popup-input-buffer
 ................................................
 
  -- Command: emacspeak-wizards-popup-input-buffer (mode)
@@ -3715,7 +3735,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn MODE)
 
-12.194.1.85 emacspeak-wizards-ppt-display
+12.194.1.87 emacspeak-wizards-ppt-display
 .........................................
 
  -- Command: emacspeak-wizards-ppt-display
@@ -3725,7 +3745,7 @@ Contains various wizards for the Emacspeak desktop.
      Previews those contents as HTML and nukes the buffer
      visiting the ppt file.
 
-12.194.1.86 emacspeak-wizards-ppt-mode
+12.194.1.88 emacspeak-wizards-ppt-mode
 ......................................
 
  -- Command: emacspeak-wizards-ppt-mode
@@ -3742,21 +3762,21 @@ Contains various wizards for the Emacspeak desktop.
      —             ——-
 
 
-12.194.1.87 emacspeak-wizards-previous-bullet
+12.194.1.89 emacspeak-wizards-previous-bullet
 .............................................
 
  -- Command: emacspeak-wizards-previous-bullet
 
      Navigate to and speak previous ‘bullet’.
 
-12.194.1.88 emacspeak-wizards-previous-shell
+12.194.1.90 emacspeak-wizards-previous-shell
 ............................................
 
  -- Command: emacspeak-wizards-previous-shell
 
      Switch to previous shell.
 
-12.194.1.89 emacspeak-wizards-refresh-shell-history
+12.194.1.91 emacspeak-wizards-refresh-shell-history
 ...................................................
 
  -- Command: emacspeak-wizards-refresh-shell-history
@@ -3765,7 +3785,7 @@ Contains various wizards for the Emacspeak desktop.
      This is for use in conjunction with bash to allow multiple emacs
        shell buffers to   share history information.
 
-12.194.1.90 emacspeak-wizards-rivo
+12.194.1.92 emacspeak-wizards-rivo
 ..................................
 
  -- Command: emacspeak-wizards-rivo (when channel stop-time output
@@ -3780,14 +3800,14 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn WHEN CHANNEL STOP-TIME OUTPUT DIRECTORY)
 
-12.194.1.91 emacspeak-wizards-rpm-query-in-dired
+12.194.1.93 emacspeak-wizards-rpm-query-in-dired
 ................................................
 
  -- Command: emacspeak-wizards-rpm-query-in-dired
 
      Run rpm -qi on current dired entry.
 
-12.194.1.92 emacspeak-wizards-shell
+12.194.1.94 emacspeak-wizards-shell
 ...................................
 
  -- Command: emacspeak-wizards-shell (&optional prefix)
@@ -3799,7 +3819,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional PREFIX)
 
-12.194.1.93 emacspeak-wizards-shell-command-on-current-file
+12.194.1.95 emacspeak-wizards-shell-command-on-current-file
 ...........................................................
 
  -- Command: emacspeak-wizards-shell-command-on-current-file (command)
@@ -3810,7 +3830,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn COMMAND)
 
-12.194.1.94 emacspeak-wizards-shell-toggle
+12.194.1.96 emacspeak-wizards-shell-toggle
 ..........................................
 
  -- Command: emacspeak-wizards-shell-toggle
@@ -3822,7 +3842,7 @@ Contains various wizards for the Emacspeak desktop.
      Switch to the shell buffer and cd to
       the directory of the current buffer.
 
-12.194.1.95 emacspeak-wizards-show-commentary
+12.194.1.97 emacspeak-wizards-show-commentary
 .............................................
 
  -- Command: emacspeak-wizards-show-commentary (&optional file)
@@ -3831,7 +3851,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional FILE)
 
-12.194.1.96 emacspeak-wizards-show-environment-variable
+12.194.1.98 emacspeak-wizards-show-environment-variable
 .......................................................
 
  -- Command: emacspeak-wizards-show-environment-variable (v)
@@ -3840,7 +3860,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn V)
 
-12.194.1.97 emacspeak-wizards-show-eval-result
+12.194.1.99 emacspeak-wizards-show-eval-result
 ..............................................
 
  -- Command: emacspeak-wizards-show-eval-result (form)
@@ -3850,8 +3870,8 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn FORM)
 
-12.194.1.98 emacspeak-wizards-show-face
-.......................................
+12.194.1.100 emacspeak-wizards-show-face
+........................................
 
  -- Command: emacspeak-wizards-show-face (face)
 
@@ -3859,14 +3879,14 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn FACE)
 
-12.194.1.99 emacspeak-wizards-show-memory-used
-..............................................
+12.194.1.101 emacspeak-wizards-show-memory-used
+...............................................
 
  -- Command: emacspeak-wizards-show-memory-used
 
      Convenience command to view state of memory used in this session so far.
 
-12.194.1.100 emacspeak-wizards-speak-iso-datetime
+12.194.1.102 emacspeak-wizards-speak-iso-datetime
 .................................................
 
  -- Command: emacspeak-wizards-speak-iso-datetime (iso)
@@ -3875,7 +3895,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn ISO)
 
-12.194.1.101 emacspeak-wizards-spot-words
+12.194.1.103 emacspeak-wizards-spot-words
 .........................................
 
  -- Command: emacspeak-wizards-spot-words (ext word)
@@ -3885,7 +3905,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn EXT WORD)
 
-12.194.1.102 emacspeak-wizards-squeeze-blanks
+12.194.1.104 emacspeak-wizards-squeeze-blanks
 .............................................
 
  -- Command: emacspeak-wizards-squeeze-blanks (start end)
@@ -3896,7 +3916,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn START END)
 
-12.194.1.103 emacspeak-wizards-sunrise-sunset
+12.194.1.105 emacspeak-wizards-sunrise-sunset
 .............................................
 
  -- Command: emacspeak-wizards-sunrise-sunset (address &optional arg)
@@ -3905,7 +3925,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn ADDRESS &optional ARG)
 
-12.194.1.104 emacspeak-wizards-term
+12.194.1.106 emacspeak-wizards-term
 ...................................
 
  -- Command: emacspeak-wizards-term (create)
@@ -3919,7 +3939,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn CREATE)
 
-12.194.1.105 emacspeak-wizards-terminal
+12.194.1.107 emacspeak-wizards-terminal
 .......................................
 
  -- Command: emacspeak-wizards-terminal (program)
@@ -3928,7 +3948,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn PROGRAM)
 
-12.194.1.106 emacspeak-wizards-tex-tie-current-word
+12.194.1.108 emacspeak-wizards-tex-tie-current-word
 ...................................................
 
  -- Command: emacspeak-wizards-tex-tie-current-word (n)
@@ -3937,28 +3957,28 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn N)
 
-12.194.1.107 emacspeak-wizards-thanks-mail-signature
+12.194.1.109 emacspeak-wizards-thanks-mail-signature
 ....................................................
 
  -- Command: emacspeak-wizards-thanks-mail-signature
 
      insert thanks , –Raman at the end of mail message
 
-12.194.1.108 emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
+12.194.1.110 emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
 ................................................................
 
  -- Command: emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer
 
      Toggle pronunciation of mm-dd-yyyy dates.
 
-12.194.1.109 emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
+12.194.1.111 emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
 ..............................................................
 
  -- Command: emacspeak-wizards-toggle-yyyymmdd-date-pronouncer
 
      Toggle pronunciation of yyyymmdd  dates.
 
-12.194.1.110 emacspeak-wizards-tramp-open-location
+12.194.1.112 emacspeak-wizards-tramp-open-location
 ..................................................
 
  -- Command: emacspeak-wizards-tramp-open-location (name)
@@ -3968,7 +3988,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn NAME)
 
-12.194.1.111 emacspeak-wizards-tune-in-radio-browse
+12.194.1.113 emacspeak-wizards-tune-in-radio-browse
 ...................................................
 
  -- Command: emacspeak-wizards-tune-in-radio-browse (&optional category)
@@ -3980,7 +4000,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn &optional CATEGORY)
 
-12.194.1.112 emacspeak-wizards-tune-in-radio-search
+12.194.1.114 emacspeak-wizards-tune-in-radio-search
 ...................................................
 
  -- Command: emacspeak-wizards-tune-in-radio-search
@@ -3989,7 +4009,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Search Tune-In Radio.
 
-12.194.1.113 emacspeak-wizards-unhex-uri
+12.194.1.115 emacspeak-wizards-unhex-uri
 ........................................
 
  -- Command: emacspeak-wizards-unhex-uri (uri)
@@ -3998,7 +4018,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn URI)
 
-12.194.1.114 emacspeak-wizards-units
+12.194.1.116 emacspeak-wizards-units
 ....................................
 
  -- Command: emacspeak-wizards-units
@@ -4007,14 +4027,14 @@ Contains various wizards for the Emacspeak desktop.
 
      Run units in a comint sub-process.
 
-12.194.1.115 emacspeak-wizards-vc-n
+12.194.1.117 emacspeak-wizards-vc-n
 ...................................
 
  -- Command: emacspeak-wizards-vc-n
 
      Accelerator for VC viewer.
 
-12.194.1.116 emacspeak-wizards-vc-viewer
+12.194.1.118 emacspeak-wizards-vc-viewer
 ........................................
 
  -- Command: emacspeak-wizards-vc-viewer (console)
@@ -4025,7 +4045,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn CONSOLE)
 
-12.194.1.117 emacspeak-wizards-vc-viewer-mode
+12.194.1.119 emacspeak-wizards-vc-viewer-mode
 .............................................
 
  -- Command: emacspeak-wizards-vc-viewer-mode
@@ -4040,14 +4060,14 @@ Contains various wizards for the Emacspeak desktop.
      This mode runs the hook ‘emacspeak-wizards-vc-viewer-mode-hook’, as the final step
      during initialization.
 
-12.194.1.118 emacspeak-wizards-vc-viewer-refresh
+12.194.1.120 emacspeak-wizards-vc-viewer-refresh
 ................................................
 
  -- Command: emacspeak-wizards-vc-viewer-refresh
 
      Refresh view of VC we’re viewing.
 
-12.194.1.119 emacspeak-wizards-vi-as-su-file
+12.194.1.121 emacspeak-wizards-vi-as-su-file
 ............................................
 
  -- Command: emacspeak-wizards-vi-as-su-file (file)
@@ -4056,7 +4076,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn FILE)
 
-12.194.1.120 emacspeak-wizards-view-buffers-filtered-by-m-player-mode
+12.194.1.122 emacspeak-wizards-view-buffers-filtered-by-m-player-mode
 .....................................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-m-player-mode
@@ -4065,7 +4085,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Buffer menu filtered by  m-player mode.
 
-12.194.1.121 emacspeak-wizards-view-buffers-filtered-by-mode
+12.194.1.123 emacspeak-wizards-view-buffers-filtered-by-mode
 ............................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-mode (mode)
@@ -4074,7 +4094,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn MODE)
 
-12.194.1.122 emacspeak-wizards-view-buffers-filtered-by-this-mode
+12.194.1.124 emacspeak-wizards-view-buffers-filtered-by-this-mode
 .................................................................
 
  -- Command: emacspeak-wizards-view-buffers-filtered-by-this-mode
@@ -4085,7 +4105,7 @@ Contains various wizards for the Emacspeak desktop.
 
      Buffer menu filtered by  mode of current-buffer.
 
-12.194.1.123 emacspeak-wizards-voice-sampler
+12.194.1.125 emacspeak-wizards-voice-sampler
 ............................................
 
  -- Command: emacspeak-wizards-voice-sampler (personality)
@@ -4094,7 +4114,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn PERSONALITY)
 
-12.194.1.124 emacspeak-wizards-xl-display
+12.194.1.126 emacspeak-wizards-xl-display
 .........................................
 
  -- Command: emacspeak-wizards-xl-display
@@ -4104,7 +4124,7 @@ Contains various wizards for the Emacspeak desktop.
      Previews those contents as HTML and nukes the buffer
      visiting the xls file.
 
-12.194.1.125 emacspeak-wizards-xl-mode
+12.194.1.127 emacspeak-wizards-xl-mode
 ......................................
 
  -- Command: emacspeak-wizards-xl-mode
@@ -4121,7 +4141,7 @@ Contains various wizards for the Emacspeak desktop.
      —             ——-
 
 
-12.194.1.126 emacspeak-wizards-yql-lookup
+12.194.1.128 emacspeak-wizards-yql-lookup
 .........................................
 
  -- Command: emacspeak-wizards-yql-lookup (symbols)
@@ -4133,7 +4153,7 @@ Contains various wizards for the Emacspeak desktop.
 
      (fn SYMBOLS)
 
-12.194.1.127 emacspeak-wizards-yql-quotes
+12.194.1.129 emacspeak-wizards-yql-quotes
 .........................................
 
  -- Command: emacspeak-wizards-yql-quotes
@@ -4143,7 +4163,7 @@ Contains various wizards for the Emacspeak desktop.
      Display quotes using YQL API.
      Symbols are taken from ‘emacspeak-wizards-personal-portfolio’.
 
-12.194.1.128 emacspeak-wizards-yql-weather
+12.194.1.130 emacspeak-wizards-yql-weather
 ..........................................
 
  -- Command: emacspeak-wizards-yql-weather (zip)
@@ -6128,8 +6148,7 @@ English to German
 
    StreamWorld Radio
 
-   Play radio stream.  See http://www.cbsradio.com/streaming/index.html
-for a list of CBS stations that use StreamTheWorld.
+   Play radio stream.  Example: kcbsFM. Format is stationid+AM/FM.
 
    Structured Data Extractor
 
@@ -6542,7 +6561,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <C-right>:                             emacspeak-wizards.  (line  197)
 * <C-up>:                                emacspeak-speak.    (line   91)
 * <f1> ,:                                emacspeak-wizards.  (line  474)
-* <f1> C-e:                              emacspeak.          (line  410)
+* <f1> C-e:                              emacspeak.          (line  411)
 * <f1> C-l:                              emacspeak-wizards.  (line  155)
 * <f1> M:                                emacspeak-wizards.  (line  308)
 * <f1> TAB:                              emacspeak-info.     (line   24)
@@ -6552,7 +6571,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> # l:                              emacspeak-gridtext. (line   38)
 * <fn> # s:                              emacspeak-gridtext. (line   49)
 * <fn> %:                                emacspeak-speak.    (line  409)
-* <fn> &:                                emacspeak-wizards.  (line 1007)
+* <fn> &:                                emacspeak-wizards.  (line 1027)
 * <fn> ':                                emacspeak-pianobar. (line   46)
 * <fn> (:                                emacspeak-sounds.   (line   32)
 * <fn> ):                                emacspeak-sounds.   (line   76)
@@ -6577,7 +6596,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> <C-<right>:                       emacspeak-wizards.  (line  220)
 * <fn> <delete>:                         emacspeak-wizards.  (line  399)
 * <fn> <down>:                           emacspeak-speak.    (line  169)
-* <fn> <f11>:                            emacspeak-wizards.  (line 1019)
+* <fn> <f11>:                            emacspeak-wizards.  (line 1039)
 * <fn> <f1>:                             emacspeak-wizards.  (line  154)
 * <fn> <fn>:                             dtk-speak.          (line  264)
 * <fn> <insert>:                         emacspeak-wizards.  (line  111)
@@ -6604,7 +6623,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> C-j:                              emacspeak-hide.     (line   44)
 * <fn> C-l:                              emacspeak-speak.    (line  536)
 * <fn> C-M-@:                            emacspeak-speak.    (line  990)
-* <fn> C-M-b:                            emacspeak.          (line  420)
+* <fn> C-M-b:                            emacspeak.          (line  421)
 * <fn> C-M-SPC:                          emacspeak-speak.    (line  989)
 * <fn> C-n:                              emacspeak-speak.    (line  684)
 * <fn> C-o:                              emacspeak-ocr.      (line   23)
@@ -6787,14 +6806,14 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> x e y:                            emacspeak-we.       (line   23)
 * <fn> x h:                              emacspeak-wizards.  (line  795)
 * <fn> x j:                              emacspeak-jabber.   (line   43)
-* <fn> x o:                              emacspeak-wizards.  (line  887)
-* <fn> x Q:                              emacspeak-wizards.  (line 1329)
-* <fn> x q:                              emacspeak-wizards.  (line 1341)
+* <fn> x o:                              emacspeak-wizards.  (line  907)
+* <fn> x Q:                              emacspeak-wizards.  (line 1349)
+* <fn> x q:                              emacspeak-wizards.  (line 1361)
 * <fn> x s:                              emacspeak-wizards.  (line  113)
 * <fn> x t:                              emacspeak-wizards.  (line  340)
-* <fn> x u:                              emacspeak-wizards.  (line 1206)
-* <fn> x v:                              emacspeak-wizards.  (line 1222)
-* <fn> x |:                              emacspeak-wizards.  (line 1093)
+* <fn> x u:                              emacspeak-wizards.  (line 1226)
+* <fn> x v:                              emacspeak-wizards.  (line 1242)
+* <fn> x |:                              emacspeak-wizards.  (line 1113)
 * <fn> [:                                emacspeak-speak.    (line  718)
 * <fn> \:                                emacspeak-speak.    (line 1227)
 * <fn> ]:                                emacspeak-speak.    (line  732)
@@ -6803,7 +6822,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> {:                                emacspeak-speak.    (line  745)
 * <fn> |:                                emacspeak-speak.    (line  545)
 * <help> ,:                              emacspeak-wizards.  (line  475)
-* <help> C-e:                            emacspeak.          (line  411)
+* <help> C-e:                            emacspeak.          (line  412)
 * <help> C-l:                            emacspeak-wizards.  (line  156)
 * <help> M:                              emacspeak-wizards.  (line  309)
 * <help> TAB:                            emacspeak-info.     (line   25)
@@ -6817,7 +6836,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-' f:                                 emacspeak-feeds.    (line   76)
 * C-' h:                                 emacspeak-webspace. (line   62)
 * C-' l:                                 emacspeak-m-player. (line  330)
-* C-' m:                                 emacspeak-wizards.  (line 1281)
+* C-' m:                                 emacspeak-wizards.  (line 1301)
 * C-' R:                                 emacspeak-webspace. (line   16)
 * C-' r:                                 soundscape.         (line   93)
 * C-' s:                                 soundscape.         (line   48)
@@ -6827,29 +6846,30 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-, ,:                                 emacspeak-advice.   (line   25)
 * C-, a:                                 emacspeak-feeds.    (line   35)
 * C-, b:                                 sox-gen.            (line   28)
-* C-, c:                                 emacspeak-wizards.  (line 1282)
+* C-, c:                                 emacspeak-wizards.  (line 1302)
 * C-, f:                                 emacspeak-feeds.    (line   65)
+* C-, i:                                 emacspeak-wizards.  (line  817)
 * C-, n:                                 emacspeak-wizards.  (line  508)
 * C-, o:                                 emacspeak-feeds.    (line   87)
 * C-, p:                                 emacspeak-wizards.  (line  517)
 * C-, r:                                 emacspeak-feeds.    (line  106)
-* C-, s:                                 emacspeak-wizards.  (line 1187)
-* C-, t:                                 emacspeak-wizards.  (line 1175)
+* C-, s:                                 emacspeak-wizards.  (line 1207)
+* C-, t:                                 emacspeak-wizards.  (line 1195)
 * C-, u:                                 emacspeak-m-player. (line  609)
-* C-; ::                                 emacspeak-wizards.  (line 1263)
+* C-; ::                                 emacspeak-wizards.  (line 1283)
 * C-; ;:                                 emacspeak-m-player. (line  620)
-* C-; a:                                 emacspeak-wizards.  (line 1112)
+* C-; a:                                 emacspeak-wizards.  (line 1132)
 * C-; e:                                 gmaps.              (line   16)
 * C-; f:                                 emacspeak-webspace. (line   35)
 * C-; h:                                 emacspeak-org.      (line   27)
-* C-; j:                                 emacspeak-wizards.  (line 1018)
+* C-; j:                                 emacspeak-wizards.  (line 1038)
 * C-; k:                                 emacspeak-webspace. (line   81)
 * C-; l:                                 emacspeak-librivox. (line   18)
 * C-; N:                                 emacspeak-npr.      (line   29)
 * C-; n:                                 emacspeak-npr.      (line   51)
-* C-; p:                                 emacspeak-wizards.  (line  901)
+* C-; p:                                 emacspeak-wizards.  (line  921)
 * C-; q:                                 emacspeak-remote.   (line   47)
-* C-; s:                                 emacspeak-wizards.  (line  994)
+* C-; s:                                 emacspeak-wizards.  (line 1014)
 * C-; SPC h:                             emacspeak-webspace. (line   53)
 * C-; SPC SPC:                           emacspeak-webspace. (line   63)
 * C-; SPC w:                             emacspeak-webspace. (line  139)
@@ -6905,7 +6925,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e # l:                               emacspeak-gridtext. (line   37)
 * C-e # s:                               emacspeak-gridtext. (line   48)
 * C-e %:                                 emacspeak-speak.    (line  408)
-* C-e &:                                 emacspeak-wizards.  (line 1006)
+* C-e &:                                 emacspeak-wizards.  (line 1026)
 * C-e ':                                 emacspeak-pianobar. (line   45)
 * C-e (:                                 emacspeak-sounds.   (line   31)
 * C-e ):                                 emacspeak-sounds.   (line   75)
@@ -6930,7 +6950,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e <C-<right>:                        emacspeak-wizards.  (line  219)
 * C-e <delete>:                          emacspeak-wizards.  (line  397)
 * C-e <down>:                            emacspeak-speak.    (line  168)
-* C-e <f11>:                             emacspeak-wizards.  (line 1017)
+* C-e <f11>:                             emacspeak-wizards.  (line 1037)
 * C-e <f1>:                              emacspeak-wizards.  (line  152)
 * C-e <fn>:                              dtk-speak.          (line  262)
 * C-e <insert>:                          emacspeak-wizards.  (line  110)
@@ -6957,7 +6977,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C-j:                               emacspeak-hide.     (line   43)
 * C-e C-l:                               emacspeak-speak.    (line  535)
 * C-e C-M-@:                             emacspeak-speak.    (line  988)
-* C-e C-M-b:                             emacspeak.          (line  419)
+* C-e C-M-b:                             emacspeak.          (line  420)
 * C-e C-M-SPC:                           emacspeak-speak.    (line  987)
 * C-e C-n:                               emacspeak-speak.    (line  683)
 * C-e C-o:                               emacspeak-ocr.      (line   22)
@@ -7140,14 +7160,14 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e x e y:                             emacspeak-we.       (line   22)
 * C-e x h:                               emacspeak-wizards.  (line  794)
 * C-e x j:                               emacspeak-jabber.   (line   42)
-* C-e x o:                               emacspeak-wizards.  (line  886)
-* C-e x Q:                               emacspeak-wizards.  (line 1328)
-* C-e x q:                               emacspeak-wizards.  (line 1340)
+* C-e x o:                               emacspeak-wizards.  (line  906)
+* C-e x Q:                               emacspeak-wizards.  (line 1348)
+* C-e x q:                               emacspeak-wizards.  (line 1360)
 * C-e x s:                               emacspeak-wizards.  (line  112)
 * C-e x t:                               emacspeak-wizards.  (line  339)
-* C-e x u:                               emacspeak-wizards.  (line 1205)
-* C-e x v:                               emacspeak-wizards.  (line 1221)
-* C-e x |:                               emacspeak-wizards.  (line 1092)
+* C-e x u:                               emacspeak-wizards.  (line 1225)
+* C-e x v:                               emacspeak-wizards.  (line 1241)
+* C-e x |:                               emacspeak-wizards.  (line 1112)
 * C-e [:                                 emacspeak-speak.    (line  717)
 * C-e \:                                 emacspeak-speak.    (line 1226)
 * C-e ]:                                 emacspeak-speak.    (line  731)
@@ -7156,7 +7176,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e {:                                 emacspeak-speak.    (line  743)
 * C-e |:                                 emacspeak-speak.    (line  544)
 * C-h ,:                                 emacspeak-wizards.  (line  473)
-* C-h C-e:                               emacspeak.          (line  409)
+* C-h C-e:                               emacspeak.          (line  410)
 * C-h C-l:                               emacspeak-wizards.  (line  153)
 * C-h M:                                 emacspeak-wizards.  (line  307)
 * C-h TAB:                               emacspeak-info.     (line   23)
@@ -7164,29 +7184,30 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ a ,:                             emacspeak-advice.   (line   26)
 * C-x @ a a:                             emacspeak-feeds.    (line   36)
 * C-x @ a b:                             sox-gen.            (line   29)
-* C-x @ a c:                             emacspeak-wizards.  (line 1283)
+* C-x @ a c:                             emacspeak-wizards.  (line 1303)
 * C-x @ a f:                             emacspeak-feeds.    (line   66)
+* C-x @ a i:                             emacspeak-wizards.  (line  818)
 * C-x @ a n:                             emacspeak-wizards.  (line  509)
 * C-x @ a o:                             emacspeak-feeds.    (line   88)
 * C-x @ a p:                             emacspeak-wizards.  (line  518)
 * C-x @ a r:                             emacspeak-feeds.    (line  107)
-* C-x @ a s:                             emacspeak-wizards.  (line 1188)
-* C-x @ a t:                             emacspeak-wizards.  (line 1176)
+* C-x @ a s:                             emacspeak-wizards.  (line 1208)
+* C-x @ a t:                             emacspeak-wizards.  (line 1196)
 * C-x @ a u:                             emacspeak-m-player. (line  610)
-* C-x @ h ::                             emacspeak-wizards.  (line 1264)
+* C-x @ h ::                             emacspeak-wizards.  (line 1284)
 * C-x @ h ;:                             emacspeak-m-player. (line  621)
-* C-x @ h a:                             emacspeak-wizards.  (line 1113)
+* C-x @ h a:                             emacspeak-wizards.  (line 1133)
 * C-x @ h e:                             gmaps.              (line   17)
 * C-x @ h f:                             emacspeak-webspace. (line   36)
 * C-x @ h h:                             emacspeak-org.      (line   28)
-* C-x @ h j:                             emacspeak-wizards.  (line 1020)
+* C-x @ h j:                             emacspeak-wizards.  (line 1040)
 * C-x @ h k:                             emacspeak-webspace. (line   82)
 * C-x @ h l:                             emacspeak-librivox. (line   19)
 * C-x @ h N:                             emacspeak-npr.      (line   30)
 * C-x @ h n:                             emacspeak-npr.      (line   52)
-* C-x @ h p:                             emacspeak-wizards.  (line  902)
+* C-x @ h p:                             emacspeak-wizards.  (line  922)
 * C-x @ h q:                             emacspeak-remote.   (line   48)
-* C-x @ h s:                             emacspeak-wizards.  (line  995)
+* C-x @ h s:                             emacspeak-wizards.  (line 1015)
 * C-x @ h SPC h:                         emacspeak-webspace. (line   54)
 * C-x @ h SPC SPC:                       emacspeak-webspace. (line   65)
 * C-x @ h SPC w:                         emacspeak-webspace. (line  140)
@@ -7197,7 +7218,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ s f:                             emacspeak-feeds.    (line   77)
 * C-x @ s h:                             emacspeak-webspace. (line   64)
 * C-x @ s l:                             emacspeak-m-player. (line  331)
-* C-x @ s m:                             emacspeak-wizards.  (line 1284)
+* C-x @ s m:                             emacspeak-wizards.  (line 1304)
 * C-x @ s R:                             emacspeak-webspace. (line   17)
 * C-x @ s r:                             soundscape.         (line   94)
 * C-x @ s s:                             soundscape.         (line   49)
@@ -7277,7 +7298,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * ESCAPE next:                           Reading.            (line  134)
 * ESCAPE prior:                          Reading.            (line  139)
 * ESCAPE up:                             Reading.            (line  124)
-* M-ESC ::                               emacspeak-wizards.  (line 1047)
+* M-ESC ::                               emacspeak-wizards.  (line 1067)
 * pause control e s:                     Miscellaneous.      (line   12)
 * s-m:                                   emacspeak-muggles.  (line   66)
 * s-n:                                   emacspeak-muggles.  (line  204)

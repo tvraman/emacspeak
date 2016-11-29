@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents Emacspeak, The Complete Audio Desktop.  This
-document was last updated on November 23, 2016.
+document was last updated on November 28, 2016.
 
    The manual is divided into the following chapters.
 
@@ -2945,7 +2945,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1143 commands and 1010 options.
+This chapter documents a total of 1145 commands and 1010 options.
 
 * Menu:
 
@@ -4246,6 +4246,7 @@ system.
      c		emacspeak-wizards-view-buffers-filtered-by-this-mode
      e		eww
      f		emacspeak-feeds-find-feeds
+     i		emacspeak-wizards-iheart
      l		eww-open-file
      m		magit-status
      n		emacspeak-wizards-cycle-to-next-buffer
