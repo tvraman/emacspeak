@@ -2551,13 +2551,11 @@ if `emacspeak-speak-message-again-should-copy-to-kill-ring' is set."
     (save-current-buffer
       (set-buffer "*Messages*")
       (goto-char (point-max))
-      (skip-syntax-backward " ")
+      (skip-syntax-backward " >")
       (emacspeak-speak-line)
       (when (and (ems-interactive-p)
                  emacspeak-speak-message-again-should-copy-to-kill-ring)
-        (kill-new
-         (buffer-substring (line-beginning-position)
-                           (line-end-position))))))))
+        (kill-new (ems-this-line)))))))
 
 (defun emacspeak-announce (announcement)
   "Speak the ANNOUNCEMENT, if possible.
