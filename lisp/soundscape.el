@@ -542,7 +542,7 @@ Caches most recently used device, which then becomes the default for future invo
   (when device
     (setq soundscape--cached-device
           (completing-read
-           "Filter: " '("crossfeed" "reverb_crossfeed" "default"))))
+           "Filter: " '("crossfeed" "reverb_crossfeed" "default" "tap_reverb"))))
   (let ((soundscape-manager-options
          (append
           (copy-sequence soundscape-manager-options) ; clone default options
