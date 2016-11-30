@@ -111,7 +111,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 
     ;;}}}
     ;;{{{  set up terminal codes and global keys
-
+    (prefer-coding-system 'utf-8-emacs)
     (mapc #'load-library-if-available '("console" "screen"))
 
     (when (eq window-system 'x) (load-library-if-available "x"))
