@@ -213,11 +213,9 @@ Copied from /var/lib/alsa/asound.state to your ~/.emacs.d to avoid needing to ru
   "Interactively manipulate ALSA settings.
 Interactive prefix arg refreshes cache."
   (interactive "P")
-  (declare (special amixer-db
-                    amixer-alsactl-config-file))
+  (declare (special amixer-db amixer-alsactl-config-file))
   (unless amixer-alsactl-config-file (amixer-alsactl-setup))
-  (when (or refresh
-            (null amixer-db))
+  (when (or refresh (null amixer-db))
     (amixer-build-db))
   (let ((control
          (cdr
