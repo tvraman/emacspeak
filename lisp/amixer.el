@@ -265,6 +265,18 @@ Interactive prefix arg refreshes cache."
        (amixer-control-name control)
        update)))))
 
+;;;###autoload
+(defun amixer-store()
+  "Persist current amixer settings."
+  (interactive)
+  (declare (special  amixer-alsactl-config-file))
+  (unless amixer-alsactl-config-file (amixer-alsactl-setup))
+  (when amixer-alsactl-config-file
+    (shell-command
+     (format "alsactl -f %s store" amixer-alsactl-config-file))
+    (emacspeak-auditory-icon 'task-done)
+    (message "Persisted amixer state.")))
+
 ;;}}}
 (provide 'amixer)      
 ;;{{{ end of file
