@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1145 commands and 1010 options.
+This chapter documents a total of 1146 commands and 1010 options.
 
 @menu
 * acss-structure::
@@ -287,6 +287,15 @@ Interactively manipulate ALSA settings.
 Interactive prefix arg refreshes cache.
 
 (fn &optional REFRESH)
+@end format
+@end deffn
+
+@subsubsection amixer-store
+@deffn {Command} amixer-store   
+@findex amixer-store
+
+@format
+Persist current amixer settings.
 @end format
 @end deffn
 
