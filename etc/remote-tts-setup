@@ -5,6 +5,7 @@
 #Examples:
 # remote-tts-setup speech-server outloud 
 # remote-tts-setup 32-speech-server 32-outloud 
+# remote-tts-setup speech-server mac
 
 REMOTE=#host.example.com
 EMACSPEAK=#emacspeak install directory 
