@@ -11,8 +11,8 @@ pcm.dmixer  {
         pcm "hw:1,0"
         format s16_LE
         period_time 0
-        period_size 1024
-        buffer_size 4096
+        ## period_size 1024
+        #buffer_size 4096
         rate 44100
     }
     bindings {
@@ -59,7 +59,7 @@ pcm.tap_reverb {
   plugins [{
     label tap_reverb
     input {
-      controls [1200 -1 -15 1 1 1 1 4] # Ambiance 
+      controls [1200 0 -15 1 1 1 1 4] # Ambiance 
     }
   }]
   }
@@ -76,7 +76,7 @@ pcm.reverb_crossfeed {
   path "/usr/lib/ladspa/"
   plugins [
       {label tap_reverb #ambiance thick (hd)
-       input {controls [2400 0 -20 1 1 1 1 4]}
+       input {controls [2400 0 -14 1 1 1 1 4]}
       }
       {label bs2b
        input {controls [ 725 4.5 ]}
