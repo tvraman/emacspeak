@@ -362,7 +362,7 @@ On a directory line, run du -s on the directory to speak its size."
   (define-key  dired-mode-map "a" 'emacspeak-dired-speak-file-access-time)
   (define-key dired-mode-map "c" 'emacspeak-dired-speak-file-modification-time)
   (define-key dired-mode-map "z" 'emacspeak-dired-speak-file-size)
-  (define-key dired-mode-map "\C-t" 'emacspeak-dired-speak-symlink-target)
+  (define-key dired-mode-map "\M-t" 'emacspeak-dired-speak-symlink-target)
   (define-key dired-mode-map "\C-i" 'emacspeak-speak-next-field)
   (define-key dired-mode-map  "," 'emacspeak-speak-previous-field))
 (add-hook 'dired-mode-hook  'emacspeak-dired-initialize 'append)
