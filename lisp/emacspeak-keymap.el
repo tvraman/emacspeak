@@ -709,8 +709,6 @@ interactive command that the key sequence executes."
 (define-key emacspeak-hyper-keymap " " 'emacspeak-webspace)
 ;;}}}
 ;;{{{ Wizard bindings:
-(global-set-key (kbd "M-C-y") 'emacspeak-wizards-ido-yank)
-
 ;;}}}
 ;;{{{ Keymaps <-> Org (text) Files :
 
