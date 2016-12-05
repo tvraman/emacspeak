@@ -66,6 +66,7 @@
 ;;; @item toggle-option:  <C-c o> Single binding for toggling options.
 ;;; @item outliner: <C-c .> Bindings from outline-minor-mode.
 ;;;@item Info-Summary: <?> in Info Info Summary Muggle
+;;; @item Repeatable-Yank: <M-C-y> Smart yank 
 ;;;@end itemize
 
 ;;; Emacspeak automatically speaks Hydra hints when displayed.
@@ -600,10 +601,8 @@ Info-mode:
   ("M-y" yank-pop nil)
   ("y" (funcall-interactively #'yank-pop 1) "next")
   ("Y" (funcall-interactively #'yank-pop -1) "prev")
-  ("i" emacspeak-wizards-ido-yank "IDo Yank" :color blue)
+  ("i" emacspeak-muggles-ido-yank "IDo Yank" :color blue)
   ("l" browse-kill-ring "list" :color blue)))
-
-
 
 ;;}}}
 (provide 'emacspeak-muggles)
