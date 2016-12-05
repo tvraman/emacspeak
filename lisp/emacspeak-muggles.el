@@ -584,8 +584,12 @@ Info-mode:
   "Pick what to yank using ido completion."
   (interactive)
   (require 'ido)
-  (insert
-   (ido-completing-read "Yank what? " (mapcar 'substring-no-properties kill-ring))))  
+  (let ((orig (point)))
+    (insert
+     (ido-completing-read "Yank what? " (mapcar 'substring-no-properties kill-ring)))
+    (when (ems-interactive-p)
+      (emacspeak-auditory-icon 'yank-object)
+      (emacspeak-speak-region orig (point)))  ))
 
 (global-set-key
  (kbd "M-C-y")
