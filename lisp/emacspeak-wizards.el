@@ -2853,6 +2853,8 @@ Optional interactive prefix arg `category' prompts for a category."
   (interactive)
   (let ((id (get-text-property (point) 'ihr-id)))
     (cl-assert id  nil "No station id here.")
+    (when (called-interactively-p 'interactive)
+      (emacspeak-auditory-icon 'button))
     (emacspeak-wizards-iheart-radio-play id)))
 
 ;;;###autoload
