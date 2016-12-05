@@ -571,6 +571,41 @@ Info-mode:
     ("C-g" nil "cancel" :color blue)))
 
 ;;}}}
+;;{{{ Repeatable Yank
+
+;;;Repeatable yank(-pop) command, with an option to switch to a list view using 
+;;; browse-kill-ring.
+
+;;;Helper: IDo Search for kill ring
+
+;;;###autoload
+(defun emacspeak-muggles-ido-yank ()
+  "Pick what to yank using ido completion."
+  (interactive)
+  (require 'ido)
+  (insert
+   (ido-completing-read "Yank what? " (mapcar 'substring-no-properties kill-ring))))  
+
+(global-set-key
+ (kbd "M-C-y")
+ (defhydra emacspeak-muggles-yank-pop
+  (:body-pre
+    (progn
+      (emacspeak-muggles-toggle-talkative)
+      (emacspeak-muggles-body-pre "Yank"))
+    :hint nil
+    :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
+  "Repeatable yank"
+  ("C-y" yank nil)
+  ("M-y" yank-pop nil)
+  ("y" (funcall-interactively #'yank-pop 1) "next")
+  ("Y" (funcall-interactively #'yank-pop -1) "prev")
+  ("i" emacspeak-wizards-ido-yank "IDo Yank" :color blue)
+  ("l" browse-kill-ring "list" :color blue)))
+
+
+
+;;}}}
 (provide 'emacspeak-muggles)
 ;;{{{ end of file
 
