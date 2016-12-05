@@ -3324,16 +3324,6 @@ Optional interactive prefix arg shows  unprocessed results."
   "Rest end-point for stock quote data from Google finance.")
 
 ;;}}}
-;;{{{ Smart Yank:
-;;;###autoload
-(defun emacspeak-wizards-ido-yank ()
-  "Pick what to yank using ido completion."
-  (interactive)
-  (require 'ido)
-  (insert
-   (ido-completing-read "Yank what? " (mapcar 'substring-no-properties kill-ring))))
-
-;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
