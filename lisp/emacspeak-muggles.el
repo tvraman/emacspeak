@@ -584,12 +584,14 @@ Info-mode:
   "Pick what to yank using ido completion."
   (interactive)
   (require 'ido)
+  (when (eq last-command 'yank)
+    (delete-region (region-beginning) (region-end)))
   (let ((orig (point)))
     (insert
      (ido-completing-read "Yank what? " (mapcar 'substring-no-properties kill-ring)))
     (when (ems-interactive-p)
       (emacspeak-auditory-icon 'yank-object)
-      (emacspeak-speak-region orig (point)))  ))
+      (emacspeak-speak-region orig (point)))))
 
 (global-set-key
  (kbd "M-C-y")
@@ -608,6 +610,9 @@ Info-mode:
   ("i" emacspeak-muggles-ido-yank "IDo Yank" :color blue)
   ("l" browse-kill-ring "list" :color blue)))
 
+
+(global-set-key (kbd "M-y") #'emacspeak-muggles-yank-pop/yank-pop)
+(global-set-key (kbd "C-y") #'emacspeak-muggles-yank-pop/yank)
 ;;}}}
 (provide 'emacspeak-muggles)
 ;;{{{ end of file
