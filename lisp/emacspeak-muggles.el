@@ -598,7 +598,6 @@ Info-mode:
  (kbd "M-C-y")
  (defhydra emacspeak-muggles-yank-pop
   (:body-pre (emacspeak-muggles-body-pre "Yank")
-    :timeout 2
     :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
   "Repeatable yank"
   ("C-y" yank nil)
