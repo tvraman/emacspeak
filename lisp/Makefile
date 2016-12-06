@@ -278,6 +278,8 @@ OBJECTS = $(DTK_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  $(ADDON_OBJECTS)
 all: $(OBJECTS)
 	cd g-client; $(MAKE)
 
+muggles: emacspeak-muggles.el
+	make emacspeak-muggles.elc
 force:
 
 config: emacspeak-loaddefs.el emacspeak-cus-load.el 
