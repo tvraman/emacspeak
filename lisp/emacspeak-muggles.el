@@ -204,7 +204,7 @@ Also turn on emacspeak-muggles-talkative-p if it was turned off."
  (kbd "<print>")
  (defhydra emacspeak-muggles-brightness
    (:body-pre (emacspeak-muggles-body-pre "Brightness")
-              :timeout 0.5
+              :timeout 0.3
               :pre emacspeak-muggles-pre
               :post emacspeak-muggles-post)
    "Brightness"
@@ -324,6 +324,7 @@ Also turn on emacspeak-muggles-talkative-p if it was turned off."
 (defhydra emacspeak-muggles-m-player
   (:body-pre (emacspeak-muggles-body-pre "Media Player")
              :hint nil
+             :timeout 0.5
              :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
   (";" emacspeak-m-player)
   ("+" emacspeak-m-player-volume-up)
@@ -598,6 +599,7 @@ Info-mode:
  (kbd "M-C-y")
  (defhydra emacspeak-muggles-yank-pop
   (:body-pre (emacspeak-muggles-body-pre "Yank")
+             :timeout 1
     :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
   "Repeatable yank"
   ("C-y" yank nil)
@@ -610,6 +612,7 @@ Info-mode:
 
 (global-set-key (kbd "M-y") #'emacspeak-muggles-yank-pop/yank-pop)
 (global-set-key (kbd "C-y") #'emacspeak-muggles-yank-pop/yank)
+
 ;;}}}
 (provide 'emacspeak-muggles)
 ;;{{{ end of file
