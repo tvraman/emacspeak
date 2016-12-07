@@ -12,308 +12,6 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: emacspeak.info,  Node: emacspeak-browse-kill-ring,  Next: emacspeak-bs,  Prev: emacspeak-bookshare,  Up: Emacspeak Commands And Options
-
-12.29 emacspeak-browse-kill-ring
-================================
-
-Browse the kill ring using browse-kill-ring.el - interactively insert
-items from kill-ring (by Colin Walters)
-
-
-File: emacspeak.info,  Node: emacspeak-bs,  Next: emacspeak-buff-menu,  Prev: emacspeak-browse-kill-ring,  Up: Emacspeak Commands And Options
-
-12.30 emacspeak-bs
-==================
-
-speech-enable bs.el – an alternative to Emacs’ default list-buffers
-
-12.30.1 emacspeak-bs Commands
------------------------------
-
-12.30.1.1 emacspeak-bs-speak-buffer-line
-........................................
-
- -- Command: emacspeak-bs-speak-buffer-line
-
-     Speak information about this buffer
-
-
-File: emacspeak.info,  Node: emacspeak-buff-menu,  Next: emacspeak-c,  Prev: emacspeak-bs,  Up: Emacspeak Commands And Options
-
-12.31 emacspeak-buff-menu
-=========================
-
-Speech-enable buffer-menus.
-
-12.31.1 emacspeak-buff-menu Commands
-------------------------------------
-
-12.31.1.1 emacspeak-list-buffers-next-line
-..........................................
-
- -- Command: emacspeak-list-buffers-next-line (count)
-
-     Speech enabled buffer menu navigation
-
-     (fn COUNT)
-
-12.31.1.2 emacspeak-list-buffers-previous-line
-..............................................
-
- -- Command: emacspeak-list-buffers-previous-line (count)
-
-     Speech enabled buffer menu navigation
-
-     (fn COUNT)
-
-12.31.1.3 emacspeak-list-buffers-speak-buffer-line
-..................................................
-
- -- Command: emacspeak-list-buffers-speak-buffer-line
-
-     Speak information about this buffer
-
-12.31.1.4 emacspeak-list-buffers-speak-buffer-name
-..................................................
-
- -- Command: emacspeak-list-buffers-speak-buffer-name
-
-     Speak the name of the buffer on this line
-
-
-File: emacspeak.info,  Node: emacspeak-c,  Next: emacspeak-calc,  Prev: emacspeak-buff-menu,  Up: Emacspeak Commands And Options
-
-12.32 emacspeak-c
-=================
-
-Make some of C and C++ mode more emacspeak friendly Works with both
-boring c-mode and the excellent cc-mode
-
-12.32.1 emacspeak-c Commands
-----------------------------
-
-12.32.1.1 emacspeak-c-speak-semantics
-.....................................
-
- -- Command: emacspeak-c-speak-semantics
-
-     Speak the C semantics of this line.
-
-
-File: emacspeak.info,  Node: emacspeak-calc,  Next: emacspeak-calculator,  Prev: emacspeak-c,  Up: Emacspeak Commands And Options
-
-12.33 emacspeak-calc
-====================
-
-This module extends the Emacs Calculator.  Extensions are minimal.  We
-force a calc-load-everything, And use an after advice on this function
-To fix all of calc’s interactive functions
-
-
-File: emacspeak.info,  Node: emacspeak-calculator,  Next: emacspeak-calendar,  Prev: emacspeak-calc,  Up: Emacspeak Commands And Options
-
-12.34 emacspeak-calculator
-==========================
-
-Speech enable desktop calculator
-
-
-File: emacspeak.info,  Node: emacspeak-calendar,  Next: emacspeak-cedet,  Prev: emacspeak-calculator,  Up: Emacspeak Commands And Options
-
-12.35 emacspeak-calendar
-========================
-
-This module speech enables the Emacs Calendar.  Speech enabling is not
-the same as speaking the screen: This is an excellent example of the
-advantages of speech-enabled interaction.
-
-12.35.1 emacspeak-calendar Commands
------------------------------------
-
-12.35.1.1 emacspeak-appt-repeat-announcement
-............................................
-
- -- Command: emacspeak-appt-repeat-announcement
-     ‘C-e A’
-     ‘<fn> A’
-
-     Speaks the most recently displayed appointment message if any.
-
-12.35.1.2 emacspeak-calendar-setup-sunrise-sunset
-.................................................
-
- -- Command: emacspeak-calendar-setup-sunrise-sunset
-
-     Set up geo-coordinates using Google Maps reverse geocoding.
-     To use, configure variable gweb-my-address via M-x customize-variable.
-
-12.35.1.3 emacspeak-calendar-speak-date
-.......................................
-
- -- Command: emacspeak-calendar-speak-date
-
-     Speak the date under point when called in Calendar Mode.
-
-12.35.2 emacspeak-calendar Options
-----------------------------------
-
- -- Variable: User Option emacspeak-calendar-mark-personality
-     Personality to use when showing marked calendar entries.
-
-
-File: emacspeak.info,  Node: emacspeak-cedet,  Next: emacspeak-checkdoc,  Prev: emacspeak-calendar,  Up: Emacspeak Commands And Options
-
-12.36 emacspeak-cedet
-=====================
-
-CEDET consists of speedbar semantic ede and friends.  This module speech
-enables new functionality in semantic, senator and friends
-
-
-File: emacspeak.info,  Node: emacspeak-checkdoc,  Next: emacspeak-ciel,  Prev: emacspeak-cedet,  Up: Emacspeak Commands And Options
-
-12.37 emacspeak-checkdoc
-========================
-
-Speech-enable checkdoc.el
-
-
-File: emacspeak.info,  Node: emacspeak-ciel,  Next: emacspeak-cmuscheme,  Prev: emacspeak-checkdoc,  Up: Emacspeak Commands And Options
-
-12.38 emacspeak-ciel
-====================
-
-Package ciel provides vim’s "copy inside" and "clear inside" commands.
-Emacspeak binds these commands to <Super i> and <Super o>.  This module
-speech-enables ciel.
-
-
-File: emacspeak.info,  Node: emacspeak-cmuscheme,  Next: emacspeak-company,  Prev: emacspeak-ciel,  Up: Emacspeak Commands And Options
-
-12.39 emacspeak-cmuscheme
-=========================
-
-speech-enable scheme support
-
-
-File: emacspeak.info,  Node: emacspeak-company,  Next: emacspeak-compile,  Prev: emacspeak-cmuscheme,  Up: Emacspeak Commands And Options
-
-12.40 emacspeak-company
-=======================
-
-COMPANY -mode: Complete Anything Support for emacs.  This module
-provides an Emacspeak Company Front-end, And advises the needed
-interactive commands in Company.
-
-
-File: emacspeak.info,  Node: emacspeak-compile,  Next: emacspeak-cperl,  Prev: emacspeak-company,  Up: Emacspeak Commands And Options
-
-12.41 emacspeak-compile
-=======================
-
-This module makes compiling code from inside Emacs speech friendly.  It
-is an example of how a little amount of code can make Emacspeak even
-better.
-
-12.41.1 emacspeak-compile Commands
-----------------------------------
-
-12.41.1.1 emacspeak-compilation-speak-error
-...........................................
-
- -- Command: emacspeak-compilation-speak-error
-
-     Speech feedback about the compilation error.
-
-12.41.2 emacspeak-compile Options
----------------------------------
-
- -- Variable: User Option emacspeak-compilation-column-number-voice
-     Personality used for compilation-column-number This personality
-     uses voice-smoothen whose effect can be changed globally by
-     customizing voice-smoothen-settings.
-
- -- Variable: User Option emacspeak-compilation-error-voice
-     Personality used for compilation-error This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option emacspeak-compilation-info-voice
-     Personality used for compilation-info This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option emacspeak-compilation-line-number-voice
-     Personality used for compilation-line-number This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option emacspeak-compilation-warning-voice
-     Personality used for compilation-warning This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
-
-File: emacspeak.info,  Node: emacspeak-cperl,  Next: emacspeak-custom,  Prev: emacspeak-compile,  Up: Emacspeak Commands And Options
-
-12.42 emacspeak-cperl
-=====================
-
-Provide additional advice to CPerl mode
-
-
-File: emacspeak.info,  Node: emacspeak-custom,  Next: emacspeak-dbus,  Prev: emacspeak-cperl,  Up: Emacspeak Commands And Options
-
-12.43 emacspeak-custom
-======================
-
-Advise custom to speak.  most of the work is actually done by
-emacspeak-widget.el which speech-enables the widget libraries.
-
-12.43.1 emacspeak-custom Commands
----------------------------------
-
-12.43.1.1 emacspeak-custom-goto-group
-.....................................
-
- -- Command: emacspeak-custom-goto-group
-
-     Jump to custom group when in a customization buffer.
-
-12.43.1.2 emacspeak-custom-goto-toolbar
-.......................................
-
- -- Command: emacspeak-custom-goto-toolbar
-
-     Jump to custom toolbar when in a customization buffer.
-
-
-File: emacspeak.info,  Node: emacspeak-dbus,  Next: emacspeak-desktop,  Prev: emacspeak-custom,  Up: Emacspeak Commands And Options
-
-12.44 emacspeak-dbus
-====================
-
-Set up Emacspeak to respond to DBus notifications
-
-
-File: emacspeak.info,  Node: emacspeak-desktop,  Next: emacspeak-dictionary,  Prev: emacspeak-dbus,  Up: Emacspeak Commands And Options
-
-12.45 emacspeak-desktop
-=======================
-
-advice desktop package
-
-
-File: emacspeak.info,  Node: emacspeak-dictionary,  Next: emacspeak-diff-mode,  Prev: emacspeak-desktop,  Up: Emacspeak Commands And Options
-
-12.46 emacspeak-dictionary
-==========================
-
-Speech-enables emacs client for accessing dictionary server at
-dict.org:2628
-
-
 File: emacspeak.info,  Node: emacspeak-diff-mode,  Next: emacspeak-dired,  Prev: emacspeak-dictionary,  Up: Emacspeak Commands And Options
 
 12.47 emacspeak-diff-mode
@@ -3556,8 +3254,98 @@ hosted at sourceforge.  I use emacs-jabber with my gmail.com account
 12.102.2 emacspeak-jabber Options
 ---------------------------------
 
+ -- Variable: User Option emacspeak-jabber-activity-personality
+     Personality used for jabber-activity-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option emacspeak-jabber-chat-error-voice
+     Personality used for jabber-chat-error This personality uses
+     voice-bolden-and-animate whose effect can be changed globally by
+     customizing voice-bolden-and-animate-settings.
+
+ -- Variable: User Option emacspeak-jabber-chat-prompt-foreign-voice
+     Personality used for jabber-chat-prompt-foreign This personality
+     uses voice-brighten-medium whose effect can be changed globally by
+     customizing voice-brighten-medium-settings.
+
+ -- Variable: User Option emacspeak-jabber-chat-prompt-local-voice
+     Personality used for jabber-chat-prompt-local This personality uses
+     voice-smoothen-medium whose effect can be changed globally by
+     customizing voice-smoothen-medium-settings.
+
+ -- Variable: User Option emacspeak-jabber-chat-prompt-system-voice
+     Personality used for jabber-chat-prompt-system This personality
+     uses voice-brighten-extra whose effect can be changed globally by
+     customizing voice-brighten-extra-settings.
+
+ -- Variable: User Option emacspeak-jabber-chat-text-foreign-voice
+     Personality used for jabber-chat-text-foreign This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option emacspeak-jabber-chat-text-local-voice
+     Personality used for jabber-chat-text-local This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-jabber-rare-time-personality
+     Personality used for jabber-rare-time-face This personality uses
+     voice-animate-extra whose effect can be changed globally by
+     customizing voice-animate-extra-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-away-voice
+     Personality used for jabber-roster-user-away This personality uses
+     voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-chatty-voice
+     Personality used for jabber-roster-user-chatty This personality
+     uses voice-brighten whose effect can be changed globally by
+     customizing voice-brighten-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-dnd-voice
+     Personality used for jabber-roster-user-dnd This personality uses
+     voice-lighten-medium whose effect can be changed globally by
+     customizing voice-lighten-medium-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-error-voice
+     Personality used for jabber-roster-user-error This personality uses
+     voice-bolden-and-animate whose effect can be changed globally by
+     customizing voice-bolden-and-animate-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-offline-voice
+     Personality used for jabber-roster-user-offline This personality
+     uses voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-online-voice
+     Personality used for jabber-roster-user-online This personality
+     uses voice-bolden whose effect can be changed globally by
+     customizing voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-xa-voice
+     Personality used for jabber-roster-user-xa This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
  -- Variable: User Option emacspeak-jabber-speak-presence-alerts
      Set to T if you want to hear presence alerts.
+
+ -- Variable: User Option emacspeak-jabber-title-large-voice
+     Personality used for jabber-title-large This personality uses
+     voice-bolden-extra whose effect can be changed globally by
+     customizing voice-bolden-extra-settings.
+
+ -- Variable: User Option emacspeak-jabber-title-medium-voice
+     Personality used for jabber-title-medium This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-jabber-title-small-voice
+     Personality used for jabber-title-small This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-jade,  Next: emacspeak-jde,  Prev: emacspeak-jabber,  Up: Emacspeak Commands And Options
@@ -8418,9 +8206,9 @@ of emacspeak from becoming dependent on the speech server modules
 
      Speak the current kill entry.
      This is the text that will be yanked in
-     by the next C-y. Prefix numeric arg, COUNT, specifies that the
-     text that will be yanked as a result of a C-y followed by count-1
-     M-y be spoken. The kill number that is spoken says what
+     by the next <S-insertchar>. Prefix numeric arg, COUNT, specifies that the
+     text that will be yanked as a result of a <S-insertchar> followed by count-1
+     M-x yank-pop be spoken. The kill number that is spoken says what
      numeric prefix arg to give to command yank.
 
      (fn COUNT)
