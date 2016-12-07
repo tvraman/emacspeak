@@ -114,7 +114,7 @@ Speech flushes as you type."
   "Speaks the character if emacspeak-character-echo is true.
 See  command emacspeak-toggle-word-echo bound to
 \\[emacspeak-toggle-word-echo].
-eech flushes as you type."
+Speech flushes as you type."
   (declare (special last-command-event 
                     emacspeak-character-echo emacspeak-word-echo))
   (when buffer-read-only (dtk-speak "Buffer is read-only. "))
