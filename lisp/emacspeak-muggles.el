@@ -325,7 +325,6 @@ Also turn on emacspeak-muggles-talkative-p if it was turned off."
  (kbd "s-;")
  (defhydra emacspeak-muggles-m-player
   (:body-pre (emacspeak-muggles-body-pre "Media Player")
-             :hint nil
              :timeout 0.5
              :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
   (";" emacspeak-m-player)
