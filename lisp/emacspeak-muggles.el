@@ -597,9 +597,9 @@ Info-mode:
       (emacspeak-speak-region orig (point)))))
 
 (global-set-key (kbd "M-C-y") 'emacspeak-muggles-ido-yank)
+
 (defhydra emacspeak-muggles-yank-pop
   (:body-pre (emacspeak-muggles-body-pre "Yank")
-             :timeout 1
     :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
   "Repeatable yank"
   ("C-y" yank nil)
