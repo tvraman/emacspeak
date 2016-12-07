@@ -2430,7 +2430,7 @@ Produce auditory icons if possible."
 (defun emacspeak-minibuffer-exit-hook ()
   "Actions performed when exiting the minibuffer with Emacspeak loaded."
   (emacspeak-auditory-icon 'close-object))
-
+(add-hook 'minibuffer-exit-hook #'emacspeak-minibuffer-exit-hook)
 ;;}}}
 ;;{{{ Advice occur
 
