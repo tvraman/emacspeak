@@ -176,7 +176,7 @@ Argument `k-map' is a symbol  that names a keymap."
   "Provide auditory icon.
 Also turn on emacspeak-muggles-talkative-p if it was turned off."
   (setq emacspeak-muggles-talkative-p t)
-  (emacspeak-auditory-icon 'close-object))
+  (emacspeak-play-auditory-icon 'close-object))
 
 ;;}}}
 ;;{{{ Advice LV:
