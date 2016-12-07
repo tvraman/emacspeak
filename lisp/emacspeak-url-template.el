@@ -1192,12 +1192,16 @@ Format is stationid+AM/FM."
 
 (emacspeak-url-template-define
  "Bing Search"
- "http://www.bing.com/search?format=rss&q=%s&tbs=qdr:%s"
+ "http://www.bing.com/search?format=rss&q=%s%s"
  (list
   "Bing Search: "
   #'(lambda ()
+      (let ((choice 
       (completing-read "Date Restrict d w m y: "
-                   '("d" "w" "m" "y"))))
+'("d" "w" "m" "y"))))
+        (cond
+         ((string= "" choice) "")
+         (t (format "&tbs=qdr:%s" choice))))))
  nil
  "Bing results as RSS feed."
  #'emacspeak-feeds-rss-display)
