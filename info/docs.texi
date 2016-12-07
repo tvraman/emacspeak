@@ -11299,6 +11299,7 @@ attempt to automatically install package hydra if it is not found.
 @item  org-mode structure nav: <C-c SPC> Structure navigation  for org-mode.
 @item  org-mode tables: <C-c t> Table UI for org-mode tables.
 @item m-player: <s-m> Emacspeak-M-Player Commands
+@item m-player: <s-;> Emacspeak-M-Player muggle
 @item pianobar: <s-'> Emacspeak-M-pianobar Commands
 @item hideshow: C-c h Provide HideShow bindings.
 @item toggle-option:  <C-c o> Single binding for toggling options.
@@ -11439,6 +11440,11 @@ The body can be accessed via ‘emacspeak-muggles-info-summary/body’.
 
 @subsubsection emacspeak-muggles-m-player/body
 @deffn {Command} emacspeak-muggles-m-player/body   
+@table @kbd
+@item s-;
+@kindex s-;
+@end table
+
 @findex emacspeak-muggles-m-player/body
 
 @format

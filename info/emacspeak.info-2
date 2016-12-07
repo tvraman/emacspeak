@@ -5141,6 +5141,7 @@ attempt to automatically install package hydra if it is not found.
      org-mode.
    • org-mode tables: <C-c t> Table UI for org-mode tables.
    • m-player: <s-m> Emacspeak-M-Player Commands
+   • m-player: <s-;> Emacspeak-M-Player muggle
    • pianobar: <s-’> Emacspeak-M-pianobar Commands
    • hideshow: C-c h Provide HideShow bindings.
    • toggle-option: <C-c o> Single binding for toggling options.
@@ -5261,6 +5262,7 @@ binds ‘s’ to this command.
 ..........................................
 
  -- Command: emacspeak-muggles-m-player/body
+     ‘s-;’
 
      Create a hydra with no body and the heads:
 
