@@ -61,6 +61,7 @@
 ;;;@item  org-mode structure nav: <C-c SPC> Structure navigation  for org-mode.
 ;;;@item  org-mode tables: <C-c t> Table UI for org-mode tables.
 ;;;@item m-player: <s-m> Emacspeak-M-Player Commands
+;;;@item m-player: <s-;> Emacspeak-M-Player muggle
 ;;;@item pianobar: <s-'> Emacspeak-M-pianobar Commands
 ;;; @item hideshow: C-c h Provide HideShow bindings.
 ;;; @item toggle-option:  <C-c o> Single binding for toggling options.
@@ -320,8 +321,9 @@ Also turn on emacspeak-muggles-talkative-p if it was turned off."
 
 ;;}}}
 ;;{{{ Media Player:
-
-(defhydra emacspeak-muggles-m-player
+(global-set-key
+ (kbd "s-;")
+ (defhydra emacspeak-muggles-m-player
   (:body-pre (emacspeak-muggles-body-pre "Media Player")
              :hint nil
              :timeout 0.5
@@ -380,7 +382,7 @@ Also turn on emacspeak-muggles-talkative-p if it was turned off."
   (")" emacspeak-m-player-right-channel)
   ("{" emacspeak-m-player-half-speed)
   ("}" emacspeak-m-player-double-speed)
-  )
+  ))
 
 ;;}}}
 ;;{{{ HideShow:
