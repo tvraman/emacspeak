@@ -934,11 +934,6 @@ icon."
     (emacspeak-auditory-icon 'help)
     (dtk-speak (emacspeak-get-current-completion))))
 
-(defadvice minibuffer-complete-and-exit (before emacspeak pre act comp)
-  "Provide an auditory icon."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)))
-
 (defadvice tmm-menubar (before emacspeak pre act comp)
   "Provide an auditory icon."
   (when (ems-interactive-p)
