@@ -108,8 +108,7 @@
 # If you use bash (the default under linux)
 # alias emacspeak="emacs -q -l <EMACSPEAK_DIR>/emacspeak-setup.el -l $HOME/.emacs"
 # Note: in all of the above you should replace <EMACSPEAK_DIR> with your
-# site-specific value. The distribution also creates a shell executable
-# The now deprecated emacspeak.sh that does the same thing as the alias shown above.
+# site-specific value. 
 
 # }}}
 # {{{  Site Configuration
@@ -273,7 +272,6 @@ install:
 	$(INSTALL) -d $(libdir)/etc/tables
 	$(INSTALL)  -m 0644 $(TABLE_SAMPLES) $(libdir)/etc/tables
 	$(INSTALL) -d $(bindir)
-	$(INSTALL) -m 0755  etc/emacspeak.sh $(bindir)/emacspeak
 	$(INSTALL) -d $(infodir)
 	cd info; \
   cp *info* $(infodir)
