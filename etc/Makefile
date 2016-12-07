@@ -48,10 +48,6 @@ tips.html: tips.xml tips.xsl
 # }}}
 # {{{ User level target--  config 
 config:
-	@rm -f    emacspeak.sh
-	@sed "s@<emacspeak-dir>@$(SRC)/lisp@g" \
-		emacspeak.sh.def > emacspeak.sh
-	@chmod 755   emacspeak.sh
 	@chmod 755   *.pl
 
 # }}}
