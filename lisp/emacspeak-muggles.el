@@ -589,8 +589,8 @@ Info-mode:
   (:body-pre (emacspeak-muggles-body-pre "Yank")
              :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
   "Repeatable yank"
-  ("C-y" yank nil)
-  ("M-y" yank-pop nil)
+  ("C-y" (funcall-interactively #'yank nil))
+  ("M-y" (funcall-interactively #'yank-pop nil))
   ("y" (funcall-interactively #'yank-pop 1) "next")
   ("Y" (funcall-interactively #'yank-pop -1) "prev")
   ("i" emacspeak-muggles-ido-yank "IDo Yank" :color blue)
