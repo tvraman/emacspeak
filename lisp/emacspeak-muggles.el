@@ -181,22 +181,12 @@ Also turn on emacspeak-muggles-talkative-p if it was turned off."
 
 ;;}}}
 ;;{{{ Advice LV:
+;;; We use plain messages:
 
-(setq hydra-head-format "%s ")
+(setq hydra-head-format "%s "
+      hydra-lv nil)
 
-(defadvice lv-message (after emacspeak pre act comp)
-  "provide spoken feedback if idle, and emacspeak-muggles-talkative-p is T."
-  (when emacspeak-muggles-talkative-p
-    (let ((buffer (get-buffer "*LV*"))
-          (dtk-stop-immediately  nil))
-      (when (and buffer  (buffer-live-p buffer))
-        (with-current-buffer buffer
-          (dtk-speak-list
-           (split-string
-            (propertize
-             (buffer-substring (point-min) (1- (point-max)))
-             :personality 'voice-smoothen)
-            ",")))))))
+
 
 ;;}}}
 ;;{{{ Brightness:
@@ -408,8 +398,7 @@ Also turn on emacspeak-muggles-talkative-p if it was turned off."
  (kbd "C-c o")
  (defhydra emacspeak-muggles-toggle-option
    (:color blue :body-pre (emacspeak-muggles-body-pre "Toggle Option ")
-           :pre emacspeak-muggles-pre :post emacspeak-muggles-post
-           )
+           :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
    "
 _a_ abbrev-mode:       %`abbrev-mode
 _d_ debug-on-error:    %`debug-on-error
