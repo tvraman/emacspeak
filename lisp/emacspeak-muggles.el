@@ -67,7 +67,7 @@
 ;;; @item toggle-option:  <C-c o> Single binding for toggling options.
 ;;; @item outliner: <C-c .> Bindings from outline-minor-mode.
 ;;;@item Info-Summary: <?> in Info Info Summary Muggle
-;;; @item Repeatable-Yank: <C-y> Smart yank 
+;;; @item Repeatable-Yank: <C-y> Smart yank
 ;;;@end itemize
 
 ;;; Emacspeak automatically speaks Hydra hints when displayed.
@@ -151,15 +151,12 @@ Argument `k-map' is a symbol  that names a keymap."
 ;;}}}
 ;;{{{ Toggle Talkative:
 
-(defvar emacspeak-muggles-talkative-p t
-  "Set to nil when silencing speaking of hydra hints.")
-
 (defun emacspeak-muggles-toggle-talkative ()
-  "Toggle state of emacspeak-muggles-talkative-p."
+  "Toggle state of hydra-is-helpful"
   (interactive)
-  (declare (special emacspeak-muggles-talkative-p))
-  (setq emacspeak-muggles-talkative-p (not emacspeak-muggles-talkative-p))
-  (emacspeak-auditory-icon (if emacspeak-muggles-talkative-p 'on 'off)))
+  (declare (special hydra-is-helpful))
+  (setq hydra-is-helpful (not hydra-is-helpful))
+  (emacspeak-auditory-icon (if hydra-is-helpful 'on 'off)))
 
 ;;}}}
 ;;{{{ Emacspeak Helpers:
@@ -175,8 +172,8 @@ Argument `k-map' is a symbol  that names a keymap."
 
 (defun emacspeak-muggles-post ()
   "Provide auditory icon.
-Also turn on emacspeak-muggles-talkative-p if it was turned off."
-  (setq emacspeak-muggles-talkative-p t)
+Also turn on hydra-is-helpful if it was turned off."
+  (setq hydra-is-helpful t)
   (emacspeak-play-auditory-icon 'close-object))
 
 ;;}}}
@@ -185,8 +182,6 @@ Also turn on emacspeak-muggles-talkative-p if it was turned off."
 
 (setq hydra-head-format "%s "
       hydra-lv nil)
-
-
 
 ;;}}}
 ;;{{{ Brightness:
@@ -271,7 +266,7 @@ Also turn on emacspeak-muggles-talkative-p if it was turned off."
 ;;}}}
 ;;{{{ Org Mode Structure Navigation:
 
-(define-key org-mode-map 
+(define-key org-mode-map
   (kbd "C-c SPC")
   (defhydra emacspeak-muggles-org-nav
     (:body-pre
@@ -314,64 +309,64 @@ Also turn on emacspeak-muggles-talkative-p if it was turned off."
 (global-set-key
  (kbd "s-;")
  (defhydra emacspeak-muggles-m-player
-  (:body-pre (emacspeak-muggles-body-pre "Media Player")
-             :timeout 0.5
-             :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
-  (";" emacspeak-m-player)
-  ("+" emacspeak-m-player-volume-up)
-  ("," emacspeak-m-player-backward-10s)
-  ("%" emacspeak-m-player-display-percent)
-  ("-" emacspeak-m-player-volume-down)
-  ("." emacspeak-m-player-forward-10s)
-  ("<" emacspeak-m-player-backward-1min)
-  ("<down>" emacspeak-m-player-forward-1min)
-  ("<end>" emacspeak-m-player-end-of-track)
-  ("<home>" emacspeak-m-player-beginning-of-track)
-  ("<left>" emacspeak-m-player-backward-10s)
-  ("<next>" emacspeak-m-player-forward-10min)
-  ("<prior>" emacspeak-m-player-backward-10min)
-  ("<right>" emacspeak-m-player-forward-10s)
-  ("<up>" emacspeak-m-player-backward-1min)
-  ("=" emacspeak-m-player-volume-up)
-  (">" emacspeak-m-player-forward-1min)
-  ("?" emacspeak-m-player-display-position)
-  ("C" emacspeak-m-player-clear-filters)
-  ("C-m" emacspeak-m-player-load)
-  ("DEL" emacspeak-m-player-reset-speed)
-  ("L" emacspeak-m-player-load-file)
-  ("M-l" emacspeak-m-player-load-playlist)
-  ("O" emacspeak-m-player-reset-options)
-  ("P" emacspeak-m-player-apply-reverb-preset)
-  ("Q" emacspeak-m-player-quit "quit")
-  ("R" emacspeak-m-player-edit-reverb)
-  ("S" emacspeak-amark-save)
-  ("SPC" emacspeak-m-player-pause)
-  ("[" emacspeak-m-player-slower)
-  ("]" emacspeak-m-player-faster)
-  ("a" emacspeak-m-player-amark-add)
-  ("b" emacspeak-m-player-balance)
-  ("c" emacspeak-m-player-slave-command)
-  ("d" emacspeak-m-player-delete-filter)
-  ("e" emacspeak-m-player-add-equalizer)
-  ("f" emacspeak-m-player-add-filter)
-  ("g" emacspeak-m-player-seek-absolute)
-  ("j" emacspeak-m-player-amark-jump)
-  ("l" emacspeak-m-player-get-length)
-  ("m" emacspeak-m-player-speak-mode-line)
-  ("n" emacspeak-m-player-next-track)
-  ("o" emacspeak-m-player-customize-options)
-  ("p" emacspeak-m-player-previous-track)
-  ("q" bury-buffer)
-  ("r" emacspeak-m-player-seek-relative)
-  ("s" emacspeak-m-player-scale-speed)
-  ("t" emacspeak-m-player-play-tracks-jump)
-  ("u" emacspeak-m-player-url)
-  ("v" emacspeak-m-player-volume-change)
-  ("(" emacspeak-m-player-left-channel)
-  (")" emacspeak-m-player-right-channel)
-  ("{" emacspeak-m-player-half-speed)
-  ("}" emacspeak-m-player-double-speed)
-  ))
+   (:body-pre (emacspeak-muggles-body-pre "Media Player")
+              :timeout 0.5
+              :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
+   (";" emacspeak-m-player)
+   ("+" emacspeak-m-player-volume-up)
+   ("," emacspeak-m-player-backward-10s)
+   ("%" emacspeak-m-player-display-percent)
+   ("-" emacspeak-m-player-volume-down)
+   ("." emacspeak-m-player-forward-10s)
+   ("<" emacspeak-m-player-backward-1min)
+   ("<down>" emacspeak-m-player-forward-1min)
+   ("<end>" emacspeak-m-player-end-of-track)
+   ("<home>" emacspeak-m-player-beginning-of-track)
+   ("<left>" emacspeak-m-player-backward-10s)
+   ("<next>" emacspeak-m-player-forward-10min)
+   ("<prior>" emacspeak-m-player-backward-10min)
+   ("<right>" emacspeak-m-player-forward-10s)
+   ("<up>" emacspeak-m-player-backward-1min)
+   ("=" emacspeak-m-player-volume-up)
+   (">" emacspeak-m-player-forward-1min)
+   ("?" emacspeak-m-player-display-position)
+   ("C" emacspeak-m-player-clear-filters)
+   ("C-m" emacspeak-m-player-load)
+   ("DEL" emacspeak-m-player-reset-speed)
+   ("L" emacspeak-m-player-load-file)
+   ("M-l" emacspeak-m-player-load-playlist)
+   ("O" emacspeak-m-player-reset-options)
+   ("P" emacspeak-m-player-apply-reverb-preset)
+   ("Q" emacspeak-m-player-quit "quit")
+   ("R" emacspeak-m-player-edit-reverb)
+   ("S" emacspeak-amark-save)
+   ("SPC" emacspeak-m-player-pause)
+   ("[" emacspeak-m-player-slower)
+   ("]" emacspeak-m-player-faster)
+   ("a" emacspeak-m-player-amark-add)
+   ("b" emacspeak-m-player-balance)
+   ("c" emacspeak-m-player-slave-command)
+   ("d" emacspeak-m-player-delete-filter)
+   ("e" emacspeak-m-player-add-equalizer)
+   ("f" emacspeak-m-player-add-filter)
+   ("g" emacspeak-m-player-seek-absolute)
+   ("j" emacspeak-m-player-amark-jump)
+   ("l" emacspeak-m-player-get-length)
+   ("m" emacspeak-m-player-speak-mode-line)
+   ("n" emacspeak-m-player-next-track)
+   ("o" emacspeak-m-player-customize-options)
+   ("p" emacspeak-m-player-previous-track)
+   ("q" bury-buffer)
+   ("r" emacspeak-m-player-seek-relative)
+   ("s" emacspeak-m-player-scale-speed)
+   ("t" emacspeak-m-player-play-tracks-jump)
+   ("u" emacspeak-m-player-url)
+   ("v" emacspeak-m-player-volume-change)
+   ("(" emacspeak-m-player-left-channel)
+   (")" emacspeak-m-player-right-channel)
+   ("{" emacspeak-m-player-half-speed)
+   ("}" emacspeak-m-player-double-speed)
+   ))
 
 ;;}}}
 ;;{{{ HideShow:
@@ -398,7 +393,10 @@ Also turn on emacspeak-muggles-talkative-p if it was turned off."
  (kbd "C-c o")
  (defhydra emacspeak-muggles-toggle-option
    (:color blue :body-pre (emacspeak-muggles-body-pre "Toggle Option ")
-           :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
+           :pre (progn
+                  (emacspeak-muggles-pre)
+                  (unless hydra-is-helpful (emacspeak-muggles-toggle-talkative)))
+           :post emacspeak-muggles-post)
    "
 _a_ abbrev-mode:       %`abbrev-mode
 _d_ debug-on-error:    %`debug-on-error
@@ -566,7 +564,7 @@ Info-mode:
 ;;}}}
 ;;{{{ Repeatable Yank
 
-;;;Repeatable yank(-pop) command, with an option to switch to a list view using 
+;;;Repeatable yank(-pop) command, with an option to switch to a list view using
 ;;; browse-kill-ring.
 
 ;;;Helper: IDo Search for kill ring
@@ -589,7 +587,7 @@ Info-mode:
 
 (defhydra emacspeak-muggles-yank-pop
   (:body-pre (emacspeak-muggles-body-pre "Yank")
-    :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
+             :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
   "Repeatable yank"
   ("C-y" yank nil)
   ("M-y" yank-pop nil)
@@ -597,7 +595,6 @@ Info-mode:
   ("Y" (funcall-interactively #'yank-pop -1) "prev")
   ("i" emacspeak-muggles-ido-yank "IDo Yank" :color blue)
   ("l" browse-kill-ring "list" :color blue))
-
 
 (global-set-key (kbd "M-y") #'emacspeak-muggles-yank-pop/yank-pop)
 (global-set-key (kbd "C-y") #'emacspeak-muggles-yank-pop/yank)
