@@ -456,26 +456,26 @@ _l_: leaves        _s_: subtree     _b_: backward same level
 _d_: subtree
 
 "
-   ("?" (emacspeak-muggles-self-help "emacspeak-muggles-outliner")
+   ("?" (emacspeak-muggles-self-help "emacspeak-muggles-outliner"))
    ;; Hide
-   ("q" outline-hide-sublevels)    ; Hide everything but the top-level headings
-   ("t" outline-hide-body)         ; Hide everything but headings (all body lines)
-   ("o" outline-hide-other)        ; Hide other branches
-   ("c" outline-hide-entry)        ; Hide this entry's body
-   ("l" outline-hide-leaves)       ; Hide body lines in this entry and sub-entries
-   ("d" outline-hide-subtree)      ; Hide everything in this entry and sub-entries
+   ("q" outline-hide-sublevels) ; Hide everything but the top-level headings
+   ("t" outline-hide-body) ; Hide everything but headings (all body lines)
+   ("o" outline-hide-other)             ; Hide other branches
+   ("c" outline-hide-entry)             ; Hide this entry's body
+   ("l" outline-hide-leaves) ; Hide body lines in this entry and sub-entries
+   ("d" outline-hide-subtree) ; Hide everything in this entry and sub-entries
    ;; Show
-   ("a" outline-show-all)          ; Show (expand) everything
-   ("e" outline-show-entry)        ; Show this heading's body
-   ("i" outline-show-children)     ; Show this heading's immediate child sub-headings
-   ("k" outline-show-branches)     ; Show all sub-headings under this heading
-   ("s" outline-show-subtree)      ; Show (expand) everything in this heading & below
+   ("a" outline-show-all)               ; Show (expand) everything
+   ("e" outline-show-entry)             ; Show this heading's body
+   ("i" outline-show-children) ; Show this heading's immediate child sub-headings
+   ("k" outline-show-branches) ; Show all sub-headings under this heading
+   ("s" outline-show-subtree) ; Show (expand) everything in this heading & below
    ;; Move
-   ("u" outline-up-heading)                ; Up
-   ("n" outline-next-visible-heading)      ; Next
-   ("p" outline-previous-visible-heading)  ; Previous
-   ("f" outline-forward-same-level)        ; Forward - same level
-   ("b" outline-backward-same-level)       ; Backward - same level
+   ("u" outline-up-heading)               ; Up
+   ("n" outline-next-visible-heading)     ; Next
+   ("p" outline-previous-visible-heading) ; Previous
+   ("f" outline-forward-same-level)       ; Forward - same level
+   ("b" outline-backward-same-level)      ; Backward - same level
    ("z" nil "leave")))
 
 ;;}}}
