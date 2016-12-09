@@ -174,14 +174,24 @@ Argument `k-map' is a symbol  that names a keymap."
   "Provide auditory icon.
 Also turn on hydra-is-helpful if it was turned off."
   (setq hydra-is-helpful t)
+  (dtk-stop)
   (emacspeak-play-auditory-icon 'close-object))
 
 ;;}}}
-;;{{{ Advice LV:
+;;{{{ Setup Help And Hint 
+
 ;;; We use plain messages:
 
 (setq hydra-head-format "%s "
       hydra-lv nil)
+
+(defun emacspeak-muggles-self-help (name)
+  "Speak hint for specified Hydra."
+  (message
+   (eval
+    (eval
+     (intern
+      (format "%s/hint" name))))))
 
 ;;}}}
 ;;{{{ Brightness:
@@ -193,7 +203,8 @@ Also turn on hydra-is-helpful if it was turned off."
               :timeout 0.3
               :pre emacspeak-muggles-pre
               :post emacspeak-muggles-post)
-   "Brightness"
+   "Brightness "
+   ("?" (emacspeak-muggles-self-help "emacspeak-muggles-brightness") "Help")
    ("s" xbacklight-set "set")
    ("g" xbacklight-get "Get")
    ("<print>" xbacklight-black "black")
@@ -216,6 +227,7 @@ Also turn on hydra-is-helpful if it was turned off."
     :hint nil
     :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
    "View Mode"
+   ("?" (emacspeak-muggles-self-help "emacspeak-muggles-view"))
    ("$" set-selective-display)
    ("%"  View-goto-percent)
    ("'" register-to-point)
@@ -276,7 +288,8 @@ Also turn on hydra-is-helpful if it was turned off."
      :hint nil
      :pre emacspeak-muggles-pre :post emacspeak-muggles-post
      :color red :columns 3)
-    "Org Mode Movements"
+    "Org Mode Navigate "
+    ("?" (emacspeak-muggles-self-help "emacspeak-muggles-org-nav"))
     ("SPC" emacspeak-outline-speak-this-heading  "Speak this section")
     ("n" outline-next-visible-heading "next heading")
     ("p" outline-previous-visible-heading "prev heading")
@@ -294,6 +307,7 @@ Also turn on hydra-is-helpful if it was turned off."
     (:body-pre (emacspeak-muggles-body-pre "Org Table UI")
                :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
     "Org Table UI"
+    ("?"(emacspeak-muggles-self-help "emacspeak-muggles-org-table"))
     ("j" org-table-next-row)
     ("k" org-table-previous-row)
     ("h" org-table-previous-field)
@@ -306,6 +320,7 @@ Also turn on hydra-is-helpful if it was turned off."
 
 ;;}}}
 ;;{{{ Media Player:
+
 (global-set-key
  (kbd "s-;")
  (defhydra emacspeak-muggles-m-player
@@ -378,6 +393,7 @@ Also turn on hydra-is-helpful if it was turned off."
     :body-pre (emacspeak-muggles-body-pre  "Hide Show")
               :pre emacspeak-muggles-pre :post emacspeak-muggles-post :color blue)
    "Hideshow"
+   ("?" (emacspeak-muggles-self-help "emacspeak-muggles-hideshow"))
    ("h" hs-hide-block)
    ("s" hs-show-block)
    ("H" hs-hide-all)
@@ -407,6 +423,7 @@ _t_ truncate-lines:    %`truncate-lines
 _w_ whitespace-mode:   %`whitespace-mode
 
 "
+   ("?" (emacspeak-muggles-self-help "emacspeak-muggles-toggle-option"))
    ("a" abbrev-mode)
    ("d" toggle-debug-on-error)
    ("f" auto-fill-mode)
@@ -439,6 +456,7 @@ _l_: leaves        _s_: subtree     _b_: backward same level
 _d_: subtree
 
 "
+   ("?" (emacspeak-muggles-self-help "emacspeak-muggles-outliner")
    ;; Hide
    ("q" outline-hide-sublevels)    ; Hide everything but the top-level headings
    ("t" outline-hide-body)         ; Hide everything but headings (all body lines)
@@ -477,9 +495,10 @@ _d_: subtree
     :hint nil
     :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
    "move"
-   ("s" emacspeak-muggles-toggle-talkative)
-   ("n" next-line)
-   ("p" previous-line)
+   ("?" (emacspeak-muggles-self-help "emacspeak-muggles-navigate"))
+   ("s" emacspeak-muggles-toggle-talkative "quiet")
+   ("n" next-line "next ")
+   ("p" previous-line "previous ")
    ("f" forward-char)
    ("b" backward-char)
    ("a" beginning-of-line)
@@ -592,7 +611,8 @@ Info-mode:
                (emacspeak-muggles-pre)
                (when hydra-is-helpful (emacspeak-muggles-toggle-talkative)))
                :post emacspeak-muggles-post)
-  "Repeatable yank"
+  "Yank"
+  ("?" (emacspeak-muggles-self-help "emacspeak-muggles-yank-pop"))
   ("C-y" (funcall-interactively #'yank nil))
   ("M-y" (funcall-interactively #'yank-pop nil))
   ("y" (funcall-interactively #'yank-pop 1) "next")
