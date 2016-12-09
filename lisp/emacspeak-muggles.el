@@ -587,7 +587,11 @@ Info-mode:
 
 (defhydra emacspeak-muggles-yank-pop
   (:body-pre (emacspeak-muggles-body-pre "Yank")
-             :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
+             :pre
+             (progn
+               (emacspeak-muggles-pre)
+               (when hydra-is-helpful (emacspeak-muggles-toggle-talkative)))
+               :post emacspeak-muggles-post)
   "Repeatable yank"
   ("C-y" (funcall-interactively #'yank nil))
   ("M-y" (funcall-interactively #'yank-pop nil))
