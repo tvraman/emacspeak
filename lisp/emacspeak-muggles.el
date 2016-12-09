@@ -174,7 +174,7 @@ Argument `k-map' is a symbol  that names a keymap."
   "Provide auditory icon.
 Also turn on hydra-is-helpful if it was turned off."
   (setq hydra-is-helpful t)
-  (dtk-stop)
+  (call-interactively #'dtk-stop)
   (emacspeak-play-auditory-icon 'close-object))
 
 ;;}}}
@@ -185,13 +185,9 @@ Also turn on hydra-is-helpful if it was turned off."
 (setq hydra-head-format "%s "
       hydra-lv nil)
 
-(defun emacspeak-muggles-self-help (name)
+(defsubst emacspeak-muggles-self-help (name)
   "Speak hint for specified Hydra."
-  (message
-   (eval
-    (eval
-     (intern
-      (format "%s/hint" name))))))
+  (message (eval (symbol-value (intern (format "%s/hint" name))))))
 
 ;;}}}
 ;;{{{ Brightness:
@@ -420,6 +416,7 @@ _f_ auto-fill-mode:    %`auto-fill-function
 _g_ debug-on-quit:    %`debug-on-quit
 _h_ hydra-is-helpful    %`hydra-is-helpful
 _t_ truncate-lines:    %`truncate-lines
+_u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
 _w_ whitespace-mode:   %`whitespace-mode
 
 "
@@ -430,6 +427,7 @@ _w_ whitespace-mode:   %`whitespace-mode
    ("g"  toggle-debug-on-quit)
    ("h" (setq hydra-is-helpful (not hydra-is-helpful)))
    ("t" toggle-truncate-lines)
+   ("u" ido-ubiquitous-mode "Ubiquitous IDo")
    ("w" whitespace-mode)
    ("q" nil "quit")))
 
@@ -608,8 +606,8 @@ Info-mode:
   (:body-pre (emacspeak-muggles-body-pre "Yank")
              :pre
              (progn
-               (emacspeak-muggles-pre)
-               (when hydra-is-helpful (emacspeak-muggles-toggle-talkative)))
+               (when hydra-is-helpful (emacspeak-muggles-toggle-talkative))
+               (emacspeak-muggles-pre))
                :post emacspeak-muggles-post)
   "Yank"
   ("?" (emacspeak-muggles-self-help "emacspeak-muggles-yank-pop"))
