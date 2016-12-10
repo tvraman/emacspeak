@@ -611,8 +611,8 @@ Info-mode:
                :post emacspeak-muggles-post)
   "Yank"
   ("?" (emacspeak-muggles-self-help "emacspeak-muggles-yank-pop"))
-  ("C-y" (funcall-interactively #'yank nil))
-  ("M-y" (funcall-interactively #'yank-pop nil))
+  ("C-y" yank nil)
+  ("M-y" yank-pop nil)
   ("y" (funcall-interactively #'yank-pop 1) "next")
   ("Y" (funcall-interactively #'yank-pop -1) "prev")
   ("i" emacspeak-muggles-ido-yank "IDo Yank" :color blue)
