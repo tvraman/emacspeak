@@ -297,8 +297,9 @@ Optional prefix arg `offset' prompts for offset --- use this for retrieving more
   "Launch a Librivox Search."
   (interactive
    (list
-    (read-char "a: Author, t: Title,  p:Play, g:Genre")))
+    (read-char "a: Author, t: Title,  p:Play, g:Genre, d: Browse Local")))
   (ecase search-type
+    (?d (dired (expand-file-name "librivox" emacspeak-resource-directory)))
     (?a (call-interactively 'emacspeak-librivox-search-by-author))
     (?p (call-interactively 'emacspeak-librivox-play))
     (?t (call-interactively 'emacspeak-librivox-search-by-title))
