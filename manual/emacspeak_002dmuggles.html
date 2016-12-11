@@ -95,7 +95,7 @@
   <a name="emacspeak_002dmuggles-1" id=
   "emacspeak_002dmuggles-1"></a>
 
-  <h3 class="section">12.122 emacspeak-muggles</h3>
+  <h3 class="section">12.121 emacspeak-muggles</h3>
 
   <p>MUGGLES == Keybinding Conveniences For The Emacspeak
   Desktop.</p>
@@ -112,7 +112,7 @@
   found.</p><a name="Implemented-Muggles" id=
   "Implemented-Muggles"></a>
 
-  <h4 class="subsection">12.122.1 Implemented Muggles</h4>
+  <h4 class="subsection">12.121.1 Implemented Muggles</h4>
 
   <ul>
     <li>Brightness: &lt;print&gt; Control display brightness using
@@ -145,7 +145,7 @@
 
     <li>Info-Summary: &lt;?&gt; in Info Info Summary Muggle</li>
 
-    <li>Repeatable-Yank: &lt;M-C-y&gt; Smart yank</li>
+    <li>Repeatable-Yank: &lt;C-y&gt; Smart yank</li>
   </ul>
 
   <p>Emacspeak automatically speaks Hydra hints when displayed. To
@@ -156,12 +156,12 @@
   this command.</p><a name="emacspeak_002dmuggles-Commands" id=
   "emacspeak_002dmuggles-Commands"></a>
 
-  <h4 class="subsection">12.122.2 emacspeak-muggles
+  <h4 class="subsection">12.121.2 emacspeak-muggles
   Commands</h4><a name=
   "emacspeak_002dmuggles_002dbrightness_002fbody" id=
   "emacspeak_002dmuggles_002dbrightness_002fbody"></a>
 
-  <h4 class="subsubsection">12.122.2.1
+  <h4 class="subsubsection">12.121.2.1
   emacspeak-muggles-brightness/body</h4>
 
   <dl>
@@ -184,6 +184,7 @@
         <pre class="format">
 Create a hydra with no body and the heads:
 
+"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-brightness")’,
 "s":    ‘xbacklight-set’,
 "g":    ‘xbacklight-get’,
 "&lt;print&gt;":    ‘xbacklight-black’,
@@ -202,7 +203,7 @@ The body can be accessed via ‘emacspeak-muggles-brightness/body’.
   id=
   "emacspeak_002dmuggles_002demacspeak_002dm_002dplayer_002dmode_002dmap_002dcmd"></a>
 
-  <h4 class="subsubsection">12.122.2.2
+  <h4 class="subsubsection">12.121.2.2
   emacspeak-muggles-emacspeak-m-player-mode-map-cmd</h4>
 
   <dl>
@@ -232,7 +233,7 @@ Temporarily use keymap emacspeak-m-player-mode-map
   </dl><a name="emacspeak_002dmuggles_002dhideshow_002fbody" id=
   "emacspeak_002dmuggles_002dhideshow_002fbody"></a>
 
-  <h4 class="subsubsection">12.122.2.3
+  <h4 class="subsubsection">12.121.2.3
   emacspeak-muggles-hideshow/body</h4>
 
   <dl>
@@ -255,6 +256,7 @@ Temporarily use keymap emacspeak-m-player-mode-map
         <pre class="format">
 Create a hydra with no body and the heads:
 
+"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-hideshow")’,
 "h":    ‘hs-hide-block’,
 "s":    ‘hs-show-block’,
 "H":    ‘hs-hide-all’,
@@ -268,7 +270,7 @@ The body can be accessed via ‘emacspeak-muggles-hideshow/body’.
   </dl><a name="emacspeak_002dmuggles_002dido_002dyank" id=
   "emacspeak_002dmuggles_002dido_002dyank"></a>
 
-  <h4 class="subsubsection">12.122.2.4
+  <h4 class="subsubsection">12.121.2.4
   emacspeak-muggles-ido-yank</h4>
 
   <dl>
@@ -277,8 +279,13 @@ The body can be accessed via ‘emacspeak-muggles-hideshow/body’.
     <strong>emacspeak-muggles-ido-yank</strong></dt>
 
     <dd>
-      <a name="index-emacspeak_002dmuggles_002dido_002dyank-1" id=
-      "index-emacspeak_002dmuggles_002dido_002dyank-1"></a>
+      <dl compact="compact">
+        <dt><kbd>C-M-y</kbd></dt>
+
+        <dd><a name="index-C_002dM_002dy" id=
+        "index-C_002dM_002dy"></a></dd>
+      </dl><a name="index-emacspeak_002dmuggles_002dido_002dyank-1"
+      id="index-emacspeak_002dmuggles_002dido_002dyank-1"></a>
 
       <div class="format">
         <pre class="format">
@@ -290,7 +297,7 @@ Pick what to yank using ido completion.
   "emacspeak_002dmuggles_002dinfo_002dsummary_002fbody" id=
   "emacspeak_002dmuggles_002dinfo_002dsummary_002fbody"></a>
 
-  <h4 class="subsubsection">12.122.2.5
+  <h4 class="subsubsection">12.121.2.5
   emacspeak-muggles-info-summary/body</h4>
 
   <dl>
@@ -358,7 +365,7 @@ The body can be accessed via ‘emacspeak-muggles-info-summary/body’.
   </dl><a name="emacspeak_002dmuggles_002dm_002dplayer_002fbody"
   id="emacspeak_002dmuggles_002dm_002dplayer_002fbody"></a>
 
-  <h4 class="subsubsection">12.122.2.6
+  <h4 class="subsubsection">12.121.2.6
   emacspeak-muggles-m-player/body</h4>
 
   <dl>
@@ -443,7 +450,7 @@ The body can be accessed via ‘emacspeak-muggles-m-player/body’.
   </dl><a name="emacspeak_002dmuggles_002dnavigate_002fbody" id=
   "emacspeak_002dmuggles_002dnavigate_002fbody"></a>
 
-  <h4 class="subsubsection">12.122.2.7
+  <h4 class="subsubsection">12.121.2.7
   emacspeak-muggles-navigate/body</h4>
 
   <dl>
@@ -465,6 +472,7 @@ The body can be accessed via ‘emacspeak-muggles-m-player/body’.
         <pre class="format">
 Create a hydra with no body and the heads:
 
+"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-navigate")’,
 "s":    ‘emacspeak-muggles-toggle-talkative’,
 "n":    ‘next-line’,
 "p":    ‘previous-line’,
@@ -487,7 +495,7 @@ The body can be accessed via ‘emacspeak-muggles-navigate/body’.
   </dl><a name="emacspeak_002dmuggles_002dorg_002dnav_002fbody" id=
   "emacspeak_002dmuggles_002dorg_002dnav_002fbody"></a>
 
-  <h4 class="subsubsection">12.122.2.8
+  <h4 class="subsubsection">12.121.2.8
   emacspeak-muggles-org-nav/body</h4>
 
   <dl>
@@ -505,6 +513,7 @@ The body can be accessed via ‘emacspeak-muggles-navigate/body’.
         <pre class="format">
 Create a hydra with no body and the heads:
 
+"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-org-nav")’,
 "SPC":    ‘emacspeak-outline-speak-this-heading’,
 "n":    ‘outline-next-visible-heading’,
 "p":    ‘outline-previous-visible-heading’,
@@ -520,7 +529,7 @@ The body can be accessed via ‘emacspeak-muggles-org-nav/body’.
   </dl><a name="emacspeak_002dmuggles_002dorg_002dtable_002fbody"
   id="emacspeak_002dmuggles_002dorg_002dtable_002fbody"></a>
 
-  <h4 class="subsubsection">12.122.2.9
+  <h4 class="subsubsection">12.121.2.9
   emacspeak-muggles-org-table/body</h4>
 
   <dl>
@@ -539,6 +548,7 @@ The body can be accessed via ‘emacspeak-muggles-org-nav/body’.
         <pre class="format">
 Create a hydra with no body and the heads:
 
+"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-org-table")’,
 "j":    ‘org-table-next-row’,
 "k":    ‘org-table-previous-row’,
 "h":    ‘org-table-previous-field’,
@@ -556,7 +566,7 @@ The body can be accessed via ‘emacspeak-muggles-org-table/body’.
   </dl><a name="emacspeak_002dmuggles_002doutliner_002fbody" id=
   "emacspeak_002dmuggles_002doutliner_002fbody"></a>
 
-  <h4 class="subsubsection">12.122.2.10
+  <h4 class="subsubsection">12.121.2.10
   emacspeak-muggles-outliner/body</h4>
 
   <dl>
@@ -573,6 +583,7 @@ The body can be accessed via ‘emacspeak-muggles-org-table/body’.
         <pre class="format">
 Create a hydra with no body and the heads:
 
+"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-outliner")’,
 "q":    ‘outline-hide-sublevels’,
 "t":    ‘outline-hide-body’,
 "o":    ‘outline-hide-other’,
@@ -599,7 +610,7 @@ The body can be accessed via ‘emacspeak-muggles-outliner/body’.
   "emacspeak_002dmuggles_002dtoggle_002doption_002fbody" id=
   "emacspeak_002dmuggles_002dtoggle_002doption_002fbody"></a>
 
-  <h4 class="subsubsection">12.122.2.11
+  <h4 class="subsubsection">12.121.2.11
   emacspeak-muggles-toggle-option/body</h4>
 
   <dl>
@@ -624,12 +635,14 @@ The body can be accessed via ‘emacspeak-muggles-outliner/body’.
         <pre class="format">
 Create a hydra with no body and the heads:
 
+"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-toggle-option")’,
 "a":    ‘abbrev-mode’,
 "d":    ‘toggle-debug-on-error’,
 "f":    ‘auto-fill-mode’,
 "g":    ‘toggle-debug-on-quit’,
 "h":    ‘(setq hydra-is-helpful (not hydra-is-helpful))’,
 "t":    ‘toggle-truncate-lines’,
+"u":    ‘ido-ubiquitous-mode’,
 "w":    ‘whitespace-mode’,
 "q":    ‘nil’
 
@@ -640,7 +653,7 @@ The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
   </dl><a name="emacspeak_002dmuggles_002dtoggle_002dtalkative" id=
   "emacspeak_002dmuggles_002dtoggle_002dtalkative"></a>
 
-  <h4 class="subsubsection">12.122.2.12
+  <h4 class="subsubsection">12.121.2.12
   emacspeak-muggles-toggle-talkative</h4>
 
   <dl>
@@ -656,14 +669,14 @@ The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
 
       <div class="format">
         <pre class="format">
-Toggle state of emacspeak-muggles-talkative-p.
+Toggle state of hydra-is-helpful
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002dmuggles_002dview_002fbody" id=
   "emacspeak_002dmuggles_002dview_002fbody"></a>
 
-  <h4 class="subsubsection">12.122.2.13
+  <h4 class="subsubsection">12.121.2.13
   emacspeak-muggles-view/body</h4>
 
   <dl>
@@ -695,6 +708,7 @@ Toggle state of emacspeak-muggles-talkative-p.
         <pre class="format">
 Create a hydra with no body and the heads:
 
+"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-view")’,
 "$":    ‘set-selective-display’,
 "%":    ‘View-goto-percent’,
 "’":    ‘register-to-point’,
@@ -748,7 +762,7 @@ The body can be accessed via ‘emacspeak-muggles-view/body’.
   </dl><a name="emacspeak_002dmuggles_002dyank_002dpop_002fbody"
   id="emacspeak_002dmuggles_002dyank_002dpop_002fbody"></a>
 
-  <h4 class="subsubsection">12.122.2.14
+  <h4 class="subsubsection">12.121.2.14
   emacspeak-muggles-yank-pop/body</h4>
 
   <dl>
@@ -758,12 +772,7 @@ The body can be accessed via ‘emacspeak-muggles-view/body’.
     <strong>emacspeak-muggles-yank-pop/body</strong></dt>
 
     <dd>
-      <dl compact="compact">
-        <dt><kbd>C-M-y</kbd></dt>
-
-        <dd><a name="index-C_002dM_002dy" id=
-        "index-C_002dM_002dy"></a></dd>
-      </dl><a name=
+      <a name=
       "index-emacspeak_002dmuggles_002dyank_002dpop_002fbody-1" id=
       "index-emacspeak_002dmuggles_002dyank_002dpop_002fbody-1"></a>
 
@@ -771,6 +780,7 @@ The body can be accessed via ‘emacspeak-muggles-view/body’.
         <pre class="format">
 Create a hydra with no body and the heads:
 
+"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-yank-pop")’,
 "C-y":    ‘yank’,
 "M-y":    ‘yank-pop’,
 "y":    ‘(funcall-interactively (function yank-pop) 1)’,
