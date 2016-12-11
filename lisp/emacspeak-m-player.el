@@ -242,7 +242,7 @@ on a specific directory."
     (emacspeak-multimedia))
   (call-interactively
    (or (lookup-key emacspeak-m-player-mode-map key) 'undefined)))
-
+;;;###autoload 
 (defvar  emacspeak-m-player-playlist-pattern
   (concat
    (regexp-opt
