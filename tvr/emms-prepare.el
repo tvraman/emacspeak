@@ -12,7 +12,6 @@
         ("<right>" ems-seek-forward)
         ("\C-b" emms-seek-backward)
         ("\C-f" emms-seek-forward)
-         
         ("q" emms-stop)
         ("s" emms-start)
         ("." emms-pause)
@@ -36,4 +35,4 @@
 (setq emms-player-list'(emms-player-mplayer-playlist emms-player-mplayer))
 (require 'emms-info-libtag)
 (setq emms-info-functions '(emms-info-libtag))
-(global-set-key "\C-x@h;" 'emms-prefix-command)
+(global-set-key "\C-x@h." 'emms-prefix-command)
