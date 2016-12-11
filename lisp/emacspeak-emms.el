@@ -106,6 +106,13 @@
             (emacspeak-speak-mode-line)
             (emacspeak-auditory-icon 'open-object)))))
 
+(defadvice emms-browser-bury-buffer (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+            (emacspeak-speak-mode-line)
+            (emacspeak-auditory-icon 'close-object)))
+
+
 ;;}}}
 ;;{{{ Module emms-streaming:
 (declaim (special emms-stream-mode-map))
