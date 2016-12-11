@@ -10,7 +10,6 @@ This chapter documents a total of 1147 commands and 1010 options.
 * cd-tool::
 * congrats::
 * dectalk-voices::
-* dom::
 * dom-addons::
 * dtk-interp::
 * dtk-speak::
@@ -224,7 +223,6 @@ This chapter documents a total of 1147 commands and 1010 options.
 * sox::
 * sox-gen::
 * stack-f::
-* subr-x::
 * tetris::
 * toy-braille::
 * tts::
@@ -407,9 +405,6 @@ Select Dectalk TTS server.
 Select Dectalk TTS server.
 @end format
 @end deffn
-
-@node dom
-@section dom
 
 @node dom-addons
 @section dom-addons
@@ -2089,6 +2084,54 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @defvar {User Option} emacspeak-elfeed-search-unread-title-personality
 Personality used for elfeed-search-unread-title-face
 This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-epa-field-body-voice
+Personality used for epa-field-body
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-epa-field-name-voice
+Personality used for epa-field-name
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-epa-mark-voice
+Personality used for epa-mark
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-epa-string-voice
+Personality used for epa-string
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-epa-validity-disabled-voice
+Personality used for epa-validity-disabled
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-epa-validity-high-voice
+Personality used for epa-validity-high
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-epa-validity-low-voice
+Personality used for epa-validity-low
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-epa-validity-medium-voice
+Personality used for epa-validity-medium
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
 
 @end defvar
 
@@ -4865,7 +4908,7 @@ M-n		emacspeak-bookshare-next-result
 M-p		emacspeak-bookshare-previous-result
 
 In addition to any hooks its parent mode ‘special-mode’ might have run,
-this mode runs the hook ‘emacspeak-bookshare-mode-hook’, as the final step
+this mode runs the hook ‘emacspeak-bookshare-mode-hook’, as the final or penultimate step
 during initialization.
 @end format
 @end deffn
@@ -6030,56 +6073,6 @@ EPA == EasyPG Assistant
 Integrate GPG functionality into Emacs.
 Speech-enable all interactive commands.
 
-@subsection emacspeak-epa Options
-
-@defvar {User Option} emacspeak-epa-field-body-voice
-Personality used for epa-field-body
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-epa-field-name-voice
-Personality used for epa-field-name
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-epa-mark-voice
-Personality used for epa-mark
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-epa-string-voice
-Personality used for epa-string
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-epa-validity-disabled-voice
-Personality used for epa-validity-disabled
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-epa-validity-high-voice
-Personality used for epa-validity-high
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-epa-validity-low-voice
-Personality used for epa-validity-low
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-epa-validity-medium-voice
-Personality used for epa-validity-medium
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
 @node emacspeak-eperiodic
 @section emacspeak-eperiodic
 
@@ -6249,7 +6242,7 @@ key             binding
 <Return>	emacspeak-epub-calibre-dired-at-point
 
 In addition to any hooks its parent mode ‘special-mode’ might have run,
-this mode runs the hook ‘emacspeak-calibre-mode-hook’, as the final step
+this mode runs the hook ‘emacspeak-calibre-mode-hook’, as the final or penultimate step
 during initialization.
 @end format
 @end deffn
@@ -6585,7 +6578,7 @@ C-x C-q		emacspeak-epub-bookshelf-refresh
 C-x C-s		emacspeak-epub-bookshelf-save
 
 In addition to any hooks its parent mode ‘special-mode’ might have run,
-this mode runs the hook ‘emacspeak-epub-mode-hook’, as the final step
+this mode runs the hook ‘emacspeak-epub-mode-hook’, as the final or penultimate step
 during initialization.
 @end format
 @end deffn
@@ -7993,7 +7986,7 @@ key             binding
 r		emacspeak-filtertext-revert
 
 In addition to any hooks its parent mode ‘text-mode’ might have run,
-this mode runs the hook ‘emacspeak-filtertext-mode-hook’, as the final step
+this mode runs the hook ‘emacspeak-filtertext-mode-hook’, as the final or penultimate step
 during initialization.
 @end format
 @end deffn
@@ -10310,7 +10303,7 @@ DEL		emacspeak-m-player-reset-speed
 M-l		emacspeak-m-player-load-playlist
 
 In addition to any hooks its parent mode ‘comint-mode’ might have run,
-this mode runs the hook ‘emacspeak-m-player-mode-hook’, as the final step
+this mode runs the hook ‘emacspeak-m-player-mode-hook’, as the final or penultimate step
 during initialization.
 @end format
 @end deffn
@@ -11305,7 +11298,7 @@ attempt to automatically install package hydra if it is not found.
 @item toggle-option:  <C-c o> Single binding for toggling options.
 @item outliner: <C-c .> Bindings from outline-minor-mode.
 @item Info-Summary: <?> in Info Info Summary Muggle
-@item Repeatable-Yank: <M-C-y> Smart yank 
+@item Repeatable-Yank: <C-y> Smart yank
 @end itemize
 
 Emacspeak automatically speaks Hydra hints when displayed.
@@ -11328,6 +11321,7 @@ example, Muggle @samp{ViewMode} binds @code{s} to this command.
 @format
 Create a hydra with no body and the heads:
 
+"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-brightness")’,
 "s":    ‘xbacklight-set’,
 "g":    ‘xbacklight-get’,
 "<print>":    ‘xbacklight-black’,
@@ -11367,6 +11361,7 @@ Temporarily use keymap emacspeak-m-player-mode-map
 @format
 Create a hydra with no body and the heads:
 
+"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-hideshow")’,
 "h":    ‘hs-hide-block’,
 "s":    ‘hs-show-block’,
 "H":    ‘hs-hide-all’,
@@ -11379,6 +11374,11 @@ The body can be accessed via ‘emacspeak-muggles-hideshow/body’.
 
 @subsubsection emacspeak-muggles-ido-yank
 @deffn {Command} emacspeak-muggles-ido-yank   
+@table @kbd
+@item C-M-y
+@kindex C-M-y
+@end table
+
 @findex emacspeak-muggles-ido-yank
 
 @format
@@ -11521,6 +11521,7 @@ The body can be accessed via ‘emacspeak-muggles-m-player/body’.
 @format
 Create a hydra with no body and the heads:
 
+"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-navigate")’,
 "s":    ‘emacspeak-muggles-toggle-talkative’,
 "n":    ‘next-line’,
 "p":    ‘previous-line’,
@@ -11547,6 +11548,7 @@ The body can be accessed via ‘emacspeak-muggles-navigate/body’.
 @format
 Create a hydra with no body and the heads:
 
+"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-org-nav")’,
 "SPC":    ‘emacspeak-outline-speak-this-heading’,
 "n":    ‘outline-next-visible-heading’,
 "p":    ‘outline-previous-visible-heading’,
@@ -11566,6 +11568,7 @@ The body can be accessed via ‘emacspeak-muggles-org-nav/body’.
 @format
 Create a hydra with no body and the heads:
 
+"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-org-table")’,
 "j":    ‘org-table-next-row’,
 "k":    ‘org-table-previous-row’,
 "h":    ‘org-table-previous-field’,
@@ -11587,6 +11590,7 @@ The body can be accessed via ‘emacspeak-muggles-org-table/body’.
 @format
 Create a hydra with no body and the heads:
 
+"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-outliner")’,
 "q":    ‘outline-hide-sublevels’,
 "t":    ‘outline-hide-body’,
 "o":    ‘outline-hide-other’,
@@ -11621,12 +11625,14 @@ The body can be accessed via ‘emacspeak-muggles-outliner/body’.
 @format
 Create a hydra with no body and the heads:
 
+"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-toggle-option")’,
 "a":    ‘abbrev-mode’,
 "d":    ‘toggle-debug-on-error’,
 "f":    ‘auto-fill-mode’,
 "g":    ‘toggle-debug-on-quit’,
 "h":    ‘(setq hydra-is-helpful (not hydra-is-helpful))’,
 "t":    ‘toggle-truncate-lines’,
+"u":    ‘ido-ubiquitous-mode’,
 "w":    ‘whitespace-mode’,
 "q":    ‘nil’
 
@@ -11639,7 +11645,7 @@ The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
 @findex emacspeak-muggles-toggle-talkative
 
 @format
-Toggle state of emacspeak-muggles-talkative-p.
+Toggle state of hydra-is-helpful
 @end format
 @end deffn
 
@@ -11659,6 +11665,7 @@ Toggle state of emacspeak-muggles-talkative-p.
 @format
 Create a hydra with no body and the heads:
 
+"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-view")’,
 "$":    ‘set-selective-display’,
 "%":    ‘View-goto-percent’,
 "’":    ‘register-to-point’,
@@ -11711,16 +11718,12 @@ The body can be accessed via ‘emacspeak-muggles-view/body’.
 
 @subsubsection emacspeak-muggles-yank-pop/body
 @deffn {Command} emacspeak-muggles-yank-pop/body   
-@table @kbd
-@item C-M-y
-@kindex C-M-y
-@end table
-
 @findex emacspeak-muggles-yank-pop/body
 
 @format
 Create a hydra with no body and the heads:
 
+"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-yank-pop")’,
 "C-y":    ‘yank’,
 "M-y":    ‘yank-pop’,
 "y":    ‘(funcall-interactively (function yank-pop) 1)’,
@@ -12354,7 +12357,7 @@ w		emacspeak-ocr-write-document
 .
 
 In addition to any hooks its parent mode ‘text-mode’ might have run,
-this mode runs the hook ‘emacspeak-ocr-mode-hook’, as the final step
+this mode runs the hook ‘emacspeak-ocr-mode-hook’, as the final or penultimate step
 during initialization.
 @end format
 @end deffn
@@ -19779,7 +19782,7 @@ y		emacspeak-webspace-yank-link
 C-M-i		backward-button
 
 In addition to any hooks its parent mode ‘special-mode’ might have run,
-this mode runs the hook ‘emacspeak-webspace-mode-hook’, as the final step
+this mode runs the hook ‘emacspeak-webspace-mode-hook’, as the final or penultimate step
 during initialization.
 @end format
 @end deffn
@@ -20846,7 +20849,7 @@ Major mode for browsing DVI files.
 
 DVI files  are converted to text and previewed using text mode.
 
-This mode runs the hook ‘emacspeak-wizards-dvi-mode-hook’, as the final step
+This mode runs the hook ‘emacspeak-wizards-dvi-mode-hook’, as the final or penultimate step
 during initialization.
 
 key             binding
@@ -21052,7 +21055,7 @@ directory to where find is to be launched.
 @format
 Emacspeak Finder
 
-This mode runs the hook ‘emacspeak-wizards-finder-mode-hook’, as the final step
+This mode runs the hook ‘emacspeak-wizards-finder-mode-hook’, as the final or penultimate step
 during initialization.
 
 key             binding
@@ -21351,7 +21354,7 @@ Major mode for browsing PPT slides.
 PPT files  are converted to HTML and previewed using a browser.
 
 In addition to any hooks its parent mode ‘text-mode’ might have run,
-this mode runs the hook ‘emacspeak-wizards-ppt-mode-hook’, as the final step
+this mode runs the hook ‘emacspeak-wizards-ppt-mode-hook’, as the final or penultimate step
 during initialization.
 
 key             binding
@@ -21765,7 +21768,7 @@ key             binding
 
 C-l		emacspeak-wizards-vc-viewer-refresh
 
-This mode runs the hook ‘emacspeak-wizards-vc-viewer-mode-hook’, as the final step
+This mode runs the hook ‘emacspeak-wizards-vc-viewer-mode-hook’, as the final or penultimate step
 during initialization.
 @end format
 @end deffn
@@ -21870,7 +21873,7 @@ Major mode for browsing XL spreadsheets.
 XL Sheets are converted to HTML and previewed using a browser.
 
 In addition to any hooks its parent mode ‘text-mode’ might have run,
-this mode runs the hook ‘emacspeak-wizards-xl-mode-hook’, as the final step
+this mode runs the hook ‘emacspeak-wizards-xl-mode-hook’, as the final or penultimate step
 during initialization.
 
 key             binding
@@ -22181,7 +22184,7 @@ C-c C-v		emacspeak-xml-shell-browse-result
 C-c v		emacspeak-xml-shell-browse-current
 
 In addition to any hooks its parent mode ‘comint-mode’ might have run,
-this mode runs the hook ‘emacspeak-xml-shell-mode-hook’, as the final step
+this mode runs the hook ‘emacspeak-xml-shell-mode-hook’, as the final or penultimate step
 during initialization.
 @end format
 @end deffn
@@ -22364,12 +22367,11 @@ Used by modules like gphoto, gblogger etc.
 @format
 Major mode for APP interaction
 
-Uses keymap ‘g-app-mode-map
+\@{g-app-mode-map
 
-In addition to any hooks its parent mode `nxml-mode' might have run,
-this mode runs the hook `g-app-mode-hook', as the final step
-during initialization.’, which is not currently defined.
-
+In addition to any hooks its parent mode ‘nxml-mode’ might have run,
+this mode runs the hook ‘g-app-mode-hook’, as the final or penultimate step
+during initialization.
 @end format
 @end deffn
 
@@ -22626,7 +22628,7 @@ Driving directions from Google Maps.
 A Google Maps front-end for the Emacspeak desktop.
 
 In addition to any hooks its parent mode ‘special-mode’ might have run,
-this mode runs the hook ‘gmaps-mode-hook’, as the final step
+this mode runs the hook ‘gmaps-mode-hook’, as the final or penultimate step
 during initialization.
 
 key             binding
@@ -22881,7 +22883,7 @@ Instantiate plugin at point by prompting for control values.
 A Ladspa workbench for the Emacspeak desktop.
 
 In addition to any hooks its parent mode ‘special-mode’ might have run,
-this mode runs the hook ‘ladspa-mode-hook’, as the final step
+this mode runs the hook ‘ladspa-mode-hook’, as the final or penultimate step
 during initialization.
 
 key             binding
@@ -23222,7 +23224,7 @@ Edit effect at point.
 An audio workbench for the Emacspeak desktop.
 
 In addition to any hooks its parent mode ‘special-mode’ might have run,
-this mode runs the hook ‘sox-mode-hook’, as the final step
+this mode runs the hook ‘sox-mode-hook’, as the final or penultimate step
 during initialization.
 
 key             binding
@@ -23422,16 +23424,6 @@ Each segment is scaled by ‘duration-scale’.
 The stack is implemented as a linked list with a tag 'STACK
 as the first element.  All entries and removals are done using
 destructive functions.
-
-@node subr-x
-@section subr-x
-
-Less commonly used functions that complement basic APIs, often implemented in
-C code (like hash-tables and strings), and are not eligible for inclusion
-in subr.el.
-
-Do not document these functions in the lispref.
-http://lists.gnu.org/archive/html/emacs-devel/2014-01/msg01006.html
 
 @node tetris
 @section tetris
