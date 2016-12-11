@@ -233,9 +233,9 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (shell)
      (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
      (calendar)
-     (shell-command
-      (format "aplay %s"
-              (expand-file-name "highbells.au" emacspeak-sounds-directory)))
+     (play-sound
+      `(sound
+        :file ,(expand-file-name "highbells.au" emacspeak-sounds-directory)))
      (message "Successfully initialized Emacs")))
 (when (file-exists-p custom-file) (load-file custom-file))
 (start-up-my-emacs)
