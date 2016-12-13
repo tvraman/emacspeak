@@ -142,7 +142,7 @@ static int (*_eciSetOutputBuffer)(void *, int, short *);
 static int (*_eciSetOutputDevice)(void *, int);
 static void (*_eciRegisterCallback)(void *, int (*)(void *, int, long, void *),
                                     void *);
-static int alsa_init();
+static size_t alsa_init();
 static void alsa_reset();  // drop handle and reset
 static size_t alsa_configure(void);
 
@@ -342,7 +342,7 @@ void alsa_reset() {
 //>
 //<alsa_init
 
-int alsa_init() {
+static size_t alsa_init() {
   int err;
   const char *device = getenv("ALSA_DEFAULT");
   if (device == NULL) {
