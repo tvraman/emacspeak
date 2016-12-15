@@ -168,7 +168,7 @@ int eciCallback(void *, int, long, void *);
 static size_t alsa_configure(void) {
   //<init:
   size_t chunk_bytes, bits_per_sample, bits_per_frame = 0;
-  snd_pcm_uframes_t chunk_size, buffer_size = 0;
+  snd_pcm_uframes_t period_size, buffer_size = 0;
   snd_pcm_hw_params_t *params;
   unsigned int rate = DEFAULT_SPEED;
   int err;
@@ -212,8 +212,6 @@ static size_t alsa_configure(void) {
     exit(EXIT_FAILURE);
   }
   //>
-  //< Set things explicitly if DEBUG
-  //>
   //<Commit hw params:
   err = snd_pcm_hw_params(AHandle, params);
   if (err < 0) {
@@ -221,21 +219,19 @@ static size_t alsa_configure(void) {
     exit(EXIT_FAILURE);
   }
   //>
-  //<finalize chunk_size and buffer_size:
+  //<finalize period_size and buffer_size:
 
-  snd_pcm_hw_params_get_period_size(params, &chunk_size, 0);
+  snd_pcm_hw_params_get_period_size(params, &period_size, 0);
   snd_pcm_hw_params_get_buffer_size(params, &buffer_size);
-  if (chunk_size == buffer_size) {
+  if (period_size == buffer_size) {
     fprintf(stderr, "Can't use period equal to buffer size (%lu == %lu)",
-            chunk_size, buffer_size);
+            period_size, buffer_size);
     exit(EXIT_FAILURE);
   }
   //>
-  //< If DEBUG: SW Params Configure transfer:
-  //>
   bits_per_sample = snd_pcm_format_physical_width(DEFAULT_FORMAT);
   bits_per_frame = bits_per_sample * 1;  // mono
-  chunk_bytes = chunk_size * bits_per_frame / 8;
+  chunk_bytes = period_size * bits_per_frame / 8;
   return chunk_bytes;
 }
 
