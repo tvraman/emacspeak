@@ -232,6 +232,9 @@ static size_t alsa_configure(void) {
   bits_per_sample = snd_pcm_format_physical_width(DEFAULT_FORMAT);
   bits_per_frame = bits_per_sample * 1;  // mono
   chunk_bytes = period_size * bits_per_frame / 8;
+  fprintf(stderr, "PCM name: '%s'\n", snd_pcm_name(AHandle));
+	fprintf(stderr, "PCM state: %s\n", snd_pcm_state_name(snd_pcm_state(AHandle)));
+
   return chunk_bytes;
 }
 
