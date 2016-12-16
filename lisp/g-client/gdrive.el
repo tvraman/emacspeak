@@ -78,6 +78,31 @@ Emacs will prompt for the encryption password on first use."
 :type 'file)
 
 ;;}}}
+;;{{{ g-oauth2:
+
+(defconst g-oauth-auth-url
+  "https://accounts.google.com/o/oauth2/auth"
+  "Google OAuth2 server URL.")
+
+(defconst g-oauth-token-url
+  "https://accounts.google.com/o/oauth2/token"
+  "Google OAuth2 server URL.")
+
+;;;###autoload
+(defun g-oauth-auth (resource-url client-id client-secret)
+  "Request access to a resource."
+  (oauth2-auth
+   g-oauth-auth-url g-oauth-token-url
+   client-id client-secret resource-url))
+
+;;;###autoload
+(defun g-oauth-auth-and-store (resource-url client-id client-secret)
+  "Request access to a Google resource and store it using `auth-source'."
+  (oauth2-auth-and-store
+   g-oauth-auth-url g-oauth-token-url
+   resource-url client-id client-secret))
+
+;;}}}
 (provide 'gdrive)
 ;;{{{ end of file
 
