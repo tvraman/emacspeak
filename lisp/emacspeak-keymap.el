@@ -418,6 +418,7 @@ relief."
     ("b" battery)
     ("e" emacspeak-we-xsl-map)
     ("h" emacspeak-wizards-how-many-matches)
+    ("i" ibuffer)
     ("j" emacspeak-jabber-popup-roster)
     ("m" mspools-show)
     ("o" emacspeak-wizards-occur-header-lines)
