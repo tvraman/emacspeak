@@ -339,7 +339,7 @@ proc service {} {
     global tts
     set talking [speakingP]
     while {$talking == 1} {
-        set status   [lsearch [select [list  stdin]  {} {} 0.001] stdin]
+        set status   [lsearch [select [list  stdin]  {} {} 0.0001] stdin]
         if { $status >= 0} {
             set tts(talking?) 0
             set talking 0
