@@ -80,6 +80,25 @@ Emacs will prompt for the encryption password on first use."
 ;;}}}
 ;;{{{ g-oauth2:
 
+(defstruct g-oauth-client
+  secret id)
+
+(defun gdrive-get-oauth-from-json ()
+  "Return a populated g-oauth structure containing client-id and client-secret."
+  (declare (special  gdrive-oauth2-json))
+  (with-temp-buffer
+    (insert-file-contents gdrive-oauth2-json)
+    (goto-char (point-min))
+    (let-alist  (g-json-get 'installed (json-read))
+      (make-g-oauth-client
+       :secret .client_secret
+       :id .client_id))))
+
+(defconst gdrive-resource-url
+  ""
+  "GDrive Resource URL.")
+
+
 (defconst g-oauth-auth-url
   "https://accounts.google.com/o/oauth2/auth"
   "Google OAuth2 server URL.")
