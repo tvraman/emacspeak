@@ -102,7 +102,7 @@ Emacs will prompt for the encryption password on first use."
   ""
   "GDrive Resource URL.")
 
-;;;###autoload
+
 (defun gdrive-oauth-auth (resource-url )
   "Request access to a Drive resource."
   (let ((g (gdrive-get-oauth-from-json)))
@@ -111,16 +111,24 @@ Emacs will prompt for the encryption password on first use."
      (g-oauth-client-id g) (g-oauth-client-secret g)
      resource-url)))
 
-;;;###autoload
-(defun gdrive-oauth-auth-and-store (resource-url client-id client-secret)
+
+(defun gdrive-oauth-auth-and-store (resource-url  )
   "Request access to a Google Drive resource and store it using `auth-source'."
   (let ((g (gdrive-get-oauth-from-json)))
     (oauth2-auth-and-store
      (g-oauth-client-auth-uri g) (g-oauth-client-token-uri g)
      (g-oauth-client-id g) (g-oauth-client-secret g)
-     resource-url))
-  )
+     resource-url)))
 
+
+(defun gdrive-url-retrieve (url)
+  "Retrieve GDrive URL using OAuth2."
+  (let ((buf
+         (oauth2-url-retrieve-synchronously
+          (gdrive-oauth-auth-and-store url)
+          url)))
+    buf))
+      
 ;;}}}
 (provide 'gdrive)
 ;;{{{ end of file
