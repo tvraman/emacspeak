@@ -58,7 +58,7 @@
 (require 'cl)
 (require 'backquote)
 (require 'g-utils)
-(require 'oauth2 nil 'no-error)
+(require 'oauth2 "oauth2" 'no-error)
 
 (declaim  (optimize  (safety 0) (speed 3)))
 
