@@ -81,6 +81,7 @@ Emacs will prompt for the encryption password on first use."
 ;;{{{ g-oauth2:
 
 (defstruct g-oauth-client
+  auth-uri token-uri redirect-uris
   secret id)
 
 (defun gdrive-get-oauth-from-json ()
@@ -91,6 +92,9 @@ Emacs will prompt for the encryption password on first use."
     (goto-char (point-min))
     (let-alist  (g-json-get 'installed (json-read))
       (make-g-oauth-client
+       :auth-uri .auth_uri
+       :token-uri .token_uri
+       :redirect-uri .redirect_uris
        :secret .client_secret
        :id .client_id))))
 
