@@ -94,7 +94,7 @@ Emacs will prompt for the encryption password on first use."
       (make-g-oauth-client
        :auth-uri .auth_uri
        :token-uri .token_uri
-       :redirect-uri .redirect_uris
+       :redirect-uris .redirect_uris
        :secret .client_secret
        :id .client_id))))
 
@@ -102,28 +102,24 @@ Emacs will prompt for the encryption password on first use."
   ""
   "GDrive Resource URL.")
 
-
-(defconst g-oauth-auth-url
-  "https://accounts.google.com/o/oauth2/auth"
-  "Google OAuth2 server URL.")
-
-(defconst g-oauth-token-url
-  "https://accounts.google.com/o/oauth2/token"
-  "Google OAuth2 server URL.")
+;;;###autoload
+(defun gdrive-oauth-auth (resource-url )
+  "Request access to a Drive resource."
+  (let ((g (gdrive-get-oauth-from-json)))
+    (oauth2-auth
+     (g-oauth-client-auth-uri g) (g-oauth-client-token-uri g)
+     (g-oauth-client-id g) (g-oauth-client-secret g)
+     resource-url)))
 
 ;;;###autoload
-(defun g-oauth-auth (resource-url client-id client-secret)
-  "Request access to a resource."
-  (oauth2-auth
-   g-oauth-auth-url g-oauth-token-url
-   client-id client-secret resource-url))
-
-;;;###autoload
-(defun g-oauth-auth-and-store (resource-url client-id client-secret)
-  "Request access to a Google resource and store it using `auth-source'."
-  (oauth2-auth-and-store
-   g-oauth-auth-url g-oauth-token-url
-   resource-url client-id client-secret))
+(defun gdrive-oauth-auth-and-store (resource-url client-id client-secret)
+  "Request access to a Google Drive resource and store it using `auth-source'."
+  (let ((g (gdrive-get-oauth-from-json)))
+    (oauth2-auth-and-store
+     (g-oauth-client-auth-uri g) (g-oauth-client-token-uri g)
+     (g-oauth-client-id g) (g-oauth-client-secret g)
+     resource-url))
+  )
 
 ;;}}}
 (provide 'gdrive)
