@@ -300,6 +300,11 @@ Parameter `theme' specifies variant."
   '(("think"3)("dream" 4) ("sleep" 1))
   "List of  beats to use for wind-down in the evening.")
 
+
+(defconst sox-turn-down-beats
+  '(("dream" 2) ("sleep" 6))
+  "List of  beats to use for turn-down at  night.")
+
 (defconst sox-relax-beats
   '(("dream" 4) ("sleep" 4))
   "List of  beats to use for relaxing.")
@@ -326,6 +331,15 @@ Each segment is scaled by `duration-scale'."
   (interactive "sDuration: ")
   (declare (special sox-rev-up-beats))
   (sox--theme-play sox-rev-up-beats duration-scale))
+
+
+;;;###autoload
+(defun sox-turn-down (duration-scale)
+  "Play turn-down set of  binaural beats.
+Each segment is scaled by `duration-scale'."
+  (interactive "sDuration: ")
+  (declare (special sox-turn-down-beats))
+  (sox--theme-play sox-turn-down-beats duration-scale))
 
 ;;;###autoload
 (defun sox-wind-down (duration-scale)
