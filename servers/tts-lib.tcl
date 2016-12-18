@@ -213,7 +213,7 @@ proc beep_initialize {} {
 proc beep {{freq 523} {length 100}} {
     set l  [expr $length / 1000.0]
         # equal 10ms fade at start and end:
-        exec play -q -n synth $l sin $freq  fade  0.01    0 channels 2 > /dev/null &
+        exec play -q -n synth $l sin $freq  fade  h 0.05 0     0  > /dev/null &
 }
 
 
