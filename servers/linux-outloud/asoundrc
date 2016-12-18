@@ -4,7 +4,6 @@
 # {{{ default device is a mixer
 
 #Note hw:1,0 on this laptop
-
 ctl.!default {
 	type hw           
 	card 1
