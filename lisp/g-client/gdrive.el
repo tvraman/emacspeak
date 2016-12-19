@@ -97,13 +97,21 @@ Emacs will prompt for the encryption password on first use."
        :scope "https://www.googleapis.com/auth/drive"
        :auth-uri .auth_uri
        :token-uri .token_uri
-       :redir
        :secret .client_secret
        :id .client_id))))
 
-(defconst gdrive-resource-base
+(defconst gdrive-resource-api-base
+  "https://www.googleapis.com/drive/v3"
+  "GDrive API Base Resource URL.")
+
+
+(defsubst gdrive-api-method-uri (method)
+  "Return REST end-point for specified method."
+  (concat gdrive-resource-api-base "/" method))
+
+(defconst gdrive-home-url
   "https://www.google.com/drive"
-  "GDrive Base Resource URL.")
+  "Home URL for Google Drive")
 
 (defun gdrive-oauth-auth (resource-url )
   "Request access to a Drive resource."
