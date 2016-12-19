@@ -70,18 +70,18 @@
   :group 'g)
 
 (defcustom gdrive-oauth2-json
-(expand-file-name "gdrive.json.gpg" user-emacs-directory)
-"Location where we store encrypted JSON containing Google API client-id/client-secret.
+  (expand-file-name "gdrive.json.gpg" user-emacs-directory)
+  "Location where we store encrypted JSON containing Google API client-id/client-secret.
 Download this from the Google API Console after creating  your client-id, then encrypt it with GPG.
 e.g. gpg -c <filename.json>.
 Emacs will prompt for the encryption password on first use."
-:type 'file)
+  :type 'file)
 
 ;;}}}
 ;;{{{ g-oauth2:
 
 (defstruct g-oauth-client
-  auth-uri token-uri 
+  auth-uri token-uri
   secret id
   localhost-uri scope)
 
@@ -111,10 +111,9 @@ Emacs will prompt for the encryption password on first use."
     (oauth2-auth
      (g-oauth-client-auth-uri g) (g-oauth-client-token-uri g)
      (g-oauth-client-id g) (g-oauth-client-secret g)
-      (g-oauth-client-scope g) ; scope?
+     (g-oauth-client-scope g) ; scope?
      nil  ;state
      (g-oauth-client-localhost-uri g))))
-
 
 (defun gdrive-oauth-auth-and-store (resource-url  )
   "Request access to a Google Drive resource and store it using `auth-source'."
@@ -125,7 +124,6 @@ Emacs will prompt for the encryption password on first use."
      (g-oauth-client-id g) (g-oauth-client-secret g)
      (g-oauth-client-localhost-uri g))))
 
-
 (defun gdrive-url-retrieve (url)
   "Retrieve GDrive URL using OAuth2."
   (let ((buf
@@ -133,7 +131,7 @@ Emacs will prompt for the encryption password on first use."
           (gdrive-oauth-auth-and-store url)
           url)))
     buf))
-      
+
 ;;}}}
 (provide 'gdrive)
 ;;{{{ end of file
