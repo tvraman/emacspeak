@@ -57,6 +57,7 @@
 
 (require 'cl)
 (require 'g-utils)
+(require 'browse-url)
 (when (locate-library "package")
     (unless (locate-library "oauth2") (package-install 'oauth2)))
 (require 'oauth2 "oauth2" 'no-error)
@@ -82,22 +83,6 @@ Emacs will prompt for the encryption password on first use."
   :type 'file)
 
 ;;}}}
-;;{{{ httpd for local redirect:
-(defun httpd/gdrive-oauth2  (proc path params request)
-  "Servlet to receive and propagate token."
-  (declare (special gdrive--oauth))
-  (kill-new 
-   (setf (g-oauth-client-code  gdrive--oauth)
-         (cadr (assoc "code" params))))
-  (with-httpd-buffer proc "text/plain"
-    (insert
-     (format "%s: %s"
-             (if (g-oauth-client-code gdrive--oauth)
-                 "Success" "Failure")
-             (file-name-nondirectory path)))))
-
-;;}}}
-
 ;;{{{ g-oauth2:
 
 (defstruct g-oauth-client
@@ -139,7 +124,7 @@ Emacs will prompt for the encryption password on first use."
   "https://www.google.com/drive"
   "Home URL for Google Drive")
 
-(defun gdrive-oauth-auth (resource-url )
+(defun gdrive-oauth-auth ( )
   "Request access to a Drive resource."
   (let ((g (gdrive-get-oauth-from-json))
         (browse-url-browser-function  #'browse-url-chrome))
@@ -167,6 +152,21 @@ Emacs will prompt for the encryption password on first use."
           (gdrive-oauth-auth-and-store url)
           url)))
     buf))
+
+;;}}}
+;;{{{ httpd for local redirect:
+(defun httpd/gdrive-oauth2  (proc path params request)
+  "Servlet to receive and propagate token."
+  (declare (special gdrive--oauth))
+  (kill-new 
+   (setf (g-oauth-client-code  gdrive--oauth)
+         (cadr (assoc "code" params))))
+  (with-httpd-buffer proc "text/plain"
+    (insert
+     (format "%s: %s"
+             (if (g-oauth-client-code gdrive--oauth)
+                 "Success" "Failure")
+             (file-name-nondirectory path)))))
 
 ;;}}}
 (provide 'gdrive)
