@@ -57,7 +57,11 @@
 
 (require 'cl)
 (require 'g-utils)
+(when (locate-library "package")
+    (unless (locate-library "oauth2") (package-install 'oauth2)))
 (require 'oauth2 "oauth2" 'no-error)
+(when (locate-library "package")
+    (unless (locate-library "simple-httpd") (package-install 'simple-httpd)))
 (require 'simple-httpd nil 'no-error)
 
 (declaim  (optimize  (safety 0) (speed 3)))
@@ -81,15 +85,16 @@ Emacs will prompt for the encryption password on first use."
 ;;{{{ httpd for local redirect:
 (defun httpd/gdrive-oauth2  (proc path params request)
   "Servlet to receive and propagate token."
-(declare (special gdrive--oauth))
-  (setf (g-oauth-client-code  gdrive--oauth)
-        (cadr (assoc "code" params)))
+  (declare (special gdrive--oauth))
+  (kill-new 
+   (setf (g-oauth-client-code  gdrive--oauth)
+         (cadr (assoc "code" params))))
   (with-httpd-buffer proc "text/plain"
     (insert
      (format "%s: %s"
              (if (g-oauth-client-code gdrive--oauth)
                  "Success" "Failure")
-  (file-name-nondirectory path)))))
+             (file-name-nondirectory path)))))
 
 ;;}}}
 
