@@ -247,3 +247,4 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 ;;;folded-file: t
 ;;;end:
 ;;}}}
+(put 'timer-list 'disabled nil)
