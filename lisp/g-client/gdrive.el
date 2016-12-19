@@ -58,7 +58,7 @@
 (require 'cl)
 (require 'g-utils)
 (require 'oauth2 "oauth2" 'no-error)
-(require 'simple-httpd)
+(require 'simple-httpd nil 'no-error)
 
 (declaim  (optimize  (safety 0) (speed 3)))
 
@@ -79,12 +79,17 @@ Emacs will prompt for the encryption password on first use."
 
 ;;}}}
 ;;{{{ httpd for local redirect:
-(defun httpd/gdrive-oauth2  (proc path &rest args)
+(defun httpd/gdrive-oauth2  (proc path params request)
   "Servlet to receive and propagate token."
-  (push path my-httpd-catcher)
-  (push args my-httpd-catcher)
+(declare (special gdrive--oauth))
+  (setf (g-oauth-client-code  gdrive--oauth)
+        (cadr (assoc "code" params)))
   (with-httpd-buffer proc "text/plain"
-    (insert "hello, " (file-name-nondirectory path))))
+    (insert
+     (format "%s: %s"
+             (if (g-oauth-client-code gdrive--oauth)
+                 "Success" "Failure")
+  (file-name-nondirectory path)))))
 
 ;;}}}
 
@@ -93,22 +98,28 @@ Emacs will prompt for the encryption password on first use."
 (defstruct g-oauth-client
   auth-uri token-uri
   secret id
+  code ; received after auth 
   localhost-uri scope)
+(defvar gdrive--oauth nil
+  "Handle to oauth data.")
 
 (defun gdrive-get-oauth-from-json ()
   "Return a populated g-oauth structure containing client-id and client-secret."
-  (declare (special  gdrive-oauth2-json))
+  (declare (special  gdrive-oauth2-json
+                     gdrive--oauth))
   (with-temp-buffer
     (insert-file-contents gdrive-oauth2-json)
     (goto-char (point-min))
     (let-alist  (g-json-get 'installed (json-read))
-      (make-g-oauth-client
-       :localhost-uri "http://localhost:8080/gdrive-oauth2"
-       :scope "https://www.googleapis.com/auth/drive"
-       :auth-uri .auth_uri
-       :token-uri .token_uri
-       :secret .client_secret
-       :id .client_id))))
+      (setq
+       gdrive--oauth
+       (make-g-oauth-client
+        :localhost-uri "http://localhost:8080/gdrive-oauth2"
+        :scope "https://www.googleapis.com/auth/drive"
+        :auth-uri .auth_uri
+        :token-uri .token_uri
+        :secret .client_secret
+        :id .client_id)))))
 
 (defconst gdrive-resource-api-base
   "https://www.googleapis.com/drive/v3"
@@ -125,7 +136,8 @@ Emacs will prompt for the encryption password on first use."
 
 (defun gdrive-oauth-auth (resource-url )
   "Request access to a Drive resource."
-  (let ((g (gdrive-get-oauth-from-json)))
+  (let ((g (gdrive-get-oauth-from-json))
+        (browse-url-browser-function  #'browse-url-chrome))
     (oauth2-auth
      (g-oauth-client-auth-uri g) (g-oauth-client-token-uri g)
      (g-oauth-client-id g) (g-oauth-client-secret g)
@@ -135,10 +147,11 @@ Emacs will prompt for the encryption password on first use."
 
 (defun gdrive-oauth-auth-and-store (resource-url  )
   "Request access to a Google Drive resource and store it using `auth-source'."
-  (let ((g (gdrive-get-oauth-from-json)))
+  (let ((g (gdrive-get-oauth-from-json))
+        (browse-url-browser-function  #'browse-url-chrome))
     (oauth2-auth-and-store
      (g-oauth-client-auth-uri g) (g-oauth-client-token-uri g)
-     resource-url
+     (g-oauth-client-scope g)
      (g-oauth-client-id g) (g-oauth-client-secret g)
      (g-oauth-client-localhost-uri g))))
 
