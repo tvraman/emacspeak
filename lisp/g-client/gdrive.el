@@ -56,9 +56,9 @@
 ;;{{{  Required modules
 
 (require 'cl)
-(require 'backquote)
 (require 'g-utils)
 (require 'oauth2 "oauth2" 'no-error)
+(require 'simple-httpd)
 
 (declaim  (optimize  (safety 0) (speed 3)))
 
@@ -78,6 +78,16 @@ Emacs will prompt for the encryption password on first use."
   :type 'file)
 
 ;;}}}
+;;{{{ httpd for local redirect:
+(defun httpd/gdrive-oauth2  (proc path &rest args)
+  "Servlet to receive and propagate token."
+  (push path my-httpd-catcher)
+  (push args my-httpd-catcher)
+  (with-httpd-buffer proc "text/plain"
+    (insert "hello, " (file-name-nondirectory path))))
+
+;;}}}
+
 ;;{{{ g-oauth2:
 
 (defstruct g-oauth-client
