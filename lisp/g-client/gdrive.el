@@ -108,7 +108,7 @@ Emacs will prompt for the encryption password on first use."
   "Redirect URI where we receive our OAuth access code.")
 
 (defconst gdrive-scope
-  ""
+  "https://www.googleapis.com/auth/drive"
   "Type of access we request.")
 
 
