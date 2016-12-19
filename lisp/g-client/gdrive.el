@@ -94,6 +94,7 @@ Emacs will prompt for the encryption password on first use."
     (let-alist  (g-json-get 'installed (json-read))
       (make-g-oauth-client
        :localhost-uri "http://localhost:8080/gdrive-oauth2"
+       :scope "https://www.googleapis.com/auth/drive"
        :auth-uri .auth_uri
        :token-uri .token_uri
        :redir
@@ -112,7 +113,7 @@ Emacs will prompt for the encryption password on first use."
      (g-oauth-client-id g) (g-oauth-client-secret g)
       (g-oauth-client-scope g) ; scope?
      nil  ;state
-     (g-oauth-localhost-uri g))))
+     (g-oauth-client-localhost-uri g))))
 
 
 (defun gdrive-oauth-auth-and-store (resource-url  )
@@ -122,7 +123,7 @@ Emacs will prompt for the encryption password on first use."
      (g-oauth-client-auth-uri g) (g-oauth-client-token-uri g)
      resource-url
      (g-oauth-client-id g) (g-oauth-client-secret g)
-     (g-oauth-localhost-uri g))))
+     (g-oauth-client-localhost-uri g))))
 
 
 (defun gdrive-url-retrieve (url)
