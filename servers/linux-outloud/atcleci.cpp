@@ -199,11 +199,11 @@ static size_t alsa_configure(void) {
   }
   //>
   //<Rate:
-
+err = snd_pcm_hw_params_set_rate_resample(AHandle, params, 1);
+  assert(err >= 0);
   err = snd_pcm_hw_params_set_rate(AHandle, params, rate, 0);
   assert(err >= 0);
-  err = snd_pcm_hw_params_set_rate_resample(AHandle, params, rate);
-  assert(err >= 0);
+  
   //>
   //<Access Mode:
   err = snd_pcm_hw_params_set_access(AHandle, params,
