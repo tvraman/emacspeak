@@ -54,7 +54,6 @@
 ;;{{{  Required modules
 
 (require 'cl)
-(require 'backquote)
 (require 'g-utils)
 (require 'g-auth)
 (require 'nxml-mode)
