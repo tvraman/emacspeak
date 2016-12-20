@@ -47,7 +47,17 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-
+;;; Implement Google OAuth flow:
+;;; Create your  app credentials via the Google Developer Console,
+;;; Download the credentials as JSON, and GPG encrypt the file.
+;;; This module uses simple-httpd.el to run an Emacs HTTPD daemon.
+;;; A simple HTTPD servlet in that daemon listens for the OAuth2 redirect URL
+;;; to receive the OAuth auth code --- saves cut/paste from Chrome.
+;;; You still need to click "Allow" from Chrome.
+;;; The Elisp HTTPD servlet receives the code via  the servlet
+;;; Caches it, and places it in the kill-ring.
+;;; Module oauth2.el as written expects the user to type the code in,
+;; with thi simplementation, hit C-y at that point.
 ;;; Implement GDrive V3 API Using OAuth2
 
 ;;; Code:
