@@ -55,8 +55,7 @@
 ;;}}}
 ;;{{{  Required modules
 
-(require 'cl)
-(require 'g-utils)
+(require 'cl-lib)
 (require 'browse-url)
 (when (locate-library "package")
   (unless (locate-library "oauth2") (package-install 'oauth2)))
@@ -64,8 +63,8 @@
 (when (locate-library "package")
   (unless (locate-library "simple-httpd") (package-install 'simple-httpd)))
 (require 'simple-httpd nil 'no-error)
-
-(declaim  (optimize  (safety 0) (speed 3)))
+(require 'g-utils)
+(cl-declaim  (optimize  (safety 0) (speed 3)))
 
 ;;}}}
 ;;{{{ Customizations:
@@ -85,7 +84,7 @@ Emacs will prompt for the encryption password on first use."
 ;;}}}
 ;;{{{ g-oauth2:
 
-(defstruct g-oauth-client
+(cl-defstruct g-oauth-client
   auth-uri token-uri
   secret id
   code ; received after auth
