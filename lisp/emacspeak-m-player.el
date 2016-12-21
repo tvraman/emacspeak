@@ -463,6 +463,28 @@ feature."
                    emacspeak-m-player-options)))
       (call-interactively 'emacspeak-m-player))))
 
+(defvar emacspeak-m-player-hrtf-options
+  '("-af" "resample=48000,hrtf")
+  "Additional options to use built-in HRTF.")
+
+
+;;;###autoload
+(defun emacspeak-m-player-using-hrtf ()
+  "Add af resample=48000,hrtf to startup options.
+This will work if the soundcard is set to 48000."
+  (interactive)
+  (declare (special emacspeak-m-player-options emacspeak-m-player-hrtf-options
+                    emacspeak-m-player-process))
+  (when (and emacspeak-m-player-process
+             (eq 'run (process-status emacspeak-m-player-process))
+             (y-or-n-p "Stop currently playing music? "))
+    (emacspeak-m-player-quit))
+  (unless (process-live-p emacspeak-m-player-process)
+    (let ((emacspeak-m-player-options
+           (append emacspeak-m-player-hrtf-options
+                   emacspeak-m-player-options)))
+      (call-interactively 'emacspeak-m-player))))
+
 ;;;###autoload
 (defun emacspeak-m-player-shuffle ()
   "Launch M-Player with shuffle turned on."
