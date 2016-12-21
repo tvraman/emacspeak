@@ -50,7 +50,12 @@
 ;;; Commentary:
 ;;; Implement Google OAuth flow:
 ;;; Create your  app credentials via the Google Developer Console,
+;;; https://console.developers.google.com/
+;;; Then enable the APIs you plan to access via this set of credentials.
 ;;; Download the credentials as JSON, and GPG encrypt the file.
+;;; Defaults settings in this module assume above file to be
+;;; $HOME/.emacs.d/emacs-google.json.gpg
+
 ;;; This module uses simple-httpd.el to run an Emacs HTTPD daemon.
 ;;; A simple HTTPD servlet in that daemon listens for the OAuth2 redirect URL
 ;;; to receive the OAuth auth code --- saves cut/paste from Chrome.
@@ -81,17 +86,17 @@
 ;;}}}
 ;;{{{ Customizations:
 
-(defgroup gdrive nil
+(defgroup g-oauth nil
   "Google Drive"
   :group 'g)
 
-(defcustom gdrive-creds-store
-  (expand-file-name "gdrive.json.gpg" user-emacs-directory)
+(defcustom g-oath-creds-store
+  (expand-file-name "emacs-google.json.gpg" user-emacs-directory)
   "Location of  encrypted JSON containing Google API client-id/client-secret.
 Download this from the Google API Console after creating your
-client-id, then encrypt it with GPG. e.g. gpg -c
+client-id for your project , then encrypt it with GPG. e.g. gpg -c
 <filename.json>. Emacs will prompt for the encryption password on
-first use."
+first use. These credentials can be used with Google APIs after those APIs have been enabled for this project from the Google API Console."
   :type 'file)
 
 ;;}}}
@@ -104,16 +109,16 @@ first use."
   localhost-uri scope)
 
 (defvar gdrive--oauth nil
-  "Handle to oauth data.")
+  "Handle to oauth credentials for use with GDrive.")
 
 (defun gdrive-get-oauth-from-json (&optional refresh)
   "Return a  g-oauth structure containing client-id and client-secret."
-  (declare (special  gdrive-creds-store gdrive--oauth))
+  (declare (special  g-oauth-creds-store gdrive--oauth))
   ;;; Start up HTTPD daemon if needed here (for lack of a better place)
   (unless (process-status "httpd") (httpd-start))
   (when (or refresh (null gdrive--oauth))
     (with-temp-buffer
-      (insert-file-contents gdrive-creds-store)
+      (insert-file-contents g-oauth-creds-store)
       (goto-char (point-min))
       (let-alist  (g-json-get 'installed (json-read))
         (setq
