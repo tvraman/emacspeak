@@ -43,7 +43,7 @@ DEPS= -l ./g-load-path.el -l ./g-loaddefs.el
 COMPILE =  -f batch-byte-compile
 OBJECTS= g-auth.elc \
 g-app.elc \
-gdrive.elc \
+gdrive.el \
 g-utils.elc \
 g.elc \
 gfeeds.elc \
