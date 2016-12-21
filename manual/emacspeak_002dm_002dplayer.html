@@ -1191,7 +1191,7 @@ DEL             emacspeak-m-player-reset-speed
 M-l             emacspeak-m-player-load-playlist
 
 In addition to any hooks its parent mode ‘comint-mode’ might have run,
-this mode runs the hook ‘emacspeak-m-player-mode-hook’, as the final or penultimate step
+this mode runs the hook ‘emacspeak-m-player-mode-hook’, as the final step
 during initialization.
 </pre>
       </div>
@@ -1815,17 +1815,17 @@ Call emacspeak-m-player with specified URL.
 </pre>
       </div>
     </dd>
-  </dl><a name="emacspeak_002dm_002dplayer_002dusing_002dopenal"
-  id="emacspeak_002dm_002dplayer_002dusing_002dopenal"></a>
+  </dl><a name="emacspeak_002dm_002dplayer_002dusing_002dhrtf" id=
+  "emacspeak_002dm_002dplayer_002dusing_002dhrtf"></a>
 
   <h4 class="subsubsection">12.111.1.65
-  emacspeak-m-player-using-openal</h4>
+  emacspeak-m-player-using-hrtf</h4>
 
   <dl>
     <dt><a name=
-    "index-emacspeak_002dm_002dplayer_002dusing_002dopenal" id=
-    "index-emacspeak_002dm_002dplayer_002dusing_002dopenal"></a>Command:
-    <strong>emacspeak-m-player-using-openal</strong></dt>
+    "index-emacspeak_002dm_002dplayer_002dusing_002dhrtf" id=
+    "index-emacspeak_002dm_002dplayer_002dusing_002dhrtf"></a>Command:
+    <strong>emacspeak-m-player-using-hrtf</strong></dt>
 
     <dd>
       <dl compact="compact">
@@ -1839,6 +1839,30 @@ Call emacspeak-m-player with specified URL.
         <dd><a name="index-C_002dx-_0040-h-_003b" id=
         "index-C_002dx-_0040-h-_003b"></a></dd>
       </dl><a name=
+      "index-emacspeak_002dm_002dplayer_002dusing_002dhrtf-1" id=
+      "index-emacspeak_002dm_002dplayer_002dusing_002dhrtf-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Add af resample=48000,hrtf to startup options.
+This will work if the soundcard is set to 48000.
+</pre>
+      </div>
+    </dd>
+  </dl><a name="emacspeak_002dm_002dplayer_002dusing_002dopenal"
+  id="emacspeak_002dm_002dplayer_002dusing_002dopenal"></a>
+
+  <h4 class="subsubsection">12.111.1.66
+  emacspeak-m-player-using-openal</h4>
+
+  <dl>
+    <dt><a name=
+    "index-emacspeak_002dm_002dplayer_002dusing_002dopenal" id=
+    "index-emacspeak_002dm_002dplayer_002dusing_002dopenal"></a>Command:
+    <strong>emacspeak-m-player-using-openal</strong></dt>
+
+    <dd>
+      <a name=
       "index-emacspeak_002dm_002dplayer_002dusing_002dopenal-1" id=
       "index-emacspeak_002dm_002dplayer_002dusing_002dopenal-1"></a>
 
@@ -1854,7 +1878,7 @@ feature.
   </dl><a name="emacspeak_002dm_002dplayer_002dvolume_002dchange"
   id="emacspeak_002dm_002dplayer_002dvolume_002dchange"></a>
 
-  <h4 class="subsubsection">12.111.1.66
+  <h4 class="subsubsection">12.111.1.67
   emacspeak-m-player-volume-change</h4>
 
   <dl>
@@ -1881,7 +1905,7 @@ Change volume to specified absolute value.
   </dl><a name="emacspeak_002dm_002dplayer_002dvolume_002ddown" id=
   "emacspeak_002dm_002dplayer_002dvolume_002ddown"></a>
 
-  <h4 class="subsubsection">12.111.1.67
+  <h4 class="subsubsection">12.111.1.68
   emacspeak-m-player-volume-down</h4>
 
   <dl>
@@ -1904,7 +1928,7 @@ Decrease volume.
   </dl><a name="emacspeak_002dm_002dplayer_002dvolume_002dup" id=
   "emacspeak_002dm_002dplayer_002dvolume_002dup"></a>
 
-  <h4 class="subsubsection">12.111.1.68
+  <h4 class="subsubsection">12.111.1.69
   emacspeak-m-player-volume-up</h4>
 
   <dl>
@@ -1927,7 +1951,7 @@ Increase volume.
   </dl><a name="emacspeak_002dm_002dplayer_002dyoutube_002dplayer"
   id="emacspeak_002dm_002dplayer_002dyoutube_002dplayer"></a>
 
-  <h4 class="subsubsection">12.111.1.69
+  <h4 class="subsubsection">12.111.1.70
   emacspeak-m-player-youtube-player</h4>
 
   <dl>
@@ -1954,7 +1978,7 @@ Use youtube-dl and mplayer to stream YouTube content.
   </dl><a name="emacspeak_002dmultimedia" id=
   "emacspeak_002dmultimedia"></a>
 
-  <h4 class="subsubsection">12.111.1.70 emacspeak-multimedia</h4>
+  <h4 class="subsubsection">12.111.1.71 emacspeak-multimedia</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002dmultimedia" id=
@@ -1987,8 +2011,8 @@ Start or control Emacspeak multimedia player.
   <h4 class="subsection">12.111.2 emacspeak-m-player Options</h4>
 
   <dl>
-    <dt><a name="index-User-Option-586" id=
-    "index-User-Option-586"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-616" id=
+    "index-User-Option-616"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-m-player-options</em></dt>
 
     <dd>
@@ -1997,8 +2021,8 @@ Start or control Emacspeak multimedia player.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-587" id=
-    "index-User-Option-587"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-617" id=
+    "index-User-Option-617"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-m-player-program</em></dt>
 
     <dd>
@@ -2007,8 +2031,8 @@ Start or control Emacspeak multimedia player.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-588" id=
-    "index-User-Option-588"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-618" id=
+    "index-User-Option-618"></a>Variable: <strong>User
     Option</strong>
     <em>emacspeak-m-player-recent-amark-name</em></dt>
 
@@ -2018,8 +2042,8 @@ Start or control Emacspeak multimedia player.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-589" id=
-    "index-User-Option-589"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-619" id=
+    "index-User-Option-619"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-m-player-reverb-filter</em></dt>
 
     <dd>
@@ -2028,8 +2052,8 @@ Start or control Emacspeak multimedia player.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-590" id=
-    "index-User-Option-590"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-620" id=
+    "index-User-Option-620"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-m-player-youtube-dl</em></dt>
 
     <dd>
@@ -2038,8 +2062,8 @@ Start or control Emacspeak multimedia player.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-591" id=
-    "index-User-Option-591"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-621" id=
+    "index-User-Option-621"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-media-location-bindings</em></dt>
 
     <dd>
