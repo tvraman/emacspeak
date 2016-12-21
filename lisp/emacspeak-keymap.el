@@ -646,7 +646,7 @@ command that the key sequence executes."
   '(
     (":" emacspeak-wizards-view-buffers-filtered-by-m-player-mode)
     (";" emacspeak-m-player-using-openal)
-    (";" emacspeak-m-player-using-hrtf)
+    ("'" emacspeak-m-player-using-hrtf)
     ("B" eww-list-bookmarks)
     ("C" apu-chars)
     ("N" emacspeak-npr-listing)
