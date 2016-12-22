@@ -5,6 +5,7 @@
 
 #Note hw:1,0 on this laptop
 # rate  defaults to 48000, enables hrtf on mplayer
+# buffer_size has to be period_size*4 to avoid clicks 
 
 pcm.media  {
     type dmix
@@ -13,8 +14,6 @@ pcm.media  {
         pcm "hw:1,0"
         period_size 1024
         buffer_size 4096
-        #format S16_LE
-        #rate 44100
     }
 }
 
