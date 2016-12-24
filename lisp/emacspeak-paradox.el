@@ -96,7 +96,9 @@
   (define-key paradox-menu-mode-map " " 'emacspeak-paradox-summarize-line)
   (emacspeak-pronounce-add-buffer-local-dictionary-entry
    emacspeak-pronounce-date-yyyymmdd-pattern
-   (cons 're-search-forward 'emacspeak-pronounce-yyyymmdd-date)))
+   (cons 're-search-forward 'emacspeak-pronounce-yyyymmdd-date))
+  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-speak-mode-line))
 
 (add-hook 'paradox-menu-mode-hook 'emacspeak-paradox-mode-hook)
 
