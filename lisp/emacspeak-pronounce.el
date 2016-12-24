@@ -136,10 +136,10 @@ Arguments STRING and PRONUNCIATION specify what is being defined."
    ((not (boundp 'emacspeak-pronounce-pronunciation-table)) ;first time
     (set (make-local-variable 'emacspeak-pronounce-pronunciation-table)
          (emacspeak-pronounce-compose-pronunciation-table))
-    (emacspeak-auditory-icon 'on))
+    (when (ems-interactive-p)(emacspeak-auditory-icon 'on)))
    (emacspeak-pronounce-pronunciation-table ;already on --
-    (emacspeak-auditory-icon 'on))
-   (t ;turn it on
+    (when (ems-interactive-p)(emacspeak-auditory-icon 'on)))
+   (t                                   ;turn it on
     (setq emacspeak-pronounce-pronunciation-table
           (emacspeak-pronounce-compose-pronunciation-table))))
   (puthash string pronunciation
