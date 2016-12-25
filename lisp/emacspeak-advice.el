@@ -2775,11 +2775,19 @@ Produce auditory icons if possible."
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-line)))
 
+
 (defadvice list-processes (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Displayed process list in other window.")))
+
+
+(defadvice timer-list (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
 
 ;;}}}
 (provide 'emacspeak-advice)
