@@ -930,18 +930,18 @@ are indicated with auditory icon ellipses."
         (cond
          ;;; C1..C5
          ((string-equal ""  line)
-          (dtk-tone 130.8   100 'force))
+          (dtk-tone 130.8   150 'force))
          ((string-match  emacspeak-speak-space-regexp  line) ;only white space
-          (dtk-tone 261.6 100 'force))
+          (dtk-tone 261.6 150 'force))
          ((and (not (eq 'all dtk-punctuation-mode))
                (string-match  emacspeak-horizontal-rule line))
-          (dtk-tone 523.3   100 t))
+          (dtk-tone 523.3   150 t))
          ((and (not (eq 'all dtk-punctuation-mode))
                (string-match  emacspeak-decoration-rule line))
-          (dtk-tone 1047   100 t))
+          (dtk-tone 1047   150 t))
          ((and (not (eq 'all dtk-punctuation-mode))
                (string-match  emacspeak-unspeakable-rule line))
-          (dtk-tone 2093   100 t))
+          (dtk-tone 2093   150 t))
          (t
           (let*
               ((l (length line))
