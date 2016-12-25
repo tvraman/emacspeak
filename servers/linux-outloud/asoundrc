@@ -1,10 +1,9 @@
 # $Id: .asoundrc,v 1.3 2012/03/08 19:19:31 raman Exp raman $
-# For newer kernels period_size = buffer_size/4  avoids clicks with SoX
 # {{{ Device media --- a mixer --- is default
 
 #Note hw:1,0 on this laptop
 # rate  defaults to 48000, enables hrtf on mplayer
-# buffer_size has to be period_size*4 to avoid clicks 
+# buffer_size has to be period_size*4 to avoid clicks
 
 pcm.media  {
     type dmix
@@ -21,7 +20,6 @@ pcm.!default {
     playback.pcm "plug:media"
     capture.pcm "sysdefault:CARD=PCH"
 }
-
 
 ctl.!default {
     type hw
