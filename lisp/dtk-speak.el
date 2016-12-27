@@ -158,7 +158,7 @@ with a repeat count. "
 ;;}}}
 ;;{{{  internal variables
 
-(defvar dtk-character-scale 1.25
+(defvar dtk-character-scale 1.1
   "Factor by which speech rate is scaled when characters are spoken.
 Do not set this variable by hand, use command
 `dtk-set-character-scale' bound to \\[dtk-set-character-scale].")
