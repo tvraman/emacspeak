@@ -1,7 +1,7 @@
 ;;; emacspeak-librivox.el --- Speech-enabled  LIBRIVOX API client  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-librivox.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
-;;; Description:  Speech-enable LIBRIVOX An Emacs Interface to Free Audio Books
+;;; Description:  Speech-enable LIBRIVOX --- Free public-domain Audio Books
 ;;; Keywords: Emacspeak,  Audio Desktop librivox
 ;;{{{  LCD Archive entry:
 
@@ -46,6 +46,21 @@
 ;;; API Info: https://librivox.org/api/info
 ;;; It provides a simple Web  API
 ;;; This module implements an Emacspeak Librivox client.
+;;;
+;;; @subsection Usage
+;;;
+;;; main entry point is command @code{emacspeak-librivox} bound to @kbd{C-; l}.
+;;; This prompts with the following choices:
+;;; @itemize
+;;; @item @kbd{a} Author --- Search  by Author.
+;;; @item @kbd{t} Title --- Search  by Title.
+;;; @item @kbd{g} Genre --- Search  by Genre --- with minibuffer completion.
+;;; @item @kbd{p} Play --- Play a  book.
+;;;@item @kbd{d} Directory --- Browse local cache.
+;;; @end itemize
+;;;
+;;; Search results are displayed in a Web page that provides controls
+;;;for accessing the book.
 
 ;;; Code:
 
