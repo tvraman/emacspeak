@@ -42,14 +42,28 @@
 
 ;;; Commentary:
 
-;;; Defines a simple derived mode for interacting with mplayer.
-;;; mplayer  is a versatile media player capable of playing many
-;;; streaming formats  and is especially useful for playing windows
-;;; media (WMA) and streaming windows media (ASF) files.
-;;;Mplayer FAQ at
-;;;http://www.mplayerhq.hu/DOCS/faq.html
-;;; Mplayer docs at
-;;; http://www.mplayerhq.hu/DOCS/
+;;; Defines an Emacspeak front-end for interacting with @code{mplayer}.
+;;; Program @code{mplayer}  is a versatile media player capable of playing many
+;;; streaming media formats.
+;;; This module provides complete access to all @code{mplayer} functionality
+;;; from a convenient Emacs interface.
+;;;
+;;;@subsection Usage
+;;; 
+;;; The main entry-point is command @code{emacspeak-multimedia}
+;;;bound to @kbd{C-e ;}.
+;;; This prompts for and launches the desired media stream.
+;;; Once a stream is playing, you can control it with single-letter keystrokes
+;;; in the @code{*M-Player*} buffer.
+;;; Alternatively, you can switch away from that buffer to do real work,
+;;; And invoke @code{m-player} commands by  first pressing @kbd{C-e ;}.
+;;; As an example, pressing @kbd{v} in the @code{*M-Player*} buffer
+;;; prompts for and sets the volume;
+;;; When not in the @code{*M-Player*} buffer, you can achieve the same
+;;; by pressing @kbd{C-e ; v}.
+;;; Press @kbd{C-h b} in the @code{*M-Player*}
+;;; buffer  to list  @code{m-player} keybindings.
+;;;
 ;;; Code:
 
 ;;}}}
@@ -212,7 +226,12 @@ on a specific directory."
 
 ;;;###autoload
 (defun emacspeak-multimedia  ()
-  "Start or control Emacspeak multimedia player."
+  "Start or control Emacspeak multimedia player.
+
+Uses current context to prompt for media to play.
+Controls media playback when already playing a stream.
+
+\\{emacspeak-m-player-mode-map}."
   (interactive)
   (declare (special emacspeak-media-shortcuts-directory
                     emacspeak-m-player-process))
