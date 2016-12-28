@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1149 commands and 1022 options.
+This chapter documents a total of 1149 commands and 1021 options.
 
 @menu
 * acss-structure::
@@ -209,7 +209,6 @@ This chapter documents a total of 1149 commands and 1022 options.
 * g-app::
 * g-auth::
 * g-utils::
-* gdrive::
 * gf::
 * gfeeds::
 * gm-nnir::
@@ -1474,8 +1473,9 @@ key             binding
 ---             -------
 
 SPC		emacspeak-webspace
+'		emacspeak-m-player-using-hrtf
 :		emacspeak-wizards-view-buffers-filtered-by-m-player-mode
-;		emacspeak-m-player-using-hrtf
+;		emacspeak-m-player-using-openal
 B		eww-list-bookmarks
 C		apu-chars
 N		emacspeak-npr-listing
@@ -9909,6 +9909,21 @@ API Info: https://librivox.org/api/info
 It provides a simple Web  API
 This module implements an Emacspeak Librivox client.
 
+@subsection Usage
+
+main entry point is command @code{emacspeak-librivox} bound to @kbd{C-; l}.
+This prompts with the following choices:
+@itemize
+@item @kbd{a} Author --- Search  by Author.
+@item @kbd{t} Title --- Search  by Title.
+@item @kbd{g} Genre --- Search  by Genre --- with minibuffer completion.
+@item @kbd{p} Play --- Play a  book.
+@item @kbd{d} Directory --- Browse local cache.
+@end itemize
+
+Search results are displayed in a Web page that provides controls
+for accessing the book.
+
 @subsection emacspeak-librivox Commands
 
 @subsubsection emacspeak-librivox
@@ -10749,10 +10764,10 @@ Call emacspeak-m-player with specified URL.
 @subsubsection emacspeak-m-player-using-hrtf
 @deffn {Command} emacspeak-m-player-using-hrtf   
 @table @kbd
-@item C-; ;
-@kindex C-; ;
-@item C-x @@ h ;
-@kindex C-x @@ h ;
+@item C-; '
+@kindex C-; '
+@item C-x @@ h '
+@kindex C-x @@ h '
 @end table
 
 @findex emacspeak-m-player-using-hrtf
@@ -10765,6 +10780,13 @@ This will work if the soundcard is set to 48000.
 
 @subsubsection emacspeak-m-player-using-openal
 @deffn {Command} emacspeak-m-player-using-openal   
+@table @kbd
+@item C-; ;
+@kindex C-; ;
+@item C-x @@ h ;
+@kindex C-x @@ h ;
+@end table
+
 @findex emacspeak-m-player-using-openal
 
 @format
@@ -22562,39 +22584,6 @@ Function used to get URL from current context.
 
 @defvar {User Option} g-xslt-program
 XSLT Processor.
-
-@end defvar
-
-@node gdrive
-@section gdrive
-
-Implement Google OAuth flow:
-Create your  app credentials via the Google Developer Console,
-https://console.developers.google.com/
-Then enable the APIs you plan to access via this set of credentials.
-Download the credentials as JSON, and GPG encrypt the file.
-Defaults settings in this module assume above file to be
-$HOME/.emacs.d/emacs-google.json.gpg
-
-This module uses simple-httpd.el to run an Emacs HTTPD daemon.
-A simple HTTPD servlet in that daemon listens for the OAuth2 redirect URL
-to receive the OAuth auth code --- saves cut/paste from Chrome.
-You still need to click "Allow" from Chrome.
-The Elisp HTTPD servlet receives the code via  the servlet
-Caches it, and places it in the kill-ring.
-Module oauth2.el as written expects the user to type the code in,
-with this implementation, hit C-y at that point.
-
-Implement GDrive V3 API Using OAuth2
-
-@subsection gdrive Options
-
-@defvar {User Option} g-oath-creds-store
-Location of  encrypted JSON containing Google API client-id/client-secret.
-Download this from the Google API Console after creating your
-client-id for your project , then encrypt it with GPG. e.g. gpg -c
-<filename.json>. Emacs will prompt for the encryption password on
-first use. These credentials can be used with Google APIs after those APIs have been enabled for this project from the Google API Console.
 
 @end defvar
 

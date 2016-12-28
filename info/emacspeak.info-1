@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents Emacspeak, The Complete Audio Desktop.  This
-document was last updated on December 21, 2016.
+document was last updated on December 28, 2016.
 
    The manual is divided into the following chapters.
 
@@ -2945,7 +2945,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1149 commands and 1022 options.
+This chapter documents a total of 1149 commands and 1021 options.
 
 * Menu:
 
@@ -3153,7 +3153,6 @@ This chapter documents a total of 1149 commands and 1022 options.
 * g-app::
 * g-auth::
 * g-utils::
-* gdrive::
 * gf::
 * gfeeds::
 * gm-nnir::
@@ -4173,8 +4172,9 @@ system.
      —             ——-
 
      SPC		emacspeak-webspace
+     ’		emacspeak-m-player-using-hrtf
      :		emacspeak-wizards-view-buffers-filtered-by-m-player-mode
-     ;		emacspeak-m-player-using-hrtf
+     ;		emacspeak-m-player-using-openal
      B		eww-list-bookmarks
      C		apu-chars
      N		emacspeak-npr-listing
