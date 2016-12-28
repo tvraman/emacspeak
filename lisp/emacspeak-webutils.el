@@ -496,6 +496,7 @@ Optional interactive prefix arg `playlist-p' says to treat the link as a playlis
              (funcall emacspeak-webutils-url-at-point)
            (browse-url-url-at-point))))
     (message "Playing media  URL under point")
+    (kill-new url)
     (funcall  emacspeak-media-player  url  playlist-p)))
 
 (defun emacspeak-webutils-curl-play-media-at-point ()
