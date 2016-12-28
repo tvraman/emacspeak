@@ -10009,14 +10009,27 @@ Speech-enable lua-mode.
 @node emacspeak-m-player
 @section emacspeak-m-player
 
-Defines a simple derived mode for interacting with mplayer.
-mplayer  is a versatile media player capable of playing many
-streaming formats  and is especially useful for playing windows
-media (WMA) and streaming windows media (ASF) files.
-Mplayer FAQ at
-http://www.mplayerhq.hu/DOCS/faq.html
-Mplayer docs at
-http://www.mplayerhq.hu/DOCS/
+Defines an Emacspeak front-end for interacting with @code{mplayer}.
+Program @code{mplayer}  is a versatile media player capable of playing many
+streaming media formats.
+This module provides complete access to all @code{mplayer} functionality
+from a convenient Emacs interface.
+
+@subsection Usage
+
+The main entry-point is command @code{emacspeak-multimedia}
+bound to @kbd{C-e ;}.
+This prompts for and launches the desired media stream.
+Once a stream is playing, you can control it with single-letter keystrokes
+in the @code{*M-Player*} buffer.
+Alternatively, you can switch away from that buffer to do real work,
+And invoke @code{m-player} commands by  first pressing @kbd{C-e ;}.
+As an example, pressing @kbd{v} in the @code{*M-Player*} buffer
+prompts for and sets the volume;
+When not in the @code{*M-Player*} buffer, you can achieve the same
+by pressing @kbd{C-e ; v}.
+Press @kbd{C-h b} in the @code{*M-Player*}
+buffer  to list  @code{m-player} keybindings.
 
 @subsection emacspeak-m-player Commands
 
@@ -10850,6 +10863,80 @@ Use youtube-dl and mplayer to stream YouTube content.
 
 @format
 Start or control Emacspeak multimedia player.
+
+Uses current context to prompt for media to play.
+Controls media playback when already playing a stream.
+
+key             binding
+---             -------
+
+C-l		ladspa
+RET		emacspeak-m-player-load
+ESC		Prefix Command
+SPC		emacspeak-m-player-pause
+%		emacspeak-m-player-display-percent
+(		emacspeak-m-player-left-channel
+)		emacspeak-m-player-right-channel
++		emacspeak-m-player-volume-up
+,		emacspeak-m-player-backward-10s
+-		emacspeak-m-player-volume-down
+.		emacspeak-m-player-forward-10s
+/		emacspeak-m-player-restore-process
+;		emacspeak-m-player-pop-to-player
+<		emacspeak-m-player-backward-1min
+=		emacspeak-m-player-volume-up
+>		emacspeak-m-player-forward-1min
+?		emacspeak-m-player-display-position
+A		emacspeak-m-player-amark-add
+C		emacspeak-m-player-clear-filters
+G		emacspeak-m-player-seek-percentage
+L		emacspeak-m-player-locate-media
+M		emacspeak-m-player-display-metadata
+O		emacspeak-m-player-reset-options
+P		emacspeak-m-player-apply-reverb-preset
+Q		emacspeak-m-player-quit
+R		emacspeak-m-player-edit-reverb
+S		emacspeak-amark-save
+[		emacspeak-m-player-slower
+\		emacspeak-m-player-persist-process
+]		emacspeak-m-player-faster
+a		emacspeak-m-player-add-autopan
+b		emacspeak-wizards-view-buffers-filtered-by-m-player-mode
+c		emacspeak-m-player-slave-command
+d		emacspeak-m-player-delete-filter
+e		emacspeak-m-player-add-equalizer
+f		emacspeak-m-player-add-filter
+g		emacspeak-m-player-seek-absolute
+i		emacspeak-m-player-stream-info
+j		emacspeak-m-player-amark-jump
+l		emacspeak-m-player-get-length
+m		emacspeak-m-player-speak-mode-line
+n		emacspeak-m-player-next-track
+o		emacspeak-m-player-customize-options
+p		emacspeak-m-player-previous-track
+q		bury-buffer
+r		emacspeak-m-player-seek-relative
+s		emacspeak-m-player-scale-speed
+t		emacspeak-m-player-play-tracks-jump
+u		emacspeak-m-player-url
+v		emacspeak-m-player-volume-change
+x		emacspeak-m-player-pan
+z		emacspeak-m-player-af-add
+@{		emacspeak-m-player-half-speed
+@}		emacspeak-m-player-double-speed
+DEL		emacspeak-m-player-reset-speed
+<down>		emacspeak-m-player-forward-1min
+<end>		emacspeak-m-player-end-of-track
+<home>		emacspeak-m-player-beginning-of-track
+<left>		emacspeak-m-player-backward-10s
+<next>		emacspeak-m-player-forward-10min
+<prior>		emacspeak-m-player-backward-10min
+<right>		emacspeak-m-player-forward-10s
+<up>		emacspeak-m-player-backward-1min
+
+M-l		emacspeak-m-player-load-playlist
+
+.
 @end format
 @end deffn
 
