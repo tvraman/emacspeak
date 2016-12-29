@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents Emacspeak, The Complete Audio Desktop.  This
-document was last updated on December 28, 2016.
+document was last updated on December 29, 2016.
 
    The manual is divided into the following chapters.
 
@@ -4371,6 +4371,31 @@ system.
      Personality used for comint-highlight-prompt This personality uses
      voice-monotone whose effect can be changed globally by customizing
      voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-compilation-column-number-voice
+     Personality used for compilation-column-number This personality
+     uses voice-smoothen whose effect can be changed globally by
+     customizing voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-compilation-error-voice
+     Personality used for compilation-error This personality uses
+     voice-animate-extra whose effect can be changed globally by
+     customizing voice-animate-extra-settings.
+
+ -- Variable: User Option emacspeak-compilation-info-voice
+     Personality used for compilation-info This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-compilation-line-number-voice
+     Personality used for compilation-line-number This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-compilation-warning-voice
+     Personality used for compilation-warning This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
 
  -- Variable: User Option emacspeak-completions-annotations-voice
      Personality used for completions-annotations This personality uses

@@ -1705,6 +1705,36 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 
 @end defvar
 
+@defvar {User Option} emacspeak-compilation-column-number-voice
+Personality used for compilation-column-number
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-compilation-error-voice
+Personality used for compilation-error
+This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-compilation-info-voice
+Personality used for compilation-info
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-compilation-line-number-voice
+Personality used for compilation-line-number
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-compilation-warning-voice
+Personality used for compilation-warning
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-completions-annotations-voice
 Personality used for completions-annotations
 This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
@@ -5549,38 +5579,6 @@ It is an example of how a little amount of code can make Emacspeak even better.
 Speech feedback about the compilation error. 
 @end format
 @end deffn
-
-@subsection emacspeak-compile Options
-
-@defvar {User Option} emacspeak-compilation-column-number-voice
-Personality used for compilation-column-number
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-compilation-error-voice
-Personality used for compilation-error
-This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-compilation-info-voice
-Personality used for compilation-info
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-compilation-line-number-voice
-Personality used for compilation-line-number
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-compilation-warning-voice
-Personality used for compilation-warning
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
 
 @node emacspeak-cperl
 @section emacspeak-cperl
@@ -10503,7 +10501,7 @@ DEL		emacspeak-m-player-reset-speed
 M-l		emacspeak-m-player-load-playlist
 
 In addition to any hooks its parent mode ‘comint-mode’ might have run,
-this mode runs the hook ‘emacspeak-m-player-mode-hook’, as the final step
+this mode runs the hook ‘emacspeak-m-player-mode-hook’, as the final or penultimate step
 during initialization.
 @end format
 @end deffn
@@ -12138,16 +12136,16 @@ It provides a simple Web  API documented at http://www.npr.org/api/index.
 This module implements an Emacspeak Npr client.
 Users will need to get their own API key.
 
-Entry Points:
+@subsection Usage
 
-Command: emacspeak-npr-play-program
+Command: @code{emacspeak-npr-play-program} @kbd{C-; n}
 --- Play current or past program with completion for program name.
 
-emacspeak-npr-listing
+@code{emacspeak-npr-listing} @kbd{C-; N}
 --- List NPR programs, blogs, etc with completion.
 Streams can be played from within the displayed listing.
 
-In all cases, streams are played using module emacspeak-m-player.
+In all cases, streams are played using module @code{emacspeak-m-player}.
 
 @subsection emacspeak-npr Commands
 

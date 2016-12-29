@@ -226,34 +226,6 @@ better.
 
      Speech feedback about the compilation error.
 
-12.40.2 emacspeak-compile Options
----------------------------------
-
- -- Variable: User Option emacspeak-compilation-column-number-voice
-     Personality used for compilation-column-number This personality
-     uses voice-smoothen whose effect can be changed globally by
-     customizing voice-smoothen-settings.
-
- -- Variable: User Option emacspeak-compilation-error-voice
-     Personality used for compilation-error This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option emacspeak-compilation-info-voice
-     Personality used for compilation-info This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option emacspeak-compilation-line-number-voice
-     Personality used for compilation-line-number This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option emacspeak-compilation-warning-voice
-     Personality used for compilation-warning This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
 
 File: emacspeak.info,  Node: emacspeak-cperl,  Next: emacspeak-custom,  Prev: emacspeak-compile,  Up: Emacspeak Commands And Options
 
@@ -4531,7 +4503,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      M-l		emacspeak-m-player-load-playlist
 
      In addition to any hooks its parent mode ‘comint-mode’ might have run,
-     this mode runs the hook ‘emacspeak-m-player-mode-hook’, as the final step
+     this mode runs the hook ‘emacspeak-m-player-mode-hook’, as the final or penultimate step
      during initialization.
 
 12.111.2.40 emacspeak-m-player-next-track
@@ -5946,20 +5918,21 @@ simple Web API documented at http://www.npr.org/api/index.  This module
 implements an Emacspeak Npr client.  Users will need to get their own
 API key.
 
-   Entry Points:
+12.125.1 Usage
+--------------
 
-   Command: emacspeak-npr-play-program — Play current or past program
-with completion for program name.
+Command: ‘emacspeak-npr-play-program’ ‘C-; n’ — Play current or past
+program with completion for program name.
 
-   emacspeak-npr-listing — List NPR programs, blogs, etc with
+   ‘emacspeak-npr-listing’ ‘C-; N’ — List NPR programs, blogs, etc with
 completion.  Streams can be played from within the displayed listing.
 
-   In all cases, streams are played using module emacspeak-m-player.
+   In all cases, streams are played using module ‘emacspeak-m-player’.
 
-12.125.1 emacspeak-npr Commands
+12.125.2 emacspeak-npr Commands
 -------------------------------
 
-12.125.1.1 emacspeak-npr-listing
+12.125.2.1 emacspeak-npr-listing
 ................................
 
  -- Command: emacspeak-npr-listing (&optional search)
@@ -5971,7 +5944,7 @@ completion.  Streams can be played from within the displayed listing.
 
      (fn &optional SEARCH)
 
-12.125.1.2 emacspeak-npr-listing-url-executor
+12.125.2.2 emacspeak-npr-listing-url-executor
 .............................................
 
  -- Command: emacspeak-npr-listing-url-executor (url &optional get-date)
@@ -5981,7 +5954,7 @@ completion.  Streams can be played from within the displayed listing.
 
      (fn URL &optional GET-DATE)
 
-12.125.1.3 emacspeak-npr-play-program
+12.125.2.3 emacspeak-npr-play-program
 .....................................
 
  -- Command: emacspeak-npr-play-program (pid &optional get-date)
@@ -5993,7 +5966,7 @@ completion.  Streams can be played from within the displayed listing.
 
      (fn PID &optional GET-DATE)
 
-12.125.1.4 emacspeak-npr-refresh-program-table
+12.125.2.4 emacspeak-npr-refresh-program-table
 ..............................................
 
  -- Command: emacspeak-npr-refresh-program-table (&optional force)
@@ -6002,7 +5975,7 @@ completion.  Streams can be played from within the displayed listing.
 
      (fn &optional FORCE)
 
-12.125.1.5 emacspeak-npr-search
+12.125.2.5 emacspeak-npr-search
 ...............................
 
  -- Command: emacspeak-npr-search (query)
@@ -6011,7 +5984,7 @@ completion.  Streams can be played from within the displayed listing.
 
      (fn QUERY)
 
-12.125.2 emacspeak-npr Options
+12.125.3 emacspeak-npr Options
 ------------------------------
 
  -- Variable: User Option emacspeak-npr-api-key
