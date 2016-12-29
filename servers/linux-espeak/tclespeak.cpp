@@ -37,13 +37,13 @@
 //>
 //<includes
 
-#include <sys/time.h>
-#include <tcl.h>
-#include <string.h>
-#include <stdlib.h>
-#include <string>
 #include <assert.h>
 #include <espeak/speak_lib.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/time.h>
+#include <tcl.h>
+#include <string>
 #ifndef ESPEAK_API_REVISION
 #define ESPEAK_API_REVISION 1
 #endif
@@ -306,7 +306,6 @@ int Say(ClientData handle, Tcl_Interp *interp, int objc,
 
 int Synchronize(ClientData handle, Tcl_Interp *interp, int objc,
                 Tcl_Obj *CONST objv[]) {
-
   espeak_Synchronize();
 
   return TCL_OK;
@@ -462,8 +461,8 @@ static vector<string> ParseLanguages(const char *lang_str) {
   // ends with a NUL.  So in BNF:
   // (priority-byte text NUL-byte)* NUL-byte
   // We can ignore the priority byte for now.  Revisit it later?
-  while(*p) {
-    voice_langs.push_back(string(p+1));
+  while (*p) {
+    voice_langs.push_back(string(p + 1));
     p += strlen(p + 1) + 2;
   }
   return voice_langs;
@@ -489,8 +488,8 @@ static void initLanguage(Tcl_Interp *interp) {
     aDefaultLang.erase(aDefaultLang.begin() + remove, aDefaultLang.end());
   }
   // And replace _ with -, E.G. en_US becomes en-US.
-  for (string::iterator it = aDefaultLang.begin();
-       it != aDefaultLang.end(); it++) {
+  for (string::iterator it = aDefaultLang.begin(); it != aDefaultLang.end();
+       it++) {
     if (*it == '_') {
       *it = '-';
     }
@@ -514,7 +513,7 @@ static void initLanguage(Tcl_Interp *interp) {
     Tcl_SetVar2(interp, "langalias", aLangCode, buffer, 0);
     Tcl_SetVar2(interp, "langcode", buffer, aLangCode, 0);
     if (default_index == lang_count) {
-    if (strcasecmp(aDefaultLang.c_str(), aLangCode) == 0) {
+      if (strcasecmp(aDefaultLang.c_str(), aLangCode) == 0) {
         Tcl_SetVar2(interp, "langsynth", "current", buffer, 0);
         Tcl_SetVar2(interp, "langcode", "current", (char *)aLangCode, 0);
         default_index = ui;
@@ -530,7 +529,7 @@ static void initLanguage(Tcl_Interp *interp) {
     exit(1);
   }
   fprintf(stderr, "default_index %d\n", default_index);
-  if(default_index == lang_count) {
+  if (default_index == lang_count) {
     default_index = english_index;
     fprintf(stderr, "Couldn't find your default language, using English.\n");
     snprintf(buffer, sizeof(buffer), "%lu", english_index);
