@@ -47,16 +47,16 @@
 ;;; This module implements an Emacspeak Npr client.
 ;;; Users will need to get their own API key.
 ;;;
-;;; Entry Points:
-
-;;; Command: emacspeak-npr-play-program
+;;; @subsection Usage
+;;;
+;;; Command: @code{emacspeak-npr-play-program} @kbd{C-; n}
 ;;; --- Play current or past program with completion for program name.
 ;;;
-;;; emacspeak-npr-listing
+;;; @code{emacspeak-npr-listing} @kbd{C-; N}
 ;;; --- List NPR programs, blogs, etc with completion.
 ;;; Streams can be played from within the displayed listing.
 ;;;
-;;; In all cases, streams are played using module emacspeak-m-player.
+;;; In all cases, streams are played using module @code{emacspeak-m-player}.
 
 ;;; Code:
 
