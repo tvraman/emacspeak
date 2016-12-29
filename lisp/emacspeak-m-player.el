@@ -766,6 +766,8 @@ This affects pitch."
 (defun emacspeak-m-player-volume-change (value)
   "Change volume to specified absolute value."
   (interactive"sChange Volume to:")
+  (declare (special emacspeak-m-player-active-filters))
+  (cl-pushnew "volume" emacspeak-m-player-active-filters)
   (emacspeak-m-player-dispatch
    (format "volume %s, 1" value)))
 
@@ -776,6 +778,9 @@ This affects pitch."
   (emacspeak-m-player-dispatch
    (format "balance %s"
            (read-from-minibuffer "Balance -- Between -1 and 1:"))))
+(defvar emacspeak-m-player-active-filters nil
+  "Caches filters that are active.")
+(make-variable-buffer-local 'emacspeak-m-player-active-filters)
 
 ;;;###autoload
 (defun emacspeak-m-player-slave-command (command)
@@ -804,11 +809,15 @@ This affects pitch."
   "Delete filter."
   (interactive
    (list
-    (completing-read "Filter:" emacspeak-m-player-filters nil nil)))
-  (declare (special emacspeak-m-player-filters))
+    (with-current-buffer (process-buffer emacspeak-m-player-process)
+    (completing-read "Filter:"
+                     (or emacspeak-m-player-active-filters
+                         emacspeak-m-player-filters nil nil)))))
+  (declare (special emacspeak-m-player-filters
+                    emacspeak-m-player-active-filters))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
-    (let* (
-           (result (emacspeak-m-player-dispatch (format "af_del %s" filter))))
+    (let* ((result (emacspeak-m-player-dispatch (format "af_del %s" filter))))
+      (setq emacspeak-m-player-active-filters (remove  filter emacspeak-m-player-active-filters))
       (when result
         (setq result (replace-regexp-in-string  "^ans_" "" result))
         (setq result (replace-regexp-in-string  "_" " " result)))
@@ -921,8 +930,10 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
     (completing-read "Filter:"
                      emacspeak-m-player-filters
                      nil nil)))
-  (declare (special emacspeak-m-player-process))
+  (declare (special emacspeak-m-player-process
+                    emacspeak-m-player-active-filters))
   (when (process-live-p  emacspeak-m-player-process)
+    (push filter-name emacspeak-m-player-active-filters)
     (emacspeak-m-player-dispatch (format "af_add %s" filter-name))))
 
 (defun emacspeak-m-player-left-channel ()
