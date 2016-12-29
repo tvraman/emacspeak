@@ -61,9 +61,9 @@
 //>
 //<includes
 
-#include <sys/time.h>
-#include <dlfcn.h>
 #include <alloca.h>
+#include <dlfcn.h>
+#include <sys/time.h>
 #define ALSA_PCM_NEW_HW_PARAMS_API
 #define ALSA_PCM_NEW_SW_PARAMS_API
 #include <alsa/asoundlib.h>
@@ -199,11 +199,11 @@ static size_t alsa_configure(void) {
   }
   //>
   //<Rate:
-err = snd_pcm_hw_params_set_rate_resample(AHandle, params, 1);
+  err = snd_pcm_hw_params_set_rate_resample(AHandle, params, 1);
   assert(err >= 0);
   err = snd_pcm_hw_params_set_rate(AHandle, params, rate, 0);
   assert(err >= 0);
-  
+
   //>
   //<Access Mode:
   err = snd_pcm_hw_params_set_access(AHandle, params,
@@ -346,7 +346,8 @@ static size_t alsa_init() {
     device = "default";
   }
   size_t chunk_bytes = 0;
-  if ((err = snd_pcm_open(&AHandle, device, SND_PCM_STREAM_PLAYBACK, 0 /* blocking */)) < 0) {
+  if ((err = snd_pcm_open(&AHandle, device, SND_PCM_STREAM_PLAYBACK,
+                          0 /* blocking */)) < 0) {
     fprintf(stderr, "Playback open error: %s\n", snd_strerror(err));
     exit(1);
   }
@@ -532,8 +533,7 @@ int Atcleci_Init(Tcl_Interp *interp) {
   //<Finally, allocate waveBuffer
 
   fprintf(stderr, "allocating %d 16 bit samples, %f seconds of audio.\n",
-          (int)chunk_bytes,
-          (chunk_bytes /  (float)DEFAULT_SPEED));
+          (int)chunk_bytes, (chunk_bytes / (float)DEFAULT_SPEED));
   waveBuffer = (short *)malloc(chunk_bytes * sizeof(short));
   if (waveBuffer == NULL) {
     fprintf(stderr, "not enough memory");
@@ -803,7 +803,8 @@ int showAlsaState(ClientData eciHandle, Tcl_Interp *interp, int objc,
     return TCL_ERROR;
   }
   fprintf(stderr, "PCM name: '%s'\n", snd_pcm_name(AHandle));
-	fprintf(stderr, "PCM state: %s\n", snd_pcm_state_name(snd_pcm_state(AHandle)));
+  fprintf(stderr, "PCM state: %s\n",
+          snd_pcm_state_name(snd_pcm_state(AHandle)));
 
   snd_pcm_dump(AHandle, Log);
   return TCL_OK;
