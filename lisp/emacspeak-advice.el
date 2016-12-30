@@ -2413,8 +2413,11 @@ Produce auditory icons if possible."
 (defun emacspeak-minibuffer-setup-hook ()
   "Actions to take when entering the minibuffer with emacspeak running."
   (declare (special emacspeak-minibuffer-enter-auditory-icon
+                    minibuffer-exit-hook
                     minibuffer-default))
   (let ((inhibit-field-text-motion t))
+    (unless (memq 'emacspeak-minibuffer-exit-hook minibuffer-exit-hook)
+      (add-hook #'emacspeak-minibuffer-exit-hook minibuffer-exit-hook))
     (when emacspeak-minibuffer-enter-auditory-icon
       (emacspeak-auditory-icon 'open-object))
     (when minibuffer-default (emacspeak-auditory-icon 'help))
