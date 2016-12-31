@@ -260,9 +260,9 @@ install:
 	$(CP) -r $(PHANTOM) $(libdir)/phantom
 	$(INSTALL) -d $(libdir)/servers
 	$(INSTALL) -d $(libdir)/servers/linux-outloud
-	$(INSTALL)  -m 755 ${OUTLOUD}  $(libdir)/servers/linux-outloud
+	$(INSTALL)  -m 755 ${OUTLOUD}  $(libdir)/servers/linux-outloud || echo "No outloud speech driver"
 	$(INSTALL) -d $(libdir)/servers/linux-espeak
-	$(INSTALL)  -m 755 ${ESPEAK}  $(libdir)/servers/linux-espeak
+	$(INSTALL)  -m 755 ${ESPEAK}  $(libdir)/servers/linux-espeak || echo "No espeak speech driver"
 	$(INSTALL) -d $(libdir)/servers/software-dtk
 	$(INSTALL)  -m 755 ${DTKTTS}  $(libdir)/servers/software-dtk
 	$(INSTALL)  -m 755 ${TCL_PROGRAMS}  $(libdir)/servers
