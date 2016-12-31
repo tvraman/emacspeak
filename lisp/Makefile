@@ -109,6 +109,7 @@ emacspeak-calendar.elc \
 emacspeak-cedet.elc \
 emacspeak-checkdoc.elc \
 emacspeak-ciel.elc \
+emacspeak-clojure.elc \
 emacspeak-cmuscheme.elc \
 emacspeak-compile.elc \
 emacspeak-company.elc \
@@ -348,6 +349,7 @@ emacspeak-browse-kill-ring.elc: emacspeak-browse-kill-ring.el dtk-speak.elc voic
 emacspeak-bs.elc: emacspeak-bs.el dtk-speak.elc voice-setup.elc
 emacspeak-buff-menu.elc: emacspeak-buff-menu.el dtk-speak.elc voice-setup.elc
 emacspeak-c.elc: emacspeak-c.el dtk-speak.elc voice-setup.elc
+emacspeak-clojure.elc: emacspeak-clojure.el dtk-speak.elc voice-setup.elc
 emacspeak-cmuscheme.elc: emacspeak-cmuscheme.el dtk-speak.elc voice-setup.elc
 emacspeak-ciel.elc: emacspeak-ciel.el dtk-speak.elc
 emacspeak-calc.elc: emacspeak-calc.el
