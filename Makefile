@@ -197,6 +197,9 @@ emacspeak:
 info:
 	cd info; $(MAKE) -k
 
+outloud:
+	cd servers/linux-outloud; $(MAKE)
+
 # }}}
 # {{{  Maintainance targets tar  dist
 GITVERSION=$(shell git show HEAD | head -1  | cut -b 8- )
