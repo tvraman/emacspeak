@@ -277,7 +277,7 @@ install:
 	$(INSTALL) -d $(bindir)
 	$(INSTALL) -d $(infodir)
 	cd info; \
-  cp *info* $(infodir)
+	cp *info* $(infodir) || echo "No info files" 
 
 uninstall:
 	rm -rf $(infodir)/emacspeak.info* $(bindir)/emacspeak $(libdir)
