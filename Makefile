@@ -143,6 +143,7 @@ MEDIA=media
 ECI=servers/linux-outloud
 ESPEAK=servers/linux-espeak/tclespeak.cpp \
 servers/linux-espeak/Makefile\
+servers/linux-espeak/tclespeak.so
 
 DTKTTS=servers/software-dtk/tcldtk.c \
 servers/software-dtk/DTK \
@@ -199,6 +200,9 @@ info:
 
 outloud:
 	cd servers/linux-outloud; $(MAKE)
+
+espeak:
+	cd servers/linux-espeak; $(MAKE)
 
 # }}}
 # {{{  Maintainance targets tar  dist
