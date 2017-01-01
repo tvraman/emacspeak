@@ -1,39 +1,8 @@
 # $Author: tv.raman.tv $
 # Description:  Makefile for Emacspeak
 # Keywords: Emacspeak,  TTS,Makefile
-# {{{ LCD Entry:
-
-# LCD Archive Entry:
-# emacspeak| T. V. Raman |raman@cs.cornell.edu
-# A speech interface to Emacs |
-# Location undetermined
-#
-
-# }}}
-# {{{ Copyright:
-
-#Copyright (C) 1995 -- 2015, T. V. Raman
-
-# Copyright (c) 1994, 1995 by Digital Equipment Corporation.
-# All Rights Reserved.
-#
-# This file is not part of GNU Emacs, but the same permissions apply.
-#
-# GNU Emacs is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2, or (at your option)
-# any later version.
-#
-# GNU Emacs is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with GNU Emacs; see the file COPYING.  If not, write to
-# the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
-
-# }}}
+# {{{ LCD Entry:# LCD Archive Entry:# emacspeak| T. V. Raman |raman@cs.cornell.edu# A speech interface to Emacs |# Location undetermined## }}}
+# {{{ Copyright:#Copyright (C) 1995 -- 2015, T. V. Raman# Copyright (c) 1994, 1995 by Digital Equipment Corporation.# All Rights Reserved.## This file is not part of GNU Emacs, but the same permissions apply.## GNU Emacs is free software; you can redistribute it and/or modify# it under the terms of the GNU General Public License as published by# the Free Software Foundation; either version 2, or (at your option)# any later version.## GNU Emacs is distributed in the hope that it will be useful,# but WITHOUT ANY WARRANTY; without even the implied warranty of# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the# GNU General Public License for more details.## You should have received a copy of the GNU General Public License# along with GNU Emacs; see the file COPYING.  If not, write to# the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.# }}}
 # {{{ Installation instructions:
 
 # If you're reading this, then you've already unpacked the tar archive
@@ -41,9 +10,7 @@
 # cd to the  directory where you placed the sources.
 # This directory is referred to henceforth as EMACSPEAK_DIR.
 # and then type
-#    make config
-# Now type
-#    make 
+#    make config && make
 # to compile the files, then 
 #    sudo make install
 # to install them.
@@ -57,9 +24,8 @@
 #    sudo make prefix=/usr/local install
 #
 # emacspeak uses tclx --extended tcl-- for the speech server.
-# Note:  Extended TCL  --tclx-- is *not* tclsh
 # Setting up speech server:
-# Emacspeak comes with two servers written in TCL:
+# Emacspeak comes with three servers written in TCL:
 # 1) dtk-exp for the Dectalk Express
 #2 outloud --- for ViaVoice outloud
 # 3 espeak for Espeak
@@ -70,7 +36,7 @@
 #    setenv DTK_PROGRAM "dtk-exp"
 # or if using bash
 #    export DTK_PROGRAM=dtk-exp
-# By default the port is /dev/tty00 on ultrix/osf1, and /dev/ttyS0 on linux.
+# By default the port is  /dev/ttyS0 on linux.
 #
 # Finally, make sure that tclsh  is present in your search path by typing
 #    which tclsh
@@ -193,6 +159,12 @@ emacspeak:
 
 info:
 	cd info; $(MAKE) -k
+
+outloud:
+	cd servers/linux-outloud; $(MAKE) || echo "Cant build Outloud server!"
+
+espeak:
+	cd servers/linux-espeak; $(MAKE) || echo "Cant build espeak server!"
 
 # }}}
 # {{{  Maintainance targets tar  dist
