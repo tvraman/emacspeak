@@ -1,3 +1,10 @@
+* Running Outloud/Voxin on 64-Bit Ubuntu 
+
+Install Voxin-1.6 which includes libvoxin.so,
+then build linux-outloud/atcleci.so as a 64bit module and profit.
+
+
+*Legacy: 32-Bit Outloud
 32-bit atcleci.so is checked in here for convenience.
 This is useful for use on a 64 bit system where you dont have a 32-bit build chain.
 To build  atcleci.so on modern  ubuntu systems, you may need 
