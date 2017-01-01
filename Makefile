@@ -256,7 +256,6 @@ install:
 	$(INSTALL)  -m 755 ${OUTLOUD}  $(libdir)/servers/linux-outloud
 	$(INSTALL) -d $(libdir)/servers/linux-espeak
 	$(INSTALL)  -m 755 ${ESPEAK}  $(libdir)/servers/linux-espeak
-	$(INSTALL) -d $(libdir)/servers/software-dtk
 	$(INSTALL)  -m 755 ${TCL_PROGRAMS}  $(libdir)/servers
 	$(INSTALL) -m 0644   ${NEWS}   $(libdir)/etc
 	cp   ${MISC}   $(libdir)/etc
