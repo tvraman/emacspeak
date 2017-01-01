@@ -51,7 +51,17 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (eval-when-compile
-  (require 'clojure-mode "clojure-mode" nil))
+  (require 'clojure-mode "clojure-mode" 'no-error))
+
+;;}}}
+;;{{{ Map Faces:
+
+(voice-setup-add-map
+ '(
+   (clojure-interop-method-face  voice-lighten)
+   (clojure-character-face voice-bolden-medium)
+   (clojure-keyword-face voice-animate)))
+
 ;;}}}
 (provide 'emacspeak-clojure)
 ;;{{{ end of file
