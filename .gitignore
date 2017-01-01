@@ -16,3 +16,5 @@ js/node/node_modules
 .tern-port
 .amarks.el
 *.boop
+servers/linux-outloud/atcleci.so
+servers/linux-espeak/tclespeak.so
