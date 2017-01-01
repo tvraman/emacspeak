@@ -160,7 +160,6 @@ sounds/pan-chimes  sounds/3d
 
 TCL_PROGRAMS = servers/.servers \
 servers/dtk-exp  servers/ssh-dtk-exp\
-servers/dtk-soft \
 servers/espeak \
 servers/mac \
 servers/outloud  servers/ssh-outloud servers/32-outloud \
