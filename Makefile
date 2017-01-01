@@ -143,10 +143,8 @@ MEDIA=media
 ECI=servers/linux-outloud
 ESPEAK=servers/linux-espeak/tclespeak.cpp \
 servers/linux-espeak/Makefile\
+servers/linux-espeak/tclespeak.so
 
-DTKTTS=servers/software-dtk/tcldtk.c \
-servers/software-dtk/DTK \
-servers/software-dtk/Makefile
 OUTLOUD=${ECI}/eci.ini \
 ${ECI}/*.h \
 ${ECI}/*.cpp \
@@ -175,7 +173,7 @@ etc/emacspeak.xpm etc/emacspeak.jpg
 INFO = info/Makefile info/*.texi 
 XSL=xsl 
 DISTFILES =${ELISP}  ${TEMPLATES}     ${TCL_PROGRAMS} ${XSL} \
-${OUTLOUD} ${DTKTTS} ${ESPEAK} \
+${OUTLOUD}  ${ESPEAK} \
 ${PHANTOM} ${STUMPWM} ${INFO}  ${NEWS} ${MISC} Makefile
 
 # }}}
@@ -256,7 +254,6 @@ install:
 	$(INSTALL) -d $(libdir)/servers/linux-espeak
 	$(INSTALL)  -m 755 ${ESPEAK}  $(libdir)/servers/linux-espeak
 	$(INSTALL) -d $(libdir)/servers/software-dtk
-	$(INSTALL)  -m 755 ${DTKTTS}  $(libdir)/servers/software-dtk
 	$(INSTALL)  -m 755 ${TCL_PROGRAMS}  $(libdir)/servers
 	$(INSTALL) -m 0644   ${NEWS}   $(libdir)/etc
 	cp   ${MISC}   $(libdir)/etc
