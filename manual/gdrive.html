@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+
+  <title>Emacspeak User’s Manual — 2nd Edition.: gdrive</title>
+  <meta name="description" content=
+  "Emacspeak User’s Manual — 2nd Edition.: gdrive" />
+  <meta name="keywords" content=
+  "Emacspeak User’s Manual — 2nd Edition.: gdrive" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+  rel="up" title="Emacspeak Commands And Options" />
+  <link href="gf.html#gf" rel="next" title="gf" />
+  <link href="g_002dutils.html#g_002dutils" rel="prev" title=
+  "g-utils" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
+</head>
+
+<body lang="en" xml:lang="en">
+  <a name="gdrive" id="gdrive"></a>
+
+  <div class="header">
+    <p>Next: <a href="gf.html#gf" accesskey="n" rel="next">gf</a>,
+    Previous: <a href="g_002dutils.html#g_002dutils" accesskey="p"
+    rel="prev">g-utils</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="gdrive-1" id="gdrive-1"></a>
+
+  <h3 class="section">12.206 gdrive</h3>
+
+  <p>Implement Google OAuth flow: Create your app credentials via
+  the Google Developer Console,
+  https://console.developers.google.com/ Then enable the APIs you
+  plan to access via this set of credentials. Download the
+  credentials as JSON, and GPG encrypt the file. Defaults settings
+  in this module assume above file to be
+  $HOME/.emacs.d/emacs-google.json.gpg</p>
+
+  <p>This module uses simple-httpd.el to run an Emacs HTTPD daemon.
+  A simple HTTPD servlet in that daemon listens for the OAuth2
+  redirect URL to receive the OAuth auth code — saves cut/paste
+  from Chrome. You still need to click "Allow" from Chrome. The
+  Elisp HTTPD servlet receives the code via the servlet Caches it,
+  and places it in the kill-ring. Module oauth2.el as written
+  expects the user to type the code in, with this implementation,
+  hit C-y at that point.</p>
+
+  <p>Implement GDrive V3 API Using OAuth2</p>
+</body>
+</html>
