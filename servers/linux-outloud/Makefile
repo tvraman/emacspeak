@@ -8,7 +8,7 @@ LIBDIR =$(LIBPARENTDIR)/emacspeak/servers/linux-outloud
 
 TCL_VERSION=8.6
 TCL_INCLUDE=/usr/include/tcl$(TCL_VERSION)
-CFLAGS+= -g    -O2 -fPIC  -DPIC  -pedantic -ansi -Wall  -Wno-long-long -I$(TCL_INCLUDE)
+CFLAGS+= -g    -O4 -fPIC  -DPIC  -pedantic -ansi -Wall  -Wno-long-long -I$(TCL_INCLUDE)
 #CFLAGS+= -m32 -g    -O2 -fPIC  -DPIC  -pedantic -ansi -Wall  -Wno-long-long -I$(TCL_INCLUDE)
 CXXFLAGS+= $(CFLAGS)
 LIBS= -ltcl$(TCL_VERSION) -lasound -ldl    
