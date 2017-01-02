@@ -37,7 +37,6 @@
 package require Tclx
 set wd [file dirname $argv0]
 lappend auto_path $wd
-#source tts-lib.tcl
 source $wd/tts-lib.tcl
 
 # }}}
