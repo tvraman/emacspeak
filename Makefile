@@ -160,7 +160,7 @@ servers/mac \
 servers/outloud  servers/ssh-outloud servers/32-outloud \
 servers/tts-lib.tcl \
 servers/cloud* servers/log* servers/speech-server
-PHANTOM=phantom/*.js
+PHANTOM=js/phantom/*.js
 ELISP = lisp/*.el lisp/g-client \
 lisp/Makefile
 TEMPLATES = etc/ etc/Makefile
@@ -249,8 +249,6 @@ install:
 	$(INSTALL) -m 0644  lisp/g-client/*.xsl    $(libdir)/lisp/g-client
 	$(INSTALL) -m 0644  xsl/*.xsl    $(libdir)/xsl
 	$(INSTALL) -d $(libdir)/sounds
-	$(INSTALL) -d $(libdir)/phantom
-	$(CP) -r $(PHANTOM) $(libdir)/phantom
 	$(INSTALL) -d $(libdir)/servers
 	$(INSTALL) -d $(libdir)/servers/linux-outloud
 	$(INSTALL)  -m 755 ${OUTLOUD}  $(libdir)/servers/linux-outloud
