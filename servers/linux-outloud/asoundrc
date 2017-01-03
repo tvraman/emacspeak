@@ -58,14 +58,14 @@ pcm.tap_reverb {
         plugins [{
                     label tap_reverb
                     input {
-                        controls [1200 0 -15 1 1 1 1 4] # Ambiance
+                        controls [1200 0 -13 1 1 1 1 4] # Ambiance
                     }
                 }]
     }
 }
 
 # }}}
-# {{{crossfeed_reverb
+# {{{reverb_crossfeed
 
 #tap_reverb -> bs2b
 pcm.reverb_crossfeed {
@@ -91,7 +91,18 @@ pcm.reverb_crossfeed {
    type rate 
 slave{
   pcm "tap_reverb"
-  rate 44100
+  rate 48000
+}
+}
+
+# }}}
+# {{{tts_reverb_crossfeed:
+
+ pcm.tts_crossfeed_reverb {
+   type rate 
+slave{
+  pcm "reverb_crossfeed"
+  rate 48000
 }
 }
 
