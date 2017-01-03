@@ -85,6 +85,17 @@ pcm.reverb_crossfeed {
 }
 
 # }}}
+# {{{tts_reverb:
+
+ pcm.tts_reverb {
+   type rate 
+slave{
+  pcm "tap_reverb"
+  rate 44100
+}
+}
+
+# }}}
 # {{{TTS Mono:
 
 #  The Route plugin routes audio among channles using a TTable .
