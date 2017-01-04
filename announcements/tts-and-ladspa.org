@@ -30,7 +30,7 @@ and _servers/ssh-32-outloud_.
 
 With a 64-bit build of _atcleci.so_ in place, we can now call on
 installed LADSPA plugins to apply digital sound processing to  TTS
-output.  To experiment with some of the possibilities, see some of the
+output.  To experiment with  the possibilities, see some of the
 virtual sound devices defined in _servers/linux-outloud/asoundrc_.
 Copy over that file to your _~/.asoundrc_ after updating it to match
 your sound setup --- you'll likely need to change the default
