@@ -85,9 +85,20 @@ pcm.reverb_crossfeed {
 }
 
 # }}}
+# {{{tts_crossfeed:
+
+ pcm.tts_crossfeed{
+   type rate 
+slave{
+  pcm "crossfeed"
+  rate 48000
+}
+}
+
+# }}}
 # {{{tts_reverb:
 
- pcm.tts_reverb {
+pcm.tts_reverb {
    type rate 
 slave{
   pcm "tap_reverb"
@@ -98,7 +109,7 @@ slave{
 # }}}
 # {{{tts_reverb_crossfeed:
 
- pcm.tts_crossfeed_reverb {
+pcm.tts_reverb_crossfeed {
    type rate 
 slave{
   pcm "reverb_crossfeed"
