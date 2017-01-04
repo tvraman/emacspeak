@@ -12,6 +12,8 @@ Software Engineering.
 
 * Developing Robust Software Over  Time 
 
+* Leverage Structure To Create And Organize Information
+
 * Bushy Vs Deep Trees In Source Code 
 
 * Avoiding The Least Common Denominator Effect 
