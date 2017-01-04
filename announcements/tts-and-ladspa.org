@@ -1,0 +1,20 @@
+* Executive Summary 
+
+Voxin 1.6 --- AKA ViaVoice Outloud   ---  no longer requires that the
+Emacspeak TTS server be built as a 32-bit binary. This  is a
+significant change with respect to leveraging the underlying audio
+services on Linux.
+
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t broken-links:nil c:nil creator:nil
+#+OPTIONS: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+OPTIONS: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+OPTIONS: timestamp:t title:t toc:nil todo:t |:t
+#+TITLE: Fun With TTS (Voxin) And Ladspa
+#+DATE: <2017-01-04 Wed>
+#+AUTHOR: raman
+#+EMAIL: raman@google.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 26.0.50.1 (Org mode 9.0.3)
