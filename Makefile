@@ -191,10 +191,10 @@ emacspeak:
 info:
 	cd info; $(MAKE) -k
 
-outloud:
+outloud: servers/linux-outloud/atcleci.so
 	cd servers/linux-outloud; $(MAKE) || echo "Cant build Outloud server!"
 
-espeak:
+espeak: servers/linux-espeak/tclecispeak.so
 	cd servers/linux-espeak; $(MAKE) || echo "Cant build espeak server!"
 
 # }}}
