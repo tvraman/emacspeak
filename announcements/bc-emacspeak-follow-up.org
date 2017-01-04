@@ -1,5 +1,13 @@
 * Background 
 
+In 2007, I wrote a [[http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/publish-emacspeak-bc.html][chapter on Emacspeak]] for the book [[http://shop.oreilly.com/product/9780596510046.do][Beautiful Code
+from OReilly]]. About a year later, I wrote an article called [[http://emacspeak.sourceforge.net/raman/publications/thinking-of-math/][Thinking
+Of Mathematics]]. This article is being written almost 10 years later as
+a consolidated follow-up to the afore-mentioned publications. The goal
+is to further crystalize some of the lessons learnt over the duration
+of project Emacspeak, while stepping back to think more broadly about
+Software Engineering.
+
 * Goals 
 
 * Developing Robust Software Over  Time 
@@ -17,7 +25,7 @@
 #+OPTIONS: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
 #+OPTIONS: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
 #+OPTIONS: timestamp:t title:t toc:t todo:t |:t
-#+TITLE: Thinking Of Emacspeak: A Follow-Up To Beautiful Code.
+#+TITLE: Thinking Of Software: A Follow-Up To Beautiful Code.
 #+DATE: <2017-01-03 Tue>
 #+AUTHOR: T.V Raman
 #+EMAIL: raman@google.com
