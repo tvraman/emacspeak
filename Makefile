@@ -280,7 +280,7 @@ uninstall:
 
 #targets
 #the complete build
-all: emacspeak
+all: emacspeak outloud espeak 
 
 #clean, config and build
 q:
