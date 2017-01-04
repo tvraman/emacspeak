@@ -191,10 +191,10 @@ emacspeak:
 info:
 	cd info; $(MAKE) -k
 
-outloud: servers/linux-outloud/atcleci.so
+outloud: 
 	cd servers/linux-outloud; $(MAKE) || echo "Cant build Outloud server!"
 
-espeak: servers/linux-espeak/tclecispeak.so
+espeak: 
 	cd servers/linux-espeak; $(MAKE) || echo "Cant build espeak server!"
 
 # }}}
@@ -280,7 +280,7 @@ uninstall:
 
 #targets
 #the complete build
-all: emacspeak outloud espeak 
+all: emacspeak
 
 #clean, config and build
 q:
