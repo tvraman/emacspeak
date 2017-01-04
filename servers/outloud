@@ -86,10 +86,10 @@ proc tts_say {text} {
 }
 
 #formerly called tts_letter
-
+# outloud: dont use say_rate for speaking letters (sounds bad )
 proc l {text} {
     global tts
-    set r $tts(say_rate)
+    set r $tts(speech_rate)
     set prefix "`v1 `vs$r "
     if {[regexp  {[A-Z]} $text]} {
         set prefix "$prefix `vb80"
