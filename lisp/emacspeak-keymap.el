@@ -298,7 +298,6 @@
    ("\C-e" espeak)
    ("\C-m" dtk-set-chunk-separator-syntax)
    ("\C-o" outloud)
-   ("\C-v" outloud-32)
    ("a" dtk-add-cleanup-pattern)
    ("c" dtk-toggle-capitalization)
    ("d" dtk-select-server)
