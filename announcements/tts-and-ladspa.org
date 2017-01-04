@@ -1,9 +1,65 @@
 * Executive Summary 
 
-Voxin 1.6 --- AKA ViaVoice Outloud   ---  no longer requires that the
-Emacspeak TTS server be built as a 32-bit binary. This  is a
-significant change with respect to leveraging the underlying audio
-services on Linux.
+Voxin 1.6 --- AKA ViaVoice Outloud --- no longer requires that the
+Emacspeak TTS server be built as a 32-bit binary. This means that
+installing Voxin on 64-bit systems is now significantly easier since
+you no longer need to install 32-bit versions of TCL, TCLX, and the
+dependencies  needed by library _libibmeci.so_. In addition to
+easing the installation process, not needing 32-bit binaries means
+that the Emacspeak Outloud server can now take advantage of audio
+processing such as that provided by LADSPA.
+
+* Going 64-Bit: Upgrading To Voxin 1.6
+
+
+  1. Install Voxin-1.6 or later from [[https://voxin.oralux.net/update/voxin-update-1.6.tgz][Voxin]].
+  2. Update Emacspeak from GitHub (this will be part of the next
+     public release).
+  3. Rebuild the _atcleci.so_ binary in the _servers/linux-outloud_
+     directory:
+: cd servers/linux-outloud && make clean && make
+   
+If all goes well, you'll now have a 64-bit version of _atcleci.so_.
+You can now run the Outloud server as _servers/outloud_.
+In about a year's time,  _servers/32-outloud_ will move to
+_servers/obsolete_, as will the associated _servers/32-speech-server_
+and _servers/ssh-32-outloud_.
+
+
+* Applying LADSPA Effects Processing To TTS
+
+With a 64-bit build of _atcleci.so_ in place, we can now call on
+installed LADSPA plugins to apply digital sound processing to  TTS
+output.  To experiment with some of the possibilities, see some of the
+virtual sound devices defined in _servers/linux-outloud/asoundrc_.
+Copy over that file to your _~/.asoundrc_ after updating it to match
+your sound setup --- you'll likely need to change the default
+sound-card to match your setup.
+You can now set environment variable ~ALSA_DEFAULT~ to one of  the
+~tts_<effect>~ virtual devices --- and have the Outloud server apply
+the specified LADSPA effect to the generated TTS. Here is an example:
+
+: cd servers 
+: (export ALSA_DEFAULT=tts_reverb; ./outloud)
+: tts_selftest
+
+* The Best Is Yet To Come ...
+
+The possibilities are endless --- ALSA with LADSPA provides a rich
+suite of audio processing possibilities.
+
+* Acknowledgements 
+
+I'd like to acknowledge [[https://github.com/Oralux/libvoxin][Gilles Casse ]] for his work over the years on
+ensuring that Linux users have access to good quality TTS. Outloud
+would have been dead a long time ago if it weren't for his continued
+efforts toward keeping the lights on. His newest creation, _libvoxin_
+that forms the crux of Voxin-1.6 is an excellent piece of engineering
+that is likely to help Outloud survive for the future on modern Linux
+distros. Note that Gilles is also the primary author of the Emacspeak
+ESpeak server.
+
+
 
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+OPTIONS: author:t broken-links:nil c:nil creator:nil
