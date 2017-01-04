@@ -1541,17 +1541,15 @@ ALSA_DEFAULT to specified device before starting the server."
    (list
     (completing-read
      "Select speech server:"
-     (or dtk-servers-alist
-         (tts-setup-servers-alist))
-     nil
-     t)
+     (or dtk-servers-alist (tts-setup-servers-alist))
+     nil t)
     current-prefix-arg))
   (declare (special   dtk-program dtk-servers-alist
                       tts-device emacspeak-servers-directory
                       emacspeak-ssh-tts-server))
-  (when (and (ems-interactive-p) device)
-    (setq tts-device (read-from-minibuffer "ALSA_DEFAULT: ")))
-  (setenv "ALSA_DEFAULT" tts-device)
+  (when (and (called-interactively-p 'interactive) device)
+    (setq tts-device (read-from-minibuffer "ALSA_DEFAULT: "))
+    (setenv "ALSA_DEFAULT" tts-device))
   (let ((ssh-server (format "ssh-%s" dtk-program)))
     (setq dtk-program program)
     (when
@@ -1560,6 +1558,7 @@ ALSA_DEFAULT to specified device before starting the server."
       (setq-default emacspeak-ssh-tts-server ssh-server))
     (when (called-interactively-p  'interactive)
       (dtk-initialize))))
+
 ;;;###autoload
 (defun dtk-cloud ()
   "Select preferred Cloud TTS server."

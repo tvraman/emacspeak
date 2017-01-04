@@ -67,10 +67,10 @@
 ;;{{{ Top level TTS  switcher
 
 ;;;### autoload
-(defun outloud ()
+(defun outloud (&optional device)
   "Select Outloud server."
-  (interactive)
-  (dtk-select-server "outloud")
+  (interactive "P")
+  (funcall-interactively #'dtk-select-server "outloud" device)
   (dtk-initialize))
 
 (defun outloud-32()
