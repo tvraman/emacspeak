@@ -1977,17 +1977,22 @@ Fall back to dtk-speak if notification stream not available."
    (t (getenv "ALSA_DEFAULT"))))
 
 ;;;###autoload
-(defun  dtk-notify-initialize ()
+(defun  dtk-notify-initialize (&optional pick-engine)
   "Initialize notification TTS stream."
-  (interactive)
+  (interactive "P")
   (declare (special dtk-notify-process))
   (let ((save-device (getenv "ALSA_DEFAULT"))
         (device  (dtk-get-notify-alsa-device))
         (dtk-program
-         (if
-             (string-match "cloud" dtk-program)
-             "cloud-notify"
-           dtk-program))
+         (cond
+             ((string-match "cloud" dtk-program) "cloud-notify")
+             (pick-engine
+              (setq emacspeak-tts-use-notify-stream t)
+              (completing-read
+     "Select speech server:"
+     (or dtk-servers-alist (tts-setup-servers-alist))
+     nil t))
+             (t dtk-program)))
         (new-process nil))
     (setenv "ALSA_DEFAULT" device)
     (setq new-process (dtk-make-process "Notify"))
