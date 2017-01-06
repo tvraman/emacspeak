@@ -37,12 +37,14 @@ pcm.crossfeed {
         type ladspa
         slave.pcm "plug:media" # Set this line to match your configuration
         path "/usr/lib/ladspa/"
-        plugins [{
-                    label bs2b
-                    input {
-                        controls [ 725 4.5 ] # The defaults are 725Hz crossover frequency and 4.5dB rolloff
-                    }
-                }]
+        plugins [
+            {
+                label bs2b
+                input {
+                    #Defaults: 725Hz crossover frequency and 4.5dB rolloff
+                    controls [ 725 4.5 ] 
+                }
+            }]
     }
 }
 
