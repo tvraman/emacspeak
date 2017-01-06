@@ -65,40 +65,74 @@
 ;;}}}
 ;;{{{ Advice Interactive Commands:
 
-'(clojure-align
-  clojure-backward-logical-sexp
-  clojure-cheatsheet
-  
-  clojure-cycle-if
-  clojure-cycle-privacy
-  clojure-forward-logical-sexp
-  clojure-insert-ns-form
-  clojure-insert-ns-form-at-point
-  clojure-introduce-let
-  clojure-let-backward-slurp-sexp
-  clojure-let-forward-slurp-sexp
-  clojure-mode
-  clojure-mode-display-version
-  clojure-mode-menu
-  clojure-mode-report-bug
-  clojure-move-to-let
-  clojure-quick-repls-connect
-  clojure-sort-ns
+'(
   clojure-thread
   clojure-thread-first-all
   clojure-thread-last-all
-  clojure-toggle-keyword-string
   clojure-unwind
   clojure-unwind-all
   clojure-update-ns
-  clojure-view-cheatsheet
-  clojure-view-grimoire
-  clojure-view-guide
-  clojure-view-reference-section
-  clojure-view-style-guide
-  clojurec-mode
-  clojurescript-mode
-  clojurex-mode)
+  )
+
+;;}}}
+;;{{{ Speech-enable Editing:
+
+(defadvice clojure-toggle-keyword-string (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'button)))
+(cl-loop
+ for f in
+ '(clojure-forward-logical-sexp clojure-backward-logical-sexp)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-line)))))
+(defadvice clojure-align (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'fill-object)))
+
+(cl-loop
+ for f in
+ '(clojure-insert-ns-form-at-point clojure-insert-ns-form)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide Auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'select-object)))))
+(cl-loop
+ for f in
+ '(
+   clojure-cycle-if clojure-cycle-privacy
+                    clojure-introduce-let clojure-move-to-let
+                    clojure-let-backward-slurp-sexp clojure-let-forward-slurp-sexp)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-speak-line)))))
+;;; Catch-all for now:
+
+(cl-loop
+ for f in
+ '(
+   clojure-thread clojure-thread-first-all clojure-thread-last-all
+                  clojure-unwind clojure-unwind-all )
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide place-holder auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-speak-line)))))
+
 
 ;;}}}
 ;;{{{ Speech-Enable Refactoring:
@@ -107,13 +141,15 @@
  for f in
  '(
    clojure-convert-collection-to-list clojure-convert-collection-to-map
-   clojure-convert-collection-to-quoted-list clojure-convert-collection-to-set
-   clojure-convert-collection-to-vector) do
-  (eval
-   `(defadvice ,f (after emacspeak pre act comp)
-      "Provide auditory feedback."
-      (when (ems-interactive-p)
-        (emacspeak-speak-line)))))
+                                      clojure-convert-collection-to-quoted-list clojure-convert-collection-to-set
+                                      clojure-convert-collection-to-vector) do
+                                      (eval
+                                       `(defadvice ,f (after emacspeak pre act comp)
+                                          "Provide auditory feedback."
+                                          (when (ems-interactive-p)
+                                            (let ((begin (point)))
+                                              (forward-sexp)
+                                              (dtk-speak(buffer-substring begin (point))))))))
 
 ;;}}}
 (provide 'emacspeak-clojure)
