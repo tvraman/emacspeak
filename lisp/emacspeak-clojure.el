@@ -103,14 +103,14 @@
 ;;}}}
 ;;{{{ Speech-Enable Refactoring:
 
-(loop
+(cl-loop
  for f in
  '(
    clojure-convert-collection-to-list clojure-convert-collection-to-map
-                                      clojure-convert-collection-to-quoted-list clojure-convert-collection-to-set
-  clojure-convert-collection-to-vector) do
+   clojure-convert-collection-to-quoted-list clojure-convert-collection-to-set
+   clojure-convert-collection-to-vector) do
   (eval
-   `(defadvice ,f (pre act comp)
+   `(defadvice ,f (after emacspeak pre act comp)
       "Provide auditory feedback."
       (when (ems-interactive-p)
         (emacspeak-speak-line)))))
