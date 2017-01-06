@@ -1,5 +1,6 @@
 ;;;$Id$  -*- lexical-binding: t; -*-
-
+;;; Compat:
+(defun string-to-int (s) (format "%d" s))
 (augment-load-path "w3/lisp" "w3")
 (load-library "url")
 (load-library "w3")
