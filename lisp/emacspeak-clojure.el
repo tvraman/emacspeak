@@ -63,6 +63,59 @@
    (clojure-keyword-face voice-animate)))
 
 ;;}}}
+;;{{{ Advice Interactive Commands:
+
+'(clojure-align
+  clojure-backward-logical-sexp
+  clojure-cheatsheet
+  
+  clojure-cycle-if
+  clojure-cycle-privacy
+  clojure-forward-logical-sexp
+  clojure-insert-ns-form
+  clojure-insert-ns-form-at-point
+  clojure-introduce-let
+  clojure-let-backward-slurp-sexp
+  clojure-let-forward-slurp-sexp
+  clojure-mode
+  clojure-mode-display-version
+  clojure-mode-menu
+  clojure-mode-report-bug
+  clojure-move-to-let
+  clojure-quick-repls-connect
+  clojure-sort-ns
+  clojure-thread
+  clojure-thread-first-all
+  clojure-thread-last-all
+  clojure-toggle-keyword-string
+  clojure-unwind
+  clojure-unwind-all
+  clojure-update-ns
+  clojure-view-cheatsheet
+  clojure-view-grimoire
+  clojure-view-guide
+  clojure-view-reference-section
+  clojure-view-style-guide
+  clojurec-mode
+  clojurescript-mode
+  clojurex-mode)
+
+;;}}}
+;;{{{ Speech-Enable Refactoring:
+
+(loop
+ for f in
+ '(
+   clojure-convert-collection-to-list clojure-convert-collection-to-map
+                                      clojure-convert-collection-to-quoted-list clojure-convert-collection-to-set
+  clojure-convert-collection-to-vector) do
+  (eval
+   `(defadvice ,f (pre act comp)
+      "Provide auditory feedback."
+      (when (ems-interactive-p)
+        (emacspeak-speak-line)))))
+
+;;}}}
 (provide 'emacspeak-clojure)
 ;;{{{ end of file
 
