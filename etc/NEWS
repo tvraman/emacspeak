@@ -6,6 +6,10 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
 * Emacspeak 46 -- Emacspeak 46 User Visible Changes
+** Speach-Enabled Clojure 
+
+
+Module ~emacspeak-clojure~ speech-enables ~clojure-mode~.
 
 ** IHeart Radio
 
