@@ -11,6 +11,11 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 Module ~emacspeak-clojure~ speech-enables ~clojure-mode~.
 
+** Speech-Enabled Cider
+
+Cider, The Clojure IDE that
+Rocks now talks ---Module ~emacspeak-cider~ speech-enables ~cider~.
+
 ** IHeart Radio
 
 Module _emacspeak-wizards_ now  provides ~emacspeak-wizards-iheart~
