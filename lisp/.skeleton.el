@@ -54,13 +54,23 @@
 ;;}}}
 ;;{{{ Map Faces:
 
-(insert (format "'%s"(emacspeak-wizards-enumerate-unmapped-faces "^<skeleton>")))
+(let ((print-length 0)
+      (faces (emacspeak-wizards-enumerate-unmapped-faces "^<skeleton>"))
+      (start (point)))
+  (insert "\n\n(voice-setup-add-map \n'(\n")
+  (cl-loop for f in faces do 
+           (insert (format "(%s  )\n" f)))
+  (insert "\n)\n)")
+  (goto-char start)
+  (backward-sexp)
+  (kill-sexp)
+  (goto-char (search-forward "("))
+  (indent-pp-sexp))
 
 ;;}}}
 ;;{{{ Interactive Commands:
 
-(let ((start (point))
-      (print-length nil))
+(let ((print-length nil))
 (insert (format "'%s"(emacspeak-wizards-enumerate-uncovered-commands "^<skeleton>"))))
 
 ;;}}}
