@@ -267,6 +267,14 @@ Interactive prefix arg refreshes cache."
        update)))))
 
 ;;;###autoload
+(defun amixer-equalize()
+  "Set equalizer. Only affects device `equal'."
+  (interactive)
+  (declare (special amixer-device))
+  (let ((amixer-device "equal"))
+    (amixer 'refresh)))
+
+;;;###autoload
 (defun amixer-store()
   "Persist current amixer settings."
   (interactive)
