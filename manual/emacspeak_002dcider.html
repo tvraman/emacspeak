@@ -1,0 +1,533 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+
+  <title>Emacspeak User’s Manual — 2nd Edition.:
+  emacspeak-cider</title>
+  <meta name="description" content=
+  "Emacspeak User’s Manual — 2nd Edition.: emacspeak-cider" />
+  <meta name="keywords" content=
+  "Emacspeak User’s Manual — 2nd Edition.: emacspeak-cider" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+  rel="up" title="Emacspeak Commands And Options" />
+  <link href="emacspeak_002dciel.html#emacspeak_002dciel" rel=
+  "next" title="emacspeak-ciel" />
+  <link href="emacspeak_002dcheckdoc.html#emacspeak_002dcheckdoc"
+  rel="prev" title="emacspeak-checkdoc" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
+</head>
+
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dcider" id="emacspeak_002dcider"></a>
+
+  <div class="header">
+    <p>Next: <a href="emacspeak_002dciel.html#emacspeak_002dciel"
+    accesskey="n" rel="next">emacspeak-ciel</a>, Previous: <a href=
+    "emacspeak_002dcheckdoc.html#emacspeak_002dcheckdoc" accesskey=
+    "p" rel="prev">emacspeak-checkdoc</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dcider-1" id="emacspeak_002dcider-1"></a>
+
+  <h3 class="section">12.37 emacspeak-cider</h3>
+
+  <p>Speech-Enable CIDER — Clojure IDE CIDER ==</p><a name=
+  "emacspeak_002dcider-Options" id=
+  "emacspeak_002dcider-Options"></a>
+
+  <h4 class="subsection">12.37.1 emacspeak-cider Options</h4>
+
+  <dl>
+    <dt><a name="index-User-Option-437" id=
+    "index-User-Option-437"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-debug-code-overlay-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-debug-code-overlay-face This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-438" id=
+    "index-User-Option-438"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-debug-prompt-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-debug-prompt-face This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-439" id=
+    "index-User-Option-439"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-deprecated-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-deprecated-face This
+      personality uses voice-monotone whose effect can be changed
+      globally by customizing voice-monotone-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-440" id=
+    "index-User-Option-440"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-docview-emphasis-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-docview-emphasis-face This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-441" id=
+    "index-User-Option-441"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-docview-literal-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-docview-literal-face This
+      personality uses voice-monotone-light whose effect can be
+      changed globally by customizing
+      voice-monotone-light-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-442" id=
+    "index-User-Option-442"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-docview-strong-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-docview-strong-face This
+      personality uses voice-monotone-medium whose effect can be
+      changed globally by customizing
+      voice-monotone-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-443" id=
+    "index-User-Option-443"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-enlightened-local-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-enlightened-local-face This
+      personality uses voice-lighten-extra whose effect can be
+      changed globally by customizing
+      voice-lighten-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-444" id=
+    "index-User-Option-444"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-enlightened-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-enlightened-face This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-445" id=
+    "index-User-Option-445"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-error-highlight-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-error-highlight-face This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-446" id=
+    "index-User-Option-446"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-fragile-button-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-fragile-button-face This
+      personality uses voice-annotate whose effect can be changed
+      globally by customizing voice-annotate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-447" id=
+    "index-User-Option-447"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-instrumented-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-instrumented-face This
+      personality uses voice-monotone-light whose effect can be
+      changed globally by customizing
+      voice-monotone-light-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-448" id=
+    "index-User-Option-448"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-repl-input-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-repl-input-face This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-449" id=
+    "index-User-Option-449"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-repl-prompt-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-repl-prompt-face This
+      personality uses voice-annotate whose effect can be changed
+      globally by customizing voice-annotate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-450" id=
+    "index-User-Option-450"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-repl-result-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-repl-result-face This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-451" id=
+    "index-User-Option-451"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-repl-stderr-facevoice-animate-voice</em></dt>
+
+    <dd>
+      <p>Personality used for cider-repl-stderr-facevoice-animate
+      This personality uses nil whose effect can be changed
+      globally by customizing nil-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-452" id=
+    "index-User-Option-452"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-repl-stdout-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-repl-stdout-face This
+      personality uses voice-bolden-medium whose effect can be
+      changed globally by customizing
+      voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-453" id=
+    "index-User-Option-453"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-result-overlay-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-result-overlay-face This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-454" id=
+    "index-User-Option-454"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-stacktrace-error-class-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-stacktrace-error-class-face
+      This personality uses voice-animate whose effect can be
+      changed globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-455" id=
+    "index-User-Option-455"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-stacktrace-error-message-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-stacktrace-error-message-face
+      This personality uses voice-animate-extra whose effect can be
+      changed globally by customizing
+      voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-456" id=
+    "index-User-Option-456"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-stacktrace-filter-hidden-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-stacktrace-filter-hidden-face
+      This personality uses voice-smoothen whose effect can be
+      changed globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-457" id=
+    "index-User-Option-457"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-stacktrace-filter-shown-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-stacktrace-filter-shown-face
+      This personality uses voice-bolden-and-animate whose effect
+      can be changed globally by customizing
+      voice-bolden-and-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-458" id=
+    "index-User-Option-458"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-stacktrace-fn-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-stacktrace-fn-face This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-459" id=
+    "index-User-Option-459"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-stacktrace-ns-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-stacktrace-ns-face This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-460" id=
+    "index-User-Option-460"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-stacktrace-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-stacktrace-face This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-461" id=
+    "index-User-Option-461"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-stacktrace-promoted-button-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-stacktrace-promoted-button-face
+      This personality uses voice-animate whose effect can be
+      changed globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-462" id=
+    "index-User-Option-462"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-stacktrace-suppressed-button-personality</em></dt>
+
+    <dd>
+      <p>Personality used for
+      cider-stacktrace-suppressed-button-face This personality uses
+      voice-smoothen-extra whose effect can be changed globally by
+      customizing voice-smoothen-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-463" id=
+    "index-User-Option-463"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-test-error-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-test-error-face This
+      personality uses voice-animate whose effect can be changed
+      globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-464" id=
+    "index-User-Option-464"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-test-failure-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-test-failure-face This
+      personality uses voice-animate-extra whose effect can be
+      changed globally by customizing
+      voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-465" id=
+    "index-User-Option-465"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-test-success-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-test-success-face This
+      personality uses voice-bolden-medium whose effect can be
+      changed globally by customizing
+      voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-466" id=
+    "index-User-Option-466"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-traced-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-traced-face This personality
+      uses voice-bolden whose effect can be changed globally by
+      customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-467" id=
+    "index-User-Option-467"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-cider-warning-highlight-personality</em></dt>
+
+    <dd>
+      <p>Personality used for cider-warning-highlight-face This
+      personality uses voice-animate-extra whose effect can be
+      changed globally by customizing
+      voice-animate-extra-settings.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href="emacspeak_002dciel.html#emacspeak_002dciel"
+    accesskey="n" rel="next">emacspeak-ciel</a>, Previous: <a href=
+    "emacspeak_002dcheckdoc.html#emacspeak_002dcheckdoc" accesskey=
+    "p" rel="prev">emacspeak-checkdoc</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+</body>
+</html>
