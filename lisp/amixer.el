@@ -272,7 +272,9 @@ Interactive prefix arg refreshes cache."
   (interactive)
   (declare (special amixer-device))
   (let ((amixer-device "equal"))
-    (amixer 'refresh)))
+    (amixer 'refresh)
+    ;;; mark db dirty.
+    (setq amixer-db nil)))
 
 ;;;###autoload
 (defun amixer-store()
