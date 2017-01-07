@@ -186,37 +186,6 @@
   cider-read-and-eval-defun-at-point
   cider-refresh
   cider-refresh-dynamic-font-lock
-  cider-repl-backward-input
-  cider-repl-beginning-of-defun
-  cider-repl-bol-mark
-  cider-repl-clear-banners
-  cider-repl-clear-buffer
-  cider-repl-clear-help-banner
-  cider-repl-clear-output
-  cider-repl-closing-return
-  cider-repl-end-of-defun
-  cider-repl-forward-input
-  cider-repl-handle-shortcut
-  cider-repl-history-load
-  cider-repl-history-save
-  cider-repl-indent-and-complete-symbol
-  cider-repl-kill-input
-  cider-repl-mode
-  cider-repl-mode-menu
-  cider-repl-newline-and-indent
-  cider-repl-next-input
-  cider-repl-next-matching-input
-  cider-repl-next-prompt
-  cider-repl-previous-input
-  cider-repl-previous-matching-input
-  cider-repl-previous-prompt
-  cider-repl-require-repl-utils
-  cider-repl-return
-  cider-repl-set-ns
-  cider-repl-shortcuts-help
-  cider-repl-switch-to-other
-  cider-repl-tab
-  cider-repl-toggle-pretty-printing
   cider-replicate-connection
 
   cider-restart
@@ -318,6 +287,56 @@
          (emacspeak-auditory-icon 'open-object)
          (emacspeak-speak-line))))))
 
+;;}}}
+;;{{{ cider-repl:
+'(
+  cider-repl-bol-mark
+  cider-repl-clear-banners
+  cider-repl-clear-buffer
+  cider-repl-clear-help-banner
+  cider-repl-clear-output
+  cider-repl-closing-return
+  
+  
+  cider-repl-handle-shortcut
+  cider-repl-history-load
+  cider-repl-history-save
+  cider-repl-indent-and-complete-symbol
+  cider-repl-kill-input
+    cider-repl-newline-and-indent
+  
+  
+  
+  
+  
+  
+  cider-repl-require-repl-utils
+  cider-repl-return
+  cider-repl-set-ns
+  cider-repl-shortcuts-help
+  cider-repl-switch-to-other
+  cider-repl-tab
+  cider-repl-toggle-pretty-printing
+)
+
+;;; Navigators:
+
+(cl-loop
+ for f in
+ '(
+   cider-repl-previous-prompt cider-repl-previous-matching-input
+   cider-repl-previous-input cider-repl-next-prompt
+   cider-repl-next-matching-input cider-repl-next-input
+   cider-repl-forward-input  cider-repl-backward-input
+   cider-repl-end-of-defun cider-repl-beginning-of-defun
+   )
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement)
+       (emacspeak-speak-line)))))
 ;;}}}
 ;;{{{ end of file
 
