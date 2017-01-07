@@ -43,8 +43,8 @@
 ;;}}}
 ;;{{{ Definitions
 
-(defcustom amixer-card "0"
-  "Card number to control."
+(defcustom amixer-device "default"
+  "ALSA Control Device."
   :type 'string
   :group 'amixer)
 
@@ -67,7 +67,8 @@
 
 (defun amixer-populate-settings (control)
   "Populate control with its settings information."
-  (declare (special amixer-card))
+  (declare (special amixer-card
+                    amixer-device))
   (let ((scratch (get-buffer-create " *amixer*"))
         (fields nil)
         (slots nil)
@@ -77,8 +78,8 @@
       (setq buffer-undo-list t)
       (erase-buffer)
       (shell-command
-       (format "amixer -c %s cget numid=%s"
-               amixer-card
+       (format "amixer --device %s cget numid=%s"
+               amixer-device
                (amixer-control-numid (cdr control)))
        (current-buffer))
       (goto-char (point-min))
@@ -116,7 +117,7 @@
 
 (defun amixer-build-db ()
   "Create a database of amixer controls and their settings."
-  (declare (special amixer-db amixer-card))
+  (declare (special amixer-db amixer-device))
   (unless (executable-find "amixer")
     (error "You dont have a standard amixer."))
   (let ((scratch (get-buffer-create " *amixer*"))
@@ -129,8 +130,8 @@
       (erase-buffer)
       (shell-command
        (format
-        "amixer -c %s controls | sed -e s/\\'//g"
-        amixer-card)
+        "amixer --device %s controls | sed -e s/\\'//g"
+        amixer-device)
        (current-buffer))
       (goto-char (point-min))
       (while (not (eobp))
@@ -167,7 +168,7 @@
 
 (defun amixer-get-enumerated-values(control)
   "Return list of enumerated values."
-  (declare (special amixer-card))
+  (declare (special amixer-device))
   (let ((buffer (get-buffer-create " *amixer*"))
         (values nil))
     (save-current-buffer
@@ -176,8 +177,8 @@
       (erase-buffer)
       (shell-command
        (format
-        "amixer -c %s   cget numid=%s | grep Item | sed -e s/\\'//g"
-        amixer-card
+        "amixer -devicec %s   cget numid=%s | grep Item | sed -e s/\\'//g"
+        amixer-device
         (amixer-control-numid control))
        (current-buffer))
       (goto-char (point-min))
@@ -257,7 +258,7 @@ Interactive prefix arg refreshes cache."
       (shell-command
        (format
         "amixer -c %s cset numid=%s %s"
-        amixer-card
+        amixer-device
         (amixer-control-numid control)
         update))
       (message
