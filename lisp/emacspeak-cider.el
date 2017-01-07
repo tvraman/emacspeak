@@ -95,9 +95,7 @@
 
 '(
   cider-auto-test-mode
-  
   cider-change-buffers-designation
-  cider-classpath
   cider-clear-buffer-local-connection
   cider-clear-compilation-highlights
   cider-clojure-mode-menu-open
@@ -105,29 +103,18 @@
   cider-close-nrepl-session
   cider-connect
   cider-connection-browser
-  cider-connections-buffer-mode
   cider-connections-close-connection
   cider-connections-goto-connection
   cider-connections-make-default
   cider-create-sibling-cljs-repl
   cider-debug-defun-at-point
-  cider-debug-mode-menu
   cider-debug-mode-send-reply
   cider-debug-move-here
   cider-debug-toggle-locals
   cider-describe-nrepl-session
   cider-disable-on-existing-clojure-buffers
-  cider-display-connection-info
-  cider-doc
-  cider-docview-grimoire
-  cider-docview-grimoire-web
-  cider-docview-javadoc
-  cider-docview-mode
-  cider-docview-mode-menu
-  cider-docview-source
-  cider-drink-a-sip
   cider-enable-on-existing-clojure-buffers
-  cider-enlighten-mode
+
   cider-eval-buffer
   cider-eval-defun-at-point
   cider-eval-defun-to-comment
@@ -162,7 +149,6 @@
   cider-inspect-last-result
   cider-inspect-last-sexp
   cider-inspect-read-and-inspect
-  cider-inspector-mode
   cider-inspector-next-inspectable-object
   cider-inspector-next-page
   cider-inspector-operate-on-click
@@ -175,7 +161,6 @@
   cider-interrupt
   cider-jack-in
   cider-jack-in-clojurescript
-  cider-javadoc
   cider-jump-to-compilation-error
   cider-load-all-project-ns
   cider-load-buffer
@@ -184,20 +169,19 @@
   cider-macroexpand-1
   cider-macroexpand-all
   cider-make-connection-default
-  cider-mode
-  cider-mode-eval-menu-open
-  cider-mode-interactions-menu-open
-  cider-mode-menu-open
+
+
+
   cider-open-classpath-entry
-  cider-ping
+
   cider-pop-back
-  cider-popup-buffer-mode
+
   cider-popup-buffer-quit
-  cider-popup-buffer-quit-function
+
   cider-pprint-eval-defun-at-point
   cider-pprint-eval-last-sexp
   cider-pprint-eval-last-sexp-to-repl
-  cider-quit
+
   cider-read-and-eval
   cider-read-and-eval-defun-at-point
   cider-refresh
@@ -234,7 +218,7 @@
   cider-repl-tab
   cider-repl-toggle-pretty-printing
   cider-replicate-connection
-  cider-report-bug
+
   cider-restart
   cider-rotate-default-connection
   cider-run
@@ -249,8 +233,8 @@
   cider-stacktrace-cycle-cause-5
   cider-stacktrace-cycle-current-cause
   cider-stacktrace-jump
-  cider-stacktrace-mode
-  cider-stacktrace-mode-menu
+
+
   cider-stacktrace-next-cause
   cider-stacktrace-previous-cause
   cider-stacktrace-toggle-all
@@ -267,8 +251,8 @@
   cider-test-jump
   cider-test-next-result
   cider-test-previous-result
-  cider-test-report-mode
-  cider-test-report-mode-menu
+
+
   cider-test-rerun-failed-tests
   cider-test-rerun-test
   cider-test-run-loaded-tests
@@ -282,9 +266,9 @@
   cider-toggle-trace-ns
   cider-toggle-trace-var
   cider-undef
-  cider-version
-  cider-view-manual
-  cider-view-refcard
+
+
+
   cider-visit-error-buffer)
 
 ;;}}}
@@ -304,7 +288,7 @@
        (emacspeak-auditory-icon 'open-object)))))
 
 ;;}}}
-;;{{{ Assoc Connection:
+;;{{{ Associate Connection:
 
 (cl-loop
  for f in
@@ -324,17 +308,15 @@
  '(
    cider-browse-instrumented-defs cider-browse-ns cider-browse-ns-all
    cider-browse-ns-operate-at-point cider-browse-ns-doc-at-point
-   cider-browse-ns-find-at-point)
+   cider-browse-ns-find-at-point cider-classpath cider-doc)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'open-object)
-       (emacspeak-speak-line)))))
-  
-  
-  
+       (with-current-buffer (window-buffer (selected-window))
+         (emacspeak-auditory-icon 'open-object)
+         (emacspeak-speak-line))))))
 
 ;;}}}
 ;;{{{ end of file
