@@ -95,8 +95,6 @@
 
 '(
   
-  cider-assoc-buffer-with-connection
-  cider-assoc-project-with-connection
   cider-auto-test-mode
   cider-browse-instrumented-defs
   cider-browse-ns
@@ -312,6 +310,19 @@
      (when (ems-interactive-p)
        (emacspeak-speak-mode-line)
        (emacspeak-auditory-icon 'open-object)))))
+
+;;}}}
+;;{{{ Assoc Connection:
+
+(cl-loop
+ for f in
+ '(cider-assoc-buffer-with-connection cider-assoc-project-with-connection)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'task-done)))))
 
 ;;}}}
 ;;{{{ end of file
