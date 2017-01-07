@@ -257,7 +257,7 @@ Interactive prefix arg refreshes cache."
        update)
       (shell-command
        (format
-        "amixer -c %s cset numid=%s %s"
+        "amixer --device %s cset numid=%s %s"
         amixer-device
         (amixer-control-numid control)
         update))
