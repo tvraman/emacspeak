@@ -92,11 +92,9 @@
 
 ;;}}}
 ;;{{{ Interactive Commands:
+
 '(
-  cider-apropos
-  cider-apropos-documentation
-  cider-apropos-documentation-select
-  cider-apropos-select
+  
   cider-assoc-buffer-with-connection
   cider-assoc-project-with-connection
   cider-auto-test-mode
@@ -298,6 +296,23 @@
   cider-view-manual
   cider-view-refcard
   cider-visit-error-buffer)
+
+;;}}}
+;;{{{ Apropos:
+
+(cl-loop
+ for f in
+ '(
+   cider-apropos cider-apropos-documentation
+  cider-apropos-documentation-select cider-apropos-select)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-speak-mode-line)
+       (emacspeak-auditory-icon 'open-object)))))
+
 ;;}}}
 ;;{{{ end of file
 
