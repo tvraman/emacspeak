@@ -94,16 +94,8 @@
 ;;{{{ Interactive Commands:
 
 '(
-  
   cider-auto-test-mode
-  cider-browse-instrumented-defs
-  cider-browse-ns
-  cider-browse-ns-all
-  cider-browse-ns-doc-at-point
-  cider-browse-ns-find-at-point
-  cider-browse-ns-handle-mouse
-  cider-browse-ns-mode
-  cider-browse-ns-operate-at-point
+  
   cider-change-buffers-designation
   cider-classpath
   cider-clear-buffer-local-connection
@@ -323,6 +315,26 @@
      "Provide auditory feedback."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)))))
+
+;;}}}
+;;{{{ Browse:
+
+(cl-loop
+ for f in
+ '(
+   cider-browse-instrumented-defs cider-browse-ns cider-browse-ns-all
+   cider-browse-ns-operate-at-point cider-browse-ns-doc-at-point
+   cider-browse-ns-find-at-point)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-speak-line)))))
+  
+  
+  
 
 ;;}}}
 ;;{{{ end of file
