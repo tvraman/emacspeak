@@ -59,7 +59,9 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 
-(insert (format "'%s"(emacspeak-wizards-enumerate-uncovered-commands "^<skeleton>")))
+(let ((start (point))
+      (print-length nil))
+(insert (format "'%s"(emacspeak-wizards-enumerate-uncovered-commands "^<skeleton>"))))
 
 ;;}}}
 (provide 'emacspeak-<skeleton>)
