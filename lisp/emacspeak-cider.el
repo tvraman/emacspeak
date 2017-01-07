@@ -92,7 +92,6 @@
 
 ;;}}}
 ;;{{{ Interactive Commands:
-
 '(
   cider-auto-test-mode
   cider-change-buffers-designation
@@ -114,7 +113,6 @@
   cider-describe-nrepl-session
   cider-disable-on-existing-clojure-buffers
   cider-enable-on-existing-clojure-buffers
-
   cider-eval-buffer
   cider-eval-defun-at-point
   cider-eval-defun-to-comment
@@ -169,23 +167,17 @@
   cider-macroexpand-1
   cider-macroexpand-all
   cider-make-connection-default
-
   cider-open-classpath-entry
-
   cider-pop-back
-
   cider-popup-buffer-quit
-
   cider-pprint-eval-defun-at-point
   cider-pprint-eval-last-sexp
   cider-pprint-eval-last-sexp-to-repl
-
   cider-read-and-eval
   cider-read-and-eval-defun-at-point
   cider-refresh
   cider-refresh-dynamic-font-lock
   cider-replicate-connection
-
   cider-restart
   cider-rotate-default-connection
   cider-run
@@ -200,7 +192,6 @@
   cider-stacktrace-cycle-cause-5
   cider-stacktrace-cycle-current-cause
   cider-stacktrace-jump
-
   cider-stacktrace-next-cause
   cider-stacktrace-previous-cause
   cider-stacktrace-toggle-all
@@ -217,7 +208,6 @@
   cider-test-jump
   cider-test-next-result
   cider-test-previous-result
-
   cider-test-rerun-failed-tests
   cider-test-rerun-test
   cider-test-run-loaded-tests
@@ -231,9 +221,7 @@
   cider-toggle-trace-ns
   cider-toggle-trace-var
   cider-undef
-
   cider-visit-error-buffer)
-
 ;;}}}
 ;;{{{ Apropos:
 
@@ -333,7 +321,7 @@
  for f in
  '(
    cider-repl-tab cider-repl-indent-and-complete-symbol
-   cider-repl-newline-and-indent cider-repl-bol-mark)
+                  cider-repl-newline-and-indent cider-repl-bol-mark)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -351,7 +339,7 @@
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-speak-line)
-(emacspeak-auditory-icon 'select-object)))
+    (emacspeak-auditory-icon 'select-object)))
 
 (defadvice cider-repl-toggle-pretty-printing (after emacspeak pre act comp)
   "Provide auditory feedback."
