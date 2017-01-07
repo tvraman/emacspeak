@@ -52,6 +52,16 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
+;;{{{ Map Faces:
+
+(insert (format "'%s"(emacspeak-wizards-enumerate-unmapped-faces "^<skeleton>")))
+
+;;}}}
+;;{{{ Interactive Commands:
+
+(insert (format "'%s"(emacspeak-wizards-enumerate-uncovered-commands "^<skeleton>")))
+
+;;}}}
 (provide 'emacspeak-<skeleton>)
 ;;{{{ end of file
 
