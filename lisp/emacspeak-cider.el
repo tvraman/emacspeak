@@ -170,8 +170,6 @@
   cider-macroexpand-all
   cider-make-connection-default
 
-
-
   cider-open-classpath-entry
 
   cider-pop-back
@@ -203,7 +201,6 @@
   cider-stacktrace-cycle-current-cause
   cider-stacktrace-jump
 
-
   cider-stacktrace-next-cause
   cider-stacktrace-previous-cause
   cider-stacktrace-toggle-all
@@ -221,7 +218,6 @@
   cider-test-next-result
   cider-test-previous-result
 
-
   cider-test-rerun-failed-tests
   cider-test-rerun-test
   cider-test-run-loaded-tests
@@ -236,8 +232,6 @@
   cider-toggle-trace-var
   cider-undef
 
-
-
   cider-visit-error-buffer)
 
 ;;}}}
@@ -247,7 +241,7 @@
  for f in
  '(
    cider-apropos cider-apropos-documentation
-  cider-apropos-documentation-select cider-apropos-select)
+                 cider-apropos-documentation-select cider-apropos-select)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -276,8 +270,8 @@
  for f in
  '(
    cider-browse-instrumented-defs cider-browse-ns cider-browse-ns-all
-   cider-browse-ns-operate-at-point cider-browse-ns-doc-at-point
-   cider-browse-ns-find-at-point cider-classpath cider-doc)
+                                  cider-browse-ns-operate-at-point cider-browse-ns-doc-at-point
+                                  cider-browse-ns-find-at-point cider-classpath cider-doc)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -289,35 +283,6 @@
 
 ;;}}}
 ;;{{{ cider-repl:
-'(
-  cider-repl-bol-mark
-  cider-repl-clear-banners
-  cider-repl-clear-buffer
-  cider-repl-clear-help-banner
-  cider-repl-clear-output
-  cider-repl-closing-return
-  
-  
-  cider-repl-handle-shortcut
-  cider-repl-history-load
-  cider-repl-history-save
-  cider-repl-indent-and-complete-symbol
-  cider-repl-kill-input
-    cider-repl-newline-and-indent
-  
-  
-  
-  
-  
-  
-  cider-repl-require-repl-utils
-  cider-repl-return
-  cider-repl-set-ns
-  cider-repl-shortcuts-help
-  cider-repl-switch-to-other
-  cider-repl-tab
-  cider-repl-toggle-pretty-printing
-)
 
 ;;; Navigators:
 
@@ -325,11 +290,11 @@
  for f in
  '(
    cider-repl-previous-prompt cider-repl-previous-matching-input
-   cider-repl-previous-input cider-repl-next-prompt
-   cider-repl-next-matching-input cider-repl-next-input
-   cider-repl-forward-input  cider-repl-backward-input
-   cider-repl-end-of-defun cider-repl-beginning-of-defun
-   )
+                              cider-repl-previous-input cider-repl-next-prompt
+                              cider-repl-next-matching-input cider-repl-next-input
+                              cider-repl-forward-input  cider-repl-backward-input
+                              cider-repl-end-of-defun cider-repl-beginning-of-defun
+                              )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -337,7 +302,66 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
+(cl-loop
+ for f in
+ '(cider-repl-closing-return cider-repl-return)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (save-excursion
+         (goto-char
+          (previous-single-property-change (point)   'face nil (point-min)))
+         (emacspeak-speak-this-personality-chunk))
+       (emacspeak-auditory-icon 'close-object)))))
+
+(cl-loop
+ for f in
+ '(
+   cider-repl-kill-input
+   cider -repl-clear-banners cider-repl-clear-buffer
+   cider-repl-clear-help-banner cider-repl-clear-output)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'delete-object)))))
+
+(cl-loop
+ for f in
+ '(
+   cider-repl-tab cider-repl-indent-and-complete-symbol
+   cider-repl-newline-and-indent cider-repl-bol-mark)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'select-object)))))
+
+(defadvice cider-repl-switch-to-other(after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-speak-mode-line)
+    (emacspeak-auditory-icon 'select-object)))
+(defadvice cider-repl-set-ns (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-speak-line)
+(emacspeak-auditory-icon 'select-object)))
+
+(defadvice cider-repl-toggle-pretty-printing (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon (f cider-repl-use-pretty-printing 'on 'off))
+    (message "Turned  %s pretty printing."
+             (if cider-repl-use-pretty-printing 'on 'off))))
+
 ;;}}}
+(provide 'emacspeak-cider)
 ;;{{{ end of file
 
 ;;; local variables:
@@ -346,4 +370,3 @@
 ;;; end:
 
 ;;}}}
-(provide 'emacspeak-cider)
