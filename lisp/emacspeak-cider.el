@@ -95,22 +95,18 @@
 
 '(
   cider-auto-test-mode
-  cider-change-buffers-designation
   cider-clear-buffer-local-connection
-  cider-clear-compilation-highlights
-  cider-close-ancillary-buffers
-  cider-close-nrepl-session
-  cider-connect
-  cider-connection-browser
+  
+  
+  
   cider-connections-close-connection
   cider-connections-goto-connection
   cider-connections-make-default
-  
   cider-debug-defun-at-point
   cider-debug-mode-send-reply
   cider-debug-move-here
   cider-debug-toggle-locals
-  cider-describe-nrepl-session
+  
   cider-disable-on-existing-clojure-buffers
   cider-enable-on-existing-clojure-buffers
   cider-eval-buffer
@@ -315,7 +311,7 @@
 (cl-loop
  for f in
  '(
-   cider-repl-kill-input
+   cider-clear-compilation-highlights cider-repl-kill-input
    cider -repl-clear-banners cider-repl-clear-buffer
    cider-repl-clear-help-banner cider-repl-clear-output)
  do
@@ -355,6 +351,43 @@
     (emacspeak-auditory-icon (f cider-repl-use-pretty-printing 'on 'off))
     (message "Turned  %s pretty printing."
              (if cider-repl-use-pretty-printing 'on 'off))))
+
+;;}}}
+;;{{{ misc commands:
+
+(defadvice cider--connections-goto-connection (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-speak-mode-line)
+    (emacspeak-auditory-icon 'open-object)))
+
+
+(defadvice cider-connect (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-speak-mode-line)
+    (emacspeak-auditory-icon 'open-object)))
+
+(defadvice  cider-close-nrepl-session(after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (message "Closed Repl Session")))
+(defadvice cider-close-ancillary-buffers (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (message "Closed ancillary buffers")))
+(cl-loop
+ for f in
+ '(cider-describe-nrepl-session cider-connection-browser)
+ do
+ (eval
+  `(defadvice ,f  (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'open-object)
+       (message "Displayed in other window.")))))
 
 ;;}}}
 (provide 'emacspeak-cider)
