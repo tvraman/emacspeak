@@ -49,7 +49,7 @@
 ;;; from a convenient Emacs interface.
 ;;;
 ;;;@subsection Usage
-;;; 
+;;;
 ;;; The main entry-point is command @code{emacspeak-multimedia}
 ;;;bound to @kbd{C-e ;}.
 ;;; This prompts for and launches the desired media stream.
@@ -261,7 +261,7 @@ Controls media playback when already playing a stream.
     (emacspeak-multimedia))
   (call-interactively
    (or (lookup-key emacspeak-m-player-mode-map key) 'undefined)))
-;;;###autoload 
+;;;###autoload
 (defvar  emacspeak-m-player-playlist-pattern
   (concat
    (regexp-opt
@@ -485,7 +485,6 @@ feature."
 (defvar emacspeak-m-player-hrtf-options
   '("-af" "resample=48000,hrtf")
   "Additional options to use built-in HRTF.")
-
 
 ;;;###autoload
 (defun emacspeak-m-player-using-hrtf ()
@@ -810,9 +809,9 @@ This affects pitch."
   (interactive
    (list
     (with-current-buffer (process-buffer emacspeak-m-player-process)
-    (completing-read "Filter:"
-                     (or emacspeak-m-player-active-filters
-                         emacspeak-m-player-filters nil nil)))))
+      (completing-read "Filter:"
+                       (or emacspeak-m-player-active-filters
+                           emacspeak-m-player-filters nil nil)))))
   (declare (special emacspeak-m-player-filters
                     emacspeak-m-player-active-filters))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
@@ -847,7 +846,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
              (if emacspeak-m-player-cue-info 'on 'off))
             (message "ICY messages  turned %s."
                      (if emacspeak-m-player-cue-info "on" "off")))
-        
+
         (message (format "%s" (or info  "No Stream Info")))))))
 
 ;;;###autoload
@@ -1048,18 +1047,20 @@ Applies  the resulting value at each step."
     result))
 
 (defun emacspeak-m-player-add-equalizer (&optional reset)
-  "Add equalizer to playing stream.  Equalizer is applied as each change
+  "Add equalizer to playing stream.  Equalizer is updated as each change
 is made, and the final effect set by pressing RET.  Interactive prefix
 arg `reset' starts with all filters set to 0."
   (interactive "P")
-  (declare (special emacspeak-m-player-process
-                    emacspeak-m-player-equalizer))
+  (declare (special emacspeak-m-player-process emacspeak-m-player-equalizer
+                    emacspeak-m-player-active-filters))
   (cond
    ((eq 'run  (process-status emacspeak-m-player-process))
-    (emacspeak-m-player-dispatch (format "af_add equalizer=%s"
-                                         (emacspeak-m-player-equalizer-control
-                                          (if reset  (make-vector 10 0)
-                                            emacspeak-m-player-equalizer)))))
+    (emacspeak-m-player-dispatch
+     (format "af_add equalizer=%s"
+             (emacspeak-m-player-equalizer-control
+              (if reset  (make-vector 10 0)
+                emacspeak-m-player-equalizer))))
+    (push "equalizer" emacspeak-m-player-active-filters))
    (t (message "No stream playing at present."))))
 
 ;;}}}
