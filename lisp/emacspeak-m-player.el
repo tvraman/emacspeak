@@ -1092,6 +1092,7 @@ arg `reset' starts with all filters set to 0."
     ("\\" emacspeak-m-player-persist-process)
     ("/" emacspeak-m-player-restore-process)
     ("C" emacspeak-m-player-clear-filters)
+    ("E" amixer-equalize)
     ("C-m" emacspeak-m-player-load)
     ("DEL" emacspeak-m-player-reset-speed)
     ("L" emacspeak-m-player-locate-media)
