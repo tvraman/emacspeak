@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1148 commands and 1044 options.
+This chapter documents a total of 1149 commands and 1044 options.
 
 @menu
 * acss-structure::
@@ -291,6 +291,15 @@ Interactive prefix arg refreshes cache.
 @end format
 @end deffn
 
+@subsubsection amixer-equalize
+@deffn {Command} amixer-equalize   
+@findex amixer-equalize
+
+@format
+Set equalizer. Only affects device ‘equal’.
+@end format
+@end deffn
+
 @subsubsection amixer-store
 @deffn {Command} amixer-store   
 @findex amixer-store
@@ -302,8 +311,8 @@ Persist current amixer settings.
 
 @subsection amixer Options
 
-@defvar {User Option} amixer-card
-Card number to control.
+@defvar {User Option} amixer-device
+ALSA Control Device.
 
 @end defvar
 
@@ -5281,7 +5290,7 @@ Speech-enable checkdoc.el
 @section emacspeak-cider
 
 Speech-Enable CIDER --- Clojure IDE
-CIDER == 
+CIDER ==
 
 @subsection emacspeak-cider Options
 
@@ -10102,7 +10111,7 @@ Add predefined autopan effect.
 @findex emacspeak-m-player-add-equalizer
 
 @format
-Add equalizer to playing stream.  Equalizer is applied as each change
+Add equalizer to playing stream.  Equalizer is updated as each change
 is made, and the final effect set by pressing RET.  Interactive prefix
 arg ‘reset’ starts with all filters set to 0.
 
@@ -10496,6 +10505,7 @@ SPC		emacspeak-m-player-pause
 ?		emacspeak-m-player-display-position
 A		emacspeak-m-player-amark-add
 C		emacspeak-m-player-clear-filters
+E		amixer-equalize
 G		emacspeak-m-player-seek-percentage
 L		emacspeak-m-player-locate-media
 M		emacspeak-m-player-display-metadata
@@ -10919,6 +10929,7 @@ SPC		emacspeak-m-player-pause
 ?		emacspeak-m-player-display-position
 A		emacspeak-m-player-amark-add
 C		emacspeak-m-player-clear-filters
+E		amixer-equalize
 G		emacspeak-m-player-seek-percentage
 L		emacspeak-m-player-locate-media
 M		emacspeak-m-player-display-metadata

@@ -4072,7 +4072,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
  -- Command: emacspeak-m-player-add-equalizer (&optional reset)
 
-     Add equalizer to playing stream.  Equalizer is applied as each change
+     Add equalizer to playing stream.  Equalizer is updated as each change
      is made, and the final effect set by pressing RET.  Interactive prefix
      arg ‘reset’ starts with all filters set to 0.
 
@@ -4390,6 +4390,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      ?		emacspeak-m-player-display-position
      A		emacspeak-m-player-amark-add
      C		emacspeak-m-player-clear-filters
+     E		amixer-equalize
      G		emacspeak-m-player-seek-percentage
      L		emacspeak-m-player-locate-media
      M		emacspeak-m-player-display-metadata
@@ -4726,6 +4727,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      ?		emacspeak-m-player-display-position
      A		emacspeak-m-player-amark-add
      C		emacspeak-m-player-clear-filters
+     E		amixer-equalize
      G		emacspeak-m-player-seek-percentage
      L		emacspeak-m-player-locate-media
      M		emacspeak-m-player-display-metadata
