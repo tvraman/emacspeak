@@ -235,6 +235,7 @@ Interactive prefix arg refreshes cache."
                (if amixer-alsactl-config-file
                    (format "-f %s" amixer-alsactl-config-file)
                  ""))
+       (amixer-reset-equalizer)
        (message "Resetting  sound to default"))
       (amixer-build-db))
      (t
