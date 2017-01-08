@@ -276,6 +276,15 @@ Interactive prefix arg refreshes cache."
     ;;; mark db dirty.
     (setq amixer-db nil)))
 
+(defun amixer-reset-equalizer ()
+  "Reset equalizer to default values -- 66% for all 10 bands."
+  (interactive)
+  (cl-loop
+   for  i from 1 to 10 do
+   (shell-command
+    (format "amixer -Dequal cset numid=%s 66,66" i)))
+  (message "Reset equalizer"))
+
 ;;;###autoload
 (defun amixer-store()
   "Persist current amixer settings."
