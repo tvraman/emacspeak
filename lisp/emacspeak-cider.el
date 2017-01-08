@@ -92,12 +92,12 @@
 
 ;;}}}
 ;;{{{ Interactive Commands:
+
 '(
   cider-auto-test-mode
   cider-change-buffers-designation
   cider-clear-buffer-local-connection
   cider-clear-compilation-highlights
-  cider-clojure-mode-menu-open
   cider-close-ancillary-buffers
   cider-close-nrepl-session
   cider-connect
@@ -105,7 +105,7 @@
   cider-connections-close-connection
   cider-connections-goto-connection
   cider-connections-make-default
-  cider-create-sibling-cljs-repl
+  
   cider-debug-defun-at-point
   cider-debug-mode-send-reply
   cider-debug-move-here
@@ -114,16 +114,6 @@
   cider-disable-on-existing-clojure-buffers
   cider-enable-on-existing-clojure-buffers
   cider-eval-buffer
-  cider-eval-defun-at-point
-  cider-eval-defun-to-comment
-  cider-eval-file
-  cider-eval-last-sexp
-  cider-eval-last-sexp-and-replace
-  cider-eval-last-sexp-to-repl
-  cider-eval-ns-form
-  cider-eval-print-last-sexp
-  cider-eval-region
-  cider-eval-sexp-at-point
   cider-find-and-clear-repl-output
   cider-find-dwim
   cider-find-dwim-other-window
@@ -222,6 +212,7 @@
   cider-toggle-trace-var
   cider-undef
   cider-visit-error-buffer)
+
 ;;}}}
 ;;{{{ Apropos:
 
@@ -268,6 +259,23 @@
        (with-current-buffer (window-buffer (selected-window))
          (emacspeak-auditory-icon 'open-object)
          (emacspeak-speak-line))))))
+
+;;}}}
+;;{{{ Speech-enable Eval:
+
+(cl-loop
+ for f in
+ '(
+   cider-eval-defun-at-point cider-eval-defun-to-comment cider-eval-file
+   cider-eval-last-sexp cider-eval-last-sexp-and-replace
+   cider-eval-last-sexp-to-repl cider-eval-ns-form cider-eval-print-last-sexp
+   cider-eval-region cider-eval-sexp-at-point)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'task-done)))))
 
 ;;}}}
 ;;{{{ cider-repl:
