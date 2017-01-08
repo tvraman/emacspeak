@@ -93,121 +93,7 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 
-'(
-  cider-auto-test-mode
-  cider-clear-buffer-local-connection
-  
-  
-  
-  cider-connections-close-connection
-  cider-connections-goto-connection
-  cider-connections-make-default
-  cider-debug-defun-at-point
-  cider-debug-mode-send-reply
-  cider-debug-move-here
-  cider-debug-toggle-locals
-  
-  cider-disable-on-existing-clojure-buffers
-  cider-enable-on-existing-clojure-buffers
-  cider-eval-buffer
-  cider-find-and-clear-repl-output
-  cider-find-dwim
-  cider-find-dwim-other-window
-  cider-find-ns
-  cider-find-resource
-  cider-find-var
-  cider-format-buffer
-  cider-format-defun
-  cider-format-edn-buffer
-  cider-format-edn-region
-  cider-format-region
-  cider-grimoire
-  cider-grimoire-web
-  cider-insert-defun-in-repl
-  cider-insert-last-sexp-in-repl
-  cider-insert-ns-form-in-repl
-  cider-insert-region-in-repl
-  cider-inspect
-  cider-inspect-defun-at-point
-  cider-inspect-expr
-  cider-inspect-last-result
-  cider-inspect-last-sexp
-  cider-inspect-read-and-inspect
-  cider-inspector-next-inspectable-object
-  cider-inspector-next-page
-  cider-inspector-operate-on-click
-  cider-inspector-operate-on-point
-  cider-inspector-pop
-  cider-inspector-prev-page
-  cider-inspector-previous-inspectable-object
-  cider-inspector-refresh
-  cider-inspector-set-page-size
-  cider-interrupt
-  cider-jack-in
-  cider-jack-in-clojurescript
-  cider-jump-to-compilation-error
-  cider-load-all-project-ns
-  cider-load-buffer
-  cider-load-buffer-and-switch-to-repl-buffer
-  cider-load-file
-  cider-macroexpand-1
-  cider-macroexpand-all
-  cider-make-connection-default
-  cider-open-classpath-entry
-  cider-pop-back
-  cider-popup-buffer-quit
-  cider-pprint-eval-defun-at-point
-  cider-pprint-eval-last-sexp
-  cider-pprint-eval-last-sexp-to-repl
-  cider-read-and-eval
-  cider-read-and-eval-defun-at-point
-  cider-refresh
-  cider-refresh-dynamic-font-lock
-  cider-replicate-connection
-  cider-restart
-  cider-rotate-default-connection
-  cider-run
-  cider-scratch
-  cider-selector
-  cider-spy-summary
-  cider-stacktrace-cycle-all-causes
-  cider-stacktrace-cycle-cause-1
-  cider-stacktrace-cycle-cause-2
-  cider-stacktrace-cycle-cause-3
-  cider-stacktrace-cycle-cause-4
-  cider-stacktrace-cycle-cause-5
-  cider-stacktrace-cycle-current-cause
-  cider-stacktrace-jump
-  cider-stacktrace-next-cause
-  cider-stacktrace-previous-cause
-  cider-stacktrace-toggle-all
-  cider-stacktrace-toggle-clj
-  cider-stacktrace-toggle-duplicates
-  cider-stacktrace-toggle-java
-  cider-stacktrace-toggle-repl
-  cider-stacktrace-toggle-tooling
-  cider-switch-to-last-clojure-buffer
-  cider-switch-to-repl-buffer
-  cider-test-clear-highlights
-  cider-test-ediff
-  cider-test-ediff-cleanup
-  cider-test-jump
-  cider-test-next-result
-  cider-test-previous-result
-  cider-test-rerun-failed-tests
-  cider-test-rerun-test
-  cider-test-run-loaded-tests
-  cider-test-run-ns-tests
-  cider-test-run-project-tests
-  cider-test-run-test
-  cider-test-show-report
-  cider-test-stacktrace
-  cider-toggle-buffer-connection
-  cider-toggle-request-dispatch
-  cider-toggle-trace-ns
-  cider-toggle-trace-var
-  cider-undef
-  cider-visit-error-buffer)
+
 
 ;;}}}
 ;;{{{ Apropos:
@@ -245,8 +131,8 @@
  for f in
  '(
    cider-browse-instrumented-defs cider-browse-ns cider-browse-ns-all
-                                  cider-browse-ns-operate-at-point cider-browse-ns-doc-at-point
-                                  cider-browse-ns-find-at-point cider-classpath cider-doc)
+   cider-browse-ns-operate-at-point cider-browse-ns-doc-at-point
+   cider-browse-ns-find-at-point cider-classpath cider-doc)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -265,7 +151,7 @@
    cider-eval-defun-at-point cider-eval-defun-to-comment cider-eval-file
    cider-eval-last-sexp cider-eval-last-sexp-and-replace
    cider-eval-last-sexp-to-repl cider-eval-ns-form cider-eval-print-last-sexp
-   cider-eval-region cider-eval-sexp-at-point)
+   cider-eval-buffer cider-eval-region cider-eval-sexp-at-point)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -282,11 +168,11 @@
  for f in
  '(
    cider-repl-previous-prompt cider-repl-previous-matching-input
-                              cider-repl-previous-input cider-repl-next-prompt
-                              cider-repl-next-matching-input cider-repl-next-input
-                              cider-repl-forward-input  cider-repl-backward-input
-                              cider-repl-end-of-defun cider-repl-beginning-of-defun
-                              )
+   cider-repl-previous-input cider-repl-next-prompt
+   cider-repl-next-matching-input cider-repl-next-input
+   cider-repl-forward-input  cider-repl-backward-input
+   cider-repl-end-of-defun cider-repl-beginning-of-defun
+   )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -353,7 +239,25 @@
              (if cider-repl-use-pretty-printing 'on 'off))))
 
 ;;}}}
+;;{{{ find:
+
+(cl-loop
+ for f in
+ '(cider-find-var cider-find-resource cider-find-ns)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."(when (ems-interactive-p)
+                                   (emacspeak-speak-line)))))
+
+;;}}}
 ;;{{{ misc commands:
+(defadvice cider-popup-buffer-quit (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (with-current-buffer (window-buffer (selected-window))
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line))))
 
 (defadvice cider--connections-goto-connection (after emacspeak pre act comp)
   "Provide auditory feedback."
