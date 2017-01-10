@@ -116,7 +116,10 @@
 
 (cl-loop
  for f in
- '(cider-assoc-buffer-with-connection cider-assoc-project-with-connection)
+ '(
+   cider-assoc-buffer-with-connection cider-assoc-project-with-connection
+   cider-format-buffer cider-format-region
+   cider-format-edn-region cider-format-edn-buffer)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -132,6 +135,7 @@
  '(
    cider-browse-instrumented-defs cider-browse-ns cider-browse-ns-all
    cider-browse-ns-operate-at-point cider-browse-ns-doc-at-point
+   cider-classpath-operate-on-point
    cider-browse-ns-find-at-point cider-classpath cider-doc)
  do
  (eval
@@ -199,6 +203,7 @@
  '(
    cider-clear-compilation-highlights cider-repl-kill-input
    cider -repl-clear-banners cider-repl-clear-buffer
+   cider-find-and-clear-repl-output
    cider-repl-clear-help-banner cider-repl-clear-output)
  do
  (eval
@@ -259,7 +264,7 @@
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line))))
 
-(defadvice cider--connections-goto-connection (after emacspeak pre act comp)
+(defadvice cider-connections-goto-connection (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
@@ -284,7 +289,8 @@
     (message "Closed ancillary buffers")))
 (cl-loop
  for f in
- '(cider-describe-nrepl-session cider-connection-browser)
+ '(cider-describe-nrepl-session cider-connection-browser
+                                cider-display-connection-info)
  do
  (eval
   `(defadvice ,f  (after emacspeak pre act comp)
@@ -292,6 +298,42 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)
        (message "Displayed in other window.")))))
+
+;;}}}
+;;{{{ Speech-enable Debug:
+
+'(cider-debug-defun-at-point
+ cider-debug-move-here
+ cider-debug-toggle-locals)
+
+;;}}}
+;;{{{ Speech-enable Insert:
+
+'(
+  cider-insert-defun-in-repl
+ cider-insert-last-sexp-in-repl
+ cider-insert-ns-form-in-repl
+ cider-insert-region-in-repl)
+
+;;}}}
+;;{{{ Inspect And Inspector:
+
+'(
+cider-inspect
+ cider-inspect-defun-at-point
+ cider-inspect-expr
+ cider-inspect-last-result
+ cider-inspect-last-sexp
+ cider-inspect-read-and-inspect
+ cider-inspector-next-inspectable-object
+ cider-inspector-next-page
+ cider-inspector-operate-on-click
+ cider-inspector-operate-on-point
+ cider-inspector-pop
+ cider-inspector-prev-page
+ cider-inspector-previous-inspectable-object
+ cider-inspector-refresh
+ cider-inspector-set-page-size)
 
 ;;}}}
 (provide 'emacspeak-cider)
