@@ -101,6 +101,8 @@
 (cl-loop
  for f in
  '(
+   cider-selector cider-scratch
+   cider-switch-to-last-clojure-buffer cider-switch-to-repl-buffer
    cider-apropos cider-apropos-documentation
                  cider-apropos-documentation-select cider-apropos-select)
  do
