@@ -257,12 +257,17 @@
 
 ;;}}}
 ;;{{{ misc commands:
-(defadvice cider-popup-buffer-quit (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (with-current-buffer (window-buffer (selected-window))
-      (emacspeak-auditory-icon 'close-object)
-      (emacspeak-speak-mode-line))))
+(cl-loop
+ for f in
+ '(cider-popup-buffer-quit-function cider-popup-buffer-quit)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (with-current-buffer (window-buffer (selected-window))
+         (emacspeak-auditory-icon 'close-object)
+         (emacspeak-speak-mode-line))))))
 
 (defadvice cider-connections-goto-connection (after emacspeak pre act comp)
   "Provide auditory feedback."
