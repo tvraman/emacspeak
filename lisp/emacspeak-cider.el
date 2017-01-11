@@ -313,11 +313,18 @@
 ;;}}}
 ;;{{{ Speech-enable Insert:
 
-'(
-  cider-insert-defun-in-repl
-  cider-insert-last-sexp-in-repl
-  cider-insert-ns-form-in-repl
-  cider-insert-region-in-repl)
+(cl-loop
+ for f in 
+ '(
+   cider-insert-defun-in-repl cider-insert-last-sexp-in-repl
+   cider-insert-ns-form-in-repl cider-insert-region-in-repl)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'yank-object)))))
 
 ;;}}}
 ;;{{{ Inspect And Inspector:
