@@ -93,8 +93,6 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 
-
-
 ;;}}}
 ;;{{{ Apropos:
 
@@ -102,9 +100,9 @@
  for f in
  '(
    cider-selector cider-scratch
-   cider-switch-to-last-clojure-buffer cider-switch-to-repl-buffer
-   cider-apropos cider-apropos-documentation
-                 cider-apropos-documentation-select cider-apropos-select)
+                  cider-switch-to-last-clojure-buffer cider-switch-to-repl-buffer
+                  cider-apropos cider-apropos-documentation
+                  cider-apropos-documentation-select cider-apropos-select)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -120,8 +118,8 @@
  for f in
  '(
    cider-assoc-buffer-with-connection cider-assoc-project-with-connection
-   cider-format-buffer cider-format-region
-   cider-format-edn-region cider-format-edn-buffer)
+                                      cider-format-buffer cider-format-region
+                                      cider-format-edn-region cider-format-edn-buffer)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -136,9 +134,9 @@
  for f in
  '(
    cider-browse-instrumented-defs cider-browse-ns cider-browse-ns-all
-   cider-browse-ns-operate-at-point cider-browse-ns-doc-at-point
-   cider-classpath-operate-on-point
-   cider-browse-ns-find-at-point cider-classpath cider-doc)
+                                  cider-browse-ns-operate-at-point cider-browse-ns-doc-at-point
+                                  cider-classpath-operate-on-point
+                                  cider-browse-ns-find-at-point cider-classpath cider-doc)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -155,9 +153,9 @@
  for f in
  '(
    cider-eval-defun-at-point cider-eval-defun-to-comment cider-eval-file
-   cider-eval-last-sexp cider-eval-last-sexp-and-replace
-   cider-eval-last-sexp-to-repl cider-eval-ns-form cider-eval-print-last-sexp
-   cider-eval-buffer cider-eval-region cider-eval-sexp-at-point)
+                             cider-eval-last-sexp cider-eval-last-sexp-and-replace
+                             cider-eval-last-sexp-to-repl cider-eval-ns-form cider-eval-print-last-sexp
+                             cider-eval-buffer cider-eval-region cider-eval-sexp-at-point)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -174,11 +172,11 @@
  for f in
  '(
    cider-repl-previous-prompt cider-repl-previous-matching-input
-   cider-repl-previous-input cider-repl-next-prompt
-   cider-repl-next-matching-input cider-repl-next-input
-   cider-repl-forward-input  cider-repl-backward-input
-   cider-repl-end-of-defun cider-repl-beginning-of-defun
-   )
+                              cider-repl-previous-input cider-repl-next-prompt
+                              cider-repl-next-matching-input cider-repl-next-input
+                              cider-repl-forward-input  cider-repl-backward-input
+                              cider-repl-end-of-defun cider-repl-beginning-of-defun
+                              )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -204,9 +202,9 @@
  for f in
  '(
    cider-clear-compilation-highlights cider-repl-kill-input
-   cider -repl-clear-banners cider-repl-clear-buffer
-   cider-find-and-clear-repl-output
-   cider-repl-clear-help-banner cider-repl-clear-output)
+                                      cider -repl-clear-banners cider-repl-clear-buffer
+                                      cider-find-and-clear-repl-output
+                                      cider-repl-clear-help-banner cider-repl-clear-output)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -263,15 +261,14 @@
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (with-current-buffer (window-buffer (selected-window))
-    (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-mode-line))))
+      (emacspeak-auditory-icon 'close-object)
+      (emacspeak-speak-mode-line))))
 
 (defadvice cider-connections-goto-connection (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
-
 
 (defadvice cider-connect (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -305,23 +302,23 @@
 ;;{{{ Speech-enable Debug:
 
 '(cider-debug-defun-at-point
- cider-debug-move-here
- cider-debug-toggle-locals)
+  cider-debug-move-here
+  cider-debug-toggle-locals)
 
 ;;}}}
 ;;{{{ Speech-enable Insert:
 
 '(
   cider-insert-defun-in-repl
- cider-insert-last-sexp-in-repl
- cider-insert-ns-form-in-repl
- cider-insert-region-in-repl)
+  cider-insert-last-sexp-in-repl
+  cider-insert-ns-form-in-repl
+  cider-insert-region-in-repl)
 
 ;;}}}
 ;;{{{ Inspect And Inspector:
 
 (cl-loop
- for f in 
+ for f in
  '(
    cider-inspector-refresh
    cider-inspect cider-inspect-defun-at-point
@@ -337,16 +334,16 @@
 (cl-loop
  for f in
  '(
- cider-inspector-next-inspectable-object cider-inspector-next-page
- cider-inspector-operate-on-click cider-inspector-operate-on-point
- cider-inspector-prev-page cider-inspector-previous-inspectable-object)
+   cider-inspector-next-inspectable-object cider-inspector-next-page
+                                           cider-inspector-operate-on-click cider-inspector-operate-on-point
+                                           cider-inspector-prev-page cider-inspector-previous-inspectable-object)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
-    "Provide auditory feedback."
-    (when (ems-interactive-p)
-      (emacspeak-auditory-icon 'select-object)
-      (emacspeak-speak-line)))))
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-speak-line)))))
 
 ;;}}}
 (provide 'emacspeak-cider)
