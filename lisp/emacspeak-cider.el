@@ -320,22 +320,33 @@
 ;;}}}
 ;;{{{ Inspect And Inspector:
 
-'(
-cider-inspect
- cider-inspect-defun-at-point
- cider-inspect-expr
- cider-inspect-last-result
- cider-inspect-last-sexp
- cider-inspect-read-and-inspect
- cider-inspector-next-inspectable-object
- cider-inspector-next-page
- cider-inspector-operate-on-click
- cider-inspector-operate-on-point
- cider-inspector-pop
- cider-inspector-prev-page
- cider-inspector-previous-inspectable-object
- cider-inspector-refresh
- cider-inspector-set-page-size)
+(cl-loop
+ for f in 
+ '(
+   cider-inspector-refresh
+   cider-inspect cider-inspect-defun-at-point
+   cider-inspect-expr cider-inspect-last-result
+   cider-inspect-last-sexp cider-inspect-read-and-inspect cider-inspector-pop)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-speak-mode-line)))))
+(cl-loop
+ for f in
+ '(
+ cider-inspector-next-inspectable-object cider-inspector-next-page
+ cider-inspector-operate-on-click cider-inspector-operate-on-point
+ cider-inspector-prev-page cider-inspector-previous-inspectable-object)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+    "Provide auditory feedback."
+    (when (ems-interactive-p)
+      (emacspeak-auditory-icon 'select-object)
+      (emacspeak-speak-line)))))
 
 ;;}}}
 (provide 'emacspeak-cider)
