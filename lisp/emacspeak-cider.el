@@ -201,6 +201,7 @@
  for f in
  '(
    cider-clear-compilation-highlights cider-repl-kill-input
+                                      cider-scratch-reset
    cider -repl-clear-banners cider-repl-clear-buffer
    cider-find-and-clear-repl-output
    cider-repl-clear-help-banner cider-repl-clear-output)
