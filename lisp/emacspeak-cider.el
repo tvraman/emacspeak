@@ -91,9 +91,6 @@
    ))
 
 ;;}}}
-;;{{{ Interactive Commands:
-
-;;}}}
 ;;{{{ Apropos:
 
 (cl-loop
