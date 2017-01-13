@@ -245,7 +245,7 @@ proc speech_task {} {
             }
             c {
                 set text  [lindex $event 1]
-                puts   $tts(write) "S $text\[_.]"
+                puts   $tts(write) "S $text"
                 set retval ""
             }
             t {
@@ -289,7 +289,7 @@ proc clean {element} {
             { star } element
         regsub -all  {[%&;()$+=/]} $element  { \0 }   element
         regsub -all {\.,} $element \
-            { dot comma [_,] } element
+            { dot comma  } element
         regsub -all {\.\.\.} $element \
             { dot dot dot } element
         regsub -all {\.\.} $element \
@@ -299,7 +299,7 @@ proc clean {element} {
         regsub -all {[0-9]+} $element { & } element
     } else {
         regsub -all {\.,} $element \
-            {[_,]} element
+            {,} element
         regsub -all {([0-9a-zA-Z])([\"!;/:()=])+([0-9a-zA-z])} $element \
             {\1 \2 \3} element
         regsub -all {([a-zA-Z])(,)+([a-zA-z])} $element \
