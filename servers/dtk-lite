@@ -232,7 +232,7 @@ proc speech_task {} {
     set mode  $tts(punctuations)
     set r $tts(speech_rate)
     set length [queue_length]
-    puts    $tts(write) "S \[:say  c]\[:rate $r]\[:punctpunc $mode]"
+    puts    $tts(write) "S \[:say  c]\[:rate $r]\[:punct $mode]"
     tts_gobble_acknowledgements
     loop index 0 $length {
         set event   [queue_remove]
