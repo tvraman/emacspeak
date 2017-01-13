@@ -232,7 +232,7 @@ proc tts_reset {} {
     tts_gobble_acknowledgements
     set tts(not_stopped) 1
     puts -nonewline     $tts(write)  {[:timeout 60]
-        [:pu s]
+        [:pu s][:vs 100]
         [:phoneme arpabet speak on ]
         [:tsr off ]
         [:power interval 900 ]
@@ -405,7 +405,7 @@ puts -nonewline     $tts(write)  {[:timeout 0]
     [:tsr off ]
     [:power interval 900]
     [:power sleep 900]
-    [:sync] [:np :ra 200]
+    [:sync] [:np :ra 200] [:vs 100]
     This is the Dectalk Express.
     [zhax<15> p'arl],
     [/dh`ow<100,140> ],  [:np] [  zhax<13>  suw<45>\iy<140,100>].
