@@ -43,7 +43,7 @@
 #This version uses shortened dtk command strings to improve performance
 #when running remote sessions.
 #These short-cuts are documented here to preserve ones sanity.
-#:sa == :say
+#:say== :say
 # c == clause
 # w == word
 # le == letter
@@ -99,7 +99,7 @@ proc tts_say {text} {
     global tts
     set tts(not_stopped) 1
     puts -nonewline  $tts(write)\
-        "\[_]\[:sa w]$text \013"
+        "\[_]\[:sayw]$text "
         tts_gobble_acknowledgements
 return ""
 }
@@ -113,7 +113,7 @@ proc l {text} {
     set f  $tts(say_rate)
     tts_gobble_acknowledgements 0.001
     puts -nonewline  $tts(write)\
-        "\[_]\[:ra $f]\[:sa le]$text\[:sa c]"
+        "\[_]\[:ra $f]\[:sayle]$text\[:sayc]"
         return ""
 }
 
@@ -128,7 +128,7 @@ proc tts_resume  {} {
     global tts
     queue_restore
     if {[queue_empty?]} {
-        puts -nonewline  $tts(write) {  [:sa c] No speech to resume. }
+        puts -nonewline  $tts(write) {  [:sayc] No speech to resume. }
         set tts(not_stopped) 1
     } else {
         speech_task
@@ -148,7 +148,7 @@ proc tts_pause {} {
 proc s {} {
     global tts
     if {$tts(not_stopped)} {
-        puts -nonewline  $tts(write)  "\003"
+        puts   $tts(write)  "X"
         set tts(not_stopped) 0
         set tts(talking?) 0
         queue_clear
@@ -261,7 +261,7 @@ proc speech_task {} {
     set mode  $tts(punctuations)
     set r $tts(speech_rate)
     set length [queue_length]
-    puts -nonewline  $tts(write) "\[:sa c]\[:ra $r]\[:pu $mode]\013"
+    puts -nonewline  $tts(write) "\[:say c]\[:rate $r]\[:punc $mode]"
     tts_gobble_acknowledgements
     loop index 0 $length {
         set event   [queue_remove]
@@ -269,17 +269,17 @@ proc speech_task {} {
         switch  -exact -- $event_type {
             s {
                 set text [clean [lindex $event 1]]
-                puts -nonewline  $tts(write) "\[:i r $index] $text\013"
+                puts -nonewline  $tts(write) "S $text"
                 set retval [tts_get_acknowledgement ]
             }
             c {
                 set text  [lindex $event 1]
-                puts -nonewline  $tts(write) " $text\[_.]"
+                puts -nonewline  $tts(write) "S $text\[_.]"
                 set retval ""
             }
             t {
                 set text  [lindex $event 1]
-                puts -nonewline  $tts(write) "\[:tone $text]\[_.] "
+                puts -nonewline  $tts(write) "S \[:tone $text]\[_.] "
                 set retval [tts_get_acknowledgement ]
             }
             b {
@@ -293,7 +293,7 @@ proc speech_task {} {
         }
         if {$tts(talking?) == 0} {break;}
     }
-    puts -nonewline  $tts(write) "\013"
+    puts -nonewline  $tts(write) ""
     
     set tts(talking?) 0
     tts_gobble_acknowledgements
@@ -400,7 +400,7 @@ tts_gobble_acknowledgements
 
 puts -nonewline     $tts(write)  {[:timeout 0]
     [:pu s ]
-    [:sa c]
+    [:sayc]
     [:phoneme arpabet speak on ]
     [:tsr off ]
     [:power interval 900]
