@@ -1,6 +1,6 @@
 #!/usr/bin/tclsh
 # $Id$
-# Description:  Interfacing to a Dectalk via TCL.
+# Description:  Interfacing to a Dectalk Lite via TCL.
 # Keywords: Emacspeak, Dectalk, TCL
 # {{{ LCD Entry:
 
@@ -36,24 +36,6 @@
 # You should have received a copy of the GNU General Public License
 # along with GNU Emacs; see the file COPYING.  If not, write to
 # the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
-
-# }}}
-# {{{commandabbreviations
-
-#This version uses shortened dtk command strings to improve performance
-#when running remote sessions.
-#These short-cuts are documented here to preserve ones sanity.
-#:say== :say
-# c == clause
-# w == word
-# le == letter
-#:to == :tone
-# :ra == :rate
-# :index == :i
-# reply == r
-# :punct == :pu
-# a == all
-# s == some
 
 # }}}
 # {{{source common code
@@ -99,7 +81,7 @@ proc tts_say {text} {
     global tts
     set tts(not_stopped) 1
     puts -nonewline  $tts(write)\
-        "\[_]\[:sayw]$text "
+        "\[_]\[:say  w]$text "
         tts_gobble_acknowledgements
 return ""
 }
@@ -113,7 +95,7 @@ proc l {text} {
     set f  $tts(say_rate)
     tts_gobble_acknowledgements 0.001
     puts -nonewline  $tts(write)\
-        "\[_]\[:ra $f]\[:sayle]$text\[:sayc]"
+        "\[_]\[:rate $f]\[:say letter]$text\[:say clause]"
         return ""
 }
 
@@ -128,7 +110,7 @@ proc tts_resume  {} {
     global tts
     queue_restore
     if {[queue_empty?]} {
-        puts -nonewline  $tts(write) {  [:sayc] No speech to resume. }
+        puts -nonewline  $tts(write) {  [:say c] No speech to resume. }
         set tts(not_stopped) 1
     } else {
         speech_task
@@ -246,7 +228,7 @@ proc tts_reset {} {
 
 proc r {rate} {
     global queue  tts
-    set queue($tts(q_tail)) [list s  "\[:ra $rate\]"]
+    set queue($tts(q_tail)) [list s  "\[:rate $rate\]"]
     incr tts(q_tail)
     return ""
 }
@@ -261,7 +243,7 @@ proc speech_task {} {
     set mode  $tts(punctuations)
     set r $tts(speech_rate)
     set length [queue_length]
-    puts -nonewline  $tts(write) "\[:say c]\[:rate $r]\[:punc $mode]"
+    puts -nonewline  $tts(write) "\[:say  c]\[:rate $r]\[:punctpunc $mode]"
     tts_gobble_acknowledgements
     loop index 0 $length {
         set event   [queue_remove]
@@ -269,12 +251,12 @@ proc speech_task {} {
         switch  -exact -- $event_type {
             s {
                 set text [clean [lindex $event 1]]
-                puts -nonewline  $tts(write) "S $text"
+                puts   $tts(write) "S $text"
                 set retval [tts_get_acknowledgement ]
             }
             c {
                 set text  [lindex $event 1]
-                puts -nonewline  $tts(write) "S $text\[_.]"
+                puts   $tts(write) "S $text\[_.]"
                 set retval ""
             }
             t {
@@ -398,14 +380,12 @@ signal ignore {sigint}
 # gobble up garbage that is returned on powerup
 tts_gobble_acknowledgements
 
-puts -nonewline     $tts(write)  {[:timeout 0]
-    [:pu s ]
-    [:sayc]
+puts -nonewline     $tts(write)  {
+    S
+    [:punct some ]
+    [:say clause]
     [:phoneme arpabet speak on ]
-    [:tsr off ]
-    [:power interval 900]
-    [:power sleep 900]
-    [:sync] [:np :ra 200]
+    [:sync] [:np :rate 200]
     This is the Dectalk Express.
     [zhax<15> p'arl],
     [/dh`ow<100,140> ],  [:np] [  zhax<13>  suw<45>\iy<140,100>].
