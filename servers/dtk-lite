@@ -346,6 +346,23 @@ proc clean {element} {
 }
 
 # }}}
+# {{{Override Methods:
+#dtk-lite uses some codes differently:
+ 
+proc c {{element ""}} {
+    global queue tts env
+    if {[string length element]} {
+       regsub -all :np $element {:n0} element
+        regsub -all :nh $element {:n1} element
+        regsub -all :nb $element {:n2} element
+        set queue($tts(q_tail)) [list c $element]
+        incr tts(q_tail)
+        return ""
+    }
+}
+
+
+# }}}
 # {{{ initialize
 
 tts_setserial
