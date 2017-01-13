@@ -424,7 +424,7 @@ proc clean {element} {
     }
     regsub -all {\240} $element " " element
     if {$tts(capitalize) } {
-        regsub -all {[A-Z]} $element { `ar `p50   & } element
+        regsub -all {[A-Z]} $element { `ah `p10   `4& } element
     }
     if {$tts(split_caps) } {
         if  {$tts(allcaps_beep)} {
