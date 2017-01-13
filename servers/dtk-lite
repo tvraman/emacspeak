@@ -80,8 +80,8 @@ proc tts_set_character_scale {factor} {
 proc tts_say {text} {
     global tts
     set tts(not_stopped) 1
-    puts -nonewline  $tts(write)\
-        "\[_]\[:say  w]$text "
+    puts    $tts(write)\
+        "S \[:say  w]$text "
         tts_gobble_acknowledgements
 return ""
 }
@@ -94,8 +94,8 @@ proc l {text} {
     set r $tts(speech_rate)
     set f  $tts(say_rate)
     tts_gobble_acknowledgements 0.001
-    puts -nonewline  $tts(write)\
-        "\[_]\[:rate $f]\[:say letter]$text\[:say clause]"
+    puts    $tts(write)\
+        "S \[:rate $f]\[:say letter]$text\[:say clause]"
         return ""
 }
 
@@ -110,7 +110,7 @@ proc tts_resume  {} {
     global tts
     queue_restore
     if {[queue_empty?]} {
-        puts -nonewline  $tts(write) {  [:say c] No speech to resume. }
+        puts    $tts(write) {S [:say c] No speech to resume. }
         set tts(not_stopped) 1
     } else {
         speech_task
@@ -210,20 +210,9 @@ proc tts_gobble_acknowledgements {{delay 0.005}} {
 proc tts_reset {} {
     global tts
     s
-    puts -nonewline     $tts(write)  {[:version status]}
+    puts $tts(write) "R"
     tts_gobble_acknowledgements
     set tts(not_stopped) 1
-    puts -nonewline     $tts(write)  {[:timeout 60]
-        [:pu s]
-        [:phoneme arpabet speak on ]
-        [:tsr off ]
-        [:power interval 900 ]
-        [:power sleep 900]
-        [:enable]
-        [:np]
-        Restoring sanity to the Dectalk Express.
-        [:sync :power speak]
-    }
 }
 
 proc r {rate} {
@@ -243,7 +232,7 @@ proc speech_task {} {
     set mode  $tts(punctuations)
     set r $tts(speech_rate)
     set length [queue_length]
-    puts -nonewline  $tts(write) "\[:say  c]\[:rate $r]\[:punctpunc $mode]"
+    puts    $tts(write) "S \[:say  c]\[:rate $r]\[:punctpunc $mode]"
     tts_gobble_acknowledgements
     loop index 0 $length {
         set event   [queue_remove]
@@ -261,7 +250,7 @@ proc speech_task {} {
             }
             t {
                 set text  [lindex $event 1]
-                puts -nonewline  $tts(write) "S \[:tone $text]\[_.] "
+                puts    $tts(write) "S \[:tone $text]\[_.] "
                 set retval [tts_get_acknowledgement ]
             }
             b {
@@ -275,7 +264,7 @@ proc speech_task {} {
         }
         if {$tts(talking?) == 0} {break;}
     }
-    puts -nonewline  $tts(write) ""
+    puts    $tts(write) ""
     
     set tts(talking?) 0
     tts_gobble_acknowledgements
@@ -380,15 +369,13 @@ signal ignore {sigint}
 # gobble up garbage that is returned on powerup
 tts_gobble_acknowledgements
 
-puts -nonewline     $tts(write)  {
+puts      $tts(write)  {
     S
     [:punct some ]
     [:say clause]
     [:phoneme arpabet speak on ]
-    [:sync] [:np :rate 200]
-    This is the Dectalk Express.
-    [zhax<15> p'arl],
-    [/dh`ow<100,140> ],  [:np] [  zhax<13>  suw<45>\iy<140,100>].
+    [:sync] [:n0 :rate 200]
+    This is the Dectalk Lite.
 }
 
 #Start the main command loop:
