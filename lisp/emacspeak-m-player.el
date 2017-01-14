@@ -391,7 +391,7 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
                  (string-match "ICY Info:" output))
         (setf
          (emacspeak-m-player-metadata-info emacspeak-m-player-metadata)
-         output)
+         (format "%s" output))
         (emacspeak-auditory-icon 'progress)
         (when emacspeak-m-player-cue-info (emacspeak-m-player-stream-info)))
       (goto-char (process-mark process))
