@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1149 commands and 1044 options.
+This chapter documents a total of 1150 commands and 1050 options.
 
 @menu
 * acss-structure::
@@ -148,6 +148,7 @@ This chapter documents a total of 1149 commands and 1044 options.
 * emacspeak-py::
 * emacspeak-pydoc::
 * emacspeak-python::
+* emacspeak-racket::
 * emacspeak-re-builder::
 * emacspeak-redefine::
 * emacspeak-reftex::
@@ -297,6 +298,15 @@ Interactive prefix arg refreshes cache.
 
 @format
 Set equalizer. Only affects device ‘equal’.
+@end format
+@end deffn
+
+@subsubsection amixer-reset-equalizer
+@deffn {Command} amixer-reset-equalizer   
+@findex amixer-reset-equalizer
+
+@format
+Reset equalizer to default values -- 66% for all 10 bands.
 @end format
 @end deffn
 
@@ -13783,6 +13793,49 @@ This personality uses  voice-bolden-extra whose  effect can be changed globally 
 @section emacspeak-python
 
 This speech-enables python-mode bundled with Emacs
+
+@node emacspeak-racket
+@section emacspeak-racket
+
+racket-mode implements an IDE for racket, a dialect of scheme.
+
+@subsection emacspeak-racket Options
+
+@defvar {User Option} emacspeak-racket-check-syntax-def-personality
+Personality used for racket-check-syntax-def-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-racket-check-syntax-use-personality
+Personality used for racket-check-syntax-use-face
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-racket-here-string-personality
+Personality used for racket-here-string-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-racket-keyword-argument-personality
+Personality used for racket-keyword-argument-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-racket-paren-personality
+Personality used for racket-paren-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-racket-selfeval-personality
+Personality used for racket-selfeval-face
+This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+
+@end defvar
 
 @node emacspeak-re-builder
 @section emacspeak-re-builder
