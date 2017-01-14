@@ -66,81 +66,56 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 
-'(
-  racket--orp/enter
-  racket--orp/next
-  racket--orp/nop
-  racket--orp/prev
-  racket--orp/quit
-  racket--profile-next
-  racket--profile-prev
-  racket--profile-quit
-  racket--profile-refresh
-  racket--profile-show-zero
-  racket--profile-sort
-  racket--profile-visit
-  racket--toggle-trace
-  racket-align
-  racket-backward-up-list
-  racket-base-requires
-  racket-bug-report
-  racket-check-syntax-mode
-  racket-check-syntax-mode-goto-def
-  racket-check-syntax-mode-goto-next-def
-  racket-check-syntax-mode-goto-next-use
-  racket-check-syntax-mode-goto-prev-def
-  racket-check-syntax-mode-goto-prev-use
-  racket-check-syntax-mode-help
-  racket-check-syntax-mode-quit
-  racket-check-syntax-mode-rename
-  racket-cycle-paren-shapes
-  racket-describe
-  racket-describe--next-button
-  racket-describe--prev-button
-  racket-describe-mode
-  racket-doc
-  racket-expand-again
-  racket-expand-definition
-  racket-expand-last-sexp
-  racket-expand-region
-  racket-find-collection
-  racket-fold-all-tests
-  racket-indent-line
-  racket-insert-closing
-  racket-insert-lambda
-  racket-make-doc/write-reference-file
-  racket-mode
-  racket-mode-menu
-  racket-open-require-path
-  racket-profile
-  racket-profile-mode
-  racket-racket
-  racket-raco-test
-  racket-repl
-  racket-repl--clean-image-cache
-  racket-repl-eval-or-newline-and-indent
-  racket-repl-mode
-  racket-repl-mode-menu
-  racket-repl-switch-to-edit
-  racket-run
-  racket-run-and-switch-to-repl
-  racket-run-with-errortrace
-  racket-send-definition
-  racket-send-last-sexp
-  racket-send-region
-  racket-smart-open-bracket
-  racket-test
-  racket-tidy-requires
-  racket-trim-requires
-  racket-unalign
-  racket-unfold-all-tests
-  racket-unicode-input-method-enable
-  racket-unvisit
-  racket-view-last-image
-  racket-visit-definition
-  racket-visit-module
-  )
+(cl-loop
+ for f in
+ '(racket--orp/enter racket--orp/next racket--orp/prev racket--orp/quit)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'select-object )
+       (emacspeak-speak-line)))))
 
+(cl-loop
+ for f in
+ '(
+   racket--profile-next
+   racket--profile-prev racket--profile-quit
+   racket--profile-refresh racket--profile-show-zero
+   racket--profile-sort racket--profile-visit)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'open-object )
+       (emacspeak-speak-line)))))
+
+
+(cl-loop
+ for f in
+ '(
+   racket-visit-module racket-visit-definition
+   racket-smart-open-bracket racket-insert-lambda racket-insert-closing
+   racket-indent-line racket-check-syntax-mode-goto-def
+   racket-check-syntax-mode-goto-next-def racket-check-syntax-mode-goto-next-use
+   racket-check-syntax-mode-goto-prev-def racket-check-syntax-mode-goto-prev-use
+   racket-backward-up-list)
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'large-movement )))))
+
+(defadvice racket-describe (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'help)
+    (with-current-buffer "*Racket Describe*"
+      (emacspeak-speak-buffer))))
+        
 ;;}}}
 (provide 'emacspeak-racket)
 ;;{{{ end of file
