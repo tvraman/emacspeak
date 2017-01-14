@@ -102,6 +102,7 @@
    racket-check-syntax-mode-goto-next-def racket-check-syntax-mode-goto-next-use
    racket-check-syntax-mode-goto-prev-def racket-check-syntax-mode-goto-prev-use
    racket-backward-up-list)
+ do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
