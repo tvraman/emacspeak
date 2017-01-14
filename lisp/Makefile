@@ -210,6 +210,7 @@ emacspeak-py.elc \
 emacspeak-elpy.elc \
 emacspeak-pydoc.elc \
 emacspeak-python.elc \
+emacspeak-racket.elc \
 emacspeak-re-builder.elc \
 emacspeak-reftex.elc \
 emacspeak-rst.elc \
@@ -466,6 +467,7 @@ emacspeak-proced.elc: emacspeak-proced.el dtk-speak.elc voice-setup.elc
 emacspeak-projectile.elc: emacspeak-projectile.el dtk-speak.elc
 emacspeak-py.elc: emacspeak-py.el dtk-speak.elc voice-setup.elc
 emacspeak-python.elc: emacspeak-python.el dtk-speak.elc voice-setup.elc
+emacspeak-racket.elc: emacspeak-racket.el dtk-speak.elc voice-setup.elc
 emacspeak-elpy.elc: emacspeak-elpy.el dtk-speak.elc
 emacspeak-pydoc.elc: emacspeak-pydoc.el dtk-speak.elc
 emacspeak-re-builder.elc: emacspeak-re-builder.el dtk-speak.elc voice-setup.elc

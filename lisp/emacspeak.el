@@ -262,6 +262,7 @@ that implements the speech-enabling extensions."
 (emacspeak-do-package-setup "pydoc" 'emacspeak-pydoc)
 (emacspeak-do-package-setup "python" 'emacspeak-python)
 (emacspeak-do-package-setup "python-mode" 'emacspeak-py)
+(emacspeak-do-package-setup "racket-mode" 'emacspeak-racket)
 (emacspeak-do-package-setup "re-builder" 'emacspeak-re-builder)
 (emacspeak-do-package-setup "reftex" 'emacspeak-reftex)
 (emacspeak-do-package-setup "rst" 'emacspeak-rst)

@@ -70,8 +70,19 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 
-(let ((print-length nil))
-(insert (format "'%s"(emacspeak-wizards-enumerate-uncovered-commands "^<skeleton>"))))
+(let ((print-length nil)
+      (start (point))
+      (commands (emacspeak-wizards-enumerate-uncovered-commands "^<skeleton>")))
+  (insert "'(\n")
+  (cl-loop for c in commands do (insert (format "%s\n" c)))
+  (insert ")\n")
+  (goto-char start)
+  (backward-sexp)
+  (kill-sexp)
+  (goto-char (search-forward "("))
+  (indent-pp-sexp))
+  
+)
 
 ;;}}}
 (provide 'emacspeak-<skeleton>)
