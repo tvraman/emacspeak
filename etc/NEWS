@@ -15,6 +15,9 @@ Module ~emacspeak-clojure~ speech-enables ~clojure-mode~.
 
 Cider, The Clojure IDE that
 Rocks now talks ---Module ~emacspeak-cider~ speech-enables ~cider~.
+** Speech-Enable Racket 
+
+Module ~emacspeak-racket~ speech-enables ~racket-mode~.
 
 ** IHeart Radio
 
