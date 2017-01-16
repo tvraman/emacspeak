@@ -80,8 +80,8 @@
   geiser-racket-show-submodules
   geiser-racket-toggle-submodules
   geiser-repl--bol
-  
-  
+
+
   geiser-repl--newline-and-indent
   geiser-repl--previous-error
   geiser-repl-clear-buffer
@@ -93,22 +93,20 @@
   geiser-repl-tab-dwim
   geiser-restart-repl
   geiser-set-scheme
-  geiser-show-logs
+
   geiser-smart-tab-mode
-  
+
   geiser-xref-callees
   geiser-xref-callers
   geiser-xref-generic-methods
   )
 
-
-
 (cl-loop
  for f in
  '(
    geiser run-geiser
-   geiser-mode-switch-to-repl geiser-doc-switch-to-repl
-   geiser-mode-switch-to-repl-and-enter)
+          geiser-mode-switch-to-repl geiser-doc-switch-to-repl
+          geiser-mode-switch-to-repl-and-enter geiser-show-logs)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -121,13 +119,13 @@
  for f in
  '(
    geiser-compile-current-buffer geiser-compile-definition
-   geiser-compile-definition-and-go geiser-compile-file geiser-eval-buffer
-   geiser-eval-buffer-and-go geiser-eval-definition geiser-eval-definition-and-go
-   geiser-eval-last-sexp geiser-eval-region geiser-eval-region-and-go
-   geiser-expand-definition geiser-expand-last-sexp geiser-expand-region
-   geiser-load-current-buffer geiser-load-file
-   geiser-log-clear
-   geiser-squarify geiser-pop-symbol-stack geiser-insert-lambda)
+                                 geiser-compile-definition-and-go geiser-compile-file geiser-eval-buffer
+                                 geiser-eval-buffer-and-go geiser-eval-definition geiser-eval-definition-and-go
+                                 geiser-eval-last-sexp geiser-eval-region geiser-eval-region-and-go
+                                 geiser-expand-definition geiser-expand-last-sexp geiser-expand-region
+                                 geiser-load-current-buffer geiser-load-file
+                                 geiser-log-clear
+                                 geiser-squarify geiser-pop-symbol-stack geiser-insert-lambda)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -143,7 +141,7 @@
    geiser-edit-symbol-at-point geiser-doc-symbol-at-point
    geiser-doc-refresh geiser-doc-previous-section
    geiser-doc-previous geiser-doc-next-section geiser-doc-next
-   geiser-doc-module geiser-doc-look-up-manual 
+   geiser-doc-module geiser-doc-look-up-manual
    geiser-edit--open-next geiser-edit-module
    geiser-edit-module-at-point geiser-edit-symbol)
  do
