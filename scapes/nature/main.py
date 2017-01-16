@@ -526,7 +526,7 @@ class BirdSongs (agent.Agent):
         y = [-1.5, -1.25, -1.125, 0, 1.125,   1.25, 1.5]
         for i in xrange(len(self.agents)):
             for j in xrange(5):
-                k = (i+j) % len(self.agents)
+                k = (i + j) % len(self.agents)
                 bc = self.new_channel_pan(
                     stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, y[k])))
                 ag = self.agents[i](
