@@ -447,7 +447,7 @@ class BirdChorus (agent.Agent):
                 start = 10 * (j + k)
                 bc = self.new_channel_pan(
                     stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, y[k])))
-                ag = self.agents[k](
+                ag = self.agents[i](
                     start, 60 + start,  # duration
                     0.05, 0.75,  # volume
                     1 + 0.1 * j  # pan
@@ -526,8 +526,9 @@ class BirdSongs (agent.Agent):
         y = [-1.5, -1.25, -1.125, 0, 1.125,   1.25, 1.5]
         for i in xrange(len(self.agents)):
             for j in xrange(5):
+                k = (i+j) % len(self.agents)
                 bc = self.new_channel_pan(
-                    stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, y[i])))
+                    stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, y[k])))
                 ag = self.agents[i](
                     0, 120,  # Duration
                     0.05, 0.65,  # volume
