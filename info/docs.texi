@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1150 commands and 1050 options.
+This chapter documents a total of 1150 commands and 1061 options.
 
 @menu
 * acss-structure::
@@ -90,6 +90,7 @@ This chapter documents a total of 1150 commands and 1050 options.
 * emacspeak-folding::
 * emacspeak-forms::
 * emacspeak-ftf::
+* emacspeak-geiser::
 * emacspeak-generic::
 * emacspeak-gnuplot::
 * emacspeak-gnus::
@@ -8451,6 +8452,83 @@ Personality for read-write fields.
 
 FTF ==  find-things-fast
 Package ftf --- find-things-fast -- is available from the marmalade emacs package archive
+
+@node emacspeak-geiser
+@section emacspeak-geiser
+
+geiser.el --- GNU Emacs and Scheme talk to each other
+This module speech-enables all interactive aspects of geiser,
+including the geiser->scheme REPL.
+This is used by racket-mode for racket interaction,
+And also for interacting with Guile.
+
+@subsection emacspeak-geiser Options
+
+@defvar {User Option} emacspeak-geiser-voice-lock-autodoc-current-arg
+Personality used for geiser-font-lock-autodoc-current-arg
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-geiser-voice-lock-autodoc-identifier
+Personality used for geiser-font-lock-autodoc-identifier
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-geiser-voice-lock-doc-button
+Personality used for geiser-font-lock-doc-button
+This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-geiser-voice-lock-doc-link
+Personality used for geiser-font-lock-doc-link
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-geiser-voice-lock-doc-title
+Personality used for geiser-font-lock-doc-title
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-geiser-voice-lock-error-link
+Personality used for geiser-font-lock-error-link
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-geiser-voice-lock-image-button
+Personality used for geiser-font-lock-image-button
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-geiser-voice-lock-repl-input
+Personality used for geiser-font-lock-repl-input
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-geiser-voice-lock-repl-prompt
+Personality used for geiser-font-lock-repl-prompt
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-geiser-voice-lock-xref-header
+Personality used for geiser-font-lock-xref-header
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-geiser-voice-lock-xref-link
+Personality used for geiser-font-lock-xref-link
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
 
 @node emacspeak-generic
 @section emacspeak-generic
