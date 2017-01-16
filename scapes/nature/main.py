@@ -444,9 +444,9 @@ class BirdChorus (agent.Agent):
         for j in xrange(10):
             for i in xrange(len(self.agents)):
                 k = (i + j) % len(self.agents)
-                start = 10 * (j + k)
                 bc = self.new_channel_pan(
                     stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, y[k])))
+                start = 5 * (i + j)
                 ag = self.agents[i](
                     start, 60 + start,  # duration
                     0.05, 0.75,  # volume
