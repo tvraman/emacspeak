@@ -100,7 +100,7 @@
   geiser-set-scheme
   geiser-show-logs
   geiser-smart-tab-mode
-  geiser-squarify
+  
   geiser-xref-callees
   geiser-xref-callers
   geiser-xref-generic-methods
@@ -131,7 +131,7 @@
    geiser-eval-last-sexp geiser-eval-region geiser-eval-region-and-go
    geiser-expand-definition geiser-expand-last-sexp geiser-expand-region
    geiser-load-current-buffer geiser-load-file
-   geiser-pop-symbol-stack geiser-insert-lambda)
+   geiser-squarify geiser-pop-symbol-stack geiser-insert-lambda)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
