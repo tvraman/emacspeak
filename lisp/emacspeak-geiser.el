@@ -76,17 +76,12 @@
 ;;{{{ Interactive Commands:
 
 '(
-  geiser-log-clear
-  geiser-log-toggle-verbose
-  
-  
-  
   geiser-racket-hide-submodules
   geiser-racket-show-submodules
   geiser-racket-toggle-submodules
   geiser-repl--bol
-  geiser-repl--doc-module
-  geiser-repl--maybe-send
+  
+  
   geiser-repl--newline-and-indent
   geiser-repl--previous-error
   geiser-repl-clear-buffer
@@ -131,6 +126,7 @@
    geiser-eval-last-sexp geiser-eval-region geiser-eval-region-and-go
    geiser-expand-definition geiser-expand-last-sexp geiser-expand-region
    geiser-load-current-buffer geiser-load-file
+   geiser-log-clear
    geiser-squarify geiser-pop-symbol-stack geiser-insert-lambda)
  do
  (eval
