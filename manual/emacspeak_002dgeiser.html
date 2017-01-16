@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+
+  <title>Emacspeak User’s Manual — 2nd Edition.:
+  emacspeak-geiser</title>
+  <meta name="description" content=
+  "Emacspeak User’s Manual — 2nd Edition.: emacspeak-geiser" />
+  <meta name="keywords" content=
+  "Emacspeak User’s Manual — 2nd Edition.: emacspeak-geiser" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href=
+  "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+  rel="up" title="Emacspeak Commands And Options" />
+  <link href="emacspeak_002dgeneric.html#emacspeak_002dgeneric"
+  rel="next" title="emacspeak-generic" />
+  <link href="emacspeak_002dftf.html#emacspeak_002dftf" rel="prev"
+  title="emacspeak-ftf" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
+</head>
+
+<body lang="en" xml:lang="en">
+  <a name="emacspeak_002dgeiser" id="emacspeak_002dgeiser"></a>
+
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dgeneric.html#emacspeak_002dgeneric" accesskey=
+    "n" rel="next">emacspeak-generic</a>, Previous: <a href=
+    "emacspeak_002dftf.html#emacspeak_002dftf" accesskey="p" rel=
+    "prev">emacspeak-ftf</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name="emacspeak_002dgeiser-1" id="emacspeak_002dgeiser-1"></a>
+
+  <h3 class="section">12.86 emacspeak-geiser</h3>
+
+  <p>geiser.el — GNU Emacs and Scheme talk to each other This
+  module speech-enables all interactive aspects of geiser,
+  including the geiser-&gt;scheme REPL. This is used by racket-mode
+  for racket interaction, And also for interacting with
+  Guile.</p><a name="emacspeak_002dgeiser-Options" id=
+  "emacspeak_002dgeiser-Options"></a>
+
+  <h4 class="subsection">12.86.1 emacspeak-geiser Options</h4>
+
+  <dl>
+    <dt><a name="index-User-Option-541" id=
+    "index-User-Option-541"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-geiser-voice-lock-autodoc-current-arg</em></dt>
+
+    <dd>
+      <p>Personality used for geiser-font-lock-autodoc-current-arg
+      This personality uses voice-bolden whose effect can be
+      changed globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-542" id=
+    "index-User-Option-542"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-geiser-voice-lock-autodoc-identifier</em></dt>
+
+    <dd>
+      <p>Personality used for geiser-font-lock-autodoc-identifier
+      This personality uses voice-animate whose effect can be
+      changed globally by customizing voice-animate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-543" id=
+    "index-User-Option-543"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-geiser-voice-lock-doc-button</em></dt>
+
+    <dd>
+      <p>Personality used for geiser-font-lock-doc-button This
+      personality uses voice-bolden-extra whose effect can be
+      changed globally by customizing
+      voice-bolden-extra-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-544" id=
+    "index-User-Option-544"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-geiser-voice-lock-doc-link</em></dt>
+
+    <dd>
+      <p>Personality used for geiser-font-lock-doc-link This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-545" id=
+    "index-User-Option-545"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-geiser-voice-lock-doc-title</em></dt>
+
+    <dd>
+      <p>Personality used for geiser-font-lock-doc-title This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-546" id=
+    "index-User-Option-546"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-geiser-voice-lock-error-link</em></dt>
+
+    <dd>
+      <p>Personality used for geiser-font-lock-error-link This
+      personality uses voice-annotate whose effect can be changed
+      globally by customizing voice-annotate-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-547" id=
+    "index-User-Option-547"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-geiser-voice-lock-image-button</em></dt>
+
+    <dd>
+      <p>Personality used for geiser-font-lock-image-button This
+      personality uses voice-bolden-medium whose effect can be
+      changed globally by customizing
+      voice-bolden-medium-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-548" id=
+    "index-User-Option-548"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-geiser-voice-lock-repl-input</em></dt>
+
+    <dd>
+      <p>Personality used for geiser-font-lock-repl-input This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-549" id=
+    "index-User-Option-549"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-geiser-voice-lock-repl-prompt</em></dt>
+
+    <dd>
+      <p>Personality used for geiser-font-lock-repl-prompt This
+      personality uses voice-lighten whose effect can be changed
+      globally by customizing voice-lighten-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-550" id=
+    "index-User-Option-550"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-geiser-voice-lock-xref-header</em></dt>
+
+    <dd>
+      <p>Personality used for geiser-font-lock-xref-header This
+      personality uses voice-smoothen whose effect can be changed
+      globally by customizing voice-smoothen-settings.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-551" id=
+    "index-User-Option-551"></a>Variable: <strong>User
+    Option</strong>
+    <em>emacspeak-geiser-voice-lock-xref-link</em></dt>
+
+    <dd>
+      <p>Personality used for geiser-font-lock-xref-link This
+      personality uses voice-bolden whose effect can be changed
+      globally by customizing voice-bolden-settings.</p>
+    </dd>
+  </dl>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href=
+    "emacspeak_002dgeneric.html#emacspeak_002dgeneric" accesskey=
+    "n" rel="next">emacspeak-generic</a>, Previous: <a href=
+    "emacspeak_002dftf.html#emacspeak_002dftf" accesskey="p" rel=
+    "prev">emacspeak-ftf</a>, Up: <a href=
+    "Emacspeak-Commands-And-Options.html#Emacspeak-Commands-And-Options"
+    accesskey="u" rel="up">Emacspeak Commands And Options</a>
+    &nbsp; [<a href="index.html#SEC_Contents" title=
+    "Table of contents" rel="contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+</body>
+</html>
