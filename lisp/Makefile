@@ -157,6 +157,7 @@ emacspeak-flyspell.elc \
 emacspeak-folding.elc \
 emacspeak-forms.elc \
 emacspeak-generic.elc \
+emacspeak-geiser.elc \
 emacspeak-gnuplot.elc \
 emacspeak-gnus.elc\
 emacspeak-go-mode.elc \
@@ -408,6 +409,7 @@ emacspeak-flyspell.elc: emacspeak-flyspell.el dtk-speak.elc voice-setup.elc
 emacspeak-folding.elc: emacspeak-folding.el dtk-speak.elc voice-setup.elc
 emacspeak-forms.elc: emacspeak-forms.el dtk-speak.elc voice-setup.elc
 emacspeak-generic.elc: emacspeak-generic.el dtk-speak.elc voice-setup.elc
+emacspeak-geiser.elc: emacspeak-geiser.el dtk-speak.elc voice-setup.elc
 emacspeak-gnuplot.elc: emacspeak-gnuplot.el dtk-speak.elc voice-setup.elc
 emacspeak-gnus.elc: emacspeak-gnus.el dtk-speak.elc voice-setup.elc
 emacspeak-google.elc: emacspeak-google.el dtk-speak.elc
