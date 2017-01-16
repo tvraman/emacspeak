@@ -425,7 +425,7 @@ class BirdChorus (agent.Agent):
 
     def init(self):
         self.agents = [CaMockingBirds, SongBirds, IABirds, FlMockingBirds,
-                       cuckoos, TropicalBirds, Nightingales]
+                       Cuckoos, TropicalBirds, Nightingales]
 
     def run(self):
         nature = builtin.FadeInOutAgent(GardenBackground(0.0), 75, 5)
