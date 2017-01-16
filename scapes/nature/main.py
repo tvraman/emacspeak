@@ -441,12 +441,13 @@ class BirdChorus (agent.Agent):
         self.sched_agent(nature, 0, nc)
 
         y = [-1.4, -1.25, -1.125, 0, 1.125,   1.25, 1.4]
-        for i in xrange(len(self.agents)):
-            for j in xrange(10):
-                start = 10 * i + 10 * j
+        for j in xrange(10):
+            for i in xrange(len(self.agents)):
+                k = (i + j) % len(self.agents)
+                start = 10 * (j + k)
                 bc = self.new_channel_pan(
-                    stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, y[i])))
-                ag = self.agents[i](
+                    stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, y[k])))
+                ag = self.agents[k](
                     start, 60 + start,  # duration
                     0.05, 0.75,  # volume
                     1 + 0.1 * j  # pan
