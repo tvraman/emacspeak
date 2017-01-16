@@ -267,7 +267,7 @@ class Nightingales(agent.Agent):
 class ManyNightingales (agent.Agent):
 
     def run(self):
-        nature = builtin.FadeInOutAgent(GardenBackground(0.0),60, 15)
+        nature = builtin.FadeInOutAgent(GardenBackground(0.0), 60, 15)
         nc = self.new_channel_pan(
             stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.5)))  # in front
         self.sched_agent(nature, 0, nc)
@@ -425,20 +425,33 @@ class BirdChorus (agent.Agent):
 
     def init(self):
         self.agents = [CaMockingBirds, SongBirds, IABirds, FlMockingBirds,
-                       TropicalBirds, Nightingales]
+                       cuckoos, TropicalBirds, Nightingales]
 
     def run(self):
-        nature = builtin.FadeInOutAgent(GardenBackground(0.0), 60, 15)
-        self.sched_agent(manage.VolumeModulateAgent(nature, 0.5))
+        nature = builtin.FadeInOutAgent(GardenBackground(0.0), 75, 15)
+        # in front
+        nc = self.new_channel_pan(
+            stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.5)))
+        self.sched_agent(nature, 0, nc)
 
+        nature = builtin.FadeInOutAgent(GardenBackground(60.0), 75, 15)
+        # behind
+        nc = self.new_channel_pan(
+            stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, -1.5)))
+        self.sched_agent(nature, 0, nc)
+
+        y = [-1.5, -1.25, -1.125, 0, 1.125,   1.25, 1.5]
         for i in xrange(len(self.agents)):
-            for j in xrange(8):
+            for j in xrange(10):
                 start = 30 * i + 10 * j
+                bc = self.new_channel_pan(
+                    stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, y[i])))
                 ag = self.agents[i](
-                    start, 30 + start,  # duration
-                    0.075, 0.225,  # volume
-                    0.7 + j * 0.05)
-                self.sched_agent(ag)
+                    start, 60 + start,  # duration
+                    0.025, 0.75,  # volume
+                    1 + 0.1 * j  # pan
+                )
+                self.sched_agent(ag, j * 5, bc)
 
 
 class MockingCuckoos (agent.Agent):
