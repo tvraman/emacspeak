@@ -132,7 +132,7 @@ Remaining args specify additional commandline args."
 ;;;###autoload
 (defun sox-beats-binaural (length beat-spec-list  gain)
   "Play binaural audio with beat-spec specifying the various tones.
-Param `beat-spec' is a list of `(carrier beat) tupples."
+Param `beat-spec-list' is a list of `(carrier beat) tupples."
   (interactive
    (list
     (timer-duration(read-from-minibuffer "Duration: "))
