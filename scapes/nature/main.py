@@ -450,7 +450,7 @@ class BirdChorus (agent.Agent):
                 ag = self.agents[i](
                     start, 60 + start,  # duration
                     0.05, 0.75,  # volume
-                    1 + 0.05 * j  # pan
+                    1 + 0.025 * j  # pan
                 )
                 self.sched_agent(ag, j * 5, bc)
 
