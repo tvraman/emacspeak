@@ -606,6 +606,12 @@ type="text/xsl"?>
 <application name="tide">
       Typescript  Development Environment.
     </application>
+    <application name="clojure-mode">
+      Support for editing Clojure source.
+    </application>
+    <application name="cider">
+      A powerful IDE for Clojure development.
+    </application>
 <application name="slime">
       Superior Lisp Interaction mode for Emacs --- a powerful IDE for
       Common Lisp development.
@@ -656,6 +662,19 @@ type="text/xsl"?>
       Editting support for interactive Go  development.
       Features aural highlighting, structured browsing and debugging.
     </application>
+    <application name="geiser">
+      Support for interactive Scheme development including aural
+      highlighting,
+      an interactive REPL,
+      structured browsing and interactive  help.
+    </application>
+    <application name="racket-mode">
+      Support for interactive Racket development including aural
+      highlighting,
+      an interactive REPL,
+      structured browsing and interactive  help.
+    </application>
+
     <application name="tcl">
       Support for interactive TCL development including aural highlighting,
       structured browsing and interactive  help.
