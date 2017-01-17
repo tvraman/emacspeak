@@ -387,12 +387,9 @@ signal ignore {sigint}
 tts_gobble_acknowledgements
 
 puts      $tts(write)  {
-    S
-    [:punct some ]
-    [:say clause]
-    [:phoneme arpabet speak on ]
-    [:sync] [:n0 :rate 200]
-    This is the Dectalk Lite.
+    V18
+    P0
+SThis is the Dectalk Lite.
 }
 
 #Start the main command loop:
