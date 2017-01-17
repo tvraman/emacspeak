@@ -75,36 +75,11 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 
-'(
-  geiser-racket-hide-submodules
-  geiser-racket-show-submodules
-  geiser-racket-toggle-submodules
-  geiser-repl--bol
-
-
-  geiser-repl--newline-and-indent
-  geiser-repl--previous-error
-  geiser-repl-clear-buffer
-  geiser-repl-exit
-  geiser-repl-import-module
-  geiser-repl-interrupt
-  geiser-repl-next-prompt
-  geiser-repl-previous-prompt
-  geiser-repl-tab-dwim
-  geiser-restart-repl
-  geiser-set-scheme
-
-  geiser-smart-tab-mode
-
-  geiser-xref-callees
-  geiser-xref-callers
-  geiser-xref-generic-methods
-  )
-
 (cl-loop
  for f in
  '(
    geiser run-geiser
+          geiser--switch-to-repl
           geiser-mode-switch-to-repl geiser-doc-switch-to-repl
           geiser-mode-switch-to-repl-and-enter geiser-show-logs)
  do
@@ -124,7 +99,7 @@
                                  geiser-eval-last-sexp geiser-eval-region geiser-eval-region-and-go
                                  geiser-expand-definition geiser-expand-last-sexp geiser-expand-region
                                  geiser-load-current-buffer geiser-load-file
-                                 geiser-log-clear
+                                 geiser-log-clear geiser-repl-clear-buffer
                                  geiser-squarify geiser-pop-symbol-stack geiser-insert-lambda)
  do
  (eval
@@ -152,13 +127,76 @@
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'open-object )))))
 
-;;}}}
-(provide 'emacspeak-geiser)
-;;{{{ end of file
+(cl-loop
+ for f in
+ '(geiser-repl--bol geiser-repl--newline-and-indent)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'select-object )
+       (emacspeak-speak-line)))))
+
+(cl-loop
+ for f in
+ '(
+   geiser-repl-previous-prompt geiser-repl-next-prompt
+                               geiser-repl--previous-error  geiser-repl--next-error
+                               )
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'large-movement )
+       (emacspeak-speak-line)))))
+
+(defadvice geiser-repl-exit (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-line)))
+
+(defadvice geiser-repl-import-module(around emacspeak pre act comp)
+  "Provide auditory feedback."
+  (cond
+   ((ems-interactive-p)
+    (let ((start (point)))
+      ad-do-it
+      (emacspeak-auditory-icon 'task-done)
+      (emacspeak-speak-region start (point))))
+   (t ad-do-it))
+  ad-return-value)
+(
+
+ (defadvice geiser-repl--doc-module (after emacspeak pre act comp)
+   "Provide auditory feedback."
+   (when (ems-interactive-p)
+     (with-current-buffer (window-buffer (selected-window))
+       (emacspeak-auditory-icon 'open-object)
+       (emacspeak-speak-buffer))))
+
+ (cl-loop
+  for f in
+  '(
+    geiser-xref-callees geiser-xref-callers geiser-xref-generic-methods
+                        )
+  do
+  (eval
+   `(defadvice ,f (after emacspeak pre act comp)
+      "Provide auditory feedback."
+      (when (ems-interactive-p)
+        (emacspeak-auditory-icon 'large-movement )
+        (emacspeak-speak-line)))))
+
+ ;;}}}
+ (provide 'emacspeak-geiser)
+ ;;{{{ end of file
 
 ;;; local variables:
 ;;; folded-file: t
 ;;; byte-compile-dynamic: t
 ;;; end:
 
-;;}}}
+ ;;}}}
