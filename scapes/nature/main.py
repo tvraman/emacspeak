@@ -431,13 +431,13 @@ class BirdChorus (agent.Agent):
         nature = builtin.FadeInOutAgent(GardenBackground(0.0), 75, 5)
         # in front
         nc = self.new_channel_pan(
-            stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.5)))
+            stereo.compose(stereo.scalexy(1.5), stereo.shiftxy(0, 1.5)))
         self.sched_agent(nature, 0, nc)
 
         nature = builtin.FadeInOutAgent(GardenBackground(60.0), 75, 5)
         # behind
         nc = self.new_channel_pan(
-            stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, -1.5)))
+            stereo.compose(stereo.scalexy(1.5), stereo.shiftxy(0, -1.5)))
         self.sched_agent(nature, 0, nc)
 
         y = [-1.4, -1.25, -1.125, 0, 1.125,   1.25, 1.4]
@@ -445,10 +445,10 @@ class BirdChorus (agent.Agent):
             for j in xrange(10):
                 k = (i + j) % len(self.agents)
                 bc = self.new_channel_pan(
-                    stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, y[k])))
+                    stereo.compose(stereo.scalexy(1 + 0.1 * k), stereo.shiftxy(0, y[k])))
                 start = 10 * (i + j)
                 ag = self.agents[i](
-                    start, 60 + start,  # duration
+                    start, 90 + start,  # duration
                     0.05, 0.75,  # volume
                     1 + 0.025 * j  # pan
                 )
