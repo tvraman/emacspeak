@@ -113,12 +113,12 @@ def doNature(this):
     nature = builtin.FadeInOutAgent(GardenBackground(0.0), 60, 15)
     # in front
     nc = this.new_channel_pan(
-        stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.5)))
+        stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.2)))
     this.sched_agent(nature, 0, nc)
  # behind
     nature = builtin.FadeInOutAgent(GardenBackground(60.0), 60, 15)
     nc = this.new_channel_pan(
-        stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, -1.5)))
+        stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, -1.1)))
     this.sched_agent(nature, 0, nc)
 
 
