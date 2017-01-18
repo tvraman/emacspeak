@@ -169,6 +169,18 @@
    (t ad-do-it))
   ad-return-value)
 
+
+(defadvice geiser-repl--maybe-send(around emacspeak pre act comp)
+  "Provide auditory feedback."
+  (cond
+   ((ems-interactive-p)
+    (let ((start (point)))
+      ad-do-it
+      (emacspeak-auditory-icon 'close-object)
+      (emacspeak-speak-region start (point))))
+   (t ad-do-it))
+  ad-return-value)
+
 (defadvice geiser-repl--doc-module (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
