@@ -7,7 +7,7 @@ from boodle import agent, stereo
 from boodle import builtin
 manage = bimport('org.boodler.manage')
 play = bimport('org.boodler.play')
-
+aRain = bimport('com.eblong.pw.rain')
 birds = bimport('org.emacspeak.birds')
 water = bimport('org.boodler.sample.water')
 wind = bimport('org.boodler.sample.wind')
@@ -108,7 +108,7 @@ def pendulum(n):
 
 # Helper:  doNature
 
-def doNature():
+def doNature(self):
     "Helper to run GardenBackground agents."
     nature = builtin.FadeInOutAgent(GardenBackground(0.0), 60, 15)
     nc = self.new_channel_pan(
@@ -128,6 +128,8 @@ class GardenBackground (agent.Agent):
         self.pendulum = pendulum(60)
 
     def run(self):
+        ag =aRain.LightWind(0.2)
+        self.sched_agent(ag)
         count = self.pendulum.next()  # [0, 60]
         gurgle = random.choice(streams)
         breeze = random.choice(winds)
@@ -161,7 +163,7 @@ class FlMockingBirds(agent.Agent):
         self.maxVol = maxVol
         self.pan = pan
 
-    def run(self):
+    def runm(self):
         ag = play.IntermittentSoundsList(
             self.minDelay, self.maxDelay,
             0.9, 1.1,  # pitch
@@ -282,7 +284,7 @@ class Nightingales(agent.Agent):
 class ManyNightingales (agent.Agent):
 
     def run(self):
-        doNature()
+        doNature(self)
         y = [-1.25, -1.2, -1.15, -1.1, -1.05, -1, 1, 1.05, 1.1, 1.15, 1.2]
         for i in xrange(len(y)):
             bc = self.new_channel_pan(
@@ -348,7 +350,7 @@ class IABirds(agent.Agent):
 class MockingBirds (agent.Agent):
 
     def run(self):
-        doNature()
+        doNature(self)
         ag = CaMockingBirds(5.0, 10.0, 0.1, 0.5, 1.0)
         self.sched_agent(ag)
         ag = CaMockingBirds(30.0, 60.0, 0.1, 0.4, 1.2)
@@ -366,7 +368,7 @@ class MockingBirds (agent.Agent):
 class ManyMockingBirds (agent.Agent):
 
     def run(self):
-        doNature()
+        doNature(self)
         for _ in xrange(8):
             ag = CaMockingBirds(0.0, 60.0, 0.1, 0.2, 1.2)
             self.sched_agent(ag)
@@ -403,7 +405,7 @@ class Crickets(agent.Agent):
 class Nightscape (agent.Agent):
 
     def run(self):
-        doNature()
+        doNature(self)
         ag = Nightingales(0.0, 30, 0.1, 1.0, 1.3)
         self.sched_agent(ag)
 
@@ -423,7 +425,7 @@ class BirdChorus (agent.Agent):
                        Cuckoos, TropicalBirds, Nightingales]
 
     def run(self):
-        doNature()
+        doNature(self)
         y = [-1.4, -1.25, -1.125, 0, 1.125,   1.25, 1.4]
         for i in xrange(len(self.agents)):
             for j in xrange(len(self.agents)):
@@ -445,7 +447,7 @@ class MockingCuckoos (agent.Agent):
         self.agents = [CaMockingBirds, Cuckoos, FlMockingBirds]
 
     def run(self):
-        doNature()
+        doNature(self)
         for i in xrange(len(self.agents)):
             for j in xrange(8):
                 # compute y using i and j
@@ -488,7 +490,7 @@ class BirdSongs (agent.Agent):
                        FlMockingBirds, Cuckoos, SongBirds]
 
     def run(self):
-        doNature()
+        doNature(self)
         y = [-1.5, -1.25, -1.125, 0, 1.125,   1.25, 1.5]
         for i in xrange(len(self.agents)):
             for j in xrange(5):
