@@ -278,7 +278,7 @@ class ManyNightingales (agent.Agent):
         self.sched_agent(nature, 0, nc)
 
         y = [-1.25, -1.2, -1.15, -1.1, -1.05, -1, 1, 1.05, 1.1, 1.15, 1.2]
-        for i in xrange(10):
+        for i in xrange(len(y)):
             bc = self.new_channel_pan(
                 stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, y[i])))
             ag = Nightingales(0.0, 50 - 2 * i, 0.1, 0.4, 1.0)
