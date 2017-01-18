@@ -113,12 +113,12 @@ def doNature(self):
     nature = builtin.FadeInOutAgent(GardenBackground(0.0), 60, 15)
     # in front
     nc = self.new_channel_pan(
-        stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.5)))  
+        stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.5)))
     self.sched_agent(nature, 0, nc)
  # behind
     nature = builtin.FadeInOutAgent(GardenBackground(60.0), 60, 15)
     nc = self.new_channel_pan(
-        stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, -1.5))) 
+        stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, -1.5)))
     self.sched_agent(nature, 0, nc)
 
 
@@ -160,14 +160,14 @@ class FlMockingBirds(agent.Agent):
         self.maxVol = maxVol
         self.pan = pan
 
-    def runm(self):
-        ag = play.IntermittentSoundsList(
-            self.minDelay, self.maxDelay,
-            0.9, 1.1,  # pitch
-            self.minVol, self.maxVol,
-            self.pan,
-            fl_mocks)
-        self.sched_agent(ag)
+        def runm(self):
+            ag = play.IntermittentSoundsList(
+                self.minDelay, self.maxDelay,
+                0.9, 1.1,  # pitch
+                self.minVol, self.maxVol,
+                self.pan,
+                fl_mocks)
+            self.sched_agent(ag)
 
 
 class CaMockingBirds(agent.Agent):
