@@ -106,6 +106,21 @@ def pendulum(n):
             i = -n
 
 
+# Helper:  doNature
+
+def doNature():
+    "Helper to run GardenBackground agents."
+    nature = builtin.FadeInOutAgent(GardenBackground(0.0), 60, 15)
+    nc = self.new_channel_pan(
+        stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.5)))  # in front
+    self.sched_agent(nature, 0, nc)
+
+    nature = builtin.FadeInOutAgent(GardenBackground(60.0), 60, 15)
+    nc = self.new_channel_pan(
+        stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, -1.5)))  # behind
+    self.sched_agent(nature, 0, nc)
+
+
 class GardenBackground (agent.Agent):
 
     def init(self, time=0.0):
@@ -267,16 +282,7 @@ class Nightingales(agent.Agent):
 class ManyNightingales (agent.Agent):
 
     def run(self):
-        nature = builtin.FadeInOutAgent(GardenBackground(0.0), 60, 15)
-        nc = self.new_channel_pan(
-            stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.5)))  # in front
-        self.sched_agent(nature, 0, nc)
-
-        nature = builtin.FadeInOutAgent(GardenBackground(60.0), 60, 15)
-        nc = self.new_channel_pan(
-            stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, -1.5)))  # behind
-        self.sched_agent(nature, 0, nc)
-
+        doNature()
         y = [-1.25, -1.2, -1.15, -1.1, -1.05, -1, 1, 1.05, 1.1, 1.15, 1.2]
         for i in xrange(len(y)):
             bc = self.new_channel_pan(
@@ -342,9 +348,7 @@ class IABirds(agent.Agent):
 class MockingBirds (agent.Agent):
 
     def run(self):
-        nature = builtin.FadeInOutAgent(GardenBackground(0.0), 60, 15)
-        self.sched_agent(nature)
-
+        doNature()
         ag = CaMockingBirds(5.0, 10.0, 0.1, 0.5, 1.0)
         self.sched_agent(ag)
         ag = CaMockingBirds(30.0, 60.0, 0.1, 0.4, 1.2)
@@ -362,9 +366,7 @@ class MockingBirds (agent.Agent):
 class ManyMockingBirds (agent.Agent):
 
     def run(self):
-        nature = builtin.FadeInOutAgent(GardenBackground(0.0), 60, 15)
-        self.sched_agent(manage.VolumeModulateAgent(nature, 0.75))
-
+        doNature()
         for _ in xrange(8):
             ag = CaMockingBirds(0.0, 60.0, 0.1, 0.2, 1.2)
             self.sched_agent(ag)
@@ -401,14 +403,7 @@ class Crickets(agent.Agent):
 class Nightscape (agent.Agent):
 
     def run(self):
-        nature = builtin.FadeInOutAgent(GardenBackground(0.0), 60, 15)
-        nc = self.new_channel_pan(stereo.shiftxy(0, 1.3))  # in front
-        self.sched_agent(nature, 0, nc)
-
-        nature = builtin.FadeInOutAgent(GardenBackground(60.0), 60, 15)
-        nc = self.new_channel_pan(stereo.shiftxy(0, -1.3))  # in back
-        self.sched_agent(nature, 0, nc)
-
+        doNature()
         ag = Nightingales(0.0, 30, 0.1, 1.0, 1.3)
         self.sched_agent(ag)
 
@@ -428,18 +423,7 @@ class BirdChorus (agent.Agent):
                        Cuckoos, TropicalBirds, Nightingales]
 
     def run(self):
-        nature = builtin.FadeInOutAgent(GardenBackground(0.0), 75, 5)
-        # in front
-        nc = self.new_channel_pan(
-            stereo.compose(stereo.scalexy(1.5), stereo.shiftxy(0, 1.5)))
-        self.sched_agent(nature, 0, nc)
-
-        nature = builtin.FadeInOutAgent(GardenBackground(60.0), 75, 5)
-        # behind
-        nc = self.new_channel_pan(
-            stereo.compose(stereo.scalexy(1.5), stereo.shiftxy(0, -1.5)))
-        self.sched_agent(nature, 0, nc)
-
+        doNature()
         y = [-1.4, -1.25, -1.125, 0, 1.125,   1.25, 1.4]
         for i in xrange(len(self.agents)):
             for j in xrange(len(self.agents)):
@@ -461,16 +445,7 @@ class MockingCuckoos (agent.Agent):
         self.agents = [CaMockingBirds, Cuckoos, FlMockingBirds]
 
     def run(self):
-        nature = builtin.FadeInOutAgent(GardenBackground(0.0), 60, 15)
-        nc = self.new_channel_pan(
-            stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.5)))  # in front
-        self.sched_agent(nature, 0, nc)
-
-        nature = builtin.FadeInOutAgent(GardenBackground(60.0), 60, 15)
-        nc = self.new_channel_pan(
-            stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, -1.5)))  # behind
-        self.sched_agent(nature, 0, nc)
-
+        doNature()
         for i in xrange(len(self.agents)):
             for j in xrange(8):
                 # compute y using i and j
@@ -513,16 +488,7 @@ class BirdSongs (agent.Agent):
                        FlMockingBirds, Cuckoos, SongBirds]
 
     def run(self):
-        nature = builtin.FadeInOutAgent(GardenBackground(0.0), 60, 15)
-        nc = self.new_channel_pan(
-            stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.5)))  # in front
-        self.sched_agent(nature, 0, nc)
-
-        nature = builtin.FadeInOutAgent(GardenBackground(60.0), 60, 15)
-        nc = self.new_channel_pan(
-            stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, -1.5)))  # behind
-        self.sched_agent(nature, 0, nc)
-
+        doNature()
         y = [-1.5, -1.25, -1.125, 0, 1.125,   1.25, 1.5]
         for i in xrange(len(self.agents)):
             for j in xrange(5):
