@@ -1,0 +1,5 @@
+#!/bin/sh
+# Silence emacspeak from outside 
+#Usage emstop 
+
+emacsclient -n -e "(dtk-speak \"$@\")"
