@@ -160,7 +160,7 @@ class FlMockingBirds(agent.Agent):
         self.maxVol = maxVol
         self.pan = pan
 
-    def runm(self):
+    def run(self):
         ag = play.IntermittentSoundsList(
             self.minDelay, self.maxDelay,
             0.9, 1.1,  # pitch
