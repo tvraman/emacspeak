@@ -470,13 +470,14 @@ class BirdCalls (agent.Agent):
     def run(self):
         y = [-1.5, -1.2,  -1.1, 0, 1.1, 1.2,  1.5]
         for i in xrange(len(self.agents)):
-            for j in xrange(6):
+            for j in xrange(len(y)):
+              k=(i+j) % len(y)
                 bc = self.new_channel_pan(
-                    stereo.compose(stereo.scalexy(1.4), stereo.shiftxy(0, y[i])))
+                    stereo.compose(stereo.scalexy(1.4), stereo.shiftxy(0, y[j])))
                 ag = self.agents[i](
                     0, 60,
-                    0.25, 0.75,  # volume
-                    1 + j * 0.1  # pan
+                    0.1, 0.75,  # volume
+                    1 + k * 0.1  # pan
                 )
                 self.sched_agent(ag, 0, bc)
 
