@@ -463,18 +463,18 @@ class MockingCuckoos (agent.Agent):
 class BirdCalls (agent.Agent):
 
     def init(self):
-        self.agents = [CaMockingBirds, IABirds, FlMockingBirds,
+        self.agents = [CaMockingBirds, IABirds, FlMockingBirds, SongBirds,
                        TropicalBirds, Cuckoos, Nightingales]
 
     def run(self):
-        y = [-1.5, -1.2,  -1.1, 1.1, 1.2,  1.5]
+        y = [-1.5, -1.2,  -1.1, 0, 1.1, 1.2,  1.5]
         for i in xrange(len(self.agents)):
             for j in xrange(6):
                 bc = self.new_channel_pan(
                     stereo.compose(stereo.scalexy(1.4), stereo.shiftxy(0, y[i])))
                 ag = self.agents[i](
                     0, 60,
-                    0.25, 0.5,  # volume
+                    0.25, 0.75,  # volume
                     1 + j * 0.1  # pan
                 )
                 self.sched_agent(ag, 0, bc)
