@@ -436,7 +436,6 @@ class BirdChorus (agent.Agent):
                     0.05, 0.75,  # volume
                     1 + 0.025 * j  # pan
                 )
-                ag = builtin.FadeInOutAgent(ag, 30, 5)
                 self.sched_agent(ag, j * 5, bc)
 
 
