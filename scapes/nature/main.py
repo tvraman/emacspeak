@@ -110,13 +110,13 @@ def pendulum(n):
 
 def doNature(this):
     "Helper to run GardenBackground agents."
-    nature = builtin.FadeInOutAgent(GardenBackground(0.0), 60, 15)
+    nature =GardenBackground(0.0)
     # in front
     nc = this.new_channel_pan(
         stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.2)))
     this.sched_agent(nature, 0, nc)
  # behind
-    nature = builtin.FadeInOutAgent(GardenBackground(60.0), 60, 15)
+    nature = GardenBackground(60.0)
     nc = this.new_channel_pan(
         stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, -1.1)))
     this.sched_agent(nature, 0, nc)
