@@ -524,10 +524,10 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
     (soundscape-init)
     (setq soundscape--auto
           (run-with-idle-timer   soundscape-idle-delay t #'soundscape-update))
-    (soundscape-sync major-mode)
+    (soundscape-sync major-mode)))
     (when (called-interactively-p 'interactive)
       (message "Automatic Soundscapes are now %s"
-               (if soundscape--auto "on" "off"))))))
+               (if soundscape--auto "on" "off"))))
 (defvar soundscape--cached-device nil
   "Cache    last used audio device.")
 
