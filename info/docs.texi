@@ -23824,7 +23824,7 @@ This module can be used independent of Emacspeak.
 
 @format
 Play binaural audio with beat-spec specifying the various tones.
-Param ‘beat-spec’ is a list of ‘(carrier beat) tupples.
+Param ‘beat-spec-list’ is a list of ‘(carrier beat) tupples.
 
 (fn LENGTH BEAT-SPEC-LIST GAIN)
 @end format
