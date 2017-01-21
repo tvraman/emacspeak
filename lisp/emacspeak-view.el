@@ -85,12 +85,18 @@
                  (key-description
                   (where-is-internal 'View-exit view-mode-map 'firstonly)))
       (message "Exited view mode"))))
-
-(defadvice View-quit (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-mode-line)))
+(cl-loop
+ for f in
+ '(
+   View-exit-and-edit View-kill-and-leave
+   View-quit-all View-quit)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'close-object)
+       (emacspeak-speak-mode-line)))))
 
 (defadvice View-exit (after emacspeak pre act comp)
   "Provide auditory feedback."
