@@ -12,7 +12,7 @@ EMACSPEAK=`pwd`/..
 SDIR=$EMACSPEAK/servers 
 
 # Primary server listens on 2222
-
+# Notification server listens on 3333 
 function remote () {
     REMOTE=$1
     SERVER=$2
