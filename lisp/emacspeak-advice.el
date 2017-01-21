@@ -2485,13 +2485,17 @@ Produce auditory icons if possible."
 ;;{{{ apropos and friends
 (loop
  for f in
- '(apropos-command apropos-documentation)
+ '(
+   apropos apropos-char apropos-library
+ apropos-unicode apropos-user-option apropos-value apropos-variable
+   apropos-command apropos-documentation)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide an auditory icon."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'help)))))
+       (emacspeak-auditory-icon 'help)
+       (message "Displayed apropos in other window.")))))
 
 (defadvice apropos-follow (after emacspeak pre act comp)
   "Speak the help you displayed."
