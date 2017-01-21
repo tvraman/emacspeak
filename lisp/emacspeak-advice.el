@@ -2371,7 +2371,11 @@ Produce auditory icons if possible."
   (when (ems-interactive-p)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line))))
-
+(defadvice insert-parentheses (after emacspeak pre act comp)
+  "Speak what you inserted."
+  (when (ems-interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon 'open-object)))
 (defadvice insert-register (after emacspeak pre act comp)
   "Speak the first line of the inserted text."
   (when (ems-interactive-p)
