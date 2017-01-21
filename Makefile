@@ -157,7 +157,7 @@ TCL_PROGRAMS = servers/.servers \
 servers/dtk-exp  servers/ssh-dtk-exp\
 servers/espeak \
 servers/mac \
-servers/outloud  servers/ssh-outloud servers/32-outloud \
+servers/outloud  servers/ssh-outloud \
 servers/tts-lib.tcl \
 servers/cloud* servers/log* servers/speech-server
 PHANTOM=js/phantom/*.js
