@@ -1,5 +1,5 @@
 #!/bin/sh
-# Silence emacspeak from outside 
-#Usage emstop 
+# Speak from outside Emacs
+#Usage emsay <text> 
 l="$@"
 emacsclient -n -e "(dtk-speak \"$l\")"

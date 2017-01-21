@@ -1,0 +1,5 @@
+#!/bin/sh
+# Notify via  emacspeak from outside 
+#Usage emsnotify <text> 
+l="$@"
+emacsclient -n -e "(dtk-notify-speak  \"$l\")"
