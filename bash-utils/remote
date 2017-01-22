@@ -8,8 +8,8 @@
 # remote hostname  32-speech-server 32-outloud 
 
 # Configuration:
-EMACSPEAK=$HOME/emacs/lisp/emacspeak
-SDIR=$EMACSPEAK/servers 
+
+SDIR=${EMACSPEAK_DIR}/servers 
 
 # Primary server listens on 2222
 # Notification server listens on 3333 
