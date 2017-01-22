@@ -8,7 +8,7 @@
 # remote hostname  32-speech-server 32-outloud 
 
 # Configuration:
-EMACSPEAK=`pwd`/..
+EMACSPEAK=$HOME/emacs/lisp/emacspeak
 SDIR=$EMACSPEAK/servers 
 
 # Primary server listens on 2222
