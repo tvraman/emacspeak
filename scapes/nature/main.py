@@ -110,7 +110,7 @@ def pendulum(n):
 
 def doNature(this):
     "Helper to run GardenBackground agents."
-    nature =builtin.FadeInOutAgent(GardenBackground(0.0),2, 60)
+    nature = builtin.FadeInOutAgent(GardenBackground(0.0), 2, 60)
     # in front
     nc = this.new_channel_pan(
         stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.2)))
@@ -433,10 +433,10 @@ class BirdChorus (agent.Agent):
                 start = 10 * (i + j)
                 ag = self.agents[i](
                     start, 90 + start,  # duration
-                    0.05, 0.75,  # volume
-                    1 + 0.025 * j  # pan
+                    0.25, 0.75,  # volume
+                    1 + 0.05 * j  # pan
                 )
-                self.sched_agent(ag, j * 5, bc)
+                self.sched_agent(ag, k * 5, bc)
 
 
 class MockingCuckoos (agent.Agent):
@@ -478,7 +478,7 @@ class BirdCalls (agent.Agent):
                     0, 60,
                     0.1, 0.75,  # volume
                     1 + k * 0.1  # pan
-                    )
+                )
                 self.sched_agent(ag, 0, bc)
 
 
