@@ -1,5 +1,5 @@
 # Set up prompts for bash:
-SOUNDDIR=${EMACSPEAK_DIR}/sounds/chimes
+SOUNDDIR=${EMACSPEAK_DIR}/sounds/pan-chimes
 SUCCESS=$SOUNDDIR/item.wav
 FAIL=$SOUNDDIR/warn-user.wav
 function prompt () {
