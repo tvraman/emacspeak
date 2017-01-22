@@ -1,0 +1,5 @@
+#!/bin/sh
+# Have emacspeak connect to a TTS server in the cloud 
+#Usage emcloud 
+
+emacsclient -n -e "(dtk-cloud)"

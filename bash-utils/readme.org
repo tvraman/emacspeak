@@ -4,6 +4,7 @@ This directory contains useful Bash functions and Bash scripts.
 
 
   - e-askpass  :: Appropriate for use as  the value of environment variable _SSH_ASKPASS_.
+  - emcloud ::  Have Emacspeak connect to a remote TTS server.
   - emnotify ::  Notify  from outside Emacs.
   - emplay :: Hand-off stream URL to Emacspeak MPlayer.
   - emsay :: Use  Emacspeak  to speak a string from outside Emacs.
