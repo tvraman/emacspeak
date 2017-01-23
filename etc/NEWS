@@ -15,8 +15,10 @@ systems, thanks to
 default 64-bit  _tclsh_ executable.
 The installed Emacspeak requires _Voxin 1.6_, make sure to install
 that upgrade first if you  have an  older Voxin installation.
+
 Emacspeak 46 will therefore no longer install scripts _32-outloud_  or
 any of  the other _32-*_ server scripts.
+
 
 
 ** Speach-Enabled Clojure 
