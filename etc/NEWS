@@ -6,6 +6,19 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
 * Emacspeak 46 -- Emacspeak 46 User Visible Changes
+
+** Outloud is On 64-Bit Systems 
+
+The ViaVoice Outloud server is now much easier to install on 64-bit
+systems, thanks to
+[[http://emacspeak.blogspot.com/2017/01/fun-with-tts-voxin-and-ladspa.html][Voxin 1.6]]. With this,  the Emacspeak speech-server works with the
+default 64-bit  _tclsh_ executable.
+The installed Emacspeak requires _Voxin 1.6_, make sure to install
+that upgrade first if you  have an  older Voxin installation.
+Emacspeak 46 will therefore no longer install scripts _32-outloud_  or
+any of  the other _32-*_ server scripts.
+
+
 ** Speach-Enabled Clojure 
 
 
