@@ -501,4 +501,4 @@ class BirdSongs (agent.Agent):
                     0.15, 0.75,  # volume
                     1 + 0.025 * j  # pan
                 )
-                self.sched_agent(ag, k * 5, bc)
+                self.sched_agent(ag, k * 10, bc)
