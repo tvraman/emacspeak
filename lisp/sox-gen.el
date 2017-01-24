@@ -102,7 +102,8 @@ Remaining args specify additional commandline args."
 
 ;;;###autoload
 (defun sox-tone-binaural (length freq beat gain)
-  "Play binaural audio with carrier frequency `freq', beat `beat',  and gain `gain'."
+  "Play binaural audio with carrier frequency `freq', beat `beat',
+and gain `gain'."
   (interactive
    (list
     (timer-duration(read-from-minibuffer "Duration: "))
@@ -114,7 +115,8 @@ Remaining args specify additional commandline args."
 
 ;;;###autoload
 (defun sox-tone-slide-binaural (length freq beat-start beat-end  gain)
-  "Play binaural audio with carrier frequency `freq', beat `beat-start' -> `beat-end',  and gain `gain'."
+  "Play binaural audio with carrier frequency `freq', beat
+`beat-start' -> `beat-end', and gain `gain'."
   (interactive
    (list
     (timer-duration(read-from-minibuffer "Duration: "))
@@ -207,7 +209,8 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
   "Play specified binaural effect."
   (interactive
    (list
-    (completing-read "Binaural Effect: " sox-binaural-effects-table nil 'must-match)
+    (completing-read "Binaural Effect: " sox-binaural-effects-table
+                     nil 'must-match)
     (timer-duration (read-from-minibuffer "Duration: "))))
   (sox--binaural-play
    duration
@@ -221,8 +224,10 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
   "Play specified binaural slide from `name-1' to `name-2'."
   (interactive
    (list
-    (completing-read "Binaural Effect: " sox-binaural-effects-table nil 'must-match)
-    (completing-read "Binaural Effect: " sox-binaural-effects-table nil 'must-match)
+    (completing-read "Binaural Effect: " sox-binaural-effects-table
+                     nil 'must-match)
+    (completing-read "Binaural Effect: " sox-binaural-effects-table
+                     nil 'must-match)
     (timer-duration (read-from-minibuffer "Duration: "))))
   (sox--binaural-play
    duration
@@ -396,13 +401,13 @@ Parameter `theme' specifies variant."
          (run-with-timer                  ; start now
         start nil                       ; no repeat
         #'(lambda ()
-            (dtk-notify-say (format "%s to %s"  b  (first (elt theme (+ 1 i)))))
-            (sox--binaural-play
-             (sox--gen-slide-a->b
-              b
-              (first (elt theme (+ 1 i))))
-             slider-len)))
-         (setq start (+ start slider-len)))))))
+            (let ((next (first (elt theme (+ 1 i)))))
+              (dtk-notify-say
+               (format "%s to %s"  b  next))
+              (sox--binaural-play
+             (sox--gen-slide-a->b b next)
+             slider-len)
+              (setq start (+ start slider-len))))))))))
 
 ;;;###autoload
 (defun sox-rev-up (duration-scale)
@@ -460,7 +465,7 @@ Freq can be specified as a frequency, note (%nn) or frequency range."
 (defconst sox-chime-cmd
   "-q -n synth -j 3 sin %3 sin %-2 sin %-5 sin %-9 \
                    sin %-14 sin %-21 fade h .01 2 1.5 delay \
-                   1.3 1 .76 .54 .27 remix - fade h 0 2.7 2.5 norm -1 channels 2"
+                  1.3 1 .76 .54 .27 remix - fade h 0 2.7 2.5 norm -1 channels 2"
   "Command-line that produces a simple chime.")
 
 ;;;###autoload
@@ -477,8 +482,8 @@ Freq can be specified as a frequency, note (%nn) or frequency range."
 ;;{{{ Guitar Chord:
 
 (defconst sox-guitar-chord-cmd
-  "-q -n synth pl G2 pl B2 pl D3 pl G3 pl D4 pl G4 \
-                   delay 0 .05 .1 .15 .2 .25 remix - fade 0 4 .1 norm -1 channels 2"
+  "-q -n synth pl G2 pl B2 pl D3 pl G3 pl D4 pl G4 delay 0 .05 .1 .15 .2 .25 \
+remix - fade 0 4 .1 norm -1 channels 2"
   "Play a guitar chord.")
 
 (defun sox-guitar-chord (&optional tempo speed)
