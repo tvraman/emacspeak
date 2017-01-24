@@ -236,7 +236,6 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
          (/ ( + (first a-i) (second b-i)) 2) ; carrier frequency
          (list (second a-i) (second b-i))))))))
 
-
 ;;{{{  Define Effects:
 
 ;;; delta, theta, alpha, beta, gamma
