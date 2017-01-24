@@ -163,7 +163,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
            (mapconcat
             #'(lambda (spec)
                 (let ((f (first spec))
-                            (b (second spec)))
+                      (b (second spec)))
                   (cond
                    ((numberp  b)
                     (format "sin %s sin %s" f (+ f b)))
@@ -172,7 +172,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
                             f
                             (format "%s-%s" ;slide
                                     (+ f (first b)) (+ f (second b))))))))
-                   beat-spec-list " ")
+            beat-spec-list " ")
            gain)))
 
 (defstruct sox--binaural
@@ -196,6 +196,12 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
   (declare (special sox-binaural-effects-table))
   (puthash name effect sox-binaural-effects-table))
 
+(defsubst sox-binaural-get-effect (name)
+  "Return predefined effect."
+  (declare (special sox-binaural-effects-table))
+  (or (gethash name sox-binaural-effects-table)
+      (error "Effect not defined.")))
+
 ;;;###autoload
 (defun sox-binaural (name duration)
   "Play specified binaural effect."
@@ -203,11 +209,33 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
    (list
     (completing-read "Binaural Effect: " sox-binaural-effects-table nil 'must-match)
     (timer-duration (read-from-minibuffer "Duration: "))))
-  (declare (special sox-binaural-effects-table))
   (sox--binaural-play duration
-                      (gethash name sox-binaural-effects-table))
+                      (sox-binaural-get-effect name))
   (emacspeak-play-auditory-icon 'time)
   (dtk-notify-say    name))
+
+(defun sox--gen-slide-a->b (a b)
+  "Return a binaural  structure that slides from a to be."
+  (let* ((a-effect (sox-binaural-get-effect a))
+         (b-effect (sox-binaural-get-effect b))
+         (a-beats (sox--binaural-beats a-effect))
+         (b-beats (sox--binaural-beats b-effect)))
+    (cl-assert (= (length a-beats) (length b-beats))
+               t "Effects have different lengths. " a b )
+    (make-sox--binaural
+     :gain  (/ (+ (sox--binaural-gain a-effect)
+                  (sox--binaural-gain b-effect))
+               2)
+     :beats
+     (cl-loop
+      for i from 0 to (length a-effect)
+      collect
+      (let ((a-i (elt a-beats i))
+            (b-i (elt b-beats i)))
+        (list
+         (/ ( + (first a-i) (second b-i)) 2) ; carrier frequency
+         (list (second a-i) (second b-i))))))))
+
 
 ;;{{{  Define Effects:
 
