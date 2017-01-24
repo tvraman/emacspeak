@@ -162,10 +162,17 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
            length
            (mapconcat
             #'(lambda (spec)
-                (format "sin %s sin %s"
-                        (first spec)
-                        (+ (first spec) (second spec))))
-            beat-spec-list " ")
+                (let ((f (first spec))
+                            (b (second spec)))
+                  (cond
+                   ((numberp  b)
+                    (format "sin %s sin %s" f (+ f b)))
+                   ((and (listp b) (numberp (first b)) (numberp (second b)))
+                    (format "sin %s sin %s"
+                            f
+                            (format "%s-%s" ;slide
+                                    (+ f (first b)) (+ f (second b))))))))
+                   beat-spec-list " ")
            gain)))
 
 (defstruct sox--binaural
