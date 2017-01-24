@@ -87,8 +87,11 @@
   "Announce switching to shell mode.
 Provide an auditory icon if possible."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
-    (emacspeak-setup-programming-mode)
+    (emacspeak-auditory-icon 'open-object)
+    (dtk-set-punctuations 'all)
+    (or dtk-split-caps
+        (dtk-toggle-split-caps))
+    (emacspeak-pronounce-refresh-pronunciations)
     (emacspeak-dtk-sync)
     (emacspeak-speak-line)))
 
