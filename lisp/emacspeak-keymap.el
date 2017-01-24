@@ -642,6 +642,7 @@ command that the key sequence executes."
 
 (defcustom emacspeak-hyper-keys 
   '(
+    ("C-s" eshell)
     (":" emacspeak-wizards-view-buffers-filtered-by-m-player-mode)
     (";" emacspeak-m-player-using-openal)
     ("'" emacspeak-m-player-using-hrtf)
