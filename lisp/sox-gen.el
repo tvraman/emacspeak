@@ -112,6 +112,23 @@ Remaining args specify additional commandline args."
   (declare (special sox-binaural-cmd))
   (sox-gen-cmd (format sox-binaural-cmd length freq (+ freq beat) gain)))
 
+;;;###autoload
+(defun sox-slide-binaural (length freq beat-start beat-end  gain)
+  "Play binaural audio with carrier frequency `freq', beat `beat-start' -> `beat-end',  and gain `gain'."
+  (interactive
+   (list
+    (timer-duration(read-from-minibuffer "Duration: "))
+    (read-number "Carrier Frequency [50 -- 800]: " 100)
+    (read-number "Start Beat Frequency [0.5 -- 40]: " 4.5)
+    (read-number "End Beat Frequency [0.5 -- 40]: " 0.5)
+    (read-number "Gain [Use negative values]: " -18)))
+  (declare (special sox-binaural-cmd))
+  (sox-gen-cmd
+   (format sox-binaural-cmd
+           length freq
+           (format "%s-%s" (+ freq beat-start) (+ freq beat-end))
+           gain)))
+
 (defconst sox-beats-binaural-cmd
   "-q -n synth %s %s gain %s channels 2 "
   "Command-line that produces multiple  binaural beats.")
@@ -300,7 +317,6 @@ Parameter `theme' specifies variant."
   '(("think"3)("dream" 4) ("sleep" 1))
   "List of  beats to use for wind-down in the evening.")
 
-
 (defconst sox-turn-down-beats
   '(("dream" 2) ("sleep" 6))
   "List of  beats to use for turn-down at  night.")
@@ -331,7 +347,6 @@ Each segment is scaled by `duration-scale'."
   (interactive "sDuration: ")
   (declare (special sox-rev-up-beats))
   (sox--theme-play sox-rev-up-beats duration-scale))
-
 
 ;;;###autoload
 (defun sox-turn-down (duration-scale)
