@@ -209,10 +209,26 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
    (list
     (completing-read "Binaural Effect: " sox-binaural-effects-table nil 'must-match)
     (timer-duration (read-from-minibuffer "Duration: "))))
-  (sox--binaural-play duration
-                      (sox-binaural-get-effect name))
+  (sox--binaural-play
+   duration
+   (sox-binaural-get-effect name))
   (emacspeak-play-auditory-icon 'time)
   (dtk-notify-say    name))
+
+
+;;;###autoload
+(defun sox-slide-binaural (name-1 name-2 duration)
+  "Play specified binaural slide from `name-1' to `name-2'."
+  (interactive
+   (list
+    (completing-read "Binaural Effect: " sox-binaural-effects-table nil 'must-match)
+    (completing-read "Binaural Effect: " sox-binaural-effects-table nil 'must-match)
+    (timer-duration (read-from-minibuffer "Duration: "))))
+  (sox--binaural-play
+   duration
+   (sox--gen-slide-a->b name-1 name-2))
+  (emacspeak-play-auditory-icon 'time)
+  (dtk-notify-say    (format "%s  to %s" name-1 name-2)))
 
 (defun sox--gen-slide-a->b (a b)
   "Return a binaural  structure that slides from a to be."
@@ -233,7 +249,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
       (let ((a-i (elt a-beats i))
             (b-i (elt b-beats i)))
         (list
-         (/ ( + (first a-i) (second b-i)) 2) ; carrier frequency
+         (/ ( + (first a-i) (first b-i)) 2) ; carrier frequency
          (list (second a-i) (second b-i))))))))
 
 ;;{{{  Define Effects:
