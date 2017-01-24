@@ -382,13 +382,26 @@ Parameter `theme' specifies variant."
   (setq duration-scale (timer-duration duration-scale))
   (let ((start 0))
     (cl-loop
-     for beat in theme do
-     (let ((end (* duration-scale  (second beat)))
-           (b (first beat)))
+     for beat in theme
+     and i from 0 do
+     (let* ((b (first beat))
+           (end (* duration-scale  (second beat)))
+           (slider-len (/ end 10)))
        (run-with-timer                  ; start now
         start nil                       ; no repeat
         #'(lambda () (sox-binaural b  end)))
-       (setq start (+ start end))))))
+       (setq start (+ start end))
+       ;;; slider
+       (when (< i (1- (length theme)))
+         (run-with-timer                  ; start now
+        start nil                       ; no repeat
+        #'(lambda ()
+            (sox-binaural
+             (sox--gen-slide-a->b
+              b
+              (first (elt theme (+ 1 i))))
+             slider-len)))
+         (setq start (+ start slider-len)))))))
 
 ;;;###autoload
 (defun sox-rev-up (duration-scale)
