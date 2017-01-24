@@ -113,7 +113,7 @@ Remaining args specify additional commandline args."
   (sox-gen-cmd (format sox-binaural-cmd length freq (+ freq beat) gain)))
 
 ;;;###autoload
-(defun sox-slide-binaural (length freq beat-start beat-end  gain)
+(defun sox-tone-slide-binaural (length freq beat-start beat-end  gain)
   "Play binaural audio with carrier frequency `freq', beat `beat-start' -> `beat-end',  and gain `gain'."
   (interactive
    (list
@@ -396,7 +396,8 @@ Parameter `theme' specifies variant."
          (run-with-timer                  ; start now
         start nil                       ; no repeat
         #'(lambda ()
-            (sox-binaural
+            (dtk-notify-say (format "%s to %s"  b  (first (elt theme (+ 1 i)))))
+            (sox--binaural-play
              (sox--gen-slide-a->b
               b
               (first (elt theme (+ 1 i))))
