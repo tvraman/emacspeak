@@ -379,10 +379,23 @@ Parameter `theme' specifies variant."
   "List of  beats to use for relaxing.")
 
 ;;; Theme Helper:
+(defsubst sox--theme-compute-length (theme scale)
+  "Return  how long  this theme  invocation will run in seconds."
+  (let  ((intervals (mapcar #'(lambda (th) (* scale (second th))) theme))
+         (result 0))
+    (cl-loop for i in intervals do
+             (incf result i)
+             (unless (eq  i (car (last intervals)))
+               (incf  result (/ i 5))))
+    result))
+    
+
 
 (defun sox--theme-play (theme duration-scale)
   "Play  set of  binaural beats specified in theme."
   (setq duration-scale (timer-duration duration-scale))
+  (dtk-notify-say
+   (format "Duration: %s"  (sox--theme-compute-length theme duration-scale)))
   (let ((start 0))
     (cl-loop
      for beat in theme
