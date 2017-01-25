@@ -391,7 +391,7 @@ Parameter `theme' specifies variant."
             (next (first (elt theme (+ 1 i))))
             (end (* duration-scale  (second beat)))
             (slider-start (+ start end))
-            (slider-len (/ end 10)))
+            (slider-len (/ end 5)))
        (run-with-timer                  ; start now
         start nil                       ; no repeat
         #'(lambda () (sox-binaural b  end)))
