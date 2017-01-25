@@ -1,4 +1,4 @@
-;;; sox-gen.el: Binaural Beats And More Using SoX -*- lexical-binding: t; -*-
+;;; sox-gen.el ---  Binaural Beats And More Using SoX -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv $
 ;;; Description:  collection of SoX  sound generators including Binaural Beats
 ;;; Keywords: Emacspeak,  Audio Desktop sox
