@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1150 commands and 1061 options.
+This chapter documents a total of 1152 commands and 1061 options.
 
 @menu
 * acss-structure::
@@ -1494,6 +1494,7 @@ Press C-; to access keybindings in emacspeak-hyper-keymap:
 key             binding
 ---             -------
 
+C-s		eshell
 SPC		emacspeak-webspace
 '		emacspeak-m-player-using-hrtf
 :		emacspeak-wizards-view-buffers-filtered-by-m-player-mode
@@ -23884,14 +23885,38 @@ Each segment is scaled by ‘duration-scale’.
 @end format
 @end deffn
 
+@subsubsection sox-slide-binaural
+@deffn {Command} sox-slide-binaural  (name-1 name-2 duration)
+@findex sox-slide-binaural
+
+@format
+Play specified binaural slide from ‘name-1’ to ‘name-2’.
+
+(fn NAME-1 NAME-2 DURATION)
+@end format
+@end deffn
+
 @subsubsection sox-tone-binaural
 @deffn {Command} sox-tone-binaural  (length freq beat gain)
 @findex sox-tone-binaural
 
 @format
-Play binaural audio with carrier frequency ‘freq’, beat ‘beat’,  and gain ‘gain’.
+Play binaural audio with carrier frequency ‘freq’, beat ‘beat’,
+and gain ‘gain’.
 
 (fn LENGTH FREQ BEAT GAIN)
+@end format
+@end deffn
+
+@subsubsection sox-tone-slide-binaural
+@deffn {Command} sox-tone-slide-binaural  (length freq beat-start beat-end gain)
+@findex sox-tone-slide-binaural
+
+@format
+Play binaural audio with carrier frequency ‘freq’, beat
+‘beat-start’ -> ‘beat-end’, and gain ‘gain’.
+
+(fn LENGTH FREQ BEAT-START BEAT-END GAIN)
 @end format
 @end deffn
 

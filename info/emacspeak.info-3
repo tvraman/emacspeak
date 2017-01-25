@@ -5433,16 +5433,37 @@ This module can be used independent of Emacspeak.
 
      (fn DURATION-SCALE)
 
-12.222.1.6 sox-tone-binaural
+12.222.1.6 sox-slide-binaural
+.............................
+
+ -- Command: sox-slide-binaural (name-1 name-2 duration)
+
+     Play specified binaural slide from ‘name-1’ to ‘name-2’.
+
+     (fn NAME-1 NAME-2 DURATION)
+
+12.222.1.7 sox-tone-binaural
 ............................
 
  -- Command: sox-tone-binaural (length freq beat gain)
 
-     Play binaural audio with carrier frequency ‘freq’, beat ‘beat’,  and gain ‘gain’.
+     Play binaural audio with carrier frequency ‘freq’, beat ‘beat’,
+     and gain ‘gain’.
 
      (fn LENGTH FREQ BEAT GAIN)
 
-12.222.1.7 sox-turn-down
+12.222.1.8 sox-tone-slide-binaural
+..................................
+
+ -- Command: sox-tone-slide-binaural (length freq beat-start beat-end
+          gain)
+
+     Play binaural audio with carrier frequency ‘freq’, beat
+     ‘beat-start’ -> ‘beat-end’, and gain ‘gain’.
+
+     (fn LENGTH FREQ BEAT-START BEAT-END GAIN)
+
+12.222.1.9 sox-turn-down
 ........................
 
  -- Command: sox-turn-down (duration-scale)
@@ -5452,8 +5473,8 @@ This module can be used independent of Emacspeak.
 
      (fn DURATION-SCALE)
 
-12.222.1.8 sox-wind-down
-........................
+12.222.1.10 sox-wind-down
+.........................
 
  -- Command: sox-wind-down (duration-scale)
 
@@ -6571,7 +6592,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <C-right>:                             emacspeak-wizards.  (line  197)
 * <C-up>:                                emacspeak-speak.    (line   91)
 * <f1> ,:                                emacspeak-wizards.  (line  474)
-* <f1> C-e:                              emacspeak.          (line  411)
+* <f1> C-e:                              emacspeak.          (line  412)
 * <f1> C-l:                              emacspeak-wizards.  (line  155)
 * <f1> M:                                emacspeak-wizards.  (line  308)
 * <f1> TAB:                              emacspeak-info.     (line   24)
@@ -6633,7 +6654,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> C-j:                              emacspeak-hide.     (line   44)
 * <fn> C-l:                              emacspeak-speak.    (line  536)
 * <fn> C-M-@:                            emacspeak-speak.    (line  990)
-* <fn> C-M-b:                            emacspeak.          (line  421)
+* <fn> C-M-b:                            emacspeak.          (line  422)
 * <fn> C-M-SPC:                          emacspeak-speak.    (line  989)
 * <fn> C-n:                              emacspeak-speak.    (line  684)
 * <fn> C-o:                              emacspeak-ocr.      (line   23)
@@ -6831,7 +6852,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> {:                                emacspeak-speak.    (line  745)
 * <fn> |:                                emacspeak-speak.    (line  545)
 * <help> ,:                              emacspeak-wizards.  (line  475)
-* <help> C-e:                            emacspeak.          (line  412)
+* <help> C-e:                            emacspeak.          (line  413)
 * <help> C-l:                            emacspeak-wizards.  (line  156)
 * <help> M:                              emacspeak-wizards.  (line  309)
 * <help> TAB:                            emacspeak-info.     (line   25)
@@ -6987,7 +7008,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e C-j:                               emacspeak-hide.     (line   43)
 * C-e C-l:                               emacspeak-speak.    (line  535)
 * C-e C-M-@:                             emacspeak-speak.    (line  988)
-* C-e C-M-b:                             emacspeak.          (line  420)
+* C-e C-M-b:                             emacspeak.          (line  421)
 * C-e C-M-SPC:                           emacspeak-speak.    (line  987)
 * C-e C-n:                               emacspeak-speak.    (line  683)
 * C-e C-o:                               emacspeak-ocr.      (line   22)
@@ -7185,7 +7206,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e {:                                 emacspeak-speak.    (line  743)
 * C-e |:                                 emacspeak-speak.    (line  544)
 * C-h ,:                                 emacspeak-wizards.  (line  473)
-* C-h C-e:                               emacspeak.          (line  410)
+* C-h C-e:                               emacspeak.          (line  411)
 * C-h C-l:                               emacspeak-wizards.  (line  153)
 * C-h M:                                 emacspeak-wizards.  (line  307)
 * C-h TAB:                               emacspeak-info.     (line   23)
