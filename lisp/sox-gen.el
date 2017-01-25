@@ -41,7 +41,7 @@
 
 ;;; Commentary:
 ;;; Contains a collection of functions that generate sound using SoX.
-;;; These functions are primarily for use from other Emacs/Emacspeak modules.
+;;; Provides binaural audio along with pre-defined themes.
 ;;; This module can be used independent of Emacspeak.
 
 ;;; Code:
