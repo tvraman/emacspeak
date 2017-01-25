@@ -449,9 +449,14 @@ Parameter `theme' specifies variant."
     result))
     
 
+(defcustom sox-binaural-slider-scale 5
+  "Scale factor  used to compute slide duration when moving from one binaural beat to another."
+  :type 'number
+  :group 'sox)
 
 (defun sox--theme-play (theme duration-scale)
   "Play  set of  binaural beats specified in theme."
+  (declare (special sox-binaural-slider-scale))
   (setq duration-scale (timer-duration duration-scale))
   (dtk-notify-say
    (format "Total Length: %s"  (sox--theme-compute-length theme duration-scale)))
@@ -463,7 +468,7 @@ Parameter `theme' specifies variant."
             (next (first (elt theme (+ 1 i))))
             (end (* duration-scale  (second beat)))
             (slider-start (+ start end))
-            (slider-len (/ end 5)))
+            (slider-len (/ end sox-binaural-slider-scale)))
        (run-with-timer                  ; start now
         start nil                       ; no repeat
         #'(lambda () (sox-binaural b  end)))
