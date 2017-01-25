@@ -390,24 +390,26 @@ Parameter `theme' specifies variant."
      for beat in theme
      and i from 0 do
      (let* ((b (first beat))
-           (end (* duration-scale  (second beat)))
-           (slider-len (/ end 10)))
+            (next (first (elt theme (+ 1 i))))
+            (end (* duration-scale  (second beat)))
+            (slider-start (+ start end))
+            (slider-len (/ end 10)))
        (run-with-timer                  ; start now
         start nil                       ; no repeat
         #'(lambda () (sox-binaural b  end)))
        (setq start (+ start end))
-       ;;; slider
-       (when (< i (1- (length theme)))
-         (run-with-timer                  ; start now
-        start nil                       ; no repeat
-        #'(lambda ()
-            (let ((next (first (elt theme (+ 1 i)))))
+;;; slider
+       (when (and (< i (1- (length theme)))
+                  (not (zerop slider-len)))
+         (run-with-timer                ; start now
+          slider-start nil                     ; no repeat
+          #'(lambda ()
               (dtk-notify-say
                (format "%s to %s"  b  next))
               (sox--binaural-play
-             (sox--gen-slide-a->b b next)
-             slider-len)
-              (setq start (+ start slider-len))))))))))
+               slider-len
+               (sox--gen-slide-a->b b next))
+              (setq start (+ start slider-len)))))))))
 
 ;;;###autoload
 (defun sox-rev-up (duration-scale)
