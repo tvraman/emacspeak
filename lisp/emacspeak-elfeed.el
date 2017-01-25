@@ -1,4 +1,4 @@
-;;; emacspeak-elfeed.el --- Speech-enable ELFEED  -*- lexical-binding: t; -*-
+;;; emacspeak-elfeed.el --- Speech-enable ELFEED, A Feed Reader -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-elfeed.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable ELFEED A Feed Reader For Emacs

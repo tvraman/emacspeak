@@ -1,4 +1,4 @@
-;;; dtk-unicode.el --- Pronounce more characters correctly  -*- lexical-binding: t; -*-
+;;; dtk-unicode.el --- Pronounce Unicode characters correctly  -*- lexical-binding: t; -*-
 ;;{{{ Header: Lukas
 
 ;; Copyright 2007, 2011 Lukas Loehrer

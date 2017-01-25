@@ -1,4 +1,4 @@
-;;; emacspeak-elpy.el --- Speech-enable ELPY  -*- lexical-binding: t; -*-
+;;; emacspeak-elpy.el --- Speech-enable ELPY, A Python IDE -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable ELPY An Emacs Interface to elpy
 ;;; Keywords: Emacspeak,  Audio Desktop elpy

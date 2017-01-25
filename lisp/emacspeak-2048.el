@@ -1,4 +1,4 @@
-;;; emacspeak-2048.el --- Speech-enable 2048  -*- lexical-binding: t; -*-
+;;; emacspeak-2048.el --- Speech-enable 2048 Game -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-2048.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable 2048 An Emacs Interface to 2048

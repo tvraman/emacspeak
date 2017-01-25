@@ -50,6 +50,7 @@
 
 (require 'cl-lib)
 (require 'lisp-mnt)
+(require 'subr-x)
 (require 'texnfo-upd)
 (require 'regexp-opt)
 
@@ -319,7 +320,21 @@
       (search-forward self-document-fn-key (point-max) 'no-error)
     (replace-match "<fn>")))
   
-  
+(defun self-document-update-menu-entries ()
+  "Locates master menu, and updates description for each node."
+  (message "Adding descriptions to master menu entries.")
+  (save-excursion
+    (goto-char  (point-min))
+    (goto-char (re-search-forward "^@menu"))
+    (forward-line 1)
+    (while (not (looking-at "^@end menu"))
+      (goto-char (line-beginning-position))
+      (forward-char 2)
+      (when-let ((module (sexp-at-point))
+                 (summary (lm-summary (locate-library (format "%s.el" module)))))
+        (goto-char (line-end-position))
+        (insert (format "%s." summary)))
+      (forward-line 1))))
 (defun self-document-all-modules()
   "Generate documentation for all modules."
   (declare (special self-document-map))
@@ -345,6 +360,7 @@ This chapter documents a total of %d commands and %d options.\n\n"
        (self-document-module (gethash k self-document-map)))
       (emacspeak-url-template-generate-texinfo-documentation (current-buffer))
       (texinfo-all-menus-update)
+      (self-document-update-menu-entries)
       (flush-lines "^Commentary: *$" (point-min) (point-max))
       (self-document-fix-fn-key)
       (shell-command-on-region          ; squeeze blanks

@@ -1,4 +1,4 @@
-;;; emacspeak-eww.el --- Speech-enable EWW  -*- lexical-binding: t; -*-
+;;; emacspeak-eww.el --- Speech-enable EWW Browser  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-eww.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description: Speech-enable EWW An Emacs Interface to eww

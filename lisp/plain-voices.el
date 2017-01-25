@@ -1,4 +1,4 @@
-;;; plain-voices.el --- Define various device independent voices in terms of Plain codes.  -*- lexical-binding: t; -*-
+;;; plain-voices.el --- Define various device independent voices in terms of Plain codes  -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Module to set up Plain voices and personalities
 ;;; Keywords: Voice, Personality, Plain
