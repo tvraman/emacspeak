@@ -399,13 +399,11 @@ Parameter `theme' specifies variant."
         #'(lambda () (sox-binaural b  end)))
        (setq start (+ start end))
 ;;; slider
-       (when (and (< i (1- (length theme)))
-                  (not (zerop slider-len)))
-         (run-with-timer                ; start now
+       (when (and (< i (1- (length theme))) (not (zerop slider-len)))
+         (run-with-timer                ; start  at slider-start
           slider-start nil                     ; no repeat
           #'(lambda ()
-              (dtk-notify-say
-               (format "%s to %s"  b  next))
+              (dtk-notify-say (format "%s to %s"  b  next))
               (sox--binaural-play
                slider-len
                (sox--gen-slide-a->b b next))
