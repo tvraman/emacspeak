@@ -395,7 +395,7 @@ Parameter `theme' specifies variant."
   "Play  set of  binaural beats specified in theme."
   (setq duration-scale (timer-duration duration-scale))
   (dtk-notify-say
-   (format "Duration: %s"  (sox--theme-compute-length theme duration-scale)))
+   (format "Total Length: %s"  (sox--theme-compute-length theme duration-scale)))
   (let ((start 0))
     (cl-loop
      for beat in theme
