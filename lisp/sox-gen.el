@@ -401,7 +401,7 @@ Parameter `theme' specifies variant."
          (run-with-timer                ; start  at slider-start
           slider-start nil              ; no repeat
           #'(lambda ()
-              (dtk-notify-say (format "%s to %s for "  b  next slider-len))
+              (dtk-notify-say (format "%s to %s for %s"  b  next slider-len))
               (sox--binaural-play
                slider-len
                (sox--gen-slide-a->b b next))))
