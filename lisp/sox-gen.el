@@ -121,43 +121,16 @@
   (apply #'start-process "SoX" nil sox-play  (split-string cmd)))
 
 ;;}}}
-;;{{{ synth:
-
-(defconst sox-synth-cmd
-  "-q -n synth %s "
-  "Invoke synth generation.")
-
-(defun sox-synth (length  &rest args)
-  "Call synth with length and args."
-  (declare (special sox-synth-cmd))
-  (sox-gen-cmd
-   (concat
-    (format sox-synth-cmd length)
-    (mapconcat #'identity args " "))))
-
-;;}}}
-;;{{{ Sin:
-
-(defconst sox-sin-cmd
-  "-q -n synth %s sin %s "
-  "Command-line that produces a simple sine wave.")
-
-(defun sox-sin (length freq &rest args)
-  "Play sine wave specified by length and freq.
-Freq can be specified as a frequency, note (%nn) or frequency range.
-Remaining args specify additional commandline args."
-  (declare (special sox-sin-cmd))
-  (sox-gen-cmd
-   (concat
-    (format sox-sin-cmd length freq)
-    (mapconcat #'identity args " "))))
-
-;;}}}
 ;;{{{ Binaural Audio:
-
+(defcustom sox-binaural-gain-offset 0
+  "User specified offset that is added to default gain when generating
+tones using SoX, e.g., for binaural beats."
+  :type 'number
+  :group 'sox)
 (defconst sox-binaural-cmd
   "-q -n synth %s sin %s sin %s gain %s channels 2 "
   "Command-line that produces a binaural beat.")
+
 
 ;;;###autoload
 (defun sox-tone-binaural (length freq beat gain)
@@ -169,8 +142,8 @@ and gain `gain'."
     (read-number "Carrier Frequency [50 -- 800]: " 100)
     (read-number "Beat Frequency [0.5 -- 40]: " 4.5)
     (read-number "Gain [Use negative values]: " -18)))
-  (declare (special sox-binaural-cmd))
-  (sox-gen-cmd (format sox-binaural-cmd length freq (+ freq beat) gain)))
+  (declare (special sox-binaural-cmd sox-binaural-gain-offset))
+  (sox-gen-cmd (format sox-binaural-cmd length freq (+ freq beat) (+ gain sox-binaural-gain-offset))))
 
 ;;;###autoload
 (defun sox-tone-slide-binaural (length freq beat-start beat-end  gain)
@@ -183,12 +156,12 @@ and gain `gain'."
     (read-number "Start Beat Frequency [0.5 -- 40]: " 4.5)
     (read-number "End Beat Frequency [0.5 -- 40]: " 0.5)
     (read-number "Gain [Use negative values]: " -18)))
-  (declare (special sox-binaural-cmd))
+  (declare (special sox-binaural-cmd sox-binaural-gain-offset))
   (sox-gen-cmd
    (format sox-binaural-cmd
            length freq
            (format "%s-%s" (+ freq beat-start) (+ freq beat-end))
-           gain)))
+           (+ gain sox-binaural-gain-offset))))
 
 (defconst sox-beats-binaural-cmd
   "-q -n synth %s %s gain %s channels 2 "
@@ -216,7 +189,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
     (timer-duration(read-from-minibuffer "Duration: "))
     (sox-read-binaural-beats)
     (read-number "Gain [Use negative values]: " -18)))
-  (declare (special sox-beats-binaural-cmd))
+  (declare (special sox-beats-binaural-cmd sox-binaural-gain-offset))
   (unless beat-spec-list (error "No beats specified. "))
   (sox-gen-cmd
    (format sox-beats-binaural-cmd
@@ -234,7 +207,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
                             (format "%s-%s" ;slide
                                     (+ f (first b)) (+ f (second b))))))))
             beat-spec-list " ")
-           gain)))
+           (+ gain sox-binaural-gain-offset))))
 
 (defstruct sox--binaural
   beats ; list of beat-specs
@@ -247,7 +220,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
   "Plays an instance of sox-binaural."
   (sox-beats-binaural  length
                        (sox--binaural-beats  binaural)
-                       (sox--binaural-gain binaural)))
+                       (+ (sox--binaural-gain binaural) sox-binaural-gain-offset)))
 
 (defvar sox-binaural-effects-table (make-hash-table :test #'equal)
   "Hash table mapping binaural effect names to effect structures.")
@@ -301,7 +274,9 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
     (cl-assert (= (length a-beats) (length b-beats))
                t "Effects have different lengths. " a b )
     (make-sox--binaural
+     ;;; intentionally applying half gain offset
      :gain  (/ (+ (sox--binaural-gain a-effect)
+                  sox-binaural-gain-offset
                   (sox--binaural-gain b-effect))
                2)
      :beats
@@ -517,6 +492,38 @@ Each segment is scaled by `duration-scale'."
   (sox--theme-play sox-relax-beats duration-scale))
 
 ;;}}}
+
+;;}}}
+;;{{{ synth:
+
+(defconst sox-synth-cmd
+  "-q -n synth %s "
+  "Invoke synth generation.")
+
+(defun sox-synth (length  &rest args)
+  "Call synth with length and args."
+  (declare (special sox-synth-cmd))
+  (sox-gen-cmd
+   (concat
+    (format sox-synth-cmd length)
+    (mapconcat #'identity args " "))))
+
+;;}}}
+;;{{{ Sin:
+
+(defconst sox-sin-cmd
+  "-q -n synth %s sin %s "
+  "Command-line that produces a simple sine wave.")
+
+(defun sox-sin (length freq &rest args)
+  "Play sine wave specified by length and freq.
+Freq can be specified as a frequency, note (%nn) or frequency range.
+Remaining args specify additional commandline args."
+  (declare (special sox-sin-cmd))
+  (sox-gen-cmd
+   (concat
+    (format sox-sin-cmd length freq)
+    (mapconcat #'identity args " "))))
 
 ;;}}}
 ;;{{{ Pluck:
