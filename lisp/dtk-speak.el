@@ -1945,7 +1945,8 @@ Applies func to text with dtk-speaker-process bound to the  notification stream.
 (defun dtk-notify-speak (text)
   "Speak text on notification stream.
 Fall back to dtk-speak if notification stream not available."
-  (declare (special dtk-speaker-process))
+  (declare (special dtk-speaker-process emacspeak-last-message))
+  (setq emacspeak-last-message text)
   (cond
    ((dtk-notify-process)                ; we have a live notifier
     (dtk-notify-apply #'dtk-speak  text))
@@ -1954,7 +1955,8 @@ Fall back to dtk-speak if notification stream not available."
 ;;;###autoload
 (defun dtk-notify-say (text)
   "Say text on notification stream. "
-  (declare (special dtk-speaker-process))
+  (declare (special dtk-speaker-process emacspeak-last-message))
+  (setq emacspeak-last-message text)
   (cond
    ((dtk-notify-process)                ; we have a live notifier
     (dtk-notify-apply #'dtk-say  text))
