@@ -1,4 +1,4 @@
-;;; sox-gen.el ---  Binaural Beats And More Using SoX -*- lexical-binding: t; -*-
+;;; sox-gen.el --- Binaural Beats And More Using SoX -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv $
 ;;; Description:  collection of SoX  sound generators including Binaural Beats
 ;;; Keywords: Emacspeak,  Audio Desktop sox
@@ -44,9 +44,8 @@
 ;;; Provides binaural audio along with pre-defined themes.
 ;;; This module can be used independent of Emacspeak.
 
-
 ;;; @subsection Binaural Beats  Using SoX
-;;; 
+;;;
 ;;; A binaural beat is an auditory illusion perceived when two different
 ;;; pure-tone sine waves, both with frequencies lower than 1500 Hz, with
 ;;; less than a 40 Hz difference between them, are presented to a listener
@@ -59,7 +58,7 @@
 ;;; 10 Hz, that being the difference between the 530 Hz and 520 Hz pure
 ;;; tones presented to each ear. For more details, see
 ;;; @url{https://en.wikipedia.org/wiki/Binaural_beats}.
-;;; 
+;;;
 ;;; This module implements a set of user-facing commands for generating
 ;;; binaural beats. The commands are organized from high-level commands that
 ;;; play predefined binaural beats to lower-level commands that can be
@@ -74,11 +73,11 @@
 ;;; --- default is 0.
 ;;;
 ;;; @subsubsection High-Level Commands For Pre-Defined Binaural Beats
-;;; 
+;;;
 ;;; These commands can be called directly to play one of the predefined
 ;;; binaural beats. Each of them prompts for a time-scale factor that is
 ;;; used to determine the duration of the sequence.
-;;; 
+;;;
 ;;; @itemize
 ;;; @item @command{sox-rev-up}: A set of binaural beats designed for  use
 ;;; at the start of the day. Transitions from @emph{Dream} -> @emph{Think}
@@ -97,7 +96,7 @@
 ;;; @emph{Theta}, @emph{Alpha}, @emph{Beta}, or @emph{Gamma}. The previously
 ;;; defined sequences are built up using these effects.
 ;;; @item @command{sox-beats-binaural}: Plays a collection of binaural
-;;; beats, prompting for fundamental and beat frequencies for each tone. The
+;;; beats, prompting for carrier and beat frequencies for each tone. The
 ;;; predefined sequences listed earlier were created after first generating
 ;;; experimental beat-sequences using this command.
 ;;; @item @command{sox-slide-binaural}: Prompts for two binaural effects
@@ -106,11 +105,11 @@
 ;;; @item @command{sox-chakras}: Pick  amongst one of a predefined set of
 ;;; sequences designed for @emph{Chakra} meditation.
 ;;; @item @command{sox-tone-binaural}: Generate a simple binaural beat
-;;; with a single fundamental frequency.
+;;; with a single carrier frequency.
 ;;; @item @command{sox-tone-slide-binaural}: Generate a  tone that slides
 ;;; from one binaural beat to another.
 ;;; @end itemize
-;;; 
+;;;
 ;;; Code:
 
 ;;}}}
@@ -121,9 +120,9 @@
 (require 'sox)
 
 ;;}}}
-;;{{{ Generator:
+;;{{{ SoX Command Generator:
 
-(defun sox-gen-cmd (cmd)
+(defsubst sox-gen-cmd (cmd)
   "Play specified command."
   (declare (special sox-play))
   (apply #'start-process "SoX" nil sox-play  (split-string cmd)))
@@ -135,15 +134,15 @@
 tones using SoX, e.g., for binaural beats."
   :type 'number
   :group 'sox)
+
 (defconst sox-binaural-cmd
   "-q -n synth %s sin %s sin %s gain %s channels 2 "
   "Command-line that produces a binaural beat.")
 
-
 ;;;###autoload
 (defun sox-tone-binaural (length freq beat gain)
-  "Play binaural audio with carrier frequency `freq', beat `beat',
-and gain `gain'."
+  "Play binaural audio with carrier frequency `freq', beat `beat', and
+gain `gain'."
   (interactive
    (list
     (timer-duration(read-from-minibuffer "Duration: "))
@@ -151,7 +150,11 @@ and gain `gain'."
     (read-number "Beat Frequency [0.5 -- 40]: " 4.5)
     (read-number "Gain [Use negative values]: " -18)))
   (declare (special sox-binaural-cmd sox-binaural-gain-offset))
-  (sox-gen-cmd (format sox-binaural-cmd length freq (+ freq beat) (+ gain sox-binaural-gain-offset))))
+  (sox-gen-cmd
+   (format
+    sox-binaural-cmd length
+    freq (+ freq beat)
+    (+ gain sox-binaural-gain-offset))))
 
 ;;;###autoload
 (defun sox-tone-slide-binaural (length freq beat-start beat-end  gain)
@@ -166,10 +169,11 @@ and gain `gain'."
     (read-number "Gain [Use negative values]: " -18)))
   (declare (special sox-binaural-cmd sox-binaural-gain-offset))
   (sox-gen-cmd
-   (format sox-binaural-cmd
-           length freq
-           (format "%s-%s" (+ freq beat-start) (+ freq beat-end))
-           (+ gain sox-binaural-gain-offset))))
+   (format
+    sox-binaural-cmd
+    length freq
+    (format "%s-%s" (+ freq beat-start) (+ freq beat-end))
+    (+ gain sox-binaural-gain-offset))))
 
 (defconst sox-beats-binaural-cmd
   "-q -n synth %s %s gain %s channels 2 "
@@ -200,22 +204,23 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
   (declare (special sox-beats-binaural-cmd sox-binaural-gain-offset))
   (unless beat-spec-list (error "No beats specified. "))
   (sox-gen-cmd
-   (format sox-beats-binaural-cmd
-           length
-           (mapconcat
-            #'(lambda (spec)
-                (let ((f (first spec))
-                      (b (second spec)))
-                  (cond
-                   ((numberp  b)
-                    (format "sin %s sin %s" f (+ f b)))
-                   ((and (listp b) (numberp (first b)) (numberp (second b)))
-                    (format "sin %s sin %s"
-                            f
-                            (format "%s-%s" ;slide
-                                    (+ f (first b)) (+ f (second b))))))))
-            beat-spec-list " ")
-           (+ gain sox-binaural-gain-offset))))
+   (format
+    sox-beats-binaural-cmd
+    length
+    (mapconcat
+     #'(lambda (spec)
+         (let ((f (first spec))
+               (b (second spec)))
+           (cond
+            ((numberp  b)
+             (format "sin %s sin %s" f (+ f b)))
+            ((and (listp b) (numberp (first b)) (numberp (second b)))
+             (format "sin %s sin %s"
+                     f
+                     (format "%s-%s"    ;slide
+                             (+ f (first b)) (+ f (second b))))))))
+     beat-spec-list " ")
+    (+ gain sox-binaural-gain-offset))))
 
 (defstruct sox--binaural
   beats ; list of beat-specs
@@ -226,9 +231,10 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
 
 (defun sox--binaural-play  (length binaural)
   "Plays an instance of sox-binaural."
-  (sox-beats-binaural  length
-                       (sox--binaural-beats  binaural)
-                       (+ (sox--binaural-gain binaural) sox-binaural-gain-offset)))
+  (sox-beats-binaural
+   length
+   (sox--binaural-beats  binaural)
+   (+ (sox--binaural-gain binaural) sox-binaural-gain-offset)))
 
 (defvar sox-binaural-effects-table (make-hash-table :test #'equal)
   "Hash table mapping binaural effect names to effect structures.")
@@ -243,60 +249,6 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
   (declare (special sox-binaural-effects-table))
   (or (gethash name sox-binaural-effects-table)
       (error "Effect not defined.")))
-
-;;;###autoload
-(defun sox-binaural (name duration)
-  "Play specified binaural effect."
-  (interactive
-   (list
-    (completing-read "Binaural Effect: " sox-binaural-effects-table
-                     nil 'must-match)
-    (timer-duration (read-from-minibuffer "Duration: "))))
-  (sox--binaural-play duration (sox-binaural-get-effect name))
-  (emacspeak-play-auditory-icon 'time)
-  (dtk-notify-say    (format "%s: %s" name duration)))
-
-
-;;;###autoload
-(defun sox-slide-binaural (name-1 name-2 duration)
-  "Play specified binaural slide from `name-1' to `name-2'."
-  (interactive
-   (list
-    (completing-read "Binaural Effect: " sox-binaural-effects-table
-                     nil 'must-match)
-    (completing-read "Binaural Effect: " sox-binaural-effects-table
-                     nil 'must-match)
-    (timer-duration (read-from-minibuffer "Duration: "))))
-  (sox--binaural-play
-   duration
-   (sox--gen-slide-a->b name-1 name-2))
-  (emacspeak-play-auditory-icon 'time)
-  (dtk-notify-say    (format "%s  to %s for %s" name-1 name-2 duration)))
-
-(defun sox--gen-slide-a->b (a b)
-  "Return a binaural  structure that slides from a to be."
-  (let* ((a-effect (sox-binaural-get-effect a))
-         (b-effect (sox-binaural-get-effect b))
-         (a-beats (sox--binaural-beats a-effect))
-         (b-beats (sox--binaural-beats b-effect)))
-    (cl-assert (= (length a-beats) (length b-beats))
-               t "Effects have different lengths. " a b )
-    (make-sox--binaural
-     ;;; intentionally applying half gain offset
-     :gain  (/ (+ (sox--binaural-gain a-effect)
-                  sox-binaural-gain-offset
-                  (sox--binaural-gain b-effect))
-               2)
-     :beats
-     (cl-loop
-      for i from 0 to (length a-effect)
-      collect
-      (let ((a-i (elt a-beats i))
-            (b-i (elt b-beats i)))
-        (list
-         (/ ( + (first a-i) (first b-i)) 2) ; carrier frequency
-         (list (second a-i) (second b-i))))))))
-
 ;;{{{  Define Effects:
 
 ;;; delta, theta, alpha, beta, gamma
@@ -331,6 +283,61 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
  (make-sox--binaural
   :beats '((75 40) (150 40) (225 40) (300 40.0))
   :gain -14))
+;; }}}
+
+;;;###autoload
+(defun sox-binaural (name duration)
+  "Play specified binaural effect."
+  (interactive
+   (list
+    (completing-read "Binaural Effect: " sox-binaural-effects-table
+                     nil 'must-match)
+    (timer-duration (read-from-minibuffer "Duration: "))))
+  (sox--binaural-play duration (sox-binaural-get-effect name))
+  (emacspeak-play-auditory-icon 'time)
+  (dtk-notify-say    (format "%s: %s" name duration)))
+
+;;;###autoload
+(defun sox-slide-binaural (name-1 name-2 duration)
+  "Play specified binaural slide from `name-1' to `name-2'."
+  (interactive
+   (list
+    (completing-read "Binaural Effect: " sox-binaural-effects-table
+                     nil 'must-match)
+    (completing-read "Binaural Effect: " sox-binaural-effects-table
+                     nil 'must-match)
+    (timer-duration (read-from-minibuffer "Duration: "))))
+  (sox--binaural-play
+   duration
+   (sox--gen-slide-a->b name-1 name-2))
+  (emacspeak-play-auditory-icon 'time)
+  (dtk-notify-say    (format "%s  to %s for %s" name-1 name-2 duration)))
+
+(defun sox--gen-slide-a->b (a b)
+  "Return a binaural  structure that slides from a to be."
+  (let* ((a-effect (sox-binaural-get-effect a))
+         (b-effect (sox-binaural-get-effect b))
+         (a-beats (sox--binaural-beats a-effect))
+         (b-beats (sox--binaural-beats b-effect)))
+    (cl-assert (= (length a-beats) (length b-beats))
+               t "Effects have different lengths. " a b )
+    (make-sox--binaural
+     :gain  (/ (+ (sox--binaural-gain a-effect)
+                  ( * 2 sox-binaural-gain-offset)
+                  (sox--binaural-gain b-effect))
+               2)
+     :beats
+     (cl-loop
+      for i from 0 to (length a-effect)
+      collect
+      (let ((a-i (elt a-beats i))
+            (b-i (elt b-beats i)))
+        (list
+         (/ ( + (first a-i) (first b-i)) 2) ; carrier frequency
+         (list (second a-i) (second b-i))))))))
+
+;;}}}
+;;{{{ Defined Binaural Themes (Sequences):
 
 ;;; Chakras: Set 1:Carrier frequencies taken from  the Web.
 ;;; https://sourceforge.net/p/sbagen/mailman/message/3047882/
@@ -430,10 +437,10 @@ Parameter `theme' specifies variant."
              (unless (eq  i (car (last intervals)))
                (incf  result (/ i 5))))
     result))
-    
 
 (defcustom sox-binaural-slider-scale 5
-  "Scale factor  used to compute slide duration when moving from one binaural beat to another."
+  "Scale factor used to compute slide duration when moving from one
+binaural beat to another."
   :type 'number
   :group 'sox)
 
@@ -442,7 +449,7 @@ Parameter `theme' specifies variant."
   (declare (special sox-binaural-slider-scale))
   (setq duration-scale (timer-duration duration-scale))
   (dtk-notify-say
-   (format "Total Length: %s"  (sox--theme-compute-length theme duration-scale)))
+   (format "Total Length: %s" (sox--theme-compute-length theme duration-scale)))
   (let ((start 0))
     (cl-loop
      for beat in theme
@@ -500,7 +507,6 @@ Each segment is scaled by `duration-scale'."
   (sox--theme-play sox-relax-beats duration-scale))
 
 ;;}}}
-
 ;;}}}
 ;;{{{ synth:
 
