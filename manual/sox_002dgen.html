@@ -115,9 +115,23 @@
 
   <p>This module implements a set of user-facing commands for
   generating binaural beats. The commands are organized from
-  high-level commands that present predefined binaural beats to
+  high-level commands that play predefined binaural beats to
   lower-level commands that can be used to create new effect
-  sequences.</p><a name=
+  sequences.</p>
+
+  <p>All binaural beat sequences are played with a relatively low
+  gain — they are designed to be heard in the background and when
+  effective blend fully into the background. You can increase the
+  overall volume of all binaural beat sequences by customizing</p>
+
+  <dl>
+    <dt><a name="index-User-Option-1040" id=
+    "index-User-Option-1040"></a>Variable: <strong>User
+    Option</strong> <em>sox-binaural-gain-offset to a positive
+    value</em></dt>
+  </dl>
+
+  <p>— default is 0.</p><a name=
   "High_002dLevel-Commands-For-Pre_002dDefined-Binaural-Beats" id=
   "High_002dLevel-Commands-For-Pre_002dDefined-Binaural-Beats"></a>
 
@@ -156,10 +170,10 @@
     up using these effects.</li>
 
     <li><code>sox-beats-binaural</code>: Plays a collection of
-    binaural beats, prompting for fundamental and beat frequencies
-    for each tone. The predefined sequences listed earlier were
-    created after first generating experimental beat-sequences
-    using this command.</li>
+    binaural beats, prompting for carrier and beat frequencies for
+    each tone. The predefined sequences listed earlier were created
+    after first generating experimental beat-sequences using this
+    command.</li>
 
     <li><code>sox-slide-binaural</code>: Prompts for two binaural
     effects (see above) and generates a binaural beat that
@@ -170,7 +184,7 @@
     set of sequences designed for <em>Chakra</em> meditation.</li>
 
     <li><code>sox-tone-binaural</code>: Generate a simple binaural
-    beat with a single fundamental frequency.</li>
+    beat with a single carrier frequency.</li>
 
     <li><code>sox-tone-slide-binaural</code>: Generate a tone that
     slides from one binaural beat to another.</li>
@@ -338,8 +352,8 @@ Play specified binaural slide from ‘name-1’ to ‘name-2’.
 
       <div class="format">
         <pre class="format">
-Play binaural audio with carrier frequency ‘freq’, beat ‘beat’,
-and gain ‘gain’.
+Play binaural audio with carrier frequency ‘freq’, beat ‘beat’, and
+gain ‘gain’.
 
 (fn LENGTH FREQ BEAT GAIN)
 </pre>
@@ -414,6 +428,30 @@ Each segment is scaled by ‘duration-scale’.
 (fn DURATION-SCALE)
 </pre>
       </div>
+    </dd>
+  </dl><a name="sox_002dgen-Options" id="sox_002dgen-Options"></a>
+
+  <h4 class="subsection">12.221.3 sox-gen Options</h4>
+
+  <dl>
+    <dt><a name="index-User-Option-1041" id=
+    "index-User-Option-1041"></a>Variable: <strong>User
+    Option</strong> <em>sox-binaural-gain-offset</em></dt>
+
+    <dd>
+      <p>User specified offset that is added to default gain when
+      generating tones using SoX, e.g., for binaural beats.</p>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><a name="index-User-Option-1042" id=
+    "index-User-Option-1042"></a>Variable: <strong>User
+    Option</strong> <em>sox-binaural-slider-scale</em></dt>
+
+    <dd>
+      <p>Scale factor used to compute slide duration when moving
+      from one binaural beat to another.</p>
     </dd>
   </dl>
   <hr />
