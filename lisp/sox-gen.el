@@ -295,7 +295,8 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
     (timer-duration (read-from-minibuffer "Duration: "))))
   (sox--binaural-play duration (sox-binaural-get-effect name))
   (emacspeak-play-auditory-icon 'time)
-  (dtk-notify-say    (format "%s: %s" name duration)))
+  (dtk-notify-say    (format "%s: %s" name
+                             (format-seconds "%h:%m:%s" duration))))
 
 ;;;###autoload
 (defun sox-slide-binaural (name-1 name-2 duration)
@@ -311,7 +312,8 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
    duration
    (sox--gen-slide-a->b name-1 name-2))
   (emacspeak-play-auditory-icon 'time)
-  (dtk-notify-say    (format "%s  to %s for %s" name-1 name-2 duration)))
+  (dtk-notify-say    (format "%s  to %s for %s" name-1 name-2
+                             (format-seconds "%h:%m:%s" duration))))
 
 (defun sox--gen-slide-a->b (a b)
   "Return a binaural  structure that slides from a to be."
@@ -379,7 +381,7 @@ binaural beat to another."
   (declare (special sox-binaural-slider-scale))
   (setq duration-scale (timer-duration duration-scale))
   (dtk-notify-say
-   (format "Total Length: %s" (sox--theme-compute-length theme duration-scale)))
+   (format-seconds"%h:%m:%s" (sox--theme-compute-length theme duration-scale)))
   (let ((start 0))
     (cl-loop
      for beat in theme
@@ -398,7 +400,8 @@ binaural beat to another."
          (run-with-timer                ; start  at slider-start
           slider-start nil              ; no repeat
           #'(lambda ()
-              (dtk-notify-say (format "%s to %s for %s"  b  next slider-len))
+              (dtk-notify-say (format "%s to %s for %s"  b  next slider-
+                                      (format-seconds "%h:%m:%s" len)))
               (sox--binaural-play
                slider-len
                (sox--gen-slide-a->b b next))))
