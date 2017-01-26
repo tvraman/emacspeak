@@ -337,72 +337,9 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
          (list (second a-i) (second b-i))))))))
 
 ;;}}}
+
+;;}}}
 ;;{{{ Defined Binaural Themes (Sequences):
-;;; Default Theme For Chakras:
-;;; From: https://www.youtube.com/watch?v=ARoih8HTPGw
-
-(defconst sox--chakra-settings-0
-  '(
-  ("root" 228 8.0)
-  ("navel" 303 9.0)
-  ("solar-plexus" 182 10.0)
-  ("heart" 128.3 10.5)
-  ("throat" 192 12.0)
-  ("3rd-eye" 144 13)
-  ("crown" 216 15)
-  )
-  "Frequency settings.")
-
-(cl-loop
- for s in sox--chakra-settings-0 do
- (sox-define-binaural-effect
-  (first s)
-  (make-sox--binaural
-   :beats `(,(cdr s))
-   :gain -20)))
-
-
-;;; Chakras: Set 1:Carrier frequencies taken from  the Web.
-;;; https://sourceforge.net/p/sbagen/mailman/message/3047882/
-
-(defconst sox--chakra-settings-1
-  '(
-    ("root-0" 256 7.34)
-    ("navel-0" 288 7.34)
-    ("solar-plexus-0" 320 7.34)
-    ("heart-0" 341.3 7.34)
-    ("throat-0" 384 7.34)
-    ("3rd-eye-0" 426.7 7.34)
-    ("crown-0" 480 7.34)
-    )
-  "Frequency settings.")
-
-(cl-loop
- for s in sox--chakra-settings-1 do
- (sox-define-binaural-effect
-  (first s)
-  (make-sox--binaural
-   :beats `(,(cdr s))
-   :gain -20)))
-
-
-;;;###autoload
-(defun sox-chakras (theme duration)
-  "Play each chakra for specified duration.
-Parameter `theme' specifies variant."
-  (interactive
-   (list
-    (intern
-     (completing-read  "Chakra Theme Variant: "
-                       '("sox--chakra-settings-0" "sox--chakra-settings-1")
-                       nil 'must-match))
-    (timer-duration (read-from-minibuffer "Duration: "))))
-  (let ((names  (mapcar #'car (symbol-value theme)))
-        (start 0))
-    (cl-loop
-     for name in names do
-     (run-with-timer start nil #'(lambda (n) (sox-binaural n  duration)) name)
-     (setq start (+ start duration)))))
 
 (defconst sox-rev-up-beats
   '(("dream" 1) ("think"  4) ("act" 2) ("focus" 1))
@@ -500,6 +437,72 @@ Each segment is scaled by `duration-scale'."
   (sox--theme-play sox-relax-beats duration-scale))
 
 ;;}}}
+;;{{{ Chakra Themes:
+
+;;; Default Theme For Chakras:
+;;; From: https://www.youtube.com/watch?v=ARoih8HTPGw
+
+(defconst sox--chakra-settings-0
+  '(
+    ("root" 228 8.0)
+    ("navel" 303 9.0)
+    ("solar-plexus" 182 10.0)
+    ("heart" 128.3 10.5)
+    ("throat" 192 12.0)
+    ("3rd-eye" 144 13)
+    ("crown" 216 15)
+    )
+  "Frequency settings.")
+
+(cl-loop
+ for s in sox--chakra-settings-0 do
+ (sox-define-binaural-effect
+  (first s)
+  (make-sox--binaural
+   :beats `(,(cdr s))
+   :gain -20)))
+
+;;; Chakras: Set 1:Carrier frequencies taken from  the Web.
+;;; https://sourceforge.net/p/sbagen/mailman/message/3047882/
+
+(defconst sox--chakra-settings-1
+  '(
+    ("root-0" 256 7.34)
+    ("navel-0" 288 7.34)
+    ("solar-plexus-0" 320 7.34)
+    ("heart-0" 341.3 7.34)
+    ("throat-0" 384 7.34)
+    ("3rd-eye-0" 426.7 7.34)
+    ("crown-0" 480 7.34)
+    )
+  "Frequency settings.")
+
+(cl-loop
+ for s in sox--chakra-settings-1 do
+ (sox-define-binaural-effect
+  (first s)
+  (make-sox--binaural
+   :beats `(,(cdr s))
+   :gain -20)))
+
+;;;###autoload
+(defun sox-chakras (theme duration)
+  "Play each chakra for specified duration.
+Parameter `theme' specifies variant."
+  (interactive
+   (list
+    (intern
+     (completing-read  "Chakra Theme Variant: "
+                       '("sox--chakra-settings-0" "sox--chakra-settings-1")
+                       nil 'must-match))
+    (timer-duration (read-from-minibuffer "Duration: "))))
+  (let ((names  (mapcar #'car (symbol-value theme)))
+        (start 0))
+    (cl-loop
+     for name in names do
+     (run-with-timer start nil #'(lambda (n) (sox-binaural n  duration)) name)
+     (setq start (+ start duration)))))
+
 ;;}}}
 ;;{{{ synth:
 
