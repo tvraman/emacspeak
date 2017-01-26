@@ -62,9 +62,16 @@
 ;;; 
 ;;; This module implements a set of user-facing commands for generating
 ;;; binaural beats. The commands are organized from high-level commands that
-;;; present predefined binaural beats to lower-level commands that can be
+;;; play predefined binaural beats to lower-level commands that can be
 ;;; used to create new effect sequences.
-;;; 
+;;;
+;;; All binaural beat sequences are played with a relatively low gain
+;;; --- they are designed to be heard in the background and when
+;;; effective blend fully into the background. You can increase the
+;;; overall volume of all binaural beat sequences by customizing
+;;; @defvar {User Option} sox-binaural-gain-offset to a positive value
+;;; --- default is 0.
+;;;
 ;;; @subsubsection High-Level Commands For Pre-Defined Binaural Beats
 ;;; 
 ;;; These commands can be called directly to play one of the predefined
