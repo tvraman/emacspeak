@@ -5374,8 +5374,15 @@ tones presented to each ear.  For more details, see
 
    This module implements a set of user-facing commands for generating
 binaural beats.  The commands are organized from high-level commands
-that present predefined binaural beats to lower-level commands that can
-be used to create new effect sequences.
+that play predefined binaural beats to lower-level commands that can be
+used to create new effect sequences.
+
+   All binaural beat sequences are played with a relatively low gain —
+they are designed to be heard in the background and when effective blend
+fully into the background.  You can increase the overall volume of all
+binaural beat sequences by customizing
+ -- Variable: User Option sox-binaural-gain-offset to a positive value
+   — default is 0.
 
 12.221.1.1 High-Level Commands For Pre-Defined Binaural Beats
 .............................................................
@@ -6920,7 +6927,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-' u:                                 soundscape.         (line  135)
 * C-, ,:                                 emacspeak-advice.   (line   25)
 * C-, a:                                 emacspeak-feeds.    (line   35)
-* C-, b:                                 sox-gen.            (line   84)
+* C-, b:                                 sox-gen.            (line   91)
 * C-, c:                                 emacspeak-wizards.  (line 1294)
 * C-, f:                                 emacspeak-feeds.    (line   65)
 * C-, i:                                 emacspeak-wizards.  (line  809)
@@ -7258,7 +7265,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-M-y:                                 emacspeak-muggles.  (line   94)
 * C-x @ a ,:                             emacspeak-advice.   (line   26)
 * C-x @ a a:                             emacspeak-feeds.    (line   36)
-* C-x @ a b:                             sox-gen.            (line   85)
+* C-x @ a b:                             sox-gen.            (line   92)
 * C-x @ a c:                             emacspeak-wizards.  (line 1295)
 * C-x @ a f:                             emacspeak-feeds.    (line   66)
 * C-x @ a i:                             emacspeak-wizards.  (line  810)

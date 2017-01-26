@@ -70,6 +70,7 @@
 ;;; effective blend fully into the background. You can increase the
 ;;; overall volume of all binaural beat sequences by customizing
 ;;; @defvar {User Option} sox-binaural-gain-offset to a positive value
+;;; @end defvar
 ;;; --- default is 0.
 ;;;
 ;;; @subsubsection High-Level Commands For Pre-Defined Binaural Beats
