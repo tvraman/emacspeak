@@ -85,14 +85,14 @@ design and implementation.")
                    "http://www.cs.vassar.edu/cgi-bin/emacspeak-search"
                    :help-echo "Search Emacspeak mail archive at Vassar.")
   :link '(url-link :tag "Apps"
-                   "http://emacspeak.sf.net/applications.html"
+                   "https://tvraman.github.io/emacspeak/applications.html"
                    :help-echo "Browse available  applications on
 the Emacspeak desktop.")
   :link '(url-link :tag "Guide"
-                   "http://emacspeak.sf.net/user-guide"
+                   "https://tvraman.github.io/emacspeak/user-guide"
                    :help-echo "Read online user guide.")
   :link '(url-link :tag "Tips"
-                   "http://emacspeak.sf.net/tips.html"
+                   "https://tvraman.github.io/emacspeak/tips.html"
                    :help-echo "Read Emacspeak Tips and Tricks.")
   :link   (list 'file-link :tag "NEWS" (expand-file-name
                                         "etc/NEWS"
