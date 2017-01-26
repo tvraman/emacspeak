@@ -338,42 +338,10 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
 
 ;;}}}
 ;;{{{ Defined Binaural Themes (Sequences):
-
-;;; Chakras: Set 1:Carrier frequencies taken from  the Web.
-;;; https://sourceforge.net/p/sbagen/mailman/message/3047882/
-
-;;; root:         256 Hz
-;;; navel:        288 Hz
-;;; solar plexus: 320 Hz
-;;; heart:        341.3 Hz
-;;; throat:       384 Hz
-;;; 3rd eye:      426.7 Hz
-;;; crown:        480 Hz
-
-(defconst sox--chakra-settings-0
-  '(
-    ("root-0" 256 4.5)
-    ("navel-0" 288 4.5)
-    ("solar-plexus-0" 320 4.5)
-    ("heart-0" 341.3 4.5)
-    ("throat-0" 384 4.5)
-    ("3rd-eye-0" 426.7 4.5)
-    ("crown-0" 480 4.5)
-    )
-  "Frequency settings.")
-
-(cl-loop
- for s in sox--chakra-settings-0 do
- (sox-define-binaural-effect
-  (first s)
-  (make-sox--binaural
-   :beats `(,(cdr s))
-   :gain -20)))
-
-;;; Second Theme For Chakras:
+;;; Default Theme For Chakras:
 ;;; From: https://www.youtube.com/watch?v=ARoih8HTPGw
 
-(defconst sox--chakra-settings-1
+(defconst sox--chakra-settings-0
   '(
     ("root-1" 228 8.0)
     ("navel-1" 303 9.0)
@@ -386,12 +354,37 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
   "Frequency settings.")
 
 (cl-loop
+ for s in sox--chakra-settings-0 do
+ (sox-define-binaural-effect
+  (first s)
+  (make-sox--binaural
+   :beats `(,(cdr s))
+   :gain -20)))
+
+
+;;; Chakras: Set 1:Carrier frequencies taken from  the Web.
+;;; https://sourceforge.net/p/sbagen/mailman/message/3047882/
+
+(defconst sox--chakra-settings-1
+  '(
+    ("root-0" 256 7.34)
+    ("navel-0" 288 7.34)
+    ("solar-plexus-0" 320 7.34)
+    ("heart-0" 341.3 7.34)
+    ("throat-0" 384 7.34)
+    ("3rd-eye-0" 426.7 7.34)
+    ("crown-0" 480 7.34)
+    )
+  "Frequency settings.")
+
+(cl-loop
  for s in sox--chakra-settings-1 do
  (sox-define-binaural-effect
   (first s)
   (make-sox--binaural
    :beats `(,(cdr s))
    :gain -20)))
+
 
 ;;;###autoload
 (defun sox-chakras (theme duration)
