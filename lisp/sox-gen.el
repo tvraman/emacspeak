@@ -343,14 +343,14 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
 
 (defconst sox--chakra-settings-0
   '(
-    ("root-1" 228 8.0)
-    ("navel-1" 303 9.0)
-    ("solar-plexus-1" 182 10.0)
-    ("heart-1" 128.3 10.5)
-    ("throat-1" 192 12.0)
-    ("3rd-eye-1" 144 13)
-    ("crown-1" 216 15)
-    )
+  ("root" 228 8.0)
+  ("navel" 303 9.0)
+  ("solar-plexus" 182 10.0)
+  ("heart" 128.3 10.5)
+  ("throat" 192 12.0)
+  ("3rd-eye" 144 13)
+  ("crown" 216 15)
+  )
   "Frequency settings.")
 
 (cl-loop
