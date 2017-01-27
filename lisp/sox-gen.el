@@ -296,7 +296,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
   (sox--binaural-play duration (sox-binaural-get-effect name))
   (emacspeak-play-auditory-icon 'time)
   (dtk-notify-say    (format "%s: %s" name
-                             (format-seconds "%h:%m:%s" duration))))
+                             (format-seconds "%H %M%z %S" duration))))
 
 ;;;###autoload
 (defun sox-slide-binaural (name-1 name-2 duration)
@@ -313,7 +313,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
    (sox--gen-slide-a->b name-1 name-2))
   (emacspeak-play-auditory-icon 'time)
   (dtk-notify-say    (format "%s  to %s for %s" name-1 name-2
-                             (format-seconds "%h:%m:%s" duration))))
+                             (format-seconds "%H %M%z %S" duration))))
 
 (defun sox--gen-slide-a->b (a b)
   "Return a binaural  structure that slides from a to be."
@@ -376,19 +376,19 @@ binaural beat to another."
   :type 'number
   :group 'sox)
 
-(defun sox--theme-play (theme duration-scale)
+(defun sox--theme-play (theme dur-scale)
   "Play  set of  binaural beats specified in theme."
   (declare (special sox-binaural-slider-scale))
-  (setq duration-scale (timer-duration duration-scale))
+  (setq dur-scale (timer-duration dur-scale))
   (dtk-notify-say
-   (format-seconds"%h:%m:%s" (sox--theme-compute-length theme duration-scale)))
+   (format-seconds "%H %M%z %S" (sox--theme-compute-length theme dur-scale)))
   (let ((start 0))
     (cl-loop
      for beat in theme
      and i from 0 do
      (let* ((b (first beat))
             (next (first (elt theme (+ 1 i))))
-            (end (* duration-scale  (second beat)))
+            (end (* dur-scale  (second beat)))
             (slider-start (+ start end))
             (slider-len (/ end sox-binaural-slider-scale)))
        (run-with-timer                  ; start now
@@ -401,7 +401,7 @@ binaural beat to another."
           slider-start nil              ; no repeat
           #'(lambda ()
               (dtk-notify-say (format "%s to %s for %s"  b  next slider-
-                                      (format-seconds "%h:%m:%s" len)))
+                                      (format-seconds "%H %M%z %S" len)))
               (sox--binaural-play
                slider-len
                (sox--gen-slide-a->b b next))))
