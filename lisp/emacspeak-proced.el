@@ -136,7 +136,8 @@
   (setq position
         (or position (current-column)))
   (let ((field (emacspeak-proced-position-to-field position))
-        (start nil))
+        (start nil)
+        (end nil))
     (save-excursion
       (goto-char
        (+ (line-beginning-position)
@@ -147,6 +148,8 @@
         (setq start (point)))
       (skip-syntax-forward " ")
       (skip-syntax-forward "^ ")
+      (when (equal field (car (last emacspeak-proced-fields)))
+        (setq end (line-end-position)))
       (message
        "%s: %s"
        (emacspeak-proced-field-name field)
