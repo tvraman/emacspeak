@@ -173,6 +173,12 @@
     (?a (emacspeak-proced-speak-field "Args"))
     (otherwise (message "Pick field using mnemonic chars"))
     (sit-for 1)))
+(defun emacspeak-proced-speak-args ()
+  "Speak command  invocation  for this process."
+  (interactive)
+  (message
+   (cdr
+    (assoc 'args (assoc (get-text-property (point) 'proced-pid) proced-process-alist)))))
 
 (defun emacspeak-proced-next-field ()
   "Navigate to next field."
@@ -228,6 +234,7 @@
 (defun emacspeak-proced-add-keys ()
   "Add additional keybindings for emacspeak."
   (declare (special proced-mode-map))
+  (define-key proced-mode-map "a" 'emacspeak-proced-speak-args)
   (define-key proced-mode-map "n" 'emacspeak-proced-next-line)
   (define-key proced-mode-map "p" 'emacspeak-proced-previous-line)
   (define-key proced-mode-map "j" 'emacspeak-proced-jump-to-process)
@@ -270,7 +277,7 @@
   (let ((pos (position name  emacspeak-proced-process-cache
                        :test #'string-equal)))
     (cond
-     (pos 
+     (pos
       (goto-line (1+ pos))
       (emacspeak-proced-speak-this-field))
      (t (error "Cant find %s" name)))))
