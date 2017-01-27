@@ -314,6 +314,9 @@
 (defadvice proced(before emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
+    (goto-char (point-min))
+    (skip-syntax-forward " ")
+    (emacspeak-proced-speak-field 'args)
     (emacspeak-auditory-icon 'open-object)))
 
 (loop for f in
