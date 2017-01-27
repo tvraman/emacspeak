@@ -159,18 +159,17 @@
   "Speak desired field via single keystroke."
   (interactive)
   (case (read-char "?")
-    (?u (emacspeak-proced-speak-field "USER"))
-    (?p (emacspeak-proced-speak-field "PID"))
-    (?c (emacspeak-proced-speak-field "%CPU"))
-    (?m (emacspeak-proced-speak-field "%MEM"))
-    (?v (emacspeak-proced-speak-field "VSZ"))
-    (?r (emacspeak-proced-speak-field "RSS"))
-    (?T (emacspeak-proced-speak-field "TTY"))
-    (?S (emacspeak-proced-speak-field "STAT"))
-    (?s (emacspeak-proced-speak-field "START"))
-    (?t (emacspeak-proced-speak-field "TIME"))
-    (?\ (emacspeak-proced-speak-field "Args"))
-    (?a (emacspeak-proced-speak-field "Args"))
+    (?u (emacspeak-proced-speak-field 'user))
+    (?p (emacspeak-proced-speak-field 'pid))
+    (?c (emacspeak-proced-speak-field 'pcpu))
+    (?m (emacspeak-proced-speak-field 'pmem))
+    (?v (emacspeak-proced-speak-field 'vsz))
+    (?r (emacspeak-proced-speak-field 'rss))
+    (?T (emacspeak-proced-speak-field 'tty))
+    (?S (emacspeak-proced-speak-field 'stat))
+    (?s (emacspeak-proced-speak-field 'start))
+    (?t (emacspeak-proced-speak-field 'time))
+    (?a (emacspeak-proced-speak-field 'args))
     (otherwise (message "Pick field using mnemonic chars"))
     (sit-for 1)))
 (defun emacspeak-proced-speak-args ()
@@ -222,14 +221,17 @@
   (interactive
    (list
     (let ((completion-ignore-case t))
-      (completing-read
-       "Field: "
-       (mapcar 'emacspeak-proced-field-name emacspeak-proced-fields)
-       nil t nil))))
-  (declare (special emacspeak-proced-fields))
-  (let ((field (assoc-string field-name emacspeak-proced-fields)))
-    (emacspeak-proced-speak-this-field
-     (emacspeak-proced-field-start field))))
+      (intern
+       (completing-read
+        "Field: "
+        (mapcar
+         #'car
+         (cdr (assoc (get-text-property (point) 'proced-pid) proced-process-alist)))       nil t nil)))))
+  (let ((value
+         (cdr
+          (assoc field-name
+                 (assoc (get-text-property (point) 'proced-pid) proced-process-alist)))))
+    (message "%s: %s" field-name value)))
 
 (defun emacspeak-proced-add-keys ()
   "Add additional keybindings for emacspeak."
@@ -346,14 +348,23 @@
 (defun emacspeak-proced-next-line ()
   "Move to next line and speak a summary."
   (interactive)
-  (forward-line 1)
-  (emacspeak-proced-speak-field "ARGS"))
+  (goto-char (line-end-position))
+  (cond
+   ((eobp) (error "On last line."))
+   (t (forward-line 1)
+      (skip-syntax-forward " ")
+      (emacspeak-proced-speak-field 'args))))
 
 (defun emacspeak-proced-previous-line ()
   "Move to next line and speak a summary."
   (interactive)
-  (forward-line -1)
-  (emacspeak-proced-speak-field "ARGS"))
+  (goto-char (line-beginning-position))
+  (cond
+   ((bobp) (error "On first line"))
+   (t (forward-line -1)
+      (beginning-of-line)
+      (skip-syntax-forward " ")
+      (emacspeak-proced-speak-field 'args))))
 
 ;;}}}
 (provide 'emacspeak-proced)
