@@ -400,8 +400,10 @@ binaural beat to another."
          (run-with-timer                ; start  at slider-start
           slider-start nil              ; no repeat
           #'(lambda ()
-              (dtk-notify-say (format "%s to %s for %s"  b  next slider-
-                                      (format-seconds "%H %M%z %S" len)))
+              (dtk-notify-say
+               (format "%s to %s for %s"
+                       b  next
+                       (format-seconds "%H %M%z %S" slider-len)))
               (sox--binaural-play
                slider-len
                (sox--gen-slide-a->b b next))))
