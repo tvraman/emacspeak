@@ -268,6 +268,61 @@ personalities."
     (emacspeak-auditory-icon 'select-object)))
 
 ;;}}}
+;;{{{Additional Commands To Enable: 
+
+(cl-loop
+ for f in
+ '(eshell-forward-argument eshell-backward-argument eshell-bol)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "provide auditory feedback."
+     (when
+      (ems-interactive-p)
+      (let ((emacspeak-show-point t))
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'large-movement))))))
+
+(cl-loop
+ for f in
+ '(eshell-pcomplete eshell-complete-lisp-symbol)
+ do
+ (eval
+  `(defadvice ,f (around emacspeak pre act comp)
+  "Say what you completed."
+  (ems-with-messages-silenced
+   (let ((prior (point)))
+     ad-do-it
+     (if (> (point) prior)
+         (tts-with-punctuations
+          'all
+          (dtk-speak
+           (buffer-substring prior (point))))
+       (emacspeak-speak-completions-if-available))
+     ad-return-value)))))
+
+
+(defadvice eshell-copy-old-input (after emacspeak pre act comp)
+  "Speak what was inserted."
+   (when (ems-interactive-p)
+    (let ((start
+           (save-excursion
+             (eshell-bol)
+             (point))))
+      (emacspeak-auditory-icon 'yank-object)
+      (emacspeak-speak-region start (point)))))
+(defadvice eshell-get-next-from-history (after emacspeak pre act comp)
+  "Speak what was inserted."
+   (when (ems-interactive-p)
+    (let ((start
+           (save-excursion
+             (eshell-bol)
+             (point))))
+      (emacspeak-auditory-icon 'yank-object)
+      (emacspeak-speak-region start (point)))))
+
+
+;;}}}
 
 (provide 'emacspeak-eshell)
 ;;{{{ end of file
