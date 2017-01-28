@@ -312,7 +312,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
    duration
    (sox--gen-slide-a->b name-1 name-2))
   (emacspeak-play-auditory-icon 'time)
-  (dtk-notify-say    (format "%s  to %s for %s" name-1 name-2
+  (dtk-notify-say    (format "%s  to %s %s" name-1 name-2
                              (format-seconds "%H %M%z %S" duration))))
 
 (defun sox--gen-slide-a->b (a b)
@@ -401,7 +401,7 @@ binaural beat to another."
           slider-start nil              ; no repeat
           #'(lambda ()
               (dtk-notify-say
-               (format "%s to %s for %s"
+               (format "%s to %s %s"
                        b  next
                        (format-seconds "%H %M%z %S" slider-len)))
               (sox--binaural-play
