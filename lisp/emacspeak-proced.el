@@ -143,6 +143,7 @@
         (setq start (point)))
       (skip-syntax-forward " ")
       (skip-syntax-forward "^ ")
+      (setq end (point))
       (when (equal field (car (last emacspeak-proced-fields)))
         (setq end (line-end-position)))
       (message
@@ -317,9 +318,8 @@
                (emacspeak-proced-update-fields)
                (emacspeak-proced-update-process-cache)
                (when (ems-interactive-p)
-                 (let ((header-line-format nil))
                    (emacspeak-auditory-icon 'open-object)
-                   (emacspeak-speak-mode-line)))))))
+                   (emacspeak-speak-mode-line))))))
 
 (cl-loop for f  in
          '(proced-sort-pcpu proced-sort-start
