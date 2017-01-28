@@ -207,9 +207,12 @@ message area.  You can use command
 
 ;;}}}
 ;;{{{ Notifications:
-(defvar emacspeak-notifications-buffer (get-buffer-create "*Notifications*")
+(defvar emacspeak-notifications-buffer
+  (let ((buffer (get-buffer-create "*Notifications*")))
+    (with-current-buffer buffer
+      (special-mode)
+      buffer))
   "Notifications buffer. Retains at most `emacspeak-notifications-max lines.")
-
  
 (defun emacspeak-view-notifications ()
   "Display notifications."
@@ -218,17 +221,15 @@ message area.  You can use command
   (emacspeak-auditory-icon 'open-object)
   (funcall-interactively #'switch-to-buffer emacspeak-notifications-buffer ))
 
-  
-
 (defconst emacspeak-notifications-max 128
 "Number of notifications to retain.")
-
 
 (defun emacspeak-notifications-truncate ()
   "Trim notifications buffer."
   (declare (special emacspeak-notifications-buffer emacspeak-notifications-max))
   (with-current-buffer emacspeak-notifications-buffer
-    (let ((lines (count-lines (point-min) (point-max))))
+    (let ((lines (count-lines (point-min) (point-max)))
+          (inhibit-read-only  t))
       (when (> lines  emacspeak-notifications-max)
         (goto-char (point-min))
         (forward-line (- lines emacspeak-notifications-max))
@@ -237,9 +238,11 @@ message area.  You can use command
 
 (defun emacspeak-log-notification (text)
   "Log a notification."
-(with-current-buffer emacspeak-notifications-buffer
-  (goto-char (point-max))
-  (insert (format "%s\n" text))))
+  (with-current-buffer emacspeak-notifications-buffer
+    (let ((inhibit-read-only t))
+      (goto-char (point-max))
+      (insert (format "%s\n" text)))))
+
 (defvar emacspeak-notifications-gc-timer
   (run-at-time 1800 1800 #'emacspeak-notifications-truncate)
   "Idle timer that runs every 30 minutes to cleanup notifications.")
