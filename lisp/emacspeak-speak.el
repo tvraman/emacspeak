@@ -240,7 +240,9 @@ message area.  You can use command
 (with-current-buffer emacspeak-notifications-buffer
   (goto-char (point-max))
   (insert (format "%s\n" text))))
-
+(defvar emacspeak-notifications-gc-timer
+  (run-at-time 1800 1800 #'emacspeak-notifications-truncate)
+  "Idle timer that runs every 30 minutes to cleanup notifications.")
 ;;}}}
 ;;{{{ Completion helper:
 

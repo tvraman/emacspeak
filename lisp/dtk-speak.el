@@ -1939,25 +1939,25 @@ Returns nil if the result would not be a valid process handle."
 Applies func to text with dtk-speaker-process bound to the  notification stream."
   (let ((dtk-speaker-process  (dtk-notify-process)))
     (funcall func text)))
+(declare-function emacspeak-log-notification "emacspeak-speak" (text))
 
 ;;;###autoload
-
-(defun dtk-notify-speak (text)
+(defun dtk-notify-speak (text &optional dont-log)
   "Speak text on notification stream.
 Fall back to dtk-speak if notification stream not available."
   (declare (special dtk-speaker-process emacspeak-last-message))
-  (emacspeak-log-notification text)
+  (unless dont-log (emacspeak-log-notification text))
   (setq emacspeak-last-message text)
   (cond
    ((dtk-notify-process)                ; we have a live notifier
     (dtk-notify-apply #'dtk-speak  text))
    (t (dtk-speak text))))
-(declare-function emacspeak-log-notification "emacspeak-speak" (text))
+
 ;;;###autoload
-(defun dtk-notify-say (text)
+(defun dtk-notify-say (text &optional dont-log)
   "Say text on notification stream. "
   (declare (special dtk-speaker-process emacspeak-last-message))
-  (emacspeak-log-notification text)
+  (unless dont-log (emacspeak-log-notification text))
   (setq emacspeak-last-message text)
   (cond
    ((dtk-notify-process)                ; we have a live notifier
@@ -2003,9 +2003,9 @@ Fall back to dtk-speak if notification stream not available."
       (setq dtk-notify-process new-process))))
 
 ;;;###autoload
-(defun dtk-notify-using-voice (voice text)
+(defun dtk-notify-using-voice (voice text &optional dont-log)
   "Use voice VOICE to speak text TEXT on notification stream."
-  (emacspeak-log-notification text)
+  (unless dont-log (emacspeak-log-notification text))
   (setq emacspeak-last-message text)
   (let ((dtk-speaker-process (dtk-notify-process)))
     (when (process-live-p dtk-speaker-process)
