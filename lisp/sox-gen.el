@@ -296,7 +296,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
   (sox--binaural-play duration (sox-binaural-get-effect name))
   (emacspeak-play-auditory-icon 'time)
   (dtk-notify-say    (format "%s: %s" name
-                             (format-seconds "%H %M%z %S" duration))))
+                             (format-seconds "%H %M%z and %S" duration))))
 
 ;;;###autoload
 (defun sox-slide-binaural (name-1 name-2 duration)
@@ -313,7 +313,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
    (sox--gen-slide-a->b name-1 name-2))
   (emacspeak-play-auditory-icon 'time)
   (dtk-notify-say    (format "%s  to %s %s" name-1 name-2
-                             (format-seconds "%H %M%z %S" duration))))
+                             (format-seconds "%H %M%z and %S" duration))))
 
 (defun sox--gen-slide-a->b (a b)
   "Return a binaural  structure that slides from a to be."
@@ -381,7 +381,7 @@ binaural beat to another."
   (declare (special sox-binaural-slider-scale))
   (setq dur-scale (timer-duration dur-scale))
   (dtk-notify-say
-   (format-seconds "%H %M%z %S" (sox--theme-compute-length theme dur-scale)))
+   (format-seconds "%H %M%z and %S" (sox--theme-compute-length theme dur-scale)))
   (let ((start 0))
     (cl-loop
      for beat in theme
