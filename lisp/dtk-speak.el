@@ -1946,16 +1946,18 @@ Applies func to text with dtk-speaker-process bound to the  notification stream.
   "Speak text on notification stream.
 Fall back to dtk-speak if notification stream not available."
   (declare (special dtk-speaker-process emacspeak-last-message))
+  (emacspeak-log-notification text)
   (setq emacspeak-last-message text)
   (cond
    ((dtk-notify-process)                ; we have a live notifier
     (dtk-notify-apply #'dtk-speak  text))
    (t (dtk-speak text))))
-
+(declare-function emacspeak-log-notification "emacspeak-speak" (text))
 ;;;###autoload
 (defun dtk-notify-say (text)
   "Say text on notification stream. "
   (declare (special dtk-speaker-process emacspeak-last-message))
+  (emacspeak-log-notification text)
   (setq emacspeak-last-message text)
   (cond
    ((dtk-notify-process)                ; we have a live notifier
@@ -2003,6 +2005,8 @@ Fall back to dtk-speak if notification stream not available."
 ;;;###autoload
 (defun dtk-notify-using-voice (voice text)
   "Use voice VOICE to speak text TEXT on notification stream."
+  (emacspeak-log-notification text)
+  (setq emacspeak-last-message text)
   (let ((dtk-speaker-process (dtk-notify-process)))
     (when (process-live-p dtk-speaker-process)
       (dtk-speak-using-voice voice text)

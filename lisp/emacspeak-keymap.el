@@ -137,6 +137,7 @@
         ("B" customize-browse)
         ("G" customize-group)
         ("M" emacspeak-speak-popup-messages)
+        ("T" emacspeak-view-notifications)
         ("M-F" find-function-at-point)
         ("M-V" find-variable-at-point)
         ("M-f" find-function)

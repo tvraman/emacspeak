@@ -92,7 +92,7 @@
   :group 'emacspeak)
 
 ;;}}}
-m;;{{{ This line:
+;;{{{ This line:
 
 (defsubst ems-this-line ()
   "Return current line as string."
@@ -176,10 +176,6 @@ current local  value to the result.")
 ;;}}}
 ;;{{{ Shell Command Helper:
 
-;;; Emacspeak silences messages from shell-command when called non-interactively.
-;;; This replacement is used within Emacspeak to invoke commands
-;;; whose output we want to hear.
-
 (defcustom emacspeak-speak-messages t
   "*Option indicating if messages are spoken.  If nil,
 emacspeak will not speak messages as they are echoed to the
@@ -189,6 +185,13 @@ message area.  You can use command
 
   :group 'emacspeak-speak
   :type 'boolean)
+
+
+
+;;; Emacspeak silences messages from shell-command when called non-interactively.
+;;; This replacement is used within Emacspeak to invoke commands
+;;; whose output we want to hear.
+
 
 (defun  emacspeak-shell-command (command)
   "Run shell command and speak its output."
@@ -201,6 +204,42 @@ message area.  You can use command
        (shell-command command output))
       (emacspeak-auditory-icon 'open-object)
       (dtk-speak (buffer-string)))))
+
+;;}}}
+;;{{{ Notifications:
+(defvar emacspeak-notifications-buffer (get-buffer-create "*Notifications*")
+  "Notifications buffer. Retains at most `emacspeak-notifications-max lines.")
+
+ 
+(defun emacspeak-view-notifications ()
+  "Display notifications."
+  (interactive)
+  (declare (special emacspeak-notifications-buffer))
+  (emacspeak-auditory-icon 'open-object)
+  (funcall-interactively #'switch-to-buffer emacspeak-notifications-buffer ))
+
+  
+
+(defconst emacspeak-notifications-max 128
+"Number of notifications to retain.")
+
+
+(defun emacspeak-notifications-truncate ()
+  "Trim notifications buffer."
+  (declare (special emacspeak-notifications-buffer emacspeak-notifications-max))
+  (with-current-buffer emacspeak-notifications-buffer
+    (let ((lines (count-lines (point-min) (point-max))))
+      (when (> lines  emacspeak-notifications-max)
+        (goto-char (point-min))
+        (forward-line (- lines emacspeak-notifications-max))
+        (delete-region (point-min) (point))))))
+
+
+(defun emacspeak-log-notification (text)
+  "Log a notification."
+(with-current-buffer emacspeak-notifications-buffer
+  (goto-char (point-max))
+  (insert (format "%s\n" text))))
 
 ;;}}}
 ;;{{{ Completion helper:
