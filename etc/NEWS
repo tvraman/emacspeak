@@ -20,6 +20,18 @@ Emacspeak 46 will therefore no longer install scripts _32-outloud_  or
 any of  the other _32-*_ server scripts.
 
 
+** Updated C/C++ Mode Support 
+
+Module ~emacspeak-c.el~ has been updated to support new functionality
+in ~cc-mode~.
+
+** Updated ProcEd Support
+
+Module ~emacspeak-proced~ has been updated.
+
+** Updated EShell Support
+
+Module ~eshell~ has been updated.
 
 ** Speach-Enabled Clojure 
 
@@ -33,6 +45,10 @@ Rocks now talks ---Module ~emacspeak-cider~ speech-enables ~cider~.
 ** Speech-Enable Racket 
 
 Module ~emacspeak-racket~ speech-enables ~racket-mode~.
+** Updated SoX-Gen
+
+Module ~sox-gen~ has been updated with support for Binaural Beats
+along with predefined Binaural effects and effect sequences.
 
 ** IHeart Radio
 
