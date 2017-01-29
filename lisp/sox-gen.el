@@ -75,8 +75,7 @@
 ;;; @subsubsection High-Level Commands For Pre-Defined Binaural Beats
 ;;;
 ;;; These commands can be called directly to play one of the predefined
-;;; binaural beats. Each of them prompts for a time-scale factor that is
-;;; used to determine the duration of the sequence.
+;;; binaural beats. 
 ;;;
 ;;; @itemize
 ;;; @item @command{sox-rev-up}: A set of binaural beats designed for  use
@@ -391,7 +390,6 @@ binaural beat to another."
 (defun sox--theme-play (theme dur-scale)
   "Play  set of  binaural beats specified in theme."
   (declare (special sox-binaural-slider-scale))
-  (setq dur-scale (timer-duration dur-scale))
   (dtk-notify-say
    (format-seconds "%H %M and%z %S" (sox--theme-compute-length theme dur-scale)))
   (let ((start 0))
@@ -425,36 +423,48 @@ binaural beat to another."
          (setq start (+ start slider-len)))))))
 
 ;;;###autoload
-(defun sox-rev-up (duration-scale)
+(defun sox-rev-up (length)
   "Play rev-up set of  binaural beats.
-Each segment is scaled by `duration-scale'."
+Param `length' specifies total duration."
   (interactive "sDuration: ")
   (declare (special sox-rev-up-beats))
-  (sox--theme-play sox-rev-up-beats duration-scale))
+  (sox--theme-play
+   sox-rev-up-beats
+   (/ (timer-duration length)
+      (apply #'+ (mapcar #'second sox-rev-up-beats)))))
 
 ;;;###autoload
-(defun sox-turn-down (duration-scale)
+(defun sox-turn-down (length)
   "Play turn-down set of  binaural beats.
-Each segment is scaled by `duration-scale'."
+Param `length' specifies total duration."
   (interactive "sDuration: ")
   (declare (special sox-turn-down-beats))
-  (sox--theme-play sox-turn-down-beats duration-scale))
+  (sox--theme-play
+   sox-turn-down-beats
+   (/ (timer-duration length)
+      (apply #'+ (mapcar #'second sox-wind-down-beats)))))
 
 ;;;###autoload
 (defun sox-wind-down (duration-scale)
   "Play wind-down set of  binaural beats.
-Each segment is scaled by `duration-scale'."
+Param `length' specifies total duration."
   (interactive "sDuration: ")
   (declare (special sox-wind-down-beats))
-  (sox--theme-play sox-wind-down-beats duration-scale))
+  (sox--theme-play
+   sox-wind-down-beats
+   (/ (timer-duration length)
+      (apply #'+ (mapcar #'second sox-turn-down-beats)))))
 
 ;;;###autoload
 (defun sox-relax (duration-scale)
   "Play relax set of  binaural beats.
-Each segment is scaled by `duration-scale'."
+Param `length' specifies total duration."
   (interactive "sDuration: ")
   (declare (special sox-relax-beats))
-  (sox--theme-play sox-relax-beats duration-scale))
+  (sox--theme-play
+   sox-relax-beats
+   (/ (timer-duration length)
+      (apply #'+ (mapcar #'second sox-relax-beats)))))
 
 ;;}}}
 ;;{{{ Chakra Themes:
