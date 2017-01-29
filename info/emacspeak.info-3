@@ -5407,7 +5407,7 @@ used to determine the duration of the sequence.
      _Beta_, or _Gamma_.  The previously defined sequences are built up
      using these effects.
    • ‘sox-beats-binaural’: Plays a collection of binaural beats,
-     prompting for fundamental and beat frequencies for each tone.  The
+     prompting for carrier and beat frequencies for each tone.  The
      predefined sequences listed earlier were created after first
      generating experimental beat-sequences using this command.
    • ‘sox-slide-binaural’: Prompts for two binaural effects (see above)
@@ -5416,7 +5416,7 @@ used to determine the duration of the sequence.
    • ‘sox-chakras’: Pick amongst one of a predefined set of sequences
      designed for _Chakra_ meditation.
    • ‘sox-tone-binaural’: Generate a simple binaural beat with a single
-     fundamental frequency.
+     carrier frequency.
    • ‘sox-tone-slide-binaural’: Generate a tone that slides from one
      binaural beat to another.
 
@@ -5488,8 +5488,8 @@ used to determine the duration of the sequence.
 
  -- Command: sox-tone-binaural (length freq beat gain)
 
-     Play binaural audio with carrier frequency ‘freq’, beat ‘beat’,
-     and gain ‘gain’.
+     Play binaural audio with carrier frequency ‘freq’, beat ‘beat’, and
+     gain ‘gain’.
 
      (fn LENGTH FREQ BEAT GAIN)
 
@@ -6647,6 +6647,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <f1> C-e:                              emacspeak.          (line  412)
 * <f1> C-l:                              emacspeak-wizards.  (line  155)
 * <f1> M:                                emacspeak-wizards.  (line  308)
+* <f1> T:                                emacspeak-speak.    (line 1267)
 * <f1> TAB:                              emacspeak-info.     (line   24)
 * <fn> !:                                emacspeak-wizards.  (line  321)
 * <fn> ":                                emacspeak-speak.    (line  937)
@@ -6801,7 +6802,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <fn> d SPC:                            dtk-speak.          (line  348)
 * <fn> d v:                              voice-setup.        (line   61)
 * <fn> d w:                              emacspeak-speak.    (line 1247)
-* <fn> d z:                              emacspeak-speak.    (line 1292)
+* <fn> d z:                              emacspeak-speak.    (line 1302)
 * <fn> DEL:                              cd-tool.            (line   21)
 * <fn> f:                                emacspeak-speak.    (line  287)
 * <fn> g:                                emacspeak-epub.     (line   41)
@@ -6907,6 +6908,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * <help> C-e:                            emacspeak.          (line  413)
 * <help> C-l:                            emacspeak-wizards.  (line  156)
 * <help> M:                              emacspeak-wizards.  (line  309)
+* <help> T:                              emacspeak-speak.    (line 1268)
 * <help> TAB:                            emacspeak-info.     (line   25)
 * <print>:                               emacspeak-muggles.  (line   49)
 * <S-down>:                              emacspeak-wizards.  (line  297)
@@ -7155,7 +7157,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-e d SPC:                             dtk-speak.          (line  347)
 * C-e d v:                               voice-setup.        (line   60)
 * C-e d w:                               emacspeak-speak.    (line 1246)
-* C-e d z:                               emacspeak-speak.    (line 1291)
+* C-e d z:                               emacspeak-speak.    (line 1301)
 * C-e DEL:                               cd-tool.            (line   20)
 * C-e f:                                 emacspeak-speak.    (line  286)
 * C-e g:                                 emacspeak-epub.     (line   40)
@@ -7261,6 +7263,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-h C-e:                               emacspeak.          (line  411)
 * C-h C-l:                               emacspeak-wizards.  (line  153)
 * C-h M:                                 emacspeak-wizards.  (line  307)
+* C-h T:                                 emacspeak-speak.    (line 1266)
 * C-h TAB:                               emacspeak-info.     (line   23)
 * C-M-y:                                 emacspeak-muggles.  (line   94)
 * C-x @ a ,:                             emacspeak-advice.   (line   26)

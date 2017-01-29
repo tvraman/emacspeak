@@ -7317,7 +7317,14 @@ of emacs 23.
 
      Move to next line and speak a summary.
 
-12.139.1.6 emacspeak-proced-speak-field
+12.139.1.6 emacspeak-proced-speak-args
+......................................
+
+ -- Command: emacspeak-proced-speak-args
+
+     Speak command  invocation  for this process.
+
+12.139.1.7 emacspeak-proced-speak-field
 .......................................
 
  -- Command: emacspeak-proced-speak-field (field-name)
@@ -7326,14 +7333,14 @@ of emacs 23.
 
      (fn FIELD-NAME)
 
-12.139.1.7 emacspeak-proced-speak-that-field
+12.139.1.8 emacspeak-proced-speak-that-field
 ............................................
 
  -- Command: emacspeak-proced-speak-that-field
 
      Speak desired field via single keystroke.
 
-12.139.1.8 emacspeak-proced-speak-this-field
+12.139.1.9 emacspeak-proced-speak-this-field
 ............................................
 
  -- Command: emacspeak-proced-speak-this-field (&optional position)
@@ -9775,7 +9782,17 @@ of emacspeak from becoming dependent on the speech server modules
      We need to call this in case Emacs is anal and loads its own
      builtin blink-paren function which does not talk.
 
-12.165.1.117 emacspeak-voiceify-rectangle
+12.165.1.117 emacspeak-view-notifications
+.........................................
+
+ -- Command: emacspeak-view-notifications
+     ‘C-h T’
+     ‘<f1> T’
+     ‘<help> T’
+
+     Display notifications.
+
+12.165.1.118 emacspeak-voiceify-rectangle
 .........................................
 
  -- Command: emacspeak-voiceify-rectangle (start end &optional
@@ -9788,7 +9805,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn START END &optional PERSONALITY)
 
-12.165.1.118 emacspeak-voiceify-region
+12.165.1.119 emacspeak-voiceify-region
 ......................................
 
  -- Command: emacspeak-voiceify-region (start end &optional personality)
@@ -9800,7 +9817,7 @@ of emacspeak from becoming dependent on the speech server modules
 
      (fn START END &optional PERSONALITY)
 
-12.165.1.119 emacspeak-zap-tts
+12.165.1.120 emacspeak-zap-tts
 ..............................
 
  -- Command: emacspeak-zap-tts

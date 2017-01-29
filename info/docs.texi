@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1152 commands and 1063 options.
+This chapter documents a total of 1154 commands and 1063 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -13507,6 +13507,15 @@ Move to next line and speak a summary.
 @end format
 @end deffn
 
+@subsubsection emacspeak-proced-speak-args
+@deffn {Command} emacspeak-proced-speak-args   
+@findex emacspeak-proced-speak-args
+
+@format
+Speak command  invocation  for this process.
+@end format
+@end deffn
+
 @subsubsection emacspeak-proced-speak-field
 @deffn {Command} emacspeak-proced-speak-field  (field-name)
 @findex emacspeak-proced-speak-field
@@ -16672,6 +16681,24 @@ current local  value to the result.
 A customized blink-paren to speak  matching opening paren.
 We need to call this in case Emacs is anal and loads its own
 builtin blink-paren function which does not talk.
+@end format
+@end deffn
+
+@subsubsection emacspeak-view-notifications
+@deffn {Command} emacspeak-view-notifications   
+@table @kbd
+@item C-h T
+@kindex C-h T
+@item <f1> T
+@kindex <f1> T
+@item <help> T
+@kindex <help> T
+@end table
+
+@findex emacspeak-view-notifications
+
+@format
+Display notifications.
 @end format
 @end deffn
 
@@ -23845,7 +23872,7 @@ playing any one of the predefined binaural effects (@emph{Delta},
 @emph{Theta}, @emph{Alpha}, @emph{Beta}, or @emph{Gamma}. The previously
 defined sequences are built up using these effects.
 @item @command{sox-beats-binaural}: Plays a collection of binaural
-beats, prompting for fundamental and beat frequencies for each tone. The
+beats, prompting for carrier and beat frequencies for each tone. The
 predefined sequences listed earlier were created after first generating
 experimental beat-sequences using this command.
 @item @command{sox-slide-binaural}: Prompts for two binaural effects
@@ -23854,7 +23881,7 @@ first effect to the second over a specified duration.
 @item @command{sox-chakras}: Pick  amongst one of a predefined set of
 sequences designed for @emph{Chakra} meditation.
 @item @command{sox-tone-binaural}: Generate a simple binaural beat
-with a single fundamental frequency.
+with a single carrier frequency.
 @item @command{sox-tone-slide-binaural}: Generate a  tone that slides
 from one binaural beat to another.
 @end itemize
@@ -23943,8 +23970,8 @@ Play specified binaural slide from ‘name-1’ to ‘name-2’.
 @findex sox-tone-binaural
 
 @format
-Play binaural audio with carrier frequency ‘freq’, beat ‘beat’,
-and gain ‘gain’.
+Play binaural audio with carrier frequency ‘freq’, beat ‘beat’, and
+gain ‘gain’.
 
 (fn LENGTH FREQ BEAT GAIN)
 @end format
@@ -23995,7 +24022,8 @@ tones using SoX, e.g., for binaural beats.
 @end defvar
 
 @defvar {User Option} sox-binaural-slider-scale
-Scale factor  used to compute slide duration when moving from one binaural beat to another.
+Scale factor used to compute slide duration when moving from one
+binaural beat to another.
 
 @end defvar
 
