@@ -308,12 +308,24 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
     (completing-read "Binaural Effect: " sox-binaural-effects-table
                      nil 'must-match)
     (timer-duration (read-from-minibuffer "Duration: "))))
-  (sox--binaural-play
-   duration
-   (sox--gen-slide-a->b name-1 name-2))
-  (emacspeak-play-auditory-icon 'time)
-  (dtk-notify-say    (format "%s  to %s %s" name-1 name-2
-                             (format-seconds "%H %M%z and %S" duration))))
+  (declare (special sox-binaural-slider-scale))
+  (let ((slide (sox--gen-slide-a->b name-1 name-2))
+        (slope (/ duration sox-binaural-slider-scale))
+        (dur (* 3 (/ duration sox-binaural-slider-scale))))
+    (sox-binaural name-1 slope)
+    (run-with-timer
+     slope nil
+     #'(lambda (n1 n2  d)
+         (emacspeak-play-auditory-icon 'time)
+         (dtk-notify-say    (format "%s  to %s %s" n1 n2
+                                    (format-seconds "%H %M%z and %S" d)))
+         (sox--binaural-play  d slide))
+     name-1 name-2 dur)
+    (run-with-timer
+     (+ dur slope) nil
+     #'(lambda (n2 s)
+         (sox-binaural n2 s))
+     name-2 slope)))
 
 (defun sox--gen-slide-a->b (a b)
   "Return a binaural  structure that slides from a to be."
