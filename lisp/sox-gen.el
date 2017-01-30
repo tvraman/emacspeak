@@ -283,13 +283,10 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
   :beats '((75 40) (150 40) (225 40) (300 40.0))
   :gain -14))
 ;; }}}
-(defvar sox--format-seconds-format
-  "%H %M and%z %S"
-  "Format specifier to format seconds.")
+
 (defsubst sox--format-seconds (seconds)
   "Audio-format seconds."
-  (declare (special sox--format-seconds-format))
-(format-seconds sox--format-seconds-format seconds))
+(format-seconds "%H %M and%z %S" seconds))
 
 ;;;###autoload
 (defun sox-binaural (name duration)
