@@ -2421,7 +2421,7 @@ Produce auditory icons if possible."
                     minibuffer-default))
   (let ((inhibit-field-text-motion t))
     (unless (memq 'emacspeak-minibuffer-exit-hook minibuffer-exit-hook)
-      (add-hook #'emacspeak-minibuffer-exit-hook minibuffer-exit-hook))
+      (add-hook 'minibuffer-exit-hook #'emacspeak-minibuffer-exit-hook))
     (when emacspeak-minibuffer-enter-auditory-icon
       (emacspeak-auditory-icon 'open-object))
     (when minibuffer-default (emacspeak-auditory-icon 'help))
