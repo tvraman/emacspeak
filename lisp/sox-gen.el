@@ -445,7 +445,7 @@ Param `length' specifies total duration."
       (apply #'+ (mapcar #'second sox-wind-down-beats)))))
 
 ;;;###autoload
-(defun sox-wind-down (duration-scale)
+(defun sox-wind-down (length)
   "Play wind-down set of  binaural beats.
 Param `length' specifies total duration."
   (interactive "sDuration: ")
@@ -456,7 +456,7 @@ Param `length' specifies total duration."
       (apply #'+ (mapcar #'second sox-turn-down-beats)))))
 
 ;;;###autoload
-(defun sox-relax (duration-scale)
+(defun sox-relax (length)
   "Play relax set of  binaural beats.
 Param `length' specifies total duration."
   (interactive "sDuration: ")
