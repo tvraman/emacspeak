@@ -390,10 +390,9 @@ binaural beat to another."
 (defsubst sox--theme-duration-scale (theme duration)
   "Given a theme and a desired overall duration, compute duration scale."
   (declare (special sox-binaural-slider-scale))
-  (round
   (/ (timer-duration duration)
       (* (+ 1 (/ 1 (float sox-binaural-slider-scale)))
-       (apply #'+ (mapcar #'second theme))))))
+       (apply #'+ (mapcar #'second theme)))))
 
 (defun sox--theme-play (theme duration)
   "Play  set of  binaural beats specified in theme."
