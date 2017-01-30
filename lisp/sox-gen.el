@@ -371,6 +371,12 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
   "List of  beats to use for relaxing.")
 
 ;;; Theme Helper:
+(defcustom sox-binaural-slider-scale 5
+  "Scale factor used to compute slide duration when moving from one
+binaural beat to another."
+  :type 'number
+  :group 'sox)
+
 (defsubst sox--theme-compute-length (theme scale)
   "Return  how long  this theme  invocation will run in seconds."
   (let  ((intervals (mapcar #'(lambda (th) (* scale (second th))) theme))
@@ -378,21 +384,23 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
     (cl-loop for i in intervals do
              (incf result i)
              (unless (eq  i (car (last intervals)))
-               (incf  result (/ i 5))))
+               (incf  result (/ i (float scale)))))
     result))
 
-(defcustom sox-binaural-slider-scale 5
-  "Scale factor used to compute slide duration when moving from one
-binaural beat to another."
-  :type 'number
-  :group 'sox)
+(defsubst sox--theme-duration-scale (theme duration)
+  "Given a theme and a desired overall duration, compute duration scale."
+  (declare (special sox-binaural-slider-scale))
+  (/ (timer-duration duration)
+      (* (+ 1 (/ 1 (float sox-binaural-slider-scale)))
+       (apply #'+ (mapcar #'second theme)))))
 
-(defun sox--theme-play (theme dur-scale)
+(defun sox--theme-play (theme duration)
   "Play  set of  binaural beats specified in theme."
   (declare (special sox-binaural-slider-scale))
-  (dtk-notify-say
+  (let ((start 0)
+        (dur-scale (sox--theme-duration-scale theme duration)))
+    (dtk-notify-say
    (format-seconds "%H %M and%z %S" (sox--theme-compute-length theme dur-scale)))
-  (let ((start 0))
     (cl-loop
      for beat in theme
      and i from 0 do
@@ -428,10 +436,7 @@ binaural beat to another."
 Param `length' specifies total duration."
   (interactive "sDuration: ")
   (declare (special sox-rev-up-beats))
-  (sox--theme-play
-   sox-rev-up-beats
-   (/ (timer-duration length)
-      (apply #'+ (mapcar #'second sox-rev-up-beats)))))
+  (sox--theme-play sox-rev-up-beats length)) 
 
 ;;;###autoload
 (defun sox-turn-down (length)
@@ -439,10 +444,7 @@ Param `length' specifies total duration."
 Param `length' specifies total duration."
   (interactive "sDuration: ")
   (declare (special sox-turn-down-beats))
-  (sox--theme-play
-   sox-turn-down-beats
-   (/ (timer-duration length)
-      (apply #'+ (mapcar #'second sox-wind-down-beats)))))
+  (sox--theme-play sox-turn-down-beats length))
 
 ;;;###autoload
 (defun sox-wind-down (length)
@@ -450,10 +452,7 @@ Param `length' specifies total duration."
 Param `length' specifies total duration."
   (interactive "sDuration: ")
   (declare (special sox-wind-down-beats))
-  (sox--theme-play
-   sox-wind-down-beats
-   (/ (timer-duration length)
-      (apply #'+ (mapcar #'second sox-turn-down-beats)))))
+  (sox--theme-play sox-wind-down-beats length))
 
 ;;;###autoload
 (defun sox-relax (length)
@@ -461,10 +460,7 @@ Param `length' specifies total duration."
 Param `length' specifies total duration."
   (interactive "sDuration: ")
   (declare (special sox-relax-beats))
-  (sox--theme-play
-   sox-relax-beats
-   (/ (timer-duration length)
-      (apply #'+ (mapcar #'second sox-relax-beats)))))
+  (sox--theme-play sox-relax-beats length))
 
 ;;}}}
 ;;{{{ Chakra Themes:
