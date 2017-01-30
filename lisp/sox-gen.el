@@ -75,7 +75,7 @@
 ;;; @subsubsection High-Level Commands For Pre-Defined Binaural Beats
 ;;;
 ;;; These commands can be called directly to play one of the predefined
-;;; binaural beats. 
+;;; binaural beats.
 ;;;
 ;;; @itemize
 ;;; @item @command{sox-rev-up}: A set of binaural beats designed for  use
@@ -390,9 +390,12 @@ binaural beat to another."
 (defsubst sox--theme-duration-scale (theme duration)
   "Given a theme and a desired overall duration, compute duration scale."
   (declare (special sox-binaural-slider-scale))
-  (/ (timer-duration duration)
-      (* (+ 1 (/ 1 (float sox-binaural-slider-scale)))
-       (apply #'+ (mapcar #'second theme)))))
+  (let ((steps (mapcar #'second theme)))
+    (/ (timer-duration duration)
+       (+
+        (apply #'+ steps)
+        (* (/  (float sox-binaural-slider-scale))
+           (apply #'+ (butlast steps)))))))
 
 (defun sox--theme-play (theme duration)
   "Play  set of  binaural beats specified in theme."
@@ -400,7 +403,7 @@ binaural beat to another."
   (let ((start 0)
         (dur-scale (sox--theme-duration-scale theme duration)))
     (dtk-notify-say
-   (format-seconds "%H %M and%z %S" (sox--theme-compute-length theme dur-scale)))
+     (format-seconds "%H %M and%z %S" (sox--theme-compute-length theme dur-scale)))
     (cl-loop
      for beat in theme
      and i from 0 do
@@ -422,7 +425,7 @@ binaural beat to another."
           #'(lambda (this that len)
               (dtk-notify-say
                (format "%s to %s %s"
-                       this that 
+                       this that
                        (format-seconds "%H %M and %z %S" len)))
               (sox--binaural-play
                len
@@ -436,7 +439,7 @@ binaural beat to another."
 Param `length' specifies total duration."
   (interactive "sDuration: ")
   (declare (special sox-rev-up-beats))
-  (sox--theme-play sox-rev-up-beats length)) 
+  (sox--theme-play sox-rev-up-beats length))
 
 ;;;###autoload
 (defun sox-turn-down (length)
