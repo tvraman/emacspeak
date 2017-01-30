@@ -283,6 +283,13 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
   :beats '((75 40) (150 40) (225 40) (300 40.0))
   :gain -14))
 ;; }}}
+(defvar sox--format-seconds-format
+  "%H %M and%z %S"
+  "Format specifier to format seconds.")
+(defsubst sox--format-seconds (seconds)
+  "Audio-format seconds."
+  (declare (special sox--format-seconds-format))
+(format-seconds sox--format-seconds-format seconds))
 
 ;;;###autoload
 (defun sox-binaural (name duration)
@@ -294,8 +301,8 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
     (timer-duration (read-from-minibuffer "Duration: "))))
   (sox--binaural-play duration (sox-binaural-get-effect name))
   (emacspeak-play-auditory-icon 'time)
-  (dtk-notify-say    (format "%s: %s" name
-                             (format-seconds "%H  %M and%z %S" duration))))
+  (dtk-notify-say
+   (format "%s: %s" name (sox--format-seconds duration))))
 
 ;;;###autoload
 (defun sox-slide-binaural (name-1 name-2 duration)
@@ -316,8 +323,8 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
      slope nil
      #'(lambda (n1 n2  d)
          (emacspeak-play-auditory-icon 'time)
-         (dtk-notify-say    (format "%s  to %s %s" n1 n2
-                                    (format-seconds "%H %M and%z %S" d)))
+         (dtk-notify-say
+          (format "%s  to %s %s" n1 n2 (sox--format-seconds d)))
          (sox--binaural-play  d slide))
      name-1 name-2 dur)
     (run-with-timer
@@ -406,7 +413,7 @@ binaural beat to another."
   (let ((start 0)
         (dur-scale (sox--theme-duration-scale theme duration)))
     (dtk-notify-say
-     (format-seconds "%H %M and%z %S" (sox--theme-compute-length theme dur-scale)))
+     (sox--format-seconds (sox--theme-compute-length theme dur-scale)))
     (cl-loop
      for beat in theme
      and i from 0 do
@@ -428,8 +435,7 @@ binaural beat to another."
           #'(lambda (this that len)
               (dtk-notify-say
                (format "%s to %s %s"
-                       this that
-                       (format-seconds "%H %M and %z %S" len)))
+                       this that (sox--format-seconds len)))
               (sox--binaural-play
                len
                (sox--gen-slide-a->b this that)))
