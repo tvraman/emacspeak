@@ -309,8 +309,8 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
     (timer-duration (read-from-minibuffer "Duration: "))))
   (declare (special sox-binaural-slider-scale))
   (let ((slide (sox--gen-slide-a->b name-1 name-2))
-        (slope (/ duration sox-binaural-slider-scale))
-        (dur (* 3 (/ duration sox-binaural-slider-scale))))
+        (slope (/ duration  sox-binaural-slider-scale))
+        (dur (* 3 (/ duration  sox-binaural-slider-scale))))
     (sox-binaural name-1 slope)
     (run-with-timer
      slope nil
@@ -371,10 +371,13 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
   "List of  beats to use for relaxing.")
 
 ;;; Theme Helper:
-(defcustom sox-binaural-slider-scale 5
+(defcustom sox-binaural-slider-scale 5.0
   "Scale factor used to compute slide duration when moving from one
 binaural beat to another."
-  :type 'number
+  :type 'float
+  :set #'(lambda (sym val)
+
+           (set-default sym (float val)))
   :group 'sox)
 
 (defsubst sox--theme-compute-length (theme scale)
@@ -384,17 +387,17 @@ binaural beat to another."
     (cl-loop for i in intervals do
              (incf result i)
              (unless (eq  i (car (last intervals)))
-               (incf  result (/ i (float sox-binaural-slider-scale)))))
+               (incf  result (/ i  sox-binaural-slider-scale))))
     result))
 
 (defsubst sox--theme-duration-scale (theme duration)
   "Given a theme and a desired overall duration, compute duration scale."
   (declare (special sox-binaural-slider-scale))
   (let ((steps (mapcar #'second theme)))
-    (/ (timer-duration duration)
-       (+
-        (apply #'+ steps)
-        (* (/  (float sox-binaural-slider-scale))
+    (/
+     (timer-duration duration)
+     (+ (apply #'+ steps)
+        (* (/ 1   sox-binaural-slider-scale)
            (apply #'+ (butlast steps)))))))
 
 (defun sox--theme-play (theme duration)
