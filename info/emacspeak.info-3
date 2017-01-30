@@ -5388,8 +5388,7 @@ binaural beat sequences by customizing
 .............................................................
 
 These commands can be called directly to play one of the predefined
-binaural beats.  Each of them prompts for a time-scale factor that is
-used to determine the duration of the sequence.
+binaural beats.
 
    • ‘sox-rev-up’: A set of binaural beats designed for use at the start
      of the day.  Transitions from _Dream_ -> _Think_ ->_Act_ ->
@@ -5457,22 +5456,22 @@ used to determine the duration of the sequence.
 12.221.2.4 sox-relax
 ....................
 
- -- Command: sox-relax (duration-scale)
+ -- Command: sox-relax (length)
 
      Play relax set of  binaural beats.
-     Each segment is scaled by ‘duration-scale’.
+     Param ‘length’ specifies total duration.
 
-     (fn DURATION-SCALE)
+     (fn LENGTH)
 
 12.221.2.5 sox-rev-up
 .....................
 
- -- Command: sox-rev-up (duration-scale)
+ -- Command: sox-rev-up (length)
 
      Play rev-up set of  binaural beats.
-     Each segment is scaled by ‘duration-scale’.
+     Param ‘length’ specifies total duration.
 
-     (fn DURATION-SCALE)
+     (fn LENGTH)
 
 12.221.2.6 sox-slide-binaural
 .............................
@@ -5507,22 +5506,22 @@ used to determine the duration of the sequence.
 12.221.2.9 sox-turn-down
 ........................
 
- -- Command: sox-turn-down (duration-scale)
+ -- Command: sox-turn-down (length)
 
      Play turn-down set of  binaural beats.
-     Each segment is scaled by ‘duration-scale’.
+     Param ‘length’ specifies total duration.
 
-     (fn DURATION-SCALE)
+     (fn LENGTH)
 
 12.221.2.10 sox-wind-down
 .........................
 
- -- Command: sox-wind-down (duration-scale)
+ -- Command: sox-wind-down (length)
 
      Play wind-down set of  binaural beats.
-     Each segment is scaled by ‘duration-scale’.
+     Param ‘length’ specifies total duration.
 
-     (fn DURATION-SCALE)
+     (fn LENGTH)
 
 12.221.3 sox-gen Options
 ------------------------
@@ -6929,7 +6928,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-' u:                                 soundscape.         (line  135)
 * C-, ,:                                 emacspeak-advice.   (line   25)
 * C-, a:                                 emacspeak-feeds.    (line   35)
-* C-, b:                                 sox-gen.            (line   91)
+* C-, b:                                 sox-gen.            (line   90)
 * C-, c:                                 emacspeak-wizards.  (line 1294)
 * C-, f:                                 emacspeak-feeds.    (line   65)
 * C-, i:                                 emacspeak-wizards.  (line  809)
@@ -7268,7 +7267,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-M-y:                                 emacspeak-muggles.  (line   94)
 * C-x @ a ,:                             emacspeak-advice.   (line   26)
 * C-x @ a a:                             emacspeak-feeds.    (line   36)
-* C-x @ a b:                             sox-gen.            (line   92)
+* C-x @ a b:                             sox-gen.            (line   91)
 * C-x @ a c:                             emacspeak-wizards.  (line 1295)
 * C-x @ a f:                             emacspeak-feeds.    (line   66)
 * C-x @ a i:                             emacspeak-wizards.  (line  810)

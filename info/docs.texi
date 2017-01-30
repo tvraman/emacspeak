@@ -23851,8 +23851,7 @@ overall volume of all binaural beat sequences by customizing
 @subsubsection High-Level Commands For Pre-Defined Binaural Beats
 
 These commands can be called directly to play one of the predefined
-binaural beats. Each of them prompts for a time-scale factor that is
-used to determine the duration of the sequence.
+binaural beats. 
 
 @itemize
 @item @command{sox-rev-up}: A set of binaural beats designed for  use
@@ -23931,26 +23930,26 @@ Parameter ‘theme’ specifies variant.
 @end deffn
 
 @subsubsection sox-relax
-@deffn {Command} sox-relax  (duration-scale)
+@deffn {Command} sox-relax  (length)
 @findex sox-relax
 
 @format
 Play relax set of  binaural beats.
-Each segment is scaled by ‘duration-scale’.
+Param ‘length’ specifies total duration.
 
-(fn DURATION-SCALE)
+(fn LENGTH)
 @end format
 @end deffn
 
 @subsubsection sox-rev-up
-@deffn {Command} sox-rev-up  (duration-scale)
+@deffn {Command} sox-rev-up  (length)
 @findex sox-rev-up
 
 @format
 Play rev-up set of  binaural beats.
-Each segment is scaled by ‘duration-scale’.
+Param ‘length’ specifies total duration.
 
-(fn DURATION-SCALE)
+(fn LENGTH)
 @end format
 @end deffn
 
@@ -23990,26 +23989,26 @@ Play binaural audio with carrier frequency ‘freq’, beat
 @end deffn
 
 @subsubsection sox-turn-down
-@deffn {Command} sox-turn-down  (duration-scale)
+@deffn {Command} sox-turn-down  (length)
 @findex sox-turn-down
 
 @format
 Play turn-down set of  binaural beats.
-Each segment is scaled by ‘duration-scale’.
+Param ‘length’ specifies total duration.
 
-(fn DURATION-SCALE)
+(fn LENGTH)
 @end format
 @end deffn
 
 @subsubsection sox-wind-down
-@deffn {Command} sox-wind-down  (duration-scale)
+@deffn {Command} sox-wind-down  (length)
 @findex sox-wind-down
 
 @format
 Play wind-down set of  binaural beats.
-Each segment is scaled by ‘duration-scale’.
+Param ‘length’ specifies total duration.
 
-(fn DURATION-SCALE)
+(fn LENGTH)
 @end format
 @end deffn
 
