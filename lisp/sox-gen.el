@@ -384,7 +384,7 @@ binaural beat to another."
     (cl-loop for i in intervals do
              (incf result i)
              (unless (eq  i (car (last intervals)))
-               (incf  result (/ i (float scale)))))
+               (incf  result (/ i (float sox-binaural-slider-scale)))))
     result))
 
 (defsubst sox--theme-duration-scale (theme duration)
