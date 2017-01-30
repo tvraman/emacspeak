@@ -55,3 +55,9 @@ along with predefined Binaural effects and effect sequences.
 Module _emacspeak-wizards_ now  provides ~emacspeak-wizards-iheart~
 --- this uses ~iheart-url~ to play IHeart Radio stations.
 
+** Notifications 
+
+Emacspeak now records any *Notifications* produced by
+_dtk-notifyspeak_ and friends in a special ~*Notifications*~ buffer
+that is setup  like Emacs' built-in ~*Messages*~ buffer.
+-- this buffer can be displayed using _C-h T_.
