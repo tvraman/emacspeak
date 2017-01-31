@@ -262,7 +262,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
 (sox-define-binaural-effect
  "dream" ; theta
  (make-sox--binaural
-  :beats '((75 4.5) (150 5.3) (225 6.3)  (300 7.34))
+  :beats '((75 4.5) (150 5.3) (225 6.3)  (300 7.83))
   :gain -18))
 
 (sox-define-binaural-effect
@@ -502,13 +502,13 @@ Param `length' specifies total duration."
 
 (defconst sox--chakra-settings-1
   '(
-    ("root-0" 256 7.34)
-    ("navel-0" 288 7.34)
-    ("solar-plexus-0" 320 7.34)
-    ("heart-0" 341.3 7.34)
-    ("throat-0" 384 7.34)
-    ("3rd-eye-0" 426.7 7.34)
-    ("crown-0" 480 7.34)
+    ("root-0" 256 7.83)
+    ("navel-0" 288 7.83)
+    ("solar-plexus-0" 320 7.83)
+    ("heart-0" 341.3 7.83)
+    ("throat-0" 384 7.83)
+    ("3rd-eye-0" 426.7 7.83)
+    ("crown-0" 480 7.83)
     )
   "Frequency settings.")
 
