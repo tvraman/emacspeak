@@ -1217,6 +1217,20 @@ Format is stationid+AM/FM."
 ;;}}}
 ;;{{{ GitHub Search
 
+
+
+(emacspeak-url-template-define
+ "GitHub Code Search"
+ "https://github.com/search?q=%s&type=Code&utf8=✓"
+ (list "GitHub Code Search:")
+ nil
+ "GitHub Code Search. 
+Query can include filters such as:
+
+<term>: Query Term.
+extension:<ext> Filter by file extension 
+-filename:<pattern> Filter out files matching pattern.")
+
 (emacspeak-url-template-define
  "GitHub Search"
  "https://github.com/search?q=%s"
