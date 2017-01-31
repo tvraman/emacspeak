@@ -1217,8 +1217,6 @@ Format is stationid+AM/FM."
 ;;}}}
 ;;{{{ GitHub Search
 
-
-
 (emacspeak-url-template-define
  "GitHub Code Search"
  "https://github.com/search?q=%s&type=Code&utf8=✓"
@@ -1236,7 +1234,7 @@ extension:<ext> Filter by file extension
  "https://github.com/search?q=%s"
  (list "Query: ")
  #'(lambda ()
-     (emacspeak-imenu-goto-next-index-position)
+     (emacspeak-eww-next-h)
      (emacspeak-speak-rest-of-buffer))
  "Perform a GitHub Search.")
 
