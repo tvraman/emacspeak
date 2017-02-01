@@ -495,7 +495,7 @@ Param `length' specifies total duration."
   (first s)
   (make-sox--binaural
    :beats `(,(cdr s))
-   :gain -20)))
+   :gain -10)))
 
 ;;; Chakras: Set 1:Carrier frequencies taken from  the Web.
 ;;; https://sourceforge.net/p/sbagen/mailman/message/3047882/
@@ -518,7 +518,7 @@ Param `length' specifies total duration."
   (first s)
   (make-sox--binaural
    :beats `(,(cdr s))
-   :gain -20)))
+   :gain -10)))
 
 ;;;###autoload
 (defun sox-chakras (theme duration)
