@@ -528,7 +528,6 @@ static void initLanguage(Tcl_Interp *interp) {
     fprintf(stderr, "doesn't seem to be available either.  Bailing now.\n");
     exit(1);
   }
-  fprintf(stderr, "default_index %d\n", default_index);
   if (default_index == lang_count) {
     default_index = english_index;
     fprintf(stderr, "Couldn't find your default language, using English.\n");
