@@ -171,7 +171,7 @@ gain `gain'."
    (format
     sox-binaural-cmd
     length freq
-    (format "%s-%s" (+ freq beat-start) (+ freq beat-end))
+    (format "%s:%s" (+ freq beat-start) (+ freq beat-end))
     (+ gain sox-binaural-gain-offset))))
 
 (defconst sox-beats-binaural-cmd
@@ -216,7 +216,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
             ((and (listp b) (numberp (first b)) (numberp (second b)))
              (format "sin %s sin %s"
                      f
-                     (format "%s-%s"    ;slide
+                     (format "%s:%s"    ;slide
                              (+ f (first b)) (+ f (second b))))))))
      beat-spec-list " ")
     (+ gain sox-binaural-gain-offset))))
