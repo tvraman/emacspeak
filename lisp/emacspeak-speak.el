@@ -186,12 +186,9 @@ message area.  You can use command
   :group 'emacspeak-speak
   :type 'boolean)
 
-
-
 ;;; Emacspeak silences messages from shell-command when called non-interactively.
 ;;; This replacement is used within Emacspeak to invoke commands
 ;;; whose output we want to hear.
-
 
 (defun  emacspeak-shell-command (command)
   "Run shell command and speak its output."
@@ -207,13 +204,18 @@ message area.  You can use command
 
 ;;}}}
 ;;{{{ Notifications:
-(defvar emacspeak-notifications-buffer
+
+(defun emacspeak--notifications-init  ()
+  "Init Notifications stream."
   (let ((buffer (get-buffer-create "*Notifications*")))
     (with-current-buffer buffer
       (special-mode)
-      buffer))
+      buffer)))
+
+(defvar emacspeak-notifications-buffer
+  (emacspeak--notifications-init)
   "Notifications buffer. Retains at most `emacspeak-notifications-max lines.")
- 
+
 (defun emacspeak-view-notifications ()
   "Display notifications."
   (interactive)
@@ -222,7 +224,7 @@ message area.  You can use command
   (funcall-interactively #'switch-to-buffer emacspeak-notifications-buffer ))
 
 (defconst emacspeak-notifications-max 128
-"Number of notifications to retain.")
+  "Number of notifications to retain.")
 
 (defun emacspeak-notifications-truncate ()
   "Trim notifications buffer."
@@ -235,9 +237,11 @@ message area.  You can use command
         (forward-line (- lines emacspeak-notifications-max))
         (delete-region (point-min) (point))))))
 
-
 (defun emacspeak-log-notification (text)
   "Log a notification."
+  (declare (special emacspeak-notifications-buffer))
+  (unless (buffer-live-p  emacspeak-notifications-buffer)
+    (setq emacspeak-notifications-buffer (emacspeak--notifications-init)))
   (with-current-buffer emacspeak-notifications-buffer
     (let ((inhibit-read-only t))
       (goto-char (point-max))
