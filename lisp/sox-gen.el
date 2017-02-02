@@ -340,7 +340,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
                t "Effects have different lengths. " a b )
     (make-sox--binaural
      :gain  (/ (+ (sox--binaural-gain a-effect)
-                  ( * 2 sox-binaural-gain-offset)
+                   sox-binaural-gain-offset
                   (sox--binaural-gain b-effect))
                2)
      :beats
