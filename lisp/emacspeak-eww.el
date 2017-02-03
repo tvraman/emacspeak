@@ -683,7 +683,7 @@ Retain previously set punctuations  mode."
     (form . eww-tag-form)
     (input . eww-tag-input)
     (textarea . eww-tag-textarea)
-    (body . eww-tag-body)
+    ;(body . eww-tag-body)
     (select . eww-tag-select)
     (link . eww-tag-link)
     (a . eww-tag-a))
