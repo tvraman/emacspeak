@@ -40,12 +40,11 @@
 
 ;;{{{ introduction
 
-;;; Commentary:
-;;; EWW == Emacs Web Browser
-;;; EWW is a light-weight Web browser built into Emacs 24.4.
-;;; This module speech-enables EWW.
-;;; It implements additional interactive commands for navigating the DOM.
-;;; It also provides a set of filters for interactively filtering the DOM by various attributes such as id, class and role.
+;;; Commentary: EWW == Emacs Web Browser EWW is a light-weight Web
+;;; browser built into Emacs 24.4. This module speech-enables EWW. It
+;;; implements additional interactive commands for navigating the
+;;; DOM. It also provides a set of filters for interactively filtering
+;;; the DOM by various attributes such as id, class and role.
 
 ;;; Code:
 ;;}}}
@@ -371,42 +370,42 @@ are available are cued by an auditory icon on the header line."
 If buffer was result of displaying a feed, reload feed.
 If we came from a url-template, reload that template.
 Retain previously set punctuations  mode."
-  (let () (add-hook 'emacspeak-web-post-process-hook 'emacspeak-eww-post-render-actions)
-       (cond
-        ((and (emacspeak-eww-current-url)
-              emacspeak-eww-feed
-              emacspeak-eww-style)
+  (add-hook 'emacspeak-web-post-process-hook 'emacspeak-eww-post-render-actions)
+  (cond
+   ((and (emacspeak-eww-current-url)
+         emacspeak-eww-feed
+         emacspeak-eww-style)
                                         ; this is a displayed feed
-         (lexical-let
-             ((p dtk-punctuation-mode)
-              (r dtk-speech-rate)
-              (u (emacspeak-eww-current-url))
-              (s emacspeak-eww-style))
-           (kill-buffer)
-           (add-hook
-            'emacspeak-web-post-process-hook
-            #'(lambda ()
-                (dtk-set-punctuations p)
-                (dtk-set-rate r)
-                (emacspeak-dtk-sync))
-            'at-end)
-           (emacspeak-feeds-feed-display u s 'speak)))
-        ((and (emacspeak-eww-current-url) emacspeak-eww-url-template)
+    (lexical-let
+        ((p dtk-punctuation-mode)
+         (r dtk-speech-rate)
+         (u (emacspeak-eww-current-url))
+         (s emacspeak-eww-style))
+      (kill-buffer)
+      (add-hook
+       'emacspeak-web-post-process-hook
+       #'(lambda ()
+           (dtk-set-punctuations p)
+           (dtk-set-rate r)
+           (emacspeak-dtk-sync))
+       'at-end)
+      (emacspeak-feeds-feed-display u s 'speak)))
+   ((and (emacspeak-eww-current-url) emacspeak-eww-url-template)
                                         ; this is a url template
-         (lexical-let
-             ((n emacspeak-eww-url-template)
-              (p dtk-punctuation-mode)
-              (r dtk-speech-rate))
-           (add-hook
-            'emacspeak-web-post-process-hook
-            #'(lambda nil
-                (dtk-set-punctuations p)
-                (dtk-set-rate r)
-                (emacspeak-dtk-sync))
-            'at-end)
-           (kill-buffer)
-           (emacspeak-url-template-open (emacspeak-url-template-get  n))))
-        (t ad-do-it))))
+    (lexical-let
+        ((n emacspeak-eww-url-template)
+         (p dtk-punctuation-mode)
+         (r dtk-speech-rate))
+      (add-hook
+       'emacspeak-web-post-process-hook
+       #'(lambda nil
+           (dtk-set-punctuations p)
+           (dtk-set-rate r)
+           (emacspeak-dtk-sync))
+       'at-end)
+      (kill-buffer)
+      (emacspeak-url-template-open (emacspeak-url-template-get  n))))
+   (t ad-do-it)))
 
 (loop
  for f in
@@ -677,13 +676,14 @@ Retain previously set punctuations  mode."
     (shr-generic dom)
     (put-text-property start (point) 'article 'eww-tag)))
 
-(defvar eww-shr-render-functions
+(defvar emacspeak-eww-shr-render-functions
   '((article . emacspeak-eww-tag-article)
     (title . eww-tag-title)
     (form . eww-tag-form)
     (input . eww-tag-input)
     (textarea . eww-tag-textarea)
-    ;(body . eww-tag-body)
+    (meta . eww-tag-meta)
+    (button . eww-form-submit)
     (select . eww-tag-select)
     (link . eww-tag-link)
     (a . eww-tag-a))
@@ -753,12 +753,12 @@ for use as a DOM filter."
 (defun emacspeak-eww-view-helper  (filtered-dom)
   "View helper called by various filtering viewers."
   (declare (special emacspeak-eww-rename-result-buffer
-                    eww-shr-render-functions))
+                    emacspeak-eww-shr-render-functions))
   (let ((emacspeak-eww-rename-result-buffer nil)
         (url (emacspeak-eww-current-url))
         (title  (format "%s: Filtered" (emacspeak-eww-current-title)))
         (inhibit-read-only t)
-        (shr-external-rendering-functions eww-shr-render-functions))
+        (shr-external-rendering-functions emacspeak-eww-shr-render-functions))
     (eww-save-history)
     (erase-buffer)
     (goto-char (point-min))
@@ -962,7 +962,7 @@ Optional interactive arg `multi' prompts for multiple classes."
   "Display DOM filtered by specified  nodes not passing   role=value test.
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
-  (declare (special  eww-shr-render-functions))
+  (declare (special  emacspeak-eww-shr-render-functions))
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-remove-if
@@ -994,7 +994,7 @@ Optional interactive arg `multi' prompts for multiple classes."
   "Display DOM filtered by specified  nodes not passing   property=value test.
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
-  (declare (special  eww-shr-render-functions))
+  (declare (special  emacspeak-eww-shr-render-functions))
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-remove-if
@@ -1026,7 +1026,7 @@ Optional interactive arg `multi' prompts for multiple classes."
   "Display DOM filtered by specified  nodes not passing   itemprop=value test.
 Optional interactive arg `multi' prompts for multiple classes."
   (interactive "P")
-  (declare (special  eww-shr-render-functions))
+  (declare (special  emacspeak-eww-shr-render-functions))
   (emacspeak-eww-prepare-eww)
   (let ((dom
          (eww-dom-remove-if
@@ -1090,7 +1090,9 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   "Helper for display filters."
   (emacspeak-eww-prepare-eww)
   (let ((dom (funcall  filter  (emacspeak-eww-current-dom)arg)))
-    (when dom (emacspeak-eww-view-helper (dom-html-from-nodes dom (emacspeak-eww-current-url))))))
+    (when dom
+      (emacspeak-eww-view-helper
+       (dom-html-from-nodes dom (emacspeak-eww-current-url))))))
 
 (defun eww-display-dom-by-id (id)
   "Display DOM filtered by specified id."
@@ -1326,7 +1328,8 @@ Optional interactive prefix arg speaks the structural unit." f)
 Warning, this is fragile, and depends on a stable id for the
   knowledge card."
   (interactive)
-  (declare (special eww-shr-render-functions emacspeak-eww-masquerade))
+  (declare (special
+            emacspeak-eww-shr-render-functions emacspeak-eww-masquerade))
   (unless emacspeak-eww-masquerade
     (error "Turn on  masquerade mode for knowledge cards."))
   (unless (eq major-mode 'eww-mode)
@@ -1343,7 +1346,7 @@ Warning, this is fragile, and depends on a stable id for the
          (eww-dom-keep-if
           (emacspeak-eww-current-dom) (eww-attribute-tester 'id value))
          (eww-attribute-tester 'class media)))
-       (shr-external-rendering-functions eww-shr-render-functions))
+       (shr-external-rendering-functions emacspeak-eww-shr-render-functions))
     (cond
      (dom
       (eww-save-history)
@@ -1475,10 +1478,12 @@ Warning, this is fragile, and depends on a stable id for the
 ;;}}}
 ;;{{{ Handling Media (audio/video)
 
-;;; This should ideally be handled through mailcap.
-;;; At present, EWW sets  eww-use-external-browser-for-content-type
-;;; to match audio/video (only) and hands those off to eww-browse-with-external-browser.
-;;; Below, we advice eww-browse-with-external-browser to use emacspeak-m-player instead.
+;;; This should ideally be handled through mailcap. At present, EWW
+;;; sets eww-use-external-browser-for-content-type to match
+;;; audio/video (only) and hands those off to
+;;; eww-browse-with-external-browser. Below, we advice
+;;; eww-browse-with-external-browser to use emacspeak-m-player
+;;; instead.
 (defadvice eww-browse-with-external-browser(around emacspeak pre act comp)
   "Use our m-player integration."
   (let ((url (ad-get-arg 0))
