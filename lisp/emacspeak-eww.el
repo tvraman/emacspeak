@@ -264,6 +264,7 @@ are available are cued by an auditory icon on the header line."
    for binding  in
    '(
      (":" emacspeak-eww-tags-at-point)
+     ("V" eww-view-source)
      ("'" emacspeak-speak-rest-of-buffer)
      ("*" eww-add-bookmark)
      ("," emacspeak-eww-previous-h)
