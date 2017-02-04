@@ -1089,6 +1089,15 @@ Set up URL rewrite rule to get print page."
 
 ;;}}}
 ;;{{{ weather underground
+(emacspeak-url-template-define
+ "Lightweight  weather from wunderground"
+ "https://braille.wunderground.com/cgi-bin/findweather/hdfForecast?brand=braille&query=%s"
+ (list
+  #'(lambda nil
+      (read-from-minibuffer "State/City:"
+                            (bound-and-true-p  gweb-my-postal-code))))
+ #'emacspeak-speak-buffer
+ "Pull light-weight weather feed for specified state/city.")
 
 (emacspeak-url-template-define
  "rss weather from wunderground"
