@@ -1,5 +1,6 @@
 #!/bin/sh
 # usage: remote-tts-setup server-script synthesizer-server 
+# Also see .. bash-scripts/remote on GitHub
 # starts a local server, then ssh to remote-host,
 # and set up reverse port forwarding.
 #Examples:
