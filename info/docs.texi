@@ -7989,7 +7989,7 @@ Display DOM nodes having specified class. Valid classes
 are available via completion.
 @item  E
 @command{eww-view-dom-having-elements}
-Display specified elements from the DOMDOM. Valid element names
+Display specified elements from the Dom. Valid element names
 are available via completion.
 @item  I
 @command{eww-view-dom-having-id}
@@ -8052,6 +8052,46 @@ item y
 @command{emacspeak-m-player-youtube-player}
 Play link under point as a Youtube stream.
 @end table
+
+@subsection Miscellaneous Commands
+
+@table @kbd
+@item '
+@command{emacspeak-speak-rest-of-buffer}
+Speak rest of current Web page starting from point.
+@item *
+@command{eww-add-bookmark}
+Bookmark current Web page.
+@item = @command{dtk-toggle-punctuation-mode}
+Toggle punctuation mode.
+@item ?
+@command{emacspeak-webutils-google-similar-to-this-page}
+Google similarity search.
+@item C-t
+@command{emacspeak-eww-transcode}
+Transcode current page to something more readable.
+@item G @command{emacspeak-google-command}
+Prefix key to invoke Google-specific commands.
+@item L
+@command{emacspeak-eww-links-rel}
+Display any related links discovered via the document's @code{meta} tag.
+@item Q
+@command{emacspeak-kill-buffer-quietly}
+Delete this buffer.
+@item V
+@command{eww-view-source}
+Display Web page source.
+@item e
+@command{emacspeak-we-xsl-map}
+Prefix key for invoking XSLT-based filters.
+@item k
+@command{eww-copy-page-url}
+Copy page URL to kill-ring.
+@end table
+
+In addition, see commands in
+@xref{emacspeak-google,,emacspeak-google} for Google-Search specific commands, many of
+which are available via prefix-key @kbd{G}.
 
 @subsection emacspeak-eww Commands
 

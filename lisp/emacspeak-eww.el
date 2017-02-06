@@ -233,7 +233,7 @@
 ;;; @end table
 ;;;
 
-;;;@subsection{Miscellaneous Commands}
+;;;@subsection Miscellaneous Commands
 
 ;;;@table @kbd
 ;;;@item '
