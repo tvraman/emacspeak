@@ -142,7 +142,7 @@
 ;;;@item       s
 ;;;@command{eww-readable}
 ;;;Use EWW's built-in readable tool.
-;;;  @item :
+;;;@item :
 ;;;@command{emacspeak-eww-tags-at-point}
 ;;;Display  currently active HTML tags at point.
 ;;;@end table

@@ -2669,11 +2669,80 @@ updates EWW’s built-in key-bindings with Emacspeak conveniences.
 12.74.1 Structured Navigation
 -----------------------------
 
+These commands move through section headers as defined in HTML.
+‘1’
+     ‘emacspeak-eww-next-h1’ Move to next ‘H1’ heading.
+‘2’
+     ‘emacspeak-eww-next-h2’ Move to next ‘H2’ heading.
+‘3’
+     ‘emacspeak-eww-next-h3’ Move to next ‘H3’ heading.
+‘4’
+     ‘emacspeak-eww-next-h4’ Move to next ‘H4’ heading.
+‘.’
+     ‘emacspeak-eww-next-h’ Move to next heading.  (‘H1’...‘H4’).
+‘M-1’
+     ‘emacspeak-eww-previous-h1’ Move to previous ‘H1’ heading.
+‘M-2’
+     ‘emacspeak-eww-previous-h2’ Move to previous ‘H2’ heading.
+‘M-3’
+     ‘emacspeak-eww-previous-h3’ Move to previous ‘H3’ heading.
+‘M-4’
+     ‘emacspeak-eww-previous-h4’ Move to previous ‘H4’ heading.
+‘,’
+     ‘emacspeak-eww-previous-h’ Move to previous heading (‘H1’...‘H4’).
+
+   This next set of DOM commands enable navigating by HTML elements.
+‘M-SPC’
+     ‘emacspeak-eww-speak-this-element’ Speak contents of current
+     element.
+‘J’
+     ‘emacspeak-eww-next-element-like-this’ Jump to next element that is
+     the same as the one under point.  If there are multiple HTML
+     elements under point, prompts for element-name using completion.
+‘K’
+     ‘emacspeak-eww-previous-element-like-this’ Jump to previous element
+     that is the same as the one under point.  If there are multiple
+     HTML elements under point, prompts for element-name using
+     completion.
+‘N’
+     ‘emacspeak-eww-next-element-from-history’ Jump to next element
+     based on previous J/K command history.
+‘P’
+     ‘emacspeak-eww-previous-element-from-history’ Jump to previous
+     element based on previous J/K history.
+‘O’
+     ‘emacspeak-eww-previous-li’ Jump to previous list item.
+‘o’
+     ‘emacspeak-eww-next-li’ Jump to next list item.
+‘T’
+     ‘emacspeak-eww-previous-table’ Jump to previous table in page.
+‘t’
+     ‘emacspeak-eww-next-table’ Jump to next table.
+‘[’
+     ‘emacspeak-eww-previous-p’ Jump to previous paragraph.
+‘]’
+     ‘emacspeak-eww-next-p’ Jump to next paragraph.
+‘b’
+     ‘shr-previous-link’ Jump to previous link.
+‘f’
+     ‘shr-next-link’ Jump to next link.
+‘n’
+     ‘emacspeak-eww-next-element’ Jump to next element.
+‘p’
+     ‘emacspeak-eww-previous-element’ Jump to previous element.
+‘s’
+     ‘eww-readable’ Use EWW’s built-in readable tool.
+‘:’
+     ‘emacspeak-eww-tags-at-point’ Display currently active HTML tags at
+     point.
+
 12.74.2 Filtering Content Using The DOM
 ---------------------------------------
 
 These commands use EWW’s HTML DOM to display different filtered views of
-the Web page.
+the Web page.  With an interactive prefix argument, these commands
+prompt for a list of filters.  Command ‘emacspeak-eww-restore’ bound to
+‘DEL’ can be used to restore the previous view.
 
 ‘A’
      ‘eww-view-dom-having-attribute’ Display DOM nodes having specified
@@ -2681,6 +2750,9 @@ the Web page.
 ‘C’
      ‘eww-view-dom-having-class’ Display DOM nodes having specified
      class.  Valid classes are available via completion.
+‘E’
+     ‘eww-view-dom-having-elements’ Display specified elements from the
+     DOMDOM. Valid element names are available via completion.
 ‘I’
      ‘eww-view-dom-having-id’ Display DOM nodes having specified ID.
      Valid id values are available via completion.
@@ -2703,68 +2775,6 @@ the Web page.
 ‘M-r’
      ‘eww-view-dom-not-having-role’ Filter out DOM nodes having
      specified role.  Valid role values are available via completion.
-
-   These commands move through section headers as defined in HTML.
-‘1’
-     ‘emacspeak-eww-next-h1’ Move to next ‘H1’ heading.
-‘2’
-     ‘emacspeak-eww-next-h2’ Move to next ‘H2’ heading.
-‘3’
-     ‘emacspeak-eww-next-h3’ Move to next ‘H3’ heading.
-‘4’
-     ‘emacspeak-eww-next-h4’ Move to next ‘H4’ heading.
-‘.’
-     ‘emacspeak-eww-next-h’ Move to next heading.  (‘H1’...‘H4’).
-‘M-1’
-     ‘emacspeak-eww-previous-h1’ Move to previous ‘H1’ heading.
-‘M-2’
-     ‘emacspeak-eww-previous-h2’ Move to previous ‘H2’ heading.
-‘M-3’
-     ‘emacspeak-eww-previous-h3’ Move to previous ‘H3’ heading.
-‘M-4’
-     ‘emacspeak-eww-previous-h4’ Move to previous ‘H4’ heading.
-‘,’
-     ‘emacspeak-eww-previous-h’ Move to previous heading (‘H1’...‘H4’).
-
-   This next set of DOM commands enable navigating by HTML element.
-     m : ‘emacspeak-eww-tags-at-point’ Display currently active HTML
-     tags at point.
-‘J’
-     ‘emacspeak-eww-next-element-like-this’ Jump to next element that is
-     the same as the one under point.
-‘K’
-     ‘emacspeak-eww-previous-element-like-this’ Jump to previous element
-     that is the same as the one under point.
-‘M-SPC’
-     ‘emacspeak-eww-speak-this-element’
-‘N’
-     ‘emacspeak-eww-next-element-from-history’ Jump to next element
-     based on history.
-‘P’
-     ‘emacspeak-eww-previous-element-from-history’ Jump to previous
-     element based on history.
-‘O’
-     ‘emacspeak-eww-previous-li’ Jump to previous list item.
-‘T’
-     ‘emacspeak-eww-previous-table’ Jump to previous table in page.
-‘[’
-     ‘emacspeak-eww-previous-p’ Jump to previous paragraph.
-‘]’
-     ‘emacspeak-eww-next-p’ Jump to next paragraph.
-‘b’
-     ‘shr-previous-link’ Jump to previous link.
-‘f’
-     ‘shr-next-link’ Jump to next link.
-‘n’
-     ‘emacspeak-eww-next-element’ Jump to next element.
-‘o’
-     ‘emacspeak-eww-next-li’ Jump to next list item.
-‘p’
-     ‘emacspeak-eww-previous-element’ Jump to previous element.
-‘s’
-     ‘eww-readable’ Use EWW’s built-in readable tool.
-‘t’
-     ‘emacspeak-eww-next-table’ Jump to next table.
 
 12.74.3 Filtering Content Using XSLT And XPath
 ----------------------------------------------
