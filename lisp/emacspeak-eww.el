@@ -40,11 +40,55 @@
 
 ;;{{{ introduction
 
-;;; Commentary: EWW == Emacs Web Browser EWW is a light-weight Web
-;;; browser built into Emacs 24.4. This module speech-enables EWW. It
-;;; implements additional interactive commands for navigating the
+;;; Commentary: EWW == Emacs Web Browser
+;;;
+;;; EWW is a light-weight Web browser built into Emacs starting with
+;;; Emacs-24.4 . This module speech-enables EWW. 
+;;;
+;;;It implements additional interactive commands for navigating the
 ;;; DOM. It also provides a set of filters for interactively filtering
 ;;; the DOM by various attributes such as id, class and role.
+;;; Finally, this module updates EWW's built-in key-bindings with  Emacspeak conveniences.
+
+;;; @subsection Structured Navigation 
+
+
+;;; @subsection Filtering Content Using The DOM
+
+
+;;; @subsection Filtering Content Using XSLT And XPath 
+
+;;; @subsection Updated  Commands For Following  Links 
+
+;;; These key-bindings are available when point is on a link. They
+;;; enable context-specific actions for following links, e.g., to play
+;;; media streams, or to open various feed-types such as @code{ATOM}, @code{RSS}, or @code{OPML}.
+;;;
+;;;
+;;; @table @kbd
+;;; @item k
+;;; @command{shr-copy-url}
+;;; Copy URL under point to the kill-ring.
+;;; @item ;
+;;; @command{emacspeak-webutils-play-media-at-point}
+;;; Play media URL under point using @code{emacs-m-player}.
+;;; @item U
+;;; @command{emacspeak-webutils-curl-play-media-at-point}
+;;; Play media url under point by first downloading the URL using CURL. This is useful for sites that do multiple redirects before returning the actual media stream URL.
+;;; @item C-o
+;;; @command{emacspeak-feeds-opml-display}
+;;; Display link under point as an @code{OPML} feed .
+;;; @item C-r
+;;; @command{emacspeak-feeds-rss-display}
+;;; Display link under point as an @code{RSS} feed.
+;;; @item C-a
+;;; @command{emacspeak-feeds-atom-display}
+;;; Display link under point as an @code{ATOM} feed.
+;;; item y
+;;; @command{emacspeak-m-player-youtube-player}
+;;; Play link under point as a Youtube stream.
+;;; @end @table
+
 
 ;;; Code:
 ;;}}}
