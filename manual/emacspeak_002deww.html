@@ -97,19 +97,364 @@
 
   <h3 class="section">12.74 emacspeak-eww</h3>
 
-  <p>EWW == Emacs Web Browser EWW is a light-weight Web browser
-  built into Emacs 24.4. This module speech-enables EWW. It
-  implements additional interactive commands for navigating the
-  DOM. It also provides a set of filters for interactively
+  <p>EWW == Emacs Web Browser</p>
+
+  <p>EWW is a light-weight Web browser built into Emacs starting
+  with Emacs-24.4 . This module speech-enables EWW.</p>
+
+  <p>It implements additional interactive commands for navigating
+  the DOM. It also provides a set of filters for interactively
   filtering the DOM by various attributes such as id, class and
-  role.</p><a name="emacspeak_002deww-Commands" id=
+  role. Finally, this module updates EWW’s built-in key-bindings
+  with Emacspeak conveniences.</p><a name="Structured-Navigation"
+  id="Structured-Navigation"></a>
+
+  <h4 class="subsection">12.74.1 Structured Navigation</h4><a name=
+  "Filtering-Content-Using-The-DOM" id=
+  "Filtering-Content-Using-The-DOM"></a>
+
+  <h4 class="subsection">12.74.2 Filtering Content Using The
+  DOM</h4>
+
+  <p>These commands use EWW’s HTML DOM to display different
+  filtered views of the Web page.</p>
+
+  <dl compact="compact">
+    <dt><kbd>A</kbd></dt>
+
+    <dd>
+      <p><code>eww-view-dom-having-attribute</code> Display DOM
+      nodes having specified attribute. Valid attributes are
+      available via completion.</p>
+    </dd>
+
+    <dt><kbd>C</kbd></dt>
+
+    <dd>
+      <p><code>eww-view-dom-having-class</code> Display DOM nodes
+      having specified class. Valid classes are available via
+      completion.</p>
+    </dd>
+
+    <dt><kbd>I</kbd></dt>
+
+    <dd>
+      <p><code>eww-view-dom-having-id</code> Display DOM nodes
+      having specified ID. Valid id values are available via
+      completion.</p>
+    </dd>
+
+    <dt><kbd>R</kbd></dt>
+
+    <dd>
+      <p><code>eww-view-dom-having-role</code> Display DOM nodes
+      having specified role. Valid roles are available via
+      completion.</p>
+    </dd>
+
+    <dt><kbd>M-a</kbd></dt>
+
+    <dd>
+      <p><code>eww-view-dom-not-having-attribute</code> Filter out
+      DOM nodes having specified attribute. Valid attribute values
+      are available via completion.</p>
+    </dd>
+
+    <dt><kbd>M-c</kbd></dt>
+
+    <dd>
+      <p><code>eww-view-dom-not-having-class</code> Filter out DOM
+      nodes having specified class. Valid class values are
+      available via completion.</p>
+    </dd>
+
+    <dt><kbd>M-e</kbd></dt>
+
+    <dd>
+      <p><code>eww-view-dom-not-having-elements</code> Filter out
+      specified element DOM nodes. Valid element names are
+      available via completion.</p>
+    </dd>
+
+    <dt><kbd>M-i</kbd></dt>
+
+    <dd>
+      <p><code>eww-view-dom-not-having-id</code> Dfilter out
+      Display DOM nodes having specified ID. Valid id values are
+      available via completion.</p>
+    </dd>
+
+    <dt><kbd>M-r</kbd></dt>
+
+    <dd>
+      <p><code>eww-view-dom-not-having-role</code> Filter out DOM
+      nodes having specified role. Valid role values are available
+      via completion.</p>
+    </dd>
+  </dl>
+
+  <p>These commands move through section headers as defined in
+  HTML.</p>
+
+  <dl compact="compact">
+    <dt><kbd>1</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-eww-next-h1</code> Move to next
+      <code>H1</code> heading.</p>
+    </dd>
+
+    <dt><kbd>2</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-eww-next-h2</code> Move to next
+      <code>H2</code> heading.</p>
+    </dd>
+
+    <dt><kbd>3</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-eww-next-h3</code> Move to next
+      <code>H3</code> heading.</p>
+    </dd>
+
+    <dt><kbd>4</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-eww-next-h4</code> Move to next
+      <code>H4</code> heading.</p>
+    </dd>
+
+    <dt><kbd>.</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-eww-next-h</code> Move to next heading.
+      (<code>H1</code>...<code>H4</code>).</p>
+    </dd>
+
+    <dt><kbd>M-1</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-eww-previous-h1</code> Move to previous
+      <code>H1</code> heading.</p>
+    </dd>
+
+    <dt><kbd>M-2</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-eww-previous-h2</code> Move to previous
+      <code>H2</code> heading.</p>
+    </dd>
+
+    <dt><kbd>M-3</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-eww-previous-h3</code> Move to previous
+      <code>H3</code> heading.</p>
+    </dd>
+
+    <dt><kbd>M-4</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-eww-previous-h4</code> Move to previous
+      <code>H4</code> heading.</p>
+    </dd>
+
+    <dt><kbd>,</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-eww-previous-h</code> Move to previous
+      heading (<code>H1</code>...<code>H4</code>).</p>
+    </dd>
+  </dl>
+
+  <p>This next set of DOM commands enable navigating by HTML
+  element.</p>
+
+  <dl compact="compact">
+    <dd>
+      <p>m : <code>emacspeak-eww-tags-at-point</code> Display
+      currently active HTML tags at point.</p>
+    </dd>
+
+    <dt><kbd>J</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-eww-next-element-like-this</code> Jump to
+      next element that is the same as the one under point.</p>
+    </dd>
+
+    <dt><kbd>K</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-eww-previous-element-like-this</code> Jump
+      to previous element that is the same as the one under
+      point.</p>
+    </dd>
+
+    <dt><kbd>M-SPC</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-eww-speak-this-element</code></p>
+    </dd>
+
+    <dt><kbd>N</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-eww-next-element-from-history</code> Jump
+      to next element based on history.</p>
+    </dd>
+
+    <dt><kbd>P</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-eww-previous-element-from-history</code>
+      Jump to previous element based on history.</p>
+    </dd>
+
+    <dt><kbd>O</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-eww-previous-li</code> Jump to previous
+      list item.</p>
+    </dd>
+
+    <dt><kbd>T</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-eww-previous-table</code> Jump to previous
+      table in page.</p>
+    </dd>
+
+    <dt><kbd>[</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-eww-previous-p</code> Jump to previous
+      paragraph.</p>
+    </dd>
+
+    <dt><kbd>]</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-eww-next-p</code> Jump to next
+      paragraph.</p>
+    </dd>
+
+    <dt><kbd>b</kbd></dt>
+
+    <dd>
+      <p><code>shr-previous-link</code> Jump to previous link.</p>
+    </dd>
+
+    <dt><kbd>f</kbd></dt>
+
+    <dd>
+      <p><code>shr-next-link</code> Jump to next link.</p>
+    </dd>
+
+    <dt><kbd>n</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-eww-next-element</code> Jump to next
+      element.</p>
+    </dd>
+
+    <dt><kbd>o</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-eww-next-li</code> Jump to next list
+      item.</p>
+    </dd>
+
+    <dt><kbd>p</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-eww-previous-element</code> Jump to
+      previous element.</p>
+    </dd>
+
+    <dt><kbd>s</kbd></dt>
+
+    <dd>
+      <p><code>eww-readable</code> Use EWW’s built-in readable
+      tool.</p>
+    </dd>
+
+    <dt><kbd>t</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-eww-next-table</code> Jump to next
+      table.</p>
+    </dd>
+  </dl><a name="Filtering-Content-Using-XSLT-And-XPath" id=
+  "Filtering-Content-Using-XSLT-And-XPath"></a>
+
+  <h4 class="subsection">12.74.3 Filtering Content Using XSLT And
+  XPath</h4><a name="Updated-Commands-For-Following-Links" id=
+  "Updated-Commands-For-Following-Links"></a>
+
+  <h4 class="subsection">12.74.4 Updated Commands For Following
+  Links</h4>
+
+  <p>These key-bindings are available when point is on a link. They
+  enable context-specific actions for following links, e.g., to
+  play media streams, or to open various feed-types such as
+  <code>ATOM</code>, <code>RSS</code>, or <code>OPML</code>.</p>
+
+  <dl compact="compact">
+    <dt><kbd>k</kbd></dt>
+
+    <dd>
+      <p><code>shr-copy-url</code> Copy URL under point to the
+      kill-ring.</p>
+    </dd>
+
+    <dt><kbd>;</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-webutils-play-media-at-point</code> Play
+      media URL under point using <code>emacs-m-player</code>.</p>
+    </dd>
+
+    <dt><kbd>U</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-webutils-curl-play-media-at-point</code>
+      Play media url under point by first downloading the URL using
+      CURL. This is useful for sites that do multiple redirects
+      before returning the actual media stream URL.</p>
+    </dd>
+
+    <dt><kbd>C-o</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-feeds-opml-display</code> Display link
+      under point as an <code>OPML</code> feed .</p>
+    </dd>
+
+    <dt><kbd>C-r</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-feeds-rss-display</code> Display link
+      under point as an <code>RSS</code> feed.</p>
+    </dd>
+
+    <dt><kbd>C-a</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-feeds-atom-display</code> Display link
+      under point as an <code>ATOM</code> feed. item y
+      <code>emacspeak-m-player-youtube-player</code> Play link
+      under point as a Youtube stream.</p>
+    </dd>
+  </dl><a name="emacspeak_002deww-Commands" id=
   "emacspeak_002deww-Commands"></a>
 
-  <h4 class="subsection">12.74.1 emacspeak-eww
+  <h4 class="subsection">12.74.5 emacspeak-eww
   Commands</h4><a name="emacspeak_002deww_002dgoogle_002dknowledge_002dcard"
   id="emacspeak_002deww_002dgoogle_002dknowledge_002dcard"></a>
 
-  <h4 class="subsubsection">12.74.1.1
+  <h4 class="subsubsection">12.74.5.1
   emacspeak-eww-google-knowledge-card</h4>
 
   <dl>
@@ -136,7 +481,7 @@ Warning, this is fragile, and depends on a stable id for the
   </dl><a name="emacspeak_002deww_002dlinks_002drel" id=
   "emacspeak_002deww_002dlinks_002drel"></a>
 
-  <h4 class="subsubsection">12.74.1.2 emacspeak-eww-links-rel</h4>
+  <h4 class="subsubsection">12.74.5.2 emacspeak-eww-links-rel</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002deww_002dlinks_002drel" id=
@@ -157,7 +502,7 @@ are available are cued by an auditory icon on the header line.
   </dl><a name="emacspeak_002deww_002dmasquerade" id=
   "emacspeak_002deww_002dmasquerade"></a>
 
-  <h4 class="subsubsection">12.74.1.3 emacspeak-eww-masquerade</h4>
+  <h4 class="subsubsection">12.74.5.3 emacspeak-eww-masquerade</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002deww_002dmasquerade" id=
@@ -177,7 +522,7 @@ Toggle masquerade state.
   </dl><a name="emacspeak_002deww_002dnext_002delement" id=
   "emacspeak_002deww_002dnext_002delement"></a>
 
-  <h4 class="subsubsection">12.74.1.4
+  <h4 class="subsubsection">12.74.5.4
   emacspeak-eww-next-element</h4>
 
   <dl>
@@ -201,7 +546,7 @@ Move forward to the next specified element.
   "emacspeak_002deww_002dnext_002delement_002dfrom_002dhistory" id=
   "emacspeak_002deww_002dnext_002delement_002dfrom_002dhistory"></a>
 
-  <h4 class="subsubsection">12.74.1.5
+  <h4 class="subsubsection">12.74.5.5
   emacspeak-eww-next-element-from-history</h4>
 
   <dl>
@@ -229,7 +574,7 @@ Uses element navigation history to decide where we jump.
   "emacspeak_002deww_002dnext_002delement_002dlike_002dthis" id=
   "emacspeak_002deww_002dnext_002delement_002dlike_002dthis"></a>
 
-  <h4 class="subsubsection">12.74.1.6
+  <h4 class="subsubsection">12.74.5.6
   emacspeak-eww-next-element-like-this</h4>
 
   <dl>
@@ -260,7 +605,7 @@ Prompts if content at point is enclosed by multiple elements.
   </dl><a name="emacspeak_002deww_002dnext_002dh" id=
   "emacspeak_002deww_002dnext_002dh"></a>
 
-  <h4 class="subsubsection">12.74.1.7 emacspeak-eww-next-h</h4>
+  <h4 class="subsubsection">12.74.5.7 emacspeak-eww-next-h</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002deww_002dnext_002dh" id=
@@ -282,7 +627,7 @@ Optional interactive prefix arg speaks the structural unit.
   </dl><a name="emacspeak_002deww_002dnext_002dh1" id=
   "emacspeak_002deww_002dnext_002dh1"></a>
 
-  <h4 class="subsubsection">12.74.1.8 emacspeak-eww-next-h1</h4>
+  <h4 class="subsubsection">12.74.5.8 emacspeak-eww-next-h1</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002deww_002dnext_002dh1" id=
@@ -304,7 +649,7 @@ Optional interactive prefix arg speaks the structural unit.
   </dl><a name="emacspeak_002deww_002dnext_002dh2" id=
   "emacspeak_002deww_002dnext_002dh2"></a>
 
-  <h4 class="subsubsection">12.74.1.9 emacspeak-eww-next-h2</h4>
+  <h4 class="subsubsection">12.74.5.9 emacspeak-eww-next-h2</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002deww_002dnext_002dh2" id=
@@ -326,7 +671,7 @@ Optional interactive prefix arg speaks the structural unit.
   </dl><a name="emacspeak_002deww_002dnext_002dh3" id=
   "emacspeak_002deww_002dnext_002dh3"></a>
 
-  <h4 class="subsubsection">12.74.1.10 emacspeak-eww-next-h3</h4>
+  <h4 class="subsubsection">12.74.5.10 emacspeak-eww-next-h3</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002deww_002dnext_002dh3" id=
@@ -348,7 +693,7 @@ Optional interactive prefix arg speaks the structural unit.
   </dl><a name="emacspeak_002deww_002dnext_002dh4" id=
   "emacspeak_002deww_002dnext_002dh4"></a>
 
-  <h4 class="subsubsection">12.74.1.11 emacspeak-eww-next-h4</h4>
+  <h4 class="subsubsection">12.74.5.11 emacspeak-eww-next-h4</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002deww_002dnext_002dh4" id=
@@ -370,7 +715,7 @@ Optional interactive prefix arg speaks the structural unit.
   </dl><a name="emacspeak_002deww_002dnext_002dh5" id=
   "emacspeak_002deww_002dnext_002dh5"></a>
 
-  <h4 class="subsubsection">12.74.1.12 emacspeak-eww-next-h5</h4>
+  <h4 class="subsubsection">12.74.5.12 emacspeak-eww-next-h5</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002deww_002dnext_002dh5" id=
@@ -392,7 +737,7 @@ Optional interactive prefix arg speaks the structural unit.
   </dl><a name="emacspeak_002deww_002dnext_002dh6" id=
   "emacspeak_002deww_002dnext_002dh6"></a>
 
-  <h4 class="subsubsection">12.74.1.13 emacspeak-eww-next-h6</h4>
+  <h4 class="subsubsection">12.74.5.13 emacspeak-eww-next-h6</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002deww_002dnext_002dh6" id=
@@ -414,7 +759,7 @@ Optional interactive prefix arg speaks the structural unit.
   </dl><a name="emacspeak_002deww_002dnext_002dli" id=
   "emacspeak_002deww_002dnext_002dli"></a>
 
-  <h4 class="subsubsection">12.74.1.14 emacspeak-eww-next-li</h4>
+  <h4 class="subsubsection">12.74.5.14 emacspeak-eww-next-li</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002deww_002dnext_002dli" id=
@@ -436,7 +781,7 @@ Optional interactive prefix arg speaks the structural unit.
   </dl><a name="emacspeak_002deww_002dnext_002dol" id=
   "emacspeak_002deww_002dnext_002dol"></a>
 
-  <h4 class="subsubsection">12.74.1.15 emacspeak-eww-next-ol</h4>
+  <h4 class="subsubsection">12.74.5.15 emacspeak-eww-next-ol</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002deww_002dnext_002dol" id=
@@ -458,7 +803,7 @@ Optional interactive prefix arg speaks the structural unit.
   </dl><a name="emacspeak_002deww_002dnext_002dp" id=
   "emacspeak_002deww_002dnext_002dp"></a>
 
-  <h4 class="subsubsection">12.74.1.16 emacspeak-eww-next-p</h4>
+  <h4 class="subsubsection">12.74.5.16 emacspeak-eww-next-p</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002deww_002dnext_002dp" id=
@@ -480,7 +825,7 @@ Optional interactive prefix arg speaks the structural unit.
   </dl><a name="emacspeak_002deww_002dnext_002dtable" id=
   "emacspeak_002deww_002dnext_002dtable"></a>
 
-  <h4 class="subsubsection">12.74.1.17
+  <h4 class="subsubsection">12.74.5.17
   emacspeak-eww-next-table</h4>
 
   <dl>
@@ -503,7 +848,7 @@ Optional interactive prefix arg speaks the structural unit.
   </dl><a name="emacspeak_002deww_002dnext_002dul" id=
   "emacspeak_002deww_002dnext_002dul"></a>
 
-  <h4 class="subsubsection">12.74.1.18 emacspeak-eww-next-ul</h4>
+  <h4 class="subsubsection">12.74.5.18 emacspeak-eww-next-ul</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002deww_002dnext_002dul" id=
@@ -525,7 +870,7 @@ Optional interactive prefix arg speaks the structural unit.
   </dl><a name="emacspeak_002deww_002dphantom" id=
   "emacspeak_002deww_002dphantom"></a>
 
-  <h4 class="subsubsection">12.74.1.19 emacspeak-eww-phantom</h4>
+  <h4 class="subsubsection">12.74.5.19 emacspeak-eww-phantom</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002deww_002dphantom" id=
@@ -547,7 +892,7 @@ Retrieve ‘url’  using PhantomJS and render with EWW.
   </dl><a name="emacspeak_002deww_002dprevious_002delement" id=
   "emacspeak_002deww_002dprevious_002delement"></a>
 
-  <h4 class="subsubsection">12.74.1.20
+  <h4 class="subsubsection">12.74.5.20
   emacspeak-eww-previous-element</h4>
 
   <dl>
@@ -574,7 +919,7 @@ Move backward  to the previous  specified element.
   id=
   "emacspeak_002deww_002dprevious_002delement_002dfrom_002dhistory"></a>
 
-  <h4 class="subsubsection">12.74.1.21
+  <h4 class="subsubsection">12.74.5.21
   emacspeak-eww-previous-element-from-history</h4>
 
   <dl>
@@ -602,7 +947,7 @@ Uses element navigation history to decide where we jump.
   "emacspeak_002deww_002dprevious_002delement_002dlike_002dthis"
   id="emacspeak_002deww_002dprevious_002delement_002dlike_002dthis"></a>
 
-  <h4 class="subsubsection">12.74.1.22
+  <h4 class="subsubsection">12.74.5.22
   emacspeak-eww-previous-element-like-this</h4>
 
   <dl>
@@ -633,7 +978,7 @@ Prompts if content at point is enclosed by multiple elements.
   </dl><a name="emacspeak_002deww_002dprevious_002dh" id=
   "emacspeak_002deww_002dprevious_002dh"></a>
 
-  <h4 class="subsubsection">12.74.1.23
+  <h4 class="subsubsection">12.74.5.23
   emacspeak-eww-previous-h</h4>
 
   <dl>
@@ -656,7 +1001,7 @@ Optional interactive prefix arg speaks the structural unit.
   </dl><a name="emacspeak_002deww_002dprevious_002dh1" id=
   "emacspeak_002deww_002dprevious_002dh1"></a>
 
-  <h4 class="subsubsection">12.74.1.24
+  <h4 class="subsubsection">12.74.5.24
   emacspeak-eww-previous-h1</h4>
 
   <dl>
@@ -679,7 +1024,7 @@ Optional interactive prefix arg speaks the structural unit.
   </dl><a name="emacspeak_002deww_002dprevious_002dh2" id=
   "emacspeak_002deww_002dprevious_002dh2"></a>
 
-  <h4 class="subsubsection">12.74.1.25
+  <h4 class="subsubsection">12.74.5.25
   emacspeak-eww-previous-h2</h4>
 
   <dl>
@@ -702,7 +1047,7 @@ Optional interactive prefix arg speaks the structural unit.
   </dl><a name="emacspeak_002deww_002dprevious_002dh3" id=
   "emacspeak_002deww_002dprevious_002dh3"></a>
 
-  <h4 class="subsubsection">12.74.1.26
+  <h4 class="subsubsection">12.74.5.26
   emacspeak-eww-previous-h3</h4>
 
   <dl>
@@ -725,7 +1070,7 @@ Optional interactive prefix arg speaks the structural unit.
   </dl><a name="emacspeak_002deww_002dprevious_002dh4" id=
   "emacspeak_002deww_002dprevious_002dh4"></a>
 
-  <h4 class="subsubsection">12.74.1.27
+  <h4 class="subsubsection">12.74.5.27
   emacspeak-eww-previous-h4</h4>
 
   <dl>
@@ -748,7 +1093,7 @@ Optional interactive prefix arg speaks the structural unit.
   </dl><a name="emacspeak_002deww_002dprevious_002dh5" id=
   "emacspeak_002deww_002dprevious_002dh5"></a>
 
-  <h4 class="subsubsection">12.74.1.28
+  <h4 class="subsubsection">12.74.5.28
   emacspeak-eww-previous-h5</h4>
 
   <dl>
@@ -771,7 +1116,7 @@ Optional interactive prefix arg speaks the structural unit.
   </dl><a name="emacspeak_002deww_002dprevious_002dh6" id=
   "emacspeak_002deww_002dprevious_002dh6"></a>
 
-  <h4 class="subsubsection">12.74.1.29
+  <h4 class="subsubsection">12.74.5.29
   emacspeak-eww-previous-h6</h4>
 
   <dl>
@@ -794,7 +1139,7 @@ Optional interactive prefix arg speaks the structural unit.
   </dl><a name="emacspeak_002deww_002dprevious_002dli" id=
   "emacspeak_002deww_002dprevious_002dli"></a>
 
-  <h4 class="subsubsection">12.74.1.30
+  <h4 class="subsubsection">12.74.5.30
   emacspeak-eww-previous-li</h4>
 
   <dl>
@@ -817,7 +1162,7 @@ Optional interactive prefix arg speaks the structural unit.
   </dl><a name="emacspeak_002deww_002dprevious_002dol" id=
   "emacspeak_002deww_002dprevious_002dol"></a>
 
-  <h4 class="subsubsection">12.74.1.31
+  <h4 class="subsubsection">12.74.5.31
   emacspeak-eww-previous-ol</h4>
 
   <dl>
@@ -840,7 +1185,7 @@ Optional interactive prefix arg speaks the structural unit.
   </dl><a name="emacspeak_002deww_002dprevious_002dp" id=
   "emacspeak_002deww_002dprevious_002dp"></a>
 
-  <h4 class="subsubsection">12.74.1.32
+  <h4 class="subsubsection">12.74.5.32
   emacspeak-eww-previous-p</h4>
 
   <dl>
@@ -863,7 +1208,7 @@ Optional interactive prefix arg speaks the structural unit.
   </dl><a name="emacspeak_002deww_002dprevious_002dtable" id=
   "emacspeak_002deww_002dprevious_002dtable"></a>
 
-  <h4 class="subsubsection">12.74.1.33
+  <h4 class="subsubsection">12.74.5.33
   emacspeak-eww-previous-table</h4>
 
   <dl>
@@ -886,7 +1231,7 @@ Optional interactive prefix arg speaks the structural unit.
   </dl><a name="emacspeak_002deww_002dprevious_002dul" id=
   "emacspeak_002deww_002dprevious_002dul"></a>
 
-  <h4 class="subsubsection">12.74.1.34
+  <h4 class="subsubsection">12.74.5.34
   emacspeak-eww-previous-ul</h4>
 
   <dl>
@@ -909,7 +1254,7 @@ Optional interactive prefix arg speaks the structural unit.
   </dl><a name="emacspeak_002deww_002drestore" id=
   "emacspeak_002deww_002drestore"></a>
 
-  <h4 class="subsubsection">12.74.1.35 emacspeak-eww-restore</h4>
+  <h4 class="subsubsection">12.74.5.35 emacspeak-eww-restore</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002deww_002drestore" id=
@@ -929,7 +1274,7 @@ Restore buffer to pre-filtered canonical state.
   </dl><a name="emacspeak_002deww_002dspeak_002dthis_002delement"
   id="emacspeak_002deww_002dspeak_002dthis_002delement"></a>
 
-  <h4 class="subsubsection">12.74.1.36
+  <h4 class="subsubsection">12.74.5.36
   emacspeak-eww-speak-this-element</h4>
 
   <dl>
@@ -958,7 +1303,7 @@ Otherwise, prompts if content at point is enclosed by multiple elements.
   </dl><a name="emacspeak_002deww_002dtags_002dat_002dpoint" id=
   "emacspeak_002deww_002dtags_002dat_002dpoint"></a>
 
-  <h4 class="subsubsection">12.74.1.37
+  <h4 class="subsubsection">12.74.5.37
   emacspeak-eww-tags-at-point</h4>
 
   <dl>
@@ -980,7 +1325,7 @@ Display tags at point.
   </dl><a name="emacspeak_002deww_002dtranscode" id=
   "emacspeak_002deww_002dtranscode"></a>
 
-  <h4 class="subsubsection">12.74.1.38 emacspeak-eww-transcode</h4>
+  <h4 class="subsubsection">12.74.5.38 emacspeak-eww-transcode</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002deww_002dtranscode" id=
@@ -1000,11 +1345,11 @@ Apply appropriate transcoding rules to current DOM.
   </dl><a name="emacspeak_002deww-Options" id=
   "emacspeak_002deww-Options"></a>
 
-  <h4 class="subsection">12.74.2 emacspeak-eww Options</h4>
+  <h4 class="subsection">12.74.6 emacspeak-eww Options</h4>
 
   <dl>
-    <dt><a name="index-User-Option-523" id=
-    "index-User-Option-523"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-571" id=
+    "index-User-Option-571"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-eww-masquerade-as</em></dt>
 
     <dd>
@@ -1014,8 +1359,8 @@ Apply appropriate transcoding rules to current DOM.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-524" id=
-    "index-User-Option-524"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-572" id=
+    "index-User-Option-572"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-eww-silence-images</em></dt>
 
     <dd>
