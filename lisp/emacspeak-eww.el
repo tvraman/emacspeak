@@ -245,8 +245,7 @@ are available are cued by an auditory icon on the header line."
      (cons 're-search-forward 'emacspeak-speak-decode-rfc-3339-datetime)))
 ;;; turn off images
   (setq shr-inhibit-images t)
-                                        ; remove "I" "o" from
-                                        ; eww-link-keymap
+;;; remove "I" "o" from eww-link-keymap
   (loop
    for c in
    '(?I ?o)
