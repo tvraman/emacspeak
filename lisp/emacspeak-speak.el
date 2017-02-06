@@ -220,6 +220,8 @@ message area.  You can use command
   "Display notifications."
   (interactive)
   (declare (special emacspeak-notifications-buffer))
+  (unless (buffer-live-p  emacspeak-notifications-buffer)
+    (setq emacspeak-notifications-buffer (emacspeak--notifications-init)))
   (emacspeak-auditory-icon 'open-object)
   (funcall-interactively #'switch-to-buffer emacspeak-notifications-buffer ))
 
