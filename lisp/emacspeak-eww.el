@@ -167,7 +167,7 @@
 ;;;are available via completion.
 ;;;@item  E
 ;;;@command{eww-view-dom-having-elements}
-;;;Display specified elements from the DOMDOM. Valid element names
+;;;Display specified elements from the Dom. Valid element names
 ;;;are available via completion.
 ;;;@item  I
 ;;;@command{eww-view-dom-having-id}
@@ -231,6 +231,11 @@
 ;;; @command{emacspeak-m-player-youtube-player}
 ;;; Play link under point as a Youtube stream.
 ;;; @end table
+;;;
+
+;;; In addition, see commands in
+;;; @xref{emacspeak-google,emacspeak-google} for Google-Search specific commands, many of
+;;; which are available via prefix-key @kbd{G}.
 
 ;;; Code:
 ;;}}}
