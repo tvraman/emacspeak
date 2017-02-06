@@ -5963,7 +5963,7 @@ File: emacspeak.info,  Node: URL Templates,  Prev: xbacklight,  Up: Emacspeak Co
 12.229 URL Templates
 ====================
 
-This section documents a total of 83 URL Templates.
+This section documents a total of 85 URL Templates.
 
    All of these URL templates can be invoked via command ‘M-x
 emacspeak-url-template-fetch’ normally bound to ‘C-e u <fn> u’.  This
@@ -6082,6 +6082,13 @@ goog:us
 
    Search FreeSound.
 
+   GitHub Code Search
+
+   GitHub Code Search.  Query can include filters such as:
+
+   <term>: Query Term.  extension:<ext> Filter by file extension
+-filename:<pattern> Filter out files matching pattern.
+
    GitHub Search
 
    Perform a GitHub Search.
@@ -6149,6 +6156,10 @@ goog:us
    IToRSS
 
    Pull RSS feed corresponding to an ITunes Podcast.
+
+   Lightweight weather from wunderground
+
+   Pull light-weight weather feed for specified state/city.
 
    MLB Scorecard
 

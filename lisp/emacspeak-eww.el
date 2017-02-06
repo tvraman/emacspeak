@@ -40,7 +40,9 @@
 
 ;;{{{ introduction
 
-;;; Commentary: EWW == Emacs Web Browser
+;;; Commentary: 
+
+;;;EWW == Emacs Web Browser
 ;;;
 ;;; EWW is a light-weight Web browser built into Emacs starting with
 ;;; Emacs-24.4 . This module speech-enables EWW. 
@@ -87,7 +89,7 @@
 ;;; item y
 ;;; @command{emacspeak-m-player-youtube-player}
 ;;; Play link under point as a Youtube stream.
-;;; @end @table
+;;; @end table
 
 
 ;;; Code:
