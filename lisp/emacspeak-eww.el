@@ -53,52 +53,6 @@
 ;;; Finally, this module updates EWW's built-in key-bindings with  Emacspeak conveniences.
 
 ;;; @subsection Structured Navigation
-
-;;; @subsection Filtering Content Using The DOM
-
-;;; These commands use EWW's HTML DOM to display different filtered
-;;; views of the Web page.
-
-;;;
-;;;@table @kbd
-;;;@item  A
-;;;@command{eww-view-dom-having-attribute}
-;;;Display DOM nodes having specified attribute. Valid attributes
-;;;are available via completion.
-;;;@item       C
-;;;@command{eww-view-dom-having-class}
-;;;Display DOM nodes having specified class. Valid classes
-;;;are available via completion.
-;;;@item  I
-;;;@command{eww-view-dom-having-id}
-;;;Display DOM nodes having specified ID. Valid id values
-;;;are available via completion.
-;;;@item  R
-;;;@command{eww-view-dom-having-role}
-;;;Display DOM nodes having specified role. Valid roles
-;;;are available via completion.
-;;;@item       M-a
-;;;@command{eww-view-dom-not-having-attribute}
-;;;Filter out DOM nodes having specified attribute. Valid attribute values
-;;;are available via completion.
-;;;@item       M-c
-;;;@command{eww-view-dom-not-having-class}
-;;;Filter out DOM nodes having specified class. Valid class values
-;;;are available via completion.
-;;;@item       M-e
-;;;@command{eww-view-dom-not-having-elements}
-;;;Filter out  specified element DOM nodes. Valid element names 
-;;;are available via completion.
-;;;@item       M-i
-;;;@command{eww-view-dom-not-having-id}
-;;;Dfilter out Display DOM nodes having specified ID. Valid id values
-;;;are available via completion.
-;;;@item       M-r
-;;;@command{eww-view-dom-not-having-role}
-;;;Filter out  DOM nodes having specified role. Valid role values
-;;;are available via completion.
-;;;@end table
-
 ;;; These commands move through section headers as defined in HTML.
 ;;;@table @kbd
 ;;;@item       1
@@ -135,7 +89,7 @@
 ;;;
 ;;; This next set of DOM commands enable navigating by HTML element.
 ;;;@table @kbd
-;;;m  :
+;;;  @item :
 ;;;@command{emacspeak-eww-tags-at-point}
 ;;;Display  currently active HTML tags at point.
 ;;;@item       J
@@ -185,6 +139,58 @@
 ;;;@item  t
 ;;;@command{emacspeak-eww-next-table}
 ;;;Jump to next table.
+;;;@end table
+;;;
+
+;;; @subsection Filtering Content Using The DOM
+;;; These commands use EWW's HTML DOM to display different filtered
+;;; views of the Web page.
+;;; With an interactive prefix argument, these commands prompt for a 
+;;; list of filters.
+;;; Command @command{emacspeak-eww-restore} bound to @kbd{DEL} can be used 
+;;; to restore the previous view.
+;;;
+;;;@table @kbd
+;;;@item  A
+;;;@command{eww-view-dom-having-attribute}
+;;;Display DOM nodes having specified attribute. Valid attributes
+;;;are available via completion.
+;;;@item       C
+;;;@command{eww-view-dom-having-class}
+;;;Display DOM nodes having specified class. Valid classes
+;;;are available via completion.
+;;;@item  E
+;;;@command{eww-view-dom-having-elements}
+;;;Display specified elements from the DOMDOM. Valid element names
+;;;are available via completion.
+;;;@item  I
+;;;@command{eww-view-dom-having-id}
+;;;Display DOM nodes having specified ID. Valid id values
+;;;are available via completion.
+;;;@item  R
+;;;@command{eww-view-dom-having-role}
+;;;Display DOM nodes having specified role. Valid roles
+;;;are available via completion.
+;;;@item       M-a
+;;;@command{eww-view-dom-not-having-attribute}
+;;;Filter out DOM nodes having specified attribute. Valid attribute values
+;;;are available via completion.
+;;;@item       M-c
+;;;@command{eww-view-dom-not-having-class}
+;;;Filter out DOM nodes having specified class. Valid class values
+;;;are available via completion.
+;;;@item       M-e
+;;;@command{eww-view-dom-not-having-elements}
+;;;Filter out  specified element DOM nodes. Valid element names 
+;;;are available via completion.
+;;;@item       M-i
+;;;@command{eww-view-dom-not-having-id}
+;;;Dfilter out Display DOM nodes having specified ID. Valid id values
+;;;are available via completion.
+;;;@item       M-r
+;;;@command{eww-view-dom-not-having-role}
+;;;Filter out  DOM nodes having specified role. Valid role values
+;;;are available via completion.
 ;;;@end table
 ;;;
 ;;; @subsection Filtering Content Using XSLT And XPath
