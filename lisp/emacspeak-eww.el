@@ -40,127 +40,156 @@
 
 ;;{{{ introduction
 
-;;; Commentary: 
+;;; Commentary:
 
 ;;;EWW == Emacs Web Browser
 ;;;
 ;;; EWW is a light-weight Web browser built into Emacs starting with
-;;; Emacs-24.4 . This module speech-enables EWW. 
+;;; Emacs-24.4 . This module speech-enables EWW.
 ;;;
 ;;;It implements additional interactive commands for navigating the
 ;;; DOM. It also provides a set of filters for interactively filtering
 ;;; the DOM by various attributes such as id, class and role.
 ;;; Finally, this module updates EWW's built-in key-bindings with  Emacspeak conveniences.
 
-;;; @subsection Structured Navigation 
-
+;;; @subsection Structured Navigation
 
 ;;; @subsection Filtering Content Using The DOM
 
 ;;; These commands use EWW's HTML DOM to display different filtered
 ;;; views of the Web page.
 
+;;;
+;;;@table @kbd
+;;;@item  A
+;;;@command{eww-view-dom-having-attribute}
+;;;Display DOM nodes having specified attribute. Valid attributes
+;;;are available via completion.
+;;;@item       C
+;;;@command{eww-view-dom-having-class}
+;;;Display DOM nodes having specified class. Valid classes
+;;;are available via completion.
+;;;@item  I
+;;;@command{eww-view-dom-having-id}
+;;;Display DOM nodes having specified ID. Valid id values
+;;;are available via completion.
+;;;@item  R
+;;;@command{eww-view-dom-having-role}
+;;;Display DOM nodes having specified role. Valid roles
+;;;are available via completion.
+;;;@item       M-a
+;;;@command{eww-view-dom-not-having-attribute}
+;;;Filter out DOM nodes having specified attribute. Valid attribute values
+;;;are available via completion.
+;;;@item       M-c
+;;;@command{eww-view-dom-not-having-class}
+;;;Filter out DOM nodes having specified class. Valid class values
+;;;are available via completion.
+;;;@item       M-e
+;;;@command{eww-view-dom-not-having-elements}
+;;;Filter out  specified element DOM nodes. Valid element names 
+;;;are available via completion.
+;;;@item       M-i
+;;;@command{eww-view-dom-not-having-id}
+;;;Dfilter out Display DOM nodes having specified ID. Valid id values
+;;;are available via completion.
+;;;@item       M-r
+;;;@command{eww-view-dom-not-having-role}
+;;;Filter out  DOM nodes having specified role. Valid role values
+;;;are available via completion.
+;;;@end table
+
 ;;; These commands move through section headers as defined in HTML.
-                 ;;;@table @kbd
-;;;@item       1 
+;;;@table @kbd
+;;;@item       1
 ;;;@command{emacspeak-eww-next-h1}
 ;;;Move to next @code{H1} heading.
-;;;@item       2 
+;;;@item       2
 ;;;@command{emacspeak-eww-next-h2}
 ;;;Move to next @code{H2} heading.
-;;;@item       3 
+;;;@item       3
 ;;;@command{emacspeak-eww-next-h3}
 ;;;Move to next @code{H3} heading.
-;;;@item       4 
+;;;@item       4
 ;;;@command{emacspeak-eww-next-h4}
 ;;;Move to next @code{H4} heading.
-;;;@item       . 
+;;;@item       .
 ;;;@command{emacspeak-eww-next-h}
 ;;;Move to next heading. (@code{H1}...@code{H4}).
-;;;@item       M-1 
+;;;@item       M-1
 ;;;@command{emacspeak-eww-previous-h1}
 ;;;Move to previous @code{H1} heading.
-;;;@item       M-2 
+;;;@item       M-2
 ;;;@command{emacspeak-eww-previous-h2}
 ;;;Move to previous @code{H2} heading.
-;;;@item       M-3 
+;;;@item       M-3
 ;;;@command{emacspeak-eww-previous-h3}
 ;;;Move to previous @code{H3} heading.
-;;;@item       M-4 
+;;;@item       M-4
 ;;;@command{emacspeak-eww-previous-h4}
 ;;;Move to previous @code{H4} heading.
-;;;@item  , 
+;;;@item  ,
 ;;;@command{emacspeak-eww-previous-h}
 ;;;Move to previous heading (@code{H1}...@code{H4}).
 ;;;@end table
 ;;;
 ;;; This next set of DOM commands enable navigating by HTML element.
-@table @kbd
-@item  : 
-@command{emacspeak-eww-tags-at-point}
-Display  currently active HTML tags at point.
-@item  A
-@command{eww-view-dom-having-attribute}
- Display DOM nodes having specified attribute. Valid attributes
-are available via completion.
-@item       C
-@command{eww-view-dom-having-class}
-Display DOM nodes having specified class. Valid classes
-are available via completion.
-@item  I
-@command{eww-view-dom-having-id}
-Display DOM nodes having specified ID. Valid id values 
-are available via completion.
-@item       J 
-@command{emacspeak-eww-next-element-like-this}
-@item       K 
-@command{emacspeak-eww-previous-element-like-this}
-@item       M-SPC 
-@command{emacspeak-eww-speak-this-element}
+;;;@table @kbd
+;;;m  :
+;;;@command{emacspeak-eww-tags-at-point}
+;;;Display  currently active HTML tags at point.
+;;;@item       J
+;;;@command{emacspeak-eww-next-element-like-this}
+;;;Jump to next element that is the same as the one under point.
+;;;@item       K
+;;;@command{emacspeak-eww-previous-element-like-this}
+;;;Jump to previous element that is the same as the one under point.
+;;;@item       M-SPC
+;;;@command{emacspeak-eww-speak-this-element}
+;;;@item  N
+;;;@command{emacspeak-eww-next-element-from-history}
+;;;Jump to next element based on  history.
+;;;@item       P
+;;;@command{emacspeak-eww-previous-element-from-history}
+;;;Jump to previous element based on  history.
+;;;@item       O
+;;;@command{emacspeak-eww-previous-li}
+;;;Jump to previous list item.
+;;;@item       T
+;;;@command{emacspeak-eww-previous-table}
+;;;Jump to previous table in page.
+;;;@item       [
+;;;             @command{emacspeak-eww-previous-p}
+;;;             Jump to previous paragraph.
+;;;             @item  ]
+;;;@command{emacspeak-eww-next-p}
+;;;Jump to next paragraph.
+;;;@item       b 
+;;;@command{shr-previous-link}
+;;;Jump to previous link.
+;;;@item  f 
+;;;@command{shr-next-link}
+;;;Jump to next link.
+;;;@item  n
+;;;@command{emacspeak-eww-next-element}
+;;;Jump to next element.
+;;;@item       o
+;;;@command{emacspeak-eww-next-li}
+;;;Jump to next list item.
+;;;@item       p
+;;;@command{emacspeak-eww-previous-element}
+;;;Jump to previous element.
+;;;@item       s
+;;;@command{eww-readable}
+;;;Use EWW's built-in readable tool.
+;;;@item  t
+;;;@command{emacspeak-eww-next-table}
+;;;Jump to next table.
+;;;@end table
+;;;
+;;; @subsection Filtering Content Using XSLT And XPath
 
-
-@item       M-a
-@command{eww-view-dom-not-having-attribute}
-@item       M-c
-@command{eww-view-dom-not-having-class}
-@item       M-e
-@command{eww-view-dom-not-having-elements}
-@item       M-i
-@command{eww-view-dom-not-having-id}
-@item       M-r
-@command{eww-view-dom-not-having-role}
-@item  N 
-@command{emacspeak-eww-next-element-from-history}
-@item       O 
-@command{emacspeak-eww-previous-li}
-@item       P 
-@command{emacspeak-eww-previous-element-from-history}
-@item  R
-@command{eww-view-dom-having-role}
-@item       T 
-@command{emacspeak-eww-previous-table}
-@item       [ 
-@command{emacspeak-eww-previous-p}
-@item  ] 
-@command{emacspeak-eww-next-p}
-@item       b shr-previous-link}
-@item  f shr-next-link}
-@item  n 
-@command{emacspeak-eww-next-element}
-@item       o 
-@command{emacspeak-eww-next-li}
-@item       p 
-@command{emacspeak-eww-previous-element}
-@item       s
-@command{eww-readable}
-      @item  t 
-@command{emacspeak-eww-next-table}
-        @end table
-
-
-;;; @subsection Filtering Content Using XSLT And XPath 
-
-;;; @subsection Updated  Commands For Following  Links 
+;;; @subsection Updated  Commands For Following  Links
 
 ;;; These key-bindings are available when point is on a link. They
 ;;; enable context-specific actions for following links, e.g., to play
@@ -190,7 +219,6 @@ are available via completion.
 ;;; @command{emacspeak-m-player-youtube-player}
 ;;; Play link under point as a Youtube stream.
 ;;; @end table
-
 
 ;;; Code:
 ;;}}}
