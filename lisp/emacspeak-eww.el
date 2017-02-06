@@ -53,6 +53,7 @@
 ;;; Finally, this module updates EWW's built-in key-bindings with  Emacspeak conveniences.
 
 ;;; @subsection Structured Navigation
+;;;
 ;;; These commands move through section headers as defined in HTML.
 ;;;@table @kbd
 ;;;@item       1
@@ -87,67 +88,72 @@
 ;;;Move to previous heading (@code{H1}...@code{H4}).
 ;;;@end table
 ;;;
-;;; This next set of DOM commands enable navigating by HTML element.
+;;; This next set of DOM commands enable navigating by HTML elements.
 ;;;@table @kbd
-;;;  @item :
-;;;@command{emacspeak-eww-tags-at-point}
-;;;Display  currently active HTML tags at point.
+;;;@item       M-SPC
+;;;@command{emacspeak-eww-speak-this-element}
+;;; Speak contents of current element.
 ;;;@item       J
 ;;;@command{emacspeak-eww-next-element-like-this}
 ;;;Jump to next element that is the same as the one under point.
+;;; If there are multiple HTML elements under point,
+;;;prompts for element-name using completion.
 ;;;@item       K
 ;;;@command{emacspeak-eww-previous-element-like-this}
 ;;;Jump to previous element that is the same as the one under point.
-;;;@item       M-SPC
-;;;@command{emacspeak-eww-speak-this-element}
+;;; If there are multiple HTML elements under point,
+;;;prompts for element-name using completion.
 ;;;@item  N
 ;;;@command{emacspeak-eww-next-element-from-history}
-;;;Jump to next element based on  history.
+;;;Jump to next element based on  previous J/K command history.
 ;;;@item       P
 ;;;@command{emacspeak-eww-previous-element-from-history}
-;;;Jump to previous element based on  history.
+;;;Jump to previous element based on  previous J/K history.
 ;;;@item       O
 ;;;@command{emacspeak-eww-previous-li}
 ;;;Jump to previous list item.
+;;;@item       o
+;;;@command{emacspeak-eww-next-li}
+;;;Jump to next list item.
 ;;;@item       T
 ;;;@command{emacspeak-eww-previous-table}
 ;;;Jump to previous table in page.
+;;;@item  t
+;;;@command{emacspeak-eww-next-table}
+;;;Jump to next table.
 ;;;@item       [
 ;;;             @command{emacspeak-eww-previous-p}
 ;;;             Jump to previous paragraph.
 ;;;             @item  ]
 ;;;@command{emacspeak-eww-next-p}
 ;;;Jump to next paragraph.
-;;;@item       b 
+;;;@item       b
 ;;;@command{shr-previous-link}
 ;;;Jump to previous link.
-;;;@item  f 
+;;;@item  f
 ;;;@command{shr-next-link}
 ;;;Jump to next link.
 ;;;@item  n
 ;;;@command{emacspeak-eww-next-element}
 ;;;Jump to next element.
-;;;@item       o
-;;;@command{emacspeak-eww-next-li}
-;;;Jump to next list item.
 ;;;@item       p
 ;;;@command{emacspeak-eww-previous-element}
 ;;;Jump to previous element.
 ;;;@item       s
 ;;;@command{eww-readable}
 ;;;Use EWW's built-in readable tool.
-;;;@item  t
-;;;@command{emacspeak-eww-next-table}
-;;;Jump to next table.
+;;;  @item :
+;;;@command{emacspeak-eww-tags-at-point}
+;;;Display  currently active HTML tags at point.
 ;;;@end table
 ;;;
 
 ;;; @subsection Filtering Content Using The DOM
 ;;; These commands use EWW's HTML DOM to display different filtered
 ;;; views of the Web page.
-;;; With an interactive prefix argument, these commands prompt for a 
+;;; With an interactive prefix argument, these commands prompt for a
 ;;; list of filters.
-;;; Command @command{emacspeak-eww-restore} bound to @kbd{DEL} can be used 
+;;; Command @command{emacspeak-eww-restore} bound to @kbd{DEL} can be used
 ;;; to restore the previous view.
 ;;;
 ;;;@table @kbd
@@ -181,7 +187,7 @@
 ;;;are available via completion.
 ;;;@item       M-e
 ;;;@command{eww-view-dom-not-having-elements}
-;;;Filter out  specified element DOM nodes. Valid element names 
+;;;Filter out  specified element DOM nodes. Valid element names
 ;;;are available via completion.
 ;;;@item       M-i
 ;;;@command{eww-view-dom-not-having-id}
