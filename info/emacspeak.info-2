@@ -2779,6 +2779,96 @@ prompt for a list of filters.  Command ‘emacspeak-eww-restore’ bound to
 12.74.3 Filtering Content Using XSLT And XPath
 ----------------------------------------------
 
+‘C-c’
+     ‘emacspeak-we-junk-by-class-list’ Prompts for list of class-names
+     with completion, and filters out matching elements.
+‘C-f’
+     ‘emacspeak-we-count-matches’ Prompts for XPath expression, and
+     returns count of matching elements.
+‘C-p’
+     ‘emacspeak-we-xpath-junk-and-follow’ Follows link under point, and
+     displays that page after filtering by a specified XPath expression.
+‘C-t’
+     ‘emacspeak-we-count-tables’ Display a count of tables in the page.
+‘C-x’
+     ‘emacspeak-we-count-nested-tables’ Counts nested tables.
+‘C’
+     ‘emacspeak-we-extract-by-class-list’ Prompts for a list of
+     class-names, and displays matching elements.
+‘D’
+     ‘emacspeak-we-junk-by-class-list’ Filters out elements having
+     specified class attributes.
+‘I’
+     ‘emacspeak-we-extract-by-id-list’ Extracts elements by specified
+     list of ID values.
+‘M’
+     ‘emacspeak-we-extract-tables-by-match-list’ Extracts tables that
+     match specified selection pattern.
+‘P’
+     ‘emacspeak-we-follow-and-extract-main’ Follows link under point,
+     and extracts readable content, by default, this is all paragraphs
+     and headings.
+‘S’
+     ‘emacspeak-we-style-filter’ Filters content by style attribute.
+‘T’
+     ‘emacspeak-we-extract-tables-by-position-list’ Extracts tables by
+     their position on the page.
+‘X’
+     ‘emacspeak-we-extract-nested-table-list’ Extracts nested tables.
+‘a’
+     ‘emacspeak-we-xslt-apply’ Prompt for and apply specified XSLT
+     transform to current page.
+‘b’
+     ‘emacspeak-we-follow-and-filter-by-id’ Follow link under point, and
+     filter by specified id value.
+‘c’
+     ‘emacspeak-we-extract-by-class’ Extracts elements by class.
+‘d’
+     ‘emacspeak-we-junk-by-class’ Filters out elements having specified
+     class value.
+‘e’
+     ‘emacspeak-we-url-expand-and-execute’ Follow link under point, but
+     pass the result to a custom executor.
+‘f’
+     ‘emacspeak-we-xslt-filter’ Apply a specified XSLT filter (XPath) to
+     current page.
+‘i’
+     ‘emacspeak-we-extract-by-id’ Extract elements by id value.
+‘j’
+     ‘emacspeak-we-xslt-junk’ Filter out elements matching specified
+     pattern.
+‘k’
+     ‘emacspeak-we-toggle-xsl-keep-result’ Debugging tool — retains the
+     HTML source after XSLT.
+‘m’
+     ‘emacspeak-we-extract-table-by-match’ Extract matching table.
+‘p’
+     ‘emacspeak-we-xpath-filter-and-follow’ Follow link under point, and
+     filter results by a specified XPath filter.
+‘r’
+     ‘emacspeak-we-extract-by-role’ Extract elements by specified role
+     value.
+‘s’
+     ‘emacspeak-we-xslt-select’ Select elements using XSLT.
+‘t’
+     ‘emacspeak-we-extract-table-by-position’ Extracts tables by their
+     position on the page.
+‘u’
+     ‘emacspeak-we-extract-matching-urls’ Display matching links on the
+     page.
+‘v’
+     ‘emacspeak-we-class-filter-and-follow-link’ Follow link under
+     point, and filter by specified class value.
+‘w’
+     ‘emacspeak-we-extract-by-property’ Extract element using a
+     combination of DOM attributes.
+‘x’
+     ‘emacspeak-we-extract-nested-table’ Extract a nested table using a
+     match-list.
+‘y’
+     ‘emacspeak-we-class-filter-and-follow’ Follow link under point and
+     filter by class values.
+
 12.74.4 Updated Commands For Following Links
 --------------------------------------------
 
@@ -2837,9 +2927,9 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
 ‘k’
      ‘eww-copy-page-url’ Copy page URL to kill-ring.
 
-   In addition, see commands in *Note emacspeak-google:
-emacspeak-google.  for Google-Search specific commands, many of which
-are available via prefix-key ‘G’.
+   In addition, see commands in *Note emacspeak-google::.  for
+Google-Search specific commands, many of which are available via
+prefix-key ‘G’.
 
 12.74.6 emacspeak-eww Commands
 ------------------------------
