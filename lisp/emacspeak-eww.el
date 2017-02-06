@@ -233,11 +233,48 @@
 ;;; @end table
 ;;;
 
+;;;@subsection{Miscellaneous Commands}
+
+;;;@table @kbd
+;;;@item '
+;;;@command{emacspeak-speak-rest-of-buffer}
+;;;Speak rest of current Web page starting from point.
+;;;@item *
+;;;@command{eww-add-bookmark}
+;;;Bookmark current Web page.
+;;;@item = @command{dtk-toggle-punctuation-mode}
+;;;Toggle punctuation mode.
+;;;@item ?
+;;;@command{emacspeak-webutils-google-similar-to-this-page}
+;;;Google similarity search.
+;;;@item C-t
+;;;@command{emacspeak-eww-transcode}
+;;;Transcode current page to something more readable.
+;;;@item G @command{emacspeak-google-command}
+;;;Prefix key to invoke Google-specific commands.
+;;;@item L
+;;;@command{emacspeak-eww-links-rel}
+;;;Display any related links discovered via the document's @code{meta} tag.
+;;;@item Q
+;;;@command{emacspeak-kill-buffer-quietly}
+;;;Delete this buffer.
+;;;@item V
+;;;@command{eww-view-source}
+;;;Display Web page source.
+;;;@item e
+;;;@command{emacspeak-we-xsl-map}
+;;;Prefix key for invoking XSLT-based filters.
+;;;@item k
+;;;@command{eww-copy-page-url}
+;;;Copy page URL to kill-ring.
+;;;@end table
+;;;
 ;;; In addition, see commands in
-;;; @xref{emacspeak-google,emacspeak-google} for Google-Search specific commands, many of
+;;; @xref{emacspeak-google,,emacspeak-google} for Google-Search specific commands, many of
 ;;; which are available via prefix-key @kbd{G}.
 
 ;;; Code:
+
 ;;}}}
 ;;{{{ Required modules
 
@@ -464,7 +501,6 @@ are available are cued by an auditory icon on the header line."
      ("3" emacspeak-eww-next-h3)
      ("4" emacspeak-eww-next-h4)
      ("=" dtk-toggle-punctuation-mode)
-     ("/" emacspeak-eww-filter-map)
      ("?" emacspeak-webutils-google-similar-to-this-page)
      ("A" eww-view-dom-having-attribute)
      ("C" eww-view-dom-having-class)
