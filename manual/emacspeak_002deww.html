@@ -406,7 +406,240 @@
   "Filtering-Content-Using-XSLT-And-XPath"></a>
 
   <h4 class="subsection">12.74.3 Filtering Content Using XSLT And
-  XPath</h4><a name="Updated-Commands-For-Following-Links" id=
+  XPath</h4>
+
+  <dl compact="compact">
+    <dt><kbd>C-c</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-junk-by-class-list</code> Prompts for
+      list of class-names with completion, and filters out matching
+      elements.</p>
+    </dd>
+
+    <dt><kbd>C-f</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-count-matches</code> Prompts for XPath
+      expression, and returns count of matching elements.</p>
+    </dd>
+
+    <dt><kbd>C-p</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-xpath-junk-and-follow</code> Follows
+      link under point, and displays that page after filtering by a
+      specified XPath expression.</p>
+    </dd>
+
+    <dt><kbd>C-t</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-count-tables</code> Display a count of
+      tables in the page.</p>
+    </dd>
+
+    <dt><kbd>C-x</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-count-nested-tables</code> Counts
+      nested tables.</p>
+    </dd>
+
+    <dt><kbd>C</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-extract-by-class-list</code> Prompts
+      for a list of class-names, and displays matching
+      elements.</p>
+    </dd>
+
+    <dt><kbd>D</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-junk-by-class-list</code> Filters out
+      elements having specified class attributes.</p>
+    </dd>
+
+    <dt><kbd>I</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-extract-by-id-list</code> Extracts
+      elements by specified list of ID values.</p>
+    </dd>
+
+    <dt><kbd>M</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-extract-tables-by-match-list</code>
+      Extracts tables that match specified selection pattern.</p>
+    </dd>
+
+    <dt><kbd>P</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-follow-and-extract-main</code> Follows
+      link under point, and extracts readable content, by default,
+      this is all paragraphs and headings.</p>
+    </dd>
+
+    <dt><kbd>S</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-style-filter</code> Filters content by
+      style attribute.</p>
+    </dd>
+
+    <dt><kbd>T</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-extract-tables-by-position-list</code>
+      Extracts tables by their position on the page.</p>
+    </dd>
+
+    <dt><kbd>X</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-extract-nested-table-list</code>
+      Extracts nested tables.</p>
+    </dd>
+
+    <dt><kbd>a</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-xslt-apply</code> Prompt for and apply
+      specified XSLT transform to current page.</p>
+    </dd>
+
+    <dt><kbd>b</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-follow-and-filter-by-id</code> Follow
+      link under point, and filter by specified id value.</p>
+    </dd>
+
+    <dt><kbd>c</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-extract-by-class</code> Extracts
+      elements by class.</p>
+    </dd>
+
+    <dt><kbd>d</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-junk-by-class</code> Filters out
+      elements having specified class value.</p>
+    </dd>
+
+    <dt><kbd>e</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-url-expand-and-execute</code> Follow
+      link under point, but pass the result to a custom
+      executor.</p>
+    </dd>
+
+    <dt><kbd>f</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-xslt-filter</code> Apply a specified
+      XSLT filter (XPath) to current page.</p>
+    </dd>
+
+    <dt><kbd>i</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-extract-by-id</code> Extract elements
+      by id value.</p>
+    </dd>
+
+    <dt><kbd>j</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-xslt-junk</code> Filter out elements
+      matching specified pattern.</p>
+    </dd>
+
+    <dt><kbd>k</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-toggle-xsl-keep-result</code> Debugging
+      tool — retains the HTML source after XSLT.</p>
+    </dd>
+
+    <dt><kbd>m</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-extract-table-by-match</code> Extract
+      matching table.</p>
+    </dd>
+
+    <dt><kbd>p</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-xpath-filter-and-follow</code> Follow
+      link under point, and filter results by a specified XPath
+      filter.</p>
+    </dd>
+
+    <dt><kbd>r</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-extract-by-role</code> Extract elements
+      by specified role value.</p>
+    </dd>
+
+    <dt><kbd>s</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-xslt-select</code> Select elements
+      using XSLT.</p>
+    </dd>
+
+    <dt><kbd>t</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-extract-table-by-position</code>
+      Extracts tables by their position on the page.</p>
+    </dd>
+
+    <dt><kbd>u</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-extract-matching-urls</code> Display
+      matching links on the page.</p>
+    </dd>
+
+    <dt><kbd>v</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-class-filter-and-follow-link</code>
+      Follow link under point, and filter by specified class
+      value.</p>
+    </dd>
+
+    <dt><kbd>w</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-extract-by-property</code> Extract
+      element using a combination of DOM attributes.</p>
+    </dd>
+
+    <dt><kbd>x</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-extract-nested-table</code> Extract a
+      nested table using a match-list.</p>
+    </dd>
+
+    <dt><kbd>y</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-class-filter-and-follow</code> Follow
+      link under point and filter by class values.</p>
+    </dd>
+  </dl><a name="Updated-Commands-For-Following-Links" id=
   "Updated-Commands-For-Following-Links"></a>
 
   <h4 class="subsection">12.74.4 Updated Commands For Following
