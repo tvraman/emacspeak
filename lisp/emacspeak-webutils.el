@@ -402,13 +402,13 @@ With a prefix argument, extracts url under point."
     (read-from-minibuffer "URL:"
                           (funcall emacspeak-webutils-current-url))))
   (declare (special emacspeak-w3-google-related-uri))
-  (browse-url
+  (emacspeak-we-extract-by-id
+   "res"
    (format
     "%s%s"
     emacspeak-webutils-google-related-uri
-    url))
-  (emacspeak-webutils-post-process "Similar"
-                                   'emacspeak-speak-line))
+    url)))
+
 (defvar emacspeak-webutils-google-transcoder-url
   "http://www.google.com/gwt/n?_gwt_noimg=1&output=xhtml&u=%s"
   "URL pattern for accessing Google transcoder.")
