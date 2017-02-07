@@ -402,10 +402,154 @@
       nodes having specified role. Valid role values are available
       via completion.</p>
     </dd>
-  </dl><a name="Filtering-Content-Using-XSLT-And-XPath" id=
+  </dl><a name="Updated-Commands-For-Following-Links" id=
+  "Updated-Commands-For-Following-Links"></a>
+
+  <h4 class="subsection">12.74.3 Updated Commands For Following
+  Links</h4>
+
+  <p>These key-bindings are available when point is on a link. They
+  enable context-specific actions for following links, e.g., to
+  play media streams, or to open various feed-types such as
+  <code>ATOM</code>, <code>RSS</code>, or <code>OPML</code>.</p>
+
+  <dl compact="compact">
+    <dt><kbd>k</kbd></dt>
+
+    <dd>
+      <p><code>shr-copy-url</code> Copy URL under point to the
+      kill-ring.</p>
+    </dd>
+
+    <dt><kbd>;</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-webutils-play-media-at-point</code> Play
+      media URL under point using <code>emacs-m-player</code>.</p>
+    </dd>
+
+    <dt><kbd>U</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-webutils-curl-play-media-at-point</code>
+      Play media url under point by first downloading the URL using
+      CURL. This is useful for sites that do multiple redirects
+      before returning the actual media stream URL.</p>
+    </dd>
+
+    <dt><kbd>C-o</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-feeds-opml-display</code> Display link
+      under point as an <code>OPML</code> feed .</p>
+    </dd>
+
+    <dt><kbd>C-r</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-feeds-rss-display</code> Display link
+      under point as an <code>RSS</code> feed.</p>
+    </dd>
+
+    <dt><kbd>C-a</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-feeds-atom-display</code> Display link
+      under point as an <code>ATOM</code> feed. item y
+      <code>emacspeak-m-player-youtube-player</code> Play link
+      under point as a Youtube stream.</p>
+    </dd>
+  </dl><a name="Miscellaneous-Commands" id=
+  "Miscellaneous-Commands"></a>
+
+  <h4 class="subsection">12.74.4 Miscellaneous Commands</h4>
+
+  <dl compact="compact">
+    <dt><kbd>'</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-speak-rest-of-buffer</code> Speak rest of
+      current Web page starting from point.</p>
+    </dd>
+
+    <dt><kbd>*</kbd></dt>
+
+    <dd>
+      <p><code>eww-add-bookmark</code> Bookmark current Web
+      page.</p>
+    </dd>
+
+    <dt><kbd>= <code>dtk-toggle-punctuation-mode</code></kbd></dt>
+
+    <dd>
+      <p>Toggle punctuation mode.</p>
+    </dd>
+
+    <dt><kbd>?</kbd></dt>
+
+    <dd>
+      <p>
+      <code>emacspeak-webutils-google-similar-to-this-page</code>
+      Google similarity search.</p>
+    </dd>
+
+    <dt><kbd>C-t</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-eww-transcode</code> Transcode current
+      page to something more readable.</p>
+    </dd>
+
+    <dt><kbd>G <code>emacspeak-google-command</code></kbd></dt>
+
+    <dd>
+      <p>Prefix key to invoke Google-specific commands.</p>
+    </dd>
+
+    <dt><kbd>L</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-eww-links-rel</code> Display any related
+      links discovered via the document’s <code>meta</code>
+      tag.</p>
+    </dd>
+
+    <dt><kbd>Q</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-kill-buffer-quietly</code> Delete this
+      buffer.</p>
+    </dd>
+
+    <dt><kbd>V</kbd></dt>
+
+    <dd>
+      <p><code>eww-view-source</code> Display Web page source.</p>
+    </dd>
+
+    <dt><kbd>e</kbd></dt>
+
+    <dd>
+      <p><code>emacspeak-we-xsl-map</code> Prefix key for invoking
+      XSLT-based filters.</p>
+    </dd>
+
+    <dt><kbd>k</kbd></dt>
+
+    <dd>
+      <p><code>eww-copy-page-url</code> Copy page URL to
+      kill-ring.</p>
+    </dd>
+  </dl>
+
+  <p>In addition, see commands in See <a href=
+  "emacspeak_002dgoogle.html#emacspeak_002dgoogle">emacspeak-google</a>
+  for Google-Search specific commands, many of which are available
+  via prefix-key <kbd>G</kbd>.</p><a name=
+  "Filtering-Content-Using-XSLT-And-XPath" id=
   "Filtering-Content-Using-XSLT-And-XPath"></a>
 
-  <h4 class="subsection">12.74.3 Filtering Content Using XSLT And
+  <h4 class="subsection">12.74.5 Filtering Content Using XSLT And
   XPath</h4>
 
   <dl compact="compact">
@@ -639,151 +783,8 @@
       <p><code>emacspeak-we-class-filter-and-follow</code> Follow
       link under point and filter by class values.</p>
     </dd>
-  </dl><a name="Updated-Commands-For-Following-Links" id=
-  "Updated-Commands-For-Following-Links"></a>
-
-  <h4 class="subsection">12.74.4 Updated Commands For Following
-  Links</h4>
-
-  <p>These key-bindings are available when point is on a link. They
-  enable context-specific actions for following links, e.g., to
-  play media streams, or to open various feed-types such as
-  <code>ATOM</code>, <code>RSS</code>, or <code>OPML</code>.</p>
-
-  <dl compact="compact">
-    <dt><kbd>k</kbd></dt>
-
-    <dd>
-      <p><code>shr-copy-url</code> Copy URL under point to the
-      kill-ring.</p>
-    </dd>
-
-    <dt><kbd>;</kbd></dt>
-
-    <dd>
-      <p><code>emacspeak-webutils-play-media-at-point</code> Play
-      media URL under point using <code>emacs-m-player</code>.</p>
-    </dd>
-
-    <dt><kbd>U</kbd></dt>
-
-    <dd>
-      <p><code>emacspeak-webutils-curl-play-media-at-point</code>
-      Play media url under point by first downloading the URL using
-      CURL. This is useful for sites that do multiple redirects
-      before returning the actual media stream URL.</p>
-    </dd>
-
-    <dt><kbd>C-o</kbd></dt>
-
-    <dd>
-      <p><code>emacspeak-feeds-opml-display</code> Display link
-      under point as an <code>OPML</code> feed .</p>
-    </dd>
-
-    <dt><kbd>C-r</kbd></dt>
-
-    <dd>
-      <p><code>emacspeak-feeds-rss-display</code> Display link
-      under point as an <code>RSS</code> feed.</p>
-    </dd>
-
-    <dt><kbd>C-a</kbd></dt>
-
-    <dd>
-      <p><code>emacspeak-feeds-atom-display</code> Display link
-      under point as an <code>ATOM</code> feed. item y
-      <code>emacspeak-m-player-youtube-player</code> Play link
-      under point as a Youtube stream.</p>
-    </dd>
-  </dl><a name="Miscellaneous-Commands" id=
-  "Miscellaneous-Commands"></a>
-
-  <h4 class="subsection">12.74.5 Miscellaneous Commands</h4>
-
-  <dl compact="compact">
-    <dt><kbd>'</kbd></dt>
-
-    <dd>
-      <p><code>emacspeak-speak-rest-of-buffer</code> Speak rest of
-      current Web page starting from point.</p>
-    </dd>
-
-    <dt><kbd>*</kbd></dt>
-
-    <dd>
-      <p><code>eww-add-bookmark</code> Bookmark current Web
-      page.</p>
-    </dd>
-
-    <dt><kbd>= <code>dtk-toggle-punctuation-mode</code></kbd></dt>
-
-    <dd>
-      <p>Toggle punctuation mode.</p>
-    </dd>
-
-    <dt><kbd>?</kbd></dt>
-
-    <dd>
-      <p>
-      <code>emacspeak-webutils-google-similar-to-this-page</code>
-      Google similarity search.</p>
-    </dd>
-
-    <dt><kbd>C-t</kbd></dt>
-
-    <dd>
-      <p><code>emacspeak-eww-transcode</code> Transcode current
-      page to something more readable.</p>
-    </dd>
-
-    <dt><kbd>G <code>emacspeak-google-command</code></kbd></dt>
-
-    <dd>
-      <p>Prefix key to invoke Google-specific commands.</p>
-    </dd>
-
-    <dt><kbd>L</kbd></dt>
-
-    <dd>
-      <p><code>emacspeak-eww-links-rel</code> Display any related
-      links discovered via the document’s <code>meta</code>
-      tag.</p>
-    </dd>
-
-    <dt><kbd>Q</kbd></dt>
-
-    <dd>
-      <p><code>emacspeak-kill-buffer-quietly</code> Delete this
-      buffer.</p>
-    </dd>
-
-    <dt><kbd>V</kbd></dt>
-
-    <dd>
-      <p><code>eww-view-source</code> Display Web page source.</p>
-    </dd>
-
-    <dt><kbd>e</kbd></dt>
-
-    <dd>
-      <p><code>emacspeak-we-xsl-map</code> Prefix key for invoking
-      XSLT-based filters.</p>
-    </dd>
-
-    <dt><kbd>k</kbd></dt>
-
-    <dd>
-      <p><code>eww-copy-page-url</code> Copy page URL to
-      kill-ring.</p>
-    </dd>
-  </dl>
-
-  <p>In addition, see commands in See <a href=
-  "emacspeak_002dgoogle.html#emacspeak_002dgoogle">emacspeak-google</a>
-  for Google-Search specific commands, many of which are available
-  via prefix-key <kbd>G</kbd>.</p><a name=
-  "emacspeak_002deww-Commands" id="emacspeak_002deww-Commands"></a>
+  </dl><a name="emacspeak_002deww-Commands" id=
+  "emacspeak_002deww-Commands"></a>
 
   <h4 class="subsection">12.74.6 emacspeak-eww
   Commands</h4><a name="emacspeak_002deww_002dgoogle_002dknowledge_002dcard"
@@ -1683,8 +1684,8 @@ Apply appropriate transcoding rules to current DOM.
   <h4 class="subsection">12.74.7 emacspeak-eww Options</h4>
 
   <dl>
-    <dt><a name="index-User-Option-571" id=
-    "index-User-Option-571"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-523" id=
+    "index-User-Option-523"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-eww-masquerade-as</em></dt>
 
     <dd>
@@ -1694,8 +1695,8 @@ Apply appropriate transcoding rules to current DOM.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-572" id=
-    "index-User-Option-572"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-524" id=
+    "index-User-Option-524"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-eww-silence-images</em></dt>
 
     <dd>
