@@ -199,6 +199,78 @@
 ;;;are available via completion.
 ;;;@end table
 ;;;
+;;; @subsection Updated  Commands For Following  Links
+
+;;; These key-bindings are available when point is on a link. They
+;;; enable context-specific actions for following links, e.g., to play
+;;; media streams, or to open various feed-types such as @code{ATOM}, @code{RSS}, or @code{OPML}.
+;;;
+;;;
+;;; @table @kbd
+;;; @item k
+;;; @command{shr-copy-url}
+;;; Copy URL under point to the kill-ring.
+;;; @item ;
+;;; @command{emacspeak-webutils-play-media-at-point}
+;;; Play media URL under point using @code{emacs-m-player}.
+;;; @item U
+;;; @command{emacspeak-webutils-curl-play-media-at-point}
+;;; Play media url under point by first downloading the URL using CURL. This is useful for sites that do multiple redirects before returning the actual media stream URL.
+;;; @item C-o
+;;; @command{emacspeak-feeds-opml-display}
+;;; Display link under point as an @code{OPML} feed .
+;;; @item C-r
+;;; @command{emacspeak-feeds-rss-display}
+;;; Display link under point as an @code{RSS} feed.
+;;; @item C-a
+;;; @command{emacspeak-feeds-atom-display}
+;;; Display link under point as an @code{ATOM} feed.
+;;; item y
+;;; @command{emacspeak-m-player-youtube-player}
+;;; Play link under point as a Youtube stream.
+;;; @end table
+;;;
+
+;;;@subsection Miscellaneous Commands
+
+;;;@table @kbd
+;;;@item '
+;;;@command{emacspeak-speak-rest-of-buffer}
+;;;Speak rest of current Web page starting from point.
+;;;@item *
+;;;@command{eww-add-bookmark}
+;;;Bookmark current Web page.
+;;;@item = @command{dtk-toggle-punctuation-mode}
+;;;Toggle punctuation mode.
+;;;@item ?
+;;;@command{emacspeak-webutils-google-similar-to-this-page}
+;;;Google similarity search.
+;;;@item C-t
+;;;@command{emacspeak-eww-transcode}
+;;;Transcode current page to something more readable.
+;;;@item G @command{emacspeak-google-command}
+;;;Prefix key to invoke Google-specific commands.
+;;;@item L
+;;;@command{emacspeak-eww-links-rel}
+;;;Display any related links discovered via the document's @code{meta} tag.
+;;;@item Q
+;;;@command{emacspeak-kill-buffer-quietly}
+;;;Delete this buffer.
+;;;@item V
+;;;@command{eww-view-source}
+;;;Display Web page source.
+;;;@item e
+;;;@command{emacspeak-we-xsl-map}
+;;;Prefix key for invoking XSLT-based filters.
+;;;@item k
+;;;@command{eww-copy-page-url}
+;;;Copy page URL to kill-ring.
+;;;@end table
+;;;
+;;; In addition, see commands in
+;;; @xref{emacspeak-google} for Google-Search specific commands, many of
+;;; which are available via prefix-key @kbd{G}.
+
 ;;; @subsection Filtering Content Using XSLT And XPath
 
 
@@ -303,78 +375,6 @@
 ;;;@command{emacspeak-we-class-filter-and-follow}
 ;;;Follow link under point and filter by class values.
 ;;;@end table
-;;; @subsection Updated  Commands For Following  Links
-
-;;; These key-bindings are available when point is on a link. They
-;;; enable context-specific actions for following links, e.g., to play
-;;; media streams, or to open various feed-types such as @code{ATOM}, @code{RSS}, or @code{OPML}.
-;;;
-;;;
-;;; @table @kbd
-;;; @item k
-;;; @command{shr-copy-url}
-;;; Copy URL under point to the kill-ring.
-;;; @item ;
-;;; @command{emacspeak-webutils-play-media-at-point}
-;;; Play media URL under point using @code{emacs-m-player}.
-;;; @item U
-;;; @command{emacspeak-webutils-curl-play-media-at-point}
-;;; Play media url under point by first downloading the URL using CURL. This is useful for sites that do multiple redirects before returning the actual media stream URL.
-;;; @item C-o
-;;; @command{emacspeak-feeds-opml-display}
-;;; Display link under point as an @code{OPML} feed .
-;;; @item C-r
-;;; @command{emacspeak-feeds-rss-display}
-;;; Display link under point as an @code{RSS} feed.
-;;; @item C-a
-;;; @command{emacspeak-feeds-atom-display}
-;;; Display link under point as an @code{ATOM} feed.
-;;; item y
-;;; @command{emacspeak-m-player-youtube-player}
-;;; Play link under point as a Youtube stream.
-;;; @end table
-;;;
-
-;;;@subsection Miscellaneous Commands
-
-;;;@table @kbd
-;;;@item '
-;;;@command{emacspeak-speak-rest-of-buffer}
-;;;Speak rest of current Web page starting from point.
-;;;@item *
-;;;@command{eww-add-bookmark}
-;;;Bookmark current Web page.
-;;;@item = @command{dtk-toggle-punctuation-mode}
-;;;Toggle punctuation mode.
-;;;@item ?
-;;;@command{emacspeak-webutils-google-similar-to-this-page}
-;;;Google similarity search.
-;;;@item C-t
-;;;@command{emacspeak-eww-transcode}
-;;;Transcode current page to something more readable.
-;;;@item G @command{emacspeak-google-command}
-;;;Prefix key to invoke Google-specific commands.
-;;;@item L
-;;;@command{emacspeak-eww-links-rel}
-;;;Display any related links discovered via the document's @code{meta} tag.
-;;;@item Q
-;;;@command{emacspeak-kill-buffer-quietly}
-;;;Delete this buffer.
-;;;@item V
-;;;@command{eww-view-source}
-;;;Display Web page source.
-;;;@item e
-;;;@command{emacspeak-we-xsl-map}
-;;;Prefix key for invoking XSLT-based filters.
-;;;@item k
-;;;@command{eww-copy-page-url}
-;;;Copy page URL to kill-ring.
-;;;@end table
-;;;
-;;; In addition, see commands in
-;;; @xref{emacspeak-google} for Google-Search specific commands, many of
-;;; which are available via prefix-key @kbd{G}.
-
 ;;; Code:
 
 ;;}}}
