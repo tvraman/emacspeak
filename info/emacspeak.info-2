@@ -12,442 +12,6 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: emacspeak.info,  Node: emacspeak-bookmark,  Next: emacspeak-bookshare,  Prev: emacspeak-bibtex,  Up: Emacspeak Commands And Options
-
-12.26 emacspeak-bookmark
-========================
-
-Speech enable bookmarks
-
-
-File: emacspeak.info,  Node: emacspeak-bookshare,  Next: emacspeak-browse-kill-ring,  Prev: emacspeak-bookmark,  Up: Emacspeak Commands And Options
-
-12.27 emacspeak-bookshare
-=========================
-
-BOOKSHARE == http://www.bookshare.org provides book access to
-print-disabled users.  It provides a simple Web API
-http://developer.bookshare.org This module implements an Emacspeak
-Bookshare client.  For now, users will need to get their own API key
-This version needs Emacs with libxml2 support You need Emacs 24.1 or
-higher.
-
-12.27.1 emacspeak-bookshare Commands
-------------------------------------
-
-12.27.1.1 emacspeak-bookshare
-.............................
-
- -- Command: emacspeak-bookshare
-     ‘C-e C-b’
-     ‘<fn> C-b’
-
-     Bookshare  Interaction.
-
-12.27.1.2 emacspeak-bookshare-action
-....................................
-
- -- Command: emacspeak-bookshare-action
-
-     Call action specified by  invoking key.
-
-12.27.1.3 emacspeak-bookshare-author-search
-...........................................
-
- -- Command: emacspeak-bookshare-author-search (query &optional
-          category)
-
-     Perform a Bookshare author search.
-     Interactive prefix arg filters search by category.
-
-     (fn QUERY &optional CATEGORY)
-
-12.27.1.4 emacspeak-bookshare-browse
-....................................
-
- -- Command: emacspeak-bookshare-browse
-
-     Browse Bookshare.
-
-12.27.1.5 emacspeak-bookshare-browse-latest
-...........................................
-
- -- Command: emacspeak-bookshare-browse-latest
-
-     Return latest books.
-
-12.27.1.6 emacspeak-bookshare-browse-popular
-............................................
-
- -- Command: emacspeak-bookshare-browse-popular (&optional category)
-
-     Browse popular books.
-     Optional interactive prefix arg prompts for a category to use as a filter.
-
-     (fn &optional CATEGORY)
-
-12.27.1.7 emacspeak-bookshare-download-brf
-..........................................
-
- -- Command: emacspeak-bookshare-download-brf (id target)
-
-     Download Daisy format of specified book to target location.
-
-     (fn ID TARGET)
-
-12.27.1.8 emacspeak-bookshare-download-brf-at-point
-...................................................
-
- -- Command: emacspeak-bookshare-download-brf-at-point
-
-     Download Braille version of book under point.
-     Target location is generated from author and title.
-
-12.27.1.9 emacspeak-bookshare-download-daisy
-............................................
-
- -- Command: emacspeak-bookshare-download-daisy (id target)
-
-     Download Daisy format of specified book to target location.
-
-     (fn ID TARGET)
-
-12.27.1.10 emacspeak-bookshare-download-daisy-at-point
-......................................................
-
- -- Command: emacspeak-bookshare-download-daisy-at-point
-
-     Download Daisy version of book under point.
-     Target location is generated from author and title.
-
-12.27.1.11 emacspeak-bookshare-download-internal
-................................................
-
- -- Command: emacspeak-bookshare-download-internal (url target)
-
-     Download content  to target location.
-
-     (fn URL TARGET)
-
-12.27.1.12 emacspeak-bookshare-eww
-..................................
-
- -- Command: emacspeak-bookshare-eww (directory)
-
-     Render complete book using EWW if available.
-
-     (fn DIRECTORY)
-
-12.27.1.13 emacspeak-bookshare-expand-at-point
-..............................................
-
- -- Command: emacspeak-bookshare-expand-at-point
-
-     Expand entry at point by retrieving metadata.
-     Once retrieved, memoize to avoid multiple retrievals.
-
-12.27.1.14 emacspeak-bookshare-extract-and-view
-...............................................
-
- -- Command: emacspeak-bookshare-extract-and-view (url)
-
-     Extract content referred to by link under point, and render via the browser.
-
-     (fn URL)
-
-12.27.1.15 emacspeak-bookshare-extract-xml
-..........................................
-
- -- Command: emacspeak-bookshare-extract-xml (url)
-
-     Extract content referred to by link under point, and return an XML buffer.
-
-     (fn URL)
-
-12.27.1.16 emacspeak-bookshare-flush-lines
-..........................................
-
- -- Command: emacspeak-bookshare-flush-lines (regexp)
-
-     Flush lines matching regexp in Bookshare buffer.
-
-     (fn REGEXP)
-
-12.27.1.17 emacspeak-bookshare-fulltext
-.......................................
-
- -- Command: emacspeak-bookshare-fulltext (directory)
-
-     Display fulltext contents of  book in specified directory.
-     Useful for fulltext search in a book.
-
-     (fn DIRECTORY)
-
-12.27.1.18 emacspeak-bookshare-fulltext-search
-..............................................
-
- -- Command: emacspeak-bookshare-fulltext-search (query)
-
-     Perform a Bookshare fulltext search.
-
-     (fn QUERY)
-
-12.27.1.19 emacspeak-bookshare-get-more-results
-...............................................
-
- -- Command: emacspeak-bookshare-get-more-results
-
-     Get next page of results for last query.
-
-12.27.1.20 emacspeak-bookshare-id-search
-........................................
-
- -- Command: emacspeak-bookshare-id-search (query)
-
-     Perform a Bookshare id search.
-
-     (fn QUERY)
-
-12.27.1.21 emacspeak-bookshare-isbn-search
-..........................................
-
- -- Command: emacspeak-bookshare-isbn-search (query)
-
-     Perform a Bookshare isbn search.
-
-     (fn QUERY)
-
-12.27.1.22 emacspeak-bookshare-list-preferences
-...............................................
-
- -- Command: emacspeak-bookshare-list-preferences
-
-     Return preference list.
-
-12.27.1.23 emacspeak-bookshare-mode
-...................................
-
- -- Command: emacspeak-bookshare-mode
-
-     A Bookshare front-end for the Emacspeak desktop.
-
-     The Emacspeak Bookshare front-end is launched by command
-     emacspeak-bookshare bound to C-e C-b
-
-     This command switches to a special buffer that has Bookshare
-     commands bounds to single keystrokes– see the key-binding list at
-     the end of this description. Use Emacs online help facility to
-     look up help on these commands.
-
-     emacspeak-bookshare-mode provides the necessary functionality to
-     Search and download Bookshare material,
-     Manage a local library of downloaded Bookshare content,
-     And commands to easily read newer Daisy books from Bookshare.
-
-     Here is a list of all emacspeak Bookshare commands  with their key-bindings:
-     a Author Search
-     A Author/Title Search
-     t Title Search
-     s Full Text Search
-     d Date Search
-     b Browse
-
-     key             binding
-     —             ——-
-
-     RET		emacspeak-bookshare-toc-at-point
-     ESC		Prefix Command
-     SPC		emacspeak-bookshare-expand-at-point
-     +		emacspeak-bookshare-action
-     A		emacspeak-bookshare-action
-     B		emacspeak-bookshare-download-brf-at-point
-     C		emacspeak-bookshare-fulltext
-     D		emacspeak-bookshare-download-daisy-at-point
-     E		emacspeak-bookshare-eww
-     I		emacspeak-bookshare-action
-     P		emacspeak-bookshare-action
-     S		emacspeak-bookshare-action
-     U		emacspeak-bookshare-unpack-at-point
-     V		emacspeak-bookshare-view-at-point
-     [		backward-page
-     ]		forward-page
-     a		emacspeak-bookshare-action
-     b		emacspeak-bookshare-browse
-     c		emacspeak-bookshare-toc-at-point
-     d		emacspeak-bookshare-action
-     e		emacspeak-epub
-     f		emacspeak-bookshare-flush-lines
-     i		emacspeak-bookshare-action
-     j		next-line
-     k		previous-line
-     l .. m		emacspeak-bookshare-action
-     p		emacspeak-bookshare-action
-     q		bury-buffer
-     s .. t		emacspeak-bookshare-action
-     v		emacspeak-bookshare-view
-
-     M-n		emacspeak-bookshare-next-result
-     M-p		emacspeak-bookshare-previous-result
-
-     In addition to any hooks its parent mode ‘special-mode’ might have run,
-     this mode runs the hook ‘emacspeak-bookshare-mode-hook’, as the final or penultimate step
-     during initialization.
-
-12.27.1.24 emacspeak-bookshare-next-result
-..........................................
-
- -- Command: emacspeak-bookshare-next-result
-
-     Move to next result.
-
-12.27.1.25 emacspeak-bookshare-periodical-list
-..............................................
-
- -- Command: emacspeak-bookshare-periodical-list
-
-     Return list of periodicals.
-
-12.27.1.26 emacspeak-bookshare-previous-result
-..............................................
-
- -- Command: emacspeak-bookshare-previous-result
-
-     Move to previous result.
-
-12.27.1.27 emacspeak-bookshare-set-preference
-.............................................
-
- -- Command: emacspeak-bookshare-set-preference (preference-id value)
-
-     Set preference preference-id to value.
-
-     (fn PREFERENCE-ID VALUE)
-
-12.27.1.28 emacspeak-bookshare-sign-out
-.......................................
-
- -- Command: emacspeak-bookshare-sign-out
-
-     Sign out, clearing password.
-
-12.27.1.29 emacspeak-bookshare-since-search
-...........................................
-
- -- Command: emacspeak-bookshare-since-search (query &optional category)
-
-     Perform a Bookshare date  search.
-     Optional interactive prefix arg filters by category.
-
-     (fn QUERY &optional CATEGORY)
-
-12.27.1.30 emacspeak-bookshare-title-search
-...........................................
-
- -- Command: emacspeak-bookshare-title-search (query &optional category)
-
-     Perform a Bookshare title search.
-     Interactive prefix arg filters search by category.
-
-     (fn QUERY &optional CATEGORY)
-
-12.27.1.31 emacspeak-bookshare-toc
-..................................
-
- -- Command: emacspeak-bookshare-toc (directory)
-
-     View TOC for book in specified directory.
-
-     (fn DIRECTORY)
-
-12.27.1.32 emacspeak-bookshare-toc-at-point
-...........................................
-
- -- Command: emacspeak-bookshare-toc-at-point
-
-     View TOC for book at point.
-     Make sure it’s downloaded and unpacked first.
-
-12.27.1.33 emacspeak-bookshare-unpack-at-point
-..............................................
-
- -- Command: emacspeak-bookshare-unpack-at-point
-
-     Unpack downloaded content if necessary.
-
-12.27.1.34 emacspeak-bookshare-url-executor
-...........................................
-
- -- Command: emacspeak-bookshare-url-executor (url)
-
-     Custom URL executor for use in Bookshare TOC.
-
-     (fn URL)
-
-12.27.1.35 emacspeak-bookshare-version-handler
-..............................................
-
- -- Command: emacspeak-bookshare-version-handler (&rest ignore)
-
-     Do nothing and return nil.
-     This function accepts any number of arguments, but ignores them.
-
-     (fn &rest IGNORE)
-
-12.27.1.36 emacspeak-bookshare-view
-...................................
-
- -- Command: emacspeak-bookshare-view (directory)
-
-     View book in specified directory.
-
-     (fn DIRECTORY)
-
-12.27.1.37 emacspeak-bookshare-view-at-point
-............................................
-
- -- Command: emacspeak-bookshare-view-at-point
-
-     View book at point.
-     Make sure it’s downloaded and unpacked first.
-
-12.27.1.38 emacspeak-bookshare-view-page-range
-..............................................
-
- -- Command: emacspeak-bookshare-view-page-range (url)
-
-     Play pages in specified page range from URL.
-
-     (fn URL)
-
-12.27.2 emacspeak-bookshare Options
------------------------------------
-
- -- Variable: User Option emacspeak-bookshare-api-key
-     Web API key for this application.  See
-     http://developer.bookshare.org/docs for details on how to get an
-     API key.
-
- -- Variable: User Option emacspeak-bookshare-browser-function
-     Function to display Bookshare Book content in a WWW browser.  This
-     is used by the various Bookshare view commands to display content
-     from Daisy books.
-
- -- Variable: User Option emacspeak-bookshare-directory
-     Customize this to the root of where books are organized.
-
- -- Variable: User Option emacspeak-bookshare-downloads-directory
-     Customize this to the root of where books are organized.
-
- -- Variable: User Option emacspeak-bookshare-html-to-text-command
-     Command to convert html to text on stdin.
-
- -- Variable: User Option emacspeak-bookshare-user-id
-     Bookshare user Id.
-
- -- Variable: User Option emacspeak-bookshare-xslt
-     Name of bookshare XSL transform.
-
-
 File: emacspeak.info,  Node: emacspeak-browse-kill-ring,  Next: emacspeak-bs,  Prev: emacspeak-bookshare,  Up: Emacspeak Commands And Options
 
 12.28 emacspeak-browse-kill-ring
@@ -2776,7 +2340,69 @@ prompt for a list of filters.  Command ‘emacspeak-eww-restore’ bound to
      ‘eww-view-dom-not-having-role’ Filter out DOM nodes having
      specified role.  Valid role values are available via completion.
 
-12.74.3 Filtering Content Using XSLT And XPath
+12.74.3 Updated Commands For Following Links
+--------------------------------------------
+
+These key-bindings are available when point is on a link.  They enable
+context-specific actions for following links, e.g., to play media
+streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML’.
+
+‘k’
+     ‘shr-copy-url’ Copy URL under point to the kill-ring.
+‘;’
+     ‘emacspeak-webutils-play-media-at-point’ Play media URL under point
+     using ‘emacs-m-player’.
+‘U’
+     ‘emacspeak-webutils-curl-play-media-at-point’ Play media url under
+     point by first downloading the URL using CURL. This is useful for
+     sites that do multiple redirects before returning the actual media
+     stream URL.
+‘C-o’
+     ‘emacspeak-feeds-opml-display’ Display link under point as an
+     ‘OPML’ feed .
+‘C-r’
+     ‘emacspeak-feeds-rss-display’ Display link under point as an ‘RSS’
+     feed.
+‘C-a’
+     ‘emacspeak-feeds-atom-display’ Display link under point as an
+     ‘ATOM’ feed.  item y ‘emacspeak-m-player-youtube-player’ Play link
+     under point as a Youtube stream.
+
+12.74.4 Miscellaneous Commands
+------------------------------
+
+‘'’
+     ‘emacspeak-speak-rest-of-buffer’ Speak rest of current Web page
+     starting from point.
+‘*’
+     ‘eww-add-bookmark’ Bookmark current Web page.
+‘= dtk-toggle-punctuation-mode’
+     Toggle punctuation mode.
+‘?’
+     ‘emacspeak-webutils-google-similar-to-this-page’ Google similarity
+     search.
+‘C-t’
+     ‘emacspeak-eww-transcode’ Transcode current page to something more
+     readable.
+‘G emacspeak-google-command’
+     Prefix key to invoke Google-specific commands.
+‘L’
+     ‘emacspeak-eww-links-rel’ Display any related links discovered via
+     the document’s ‘meta’ tag.
+‘Q’
+     ‘emacspeak-kill-buffer-quietly’ Delete this buffer.
+‘V’
+     ‘eww-view-source’ Display Web page source.
+‘e’
+     ‘emacspeak-we-xsl-map’ Prefix key for invoking XSLT-based filters.
+‘k’
+     ‘eww-copy-page-url’ Copy page URL to kill-ring.
+
+   In addition, see commands in *Note emacspeak-google::.  for
+Google-Search specific commands, many of which are available via
+prefix-key ‘G’.
+
+12.74.5 Filtering Content Using XSLT And XPath
 ----------------------------------------------
 
 ‘C-c’
@@ -2869,68 +2495,6 @@ prompt for a list of filters.  Command ‘emacspeak-eww-restore’ bound to
 ‘y’
      ‘emacspeak-we-class-filter-and-follow’ Follow link under point and
      filter by class values.
-
-12.74.4 Updated Commands For Following Links
---------------------------------------------
-
-These key-bindings are available when point is on a link.  They enable
-context-specific actions for following links, e.g., to play media
-streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML’.
-
-‘k’
-     ‘shr-copy-url’ Copy URL under point to the kill-ring.
-‘;’
-     ‘emacspeak-webutils-play-media-at-point’ Play media URL under point
-     using ‘emacs-m-player’.
-‘U’
-     ‘emacspeak-webutils-curl-play-media-at-point’ Play media url under
-     point by first downloading the URL using CURL. This is useful for
-     sites that do multiple redirects before returning the actual media
-     stream URL.
-‘C-o’
-     ‘emacspeak-feeds-opml-display’ Display link under point as an
-     ‘OPML’ feed .
-‘C-r’
-     ‘emacspeak-feeds-rss-display’ Display link under point as an ‘RSS’
-     feed.
-‘C-a’
-     ‘emacspeak-feeds-atom-display’ Display link under point as an
-     ‘ATOM’ feed.  item y ‘emacspeak-m-player-youtube-player’ Play link
-     under point as a Youtube stream.
-
-12.74.5 Miscellaneous Commands
-------------------------------
-
-‘'’
-     ‘emacspeak-speak-rest-of-buffer’ Speak rest of current Web page
-     starting from point.
-‘*’
-     ‘eww-add-bookmark’ Bookmark current Web page.
-‘= dtk-toggle-punctuation-mode’
-     Toggle punctuation mode.
-‘?’
-     ‘emacspeak-webutils-google-similar-to-this-page’ Google similarity
-     search.
-‘C-t’
-     ‘emacspeak-eww-transcode’ Transcode current page to something more
-     readable.
-‘G emacspeak-google-command’
-     Prefix key to invoke Google-specific commands.
-‘L’
-     ‘emacspeak-eww-links-rel’ Display any related links discovered via
-     the document’s ‘meta’ tag.
-‘Q’
-     ‘emacspeak-kill-buffer-quietly’ Delete this buffer.
-‘V’
-     ‘eww-view-source’ Display Web page source.
-‘e’
-     ‘emacspeak-we-xsl-map’ Prefix key for invoking XSLT-based filters.
-‘k’
-     ‘eww-copy-page-url’ Copy page URL to kill-ring.
-
-   In addition, see commands in *Note emacspeak-google::.  for
-Google-Search specific commands, many of which are available via
-prefix-key ‘G’.
 
 12.74.6 emacspeak-eww Commands
 ------------------------------
@@ -4488,8 +4052,98 @@ hosted at sourceforge.  I use emacs-jabber with my gmail.com account
 12.104.2 emacspeak-jabber Options
 ---------------------------------
 
+ -- Variable: User Option emacspeak-jabber-activity-personality
+     Personality used for jabber-activity-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option emacspeak-jabber-chat-error-voice
+     Personality used for jabber-chat-error This personality uses
+     voice-bolden-and-animate whose effect can be changed globally by
+     customizing voice-bolden-and-animate-settings.
+
+ -- Variable: User Option emacspeak-jabber-chat-prompt-foreign-voice
+     Personality used for jabber-chat-prompt-foreign This personality
+     uses voice-brighten-medium whose effect can be changed globally by
+     customizing voice-brighten-medium-settings.
+
+ -- Variable: User Option emacspeak-jabber-chat-prompt-local-voice
+     Personality used for jabber-chat-prompt-local This personality uses
+     voice-smoothen-medium whose effect can be changed globally by
+     customizing voice-smoothen-medium-settings.
+
+ -- Variable: User Option emacspeak-jabber-chat-prompt-system-voice
+     Personality used for jabber-chat-prompt-system This personality
+     uses voice-brighten-extra whose effect can be changed globally by
+     customizing voice-brighten-extra-settings.
+
+ -- Variable: User Option emacspeak-jabber-chat-text-foreign-voice
+     Personality used for jabber-chat-text-foreign This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option emacspeak-jabber-chat-text-local-voice
+     Personality used for jabber-chat-text-local This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-jabber-rare-time-personality
+     Personality used for jabber-rare-time-face This personality uses
+     voice-animate-extra whose effect can be changed globally by
+     customizing voice-animate-extra-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-away-voice
+     Personality used for jabber-roster-user-away This personality uses
+     voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-chatty-voice
+     Personality used for jabber-roster-user-chatty This personality
+     uses voice-brighten whose effect can be changed globally by
+     customizing voice-brighten-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-dnd-voice
+     Personality used for jabber-roster-user-dnd This personality uses
+     voice-lighten-medium whose effect can be changed globally by
+     customizing voice-lighten-medium-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-error-voice
+     Personality used for jabber-roster-user-error This personality uses
+     voice-bolden-and-animate whose effect can be changed globally by
+     customizing voice-bolden-and-animate-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-offline-voice
+     Personality used for jabber-roster-user-offline This personality
+     uses voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-online-voice
+     Personality used for jabber-roster-user-online This personality
+     uses voice-bolden whose effect can be changed globally by
+     customizing voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-xa-voice
+     Personality used for jabber-roster-user-xa This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
  -- Variable: User Option emacspeak-jabber-speak-presence-alerts
      Set to T if you want to hear presence alerts.
+
+ -- Variable: User Option emacspeak-jabber-title-large-voice
+     Personality used for jabber-title-large This personality uses
+     voice-bolden-extra whose effect can be changed globally by
+     customizing voice-bolden-extra-settings.
+
+ -- Variable: User Option emacspeak-jabber-title-medium-voice
+     Personality used for jabber-title-medium This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-jabber-title-small-voice
+     Personality used for jabber-title-small This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-jade,  Next: emacspeak-jde,  Prev: emacspeak-jabber,  Up: Emacspeak Commands And Options
@@ -8986,4 +8640,154 @@ graduate student when developing AsTeR.
      Personality used for slime-warning-face This personality uses
      voice-animate-medium whose effect can be changed globally by
      customizing voice-animate-medium-settings.
+
+
+File: emacspeak.info,  Node: emacspeak-solitaire,  Next: emacspeak-sounds,  Prev: emacspeak-slime,  Up: Emacspeak Commands And Options
+
+12.163 emacspeak-solitaire
+==========================
+
+Auditory interface to solitaire
+
+12.163.1 emacspeak-solitaire Commands
+-------------------------------------
+
+12.163.1.1 emacspeak-solitaire-show-column
+..........................................
+
+ -- Command: emacspeak-solitaire-show-column
+
+     Audio format current column.
+
+12.163.1.2 emacspeak-solitaire-show-row
+.......................................
+
+ -- Command: emacspeak-solitaire-show-row
+
+     Audio format current row.
+
+12.163.1.3 emacspeak-solitaire-speak-coordinates
+................................................
+
+ -- Command: emacspeak-solitaire-speak-coordinates
+
+     Speak coordinates of current position
+
+
+File: emacspeak.info,  Node: emacspeak-sounds,  Next: emacspeak-speak,  Prev: emacspeak-solitaire,  Up: Emacspeak Commands And Options
+
+12.164 emacspeak-sounds
+=======================
+
+This module provides the interface for generating auditory icons in
+emacspeak.  Design goal: 1) Auditory icons should be used to provide
+additional feedback, not as a gimmick.  2) The interface should be
+usable at all times without the icons: e.g.  when on a machine without a
+sound card.  3) General principle for when to use an icon: Convey
+information about events taking place in parallel.  For instance, if
+making a selection automatically moves the current focus to the next
+choice, We speak the next choice, while indicating the fact that
+something was selected with a sound cue.  This interface will assume the
+availability of a shell command "play" that can take one or more sound
+files and play them.  This module will also provide a mapping between
+names in the elisp world and actual sound files.  Modules that wish to
+use auditory icons should use these names, instead of actual file names.
+As of Emacspeak 13.0, this module defines a themes architecture for
+auditory icons.  Sound files corresponding to a given theme are found in
+appropriate subdirectories of emacspeak-sounds-directory
+
+12.164.1 emacspeak-sounds Commands
+----------------------------------
+
+12.164.1.1 emacspeak-audio-setup
+................................
+
+ -- Command: emacspeak-audio-setup (&optional prefix)
+     ‘C-e (’
+     ‘<fn> (’
+
+     Call appropriate audio environment set command.
+
+     (fn &optional PREFIX)
+
+12.164.1.2 emacspeak-set-auditory-icon-player
+.............................................
+
+ -- Command: emacspeak-set-auditory-icon-player (player)
+     ‘C-e M-a’
+     ‘<fn> M-a’
+
+     Select  player used for producing auditory icons.
+     Recommended choices:
+
+     emacspeak-serve-auditory-icon for  the wave device.
+     emacspeak-queue-auditory-icon when using software TTS.
+
+     (fn PLAYER)
+
+12.164.1.3 emacspeak-sounds-reset-local-player
+..............................................
+
+ -- Command: emacspeak-sounds-reset-local-player
+
+     Ask Emacspeak to use a local audio player.
+     This lets me have Emacspeak switch to using audioplay on
+     solaris after I’ve used it for a while from a remote session
+     where it would use the more primitive speech-server based
+     audio player.
+
+12.164.1.4 emacspeak-sounds-reset-sound
+.......................................
+
+ -- Command: emacspeak-sounds-reset-sound
+
+     Reload sound drivers.
+
+12.164.1.5 emacspeak-sounds-select-theme
+........................................
+
+ -- Command: emacspeak-sounds-select-theme (theme)
+     ‘C-e )’
+     ‘<fn> )’
+
+     Select theme for auditory icons.
+
+     (fn THEME)
+
+12.164.1.6 emacspeak-toggle-auditory-icons
+..........................................
+
+ -- Command: emacspeak-toggle-auditory-icons (&optional prefix)
+     ‘C-e C-a’
+     ‘<fn> C-a’
+
+     Toggle use of auditory icons.
+     Optional interactive PREFIX arg toggles global value.
+
+     (fn &optional PREFIX)
+
+12.164.2 emacspeak-sounds Options
+---------------------------------
+
+ -- Variable: User Option emacspeak-auditory-icon-function
+     *Function that plays auditory icons.  play : Launches play-program
+     to play.  Serve: Send a command to the speech-server to play.
+     Queue : Add auditory icon to speech queue.  soxplay: Use sox to
+     apply effect earwax for headphones.  Native : Use Emacs’ builtin
+     sound support.  Use Serve when working with remote speech servers.
+
+ -- Variable: User Option emacspeak-play-args
+     Set this to nil if using paplay from pulseaudio.
+
+ -- Variable: User Option emacspeak-play-program
+     Name of executable that plays sound files.
+
+ -- Variable: User Option emacspeak-sounds-default-theme
+     Default theme for auditory icons.
+
+ -- Variable: User Option emacspeak-sounds-reset-snd-module-command
+     Command to reset sound module.
+
+ -- Variable: User Option emacspeak-soxplay-command
+     Name of play executable from SoX
 

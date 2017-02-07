@@ -12,156 +12,6 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
-File: emacspeak.info,  Node: emacspeak-solitaire,  Next: emacspeak-sounds,  Prev: emacspeak-slime,  Up: Emacspeak Commands And Options
-
-12.163 emacspeak-solitaire
-==========================
-
-Auditory interface to solitaire
-
-12.163.1 emacspeak-solitaire Commands
--------------------------------------
-
-12.163.1.1 emacspeak-solitaire-show-column
-..........................................
-
- -- Command: emacspeak-solitaire-show-column
-
-     Audio format current column.
-
-12.163.1.2 emacspeak-solitaire-show-row
-.......................................
-
- -- Command: emacspeak-solitaire-show-row
-
-     Audio format current row.
-
-12.163.1.3 emacspeak-solitaire-speak-coordinates
-................................................
-
- -- Command: emacspeak-solitaire-speak-coordinates
-
-     Speak coordinates of current position
-
-
-File: emacspeak.info,  Node: emacspeak-sounds,  Next: emacspeak-speak,  Prev: emacspeak-solitaire,  Up: Emacspeak Commands And Options
-
-12.164 emacspeak-sounds
-=======================
-
-This module provides the interface for generating auditory icons in
-emacspeak.  Design goal: 1) Auditory icons should be used to provide
-additional feedback, not as a gimmick.  2) The interface should be
-usable at all times without the icons: e.g.  when on a machine without a
-sound card.  3) General principle for when to use an icon: Convey
-information about events taking place in parallel.  For instance, if
-making a selection automatically moves the current focus to the next
-choice, We speak the next choice, while indicating the fact that
-something was selected with a sound cue.  This interface will assume the
-availability of a shell command "play" that can take one or more sound
-files and play them.  This module will also provide a mapping between
-names in the elisp world and actual sound files.  Modules that wish to
-use auditory icons should use these names, instead of actual file names.
-As of Emacspeak 13.0, this module defines a themes architecture for
-auditory icons.  Sound files corresponding to a given theme are found in
-appropriate subdirectories of emacspeak-sounds-directory
-
-12.164.1 emacspeak-sounds Commands
-----------------------------------
-
-12.164.1.1 emacspeak-audio-setup
-................................
-
- -- Command: emacspeak-audio-setup (&optional prefix)
-     ‘C-e (’
-     ‘<fn> (’
-
-     Call appropriate audio environment set command.
-
-     (fn &optional PREFIX)
-
-12.164.1.2 emacspeak-set-auditory-icon-player
-.............................................
-
- -- Command: emacspeak-set-auditory-icon-player (player)
-     ‘C-e M-a’
-     ‘<fn> M-a’
-
-     Select  player used for producing auditory icons.
-     Recommended choices:
-
-     emacspeak-serve-auditory-icon for  the wave device.
-     emacspeak-queue-auditory-icon when using software TTS.
-
-     (fn PLAYER)
-
-12.164.1.3 emacspeak-sounds-reset-local-player
-..............................................
-
- -- Command: emacspeak-sounds-reset-local-player
-
-     Ask Emacspeak to use a local audio player.
-     This lets me have Emacspeak switch to using audioplay on
-     solaris after I’ve used it for a while from a remote session
-     where it would use the more primitive speech-server based
-     audio player.
-
-12.164.1.4 emacspeak-sounds-reset-sound
-.......................................
-
- -- Command: emacspeak-sounds-reset-sound
-
-     Reload sound drivers.
-
-12.164.1.5 emacspeak-sounds-select-theme
-........................................
-
- -- Command: emacspeak-sounds-select-theme (theme)
-     ‘C-e )’
-     ‘<fn> )’
-
-     Select theme for auditory icons.
-
-     (fn THEME)
-
-12.164.1.6 emacspeak-toggle-auditory-icons
-..........................................
-
- -- Command: emacspeak-toggle-auditory-icons (&optional prefix)
-     ‘C-e C-a’
-     ‘<fn> C-a’
-
-     Toggle use of auditory icons.
-     Optional interactive PREFIX arg toggles global value.
-
-     (fn &optional PREFIX)
-
-12.164.2 emacspeak-sounds Options
----------------------------------
-
- -- Variable: User Option emacspeak-auditory-icon-function
-     *Function that plays auditory icons.  play : Launches play-program
-     to play.  Serve: Send a command to the speech-server to play.
-     Queue : Add auditory icon to speech queue.  soxplay: Use sox to
-     apply effect earwax for headphones.  Native : Use Emacs’ builtin
-     sound support.  Use Serve when working with remote speech servers.
-
- -- Variable: User Option emacspeak-play-args
-     Set this to nil if using paplay from pulseaudio.
-
- -- Variable: User Option emacspeak-play-program
-     Name of executable that plays sound files.
-
- -- Variable: User Option emacspeak-sounds-default-theme
-     Default theme for auditory icons.
-
- -- Variable: User Option emacspeak-sounds-reset-snd-module-command
-     Command to reset sound module.
-
- -- Variable: User Option emacspeak-soxplay-command
-     Name of play executable from SoX
-
-
 File: emacspeak.info,  Node: emacspeak-speak,  Next: emacspeak-speedbar,  Prev: emacspeak-sounds,  Up: Emacspeak Commands And Options
 
 12.165 emacspeak-speak
@@ -2713,6 +2563,19 @@ broken.
 
      Speak tweet under point.
 
+12.183.2 emacspeak-twittering Options
+-------------------------------------
+
+ -- Variable: User Option emacspeak-twittering-uri-personality
+     Personality used for twittering-uri-face This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option emacspeak-twittering-username-personality
+     Personality used for twittering-username-face This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
 
 File: emacspeak.info,  Node: emacspeak-url-template,  Next: emacspeak-view,  Prev: emacspeak-twittering,  Up: Emacspeak Commands And Options
 
@@ -3087,10 +2950,96 @@ File: emacspeak.info,  Node: emacspeak-w3m,  Next: emacspeak-wdired,  Prev: emac
 12.188.2 emacspeak-w3m Options
 ------------------------------
 
+ -- Variable: User Option emacspeak-w3m-anchor-voice
+     Personality used for w3m-anchor This personality uses voice-lighten
+     whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-w3m-arrived-anchor-voice
+     Personality used for w3m-arrived-anchor This personality uses
+     voice-lighten-extra whose effect can be changed globally by
+     customizing voice-lighten-extra-settings.
+
+ -- Variable: User Option emacspeak-w3m-bold-voice
+     Personality used for w3m-bold This personality uses
+     voice-bolden-medium whose effect can be changed globally by
+     customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option emacspeak-w3m-current-anchor-voice
+     Personality used for w3m-current-anchor This personality uses
+     voice-bolden-extra whose effect can be changed globally by
+     customizing voice-bolden-extra-settings.
+
+ -- Variable: User Option emacspeak-w3m-form-button-pressed-voice
+     Personality used for w3m-form-button-pressed This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option emacspeak-w3m-form-button-voice
+     Personality used for w3m-form-button This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-w3m-form-voice
+     Personality used for w3m-form This personality uses voice-brighten
+     whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option
+          emacspeak-w3m-header-line-location-content-voice
+     Personality used for w3m-header-line-location-content This
+     personality uses voice-animate whose effect can be changed globally
+     by customizing voice-animate-settings.
+
+ -- Variable: User Option emacspeak-w3m-header-line-location-title-voice
+     Personality used for w3m-header-line-location-title This
+     personality uses voice-bolden whose effect can be changed globally
+     by customizing voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-w3m-history-current-url-voice
+     Personality used for w3m-history-current-url This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-w3m-image-voice
+     Personality used for w3m-image This personality uses voice-brighten
+     whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option emacspeak-w3m-insert-voice
+     Personality used for w3m-insert This personality uses voice-bolden
+     whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-w3m-italic-voice
+     Personality used for w3m-italic This personality uses voice-animate
+     whose effect can be changed globally by customizing
+     voice-animate-settings.
+
  -- Variable: User Option emacspeak-w3m-speak-titles-on-switch
      Speak the document title when switching between w3m buffers.  If
      non-nil, switching between w3m buffers will speak the title instead
      of the modeline.
+
+ -- Variable: User Option emacspeak-w3m-strike-through-voice
+     Personality used for w3m-strike-through This personality uses
+     voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option emacspeak-w3m-tab-selected-voice
+     Personality used for w3m-tab-selected This personality uses
+     voice-animate-extra whose effect can be changed globally by
+     customizing voice-animate-extra-settings.
+
+ -- Variable: User Option emacspeak-w3m-tab-unselected-voice
+     Personality used for w3m-tab-unselected This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-w3m-underline-voice
+     Personality used for w3m-underline This personality uses
+     voice-brighten-extra whose effect can be changed globally by
+     customizing voice-brighten-extra-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-wdired,  Next: emacspeak-we,  Prev: emacspeak-w3m,  Up: Emacspeak Commands And Options
