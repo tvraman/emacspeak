@@ -537,24 +537,24 @@ For use on Wikipedia pages  for example."
 
 ;;}}}
 ;;{{{ Muggle: Speak And Browse Math
-(when (featurep 'hydra)
-  (global-set-key
-   (kbd "s-SPC")
-   (defhydra emacspeak-maths-navigator
-     (:body-pre (emacspeak-muggles-body-pre "Spoken Math")
-                :pre emacspeak-muggles-pre
-                :post emacspeak-muggles-post)
-     "Spoken Math"
-     ("o" emacspeak-maths-switch-to-output :color blue)
-     ("RET" emacspeak-maths-enter-guess)
-     ("SPC" emacspeak-maths-enter "enter")
-     ("a" emacspeak-maths-speak-alt "Alt Text")
-     ("d" emacspeak-maths-depth "Depth")
-     ("r" emacspeak-maths-root "Root")
-     ("<up>" emacspeak-maths-up "Up")
-     ("<down>" emacspeak-maths-down"down")
-     ("<left>" emacspeak-maths-left "left")
-     ("<right>" emacspeak-maths-right "right"))))
+(defhydra emacspeak-maths-navigator
+  (:body-pre
+   (progn
+     (when hydra-is-helpful (emacspeak-muggles-toggle-talkative))
+     (emacspeak-muggles-body-pre "Spoken Math"))
+   :pre emacspeak-muggles-pre
+   :post emacspeak-muggles-post)
+  "Spoken Math"
+  ("o" emacspeak-maths-switch-to-output :color blue)
+  ("RET" emacspeak-maths-enter-guess)
+  ("SPC" emacspeak-maths-enter "enter")
+  ("a" emacspeak-maths-speak-alt "Alt Text")
+  ("d" emacspeak-maths-depth "Depth")
+  ("r" emacspeak-maths-root "Root")
+  ("<up>" emacspeak-maths-up "Up")
+  ("<down>" emacspeak-maths-down"down")
+  ("<left>" emacspeak-maths-left "left")
+  ("<right>" emacspeak-maths-right "right"))))
 
 ;;}}}
 ;;{{{ Advice Preview:
