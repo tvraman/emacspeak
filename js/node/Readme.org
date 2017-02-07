@@ -13,7 +13,7 @@ and if it breaks, you get to keep both pieces.
 ** Install ~node~, ~npm~ and ~nvm~
 
    Install node and npm. You need a newer node than the default node
-     installed in Ubuntu, use nvm to manage the node installation. See
+     installed in Ubuntu, use nvm (Node Version Manager) to manage the node installation. See
      file ~nvm-setup~.
 
 ** Install Dependencies 
@@ -34,5 +34,7 @@ close client and server.
 ** Connect From Within Emacspeak
 
   - M-x emacspeak-maths-start --- start the server/client.
-  - Invoke the emacspeak-maths muggle using key _s-SPC_ --- here _s-_
+  - Invoke the /Maths Navigator/ AKA emacspeak-maths muggle using key _s-SPC_ --- here _s-_
     means press the Windows key.
+  - Read the docs and profit --- see info node /emacspeak-maths/ in
+    the emacspeak manual.
