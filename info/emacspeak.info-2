@@ -2849,7 +2849,8 @@ prompt for a list of filters.  Command ‘emacspeak-eww-restore’ bound to
      ‘emacspeak-we-extract-by-role’ Extract elements by specified role
      value.
 ‘s’
-     ‘emacspeak-we-xslt-select’ Select elements using XSLT.
+     ‘emacspeak-we-xslt-select’ Select default XSLT transform that is
+     applied before rendering the page.
 ‘t’
      ‘emacspeak-we-extract-table-by-position’ Extracts tables by their
      position on the page.
