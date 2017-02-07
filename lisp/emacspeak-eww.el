@@ -283,7 +283,7 @@
 ;;;Extract elements by specified role value.
 ;;;@item s             
 ;;;@command{emacspeak-we-xslt-select}
-;;;Select elements using XSLT.
+;;;Select default XSLT transform that is applied before rendering the page.
 ;;;@item t             
 ;;;@command{emacspeak-we-extract-table-by-position}
 ;;;Extracts tables by their position on the page.
