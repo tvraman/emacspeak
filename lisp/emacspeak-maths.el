@@ -306,8 +306,7 @@ left for next run."
 ;;{{{ Setup:
 
 (defvar emacspeak-maths-server-program
-  (expand-file-name "math-server.js"
-                    (file-name-directory (or load-file-name default-directory)))
+  (expand-file-name "../js/node/math-server.js" emacspeak-lisp-directory)
   "NodeJS implementation of math-server.")
 ;;;###autoload
 
