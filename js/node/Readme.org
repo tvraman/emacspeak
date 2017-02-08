@@ -12,9 +12,15 @@ and if it breaks, you get to keep both pieces.
 
 ** Install ~node~, ~npm~ and ~nvm~
 
-   Install node and npm. You need a newer node than the default node
+1. Install node and npm. You need a newer node than the default node
      installed in Ubuntu, use nvm (Node Version Manager) to manage the node installation. See
-     file ~nvm-setup~.
+     file ~nvm-setup~ in this directory for instructions.
+2. Copy the ~nvm-setup~ file to your home directory as ~.nvm-setup~,
+   and make sure it runs correctly by executing:
+: . .nvm-setup
+3. If the above runs without errors, add the line
+: . .nvm-setup 
+to your ~.bash_profile~.
 
 ** Install Dependencies 
 
