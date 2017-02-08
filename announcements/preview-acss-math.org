@@ -44,7 +44,8 @@ usage examples in the next section.
   - Pressing _o_ switches to the /*Spoken Math*/ buffer and exits the
     navigator.
 
-See the online Emacspeak manual for details.
+See the [[http://tvraman.github.io/emacspeak/manual/emacspeak_002dmaths.html#emacspeak_002dmaths][relevant chapter]] in the online Emacspeak manual for details.
+
 ** Math Content In La)TeX Documents 
 
 
