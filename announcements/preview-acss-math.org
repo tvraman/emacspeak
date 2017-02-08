@@ -1,0 +1,44 @@
+* Audio Deja Vu: Audio Formatted Math On The Emacspeak Desktop
+
+** Summary
+
+This article previews a new feature in the next Emacspeak release ---
+audio-formatted Mathematics using Aural CSS. [[http://www.cs.bham.ac.uk/~vxs][Prof. Volker Sorge]] worked
+at Google as a Visiting Scientist from Sep 2012 to August 2013, when
+we implemented math access in ChromeVox. Since leaving Google, Volker
+has refactored and extended his work to create an Open Source /Speech-Rule-Engine/
+implemented using NodeJS. This speech-rule-engine can be used in many
+different environments; Emacspeak leverages that work to enable
+audio-formatting and interactive browsing of math content.
+
+
+** Overview Of Functionality 
+
+Math access on the Emacspeak desktop is implemented via module
+_emacspeak-maths.el_. Once loaded, this module provides a /Math
+Navigator/ that implements the user interface for sending Math
+expressions to the Speech-Rule-Engine, and for interactively browsing
+the resulting structure. Emacspeak receives  math expressions that
+have been annotated with Aural CSS and produces audio-formatted
+output. The audio-formatted text can itself be navigated in a special
+/*Spoken Math*/ emacs buffer.
+
+Module ~emacspeak-maths.el~ implements various affordances for
+dispatching mathematical content to the Speech-Rule-Engine --- see
+usage examples in the next section.
+
+
+
+** Usage Examples 
+
+
+*** Math Content In La)TeX Documents 
+
+*** Math Content On Wikipedia 
+
+
+
+*** Math Content From The Emacs Calculator 
+
+** And The Best Is Yet To Come
+
