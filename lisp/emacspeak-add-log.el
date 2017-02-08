@@ -62,10 +62,10 @@
  '(
    (change-log-acknowledgement voice-smoothen)
    (change-log-conditionals voice-animate)
-   (change-log-email voice-womanize-1)
+   (change-log-email voice-lighten)
    (change-log-function voice-bolden-extra)
    (change-log-file voice-bolden)
-   (change-log-email voice-womanize-1)
+   (change-log-email voice-lighten)
    (change-log-list voice-lighten)
    (change-log-name voice-lighten-extra)
    ))
