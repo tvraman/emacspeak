@@ -1,4 +1,4 @@
-;;; emacspeak-maths.el --- Speak Mathematics -*-lexical-binding: t
+;;; emacspeak-maths.el --- Audio-Formatted Mathematics  -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv, zorkov  $
 ;;; Description:  Speak MathML and LaTeX math expressions
 ;;; Keywords: Emacspeak,  Audio Desktop maths
