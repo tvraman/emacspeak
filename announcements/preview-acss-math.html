@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2017-02-08 Wed 15:14 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Audio Deja Vu: Audio Formatted Math On The Emacspeak Desktop</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="T.V Raman" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Audio Deja Vu: Audio Formatted Math On The Emacspeak Desktop</h1>
+<div id="outline-container-org2873953" class="outline-2">
+<h2 id="org2873953"><span class="section-number-2">1</span> Summary</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+This article previews a new feature in the next Emacspeak release &#x2014;
+audio-formatted Mathematics using Aural CSS. <a href="http://www.cs.bham.ac.uk/~vxs">Prof. Volker Sorge</a> worked
+at Google as a Visiting Scientist from Sep 2012 to August 2013, when
+we implemented <a href="https://www.youtube.com/watch?v=YyWu9HB9QtU">math
+access in ChromeVox</a> &#x2014; see <a href="http://allthingsd.com/20130604/t-v-ramans-audio-deja-vu-from-google-a-math-reading-system-for-the-web/">this brief overview</a>. Since leaving
+Google, Volker has refactored and extended his work to create an Open
+Source <a href="https://github.com/zorkow/speech-rule-engine.git%20(push">Speech-Rule-Engine</a> implemented using NodeJS. This
+speech-rule-engine can be used in many different environments;
+Emacspeak leverages that work to enable audio-formatting and
+interactive browsing of math content.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgab00e6e" class="outline-2">
+<h2 id="orgab00e6e"><span class="section-number-2">2</span> Overview Of Functionality</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Math access on the Emacspeak desktop is implemented via module
+<a href="https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-maths.el#L558">emacspeak-maths.el</a> &#x2014; see <a href="https://github.com/tvraman/emacspeak/blob/master/js/node/Readme.org#L40">js/node/Readme.org</a> in the Emacspeak GitHub
+repository for setup instructions. 
+</p>
+
+<p>
+Once loaded, module <code>emacspeak-maths</code> provides a <i>Math Navigator</i> that
+implements the user interface for sending Math expressions to the
+Speech-Rule-Engine, and for interactively browsing the resulting
+structure. At each step of the interaction, Emacspeak receives math
+expressions that have been annotated with Aural CSS and produces
+audio-formatted output. The audio-formatted text can itself be
+navigated in a special <i><b>Spoken Math</b></i> emacs buffer.
+</p>
+
+<p>
+Module <code>emacspeak-maths.el</code> implements various affordances for
+dispatching mathematical content to the Speech-Rule-Engine &#x2014; see
+usage examples in the next section.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org86368bc" class="outline-2">
+<h2 id="org86368bc"><span class="section-number-2">3</span> Usage Examples</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-org5346950" class="outline-3">
+<h3 id="org5346950"><span class="section-number-3">3.1</span> The Emacspeak Maths Navigator</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li>The <i>maths navigator</i> can be invoked by pressing <span class="underline">S-SPC</span> (hold
+down Windows key and press SPC).</li>
+<li>Once invoked, the /Maths Navigator can be used to enter an
+expression to read.</li>
+<li>Pressing <span class="underline">SPC</span> again prompts for the La)TeX expression.</li>
+<li>Pressing  <span class="underline">&lt;RET&gt;</span> guesses the expression to read from the current context.</li>
+<li>The arrow keys navigate the expression being read.</li>
+<li>Pressing <span class="underline">o</span> switches to the <i><b>Spoken Math</b></i> buffer and exits the
+navigator.</li>
+</ul>
+
+<p>
+See the online Emacspeak manual for details.
+</p>
+</div>
+</div>
+<div id="outline-container-org8add419" class="outline-3">
+<h3 id="org8add419"><span class="section-number-3">3.2</span> Math Content In La)TeX Documents</h3>
+<div class="outline-text-3" id="text-3-2">
+<ol class="org-ol">
+<li>Open a La)TeX document containing math content.</li>
+<li>Move point to a line containing   mathematical markup.</li>
+<li>Press <span class="underline">&lt;S-SPC&gt;</span> &lt;RET&gt; to have that expression audio-formatted.</li>
+<li>Use arrow keys to navigate the resulting structure.</li>
+<li>Press any other key to exit the navigator.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgd43f0dd" class="outline-3">
+<h3 id="orgd43f0dd"><span class="section-number-3">3.3</span> Math Content On Wikipedia</h3>
+<div class="outline-text-3" id="text-3-3">
+<ol class="org-ol">
+<li>Open a Wikipedia page in the Emacs Web Wowser (EWW)that has
+mathematical content.</li>
+<li>Wikipedia displays math as images, with the alt-text giving the
+La)TeX representation.</li>
+<li>Navigate to some math content on the page, then press <span class="underline">&lt;S-SPC&gt;
+&lt;a&gt; to speak that content &#x2014; _a</span> is for alt.</li>
+</ol>
+<p>
++-
+</p>
+<ol class="org-ol">
+<li>As an example, navigate to</li>
+</ol>
+<p>
+<a href="https://en.wikipedia.org/wiki/Derangement">Wikipedia Math Example</a>, locate math expressions on that page, then
+press <span class="underline">&lt;S-SPC a&gt;</span>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4aa3643" class="outline-3">
+<h3 id="org4aa3643"><span class="section-number-3">3.4</span> Math Content From The Emacs Calculator</h3>
+<div class="outline-text-3" id="text-3-4">
+<ol class="org-ol">
+<li>The built-in Emacs Calculator (<code>calc</code>) provides  many complex
+math functions including symbolic algebra.</li>
+<li>For my personal <code>calc</code> setup, see  <a href="https://github.com/tvraman/emacspeak/blob/master/tvr/calc-prepare.el#L25">tvr/calc-prepare.el</a> in the
+Emacspeak GitHub repo.</li>
+<li>This setting below sets up the Emacs Calculator to output results
+as La)TeX: <span class="underline">(setq calc-language 'tex)</span></li>
+<li>With the above setting in effect, launch the emacs Calculator by
+pressing <span class="underline">M-##</span>.</li>
+<li>Press <span class="underline">'</span> and enter <code>sin(x)</code> &#x2014; this uses algebraic mode.</li>
+<li>Press <span class="underline">a t</span> to get the Taylor series expansion of the above
+expression, and press <span class="underline">x</span> when prompted for the variable.</li>
+<li>This displays the Taylor Series expansion up to the desired
+number of terms &#x2014; try <span class="underline">7</span> terms.</li>
+<li>Now, with Calc having shown the results as TeX, press <span class="underline">&lt;S-SPC&gt;</span>
+<span class="underline">&lt;RET&gt;</span> to browse this expression using the <i>Maths Navigator</i>.</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgd12b876" class="outline-2">
+<h2 id="orgd12b876"><span class="section-number-2">4</span> And The Best Is Yet To Come</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+This is intentionally called an <i>early preview</i> because there is still
+much that can be improved:
+</p>
+
+<ol class="org-ol">
+<li>Enhance the rule engine to infer and convey more semantics.</li>
+<li>Improved audio formatting rules to better present the available information.</li>
+<li>Update/tune the use of Aural CSS properties to best leverage
+today's TTS engines.</li>
+<li>Integrate math-reading functionality into more usage contexts in
+addition to the ones enumerated in this article.</li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-org8a1be1b" class="outline-2">
+<h2 id="org8a1be1b"><span class="section-number-2">5</span> References</h2>
+<div class="outline-text-2" id="text-5">
+<ol class="org-ol">
+<li><a href="https://www.youtube.com/watch?v=YyWu9HB9QtU">Youtube Video from early 2013 demonstrating Math Access in Chrome</a></li>
+<li><a href="http://allthingsd.com/20130604/t-v-ramans-audio-deja-vu-from-google-a-math-reading-system-for-the-web/">AllThings Digital</a>  outlining math access &#x2014; published May 2013.</li>
+<li><a href="https://github.com/zorkow/emacs-math-speak/blob/master/paper/assets16.tex">Assets 2016</a> publication describing this work.</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2017-02-08 Wed 00:00</p>
+<p class="author">Author: T.V Raman</p>
+<p class="date">Created: 2017-02-08 Wed 15:14</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

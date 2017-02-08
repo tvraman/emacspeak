@@ -4,12 +4,12 @@ This article previews a new feature in the next Emacspeak release ---
 audio-formatted Mathematics using Aural CSS. [[http://www.cs.bham.ac.uk/~vxs][Prof. Volker Sorge]] worked
 at Google as a Visiting Scientist from Sep 2012 to August 2013, when
 we implemented [[https://www.youtube.com/watch?v=YyWu9HB9QtU][math
-access in ChromeVox --- see [[http://allthingsd.com/20130604/t-v-ramans-audio-deja-vu-from-google-a-math-reading-system-for-the-web/][this brief overview]]. Since leaving Google,
-Volker has refactored and extended his work to create an Open Source [[https://github.com/zorkow/speech-rule-engine.git
- (push][Speech-Rule-Engine]] implemented using NodeJS. This speech-rule-engine
-can be used in many different environments; Emacspeak leverages that
-work to enable audio-formatting and interactive browsing of math
-content.
+access in ChromeVox]] --- see [[http://allthingsd.com/20130604/t-v-ramans-audio-deja-vu-from-google-a-math-reading-system-for-the-web/][this brief overview]]. Since leaving
+Google, Volker has refactored and extended his work to create an Open
+Source [[https://github.com/zorkow/speech-rule-engine.git (push][Speech-Rule-Engine]] implemented using NodeJS. This
+speech-rule-engine can be used in many different environments;
+Emacspeak leverages that work to enable audio-formatting and
+interactive browsing of math content.
 
 
 * Overview Of Functionality 
@@ -113,7 +113,7 @@ much that can be improved:
 #+OPTIONS: author:t broken-links:nil c:nil creator:nil
 #+OPTIONS: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
 #+OPTIONS: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
-#+OPTIONS: timestamp:t title:t toc:t todo:t |:t
+#+OPTIONS: timestamp:t title:t toc:nil todo:t |:t
 #+TITLE:Audio Deja Vu: Audio Formatted Math On The Emacspeak Desktop
 #+DATE: <2017-02-08 Wed>
 #+AUTHOR: T.V Raman
