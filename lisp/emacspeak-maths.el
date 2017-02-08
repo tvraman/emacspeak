@@ -554,7 +554,7 @@ For use on Wikipedia pages  for example."
   ("<up>" emacspeak-maths-up "Up")
   ("<down>" emacspeak-maths-down"down")
   ("<left>" emacspeak-maths-left "left")
-  ("<right>" emacspeak-maths-right "right"))))
+  ("<right>" emacspeak-maths-right "right"))
 
 ;;}}}
 ;;{{{ Advice Preview:
