@@ -1,44 +1,124 @@
-* Audio Deja Vu: Audio Formatted Math On The Emacspeak Desktop
-
-** Summary
+* Summary
 
 This article previews a new feature in the next Emacspeak release ---
 audio-formatted Mathematics using Aural CSS. [[http://www.cs.bham.ac.uk/~vxs][Prof. Volker Sorge]] worked
 at Google as a Visiting Scientist from Sep 2012 to August 2013, when
-we implemented math access in ChromeVox. Since leaving Google, Volker
-has refactored and extended his work to create an Open Source /Speech-Rule-Engine/
-implemented using NodeJS. This speech-rule-engine can be used in many
-different environments; Emacspeak leverages that work to enable
-audio-formatting and interactive browsing of math content.
+we implemented [[https://www.youtube.com/watch?v=YyWu9HB9QtU][math
+access in ChromeVox --- see [[http://allthingsd.com/20130604/t-v-ramans-audio-deja-vu-from-google-a-math-reading-system-for-the-web/][this brief overview]]. Since leaving Google,
+Volker has refactored and extended his work to create an Open Source [[https://github.com/zorkow/speech-rule-engine.git
+ (push][Speech-Rule-Engine]] implemented using NodeJS. This speech-rule-engine
+can be used in many different environments; Emacspeak leverages that
+work to enable audio-formatting and interactive browsing of math
+content.
 
 
-** Overview Of Functionality 
+* Overview Of Functionality 
 
 Math access on the Emacspeak desktop is implemented via module
-_emacspeak-maths.el_. Once loaded, this module provides a /Math
-Navigator/ that implements the user interface for sending Math
-expressions to the Speech-Rule-Engine, and for interactively browsing
-the resulting structure. Emacspeak receives  math expressions that
-have been annotated with Aural CSS and produces audio-formatted
-output. The audio-formatted text can itself be navigated in a special
-/*Spoken Math*/ emacs buffer.
+[[https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-maths.el#L558][emacspeak-maths.el]] --- see [[https://github.com/tvraman/emacspeak/blob/master/js/node/Readme.org#L40][js/node/Readme.org]] in the Emacspeak GitHub
+repository for setup instructions. 
+
+Once loaded, module ~emacspeak-maths~ provides a /Math Navigator/ that
+implements the user interface for sending Math expressions to the
+Speech-Rule-Engine, and for interactively browsing the resulting
+structure. At each step of the interaction, Emacspeak receives math
+expressions that have been annotated with Aural CSS and produces
+audio-formatted output. The audio-formatted text can itself be
+navigated in a special /*Spoken Math*/ emacs buffer.
 
 Module ~emacspeak-maths.el~ implements various affordances for
 dispatching mathematical content to the Speech-Rule-Engine --- see
 usage examples in the next section.
 
+* Usage Examples 
+
+** The Emacspeak Maths Navigator
+
+  - The /maths navigator/ can be invoked by pressing _S-SPC_ (hold
+    down Windows key and press SPC).
+  - Once invoked, the /Maths Navigator can be used to enter an
+    expression to read.
+  - Pressing _SPC_ again prompts for the La)TeX expression.
+  - Pressing  _<RET>_ guesses the expression to read from the current context.
+  - The arrow keys navigate the expression being read.
+  - Pressing _o_ switches to the /*Spoken Math*/ buffer and exits the
+    navigator.
+
+See the online Emacspeak manual for details.
+** Math Content In La)TeX Documents 
 
 
-** Usage Examples 
+  1. Open a La)TeX document containing math content.
+  2. Move point to a line containing   mathematical markup.
+  3. Press _<S-SPC>_ <RET> to have that expression audio-formatted.
+  4. Use arrow keys to navigate the resulting structure.
+  5. Press any other key to exit the navigator.
+
+** Math Content On Wikipedia 
+
+  1. Open a Wikipedia page in the Emacs Web Wowser (EWW)that has
+     mathematical content.
+  2. Wikipedia displays math as images, with the alt-text giving the
+     La)TeX representation.
+  3. Navigate to some math content on the page, then press _<S-SPC>
+     <a> to speak that content --- _a_ is for alt.
+  +-
+4. As an example, navigate to 
+[[https://en.wikipedia.org/wiki/Derangement][Wikipedia Math Example]], locate math expressions on that page, then
+press _<S-SPC a>_.
+
+** Math Content From The Emacs Calculator 
 
 
-*** Math Content In La)TeX Documents 
+  1. The built-in Emacs Calculator (~calc~) provides  many complex
+     math functions including symbolic algebra.
+  2. For my personal ~calc~ setup, see  [[https://github.com/tvraman/emacspeak/blob/master/tvr/calc-prepare.el#L25][tvr/calc-prepare.el]] in the
+     Emacspeak GitHub repo.
+  3. This setting below sets up the Emacs Calculator to output results
+     as La)TeX: _(setq calc-language 'tex)_
+  4. With the above setting in effect, launch the emacs Calculator by
+     pressing _M-##_.
+  5. Press _'_ and enter ~sin(x)~ --- this uses algebraic mode.
+  6. Press _a t_ to get the Taylor series expansion of the above
+     expression, and press _x_ when prompted for the variable.
+  7. This displays the Taylor Series expansion up to the desired
+     number of terms --- try _7_ terms.
+  8. Now, with Calc having shown the results as TeX, press _<S-SPC>_
+     _<RET>_ to browse this expression using the /Maths Navigator/.
+  
 
-*** Math Content On Wikipedia 
+
+* And The Best Is Yet To Come
+
+This is intentionally called an /early preview/ because there is still
+much that can be improved:
+
+  1. Enhance the rule engine to infer and convey more semantics.
+  2. Improved audio formatting rules to better present the available information.
+  3. Update/tune the use of Aural CSS properties to best leverage
+     today's TTS engines.
+  4. Integrate math-reading functionality into more usage contexts in
+     addition to the ones enumerated in this article.
+
+
+* References 
 
 
 
-*** Math Content From The Emacs Calculator 
+  1. [[https://www.youtube.com/watch?v=YyWu9HB9QtU][Youtube Video from early 2013 demonstrating Math Access in Chrome]]
+  2. [[http://allthingsd.com/20130604/t-v-ramans-audio-deja-vu-from-google-a-math-reading-system-for-the-web/][AllThings Digital]]  outlining math access --- published May 2013.
+  3. [[https://github.com/zorkow/emacs-math-speak/blob/master/paper/assets16.tex][Assets 2016]] publication describing this work.
 
-** And The Best Is Yet To Come
-
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t broken-links:nil c:nil creator:nil
+#+OPTIONS: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+OPTIONS: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+OPTIONS: timestamp:t title:t toc:t todo:t |:t
+#+TITLE:Audio Deja Vu: Audio Formatted Math On The Emacspeak Desktop
+#+DATE: <2017-02-08 Wed>
+#+AUTHOR: T.V Raman
+#+EMAIL: raman@google.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 26.0.50.1 (Org mode 9.0.4)
