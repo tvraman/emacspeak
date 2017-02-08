@@ -1,29 +1,29 @@
 {
-  "name": "emacs-math-speak",
-  "version": "0.1.0",
-  "description": "Math extension for Emacspeak",
-  "main": "math-server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zorkow/emacs-math-speak.git"
-  },
-  "keywords": [
-    "Maths",
-    "Emacspeak",
-    "A11Y"
-  ],
-  "author": "Volker Sorge <Volker.Sorge@gmail.com> (http://www.cs.bham.ac.uk/~vxs)",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/zorkow/emacs-math-speak/issues"
-  },
-  "homepage": "https://github.com/zorkow/emacs-math-speak#readme",
-  "dependencies": {
-    "net": ">=1.0.2",
-    "mathjax-node": ">=0.5.1",
-    "speech-rule-engine": ">=2.0.0-beta"
-  }
+    "name": "emacs-math-speak",
+    "version": "0.1.0",
+    "description": "Math extension for Emacspeak",
+    "main": "math-server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tvr/emacspeak.git"
+    },
+    "keywords": [
+        "Maths",
+        "Emacspeak",
+        "Complete Audio Desktop"
+    ],
+    "author": "Volker Sorge <Volker.Sorge@gmail.com> (http://www.cs.bham.ac.uk/~vxs) T. V. Raman  <tv.raman.tv@gmail.com> (http://tvraman.github.io)",
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/zorkow/emacs-math-speak/issues"
+    },
+    "homepage": "https://github.com/tvraman/emacspeak",
+    "dependencies": {
+        "net": ">=1.0.2",
+        "mathjax-node": ">=0.5.1",
+        "speech-rule-engine": ">=2.0.0-beta"
+    }
 }
