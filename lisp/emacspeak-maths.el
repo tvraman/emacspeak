@@ -510,9 +510,13 @@ Emacs online help facility to look up help on these commands.
 (cl-loop
  for b in
  '(
-   ("[" forward-page)
-   ("]" backward-page)
-)
+   ("[" backward-page)
+   ("]" forward-page)
+   ("j" emacspeak-maths-down)
+   ("K" emacspeak-maths-up)
+   ("h" emacspeak-maths-left)
+   ("l" emacspeak-maths-right)
+   )
  do
  (emacspeak-keymap-update emacspeak-maths-spoken-mode-map b))
 
