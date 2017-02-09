@@ -47,15 +47,17 @@
 ;;; an annotated S-expression that is rendered via Emacspeak's speech
 ;;; facilities. Annotations follow Aural CSS as implemented in
 ;;; Emacspeak, This allows us to map these expressions to aural
-;;; properties supported by specific TTS engines. Basic Usage: Startup
-;;; up the server/client: M-x emacspeak-maths-start. Once the server
+;;; properties supported by specific TTS engines. 
+;;; @subsection Basic Usage: 
+;;;
+;;; Start  the server/client: M-x emacspeak-maths-start. Once the server
 ;;; and client are started, you can browse any number of math
 ;;; expressions using the emacspeak-maths-navigator described below.
 ;;;
 ;;; Invoke the Navigator using s-spc --- this is the <windows> key on
 ;;; Linux. Now you can use these keys:
 ;;; @itemize
-;;; @item  Show Output <o> Switch to output buffer and quit hydra
+;;; @item  Show Output <o> Switch to output buffer and quit Maths Navigator
 ;;; @item Enter: <SPC>
 ;;; Enter a LaTeX expression.
 ;;; @item Smart-Enter: <enter> Enter the guessed expression with no prompting.
