@@ -311,7 +311,7 @@ left for next run."
   (expand-file-name "../js/node/math-server.js" emacspeak-lisp-directory)
   "NodeJS implementation of math-server.")
 ;;;###autoload
-
+;;;###autoload
 (defun emacspeak-maths-start ()
   "Start Maths server bridge."
   (interactive)
@@ -444,7 +444,7 @@ Set calc-language to tex to use this feature."
          (get-text-property (point) 'shr-alt))
         (mark-active
          (buffer-substring (region-beginning)(region-end))))))
-
+;;;###autoload
 (defun emacspeak-maths-enter-guess ()
   "Send the guessed  LaTeX expression to Maths server.
 Guess is based on context."
@@ -456,7 +456,7 @@ Guess is based on context."
    (emacspeak-maths-client-process emacspeak-maths)
    (format "enter: %s"
            (emacspeak-maths-input emacspeak-maths))))
-
+;;;###autoload
 (defun emacspeak-maths-enter (latex)
   "Send a LaTeX expression to Maths server.
 Tries to guess default based on context.
