@@ -506,6 +506,15 @@ Emacs online help facility to look up help on these commands.
   (goto-char (point-min))
   (setq header-line-format "Spoken Math")
   (modify-syntax-entry 10 ">"))
+(declaim (special emacspeak-maths-spoken-mode-map))
+(cl-loop
+ for b in
+ '(
+   ("[" forward-page)
+   ("]" backward-page)
+)
+ do
+ (emacspeak-keymap-update emacspeak-maths-spoken-mode-map b))
 
 (defun emacspeak-maths-setup-output ()
   "Set up output buffer for displaying spoken math."
