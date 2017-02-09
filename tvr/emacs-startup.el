@@ -229,6 +229,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
       #'custom-reevaluate-setting
       '(emacspeak-media-location-bindings gweb-my-address))
      (load-library "emacspeak-muggles")
+     (load-library "emacspeak-maths")
      (soundscape-toggle)
      (shell)
      (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
