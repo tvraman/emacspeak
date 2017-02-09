@@ -35,7 +35,7 @@ usage examples in the next section.
 ** The Emacspeak Maths Navigator
 
   - The /maths navigator/ can be invoked by pressing _S-SPC_ (hold
-    down Windows key and press SPC).
+    down Windows key and press SPC)  --- this runs the command _emacspeak-maths-navigator/body_.
   - Once invoked, the /Maths Navigator can be used to enter an
     expression to read.
   - Pressing _SPC_ again prompts for the La)TeX expression.
