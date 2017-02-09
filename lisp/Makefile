@@ -284,6 +284,8 @@ all: $(OBJECTS)
 
 muggles: emacspeak-muggles.el
 	make emacspeak-muggles.elc
+maths: emacspeak-maths.el
+	make emacspeak-maths.elc
 force:
 
 config: emacspeak-loaddefs.el emacspeak-cus-load.el 
