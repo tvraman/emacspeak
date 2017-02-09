@@ -513,7 +513,7 @@ Emacs online help facility to look up help on these commands.
    ("[" backward-page)
    ("]" forward-page)
    ("j" emacspeak-maths-down)
-   ("K" emacspeak-maths-up)
+   ("k" emacspeak-maths-up)
    ("h" emacspeak-maths-left)
    ("l" emacspeak-maths-right)
    )
