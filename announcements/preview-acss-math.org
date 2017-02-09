@@ -61,9 +61,8 @@ See the [[http://tvraman.github.io/emacspeak/manual/emacspeak_002dmaths.html#ema
      mathematical content.
   2. Wikipedia displays math as images, with the alt-text giving the
      La)TeX representation.
-  3. Navigate to some math content on the page, then press _<S-SPC>
-     <a> to speak that content --- _a_ is for alt.
-  +-
+  3. Navigate to some math content on the page, then press _<S-SPC>_
+     _a_ to speak that content --- _a_ is for alt.
 4. As an example, navigate to 
 [[https://en.wikipedia.org/wiki/Derangement][Wikipedia Math Example]], locate math expressions on that page, then
 press _<S-SPC a>_.
@@ -79,7 +78,7 @@ press _<S-SPC a>_.
      as La)TeX: _(setq calc-language 'tex)_
   4. With the above setting in effect, launch the emacs Calculator by
      pressing _M-##_.
-  5. Press _'_ and enter ~sin(x)~ --- this uses algebraic mode.
+  5. Press _'_ (to use algebraic mode) and enter ~sin(x)~.
   6. Press _a t_ to get the Taylor series expansion of the above
      expression, and press _x_ when prompted for the variable.
   7. This displays the Taylor Series expansion up to the desired
