@@ -490,12 +490,6 @@ Uses guessed default if user enters an empty string."
       ,(format "%s:\n" move)))))
 
 ;;}}}
-;;{{{ Speaking Output:
-
-;;}}}
-;;{{{ Displaying Output:
-
-;;}}}
 ;;{{{ Output: spoken-math mode:
 
 (define-derived-mode emacspeak-maths-spoken-mode special-mode
@@ -525,6 +519,7 @@ Emacs online help facility to look up help on these commands.
   (interactive)
   (declare (special emacspeak-maths))
   (funcall-interactively #'switch-to-buffer (emacspeak-maths-output emacspeak-maths)))
+
 ;;}}}
 ;;{{{ Helpers:
 
