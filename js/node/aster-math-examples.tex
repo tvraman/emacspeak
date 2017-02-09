@@ -1,0 +1,447 @@
+% This file holds the original set of examples used to test and demo
+% \aster{}
+% in 1992. It is being copied here so we can evolve audio-formatted
+% maths in emacspeak.
+
+\begin{document}
+%%% {{{ Title  
+
+\title{Mathematics for computer generated spoken documents.}
+\author{T. V. Raman\\
+Department of Computer Science\\
+4116 Upson Hall\\
+Cornell University\\
+Ithaca NY 14853--7501\\
+\voicemail{(607)255-9202}\\
+\email{raman@cs.cornell.edu}}
+\date{May 27, 1992}
+\maketitle
+
+%%% }}}
+%%% {{{ simple fractions and expressions
+
+\section{simple fractions and expressions. }
+
+%%
+$$a+b+c+d$$
+
+
+
+%%
+$$a+\frac{b}{c} +d$$
+
+
+%%
+$$\frac{a+b}{c+d}$$
+
+
+%%
+$$\frac{a}{b}+c+d$$
+
+
+%%
+$$\frac{a}{b+c+d}$$
+
+
+%%
+$$a+\frac{b+c}{d+e}+x$$
+
+
+%%
+$$a+bc+d$$
+
+
+%%
+$$(a+b)(c+d)$$
+
+%%% }}}
+%%% {{{ superscripts and subscripts.
+
+\section{superscripts and subscripts.  }
+
+
+%%
+$$x^k_1 +x^k_2 + x^k_3 + \cdots + x^k_n = 0$$
+
+%%
+$$x^{k_1} + x^{k_2} + x^{k_3} + \cdots + x^{k_n} = 0$$
+
+%%
+$$x_{k^1}+x_{k^2}+x_{k^3}+\cdots+x_{k^n}=0$$
+
+%%
+$$x^{k^1}+x^{k^2}+x^{k^3}+\cdots+x^{k^n}=0$$
+
+%%
+$$x_{k_1}+x_{k_2}+x_{k_3}+\cdots+x_{k_n}=0$$
+
+%%
+$$x +_n y +_n z$$
+
+%%% }}}
+%%% {{{ Knuth's examples of fractions and exponents
+
+\section{Knuth's examples of fractions and exponents. }
+
+
+%%
+$$x+y^2\over k+1$$
+
+%%
+$${x+y^2\over k}+1$$
+
+%%
+$$x+{y^2\over k+1}$$
+
+%%
+$$x+{y^2\over k}+1$$
+
+%%
+$$x+y^{2\over k+1}$$
+
+%%
+$$x^{2^y} \neq {x^2}^y$$
+
+%%
+$${x^2}^y = x^{2y}$$
+
+%%
+
+%%% }}}
+%%% {{{ Continued fraction
+
+\section{A continued fraction. }
+
+\[ 
+1+  {x \over
+ {\scriptstyle 1+ {\scriptstyle x \over
+ {\scriptstyle 1 + {\scriptstyle x \over
+ {\scriptstyle 1 + {\scriptstyle x \over
+ {\scriptstyle 1+ {\scriptstyle x \over
+1+{\scriptstyle
+  \atop \ddots }}}}}}}}}}
+\]
+
+%%
+
+%%% }}}
+%%% {{{ Simple  School  algebra.
+
+\section{Simple  School  algebra.   }
+
+$$(a+b)^3=a^3+3a^2b+3ab^2+b^3$$
+
+%%
+$$a^3+b^3=(a+b)(a^2-ab+b^2)$$
+
+%%
+Given $ax^2+bx+c=0$, we have
+$$x= \frac{-b \pm \sqrt{b^2-4ac}}{2a}$$
+
+%%
+
+%%% }}}
+%%% {{{ square roots.
+
+\section{square roots.  }
+
+$$\frac{1+\sqrt{5}}{2}=\phi$$
+
+%%
+$$\frac{\sqrt{\pi}}{2} \neq \sqrt{\frac{\pi}{2}}$$
+
+%%
+$$\sqrt{1+\sqrt{2+\sqrt{2+\sqrt {2+\cdots }}}}$$
+
+%%
+
+%%% }}}
+%%% {{{ Trigonometric identities
+
+\section{Trigonometric identities. }
+
+$$\sin^2x+\cos^2x=1$$
+
+%%
+$$\sin x^2 + \cos x^2 \neq 1 $$
+
+%%
+$$\sin^{-1}x \neq \sin x^{-1}$$
+
+%%
+$$\sin (a+b) = \sin a \cos b + \cos a \sin b$$
+
+%%
+$$\cos (x+y)=\cos x \cos y - \sin x \sin y$$
+
+%%
+$$\sin 2x = 2 \sin x \cos x $$
+
+%%
+$$\cos 2x = \cos^2 x -\sin^2 x$$
+
+%%
+
+%%% }}}
+%%% {{{ logs
+
+\section{Logarithms. }
+
+$$\log^2x\neq2\log x$$
+
+%%
+$$\log x^2=2\log x$$
+
+%%
+$$\frac{\log x}{\log a} = \log_a x$$
+
+%%
+$$\log_{a^2} x = \frac{1}{\log_x a^2}= \frac{1}{2\log_x a} =
+\frac{\log_a x}{2}$$ 
+
+%%
+
+%%% }}}
+%%% {{{ Series
+
+\section{Series. }
+
+$$1+x+x^2+x^3+x^4+\cdots+x^{n-1}+\cdots  = \frac{1}{1-x}$$
+
+%%
+$$1+x+\frac{x^2}{2}+\frac{x^3}{3}+\cdots +\frac{x^n}{n}+\cdots$$
+
+%%
+$$  x - \frac{x^2}{2} +\frac{x^3}{3}
+-\frac{x^4}{4}+\frac{x^5}{5} \pm \cdots  = \log(1+x)$$
+
+%%
+$$\gamma = 1+\frac{1}{2}+\frac{1}{3} +\frac{1}{4} +\cdots +\frac{1}{n}
+-\log n $$
+
+%%
+$$\log (1+x) - \log (1-x) = \log \frac{1+x}{1-x} = \sum_{i=1}^\infty
+\frac{x^{2i-1}}{2i -1}$$
+
+%%% }}}
+%%% {{{ Integrals
+
+\section{Integrals. }
+
+
+%%
+$$\int\frac{\dx}{x} =\log x$$
+
+$$\int_1^a \int_1^b\int_1^c e^{x+y+z}\dx\dy\dz$$
+
+%%
+$$\int_1^\infty e^{x^2-x-1}\dx$$
+
+%%
+$$\int_1^\infty e^{x^{2-x}-1}\dx$$
+
+%%
+$$\int_0^1\int_0^{\sqrt{1 -y^2}}1\dx\dy= \int_0^{\pi/2}\int_0^1
+r\varint{r}\varint{\theta}$$
+
+$$s=\int_a \int_b f \dx\dy+1$$
+
+%%
+
+%%% }}}
+%%% {{{ Summation
+
+\section{Summations. }
+
+$$\sum_{i=1}^n a_i =1$$
+
+%%
+$$\sum_{1\leq i\leq n}a_i =1$$
+
+%%
+$$\sum_{i=1}^n a_i + b_i = 1$$
+
+%%
+
+%%% }}}
+%%% {{{ Limits
+
+\section{Limits. }
+
+$$\lim_{x \to \infty}\int_0^x e^{-y^2}\dy = \frac{\sqrt{\pi}}{2}$$
+
+%%
+$$\lim_{x\to 0}\frac{\sin x}{x} =1$$
+
+%%
+
+%%% }}}
+%%% {{{ Cross referenced equations
+
+\section{Cross referenced equations. }
+
+\begin{equation}
+\cosh x = \frac{e^x + e^{-x} }{2} \label{eq:cosh}
+\end{equation}
+
+\begin{equation}
+\sinh x = \frac{e^x-e^{-x}}{2} \label{eq:sinh}
+\end{equation}
+
+Squaring~\ref{eq:cosh} and~\ref{eq:sinh} and computing their
+difference gives
+$$\cosh^2x -\sinh^2 x = 1$$
+
+%%
+
+%%% }}}
+%%% {{{ Distance formula
+
+\section{Distance formula. }
+
+
+%%
+Given $x=(x_1,x_2), y=(y_1,y_2)$ the distance between the two points
+is given by: 
+$$d(x,y) = \sqrt{(x_1-y_1)^2 +(x_2-y_2)^2} $$
+This is the distance formula.
+
+%%% }}}
+%%% {{{ Quantified expression
+
+\section{Quantified expression. }
+
+
+%%
+$$\forall x \in X:    \exists y \in Y :   x=y$$
+
+%%% }}}
+%%% {{{ Exponentiation
+
+\section{Exponentiation}
+Consider the expression:
+$$e^{e^{e^x}}$$
+Differentiating with respect to $x$ gives:
+$$  e^{e^{e^x}} e^{e^x} e^x$$
+Simplifying this expression gives:
+$$  e^{(e^{e^x} + e^x + x)}$$
+
+%%% }}}
+%%% {{{Matrix
+
+\section{A generic matrix}
+Notice the use of vertical and diagonal dots in the generic matrix
+shown below.
+$$A=\pmatrix{a_{1 1}&a_{1 2}&\ldots&a_{1 n}\cr
+             a_{2 1}&a_{2 2}&\ldots&a_{2 n}\cr
+             \vdots&\vdots&\ddots&\vdots\cr
+             a_{m 1}&a_{m 2}&\ldots&a_{m n}\cr}$$
+
+%%% }}}
+%%% {{{ Faa de Bruno's formula
+
+\section{Faa de Bruno's formula }
+\uselongsummation 
+
+%%
+Let $D^k_xu$ represent the $k$th derivative of a function $u$ with
+respect to $x$.  The chain rule states that $D^1_xw = D^1_uw
+D^1_xu$.  If we apply this to second derivatives, we find $D^2_xw =
+D^2_uw (D^1_xu)^2+D^1_uw D^2_xu$.  Show that the {\em general formula}
+is
+
+%%
+\begin{equation}\label{eq:faa-de-bruno}
+D^n_xw =
+\sum_{0\le j\le n}
+\sum_{\scriptstyle k_1+k_2+\cdots+k_n=j
+\atop {\scriptstyle k_1+2k_2+\cdots+nk_n=n
+\atop  {\scriptstyle k_1,k_2,\ldots,k_n\ge0
+}}}
+D^j_u w \frac{n! 
+{(D^1_x u)}^{k_1}
+\cdots {(D^n_x u)}^{k_n}
+}
+{k_1!{(1!)}^{k_1} \cdots k_n!{(n!)}^{k_n}} 
+\end{equation}
+%%
+\endlongsummation 
+
+%%% }}}
+%%% {{{ Variable substitution.
+
+\section{Using variable substitutions.}
+\activatevariablesubstitution
+
+The following examples demonstrate the effectiveness of using the
+{\em variable substitution\/}  reading style.
+Applying variable substitution to Faa de Bruno's formula shown in
+equation~\ref{eq:faa-de-bruno} results in:
+
+\begin{equation}  \label{eq:faa-de-bruno-subst}
+  D^n_xw = \sum_{0\le j\le n} \sum_{\underbrace{{\scriptstyle
+        k_1+k_2+\cdots+k_n=j \atop {\scriptstyle
+          k_1+2k_2+\cdots+nk_n=n \atop {\scriptstyle
+            k_1,k_2,\ldots,k_n\ge0 }}}}_{\mbox{\em lower constraint
+        1\/}}} D^j_u w
+  \frac{\overbrace{n!  {(D^1_x u)}^{k_1} \cdots
+      {(D^n_x u)}^{k_n}} ^{\mbox{\em numerator 1\/}}}
+  {\underbrace{k_1!{(1!)}^{k_1}
+    \cdots k_n!{(n!)}^{k_n}}_{\mbox{\em denominator 1\/}}}
+\end{equation}
+
+Consider the expression:
+\begin{equation}
+  e^{x+e^{x+e^{x+e^x}}} \label{eq:exponentsum}
+\end{equation}
+Differentiating  expression~\ref{eq:exponentsum} with respect to $x$
+gives:
+$$   e^{x + e^{x + e^{x + e^x}}} 
+      (1 + e^{x + e^{x + e^x}}
+      (1 + e^{x + e^x} (1 + e^x)))$$
+
+        $$\int_{5u+t}^t 
+        \frac{ \int_{5u+t}^x
+          \frac{e^{-x^2} + e^{x^3} }
+          {sx^2 + c^{2 }x } \dy}
+{s  x^2 + c^2  x}  \dx$$
+
+
+        $$ \int_1^\infty (a+b+c)(e^{-x^2} + e^{x^3})\dx$$
+        
+        $$ \int \frac{\exp{-x^2} + \exp {x^3} }{\sin x^2 + \cos^2 x}
+        \dx$$
+        
+
+
+$$  \frac{x\sin(\log x)}{2} - \frac{x\cos(\log x)}{2}$$
+
+$$ \frac{2x^5}{5} - \sqrt{\frac{2x^5 \log x}{5}} 
++ \frac{x^5\log^2 x}{5}$$
+
+Consider the expression:
+\[ e^{\tan(e^{\arctan(e^x)})}\]
+Differentiating with respect to $x$ gives: 
+\[
+  {e^{\left( \tan(e^{\arctan(e^x)}) + \arctan(e^x) + x \right)} 
+       \over (e^{(2 x)} + 1) \cos^2(e^{\arctan(e^x)})}
+     \]
+     
+
+\[  {3 x^2 \sin{x} + x^3 \cos{x} + e^{\sin{x}} \cos{x} 
+       \over e^{\cos{x}} - \tan\left( {x \over 5} + 1 \right)} 
+      + {\left( {0.2 \over \cos^2 \left( {x \over 5} + 1 \right)} 
+      + e^{\cos{x}} \sin{x} \right) 
+           \times \left( e^{\sin{x}} + x^3 \sin{x} \right) 
+           \over \left( e^{\cos{x}} 
+      - \tan\left( {x \over 5} + 1 \right) \right)^2}
+    \]
+
+
+    \deactivatevariablesubstitution 
+
+%%% }}}
+
+
+
+\end{document}
