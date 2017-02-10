@@ -441,21 +441,25 @@ Set calc-language to tex to use this feature."
                (string-equal
                 (get-text-property (point) 'shr-alt)
                 "No image under point")))
-         (get-text-property (point) 'shr-alt))
-        (mark-active
-         (buffer-substring (region-beginning)(region-end))))))
+         (get-text-property (point) 'shr-alt)))))
+
 ;;;###autoload
 (defun emacspeak-maths-enter-guess ()
   "Send the guessed  LaTeX expression to Maths server.
 Guess is based on context."
   (interactive)
-  (emacspeak-maths-guess-input)         ;guess based on context
   (declare (special emacspeak-maths))
+  (emacspeak-maths-guess-input)         ;guess based on context
   (emacspeak-maths-ensure-server)
   (process-send-string
    (emacspeak-maths-client-process emacspeak-maths)
    (format "enter: %s"
-           (emacspeak-maths-input emacspeak-maths))))
+           (or (emacspeak-maths-input emacspeak-maths)
+               (read-from-minibuffer "Maths: "
+                                     nil nil nil nil
+                                     (when mark-active
+         (buffer-substring (region-beginning)(region-end))))))))
+
 ;;;###autoload
 (defun emacspeak-maths-enter (latex)
   "Send a LaTeX expression to Maths server.
