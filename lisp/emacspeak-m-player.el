@@ -849,7 +849,6 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
              (if emacspeak-m-player-cue-info 'on 'off))
             (message "ICY messages  turned %s."
                      (if emacspeak-m-player-cue-info "on" "off")))
-
         (message (format "%s" (or info  "No Stream Info")))))))
 
 ;;;###autoload
