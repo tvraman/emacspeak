@@ -463,12 +463,15 @@ The player is placed in a buffer in emacspeak-m-player-mode."
       (message "MPlayer opened  %s" resource))))
 
 ;;;###autoload
-(defun emacspeak-m-player-using-openal ()
+(defun emacspeak-m-player-using-openal (resource &optional play-list)
   "Use openal as the audio output driver. Adding hrtf=true to
 ~/.alsoftrc gives HRTF. You need to have openal installed and have an
 mplayer that has been compiled with openal support to use this
-feature."
-  (interactive)
+feature. Calling spec is like `emacspeak-m-player'."
+  (interactive
+   (list
+    (emacspeak-m-player-read-resource)
+    current-prefix-arg))
   (declare (special emacspeak-m-player-options
                     emacspeak-m-player-openal-options
                     emacspeak-m-player-process))
@@ -480,7 +483,7 @@ feature."
     (let ((emacspeak-m-player-options
            (append emacspeak-m-player-openal-options
                    emacspeak-m-player-options)))
-      (call-interactively 'emacspeak-m-player))))
+      (funcall-interactively #'emacspeak-m-player resource play-list))))
 
 (defvar emacspeak-m-player-hrtf-options
   '("-af" "resample=48000,hrtf")
