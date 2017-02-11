@@ -65,7 +65,8 @@
     ))
   
 ; List holding registered dbus signals
-(setq upower-dbus-registration nil)
+(defvar upower-dbus-registration nil
+  "List holding upower registration.")
 
 ; Enable integration
 (defun upower-enable()
@@ -84,5 +85,5 @@
     (dbus-unregister-object (car upower-dbus-registration))
     (setq upower-dbus-registration (cdr upower-dbus-registration)))
   (message "Disabled integration with UPower daemon."))
-
+(upower-enable)
 (provide 'upower)
