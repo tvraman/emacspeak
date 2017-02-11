@@ -50,7 +50,8 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'dbus)
-(require 'nm)
+(require 'nm "nm" 'no-error)
+(require 'upower "upower" 'no-error)
 
 ;;}}}
 ;;{{{ NM Handlers
@@ -74,6 +75,24 @@
 
 (add-hook 'nm-connected-hook 'emacspeak-dbus-nm-connected)
 (add-hook 'nm-disconnected-hook 'emacspeak-dbus-nm-disconnected)
+
+;;}}}
+;;{{{ Upower handlers 
+
+(defun emacspeak-dbus-upower-sleep ()
+  "Emacspeak  hook for upower-sleep."
+  (soundscape-listener-shutdown)
+  )
+
+(add-hook 'upower-sleep-hook #'emacspeak-dbus-upower-sleep)
+
+
+(defun emacspeak-dbus-upower-resume ()
+  "Emacspeak hook for upower-resume."
+  (soundscape-listener 'restart)
+  (xbacklight-black))
+
+(add-hook 'upower-resume-hook #'emacspeak-dbus-upower-resume)
 
 ;;}}}
 
