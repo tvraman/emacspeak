@@ -41,16 +41,25 @@
   (message "Received resume signal, running resume hooks ..")
   (run-hooks 'upower-resume-hook))
 
+(defvar upower-dbus-registration nil
+  "List holding upower registration.")
+
+; List holding registered dbus signals
 (defun upower-register()
   "Register signal handlers for sleep/resume. Return list of signal registration objects."
-  (if (member "PrepareForSleep" (dbus-introspect-get-signal-names :system
-                       "org.freedesktop.login1" "/org/freedesktop/login1" "org.freedesktop.login1.Manager"))
-      ;; logind Manager interface available, prefer that instead of UPower:
-      (list
-       (dbus-register-signal :system "org.freedesktop.login1" "/org/freedesktop/login1"
-                             "org.freedesktop.login1.Manager" "PrepareForSleep"
-                             (lambda(sleep) (if sleep (upower-sleep-signal-handler) (upower-resume-signal-handler)))))
-    ;; else Register directly for UPower signals:
+  (cond
+   ((member
+     "PrepareForSleep"
+     (dbus-introspect-get-signal-names
+      :system
+      "org.freedesktop.login1" "/org/freedesktop/login1" "org.freedesktop.login1.Manager"))
+    ;; logind Manager interface available, prefer that instead of UPower:
+    (list
+     (dbus-register-signal
+      :system "org.freedesktop.login1" "/org/freedesktop/login1"
+      "org.freedesktop.login1.Manager" "PrepareForSleep"
+      #'(lambda(sleep) (if sleep (upower-sleep-signal-handler) (upower-resume-signal-handler))))))
+   (t ;; else Register directly for UPower signals:
     (list
      (dbus-register-signal
       :system
@@ -61,29 +70,26 @@
       :system
       "org.freedesktop.UPower" "/org/freedesktop/UPower"
       "org.freedesktop.UPower" "Resuming"
-      'upower-resume-signal-handler))
-    ))
-  
-; List holding registered dbus signals
-(defvar upower-dbus-registration nil
-  "List holding upower registration.")
+      'upower-resume-signal-handler)))))
 
 ; Enable integration
 (defun upower-enable()
   "Enable integration with UPower. Does nothing if already enabled."
   (interactive)
+  (declare (special upower-dbus-registration))
   (when (not upower-dbus-registration)
-    (setq upower-dbus-registration
-          (upower-register))
+    (setq upower-dbus-registration (upower-register))
     (message "Enabled integration with UPower daemon.")))
 
 ; Disable integration
 (defun upower-disable()
   "Disable integration with UPower daemon. Does nothing if already disabled."
   (interactive)
+  (declare (special upower-dbus-registration))
   (while upower-dbus-registration
     (dbus-unregister-object (car upower-dbus-registration))
     (setq upower-dbus-registration (cdr upower-dbus-registration)))
   (message "Disabled integration with UPower daemon."))
+
 (upower-enable)
 (provide 'upower)
