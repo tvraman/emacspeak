@@ -454,11 +454,13 @@ Guess is based on context."
   (process-send-string
    (emacspeak-maths-client-process emacspeak-maths)
    (format "enter: %s"
-           (or (emacspeak-maths-input emacspeak-maths)
-               (read-from-minibuffer "Maths: "
-                                     nil nil nil nil
-                                     (when mark-active
-         (buffer-substring (region-beginning)(region-end))))))))
+           (or
+            (emacspeak-maths-input emacspeak-maths)
+            (read-from-minibuffer
+             "Maths: "
+             nil nil nil nil
+             (when mark-active
+               (buffer-substring (region-beginning)(region-end))))))))
 
 ;;;###autoload
 (defun emacspeak-maths-enter (latex)
