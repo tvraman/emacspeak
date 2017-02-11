@@ -436,11 +436,12 @@ Set calc-language to tex to use this feature."
         ((and (memq major-mode '(tex-mode plain-tex-mode latex-mode ams-tex-mode))
               (featurep 'texmathp))
          (emacspeak-maths-guess-tex))
-        ((and (eq major-mode 'eww-mode)
-              (not
-               (string-equal
-                (get-text-property (point) 'shr-alt)
-                "No image under point")))
+        ((and
+          (eq major-mode 'eww-mode)
+          (not
+           (string-equal
+            (get-text-property (point) 'shr-alt)
+            "No image under point")))
          (get-text-property (point) 'shr-alt)))))
 
 ;;;###autoload
@@ -469,10 +470,11 @@ Tries to guess default based on context.
 Uses guessed default if user enters an empty string."
   (interactive
    (list
-    (progn (emacspeak-maths-guess-input) ;guess based on context
-           (read-from-minibuffer "LaTeX: "
-                                 nil nil nil nil
-                                 (emacspeak-maths-input emacspeak-maths)))))
+    (progn
+      (emacspeak-maths-guess-input)     ;guess based on context
+      (read-from-minibuffer "LaTeX: "
+                            nil nil nil nil
+                            (emacspeak-maths-input emacspeak-maths)))))
   (declare (special emacspeak-maths))
   (emacspeak-maths-ensure-server)
   (when (string= "" latex)
