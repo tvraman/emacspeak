@@ -53,14 +53,8 @@
 (require 'nm)
 
 ;;}}}
-;;{{{ Customize:
-
-(defgroup emacspeak-dbus nil
-  "DBus  bindings and hooks for Emacspeak desktop."
-  :group 'emacspeak)
-
-;;}}}
 ;;{{{ NM Handlers
+
 ;;;###autoload
 (defun emacspeak-dbus-nm-connected ()
   "Announce  network manager connection."
@@ -69,6 +63,7 @@
   (emacspeak-auditory-icon 'network-up)
   (message
    (mapconcat #'identity emacspeak-speak-network-interfaces-list "")))
+
 ;;;###autoload
 (defun emacspeak-dbus-nm-disconnected ()
   "Announce  network manager disconnection."
