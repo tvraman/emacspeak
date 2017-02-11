@@ -6,8 +6,12 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
 * Emacspeak 46 -- Emacspeak 46 User Visible Changes
+** Updated DBus Integration 
 
-** Outloud is On 64-Bit Systems 
+Module ~emacspeak-dbus~ --- Emacspeak's DBus Integration --- has been
+updated  and now includes support for sleep/resume, in addition to NM.
+
+** Outloud is Easier To Install On 64-Bit Systems 
 
 The ViaVoice Outloud server is now much easier to install on 64-bit
 systems, thanks to
