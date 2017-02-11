@@ -56,5 +56,5 @@
     (run-hooks 'nm-disconnected-hook))
    ((= 3 nmstate)
     (run-hooks 'nm-connected-hook))))
-
+(nm-enable)
 (provide 'nm)
