@@ -61,7 +61,7 @@
 
 ;;}}}
 ;;{{{ NM Handlers
-
+;;;###autoload
 (defun emacspeak-dbus-nm-connected ()
   "Announce  network manager connection."
   (declare (special emacspeak-speak-network-interfaces-list))
@@ -69,7 +69,7 @@
   (emacspeak-auditory-icon 'network-up)
   (message
    (mapconcat #'identity emacspeak-speak-network-interfaces-list "")))
-
+;;;###autoload
 (defun emacspeak-dbus-nm-disconnected ()
   "Announce  network manager disconnection."
   (declare (special emacspeak-speak-network-interfaces-list))
