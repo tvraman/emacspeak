@@ -82,7 +82,7 @@
 (defun emacspeak-dbus-upower-sleep ()
   "Emacspeak  hook for upower-sleep."
   (soundscape-listener-shutdown)
-  )
+  (save-some-buffers t))
 
 (add-hook 'upower-sleep-hook #'emacspeak-dbus-upower-sleep)
 
