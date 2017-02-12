@@ -174,7 +174,7 @@ INFO = info/Makefile info/*.texi
 XSL=xsl 
 DISTFILES =${ELISP}  ${TEMPLATES}     ${TCL_PROGRAMS} ${XSL} \
 ${OUTLOUD}  ${ESPEAK} \
-${PHANTOM} ${STUMPWM} ${INFO}  ${NEWS} ${MISC} Makefile
+${maths} ${PHANTOM} ${STUMPWM} ${INFO}  ${NEWS} ${MISC} Makefile
 
 # }}}
 # {{{  User level targets emacspeak info 
@@ -241,12 +241,14 @@ install:
 	$(MAKE) config 
 	  $(INSTALL)  -d $(libparentdir)
 	  $(INSTALL) -d $(libdir)
+	$(INSTALL) -d $(libdir)/${NODE_DIR}
 	  $(INSTALL) -d $(libdir)/lisp
 	$(INSTALL) -d $(libdir)/lisp/g-client
 	$(INSTALL) -d $(libdir)/etc
 	$(INSTALL) -d $(libdir)/xsl
 	$(INSTALL) -m 0644  ${ID} $(libdir)
 	  $(INSTALL) -m 0644  lisp/*.el lisp/*.elc  $(libdir)/lisp
+	$(INSTALL) -m 0644  ${maths} lisp/ $(libdir)/${NODE_DIR}	
 	$(INSTALL) -m 0644  lisp/g-client/*.el    $(libdir)/lisp/g-client
 	$(INSTALL) -m 0644  lisp/g-client/*.elc    $(libdir)/lisp/g-client
 	$(INSTALL) -m 0644  lisp/g-client/*.xsl    $(libdir)/lisp/g-client
