@@ -90,8 +90,8 @@
 (defun emacspeak-dbus-upower-resume ()
   "Emacspeak hook for upower-resume."
   (soundscape-listener 'restart)
-  (emacspeak-auditory-icon 'time)
-  (xbacklight-black))
+  (xbacklight-black)
+  (emacspeak-auditory-icon 'help))
 
 (add-hook 'upower-resume-hook #'emacspeak-dbus-upower-resume)
 
