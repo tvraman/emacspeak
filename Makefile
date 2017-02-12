@@ -161,6 +161,9 @@ servers/outloud  servers/ssh-outloud \
 servers/tts-lib.tcl \
 servers/cloud* servers/log* servers/speech-server
 PHANTOM=js/phantom/*.js
+NODE_DIR=js/node
+maths = ${NODE_DIR}/*.js ${NODE_DIR}/*.json ${NODE_DIR}/*.tex \
+${NODE_DIR}/nvm-setup ${NODE_DIR}/Readme.org
 ELISP = lisp/*.el lisp/g-client \
 lisp/Makefile
 TEMPLATES = etc/ etc/Makefile
