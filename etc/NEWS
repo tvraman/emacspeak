@@ -9,7 +9,7 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 ** Updated DBus Integration 
 
 Module ~emacspeak-dbus~ --- Emacspeak's DBus Integration --- has been
-updated  and now includes support for sleep/resume, in addition to NM.
+updated  and now includes support for screen-lock, sleep/resume, in addition to NM.
 
 ** Outloud is Easier To Install On 64-Bit Systems 
 
@@ -23,6 +23,10 @@ that upgrade first if you  have an  older Voxin installation.
 Emacspeak 46 will therefore no longer install scripts _32-outloud_  or
 any of  the other _32-*_ server scripts.
 
+** Audio-formatted Mathematics 
+
+Module ~emacspeak-maths~ uses _MathJax_ with _Speech-Rule-Engine_
+implemented using *NodeJS* to provide audio-formatted mathematics.
 
 ** Updated C/C++ Mode Support 
 
