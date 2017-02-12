@@ -98,5 +98,5 @@ already enabled or service is not available."
    ((= 70 nmstate)
     (run-hooks 'nm-connected-hook))))
 
-(nm-enable)
+
 (provide 'nm)

@@ -91,5 +91,5 @@
     (setq upower-dbus-registration (cdr upower-dbus-registration)))
   (message "Disabled integration with UPower daemon."))
 
-(upower-enable)
+
 (provide 'upower)
