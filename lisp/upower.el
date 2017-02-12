@@ -1,4 +1,4 @@
-;; -*- coding: utf-8 -*-
+;;; upower.el --- DBus Integration -*- lexical-binding: t; -*-
 ;; Integration with UPower daemon over D-Bus.
 ;; Listens for suspend and resume signals and runs corresponding
 ;; hook variables.
@@ -38,7 +38,7 @@
   (run-hooks 'upower-sleep-hook))
 
 (defun upower-resume-signal-handler()
-  (message "Received resume signal, running resume hooks ..")
+  (message "Received resume signal, running resume hooks .")
   (run-hooks 'upower-resume-hook))
 
 (defvar upower-dbus-registration nil

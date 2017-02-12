@@ -334,6 +334,7 @@ ommacspeak-amark.elc: emacspeak-amark.el
 cd-tool.elc: cd-tool.el
 json-view.elc: json-view.el
 nm.elc: nm.el
+upower.elc: upower.el
 amixer.elc: amixer.el
 emacspeak-actions.elc: emacspeak-actions.el
 emacspeak-add-log.elc: emacspeak-add-log.el dtk-speak.elc voice-setup.elc
