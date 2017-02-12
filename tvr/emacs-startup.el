@@ -185,7 +185,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 ;;; Authoring:
        "auctex-prepare" "nxml-prepare" "folding-prepare"
        "calc-prepare"
-       "hydra-prepare" "helm-prepare"   ;helm not activated 
+       "hydra-prepare" "helm-prepare"   ;helm not activated
        "js-prepare" "tcl-prepare" "slime-prepare" "company-prepare" "python-mode-prepare"
                                         ; jde and ecb will pull in cedet.
                                         ;"jde-prepare" "ecb-prepare"
@@ -209,15 +209,15 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     (bbdb-insinuate-vm)
     (when (locate-library "ido-ubiquitous") (ido-ubiquitous-mode 1))
     ;;}}}
-;;{{{ Save abbrevs On Quit:
+    ;;{{{ Save abbrevs On Quit:
 
-(when (file-exists-p abbrev-file-name)
-  (read-abbrev-file)
-  (add-hook
-   #'kill-emacs-hook
-   #'(lambda () (write-abbrev-file))))
+    (when (file-exists-p abbrev-file-name)
+      (read-abbrev-file)
+      (add-hook
+       #'kill-emacs-hook
+       #'(lambda () (write-abbrev-file))))
 
-;;}}}
+    ;;}}}
     ))                                  ; end defun
 ;;{{{  start it up
 
@@ -235,6 +235,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
      (calendar)
      (load-library "emacspeak-dbus")
+     (nm-enable)
+     (upower-enable)
      (play-sound
       `(sound
         :file ,(expand-file-name "highbells.au" emacspeak-sounds-directory)))
