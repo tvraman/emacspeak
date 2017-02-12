@@ -1059,24 +1059,21 @@ icon."
       (comint-bol-or-process-mark)
       (emacspeak-auditory-icon 'select-object)
       (emacspeak-speak-line 1))))
-
-(defadvice comint-next-matching-input-from-input (after
-                                                  emacspeak
-                                                  pre act comp)
-  "Speak the line showing where point is."
+(cl-loop
+ for f in
+ '(comint-next-matching-input-from-input comint-previous-matching-input-from-input)
+ do
+ (eval
+  `(defadvice ,f (after
+                                                  emacspeak pre act comp)
+  "Speak the matched input."
   (when (ems-interactive-p)
-    (let ((emacspeak-show-point t))
-      (emacspeak-speak-line)
-      (emacspeak-auditory-icon 'select-object))))
+    (save-excursion
+      (goto-char (comint-line-beginning-position))
+      (emacspeak-speak-line 1))
+    (emacspeak-auditory-icon 'select-object)))))
 
-(defadvice comint-previous-matching-input-from-input (after
-                                                      emacspeak
-                                                      pre act comp)
-  "Speak the line showing where point is."
-  (when (ems-interactive-p)
-    (let ((emacspeak-show-point t))
-      (emacspeak-speak-line)
-      (emacspeak-auditory-icon 'select-object))))
+
 
 (defadvice shell-forward-command (after emacspeak pre act
                                         comp)
@@ -1182,30 +1179,41 @@ icon."
 (defadvice comint-next-input (after emacspeak pre act comp)
   "Speak the line."
   (when (ems-interactive-p)
-    (tts-with-punctuations 'all
-                           (emacspeak-speak-line))
+    (tts-with-punctuations
+     'all
+     (save-excursion
+       (goto-char (comint-line-beginning-position))
+       (emacspeak-speak-line 1)))
     (emacspeak-auditory-icon 'item)))
 
 (defadvice comint-next-matching-input (after emacspeak pre act comp)
   "Speak the line."
   (when (ems-interactive-p)
-    (tts-with-punctuations 'all
-                           (emacspeak-speak-line))
+    (tts-with-punctuations
+     'all
+     (save-excursion
+       (goto-char (comint-line-beginning-position))
+       (emacspeak-speak-line 1)))
     (emacspeak-auditory-icon 'item)))
 
 (defadvice comint-previous-input (after emacspeak pre act comp)
   "Speak the line."
   (when (ems-interactive-p)
-    (tts-with-punctuations 'all
-                           (emacspeak-speak-line))
+    (tts-with-punctuations
+     'all
+     (save-excursion
+       (goto-char (comint-line-beginning-position))
+     (emacspeak-speak-line 1)))
     (emacspeak-auditory-icon 'item)))
 
 (defadvice comint-previous-matching-input (after emacspeak pre act comp)
   "Speak the line."
   (when (ems-interactive-p)
-    (comint-skip-prompt)
-    (tts-with-punctuations 'all
-                           (emacspeak-speak-line))
+    (tts-with-punctuations
+     'all
+     (save-excursion
+       (goto-char (comint-line-beginning-position))
+     (emacspeak-speak-line 1)))
     (emacspeak-auditory-icon 'item)))
 
 (defadvice comint-send-input (after emacspeak pre act comp)
