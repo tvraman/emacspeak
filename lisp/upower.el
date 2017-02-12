@@ -58,7 +58,10 @@
      (dbus-register-signal
       :system "org.freedesktop.login1" "/org/freedesktop/login1"
       "org.freedesktop.login1.Manager" "PrepareForSleep"
-      #'(lambda(sleep) (if sleep (upower-sleep-signal-handler) (upower-resume-signal-handler))))))
+      #'(lambda(sleep)
+          (if sleep
+              (upower-sleep-signal-handler)
+            (upower-resume-signal-handler))))))
    (t ;; else Register directly for UPower signals:
     (list
      (dbus-register-signal

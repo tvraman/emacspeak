@@ -237,6 +237,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (load-library "emacspeak-dbus")
      (nm-enable)
      (upower-enable)
+     (emacspeak-dbus-watch-screen-lock)
      (play-sound
       `(sound
         :file ,(expand-file-name "highbells.au" emacspeak-sounds-directory)))

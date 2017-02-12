@@ -96,7 +96,20 @@
 (add-hook 'upower-resume-hook #'emacspeak-dbus-upower-resume)
 
 ;;}}}
+;;{{{ Watch Screensaver:
 
+(defun emacspeak-dbus-watch-screen-lock ()
+  "Register a handler to watch screen lock/unlock."
+        (dbus-register-signal
+   :session
+   "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
+   "org.gnome.ScreenSaver" "ActiveChanged"
+   #'(lambda(lock)
+       (if lock
+           (progn (sox-chime 1.5 1.5) (message "Locking screen"))
+         (progn (sox-chime) (message "Unlocking screen"))))))
+
+;;}}}
 (provide 'emacspeak-dbus)
 ;;{{{ end of file
 
