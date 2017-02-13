@@ -49,6 +49,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'sox-gen)
 (require 'dbus)
 (require 'nm "nm" 'no-error)
 (require 'upower "upower" 'no-error)
