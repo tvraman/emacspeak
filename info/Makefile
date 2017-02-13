@@ -38,11 +38,7 @@ install-info turning-twenty.info ${infodir}/dir ; \
 	$(INSTALL)  -m 644 *.info* $(infodir)
 
 uninstall:
-	if test  -e /usr/bin/install-info ; then \
-		install-info --delete $(infodir)/emacspeak.info* ${infodir}/dir \;
-		install-info --delete $(infodir)/turning-20.info * ${infodir}/dir \;
-	fi
-	rm -f $(infodir)/emacspeak.info*
+	rm -f $(infodir)/emacspeak.info* $(infodir)/turning-twenty.info*
 emacspeak.dvi:		emacspeak.texi
 	$(TEX) emacspeak.texi
 	$(TEX) emacspeak.texi
