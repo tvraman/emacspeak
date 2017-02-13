@@ -109,7 +109,7 @@ Stop apps that use the network."
 
 (defun emacspeak-dbus-watch-screen-lock ()
   "Register a handler to watch screen lock/unlock."
-        (dbus-register-signal
+  (dbus-register-signal
    :session
    "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
    "org.gnome.ScreenSaver" "ActiveChanged"
