@@ -163,7 +163,7 @@ servers/cloud* servers/log* servers/speech-server
 PHANTOM=js/phantom/*.js
 NODE_DIR=js/node
 maths = ${NODE_DIR}/*.js ${NODE_DIR}/*.json ${NODE_DIR}/*.tex \
-${NODE_DIR}/nvm-setup ${NODE_DIR}/Readme.org
+${NODE_DIR}/Makefile ${NODE_DIR}/nvm-setup ${NODE_DIR}/Readme.org
 ELISP = lisp/*.el lisp/g-client \
 lisp/Makefile
 TEMPLATES = etc/ etc/Makefile
@@ -248,7 +248,7 @@ install:
 	$(INSTALL) -d $(libdir)/xsl
 	$(INSTALL) -m 0644  ${ID} $(libdir)
 	  $(INSTALL) -m 0644  lisp/*.el lisp/*.elc  $(libdir)/lisp
-	$(INSTALL) -m 0644  ${maths} lisp/ $(libdir)/${NODE_DIR}	
+	$(INSTALL) -m 0644  ${maths}  $(libdir)/${NODE_DIR}	
 	$(INSTALL) -m 0644  lisp/g-client/*.el    $(libdir)/lisp/g-client
 	$(INSTALL) -m 0644  lisp/g-client/*.elc    $(libdir)/lisp/g-client
 	$(INSTALL) -m 0644  lisp/g-client/*.xsl    $(libdir)/lisp/g-client
