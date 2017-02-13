@@ -5332,14 +5332,17 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 12.114.2.65 emacspeak-m-player-using-openal
 ...........................................
 
- -- Command: emacspeak-m-player-using-openal
+ -- Command: emacspeak-m-player-using-openal (resource &optional
+          play-list)
      ‘C-; ;’
      ‘C-x @ h ;’
 
      Use openal as the audio output driver. Adding hrtf=true to
      ~/.alsoftrc gives HRTF. You need to have openal installed and have an
      mplayer that has been compiled with openal support to use this
-     feature.
+     feature. Calling spec is like ‘emacspeak-m-player’.
+
+     (fn RESOURCE &optional PLAY-LIST)
 
 12.114.2.66 emacspeak-m-player-volume-change
 ............................................
@@ -6611,6 +6614,7 @@ binds ‘s’ to this command.
      "y":    ‘(funcall-interactively (function yank-pop) 1)’,
      "Y":    ‘(funcall-interactively (function yank-pop) -1)’,
      "i":    ‘emacspeak-muggles-ido-yank’,
+     "s":    ‘emacspeak-muggles-ido-yank’,
      "l":    ‘browse-kill-ring’
 
      The body can be accessed via ‘emacspeak-muggles-yank-pop/body’.

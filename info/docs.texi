@@ -11245,7 +11245,7 @@ This will work if the soundcard is set to 48000.
 @end deffn
 
 @subsubsection emacspeak-m-player-using-openal
-@deffn {Command} emacspeak-m-player-using-openal   
+@deffn {Command} emacspeak-m-player-using-openal  (resource &optional play-list)
 @table @kbd
 @item C-; ;
 @kindex C-; ;
@@ -11259,7 +11259,9 @@ This will work if the soundcard is set to 48000.
 Use openal as the audio output driver. Adding hrtf=true to
 ~/.alsoftrc gives HRTF. You need to have openal installed and have an
 mplayer that has been compiled with openal support to use this
-feature.
+feature. Calling spec is like ‘emacspeak-m-player’.
+
+(fn RESOURCE &optional PLAY-LIST)
 @end format
 @end deffn
 
@@ -12712,6 +12714,7 @@ Create a hydra with no body and the heads:
 "y":    ‘(funcall-interactively (function yank-pop) 1)’,
 "Y":    ‘(funcall-interactively (function yank-pop) -1)’,
 "i":    ‘emacspeak-muggles-ido-yank’,
+"s":    ‘emacspeak-muggles-ido-yank’,
 "l":    ‘browse-kill-ring’
 
 The body can be accessed via ‘emacspeak-muggles-yank-pop/body’.
