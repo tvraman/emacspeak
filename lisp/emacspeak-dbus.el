@@ -58,21 +58,28 @@
 ;;}}}
 ;;{{{ NM Handlers
 
-;;;###autoload
+
 (defun emacspeak-dbus-nm-connected ()
-  "Announce  network manager connection."
+  "Announce  network manager connection.
+Startup  apps that need the network."
   (declare (special emacspeak-speak-network-interfaces-list))
   (setq emacspeak-speak-network-interfaces-list (mapcar #'car (network-interface-list)))
+  (when (featurep 'jabber)
+    (run-at-time 30 nil #'jabber-connect-all))
+  (when (featurep 'twittering-mode)
+    (run-at-time 60 nil #'twittering-start))
   (emacspeak-auditory-icon 'network-up)
   (message
    (mapconcat #'identity emacspeak-speak-network-interfaces-list "")))
 
-;;;###autoload
 (defun emacspeak-dbus-nm-disconnected ()
-  "Announce  network manager disconnection."
+  "Announce  network manager disconnection.
+Stop apps that use the network."
   (declare (special emacspeak-speak-network-interfaces-list))
   (setq emacspeak-speak-network-interfaces-list (mapcar #'car (network-interface-list)))
   (emacspeak-auditory-icon 'network-down)
+  (when (featurep 'twittering-mode) (twittering-stop))
+  (when (featurep 'jabber) (jabber-disconnect))
   (message (mapconcat #'identity emacspeak-speak-network-interfaces-list "")))
 
 (add-hook 'nm-connected-hook 'emacspeak-dbus-nm-connected)
