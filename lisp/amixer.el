@@ -210,6 +210,16 @@ Copied from /var/lib/alsa/asound.state to your ~/.emacs.d to avoid needing to ru
      f)))
 
 ;;;###autoload
+(defun amixer-restore (&optional conf-file)
+  "Restore alsa settings."
+  (shell-command
+   (format "alsactl %s  restore"
+           (if conf-file
+               (format "-f %s" amixer-alsactl-config-file) "")))
+  (message "Resetting  sound to default")
+  (amixer-build-db))
+
+;;;###autoload
 (defun amixer (&optional refresh)
   "Interactively manipulate ALSA settings.
 Interactive prefix arg refreshes cache."
@@ -230,14 +240,8 @@ Interactive prefix arg refreshes cache."
         (choices nil))
     (cond
      ((null control)
-      (shell-command
-       (format "alsactl %s  restore"
-               (if amixer-alsactl-config-file
-                   (format "-f %s" amixer-alsactl-config-file)
-                 "")))
-      (amixer-reset-equalizer)
-       (message "Resetting  sound to default")
-      (amixer-build-db))
+      (amixer-restore  amixer-alsactl-config-file)
+      (amixer-reset-equalizer))
      (t
       (when (string=
              "ENUMERATED"
