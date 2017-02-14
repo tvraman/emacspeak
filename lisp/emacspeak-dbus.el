@@ -113,7 +113,7 @@ Stop apps that use the network."
        :session
        "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
        "org.gnome.ScreenSaver" "GetActive")
-    (dtk-notify-say "Screen is locked.")
+    (dtk-say "Enter password to unlock screen. ")
     (emacspeak-auditory-icon 'help)))
 
 (add-hook 'upower-resume-hook #'emacspeak-dbus-upower-resume)
