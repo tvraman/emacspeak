@@ -34,11 +34,11 @@
   "Functions called when machine is resumed (from suspend or hibernate)")
 
 (defun upower-sleep-signal-handler()
-  (message "Received sleep signal, running sleep hooks .")
+  (message "Sleeping")
   (run-hooks 'upower-sleep-hook))
 
 (defun upower-resume-signal-handler()
-  (message "Received resume signal, running resume hooks .")
+  (message "Waking Up")
   (run-hooks 'upower-resume-hook))
 
 (defvar upower-dbus-registration nil

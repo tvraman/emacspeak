@@ -100,7 +100,13 @@ Stop apps that use the network."
   "Emacspeak hook for upower-resume."
   (soundscape-listener 'restart)
   (xbacklight-black)
-  (emacspeak-auditory-icon 'help))
+  (when
+      (dbus-call-method
+       :session 
+       "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
+       "org.gnome.ScreenSaver" "GetActive")
+    (dtk-notify-say "Screen is locked.")
+  (emacspeak-auditory-icon 'help)))
 
 (add-hook 'upower-resume-hook #'emacspeak-dbus-upower-resume)
 
