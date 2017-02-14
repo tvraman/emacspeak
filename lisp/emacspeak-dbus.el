@@ -50,14 +50,22 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'sox-gen)
-(require 'soundscape)
 (require 'dbus)
 (require 'nm "nm" 'no-error)
 (require 'upower "upower" 'no-error)
 
 ;;}}}
-;;{{{ NM Handlers
+;;{{{ Forward Declarations:
 
+(declare-function soundscape-listener "soundscape" (&optional restart))
+(declare-function soundscape-listener-shutdown "soundscape" nil)
+(declare-function jabber-connect-all "jabber-core" (&optional arg))
+(declare-function jabber-disconnect "jabber-core" (&optional arg))
+(declare-function twittering-start "twittering-mode" nil)
+(declare-function twittering-stop "twittering-mode" nil)
+
+;;}}}
+;;{{{ NM Handlers
 
 (defun emacspeak-dbus-nm-connected ()
   "Announce  network manager connection.
@@ -86,27 +94,27 @@ Stop apps that use the network."
 (add-hook 'nm-disconnected-hook 'emacspeak-dbus-nm-disconnected)
 
 ;;}}}
-;;{{{ Upower handlers 
+;;{{{ Upower handlers
 
 (defun emacspeak-dbus-upower-sleep ()
   "Emacspeak  hook for upower-sleep."
-  (soundscape-listener-shutdown)
+  (when (featurep 'soundscape) (soundscape-listener-shutdown))
   (save-some-buffers t))
 
 (add-hook 'upower-sleep-hook #'emacspeak-dbus-upower-sleep)
 
-
 (defun emacspeak-dbus-upower-resume ()
   "Emacspeak hook for upower-resume."
-  (soundscape-listener 'restart)
-  (xbacklight-black)
+  (when (featurep 'soundscape)
+    (soundscape-listener 'restart))
+  (when (featurep 'xbacklight) (xbacklight-black))
   (when
       (dbus-call-method
-       :session 
+       :session
        "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
        "org.gnome.ScreenSaver" "GetActive")
     (dtk-notify-say "Screen is locked.")
-  (emacspeak-auditory-icon 'help)))
+    (emacspeak-auditory-icon 'help)))
 
 (add-hook 'upower-resume-hook #'emacspeak-dbus-upower-resume)
 
