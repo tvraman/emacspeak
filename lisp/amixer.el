@@ -234,9 +234,9 @@ Interactive prefix arg refreshes cache."
        (format "alsactl %s  restore"
                (if amixer-alsactl-config-file
                    (format "-f %s" amixer-alsactl-config-file)
-                 ""))
-       (amixer-reset-equalizer)
-       (message "Resetting  sound to default"))
+                 "")))
+      (amixer-reset-equalizer)
+       (message "Resetting  sound to default")
       (amixer-build-db))
      (t
       (when (string=
@@ -266,7 +266,6 @@ Interactive prefix arg refreshes cache."
        "updated %s to %s"
        (amixer-control-name control)
        update)))))
-
 ;;;###autoload
 (defun amixer-equalize()
   "Set equalizer. Only affects device `equal'."
