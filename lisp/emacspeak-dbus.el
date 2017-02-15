@@ -1,4 +1,4 @@
-;;; emacspeak-dbus.el --- DBus Tools For Emacspeak Desktop  -*- lexical-binding: t; -*-
+;;; emacspeak-dbus.el --- DBus On Emacspeak Desktop -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-dbus.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  DBus Tools For The Emacspeak Desktop
@@ -69,7 +69,8 @@
   "Announce  network manager connection.
 Startup  apps that need the network."
   (declare (special emacspeak-speak-network-interfaces-list))
-  (setq emacspeak-speak-network-interfaces-list (mapcar #'car (network-interface-list)))
+  (setq emacspeak-speak-network-interfaces-list
+        (mapcar #'car (network-interface-list)))
   (when (featurep 'jabber)
     (run-at-time 30 nil #'jabber-connect-all))
   (when (featurep 'twittering-mode)
@@ -82,7 +83,8 @@ Startup  apps that need the network."
   "Announce  network manager disconnection.
 Stop apps that use the network."
   (declare (special emacspeak-speak-network-interfaces-list))
-  (setq emacspeak-speak-network-interfaces-list (mapcar #'car (network-interface-list)))
+  (setq emacspeak-speak-network-interfaces-list
+        (mapcar #'car (network-interface-list)))
   (emacspeak-auditory-icon 'network-down)
   (when (featurep 'twittering-mode) (twittering-stop))
   (when (featurep 'jabber) (jabber-disconnect))
@@ -93,6 +95,14 @@ Stop apps that use the network."
 
 ;;}}}
 ;;{{{ Sleep/Resume:
+(defsubst emacspeak-dbus-login1-sleep-p ()
+  "Test if login1 service  sleep signal is available."
+  (member
+   "PrepareForSleep"
+   (dbus-introspect-get-signal-names
+    :system
+    "org.freedesktop.login1" "/org/freedesktop/login1"
+    "org.freedesktop.login1.Manager")))
 
 (defvar emacspeak-dbus-sleep-hook nil
   "Functions called when machine is about to sleep (suspend or hibernate). ")
@@ -114,17 +124,20 @@ Stop apps that use the network."
 (defun emacspeak-dbus-sleep-register()
   "Register signal handlers for sleep/resume. Return list of
 signal registration objects."
-  (list
-   (dbus-register-signal
-    :system "org.freedesktop.login1" "/org/freedesktop/login1"
-    "org.freedesktop.login1.Manager" "PrepareForSleep"
-    #'(lambda(sleep)
-        (if sleep
-            (emacspeak-dbus-sleep-signal-handler)
-          (emacspeak-dbus-resume-signal-handler))))))
+  (cond
+   ((emacspeak-dbus-login1-sleep-p)
+    (list
+     (dbus-register-signal
+      :system "org.freedesktop.login1" "/org/freedesktop/login1"
+      "org.freedesktop.login1.Manager" "PrepareForSleep"
+      #'(lambda(sleep)
+          (if sleep
+              (emacspeak-dbus-sleep-signal-handler)
+            (emacspeak-dbus-resume-signal-handler))))))
+   (t (error "org.freedesktop.login1 has no PrepareForSleep signal."))))
 
 
-                                        ; Enable integration
+;;; Enable integration
 (defun emacspeak-dbus-sleep-enable()
   "Enable integration with Login1. Does nothing if already enabled."
   (interactive)
@@ -144,7 +157,6 @@ already disabled."
     (setq emacspeak-dbus-sleep-registration
           (cdr emacspeak-dbus-sleep-registration)))
   (message "Disabled integration with Login1 daemon."))
-
 
 (defun emacspeak-dbus-sleep ()
   "Emacspeak  hook for -sleep signal from Login1."
