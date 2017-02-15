@@ -271,7 +271,7 @@ emacspeak-xslt.elc \
 emacspeak-yasnippet.elc 
 
 ADDON_OBJECTS = \
-nm.elc upower.elc \
+nm.elc \
 tapestry.elc   stack-f.elc  \
 dom-addons.elc \
 xbacklight.elc json-view.elc toy-braille.elc tetris.elc cd-tool.elc 
@@ -334,7 +334,6 @@ ommacspeak-amark.elc: emacspeak-amark.el
 cd-tool.elc: cd-tool.el
 json-view.elc: json-view.el
 nm.elc: nm.el
-upower.elc: upower.el
 amixer.elc: amixer.el
 emacspeak-actions.elc: emacspeak-actions.el
 emacspeak-add-log.elc: emacspeak-add-log.el dtk-speak.elc voice-setup.elc
@@ -372,7 +371,7 @@ emacspeak-cperl.elc: emacspeak-cperl.el dtk-speak.elc voice-setup.elc
 emacspeak-custom.elc: emacspeak-custom.el dtk-speak.elc voice-setup.elc
 emacspeak-cyclebuffer.elc: emacspeak-cyclebuffer.el dtk-speak.elc
 emacspeak-epub.elc: emacspeak-epub.el dtk-speak.elc voice-setup.elc
-emacspeak-dbus.elc: emacspeak-dbus.el dtk-speak.elc nm.elc upower.elc 
+emacspeak-dbus.elc: emacspeak-dbus.el dtk-speak.elc nm.elc 
 emacspeak-desktop.elc: emacspeak-desktop.el dtk-speak.elc voice-setup.elc
 emacspeak-dictionary.elc: emacspeak-dictionary.el dtk-speak.elc voice-setup.elc
 emacspeak-diff-mode.elc: emacspeak-diff-mode.el dtk-speak.elc voice-setup.elc

@@ -52,8 +52,6 @@
 (require 'sox-gen)
 (require 'dbus)
 (require 'nm "nm" 'no-error)
-(require 'upower "upower" 'no-error)
-
 ;;}}}
 ;;{{{ Forward Declarations:
 
@@ -94,17 +92,69 @@ Stop apps that use the network."
 (add-hook 'nm-disconnected-hook 'emacspeak-dbus-nm-disconnected)
 
 ;;}}}
-;;{{{ Upower handlers
+;;{{{ Sleep/Resume:
 
-(defun emacspeak-dbus-upower-sleep ()
-  "Emacspeak  hook for upower-sleep."
+(defvar emacspeak-dbus-sleep-hook nil
+  "Functions called when machine is about to sleep (suspend or hibernate). ")
+
+(defvar emacspeak-dbus-resume-hook nil
+  "Functions called when machine is resumed (from suspend or hibernate).")
+
+(defun emacspeak-dbus-sleep-signal-handler()
+  (message "Sleeping")
+  (run-hooks 'emacspeak-dbus-sleep-hook))
+
+(defun emacspeak-dbus-resume-signal-handler()
+  (message "Waking Up")
+  (run-hooks 'emacspeak-dbus-resume-hook))
+
+(defvar emacspeak-dbus-sleep-registration nil
+  "List holding sleep registration.")
+
+(defun emacspeak-dbus-sleep-register()
+  "Register signal handlers for sleep/resume. Return list of
+signal registration objects."
+  (list
+   (dbus-register-signal
+    :system "org.freedesktop.login1" "/org/freedesktop/login1"
+    "org.freedesktop.login1.Manager" "PrepareForSleep"
+    #'(lambda(sleep)
+        (if sleep
+            (emacspeak-dbus-sleep-signal-handler)
+          (emacspeak-dbus-resume-signal-handler))))))
+
+
+                                        ; Enable integration
+(defun emacspeak-dbus-sleep-enable()
+  "Enable integration with Login1. Does nothing if already enabled."
+  (interactive)
+  (declare (special emacspeak-dbus-sleep-registration))
+  (when (not emacspeak-dbus-sleep-registration)
+    (setq emacspeak-dbus-sleep-registration (emacspeak-dbus-sleep-register))
+    (message "Enabled integration with login1 daemon.")))
+
+;;; Disable integration
+(defun emacspeak-dbus-sleep-disable()
+  "Disable integration with login1 daemon. Does nothing if
+already disabled."
+  (interactive)
+  (declare (special emacspeak-dbus-sleep-registration))
+  (while emacspeak-dbus-sleep-registration
+    (dbus-unregister-object (car emacspeak-dbus-sleep-registration))
+    (setq emacspeak-dbus-sleep-registration
+          (cdr emacspeak-dbus-sleep-registration)))
+  (message "Disabled integration with Login1 daemon."))
+
+
+(defun emacspeak-dbus-sleep ()
+  "Emacspeak  hook for -sleep signal from Login1."
   (when (featurep 'soundscape) (soundscape-listener-shutdown))
   (save-some-buffers t))
 
-(add-hook 'upower-sleep-hook #'emacspeak-dbus-upower-sleep)
+(add-hook  'emacspeak-dbus-sleep-hook#'emacspeak-dbus-sleep)
 
-(defun emacspeak-dbus-upower-resume ()
-  "Emacspeak hook for upower-resume."
+(defun emacspeak-dbus-resume ()
+  "Emacspeak hook for Login1-resume."
   (when (featurep 'soundscape)
     (soundscape-listener 'restart))
   (when (featurep 'xbacklight) (xbacklight-black))
@@ -116,7 +166,7 @@ Stop apps that use the network."
     (dtk-say "Enter password to unlock screen. ")
     (emacspeak-auditory-icon 'help)))
 
-(add-hook 'upower-resume-hook #'emacspeak-dbus-upower-resume)
+(add-hook 'emacspeak-dbus-resume-hook #'emacspeak-dbus-resume)
 
 ;;}}}
 ;;{{{ Watch Screensaver:

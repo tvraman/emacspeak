@@ -236,7 +236,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (calendar)
      (load-library "emacspeak-dbus")
      (nm-enable)
-     (upower-enable)
+     (emacspeak-dbus-sleep-enable)
      (emacspeak-dbus-watch-screen-lock)
      (play-sound
       `(sound
