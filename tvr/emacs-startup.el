@@ -176,6 +176,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     (mapc
      #'load-library-if-available
      '(
+        "emacspeak-dbus" "emacspeak-muggles" "emacspeak-maths"
        "my-functions"
 ;;; Mail:
        "vm-prepare" "gm-smtp" "gnus-prepare" "bbdb-prepare"
@@ -227,14 +228,14 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      ;;; Need to do this for Emacspeak Customizations having :set
      (mapcar
       #'custom-reevaluate-setting
-      '(emacspeak-media-location-bindings gweb-my-address))
-     (load-library "emacspeak-muggles")
-     (load-library "emacspeak-maths")
+      '(emacspeak-media-location-bindings
+        gweb-my-address
+        ))
+     
      (soundscape-toggle)
      (shell)
      (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
      (calendar)
-     (load-library "emacspeak-dbus")
      (nm-enable)
      (emacspeak-dbus-sleep-enable)
      (emacspeak-dbus-watch-screen-lock)

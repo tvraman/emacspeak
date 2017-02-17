@@ -120,13 +120,15 @@ Optional argument `raw-p' returns raw JSON  object."
 
 (defun gmaps-postal-code-from-location (location)
   "Reverse geocode location and return postal coe."
+  (condition-case nil
   (g-json-get
    'short_name 
    (find-if  ; component whose type contains postal_code
     #'(lambda (v) (find "postal_code" (g-json-get 'types v) :test #'string=)) 
     (g-json-get ; from address_components at finest granularity
      'address_components
-     (aref (gmaps-reverse-geocode location 'raw) 0)))))
+     (aref (gmaps-reverse-geocode location 'raw) 0))))
+  (error "")))
 
 ;;; Example of use:
 ;;;###autoload
