@@ -6,7 +6,7 @@
 ;;; {Variables:
 ;;; Avoid focus getting stolen due to activity.
 
-(setq *deny-raise-request* t)
+;(setq *deny-raise-request* t)
 (defvar *emacspeak-dir* "/usr/share/emacs/site-lisp/emacspeak"
   "Root directory of Emacspeak installation.")
 (defvar *tts-window-icon*
@@ -88,7 +88,10 @@
 (defun speak-messages (&rest messages)
   "Speak messages, a list of lines."
   (declare (special *tts-speak-messages*))
-  (when *tts-speak-messages* (tts-speak-list  messages)))
+  (when *tts-speak-messages*
+    (tts-speak
+     (concatenate  'string
+                   (apply #'stumpwm::uncolorify messages)))))
 
 ;;; }
 ;;; {Attach Handlers:
