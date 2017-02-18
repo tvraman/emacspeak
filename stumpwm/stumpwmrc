@@ -90,8 +90,9 @@
   (declare (special *tts-speak-messages*))
   (when *tts-speak-messages*
     (tts-speak
-     (concatenate  'string
-                   (mapcar #'stumpwm::uncolorify messages)))))
+     (apply
+      #'concatenate  'string
+      (mapcar #'stumpwm::uncolorify messages)))))
 
 ;;; }
 ;;; {Attach Handlers:
