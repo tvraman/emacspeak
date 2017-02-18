@@ -533,12 +533,6 @@ def parseContent(text):
 #  format is:
 #  { type, value }
 def processSpeechQueue():
-  # Emacspeak controls flushing via the 's' command, so it's safe to do this.
-  # This allows us to not be strict about what thread controls processing the
-  # queue.
-  if speechSynthesizer.isSpeaking():
-    return
-
   if (osx_version < 9):
     # hacky way to work around buggy NSSpeechSynthesizerDelegate
     speechLock.acquire()
