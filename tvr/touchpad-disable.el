@@ -42,7 +42,7 @@
 ;; xinput set-prop 11 "Device Enabled" 1
 (defgroup touchpad-unprepare nil
   "disable mouse/touchpad in emacs")
-(defcustom touchpad-device "9"
+(defcustom touchpad-device "11"
   "Device ID of touchpad.
 Set by locating it via xinput --list."
   :type 'string
