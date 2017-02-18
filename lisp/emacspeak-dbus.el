@@ -75,7 +75,7 @@ switch to a screen-saver soundscape."
   "Initialize screen-saver buffer  if needed, return it."
   (let ((buffer (get-buffer-create " *Emacspeak Screen Saver*")))
     (with-current-buffer buffer (emacspeak-screen-saver-mode))
-    buffer))
+    (funcall-interactively #'switch-to-buffer buffer)))
 
 ;;}}}
 ;;{{{ NM Handlers
@@ -206,8 +206,9 @@ already disabled."
    "org.gnome.ScreenSaver" "ActiveChanged"
    #'(lambda(lock)
        (if lock
-           (progn (sox-chime 1.5 1.5)
-                  (funcall-interactively #'switch-to-buffer (emacspeak-screen-saver)))
+           (progn
+             (sox-chime 1.5 1.5)
+             (emacspeak-screen-saver))
          (progn
            (when (eq major-mode 'emacspeak-screen-saver-mode)(bury-buffer))
            (sox-chime)
