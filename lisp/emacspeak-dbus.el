@@ -67,13 +67,13 @@
 ;;{{{ ScreenSaver Mode:
 (define-derived-mode emacspeak-screen-saver-mode special-mode
   "Screen Saver Mode"
-  "A light-weight mode for the ` *Emacspeak Screen Saver *' buffer.
+  "A light-weight mode for the `*Emacspeak Screen Saver *' buffer.
 This is a hidden buffer that is made current so we automatically
 switch to a screen-saver soundscape."
   t)
 (defun emacspeak-screen-saver ()
   "Initialize screen-saver buffer  if needed, return it."
-  (let ((buffer (get-buffer-create " *Emacspeak Screen Saver*")))
+  (let ((buffer (get-buffer-create "*Emacspeak Screen Saver*")))
     (with-current-buffer buffer (emacspeak-screen-saver-mode))
     (funcall-interactively #'switch-to-buffer buffer)))
 
