@@ -50,6 +50,7 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'sox-gen)
+(require 'derived)
 (require 'dbus)
 (require 'nm "nm" 'no-error)
 ;;}}}
@@ -61,6 +62,20 @@
 (declare-function jabber-disconnect "jabber-core" (&optional arg))
 (declare-function twittering-start "twittering-mode" nil)
 (declare-function twittering-stop "twittering-mode" nil)
+
+;;}}}
+;;{{{ ScreenSaver Mode:
+(define-derived-mode emacspeak-screen-saver-mode special-mode
+  "Screen Saver Mode"
+  "A light-weight mode for the ` *Emacspeak Screen Saver *' buffer.
+This is a hidden buffer that is made current so we automatically
+switch to a screen-saver soundscape."
+  t)
+(defun emacspeak-screen-saver ()
+  "Initialize screen-saver buffer  if needed, return it."
+  (let ((buffer (get-buffer-create " *Emacspeak Screen Saver*")))
+    (with-current-buffer buffer (emacspeak-screen-saver-mode))
+    buffer))
 
 ;;}}}
 ;;{{{ NM Handlers
@@ -191,8 +206,12 @@ already disabled."
    "org.gnome.ScreenSaver" "ActiveChanged"
    #'(lambda(lock)
        (if lock
-           (progn (sox-chime 1.5 1.5) (message "Locking screen"))
-         (progn (sox-chime) (message "Unlocking screen"))))))
+           (progn (sox-chime 1.5 1.5)
+                  (funcall-interactively #'switch-to-buffer (emacspeak-screen-saver)))
+         (progn
+           (when (eq major-mode 'emacspeak-screen-saver-mode)(bury-buffer))
+           (sox-chime)
+           (message "Unlocking screen"))))))
 
 ;;}}}
 (provide 'emacspeak-dbus)
