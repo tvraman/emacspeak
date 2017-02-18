@@ -43,7 +43,7 @@
               *emacspeak-dir*
               "/"
               "stumpwm/tts.lisp"))
-(setq *tts-engine* *tts-32-outloud*)
+(setq *tts-engine* *tts-outloud*)
 (tts-say "TTS: Ready to talk! ")
 
 ;;; }
@@ -91,14 +91,14 @@
   (when *tts-speak-messages*
     (tts-speak
      (concatenate  'string
-                   (apply #'stumpwm::uncolorify messages)))))
+                   (mapcar #'stumpwm::uncolorify messages)))))
 
 ;;; }
 ;;; {Attach Handlers:
 
 (setq  *focus-window-hook* (list 'speak-window-change))
 (setq *new-window-hook* (list 'speak-this-window))
-(setq *message-hook* (list 'speak-messages))
+;(setq *message-hook* (list 'speak-messages))
 
 ;;; }
 ;;; {Lock screen C-t D
