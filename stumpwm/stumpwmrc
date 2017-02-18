@@ -6,7 +6,7 @@
 ;;; {Variables:
 ;;; Avoid focus getting stolen due to activity.
 
-;(setq *deny-raise-request* t)
+(setq *deny-raise-request* t)
 (defvar *emacspeak-dir* "/usr/share/emacs/site-lisp/emacspeak"
   "Root directory of Emacspeak installation.")
 (defvar *tts-window-icon*
