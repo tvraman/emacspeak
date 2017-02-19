@@ -2951,7 +2951,7 @@ order with duplicates removed  when saving."
 (defvar emacspeak-wizards-yq-base
   (concat
    "http://query.yahooapis.com/v1/public/yql?"
-   "&env=http%3A%2F%2Fdatatables.org%2Falltables.env"
+   (concat "env=" (url-hexify-string "store://datatables.org/alltableswithkeys"))
    "&format=json"
    "&q=")
   "REST-end-point for Yahoo Quotes API.")
