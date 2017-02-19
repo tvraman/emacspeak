@@ -1,9 +1,10 @@
 #!/bin/sh
-# run xtrlock with audio feedback
+# Lock screen 
 sounds=/usr/share/sounds/ubuntu/stereo
 ogg123 -q $sounds/service-logout.ogg &
 #i3lock   -b  -d  && xbacklight -set 0
 xbacklight -set 0
-xtrlock -b
-ogg123 -q $sounds/service-login.ogg &
+#xtrlock -b
+gnome-screensaver-command -a  -l 
+
 xbacklight -set 0
