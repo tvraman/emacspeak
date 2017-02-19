@@ -75,8 +75,7 @@ switch to a screen-saver soundscape."
   "Initialize screen-saver buffer  if needed, return it."
   (let ((buffer (get-buffer-create "*Emacspeak Screen Saver*")))
     (with-current-buffer buffer (emacspeak-screen-saver-mode))
-    (funcall-interactively #'switch-to-buffer buffer)
-    (soundscape-restart)))
+    (funcall-interactively #'switch-to-buffer buffer)))
 
 ;;}}}
 ;;{{{ NM Handlers
@@ -191,6 +190,7 @@ already disabled."
        :session
        "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
        "org.gnome.ScreenSaver" "GetActive")
+    (soundscape-restart)
     (dtk-say "Enter password to unlock screen. ")
     (emacspeak-auditory-icon 'help)))
 
