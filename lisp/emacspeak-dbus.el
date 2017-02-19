@@ -182,15 +182,13 @@ already disabled."
 
 (defun emacspeak-dbus-resume ()
   "Emacspeak hook for Login1-resume."
-  (when (featurep 'soundscape)
-    (soundscape-listener 'restart))
+  (when (featurep 'soundscape) (soundscape-restart))
   (when (featurep 'xbacklight) (xbacklight-black))
   (when
       (dbus-call-method
        :session
        "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
        "org.gnome.ScreenSaver" "GetActive")
-    (soundscape-restart)
     (dtk-say "Enter password to unlock screen. ")
     (emacspeak-auditory-icon 'help)))
 
