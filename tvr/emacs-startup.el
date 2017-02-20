@@ -1,6 +1,5 @@
 ;;{{{ History: Emacs initialization file for Raman:  -*- lexical-binding: t; -*-
 
-;;; $Id: emacs-startup.el 7753 2012-05-06 22:43:52Z tv.raman.tv $
 ;;; Segre March 22 1991
 ;;; July 15, 2001 finally cutting over to custom.
 ;;; August 12, 2007: Cleaned up for Emacs 22
@@ -11,12 +10,11 @@
 (setq inhibit-startup-echo-area-message user-login-name)
 
 (defvar emacs-private-library (expand-file-name "~/.elisp")
-  "Private personalization directory. ")
+  "Private library directory. ")
 
 (defvar emacs-personal-library
   (expand-file-name "~/emacs/lisp/site-lisp")
-  "Directory where we keep personal libraries.
-These are exported to GitHub under emacspeak/tvr.")
+  "Directory where we keep site libraries. Mostly superceded by elpa.")
 
 ;;}}}
 ;;{{{ helper functions:
@@ -51,7 +49,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
          auto-mode-alist)))
 
 (defsubst load-library-if-available (lib)
-  "Load a library only if it is around"
+  "Safe load library."
   (let ((emacspeak-speak-messages nil))
     (condition-case nil
         (cond
@@ -61,9 +59,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
           t)
          (t (message "Could not locate library %s" lib)
             nil))
-      (error (message
-              "Error loading %s"
-              lib)))))
+      (error (message "Error loading %s" lib)))))
 
 ;;}}}
 ;;{{{ customize custom
@@ -120,11 +116,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
           '(
             ([f3] bury-buffer)
             ([f4] emacspeak-kill-buffer-quietly)
-            ([f5] emacspeak-pianobar)
             ([pause] dtk-stop)
             ("\M--" undo)
-            ([f6] dtk-cloud)
-            ( [f8]emacspeak-remote-quick-connect-to-server)
             ([f11]shell)
             ([f12]vm)
             ( "\C-xc"compile)
@@ -153,8 +146,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 
 ;;; Mode hooks.
 
-    (eval-after-load
-        "shell"
+    (eval-after-load "shell"
       '(progn
          (define-key shell-mode-map "\C-cr" 'comint-redirect-send-command)
          (define-key shell-mode-map "\C-ch" 'emacspeak-wizards-refresh-shell-history)))
@@ -163,7 +155,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     ;;{{{ outline mode setup:
 
     (load-library "outline")
-                                        ;restore what we are about to steal
+;;;restore what we are about to steal
     (define-key outline-mode-prefix-map "o" 'open-line)
     (global-set-key "\C-o"outline-mode-prefix-map)
 
@@ -176,7 +168,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     (mapc
      #'load-library-if-available
      '(
-        "emacspeak-dbus" "emacspeak-muggles" "emacspeak-maths"
+       "emacspeak-dbus" "emacspeak-muggles" "emacspeak-maths"
        "my-functions"
 ;;; Mail:
        "vm-prepare" "gm-smtp" "gnus-prepare" "bbdb-prepare"
@@ -187,7 +179,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "auctex-prepare" "nxml-prepare" "folding-prepare"
        "calc-prepare"
        "hydra-prepare" "helm-prepare"   ;helm not activated
-       "js-prepare" "tcl-prepare" "slime-prepare" "company-prepare" "python-mode-prepare"
+       "js-prepare" "tcl-prepare" "slime-prepare"
+       "company-prepare" "python-mode-prepare"
                                         ; jde and ecb will pull in cedet.
                                         ;"jde-prepare" "ecb-prepare"
        "org-prepare"
@@ -214,12 +207,10 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 
     (when (file-exists-p abbrev-file-name)
       (read-abbrev-file)
-      (add-hook
-       #'kill-emacs-hook
-       #'(lambda () (write-abbrev-file))))
+      (add-hook #'kill-emacs-hook #'write-abbrev-file))
 
     ;;}}}
-    ))                                  ; end defun
+    )) ;end defun
 ;;{{{  start it up
 
 (add-hook
@@ -228,10 +219,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      ;;; Need to do this for Emacspeak Customizations having :set
      (mapcar
       #'custom-reevaluate-setting
-      '(emacspeak-media-location-bindings
-        gweb-my-address
-        ))
-     
+      '(emacspeak-media-location-bindings gweb-my-address))
      (soundscape-toggle)
      (shell)
      (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
@@ -242,7 +230,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (play-sound
       `(sound
         :file ,(expand-file-name "highbells.au" emacspeak-sounds-directory)))
-     (message "Successfully initialized Emacs")))
+     (message "Successfully initialized Emacs for %s" user-login-name)))
 (when (file-exists-p custom-file) (load-file custom-file))
 (start-up-my-emacs)
 
