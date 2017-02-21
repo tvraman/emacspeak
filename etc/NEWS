@@ -9,7 +9,7 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 ** Updated DBus Integration 
 
 Module ~emacspeak-dbus~ --- Emacspeak's DBus Integration --- has been
-updated  and now includes support for screen-lock, sleep/resume, in addition to NM.
+updated  and now includes support for screen-lock, sleep/resume, and  NM.
 
 ** Outloud is Easier To Install On 64-Bit Systems 
 

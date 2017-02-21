@@ -215,7 +215,7 @@ Copied from /var/lib/alsa/asound.state to your ~/.emacs.d to avoid needing to ru
   (shell-command
    (format "alsactl %s  restore"
            (if conf-file
-               (format "-f %s" amixer-alsactl-config-file) "")))
+               (format "-f %s" conf-file) "")))
   (message "Resetting  sound to default")
   (amixer-build-db))
 

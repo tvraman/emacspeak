@@ -49,6 +49,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'amixer)
 (require 'sox-gen)
 (require 'derived)
 (require 'dbus)
@@ -182,6 +183,8 @@ already disabled."
 
 (defun emacspeak-dbus-resume ()
   "Emacspeak hook for Login1-resume."
+  (declare (special amixer-alsactl-config-file))
+  (amixer-restore  amixer-alsactl-config-file)
   (when (featurep 'soundscape) (soundscape-restart))
   (when (featurep 'xbacklight) (xbacklight-black))
   (when
