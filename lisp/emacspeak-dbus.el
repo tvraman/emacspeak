@@ -57,7 +57,7 @@
 ;;}}}
 ;;{{{ Forward Declarations:
 
-(declare-function soundscape-stop "soundscape" )
+
 (declare-function soundscape-restart "soundscape" (&optional device))
 (declare-function jabber-connect-all "jabber-core" (&optional arg))
 (declare-function jabber-disconnect "jabber-core" (&optional arg))
@@ -176,7 +176,6 @@ already disabled."
 
 (defun emacspeak-dbus-sleep ()
   "Emacspeak  hook for -sleep signal from Login1."
-  (when (featurep 'soundscape) (soundscape-stop))
   (save-some-buffers t))
 
 (add-hook  'emacspeak-dbus-sleep-hook#'emacspeak-dbus-sleep)
