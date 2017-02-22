@@ -931,10 +931,21 @@ File: emacspeak.info,  Node: emacspeak-dbus,  Next: emacspeak-desktop,  Prev: em
 
 Set up Emacspeak to respond to DBus notifications
 
-12.45.1 emacspeak-dbus Commands
+12.45.1 Overview
+----------------
+
+This module provides integration via DBus for the following:
+   • Respond to network coming up or going down.
+   • Respond to screen getting locked/unlocked by gnome-screen-saver
+   • Respond to laptop going to sleep or waking up.
+   See relevant hooks for customizing behavior.  Note that each of the
+sleep/wake-up and network/up-down can be separately enabled/disabled,
+and the actions customized via appropriately named hook functions.
+
+12.45.2 emacspeak-dbus Commands
 -------------------------------
 
-12.45.1.1 emacspeak-dbus-sleep-disable
+12.45.2.1 emacspeak-dbus-sleep-disable
 ......................................
 
  -- Command: emacspeak-dbus-sleep-disable
@@ -942,14 +953,14 @@ Set up Emacspeak to respond to DBus notifications
      Disable integration with login1 daemon. Does nothing if
      already disabled.
 
-12.45.1.2 emacspeak-dbus-sleep-enable
+12.45.2.2 emacspeak-dbus-sleep-enable
 .....................................
 
  -- Command: emacspeak-dbus-sleep-enable
 
      Enable integration with Login1. Does nothing if already enabled.
 
-12.45.1.3 emacspeak-screen-saver-mode
+12.45.2.3 emacspeak-screen-saver-mode
 .....................................
 
  -- Command: emacspeak-screen-saver-mode

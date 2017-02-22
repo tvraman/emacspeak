@@ -42,7 +42,19 @@
 
 ;;; Commentary:
 ;;; Set up Emacspeak to respond to DBus notifications
-
+;;; @subsection Overview
+;;;
+;;; This module provides integration via DBus  for the following:
+;;; @itemize @bullet
+;;; @item Respond to network coming up or going down.
+;;; @item Respond to screen getting locked/unlocked by gnome-screen-saver
+;;; @item Respond to laptop  going to sleep or waking up.
+;;; @end itemize
+;;; See relevant hooks for customizing behavior.
+;;; Note that each of the  sleep/wake-up and network/up-down
+;;; can be separately enabled/disabled, and the actions customized
+;;; via appropriately named hook functions.
+;;;
 ;;}}}
 ;;{{{  Required modules
 
