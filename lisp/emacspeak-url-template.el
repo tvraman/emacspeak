@@ -664,7 +664,7 @@ from English to German")
  "Structured Data Extractor"
  "https://search.google.com/structured-data/testing-tool/u/0/?url=%s"
  (list "URL: ")
- nil 
+ nil
  "Extract/Validate Structured Data.")
 
 ;;}}}
@@ -885,7 +885,7 @@ name of the list.")
 
 (emacspeak-url-template-define
  "MLB standings"
- "http://www.mlb.com/NASApp/mlb/mlb/standings/index.jsp" ;;; dummy 
+ "http://www.mlb.com/NASApp/mlb/mlb/standings/index.jsp" ;;; dummy
  nil
  nil
  "Display MLB standings."
@@ -1047,7 +1047,7 @@ JSON is retrieved from `url'."
 
 (emacspeak-url-template-define
  "NBA  standings"
- "http://www.nba.com/NASApp/nba/nba/standings/index.jsp" ;;; dummy 
+ "http://www.nba.com/NASApp/nba/nba/standings/index.jsp" ;;; dummy
  nil
  nil
  "Display NBA standings."
@@ -1205,9 +1205,9 @@ Format is stationid+AM/FM."
  (list
   "Bing Search: "
   #'(lambda ()
-      (let ((choice 
-      (completing-read "Date Restrict d w m y: "
-'("d" "w" "m" "y"))))
+      (let ((choice
+             (completing-read "Date Restrict d w m y: "
+                              '("d" "w" "m" "y"))))
         (cond
          ((string= "" choice) "")
          (t (format "&tbs=qdr:%s" choice))))))
@@ -1231,11 +1231,11 @@ Format is stationid+AM/FM."
  "https://github.com/search?q=%s&type=Code&utf8=✓"
  (list "GitHub Code Search:")
  nil
- "GitHub Code Search. 
+ "GitHub Code Search.
 Query can include filters such as:
 
 <term>: Query Term.
-extension:<ext> Filter by file extension 
+extension:<ext> Filter by file extension
 -filename:<pattern> Filter out files matching pattern.")
 
 (emacspeak-url-template-define
@@ -1420,7 +1420,7 @@ resources."
 (defun emacspeak-url-template-generate-texinfo-documentation (buffer)
   "Generates texinfo section documenting all defined URL templates."
   (declare (special emacspeak-url-template-table))
-  (with-current-buffer buffer 
+  (with-current-buffer buffer
     (insert
      "@node URL Templates \n@section URL Templates\n\n")
     (insert
@@ -1495,7 +1495,30 @@ prompts for a location and speaks the forecast. \n\n"
  "Lookup Stock Quote information on Bloomberg. Ticker is of the form goog:us")
 
 ;;}}}
+;;{{{ Flight Status
 
+(emacspeak-url-template-define
+ "Flight Status"
+ "http://www.flightstats.com/go/FlightStatus/flightStatusByFlight.do?airline=%s"
+ (list "Flight: ")
+ nil
+ "Show Flight Status.")
+
+(emacspeak-url-template-define
+ "Flight Tracker"
+ "http://www.flightstats.com/go/FlightTracker/flightTracker.do?%s"
+ (list
+  #'(lambda ()
+      (let* ((code (read-from-minibuffer "Flight Number: "))
+             (fields (split-string code )))
+        (format "airline=%s&flightNumber=%s"
+                (first fields) (second fields)))))
+ nil
+ "Flight Tracker")
+nil
+"Show Flight Status.")
+
+;;}}}
 (provide 'emacspeak-url-template)
 ;;{{{ end of file
 
