@@ -1515,8 +1515,8 @@ prompts for a location and speaks the forecast. \n\n"
                 (first fields) (second fields)))))
  nil
  "Flight Tracker")
-nil
-"Show Flight Status.")
+
+
 
 ;;}}}
 (provide 'emacspeak-url-template)
