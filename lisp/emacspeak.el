@@ -107,13 +107,13 @@ the Emacspeak desktop.")
   :group 'applications
   :group 'accessibility)
 
-;;;###autoload
+
 (defcustom emacspeak-startup-hook nil
   "Hook to run after starting emacspeak."
   :type 'hook
   :group 'emacspeak)
 
-;;;###autoload
+
 (defvar emacspeak-media-player 'emacspeak-m-player
   "Default media player to use.
 This is a Lisp function that takes a resource locator.")
@@ -367,7 +367,7 @@ so it can be passed to subprocesses."
 ;;{{{ setup programming modes
 
 ;;; turn on automatic voice locking , split caps and punctuations for programming modes
-;;;###autoload
+
 (defun emacspeak-setup-programming-mode ()
   "Setup programming mode. Turns on audio indentation and
 sets punctuation mode to all, activates the dictionary and turns on split caps."
@@ -414,7 +414,7 @@ sets punctuation mode to all, activates the dictionary and turns on split caps."
 ;;}}}
 ;;{{{ Emacspeak:
 
-;;;###autoload
+
 (defcustom emacspeak-play-emacspeak-startup-icon t
   "If set to T, emacspeak plays its icon as it launches."
   :type 'boolean
@@ -428,7 +428,7 @@ sets punctuation mode to all, activates the dictionary and turns on split caps."
       (start-process "mp3" nil
                      player
                      (expand-file-name "emacspeak.mp3" emacspeak-sounds-directory)))))
-;;;###autoload
+
 (defun emacspeak()
   "Starts the Emacspeak  Audio Desktop.  Use emacs as you
 normally would, emacspeak will provide you spoken feedback
