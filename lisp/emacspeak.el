@@ -495,7 +495,7 @@ functions for details.   "
                                   (substitute-command-keys
                                    "\\[emacspeak-describe-emacspeak]")
                                   emacspeak-version))))
-;;;###autoload
+
 (defun emacspeak-info ()
   "Open Emacspeak Info Manual."
   (interactive)
