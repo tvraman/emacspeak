@@ -34,80 +34,6 @@
 # the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 # }}}
-# {{{ Installation instructions:
-
-# If you're reading this, then you've already unpacked the tar archive
-# and extracted the sources in a directory.
-# cd to the  directory where you placed the sources.
-# This directory is referred to henceforth as EMACSPEAK_DIR.
-# and then type
-#    make config && make
-# to compile the files, then 
-#    sudo make install
-# to install them.
-#
-# By default, files are installed in subdirectories of /usr --
-# that is, executables in /usr/bin, .info files in
-# /usr/share/info, and elisp  files in /usr/share/emacs/site-lisp/emacspeak.
-# If you want them somewhere else, you may add a "prefix=" parameter to the
-# make install command.  For example, to place files in subdirectories of
-# /usr/local instead of /usr, use this command:
-#    sudo make prefix=/usr/local install
-#
-# emacspeak uses tclx --extended tcl-- for the speech server.
-# Setting up speech server:
-# Emacspeak comes with three servers written in TCL:
-# 1) dtk-exp for the Dectalk Express
-#2 outloud --- for ViaVoice outloud
-# 3 espeak for Espeak
-# emacspeak uses the shell environment variable DTK_PROGRAM to determine
-# which server to use, and the shell environment variable DTK_PORT
-# to determine the port where the Dectalk is connected.
-# Examples: If using csh or tcsh
-#    setenv DTK_PROGRAM "dtk-exp"
-# or if using bash
-#    export DTK_PROGRAM=dtk-exp
-# By default the port is  /dev/ttyS0 on linux.
-#
-# Finally, make sure that tclsh  is present in your search path by typing
-#    which tclsh
-# Assuming you're using dtk-exp:
-# Check that the dtk-exp can be run by typing
-# <emacspeak-dir>/dtk-exp
-# You should hear the Dectalk speak and get a TCL prompt if everything is okay.
-# Next, check that your serial port is working correctly, and that your stty
-# settings are correct. You can do this by executing the following sequence
-# of TCL commands in the TCL session you just started:
-#q {this is a test. }; d
-# should speak the text within the braces.
-#    s
-# The above command stops speech.
-# You should see a TCL prompt when you execute it.
-# If things appear to hang when you execute tts_stop
-# i.e. you don't see a TCL prompt (%) then
-# a) The serial cable conecting your speech device is flaky
-# b) Your serial port is flaky
-# c) The stty settings on the port are incorrect for your
-# system
-#In the case of (c) on solaris systems,
-#try setting environment variable DTK_OS to solaris.
-# In the case of (c) please report the problem
-# quit this tcl session by typing ctrl-d
-#
-# To use emacspeak you can do one of the following:
-# Add the line
-# (load-file (expand-file-name "<EMACSPEAK_DIR>/emacspeak-setup.el"))
-# to the start of your .emacs
-# This will start emacspeak every time you use emacs
-# or alternatively set the following alias.
-# If you use csh or tcsh
-# alias emacspeak "emacs -q -l <EMACSPEAK_DIR>/emacspeak-setup.el -l $HOME/.emacs"
-# If you use bash (the default under linux)
-# alias emacspeak="emacs -q -l <EMACSPEAK_DIR>/emacspeak-setup.el -l $HOME/.emacs"
-# Note: in all of the above you should replace <EMACSPEAK_DIR> with your
-# site-specific value. 
-
-# }}}
 # {{{  Site Configuration
 
 ##### Site  Configuration #####
@@ -123,8 +49,6 @@ libparentdir = ${prefix}/share/emacs/site-lisp
 libdir =$(libparentdir)/emacspeak
 #directory where we are building
 SRC = $(shell pwd)
-# How to install files
-INSTALL = install
 CP=cp
 
 # }}}
@@ -134,7 +58,7 @@ CP=cp
 # source files to distribute
 ID = README
 STUMPWM=stumpwm
-TABLE_SAMPLES=etc/tables/*.tab 
+TABLE_SAMPLES=etc/tables/*.tab
 FORMS =etc/forms/*.el
 MEDIA=media
 ECI=servers/linux-outloud
@@ -145,7 +69,7 @@ servers/linux-espeak/tclespeak.so
 OUTLOUD=${ECI}/eci.ini \
 ${ECI}/*.h \
 ${ECI}/*.cpp \
-	 ${ECI}/asoundrc \
+${ECI}/asoundrc \
 ${ECI}/atcleci.so ${ECI}/Makefile
 
 NEWS = etc/NEWS*  etc/COPYRIGHT \
@@ -170,46 +94,45 @@ TEMPLATES = etc/ etc/Makefile
 MISC=etc/extract-table.pl etc/ocr-client.pl \
 etc/emacspeak.xpm etc/emacspeak.jpg
 
-INFO = info/Makefile info/*.texi 
-XSL=xsl 
+INFO = info/Makefile info/*.texi
+XSL=xsl
 DISTFILES =${ELISP}  ${TEMPLATES}     ${TCL_PROGRAMS} ${XSL} \
 ${OUTLOUD}  ${ESPEAK} \
 ${maths} ${PHANTOM} ${STUMPWM} ${INFO}  ${NEWS} ${MISC} Makefile
 
 # }}}
-# {{{  User level targets emacspeak info 
+# {{{  User level targets emacspeak info
 
 emacspeak:
-	test -f  lisp/emacspeak-loaddefs.el || ${MAKE} config
-	cd lisp; $(MAKE)
-	touch   $(ID)
-	chmod 644 $(ID)
-	@echo "Now check installation of  the speech server. "
-	@echo "See Makefile for instructions."
-	@echo "See the NEWS file for a  summary of new features --control e cap n in Emacs"
-	@echo "See Emacspeak Customizations for customizations -- control e cap C in Emacs"
-	@echo "Use C-h p in Emacs for a package overview"
-	@echo "Make sure you read the Emacs info pages"
+test -f  lisp/emacspeak-loaddefs.el || ${MAKE} config
+cd lisp; $(MAKE)
+touch   $(ID)
+chmod 644 $(ID)
+@echo "Now check   the speech server. "
+@echo "See the NEWS file for a  summary of new features --control e cap n in Emacs"
+@echo "See Emacspeak Customizations for customizations -- control e cap C in Emacs"
+@echo "Use C-h p in Emacs for a package overview"
+@echo "Make sure you read the Emacs info pages"
 
 info:
-	cd info; $(MAKE) -k
+cd info; $(MAKE) -k
 
-outloud: 
-	cd servers/linux-outloud; $(MAKE) || echo "Cant build Outloud server!"
+outloud:
+cd servers/linux-outloud; $(MAKE) || echo "Cant build Outloud server!"
 
-espeak: 
-	cd servers/linux-espeak; $(MAKE) || echo "Cant build espeak server!"
+espeak:
+cd servers/linux-espeak; $(MAKE) || echo "Cant build espeak server!"
 
 # }}}
 # {{{  Maintainance targets tar  dist
 GITVERSION=$(shell git show HEAD | head -1  | cut -b 8- )
 README: force
-	@rm -f README
-	@echo "Emacspeak  Revision $(GITVERSION)" > $(ID)
-	@echo "Distribution created by `whoami` on `hostname`" >> $(ID)
-	@echo "Unpack the  distribution And type make config " >> $(ID)
-	@echo "Then type make" >> $(ID)
-	@echo "See the Makefile for details. " >> $(ID)
+@rm -f README
+@echo "Emacspeak  Revision $(GITVERSION)" > $(ID)
+@echo "Distribution created by `whoami` on `hostname`" >> $(ID)
+@echo "Unpack the  distribution And type make config " >> $(ID)
+@echo "Then type make" >> $(ID)
+@echo "See the Makefile for details. " >> $(ID)
 
 force:
 
@@ -217,86 +140,44 @@ EXCLUDES= --exclude='.git' \
 --exclude='*.elc' --exclude='*.o' --exclude='*.so' --exclude='*/.libs'
 
 tar:
-	make ${ID}
-	tar cvf  emacspeak.tar $(EXCLUDES) $(DISTFILES)   $(ID) \
-			  ${TABLE_SAMPLES} ${MEDIA}  ${FORMS} \
-	${SOUNDS}
+make ${ID}
+tar cvf  emacspeak.tar $(EXCLUDES) $(DISTFILES)   $(ID) \
+${TABLE_SAMPLES} ${MEDIA}  ${FORMS} \
+${SOUNDS}
 
 dist: $(DISTFILES)
-	$(MAKE) tar
+$(MAKE) tar
 
 # }}}
 # {{{ User level target--  config
-	$(INSTALL)  -m 755 ${ESPEAK}  $(libdir)/servers/linux-espeak || echo "No espeak speech driver"
+
 config:
-	cd etc &&   $(MAKE) config  
-	cd lisp && $(MAKE) config
-	@echo "Configured emacspeak in directory $(SRC). Now type make emacspeak"
+cd etc &&   $(MAKE) config
+cd lisp && $(MAKE) config
+@echo "Configured emacspeak in directory $(SRC). Now type make emacspeak"
 
 # }}}
-# {{{  user level target-- install uninstall
-# We install both  elisp sources and the resulting .elc files
+# {{{Install:
 
 install:
-	$(MAKE) config 
-	  $(INSTALL)  -d $(libparentdir)
-	  $(INSTALL) -d $(libdir)
-	$(INSTALL) -d $(libdir)/${NODE_DIR}
-	  $(INSTALL) -d $(libdir)/lisp
-	$(INSTALL) -d $(libdir)/lisp/g-client
-	$(INSTALL) -d $(libdir)/etc
-	$(INSTALL) -d $(libdir)/xsl
-	$(INSTALL) -m 0644  ${ID} $(libdir)
-	  $(INSTALL) -m 0644  lisp/*.el lisp/*.elc  $(libdir)/lisp
-	$(INSTALL) -m 0644  ${maths}  $(libdir)/${NODE_DIR}	
-	$(INSTALL) -m 0644  lisp/g-client/*.el    $(libdir)/lisp/g-client
-	$(INSTALL) -m 0644  lisp/g-client/*.elc    $(libdir)/lisp/g-client
-	$(INSTALL) -m 0644  lisp/g-client/*.xsl    $(libdir)/lisp/g-client
-	$(INSTALL) -m 0644  xsl/*.xsl    $(libdir)/xsl
-	$(INSTALL) -d $(libdir)/sounds
-	$(INSTALL) -d $(libdir)/servers
-	$(INSTALL) -d $(libdir)/servers/linux-outloud
-	$(INSTALL)  -m 755 ${OUTLOUD}  $(libdir)/servers/linux-outloud
-	$(INSTALL) -d $(libdir)/servers/linux-espeak
-	$(INSTALL)  -m 755 ${ESPEAK}  $(libdir)/servers/linux-espeak
-	$(INSTALL)  -m 755 ${TCL_PROGRAMS}  $(libdir)/servers
-	$(INSTALL) -m 0644   ${NEWS}   $(libdir)/etc
-	cp   ${MISC}   $(libdir)/etc
-	$(CP) -r $(SOUNDS) $(libdir)/sounds
-	chmod -R go+rX  $(libdir)/sounds
-	$(CP) -r $(MEDIA) $(libdir)
-	chmod -R go+rX  $(libdir)/media
-	$(CP) -r $(STUMPWM) $(libdir)
-	chmod -R go+rX  $(libdir)/stumpwm	
-	$(INSTALL) -d $(libdir)/etc/forms
-	$(INSTALL)  -m 0644 $(FORMS) $(libdir)/etc/forms
-	$(INSTALL) -d $(libdir)/etc/tables
-	$(INSTALL)  -m 0644 $(TABLE_SAMPLES) $(libdir)/etc/tables
-	$(INSTALL) -d $(infodir)
-	cd info; \
-  cp *info* $(infodir)
+@echo make install is no longer supported.
 
-uninstall:
-	rm -rf $(infodir)/emacspeak.info* $(bindir)/emacspeak $(libdir)
-	cd info && make uninstall infodir=${infodir}
 # }}}
 # {{{  complete build
-
 #targets
-#the complete build
 all: emacspeak
 
 #clean, config and build
 q:
-	make clean
-	make config 
-	make 
+make clean
+make config
+make
 
 # }}}
 # {{{  user level target-- clean
 
 clean:
-	cd lisp; $(MAKE) clean
+cd lisp; $(MAKE) clean
 # }}}
 # {{{ labeling releases
 
@@ -304,24 +185,24 @@ clean:
 LABEL=#version number
 MSG="Releasing ${LABEL}"
 release: #supply LABEL=NN.NN
-	git tag -a -s ${LABEL} -m "Tagging release with ${LABEL}"
-	git push --tags
-	$(MAKE) dist
-	mkdir emacspeak-${LABEL}; \
+git tag -a -s ${LABEL} -m "Tagging release with ${LABEL}"
+git push --tags
+$(MAKE) dist
+mkdir emacspeak-${LABEL}; \
 cd emacspeak-${LABEL} ;\
-	tar xvf ../emacspeak.tar ; \
-	rm -f ../emacspeak.tar ; \
+tar xvf ../emacspeak.tar ; \
+rm -f ../emacspeak.tar ; \
 cd .. ;\
-	tar cvfj emacspeak-${LABEL}.tar.bz2 emacspeak-$(LABEL); \
-	/bin/rm -rf emacspeak-${LABEL} ;\
-	echo "Prepared release in emacspeak-${LABEL}.tar.bz2"
-	./utils/emacspeak-ghr ${LABEL} "emacspeak-${LABEL}.tar.bz2"
+tar cvfj emacspeak-${LABEL}.tar.bz2 emacspeak-$(LABEL); \
+/bin/rm -rf emacspeak-${LABEL} ;\
+echo "Prepared release in emacspeak-${LABEL}.tar.bz2"
+./utils/emacspeak-ghr ${LABEL} "emacspeak-${LABEL}.tar.bz2"
 
 # }}}
 # {{{list distfiles to stdout
 
 list_dist:
-	ls -1  $(DISTFILES)
+ls -1  $(DISTFILES)
 
 # }}}
 # {{{ end of file
