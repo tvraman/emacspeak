@@ -2747,10 +2747,11 @@ Argument ARG determines the 'other' window to speak.
 Semantics  of `other' is the same as for the builtin Emacs command
 `other-window'."
   (interactive "P")
+  (declare (special last-input-event))
   (let* ((window-size-change-functions nil)
          (window
           (cond
-           ((not (ems-interactive-p)) arg)
+           ((not (called-interactively-p 'interactive)) arg)
            (t
             (condition-case nil
                 (read (format "%c" last-input-event))
