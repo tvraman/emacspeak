@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1157 commands and 1074 options.
+This chapter documents a total of 1158 commands and 1074 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1232,7 +1232,7 @@ C-b		emacspeak-bookshare
 C-c		emacspeak-clipboard-copy
 C-d		emacspeak-toggle-show-point
 C-e		end-of-line
-TAB		emacspeak-table-display-table-in-region
+TAB		emacspeak-info
 C-j		emacspeak-hide-speak-block-sans-prefix
 C-l		emacspeak-speak-line-number
 RET		emacspeak-speak-continuously
@@ -1361,6 +1361,7 @@ M-c		emacspeak-copy-current-file
 M-d		emacspeak-pronounce-dispatch
 M-f		emacspeak-frame-label-or-switch-to-labelled-frame
 M-h		emacspeak-speak-hostname
+M-i		emacspeak-table-display-table-in-region
 M-l		emacspeak-link-current-file
 M-m		emacspeak-toggle-mail-alert
 M-q		voice-setup-toggle-silence-personality
@@ -1603,6 +1604,22 @@ functions for details.
 
 @format
 Give a brief overview of emacspeak.
+@end format
+@end deffn
+
+@subsubsection emacspeak-info
+@deffn {Command} emacspeak-info   
+@table @kbd
+@item C-e TAB
+@kindex C-e TAB
+@item <fn> TAB
+@kindex <fn> TAB
+@end table
+
+@findex emacspeak-info
+
+@format
+Open Emacspeak Info Manual.
 @end format
 @end deffn
 
@@ -17886,10 +17903,10 @@ Current buffer must be in emacspeak-table mode.
 @subsubsection emacspeak-table-display-table-in-region
 @deffn {Command} emacspeak-table-display-table-in-region  (start end)
 @table @kbd
-@item C-e TAB
-@kindex C-e TAB
-@item <fn> TAB
-@kindex <fn> TAB
+@item C-e M-i
+@kindex C-e M-i
+@item <fn> M-i
+@kindex <fn> M-i
 @end table
 
 @findex emacspeak-table-display-table-in-region
@@ -21466,7 +21483,7 @@ tabulated output. This command should be used for shell commands
 that produce tabulated output that works with Emacspeak’s table
 recognizer. Verify this first by running the command in a shell
 and executing command ‘emacspeak-table-display-table-in-region’
-normally bound to C-e TAB.
+normally bound to C-e M-i.
 
 (fn COMMAND &optional READ-AS-CSV)
 @end format
