@@ -3562,6 +3562,15 @@ This command  is designed for use in a windowing environment like X."
   (kbd "C-SPC") 'emacspeak-minibuffer-choose-completion)
 
 ;;}}}
+;;{{{ Open Emacspeak Info Pages:
+
+(defun emacspeak-open-info ()
+  "Open Emacspeak Info Manual."
+  (interactive)
+  (funcall-interactively #'info (expand-file-name "info/emacspeak.info" emacspeak-directory) "*Emacspeak Info*"))
+
+;;}}}
+
 (provide 'emacspeak-speak)
 ;;{{{ end of file
 
