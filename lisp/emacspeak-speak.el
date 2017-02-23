@@ -85,6 +85,16 @@
 (defvar voice-smoothen)
 
 ;;}}}
+;;{{{ Globals:
+;;;###autoload
+(defvar  emacspeak-m-player-playlist-pattern
+  (concat
+   (regexp-opt
+    (list ".m3u" ".asx" ".pls" ".rpm" ".ram"))
+   "$")
+  "Pattern for matching playlists.")
+
+;;}}}
 ;;{{{  custom group
 
 (defgroup emacspeak-speak nil
