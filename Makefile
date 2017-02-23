@@ -272,7 +272,6 @@ install:
 	$(INSTALL)  -m 0644 $(FORMS) $(libdir)/etc/forms
 	$(INSTALL) -d $(libdir)/etc/tables
 	$(INSTALL)  -m 0644 $(TABLE_SAMPLES) $(libdir)/etc/tables
-	$(INSTALL) -d $(bindir)
 	$(INSTALL) -d $(infodir)
 	cd info; \
   cp *info* $(infodir)
