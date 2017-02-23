@@ -104,7 +104,7 @@
 ;;; corpus is ds=n for News
 ;;; ds=r for recipes
 
-(defsubst gweb-suggest (input &optional corpus)
+(defun gweb-suggest (input &optional corpus)
   "Get completion list from Google Suggest."
   (declare (special gweb-suggest-url))
   (unless (> (length input) 0) (setq input minibuffer-default))
@@ -187,7 +187,7 @@
 ;;; Emacs 23 and beyond:
 ;;; i.e. if complete-with-action is defined
 
-(defsubst gweb-google-autocomplete (&optional prompt)
+(defun gweb-google-autocomplete (&optional prompt)
   "Read user input using Google Suggest for auto-completion."
   (let* ((minibuffer-completing-file-name t) ;; accept spaces
          (completion-ignore-case t)
@@ -205,7 +205,7 @@
 
 ;;;###autoload
 
-(defsubst gweb-google-autocomplete-with-corpus (corpus)
+(defun gweb-google-autocomplete-with-corpus (corpus)
   "Read user input using Google Suggest for auto-completion.
 Uses specified corpus for prompting and suggest selection."
   (let* (
@@ -226,7 +226,7 @@ Uses specified corpus for prompting and suggest selection."
     (g-url-encode query)))
 ;;; For news:
 
-(defsubst gweb-news-autocomplete (&optional prompt)
+(defun gweb-news-autocomplete (&optional prompt)
   "Read user input using Google News Suggest for auto-completion."
   (let* ((minibuffer-completing-file-name t) ;; accept spaces
          (completion-ignore-case t)
@@ -243,7 +243,7 @@ Uses specified corpus for prompting and suggest selection."
 ;;}}}
 ;;{{{ Search Helpers
 
-(defsubst gweb-results (query url-end-point)
+(defun gweb-results (query url-end-point)
   "Return results list obtained from url-end-point."
   (declare (special  gweb-referer))
   (let((response nil))
@@ -259,7 +259,7 @@ Uses specified corpus for prompting and suggest selection."
         'results
         (g-json-get 'responseData response))))))
 
-(defsubst gweb-web-results (query)
+(defun gweb-web-results (query)
   "Return Web Search results list."
   (declare (special gweb-web-url ))
   (gweb-results query gweb-web-url))
@@ -268,7 +268,7 @@ Uses specified corpus for prompting and suggest selection."
 ;;{{{ News Helpers:
 
 ;;; Google News Search
-(defsubst gweb-news-results (query)
+(defun gweb-news-results (query)
   "Return News Search results."
   (declare (special gweb-news-url))
   (gweb-results (g-url-encode query) gweb-news-url))

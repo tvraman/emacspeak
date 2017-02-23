@@ -84,7 +84,7 @@
 ;;}}}
 ;;{{{ Define Special Mode
 
-(defsubst sox-effect-at-point (&optional pos)
+(defun sox-effect-at-point (&optional pos)
   "Return effect at  point."
   (get-text-property (or pos (point)) 'sox-effect))
 
@@ -216,7 +216,7 @@
   (regexp-opt  '(".mp3" ".wav" ".au" ".aiff"))
   "Regexp matching sound files.")
 
-(defsubst sox-sound-p (snd-file)
+(defun sox-sound-p (snd-file)
   "Predicate to test if we can edit this file."
   (declare (special sox-sound-regexp))
   (let ((case-fold-search t))
@@ -355,7 +355,7 @@
   (sox-redraw sox-context)
   (message "Set effect  %s" name))
 
-(defsubst sox-read-effect-params-per-desk (p)
+(defun sox-read-effect-params-per-desk (p)
   "Read sox effect param per spec."
   (let ((result (read-from-minibuffer (capitalize p))))
     (when (>  (length result) 0) (list p result))))
@@ -375,7 +375,7 @@
 (defvar sox-effects nil
   "Table of implemented effects.")
 
-(defsubst sox-register-effect (name)
+(defun sox-register-effect (name)
   "Register effect."
   (pushnew name sox-effects :test #'string=))
 

@@ -67,7 +67,7 @@
 
 ;; Record interactive calls:
 
-(defsubst ems-record-interactive-p (f)
+(defun ems-record-interactive-p (f)
   "Predicate to test if we need to record interactive calls of
 this function. Memoizes result for future use by placing a
 property 'emacspeak on the function."
@@ -94,7 +94,7 @@ property 'emacspeak on the function."
       (setq ems-called-interactively-p (ad-get-arg 0)))
     ad-do-it))
 
-(defsubst ems-interactive-p ()
+(defun ems-interactive-p ()
   "Check our interactive flag.
 Return T if set and we are called from the advice for the current
 interactive command. Turn off the flag once used."
@@ -109,7 +109,7 @@ interactive command. Turn off the flag once used."
         (setq ems-called-interactively-p nil) ; turn off now that we used  it
         result))))
 
-(defsubst ems-debug-interactive-p ()
+(defun ems-debug-interactive-p ()
   "Check our interactive flag.
 Return T if set and we are called from the advice for the current
 interactive command. Turn off the flag once used."

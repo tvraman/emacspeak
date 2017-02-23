@@ -54,7 +54,7 @@
 (eval-when-compile (require 'company "company" 'no-error))
 ;;}}}
 ;;{{{ Helpers:
-(defsubst ems-company-current ()
+(defun ems-company-current ()
   "Helper: Return current selection in company."
   (declare (special  company-selection company-candidates))
   (nth company-selection company-candidates))

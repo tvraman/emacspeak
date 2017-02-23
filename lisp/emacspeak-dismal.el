@@ -143,24 +143,24 @@
 
 ;;; return cell value as a string
 
-(defsubst emacspeak-dismal-cell-value (row col)
+(defun emacspeak-dismal-cell-value (row col)
   (let ((value (dismal-get-val row col)))
     (if (floatp value)
         (format "%.2f" value)
       (dismal-convert-cellexpr-to-string value)value)))
 
-(defsubst emacspeak-dismal-current-cell-value ()
+(defun emacspeak-dismal-current-cell-value ()
   (declare (special dismal-current-row dismal-current-col))
   (emacspeak-dismal-cell-value dismal-current-row dismal-current-col))
 
 ;;; return entry in col 0 of current row as a string:
 
-(defsubst emacspeak-dismal-current-row-header ()
+(defun emacspeak-dismal-current-row-header ()
   (declare (special dismal-current-row))
   (dismal-convert-cellexpr-to-string
    (dismal-get-exp dismal-current-row  0)))
 
-(defsubst emacspeak-dismal-current-col-header ()
+(defun emacspeak-dismal-current-col-header ()
   (declare (special dismal-current-col))
   (dismal-convert-cellexpr-to-string
    (dismal-get-exp 0  dismal-current-col)))

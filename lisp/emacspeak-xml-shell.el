@@ -268,7 +268,7 @@ region of text to process."
           (string :tag "Command"))
   :group 'emacspeak-xml-shell)
 
-(defsubst emacspeak-xml-shell-setup-html-base (base)
+(defun emacspeak-xml-shell-setup-html-base (base)
   "Locate HTML head in current buffer and add document base.  Creates
 HTML head if none found."
   (goto-char (point-min))

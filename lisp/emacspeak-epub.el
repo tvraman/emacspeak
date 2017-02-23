@@ -113,7 +113,7 @@
           emacspeak-epub-toc-path-pattern)
   "Command that returns location of .ncx file in an epub archive.")
 
-(defsubst emacspeak-epub-do-toc (file)
+(defun emacspeak-epub-do-toc (file)
   "Return location of .ncx file within epub archive."
   (declare (special emacspeak-epub-toc-command))
   (let ((result
@@ -132,7 +132,7 @@
           emacspeak-epub-opf-path-pattern)
   "Command that returns location of .ncx file in an epub archive.")
 
-(defsubst emacspeak-epub-do-opf (file)
+(defun emacspeak-epub-do-opf (file)
   "Return location of .opf file within epub archive."
   (declare (special emacspeak-epub-opf-command))
   (substring
@@ -143,7 +143,7 @@
   (format "%s -1 %%s " emacspeak-epub-zip-info)
   "Shell command that returns list of files in an epub archive.")
 
-(defsubst emacspeak-epub-do-ls (file)
+(defun emacspeak-epub-do-ls (file)
   "Return list of files in an epub archive."
   (declare (special emacspeak-epub-ls-command))
   (split-string
@@ -174,7 +174,7 @@
 (defvar emacspeak-epub-scratch " *epub-scratch*"
   "Scratch buffer used to process epub.")
 
-(defsubst emacspeak-epub-shell-unquote (f)
+(defun emacspeak-epub-shell-unquote (f)
   "Reverse effect of shell-quote-argument."
   (shell-command-to-string (format "echo -n %s" f)))
 
@@ -202,7 +202,7 @@
   (emacspeak-xslt-get "epub-opf.xsl")
   "XSL to extract Author/Title information from content.opf.")
 
-(defsubst emacspeak-epub-get-metadata (epub)
+(defun emacspeak-epub-get-metadata (epub)
   "Return list containing title/author metadata."
   (declare (special emacspeak-epub-zip-extract emacspeak-xslt-program
                     emacspeak-epub-opf-xsl))
@@ -717,7 +717,7 @@ Suitable for text searches."
 ;;}}}
 ;;{{{ Epub Mode:
 
-(defsubst emacspeak-epub-format-author (name)
+(defun emacspeak-epub-format-author (name)
   "Format author name, abbreviating if needed."
   (let ((len (length name))
         (fields nil))
@@ -742,7 +742,7 @@ Suitable for text searches."
                                (nth (1- count) fields))))))))
     (propertize name 'face 'font-lock-type-face)))
 
-(defsubst emacspeak-epub-insert-title-author (key epub)
+(defun emacspeak-epub-insert-title-author (key epub)
   "Insert a formatted line of the bookshelf of the form Title --- Author."
   (let ((start (point)))
     (insert
@@ -752,7 +752,7 @@ Suitable for text searches."
       (emacspeak-epub-format-author (emacspeak-epub-metadata-author epub))))
     (put-text-property start (point) 'epub key)))
 
-(defsubst emacspeak-epub-insert-author-title (key epub)
+(defun emacspeak-epub-insert-author-title (key epub)
   "Insert a formatted line of the bookshelf of the form Author --- Title ."
   (let ((start (point)))
     (insert
@@ -858,7 +858,7 @@ Letters do not insert themselves; instead, they are commands.
   :type 'string
   :group 'emacspeak-epub)
 
-(defsubst emacspeak-epub-gutenberg-download-uri (book-id)
+(defun emacspeak-epub-gutenberg-download-uri (book-id)
   "Return URL  for downloading Gutenberg EBook."
   (declare (special emacspeak-epub-gutenberg-suffix
                     emacspeak-epub-gutenberg-mirror))

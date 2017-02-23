@@ -420,7 +420,7 @@
   ((or  (= emacs-major-version 25)
         (boundp 'eww-data))
    (eval
-    `(defsubst
+    `(defun
        ,(intern (format "emacspeak-eww-current-%s" name)) ()
        , (format "Return eww-current-%s." name)
          (declare (special eww-data))
@@ -428,7 +428,7 @@
                     ,(intern (format ":%s" name))))))
   (t
    (eval
-    `(defsubst
+    `(defun
        ,(intern (format "emacspeak-eww-current-%s" name))
        ()
        , (format "Return eww-current-%s." name)
@@ -458,7 +458,7 @@
 ;;}}}
 ;;{{{ Inline Helpers:
 
-(defsubst emacspeak-eww-prepare-eww ()
+(defun emacspeak-eww-prepare-eww ()
   "Ensure that we are in an EWW buffer that is well set up."
   (declare (special major-mode  emacspeak-eww-cache-updated))
   (unless (eq major-mode 'eww-mode) (error "Not in EWW buffer."))
@@ -466,7 +466,7 @@
   (unless emacspeak-eww-cache-updated
     (eww-update-cache (emacspeak-eww-current-dom))))
 
-(defsubst emacspeak-eww-post-render-actions ()
+(defun emacspeak-eww-post-render-actions ()
   "Post-render actions for setting up emacspeak."
   (emacspeak-eww-prepare-eww)
   (emacspeak-pronounce-toggle-use-of-dictionaries t))
@@ -1115,7 +1115,7 @@ for use as a DOM filter."
       (t (setq done t))))
     value-list))
 
-(defsubst ems-eww-read-id ()
+(defun ems-eww-read-id ()
   "Return id value read from minibuffer."
   (declare (special eww-id-cache))
   (unless eww-id-cache (error "No id to filter."))
@@ -1213,7 +1213,7 @@ Optional interactive arg `multi' prompts for multiple classes."
       (dom-html-add-base dom   (emacspeak-eww-current-url))
       (emacspeak-eww-view-helper dom))))
 
-(defsubst ems-eww-read-class ()
+(defun ems-eww-read-class ()
   "Return class value read from minibuffer."
   (declare (special eww-class-cache))
   (unless eww-class-cache (error "No class to filter."))
@@ -1251,21 +1251,21 @@ Optional interactive arg `multi' prompts for multiple classes."
              (list (list 'class (ems-eww-read-class))))))))
     (when dom (emacspeak-eww-view-helper   (dom-html-add-base dom)))))
 
-(defsubst ems-eww-read-role ()
+(defun ems-eww-read-role ()
   "Return role value read from minibuffer."
   (declare (special eww-role-cache))
   (unless eww-role-cache (error "No role to filter."))
   (let ((value (completing-read "Value: " eww-role-cache nil 'must-match)))
     (unless (zerop (length value)) value)))
 
-(defsubst ems-eww-read-property ()
+(defun ems-eww-read-property ()
   "Return property value read from minibuffer."
   (declare (special eww-property-cache))
   (unless eww-property-cache (error "No property to filter."))
   (let ((value (completing-read "Value: " eww-property-cache nil 'must-match)))
     (unless (zerop (length value)) value)))
 
-(defsubst ems-eww-read-itemprop ()
+(defun ems-eww-read-itemprop ()
   "Return itemprop value read from minibuffer."
   (declare (special eww-itemprop-cache))
   (unless eww-itemprop-cache (error "No itemprop to filter."))
@@ -1367,7 +1367,7 @@ Optional interactive arg `multi' prompts for multiple classes."
                 collect (list 'itemprop r))
              (list (list 'itemprop (ems-eww-read-itemprop))))))))
     (when dom (emacspeak-eww-view-helper (dom-html-add-base dom)))))
-(defsubst ems-eww-read-element ()
+(defun ems-eww-read-element ()
   "Return element  value read from minibuffer."
   (declare (special eww-element-cache))
   (let ((value (completing-read "Value: " eww-element-cache nil 'must-match)))
@@ -1466,7 +1466,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
 
 (defvar emacspeak-eww-element-navigation-history nil
   "History for element navigation.")
-(defsubst emacspeak-eww-icon-for-element (el)
+(defun emacspeak-eww-icon-for-element (el)
   "Return auditory icon for element `el'."
   (cond
    ((memq el '(li dt)) 'item)
@@ -1549,7 +1549,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
      (car emacspeak-eww-element-navigation-history)))
    (t (error "No elements in navigation history"))))
 
-(defsubst emacspeak-eww-here-tags ()
+(defun emacspeak-eww-here-tags ()
   "Return list of enclosing tags at point."
   (let* ((eww-tags (text-properties-at (point))))
     (loop
@@ -1557,7 +1557,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
      if (eq (plist-get eww-tags (nth i eww-tags)) 'eww-tag)
      collect (nth i eww-tags))))
 
-(defsubst emacspeak-eww-read-tags-like-this(&optional prompt)
+(defun emacspeak-eww-read-tags-like-this(&optional prompt)
   "Read tag for like-this navigation."
   (let ((tags (emacspeak-eww-here-tags)))
     (cond
@@ -1695,7 +1695,7 @@ Warning, this is fragile, and depends on a stable id for the
 ;;}}}
 ;;{{{ Speech-enable EWW buffer list:
 
-(defsubst emacspeak-eww-speak-buffer-line ()
+(defun emacspeak-eww-speak-buffer-line ()
   "Speak EWW buffer line."
   (assert (eq major-mode 'eww-buffers-mode) nil "Not in an EWW buffer listing.")
   (let ((buffer (get-text-property (line-beginning-position) 'eww-buffer)))

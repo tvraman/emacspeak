@@ -90,7 +90,7 @@
 (defvar emacspeak-threes-rows-max '(0 0 0 0)
   "Max for each row.")
 
-(defsubst emacspeak-threes-get-rows-max ()
+(defun emacspeak-threes-get-rows-max ()
   "Return max for each row."
   (declare (special threes-cells))
   (mapcar #'(lambda (r) (apply #'max   r)) threes-cells))
@@ -108,7 +108,7 @@
      (setq threes-next-number ,i)
      (emacspeak-threes-speak-board))))
 
-(defsubst emacspeak-threes-sox-gen (number)
+(defun emacspeak-threes-sox-gen (number)
   "Generate a tone  that indicates 1, 2 or 3."
   (let ((fade "fade h .1 .1 "))
     (cond

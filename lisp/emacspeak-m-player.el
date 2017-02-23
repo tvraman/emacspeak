@@ -116,7 +116,7 @@
 (defvar emacspeak-m-player-process nil
   "Process handle to m-player.")
 
-(defsubst emacspeak-m-player-dispatch (command)
+(defun emacspeak-m-player-dispatch (command)
   "Dispatch command to m-player."
   (declare (special emacspeak-m-player-process))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
@@ -269,7 +269,7 @@ Controls media playback when already playing a stream.
    "$")
   "Pattern for matching playlists.")
 
-(defsubst emacspeak-m-player-playlist-p (resource)
+(defun emacspeak-m-player-playlist-p (resource)
   "Check if specified resource matches a playlist type."
   (declare (special emacspeak-m-player-playlist-pattern))
   (string-match emacspeak-m-player-playlist-pattern resource))
@@ -306,7 +306,7 @@ etc to be ignored when guessing directory.")
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
-(defsubst emacspeak-m-player-guess-directory ()
+(defun emacspeak-m-player-guess-directory ()
   "Guess default directory."
   (declare (special emacspeak-media-directory-regexp
                     emacspeak-m-player-accelerator-p))
@@ -332,7 +332,7 @@ etc to be ignored when guessing directory.")
 (defvar emacspeak-m-player-file-list nil
   "List  that records list of files being played.")
 (make-variable-buffer-local 'emacspeak-m-player-file-list)
-(defsubst emacspeak-m-player-directory-files (directory)
+(defun emacspeak-m-player-directory-files (directory)
   "Return media files in directory.
 Searches recursively if `directory-files-recursively' is available (Emacs 25)."
   (declare (special emacspeak-media-extensions))
@@ -341,7 +341,7 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
     (directory-files-recursively directory emacspeak-media-extensions))
    (t (directory-files  directory 'full emacspeak-media-extensions))))
 
-(defsubst emacspeak-m-player-read-resource ()
+(defun emacspeak-m-player-read-resource ()
   "Read resource from minibuffer with contextual smarts."
   (declare (special ido-work-directory-list))
   (let ((completion-ignore-case t)
@@ -588,7 +588,7 @@ necessary."
            (substring (cl-second  fields) 1 -1)
          "")))))
 
-(defsubst emacspeak-m-player-current-filename ()
+(defun emacspeak-m-player-current-filename ()
   "Return filename of currently playing track."
   (cl-second
    (split-string
@@ -1207,7 +1207,7 @@ As the default, use current position."
       (emacspeak-amark-add file-name name position)
       (message "Added Amark %s in %s at %s" name file-name position))))
 
-(defsubst ems-file-index (name file-list)
+(defun ems-file-index (name file-list)
   "Return index of name in file-list."
   (position (expand-file-name name) file-list :test #'string=))
 

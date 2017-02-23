@@ -105,7 +105,7 @@
 ;;; in analog-entries-list
 ;;; emacspeak will use this to navigate using the arrow keys.
 
-(defsubst emacspeak-analog-get-field-spec ()
+(defun emacspeak-analog-get-field-spec ()
   "Returns field specification if one defined for current entry.
 Nil means no field specified."
   (save-excursion

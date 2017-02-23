@@ -114,7 +114,7 @@
 ;;}}}
 ;;{{{ Helpers:
 
-(defsubst emacspeak-elfeed-entry-at-point ()
+(defun emacspeak-elfeed-entry-at-point ()
   "Return entry at point."
   (declare (special  elfeed-search--offset elfeed-search-entries))
   (let ((index  (- (line-number-at-pos (point)) elfeed-search--offset)))

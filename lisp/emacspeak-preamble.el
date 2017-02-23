@@ -52,7 +52,7 @@
 (when (> emacs-major-version 24) (package-initialize))
 ;;}}}
 ;;{{{ Utilities:
-(defsubst emacspeak-url-encode (str)
+(defun emacspeak-url-encode (str)
   "URL encode string."
   (mapconcat
    #'(lambda (c)

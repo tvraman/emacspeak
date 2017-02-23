@@ -84,7 +84,7 @@
 ;;}}}
 ;;{{{  helpers 
 
-(defsubst emacspeak-widget-label (w)
+(defun emacspeak-widget-label (w)
   "Construct a label for a widget.
 Returns a string with appropriate personality."
   (let ((inhibit-read-only t)
@@ -97,7 +97,7 @@ Returns a string with appropriate personality."
                        'personality 'emacspeak-widget-button-personality tag)
     tag))
 
-(defsubst emacspeak-widget-help-echo (w)
+(defun emacspeak-widget-help-echo (w)
   "Return help-echo with appropriate personality."
   (declare (special voice-animate))
   (let ((inhibit-read-only t)

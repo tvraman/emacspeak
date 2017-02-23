@@ -149,11 +149,11 @@ reading news."
 ;;}}}
 ;;{{{  helper functions
 
-(defsubst emacspeak-gnus-summary-speak-subject ()
+(defun emacspeak-gnus-summary-speak-subject ()
   (emacspeak-dtk-sync)
   (dtk-speak (gnus-summary-article-subject)))
 
-(defsubst emacspeak-gnus-speak-article-body ()
+(defun emacspeak-gnus-speak-article-body ()
   (declare (special emacspeak-gnus-large-article
                     voice-lock-mode dtk-punctuation-mode
                     gnus-article-buffer))

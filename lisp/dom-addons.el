@@ -53,14 +53,14 @@
 
 ;;}}}
 ;;{{{ Additional helpers:
-(defsubst dom-alternate-links (dom)
+(defun dom-alternate-links (dom)
   "Return link elements specifying rel=alternate."
   (remove-if-not
    #'(lambda (l) (equal "alternate"
                         (dom-attr l 'rel)))
    (dom-by-tag dom 'link)))
 
-(defsubst dom-html-add-base (dom base)
+(defun dom-html-add-base (dom base)
   "Add base to HTML dom.
 Added element goes inside the HTML head if any."
   (let ((b `(base ((href . ,base))))
@@ -70,7 +70,7 @@ Added element goes inside the HTML head if any."
      (t (dom-add-child-before dom `(head nil ,b))))
     dom))
 
-(defsubst dom-html-from-nodes (nodes &optional base)
+(defun dom-html-from-nodes (nodes &optional base)
   "Make  an HTML DOM having nodes as children unless nodes is an HTML document."
   (let ((dom
          (cond

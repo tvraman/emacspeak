@@ -57,7 +57,7 @@
   "XSL transformation group."
   :group 'emacspeak)
 
-(defsubst emacspeak-xslt-params-from-xpath (path base)
+(defun emacspeak-xslt-params-from-xpath (path base)
   "Return params suitable for passing to  emacspeak-xslt-region"
   (list
    (cons "path"
@@ -70,7 +70,7 @@
          (format "\"'%s'\""
                  base))))
 
-(defsubst emacspeak-xslt-read ()
+(defun emacspeak-xslt-read ()
   "Read XSLT transformation name from minibuffer."
   (declare (special emacspeak-xslt-directory))
   (expand-file-name
@@ -149,7 +149,7 @@ part of the libxslt package."
     (current-buffer)))
 
 ;;;###autoload
-(defsubst emacspeak-xslt-run (xsl &optional start end)
+(defun emacspeak-xslt-run (xsl &optional start end)
   "Run xslt on region, and return output filtered by sort -u.
 Region defaults to entire buffer."
   (declare (special emacspeak-xslt-program emacspeak-xslt-options))

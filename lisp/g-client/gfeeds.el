@@ -94,7 +94,7 @@ Customize this to point to your Web location."
 ;;{{{ gfeed Helpers
 
 ;;;###autoload
-(defsubst gfeeds-feed (feed-url)
+(defun gfeeds-feed (feed-url)
   "Return feed structure."
   (declare (special gfeeds-feeds-url gfeeds-referer))
   (let ((result nil))
@@ -111,7 +111,7 @@ Customize this to point to your Web location."
         (g-json-get 'responseData result))))))
 
 ;;;###autoload
-(defsubst gfeeds-lookup (url)
+(defun gfeeds-lookup (url)
   "Lookup feed for a given Web page."
   (declare (special gfeeds-lookup-url gfeeds-referer))
   (let ((result nil))
@@ -128,7 +128,7 @@ Customize this to point to your Web location."
         (g-json-get 'responseData result))))))
 
 ;;;###autoload
-(defsubst gfeeds-find (query)
+(defun gfeeds-find (query)
   "Find feeds matching a query."
   (declare (special gfeeds-find-url gfeeds-referer))
   (let ((result nil))
@@ -150,7 +150,7 @@ Customize this to point to your Web location."
       (list 'entries 'type 'description 'author 'link 'title)
       do
       (eval
-       `(defsubst ,(intern (format "gfeeds-feed-%s" slot)) (f)
+       `(defun ,(intern (format "gfeeds-feed-%s" slot)) (f)
           ,(format "Return %s from feed." slot)
           (cdr (assq ',slot f)))))
 

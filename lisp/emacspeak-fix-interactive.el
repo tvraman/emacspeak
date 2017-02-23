@@ -65,7 +65,7 @@
    "\\|^color\\|^timer")
   "Regular expression matching function names whose interactive spec should not be fixed.")
 ;;;###autoload
-(defsubst emacspeak-should-i-fix-interactive-p  (sym)
+(defun emacspeak-should-i-fix-interactive-p  (sym)
   "Predicate to test if this function should be fixed. "
   (and
    (not (string-match emacspeak-commands-dont-fix-regexp
@@ -82,7 +82,7 @@
 
 ;;}}}
 
-(defsubst ems-prompt-without-minibuffer-p (prompt)
+(defun ems-prompt-without-minibuffer-p (prompt)
   "Check if this interactive prompt uses the minibuffer."
   (string-match  "^\*?[ckK]" prompt))
 

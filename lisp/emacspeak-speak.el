@@ -94,20 +94,20 @@
 ;;}}}
 ;;{{{ This line:
 
-(defsubst ems-this-line ()
+(defun ems-this-line ()
   "Return current line as string."
   (buffer-substring (line-beginning-position) (line-end-position)))
 
 ;;}}}
 ;;{{{ same-line-p
 
-(defsubst ems-same-line-p (start end)
+(defun ems-same-line-p (start end)
   "Check if start and end are in the same line."
   (= (count-lines start end) 1))
 
 ;;}}}
 ;;{{{ Helper: voicify string
-(defsubst ems-voiceify-string (string personality)
+(defun ems-voiceify-string (string personality)
   "Apply personality personality to string."
   (put-text-property 0 (length string)
                      'personality personality string))
@@ -119,12 +119,12 @@
   (make-hash-table :test #'eq)
   "Store mode-specific punctuation mode setting.")
 
-(defsubst ems-get-mode-punctuation-setting (mode)
+(defun ems-get-mode-punctuation-setting (mode)
   "Return punctuation setting for specified mode."
   (declare (special emacspeak-speak-mode-punctuation-table))
   (gethash  mode emacspeak-speak-mode-punctuation-table))
 
-(defsubst ems-set-mode-punctuation-setting (mode value)
+(defun ems-set-mode-punctuation-setting (mode value)
   "Set punctuation setting for specified mode."
   (declare (special emacspeak-speak-mode-punctuation-table))
   (puthash   mode value emacspeak-speak-mode-punctuation-table))
@@ -255,7 +255,7 @@ message area.  You can use command
 ;;}}}
 ;;{{{ Completion helper:
 
-(defsubst emacspeak-speak-completions-if-available ()
+(defun emacspeak-speak-completions-if-available ()
   "Speak completions if available."
   (interactive)
   (let ((completions (get-buffer "*Completions*")))
@@ -306,7 +306,7 @@ Argument BODY specifies forms to execute."
 ;;}}}
 ;;{{{ getting and speaking text ranges
 
-(defsubst emacspeak-speak-get-text-range (property)
+(defun emacspeak-speak-get-text-range (property)
   "Return text range  around   point and having the same value as  specified by argument PROPERTY."
   (buffer-substring
    (previous-single-property-change
@@ -343,7 +343,7 @@ Argument BODY specifies forms to execute."
 
 (make-variable-buffer-local 'emacspeak-speak-voice-annotated-paragraphs)
 
-(defsubst emacspeak-speak-voice-annotate-paragraphs ()
+(defun emacspeak-speak-voice-annotate-paragraphs ()
   "Locate paragraphs and voice annotate the first word.
 Here, paragraph is taken to mean a chunk of text preceded by a blank line.
 Useful to do this before you listen to an entire buffer."
@@ -374,7 +374,7 @@ Useful to do this before you listen to an entire buffer."
 ;;}}}
 ;;{{{  sync emacspeak and TTS:
 
-(defsubst ems-sync-mode-punctuation-setting (mode)
+(defun ems-sync-mode-punctuation-setting (mode)
   "Update per-mode punctuation setting if needed."
   (declare (special dtk-punctuation-mode))
   (let ((p (ems-get-mode-punctuation-setting mode)))
@@ -402,7 +402,7 @@ Useful to do this before you listen to an entire buffer."
   "[0-9]\\{8\\}\\(T[0-9]\\{6\\}\\)Z?"
   "Regexp pattern that matches ISO date-time.")
 
-(defsubst emacspeak-speak-decode-iso-datetime (iso)
+(defun emacspeak-speak-decode-iso-datetime (iso)
   "Return a speakable string description."
   (declare (special emacspeak-speak-time-format-string))
   (let ((year  (read (substring iso 0 4)))
@@ -435,7 +435,7 @@ Useful to do this before you listen to an entire buffer."
   "[0-9]\\{4\\}-[0-9]\\{2\\}-[0-9]\\{2\\}T[0-9]\\{2\\}:[0-9]\\{2\\}:[0-9]\\{2\\}\\(\\.[0-9]\\{3\\}\\)?\\([zZ]\\|\\([+-][0-9]\\{2\\}:[0-9]\\{2\\}\\)\\)"
   "Regexp pattern that matches RFC 3339 date-time.")
 
-(defsubst ems-speak-rfc-3339-tz-offset (rfc-3339)
+(defun ems-speak-rfc-3339-tz-offset (rfc-3339)
   "Return offset in seconds from UTC given an RFC-3339 time.
   Timezone spec is of the form -08:00 or +05:30 or [zZ] for UTC.
 Value returned is compatible with `encode-time'."
@@ -455,7 +455,7 @@ Value returned is compatible with `encode-time'."
        (+ (* 60 (first fields))
           (second fields)))))))
 
-(defsubst emacspeak-speak-decode-rfc-3339-datetime (rfc-3339)
+(defun emacspeak-speak-decode-rfc-3339-datetime (rfc-3339)
   "Return a speakable string description."
   (declare (special emacspeak-speak-time-format-string))
   (let ((year  (read (substring rfc-3339 0 4)))
@@ -510,13 +510,13 @@ point is spoken."
 ;;; Return the appropriate action hook variable that defines actions
 ;;; for this mode.
 
-(defsubst  emacspeak-action-get-action-hook (mode)
+(defun  emacspeak-action-get-action-hook (mode)
   "Retrieve action hook.
 Argument MODE defines action mode."
   (intern (format "emacspeak-%s-actions-hook" mode)))
 
 ;;; Execute action at point
-(defsubst emacspeak-handle-action-at-point ()
+(defun emacspeak-handle-action-at-point ()
   "Execute action specified at point."
   (declare (special emacspeak-action-mode))
   (let ((action-spec (get-text-property (point) 'emacspeak-action)))
@@ -593,7 +593,7 @@ current local  value to the result.")
 ;;}}}
 ;;{{{ compute percentage into the buffer:
 
-(defsubst emacspeak-get-current-percentage-into-buffer ()
+(defun emacspeak-get-current-percentage-into-buffer ()
   "Return percentage of position into current buffer."
   (let* ((pos (point))
          (total (buffer-size))
@@ -603,7 +603,7 @@ current local  value to the result.")
                     (/ (+ (/ total 2) (* 100 (1- pos))) (max total 1)))))
     percent))
 
-(defsubst emacspeak-get-current-percentage-verbously ()
+(defun emacspeak-get-current-percentage-verbously ()
   "Return percentage of position into current buffer as a string."
   (let ((percent (emacspeak-get-current-percentage-into-buffer)))
     (cond
@@ -644,7 +644,7 @@ setting.."
 ;;; Indicate indentation.
 ;;; Argument indent   indicates number of columns to indent.
 
-(defsubst emacspeak-indent (indent)
+(defun emacspeak-indent (indent)
   "Produce tone indent."
   (when (> indent 1)
     (let ((duration (+ 50 (* 20  indent)))
@@ -718,7 +718,7 @@ command emacspeak-speak-line-set-column-filter."
 Interactive PREFIX arg means toggle  the global default value, and then set the
 current local  value to the result.")
 
-(defsubst emacspeak-speak-line-apply-column-filter (line &optional invert-filter)
+(defun emacspeak-speak-line-apply-column-filter (line &optional invert-filter)
   (declare (special emacspeak-speak-line-column-filter))
   (let ((filter emacspeak-speak-line-column-filter)
         (l  (length line))
@@ -739,7 +739,7 @@ current local  value to the result.")
                              line))))
     line))
 
-(defsubst emacspeak-speak-persist-filter-entry (k v)
+(defun emacspeak-speak-persist-filter-entry (k v)
   (insert
    (format
     "(cl-puthash
@@ -784,7 +784,7 @@ emacspeak-speak-filter-table)\n" k v)))
       (save-buffer)
       (kill-buffer buffer))))
 
-(defsubst emacspeak-speak-load-filter-settings ()
+(defun emacspeak-speak-load-filter-settings ()
   "Load emacspeak filter settings."
   (declare (special emacspeak-speak-filter-persistent-store
                     emacspeak-speak-filter-table
@@ -836,7 +836,7 @@ the sense of the filter. "
 ;;}}}
 ;;{{{  Speak units of text
 
-(defsubst emacspeak-speak-region (start end)
+(defun emacspeak-speak-region (start end)
   "Speak region.
 Argument START  and END specify region to speak."
   (interactive "r")
@@ -853,7 +853,7 @@ Argument START  and END specify region to speak."
     (dtk-stop)
     (dtk-speak (buffer-substring start end))))
 
-(defsubst emacspeak-speak-string (string personality)
+(defun emacspeak-speak-string (string personality)
   "Apply personality to string and speak it."
   (put-text-property 0 (length string)
                      'personality personality string)
@@ -1054,7 +1054,7 @@ Local to each buffer.  Used to decide if we should spell the word
 rather than speak it.")
 
 (make-variable-buffer-local 'emacspeak-speak-last-spoken-word-position)
-(defsubst emacspeak-speak-spell-word (word)
+(defun emacspeak-speak-spell-word (word)
   "Spell WORD."
   (declare (special voice-animate))
   (let ((result "")
@@ -1114,7 +1114,7 @@ spelled out  instead of being spoken."
        (t (setq  emacspeak-speak-last-spoken-word-position orig)))
       (funcall speaker  (buffer-substring  start end)))))
 
-(defsubst emacspeak-is-alpha-p (c)
+(defun emacspeak-is-alpha-p (c)
   "Check if argument C is an alphabetic character."
   (and (= ?w (char-syntax c))
        (dtk-unicode-char-untouched-p c)))
@@ -1200,7 +1200,7 @@ char is assumed to be one of a--z."
 ;;}}}
 ;;{{{ Speak Chars:
 
-(defsubst emacspeak-speak-this-char (char)
+(defun emacspeak-speak-this-char (char)
   "Speak this CHAR."
   (when char
     (cond
@@ -1522,7 +1522,7 @@ arrived voicemail."
           (file :tag "VoiceMail drop location"))
   :group 'emacspeak-speak)
 
-(defsubst emacspeak-get-file-size (filename)
+(defun emacspeak-get-file-size (filename)
   "Return file size for file FILENAME."
   (or (nth 7 (file-attributes filename))
       0))
@@ -1532,7 +1532,7 @@ arrived voicemail."
 Alert the user only if mail has arrived since this time in the
   future.")
 
-(defsubst emacspeak-mail-get-last-mail-arrival-time (f)
+(defun emacspeak-mail-get-last-mail-arrival-time (f)
   "Return time when mail  last arrived."
   (if (file-exists-p f)
       (nth 5 (file-attributes f))
@@ -1543,7 +1543,7 @@ Alert the user only if mail has arrived since this time in the
   message."
   :type 'integer
   :group 'emacspeak-speak)
-(defsubst  emacspeak-mail-alert-user-p (f)
+(defun  emacspeak-mail-alert-user-p (f)
   "Predicate to check if we need to play an alert for the specified spool."
   (declare (special emacspeak-mail-last-alerted-time
                     emacspeak-mail-alert-interval))
@@ -1601,7 +1601,7 @@ indicating the arrival  of new mail when displaying the mode line.")
   (make-hash-table :test 'eq)
   "Hash table mapping mode-names to their voicefied equivalents.")
 
-(defsubst emacspeak-get-voicefied-mode-name (m-name)
+(defun emacspeak-get-voicefied-mode-name (m-name)
   "Return voicefied version of mode-name `m-name'"
   (declare (special emacspeak-voicefied-mode-names))
   (let* ((mode-name-str
@@ -1624,7 +1624,7 @@ indicating the arrival  of new mail when displaying the mode line.")
   (make-hash-table :test 'eq)
   "Hash table mapping buffer-names to their voicefied equivalents.")
 
-(defsubst emacspeak-get-voicefied-buffer-name (buffer-name)
+(defun emacspeak-get-voicefied-buffer-name (buffer-name)
   "Return voicefied version of this buffer-name."
   (declare (special emacspeak-voicefied-buffer-names))
   (let ((result (gethash buffer-name emacspeak-voicefied-buffer-names)))
@@ -1640,7 +1640,7 @@ indicating the arrival  of new mail when displaying the mode line.")
   (make-hash-table :test 'eq)
   "Hash table mapping recursive-depth levels  to their voicefied equivalents.")
 
-(defsubst emacspeak-get-voicefied-recursion-info (level)
+(defun emacspeak-get-voicefied-recursion-info (level)
   "Return voicefied version of this recursive-depth level."
   (declare (special emacspeak-voicefied-recursion-info))
   (cond
@@ -1659,7 +1659,7 @@ indicating the arrival  of new mail when displaying the mode line.")
   (make-hash-table)
   "Hash table mapping frame names  levels  to their voicefied equivalents.")
 
-(defsubst emacspeak-get-voicefied-frame-info (frame)
+(defun emacspeak-get-voicefied-frame-info (frame)
   "Return voicefied version of this frame name."
   (declare (special emacspeak-voicefied-frame-info))
   (cond
@@ -1679,7 +1679,7 @@ indicating the arrival  of new mail when displaying the mode line.")
 ;;{{{  Speak mode line information
 
 ;;;compute current line number
-(defsubst emacspeak-get-current-line-number()
+(defun emacspeak-get-current-line-number()
   (let ((start (point)))
     (save-excursion
       (save-restriction
@@ -1698,7 +1698,7 @@ indicating the arrival  of new mail when displaying the mode line.")
 (setq-default column-number-mode nil)
 ;;{{{   mode line speaker
 
-(defsubst emacspeak-speak-which-function ()
+(defun emacspeak-speak-which-function ()
   "Speak which function we are on.  Uses which-function from
 which-func without turning that mode on.  We actually use
 semantic to do the work."
@@ -1788,7 +1788,7 @@ Interactive prefix arg speaks buffer info."
 This should eventually be initialized based on the OS we are
 running under.")
 
-(defsubst ems-get-buffer-coding-system ()
+(defun ems-get-buffer-coding-system ()
   "Return buffer coding system info if relevant.
 If emacspeak-speak-default-os-coding-system is set and matches the
 current coding system, then we return an empty string."
@@ -2055,7 +2055,7 @@ Seconds value is also placed in the kill-ring."
   (propertize "IdealDog" 'face 'bold)
   "Code name of present release.")
 
-(defsubst emacspeak-setup-get-revision ()
+(defun emacspeak-setup-get-revision ()
   "Get SHA checksum of current revision that is suitable for spoken output."
   (let ((default-directory emacspeak-directory))
     (if (and (executable-find "git")
@@ -2244,7 +2244,7 @@ Speak that chunk after moving."
 ;;; this helper is here since text-property-any doesn't work
 ;;; backwards
 
-(defsubst ems-backwards-text-property-any (max min property
+(defun ems-backwards-text-property-any (max min property
                                                value)
   "Scan backwards from max till we find specified property
                                                setting.
@@ -2522,7 +2522,7 @@ set the current local value to the result.")
 ;;; Fields are defined by property 'field
 
 ;;; helper function: speak a field
-(defsubst  emacspeak-speak-field (start end)
+(defun  emacspeak-speak-field (start end)
   "Speaks field delimited by arguments START and END."
   (declare (special voice-annotate))
   (let ((header (or (get-text-property start  'field-name) "")))
@@ -2616,7 +2616,7 @@ Otherwise just display a message."
 ;;{{{  Using emacs's windows usefully:
 
 ;;Return current window contents
-(defsubst emacspeak-get-window-contents ()
+(defun emacspeak-get-window-contents ()
   "Return window contents."
   (let ((start nil))
     (save-excursion
@@ -2877,7 +2877,7 @@ arguments specify the START and END of the rectangle."
 
 ;;; helper function: emacspeak-put-personality
 ;;; sets property 'personality to personality
-(defsubst emacspeak-put-personality (start end personality)
+(defun emacspeak-put-personality (start end personality)
   "Apply specified personality to region delimited by START and END.
 Argument PERSONALITY gives the value for property personality."
   (put-text-property start end 'personality personality))
@@ -2888,7 +2888,7 @@ Argument PERSONALITY gives the value for property personality."
 ;;; generic --and  not device specific.
 ;;;
 
-(defsubst  emacspeak-possible-voices ()
+(defun  emacspeak-possible-voices ()
   "Return possible voices."
   (declare (special dectalk-voice-table))
   (loop for key being the hash-keys of dectalk-voice-table
@@ -2951,7 +2951,7 @@ value to apply."
 ;;; in the minibuffer so emacspeak can speak it.
 ;;;Helper: emacspeak-speak-blinkpos-message
 
-(defsubst emacspeak-speak-blinkpos-message(blinkpos)
+(defun emacspeak-speak-blinkpos-message(blinkpos)
   "Speak message about matching blinkpos."
   (tts-with-punctuations
    'all
@@ -3096,14 +3096,14 @@ builtin blink-paren function which does not talk."
 ;;}}}
 ;;{{{  Auxillary functions:
 
-(defsubst emacspeak-kill-buffer-carefully (buffer)
+(defun emacspeak-kill-buffer-carefully (buffer)
   "Kill BUFFER BUF if it exists."
   (and buffer
        (get-buffer buffer)
        (buffer-name (get-buffer buffer))
        (kill-buffer buffer)))
 
-(defsubst emacspeak-overlay-get-text (o)
+(defun emacspeak-overlay-get-text (o)
   "Return text under overlay OVERLAY.
 Argument O specifies overlay."
   (save-current-buffer
@@ -3160,14 +3160,14 @@ Argument O specifies overlay."
 
 ;;{{{ switching to completions window from minibuffer:
 
-(defsubst emacspeak-get-minibuffer-contents ()
+(defun emacspeak-get-minibuffer-contents ()
   "Return contents of the minibuffer."
   (save-current-buffer
     (set-buffer (window-buffer (minibuffer-window)))
     (minibuffer-contents-no-properties)))
 
 ;;; Make all occurrences of string inaudible
-(defsubst emacspeak-make-string-inaudible(string)
+(defun emacspeak-make-string-inaudible(string)
   (unless (string-match "^ *$" string)
     (with-silent-modifications
       (save-excursion
@@ -3240,7 +3240,7 @@ char, or dont move. "
 ;;}}}
 ;;{{{ mark convenience commands
 
-(defsubst emacspeak-mark-speak-mark-line()
+(defun emacspeak-mark-speak-mark-line()
   (declare (special voice-animate))
   (emacspeak-auditory-icon 'mark-object)
   (ems-set-personality-temporarily (point) (1+ (point))
@@ -3329,7 +3329,7 @@ directory specific settings."
   :group 'emacspeak-speak
   :type 'string)
 
-(defsubst emacspeak-speak-root-dir-p (dir)
+(defun emacspeak-speak-root-dir-p (dir)
   "Check if we are at the root of the filesystem."
   (let ((parent (expand-file-name  "../" dir)))
     (or (or (not (file-readable-p dir))
@@ -3414,12 +3414,12 @@ which media players get silenced or paused/resumed."
     (mapcar 'car (network-interface-list)))
   "Used when prompting for an interface to query.")
 
-(defsubst ems-get-active-network-interfaces  ()
+(defun ems-get-active-network-interfaces  ()
   "Return  names of active network interfaces."
   (when (fboundp 'network-interface-list)
     (mapconcat #'car (network-interface-list) " ")))
 
-(defsubst ems-get-ip-address  (&optional dev)
+(defun ems-get-ip-address  (&optional dev)
   "get the IP-address for device DEV "
   (format-network-address
    (car

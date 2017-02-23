@@ -186,7 +186,7 @@ list of parsed ladspa-plugin structures, one per label."
   (loop for p in (ladspa-plugins) do
         (puthash (intern (ladspa-plugin-label p)) p ladspa-table)))
 
-(defsubst ladspa-table-get (label)
+(defun ladspa-table-get (label)
   "Return plugin by label."
   (gethash label ladspa-table))
 
