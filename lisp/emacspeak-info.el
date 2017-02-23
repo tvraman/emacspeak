@@ -100,7 +100,7 @@ node -- speak the entire node."
     (emacspeak-speak-buffer))
    (t (emacspeak-speak-line))))
 
-(loop
+(cl-loop
  for f in
  '(info info-display-manual Info-select-node
         Info-follow-reference Info-goto-node info-emacs-manual
