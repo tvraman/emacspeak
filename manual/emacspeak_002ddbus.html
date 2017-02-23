@@ -98,14 +98,33 @@
   <h3 class="section">12.45 emacspeak-dbus</h3>
 
   <p>Set up Emacspeak to respond to DBus notifications</p><a name=
-  "emacspeak_002ddbus-Commands" id=
-  "emacspeak_002ddbus-Commands"></a>
+  "Overview-1" id="Overview-1"></a>
 
-  <h4 class="subsection">12.45.1 emacspeak-dbus
+  <h4 class="subsection">12.45.1 Overview</h4>
+
+  <p>This module provides integration via DBus for the
+  following:</p>
+
+  <ul>
+    <li>Respond to network coming up or going down.</li>
+
+    <li>Respond to screen getting locked/unlocked by
+    gnome-screen-saver</li>
+
+    <li>Respond to laptop going to sleep or waking up.</li>
+  </ul>
+
+  <p>See relevant hooks for customizing behavior. Note that each of
+  the sleep/wake-up and network/up-down can be separately
+  enabled/disabled, and the actions customized via appropriately
+  named hook functions.</p><a name="emacspeak_002ddbus-Commands"
+  id="emacspeak_002ddbus-Commands"></a>
+
+  <h4 class="subsection">12.45.2 emacspeak-dbus
   Commands</h4><a name="emacspeak_002ddbus_002dsleep_002ddisable"
   id="emacspeak_002ddbus_002dsleep_002ddisable"></a>
 
-  <h4 class="subsubsection">12.45.1.1
+  <h4 class="subsubsection">12.45.2.1
   emacspeak-dbus-sleep-disable</h4>
 
   <dl>
@@ -127,7 +146,7 @@ already disabled.
   </dl><a name="emacspeak_002ddbus_002dsleep_002denable" id=
   "emacspeak_002ddbus_002dsleep_002denable"></a>
 
-  <h4 class="subsubsection">12.45.1.2
+  <h4 class="subsubsection">12.45.2.2
   emacspeak-dbus-sleep-enable</h4>
 
   <dl>
@@ -148,7 +167,7 @@ Enable integration with Login1. Does nothing if already enabled.
   </dl><a name="emacspeak_002dscreen_002dsaver_002dmode" id=
   "emacspeak_002dscreen_002dsaver_002dmode"></a>
 
-  <h4 class="subsubsection">12.45.1.3
+  <h4 class="subsubsection">12.45.2.3
   emacspeak-screen-saver-mode</h4>
 
   <dl>
