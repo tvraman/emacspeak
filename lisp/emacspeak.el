@@ -496,10 +496,6 @@ functions for details.   "
                                    "\\[emacspeak-describe-emacspeak]")
                                   emacspeak-version))))
 
-(defun emacspeak-info ()
-  "Open Emacspeak Info Manual."
-  (interactive)
-  (funcall-interactively #'info (expand-file-name "info/emacspeak.info" emacspeak-directory) "*Emacspeak Info*"))
 (defun emacspeak-describe-emacspeak ()
   "Give a brief overview of emacspeak."
   (interactive)
