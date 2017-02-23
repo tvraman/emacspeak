@@ -224,9 +224,9 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (shell)
      (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
      (calendar)
-     (nm-enable)
-     (emacspeak-dbus-sleep-enable)
-     (emacspeak-dbus-watch-screen-lock)
+     (when (dbus-list-known-names :session)     (nm-enable)
+           (emacspeak-dbus-sleep-enable)
+           (emacspeak-dbus-watch-screen-lock))
      (play-sound
       `(sound
         :file ,(expand-file-name "highbells.au" emacspeak-sounds-directory)))
