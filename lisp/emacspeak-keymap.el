@@ -202,7 +202,7 @@
    ("C-c" emacspeak-clipboard-copy)
    ("C-d" emacspeak-toggle-show-point)
    ("M-i" emacspeak-table-display-table-in-region)
-   ("C-i" emacspeak-open-info)
+   ("C-i" emacspeak-info)
    ("C-j" emacspeak-hide-speak-block-sans-prefix)
    ("C-l" emacspeak-speak-line-number)
    ("C-m"  emacspeak-speak-continuously)

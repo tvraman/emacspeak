@@ -91,19 +91,19 @@
           (nreverse positions))))
 
 ;;; Destructuring: (field-name . (start . end))
-(defun emacspeak-proced-field-name (entry)
+(defsubst emacspeak-proced-field-name (entry)
   "Return field name."
   (car entry))
 
-(defun emacspeak-proced-field-start (entry)
+(defsubst emacspeak-proced-field-start (entry)
   "Return start column."
   (cadr entry))
 
-(defun emacspeak-proced-field-end (entry)
+(defsubst emacspeak-proced-field-end (entry)
   "Return end column."
   (cddr entry))
 
-(defun emacspeak-proced-field-to-position (field)
+(defsubst emacspeak-proced-field-to-position (field)
   "Return column position of this field."
   (declare (special emacspeak-proced-fields))
   (cdr (assoc-string field emacspeak-proced-fields)))

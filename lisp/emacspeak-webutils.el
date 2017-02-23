@@ -58,7 +58,7 @@
 ;;}}}
 ;;{{{ Utility: Render HTML To String
 ;;;###autoload
-(defun emacspeak-webutils-html-string (html-string)
+(defsubst emacspeak-webutils-html-string (html-string)
   "Return formatted string."
   (or (require 'shr) (error "Need  emacs 24.4"))
   (with-temp-buffer
@@ -98,7 +98,7 @@
 (defvar emacspeak-web-pre-process-hook nil
   "Pre-process hook -- to be used for XSL preprocessing etc.")
 
-(defun emacspeak-webutils-run-pre-process-hook (&rest _ignore)
+(defsubst emacspeak-webutils-run-pre-process-hook (&rest _ignore)
   "Run web pre process hook."
   (declare (special emacspeak-web-pre-process-hook))
   (when     emacspeak-web-pre-process-hook
@@ -117,7 +117,7 @@
   "Set locally to a  site specific post processor.
 Note that the Web browser should reset this hook after using it.")
 
-(defun emacspeak-webutils-run-post-process-hook (&rest _ignore)
+(defsubst emacspeak-webutils-run-post-process-hook (&rest _ignore)
   "Use web post process hook."
   (declare (special emacspeak-web-post-process-hook
                     emacspeak-web-pre-process-hook))
@@ -159,7 +159,7 @@ Note that the Web browser should reset this hook after using it.")
                         (string :tag "Replacement")))
   :group 'emacspeak-webutils)
 
-(defun emacspeak-webutils-unescape-charent (start end)
+(defsubst emacspeak-webutils-unescape-charent (start end)
   "Clean up charents in XML."
   (declare (special emacspeak-webutils-charent-alist))
   (loop for entry in emacspeak-webutils-charent-alist
@@ -170,13 +170,13 @@ Note that the Web browser should reset this hook after using it.")
           (while (search-forward entity end t)
             (replace-match replacement)))))
 
-(defun emacspeak-webutils-supported-p ()
+(defsubst emacspeak-webutils-supported-p ()
   "Check if this is a supported browser."
   (or   (eq browse-url-browser-function 'w3-fetch)
         (eq browse-url-browser-function 'browse-url-w3)
         (eq browse-url-browser-function 'w3m-browse-url)))
 
-(defun emacspeak-webutils-autospeak()
+(defsubst emacspeak-webutils-autospeak()
   "Setup post process hook to speak the Web page when rendered.
 Forward punctuation and rate  settings to resulting buffer."
   (lexical-let
@@ -194,7 +194,7 @@ Forward punctuation and rate  settings to resulting buffer."
                     (emacspeak-speak-buffer)))
               'at-end)))
 
-(defun emacspeak-webutils-cache-google-query(query)
+(defsubst emacspeak-webutils-cache-google-query(query)
   "Setup post process hook to cache google query when rendered."
   (declare (special emacspeak-google-query))
   (let ((cache
@@ -203,7 +203,7 @@ Forward punctuation and rate  settings to resulting buffer."
                    (setq emacspeak-google-query ,query))))))
     (add-hook 'emacspeak-web-post-process-hook cache 'at-end)))
 
-(defun emacspeak-webutils-cache-google-toolbelt(belt)
+(defsubst emacspeak-webutils-cache-google-toolbelt(belt)
   "Setup post process hook to cache google toolbelt when rendered."
   (declare (special emacspeak-google-toolbelt))
   (let ((cache
@@ -212,7 +212,7 @@ Forward punctuation and rate  settings to resulting buffer."
                    (setq emacspeak-google-toolbelt' ,belt))))))
     (add-hook 'emacspeak-web-post-process-hook cache 'at-end)))
 
-(defun emacspeak-webutils-browser-check ()
+(defsubst emacspeak-webutils-browser-check ()
   "Check to see if functions are called from a browser buffer"
   (declare (special major-mode))
   (unless (or (eq major-mode 'w3-mode)
@@ -220,7 +220,7 @@ Forward punctuation and rate  settings to resulting buffer."
               (eq major-mode 'eww-mode))
     (error "This command cannot be used outside browser buffers.")))
 
-(defun emacspeak-webutils-read-url ()
+(defsubst emacspeak-webutils-read-url ()
   "Return URL of current page,
 or URL read from minibuffer."
   (declare (special emacspeak-webutils-current-url))
@@ -230,7 +230,7 @@ or URL read from minibuffer."
                           (or (browse-url-url-at-point)
                               "http://"))))
 
-(defun emacspeak-webutils-read-this-url ()
+(defsubst emacspeak-webutils-read-this-url ()
   "Return URL under point
 or URL read from minibuffer."
   (declare (special emacspeak-webutils-url-at-point))
@@ -239,7 +239,7 @@ or URL read from minibuffer."
     (car (browse-url-interactive-arg "URL: "))))
 
 ;;;  Helper: rename result buffer
-(defun emacspeak-webutils-rename-buffer (key)
+(defsubst emacspeak-webutils-rename-buffer (key)
   "Setup emacspeak-web-post-process-hook  to rename result buffer"
   (add-hook
    'emacspeak-web-post-process-hook
@@ -337,7 +337,7 @@ and xsl environment specified by style, params and options."
 ;;}}}
 ;;{{{ Properties from HTML stack:
 
-(defun emacspeak-webutils-property-names-from-html-stack (html-stack)
+(defsubst emacspeak-webutils-property-names-from-html-stack (html-stack)
   "Returns list of attributes from HTML stack."
   (delete nil
           (loop for e in html-stack
@@ -413,7 +413,7 @@ With a prefix argument, extracts url under point."
   "http://www.google.com/gwt/n?_gwt_noimg=1&output=xhtml&u=%s"
   "URL pattern for accessing Google transcoder.")
 
-(defun emacspeak-webutils-transcoded-to-plain-url (url)
+(defsubst emacspeak-webutils-transcoded-to-plain-url (url)
   "Extract plain URL from Google transcoder URL."
   (let ((prefix (substring emacspeak-webutils-google-transcoder-url 0
                            (1+ (position ?? emacspeak-webutils-google-transcoder-url)))))
@@ -422,7 +422,7 @@ With a prefix argument, extracts url under point."
              (arg-alist (url-parse-args (subst-char-in-string ?& ?\; args))))
         (url-unhex-string (cdr (assoc "u" arg-alist)))))))
 ;;;###autoload
-(defun emacspeak-webutils-transcode-this-url-via-google (url)
+(defsubst emacspeak-webutils-transcode-this-url-via-google (url)
   "Transcode specified url via Google."
   (declare (special emacspeak-webutils-google-transcoder-url))
   (browse-url

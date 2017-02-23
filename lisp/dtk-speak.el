@@ -197,7 +197,7 @@ Do not modify this variable directly; use command  `dtk-set-rate'
 ;;; moved here from the emacspeak-pronounce module for efficient
 ;;compilation
 
-(defun tts-apply-pronunciations (pronunciation-table)
+(defsubst tts-apply-pronunciations (pronunciation-table)
   "Applies pronunciations specified in pronunciation table to current buffer.
 Modifies text and point in buffer."
   (declare (special emacspeak-pronounce-pronunciation-personality))
@@ -254,11 +254,11 @@ Modifies text and point in buffer."
 ;;}}}
 ;;{{{  Helpers to handle invisible text:
 
-(defun text-visible-p (position)
+(defsubst text-visible-p (position)
   (not (invisible-p position)))
 (unless (fboundp 'invisible-p)
 ;;; defined in simple.el in Emacs 23.
-  (defun invisible-p (pos)
+  (defsubst invisible-p (pos)
     "Check if text is invisible. Emacspeak helper."
     (declare (special buffer-invisibility-spec))
     (let ((prop (get-char-property pos 'invisible)))
@@ -268,14 +268,14 @@ Modifies text and point in buffer."
             (assq prop buffer-invisibility-spec)))))
   ) ;;; needed before Emacs 23.
 
-(defun skip-invisible-forward  ()
+(defsubst skip-invisible-forward  ()
   (while (and(not (eobp))
              (invisible-p (point)))
     (goto-char
      (next-single-char-property-change (point) 'invisible
                                        (current-buffer) (point-max)))))
 
-(defun skip-invisible-backward  ()
+(defsubst skip-invisible-backward  ()
   "Move backwards over invisible text."
   (while (and(not (bobp))
              (invisible-p (point)))
@@ -283,7 +283,7 @@ Modifies text and point in buffer."
      (previous-single-char-property-change (point) 'invisible
                                            (current-buffer) (point-min)))))
 
-(defun delete-invisible-text ()
+(defsubst delete-invisible-text ()
   "Delete invisible text."
   (goto-char (point-min))
   (let ((start  (point)))
@@ -301,7 +301,7 @@ Modifies text and point in buffer."
 ;;}}}
 ;;{{{  define inline functions first
 
-(defun dtk-silence (duration &optional force)
+(defsubst dtk-silence (duration &optional force)
   "Produce silence.
 Argument DURATION  specifies number of milliseconds to pause.
 Optional argument FORCE  flushes the command to the speech server."
@@ -318,7 +318,7 @@ Optional argument FORCE  flushes the command to the speech server."
   :type 'boolean
   :group 'tts)
 
-(defun dtk-tone (pitch duration &optional force)
+(defsubst dtk-tone (pitch duration &optional force)
   "Produce a tone.
 Argument PITCH   is specified in hertz.
 Argument DURATION  is specified in milliseconds.
@@ -393,14 +393,14 @@ Newlines  become spaces so each server request is a single line.
 <> and | are fixed to improve pronunciation.
 \\ is fixed because it tends to be a metacharacter")
 
-(defun dtk-strip-octals ()
+(defsubst dtk-strip-octals ()
   "Remove all octal chars."
   (let ((inhibit-read-only t))
     (goto-char (point-min))
     (while (re-search-forward "[\177-\377]+"  nil t)
       (replace-match " "))))
 
-(defun  dtk-fix-brackets (mode)
+(defsubst  dtk-fix-brackets (mode)
   "Quote any delimiters that need special treatment. Argument MODE
 specifies the current pronunciation mode --- See
 \\[dtk-bracket-regexp]"
@@ -463,7 +463,7 @@ it seems some accented characters in certain contexts."
   "Regular expression matching control chars.
 Set this once per emacspeak session for efficiency.")
 
-(defun dtk-fix-control-chars ()
+(defsubst dtk-fix-control-chars ()
   "Handle control characters in speech stream."
   (declare (special dtk-character-to-speech-table
                     dtk-octal-chars
@@ -486,7 +486,7 @@ Set this once per emacspeak session for efficiency.")
 ;;; mode being used to speak.  Removing repeated chars, and
 ;;; replacing them by a count:
 
-(defun dtk-replace-duplicates (string mode)
+(defsubst dtk-replace-duplicates (string mode)
   "Replace repeating patterns.
 Argument STRING  specifies the repeating string to replace.
 Argument MODE  specifies the current pronunciation mode."
@@ -516,7 +516,7 @@ Argument MODE  specifies the current pronunciation mode."
                            'personality personality)))
     (goto-char (point-min))))
 
-(defun dtk-handle-repeating-patterns (mode)
+(defsubst dtk-handle-repeating-patterns (mode)
   (declare (special dtk-cleanup-patterns))
   (goto-char (point-min))
   (mapc
@@ -526,7 +526,7 @@ Argument MODE  specifies the current pronunciation mode."
 
 (defvar dtk-null-char (format "%c" 0)
   "Null char.")
-(defun dtk-fix-null-char (mode)
+(defsubst dtk-fix-null-char (mode)
   "Remove null-char C-@."
   (declare (special dtk-null-char))
   (goto-char (point-min))
@@ -535,7 +535,7 @@ Argument MODE  specifies the current pronunciation mode."
     (while (search-forward  dtk-null-char nil t) (replace-match " control at ")))
    (t (while (search-forward  dtk-null-char nil t) (replace-match "")))))
 
-(defun  dtk-quote(mode)
+(defsubst  dtk-quote(mode)
   "Clean-up text before sending it out."
   (let ((inhibit-read-only t))
 ;;; dtk will think it's processing a command otherwise:
@@ -543,7 +543,7 @@ Argument MODE  specifies the current pronunciation mode."
 ;;; fix control chars
     (dtk-fix-control-chars)))
 
-(defun dtk-fix-backslash ()
+(defsubst dtk-fix-backslash ()
   "Quote backslash characters as appropriate."
   (goto-char (point-min))
   (while (search-forward "\\" nil t)
@@ -561,18 +561,18 @@ Argument MODE  specifies the current pronunciation mode."
 
 ;;; make it buffer local:
 (make-variable-buffer-local 'dtk-chunk-separator-syntax)
-(defun dtk-complement-chunk-separator-syntax ()
+(defsubst dtk-complement-chunk-separator-syntax ()
   "Return complement of syntactic class that splits clauses."
   (declare (special dtk-chunk-separator-syntax))
   (concat "^" dtk-chunk-separator-syntax))
 
 ;;; set chunk separator to match both whitespace and punctuations:
-(defun dtk-chunk-on-white-space-and-punctuations()
+(defsubst dtk-chunk-on-white-space-and-punctuations()
   (declare (special dtk-chunk-separator-syntax))
   (setq dtk-chunk-separator-syntax
         (concat  dtk-chunk-separator-syntax " ")))
 
-(defun dtk-chunk-only-on-punctuations()
+(defsubst dtk-chunk-only-on-punctuations()
   (declare (special dtk-chunk-separator-syntax))
   (setq dtk-chunk-separator-syntax
         (delete-if
@@ -583,7 +583,7 @@ Argument MODE  specifies the current pronunciation mode."
 ;;; move across the complement and the following separator
 ;;; return value is a boolean indicating if we moved.
 ;;; side-effect is to move across a chunk
-(defun  dtk-move-across-a-chunk (separator complement)
+(defsubst  dtk-move-across-a-chunk (separator complement)
   "Move over a chunk of text.
 Chunks are defined  based on major modes.
 Argument SEPARATOR  is the syntax class of chunk separators.
@@ -594,7 +594,7 @@ Argument COMPLEMENT  is the complement of separator."
 
 ;;; efficient way of voice changing
 
-(defun dtk-speak-using-voice (voice text)
+(defsubst dtk-speak-using-voice (voice text)
   "Use voice VOICE to speak text TEXT."
   (declare (special  dtk-quiet tts-default-voice))
   (unless (or (eq 'inaudible voice) dtk-quiet
@@ -634,7 +634,7 @@ Argument COMPLEMENT  is the complement of separator."
 ;;; Similarly, property pause at the start of a clause specifies
 ;;; amount of pause to insert.
 
-(defun tts-get-overlay-auditory-icon (position)
+(defsubst tts-get-overlay-auditory-icon (position)
   "Return auditory icon  at the front of the overlay list at position."
   (car
    (delete nil
@@ -643,7 +643,7 @@ Argument COMPLEMENT  is the complement of separator."
                 (overlay-get o 'auditory-icon))
             (overlays-at position)))))
 
-(defun tts-get-overlay-personality (position)
+(defsubst tts-get-overlay-personality (position)
   "Return personality at the front of the overlay list at position."
   (car
    (delete nil
@@ -652,7 +652,7 @@ Argument COMPLEMENT  is the complement of separator."
                 (overlay-get o 'personality))
             (overlays-at position)))))
 
-(defun next-true-single-property-change (start  prop object  limit)
+(defsubst next-true-single-property-change (start  prop object  limit)
   "Similar to next-single-property-change, but compares property values
  with equal if they are not atoms."
   (let ((initial-value (get-text-property start  prop object)))
@@ -664,7 +664,7 @@ Argument COMPLEMENT  is the complement of separator."
           (setq pos (next-single-property-change pos prop object limit)))
         pos))))
 
-(defun dtk-previous-style-change (start &optional end)
+(defsubst dtk-previous-style-change (start &optional end)
   "Get position of previous style change from start to end. Here, style
 change is any change in property personality, face or font-lock-face."
   (or end (setq end (point-min)))
@@ -673,7 +673,7 @@ change is any change in property personality, face or font-lock-face."
    (previous-single-property-change start 'face (current-buffer) end)
    (previous-single-property-change start 'font-lock-face (current-buffer) end)))
 
-(defun dtk-next-style-change (start &optional end)
+(defsubst dtk-next-style-change (start &optional end)
   "Get position of next style change from start   to end.
 Here,  change is any change in property personality, face or font-lock-face."
   (or end (setq end (point-max)))
@@ -682,7 +682,7 @@ Here,  change is any change in property personality, face or font-lock-face."
    (next-true-single-property-change start 'face (current-buffer) end)
    (next-true-single-property-change start 'font-lock-face (current-buffer) end)))
 
-(defun dtk-get-style (&optional pos)
+(defsubst dtk-get-style (&optional pos)
   "Compute style at pos by examining personality and face
 properties. Return value is a personality that can be applied to the
 content when speaking. Default `pos' to point. Property `personality'
@@ -694,7 +694,7 @@ has higher precedence than `face'."
     (or (get-text-property pos 'face)
         (get-text-property pos 'font-lock-face)))))
 
-(defun dtk-format-text-and-speak (start end)
+(defsubst dtk-format-text-and-speak (start end)
   "Format and speak text.
 Arguments START and END specify region to speak."
   (declare (special voice-lock-mode dtk-speaker-process
@@ -730,7 +730,7 @@ Arguments START and END specify region to speak."
 ;;; No quoting is done,
 ;;; ifyou want to quote the text, see dtk-speak
 
-(defun dtk-dispatch (string)
+(defsubst dtk-dispatch (string)
   "Send request STRING to speech server."
   (declare (special dtk-speaker-process
                     dtk-speak-server-initialized
@@ -740,14 +740,14 @@ Arguments START and END specify region to speak."
       (dtk-interp-say string))))
 
 ;;;###autoload
-(defun dtk-stop ()
+(defsubst dtk-stop ()
   "Stop speech now.
 Interactive call   silences notification stream as well."
   (interactive)
   (when (process-live-p dtk-speaker-process) (dtk-interp-stop))
   (when  (called-interactively-p 'interactive)    (dtk-notify-stop)))
 
-(defun dtk-reset-default-voice()
+(defsubst dtk-reset-default-voice()
   (declare (special tts-default-voice))
   (dtk-dispatch (tts-get-voice-command tts-default-voice)))
 
@@ -1474,7 +1474,7 @@ available TTS servers.")
   )
 
 ;;}}}
-(defun dtk-char-to-speech (char)
+(defsubst dtk-char-to-speech (char)
   "Translate CHAR to speech string."
   (declare (special dtk-character-to-speech-table))
   (if  (eq (char-charset char) 'ascii)
@@ -1488,7 +1488,7 @@ available TTS servers.")
 ;;; will be reset on a per TTS engine basis.
 (defalias 'tts-get-voice-command 'dectalk-get-voice-command)
 
-(defun tts-voice-reset-code ()
+(defsubst tts-voice-reset-code ()
   "Return voice reset code."
   (tts-get-voice-command tts-default-voice))
 
@@ -1846,7 +1846,7 @@ only speak upto the first ctrl-m."
          (emacspeak-use-auditory-icons nil))
      ,@body))
 
-(defun dtk-speak-and-echo (message)
+(defsubst dtk-speak-and-echo (message)
   "Speak message and echo it to the message area."
   (ems-with-messages-silenced
    (dtk-speak message)
@@ -1882,7 +1882,7 @@ Optional argument group-count specifies grouping for intonation."
       (setq contents (buffer-string)))
     (dtk-speak contents)))
 
-(defun dtk-letter (letter)
+(defsubst dtk-letter (letter)
   "Speak a LETTER."
   (declare (special dtk-speaker-process
                     dtk-speak-server-initialized
@@ -1971,7 +1971,7 @@ Fall back to dtk-speak if notification stream not available."
     (dtk-notify-apply #'dtk-letter letter))
    (t (dtk-letter letter))))
 
-(defun dtk-get-notify-alsa-device ()
+(defsubst dtk-get-notify-alsa-device ()
   "Returns name of Alsa device for use as the notification stream."
   (cond
    ((string-match "tts_mono_right"

@@ -123,7 +123,7 @@ Stop apps that use the network."
 
 ;;}}}
 ;;{{{ Sleep/Resume:
-(defun emacspeak-dbus-login1-sleep-p ()
+(defsubst emacspeak-dbus-login1-sleep-p ()
   "Test if login1 service  sleep signal is available."
   (member
    "PrepareForSleep"

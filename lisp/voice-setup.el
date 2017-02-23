@@ -137,7 +137,7 @@ means that Voice Lock mode is turned on for buffers in C and C++ modes only."
        #'(lambda (voice)(list 'const voice))
        (tts-list-voices))))
 
-(defun voice-setup-read-personality (&optional prompt)
+(defsubst voice-setup-read-personality (&optional prompt)
   "Read name of a pre-defined personality using completion."
   (read (completing-read (or prompt "Personality: ")
                          (tts-list-voices))))
@@ -148,12 +148,12 @@ means that Voice Lock mode is turned on for buffers in C and C++ modes only."
 (defvar voice-setup-face-voice-table (make-hash-table)
   "Hash table holding face to voice mapping.")
 
-(defun voice-setup-set-voice-for-face (face voice)
+(defsubst voice-setup-set-voice-for-face (face voice)
   "Map face --a symbol-- to relevant voice."
   (declare (special  voice-setup-face-voice-table))
   (setf (gethash face voice-setup-face-voice-table) voice))
 
-(defun voice-setup-get-voice-for-face (face)
+(defsubst voice-setup-get-voice-for-face (face)
   "Map face --a symbol-- to relevant voice."
   (declare (special  voice-setup-face-voice-table))
   (gethash face voice-setup-face-voice-table))
@@ -202,7 +202,7 @@ means that Voice Lock mode is turned on for buffers in C and C++ modes only."
        (when (symbolp ',voice)
          (put  ',voice ',personality t)))))
 
-(defun voice-setup-name-personality (face-name)
+(defsubst voice-setup-name-personality (face-name)
   "Compute personality name to use."
   (let ((name nil))
     (setq name
@@ -239,7 +239,7 @@ means that Voice Lock mode is turned on for buffers in C and C++ modes only."
   "Maps personality names to ACSS  settings.
 Keys are personality names.")
 
-(defun voice-setup-personality-from-style (style-list)
+(defsubst voice-setup-personality-from-style (style-list)
   "Define a personality given a list of speech style settings."
   (declare (special voice-setup-personality-table))
   (let ((voice
@@ -254,7 +254,7 @@ Keys are personality names.")
     (puthash  voice style-list voice-setup-personality-table)
     voice))
 
-(defun voice-setup-observing-personalities  (voice-name)
+(defsubst voice-setup-observing-personalities  (voice-name)
   "Return a list of personalities that are `observing' VOICE-NAME.
 Observing personalities are automatically updated when settings for
 VOICE-NAME are  changed."

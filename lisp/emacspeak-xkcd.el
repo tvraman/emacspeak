@@ -70,7 +70,7 @@
   "Cache current transcript.")
 ;;; Cache transcript.
 ;;; Content downloaded by the time this is called.
-(defun emacspeak-xkcd-get-current-transcript ()
+(defsubst emacspeak-xkcd-get-current-transcript ()
   "Cache current transcript."
   (declare (special xkcd-cur))
   (setq 

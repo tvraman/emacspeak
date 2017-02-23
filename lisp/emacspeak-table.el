@@ -88,19 +88,19 @@
 ;;}}}
 ;;{{{ Accessors
 
-(defun emacspeak-table-this-element (table row column)
+(defsubst emacspeak-table-this-element (table row column)
   (let ((elements (emacspeak-table-elements  table)))
     (aref (aref elements row) column)))
 
-(defun emacspeak-table-current-element (table)
+(defsubst emacspeak-table-current-element (table)
   (emacspeak-table-this-element table 
                                 (emacspeak-table-current-row table)
                                 (emacspeak-table-current-column table)))
 
-(defun emacspeak-table-this-row (table index)
+(defsubst emacspeak-table-this-row (table index)
   (aref  (emacspeak-table-elements table) index))
 
-(defun emacspeak-table-this-column (table column)
+(defsubst emacspeak-table-this-column (table column)
   (let*
       ((elements (emacspeak-table-elements table))
        (result (make-vector (length elements) nil))
@@ -111,16 +111,16 @@
      (incf index))
     result))
 
-(defun emacspeak-table-num-rows (table)
+(defsubst emacspeak-table-num-rows (table)
   (length (emacspeak-table-row-header table)))
 
-(defun emacspeak-table-num-columns (table)
+(defsubst emacspeak-table-num-columns (table)
   (length (emacspeak-table-column-header table)))
 
-(defun emacspeak-table-column-header-element (table column)
+(defsubst emacspeak-table-column-header-element (table column)
   (aref (emacspeak-table-column-header table) column))
 
-(defun emacspeak-table-row-header-element (table row)
+(defsubst emacspeak-table-row-header-element (table row)
   (aref (emacspeak-table-row-header table) row))
 
 ;;}}}

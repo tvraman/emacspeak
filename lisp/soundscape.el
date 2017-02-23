@@ -164,14 +164,14 @@ Defaults specify alsa as the output and set master volume to 0.5"
         (forward-line 1)))
     soundscape--catalog)))
 
-(defun soundscape-lookup-name (name)
+(defsubst soundscape-lookup-name (name)
   "Return package/agent for this name.
 Default is to return NullAgent if name not found."
   (or
    (cdr (assoc name (soundscape-catalog)))
    "()"))
 
-(defun soundscape-lookup-scape (scape)
+(defsubst soundscape-lookup-scape (scape)
   "Return name for this package/agent."
   (car (rassoc scape (soundscape-catalog))))
 
@@ -221,7 +221,7 @@ Default is to return NullAgent if name not found."
   (mapc  #'soundscape-stop (hash-table-keys soundscape-processes))
   (message "Stopped all soundscapes."))
 
-(defun soundscape-running-p (scape)
+(defsubst soundscape-running-p (scape)
   "Predicate to check if soundscape is running."
   (process-live-p (gethash  scape soundscape-processes)))
 
@@ -236,7 +236,7 @@ Default is to return NullAgent if name not found."
 (defvar soundscape-mode-table (make-hash-table :test #'eq)
   "Maps mode-names to associated Soundscapes.")
 
-(defun  soundscape-for-mode (mode)
+(defsubst  soundscape-for-mode (mode)
   "Return associated soundscape for this mode if any."
   (let ((result nil))
     (while mode
@@ -244,7 +244,7 @@ Default is to return NullAgent if name not found."
       (setq mode (get mode 'derived-mode-parent)))
     (delq nil result)))
 
-(defun  soundscape-map-mode (mode scape)
+(defsubst  soundscape-map-mode (mode scape)
   "Associate soundscape for this mode."
   (when mode
     (puthash mode scape soundscape-mode-table)))
@@ -321,7 +321,7 @@ this list) must be the NullAgent written as (). ")
 
 (soundscape-load-theme soundscape-default-theme)
 
-(defun soundscape--read-mode-name ()
+(defsubst soundscape--read-mode-name ()
   "Helper to read major-mode name with completion."
   (let ((completion-regexp-list '("-mode$")))
     (intern (completing-read "Major mode: " obarray #'functionp 'must-match))))
@@ -493,7 +493,7 @@ Optional interactive prefix arg `force' skips optimization checks."
 
 ;;}}}
 ;;{{{ SoundScape Toggle:
-(defun soundscape-quiet ()
+(defsubst soundscape-quiet ()
   "Activate NullAgent."
   (when (process-live-p soundscape-remote-control)
     (process-send-string soundscape-remote-control "soundscape 0\n")))

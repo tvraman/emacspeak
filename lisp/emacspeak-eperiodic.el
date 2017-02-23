@@ -71,7 +71,7 @@
 ;;}}}
 ;;{{{ helpers 
 
-(defun emacspeak-eperiodic-name-element-at-point ()
+(defsubst emacspeak-eperiodic-name-element-at-point ()
   "Returns name of current element."
   (declare (special eperiodic-element-properties))
   (let ((name 

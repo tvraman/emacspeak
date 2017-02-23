@@ -78,11 +78,11 @@
 (defvar emacspeak-websearch-table (make-hash-table)
   "Table holding mapping from search engine names to appropriate searcher functions.")
 
-(defun emacspeak-websearch-set-searcher  (engine searcher)
+(defsubst emacspeak-websearch-set-searcher  (engine searcher)
   (declare (special emacspeak-websearch-table))
   (setf (gethash engine emacspeak-websearch-table) searcher))
 
-(defun emacspeak-websearch-get-searcher (engine)
+(defsubst emacspeak-websearch-get-searcher (engine)
   (declare (special emacspeak-websearch-table))
   (gethash engine emacspeak-websearch-table))
 
@@ -92,11 +92,11 @@
 (defvar emacspeak-websearch-keytable (make-hash-table)
   "Table holding mapping from keys to appropriate search engine names.")
 
-(defun emacspeak-websearch-set-key  (key engine)
+(defsubst emacspeak-websearch-set-key  (key engine)
   (declare (special emacspeak-websearch-keytable))
   (setf (gethash key emacspeak-websearch-keytable) engine))
 
-(defun emacspeak-websearch-get-engine (key)
+(defsubst emacspeak-websearch-get-engine (key)
   (declare (special emacspeak-websearch-keytable))
   (gethash key emacspeak-websearch-keytable))
 
@@ -165,7 +165,7 @@ When using supported browsers,  this interface attempts to speak the most releva
 (defvar emacspeak-websearch-history nil
   "Holds history of search queries.")
 
-(defun emacspeak-websearch-read-query (prompt &optional
+(defsubst emacspeak-websearch-read-query (prompt &optional
                                                  default
                                                  initial)
   (let ((answer
@@ -564,7 +564,7 @@ Optional second arg as-html processes the results as HTML rather than data."
   "www.google.com/search?source=hp&q="
   "*URI for Google search")
 
-(defun emacspeak-websearch-google-uri ()
+(defsubst emacspeak-websearch-google-uri ()
   "Return URI end-point for Google search."
   (declare (special emacspeak-websearch-google-use-https
                     emacspeak-websearch-google-uri-template))

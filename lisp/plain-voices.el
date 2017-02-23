@@ -84,14 +84,14 @@
   "Association between symbols and strings to set Plain voices.
 The string can set any  parameter.")
 
-(defun plain-define-voice (name command-string)
+(defsubst plain-define-voice (name command-string)
   "Define a Plain voice named NAME.
 This voice will be set   by sending the string
 COMMAND-STRING to the TTS server."
   (declare (special plain-voice-table))
   (puthash  name command-string  plain-voice-table))
 
-(defun plain-get-voice-command (name)
+(defsubst plain-get-voice-command (name)
   "Retrieve command string for  voice NAME."
   (declare (special plain-voice-table))
   (cond
@@ -100,7 +100,7 @@ COMMAND-STRING to the TTS server."
    (t (or  (gethash name plain-voice-table)
            plain-default-voice-string))))
 
-(defun plain-voice-defined-p (name)
+(defsubst plain-voice-defined-p (name)
   "Check if there is a voice named NAME defined."
   (declare (special plain-voice-table))
   (gethash name plain-voice-table))
@@ -134,7 +134,7 @@ COMMAND-STRING to the TTS server."
 (defvar plain-family-table nil
   "Association list of Plain voice names and control codes.")
 
-(defun plain-set-family-code (name code)
+(defsubst plain-set-family-code (name code)
   "Set control code for voice family NAME  to CODE."
   (declare (special plain-family-table))
   (when (stringp name) (setq name (intern name)))
@@ -142,7 +142,7 @@ COMMAND-STRING to the TTS server."
         (cons (list name code)
               plain-family-table)))
 
-(defun plain-get-family-code (name)
+(defsubst plain-get-family-code (name)
   "Get control code for voice family NAME."
   (declare (special plain-family-table))
   (when (stringp name)
@@ -168,7 +168,7 @@ COMMAND-STRING to the TTS server."
 Keys are symbols of the form <FamilyName-Dimension>.
 Values are vectors holding the control codes for the 10 settings.")
 
-(defun plain-css-set-code-table (family dimension table)
+(defsubst plain-css-set-code-table (family dimension table)
   "Set up voice FAMILY.
 Argument DIMENSION is the dimension being set,
 and TABLE gives the values along that dimension."
@@ -176,7 +176,7 @@ and TABLE gives the values along that dimension."
   (let ((key (intern (format "%s-%s" family dimension))))
     (puthash  key table plain-css-code-tables)))
 
-(defun plain-css-get-code-table (family dimension)
+(defsubst plain-css-get-code-table (family dimension)
   "Retrieve table of values for specified FAMILY and DIMENSION."
   (declare (special plain-css-code-tables))
   (let ((key (intern (format "%s-%s" family dimension))))
@@ -275,7 +275,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 
-(defun plain-get-average-pitch-code (value family)
+(defsubst plain-get-average-pitch-code (value family)
   "Get  AVERAGE-PITCH for specified VALUE and  FAMILY."
   (or family (setq family 'paul))
   (if value
@@ -367,7 +367,7 @@ and TABLE gives the values along that dimension."
   (plain-css-set-code-table 'betty 'pitch-range table))
 
 ;;}}}
-(defun plain-get-pitch-range-code (value family)
+(defsubst plain-get-pitch-range-code (value family)
   "Get pitch-range code for specified VALUE and FAMILY."
   (or family (setq family 'paul))
   (if value
@@ -462,7 +462,7 @@ and TABLE gives the values along that dimension."
   (plain-css-set-code-table 'betty 'stress table))
 
 ;;}}}
-(defun plain-get-stress-code (value family)
+(defsubst plain-get-stress-code (value family)
   (or family (setq family 'paul))
   (if value
       (aref (plain-css-get-code-table family 'stress)
@@ -548,7 +548,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 
-(defun plain-get-richness-code (value family)
+(defsubst plain-get-richness-code (value family)
   (or family (setq family 'paul))
   (if value
       (aref (plain-css-get-code-table family 'richness)
@@ -558,7 +558,7 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{  punctuations
 
-(defun plain-get-punctuations-code (value)
+(defsubst plain-get-punctuations-code (value)
   "Return string needed to set specified punctuations mode."
   (if value
       (format "") ; no-op --- change to taste

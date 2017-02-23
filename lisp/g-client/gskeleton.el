@@ -85,7 +85,7 @@
 (defconst gskeleton-service-name "skel"
   "Service name for accessing Google skeleton.")
 
-(defun gskeleton-p (service)
+(defsubst gskeleton-p (service)
   "Check if this is Skeleton."
   (declare (special gskeleton-service-name))
   (string-equal service gskeleton-service-name))
@@ -93,7 +93,7 @@
 ;;}}}
 ;;{{{ skeleton Authenticate
 
-(defun make-gskeleton-auth ()
+(defsubst make-gskeleton-auth ()
   "Make a new gskeleton auth handle."
   (declare (special gskeleton-service-name
                     gskeleton-user-email gskeleton-user-password))
@@ -115,7 +115,7 @@
 (defvar gskeleton-feeds-template-url
   "'https://www.google.com/skeleton/feeds/%s'"
   "URL template for feed of feeds from skeleton.")
-(defun gskeleton-feeds-url (userid)
+(defsubst gskeleton-feeds-url (userid)
   "Return url for feed of feeds."
   (declare (special gskeleton-feeds-template-url))
   (format gskeleton-feeds-template-url userid))

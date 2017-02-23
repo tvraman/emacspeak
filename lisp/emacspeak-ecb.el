@@ -176,7 +176,7 @@ available."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-line)))
-(defun tree-node-is-expanded (node)
+(defsubst tree-node-is-expanded (node)
   "Check if node is expanded."
   (or (not (tree-node->expandable node))
       (tree-node->expanded node)))

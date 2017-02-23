@@ -77,7 +77,7 @@ Note that some badly formed mime messages  cause trouble."
 ;;}}}
 ;;{{{ inline helpers
 
-(defun emacspeak-vm-number-of (message) (aref (aref message 1) 0))
+(defsubst emacspeak-vm-number-of (message) (aref (aref message 1) 0))
 
 ;;}}}
 ;;{{{ Advice completions

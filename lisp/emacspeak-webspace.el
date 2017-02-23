@@ -87,7 +87,7 @@
       do
       (emacspeak-keymap-update emacspeak-webspace-mode-map k))
 
-(defun emacspeak-webspace-act-on-link (action &rest args)
+(defsubst emacspeak-webspace-act-on-link (action &rest args)
   "Apply action to link under point."
   (let ((link (get-text-property (point) 'link)))
     (if link
@@ -141,7 +141,7 @@
 ;;}}}
 ;;{{{ WebSpace Display:
 
-(defun emacspeak-webspace-display (infolet)
+(defsubst emacspeak-webspace-display (infolet)
   "Displays specified infolet.
 Infolets use the same structure as mode-line-format and header-line-format.
 Generates auditory and visual display."
@@ -180,7 +180,7 @@ Generates auditory and visual display."
 (defvar emacspeak-webspace-headlines-period '(0 1800 0)
   "How often we fetch from a feed.")
 
-(defun emacspeak-webspace-headlines-fetch (feed)
+(defsubst emacspeak-webspace-headlines-fetch (feed)
   "Add headlines from specified feed to our cache.
 Newly found headlines are inserted into the ring within our feedstore.
 We use module gfeeds to efficiently fetch feed contents using the
@@ -204,7 +204,7 @@ We use module gfeeds to efficiently fetch feed contents using the
               (ring-insert titles h)))
         (gfeeds-titles feed))))))
 
-(defun emacspeak-webspace-fs-next (fs)
+(defsubst emacspeak-webspace-fs-next (fs)
   "Return next feed and increment index for fs."
   (let ((feed-url (aref
                    (emacspeak-webspace-fs-feeds fs)
@@ -220,7 +220,7 @@ We use module gfeeds to efficiently fetch feed contents using the
   (dotimes (_i (length (emacspeak-webspace-fs-feeds emacspeak-webspace-headlines)))
     (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines))))
 
-(defun emacspeak-webspace-headlines-refresh ()
+(defsubst emacspeak-webspace-headlines-refresh ()
   "Update headlines."
   (declare (special emacspeak-webspace-headlines))
   (with-local-quit
@@ -570,7 +570,7 @@ Optional interactive prefix arg forces a refresh."
   "https://kgsearch.googleapis.com/v1/entities:search?query=%s&key=%s&limit=%s"
   "Rest end-point for KG Search.")
 
-(defun emacspeak-webspace-kg-uri (query &optional limit)
+(defsubst emacspeak-webspace-kg-uri (query &optional limit)
   "Return URL for KG Search."
   (or limit (setq limit 1))
   (format
@@ -579,13 +579,13 @@ Optional interactive prefix arg forces a refresh."
    emacspeak-webspace-kg-key
    limit))
 
-(defun emacspeak-webspace-kg-json-ld (query &optional limit)
+(defsubst emacspeak-webspace-kg-json-ld (query &optional limit)
   "Return JSON-LD structure."
   (or limit (setq limit 1))
   (g-json-from-url
    (emacspeak-webspace-kg-uri query limit)))
 
-(defun emacspeak-webspace-kg-results (query &optional limit)
+(defsubst emacspeak-webspace-kg-results (query &optional limit)
   "Return list of results."
   (or limit (setq limit 5))
   (map  'list
@@ -593,7 +593,7 @@ Optional interactive prefix arg forces a refresh."
         (g-json-get 'itemListElement
                     (emacspeak-webspace-kg-json-ld query limit))))
 
-(defun emacspeak-webspace-kg-format-result (result)
+(defsubst emacspeak-webspace-kg-format-result (result)
   "Format result as HTML."
   (let-alist result
     (format

@@ -167,18 +167,18 @@ will be placed."
 (defvar emacspeak-ocr-buffer-name "*ocr*"
   "Name of OCR working buffer.")
 
-(defun emacspeak-ocr-get-buffer ()
+(defsubst emacspeak-ocr-get-buffer ()
   "Return OCR working buffer."
   (get-buffer-create
    (format  "*%s-ocr*"
             (emacspeak-ocr-default-name))))
 
-(defun emacspeak-ocr-get-text-name ()
+(defsubst emacspeak-ocr-get-text-name ()
   "Return name of current text document."
   (declare (special emacspeak-ocr-document-name))
   (format "%s.text" emacspeak-ocr-document-name))
 
-(defun emacspeak-ocr-get-image-name (extension)
+(defsubst emacspeak-ocr-get-image-name (extension)
   "Return name of current image."
   (declare (special emacspeak-ocr-document-name
                     emacspeak-ocr-last-page-number))
@@ -187,7 +187,7 @@ will be placed."
           (1+ emacspeak-ocr-last-page-number)
           extension))
 
-(defun emacspeak-ocr-get-page-name ()
+(defsubst emacspeak-ocr-get-page-name ()
   "Return name of current page."
   (declare (special emacspeak-ocr-document-name
                     emacspeak-ocr-current-page-number))
@@ -205,7 +205,7 @@ will be placed."
     emacspeak-ocr-last-page-number)
   "Mode line format for OCR buffer.")
 
-(defun emacspeak-ocr-get-mode-line-format ()
+(defsubst emacspeak-ocr-get-mode-line-format ()
   "Return string suitable for use as the mode line."
   (declare (special major-mode
                     emacspeak-ocr-current-page-number))
@@ -215,7 +215,7 @@ will be placed."
           emacspeak-ocr-last-page-number
           major-mode))
 
-(defun emacspeak-ocr-update-mode-line()
+(defsubst emacspeak-ocr-update-mode-line()
   "Update mode line for OCR mode."
   (declare (special mode-line-format))
   (setq mode-line-format
@@ -665,7 +665,7 @@ correctly by themselves."
       (emacspeak-speak-line)
       (emacspeak-auditory-icon 'large-movement))))
 
-(defun emacspeak-ocr-goto-page (page)
+(defsubst emacspeak-ocr-goto-page (page)
   "Move to specified page."
   (declare (special emacspeak-ocr-page-positions))
   (goto-char

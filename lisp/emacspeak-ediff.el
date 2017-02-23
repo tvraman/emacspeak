@@ -92,11 +92,11 @@
 (defadvice ediff-setup-control-buffer (after emacspeak pre act)
   (setq emacspeak-ediff-control-buffer (ad-get-arg 0)))
 
-(defun emacspeak-ediff-control-panel ()
+(defsubst emacspeak-ediff-control-panel ()
   (declare (special emacspeak-ediff-control-buffer))
   emacspeak-ediff-control-buffer)
 
-(defun emacspeak-ediff-difference-a-overlay (n)
+(defsubst emacspeak-ediff-difference-a-overlay (n)
   (declare (special ediff-difference-vector-A
                     ediff-number-of-differences))
   (assert (< n ediff-number-of-differences) t
@@ -104,7 +104,7 @@
           ediff-number-of-differences)
   (aref (aref ediff-difference-vector-A n) 0))
 
-(defun emacspeak-ediff-difference-b-overlay (n)
+(defsubst emacspeak-ediff-difference-b-overlay (n)
   (declare (special ediff-difference-vector-B
                     ediff-number-of-differences))
   (assert (< n ediff-number-of-differences) t
@@ -112,7 +112,7 @@
           ediff-number-of-differences)
   (aref (aref ediff-difference-vector-B n) 0))
 
-(defun emacspeak-ediff-difference-c-overlay (n)
+(defsubst emacspeak-ediff-difference-c-overlay (n)
   (declare (special ediff-difference-vector-B
                     ediff-difference-vector-C
                     ediff-number-of-differences))
@@ -121,7 +121,7 @@
           ediff-number-of-differences)
   (aref (aref ediff-difference-vector-C n) 0))
 
-(defun emacspeak-ediff-fine-difference-a-overlays (n)
+(defsubst emacspeak-ediff-fine-difference-a-overlays (n)
   (declare (special ediff-difference-vector-A
                     ediff-number-of-differences))
   (assert (< n ediff-number-of-differences) t
@@ -129,7 +129,7 @@
           ediff-number-of-differences)
   (aref (aref ediff-difference-vector-A n) 1))
 
-(defun emacspeak-ediff-fine-difference-b-overlays (n)
+(defsubst emacspeak-ediff-fine-difference-b-overlays (n)
   (declare (special ediff-difference-vector-B
                     ediff-number-of-differences))
   (assert (< n ediff-number-of-differences) t
@@ -137,7 +137,7 @@
           ediff-number-of-differences)
   (aref (aref ediff-difference-vector-B n) 1))
 
-(defun emacspeak-ediff-fine-difference-c-overlays (n)
+(defsubst emacspeak-ediff-fine-difference-c-overlays (n)
   (declare (special ediff-difference-vector-B
                     ediff-difference-vector-C
                     ediff-number-of-differences))
@@ -146,16 +146,16 @@
           ediff-number-of-differences)
   (aref (aref ediff-difference-vector-C n) 1))
 
-(defun emacspeak-ediff-difference-fine-diff (difference)
+(defsubst emacspeak-ediff-difference-fine-diff (difference)
   (aref difference 2))
 
 ;;}}}
 ;;{{{ Diff Overlay Accessors:
 
-(defun emacspeak-ediff-diff-overlay-from-difference (diff counter)
+(defsubst emacspeak-ediff-diff-overlay-from-difference (diff counter)
   (aref (aref diff counter) 0))
 
-(defun emacspeak-ediff-fine-overlays-from-difference (diff counter)
+(defsubst emacspeak-ediff-fine-overlays-from-difference (diff counter)
   (aref (aref diff counter) 1))
 
 ;;}}}

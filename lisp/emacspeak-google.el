@@ -388,7 +388,7 @@ This variable is buffer-local.")
 ;;; prefix: http://www.google.com/url?q=
 ;;; Suffix: &sa=...
 
-(defun emacspeak-google-canonicalize-result-url (url)
+(defsubst emacspeak-google-canonicalize-result-url (url)
   "Strip out the actual result URL from the redirect wrapper."
   (declare (special emacspeak-websearch-google-use-https))
   (url-unhex-string
@@ -396,7 +396,7 @@ This variable is buffer-local.")
               (if emacspeak-websearch-google-use-https 29 28)
               (string-match "&sa=" url))))
 
-(defun emacspeak-google-result-url-prefix ()
+(defsubst emacspeak-google-result-url-prefix ()
   "Return prefix of result urls."
   (declare (special emacspeak-websearch-google-use-https))
   (format "%s://www.google.com/url?q="
@@ -456,7 +456,7 @@ This variable is buffer-local.")
                (or emacspeak-google-query
                    (gweb-google-autocomplete))))))))
 
-(defun emacspeak-google-toolbelt-names ()
+(defsubst emacspeak-google-toolbelt-names ()
   "Return memoized cache of names."
   (declare (special emacspeak-google-toolbelt-names))
   (or emacspeak-google-toolbelt-names
@@ -465,7 +465,7 @@ This variable is buffer-local.")
              for b in emacspeak-google-toolbelt
              collect (emacspeak-google-tool-name b)))))
 
-(defun emacspeak-google-toolbelt-names-from-toolbelt (toolbelt)
+(defsubst emacspeak-google-toolbelt-names-from-toolbelt (toolbelt)
   "Return list of names in toolbelt."
   (loop
    for b in toolbelt

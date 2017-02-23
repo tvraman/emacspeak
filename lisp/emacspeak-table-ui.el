@@ -205,7 +205,7 @@ Full List Of Keybindings:
 ;;}}}
 ;;{{{  speaking current entry
 
-(defun emacspeak-table-synchronize-display ()
+(defsubst emacspeak-table-synchronize-display ()
   "Bring visual display in sync with internal representation"
   (declare (special emacspeak-table positions))
   (let ((row (emacspeak-table-current-row emacspeak-table))
@@ -222,7 +222,7 @@ Full List Of Keybindings:
                     (+ (/ width  2)
                        (window-hscroll))))))
 
-(defun  emacspeak-table-speak-coordinates ()
+(defsubst  emacspeak-table-speak-coordinates ()
   "Speak current table coordinates."
   (interactive)
   (declare (special emacspeak-table))
@@ -231,7 +231,7 @@ Full List Of Keybindings:
            (emacspeak-table-current-row emacspeak-table)
            (emacspeak-table-current-column emacspeak-table)))
 
-(defun  emacspeak-table-speak-dimensions ()
+(defsubst  emacspeak-table-speak-dimensions ()
   "Speak current table dimensions."
   (interactive)
   (declare (special emacspeak-table))
@@ -308,7 +308,7 @@ Full List Of Keybindings:
      (concat row-head " " col-head
              (format " %s" element)))))
 
-(defun emacspeak-table-get-entry-with-headers  (row column &optional row-head-p col-head-p)
+(defsubst emacspeak-table-get-entry-with-headers  (row column &optional row-head-p col-head-p)
   "Return table element. Optional args specify  if we return any headers."
   (declare (special emacspeak-table))
   (assert  (boundp 'emacspeak-table) nil "No table here")
@@ -477,13 +477,13 @@ Optional prefix arg prompts for a new filter."
 
 ;;{{{ csv helpers:
 
-(defun ems-csv-forward-field ()
+(defsubst ems-csv-forward-field ()
   "Skip forward over one field."
   (if (eq (following-char) ?\")
       (forward-sexp)
     (skip-chars-forward "^,\n")))
 
-(defun ems-csv-backward-field ()
+(defsubst ems-csv-backward-field ()
   "Skip backward over one field."
   (if (eq (preceding-char) ?\")
       (backward-sexp)
@@ -557,7 +557,7 @@ the documentation on the table browser."
     (kill-buffer data)
     (emacspeak-table-prepare-table-buffer table buffer filename)))
 
-(defun ems-csv-get-fields ()
+(defsubst ems-csv-get-fields ()
   "Return list of fields on this line."
   (let ((fields nil)
         (this-field nil)
@@ -995,11 +995,11 @@ match, makes the matching row or column current."
   "Hash table to hold mapping between major modes and mode specific
 table markup.")
 
-(defun emacspeak-table-markup-set-table (mode markup)
+(defsubst emacspeak-table-markup-set-table (mode markup)
   (declare (special emacspeak-table-markup-table))
   (setf  (gethash mode emacspeak-table-markup-table) markup))
 
-(defun emacspeak-table-markup-get-table (mode)
+(defsubst emacspeak-table-markup-get-table (mode)
   (declare (special emacspeak-table-markup-table))
   (or (gethash mode emacspeak-table-markup-table)
       (gethash 'fundamental-mode emacspeak-table-markup-table)))

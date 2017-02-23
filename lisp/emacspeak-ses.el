@@ -55,20 +55,20 @@
 
 ;;; these additional accessors are defined in terms of the
 ;;;earlier helpers by Emacspeak.
-(defun emacspeak-ses-current-cell-symbol ()
+(defsubst emacspeak-ses-current-cell-symbol ()
   "Return symbol for current cell."
   (or 
    (get-text-property (point) 'cursor-intangible)
    (get-text-property (point) 'intangible)))
 
-(defun emacspeak-ses-current-cell-value ()
+(defsubst emacspeak-ses-current-cell-value ()
   "Return current cell value."
   (declare (special ses--named-cell-hashmap ses--cells))
   (ses-cell-value
    (car (ses-sym-rowcol (emacspeak-ses-current-cell-symbol)))
    (cdr (ses-sym-rowcol (emacspeak-ses-current-cell-symbol)))))
 
-(defun emacspeak-ses-get-cell-value-by-name (cell-name)
+(defsubst emacspeak-ses-get-cell-value-by-name (cell-name)
   "Return current  value of cell specified by name."
   (declare (special ses--named-cell-hashmap ses--cells))
   (ses-cell-value

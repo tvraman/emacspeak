@@ -143,7 +143,7 @@ spoken.")
   :type 'string
   :group 'emacspeak-erc)
 
-(defun emacspeak-erc-read-person (action)
+(defsubst emacspeak-erc-read-person (action)
   "Helper to prompt for and read person in ERC."
   (read-from-minibuffer
    (format "%s person" action)

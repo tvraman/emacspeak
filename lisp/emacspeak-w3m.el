@@ -118,7 +118,7 @@ instead of the modeline."
         (byte-compile '(lambda (form name)
                          (w3m-form-get form name)))))
 
-(defun emacspeak-w3m-personalize-string (string personality)
+(defsubst emacspeak-w3m-personalize-string (string personality)
   (let ((newstring (copy-sequence string)))
     (put-text-property 0 (length newstring)
                        'personality personality

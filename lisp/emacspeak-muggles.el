@@ -185,7 +185,7 @@ Also turn on hydra-is-helpful if it was turned off."
 (setq hydra-head-format "%s "
       hydra-lv nil)
 
-(defun emacspeak-muggles-self-help (name)
+(defsubst emacspeak-muggles-self-help (name)
   "Speak hint for specified Hydra."
   (message (eval (symbol-value (intern (format "%s/hint" name))))))
 

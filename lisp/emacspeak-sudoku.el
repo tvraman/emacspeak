@@ -145,7 +145,7 @@ s   Sub-square Distribution.
                                     (first cell))
                     3)))
 
-(defun emacspeak-sudoku-cell-sub-square (cell)
+(defsubst emacspeak-sudoku-cell-sub-square (cell)
   "Return sub-square that this cell is in."
   (let ((row (second cell))
         (column (first cell)))
@@ -299,7 +299,7 @@ s   Sub-square Distribution.
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)))
 
-(defun emacspeak-sudoku-sub-square-cells (square)
+(defsubst emacspeak-sudoku-sub-square-cells (square)
   "Return list of cells in sub-square."
   (let ((row-start (* (/ square 3)  3)) 
         (col-start (* (% square 3)  3)))

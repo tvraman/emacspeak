@@ -122,7 +122,7 @@
 (defvar emacspeak-arc-header-list-format nil
   "Field names in the header line")
 
-(defun emacspeak-arc-get-header-line-format ()
+(defsubst emacspeak-arc-get-header-line-format ()
   "Return  header line format vector, after
 first initializing it if necessary."
   (declare (special emacspeak-arc-header-list-format))
@@ -141,7 +141,7 @@ first initializing it if necessary."
                    (list f i)
                    emacspeak-arc-header-list-format)))))
   emacspeak-arc-header-list-format)
-(defun emacspeak-arc-get-field-index (field)
+(defsubst emacspeak-arc-get-field-index (field)
   (let ((marked-p (save-excursion
                     (beginning-of-line)
                     (= ?\  (following-char))))

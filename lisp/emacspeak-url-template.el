@@ -1354,7 +1354,7 @@ extension:<ext> Filter by file extension
     (kill-new url)
     (funcall fetcher url)))
 
-(defun emacspeak-url-template-help-internal (name)
+(defsubst emacspeak-url-template-help-internal (name)
   "Display and speak help."
   (with-output-to-temp-buffer "*Help*"
     (princ name)

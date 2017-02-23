@@ -121,9 +121,15 @@ such as pronunciation dictionaries are stored. ")
      "$"))
   "Extensions that match media files.")
 
+(defvar  emacspeak-m-player-playlist-pattern
+  (concat
+   (regexp-opt
+    (list ".m3u" ".asx" ".pls" ".rpm" ".ram"))
+   "$")
+  "Pattern for matching playlists.")
 
 ;;;###autoload
-(defun emacspeak-xslt-get (style)
+(defsubst emacspeak-xslt-get (style)
   "Return fully qualified stylesheet path."
   (expand-file-name style emacspeak-xslt-directory))
 

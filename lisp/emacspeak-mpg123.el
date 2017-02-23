@@ -56,7 +56,7 @@
 ;;{{{ helpers 
 ;;; Forward declaration
 (defvar mpg123-mode-map nil)
-(defun emacspeak-mpg123-current-track ()
+(defsubst emacspeak-mpg123-current-track ()
   "Return current rtrack number if on a valid line."
   (when (mpg123:in-music-list-p)
     (let ((start nil))
@@ -68,14 +68,14 @@
         (string-to-number (buffer-substring-no-properties
                            start (point)))))))
 
-(defun emacspeak-mpg123-get-music-info (n attr)
+(defsubst emacspeak-mpg123-get-music-info (n attr)
   "Return attribute from music alist.
 mpg123 defines this as a macro which causes compile trouble."
   (declare (special mpg123*music-alist))
   (cdr (assq attr
              (assoc n mpg123*music-alist))))
 
-(defun emacspeak-mpg123-speak-line ()
+(defsubst emacspeak-mpg123-speak-line ()
   "Speak just the title"
   (emacspeak-mpg123-speak-title))
 ;;}}}

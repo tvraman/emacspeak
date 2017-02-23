@@ -165,7 +165,7 @@ STRING is the token's text."
 
 ;;; Return t if this line matches the specified prefix spec
 
-(defun emacspeak-hide-prefix-matches-this-line (prefix)
+(defsubst emacspeak-hide-prefix-matches-this-line (prefix)
   (unless (eobp)
     (string-equal (nth 2 prefix)
                   (buffer-substring-no-properties  (point)
@@ -301,7 +301,7 @@ Returns t if a block was found and hidden."
 ;;}}}
 ;;{{{ User interface
 ;;;helper to get prefix
-(defun emacspeak-hide-get-block-prefix ()
+(defsubst emacspeak-hide-get-block-prefix ()
   (declare (special emacspeak-hide-prefix-token-table))
   (let ((block-prefix nil))
     (or (emacspeak-hide-parse-prefix)

@@ -125,7 +125,7 @@
       (emacspeak-feeds-cache-feeds))
   :group 'emacspeak-feeds)
 
-(defun emacspeak-feeds-added-p (feed-url)
+(defsubst emacspeak-feeds-added-p (feed-url)
   "Check if this feed has been added before."
   (declare (special emacspeak-feeds-feeds-table))
   (gethash feed-url emacspeak-feeds-feeds-table))

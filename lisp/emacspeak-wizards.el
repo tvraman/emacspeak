@@ -498,7 +498,7 @@ To leave, press \\[keyboard-quit]."
 ;;}}}
 ;;{{{ labelled frames
 
-(defun emacspeak-frame-read-frame-label ()
+(defsubst emacspeak-frame-read-frame-label ()
   "Read a frame label with completion."
   (interactive)
   (let* ((frame-names-alist (make-frame-names-alist))
@@ -1165,7 +1165,7 @@ Extracted content is sent to STDOUT."
 ;;; e.g. an email message to be sent out--
 ;;; while reading and commenting on large documents.
 
-(defun emacspeak-annotate-make-buffer-list  (&optional buffer-list)
+(defsubst emacspeak-annotate-make-buffer-list  (&optional buffer-list)
   "Returns names from BUFFER-LIST excluding those beginning with a space."
   (let (buf-name)
     (delq nil (mapcar
@@ -1275,7 +1275,7 @@ annotation is inserted into the working buffer when complete."
 ;;}}}
 ;;{{{ auto mode alist utility
 
-(defun emacspeak-wizards-augment-auto-mode-alist (ext mode)
+(defsubst emacspeak-wizards-augment-auto-mode-alist (ext mode)
   "Add to auto-mode-alist."
   (declare (special auto-mode-alist))
   (setq auto-mode-alist
@@ -1561,7 +1561,7 @@ visiting the DVI file."
           (string))
   :group 'emacspeak-wizards)
 
-(defun emacspeak-wizards-find-quote-arg-if-necessary (switch arg)
+(defsubst emacspeak-wizards-find-quote-arg-if-necessary (switch arg)
   "Quote find arg if necessary."
   (declare (special emacspeak-wizards-find-switches-that-need-quoting))
   (if (member switch emacspeak-wizards-find-switches-that-need-quoting)
@@ -2301,7 +2301,7 @@ This is for use in conjunction with bash to allow multiple emacs
 
 ;;}}}
 ;;{{{ Next/Previous shell:
-(defun emacspeak-wizards-get-shells ()
+(defsubst emacspeak-wizards-get-shells ()
   "Return list of shell buffers."
   (remove-if-not
    #'(lambda (buffer)
@@ -2348,7 +2348,7 @@ When called from a shell buffer, switches to `next' shell buffer."
    (t (call-interactively 'emacspeak-wizards-next-shell))))
 ;;}}}
 ;;{{{ show commentary:
-(defun ems-cleanup-commentary (commentary)
+(defsubst ems-cleanup-commentary (commentary)
   "Cleanup commentary."
   (save-excursion
     (set-buffer
@@ -2592,7 +2592,7 @@ term if needed."
               emacspeak-wizards-espeak-voices-alist))
       (forward-line 1))))
 
-(defun emacspeak-wizards-espeak-get-voice-code ()
+(defsubst emacspeak-wizards-espeak-get-voice-code ()
   "Read and return ESpeak voice code with completion."
   (declare (special emacspeak-wizards-espeak-voices-alist))
   (or emacspeak-wizards-espeak-voices-alist
@@ -3199,12 +3199,12 @@ Symbols are taken from `emacspeak-wizards-personal-portfolio'."
   "URI Rest end-point template for standings in a given sport.
 At present, handles mlb, nba.")
 
-(defun emacspeak-wizards-xmlstats-standings-uri (sport)
+(defsubst emacspeak-wizards-xmlstats-standings-uri (sport)
   "Return REST URI end-point,
 where `sport' is either mlb or nba."
   (format emacspeak-wizards--xmlstats-standings-uri sport))
 
-(defun emacspeak-wizards--format-mlb-standing (s)
+(defsubst emacspeak-wizards--format-mlb-standing (s)
   "Format  MLB standing."
   (let-alist  s
     (format
@@ -3246,7 +3246,7 @@ Optional interactive prefix arg shows  unprocessed results."
       (goto-char (point-min))
       (funcall-interactively #'switch-to-buffer buffer))))
 
-(defun emacspeak-wizards--format-nba-standing (s)
+(defsubst emacspeak-wizards--format-nba-standing (s)
   "Format  NBA standing."
   (let-alist  s
     (format

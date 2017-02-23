@@ -1386,7 +1386,7 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
 ;;; helper function: find out vc version:
 
 ;;; guess the vc version number from the variable used in minor mode alist
-(defun emacspeak-vc-get-version-id ()
+(defsubst emacspeak-vc-get-version-id ()
   "Return VC version id."
   (declare (special vc-mode))
   (let ((id vc-mode))
@@ -1730,7 +1730,7 @@ Indicate change of selection with an auditory icon
       (goto-char (point-min))
       (forward-line (window-height))
       (emacspeak-speak-region (point-min) (point)))))
-(defun ems-canonicalize-key-description (desc)
+(defsubst ems-canonicalize-key-description (desc)
   "Change key description to a speech-friendly form."
   (let ((shift-regexp "S-\\(.\\)")
         (ctrl-regexp "C-\\(.\\)")
@@ -2172,13 +2172,13 @@ Produce an auditory icon if possible."
 ;;; ISearch setup/teardown
 
 ;;; Produce auditory icon
-(defun emacspeak-isearch-setup()
+(defsubst emacspeak-isearch-setup()
   "Setup emacspeak environment for isearch."
   (emacspeak-auditory-icon 'open-object)
   (setq emacspeak-speak-messages nil)
   (dtk-speak "I-Search: "))
 
-(defun emacspeak-isearch-teardown()
+(defsubst emacspeak-isearch-teardown()
   "Teardown emacspeak environment for isearch."
   (setq emacspeak-speak-messages t)
   (emacspeak-auditory-icon 'close-object))
@@ -2408,7 +2408,7 @@ Produce auditory icons if possible."
 ;;}}}
 ;;{{{ set up clause boundaries for specific modes:
 
-(defun emacspeak-speak-adjust-clause-boundaries ()
+(defsubst emacspeak-speak-adjust-clause-boundaries ()
   "Adjust clause boundaries so that newlines dont delimit clauses."
   (declare (special dtk-chunk-separator-syntax))
   (setq dtk-chunk-separator-syntax ".)$\""))

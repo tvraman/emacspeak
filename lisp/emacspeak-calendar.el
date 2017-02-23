@@ -76,7 +76,7 @@
                  #'(lambda (a b)
                      (string-lessp (cadr a) (cadr b)))))))
 
-(defun emacspeak-calendar-entry-marked-p()
+(defsubst emacspeak-calendar-entry-marked-p()
   "Check if diary entry is marked. "
   (member 'diary
           (delq nil

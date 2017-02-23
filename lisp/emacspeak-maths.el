@@ -128,12 +128,12 @@
 
 (defvar emacspeak-maths-handler-table (make-hash-table :test #'eq)
   "Map of handlers for parsing Maths Server output.")
-(defun emacspeak-maths-handler-set (name handler)
+(defsubst emacspeak-maths-handler-set (name handler)
   "Set up handler for name `name'."
   (declare (special emacspeak-maths-handler-table))
   (puthash name handler emacspeak-maths-handler-table))
 
-(defun emacspeak-maths-handler-get (name)
+(defsubst emacspeak-maths-handler-get (name)
   "Return handler  for name `name'.
 Throw error if no handler defined."
   (declare (special emacspeak-maths-handler-table))

@@ -194,7 +194,7 @@ charsets returned by operations such as `find-charset-region'."
                            (memq (char-charset char) charsets)))
   )
 
-(defun dtk-unicode-char-untouched-p (char)
+(defsubst dtk-unicode-char-untouched-p (char)
   "Return t if char is a member of one of the charsets in dtk-unicode-untouched-charsets."
   (dtk-unicode-char-in-charsets-p char dtk-unicode-untouched-charsets))
 
@@ -211,7 +211,7 @@ charsets returned by operations such as `find-charset-region'."
           (puthash char ad-return-value dtk-unicode-cache))
       (setq ad-return-value result))))
 
-(defun dtk-unicode-name-for-char (char)
+(defsubst dtk-unicode-name-for-char (char)
   "Return unicode name for character CHAR.
 nil if CHAR is not in Unicode."
   (cond
@@ -222,23 +222,23 @@ nil if CHAR is not in Unicode."
       (get-char-code-property char 'name)
       (get-char-code-property char 'old-name)
       (format "%c" char))))))
-(defun dtk-unicode-char-properties (char)
+(defsubst dtk-unicode-char-properties (char)
   "Return unicode properties for CHAR."
   (let ((unicode (encode-char char 'ucs)))
     (when unicode (describe-char-unicode-data unicode))))
 
-(defun dtk-unicode-char-property (char prop-name)
+(defsubst dtk-unicode-char-property (char prop-name)
   "Get character property by name."
   (second (assoc prop-name (dtk-unicode-char-properties char))))
 
-(defun dtk-unicode-char-punctuation-p (char)
+(defsubst dtk-unicode-char-punctuation-p (char)
   "Use unicode properties to determine whether CHAR is a ppunctuation character."
   (let ((category (dtk-unicode-char-property char "Category"))
         (case-fold-search t))
     (when (stringp category)
       (string-match "punctuation" category))))
 
-(defun dtk-unicode-apply-name-transformation-rules (name)
+(defsubst dtk-unicode-apply-name-transformation-rules (name)
   "Apply transformation rules in dtk-unicode-name-transformation-rules-alist to NAME."
   (funcall
    (or (assoc-default name dtk-unicode-name-transformation-rules-alist 'string-match)
@@ -268,11 +268,11 @@ When called interactively, CHAR defaults to the character after point."
 ;;}}}
 ;;{{{ Character replacement handlers
 
-(defun dtk-unicode-user-table-handler (char)
+(defsubst dtk-unicode-user-table-handler (char)
   "Return user defined replacement character if it exists."
   (cdr (assq char dtk-unicode-character-replacement-alist)))
 
-(defun dtk-unicode-full-table-handler (char)
+(defsubst dtk-unicode-full-table-handler (char)
   "Uses the unicode data file to find the name of CHAR."
   (let ((char-desc (dtk-unicode-name-for-char char)))
     (when char-desc

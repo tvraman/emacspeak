@@ -105,7 +105,7 @@
 ;;{{{ cumulative personalities
 
 ;;;###autoload
-(defun emacspeak-personality-put (start end personality &optional object)
+(defsubst emacspeak-personality-put (start end personality &optional object)
   "Apply personality to specified region, over-writing any current personality settings."
   (when
       (and personality
@@ -231,12 +231,12 @@ Preserve other existing personality properties on the text range."
 ;;}}}
 ;;{{{ helper: face-p
 
-(defun emacspeak-personality-plist-face-p (plist)
+(defsubst emacspeak-personality-plist-face-p (plist)
   "Check if plist contains a face setting."
   (or (memq 'face plist)
       (memq 'font-lock-face plist)))
 
-(defun ems-plain-cons-p (value)
+(defsubst ems-plain-cons-p (value)
   "Help identify (a . b)."
   (and (consp value)
        (equal value (last value))

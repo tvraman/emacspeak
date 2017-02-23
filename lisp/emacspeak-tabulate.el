@@ -51,10 +51,10 @@
 ;;{{{  helper functions:
 
 ;;; An interval is a cons of start and end 
-(defun ems-make-interval (start end) (cons start end))
-(defun ems-interval-start (interval) (car interval))
-(defun ems-interval-end (interval) (cdr interval))
-(defun ems-intersect-intervals (i1 i2)
+(defsubst ems-make-interval (start end) (cons start end))
+(defsubst ems-interval-start (interval) (car interval))
+(defsubst ems-interval-end (interval) (cdr interval))
+(defsubst ems-intersect-intervals (i1 i2)
   (let  ((i (cons (max (ems-interval-start i1)
                        (ems-interval-start i2))
                   (min (ems-interval-end i1)
