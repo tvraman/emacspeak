@@ -540,7 +540,7 @@ Argument MODE  specifies the current pronunciation mode."
   (let ((inhibit-read-only t))
 ;;; dtk will think it's processing a command otherwise:
     (dtk-fix-brackets mode)
-    (dtk-fix-null-char mode)
+    ;(dtk-fix-null-char mode)
 ;;; fix control chars
     (dtk-fix-control-chars)))
 
