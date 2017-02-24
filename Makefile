@@ -39,15 +39,10 @@
 MAKE=make
 prefix = /usr
 SRC = $(shell pwd)
-
-# }}}
-# {{{ setup distribution
-
-# source files to distribute
 README = README
 
 # }}}
-# {{{  User level targets emacspeak info 
+# {{{  User level targets emacspeak info  outloud espeak 
 
 emacspeak:
 	test -f  lisp/emacspeak-loaddefs.el || ${MAKE} config
