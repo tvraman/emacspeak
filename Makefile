@@ -66,7 +66,7 @@ servers/linux-espeak/tclespeak.so
 OUTLOUD=${ECI}/eci.ini \
 ${ECI}/*.h \
 ${ECI}/*.cpp \
-${ECI}/ALSA ${ECI}/asoundrc \
+${ECI}/asoundrc \
 ${ECI}/atcleci.so ${ECI}/Makefile
 
 NEWS = etc/NEWS*  etc/COPYRIGHT \
