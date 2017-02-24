@@ -44,7 +44,7 @@ SRC = $(shell pwd)
 # {{{ setup distribution
 
 # source files to distribute
-ID = README
+README = README
 
 # }}}
 # {{{  User level targets emacspeak info 
@@ -52,8 +52,8 @@ ID = README
 emacspeak:
 	test -f  lisp/emacspeak-loaddefs.el || ${MAKE} config
 	cd lisp; $(MAKE)
-	touch   $(ID)
-	chmod 644 $(ID)
+	touch   $(README)
+	chmod 644 $(README)
 	@echo "See the NEWS file for a  summary of new features --control e cap n in Emacs"
 	@echo "See Emacspeak Customizations for customizations -- control e cap C in Emacs"
 	@echo "Use C-h p in Emacs for a package overview"
@@ -72,17 +72,15 @@ espeak:
 # {{{  Maintainance targets   dist
 
 GITVERSION=$(shell git show HEAD | head -1  | cut -b 8- )
-README: force
+README: 
 	@rm -f README
-	@echo "Emacspeak  Revision $(GITVERSION)" > $(ID)
-	@echo "Distribution created by `whoami` on `hostname`" >> $(ID)
-	@echo "Unpack the  distribution And type make config " >> $(ID)
-	@echo "Then type make" >> $(ID)
-	@echo "See the Makefile for details. " >> $(ID)
-
+	@echo "Emacspeak  Revision $(GITVERSION)" > $(README)
+	@echo "Distribution created by `whoami` on `hostname`" >> $(README)
+	@echo "Unpack the  distribution And type make config " >> $(README)
+	@echo "Then type make" >> $(README)
 EXCLUDES=-X .excludes
 dist:
-	make ${ID}
+	make ${README}
 	tar cvf  emacspeak.tar $(EXCLUDES) .
 
 # }}}
