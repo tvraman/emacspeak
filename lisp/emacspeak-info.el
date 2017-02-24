@@ -92,7 +92,7 @@ node -- speak the entire node."
 (defun emacspeak-info-visit-node()
   "Apply requested action upon visiting a node."
   (declare (special emacspeak-info-select-node-speak-chunk))
-  (emacspeak-auditory-icon 'select-object)
+  (emacspeak-auditory-icon 'open-object)
   (cond
    ((eq emacspeak-info-select-node-speak-chunk 'screenfull)
     (emacspeak-info-speak-current-window))
