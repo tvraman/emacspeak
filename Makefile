@@ -131,7 +131,7 @@ README: force
 force:
 
 EXCLUDES= --exclude='.git' \
---exclude='*.elc' --exclude='*.o' --exclude='*.so' --exclude='*/.libs'
+--exclude='*.elc' --exclude='*.o' --exclude='*.so' --exclude='*/libs'
 
 tar:
 	make ${ID}
