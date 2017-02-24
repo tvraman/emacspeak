@@ -7,6 +7,7 @@
 .excludes
 .git
 .git*
+.indent.pro
 32-outloud
 32-speech-server
 TAGS
