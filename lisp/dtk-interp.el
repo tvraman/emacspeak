@@ -42,7 +42,7 @@
 ;;; Commentary:
 ;;; All requests to the speech server are factored out into
 ;;; this module.
-;;; These calls are declared here as defsubst so they are
+;;; These calls are declared here as defun so they are
 ;;; inlined by the byte compiler.
 ;;; This  keeps the code efficient,
 ;;; but gives us the flexibility to call out to different
@@ -84,7 +84,7 @@
 ;;}}}
 ;;{{{ silence
 
-(defsubst dtk-interp-silence (duration force)
+(defun dtk-interp-silence (duration force)
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "sh %d%s\n"
@@ -94,7 +94,7 @@
 ;;}}}
 ;;{{{  tone
 
-(defsubst dtk-interp-tone (pitch duration &optional force)
+(defun dtk-interp-tone (pitch duration &optional force)
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "t %d %d%s\n"
@@ -103,17 +103,17 @@
 ;;}}}
 ;;{{{  queue
 
-(defsubst dtk-interp-queue (text)
+(defun dtk-interp-queue (text)
   (declare (special dtk-speaker-process))
   (unless (string-match "^[\s]+$"  text)
     (process-send-string dtk-speaker-process (format "q {%s }\n" text))))
 
-(defsubst dtk-interp-queue-code (code)
+(defun dtk-interp-queue-code (code)
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "c {%s }\n" code)))
 
-(defsubst dtk-interp-queue-set-rate(rate)
+(defun dtk-interp-queue-set-rate(rate)
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "r {%s}\n" rate)))
@@ -121,14 +121,14 @@
 ;;}}}
 ;;{{{  speak
 
-(defsubst dtk-interp-speak ()
+(defun dtk-interp-speak ()
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process "d\n"))
 
 ;;}}}
 ;;{{{ say
 
-(defsubst dtk-interp-say (string)
+(defun dtk-interp-say (string)
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process (format  "tts_say { %s}\n" string)))
 
@@ -136,14 +136,14 @@
 
 ;;{{{ stop
 
-(defsubst dtk-interp-stop ()
+(defun dtk-interp-stop ()
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process "s\n"))
 
 ;;}}}
 ;;{{{ sync
 
-(defsubst dtk-interp-sync()
+(defun dtk-interp-sync()
   (declare (special dtk-speaker-process
                     dtk-punctuation-mode dtk-speech-rate
                     dtk-capitalize dtk-split-caps
@@ -159,7 +159,7 @@
 ;;}}}
 ;;{{{  letter
 
-(defsubst dtk-interp-letter (letter)
+(defun dtk-interp-letter (letter)
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "l {%s}\n" letter)))
@@ -167,27 +167,27 @@
 ;;}}}
 ;;{{{  language
 
-(defsubst dtk-interp-next-language (&optional say_it)
+(defun dtk-interp-next-language (&optional say_it)
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "set_next_lang %s\n" say_it)))
 
-(defsubst dtk-interp-previous-language (&optional say_it)
+(defun dtk-interp-previous-language (&optional say_it)
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "set_previous_lang %s\n" say_it)))
 
-(defsubst dtk-interp-language (language say_it)
+(defun dtk-interp-language (language say_it)
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "set_lang %s %s \n" language say_it)))
 
-(defsubst dtk-interp-preferred-language (alias language)
+(defun dtk-interp-preferred-language (alias language)
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "set_preferred_lang %s %s \n" alias language)))
 
-(defsubst dtk-interp-list-language ()
+(defun dtk-interp-list-language ()
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "list_lang\n")))
@@ -195,12 +195,12 @@
 ;;}}}
 ;;{{{  rate
 
-(defsubst dtk-interp-say-version ()
+(defun dtk-interp-say-version ()
   "Speak version."
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process "version\n"))
 
-(defsubst dtk-interp-set-rate (rate)
+(defun dtk-interp-set-rate (rate)
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "tts_set_speech_rate %s\n"
@@ -209,7 +209,7 @@
 ;;}}}
 ;;{{{ character scale
 
-(defsubst dtk-interp-set-character-scale (factor)
+(defun dtk-interp-set-character-scale (factor)
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "tts_set_character_scale %s\n"
@@ -218,7 +218,7 @@
 ;;}}}
 ;;{{{  split caps
 
-(defsubst dtk-interp-toggle-split-caps (flag)
+(defun dtk-interp-toggle-split-caps (flag)
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "tts_split_caps %s\n"
@@ -227,7 +227,7 @@
 ;;}}}
 ;;{{{ capitalization
 
-(defsubst dtk-interp-toggle-capitalization (flag)
+(defun dtk-interp-toggle-capitalization (flag)
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "tts_capitalize  %s\n"
@@ -236,7 +236,7 @@
 ;;}}}
 ;;{{{ allcaps beep
 
-(defsubst dtk-interp-toggle-allcaps-beep  (flag)
+(defun dtk-interp-toggle-allcaps-beep  (flag)
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process
                        (format "tts_allcaps_beep  %s\n"
@@ -245,7 +245,7 @@
 ;;}}}
 ;;{{{ punctuations
 
-(defsubst dtk-interp-set-punctuations(mode)
+(defun dtk-interp-set-punctuations(mode)
   (declare (special dtk-speaker-process))
   (process-send-string
    dtk-speaker-process
@@ -254,7 +254,7 @@
 ;;}}}
 ;;{{{ reset
 
-(defsubst dtk-interp-reset-state ()
+(defun dtk-interp-reset-state ()
   (declare (special dtk-speaker-process))
   (process-send-string dtk-speaker-process "tts_reset \n"))
 
