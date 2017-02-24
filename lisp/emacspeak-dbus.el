@@ -101,9 +101,9 @@ Startup  apps that need the network."
   (setq emacspeak-speak-network-interfaces-list
         (mapcar #'car (network-interface-list)))
   (when (featurep 'jabber)
-    (run-at-time 30 nil #'jabber-connect-all))
+    (run-at-time 3 nil #'jabber-connect-all))
   (when (featurep 'twittering-mode)
-    (run-at-time 60 nil #'twittering-start))
+    (run-at-time 5 nil #'twittering-start))
   (emacspeak-auditory-icon 'network-up)
   (message
    (mapconcat #'identity emacspeak-speak-network-interfaces-list "")))
