@@ -78,6 +78,7 @@
 
 ;;}}}
 ;;{{{ ScreenSaver Mode:
+
 (define-derived-mode emacspeak-screen-saver-mode special-mode
   "Screen Saver Mode"
   "A light-weight mode for the `*Emacspeak Screen Saver *' buffer.
@@ -85,7 +86,7 @@ This is a hidden buffer that is made current so we automatically
 switch to a screen-saver soundscape."
   t)
 (defun emacspeak-screen-saver ()
-  "Initialize screen-saver buffer  if needed, return it."
+  "Initialize screen-saver buffer  if needed, and switch to  it."
   (let ((buffer (get-buffer-create "*Emacspeak Screen Saver*")))
     (with-current-buffer buffer (emacspeak-screen-saver-mode))
     (funcall-interactively #'switch-to-buffer buffer)))
@@ -123,6 +124,7 @@ Stop apps that use the network."
 
 ;;}}}
 ;;{{{ Sleep/Resume:
+
 (defsubst emacspeak-dbus-login1-sleep-p ()
   "Test if login1 service  sleep signal is available."
   (member
