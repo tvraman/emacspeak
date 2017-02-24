@@ -38,58 +38,13 @@
 
 MAKE=make
 prefix = /usr
-# where info files should go
-infodir = ${prefix}/share/info
-# where the emacspeak library directory should go
-libparentdir = ${prefix}/share/emacs/site-lisp
-# where  all emacspeak  files should go
-libdir =$(libparentdir)/emacspeak
-#directory where we are building
 SRC = $(shell pwd)
-INSTALL = install
-CP=cp
 
 # }}}
 # {{{ setup distribution
 
 # source files to distribute
 ID = README
-STUMPWM=stumpwm
-TABLE_SAMPLES=etc/tables/*.tab 
-FORMS =etc/forms/*.el
-MEDIA=media
-ECI=servers/linux-outloud
-ESPEAK=servers/linux-espeak/tclespeak.cpp \
-servers/linux-espeak/Makefile\
-servers/linux-espeak/tclespeak.so
-
-OUTLOUD=${ECI}/eci.ini \
-${ECI}/*.h \
-${ECI}/*.cpp \
-${ECI}/asoundrc \
-${ECI}/atcleci.so ${ECI}/Makefile
-
-NEWS = etc/NEWS*  etc/COPYRIGHT \
-etc/remote.txt etc/applications.html   etc/tips.html
-SOUNDS=sounds/classic sounds/emacspeak.mp3 \
-sounds/pan-chimes  sounds/3d
-
-TCL_PROGRAMS = servers/.servers \
-servers/dtk-exp  servers/ssh-dtk-exp\
-servers/espeak \
-servers/mac \
-servers/outloud  servers/ssh-outloud \
-servers/tts-lib.tcl \
-servers/cloud* servers/log* servers/speech-server
-PHANTOM=js/phantom/*.js
-ELISP = lisp/*.el lisp/g-client \
-lisp/Makefile
-TEMPLATES = etc/ etc/Makefile
-MISC=etc/extract-table.pl etc/ocr-client.pl \
-etc/emacspeak.xpm etc/emacspeak.jpg
-
-INFO = info/Makefile info/*.texi 
-XSL=xsl 
 
 # }}}
 # {{{  User level targets emacspeak info 
@@ -114,7 +69,7 @@ espeak:
 	cd servers/linux-espeak; $(MAKE) || echo "Cant build espeak server!"
 
 # }}}
-# {{{  Maintainance targets tar  dist
+# {{{  Maintainance targets   dist
 
 GITVERSION=$(shell git show HEAD | head -1  | cut -b 8- )
 README: force
@@ -124,8 +79,6 @@ README: force
 	@echo "Unpack the  distribution And type make config " >> $(ID)
 	@echo "Then type make" >> $(ID)
 	@echo "See the Makefile for details. " >> $(ID)
-
-force:
 
 EXCLUDES=-X .excludes
 dist:
