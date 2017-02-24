@@ -90,9 +90,6 @@ etc/emacspeak.xpm etc/emacspeak.jpg
 
 INFO = info/Makefile info/*.texi 
 XSL=xsl 
-DISTFILES =${ELISP}  ${TEMPLATES}     ${TCL_PROGRAMS} ${XSL} \
-${OUTLOUD}  ${ESPEAK} \
-${PHANTOM} ${STUMPWM} ${INFO}  ${NEWS} ${MISC} Makefile
 
 # }}}
 # {{{  User level targets emacspeak info 
@@ -185,12 +182,6 @@ cd .. ;\
 
 install:
 	@echo "Install is not supported by the source distribution."
-
-# }}}
-# {{{list distfiles to stdout
-
-list_dist:
-	ls -1  $(DISTFILES)
 
 # }}}
 # {{{ end of file
