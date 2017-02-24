@@ -34,13 +34,10 @@
 # the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 # }}}
-# {{{  Site Configuration
+# {{{ Configuration
 
-##### Site  Configuration #####
 MAKE=make
 prefix = /usr
-# where executables go
-bindir = ${prefix}/bin
 # where info files should go
 infodir = ${prefix}/share/info
 # where the emacspeak library directory should go
@@ -53,7 +50,6 @@ INSTALL = install
 CP=cp
 
 # }}}
-############## no user serviceable parts beyond this point ###################
 # {{{ setup distribution
 
 # source files to distribute
@@ -122,6 +118,7 @@ espeak:
 
 # }}}
 # {{{  Maintainance targets tar  dist
+
 GITVERSION=$(shell git show HEAD | head -1  | cut -b 8- )
 README: force
 	@rm -f README
@@ -156,8 +153,6 @@ config:
 # }}}
 # {{{  complete build
 
-#targets
-#the complete build
 all: emacspeak
 
 #clean, config and build
@@ -171,6 +166,7 @@ q:
 
 clean:
 	cd lisp; $(MAKE) clean
+
 # }}}
 # {{{ labeling releases
 
