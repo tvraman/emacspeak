@@ -1,0 +1,6 @@
+.git
+*.elc
+*.o
+*.so
+*/libs
+*/obsolete
