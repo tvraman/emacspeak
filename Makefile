@@ -130,17 +130,10 @@ README: force
 
 force:
 
-EXCLUDES= --exclude='.git' \
---exclude='*.elc' --exclude='*.o' --exclude='*.so' --exclude='*/libs'
-
-tar:
+EXCLUDES=-X .excludes
+dist:
 	make ${ID}
-	tar cvf  emacspeak.tar $(EXCLUDES) $(DISTFILES)   $(ID) \
-			  ${TABLE_SAMPLES} ${MEDIA}  ${FORMS} \
-	${SOUNDS}
-
-dist: $(DISTFILES)
-	$(MAKE) tar
+	tar cvf  emacspeak.tar $(EXCLUDES) .
 
 # }}}
 # {{{ User level target--  config
