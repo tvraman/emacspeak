@@ -136,7 +136,7 @@ first use. These credentials can be used with Google APIs after those APIs have 
   "https://www.googleapis.com/drive/v3"
   "GDrive API Base Resource URL.")
 
-(defsubst gdrive-api-method-uri (method)
+(defun gdrive-api-method-uri (method)
   "Return REST end-point for specified method."
   (concat gdrive-resource-api-base "/" method))
 

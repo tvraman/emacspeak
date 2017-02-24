@@ -109,7 +109,7 @@
   "'https://www.google.com/accounts/ClientLogin?service=%s'"
   "URL to login to Google services.")
 
-(defsubst g-auth-url (service)
+(defun g-auth-url (service)
   "Return auth URL  for specified service."
   (declare (special g-auth-url-pattern))
   (format g-auth-url-pattern
@@ -133,7 +133,7 @@
   timestamp
   post-auth-action)
 
-(defsubst g-cookie (name auth-handle)
+(defun g-cookie (name auth-handle)
   "Return cookie for `name' from auth-handle if present."
   (let ((pair (assoc name
                      (g-auth-cookie-alist auth-handle))))
@@ -143,13 +143,13 @@
   "--header 'Authorization: GoogleLogin auth=%s'"
   "HTTP authorization headers to send.")
 
-(defsubst g-authorization (auth-handle)
+(defun g-authorization (auth-handle)
   "Return authorization header."
   (declare (special g-authorization-header-format))
   (format g-authorization-header-format
           (g-cookie "Auth" auth-handle)))
 
-(defsubst g-auth-expired-p (auth-handle)
+(defun g-auth-expired-p (auth-handle)
   "Check if  token for specified service has expired."
   (or
    (and (null (g-auth-token auth-handle))

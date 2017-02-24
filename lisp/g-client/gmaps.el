@@ -73,13 +73,13 @@
   "https://maps.google.com/maps/api/geocode/json?"
   "Base URL  end-point for talking to the Google Maps Geocoding service.")
 
-(defsubst gmaps-geocoder-url (address)
+(defun gmaps-geocoder-url (address)
   "Return URL   for geocoding address."
   (declare (special gmaps-geocoder-base))
   (format "%saddress=%s&sensor=false"
           gmaps-geocoder-base address))
 
-(defsubst gmaps-reverse-geocoder-url (address)
+(defun gmaps-reverse-geocoder-url (address)
   "Return URL   for reverse geocoding location."
   (declare (special gmaps-geocoder-base))
   (format "%slatlng=%s&sensor=false"
@@ -169,7 +169,7 @@ Optional argument `raw-p' returns raw JSON  object."
   "https://maps.googleapis.com/maps/api/directions/json?sensor=false&origin=%s&destination=%s&mode=%s&departure_time=%d"
   "Base URL  end-point for talking to the Google Maps directions service.")
 
-(defsubst gmaps-directions-url (origin destination mode)
+(defun gmaps-directions-url (origin destination mode)
   "Return URL   for getting directions from origin to destination.
 Parameters 'origin' and 'destination' are  be url-encoded."
   (declare (special gmaps-directions-base))
@@ -183,7 +183,7 @@ Parameters 'origin' and 'destination' are  be url-encoded."
   "https://maps.googleapis.com/maps/api/place/%s/json?sensor=false&key=%s"
   "Base URL  end-point for talking to the Google Maps Places service.")
 
-(defsubst gmaps-places-url-base (query-type key)
+(defun gmaps-places-url-base (query-type key)
   "Return URL  for Places services.
 Parameter `query-type' is one of nearbysearch or textsearch.
 Parameter `key' is the API  key."
@@ -558,7 +558,7 @@ origin/destination may be returned as a lat,long string."
   "Currently active filter. ")
 (make-variable-buffer-local 'gmaps-current-filter)
 
-(defsubst gmaps-places-filter-as-params (filter)
+(defun gmaps-places-filter-as-params (filter)
   "Convert filter structure into URL  params."
   (let ((keyword (gmaps-places-filter-keyword filter))
         (name (gmaps-places-filter-name filter))
@@ -570,7 +570,7 @@ origin/destination may be returned as a lat,long string."
             (if type (format "&type=%s" type) "")
             (if types (format "&types=%s" (mapconcat #'identity types "|")) ""))))    
 
-(defsubst gmaps-places-filter-as-string (filter)
+(defun gmaps-places-filter-as-string (filter)
   "Convert filter structure into display-friendly string."
   (let ((keyword (gmaps-places-filter-keyword filter))
         (name (gmaps-places-filter-name filter))
@@ -581,7 +581,7 @@ origin/destination may be returned as a lat,long string."
             (if name (format "Name: %s" name) "")
             (if type (format "Type: %s" type) "")
             (if types (format "Types: %s" (mapconcat #'identity types "|")) ""))))
-(defsubst gmaps-place-read-types ()
+(defun gmaps-place-read-types ()
   "Returns a list of types."
   (declare (special gmaps-place-types))
   (let ((result nil)
@@ -592,7 +592,7 @@ origin/destination may be returned as a lat,long string."
     result))
 
 
-(defsubst gmaps-place-read-type ()
+(defun gmaps-place-read-type ()
   "Returns a type."
   (declare (special gmaps-place-types))
          (completing-read "Type: " gmaps-place-types))
@@ -735,7 +735,7 @@ Optional  prefix arg clears any active filters."
       (loop for place across places
             do
             (gmaps-display-place place))))))
-(defsubst gmaps-colonize-timestring (timestring)
+(defun gmaps-colonize-timestring (timestring)
   "Insert `:' to turn 0800 into 08:00. "
   (format "%s:%s"
           (substring timestring 0 2)
