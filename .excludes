@@ -1,8 +1,10 @@
 *.elc
 *.o
 *.so
+*.tar
 */.amarks.el
 .dir-locals.el
+.excludes
 .git
 .git*
 TAGS
@@ -23,4 +25,3 @@ software-dtk
 sounds/chimes 
 sounds/clock
 utils
-.excludes
