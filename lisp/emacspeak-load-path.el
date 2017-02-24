@@ -35,7 +35,7 @@
 ;;; the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ;;}}}
-
+(require 'cl-lib)
 (setq byte-compile-warnings t)
 
 (defvar emacspeak-directory
@@ -99,7 +99,7 @@ property 'emacspeak on the function."
 Return T if set and we are called from the advice for the current
 interactive command. Turn off the flag once used."
   (when ems-called-interactively-p      ; interactive call
-    (let ((caller (second (backtrace-frame 1)))
+    (let ((caller (cl-second (backtrace-frame 1)))
           (caller-advice (ad-get-advice-info-field ems-called-interactively-p  'advicefunname))
           (result nil))
       (setq result
@@ -115,7 +115,7 @@ Return T if set and we are called from the advice for the current
 interactive command. Turn off the flag once used."
   (message "Debug: %s" ems-called-interactively-p)
   (when ems-called-interactively-p      ; interactive call
-    (let ((caller (second (backtrace-frame 1)))
+    (let ((caller (cl-second (backtrace-frame 1)))
           (caller-advice (ad-get-advice-info-field ems-called-interactively-p  'advicefunname))
           (result nil))
       (setq result (or (eq caller caller-advice) ; called from our advice
