@@ -69,7 +69,6 @@
 ;;}}}
 ;;{{{ Forward Declarations:
 
-
 (declare-function soundscape-restart "soundscape" (&optional device))
 (declare-function jabber-connect-all "jabber-core" (&optional arg))
 (declare-function jabber-disconnect "jabber-core" (&optional arg))
@@ -165,7 +164,6 @@ signal registration objects."
               (emacspeak-dbus-sleep-signal-handler)
             (emacspeak-dbus-resume-signal-handler))))))
    (t (error "org.freedesktop.login1 has no PrepareForSleep signal."))))
-
 
 ;;; Enable integration
 (defun emacspeak-dbus-sleep-enable()

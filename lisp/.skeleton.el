@@ -59,7 +59,7 @@
       (start (point)))
   (insert "\n\n(voice-setup-add-map \n'(\n")
   (cl-loop for f in faces do 
-           (insert (format "(%s )\n" f)))
+           (insert (format "(%s)\n" f)))
   (insert "\n)\n)")
   (goto-char start)
   (backward-sexp)
@@ -81,7 +81,7 @@
   (kill-sexp)
   (goto-char (search-forward "("))
   (indent-pp-sexp))
-  
+
 )
 
 ;;}}}

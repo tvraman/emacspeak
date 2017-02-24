@@ -56,12 +56,12 @@
 
 (voice-setup-add-map 
  '(
-   (racket-check-syntax-def-face voice-bolden )
+   (racket-check-syntax-def-face voice-bolden)
    (racket-check-syntax-use-face  voice-annotate)
-   (racket-here-string-face voice-lighten )
-   (racket-keyword-argument-face voice-animate )
-   (racket-paren-face voice-smoothen )
-   (racket-selfeval-face voice-bolden-and-animate )))
+   (racket-here-string-face voice-lighten)
+   (racket-keyword-argument-face voice-animate)
+   (racket-paren-face voice-smoothen)
+   (racket-selfeval-face voice-bolden-and-animate)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
@@ -74,7 +74,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'select-object )
+       (emacspeak-auditory-icon 'select-object)
        (emacspeak-speak-line)))))
 
 (cl-loop
@@ -89,26 +89,25 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'open-object )
+       (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-line)))))
-
 
 (cl-loop
  for f in
  '(
    racket-visit-module racket-visit-definition
-   racket-smart-open-bracket racket-insert-lambda racket-insert-closing
-   racket-indent-line racket-check-syntax-mode-goto-def
-   racket-check-syntax-mode-goto-next-def racket-check-syntax-mode-goto-next-use
-   racket-check-syntax-mode-goto-prev-def racket-check-syntax-mode-goto-prev-use
-   racket-backward-up-list)
+                       racket-smart-open-bracket racket-insert-lambda racket-insert-closing
+                       racket-indent-line racket-check-syntax-mode-goto-def
+                       racket-check-syntax-mode-goto-next-def racket-check-syntax-mode-goto-next-use
+                       racket-check-syntax-mode-goto-prev-def racket-check-syntax-mode-goto-prev-use
+                       racket-backward-up-list)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'large-movement )))))
+       (emacspeak-auditory-icon 'large-movement)))))
 
 (defadvice racket-describe (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -116,7 +115,7 @@
     (emacspeak-auditory-icon 'help)
     (with-current-buffer "*Racket Describe*"
       (emacspeak-speak-buffer))))
-        
+
 ;;}}}
 (provide 'emacspeak-racket)
 ;;{{{ end of file

@@ -138,7 +138,6 @@ Customize this to live on your local disk."
   "Return our cookie jar."
   (declare (special g-cookie-jar))
 
-
   (unless g-cookie-jar (setq g-cookie-jar (make-temp-file ".g-cookie-jar")))
   g-cookie-jar)
 
@@ -153,7 +152,7 @@ Customize this to live on your local disk."
   (unless g-cookie-options
     (setq g-cookie-options
           (format "--cookie %s --cookie-jar %s"
-                  (g-cookie-jar) ( g-cookie-jar))))
+                  (g-cookie-jar) (g-cookie-jar))))
   g-cookie-options)
 
 (defcustom g-curl-debug nil
@@ -227,10 +226,10 @@ Customize this to live on your local disk."
     (loop for entry in g-html-charent-alist
           do
           (let ((entity (car  entry))
-                (replacement (cdr entry )))
+                (replacement (cdr entry)))
             (goto-char start)
             (while (search-forward entity end t)
-              (replace-match replacement ))))))
+              (replace-match replacement))))))
 
 (defun g-html-escape-region (start end)
   "Escape HTML entities."
@@ -239,10 +238,10 @@ Customize this to live on your local disk."
     (loop for entry in g-html-charent-alist
           do
           (let ((entity (cdr  entry))
-                (replacement (car entry )))
+                (replacement (car entry)))
             (goto-char start)
             (while (search-forward entity end t)
-              (replace-match replacement ))))))
+              (replace-match replacement))))))
 
 ;;}}}
 ;;{{{ json conveniences:
@@ -353,7 +352,7 @@ XML string is transformed via style
   and previewed via `g-html-handler'."
   (declare (special g-xslt-program g-html-handler))
   (g-using-scratch
-   (insert string )
+   (insert string)
    (when style
      (g-xsl-transform-region (point-min) (point-max) style))
    (funcall g-html-handler (current-buffer))))
@@ -396,7 +395,7 @@ Note that in the Curl output, we see lf rather than crlf.")
   "Parse HTTP headers in region and return an alist."
   (declare (special g-crlf-pair))
   (goto-char start)
-  (when (search-forward g-crlf-pair end 'no-error )
+  (when (search-forward g-crlf-pair end 'no-error)
     (setq end (point)))
   (save-restriction
     (narrow-to-region start end)
@@ -432,7 +431,7 @@ Note that in the Curl output, we see lf rather than crlf.")
   (declare (special g-crlf-pair))
   (goto-char start)
   (cond
-   ((search-forward g-crlf-pair end 'no-error )
+   ((search-forward g-crlf-pair end 'no-error)
     (buffer-substring-no-properties (point) end))
    (t "")))
 

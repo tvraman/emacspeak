@@ -1510,13 +1510,11 @@ prompts for a location and speaks the forecast. \n\n"
  (list
   #'(lambda ()
       (let* ((code (read-from-minibuffer "Flight Number: "))
-             (fields (split-string code )))
+             (fields (split-string code)))
         (format "airline=%s&flightNumber=%s"
                 (first fields) (second fields)))))
  nil
  "Flight Tracker")
-
-
 
 ;;}}}
 (provide 'emacspeak-url-template)

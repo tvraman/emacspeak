@@ -2884,8 +2884,8 @@ Optional interactive prefix arg `category' prompts for a category."
        (add-text-properties
         (line-beginning-position) (line-end-position)
         (list 
-        'keymap emacspeak-wizards-iheart-map
-        'ihr-id (second (split-string r ":"))))
+         'keymap emacspeak-wizards-iheart-map
+         'ihr-id (second (split-string r ":"))))
        (insert "\n"))
       (special-mode)
       (goto-char (point-min))
@@ -3172,7 +3172,7 @@ Symbols are taken from `emacspeak-wizards-personal-portfolio'."
     (read-from-minibuffer "State/City:"
                           (bound-and-true-p  gweb-my-postal-code))))
   (declare (special emacspeak-wizards-yql-weather-header-row
-                     emacspeak-wizards-yql-weather-filter))
+                    emacspeak-wizards-yql-weather-filter))
   (let* ((buff (format "*Weather %s*" zip))
          (result (emacspeak-wizards-yql-weather-results zip))
          (table (make-vector (1+ (length result)) nil)))

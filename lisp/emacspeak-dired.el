@@ -393,7 +393,6 @@ On a directory line, run du -s on the directory to speak its size."
   "Plays playlist on current line."
   (emacspeak-m-player (dired-get-filename) 'playlist))
 
-
 (defconst emacspeak-dired-opener-table
   `(("\\.epub$"  emacspeak-dired-epub-eww)
     ("\\.html" emacspeak-dired-eww-open)
@@ -402,7 +401,7 @@ On a directory line, run du -s on the directory to speak its size."
     ("\\.md" emacspeak-dired-md-open)
     ("\\.csv" emacspeak-dired-csv-open)
     (,emacspeak-media-extensions emacspeak-dired-play-this-media)
-  (,emacspeak-m-player-playlist-pattern emacspeak-dired-play-this-playlist))
+    (,emacspeak-m-player-playlist-pattern emacspeak-dired-play-this-playlist))
   "Association of filename extension patterns to Emacspeak handlers.")
 
 (defun emacspeak-dired-open-this-file  ()

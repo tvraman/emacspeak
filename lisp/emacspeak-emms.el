@@ -109,9 +109,8 @@
 (defadvice emms-browser-bury-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
-            (emacspeak-speak-mode-line)
-            (emacspeak-auditory-icon 'close-object)))
-
+    (emacspeak-speak-mode-line)
+    (emacspeak-auditory-icon 'close-object)))
 
 ;;}}}
 ;;{{{ Module emms-streaming:

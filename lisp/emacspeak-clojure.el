@@ -125,14 +125,13 @@
  for f in
  '(
    clojure-thread clojure-thread-first-all clojure-thread-last-all
-                  clojure-unwind clojure-unwind-all )
+                  clojure-unwind clojure-unwind-all)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide place-holder auditory feedback."
      (when (ems-interactive-p)
        (emacspeak-speak-line)))))
-
 
 ;;}}}
 ;;{{{ Speech-Enable Refactoring:

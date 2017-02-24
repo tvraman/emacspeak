@@ -608,7 +608,7 @@ Info-mode:
              (progn
                (when hydra-is-helpful (emacspeak-muggles-toggle-talkative))
                (emacspeak-muggles-pre))
-               :post emacspeak-muggles-post)
+             :post emacspeak-muggles-post)
   "Yank"
   ("?" (emacspeak-muggles-self-help "emacspeak-muggles-yank-pop"))
   ("C-y" yank nil)

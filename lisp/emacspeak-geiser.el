@@ -107,7 +107,7 @@
      "Provide auditory feedback."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'task-done )))))
+       (emacspeak-auditory-icon 'task-done)))))
 
 (cl-loop
  for f in
@@ -125,7 +125,7 @@
      "Provide auditory feedback."
      (when (ems-interactive-p)
        (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'open-object )))))
+       (emacspeak-auditory-icon 'open-object)))))
 
 (cl-loop
  for f in
@@ -135,7 +135,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'select-object )
+       (emacspeak-auditory-icon 'select-object)
        (emacspeak-speak-line)))))
 
 (cl-loop
@@ -149,7 +149,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement )
+       (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
 (defadvice geiser-repl-exit (after emacspeak pre act comp)
@@ -168,7 +168,6 @@
       (emacspeak-speak-region start (point))))
    (t ad-do-it))
   ad-return-value)
-
 
 (defadvice geiser-repl--maybe-send(around emacspeak pre act comp)
   "Provide auditory feedback."
@@ -198,7 +197,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'large-movement )
+       (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
 ;;}}}

@@ -273,7 +273,6 @@
 
 ;;; @subsection Filtering Content Using XSLT And XPath
 
-
 ;;;@table @kbd
 ;;;@item C-c           
 ;;;@command{emacspeak-we-junk-by-class-list}

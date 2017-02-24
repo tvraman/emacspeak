@@ -318,8 +318,8 @@
                (emacspeak-proced-update-fields)
                (emacspeak-proced-update-process-cache)
                (when (ems-interactive-p)
-                   (emacspeak-auditory-icon 'open-object)
-                   (funcall-interactively #'emacspeak-speak-mode-line))))))
+                 (emacspeak-auditory-icon 'open-object)
+                 (funcall-interactively #'emacspeak-speak-mode-line))))))
 
 (cl-loop for f  in
          '(proced-sort-pcpu proced-sort-start

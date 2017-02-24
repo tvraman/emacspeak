@@ -601,12 +601,11 @@ This variable is buffer-local.")
              "Language: " nil nil t nil
              emacspeak-google-tts-default-language))))
   (let ((url (format emacspeak-google-tts-rest-uri
-           (or lang emacspeak-google-tts-default-language)
-           (url-hexify-string  text))))
+                     (or lang emacspeak-google-tts-default-language)
+                     (url-hexify-string  text))))
     (kill-new url)
-  (start-process
-   "google-tts" nil  emacspeak-m-player-program url)))
-
+    (start-process
+     "google-tts" nil  emacspeak-m-player-program url)))
 
 ;;;###autoload
 (defun emacspeak-google-tts-region (start end)

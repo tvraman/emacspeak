@@ -459,7 +459,7 @@ it seems some accented characters in certain contexts."
 (make-variable-buffer-local 'dtk-speak-nonprinting-chars)
 
 (defvar dtk-octal-chars
-      "[\000-\010\013\014\016-\037\177-\377]"
+  "[\000-\010\013\014\016-\037\177-\377]"
   "Regular expression matching control chars.
 Set this once per emacspeak session for efficiency.")
 

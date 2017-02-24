@@ -38,9 +38,9 @@
        (file-name-directory load-file-name))
   "Directory where g-client  is built. ")
 
-(unless (member g-directory load-path )
+(unless (member g-directory load-path)
   (setq load-path
-        (cons g-directory load-path )))
+        (cons g-directory load-path)))
 
 (setq byte-compile-warnings
       '(redefine callargs free-vars

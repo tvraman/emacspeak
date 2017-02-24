@@ -144,7 +144,7 @@ first use. These credentials can be used with Google APIs after those APIs have 
   "https://www.google.com/drive"
   "Home URL for Google Drive")
 
-(defun gdrive-oauth-auth ( )
+(defun gdrive-oauth-auth ()
   "Request GDrive auth for required scope."
   (let ((g (gdrive-get-oauth-from-json))
         (browse-url-browser-function  #'browse-url-chrome))
@@ -155,7 +155,7 @@ first use. These credentials can be used with Google APIs after those APIs have 
      nil  ;state
      (g-oauth-localhost-uri g))))
 
-(defun gdrive-oauth-auth-and-store (  )
+(defun gdrive-oauth-auth-and-store ()
   "Request access to  Google Drive  and store it using `auth-source'."
   (let ((g (gdrive-get-oauth-from-json))
         (browse-url-browser-function  #'browse-url-chrome))
@@ -182,11 +182,11 @@ first use. These credentials can be used with Google APIs after those APIs have 
    (setf (g-oauth-code  gdrive--oauth)
          (cadr (assoc "code" params))))
   (with-httpd-buffer proc "text/plain"
-    (insert
-     (format "%s: %s"
-             (if (g-oauth-code gdrive--oauth)
-                 "Success" "Failure")
-             (file-name-nondirectory path)))))
+                     (insert
+                      (format "%s: %s"
+                              (if (g-oauth-code gdrive--oauth)
+                                  "Success" "Failure")
+                              (file-name-nondirectory path)))))
 
 ;;}}}
 (provide 'gdrive)

@@ -337,7 +337,7 @@ Optional interactive prefix arg `prompt-mode' prompts for the mode."
           (soundscape-lookup-name
            (completing-read "Scape:" (mapcar 'car soundscape-default-theme)))))
     (soundscape-map-mode mode scape)
-<    (soundscape-sync major-mode)
+    <    (soundscape-sync major-mode)
     (message "Now using %s for %s" scape mode)))
 
 ;;}}}
@@ -525,9 +525,9 @@ Run command \\[soundscape-theme] to see the default mode->mood mapping."
     (setq soundscape--auto
           (run-with-idle-timer   soundscape-idle-delay t #'soundscape-update))
     (soundscape-sync major-mode)))
-    (when (called-interactively-p 'interactive)
-      (message "Automatic Soundscapes are now %s"
-               (if soundscape--auto "on" "off"))))
+  (when (called-interactively-p 'interactive)
+    (message "Automatic Soundscapes are now %s"
+             (if soundscape--auto "on" "off"))))
 (defvar soundscape--cached-device nil
   "Cache    last used audio device.")
 

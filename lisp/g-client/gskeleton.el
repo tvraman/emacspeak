@@ -156,7 +156,7 @@
 (defun gskeleton-sign-in()
   "Resets client so you can start with a different userid."
   (interactive)
-  (declare (special gskeleton-auth-handle gskeleton-user-email ))
+  (declare (special gskeleton-auth-handle gskeleton-user-email))
   (setq gskeleton-user-email
         (read-from-minibuffer "User Email:"))
   (setq gskeleton-auth-handle (make-gskeleton-auth))

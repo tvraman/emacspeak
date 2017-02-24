@@ -121,21 +121,20 @@ Optional argument `raw-p' returns raw JSON  object."
 (defun gmaps-postal-code-from-location (location)
   "Reverse geocode location and return postal coe."
   (condition-case nil
-  (g-json-get
-   'short_name 
-   (find-if  ; component whose type contains postal_code
-    #'(lambda (v) (find "postal_code" (g-json-get 'types v) :test #'string=)) 
-    (g-json-get ; from address_components at finest granularity
-     'address_components
-     (aref (gmaps-reverse-geocode location 'raw) 0))))
-  (error "")))
+      (g-json-get
+       'short_name 
+       (find-if  ; component whose type contains postal_code
+        #'(lambda (v) (find "postal_code" (g-json-get 'types v) :test #'string=)) 
+        (g-json-get ; from address_components at finest granularity
+         'address_components
+         (aref (gmaps-reverse-geocode location 'raw) 0))))
+    (error "")))
 
 ;;; Example of use:
 ;;;###autoload
 (defvar gweb-my-location
   nil
   "Geo coordinates --- automatically set by reverse geocoding gweb-my-address")
-
 
 (defvar gweb-my-postal-code
   nil
@@ -223,7 +222,7 @@ Parameter `key' is the API  key."
 (make-variable-buffer-local 'gmaps-current-location)
 
 (define-derived-mode gmaps-mode special-mode
-                     "Google Maps Interaction"
+  "Google Maps Interaction"
   "A Google Maps front-end for the Emacspeak desktop."
   (let ((start (point))
         (inhibit-read-only t))
@@ -342,7 +341,7 @@ origin/destination may be returned as a lat,long string."
          (place-location (and maps-data
                               (g-json-lookup
                                "geometry.location"
-                               (get-text-property ( point) 'maps-data))))
+                               (get-text-property (point) 'maps-data))))
          (origin nil)
          (destination nil))
     (setq origin
@@ -552,7 +551,7 @@ origin/destination may be returned as a lat,long string."
 (defstruct gmaps-places-filter
   type ; singleton as per new API 
   types ; multiple types (until Feb 2017)
-  keyword name )
+  keyword name)
 
 (defvar gmaps-current-filter nil
   "Currently active filter. ")
@@ -591,12 +590,11 @@ origin/destination may be returned as a lat,long string."
       (setq type (completing-read "Type: Blank to quit " gmaps-place-types)))
     result))
 
-
 (defun gmaps-place-read-type ()
   "Returns a type."
   (declare (special gmaps-place-types))
-         (completing-read "Type: " gmaps-place-types))
-    
+  (completing-read "Type: " gmaps-place-types))
+
 (defun gmaps-set-current-filter (&optional all)
   "Set up filter in current buffer.
 Optional interactive prefix arg prompts for all filter fields."
@@ -604,7 +602,7 @@ Optional interactive prefix arg prompts for all filter fields."
   (declare (special gmaps-current-filter gmaps-place-types))
   (cond
    (all
-    (let ((name (read-string "Name: " ))
+    (let ((name (read-string "Name: "))
           (keyword (read-string "Keyword: "))
           (type (gmaps-place-read-type)))
       (when (= (length name) 0) (setq name nil))
@@ -756,7 +754,7 @@ Optional  prefix arg clears any active filters."
                (= day (g-json-lookup "open.day" h))) hours)
           close
           (find-if
-           #'(lambda (h) (= day (g-json-lookup "close.day" h)) ) hours))
+           #'(lambda (h) (= day (g-json-lookup "close.day" h))) hours))
     (format "%s Open: %s, Close: %s"
             weekday 
             (gmaps-colonize-timestring (g-json-lookup "open.time" open))
@@ -849,7 +847,7 @@ Insert reviews if already displaying details."
    (t
     (let* ((inhibit-read-only t)
            (place-ref
-            (g-json-get 'reference (get-text-property (point)'maps-data )))
+            (g-json-get 'reference (get-text-property (point)'maps-data)))
            (result
             (and place-ref
                  (g-json-get-result

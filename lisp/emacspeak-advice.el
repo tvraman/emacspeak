@@ -1065,15 +1065,13 @@ icon."
  do
  (eval
   `(defadvice ,f (after
-                                                  emacspeak pre act comp)
-  "Speak the matched input."
-  (when (ems-interactive-p)
-    (save-excursion
-      (goto-char (comint-line-beginning-position))
-      (emacspeak-speak-line 1))
-    (emacspeak-auditory-icon 'select-object)))))
-
-
+                  emacspeak pre act comp)
+     "Speak the matched input."
+     (when (ems-interactive-p)
+       (save-excursion
+         (goto-char (comint-line-beginning-position))
+         (emacspeak-speak-line 1))
+       (emacspeak-auditory-icon 'select-object)))))
 
 (defadvice shell-forward-command (after emacspeak pre act
                                         comp)
@@ -1203,7 +1201,7 @@ icon."
      'all
      (save-excursion
        (goto-char (comint-line-beginning-position))
-     (emacspeak-speak-line 1)))
+       (emacspeak-speak-line 1)))
     (emacspeak-auditory-icon 'item)))
 
 (defadvice comint-previous-matching-input (after emacspeak pre act comp)
@@ -1213,7 +1211,7 @@ icon."
      'all
      (save-excursion
        (goto-char (comint-line-beginning-position))
-     (emacspeak-speak-line 1)))
+       (emacspeak-speak-line 1)))
     (emacspeak-auditory-icon 'item)))
 
 (defadvice comint-send-input (after emacspeak pre act comp)
@@ -2494,8 +2492,8 @@ Produce auditory icons if possible."
  for f in
  '(
    apropos apropos-char apropos-library
- apropos-unicode apropos-user-option apropos-value apropos-variable
-   apropos-command apropos-documentation)
+           apropos-unicode apropos-user-option apropos-value apropos-variable
+           apropos-command apropos-documentation)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -2793,13 +2791,11 @@ Produce auditory icons if possible."
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-line)))
 
-
 (defadvice list-processes (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (message "Displayed process list in other window.")))
-
 
 (defadvice timer-list (after emacspeak pre act comp)
   "Provide auditory feedback."

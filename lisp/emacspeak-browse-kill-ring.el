@@ -63,9 +63,8 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)))
 
-
 (defadvice browse-kill-ring-insert-and-quit (after
-                                    emacspeak pre act comp)
+                                             emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'yank-object)

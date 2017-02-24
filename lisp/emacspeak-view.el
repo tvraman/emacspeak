@@ -89,7 +89,7 @@
  for f in
  '(
    View-exit-and-edit View-kill-and-leave
-   View-quit-all View-quit)
+                      View-quit-all View-quit)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)

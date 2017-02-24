@@ -261,7 +261,7 @@ Uses specified corpus for prompting and suggest selection."
 
 (defun gweb-web-results (query)
   "Return Web Search results list."
-  (declare (special gweb-web-url ))
+  (declare (special gweb-web-url))
   (gweb-results query gweb-web-url))
 
 ;;}}}
@@ -275,7 +275,7 @@ Uses specified corpus for prompting and suggest selection."
 
 (defun gweb-news-html (query)
   "Return simple HTML from News search."
-  (let ((results (gweb-news-results query )))
+  (let ((results (gweb-news-results query)))
     (when results
       (concat
        (format "<html><title>News Results For %s</title><ol>" query)
@@ -291,7 +291,7 @@ Uses specified corpus for prompting and suggest selection."
         "")
        "</ol></html>"))))
 
-(defun gweb-news-view (query )
+(defun gweb-news-view (query)
   "Display News Search results  in a browser."
   (interactive "sNews Search: ")
   (let ((html (gweb-news-html query)))

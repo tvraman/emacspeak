@@ -223,7 +223,7 @@ message area.  You can use command
   (unless (buffer-live-p  emacspeak-notifications-buffer)
     (setq emacspeak-notifications-buffer (emacspeak--notifications-init)))
   (emacspeak-auditory-icon 'open-object)
-  (funcall-interactively #'switch-to-buffer emacspeak-notifications-buffer ))
+  (funcall-interactively #'switch-to-buffer emacspeak-notifications-buffer))
 
 (defconst emacspeak-notifications-max 128
   "Number of notifications to retain.")
