@@ -1,6 +1,7 @@
 *Running Speech Server  remotely
 
 For  using ssh port forwarding, see remote-tts-setup.
+Code in remote-tts-setup is also available as a bash function in ../bash-utils/remote.
 Reverse port forwarding is the solution I have been using since approx
 2011.
 
