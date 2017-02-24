@@ -10,6 +10,7 @@ blog
 chrome_tts_server
 contrib
 debian
+html
 js/node/node_modules
 js/piglets
 lib
