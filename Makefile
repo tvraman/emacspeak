@@ -192,6 +192,12 @@ cd .. ;\
 	./utils/emacspeak-ghr ${LABEL} "emacspeak-${LABEL}.tar.bz2"
 
 # }}}
+# {{{Install: Not Supported
+
+install:
+	@echo "Install is not supported by the source distribution."
+
+# }}}
 # {{{list distfiles to stdout
 
 list_dist:
