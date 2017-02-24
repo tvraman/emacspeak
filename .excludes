@@ -4,6 +4,7 @@
 */.amarks.el
 .git
 .gitconfig
+TAGS
 android
 announcements
 blog
