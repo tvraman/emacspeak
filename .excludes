@@ -2,8 +2,9 @@
 *.o
 *.so
 */.amarks.el
+.dir-locals.el
 .git
-.gitconfig
+.git*
 TAGS
 android
 announcements
@@ -22,3 +23,4 @@ software-dtk
 sounds/chimes 
 sounds/clock
 utils
+.excludes
