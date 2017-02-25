@@ -1124,16 +1124,15 @@ icon."
 
 (defadvice comint-output-filter (around emacspeak pre act comp)
   "Make comint speak its output."
-  (let ((inhibit-read-only t)
-        (monitor emacspeak-comint-output-monitor)
+  (let ((monitor emacspeak-comint-output-monitor)
         (buffer (process-buffer (ad-get-arg 0)))
         (dtk-stop-immediately nil))
     (with-current-buffer buffer
       ad-do-it
-      (when (and
-             comint-last-output-start
-             emacspeak-comint-autospeak
-             (or monitor (eq (window-buffer) buffer)))
+      (when
+          (and comint-last-output-start
+               emacspeak-comint-autospeak
+               (or monitor (eq (window-buffer) buffer)))
         (emacspeak-speak-region comint-last-output-start (point)))
       ad-return-value)))
 
