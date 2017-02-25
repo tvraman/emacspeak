@@ -127,7 +127,7 @@ cd .. ;\
 # {{{Install: Not Supported
 
 install:
-	cat  etc/INSTALL
+	cat  etc/install.org
 
 # }}}
 # {{{ end of file

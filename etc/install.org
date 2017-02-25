@@ -1,7 +1,5 @@
-# Install -*- mode: org -*-
 * Installation:
 
-The install rule in the Makefile is deprecated and has been removed.
 To install a specific version of Emacspeak:
 
   1. Download and unpack the latest tarball.

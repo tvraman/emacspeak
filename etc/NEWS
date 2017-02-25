@@ -9,7 +9,8 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 ** Installation:
 
-The install rule in the Makefile is deprecated and has been removed.
+The install rule in the Makefile is deprecated and has been updated to
+display simple installation instructions. 
 To install a specific version of Emacspeak:
   1. Download and unpack the latest tarball.
   2. make config && make to build Emacspeak
