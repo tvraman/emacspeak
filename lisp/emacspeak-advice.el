@@ -1133,7 +1133,7 @@ icon."
           (and comint-last-output-start
                emacspeak-comint-autospeak
                (or monitor (eq (window-buffer) buffer)))
-        (emacspeak-speak-region comint-last-output-start (point)))
+        (dtk-speak (ad-get-arg 1)))
       ad-return-value)))
 
 (defadvice comint-dynamic-list-completions(around emacspeak pre act comp)
