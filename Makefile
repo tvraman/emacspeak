@@ -73,7 +73,7 @@ README:
 	@echo "Distribution created by `whoami` on `hostname`" >> $(README)
 	@echo "Unpack the  distribution And type make config " >> $(README)
 	@echo "Then type make" >> $(README)
-EXCLUDES=-X .excludes
+EXCLUDES=-X .excludes --exclude-backups
 dist:
 	make ${README}
 	tar cvf  emacspeak.tar $(EXCLUDES) .
