@@ -274,7 +274,7 @@ ADDON_OBJECTS = \
 nm.elc \
 tapestry.elc   stack-f.elc  \
 dom-addons.elc \
-xbacklight.elc json-view.elc toy-braille.elc tetris.elc cd-tool.elc 
+xbacklight.elc  toy-braille.elc tetris.elc cd-tool.elc 
 
 OBJECTS = $(DTK_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  $(ADDON_OBJECTS)
 # }}}
