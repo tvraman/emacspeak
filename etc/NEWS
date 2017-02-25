@@ -6,6 +6,17 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
 * Emacspeak 46 -- Emacspeak 46 User Visible Changes
+
+** Installation:
+
+The install rule in the Makefile is deprecated and has been removed.
+To install a specific version of Emacspeak:
+  1. Download and unpack the latest tarball.
+  2. make config && make to build Emacspeak
+  3. Optional: make espeak to build espeak support.
+  4. Optional: make outloud to build ViaVoice outloud support.
+  5.  copy the resulting  emacspeak directory to the install location.
+
 ** Updated DBus Integration 
 
 Module ~emacspeak-dbus~ --- Emacspeak's DBus Integration --- has been
