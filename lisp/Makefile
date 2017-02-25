@@ -1,6 +1,6 @@
 # $Author: tv.raman.tv $
 # Description:  Makefile for Emacspeak
-# Keywords: Emacspeak, Dectalk, Makefile
+# Keywords: Emacspeak, TTS, Makefile
 # {{{ LCD Entry:
 
 # LCD Archive Entry:
@@ -56,7 +56,7 @@ COMPILE =  -f batch-byte-compile
 # {{{  grouping files into dependent modules
 
 #The various modules:
-DTK_OBJECTS = acss-structure.elc \
+TTS_OBJECTS = acss-structure.elc \
 dtk-speak.elc		dectalk-voices.elc\
 tts.elc tts-cmds.elc  plain-voices.elc espeak-voices.elc \
 outloud-voices.elc  mac-voices.elc\
@@ -68,7 +68,6 @@ emacspeak-actions.elc \
 voice-setup.elc \
 emacspeak-personality.elc \
 emacspeak-pronounce.elc \
-emacspeak-projectile.elc \
 emacspeak-sounds.elc
 
 CORE_OBJECTS =  \
@@ -207,6 +206,7 @@ emacspeak-perl.elc \
 emacspeak-php-mode.elc \
 emacspeak-pianobar.elc \
 emacspeak-proced.elc \
+emacspeak-projectile.elc \
 emacspeak-py.elc \
 emacspeak-elpy.elc \
 emacspeak-pydoc.elc \
@@ -276,7 +276,8 @@ tapestry.elc   stack-f.elc  \
 dom-addons.elc \
 xbacklight.elc  toy-braille.elc tetris.elc cd-tool.elc 
 
-OBJECTS = $(DTK_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  $(ADDON_OBJECTS)
+OBJECTS = $(TTS_OBJECTS) $(SPEAK_OBJECTS) $(CORE_OBJECTS)  $(ADDON_OBJECTS)
+
 # }}}
 # {{{  User level targets all
 
@@ -295,6 +296,7 @@ lint:
 emacs -batch -q \
 -l advice.el -l emacspeak-load-path.el  -l emacspeak-loaddefs.el \
 -f elint-directory 
+
 # }}}
 # {{{build time target --loaddefs
 
@@ -312,8 +314,6 @@ emacspeak-cus-load.el: force
 # }}}
 # {{{  Make rules for the various modules
 
-# Do this in this brain-dead way because different makes do pattern
-# rules differently. grumble grumble...
 #dtk module:
 #dtk-interp contains the interface to the interpreter
 #Modules using functions from the dtk module should depend on dtk-speak
@@ -330,7 +330,7 @@ plain-voices.elc: plain-voices.el voice-setup.elc
 mac-voices.elc: mac-voices.el voice-setup.elc 
 espeak-voices.elc: espeak-voices.el voice-setup.elc 
 voice-setup.elc: voice-setup.el acss-structure.elc 
-ommacspeak-amark.elc: emacspeak-amark.el
+emacspeak-amark.elc: emacspeak-amark.el
 cd-tool.elc: cd-tool.el
 json-view.elc: json-view.el
 nm.elc: nm.el
@@ -544,6 +544,7 @@ emacspeak-yasnippet.elc: emacspeak-yasnippet.el dtk-speak.elc
 emacspeak.elc: emacspeak.el
 emacspeak-setup.elc: emacspeak-setup.el
 loaddefs: emacspeak-loaddefs.elc
+
 # }}}
 # {{{Development  target: indent, tags
 indent:
