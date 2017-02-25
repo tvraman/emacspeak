@@ -30,3 +30,5 @@ sounds/chimes
 sounds/clock
 tests
 utils
+.rss
+.skeleton.el
