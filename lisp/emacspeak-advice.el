@@ -1130,15 +1130,6 @@ icon."
         (dtk-stop-immediately nil))
     (with-current-buffer buffer
       ad-do-it
-      (when (and (boundp 'comint-last-prompt-overlay)
-                 comint-last-prompt-overlay)
-        (add-text-properties
-         (overlay-start comint-last-prompt-overlay)
-         (overlay-end comint-last-prompt-overlay)
-         (list
-          'personality
-          'emacspeak-comint-prompt-personality
-          'rear-sticky nil)))
       (when (and
              comint-last-output-start
              emacspeak-comint-autospeak
