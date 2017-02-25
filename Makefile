@@ -127,7 +127,7 @@ cd .. ;\
 # {{{Install: Not Supported
 
 install:
-	@echo "Install is not supported by the source distribution."
+	cat  etc/INSTALL
 
 # }}}
 # {{{ end of file
