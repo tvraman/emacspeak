@@ -210,9 +210,13 @@ already disabled."
 
 ;;}}}
 ;;{{{ Watch Screensaver:
+(defvar emacspeak-dbus-screen-lock-handle nil
+  "Handle to DBus signal registration for watching screenlock.")
 
 (defun emacspeak-dbus-watch-screen-lock ()
   "Register a handler to watch screen lock/unlock."
+  (declare (special emacspeak-dbus-screen-lock-handle))
+  (setq emacspeak-dbus-screen-lock-handle
   (dbus-register-signal
    :session
    "org.gnome.ScreenSaver" "/org/gnome/ScreenSaver"
@@ -225,7 +229,14 @@ already disabled."
          (progn
            (when (eq major-mode 'emacspeak-screen-saver-mode)(bury-buffer))
            (sox-chime)
-           (message "Unlocking screen"))))))
+           (message "Unlocking screen")))))))
+
+(defun emacspeak-dbus-unwatch-screen-lock ()
+  "De-Register a handler to watch screen lock/unlock."
+  (declare (special emacspeak-dbus-screen-lock-handle))
+  (dbus-unregister-object emacspeak-dbus-screen-lock-handle)
+  (setq emacspeak-dbus-screen-lock-handle nil)
+  (message "Unregistered screen-lock signal handler"))
 
 ;;}}}
 (provide 'emacspeak-dbus)
