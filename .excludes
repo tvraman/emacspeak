@@ -3,11 +3,16 @@
 *.so
 *.tar
 */.amarks.el
+.auditory-icons
+.bbc
 .dir-locals.el
 .excludes
+.files
 .git
 .git*
 .indent.pro
+.rss
+.skeleton.el
 32-outloud
 32-speech-server
 TAGS
@@ -30,5 +35,3 @@ sounds/chimes
 sounds/clock
 tests
 utils
-.rss
-.skeleton.el
