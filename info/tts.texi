@@ -179,7 +179,7 @@ However it is irritating to have it on when reading documents.
 @end table
 
 In addition, Emacspeak can convey the indentation of lines as they are
-spoken@MDash 
+spoken@MDash{} 
 this is relevant when programming  and is the default when working with
 program source.
 
