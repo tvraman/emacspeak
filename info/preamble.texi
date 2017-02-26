@@ -26,6 +26,7 @@ The manual is divided into the following chapters.
 * Emacspeak Commands And Options:  Emacspeak Commands And Options.
 * Emacspeak Keyboard Commands: Emacspeak Keyboard Commands.
 * TTS Servers:  TTS Servers.
+*  Emacspeak At Twenty: Emacspeak At Twenty.
 * Acknowledgments: Acknowledgments.
 
 Indices:

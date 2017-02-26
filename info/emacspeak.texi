@@ -50,6 +50,7 @@ notice are preserved on all copies.
           @include docs.texi
           @include keyboard.texi
 @include tts-server.texi
+@include inc-turning-twenty.texi
 @include acknowledge.texi
 @c trailer
      
