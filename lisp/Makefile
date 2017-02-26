@@ -332,7 +332,6 @@ espeak-voices.elc: espeak-voices.el voice-setup.elc
 voice-setup.elc: voice-setup.el acss-structure.elc 
 emacspeak-amark.elc: emacspeak-amark.el
 cd-tool.elc: cd-tool.el
-json-view.elc: json-view.el
 nm.elc: nm.el
 amixer.elc: amixer.el
 emacspeak-actions.elc: emacspeak-actions.el
