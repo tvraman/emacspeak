@@ -14,6 +14,8 @@ alsaplayer
 AltaVista
 amark
 amixer
+AMixer
+amongst
 amphetadesk
 analyse
 ange
@@ -37,6 +39,7 @@ AUMIX
 Austen's
 auth
 Auth
+autodoc
 autoload
 automagically
 autopan
@@ -49,6 +52,7 @@ bg
 biblio
 bibtex
 binaural
+Binaural
 Bing
 blockquote
 Bloomberg
@@ -82,12 +86,14 @@ cdda
 cdplay
 cdr
 cdrom
+CDs
 cdstart
 cdtool
 cedet
 CEDET
 centric
 CGI
+Chakra
 chakras
 Changelog
 charent
@@ -98,6 +104,7 @@ checkdoc
 cheque
 ChromeVox
 ciel
+CIEL
 citeseer
 clearlyu
 cli
@@ -135,28 +142,33 @@ Dectalk
 DecTalk
 DECTalk
 Dectalks
-defsubst
 defun
 defvoice
 deletechar
 deref
 dev
+Dfilter
 DHTML
 dialup
+dichotically
 dired
 Dired
 DIRNAME
 dl
 dmacro
 Dmacro
+DMacro
 dnd
 docbook
 DocBook
 doctex
+docview
 dom
+Dom
 DOM
 dont
 Dorman
+DTD
 DTDs
 dtk
 dvi
@@ -184,7 +196,6 @@ eldoc
 elfeed
 ELFEED
 elisp
-Elisp
 ELISP
 Eloquennce
 elpa
@@ -216,6 +227,7 @@ eshell
 EShell
 espeak
 eSpeak
+Espeak
 ESpeak
 ess
 ESS
@@ -228,8 +240,10 @@ EUDC
 eval
 eww
 EWW
+EWW's
 exorcized
 facemenu
+facevoice
 fastload
 fg
 fil
@@ -259,8 +273,9 @@ gblogger
 gbooks
 gcc
 gdb
-gdrive
-GDrive
+GDB
+geiser
+GEISER
 geocoding
 gf
 gfeeds
@@ -272,6 +287,7 @@ gmaps
 gnuplot
 GoLang
 gomoku
+Gomoku
 goog
 googles
 goto
@@ -292,8 +308,6 @@ hostname
 hotlist
 HOWTO
 hrtf
-httpd
-HTTPD
 https
 ibuffer
 IDE
@@ -304,6 +318,7 @@ ILisp
 IM
 IMap
 imenu
+Imenu
 IMenu
 incompat
 incrementing
@@ -318,9 +333,11 @@ iplayer
 iPlayer
 IPlayer
 IPython
+irc
 IRC
 isearch
 IToRSS
+JDB
 jde
 JDE
 jpeg
@@ -328,9 +345,8 @@ JPEG
 js
 JS
 jsdoc
-json
-JSON
 jss
+JSS
 ju
 kbd
 kcbsFM
@@ -348,6 +364,7 @@ lacheck
 ladspa
 Ladspa
 ldap
+LDAP
 learnt
 librivox
 Librivox
@@ -398,6 +415,7 @@ MPlayer
 mpost
 mpuz
 mspools
+MSpools
 MSPPT
 MSWord
 MSXL
@@ -422,7 +440,6 @@ Norvig
 nxml
 NYTimes
 oauth
-OAuth
 obso
 octals
 ol
@@ -438,6 +455,7 @@ OSS
 outliner
 outloud
 Outloud
+OutLoud
 overstrike
 owindow
 paplay
@@ -448,6 +466,7 @@ pathname
 pdf
 PDF
 pdftotext
+PerlDB
 Perry's
 personalization
 phablets
@@ -511,9 +530,11 @@ restartable
 RET
 reverb
 Reverb
+RichText
 rivo
 rjc
 rmail
+RMail
 RMAIL
 RMS
 rng
@@ -537,8 +558,8 @@ screenreaders
 SDK
 searchable
 Searchable
+selfeval
 Sep
-servlet
 ses
 sexp
 SFO
@@ -554,6 +575,7 @@ smoothen
 Smoothen
 snd
 sonification
+Sonification
 Sorenson
 soundscape
 Soundscape
@@ -575,6 +597,7 @@ sql
 SQL
 sqlite
 src
+stacktrace
 Stallman
 startup
 stationid
@@ -653,6 +676,7 @@ untabify
 untranscode
 upto
 uri
+URI
 username
 usr
 utf
@@ -687,6 +711,7 @@ websearch
 websocket
 webspace
 WEBSPACE
+Webspaces
 webutils
 Wecker
 whitespace
@@ -694,6 +719,7 @@ widnow
 WikiData
 windmove
 winring
+WinRing
 WordNet
 wunderground
 wvText
