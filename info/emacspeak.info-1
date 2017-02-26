@@ -181,11 +181,11 @@ the well-understood notion of visual formatting.  The work on AsTeR
 coincided with the Web being at its infancy.  As the Web evolved to
 acquire Cascaded Style Sheets (CSS), ideas from AsTeR were used to
 define Aural CSS as an appendix to CSS1 in 1995.  Emacspeak proved an
-ideal platform to prototype the ideas within Aural CSS @MDash first
-within the Emacs/W3 browser.  Around this time, Emacs itself evolved to
-support multiple fonts and _font-locking_ to implement syntax coloring
-for various types of content.  Emacspeak applied the ideas of audio
-formatting to create the auditory analog of _font-lock_ @MDash Emacspeak
+ideal platform to prototype the ideas within Aural CSS — first within
+the Emacs/W3 browser.  Around this time, Emacs itself evolved to support
+multiple fonts and _font-locking_ to implement syntax coloring for
+various types of content.  Emacspeak applied the ideas of audio
+formatting to create the auditory analog of _font-lock_ — Emacspeak
 calls this _voice locking_.
 
    Voice locking in Emacspeak continues to be a unique feature among
@@ -202,11 +202,11 @@ File: emacspeak.info,  Node: Auditory Icons,  Next: Summary,  Prev: Audio Format
 Emacspeak augments spoken feedback with short auditory icons that vastly
 speed up interaction.  Combined with audio formatting, the resulting
 experience is analogous to moving from a monochrome character-cell
-display to a high-quality color display @MDash the overall user
-experience is rich in comparison.  This enabled Emacspeak to explore
-innovative means of auditory communication @MDash as an example, see my
-Assets-98 paper entitled _Conversational Gestures For The Audio Desktop_
-that details how one can play Tetris on the Emacspeak desktop.
+display to a high-quality color display — the overall user experience is
+rich in comparison.  This enabled Emacspeak to explore innovative means
+of auditory communication — as an example, see my Assets-98 paper
+entitled _Conversational Gestures For The Audio Desktop_ that details
+how one can play Tetris on the Emacspeak desktop.
 
 
 File: emacspeak.info,  Node: Summary,  Prev: Auditory Icons,  Up: Background
@@ -214,11 +214,11 @@ File: emacspeak.info,  Node: Summary,  Prev: Auditory Icons,  Up: Background
 3.4 Summary
 ===========
 
-The lessons learnt from developing Emacspeak are many @MDash here are a
-few highlights:
+The lessons learnt from developing Emacspeak are many — here are a few
+highlights:
 
-   • A model for browsing tabular data @MDash see relevant chapter in my
-     book _Auditory User Interfaces_
+   • A model for browsing tabular data — see relevant chapter in my book
+     _Auditory User Interfaces_
    • Audio formatting and Aural CSS
    • Auditory icons for efficient feedback.
    • Web widgets for rapid task completion on the Web.
