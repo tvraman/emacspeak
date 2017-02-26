@@ -1,6 +1,5 @@
 *.elc
 *.o
-*.so
 *.tar
 */.amarks.el
 .auditory-icons
