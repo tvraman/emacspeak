@@ -1,7 +1,41 @@
-@c Converted from emacspeak-significance.org 
+\input texinfo    @c -*- texinfo -*-
+@c %**start of header
+@setfilename ./emacspeak-significance.info
+@settitle Impact And Significance Of Emacspeak
+@documentencoding UTF-8
+@documentlanguage en
+@c %**end of header
 
-@node Background
-@chapter Background
+@finalout
+@titlepage
+@title Impact And Significance Of Emacspeak
+@author T.V Raman
+@end titlepage
+
+@contents
+
+@ifnottex
+@node Top
+@top Impact And Significance Of Emacspeak
+@end ifnottex
+
+@menu
+* Impact And Significance Of Emacspeak::
+
+@detailmenu
+--- The Detailed Node Listing ---
+
+Impact And Significance Of Emacspeak
+
+* Speech-Enabling Applicationss::
+* Audio Formatting And Aural CSS::
+* Auditory Icons::
+* Summary::
+@end detailmenu
+@end menu
+
+@node Impact And Significance Of Emacspeak
+@chapter Impact And Significance Of Emacspeak
 
 Emacspeak was originally developed in late 1994 and released as
 Open Source in May 1995.  Since then, the system has been
@@ -12,7 +46,6 @@ its development and use. The work on Emacspeak was presented at
 CHI96 and the co-located Assets96 conference in Vancouver,
 BC. This overview is being written nearly 15 years later to trace
 the impact of the work.
-
 
 @menu
 * Speech-Enabling Applicationss::
@@ -46,7 +79,7 @@ embedded Lisp interpreter to inject spoken feedback into
 applications that run within Emacs. For a detailed overview on
 how the  @emph{advice} mechanism in Emacs  is used, see the original
 Assets96 paper, as well as the chapter on Emacspeak in the
-OReilly publication entitled  @emph{Beautiful Code}.
+OReilly publication entitled  @uref{http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/publish-emacspeak-bc.html,Beautiful Code}.
 
 @node Audio Formatting And Aural CSS
 @section Audio Formatting And Aural CSS
@@ -57,11 +90,11 @@ work on AsTeR coincided with the  Web being at its infancy. As
 the Web evolved to acquire Cascaded Style Sheets (CSS), ideas
 from AsTeR  were used to define Aural CSS as an appendix to CSS1
 in 1995. Emacspeak proved an ideal platform to prototype the
-ideas within Aural CSS  @MDash  first within the Emacs/W3
+ideas within Aural CSS @@MDash  first within the Emacs/W3
 browser. Around this time, Emacs itself evolved to support
 multiple fonts and @emph{font-locking}  to implement syntax coloring
 for various types of content. Emacspeak applied the ideas of
-audio formatting to create the auditory analog of @emph{font-lock} @MDash
+audio formatting to create the auditory analog of @emph{font-lock}  @@MDash
 Emacspeak calls this @emph{voice locking}.
 
 Voice locking in Emacspeak continues to be a unique feature among
@@ -75,22 +108,22 @@ all aspects of voice-locking, rather than just for Web content.
 Emacspeak augments spoken feedback with short auditory icons that
 vastly speed up interaction. Combined with audio formatting, the
 resulting experience is analogous to moving from a monochrome
-character-cell display to a high-quality color display  @MDash  the
+character-cell display to a high-quality color display @@MDash  the
 overall user experience is rich in comparison. This enabled
 Emacspeak to explore innovative means of auditory communication
- @MDash  as an example,  see my Assets-98 paper entitled
+@@MDash  as an example,  see my Assets-98 paper entitled
 @emph{Conversational Gestures For The Audio Desktop} that details how
 one can play Tetris on the Emacspeak desktop.
 
 @node Summary
 @section Summary
 
-The lessons learnt from developing Emacspeak are many  @MDash    here
+The lessons learnt from developing Emacspeak are many @@MDash    here
 are a few highlights:
 
 @itemize
 @item
-A model for browsing tabular data  @MDash  see relevant chapter in
+A model for browsing tabular data @@MDash  see relevant chapter in
 my book @emph{Auditory User Interfaces}
 @item
 Audio formatting and Aural CSS
@@ -102,4 +135,4 @@ Web widgets for rapid task completion on the Web.
 
 And many more than will fit this margin.
 
-
+@bye

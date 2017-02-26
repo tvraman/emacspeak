@@ -34,7 +34,7 @@ embedded Lisp interpreter to inject spoken feedback into
 applications that run within Emacs. For a detailed overview on
 how the  /advice/ mechanism in Emacs  is used, see the original
 Assets96 paper, as well as the chapter on Emacspeak in the
-OReilly publication entitled  /Beautiful Code/.
+OReilly publication entitled  [[http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/publish-emacspeak-bc.html][Beautiful Code]].
 
 ** Audio Formatting And Aural CSS
 
