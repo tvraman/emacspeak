@@ -44,7 +44,7 @@ embedded Lisp interpreter to inject spoken feedback into
 applications that run within Emacs. For a detailed overview on
 how the  @emph{advice} mechanism in Emacs  is used, see the original
 Assets96 paper, as well as the chapter on Emacspeak in the
-OReilly publication entitled  @uref{http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/publish-emacspeak-bc.html,Beautiful Code}.
+OReilly publication entitled  @url{http://emacspeak.sourceforge.net/raman/publications/bc-emacspeak/publish-emacspeak-bc.html,Beautiful Code}.
 
 @node Audio Formatting And Aural CSS
 @section Audio Formatting And Aural CSS
