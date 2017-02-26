@@ -268,7 +268,7 @@
 ;;;@end table
 ;;;
 ;;; In addition, see commands in
-;;; @xref{emacspeak-google} for Google-Search specific commands, many of
+;;; @xref{emacspeak-google},  for Google-Search specific commands, many of
 ;;; which are available via prefix-key @kbd{G}.
 
 ;;; @subsection Filtering Content Using XSLT And XPath

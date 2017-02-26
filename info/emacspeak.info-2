@@ -2460,7 +2460,7 @@ streams, or to open various feed-types such as ‘ATOM’, ‘RSS’, or ‘OPML
 ‘k’
      ‘eww-copy-page-url’ Copy page URL to kill-ring.
 
-   In addition, see commands in *Note emacspeak-google::.  for
+   In addition, see commands in *Note emacspeak-google::, for
 Google-Search specific commands, many of which are available via
 prefix-key ‘G’.
 
