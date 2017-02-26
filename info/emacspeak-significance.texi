@@ -1,41 +1,6 @@
-\input texinfo    @c -*- texinfo -*-
-@c %**start of header
-@setfilename ./emacspeak-significance.info
-@settitle Impact And Significance Of Emacspeak
-@documentencoding UTF-8
-@documentlanguage en
-@c %**end of header
 
-@finalout
-@titlepage
-@title Impact And Significance Of Emacspeak
-@author T.V Raman
-@end titlepage
-
-@contents
-
-@ifnottex
-@node Top
-@top Impact And Significance Of Emacspeak
-@end ifnottex
-
-@menu
-* Impact And Significance Of Emacspeak::
-
-@detailmenu
---- The Detailed Node Listing ---
-
-Impact And Significance Of Emacspeak
-
-* Speech-Enabling Applicationss::
-* Audio Formatting And Aural CSS::
-* Auditory Icons::
-* Summary::
-@end detailmenu
-@end menu
-
-@node Impact And Significance Of Emacspeak
-@chapter Impact And Significance Of Emacspeak
+@node Background
+@chapter Background
 
 Emacspeak was originally developed in late 1994 and released as
 Open Source in May 1995.  Since then, the system has been
@@ -135,4 +100,4 @@ Web widgets for rapid task completion on the Web.
 
 And many more than will fit this margin.
 
-@bye
+
