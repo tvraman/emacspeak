@@ -21,13 +21,13 @@ text to speech (TTS) system.
 @cindex character echo
 @cindex word echo
 
-By default, Emacspeak speaks characters as they are typed  @MDash  this is
-called character echo; Words are spoken as they are completed  @MDash  this is
+By default, Emacspeak speaks characters as they are typed  @MDash{}   this is
+called character echo; Words are spoken as they are completed  @MDash{}   this is
 called word echo.  Emacspeak can also optionally speak each line as it
-is typed  @MDash  this is called line echo.
+is typed  @MDash{}   this is called line echo.
 
-Character, word and line echo can be toggled  @MDash  either in the current
-buffer  @MDash  or for all buffers (globally).
+Character, word and line echo can be toggled  @MDash{}   either in the current
+buffer  @MDash{}   or for all buffers (globally).
 To toggle the specific echo functionality for all buffers, precede the
 specific command with @kbd{C-u}.
 Note that in the documentation below, this use of @kbd{C-u} is indicated 
@@ -215,10 +215,10 @@ Automatically becomes local in any buffer where it is set.
 
 
 Speech can be stopped using command @code{dtk-stop}
- @MDash  though in normal use, 
+ @MDash{}   though in normal use, 
 the action of moving the cursor will stop ongoing speech. 
 The speech server can be stopped and restarted for cases where the user
-wants to switch to a different server  @MDash  or in the rare case to nuke a
+wants to switch to a different server  @MDash{}   or in the rare case to nuke a
 runaway speech server.
 
 

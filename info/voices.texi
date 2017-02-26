@@ -110,7 +110,7 @@ two steps:
 The list of settings is stored away in
 @samp{voice-bolden-settings},
 @item
-A corresponding voice-name is generated  @MDash 
+A corresponding voice-name is generated  @MDash{} 
 @samp{acss-a<n>-p<n>-r<n>-s<n>} and the corresponding control codes to
 send to the device are stored away in a hash-table keyed by the above symbol.
 
