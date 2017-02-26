@@ -139,7 +139,7 @@ An example of content-sensitive navigation is provided by the imenu
 package which dynamically creates a "table of contents" based on the
 content that is being displayed in a given buffer.  Emacs @dfn{Selective
 Display} lets one easily hide and expose portions of a buffer based on
-indentation @MDash  this feature can be used to advantage when working with
+indentation @MDash{}  this feature can be used to advantage when working with
 program source code.
 
 
@@ -152,7 +152,7 @@ In addition to navigating individual information objects,
 the Emacspeak environment provides speech-enabled navigation
 of the various buffers that are currently open on the
 Emacspeak desktop via Emacs' built-in list-buffers feature.
-Emacs' dired @MDash directory editor@MDash{} for browsing the file
+Emacs' dired @MDash{} directory editor@MDash{} for browsing the file
 system, along with the new speedbar package 
 that combines features from dired and imenu round off the
 suite of navigational tools.
@@ -168,9 +168,9 @@ via a uniform and powerful search interface.  Emacs' incremental search
 works efficiently and consistently to enable you locate "objects" of
 interest either within a given document or to locate a given object from
 among the various objects that are currently open on the Emacspeak
-desktop.  This is @b{very powerful}@MDash where a GUI user is typically
+desktop.  This is @b{very powerful}@MDash{} where a GUI user is typically
 limited to quickly locating an object from a relatively small collection
-@MDash  the size of the collection being a direct function of available
+@MDash{}  the size of the collection being a direct function of available
 display real-estate@MDash{} the Emacspeak user can typically work with a far
 larger collection of objects.  This is well-suited to the eyes-free
 environment, where display real-estate has no meaning; so bringing up a

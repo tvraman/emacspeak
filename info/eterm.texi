@@ -16,7 +16,7 @@ eterm mode use a prefix of C-t.  Anything else is a normal shell command.
 
 There are two sub-modes of term mode: char sub-mode and line sub-mode.
 In char sub-mode, emacspeak will only speak the final chunk of output
-@MDash  typically the last line displayed.
+@MDash{}  typically the last line displayed.
 Each character typed (except `term-escape-char`) is sent immediately.
 Use char sub-mode for screen oriented programs like vi or pine.  
 
@@ -188,7 +188,7 @@ Kill all text from last stuff output by interpreter to point.
 @itemx M-x term-bol
 Goes to the beginning of line, then skips past the prompt, if any.
 If a prefix argument is given (C-u), then no prompt skip
-@MDash  go straight to column 0.
+@MDash{}  go straight to column 0.
 
 @item C-c C-d
 @kindex C-c C-d

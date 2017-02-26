@@ -50,7 +50,7 @@ distributions, use the install instructions that come with that package.
 
 @itemize @bullet
 @item 
-Obtain the source code @MDash  either by downloading the tar.bz2 file for the latest release @MDash  or by cloning the git repository.
+Obtain the source code @MDash{}   either by downloading the tar.bz2 file for the latest release @MDash  or by cloning the git repository.
 @samp{git clone https://github.com/tvraman/emacspeak}
 @item
 Change to the @code{emacspeak} directory.

@@ -2,7 +2,7 @@
 
 The Emacspeak environment provides a rich collection of structured
 document authoring tools.  These are well-suited for working in an
-eyes-free environment @MDash  you clearly do not want to use a @b{What You See
+eyes-free environment @MDash{}  you clearly do not want to use a @b{What You See
 Is What You Get} (WYSIWYG) authoring tool if you cannot see what you're
 getting.  Structure-based authoring tools allow you to focus on the act
 of content creation, leaving the minutiae of visual layout to the
@@ -37,7 +37,7 @@ voice locking for audio formatted feedback as you work.
 If the document being authored is more complex, you are usually better
 off creating it in LaTeX.
 Note that LaTeX documents can be converted to HTML either via 
- package @code{tex4ht} @MDash  available on the WWW.
+ package @code{tex4ht} @MDash{}  available on the WWW.
 
 The TeX family of typesetting languages  is suitable for producing 
 well-formatted documents in an eyes-free environment.
@@ -71,7 +71,7 @@ All of these editing commands provide succinct auditory
 feedback when used with Emacspeak.
 The syntax coloring provided by this mode is extended to provide @emph{
   voice locking}
-@MDash 
+@MDash{} 
  consequently, Emacspeak uses different voices to speak the
 embedded markup to set it apart from the content.
 
