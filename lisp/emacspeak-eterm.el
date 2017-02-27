@@ -197,7 +197,7 @@ Useful when eterm is in review mode.")
 ;;{{{  functions
 
 ;;; nuke term cache info 
-(defsubst emacspeak-eterm-nuke-cached-info ()
+(defun emacspeak-eterm-nuke-cached-info ()
   (declare (special term-current-row term-current-column))
   (setq term-current-row nil
         term-current-column nil))
@@ -643,7 +643,7 @@ sent to the terminal as if it were typed by the user."
 ;;; A window structure is of the form
 ;;; [column row right-stretch left-stretch ]
 
-(defsubst emacspeak-eterm-make-window (top-left bottom-right right-stretch left-stretch)
+(defun emacspeak-eterm-make-window (top-left bottom-right right-stretch left-stretch)
   (let ((win (make-vector 4  nil)))
     (aset win 0 top-left)
     (aset win 1 bottom-right)
@@ -651,10 +651,10 @@ sent to the terminal as if it were typed by the user."
     (aset win 3 left-stretch)
     win))
 
-(defsubst emacspeak-eterm-window-top-left (w) (aref w 0))
-(defsubst emacspeak-eterm-window-bottom-right (w) (aref w 1))
-(defsubst emacspeak-eterm-window-right-stretch (w) (aref w 2))
-(defsubst emacspeak-eterm-window-left-stretch  (w) (aref w 3))
+(defun emacspeak-eterm-window-top-left (w) (aref w 0))
+(defun emacspeak-eterm-window-bottom-right (w) (aref w 1))
+(defun emacspeak-eterm-window-right-stretch (w) (aref w 2))
+(defun emacspeak-eterm-window-left-stretch  (w) (aref w 3))
 
 (defun  emacspeak-eterm-coordinate-within-window-p (coordinate id)
   "Predicate to test if COORDINATE is within window.
@@ -1072,7 +1072,7 @@ Do not set this by hand.
 Use command emacspeak-eterm-toggle-pointer-mode bound to
 \\[emacspeak-eterm-toggle-pointer-mode].")
 
-(defsubst emacspeak-eterm-activity-in-window (window)
+(defun emacspeak-eterm-activity-in-window (window)
   "T if terminal activity within bounds of window."
   (emacspeak-eterm-coordinate-within-window-p
    (cons (term-current-column) (term-current-row))
