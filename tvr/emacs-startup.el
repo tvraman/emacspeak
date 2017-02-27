@@ -1,5 +1,4 @@
 ;;{{{ Emacs initialization file for Raman:
-;;; $Id$
 ;;; Segre March 22 1991
 ;;; July 15, 2001 finally cutting over to custom.
 ;;; August 12, 2007: Cleaned up for Emacs 22
@@ -161,7 +160,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "fff-prepare" "fap-prepare"
        "emms-prepare"
        "local"
-       "emacspeak-dbus"))
+       "emacspeak-dbus" "emacspeak-muggles" "emacspeak-maths"))
     ;;}}}
     ))                                  ; end defun
 ;;{{{  start it up
