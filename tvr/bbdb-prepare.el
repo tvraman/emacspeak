@@ -32,4 +32,4 @@
 (setq bbdb-canonicalize-redundant-nets-p t)
 
 (when (featurep 'vm)
-  (add-hook 'vm-quit-hook 'bbdb-save-db))
+  (add-hook 'vm-quit-hook 'bbdb-save))
