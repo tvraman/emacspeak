@@ -1,4 +1,4 @@
-;; $Id$  -*- lexical-binding: t; -*-
+;; $Id$
 (augment-load-path "xslide" "xslide")
 
 ;; XSL mode

@@ -1,4 +1,4 @@
-;;; File At Point  -*- lexical-binding: t; -*-
+;;; File At Point
 
 (require 'ffap)
 (declare (special  ffap-bindings))

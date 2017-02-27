@@ -66,14 +66,14 @@
   "Association between symbols and strings to set Espeak  voices.
 The string can set any voice parameter.")
 
-(defsubst espeak-define-voice (name command-string)
+(defun espeak-define-voice (name command-string)
   "Define an Espeak  voice named NAME.
 This voice will be set   by sending the string
 COMMAND-STRING to the TTS engine."
   (declare (special espeak-voice-table))
   (puthash name command-string espeak-voice-table))
 
-(defsubst espeak-get-voice-command  (name)
+(defun espeak-get-voice-command  (name)
   "Retrieve command string for  voice NAME."
   (declare (special espeak-voice-table))
   (cond
@@ -82,7 +82,7 @@ COMMAND-STRING to the TTS engine."
    (t (or  (gethash name espeak-voice-table)
            espeak-default-voice-string))))
 
-(defsubst espeak-voice-defined-p (name)
+(defun espeak-voice-defined-p (name)
   "Check if there is a voice named NAME defined."
   (declare (special espeak-voice-table))
   (gethash name espeak-voice-table))
@@ -114,7 +114,7 @@ COMMAND-STRING to the TTS engine."
 
 ;;{{{ voice family codes
 
-(defsubst espeak-get-family-code (_name)
+(defun espeak-get-family-code (_name)
   "Get control code for voice family NAME."
   "")
 
@@ -126,7 +126,7 @@ COMMAND-STRING to the TTS engine."
 Keys are symbols of the form <FamilyName-Dimension>.
 Values are vectors holding the control codes for the 10 settings.")
 
-(defsubst espeak-css-set-code-table (family dimension table)
+(defun espeak-css-set-code-table (family dimension table)
   "Set up voice FAMILY.
 Argument DIMENSION is the dimension being set,
 and TABLE gives the values along that dimension."
@@ -134,7 +134,7 @@ and TABLE gives the values along that dimension."
   (let ((key (intern (format "%s-%s" family dimension))))
     (puthash key table espeak-css-code-tables)))
 
-(defsubst espeak-css-get-code-table (family dimension)
+(defun espeak-css-get-code-table (family dimension)
   "Retrieve table of values for specified FAMILY and DIMENSION."
   (declare (special espeak-css-code-tables))
   (let ((key (intern (format "%s-%s" family dimension))))
@@ -226,7 +226,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 
-(defsubst espeak-get-average-pitch-code (value family)
+(defun espeak-get-average-pitch-code (value family)
   "Get  AVERAGE-PITCH for specified VALUE and  FAMILY."
   (or family (setq family 'paul))
   (if value
@@ -311,7 +311,7 @@ and TABLE gives the values along that dimension."
   (espeak-css-set-code-table 'betty 'pitch-range table))
 
 ;;}}}
-(defsubst espeak-get-pitch-range-code (value family)
+(defun espeak-get-pitch-range-code (value family)
   "Get pitch-range code for specified VALUE and FAMILY."
   (or family (setq family 'paul))
   (if value
@@ -324,7 +324,7 @@ and TABLE gives the values along that dimension."
 
 ;;;  Not implemented fo Espeak now.
 
-(defsubst espeak-get-stress-code (_value _family)
+(defun espeak-get-stress-code (_value _family)
   "Just a dummy."
   "")
 
@@ -414,7 +414,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 
-(defsubst espeak-get-richness-code (value family)
+(defun espeak-get-richness-code (value family)
   (or family (setq family 'paul))
   (if value 
       (aref (espeak-css-get-code-table family 'richness)
@@ -424,7 +424,7 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{  punctuations
 
-(defsubst espeak-get-punctuations-code (_value)
+(defun espeak-get-punctuations-code (_value)
   "Return string needed to set specified punctuations mode."
   "")
 

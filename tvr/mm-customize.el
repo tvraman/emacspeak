@@ -1,4 +1,4 @@
-;;; Customization lines to set up mime types.  -*- lexical-binding: t; -*-
+;;; Customization lines to set up mime types.
 ;;; This is important to make sure tools like W3 render application/xhtml+xml
 ;;; rather than offering to download the file.
 ;;; The lines below are commented out

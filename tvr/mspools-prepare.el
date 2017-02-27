@@ -1,4 +1,3 @@
-;; -*- lexical-binding: t; -*-
 
     (load-library"mspools")
     (and (featurep 'vm)

@@ -1,32 +1,27 @@
-;(augment-load-path "erc" "erc")  -*- lexical-binding: t; -*-
-;(load-library "erc")
+(augment-load-path "erc" "erc")
+(load-library "erc")
 (defun erc-w3 ()
   "Join W3C IRC server."
   (interactive)
-  (erc  :server "irc.w3.org"
-:port 6665
-:nick "raman"
- ))
+  (erc  "irc.w3.org"
+6665
+"tvraman"
+"T. V. Raman" t nil))
 
-(defun erc-cricket ()
-  "Join cricinfo IRC server."
-  (interactive)
-  (erc  :server "irc.cricket.org"
-:port 6667
-:nick "raman"))
 
-(defun erc-bubbles ()
-  "Join Bubbles"
+(defun erc-mm ()
+  "Join MM IRC   server."
   (interactive)
   (erc  "bubbles.almaden.ibm.com"
 6667
-"raman"
-"T. V. Raman" t ))
+"tvraman"
+"T. V. Raman" t "retsa"))
 
 (defun erc-handhelds ()
   "Join Handhelds IRC server."
   (interactive)
   (erc  "irc.openprojects.net"
 6667
-"raman"
+"tvraman"
 "T. V. Raman" t ))
+

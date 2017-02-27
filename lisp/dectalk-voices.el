@@ -86,14 +86,14 @@
   "Association between symbols and strings to set Dectalk voices.
 The string can set any Dectalk parameter.")
 
-(defsubst dectalk-define-voice (name command-string)
+(defun dectalk-define-voice (name command-string)
   "Define a Dectalk voice named NAME.
 This voice will be set   by sending the string
 COMMAND-STRING to the Dectalk."
   (declare (special dectalk-voice-table))
   (puthash  name command-string  dectalk-voice-table))
 
-(defsubst dectalk-get-voice-command (name)
+(defun dectalk-get-voice-command (name)
   "Retrieve command string for  voice NAME."
   (declare (special dectalk-voice-table))
   (cond
@@ -102,7 +102,7 @@ COMMAND-STRING to the Dectalk."
    (t (or  (gethash name dectalk-voice-table)
            dectalk-default-voice-string))))
 
-(defsubst dectalk-voice-defined-p (name)
+(defun dectalk-voice-defined-p (name)
   "Check if there is a voice named NAME defined."
   (declare (special dectalk-voice-table))
   (gethash name dectalk-voice-table))
@@ -135,7 +135,7 @@ COMMAND-STRING to the Dectalk."
 (defvar dectalk-family-table nil
   "Association list of Dectalk voice names and control codes.")
 
-(defsubst dectalk-set-family-code (name code)
+(defun dectalk-set-family-code (name code)
   "Set control code for voice family NAME  to CODE."
   (declare (special dectalk-family-table))
   (when (stringp name)
@@ -144,7 +144,7 @@ COMMAND-STRING to the Dectalk."
         (cons (list name code)
               dectalk-family-table)))
 
-(defsubst dectalk-get-family-code (name)
+(defun dectalk-get-family-code (name)
   "Get control code for voice family NAME."
   (declare (special dectalk-family-table))
   (when (stringp name)
@@ -170,7 +170,7 @@ COMMAND-STRING to the Dectalk."
 Keys are symbols of the form <FamilyName-Dimension>.
 Values are vectors holding the control codes for the 10 settings.")
 
-(defsubst dectalk-css-set-code-table (family dimension table)
+(defun dectalk-css-set-code-table (family dimension table)
   "Set up voice FAMILY.
 Argument DIMENSION is the dimension being set,
 and TABLE gives the values along that dimension."
@@ -178,7 +178,7 @@ and TABLE gives the values along that dimension."
   (let ((key (intern (format "%s-%s" family dimension))))
     (puthash  key table dectalk-css-code-tables)))
 
-(defsubst dectalk-css-get-code-table (family dimension)
+(defun dectalk-css-get-code-table (family dimension)
   "Retrieve table of values for specified FAMILY and DIMENSION."
   (declare (special dectalk-css-code-tables))
   (let ((key (intern (format "%s-%s" family dimension))))
@@ -281,7 +281,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 
-(defsubst dectalk-get-average-pitch-code (value family)
+(defun dectalk-get-average-pitch-code (value family)
   "Get  AVERAGE-PITCH for specified VALUE and  FAMILY."
   (or family (setq family 'paul))
   (if value
@@ -376,7 +376,7 @@ and TABLE gives the values along that dimension."
   (dectalk-css-set-code-table 'betty 'pitch-range table))
 
 ;;}}}
-(defsubst dectalk-get-pitch-range-code (value family)
+(defun dectalk-get-pitch-range-code (value family)
   "Get pitch-range code for specified VALUE and FAMILY."
   (or family (setq family 'paul))
   (if value
@@ -480,7 +480,7 @@ and TABLE gives the values along that dimension."
   (dectalk-css-set-code-table 'betty 'stress table))
 
 ;;}}}
-(defsubst dectalk-get-stress-code (value family)
+(defun dectalk-get-stress-code (value family)
   (or family (setq family 'paul))
   (if value
       (aref (dectalk-css-get-code-table family 'stress)
@@ -569,7 +569,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 
-(defsubst dectalk-get-richness-code (value family)
+(defun dectalk-get-richness-code (value family)
   (or family (setq family 'paul))
   (if value
       (aref (dectalk-css-get-code-table family 'richness)
@@ -579,7 +579,7 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{  punctuations
 
-(defsubst dectalk-get-punctuations-code (value)
+(defun dectalk-get-punctuations-code (value)
   "Return string needed to set specified punctuations mode."
   (if value
       (format " :pu %s " value)

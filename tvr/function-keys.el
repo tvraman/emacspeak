@@ -1,4 +1,3 @@
-;; -*- lexical-binding: t; -*-
 
 ;(global-set-key '[f1] 'beginning-of-line)
 ;(global-set-key '[kp-f1] 'beginning-of-line)

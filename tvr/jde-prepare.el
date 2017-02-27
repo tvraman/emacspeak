@@ -1,4 +1,4 @@
-;;;$Id$  -*- lexical-binding: t; -*-
+;;;$Id$
 ;;; Setup Emacs JDE
 ;;{{{ locations
 

@@ -1,4 +1,3 @@
-;; -*- lexical-binding: t; -*-
 
 (augment-load-path "dismal" "dismal")
 (load-library "dismal-mode-defaults")

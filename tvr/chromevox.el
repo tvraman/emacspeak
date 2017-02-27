@@ -1,4 +1,3 @@
-;; -*- lexical-binding: t; -*-
 (defcustom browse-url-chromevox-program "google-chrome"
   "Chrome executable with ChromeVox loaded."
   :type 'string

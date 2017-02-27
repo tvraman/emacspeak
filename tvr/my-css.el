@@ -1,4 +1,4 @@
-;;; emacs/w3 has a CSS parser.  -*- lexical-binding: t; -*-
+;;; emacs/w3 has a CSS parser.
 ;;; It is presently bombing on my desktop machine Emacs/23
 ;;; but working at home and on my laptop in Emacs 24.
 ;;; The breakage is likely due to another installed emacs module.

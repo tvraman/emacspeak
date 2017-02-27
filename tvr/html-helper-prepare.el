@@ -1,4 +1,3 @@
-;; -*- lexical-binding: t; -*-
 
 (autoload 'html-helper-mode "html-helper-mode")
 (augment-auto-mode-alist "\\.html$" 'html-helper-mode)

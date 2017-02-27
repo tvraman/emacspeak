@@ -89,14 +89,14 @@
   "Association between symbols and strings to set Outloud  voices.
 The string can set any voice parameter.")
 
-(defsubst outloud-define-voice (name command-string)
+(defun outloud-define-voice (name command-string)
   "Define a Outloud  voice named NAME.
 This voice will be set   by sending the string
 COMMAND-STRING to the TTS engine."
   (declare (special outloud-voice-table))
   (puthash name command-string outloud-voice-table))
 
-(defsubst outloud-get-voice-command-internal  (name)
+(defun outloud-get-voice-command-internal  (name)
   "Retrieve command string for  voice NAME."
   (declare (special outloud-voice-table))
   (cond
@@ -105,14 +105,14 @@ COMMAND-STRING to the TTS engine."
    (t (or  (gethash name outloud-voice-table)
            outloud-default-voice-string))))
 
-(defsubst outloud-get-voice-command (name)
+(defun outloud-get-voice-command (name)
   "Retrieve command string for  voice NAME."
   (declare (special dtk-speech-rate))
   (concat 
    (outloud-get-voice-command-internal name)
    (format "`vs%s" dtk-speech-rate)))
 
-(defsubst outloud-voice-defined-p (name)
+(defun outloud-voice-defined-p (name)
   "Check if there is a voice named NAME defined."
   (declare (special outloud-voice-table))
   (gethash name outloud-voice-table))
@@ -143,7 +143,7 @@ COMMAND-STRING to the TTS engine."
 
 ;;{{{ voice family codes
 
-(defsubst outloud-get-family-code (name)
+(defun outloud-get-family-code (name)
   "Get control code for voice family NAME."
   (outloud-get-voice-command-internal name))
 
@@ -155,7 +155,7 @@ COMMAND-STRING to the TTS engine."
 Keys are symbols of the form <FamilyName-Dimension>.
 Values are vectors holding the control codes for the 10 settings.")
 
-(defsubst outloud-css-set-code-table (family dimension table)
+(defun outloud-css-set-code-table (family dimension table)
   "Set up voice FAMILY.
 Argument DIMENSION is the dimension being set,
 and TABLE gives the values along that dimension."
@@ -163,7 +163,7 @@ and TABLE gives the values along that dimension."
   (let ((key (intern (format "%s-%s" family dimension))))
     (puthash key table outloud-css-code-tables)))
 
-(defsubst outloud-css-get-code-table (family dimension)
+(defun outloud-css-get-code-table (family dimension)
   "Retrieve table of values for specified FAMILY and DIMENSION."
   (declare (special outloud-css-code-tables))
   (let ((key (intern (format "%s-%s" family dimension))))
@@ -264,7 +264,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 
-(defsubst outloud-get-average-pitch-code (value family)
+(defun outloud-get-average-pitch-code (value family)
   "Get  AVERAGE-PITCH for specified VALUE and  FAMILY."
   (or family (setq family 'paul))
   (if value 
@@ -351,7 +351,7 @@ and TABLE gives the values along that dimension."
   (outloud-css-set-code-table 'betty 'pitch-range table))
 
 ;;}}}
-(defsubst outloud-get-pitch-range-code (value family)
+(defun outloud-get-pitch-range-code (value family)
   "Get pitch-range code for specified VALUE and FAMILY."
   (or family (setq family 'paul))
   (if value 
@@ -389,7 +389,7 @@ and TABLE gives the values along that dimension."
   (outloud-css-set-code-table 'betty  'stress table))
 
 ;;}}}
-(defsubst outloud-get-stress-code (value family)
+(defun outloud-get-stress-code (value family)
   (or family (setq family 'paul))
   (if value 
       (aref (outloud-css-get-code-table family 'stress)
@@ -426,7 +426,7 @@ and TABLE gives the values along that dimension."
 
 ;;}}}
 
-(defsubst outloud-get-richness-code (value family)
+(defun outloud-get-richness-code (value family)
   (or family (setq family 'paul))
   (if value 
       (aref (outloud-css-get-code-table family 'richness)
@@ -436,7 +436,7 @@ and TABLE gives the values along that dimension."
 ;;}}}
 ;;{{{  punctuations
 
-(defsubst outloud-get-punctuations-code (_value)
+(defun outloud-get-punctuations-code (_value)
   "Return string needed to set specified punctuations mode."
   "")
 
