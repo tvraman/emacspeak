@@ -419,7 +419,7 @@ sets punctuation mode to all, activates the dictionary and turns on split caps."
   "If set to T, emacspeak plays its icon as it launches."
   :type 'boolean
   :group 'emacspeak)
-(defsubst emacspeak-play-startup-icon ()
+(defun emacspeak-play-startup-icon ()
   "Play startup icon if requested."
   (declare (special emacspeak-play-emacspeak-startup-icon))
   (let ((player  (or (executable-find "mplayer")
