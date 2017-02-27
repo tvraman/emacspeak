@@ -121,7 +121,7 @@
 ;;}}}
 ;;{{{ SoX Command Generator:
 
-(defsubst sox-gen-cmd (cmd)
+(defun sox-gen-cmd (cmd)
   "Play specified command."
   (declare (special sox-play))
   (apply #'start-process "SoX" nil sox-play  (split-string cmd)))
@@ -178,7 +178,7 @@ gain `gain'."
   "-q -n synth %s %s gain %s channels 2 "
   "Command-line that produces multiple  binaural beats.")
 
-(defsubst sox-read-binaural-beats ()
+(defun sox-read-binaural-beats ()
   "Read and return a list of binaural beat-spec tupples."
   (let ((specs nil)
         (this-freq 0)
@@ -243,7 +243,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
   (declare (special sox-binaural-effects-table))
   (puthash name effect sox-binaural-effects-table))
 
-(defsubst sox-binaural-get-effect (name)
+(defun sox-binaural-get-effect (name)
   "Return predefined effect."
   (declare (special sox-binaural-effects-table))
   (or (gethash name sox-binaural-effects-table)
@@ -284,7 +284,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
   :gain -14))
 ;; }}}
 
-(defsubst sox--format-seconds (seconds)
+(defun sox--format-seconds (seconds)
   "Audio-format seconds."
   (format-seconds "%H %M and%z %S" seconds))
 
@@ -382,7 +382,7 @@ binaural beat to another."
            (set-default sym (float val)))
   :group 'sox)
 
-(defsubst sox--theme-compute-length (theme scale)
+(defun sox--theme-compute-length (theme scale)
   "Return  how long  this theme  invocation will run in seconds."
   (let  ((intervals (mapcar #'(lambda (th) (* scale (second th))) theme))
          (result 0))
@@ -392,7 +392,8 @@ binaural beat to another."
                (incf  result (/ i  sox-binaural-slider-scale))))
     result))
 
-(defsubst sox--theme-duration-scale (theme duration)
+(defun
+ sox--theme-duration-scale (theme duration)
   "Given a theme and a desired overall duration, compute duration scale."
   (declare (special sox-binaural-slider-scale))
   (let ((steps (mapcar #'second theme)))
