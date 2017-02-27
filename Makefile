@@ -58,10 +58,10 @@ info:
 	cd info; $(MAKE) -k
 
 outloud: 
-	cd servers/linux-outloud; $(MAKE) || echo "Cant build Outloud server!"
+	cd servers/linux-outloud && $(MAKE) || echo "Cant build Outloud server!"
 
 espeak: 
-	cd servers/linux-espeak; $(MAKE) || echo "Cant build espeak server!"
+	cd servers/linux-espeak && $(MAKE) || echo "Cant build espeak server!"
 
 # }}}
 # {{{  Maintainance targets   dist
