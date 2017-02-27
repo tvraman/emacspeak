@@ -208,7 +208,11 @@
 (add-hook 'jabber-post-connect-hook 'jabber-switch-to-roster-buffer)
 
 ;;}}}
-
+(defun emacspeak-jabber-connected ()
+  "Function to add to jabber-post-connection-hook."
+  (emacspeak-auditory-icon 'task-done)
+  (dtk-notify-say "Connected to jabber."))
+(add-hook 'jabber-post-connect-hook #'emacspeak-jabber-connected)
 ;;}}}
 ;;{{{ Pronunciations
 (declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
