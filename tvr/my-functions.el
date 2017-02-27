@@ -51,10 +51,6 @@
   (compile (format "lacheck %s"
                    (buffer-file-name (current-buffer)))))
 
-
-
-
-
 (defun next-interactive-defun ()
   "Move point to the next interactive defun"
   (interactive)
@@ -68,11 +64,11 @@
   (interactive
    (list
     (expand-file-name
-    (read-file-name "Enter name of POD file: "))))
+     (read-file-name "Enter name of POD file: "))))
   (require 'man)
   (let* ((pod2man-args (concat filename " | nroff -man "))
-	 (bufname (concat "Man " filename))
-	 (buffer (generate-new-buffer bufname)))
+         (bufname (concat "Man " filename))
+         (buffer (generate-new-buffer bufname)))
     (save-excursion
       (set-buffer buffer)
       (let ((process-environment (copy-sequence process-environment)))
