@@ -63,7 +63,7 @@
     (dtk-speak package)
     (kill-new package)))
 
-(defsubst emacspeak-apt-utils-speak-package-name ()
+(defun emacspeak-apt-utils-speak-package-name ()
   "Speak package name at point."
   (let ((package (apt-utils-package-at)))
     (put-text-property 0 (length package)

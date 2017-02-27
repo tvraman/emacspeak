@@ -72,7 +72,7 @@
 ;;}}}
 ;;{{{  functions:
 
-(defsubst emacspeak-dired-speak-line ()
+(defun emacspeak-dired-speak-line ()
   "Speak the dired line intelligently."
   (declare (special emacspeak-speak-last-spoken-word-position))
   (let ((filename (dired-get-filename 'no-dir  t))
