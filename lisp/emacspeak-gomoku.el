@@ -50,9 +50,9 @@
 ;;}}}
 ;;{{{ helper functions
 
-(defsubst gomoku-point-x ()
+(defun gomoku-point-x ()
   (gomoku-index-to-x (gomoku-point-square)))
-(defsubst emacspeak-gomoku-cell-value (row column)
+(defun emacspeak-gomoku-cell-value (row column)
   (declare (special gomoku-board))
   (aref  gomoku-board
          (gomoku-xy-to-index column row)))
