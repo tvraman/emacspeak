@@ -11,6 +11,7 @@
 (defvar emacs-personal-library
   (expand-file-name "~/emacs/lisp/site-lisp")
   "Directory where we keep personal libraries")
+
 ;;}}}
 ;;{{{ helper functions:
 (defsubst augment-load-path (path &optional library whence at-end)
@@ -74,11 +75,12 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     (unless (featurep 'emacspeak)
       (load-file (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el")))
     (when (featurep 'emacspeak)
-      (emacspeak-toggle-auditory-icons t)
+      (unless emacspeak-use-auditory-icons(emacspeak-toggle-auditory-icons t))
       (emacspeak-sounds-select-theme "3d/")
       (emacspeak-tts-startup-hook))
 
-    ;;}}}
+(when (file-exists-p  (expand-file-name "tvr" emacspeak-directory))
+  (augment-load-path   (expand-file-name "tvr" emacspeak-directory)))  ;;}}}
     ;;{{{  set up terminal codes and global keys
 
     (mapc #'load-library-if-available
@@ -143,10 +145,10 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        
        "smtpmail" "sigbegone"
 ;;; Web Browsers:
-       "w3-prepare" ;"w3m-prepare" 
+       "w3-prepare"                     ;"w3m-prepare" 
        "auctex-prepare" "nxml-prepare"
        "folding-prepare"
-"elfeed-prepare"
+       "elfeed-prepare"
        "calc-prepare" 
        "tcl-prepare" 
                                         ; jde and ecb will pull in cedet.
