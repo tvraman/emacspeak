@@ -81,7 +81,7 @@ node -- speak the entire node."
           (const :tag "Entire node" node))
   :group 'emacspeak-info)
 
-(defsubst emacspeak-info-speak-current-window ()
+(defun emacspeak-info-speak-current-window ()
   "Speak current window in info buffer."
   (let ((start  (point))
         (window (get-buffer-window (current-buffer))))

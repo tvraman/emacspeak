@@ -102,7 +102,7 @@
 (defvar emacspeak-librivox-results-limit 100
   "Number of results to retrieve at a time.")
 
-(defsubst emacspeak-librivox-audiobooks-uri (pattern  offset)
+(defun emacspeak-librivox-audiobooks-uri (pattern  offset)
   "Search URI for audiobooks."
   (declare (special emacspeak-librivox-api-base))
   (concat
@@ -116,7 +116,7 @@
 ;; * id - of track itself
 ;; * project_id - all tracks for project
 
-(defsubst emacspeak-librivox-audiotracks-base (pattern)
+(defun emacspeak-librivox-audiotracks-base (pattern)
   "Base URI for audiotracks."
   (declare (special emacspeak-librivox-api-base))
   (concat emacspeak-librivox-api-base "audiotracks?format=json&" pattern))
@@ -126,7 +126,7 @@
 ;; * id - of author
 ;; * last_name - exact match
 
-(defsubst emacspeak-librivox-authors-base ()
+(defun emacspeak-librivox-authors-base ()
   "Base URI for authors."
   (declare (special emacspeak-librivox-api-base))
   (concat emacspeak-librivox-api-base "authors"))
@@ -134,7 +134,7 @@
 ;;}}}
 ;;{{{ Search Commands:
 
-(defsubst emacspeak-librivox-display-author (author)
+(defun emacspeak-librivox-display-author (author)
   "Display single author."
   (insert
    (format "%s, " (g-json-get 'last_name author))
@@ -328,7 +328,7 @@ Optional prefix arg `offset' prompts for offset --- use this for retrieving more
   :type 'directory
   :group 'emacspeak-librivox)
 
-(defsubst emacspeak-librivox-ensure-cache ()
+(defun emacspeak-librivox-ensure-cache ()
   "Create LIBRIVOX cache directory if needed."
   (declare (special emacspeak-librivox-local-cache))
   (unless (file-exists-p emacspeak-librivox-local-cache)
