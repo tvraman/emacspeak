@@ -410,6 +410,7 @@
 ;;; eww in emacs-24 used eww-current-title etc as variables.
 ;;; eww in emacs 25 groups these as properties on eww-data.
 ;;; Emacspeak-eww defines wrapper functions to hide this difference.
+;;; Generate emacspeak-eww-current-url and friends:
 
 (loop
  for name in

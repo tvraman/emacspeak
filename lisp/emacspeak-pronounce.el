@@ -89,13 +89,13 @@
 Keys are either filenames, directory names, or major mode names.
 Values are alists containing string.pronunciation pairs.")
 
-(defsubst emacspeak-pronounce-set-dictionary (key pr-alist)
+(defun emacspeak-pronounce-set-dictionary (key pr-alist)
   (declare (special emacspeak-pronounce-dictionaries))
   (when (stringp key)
     (setq key (intern key)))
   (setf (gethash key emacspeak-pronounce-dictionaries) pr-alist))
 
-(defsubst emacspeak-pronounce-get-dictionary (key)
+(defun emacspeak-pronounce-get-dictionary (key)
   (declare (special emacspeak-pronounce-dictionaries
                     minibuffer-history))
   (when (stringp key)
@@ -370,12 +370,12 @@ Optional argument FILENAME specifies the dictionary file."
     (insert string)
     (dtk-speak string)))
 
-(defsubst emacspeak-pronounce-read-pattern (&ignore _key)
+(defun emacspeak-pronounce-read-pattern (&ignore _key)
   (declare (special emacspeak-pronounce-yank-word-point
                     emacspeak-pronounce-current-buffer))
   (eval (read-minibuffer "Pattern")))
 
-(defsubst emacspeak-pronounce-read-term (key)
+(defun emacspeak-pronounce-read-term (key)
   (declare (special emacspeak-pronounce-yank-word-point
                     emacspeak-pronounce-current-buffer))
   (let ((default (and (mark)
@@ -405,7 +405,7 @@ Argument WORD specifies the word which should be pronounced as specified by PRON
   (emacspeak-pronounce-add-buffer-local-dictionary-entry
    word pronunciation))
 
-(defsubst emacspeak-pronounce-get-key ()
+(defun emacspeak-pronounce-get-key ()
   "Collect key from user.
 Returns a pair of the form (key-type . key)."
   (declare (special emacspeak-pronounce-pronunciation-keys))
@@ -499,7 +499,7 @@ Becomes automatically buffer local.")
 (setq-default emacspeak-pronounce-pronunciation-table nil)
 
 ;;;###autoload
-(defsubst  emacspeak-pronounce-pronunciation-table ()
+(defun  emacspeak-pronounce-pronunciation-table ()
   "Closure that returns the pronunciation table."
   emacspeak-pronounce-pronunciation-table)
 
