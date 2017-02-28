@@ -107,27 +107,29 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 
     ;;}}}
     ;;{{{  set up terminal codes and global keys
+
     (prefer-coding-system 'utf-8-emacs)
     (mapc #'load-library-if-available '("console" "screen"))
 
     (when (eq window-system 'x) (load-library-if-available "x"))
 
-    (loop for  key in
-          '(
-            ([f3] bury-buffer)
-            ([f4] emacspeak-kill-buffer-quietly)
-            ([pause] dtk-stop)
-            ("\M--" undo)
-            ([f11]shell)
-            ([f12]vm)
-            ( "\C-xc"compile)
-            (  "\C-x%"comment-region)
-            ( "\M-r"replace-string)
-            ( "\M-e"end-of-word)
-            ( "\M-\C-j"imenu)
-            ( "\M-\C-c"calendar))
-          do
-          (global-set-key (first key) (second key)))
+    (cl-loop
+     for  key in
+     '(
+       ([f3] bury-buffer)
+       ([f4] emacspeak-kill-buffer-quietly)
+       ([pause] dtk-stop)
+       ("\M--" undo)
+       ([f11]shell)
+       ([f12]vm)
+       ( "\C-xc"compile)
+       (  "\C-x%"comment-region)
+       ( "\M-r"replace-string)
+       ( "\M-e"end-of-word)
+       ( "\M-\C-j"imenu)
+       ( "\M-\C-c"calendar))
+     do
+     (global-set-key (first key) (second key)))
 
 ;;; Smarten up ctl-x-map
     (define-key ctl-x-map "\C-n" 'forward-page)
@@ -202,6 +204,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     (pinentry-start)
     (bbdb-insinuate-vm)
     (when (locate-library "ido-ubiquitous") (ido-ubiquitous-mode 1))
+
     ;;}}}
     ;;{{{ Save abbrevs On Quit:
 
@@ -224,7 +227,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (shell)
      (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
      (calendar)
-     (when (dbus-list-known-names :session)     (nm-enable)
+     (when (dbus-list-known-names :session)
+       (nm-enable)
            (emacspeak-dbus-sleep-enable)
            (emacspeak-dbus-watch-screen-lock))
      (play-sound
