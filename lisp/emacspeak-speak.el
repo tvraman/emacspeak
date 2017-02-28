@@ -71,7 +71,7 @@
 ;;}}}
 ;;{{{ Utilities:
 
-(defsubst emacspeak-url-encode (str)
+(defun emacspeak-url-encode (str)
   "URL encode string."
   (mapconcat
    #'(lambda (c)

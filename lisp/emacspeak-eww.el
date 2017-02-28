@@ -1150,7 +1150,10 @@ Optional interactive arg `multi' prompts for multiple ids."
                 for i in (ems-eww-read-list 'ems-eww-read-id)
                 collect (list 'id i))
              (list (list 'id (ems-eww-read-id))))))))
-    (when dom (emacspeak-eww-view-helper (dom-html-add-base dom)))))
+    (when dom
+      (emacspeak-eww-view-helper
+       (dom-html-add-base
+                                  dom (emacspeak-eww-current-url))))))
 
 (defun ems-eww-read-attribute-and-value ()
   "Read attr-value pair and return as a list."
@@ -1193,8 +1196,8 @@ Optional interactive arg `multi' prompts for multiple classes."
                (ems-eww-read-list 'ems-eww-read-attribute-and-value)
              (list  (ems-eww-read-attribute-and-value)))))))
     (when dom
-      (dom-html-add-base dom   (emacspeak-eww-current-url))
-      (emacspeak-eww-view-helper dom))))
+      (emacspeak-eww-view-helper 
+       (dom-html-add-base dom   (emacspeak-eww-current-url))))))
 
 (defun eww-view-dom-not-having-attribute (&optional multi)
   "Display DOM filtered by specified nodes not passing  attribute=value test.
@@ -1248,7 +1251,10 @@ Optional interactive arg `multi' prompts for multiple classes."
                 for c in (ems-eww-read-list 'ems-eww-read-class)
                 collect (list 'class c))
              (list (list 'class (ems-eww-read-class))))))))
-    (when dom (emacspeak-eww-view-helper   (dom-html-add-base dom)))))
+    (when dom
+      (emacspeak-eww-view-helper
+       (dom-html-add-base
+        dom (emacspeak-eww-current-url))))))
 
 (defun ems-eww-read-role ()
   "Return role value read from minibuffer."
@@ -1301,7 +1307,11 @@ Optional interactive arg `multi' prompts for multiple classes."
                 for r in (ems-eww-read-list 'ems-eww-read-role)
                 collect (list 'role r))
              (list (list 'role (ems-eww-read-role))))))))
-    (when dom (emacspeak-eww-view-helper (dom-html-add-base dom)))))
+    (when dom
+      (emacspeak-eww-view-helper
+       (dom-html-add-base
+        dom
+        (emacspeak-eww-current-url))))))
 
 (defun eww-view-dom-having-property (multi)
   "Display DOM filtered by specified property=value test.
@@ -1333,7 +1343,11 @@ Optional interactive arg `multi' prompts for multiple classes."
                 for r in (ems-eww-read-list 'ems-eww-read-property)
                 collect (list 'property r))
              (list (list 'property (ems-eww-read-property))))))))
-    (when dom (emacspeak-eww-view-helper (dom-html-add-base dom)))))
+    (when
+        dom
+      (emacspeak-eww-view-helper
+       (dom-html-add-base dom
+                          (emacspeak-eww-current-url))))))
 
 (defun eww-view-dom-having-itemprop (multi)
   "Display DOM filtered by specified itemprop=value test.
@@ -1365,7 +1379,10 @@ Optional interactive arg `multi' prompts for multiple classes."
                 for r in (ems-eww-read-list 'ems-eww-read-itemprop)
                 collect (list 'itemprop r))
              (list (list 'itemprop (ems-eww-read-itemprop))))))))
-    (when dom (emacspeak-eww-view-helper (dom-html-add-base dom)))))
+    (when dom
+      (emacspeak-eww-view-helper
+       (dom-html-add-base
+        dom (emacspeak-eww-current-url))))))
 (defun ems-eww-read-element ()
   "Return element  value read from minibuffer."
   (declare (special eww-element-cache))
@@ -1401,7 +1418,10 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
            (if multi
                (ems-eww-read-list 'ems-eww-read-element)
              (list  (ems-eww-read-element)))))))
-    (when dom (emacspeak-eww-view-helper  (dom-html-add-base dom)))))
+    (when dom
+      (emacspeak-eww-view-helper
+       (dom-html-add-base
+        dom (emacspeak-eww-current-url))))))
 
 (defun emacspeak-eww-restore ()
   "Restore buffer to pre-filtered canonical state."

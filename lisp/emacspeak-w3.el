@@ -303,26 +303,26 @@ document is displayed in a separate buffer. "
 
 ;;;This should eventually be done via a DOM API
 
-(defsubst emacspeak-w3-html-stack () (get-text-property (point)
+(defun emacspeak-w3-html-stack () (get-text-property (point)
                                                         'html-stack))
 
-(defsubst emacspeak-w3-get-onclick ()
+(defun emacspeak-w3-get-onclick ()
   "Return onclick handler if any at point."
   (cdr (assq 'onclick (cdar (emacspeak-w3-html-stack)))))
 
-(defsubst emacspeak-w3-get-class ()
+(defun emacspeak-w3-get-class ()
   "Return class if any at point."
   (cdr (assq 'class (cdar (emacspeak-w3-html-stack)))))
 
-(defsubst emacspeak-w3-get-onchange ()
+(defun emacspeak-w3-get-onchange ()
   "Return onchange handler if any at point."
   (cdr (assq 'onchange (cdar (emacspeak-w3-html-stack)))))
 
-(defsubst emacspeak-w3-get-style ()
+(defun emacspeak-w3-get-style ()
   "Return style if any at point."
   (cdr (assq 'style (cdar (emacspeak-w3-html-stack)))))
 
-(defsubst emacspeak-w3-html-stack-top-element (&optional stack)
+(defun emacspeak-w3-html-stack-top-element (&optional stack)
   (or stack (setq stack (emacspeak-w3-html-stack)))
   (first (first stack)))
 
@@ -770,7 +770,7 @@ HTML."
 ;;; prefix: http://www.google.com/url?q=
 ;;; Suffix: &sa=...
 
-(defsubst emacspeak-w3-canonicalize-google-result-url (url)
+(defun emacspeak-w3-canonicalize-google-result-url (url)
   "Strip out the actual result URL from the redirect wrapper."
   (declare (special emacspeak-websearch-google-use-https))
   (url-unhex-string 
@@ -778,7 +778,7 @@ HTML."
               (if emacspeak-websearch-google-use-https 29 28)
               (string-match "&sa=" url))))
 
-(defsubst emacspeak-w3-google-result-url-prefix ()
+(defun emacspeak-w3-google-result-url-prefix ()
   "Return prefix of result urls."
   (declare (special emacspeak-websearch-google-use-https))
   (format "%s://www.google.com/url?q="

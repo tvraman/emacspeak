@@ -50,14 +50,14 @@
 ;;}}}
 ;;{{{  Communicate state
 
-(defsubst emacspeak-solitaire-current-row ()
+(defun emacspeak-solitaire-current-row ()
   (declare (special solitaire-start-y))
   (+ 1 (/ 
         (- (solitaire-current-line)
            solitaire-start-y)
         2)))
 
-(defsubst emacspeak-solitaire-current-column()
+(defun emacspeak-solitaire-current-column()
   (declare (special solitaire-start-x))
   (let ((c (current-column)))
     (+ 1
@@ -75,9 +75,9 @@
            (emacspeak-solitaire-current-row)
            (emacspeak-solitaire-current-column))))
 
-(defsubst emacspeak-solitaire-stone  () (dtk-tone 400 50))
+(defun emacspeak-solitaire-stone  () (dtk-tone 400 50))
 
-(defsubst emacspeak-solitaire-hole () (dtk-tone 800 50))
+(defun emacspeak-solitaire-hole () (dtk-tone 800 50))
 
 (defun emacspeak-solitaire-show-row ()
   "Audio format current row."
