@@ -52,7 +52,10 @@
 (require 'emacspeak-webutils)
 ;;}}}
 ;;{{{  xslt Environment:
-
+;;;###autoload
+(defun emacspeak-xslt-get (style)
+  "Return fully qualified stylesheet path."
+  (expand-file-name style emacspeak-xslt-directory))
 (defgroup emacspeak-xslt nil
   "XSL transformation group."
   :group 'emacspeak)

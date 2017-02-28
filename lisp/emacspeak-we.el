@@ -59,7 +59,6 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-
 (require 'emacspeak-xslt)
 (require 'emacspeak-webutils)
 
@@ -150,7 +149,7 @@ a rewrite rule even if one is already defined."
   :type 'boolean
   :group 'emacspeak-we)
 
-;;;###autoload
+
 (defcustom emacspeak-we-xsl-transform
   (emacspeak-xslt-get "sort-tables.xsl")
   "Specifies transform to use before displaying a page.

@@ -128,10 +128,7 @@ such as pronunciation dictionaries are stored. ")
    "$")
   "Pattern for matching playlists.")
 
-;;;###autoload
-(defsubst emacspeak-xslt-get (style)
-  "Return fully qualified stylesheet path."
-  (expand-file-name style emacspeak-xslt-directory))
+
 
 ;;}}}
 ;;{{{ speech rate
