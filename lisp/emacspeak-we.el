@@ -395,7 +395,7 @@ spoken automatically."
    (format "(//table//table)[%s]" index)
    url speak))
 
-(defsubst  emacspeak-we-get-table-list (&optional bound)
+(defun  emacspeak-we-get-table-list (&optional bound)
   "Collect a list of numbers less than bound
  by prompting repeatedly in the
 minibuffer.
@@ -415,7 +415,7 @@ Empty value finishes the list."
         (setq done t)))
     result))
 
-(defsubst  emacspeak-we-get-table-match-list ()
+(defun  emacspeak-we-get-table-match-list ()
   "Collect a list of matches by prompting repeatedly in the
 minibuffer.
 Empty value finishes the list."
@@ -528,7 +528,7 @@ Tables are specified by containing  match pattern
 
 (make-variable-buffer-local 'emacspeak-we-buffer-class-cache)
 
-(defsubst emacspeak-we-build-class-cache ()
+(defun emacspeak-we-build-class-cache ()
   "Build class cache and forward it to rendered page."
   (let ((values nil)
         (content (clone-buffer)))
@@ -556,7 +556,7 @@ Tables are specified by containing  match pattern
 
 (make-variable-buffer-local 'emacspeak-we-buffer-id-cache)
 
-(defsubst emacspeak-we-build-id-cache ()
+(defun emacspeak-we-build-id-cache ()
   "Build id cache and forward it to rendered page."
   (let ((values nil)
         (content (clone-buffer)))
@@ -581,7 +581,7 @@ Tables are specified by containing  match pattern
 
 (make-variable-buffer-local 'emacspeak-we-buffer-role-cache)
 
-(defsubst emacspeak-we-build-role-cache ()
+(defun emacspeak-we-build-role-cache ()
   "Build role cache and forward it to rendered page."
   (let ((values nil)
         (content (clone-buffer)))
@@ -651,7 +651,7 @@ buffer. Interactive use provides list of class values as completion."
                             (or (ems-interactive-p)
                                 speak))))
 
-(defsubst  emacspeak-we-get-id-list ()
+(defun  emacspeak-we-get-id-list ()
   "Collect a list of ids by prompting repeatedly in the
 minibuffer.
 Empty value finishes the list."
@@ -669,7 +669,7 @@ Empty value finishes the list."
         (setq done t)))
     result))
 
-(defsubst  emacspeak-we-css-get-class-list ()
+(defun  emacspeak-we-css-get-class-list ()
   "Collect a list of classes by prompting repeatedly in the
 minibuffer.
 Empty value finishes the list."
