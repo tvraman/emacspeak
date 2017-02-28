@@ -173,7 +173,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "emacspeak-dbus" "emacspeak-muggles" "emacspeak-maths"
        "my-functions"
 ;;; Mail:
-       "vm-prepare" "gm-smtp" "gnus-prepare" "bbdb-prepare"
+       "vm-prepare" "gnus-prepare" "bbdb-prepare"
        "mspools-prepare" "sigbegone"
 ;;; Web:
        "w3-prepare" "elfeed-prepare"
