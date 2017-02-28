@@ -159,7 +159,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "tramp-prepare"
        "fff-prepare" "fap-prepare"
        "emms-prepare"
-       "local"
+       "local" "soundscape"
        "emacspeak-dbus" "emacspeak-muggles" "emacspeak-maths"))
     ;;}}}
     ))                                  ; end defun
@@ -172,7 +172,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (server-start)
      (shell)
      (calendar)
-     (load-library "emacspeak-m-player")
+     (when (featurep 'soundscape) (soundscape-toggle))
      (nm-enable)
      (emacspeak-dbus-watch-screen-lock)
      (emacspeak-dbus-sleep-enable)
