@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (load-library "folding")
 (declare (special fold-fold-on-startup
                   fold-keys-already-setup
@@ -41,7 +42,7 @@
                         "<!-- } -->" " --> ")
 (fold-add-to-marks-list 'c-mode "/* <" "/* > */" "*/")
 (fold-add-to-marks-list 'c++-mode
-                        "// <" "// >" "")
+                        "//<" "//>" "")
 (fold-add-to-marks-list 'LaTeX-mode "%%% {{{" "%%% }}}" " ")
 (fold-add-to-marks-list 'latex2e-mode "%%% {{{" "%%% }}}" " ")
 (fold-add-to-marks-list 'latex-mode "%%% {{{" "%%% }}}" " ")

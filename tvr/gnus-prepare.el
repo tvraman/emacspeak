@@ -1,4 +1,4 @@
-;;;  Gnus Setup For GMail imap:
+;;;  Gnus Setup For GMail imap:  -*- lexical-binding: t; -*-
 ;;{{{  News Source etc 
 ;;; Example: http://www.google.com/url?q=http://blogs.openaether.org/data/gnus.example.el&sa=U&ei=R1DdUuLMCYiDogTV0YHYDg&ved=0CCkQFjAC&usg=AFQjCNF4T3kHZQ8CDmpFbzJeJcXbdTYOXw
 (require 'nnimap)
@@ -62,5 +62,13 @@
 
 ;;}}}
 (setq gnus-summary-line-format "%t%U%R%-20,20a %s \n")
-(setq gnus-group-line-format "%M%S%p%P%5y: %(%G%)%l \n")
+(setq gnus-group-line-format "%M%S%p%P%5y: %(%g%)%l \n")
+(defun gmail-report-spam ()
+  "Report the current or marked mails as spam.
+This moves them into the Spam folder."
+  (interactive)
+  (gnus-summary-move-article nil "nnimap+imap.gmail.com:[Gmail]/Spam")
+  (emacspeak-auditory-icon 'task-done))
+
+(define-key gnus-summary-mode-map "$" 'gmail-report-spam)
 (provide 'gnus-prepare)

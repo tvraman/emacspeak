@@ -1,4 +1,4 @@
-;;;$Id$
+;;;$Id$  -*- lexical-binding: t; -*-
 (augment-load-path "nxml-mode" "nxml-mode")
 ;(load-library "rng-auto")
 (setq auto-mode-alist

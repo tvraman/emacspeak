@@ -1,2 +1,3 @@
+;; -*- lexical-binding: t; -*-
 (augment-load-path "ecb" "ecb")
-(require 'ecb)
+(autoload 'ecb-activate "ecb" "ECB Browser" t)

@@ -1,2 +1,5 @@
-(augment-load-path "color-theme" "color-theme")
+;; -*- lexical-binding: t; -*-
+
 (load-library  "color-theme-autoloads")
+(color-theme-initialize)
+(color-theme-aliceblue)

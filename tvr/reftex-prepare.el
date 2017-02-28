@@ -1,4 +1,4 @@
-;(augment-load-path "reftex" "reftex-parse")
+;; -*- lexical-binding: t; -*-
 (load-library "reftex")
 (setq reftex-enable-partial-scans t)
 (setq reftex-save-parse-info t)

@@ -1,3 +1,4 @@
-(augment-load-path "tramp/lisp" "tramp")
+;; -*- lexical-binding: t; -*-
+
 (load-library "tramp")
-(setq tramp-default-method "scp")
+
