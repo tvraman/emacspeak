@@ -337,14 +337,14 @@ Optional argument FORCE  flushes the command to the speech server."
   (declare (special dtk-quiet dtk-speaker-process
                     dtk-speak-server-initialized))
   (when dtk-speak-server-initialized
-    (dtk-interp-language lang (ems-interactive-p))))
+    (dtk-interp-language lang (called-interactively-p 'interactive))))
 
 (defun dtk-set-next-language ()
   "Switch to the next available language"
   (interactive)
   (declare (special dtk-speak-server-initialized))
   (when dtk-speak-server-initialized
-    (dtk-interp-next-language (ems-interactive-p))))
+    (dtk-interp-next-language (called-interactively-p 'interactive))))
 
 (defun dtk-set-previous-language ()
   "Switch to the previous available language"
@@ -353,7 +353,7 @@ Optional argument FORCE  flushes the command to the speech server."
                     dtk-speak-server-initialized))
   ;;  (unless dtk-quiet
   (when dtk-speak-server-initialized
-    (dtk-interp-previous-language (ems-interactive-p))))
+    (dtk-interp-previous-language (called-interactively-p 'interactive))))
 
 (defun dtk-set-preferred-language (alias lang)
   "Set the alias of the preferred language:
@@ -1714,7 +1714,7 @@ since the synthesizer is getting a word at a time."
     (when (called-interactively-p 'interactive)
       (message "Text will be split at punctuations and white space when speaking")))
    (t (dtk-chunk-only-on-punctuations)
-      (when (ems-interactive-p)
+      (when (called-interactively-p 'interactive)
         (message "Text split  at clause boundaries")))))
 
 ;;;###autoload

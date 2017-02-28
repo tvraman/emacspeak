@@ -407,7 +407,7 @@ Useful to do this before you listen to an entire buffer."
   (declare (special major-mode))
   (ems-set-mode-punctuation-setting major-mode setting)
   (ems-sync-mode-punctuation-setting major-mode)
-  (when (ems-interactive-p)
+  (when (called-interactively-p 'interactive)
     (message "Set punctuations to %s in %s" setting mode-name)
     (emacspeak-auditory-icon 'select-object)))
 
@@ -1123,7 +1123,7 @@ spelled out  instead of being spoken."
        ((< arg 0) (setq end orig)))
       ;; select speak or spell
       (cond
-       ((and (ems-interactive-p)
+       ((and (called-interactively-p 'interactive)
              (eq emacspeak-speak-last-spoken-word-position orig))
         (setq speaker 'emacspeak-speak-spell-word)
         (setq emacspeak-speak-last-spoken-word-position nil))
@@ -1751,7 +1751,7 @@ Interactive prefix arg speaks buffer info."
   (ems-sync-mode-punctuation-setting major-mode)
   (when   emacspeak-mail-alert (emacspeak-mail-alert-user))
   (cond
-   ((and header-line-format (not (ems-interactive-p)))
+   ((and header-line-format (not (called-interactively-p 'interactive)))
     (emacspeak-speak-header-line))
    (buffer-info (emacspeak-speak-buffer-info))
    (t                                   ; main branch
@@ -2610,7 +2610,7 @@ if `emacspeak-speak-message-again-should-copy-to-kill-ring' is set."
   (cond
    (from-message-cache
     (dtk-speak   emacspeak-last-message)
-    (when (and (ems-interactive-p)
+    (when (and (called-interactively-p 'interactive)
                emacspeak-speak-message-again-should-copy-to-kill-ring)
       (kill-new emacspeak-last-message)))
    (t
@@ -2619,7 +2619,7 @@ if `emacspeak-speak-message-again-should-copy-to-kill-ring' is set."
       (goto-char (point-max))
       (skip-syntax-backward " >")
       (emacspeak-speak-line)
-      (when (and (ems-interactive-p)
+      (when (and (called-interactively-p 'interactive)
                  emacspeak-speak-message-again-should-copy-to-kill-ring)
         (kill-new (ems-this-line)))))))
 
@@ -2922,7 +2922,7 @@ Prompts for PERSONALITY  with completion when called interactively."
   (require 'rect)
   (require 'emacspeak-personality)
   (let ((personality-table (emacspeak-possible-voices)))
-    (when (ems-interactive-p)
+    (when (called-interactively-p 'interactive)
       (setq personality
             (read
              (completing-read "Use personality: "
@@ -2942,7 +2942,7 @@ Prompts for PERSONALITY  with completion when called interactively."
   (interactive "r")
   (require 'emacspeak-personality)
   (let ((personality-table (emacspeak-possible-voices)))
-    (when (ems-interactive-p)
+    (when (called-interactively-p 'interactive)
       (setq personality
             (read
              (completing-read "Use personality: "
@@ -3106,7 +3106,7 @@ We need to call this in case Emacs is anal and loads its own
 builtin blink-paren function which does not talk."
   (interactive)
   (fset 'blink-matching-open (symbol-function 'emacspeak-blink-matching-open))
-  (and (ems-interactive-p)
+  (and (called-interactively-p 'interactive)
        (message "Using customized blink-paren function provided by Emacspeak.")))
 
 ;;}}}
@@ -3203,7 +3203,7 @@ Argument O specifies overlay."
   (if completion-reference-buffer
       (switch-to-buffer completion-reference-buffer)
     (error "Reference buffer not found."))
-  (when (ems-interactive-p)
+  (when (called-interactively-p 'interactive)
     (emacspeak-speak-line)
     (emacspeak-auditory-icon 'select-object)))
 
@@ -3279,7 +3279,7 @@ char, or dont move. "
       (set-marker (mark-marker)  (point) (current-buffer))
       (goto-char (marker-position target))
       (move-marker target nil)
-      (when (ems-interactive-p)
+      (when (called-interactively-p 'interactive)
         (emacspeak-mark-speak-mark-line)))))
 
 ;;}}}

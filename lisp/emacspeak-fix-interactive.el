@@ -164,7 +164,7 @@ use the minibuffer."
                   (get (cdr item) 'byte-compile)))
          (commandp (cdr item))
          (emacspeak-fix-interactive-command-if-necessary (cdr item))))
-  (when (ems-interactive-p)
+  (when (called-interactively-p 'interactive)
     (message "Fixed interactive commands defined in module %s" module)))
 
 (defvar emacspeak-load-history-pointer nil
@@ -185,12 +185,12 @@ Memoizes call in emacspeak-load-history-pointer to memoize this call. "
                   (not (eq lh emacspeak-load-history-pointer)))
 ;;; fix commands in this module
         (emacspeak-fix-commands-loaded-from lh)
-        (when (ems-interactive-p)
+        (when (called-interactively-p 'interactive)
           (message "Fixed commands in %s" (first (first lh))))
         (setq lh (rest lh)))
 ;;;memoize for future call
       (setq emacspeak-load-history-pointer load-history))
-    (when (ems-interactive-p)
+    (when (called-interactively-p 'interactive)
       (message "Fixed recently defined  interactive commands")))
   t)
 

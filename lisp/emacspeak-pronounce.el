@@ -136,15 +136,15 @@ Arguments STRING and PRONUNCIATION specify what is being defined."
    ((not (boundp 'emacspeak-pronounce-pronunciation-table)) ;first time
     (set (make-local-variable 'emacspeak-pronounce-pronunciation-table)
          (emacspeak-pronounce-compose-pronunciation-table))
-    (when (ems-interactive-p)(emacspeak-auditory-icon 'on)))
+    (when (called-interactively-p 'interactive)(emacspeak-auditory-icon 'on)))
    (emacspeak-pronounce-pronunciation-table ;already on --
-    (when (ems-interactive-p)(emacspeak-auditory-icon 'on)))
+    (when (called-interactively-p 'interactive)(emacspeak-auditory-icon 'on)))
    (t                                   ;turn it on
     (setq emacspeak-pronounce-pronunciation-table
           (emacspeak-pronounce-compose-pronunciation-table))))
   (puthash string pronunciation
            emacspeak-pronounce-pronunciation-table)
-  (when (ems-interactive-p)
+  (when (called-interactively-p 'interactive)
     (message "Added local pronunciation in buffer %s"
              (buffer-name))))
 
@@ -410,7 +410,7 @@ Returns a pair of the form (key-type . key)."
           (completing-read
            "Define pronunciation that is specific to: "
            emacspeak-pronounce-pronunciation-keys nil t))))
-    (when (ems-interactive-p) ;cleanup minibuffer history
+    (when (called-interactively-p 'interactive) ;cleanup minibuffer history
       (pop minibuffer-history))
     (cond
      ((eq key-type 'buffer)
@@ -519,21 +519,21 @@ explicitly turn pronunciations on or off."
     (make-local-variable 'emacspeak-pronounce-pronunciation-table)
     (setq emacspeak-pronounce-pronunciation-table
           (emacspeak-pronounce-compose-pronunciation-table))
-    (when (ems-interactive-p)
+    (when (called-interactively-p 'interactive)
       (emacspeak-auditory-icon 'on)
       (message "Emacspeak pronunciation dictionaries are now active in this buffer")))
    ((or (eq state 'off)
                                         ;already on --turn it off
         emacspeak-pronounce-pronunciation-table)
     (setq emacspeak-pronounce-pronunciation-table nil)
-    (when (ems-interactive-p)
+    (when (called-interactively-p 'interactive)
       (emacspeak-auditory-icon 'off)
       (message
        "Emacspeak pronunciation dictionaries no longer active in this buffer")))
    (t ;turn it on
     (setq emacspeak-pronounce-pronunciation-table
           (emacspeak-pronounce-compose-pronunciation-table))
-    (when (ems-interactive-p)
+    (when (called-interactively-p 'interactive)
       (message
        "Emacspeak pronunciations have been re-activated in this buffer")
       (emacspeak-auditory-icon 'on)))))
@@ -553,7 +553,7 @@ Activates pronunciation dictionaries if not already active."
    (t ;turn it on
     (setq emacspeak-pronounce-pronunciation-table
           (emacspeak-pronounce-compose-pronunciation-table))))
-  (when (ems-interactive-p)
+  (when (called-interactively-p 'interactive)
     (emacspeak-auditory-icon 'on)
     (message
      "Refreshed pronunciations for this buffer")))
