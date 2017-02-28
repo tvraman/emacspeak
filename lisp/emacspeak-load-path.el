@@ -67,7 +67,7 @@
 
 ;; Record interactive calls:
 
-(defsubst ems-record-interactive-p (f)
+(defun ems-record-interactive-p (f)
   "Predicate to test if we need to record interactive calls of
 this function. Memoizes result for future use by placing a
 property 'emacspeak on the function."
