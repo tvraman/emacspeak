@@ -370,11 +370,6 @@ Optional argument FILENAME specifies the dictionary file."
     (insert string)
     (dtk-speak string)))
 
-(defun emacspeak-pronounce-read-pattern (&ignore _key)
-  (declare (special emacspeak-pronounce-yank-word-point
-                    emacspeak-pronounce-current-buffer))
-  (eval (read-minibuffer "Pattern")))
-
 (defun emacspeak-pronounce-read-term (key)
   (declare (special emacspeak-pronounce-yank-word-point
                     emacspeak-pronounce-current-buffer))
@@ -451,7 +446,7 @@ First loads any persistent dictionaries if not already loaded."
   (let ((word nil)
         (pronunciation nil)
         (key-pair (emacspeak-pronounce-get-key)))
-    (setq word (emacspeak-pronounce-read-pattern (cdr key-pair)))
+    (setq word (read-minibuffer "Pattern"))
     (setq pronunciation
           (cons
            (read-minibuffer
