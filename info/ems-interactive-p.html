@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-02-28 Tue 20:11 -->
+<!-- 2017-02-28 Tue 20:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Check If We Are Called Interactively Within Advice Forms: ems-interactive-p</title>
@@ -233,24 +233,24 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgfa825ac">1. Background</a></li>
-<li><a href="#org3748570">2. Implementation &#x2014;  :ems-interactive-p:</a>
+<li><a href="#orgdbc1512">1. Background</a></li>
+<li><a href="#org19df2d3">2. Implementation &#x2014;  :ems-interactive-p:</a>
 <ul>
-<li><a href="#org074cbc2">2.1. Overview</a></li>
+<li><a href="#org1413004">2.1. Overview</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfa825ac" class="outline-2">
-<h2 id="orgfa825ac"><span class="section-number-2">1</span> Background</h2>
+<div id="outline-container-orgdbc1512" class="outline-2">
+<h2 id="orgdbc1512"><span class="section-number-2">1</span> Background</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Emacspeak uses advice as the means to speech-enable Emacs.
 Emacspeak's <b>advice</b> forms  need to check if the function being
 speech-enabled is being called interactively &#x2014; otherwise one would
 get a lot of chatter as these functions get called from within elisp
-programs, e.g. functions like <span class="underline">forward-sexp- or _kill-sexp</span>, that play
+programs, e.g. functions like <span class="underline">forward-sexp</span> or <span class="underline">kill-sexp</span>, that play
 the dual role of both an interactive command, as well as a convenient
 elisp function.
 </p>
@@ -297,16 +297,18 @@ The resulting implementation has worked well for the last 30 months;
 this article is here mostly to document how it works, and the reason
 for its existence.
 Note that Emacspeak uses this custom predicate <b>only</b> within :advice: forms.
+Further, this predicate has been coded to only work within :advice:
+forms created by :emacspeak:. This constraint can likely be relaxed,
+but the tighter implementation is less risky.
 </p>
 </div>
 </div>
 
-
-<div id="outline-container-org3748570" class="outline-2">
-<h2 id="org3748570"><span class="section-number-2">2</span> Implementation &#x2014;  :ems-interactive-p:</h2>
+<div id="outline-container-org19df2d3" class="outline-2">
+<h2 id="org19df2d3"><span class="section-number-2">2</span> Implementation &#x2014;  :ems-interactive-p:</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-org074cbc2" class="outline-3">
-<h3 id="org074cbc2"><span class="section-number-3">2.1</span> Overview</h3>
+</div><div id="outline-container-org1413004" class="outline-3">
+<h3 id="org1413004"><span class="section-number-3">2.1</span> Overview</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Within an :advice: forms,  detect if the current call was the result
@@ -425,7 +427,7 @@ use-case.
 <div id="postamble" class="status">
 <p class="date">Date: 2017-02-28 Tue 00:00</p>
 <p class="author">Author: raman</p>
-<p class="date">Created: 2017-02-28 Tue 20:11</p>
+<p class="date">Created: 2017-02-28 Tue 20:16</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

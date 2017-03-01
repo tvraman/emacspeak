@@ -4,7 +4,7 @@ Emacspeak uses advice as the means to speech-enable Emacs.
 Emacspeak's *advice* forms  need to check if the function being
 speech-enabled is being called interactively --- otherwise one would
 get a lot of chatter as these functions get called from within elisp
-programs, e.g. functions like _forward-sexp- or _kill-sexp_, that play
+programs, e.g. functions like _forward-sexp_ or _kill-sexp_, that play
 the dual role of both an interactive command, as well as a convenient
 elisp function.
 
@@ -35,7 +35,9 @@ The resulting implementation has worked well for the last 30 months;
 this article is here mostly to document how it works, and the reason
 for its existence.
 Note that Emacspeak uses this custom predicate *only* within :advice: forms.
-
+Further, this predicate has been coded to only work within :advice:
+forms created by :emacspeak:. This constraint can likely be relaxed,
+but the tighter implementation is less risky.
 
 * Implementation ---  :ems-interactive-p:
 
