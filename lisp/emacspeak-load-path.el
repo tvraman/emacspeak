@@ -54,7 +54,6 @@
   "Directory where Emacspeak resource files such as pronunciation dictionaries are stored. ")
 
 (setq byte-compile-warnings t)
-
 ;;{{{ Interactive Check Implementation:
 
 ;;; Notes:
@@ -127,3 +126,11 @@ interactive command. Turn off the flag once used."
 ;;}}}
 
 (provide 'emacspeak-load-path)
+;;{{{ end of file
+
+;;; local variables:
+;;; folded-file: t
+;;; byte-compile-dynamic: nil
+;;; end:
+
+;;}}}
