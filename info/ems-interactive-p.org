@@ -122,8 +122,11 @@ interactive command. Turn off the flag once used."
            (ad-get-advice-info-field ems-called-interactively-p  'advicefunname))
           (result nil))
       (setq result
-            (or (eq caller caller-advice) ; called from our advice
-                (eq ems-called-interactively-p caller))) ; called from advice wrapper
+            (or
+             (eq caller caller-advice) ; called from our advice
+;;; called from advice wrapper
+             ;;; (eq ems-called-interactively-p caller) ; not-needed (testing)
+                ))
       (when result
         (setq ems-called-interactively-p nil) ; turn off now that we used  it
         result))))
