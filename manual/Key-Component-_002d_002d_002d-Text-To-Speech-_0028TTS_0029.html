@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+
+  <title>Emacspeak User’s Manual — 2nd Edition.: Key Component ---
+  Text To Speech (TTS)</title>
+  <meta name="description" content=
+  "Emacspeak User’s Manual — 2nd Edition.: Key Component --- Text To Speech (TTS)" />
+  <meta name="keywords" content=
+  "Emacspeak User’s Manual — 2nd Edition.: Key Component --- Text To Speech (TTS)" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="makeinfo" />
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <link href="index.html#Top" rel="start" title="Top" />
+  <link href="Concept-Index.html#Concept-Index" rel="index" title=
+  "Concept Index" />
+  <link href="index.html#SEC_Contents" rel="contents" title=
+  "Table of Contents" />
+  <link href="Emacspeak-At-Twenty.html#Emacspeak-At-Twenty" rel=
+  "up" title="Emacspeak At Twenty" />
+  <link href=
+  "Emacspeak-And-Software-Development.html#Emacspeak-And-Software-Development"
+  rel="next" title="Emacspeak And Software Development" />
+  <link href=
+  "Key-Enabler-_002d_002d_002d-Emacs-And-Lisp-Advice.html#Key-Enabler-_002d_002d_002d-Emacs-And-Lisp-Advice"
+  rel="prev" title="Key Enabler --- Emacs And Lisp Advice" />
+  <style type="text/css">
+/*<![CDATA[*/
+  <!--
+  a.summary-letter {text-decoration: none}
+  blockquote.smallquotation {font-size: smaller}
+  div.display {margin-left: 3.2em}
+  div.example {margin-left: 3.2em}
+  div.indentedblock {margin-left: 3.2em}
+  div.lisp {margin-left: 3.2em}
+  div.smalldisplay {margin-left: 3.2em}
+  div.smallexample {margin-left: 3.2em}
+  div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+  div.smalllisp {margin-left: 3.2em}
+  kbd {font-style:oblique}
+  pre.display {font-family: inherit}
+  pre.format {font-family: inherit}
+  pre.menu-comment {font-family: serif}
+  pre.menu-preformatted {font-family: serif}
+  pre.smalldisplay {font-family: inherit; font-size: smaller}
+  pre.smallexample {font-size: smaller}
+  pre.smallformat {font-family: inherit; font-size: smaller}
+  pre.smalllisp {font-size: smaller}
+  span.nocodebreak {white-space:nowrap}
+  span.nolinebreak {white-space:nowrap}
+  span.roman {font-family:serif; font-weight:normal}
+  span.sansserif {font-family:sans-serif; font-weight:normal}
+  ul.no-bullet {list-style: none}
+  -->
+  /*]]>*/
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "http://www.w3.org/StyleSheets/Core/Modernist" />
+  <style type="text/css">
+/*<![CDATA[*/
+  body {
+  background-color: #FFFFFF;
+  color: #000000;
+  }
+  :link { color: #0000FF }
+  :visited { color: #800080 }
+  :active { color: #FF0000 }
+  /*]]>*/
+  </style>
+</head>
+
+<body lang="en" xml:lang="en">
+  <a name=
+  "Key-Component-_002d_002d_002d-Text-To-Speech-_0028TTS_0029" id=
+  "Key-Component-_002d_002d_002d-Text-To-Speech-_0028TTS_0029"></a>
+
+  <div class="header">
+    <p>Next: <a href=
+    "Emacspeak-And-Software-Development.html#Emacspeak-And-Software-Development"
+    accesskey="n" rel="next">Emacspeak And Software
+    Development</a>, Previous: <a href=
+    "Key-Enabler-_002d_002d_002d-Emacs-And-Lisp-Advice.html#Key-Enabler-_002d_002d_002d-Emacs-And-Lisp-Advice"
+    accesskey="p" rel="prev">Key Enabler --- Emacs And Lisp
+    Advice</a>, Up: <a href=
+    "Emacspeak-At-Twenty.html#Emacspeak-At-Twenty" accesskey="u"
+    rel="up">Emacspeak At Twenty</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+  <hr />
+  <a name=
+  "Key-Component-_002d_002d_002d-Text-To-Speech-_0028TTS_0029-1"
+  id="Key-Component-_002d_002d_002d-Text-To-Speech-_0028TTS_0029-1"></a>
+
+  <h3 class="section">15.4 Key Component — Text To Speech
+  (TTS)</h3>
+
+  <p>Emacspeak is a speech-subsystem for Emacs; it depends on an
+  external Text-To-Speech (TTS) engine to produce speech. In 1994,
+  Digital Equipment released what would turn out to be the last in
+  the line of hardware DECTalk synthesizers, the DECTalk Express.
+  This was essentially an Intel 386with 1mb of flash memory that
+  ran a version of the DECTalk TTS software — to date, it still
+  remains my favorite Text-To-Speech engine. At the time, I also
+  had a software version of the same engine running on my DEC-Alpha
+  workstation; the desire to use either a software or hardware
+  solution to produce speech output defined the Emacspeak
+  speech-server architecture.</p>
+
+  <p>I went to IBM Research in 1999; this coincided with IBM
+  releasing a version of the Eloquennce TTS engine on Linux under
+  the name <em>ViaVoice Outloud</em>. My colleague Jeffrey Sorenson
+  implemented an early version of the Emacspeak speech-server for
+  this engine using the OSS API; I later updated it to use the ALSA
+  library while on a flight back to SFO from Boston in 2001. That
+  is still the TTS engine that is speaking as I type this article
+  on my laptop.</p>
+
+  <p>20 years on, TTS continues to be the weakest link on Linux;
+  the best available solution in terms of quality continues to be
+  the Linux port of Eloquence TTS available from Voxin in Europe
+  for a small price. Looking back across 20 years, the state of TTS
+  on Linux in particular and across all platforms in general
+  continues to be a disappointment; most of today’s newer TTS
+  engines are geared toward mainstream use-cases where
+  <em>naturalness</em> of the voice tends to supersede
+  intelligibility at higher speech-rates. Ironically, modern TTS
+  engines also give applications far less control over the
+  generated output — as a case in point, I implemented <a href=
+  "http://www.cs.cornell.edu/home/raman/aster/demo.html">Audio
+  System For Technical Readings (AsTeR)</a> in 1994 using the
+  DECTalk; 20 years later, we implemented <a href=
+  "http://allthingsd.com/20130604/t-v-ramans-audio-deja-vu-from-google-a-math-reading-system-for-the-web/">
+  MathML support</a> in <a href=
+  "http://www.chromevox.com/">ChromeVox</a> using Google TTS. In
+  2013, it turned out to be difficult or impossible to implement
+  the type of audio renderings that were possible with the
+  admittedly less-natural sounding DECTalk!</p>
+  <hr />
+
+  <div class="header">
+    <p>Next: <a href=
+    "Emacspeak-And-Software-Development.html#Emacspeak-And-Software-Development"
+    accesskey="n" rel="next">Emacspeak And Software
+    Development</a>, Previous: <a href=
+    "Key-Enabler-_002d_002d_002d-Emacs-And-Lisp-Advice.html#Key-Enabler-_002d_002d_002d-Emacs-And-Lisp-Advice"
+    accesskey="p" rel="prev">Key Enabler --- Emacs And Lisp
+    Advice</a>, Up: <a href=
+    "Emacspeak-At-Twenty.html#Emacspeak-At-Twenty" accesskey="u"
+    rel="up">Emacspeak At Twenty</a> &nbsp; [<a href=
+    "index.html#SEC_Contents" title="Table of contents" rel=
+    "contents">Contents</a>][<a href=
+    "Concept-Index.html#Concept-Index" title="Index" rel=
+    "index">Index</a>]</p>
+  </div>
+</body>
+</html>
