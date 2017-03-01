@@ -474,7 +474,7 @@ command \\[customize-variable] on <personality>-settings.. "
 (define-minor-mode voice-lock-mode
   "Toggle voice lock mode."
   t nil nil
-  (when (ems-interactive-p)
+  (when (called-interactively-p 'interactive)
     (let ((state (if voice-lock-mode 'on 'off)))
       (when (ems-interactive-p)
         (emacspeak-auditory-icon state)))))

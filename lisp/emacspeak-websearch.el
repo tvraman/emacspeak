@@ -128,7 +128,7 @@
               (princ "\n"))
         (help-setup-xref
          (list #'emacspeak-websearch-help)
-         (ems-interactive-p))))
+         (called-interactively-p 'interactive))))
     (pop-to-buffer "*Help*")
     (help-mode)
     (goto-char (point-min))
