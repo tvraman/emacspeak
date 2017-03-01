@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-03-01 Wed 15:18 -->
+<!-- 2017-03-01 Wed 15:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Emacs: Check Interactive Call For Emacspeak</title>
@@ -229,8 +229,8 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">Emacs: Check Interactive Call For Emacspeak</h1>
-<div id="outline-container-org0a656b1" class="outline-2">
-<h2 id="org0a656b1"><span class="section-number-2">1</span> Background</h2>
+<div id="outline-container-org42d661c" class="outline-2">
+<h2 id="org42d661c"><span class="section-number-2">1</span> Background</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Emacspeak uses advice as the means to speech-enable Emacs.
@@ -291,11 +291,11 @@ less risky.
 </div>
 </div>
 
-<div id="outline-container-org44d8199" class="outline-2">
-<h2 id="org44d8199"><span class="section-number-2">2</span> Implementation &#x2014;  <span class="underline">ems-interactive-p</span></h2>
+<div id="outline-container-org8c58e40" class="outline-2">
+<h2 id="org8c58e40"><span class="section-number-2">2</span> Implementation &#x2014;  <span class="underline">ems-interactive-p</span></h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgeb78b1c" class="outline-3">
-<h3 id="orgeb78b1c"><span class="section-number-3">2.1</span> Overview</h3>
+</div><div id="outline-container-orgfe639b9" class="outline-3">
+<h3 id="orgfe639b9"><span class="section-number-3">2.1</span> Overview</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Within an <span class="underline">advice</span> forms defined by Emacspeak, detect if the enclosing
@@ -382,26 +382,23 @@ predicate we define, we check the value of this flag, and if
 set, consume it, i.e. unset the flag and return <span class="underline">T</span>.
 </p>
 
-<pre class="example">
-(defsubst ems-interactive-p ()
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(defsubst ems-interactive-p ()
   "Check our interactive flag.
 Return T if set and we are called from the advice for the current
 interactive command. Turn off the flag once used."
-  (when ems-called-interactively-p                 ; interactive call
-    (let ((caller (cl-second (backtrace-frame 1))) ; name of containing function
-          (caller-advice  ;advice generated wrapper
+  (when ems-called-interactively-p      ; interactive call
+    (let ((caller (cl-second (backtrace-frame 1))) ; containing function name
+          (caller-advice ; advice wrapper of containing function
            (ad-get-advice-info-field ems-called-interactively-p  'advicefunname))
           (result nil))
-      (setq result
-            (or
-             (eq caller caller-advice) ; called from our advice
-;;; called from advice wrapper
-             ;;; (eq ems-called-interactively-p caller) ; not-needed (testing)
-                ))
+       ; T if called from our advice
+      (setq result (eq caller caller-advice))
       (when result
         (setq ems-called-interactively-p nil) ; turn off now that we used  it
         result))))
 </pre>
+</div>
 
 <p>
 The only fragile part of the above predicate is the call to
@@ -414,12 +411,51 @@ advantage of working correctly for Emacspeak's specific use-case.
 </p>
 </div>
 </div>
+
+
+<div id="outline-container-orgac1564d" class="outline-3">
+<h3 id="orgac1564d"><span class="section-number-3">2.2</span> Illustrative Example:Interactive Call To <span class="underline">next-line</span></h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+User presses <span class="underline">C-n</span> or <span class="underline">[down]</span> to move to the next line &#x2014;
+interactive call to function <span class="underline">next-line</span>.
+Function <span class="underline">next-line</span> is adviced by Emacspeak, that advice form contains:
+</p>
+
+<p>
+:(when (ems-interactive-p)
+</p>
+
+<ol class="org-ol">
+<li>The advice on <span class="underline">call-interactively</span> first checks
+if  <span class="underline">next-line</span> has been adviced by Emacspeak &#x2014;
+  <span class="underline">(ems-record-interactive-p (ad-get-arg 0))</span>.</li>
+<li>Predicate <span class="underline">ems-record-interactive-p</span>  returns <span class="underline">t</span> after setting
+ems-called-interactively-p_ to the name of the function being
+called &#x2014; <span class="underline">next-line</span>.</li>
+<li>The advice mechanism now takes over and invokes the various parts
+of the advice-onion.</li>
+<li>Within the defadvice form, we evaluate <span class="underline">(when (ems-interactive-p)</span> &#x2026;)</li>
+<li>In the call to <span class="underline">(ems-interactive-p</span>, we first check that the global flag
+<span class="underline">ems-record-interactive-p</span> is set.</li>
+<li>First, we bind <span class="underline">caller</span> to the name of the containing function that 
+ by evaluating   <span class="underline">(backtrace-frame 1)</span> &#x2014; this evaluates to the
+advice-generated wrapper function.</li>
+<li>Next, we bind <span class="underline">caller-advice</span>  to the  name of the generated advice wrapper  for  the function recorded in <span class="underline">ems-record-interactive-p</span> using the call <span class="underline">(ad-get-advice-info-field ems-called-interactively-p  'advicefunname)</span>.</li>
+<li>For the present example, <span class="underline">caller</span> binds to  <span class="underline">ad-Advice-next-line</span>
+&#x2014; since that is the function that the advice system calls. This
+matches the value bound to <span class="underline">caller-advice</span> which is the precise
+test we need to verify that the advice form is being evaluated in
+the context of an interactive call to our adviced function.</li>
+</ol>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2017-03-01 Wed 00:00</p>
 <p class="author">Author: raman</p>
-<p class="date">Created: 2017-03-01 Wed 15:18</p>
+<p class="date">Created: 2017-03-01 Wed 15:53</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
