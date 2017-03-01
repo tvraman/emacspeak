@@ -61,7 +61,7 @@
 ;;; This implementation below appears to work for  emacspeak.
 ;;; Updating  the advice on call-interactively to remember the state of our flag
 ;;; catches cases where the minibuffer is called recursively.
-
+;;; ems-interactive-p is reserved for use within advice.
 (defvar ems-called-interactively-p nil
   "Flag recording interactive calls.")
 
@@ -76,8 +76,8 @@ property 'emacspeak on the function."
    ((get f 'emacspeak) t)
    ((ad-find-some-advice f 'any  "emacspeak")
     (put f 'emacspeak t))
-   ((string-match "^\\(dt\\|emacspea\\)k" (symbol-name f))
-    (put f 'emacspeak t))
+   ;((string-match "^\\(dt\\|emacspea\\)k" (symbol-name f))
+    ;(put f 'emacspeak t))
    (t nil)))
 
 (defadvice funcall-interactively (around emacspeak  pre act comp)
