@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-02-28 Tue 20:16 -->
+<!-- 2017-03-01 Wed 08:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Check If We Are Called Interactively Within Advice Forms: ems-interactive-p</title>
+<title>Emacs: Check Interactive Call For Emacspeak</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="raman" />
 <style type="text/css">
@@ -228,22 +228,9 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Check If We Are Called Interactively Within Advice Forms: ems-interactive-p</h1>
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#orgdbc1512">1. Background</a></li>
-<li><a href="#org19df2d3">2. Implementation &#x2014;  :ems-interactive-p:</a>
-<ul>
-<li><a href="#org1413004">2.1. Overview</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgdbc1512" class="outline-2">
-<h2 id="orgdbc1512"><span class="section-number-2">1</span> Background</h2>
+<h1 class="title">Emacs: Check Interactive Call For Emacspeak</h1>
+<div id="outline-container-org56178b1" class="outline-2">
+<h2 id="org56178b1"><span class="section-number-2">1</span> Background</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Emacspeak uses advice as the means to speech-enable Emacs.
@@ -260,6 +247,7 @@ elisp function.
 Until Emacs 24, the solution used was to write code   that did the
 following check:
 </p>
+
 <pre class="example">
 (when (interactive-p) ...
 </pre>
@@ -272,19 +260,18 @@ In Emacs-24, <span class="underline">interactive-p</span> was made obsolete and 
 </pre>
 
 <p>
-Emacspeak initially used  the above form to perform the equivalent
-check.
-However, around the same time, Emacs' <b>advice</b> implementation  went
-through some changes, and there was an attempt to replace <b>advice.el</b>
-with <b>nadvice.el</b>.
+Emacspeak initially used the above form to perform the equivalent
+check. However, around the same time, Emacs' <b>advice</b> implementation
+went through some changes, and there was an attempt to replace
+<b>advice.el</b> with <b>nadvice.el</b>.
 </p>
 
 <p>
 At the end of that round of changes, some problems emerged with the
 new <span class="underline">called-interactively-p</span> implementation; specifically, calling
-<span class="underline">called-interactively-p</span> within :around: advice forms resulted in hard
+:called-interactively-p_ within <span class="underline">around</span> advice forms resulted in hard
 to debug errors, including one case of infinite recursion  involving
-library <b>smie.el</b>.
+library <b>smie.el</b> when invoked from within <span class="underline">ruby-mode</span>.
 </p>
 
 <p>
@@ -295,82 +282,84 @@ Emacspeak-specific implementation of the <span class="underline">is-interactive<
 <p>
 The resulting implementation has worked well for the last 30 months;
 this article is here mostly to document how it works, and the reason
-for its existence.
-Note that Emacspeak uses this custom predicate <b>only</b> within :advice: forms.
-Further, this predicate has been coded to only work within :advice:
-forms created by :emacspeak:. This constraint can likely be relaxed,
-but the tighter implementation is less risky.
+for its existence. Note that Emacspeak uses this custom predicate
+<b>only</b> within <span class="underline">advice</span> forms. Further, this predicate has been coded
+to only work within <span class="underline">advice</span> forms created by <span class="underline">emacspeak</span>. This
+constraint can likely be relaxed, but the tighter implementation is
+less risky.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org19df2d3" class="outline-2">
-<h2 id="org19df2d3"><span class="section-number-2">2</span> Implementation &#x2014;  :ems-interactive-p:</h2>
+<div id="outline-container-orgbf6c7c7" class="outline-2">
+<h2 id="orgbf6c7c7"><span class="section-number-2">2</span> Implementation &#x2014;  <span class="underline">ems-interactive-p</span></h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-org1413004" class="outline-3">
-<h3 id="org1413004"><span class="section-number-3">2.1</span> Overview</h3>
+</div><div id="outline-container-orge4c53de" class="outline-3">
+<h3 id="orge4c53de"><span class="section-number-3">2.1</span> Overview</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
-Within an :advice: forms,  detect if the current call was the result
-of explicit user interaction, i.e. by pressing a key, or via an
-explicit call to <span class="underline">call-interactively</span>.
-Emacspeak produces auditory feedback only if this predicate returns
-:t:.
+Within an <span class="underline">advice</span> forms defined by Emacspeak, detect if the enclosing
+function call is the result of explicit user interaction, i.e. by
+pressing a key, or via an explicit call to
+<span class="underline">call-interactively</span>. Emacspeak produces auditory feedback only if
+this predicate returns <span class="underline">t</span>.
 </p>
 
 <p>
-We first introduce a flag that will be used to record if the
-enclosing (containing) function call was a result  of direct user
-interaction.
+We first introduce a flag that will be used to record if the enclosing
+(containing) function has an Emacspeak-defined advice on it and is
+called interactively &#x2014; these are the only cases that our predicate
+needs to test.
 </p>
 <pre class="example">
 (defvar ems-called-interactively-p nil
-  "Flag recording interactive calls.")
+  "Flag that records if containing function was called interactively."
 </pre>
 
 <p>
-Next, we define a function that checks if   interactive calls to a
-function should be recorded.
-We're only interested in functions that have  an :advice: form defined
-by Emacspeak.
+Next, we define a function that checks if interactive calls to a
+function should be recorded. We're only interested in functions that
+have an <span class="underline">advice</span> form defined by Emacspeak &#x2014; all Emacspeak-defined
+advice forms have the name <span class="underline">emacspeak</span>.
 </p>
-
-
-
 
 <pre class="example">
 (defun ems-record-interactive-p (f)
   "Predicate to test if we need to record interactive calls of
 this function. Memoizes result for future use by placing a
-property 'emacspeak on the function."
+property 'emacspeak on the function symbol."
   (cond
    ((not (symbolp f)) nil)
-   ((get f 'emacspeak) t)
-   ((ad-find-some-advice f 'any  "emacspeak")
-    (put f 'emacspeak t))
+   ((get f 'emacspeak) t) ; already memoized
+   ((ad-find-some-advice f 'any  "emacspeak") ; there is an emacspeak advice
+    (put f 'emacspeak t)) ; memoize for future and return true
    (t nil)))
 </pre>
 
 <p>
 This is a memoized function that remembers earlier invocations by
-setting property :emacspeak: on the function symbol.
-All :advice: forms created by Emacspeak are named <span class="underline">emacspeak</span>, so we
+setting property <span class="underline">emacspeak</span> on the function symbol.
+</p>
+
+<p>
+All <span class="underline">advice</span> forms created by Emacspeak are named <span class="underline">emacspeak</span>, so we
 can test for the presence of such advice forms using the test:
 </p>
+
 <pre class="example">
 (ad-find-some-advice f 'any  "emacspeak")
 </pre>
 
 <p>
-If this test returns :T:, we memoize the result and return it.
+If this test returns <span class="underline">T</span>, we memoize the result and return it.
 </p>
 
 <p>
-Next, we advice function :call-interactively: to check  
+Next, we advice function <span class="underline">call-interactively</span> to check  
 if the function being called interactively is one of the functions
 that has been adviced by Emacspeak. If so, we record the fact in  the
 previously declared global flag 
-:ems-called-interactively-p:.
+<span class="underline">ems-called-interactively-p</span>.
 </p>
 
 
@@ -385,14 +374,12 @@ on the function being called."
 </pre>
 
 <p>
-We define an equivalent advice form  on
-function :funcall-interactively: as well.
-Now, whenever any function that has been adviced by Emacspeak  is
-called interactively, that interactive call gets recorded in the
-global flag. 
-In the custom Emacspeak predicate we are defining, we check the value
-of this flag, and if set, consume it, i.e. unset the flag and
-return :T:
+We define an equivalent advice form on function
+<span class="underline">funcall-interactively</span> as well. Now, whenever any function that has
+been adviced by Emacspeak is called interactively, that interactive
+call gets recorded in the global flag. In the custom Emacspeak
+predicate we define, we check the value of this flag, and if
+set, consume it, i.e. unset the flag and return <span class="underline">T</span>.
 </p>
 
 <pre class="example">
@@ -400,34 +387,36 @@ return :T:
   "Check our interactive flag.
 Return T if set and we are called from the advice for the current
 interactive command. Turn off the flag once used."
-  (when ems-called-interactively-p      ; interactive call
-    (let ((caller (cl-second (backtrace-frame 1)))
-          (caller-advice (ad-get-advice-info-field ems-called-interactively-p  'advicefunname))
+  (when ems-called-interactively-p                 ; interactive call
+    (let ((caller (cl-second (backtrace-frame 1))) ; name of containing function
+          (caller-advice  ;advice generated wrapper
+           (ad-get-advice-info-field ems-called-interactively-p  'advicefunname))
           (result nil))
       (setq result
             (or (eq caller caller-advice) ; called from our advice
-                (eq ems-called-interactively-p caller))) ; called from call-interactively
+                (eq ems-called-interactively-p caller))) ; called from advice wrapper
       (when result
         (setq ems-called-interactively-p nil) ; turn off now that we used  it
         result))))
 </pre>
 
 <p>
-The only fragile part of the above predicate is the call
-to :backtrace-frame: which we use to discover the name of the
-enclosing function. Notice however that this is no more fragile than
-the current implementation of <span class="underline">called-interactively-p</span> &#x2014; while
-having the advantage of working correctly for Emacspeak's specific
-use-case.
+The only fragile part of the above predicate is the call to
+<span class="underline">backtrace-frame</span> which we use to discover the name of the enclosing
+function. Notice however that this is no more fragile than the current
+implementation of <span class="underline">called-interactively-p</span> &#x2014; which also uses
+<span class="underline">backtrace-frame</span>; If there are changes in the byte-compiler, this
+form may need to be updated. The implementation above has the
+advantage of working correctly for Emacspeak's specific use-case.
 </p>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2017-02-28 Tue 00:00</p>
+<p class="date">Date: 2017-03-01 Wed 00:00</p>
 <p class="author">Author: raman</p>
-<p class="date">Created: 2017-02-28 Tue 20:16</p>
+<p class="date">Created: 2017-03-01 Wed 08:33</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

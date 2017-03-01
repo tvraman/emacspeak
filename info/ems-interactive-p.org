@@ -11,87 +11,87 @@ elisp function.
 
 Until Emacs 24, the solution used was to write code   that did the
 following check:
+
 : (when (interactive-p) ...
 
 In Emacs-24, _interactive-p_ was made obsolete and replaced with 
 : (called-interactively-p 'interactive)
 
-Emacspeak initially used  the above form to perform the equivalent
-check.
-However, around the same time, Emacs' *advice* implementation  went
-through some changes, and there was an attempt to replace *advice.el*
-with *nadvice.el*.
+Emacspeak initially used the above form to perform the equivalent
+check. However, around the same time, Emacs' *advice* implementation
+went through some changes, and there was an attempt to replace
+*advice.el* with *nadvice.el*.
 
 At the end of that round of changes, some problems emerged with the
 new _called-interactively-p_ implementation; specifically, calling
-_called-interactively-p_ within :around: advice forms resulted in hard
+:called-interactively-p_ within _around_ advice forms resulted in hard
 to debug errors, including one case of infinite recursion  involving
-library *smie.el*.
+library *smie.el* when invoked from within _ruby-mode_.
 
 After studying the problem in depth in 2014, I decided to create  an
 Emacspeak-specific implementation of the _is-interactive_ check.
 
 The resulting implementation has worked well for the last 30 months;
 this article is here mostly to document how it works, and the reason
-for its existence.
-Note that Emacspeak uses this custom predicate *only* within :advice: forms.
-Further, this predicate has been coded to only work within :advice:
-forms created by :emacspeak:. This constraint can likely be relaxed,
-but the tighter implementation is less risky.
+for its existence. Note that Emacspeak uses this custom predicate
+*only* within _advice_ forms. Further, this predicate has been coded
+to only work within _advice_ forms created by _emacspeak_. This
+constraint can likely be relaxed, but the tighter implementation is
+less risky.
 
-* Implementation ---  :ems-interactive-p:
+* Implementation ---  _ems-interactive-p_
 
 
 ** Overview 
 
-Within an :advice: forms,  detect if the current call was the result
-of explicit user interaction, i.e. by pressing a key, or via an
-explicit call to _call-interactively_.
-Emacspeak produces auditory feedback only if this predicate returns
-:t:.
+Within an _advice_ forms defined by Emacspeak, detect if the enclosing
+function call is the result of explicit user interaction, i.e. by
+pressing a key, or via an explicit call to
+_call-interactively_. Emacspeak produces auditory feedback only if
+this predicate returns _t_.
 
-We first introduce a flag that will be used to record if the
-enclosing (containing) function call was a result  of direct user
-interaction.
+We first introduce a flag that will be used to record if the enclosing
+(containing) function has an Emacspeak-defined advice on it and is
+called interactively --- these are the only cases that our predicate
+needs to test.
 #+BEGIN_SRC 
 (defvar ems-called-interactively-p nil
-  "Flag recording interactive calls.")
+  "Flag that records if containing function was called interactively."
 #+END_SRC
 
-Next, we define a function that checks if   interactive calls to a
-function should be recorded.
-We're only interested in functions that have  an :advice: form defined
-by Emacspeak.
-
-
-
+Next, we define a function that checks if interactive calls to a
+function should be recorded. We're only interested in functions that
+have an _advice_ form defined by Emacspeak --- all Emacspeak-defined
+advice forms have the name _emacspeak_.
 
 #+BEGIN_SRC 
 (defun ems-record-interactive-p (f)
   "Predicate to test if we need to record interactive calls of
 this function. Memoizes result for future use by placing a
-property 'emacspeak on the function."
+property 'emacspeak on the function symbol."
   (cond
    ((not (symbolp f)) nil)
-   ((get f 'emacspeak) t)
-   ((ad-find-some-advice f 'any  "emacspeak")
-    (put f 'emacspeak t))
+   ((get f 'emacspeak) t) ; already memoized
+   ((ad-find-some-advice f 'any  "emacspeak") ; there is an emacspeak advice
+    (put f 'emacspeak t)) ; memoize for future and return true
    (t nil)))
 #+END_SRC
 
 This is a memoized function that remembers earlier invocations by
-setting property :emacspeak: on the function symbol.
-All :advice: forms created by Emacspeak are named _emacspeak_, so we
+setting property _emacspeak_ on the function symbol.
+
+All _advice_ forms created by Emacspeak are named _emacspeak_, so we
 can test for the presence of such advice forms using the test:
+
 :  (ad-find-some-advice f 'any  "emacspeak")
 
-If this test returns :T:, we memoize the result and return it.
+If this test returns _T_, we memoize the result and return it.
 
-Next, we advice function :call-interactively: to check  
+Next, we advice function _call-interactively_ to check  
 if the function being called interactively is one of the functions
 that has been adviced by Emacspeak. If so, we record the fact in  the
 previously declared global flag 
-:ems-called-interactively-p:.
+_ems-called-interactively-p_.
 
 
 #+BEGIN_SRC 
@@ -104,50 +104,48 @@ on the function being called."
     ad-do-it))
 #+END_SRC
 
-We define an equivalent advice form  on
-function :funcall-interactively: as well.
-Now, whenever any function that has been adviced by Emacspeak  is
-called interactively, that interactive call gets recorded in the
-global flag. 
-In the custom Emacspeak predicate we are defining, we check the value
-of this flag, and if set, consume it, i.e. unset the flag and
-return :T:
+We define an equivalent advice form on function
+_funcall-interactively_ as well. Now, whenever any function that has
+been adviced by Emacspeak is called interactively, that interactive
+call gets recorded in the global flag. In the custom Emacspeak
+predicate we define, we check the value of this flag, and if
+set, consume it, i.e. unset the flag and return _T_.
 
 #+BEGIN_SRC 
 (defsubst ems-interactive-p ()
   "Check our interactive flag.
 Return T if set and we are called from the advice for the current
 interactive command. Turn off the flag once used."
-  (when ems-called-interactively-p      ; interactive call
-    (let ((caller (cl-second (backtrace-frame 1)))
-          (caller-advice (ad-get-advice-info-field ems-called-interactively-p  'advicefunname))
+  (when ems-called-interactively-p                 ; interactive call
+    (let ((caller (cl-second (backtrace-frame 1))) ; name of containing function
+          (caller-advice  ;advice generated wrapper
+           (ad-get-advice-info-field ems-called-interactively-p  'advicefunname))
           (result nil))
       (setq result
             (or (eq caller caller-advice) ; called from our advice
-                (eq ems-called-interactively-p caller))) ; called from call-interactively
+                (eq ems-called-interactively-p caller))) ; called from advice wrapper
       (when result
         (setq ems-called-interactively-p nil) ; turn off now that we used  it
         result))))
 #+END_SRC
 
-The only fragile part of the above predicate is the call
-to :backtrace-frame: which we use to discover the name of the
-enclosing function. Notice however that this is no more fragile than
-the current implementation of _called-interactively-p_ --- while
-having the advantage of working correctly for Emacspeak's specific
-use-case.
-
+The only fragile part of the above predicate is the call to
+_backtrace-frame_ which we use to discover the name of the enclosing
+function. Notice however that this is no more fragile than the current
+implementation of _called-interactively-p_ --- which also uses
+_backtrace-frame_; If there are changes in the byte-compiler, this
+form may need to be updated. The implementation above has the
+advantage of working correctly for Emacspeak's specific use-case.
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+OPTIONS: author:t broken-links:nil c:nil creator:nil
 #+OPTIONS: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
 #+OPTIONS: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
-#+OPTIONS: timestamp:t title:t toc:t todo:t |:t
-#+TITLE: Check If We Are Called Interactively Within Advice Forms: ems-interactive-p
-#+DATE: <2017-02-28 Tue>
+#+OPTIONS: timestamp:t title:t toc:nil todo:t |:t
+#+TITLE: Emacs: Check Interactive Call For Emacspeak
+#+DATE: <2017-03-01 Wed>
 #+AUTHOR: raman
 #+EMAIL: raman@google.com
 #+LANGUAGE: en
 #+SELECT_TAGS: export
 #+EXCLUDE_TAGS: noexport
 #+CREATOR: Emacs 25.2.1 (Org mode 9.0.5)
-
