@@ -662,7 +662,7 @@ Optional prefix arg prompts for toolbelt options."
 ;;;###autoload
 (defun emacspeak-websearch-google-with-toolbelt (query)
   "Launch Google search with toolbelt."
-  (interactive (list (gweb-google-autocomplete "AGoogle: ")))
+  (interactive (list (gweb-google-autocomplete "Google: ")))
   (emacspeak-websearch-accessible-google query 'use-toolbelt))
 (emacspeak-websearch-set-searcher 'google-lucky
                                   'emacspeak-websearch-google-feeling-lucky)
