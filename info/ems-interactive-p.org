@@ -44,7 +44,7 @@ less risky.
 
 ** Overview 
 
-Within an _advice_ forms defined by Emacspeak, detect if the enclosing
+Within an _advice_ form defined by Emacspeak, detect if the enclosing
 function call is the result of explicit user interaction, i.e. by
 pressing a key, or via an explicit call to
 _call-interactively_. Emacspeak produces auditory feedback only if
@@ -146,29 +146,33 @@ Function _next-line_ is adviced by Emacspeak, that advice form contains:
 
 : (when (ems-interactive-p)
 
-  1. The advice on _call-interactively_ first checks
+Here is the exact sequence of steps that causes the above predicate to
+return _t_.
+  1. Pressing _C-n_ first calls _call-interactively_ with _next-line_ as
+   the function to call.
+  2. The advice on _call-interactively_ first checks
    if  _next-line_ has been adviced by Emacspeak ---
-     _(ems-record-interactive-p (ad-get-arg 0))_.
-  2. Predicate _ems-record-interactive-p_  returns _t_ after setting
-    ems-called-interactively-p_ to the name of the function being
+     _(ems-record-interactive-p (ad-get-arg 0))_ --- in this example,
+     _(ad-get-arg 0)_ returns _next-line_.
+  3. Predicate _ems-record-interactive-p_  returns _t_ after setting
+    _ems-called-interactively-p_ to the name of the function being
     called --- _next-line_.
-  3. The advice mechanism now takes over and invokes the various parts
-     of the advice-onion.
-  4. Within the defadvice form, we evaluate _(when (ems-interactive-p)_ ...)
-  5. In the call to _(ems-interactive-p_, we first check that the global flag
+  4. The advice mechanism now takes over and invokes the various parts
+     of the advice-onion, this starts with calling the
+     advice-generated wrapper _ad-Advice-next-line_.
+  5. Within the defadvice form, we evaluate _(when (ems-interactive-p) ...)_
+  6. In the call to _ems-interactive-p_, we first check that the global flag
      _ems-record-interactive-p_ is set.
-  6. First, we bind _caller_ to the name of the containing function that 
+  7. First, we bind _caller_ to the name of the containing function  
       by evaluating   _(backtrace-frame 1)_ --- this evaluates to the
      advice-generated wrapper function.
-  7. Next, we bind _caller-advice_  to the  name of the generated advice wrapper  for  the function recorded in _ems-record-interactive-p_ using the call _(ad-get-advice-info-field ems-called-interactively-p  'advicefunname)_.
-  8. For the present example, _caller_ binds to  _ad-Advice-next-line_
+  8. Next, we bind _caller-advice_  to the  name of the generated advice wrapper  for  the function recorded in _ems-record-interactive-p_ using the call _(ad-get-advice-info-field ems-called-interactively-p  'advicefunname)_.
+  9. For the present example, _caller_ binds to  _ad-Advice-next-line_
      --- since that is the function that the advice system calls. This
      matches the value bound to _caller-advice_ which is the precise
      test we need to verify that the advice form is being evaluated in
      the context of an interactive call to our adviced function.
   
-   
-
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+OPTIONS: author:t broken-links:nil c:nil creator:nil
 #+OPTIONS: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
