@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-03-01 Wed 15:53 -->
+<!-- 2017-03-01 Wed 16:02 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Emacs: Check Interactive Call For Emacspeak</title>
@@ -229,8 +229,8 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">Emacs: Check Interactive Call For Emacspeak</h1>
-<div id="outline-container-org42d661c" class="outline-2">
-<h2 id="org42d661c"><span class="section-number-2">1</span> Background</h2>
+<div id="outline-container-orgfc45e9c" class="outline-2">
+<h2 id="orgfc45e9c"><span class="section-number-2">1</span> Background</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Emacspeak uses advice as the means to speech-enable Emacs.
@@ -291,11 +291,11 @@ less risky.
 </div>
 </div>
 
-<div id="outline-container-org8c58e40" class="outline-2">
-<h2 id="org8c58e40"><span class="section-number-2">2</span> Implementation &#x2014;  <span class="underline">ems-interactive-p</span></h2>
+<div id="outline-container-org81daeb9" class="outline-2">
+<h2 id="org81daeb9"><span class="section-number-2">2</span> Implementation &#x2014;  <span class="underline">ems-interactive-p</span></h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgfe639b9" class="outline-3">
-<h3 id="orgfe639b9"><span class="section-number-3">2.1</span> Overview</h3>
+</div><div id="outline-container-org08ac15e" class="outline-3">
+<h3 id="org08ac15e"><span class="section-number-3">2.1</span> Overview</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Within an <span class="underline">advice</span> forms defined by Emacspeak, detect if the enclosing
@@ -413,8 +413,8 @@ advantage of working correctly for Emacspeak's specific use-case.
 </div>
 
 
-<div id="outline-container-orgac1564d" class="outline-3">
-<h3 id="orgac1564d"><span class="section-number-3">2.2</span> Illustrative Example:Interactive Call To <span class="underline">next-line</span></h3>
+<div id="outline-container-org18b55bf" class="outline-3">
+<h3 id="org18b55bf"><span class="section-number-3">2.2</span> Illustrative Example:Interactive Call To <span class="underline">next-line</span></h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 User presses <span class="underline">C-n</span> or <span class="underline">[down]</span> to move to the next line &#x2014;
@@ -422,9 +422,9 @@ interactive call to function <span class="underline">next-line</span>.
 Function <span class="underline">next-line</span> is adviced by Emacspeak, that advice form contains:
 </p>
 
-<p>
-:(when (ems-interactive-p)
-</p>
+<pre class="example">
+(when (ems-interactive-p)
+</pre>
 
 <ol class="org-ol">
 <li>The advice on <span class="underline">call-interactively</span> first checks
@@ -455,7 +455,7 @@ the context of an interactive call to our adviced function.</li>
 <div id="postamble" class="status">
 <p class="date">Date: 2017-03-01 Wed 00:00</p>
 <p class="author">Author: raman</p>
-<p class="date">Created: 2017-03-01 Wed 15:53</p>
+<p class="date">Created: 2017-03-01 Wed 16:02</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

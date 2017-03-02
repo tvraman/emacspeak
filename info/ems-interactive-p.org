@@ -144,7 +144,7 @@ User presses _C-n_ or _[down]_ to move to the next line ---
 interactive call to function _next-line_.
 Function _next-line_ is adviced by Emacspeak, that advice form contains:
 
-:(when (ems-interactive-p)
+: (when (ems-interactive-p)
 
   1. The advice on _call-interactively_ first checks
    if  _next-line_ has been adviced by Emacspeak ---
