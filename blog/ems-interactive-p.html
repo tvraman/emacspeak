@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-03-01 Wed 16:02 -->
+<!-- 2017-03-01 Wed 16:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Emacs: Check Interactive Call For Emacspeak</title>
@@ -229,8 +229,8 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">Emacs: Check Interactive Call For Emacspeak</h1>
-<div id="outline-container-orgfc45e9c" class="outline-2">
-<h2 id="orgfc45e9c"><span class="section-number-2">1</span> Background</h2>
+<div id="outline-container-org68c3f54" class="outline-2">
+<h2 id="org68c3f54"><span class="section-number-2">1</span> Background</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Emacspeak uses advice as the means to speech-enable Emacs.
@@ -269,7 +269,7 @@ went through some changes, and there was an attempt to replace
 <p>
 At the end of that round of changes, some problems emerged with the
 new <span class="underline">called-interactively-p</span> implementation; specifically, calling
-:called-interactively-p_ within <span class="underline">around</span> advice forms resulted in hard
+<span class="underline">called-interactively-p</span> within <span class="underline">around</span> advice forms resulted in hard
 to debug errors, including one case of infinite recursion  involving
 library <b>smie.el</b> when invoked from within <span class="underline">ruby-mode</span>.
 </p>
@@ -291,14 +291,14 @@ less risky.
 </div>
 </div>
 
-<div id="outline-container-org81daeb9" class="outline-2">
-<h2 id="org81daeb9"><span class="section-number-2">2</span> Implementation &#x2014;  <span class="underline">ems-interactive-p</span></h2>
+<div id="outline-container-orgf7b60e0" class="outline-2">
+<h2 id="orgf7b60e0"><span class="section-number-2">2</span> Implementation &#x2014;  <span class="underline">ems-interactive-p</span></h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-org08ac15e" class="outline-3">
-<h3 id="org08ac15e"><span class="section-number-3">2.1</span> Overview</h3>
+</div><div id="outline-container-org0fbf78f" class="outline-3">
+<h3 id="org0fbf78f"><span class="section-number-3">2.1</span> Overview</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
-Within an <span class="underline">advice</span> forms defined by Emacspeak, detect if the enclosing
+Within an <span class="underline">advice</span> form defined by Emacspeak, detect if the enclosing
 function call is the result of explicit user interaction, i.e. by
 pressing a key, or via an explicit call to
 <span class="underline">call-interactively</span>. Emacspeak produces auditory feedback only if
@@ -413,8 +413,8 @@ advantage of working correctly for Emacspeak's specific use-case.
 </div>
 
 
-<div id="outline-container-org18b55bf" class="outline-3">
-<h3 id="org18b55bf"><span class="section-number-3">2.2</span> Illustrative Example:Interactive Call To <span class="underline">next-line</span></h3>
+<div id="outline-container-org6f06eeb" class="outline-3">
+<h3 id="org6f06eeb"><span class="section-number-3">2.2</span> Illustrative Example:Interactive Call To <span class="underline">next-line</span></h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 User presses <span class="underline">C-n</span> or <span class="underline">[down]</span> to move to the next line &#x2014;
@@ -426,19 +426,27 @@ Function <span class="underline">next-line</span> is adviced by Emacspeak, that 
 (when (ems-interactive-p)
 </pre>
 
+<p>
+Here is the exact sequence of steps that causes the above predicate to
+return <span class="underline">t</span>.
+</p>
 <ol class="org-ol">
+<li>Pressing <span class="underline">C-n</span> first calls <span class="underline">call-interactively</span> with <span class="underline">next-line</span> as
+the function to call.</li>
 <li>The advice on <span class="underline">call-interactively</span> first checks
 if  <span class="underline">next-line</span> has been adviced by Emacspeak &#x2014;
-  <span class="underline">(ems-record-interactive-p (ad-get-arg 0))</span>.</li>
+  <span class="underline">(ems-record-interactive-p (ad-get-arg 0))</span> &#x2014; in this example,
+  <span class="underline">(ad-get-arg 0)</span> returns <span class="underline">next-line</span>.</li>
 <li>Predicate <span class="underline">ems-record-interactive-p</span>  returns <span class="underline">t</span> after setting
-ems-called-interactively-p_ to the name of the function being
+<span class="underline">ems-called-interactively-p</span> to the name of the function being
 called &#x2014; <span class="underline">next-line</span>.</li>
 <li>The advice mechanism now takes over and invokes the various parts
-of the advice-onion.</li>
-<li>Within the defadvice form, we evaluate <span class="underline">(when (ems-interactive-p)</span> &#x2026;)</li>
-<li>In the call to <span class="underline">(ems-interactive-p</span>, we first check that the global flag
+of the advice-onion, this starts with calling the
+advice-generated wrapper <span class="underline">ad-Advice-next-line</span>.</li>
+<li>Within the defadvice form, we evaluate <span class="underline">(when (ems-interactive-p) &#x2026;)</span></li>
+<li>In the call to <span class="underline">ems-interactive-p</span>, we first check that the global flag
 <span class="underline">ems-record-interactive-p</span> is set.</li>
-<li>First, we bind <span class="underline">caller</span> to the name of the containing function that 
+<li>First, we bind <span class="underline">caller</span> to the name of the containing function  
  by evaluating   <span class="underline">(backtrace-frame 1)</span> &#x2014; this evaluates to the
 advice-generated wrapper function.</li>
 <li>Next, we bind <span class="underline">caller-advice</span>  to the  name of the generated advice wrapper  for  the function recorded in <span class="underline">ems-record-interactive-p</span> using the call <span class="underline">(ad-get-advice-info-field ems-called-interactively-p  'advicefunname)</span>.</li>
@@ -455,7 +463,7 @@ the context of an interactive call to our adviced function.</li>
 <div id="postamble" class="status">
 <p class="date">Date: 2017-03-01 Wed 00:00</p>
 <p class="author">Author: raman</p>
-<p class="date">Created: 2017-03-01 Wed 16:02</p>
+<p class="date">Created: 2017-03-01 Wed 16:33</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
