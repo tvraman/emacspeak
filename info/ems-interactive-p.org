@@ -24,7 +24,7 @@ went through some changes, and there was an attempt to replace
 
 At the end of that round of changes, some problems emerged with the
 new _called-interactively-p_ implementation; specifically, calling
-:called-interactively-p_ within _around_ advice forms resulted in hard
+_called-interactively-p_ within _around_ advice forms resulted in hard
 to debug errors, including one case of infinite recursion  involving
 library *smie.el* when invoked from within _ruby-mode_.
 
