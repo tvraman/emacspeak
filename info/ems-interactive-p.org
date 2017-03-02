@@ -4,15 +4,14 @@ Emacspeak uses advice as the means to speech-enable Emacs.
 Emacspeak's *advice* forms  need to check if the function being
 speech-enabled is being called interactively --- otherwise one would
 get a lot of chatter as these functions get called from within elisp
-programs, e.g. functions like _forward-sexp_ or _kill-sexp_, that play
-the dual role of both an interactive command, as well as a convenient
+programs, e.g. functions like _forward-sexp_ or _kill-sexp_ that play
+the  role of both an interactive command, as well as being a convenient
 elisp function.
-
 
 Until Emacs 24, the solution used was to write code   that did the
 following check:
 
-: (when (interactive-p) ...
+: (when (interactive-p) ...)
 
 In Emacs-24, _interactive-p_ was made obsolete and replaced with 
 : (called-interactively-p 'interactive)
@@ -45,16 +44,14 @@ less risky.
 ** Overview 
 
 Within an _advice_ form defined by Emacspeak, detect if the enclosing
-function call is the result of explicit user interaction, i.e. by
-pressing a key, or via an explicit call to
-_call-interactively_. Emacspeak produces auditory feedback only if
-this predicate returns _t_.
+function call is the result of explicit user interaction. Emacspeak
+produces auditory feedback only if this predicate returns _t_.
 
 We first introduce a flag that will be used to record if the enclosing
-(containing) function has an Emacspeak-defined advice on it and is
-called interactively --- these are the only cases that our predicate
-needs to test.
-#+BEGIN_SRC 
+(containing) function has an Emacspeak-defined advice on it --- these
+are the only cases that our predicate needs to test.
+
+#+BEGIN_SRC  emacs-lisp
 (defvar ems-called-interactively-p nil
   "Flag that records if containing function was called interactively."
 #+END_SRC
@@ -62,9 +59,9 @@ needs to test.
 Next, we define a function that checks if interactive calls to a
 function should be recorded. We're only interested in functions that
 have an _advice_ form defined by Emacspeak --- all Emacspeak-defined
-advice forms have the name _emacspeak_.
+advice forms have the name _emacspeak_ and can therefore be easily idnetified.
 
-#+BEGIN_SRC 
+#+BEGIN_SRC  emacs-lisp
 (defun ems-record-interactive-p (f)
   "Predicate to test if we need to record interactive calls of
 this function. Memoizes result for future use by placing a
@@ -87,14 +84,13 @@ can test for the presence of such advice forms using the test:
 
 If this test returns _T_, we memoize the result and return it.
 
-Next, we advice function _call-interactively_ to check  
-if the function being called interactively is one of the functions
-that has been adviced by Emacspeak. If so, we record the fact in  the
-previously declared global flag 
-_ems-called-interactively-p_.
+Next, we advice function _call-interactively_ to check if the function
+being called interactively is one of the functions that has been
+adviced by Emacspeak. If so, we record the fact in the previously
+declared global flag _ems-called-interactively-p_.
 
 
-#+BEGIN_SRC 
+#+BEGIN_SRC  emacs-lisp
 (defadvice call-interactively (around emacspeak  pre act comp)
   "Set emacspeak  interactive flag if there is an Emacspeak advice 
 on the function being called."
@@ -118,7 +114,7 @@ Return T if set and we are called from the advice for the current
 interactive command. Turn off the flag once used."
   (when ems-called-interactively-p      ; interactive call
     (let ((caller (cl-second (backtrace-frame 1))) ; containing function name
-          (caller-advice ; advice wrapper of containing function
+          (caller-advice ; advice wrapper of called interactive function
            (ad-get-advice-info-field ems-called-interactively-p  'advicefunname))
           (result nil))
        ; T if called from our advice
@@ -141,13 +137,14 @@ advantage of working correctly for Emacspeak's specific use-case.
 
 
 User presses _C-n_ or _[down]_ to move to the next line ---
-interactive call to function _next-line_.
+this is an interactive call to function _next-line_.
 Function _next-line_ is adviced by Emacspeak, that advice form contains:
 
-: (when (ems-interactive-p)
+: (when (ems-interactive-p) ...)
 
 Here is the exact sequence of steps that causes the above predicate to
-return _t_.
+return _t_ in this case.
+
   1. Pressing _C-n_ first calls _call-interactively_ with _next-line_ as
    the function to call.
   2. The advice on _call-interactively_ first checks
@@ -161,7 +158,7 @@ return _t_.
      of the advice-onion, this starts with calling the
      advice-generated wrapper _ad-Advice-next-line_.
   5. Within the defadvice form, we evaluate _(when (ems-interactive-p) ...)_
-  6. In the call to _ems-interactive-p_, we first check that the global flag
+  6. In the call to predicate _ems-interactive-p_, we first check that the global flag
      _ems-record-interactive-p_ is set.
   7. First, we bind _caller_ to the name of the containing function  
       by evaluating   _(backtrace-frame 1)_ --- this evaluates to the
