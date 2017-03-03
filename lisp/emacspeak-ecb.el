@@ -72,7 +72,7 @@
     (emacspeak-auditory-icon 'help)
     (emacspeak-speak-mode-line)))
 
-(loop
+(cl-loop
  for f in 
  '(
    ecb-nav-goto-next

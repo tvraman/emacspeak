@@ -70,7 +70,7 @@
 
 (declaim (special emacspeak-webspace-mode-map))
 (set-keymap-parent emacspeak-webspace-mode-map button-buffer-map)
-(loop for k in
+(cl-loop for k in
       '(
         ("q" bury-buffer)
         ("." emacspeak-webspace-filter)
@@ -154,7 +154,7 @@ Generates auditory and visual display."
 
 (declaim (special emacspeak-webspace-keymap))
 
-(loop for k in
+(cl-loop for k in
       '(
         ("w" emacspeak-webspace-weather)
         ("h" emacspeak-webspace-headlines)
@@ -297,7 +297,7 @@ Updated headlines found in emacspeak-webspace-headlines."
       (goto-char (point-min))
       (insert "Press enter to open stories.\n\n")
       (put-text-property (point-min) (point) 'face font-lock-doc-face)
-      (loop
+      (cl-loop
        for h in
        (delq nil (ring-elements (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
        and position  from 1
@@ -430,7 +430,7 @@ Optional interactive prefix arg forces a refresh."
       (goto-char (point-min))
       (insert "Press enter to open feeds.\n\n")
       (put-text-property (point-min) (point) 'face font-lock-doc-face)
-      (loop for f in emacspeak-feeds
+      (cl-loop for f in emacspeak-feeds
             and position  from 1
             do
             (insert (format "%d\t" position))
@@ -456,7 +456,7 @@ Optional interactive prefix arg forces a refresh."
       (setq buffer-undo-list t)
       (insert (format "Search Results For %s\n\n" (first gweb-history)))
       (center-line)
-      (loop
+      (cl-loop
        for r across results
        and i from 1
        do
@@ -538,7 +538,7 @@ Optional interactive prefix arg forces a refresh."
       (format (buffer-name buffer))
       (center-line)
                                         ; Nuke initial '/' in id
-      (loop
+      (cl-loop
        for r in results
        and i from 1
        do
@@ -624,7 +624,7 @@ Optional interactive prefix arg `limit' prompts for number of results, default i
       (cond
        ((> limit 1)
         (insert "<ol>\n")
-        (loop
+        (cl-loop
          for r in results do
          (insert "<li>")
          (insert (emacspeak-webspace-kg-format-result r))

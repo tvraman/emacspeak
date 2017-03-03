@@ -78,7 +78,7 @@ Automatically becomes buffer-local when set.")
 (defun emacspeak-amark-names ()
   "Return list of  amark names."
   (declare (special emacspeak-amark-list))
-  (loop for a in emacspeak-amark-list collect (emacspeak-amark-name a)))
+  (cl-loop for a in emacspeak-amark-list collect (emacspeak-amark-name a)))
 
 (defun emacspeak-amark-find (name)
   "Return matching AMark if found in buffer-local AMark list."

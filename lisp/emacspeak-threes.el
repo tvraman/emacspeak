@@ -98,7 +98,7 @@
 ;;}}}
 ;;{{{ Helpers:
 
-(loop
+(cl-loop
  for i in'(1 2 3) do
  (eval
   `(defun  ,(intern  (format "emacspeak-threes-%s" i)) ()
@@ -117,7 +117,7 @@
      ((= 3 number) (sox-sin .5 "C5"fade)))))
 
 ;;}}}
-h;;{{{ Advice interactive commands:
+;;{{{ Advice interactive commands:
 
 (defun emacspeak-threes-speak-board ()
   "Speak the board."
@@ -185,7 +185,7 @@ h;;{{{ Advice interactive commands:
   (interactive)
   (message (format "Score: %s" (number-to-string (threes-cells-score)))))
 
-(loop
+(cl-loop
  for f in
  '(threes-up threes-down threes-left threes-right)
  do
@@ -255,11 +255,11 @@ h;;{{{ Advice interactive commands:
   (emacspeak-auditory-icon 'delete-object))
 
 ;;}}}
-;;; emacspeak-2048.el --- Speech-enable 2048
-;;; $Id: emacspeak-2048.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
+;;; emacspeak-threes.el --- Speech-enable threes
+;;; $Id: emacspeak-threes.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
-;;; Description:  Speech-enable 2048 An Emacs Interface to 2048
-;;; Keywords: Emacspeak,  Audio Desktop 2048
+;;; Description:  Speech-enable threes An Emacs Interface to threes
+;;; Keywords: Emacspeak,  Audio Desktop threes
 ;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
@@ -285,7 +285,7 @@ h;;{{{ Advice interactive commands:
 ;;;
 ;;; GNU Emacs is distributed in the hope that it will be useful,
 ;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITN2048 FOR A PARTICULAR PURPOSE.  See the
+;;; MERCHANTABILITY or FITNthrees FOR A PARTICULAR PURPOSE.  See the
 ;;; GNU General Public License for more details.
 ;;;
 ;;; You should have received a copy of the GNU General Public License
@@ -297,12 +297,12 @@ h;;{{{ Advice interactive commands:
 
 ;;{{{  introduction
 ;;; Commentary:
-;;; Speech-enable 2048 Game
+;;; Speech-enable threes Game
 
 ;;; Code:
 
 ;;; Commentary:
-;;; 2048 ==
+;;; threes ==
 
 ;;}}}
 ;;{{{  Required modules
@@ -310,66 +310,66 @@ h;;{{{ Advice interactive commands:
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-(require '2048-game "2048-game" 'no-error)
+(require 'threes-game "threes-game" 'no-error)
 ;;}}}
 ;;{{{ Push And Pop states:
 
-(defstruct emacspeak-2048-game-state
+(defstruct emacspeak-threes-game-state
   board score
   rows cols
   )
 
-(defvar emacspeak-2048-game-stack nil
+(defvar emacspeak-threes-game-stack nil
   "Stack of saved states.")
-(defun emacspeak-2048-push-state ()
+(defun emacspeak-threes-push-state ()
   "Push current game state on stack."
   (interactive)
-  (declare (special emacspeak-2048-game-stack
-                    *2048-board* *2048-score* *2048-rows* *2048-columns*))
+  (declare (special emacspeak-threes-game-stack
+                    *threes-board* *threes-score* *threes-rows* *threes-columns*))
   (push
-   (make-emacspeak-2048-game-state
-    :board (copy-sequence *2048-board*)
-    :score *2048-score*
-    :rows *2048-rows*
-    :cols *2048-columns*)
-   emacspeak-2048-game-stack)
+   (make-emacspeak-threes-game-state
+    :board (copy-sequence *threes-board*)
+    :score *threes-score*
+    :rows *threes-rows*
+    :cols *threes-columns*)
+   emacspeak-threes-game-stack)
   (emacspeak-auditory-icon 'mark-object)
   (message "Saved state."))
 
-(defun emacspeak-2048-pop-state ()
+(defun emacspeak-threes-pop-state ()
   "Reset state from stack."
   (interactive)
-  (declare (special emacspeak-2048-game-stack
-                    *2048-board* *2048-score* *2048-rows* *2048-columns*))
+  (declare (special emacspeak-threes-game-stack
+                    *threes-board* *threes-score* *threes-rows* *threes-columns*))
   (cond
-   ((null emacspeak-2048-game-stack) (error "No saved  states."))
+   ((null emacspeak-threes-game-stack) (error "No saved  states."))
    (t
-    (let ((state (pop emacspeak-2048-game-stack)))
+    (let ((state (pop emacspeak-threes-game-stack)))
       (setq
-       *2048-board* (emacspeak-2048-game-state-board state)
-       *2048-score* (emacspeak-2048-game-state-score state)
-       *2048-rows* (emacspeak-2048-game-state-rows state)
-       *2048-columns* (emacspeak-2048-game-state-cols state))
-      (2048-print-board)
+       *threes-board* (emacspeak-threes-game-state-board state)
+       *threes-score* (emacspeak-threes-game-state-score state)
+       *threes-rows* (emacspeak-threes-game-state-rows state)
+       *threes-columns* (emacspeak-threes-game-state-cols state))
+      (threes-print-board)
       (emacspeak-auditory-icon 'yank-object)
-      (message "Popped: Score is now %s" *2048-score*)))))
+      (message "Popped: Score is now %s" *threes-score*)))))
 
-(defun emacspeak-2048-prune-stack (drop)
+(defun emacspeak-threes-prune-stack (drop)
   "Prune game stack to specified length."
   (interactive 
    (list
     (cond
-     ((null emacspeak-2048-game-stack) (error "No saved  states."))
+     ((null emacspeak-threes-game-stack) (error "No saved  states."))
      (t (read-number
          (format "Stack: %s New? "
-                 (length emacspeak-2048-game-stack))
-         (/ (length emacspeak-2048-game-stack) 2))))))
-  (declare (special emacspeak-2048-game-stack))
-  (setq emacspeak-2048-game-stack
-        (butlast emacspeak-2048-game-stack
-                 (- (length emacspeak-2048-game-stack) drop)))
+                 (length emacspeak-threes-game-stack))
+         (/ (length emacspeak-threes-game-stack) 2))))))
+  (declare (special emacspeak-threes-game-stack))
+  (setq emacspeak-threes-game-stack
+        (butlast emacspeak-threes-game-stack
+                 (- (length emacspeak-threes-game-stack) drop)))
   (message "Stack is now %s deep"
-           (length emacspeak-2048-game-stack))
+           (length emacspeak-threes-game-stack))
   (emacspeak-auditory-icon 'delete-object))
 
 ;;}}}

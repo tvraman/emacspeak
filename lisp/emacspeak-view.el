@@ -303,15 +303,15 @@ keybindings for view mode")
                     view-mode-map emacspeak-keymap))
   (unless emacspeak-view-keys-optimized
     (setq emacspeak-view-keys-optimized t)
-    (loop for edit-command in emacspeak-view-edit-commands
+    (cl-loop for edit-command in emacspeak-view-edit-commands
           do
           (let ((edit-keys (where-is-internal edit-command (list view-mode-map))))
-            (loop for key in edit-keys 
+            (cl-loop for key in edit-keys 
                   do
                   (let ((command (lookup-key emacspeak-keymap key)))
                     (when command
                       (define-key view-mode-map key command))))))
-    (loop for k in
+    (cl-loop for k in
           '(
             ("[" backward-paragraph)
             ("]" forward-paragraph)
@@ -322,7 +322,7 @@ keybindings for view mode")
 (defun emacspeak-view-setup-keys()
   "Setup emacspeak convenience keys"
   (declare (special view-mode-map))
-  (loop for i from 0 to 9
+  (cl-loop for i from 0 to 9
         do
         (define-key view-mode-map
           (format "%s" i)

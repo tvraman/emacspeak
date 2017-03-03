@@ -80,14 +80,14 @@ s   Sub-square Distribution.
   (interactive)
   (declare (special current-board))
   (let ((counts (make-vector 9 0)))
-    (loop for row in current-board
+    (cl-loop for row in current-board
           do
-          (loop for v in row
+          (cl-loop for v in row
                 do
                 (if (> v 0)
                     (incf (aref counts (1- v))))))
     (dtk-speak-list
-     (loop for i across counts collect i)
+     (cl-loop for i across counts collect i)
      3)))
 
 (defun emacspeak-sudoku-board-rows-summarize ()
@@ -95,7 +95,7 @@ s   Sub-square Distribution.
   (interactive)
   (declare (special current-board))
   (dtk-speak-list
-   (loop for r in current-board
+   (cl-loop for r in current-board
          collect  (count 0 r))
    3))
 
@@ -104,7 +104,7 @@ s   Sub-square Distribution.
   (interactive)
   (declare (special current-board))
   (dtk-speak-list
-   (loop for c from 0 to 8
+   (cl-loop for c from 0 to 8
          collect  (count 0 (sudoku-column current-board c)))
    3))
 
@@ -113,7 +113,7 @@ s   Sub-square Distribution.
   (interactive)
   (declare (special current-board))
   (dtk-speak-list
-   (loop for s from 0 to 8
+   (cl-loop for s from 0 to 8
          collect  (count 0 (sudoku-subsquare current-board s)))
    3))
 
@@ -264,7 +264,7 @@ s   Sub-square Distribution.
   (declare (special start-board current-board
                     sudoku-onscreen-instructions))
   (let ((original (sudoku-get-cell-from-point (point))))
-    (loop for cell in cell-list
+    (cl-loop for cell in cell-list
           do
           (let ((x (car cell))
                 (y (cadr  cell)))
@@ -283,7 +283,7 @@ s   Sub-square Distribution.
   (declare (special current-board))
   (let ((cell (sudoku-get-cell-from-point (point))))
     (emacspeak-sudoku-erase-these-cells
-     (loop for i from 0 to  8
+     (cl-loop for i from 0 to  8
            collect  (list i (second cell)))))
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)))
@@ -294,7 +294,7 @@ s   Sub-square Distribution.
   (declare (special current-board))
   (let ((cell (sudoku-get-cell-from-point (point))))
     (emacspeak-sudoku-erase-these-cells
-     (loop for i from 0 to  8
+     (cl-loop for i from 0 to  8
            collect  (list (first cell) i))))
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)))
@@ -304,9 +304,9 @@ s   Sub-square Distribution.
   (let ((row-start (* (/ square 3)  3)) 
         (col-start (* (% square 3)  3)))
     
-    (loop for r from row-start to (+ 2 row-start)
+    (cl-loop for r from row-start to (+ 2 row-start)
           nconc
-          (loop  for c from col-start to (+ 2 col-start)
+          (cl-loop  for c from col-start to (+ 2 col-start)
                  collect (list c r)))))
 
 (defun emacspeak-sudoku-erase-current-sub-square ()
@@ -323,7 +323,7 @@ s   Sub-square Distribution.
 ;;}}}
 ;;{{{ advice motion:
 
-(loop for f   in
+(cl-loop for f   in
       '(
         sudoku-move-point-left 
         sudoku-move-point-leftmost 
@@ -414,7 +414,7 @@ See
 ;;{{{ setup keymap:
 
 (declaim (special sudoku-mode-map))
-(loop for k in
+(cl-loop for k in
       '(
         ("u" emacspeak-sudoku-up-sub-square)
         ("d" emacspeak-sudoku-down-sub-square)

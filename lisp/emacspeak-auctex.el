@@ -134,7 +134,7 @@ Provide auditory feedback after formatting region"
 (unless (and (boundp 'post-self-insert-hook)
              post-self-insert-hook
              (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
-  (loop for f in
+  (cl-loop for f in
         '(TeX-insert-dollar TeX-insert-backslash
                             LaTeX-babel-insert-hyphen)
         do

@@ -77,7 +77,7 @@
     (when documentation
       (dtk-speak documentation)
       (emacspeak-auditory-icon 'help))))
-(loop
+(cl-loop
  for f in
  '(
    tide-find-next-reference tide-find-previous-reference tide-goto-reference

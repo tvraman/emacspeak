@@ -80,7 +80,7 @@
     (emacspeak-auditory-icon 'mark-object)
     (emacspeak-speak-line)))
 
-(loop for f in
+(cl-loop for f in
       '(js2-mode-forward-sexp js2-mode-backward-sibling js2-next-error)
       do
       (eval
@@ -89,7 +89,7 @@
           (when (ems-interactive-p)
             (emacspeak-auditory-icon 'large-movement)
             (emacspeak-speak-line)))))
-(loop for f in
+(cl-loop for f in
       '(
         js2-beginning-of-line js2-indent-line
                               js2-indent-bounce-backwards js2-forward-sws
@@ -106,7 +106,7 @@
           (when (ems-interactive-p)
             (emacspeak-speak-line)))))
 
-(loop for f in
+(cl-loop for f in
       '(js2-mode-hide-comments js2-mode-hide-element
                                js2-mode-hide-functions js2-mode-hide-warnings-and-errors)
       do
@@ -119,7 +119,7 @@
                      ,(substring (symbol-name f)
                                  (length "js2-mode-hide-")))))))
 
-(loop for f in
+(cl-loop for f in
       '(js2-mode-show-all js2-mode-show-comments
                           js2-mode-show-element js2-mode-show-functions)
       do
@@ -132,7 +132,7 @@
                      ,(substring (symbol-name f)
                                  (length "js2-mode-show-")))))))
 
-(loop for f in
+(cl-loop for f in
       '(js2-mode-toggle-warnings-and-errors
         js2-mode-toggle-hide-functions
         js2-mode-toggle-hide-comments                    js2-mode-toggle-element)

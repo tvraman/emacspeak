@@ -57,11 +57,11 @@
   "Set up emacspeak for table.el"
   (declare (special table-cell-map))
   (when  table-cell-map
-    (loop for k in
+    (cl-loop for k in
           (where-is-internal 'emacspeak-self-insert-command (list table-cell-map))
           do
           (define-key table-cell-map k '*table--cell-self-insert-command))
-    (loop for k in
+    (cl-loop for k in
           '(
             ("S-TAB" table-backward-cell)
             ("\C-e." emacspeak-etable-speak-cell))
@@ -168,7 +168,7 @@ Otherwise cue user to the line just created."
        (cdr cell)))
      (t (error "Cant identify cell.")))))
 
-(loop for f in
+(cl-loop for f in
       '(table-forward-cell table-backward-cell)
       do
       (eval

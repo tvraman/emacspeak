@@ -53,7 +53,7 @@
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:
-(loop
+(cl-loop
  for f in
  '(
    lua-backwards-to-block-begin-or-end lua-beginning-of-proc
@@ -85,7 +85,7 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
-(loop
+(cl-loop
  for f in
  '(
    lua-send-buffer lua-send-current-line

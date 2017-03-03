@@ -133,7 +133,7 @@
 ;;}}}
 ;;{{{ Structure Navigation:
 
-(loop
+(cl-loop
  for f in
  '(
    org-mark-ring-goto org-mark-ring-push
@@ -167,7 +167,7 @@
     (emacspeak-auditory-icon 'item)
     (emacspeak-speak-line)))
 
-(loop
+(cl-loop
  for f in
  '(org-cycle org-shifttab)
  do
@@ -205,7 +205,7 @@
 ;;}}}
 ;;{{{ Header insertion and relocation
 
-(loop
+(cl-loop
  for f in
  '(
    org-delete-indentation
@@ -226,7 +226,7 @@
 ;;}}}
 ;;{{{ cut and paste:
 
-(loop for f in
+(cl-loop for f in
       '(
         org-cut-subtree org-copy-subtree
                         org-paste-subtree org-archive-subtree
@@ -261,7 +261,7 @@
 ;;}}}
 ;;{{{ toggles:
 
-(loop
+(cl-loop
  for f in
  '(
    org-toggle-archive-tag org-toggle-comment)
@@ -279,7 +279,7 @@
 ;;}}}
 ;;{{{ timestamps and calendar:
 
-(loop
+(cl-loop
  for f in
  '(org-timestamp-down-day org-timestamp-up-day)
  do
@@ -290,7 +290,7 @@
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-speak-line)))))
 
-(loop for f in
+(cl-loop for f in
       '(org-timestamp-down org-timestamp-up)
       do
       (eval
@@ -310,7 +310,7 @@
 
 ;;; AGENDA NAVIGATION
 
-(loop
+(cl-loop
  for f in
  '(
    org-agenda-next-date-line org-agenda-previous-date-line
@@ -325,7 +325,7 @@
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-speak-line)))))
 
-(loop
+(cl-loop
  for f in
  '(org-agenda-quit org-agenda-exit)
  do
@@ -336,7 +336,7 @@
        (emacspeak-auditory-icon 'close-object)
        (emacspeak-speak-mode-line)))))
 
-(loop
+(cl-loop
  for f in
  '(org-agenda-goto org-agenda-show org-agenda-switch-to)
  do
@@ -373,7 +373,7 @@
 (defun emacspeak-org-update-keys ()
   "Update keys in org mode."
   (declare (special  org-mode-map))
-  (loop for k in
+  (cl-loop for k in
         '(
           ("C-e" emacspeak-prefix-command)
           ("C-j" org-insert-heading)
@@ -462,7 +462,7 @@
 ;;}}}
 ;;{{{ fix misc commands:
 
-(loop
+(cl-loop
  for f in
  '(
    org-occur
@@ -580,7 +580,7 @@
     " "
     (org-table-get-field))))
 
-(loop
+(cl-loop
  for f in
  '(org-table-next-field org-table-previous-field
                         org-table-next-row org-table-previous-row)

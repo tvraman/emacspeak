@@ -1075,7 +1075,7 @@ rather than speak it.")
   (declare (special voice-animate))
   (let ((result "")
         (char-string ""))
-    (loop for char across word
+    (cl-loop for char across word
           do
           (setq char-string (format "%c " char))
           (when (and (<= ?A char)
@@ -2140,7 +2140,7 @@ numeric prefix arg to give to command yank."
 Argument STRING specifies the alphanumeric phone number."
   (setq string (downcase string))
   (let ((i 0))
-    (loop for character across string
+    (cl-loop for character across string
           do
           (aset string i
                 (case character
@@ -2907,7 +2907,7 @@ Argument PERSONALITY gives the value for property personality."
 (defun  emacspeak-possible-voices ()
   "Return possible voices."
   (declare (special dectalk-voice-table))
-  (loop for key being the hash-keys of dectalk-voice-table
+  (cl-loop for key being the hash-keys of dectalk-voice-table
         collect  (cons
                   (symbol-name key)
                   (symbol-name key))))
@@ -3245,7 +3245,7 @@ char, or dont move. "
 (define-key completion-list-mode-map "\M-\C-m" 'emacspeak-completion-pick-completion)
 (let ((chars
        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"))
-  (loop for char across chars
+  (cl-loop for char across chars
         do
         (define-key completion-list-mode-map
           (format "%c" char)

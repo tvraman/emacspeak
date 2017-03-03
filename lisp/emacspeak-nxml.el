@@ -175,7 +175,7 @@
   "Provide spoken feedback."
   (when (ems-interactive-p)
     (emacspeak-speak-line)))
-(loop for f in 
+(cl-loop for f in 
       '(nxml-backward-up-element
         nxml-forward-balanced-item
         nxml-up-element
@@ -193,7 +193,7 @@
             (emacspeak-auditory-icon 'large-movement)
             (emacspeak-speak-line)))))
 
-(loop for f in 
+(cl-loop for f in 
       '(nxml-balanced-close-start-tag-block
         nxml-finish-element
         nxml-balanced-close-start-tag-inline)
@@ -208,7 +208,7 @@
                      (xmltok-start-tag-qname)))))))
 ;;{{{ speech enable outliner 
 
-(loop for f in
+(cl-loop for f in
       '(nxml-hide-all-text-content 
         nxml-hide-direct-text-content 
         nxml-hide-other 
@@ -222,7 +222,7 @@
             (emacspeak-auditory-icon 'close-object)
             (emacspeak-speak-line)))))
 
-(loop for f in
+(cl-loop for f in
       '(nxml-show 
         nxml-show-all 
         nxml-show-direct-subheadings 

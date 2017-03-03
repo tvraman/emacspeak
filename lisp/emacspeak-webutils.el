@@ -81,7 +81,7 @@
 (define-prefix-command 'emacspeak-web-prefix)
 
 (declaim (special emacspeak-web-prefix))
-(loop for k in
+(cl-loop for k in
       '(
         ("R" emacspeak-xslt-view-region)
         ("b" browse-url-of-buffer)
@@ -162,7 +162,7 @@ Note that the Web browser should reset this hook after using it.")
 (defun emacspeak-webutils-unescape-charent (start end)
   "Clean up charents in XML."
   (declare (special emacspeak-webutils-charent-alist))
-  (loop for entry in emacspeak-webutils-charent-alist
+  (cl-loop for entry in emacspeak-webutils-charent-alist
         do
         (let ((entity (car  entry))
               (replacement (cdr entry)))
@@ -340,7 +340,7 @@ and xsl environment specified by style, params and options."
 (defun emacspeak-webutils-property-names-from-html-stack (html-stack)
   "Returns list of attributes from HTML stack."
   (delete nil
-          (loop for e in html-stack
+          (cl-loop for e in html-stack
                 append
                 (mapcar 'car (rest e)))))
 
@@ -348,7 +348,7 @@ and xsl environment specified by style, params and options."
   "Extract and return list of prop values from HTML  stack.
 Stack is a list of the form ((element-name (attribute-alist)))."
   (let ((props nil))
-    (loop for element in html-stack
+    (cl-loop for element in html-stack
           do
           (push (cdr (assoc prop (rest element)))
                 props))

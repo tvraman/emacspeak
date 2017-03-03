@@ -58,7 +58,7 @@
 
 ;;}}}
 ;;{{{  generic setup
-(loop for mode in generic-mode-list
+(cl-loop for mode in generic-mode-list
       do
       (when (functionp mode)
         (eval

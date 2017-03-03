@@ -52,7 +52,7 @@
 ;;}}}
 ;;{{{ Advice navigation:
 
-(loop for command   in
+(cl-loop for command   in
       '(
         ruby-mark-defun
         ruby-beginning-of-defun 
@@ -109,7 +109,7 @@ Cue electric insertion with a tone.")
 
 ;;}}}
 ;;{{{ Advice inferior ruby:
-(loop for command in
+(cl-loop for command in
       '(
         ruby-run
         switch-to-ruby

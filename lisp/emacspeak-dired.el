@@ -110,7 +110,7 @@
   "Set up emacspeak dired."
   (emacspeak-dired-label-fields)
   (emacspeak-dired-setup-keys))
-(loop
+(cl-loop
  for  f in
  '(dired ido-dired
          dired-other-window dired-other-frame)
@@ -135,7 +135,7 @@
    (t ad-do-it))
   ad-return-value)
 
-(loop
+(cl-loop
  for  f in
  '(
    dired-next-subdir dired-prev-subdir
@@ -152,7 +152,7 @@
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-dired-speak-line)))))
 
-(loop
+(cl-loop
  for f in
  '(dired-next-line dired-previous-line
                    dired-unmark-backward dired-maybe-insert-subdir)
@@ -369,7 +369,7 @@ On a directory line, run du -s on the directory to speak its size."
 
 ;;}}}
 ;;{{{ Advice locate:
-(loop
+(cl-loop
  for f in
  '(locate locate-with-filter)
  do

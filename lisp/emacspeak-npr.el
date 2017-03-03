@@ -252,7 +252,7 @@ Interactive prefix arg prompts for search."
                         (g-json-get-result
                          (format  "%s %s '%s'"
                                   g-curl-program g-curl-common-options url)))))
-      (loop
+      (cl-loop
        for p  across json do
        (push
         (list
@@ -303,7 +303,7 @@ Optional interactive prefix arg prompts for a date."
               (g-json-get-result
                (format "%s %s  '%s'"
                        g-curl-program  g-curl-common-options url)))
-        (loop
+        (cl-loop
          for s across  (g-json-lookup "list.story" listing) do
          (insert (format "%s\n"
                          (or (g-json-path-lookup mp4 s)

@@ -149,7 +149,7 @@
    ((= (length authors)1)
     (emacspeak-librivox-display-author (aref authors 0)))
    (t
-    (loop
+    (cl-loop
      for a across authors
      do
      (emacspeak-librivox-display-author a))))
@@ -205,7 +205,7 @@ Optional arg `offset' (default 0) is used for getting more results."
         (insert "<title>" title "</title>\n")
         (insert "<h1>" title "</h1>\n")
         (insert "<p> Press <code>e e </code> on a <em>listen</em> link to play the book.</p>")
-        (loop
+        (cl-loop
          for b across books
          and i from (1+ offset)
          do

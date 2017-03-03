@@ -114,7 +114,7 @@
 ;;{{{ Advice interactive commands:
 
 ;;; Advice Killing Commands:
-(loop for f in
+(cl-loop for f in
       '(jss-script-kill
         jss-debugger-kill
         jss-console-kill
@@ -138,7 +138,7 @@
 
 ;;; Cue task completion
 
-(loop for f in
+(cl-loop for f in
       '(jss-browser-mode-refresh
         jss-connect
         jss-console-clear-buffer
@@ -154,7 +154,7 @@
 
 ;;; Navigators:
 
-(loop for f in
+(cl-loop for f in
       '(
         jss-previous-button
         jss-next-button

@@ -70,7 +70,7 @@ displayed buffers."
     (setq windows 
           (cond
            (details 
-            (loop for buffer in buffer-map
+            (cl-loop for buffer in buffer-map
                   and window in window-list
                   collect
                   (let ((w (format "%s "  (second buffer)))
@@ -95,7 +95,7 @@ displayed buffers."
                             " and bottom right "
                             br))))
            (t
-            (loop for buffer in buffer-map
+            (cl-loop for buffer in buffer-map
                   collect
                   (second buffer)))))
     (tts-with-punctuations 'all

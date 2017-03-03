@@ -106,7 +106,7 @@
   (save-excursion
     (let ((row (emacspeak-solitaire-current-row))
           (column (emacspeak-solitaire-current-column)))
-      (loop for i  from 1 to(- row 1)
+      (cl-loop for i  from 1 to(- row 1)
             do
             (solitaire-up))
       (case (char-after (point))
@@ -115,7 +115,7 @@
       (cond
        ((and (>= column 3)
              (<= column 5))
-        (loop for count from 2 to 7 
+        (cl-loop for count from 2 to 7 
               do
               (when  (= count 3) (dtk-silence 10))
               (when (= count 6) (dtk-silence 10))
@@ -123,7 +123,7 @@
               (case (char-after (point))
                 (?o (emacspeak-solitaire-stone))
                 (?. (emacspeak-solitaire-hole)))))
-       (t (loop for count from 2 to 3
+       (t (cl-loop for count from 2 to 3
                 do
                 (solitaire-down)
                 (case (char-after (point))

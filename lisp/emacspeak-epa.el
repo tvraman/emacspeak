@@ -68,7 +68,7 @@
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:
-(loop
+(cl-loop
  for f in
  '(
    epa-mail-verify epa-mail-import-keys
@@ -101,7 +101,7 @@
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
-(loop
+(cl-loop
  for f in
  '(
    epa-mail-mode epa-global-mail-mode
@@ -113,7 +113,7 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'button)))))
 
-(loop
+(cl-loop
  for f in
  '(epa-list-keys epa-list-secret-keys)
  do

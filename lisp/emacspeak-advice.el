@@ -91,7 +91,7 @@
 ;;}}}
 ;;{{{ advice cursor movement commands to speak
 
-(loop
+(cl-loop
  for f in
  '(next-line previous-line)
  do
@@ -112,7 +112,7 @@ Landing on the beginning or end of  a physical line produces an appropriate audi
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-visual-line)))
 
-(loop
+(cl-loop
  for f in
  '(beginning-of-visual-line end-of-visual-line)
  do
@@ -122,7 +122,7 @@ Landing on the beginning or end of  a physical line produces an appropriate audi
      (when (ems-interactive-p)
        (let ((emacspeak-show-point t))
          (emacspeak-speak-visual-line))))))
-(loop
+(cl-loop
  for f in
  '(
    next-logical-line previous-logical-line
@@ -135,7 +135,7 @@ Landing on the beginning or end of  a physical line produces an appropriate audi
      (when (ems-interactive-p)
        (emacspeak-speak-line)))))
 
-(loop
+(cl-loop
  for f in
  '(forward-button backward-button)
  do
@@ -151,7 +151,7 @@ Landing on the beginning or end of  a physical line produces an appropriate audi
          (error nil))
        (emacspeak-auditory-icon 'large-movement)))))
 
-(loop
+(cl-loop
  for f in
  '(left-char right-char
              backward-char forward-char)
@@ -163,7 +163,7 @@ Landing on the beginning or end of  a physical line produces an appropriate audi
        (and dtk-stop-immediately (dtk-stop))
        (emacspeak-speak-char t)))))
 
-(loop
+(cl-loop
  for f in
  '(forward-word right-word)
  do
@@ -173,7 +173,7 @@ Landing on the beginning or end of  a physical line produces an appropriate audi
      (when (ems-interactive-p)
        (skip-syntax-forward " ")
        (emacspeak-speak-word)))))
-(loop
+(cl-loop
  for f in
  '(backward-word left-word)
  do
@@ -182,7 +182,7 @@ Landing on the beginning or end of  a physical line produces an appropriate audi
      "Speak the word you just moved to."
      (when (ems-interactive-p) (emacspeak-speak-word)))))
 
-(loop
+(cl-loop
  for f in
  '(next-buffer previous-buffer bury-buffer)
  do
@@ -192,7 +192,7 @@ Landing on the beginning or end of  a physical line produces an appropriate audi
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-speak-mode-line)))))
-(loop
+(cl-loop
  for f in
  '(
    beginning-of-buffer end-of-buffer)
@@ -204,7 +204,7 @@ Landing on the beginning or end of  a physical line produces an appropriate audi
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
-(loop
+(cl-loop
  for f in
  '(tab-to-tab-stop indent-for-tab-command reindent-then-newline-and-indent
                    indent-sexp indent-pp-sexp
@@ -217,7 +217,7 @@ Landing on the beginning or end of  a physical line produces an appropriate audi
        (emacspeak-auditory-icon 'fill-object)
        (emacspeak-speak-current-column)))))
 
-(loop
+(cl-loop
  for f in
  '(backward-sentence forward-sentence)
  do
@@ -226,7 +226,7 @@ Landing on the beginning or end of  a physical line produces an appropriate audi
      "Speak sentence after moving."
      (when (ems-interactive-p) (emacspeak-speak-sentence)))))
 
-(loop
+(cl-loop
  for f in
  '(forward-sexp backward-sexp
                 beginning-of-defun end-of-defun)
@@ -246,7 +246,7 @@ Landing on the beginning or end of  a physical line produces an appropriate audi
        ad-do-it)
      ad-return-value)))
 
-(loop
+(cl-loop
  for f in
  '(forward-paragraph backward-paragraph)
  do
@@ -259,7 +259,7 @@ Landing on the beginning or end of  a physical line produces an appropriate audi
 
 ;;; list navigation:
 
-(loop
+(cl-loop
  for f in
  '(forward-list backward-list
                 up-list backward-up-list down-list)
@@ -272,7 +272,7 @@ Landing on the beginning or end of  a physical line produces an appropriate audi
        (let ((emacspeak-show-point t))
          (emacspeak-speak-line))))))
 
-(loop
+(cl-loop
  for f in
  '(forward-page backward-page)
  do
@@ -282,7 +282,7 @@ Landing on the beginning or end of  a physical line produces an appropriate audi
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'scroll)
        (emacspeak-speak-page)))))
-(loop
+(cl-loop
  for f in
  '(scroll-up scroll-down
              scroll-up-command scroll-down-command)
@@ -385,7 +385,7 @@ the words that were capitalized."
 ;;}}}
 ;;{{{ Advice insert-char:
 
-(loop
+(cl-loop
  for f in
  '(ucs-insert insert-char)
  do
@@ -397,7 +397,7 @@ the words that were capitalized."
 ;;}}}
 ;;{{{ Advice deletion commands:
 
-(loop
+(cl-loop
  for f in
  '(backward-delete-char backward-delete-char-untabify delete-backward-char)
  do
@@ -412,7 +412,7 @@ the words that were capitalized."
       (t ad-do-it))
      ad-return-value)))
 
-(loop
+(cl-loop
  for f in
  '(delete-forward-char delete-char)
  do
@@ -593,7 +593,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
   (when (and emacspeak-speak-read-events (ad-get-arg 0))
     (tts-with-punctuations 'all
                            (dtk-speak (ad-get-arg 0)))))
-(loop
+(cl-loop
  for f in
  '(
    next-history-element previous-history-element
@@ -745,7 +745,7 @@ icon."
        (dtk-speak (error-message-string (cons error-symbol data)))))))
 
 (unless (boundp 'command-error-function)
-  (loop
+  (cl-loop
    for f in
    '(keyboard-quit keyboard-escape-quit)
    do
@@ -783,7 +783,7 @@ icon."
 ;;}}}
 ;;{{{ advice various input functions to speak:
 
-(loop
+(cl-loop
  for f in
  '(read-key read-key-sequence read-char read-char-exclusive)
  do
@@ -809,7 +809,7 @@ icon."
 
 ;;}}}
 ;;{{{ advice completion functions to speak:
-(loop for f in
+(cl-loop for f in
       '(dabbrev-expand dabbrev-completion)
       do
       (eval
@@ -825,7 +825,7 @@ icon."
    (completions-annotations voice-annotate)
    (completions-common-part voice-monotone)
    (completions-first-difference voice-brighten)))
-(loop
+(cl-loop
  for f in
  '(minibuffer-complete-word minibuffer-complete
                             crm-complete-word crm-complete crm-complete-and-exit
@@ -849,7 +849,7 @@ icon."
       (t ad-do-it))
      ad-return-value)))
 
-(loop
+(cl-loop
  for f in
  '(lisp-complete-symbol complete-symbol widget-complete)
  do
@@ -872,7 +872,7 @@ icon."
   "Provide spoken feedback."
   (emacspeak-auditory-icon 'select-object)
   (dtk-speak (emacspeak-get-current-completion)))
-(loop
+(cl-loop
  for f in
  '(complete)
  do
@@ -1015,7 +1015,7 @@ icon."
  emacspeak-pronounce-uuid-pattern
  (cons 're-search-forward
        'emacspeak-pronounce-uuid))
-(loop
+(cl-loop
  for mode in
  '(conf-space-mode conf-unix-mode conf-mode)
  do
@@ -1349,7 +1349,7 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
     (emacspeak-auditory-icon 'center)
     (message"Centered current paragraph")))
 
-(loop
+(cl-loop
  for f in
  '(fill-paragraph lisp-fill-paragraph)
  do
@@ -1426,7 +1426,7 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
     (message "Checked in version %s "
              (emacspeak-vc-get-version-id))))
 
-(loop
+(cl-loop
  for f in
  '(vc-dir-next-line vc-dir-previous-line
                     vc-dir-next-directory vc-dir-previous-directory
@@ -1472,7 +1472,7 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
 ;;}}}
 ;;{{{ composing mail
 
-(loop
+(cl-loop
  for f in
  '(mail mail-other-window mail-other-frame)
  do
@@ -1483,7 +1483,7 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
      (save-excursion
        (goto-char (point-min))
        (emacspeak-speak-line)))))
-(loop
+(cl-loop
  for f in
  '(mail-text mail-subject mail-cc mail-bcc
              mail-to mail-reply-to mail-fcc)
@@ -1519,7 +1519,7 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
   (when (ems-interactive-p)
     (message "Displayed mode help in help window")
     (emacspeak-auditory-icon 'help)))
-(loop
+(cl-loop
  for f in
  '(describe-bindings describe-prefix-bindings)
  do
@@ -1568,7 +1568,7 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
                    "Uncommented"
                  "Commented")
                (count-lines (point) (mark 'force))))))
-(loop
+(cl-loop
  for f in
  '(save-buffer save-some-buffers)
  do
@@ -1577,7 +1577,7 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
      "Provide auditory feedback."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'save-object)))))
-(loop
+(cl-loop
  for f in
  '(kill-region completion-kill-region)
  do
@@ -1607,7 +1607,7 @@ Produce an auditory icon if possible."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
-(loop
+(cl-loop
  for f in
  '(kill-buffer  quit-window)
  do
@@ -1618,7 +1618,7 @@ Produce an auditory icon if possible."
        (emacspeak-auditory-icon 'close-object)
        (emacspeak-speak-mode-line)))))
 
-(loop
+(cl-loop
  for f in
  '(delete-windows-on delete-other-frames
                      delete-window delete-completion-window
@@ -1632,7 +1632,7 @@ Produce an auditory icon if possible."
        (emacspeak-auditory-icon 'window-resize)
        (emacspeak-speak-mode-line)))))
 
-(loop
+(cl-loop
  for f in
  '(other-frame other-window
                switch-to-prev-buffer switch-to-next-buffer
@@ -1695,7 +1695,7 @@ Indicate change of selection with an auditory icon
 (defadvice help-window-display-message (around emacspeak pre act comp)
   (ems-with-messages-silenced ad-do-it))
 
-(loop
+(cl-loop
  for f in
  '(
    describe-function describe-variable
@@ -1778,7 +1778,7 @@ Auditory highlight indicates position of point."
     (emacspeak-auditory-icon 'large-movement)
     (let ((emacspeak-show-point t))
       (emacspeak-speak-line))))
-(loop
+(cl-loop
  for f in
  '(newline newline-and-indent electric-newline-and-maybe-indent)
  do
@@ -1794,7 +1794,7 @@ the newly created blank line."
         (t(when dtk-stop-immediately (dtk-stop))
           (dtk-tone 225 75 'force)))))))
 
-(loop
+(cl-loop
  for f in
  '(eval-last-sexp eval-expression)
  do
@@ -1814,9 +1814,9 @@ Provide an auditory icon if possible."
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
-(loop
+(cl-loop
  for f in
- '(find-tag pop-tag-mark tags-loop-continue)
+ '(find-tag pop-tag-mark tags-cl-loop-continue)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -1878,7 +1878,7 @@ Provide an auditory icon if possible."
     (message "Upcased region containing %s lines"
              (count-lines (region-beginning)
                           (region-end)))))
-(loop
+(cl-loop
  for f in
  '(narrow-to-region narrow-to-page)
  do
@@ -1986,7 +1986,7 @@ Provide an auditory icon if possible."
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (message "Aborting recursive edit")))
-(loop
+(cl-loop
  for f in
  '(undo undo-only)
  do
@@ -2029,7 +2029,7 @@ Provide an auditory icon if possible."
           (dtk-speak msg)
         (emacspeak-auditory-icon 'close-object)))))
 
-(loop
+(cl-loop
  for f in
  '(tooltip-show-help-non-mode tooltip-sho)
  do
@@ -2101,7 +2101,7 @@ Produce an auditory icon if possible."
 ;;}}}
 ;;{{{ Stop talking if activity
 
-(loop
+(cl-loop
  for f in
  '(beginning-of-line end-of-line
                      move-beginning-of-line move-end-of-line
@@ -2117,7 +2117,7 @@ Produce an auditory icon if possible."
 ;;}}}
 ;;{{{ yanking and popping
 
-(loop
+(cl-loop
  for f in
  '(yank yank-pop)
  do
@@ -2132,7 +2132,7 @@ Produce an auditory icon if possible."
 ;;}}}
 ;;{{{ advice non-incremental searchers
 
-(loop
+(cl-loop
  for f in
  '(search-forward search-backward
                   word-search-forward word-search-backward)
@@ -2202,7 +2202,7 @@ Produce auditory icons if possible."
        (+ (point) (length isearch-string)))
      voice-bolden
      (emacspeak-speak-line))))
-(loop
+(cl-loop
  for f in
  '(isearch-yank-word isearch-yank-kill isearch-yank-line)
  do
@@ -2212,7 +2212,7 @@ Produce auditory icons if possible."
      (when (ems-interactive-p)
        (emacspeak-speak-string isearch-string voice-bolden)
        (emacspeak-auditory-icon 'yank-object)))))
-(loop
+(cl-loop
  for f in
  '(isearch-ring-advance isearch-ring-retreat
                         isearch-ring-advance-edit isearch-ring-retreat-edit)
@@ -2263,7 +2263,7 @@ Produce auditory icons if possible."
       (ad-set-arg 1 t))
   ad-do-it
   ad-return-value)
-(loop
+(cl-loop
  for f in
  '(set-mark-command pop-to-mark-command pop-global-mark)
  do
@@ -2383,7 +2383,7 @@ Produce auditory icons if possible."
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (message "Copied window configuration to register %c" (ad-get-arg 0))))
-(loop
+(cl-loop
  for  f in
  '(frameset-to-register frame-configuration-to-register)
  do
@@ -2431,7 +2431,7 @@ Produce auditory icons if possible."
 ;;}}}
 ;;{{{ Advice occur
 
-(loop
+(cl-loop
  for f in
  '(occur-prev occur-next occur-mode-goto-occurrence)
  do
@@ -2478,7 +2478,7 @@ Produce auditory icons if possible."
 
 ;;}}}
 ;;{{{ apropos and friends
-(loop
+(cl-loop
  for f in
  '(
    apropos apropos-char apropos-library
@@ -2586,7 +2586,7 @@ Produce auditory icons if possible."
 ;;}}}
 ;;{{{ elint
 
-(loop
+(cl-loop
  for f in
  '(elint-current-buffer elint-file elint-defun)
  do
@@ -2605,7 +2605,7 @@ Produce auditory icons if possible."
 ;;}}}
 ;;{{{ advice button creation to add voicification:
 
-(loop
+(cl-loop
  for f in
  '(make-button make-text-button)
  do
@@ -2631,7 +2631,7 @@ Produce auditory icons if possible."
 ;;}}}
 ;;{{{ silence whitespace cleanup:
 
-(loop
+(cl-loop
  for f in
  '(whitespace-cleanup whitespace-cleanup-internal)
  do
@@ -2668,7 +2668,7 @@ Produce auditory icons if possible."
 ;;}}}
 ;;{{{ browse-url
 
-(loop for f in
+(cl-loop for f in
       '(browse-url-of-buffer browse-url-of-region)
       do
       (eval
@@ -2700,7 +2700,7 @@ Produce auditory icons if possible."
 ;;}}}
 ;;{{{ Splash Screen:
 
-(loop for f in
+(cl-loop for f in
       '(about-emacs display-about-screen)
       do
       (eval
@@ -2719,7 +2719,7 @@ Produce auditory icons if possible."
 ;;}}}
 ;;{{{ copyright commands:
 
-(loop for f in
+(cl-loop for f in
       '(copyright copyright-update)
       do
       (eval

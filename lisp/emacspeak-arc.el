@@ -133,7 +133,7 @@ first initializing it if necessary."
         (goto-char (point-min))
         (setq line (ems-this-line)))
       (setq fields (split-string line))
-      (loop for f in fields 
+      (cl-loop for f in fields 
             and i from 0
             do
             (setq emacspeak-arc-header-list-format

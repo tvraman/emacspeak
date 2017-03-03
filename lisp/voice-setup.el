@@ -161,7 +161,7 @@ means that Voice Lock mode is turned on for buffers in C and C++ modes only."
 (defun voice-setup-show-rogue-faces ()
   "Return list of voices that map to non-existent faces."
   (declare (special voice-setup-face-voice-table))
-  (loop for f being the hash-keys of voice-setup-face-voice-table
+  (cl-loop for f being the hash-keys of voice-setup-face-voice-table
         unless (facep f) collect f))
 
 ;;}}}
@@ -227,7 +227,7 @@ means that Voice Lock mode is turned on for buffers in C and C++ modes only."
 
 (defun voice-setup-add-map (fv-alist)
   "Sets up face to voice mapping given in fv-alist."
-  (loop
+  (cl-loop
    for fv in fv-alist
    do
    (voice-setup-map-face (first fv) (second fv))))
@@ -260,14 +260,14 @@ Observing personalities are automatically updated when settings for
 VOICE-NAME are  changed."
   (let* ((plist (symbol-plist voice-name))
          (l (1- (length plist))))
-    (loop for i from 0 to l by 2
+    (cl-loop for i from 0 to l by 2
           collect (nth i plist))))
 
 (defun voice-setup-update-personalities (personality)
   "Update  personalities  that use this voice to  new setting."
   (let ((value (symbol-value personality))
         (observers (voice-setup-observing-personalities personality)))
-    (loop for o in observers
+    (cl-loop for o in observers
           do                            ;o is already quoted
           (set o value))))
 

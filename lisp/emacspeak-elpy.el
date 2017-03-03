@@ -55,7 +55,7 @@
 ;;}}}
 ;;{{{ Advice Interactive Commands:
 
-(loop
+(cl-loop
  for f in
  '(
    elpy-autopep8-fix-code elpy-config elpy-check
@@ -97,7 +97,7 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
-(loop
+(cl-loop
  for f in
  '(elpy-flymake-next-error elpy-flymake-previous-error
                            elpy-goto-definition)
@@ -111,7 +111,7 @@
 
                                         ; elpy-flymake-show-error
 
-(loop
+(cl-loop
  for f in
  '(elpy-nav-backward-block elpy-nav-backward-indent
                            elpy-nav-expand-to-indentation elpy-nav-forward-block

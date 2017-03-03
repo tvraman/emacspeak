@@ -412,7 +412,7 @@
 ;;; Emacspeak-eww defines wrapper functions to hide this difference.
 ;;; Generate emacspeak-eww-current-url and friends:
 
-(loop
+(cl-loop
  for name in
  '(title url source dom)
  do
@@ -434,7 +434,7 @@
        , (format "Return eww-current-%s." name)
          ,(intern (format "eww-current-%s" name)))))))
 
-(loop
+(cl-loop
  for name in
  '(title url source dom)
  do
@@ -486,7 +486,7 @@ are available are cued by an auditory icon on the header line."
      (t
       (with-temp-buffer
         (insert "<table><th>Type</th><th>URL</th></tr>\n")
-        (loop
+        (cl-loop
          for a in alt do
          (insert "<tr>")
          (insert
@@ -576,7 +576,7 @@ are available are cued by an auditory icon on the header line."
 ;;; turn off images
   (setq shr-inhibit-images t)
 ;;; remove "I" "o" from eww-link-keymap
-  (loop
+  (cl-loop
    for c in
    '(?I ?o)
    do
@@ -589,7 +589,7 @@ are available are cued by an auditory icon on the header line."
   (define-key eww-link-keymap "\C-r" 'emacspeak-feeds-rss-display)
   (define-key eww-link-keymap "\C-a" 'emacspeak-feeds-atom-display)
   (define-key eww-link-keymap  "y" 'emacspeak-m-player-youtube-player)
-  (loop
+  (cl-loop
    for binding  in
    '(
      (":" emacspeak-eww-tags-at-point)
@@ -664,7 +664,7 @@ are available are cued by an auditory icon on the header line."
 ;;}}}
 ;;{{{ Advice Interactive Commands:
 
-(loop
+(cl-loop
  for f in
  '(eww-up-url eww-top-url
               eww-next-url eww-previous-url
@@ -736,7 +736,7 @@ Retain previously set punctuations  mode."
       (emacspeak-url-template-open (emacspeak-url-template-get  n))))
    (t ad-do-it)))
 
-(loop
+(cl-loop
  for f in
  '(eww eww-reload eww-open-file)
  do
@@ -804,7 +804,7 @@ Retain previously set punctuations  mode."
   "Provide auditory feedback."
   (when (ems-interactive-p) (emacspeak-auditory-icon 'open-object)))
 
-(loop
+(cl-loop
  for f in
  '(eww-next-bookmark eww-previous-bookmark)
  do
@@ -818,7 +818,7 @@ Retain previously set punctuations  mode."
   "Provide auditory feedback."
   (when (ems-interactive-p) (emacspeak-auditory-icon 'close-object)))
 
-(loop
+(cl-loop
  for f in
  '(eww-change-select
    eww-toggle-checkbox
@@ -830,7 +830,7 @@ Retain previously set punctuations  mode."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'button)))))
 
-(loop
+(cl-loop
  for f in
  '(shr-next-link shr-previous-link)
  do
@@ -878,7 +878,7 @@ Retain previously set punctuations  mode."
 ;;}}}
 ;;{{{ DOM Structure In Rendered Buffer:
 
-(loop
+(cl-loop
  for  tag in
  '(h1 h2 h3 h4 h5 h6 div                    ; sectioning
       ul ol dl                     ; Lists
@@ -1056,7 +1056,7 @@ attr-value list for use as a DOM filter."
   (eval
    `#'(lambda (node)
         (let (attr  value found)
-          (loop
+          (cl-loop
            for pair in (quote ,attr-list)
            until found
            do
@@ -1106,7 +1106,7 @@ for use as a DOM filter."
 (defun ems-eww-read-list (reader)
   "Return list of values  read using reader."
   (let (value-list  value done)
-    (loop
+    (cl-loop
      until done
      do
      (setq value (funcall reader))
@@ -1147,7 +1147,7 @@ Optional interactive arg `multi' prompts for multiple ids."
           (emacspeak-eww-current-dom)
           (eww-attribute-list-tester
            (if multi
-               (loop
+               (cl-loop
                 for i in (ems-eww-read-list 'ems-eww-read-id)
                 collect (list 'id i))
              (list (list 'id (ems-eww-read-id))))))))
@@ -1248,7 +1248,7 @@ Optional interactive arg `multi' prompts for multiple classes."
           (emacspeak-eww-current-dom)
           (eww-attribute-list-tester
            (if multi
-               (loop
+               (cl-loop
                 for c in (ems-eww-read-list 'ems-eww-read-class)
                 collect (list 'class c))
              (list (list 'class (ems-eww-read-class))))))))
@@ -1304,7 +1304,7 @@ Optional interactive arg `multi' prompts for multiple classes."
           (emacspeak-eww-current-dom)
           (eww-attribute-list-tester
            (if multi
-               (loop
+               (cl-loop
                 for r in (ems-eww-read-list 'ems-eww-read-role)
                 collect (list 'role r))
              (list (list 'role (ems-eww-read-role))))))))
@@ -1340,7 +1340,7 @@ Optional interactive arg `multi' prompts for multiple classes."
           (emacspeak-eww-current-dom)
           (eww-attribute-list-tester
            (if multi
-               (loop
+               (cl-loop
                 for r in (ems-eww-read-list 'ems-eww-read-property)
                 collect (list 'property r))
              (list (list 'property (ems-eww-read-property))))))))
@@ -1376,7 +1376,7 @@ Optional interactive arg `multi' prompts for multiple classes."
           (emacspeak-eww-current-dom)
           (eww-attribute-list-tester
            (if multi
-               (loop
+               (cl-loop
                 for r in (ems-eww-read-list 'ems-eww-read-itemprop)
                 collect (list 'itemprop r))
              (list (list 'itemprop (ems-eww-read-itemprop))))))))
@@ -1572,7 +1572,7 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
 (defun emacspeak-eww-here-tags ()
   "Return list of enclosing tags at point."
   (let* ((eww-tags (text-properties-at (point))))
-    (loop
+    (cl-loop
      for i from 0 to (1- (length eww-tags)) by 2
      if (eq (plist-get eww-tags (nth i eww-tags)) 'eww-tag)
      collect (nth i eww-tags))))
@@ -1618,7 +1618,7 @@ Otherwise, prompts if content at point is enclosed by multiple elements."
       (emacspeak-auditory-icon 'select-object)
       (emacspeak-speak-region start (point)))))
 
-(loop
+(cl-loop
  for  f in
  '(h h1 h2 h3 h4 h5 h6 li table ol ul p)
  do
@@ -1642,7 +1642,7 @@ Optional interactive prefix arg speaks the structural unit." f)
 ;;}}}
 ;;{{{ Google Search  fixes:
 
-(loop
+(cl-loop
  for f in
  '(url-retrieve-internal  url-truncate-url-for-viewing eww)
  do
@@ -1742,7 +1742,7 @@ Warning, this is fragile, and depends on a stable id for the
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
 
-(loop
+(cl-loop
  for f in
  '(eww-buffer-show-next eww-buffer-show-previous)
  do
@@ -1791,7 +1791,7 @@ Warning, this is fragile, and depends on a stable id for the
   (let ((props (text-properties-at (point)))
         (tags nil))
     (setq tags
-          (loop
+          (cl-loop
            for i from 0 to (length props) by 2
            if (eq 'eww-tag (elt  props (+ 1 i))) collect (elt props i)))
     (print tags)

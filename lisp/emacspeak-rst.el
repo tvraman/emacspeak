@@ -75,7 +75,7 @@
 
 ;;}}}
 ;;{{{ Speech-enable interactive commands:
-(loop
+(cl-loop
  for f in
  '(rst-promote-region
    rst-shift-region)
@@ -87,7 +87,7 @@
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
-(loop
+(cl-loop
  for f in
  '(rst-goto-section rst-forward-section rst-backward-section
                     rst-forward-indented-block)
@@ -99,7 +99,7 @@
        (emacspeak-auditory-icon 'section)
        (emacspeak-speak-line)))))
 
-(loop
+(cl-loop
  for f in
  '(rst-compile rst-compile-alt-toolset
                rst-adjust rst-adjust-section-title
@@ -142,7 +142,7 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'mark-object)
     (emacspeak-speak-line)))
-(loop
+(cl-loop
  for f in
  '(rst-bullet-list-region rst-convert-bullets-to-enumeration rst-enumerate-region)
  do
@@ -153,7 +153,7 @@
        (emacspeak-auditory-icon 'item)
        (message "Bulletized. ")))))
 
-(loop
+(cl-loop
  for f in
  '(rst-insert-list rst-insert-list-new-item rst-toc-insert)
  do
@@ -163,7 +163,7 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-line)))))
-(loop
+(cl-loop
  for f in
  '(rst-join-paragraph rst-line-block-region
                       rst-straighten-adornments rst-straighten-bullets-region)

@@ -97,7 +97,7 @@
 
 ;;}}}
 ;;{{{ Navigation And Repl:
-(loop
+(cl-loop
  for f in
  '(
    slime-xref-next-line slime-xref-prev-line slime-goto-xref)
@@ -126,7 +126,7 @@
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
 
-(loop
+(cl-loop
  for f in
  '(
    slime-repl-backward-input slime-repl-forward-input
@@ -150,7 +150,7 @@
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
-(loop
+(cl-loop
  for f in
  '(slime-repl-return slime-repl-closing-return
                      slime-repl-set-package slime-handle-repl-shortcut)
@@ -165,7 +165,7 @@
          (emacspeak-speak-this-personality-chunk))
        (emacspeak-auditory-icon 'close-object)))))
 
-(loop
+(cl-loop
  for f in
  '(slime-complete-symbol slime-indent-and-complete-symbol)
  do
@@ -182,7 +182,7 @@
           (emacspeak-speak-completions-if-available))
         ad-return-value)))))
 
-(loop
+(cl-loop
  for f in
  '(
    slime-delete-system-fasls slime-delete-package
@@ -196,7 +196,7 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'delete-object)))))
 
-(loop
+(cl-loop
  for f in
  '(
    slime-repl-sayoonara slime-repl-quit
@@ -209,7 +209,7 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'close-object)))))
 
-(loop
+(cl-loop
  for f in
  '(
    slime-eval-buffer slime-eval-defun
@@ -238,7 +238,7 @@
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)))
-(loop
+(cl-loop
  for f in
  '(slime-list-repl-short-cuts slime-repl-shortcut-help
                               slime-documentation)
@@ -259,7 +259,7 @@
 
 ;;}}}
 ;;{{{ Writing Code:
-(loop
+(cl-loop
  for f in
  '(slime-compile-and-load-file
    slime-compile-defun slime-compile-file
@@ -280,7 +280,7 @@
 ;;}}}
 ;;{{{ Browsing Documentation:
 
-(loop
+(cl-loop
  for f in
  '(
    slime-documentation-lookup
@@ -319,7 +319,7 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)
     (emacspeak-speak-line)))
-(loop
+(cl-loop
  for f in
  '(slime-inspector-next-inspectable-object
    slime-inspector-previous-inspectable-object)
@@ -331,7 +331,7 @@
        (emacspeak-speak-this-personality-chunk)
        (emacspeak-auditory-icon 'large-movement)))))
 
-(loop
+(cl-loop
  for f in
  '(
    slime-inspector-operate-on-point slime-inspector-operate-on-click
@@ -351,7 +351,7 @@
          (emacspeak-speak-line)
          (emacspeak-auditory-icon 'open-object))))))
 
-(loop
+(cl-loop
  for f in
  '(slime-inspector-history slime-inspector-describe)
  do

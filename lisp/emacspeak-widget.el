@@ -610,7 +610,7 @@ widget before summarizing."
   (interactive "P")
   (let ((widget (widget-at (point))))
     (when(and widget  level)
-      (loop for i from 1 to level
+      (cl-loop for i from 1 to level
             do
             (setq widget (widget-get  widget :parent))))
     (cond
@@ -664,7 +664,7 @@ widget before summarizing."
   "Update widget keymaps."
   (declare (special emacspeak-prefix
                     widget-field-keymap widget-text-keymap))
-  (loop
+  (cl-loop
    for map in
    '(widget-keymap  widget-field-keymap widget-text-keymap)
    do
@@ -719,7 +719,7 @@ widget before summarizing."
          (widget-create 'voice
                         :tag "voices")))
     (widget-put w :args 
-                (loop for key being the hash-keys of dectalk-voice-table 
+                (cl-loop for key being the hash-keys of dectalk-voice-table 
                       collect
                       (list 'personality :value key)))
     w))

@@ -295,7 +295,7 @@ Element 0 is ignored."
 
 (defun tetris-display-options ()
   (let ((options (make-vector 256 nil)))
-    (loop for c from 0 to 255 do
+    (cl-loop for c from 0 to 255 do
           (aset options c
                 (cond ((= c tetris-blank)
                        tetris-blank-options)
@@ -339,10 +339,10 @@ Element 0 is ignored."
   (let ((strings (vector (format "Shapes: %05d" tetris-n-shapes)
                          (format "Rows:   %05d" tetris-n-rows)
                          (format "Score:  %05d" tetris-score))))
-    (loop for y from 0 to 2 do
+    (cl-loop for y from 0 to 2 do
           (let* ((string (aref strings y))
                  (len (length string)))
-            (loop for x from 0 to (1- len) do
+            (cl-loop for x from 0 to (1- len) do
                   (gamegrid-set-cell (+ tetris-score-x x)
                                      (+ tetris-score-y y)
                                      (aref string x)))))))
@@ -365,8 +365,8 @@ Element 0 is ignored."
     (tetris-update-score)))
 
 (defun tetris-draw-next-shape ()
-  (loop for y from 0 to 3 do
-        (loop for x from 0 to 3 do
+  (cl-loop for y from 0 to 3 do
+        (cl-loop for x from 0 to 3 do
               (gamegrid-set-cell (+ tetris-next-x x)
                                  (+ tetris-next-y y)
                                  (let ((tetris-shape tetris-next-shape)
@@ -374,8 +374,8 @@ Element 0 is ignored."
                                    (tetris-get-shape-cell x y))))))
 
 (defun tetris-draw-shape ()
-  (loop for y from 0 to (1- (tetris-shape-height)) do
-        (loop for x from 0 to (1- (tetris-shape-width)) do
+  (cl-loop for y from 0 to (1- (tetris-shape-height)) do
+        (cl-loop for x from 0 to (1- (tetris-shape-width)) do
               (let ((c (tetris-get-shape-cell x y)))
                 (if (/= c tetris-blank)
                     (gamegrid-set-cell (+ tetris-top-left-x
@@ -387,8 +387,8 @@ Element 0 is ignored."
                                        c))))))
 
 (defun tetris-erase-shape ()
-  (loop for y from 0 to (1- (tetris-shape-height)) do
-        (loop for x from 0 to (1- (tetris-shape-width)) do
+  (cl-loop for y from 0 to (1- (tetris-shape-height)) do
+        (cl-loop for x from 0 to (1- (tetris-shape-width)) do
               (let ((c (tetris-get-shape-cell x y))
                     (px (+ tetris-top-left-x tetris-pos-x x))
                     (py (+ tetris-top-left-y tetris-pos-y y)))
@@ -397,8 +397,8 @@ Element 0 is ignored."
 
 (defun tetris-test-shape ()
   (let ((hit nil))
-    (loop for y from 0 to (1- (tetris-shape-height)) do
-          (loop for x from 0 to (1- (tetris-shape-width)) do
+    (cl-loop for y from 0 to (1- (tetris-shape-height)) do
+          (cl-loop for x from 0 to (1- (tetris-shape-width)) do
                 (unless hit
                   (setq hit
                         (let* ((c (tetris-get-shape-cell x y))
@@ -415,7 +415,7 @@ Element 0 is ignored."
 
 (defun tetris-full-row (y)
   (let ((full t))
-    (loop for x from 0 to (1- tetris-width) do
+    (cl-loop for x from 0 to (1- tetris-width) do
           (if (= (gamegrid-get-cell (+ tetris-top-left-x x)
                                     (+ tetris-top-left-y y))
                  tetris-blank)
@@ -424,11 +424,11 @@ Element 0 is ignored."
 
 (defun tetris-shift-row (y)
   (if (= y 0)
-      (loop for x from 0 to (1- tetris-width) do
+      (cl-loop for x from 0 to (1- tetris-width) do
             (gamegrid-set-cell (+ tetris-top-left-x x)
                                (+ tetris-top-left-y y)
                                tetris-blank))
-    (loop for x from 0 to (1- tetris-width) do
+    (cl-loop for x from 0 to (1- tetris-width) do
           (let ((c (gamegrid-get-cell (+ tetris-top-left-x x)
                                       (+ tetris-top-left-y y -1))))
             (gamegrid-set-cell (+ tetris-top-left-x x)
@@ -436,10 +436,10 @@ Element 0 is ignored."
                                c)))))
 
 (defun tetris-shift-down ()
-  (loop for y0 from 0 to (1- tetris-height) do
+  (cl-loop for y0 from 0 to (1- tetris-height) do
         (if (tetris-full-row y0)
             (progn (setq tetris-n-rows (1+ tetris-n-rows))
-                   (loop for y from y0 downto 0 do
+                   (cl-loop for y from y0 downto 0 do
                          (tetris-shift-row y))))))
 
 (defun tetris-draw-border-p ()
@@ -452,19 +452,19 @@ Element 0 is ignored."
                         tetris-space)
   (let ((buffer-read-only nil))
     (if (tetris-draw-border-p)
-        (loop for y from -1 to tetris-height do
-              (loop for x from -1 to tetris-width do
+        (cl-loop for y from -1 to tetris-height do
+              (cl-loop for x from -1 to tetris-width do
                     (gamegrid-set-cell (+ tetris-top-left-x x)
                                        (+ tetris-top-left-y y)
                                        tetris-border))))
-    (loop for y from 0 to (1- tetris-height) do
-          (loop for x from 0 to (1- tetris-width) do
+    (cl-loop for y from 0 to (1- tetris-height) do
+          (cl-loop for x from 0 to (1- tetris-width) do
                 (gamegrid-set-cell (+ tetris-top-left-x x)
                                    (+ tetris-top-left-y y)
                                    tetris-blank)))
     (if (tetris-draw-border-p)
-        (loop for y from -1 to 4 do
-              (loop for x from -1 to 4 do
+        (cl-loop for y from -1 to 4 do
+              (cl-loop for x from -1 to 4 do
                     (gamegrid-set-cell (+ tetris-next-x x)
                                        (+ tetris-next-y y)
                                        tetris-border))))))

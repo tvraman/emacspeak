@@ -907,7 +907,7 @@ If no property is set, show a message and exit."
         (intern
          (completing-read
           "Display property: "
-          (loop  for p in properties  and i from 0 if (evenp i) collect p)))))
+          (cl-loop  for p in properties  and i from 0 if (evenp i) collect p)))))
       (t (message "No property set at point ")
          nil))))
   (if property
@@ -2068,7 +2068,7 @@ Interactive  arguments specify filename pattern and search pattern."
       (setq buffer-read-only nil)
       (erase-buffer)
       (insert (format "Face: %s\n" face))
-      (loop for a in
+      (cl-loop for a in
             (mapcar #'car face-attribute-name-alist)
             do
             (unless (eq 'unspecified (face-attribute face a))
@@ -2106,10 +2106,10 @@ for the current voice family."
     (save-current-buffer
       (set-buffer buffer)
       (erase-buffer)
-      (loop for a from 0 to 9 by step do
-            (loop for p from 0 to 9 by step do
-                  (loop for  s from 0 to 9 by step do
-                        (loop for r from 0 to 9 by step do
+      (cl-loop for a from 0 to 9 by step do
+            (cl-loop for p from 0 to 9 by step do
+                  (cl-loop for  s from 0 to 9 by step do
+                        (cl-loop for r from 0 to 9 by step do
                               (setq voice (voice-setup-personality-from-style
                                            (list nil a p s r)))
                               (insert
@@ -2292,7 +2292,7 @@ This is for use in conjunction with bash to allow multiple emacs
 ;;;###autoload
 (defun emacspeak-wizards-shell-bind-keys ()
   "Set up additional shell mode keys."
-  (loop for b in
+  (cl-loop for b in
         '(
           ("\C-ch" emacspeak-wizards-refresh-shell-history)
           ("\C-cr" comint-redirect-send-command))
@@ -2515,17 +2515,17 @@ Default is to add autoload cookies to current file."
 ;;{{{  Buffer Cycling:
 (defun emacspeak-wizards-buffer-cycle-previous (mode)
   "Return previous  buffer in cycle order having same major mode as `mode'."
-  (catch 'loop
+  (catch 'cl-loop
     (dolist (buf   (reverse (cdr (buffer-list (selected-frame)))))
       (when (with-current-buffer buf (eq mode major-mode))
-        (throw 'loop buf)))))
+        (throw 'cl-loop buf)))))
 
 (defun emacspeak-wizards-buffer-cycle-next (mode)
   "Return next buffer in cycle order having same major mode as `mode'."
-  (catch 'loop
+  (catch 'cl-loop
     (dolist (buf  (cdr (buffer-list (selected-frame))))
       (when (with-current-buffer buf (eq mode major-mode))
-        (throw 'loop buf)))))
+        (throw 'cl-loop buf)))))
 ;;;###autoload
 (defun emacspeak-wizards-cycle-to-previous-buffer()
   "Cycles to previous buffer having same mode."
@@ -2690,7 +2690,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
   (delq nil
         (mapcar
          #'(lambda (face) (unless (facep face) face))
-         (loop for k being the hash-keys of voice-setup-face-voice-table
+         (cl-loop for k being the hash-keys of voice-setup-face-voice-table
                collect k))))
 
 (defun emacspeak-wizards-enumerate-matching-faces (pattern)
@@ -2759,7 +2759,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
 (defun emacspeak-wizards-view-buffers-filtered-by-predicate (predicate)
   "Display list of buffers filtered by specified predicate."
   (let ((buffer-list
-         (loop
+         (cl-loop
           for b in (buffer-list)
           when (funcall predicate b) collect b))
         (old-buffer (current-buffer))
@@ -2911,7 +2911,7 @@ Optional interactive prefix arg `category' prompts for a category."
 (defun yql-result-row (headers result-row)
   "Takes a list corresponding to a result, and returns a vector sorted per headers."
   (let ((row (make-vector (length result-row) nil)))
-    (loop
+    (cl-loop
      for h across headers
      and index from 0 do
      (aset row index (cdr (assoc h result-row))))
@@ -2922,7 +2922,7 @@ Optional interactive prefix arg `category' prompts for a category."
   (let ((table (make-vector (1+ (length tokens)) nil))
         (results (emacspeak-wizards-yq-results tokens)))
     (aset table 0 header-row)
-    (loop
+    (cl-loop
      for r in results
      and index from 1 do
      (aset  table index (yql-result-row header-row r)))
@@ -3045,14 +3045,14 @@ Returns a list of lists, one list per ticker."
      ((= 1 (length symbols)) ;wrap singleton in a list
       (list (emacspeak-wizards-yq-filter  results)))
      (t
-      (loop for r across results
+      (cl-loop for r across results
             collect (emacspeak-wizards-yq-filter r))))))
 
 (defun emacspeak-wizards-yq-result-row (r)
   "Takes a list corresponding to a quote, and returns a vector sorted per headers."
   (declare (special emacspeak-wizards-yq-headers))
   (let ((row (make-vector (length r) nil)))
-    (loop
+    (cl-loop
      for h in emacspeak-wizards-yq-headers
      and index from 0 do
      (aset row index (cdr (assoc h r))))
@@ -3069,7 +3069,7 @@ Returns a list of lists, one list per ticker."
   (let ((table (make-vector (1+ (length symbols)) nil))
         (results (emacspeak-wizards-yq-results symbols)))
     (aset table 0 emacspeak-wizards-yq-headers-row)
-    (loop
+    (cl-loop
      for r in results
      and index from 1 do
      (aset  table index (emacspeak-wizards-yq-result-row r)))
@@ -3150,7 +3150,7 @@ Symbols are taken from `emacspeak-wizards-personal-portfolio'."
   "Convert result list into a sorted row."
   (declare (special emacspeak-wizards-yql-weather-header-row))
   (let ((row (make-vector (length emacspeak-wizards-yql-weather-header-row) nil)))
-    (loop
+    (cl-loop
      for h across emacspeak-wizards-yql-weather-header-row
      and index from 0 do
      (aset row index (cdr(assoc h result))))
@@ -3177,7 +3177,7 @@ Symbols are taken from `emacspeak-wizards-personal-portfolio'."
          (result (emacspeak-wizards-yql-weather-results zip))
          (table (make-vector (1+ (length result)) nil)))
     (aset table  0 emacspeak-wizards-yql-weather-header-row)
-    (loop
+    (cl-loop
      for  r across result
      and i from 1 do
      (aset table i (emacspeak-wizards-yql-weather-row  r)))
@@ -3232,15 +3232,15 @@ Optional interactive prefix arg shows  unprocessed results."
       (insert (format  "Standings: %s\n\n" date))
       (cond
        (raw
-        (loop
+        (cl-loop
          for s across  (g-json-get  'standing standings) do
-         (loop
+         (cl-loop
           for f in s do
           (insert (format "%s:\t%s\n"
                           (car f) (cdr f))))
          (insert "\n")))
        (t
-        (loop
+        (cl-loop
          for s across  (g-json-get  'standing standings) do
          (insert (emacspeak-wizards--format-mlb-standing s)))))
       (goto-char (point-min))
@@ -3274,15 +3274,15 @@ Optional interactive prefix arg shows  unprocessed results."
       (insert (format  "Standings: %s\n\n" date))
       (cond
        (raw
-        (loop
+        (cl-loop
          for s across  (g-json-get  'standing standings) do
-         (loop
+         (cl-loop
           for f in s do
           (insert (format "%s:\t%s\n"
                           (car f) (cdr f))))
          (insert "\n")))
        (t
-        (loop
+        (cl-loop
          for s across  (g-json-get  'standing standings) do
          (insert (emacspeak-wizards--format-nba-standing s)))))
       (goto-char (point-min))

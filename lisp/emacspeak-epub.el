@@ -271,7 +271,7 @@ Useful if table of contents in toc.ncx is empty."
     (with-current-buffer (get-buffer-create emacspeak-epub-scratch)
       (erase-buffer)
       (insert  "<ol>\n")
-      (loop for f in files
+      (cl-loop for f in files
             do
             (insert
              (format "<li><a href=\"%s\">%s</a></li>\n" f f)))
@@ -339,7 +339,7 @@ Useful if table of contents in toc.ncx is empty."
                     emacspeak-epub-library-directory))
   (let ((updated nil)
         (filename nil))
-    (loop
+    (cl-loop
      for f in
      (directory-files emacspeak-epub-library-directory  'full "epub")
      do
@@ -357,7 +357,7 @@ Useful if table of contents in toc.ncx is empty."
                (make-emacspeak-epub-metadata
                 :title title
                 :author author)))))
-    (loop for f being the hash-keys of emacspeak-epub-db
+    (cl-loop for f being the hash-keys of emacspeak-epub-db
           do
           (setq filename (emacspeak-epub-shell-unquote f))
           (unless (file-exists-p filename) (remhash f emacspeak-epub-db)))
@@ -399,7 +399,7 @@ Interactive prefix arg searches recursively in directory."
   (declare (special emacspeak-epub-db-file emacspeak-epub-db))
   (let ((updated 0)
         (filename nil))
-    (loop
+    (cl-loop
      for f in
      (if recursive
          (emacspeak-epub-find-epubs-in-directory directory)
@@ -471,7 +471,7 @@ Interactive prefix arg searches recursively in directory."
   (declare (special emacspeak-epub-db-file emacspeak-epub-db))
   (let ((updated 0)
         (filename nil))
-    (loop
+    (cl-loop
      for f in
      (if recursive
          (emacspeak-epub-find-epubs-in-directory directory)
@@ -624,7 +624,7 @@ Suitable for text searches."
     (with-current-buffer buffer
       (erase-buffer)
       (setq buffer-undo-list t)
-      (loop for f in files
+      (cl-loop for f in files
             do
             (setq command
                   (format "unzip -c -qq %s %s | %s"
@@ -660,7 +660,7 @@ Suitable for text searches."
     (with-current-buffer buffer
       (erase-buffer)
       (setq buffer-undo-list t)
-      (loop for f in files
+      (cl-loop for f in files
             do
             (insert (format "<!-- %s -->" f))
             (setq command
@@ -730,7 +730,7 @@ Suitable for text searches."
            ((= 1 count))
            (t
             (setq result
-                  (loop for i from 0 to(- count 2)
+                  (cl-loop for i from 0 to(- count 2)
                         collect
                         (upcase (aref  (nth i fields) 0))))
             (setq result
@@ -804,7 +804,7 @@ Letters do not insert themselves; instead, they are commands.
   (emacspeak-epub-bookshelf-refresh))
 
 (declaim (special emacspeak-epub-mode-map))
-(loop for k in
+(cl-loop for k in
       '(
         ("/" emacspeak-epub-calibre-results)
         ("A" emacspeak-epub-bookshelf-calibre-author)
@@ -1021,7 +1021,7 @@ Searches for matches in both  Title and Author."
          (emacspeak-epub-calibre-get-results 
           (emacspeak-epub-calibre-query pattern))))
     (when (= 0 (length results)) (error "No results found, check query."))
-    (loop 
+    (cl-loop 
      for r in results 
      do
      (emacspeak-epub-bookshelf-add-directory
@@ -1042,7 +1042,7 @@ Searches for matches in both  Title and Author."
          (emacspeak-epub-calibre-get-results 
           (emacspeak-epub-calibre-author-query pattern))))
     (when (= 0 (length results)) (error "No results found, check query."))
-    (loop 
+    (cl-loop 
      for r in results 
      do
      (emacspeak-epub-bookshelf-add-directory
@@ -1063,7 +1063,7 @@ Searches for matches in both  Title and Author."
          (emacspeak-epub-calibre-get-results 
           (emacspeak-epub-calibre-title-query pattern))))
     (when (= 0 (length results)) (error "No results found, check query."))
-    (loop 
+    (cl-loop 
      for r in results 
      do
      (emacspeak-epub-bookshelf-add-directory
@@ -1110,7 +1110,7 @@ Letters do not insert themselves; instead, they are commands.
       (setq buffer-undo-list t)
       (goto-char (point-min))
       (insert "Calibre Results\n\n")
-      (loop
+      (cl-loop
        for r in emacspeak-epub-calibre-results
        do
        (setq start (point))

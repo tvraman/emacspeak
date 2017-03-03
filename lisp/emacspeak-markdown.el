@@ -96,7 +96,7 @@
    (t ad-do-it))
   ad-return-value)
 
-(loop
+(cl-loop
  for f in
  '(
    markdown-demote-subtree markdown-demote markdown-demote-list-item
@@ -155,7 +155,7 @@
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
 
-(loop
+(cl-loop
  for f in
  '(
    markdown-check-refs markdown-check-change-for-wiki-link
@@ -169,7 +169,7 @@
        (emacspeak-auditory-icon 'task-done)
        (emacspeak-speak-line)))))
 
-(loop
+(cl-loop
  for f in
  '(
    markdown-complete-region markdown-complete-buffer

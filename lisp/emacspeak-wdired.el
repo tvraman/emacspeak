@@ -52,7 +52,7 @@
 ;;}}}
 ;;{{{ Advice interactive commands.
 
-(loop for c in
+(cl-loop for c in
       '(wdired-next-line wdired-previous-line)
       do
       (eval

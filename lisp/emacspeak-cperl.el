@@ -68,7 +68,7 @@
 (unless (and (boundp 'post-self-insert-hook)
              post-self-insert-hook
              (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
-  (loop for e in emacspeak-cperl-electric-insertion-commands-to-advice
+  (cl-loop for e in emacspeak-cperl-electric-insertion-commands-to-advice
         do
         (eval
          `(defadvice ,e (after emacspeak pre act comp)

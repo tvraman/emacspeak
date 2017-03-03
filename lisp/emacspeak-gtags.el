@@ -57,7 +57,7 @@
 ;;{{{ Advice interactive functions:
 
 ;;; Jumpers: Move to tags by various means
-(loop for f in
+(cl-loop for f in
       '(
         gtags-find-with-grep
         gtags-find-with-idutils

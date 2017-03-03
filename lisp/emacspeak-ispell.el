@@ -58,9 +58,9 @@
 (require 'emacspeak-preamble)
 
 ;;}}}
-;;{{{  ispell command loop:
+;;{{{  ispell command cl-loop:
 
-;;; defun ispell-command-loop (miss guess word start end)
+;;; defun ispell-command-cl-loop (miss guess word start end)
 ;;; Advice speaks the line containing the error with the erroneous
 ;;; word highlighted.
 
@@ -74,7 +74,7 @@ many available corrections."
   :type 'number
   :group 'emacspeak-ispell)
 
-(defadvice ispell-command-loop (before emacspeak pre act)
+(defadvice ispell-command-cl-loop (before emacspeak pre act)
   "Speak the line containing the incorrect word.
  Then speak the possible corrections. "
   (let ((choices  (ad-get-arg 0))
@@ -93,7 +93,7 @@ many available corrections."
       (insert line)
       (cond
        ((< (length choices) emacspeak-ispell-max-choices)
-        (loop
+        (cl-loop
          for choice in choices
          and position from 0 do
          (setq pos

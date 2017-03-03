@@ -91,7 +91,7 @@
 (defun emacspeak-feeds-cache-feeds ()
   "Cache feeds in emacspeak-feeds in a hash table."
   (declare (special emacspeak-feeds))
-  (loop
+  (cl-loop
    for f in emacspeak-feeds
    do
    (set-text-properties 0 (length (second f)) nil (second f))
@@ -188,7 +188,7 @@ Archiving is useful when synchronizing feeds across multiple machines."
       (goto-char (point-min))
       (setq feeds (read buffer)))
     (kill-buffer buffer)
-    (loop for f in feeds
+    (cl-loop for f in feeds
           do
           (apply #'emacspeak-feeds-add-feed f))
     (when
@@ -362,7 +362,7 @@ Argument `feed' is a feed structure (label url type)."
       (goto-char start)
       (insert (format "Feeds Matching %s\n\n" query))
       (put-text-property start (point) 'face font-lock-doc-face)
-      (loop
+      (cl-loop
        for f across results
        and position  from 1
        do

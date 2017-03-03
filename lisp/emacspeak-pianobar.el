@@ -140,7 +140,7 @@
 
 ;;; Advice all actions to play a pre-auditory icon
 
-(loop for  f in
+(cl-loop for  f in
       '(pianobar-pause-song pianobar-love-current-song
                             pianobar-ban-current-song pianobar-bookmark-song
                             pianobar-create-station pianobar-delete-current-station

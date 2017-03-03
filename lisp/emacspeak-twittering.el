@@ -86,7 +86,7 @@
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
 
-(loop for command in
+(cl-loop for command in
       '(twittering-goto-next-thing
         twittering-goto-previous-thing)
       do
@@ -105,7 +105,7 @@
            (get-text-property (point) 'username)
            (get-text-property (point) 'text))))
 
-(loop for command in
+(cl-loop for command in
       '(twittering-goto-first-status
         twittering-scroll-up
         twittering-scroll-down
@@ -132,7 +132,7 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)))
 
-(loop for command in
+(cl-loop for command in
       '(twittering-friends-timeline
         twittering-replies-timeline
         twittering-user-timeline
@@ -172,7 +172,7 @@
 ;;}}}
 ;;{{{ Silence chatter
 
-(loop for f in
+(cl-loop for f in
       '(twittering-get-and-render-timeline
         twittering-http-default-sentinel
         twittering-http-post-default-sentinel

@@ -62,7 +62,7 @@
     rpm-insert-packager)
   "List of rpm-spec insertion commands to speech-enable.")
 
-(loop for f in emacspeak-rpm-spec-insertion-commands
+(cl-loop for f in emacspeak-rpm-spec-insertion-commands
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
@@ -83,7 +83,7 @@
                          rpm-end-of-section 
                          rpm-goto-section)
   "Navigation commands in rpm-spec to speech-enable.")
-(loop for f in emacspeak-rpm-spec-navigation-commands
+(cl-loop for f in emacspeak-rpm-spec-navigation-commands
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
@@ -105,7 +105,7 @@
     rpm-build-ba)
   "Build commands from rpm-spec that are speech-enabled.")
 
-(loop for  f in emacspeak-rpm-spec-build-commands
+(cl-loop for  f in emacspeak-rpm-spec-build-commands
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)
@@ -130,7 +130,7 @@
     rpm-toggle-add-attr)
   "Toggle commands from rpm-spec that are speech-enabled.")
 
-(loop for f in emacspeak-rpm-spec-toggle-commands
+(cl-loop for f in emacspeak-rpm-spec-toggle-commands
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)

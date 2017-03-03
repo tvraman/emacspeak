@@ -376,7 +376,7 @@ and TABLE gives the values along that dimension."
 (defun mac-list-voices ()
   "List defined voices."
   (declare (special mac-voice-table))
-  (loop for k being the hash-keys of mac-voice-table 
+  (cl-loop for k being the hash-keys of mac-voice-table 
         collect   k))
 
 ;;}}}

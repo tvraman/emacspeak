@@ -213,7 +213,7 @@ reading news."
 
 ;;}}}
 ;;{{{  Newsgroup selection
-(loop
+(cl-loop
  for f in
  '(gnus-group-select-group gnus-group-first-unread-group
                            gnus-group-read-group
@@ -812,7 +812,7 @@ Helps to prevent words from being spelled instead of spoken."
 ;;}}}
 ;;{{{ refreshing the pronunciation  and punctuation mode
 
-(loop
+(cl-loop
  for hook  in 
  '(
    gnus-article-mode-hook gnus-group-mode-hook gnus-summary-mode-hook

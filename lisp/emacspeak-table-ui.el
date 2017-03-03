@@ -57,7 +57,7 @@
   "Keymap for using in table browsing mode")
 ;;; emacspeak-table-submap makes these available globally.
 
-(loop
+(cl-loop
  for binding in
  '(
    ("M-l" emacspeak-table-ui-filter-load)
@@ -614,7 +614,7 @@ The processed  data is  presented using emacspeak table navigation. "
       (setq elements
             (make-vector (count-lines (point-min) (point-max))
                          nil))
-      (loop for i from 0 to (1- (length elements))
+      (cl-loop for i from 0 to (1- (length elements))
             do
             (setq fields (ems-csv-get-fields))
             (aset elements i (apply 'vector fields))
@@ -673,9 +673,9 @@ the documentation on the table browser."
         (set (make-local-variable 'emacspeak-table) table)
         (set (make-local-variable 'positions) (make-hash-table))
         (setq count (1-  (emacspeak-table-num-columns table)))
-        (loop for row across (emacspeak-table-elements table)
+        (cl-loop for row across (emacspeak-table-elements table)
               do
-              (loop for _element across row
+              (cl-loop for _element across row
                     do
                     (setf
                      (gethash
@@ -1116,13 +1116,13 @@ markup to use."
             col-end (emacspeak-table-markup-col-end markup)
             col-separator (emacspeak-table-markup-col-separator markup))
       (insert (format "%s" table-start))
-      (loop for row across table
+      (cl-loop for row across table
             do
             (insert (format "%s" row-start))
             (let
                 ((current 0)
                  (final (length row)))
-              (loop
+              (cl-loop
                for column across row do
                (insert (format "%s %s %s"
                                col-start column col-end))
@@ -1175,7 +1175,7 @@ markup to use."
                (format "%s" (aref y column))))))))
     (push row-head sorted-row-list)
     (setq sorted-table (make-vector (length sorted-row-list) nil))
-    (loop
+    (cl-loop
      for i from 0 to (1- (length sorted-row-list)) do
      (aset sorted-table i (nth i sorted-row-list)))
     (emacspeak-table-prepare-table-buffer
@@ -1237,7 +1237,7 @@ future  use."
     (save-current-buffer
       (set-buffer buffer)
       (erase-buffer)
-      (loop for key being the hash-keys of
+      (cl-loop for key being the hash-keys of
             emacspeak-table-ui-filter-table
             do
             (insert

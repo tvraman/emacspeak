@@ -66,7 +66,7 @@
 ;;}}}
 ;;{{{ Advice interactive commands:
 
-(loop
+(cl-loop
  for f in
  '(
    elfeed-apply-hooks-now elfeed-search-browse-url elfeed-show-entry elfeed-show-visit
@@ -84,7 +84,7 @@
        (emacspeak-auditory-icon 'task-done)
        (emacspeak-speak-line)))))
 
-(loop
+(cl-loop
  for f in
  '(elfeed-show-tag elfeed-show-untag)
  do
@@ -200,7 +200,7 @@ Work-around for async fetch bug in EWW."
 
 ;;}}}
 ;;{{{ Silence warnings/errors
-(loop
+(cl-loop
  for f in
  '(elfeed-update-feed elfeed-handle-parse-error  elfeed-handle-http-error
                       elfeed-unjam elfeed-update)

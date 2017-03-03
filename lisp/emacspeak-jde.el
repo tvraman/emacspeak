@@ -227,7 +227,7 @@
 ;;}}}
 ;;{{{ speech enable jdb interaction 
 
-(loop for command in
+(cl-loop for command in
       '(
         jde-debug-step-into
         jde-debug-step-out

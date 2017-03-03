@@ -106,7 +106,7 @@
 (defun emacspeak-websearch-help ()
   "Displays key mapping used by Emacspeak Websearch."
   (interactive)
-  (let ((map (loop for key being the hash-keys of
+  (let ((map (cl-loop for key being the hash-keys of
                    emacspeak-websearch-keytable
                    collect
                    (cons key (gethash key emacspeak-websearch-keytable)))))
@@ -118,7 +118,7 @@
       (save-excursion
         (set-buffer "*Help*")
         (princ "Websearch Keys:\n\n")
-        (loop for m in map
+        (cl-loop for m in map
               do
               (princ (key-description (list (car m))))
               (move-to-column 16)

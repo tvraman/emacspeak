@@ -76,7 +76,7 @@
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
 
-(loop for command in
+(cl-loop for command in
       '(analog-next-group
         analog-previous-group
         analog-next-entry
@@ -244,7 +244,7 @@ emacspeak-speak-and-skip-extent-upto-char "
   (declare (special analog-mode-map))
   (mapcar 
    #'(lambda (cmd)
-       (loop for k in
+       (cl-loop for k in
              (where-is-internal cmd)
              do
              (define-key analog-mode-map k

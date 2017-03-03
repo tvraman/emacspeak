@@ -309,7 +309,7 @@ See \\{emacspeak-ocr-mode-map}.
 (define-key emacspeak-ocr-mode-map "I"
   'emacspeak-ocr-set-scan-image-options)
 (define-key emacspeak-ocr-mode-map "C" 'emacspeak-ocr-set-compress-image-options)
-(loop for i from 1 to 9
+(cl-loop for i from 1 to 9
       do
       (define-key emacspeak-ocr-mode-map
         (format "%s" i)

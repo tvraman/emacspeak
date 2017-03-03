@@ -323,7 +323,7 @@ Optional argument 'no-auth says we dont need a user auth."
            (dom-by-tag
             (emacspeak-bookshare-api-call "reference/category/list" "" 'no-auth)
             'result)))
-      (loop
+      (cl-loop
        for r in result collect
        (emacspeak-url-encode (dom-text (dom-by-tag r  'name))))))))
 
@@ -544,7 +544,7 @@ b Browse
 
 (declaim (special emacspeak-bookshare-mode-map))
 
-(loop
+(cl-loop
  for a in
  '(
    ("SPC" emacspeak-bookshare-action)
@@ -593,14 +593,14 @@ b Browse
               periodical list page num-pages limit result)
   "Bookshare response elements for which we have explicit handlers.")
 
-(loop
+(cl-loop
  for e in emacspeak-bookshare-response-elements
  do
  (emacspeak-bookshare-handler-set
   e
   (intern (format "emacspeak-bookshare-%s-handler" (symbol-name e)))))
 
-(loop
+(cl-loop
  for container in
  '(book list periodical user)
  do
@@ -719,7 +719,7 @@ b Browse
            id name value editable)
   "Leaf level elements, just print element name: children.")
 
-(loop
+(cl-loop
  for e in
  emacspeak-bookshare-leaf-elements
  do
@@ -771,7 +771,7 @@ b Browse
 ;;{{{  Property Accessors:
 
 ;;{{{ Generate Declarations:
-;; (loop
+;; (cl-loop
 ;;  for p in
 ;;  '(author title id metadata target directory)
 ;;  do
@@ -786,7 +786,7 @@ b Browse
 (declare-function emacspeak-bookshare-get-directory    "emacspeak-bookshare" nil)
 
 ;; ;;}}}
-(loop for p in
+(cl-loop for p in
       '(author title id metadata target directory)
       do
       (eval
@@ -800,7 +800,7 @@ b Browse
 (defun emacspeak-bookshare-define-keys ()
   "Define keys for  Bookshare Interaction."
   (declare (special emacspeak-bookshare-mode-map))
-  (loop for k in
+  (cl-loop for k in
         '(
           ("e" emacspeak-epub)
           ("q" bury-buffer)

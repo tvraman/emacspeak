@@ -69,7 +69,7 @@ This exists because some people (eg, me) use \"defvar\" et al. ")
 (defvar tcl-keyword-list
   '("if" "then" "else" "elseif" "for" "foreach" "break" "continue" "while"
     "set" "eval" "case" "in" "switch" "default" "exit" "error" "proc" "return"
-    "uplevel" "loop" "for_array_keys" "for_recursive_glob" "for_file"
+    "uplevel" "cl-loop" "for_array_keys" "for_recursive_glob" "for_file"
     "unwind_protect" 
     ;; itcl
     "method" "itcl_class")
@@ -96,8 +96,8 @@ Default list includes some TclX keywords. ")
     ;; Loop handling is not perfect, because the third argument can be
     ;; either a command or an expr, and there is no real way to look
     ;; forward.
-    ("loop" nil tcl-expr tcl-expr tcl-commands)
-    ("loop" nil tcl-expr tcl-commands)
+    ("cl-loop" nil tcl-expr tcl-expr tcl-commands)
+    ("cl-loop" nil tcl-expr tcl-commands)
     )
   "Alist that controls indentation.
 \(Actually, this really only controls what happens on continuation lines).
@@ -109,11 +109,11 @@ Each type entry describes a sexp after the keyword, and can be one of:
 * a string, which must exactly match the string at the corresponding
   position for a match to be made.
 
-For example, the entry for the \"loop\" command is:
+For example, the entry for the \"cl-loop\" command is:
 
-   (\"loop\" nil tcl-expr tcl-commands)
+   (\"cl-loop\" nil tcl-expr tcl-commands)
 
-This means that the \"loop\" command has three arguments.  The first
+This means that the \"cl-loop\" command has three arguments.  The first
 argument is ignored (for indentation purposes).  The second argument
 is a Tcl expression, and the last argument is Tcl commands.")
 

@@ -59,7 +59,7 @@
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)))
-(loop
+(cl-loop
  for f in
  '(
    python-shell-send-region python-shell-send-defun
@@ -123,7 +123,7 @@
 ;;}}}
 ;;{{{  buffer navigation
 
-(loop
+(cl-loop
  for f in
  '(
    python-nav-up-list python-nav-if-name-main python-nav-forward-statement

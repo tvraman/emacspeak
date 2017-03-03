@@ -101,14 +101,14 @@ end   as specified by grid."
         (if (< start end)
             (goto-char start)
           (goto-char end))
-        (loop for i from 0 to (1- num-rows)
+        (cl-loop for i from 0 to (1- num-rows)
               do
               (beginning-of-line)
               (setq this-line
                     (buffer-substring (line-beginning-position) (line-end-position)))
               (setq this-length (length this-line))
               (setq this-row (make-vector num-columns ""))
-              (loop for j from 0 to (1- (length grid))
+              (cl-loop for j from 0 to (1- (length grid))
                     do
                     (when (< (1- (nth j grid)) this-length)
 ;;; within bounds 
@@ -174,7 +174,7 @@ end   as specified by grid."
     (save-current-buffer
       (set-buffer buffer)
       (erase-buffer)
-      (loop for key being the hash-keys of
+      (cl-loop for key being the hash-keys of
             emacspeak-gridtext-table
             do
             (insert

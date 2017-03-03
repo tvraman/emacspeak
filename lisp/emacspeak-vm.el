@@ -486,13 +486,13 @@ Leave point at front of decoded attachment."
               (emacspeak-pronounce-refresh-pronunciations)))
 
 (declaim (special emacspeak-pronounce-internet-smileys-pronunciations))
-(loop
+(cl-loop
  for hook in
  '(mail-mode-hook vm-presentation-mode-hook)
  do
  (add-hook hook 'emacspeak-pronounce-refresh-pronunciations 'append))
 
-(loop
+(cl-loop
  for mode in
  '(vm-presentation-mode mail-mode)
  do

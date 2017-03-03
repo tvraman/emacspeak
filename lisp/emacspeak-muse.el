@@ -71,7 +71,7 @@
 
 ;;}}}
 ;;{{{ advice interactive commands
-(loop for f in
+(cl-loop for f in
       '(muse-follow-name-at-point
         muse-follow-name-at-point-other-window
         muse-next-reference

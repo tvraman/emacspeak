@@ -64,7 +64,7 @@
                               ediary-time-later     ediary-time-block-later)
   "Commands that should speak the entry when done.")
 
-(loop for f in emacspeak-ediary-commands-that-speak-entry
+(cl-loop for f in emacspeak-ediary-commands-that-speak-entry
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)

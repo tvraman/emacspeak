@@ -53,7 +53,7 @@
 ;;}}}
 ;;{{{ advice semantic completion
 
-(loop for f in
+(cl-loop for f in
       '(semantic-complete-symbol)
       do
       (eval

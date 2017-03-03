@@ -55,7 +55,7 @@
 ;;}}}
 ;;{{{ Advice interactive commands:
 
-(loop
+(cl-loop
  for f in
  '(go-goto-imports go-import-add
                    godef-jump godef-jump-other-window
@@ -68,7 +68,7 @@
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-speak-line)))))
 
-(loop
+(cl-loop
  for f in
  '(godoc gofmt)
  do

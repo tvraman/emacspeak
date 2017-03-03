@@ -94,7 +94,7 @@
   (interactive)
   (let ((data (emacspeak-m-player-refresh-metadata)))
     (with-output-to-temp-buffer "M Player Metadata"
-      (loop
+      (cl-loop
        for f in
        (rest (mapcar #'car (cl-struct-slot-info 'emacspeak-m-player-metadata)))
        do
@@ -367,7 +367,7 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
   "Populate metadata fields from currently playing  stream."
   (declare (special emacspeak-m-player-metadata))
   (with-current-buffer (process-buffer emacspeak-m-player-process)
-    (loop
+    (cl-loop
      for  f in
      '(title artist album year comment track genre)
      do
@@ -563,7 +563,7 @@ necessary."
                      emacspeak-m-player-program))
             "\n" 'omit-nulls)))
       (setq emacspeak-m-player-command-list
-            (loop  for c in commands
+            (cl-loop  for c in commands
                    collect
                    (split-string c " " 'omit-nulls)))))))
 
@@ -579,7 +579,7 @@ necessary."
     (let* ((output  (buffer-substring-no-properties (point-min) (point-max)))
            (lines (split-string output "\n" 'omit-nulls))
            (fields
-            (loop
+            (cl-loop
              for l in lines
              collect (cl-second (split-string l "=")))))
       (list
@@ -875,14 +875,14 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
              (split-string  result "\n"))))
     (cond
      (fields                       ; speak them after audio formatting
-      (loop
+      (cl-loop
        for f in fields do
        (put-text-property 0 (length (cl-first f))
                           'personality 'voice-smoothen (cl-first f))
        (put-text-property 0 (length (cl-second f))
                           'personality 'voice-bolden (cl-second f)))
       (setq result
-            (loop
+            (cl-loop
              for f in fields
              collect
              (concat (cl-first f) " " (cl-second f))))
@@ -1140,7 +1140,7 @@ arg `reset' starts with all filters set to 0."
     )
   "Key bindings used by Emacspeak M-Player.")
 
-(loop for k in emacspeak-m-player-bindings do
+(cl-loop for k in emacspeak-m-player-bindings do
       (emacspeak-keymap-update  emacspeak-m-player-mode-map k))
 
 ;;}}}

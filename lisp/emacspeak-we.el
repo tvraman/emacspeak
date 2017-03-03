@@ -1105,7 +1105,7 @@ and provide a completion list of applicable  property values. Filter document by
 
 (declaim (special emacspeak-we-xsl-map))
 
-(loop for binding in
+(cl-loop for binding in
       '(
         ("C" emacspeak-we-extract-by-class-list)
         ("C-c" emacspeak-we-junk-by-class-list)
@@ -1147,7 +1147,7 @@ and provide a completion list of applicable  property values. Filter document by
 ;;}}}
 ;;{{{  URL Advice: 
 
-(loop
+(cl-loop
  for f in
  '(
    url-write-global-history url-history-save-history

@@ -61,7 +61,7 @@
 
 ;;}}}
 ;;{{{ Advice interactive commands:
-(loop
+(cl-loop
  for f in
  '(
    elscreen-jump-0 elscreen-jump-1 elscreen-jump-2 elscreen-jump-3
@@ -85,7 +85,7 @@
          (buffer-name)))
        (emacspeak-speak-mode-line)))))
 
-(loop
+(cl-loop
  for f in
  '(elscreen-kill elscreen-kill-others elscreen-kill-screen-and-buffers)
  do

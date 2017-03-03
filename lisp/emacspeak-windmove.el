@@ -56,7 +56,7 @@
 ;;}}}
 ;;{{{ advice window navigation
 
-(loop for f in
+(cl-loop for f in
       (list 'windmove-left
             'windmove-right
             'windmove-up

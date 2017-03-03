@@ -55,7 +55,7 @@
 ;;}}}
 ;;{{{ Advice Interactive Commands:
 
-(loop
+(cl-loop
  for f in
  '(related-switch-forward related-switch-backward related-switch-buffer)
  do

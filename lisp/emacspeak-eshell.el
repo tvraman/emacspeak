@@ -98,7 +98,7 @@ Provide an auditory icon if possible."
 ;;}}}
 ;;{{{ advice em-hist
 
-(loop for f in
+(cl-loop for f in
       '(
         eshell-next-input eshell-previous-input
                           eshell-next-matching-input eshell-previous-matching-input
@@ -163,7 +163,7 @@ personalities."
 ;;}}}
 ;;{{{ Advice em-prompt
 
-(loop for f in
+(cl-loop for f in
       '(
         eshell-next-prompt eshell-previous-prompt
                            eshell-forward-matching-input  eshell-backward-matching-input)
@@ -179,7 +179,7 @@ personalities."
 ;;}}}
 ;;{{{  advice esh-arg
 
-(loop for f in
+(cl-loop for f in
       '(
         eshell-insert-buffer-name
         eshell-insert-process

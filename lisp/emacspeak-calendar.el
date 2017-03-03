@@ -115,7 +115,7 @@
 (add-hook 'calendar-mode-hook
           'emacspeak-calendar-setup)
 
-(loop for f in
+(cl-loop for f in
       '(fancy-diary-display simple-diary-display
                             diary-list-entries)
       do
@@ -269,7 +269,7 @@
   (when (ems-interactive-p)
     (emacspeak-calendar-speak-date)
     (emacspeak-auditory-icon 'large-movement)))
-(loop for f in
+(cl-loop for f in
       '(exit-calendar calendar-exit calendar-quit)
       do
       (eval
@@ -476,7 +476,7 @@ To use, configure variable gweb-my-address via M-x customize-variable."
 ;;}}}
 ;;{{{ Lunar Phases
 
-(loop for f in
+(cl-loop for f in
       '(calendar-lunar-phases lunar-phases phases-of-moon)
       do
       (eval
@@ -487,7 +487,7 @@ To use, configure variable gweb-my-address via M-x customize-variable."
               (emacspeak-auditory-icon 'open-object)
               (emacspeak-speak-buffer))))))
 
-(loop for f in
+(cl-loop for f in
       '(holidays calendar-list-holidays)
       do
       (eval

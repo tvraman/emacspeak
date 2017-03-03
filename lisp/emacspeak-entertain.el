@@ -115,7 +115,7 @@
                     hm-current-word))
   (let ((string (make-string  (length hm-current-word)
                               ?\))))
-    (loop for i from 0 to (1- (length hm-current-word))
+    (cl-loop for i from 0 to (1- (length hm-current-word))
           do
           (aset  string  i
                  (aref hm-current-guess-string (* i 2))))

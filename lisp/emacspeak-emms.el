@@ -64,7 +64,7 @@
   (message
    (cdr (assq 'name (emms-playlist-current-selected-track)))))
 
-(loop for f in
+(cl-loop for f in
       '(emms-next emms-next-noerror emms-previous)
       do
       (eval
@@ -75,7 +75,7 @@
 
 ;;; these commands should not be made to talk since that would  interferes
 ;;; with real work.
-(loop for f in
+(cl-loop for f in
       '(emms-start emms-stop emms-sort
                    emms-shuffle emms-random)
       do
@@ -85,7 +85,7 @@
           (when (ems-interactive-p)
             (emacspeak-auditory-icon 'select-object)))))
 
-(loop for f in
+(cl-loop for f in
       '(emms-playlist-first emms-playlist-last
                             emms-playlist-mode-first emms-playlist-mode-last)
       do
@@ -95,7 +95,7 @@
           (when (ems-interactive-p)
             (emacspeak-auditory-icon 'large-movement)
             (emacspeak-speak-line)))))
-(loop for f in
+(cl-loop for f in
       '(emms-browser emms-browser-next-filter
                      emms-browser-previous-filter)
       do
@@ -133,7 +133,7 @@
     (emacspeak-auditory-icon 'save-object)
     (message "Saved stream bookmarks.")))
 
-(loop for f in
+(cl-loop for f in
       '(emms-streams emms-stream-quit
                      emms-stream-popup emms-stream-popup-revert
                      emms-playlist-mode-go
@@ -145,7 +145,7 @@
           (when (ems-interactive-p)
             (emacspeak-speak-mode-line)))))
 
-(loop for f in
+(cl-loop for f in
       '(emms-stream-next-line emms-stream-previous-line)
       do
       (eval

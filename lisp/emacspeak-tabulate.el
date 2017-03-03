@@ -232,7 +232,7 @@ in the white-space."
     (setq table (make-vector row-count nil))
     (save-excursion
       (goto-char start)
-      (loop for
+      (cl-loop for
             i from 0 to (1- row-count)
             do
             (setq row-vector (make-vector column-count nil))

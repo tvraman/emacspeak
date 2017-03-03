@@ -131,7 +131,7 @@
        (t (emacspeak-auditory-icon 'open-object)))
       (emacspeak-speak-line))))
 
-(loop
+(cl-loop
  for f in
  '(
    magit-section-forward magit-section-backward
@@ -167,7 +167,7 @@
 
 ;;}}}
 ;;{{{ Advice hide/show commands:
-(loop for f in
+(cl-loop for f in
       '(magit-show magit-show-branches
                    magit-show-branches-mode
                    magit-show-item-or-scroll-down magit-show-item-or-scroll-up
@@ -187,7 +187,7 @@
             (emacspeak-speak-line)
             (emacspeak-auditory-icon 'open-object)))))
 
-(loop for f in
+(cl-loop for f in
       '(magit-hide-section magit-collapse-section)
       do
       (eval
@@ -217,7 +217,7 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-line)))
-(loop
+(cl-loop
  for f in
  '(magit-mode-quit-window magit-mode-bury-buffer magit-log-bury-buffer)
  do

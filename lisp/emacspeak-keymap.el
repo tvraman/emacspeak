@@ -68,7 +68,7 @@
 
 (defun emacspeak-keymap-bindings-update (keymap bindings)
   "Update keymap with specified list of bindings."
-  (loop
+  (cl-loop
    for binding in bindings
    do
    (define-key keymap (kbd (first binding)) (second binding)))) 
@@ -132,7 +132,7 @@
 
 ;;; help map additions:
 
-(loop for binding in
+(cl-loop for binding in
       '(
         ("B" customize-browse)
         ("G" customize-group)
@@ -160,7 +160,7 @@
       (emacspeak-keymap-update help-map binding))
 
 ;;; emacspeak-keymap bindings:
-(loop
+(cl-loop
  for binding in
  '(
    ("C-a" emacspeak-toggle-auditory-icons)
@@ -283,7 +283,7 @@
   (define-key emacspeak-keymap   (format "%s" i)
     'emacspeak-speak-predefined-window))
 
-(loop
+(cl-loop
  for binding in
  '(
    ("," dtk-toggle-punctuation-mode)
@@ -327,7 +327,7 @@
   (define-key emacspeak-dtk-submap
     (format "%s" i)   'dtk-set-predefined-speech-rate))
 
-(loop
+(cl-loop
  for binding in
  '(
    ("f" emacspeak-table-find-file)
@@ -392,7 +392,7 @@ relief."
 (defun emacspeak-keymap-remove-emacspeak-edit-commands
     (keymap)
   "We define keys that invoke editing commands to be undefined"
-  (loop for k in
+  (cl-loop for k in
         (where-is-internal 'emacspeak-self-insert-command
                            (list keymap))
         do
@@ -748,7 +748,7 @@ interactive command that the key sequence executes."
     (with-current-buffer
         buffer
       (goto-char (point-max))
-      (loop
+      (cl-loop
        for binding  in (symbol-value variable) do
        (insert (format "%s %s\n" (first binding) (second binding))))
       (save-buffer buffer))

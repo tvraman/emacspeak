@@ -60,7 +60,7 @@
     )
   "Todo mode navigation commands to speech enable.")
 
-(loop for f in emacspeak-todo-mode-navigation-commands
+(cl-loop for f in emacspeak-todo-mode-navigation-commands
       do
       (eval
        `(defadvice ,f (after emacspeak pre act comp)

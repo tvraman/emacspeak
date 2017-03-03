@@ -150,7 +150,7 @@
   (when (locate-library
          "w3-imenu")
     (require 'w3-imenu))
-  (loop
+  (cl-loop
    for binding in
    '(
      ("'" emacspeak-speak-rest-of-buffer)
@@ -743,7 +743,7 @@ HTML."
 ;;; fix mm-inline-types
 (require 'mm-decode)
 (declaim (special  mm-inline-media-tests))
-(loop for mm in
+(cl-loop for mm in
       '("application/xml"
         "application/xml+xhtml"
         "text/xml")
@@ -787,7 +787,7 @@ HTML."
 (defadvice w3-image-loadable-p (around dont pre act comp)
   "I dont want any images here."
   nil)
-(loop
+(cl-loop
  for f in 
  '(url-retrieve-internal w3-fetch url-truncate-url-for-viewing)
  do

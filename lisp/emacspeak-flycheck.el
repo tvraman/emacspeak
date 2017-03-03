@@ -69,7 +69,7 @@
 ;;}}}
 ;;{{{ Advice interactive commands.
 
-(loop
+(cl-loop
  for  f in
  '(flycheck-next-error flycheck-previous-error
                        flycheck-first-error)

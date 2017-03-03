@@ -74,7 +74,7 @@
     (emacspeak-auditory-icon 'close-object)
     (emacspeak-speak-mode-line)))
 
-(loop
+(cl-loop
  for f in
  '(jade-reload jade-reconnect)
  do

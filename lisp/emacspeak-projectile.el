@@ -64,7 +64,7 @@
 ;;}}}
 ;;{{{ Speech-enable Interactive Commands:
 
-(loop
+(cl-loop
  for f in
  '(projectile-ag 
    projectile-cleanup-known-projects

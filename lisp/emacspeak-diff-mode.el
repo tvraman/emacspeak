@@ -74,7 +74,7 @@
 
 ;;}}}
 ;;{{{ Advice Interactive Commands:
-(loop
+(cl-loop
  for f in
  '(diff-next-complex-hunk
    diff-hunk-prev diff-hunk-next

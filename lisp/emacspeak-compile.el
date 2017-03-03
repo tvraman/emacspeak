@@ -72,7 +72,7 @@
 
 ;;}}}
 ;;{{{  advice  interactive commands
-(loop for f in 
+(cl-loop for f in 
       '(
         next-error previous-error
                    compilation-next-file compilation-previous-file
@@ -86,7 +86,7 @@
             (dtk-stop)
             (emacspeak-compilation-speak-error)))))
 
-(loop for f in 
+(cl-loop for f in 
       '(
         compilation-next-error
         compilation-previous-error

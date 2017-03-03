@@ -62,7 +62,7 @@
     nslookup-host)
   "Commands to speech enable")
 
-(loop for f in emacspeak-net-utils-commands
+(cl-loop for f in emacspeak-net-utils-commands
       do
       (eval
        `(defadvice ,f  (after emacspeak pre act comp)

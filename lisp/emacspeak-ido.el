@@ -142,7 +142,7 @@ The default value of 12 is too high for using ido effectively with speech. "
   (when (ems-interactive-p)
     (dtk-speak (car ido-matches))))
 
-(loop for f in
+(cl-loop for f in
       '(ido-find-file ido-find-file-other-frame ido-find-file-other-window
                       ido-find-alternate-file ido-find-file-read-only ido-find-file-read-only-other-window ido-find-file-read-only-other-frame)
       do
@@ -159,7 +159,7 @@ The default value of 12 is too high for using ido effectively with speech. "
            (t ad-do-it))
           ad-return-value)))
 
-(loop for f in
+(cl-loop for f in
       '(ido-switch-buffer ido-switch-buffer-other-window
                           ido-switch-buffer-other-frame ido-display-buffer)
       do

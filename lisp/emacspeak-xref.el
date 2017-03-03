@@ -56,7 +56,7 @@
 ;;}}}
 ;;{{{  Advice Interactive Commands:
 
-(loop
+(cl-loop
  for   f in 
  '(
    xref-find-definitions xref-pop-marker-stack
@@ -71,7 +71,7 @@
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'large-movement)))))
 
-(loop
+(cl-loop
  for f in 
  '(
    xref-find-definitions-other-frame  xref-find-definitions-other-window

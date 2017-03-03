@@ -177,7 +177,7 @@ dont-url-encode if true then url arguments are not url-encoded "
     (with-current-buffer buffer
       (setq buffer-undo-list t)
       (erase-buffer)
-      (loop
+      (cl-loop
        for key being the hash-keys of emacspeak-url-template-table do
        (insert
         (format
@@ -1451,9 +1451,9 @@ prompts for a location and speaks the forecast. \n\n"
     (let
         ((keys
           (sort
-           (loop for k being the hash-keys of emacspeak-url-template-table collect k)
+           (cl-loop for k being the hash-keys of emacspeak-url-template-table collect k)
            'string-lessp)))
-      (loop
+      (cl-loop
        for key in keys do
        (insert
         (format "@b{%s}\n\n" key))

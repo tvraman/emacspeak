@@ -146,7 +146,7 @@
 ;;}}}
 ;;{{{ Worksheets:
 
-(loop for f in
+(cl-loop for f in
       '(
         ein:worksheet-clear-all-output
         ein:worksheet-delete-cell
@@ -163,7 +163,7 @@
 ;; ein:worksheet-copy-cell
 ;; ein:worksheet-dedent-cell-text
 
-(loop for f in
+(cl-loop for f in
       '(
         ein:worksheet-execute-all-cell
         ein:worksheet-execute-autoexec-cells
@@ -177,7 +177,7 @@
           (when (ems-interactive-p)
             (emacspeak-auditory-icon 'task-done)
             (emacspeak-speak-line)))))
-(loop for f in
+(cl-loop for f in
       '(
         ein:worksheet-goto-next-input
         ein:worksheet-goto-prev-input
@@ -192,7 +192,7 @@
             (emacspeak-auditory-icon 'large-movement)
             (emacspeak-ein-speak-current-cell)))))
 
-(loop for f in
+(cl-loop for f in
       '(
         ein:worksheet-yank-cell
         ein:worksheet-insert-cell-above
@@ -220,7 +220,7 @@
 ;;}}}
 ;;{{{ Bind additional interactive commands
 (when (boundp 'ein:notebook-mode-map)
-  (loop for k in
+  (cl-loop for k in
         '(
           ("\C-c." emacspeak-ein-speak-current-cell)
           )

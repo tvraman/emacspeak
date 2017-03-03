@@ -58,7 +58,7 @@
     find-function-on-key)
   "Commands to speech enable")
 
-(loop for f in emacspeak-find-func-commands
+(cl-loop for f in emacspeak-find-func-commands
       do
       (eval
        `(defadvice ,f  (after emacspeak pre act comp)

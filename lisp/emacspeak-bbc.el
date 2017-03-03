@@ -326,7 +326,7 @@ Interactive prefix arg filters  content by genre."
       (erase-buffer)
       (insert title)
       (insert "\n\n")
-      (loop
+      (cl-loop
        for show across
        (if genres
            (g-json-get 'broadcasts json)

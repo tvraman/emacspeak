@@ -455,7 +455,7 @@ and TABLE gives the values along that dimension."
 (defun espeak-list-voices ()
   "List defined voices."
   (declare (special espeak-voice-table))
-  (loop for k being the hash-keys of espeak-voice-table 
+  (cl-loop for k being the hash-keys of espeak-voice-table 
         collect   k))
 
 ;;}}}
@@ -470,7 +470,7 @@ and TABLE gives the values along that dimension."
              (vectorp dtk-character-to-speech-table))
     (setq espeak-character-to-speech-table
           (let ((table (copy-seq dtk-character-to-speech-table)))
-            (loop for entry across-ref table 
+            (cl-loop for entry across-ref table 
                   when   (string-match "\\(\\[\\*\\]\\)"  entry) do
                   (setf entry (replace-match " " nil nil  entry 1)))
             table))))

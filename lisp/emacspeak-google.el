@@ -405,7 +405,7 @@ This variable is buffer-local.")
 ;;}}}
 ;;{{{ Interactive Commands
 
-(loop for this-tool in
+(cl-loop for this-tool in
       (emacspeak-google-toolbelt)
       do
       (eval
@@ -461,13 +461,13 @@ This variable is buffer-local.")
   (declare (special emacspeak-google-toolbelt-names))
   (or emacspeak-google-toolbelt-names
       (setq emacspeak-google-toolbelt-names
-            (loop
+            (cl-loop
              for b in emacspeak-google-toolbelt
              collect (emacspeak-google-tool-name b)))))
 
 (defun emacspeak-google-toolbelt-names-from-toolbelt (toolbelt)
   "Return list of names in toolbelt."
-  (loop
+  (cl-loop
    for b in toolbelt
    collect (emacspeak-google-tool-name b)))
 
@@ -518,7 +518,7 @@ This variable is buffer-local.")
 (define-prefix-command  'emacspeak-google-command
   'emacspeak-google-keymap)
 
-(loop
+(cl-loop
  for k in
  '(
    ("." emacspeak-google-toolbelt-change)("." emacspeak-google-toolbelt-change)
@@ -540,7 +540,7 @@ This variable is buffer-local.")
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
-(loop for f in
+(cl-loop for f in
       '(gmaps-driving-directions gmaps-bicycling-directions
                                  gmaps-walking-directions gmaps-transit-directions
                                  gmaps-places-nearby gmaps-places-search)

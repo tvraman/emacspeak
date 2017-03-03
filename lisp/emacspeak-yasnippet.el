@@ -59,7 +59,7 @@
 ;;}}}
 ;;{{{ Advice interactive commands:
 
-(loop 
+(cl-loop 
  for f in 
  '(
    yas-prev-field yas-expand

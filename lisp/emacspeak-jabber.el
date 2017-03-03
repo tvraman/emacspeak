@@ -87,7 +87,7 @@
 ;;}}}
 ;;{{{ silence keepalive
 
-(loop
+(cl-loop
  for f in
  '(
    image-type jabber-chat-with jabber-chat-with-jid-at-point
@@ -274,7 +274,7 @@ session."
     (goto-char (car extent))))
 
 (when (boundp 'jabber-chat-mode-map)
-  (loop for k in
+  (cl-loop for k in
         '(
           ("M-n" emacspeak-jabber-chat-next-message)
           ("M-p" emacspeak-jabber-chat-previous-message)

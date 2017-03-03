@@ -101,7 +101,7 @@
       (insert
        (mapconcat #'ladspa-control-value (ladspa-plugin-controls (sox-effect-params effect)) " ")))
      (t
-      (loop
+      (cl-loop
        for p in params do
        (when (second p) (insert (propertize (first p) 'face 'italic))
              (insert "\t")
@@ -170,7 +170,7 @@
 (defun sox-setup-keys ()
   "Set up sox keymap."
   (declare (special sox-mode-map))
-  (loop
+  (cl-loop
    for k in
    '(
      ("." sox-show-timestamp)
@@ -241,7 +241,7 @@
   (let ((file (sox-context-file context))
         (effects (sox-context-effects context))
         (options nil))
-    (loop
+    (cl-loop
      for e in effects  do
      (cond
       ((eq 'ladspa (sox-effect-type e))
@@ -249,7 +249,7 @@
              (sox-ladspa-cmd (sox-effect-params e))))
       (t
        (push (sox-effect-name e) options)
-       (loop
+       (cl-loop
         for  p in (sox-effect-params e) do
         (when (second p)(push (second p)  options))))))
     (setq options (nreverse  options))

@@ -61,7 +61,7 @@
            (goto-char (marker-position marker))
            (emacspeak-speak-line)))))
 
-(loop
+(cl-loop
  for f in
  '(
    gud-break

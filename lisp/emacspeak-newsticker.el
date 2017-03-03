@@ -87,7 +87,7 @@
   "Summarize current item."
   (emacspeak-speak-line))
 
-(loop for f in
+(cl-loop for f in
       '(newsticker-next-item newsticker-previous-item
                              newsticker-next-new-item
                              newsticker-previous-new-item
@@ -104,7 +104,7 @@
 ;;}}}
 ;;{{{  silence auto activity
 
-(loop for f in
+(cl-loop for f in
       '(newsticker-get-news-with-delay
         newsticker-get-news
         newsticker--cache-save)

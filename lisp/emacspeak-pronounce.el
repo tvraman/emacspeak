@@ -189,19 +189,19 @@ modes."
          (dir-alist (and directory (emacspeak-pronounce-get-dictionary directory)))
          (mode-alist (emacspeak-pronounce-get-dictionary mode))
          (super-alist nil))
-    (loop for super in mode-supers
+    (cl-loop for super in mode-supers
           do
           (setq super-alist (emacspeak-pronounce-get-dictionary super))
-          (loop for element in super-alist
+          (cl-loop for element in super-alist
                 do
                 (puthash (car element) (cdr element) table)))
-    (loop for element in mode-alist
+    (cl-loop for element in mode-alist
           do
           (puthash (car element) (cdr element) table))
-    (loop for element in dir-alist
+    (cl-loop for element in dir-alist
           do
           (puthash (car element) (cdr element) table))
-    (loop for element in file-alist
+    (cl-loop for element in file-alist
           do
           (puthash (car element) (cdr element) table))
     table))
@@ -295,7 +295,7 @@ applied."
       (set-buffer buffer)
       (auto-fill-mode nil)
       (erase-buffer)
-      (loop for key being the hash-keys of emacspeak-pronounce-dictionaries
+      (cl-loop for key being the hash-keys of emacspeak-pronounce-dictionaries
             do
             (insert
              (format "(emacspeak-pronounce-set-dictionary '%S\n '%S)\n"
@@ -622,7 +622,7 @@ See http://www.charm.net/~kmarsh/smiley.html. "
   "Pushes pronunciations in specified dictionary on to the dictionary
 for the specified mode."
   (let ((mode-alist (emacspeak-pronounce-get-dictionary mode)))
-    (loop for e in dictionary
+    (cl-loop for e in dictionary
           do
           (unless (assoc (car e)
                          mode-alist)
@@ -692,7 +692,7 @@ specified pronunciation dictionary key."
   (interactive
    (list
     (let ((keys
-           (loop for k being the hash-keys of
+           (cl-loop for k being the hash-keys of
                  emacspeak-pronounce-dictionaries
                  collect
                  (symbol-name k))))
