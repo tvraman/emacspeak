@@ -236,7 +236,7 @@ Parameter `key' is the API  key."
 
 (declaim (special gmaps-mode-map))
 
-(loop for k in
+(cl-loop for k in
       '(
         ("d" gmaps-driving-directions)
         ("w" gmaps-walking-directions)
@@ -282,7 +282,7 @@ Parameter `key' is the API  key."
   (let ((i 1)
         (inhibit-read-only t)
         (start (point)))
-    (loop for step across (g-json-get 'steps leg)
+    (cl-loop for step across (g-json-get 'steps leg)
           do
           (insert
            (format "%d:\t%-40ss\t%s\t%s\n"
@@ -318,7 +318,7 @@ Parameter `key' is the API  key."
                       (g-json-get 'text (g-json-get 'duration leg))))
       (gmaps-display-leg (aref (g-json-get 'legs route) 0)))
      (t
-      (loop for leg across (g-json-get 'legs route)
+      (cl-loop for leg across (g-json-get 'legs route)
             do
             (insert (format "Leg:%d: From %s to %s\n"
                             i
@@ -365,7 +365,7 @@ origin/destination may be returned as a lat,long string."
     (cond
      ((= 1 length) (gmaps-display-route (aref routes 0)))
      (t
-      (loop for route across routes
+      (cl-loop for route across routes
             do
             (insert (format  "\nRoute %d\n" i))
             (incf i)
@@ -730,7 +730,7 @@ Optional  prefix arg clears any active filters."
     (cond
      ((= 1 length) (gmaps-display-place (aref places 0)))
      (t
-      (loop for place across places
+      (cl-loop for place across places
             do
             (gmaps-display-place place))))))
 (defun gmaps-colonize-timestring (timestring)
@@ -879,7 +879,7 @@ Place details need to have been expanded first."
     (insert
      (with-temp-buffer
        (insert "<ol>")
-       (loop
+       (cl-loop
         for r across reviews
         do
         (insert

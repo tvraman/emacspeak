@@ -119,7 +119,7 @@
      (goto-char (point-min))
      (setq js (json-read))
      (setq js  (aref js 1))
-     (loop for e across js
+     (cl-loop for e across js
            collect
            (replace-regexp-in-string
             "</?b>" ""
@@ -153,7 +153,7 @@
                             string predicate)))))
 
 ;;{{{  Generate suggest handlers for Google properties
-(loop for c in
+(cl-loop for c in
       '("news-cc" "products-cc" "youtube" "books" "img")
       do
       (eval

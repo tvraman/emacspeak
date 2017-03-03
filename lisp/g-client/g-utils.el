@@ -223,7 +223,7 @@ Customize this to live on your local disk."
   "Unescape HTML entities."
   (declare (special g-html-charent-alist))
   (save-excursion
-    (loop for entry in g-html-charent-alist
+    (cl-loop for entry in g-html-charent-alist
           do
           (let ((entity (car  entry))
                 (replacement (cdr entry)))
@@ -235,7 +235,7 @@ Customize this to live on your local disk."
   "Escape HTML entities."
   (declare (special g-html-charent-alist))
   (save-excursion
-    (loop for entry in g-html-charent-alist
+    (cl-loop for entry in g-html-charent-alist
           do
           (let ((entity (cdr  entry))
                 (replacement (car entry)))

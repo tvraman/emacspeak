@@ -146,7 +146,7 @@ Customize this to point to your Web location."
 
 ;;; Feed slot accessors:
 
-(loop for slot in
+(cl-loop for slot in
       (list 'entries 'type 'description 'author 'link 'title)
       do
       (eval

@@ -84,7 +84,7 @@
            (format "%s -s '%s'"
                    g-curl-program
                    (format "%s?query=%s" gf-search-url query))))))
-    (loop
+    (cl-loop
      for a across result
      when (g-json-get 'id a)
      collect
