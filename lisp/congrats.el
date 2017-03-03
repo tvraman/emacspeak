@@ -107,10 +107,10 @@ Argument duration --- default is 1ms --- specifies duration of each step."
   ;;{{{ Constant:
 
 ;;; 200hz is X=0
-  (congrats-data-to-tones (loop for i from 200 to 1200 collect 200))
-  (congrats-data-to-tones (loop for i from 200 to 1200 collect 440))
-  (congrats-data-to-tones (loop for i from 200 to 1200 collect 660))
-  (congrats-data-to-tones (loop for i from 200 to 1200 collect 880))
+  (congrats-data-to-tones (cl-loop for i from 200 to 1200 collect 200))
+  (congrats-data-to-tones (cl-loop for i from 200 to 1200 collect 440))
+  (congrats-data-to-tones (cl-loop for i from 200 to 1200 collect 660))
+  (congrats-data-to-tones (cl-loop for i from 200 to 1200 collect 880))
 
   ;;}}}
   ;;{{{  linear Change:
@@ -118,7 +118,7 @@ Argument duration --- default is 1ms --- specifies duration of each step."
 ;;; x=y for x in [-2, 2] stepsize 1/1000 
 
   (congrats-data-to-tones
-   (loop for i from  -2000  to 2000 collect (+ 200 (abs  i))))
+   (cl-loop for i from  -2000  to 2000 collect (+ 200 (abs  i))))
   
 ;;; Contrast with circle:
 ;;; x in [-1, 1] stepsize 1/1000 
@@ -126,7 +126,7 @@ Argument duration --- default is 1ms --- specifies duration of each step."
 ;;; i.e. y= 1 -abs(x)
   
   (congrats-data-to-tones
-   (loop for i from -1000 to 1000
+   (cl-loop for i from -1000 to 1000
          collect
          (+ 200                         ; translate X axis
             (- 1000 (abs i)))))
@@ -140,7 +140,7 @@ Argument duration --- default is 1ms --- specifies duration of each step."
 ;;; Here is y for x  in [-1, 1] stepsize = 1/1000
 
   (congrats-data-to-tones
-   (loop for i from -1000 to 1000
+   (cl-loop for i from -1000 to 1000
          collect
          (+ 200                         ; translating X axis
             (round
@@ -155,7 +155,7 @@ Argument duration --- default is 1ms --- specifies duration of each step."
 ;;; Here is y for x  in [-4, 4] stepsize = 1/1000
 
   (congrats-data-to-tones
-   (loop for i from -1000 to 1000
+   (cl-loop for i from -1000 to 1000
          collect
          (+ 200                         ; translating X axis
             (round
@@ -165,7 +165,7 @@ Argument duration --- default is 1ms --- specifies duration of each step."
 
 ;;; the same ellipse with major and minor axies flipped:
   (congrats-data-to-tones
-   (loop for i from -1000 to 1000
+   (cl-loop for i from -1000 to 1000
          collect
          (+ 200                         ; translating X axis
             (round
@@ -176,7 +176,7 @@ Argument duration --- default is 1ms --- specifies duration of each step."
   ;;}}}
   ;;{{{ Parabola: y=x^2 x in [-2, 2] stepsize 2/1000
   (congrats-data-to-tones
-   (loop for i from -2000 to 2000 by 2
+   (cl-loop for i from -2000 to 2000 by 2
          collect
          (+ 200 ; translate X axis
             (round (* 1000 (/ (* i i) 1000000.0))))))
@@ -187,14 +187,14 @@ Argument duration --- default is 1ms --- specifies duration of each step."
 
 ;;; y = sin(x) x in [-Pi, Pi] stepsize 1/1000 
   (congrats-data-to-tones
-   (loop for i from -3141 to 3141
+   (cl-loop for i from -3141 to 3141
          collect 
          (abs  (round (* 1000 (sin (/ i 1000.0)))))))
 
 ;;; Cosine in the same range:
 
   (congrats-data-to-tones
-   (loop for i from -3141 to 3141
+   (cl-loop for i from -3141 to 3141
          collect 
          (abs  (round (* 1000 (cos (/ i 1000.0)))))))
 

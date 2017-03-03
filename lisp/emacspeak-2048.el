@@ -152,7 +152,7 @@ Optional interactive prefix arg prompts for a filename."
              (read-file-name "File to import game from: ")
            emacspeak-2048-game-file)))
     (load-file file)
-    (loop
+    (cl-loop
      for i in '(4096 8192 16384 32768) do
      (2048-init-tile i))
     (emacspeak-auditory-icon 'task-done)
@@ -168,7 +168,7 @@ Optional interactive prefix arg prompts for a filename."
   (setq *2048-rows* (incf *2048-rows*))
   (let ((board (copy-sequence *2048-board*)))
     (setq *2048-board* (make-vector (* *2048-columns* *2048-rows*) 0))
-    (loop
+    (cl-loop
      for   i from 0 to (1- (length board)) do
      (aset  *2048-board* i  (aref board i))
      (2048-print-board))
@@ -181,7 +181,7 @@ Optional interactive prefix arg prompts for a filename."
   (setq *2048-rows* (1- *2048-rows*))
   (let ((board (copy-sequence *2048-board*)))
     (setq *2048-board* (make-vector (* *2048-columns* *2048-rows*) 0))
-    (loop
+    (cl-loop
      for   i from 0 to (1- (length *2048-board*)) do
      (aset  *2048-board* i  (aref board i))
      (2048-print-board))
@@ -197,9 +197,9 @@ Optional interactive prefix arg prompts for a filename."
         (cols *2048-columns*))
     (setq *2048-columns* (incf *2048-columns*))
     (setq *2048-board* (make-vector (* *2048-columns* *2048-rows*) 0))
-    (loop
+    (cl-loop
      for r from 0 to (1- *2048-rows*) do
-     (loop
+     (cl-loop
       for c from 0 to (1- cols) do
       (setq index (+ (* r cols) c))     ; old  board
       (aset *2048-board*
@@ -227,14 +227,14 @@ Optional interactive prefix arg prompts for a filename."
   (interactive)
   (declare (special *2048-board*      *2048-columns* *2048-rows*))
   (dtk-speak-list
-   (loop for col from 0 to (- *2048-columns*  1)
+   (cl-loop for col from 0 to (- *2048-columns*  1)
          collect
-         (loop for row from 0 to (- *2048-rows*  1)
+         (cl-loop for row from 0 to (- *2048-rows*  1)
                collect
                (aref  *2048-board*  (+ col (* 4 row)))))
    *2048-rows*))
 
-(loop
+(cl-loop
  for f in
  '(2048-left 2048-right 2048-down 2048-up)
  do
@@ -297,7 +297,7 @@ Optional interactive prefix arg prompts for a filename."
 
 (defvar emacspeak-2048-move-count 0
   "Number of moves in this game.")
-(loop
+(cl-loop
  for f in
  '(2048-up 2048-down 2048-left 2048-right)
  do
@@ -317,7 +317,7 @@ Optional interactive prefix arg prompts for a filename."
   "Puts game in a randomized new state."
   (interactive "nCount: ")
   (declare (special *2048-board*))
-  (loop
+  (cl-loop
    for i from 0 to 15 do
    (cond
     ((< i  count)

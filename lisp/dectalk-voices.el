@@ -615,7 +615,7 @@ and TABLE gives the values along that dimension."
 (defun dectalk-list-voices ()
   "List defined voices."
   (declare (special dectalk-voice-table))
-  (loop for k being the hash-keys of dectalk-voice-table
+  (cl-loop for k being the hash-keys of dectalk-voice-table
         collect   k))
 
 ;;}}}

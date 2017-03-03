@@ -202,8 +202,8 @@ Do not modify this variable directly; use command  `dtk-set-rate'
 Modifies text and point in buffer."
   (declare (special emacspeak-pronounce-pronunciation-personality))
   (let ((words
-         (loop for  k  being the hash-keys  of pronunciation-table collect k)))
-    (loop
+         (cl-loop for  k  being the hash-keys  of pronunciation-table collect k)))
+    (cl-loop
      for w in words do
      (when w
        (let ((pronunciation (gethash  w pronunciation-table))
@@ -1866,7 +1866,7 @@ Optional argument group-count specifies grouping for intonation."
       (set-buffer dtk-scratch-buffer)
       (setq buffer-undo-list t)
       (erase-buffer)
-      (loop  for element in text
+      (cl-loop  for element in text
              do
              (insert
               (format "%s%s "

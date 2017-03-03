@@ -162,7 +162,7 @@ A handler returns a non-nil value if the   replacement was successful, nil other
 (defun dtk-unicode-build-skip-regexp (charsets)
   "Construct regexp to match all but the characters in dtk-unicode-untouched-charsets."
   (format "[^%s]"
-          (loop for charset in charsets
+          (cl-loop for charset in charsets
                 when (charsetp charset)
                 concat (apply 'format "%c-%c" (dtk-unicode-charset-limits charset)))))
 
@@ -251,7 +251,7 @@ nil if CHAR is not in Unicode."
 When called interactively, CHAR defaults to the character after point."
   (interactive (list (following-char)))
   (setq dtk-unicode-character-replacement-alist
-        (loop for elem in dtk-unicode-character-replacement-alist
+        (cl-loop for elem in dtk-unicode-character-replacement-alist
               unless (eq (car elem) char) collect elem)))
 
 (defun dtk-unicode-customize-char (char replacement)
