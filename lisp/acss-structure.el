@@ -79,7 +79,7 @@
 
 ;;; Code:
 (require 'cl-lib)
-(declaim  (optimize  (safety 0) (speed 3)))
+(cl-declaim  (optimize  (safety 0) (speed 3)))
 (require 'tts)
 ;;}}}
 ;;{{{ Forward Declarations:
