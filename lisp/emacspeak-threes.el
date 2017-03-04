@@ -324,14 +324,11 @@
 (defun emacspeak-threes-push-state ()
   "Push current game state on stack."
   (interactive)
-  (declare (special emacspeak-threes-game-stack
-                    threes-cells *threes-score* *threes-rows* *threes-columns*))
+  (declare (special emacspeak-threes-game-stack threes-cells ))
   (push
    (make-emacspeak-threes-game-state
     :board (copy-sequence threes-cells)
-    :score *threes-score*
-    :rows *threes-rows*
-    :cols *threes-columns*)
+    :score (threes-cells-score)
    emacspeak-threes-game-stack)
   (emacspeak-auditory-icon 'mark-object)
   (message "Saved state."))
@@ -340,19 +337,17 @@
   "Reset state from stack."
   (interactive)
   (declare (special emacspeak-threes-game-stack
-                    threes-cells *threes-score* *threes-rows* *threes-columns*))
+                    threes-cells))
   (cond
    ((null emacspeak-threes-game-stack) (error "No saved  states."))
    (t
     (let ((state (pop emacspeak-threes-game-stack)))
       (setq
        threes-cells (emacspeak-threes-game-state-board state)
-       *threes-score* (emacspeak-threes-game-state-score state)
-       *threes-rows* (emacspeak-threes-game-state-rows state)
-       *threes-columns* (emacspeak-threes-game-state-cols state))
+        )
       (threes-print-board)
       (emacspeak-auditory-icon 'yank-object)
-      (message "Popped: Score is now %s" *threes-score*)))))
+      (message "Popped: Score is now %s" (threes-cells-score))))))
 
 (defun emacspeak-threes-prune-stack (drop)
   "Prune game stack to specified length."
