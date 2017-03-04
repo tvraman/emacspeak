@@ -71,6 +71,7 @@ emacspeak-pronounce.elc \
 emacspeak-sounds.elc
 
 CORE_OBJECTS =  \
+emacspeak-load-path.elc \
 emacspeak.elc \
 emacspeak-setup.elc \
 emacspeak-advice.elc\
