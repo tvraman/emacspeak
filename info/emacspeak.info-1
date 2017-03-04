@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents Emacspeak, The Complete Audio Desktop.  This
-document was last updated on February 28, 2017.
+document was last updated on March 3, 2017.
 
    The manual is divided into the following chapters.
 
@@ -6259,7 +6259,30 @@ Speech-enable 2048 Game
 
      (fn &optional PROMPT)
 
-12.11.1.6 emacspeak-2048-randomize-game
+12.11.1.6 emacspeak-2048-pop-state
+..................................
+
+ -- Command: emacspeak-2048-pop-state
+
+     Reset state from stack.
+
+12.11.1.7 emacspeak-2048-prune-stack
+....................................
+
+ -- Command: emacspeak-2048-prune-stack (drop)
+
+     Prune game stack to specified length.
+
+     (fn DROP)
+
+12.11.1.8 emacspeak-2048-push-state
+...................................
+
+ -- Command: emacspeak-2048-push-state
+
+     Push current game state on stack.
+
+12.11.1.9 emacspeak-2048-randomize-game
 .......................................
 
  -- Command: emacspeak-2048-randomize-game (&optional count)
@@ -6268,22 +6291,22 @@ Speech-enable 2048 Game
 
      (fn &optional COUNT)
 
-12.11.1.7 emacspeak-2048-score
-..............................
+12.11.1.10 emacspeak-2048-score
+...............................
 
  -- Command: emacspeak-2048-score
 
      Show total on board.
 
-12.11.1.8 emacspeak-2048-speak-board
-....................................
+12.11.1.11 emacspeak-2048-speak-board
+.....................................
 
  -- Command: emacspeak-2048-speak-board
 
      Speak board.
 
-12.11.1.9 emacspeak-2048-speak-transposed-board
-...............................................
+12.11.1.12 emacspeak-2048-speak-transposed-board
+................................................
 
  -- Command: emacspeak-2048-speak-transposed-board
 
@@ -7246,22 +7269,4 @@ File: emacspeak.info,  Node: emacspeak-browse-kill-ring,  Next: emacspeak-bs,  P
 
 Browse the kill ring using browse-kill-ring.el - interactively insert
 items from kill-ring (by Colin Walters)
-
-
-File: emacspeak.info,  Node: emacspeak-bs,  Next: emacspeak-buff-menu,  Prev: emacspeak-browse-kill-ring,  Up: Emacspeak Commands And Options
-
-12.29 emacspeak-bs
-==================
-
-speech-enable bs.el – an alternative to Emacs’ default list-buffers
-
-12.29.1 emacspeak-bs Commands
------------------------------
-
-12.29.1.1 emacspeak-bs-speak-buffer-line
-........................................
-
- -- Command: emacspeak-bs-speak-buffer-line
-
-     Speak information about this buffer
 

@@ -2530,51 +2530,28 @@ is spoken after the current state of the board.  You can use ‘SPC’ and
 12.180.1 emacspeak-threes Commands
 ----------------------------------
 
-12.180.1.1 emacspeak-2048-pop-state
-...................................
-
- -- Command: emacspeak-2048-pop-state
-
-     Reset state from stack.
-
-12.180.1.2 emacspeak-2048-prune-stack
-.....................................
-
- -- Command: emacspeak-2048-prune-stack (drop)
-
-     Prune game stack to specified length.
-
-     (fn DROP)
-
-12.180.1.3 emacspeak-2048-push-state
-....................................
-
- -- Command: emacspeak-2048-push-state
-
-     Push current game state on stack.
-
-12.180.1.4 emacspeak-threes-1
+12.180.1.1 emacspeak-threes-1
 .............................
 
  -- Command: emacspeak-threes-1
 
      Set next tile.
 
-12.180.1.5 emacspeak-threes-2
+12.180.1.2 emacspeak-threes-2
 .............................
 
  -- Command: emacspeak-threes-2
 
      Set next tile.
 
-12.180.1.6 emacspeak-threes-3
+12.180.1.3 emacspeak-threes-3
 .............................
 
  -- Command: emacspeak-threes-3
 
      Set next tile.
 
-12.180.1.7 emacspeak-threes-export
+12.180.1.4 emacspeak-threes-export
 ..................................
 
  -- Command: emacspeak-threes-export (&optional prompt)
@@ -2585,7 +2562,7 @@ is spoken after the current state of the board.  You can use ‘SPC’ and
 
      (fn &optional PROMPT)
 
-12.180.1.8 emacspeak-threes-import
+12.180.1.5 emacspeak-threes-import
 ..................................
 
  -- Command: emacspeak-threes-import (&optional prompt)
@@ -2595,15 +2572,15 @@ is spoken after the current state of the board.  You can use ‘SPC’ and
 
      (fn &optional PROMPT)
 
-12.180.1.9 emacspeak-threes-pop-state
+12.180.1.6 emacspeak-threes-pop-state
 .....................................
 
  -- Command: emacspeak-threes-pop-state
 
      Reset state from stack.
 
-12.180.1.10 emacspeak-threes-prune-stack
-........................................
+12.180.1.7 emacspeak-threes-prune-stack
+.......................................
 
  -- Command: emacspeak-threes-prune-stack (drop)
 
@@ -2611,35 +2588,35 @@ is spoken after the current state of the board.  You can use ‘SPC’ and
 
      (fn DROP)
 
-12.180.1.11 emacspeak-threes-push-state
-.......................................
+12.180.1.8 emacspeak-threes-push-state
+......................................
 
  -- Command: emacspeak-threes-push-state
 
      Push current game state on stack.
 
-12.180.1.12 emacspeak-threes-score
-..................................
+12.180.1.9 emacspeak-threes-score
+.................................
 
  -- Command: emacspeak-threes-score
 
      Speak the score.
 
-12.180.1.13 emacspeak-threes-speak-board
+12.180.1.10 emacspeak-threes-speak-board
 ........................................
 
  -- Command: emacspeak-threes-speak-board
 
      Speak the board.
 
-12.180.1.14 emacspeak-threes-speak-next
+12.180.1.11 emacspeak-threes-speak-next
 .......................................
 
  -- Command: emacspeak-threes-speak-next
 
      Speak upcoming tile.
 
-12.180.1.15 emacspeak-threes-speak-transposed-board
+12.180.1.12 emacspeak-threes-speak-transposed-board
 ...................................................
 
  -- Command: emacspeak-threes-speak-transposed-board

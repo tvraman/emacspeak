@@ -12,6 +12,24 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: emacspeak-bs,  Next: emacspeak-buff-menu,  Prev: emacspeak-browse-kill-ring,  Up: Emacspeak Commands And Options
+
+12.29 emacspeak-bs
+==================
+
+speech-enable bs.el – an alternative to Emacs’ default list-buffers
+
+12.29.1 emacspeak-bs Commands
+-----------------------------
+
+12.29.1.1 emacspeak-bs-speak-buffer-line
+........................................
+
+ -- Command: emacspeak-bs-speak-buffer-line
+
+     Speak information about this buffer
+
+
 File: emacspeak.info,  Node: emacspeak-buff-menu,  Next: emacspeak-c,  Prev: emacspeak-bs,  Up: Emacspeak Commands And Options
 
 12.30 emacspeak-buff-menu

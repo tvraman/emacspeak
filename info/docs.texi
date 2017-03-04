@@ -3963,6 +3963,35 @@ Optional interactive prefix arg prompts for a filename.
 @end format
 @end deffn
 
+@subsubsection emacspeak-2048-pop-state
+@deffn {Command} emacspeak-2048-pop-state   
+@findex emacspeak-2048-pop-state
+
+@format
+Reset state from stack.
+@end format
+@end deffn
+
+@subsubsection emacspeak-2048-prune-stack
+@deffn {Command} emacspeak-2048-prune-stack  (drop)
+@findex emacspeak-2048-prune-stack
+
+@format
+Prune game stack to specified length.
+
+(fn DROP)
+@end format
+@end deffn
+
+@subsubsection emacspeak-2048-push-state
+@deffn {Command} emacspeak-2048-push-state   
+@findex emacspeak-2048-push-state
+
+@format
+Push current game state on stack.
+@end format
+@end deffn
+
 @subsubsection emacspeak-2048-randomize-game
 @deffn {Command} emacspeak-2048-randomize-game  (&optional count)
 @findex emacspeak-2048-randomize-game
@@ -18595,35 +18624,6 @@ The next upcoming tile is spoken after the  current state of the board.
 You can use @kbd{SPC} and @kbd{/} to review the board.
 
 @subsection emacspeak-threes Commands
-
-@subsubsection emacspeak-2048-pop-state
-@deffn {Command} emacspeak-2048-pop-state   
-@findex emacspeak-2048-pop-state
-
-@format
-Reset state from stack.
-@end format
-@end deffn
-
-@subsubsection emacspeak-2048-prune-stack
-@deffn {Command} emacspeak-2048-prune-stack  (drop)
-@findex emacspeak-2048-prune-stack
-
-@format
-Prune game stack to specified length.
-
-(fn DROP)
-@end format
-@end deffn
-
-@subsubsection emacspeak-2048-push-state
-@deffn {Command} emacspeak-2048-push-state   
-@findex emacspeak-2048-push-state
-
-@format
-Push current game state on stack.
-@end format
-@end deffn
 
 @subsubsection emacspeak-threes-1
 @deffn {Command} emacspeak-threes-1   
