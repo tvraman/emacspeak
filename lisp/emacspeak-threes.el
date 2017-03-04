@@ -325,10 +325,10 @@
   "Push current game state on stack."
   (interactive)
   (declare (special emacspeak-threes-game-stack
-                    *threes-board* *threes-score* *threes-rows* *threes-columns*))
+                    threes-cells *threes-score* *threes-rows* *threes-columns*))
   (push
    (make-emacspeak-threes-game-state
-    :board (copy-sequence *threes-board*)
+    :board (copy-sequence threes-cells)
     :score *threes-score*
     :rows *threes-rows*
     :cols *threes-columns*)
@@ -340,13 +340,13 @@
   "Reset state from stack."
   (interactive)
   (declare (special emacspeak-threes-game-stack
-                    *threes-board* *threes-score* *threes-rows* *threes-columns*))
+                    threes-cells *threes-score* *threes-rows* *threes-columns*))
   (cond
    ((null emacspeak-threes-game-stack) (error "No saved  states."))
    (t
     (let ((state (pop emacspeak-threes-game-stack)))
       (setq
-       *threes-board* (emacspeak-threes-game-state-board state)
+       threes-cells (emacspeak-threes-game-state-board state)
        *threes-score* (emacspeak-threes-game-state-score state)
        *threes-rows* (emacspeak-threes-game-state-rows state)
        *threes-columns* (emacspeak-threes-game-state-cols state))
