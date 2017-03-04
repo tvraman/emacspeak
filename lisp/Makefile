@@ -440,7 +440,7 @@ emacspeak-kmacro.elc: emacspeak-kmacro.el dtk-speak.elc voice-setup.elc
 emacspeak-librivox.elc: emacspeak-librivox.el emacspeak-m-player.elc dtk-speak.elc voice-setup.elc
 emacspeak-lua.elc: emacspeak-lua.el dtk-speak.elc
 emacspeak-loaddefs.elc: emacspeak-loaddefs.el
-emacspeak-load-path.elc: emacspeak-load-path.elc
+emacspeak-load-path.elc: emacspeak-load-path.el
 emacspeak-magit.elc: emacspeak-magit.el dtk-speak.elc voice-setup.elc
 emacspeak-m-player.elc: emacspeak-m-player.el dtk-speak.elc ladspa.elc
 emacspeak-maths.elc: emacspeak-maths.el emacspeak-muggles.elc dtk-speak.elc
