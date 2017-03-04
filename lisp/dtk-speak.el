@@ -49,7 +49,7 @@
 ;;}}}
 ;;{{{ required modules
 
-(require 'cl-lib)
+(require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
 (require 'tts)
