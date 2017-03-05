@@ -1076,17 +1076,17 @@ rather than speak it.")
   (let ((result "")
         (char-string ""))
     (cl-loop for char across word
-          do
-          (setq char-string (format "%c " char))
-          (when (and (<= ?A char)
-                     (<= char ?Z))
-            (put-text-property 0 1
-                               'personality voice-animate
-                               char-string)
-            (setq char-string (format "cap %s " char-string)))
-          (setq result
-                (concat result
-                        char-string)))
+             do
+             (setq char-string (format "%c " char))
+             (when (and (<= ?A char)
+                        (<= char ?Z))
+               (put-text-property 0 1
+                                  'personality voice-animate
+                                  char-string)
+               (setq char-string (format "cap %s " char-string)))
+             (setq result
+                   (concat result
+                           char-string)))
     (dtk-speak result)))
 
 ;;;###autoload
@@ -1718,13 +1718,13 @@ indicating the arrival  of new mail when displaying the mode line.")
   "Speak which function we are on.  Uses which-function from
 which-func without turning that mode on.  We actually use
 semantic to do the work."
-  (declare (special semantic--buffer-cache))
-  (when  (and (featurep 'semantic) semantic--buffer-cache)
+  (interactive)
+  (require 'semantic "semantic" 'no-error)
+  (when   (featurep 'semantic)
     (require 'which-func)
     (message  (or
                (which-function)
                "Not inside a function."))))
-;;; not used
 
 (defun emacspeak-speak-buffer-info ()
   "Speak buffer information."
@@ -2141,37 +2141,37 @@ Argument STRING specifies the alphanumeric phone number."
   (setq string (downcase string))
   (let ((i 0))
     (cl-loop for character across string
-          do
-          (aset string i
-                (case character
-                  (?a  ?2)
-                  (?b ?2)
-                  (?c ?2)
-                  (?d ?3)
-                  (?e ?3)
-                  (?f ?3)
-                  (?g ?4)
-                  (?h ?4)
-                  (?i ?4)
-                  (?j ?5)
-                  (?k ?5)
-                  (?l ?5)
-                  (?m ?6)
-                  (?n ?6)
-                  (?o ?6)
-                  (?p ?7)
-                  (?r ?7)
-                  (?s ?7)
-                  (?t ?8)
-                  (?u ?8)
-                  (?v ?8)
-                  (?w ?9)
-                  (?x ?9)
-                  (?y ?9)
-                  (?q ?1)
-                  (?z ?1)
-                  (otherwise character)))
-          (incf i))
+             do
+             (aset string i
+                   (case character
+                     (?a  ?2)
+                     (?b ?2)
+                     (?c ?2)
+                     (?d ?3)
+                     (?e ?3)
+                     (?f ?3)
+                     (?g ?4)
+                     (?h ?4)
+                     (?i ?4)
+                     (?j ?5)
+                     (?k ?5)
+                     (?l ?5)
+                     (?m ?6)
+                     (?n ?6)
+                     (?o ?6)
+                     (?p ?7)
+                     (?r ?7)
+                     (?s ?7)
+                     (?t ?8)
+                     (?u ?8)
+                     (?v ?8)
+                     (?w ?9)
+                     (?x ?9)
+                     (?y ?9)
+                     (?q ?1)
+                     (?z ?1)
+                     (otherwise character)))
+             (incf i))
     string))
 
 ;;;###autoload
@@ -2261,7 +2261,7 @@ Speak that chunk after moving."
 ;;; backwards
 
 (defun ems-backwards-text-property-any (max min property
-                                               value)
+                                            value)
   "Scan backwards from max till we find specified property
                                                setting.
 Return buffer position or nil on failure."
@@ -2908,9 +2908,9 @@ Argument PERSONALITY gives the value for property personality."
   "Return possible voices."
   (declare (special dectalk-voice-table))
   (cl-loop for key being the hash-keys of dectalk-voice-table
-        collect  (cons
-                  (symbol-name key)
-                  (symbol-name key))))
+           collect  (cons
+                     (symbol-name key)
+                     (symbol-name key))))
 
 ;;;###autoload
 (defun emacspeak-voiceify-rectangle (start end &optional personality)
@@ -3246,10 +3246,10 @@ char, or dont move. "
 (let ((chars
        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"))
   (cl-loop for char across chars
-        do
-        (define-key completion-list-mode-map
-          (format "%c" char)
-          'emacspeak-completions-move-to-completion-group)))
+           do
+           (define-key completion-list-mode-map
+             (format "%c" char)
+             'emacspeak-completions-move-to-completion-group)))
 
 ;;}}}
 
