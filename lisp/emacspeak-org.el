@@ -227,17 +227,17 @@
 ;;{{{ cut and paste:
 
 (cl-loop for f in
-      '(
-        org-cut-subtree org-copy-subtree
-                        org-paste-subtree org-archive-subtree
-                        org-narrow-to-subtree)
-      do
-      (eval
-       `(defadvice ,f(after emacspeak pre act comp)
-          "Provide spoken feedback."
-          (when (ems-interactive-p)
-            (emacspeak-speak-line)
-            (emacspeak-auditory-icon 'yank-object)))))
+         '(
+           org-cut-subtree org-copy-subtree
+                           org-paste-subtree org-archive-subtree
+                           org-narrow-to-subtree)
+         do
+         (eval
+          `(defadvice ,f(after emacspeak pre act comp)
+             "Provide spoken feedback."
+             (when (ems-interactive-p)
+               (emacspeak-speak-line)
+               (emacspeak-auditory-icon 'yank-object)))))
 
 ;;}}}
 ;;{{{ completion:
@@ -291,14 +291,14 @@
        (emacspeak-speak-line)))))
 
 (cl-loop for f in
-      '(org-timestamp-down org-timestamp-up)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'select-object)
-            (dtk-speak org-last-changed-timestamp)))))
+         '(org-timestamp-down org-timestamp-up)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'select-object)
+               (dtk-speak org-last-changed-timestamp)))))
 
 (defadvice org-eval-in-calendar (after emacspeak pre act comp)
   "Speak what is returned."
@@ -374,29 +374,29 @@
   "Update keys in org mode."
   (declare (special  org-mode-map))
   (cl-loop for k in
-        '(
-          ("C-e" emacspeak-prefix-command)
-          ("C-j" org-insert-heading)
-          ("M-<down>" org-metadown)
-          ("M-<left>"  org-metaleft)
-          ("M-<right>" org-metaright)
-          ("M-<up>" org-metaup)
-          ("M-RET" org-meta-return)
-          ("M-S-<down>" org-shiftmetadown)
-          ("M-S-<left>" org-shiftmetaleft)
-          ("M-S-<right>" org-shiftmetaright)
-          ("M-S-<up>" org-shiftmetaup)
-          ("M-S-RET" org-insert-todo-heading)
-          ("S-RET" org-table-previous-row)
-          ("M-n" org-next-item)
-          ("M-p" org-previous-item)
-          ("S-<down>" org-shiftdown)
-          ("S-<left>" org-shiftleft)
-          ("S-<right>" org-shiftright)
-          ("S-<up>" org-shiftup)
-          ("S-TAB" org-shifttab))
-        do
-        (emacspeak-keymap-update  org-mode-map k)))
+           '(
+             ("C-e" emacspeak-prefix-command)
+             ("C-j" org-insert-heading)
+             ("M-<down>" org-metadown)
+             ("M-<left>"  org-metaleft)
+             ("M-<right>" org-metaright)
+             ("M-<up>" org-metaup)
+             ("M-RET" org-meta-return)
+             ("M-S-<down>" org-shiftmetadown)
+             ("M-S-<left>" org-shiftmetaleft)
+             ("M-S-<right>" org-shiftmetaright)
+             ("M-S-<up>" org-shiftmetaup)
+             ("M-S-RET" org-insert-todo-heading)
+             ("S-RET" org-table-previous-row)
+             ("M-n" org-next-item)
+             ("M-p" org-previous-item)
+             ("S-<down>" org-shiftdown)
+             ("S-<left>" org-shiftleft)
+             ("S-<right>" org-shiftright)
+             ("S-<up>" org-shiftup)
+             ("S-TAB" org-shifttab))
+           do
+           (emacspeak-keymap-update  org-mode-map k)))
 
 (add-hook 'org-mode-hook 'emacspeak-org-update-keys)
 
@@ -625,24 +625,21 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
   (interactive)
   (org-store-link nil)
   (org-capture nil "h"))
-(cond
- ((functionp 'org-store-link-functions)
-  ;;; likely nothing to do
-  )
- (t
-  (defun org-eww-store-link ()
-    "Store a link to a EWW buffer."
-    (when (eq major-mode 'eww-mode)
-      (org-store-link-props
-       :type "eww"
-       :link   (emacspeak-eww-current-url)
-       :url (eww-current-url)
-       :description (emacspeak-eww-current-title))))
-  (add-hook
- 'org-load-hook
- #'(lambda nil
-     (push #'org-eww-store-link org-store-link-functions)))))
+(defun org-eww-store-link ()
+  "Store a link to a EWW buffer."
+  (when (eq major-mode 'eww-mode)
+    (org-store-link-props
+     :type "eww"
+     :link   (emacspeak-eww-current-url)
+     :url (eww-current-url)
+     :description (emacspeak-eww-current-title))))
 
+(unless (functionp 'org-store-link-functions)
+  ;;; org-mode 8.x and earlier:
+  (add-hook
+   'org-load-hook
+   #'(lambda nil
+       (push #'org-eww-store-link org-store-link-functions))))
 
 ;;}}}
 (provide 'emacspeak-org)
