@@ -1,9 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 (augment-load-path "jabber")
-(load-library "jabber")
 (load-library "jabber-autoloads")
-(load-library "ssl")
-
 (setq fsm-debug nil)
 (add-hook 'jabber-roster-mode-hook
           #'(lambda nil
