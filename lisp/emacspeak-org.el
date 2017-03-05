@@ -625,19 +625,24 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
   (interactive)
   (org-store-link nil)
   (org-capture nil "h"))
-
-(defun org-eww-store-link ()
-  "Store a link to a EWW buffer."
-  (when (eq major-mode 'eww-mode)
-    (org-store-link-props
-     :type "eww"
-     :link   (emacspeak-eww-current-url)
-     :url (eww-current-url)
-     :description (emacspeak-eww-current-title))))
-(add-hook
+(cond
+ ((functionp 'org-store-link)
+  ;;; likely nothing to do
+  )
+ (t
+  (defun org-eww-store-link ()
+    "Store a link to a EWW buffer."
+    (when (eq major-mode 'eww-mode)
+      (org-store-link-props
+       :type "eww"
+       :link   (emacspeak-eww-current-url)
+       :url (eww-current-url)
+       :description (emacspeak-eww-current-title))))
+  (add-hook
  'org-load-hook
  #'(lambda nil
-     (push #'org-eww-store-link org-store-link-functions)))
+     (push #'org-eww-store-link org-store-link-functions)))))
+
 
 ;;}}}
 (provide 'emacspeak-org)
