@@ -50,7 +50,7 @@
 
 ;;}}}
 ;;{{{ required modules
-
+(require 'cl-lib)
 (require 'emacspeak-preamble)
 (require 'eww)
 (require 'emacspeak-eww)
@@ -645,6 +645,8 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
 ;;{{{ Speech-enable export prompt:
 (defadvice org-export--dispatch-action (before emacspeak pre act comp)
   "speak valid chars from prompt."
+  (let ((entries (ad-get-arg 2))
+        (cl-first-key (ad-get-arg 4)))
   (cond
    ((get-buffer  "*Org Export Dispatcher*")
     (with-current-buffer "*Org Export Dispatcher*"
@@ -656,7 +658,14 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
       (dtk-notify-speak 
        (apply
         #'concat 
-        (mapcar #'(lambda (c) (format "%c\n" c)) (ad-get-arg 1))))))))
+        (mapcar #'(lambda (e)
+                    (format "%c: %s\n"
+                            (cl-first e) (cl-second e)))
+                (cond
+                 ((null first-key) entries)
+                 (t
+                  (cl-cadr (assoc first-key entries))))))))))))
+
 ;;}}}
 (provide 'emacspeak-org)
 ;;{{{ end of file
