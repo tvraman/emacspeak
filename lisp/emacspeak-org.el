@@ -646,6 +646,7 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
 (defadvice org-export--dispatch-action (before emacspeak pre act comp)
   "speak valid chars from prompt."
   (with-temp-buffer
+    (set-syntax-table (copy-syntax-table))
     (modify-syntax-entry 10 ">")
     (dtk-notify-speak 
      (apply
