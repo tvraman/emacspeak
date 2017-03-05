@@ -214,6 +214,7 @@
    ("C-u" emacspeak-feeds-browse)
    ("C-v" view-mode)
    ("C-w" emacspeak-speak-window-information)
+   ("M-w" emacspeak-speak-which-function)
    ("C-y" emacspeak-clipboard-paste)
    ("DEL" cd-tool)
    ("I"  emacspeak-speak-show-active-network-interfaces)
@@ -350,7 +351,7 @@
 (global-set-key  [27 prior]  'emacspeak-owindow-scroll-down)
 (global-set-key  [27 next]  'emacspeak-owindow-scroll-up)
 (global-set-key  [27 select]  'emacspeak-owindow-speak-line)
-:(define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
+(define-key esc-map "\M-:" 'emacspeak-wizards-show-eval-result)
 
 ;;}}}
 ;;{{{ emacspeak under X windows
