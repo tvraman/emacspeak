@@ -626,7 +626,7 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
   (org-store-link nil)
   (org-capture nil "h"))
 (cond
- ((functionp 'org-store-link)
+ ((functionp 'org-store-link-functions)
   ;;; likely nothing to do
   )
  (t
