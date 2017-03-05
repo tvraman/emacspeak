@@ -644,27 +644,21 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
 ;;}}}
 ;;{{{ Speech-enable export prompt:
 (defadvice org-export--dispatch-action (before emacspeak pre act comp)
-  "speak valid chars from prompt."
+  "Speak prompt intelligently."
   (let ((entries (ad-get-arg 2))
-        (cl-first-key (ad-get-arg 4)))
-  (cond
-   ((get-buffer  "*Org Export Dispatcher*")
-    (with-current-buffer "*Org Export Dispatcher*"
-      (dtk-notify-speak (buffer-string))))
-   (t
-    (with-temp-buffer
-      (set-syntax-table (copy-syntax-table))
-      (modify-syntax-entry 10 ">")
-      (dtk-notify-speak 
-       (apply
-        #'concat 
-        (mapcar #'(lambda (e)
-                    (format "%c: %s\n"
-                            (cl-first e) (cl-second e)))
-                (cond
-                 ((null first-key) entries)
-                 (t
-                  (cl-cadr (assoc first-key entries))))))))))))
+        (first-key (ad-get-arg 4))
+        (choices nil))
+    (setq choices
+          (cond
+           ((null first-key) entries)
+           (t                           ;third  is cl-caddr
+            (cl-caddr (assoc first-key entries)))))
+    (dtk-notify-speak 
+     (mapconcat 
+      #'(lambda (e)
+          (format "%c: %s\n" (cl-first e) (cl-second e)))
+      choices "\n"))))
+    
 
 ;;}}}
 (provide 'emacspeak-org)
