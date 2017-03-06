@@ -661,6 +661,12 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
     
 
 ;;}}}
+;;{{{ Preview HTML With EWW:
+(defun emacspeak-org-eww-file (file link)
+  "Preview HTML files with EWW from exporter."
+  (funcall-interactively #'eww-open-file file))
+
+;;}}}
 (provide 'emacspeak-org)
 ;;{{{ end of file
 
