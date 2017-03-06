@@ -111,11 +111,11 @@ Startup  apps that need the network."
   "Announce  network manager disconnection.
 Stop apps that use the network."
   (declare (special emacspeak-speak-network-interfaces-list))
+  (when (featurep 'twittering-mode) (twittering-stop))
+  (when (featurep 'jabber) (jabber-disconnect))
   (setq emacspeak-speak-network-interfaces-list
         (mapcar #'car (network-interface-list)))
   (emacspeak-auditory-icon 'network-down)
-  (when (featurep 'twittering-mode) (twittering-stop))
-  (when (featurep 'jabber) (jabber-disconnect))
   (message (mapconcat #'identity emacspeak-speak-network-interfaces-list "")))
 
 (add-hook 'nm-connected-hook 'emacspeak-dbus-nm-connected)
