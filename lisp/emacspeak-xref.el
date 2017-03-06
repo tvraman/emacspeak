@@ -81,8 +81,9 @@
   `(defadvice ,f (after emacspeak pre  act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (message "Displayed cross-reference."
-                (emacspeak-auditory-icon 'select-object))))))
+       (message "Displayed cross-reference.")
+       (emacspeak-auditory-icon 'select-object)))))
+
 (defadvice xref-find-references (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
