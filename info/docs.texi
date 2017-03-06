@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1159 commands and 1063 options.
+This chapter documents a total of 1158 commands and 1063 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1369,6 +1369,7 @@ M-s		emacspeak-symlink-current-file
 M-t		emacspeak-tapestry-describe-tapestry
 M-u		emacspeak-feeds-add-feed
 M-v		emacspeak-show-personality-at-point
+M-w		emacspeak-speak-which-function
 C-M-SPC		emacspeak-speak-spaces-at-point
 
 C-t C-b		emacspeak-table-previous-column
@@ -15623,9 +15624,8 @@ Run shell command and speak its output.
 
 @format
 Silence is golden. Stop speech, and pause/resume any media
-streams.
-Runs ‘emacspeak-silence-hook’ which can be used to configure
-which media players get silenced or paused/resumed.
+streams. Runs ‘emacspeak-silence-hook’ which can be used to
+configure which media players get silenced or paused/resumed.
 @end format
 @end deffn
 
@@ -16826,6 +16826,24 @@ Speaks current visual line.
 Locate paragraphs and voice annotate the first word.
 Here, paragraph is taken to mean a chunk of text preceded by a blank line.
 Useful to do this before you listen to an entire buffer.
+@end format
+@end deffn
+
+@subsubsection emacspeak-speak-which-function
+@deffn {Command} emacspeak-speak-which-function   
+@table @kbd
+@item C-e M-w
+@kindex C-e M-w
+@item <fn> M-w
+@kindex <fn> M-w
+@end table
+
+@findex emacspeak-speak-which-function
+
+@format
+Speak which function we are on.  Uses which-function from
+which-func without turning that mode on.  We actually use
+semantic to do the work.
 @end format
 @end deffn
 
@@ -18649,31 +18667,6 @@ Set next tile.
 
 @format
 Set next tile.
-@end format
-@end deffn
-
-@subsubsection emacspeak-threes-export
-@deffn {Command} emacspeak-threes-export  (&optional prompt)
-@findex emacspeak-threes-export
-
-@format
-Exports game stack to a file.
-Optional interactive prefix arg prompts for a file.
-Note that the file is overwritten silently.
-
-(fn &optional PROMPT)
-@end format
-@end deffn
-
-@subsubsection emacspeak-threes-import
-@deffn {Command} emacspeak-threes-import  (&optional prompt)
-@findex emacspeak-threes-import
-
-@format
-Import game.
-Optional interactive prefix arg prompts for a filename.
-
-(fn &optional PROMPT)
 @end format
 @end deffn
 
