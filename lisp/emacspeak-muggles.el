@@ -623,6 +623,10 @@ Info-mode:
 (global-set-key (kbd "C-y") #'emacspeak-muggles-yank-pop/yank)
 
 ;;}}}
+;;{{{ hydra-ox:
+(when (locate-library "hydra-ox")(require 'hydra-ox))
+
+;;}}}
 (provide 'emacspeak-muggles)
 ;;{{{ end of file
 
