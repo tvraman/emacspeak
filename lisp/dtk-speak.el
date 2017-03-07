@@ -1545,7 +1545,7 @@ ALSA_DEFAULT to specified device before starting the server."
     current-prefix-arg))
   (declare (special   dtk-program dtk-servers-alist
                       tts-device emacspeak-servers-directory
-                      emacspeak-ssh-tts-server))
+                      emacspeak-tts-use-notify-stream emacspeak-ssh-tts-server))
   (when (and (called-interactively-p 'interactive) device)
     (setq tts-device (read-from-minibuffer "ALSA_DEFAULT: "))
     (setenv "ALSA_DEFAULT" tts-device))
@@ -1556,6 +1556,8 @@ ALSA_DEFAULT to specified device before starting the server."
       (setq emacspeak-ssh-tts-server ssh-server)
       (setq-default emacspeak-ssh-tts-server ssh-server))
     (when (called-interactively-p  'interactive)
+      (setq emacspeak-tts-use-notify-stream
+            (emacspeak-tts-multistream-p dtk-program))
       (dtk-initialize))))
 
 ;;;###autoload

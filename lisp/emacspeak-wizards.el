@@ -814,8 +814,7 @@ Will start TTS engine specified by
 emacspeak-emergency-tts-server."
   (interactive)
   (declare (special emacspeak-emergency-tts-server))
-  (dtk-select-server emacspeak-emergency-tts-server)
-  (dtk-initialize))
+  (funcall-interactively #'dtk-select-server emacspeak-emergency-tts-server))
 
 (defcustom emacspeak-ssh-tts-server
   "ssh-dtk-exp"
