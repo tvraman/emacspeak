@@ -56,12 +56,14 @@
 
 ;;}}}
 ;;{{{ Customizations:
+;;;###autoload
 (defcustom outloud-default-speech-rate 50
   "Default speech rate for outloud."
   :group 'tts
   :type 'integer
   :set #'(lambda(sym val)
-           (dtk-set-rate val 'global)))
+           (set-default sym val)
+           (setq-default dtk-speech-rate val)))
 
 ;;}}}
 ;;{{{ Forward declarations:

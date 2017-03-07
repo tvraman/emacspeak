@@ -55,13 +55,14 @@
 
 ;;}}}
 ;;{{{ Customizations:
-
+;;;###autoload
 (defcustom dectalk-default-speech-rate 225
   "*Default speech rate at which TTS is started. "
   :group 'tts
   :type 'integer
   :set #'(lambda(sym val)
-           (dtk-set-rate val 'global)))
+           (set-default sym val)
+           (setq-default dtk-speech-rate val)))
 
 ;;}}}
 ;;{{{  Top-level TTS  switcher

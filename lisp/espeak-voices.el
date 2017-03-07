@@ -44,12 +44,14 @@
 
 ;;}}}
 ;;{{{ Customizations:
+;;;###autoload
 (defcustom espeak-default-speech-rate 175
   "Default speech rate for eSpeak."
   :group 'tts
   :type 'integer
   :set #'(lambda(sym val)
-           (dtk-set-rate val 'global)))
+           (set-default sym val)
+           (setq-default dt-speech-rate val)))
 
 ;;}}}
 ;;{{{ Top-Level TTS Call
