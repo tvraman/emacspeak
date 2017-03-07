@@ -235,8 +235,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
       `(sound
         :file ,(expand-file-name "highbells.au" emacspeak-sounds-directory)))
      (message "Successfully initialized Emacs for %s" user-login-name)))
-(when (file-exists-p custom-file) (load-file custom-file))
 (start-up-my-emacs)
+(when (file-exists-p custom-file) (load-file custom-file))
 
 ;;}}}
 (provide 'emacs-startup)
