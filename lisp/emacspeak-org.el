@@ -645,8 +645,9 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
 ;;{{{ Speech-enable export prompt:
 (defadvice org-export--dispatch-action (before emacspeak pre act comp)
   "Speak prompt intelligently."
-  (let ((entries (ad-get-arg 2))
-        (first-key (ad-get-arg 4))
+  (let ((prompt (ad-get-arg 0))
+        (entries (ad-get-arg 2))
+        (first-key (ad-get-arg 4)) 
         (choices nil))
     (setq choices
           (cond
@@ -662,6 +663,7 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
 
 ;;}}}
 ;;{{{ Preview HTML With EWW:
+
 (defun emacspeak-org-eww-file (file link)
   "Preview HTML files with EWW from exporter."
   (funcall-interactively #'eww-open-file file))
