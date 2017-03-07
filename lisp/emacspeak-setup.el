@@ -201,8 +201,8 @@ TTS engine should use ALSA for this to be usable."
   (when (and emacspeak-tts-use-notify-stream (emacspeak-tts-multistream-p dtk-program))
     (dtk-notify-initialize)))
 
-(when emacspeak-tts-use-notify-stream
-  (add-hook 'dtk-startup-hook 'emacspeak-tts-notify-hook 'at-end))
+
+(add-hook 'dtk-startup-hook 'emacspeak-tts-notify-hook 'at-end)
 
 (defvar emacspeak-startup-hook nil)
 (defun emacspeak-setup-header-line ()
