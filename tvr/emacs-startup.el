@@ -180,7 +180,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 ;;; Authoring:
        "auctex-prepare" "nxml-prepare" "folding-prepare"
        "calc-prepare"
-       "hydra-prepare" "helm-prepare"   ;helm not activated
+        "helm-prepare"   ;helm not activated
        "js-prepare" "tcl-prepare" "slime-prepare"
        "company-prepare" "python-mode-prepare"
                                         ; jde and ecb will pull in cedet.
@@ -234,9 +234,10 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (play-sound
       `(sound
         :file ,(expand-file-name "highbells.au" emacspeak-sounds-directory)))
+     (when (file-exists-p custom-file) (load-file custom-file))
      (message "Successfully initialized Emacs for %s" user-login-name)))
 (start-up-my-emacs)
-(when (file-exists-p custom-file) (load-file custom-file))
+
 
 ;;}}}
 (provide 'emacs-startup)
