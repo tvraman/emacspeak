@@ -658,7 +658,8 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
      (mapconcat 
       #'(lambda (e)
           (format "%c: %s\n" (cl-first e) (cl-second e)))
-      choices "\n"))))
+      choices "\n"))
+    (sit-for 3)))
     
 
 ;;}}}
