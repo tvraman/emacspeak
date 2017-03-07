@@ -782,6 +782,8 @@ icon."
 
 ;;}}}
 ;;{{{ advice various input functions to speak:
+(defvar emacspeak-read-char-prompt-cache nil
+  "Cache prompt from read-char and friends here for later introspection.")
 
 (cl-loop
  for f in
@@ -791,8 +793,9 @@ icon."
   `(defadvice ,f (before emacspeak pre act comp)
      "Speak the prompt"
      (when (ad-get-arg 0)
-       (tts-with-punctuations 'all (dtk-speak (ad-get-arg 0)))))))
-
+       (let ((prompt (ad-get-arg 0)))
+       (setq emacspeak-read-char-prompt-cache prompt)
+       (tts-with-punctuations 'all (dtk-speak prompt)))))))
 (defadvice read-char-choice(before emacspeak pre act comp)
   "Speak the prompt"
   (let ((prompt (ad-get-arg 0))
