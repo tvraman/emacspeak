@@ -55,6 +55,13 @@
 (require 'tts)
 
 ;;}}}
+;;{{{ Customizations:
+(defcustom mac-default-speech-rate 225
+  "Default speech rate for mac."
+  :group 'tts
+  :type 'integer)
+
+;;}}}
 ;;{{{  voice table
 
 (defvar mac-default-voice-string "[{voice alex}]"

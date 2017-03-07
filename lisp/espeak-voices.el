@@ -43,6 +43,13 @@
 (require 'tts)
 
 ;;}}}
+;;{{{ Customizations:
+(defcustom espeak-default-speech-rate 175
+  "Default speech rate for eSpeak."
+  :group 'tts
+  :type 'integer)
+
+;;}}}
 ;;{{{ Top-Level TTS Call
 
 ;;;###autoload

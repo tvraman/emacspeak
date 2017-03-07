@@ -55,6 +55,13 @@
 (require 'tts)
 
 ;;}}}
+;;{{{ Customizations:
+(defcustom outloud-default-speech-rate 50
+  "Default speech rate for outloud."
+  :group 'tts
+  :type 'integer)
+
+;;}}}
 ;;{{{ Forward declarations:
 
 ;;; From dtkk-speak.el:
@@ -62,7 +69,6 @@
 (defvar tts-default-speech-rate)
 (defvar dtk-speech-rate-step)
 (defvar dtk-speech-rate-base)
-(defvar outloud-default-speech-rate)
 ;;}}}
 ;;{{{ Top level TTS  switcher
 

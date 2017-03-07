@@ -54,6 +54,14 @@
 (require 'tts)
 
 ;;}}}
+;;{{{ Customizations:
+
+(defcustom dectalk-default-speech-rate 225
+  "*Default speech rate at which TTS is started. "
+  :group 'tts
+  :type 'integer)
+
+;;}}}
 ;;{{{  Top-level TTS  switcher
 
 ;;;### autoload
@@ -72,7 +80,7 @@
 ;;; From dtk-speak.el:
 
 (defvar tts-default-speech-rate)
-(defvar dectalk-default-speech-rate)
+
 (defvar dtk-speech-rate-step)
 (defvar dtk-speech-rate-base)
 

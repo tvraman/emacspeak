@@ -131,33 +131,6 @@ such as pronunciation dictionaries are stored. ")
 
 
 ;;}}}
-;;{{{ speech rate
-
-;;;###autoload
-(defcustom outloud-default-speech-rate 50
-  "Default speech rate for outloud."
-  :group 'tts
-  :type 'integer)
-
-;;;###autoload
-(defcustom mac-default-speech-rate 225
-  "Default speech rate for mac."
-  :group 'tts
-  :type 'integer)
-
-;;;###autoload
-(defcustom dectalk-default-speech-rate 225
-  "*Default speech rate at which TTS is started. "
-  :group 'tts
-  :type 'integer)
-
-;;;###autoload
-(defcustom espeak-default-speech-rate 175
-  "Default speech rate for eSpeak."
-  :group 'tts
-  :type 'integer)
-
-;;}}}
 ;;{{{ Hooks
 
 (add-to-list 'load-path emacspeak-lisp-directory)
