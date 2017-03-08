@@ -5712,6 +5712,9 @@ Contains various wizards for the Emacspeak desktop.
      Program for converting PPT to HTML. Set this to nil if you do not
      want to use the PPTHTML wizard.
 
+ -- Variable: User Option emacspeak-wizards-project-shells
+     List of shell-name/initial-directory pairs.
+
  -- Variable: User Option emacspeak-wizards-spot-words-extension
      Default file extension used when spotting words.
 
