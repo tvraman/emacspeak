@@ -2346,6 +2346,7 @@ When called from a shell buffer, switches to `next' shell buffer."
    ((or  prefix (not (eq major-mode 'shell-mode)))
     (call-interactively 'shell))
    (t (call-interactively 'emacspeak-wizards-next-shell))))
+;;; Inspired by package project-shells from melpa --- but simplified.
 
 (defvar emacspeak-wizards--shells-table (make-hash-table  :test #'equal)
   "Table mapping live shell buffers to keys.")
@@ -2360,11 +2361,24 @@ When called from a shell buffer, switches to `next' shell buffer."
          (when  (not (memq s values)))
          (puthash  (hash-table-count emacspeak-wizards--shells-table) s emacspeak-wizards--shells-table))
      shells)))
-  
 
-  (defun emacspeak-wizards-shell-by-key ()
-    "Switch to shell buffer  by key."
-)
+(defun emacspeak-wizards-shell-by-key (&optional arg)
+  "Switch to shell buffer  by key."
+  (interactive "P")
+  (declare (special last-input-event emacspeak-wizards--shells-table))
+  (emacspeak-wizards--build-shells-table)
+  (cond
+   ((hash-table-empty-p emacspeak-wizards--shells-table) (shell))
+   (t 
+    (let* ((key
+            (cond
+             ((not (called-interactively-p 'interactive)) arg)
+             (t (read (format "%c" last-input-event)))))
+           (buffer
+            (or (gethash key emacspeak-wizards--shells-table )
+                (gethash 0 emacspeak-wizards--shells-table))))        
+      (funcall-interactively #'switch-to-buffer buffer)))))
+
 ;;}}}
 ;;{{{ show commentary:
 (defun ems-cleanup-commentary (commentary)
