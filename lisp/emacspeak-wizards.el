@@ -2380,6 +2380,29 @@ This provides a predictable means for switching to a specific shell buffer."
                 (gethash 0 emacspeak-wizards--shells-table))))        
       (funcall-interactively #'switch-to-buffer buffer)))))
 
+
+;;;###autoload
+(defcustom emacspeak-wizards-project-shells nil
+  "List of shell-name/initial-directory pairs."
+  :type '(repeat
+          (list
+     (string :tag "Buffer Name")
+     (directory :tag "Directory")))
+  :group 'emacspeak-wizards)
+(defvar-local emacspeak-wizards--project-shell-directory "~/"
+  "Default directory for a given project shell.")
+
+;;;###autoload
+(defun  emacspeak-wizards-project-shells-initialize ()
+  "Create shells per `emacspeak-wizards-project-shells'."
+  (declare (special emacspeak-wizards-project-shells))
+  (cl-loop
+   for pair in emacspeak-wizards-project-shells do
+   (let ((name (cl-first pair))
+         (default-directory (cl-second pair)))
+     (with-current-buffer(shell name)
+       (setq emacspeak-wizards--project-shell-directory default-directory)))))
+            
 ;;}}}
 ;;{{{ show commentary:
 (defun ems-cleanup-commentary (commentary)
