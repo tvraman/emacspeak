@@ -2355,11 +2355,11 @@ When called from a shell buffer, switches to `next' shell buffer."
   "Populate hash-table with live shell buffers."
   (declare (special emacspeak-wizards--shells-table))
   (let ((shells (emacspeak-wizards-get-shells))
-        (values (hash-table-values emacspeak-wizards--shells-table)))
+        (v (hash-table-values emacspeak-wizards--shells-table)))
     (mapc
      #'(lambda (s)
-         (when  (not (memq s values)))
-         (puthash  (hash-table-count emacspeak-wizards--shells-table) s emacspeak-wizards--shells-table))
+         (when  (not (memq s v))
+           (puthash  (hash-table-count emacspeak-wizards--shells-table) s emacspeak-wizards--shells-table)))
      shells)))
 
 (defun emacspeak-wizards-shell-by-key (&optional arg)
