@@ -415,6 +415,18 @@ relief."
 
 (defcustom emacspeak-personal-keys 
   '(
+    ("0" emacspeak-wizards-shell-by-key ) 
+    ("1" emacspeak-wizards-shell-by-key ) 
+    ("2" emacspeak-wizards-shell-by-key ) 
+    ("3" emacspeak-wizards-shell-by-key ) 
+    ("4" emacspeak-wizards-shell-by-key ) 
+    ("5" emacspeak-wizards-shell-by-key ) 
+    ("6" emacspeak-wizards-shell-by-key ) 
+    ("7" emacspeak-wizards-shell-by-key ) 
+    ("8" emacspeak-wizards-shell-by-key ) 
+    ("9" emacspeak-wizards-shell-by-key ) 
+
+
     ("=" emacspeak-wizards-find-longest-line-in-region)
     ("3" emacspeak-wizards-cycle-browser)
     ("b" battery)
