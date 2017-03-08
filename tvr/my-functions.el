@@ -84,7 +84,8 @@
   (loop for b in
         '(
           ("\C-ch" emacspeak-wizards-refresh-shell-history)
-          ("\C-cr" comint-redirect-send-command))
+          ("\C-cr" comint-redirect-send-command)
+          ("\C-ex." emacspeak-wizards-shell-directory-reset))
         do
         (define-key shell-mode-map (first b) (second b))))
 
