@@ -244,13 +244,13 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
       #'custom-reevaluate-setting
       '(emacspeak-media-location-bindings gweb-my-address))
      (soundscape-toggle)
-     (emacspeak-wizards-project-shells-initialize)
      (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
      (calendar)
      (when (dbus-list-known-names :session)
        (nm-enable)
            (emacspeak-dbus-sleep-enable)
            (emacspeak-dbus-watch-screen-lock))
+     (emacspeak-wizards-project-shells-initialize)
      (play-sound
       `(sound
         :file ,(expand-file-name "highbells.au" emacspeak-sounds-directory)))
@@ -266,4 +266,3 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
 ;;;folded-file: t
 ;;;end:
 ;;}}}
-(put 'timer-list 'disabled nil)
