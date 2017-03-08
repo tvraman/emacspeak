@@ -136,6 +136,19 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     (define-key ctl-x-map "\C-n" 'forward-page)
     (define-key ctl-x-map "\C-p" 'backward-page)
 
+
+;;; Shell navigation:
+(cl-loop
+     for  key in
+     '(
+       ("C-c -" emacspeak-wizards-previous-shell)
+       ("C-c =" emacspeak-wizards-next-shell)
+       ("C-c <" emacspeak-wizards-previous-shell)
+       ("C-c >" emacspeak-wizards-next-shell)
+)
+     do
+     (global-set-key (kbd (first key)) (second key)))
+
     ;;}}}
     ;;{{{  Basic Support Libraries
 
