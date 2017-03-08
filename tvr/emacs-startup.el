@@ -149,6 +149,11 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      do
      (global-set-key (kbd (first key)) (second key)))
 
+(dotimes (i 10)
+  (global-set-key
+   (kbd (format "C-c %s" i))
+    'emacspeak-wizards-shell-by-key))
+
     ;;}}}
     ;;{{{  Basic Support Libraries
 
