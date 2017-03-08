@@ -2403,8 +2403,22 @@ This provides a predictable means for switching to a specific shell buffer."
    (let ((name (cl-first pair))
          (default-directory (cl-second pair)))
      (with-current-buffer(shell name)
-       (setq emacspeak-wizards--project-shell-directory default-directory)))))
+       (setq emacspeak-wizards--project-shell-directory default-directory)
+       (goto-char (point-max))
+       (insert (format "pushd %s" default-directory))
+       (comint-send-input)
+       (shell-process-cd default-directory)))))
             
+;;;###autoload 
+(defun emacspeak-wizards-shell-directory-reset ()
+  "Set current directory to this shell's initial directory if one was defined."
+  (interactive)
+  (let ((default-directory  emacspeak-wizards--project-shell-directory))
+      (goto-char (point-max))
+      (insert (format "pushd %s" default-directory))
+      (call-interactively #'comint-send-input)
+      (shell-process-cd default-directory)))
+
 ;;}}}
 ;;{{{ show commentary:
 (defun ems-cleanup-commentary (commentary)
