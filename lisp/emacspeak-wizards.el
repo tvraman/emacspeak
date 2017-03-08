@@ -2382,7 +2382,7 @@ This provides a predictable means for switching to a specific shell buffer."
       (funcall-interactively #'switch-to-buffer buffer)))))
 
 
-;;;###autoload
+
 (defcustom emacspeak-wizards-project-shells nil
   "List of shell-name/initial-directory pairs."
   :type '(repeat
