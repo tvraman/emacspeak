@@ -2363,7 +2363,8 @@ When called from a shell buffer, switches to `next' shell buffer."
      shells)))
 
 (defun emacspeak-wizards-shell-by-key (&optional arg)
-  "Switch to shell buffer  by key."
+  "Switch to shell buffer  by key.
+This provides a predictable means for switching to a specific shell buffer."
   (interactive "P")
   (declare (special last-input-event emacspeak-wizards--shells-table))
   (emacspeak-wizards--build-shells-table)
