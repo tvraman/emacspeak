@@ -179,8 +179,9 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     ;;{{{ Prepare needed libraries
 
     (package-initialize)
-    (add-hook 'mail-mode-hook 'mail-abbrevs-setup)
-    (add-hook 'vm-mail-mode-hook 'mail-abbrevs-setup)
+
+    ;;; mail-abbrevs-setup added to mail-mode hooks in custom.
+
     (mapc
      #'load-library-if-available
      '(
