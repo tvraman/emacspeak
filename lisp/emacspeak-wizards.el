@@ -2299,7 +2299,8 @@ This is for use in conjunction with bash to allow multiple emacs
         (define-key shell-mode-map (first b) (second b))))
 
 ;;}}}
-;;{{{ Next/Previous shell:
+;;{{{ Organizing Shells: next, previous, tag
+
 (defun emacspeak-wizards-get-shells ()
   "Return list of shell buffers."
   (remove-if-not
@@ -2345,6 +2346,25 @@ When called from a shell buffer, switches to `next' shell buffer."
    ((or  prefix (not (eq major-mode 'shell-mode)))
     (call-interactively 'shell))
    (t (call-interactively 'emacspeak-wizards-next-shell))))
+
+(defvar emacspeak-wizards--shells-table (make-hash-table  :test #'equal)
+  "Table mapping live shell buffers to keys.")
+
+(defun emacspeak-wizards--build-shells-table ()
+  "Populate hash-table with live shell buffers."
+  (declare (special emacspeak-wizards--shells-table))
+  (let ((shells (emacspeak-wizards-get-shells))
+        (values (hash-table-values emacspeak-wizards--shells-table)))
+    (mapc
+     #'(lambda (s)
+         (when  (not (memq s values)))
+         (puthash  (hash-table-count emacspeak-wizards--shells-table) s emacspeak-wizards--shells-table))
+     shells)))
+  
+
+  (defun emacspeak-wizards-shell-by-key ()
+    "Switch to shell buffer  by key."
+)
 ;;}}}
 ;;{{{ show commentary:
 (defun ems-cleanup-commentary (commentary)
