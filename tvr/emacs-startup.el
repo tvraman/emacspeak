@@ -244,7 +244,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
       #'custom-reevaluate-setting
       '(emacspeak-media-location-bindings gweb-my-address))
      (soundscape-toggle)
-     (shell)
+     (emacspeak-wizards-project-shells-initialize)
      (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
      (calendar)
      (when (dbus-list-known-names :session)
