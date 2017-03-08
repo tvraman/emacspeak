@@ -12,6 +12,15 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: emacspeak-browse-kill-ring,  Next: emacspeak-bs,  Prev: emacspeak-bookshare,  Up: Emacspeak Commands And Options
+
+12.28 emacspeak-browse-kill-ring
+================================
+
+Browse the kill ring using browse-kill-ring.el - interactively insert
+items from kill-ring (by Colin Walters)
+
+
 File: emacspeak.info,  Node: emacspeak-bs,  Next: emacspeak-buff-menu,  Prev: emacspeak-browse-kill-ring,  Up: Emacspeak Commands And Options
 
 12.29 emacspeak-bs
@@ -4132,98 +4141,8 @@ hosted at sourceforge.  I use emacs-jabber with my gmail.com account
 12.104.2 emacspeak-jabber Options
 ---------------------------------
 
- -- Variable: User Option emacspeak-jabber-activity-personality
-     Personality used for jabber-activity-face This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option emacspeak-jabber-chat-error-voice
-     Personality used for jabber-chat-error This personality uses
-     voice-bolden-and-animate whose effect can be changed globally by
-     customizing voice-bolden-and-animate-settings.
-
- -- Variable: User Option emacspeak-jabber-chat-prompt-foreign-voice
-     Personality used for jabber-chat-prompt-foreign This personality
-     uses voice-brighten-medium whose effect can be changed globally by
-     customizing voice-brighten-medium-settings.
-
- -- Variable: User Option emacspeak-jabber-chat-prompt-local-voice
-     Personality used for jabber-chat-prompt-local This personality uses
-     voice-smoothen-medium whose effect can be changed globally by
-     customizing voice-smoothen-medium-settings.
-
- -- Variable: User Option emacspeak-jabber-chat-prompt-system-voice
-     Personality used for jabber-chat-prompt-system This personality
-     uses voice-brighten-extra whose effect can be changed globally by
-     customizing voice-brighten-extra-settings.
-
- -- Variable: User Option emacspeak-jabber-chat-text-foreign-voice
-     Personality used for jabber-chat-text-foreign This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option emacspeak-jabber-chat-text-local-voice
-     Personality used for jabber-chat-text-local This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option emacspeak-jabber-rare-time-personality
-     Personality used for jabber-rare-time-face This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option emacspeak-jabber-roster-user-away-voice
-     Personality used for jabber-roster-user-away This personality uses
-     voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option emacspeak-jabber-roster-user-chatty-voice
-     Personality used for jabber-roster-user-chatty This personality
-     uses voice-brighten whose effect can be changed globally by
-     customizing voice-brighten-settings.
-
- -- Variable: User Option emacspeak-jabber-roster-user-dnd-voice
-     Personality used for jabber-roster-user-dnd This personality uses
-     voice-lighten-medium whose effect can be changed globally by
-     customizing voice-lighten-medium-settings.
-
- -- Variable: User Option emacspeak-jabber-roster-user-error-voice
-     Personality used for jabber-roster-user-error This personality uses
-     voice-bolden-and-animate whose effect can be changed globally by
-     customizing voice-bolden-and-animate-settings.
-
- -- Variable: User Option emacspeak-jabber-roster-user-offline-voice
-     Personality used for jabber-roster-user-offline This personality
-     uses voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option emacspeak-jabber-roster-user-online-voice
-     Personality used for jabber-roster-user-online This personality
-     uses voice-bolden whose effect can be changed globally by
-     customizing voice-bolden-settings.
-
- -- Variable: User Option emacspeak-jabber-roster-user-xa-voice
-     Personality used for jabber-roster-user-xa This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
  -- Variable: User Option emacspeak-jabber-speak-presence-alerts
      Set to T if you want to hear presence alerts.
-
- -- Variable: User Option emacspeak-jabber-title-large-voice
-     Personality used for jabber-title-large This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option emacspeak-jabber-title-medium-voice
-     Personality used for jabber-title-medium This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option emacspeak-jabber-title-small-voice
-     Personality used for jabber-title-small This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-jade,  Next: emacspeak-jde,  Prev: emacspeak-jabber,  Up: Emacspeak Commands And Options
@@ -8489,20 +8408,8 @@ repository for my setup.
 12.158.1 emacspeak-setup Options
 --------------------------------
 
- -- Variable: User Option dectalk-default-speech-rate
-     *Default speech rate at which TTS is started.
-
  -- Variable: User Option emacspeak-tts-use-notify-stream
      Set to true to use a separate TTS stream for notifications.
-
- -- Variable: User Option espeak-default-speech-rate
-     Default speech rate for eSpeak.
-
- -- Variable: User Option mac-default-speech-rate
-     Default speech rate for mac.
-
- -- Variable: User Option outloud-default-speech-rate
-     Default speech rate for outloud.
 
 
 File: emacspeak.info,  Node: emacspeak-sgml-mode,  Next: emacspeak-sh-script,  Prev: emacspeak-setup,  Up: Emacspeak Commands And Options
