@@ -52,6 +52,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'lisp-mnt)
+(require 'subr-x)
 (require 'desktop)
 (require 'dired)
 (require 'derived)
@@ -2396,6 +2397,7 @@ This provides a predictable means for switching to a specific shell buffer."
 (defun  emacspeak-wizards-project-shells-initialize ()
   "Create shells per `emacspeak-wizards-project-shells'."
   (declare (special emacspeak-wizards-project-shells))
+  (unless emacspeak-wizards-project-shells (shell))
   (cl-loop
    for pair in emacspeak-wizards-project-shells do
    (let ((name (cl-first pair))
