@@ -620,7 +620,7 @@ meaning of `next'."
 allows you to display the same buffer in multiple windows or
 frames.  These different windows can display different
 portions of the buffer.  This is equivalent to leaving a
-book open at places at once.  This command allows you to
+book open at multiple places at once.  This command allows you to
 move to the places where you have left the book open.  The
 number used to invoke this command specifies which of the
 displays you wish to select.  Typically you will have two or
