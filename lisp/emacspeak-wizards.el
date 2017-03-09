@@ -750,6 +750,7 @@ the emacspeak table clipboard instead."
       (read-from-minibuffer "Eval: "
                             nil read-expression-map t
                             'read-expression-history))))
+  (declare (special read-expression-map))
   (let ((buffer (get-buffer-create "*emacspeak:Eval*"))
         (print-length nil)
         (print-level nil)
