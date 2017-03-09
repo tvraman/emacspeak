@@ -2335,9 +2335,11 @@ When called from a shell buffer, switches to `next' shell buffer."
   "Switch to shell buffer  by key.
 This provides a predictable means for switching to a specific shell buffer."
   (interactive)
-  (declare (special last-input-event emacspeak-wizards--shells-table))
+  (declare (special last-input-event emacspeak-wizards--shells-table
+                    default-directory))
   (when (hash-table-empty-p emacspeak-wizards--shells-table)  (emacspeak-wizards--build-shells-table))
-  (let* ((key (read (format "%c" last-input-event)))
+  (let* ((directory default-directory)
+         (key (read (format "%c" last-input-event)))
          (buffer
           (cond
            ((hash-table-empty-p emacspeak-wizards--shells-table) (shell))
@@ -2346,6 +2348,13 @@ This provides a predictable means for switching to a specific shell buffer."
             (emacspeak-wizards--build-shells-table)
             (or (gethash key emacspeak-wizards--shells-table)
                 (gethash 0 emacspeak-wizards--shells-table))))))
+    (with-current-buffer buffer
+      (unless (string= (expand-file-name directory)
+                       (expand-file-name default-directory))
+        (goto-char (point-max))
+        (insert (format "pushd %s" directory))
+        (comint-send-input)
+        (shell-process-pushd directory)))
     (funcall-interactively #'pop-to-buffer buffer)))
 
 (defcustom emacspeak-wizards-project-shells nil
