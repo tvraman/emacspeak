@@ -68,6 +68,11 @@ Module ~eshell~ has been updated.
 
 
 Module ~emacspeak-clojure~ speech-enables ~clojure-mode~.
+** Speech-Enabled Geiser For Scheme Interaction 
+
+Package ~geiser~ for Scheme interaction is  speech-enabled
+by module ~emacspeak-geiser.el~.
+
 
 ** Speech-Enabled Cider
 
