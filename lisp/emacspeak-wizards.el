@@ -1,4 +1,4 @@
-;;; emacspeak-wizards.el --- Implements Emacspeak  convenience wizards  -*- lexical-binding: t; -*-
+;;; emacspeak-wizards.el  Emacspeak  convenience   -*- lexical-binding: t; -*-
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Contains convenience wizards
@@ -305,7 +305,7 @@ previous window configuration."
     (emacspeak-speak-mode-line))
                                         ; popup Messages buffer
    (t
-                                        ; Memoize current window configuration only if buffer isn't yet visible
+;;; Memoize current window configuration only if buffer isn't yet visible
     (setq emacspeak-popup-messages-config-0
           (and (not (get-buffer-window "*Messages*"))
                (current-window-configuration)))
@@ -416,7 +416,8 @@ With prefix arg, opens the phone book for editing."
 ;;}}}
 ;;{{{ find file as root
 
-;;; Taken from http://emacs-fu.blogspot.com/2013/03/editing-with-root-privileges-once-more.html
+;;; http://emacs-fu.blogspot.com/
+;;; 2013/03/editing-with-root-privileges-once-more.html
 ;;;###autoload
 
 (defun emacspeak-wizards-find-file-as-root ()
@@ -1628,7 +1629,9 @@ directory to where find is to be launched."
   (interactive)
   (declare (special browse-url-browser-function emacspeak-wizards-available-browsers))
   (let* ((count (length emacspeak-wizards-available-browsers))
-         (current (position browse-url-browser-function emacspeak-wizards-available-browsers))
+         (current
+          (position browse-url-browser-function
+                    emacspeak-wizards-available-browsers))
          (next  (% (1+ current) count)))
     (setq browse-url-browser-function (nth  next emacspeak-wizards-available-browsers))
     (message "Browser set to %s" browse-url-browser-function)))
@@ -1915,7 +1918,8 @@ On Ubuntu and Debian this is group `tty'."
 
 (declaim (special emacspeak-wizards-vc-viewer-mode-map))
 
-(define-key  emacspeak-wizards-vc-viewer-mode-map "\C-l" 'emacspeak-wizards-vc-viewer-refresh)
+(define-key  emacspeak-wizards-vc-viewer-mode-map
+  "\C-l" 'emacspeak-wizards-vc-viewer-refresh)
 
 ;;}}}
 ;;{{{ google Transcoder
@@ -2312,8 +2316,9 @@ Direction specifies previous/next."
 
 ;;;###autoload
 (defun emacspeak-wizards-shell (&optional prefix)
-  "Run Emacs built-in `shell' command when not in a shell buffer, or when called with a prefix argument.
-When called from a shell buffer, switches to `next' shell buffer."
+  "Run Emacs built-in `shell' command when not in a shell buffer, or
+when called with a prefix argument. When called from a shell buffer,
+switches to `next' shell buffer."
   (interactive "P")
   (cond
    ((or  prefix (not (eq major-mode 'shell-mode)))
@@ -2332,7 +2337,9 @@ When called from a shell buffer, switches to `next' shell buffer."
     (mapc
      #'(lambda (s)
          (when  (not (memq s v))
-           (puthash  (hash-table-count emacspeak-wizards--shells-table) s emacspeak-wizards--shells-table)))
+           (puthash
+            (hash-table-count emacspeak-wizards--shells-table)
+            s emacspeak-wizards--shells-table)))
      shells)))
 
 (defun emacspeak-wizards-shell-by-key ()
@@ -2677,7 +2684,8 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
     (unless lang
       (setq lang
             (cond
-             ((called-interactively-p 'interactive) (emacspeak-wizards-espeak-get-voice-code))
+             ((called-interactively-p 'interactive)
+              (emacspeak-wizards-espeak-get-voice-code))
              (t "en"))))
     (shell-command
      (format "espeak -v %s '%s'" lang string))))
@@ -2996,9 +3004,9 @@ Optional interactive prefix arg `category' prompts for a category."
 ;;{{{ YQL: Stock Quotes
 
 (defcustom emacspeak-wizards-personal-portfolio "goog aapl fb amzn"
-  "Set this to the stock tickers you want to check.
-Default is GAFA. Tickers are separated by white-space and are automatically sorted in lexical
-order with duplicates removed  when saving."
+  "Set this to the stock tickers you want to check. Default is
+GAFA. Tickers are separated by white-space and are automatically
+sorted in lexical order with duplicates removed when saving."
   :type 'string
   :group 'emacspeak-wizards
   :initialize  'custom-initialize-reset
@@ -3179,81 +3187,11 @@ Symbols are separated by whitespace."
 Symbols are taken from `emacspeak-wizards-personal-portfolio'."
   (interactive)
   (declare (special emacspeak-wizards-personal-portfolio))
-  (unless emacspeak-wizards-personal-portfolio (error "Customize emacspeak-wizards-personal-portfolio first"))
+  (unless emacspeak-wizards-personal-portfolio
+    (error "Customize emacspeak-wizards-personal-portfolio first"))
   (emacspeak-wizards-yql-lookup emacspeak-wizards-personal-portfolio))
 
 ;;;###autoload
-
-;;}}}
-;;{{{ YQL: Weather
-
-(defconst emacspeak-wizards-yql-weather-base
-  "http://query.yahooapis.com/v1/public/yql?q=select+*+from+weather.forecast+where+location%%3D%s&format=json"
-  "REST End-Point for weather by zip-code.")
-
-(defun emacspeak-wizards-yql-weather-url (zip)
-  "Return end-point for retrieving weather forecast."
-  (declare (special emacspeak-wizards-yql-weather-base))
-  (format emacspeak-wizards-yql-weather-base zip))
-
-(defun emacspeak-wizards-yql-weather-results (zip)
-  "Get weather results."
-  (g-json-lookup
-   "query.results.channel.item.forecast"
-   (g-json-get-result
-    (format
-     "%s  %s '%s'"
-     g-curl-program g-curl-common-options
-     (emacspeak-wizards-yql-weather-url zip)))))
-
-(defvar emacspeak-wizards-yql-weather-header-row
-  '[day date low high text]
-  "Vector used as table header row.")
-
-(defun emacspeak-wizards-yql-weather-row (result)
-  "Convert result list into a sorted row."
-  (declare (special emacspeak-wizards-yql-weather-header-row))
-  (let ((row (make-vector (length emacspeak-wizards-yql-weather-header-row) nil)))
-    (cl-loop
-     for h across emacspeak-wizards-yql-weather-header-row
-     and index from 0 do
-     (aset row index (cdr(assoc h result))))
-    row))
-
-(defcustom emacspeak-wizards-yql-weather-filter
-  '(0 1 4  2 "-" 3)
-  "Template used to audio-format  weather."
-  :type '(repeat
-          (choice :tag "Entry"
-                  (integer :tag "Column Number:")
-                  (string :tag "Text: ")))
-  :group 'emacspeak-wizards)
-
-(defun emacspeak-wizards-yql-weather (zip)
-  "Display weather forecast table."
-  (interactive
-   (list
-    (read-from-minibuffer "State/City:"
-                          (bound-and-true-p  gweb-my-postal-code))))
-  (declare (special emacspeak-wizards-yql-weather-header-row
-                    emacspeak-wizards-yql-weather-filter))
-  (let* ((buff (format "*Weather %s*" zip))
-         (result (emacspeak-wizards-yql-weather-results zip))
-         (table (make-vector (1+ (length result)) nil)))
-    (aset table  0 emacspeak-wizards-yql-weather-header-row)
-    (cl-loop
-     for  r across result
-     and i from 1 do
-     (aset table i (emacspeak-wizards-yql-weather-row  r)))
-    (emacspeak-table-prepare-table-buffer
-     (emacspeak-table-make-table table)
-     (get-buffer-create buff))
-    (goto-char (point-min))
-    (setq emacspeak-table-speak-row-filter emacspeak-wizards-yql-weather-filter
-          emacspeak-table-speak-element 'emacspeak-table-speak-row-filtered)
-    (switch-to-buffer buff)
-    (setq tab-width 2)
-    (call-interactively 'emacspeak-table-next-row)))
 
 ;;}}}
 ;;{{{ Sports API:
