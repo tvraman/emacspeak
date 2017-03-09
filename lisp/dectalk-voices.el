@@ -62,7 +62,9 @@
   :type 'integer
   :set #'(lambda(sym val)
            (set-default sym val)
-           (setq-default dtk-speech-rate val)))
+           (when (and (getenv "DTK_PROGRAM")
+                      (string-match "dtk" (getenv "DTK_PROGRAM")))
+           (setq-default dtk-speech-rate val))))
 
 ;;}}}
 ;;{{{  Top-level TTS  switcher

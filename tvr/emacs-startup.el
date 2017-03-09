@@ -250,11 +250,11 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        (nm-enable)
            (emacspeak-dbus-sleep-enable)
            (emacspeak-dbus-watch-screen-lock))
-     (emacspeak-wizards-project-shells-initialize)
      (play-sound
       `(sound
         :file ,(expand-file-name "highbells.au" emacspeak-sounds-directory)))
      (when (file-exists-p custom-file) (load-file custom-file))
+     (emacspeak-wizards-project-shells-initialize)
      (message "Successfully initialized Emacs for %s" user-login-name)))
 (start-up-my-emacs)
 
