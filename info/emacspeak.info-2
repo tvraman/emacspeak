@@ -4041,14 +4041,28 @@ This module speech-enables the Emacs Info Reader.
 12.102.1 emacspeak-info Commands
 --------------------------------
 
-12.102.1.1 emacspeak-info-speak-header
+12.102.1.1 emacspeak-info-next-section
+......................................
+
+ -- Command: emacspeak-info-next-section
+
+     Move forward to next section in this node.
+
+12.102.1.2 emacspeak-info-previous-section
+..........................................
+
+ -- Command: emacspeak-info-previous-section
+
+     Move backward to previous section in this node.
+
+12.102.1.3 emacspeak-info-speak-header
 ......................................
 
  -- Command: emacspeak-info-speak-header
 
      Speak info header line.
 
-12.102.1.2 emacspeak-info-wizard
+12.102.1.4 emacspeak-info-wizard
 ................................
 
  -- Command: emacspeak-info-wizard (node-spec)

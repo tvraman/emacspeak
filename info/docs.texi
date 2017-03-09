@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1158 commands and 1064 options.
+This chapter documents a total of 1160 commands and 1064 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -9729,6 +9729,24 @@ Speak upto start of next index entry
 This module speech-enables the Emacs Info Reader.
 
 @subsection emacspeak-info Commands
+
+@subsubsection emacspeak-info-next-section
+@deffn {Command} emacspeak-info-next-section   
+@findex emacspeak-info-next-section
+
+@format
+Move forward to next section in this node.
+@end format
+@end deffn
+
+@subsubsection emacspeak-info-previous-section
+@deffn {Command} emacspeak-info-previous-section   
+@findex emacspeak-info-previous-section
+
+@format
+Move backward to previous section in this node.
+@end format
+@end deffn
 
 @subsubsection emacspeak-info-speak-header
 @deffn {Command} emacspeak-info-speak-header   
@@ -22303,7 +22321,7 @@ When called from a shell buffer, switches to ‘next’ shell buffer.
 @end deffn
 
 @subsubsection emacspeak-wizards-shell-by-key
-@deffn {Command} emacspeak-wizards-shell-by-key  (&optional arg)
+@deffn {Command} emacspeak-wizards-shell-by-key   
 @table @kbd
 @item C-e x 9
 @kindex C-e x 9
@@ -22348,8 +22366,6 @@ When called from a shell buffer, switches to ‘next’ shell buffer.
 @format
 Switch to shell buffer  by key.
 This provides a predictable means for switching to a specific shell buffer.
-
-(fn &optional ARG)
 @end format
 @end deffn
 
