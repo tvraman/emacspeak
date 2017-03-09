@@ -501,7 +501,6 @@ To leave, press \\[keyboard-quit]."
 
 (defun emacspeak-frame-read-frame-label ()
   "Read a frame label with completion."
-  (interactive)
   (let* ((frame-names-alist (make-frame-names-alist))
          (default (car (car frame-names-alist)))
          (input (completing-read
