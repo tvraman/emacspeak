@@ -2372,7 +2372,8 @@ This provides a predictable means for switching to a specific shell buffer."
        (goto-char (point-max))
        (insert (format "pushd %s" default-directory))
        (comint-send-input)
-       (shell-process-cd default-directory)))))
+       (shell-process-cd default-directory))))
+  (emacspeak-wizards--build-shells-table))
 
 ;;;###autoload
 (defun emacspeak-wizards-shell-directory-reset ()
