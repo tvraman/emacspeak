@@ -2417,7 +2417,8 @@ This provides a predictable means for switching to a specific shell buffer."
       (goto-char (point-max))
       (insert (format "pushd %s" default-directory))
       (call-interactively #'comint-send-input)
-      (shell-process-cd default-directory)))
+      (shell-process-cd default-directory)
+      (message  default-directory)))
 
 ;;}}}
 ;;{{{ show commentary:

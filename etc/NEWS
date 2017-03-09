@@ -6,6 +6,17 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 
 * Emacspeak 46 -- Emacspeak 46 User Visible Changes
+** Emacspeak Info Pages
+
+There is a new command _emacspeak-open-info_ bound to _C-e TAB_
+that opens the Emacspeak online manual for the  version of Emacspeak
+in use.
+
+** Managing Shell Buffers
+
+Module _emacspeak-wizards_ provides a set of shell-management commands  
+that make it easy to create shell buffers specific to projects and
+moving among them.
 
 ** Installation:
 
