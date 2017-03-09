@@ -183,6 +183,9 @@ node-spec."
   (emacspeak-info-visit-node))
 
 ;;}}}
+;;{{{ Info: Section navigation
+;;; Use property info-title-* to move across section titles.
+;;}}}
 ;;{{{ Speak header line if hidden
 
 (defun emacspeak-info-speak-header ()
