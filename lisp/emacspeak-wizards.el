@@ -2413,12 +2413,14 @@ This provides a predictable means for switching to a specific shell buffer."
 (defun emacspeak-wizards-shell-directory-reset ()
   "Set current directory to this shell's initial directory if one was defined."
   (interactive)
-  (let ((default-directory  emacspeak-wizards--project-shell-directory))
-      (goto-char (point-max))
-      (insert (format "pushd %s" default-directory))
-      (call-interactively #'comint-send-input)
-      (shell-process-cd default-directory)
-      (message  default-directory)))
+  (unless (string= default-directory emacspeak-wizards--project-shell-directory)
+    (goto-char (point-max))
+    (setq default-directory emacspeak-wizards--project-shell-directory)
+    (insert (format "pushd %s" default-directory))
+    (call-interactively #'comint-send-input)
+    (shell-process-cd default-directory))
+  (emacspeak-auditory-icon 'task-done)
+  (message  default-directory))
 
 ;;}}}
 ;;{{{ show commentary:
