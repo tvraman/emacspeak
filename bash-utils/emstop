@@ -2,4 +2,4 @@
 # Silence emacspeak from outside 
 #Usage emstop 
 
-emacsclient -n -e "(dtk-stop)"
+emacsclient -n -e "(dtk-stop)"  2>&1 > /dev/null

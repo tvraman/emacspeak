@@ -2,4 +2,4 @@
 # Silence emacspeak (speech, media)from outside 
 #Usage emsilence 
 
-emacsclient -n -e "(emacspeak-silence)"
+emacsclient -n -e "(emacspeak-silence)"  2>&1 > /dev/null
