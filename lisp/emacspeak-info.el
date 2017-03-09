@@ -185,6 +185,44 @@ node-spec."
 ;;}}}
 ;;{{{ Info: Section navigation
 ;;; Use property info-title-* to move across section titles.
+(defvar emacspeak-info--title-faces
+  '(info-title-1 info-title-2 info-title-3 info-title-4)
+  "Faces that identify section titles.")
+
+(defun emacspeak-info-next-section ()
+  "Move forward to next section in this node."
+  (interactive)
+  (let ((target nil))
+    (save-excursion
+      (while (and (null target)
+                  (not (eobp)))
+        (goto-char (next-single-property-change (point)  'face nil (point-max)))
+        (when (memq (get-text-property (point) 'face) emacspeak-info--title-faces)
+          (setq target (point)))))
+    (cond
+     (target
+      (goto-char target)
+      (emacspeak-speak-line)
+      (emacspeak-auditory-icon 'large-movement))
+     (t (message "No more sections in this node")))))
+
+(defun emacspeak-info-previous-section ()
+  "Move backward to previous section in this node."
+  (interactive)
+  (let ((target nil))
+    (save-excursion
+      (while (and (null target)
+                  (not (bobp)))
+        (goto-char (previous-single-property-change (point)  'face nil (point-min)))
+        (when (memq (get-text-property (point) 'face) emacspeak-info--title-faces)
+          (setq target (line-beginning-position)))))
+    (cond
+     (target
+      (goto-char target)
+      (emacspeak-speak-line)
+      (emacspeak-auditory-icon 'large-movement))
+     (t (message "No previous section in   this node")))))
+
 ;;}}}
 ;;{{{ Speak header line if hidden
 
@@ -208,6 +246,8 @@ node-spec."
 (declaim (special Info-mode-map))
 (define-key Info-mode-map "T" 'emacspeak-info-speak-header)
 (define-key Info-mode-map "'" 'emacspeak-speak-rest-of-buffer)
+(define-key Info-mode-map "\M-n" 'emacspeak-info-next-section)
+(define-key Info-mode-map "\M-p" 'emacspeak-info-previous-section)
 
 ;;}}}
 (provide  'emacspeak-info)
