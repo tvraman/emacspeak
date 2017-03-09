@@ -1070,17 +1070,13 @@ Signals beginning  of buffer."
   "Grab URL using Curl, and preview it with a browser ."
   (interactive "sURL: ")
   (declare (special emacspeak-wizards-curl-program emacspeak-curl-cookie-store))
-  (let ((results (get-buffer-create " *curl-download* ")))
-    (erase-buffer)
-    (kill-all-local-variables)
+  (with-temp-buffer
     (shell-command
      (format
       "curl -s --location-trusted --cookie-jar %s --cookie %s '%s' 2>/dev/null"
       emacspeak-curl-cookie-store emacspeak-curl-cookie-store url)
-     results)
-    (switch-to-buffer results)
-    (browse-url-of-buffer)
-    (kill-buffer results)))
+     (current-buffer))
+    (browse-url-of-buffer)))
 
 ;;}}}
 ;;{{{ ansi term
