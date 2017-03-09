@@ -2037,13 +2037,13 @@ Interactive  arguments specify filename pattern and search pattern."
       (erase-buffer)
       (insert (format "Face: %s\n" face))
       (cl-loop for a in
-            (mapcar #'car face-attribute-name-alist)
-            do
-            (unless (eq 'unspecified (face-attribute face a))
-              (insert
-               (format "%s\t%s\n"
-                       a
-                       (face-attribute face a)))))
+               (mapcar #'car face-attribute-name-alist)
+               do
+               (unless (eq 'unspecified (face-attribute face a))
+                 (insert
+                  (format "%s\t%s\n"
+                          a
+                          (face-attribute face a)))))
       (insert
        (format "Documentation: %s\n"
                (face-documentation face)))
@@ -2075,20 +2075,20 @@ for the current voice family."
       (set-buffer buffer)
       (erase-buffer)
       (cl-loop for a from 0 to 9 by step do
-            (cl-loop for p from 0 to 9 by step do
-                  (cl-loop for  s from 0 to 9 by step do
-                        (cl-loop for r from 0 to 9 by step do
-                              (setq voice (voice-setup-personality-from-style
-                                           (list nil a p s r)))
-                              (insert
-                               (format
-                                " Aural CSS    average-pitch %s pitch-range %s stress %s richness %s"
-                                a p s r))
-                              (put-text-property (line-beginning-position)
-                                                 (line-end-position)
-                                                 'personality voice)
-                              (end-of-line)
-                              (insert "\n"))))))
+               (cl-loop for p from 0 to 9 by step do
+                        (cl-loop for  s from 0 to 9 by step do
+                                 (cl-loop for r from 0 to 9 by step do
+                                          (setq voice (voice-setup-personality-from-style
+                                                       (list nil a p s r)))
+                                          (insert
+                                           (format
+                                            " Aural CSS    average-pitch %s pitch-range %s stress %s richness %s"
+                                            a p s r))
+                                          (put-text-property (line-beginning-position)
+                                                             (line-end-position)
+                                                             'personality voice)
+                                          (end-of-line)
+                                          (insert "\n"))))))
     (switch-to-buffer  buffer)
     (goto-char (point-min))))
 
@@ -2261,11 +2261,11 @@ This is for use in conjunction with bash to allow multiple emacs
 (defun emacspeak-wizards-shell-bind-keys ()
   "Set up additional shell mode keys."
   (cl-loop for b in
-        '(
-          ("\C-ch" emacspeak-wizards-refresh-shell-history)
-          ("\C-cr" comint-redirect-send-command))
-        do
-        (define-key shell-mode-map (first b) (second b))))
+           '(
+             ("\C-ch" emacspeak-wizards-refresh-shell-history)
+             ("\C-cr" comint-redirect-send-command))
+           do
+           (define-key shell-mode-map (first b) (second b))))
 
 ;;}}}
 ;;{{{ Organizing Shells: next, previous, tag
@@ -2331,32 +2331,29 @@ When called from a shell buffer, switches to `next' shell buffer."
            (puthash  (hash-table-count emacspeak-wizards--shells-table) s emacspeak-wizards--shells-table)))
      shells)))
 
-(defun emacspeak-wizards-shell-by-key (&optional arg)
+(defun emacspeak-wizards-shell-by-key ()
   "Switch to shell buffer  by key.
 This provides a predictable means for switching to a specific shell buffer."
-  (interactive "P")
+  (interactive)
   (declare (special last-input-event emacspeak-wizards--shells-table))
-  (emacspeak-wizards--build-shells-table)
-  (cond
-   ((hash-table-empty-p emacspeak-wizards--shells-table) (shell))
-   (t 
-    (let* ((key
-            (cond
-             ((not (called-interactively-p 'interactive)) arg)
-             (t (read (format "%c" last-input-event)))))
-           (buffer
-            (or (gethash key emacspeak-wizards--shells-table )
-                (gethash 0 emacspeak-wizards--shells-table))))        
-      (funcall-interactively #'switch-to-buffer buffer)))))
-
-
+  (when (hash-table-empty-p emacspeak-wizards--shells-table)  (emacspeak-wizards--build-shells-table))
+  (let* ((key (read (format "%c" last-input-event)))
+         (buffer
+          (cond
+           ((hash-table-empty-p emacspeak-wizards--shells-table) (shell))
+           ((gethash key emacspeak-wizards--shells-table) (gethash key emacspeak-wizards--shells-table))
+           (t
+            (emacspeak-wizards--build-shells-table)
+            (or (gethash key emacspeak-wizards--shells-table)
+                (gethash 0 emacspeak-wizards--shells-table))))))
+    (funcall-interactively #'switch-to-buffer buffer)))
 
 (defcustom emacspeak-wizards-project-shells nil
   "List of shell-name/initial-directory pairs."
   :type '(repeat
           (list
-     (string :tag "Buffer Name")
-     (directory :tag "Directory")))
+           (string :tag "Buffer Name")
+           (directory :tag "Directory")))
   :group 'emacspeak-wizards)
 (defvar-local emacspeak-wizards--project-shell-directory "~/"
   "Default directory for a given project shell.")
@@ -2376,8 +2373,8 @@ This provides a predictable means for switching to a specific shell buffer."
        (insert (format "pushd %s" default-directory))
        (comint-send-input)
        (shell-process-cd default-directory)))))
-            
-;;;###autoload 
+
+;;;###autoload
 (defun emacspeak-wizards-shell-directory-reset ()
   "Set current directory to this shell's initial directory if one was defined."
   (interactive)
@@ -2738,7 +2735,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
         (mapcar
          #'(lambda (face) (unless (facep face) face))
          (cl-loop for k being the hash-keys of voice-setup-face-voice-table
-               collect k))))
+                  collect k))))
 
 (defun emacspeak-wizards-enumerate-matching-faces (pattern)
   "Enumerate  faces matching pattern."
@@ -2930,7 +2927,7 @@ Optional interactive prefix arg `category' prompts for a category."
        (insert r)
        (add-text-properties
         (line-beginning-position) (line-end-position)
-        (list 
+        (list
          'keymap emacspeak-wizards-iheart-map
          'ihr-id (second (split-string r ":"))))
        (insert "\n"))
@@ -3062,7 +3059,7 @@ order with duplicates removed  when saving."
            YearRange
            StockExchange
            PercentChange
-           DividendShare ExDividendDate 
+           DividendShare ExDividendDate
            DividendPayDate DividendYield)
   "List of headers we care about.")
 
@@ -3093,7 +3090,7 @@ Returns a list of lists, one list per ticker."
       (list (emacspeak-wizards-yq-filter  results)))
      (t
       (cl-loop for r across results
-            collect (emacspeak-wizards-yq-filter r))))))
+               collect (emacspeak-wizards-yq-filter r))))))
 
 (defun emacspeak-wizards-yq-result-row (r)
   "Takes a list corresponding to a quote, and returns a vector sorted per headers."
