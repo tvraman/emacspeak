@@ -2346,7 +2346,7 @@ This provides a predictable means for switching to a specific shell buffer."
             (emacspeak-wizards--build-shells-table)
             (or (gethash key emacspeak-wizards--shells-table)
                 (gethash 0 emacspeak-wizards--shells-table))))))
-    (funcall-interactively #'switch-to-buffer buffer)))
+    (funcall-interactively #'pop-to-buffer buffer)))
 
 (defcustom emacspeak-wizards-project-shells nil
   "List of shell-name/initial-directory pairs."
