@@ -833,33 +833,6 @@ emacspeak-emergency-tts-server."
   (dtk-initialize))
 
 ;;}}}
-;;{{{ customization wizard
-
-;;;###autoload
-(defun emacspeak-customize-personal-settings (file)
-  "Create a customization buffer for browsing and updating
-personal customizations."
-  (interactive
-   (list
-    (read-file-name "Customization file: "
-                    nil
-                    custom-file)))
-  (let* ((buffer (find-file-noselect file))
-         (settings
-          (save-current-buffer
-            (set-buffer buffer)
-            (goto-char (point-min))
-            (cdr (read  buffer))))
-         (found nil))
-    (setq found
-          (mapcar #'(lambda (s)
-                      (list (car (second s))
-                            'custom-variable))
-                  settings))
-    (custom-buffer-create (custom-sort-items found t 'first)
-                          "*Customize Personal Options*")))
-
-;;}}}
 ;;{{{  Display properties conveniently
 
 ;;; Useful for developping emacspeak:
