@@ -2344,7 +2344,9 @@ switches to `next' shell buffer."
 
 (defun emacspeak-wizards-shell-by-key ()
   "Switch to shell buffer by key. This provides a predictable means for
-  switching to a specific shell buffer."
+  switching to a specific shell buffer. When invoked from a
+  non-shell-mode buffer that is visiting a file, invokes `cd ' in the
+  shell to change to the value of `default-directory'"
   (interactive)
   (declare (special last-input-event emacspeak-wizards--shells-table
                     major-mode default-directory))
@@ -2363,11 +2365,11 @@ switches to `next' shell buffer."
             (emacspeak-wizards--build-shells-table)
             (or (gethash key emacspeak-wizards--shells-table)
                 (gethash 0 emacspeak-wizards--shells-table))))))
-    (unless (eq major-mode 'shell-mode)
-;;; use default-directory of source buffer: ; ;
+    (when buffer-file-name       ;  source determines target directory
       (with-current-buffer buffer
-        (unless (string= (expand-file-name
-                          directory) (expand-file-name default-directory))
+        (unless (string=
+                 (expand-file-name directory)
+                 (expand-file-name default-directory))
           (goto-char (point-max))
           (insert (format "pushd %s" directory))
           (comint-send-input)
