@@ -1157,9 +1157,6 @@ Extracted content is sent to STDOUT."
       (emacspeak-table-view-csv-buffer))))
 
 ;;}}}
-;;{{{ view url:
-
-;;}}}
 ;;{{{ annotation wizard
 
 ;;; I use this to collect my annotations into a buffer
@@ -1670,6 +1667,7 @@ directory to where find is to be launched."
 
 ;;}}}
 ;;{{{ customize emacspeak
+
 ;;;###autoload
 (defun emacspeak-customize ()
   "Customize Emacspeak."
@@ -1677,6 +1675,7 @@ directory to where find is to be launched."
   (customize-group 'emacspeak)
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-custom-goto-group))
+
 ;;}}}
 ;;{{{ display environment variable
 ;;;###autoload
@@ -2475,6 +2474,7 @@ This provides a predictable means for switching to a specific shell buffer."
 
 ;;}}}
 ;;{{{ Add autoload cookies:
+
 (defvar emacspeak-autoload-cookie-pattern
   ";;;###autoload"
   "autoload cookie pattern.")
@@ -3387,20 +3387,6 @@ Optional interactive prefix arg shows  unprocessed results."
   (pop-to-buffer (get-buffer-create " *piped*"))
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-mode-line))
-
-;;}}}
-;;{{{ Market Data On Demand 
-
-(defvar emacspeak-wizards-market-data-endpoint
-  "http://dev.markitondemand.com/MODApis/Api/v2/Quote/json?symbol=%s"
-  "Rest end-point for retrieving stock quote data from Market Data On Demand.")
-
-;;}}}
-;;{{{ Google Finance Rest API
-;;; 
-(defvar emacspeak-wizards-google-finance-quotes-uri 
-  "http://finance.google.com/finance/info?client=ig&q=%s"
-  "Rest end-point for stock quote data from Google finance.")
 
 ;;}}}
 (provide 'emacspeak-wizards)
