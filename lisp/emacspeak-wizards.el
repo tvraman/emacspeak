@@ -2074,21 +2074,25 @@ for the current voice family."
     (save-current-buffer
       (set-buffer buffer)
       (erase-buffer)
-      (cl-loop for a from 0 to 9 by step do
-               (cl-loop for p from 0 to 9 by step do
-                        (cl-loop for  s from 0 to 9 by step do
-                                 (cl-loop for r from 0 to 9 by step do
-                                          (setq voice (voice-setup-personality-from-style
-                                                       (list nil a p s r)))
-                                          (insert
-                                           (format
-                                            " Aural CSS    average-pitch %s pitch-range %s stress %s richness %s"
-                                            a p s r))
-                                          (put-text-property (line-beginning-position)
-                                                             (line-end-position)
-                                                             'personality voice)
-                                          (end-of-line)
-                                          (insert "\n"))))))
+      (cl-loop
+       for a from 0 to 9 by step do
+       (cl-loop
+        for p from 0 to 9 by step do
+        (cl-loop
+         for  s from 0 to 9 by step do
+         (cl-loop
+          for r from 0 to 9 by step do
+          (setq voice (voice-setup-personality-from-style
+                       (list nil a p s r)))
+          (insert
+           (format
+            " Aural CSS average-pitch %s pitch-range %s stress %s richness %s"
+            a p s r))
+          (put-text-property (line-beginning-position)
+                             (line-end-position)
+                             'personality voice)
+          (end-of-line)
+          (insert "\n"))))))
     (switch-to-buffer  buffer)
     (goto-char (point-min))))
 
@@ -2332,29 +2336,35 @@ When called from a shell buffer, switches to `next' shell buffer."
      shells)))
 
 (defun emacspeak-wizards-shell-by-key ()
-  "Switch to shell buffer  by key.
-This provides a predictable means for switching to a specific shell buffer."
+  "Switch to shell buffer by key. This provides a predictable means for
+  switching to a specific shell buffer."
   (interactive)
   (declare (special last-input-event emacspeak-wizards--shells-table
-                    default-directory))
-  (when (hash-table-empty-p emacspeak-wizards--shells-table)  (emacspeak-wizards--build-shells-table))
-  (let* ((directory default-directory)
+                    major-mode default-directory))
+  (when (hash-table-empty-p emacspeak-wizards--shells-table)
+    (emacspeak-wizards--build-shells-table))
+  (let* ((directory
+          default-directory)
          (key (read (format "%c" last-input-event)))
          (buffer
           (cond
-           ((hash-table-empty-p emacspeak-wizards--shells-table) (shell))
-           ((gethash key emacspeak-wizards--shells-table) (gethash key emacspeak-wizards--shells-table))
+           ((hash-table-empty-p emacspeak-wizards--shells-table)
+            (shell))
+           ((gethash key emacspeak-wizards--shells-table)
+            (gethash key emacspeak-wizards--shells-table))
            (t
             (emacspeak-wizards--build-shells-table)
             (or (gethash key emacspeak-wizards--shells-table)
                 (gethash 0 emacspeak-wizards--shells-table))))))
-    (with-current-buffer buffer
-      (unless (string= (expand-file-name directory)
-                       (expand-file-name default-directory))
-        (goto-char (point-max))
-        (insert (format "pushd %s" directory))
-        (comint-send-input)
-        (shell-process-pushd directory)))
+    (unless (eq major-mode 'shell-mode)
+;;; use default-directory of source buffer: ; ;
+      (with-current-buffer buffer
+        (unless (string= (expand-file-name
+                          directory) (expand-file-name default-directory))
+          (goto-char (point-max))
+          (insert (format "pushd %s" directory))
+          (comint-send-input)
+          (shell-process-pushd directory))))
     (funcall-interactively #'pop-to-buffer buffer)))
 
 (defcustom emacspeak-wizards-project-shells nil
