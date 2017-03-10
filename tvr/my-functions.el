@@ -81,12 +81,17 @@
 
 (defun shell-bind-keys ()
   "Set up additional shell mode keys."
-  (loop for b in
-        '(
-          ("\C-ch" emacspeak-wizards-refresh-shell-history)
-          ("\C-cr" comint-redirect-send-command)
-          ("\C-ex." emacspeak-wizards-shell-directory-reset))
-        do
-        (define-key shell-mode-map (first b) (second b))))
+  (dotimes (i 10)
+    (global-set-key
+     (kbd (format "C-c %s" i))
+     'emacspeak-wizards-shell-by-key))
+  (loop
+   for b in
+   '(
+     ("\C-ch" emacspeak-wizards-refresh-shell-history)
+     ("\C-cr" comint-redirect-send-command)
+     ("\C-ex." emacspeak-wizards-shell-directory-reset))
+   do
+   (define-key shell-mode-map (first b) (second b))))
 
 (provide 'my-functions)
