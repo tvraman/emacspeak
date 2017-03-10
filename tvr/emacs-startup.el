@@ -200,6 +200,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
         "helm-prepare"   ;helm not activated
        "js-prepare" "tcl-prepare" "slime-prepare"
        "company-prepare" "python-mode-prepare"
+       "projectile-prepare"
                                         ; jde and ecb will pull in cedet.
                                         ;"jde-prepare" "ecb-prepare"
        "org-prepare"
