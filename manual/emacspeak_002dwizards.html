@@ -3030,8 +3030,9 @@ Run rpm -qi on current dired entry.
 
       <div class="format">
         <pre class="format">
-Run Emacs built-in ‘shell’ command when not in a shell buffer, or when called with a prefix argument.
-When called from a shell buffer, switches to ‘next’ shell buffer.
+Run Emacs built-in ‘shell’ command when not in a shell buffer, or
+when called with a prefix argument. When called from a shell buffer,
+switches to ‘next’ shell buffer.
 
 (fn &amp;optional PREFIX)
 </pre>
@@ -3146,8 +3147,10 @@ When called from a shell buffer, switches to ‘next’ shell buffer.
 
       <div class="format">
         <pre class="format">
-Switch to shell buffer  by key.
-This provides a predictable means for switching to a specific shell buffer.
+Switch to shell buffer by key. This provides a predictable means for
+  switching to a specific shell buffer. When invoked from a
+  non-shell-mode buffer that is visiting a file, invokes ‘cd ’ in the
+  shell to change to the value of ‘default-directory’
 </pre>
       </div>
     </dd>
@@ -4269,31 +4272,6 @@ Symbols are taken from ‘emacspeak-wizards-personal-portfolio’.
 </pre>
       </div>
     </dd>
-  </dl><a name="emacspeak_002dwizards_002dyql_002dweather" id=
-  "emacspeak_002dwizards_002dyql_002dweather"></a>
-
-  <h4 class="subsubsection">12.197.1.129
-  emacspeak-wizards-yql-weather</h4>
-
-  <dl>
-    <dt><a name="index-emacspeak_002dwizards_002dyql_002dweather"
-    id=
-    "index-emacspeak_002dwizards_002dyql_002dweather"></a>Command:
-    <strong>emacspeak-wizards-yql-weather</strong>
-    <em>(zip)</em></dt>
-
-    <dd>
-      <a name="index-emacspeak_002dwizards_002dyql_002dweather-1"
-      id="index-emacspeak_002dwizards_002dyql_002dweather-1"></a>
-
-      <div class="format">
-        <pre class="format">
-Display weather forecast table.
-
-(fn ZIP)
-</pre>
-      </div>
-    </dd>
   </dl><a name="emacspeak_002dwizards-Options" id=
   "emacspeak_002dwizards-Options"></a>
 
@@ -4548,17 +4526,6 @@ Display weather forecast table.
 
     <dd>
       <p>Template used to audio-format rows.</p>
-    </dd>
-  </dl>
-
-  <dl>
-    <dt><a name="index-User-Option-997" id=
-    "index-User-Option-997"></a>Variable: <strong>User
-    Option</strong>
-    <em>emacspeak-wizards-yql-weather-filter</em></dt>
-
-    <dd>
-      <p>Template used to audio-format weather.</p>
     </dd>
   </dl>
   <hr />
