@@ -539,7 +539,7 @@ Emacs online help facility to look up help on these commands.
   "Switch to output buffer."
   (interactive)
   (declare (special emacspeak-maths))
-  (funcall-interactively #'switch-to-buffer (emacspeak-maths-output emacspeak-maths)))
+  (funcall-interactively #'pop-to-buffer (emacspeak-maths-output emacspeak-maths)))
 
 ;;}}}
 ;;{{{ Helpers:

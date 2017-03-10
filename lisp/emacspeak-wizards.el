@@ -2964,7 +2964,7 @@ Optional interactive prefix arg `category' prompts for a category."
       (special-mode)
       (goto-char (point-min))
       (forward-line 2))
-    (funcall-interactively #'switch-to-buffer ihr)))
+    (funcall-interactively #'pop-to-buffer ihr)))
 
 ;;}}}
 ;;{{{ Generic YQL Implementation:
@@ -3248,7 +3248,7 @@ Optional interactive prefix arg shows  unprocessed results."
          for s across  (g-json-get  'standing standings) do
          (insert (emacspeak-wizards--format-mlb-standing s)))))
       (goto-char (point-min))
-      (funcall-interactively #'switch-to-buffer buffer))))
+      (funcall-interactively #'pop-to-buffer buffer))))
 
 (defun emacspeak-wizards--format-nba-standing (s)
   "Format  NBA standing."
@@ -3290,7 +3290,7 @@ Optional interactive prefix arg shows  unprocessed results."
          for s across  (g-json-get  'standing standings) do
          (insert (emacspeak-wizards--format-nba-standing s)))))
       (goto-char (point-min))
-      (funcall-interactively #'switch-to-buffer buffer))))
+      (funcall-interactively #'pop-to-buffer buffer))))
 
 ;;}}}
 ;;{{{ Color at point:

@@ -585,7 +585,7 @@ Caches most recently used device, which then becomes the default for future invo
       (special-mode)
       (setq default-directory
             (expand-file-name soundscape-data)))
-    (funcall-interactively #'switch-to-buffer buffer)))
+    (funcall-interactively #'pop-to-buffer buffer)))
 
 ;;}}}
 (provide 'soundscape)

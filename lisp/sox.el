@@ -165,7 +165,7 @@
       (with-current-buffer buffer
         (sox-mode)
         (sox-setup-keys))))
-  (funcall-interactively #'switch-to-buffer sox-buffer))
+  (funcall-interactively #'pop-to-buffer sox-buffer))
 
 (defun sox-setup-keys ()
   "Set up sox keymap."

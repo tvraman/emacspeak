@@ -263,7 +263,7 @@ list of parsed ladspa-plugin structures, one per label."
     (message "%s plugins in %s libs"
              (length (ladspa-plugins))
              (length (ladspa-libs)))
-    (funcall-interactively #'switch-to-buffer buffer)
+    (funcall-interactively #'pop-to-buffer buffer)
     ))
 
 (declare-function emacspeak-m-player-add-ladspa "emacspeak-m-player.el")
@@ -350,7 +350,7 @@ list of parsed ladspa-plugin structures, one per label."
                 (concat
                  "Ladspa: "
                  (propertize (ladspa-plugin-label plugin) 'face 'font-lock-keyword-face))))
-        (funcall-interactively #'switch-to-buffer buffer))))))
+        (funcall-interactively #'pop-to-buffer buffer))))))
 
 ;;}}}
 ;;{{{ Edit Ladspa Plugin:
