@@ -199,7 +199,7 @@ This is set to nil when playing Internet  streams.")
            (string :tag "option"))
   :group 'emacspeak-m-player)
 
-;;;###autoload
+
 (defcustom emacspeak-media-location-bindings  nil
   "*Map specific key sequences to launching MPlayer accelerators
 on a specific directory."
@@ -213,7 +213,7 @@ on a specific directory."
            (directory :tag "Directory")))
   :set #'(lambda (sym val)
            (mapc
-            (lambda (binding)
+            #'(lambda (binding)
               (let ((key (cl-first binding))
                     (directory (cl-second binding)))
                 (emacspeak-m-player-bind-accelerator directory (kbd key))))

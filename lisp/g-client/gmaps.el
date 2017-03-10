@@ -140,7 +140,7 @@ Optional argument `raw-p' returns raw JSON  object."
   nil
   "Postal Code --- automatically set by reverse geocoding gweb-my-address")
 
-;;;###autoload
+
 (defcustom gweb-my-address
   nil
   "Location address. Setting this updates gweb-my-location coordinates  via geocoding."
