@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1160 commands and 1064 options.
+This chapter documents a total of 1159 commands and 1063 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -201,7 +201,7 @@ This chapter documents a total of 1160 commands and 1064 options.
 * emacspeak-widget::Speech enable Emacs' native GUI widget library.
 * emacspeak-windmove::speech-enable windmove.
 * emacspeak-winring::Speech enable WinRing -- Manage multiple Emacs window configurations.
-* emacspeak-wizards::Implements Emacspeak  convenience wizards.
+* emacspeak-wizards::
 * emacspeak-woman::Speech-enable WOMAN.
 * emacspeak-xkcd::Speech-enable XKCD.
 * emacspeak-xml-shell::Implements a simple XML browser.
@@ -22313,8 +22313,9 @@ Run rpm -qi on current dired entry.
 @findex emacspeak-wizards-shell
 
 @format
-Run Emacs built-in ‘shell’ command when not in a shell buffer, or when called with a prefix argument.
-When called from a shell buffer, switches to ‘next’ shell buffer.
+Run Emacs built-in ‘shell’ command when not in a shell buffer, or
+when called with a prefix argument. When called from a shell buffer,
+switches to ‘next’ shell buffer.
 
 (fn &optional PREFIX)
 @end format
@@ -22364,8 +22365,10 @@ When called from a shell buffer, switches to ‘next’ shell buffer.
 @findex emacspeak-wizards-shell-by-key
 
 @format
-Switch to shell buffer  by key.
-This provides a predictable means for switching to a specific shell buffer.
+Switch to shell buffer by key. This provides a predictable means for
+  switching to a specific shell buffer. When invoked from a
+  non-shell-mode buffer that is visiting a file, invokes ‘cd ’ in the
+  shell to change to the value of ‘default-directory’
 @end format
 @end deffn
 
@@ -22860,17 +22863,6 @@ Symbols are taken from ‘emacspeak-wizards-personal-portfolio’.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-yql-weather
-@deffn {Command} emacspeak-wizards-yql-weather  (zip)
-@findex emacspeak-wizards-yql-weather
-
-@format
-Display weather forecast table.
-
-(fn ZIP)
-@end format
-@end deffn
-
 @subsection emacspeak-wizards Options
 
 @defvar {User Option} emacspeak-clipboard-file
@@ -22955,9 +22947,9 @@ Command for running pdftotext.
 @end defvar
 
 @defvar {User Option} emacspeak-wizards-personal-portfolio
-Set this to the stock tickers you want to check.
-Default is GAFA. Tickers are separated by white-space and are automatically sorted in lexical
-order with duplicates removed  when saving.
+Set this to the stock tickers you want to check. Default is
+GAFA. Tickers are separated by white-space and are automatically
+sorted in lexical order with duplicates removed when saving.
 
 @end defvar
 
@@ -23000,11 +22992,6 @@ Set this to nil if you do not want to use the XLHTML wizard.
 
 @defvar {User Option} emacspeak-wizards-yql-quotes-row-filter
 Template used to audio-format  rows.
-
-@end defvar
-
-@defvar {User Option} emacspeak-wizards-yql-weather-filter
-Template used to audio-format  weather.
 
 @end defvar
 

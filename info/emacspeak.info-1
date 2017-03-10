@@ -2947,7 +2947,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1160 commands and 1064 options.
+This chapter documents a total of 1159 commands and 1063 options.
 
 * Menu:
 
@@ -3147,7 +3147,7 @@ This chapter documents a total of 1160 commands and 1064 options.
 * emacspeak-widget::Speech enable Emacs’ native GUI widget library.
 * emacspeak-windmove::speech-enable windmove.
 * emacspeak-winring::Speech enable WinRing – Manage multiple Emacs window configurations.
-* emacspeak-wizards::Implements Emacspeak  convenience wizards.
+* emacspeak-wizards::
 * emacspeak-woman::Speech-enable WOMAN.
 * emacspeak-xkcd::Speech-enable XKCD.
 * emacspeak-xml-shell::Implements a simple XML browser.
