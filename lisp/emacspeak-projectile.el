@@ -71,19 +71,12 @@
    projectile-clear-known-projects
    projectile-compile-project
    projectile-regenerate-tags
-
-
-
-
-
-
-
-
    projectile-run-async-shell-command-in-root
    projectile-run-command-in-root
    projectile-run-project
    projectile-run-shell-command-in-root
    projectile-test-project
+   projectile-ibuffer
    )
  do
  (eval
