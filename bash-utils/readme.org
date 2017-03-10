@@ -1,4 +1,4 @@
-* Bash Utilities For Use With Emacspeak
+* Bash Utilities For Use With Emacspeak --- see [[https://github.com/tvraman/emacspeak/blob/master/bash-utils/readme.org#L1][bash-utils/Readme.org]].
 
 This directory contains useful Bash functions and Bash scripts.
 
