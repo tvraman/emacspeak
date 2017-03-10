@@ -84,8 +84,6 @@
    projectile-run-project
    projectile-run-shell-command-in-root
    projectile-test-project
-   
-   
    )
  do
  (eval
@@ -95,7 +93,11 @@
        (emacspeak-auditory-icon 'task-done)
        (emacspeak-speak-line)))))
 (add-hook 'projectile-find-file-hook 'emacspeak-projectile-file-action)
-
+(defadvice projectile-edit-dir-locals(after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-line)))
 ;;}}}
 (provide 'emacspeak-projectile)
 ;;{{{ end of file
