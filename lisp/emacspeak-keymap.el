@@ -657,7 +657,8 @@ command that the key sequence executes."
 
 (defcustom emacspeak-hyper-keys 
   '(
-    ("C-s" eshell)
+    ("C-r" flx-isearch-backward)
+    ("C-s" flx-isearch-forward)
     (":" emacspeak-wizards-view-buffers-filtered-by-m-player-mode)
     (";" emacspeak-m-player-using-openal)
     ("'" emacspeak-m-player-using-hrtf)
