@@ -22323,7 +22323,7 @@ switches to ‘next’ shell buffer.
 @end deffn
 
 @subsubsection emacspeak-wizards-shell-by-key
-@deffn {Command} emacspeak-wizards-shell-by-key   
+@deffn {Command} emacspeak-wizards-shell-by-key  (&optional rekey)
 @table @kbd
 @item C-e x 9
 @kindex C-e x 9
@@ -22369,7 +22369,11 @@ switches to ‘next’ shell buffer.
 Switch to shell buffer by key. This provides a predictable means for
   switching to a specific shell buffer. When invoked from a
   non-shell-mode buffer that is visiting a file, invokes ‘cd ’ in the
-  shell to change to the value of ‘default-directory’
+  shell to change to the value of ‘default-directory’. When already in
+  a shell buffer, interactive prefix arg ‘rekey’ causes this shell to
+  be re-keyed if appropriate.
+
+(fn &optional REKEY)
 @end format
 @end deffn
 
