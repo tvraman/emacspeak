@@ -2419,6 +2419,20 @@ switches to `next' shell buffer."
   (emacspeak-auditory-icon 'task-done)
   (message  default-directory))
 
+(defun emacspeak-wizards-shell-re-key (key buffer)
+  "Re-key shell-buffer `buffer' to be accessed via key `key'. The old shell
+buffer keyed by `key'gets the key of buffer `buffer'."
+  (declare (special emacspeak-wizards--shells-table))
+  (let ((orig-buffer (gethash key emacspeak-wizards--shells-table))
+        (swap-key  nil))
+    (cl-loop
+     for k being the hash-keys of emacspeak-wizards--shells-table do
+     (when  (eq buffer  (gethash k emacspeak-wizards--shells-table))
+       (setq swap-key  k)))
+    (puthash key buffer emacspeak-wizards--shells-table)
+    (when swap-key
+      (puthash orig-key orig-buffer emacspeak-wizards--shells-table))))
+
 ;;}}}
 ;;{{{ show commentary:
 (defun ems-cleanup-commentary (commentary)
