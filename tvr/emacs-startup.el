@@ -242,8 +242,9 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      (calendar)
      (when (dbus-list-known-names :session)
        (nm-enable)
-           (emacspeak-dbus-sleep-enable)
-           (emacspeak-dbus-watch-screen-lock))
+       (emacspeak-dbus-sleep-enable)
+       (emacspeak-dbus-watch-screen-lock))
+     (custom-reevaluate-setting 'gweb-my-address)
      (play-sound
       `(sound
         :file ,(expand-file-name "highbells.au" emacspeak-sounds-directory)))
