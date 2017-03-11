@@ -2297,11 +2297,12 @@ Direction specifies previous/next."
             (if  (> direction 0)
                 (second shells)
               (nth (1- (length shells)) shells)))
-      (switch-to-buffer target))
+      (pop-to-buffer target))
      ((= 1 (length shells)) (shell "1-shell"))
      (t (shell)))
     (emacspeak-auditory-icon 'select-object)
     (emacspeak-speak-mode-line)))
+
 ;;;###autoload
 (defun emacspeak-wizards-next-shell ()
   "Switch to next shell."
@@ -2324,9 +2325,10 @@ switches to `next' shell buffer."
    ((or  prefix (not (eq major-mode 'shell-mode)))
     (call-interactively 'shell))
    (t (call-interactively 'emacspeak-wizards-next-shell))))
+
 ;;; Inspired by package project-shells from melpa --- but simplified.
 
-(defvar emacspeak-wizards--shells-table (make-hash-table  :test #'equal)
+(defvar emacspeak-wizards--shells-table (make-hash-table  :test #'eq)
   "Table mapping live shell buffers to keys.")
 
 (defun emacspeak-wizards--build-shells-table ()
@@ -2352,13 +2354,11 @@ switches to `next' shell buffer."
                     major-mode default-directory))
   (when (hash-table-empty-p emacspeak-wizards--shells-table)
     (emacspeak-wizards--build-shells-table))
-  (let* ((directory
-          default-directory)
+  (let* ((directory default-directory)
          (key (read (format "%c" last-input-event)))
          (buffer
           (cond
-           ((hash-table-empty-p emacspeak-wizards--shells-table)
-            (shell))
+           ((hash-table-empty-p emacspeak-wizards--shells-table) (shell))
            ((gethash key emacspeak-wizards--shells-table)
             (gethash key emacspeak-wizards--shells-table))
            (t
@@ -2383,6 +2383,7 @@ switches to `next' shell buffer."
            (string :tag "Buffer Name")
            (directory :tag "Directory")))
   :group 'emacspeak-wizards)
+
 (defvar-local emacspeak-wizards--project-shell-directory "~/"
   "Default directory for a given project shell.")
 
