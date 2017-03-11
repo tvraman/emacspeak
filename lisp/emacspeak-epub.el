@@ -651,7 +651,7 @@ Suitable for text searches."
   (declare (special emacspeak-epub-files-command
                     emacspeak-speak-directory-settings))
   (let* ((directory (file-name-directory epub-file))
-        (locals (expand-file-name emacspeak-speak-directory-settings directory))
+        (locals (locate-dominating-file directory emacspeak-speak-directory-settings))
         (buffer (get-buffer-create "FullText EPub"))
         (files
          (split-string
@@ -676,9 +676,11 @@ Suitable for text searches."
        'emacspeak-web-post-process-hook
        #'(lambda ()
            (setq default-directory directory)
-           (when (file-exists-p locals )(load locals)))
+           (when (file-exists-p locals )(load locals))
+           (emacspeak-auditory-icon 'open-object)
+           (emacspeak-speak-mode-line))
        'at-end)
-      (call-interactively #'browse-url-of-buffer))))
+      (browse-url-of-buffer))))
 (defvar emacspeak-epub-google-search-template
   "http://books.google.com/books/feeds/volumes?min-viewability=full&epub=epub&q=%s"
   "REST  end-point for performing Google Books Search to find Epubs  having full viewability.")
