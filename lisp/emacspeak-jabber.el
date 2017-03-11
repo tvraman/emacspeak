@@ -78,6 +78,7 @@
    ))
 ;;}}}
 ;;{{{ Advice interactive commands:
+
 (defadvice jabber-switch-to-roster-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
@@ -97,11 +98,11 @@
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
      "Silence  messages."
-     (ems-with-messages-silenced ad-do-it
-                                 ad-return-value))))
+     (ems-with-messages-silenced
+      ad-do-it
+      ad-return-value))))
 
 ;;}}}
-
 ;;{{{ jabber activity:
 
 (defadvice jabber-activity-switch-to (after emacspeak pre act comp)
@@ -142,6 +143,7 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
     (message "Set extended  away.")))
+
 (defadvice jabber-go-to-next-jid (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
@@ -194,12 +196,11 @@
 
 (defadvice jabber-connect-all (after emacspeak pre act comp)
   "switch to roster so we give it a chance to update."
-  (when (ems-interactive-p)
-    (switch-to-buffer jabber-roster-buffer)))
+  (when (ems-interactive-p) (switch-to-buffer jabber-roster-buffer)))
+
 (defadvice jabber-roster-update (around emacspeak    pre act  comp)
   "Make this operation a No-Op unless the roster is visible."
-  (when (get-buffer-window-list jabber-roster-buffer)
-    ad-do-it))
+  (when (get-buffer-window-list jabber-roster-buffer) ad-do-it))
 
 (defadvice jabber-display-roster (around emacspeak    pre act  comp)
   "Make this operation a No-Op unless called interactively."
