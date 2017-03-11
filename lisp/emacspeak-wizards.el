@@ -2344,37 +2344,45 @@ switches to `next' shell buffer."
             s emacspeak-wizards--shells-table)))
      shells)))
 
-(defun emacspeak-wizards-shell-by-key ()
+(defun emacspeak-wizards-shell-by-key (&optional rekey)
   "Switch to shell buffer by key. This provides a predictable means for
   switching to a specific shell buffer. When invoked from a
   non-shell-mode buffer that is visiting a file, invokes `cd ' in the
-  shell to change to the value of `default-directory'"
-  (interactive)
+  shell to change to the value of `default-directory'. When already in
+  a shell buffer, interactive prefix arg `rekey' causes this shell to
+  be re-keyed if appropriate."
+  (interactive "P")
   (declare (special last-input-event emacspeak-wizards--shells-table
                     major-mode default-directory))
   (when (hash-table-empty-p emacspeak-wizards--shells-table)
     (emacspeak-wizards--build-shells-table))
-  (let* ((directory default-directory)
-         (key (read (format "%c" last-input-event)))
-         (buffer
-          (cond
-           ((hash-table-empty-p emacspeak-wizards--shells-table) (shell))
-           ((gethash key emacspeak-wizards--shells-table)
-            (gethash key emacspeak-wizards--shells-table))
-           (t
-            (emacspeak-wizards--build-shells-table)
-            (or (gethash key emacspeak-wizards--shells-table)
-                (gethash 0 emacspeak-wizards--shells-table))))))
-    (when buffer-file-name       ;  source determines target directory
-      (with-current-buffer buffer
-        (unless (string=
-                 (expand-file-name directory)
-                 (expand-file-name default-directory))
-          (goto-char (point-max))
-          (insert (format "pushd %s" directory))
-          (comint-send-input)
-          (shell-process-pushd directory))))
-    (funcall-interactively #'pop-to-buffer buffer)))
+  (cond
+   ((and rekey (eq major-mode 'shell-mode))
+    (emacspeak-wizards-shell-re-key
+     (read (format "%c" last-input-event))
+     (current-buffer)))
+   (t
+    (let* ((directory default-directory)
+           (key (read (format "%c" last-input-event)))
+           (buffer
+            (cond
+             ((hash-table-empty-p emacspeak-wizards--shells-table) (shell))
+             ((gethash key emacspeak-wizards--shells-table)
+              (gethash key emacspeak-wizards--shells-table))
+             (t
+              (emacspeak-wizards--build-shells-table)
+              (or (gethash key emacspeak-wizards--shells-table)
+                  (gethash 0 emacspeak-wizards--shells-table))))))
+      (when buffer-file-name       ;  source determines target directory
+        (with-current-buffer buffer
+          (unless (string=
+                   (expand-file-name directory)
+                   (expand-file-name default-directory))
+            (goto-char (point-max))
+            (insert (format "pushd %s" directory))
+            (comint-send-input)
+            (shell-process-pushd directory))))
+      (funcall-interactively #'pop-to-buffer buffer)))))
 
 (defcustom emacspeak-wizards-project-shells nil
   "List of shell-name/initial-directory pairs."
@@ -2423,6 +2431,8 @@ switches to `next' shell buffer."
   "Re-key shell-buffer `buffer' to be accessed via key `key'. The old shell
 buffer keyed by `key'gets the key of buffer `buffer'."
   (declare (special emacspeak-wizards--shells-table))
+  (when (eq buffer (gethash key emacspeak-wizards--shells-table))
+    (error "Rekey: Nothing to do"))
   (let ((swap-buffer (gethash key emacspeak-wizards--shells-table))
         (swap-key  nil))
     (cl-loop
@@ -2431,7 +2441,9 @@ buffer keyed by `key'gets the key of buffer `buffer'."
        (setq swap-key  k)))
     (puthash key buffer emacspeak-wizards--shells-table)
     (when swap-key
-      (puthash swap-key swap-buffer emacspeak-wizards--shells-table))))
+      (puthash swap-key swap-buffer emacspeak-wizards--shells-table))
+    (message "%s is now  on %s"
+             (buffer-name buffer) key)))
 
 ;;}}}
 ;;{{{ show commentary:
