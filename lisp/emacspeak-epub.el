@@ -649,7 +649,9 @@ Suitable for text searches."
      (get-text-property (point) 'epub)
      (read-file-name "EPub: " emacspeak-epub-library-directory))))
   (declare (special emacspeak-epub-files-command))
-  (let ((buffer (get-buffer-create "FullText EPub"))
+  (let* ((directory (file-name-directory epub-file))
+        (locals (expand-file-name ".espeak.el" directory))
+        (buffer (get-buffer-create "FullText EPub"))
         (files
          (split-string
           (shell-command-to-string
@@ -661,16 +663,21 @@ Suitable for text searches."
       (erase-buffer)
       (setq buffer-undo-list t)
       (cl-loop for f in files
-            do
-            (insert (format "<!-- %s -->" f))
-            (setq command
-                  (format "unzip -c -qq %s %s "
-                          epub-file 
-                          (shell-quote-argument f)))
-            (insert (shell-command-to-string command))
-            (goto-char (point-max)))
-      (browse-url-of-buffer))))
-
+               do
+               (insert (format "<!-- %s -->" f))
+               (setq command
+                     (format "unzip -c -qq %s %s "
+                             epub-file 
+                             (shell-quote-argument f)))
+               (insert (shell-command-to-string command))
+               (goto-char (point-max)))
+      (add-hook
+       'emacspeak-web-post-process-hook
+       #'(lambda ()
+           (setq default-directory directory)
+           (when (file-exists-p locals )(load locals)))
+       'at-end)
+      (call-interactively #'browse-url-of-buffer))))
 (defvar emacspeak-epub-google-search-template
   "http://books.google.com/books/feeds/volumes?min-viewability=full&epub=epub&q=%s"
   "REST  end-point for performing Google Books Search to find Epubs  having full viewability.")
