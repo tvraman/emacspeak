@@ -3048,7 +3048,8 @@ switches to ‘next’ shell buffer.
     <dt><a name=
     "index-emacspeak_002dwizards_002dshell_002dby_002dkey" id=
     "index-emacspeak_002dwizards_002dshell_002dby_002dkey"></a>Command:
-    <strong>emacspeak-wizards-shell-by-key</strong></dt>
+    <strong>emacspeak-wizards-shell-by-key</strong>
+    <em>(&amp;optional rekey)</em></dt>
 
     <dd>
       <dl compact="compact">
@@ -3150,7 +3151,11 @@ switches to ‘next’ shell buffer.
 Switch to shell buffer by key. This provides a predictable means for
   switching to a specific shell buffer. When invoked from a
   non-shell-mode buffer that is visiting a file, invokes ‘cd ’ in the
-  shell to change to the value of ‘default-directory’
+  shell to change to the value of ‘default-directory’. When already in
+  a shell buffer, interactive prefix arg ‘rekey’ causes this shell to
+  be re-keyed if appropriate.
+
+(fn &amp;optional REKEY)
 </pre>
       </div>
     </dd>
