@@ -2170,7 +2170,7 @@ Produce an auditory icon if possible."
   "Setup emacspeak environment for isearch."
   (emacspeak-auditory-icon 'open-object)
   (setq emacspeak-speak-messages nil)
-  (dtk-speak "I-Search: "))
+  (dtk-speak (isearch-message-prefix)))
 
 (defun emacspeak-isearch-teardown()
   "Teardown emacspeak environment for isearch."
