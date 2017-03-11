@@ -670,14 +670,6 @@ from English to German")
 ;;}}}
 ;;{{{ Google Archive Search
 
-(emacspeak-url-template-define
- "IToRSS"
- "http://feedflipper.net/convert.php?feed=%s"
- (list "ITunes URL: ")
- nil
- "Pull RSS feed corresponding to an ITunes Podcast."
- #'emacspeak-feeds-rss-display)
-
 ;;}}}
 ;;{{{ cnet news
 
