@@ -67,16 +67,11 @@
 
 (defun amixer-populate-settings (control)
   "Populate control with its settings information."
-  (declare (special amixer-card
-                    amixer-device))
-  (let ((scratch (get-buffer-create " *amixer*"))
-        (fields nil)
+  (declare (special amixer-card amixer-device))
+  (let ((fields nil)
         (slots nil)
         (current nil))
-    (save-current-buffer
-      (set-buffer scratch)
-      (setq buffer-undo-list t)
-      (erase-buffer)
+    (with-temp-buffer
       (shell-command
        (format "amixer --device %s cget numid=%s"
                amixer-device
@@ -120,14 +115,10 @@
   (declare (special amixer-db amixer-device))
   (unless (executable-find "amixer")
     (error "You dont have a standard amixer."))
-  (let ((scratch (get-buffer-create " *amixer*"))
-        (controls nil)
+  (let ((controls nil)
         (fields nil)
         (slots nil))
-    (save-current-buffer
-      (set-buffer scratch)
-      (setq buffer-undo-list t)
-      (erase-buffer)
+    (with-temp-buffer 
       (shell-command
        (format
         "amixer --device %s controls | sed -e s/\\'//g"
@@ -169,12 +160,8 @@
 (defun amixer-get-enumerated-values(control)
   "Return list of enumerated values."
   (declare (special amixer-device))
-  (let ((buffer (get-buffer-create " *amixer*"))
-        (values nil))
-    (save-current-buffer
-      (set-buffer buffer)
-      (setq buffer-undo-list t)
-      (erase-buffer)
+  (let ((values nil))
+    (with-temp-buffer
       (shell-command
        (format
         "amixer -devicec %s   cget numid=%s | grep Item | sed -e s/\\'//g"
