@@ -2682,6 +2682,7 @@ Produce auditory icons if possible."
           "Automatically speak results of rendering."
           (cond
            ((ems-interactive-p)
+            (emacspeak-auditory-icon 'open-object)
             (emacspeak-webutils-autospeak)
             ad-do-it)
            (t ad-do-it))
