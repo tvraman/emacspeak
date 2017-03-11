@@ -648,9 +648,10 @@ Suitable for text searches."
     (or
      (get-text-property (point) 'epub)
      (read-file-name "EPub: " emacspeak-epub-library-directory))))
-  (declare (special emacspeak-epub-files-command))
+  (declare (special emacspeak-epub-files-command
+                    emacspeak-speak-directory-settings))
   (let* ((directory (file-name-directory epub-file))
-        (locals (expand-file-name ".espeak.el" directory))
+        (locals (expand-file-name emacspeak-speak-directory-settings directory))
         (buffer (get-buffer-create "FullText EPub"))
         (files
          (split-string
