@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents Emacspeak, The Complete Audio Desktop.  This
-document was last updated on March 9, 2017.
+document was last updated on March 10, 2017.
 
    The manual is divided into the following chapters.
 
@@ -4199,7 +4199,8 @@ system.
      key             binding
      —             ——-
 
-     C-s		eshell
+     C-r		flx-isearch-backward
+     C-s		flx-isearch-forward
      SPC		emacspeak-webspace
      ’		emacspeak-m-player-using-hrtf
      :		emacspeak-wizards-view-buffers-filtered-by-m-player-mode
