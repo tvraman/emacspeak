@@ -8,7 +8,8 @@
 
 ;;; terse modeline
 (require 'jabber-modeline)
-(setq jabber-mode-line-string (list " "
+(setq jabber-mode-line-string
+      (list " "
               'jabber-mode-line-presence
               ;" "
               ;'jabber-mode-line-contacts

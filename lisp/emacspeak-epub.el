@@ -660,6 +660,8 @@ Suitable for text searches."
           "\n" 'omit-nulls))
         (inhibit-read-only t)
         (command nil))
+    (when locals 
+    (setq locals (expand-file-name  emacspeak-speak-directory-settings locals)))
     (with-current-buffer buffer
       (erase-buffer)
       (setq buffer-undo-list t)
