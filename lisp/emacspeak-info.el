@@ -186,7 +186,7 @@ node-spec."
 ;;{{{ Info: Section navigation
 ;;; Use property info-title-* to move across section titles.
 (defvar emacspeak-info--title-faces
-  '(info-title-1 info-title-2 info-title-3 info-title-4 Info-menu-header)
+  '(info-title-1 info-title-2 info-title-3 info-title-4 info-menu-header)
   "Faces that identify section titles.")
 
 (defun emacspeak-info-next-section ()
