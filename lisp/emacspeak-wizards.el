@@ -2374,12 +2374,13 @@ Once switched, set default directory in that target shell to the directory of th
      shells)))
 
 (defun emacspeak-wizards-shell-by-key (&optional rekey)
-  "Switch to shell buffer by key. This provides a predictable means for
-  switching to a specific shell buffer. When invoked from a
-  non-shell-mode buffer that is visiting a file, invokes `cd ' in the
-  shell to change to the value of `default-directory'. When already in
-  a shell buffer, interactive prefix arg `rekey' causes this shell to
-  be re-keyed if appropriate."
+  "Switch to shell buffer by key. This provides a predictable means
+  for switching to a specific shell buffer. When invoked from a
+  non-shell-mode buffer that is visiting a file, invokes `cd ' in
+  the shell to change to the value of `default-directory' --- use
+  a prefix-arg to negate this behavior.. When already in a shell
+  buffer, interactive prefix arg `rekey' causes this shell to be
+  re-keyed if appropriate."
   (interactive "P")
   (declare (special last-input-event emacspeak-wizards--shells-table
                     major-mode default-directory))
@@ -2402,7 +2403,7 @@ Once switched, set default directory in that target shell to the directory of th
               (emacspeak-wizards--build-shells-table)
               (or (gethash key emacspeak-wizards--shells-table)
                   (gethash 0 emacspeak-wizards--shells-table))))))
-      (when buffer-file-name       ;  source determines target directory
+      (when (and (null rekey)buffer-file-name)       ;  source determines target directory
         (with-current-buffer buffer
           (unless (string=
                    (expand-file-name directory)
