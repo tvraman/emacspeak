@@ -1,7 +1,7 @@
 ;;; Taken from endless' Blog:  -*- lexical-binding: t; -*-
 
 (define-key ctl-x-map "\C-i" #'auto-correct-update)
-
+(global-set-key  (kbd "S-SPC") 'auto-correct-update)
 (defun auto-correct-update (p)
   "Call `ispell-word', then create an abbrev for it.
 With prefix P, create local abbrev. Otherwise it will be global."
