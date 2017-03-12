@@ -2321,7 +2321,8 @@ Direction specifies previous/next."
   "Run Emacs built-in `shell' command when not in a shell buffer, or
 when called with a prefix argument. When called from a shell buffer,
 switches to `next' shell buffer. When called from outside a shell
-buffer, find the most `appropriate shell' and switch to it."
+buffer, find the most `appropriate shell' and switch to it.
+Once switched, set default directory in that target shell to the directory of the source buffer."
   (interactive "P")
   (declare (special emacspeak-wizards--project-shell-directory))
   (cond
@@ -2341,10 +2342,18 @@ buffer, find the most `appropriate shell' and switch to it."
               (> (length sd) target-len))
            (setq target s)
            (setq target-len (length sd)))))
-      (if target
-          (funcall-interactively #'pop-to-buffer target)
-        (shell))))
-   (t (call-interactively 'emacspeak-wizards-next-shell))))
+      (cond
+       (target (funcall-interactively #'pop-to-buffer target)
+               (with-current-buffer target
+                 (unless (string=
+                          (expand-file-name dir)
+                          (expand-file-name default-directory))
+                   (goto-char (point-max))
+                   (insert (format "pushd %s" dir))
+                   (comint-send-input)
+                   (shell-process-pushd directory))))
+       (t (shell))))))
+  (t (call-interactively 'emacspeak-wizards-next-shell))))
 
 ;;; Inspired by package project-shells from melpa --- but simplified.
 
