@@ -24,6 +24,10 @@ Module _emacspeak-wizards_ provides a set of shell-management commands
 that make it easy to create shell buffers specific to projects and
 moving among them. See command _emacspeak-wizards-shell-by-key_ and
 customization variable _emacspeak-wizards-project-shells_.
+** EWW And EBooks:
+
+Command  _emacspeak-epub-eww_ now loads Emacspeak's directory-specific
+settings file if found on the epub-file path.
 
 ** Installation:
 
