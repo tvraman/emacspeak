@@ -58,6 +58,10 @@ that upgrade first if you  have an  older Voxin installation.
 
 Module ~emacspeak-maths~ uses _MathJax_ with _Speech-Rule-Engine_
 implemented using *NodeJS* to provide audio-formatted mathematics.
+** Speech-Enabled Elisp-Refs
+
+Module _emacspeak-elisp-refs_ speech-enables package _elisp-refs_, a
+powerful tool for semantic searches over elisp source code.
 
 ** Updated C/C++ Mode Support 
 
@@ -98,6 +102,10 @@ along with predefined Binaural effects and effect sequences.
 
 Module _emacspeak-wizards_ now  provides ~emacspeak-wizards-iheart~
 --- this uses ~iheart-url~ to play IHeart Radio stations.
+** Speech-Enabled Projectile 
+
+Module _emacspeak-projectile.el_ speech-enables package _projectile_
+for software project management.
 
 ** Notifications 
 
