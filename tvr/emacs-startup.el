@@ -131,6 +131,8 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        ( "\M-\C-c"calendar))
      do
      (global-set-key (first key) (second key)))
+;;; Experimental:
+(global-set-key [S-return] 'other-window)
 
 ;;; Smarten up ctl-x-map
     (define-key ctl-x-map "\C-n" 'forward-page)
