@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1159 commands and 1063 options.
+This chapter documents a total of 1159 commands and 1064 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -2391,6 +2391,12 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @defvar {User Option} emacspeak-fixed-pitch-voice
 Personality used for fixed-pitch
 This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-flx-highlight-personality
+Personality used for flx-highlight-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 
 @end defvar
 
@@ -20997,16 +21003,16 @@ annotation is inserted into the working buffer when complete.
 @findex emacspeak-clipboard-copy
 
 @format
-Copy contents of the region to the emacspeak clipboard.
-Previous contents of the clipboard will be overwritten.  The Emacspeak
-clipboard is a convenient way of sharing information between
-independent Emacspeak sessions running on the same or different
-machines.  Do not use this for sharing information within an Emacs
-session --Emacs’ register commands are far more efficient and
-light-weight.  Optional interactive prefix arg results in Emacspeak
-prompting for the clipboard file to use.
-Argument START and END specifies  region.
-Optional argument PROMPT  specifies whether we prompt for the name of a clipboard file.
+Copy contents of the region to the emacspeak clipboard. Previous
+contents of the clipboard will be overwritten. The Emacspeak clipboard
+is a convenient way of sharing information between independent
+Emacspeak sessions running on the same or different machines. Do not
+use this for sharing information within an Emacs session --Emacs’
+register commands are far more efficient and light-weight. Optional
+interactive prefix arg results in Emacspeak prompting for the
+clipboard file to use. Argument START and END specifies
+region. Optional argument PROMPT specifies whether we prompt for the
+name of a clipboard file.
 
 (fn START END &optional PROMPT)
 @end format
@@ -21781,7 +21787,8 @@ Enumerate  faces matching pattern.
 @findex emacspeak-wizards-enumerate-obsolete-faces
 
 @format
-utility function to enumerate old, obsolete maps that we have still  mapped to voices.
+utility function to enumerate old, obsolete maps that we have still
+mapped to voices.
 @end format
 @end deffn
 
@@ -22316,7 +22323,9 @@ Run rpm -qi on current dired entry.
 @format
 Run Emacs built-in ‘shell’ command when not in a shell buffer, or
 when called with a prefix argument. When called from a shell buffer,
-switches to ‘next’ shell buffer.
+switches to ‘next’ shell buffer. When called from outside a shell
+buffer, find the most ‘appropriate shell’ and switch to it.
+Once switched, set default directory in that target shell to the directory of the source buffer.
 
 (fn &optional PREFIX)
 @end format
@@ -22366,12 +22375,13 @@ switches to ‘next’ shell buffer.
 @findex emacspeak-wizards-shell-by-key
 
 @format
-Switch to shell buffer by key. This provides a predictable means for
-  switching to a specific shell buffer. When invoked from a
-  non-shell-mode buffer that is visiting a file, invokes ‘cd ’ in the
-  shell to change to the value of ‘default-directory’. When already in
-  a shell buffer, interactive prefix arg ‘rekey’ causes this shell to
-  be re-keyed if appropriate.
+Switch to shell buffer by key. This provides a predictable means
+  for switching to a specific shell buffer. When invoked from a
+  non-shell-mode buffer that is visiting a file, invokes ‘cd ’ in
+  the shell to change to the value of ‘default-directory’ --- use
+  a prefix-arg to negate this behavior.. When already in a shell
+  buffer, interactive prefix arg ‘rekey’ causes this shell to be
+  re-keyed if appropriate.
 
 (fn &optional REKEY)
 @end format
@@ -25000,7 +25010,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 87 URL Templates.
+This section documents a total of 86 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -25202,10 +25212,6 @@ Page Analysis From Google Webmaster tools.
 @b{Google topical News}
 
 Display specified news feed.
-
-@b{IToRSS}
-
-Pull RSS feed corresponding to an ITunes Podcast.
 
 @b{Lightweight  weather from wunderground}
 

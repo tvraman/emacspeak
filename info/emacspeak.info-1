@@ -2947,7 +2947,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1159 commands and 1063 options.
+This chapter documents a total of 1159 commands and 1064 options.
 
 * Menu:
 
@@ -4947,6 +4947,11 @@ system.
      Personality used for fixed-pitch This personality uses
      voice-monotone whose effect can be changed globally by customizing
      voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-flx-highlight-personality
+     Personality used for flx-highlight-face This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
 
  -- Variable: User Option emacspeak-flyspell-incorrect-voice
      Personality used for flyspell-incorrect This personality uses
