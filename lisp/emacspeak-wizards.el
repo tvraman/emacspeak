@@ -294,7 +294,7 @@ If it is already selected then hide it and try to restore
 previous window configuration."
   (interactive)
   (cond
-                                        ; First check if Messages buffer is already selected
+;;; First check if Messages buffer is already selected
    ((string-equal (buffer-name (window-buffer (selected-window)))
                   "*Messages*")
     (when (window-configuration-p emacspeak-popup-messages-config-0)
@@ -686,16 +686,16 @@ information between different Emacs sessions."
   :type 'string)
 ;;;###autoload
 (defun emacspeak-clipboard-copy (start end &optional prompt)
-  "Copy contents of the region to the emacspeak clipboard.
-Previous contents of the clipboard will be overwritten.  The Emacspeak
-clipboard is a convenient way of sharing information between
-independent Emacspeak sessions running on the same or different
-machines.  Do not use this for sharing information within an Emacs
-session --Emacs' register commands are far more efficient and
-light-weight.  Optional interactive prefix arg results in Emacspeak
-prompting for the clipboard file to use.
-Argument START and END specifies  region.
-Optional argument PROMPT  specifies whether we prompt for the name of a clipboard file."
+  "Copy contents of the region to the emacspeak clipboard. Previous
+contents of the clipboard will be overwritten. The Emacspeak clipboard
+is a convenient way of sharing information between independent
+Emacspeak sessions running on the same or different machines. Do not
+use this for sharing information within an Emacs session --Emacs'
+register commands are far more efficient and light-weight. Optional
+interactive prefix arg results in Emacspeak prompting for the
+clipboard file to use. Argument START and END specifies
+region. Optional argument PROMPT specifies whether we prompt for the
+name of a clipboard file."
   (interactive "r\nP")
   (declare (special emacspeak-resource-directory emacspeak-clipboard-file))
   (let ((clip (buffer-substring-no-properties start end))
@@ -1633,7 +1633,8 @@ directory to where find is to be launched."
           (position browse-url-browser-function
                     emacspeak-wizards-available-browsers))
          (next  (% (1+ current) count)))
-    (setq browse-url-browser-function (nth  next emacspeak-wizards-available-browsers))
+    (setq browse-url-browser-function
+          (nth  next emacspeak-wizards-available-browsers))
     (message "Browser set to %s" browse-url-browser-function)))
 
 ;;}}}
@@ -2319,11 +2320,30 @@ Direction specifies previous/next."
 (defun emacspeak-wizards-shell (&optional prefix)
   "Run Emacs built-in `shell' command when not in a shell buffer, or
 when called with a prefix argument. When called from a shell buffer,
-switches to `next' shell buffer."
+switches to `next' shell buffer. When called from outside a shell
+buffer, find the most `appropriate shell' and switch to it."
   (interactive "P")
+  (declare (special emacspeak-wizards--project-shell-directory))
   (cond
    ((or  prefix (not (eq major-mode 'shell-mode)))
-    (call-interactively 'shell))
+    (let ((dir default-directory)
+          (shells (emacspeak-wizards-get-shells))
+          (target nil)
+          (target-len 0))
+      (cl-loop
+       for s in shells do
+       (let ((sd
+              (with-current-buffer s
+                (expand-file-name emacspeak-wizards--project-shell-directory))))
+         (when
+             (and
+              (string-prefix-p  sd dir)
+              (> (length sd) target-len))
+           (setq target s)
+           (setq target-len (length sd)))))
+      (if target
+          (funcall-interactively #'pop-to-buffer target)
+        (shell))))
    (t (call-interactively 'emacspeak-wizards-next-shell))))
 
 ;;; Inspired by package project-shells from melpa --- but simplified.
@@ -2797,7 +2817,8 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
 
 ;;;###autoload
 (defun emacspeak-wizards-enumerate-obsolete-faces ()
-  "utility function to enumerate old, obsolete maps that we have still  mapped to voices."
+  "utility function to enumerate old, obsolete maps that we have still
+mapped to voices."
   (interactive)
   (delq nil
         (mapcar
