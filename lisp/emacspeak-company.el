@@ -102,9 +102,9 @@
 ;;}}}
 ;;{{{ Company Setup For Emacspeak:
 (defun emacspeak-company-setup ()
-  "Set front-end to our sole front-end action."
+  "Set front-end to our  front-end action."
   (declare (special company-frontends))
-  (setq company-frontends '(emacspeak-company-frontend))
+  (pushnew 'emacspeak-company-frontend company-frontends)
   (add-hook
    'company-completion-started-hook
    #'(lambda (&rest _ignore) (emacspeak-auditory-icon 'help)))
