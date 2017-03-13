@@ -1756,12 +1756,19 @@ Interactive prefix arg speaks buffer info."
    (buffer-info (emacspeak-speak-buffer-info))
    (t                                   ; main branch
     (let ((global-info (format-mode-line global-mode-string))
+          (window-count (length (tapestry-buffer-map)))
           (vc-state (when vc-mode  (vc-state (buffer-file-name))))
           (frame-info (emacspeak-get-voicefied-frame-info (selected-frame)))
           (recursion-info (emacspeak-get-voicefied-recursion-info  (recursion-depth)))
           (dir-info (when (or (eq major-mode 'shell-mode)
                               (eq major-mode 'comint-mode))
                       (abbreviate-file-name default-directory))))
+      (setq
+       window-count
+       (if (> window-count 1)
+       (format "%s Windows " window-count)
+       nil))
+      (when window-count (propertize window-count 'personality voice-smoothen))
       (cond
        ((stringp mode-line-format) (dtk-speak mode-line-format))
        (t                               ;process modeline
@@ -1771,7 +1778,7 @@ Interactive prefix arg speaks buffer info."
         (tts-with-punctuations
          'all
          (unless (and buffer-read-only
-                      (buffer-modified-p))  ; avoid pathological case
+                      (buffer-modified-p)) ; avoid pathological case
            (when (and buffer-file-name  (buffer-modified-p))
              (emacspeak-auditory-icon 'modified-object))
            (when buffer-read-only (emacspeak-auditory-icon 'unmodified-object)))
@@ -1787,6 +1794,7 @@ Interactive prefix arg speaks buffer info."
              (format "Column %d" (current-column)))
            (emacspeak-get-voicefied-mode-name mode-name)
            (emacspeak-get-current-percentage-verbously)
+           window-count
            global-info frame-info recursion-info)))))))))
 
 (defun emacspeak-speak-current-buffer-name ()
