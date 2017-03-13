@@ -57,3 +57,4 @@ Set by locating it via xinput --list."
 ;(add-hook 'delete-frame-functions #'turn-on-mouse)
 (when (locate-library "disable-mouse")
   (global-disable-mouse-mode))
+(turn-off-mouse)
