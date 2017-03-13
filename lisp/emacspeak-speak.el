@@ -1761,10 +1761,11 @@ Interactive prefix arg speaks buffer info."
           (vc-state (when vc-mode  (vc-state (buffer-file-name))))
           (frame-info (emacspeak-get-voicefied-frame-info (selected-frame)))
           (recursion-info (emacspeak-get-voicefied-recursion-info  (recursion-depth)))
-          (dir-info (when (or (eq major-mode 'shell-mode)
-                              (eq major-mode 'comint-mode))
-                      (abbreviate-file-name default-directory))))
-      (when (> window-count 1) (sox-chime 5 4))
+          (dir-info
+           (when (or (eq major-mode 'shell-mode)
+                     (eq major-mode 'comint-mode))
+             (abbreviate-file-name default-directory))))
+      (when (> window-count 1) (sox-bling))
       (setq
        window-count
        (if (> window-count 1)
