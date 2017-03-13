@@ -55,6 +55,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
+(require 'tapestry)
 (require 'ido)
 (require 'time-date)
 (require 'rect)
