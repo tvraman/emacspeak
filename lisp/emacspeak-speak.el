@@ -1763,11 +1763,12 @@ Interactive prefix arg speaks buffer info."
           (dir-info (when (or (eq major-mode 'shell-mode)
                               (eq major-mode 'comint-mode))
                       (abbreviate-file-name default-directory))))
+      (when (> window-count 1) (sox-chime 5 4))
       (setq
        window-count
        (if (> window-count 1)
-       (format "%s Windows " window-count)
-       nil))
+           (format "%s Windows " window-count)
+         nil))
       (when window-count (propertize window-count 'personality voice-smoothen))
       (cond
        ((stringp mode-line-format) (dtk-speak mode-line-format))
