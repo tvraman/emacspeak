@@ -605,6 +605,24 @@ Freq can be specified as a frequency, note (%nn) or frequency range."
     (when speed (format " speed %s" speed)))))
 
 ;;}}}
+;;{{{ bling:
+
+(defconst sox-bling-cmd
+  "-q -n synth -j 1 sin %4 sin %-2 \
+fade h 0.1 0.5 \
+delay 0.3 0.5\
+ remix \
+- fade h 0.5 1.4 1.8 \
+norm -1 channels 2 tempo 2 "
+"Produce a short bling")
+
+;;;###autoload
+(defun sox-bling ()
+  "Produce a short bling."
+  (declare (special sox-bling-cmd))
+(sox-gen-cmd sox-bling-cmd))
+
+;;}}}
 ;;{{{ Guitar Chord:
 
 (defconst sox-guitar-chord-cmd
