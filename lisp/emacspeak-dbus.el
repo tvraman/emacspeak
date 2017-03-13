@@ -99,10 +99,13 @@ Startup  apps that need the network."
   (declare (special emacspeak-speak-network-interfaces-list))
   (setq emacspeak-speak-network-interfaces-list
         (mapcar #'car (network-interface-list)))
-  (when (featurep 'jabber) (jabber-connect-all))
-  (when (featurep 'twittering-mode) (twittering-start))
-  (emacspeak-auditory-icon 'network-up)
-  (message
+  (run-at-time
+   30 nil
+   #'(lambda ()
+       (when (featurep 'jabber) (jabber-connect-all))
+       (when (featurep 'twittering-mode) (twittering-start))))
+       (emacspeak-auditory-icon 'network-up)
+       (message
    (mapconcat #'identity emacspeak-speak-network-interfaces-list "")))
 
 (defun emacspeak-dbus-nm-disconnected ()
