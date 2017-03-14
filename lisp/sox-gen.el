@@ -616,7 +616,7 @@ Freq can be specified as a frequency, note (%nn) or frequency range."
 
 (defconst sox-bling-cmd
   "-q -n synth -j 1 sin %-5 sin %-2 \
-delay 0.5 0.7 \
+delay 0.4 0.7 \
 fade h 0.1 1 0.9 \
 channels 2 tempo 1.5"
   "Chime used to indicate multiple windows.")
