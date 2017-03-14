@@ -1771,7 +1771,6 @@ Interactive prefix arg speaks buffer info."
        (if (> window-count 1)
            (format " %s " window-count)
          nil))
-      (when window-count (propertize window-count 'personality voice-animate))
       (cond
        ((stringp mode-line-format) (dtk-speak mode-line-format))
        (t                               ;process modeline
@@ -1785,17 +1784,17 @@ Interactive prefix arg speaks buffer info."
            (when (and buffer-file-name  (buffer-modified-p))
              (emacspeak-auditory-icon 'modified-object))
            (when buffer-read-only (emacspeak-auditory-icon 'unmodified-object)))
-         (when vc-mode (propertize vc-mode  'personality voice-smoothen))
          (dtk-speak
           (concat
            dir-info
            (emacspeak-get-voicefied-buffer-name (buffer-name))
+           (when vc-mode (propertize vc-mode  'personality voice-smoothen))
            (when vc-state (format "%s" vc-state))
            (when line-number-mode
              (format "line %d" (emacspeak-get-current-line-number)))
            (when column-number-mode
              (format "Column %d" (current-column)))
-           window-count
+           (when window-count (propertize window-count 'personality voice-smoothen))
            (emacspeak-get-voicefied-mode-name mode-name)
            (emacspeak-get-current-percentage-verbously)
            global-info frame-info recursion-info)))))))))
