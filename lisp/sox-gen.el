@@ -620,10 +620,7 @@ delay 0.5 0.7 \
 fade h 0.1 1 0.9 \
 channels 2 tempo 1.5"
   "Chime used to indicate multiple windows.")
-
   
-"Produce a short bling")
-
 ;;;###autoload
 (defun sox-bling ()
   "Produce a short bling."
