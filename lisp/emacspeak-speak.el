@@ -1771,7 +1771,7 @@ Interactive prefix arg speaks buffer info."
        (if (> window-count 1)
            (format " %s " window-count)
          nil))
-      (when window-count (propertize window-count 'personality voice-monotone))
+      (when window-count (propertize window-count 'personality voice-animate))
       (cond
        ((stringp mode-line-format) (dtk-speak mode-line-format))
        (t                               ;process modeline
