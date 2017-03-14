@@ -1788,13 +1788,13 @@ Interactive prefix arg speaks buffer info."
           (concat
            dir-info
            (emacspeak-get-voicefied-buffer-name (buffer-name))
+           (when window-count (propertize window-count 'personality voice-smoothen))
            (when vc-mode (propertize vc-mode  'personality voice-smoothen))
            (when vc-state (format "%s" vc-state))
            (when line-number-mode
              (format "line %d" (emacspeak-get-current-line-number)))
            (when column-number-mode
              (format "Column %d" (current-column)))
-           (when window-count (propertize window-count 'personality voice-smoothen))
            (emacspeak-get-voicefied-mode-name mode-name)
            (emacspeak-get-current-percentage-verbously)
            global-info frame-info recursion-info)))))))))
