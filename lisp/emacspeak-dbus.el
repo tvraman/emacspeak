@@ -84,11 +84,13 @@
 This is a hidden buffer that is made current so we automatically
 switch to a screen-saver soundscape."
   t)
+
 (defun emacspeak-screen-saver ()
   "Initialize screen-saver buffer  if needed, and switch to  it."
   (let ((buffer (get-buffer-create "*Emacspeak Screen Saver*")))
     (with-current-buffer buffer (emacspeak-screen-saver-mode))
-    (funcall-interactively #'switch-to-buffer buffer)))
+    (funcall-interactively #'switch-to-buffer buffer)
+    (delete-other-windows)))
 
 ;;}}}
 ;;{{{ NM Handlers
