@@ -2352,7 +2352,7 @@ Once switched, set default directory in that target shell to the directory of th
                    (insert (format "pushd %s" dir))
                    (comint-send-input)
                    (shell-process-pushd dir))))
-       (t (shell)))))
+       (t (call-interactively #'shell)))))
    (t (call-interactively 'emacspeak-wizards-next-shell))))
 
 ;;; Inspired by package project-shells from melpa --- but simplified.
