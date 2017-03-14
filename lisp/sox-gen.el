@@ -607,13 +607,21 @@ Freq can be specified as a frequency, note (%nn) or frequency range."
 ;;}}}
 ;;{{{ bling:
 
+;;"-q -n synth -j 1 sin %4 sin %-2 \      
+;; fade h 0.1 0.5 \
+;; delay 0.3 0.5\
+;;  remix \
+;; - fade h 0.5 1.4 1.8 \
+;; norm -1 channels 2 tempo 2 "
+
 (defconst sox-bling-cmd
-  "-q -n synth -j 1 sin %4 sin %-2 \
-fade h 0.1 0.5 \
-delay 0.3 0.5\
- remix \
-- fade h 0.5 1.4 1.8 \
-norm -1 channels 2 tempo 2 "
+  "-q -n synth -j 1 sin %-5 sin %-2 \
+delay 0.5 0.7 \
+fade h 0.1 1 0.9 \
+channels 2 tempo 1.5"
+  "Chime used to indicate multiple windows.")
+
+  
 "Produce a short bling")
 
 ;;;###autoload
