@@ -615,11 +615,11 @@ Freq can be specified as a frequency, note (%nn) or frequency range."
 ;; norm -1 channels 2 tempo 2 "
 
 (defconst sox-bling-cmd
-  "-q -n synth -j 1 \
-sin %-5 sin %-2  \
-delay  0.3 0.6 \
-fade h 0.2 1 0.8 \
-channels 2 tempo 2 speed 1.2 gain -18"
+  "-q -n synth -j 3 \
+sin %-5 sin %-2 \
+delay 0.1 0.3 \
+fade h 0.2 0.7 0.3 \
+channels 2 tempo 2  speed 1.2 gain -10"
   "Chime used to indicate multiple windows.")
   
 ;;;###autoload
