@@ -629,6 +629,27 @@ channels 2 tempo 2  speed 1.2 gain -10"
 (sox-gen-cmd sox-bling-cmd))
 
 ;;}}}
+;;{{{ Chime:
+
+(defconst sox-tones-cmd
+  "-q -n synth -j 3 \
+sin %3 sin %-2 sin %-5 sin %-9 sin %-14 sin %-21 \
+fade h .01 2 1.5 \
+delay  1.3 1 .76 .54 .27 \
+  norm -1 channels 2"
+  "Command-line that produces a sequence of  tones.")
+
+;;;###autoload
+(defun sox-tones (&optional tempo speed)
+  "Play sequence of tones --- optional args tempo and speed default to 1."
+  (declare (special sox-tones-cmd))
+  (sox-gen-cmd
+   (concat
+    sox-tones-cmd
+    (when tempo (format " tempo %s" tempo))
+    (when speed (format " speed %s" speed)))))
+
+;;}}}
 ;;{{{ Guitar Chord:
 
 (defconst sox-guitar-chord-cmd
