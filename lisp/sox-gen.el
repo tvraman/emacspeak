@@ -619,7 +619,7 @@ Freq can be specified as a frequency, note (%nn) or frequency range."
 sin %-5 sin %-2  \
 delay  0.3 0.6 \
 fade h 0.2 1 0.8 \
-channels 2 tempo 2 speed 1.2"
+channels 2 tempo 2 speed 1.2 gain -18"
   "Chime used to indicate multiple windows.")
   
 ;;;###autoload
