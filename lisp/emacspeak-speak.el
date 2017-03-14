@@ -1903,8 +1903,10 @@ Displays name of current buffer.")
   (declare (special header-line-format))
   (cond
    (header-line-format
+    (let ((window-count (length (tapestry-buffer-map))))
     (emacspeak-auditory-icon 'item)
-    (dtk-speak (format-mode-line header-line-format)))
+    (when (> window-count 1 ) (sox-bling))
+    (dtk-speak (format-mode-line header-line-format))))
    (t (dtk-speak "No header line."))))
 
 ;;;###autoload
