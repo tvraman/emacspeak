@@ -227,11 +227,11 @@ already disabled."
    #'(lambda(lock)
        (if lock
            (progn
-             (sox-chime 1.5 1.5)
+             (sox-tones 1.5 1.5)
              (emacspeak-screen-saver))
          (progn
            (when (eq major-mode 'emacspeak-screen-saver-mode)(bury-buffer))
-           (sox-chime)
+           (sox-tones)
            (message "Unlocking screen")))))))
 
 (defun emacspeak-dbus-unwatch-screen-lock ()
