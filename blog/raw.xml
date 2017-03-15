@@ -1,4 +1,270 @@
-<?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet href="http://www.blogger.com/styles/atom.css" type="text/css"?><feed xmlns='http://www.w3.org/2005/Atom' xmlns:openSearch='http://a9.com/-/spec/opensearchrss/1.0/' xmlns:blogger='http://schemas.google.com/blogger/2008' xmlns:georss='http://www.georss.org/georss' xmlns:gd="http://schemas.google.com/g/2005" xmlns:thr='http://purl.org/syndication/thread/1.0'><id>tag:blogger.com,1999:blog-20280042</id><updated>2016-11-29T15:09:22.193-08:00</updated><title type='text'>EMACSPEAK  The Complete Audio Desktop</title><subtitle type='html'>Here is where I plan to Blog Emacspeak tricks and introduce new features as I implement them.</subtitle><link rel='http://schemas.google.com/g/2005#feed' type='application/atom+xml' href='http://emacspeak.blogspot.com/feeds/posts/default'/><link rel='self' type='application/atom+xml' href='https://www.blogger.com/feeds/20280042/posts/default?max-results=1000'/><link rel='alternate' type='text/html' href='http://emacspeak.blogspot.com/'/><link rel='hub' href='http://pubsubhubbub.appspot.com/'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='http://img1.blogblog.com/img/b16-rounded.gif'/></author><generator version='7.00' uri='http://www.blogger.com'>Blogger</generator><openSearch:totalResults>143</openSearch:totalResults><openSearch:startIndex>1</openSearch:startIndex><openSearch:itemsPerPage>1000</openSearch:itemsPerPage><entry><id>tag:blogger.com,1999:blog-20280042.post-7506835408639025840</id><published>2016-11-29T15:01:00.000-08:00</published><updated>2016-11-29T15:06:20.859-08:00</updated><title type='text'>Follow-Up: Soundscapes On The Emacspeak Audio Desktop</title><content type='html'>&lt;div dir=&quot;ltr&quot; style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;&lt;div id=&quot;content&quot;&gt;&lt;h1 class=&quot;title&quot;&gt;Follow-Up: Soundscapes On The Emacspeak Audio Desktop&lt;/h1&gt;&lt;div id=&quot;outline-container-orgf3ef09d&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;orgf3ef09d&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Executive Summary&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;&lt;p&gt;Nearly a year ago, I &lt;a href=&quot;http://emacspeak.blogspot.com/2015/12/soundscapes-on-emacspeak-audio-desktop.html&quot;&gt;blogged here&lt;/a&gt; about Soundscapes on the emacspeak&lt;br /&gt;
+<?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet href="http://www.blogger.com/styles/atom.css" type="text/css"?><feed xmlns='http://www.w3.org/2005/Atom' xmlns:openSearch='http://a9.com/-/spec/opensearchrss/1.0/' xmlns:blogger='http://schemas.google.com/blogger/2008' xmlns:georss='http://www.georss.org/georss' xmlns:gd="http://schemas.google.com/g/2005" xmlns:thr='http://purl.org/syndication/thread/1.0'><id>tag:blogger.com,1999:blog-20280042</id><updated>2017-03-09T05:35:32.977-08:00</updated><title type='text'>EMACSPEAK  The Complete Audio Desktop</title><subtitle type='html'>Here is where I plan to Blog Emacspeak tricks and introduce new features as I implement them.</subtitle><link rel='http://schemas.google.com/g/2005#feed' type='application/atom+xml' href='http://emacspeak.blogspot.com/feeds/posts/default'/><link rel='self' type='application/atom+xml' href='http://www.blogger.com/feeds/20280042/posts/default?max-results=1000'/><link rel='alternate' type='text/html' href='http://emacspeak.blogspot.com/'/><link rel='hub' href='http://pubsubhubbub.appspot.com/'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='http://img1.blogblog.com/img/b16-rounded.gif'/></author><generator version='7.00' uri='http://www.blogger.com'>Blogger</generator><openSearch:totalResults>146</openSearch:totalResults><openSearch:startIndex>1</openSearch:startIndex><openSearch:itemsPerPage>1000</openSearch:itemsPerPage><entry><id>tag:blogger.com,1999:blog-20280042.post-3929777056515885596</id><published>2017-03-01T09:24:00.001-08:00</published><updated>2017-03-01T09:24:56.402-08:00</updated><title type='text'>Emacs: Check Interactive Call For Emacspeak</title><content type='html'>&lt;div id=&quot;content&quot;&gt;&lt;h1 class=&quot;title&quot;&gt;Emacs: Check Interactive Call For Emacspeak&lt;/h1&gt;&lt;div id=&quot;outline-container-org56178b1&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org56178b1&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Background&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;&lt;p&gt;Emacspeak uses advice as the means to speech-enable Emacs.&lt;br /&gt;
+Emacspeak&#39;s &lt;b&gt;advice&lt;/b&gt; forms  need to check if the function being&lt;br /&gt;
+speech-enabled is being called interactively &amp;#x2014; otherwise one would&lt;br /&gt;
+get a lot of chatter as these functions get called from within elisp&lt;br /&gt;
+programs, e.g. functions like &lt;span class=&quot;underline&quot;&gt;forward-sexp&lt;/span&gt; or &lt;span class=&quot;underline&quot;&gt;kill-sexp&lt;/span&gt;, that play&lt;br /&gt;
+the dual role of both an interactive command, as well as a convenient&lt;br /&gt;
+elisp function.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;p&gt;Until Emacs 24, the solution used was to write code   that did the&lt;br /&gt;
+following check:&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;pre class=&quot;example&quot;&gt;(when (interactive-p) ...
+&lt;/pre&gt;&lt;br /&gt;
+&lt;p&gt;In Emacs-24, &lt;span class=&quot;underline&quot;&gt;interactive-p&lt;/span&gt; was made obsolete and replaced with &lt;br /&gt;
+&lt;/p&gt;&lt;pre class=&quot;example&quot;&gt;(called-interactively-p &#39;interactive)
+&lt;/pre&gt;&lt;br /&gt;
+&lt;p&gt;Emacspeak initially used the above form to perform the equivalent&lt;br /&gt;
+check. However, around the same time, Emacs&#39; &lt;b&gt;advice&lt;/b&gt; implementation&lt;br /&gt;
+went through some changes, and there was an attempt to replace&lt;br /&gt;
+&lt;b&gt;advice.el&lt;/b&gt; with &lt;b&gt;nadvice.el&lt;/b&gt;.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;p&gt;At the end of that round of changes, some problems emerged with the&lt;br /&gt;
+new &lt;span class=&quot;underline&quot;&gt;called-interactively-p&lt;/span&gt; implementation; specifically, calling&lt;br /&gt;
+:called-interactively-p_ within &lt;span class=&quot;underline&quot;&gt;around&lt;/span&gt; advice forms resulted in hard&lt;br /&gt;
+to debug errors, including one case of infinite recursion  involving&lt;br /&gt;
+library &lt;b&gt;smie.el&lt;/b&gt; when invoked from within &lt;span class=&quot;underline&quot;&gt;ruby-mode&lt;/span&gt;.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;p&gt;After studying the problem in depth in 2014, I decided to create  an&lt;br /&gt;
+Emacspeak-specific implementation of the &lt;span class=&quot;underline&quot;&gt;is-interactive&lt;/span&gt; check.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;p&gt;The resulting implementation has worked well for the last 30 months;&lt;br /&gt;
+this article is here mostly to document how it works, and the reason&lt;br /&gt;
+for its existence. Note that Emacspeak uses this custom predicate&lt;br /&gt;
+&lt;b&gt;only&lt;/b&gt; within &lt;span class=&quot;underline&quot;&gt;advice&lt;/span&gt; forms. Further, this predicate has been coded&lt;br /&gt;
+to only work within &lt;span class=&quot;underline&quot;&gt;advice&lt;/span&gt; forms created by &lt;span class=&quot;underline&quot;&gt;emacspeak&lt;/span&gt;. This&lt;br /&gt;
+constraint can likely be relaxed, but the tighter implementation is&lt;br /&gt;
+less risky.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-orgbf6c7c7&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;orgbf6c7c7&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; Implementation &amp;#x2014;  &lt;span class=&quot;underline&quot;&gt;ems-interactive-p&lt;/span&gt;&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;&lt;/div&gt;&lt;div id=&quot;outline-container-orge4c53de&quot; class=&quot;outline-3&quot;&gt;&lt;h3 id=&quot;orge4c53de&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;2.1&lt;/span&gt; Overview&lt;/h3&gt;&lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-1&quot;&gt;&lt;p&gt;Within an &lt;span class=&quot;underline&quot;&gt;advice&lt;/span&gt; forms defined by Emacspeak, detect if the enclosing&lt;br /&gt;
+function call is the result of explicit user interaction, i.e. by&lt;br /&gt;
+pressing a key, or via an explicit call to&lt;br /&gt;
+&lt;span class=&quot;underline&quot;&gt;call-interactively&lt;/span&gt;. Emacspeak produces auditory feedback only if&lt;br /&gt;
+this predicate returns &lt;span class=&quot;underline&quot;&gt;t&lt;/span&gt;.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;p&gt;We first introduce a flag that will be used to record if the enclosing&lt;br /&gt;
+(containing) function has an Emacspeak-defined advice on it and is&lt;br /&gt;
+called interactively &amp;#x2014; these are the only cases that our predicate&lt;br /&gt;
+needs to test.&lt;br /&gt;
+&lt;/p&gt;&lt;pre class=&quot;example&quot;&gt;(defvar ems-called-interactively-p nil
+  &quot;Flag that records if containing function was called interactively.&quot;
+&lt;/pre&gt;&lt;br /&gt;
+&lt;p&gt;Next, we define a function that checks if interactive calls to a&lt;br /&gt;
+function should be recorded. We&#39;re only interested in functions that&lt;br /&gt;
+have an &lt;span class=&quot;underline&quot;&gt;advice&lt;/span&gt; form defined by Emacspeak &amp;#x2014; all Emacspeak-defined&lt;br /&gt;
+advice forms have the name &lt;span class=&quot;underline&quot;&gt;emacspeak&lt;/span&gt;.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;pre class=&quot;example&quot;&gt;(defun ems-record-interactive-p (f)
+  &quot;Predicate to test if we need to record interactive calls of
+this function. Memoizes result for future use by placing a
+property &#39;emacspeak on the function symbol.&quot;
+  (cond
+   ((not (symbolp f)) nil)
+   ((get f &#39;emacspeak) t) ; already memoized
+   ((ad-find-some-advice f &#39;any  &quot;emacspeak&quot;) ; there is an emacspeak advice
+    (put f &#39;emacspeak t)) ; memoize for future and return true
+   (t nil)))
+&lt;/pre&gt;&lt;br /&gt;
+&lt;p&gt;This is a memoized function that remembers earlier invocations by&lt;br /&gt;
+setting property &lt;span class=&quot;underline&quot;&gt;emacspeak&lt;/span&gt; on the function symbol.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;p&gt;All &lt;span class=&quot;underline&quot;&gt;advice&lt;/span&gt; forms created by Emacspeak are named &lt;span class=&quot;underline&quot;&gt;emacspeak&lt;/span&gt;, so we&lt;br /&gt;
+can test for the presence of such advice forms using the test:&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;pre class=&quot;example&quot;&gt;(ad-find-some-advice f &#39;any  &quot;emacspeak&quot;)
+&lt;/pre&gt;&lt;br /&gt;
+&lt;p&gt;If this test returns &lt;span class=&quot;underline&quot;&gt;T&lt;/span&gt;, we memoize the result and return it.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;p&gt;Next, we advice function &lt;span class=&quot;underline&quot;&gt;call-interactively&lt;/span&gt; to check  &lt;br /&gt;
+if the function being called interactively is one of the functions&lt;br /&gt;
+that has been adviced by Emacspeak. If so, we record the fact in  the&lt;br /&gt;
+previously declared global flag &lt;br /&gt;
+&lt;span class=&quot;underline&quot;&gt;ems-called-interactively-p&lt;/span&gt;.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;pre class=&quot;example&quot;&gt;(defadvice call-interactively (around emacspeak  pre act comp)
+  &quot;Set emacspeak  interactive flag if there is an Emacspeak advice 
+on the function being called.&quot;
+  (let ((ems-called-interactively-p ems-called-interactively-p)) ; preserve enclosing state
+    (when (ems-record-interactive-p (ad-get-arg 0))
+      (setq ems-called-interactively-p (ad-get-arg 0)))
+    ad-do-it))
+&lt;/pre&gt;&lt;br /&gt;
+&lt;p&gt;We define an equivalent advice form on function&lt;br /&gt;
+&lt;span class=&quot;underline&quot;&gt;funcall-interactively&lt;/span&gt; as well. Now, whenever any function that has&lt;br /&gt;
+been adviced by Emacspeak is called interactively, that interactive&lt;br /&gt;
+call gets recorded in the global flag. In the custom Emacspeak&lt;br /&gt;
+predicate we define, we check the value of this flag, and if&lt;br /&gt;
+set, consume it, i.e. unset the flag and return &lt;span class=&quot;underline&quot;&gt;T&lt;/span&gt;.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;pre class=&quot;example&quot;&gt;(defsubst ems-interactive-p ()
+  &quot;Check our interactive flag.
+Return T if set and we are called from the advice for the current
+interactive command. Turn off the flag once used.&quot;
+  (when ems-called-interactively-p                 ; interactive call
+    (let ((caller (cl-second (backtrace-frame 1))) ; name of containing function
+          (caller-advice  ;advice generated wrapper
+           (ad-get-advice-info-field ems-called-interactively-p  &#39;advicefunname))
+          (result nil))
+      (setq result
+            (or (eq caller caller-advice) ; called from our advice
+                (eq ems-called-interactively-p caller))) ; called from advice wrapper
+      (when result
+        (setq ems-called-interactively-p nil) ; turn off now that we used  it
+        result))))
+&lt;/pre&gt;&lt;br /&gt;
+&lt;p&gt;The only fragile part of the above predicate is the call to&lt;br /&gt;
+&lt;span class=&quot;underline&quot;&gt;backtrace-frame&lt;/span&gt; which we use to discover the name of the enclosing&lt;br /&gt;
+function. Notice however that this is no more fragile than the current&lt;br /&gt;
+implementation of &lt;span class=&quot;underline&quot;&gt;called-interactively-p&lt;/span&gt; &amp;#x2014; which also uses&lt;br /&gt;
+&lt;span class=&quot;underline&quot;&gt;backtrace-frame&lt;/span&gt;; If there are changes in the byte-compiler, this&lt;br /&gt;
+form may need to be updated. The implementation above has the&lt;br /&gt;
+advantage of working correctly for Emacspeak&#39;s specific use-case.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='http://www.blogger.com/feeds/20280042/posts/default/3929777056515885596'/><link rel='self' type='application/atom+xml' href='http://www.blogger.com/feeds/20280042/posts/default/3929777056515885596'/><link rel='alternate' type='text/html' href='http://emacspeak.blogspot.com/2017/03/emacs-check-interactive-call-for.html' title='Emacs: Check Interactive Call For Emacspeak'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='http://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-1299713174330353715</id><published>2017-02-10T11:22:00.000-08:00</published><updated>2017-02-10T11:22:27.544-08:00</updated><title type='text'>Audio Deja Vu: Audio Formatted Math On The Emacspeak Desktop</title><content type='html'>&lt;div dir=&quot;ltr&quot; style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;&lt;br /&gt;
+&lt;div id=&quot;content&quot;&gt;&lt;h1 class=&quot;title&quot;&gt;Audio Deja Vu: Audio Formatted Math On The Emacspeak Desktop&lt;/h1&gt;&lt;div id=&quot;outline-container-orge11e00b&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;orge11e00b&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Overview&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;&lt;p&gt;This article previews a new feature in the next Emacspeak release  — &lt;br /&gt;
+audio-formatted Mathematics using Aural CSS. &lt;a href=&quot;http://www.cs.bham.ac.uk/~vxs&quot;&gt; Volker Sorge&lt;/a&gt; worked&lt;br /&gt;
+at Google as a Visiting Scientist from Sep 2012 to August 2013, when&lt;br /&gt;
+we implemented &lt;a href=&quot;https://www.youtube.com/watch?v=YyWu9HB9QtU&quot;&gt;math&lt;br /&gt;
+access in ChromeVox&lt;/a&gt;  —  see &lt;a href=&quot;http://allthingsd.com/20130604/t-v-ramans-audio-deja-vu-from-google-a-math-reading-system-for-the-web/&quot;&gt;this brief overview&lt;/a&gt;. Since leaving&lt;br /&gt;
+Google, Volker has refactored and extended his work to create an Open&lt;br /&gt;
+Source &lt;a href=&quot;https://github.com/zorkow/speech-rule-engine&quot;&gt;Speech-Rule-Engine&lt;/a&gt; implemented using NodeJS. This&lt;br /&gt;
+speech-rule-engine can be used in many different environments;&lt;br /&gt;
+Emacspeak leverages that work to enable audio-formatting and&lt;br /&gt;
+interactive browsing of math content.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;div id=&quot;outline-container-org077db06&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org077db06&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; Overview Of Functionality&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;&lt;p&gt;Math access on the Emacspeak desktop is implemented via module&lt;br /&gt;
+&lt;a href=&quot;https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-maths.el#L558&quot;&gt;emacspeak-maths.el&lt;/a&gt;  —  see &lt;a href=&quot;https://github.com/tvraman/emacspeak/blob/master/js/node/Readme.org#L40&quot;&gt;js/node/Readme.org&lt;/a&gt; in the Emacspeak GitHub&lt;br /&gt;
+repository for setup instructions. &lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;p&gt;Once loaded, module &lt;code&gt;emacspeak-maths&lt;/code&gt; provides a &lt;i&gt;Math Navigator&lt;/i&gt; that&lt;br /&gt;
+implements the user interface for sending Math expressions to the&lt;br /&gt;
+Speech-Rule-Engine, and for interactively browsing the resulting&lt;br /&gt;
+structure. At each step of the interaction, Emacspeak receives math&lt;br /&gt;
+expressions that have been annotated with Aural CSS and produces&lt;br /&gt;
+audio-formatted output. The audio-formatted text can itself be&lt;br /&gt;
+navigated in a special &lt;i&gt;&lt;b&gt;Spoken Math&lt;/b&gt;&lt;/i&gt; emacs buffer.&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;p&gt;Module &lt;code&gt;emacspeak-maths.el&lt;/code&gt; implements various affordances for&lt;br /&gt;
+dispatching mathematical content to the Speech-Rule-Engine  —  see&lt;br /&gt;
+usage examples in the next section.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-org01ccc81&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org01ccc81&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;3&lt;/span&gt; Usage Examples&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;&lt;/div&gt;&lt;div id=&quot;outline-container-org902c07f&quot; class=&quot;outline-3&quot;&gt;&lt;h3 id=&quot;org902c07f&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;3.1&lt;/span&gt; The Emacspeak Maths Navigator&lt;/h3&gt;&lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-1&quot;&gt;&lt;ul class=&quot;org-ul&quot;&gt;&lt;li&gt;The &lt;i&gt;maths navigator&lt;/i&gt; can be invoked by pressing &lt;span class=&quot;underline&quot;&gt;S-SPC&lt;/span&gt; (hold&lt;br /&gt;
+down Windows key and press SPC)   —  this runs the command &lt;span class=&quot;underline&quot;&gt;emacspeak-maths-navigator/body&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;Once invoked, the /Maths Navigator can be used to enter an&lt;br /&gt;
+expression to read.&lt;/li&gt;
+&lt;li&gt;Pressing &lt;span class=&quot;underline&quot;&gt;SPC&lt;/span&gt; again prompts for the LaTeX math expression.&lt;/li&gt;
+&lt;li&gt;Pressing  &lt;span class=&quot;underline&quot;&gt;RET&lt;/span&gt; guesses the expression to read from the current context.&lt;/li&gt;
+&lt;li&gt;The arrow keys navigate the expression being read.&lt;/li&gt;
+&lt;li&gt;Pressing &lt;span class=&quot;underline&quot;&gt;o&lt;/span&gt; switches to the &lt;i&gt;&lt;b&gt;Spoken Math&lt;/b&gt;&lt;/i&gt; buffer and exits the&lt;br /&gt;
+navigator.&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;See the &lt;a href=&quot;http://tvraman.github.io/emacspeak/manual/emacspeak_002dmaths.html#emacspeak_002dmaths&quot;&gt;relevant chapter&lt;/a&gt; in the online Emacspeak manual for details.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-org1a9896c&quot; class=&quot;outline-3&quot;&gt;&lt;h3 id=&quot;org1a9896c&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;3.2&lt;/span&gt; Math Content In LaTeX Documents&lt;/h3&gt;&lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-2&quot;&gt;&lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;Open a LaTeX document containing math content.&lt;/li&gt;
+&lt;li&gt;Move point to a line containing   mathematical markup.&lt;/li&gt;
+&lt;li&gt;Press &lt;span class=&quot;underline&quot;&gt;S-SPC&lt;/span&gt; &lt;span class=&quot;underline&quot;&gt;RET&lt;/span&gt; to have that expression audio-formatted.&lt;/li&gt;
+&lt;li&gt;Use arrow keys to navigate the resulting structure.&lt;/li&gt;
+&lt;li&gt;Press any other key to exit the navigator.&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-org2a619d9&quot; class=&quot;outline-3&quot;&gt;&lt;h3 id=&quot;org2a619d9&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;3.3&lt;/span&gt; Math Content On Wikipedia&lt;/h3&gt;&lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-3&quot;&gt;&lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;Open a Wikipedia page in the Emacs Web Wowser (EWW) that has&lt;br /&gt;
+mathematical content.&lt;/li&gt;
+&lt;li&gt;Wikipedia displays math as images, with the alt-text giving the&lt;br /&gt;
+LaTeX representation.&lt;/li&gt;
+&lt;li&gt;Navigate to some math content on the page, then press &lt;span class=&quot;underline&quot;&gt;S-SPC&lt;/span&gt;&lt;br /&gt;
+&lt;span class=&quot;underline&quot;&gt;a&lt;/span&gt; to speak that content  —  &lt;span class=&quot;underline&quot;&gt;a&lt;/span&gt; is for alt.&lt;/li&gt;
+&lt;li&gt;As an example, navigate to &lt;a href=&quot;https://en.wikipedia.org/wiki/Derangement&quot;&gt;Wikipedia Math Example&lt;/a&gt;, locate math expressions on that page, then&lt;br /&gt;
+press &lt;span class=&quot;underline&quot;&gt;S-SPC a&lt;/span&gt;.&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-org89e3330&quot; class=&quot;outline-3&quot;&gt;&lt;h3 id=&quot;org89e3330&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;3.4&lt;/span&gt; Math Content From The Emacs Calculator&lt;/h3&gt;&lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-4&quot;&gt;&lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;The built-in Emacs Calculator (&lt;code&gt;calc&lt;/code&gt;) provides  many complex&lt;br /&gt;
+math functions including symbolic algebra.&lt;/li&gt;
+&lt;li&gt;For my personal &lt;code&gt;calc&lt;/code&gt; setup, see  &lt;a href=&quot;https://github.com/tvraman/emacspeak/blob/master/tvr/calc-prepare.el#L25&quot;&gt;tvr/calc-prepare.el&lt;/a&gt; in the&lt;br /&gt;
+Emacspeak GitHub repo.&lt;/li&gt;
+&lt;li&gt;This setting below sets up the Emacs Calculator to output results&lt;br /&gt;
+as LaTeX: &lt;span class=&quot;underline&quot;&gt;(setq calc-language &#39;tex)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;With the above setting in effect, launch the emacs Calculator by&lt;br /&gt;
+pressing &lt;span class=&quot;underline&quot;&gt;M-##&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;Press &lt;span class=&quot;underline&quot;&gt;&#39;&lt;/span&gt; — to use algebraic mode —  and enter &lt;code&gt;sin(x)&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Press &lt;span class=&quot;underline&quot;&gt;a t&lt;/span&gt; to get the Taylor series expansion of the above&lt;br /&gt;
+expression, and press &lt;span class=&quot;underline&quot;&gt;x&lt;/span&gt; when prompted for the variable.&lt;/li&gt;
+&lt;li&gt;This displays the Taylor Series expansion up to the desired&lt;br /&gt;
+number of terms  —  try &lt;span class=&quot;underline&quot;&gt;7&lt;/span&gt; terms.&lt;/li&gt;
+&lt;li&gt;Now, with Calc having shown the results as TeX, press &lt;span class=&quot;underline&quot;&gt;S-SPC&lt;/span&gt;&lt;br /&gt;
+&lt;span class=&quot;underline&quot;&gt;RET&lt;/span&gt; to browse this expression using the &lt;i&gt;Maths Navigator&lt;/i&gt;.&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;div id=&quot;outline-container-org2deefc5&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org2deefc5&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;4&lt;/span&gt; And The Best Is Yet To Come&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;&lt;p&gt;This is intentionally called an &lt;i&gt;early preview&lt;/i&gt; because there is still&lt;br /&gt;
+much that can be improved:&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;Enhance the rule engine to infer and convey more semantics.&lt;/li&gt;
+&lt;li&gt;Improved audio formatting rules to better present the available information.&lt;/li&gt;
+&lt;li&gt;Update/tune the use of Aural CSS properties to best leverage&lt;br /&gt;
+today&#39;s TTS engines.&lt;/li&gt;
+&lt;li&gt;Integrate math-reading functionality into more usage contexts in&lt;br /&gt;
+addition to the ones enumerated in this article.&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;div id=&quot;outline-container-org5287b6e&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org5287b6e&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;5&lt;/span&gt; References&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-5&quot;&gt;&lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=YyWu9HB9QtU&quot;&gt;Youtube Video from early 2013 demonstrating Math Access in Chrome&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://allthingsd.com/20130604/t-v-ramans-audio-deja-vu-from-google-a-math-reading-system-for-the-web/&quot;&gt;AllThings Digital&lt;/a&gt;  outlining math access  —  published June 2013.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/zorkow/emacs-math-speak/blob/master/paper/assets16.tex&quot;&gt;Assets 2016&lt;/a&gt; publication describing this work.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/tvraman/emacspeak/blob/master/js/node/aster-math-examples.tex&quot;&gt;js/node/aster-math-examples.tex&lt;/a&gt; Collection of math examples in&lt;br /&gt;
+LaTeX from AsTeR. Used to progressively improve speech-rules and&lt;br /&gt;
+the resulting audio-formatted output&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/zorkow/speech-rule-engine&quot;&gt;Speech-Rule-Engine&lt;/a&gt; on github.&lt;/li&gt;
+&lt;li&gt;Speech-Rule-Engine in action:  &lt;a href=&quot;https://www.mathjax.org/mathjax-accessibility-extensions-v1-now-available/&quot;&gt;Accessible Maths in all browsers&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;postamble&quot; class=&quot;status&quot;&gt;&lt;p class=&quot;date&quot;&gt;Date: 2017-02-08 Wed 00:00&lt;/p&gt;&lt;p class=&quot;author&quot;&gt;Author: T.V Raman&lt;/p&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='http://www.blogger.com/feeds/20280042/posts/default/1299713174330353715'/><link rel='self' type='application/atom+xml' href='http://www.blogger.com/feeds/20280042/posts/default/1299713174330353715'/><link rel='alternate' type='text/html' href='http://emacspeak.blogspot.com/2017/02/audio-deja-vu-audio-formatted-math-on.html' title='Audio Deja Vu: Audio Formatted Math On The Emacspeak Desktop'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='http://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-5333731054405976919</id><published>2017-01-04T11:09:00.001-08:00</published><updated>2017-01-04T11:13:59.260-08:00</updated><title type='text'>Fun With TTS (Voxin) And Ladspa</title><content type='html'>&lt;div dir=&quot;ltr&quot; style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;&lt;div id=&quot;content&quot;&gt;&lt;h1 class=&quot;title&quot;&gt;Fun With TTS (Voxin) And Ladspa&lt;/h1&gt;&lt;div id=&quot;outline-container-org2e8f78d&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org2e8f78d&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Executive Summary&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;&lt;p&gt;Voxin 1.6 &amp;#x2014; AKA ViaVoice Outloud &amp;#x2014; no longer requires that the&lt;br /&gt;
+Emacspeak TTS server be built as a 32-bit binary. This means that&lt;br /&gt;
+installing Voxin on 64-bit systems is now significantly easier since&lt;br /&gt;
+you no longer need to install 32-bit versions of TCL, TCLX, and the&lt;br /&gt;
+dependencies  needed by library &lt;span class=&quot;underline&quot;&gt;libibmeci.so&lt;/span&gt;. In addition to&lt;br /&gt;
+easing the installation process, not needing 32-bit binaries means&lt;br /&gt;
+that the Emacspeak Outloud server can now take advantage of audio&lt;br /&gt;
+processing such as that provided by LADSPA.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-org5150d58&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org5150d58&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;2&lt;/span&gt; Going 64-Bit: Upgrading To Voxin 1.6&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;&lt;ol class=&quot;org-ol&quot;&gt;&lt;li&gt;Install Voxin-1.6 or later from &lt;a href=&quot;https://voxin.oralux.net/update/voxin-update-1.6.tgz&quot;&gt;Voxin&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Update Emacspeak from GitHub (this will be part of the next&lt;br /&gt;
+public release).&lt;/li&gt;
+&lt;li&gt;Rebuild the &lt;span class=&quot;underline&quot;&gt;atcleci.so&lt;/span&gt; binary in the &lt;span class=&quot;underline&quot;&gt;servers/linux-outloud&lt;/span&gt;&lt;br /&gt;
+directory:&lt;/li&gt;
+&lt;/ol&gt;&lt;pre class=&quot;example&quot;&gt;cd servers/linux-outloud &amp;amp;&amp;amp; make clean &amp;amp;&amp;amp; make
+&lt;/pre&gt;&lt;br /&gt;
+&lt;p&gt;If all goes well, you&#39;ll now have a 64-bit version of &lt;span class=&quot;underline&quot;&gt;atcleci.so&lt;/span&gt;.&lt;br /&gt;
+You can now run the Outloud server as &lt;span class=&quot;underline&quot;&gt;servers/outloud&lt;/span&gt;.&lt;br /&gt;
+In about a year&#39;s time,  &lt;span class=&quot;underline&quot;&gt;servers/32-outloud&lt;/span&gt; will move to&lt;br /&gt;
+&lt;span class=&quot;underline&quot;&gt;servers/obsolete&lt;/span&gt;, as will the associated &lt;span class=&quot;underline&quot;&gt;servers/32-speech-server&lt;/span&gt;&lt;br /&gt;
+and &lt;span class=&quot;underline&quot;&gt;servers/ssh-32-outloud&lt;/span&gt;.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;div id=&quot;outline-container-org9a57fc2&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org9a57fc2&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;3&lt;/span&gt; Applying LADSPA Effects Processing To TTS&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;&lt;p&gt;With a 64-bit build of &lt;span class=&quot;underline&quot;&gt;atcleci.so&lt;/span&gt; in place, we can now call on&lt;br /&gt;
+installed LADSPA plugins to apply digital sound processing to  TTS&lt;br /&gt;
+output.  To experiment with  the possibilities, see some of the&lt;br /&gt;
+virtual sound devices defined in &lt;span class=&quot;underline&quot;&gt;servers/linux-outloud/asoundrc&lt;/span&gt;.&lt;br /&gt;
+Copy over that file to your &lt;span class=&quot;underline&quot;&gt;~/.asoundrc&lt;/span&gt; after updating it to match&lt;br /&gt;
+your sound setup &amp;#x2014; you&#39;ll likely need to change the default&lt;br /&gt;
+sound-card to match your setup.&lt;br /&gt;
+You can now set environment variable &lt;code&gt;ALSA_DEFAULT&lt;/code&gt; to one of  the&lt;br /&gt;
+&lt;code&gt;tts_&amp;lt;effect&amp;gt;&lt;/code&gt; virtual devices &amp;#x2014; and have the Outloud server apply&lt;br /&gt;
+the specified LADSPA effect to the generated TTS. Here is an example:&lt;br /&gt;
+&lt;/p&gt;&lt;br /&gt;
+&lt;pre class=&quot;example&quot;&gt;cd servers 
+(export ALSA_DEFAULT=tts_reverb; ./outloud)
+tts_selftest
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-orgad06121&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;orgad06121&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;4&lt;/span&gt; The Best Is Yet To Come &amp;#x2026;&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-4&quot;&gt;&lt;p&gt;The possibilities are endless &amp;#x2014; ALSA with LADSPA provides a rich&lt;br /&gt;
+suite of audio processing possibilities.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;br /&gt;
+&lt;div id=&quot;outline-container-org8489d49&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;org8489d49&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;5&lt;/span&gt; Acknowledgements&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-5&quot;&gt;&lt;p&gt;I&#39;d like to acknowledge &lt;a href=&quot;https://github.com/Oralux/libvoxin&quot;&gt;Gilles Casse &lt;/a&gt; for his work over the years on&lt;br /&gt;
+ensuring that Linux users have access to good quality TTS. Outloud&lt;br /&gt;
+would have been dead a long time ago if it weren&#39;t for his continued&lt;br /&gt;
+efforts toward keeping the lights on. His newest creation, &lt;span class=&quot;underline&quot;&gt;libvoxin&lt;/span&gt;&lt;br /&gt;
+that forms the crux of Voxin-1.6 is an excellent piece of engineering&lt;br /&gt;
+that is likely to help Outloud survive for the future on modern Linux&lt;br /&gt;
+distros. Note that Gilles is also the primary author of the Emacspeak&lt;br /&gt;
+ESpeak server.&lt;br /&gt;
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</content><link rel='edit' type='application/atom+xml' href='http://www.blogger.com/feeds/20280042/posts/default/5333731054405976919'/><link rel='self' type='application/atom+xml' href='http://www.blogger.com/feeds/20280042/posts/default/5333731054405976919'/><link rel='alternate' type='text/html' href='http://emacspeak.blogspot.com/2017/01/fun-with-tts-voxin-and-ladspa.html' title='Fun With TTS (Voxin) And Ladspa'/><author><name>T. V. Raman</name><uri>http://www.blogger.com/profile/03589687652590194428</uri><email>noreply@blogger.com</email><gd:image rel='http://schemas.google.com/g/2005#thumbnail' width='16' height='16' src='http://img1.blogblog.com/img/b16-rounded.gif'/></author></entry><entry><id>tag:blogger.com,1999:blog-20280042.post-7506835408639025840</id><published>2016-11-29T15:01:00.000-08:00</published><updated>2016-11-29T15:06:20.859-08:00</updated><title type='text'>Follow-Up: Soundscapes On The Emacspeak Audio Desktop</title><content type='html'>&lt;div dir=&quot;ltr&quot; style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;&lt;div id=&quot;content&quot;&gt;&lt;h1 class=&quot;title&quot;&gt;Follow-Up: Soundscapes On The Emacspeak Audio Desktop&lt;/h1&gt;&lt;div id=&quot;outline-container-orgf3ef09d&quot; class=&quot;outline-2&quot;&gt;&lt;h2 id=&quot;orgf3ef09d&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1&lt;/span&gt; Executive Summary&lt;/h2&gt;&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;&lt;p&gt;Nearly a year ago, I &lt;a href=&quot;http://emacspeak.blogspot.com/2015/12/soundscapes-on-emacspeak-audio-desktop.html&quot;&gt;blogged here&lt;/a&gt; about Soundscapes on the emacspeak&lt;br /&gt;
 Audio Desktop. That article ended with this following paragraph:&lt;br /&gt;
 &lt;/p&gt;&lt;br /&gt;
 &lt;pre class=&quot;example&quot;&gt;I implemented package soundscape to create a platform that would let me experiment
