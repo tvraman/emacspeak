@@ -8,155 +8,448 @@
 <p>Here is where I plan to Blog Emacspeak tricks and introduce new features as I implement them.</p>
 <h2>Table Of Contents</h2>
 <ol>
-<li><a href="#idp19383840">Follow-Up: Soundscapes On The Emacspeak Audio Desktop</a></li>
-<li><a href="#idp19401328">Emacspeak 45.0 (IdealDog) Unleashed!</a></li>
-<li><a href="#idp19432016">Emacspeak 44.0 (SteadyDog) Unleashed</a></li>
-<li><a href="#idp19464272">Augmented Headphone Listening On Linux For The Emacspeak Audio Desktop</a></li>
-<li><a href="#idp19478608">Soundscapes On The Emacspeak Audio Desktop</a></li>
-<li><a href="#idp19497840">A Ladspa Work-Bench For The Emacspeak Desktop </a></li>
-<li><a href="#idp19508304">Generating Spatialized Auditory Icons Using MPlayer And Ladspa</a></li>
-<li><a href="#idp19517856">Listening To Multiple Media Streams On The Emacspeak Audio Desktop</a></li>
-<li><a href="#idp19529792">Emacspeak 43.0 (SoundDog) Unleashed!</a></li>
-<li><a href="#idp19560384">Using Multiple TTS Streams On The emacspeak Audio Desktop</a></li>
-<li><a href="#idp19574240">Smart Actions In Directory Buffers For The Emacspeak Audio Desktop</a></li>
-<li><a href="#idp19585088">Announcing Emacspeak-Muggles: Keyboard Conveniences For Emacspeak</a></li>
-<li><a href="#idp19596352">Emacspeak: An Overview Of Voice-Lock Over The Years</a></li>
-<li><a href="#idp19611648">Emacspeak:Setting up StumpWM as a speech-enabled Window Manager. </a></li>
-<li><a href="#idp19623392">Setting Up An X Environment For Using With Emacspeak, ChromeVox and StumpWM </a></li>
-<li><a href="#idp19637952">Announcing Emacspeak 42.0 (AnswerDog)</a></li>
-<li><a href="#idp19336432">Emacspeak 3.0: Released 20 Years Ago Today!</a></li>
-<li><a href="#idp19646432">HowTo: Log Speech Server Output To Aid In Developing TTS Servers</a></li>
-<li><a href="#idp19699744">Emacspeak Development Is Moving To GitHub</a></li>
-<li><a href="#idp19713888">Enhanced Audio On The Emacspeak Desktop</a></li>
-<li><a href="#idp19729744">Internet Radio: Tune-In For Emacspeak</a></li>
-<li><a href="#idp19742512">3D: A Spatial Auditory Icon Theme Generated Using CSound</a></li>
-<li><a href="#idp19751680">Announcing Emacspeak 41.0: NiceDog</a></li>
-<li><a href="#idp19781056">Emacspeak At Twenty: Looking Back, Looking Forward</a></li>
-<li><a href="#idp19873008">Emacspeak And Company: Complete Anything Front-End For emacspeak</a></li>
-<li><a href="#idp19888880">Announcing Emacspeak 40.0 AKA WowDog!</a></li>
-<li><a href="#idp19919520">Emacspeak: EWW Updates For The Complete Audio Desktop</a></li>
-<li><a href="#idp19932816">Emacspeak Webspace: Glancing At Information On The Audio Desktop</a></li>
-<li><a href="#idp19949680">Searching GMail Using IMap And GNUS</a></li>
-<li><a href="#idp19962592">Exploring And Accessing BBC Podcasts and Program Archives</a></li>
-<li><a href="#idp19975712">Managing And Accessing Feeds On The Emacspeak Audio Desktop</a></li>
-<li><a href="#idp19987616">Reading Web Content Efficiently</a></li>
-<li><a href="#idp20000864">Emacspeak 39.0 (BigDog) Unleashed!</a></li>
-<li><a href="#idp20032672">Emacspeak 38.0 (FreeDog Unleashed</a></li>
-<li><a href="#idp20066224">GMaps: Google Maps On The Emacspeak Desktop</a></li>
-<li><a href="#idp20080288">Emacspeak 37.0 (SolidDog) Unleashed</a></li>
-<li><a href="#idp20110496">Emacspeak 36.0 (EPubDog) Unleashed!</a></li>
-<li><a href="#idp20147296">Emacspeak 35.0 (HeadDog) Released</a></li>
-<li><a href="#idp20177792">Welcome Press/Analyst Contact Tilden Labrador</a></li>
-<li><a href="#idp20188032">In Praise Of Bubbles — Emacspeak 34.0 Unleashed!</a></li>
-<li><a href="#idp20220768">Hubbell (Bubbles) Labrador  Biography --- My
+<li><a href="#idm46912357288384">Emacs: Check Interactive Call For Emacspeak</a></li>
+<li><a href="#idm46912357269056">Audio Deja Vu: Audio Formatted Math On The Emacspeak Desktop</a></li>
+<li><a href="#idm46912357246416">Fun With TTS (Voxin) And Ladspa</a></li>
+<li><a href="#idm46912357233136">Follow-Up: Soundscapes On The Emacspeak Audio Desktop</a></li>
+<li><a href="#idm46912357215648">Emacspeak 45.0 (IdealDog) Unleashed!</a></li>
+<li><a href="#idm46912357184864">Emacspeak 44.0 (SteadyDog) Unleashed</a></li>
+<li><a href="#idm46912357152608">Augmented Headphone Listening On Linux For The Emacspeak Audio Desktop</a></li>
+<li><a href="#idm46912357138272">Soundscapes On The Emacspeak Audio Desktop</a></li>
+<li><a href="#idm46912357119040">A Ladspa Work-Bench For The Emacspeak Desktop </a></li>
+<li><a href="#idm46912357108576">Generating Spatialized Auditory Icons Using MPlayer And Ladspa</a></li>
+<li><a href="#idm46912357099024">Listening To Multiple Media Streams On The Emacspeak Audio Desktop</a></li>
+<li><a href="#idm46912357087088">Emacspeak 43.0 (SoundDog) Unleashed!</a></li>
+<li><a href="#idm46912357056496">Using Multiple TTS Streams On The emacspeak Audio Desktop</a></li>
+<li><a href="#idm46912357042640">Smart Actions In Directory Buffers For The Emacspeak Audio Desktop</a></li>
+<li><a href="#idm46912357031792">Announcing Emacspeak-Muggles: Keyboard Conveniences For Emacspeak</a></li>
+<li><a href="#idm46912357020528">Emacspeak: An Overview Of Voice-Lock Over The Years</a></li>
+<li><a href="#idm46912357005232">Emacspeak:Setting up StumpWM as a speech-enabled Window Manager. </a></li>
+<li><a href="#idm46912356993488">Setting Up An X Environment For Using With Emacspeak, ChromeVox and StumpWM </a></li>
+<li><a href="#idm46912356978928">Announcing Emacspeak 42.0 (AnswerDog)</a></li>
+<li><a href="#idm46912357335760">Emacspeak 3.0: Released 20 Years Ago Today!</a></li>
+<li><a href="#idm46912356970448">HowTo: Log Speech Server Output To Aid In Developing TTS Servers</a></li>
+<li><a href="#idm46912356917136">Emacspeak Development Is Moving To GitHub</a></li>
+<li><a href="#idm46912356902992">Enhanced Audio On The Emacspeak Desktop</a></li>
+<li><a href="#idm46912356887136">Internet Radio: Tune-In For Emacspeak</a></li>
+<li><a href="#idm46912356874368">3D: A Spatial Auditory Icon Theme Generated Using CSound</a></li>
+<li><a href="#idm46912356865200">Announcing Emacspeak 41.0: NiceDog</a></li>
+<li><a href="#idm46912356835824">Emacspeak At Twenty: Looking Back, Looking Forward</a></li>
+<li><a href="#idm46912356743872">Emacspeak And Company: Complete Anything Front-End For emacspeak</a></li>
+<li><a href="#idm46912356728000">Announcing Emacspeak 40.0 AKA WowDog!</a></li>
+<li><a href="#idm46912356697360">Emacspeak: EWW Updates For The Complete Audio Desktop</a></li>
+<li><a href="#idm46912356684064">Emacspeak Webspace: Glancing At Information On The Audio Desktop</a></li>
+<li><a href="#idm46912356667200">Searching GMail Using IMap And GNUS</a></li>
+<li><a href="#idm46912356654288">Exploring And Accessing BBC Podcasts and Program Archives</a></li>
+<li><a href="#idm46912356641168">Managing And Accessing Feeds On The Emacspeak Audio Desktop</a></li>
+<li><a href="#idm46912356629264">Reading Web Content Efficiently</a></li>
+<li><a href="#idm46912356616016">Emacspeak 39.0 (BigDog) Unleashed!</a></li>
+<li><a href="#idm46912356584208">Emacspeak 38.0 (FreeDog Unleashed</a></li>
+<li><a href="#idm46912356550656">GMaps: Google Maps On The Emacspeak Desktop</a></li>
+<li><a href="#idm46912356536592">Emacspeak 37.0 (SolidDog) Unleashed</a></li>
+<li><a href="#idm46912356506384">Emacspeak 36.0 (EPubDog) Unleashed!</a></li>
+<li><a href="#idm46912356469584">Emacspeak 35.0 (HeadDog) Released</a></li>
+<li><a href="#idm46912356439088">Welcome Press/Analyst Contact Tilden Labrador</a></li>
+<li><a href="#idm46912356428848">In Praise Of Bubbles — Emacspeak 34.0 Unleashed!</a></li>
+<li><a href="#idm46912356396112">Hubbell (Bubbles) Labrador  Biography --- My
   Bubbly Life</a></li>
-<li><a href="#idp20229344">Epitaph: Saying GoodBye To Our Beloved Press/Analyst Contact</a></li>
-<li><a href="#idp20237840">Emacspeak: In Praise Of The Bookshare API</a></li>
-<li><a href="#idp20247648">Silence Is Golden</a></li>
-<li><a href="#idp20256960">Emacspeak 33.0 (StarDog) Unleashed!</a></li>
-<li><a href="#idp20285024">Emacspeak 32.0 (LuckyDog) Unleashed</a></li>
-<li><a href="#idp20311488">AsTeR --- Audio System For Technical Readings</a></li>
-<li><a href="#idp20323248">Emacspeak 31 (AKA TweetDog) Unleashed!</a></li>
-<li><a href="#idp20335968">A Google Tool-belt For The Complete Audio Desktop</a></li>
-<li><a href="#idp20348176">Emacspeak, The World's Fonts And Braille</a></li>
-<li><a href="#idp20359152">Emacspeak: Google News Suggest For Faster News Search</a></li>
-<li><a href="#idp20368288">Emacspeak Servers --- Catching Up With Debian And Ubuntu</a></li>
-<li><a href="#idp20380928">Launching Favorite Media Via Hot Keys</a></li>
-<li><a href="#idp20391728">Looking Beyond The Screen At Google I/O2009</a></li>
-<li><a href="#idp20406384">Announcing emacspeak 30.0 --- SocialDog!</a></li>
-<li><a href="#idp20420176">Toward an Accessible Democracy --- White House Moderator AxsJAXed</a></li>
-<li><a href="#idp20434704">Announcing Emacspeak 29.0 (AbleDog)</a></li>
-<li><a href="#idp20450544">Emacspeak Webspace Goodies</a></li>
-<li><a href="#idp20460528">Emacspeak-WebSpace Just Got A Lot Faster</a></li>
-<li><a href="#idp20468944">In Praise Of The Google Search AJAX API</a></li>
-<li><a href="#idp20479296">Tutorial: Enhancing Web 2.0 Usability Using AxsJAX</a></li>
-<li><a href="#idp20490192">Talk Announcement: Developing Accessible Web-2.0 Applications</a></li>
-<li><a href="#idp20503152">ProcEd: A Speech-Enabled Task Manager For Emacs</a></li>
-<li><a href="#idp20511936">Leveraging Web 2.0 Design Patterns For Enhanced Accessibility</a></li>
-<li><a href="#idp20524016">AxsJAX And Auditory User Interfaces At Google IO</a></li>
-<li><a href="#idp20532688">Emacspeak On Thinkpad X-61 Running Gutsy (Ubuntu 7.0)</a></li>
-<li><a href="#idp20544656">Emacspeak-28.0 (PuppyDog) Unleashed!</a></li>
-<li><a href="#idp20553760">W4A Keynote: Cloud Computing And Equal Access For All</a></li>
-<li><a href="#idp20562224">Emacspeak Goes Social</a></li>
-<li><a href="#idp20574320">My Web-2.0 Application Is Feeling Accessible</a></li>
-<li><a href="#idp20582976">Emacspeak WebSpace --- Interaction-Free Information Access</a></li>
-<li><a href="#idp20595440">Announcing: The Coming Of Piglets To The Emacspeak Desktop</a></li>
-<li><a href="#idp20608944">Web Accessibility And Usability: Coming Back To The Basics</a></li>
-<li><a href="#idp20620816">Directions Using Public Transport From Google Maps</a></li>
-<li><a href="#idp20629728">Announcing Emacspeak 27.0 AKA FastDog</a></li>
-<li><a href="#idp20640496">AxsJAX, Speech-Enabled Games And Auditory User Interfaces</a></li>
-<li><a href="#idp20650304">The Web The Way You Want</a></li>
-<li><a href="#idp20658640">Podcast Covering Web Accessibility</a></li>
-<li><a href="#idp20667648">Emacspeak Video Demo: Looking Up The Weather</a></li>
-<li><a href="#idp20685184">Emacspeak And GMail</a></li>
-<li><a href="#idp20695872">AMixer And Emacspeak: Controlling The Sound Card</a></li>
-<li><a href="#idp20705104">The Web The Way You Want</a></li>
-<li><a href="#idp20714768">Google Suggest: Minibuffer Completion When Googling</a></li>
-<li><a href="#idp20723200">Emacspeak WebMarks: Online Bookmarks Using Google</a></li>
-<li><a href="#idp20733296">Web Interaction In Emacspeak</a></li>
-<li><a href="#idp20743424">Emacs-G-Client: Leveraging New Picasa API Features</a></li>
-<li><a href="#idp20752160">Emacspeak And Beautiful Code</a></li>
-<li><a href="#idp20760928">Searching The Emacspeak Knowledge Base</a></li>
-<li><a href="#idp20770464">Emacs G-Client, Reader, And CSE: Searching Past Articles From Google
+<li><a href="#idm46912356387536">Epitaph: Saying GoodBye To Our Beloved Press/Analyst Contact</a></li>
+<li><a href="#idm46912356379040">Emacspeak: In Praise Of The Bookshare API</a></li>
+<li><a href="#idm46912356369232">Silence Is Golden</a></li>
+<li><a href="#idm46912356359920">Emacspeak 33.0 (StarDog) Unleashed!</a></li>
+<li><a href="#idm46912356332720">Emacspeak 32.0 (LuckyDog) Unleashed</a></li>
+<li><a href="#idm46912356306976">AsTeR --- Audio System For Technical Readings</a></li>
+<li><a href="#idm46912356295216">Emacspeak 31 (AKA TweetDog) Unleashed!</a></li>
+<li><a href="#idm46912356282496">A Google Tool-belt For The Complete Audio Desktop</a></li>
+<li><a href="#idm46912356270288">Emacspeak, The World's Fonts And Braille</a></li>
+<li><a href="#idm46912356259312">Emacspeak: Google News Suggest For Faster News Search</a></li>
+<li><a href="#idm46912356250176">Emacspeak Servers --- Catching Up With Debian And Ubuntu</a></li>
+<li><a href="#idm46912356237536">Launching Favorite Media Via Hot Keys</a></li>
+<li><a href="#idm46912356226736">Looking Beyond The Screen At Google I/O2009</a></li>
+<li><a href="#idm46912356212080">Announcing emacspeak 30.0 --- SocialDog!</a></li>
+<li><a href="#idm46912356198288">Toward an Accessible Democracy --- White House Moderator AxsJAXed</a></li>
+<li><a href="#idm46912356183760">Announcing Emacspeak 29.0 (AbleDog)</a></li>
+<li><a href="#idm46912356167920">Emacspeak Webspace Goodies</a></li>
+<li><a href="#idm46912356157936">Emacspeak-WebSpace Just Got A Lot Faster</a></li>
+<li><a href="#idm46912356149520">In Praise Of The Google Search AJAX API</a></li>
+<li><a href="#idm46912356139168">Tutorial: Enhancing Web 2.0 Usability Using AxsJAX</a></li>
+<li><a href="#idm46912356128272">Talk Announcement: Developing Accessible Web-2.0 Applications</a></li>
+<li><a href="#idm46912356115312">ProcEd: A Speech-Enabled Task Manager For Emacs</a></li>
+<li><a href="#idm46912356106528">Leveraging Web 2.0 Design Patterns For Enhanced Accessibility</a></li>
+<li><a href="#idm46912356094448">AxsJAX And Auditory User Interfaces At Google IO</a></li>
+<li><a href="#idm46912356085776">Emacspeak On Thinkpad X-61 Running Gutsy (Ubuntu 7.0)</a></li>
+<li><a href="#idm46912356073808">Emacspeak-28.0 (PuppyDog) Unleashed!</a></li>
+<li><a href="#idm46912356064704">W4A Keynote: Cloud Computing And Equal Access For All</a></li>
+<li><a href="#idm46912356056240">Emacspeak Goes Social</a></li>
+<li><a href="#idm46912356044144">My Web-2.0 Application Is Feeling Accessible</a></li>
+<li><a href="#idm46912356035488">Emacspeak WebSpace --- Interaction-Free Information Access</a></li>
+<li><a href="#idm46912356023024">Announcing: The Coming Of Piglets To The Emacspeak Desktop</a></li>
+<li><a href="#idm46912356009520">Web Accessibility And Usability: Coming Back To The Basics</a></li>
+<li><a href="#idm46912355997648">Directions Using Public Transport From Google Maps</a></li>
+<li><a href="#idm46912355988736">Announcing Emacspeak 27.0 AKA FastDog</a></li>
+<li><a href="#idm46912355977968">AxsJAX, Speech-Enabled Games And Auditory User Interfaces</a></li>
+<li><a href="#idm46912355968160">The Web The Way You Want</a></li>
+<li><a href="#idm46912355959824">Podcast Covering Web Accessibility</a></li>
+<li><a href="#idm46912355950816">Emacspeak Video Demo: Looking Up The Weather</a></li>
+<li><a href="#idm46912355933280">Emacspeak And GMail</a></li>
+<li><a href="#idm46912355922592">AMixer And Emacspeak: Controlling The Sound Card</a></li>
+<li><a href="#idm46912355913360">The Web The Way You Want</a></li>
+<li><a href="#idm46912355903696">Google Suggest: Minibuffer Completion When Googling</a></li>
+<li><a href="#idm46912355895264">Emacspeak WebMarks: Online Bookmarks Using Google</a></li>
+<li><a href="#idm46912355885168">Web Interaction In Emacspeak</a></li>
+<li><a href="#idm46912355875040">Emacs-G-Client: Leveraging New Picasa API Features</a></li>
+<li><a href="#idm46912355866304">Emacspeak And Beautiful Code</a></li>
+<li><a href="#idm46912355857536">Searching The Emacspeak Knowledge Base</a></li>
+<li><a href="#idm46912355848000">Emacs G-Client, Reader, And CSE: Searching Past Articles From Google
 Reader</a></li>
-<li><a href="#idp20782960">Google Books In Emacspeak</a></li>
-<li><a href="#idp20791152">Making Search Fly: On-The-Fly Custom Search Engines</a></li>
-<li><a href="#idp20801840">Emacs-G-Client: Uploading Photos To PicasaWeb</a></li>
-<li><a href="#idp20810704">Multilingual Dictionary Lookup Via Google</a></li>
-<li><a href="#idp20820032">FireBox: Put The Fox In The Box</a></li>
-<li><a href="#idp20831360">Emacspeak And Beautiful Code</a></li>
-<li><a href="#idp20840016">Google Group For Package G-Client</a></li>
-<li><a href="#idp20848624">An Essay On Eyes-Free Computing</a></li>
-<li><a href="#idp20860240">Updates To G-Client</a></li>
-<li><a href="#idp20868240">Web 2.0 And The Emacspeak Audio Webtop</a></li>
-<li><a href="#idp20881104">Emacspeak 26.0 --- LeadDog Unleashed!</a></li>
-<li><a href="#idp20891552">See You At CSUN 2007</a></li>
-<li><a href="#idp20900032">An Emacs Client For Google Services</a></li>
-<li><a href="#idp20919440">Emacspeak Downloads On GoogleCode</a></li>
-<li><a href="#idp20930032">IBM Software TTS On Ubuntu 6 </a></li>
-<li><a href="#idp20938928">Web Command Line Tool For Google Patent Search </a></li>
-<li><a href="#idp20948592">Emacspeak 25.0 (ActiveDog) Unleashed </a></li>
-<li><a href="#idp20960688">Emacspeak  Smart URL For Google Code Search </a></li>
-<li><a href="#idp20970048">Using Helix Player From Emacspeak </a></li>
-<li><a href="#idp20981856">Emacspeak, Ubuntu And Software Dectalk </a></li>
-<li><a href="#idp20990304">Emacspeak 24 On Ubuntu 6 </a></li>
-<li><a href="#idp21002608">Google Archive News Search </a></li>
-<li><a href="#idp21011072">Update: Emacspeak On Google Code Hosting </a></li>
-<li><a href="#idp21019600">Emacspeak Codebase Via Subversion From GoogleCode </a></li>
-<li><a href="#idp21029792">Zipping Through Web Pages </a></li>
-<li><a href="#idp21038640">Summary Of Emacspeak Features Compared To Other Alternatives </a></li>
-<li><a href="#idp21054432">Emacspeak And Accessible Search Via Google </a></li>
-<li><a href="#idp21064144">ALSA And Emacspeak: Closing The Legacy Loop With ALSA-OSS </a></li>
-<li><a href="#idp21074192">SpeakFreely, Software TTS And ALSA </a></li>
-<li><a href="#idp21084112">Emacspeak, TTS, Alsa And ASYM </a></li>
-<li><a href="#idp21093536">ASoundrc Parameters For Reliably Using ALSA Powered Software TTS </a></li>
-<li><a href="#idp21105440">Listening To The Web Through A Mobile Lens </a></li>
-<li><a href="#idp21115264">Announcing Emacspeak 24.0 (LiveDog) </a></li>
-<li><a href="#idp21124464">W3: Minor Patch To Handle  Content-Type application/xhtml+xml </a></li>
-<li><a href="#idp21135408">Blogging From Emacs: Additional Atom-Blogger Documentation </a></li>
-<li><a href="#idp21143504">Emacspeak: Connecting Lynx And W3 </a></li>
-<li><a href="#idp21156016">Emacspeak, SuDoKu And History </a></li>
-<li><a href="#idp21165872">Emacspeak And Voice Locking Using Aural CSS </a></li>
-<li><a href="#idp21180336">Playing SuDoKu Using Auditory Feedback </a></li>
-<li><a href="#idp21192848">Browsing Sourceforge Download Servers </a></li>
-<li><a href="#idp21203248">BBC Channels On Emacspeak </a></li>
-<li><a href="#idp21213120">Emacspeak World Clock For Timezone Travel </a></li>
-<li><a href="#idp21221568">Emacspeak Web Wizards: Obtaining Context From The Calendar </a></li>
-<li><a href="#idp21230880">Viewing Atom Feeds Within Emacspeak </a></li>
-<li><a href="#idp21240464">Viewing Formatted Source Code In Emacs/W3 </a></li>
-<li><a href="#idp21249456">Speech-Enabled ATOM-Blogger </a></li>
-<li><a href="#idp21257840">Emacspeak And Ruby </a></li>
-<li><a href="#idp21266256">Emacspeak Wizard: Recording Audio Streams For Later Playback</a></li>
-<li><a href="#idp21276368">Emacs Tip: Viewing Commands Available On A Prefix Key</a></li>
-<li><a href="#idp21285232">Using The New MPlayer With ALSA Support 
+<li><a href="#idm46912355835504">Google Books In Emacspeak</a></li>
+<li><a href="#idm46912355827312">Making Search Fly: On-The-Fly Custom Search Engines</a></li>
+<li><a href="#idm46912355816624">Emacs-G-Client: Uploading Photos To PicasaWeb</a></li>
+<li><a href="#idm46912355807760">Multilingual Dictionary Lookup Via Google</a></li>
+<li><a href="#idm46912355798432">FireBox: Put The Fox In The Box</a></li>
+<li><a href="#idm46912355787104">Emacspeak And Beautiful Code</a></li>
+<li><a href="#idm46912355778448">Google Group For Package G-Client</a></li>
+<li><a href="#idm46912355769840">An Essay On Eyes-Free Computing</a></li>
+<li><a href="#idm46912355758224">Updates To G-Client</a></li>
+<li><a href="#idm46912355750224">Web 2.0 And The Emacspeak Audio Webtop</a></li>
+<li><a href="#idm46912355737360">Emacspeak 26.0 --- LeadDog Unleashed!</a></li>
+<li><a href="#idm46912355726912">See You At CSUN 2007</a></li>
+<li><a href="#idm46912355718432">An Emacs Client For Google Services</a></li>
+<li><a href="#idm46912355699024">Emacspeak Downloads On GoogleCode</a></li>
+<li><a href="#idm46912355688432">IBM Software TTS On Ubuntu 6 </a></li>
+<li><a href="#idm46912355679536">Web Command Line Tool For Google Patent Search </a></li>
+<li><a href="#idm46912355669872">Emacspeak 25.0 (ActiveDog) Unleashed </a></li>
+<li><a href="#idm46912355657776">Emacspeak  Smart URL For Google Code Search </a></li>
+<li><a href="#idm46912355648416">Using Helix Player From Emacspeak </a></li>
+<li><a href="#idm46912355636608">Emacspeak, Ubuntu And Software Dectalk </a></li>
+<li><a href="#idm46912355628160">Emacspeak 24 On Ubuntu 6 </a></li>
+<li><a href="#idm46912355615856">Google Archive News Search </a></li>
+<li><a href="#idm46912355607392">Update: Emacspeak On Google Code Hosting </a></li>
+<li><a href="#idm46912355598864">Emacspeak Codebase Via Subversion From GoogleCode </a></li>
+<li><a href="#idm46912355588672">Zipping Through Web Pages </a></li>
+<li><a href="#idm46912355579824">Summary Of Emacspeak Features Compared To Other Alternatives </a></li>
+<li><a href="#idm46912355564032">Emacspeak And Accessible Search Via Google </a></li>
+<li><a href="#idm46912355554320">ALSA And Emacspeak: Closing The Legacy Loop With ALSA-OSS </a></li>
+<li><a href="#idm46912355544272">SpeakFreely, Software TTS And ALSA </a></li>
+<li><a href="#idm46912355534352">Emacspeak, TTS, Alsa And ASYM </a></li>
+<li><a href="#idm46912355524928">ASoundrc Parameters For Reliably Using ALSA Powered Software TTS </a></li>
+<li><a href="#idm46912355513024">Listening To The Web Through A Mobile Lens </a></li>
+<li><a href="#idm46912355503200">Announcing Emacspeak 24.0 (LiveDog) </a></li>
+<li><a href="#idm46912355494000">W3: Minor Patch To Handle  Content-Type application/xhtml+xml </a></li>
+<li><a href="#idm46912355483056">Blogging From Emacs: Additional Atom-Blogger Documentation </a></li>
+<li><a href="#idm46912355474960">Emacspeak: Connecting Lynx And W3 </a></li>
+<li><a href="#idm46912355462448">Emacspeak, SuDoKu And History </a></li>
+<li><a href="#idm46912355452592">Emacspeak And Voice Locking Using Aural CSS </a></li>
+<li><a href="#idm46912355438128">Playing SuDoKu Using Auditory Feedback </a></li>
+<li><a href="#idm46912355425616">Browsing Sourceforge Download Servers </a></li>
+<li><a href="#idm46912355415216">BBC Channels On Emacspeak </a></li>
+<li><a href="#idm46912355405344">Emacspeak World Clock For Timezone Travel </a></li>
+<li><a href="#idm46912355396896">Emacspeak Web Wizards: Obtaining Context From The Calendar </a></li>
+<li><a href="#idm46912355387584">Viewing Atom Feeds Within Emacspeak </a></li>
+<li><a href="#idm46912355378000">Viewing Formatted Source Code In Emacs/W3 </a></li>
+<li><a href="#idm46912355369008">Speech-Enabled ATOM-Blogger </a></li>
+<li><a href="#idm46912355360624">Emacspeak And Ruby </a></li>
+<li><a href="#idm46912355352208">Emacspeak Wizard: Recording Audio Streams For Later Playback</a></li>
+<li><a href="#idm46912355342096">Emacs Tip: Viewing Commands Available On A Prefix Key</a></li>
+<li><a href="#idm46912355333232">Using The New MPlayer With ALSA Support 
 </a></li>
-<li><a href="#idp21296256">Blogging From Inside Emacs
+<li><a href="#idm46912355322208">Blogging From Inside Emacs
   </a></li>
-<li><a href="#idp21305152">More On Web Command Line</a></li>
-<li><a href="#idp21313696">Emacspeak Web Tricks --- The Web Command Line! </a></li>
-<li><a href="#idp21323392">Emacspeak Introduction  </a></li>
+<li><a href="#idm46912355313312">More On Web Command Line</a></li>
+<li><a href="#idm46912355304768">Emacspeak Web Tricks --- The Web Command Line! </a></li>
+<li><a href="#idm46912355295072">Emacspeak Introduction  </a></li>
 </ol>
-<h2><a name="idp19383840" id="idp19383840">Follow-Up: Soundscapes On The Emacspeak Audio Desktop</a></h2>
+<h2><a name="idm46912357288384" id="idm46912357288384">Emacs: Check Interactive Call For Emacspeak</a></h2>
+<div>
+<br><div id="content"><h1 class="title">Emacs: Check Interactive Call For Emacspeak</h1><div id="outline-container-org56178b1" class="outline-2"><h2 id="org56178b1"><span class="section-number-2">1</span> Background</h2><div class="outline-text-2" id="text-1"><p>Emacspeak uses advice as the means to speech-enable Emacs.<br />
+Emacspeak's <b>advice</b> forms  need to check if the function being<br />
+speech-enabled is being called interactively &#x2014; otherwise one would<br />
+get a lot of chatter as these functions get called from within elisp<br />
+programs, e.g. functions like <span class="underline">forward-sexp</span> or <span class="underline">kill-sexp</span>, that play<br />
+the dual role of both an interactive command, as well as a convenient<br />
+elisp function.<br />
+</p><br />
+<br />
+<p>Until Emacs 24, the solution used was to write code   that did the<br />
+following check:<br />
+</p><br />
+<pre class="example">(when (interactive-p) ...
+</pre><br />
+<p>In Emacs-24, <span class="underline">interactive-p</span> was made obsolete and replaced with <br />
+</p><pre class="example">(called-interactively-p 'interactive)
+</pre><br />
+<p>Emacspeak initially used the above form to perform the equivalent<br />
+check. However, around the same time, Emacs' <b>advice</b> implementation<br />
+went through some changes, and there was an attempt to replace<br />
+<b>advice.el</b> with <b>nadvice.el</b>.<br />
+</p><br />
+<p>At the end of that round of changes, some problems emerged with the<br />
+new <span class="underline">called-interactively-p</span> implementation; specifically, calling<br />
+:called-interactively-p_ within <span class="underline">around</span> advice forms resulted in hard<br />
+to debug errors, including one case of infinite recursion  involving<br />
+library <b>smie.el</b> when invoked from within <span class="underline">ruby-mode</span>.<br />
+</p><br />
+<p>After studying the problem in depth in 2014, I decided to create  an<br />
+Emacspeak-specific implementation of the <span class="underline">is-interactive</span> check.<br />
+</p><br />
+<p>The resulting implementation has worked well for the last 30 months;<br />
+this article is here mostly to document how it works, and the reason<br />
+for its existence. Note that Emacspeak uses this custom predicate<br />
+<b>only</b> within <span class="underline">advice</span> forms. Further, this predicate has been coded<br />
+to only work within <span class="underline">advice</span> forms created by <span class="underline">emacspeak</span>. This<br />
+constraint can likely be relaxed, but the tighter implementation is<br />
+less risky.<br />
+</p></div></div><br />
+<div id="outline-container-orgbf6c7c7" class="outline-2"><h2 id="orgbf6c7c7"><span class="section-number-2">2</span> Implementation &#x2014;  <span class="underline">ems-interactive-p</span></h2><div class="outline-text-2" id="text-2"></div><div id="outline-container-orge4c53de" class="outline-3"><h3 id="orge4c53de"><span class="section-number-3">2.1</span> Overview</h3><div class="outline-text-3" id="text-2-1"><p>Within an <span class="underline">advice</span> forms defined by Emacspeak, detect if the enclosing<br />
+function call is the result of explicit user interaction, i.e. by<br />
+pressing a key, or via an explicit call to<br />
+<span class="underline">call-interactively</span>. Emacspeak produces auditory feedback only if<br />
+this predicate returns <span class="underline">t</span>.<br />
+</p><br />
+<p>We first introduce a flag that will be used to record if the enclosing<br />
+(containing) function has an Emacspeak-defined advice on it and is<br />
+called interactively &#x2014; these are the only cases that our predicate<br />
+needs to test.<br />
+</p><pre class="example">(defvar ems-called-interactively-p nil
+  "Flag that records if containing function was called interactively."
+</pre><br />
+<p>Next, we define a function that checks if interactive calls to a<br />
+function should be recorded. We're only interested in functions that<br />
+have an <span class="underline">advice</span> form defined by Emacspeak &#x2014; all Emacspeak-defined<br />
+advice forms have the name <span class="underline">emacspeak</span>.<br />
+</p><br />
+<pre class="example">(defun ems-record-interactive-p (f)
+  "Predicate to test if we need to record interactive calls of
+this function. Memoizes result for future use by placing a
+property 'emacspeak on the function symbol."
+  (cond
+   ((not (symbolp f)) nil)
+   ((get f 'emacspeak) t) ; already memoized
+   ((ad-find-some-advice f 'any  "emacspeak") ; there is an emacspeak advice
+    (put f 'emacspeak t)) ; memoize for future and return true
+   (t nil)))
+</pre><br />
+<p>This is a memoized function that remembers earlier invocations by<br />
+setting property <span class="underline">emacspeak</span> on the function symbol.<br />
+</p><br />
+<p>All <span class="underline">advice</span> forms created by Emacspeak are named <span class="underline">emacspeak</span>, so we<br />
+can test for the presence of such advice forms using the test:<br />
+</p><br />
+<pre class="example">(ad-find-some-advice f 'any  "emacspeak")
+</pre><br />
+<p>If this test returns <span class="underline">T</span>, we memoize the result and return it.<br />
+</p><br />
+<p>Next, we advice function <span class="underline">call-interactively</span> to check  <br />
+if the function being called interactively is one of the functions<br />
+that has been adviced by Emacspeak. If so, we record the fact in  the<br />
+previously declared global flag <br />
+<span class="underline">ems-called-interactively-p</span>.<br />
+</p><br />
+<br />
+<pre class="example">(defadvice call-interactively (around emacspeak  pre act comp)
+  "Set emacspeak  interactive flag if there is an Emacspeak advice 
+on the function being called."
+  (let ((ems-called-interactively-p ems-called-interactively-p)) ; preserve enclosing state
+    (when (ems-record-interactive-p (ad-get-arg 0))
+      (setq ems-called-interactively-p (ad-get-arg 0)))
+    ad-do-it))
+</pre><br />
+<p>We define an equivalent advice form on function<br />
+<span class="underline">funcall-interactively</span> as well. Now, whenever any function that has<br />
+been adviced by Emacspeak is called interactively, that interactive<br />
+call gets recorded in the global flag. In the custom Emacspeak<br />
+predicate we define, we check the value of this flag, and if<br />
+set, consume it, i.e. unset the flag and return <span class="underline">T</span>.<br />
+</p><br />
+<pre class="example">(defsubst ems-interactive-p ()
+  "Check our interactive flag.
+Return T if set and we are called from the advice for the current
+interactive command. Turn off the flag once used."
+  (when ems-called-interactively-p                 ; interactive call
+    (let ((caller (cl-second (backtrace-frame 1))) ; name of containing function
+          (caller-advice  ;advice generated wrapper
+           (ad-get-advice-info-field ems-called-interactively-p  'advicefunname))
+          (result nil))
+      (setq result
+            (or (eq caller caller-advice) ; called from our advice
+                (eq ems-called-interactively-p caller))) ; called from advice wrapper
+      (when result
+        (setq ems-called-interactively-p nil) ; turn off now that we used  it
+        result))))
+</pre><br />
+<p>The only fragile part of the above predicate is the call to<br />
+<span class="underline">backtrace-frame</span> which we use to discover the name of the enclosing<br />
+function. Notice however that this is no more fragile than the current<br />
+implementation of <span class="underline">called-interactively-p</span> &#x2014; which also uses<br />
+<span class="underline">backtrace-frame</span>; If there are changes in the byte-compiler, this<br />
+form may need to be updated. The implementation above has the<br />
+advantage of working correctly for Emacspeak's specific use-case.<br />
+</p></div></div></div></div></div>
+<TABLE><tr>
+<td><a href="http://www.blogger.com/feeds/20280042/posts/default/3929777056515885596">[Edit]</a></td>
+<td><a href="http://www.blogger.com/feeds/20280042/posts/default/3929777056515885596">[Self]</a></td>
+<td><a href="http://emacspeak.blogspot.com/2017/03/emacs-check-interactive-call-for.html">[HTML]</a></td>
+</tr></TABLE>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2017-03-01T09:24:00.001-08:00<h2><a name="idm46912357269056" id="idm46912357269056">Audio Deja Vu: Audio Formatted Math On The Emacspeak Desktop</a></h2>
+<div>
+<br><div dir="ltr" style="text-align: left;" trbidi="on"><br />
+<div id="content"><h1 class="title">Audio Deja Vu: Audio Formatted Math On The Emacspeak Desktop</h1><div id="outline-container-orge11e00b" class="outline-2"><h2 id="orge11e00b"><span class="section-number-2">1</span> Overview</h2><div class="outline-text-2" id="text-1"><p>This article previews a new feature in the next Emacspeak release  — <br />
+audio-formatted Mathematics using Aural CSS. <a href="http://www.cs.bham.ac.uk/~vxs"> Volker Sorge</a> worked<br />
+at Google as a Visiting Scientist from Sep 2012 to August 2013, when<br />
+we implemented <a href="https://www.youtube.com/watch?v=YyWu9HB9QtU">math<br />
+access in ChromeVox</a>  —  see <a href="http://allthingsd.com/20130604/t-v-ramans-audio-deja-vu-from-google-a-math-reading-system-for-the-web/">this brief overview</a>. Since leaving<br />
+Google, Volker has refactored and extended his work to create an Open<br />
+Source <a href="https://github.com/zorkow/speech-rule-engine">Speech-Rule-Engine</a> implemented using NodeJS. This<br />
+speech-rule-engine can be used in many different environments;<br />
+Emacspeak leverages that work to enable audio-formatting and<br />
+interactive browsing of math content.<br />
+</p></div></div><br />
+<br />
+<div id="outline-container-org077db06" class="outline-2"><h2 id="org077db06"><span class="section-number-2">2</span> Overview Of Functionality</h2><div class="outline-text-2" id="text-2"><p>Math access on the Emacspeak desktop is implemented via module<br />
+<a href="https://github.com/tvraman/emacspeak/blob/master/lisp/emacspeak-maths.el#L558">emacspeak-maths.el</a>  —  see <a href="https://github.com/tvraman/emacspeak/blob/master/js/node/Readme.org#L40">js/node/Readme.org</a> in the Emacspeak GitHub<br />
+repository for setup instructions. <br />
+</p><br />
+<p>Once loaded, module <code>emacspeak-maths</code> provides a <i>Math Navigator</i> that<br />
+implements the user interface for sending Math expressions to the<br />
+Speech-Rule-Engine, and for interactively browsing the resulting<br />
+structure. At each step of the interaction, Emacspeak receives math<br />
+expressions that have been annotated with Aural CSS and produces<br />
+audio-formatted output. The audio-formatted text can itself be<br />
+navigated in a special <i><b>Spoken Math</b></i> emacs buffer.<br />
+</p><br />
+<p>Module <code>emacspeak-maths.el</code> implements various affordances for<br />
+dispatching mathematical content to the Speech-Rule-Engine  —  see<br />
+usage examples in the next section.<br />
+</p></div></div><br />
+<div id="outline-container-org01ccc81" class="outline-2"><h2 id="org01ccc81"><span class="section-number-2">3</span> Usage Examples</h2><div class="outline-text-2" id="text-3"></div><div id="outline-container-org902c07f" class="outline-3"><h3 id="org902c07f"><span class="section-number-3">3.1</span> The Emacspeak Maths Navigator</h3><div class="outline-text-3" id="text-3-1"><ul class="org-ul"><li>The <i>maths navigator</i> can be invoked by pressing <span class="underline">S-SPC</span> (hold<br />
+down Windows key and press SPC)   —  this runs the command <span class="underline">emacspeak-maths-navigator/body</span>.</li>
+<li>Once invoked, the /Maths Navigator can be used to enter an<br />
+expression to read.</li>
+<li>Pressing <span class="underline">SPC</span> again prompts for the LaTeX math expression.</li>
+<li>Pressing  <span class="underline">RET</span> guesses the expression to read from the current context.</li>
+<li>The arrow keys navigate the expression being read.</li>
+<li>Pressing <span class="underline">o</span> switches to the <i><b>Spoken Math</b></i> buffer and exits the<br />
+navigator.</li>
+</ul><br />
+<p>See the <a href="http://tvraman.github.io/emacspeak/manual/emacspeak_002dmaths.html#emacspeak_002dmaths">relevant chapter</a> in the online Emacspeak manual for details.<br />
+</p></div></div><br />
+<div id="outline-container-org1a9896c" class="outline-3"><h3 id="org1a9896c"><span class="section-number-3">3.2</span> Math Content In LaTeX Documents</h3><div class="outline-text-3" id="text-3-2"><ol class="org-ol"><li>Open a LaTeX document containing math content.</li>
+<li>Move point to a line containing   mathematical markup.</li>
+<li>Press <span class="underline">S-SPC</span> <span class="underline">RET</span> to have that expression audio-formatted.</li>
+<li>Use arrow keys to navigate the resulting structure.</li>
+<li>Press any other key to exit the navigator.</li>
+</ol></div></div><br />
+<div id="outline-container-org2a619d9" class="outline-3"><h3 id="org2a619d9"><span class="section-number-3">3.3</span> Math Content On Wikipedia</h3><div class="outline-text-3" id="text-3-3"><ol class="org-ol"><li>Open a Wikipedia page in the Emacs Web Wowser (EWW) that has<br />
+mathematical content.</li>
+<li>Wikipedia displays math as images, with the alt-text giving the<br />
+LaTeX representation.</li>
+<li>Navigate to some math content on the page, then press <span class="underline">S-SPC</span><br />
+<span class="underline">a</span> to speak that content  —  <span class="underline">a</span> is for alt.</li>
+<li>As an example, navigate to <a href="https://en.wikipedia.org/wiki/Derangement">Wikipedia Math Example</a>, locate math expressions on that page, then<br />
+press <span class="underline">S-SPC a</span>.</li>
+</ol></div></div><br />
+<div id="outline-container-org89e3330" class="outline-3"><h3 id="org89e3330"><span class="section-number-3">3.4</span> Math Content From The Emacs Calculator</h3><div class="outline-text-3" id="text-3-4"><ol class="org-ol"><li>The built-in Emacs Calculator (<code>calc</code>) provides  many complex<br />
+math functions including symbolic algebra.</li>
+<li>For my personal <code>calc</code> setup, see  <a href="https://github.com/tvraman/emacspeak/blob/master/tvr/calc-prepare.el#L25">tvr/calc-prepare.el</a> in the<br />
+Emacspeak GitHub repo.</li>
+<li>This setting below sets up the Emacs Calculator to output results<br />
+as LaTeX: <span class="underline">(setq calc-language 'tex)</span></li>
+<li>With the above setting in effect, launch the emacs Calculator by<br />
+pressing <span class="underline">M-##</span>.</li>
+<li>Press <span class="underline">'</span> — to use algebraic mode —  and enter <code>sin(x)</code>.</li>
+<li>Press <span class="underline">a t</span> to get the Taylor series expansion of the above<br />
+expression, and press <span class="underline">x</span> when prompted for the variable.</li>
+<li>This displays the Taylor Series expansion up to the desired<br />
+number of terms  —  try <span class="underline">7</span> terms.</li>
+<li>Now, with Calc having shown the results as TeX, press <span class="underline">S-SPC</span><br />
+<span class="underline">RET</span> to browse this expression using the <i>Maths Navigator</i>.</li>
+</ol></div></div></div><br />
+<br />
+<br />
+<div id="outline-container-org2deefc5" class="outline-2"><h2 id="org2deefc5"><span class="section-number-2">4</span> And The Best Is Yet To Come</h2><div class="outline-text-2" id="text-4"><p>This is intentionally called an <i>early preview</i> because there is still<br />
+much that can be improved:<br />
+</p><br />
+<ol class="org-ol"><li>Enhance the rule engine to infer and convey more semantics.</li>
+<li>Improved audio formatting rules to better present the available information.</li>
+<li>Update/tune the use of Aural CSS properties to best leverage<br />
+today's TTS engines.</li>
+<li>Integrate math-reading functionality into more usage contexts in<br />
+addition to the ones enumerated in this article.</li>
+</ol></div></div><br />
+<br />
+<div id="outline-container-org5287b6e" class="outline-2"><h2 id="org5287b6e"><span class="section-number-2">5</span> References</h2><div class="outline-text-2" id="text-5"><ol class="org-ol"><li><a href="https://www.youtube.com/watch?v=YyWu9HB9QtU">Youtube Video from early 2013 demonstrating Math Access in Chrome</a></li>
+<li><a href="http://allthingsd.com/20130604/t-v-ramans-audio-deja-vu-from-google-a-math-reading-system-for-the-web/">AllThings Digital</a>  outlining math access  —  published June 2013.</li>
+<li><a href="https://github.com/zorkow/emacs-math-speak/blob/master/paper/assets16.tex">Assets 2016</a> publication describing this work.</li>
+<li><a href="https://github.com/tvraman/emacspeak/blob/master/js/node/aster-math-examples.tex">js/node/aster-math-examples.tex</a> Collection of math examples in<br />
+LaTeX from AsTeR. Used to progressively improve speech-rules and<br />
+the resulting audio-formatted output</li>
+<li><a href="https://github.com/zorkow/speech-rule-engine">Speech-Rule-Engine</a> on github.</li>
+<li>Speech-Rule-Engine in action:  <a href="https://www.mathjax.org/mathjax-accessibility-extensions-v1-now-available/">Accessible Maths in all browsers</a></li>
+</ol></div></div></div><div id="postamble" class="status"><p class="date">Date: 2017-02-08 Wed 00:00</p><p class="author">Author: T.V Raman</p></div><br />
+</div></div>
+<TABLE><tr>
+<td><a href="http://www.blogger.com/feeds/20280042/posts/default/1299713174330353715">[Edit]</a></td>
+<td><a href="http://www.blogger.com/feeds/20280042/posts/default/1299713174330353715">[Self]</a></td>
+<td><a href="http://emacspeak.blogspot.com/2017/02/audio-deja-vu-audio-formatted-math-on.html">[HTML]</a></td>
+</tr></TABLE>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2017-02-10T11:22:00.000-08:00<h2><a name="idm46912357246416" id="idm46912357246416">Fun With TTS (Voxin) And Ladspa</a></h2>
+<div>
+<br><div dir="ltr" style="text-align: left;" trbidi="on"><div id="content"><h1 class="title">Fun With TTS (Voxin) And Ladspa</h1><div id="outline-container-org2e8f78d" class="outline-2"><h2 id="org2e8f78d"><span class="section-number-2">1</span> Executive Summary</h2><div class="outline-text-2" id="text-1"><p>Voxin 1.6 &#x2014; AKA ViaVoice Outloud &#x2014; no longer requires that the<br />
+Emacspeak TTS server be built as a 32-bit binary. This means that<br />
+installing Voxin on 64-bit systems is now significantly easier since<br />
+you no longer need to install 32-bit versions of TCL, TCLX, and the<br />
+dependencies  needed by library <span class="underline">libibmeci.so</span>. In addition to<br />
+easing the installation process, not needing 32-bit binaries means<br />
+that the Emacspeak Outloud server can now take advantage of audio<br />
+processing such as that provided by LADSPA.<br />
+</p></div></div><br />
+<div id="outline-container-org5150d58" class="outline-2"><h2 id="org5150d58"><span class="section-number-2">2</span> Going 64-Bit: Upgrading To Voxin 1.6</h2><div class="outline-text-2" id="text-2"><ol class="org-ol"><li>Install Voxin-1.6 or later from <a href="https://voxin.oralux.net/update/voxin-update-1.6.tgz">Voxin</a>.</li>
+<li>Update Emacspeak from GitHub (this will be part of the next<br />
+public release).</li>
+<li>Rebuild the <span class="underline">atcleci.so</span> binary in the <span class="underline">servers/linux-outloud</span><br />
+directory:</li>
+</ol><pre class="example">cd servers/linux-outloud &amp;&amp; make clean &amp;&amp; make
+</pre><br />
+<p>If all goes well, you'll now have a 64-bit version of <span class="underline">atcleci.so</span>.<br />
+You can now run the Outloud server as <span class="underline">servers/outloud</span>.<br />
+In about a year's time,  <span class="underline">servers/32-outloud</span> will move to<br />
+<span class="underline">servers/obsolete</span>, as will the associated <span class="underline">servers/32-speech-server</span><br />
+and <span class="underline">servers/ssh-32-outloud</span>.<br />
+</p></div></div><br />
+<br />
+<div id="outline-container-org9a57fc2" class="outline-2"><h2 id="org9a57fc2"><span class="section-number-2">3</span> Applying LADSPA Effects Processing To TTS</h2><div class="outline-text-2" id="text-3"><p>With a 64-bit build of <span class="underline">atcleci.so</span> in place, we can now call on<br />
+installed LADSPA plugins to apply digital sound processing to  TTS<br />
+output.  To experiment with  the possibilities, see some of the<br />
+virtual sound devices defined in <span class="underline">servers/linux-outloud/asoundrc</span>.<br />
+Copy over that file to your <span class="underline">~/.asoundrc</span> after updating it to match<br />
+your sound setup &#x2014; you'll likely need to change the default<br />
+sound-card to match your setup.<br />
+You can now set environment variable <code>ALSA_DEFAULT</code> to one of  the<br />
+<code>tts_&lt;effect&gt;</code> virtual devices &#x2014; and have the Outloud server apply<br />
+the specified LADSPA effect to the generated TTS. Here is an example:<br />
+</p><br />
+<pre class="example">cd servers 
+(export ALSA_DEFAULT=tts_reverb; ./outloud)
+tts_selftest
+</pre></div></div><br />
+<div id="outline-container-orgad06121" class="outline-2"><h2 id="orgad06121"><span class="section-number-2">4</span> The Best Is Yet To Come &#x2026;</h2><div class="outline-text-2" id="text-4"><p>The possibilities are endless &#x2014; ALSA with LADSPA provides a rich<br />
+suite of audio processing possibilities.<br />
+</p></div></div><br />
+<div id="outline-container-org8489d49" class="outline-2"><h2 id="org8489d49"><span class="section-number-2">5</span> Acknowledgements</h2><div class="outline-text-2" id="text-5"><p>I'd like to acknowledge <a href="https://github.com/Oralux/libvoxin">Gilles Casse </a> for his work over the years on<br />
+ensuring that Linux users have access to good quality TTS. Outloud<br />
+would have been dead a long time ago if it weren't for his continued<br />
+efforts toward keeping the lights on. His newest creation, <span class="underline">libvoxin</span><br />
+that forms the crux of Voxin-1.6 is an excellent piece of engineering<br />
+that is likely to help Outloud survive for the future on modern Linux<br />
+distros. Note that Gilles is also the primary author of the Emacspeak<br />
+ESpeak server.<br />
+</p></div></div></div></div></div>
+<TABLE><tr>
+<td><a href="http://www.blogger.com/feeds/20280042/posts/default/5333731054405976919">[Edit]</a></td>
+<td><a href="http://www.blogger.com/feeds/20280042/posts/default/5333731054405976919">[Self]</a></td>
+<td><a href="http://emacspeak.blogspot.com/2017/01/fun-with-tts-voxin-and-ladspa.html">[HTML]</a></td>
+</tr></TABLE>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2017-01-04T11:09:00.001-08:00<h2><a name="idm46912357233136" id="idm46912357233136">Follow-Up: Soundscapes On The Emacspeak Audio Desktop</a></h2>
 <div>
 <br><div dir="ltr" style="text-align: left;" trbidi="on"><div id="content"><h1 class="title">Follow-Up: Soundscapes On The Emacspeak Audio Desktop</h1><div id="outline-container-orgf3ef09d" class="outline-2"><h2 id="orgf3ef09d"><span class="section-number-2">1</span> Executive Summary</h2><div class="outline-text-2" id="text-1"><p>Nearly a year ago, I <a href="http://emacspeak.blogspot.com/2015/12/soundscapes-on-emacspeak-audio-desktop.html">blogged here</a> about Soundscapes on the emacspeak<br />
 Audio Desktop. That article ended with this following paragraph:<br />
@@ -296,7 +589,7 @@ better things to come.<br />
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/7506835408639025840">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2016/11/follow-up-soundscapes-on-emacspeak.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2016-11-29T15:01:00.000-08:00<h2><a name="idp19401328" id="idp19401328">Emacspeak 45.0 (IdealDog) Unleashed!</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2016-11-29T15:01:00.000-08:00<h2><a name="idm46912357215648" id="idm46912357215648">Emacspeak 45.0 (IdealDog) Unleashed!</a></h2>
 <div>
 <br><div id="content"><h1 class="title">Emacspeak 45.0—IdealDog—Unleashed!</h1><p><b>For Immediate Release:</b><br />
 </p><br />
@@ -555,7 +848,7 @@ their respective owners.<br />
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/5460777600046934416">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2016/11/emacspeak-450-idealdog-unleashed.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2016-11-20T08:43:00.001-08:00<h2><a name="idp19432016" id="idp19432016">Emacspeak 44.0 (SteadyDog) Unleashed</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2016-11-20T08:43:00.001-08:00<h2><a name="idm46912357184864" id="idm46912357184864">Emacspeak 44.0 (SteadyDog) Unleashed</a></h2>
 <div>
 <br><div dir="ltr" style="text-align: left;" trbidi="on"><br />
 <div id="content"><h1 class="title">Emacspeak 44.0—SteadyDog—Unleashed!</h1><p><b>For Immediate Release:</b><br />
@@ -802,7 +1095,7 @@ their respective owners.<br />
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/6159575909849664627">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2016/04/emacspeak-440-steadydog-unleashed.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2016-04-30T10:51:00.000-07:00<h2><a name="idp19464272" id="idp19464272">Augmented Headphone Listening On Linux For The Emacspeak Audio Desktop</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2016-04-30T10:51:00.000-07:00<h2><a name="idm46912357152608" id="idm46912357152608">Augmented Headphone Listening On Linux For The Emacspeak Audio Desktop</a></h2>
 <div>
 <br><div dir="ltr" style="text-align: left;" trbidi="on"><div id="content"><h1 class="title">Augmented Headphone Listening On Linux For The Emacspeak Audio Desktop</h1><div id="outline-container-orgheadline1" class="outline-2"><h2 id="orgheadline1"><span class="section-number-2">1</span> Executive Summary</h2><div class="outline-text-2" id="text-1"><p>A combination of <b>ALSA</b>, <b>Ladspa</b> and <b>OpenAL</b> can provide an enhanced<br />
 headphone listening experience on Linux &#x2014;  this article summarizes<br />
@@ -876,7 +1169,7 @@ enhanced auditory environment.<br />
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/8485619754252778620">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2016/02/augmented-headphone-listening-on-linux.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2016-02-25T17:56:00.001-08:00<h2><a name="idp19478608" id="idp19478608">Soundscapes On The Emacspeak Audio Desktop</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2016-02-25T17:56:00.001-08:00<h2><a name="idm46912357138272" id="idm46912357138272">Soundscapes On The Emacspeak Audio Desktop</a></h2>
 <div>
 <br><div dir="ltr" style="text-align: left;" trbidi="on"><div id="content"><h1 class="title">Soundscapes On The Emacspeak Audio Desktop</h1><div id="outline-container-orgheadline1" class="outline-2"><h2 id="orgheadline1"><span class="section-number-2">1</span> Executive Summary</h2><div class="outline-text-2" id="text-1"><p>Emacspeak module <a href="http://tvraman.github.io/emacspeak/manual/soundscape.html">soundscape</a> adds the ability to automatically switch<br />
 <b>Soundscapes</b> based on the current buffer. A <b>Soundscape</b> can be any<br />
@@ -1004,7 +1297,7 @@ this is likely the most relevant metric.<br />
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/1743443909224540427">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2015/12/soundscapes-on-emacspeak-audio-desktop.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-12-18T11:07:00.004-08:00<h2><a name="idp19497840" id="idp19497840">A Ladspa Work-Bench For The Emacspeak Desktop </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-12-18T11:07:00.004-08:00<h2><a name="idm46912357119040" id="idm46912357119040">A Ladspa Work-Bench For The Emacspeak Desktop </a></h2>
 <div>
 <br><div dir="ltr" style="text-align: left;" trbidi="on"><div id="content"><h1 class="title">A Ladspa Work-Bench For The Emacspeak Audio Desktop</h1><div id="outline-container-orgheadline1" class="outline-2"><h2 id="orgheadline1"><span class="section-number-2">1</span> Executive Summary</h2><div class="outline-text-2" id="text-1"><p>Module <code>ladspa.el</code>  in the Emacspeak GitHub repository implements a<br />
 high-level interface for experimenting with Ladspa Plugins using<br />
@@ -1038,7 +1331,7 @@ needed.<br />
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/6914615005759113231">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2015/12/a-ladspa-work-bench-for-emacspeak.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-12-04T20:09:00.003-08:00<h2><a name="idp19508304" id="idp19508304">Generating Spatialized Auditory Icons Using MPlayer And Ladspa</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-12-04T20:09:00.003-08:00<h2><a name="idm46912357108576" id="idm46912357108576">Generating Spatialized Auditory Icons Using MPlayer And Ladspa</a></h2>
 <div>
 <br><div dir="ltr" style="text-align: left;" trbidi="on"><div id="content"><h1 class="title">Generating Spatialized Auditory Icons Using MPlayer And Ladspa</h1><div id="outline-container-orgheadline1" class="outline-2"><h2 id="orgheadline1"><span class="section-number-2">1</span> Executive Summary</h2><div class="outline-text-2" id="text-1"><p>The Emacspeak GitHub repository now includes a new auditory icon theme<br />
 <code>pan-chimes</code> &#x2014; these are the result of spatializing theme <code>chimes</code>.<br />
@@ -1067,7 +1360,7 @@ theme was generated.<br />
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/3241221996464808070">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2015/11/generating-spatialized-auditory-icons.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-11-30T17:21:00.003-08:00<h2><a name="idp19517856" id="idp19517856">Listening To Multiple Media Streams On The Emacspeak Audio Desktop</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-11-30T17:21:00.003-08:00<h2><a name="idm46912357099024" id="idm46912357099024">Listening To Multiple Media Streams On The Emacspeak Audio Desktop</a></h2>
 <div>
 <br> <div dir="ltr" style="text-align: left;" trbidi="on"><div id="content"><h1 class="title">Listening To Multiple Media Streams On The Emacspeak Audio Desktop</h1><div id="outline-container-orgheadline1" class="outline-2"><h2 id="orgheadline1"><span class="section-number-2">1</span> Executive Summary</h2><div class="outline-text-2" id="text-1"><p>The GitHub version of Emacspeak now supports launching and controlling<br />
 multiple media streams. This enables one to listen to the news while<br />
@@ -1103,7 +1396,7 @@ bound to <span class="underline">/</span> in <code>emacspeak-m-player-mode</code
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/7606050581558531435">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2015/11/listening-to-multiple-media-streams-on.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-11-23T15:25:00.001-08:00<h2><a name="idp19529792" id="idp19529792">Emacspeak 43.0 (SoundDog) Unleashed!</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-11-23T15:25:00.001-08:00<h2><a name="idm46912357087088" id="idm46912357087088">Emacspeak 43.0 (SoundDog) Unleashed!</a></h2>
 <div>
 <br><div dir="ltr" style="text-align: left;" trbidi="on"><div id="content"><h1 class="title">Emacspeak 43.0—SoundDog—Unleashed!</h1><p><b>For Immediate Release:</b><br />
 </p><br />
@@ -1361,7 +1654,7 @@ m</div>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/9210947851534696007">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2015/11/emacspeak-430-sounddog-unleashed.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-11-20T08:59:00.001-08:00<h2><a name="idp19560384" id="idp19560384">Using Multiple TTS Streams On The emacspeak Audio Desktop</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-11-20T08:59:00.001-08:00<h2><a name="idm46912357056496" id="idm46912357056496">Using Multiple TTS Streams On The emacspeak Audio Desktop</a></h2>
 <div>
 <br><div dir="ltr" style="text-align: left;" trbidi="on"><div id="content"><h1 class="title">Using Multiple TTS Streams On The Emacspeak Audio Desktop</h1><div id="outline-container-orgheadline1" class="outline-2"><h2 id="orgheadline1"><span class="section-number-2">1</span> Executive Summary</h2><div class="outline-text-2" id="text-1"><p>Emacspeak now uses multiple text-to-speech streams &#x2014; as an example,<br />
 this enables spoken notifications that do not interrupt ongoing spoken<br />
@@ -1435,7 +1728,7 @@ the <code>.asoundrc</code> file.</li>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/4148707080078147942">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2015/11/using-multiple-tts-streams-on-emacspeak.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-11-10T18:07:00.000-08:00<h2><a name="idp19574240" id="idp19574240">Smart Actions In Directory Buffers For The Emacspeak Audio Desktop</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-11-10T18:07:00.000-08:00<h2><a name="idm46912357042640" id="idm46912357042640">Smart Actions In Directory Buffers For The Emacspeak Audio Desktop</a></h2>
 <div>
 <br><div dir="ltr" style="text-align: left;" trbidi="on"><div id="content"><h1 class="title">Smart Actions In Directory Buffers For The Emacspeak Audio Desktop</h1><div id="outline-container-orgheadline1" class="outline-2"><h2 id="orgheadline1"><span class="section-number-2">1</span> Overview</h2><div class="outline-text-2" id="text-1"><p>Emacspeak now provides  a <b>smart  actions</b> feature in Emacs' Directory<br />
 Editor (DirEd) buffers.<br />
@@ -1470,7 +1763,7 @@ the afore-mentioned smart action.<br />
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/563774085883333398">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2015/10/smart-actions-in-directory-buffers-for.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-10-16T15:46:00.002-07:00<h2><a name="idp19585088" id="idp19585088">Announcing Emacspeak-Muggles: Keyboard Conveniences For Emacspeak</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-10-16T15:46:00.002-07:00<h2><a name="idm46912357031792" id="idm46912357031792">Announcing Emacspeak-Muggles: Keyboard Conveniences For Emacspeak</a></h2>
 <div>
 <br><div id="content"><h1 class="title">Announcing Emacspeak-Muggles: Keyboard Conveniences For Emacspeak</h1><div id="outline-container-sec-1" class="outline-2"><h2 id="sec-1"><span class="section-number-2">1</span> Announcing Emacspeak-Muggles: Keyboard Conveniences For Emacspeak</h2><div class="outline-text-2" id="text-1"></div><div id="outline-container-sec-1-1" class="outline-3"><h3 id="sec-1-1"><span class="section-number-3">1.1</span> Executive Summary:</h3><div class="outline-text-3" id="text-1-1"><p>new module <i>emacspeak-muggles</i> uses package <span class="underline">hydra</span> to provide keyboard conveniences.<br />
 </p></div></div><br />
@@ -1496,7 +1789,7 @@ the afore-mentioned smart action.<br />
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/4176978858272937705">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2015/09/announcing-emacspeak-muggles-keyboard.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-09-21T11:24:00.000-07:00<h2><a name="idp19596352" id="idp19596352">Emacspeak: An Overview Of Voice-Lock Over The Years</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-09-21T11:24:00.000-07:00<h2><a name="idm46912357020528" id="idm46912357020528">Emacspeak: An Overview Of Voice-Lock Over The Years</a></h2>
 <div>
 <br><div id="content"><h1 class="title">Emacspeak: An Overview Of Voice-Lock Over The Years</h1><div id="outline-container-orgheadline1" class="outline-2"><h2 id="orgheadline1"><span class="section-number-2">1</span> Executive Summary</h2><div class="outline-text-2" id="text-1"><p>Audio formatted output is provided via <code>voice-lock</code> in Emacspeak.<br />
 The feature was originally implemented in 1994 and  significantly<br />
@@ -1563,7 +1856,7 @@ face-&gt;personality mapping (if defined) is used as the aural style.<br />
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/283249542002790254">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2015/09/emacspeak-overview-of-voice-lock-over.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-09-21T11:22:00.000-07:00<h2><a name="idp19611648" id="idp19611648">Emacspeak:Setting up StumpWM as a speech-enabled Window Manager. </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-09-21T11:22:00.000-07:00<h2><a name="idm46912357005232" id="idm46912357005232">Emacspeak:Setting up StumpWM as a speech-enabled Window Manager. </a></h2>
 <div>
 <br><br />
 <div id="content"><h1 class="title">Emacspeak support for StumpWM</h1><div id="outline-container-orgheadline1" class="outline-2"><h2 id="orgheadline1"><span class="section-number-2">1</span> Summary:</h2><div class="outline-text-2" id="text-1"><p>Describes my Linux X-Windowing setup using <b>lightdm</b> to initialize the desktop and StumpWM configured as a talking Window Manager.<br />
@@ -1605,7 +1898,7 @@ I typically run with only one window displayed at a time.</li>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/59350072126563443">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2015/09/emacspeaksetting-up-stumpwm-as-speech.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-09-21T11:20:00.002-07:00<h2><a name="idp19623392" id="idp19623392">Setting Up An X Environment For Using With Emacspeak, ChromeVox and StumpWM </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-09-21T11:20:00.002-07:00<h2><a name="idm46912356993488" id="idm46912356993488">Setting Up An X Environment For Using With Emacspeak, ChromeVox and StumpWM </a></h2>
 <div>
 <br><br />
 <div id="content"><h1 class="title">Setting Up An X Environment For Using With Emacspeak, ChromeVox and StumpWM</h1><div id="outline-container-orgheadline1" class="outline-2"><h2 id="orgheadline1"><span class="section-number-2">1</span> Executive Summary</h2><div class="outline-text-2" id="text-1"><p>This is a follow-up to <a href="./stumpwm-setup.html">the article on my Window Manager  set-up</a><br />
@@ -1689,7 +1982,7 @@ Xft*rgba:       rgb
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/4287314264250464130">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2015/09/setting-up-x-environment-for-using-with.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-09-21T11:18:00.001-07:00<h2><a name="idp19637952" id="idp19637952">Announcing Emacspeak 42.0 (AnswerDog)</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-09-21T11:18:00.001-07:00<h2><a name="idm46912356978928" id="idm46912356978928">Announcing Emacspeak 42.0 (AnswerDog)</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -2035,7 +2328,7 @@ their respective owners.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/1698175370010769215">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2015/04/announcing-emacspeak-420-answerdog.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-04-30T15:37:00.001-07:00<h2><a name="idp19336432" id="idp19336432">Emacspeak 3.0: Released 20 Years Ago Today!</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-04-30T15:37:00.001-07:00<h2><a name="idm46912357335760" id="idm46912357335760">Emacspeak 3.0: Released 20 Years Ago Today!</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -2066,7 +2359,7 @@ archive for the mailing list at DEC.e
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/4322999248520814794">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2015/04/emacspeak-30-released-20-years-ago-today.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-04-25T09:49:00.001-07:00<h2><a name="idp19646432" id="idp19646432">HowTo: Log Speech Server Output To Aid In Developing TTS Servers</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-04-25T09:49:00.001-07:00<h2><a name="idm46912356970448" id="idm46912356970448">HowTo: Log Speech Server Output To Aid In Developing TTS Servers</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -2142,7 +2435,7 @@ Assume you want to see the speech-server commands sent by Emacs when you perform
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/131675225312108827">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2015/04/howto-log-speech-server-output-to-aid.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-04-15T17:37:00.001-07:00<h2><a name="idp19699744" id="idp19699744">Emacspeak Development Is Moving To GitHub</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-04-15T17:37:00.001-07:00<h2><a name="idm46912356917136" id="idm46912356917136">Emacspeak Development Is Moving To GitHub</a></h2>
 <div>
 <br> 
     <div xmlns='http://www.w3.org/1999/xhtml'> 
@@ -2315,7 +2608,7 @@ sub-directory <span class='underline'>blogs</span>.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/7044326487827026820">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2015/03/emacspeak-development-is-moving-to.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-03-09T08:39:00.001-07:00<h2><a name="idp19713888" id="idp19713888">Enhanced Audio On The Emacspeak Desktop</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-03-09T08:39:00.001-07:00<h2><a name="idm46912356902992" id="idm46912356902992">Enhanced Audio On The Emacspeak Desktop</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -2446,7 +2739,7 @@ interface to specify  pairs of shortcut keys and media locations.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/8289264463441948640">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2015/02/enhanced-audio-on-emacspeak-desktop.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-02-17T17:40:00.001-08:00<h2><a name="idp19729744" id="idp19729744">Internet Radio: Tune-In For Emacspeak</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-02-17T17:40:00.001-08:00<h2><a name="idm46912356887136" id="idm46912356887136">Internet Radio: Tune-In For Emacspeak</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -2544,7 +2837,7 @@ Share And Enjoy!
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/6710753170618770899">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2015/02/internet-radio-tune-in-for-emacspeak.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-02-17T16:49:00.001-08:00<h2><a name="idp19742512" id="idp19742512">3D: A Spatial Auditory Icon Theme Generated Using CSound</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-02-17T16:49:00.001-08:00<h2><a name="idm46912356874368" id="idm46912356874368">3D: A Spatial Auditory Icon Theme Generated Using CSound</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -2578,7 +2871,7 @@ spatial audio to good effect.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/8322832952612579359">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2015/01/3d-spatial-auditory-icon-theme.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-01-06T09:15:00.001-08:00<h2><a name="idp19751680" id="idp19751680">Announcing Emacspeak 41.0: NiceDog</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2015-01-06T09:15:00.001-08:00<h2><a name="idm46912356865200" id="idm46912356865200">Announcing Emacspeak 41.0: NiceDog</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -2917,7 +3210,7 @@ their respective owners.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/1737069223455578017">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2014/11/announcing-emacspeak-410-nicedog.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2014-11-26T07:09:00.001-08:00<h2><a name="idp19781056" id="idp19781056">Emacspeak At Twenty: Looking Back, Looking Forward</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2014-11-26T07:09:00.001-08:00<h2><a name="idm46912356835824" id="idm46912356835824">Emacspeak At Twenty: Looking Back, Looking Forward</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -3874,7 +4167,7 @@ became part of Emacs 19.23.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/669045308065263176">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2014/09/emacspeak-at-twenty-looking-back.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2014-09-15T14:11:00.001-07:00<h2><a name="idp19873008" id="idp19873008">Emacspeak And Company: Complete Anything Front-End For emacspeak</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2014-09-15T14:11:00.001-07:00<h2><a name="idm46912356743872" id="idm46912356743872">Emacspeak And Company: Complete Anything Front-End For emacspeak</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -4030,7 +4323,7 @@ in Emacs.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/3679250138370991755">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2014/05/emacspeak-and-company-complete-anything.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2014-05-27T08:54:00.001-07:00<h2><a name="idp19888880" id="idp19888880">Announcing Emacspeak 40.0 AKA WowDog!</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2014-05-27T08:54:00.001-07:00<h2><a name="idm46912356728000" id="idm46912356728000">Announcing Emacspeak 40.0 AKA WowDog!</a></h2>
 <div>
 <br> 
      
@@ -4357,7 +4650,7 @@ in Emacs.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/5171030908858943189">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2014/05/announcing-emacspeak-400-aka-wowdog.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2014-05-12T07:52:00.001-07:00<h2><a name="idp19919520" id="idp19919520">Emacspeak: EWW Updates For The Complete Audio Desktop</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2014-05-12T07:52:00.001-07:00<h2><a name="idm46912356697360" id="idm46912356697360">Emacspeak: EWW Updates For The Complete Audio Desktop</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -4487,7 +4780,7 @@ live DOM  within Chrome.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/7522454771756394603">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2014/05/emacspeak-eww-updates-for-complete.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2014-05-01T17:30:00.001-07:00<h2><a name="idp19932816" id="idp19932816">Emacspeak Webspace: Glancing At Information On The Audio Desktop</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2014-05-01T17:30:00.001-07:00<h2><a name="idm46912356684064" id="idm46912356684064">Emacspeak Webspace: Glancing At Information On The Audio Desktop</a></h2>
 <div>
 <br> 
     <div> 
@@ -4663,7 +4956,7 @@ starting to read content i.e., it failed to meet the
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/6419858702011543886">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2014/03/emacspeak-webspace-glancing-at.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2014-03-24T17:51:00.001-07:00<h2><a name="idp19949680" id="idp19949680">Searching GMail Using IMap And GNUS</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2014-03-24T17:51:00.001-07:00<h2><a name="idm46912356667200" id="idm46912356667200">Searching GMail Using IMap And GNUS</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -4744,7 +5037,7 @@ construct <i>ephemeral</i> groups that hold the search results.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/4505425483465638321">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2014/02/searching-gmail-using-imap-and-gnus.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2014-02-08T17:00:00.001-08:00<h2><a name="idp19962592" id="idp19962592">Exploring And Accessing BBC Podcasts and Program Archives</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2014-02-08T17:00:00.001-08:00<h2><a name="idm46912356654288" id="idm46912356654288">Exploring And Accessing BBC Podcasts and Program Archives</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -4848,7 +5141,7 @@ BBC channel via Emacspeak url template <b>BBC IPlayer</b>.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/2775932127867625241">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2014/01/exploring-and-accessing-bbc-podcasts.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2014-01-01T08:51:00.001-08:00<h2><a name="idp19975712" id="idp19975712">Managing And Accessing Feeds On The Emacspeak Audio Desktop</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2014-01-01T08:51:00.001-08:00<h2><a name="idm46912356641168" id="idm46912356641168">Managing And Accessing Feeds On The Emacspeak Audio Desktop</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -4919,7 +5212,7 @@ subscribed feed being stored in <span class='underline'>emacspeak-feeds</span>.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/5712406582541330143">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2013/12/managing-and-accessing-feeds-on.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2013-12-29T08:35:00.001-08:00<h2><a name="idp19987616" id="idp19987616">Reading Web Content Efficiently</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2013-12-29T08:35:00.001-08:00<h2><a name="idm46912356629264" id="idm46912356629264">Reading Web Content Efficiently</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -5039,7 +5332,7 @@ To flexibly obtain multiple views of a Web site.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/7804883057579972872">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2013/11/reading-web-content-efficiently.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2013-11-27T14:48:00.001-08:00<h2><a name="idp20000864" id="idp20000864">Emacspeak 39.0 (BigDog) Unleashed!</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2013-11-27T14:48:00.001-08:00<h2><a name="idm46912356616016" id="idm46912356616016">Emacspeak 39.0 (BigDog) Unleashed!</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -5398,7 +5691,7 @@ their respective owners.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/7652738519984086094">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2013/11/emacspeak-390-bigdog-unleashed.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2013-11-26T15:56:00.001-08:00<h2><a name="idp20032672" id="idp20032672">Emacspeak 38.0 (FreeDog Unleashed</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2013-11-26T15:56:00.001-08:00<h2><a name="idm46912356584208" id="idm46912356584208">Emacspeak 38.0 (FreeDog Unleashed</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -5743,7 +6036,7 @@ their respective owners.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/3838103849410783364">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2013/05/emacspeak-380-freedog-unleashed.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2013-05-12T08:13:00.001-07:00<h2><a name="idp20066224" id="idp20066224">GMaps: Google Maps On The Emacspeak Desktop</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2013-05-12T08:13:00.001-07:00<h2><a name="idm46912356550656" id="idm46912356550656">GMaps: Google Maps On The Emacspeak Desktop</a></h2>
 <div>
 <br> 
     <div xmlns='http://www.w3.org/1999/xhtml'> 
@@ -5851,7 +6144,7 @@ early 2005.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/2252610515309333920">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2013/02/gmaps-google-maps-on-emacspeak-desktop.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2013-02-28T12:47:00.001-08:00<h2><a name="idp20080288" id="idp20080288">Emacspeak 37.0 (SolidDog) Unleashed</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2013-02-28T12:47:00.001-08:00<h2><a name="idm46912356536592" id="idm46912356536592">Emacspeak 37.0 (SolidDog) Unleashed</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -6224,7 +6517,7 @@ their respective owners.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/7843402706774593002">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2012/12/emacspeak-370-soliddog-unleashed.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2012-12-21T11:53:00.001-08:00<h2><a name="idp20110496" id="idp20110496">Emacspeak 36.0 (EPubDog) Unleashed!</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2012-12-21T11:53:00.001-08:00<h2><a name="idm46912356506384" id="idm46912356506384">Emacspeak 36.0 (EPubDog) Unleashed!</a></h2>
 <div>
 <br>   
     <div xmlns='http://www.w3.org/1999/xhtml'>   
@@ -6534,7 +6827,7 @@ their respective owners.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/5529021722260648318">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2012/05/emacspeak-360-epubdog-unleashed.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2012-05-03T17:16:00.001-07:00<h2><a name="idp20147296" id="idp20147296">Emacspeak 35.0 (HeadDog) Released</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2012-05-03T17:16:00.001-07:00<h2><a name="idm46912356469584" id="idm46912356469584">Emacspeak 35.0 (HeadDog) Released</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -6912,7 +7205,7 @@ their respective owners.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/3084012817801392916">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2011/11/emacspeak-350-headdog-released.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2011-11-23T09:33:00.001-08:00<h2><a name="idp20177792" id="idp20177792">Welcome Press/Analyst Contact Tilden Labrador</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2011-11-23T09:33:00.001-08:00<h2><a name="idm46912356439088" id="idm46912356439088">Welcome Press/Analyst Contact Tilden Labrador</a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <strong>For Immediate Release:</strong>
@@ -6951,7 +7244,7 @@ Labrador</a> proud.</div></div>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/7346123054934766410">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2011/08/welcome-pressanalyst-contact-tilden.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2011-08-01T17:29:00.001-07:00<h2><a name="idp20188032" id="idp20188032">In Praise Of Bubbles — Emacspeak 34.0 Unleashed!</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2011-08-01T17:29:00.001-07:00<h2><a name="idm46912356428848" id="idm46912356428848">In Praise Of Bubbles — Emacspeak 34.0 Unleashed!</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -7325,7 +7618,7 @@ their respective owners.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/1897244149616239418">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2011/05/in-praise-of-bubbles-emacspeak-340.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2011-05-13T11:24:00.001-07:00<h2><a name="idp20220768" id="idp20220768">Hubbell (Bubbles) Labrador  Biography --- My
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2011-05-13T11:24:00.001-07:00<h2><a name="idm46912356396112" id="idm46912356396112">Hubbell (Bubbles) Labrador  Biography --- My
   Bubbly Life</a></h2>
 <div>
 <br>
@@ -7344,7 +7637,7 @@ in honor of Emacspeak's Press/Analyst contact for the last 11 years.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/4997150303021985803">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2011/04/bubbles-life-story-in-her-own-words.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2011-04-20T08:46:00.001-07:00<h2><a name="idp20229344" id="idp20229344">Epitaph: Saying GoodBye To Our Beloved Press/Analyst Contact</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2011-04-20T08:46:00.001-07:00<h2><a name="idm46912356387536" id="idm46912356387536">Epitaph: Saying GoodBye To Our Beloved Press/Analyst Contact</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -7362,7 +7655,7 @@ went to sleep April 11, 2011</a> for the final time.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/2711131965029639430">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2011/04/epitaph-saying-goodbye-to-our-beloved.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2011-04-15T19:16:00.001-07:00<h2><a name="idp20237840" id="idp20237840">Emacspeak: In Praise Of The Bookshare API</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2011-04-15T19:16:00.001-07:00<h2><a name="idm46912356379040" id="idm46912356379040">Emacspeak: In Praise Of The Bookshare API</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>  
@@ -7398,7 +7691,7 @@ is
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/6332752551037993069">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2011/02/emacspeak-in-praise-of-bookshare-api.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2011-02-07T08:20:00.001-08:00<h2><a name="idp20247648" id="idp20247648">Silence Is Golden</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2011-02-07T08:20:00.001-08:00<h2><a name="idm46912356369232" id="idm46912356369232">Silence Is Golden</a></h2>
 <div>
 <br>   
  <div xmlns='http://www.w3.org/1999/xhtml'>   
@@ -7444,7 +7737,7 @@ i.e., <code>Tue Dec 21 01:02:15 PST 2010</code>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/4240598391795903129">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2010/12/silence-is-golden.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2010-12-21T09:54:00.001-08:00<h2><a name="idp20256960" id="idp20256960">Emacspeak 33.0 (StarDog) Unleashed!</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2010-12-21T09:54:00.001-08:00<h2><a name="idm46912356359920" id="idm46912356359920">Emacspeak 33.0 (StarDog) Unleashed!</a></h2>
 <div>
 <br> 
     <div xmlns='http://www.w3.org/1999/xhtml'> 
@@ -7802,7 +8095,7 @@ their respective owners.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/204658359808048204">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2010/11/emacspeak-330-stardog-unleashed.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2010-11-24T10:53:00.001-08:00<h2><a name="idp20285024" id="idp20285024">Emacspeak 32.0 (LuckyDog) Unleashed</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2010-11-24T10:53:00.001-08:00<h2><a name="idm46912356332720" id="idm46912356332720">Emacspeak 32.0 (LuckyDog) Unleashed</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -8095,7 +8388,7 @@ their respective owners.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/5033630278890460887">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2010/05/emacspeak-320-luckydog-unleashed.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2010-05-12T17:38:00.001-07:00<h2><a name="idp20311488" id="idp20311488">AsTeR --- Audio System For Technical Readings</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2010-05-12T17:38:00.001-07:00<h2><a name="idm46912356306976" id="idm46912356306976">AsTeR --- Audio System For Technical Readings</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -8138,7 +8431,7 @@ create a project-specific list.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/2482514192131547324">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2010/01/aster-audio-system-for-technical.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2010-01-26T08:41:00.001-08:00<h2><a name="idp20323248" id="idp20323248">Emacspeak 31 (AKA TweetDog) Unleashed!</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2010-01-26T08:41:00.001-08:00<h2><a name="idm46912356295216" id="idm46912356295216">Emacspeak 31 (AKA TweetDog) Unleashed!</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -8278,7 +8571,7 @@ Updated WebSearch wizards for enhanced productivity.♄
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/5583569647483114898">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2009/11/emacspeak-31-aka-tweetdog-unleashed.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2009-11-25T17:22:00.001-08:00<h2><a name="idp20335968" id="idp20335968">A Google Tool-belt For The Complete Audio Desktop</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2009-11-25T17:22:00.001-08:00<h2><a name="idm46912356282496" id="idm46912356282496">A Google Tool-belt For The Complete Audio Desktop</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -8336,7 +8629,7 @@ For convenience, the tool-belt is bound to
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/3455142340996047146">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2009/10/google-tool-belt-for-complete-audio.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2009-10-13T08:57:00.001-07:00<h2><a name="idp20348176" id="idp20348176">Emacspeak, The World's Fonts And Braille</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2009-10-13T08:57:00.001-07:00<h2><a name="idm46912356270288" id="idm46912356270288">Emacspeak, The World's Fonts And Braille</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -8395,7 +8688,7 @@ specified string using the appropriate Unicode characters.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/1588065823364899714">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2009/09/emacspeak-world-fonts-and-braille.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2009-09-21T08:49:00.001-07:00<h2><a name="idp20359152" id="idp20359152">Emacspeak: Google News Suggest For Faster News Search</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2009-09-21T08:49:00.001-07:00<h2><a name="idm46912356259312" id="idm46912356259312">Emacspeak: Google News Suggest For Faster News Search</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -8422,7 +8715,7 @@ As in the case of WebSearch, Emacspeak now leverages Google News'
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/5458623656889758886">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2009/09/emacspeak-google-news-suggest-for.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2009-09-15T08:16:00.001-07:00<h2><a name="idp20368288" id="idp20368288">Emacspeak Servers --- Catching Up With Debian And Ubuntu</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2009-09-15T08:16:00.001-07:00<h2><a name="idm46912356250176" id="idm46912356250176">Emacspeak Servers --- Catching Up With Debian And Ubuntu</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -8488,7 +8781,7 @@ any more.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/731401833831161183">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2009/08/emacspeak-servers-catching-up-with.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2009-08-27T08:28:00.001-07:00<h2><a name="idp20380928" id="idp20380928">Launching Favorite Media Via Hot Keys</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2009-08-27T08:28:00.001-07:00<h2><a name="idm46912356237536" id="idm46912356237536">Launching Favorite Media Via Hot Keys</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -8533,7 +8826,7 @@ peripheral via which you can deliver input to Emacs. </p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/6645202840710833780">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2009/06/launching-favorite-media-via-hot-keys.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2009-06-29T10:48:00.001-07:00<h2><a name="idp20391728" id="idp20391728">Looking Beyond The Screen At Google I/O2009</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2009-06-29T10:48:00.001-07:00<h2><a name="idm46912356226736" id="idm46912356226736">Looking Beyond The Screen At Google I/O2009</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -8668,7 +8961,7 @@ date and time.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/8771579527311127674">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2009/05/looking-beyond-screen-at-google-io2009.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2009-05-22T09:04:00.001-07:00<h2><a name="idp20406384" id="idp20406384">Announcing emacspeak 30.0 --- SocialDog!</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2009-05-22T09:04:00.001-07:00<h2><a name="idm46912356212080" id="idm46912356212080">Announcing emacspeak 30.0 --- SocialDog!</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -8770,7 +9063,7 @@ Emacs 23 support.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/8862551794456516199">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2009/05/announcing-emacspeak-300-socialdog.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2009-05-11T13:43:00.001-07:00<h2><a name="idp20420176" id="idp20420176">Toward an Accessible Democracy --- White House Moderator AxsJAXed</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2009-05-11T13:43:00.001-07:00<h2><a name="idm46912356198288" id="idm46912356198288">Toward an Accessible Democracy --- White House Moderator AxsJAXed</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -8876,7 +9169,7 @@ Raman and Charles.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/636508770988364233">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2009/03/toward-accessible-democracy-white-house.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2009-03-26T10:06:00.001-07:00<h2><a name="idp20434704" id="idp20434704">Announcing Emacspeak 29.0 (AbleDog)</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2009-03-26T10:06:00.001-07:00<h2><a name="idm46912356183760" id="idm46912356183760">Announcing Emacspeak 29.0 (AbleDog)</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -9007,7 +9300,7 @@ Raman and Charles.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/8109949379954051916">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2008/11/announcing-emacspeak-290-abledog.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-11-26T16:31:00.001-08:00<h2><a name="idp20450544" id="idp20450544">Emacspeak Webspace Goodies</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-11-26T16:31:00.001-08:00<h2><a name="idm46912356167920" id="idm46912356167920">Emacspeak Webspace Goodies</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -9047,7 +9340,7 @@ that is put in <em>Webspace</em> mode.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/6635709760768346180">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2008/09/emacspeak-webspace-goodies.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-09-09T17:40:00.001-07:00<h2><a name="idp20460528" id="idp20460528">Emacspeak-WebSpace Just Got A Lot Faster</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-09-09T17:40:00.001-07:00<h2><a name="idm46912356157936" id="idm46912356157936">Emacspeak-WebSpace Just Got A Lot Faster</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -9068,7 +9361,7 @@ faster --- not that it was slow to start with:-)</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/8490053477945022162">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2008/08/emacspeak-webspace-just-got-lot-faster.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-08-20T07:12:00.001-07:00<h2><a name="idp20468944" id="idp20468944">In Praise Of The Google Search AJAX API</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-08-20T07:12:00.001-07:00<h2><a name="idm46912356149520" id="idm46912356149520">In Praise Of The Google Search AJAX API</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -9120,7 +9413,7 @@ result.</li>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/8030748561890638945">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2008/08/in-praise-of-google-search-ajax-api.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-08-14T16:51:00.001-07:00<h2><a name="idp20479296" id="idp20479296">Tutorial: Enhancing Web 2.0 Usability Using AxsJAX</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-08-14T16:51:00.001-07:00<h2><a name="idm46912356139168" id="idm46912356139168">Tutorial: Enhancing Web 2.0 Usability Using AxsJAX</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -9207,7 +9500,7 @@ hands-on tutorial is to help you get there faster!
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/5847282220001233762">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2008/08/tutorial-enhancing-web-20-usability.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-08-01T08:07:00.001-07:00<h2><a name="idp20490192" id="idp20490192">Talk Announcement: Developing Accessible Web-2.0 Applications</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-08-01T08:07:00.001-07:00<h2><a name="idm46912356128272" id="idm46912356128272">Talk Announcement: Developing Accessible Web-2.0 Applications</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -9262,7 +9555,7 @@ Want to learn more about creating accessible Web 2.0 applications from the creat
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/8158867466246239607">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2008/07/talk-announcement-developing-accessible.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-07-14T08:17:00.001-07:00<h2><a name="idp20503152" id="idp20503152">ProcEd: A Speech-Enabled Task Manager For Emacs</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-07-14T08:17:00.001-07:00<h2><a name="idm46912356115312" id="idm46912356115312">ProcEd: A Speech-Enabled Task Manager For Emacs</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -9290,7 +9583,7 @@ Google</a>.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/5405233355746155695">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2008/07/proced-speech-enabled-task-manager-for.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-07-03T07:36:00.001-07:00<h2><a name="idp20511936" id="idp20511936">Leveraging Web 2.0 Design Patterns For Enhanced Accessibility</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-07-03T07:36:00.001-07:00<h2><a name="idm46912356106528" id="idm46912356106528">Leveraging Web 2.0 Design Patterns For Enhanced Accessibility</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -9326,7 +9619,7 @@ Developers should know JavaScript, but session doesn't require deep AJAX hackery
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/8883792143826726043">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2008/06/leveraging-web-20-design-patterns-for.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-06-12T15:30:00.001-07:00<h2><a name="idp20524016" id="idp20524016">AxsJAX And Auditory User Interfaces At Google IO</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-06-12T15:30:00.001-07:00<h2><a name="idm46912356094448" id="idm46912356094448">AxsJAX And Auditory User Interfaces At Google IO</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -9347,7 +9640,7 @@ Look forward to seeing you there!
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/7852157026205372816">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2008/05/axsjax-and-auditory-user-interfaces-at.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-05-28T07:23:00.001-07:00<h2><a name="idp20532688" id="idp20532688">Emacspeak On Thinkpad X-61 Running Gutsy (Ubuntu 7.0)</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-05-28T07:23:00.001-07:00<h2><a name="idm46912356085776" id="idm46912356085776">Emacspeak On Thinkpad X-61 Running Gutsy (Ubuntu 7.0)</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -9417,7 +9710,7 @@ query the state of the display reliably through that interface.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/7677718718523091025">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2008/05/emacspeak-on-thinkpad-x-61-running.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-05-16T13:40:00.001-07:00<h2><a name="idp20544656" id="idp20544656">Emacspeak-28.0 (PuppyDog) Unleashed!</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-05-16T13:40:00.001-07:00<h2><a name="idm46912356073808" id="idm46912356073808">Emacspeak-28.0 (PuppyDog) Unleashed!</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -9460,7 +9753,7 @@ http://emacspeak.googlecode.com/svn/trunk/
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/7862948740598998838">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2008/05/emacspeak-280-puppydog-unleashed.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-05-15T19:04:00.001-07:00<h2><a name="idp20553760" id="idp20553760">W4A Keynote: Cloud Computing And Equal Access For All</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-05-15T19:04:00.001-07:00<h2><a name="idm46912356064704" id="idm46912356064704">W4A Keynote: Cloud Computing And Equal Access For All</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -9483,7 +9776,7 @@ globe at the same time!</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/1241847437667751477">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2008/04/w4a-keynote-cloud-computing-and-equal.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-04-12T13:07:00.001-07:00<h2><a name="idp20562224" id="idp20562224">Emacspeak Goes Social</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-04-12T13:07:00.001-07:00<h2><a name="idm46912356056240" id="idm46912356056240">Emacspeak Goes Social</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -9530,7 +9823,7 @@ knowledge!</p> </div>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/4828301403037560320">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2008/04/emacspeak-goes-social.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-04-01T07:04:00.001-07:00<h2><a name="idp20574320" id="idp20574320">My Web-2.0 Application Is Feeling Accessible</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-04-01T07:04:00.001-07:00<h2><a name="idm46912356044144" id="idm46912356044144">My Web-2.0 Application Is Feeling Accessible</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -9547,7 +9840,7 @@ in the AxsJAX showcase. </p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/9084042252149744337">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2008/03/my-web-20-application-is-feeling.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-03-28T20:45:00.001-07:00<h2><a name="idp20582976" id="idp20582976">Emacspeak WebSpace --- Interaction-Free Information Access</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-03-28T20:45:00.001-07:00<h2><a name="idm46912356035488" id="idm46912356035488">Emacspeak WebSpace --- Interaction-Free Information Access</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -9652,7 +9945,7 @@ w</code></li>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/618980891425495491">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2008/03/emacspeak-webspace-interaction-free.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-03-06T07:25:00.001-08:00<h2><a name="idp20595440" id="idp20595440">Announcing: The Coming Of Piglets To The Emacspeak Desktop</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-03-06T07:25:00.001-08:00<h2><a name="idm46912356023024" id="idm46912356023024">Announcing: The Coming Of Piglets To The Emacspeak Desktop</a></h2>
 <div>
 <br>
  <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -9775,7 +10068,7 @@ pieces.</li>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/2735672350700042581">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2008/01/announcing-coming-of-piglets-to.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-01-03T10:45:00.001-08:00<h2><a name="idp20608944" id="idp20608944">Web Accessibility And Usability: Coming Back To The Basics</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2008-01-03T10:45:00.001-08:00<h2><a name="idm46912356009520" id="idm46912356009520">Web Accessibility And Usability: Coming Back To The Basics</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -9845,7 +10138,7 @@ indices.</li>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/4212410965066662568">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/12/web-accessibility-and-usability-coming.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-12-20T14:49:00.001-08:00<h2><a name="idp20620816" id="idp20620816">Directions Using Public Transport From Google Maps</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-12-20T14:49:00.001-08:00<h2><a name="idm46912355997648" id="idm46912355997648">Directions Using Public Transport From Google Maps</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -9879,7 +10172,7 @@ efficient to use.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/8603034841498082552">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/11/directions-using-public-transport-from.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-11-28T07:45:00.001-08:00<h2><a name="idp20629728" id="idp20629728">Announcing Emacspeak 27.0 AKA FastDog</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-11-28T07:45:00.001-08:00<h2><a name="idm46912355988736" id="idm46912355988736">Announcing Emacspeak 27.0 AKA FastDog</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -9969,7 +10262,7 @@ Emacspeak-webmarks: Online bookmarks.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/688356508735542148">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/11/announcing-emacspeak-270-aka-fastdog.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-11-23T18:17:00.001-08:00<h2><a name="idp20640496" id="idp20640496">AxsJAX, Speech-Enabled Games And Auditory User Interfaces</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-11-23T18:17:00.001-08:00<h2><a name="idm46912355977968" id="idm46912355977968">AxsJAX, Speech-Enabled Games And Auditory User Interfaces</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -10003,7 +10296,7 @@ that have been AxsJaxed.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/3385720525876370388">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/11/axsjax-speech-enabled-games-and.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-11-16T14:53:00.001-08:00<h2><a name="idp20650304" id="idp20650304">The Web The Way You Want</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-11-16T14:53:00.001-08:00<h2><a name="idm46912355968160" id="idm46912355968160">The Web The Way You Want</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -10021,7 +10314,7 @@ access to the Web.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/1768197643635443743">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/10/web-way-you-want.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-10-08T16:33:00.001-07:00<h2><a name="idp20658640" id="idp20658640">Podcast Covering Web Accessibility</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-10-08T16:33:00.001-07:00<h2><a name="idm46912355959824" id="idm46912355959824">Podcast Covering Web Accessibility</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -10040,7 +10333,7 @@ developing usable applications.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/7814395050509851558">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/09/podcast-covering-web-accessibility.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-09-24T16:01:00.001-07:00<h2><a name="idp20667648" id="idp20667648">Emacspeak Video Demo: Looking Up The Weather</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-09-24T16:01:00.001-07:00<h2><a name="idm46912355950816" id="idm46912355950816">Emacspeak Video Demo: Looking Up The Weather</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -10164,7 +10457,7 @@ directory of the shell buffer and the word <em>shell</em></li>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/1202544555524691864">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/09/emacspeak-video-demo-looking-up-weather.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-09-04T07:23:00.001-07:00<h2><a name="idp20685184" id="idp20685184">Emacspeak And GMail</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-09-04T07:23:00.001-07:00<h2><a name="idm46912355933280" id="idm46912355933280">Emacspeak And GMail</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -10217,7 +10510,7 @@ Once you're signed in to Google, you can:
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/8800123492922037657">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/08/emacspeak-and-gmail.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-08-31T17:47:00.001-07:00<h2><a name="idp20695872" id="idp20695872">AMixer And Emacspeak: Controlling The Sound Card</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-08-31T17:47:00.001-07:00<h2><a name="idm46912355922592" id="idm46912355922592">AMixer And Emacspeak: Controlling The Sound Card</a></h2>
 <div>
 <br>
    <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -10253,7 +10546,7 @@ and will intelligently default to using the new
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/6242165765529911042">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/08/amixer-and-emacspeak-controlling-sound.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-08-17T17:24:00.001-07:00<h2><a name="idp20705104" id="idp20705104">The Web The Way You Want</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-08-17T17:24:00.001-07:00<h2><a name="idm46912355913360" id="idm46912355913360">The Web The Way You Want</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -10294,7 +10587,7 @@ specialized Web browsing is in fact not so specialized after all.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/3966633935155467643">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/08/web-way-you-want.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-08-07T07:37:00.001-07:00<h2><a name="idp20714768" id="idp20714768">Google Suggest: Minibuffer Completion When Googling</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-08-07T07:37:00.001-07:00<h2><a name="idm46912355903696" id="idm46912355903696">Google Suggest: Minibuffer Completion When Googling</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -10316,7 +10609,7 @@ to get a list of possible completions for the query.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/9102554332128282848">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/08/google-suggest-minibuffer-completion.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-08-02T07:27:00.001-07:00<h2><a name="idp20723200" id="idp20723200">Emacspeak WebMarks: Online Bookmarks Using Google</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-08-02T07:27:00.001-07:00<h2><a name="idm46912355895264" id="idm46912355895264">Emacspeak WebMarks: Online Bookmarks Using Google</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -10353,7 +10646,7 @@ parameter as  Emacs option
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/4669909173874561800">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/07/emacspeak-webmarks-online-bookmarks.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-07-24T07:42:00.001-07:00<h2><a name="idp20733296" id="idp20733296">Web Interaction In Emacspeak</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-07-24T07:42:00.001-07:00<h2><a name="idm46912355885168" id="idm46912355885168">Web Interaction In Emacspeak</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -10404,7 +10697,7 @@ necessary time and patches.</li>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/680447884170689543">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/07/web-interaction-in-emacspeak.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-07-24T07:32:00.001-07:00<h2><a name="idp20743424" id="idp20743424">Emacs-G-Client: Leveraging New Picasa API Features</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-07-24T07:32:00.001-07:00<h2><a name="idm46912355875040" id="idm46912355875040">Emacs-G-Client: Leveraging New Picasa API Features</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -10428,7 +10721,7 @@ client for finding and playing YouTube videos.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/4720434896090389967">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/07/emacs-g-client-leveraging-new-picasa.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-07-24T07:20:00.001-07:00<h2><a name="idp20752160" id="idp20752160">Emacspeak And Beautiful Code</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-07-24T07:20:00.001-07:00<h2><a name="idm46912355866304" id="idm46912355866304">Emacspeak And Beautiful Code</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -10461,7 +10754,7 @@ and the <em>Afterword</em> section from the book.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/3172131081751645903">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/07/emacspeak-and-beautiful-code.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-07-19T09:52:00.001-07:00<h2><a name="idp20760928" id="idp20760928">Searching The Emacspeak Knowledge Base</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-07-19T09:52:00.001-07:00<h2><a name="idm46912355857536" id="idm46912355857536">Searching The Emacspeak Knowledge Base</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -10498,7 +10791,7 @@ Base</a>.</li>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/2630586147007342952">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/07/searching-emacspeak-knowledge-base.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-07-06T17:53:00.001-07:00<h2><a name="idp20770464" id="idp20770464">Emacs G-Client, Reader, And CSE: Searching Past Articles From Google
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-07-06T17:53:00.001-07:00<h2><a name="idm46912355848000" id="idm46912355848000">Emacs G-Client, Reader, And CSE: Searching Past Articles From Google
 Reader</a></h2>
 <div>
 <br>
@@ -10558,7 +10851,7 @@ but hadn't was a snap using the feature describe here.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/7313367975327047017">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/07/emacs-g-client-reader-and-cse-searching.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-07-06T17:45:00.001-07:00<h2><a name="idp20782960" id="idp20782960">Google Books In Emacspeak</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-07-06T17:45:00.001-07:00<h2><a name="idm46912355835504" id="idm46912355835504">Google Books In Emacspeak</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -10575,7 +10868,7 @@ and type  <code> google books</code> to access it.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/6365820278984298699">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/07/google-books-in-emacspeak.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-07-03T16:28:00.001-07:00<h2><a name="idp20791152" id="idp20791152">Making Search Fly: On-The-Fly Custom Search Engines</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-07-03T16:28:00.001-07:00<h2><a name="idm46912355827312" id="idm46912355827312">Making Search Fly: On-The-Fly Custom Search Engines</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -10628,7 +10921,7 @@ the URL for the  feed of feeds  that specifies the content to search.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/4597026201724531986">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/06/making-search-fly-on-fly-custom-search.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-06-28T16:58:00.001-07:00<h2><a name="idp20801840" id="idp20801840">Emacs-G-Client: Uploading Photos To PicasaWeb</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-06-28T16:58:00.001-07:00<h2><a name="idm46912355816624" id="idm46912355816624">Emacs-G-Client: Uploading Photos To PicasaWeb</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -10655,7 +10948,7 @@ Labrador's Graduation</a> album.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/4040590380117175204">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/06/emacs-g-client-uploading-photos-to.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-06-26T07:32:00.001-07:00<h2><a name="idp20810704" id="idp20810704">Multilingual Dictionary Lookup Via Google</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-06-26T07:32:00.001-07:00<h2><a name="idm46912355807760" id="idm46912355807760">Multilingual Dictionary Lookup Via Google</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -10686,7 +10979,7 @@ find myself  doing often;-)</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/511307680430077326">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/06/multilingual-dictionary-lookup-via.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-06-26T07:11:00.001-07:00<h2><a name="idp20820032" id="idp20820032">FireBox: Put The Fox In The Box</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-06-26T07:11:00.001-07:00<h2><a name="idm46912355798432" id="idm46912355798432">FireBox: Put The Fox In The Box</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -10744,7 +11037,7 @@ pointer to
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/4232278061050475592">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/06/firebox-put-fox-in-box.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-06-22T17:28:00.001-07:00<h2><a name="idp20831360" id="idp20831360">Emacspeak And Beautiful Code</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-06-22T17:28:00.001-07:00<h2><a name="idm46912355787104" id="idm46912355787104">Emacspeak And Beautiful Code</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -10766,7 +11059,7 @@ from organizations like BookShare.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/8028686159404314470">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/06/emacspeak-and-beautiful-code.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-06-14T11:50:00.001-07:00<h2><a name="idp20840016" id="idp20840016">Google Group For Package G-Client</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-06-14T11:50:00.001-07:00<h2><a name="idm46912355778448" id="idm46912355778448">Google Group For Package G-Client</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -10786,7 +11079,7 @@ under SVN at
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/2239678377295379080">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/05/google-group-for-package-g-client.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-05-23T16:24:00.001-07:00<h2><a name="idp20848624" id="idp20848624">An Essay On Eyes-Free Computing</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-05-23T16:24:00.001-07:00<h2><a name="idm46912355769840" id="idm46912355769840">An Essay On Eyes-Free Computing</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -10866,7 +11159,7 @@ the world from a different perspective.</li>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/9167321870051729186">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/05/essay-on-eyes-free-computing.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-05-19T11:29:00.001-07:00<h2><a name="idp20860240" id="idp20860240">Updates To G-Client</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-05-19T11:29:00.001-07:00<h2><a name="idm46912355758224" id="idm46912355758224">Updates To G-Client</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -10880,7 +11173,7 @@ Google Services, you might want to read
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/4558730293999009024">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/05/updates-to-g-client.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-05-16T07:41:00.001-07:00<h2><a name="idp20868240" id="idp20868240">Web 2.0 And The Emacspeak Audio Webtop</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-05-16T07:41:00.001-07:00<h2><a name="idm46912355750224" id="idm46912355750224">Web 2.0 And The Emacspeak Audio Webtop</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -10947,7 +11240,7 @@ arrive, Emacspeak had them in 2000!</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/9051371237271911295">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/05/web-20-and-emacspeak-audio-webtop.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-05-09T13:12:00.001-07:00<h2><a name="idp20881104" id="idp20881104">Emacspeak 26.0 --- LeadDog Unleashed!</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-05-09T13:12:00.001-07:00<h2><a name="idm46912355737360" id="idm46912355737360">Emacspeak 26.0 --- LeadDog Unleashed!</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -10994,7 +11287,7 @@ arrive, Emacspeak had them in 2000!</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/6628772274443432663">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/05/emacspeak-260-leaddog-unleashed.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-05-03T18:51:00.001-07:00<h2><a name="idp20891552" id="idp20891552">See You At CSUN 2007</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-05-03T18:51:00.001-07:00<h2><a name="idm46912355726912" id="idm46912355726912">See You At CSUN 2007</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -11018,7 +11311,7 @@ forward to seeing you there.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/4665207422065544454">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/03/see-you-at-csun-2007.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-03-20T06:57:00.001-07:00<h2><a name="idp20900032" id="idp20900032">An Emacs Client For Google Services</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-03-20T06:57:00.001-07:00<h2><a name="idm46912355718432" id="idm46912355718432">An Emacs Client For Google Services</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -11232,7 +11525,7 @@ will prompt for the specific set of articles to retrieve.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/1780622495797519684">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/03/emacs-client-for-google-services.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-03-02T10:59:00.001-08:00<h2><a name="idp20919440" id="idp20919440">Emacspeak Downloads On GoogleCode</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-03-02T10:59:00.001-08:00<h2><a name="idm46912355699024" id="idm46912355699024">Emacspeak Downloads On GoogleCode</a></h2>
 <div>
 <br>
     <div xmlns='http://www.w3.org/1999/xhtml'>
@@ -11293,7 +11586,7 @@ as they close behind you with a sigh of a job well done.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/2634050357130206777">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2007/02/emacspeak-downloads-on-googlecode.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-02-12T16:45:00.001-08:00<h2><a name="idp20930032" id="idp20930032">IBM Software TTS On Ubuntu 6 </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2007-02-12T16:45:00.001-08:00<h2><a name="idm46912355688432" id="idm46912355688432">IBM Software TTS On Ubuntu 6 </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>
@@ -11321,7 +11614,7 @@ problem is hopefully transitory.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/116680570263571503">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/12/ibm-software-tts-on-ubuntu-6.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-12-22T08:41:00.000-08:00<h2><a name="idp20938928" id="idp20938928">Web Command Line Tool For Google Patent Search </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-12-22T08:41:00.000-08:00<h2><a name="idm46912355679536" id="idm46912355679536">Web Command Line Tool For Google Patent Search </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>From the <em>every new Google search tool gets a corresponding
@@ -11358,7 +11651,7 @@ again.</li>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/116610975299685723">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/12/web-command-line-tool-for-google.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-12-14T07:22:00.000-08:00<h2><a name="idp20948592" id="idp20948592">Emacspeak 25.0 (ActiveDog) Unleashed </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-12-14T07:22:00.000-08:00<h2><a name="idm46912355669872" id="idm46912355669872">Emacspeak 25.0 (ActiveDog) Unleashed </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <div xmlns="http://www.w3.org/1999/xhtml">
@@ -11405,7 +11698,7 @@ particular distributions.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/116439077642569619">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/11/emacspeak-250-activedog-unleashed.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-11-24T09:52:00.000-08:00<h2><a name="idp20960688" id="idp20960688">Emacspeak  Smart URL For Google Code Search </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-11-24T09:52:00.000-08:00<h2><a name="idm46912355657776" id="idm46912355657776">Emacspeak  Smart URL For Google Code Search </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>Every useful Web tool deserves a Web short-cut.
@@ -11436,7 +11729,7 @@ instructions for the types of queries that are allowed.</li>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/116008484563022809">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/10/emacspeak-smart-url-for-google-code.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-10-05T14:47:00.000-07:00<h2><a name="idp20970048" id="idp20970048">Using Helix Player From Emacspeak </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-10-05T14:47:00.000-07:00<h2><a name="idm46912355648416" id="idm46912355648416">Using Helix Player From Emacspeak </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>In the spirit of <q>You can never have  sufficiently many
@@ -11522,7 +11815,7 @@ fails to play on my Ubuntu box.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/115945396346366925">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/09/using-helix-player-from-emacspeak.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-09-28T07:32:00.000-07:00<h2><a name="idp20981856" id="idp20981856">Emacspeak, Ubuntu And Software Dectalk </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-09-28T07:32:00.000-07:00<h2><a name="idm46912355636608" id="idm46912355636608">Emacspeak, Ubuntu And Software Dectalk </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>On the positive side with respect to software synthesis, the
@@ -11540,7 +11833,7 @@ APIs, but it's a good backup option.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/115811802876722544">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/09/emacspeak-ubuntu-and-software-dectalk.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-09-12T20:27:00.000-07:00<h2><a name="idp20990304" id="idp20990304">Emacspeak 24 On Ubuntu 6 </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-09-12T20:27:00.000-07:00<h2><a name="idm46912355628160" id="idm46912355628160">Emacspeak 24 On Ubuntu 6 </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>I upgraded my home FC3 machine to Ubuntu 6.0.6 (Dapper) over
@@ -11623,7 +11916,7 @@ something that  script <code>etc/rivo.pl</code> needs.</dd>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/115798552474387360">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/09/emacspeak-24-on-ubuntu-6.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-09-11T07:38:00.000-07:00<h2><a name="idp21002608" id="idp21002608">Google Archive News Search </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-09-11T07:38:00.000-07:00<h2><a name="idm46912355615856" id="idm46912355615856">Google Archive News Search </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>To mark the arrival of Google News Archive search, I checked
@@ -11642,7 +11935,7 @@ GoogleCode</a>.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/115765095083923408">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/09/google-archive-news-search.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-09-07T10:42:00.000-07:00<h2><a name="idp21011072" id="idp21011072">Update: Emacspeak On Google Code Hosting </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-09-07T10:42:00.000-07:00<h2><a name="idm46912355607392" id="idm46912355607392">Update: Emacspeak On Google Code Hosting </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>The initial experiment of moving emacspeak development to
@@ -11664,7 +11957,7 @@ allows one to reliably recreate a released version.</li>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/115655243678974508">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/08/update-emacspeak-on-google-code.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-08-25T17:33:00.000-07:00<h2><a name="idp21019600" id="idp21019600">Emacspeak Codebase Via Subversion From GoogleCode </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-08-25T17:33:00.000-07:00<h2><a name="idm46912355598864" id="idm46912355598864">Emacspeak Codebase Via Subversion From GoogleCode </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>
@@ -11714,7 +12007,7 @@ there is an excellent on-line book available at
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/115551499254984501">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/08/emacspeak-codebase-via-subversion-from.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-08-13T17:23:00.000-07:00<h2><a name="idp21029792" id="idp21029792">Zipping Through Web Pages </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-08-13T17:23:00.000-07:00<h2><a name="idm46912355588672" id="idm46912355588672">Zipping Through Web Pages </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <h2>Zipping Through Web Pages With Emacspeak/W3</h2>
@@ -11741,7 +12034,7 @@ large Web pages.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/115521910331821233">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/08/zipping-through-web-pages.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-08-10T07:11:00.000-07:00<h2><a name="idp21038640" id="idp21038640">Summary Of Emacspeak Features Compared To Other Alternatives </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-08-10T07:11:00.000-07:00<h2><a name="idm46912355579824" id="idm46912355579824">Summary Of Emacspeak Features Compared To Other Alternatives </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <div>
@@ -11906,7 +12199,7 @@ and developer sanity.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/115370169395797389">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/07/summary-of-emacspeak-features-compared.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-07-23T17:41:00.000-07:00<h2><a name="idp21054432" id="idp21054432">Emacspeak And Accessible Search Via Google </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-07-23T17:41:00.000-07:00<h2><a name="idm46912355564032" id="idm46912355564032">Emacspeak And Accessible Search Via Google </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>Google  has released an early experiment that favours easy to
@@ -11950,7 +12243,7 @@ tools as <em>smart URLs.</em></p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/115341852989897851">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/07/emacspeak-and-accessible-search-via.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-07-20T11:02:00.000-07:00<h2><a name="idp21064144" id="idp21064144">ALSA And Emacspeak: Closing The Legacy Loop With ALSA-OSS </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-07-20T11:02:00.000-07:00<h2><a name="idm46912355554320" id="idm46912355554320">ALSA And Emacspeak: Closing The Legacy Loop With ALSA-OSS </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>And now, with ALSA working well with software TTS and
@@ -11987,7 +12280,7 @@ keep both pieces.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/115112691863662574">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/06/alsa-and-emacspeak-closing-legacy-loop.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-06-23T22:28:00.000-07:00<h2><a name="idp21074192" id="idp21074192">SpeakFreely, Software TTS And ALSA </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-06-23T22:28:00.000-07:00<h2><a name="idm46912355544272" id="idm46912355544272">SpeakFreely, Software TTS And ALSA </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>
@@ -12029,7 +12322,7 @@ continue to use software TTS.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/115072588866693831">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/06/speakfreely-software-tts-and-alsa.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-06-19T07:04:00.000-07:00<h2><a name="idp21084112" id="idp21084112">Emacspeak, TTS, Alsa And ASYM </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-06-19T07:04:00.000-07:00<h2><a name="idm46912355534352" id="idm46912355534352">Emacspeak, TTS, Alsa And ASYM </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>
@@ -12059,7 +12352,7 @@ not sure if the <code>ASYM</code> plugin is the culprit.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/114963944798906198">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/06/emacspeak-tts-alsa-and-asym.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-06-06T17:17:00.000-07:00<h2><a name="idp21093536" id="idp21093536">ASoundrc Parameters For Reliably Using ALSA Powered Software TTS </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-06-06T17:17:00.000-07:00<h2><a name="idm46912355524928" id="idm46912355524928">ASoundrc Parameters For Reliably Using ALSA Powered Software TTS </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p> 
@@ -12155,7 +12448,7 @@ pcm.dmixer  {
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/114834483483433408">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/05/asoundrc-parameters-for-reliably-using.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-05-22T17:40:00.000-07:00<h2><a name="idp21105440" id="idp21105440">Listening To The Web Through A Mobile Lens </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-05-22T17:40:00.000-07:00<h2><a name="idm46912355513024" id="idm46912355513024">Listening To The Web Through A Mobile Lens </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>
@@ -12203,7 +12496,7 @@ content</strong>.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/114666709268320351">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/05/listening-to-web-through-mobile-lens.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-05-03T07:38:00.000-07:00<h2><a name="idp21115264" id="idp21115264">Announcing Emacspeak 24.0 (LiveDog) </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-05-03T07:38:00.000-07:00<h2><a name="idm46912355503200" id="idm46912355503200">Announcing Emacspeak 24.0 (LiveDog) </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <strong>For Immediate Release</strong>
@@ -12233,7 +12526,7 @@ content</strong>.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/114662907863308710">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/05/announcing-emacspeak-240-livedog.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-05-02T21:04:00.000-07:00<h2><a name="idp21124464" id="idp21124464">W3: Minor Patch To Handle  Content-Type application/xhtml+xml </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-05-02T21:04:00.000-07:00<h2><a name="idm46912355494000" id="idm46912355494000">W3: Minor Patch To Handle  Content-Type application/xhtml+xml </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>
@@ -12288,7 +12581,7 @@ diff -b -c -r1.32 w3.el
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/114204420283018511">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/03/w3-minor-patch-to-handle-content-type.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-03-10T18:30:00.000-08:00<h2><a name="idp21135408" id="idp21135408">Blogging From Emacs: Additional Atom-Blogger Documentation </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-03-10T18:30:00.000-08:00<h2><a name="idm46912355483056" id="idm46912355483056">Blogging From Emacs: Additional Atom-Blogger Documentation </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>Thanks to Jason  Dunsmore 
@@ -12303,7 +12596,7 @@ on using <code>atom-blogger</code>.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/114187119760134089">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/03/blogging-from-emacs-additional-atom.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-03-08T18:26:00.000-08:00<h2><a name="idp21143504" id="idp21143504">Emacspeak: Connecting Lynx And W3 </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-03-08T18:26:00.000-08:00<h2><a name="idm46912355474960" id="idm46912355474960">Emacspeak: Connecting Lynx And W3 </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>Emacs/W3 is still the best Web page rendering option inside
@@ -12406,7 +12699,7 @@ qx(echo $password | bks-unpack -q $target 1&gt;&amp;- 2&gt;&amp;- &amp;);
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/114074992344461641">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/02/emacspeak-connecting-lynx-and-w3.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-02-23T18:58:00.000-08:00<h2><a name="idp21156016" id="idp21156016">Emacspeak, SuDoKu And History </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-02-23T18:58:00.000-08:00<h2><a name="idm46912355462448" id="idm46912355462448">Emacspeak, SuDoKu And History </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>Here is a small enhancement to <a href="http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.html">playing
@@ -12429,7 +12722,7 @@ history stack, try one of the alternatives and backtrack if necessary.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/114057538920932076">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/02/emacspeak-sudoku-and-history.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-02-21T18:29:00.000-08:00<h2><a name="idp21165872" id="idp21165872">Emacspeak And Voice Locking Using Aural CSS </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-02-21T18:29:00.000-08:00<h2><a name="idm46912355452592" id="idm46912355452592">Emacspeak And Voice Locking Using Aural CSS </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 
@@ -12579,7 +12872,7 @@ with the various settings.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/114048639986049011">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/02/emacspeak-and-voice-locking-using.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-02-20T17:46:00.000-08:00<h2><a name="idp21180336" id="idp21180336">Playing SuDoKu Using Auditory Feedback </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-02-20T17:46:00.000-08:00<h2><a name="idm46912355438128" id="idm46912355438128">Playing SuDoKu Using Auditory Feedback </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>Emacspeak speech-enables <em>SuDoKu</em> implemented  by <a href="http://www.columbia.edu/~jr2075/elisp/index.html">sudoku.el</a>.
@@ -12690,7 +12983,7 @@ are sufficiently challenging to be fun.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/113970989256663836">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/02/playing-sudoku-using-auditory-feedback.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-02-11T18:04:00.000-08:00<h2><a name="idp21192848" id="idp21192848">Browsing Sourceforge Download Servers </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-02-11T18:04:00.000-08:00<h2><a name="idm46912355425616" id="idm46912355425616">Browsing Sourceforge Download Servers </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>Sourceforge is a nice service, but it can also be painful to
@@ -12725,7 +13018,7 @@ via Emacs module <code>w3-wget</code>.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/113842396545550696">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/01/browsing-sourceforge-download-servers.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-01-27T20:52:00.000-08:00<h2><a name="idp21203248" id="idp21203248">BBC Channels On Emacspeak </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-01-27T20:52:00.000-08:00<h2><a name="idm46912355415216" id="idm46912355415216">BBC Channels On Emacspeak </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>Since the BBC's various channels are what I listen to the
@@ -12767,7 +13060,7 @@ genres being added or renamed.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/113842342844647994">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/01/bbc-channels-on-emacspeak.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-01-27T20:43:00.000-08:00<h2><a name="idp21213120" id="idp21213120">Emacspeak World Clock For Timezone Travel </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-01-27T20:43:00.000-08:00<h2><a name="idm46912355405344" id="idm46912355405344">Emacspeak World Clock For Timezone Travel </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>Command <code>emacspeak-speak-time</code> bound to <code>C-e
@@ -12788,7 +13081,7 @@ speaking the time --- a useful way of avoiding jet-lag as you travel.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/113832891320852876">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/01/emacspeak-world-clock-for-timezone.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-01-26T18:28:00.000-08:00<h2><a name="idp21221568" id="idp21221568">Emacspeak Web Wizards: Obtaining Context From The Calendar </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-01-26T18:28:00.000-08:00<h2><a name="idm46912355396896" id="idm46912355396896">Emacspeak Web Wizards: Obtaining Context From The Calendar </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>Emacspeak implements a number of <code>smart URLs</code> in
@@ -12826,7 +13119,7 @@ minibuffer.</li>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/113795676485627531">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/01/emacspeak-web-wizards-obtaining.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-01-22T11:06:00.000-08:00<h2><a name="idp21230880" id="idp21230880">Viewing Atom Feeds Within Emacspeak </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-01-22T11:06:00.000-08:00<h2><a name="idm46912355387584" id="idm46912355387584">Viewing Atom Feeds Within Emacspeak </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>The most effective way of viewing Atom Feeds in Emacspeak is
@@ -12863,7 +13156,7 @@ Mailing List</a> at Vassar.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/113755198213159076">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/01/viewing-atom-feeds-within-emacspeak.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-01-17T18:39:00.000-08:00<h2><a name="idp21240464" id="idp21240464">Viewing Formatted Source Code In Emacs/W3 </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-01-17T18:39:00.000-08:00<h2><a name="idm46912355378000" id="idm46912355378000">Viewing Formatted Source Code In Emacs/W3 </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <div>
@@ -12888,7 +13181,7 @@ by adding the appropriate lines to <code>w3-mode-hook</code>.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/113752981092887635">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/01/viewing-formatted-source-code-in.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-01-17T12:30:00.000-08:00<h2><a name="idp21249456" id="idp21249456">Speech-Enabled ATOM-Blogger </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-01-17T12:30:00.000-08:00<h2><a name="idm46912355369008" id="idm46912355369008">Speech-Enabled ATOM-Blogger </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>
@@ -12908,7 +13201,7 @@ with no further configuration.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/113726801747885464">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/01/speech-enabled-atom-blogger_14.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-01-14T11:46:00.000-08:00<h2><a name="idp21257840" id="idp21257840">Emacspeak And Ruby </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-01-14T11:46:00.000-08:00<h2><a name="idm46912355360624" id="idm46912355360624">Emacspeak And Ruby </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>Emacspeak now speech-enables ruby-mode to support developing
@@ -12927,7 +13220,7 @@ complains about the <code>&lt;%</code> directives.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/113707573746854118">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/01/emacspeak-and-ruby.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-01-12T06:22:00.000-08:00<h2><a name="idp21266256" id="idp21266256">Emacspeak Wizard: Recording Audio Streams For Later Playback</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-01-12T06:22:00.000-08:00<h2><a name="idm46912355352208" id="idm46912355352208">Emacspeak Wizard: Recording Audio Streams For Later Playback</a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
       <p>
@@ -12959,7 +13252,7 @@ complains about the <code>&lt;%</code> directives.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/113622417010298115">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2006/01/emacspeak-wizard-recording-audio.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-01-02T09:49:00.000-08:00<h2><a name="idp21276368" id="idp21276368">Emacs Tip: Viewing Commands Available On A Prefix Key</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2006-01-02T09:49:00.000-08:00<h2><a name="idm46912355342096" id="idm46912355342096">Emacs Tip: Viewing Commands Available On A Prefix Key</a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <p>
@@ -12991,7 +13284,7 @@ change is checked into CVS.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/113605677499310089">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2005/12/emacs-tip-viewing-commands-available.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2005-12-31T11:19:00.000-08:00<h2><a name="idp21285232" id="idp21285232">Using The New MPlayer With ALSA Support 
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2005-12-31T11:19:00.000-08:00<h2><a name="idm46912355333232" id="idm46912355333232">Using The New MPlayer With ALSA Support 
 </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
@@ -13020,7 +13313,7 @@ change is checked into CVS.</p>
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/113596114050756312">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2005/12/using-new-mplayer-with-alsa-support.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2005-12-30T08:45:00.000-08:00<h2><a name="idp21296256" id="idp21296256">Blogging From Inside Emacs
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2005-12-30T08:45:00.000-08:00<h2><a name="idm46912355322208" id="idm46912355322208">Blogging From Inside Emacs
   </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
@@ -13040,7 +13333,7 @@ Unwanted elements are filtered out using <code>xsltproc</code>.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/113589454437902784">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2005/12/blogging-from-inside-emacs.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2005-12-29T14:15:00.000-08:00<h2><a name="idp21305152" id="idp21305152">More On Web Command Line</a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2005-12-29T14:15:00.000-08:00<h2><a name="idm46912355313312" id="idm46912355313312">More On Web Command Line</a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
       <p class="mobile-post">
@@ -13064,7 +13357,7 @@ Unwanted elements are filtered out using <code>xsltproc</code>.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/113582181198958769">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2005/12/more-on-web-command-line_28.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2005-12-28T18:03:00.000-08:00<h2><a name="idp21313696" id="idp21313696">Emacspeak Web Tricks --- The Web Command Line! </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2005-12-28T18:03:00.000-08:00<h2><a name="idm46912355304768" id="idm46912355304768">Emacspeak Web Tricks --- The Web Command Line! </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 
@@ -13097,7 +13390,7 @@ Unwanted elements are filtered out using <code>xsltproc</code>.
 <td><a href="http://www.blogger.com/feeds/20280042/posts/default/113580987605439662">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/2005/12/emacspeak-web-tricks-web-command-line.html">[HTML]</a></td>
 </tr></TABLE>
-<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2005-12-28T14:41:00.000-08:00<h2><a name="idp21323392" id="idp21323392">Emacspeak Introduction  </a></h2>
+<p><em><a href="http://www.blogger.com/profile/03589687652590194428">T. V. Raman</a></em> at </p>2005-12-28T14:41:00.000-08:00<h2><a name="idm46912355295072" id="idm46912355295072">Emacspeak Introduction  </a></h2>
 <div>
 <br><div xmlns="http://www.w3.org/1999/xhtml">
 <div> <p>This was my first posting to my Emacspeak Blog.I'm using
@@ -13117,7 +13410,7 @@ bet.</p> </div>
 <h2>Feed-Level Links</h2>
 <table><tr>
 <td><a href="http://emacspeak.blogspot.com/feeds/posts/default">[feed]</a></td>
-<td><a href="https://www.blogger.com/feeds/20280042/posts/default?max-results=1000">[Self]</a></td>
+<td><a href="http://www.blogger.com/feeds/20280042/posts/default?max-results=1000">[Self]</a></td>
 <td><a href="http://emacspeak.blogspot.com/">[HTML]</a></td>
 <td><a href="http://pubsubhubbub.appspot.com/">[]</a></td>
 </tr></table>
