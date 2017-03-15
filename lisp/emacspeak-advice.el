@@ -2271,7 +2271,7 @@ Produce auditory icons if possible."
   ad-return-value)
 (cl-loop
  for f in
- '(set-mark-command pop-to-mark-command pop-global-mark)
+ '(set-mark-command pop-to-mark-command)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -2280,6 +2280,14 @@ Produce auditory icons if possible."
        (emacspeak-auditory-icon 'mark-object)
        (let ((emacspeak-show-point t))
          (emacspeak-speak-line))))))
+
+(defadvice pop-global-mark (after emacspeak pre act comp)
+  "Speak buffer name if notification stream is available."
+  (when  (ems-interactive-p)
+             (let ((emacspeak-show-point t))
+         (emacspeak-speak-line))
+             (when (process-live-p dtk-notify-process)
+               (dtk-notify-say (buffer-name )))))
 
 (defadvice mark-defun (after emacspeak pre act comp)
   "Produce an auditory icon if possible."
