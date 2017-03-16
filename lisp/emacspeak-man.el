@@ -65,6 +65,7 @@
 (voice-setup-add-map
  '(
    (Man-overstrike  voice-bolden-medium)
+   (Man-reverse voice-animate)
    (Man-underline voice-lighten)))
 
 ;;}}}
@@ -94,11 +95,13 @@ Also provide an auditory icon"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
+
 (defadvice   Man-next-manpage  (after emacspeak pre act)
   "Speak the line"
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'large-movement)
     (emacspeak-speak-line)))
+
 (defadvice   Man-previous-manpage  (after emacspeak pre act)
   "Speak the line"
   (when (ems-interactive-p)
@@ -161,6 +164,7 @@ Also provide an auditory icon"
   "Browse the man page --read it a paragraph at a time"
   (interactive)
   (emacspeak-execute-repeatedly 'forward-paragraph))
+
 (autoload 'emacspeak-view-line-to-top 
   "emacspeak-view" "Move current line to top of window"  t)
 
