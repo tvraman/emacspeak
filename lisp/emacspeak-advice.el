@@ -951,6 +951,25 @@ icon."
 
 ;;}}}
 ;;{{{ Advice comint:
+(defadvice comint-delete-output (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-speak-line)))
+(cl-loop
+ for f in
+ '( comint-history-isearch-backward comint-history-isearch-backward-regexp)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (save-excursion
+         (comint-bol-or-process-mark)
+         (emacspeak-auditory-icon 'select-object)
+         (emacspeak-speak-line 1))))))
+
+
 (defadvice comint-clear-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
