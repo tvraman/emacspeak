@@ -793,11 +793,11 @@ icon."
  (eval
   `(defadvice ,f (before emacspeak pre act comp)
      "Speak the prompt"
-       (let ((prompt (ad-get-arg 0)))
-         (when prompt 
-       (setq emacspeak-last-message prompt)
-       (setq emacspeak-read-char-prompt-cache prompt)
-       (tts-with-punctuations 'all (dtk-speak prompt)))))))
+     (let ((prompt (ad-get-arg 0)))
+       (when prompt
+         (setq emacspeak-last-message prompt)
+         (setq emacspeak-read-char-prompt-cache prompt)
+         (tts-with-punctuations 'all (dtk-speak prompt)))))))
 
 (defadvice read-char-choice(before emacspeak pre act comp)
   "Speak the prompt"
@@ -816,15 +816,15 @@ icon."
 ;;}}}
 ;;{{{ advice completion functions to speak:
 (cl-loop for f in
-      '(dabbrev-expand dabbrev-completion)
-      do
-      (eval
-       `(defadvice,f (after emacspeak pre act comp)
-          "Say what you completed."
-          (when (ems-interactive-p)
-            (tts-with-punctuations 'all
-                                   (dtk-speak
-                                    dabbrev--last-expansion))))))
+         '(dabbrev-expand dabbrev-completion)
+         do
+         (eval
+          `(defadvice,f (after emacspeak pre act comp)
+             "Say what you completed."
+             (when (ems-interactive-p)
+               (tts-with-punctuations 'all
+                                      (dtk-speak
+                                       dabbrev--last-expansion))))))
 
 (voice-setup-add-map
  '(
@@ -1229,6 +1229,14 @@ icon."
     (emacspeak-auditory-icon 'item)
     (if (eolp)
         (emacspeak-speak-line)
+      (emacspeak-speak-line 1))))
+
+(defadvice comint-get-next-from-history (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'item)
+    (save-excursion
+      (comint-bol-or-process-mark)
       (emacspeak-speak-line 1))))
 
 (defadvice comint-dynamic-list-input-ring (around emacspeak pre act comp)
@@ -2284,10 +2292,10 @@ Produce auditory icons if possible."
 (defadvice pop-global-mark (after emacspeak pre act comp)
   "Speak buffer name if notification stream is available."
   (when  (ems-interactive-p)
-             (let ((emacspeak-show-point t))
-         (emacspeak-speak-line))
-             (when (process-live-p dtk-notify-process)
-               (dtk-notify-speak (buffer-name )))))
+    (let ((emacspeak-show-point t))
+      (emacspeak-speak-line))
+    (when (process-live-p dtk-notify-process)
+      (dtk-notify-speak (buffer-name )))))
 
 (defadvice mark-defun (after emacspeak pre act comp)
   "Produce an auditory icon if possible."
@@ -2683,18 +2691,18 @@ Produce auditory icons if possible."
 ;;{{{ browse-url
 
 (cl-loop for f in
-      '(browse-url-of-buffer browse-url-of-region)
-      do
-      (eval
-       `(defadvice ,f (around emacspeak pre act comp)
-          "Automatically speak results of rendering."
-          (cond
-           ((ems-interactive-p)
-            (emacspeak-auditory-icon 'open-object)
-            (emacspeak-webutils-autospeak)
-            ad-do-it)
-           (t ad-do-it))
-          ad-return-value)))
+         '(browse-url-of-buffer browse-url-of-region)
+         do
+         (eval
+          `(defadvice ,f (around emacspeak pre act comp)
+             "Automatically speak results of rendering."
+             (cond
+              ((ems-interactive-p)
+               (emacspeak-auditory-icon 'open-object)
+               (emacspeak-webutils-autospeak)
+               ad-do-it)
+              (t ad-do-it))
+             ad-return-value)))
 
 ;;}}}
 ;;{{{ Cue input method changes
@@ -2716,14 +2724,14 @@ Produce auditory icons if possible."
 ;;{{{ Splash Screen:
 
 (cl-loop for f in
-      '(about-emacs display-about-screen)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'open-object)
-            (emacspeak-speak-buffer)))))
+         '(about-emacs display-about-screen)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'open-object)
+               (emacspeak-speak-buffer)))))
 
 (defadvice exit-splash-screen (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -2735,14 +2743,14 @@ Produce auditory icons if possible."
 ;;{{{ copyright commands:
 
 (cl-loop for f in
-      '(copyright copyright-update)
-      do
-      (eval
-       `(defadvice ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'task-done)
-            (emacspeak-speak-line)))))
+         '(copyright copyright-update)
+         do
+         (eval
+          `(defadvice ,f (after emacspeak pre act comp)
+             "Provide auditory feedback."
+             (when (ems-interactive-p)
+               (emacspeak-auditory-icon 'task-done)
+               (emacspeak-speak-line)))))
 
 (defadvice copyright-update-directory (after emacspeak pre act comp)
   "Provide auditory feedback."
