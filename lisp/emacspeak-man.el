@@ -48,18 +48,24 @@
 
 ;;; Code:
 (require 'emacspeak-preamble)
+(require 'voice-setup)
 (require 'man)
+
 ;;}}}
 ;;{{{  Configure man
 
-;;; Please show it to me when you are ready:
-(declaim (special Man-notify
-                  Man-switches
-                  system-type))
-(setq Man-notify 'bully)
+(declaim (special Man-switches system-type))
 
 (when (eq system-type 'gnu/linux)
   (setq Man-switches "-a"))
+
+;;}}}
+;;{{{ Map Faces:
+
+(voice-setup-add-map
+ '(
+   (Man-overstrike  voice-bolden-medium)
+   (Man-underline voice-lighten)))
 
 ;;}}}
 ;;{{{  advice interactive commands 
