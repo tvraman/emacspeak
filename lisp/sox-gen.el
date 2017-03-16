@@ -648,8 +648,8 @@ channels 2 tempo 2 speed 2 "
 (defconst sox-do-scroll-down-cmd
   "-q -n synth pinknoise brownnoise \
 fade 0.1 0.6 0.4 \
-delay 0.4 0.1 \
-channels 2 tempo 2 speed 2 "
+delay 0.5 0.1 \
+channels 2 tempo 2  "
   "A quick scroll sound.")
 
 ;;;###autoload
