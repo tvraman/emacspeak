@@ -629,8 +629,9 @@ channels 2 tempo 1.5  speed 1.2 gain -10"
 (sox-gen-cmd sox-bling-cmd))
 
 ;;}}}
-;;{{{ do-scroll:
-(defconst sox-do-scroll-cmd
+;;{{{ scroll:
+
+(defconst sox-do-scroll-up-cmd
   "-q -n synth pinknoise brownnoise \
 fade 0.1 0.6 0.4 \
 delay 0.1 0.3 \
@@ -638,10 +639,25 @@ channels 2 tempo 2 speed 2 "
   "A quick scroll sound.")
 
 ;;;###autoload
-(defun sox-do-scroll ()
-  "Produce a short do-scroll."
-  (declare (special sox-do-scroll-cmd))
-  (sox-gen-cmd sox-do-scroll-cmd))
+(defun sox-do-scroll-up ()
+  "Produce a short do-scroll-up."
+  (declare (special sox-do-scroll-up-cmd))
+  (sox-gen-cmd sox-do-scroll-up-cmd))
+
+
+(defconst sox-do-scroll-down-cmd
+  "-q -n synth pinknoise brownnoise \
+fade 0.1 0.6 0.4 \
+delay 0.4 0.1 \
+channels 2 tempo 2 speed 2 "
+  "A quick scroll sound.")
+
+;;;###autoload
+(defun sox-do-scroll-down ()
+  "Produce a short do-scroll-down."
+  (declare (special sox-do-scroll-down-cmd))
+  (sox-gen-cmd sox-do-scroll-down-cmd))
+
 
 ;;}}}
 ;;{{{ Chime:
