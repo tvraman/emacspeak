@@ -605,19 +605,20 @@ Freq can be specified as a frequency, note (%nn) or frequency range."
     (when speed (format " speed %s" speed)))))
 
 ;;}}}
-;;{{{ bling:
+;;{{{ Multiwindow:
+
 (defconst sox-multiwindow-cmd
   "-q -n synth -j 3 \
 sin %-5 sin %-2 \
 delay 0.1 0.2 \
 fade h 0.2 0.7 0.5 \
-echo .8 .88 70 0.4 60 0.3 50 0.2 \
-channels 2 tempo 1.5  speed 1.2 gain -10"
+echos .8 .9 7 0.3 6 0.4 5 0.5 \
+channels 2 tempo 1.5  speed 1.2 gain -18"
   "Chime used to indicate multiple windows.")
   
 ;;;###autoload
 (defun sox-multiwindow ()
-  "Produce a short bling."
+  "Produce a short note used to cue multiwindow."
   (declare (special sox-multiwindow-cmd))
 (sox-gen-cmd sox-multiwindow-cmd))
 
