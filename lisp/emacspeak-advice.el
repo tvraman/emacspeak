@@ -1081,7 +1081,7 @@ icon."
   "Speak the line we are accumulating."
   (when (ems-interactive-p)
     (save-excursion
-      (comint-bol-or-process-mark)
+      (comint-bol)
       (emacspeak-auditory-icon 'select-object)
       (emacspeak-speak-line 1))))
 (cl-loop
@@ -1255,7 +1255,7 @@ icon."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'item)
     (save-excursion
-      (comint-bol-or-process-mark)
+      (comint-bol)
       (emacspeak-speak-line 1))))
 
 (defadvice comint-dynamic-list-input-ring (around emacspeak pre act comp)
