@@ -1765,7 +1765,7 @@ Interactive prefix arg speaks buffer info."
            (when (or (eq major-mode 'shell-mode)
                      (eq major-mode 'comint-mode))
              (abbreviate-file-name default-directory))))
-      (when (> window-count 1) (sox-bling))
+      (when (> window-count 1) (sox-multiwindow))
       (setq
        window-count
        (if (> window-count 1)
@@ -1904,7 +1904,7 @@ Displays name of current buffer.")
    (header-line-format
     (let ((window-count (length (tapestry-buffer-map))))
     (emacspeak-auditory-icon 'item)
-    (when (> window-count 1 ) (sox-bling))
+    (when (> window-count 1 ) (sox-multiwindow))
     (dtk-speak (format-mode-line header-line-format))))
    (t (dtk-speak "No header line."))))
 
