@@ -635,7 +635,7 @@ channels 2 tempo 1.5  speed 1.2 gain -10"
   "-q -n synth pinknoise brownnoise \
 fade 0.1 0.6 0.4 \
 delay 0.1 0.5 \
-channels 2"
+tempo 2 channels 2"
   "A quick scroll sound.")
 
 ;;;###autoload
@@ -649,7 +649,7 @@ channels 2"
   "-q -n synth brownnoise pinknoise \
 fade 0.1 0.6 0.4 \
 delay 0.5 0.1 \
-channels 2 tempo 2  "
+tempo 2 channels 2   "
   "A quick scroll sound.")
 
 ;;;###autoload
