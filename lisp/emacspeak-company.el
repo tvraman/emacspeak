@@ -119,7 +119,7 @@
   (ems-with-messages-silenced ad-do-it))
 
 ;;}}}
-(emacspeak-company-setup)
+(eval-after-load "company" #'emacspeak-company-setup)
 (provide 'emacspeak-company)
 ;;{{{ end of file
 

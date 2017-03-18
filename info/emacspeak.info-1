@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents Emacspeak, The Complete Audio Desktop.  This
-document was last updated on March 11, 2017.
+document was last updated on March 18, 2017.
 
    The manual is divided into the following chapters.
 
@@ -2947,7 +2947,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1159 commands and 1064 options.
+This chapter documents a total of 1159 commands and 1066 options.
 
 * Menu:
 
@@ -4334,8 +4334,18 @@ system.
 
  -- Variable: User Option emacspeak-Man-overstrike-voice
      Personality used for Man-overstrike This personality uses
+     voice-bolden-medium whose effect can be changed globally by
+     customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option emacspeak-Man-reverse-voice
+     Personality used for Man-reverse This personality uses
      voice-animate whose effect can be changed globally by customizing
      voice-animate-settings.
+
+ -- Variable: User Option emacspeak-Man-underline-voice
+     Personality used for Man-underline This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
 
  -- Variable: User Option emacspeak-bold-italic-voice
      Personality used for bold-italic This personality uses

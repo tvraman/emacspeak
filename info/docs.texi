@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1159 commands and 1064 options.
+This chapter documents a total of 1159 commands and 1066 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1658,7 +1658,19 @@ This personality uses  voice-lighten whose  effect can be changed globally by cu
 
 @defvar {User Option} emacspeak-Man-overstrike-voice
 Personality used for Man-overstrike
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-Man-reverse-voice
+Personality used for Man-reverse
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-Man-underline-voice
+Personality used for Man-underline
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 
 @end defvar
 
