@@ -104,7 +104,8 @@
 (defun emacspeak-company-setup ()
   "Set front-end to our  front-end action."
   (declare (special company-frontends))
-  (pushnew 'emacspeak-company-frontend company-frontends)
+  (when (boundp 'company-frontends)
+    (pushnew 'emacspeak-company-frontend company-frontends))
   (add-hook
    'company-completion-started-hook
    #'(lambda (&rest _ignore) (emacspeak-auditory-icon 'help)))
