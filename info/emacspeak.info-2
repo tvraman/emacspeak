@@ -401,9 +401,16 @@ File: emacspeak.info,  Node: emacspeak-company,  Next: emacspeak-compile,  Prev:
 12.41 emacspeak-company
 =======================
 
-COMPANY -mode: Complete Anything Support for emacs.  This module
-provides an Emacspeak Company Front-end, And advises the needed
-interactive commands in Company.
+COMPANY -mode: Complete Anything Support for emacs.
+
+   This module provides an Emacspeak Company Front-end, And advises the
+needed interactive commands in Company.  It adds an emacspeak-specific
+front-end ‘emacspeak-company-frontend’ to the value of
+company-frontends.  Note that COMPANY-FRONTENDS is a user-customizable
+option and ends up getting saved by emacs along with other custom
+settings.  Function ‘emacspeak-company-frontend’ handles providing
+spoken feedback, and leaves it to other frontends on COMPANY-FRONTENDS
+to to generate their own feedback.
 
 
 File: emacspeak.info,  Node: emacspeak-compile,  Next: emacspeak-cperl,  Prev: emacspeak-company,  Up: Emacspeak Commands And Options

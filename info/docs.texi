@@ -5551,8 +5551,16 @@ speech-enable scheme support
 @section emacspeak-company
 
 COMPANY -mode: Complete Anything Support for emacs.
-This module provides an Emacspeak Company Front-end,
-And advises the needed interactive commands in Company.
+
+This module provides an Emacspeak Company Front-end, And advises
+the needed interactive commands in Company. It adds an
+emacspeak-specific front-end @code{emacspeak-company-frontend} to
+the value of company-frontends. Note that @var{company-frontends}
+is a user-customizable option and ends up getting saved by emacs
+along with other custom settings. Function
+@code{emacspeak-company-frontend} handles providing spoken
+feedback, and leaves it to other frontends on
+@var{company-frontends} to  to generate their own feedback.
 
 @node emacspeak-compile
 @section emacspeak-compile
