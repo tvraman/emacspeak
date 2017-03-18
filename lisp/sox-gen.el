@@ -610,8 +610,8 @@ Freq can be specified as a frequency, note (%nn) or frequency range."
 (defconst sox-multiwindow-cmd
   "-q -n synth -j 3 \
 sin %-5 sin %-2 \
-delay 0.1 0.2 \
 fade h 0.2 0.7 0.5 \
+delay 0.1 0.5 \
 echos .8 .75 7 0.3 6 0.7 5 0.9  \
 channels 2 tempo 1.5  speed 1.2 gain -18"
   "Chime used to indicate multiple windows.")
