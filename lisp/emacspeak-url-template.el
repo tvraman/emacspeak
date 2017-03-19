@@ -1137,16 +1137,6 @@ Set up URL rewrite rule to get print page."
  "EmacsWiki Search")
 
 ;;}}}
-;;{{{ reuters
-
-(emacspeak-url-template-define
- "Reuters Finance"
- "http://today.reuters.com/stocks/Overview.aspx?ticker=%s&fs=1"
- (list "Ticker: ")
- nil
- "Reuters Finance Lookup")
-
-;;}}}
 ;;{{{ wordnet
 
 (emacspeak-url-template-define
