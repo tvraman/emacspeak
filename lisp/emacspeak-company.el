@@ -51,7 +51,7 @@
 ;;; along with other custom settings. Function
 ;;; @code{emacspeak-company-frontend} handles providing spoken
 ;;; feedback, and leaves it to other frontends on
-;;; @var{company-frontends} to  to generate their own feedback.
+;;; @var{company-frontends}   to generate their own feedback.
 ;;}}}
 ;;{{{  Required modules
 
