@@ -410,7 +410,7 @@ company-frontends.  Note that COMPANY-FRONTENDS is a user-customizable
 option and ends up getting saved by emacs along with other custom
 settings.  Function ‘emacspeak-company-frontend’ handles providing
 spoken feedback, and leaves it to other frontends on COMPANY-FRONTENDS
-to to generate their own feedback.
+to generate their own feedback.
 
 
 File: emacspeak.info,  Node: emacspeak-compile,  Next: emacspeak-cperl,  Prev: emacspeak-company,  Up: Emacspeak Commands And Options

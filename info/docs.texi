@@ -5560,7 +5560,7 @@ is a user-customizable option and ends up getting saved by emacs
 along with other custom settings. Function
 @code{emacspeak-company-frontend} handles providing spoken
 feedback, and leaves it to other frontends on
-@var{company-frontends} to  to generate their own feedback.
+@var{company-frontends}   to generate their own feedback.
 
 @node emacspeak-compile
 @section emacspeak-compile
