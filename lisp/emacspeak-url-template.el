@@ -212,7 +212,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 (emacspeak-url-template-define
  "Amazon Product Details By ASIN"
- "http://amazon.com/o/dt/upda-1.0-i/tg/aa/upda/item/-/%s"
+ "https://amazon.com/o/dt/upda-1.0-i/tg/aa/upda/item/-/%s"
  (list "ASIN Or ISBN: ")
  nil
  "Retrieve product details from Amazon by either ISBN or ASIN.")
@@ -331,14 +331,14 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 (emacspeak-url-template-define
  "Google Trends"
- "http://www.google.com/trends/hottrends/atom/feed?pn=p1"
+ "https://www.google.com/trends/hottrends/atom/feed?pn=p1"
  nil nil
  "Google Trends"
  #'emacspeak-feeds-rss-display)
 
 (emacspeak-url-template-define
  "Google Trends Compared"
- "http://www.google.com/trends/fetchComponent?hl=en-US&q=%s&geo=US&cid=RISING_QUERIES_0_0"
+ "https://www.google.com/trends/fetchComponent?hl=en-US&q=%s&geo=US&cid=RISING_QUERIES_0_0"
  (list "Comma Separated Keywords: ")
  nil
  "Display comparative trends."
@@ -346,7 +346,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 (emacspeak-url-template-define
  "Google Related Trends"
- "http://www.google.com/trends/fetchComponent?hl=en-US&q=%s&geo=US&cid=RISING_QUERIES_0_0"
+ "https://www.google.com/trends/fetchComponent?hl=en-US&q=%s&geo=US&cid=RISING_QUERIES_0_0"
  (list "Comma Separated Keywords: ")
  nil
  "Display Related Query Trends."
@@ -359,7 +359,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 (defvar w3-auto-image-alt)
 (emacspeak-url-template-define
  "Market summary from Google"
- "http://finance.google.com/finance"
+ "https://finance.google.com/finance"
  nil
  nil
  "Display financial market summary."
@@ -396,7 +396,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 (emacspeak-url-template-define
  "Anonymize Google Search"
- "http://www.google.com/accounts/Logout"
+ "https://www.google.com/accounts/Logout"
  nil
  nil
  "Logout from Google to do an anonymous search.")
@@ -409,7 +409,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 (emacspeak-url-template-define
  "Patent Search From Google"
- "http://www.google.com/patents?ie=ISO-8859-1&q=%s"
+ "https://www.google.com/patents?ie=ISO-8859-1&q=%s"
  (list "Google For Patents: ")
  #'(lambda nil
      (search-forward " Patent Search" nil t)
@@ -439,7 +439,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 (emacspeak-url-template-define
  "Finance Google Search"
- "http://finance.google.com/finance?q=%s"
+ "https://finance.google.com/finance?q=%s"
  (list "Finance Search: ")
  'emacspeak-speak-buffer
  "Display content from Google Finance."
@@ -456,7 +456,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 (emacspeak-url-template-define
  "Finance Google news"
- "http://finance.google.com/"
+ "https://finance.google.com/"
  nil
  nil
  "Display content from Google Finance."
@@ -469,7 +469,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 (emacspeak-url-template-define
  "Google Scholar"
- "http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&btnG=Search&num=25&q=%s"
+ "https://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&btnG=Search&num=25&q=%s"
  (list "Google Scholar Search: ")
  nil
  "Google Scholar Search"
@@ -481,7 +481,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 (emacspeak-url-template-define
  "Google Image Search"
- "http://images.google.com/images?hl=en&source=hp&q=%s&btnG=Search+Images&gbv=1"
+ "https://images.google.com/images?hl=en&source=hp&q=%s&btnG=Search+Images&gbv=1"
  (list "Google Image Search: ")
  #'(lambda ()
      (search-forward "results" nil t)
@@ -496,7 +496,7 @@ dont-url-encode if true then url arguments are not url-encoded "
 
 (emacspeak-url-template-define
  "Multilingual dictionary via Google."
- "http://translate.google.com/translate_dict?q=%s&sa=N&hl=en&langpair=%s"
+ "https://translate.google.com/translate_dict?q=%s&sa=N&hl=en&langpair=%s"
  (list
   "Word: "
   "Translate from|To:")
@@ -554,7 +554,7 @@ from English to German")
 
 (emacspeak-url-template-define
  "Google NewsPaper"
- "http://news.google.com/news"
+ "https://news.google.com/news"
  nil
  nil
  "Retrieve and speak Google News Overview."
@@ -568,7 +568,7 @@ from English to German")
 
 (emacspeak-url-template-define
  "html Google News Search"
- "http://news.google.com/news?hl=en&ned=tus&q=%s&btnG=Google+Search"
+ "https://news.google.com/news?hl=en&ned=tus&q=%s&btnG=Google+Search"
  (list "Google News: ")
  #'(lambda ()
      (emacspeak-url-template-setup-content-filter)
@@ -588,7 +588,7 @@ from English to German")
 
 (emacspeak-url-template-define
  "Google News Search"
- "http://news.google.com/news?hl=en&ned=tus&q=%s&btnG=Google+Search&output=atom"
+ "https://news.google.com/news?hl=en&ned=tus&q=%s&btnG=Google+Search&output=atom"
  (list "Google News: ")
  nil
  "Search Google news."
@@ -609,7 +609,7 @@ from English to German")
   "Completion table for reading news category.")
 (emacspeak-url-template-define
  "Google Category News"
- "http://news.google.com/news?hl=en&topic=%s&output=atom"
+ "https://news.google.com/news?hl=en&topic=%s&output=atom"
  (list
   #'(lambda ()
       (let* ((completion-ignore-case t)
@@ -635,7 +635,7 @@ from English to German")
  #'emacspeak-url-template-google-atom-news-display)
 
 (defvar emacspeak-url-template-google-transcoder-url
-  "http://www.google.com/gwt/n?_gwt_noimg=1&output=xhtml&u=%s"
+  "https://www.google.com/gwt/n?_gwt_noimg=1&output=xhtml&u=%s"
   "URL for obtaining mobile transcoder page views.")
 
 (emacspeak-url-template-define
@@ -651,7 +651,7 @@ from English to German")
 
 (emacspeak-url-template-define
  "Google topical News"
- "http://news.google.com/news?ned=us&topic=%s&output=atom"
+ "https://news.google.com/news?ned=us&topic=%s&output=atom"
  (list "Topic Code: ")
  nil
  "Display specified news feed."
