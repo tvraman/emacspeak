@@ -98,8 +98,18 @@
 
   <h3 class="section">12.41 emacspeak-company</h3>
 
-  <p>COMPANY -mode: Complete Anything Support for emacs. This
-  module provides an Emacspeak Company Front-end, And advises the
-  needed interactive commands in Company.</p>
+  <p>COMPANY -mode: Complete Anything Support for emacs.</p>
+
+  <p>This module provides an Emacspeak Company Front-end, And
+  advises the needed interactive commands in Company. It adds an
+  emacspeak-specific front-end
+  <code>emacspeak-company-frontend</code> to the value of
+  company-frontends. Note that <var>company-frontends</var> is a
+  user-customizable option and ends up getting saved by emacs along
+  with other custom settings. Function
+  <code>emacspeak-company-frontend</code> handles providing spoken
+  feedback, and leaves it to other frontends on
+  <var>company-frontends</var> to to generate their own
+  feedback.</p>
 </body>
 </html>
