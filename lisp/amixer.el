@@ -289,11 +289,12 @@ Interactive prefix arg refreshes cache."
   (declare (special  amixer-alsactl-config-file))
   (unless amixer-alsactl-config-file (amixer-alsactl-setup))
   (when amixer-alsactl-config-file
-    (shell-command
-     (format "alsactl -f %s store" amixer-alsactl-config-file))
+    (start-process
+     "AlsaCtl" nil (executable-find "alsactl")
+     "-f"amixer-alsactl-config-file
+     "store" )
     (emacspeak-auditory-icon 'task-done)
     (message "Persisted amixer state.")))
-
 ;;}}}
 (provide 'amixer)
 ;;{{{ end of file
