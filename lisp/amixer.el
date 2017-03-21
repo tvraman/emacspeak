@@ -48,6 +48,10 @@
   :type 'string
   :group 'amixer)
 
+(defvar amixer-program  (executable-find "amixer")
+  "Amixer program")
+
+
 (defvar amixer-db nil
   "Holds cached values.")
 
@@ -113,7 +117,7 @@
 (defun amixer-build-db ()
   "Create a database of amixer controls and their settings."
   (declare (special amixer-db amixer-device))
-  (unless (executable-find "amixer")
+  (unless amixer-program
     (error "You dont have a standard amixer."))
   (let ((controls nil)
         (fields nil)
@@ -255,7 +259,7 @@ Interactive prefix arg refreshes cache."
         (amixer-control-setting control))
        update)
       (start-process
-       "AMixer" "*Debug*"  (executable-find "amixer")
+       "AMixer" "*Debug*"  amixer-program
        "--device" amixer-device
        "cset"
        (format "numid=%s" (amixer-control-numid control))
@@ -278,7 +282,7 @@ Interactive prefix arg refreshes cache."
 (defun amixer-reset-equalizer ()
   "Reset equalizer to default values -- 66% for all 10 bands."
   (interactive)
-  (let ((amixer (executable-find "amixer")))
+  (let ((amixer amixer-program))
     (cl-loop
      for  i from 1 to 10 do
      (start-process
