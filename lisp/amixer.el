@@ -119,8 +119,7 @@
 (defun amixer-build-db ()
   "Create a database of amixer controls and their settings."
   (declare (special amixer-db amixer-device amixer-program))
-  (unless amixer-program
-    (error "You dont have a standard amixer."))
+  (unless amixer-program (error "You dont have a standard amixer."))m
   (let ((controls nil)
         (fields nil)
         (slots nil))
