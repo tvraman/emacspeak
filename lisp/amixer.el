@@ -118,7 +118,7 @@
   (let ((controls nil)
         (fields nil)
         (slots nil))
-    (with-temp-buffer 
+    (with-temp-buffer
       (shell-command
        (format
         "amixer --device %s controls | sed -e s/\\'//g"
@@ -134,7 +134,7 @@
                ","))
 ;;; only need 3 fields:
         (setq fields
-              (list 
+              (list
                (nth 0 fields)
                (nth 1 fields)
                (mapconcat #'identity (nthcdr 2 fields) " ")))
@@ -199,10 +199,15 @@ Copied from /var/lib/alsa/asound.state to your ~/.emacs.d to avoid needing to ru
 ;;;###autoload
 (defun amixer-restore (&optional conf-file)
   "Restore alsa settings."
-  (shell-command
-   (format "alsactl %s  restore 2>&1 > /dev/null"
-           (if conf-file
-               (format "-f %s" conf-file) "")))
+  (if conf-file
+      (start-process
+       "AlsaCtl" nil "alsactl"
+       "-f" conf-file
+       "restore")
+    (start-process
+     "AlsaCtl" nil "alsactl"
+     "restore"))
+  (dtk-stop)
   (message "Resetting  sound to default")
   (amixer-build-db))
 
@@ -236,7 +241,7 @@ Interactive prefix arg refreshes cache."
         (setq choices
               (amixer-get-enumerated-values control)))
       (setq update
-            (read-from-minibuffer 
+            (read-from-minibuffer
              (format
               "Change %s from %s %s:"
               (amixer-control-name control)
@@ -247,12 +252,12 @@ Interactive prefix arg refreshes cache."
        (amixer-control-setting-current
         (amixer-control-setting control))
        update)
-      (shell-command
-       (format
-        "amixer --device %s cset numid=%s %s 2>&1 > /dev/null "
-        amixer-device
-        (amixer-control-numid control)
-        update))
+      (start-process
+       "AMixer" "*Debug*"  (executable-find "amixer")
+       "--device" amixer-device
+       "cset"
+       (format "numid=%s" (amixer-control-numid control))
+       update)
       (message
        "updated %s to %s"
        (amixer-control-name control)
@@ -290,7 +295,7 @@ Interactive prefix arg refreshes cache."
     (message "Persisted amixer state.")))
 
 ;;}}}
-(provide 'amixer)      
+(provide 'amixer)
 ;;{{{ end of file
 
 ;;; local variables:
@@ -298,4 +303,4 @@ Interactive prefix arg refreshes cache."
 ;;; byte-compile-dynamic: nil
 ;;; end:
 
-;;}}}      
+;;}}}
