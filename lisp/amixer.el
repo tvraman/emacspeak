@@ -182,8 +182,10 @@
       (nreverse values))))
 (defvar amixer-alsactl-config-file
   nil
-  "Personal sound card settings.
-Copied from /var/lib/alsa/asound.state to your ~/.emacs.d to avoid needing to run alsactl as root on first use.")
+  "Personal sound card settings. Copied from /var/lib/alsa/asound.state
+to your ~/.emacs.d to avoid needing to run alsactl as root on first
+use."
+  )
 
 (defun amixer-alsactl-setup ()
   "Set up alsactl sound state."
@@ -278,13 +280,13 @@ Interactive prefix arg refreshes cache."
   (interactive)
   (let ((amixer (executable-find "amixer")))
     (cl-loop
-   for  i from 1 to 10 do
-   (start-process
-    "AMixer" nil amixer
+     for  i from 1 to 10 do
+     (start-process
+      "AMixer" nil amixer
       "-Dequal"
- "cset"
- (format "numid=%s" i)
- "66,66" )))
+      "cset"
+      (format "numid=%s" i)
+      "66,66" )))
   (message "Reset equalizer"))
 
 ;;;###autoload
