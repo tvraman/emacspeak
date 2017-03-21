@@ -5,14 +5,9 @@
          (declare (special vm-mode-map))
          (define-key vm-mode-map "o" 'mspools-show))
 (defun mspools-compute-size (file)
-  (let ((buffer (get-buffer-create " *mspools-scratch*")))
-    (save-excursion
-      (set-buffer buffer)
-      (erase-buffer)
-      (shell-command (format "grep '^From ' %s" file) buffer)
-      (if (eq (current-buffer) buffer)
-          (count-lines (point-min) (point-max))  
-        0))))
+    (with-temp-buffer
+      (shell-command (format "grep '^From ' %s" file) (current-buffer))
+          (count-lines (point-min) (point-max))))
 
 (defun mspools-size-folder (spool)
   "Return (SPOOL . SIZE ) iff SIZE of spool file is non-zero."
