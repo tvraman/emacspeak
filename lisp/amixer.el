@@ -249,7 +249,7 @@ Interactive prefix arg refreshes cache."
        update)
       (shell-command
        (format
-        "amixer --device %s cset numid=%s %s"
+        "amixer --device %s cset numid=%s %s 2>&1 > /dev/null "
         amixer-device
         (amixer-control-numid control)
         update))
@@ -257,6 +257,7 @@ Interactive prefix arg refreshes cache."
        "updated %s to %s"
        (amixer-control-name control)
        update)))))
+
 ;;;###autoload
 (defun amixer-equalize()
   "Set equalizer. Only affects device `equal'."
