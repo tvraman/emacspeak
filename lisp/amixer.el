@@ -116,7 +116,7 @@
 
 (defun amixer-build-db ()
   "Create a database of amixer controls and their settings."
-  (declare (special amixer-db amixer-device))
+  (declare (special amixer-db amixer-device amixer-program))
   (unless amixer-program
     (error "You dont have a standard amixer."))
   (let ((controls nil)
@@ -222,7 +222,7 @@ use."
   "Interactively manipulate ALSA settings.
 Interactive prefix arg refreshes cache."
   (interactive "P")
-  (declare (special amixer-db amixer-alsactl-config-file))
+  (declare (special amixer-db amixer-alsactl-config-file amixer-program))
   (unless amixer-alsactl-config-file (amixer-alsactl-setup))
   (when (or refresh (null amixer-db))
     (amixer-build-db))
@@ -282,15 +282,15 @@ Interactive prefix arg refreshes cache."
 (defun amixer-reset-equalizer ()
   "Reset equalizer to default values -- 66% for all 10 bands."
   (interactive)
-  (let ((amixer amixer-program))
-    (cl-loop
-     for  i from 1 to 10 do
-     (start-process
-      "AMixer" nil amixer
-      "-Dequal"
-      "cset"
-      (format "numid=%s" i)
-      "66,66" )))
+  (declare (special amixer-program))
+  (cl-loop
+   for  i from 1 to 10 do
+   (start-process
+    "AMixer" nil amixer-program
+    "-Dequal"
+    "cset"
+    (format "numid=%s" i)
+    "66,66" ))
   (message "Reset equalizer"))
 
 ;;;###autoload
