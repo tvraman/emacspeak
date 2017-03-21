@@ -9,7 +9,7 @@ With prefix P, create local abbrev. Otherwise it will be global."
   (interactive "P")
   (let ((bef (downcase (or (thing-at-point 'word) "")))
         (aft nil))
-    (call-interactively 'ispell-word)
+    (call-interactively #'ispell-word)
     (setq aft (downcase (or (thing-at-point 'word) "")))
     (unless (or (string= aft bef)
                 (string= aft "")
@@ -22,4 +22,3 @@ With prefix P, create local abbrev. Otherwise it will be global."
 
 (setq save-abbrevs t)
 (setq-default abbrev-mode t)
-
