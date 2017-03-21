@@ -51,6 +51,8 @@
 (defvar amixer-program  (executable-find "amixer")
   "Amixer program")
 
+(defvar alsactl-program  (executable-find "alsactl")
+  "AlsaCtl program")
 
 (defvar amixer-db nil
   "Holds cached values.")
@@ -205,13 +207,14 @@ use."
 ;;;###autoload
 (defun amixer-restore (&optional conf-file)
   "Restore alsa settings."
+  (declare (special alsactl-program))
   (if conf-file
       (start-process
-       "AlsaCtl" nil "alsactl"
+       "AlsaCtl" nil alsactl-program
        "-f" conf-file
        "restore")
     (start-process
-     "AlsaCtl" nil "alsactl"
+     "AlsaCtl" nil alsactl-program
      "restore"))
   (dtk-stop)
   (message "Resetting  sound to default")
@@ -297,11 +300,11 @@ Interactive prefix arg refreshes cache."
 (defun amixer-store()
   "Persist current amixer settings."
   (interactive)
-  (declare (special  amixer-alsactl-config-file))
+  (declare (special  amixer-alsactl-config-file alsactl-program))
   (unless amixer-alsactl-config-file (amixer-alsactl-setup))
   (when amixer-alsactl-config-file
     (start-process
-     "AlsaCtl" nil (executable-find "alsactl")
+     "AlsaCtl" nil alsactl-program
      "-f"amixer-alsactl-config-file
      "store" )
     (emacspeak-auditory-icon 'task-done)
