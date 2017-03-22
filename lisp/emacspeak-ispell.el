@@ -122,7 +122,12 @@ many available corrections."
 ;;}}}
 ;;{{{  Advice top-level ispell commands:
 
-(defadvice ispell-buffer (around emacspeak pre act comp)
+(cl-loop
+ for f in
+ '(ispell-buffer ispell-region)
+ do
+ (eval
+  `(defadvice ,f (around emacspeak pre act comp)
   "Produce auditory icons for ispell."
   (cond
    ((ems-interactive-p)
@@ -130,17 +135,9 @@ many available corrections."
       (ems-with-messages-silenced ad-do-it)
       (emacspeak-auditory-icon 'task-done)))
    (t ad-do-it))
-  ad-return-value)
+  ad-return-value)))
 
-(defadvice ispell-region (around emacspeak pre act comp)
-  "Produce auditory icons for ispell."
-  (cond
-   ((ems-interactive-p)
-    (let ((dtk-stop-immediately t))
-      (ems-with-messages-silenced ad-do-it)
-      (emacspeak-auditory-icon 'task-done)))
-   (t ad-do-it))
-  ad-return-value)
+
 
 (defadvice ispell-word (around emacspeak pre act comp)
   "Produce auditory icons for ispell."
