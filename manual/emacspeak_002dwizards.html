@@ -1672,7 +1672,7 @@ Major mode for browsing DVI files.
 
 DVI files  are converted to text and previewed using text mode.
 
-This mode runs the hook ‘emacspeak-wizards-dvi-mode-hook’, as the final step
+This mode runs the hook ‘emacspeak-wizards-dvi-mode-hook’, as the final or penultimate step
 during initialization.
 
 key             binding
@@ -2184,7 +2184,7 @@ directory to where find is to be launched.
         <pre class="format">
 Emacspeak Finder
 
-This mode runs the hook ‘emacspeak-wizards-finder-mode-hook’, as the final step
+This mode runs the hook ‘emacspeak-wizards-finder-mode-hook’, as the final or penultimate step
 during initialization.
 
 key             binding
@@ -2862,7 +2862,7 @@ Major mode for browsing PPT slides.
 PPT files  are converted to HTML and previewed using a browser.
 
 In addition to any hooks its parent mode ‘text-mode’ might have run,
-this mode runs the hook ‘emacspeak-wizards-ppt-mode-hook’, as the final step
+this mode runs the hook ‘emacspeak-wizards-ppt-mode-hook’, as the final or penultimate step
 during initialization.
 
 key             binding
@@ -3003,10 +3003,41 @@ Run rpm -qi on current dired entry.
 </pre>
       </div>
     </dd>
+  </dl><a name="emacspeak_002dwizards_002dscratch" id=
+  "emacspeak_002dwizards_002dscratch"></a>
+
+  <h4 class="subsubsection">12.197.1.91
+  emacspeak-wizards-scratch</h4>
+
+  <dl>
+    <dt><a name="index-emacspeak_002dwizards_002dscratch" id=
+    "index-emacspeak_002dwizards_002dscratch"></a>Command:
+    <strong>emacspeak-wizards-scratch</strong></dt>
+
+    <dd>
+      <dl compact="compact">
+        <dt><kbd>C-' SPC</kbd></dt>
+
+        <dd><a name="index-C_002d_0027-SPC" id=
+        "index-C_002d_0027-SPC"></a></dd>
+
+        <dt><kbd>C-x @ s SPC</kbd></dt>
+
+        <dd><a name="index-C_002dx-_0040-s-SPC" id=
+        "index-C_002dx-_0040-s-SPC"></a></dd>
+      </dl><a name="index-emacspeak_002dwizards_002dscratch-1" id=
+      "index-emacspeak_002dwizards_002dscratch-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Switch to *scratch* buffer, creating it if necessary.
+</pre>
+      </div>
+    </dd>
   </dl><a name="emacspeak_002dwizards_002dshell" id=
   "emacspeak_002dwizards_002dshell"></a>
 
-  <h4 class="subsubsection">12.197.1.91
+  <h4 class="subsubsection">12.197.1.92
   emacspeak-wizards-shell</h4>
 
   <dl>
@@ -3044,7 +3075,7 @@ Once switched, set default directory in that target shell to the directory of th
   </dl><a name="emacspeak_002dwizards_002dshell_002dby_002dkey" id=
   "emacspeak_002dwizards_002dshell_002dby_002dkey"></a>
 
-  <h4 class="subsubsection">12.197.1.92
+  <h4 class="subsubsection">12.197.1.93
   emacspeak-wizards-shell-by-key</h4>
 
   <dl>
@@ -3168,7 +3199,7 @@ Switch to shell buffer by key. This provides a predictable means
   id=
   "emacspeak_002dwizards_002dshell_002dcommand_002don_002dcurrent_002dfile"></a>
 
-  <h4 class="subsubsection">12.197.1.93
+  <h4 class="subsubsection">12.197.1.94
   emacspeak-wizards-shell-command-on-current-file</h4>
 
   <dl>
@@ -3208,7 +3239,7 @@ Prompts for and runs shell command on current file.
   "emacspeak_002dwizards_002dshell_002ddirectory_002dreset" id=
   "emacspeak_002dwizards_002dshell_002ddirectory_002dreset"></a>
 
-  <h4 class="subsubsection">12.197.1.94
+  <h4 class="subsubsection">12.197.1.95
   emacspeak-wizards-shell-directory-reset</h4>
 
   <dl>
@@ -3235,7 +3266,7 @@ Set current directory to this shell’s initial directory if one was defined.
   </dl><a name="emacspeak_002dwizards_002dshell_002dtoggle" id=
   "emacspeak_002dwizards_002dshell_002dtoggle"></a>
 
-  <h4 class="subsubsection">12.197.1.95
+  <h4 class="subsubsection">12.197.1.96
   emacspeak-wizards-shell-toggle</h4>
 
   <dl>
@@ -3279,7 +3310,7 @@ Switch to the shell buffer and cd to
   </dl><a name="emacspeak_002dwizards_002dshow_002dcommentary" id=
   "emacspeak_002dwizards_002dshow_002dcommentary"></a>
 
-  <h4 class="subsubsection">12.197.1.96
+  <h4 class="subsubsection">12.197.1.97
   emacspeak-wizards-show-commentary</h4>
 
   <dl>
@@ -3306,7 +3337,7 @@ Display commentary. Default is to display commentary from current buffer.
   "emacspeak_002dwizards_002dshow_002denvironment_002dvariable" id=
   "emacspeak_002dwizards_002dshow_002denvironment_002dvariable"></a>
 
-  <h4 class="subsubsection">12.197.1.97
+  <h4 class="subsubsection">12.197.1.98
   emacspeak-wizards-show-environment-variable</h4>
 
   <dl>
@@ -3336,7 +3367,7 @@ Display value of specified environment variable.
   </dl><a name="emacspeak_002dwizards_002dshow_002deval_002dresult"
   id="emacspeak_002dwizards_002dshow_002deval_002dresult"></a>
 
-  <h4 class="subsubsection">12.197.1.98
+  <h4 class="subsubsection">12.197.1.99
   emacspeak-wizards-show-eval-result</h4>
 
   <dl>
@@ -3368,7 +3399,7 @@ Convenience command to pretty-print and view Lisp evaluation results.
   </dl><a name="emacspeak_002dwizards_002dshow_002dface" id=
   "emacspeak_002dwizards_002dshow_002dface"></a>
 
-  <h4 class="subsubsection">12.197.1.99
+  <h4 class="subsubsection">12.197.1.100
   emacspeak-wizards-show-face</h4>
 
   <dl>
@@ -3392,7 +3423,7 @@ Show salient properties of specified face.
   </dl><a name="emacspeak_002dwizards_002dshow_002dmemory_002dused"
   id="emacspeak_002dwizards_002dshow_002dmemory_002dused"></a>
 
-  <h4 class="subsubsection">12.197.1.100
+  <h4 class="subsubsection">12.197.1.101
   emacspeak-wizards-show-memory-used</h4>
 
   <dl>
@@ -3417,7 +3448,7 @@ Convenience command to view state of memory used in this session so far.
   "emacspeak_002dwizards_002dspeak_002diso_002ddatetime" id=
   "emacspeak_002dwizards_002dspeak_002diso_002ddatetime"></a>
 
-  <h4 class="subsubsection">12.197.1.101
+  <h4 class="subsubsection">12.197.1.102
   emacspeak-wizards-speak-iso-datetime</h4>
 
   <dl>
@@ -3446,7 +3477,7 @@ Make ISO date-time speech friendly.
   </dl><a name="emacspeak_002dwizards_002dspot_002dwords" id=
   "emacspeak_002dwizards_002dspot_002dwords"></a>
 
-  <h4 class="subsubsection">12.197.1.102
+  <h4 class="subsubsection">12.197.1.103
   emacspeak-wizards-spot-words</h4>
 
   <dl>
@@ -3471,7 +3502,7 @@ for ‘word’ and displays hits in a compilation buffer.
   </dl><a name="emacspeak_002dwizards_002dsqueeze_002dblanks" id=
   "emacspeak_002dwizards_002dsqueeze_002dblanks"></a>
 
-  <h4 class="subsubsection">12.197.1.103
+  <h4 class="subsubsection">12.197.1.104
   emacspeak-wizards-squeeze-blanks</h4>
 
   <dl>
@@ -3507,7 +3538,7 @@ Squeeze multiple blank lines in current buffer.
   </dl><a name="emacspeak_002dwizards_002dsunrise_002dsunset" id=
   "emacspeak_002dwizards_002dsunrise_002dsunset"></a>
 
-  <h4 class="subsubsection">12.197.1.104
+  <h4 class="subsubsection">12.197.1.105
   emacspeak-wizards-sunrise-sunset</h4>
 
   <dl>
@@ -3533,7 +3564,7 @@ Display sunrise/sunset for specified address.
   </dl><a name="emacspeak_002dwizards_002dterm" id=
   "emacspeak_002dwizards_002dterm"></a>
 
-  <h4 class="subsubsection">12.197.1.105
+  <h4 class="subsubsection">12.197.1.106
   emacspeak-wizards-term</h4>
 
   <dl>
@@ -3569,7 +3600,7 @@ term if needed.
   </dl><a name="emacspeak_002dwizards_002dterminal" id=
   "emacspeak_002dwizards_002dterminal"></a>
 
-  <h4 class="subsubsection">12.197.1.106
+  <h4 class="subsubsection">12.197.1.107
   emacspeak-wizards-terminal</h4>
 
   <dl>
@@ -3594,7 +3625,7 @@ Launch terminal and rename buffer appropriately.
   "emacspeak_002dwizards_002dtex_002dtie_002dcurrent_002dword" id=
   "emacspeak_002dwizards_002dtex_002dtie_002dcurrent_002dword"></a>
 
-  <h4 class="subsubsection">12.197.1.107
+  <h4 class="subsubsection">12.197.1.108
   emacspeak-wizards-tex-tie-current-word</h4>
 
   <dl>
@@ -3625,7 +3656,7 @@ Tie the next n  words.
   "emacspeak_002dwizards_002dthanks_002dmail_002dsignature" id=
   "emacspeak_002dwizards_002dthanks_002dmail_002dsignature"></a>
 
-  <h4 class="subsubsection">12.197.1.108
+  <h4 class="subsubsection">12.197.1.109
   emacspeak-wizards-thanks-mail-signature</h4>
 
   <dl>
@@ -3654,7 +3685,7 @@ insert thanks , –Raman at the end of mail message
   id=
   "emacspeak_002dwizards_002dtoggle_002dmm_002ddd_002dyyyy_002ddate_002dpronouncer"></a>
 
-  <h4 class="subsubsection">12.197.1.109
+  <h4 class="subsubsection">12.197.1.110
   emacspeak-wizards-toggle-mm-dd-yyyy-date-pronouncer</h4>
 
   <dl>
@@ -3683,7 +3714,7 @@ Toggle pronunciation of mm-dd-yyyy dates.
   id=
   "emacspeak_002dwizards_002dtoggle_002dyyyymmdd_002ddate_002dpronouncer"></a>
 
-  <h4 class="subsubsection">12.197.1.110
+  <h4 class="subsubsection">12.197.1.111
   emacspeak-wizards-toggle-yyyymmdd-date-pronouncer</h4>
 
   <dl>
@@ -3711,7 +3742,7 @@ Toggle pronunciation of yyyymmdd  dates.
   "emacspeak_002dwizards_002dtramp_002dopen_002dlocation" id=
   "emacspeak_002dwizards_002dtramp_002dopen_002dlocation"></a>
 
-  <h4 class="subsubsection">12.197.1.111
+  <h4 class="subsubsection">12.197.1.112
   emacspeak-wizards-tramp-open-location</h4>
 
   <dl>
@@ -3742,7 +3773,7 @@ Location is specified by name.
   "emacspeak_002dwizards_002dtune_002din_002dradio_002dbrowse" id=
   "emacspeak_002dwizards_002dtune_002din_002dradio_002dbrowse"></a>
 
-  <h4 class="subsubsection">12.197.1.112
+  <h4 class="subsubsection">12.197.1.113
   emacspeak-wizards-tune-in-radio-browse</h4>
 
   <dl>
@@ -3783,7 +3814,7 @@ Optional interactive prefix arg ‘category’ prompts for a category.
   "emacspeak_002dwizards_002dtune_002din_002dradio_002dsearch" id=
   "emacspeak_002dwizards_002dtune_002din_002dradio_002dsearch"></a>
 
-  <h4 class="subsubsection">12.197.1.113
+  <h4 class="subsubsection">12.197.1.114
   emacspeak-wizards-tune-in-radio-search</h4>
 
   <dl>
@@ -3819,7 +3850,7 @@ Search Tune-In Radio.
   </dl><a name="emacspeak_002dwizards_002dunhex_002duri" id=
   "emacspeak_002dwizards_002dunhex_002duri"></a>
 
-  <h4 class="subsubsection">12.197.1.114
+  <h4 class="subsubsection">12.197.1.115
   emacspeak-wizards-unhex-uri</h4>
 
   <dl>
@@ -3843,7 +3874,7 @@ UnEscape URI
   </dl><a name="emacspeak_002dwizards_002dunits" id=
   "emacspeak_002dwizards_002dunits"></a>
 
-  <h4 class="subsubsection">12.197.1.115
+  <h4 class="subsubsection">12.197.1.116
   emacspeak-wizards-units</h4>
 
   <dl>
@@ -3874,7 +3905,7 @@ Run units in a comint sub-process.
   </dl><a name="emacspeak_002dwizards_002dvc_002dn" id=
   "emacspeak_002dwizards_002dvc_002dn"></a>
 
-  <h4 class="subsubsection">12.197.1.116
+  <h4 class="subsubsection">12.197.1.117
   emacspeak-wizards-vc-n</h4>
 
   <dl>
@@ -3895,7 +3926,7 @@ Accelerator for VC viewer.
   </dl><a name="emacspeak_002dwizards_002dvc_002dviewer" id=
   "emacspeak_002dwizards_002dvc_002dviewer"></a>
 
-  <h4 class="subsubsection">12.197.1.117
+  <h4 class="subsubsection">12.197.1.118
   emacspeak-wizards-vc-viewer</h4>
 
   <dl>
@@ -3930,7 +3961,7 @@ View contents of specified virtual console.
   </dl><a name="emacspeak_002dwizards_002dvc_002dviewer_002dmode"
   id="emacspeak_002dwizards_002dvc_002dviewer_002dmode"></a>
 
-  <h4 class="subsubsection">12.197.1.118
+  <h4 class="subsubsection">12.197.1.119
   emacspeak-wizards-vc-viewer-mode</h4>
 
   <dl>
@@ -3954,7 +3985,7 @@ key             binding
 
 C-l             emacspeak-wizards-vc-viewer-refresh
 
-This mode runs the hook ‘emacspeak-wizards-vc-viewer-mode-hook’, as the final step
+This mode runs the hook ‘emacspeak-wizards-vc-viewer-mode-hook’, as the final or penultimate step
 during initialization.
 </pre>
       </div>
@@ -3963,7 +3994,7 @@ during initialization.
   "emacspeak_002dwizards_002dvc_002dviewer_002drefresh" id=
   "emacspeak_002dwizards_002dvc_002dviewer_002drefresh"></a>
 
-  <h4 class="subsubsection">12.197.1.119
+  <h4 class="subsubsection">12.197.1.120
   emacspeak-wizards-vc-viewer-refresh</h4>
 
   <dl>
@@ -3989,7 +4020,7 @@ Refresh view of VC we’re viewing.
   "emacspeak_002dwizards_002dvi_002das_002dsu_002dfile" id=
   "emacspeak_002dwizards_002dvi_002das_002dsu_002dfile"></a>
 
-  <h4 class="subsubsection">12.197.1.120
+  <h4 class="subsubsection">12.197.1.121
   emacspeak-wizards-vi-as-su-file</h4>
 
   <dl>
@@ -4019,7 +4050,7 @@ Launch sudo vi on specified file in a terminal.
   id=
   "emacspeak_002dwizards_002dview_002dbuffers_002dfiltered_002dby_002dm_002dplayer_002dmode"></a>
 
-  <h4 class="subsubsection">12.197.1.121
+  <h4 class="subsubsection">12.197.1.122
   emacspeak-wizards-view-buffers-filtered-by-m-player-mode</h4>
 
   <dl>
@@ -4057,7 +4088,7 @@ Buffer menu filtered by  m-player mode.
   id=
   "emacspeak_002dwizards_002dview_002dbuffers_002dfiltered_002dby_002dmode"></a>
 
-  <h4 class="subsubsection">12.197.1.122
+  <h4 class="subsubsection">12.197.1.123
   emacspeak-wizards-view-buffers-filtered-by-mode</h4>
 
   <dl>
@@ -4089,7 +4120,7 @@ Display list of buffers filtered by specified mode.
   id=
   "emacspeak_002dwizards_002dview_002dbuffers_002dfiltered_002dby_002dthis_002dmode"></a>
 
-  <h4 class="subsubsection">12.197.1.123
+  <h4 class="subsubsection">12.197.1.124
   emacspeak-wizards-view-buffers-filtered-by-this-mode</h4>
 
   <dl>
@@ -4135,7 +4166,7 @@ Buffer menu filtered by  mode of current-buffer.
   </dl><a name="emacspeak_002dwizards_002dvoice_002dsampler" id=
   "emacspeak_002dwizards_002dvoice_002dsampler"></a>
 
-  <h4 class="subsubsection">12.197.1.124
+  <h4 class="subsubsection">12.197.1.125
   emacspeak-wizards-voice-sampler</h4>
 
   <dl>
@@ -4160,7 +4191,7 @@ Read a personality  and apply it to the current line.
   </dl><a name="emacspeak_002dwizards_002dxl_002ddisplay" id=
   "emacspeak_002dwizards_002dxl_002ddisplay"></a>
 
-  <h4 class="subsubsection">12.197.1.125
+  <h4 class="subsubsection">12.197.1.126
   emacspeak-wizards-xl-display</h4>
 
   <dl>
@@ -4184,7 +4215,7 @@ visiting the xls file.
   </dl><a name="emacspeak_002dwizards_002dxl_002dmode" id=
   "emacspeak_002dwizards_002dxl_002dmode"></a>
 
-  <h4 class="subsubsection">12.197.1.126
+  <h4 class="subsubsection">12.197.1.127
   emacspeak-wizards-xl-mode</h4>
 
   <dl>
@@ -4203,7 +4234,7 @@ Major mode for browsing XL spreadsheets.
 XL Sheets are converted to HTML and previewed using a browser.
 
 In addition to any hooks its parent mode ‘text-mode’ might have run,
-this mode runs the hook ‘emacspeak-wizards-xl-mode-hook’, as the final step
+this mode runs the hook ‘emacspeak-wizards-xl-mode-hook’, as the final or penultimate step
 during initialization.
 
 key             binding
@@ -4215,7 +4246,7 @@ key             binding
   </dl><a name="emacspeak_002dwizards_002dyql_002dlookup" id=
   "emacspeak_002dwizards_002dyql_002dlookup"></a>
 
-  <h4 class="subsubsection">12.197.1.127
+  <h4 class="subsubsection">12.197.1.128
   emacspeak-wizards-yql-lookup</h4>
 
   <dl>
@@ -4251,7 +4282,7 @@ Symbols are separated by whitespace.
   </dl><a name="emacspeak_002dwizards_002dyql_002dquotes" id=
   "emacspeak_002dwizards_002dyql_002dquotes"></a>
 
-  <h4 class="subsubsection">12.197.1.128
+  <h4 class="subsubsection">12.197.1.129
   emacspeak-wizards-yql-quotes</h4>
 
   <dl>
