@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents Emacspeak, The Complete Audio Desktop.  This
-document was last updated on March 19, 2017.
+document was last updated on March 23, 2017.
 
    The manual is divided into the following chapters.
 
@@ -2947,7 +2947,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1159 commands and 1066 options.
+This chapter documents a total of 1160 commands and 1066 options.
 
 * Menu:
 
@@ -4247,6 +4247,7 @@ system.
      key             binding
      —             ——-
 
+     SPC		emacspeak-wizards-scratch
      .		auto-correct-update
      R		emacspeak-webspace-feed-reader
      S		soundscape-stop
@@ -4737,6 +4738,46 @@ system.
      Personality used for elfeed-search-unread-title-face This
      personality uses voice-bolden-medium whose effect can be changed
      globally by customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option emacspeak-epa-field-body-voice
+     Personality used for epa-field-body This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option emacspeak-epa-field-name-voice
+     Personality used for epa-field-name This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-epa-mark-voice
+     Personality used for epa-mark This personality uses voice-bolden
+     whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-epa-string-voice
+     Personality used for epa-string This personality uses voice-lighten
+     whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-epa-validity-disabled-voice
+     Personality used for epa-validity-disabled This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-epa-validity-high-voice
+     Personality used for epa-validity-high This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option emacspeak-epa-validity-low-voice
+     Personality used for epa-validity-low This personality uses
+     voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option emacspeak-epa-validity-medium-voice
+     Personality used for epa-validity-medium This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
 
  -- Variable: User Option emacspeak-erc-action-personality
      Personality used for erc-action-face This personality uses
@@ -7129,7 +7170,7 @@ higher.
      M-p		emacspeak-bookshare-previous-result
 
      In addition to any hooks its parent mode ‘special-mode’ might have run,
-     this mode runs the hook ‘emacspeak-bookshare-mode-hook’, as the final step
+     this mode runs the hook ‘emacspeak-bookshare-mode-hook’, as the final or penultimate step
      during initialization.
 
 12.27.1.24 emacspeak-bookshare-next-result
