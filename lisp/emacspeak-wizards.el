@@ -3383,6 +3383,16 @@ Optional interactive prefix arg shows  unprocessed results."
   (emacspeak-speak-mode-line))
 
 ;;}}}
+;;{{{ Smart Scratch:
+
+;;;###autoload
+(defun emacspeak-wizards-scratch ()
+  "Switch to *scratch* buffer, creating it if necessary."
+  (interactive)
+  (let ((buffer (get-buffer-create "*scratch*")))
+    (funcall-interactively #'switch-to-buffer buffer)))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 

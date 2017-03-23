@@ -529,6 +529,7 @@ interactive command that the key sequence executes."
 
 (defcustom emacspeak-super-keys 
   '(
+    ("SPC"  emacspeak-wizards-scratch)
     ("." auto-correct-update)
     ("j" ido-imenu-anywhere)
     ("o" ciel-co)
