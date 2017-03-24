@@ -3390,6 +3390,7 @@ Optional interactive prefix arg shows  unprocessed results."
   "Switch to *scratch* buffer, creating it if necessary."
   (interactive)
   (let ((buffer (get-buffer-create "*scratch*")))
+    (with-current-buffer buffer (lisp-interaction-mode))
     (funcall-interactively #'switch-to-buffer buffer)))
 
 ;;}}}
