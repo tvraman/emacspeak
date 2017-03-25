@@ -545,8 +545,12 @@ see option emacspeak-untabify-fixes-non-breaking-space."
 
 ;;}}}
 ;;{{{ Advice hippie expand:
-
-(defadvice hippie-expand (around emacspeak pre act comp)
+(cl-loop
+ for f in
+ '(hippie-expand complete)
+ do
+ (eval
+  `(defadvice ,f (around emacspeak pre act comp)
   "Speak what was completed."
   (cond
    ((ems-interactive-p)
@@ -561,7 +565,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
            (emacspeak-speak-region orig (point))
          (dtk-speak (word-at-point))))))
    (t ad-do-it))
-  ad-return-value)
+  ad-return-value)))
         
 ;;}}}
 ;;{{{ advice insertion commands to speak.
@@ -899,22 +903,7 @@ icon."
   "Provide spoken feedback."
   (emacspeak-auditory-icon 'select-object)
   (dtk-speak (emacspeak-get-current-completion)))
-(cl-loop
- for f in
- '(complete)
- do
- (eval
-  `(defadvice ,f  (around emacspeak pre act comp)
-     "Say what you completed."
-     (ems-with-messages-silenced
-      ad-do-it
-      (when (ems-interactive-p)
-        (dtk-speak
-         (format "%s %s"
-                 (save-excursion (backward-char 1)
-                                 (sexp-at-point))
-                 (or emacspeak-last-message "")))
-        ad-return-value)))))
+
 
 (defadvice next-completion (after emacspeak pre act comp)
   "Provide auditory feedback."
