@@ -289,6 +289,7 @@ See  \\{soundscape-default-theme} for details."
   `(
     ("()" nil)
     ("BirdCalls" nil)
+    ("BirdSongs" nil)
     ("BirdChorus" (shell-mode term-mode))
     ("BlopEchoes"  (elfeed-search-mode))
     ("Bonfire" (calendar-mode diary-mode))
