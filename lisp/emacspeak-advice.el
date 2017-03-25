@@ -536,7 +536,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
 
 (defadvice pcomplete (around emacspeak pre act comp)
   "Say what you completed."
-  (let ((orig (point)))
+  (let ((orig (save-excursion (skip-syntax-backward "^ >") (point))))
     ad-do-it
     (when (ems-interactive-p)
       (emacspeak-speak-region orig (point))
@@ -551,21 +551,18 @@ see option emacspeak-untabify-fixes-non-breaking-space."
  do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
-  "Speak what was completed."
-  (cond
-   ((ems-interactive-p)
-    (let ((orig
-           (save-excursion
-             (skip-syntax-backward "^ >" (point-min))
-             (point))))
-      (ems-with-messages-silenced
-       ad-do-it
-       (emacspeak-auditory-icon 'select-object)
-       (if (< orig (point))
-           (emacspeak-speak-region orig (point))
-         (dtk-speak (word-at-point))))))
-   (t ad-do-it))
-  ad-return-value)))
+     "Speak what was completed."
+     (cond
+      ((ems-interactive-p)
+       (let ((orig (save-excursion (skip-syntax-backward "^ >" ) (point))))
+         (ems-with-messages-silenced
+          ad-do-it
+          (emacspeak-auditory-icon 'complete)
+          (if (< orig (point))
+              (dtk-speak (buffer-substring orig (point)))
+            (dtk-speak (word-at-point))))))
+      (t ad-do-it))
+     ad-return-value)))
         
 ;;}}}
 ;;{{{ advice minibuffer to speak
@@ -765,10 +762,10 @@ icon."
 ;;{{{ Advice completion-at-point:
 (defadvice completion-at-point (around emacspeak pre act comp)
   "Say what you completed."
-  (let ((orig (point)))
+  (let ((orig (save-excursion (skip-syntax-backward "^ >") (point))))
     ad-do-it
     (when (ems-interactive-p)
-      (emacspeak-speak-region orig (point))
+      (dtk-speak (buffer-substring orig (point)))
       (emacspeak-auditory-icon 'complete))
     ad-return-value))
 
@@ -807,16 +804,16 @@ icon."
 
 ;;}}}
 ;;{{{ advice completion functions to speak:
-(cl-loop for f in
-         '(dabbrev-expand dabbrev-completion)
-         do
-         (eval
-          `(defadvice,f (after emacspeak pre act comp)
-             "Say what you completed."
-             (when (ems-interactive-p)
-               (tts-with-punctuations 'all
-                                      (dtk-speak
-                                       dabbrev--last-expansion))))))
+(cl-loop
+ for f in
+ '(dabbrev-expand dabbrev-completion)
+ do
+ (eval
+  `(defadvice,f (after emacspeak pre act comp)
+     "Say what you completed."
+     (when (ems-interactive-p)
+       (tts-with-punctuations 'all
+                              (dtk-speak dabbrev--last-expansion))))))
 
 (voice-setup-add-map
  '(
@@ -835,14 +832,13 @@ icon."
      (cond
       ((ems-interactive-p)
        (ems-with-messages-silenced
-        (let ((prior (point)))
+        (let ((prior (save-excursion (skip-syntax-backward "^ >") (point))))
           (emacspeak-kill-buffer-carefully "*Completions*")
           ad-do-it
           (if (> (point) prior)
               (tts-with-punctuations
                'all
-               (dtk-speak
-                (buffer-substring (point) prior)))
+               (dtk-speak (buffer-substring (point) prior)))
             (emacspeak-speak-completions-if-available)))))
       (t ad-do-it))
      ad-return-value)))
@@ -855,13 +851,12 @@ icon."
   `(defadvice ,f (around emacspeak pre act comp)
      "Say what you completed."
      (ems-with-messages-silenced
-      (let ((prior (point)))
+      (let ((prior (save-excursion (skip-syntax-backward "^ >") (point))))
         ad-do-it
         (if (> (point) prior)
             (tts-with-punctuations
              'all
-             (dtk-speak
-              (buffer-substring prior (point))))
+             (dtk-speak (buffer-substring prior (point))))
           (emacspeak-speak-completions-if-available))
         ad-return-value)))))
 
@@ -1155,7 +1150,7 @@ icon."
   (cond
    ((ems-interactive-p)
     (ems-with-messages-silenced
-     (let ((prior (point)))
+     (let ((prior (save-excursion (skip-syntax-backward "^ >") (point))))
        ad-do-it
        (if (> (point) prior)
            (tts-with-punctuations
