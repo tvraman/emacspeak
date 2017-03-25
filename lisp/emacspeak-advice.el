@@ -544,12 +544,28 @@ see option emacspeak-untabify-fixes-non-breaking-space."
     ad-return-value))
 
 ;;}}}
+;;{{{ Advice hippie expand:
+
+(defadvice hippie-expand (around emacspeak pre act comp)
+    "Speak what was completed."
+    (cond
+     ((ems-interactive-p)
+      (let ((orig (point)))
+        (ems-with-messages-silenced
+         ad-do-it
+         (emacspeak-auditory-icon 'select-object)
+         (emacspeak-speak-region orig (point)))))
+     (t ad-do-it))
+    ad-return-value)
+        
+;;}}}
 ;;{{{ advice insertion commands to speak.
 
 ;;; Dont advice if we catch this through post-self-insert-hook
 (unless (and (boundp 'post-self-insert-hook)
              post-self-insert-hook
              (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
+
   (defadvice completion-separator-self-insert-autofilling
       (after emacspeak pre act comp)
     "Speak what was completed."
