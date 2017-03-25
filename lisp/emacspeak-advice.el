@@ -552,7 +552,7 @@ see option emacspeak-untabify-fixes-non-breaking-space."
    ((ems-interactive-p)
     (let ((orig
            (save-excursion
-             (skip-syntax-backward "^ " (point-min))
+             (skip-syntax-backward "^ >" (point-min))
              (point))))
       (ems-with-messages-silenced
        ad-do-it
