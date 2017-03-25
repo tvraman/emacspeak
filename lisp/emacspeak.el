@@ -373,14 +373,15 @@ so it can be passed to subprocesses."
 sets punctuation mode to all, activates the dictionary and turns on split caps."
   (declare (special dtk-split-caps
                     emacspeak-audio-indentation))
-  (dtk-set-punctuations 'all)
-  (or dtk-split-caps
-      (dtk-toggle-split-caps))
-  (emacspeak-pronounce-refresh-pronunciations)
-  (or emacspeak-audio-indentation
-      (emacspeak-toggle-audio-indentation))
-  (emacspeak-dtk-sync)
-  (hs-minor-mode 1))
+  (ems-with-messages-silenced
+   (dtk-set-punctuations 'all)
+   (or dtk-split-caps
+       (dtk-toggle-split-caps))
+   (emacspeak-pronounce-refresh-pronunciations)
+   (or emacspeak-audio-indentation
+       (emacspeak-toggle-audio-indentation))
+   (emacspeak-dtk-sync)
+   (hs-minor-mode 1))) 
 
 (defun emacspeak-setup-programming-modes ()
   "Setup programming modes."
