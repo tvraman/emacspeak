@@ -221,7 +221,6 @@ The default value of 12 is too high for using ido effectively with speech. "
 ;;{{{ Exit Minibuffer:
 (defadvice ido-exit-minibuffer (after emacspeak pre act comp)
   "Provide auditory feedback."
-  (dtk-stop)
   (emacspeak-auditory-icon 'close-object))
 
 ;;}}}
