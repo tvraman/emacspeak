@@ -554,7 +554,9 @@ see option emacspeak-untabify-fixes-non-breaking-space."
         (ems-with-messages-silenced
          ad-do-it
          (emacspeak-auditory-icon 'select-object)
-         (emacspeak-speak-region orig (point)))))
+         (if (< orig (point))
+             (emacspeak-speak-region orig (point))
+           (dtk-speak (word-at-point))))))
      (t ad-do-it))
     ad-return-value)
         
