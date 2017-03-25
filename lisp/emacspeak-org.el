@@ -244,9 +244,7 @@
 
 (defadvice org-complete (around emacspeak pre act)
   "Say what you completed."
-  (let ((prior (save-excursion
-                 (backward-word 1)
-                 (point)))
+  (let ((prior (save-excursion (skip-syntax-backward "^ >") (point)))
         (dtk-stop-immediately t))
     ad-do-it
     (if (> (point) prior)

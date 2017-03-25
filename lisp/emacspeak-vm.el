@@ -84,7 +84,7 @@ Note that some badly formed mime messages  cause trouble."
 
 (defadvice vm-minibuffer-complete-word (around emacspeak pre act)
   "Say what you completed."
-  (let ((prior (point))
+  (let ((prior (save-excursion (skip-syntax-backward "^ >") (point)))
         (dtk-stop-immediately t))
     (emacspeak-kill-buffer-carefully "*Completions*")
     ad-do-it
@@ -99,7 +99,7 @@ Note that some badly formed mime messages  cause trouble."
 
 (defadvice vm-minibuffer-complete-word-and-exit (around emacspeak pre act)
   "Say what you completed."
-  (let ((prior (point))
+  (let ((prior (save-excursion (skip-syntax-backward "^ >") (point)))
         (dtk-stop-immediately t))
     (emacspeak-kill-buffer-carefully "*Completions*")
     ad-do-it
