@@ -676,7 +676,6 @@ command that the key sequence executes."
     ("f" emacspeak-webspace-freebase-search)
     ("g" gnus)
     ("h" emacspeak-org-capture-link)
-    ("i" ido-everywhere)
     ("j" emacspeak-wizards-shell-toggle)
     ("k" emacspeak-webspace-knowledge-search)
     ("l" emacspeak-librivox)
