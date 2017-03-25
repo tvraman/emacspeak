@@ -97,8 +97,7 @@ displayed buffers."
                        br))))
            (t
             (cl-loop
-             for buffer in buffer-map collect
-             (second buffer)))))
+             for buffer in buffer-map collect (second buffer)))))
     (tts-with-punctuations 'all
                            (dtk-speak
                             (concat description
