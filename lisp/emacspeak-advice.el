@@ -547,18 +547,21 @@ see option emacspeak-untabify-fixes-non-breaking-space."
 ;;{{{ Advice hippie expand:
 
 (defadvice hippie-expand (around emacspeak pre act comp)
-    "Speak what was completed."
-    (cond
-     ((ems-interactive-p)
-      (let ((orig (point)))
-        (ems-with-messages-silenced
-         ad-do-it
-         (emacspeak-auditory-icon 'select-object)
-         (if (< orig (point))
-             (emacspeak-speak-region orig (point))
-           (dtk-speak (word-at-point))))))
-     (t ad-do-it))
-    ad-return-value)
+  "Speak what was completed."
+  (cond
+   ((ems-interactive-p)
+    (let ((orig
+           (save-excursion
+             (skip-syntax-backward "^ " (point-min))
+             (point))))
+      (ems-with-messages-silenced
+       ad-do-it
+       (emacspeak-auditory-icon 'select-object)
+       (if (< orig (point))
+           (emacspeak-speak-region orig (point))
+         (dtk-speak (word-at-point))))))
+   (t ad-do-it))
+  ad-return-value)
         
 ;;}}}
 ;;{{{ advice insertion commands to speak.
