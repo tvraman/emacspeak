@@ -568,39 +568,6 @@ see option emacspeak-untabify-fixes-non-breaking-space."
   ad-return-value)))
         
 ;;}}}
-;;{{{ advice insertion commands to speak.
-
-;;; Dont advice if we catch this through post-self-insert-hook
-(unless (and (boundp 'post-self-insert-hook)
-             post-self-insert-hook
-             (memq 'emacspeak-post-self-insert-hook post-self-insert-hook))
-
-  (defadvice completion-separator-self-insert-autofilling
-      (after emacspeak pre act comp)
-    "Speak what was completed."
-    (declare (special emacspeak-word-echo))
-    (when (and emacspeak-word-echo (ems-interactive-p))
-      (let ((display (get-char-property (1- (point)) 'display)))
-        (if (stringp display)
-            (dtk-say display)
-          (condition-case nil
-              (save-excursion
-                (skip-syntax-backward " ")
-                (backward-char 1)
-                (emacspeak-speak-word))
-            (error nil))))))
-
-  (defadvice completion-separator-self-insert-command (after emacspeak act comp)
-    "Speak char after inserting it."
-    (declare (special emacspeak-character-echo))
-    (when (and emacspeak-character-echo (ems-interactive-p))
-      (let ((display (get-char-property (1- (point)) 'display)))
-        (if (stringp display)
-            (dtk-say display)
-          (emacspeak-speak-this-char (preceding-char))))))
-  )
-
-;;}}}
 ;;{{{ advice minibuffer to speak
 
 (voice-setup-map-face 'minibuffer-prompt 'voice-bolden)
