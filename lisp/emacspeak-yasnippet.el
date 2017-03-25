@@ -63,7 +63,7 @@
  for f in 
  '(
    yas-prev-field yas-expand
-                  yas-next-field yas-next-field-or-maybe-expand)
+   yas-next-field yas-next-field-or-maybe-expand)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -72,6 +72,11 @@
        (emacspeak-auditory-icon 'select-object)
        (emacspeak-speak-line)))))
 
+(defadvice yas-insert-snippet (after emacspeak pre act comp)
+  "Speak inserted template."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-line)))
 ;;}}}
 (provide 'emacspeak-yasnippet)
 ;;{{{ end of file
