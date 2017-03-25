@@ -373,7 +373,7 @@ proc tts_initialize {} {
 # {{{ Emacs local variables  
 
 ### Local variables:
-### major-mode: tcl-mode 
+### mode: tcl
 ### voice-lock-mode: t
 ### folded-file: t
 ### End:

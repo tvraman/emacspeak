@@ -210,7 +210,7 @@ TTS engine should use ALSA for this to be usable."
 ;;{{{  emacs local variables
 
 ;;; local variables:
-;;; major-mode: emacs-lisp-mode
+;;; mode: emacs-lisp
 ;;; folded-file: t
 ;;; end:
 
