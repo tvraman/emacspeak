@@ -59,7 +59,7 @@ pub: tips.html applications.html
 # {{{ end of file 
 
 #local variables: 
-#major-mode: makefile-mode
+#mode: makefile
 #eval:  (fold-set-marks "# {{{" "# }}}")
 #fill-column: 90
 #folded-file: t
