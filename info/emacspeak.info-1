@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents Emacspeak, The Complete Audio Desktop.  This
-document was last updated on March 23, 2017.
+document was last updated on March 25, 2017.
 
    The manual is divided into the following chapters.
 
@@ -2947,7 +2947,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1160 commands and 1066 options.
+This chapter documents a total of 1161 commands and 1066 options.
 
 * Menu:
 
@@ -4199,6 +4199,7 @@ system.
      key             binding
      —             ——-
 
+     TAB		hippie-expand
      C-r		flx-isearch-backward
      C-s		flx-isearch-forward
      SPC		emacspeak-webspace
@@ -4216,7 +4217,7 @@ system.
      f		emacspeak-webspace-freebase-search
      g		gnus
      h		emacspeak-org-capture-link
-     i		ido-everywhere
+     i		yas-insert-snippet
      j		emacspeak-wizards-shell-toggle
      k		emacspeak-webspace-knowledge-search
      l		emacspeak-librivox

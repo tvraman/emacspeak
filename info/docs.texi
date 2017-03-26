@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1160 commands and 1066 options.
+This chapter documents a total of 1161 commands and 1066 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1503,6 +1503,7 @@ Press C-; to access keybindings in emacspeak-hyper-keymap:
 key             binding
 ---             -------
 
+TAB		hippie-expand
 C-r		flx-isearch-backward
 C-s		flx-isearch-forward
 SPC		emacspeak-webspace
@@ -1520,7 +1521,7 @@ e		gmaps
 f		emacspeak-webspace-freebase-search
 g		gnus
 h		emacspeak-org-capture-link
-i		ido-everywhere
+i		yas-insert-snippet
 j		emacspeak-wizards-shell-toggle
 k		emacspeak-webspace-knowledge-search
 l		emacspeak-librivox
@@ -11056,6 +11057,7 @@ SPC		emacspeak-m-player-pause
 -		emacspeak-m-player-volume-down
 .		emacspeak-m-player-forward-10s
 /		emacspeak-m-player-restore-process
+1 .. 9		emacspeak-m-player-volume-set
 ;		emacspeak-m-player-pop-to-player
 <		emacspeak-m-player-backward-1min
 =		emacspeak-m-player-volume-up
@@ -11430,6 +11432,17 @@ Decrease volume.
 @end format
 @end deffn
 
+@subsubsection emacspeak-m-player-volume-set
+@deffn {Command} emacspeak-m-player-volume-set  (&optional arg)
+@findex emacspeak-m-player-volume-set
+
+@format
+Set Volume in steps from 1 to 9.
+
+(fn &optional ARG)
+@end format
+@end deffn
+
 @subsubsection emacspeak-m-player-volume-up
 @deffn {Command} emacspeak-m-player-volume-up   
 @findex emacspeak-m-player-volume-up
@@ -11482,6 +11495,7 @@ SPC		emacspeak-m-player-pause
 -		emacspeak-m-player-volume-down
 .		emacspeak-m-player-forward-10s
 /		emacspeak-m-player-restore-process
+1 .. 9		emacspeak-m-player-volume-set
 ;		emacspeak-m-player-pop-to-player
 <		emacspeak-m-player-backward-1min
 =		emacspeak-m-player-volume-up
@@ -12532,6 +12546,7 @@ Create a hydra with no body and the heads:
 "f":    ‘auto-fill-mode’,
 "g":    ‘toggle-debug-on-quit’,
 "h":    ‘(setq hydra-is-helpful (not hydra-is-helpful))’,
+"i":    ‘ido-everywhere’,
 "t":    ‘toggle-truncate-lines’,
 "u":    ‘ido-ubiquitous-mode’,
 "w":    ‘whitespace-mode’,

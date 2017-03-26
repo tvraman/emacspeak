@@ -5130,6 +5130,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      -		emacspeak-m-player-volume-down
      .		emacspeak-m-player-forward-10s
      /		emacspeak-m-player-restore-process
+     1 .. 9		emacspeak-m-player-volume-set
      ;		emacspeak-m-player-pop-to-player
      <		emacspeak-m-player-backward-1min
      =		emacspeak-m-player-volume-up
@@ -5427,14 +5428,23 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      Decrease volume.
 
-12.114.2.68 emacspeak-m-player-volume-up
+12.114.2.68 emacspeak-m-player-volume-set
+.........................................
+
+ -- Command: emacspeak-m-player-volume-set (&optional arg)
+
+     Set Volume in steps from 1 to 9.
+
+     (fn &optional ARG)
+
+12.114.2.69 emacspeak-m-player-volume-up
 ........................................
 
  -- Command: emacspeak-m-player-volume-up
 
      Increase volume.
 
-12.114.2.69 emacspeak-m-player-youtube-player
+12.114.2.70 emacspeak-m-player-youtube-player
 .............................................
 
  -- Command: emacspeak-m-player-youtube-player (url)
@@ -5443,7 +5453,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
 
      (fn URL)
 
-12.114.2.70 emacspeak-multimedia
+12.114.2.71 emacspeak-multimedia
 ................................
 
  -- Command: emacspeak-multimedia
@@ -5470,6 +5480,7 @@ achieve the same by pressing ‘C-e ; v’.  Press ‘C-h b’ in the
      -		emacspeak-m-player-volume-down
      .		emacspeak-m-player-forward-10s
      /		emacspeak-m-player-restore-process
+     1 .. 9		emacspeak-m-player-volume-set
      ;		emacspeak-m-player-pop-to-player
      <		emacspeak-m-player-backward-1min
      =		emacspeak-m-player-volume-up
@@ -6402,6 +6413,7 @@ binds ‘s’ to this command.
      "f":    ‘auto-fill-mode’,
      "g":    ‘toggle-debug-on-quit’,
      "h":    ‘(setq hydra-is-helpful (not hydra-is-helpful))’,
+     "i":    ‘ido-everywhere’,
      "t":    ‘toggle-truncate-lines’,
      "u":    ‘ido-ubiquitous-mode’,
      "w":    ‘whitespace-mode’,
