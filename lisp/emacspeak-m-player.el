@@ -1150,9 +1150,10 @@ arg `reset' starts with all filters set to 0."
          (cond
           ((not (called-interactively-p 'interactive)) arg)
           (t
-           (condition-case nil
-               (read (format "%c" last-input-event))
-             (error nil))))))
+           (read (format "%c" last-input-event))))))
+    (cl-assert
+     (and (integerp vol-step) (< 0 vol-step) (< vol-step 10))
+     nil "Volume step should be between 1 and 9")
     (emacspeak-m-player-volume-change (* 10 vol-step))))
 
 (cl-loop
