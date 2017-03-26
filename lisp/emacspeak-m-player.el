@@ -1142,6 +1142,22 @@ arg `reset' starts with all filters set to 0."
 
 (cl-loop for k in emacspeak-m-player-bindings do
       (emacspeak-keymap-update  emacspeak-m-player-mode-map k))
+(defun emacspeak-m-player-volume-set (&optional arg)
+  "Set Volume in steps from 1 to 9."
+  (interactive "P")
+  (declare (special last-input-event))
+  (let ((vol-step
+         (cond
+          ((not (called-interactively-p 'interactive)) arg)
+          (t
+           (condition-case nil
+               (read (format "%c" last-input-event))
+             (error nil))))))
+    (emacspeak-m-player-volume-change (* 10 vol-step))))
+
+(cl-loop
+ for i from 1 to 9 do
+ (define-key emacspeak-m-player-mode-map (kbd (format "%s" i)) 'emacspeak-m-player-volume-set))
 
 ;;}}}
 ;;{{{ YouTube Player
