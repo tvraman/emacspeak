@@ -832,7 +832,7 @@ icon."
      (cond
       ((ems-interactive-p)
        (ems-with-messages-silenced
-        (let ((prior (save-excursion (skip-syntax-backward "^ >") (point))))
+        (let ((prior (point)))
           (emacspeak-kill-buffer-carefully "*Completions*")
           ad-do-it
           (if (> (point) prior)

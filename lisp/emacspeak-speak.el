@@ -281,6 +281,7 @@ message area.  You can use command
            (window-live-p (get-buffer-window completions)))
       (save-current-buffer
         (set-buffer completions)
+        (emacspeak-auditory-icon 'help)
         (dtk-chunk-on-white-space-and-punctuations)
         (next-completion 1)
         (tts-with-punctuations
