@@ -541,7 +541,7 @@ interactive command that the key sequence executes."
     ("b" emacspeak-bbc)
     ("e" elfeed)
     ("f" emacspeak-feeds-lookup-and-view)
-    ("h" emacspeak-webspace-headlines-browse)
+    ;("h" emacspeak-webspace-headlines-browse)
     ("l" emacspeak-m-player-locate-media)
     ("m" emacspeak-wizards-view-buffers-filtered-by-this-mode)
     ("p" proced)
