@@ -2365,6 +2365,12 @@ Once switched, set default directory in that target shell to the directory of th
   (declare (special emacspeak-wizards--shells-table))
   (let ((shells (emacspeak-wizards-get-shells))
         (v (hash-table-values emacspeak-wizards--shells-table)))
+;;; First, remove dead buffers 
+    (cl-loop 
+     for k being the hash-keys of emacspeak-wizards--shells-table
+     unless (buffer-live-p (gethash k emacspeak-wizards--shells-table))
+     do (remhash k emacspeak-wizards--shells-table))
+;;; Add in live shells that are new 
     (mapc
      #'(lambda (s)
          (when  (not (memq s v))
