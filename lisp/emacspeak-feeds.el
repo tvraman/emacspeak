@@ -53,7 +53,7 @@
 (require 'emacspeak-xslt)
 (require 'emacspeak-webutils)
 (require 'url)
-(require 'gfeeds)
+
 (require 'browse-url)
 
 ;;}}}
@@ -313,14 +313,14 @@ Argument `feed' is a feed structure (label url type)."
    (assoc feed emacspeak-feeds)
    'speak))
 
-;;;###autoload
-(defun emacspeak-feeds-lookup-and-view  (site)
-  "Lookup feed URL for a site and browse result."
-  (interactive
-   (list
-    (read-from-minibuffer "Site: " (browse-url-url-at-point))))
-  (emacspeak-webutils-autospeak)
-  (gfeeds-view site 'lookup))
+;;; Commented out: Google Feed API turn-down
+;; (defun emacspeak-feeds-lookup-and-view  (site)
+;;   "Lookup feed URL for a site and browse result."
+;;   (interactive
+;;    (list
+;;     (read-from-minibuffer "Site: " (browse-url-url-at-point))))
+;;   (emacspeak-webutils-autospeak)
+;;   (gfeeds-view site 'lookup))
 
 ;;}}}
 ;;{{{ Finding Feeds:
@@ -347,41 +347,41 @@ Argument `feed' is a feed structure (label url type)."
       (emacspeak-feeds-rss-display url))
      (t (emacspeak-feeds-rss-display url)))))
 
-;;;###autoload
-(defun emacspeak-feeds-find-feeds (query)
-  "Browse feeds matching specified query."
-  (interactive "sFind Feeds Matching: ")
-  (with-current-buffer (get-buffer-create "*Feeds*")
-    (setq buffer-undo-list t)
-    (let ((inhibit-read-only t)
-          (start (point-min))
-          (results (gfeeds-find query)))
-      (message "Found %s feeds" (length results))
-      (unless results (error "No feeds found matching %s" query))
-      (erase-buffer)
-      (goto-char start)
-      (insert (format "Feeds Matching %s\n\n" query))
-      (put-text-property start (point) 'face font-lock-doc-face)
-      (cl-loop
-       for f across results
-       and position  from 1
-       do
-       (insert (format "%d\t" position))
-       (insert-text-button
-        (emacspeak-webutils-html-string (cdr (assoc 'title f)))
-        'link  (cdr (assoc 'link f))
-        'url  (cdr (assoc 'url f))
-        'type 'emacspeak-feeds-feed-button)
-       (insert "\n")
-       (setq start (point))
-       (insert (emacspeak-webutils-html-string (cdr (assoc 'contentSnippet f))))
-       (fill-region start (point))
-       (insert "\n")
-       (emacspeak-webspace-mode))))
-  (switch-to-buffer "*Feeds*")
-  (goto-char (point-min))
-  (emacspeak-auditory-icon 'open-object)
-  (emacspeak-speak-mode-line))
+
+;; (defun emacspeak-feeds-find-feeds (query)
+;;   "Browse feeds matching specified query."
+;;   (interactive "sFind Feeds Matching: ")
+;;   (with-current-buffer (get-buffer-create "*Feeds*")
+;;     (setq buffer-undo-list t)
+;;     (let ((inhibit-read-only t)
+;;           (start (point-min))
+;;           (results (gfeeds-find query)))
+;;       (message "Found %s feeds" (length results))
+;;       (unless results (error "No feeds found matching %s" query))
+;;       (erase-buffer)
+;;       (goto-char start)
+;;       (insert (format "Feeds Matching %s\n\n" query))
+;;       (put-text-property start (point) 'face font-lock-doc-face)
+;;       (cl-loop
+;;        for f across results
+;;        and position  from 1
+;;        do
+;;        (insert (format "%d\t" position))
+;;        (insert-text-button
+;;         (emacspeak-webutils-html-string (cdr (assoc 'title f)))
+;;         'link  (cdr (assoc 'link f))
+;;         'url  (cdr (assoc 'url f))
+;;         'type 'emacspeak-feeds-feed-button)
+;;        (insert "\n")
+;;        (setq start (point))
+;;        (insert (emacspeak-webutils-html-string (cdr (assoc 'contentSnippet f))))
+;;        (fill-region start (point))
+;;        (insert "\n")
+;;        (emacspeak-webspace-mode))))
+;;   (switch-to-buffer "*Feeds*")
+;;   (goto-char (point-min))
+;;   (emacspeak-auditory-icon 'open-object)
+;;   (emacspeak-speak-mode-line))
 
 ;;}}}
 (provide 'emacspeak-feeds)
