@@ -2378,7 +2378,7 @@ Once switched, set default directory in that target shell to the directory of th
   for switching to a specific shell buffer. When invoked from a
   non-shell-mode buffer that is visiting a file, invokes `cd ' in
   the shell to change to the value of `default-directory' --- use
-  a prefix-arg to negate this behavior.. When already in a shell
+  a prefix-arg to negate this behavior. When already in a shell
   buffer, interactive prefix arg `rekey' causes this shell to be
   re-keyed if appropriate."
   (interactive "P")
