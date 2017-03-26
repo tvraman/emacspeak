@@ -52,7 +52,6 @@
 (require 'emacspeak-preamble)
 (require 'ring)
 (require 'derived)
-(require 'gfeeds)
 (require 'gweb)
 (require 'gf)
 (require 'emacspeak-webutils)
@@ -114,12 +113,12 @@
                            (button-get button 'url)))))
      (t (error "No link under point")))))
 
-(defadvice gfeeds-view (around emacspeak pre act comp)
-  "Automatically speak display."
-  (when (ems-interactive-p)
-    (emacspeak-webutils-autospeak))
-  ad-do-it
-  ad-return-value)
+;; (defadvice gfeeds-view (around emacspeak pre act comp)
+;;   "Automatically speak display."
+;;   (when (ems-interactive-p)
+;;     (emacspeak-webutils-autospeak))
+;;   ad-do-it
+;;   ad-return-value)
 
 ;;;###autoload
 (defun emacspeak-webspace-open ()
@@ -167,221 +166,221 @@ Generates auditory and visual display."
 ;;}}}
 ;;{{{ Headlines:
 
-;;; Encapsulate collection feeds, headlines, timer, and recently updated feed.-index
+;; ;;; Encapsulate collection feeds, headlines, timer, and recently updated feed.-index
 
-(defstruct emacspeak-webspace-fs
-  feeds
-  titles
-  timer slow-timer
-  index)
+;; (defstruct emacspeak-webspace-fs
+;;   feeds
+;;   titles
+;;   timer slow-timer
+;;   index)
 
-(defvar emacspeak-webspace-headlines nil
-  "Feedstore structure to use a continuously updating ticker.")
-(defvar emacspeak-webspace-headlines-period '(0 1800 0)
-  "How often we fetch from a feed.")
+;; (defvar emacspeak-webspace-headlines nil
+;;   "Feedstore structure to use a continuously updating ticker.")
+;; (defvar emacspeak-webspace-headlines-period '(0 1800 0)
+;;   "How often we fetch from a feed.")
 
-(defun emacspeak-webspace-headlines-fetch (feed)
-  "Add headlines from specified feed to our cache.
-Newly found headlines are inserted into the ring within our feedstore.
-We use module gfeeds to efficiently fetch feed contents using the
-  Google AJAX API."
-  (declare (special emacspeak-webspace-headlines-period))
-  (let* (
-         (last-update (get-text-property 0 'last-update feed))
-         (gfeeds-freshness-internal
-          (if last-update
-              emacspeak-webspace-headlines-period
-            gfeeds-freshness-internal))
-         (titles (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
-    (when                     ; check if we need to add from this feed
-        (or (null last-update)          ;  at most every half hour
-            (time-less-p emacspeak-webspace-headlines-period  (time-since last-update)))
-      (put-text-property 0 1 'last-update (current-time) feed)
-      (ems-with-messages-silenced
-       (mapc
-        #'(lambda (h)
-            (unless (ring-member titles h)
-              (ring-insert titles h)))
-        (gfeeds-titles feed))))))
+;; (defun emacspeak-webspace-headlines-fetch (feed)
+;;   "Add headlines from specified feed to our cache.
+;; Newly found headlines are inserted into the ring within our feedstore.
+;; We use module gfeeds to efficiently fetch feed contents using the
+;;   Google AJAX API."
+;;   (declare (special emacspeak-webspace-headlines-period))
+;;   (let* (
+;;          (last-update (get-text-property 0 'last-update feed))
+;;          (gfeeds-freshness-internal
+;;           (if last-update
+;;               emacspeak-webspace-headlines-period
+;;             gfeeds-freshness-internal))
+;;          (titles (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
+;;     (when                     ; check if we need to add from this feed
+;;         (or (null last-update)          ;  at most every half hour
+;;             (time-less-p emacspeak-webspace-headlines-period  (time-since last-update)))
+;;       (put-text-property 0 1 'last-update (current-time) feed)
+;;       (ems-with-messages-silenced
+;;        (mapc
+;;         #'(lambda (h)
+;;             (unless (ring-member titles h)
+;;               (ring-insert titles h)))
+;;         (gfeeds-titles feed))))))
 
-(defun emacspeak-webspace-fs-next (fs)
-  "Return next feed and increment index for fs."
-  (let ((feed-url (aref
-                   (emacspeak-webspace-fs-feeds fs)
-                   (emacspeak-webspace-fs-index fs))))
-    (setf (emacspeak-webspace-fs-index fs)
-          (% (1+ (emacspeak-webspace-fs-index fs))
-             (length (emacspeak-webspace-fs-feeds fs))))
-    feed-url))
+;; (defun emacspeak-webspace-fs-next (fs)
+;;   "Return next feed and increment index for fs."
+;;   (let ((feed-url (aref
+;;                    (emacspeak-webspace-fs-feeds fs)
+;;                    (emacspeak-webspace-fs-index fs))))
+;;     (setf (emacspeak-webspace-fs-index fs)
+;;           (% (1+ (emacspeak-webspace-fs-index fs))
+;;              (length (emacspeak-webspace-fs-feeds fs))))
+;;     feed-url))
 
-(defun emacspeak-webspace-headlines-populate ()
-  "populate fs with headlines from all feeds."
-  (declare (special emacspeak-webspace-headlines))
-  (dotimes (_i (length (emacspeak-webspace-fs-feeds emacspeak-webspace-headlines)))
-    (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines))))
+;; (defun emacspeak-webspace-headlines-populate ()
+;;   "populate fs with headlines from all feeds."
+;;   (declare (special emacspeak-webspace-headlines))
+;;   (dotimes (_i (length (emacspeak-webspace-fs-feeds emacspeak-webspace-headlines)))
+;;     (emacspeak-webspace-headlines-fetch (emacspeak-webspace-fs-next emacspeak-webspace-headlines))))
 
-(defun emacspeak-webspace-headlines-refresh ()
-  "Update headlines."
-  (declare (special emacspeak-webspace-headlines))
-  (with-local-quit
-    (emacspeak-webspace-headlines-fetch
-     (emacspeak-webspace-fs-next emacspeak-webspace-headlines)))
-  (emacspeak-auditory-icon 'progress)
-  t)
+;; (defun emacspeak-webspace-headlines-refresh ()
+;;   "Update headlines."
+;;   (declare (special emacspeak-webspace-headlines))
+;;   (with-local-quit
+;;     (emacspeak-webspace-headlines-fetch
+;;      (emacspeak-webspace-fs-next emacspeak-webspace-headlines)))
+;;   (emacspeak-auditory-icon 'progress)
+;;   t)
 
-(defun emacspeak-webspace-headlines-update ()
-  "Setup news updates.
-Updated headlines found in emacspeak-webspace-headlines."
-  (interactive)
-  (declare (special emacspeak-webspace-headlines))
-  (let ((timer nil)
-        (slow-timer nil))
-    (setq timer
-          (run-with-idle-timer
-           60 t 'emacspeak-webspace-headlines-refresh))
-    (setq slow-timer
-          (run-with-idle-timer
-           3600
-           t 'emacspeak-webspace-headlines-populate))
-    (setf (emacspeak-webspace-fs-timer emacspeak-webspace-headlines) timer)
-    (setf (emacspeak-webspace-fs-slow-timer emacspeak-webspace-headlines) slow-timer)))
+;; (defun emacspeak-webspace-headlines-update ()
+;;   "Setup news updates.
+;; Updated headlines found in emacspeak-webspace-headlines."
+;;   (interactive)
+;;   (declare (special emacspeak-webspace-headlines))
+;;   (let ((timer nil)
+;;         (slow-timer nil))
+;;     (setq timer
+;;           (run-with-idle-timer
+;;            60 t 'emacspeak-webspace-headlines-refresh))
+;;     (setq slow-timer
+;;           (run-with-idle-timer
+;;            3600
+;;            t 'emacspeak-webspace-headlines-populate))
+;;     (setf (emacspeak-webspace-fs-timer emacspeak-webspace-headlines) timer)
+;;     (setf (emacspeak-webspace-fs-slow-timer emacspeak-webspace-headlines) slow-timer)))
 
-(defun emacspeak-webspace-next-headline ()
-  "Return next headline to display."
-  (declare (special emacspeak-webspace-headlines))
-  (let ((titles (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
-    (cond
-     ((ring-empty-p titles)
-      (emacspeak-webspace-headlines-refresh)
-      "No News Is Good News")
-     (t (let ((h (ring-remove titles 0)))
-          (ring-insert-at-beginning titles h)
-          h)))))
+;; (defun emacspeak-webspace-next-headline ()
+;;   "Return next headline to display."
+;;   (declare (special emacspeak-webspace-headlines))
+;;   (let ((titles (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
+;;     (cond
+;;      ((ring-empty-p titles)
+;;       (emacspeak-webspace-headlines-refresh)
+;;       "No News Is Good News")
+;;      (t (let ((h (ring-remove titles 0)))
+;;           (ring-insert-at-beginning titles h)
+;;           h)))))
 
-;;;###autoload
-(defun emacspeak-webspace-headlines ()
-  "Startup Headlines ticker."
-  (interactive)
-  (declare (special emacspeak-webspace-headlines emacspeak-feeds))
-  (unless emacspeak-webspace-headlines
-    (setq emacspeak-webspace-headlines
-          (make-emacspeak-webspace-fs
-           :feeds
-           (apply
-            #'vector
-            (delq nil
-                  (mapcar
-                   #'(lambda (f) (unless (eq  'opml (third f)) (second f)))
-                   emacspeak-feeds)))
-           :titles (make-ring (* 10 (length emacspeak-feeds)))
-           :index 0)))
-  (unless (emacspeak-webspace-fs-timer emacspeak-webspace-headlines)
-    (call-interactively 'emacspeak-webspace-headlines-update))
-  (emacspeak-webspace-display '((:eval (emacspeak-webspace-next-headline)))))
+;; ;;;###autoload
+;; (defun emacspeak-webspace-headlines ()
+;;   "Startup Headlines ticker."
+;;   (interactive)
+;;   (declare (special emacspeak-webspace-headlines emacspeak-feeds))
+;;   (unless emacspeak-webspace-headlines
+;;     (setq emacspeak-webspace-headlines
+;;           (make-emacspeak-webspace-fs
+;;            :feeds
+;;            (apply
+;;             #'vector
+;;             (delq nil
+;;                   (mapcar
+;;                    #'(lambda (f) (unless (eq  'opml (third f)) (second f)))
+;;                    emacspeak-feeds)))
+;;            :titles (make-ring (* 10 (length emacspeak-feeds)))
+;;            :index 0)))
+;;   (unless (emacspeak-webspace-fs-timer emacspeak-webspace-headlines)
+;;     (call-interactively 'emacspeak-webspace-headlines-update))
+;;   (emacspeak-webspace-display '((:eval (emacspeak-webspace-next-headline)))))
 
-(defvar emacspeak-webspace-headlines-buffer "*Headlines*"
-  "Name of buffer that displays headlines.")
+;; (defvar emacspeak-webspace-headlines-buffer "*Headlines*"
+;;   "Name of buffer that displays headlines.")
 
-(defun emacspeak-webspace-headlines-browse ()
-  "Display buffer of browsable headlines."
-  (interactive)
-  (declare (special emacspeak-webspace-headlines
-                    emacspeak-webspace-headlines-buffer))
-  (unless emacspeak-webspace-headlines
-    (error "No cached headlines in this Emacs session."))
-  (with-current-buffer
-      (get-buffer-create emacspeak-webspace-headlines-buffer)
-    (setq buffer-undo-list t)
-    (let ((inhibit-read-only t))
-      (erase-buffer)
-      (goto-char (point-min))
-      (insert "Press enter to open stories.\n\n")
-      (put-text-property (point-min) (point) 'face font-lock-doc-face)
-      (cl-loop
-       for h in
-       (delq nil (ring-elements (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
-       and position  from 1
-       do
-       (insert (format "%d\t" position))
-       (emacspeak-webspace-headlines-insert-button h))
-      (goto-char (point-min))
-      (flush-lines "^ *$")
-      (emacspeak-webspace-mode)))
-  (switch-to-buffer emacspeak-webspace-headlines-buffer)
-  (goto-char (point-min))
-  (emacspeak-auditory-icon 'open-object)
-  (emacspeak-speak-mode-line))
+;; (defun emacspeak-webspace-headlines-browse ()
+;;   "Display buffer of browsable headlines."
+;;   (interactive)
+;;   (declare (special emacspeak-webspace-headlines
+;;                     emacspeak-webspace-headlines-buffer))
+;;   (unless emacspeak-webspace-headlines
+;;     (error "No cached headlines in this Emacs session."))
+;;   (with-current-buffer
+;;       (get-buffer-create emacspeak-webspace-headlines-buffer)
+;;     (setq buffer-undo-list t)
+;;     (let ((inhibit-read-only t))
+;;       (erase-buffer)
+;;       (goto-char (point-min))
+;;       (insert "Press enter to open stories.\n\n")
+;;       (put-text-property (point-min) (point) 'face font-lock-doc-face)
+;;       (cl-loop
+;;        for h in
+;;        (delq nil (ring-elements (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
+;;        and position  from 1
+;;        do
+;;        (insert (format "%d\t" position))
+;;        (emacspeak-webspace-headlines-insert-button h))
+;;       (goto-char (point-min))
+;;       (flush-lines "^ *$")
+;;       (emacspeak-webspace-mode)))
+;;   (switch-to-buffer emacspeak-webspace-headlines-buffer)
+;;   (goto-char (point-min))
+;;   (emacspeak-auditory-icon 'open-object)
+;;   (emacspeak-speak-mode-line))
 
-(define-button-type 'emacspeak-webspace-headline
-  'follow-link t
-  'link nil
-  'help-echo "Open Headline"
-  'action #'emacspeak-webspace-headline-action)
+;; (define-button-type 'emacspeak-webspace-headline
+;;   'follow-link t
+;;   'link nil
+;;   'help-echo "Open Headline"
+;;   'action #'emacspeak-webspace-headline-action)
 
-(defun emacspeak-webspace-headline-action (button)
-  "Open story associated with this button."
-  (browse-url (button-get button 'link)))
+;; (defun emacspeak-webspace-headline-action (button)
+;;   "Open story associated with this button."
+;;   (browse-url (button-get button 'link)))
 
-(defun emacspeak-webspace-headlines-insert-button (headline)
-  "Insert a button for this headline at point."
-  (insert-text-button
-   headline
-   'type 'emacspeak-webspace-headline
-   'link (get-text-property 0 'link headline)))
+;; (defun emacspeak-webspace-headlines-insert-button (headline)
+;;   "Insert a button for this headline at point."
+;;   (insert-text-button
+;;    headline
+;;    'type 'emacspeak-webspace-headline
+;;    'link (get-text-property 0 'link headline)))
 
 ;;}}}
 ;;{{{ Weather:
 
-(defvar emacspeak-webspace-weather-url-template
-  "http://www.wunderground.com/auto/rss_full/%s.xml"
-  "URL template for weather feed.")
+;; (defvar emacspeak-webspace-weather-url-template
+;;   "http://www.wunderground.com/auto/rss_full/%s.xml"
+;;   "URL template for weather feed.")
 
-(defun emacspeak-webspace-weather-conditions ()
-  "Return weather conditions for user's zip-code."
-  (declare (special emacspeak-webspace-weather-url-template))
-  (when (and emacspeak-webspace-weather-url-template
-             (bound-and-true-p  gweb-my-postal-code))
-    (with-local-quit
-      (format "%s at %s"
-              (first
-               (gfeeds-titles
-                (format emacspeak-webspace-weather-url-template
-                        (bound-and-true-p  gweb-my-postal-code))))
-              (bound-and-true-p  gweb-my-postal-code)))))
+;; (defun emacspeak-webspace-weather-conditions ()
+;;   "Return weather conditions for user's zip-code."
+;;   (declare (special emacspeak-webspace-weather-url-template))
+;;   (when (and emacspeak-webspace-weather-url-template
+;;              (bound-and-true-p  gweb-my-postal-code))
+;;     (with-local-quit
+;;       (format "%s at %s"
+;;               (first
+;;                (gfeeds-titles
+;;                 (format emacspeak-webspace-weather-url-template
+;;                         (bound-and-true-p  gweb-my-postal-code))))
+;;               (bound-and-true-p  gweb-my-postal-code)))))
 
-(defvar emacspeak-webspace-current-weather nil
-  "Holds cached value of current weather conditions.")
+;; (defvar emacspeak-webspace-current-weather nil
+;;   "Holds cached value of current weather conditions.")
 
-(defvar emacspeak-webspace-weather-timer nil
-  "Timer holding our weather update timer.")
-(defun emacspeak-webspace-weather-get ()
-  "Get weather."
-  (declare (special emacspeak-webspace-current-weather))
-  (setq emacspeak-webspace-current-weather
-        (emacspeak-webspace-weather-conditions)))
+;; (defvar emacspeak-webspace-weather-timer nil
+;;   "Timer holding our weather update timer.")
+;; (defun emacspeak-webspace-weather-get ()
+;;   "Get weather."
+;;   (declare (special emacspeak-webspace-current-weather))
+;;   (setq emacspeak-webspace-current-weather
+;;         (emacspeak-webspace-weather-conditions)))
 
-(defun emacspeak-webspace-weather-update ()
-  "Setup periodic weather updates.
-Updated weather is found in `emacspeak-webspace-current-weather'."
-  (interactive)
-  (declare (special emacspeak-webspace-weather-timer))
-  (unless (bound-and-true-p  gweb-my-postal-code)
-    (error
-     "First set option gweb-my-address"))
-  (emacspeak-webspace-weather-get)
-  (setq emacspeak-webspace-weather-timer
-        (run-with-idle-timer 600 'repeat
-                             'emacspeak-webspace-weather-get)))
+;; (defun emacspeak-webspace-weather-update ()
+;;   "Setup periodic weather updates.
+;; Updated weather is found in `emacspeak-webspace-current-weather'."
+;;   (interactive)
+;;   (declare (special emacspeak-webspace-weather-timer))
+;;   (unless (bound-and-true-p  gweb-my-postal-code)
+;;     (error
+;;      "First set option gweb-my-address"))
+;;   (emacspeak-webspace-weather-get)
+;;   (setq emacspeak-webspace-weather-timer
+;;         (run-with-idle-timer 600 'repeat
+;;                              'emacspeak-webspace-weather-get)))
 
-;;;###autoload
-(defun emacspeak-webspace-weather ()
-  "Speak current weather."
-  (interactive)
-  (declare (special emacspeak-webspace-current-weather
-                    emacspeak-webspace-weather-timer))
-  (unless emacspeak-webspace-weather-timer
-    (call-interactively 'emacspeak-webspace-weather-update))
-  (emacspeak-webspace-display 'emacspeak-webspace-current-weather))
+;; ;;;###autoload
+;; (defun emacspeak-webspace-weather ()
+;;   "Speak current weather."
+;;   (interactive)
+;;   (declare (special emacspeak-webspace-current-weather
+;;                     emacspeak-webspace-weather-timer))
+;;   (unless emacspeak-webspace-weather-timer
+;;     (call-interactively 'emacspeak-webspace-weather-update))
+;;   (emacspeak-webspace-display 'emacspeak-webspace-current-weather))
 
 ;;}}}
 ;;{{{ Feed Reader:
