@@ -1154,7 +1154,7 @@ arg `reset' starts with all filters set to 0."
     (cl-assert
      (and (integerp vol-step) (< 0 vol-step) (< vol-step 10))
      nil "Volume step should be between 1 and 9")
-    (emacspeak-m-player-volume-change (* 10 vol-step))))
+    (emacspeak-m-player-volume-change (* 11 vol-step))))
 
 (cl-loop
  for i from 1 to 9 do
