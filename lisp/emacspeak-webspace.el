@@ -70,21 +70,21 @@
 (declaim (special emacspeak-webspace-mode-map))
 (set-keymap-parent emacspeak-webspace-mode-map button-buffer-map)
 (cl-loop for k in
-      '(
-        ("q" bury-buffer)
-        ("." emacspeak-webspace-filter)
-        ("'" emacspeak-speak-rest-of-buffer)
-        ("<" beginning-of-buffer)
-        (">" end-of-buffer)
-        ("/" search-forward)
-        ("?" search-backward)
-        ("y" emacspeak-webspace-yank-link)
-        ("n" forward-button)
-        ("p" backward-button)
-        ("f" forward-button)
-        ("b" backward-button))
-      do
-      (emacspeak-keymap-update emacspeak-webspace-mode-map k))
+         '(
+           ("q" bury-buffer)
+           ("." emacspeak-webspace-filter)
+           ("'" emacspeak-speak-rest-of-buffer)
+           ("<" beginning-of-buffer)
+           (">" end-of-buffer)
+           ("/" search-forward)
+           ("?" search-backward)
+           ("y" emacspeak-webspace-yank-link)
+           ("n" forward-button)
+           ("p" backward-button)
+           ("f" forward-button)
+           ("b" backward-button))
+         do
+         (emacspeak-keymap-update emacspeak-webspace-mode-map k))
 
 (defun emacspeak-webspace-act-on-link (action &rest args)
   "Apply action to link under point."
@@ -154,14 +154,13 @@ Generates auditory and visual display."
 (declaim (special emacspeak-webspace-keymap))
 
 (cl-loop for k in
-      '(
-        ("w" emacspeak-webspace-weather)
-        ("h" emacspeak-webspace-headlines)
-        (" " emacspeak-webspace-headlines-browse)
-        )
-      do
-      (define-key emacspeak-webspace-keymap (first k) (second k)))
-                                        ;(global-set-key [C-return] 'emacspeak-webspace-headlines-browse)
+         '(
+           ("w" emacspeak-webspace-weather)
+           ("h" emacspeak-webspace-headlines)
+           (" " emacspeak-webspace-headlines-browse)
+           )
+         do
+         (define-key emacspeak-webspace-keymap (first k) (second k)))
 
 ;;}}}
 ;;{{{ Headlines:
@@ -189,11 +188,11 @@ Newly found headlines are inserted into the ring within our feedstore."
         (or (null last-update)          ;  at most every half hour
             (time-less-p emacspeak-webspace-headlines-period  (time-since last-update)))
       (put-text-property 0 1 'last-update (current-time) feed)
-       (mapc
-        #'(lambda (h)
-            (unless (ring-member titles h)
-              (ring-insert titles h)))
-        (emacspeak-webutils-feed-titles feed)))))
+      (mapc
+       #'(lambda (h)
+           (unless (ring-member titles h)
+             (ring-insert titles h)))
+       (emacspeak-webutils-feed-titles feed)))))
 
 (defun emacspeak-webspace-fs-next (fs)
   "Return next feed and increment index for fs."
@@ -322,60 +321,6 @@ Updated headlines found in emacspeak-webspace-headlines."
    'link (cadr headline)))
 
 ;;}}}
-;;{{{ Weather:
-
-;; (defvar emacspeak-webspace-weather-url-template
-;;   "http://www.wunderground.com/auto/rss_full/%s.xml"
-;;   "URL template for weather feed.")
-
-;; (defun emacspeak-webspace-weather-conditions ()
-;;   "Return weather conditions for user's zip-code."
-;;   (declare (special emacspeak-webspace-weather-url-template))
-;;   (when (and emacspeak-webspace-weather-url-template
-;;              (bound-and-true-p  gweb-my-postal-code))
-;;     (with-local-quit
-;;       (format "%s at %s"
-;;               (first
-;;                (gfeeds-titles
-;;                 (format emacspeak-webspace-weather-url-template
-;;                         (bound-and-true-p  gweb-my-postal-code))))
-;;               (bound-and-true-p  gweb-my-postal-code)))))
-
-;; (defvar emacspeak-webspace-current-weather nil
-;;   "Holds cached value of current weather conditions.")
-
-;; (defvar emacspeak-webspace-weather-timer nil
-;;   "Timer holding our weather update timer.")
-;; (defun emacspeak-webspace-weather-get ()
-;;   "Get weather."
-;;   (declare (special emacspeak-webspace-current-weather))
-;;   (setq emacspeak-webspace-current-weather
-;;         (emacspeak-webspace-weather-conditions)))
-
-;; (defun emacspeak-webspace-weather-update ()
-;;   "Setup periodic weather updates.
-;; Updated weather is found in `emacspeak-webspace-current-weather'."
-;;   (interactive)
-;;   (declare (special emacspeak-webspace-weather-timer))
-;;   (unless (bound-and-true-p  gweb-my-postal-code)
-;;     (error
-;;      "First set option gweb-my-address"))
-;;   (emacspeak-webspace-weather-get)
-;;   (setq emacspeak-webspace-weather-timer
-;;         (run-with-idle-timer 600 'repeat
-;;                              'emacspeak-webspace-weather-get)))
-
-;; ;;;###autoload
-;; (defun emacspeak-webspace-weather ()
-;;   "Speak current weather."
-;;   (interactive)
-;;   (declare (special emacspeak-webspace-current-weather
-;;                     emacspeak-webspace-weather-timer))
-;;   (unless emacspeak-webspace-weather-timer
-;;     (call-interactively 'emacspeak-webspace-weather-update))
-;;   (emacspeak-webspace-display 'emacspeak-webspace-current-weather))
-
-;;}}}
 ;;{{{ Feed Reader:
 
 (defvar emacspeak-webspace-reader-buffer "Reader"
@@ -423,11 +368,11 @@ Optional interactive prefix arg forces a refresh."
       (insert "Press enter to open feeds.\n\n")
       (put-text-property (point-min) (point) 'face font-lock-doc-face)
       (cl-loop for f in emacspeak-feeds
-            and position  from 1
-            do
-            (insert (format "%d\t" position))
-            (emacspeak-webspace-feed-reader-insert-button f)
-            (insert "\n"))
+               and position  from 1
+               do
+               (insert (format "%d\t" position))
+               (emacspeak-webspace-feed-reader-insert-button f)
+               (insert "\n"))
       (switch-to-buffer emacspeak-webspace-reader-buffer)
       (emacspeak-webspace-mode))))
 
