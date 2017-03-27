@@ -2386,7 +2386,7 @@ Once switched, set default directory in that target shell to the directory of th
   the shell to change to the value of `default-directory' --- use
   a prefix-arg to negate this behavior. When already in a shell
   buffer, interactive prefix arg `rekey' causes this shell to be
-  re-keyed if appropriate."
+  re-keyed if appropriate --- see \\[emacspeak-wizards-shell-re-key] for an explanation of  how re-keying works."
   (interactive "P")
   (declare (special last-input-event emacspeak-wizards--shells-table
                     major-mode default-directory))
