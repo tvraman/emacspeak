@@ -536,15 +536,19 @@ Useful in handling double-redirect from TuneIn."
   (let ((result nil))
     (setq
      result 
-     (with-current-buffer (get-buffer-create "foo")
+     (with-temp-buffer
        (shell-command
         (format "%s %s %s "
-         emacspeak-xslt-program
-        (expand-file-name "rss-titles.xsl" emacspeak-xslt-directory )
-          rss-url)
+                emacspeak-xslt-program
+                (expand-file-name "rss-titles.xsl" emacspeak-xslt-directory )
+                rss-url)
         (current-buffer))
        (goto-char (point-min))
+       (while (re-search-forward "\n" nil t)
+         (replace-match " "))
+       (goto-char (point-min))
        (read (current-buffer))))))
+
 ;;}}}
 (provide 'emacspeak-webutils)
 ;;{{{ end of file
