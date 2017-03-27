@@ -532,7 +532,7 @@ Useful in handling double-redirect from TuneIn."
 
 (defun emacspeak-webutils-feed-titles (rss-url)
   "Return a list of the form `((title url)...) given an RSS feed  URL."
-  (declare (special emacspeak-xslt-directory))
+  (declare (special emacspeak-xslt-directory emacspeak-xslt-program))
   (let ((result nil))
     (setq
      result 
