@@ -173,7 +173,7 @@ Generates auditory and visual display."
 
 (defstruct emacspeak-webspace-fs
   feeds
-  titles
+  titles ; (title url)
   timer slow-timer
   index)
 
@@ -202,9 +202,10 @@ Newly found headlines are inserted into the ring within our feedstore."
 
 (defun emacspeak-webspace-fs-next (fs)
   "Return next feed and increment index for fs."
-  (let ((feed-url (aref
-                   (emacspeak-webspace-fs-feeds fs)
-                   (emacspeak-webspace-fs-index fs))))
+  (let ((feed-url
+         (aref
+          (emacspeak-webspace-fs-feeds fs)
+          (emacspeak-webspace-fs-index fs))))
     (setf (emacspeak-webspace-fs-index fs)
           (% (1+ (emacspeak-webspace-fs-index fs))
              (length (emacspeak-webspace-fs-feeds fs))))
@@ -252,11 +253,11 @@ Updated headlines found in emacspeak-webspace-headlines."
       "No News Is Good News")
      (t (let ((h (ring-remove titles 0)))
           (ring-insert-at-beginning titles h)
-          h)))))
+          (first h))))))
 
 ;;;###autoload
 (defun emacspeak-webspace-headlines ()
-  "Startup Headlines ticker."
+  "Startup Headlines ticker using RSS feeds."
   (interactive)
   (declare (special emacspeak-webspace-headlines emacspeak-feeds))
   (unless emacspeak-webspace-headlines
@@ -267,7 +268,7 @@ Updated headlines found in emacspeak-webspace-headlines."
             #'vector
             (delq nil
                   (mapcar
-                   #'(lambda (f) (unless (eq  'opml (third f)) (second f)))
+                   #'(lambda (f) (when (eq  'rss (third f)) (second f)))
                    emacspeak-feeds)))
            :titles (make-ring (* 10 (length emacspeak-feeds)))
            :index 0)))
@@ -321,9 +322,9 @@ Updated headlines found in emacspeak-webspace-headlines."
 (defun emacspeak-webspace-headlines-insert-button (headline)
   "Insert a button for this headline at point."
   (insert-text-button
-   headline
+   (car headline)
    'type 'emacspeak-webspace-headline
-   'link (get-text-property 0 'link headline)))
+   'link (cadr headline)))
 
 ;;}}}
 ;;{{{ Weather:
