@@ -537,7 +537,7 @@ Useful in handling double-redirect from TuneIn."
     (shell-command
      (format "%s %s %s "
              emacspeak-xslt-program
-             (expand-file-name "rss-titles.xsl" emacspeak-xslt-directory )
+             (expand-file-name "feed-titles.xsl" emacspeak-xslt-directory )
              feed-url)
      (current-buffer))
     (goto-char (point-min))
