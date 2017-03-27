@@ -263,7 +263,7 @@ Updated headlines found in emacspeak-webspace-headlines."
             #'vector
             (delq nil
                   (mapcar
-                   #'(lambda (f) (when (eq  'rss (third f)) (second f)))
+                   #'(lambda (f) (unless (eq  'opml (third f)) (second f)))
                    emacspeak-feeds)))
            :titles (make-ring (* 10 (length emacspeak-feeds)))
            :index 0)))
