@@ -528,6 +528,24 @@ Useful in handling double-redirect from TuneIn."
     (browse-url-w3 (funcall emacspeak-webutils-url-at-point))))
 
 ;;}}}
+;;{{{ utility: Get Feed Titles With Links
+
+(defun emacspeak-webutils-feed-titles (rss-url)
+  "Return a list of the form `((title url)...) given an RSS feed  URL."
+  (declare (special emacspeak-xslt-directory))
+  (let ((result nil))
+    (setq
+     result 
+     (with-current-buffer (get-buffer-create "foo")
+       (shell-command
+        (format "%s %s %s "
+         emacspeak-xslt-program
+        (expand-file-name "rss-titles.xsl" emacspeak-xslt-directory )
+          rss-url)
+        (current-buffer))
+       (goto-char (point-min))
+       (read (current-buffer))))))
+;;}}}
 (provide 'emacspeak-webutils)
 ;;{{{ end of file
 
