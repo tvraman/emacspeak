@@ -299,7 +299,7 @@ Updated headlines found in emacspeak-webspace-headlines."
        (delq nil (ring-elements (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
        and position  from 1
        do
-       (insert (format "%d\t" position))
+       (insert (format "\n%d\t" position))
        (emacspeak-webspace-headlines-insert-button h))
       (goto-char (point-min))
       (flush-lines "^ *$")
