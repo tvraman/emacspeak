@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1161 commands and 1066 options.
+This chapter documents a total of 1153 commands and 1064 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -214,7 +214,6 @@ This chapter documents a total of 1161 commands and 1066 options.
 * g-auth::Google Authentication Module.
 * g-utils::Google Client Utilities.
 * gf::Google Freebase API.
-* gfeeds::Google Access To Feeds.
 * gm-nnir::
 * gmaps::Google Maps.
 * gweb::Google Search.
@@ -1559,7 +1558,6 @@ S		soundscape-stop
 b		emacspeak-bbc
 e		elfeed
 f		emacspeak-feeds-lookup-and-view
-h		emacspeak-webspace-headlines-browse
 j		ido-imenu-anywhere
 l		emacspeak-m-player-locate-media
 m		emacspeak-wizards-view-buffers-filtered-by-this-mode
@@ -8520,42 +8518,6 @@ Browse specified  feed.
 @format
 Fast load list of feeds from archive.
 This directly  updates emacspeak-feeds from the archive, rather than adding those entries to the current set of subscribed feeds.
-@end format
-@end deffn
-
-@subsubsection emacspeak-feeds-find-feeds
-@deffn {Command} emacspeak-feeds-find-feeds  (query)
-@table @kbd
-@item C-, f
-@kindex C-, f
-@item C-x @@ a f
-@kindex C-x @@ a f
-@end table
-
-@findex emacspeak-feeds-find-feeds
-
-@format
-Browse feeds matching specified query.
-
-(fn QUERY)
-@end format
-@end deffn
-
-@subsubsection emacspeak-feeds-lookup-and-view
-@deffn {Command} emacspeak-feeds-lookup-and-view  (site)
-@table @kbd
-@item C-' f
-@kindex C-' f
-@item C-x @@ s f
-@kindex C-x @@ s f
-@end table
-
-@findex emacspeak-feeds-lookup-and-view
-
-@format
-Lookup feed URL for a site and browse result.
-
-(fn SITE)
 @end format
 @end deffn
 
@@ -20576,6 +20538,10 @@ Specify whether we use secure connections for Google search.
 @section emacspeak-webspace
 
 WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
+Many of these tools relied on the Google Feeds API
+This Public API  was turned down in December 2016.
+These tools will only work if I find a good replacement.
+If  I do, this section will go away.
 
 @subsection emacspeak-webspace Commands
 
@@ -20631,52 +20597,6 @@ Perform a Freebase search and display results.
 
 @format
 Display Google Search in a WebSpace buffer.
-@end format
-@end deffn
-
-@subsubsection emacspeak-webspace-headlines
-@deffn {Command} emacspeak-webspace-headlines   
-@table @kbd
-@item C-; SPC h
-@kindex C-; SPC h
-@item C-x @@ h SPC h
-@kindex C-x @@ h SPC h
-@end table
-
-@findex emacspeak-webspace-headlines
-
-@format
-Startup Headlines ticker.
-@end format
-@end deffn
-
-@subsubsection emacspeak-webspace-headlines-browse
-@deffn {Command} emacspeak-webspace-headlines-browse   
-@table @kbd
-@item C-' h
-@kindex C-' h
-@item C-; SPC SPC
-@kindex C-; SPC SPC
-@item C-x @@ s h
-@kindex C-x @@ s h
-@item C-x @@ h SPC SPC
-@kindex C-x @@ h SPC SPC
-@end table
-
-@findex emacspeak-webspace-headlines-browse
-
-@format
-Display buffer of browsable headlines.
-@end format
-@end deffn
-
-@subsubsection emacspeak-webspace-headlines-update
-@deffn {Command} emacspeak-webspace-headlines-update   
-@findex emacspeak-webspace-headlines-update
-
-@format
-Setup news updates.
-Updated headlines found in emacspeak-webspace-headlines.
 @end format
 @end deffn
 
@@ -20748,32 +20668,6 @@ Open headline at point by following its link property.
 
 @format
 Transcode headline at point by following its link property.
-@end format
-@end deffn
-
-@subsubsection emacspeak-webspace-weather
-@deffn {Command} emacspeak-webspace-weather   
-@table @kbd
-@item C-; SPC w
-@kindex C-; SPC w
-@item C-x @@ h SPC w
-@kindex C-x @@ h SPC w
-@end table
-
-@findex emacspeak-webspace-weather
-
-@format
-Speak current weather.
-@end format
-@end deffn
-
-@subsubsection emacspeak-webspace-weather-update
-@deffn {Command} emacspeak-webspace-weather-update   
-@findex emacspeak-webspace-weather-update
-
-@format
-Setup periodic weather updates.
-Updated weather is found in ‘emacspeak-webspace-current-weather’.
 @end format
 @end deffn
 
@@ -22429,9 +22323,9 @@ Switch to shell buffer by key. This provides a predictable means
   for switching to a specific shell buffer. When invoked from a
   non-shell-mode buffer that is visiting a file, invokes ‘cd ’ in
   the shell to change to the value of ‘default-directory’ --- use
-  a prefix-arg to negate this behavior.. When already in a shell
+  a prefix-arg to negate this behavior. When already in a shell
   buffer, interactive prefix arg ‘rekey’ causes this shell to be
-  re-keyed if appropriate.
+  re-keyed if appropriate --- see M-x emacspeak-wizards-shell-re-key for an explanation of  how re-keying works.
 
 (fn &optional REKEY)
 @end format
@@ -23498,40 +23392,6 @@ XSLT Processor.
 @section gf
 
 Explore Freebase graph search results
-
-@node gfeeds
-@section gfeeds
-
-Fast feed access from Google for use in Emacs
-
-@subsection gfeeds Commands
-
-@subsubsection gfeeds-view
-@deffn {Command} gfeeds-view  (&rest rest)
-@findex gfeeds-view
-
-@format
-:around advice: ‘ad-Advice-gfeeds-view’
-
-Display Feed in a browser.
-Interactive prefix arg causes the feed url to be looked up given a Web site.
-
-(fn URL &optional LOOKUP)
-@end format
-@end deffn
-
-@subsection gfeeds Options
-
-@defvar {User Option} gfeeds-freshness
-Freshness used to decide if we return titles.
-
-@end defvar
-
-@defvar {User Option} gfeeds-referer
-Referer URL to send to the API.
-Customize this to point to your Web location.
-
-@end defvar
 
 @node gm-nnir
 @section gm-nnir

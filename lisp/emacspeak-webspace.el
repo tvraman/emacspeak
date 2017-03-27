@@ -42,6 +42,11 @@
 
 ;;; Commentary:
 ;;; WEBSPACE == Smart Web Gadgets For The Emacspeak Desktop
+;;; Many of these tools relied on the Google Feeds API
+;;; This Public API  was turned down in December 2016.
+;;; These tools will only work if I find a good replacement.
+;;; If  I do, this section will go away.
+
 ;;; Code:
 
 ;;}}}
