@@ -113,13 +113,6 @@
                            (button-get button 'url)))))
      (t (error "No link under point")))))
 
-;; (defadvice gfeeds-view (around emacspeak pre act comp)
-;;   "Automatically speak display."
-;;   (when (ems-interactive-p)
-;;     (emacspeak-webutils-autospeak))
-;;   ad-do-it
-;;   ad-return-value)
-
 ;;;###autoload
 (defun emacspeak-webspace-open ()
   "Open headline at point by following its link property."
