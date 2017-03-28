@@ -14,7 +14,7 @@
     <xsl:for-each select="//item | //atom:entry">
       (
 "<xsl:value-of select= "title | atom:title"/>"
-"<xsl:value-of select="link | atom:id"/>"
+"<xsl:value-of select="link | atom:link/@href"/>"
 )
 </xsl:for-each>
 )
