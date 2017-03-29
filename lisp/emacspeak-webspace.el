@@ -172,9 +172,9 @@ Generates auditory and visual display."
 (defun emacspeak-webspace-headlines-fetch (feed)
   "Add headlines from specified feed to our cache.
 Newly found headlines are inserted into the ring within our feedstore."
-  (declare (special emacspeak-webspace-headlines-period))
-  (let* (
-         (last-update (get-text-property 0 'last-update feed))
+  (declare (special emacspeak-webspace-headlines
+                    emacspeak-webspace-headlines-period))
+  (let* ((last-update (get-text-property 0 'last-update feed))
          (titles (emacspeak-webspace-fs-titles emacspeak-webspace-headlines)))
     (when                     ; check if we need to add from this feed
         (or (null last-update)          ;  at most every half hour
@@ -243,7 +243,7 @@ Updated headlines found in emacspeak-webspace-headlines."
 
 ;;;###autoload
 (defun emacspeak-webspace-headlines ()
-  "Startup Headlines ticker using RSS feeds."
+  "Startup Headlines ticker using RSS/Atom  feeds."
   (interactive)
   (declare (special emacspeak-webspace-headlines emacspeak-feeds))
   (unless emacspeak-webspace-headlines
@@ -315,6 +315,8 @@ Updated headlines found in emacspeak-webspace-headlines."
 ;;}}}
 ;;{{{ Feed Reader:
 
+;;; In memory of Google Reader:
+
 (defvar emacspeak-webspace-reader-buffer "Reader"
   "Name of Reader buffer.")
 
@@ -367,8 +369,6 @@ Optional interactive prefix arg forces a refresh."
                (insert "\n"))
       (switch-to-buffer emacspeak-webspace-reader-buffer)
       (emacspeak-webspace-mode))))
-
-;;;###autoload
 
 ;;}}}
 ;;{{{ Google Search in WebSpace:
