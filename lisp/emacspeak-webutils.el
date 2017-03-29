@@ -531,7 +531,7 @@ Useful in handling double-redirect from TuneIn."
 ;;{{{ utility: Get Feed Titles With Links
 
 (defun emacspeak-webutils-feed-titles (feed-url)
-  "Return a list of the form `((title url)...) given an RSS feed  URL."
+  "Return a list of the form `((title url)...) given an RSS/Atom  feed  URL."
   (declare (special emacspeak-xslt-directory emacspeak-xslt-program))
   (with-temp-buffer
     (shell-command
@@ -541,8 +541,8 @@ Useful in handling double-redirect from TuneIn."
              feed-url)
      (current-buffer))
     (goto-char (point-min))
-    (while (re-search-forward "\n" nil t)
-      (replace-match " "))
+    ;;; newline -> spc
+    (while (re-search-forward "\n" nil t) (replace-match " "))
     (goto-char (point-min))
     (read (current-buffer))))
 
