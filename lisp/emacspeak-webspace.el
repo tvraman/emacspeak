@@ -371,49 +371,6 @@ Optional interactive prefix arg forces a refresh."
       (emacspeak-webspace-mode))))
 
 ;;}}}
-;;{{{ Google Search in WebSpace:
-
-(defun emacspeak-webspace-google-save-results(results)
-  "Save results in a WebSpace mode buffer for later use."
-  (declare (special gweb-history))
-  (let ((buffer
-         (get-buffer-create (format "Search %s" (first gweb-history))))
-        (inhibit-read-only t)
-        (headline nil))
-    (with-current-buffer buffer
-      (erase-buffer)
-      (setq buffer-undo-list t)
-      (insert (format "Search Results For %s\n\n" (first gweb-history)))
-      (center-line)
-      (cl-loop
-       for r across results
-       and i from 1
-       do
-       (insert (format "%d.\t" i))
-       (setq headline
-             (or
-              (g-html-string (g-json-get 'title r))
-              (g-json-get 'titleNoFormatting r)))
-       (when headline
-         (put-text-property 0 (length headline)
-                            'link   (g-json-get 'url r)  headline)
-         (emacspeak-webspace-headlines-insert-button headline))
-       (insert (format "\n%s\n"
-                       (g-html-string (g-json-get 'content r)))))
-      (emacspeak-webspace-mode)
-      (setq buffer-read-only t)
-      (goto-char (point-min)))
-    (display-buffer buffer)
-    (emacspeak-auditory-icon 'open-object)))
-
-;;;###autoload
-(defun emacspeak-webspace-google ()
-  "Display Google Search in a WebSpace buffer."
-  (interactive)
-  (let ((gweb-search-results-handler 'emacspeak-webspace-google-save-results))
-    (call-interactively 'gweb-google-at-point)))
-
-;;}}}
 ;;{{{ Freebase:
 
 (define-button-type 'emacspeak-webspace-freebase-topic
