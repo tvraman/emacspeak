@@ -148,7 +148,6 @@ Generates auditory and visual display."
 
 (cl-loop for k in
          '(
-           ("w" emacspeak-webspace-weather)
            ("h" emacspeak-webspace-headlines)
            (" " emacspeak-webspace-headlines-browse)
            )
