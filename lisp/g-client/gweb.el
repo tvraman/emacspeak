@@ -328,7 +328,7 @@ Optional interactive prefix arg refresh forces this cached URL to be refreshed."
     (browse-url (get-text-property (point) 'lucky-url)))
    (t
     (let* ((results (gweb-web-results  search-term))
-           (lucky (aref results 0))
+           (lucky (when results (aref results 0)))
            (inhibit-read-only t)
            (bounds (bounds-of-thing-at-point 'word))
            (modified-p (buffer-modified-p))
