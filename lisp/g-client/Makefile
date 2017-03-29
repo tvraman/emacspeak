@@ -46,7 +46,6 @@ g-app.elc \
 gdrive.el \
 g-utils.elc \
 g.elc \
-gf.elc \
 gweb.elc \
 gmaps.elc \
 gm-nnir.elc \
@@ -83,7 +82,6 @@ g-app.elc: g-auth.elc g-utils.elc g-app.el
 g.elc: g.el  g-auth.elc
 gdrive.elc: gdrive.el g-utils.elc 
 gweb.elc: gweb.el g-utils.elc
-gf.elc: gf.el g-utils.elc
 gmaps.elc: gmaps.el g-utils.elc
 gm-nnir.elc: gm-nnir.el 
 # }}}
