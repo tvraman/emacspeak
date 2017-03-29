@@ -671,7 +671,6 @@ command that the key sequence executes."
     ("c" browse-url-chrome)
     ("d" magit-dispatch-popup)
     ("e" gmaps)
-    ("f" emacspeak-webspace-freebase-search)
     ("g" gnus)
     ("h" emacspeak-org-capture-link)
     ("i" yas-insert-snippet)
