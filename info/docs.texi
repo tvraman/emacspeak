@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1156 commands and 1064 options.
+This chapter documents a total of 1154 commands and 1064 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -213,7 +213,6 @@ This chapter documents a total of 1156 commands and 1064 options.
 * g-app::Google Client APP methods.
 * g-auth::Google Authentication Module.
 * g-utils::Google Client Utilities.
-* gf::Google Freebase API.
 * gm-nnir::
 * gmaps::Google Maps.
 * gweb::Google Search.
@@ -20567,33 +20566,6 @@ Open headline at point by following its link property and filter for content.
 @end format
 @end deffn
 
-@subsubsection emacspeak-webspace-freebase-search
-@deffn {Command} emacspeak-webspace-freebase-search  (query)
-@table @kbd
-@item C-; f
-@kindex C-; f
-@item C-x @@ h f
-@kindex C-x @@ h f
-@end table
-
-@findex emacspeak-webspace-freebase-search
-
-@format
-Perform a Freebase search and display results.
-
-(fn QUERY)
-@end format
-@end deffn
-
-@subsubsection emacspeak-webspace-google
-@deffn {Command} emacspeak-webspace-google   
-@findex emacspeak-webspace-google
-
-@format
-Display Google Search in a WebSpace buffer.
-@end format
-@end deffn
-
 @subsubsection emacspeak-webspace-headlines
 @deffn {Command} emacspeak-webspace-headlines   
 @table @kbd
@@ -23423,11 +23395,6 @@ Function used to get URL from current context.
 XSLT Processor.
 
 @end defvar
-
-@node gf
-@section gf
-
-Explore Freebase graph search results
 
 @node gm-nnir
 @section gm-nnir
