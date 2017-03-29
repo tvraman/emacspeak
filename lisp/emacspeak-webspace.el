@@ -371,77 +371,8 @@ Optional interactive prefix arg forces a refresh."
       (emacspeak-webspace-mode))))
 
 ;;}}}
-;;{{{ Freebase:
+;;{{{ Google Knowledge Graph:
 
-(define-button-type 'emacspeak-webspace-freebase-topic
-  'id nil
-  'help-echo ""
-  'action #'emacspeak-webspace-freebase-topic-expand)
-
-(defun emacspeak-webspace-freebase-topic-expand (button)
-  "Expand topic at point."
-  (let* ((inhibit-read-only t)
-         (start nil)
-         (end nil)
-         (id (button-get button 'id))
-         (desc (gf-topic-description id)))
-    (goto-char (button-end button))
-    (insert "\n")
-    (put-text-property 0 (length id)
-                       'link (get-text-property 0 'link desc) id)
-    (emacspeak-webspace-headlines-insert-button id)
-    (insert "\n")
-    (setq start (point))
-    (insert desc)
-    (setq end (point))
-    (fill-region  start end)
-    (emacspeak-speak-region start end)
-    (insert "\n")
-    (goto-char start)
-    (emacspeak-auditory-icon 'open-object)))
-
-(defun emacspeak-webspace-freebase-topic-insert (id)
-  "Insert a button for this topic at point."
-  (insert-text-button
-   id
-   'type 'emacspeak-webspace-freebase-topic
-   'link (get-text-property 0 'id id)))
-
-;;;###autoload
-(defun emacspeak-webspace-freebase-search (query)
-  "Perform a Freebase search and display results."
-  (interactive
-   (list
-    (read-from-minibuffer "Freebase Query: ")))
-  (let ((buffer (get-buffer-create (format "Feedbase: %s" query)))
-        (results (gf-search-results (emacspeak-url-encode query)))
-        (inhibit-read-only t)
-        (title nil)
-        (id nil))
-    (with-current-buffer buffer
-      (erase-buffer)
-      (setq buffer-undo-list t)
-      (format (buffer-name buffer))
-      (center-line)
-                                        ; Nuke initial '/' in id
-      (cl-loop
-       for r in results
-       and i from 1
-       do
-       (insert (format "%d.\t" i))
-       (setq title (first r))
-       (setq id (substring (second r) 1))
-       (put-text-property 0 (length title)
-                          'id id title)
-       (emacspeak-webspace-freebase-topic-insert title)
-       (insert "\n"))
-      (emacspeak-webspace-mode)
-      (setq buffer-read-only t)
-      (goto-char (point-min)))
-    (switch-to-buffer buffer)
-    (emacspeak-speak-mode-line)
-    (emacspeak-auditory-icon 'open-object)))
-;;; Will transition to Knowledge Graph:
 ;;; Google Knowledge Graph Search API  |  Knowledge G https://developers.google.com/knowledge-graph/
 
 (defcustom emacspeak-webspace-kg-key  nil
