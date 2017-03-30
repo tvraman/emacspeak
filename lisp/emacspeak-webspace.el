@@ -384,10 +384,19 @@ Optional interactive prefix arg forces a refresh."
   :group 'emacspeak-webspace)
 
 (defvar emacspeak-webspace-kg-rest-end-point
-  "https://kgsearch.googleapis.com/v1/entities:search?query=%s&key=%s&limit=%s"
+  "https://kgsearch.googleapis.com/v1/entities:search?query=%s&key=%s&indent=1&limit=%s"
   "Rest end-point for KG Search.")
 
-(defun emacspeak-webspace-kg-uri (query &optional limit)
+(defun emacspeak-webspace-kg-id-uri (id)
+  "Return URL for KG Search by id."
+  (declare (special emacspeak-webspace-kg-rest-end-point))
+  (format
+   emacspeak-webspace-kg-rest-end-point
+   (emacspeak-url-encode id)
+   emacspeak-webspace-kg-key
+   1))
+
+(defun emacspeak-webspace-kg-query-uri (query &optional limit)
   "Return URL for KG Search."
   (or limit (setq limit 1))
   (format
@@ -400,7 +409,7 @@ Optional interactive prefix arg forces a refresh."
   "Return JSON-LD structure."
   (or limit (setq limit 1))
   (g-json-from-url
-   (emacspeak-webspace-kg-uri query limit)))
+   (emacspeak-webspace-kg-query-uri query limit)))
 
 (defun emacspeak-webspace-kg-results (query &optional limit)
   "Return list of results."
@@ -417,12 +426,13 @@ Optional interactive prefix arg forces a refresh."
      "<p><a href='%s'>%s</a> is a <code>[%s]</code>.
 <strong>%s</strong></p>
 <p>%s</p>
-<p><em>Id:</em> %s
+<p><a href='%s'>Id: %s</a>
 <img src='%s'/></p>\n"
      (g-json-get 'url .detailedDescription) .name
      (mapconcat #'identity .@type ", ")
      .description
      (or (g-json-get 'articleBody .detailedDescription) "")
+     (emacspeak-webspace-kg-id-uri .@id)
      .@id
      (g-json-get 'contentUrl .image))))
 
