@@ -43,7 +43,6 @@ DEPS= -l ./g-load-path.el -l ./g-loaddefs.el
 COMPILE =  -f batch-byte-compile
 OBJECTS= g-auth.elc \
 g-app.elc \
-gdrive.el \
 g-utils.elc \
 g.elc \
 gweb.elc \
@@ -80,7 +79,6 @@ g-utils.elc: g-utils.el
 g-auth.elc: g-auth.el g-utils.elc
 g-app.elc: g-auth.elc g-utils.elc g-app.el
 g.elc: g.el  g-auth.elc
-gdrive.elc: gdrive.el g-utils.elc 
 gweb.elc: gweb.el g-utils.elc
 gmaps.elc: gmaps.el g-utils.elc
 gm-nnir.elc: gm-nnir.el 
