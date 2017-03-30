@@ -400,7 +400,7 @@ Optional interactive prefix arg forces a refresh."
 (defun emacspeak-webspace-kg-query-uri (query &optional limit)
   "Return URL for KG Search."
   (declare (special emacspeak-webspace-kg-rest-end-point))
-  (or limit (setq limit 1))
+  (or limit (setq limit 5))
   (format
    emacspeak-webspace-kg-rest-end-point
    "query"
@@ -410,7 +410,7 @@ Optional interactive prefix arg forces a refresh."
 
 (defun emacspeak-webspace-kg-json-ld (query &optional limit)
   "Return JSON-LD structure."
-  (or limit (setq limit 1))
+  (or limit (setq limit 5))
   (g-json-from-url
    (emacspeak-webspace-kg-query-uri query limit)))
 
