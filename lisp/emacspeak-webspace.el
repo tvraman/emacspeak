@@ -446,7 +446,7 @@ Optional interactive prefix arg `limit' prompts for number of results, default i
   (setq limit
         (cond
          (limit  (read-number "Number of results: "))
-         (t  1)))
+         (t  5)))
   (let ((results (emacspeak-webspace-kg-results query limit)))
     (unless results (error "No results"))
     (with-temp-buffer
