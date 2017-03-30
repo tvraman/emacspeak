@@ -384,7 +384,7 @@ Optional interactive prefix arg forces a refresh."
   :group 'emacspeak-webspace)
 
 (defvar emacspeak-webspace-kg-rest-end-point
-  "https://kgsearch.googleapis.com/v1/entities:search?query=%s&key=%s&indent=1&limit=%s"
+  "https://kgsearch.googleapis.com/v1/entities:search?%s=%s&key=%s&indent=1&limit=%s"
   "Rest end-point for KG Search.")
 
 (defun emacspeak-webspace-kg-id-uri (id)
@@ -392,15 +392,18 @@ Optional interactive prefix arg forces a refresh."
   (declare (special emacspeak-webspace-kg-rest-end-point))
   (format
    emacspeak-webspace-kg-rest-end-point
-   (emacspeak-url-encode id)
+   "ids"
+   (emacspeak-url-encode (substring id 3))
    emacspeak-webspace-kg-key
    1))
 
 (defun emacspeak-webspace-kg-query-uri (query &optional limit)
   "Return URL for KG Search."
+  (declare (special emacspeak-webspace-kg-rest-end-point))
   (or limit (setq limit 1))
   (format
    emacspeak-webspace-kg-rest-end-point
+   "query"
    (emacspeak-url-encode query)
    emacspeak-webspace-kg-key
    limit))
