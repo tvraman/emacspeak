@@ -762,7 +762,7 @@ icon."
 ;;{{{ Advice completion-at-point:
 (defadvice completion-at-point (around emacspeak pre act comp)
   "Say what you completed."
-  (let ((orig (point)))
+  (let ((orig (save-excursion (skip-syntax-backward "^ >_") (point))))
     ad-do-it
     (when (ems-interactive-p)
       (dtk-speak (buffer-substring orig (point)))
