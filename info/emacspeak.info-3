@@ -12,6 +12,195 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: emacspeak-slime,  Next: emacspeak-solitaire,  Prev: emacspeak-sigbegone,  Up: Emacspeak Commands And Options
+
+12.162 emacspeak-slime
+======================
+
+;;; SLIME == Superior Lisp Interaction Mode For Emacs
+
+   Slime is a powerful IDE for developing in Common Lisp and Clojure.
+It’s similar but more modern than package ILisp that I used as a
+graduate student when developing AsTeR.
+
+12.162.1 emacspeak-slime Options
+--------------------------------
+
+ -- Variable: User Option emacspeak-sldb-catch-tag-personality
+     Personality used for sldb-catch-tag-face This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-sldb-condition-personality
+     Personality used for sldb-condition-face This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-sldb-detailed-frame-line-personality
+     Personality used for sldb-detailed-frame-line-face This personality
+     uses voice-monotone whose effect can be changed globally by
+     customizing voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-sldb-frame-label-personality
+     Personality used for sldb-frame-label-face This personality uses
+     voice-annotate whose effect can be changed globally by customizing
+     voice-annotate-settings.
+
+ -- Variable: User Option emacspeak-sldb-frame-line-personality
+     Personality used for sldb-frame-line-face This personality uses
+     voice-lighten-extra whose effect can be changed globally by
+     customizing voice-lighten-extra-settings.
+
+ -- Variable: User Option emacspeak-sldb-local-name-personality
+     Personality used for sldb-local-name-face This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-sldb-local-value-personality
+     Personality used for sldb-local-value-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option
+          emacspeak-sldb-non-restartable-frame-line-personality
+     Personality used for sldb-non-restartable-frame-line-face This
+     personality uses voice-animate-extra whose effect can be changed
+     globally by customizing voice-animate-extra-settings.
+
+ -- Variable: User Option emacspeak-sldb-reference-personality
+     Personality used for sldb-reference-face This personality uses
+     voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option emacspeak-sldb-restart-number-personality
+     Personality used for sldb-restart-number-face This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-sldb-restart-personality
+     Personality used for sldb-restart-face This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-sldb-restart-type-personality
+     Personality used for sldb-restart-type-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option
+          emacspeak-sldb-restartable-frame-line-personality
+     Personality used for sldb-restartable-frame-line-face This
+     personality uses voice-bolden whose effect can be changed globally
+     by customizing voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-sldb-section-personality
+     Personality used for sldb-section-face This personality uses
+     voice-bolden-medium whose effect can be changed globally by
+     customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option emacspeak-sldb-topline-personality
+     Personality used for sldb-topline-face This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-slime-apropos-label-voice
+     Personality used for slime-apropos-label This personality uses
+     voice-monotone-light whose effect can be changed globally by
+     customizing voice-monotone-light-settings.
+
+ -- Variable: User Option emacspeak-slime-apropos-symbol-voice
+     Personality used for slime-apropos-symbol This personality uses
+     voice-monotone-light whose effect can be changed globally by
+     customizing voice-monotone-light-settings.
+
+ -- Variable: User Option emacspeak-slime-error-personality
+     Personality used for slime-error-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option emacspeak-slime-highlight-personality
+     Personality used for slime-highlight-face This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-slime-inspector-action-personality
+     Personality used for slime-inspector-action-face This personality
+     uses voice-bolden whose effect can be changed globally by
+     customizing voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-slime-inspector-label-personality
+     Personality used for slime-inspector-label-face This personality
+     uses voice-monotone-medium whose effect can be changed globally by
+     customizing voice-monotone-medium-settings.
+
+ -- Variable: User Option emacspeak-slime-inspector-topline-personality
+     Personality used for slime-inspector-topline-face This personality
+     uses voice-bolden-medium whose effect can be changed globally by
+     customizing voice-bolden-medium-settings.
+
+ -- Variable: User Option emacspeak-slime-inspector-type-personality
+     Personality used for slime-inspector-type-face This personality
+     uses voice-annotate whose effect can be changed globally by
+     customizing voice-annotate-settings.
+
+ -- Variable: User Option emacspeak-slime-inspector-value-personality
+     Personality used for slime-inspector-value-face This personality
+     uses voice-animate whose effect can be changed globally by
+     customizing voice-animate-settings.
+
+ -- Variable: User Option emacspeak-slime-note-personality
+     Personality used for slime-note-face This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-slime-reader-conditional-personality
+     Personality used for slime-reader-conditional-face This personality
+     uses voice-brighten whose effect can be changed globally by
+     customizing voice-brighten-settings.
+
+ -- Variable: User Option emacspeak-slime-repl-input-personality
+     Personality used for slime-repl-input-face This personality uses
+     voice-brighten-medium whose effect can be changed globally by
+     customizing voice-brighten-medium-settings.
+
+ -- Variable: User Option
+          emacspeak-slime-repl-inputed-output-personality
+     Personality used for slime-repl-inputed-output-face This
+     personality uses voice-bolden-and-animate whose effect can be
+     changed globally by customizing voice-bolden-and-animate-settings.
+
+ -- Variable: User Option
+          emacspeak-slime-repl-output-mouseover-personality
+     Personality used for slime-repl-output-mouseover-face This
+     personality uses voice-bolden-and-animate whose effect can be
+     changed globally by customizing voice-bolden-and-animate-settings.
+
+ -- Variable: User Option emacspeak-slime-repl-output-personality
+     Personality used for slime-repl-output-face This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-slime-repl-prompt-personality
+     Personality used for slime-repl-prompt-face This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-slime-repl-result-personality
+     Personality used for slime-repl-result-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option emacspeak-slime-style-warning-personality
+     Personality used for slime-style-warning-face This personality uses
+     voice-animate-medium whose effect can be changed globally by
+     customizing voice-animate-medium-settings.
+
+ -- Variable: User Option emacspeak-slime-warning-personality
+     Personality used for slime-warning-face This personality uses
+     voice-animate-medium whose effect can be changed globally by
+     customizing voice-animate-medium-settings.
+
+
 File: emacspeak.info,  Node: emacspeak-solitaire,  Next: emacspeak-sounds,  Prev: emacspeak-slime,  Up: Emacspeak Commands And Options
 
 12.163 emacspeak-solitaire
@@ -2688,19 +2877,6 @@ broken.
 
      Speak tweet under point.
 
-12.183.2 emacspeak-twittering Options
--------------------------------------
-
- -- Variable: User Option emacspeak-twittering-uri-personality
-     Personality used for twittering-uri-face This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option emacspeak-twittering-username-personality
-     Personality used for twittering-username-face This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
 
 File: emacspeak.info,  Node: emacspeak-url-template,  Next: emacspeak-view,  Prev: emacspeak-twittering,  Up: Emacspeak Commands And Options
 
@@ -3075,96 +3251,10 @@ File: emacspeak.info,  Node: emacspeak-w3m,  Next: emacspeak-wdired,  Prev: emac
 12.188.2 emacspeak-w3m Options
 ------------------------------
 
- -- Variable: User Option emacspeak-w3m-anchor-voice
-     Personality used for w3m-anchor This personality uses voice-lighten
-     whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option emacspeak-w3m-arrived-anchor-voice
-     Personality used for w3m-arrived-anchor This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option emacspeak-w3m-bold-voice
-     Personality used for w3m-bold This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option emacspeak-w3m-current-anchor-voice
-     Personality used for w3m-current-anchor This personality uses
-     voice-bolden-extra whose effect can be changed globally by
-     customizing voice-bolden-extra-settings.
-
- -- Variable: User Option emacspeak-w3m-form-button-pressed-voice
-     Personality used for w3m-form-button-pressed This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option emacspeak-w3m-form-button-voice
-     Personality used for w3m-form-button This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option emacspeak-w3m-form-voice
-     Personality used for w3m-form This personality uses voice-brighten
-     whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option
-          emacspeak-w3m-header-line-location-content-voice
-     Personality used for w3m-header-line-location-content This
-     personality uses voice-animate whose effect can be changed globally
-     by customizing voice-animate-settings.
-
- -- Variable: User Option emacspeak-w3m-header-line-location-title-voice
-     Personality used for w3m-header-line-location-title This
-     personality uses voice-bolden whose effect can be changed globally
-     by customizing voice-bolden-settings.
-
- -- Variable: User Option emacspeak-w3m-history-current-url-voice
-     Personality used for w3m-history-current-url This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option emacspeak-w3m-image-voice
-     Personality used for w3m-image This personality uses voice-brighten
-     whose effect can be changed globally by customizing
-     voice-brighten-settings.
-
- -- Variable: User Option emacspeak-w3m-insert-voice
-     Personality used for w3m-insert This personality uses voice-bolden
-     whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option emacspeak-w3m-italic-voice
-     Personality used for w3m-italic This personality uses voice-animate
-     whose effect can be changed globally by customizing
-     voice-animate-settings.
-
  -- Variable: User Option emacspeak-w3m-speak-titles-on-switch
      Speak the document title when switching between w3m buffers.  If
      non-nil, switching between w3m buffers will speak the title instead
      of the modeline.
-
- -- Variable: User Option emacspeak-w3m-strike-through-voice
-     Personality used for w3m-strike-through This personality uses
-     voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option emacspeak-w3m-tab-selected-voice
-     Personality used for w3m-tab-selected This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option emacspeak-w3m-tab-unselected-voice
-     Personality used for w3m-tab-unselected This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option emacspeak-w3m-underline-voice
-     Personality used for w3m-underline This personality uses
-     voice-brighten-extra whose effect can be changed globally by
-     customizing voice-brighten-extra-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-wdired,  Next: emacspeak-we,  Prev: emacspeak-w3m,  Up: Emacspeak Commands And Options
@@ -6413,29 +6503,6 @@ Provide Google services — such as search, search-based completion etc.
 For use from within Emacs tools.  This is meant to be fast and efficient
 — and uses WebAPIs as opposed to HTML scraping.
 
-12.211.1 gweb Commands
-----------------------
-
-12.211.1.1 gweb-google-at-point
-...............................
-
- -- Command: gweb-google-at-point (search-term &optional refresh)
-
-     Google for term at point, and display top result succinctly.
-     Attach URL at point so we can follow it later — subsequent invocations of this command simply follow that URL.
-     Optional interactive prefix arg refresh forces this cached URL to be refreshed.
-
-     (fn SEARCH-TERM &optional REFRESH)
-
-12.211.1.2 gweb-news-view
-.........................
-
- -- Command: gweb-news-view (query)
-
-     Display News Search results  in a browser.
-
-     (fn QUERY)
-
 
 File: emacspeak.info,  Node: ladspa,  Next: mac-voices,  Prev: gweb,  Up: Emacspeak Commands And Options
 
@@ -9260,13 +9327,14 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-; s:                                 emacspeak-wizards.  (line  999)
 * C-; SPC h:                             emacspeak-webspace. (line   35)
 * C-; SPC SPC:                           emacspeak-webspace. (line   44)
-* C-; v:                                 emacspeak-muggles.  (line  339)
+* C-; v:                                 emacspeak-muggles.  (line  340)
 * C-; w m:                               emacspeak-wizards.  (line  617)
 * C-; w R:                               emacspeak-xslt.     (line   37)
 * C-c (:                                 Running Terminal Based Applications.
                                                              (line   96)
 * C-c ):                                 Running Terminal Based Applications.
                                                              (line  105)
+* C-c .:                                 emacspeak-muggles.  (line  281)
 * C-c 0:                                 Running Terminal Based Applications.
                                                              (line   68)
 * C-c 1:                                 Running Terminal Based Applications.
@@ -9304,8 +9372,8 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
                                                              (line   72)
 * C-c o:                                 Running Terminal Based Applications.
                                                              (line   56)
-* C-c o <1>:                             emacspeak-muggles.  (line  309)
-* C-c v:                                 emacspeak-muggles.  (line  338)
+* C-c o <1>:                             emacspeak-muggles.  (line  310)
+* C-c v:                                 emacspeak-muggles.  (line  339)
 * C-e !:                                 emacspeak-wizards.  (line  303)
 * C-e ":                                 emacspeak-speak.    (line  944)
 * C-e # a:                               emacspeak-gridtext. (line   26)
@@ -9607,7 +9675,7 @@ File: emacspeak.info,  Node: Key Index,  Prev: Concept Index,  Up: Top
 * C-x @ h s:                             emacspeak-wizards.  (line 1000)
 * C-x @ h SPC h:                         emacspeak-webspace. (line   36)
 * C-x @ h SPC SPC:                       emacspeak-webspace. (line   45)
-* C-x @ h v:                             emacspeak-muggles.  (line  340)
+* C-x @ h v:                             emacspeak-muggles.  (line  341)
 * C-x @ h w m:                           emacspeak-wizards.  (line  618)
 * C-x @ h w R:                           emacspeak-xslt.     (line   38)
 * C-x @ s b:                             emacspeak-bbc.      (line   28)
