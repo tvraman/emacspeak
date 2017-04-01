@@ -5,7 +5,6 @@
 
 #Examples:
 # remote host.example.com  speech-server outloud 
-# remote hostname  32-speech-server 32-outloud 
 
 # Configuration:
 
