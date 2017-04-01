@@ -47,11 +47,11 @@
         rely on for your work.
       </para>
       <para>
-        The latest copy of this document is always available via CVS
-        from the Emacspeak CVS repository ---thanks to the
-        <inlinegraphic
-        fileref="http://sourceforge.net/sflogo.php?group_id=2238;type=1"/>
-        --- SourceForge project and on the 
+        The latest copy of this document is always available via
+         
+<ulink url="https://github.com/tvraman/emacspeak/blob/master/etc/tips.xml#L50">Emacspeak
+        GitHub Repository  </ulink>
+        and  on the 
         <ulink url="http://emacspeak.sf.net/tips.html">Emacspeak
         WWW site</ulink>.
       </para>
