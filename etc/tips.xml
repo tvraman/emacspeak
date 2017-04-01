@@ -225,9 +225,9 @@
         </question>
         <answer>
           <para> Built-in Emacs package
-          <application>ange-ftp</application>
+          <application>tramp</application>
           provides seamless access to remote files and folders by
-          using UNIX <command>ftp</command>
+          using UNIX <command>ssh</command>
           behind the scenes.
           To open a remote directory, specify the directory location  as 
           <command>/username@host:/path</command>
