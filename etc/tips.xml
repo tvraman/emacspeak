@@ -771,22 +771,6 @@ example, see <application>hideshow</application>.</para></answer>
               It has rudimentary Javascript support and is under active development.
               Emacspeak command: <command>emacspeak-links</command>.</para>
             </listitem>
-            <listitem>
-              <para>
-                <command>IBM HPR</command>
-                IBM Home Page Reader is a speech extension for Internet Explorer that
-                can be run under VMWare.
-                I use this as a last resort solution if I must interact with
-              Javascript heavy sites.</para>
-              <para>For this, you need to have VMWare installed and
-              configured.
-              I run Emacspeak under the Sawfish window manager on Linux, and bring
-              up Win98 by typing <command>win98</command>
-              inside an Emacs shell buffer. </para>
-              <epigraph>
-                <para>
-              Moral: Get out of my way or I will turn you into a shell script.             </para> </epigraph>
-            </listitem>
           </orderedlist>
         </answer>
       </qandaentry>
