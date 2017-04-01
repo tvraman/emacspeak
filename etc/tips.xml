@@ -41,15 +41,15 @@
         the interested user is expected to lookup the
         details of a command using these facilities.
         See  <ulink url="http://www.tuxedo.org/~esr/faqs/smart-questions.html">How
-          To Ask  Questions The Smart Way</ulink>
+        To Ask  Questions The Smart Way</ulink>
         for how you can improve your own productivity while
         contributing to continuously improving the tools you
         rely on for your work.
       </para>
       <para>
         The latest copy of this document is always available via
-         
-<ulink url="https://github.com/tvraman/emacspeak/blob/master/etc/tips.xml#L50">Emacspeak
+        
+        <ulink url="https://github.com/tvraman/emacspeak/blob/master/etc/tips.xml#L50">Emacspeak
         GitHub Repository  </ulink>
         and  on the 
         <ulink url="https://tvraman.github.io/emacspeak/tips.html">Emacspeak
@@ -61,7 +61,7 @@
     <qandadiv id="help">
       <title>Online Help</title>
       <para>
-        Tips on using Emacs online help facilities.</para>
+      Tips on using Emacs online help facilities.</para>
       <qandaentry>
         <question>
           <para> Interactive help.</para>
@@ -73,12 +73,12 @@
             type of help obtained is determined by the
             keypress following <command><keysym>C-h</keysym></command>.
             <simplelist type="vert"><member><command><keysym>c</keysym></command>
-                looks up  command run by a given key.
-              </member><member><command><keysym>k</keysym></command>
-                looks up documentation for a given key.
-              </member><member><command><keysym>w</keysym></command>
-                looks up key that invokes specified command.
-              </member></simplelist>
+            looks up  command run by a given key.
+            </member><member><command><keysym>k</keysym></command>
+            looks up documentation for a given key.
+            </member><member><command><keysym>w</keysym></command>
+            looks up key that invokes specified command.
+            </member></simplelist>
           </para>
         </answer>
       </qandaentry>
@@ -99,6 +99,14 @@
       </qandaentry>
       <qandaentry>
         <question>
+        <para>Emacspeak Hypertext Reference</para></question>
+        <answer>
+          <para>You can open the online Emacspeak hypertext reference using
+          key <command><keysym>C-e r</keysym></command>.
+        </para></answer>
+      </qandaentry>
+      <qandaentry>
+        <question>
           <para> Opening info page that documents  a given key.</para>
         </question>
         <answer>
@@ -116,8 +124,8 @@
         <answer>
           <para>
             Press <command><keysym>C-h
-                C-f</keysym></command>
-            and specify the command name when prompted.</para>
+            C-f</keysym></command>
+          and specify the command name when prompted.</para>
         </answer>
       </qandaentry>
       <qandaentry>
@@ -136,7 +144,7 @@
             choice. Alternatively, you can browse the
             completion list which is typically displayed in
             another window in a buffer called 
-            <literal>*Completions*</literal>.</para>
+          <literal>*Completions*</literal>.</para>
         </answer>
       </qandaentry>
       <qandaentry>
@@ -186,23 +194,7 @@
             to view UNIX manual pages using a speech-enabled
             interface. This interface provides structured
             browsing which is something missing when viewing
-            UNIX man pages inside a traditional pager program.</para>
-        </answer>
-      </qandaentry>
-      <qandaentry>
-        <question>
-          <para>Browsing Linux HOWTO Documentation.</para>
-        </question>
-        <answer>
-          <para>
-            Use command
-            <command>emacspeak-speak-browse-linux-howto</command>
-            to browse Linux HOWTO documentation installed on your
-            system.
-            The command opens the specified HOWTO file and
-            sets things up so you can use Emacs' outline facilities to
-            browse the document.
-          </para>
+          UNIX man pages inside a traditional pager program.</para>
         </answer>
       </qandaentry>
     </qandadiv>
@@ -219,10 +211,10 @@
         <answer>
           <para>
             Use command <command>
-              dired</command>
+            dired</command>
             (directory editor) normally bound to
             <command><keysym>
-                C-x d              </keysym></command>
+            C-x d              </keysym></command>
             to operate on files and folders.
           </para>
         </answer>
@@ -233,16 +225,16 @@
         </question>
         <answer>
           <para> Built-in Emacs package
-            <application>ange-ftp</application>
-            provides seamless access to remote files and folders by
-            using UNIX <command>ftp</command>
-            behind the scenes.
-            To open a remote directory, specify the directory location  as 
-            <command>/username@host:/path</command>
-            when prompted by command <command>dired</command>.
-            Note that in the above,
-            <emphasis>username</emphasis>
-            defaults to <emphasis>anonymous</emphasis>.
+          <application>ange-ftp</application>
+          provides seamless access to remote files and folders by
+          using UNIX <command>ftp</command>
+          behind the scenes.
+          To open a remote directory, specify the directory location  as 
+          <command>/username@host:/path</command>
+          when prompted by command <command>dired</command>.
+          Note that in the above,
+          <emphasis>username</emphasis>
+          defaults to <emphasis>anonymous</emphasis>.
           </para>
         </answer>
       </qandaentry>
@@ -254,13 +246,13 @@
           <para>
             Use <command>locate</command>
             and <command>
-              locate-with-filter</command> to
+            locate-with-filter</command> to
             find files and folders on your hard drive.
             Matching files and folders are displayed using
             the same interface as provided by command
             <command>dired</command>.  These
             commands use the <database>
-              locate database</database> that
+            locate database</database> that
             is typically rebuilt nightly on standard Linux
             systems.
           </para>
@@ -273,7 +265,7 @@
         <answer>
           <para>
             Use commands <command>
-              find-name-dired</command>, <command>find-grep-dired</command> and
+            find-name-dired</command>, <command>find-grep-dired</command> and
             <command>find-dired</command> to use UNIX
             <application>find</application> to locate files
             and folders on your hard drive.
@@ -316,7 +308,7 @@
       <title>Reading, Browsing And Skimming</title>
       <para>
         This section contains tips for efficiently working with
-        large amounts of content using speech output.</para>
+      large amounts of content using speech output.</para>
       <qandaentry>
         <question>
           <para> Hiding and exposing text blocks. </para>
@@ -343,7 +335,7 @@
           <para>
             Use commands
             <simplelist type="vert"><member><command>emacspeak-skip-blank-lines-backward</command></member><member><command>emacspeak-skip-blank-lines-forward</command></member></simplelist>
-            to move across contiguous blank lines.</para>
+          to move across contiguous blank lines.</para>
         </answer>
       </qandaentry>
       <qandaentry>
@@ -352,30 +344,30 @@
         </question>
         <answer>
           <para>
-Emacs outline facility provides a powerful tool for browsing textual
+            Emacs outline facility provides a powerful tool for browsing textual
             material based on its implicit structure.
             By default, command <command>outline-minor-mode</command>
             sets up Emacs to recognize lines beginning with
             <literal>***</literal>
-as header lines. This can be changed on a per buffer basis by setting
+            as header lines. This can be changed on a per buffer basis by setting
             up Emacs variable <varname>outline-regexp</varname>
-to a regular expression that matches header lines.
+            to a regular expression that matches header lines.
             When using Emacs <command>view-mode</command>
-to read text, this feature is especially useful when combined with
+            to read text, this feature is especially useful when combined with
             Emacspeak built-in feature that loads a directory specific
             file to customize  Emacspeak on a per-directory basis.
-Thus, one can organize electronic texts by placing  files for a given
+            Thus, one can organize electronic texts by placing  files for a given
             book  in a specific directory, and then creating a file
             called <literal>.espeak.el</literal>
             in that directory that sets up things like Emacs variable
             <varname>outline-regexp</varname>.
-</para>
+          </para>
         </answer>
       </qandaentry>
       <qandaentry>
         <question>
           <para><emphasis>Everything</emphasis> is
-            searchable.</para>
+          searchable.</para>
         </question>
         <answer>
           <para>
@@ -410,7 +402,7 @@ Thus, one can organize electronic texts by placing  files for a given
       <qandaentry>
         <question>
           <para>Working with  different portions of
-            a file at the same time.</para>
+          a file at the same time.</para>
         </question>
         <answer>
           <para>
@@ -439,7 +431,7 @@ Thus, one can organize electronic texts by placing  files for a given
             Emacspeak utility 
             <command>emacspeak-annotate-add-annotation</command> --see
             that command's online documentation for details on
-            its use.</para>
+          its use.</para>
         </answer>
       </qandaentry>
 
@@ -447,11 +439,11 @@ Thus, one can organize electronic texts by placing  files for a given
     <qandadiv id="status">
       <title>State Of The Emacspeak Audio Desktop</title>
       <para>This section contains tips on querying and updating
-        the status of the Emacspeak audio desktop.
-        See section 
-        <ulink url="http://emacspeak.sourceforge.net/info/emacspeak.html#SEC20">
-          status commands</ulink>
-        in the Emacspeak online manual for additional details.
+      the status of the Emacspeak audio desktop.
+      See section 
+      <ulink url="http://emacspeak.sourceforge.net/info/emacspeak.html#SEC20">
+      status commands</ulink>
+      in the Emacspeak online manual for additional details.
       </para>
       <qandaentry>
         <question>
@@ -460,27 +452,27 @@ Thus, one can organize electronic texts by placing  files for a given
         </question>
         <answer>
           <para><emphasis>Emacs buffers</emphasis> are the building bloks of the
-            Emacspeak audio desktop.  Current context is
-            thus determined by the <emphasis>current
-              buffer</emphasis> ---i.e., the buffer with which the
-            user is presently interacting.  The state of the
-            <emphasis>current buffer</emphasis> is continuously
-            updated visually by Emacs on the
-            <emphasis>modeline</emphasis> (see the Emacs online
-            tutorial for details on the visual display)---
-            the status is  spoken by Emacspeak whenever
-            there is a context change. You can explicitly
-            request this context information using command
-            <command>emacspeak-speak-mode-line</command>;
-            additional details are provided by command
-            <command>emacspeak-speak-minor-mode-line</command>.
+          Emacspeak audio desktop.  Current context is
+          thus determined by the <emphasis>current
+          buffer</emphasis> ---i.e., the buffer with which the
+          user is presently interacting.  The state of the
+          <emphasis>current buffer</emphasis> is continuously
+          updated visually by Emacs on the
+          <emphasis>modeline</emphasis> (see the Emacs online
+          tutorial for details on the visual display)---
+          the status is  spoken by Emacspeak whenever
+          there is a context change. You can explicitly
+          request this context information using command
+          <command>emacspeak-speak-mode-line</command>;
+          additional details are provided by command
+          <command>emacspeak-speak-minor-mode-line</command>.
           </para>
         </answer>
       </qandaentry>
       <qandaentry>
         <question>
           <para>Information conveyed by 
-            command <command>emacspeak-speak-mode-line</command></para>
+          command <command>emacspeak-speak-mode-line</command></para>
         </question>
         <answer>
           <para>
@@ -497,57 +489,57 @@ Thus, one can organize electronic texts by placing  files for a given
             <command>emacspeak-speak-mode-line</command>:
             <simplelist type="vert">
               <member>Shell-mode The working directory is
-                spoken for shell-mode buffers.</member>
-<member> which-function
-            When <command>which-function-mode</command> is
-            activated using command
-            <command>emacspeak-toggle-which-function</command>,
-            the name of the function containing the cursor
-            is spoken. This is useful in programming modes.
-            </member><member> mail-alert Produces an
-            auditory icon indicating newly arrived mail and
-            is controlled via command
-            <command>emacspeak-toggle-mail-alert</command>.</member><member>
-            buffer-modified An auditory tone when the
-            contents of the <emphasis>current</emphasis>
-            buffer has been modified since it was last
-            saved.  </member><member> buffer-read-only An
-            auditory tone when the
-            <emphasis>current</emphasis> buffer is
-            <emphasis>read-only</emphasis>.</member><member>
-            buffer-name The <emphasis>name</emphasis> of the
-            current buffer.</member><member> line-number
-            Current <emphasis>line number</emphasis> when
-            <command>line-number-mode</command> is
-            active.</member><member> column-number Current
-            <emphasis>column number</emphasis> when
-            <command>column-number-mode</command> is active.
-            </member><member> mode-name Name of the buffer's
-            <emphasis>major mode</emphasis> ---this is what
-            determines <emphasis>specialized
-            behavior</emphasis> within Emacs
-            buffers.</member><member> percentage
-            <emphasis>Percentage</emphasis> of point into
-            the current buffer.</member><member> frame-info
-            If more than one <emphasis>Emacs
-            frame</emphasis> is active, then the title of
-            the current frame is spoken. Emacs typically
-            uses multiple frames when running in a graphical
-            environment.</member><member> recursion-info
-            Current recursion level when <emphasis>recursive
-            edit</emphasis> is in progress; note that you
-            enter <emphasis>recursive edit</emphasis> in
-            Emacs in very few specialized
-            cases.</member></simplelist> Finally, note that
-            the feedback is designed using the principle
-            <emphasis>no news is good news</emphasis>, thus,
-            in many cases the absence of a cue is itself a
-            cue.  As an example, Emacspeak produces an
-            auditory tone only if a buffer is
-            <emphasis>read-only</emphasis> --the absence of
-            the tone indicates the buffer can be editted
-            which is usually the case.  Similarly, no tone
-            is produced when a buffer does not need saving.
+              spoken for shell-mode buffers.</member>
+              <member> which-function
+              When <command>which-function-mode</command> is
+              activated using command
+              <command>emacspeak-toggle-which-function</command>,
+              the name of the function containing the cursor
+              is spoken. This is useful in programming modes.
+              </member><member> mail-alert Produces an
+              auditory icon indicating newly arrived mail and
+              is controlled via command
+              <command>emacspeak-toggle-mail-alert</command>.</member><member>
+              buffer-modified An auditory tone when the
+              contents of the <emphasis>current</emphasis>
+              buffer has been modified since it was last
+              saved.  </member><member> buffer-read-only An
+              auditory tone when the
+              <emphasis>current</emphasis> buffer is
+              <emphasis>read-only</emphasis>.</member><member>
+              buffer-name The <emphasis>name</emphasis> of the
+              current buffer.</member><member> line-number
+              Current <emphasis>line number</emphasis> when
+              <command>line-number-mode</command> is
+              active.</member><member> column-number Current
+              <emphasis>column number</emphasis> when
+              <command>column-number-mode</command> is active.
+              </member><member> mode-name Name of the buffer's
+              <emphasis>major mode</emphasis> ---this is what
+              determines <emphasis>specialized
+              behavior</emphasis> within Emacs
+              buffers.</member><member> percentage
+              <emphasis>Percentage</emphasis> of point into
+              the current buffer.</member><member> frame-info
+              If more than one <emphasis>Emacs
+              frame</emphasis> is active, then the title of
+              the current frame is spoken. Emacs typically
+              uses multiple frames when running in a graphical
+              environment.</member><member> recursion-info
+              Current recursion level when <emphasis>recursive
+              edit</emphasis> is in progress; note that you
+              enter <emphasis>recursive edit</emphasis> in
+              Emacs in very few specialized
+              cases.</member></simplelist> Finally, note that
+              the feedback is designed using the principle
+              <emphasis>no news is good news</emphasis>, thus,
+              in many cases the absence of a cue is itself a
+              cue.  As an example, Emacspeak produces an
+              auditory tone only if a buffer is
+              <emphasis>read-only</emphasis> --the absence of
+              the tone indicates the buffer can be editted
+              which is usually the case.  Similarly, no tone
+              is produced when a buffer does not need saving.
           </para>
         </answer>
       </qandaentry>
@@ -562,18 +554,18 @@ Thus, one can organize electronic texts by placing  files for a given
             typically conveys additional information
             including:
             <simplelist type="vert"><member>Minor modes that are active e.g.,
-                <emphasis>voice-lock</emphasis></member><member>Version number of files under revision control.</member><member>Current encoding system in use.</member></simplelist>
+            <emphasis>voice-lock</emphasis></member><member>Version number of files under revision control.</member><member>Current encoding system in use.</member></simplelist>
           </para>
         </answer>
       </qandaentry>
     </qandadiv>
     <qandadiv id="multimedia">
       <title>Multimedia On The Emacspeak Audio
-        Desktop</title>
+      Desktop</title>
       <para>
         This section contains tips on using the various
         multimedia features of the Emacspeak audio
-        desktop.</para>
+      desktop.</para>
       <qandaentry>
         <question>
           <para>Setting State Of The Auditory Display</para>
@@ -603,13 +595,13 @@ Thus, one can organize electronic texts by placing  files for a given
         </question>
         <answer>
           <para>Emacspeak built-in command
-            <command>cd-tool</command>
-            uses the command-line tools provided by RPM package 
-            <application>cdp</application>.
-            This is convenient for  playing tracks from a CD.
-            Use <application>cdcd</application> from within an Emacs
-            shell for more complex tasks such as querying a
-            <application>CDDB</application> database.</para>
+          <command>cd-tool</command>
+          uses the command-line tools provided by RPM package 
+          <application>cdp</application>.
+          This is convenient for  playing tracks from a CD.
+          Use <application>cdcd</application> from within an Emacs
+          shell for more complex tasks such as querying a
+          <application>CDDB</application> database.</para>
         </answer>
       </qandaentry>
       <qandaentry>
@@ -618,21 +610,21 @@ Thus, one can organize electronic texts by placing  files for a given
         </question>
         <answer>
           <para>Application
-            <application>freeamp</application> can play music
-            listed 
-            in a <application>playlist</application> file --typically
-            such files are given the extension 
-            <computeroutput>.m3u</computeroutput>.
-            A playlist file contains names of MP3 files, one per line.
-            To create  a playlist file for use with
-            <application>freeamp</application>,
-            you might execute the following command from
-            within a <application>shell</application>
-            buffer:  
-            <blockquote><para><programlisting format="linespecific">
-                  cd $HOME/music
-                  find . -name '*.mp3'  &gt; playlist.m3u
-                </programlisting></para></blockquote>
+          <application>freeamp</application> can play music
+          listed 
+          in a <application>playlist</application> file --typically
+          such files are given the extension 
+          <computeroutput>.m3u</computeroutput>.
+          A playlist file contains names of MP3 files, one per line.
+          To create  a playlist file for use with
+          <application>freeamp</application>,
+          you might execute the following command from
+          within a <application>shell</application>
+          buffer:  
+          <blockquote><para><programlisting format="linespecific">
+            cd $HOME/music
+            find . -name '*.mp3'  &gt; playlist.m3u
+          </programlisting></para></blockquote>
           </para>
         </answer>
       </qandaentry>
@@ -670,11 +662,11 @@ Thus, one can organize electronic texts by placing  files for a given
         </question>
         <answer>
           <para>
-To play Windows media files, first install the media player
+            To play Windows media files, first install the media player
             <command>mplayer</command> for Linux.
-Once this player is installed and working, emacspeak command
+            Once this player is installed and working, emacspeak command
             <command>emacspeak-m-player</command>
-can be used to conveniently play Windows Media streams.</para>
+          can be used to conveniently play Windows Media streams.</para>
         </answer>
       </qandaentry>
       <qandaentry>
@@ -683,39 +675,39 @@ can be used to conveniently play Windows Media streams.</para>
         </question>
         <answer>
           <para>Streaming media on the WWW is often
-            well-hidden behind several mouse clicks.
-            Emacspeak allows you to configure your favorite
-            streams as an organized hierarchy.  The Emacspeak
-            distribution comes with such a collection of
-            streams I listen to on a frequent basis.  You can
-            access these by using standard Emacs completion
-            when prompted for a <computeroutput>media
-              Resource</computeroutput> by command
-            <command>emacspeak-m-player</command>. </para>
+          well-hidden behind several mouse clicks.
+          Emacspeak allows you to configure your favorite
+          streams as an organized hierarchy.  The Emacspeak
+          distribution comes with such a collection of
+          streams I listen to on a frequent basis.  You can
+          access these by using standard Emacs completion
+          when prompted for a <computeroutput>media
+          Resource</computeroutput> by command
+          <command>emacspeak-m-player</command>. </para>
         </answer>
       </qandaentry>
       <qandaentry>
         <question>
-Manipulating Digital Images        </question>
+        Manipulating Digital Images        </question>
         <answer>
           <para>
-The ImageMagick  package provides a powerful set of image
+            The ImageMagick  package provides a powerful set of image
             manipulation tools --for an excellent  overview see 
-the online article 
+            the online article 
             <ulink
-              url="http://www.ibm.com/developerworks/linux/library/l-graf/?ca=dgr-lnxw02ImageMagick">command-line graphics</ulink></para>
+                url="http://www.ibm.com/developerworks/linux/library/l-graf/?ca=dgr-lnxw02ImageMagick">command-line graphics</ulink></para>
         </answer>
       </qandaentry>
     </qandadiv>
     <qandadiv id="author">
       <title>Authoring Tools</title>
       <para>This section contains tips on authoring
-        structured documents for online and print
-        publishing.  See the relevant section of the online
-        Emacspeak manual
-        for further details on 
-        <ulink url="http://emacspeak.sourceforge.net/info/emacspeak.html#SEC31">
-          document authoring on the Emacspeak desktop.</ulink>
+      structured documents for online and print
+      publishing.  See the relevant section of the online
+      Emacspeak manual
+      for further details on 
+      <ulink url="http://emacspeak.sourceforge.net/info/emacspeak.html#SEC31">
+      document authoring on the Emacspeak desktop.</ulink>
       </para>
     </qandadiv>
     <qandadiv id="messaging">
@@ -726,7 +718,7 @@ the online article
         For further details, see the relevant section 
         of the online Emacspeak manual on 
         <ulink url="http://emacspeak.sourceforge.net/info/emacspeak.html#SEC40">
-          electronic messaging.</ulink></para>
+      electronic messaging.</ulink></para>
     </qandadiv>
     <qandadiv id="web">
       <title>Web Browsing</title>
@@ -737,102 +729,102 @@ the online article
         </question>
         <answer>
           <para>
-There are a number of available options, none of which are completely
+            There are a number of available options, none of which are completely
             satisfactory.
-Here is a summary of what is available.</para>
+          Here is a summary of what is available.</para>
           <orderedlist>
             <listitem>
               <para>
-<command>eww</command>.
-EWW is built-in with Emacs 24.4 and later.
- Emacspeak's web-specific wizards 
-make up for many of the short-comings encountered when navigating
+                <command>eww</command>.
+                EWW is built-in with Emacs 24.4 and later.
+                Emacspeak's web-specific wizards 
+                make up for many of the short-comings encountered when navigating
                 complex web sites.
-  </para>
+              </para>
             </listitem>
             <listitem>
               <para>
-<command>W3</command>.
-This is still my web browser of choice though it has sadly fallen by
+                <command>W3</command>.
+                This is still my web browser of choice though it has sadly fallen by
                 the way-side in the last few years.
-W3 lacks the features you need to interact with many commerce sites,
+                W3 lacks the features you need to interact with many commerce sites,
                 but is a very flexsible and powerful solution for
                 efficiently browsing content.
- Emacspeak's web-specific wizards 
-make up for many of the short-comings encountered when navigating
+                Emacspeak's web-specific wizards 
+                make up for many of the short-comings encountered when navigating
                 complex web sites and these wizards work best with
                 the W3 browser.
-Emacs command: <command>w3</command>.
-  </para>
+                Emacs command: <command>w3</command>.
+              </para>
             </listitem>
             <listitem>
               <para>
-<command>Emacs W3M</command>
-This is a light-weight browser compared to W3 and provides an Emacs
+                <command>Emacs W3M</command>
+                This is a light-weight browser compared to W3 and provides an Emacs
                 interface to  the  underlying
-W3M browser.
-It is a good solution for browsing content --especially on slow
+                W3M browser.
+                It is a good solution for browsing content --especially on slow
                 machines.
-Emacs command: <command>w3m</command>.</para>
+              Emacs command: <command>w3m</command>.</para>
             </listitem>
             <listitem>
               <para>
-<command>Lynx</command>.
-The oldest terminal based browser of them all.
-It's still a good solution for some interactive sites, but its lack of
-              support for tables can make some sites very confusing.
+                <command>Lynx</command>.
+                The oldest terminal based browser of them all.
+                It's still a good solution for some interactive sites, but its lack of
+                support for tables can make some sites very confusing.
               Emacspeak command: <command>emacspeak-lynx</command>.</para>
             </listitem>
             <listitem>
               <para><command>Links</command>.
-This is <emphasis>Links</emphasis> with an <emphasis>i</emphasis> and
-                not to be confused with the older Lynx browser.
-It has rudimentary Javascript support and is under active development.
+              This is <emphasis>Links</emphasis> with an <emphasis>i</emphasis> and
+              not to be confused with the older Lynx browser.
+              It has rudimentary Javascript support and is under active development.
               Emacspeak command: <command>emacspeak-links</command>.</para>
             </listitem>
             <listitem>
-<para>
-<command>IBM HPR</command>
-IBM Home Page Reader is a speech extension for Internet Explorer that
+              <para>
+                <command>IBM HPR</command>
+                IBM Home Page Reader is a speech extension for Internet Explorer that
                 can be run under VMWare.
-I use this as a last resort solution if I must interact with
-                Javascript heavy sites.</para>
-            <para>For this, you need to have VMWare installed and
-                configured.
-I run Emacspeak under the Sawfish window manager on Linux, and bring
-                up Win98 by typing <command>win98</command>
-inside an Emacs shell buffer. </para>
+                I use this as a last resort solution if I must interact with
+              Javascript heavy sites.</para>
+              <para>For this, you need to have VMWare installed and
+              configured.
+              I run Emacspeak under the Sawfish window manager on Linux, and bring
+              up Win98 by typing <command>win98</command>
+              inside an Emacs shell buffer. </para>
               <epigraph>
-<para>
-Moral: Get out of my way or I will turn you into a shell script.             </para> </epigraph>
-</listitem>
+                <para>
+              Moral: Get out of my way or I will turn you into a shell script.             </para> </epigraph>
+            </listitem>
           </orderedlist>
         </answer>
       </qandaentry>
     </qandadiv>
     <qandadiv id="admin">
       <title>System Management And System
-        Administration</title>
+      Administration</title>
       <para>This section contains tips on managing your system.</para>
     </qandadiv>
     <qandadiv id="utils">
       <title>Emacspeak Utilities</title>
       <para>This section gives tips on using some of the built-in
-        productivity tools bundled with Emacspeak.
-        Most of these are implemented in module
-        <application>emacspeak-wizards</application>.
+      productivity tools bundled with Emacspeak.
+      Most of these are implemented in module
+      <application>emacspeak-wizards</application>.
       </para>
       <qandaentry>
         <question>
           <para>
-            Launch a <command>root</command> shell.</para>
+          Launch a <command>root</command> shell.</para>
         </question>
         <answer>
           <para><emphasis>Never</emphasis> run Emacspeak as the
-            <command>root</command> user.
-            Instead use Emacspeak command 
-            <command>emacspeak-root</command>
-            to create a <command>root shell</command> after starting Emacspeak.
+          <command>root</command> user.
+          Instead use Emacspeak command 
+          <command>emacspeak-root</command>
+          to create a <command>root shell</command> after starting Emacspeak.
           </para>
         </answer>
       </qandaentry>
@@ -841,18 +833,18 @@ Moral: Get out of my way or I will turn you into a shell script.             </p
           <para>
             Setting shell's working directory to buffer's
             current directory
-</para>
+          </para>
         </question>
         <answer>
           <para>
-          You often find yourself switching to the shell
-          buffer and then executing <command>cd</command> to
-          switch to the directory containing the file you
-          were working on.  Emacspeak wizard
-          <command>emacspeak-wizards-shell-toggle</command>
-          switches to a running shell buffer and
-          automatically executes command
-          <command>cd</command> so you are in the right
+            You often find yourself switching to the shell
+            buffer and then executing <command>cd</command> to
+            switch to the directory containing the file you
+            were working on.  Emacspeak wizard
+            <command>emacspeak-wizards-shell-toggle</command>
+            switches to a running shell buffer and
+            automatically executes command
+            <command>cd</command> so you are in the right
           working directory.</para>
         </answer>
       </qandaentry>
@@ -875,10 +867,10 @@ Moral: Get out of my way or I will turn you into a shell script.             </p
         </question>
         <answer>
           <para>Emacspeak command
-            <command>emacspeak-copy-current-file</command>
-            lets you copy the file being visited to a
-            different location ---this is a convenient way of
-            publishing to a  WWW server.
+          <command>emacspeak-copy-current-file</command>
+          lets you copy the file being visited to a
+          different location ---this is a convenient way of
+          publishing to a  WWW server.
           </para>
         </answer>
       </qandaentry>
@@ -890,7 +882,7 @@ Moral: Get out of my way or I will turn you into a shell script.             </p
           <para>
             Emacspeak command
             <command>emacspeak-speak-telephone-directory</command>
-            lets you maintain a telephone directory as a simple text file.</para>
+          lets you maintain a telephone directory as a simple text file.</para>
         </answer>
       </qandaentry>
       <qandaentry>
@@ -899,12 +891,12 @@ Moral: Get out of my way or I will turn you into a shell script.             </p
         </question>
         <answer>
           <para>Many UNIX commands produce tabulated output,
-            e.g., command <command>df</command> for displaying
-            a disk usage summary.
-            You can use Emacspeak command
-            <command>emacspeak-speak-run-shell-command</command>
-            to run such commands and have the tabular output available
-            for browsing using Emacspeak's table browsing facilities.</para>
+          e.g., command <command>df</command> for displaying
+          a disk usage summary.
+          You can use Emacspeak command
+          <command>emacspeak-speak-run-shell-command</command>
+          to run such commands and have the tabular output available
+          for browsing using Emacspeak's table browsing facilities.</para>
         </answer>
       </qandaentry>
       <qandaentry>
