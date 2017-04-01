@@ -578,24 +578,15 @@ example, see <application>hideshow</application>.</para></answer>
       desktop.</para>
       <qandaentry>
         <question>
-          <para>Setting State Of The Auditory Display</para>
+          <para>Setting State Of The Auditory Display Using AMixer</para>
         </question>
         <answer>
           <para>
             The state of the auditory display can be set and
             updated using command
-            <command>emacspeak-aumix</command>.  The
+            <command>emacspeak-audio-setup</command>.  The
             available settings depend on the sound card in
-            use. Note that command
-            <command>emacspeak-aumix</command> is a
-            convenient means to using the underlying
-            <command>aumix</command> utility.  To set and
-            save the auditory display settings, invoke
-            command <command>emacspeak-aumix-edit</command>
-            by pressing
-            <command><keycap>e</keycap></command> after
-            invoking command
-            <command>emacspeak-aumix</command>.
+            use. 
           </para>
         </answer>
       </qandaentry>
@@ -620,14 +611,14 @@ example, see <application>hideshow</application>.</para></answer>
         </question>
         <answer>
           <para>Application
-          <application>freeamp</application> can play music
+          <application>mplayer</application> can play music
           listed 
           in a <application>playlist</application> file --typically
           such files are given the extension 
           <computeroutput>.m3u</computeroutput>.
           A playlist file contains names of MP3 files, one per line.
           To create  a playlist file for use with
-          <application>freeamp</application>,
+          <application>mplayer</application>,
           you might execute the following command from
           within a <application>shell</application>
           buffer:  
@@ -666,19 +657,7 @@ example, see <application>hideshow</application>.</para></answer>
           </para>
         </answer>
       </qandaentry>
-      <qandaentry>
-        <question>
-          <para>Playing MS Windows Media Files</para>
-        </question>
-        <answer>
-          <para>
-            To play Windows media files, first install the media player
-            <command>mplayer</command> for Linux.
-            Once this player is installed and working, emacspeak command
-            <command>emacspeak-m-player</command>
-          can be used to conveniently play Windows Media streams.</para>
-        </answer>
-      </qandaentry>
+      
       <qandaentry>
         <question>
           <para>Streaming media presets</para>
