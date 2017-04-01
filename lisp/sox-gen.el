@@ -654,7 +654,7 @@ tempo 2 channels 2   "
 
 
 ;;}}}
-;;{{{ Chime:
+;;{{{ tone:
 
 (defconst sox-tones-cmd
   "-q -n synth -j 3 \
