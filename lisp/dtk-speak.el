@@ -141,7 +141,7 @@ Do not set this variable by hand, use command  `dtk-toggle-split-caps'
 ;;;###autoload
 (defcustom dtk-cleanup-patterns
   (list
-   "." "_" "-"  "=" "/"  "+" "*" ":" ";" "%"
+   ". " "." "_" "-"  "=" "/"  "+" "*" ":" ";" "%"
    "‑" "{" "}" "~" "$" ")" "#" "/\\" "<>")
   "List of repeating patterns to clean up.
 You can use  command  `dtk-add-cleanup-pattern'
