@@ -2,7 +2,7 @@
 
 To install a specific version of Emacspeak:
 
-  1. Download and unpack the latest tarball.
+  1. Download and unpack the release tarball.
   2. make config && make to build Emacspeak
   3. Optional: make espeak to build espeak support.
   4. Optional: make outloud to build ViaVoice outloud support.
