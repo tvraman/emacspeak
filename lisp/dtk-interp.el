@@ -150,7 +150,7 @@
                     dtk-allcaps-beep))
   (process-send-string
    dtk-speaker-process
-   (format "tts_sync_state %s %s %s %s %s \n"
+   (format "tts_sync_state %s %s %s %s %s\n"
            dtk-punctuation-mode
            (if dtk-capitalize 1  0)
            (if dtk-allcaps-beep 1  0)
