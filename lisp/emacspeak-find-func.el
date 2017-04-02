@@ -65,9 +65,7 @@
           "Speak current line"
           (when  (ems-interactive-p)
             (emacspeak-auditory-icon 'open-object)
-            (emacspeak-dtk-sync)
-            (dtk-speak
-             (format "Found %s" (ad-get-arg 0)))))))
+            (dtk-speak (format "Found %s" (ad-get-arg 0)))))))
 
 ;;}}}
 

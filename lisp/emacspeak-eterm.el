@@ -1126,7 +1126,6 @@ emacspeak-toggle-eterm-autospeak bound to
        ((and  eterm-line-mode
               emacspeak-eterm-autospeak)
         (setq dtk-stop-immediately nil)
-        (emacspeak-dtk-sync)
         (condition-case nil 
             (emacspeak-speak-region
              (1- old-point)

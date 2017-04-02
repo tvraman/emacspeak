@@ -150,7 +150,6 @@ reading news."
 ;;{{{  helper functions
 
 (defun emacspeak-gnus-summary-speak-subject ()
-  (emacspeak-dtk-sync)
   (dtk-speak (gnus-summary-article-subject)))
 
 (defun emacspeak-gnus-speak-article-body ()
@@ -159,7 +158,6 @@ reading news."
                     gnus-article-buffer))
   (with-current-buffer gnus-article-buffer
     (goto-char (point-min))
-    (emacspeak-dtk-sync)
     (cond
      ((< (count-lines (point-min) (point-max))
          emacspeak-gnus-large-article)
@@ -593,7 +591,6 @@ indicating the article is being opened."
     (emacspeak-auditory-icon 'open-object)
     (with-current-buffer
         gnus-article-buffer
-      (emacspeak-dtk-sync)
       (let ((start  (point))
             (window (get-buffer-window (current-buffer))))
         (with-selected-window window

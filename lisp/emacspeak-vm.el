@@ -71,8 +71,7 @@ Note that some badly formed mime messages  cause trouble."
   (declare (special  dtk-punctuation-mode dtk-allcaps-beep))
   (setq dtk-punctuation-mode 'all)
   (when dtk-allcaps-beep
-    (dtk-toggle-allcaps-beep))
-  (emacspeak-dtk-sync))
+    (dtk-toggle-allcaps-beep)))
 
 ;;}}}
 ;;{{{ inline helpers

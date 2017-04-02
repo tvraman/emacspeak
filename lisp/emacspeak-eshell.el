@@ -92,7 +92,6 @@ Provide an auditory icon if possible."
     (or dtk-split-caps
         (dtk-toggle-split-caps))
     (emacspeak-pronounce-refresh-pronunciations)
-    (emacspeak-dtk-sync)
     (emacspeak-speak-line)))
 
 ;;}}}

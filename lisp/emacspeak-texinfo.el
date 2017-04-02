@@ -60,8 +60,7 @@
   (or dtk-split-caps
       (dtk-toggle-split-caps))
   (or emacspeak-audio-indentation
-      (emacspeak-toggle-audio-indentation))
-  (emacspeak-dtk-sync))
+      (emacspeak-toggle-audio-indentation)))
 
 (add-hook 'texinfo-mode-hook 'emacspeak-texinfo-mode-hook)
 

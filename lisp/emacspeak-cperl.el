@@ -209,8 +209,7 @@ Otherwise cue user to the line just created. "
                       (or dtk-split-caps
                           (dtk-toggle-split-caps))
                       (or emacspeak-audio-indentation
-                          (emacspeak-toggle-audio-indentation))
-                      (emacspeak-dtk-sync))))
+                          (emacspeak-toggle-audio-indentation)))))
 
 ;;}}}
 (provide  'emacspeak-cperl)

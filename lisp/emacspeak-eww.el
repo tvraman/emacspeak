@@ -715,8 +715,7 @@ Retain previously set punctuations  mode."
        'emacspeak-web-post-process-hook
        #'(lambda ()
            (dtk-set-punctuations p)
-           (dtk-set-rate r)
-           (emacspeak-dtk-sync))
+           (dtk-set-rate r))
        'at-end)
       (emacspeak-feeds-feed-display u s 'speak)))
    ((and (emacspeak-eww-current-url) emacspeak-eww-url-template)
@@ -729,8 +728,7 @@ Retain previously set punctuations  mode."
        'emacspeak-web-post-process-hook
        #'(lambda nil
            (dtk-set-punctuations p)
-           (dtk-set-rate r)
-           (emacspeak-dtk-sync))
+           (dtk-set-rate r))
        'at-end)
       (kill-buffer)
       (emacspeak-url-template-open (emacspeak-url-template-get  n))))

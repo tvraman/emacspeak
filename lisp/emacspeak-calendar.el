@@ -425,7 +425,6 @@
      (appt-buffer
       (save-current-buffer
         (set-buffer  appt-buffer)
-        (emacspeak-dtk-sync)
         (if (= (point-min) (point-max))
             (message  "No appointments are currently displayed")
           (dtk-speak (buffer-string)))))

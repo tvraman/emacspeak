@@ -1750,7 +1750,6 @@ Interactive prefix arg speaks buffer info."
                      emacspeak-mail-alert mode-line-format))
   (force-mode-line-update)
   (when (and visual-line-mode (not global-visual-line-mode))  (sox-chime 2 2))
-  ;(ems-sync-mode-punctuation-setting major-mode)
   (when   emacspeak-mail-alert (emacspeak-mail-alert-user))
   (cond
    ((and header-line-format (not (called-interactively-p 'interactive)))
