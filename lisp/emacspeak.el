@@ -275,6 +275,7 @@ that implements the speech-enabling extensions."
 (emacspeak-do-package-setup "sh-script" 'emacspeak-sh-script)
 (emacspeak-do-package-setup "slime" 'emacspeak-slime)
 (emacspeak-do-package-setup "sigbegone" 'emacspeak-sigbegone)
+(emacspeak-do-package-setup "smart-window" 'emacspeak-smart-window)
 (emacspeak-do-package-setup "solitaire" 'emacspeak-solitaire)
 (emacspeak-do-package-setup "speedbar" 'emacspeak-speedbar)
 (emacspeak-do-package-setup "ses" 'emacspeak-ses)
