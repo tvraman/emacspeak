@@ -617,10 +617,14 @@ channels 2 tempo 1.5  speed 1.2 gain -18"
   "Chime used to indicate multiple windows.")
   
 ;;;###autoload
-(defun sox-multiwindow ()
+(defun sox-multiwindow (&optional tempo speed)
   "Produce a short note used to cue multiwindow."
   (declare (special sox-multiwindow-cmd))
-(sox-gen-cmd sox-multiwindow-cmd))
+  (sox-gen-cmd
+   (concat 
+    sox-multiwindow-cmd
+    (when tempo (format " tempo %s" tempo))
+    (when speed (format " speed %s" speed)))))
 
 ;;}}}
 ;;{{{ scroll:
