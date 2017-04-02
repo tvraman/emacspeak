@@ -61,12 +61,12 @@ displayed buffers."
          (window-list  (tapestry-window-list))
          (windows nil)
          (description
-          (format "Frame displays %s buffer%s "
-                  count 
-                  (if (> count 1) "s" ""))))
-    (put-text-property 0 (length description)
-                       'personality  voice-annotate
-                       description)
+          (format
+           "Displaying %s buffer%s "
+           count 
+           (if (> count 1) "s" ""))))
+    (put-text-property
+     0 (length description) 'personality  voice-annotate description)
     (setq
      windows 
      (cond
@@ -79,24 +79,19 @@ displayed buffers."
               (corners  (window-edges window))
               (tl nil)
               (br nil))
-          (put-text-property 0 (length w)
-                             'personality
-                             voice-animate w)
-          (setq tl
-                (format  " %d %d "
-                         (first corners) (second corners))
-                br  (format " %d %d "
-                            (third corners) (fourth corners)))
-          (put-text-property 0 (length tl)
-                             'personality voice-bolden tl)
-          (put-text-property 0 (length br)
-                             'personality voice-bolden br)
+          (put-text-property
+           0 (length w)
+           'personality voice-animate w)
+          (setq
+           tl (format  " %d %d " (first corners) (second corners))
+           br  (format " %d %d " (third corners) (fourth corners)))
+          (put-text-property 0 (length tl) 'personality voice-bolden tl)
+          (put-text-property 0 (length br) 'personality voice-bolden br)
           (concat w " with top left " tl " and bottom right " br))))
       (t (mapcar #'second buffer-map ))))
     (tts-with-punctuations
      'all
-     (dtk-speak
-      (concat description (mapconcat #'identity windows " "))))))
+     (dtk-speak (concat description (mapconcat #'identity windows " "))))))
 
 (defalias 'emacspeak-speak-window-layout 'emacspeak-tapestry-describe-tapestry)
 ;;;###autoload
