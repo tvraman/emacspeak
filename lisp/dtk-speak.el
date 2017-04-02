@@ -814,7 +814,6 @@ will say ``aw fifteen dot'' when speaking the string
           (if (fboundp 'called-interactively-p)
               (called-interactively-p 'interactive)
             (interactive-p))
-        (dtk-interp-sync)
         (dtk-speak-and-echo
          (format "Turned %s %s  %s."
                  (if ,switch "on" "off")
