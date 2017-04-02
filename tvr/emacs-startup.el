@@ -211,6 +211,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "emms-prepare" "iplayer-prepare"
        "auto-correct-setup"
        "color-theme-prepare" "elscreen-prepare"
+       "smart-window"
        "local"))
 
     ;;}}}
