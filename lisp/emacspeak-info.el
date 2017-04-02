@@ -173,12 +173,13 @@ See documentation for command `Info-goto-node' for details on
 node-spec."
   (interactive
    (list
-    (let ((completion-ignore-case t))
+    (let ((completion-ignore-case t)
+          (f nil)
+          (n nil))
       (info-initialize)
-      (completing-read "Node: "
-                       (Info-build-node-completions
-                        (completing-read "File: " (info--manual-names nil)
-                                         nil t))))))
+      (setq f (completing-read "File: " (info--manual-names nil) nil t))
+      (setq n (completing-read "Node: " (Info-build-node-completions f)))
+      (format "(%s)%s" f n))))
   (Info-goto-node node-spec)
   (emacspeak-info-visit-node))
 
