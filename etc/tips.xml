@@ -102,7 +102,7 @@
         <para>Emacspeak Hypertext Reference</para></question>
         <answer>
           <para>You can open the online Emacspeak hypertext reference using
-          key <command><keysym>C-e r</keysym></command>.
+          key <command><keysym>C-e TAB</keysym></command>.
         </para></answer>
       </qandaentry>
       <qandaentry>
