@@ -637,13 +637,12 @@ tempo 2 channels 2"
   "A quick scroll sound.")
 
 ;;;###autoload
-(defun sox-do-scroll-up (&optional tempo speed)
+(defun sox-do-scroll-up (&optional  speed)
   "Produce a short do-scroll-up."
   (declare (special sox-do-scroll-up-cmd))
   (sox-gen-cmd
    (concat
     sox-do-scroll-up-cmd
-    (when tempo (format " speed %s" tempo))
     (when speed (format " speed %s" speed)))))
 
 (defconst sox-do-scroll-down-cmd
@@ -654,13 +653,12 @@ tempo 2 channels 2   "
   "A quick scroll sound.")
 
 ;;;###autoload
-(defun sox-do-scroll-down (&optional tempo scale)
+(defun sox-do-scroll-down (&optional speed)
   "Produce a short do-scroll-down."
   (declare (special sox-do-scroll-down-cmd))
   (sox-gen-cmd
    (concat 
     sox-do-scroll-down-cmd
-    (when tempo (format " speed %s" tempo))
     (when speed (format " speed %s" speed)))))
 
 
