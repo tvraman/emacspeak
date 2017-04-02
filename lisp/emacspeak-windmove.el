@@ -56,18 +56,17 @@
 ;;}}}
 ;;{{{ advice window navigation
 
-(cl-loop for f in
-      (list 'windmove-left
-            'windmove-right
-            'windmove-up
-            'windmove-down)
-      do
-      (eval
-       `(defadvice  ,f (after emacspeak pre act comp)
-          "Provide auditory feedback."
-          (when (ems-interactive-p)
-            (emacspeak-auditory-icon 'select-object)
-            (emacspeak-speak-mode-line)))))
+(cl-loop
+ for f in
+ '(windmove-left windmove-right
+   windmove-up windmove-down)
+ do
+ (eval
+  `(defadvice  ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon select-object)
+       (emacspeak-speak-mode-line)))))
 
 ;;}}}
 
