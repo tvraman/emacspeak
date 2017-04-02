@@ -424,12 +424,12 @@ proc clean {element} {
     }
     regsub -all {\240} $element " " element
     if {$tts(capitalize) } {
-        regsub -all {[A-Z]} $element { `ah `p100   `3 &`p100 } element
+        regsub -all {[A-Z]} $element { `ah `p2 `3 &`p1 } element
     }
     if {$tts(split_caps) } {
         if  {$tts(allcaps_beep)} {
-            set tone "`ar `p200   `4 "
-            set abbrev_tone "`ar `p300   `4 "
+            set tone "`ar `p20 `4 "
+            set abbrev_tone "`ar `p30   `4 "
         } else {
             set tone ""
             set abbrev_tone ""
