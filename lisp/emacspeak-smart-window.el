@@ -64,7 +64,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
          (when (ems-interactive-p)
            (let ((dtk-stop-immediately nil))
-           (sox-tones 3)
+           (sox-multiwindow 1 2)
            (dtk-speak (buffer-name (current-buffer)))
            (emacspeak-tapestry-describe-tapestry 'full))))))
 
