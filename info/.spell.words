@@ -255,6 +255,7 @@ filladapt
 filtertext
 flipflop
 Flite
+flx
 flycheck
 FLYCHECK
 flyspell
@@ -262,6 +263,7 @@ fmt
 fn
 foldoc
 FreeSound
+frontends
 fset
 ftf
 FTF
@@ -277,8 +279,6 @@ GDB
 geiser
 GEISER
 geocoding
-gf
-gfeeds
 GitHub
 globbed
 gmail
@@ -336,7 +336,6 @@ IPython
 irc
 IRC
 isearch
-IToRSS
 JDB
 jde
 JDE
@@ -516,11 +515,10 @@ readonly
 RealAudio
 RealPlayer
 reb
-referer
-Referer
 refteex
 reftex
 reinstall
+rekey
 renderer
 Renderer
 repl
