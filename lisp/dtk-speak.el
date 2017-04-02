@@ -809,11 +809,12 @@ will say ``aw fifteen dot'' when speaking the string
         (setq ,switch (default-value ',switch)))
        (t  (make-local-variable ',switch)
            (setq ,switch (not ,switch))))
+      (dtk-interp-sync)
       (when
           (if (fboundp 'called-interactively-p)
               (called-interactively-p 'interactive)
             (interactive-p))
-        (emacspeak-auditory-icon (if ,switch 'on 'off))
+        (dtk-interp-sync)
         (dtk-speak-and-echo
          (format "Turned %s %s  %s."
                  (if ,switch "on" "off")
