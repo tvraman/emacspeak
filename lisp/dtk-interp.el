@@ -148,13 +148,14 @@
                     dtk-punctuation-mode dtk-speech-rate
                     dtk-capitalize dtk-split-caps
                     dtk-allcaps-beep))
-  (process-send-string dtk-speaker-process
-                       (format "tts_sync_state %s %s %s %s %s \n"
-                               dtk-punctuation-mode
-                               (if dtk-capitalize 1  0)
-                               (if dtk-allcaps-beep 1  0)
-                               (if dtk-split-caps 1 0)
-                               dtk-speech-rate)))
+  (process-send-string
+   dtk-speaker-process
+   (format "tts_sync_state %s %s %s %s %s \n"
+           dtk-punctuation-mode
+           (if dtk-capitalize 1  0)
+           (if dtk-allcaps-beep 1  0)
+           (if dtk-split-caps 1 0)
+           dtk-speech-rate)))
 
 ;;}}}
 ;;{{{  letter
