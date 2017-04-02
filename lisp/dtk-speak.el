@@ -1751,7 +1751,7 @@ only speak upto the first ctrl-m."
                     dtk-speak-treat-embedded-punctuations-specially
                     dtk-quiet  dtk-chunk-separator-syntax
                     voice-lock-mode   dtk-punctuation-mode
-                    dtk-split-caps
+                    dtk-split-caps dtk-capitalize dtk-allcaps-beep
                     emacspeak-pronounce-pronunciation-table
                     selective-display))
 ;;; ensure text is a  string
@@ -1780,32 +1780,36 @@ only speak upto the first ctrl-m."
           (pronunciation-table emacspeak-pronounce-pronunciation-table)
           (use-auditory-icons emacspeak-use-auditory-icons)
           (inherit-chunk-separator-syntax dtk-chunk-separator-syntax)
-          (inherit-speak-nonprinting-chars
-           dtk-speak-nonprinting-chars)
+          (inherit-speak-nonprinting-chars dtk-speak-nonprinting-chars)
           (inherit-strip-octals tts-strip-octals)
           (complement-separator(dtk-complement-chunk-separator-syntax))
           (speech-rate dtk-speech-rate)
+          (capitalize dtk-capitalize)
+          (all-caps dtk-allcaps-beep)
+          (split-caps dtk-split-caps)
           (inherit-enable-multibyte-characters enable-multibyte-characters)
           (dtk-scratch-buffer (get-buffer-create " *dtk-scratch-buffer* "))
           (start 1)
           (end nil)
           (mode dtk-punctuation-mode)
-          (split-caps dtk-split-caps)
           (voice-lock voice-lock-mode))
       (with-current-buffer dtk-scratch-buffer
         (setq buffer-undo-list t)
         (erase-buffer)
 ;;; inherit environment
-        (setq buffer-invisibility-spec invisibility-spec
-              dtk-chunk-separator-syntax inherit-chunk-separator-syntax
-              dtk-speaker-process inherit-speaker-process
-              dtk-speech-rate speech-rate
-              emacspeak-use-auditory-icons use-auditory-icons
-              dtk-punctuation-mode mode
-              dtk-split-caps split-caps
-              dtk-speak-nonprinting-chars inherit-speak-nonprinting-chars
-              tts-strip-octals inherit-strip-octals
-              voice-lock-mode voice-lock)
+        (setq
+         buffer-invisibility-spec invisibility-spec
+         dtk-chunk-separator-syntax inherit-chunk-separator-syntax
+         dtk-speaker-process inherit-speaker-process
+         dtk-speech-rate speech-rate
+         emacspeak-use-auditory-icons use-auditory-icons
+         dtk-punctuation-mode mode
+         dtk-split-caps split-caps
+         dtk-capitalize capitalize
+         dtk-allcaps-beep all-caps
+         dtk-speak-nonprinting-chars inherit-speak-nonprinting-chars
+         tts-strip-octals inherit-strip-octals
+         voice-lock-mode voice-lock)
         (set-syntax-table syntax-table)
         (set-buffer-multibyte inherit-enable-multibyte-characters)
         (dtk-interp-sync)
