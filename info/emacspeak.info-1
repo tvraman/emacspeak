@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents Emacspeak, The Complete Audio Desktop.  This
-document was last updated on April 1, 2017.
+document was last updated on April 2, 2017.
 
    The manual is divided into the following chapters.
 
@@ -4287,8 +4287,8 @@ system.
 
      .
 
-     See the online documentation for individual commands and
-     functions for details.
+     See the online documentation C-e TAB for individual commands and
+     options for details.
 
 12.10.1.2 emacspeak-describe-emacspeak
 ......................................
@@ -5465,6 +5465,96 @@ system.
      Personality used for italic This personality uses voice-animate
      whose effect can be changed globally by customizing
      voice-animate-settings.
+
+ -- Variable: User Option emacspeak-jabber-activity-personality
+     Personality used for jabber-activity-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option emacspeak-jabber-chat-error-voice
+     Personality used for jabber-chat-error This personality uses
+     voice-bolden-and-animate whose effect can be changed globally by
+     customizing voice-bolden-and-animate-settings.
+
+ -- Variable: User Option emacspeak-jabber-chat-prompt-foreign-voice
+     Personality used for jabber-chat-prompt-foreign This personality
+     uses voice-brighten-medium whose effect can be changed globally by
+     customizing voice-brighten-medium-settings.
+
+ -- Variable: User Option emacspeak-jabber-chat-prompt-local-voice
+     Personality used for jabber-chat-prompt-local This personality uses
+     voice-smoothen-medium whose effect can be changed globally by
+     customizing voice-smoothen-medium-settings.
+
+ -- Variable: User Option emacspeak-jabber-chat-prompt-system-voice
+     Personality used for jabber-chat-prompt-system This personality
+     uses voice-brighten-extra whose effect can be changed globally by
+     customizing voice-brighten-extra-settings.
+
+ -- Variable: User Option emacspeak-jabber-chat-text-foreign-voice
+     Personality used for jabber-chat-text-foreign This personality uses
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
+
+ -- Variable: User Option emacspeak-jabber-chat-text-local-voice
+     Personality used for jabber-chat-text-local This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-jabber-rare-time-personality
+     Personality used for jabber-rare-time-face This personality uses
+     voice-animate-extra whose effect can be changed globally by
+     customizing voice-animate-extra-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-away-voice
+     Personality used for jabber-roster-user-away This personality uses
+     voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-chatty-voice
+     Personality used for jabber-roster-user-chatty This personality
+     uses voice-brighten whose effect can be changed globally by
+     customizing voice-brighten-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-dnd-voice
+     Personality used for jabber-roster-user-dnd This personality uses
+     voice-lighten-medium whose effect can be changed globally by
+     customizing voice-lighten-medium-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-error-voice
+     Personality used for jabber-roster-user-error This personality uses
+     voice-bolden-and-animate whose effect can be changed globally by
+     customizing voice-bolden-and-animate-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-offline-voice
+     Personality used for jabber-roster-user-offline This personality
+     uses voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-online-voice
+     Personality used for jabber-roster-user-online This personality
+     uses voice-bolden whose effect can be changed globally by
+     customizing voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-jabber-roster-user-xa-voice
+     Personality used for jabber-roster-user-xa This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-jabber-title-large-voice
+     Personality used for jabber-title-large This personality uses
+     voice-bolden-extra whose effect can be changed globally by
+     customizing voice-bolden-extra-settings.
+
+ -- Variable: User Option emacspeak-jabber-title-medium-voice
+     Personality used for jabber-title-medium This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-jabber-title-small-voice
+     Personality used for jabber-title-small This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
 
  -- Variable: User Option emacspeak-js2-error-voice
      Personality used for js2-error This personality uses

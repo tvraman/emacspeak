@@ -1591,8 +1591,8 @@ v		visual-line-mode
 
 .
 
-See the online documentation for individual commands and
-functions for details.   
+See the online documentation C-e TAB for individual commands and
+options for details.   
 @end format
 @end deffn
 
@@ -3012,6 +3012,114 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @defvar {User Option} emacspeak-italic-voice
 Personality used for italic
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-jabber-activity-personality
+Personality used for jabber-activity-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-jabber-chat-error-voice
+Personality used for jabber-chat-error
+This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-jabber-chat-prompt-foreign-voice
+Personality used for jabber-chat-prompt-foreign
+This personality uses  voice-brighten-medium whose  effect can be changed globally by customizing voice-brighten-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-jabber-chat-prompt-local-voice
+Personality used for jabber-chat-prompt-local
+This personality uses  voice-smoothen-medium whose  effect can be changed globally by customizing voice-smoothen-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-jabber-chat-prompt-system-voice
+Personality used for jabber-chat-prompt-system
+This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-jabber-chat-text-foreign-voice
+Personality used for jabber-chat-text-foreign
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-jabber-chat-text-local-voice
+Personality used for jabber-chat-text-local
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-jabber-rare-time-personality
+Personality used for jabber-rare-time-face
+This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-jabber-roster-user-away-voice
+Personality used for jabber-roster-user-away
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-jabber-roster-user-chatty-voice
+Personality used for jabber-roster-user-chatty
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-jabber-roster-user-dnd-voice
+Personality used for jabber-roster-user-dnd
+This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-jabber-roster-user-error-voice
+Personality used for jabber-roster-user-error
+This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-jabber-roster-user-offline-voice
+Personality used for jabber-roster-user-offline
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-jabber-roster-user-online-voice
+Personality used for jabber-roster-user-online
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-jabber-roster-user-xa-voice
+Personality used for jabber-roster-user-xa
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-jabber-title-large-voice
+Personality used for jabber-title-large
+This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-jabber-title-medium-voice
+Personality used for jabber-title-medium
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-jabber-title-small-voice
+Personality used for jabber-title-small
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 
 @end defvar
 
@@ -9855,116 +9963,8 @@ Pop to Jabber roster.
 
 @subsection emacspeak-jabber Options
 
-@defvar {User Option} emacspeak-jabber-activity-personality
-Personality used for jabber-activity-face
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-jabber-chat-error-voice
-Personality used for jabber-chat-error
-This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-jabber-chat-prompt-foreign-voice
-Personality used for jabber-chat-prompt-foreign
-This personality uses  voice-brighten-medium whose  effect can be changed globally by customizing voice-brighten-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-jabber-chat-prompt-local-voice
-Personality used for jabber-chat-prompt-local
-This personality uses  voice-smoothen-medium whose  effect can be changed globally by customizing voice-smoothen-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-jabber-chat-prompt-system-voice
-Personality used for jabber-chat-prompt-system
-This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-jabber-chat-text-foreign-voice
-Personality used for jabber-chat-text-foreign
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-jabber-chat-text-local-voice
-Personality used for jabber-chat-text-local
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-jabber-rare-time-personality
-Personality used for jabber-rare-time-face
-This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-jabber-roster-user-away-voice
-Personality used for jabber-roster-user-away
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-jabber-roster-user-chatty-voice
-Personality used for jabber-roster-user-chatty
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-jabber-roster-user-dnd-voice
-Personality used for jabber-roster-user-dnd
-This personality uses  voice-lighten-medium whose  effect can be changed globally by customizing voice-lighten-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-jabber-roster-user-error-voice
-Personality used for jabber-roster-user-error
-This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-jabber-roster-user-offline-voice
-Personality used for jabber-roster-user-offline
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-jabber-roster-user-online-voice
-Personality used for jabber-roster-user-online
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-jabber-roster-user-xa-voice
-Personality used for jabber-roster-user-xa
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
 @defvar {User Option} emacspeak-jabber-speak-presence-alerts
 Set to T if you want to hear presence alerts.
-
-@end defvar
-
-@defvar {User Option} emacspeak-jabber-title-large-voice
-Personality used for jabber-title-large
-This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-jabber-title-medium-voice
-Personality used for jabber-title-medium
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-jabber-title-small-voice
-Personality used for jabber-title-small
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 
 @end defvar
 
