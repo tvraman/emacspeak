@@ -3337,6 +3337,7 @@ See documentation for command run-at-time for details on time-spec."
    time nil
    #'(lambda (m)
        (message m)
+       (dtk-notify-speak m)
        (emacspeak-auditory-icon 'alarm)
        (sox-tones))
    message)
