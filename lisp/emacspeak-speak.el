@@ -3334,11 +3334,12 @@ See documentation for command run-at-time for details on time-spec."
    (list
     (read-from-minibuffer "Time specification:  ")
     (read-from-minibuffer "Message: ")))
-  (run-at-time time nil
-               #'(lambda (m)
-                   (message m)
-                   (emacspeak-auditory-icon 'alarm))
-               message)
+  (run-at-time
+   time nil
+   #'(lambda (m)
+       (message m)
+       (emacspeak-auditory-icon 'alarm))
+   message)
   (message "Set alarm for %s" time)
   (emacspeak-auditory-icon 'button))
 
