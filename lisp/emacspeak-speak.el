@@ -3338,11 +3338,11 @@ See documentation for command run-at-time for details on time-spec."
    #'(lambda (m)
        (message m)
        (dtk-notify-speak m)
-       (emacspeak-auditory-icon 'alarm)
+       (emacspeak-play-auditory-icon 'alarm)
        (sox-tones))
    message)
   (message "Set alarm for %s" time)
-  (emacspeak-play-auditory-icon 'button))
+  (emacspeak-auditory-icon 'button))
 
 ;;}}}
 ;;{{{ Directory specific settings
