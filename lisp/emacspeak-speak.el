@@ -3338,6 +3338,8 @@ See documentation for command run-at-time for details on time-spec."
    time nil
    #'(lambda (m)
        (message m)
+       (emacspeak-auditory-icon 'alarm)
+       (sit-for 1)
        (emacspeak-auditory-icon 'alarm))
    message)
   (message "Set alarm for %s" time)
