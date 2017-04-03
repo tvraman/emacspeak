@@ -55,7 +55,6 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'custom)
-(require 'tapestry)
 (require 'ido)
 (require 'time-date)
 (require 'rect)
@@ -1757,7 +1756,7 @@ Interactive prefix arg speaks buffer info."
    (buffer-info (emacspeak-speak-buffer-info))
    (t                                   ; main branch
     (let ((global-info (downcase (format-mode-line global-mode-string)))
-          (window-count (length (tapestry-buffer-map)))
+          (window-count (length (window-list)))
           (vc-state (when vc-mode  (vc-state (buffer-file-name))))
           (frame-info (emacspeak-get-voicefied-frame-info (selected-frame)))
           (recursion-info (emacspeak-get-voicefied-recursion-info  (recursion-depth)))
@@ -1902,7 +1901,7 @@ Displays name of current buffer.")
   (declare (special header-line-format))
   (cond
    (header-line-format
-    (let ((window-count (length (tapestry-buffer-map))))
+    (let ((window-count (length (window-list))))
     (emacspeak-auditory-icon 'item)
     (when (> window-count 1 ) (sox-multiwindow))
     (dtk-speak (format-mode-line header-line-format))))
