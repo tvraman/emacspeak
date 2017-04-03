@@ -3341,7 +3341,7 @@ See documentation for command run-at-time for details on time-spec."
        (emacspeak-auditory-icon 'alarm))
    message)
   (message "Set alarm for %s" time)
-  (emacspeak-auditory-icon 'button))
+  (emacspeak-play-auditory-icon 'button))
 
 ;;}}}
 ;;{{{ Directory specific settings
