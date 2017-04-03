@@ -1766,7 +1766,7 @@ Interactive prefix arg speaks buffer info."
              (abbreviate-file-name default-directory))))
       (when (> window-count 1)
         (sox-multiwindow ; left vs right window
-         (zerop (car (window-edges)))))
+         (not (zerop (car (window-edges))))))
       (setq
        window-count
        (if (> window-count 1)
