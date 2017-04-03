@@ -467,15 +467,17 @@ Press C-' or C-. to access keybindings in emacspeak-super-keymap:
 Press C-, to access keybindings in emacspeak-alt-keymap:
 \\{emacspeak-alt-keymap}.
 
-See the online documentation for individual commands and
-functions for details.   "
+See the online documentation \\[emacspeak-open-info] for individual commands and
+options for details.   "
   (interactive)
-  (declare (special emacspeak-pronounce-load-pronunciations-on-startup
-                    use-dialog-box
-                    emacspeak-pronounce-dictionaries-file
-                    emacspeak-play-program emacspeak-sounds-directory))
+  (declare (special
+            emacspeak-pronounce-load-pronunciations-on-startup emacspeak-info-directory
+            use-dialog-box emacspeak-pronounce-dictionaries-file
+            emacspeak-play-program emacspeak-sounds-directory))
   (emacspeak-export-environment)
   (setq use-dialog-box nil)
+  (when (boundp 'Info-directory-list)
+    (push emacspeak-info-directory Info-directory-list))
   (require 'emacspeak-personality)
   (dtk-initialize)
   (tts-configure-synthesis-setup)
@@ -489,13 +491,14 @@ functions for details.   "
   (emacspeak-setup-programming-modes)
   (run-hooks 'emacspeak-startup-hook)
   (emacspeak-use-customized-blink-paren)
-  (tts-with-punctuations 'some
-                         (dtk-speak-and-echo
-                          (format "  Press %s to get an   overview of emacspeak  %s \
+  (tts-with-punctuations
+   'some
+   (dtk-speak-and-echo
+    (format "  Press %s to get an   overview of emacspeak  %s \
  I am  completely operational,  and all my circuits are functioning perfectly! "
-                                  (substitute-command-keys
-                                   "\\[emacspeak-describe-emacspeak]")
-                                  emacspeak-version))))
+            (substitute-command-keys
+             "\\[emacspeak-describe-emacspeak]")
+            emacspeak-version))))
 ;;;###autoload
 (defun emacspeak-info ()
   "Open Emacspeak Info Manual."
