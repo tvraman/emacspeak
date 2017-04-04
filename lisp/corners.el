@@ -1,7 +1,7 @@
 ;;; Locate A Window  -*- lexical-binding: t; -*-
 (defun  loc (&optional corners)
   "describe location"
-(or corners (setq corners (window-edges)))
+  (or corners (setq corners (window-edges)))
   (let*
       ((fw (frame-width))
        (fh (1- (frame-height)))
@@ -13,5 +13,7 @@
        (rc fw)
        (count (length (window-list))))
     (cond
-           ((equal corners `(,lc ,tr ,mc ,br)) 'left-half)
-((equal  corners `(,mc ,tr ,rc, br)) 'right-half))))
+     ((equal corners `(,lc ,tr ,mc ,br)) 'left-half)
+     ((equal  corners `(,mc ,tr ,rc, br)) 'right-half)
+     ((equal  corners `(,lc ,tr ,rc,mr))'top-half)
+     ((equal  corners  `(,lc ,mr ,rc,br)) 'bottom-half))))
