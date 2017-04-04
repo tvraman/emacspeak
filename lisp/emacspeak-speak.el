@@ -1737,6 +1737,10 @@ semantic to do the work."
              "with narrowing in effect. ")))
 (voice-setup-map-face 'header-line 'voice-bolden)
 
+(defun emacspeak--sox-multiwindow (corners)
+  "Takes a list of window coordinates (t l b r)and produces an appropriate note using sox."
+  (sox-multiwindow (not (zerop (car corners)))))
+
 (defun emacspeak-speak-mode-line (&optional buffer-info)
   "Speak the mode-line.
 Speaks header-line if that is set when called non-interactively.
@@ -1764,9 +1768,7 @@ Interactive prefix arg speaks buffer info."
            (when (or (eq major-mode 'shell-mode)
                      (eq major-mode 'comint-mode))
              (abbreviate-file-name default-directory))))
-      (when (> window-count 1)
-        (sox-multiwindow ; left vs right window
-         (not (zerop (car (window-edges))))))
+      (when (> window-count 1) (emacspeak--sox-multiwindow (window-edges)))
       (setq
        window-count
        (if (> window-count 1)
