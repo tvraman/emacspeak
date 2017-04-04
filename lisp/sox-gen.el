@@ -120,7 +120,7 @@
 
 ;;}}}
 ;;{{{ sox-gen-p:
-
+;;;###autoload
 (defcustom sox-gen-p (executable-find "sox")
   "Should sox-gen commands attempt to invoke SoX."
   :type 'boolean
