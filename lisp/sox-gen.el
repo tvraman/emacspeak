@@ -119,12 +119,21 @@
 (require 'sox)
 
 ;;}}}
+;;{{{ sox-gen-p:
+
+(defcustom sox-gen-p (executable-find "sox")
+  "Should sox-gen commands attempt to invoke SoX."
+  :type 'boolean
+  :group 'sox-gen)
+
+;;}}}
 ;;{{{ SoX Command Generator:
 
 (defun sox-gen-cmd (cmd)
   "Play specified command."
-  (declare (special sox-play))
-  (apply #'start-process "SoX" nil sox-play  (split-string cmd)))
+  (declare (special sox-play sox-gen-p))
+  (when sox-gen-p
+    (apply #'start-process "SoX" nil sox-play  (split-string cmd))))
 
 ;;}}}
 ;;{{{ Binaural Audio:
