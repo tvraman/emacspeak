@@ -12,7 +12,6 @@
        (mc (/ fw 2))
        (rc fw)
        (count (length (window-list))))
-    (pcase  corners
-           (`(0 0 99 61) `left-half)
-(`(99 0 199 61) `right-half)
-      )))
+    (cond
+           ((equal corners `(,lc ,tr ,mc ,br)) 'left-half)
+((equal  corners `(,mc ,tr ,rc, br)) 'right-half))))
