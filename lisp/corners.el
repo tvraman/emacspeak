@@ -23,7 +23,7 @@
      ((equal corners `(,mc ,tr ,rc ,mr)) 'top-right)
      ((equal corners `(,lc ,mr ,mc ,br)) 'bottom-left)
      ((equal corners `(,mc ,mr ,rc ,br)) 'bottom-right)
-(t corners))))
+(t 'no-match)))))
 
 
-)
+
