@@ -1811,12 +1811,12 @@ Interactive prefix arg speaks buffer info."
        ((stringp mode-line-format) (dtk-speak mode-line-format))
        (t                               ;process modeline
         (unless (zerop (length global-info))
-          (put-text-property 0 (length global-info)
-                             'personality voice-bolden-medium global-info))
+          (put-text-property
+           0 (length global-info) 'personality voice-bolden-medium global-info))
         (tts-with-punctuations
          'all
-         (unless (and buffer-read-only
-                      (buffer-modified-p)) ; avoid pathological case
+         (unless ; avoid pathological case
+             (and buffer-read-only (buffer-modified-p))  
            (when (and buffer-file-name  (buffer-modified-p))
              (emacspeak-auditory-icon 'modified-object))
            (when buffer-read-only (emacspeak-auditory-icon 'unmodified-object)))
