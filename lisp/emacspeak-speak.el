@@ -1738,8 +1738,43 @@ semantic to do the work."
 (voice-setup-map-face 'header-line 'voice-bolden)
 
 (defun emacspeak--sox-multiwindow (corners)
-  "Takes a list of window coordinates (t l b r)and produces an appropriate note using sox."
-  (sox-multiwindow (not (zerop (car corners)))))
+  "Takes `window-edges' and plays a sound cue based on position of current window with respect to
+the overall window layout."
+  (let*
+      ((fw (frame-width))
+       (fh (1- (frame-height)))
+       (tr 0)
+       (mr (/ (frame-height) 2))
+       (br fh)
+       (lc 0)
+       (mc (/ (frame-width) 2))
+       (rc fw))
+     (cond
+      ((equal corners `(,lc ,tr ,mc ,br))
+       (sox-multiwindow)
+       'left-half)
+      ((equal corners `(,mc ,tr ,rc, br))
+       (sox-multiwindow 'swap)
+       'right-half)
+      ((equal corners `(,lc ,tr ,rc ,mr))
+       (sox-multiwindow  nil 2.5)
+       'top-half)
+      ((equal corners `(,lc ,mr ,rc ,br))
+       (sox-multiwindow nil 1.5)
+       'bottom-half)
+      ((equal corners `(,lc ,tr ,mc ,mr)) 
+       (sox-multiwindow nil 2.5)
+       'top-left)
+      ((equal corners `(,mc ,tr ,rc ,mr))
+       (sox-multiwindow t 2.5)
+       'top-right)
+      ((equal corners `(,lc ,mr ,mc ,br))
+       (sox-multiwindow nil 1.5)
+       'bottom-left)
+      ((equal corners `(,mc ,mr ,rc ,br))
+       (sox-multiwindow t 1.5)
+       'bottom-right)
+      (t ""))))
 
 (defun emacspeak-speak-mode-line (&optional buffer-info)
   "Speak the mode-line.
