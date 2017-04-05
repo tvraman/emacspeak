@@ -12,7 +12,6 @@
        (lc 0)
        (mc (/ (frame-width) 2))
        (rc fw))
-    (dtk-speak 
      (cond
       ((equal corners `(,lc ,tr ,mc ,br))
        (sox-multiwindow)
@@ -38,7 +37,7 @@
       ((equal corners `(,mc ,mr ,rc ,br))
        (sox-multiwindow t 1.5)
        'bottom-right)
-      (t 'no-match)))))
+      (t ""))))
 
 
 
