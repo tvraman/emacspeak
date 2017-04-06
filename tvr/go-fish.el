@@ -1,0 +1,7 @@
+(defun go-fish ()
+  (interactive)
+  (comint-run "/usr/games/go-fish")
+  (emacspeak-toggle-comint-autospeak)
+  (dtk-set-punctuations 'some)
+  (when dtk-split-caps (dtk-toggle-split-caps))
+  (emacspeak-auditory-icon 'open-object))

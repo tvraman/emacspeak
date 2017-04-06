@@ -1,5 +1,0 @@
-(defun adventure ()
-(interactive)
-(comint-run "/usr/games/adventure")
-(emacspeak-toggle-comint-autospeak)
-(emacspeak-auditory-icon 'open-object))
