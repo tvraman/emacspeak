@@ -112,9 +112,9 @@
   "Generate a tone  that indicates 1, 2 or 3."
   (let ((fade "fade h .1 .5 .4 gain -8 "))
     (cond
-     ((= 1 number) (sox-sin .5 "%-2"fade))
-     ((= 2 number) (sox-sin .5 "%1" fade))
-     ((= 3 number) (sox-sin .5 "%4"fade)))))
+     ((= 1 number) (sox-sin .5 "%-2:%-1"fade))
+     ((= 2 number) (sox-sin .5 "%1:%2" fade))
+     ((= 3 number) (sox-sin .5 "%4:%5"fade)))))
 
 ;;}}}
 ;;{{{ Advice interactive commands:
