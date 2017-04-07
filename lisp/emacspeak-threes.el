@@ -255,6 +255,46 @@
   (emacspeak-auditory-icon 'delete-object))
 
 ;;}}}
+;;{{{ Export And Import Games:
+
+(defvar emacspeak-threes-game-file
+  (expand-file-name "threes-game-stack"
+                    emacspeak-resource-directory)
+  "File where we export/import game state.")
+
+(defun emacspeak-threes-export (&optional prompt)
+  "Exports game stack to a file.
+Optional interactive prefix arg prompts for a file.
+Note that the file is overwritten silently."
+  (interactive "P")
+  (declare (special emacspeak-threes-game-file emacspeak-threes-game-stack))
+  (with-temp-buffer
+    (let ((file
+           (if prompt
+               (read-file-name "File to save game to: ")
+             emacspeak-threes-game-file))
+          (print-length nil)
+          (print-level nil))
+      (insert "(setq emacspeak-threes-game-stack \n'")
+      (pp emacspeak-threes-game-stack (current-buffer))
+      (insert ")\n")
+      (write-file file)
+      (emacspeak-auditory-icon 'save-object)
+      (message "Exported game to %s." file))))
+
+(defun emacspeak-threes-import (&optional prompt)
+  "Import game.
+Optional interactive prefix arg prompts for a filename."
+  (interactive "P")
+  (let ((file
+         (if prompt
+             (read-file-name "File to import game from: ")
+           emacspeak-threes-game-file)))
+    (load-file file)
+    (emacspeak-auditory-icon 'task-done)
+    (message "Imported game %s." file)))
+
+;;}}}
 (provide 'emacspeak-threes)
 ;;{{{ end of file
 
