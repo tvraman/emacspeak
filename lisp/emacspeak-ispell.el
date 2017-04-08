@@ -44,11 +44,15 @@
 ;;; Implementation note: This is hard because of how  ispell.el is written
 ;;; Namely, all of the work is done by one huge hairy function.
 ;;; This makes advising it hard.
+;;; The ispell commands work well with Emacspeak as long as the list of correction choices are few.
+;;; For interactively moving through corrections, install package flyspell-correct from MELPA
+;;; (package-install "flyspell-correct")
+;;; Then use M-x flyspell-mode.
+;;; Package flyspell is speech-enabled by Emacspeak module emacspeak-flyspell
+;;; And that module sets up flyspell-correct to use IDO-style completion,
+;;; i.e. you can move through corrections with C-r and C-s.
 
-;;; Original version of this extension was written under emacs-19.28
-;;; for ispell.el version 2.30
-;;; Now updating it for ispell.el version 2.37.
-;;; Support for 2.30 will wither away
+
 ;;; Code:
 ;;}}}
 ;;{{{ requires
