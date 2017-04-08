@@ -67,12 +67,20 @@
 
 ;;}}}
 ;;{{{ Interactive Commands:
+
 (defun emacspeak-popup-speak-item (popup)
   "Speak current item."
   (dtk-speak
    (elt
     (popup-list popup)
     (popup-cursor popup))))
+
+
+(defadvice popup-menu-read-key-sequence (before emacspeak pre act comp)
+  "Speak our prompt."
+  (when (sit-for 2)
+    (dtk-speak (or (ad-get-arg 1)
+                 "Menu:"))))
 
 (cl-loop
  for f in
@@ -93,7 +101,6 @@
      (emacspeak-popup-speak-item (ad-get-arg 0)))))
 
 ;;}}}
-
 (provide 'emacspeak-popup)
 ;;{{{ end of file
 
