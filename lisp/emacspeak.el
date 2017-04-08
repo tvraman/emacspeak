@@ -173,6 +173,7 @@ that implements the speech-enabling extensions."
 (emacspeak-do-package-setup "cperl-mode" 'emacspeak-cperl)
 (emacspeak-do-package-setup "pianobar" 'emacspeak-pianobar)
 (emacspeak-do-package-setup "proced" 'emacspeak-proced)
+(emacspeak-do-package-setup "popup" 'emacspeak-popup)
 (emacspeak-do-package-setup "projectile" 'emacspeak-projectile)
 (emacspeak-do-package-setup "ecb" 'emacspeak-ecb)
 (emacspeak-do-package-setup "ein" 'emacspeak-ein)
