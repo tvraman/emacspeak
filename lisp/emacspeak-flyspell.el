@@ -43,6 +43,11 @@
 ;;; Commentary:
 
 ;;; This module speech enables flyspell.
+;;; it loads flyspell-correct if available,
+;;; And when loading flyspell-correct sets up that module
+;;; to use  ido-style corrections.
+
+;;; Code:
 
 ;;}}}
 ;;{{{ Requires
