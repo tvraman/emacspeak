@@ -8898,6 +8898,9 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 @section emacspeak-flyspell
 
 This module speech enables flyspell.
+it loads flyspell-correct if available,
+And when loading flyspell-correct sets up that module
+to use  ido-style corrections.
 
 @node emacspeak-folding
 @section emacspeak-folding

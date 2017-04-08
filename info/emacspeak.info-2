@@ -3171,7 +3171,9 @@ File: emacspeak.info,  Node: emacspeak-flyspell,  Next: emacspeak-folding,  Prev
 12.82 emacspeak-flyspell
 ========================
 
-This module speech enables flyspell.
+This module speech enables flyspell.  it loads flyspell-correct if
+available, And when loading flyspell-correct sets up that module to use
+ido-style corrections.
 
 
 File: emacspeak.info,  Node: emacspeak-folding,  Next: emacspeak-forms,  Prev: emacspeak-flyspell,  Up: Emacspeak Commands And Options
