@@ -75,15 +75,18 @@
 ;;{{{ advice
 
 (declaim (special flyspell-delayed-commands))
-(push 'emacspeak-self-insert-command flyspell-delayed-commands)
+(when (fboundp 'emacspeak-self-insert-command)
+  (push 'emacspeak-self-insert-command flyspell-delayed-commands))
+
 (defadvice flyspell-auto-correct-word (around emacspeak pre act comp)
   "Speak the correction we inserted"
   (cond
    ((ems-interactive-p)
     (ems-with-messages-silenced
      ad-do-it
-     (dtk-speak (car  (flyspell-get-word nil))))
-    (emacspeak-auditory-icon 'select-object))
+     (dtk-speak (car  (flyspell-get-word nil)))
+     (when (sit-for 1) (emacspeak-speak-message-again))
+     (emacspeak-auditory-icon 'select-object)))
    (t ad-do-it))
   ad-return-value)
 
@@ -97,10 +100,6 @@
                            (overlay-end o)
                            'personality  nil))
       (setq overlay-list (cdr overlay-list)))))
-
-(defadvice flyspell-notify-misspell (after emacspeak pre act comp)
-  "Notify resulting message."
-  (dtk-notify-speak ad-return-value))
 
 ;;}}}
 ;;{{{ use flyspell-correct if available:
