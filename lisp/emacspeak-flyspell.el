@@ -104,8 +104,8 @@
                        voice-animate))
   (emacspeak-speak-region beg end)
   nil)
-
-(add-hook 'flyspell-incorrect-hook 'emacspeak-flyspell-highlight-incorrect-word)
+;;; Not needed any more:
+;(add-hook 'flyspell-incorrect-hook 'emacspeak-flyspell-highlight-incorrect-word)
 
 ;;}}}
 (provide 'emacspeak-flyspell)
