@@ -98,20 +98,9 @@
                            'personality  nil))
       (setq overlay-list (cdr overlay-list)))))
 
-;;}}}
-;;{{{  Highlighting the error 
-
-(defun emacspeak-flyspell-highlight-incorrect-word (beg end _ignore)
-  "Put property personality with value
-`voice-animate' from beg to end"
-  (declare (special voice-animate))
-  (with-silent-modifications
-    (put-text-property beg end 'personality
-                       voice-animate))
-  (emacspeak-speak-region beg end)
-  nil)
-;;; Not needed any more:
-;(add-hook 'flyspell-incorrect-hook 'emacspeak-flyspell-highlight-incorrect-word)
+(defadvice flyspell-notify-misspell (after emacspeak pre act comp)
+  "Notify resulting message."
+  (dtk-notify-speak ad-return-value))
 
 ;;}}}
 ;;{{{ use flyspell-correct if available:
