@@ -108,6 +108,15 @@
 ;(add-hook 'flyspell-incorrect-hook 'emacspeak-flyspell-highlight-incorrect-word)
 
 ;;}}}
+;;{{{ use flyspell-correct if available:
+
+;;; flyspell-correct is available on melpa:
+
+(when (locate-library "flyspell-correct")
+  (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-previous-word-generic)
+  (require 'flyspell-correct-ido))
+
+;;}}}
 (provide 'emacspeak-flyspell)
 ;;{{{  emacs local variables 
 
