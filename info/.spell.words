@@ -312,6 +312,7 @@ https
 ibuffer
 IDE
 ido
+IDO
 iheart
 IIT
 ILisp
@@ -397,6 +398,7 @@ mashup
 mcp
 MDash
 melpa
+MELPA
 metadata
 metapost
 minibuffer
@@ -651,8 +653,6 @@ transcoder
 Transcoder
 Treese
 trplayer
-tts
-TTS
 tty
 TuneIn
 tvr
