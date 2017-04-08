@@ -75,8 +75,9 @@
   "Speak the correction we inserted"
   (cond
    ((ems-interactive-p)
-    ad-do-it
-    (dtk-speak (car  (flyspell-get-word nil)))
+    (ems-with-messages-silenced
+     ad-do-it
+     (dtk-speak (car  (flyspell-get-word nil))))
     (emacspeak-auditory-icon 'select-object))
    (t ad-do-it))
   ad-return-value)
@@ -115,6 +116,16 @@
 (when (locate-library "flyspell-correct")
   (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-previous-word-generic)
   (require 'flyspell-correct-ido))
+
+(cl-loop
+ for f in
+ '(flyspell-correct-word-generic flyspell-correct-previous-word-generic)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+    "Speak word."
+    (when (ems-interactive-p)
+      (dtk-speak (car (flyspell-get-word nil)) )))))
 
 ;;}}}
 (provide 'emacspeak-flyspell)
