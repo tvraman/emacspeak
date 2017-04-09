@@ -410,6 +410,7 @@ Also turn on hydra-is-helpful if it was turned off."
                   (unless hydra-is-helpful (emacspeak-muggles-toggle-talkative)))
            :post emacspeak-muggles-post)
    "
+_F_ flyspell-mode:       %`flyspell-mode
 _a_ abbrev-mode:       %`abbrev-mode
 _d_ debug-on-error:    %`debug-on-error
 _f_ auto-fill-mode:    %`auto-fill-function
@@ -422,6 +423,7 @@ _w_ whitespace-mode:   %`whitespace-mode
 
 "
    ("?" (emacspeak-muggles-self-help "emacspeak-muggles-toggle-option"))
+   ("F" flyspell-mode)
    ("a" abbrev-mode)
    ("d" toggle-debug-on-error)
    ("f" auto-fill-mode)
