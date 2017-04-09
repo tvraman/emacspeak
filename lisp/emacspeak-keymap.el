@@ -431,7 +431,6 @@ relief."
     ("3" emacspeak-wizards-cycle-browser)
     ("b" battery)
     ("e" emacspeak-we-xsl-map)
-    ("f" flyspell-mode)
     ("h" emacspeak-wizards-how-many-matches)
     ("i" ibuffer)
     ("j" emacspeak-jabber-popup-roster)
@@ -532,6 +531,7 @@ interactive command that the key sequence executes."
   '(
     ("SPC"  emacspeak-wizards-scratch)
     ("." auto-correct-update)
+    ("f" flyspell-mode)
     ("j" ido-imenu-anywhere)
     ("o" ciel-co)
     ("r" soundscape-restart)
