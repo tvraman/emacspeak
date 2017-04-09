@@ -681,7 +681,7 @@ command that the key sequence executes."
     ("l" emacspeak-librivox)
     ("m" vm)
     ("n" emacspeak-npr-play-program)
-    ("o" other-frame)
+    ("o" helm-mini)
     ("p" emacspeak-wizards-pdf-open)
     ("q" emacspeak-remote-quick-connect-to-server)
     ("r" org-capture)
