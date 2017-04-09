@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents Emacspeak, The Complete Audio Desktop.  This
-document was last updated on April 8, 2017.
+document was last updated on April 9, 2017.
 
    The manual is divided into the following chapters.
 
@@ -4213,6 +4213,7 @@ system.
      c		browse-url-chrome
      d		magit-dispatch-popup
      e		gmaps
+     f		flyspell-mode
      g		gnus
      h		emacspeak-org-capture-link
      i		yas-insert-snippet
@@ -4251,6 +4252,7 @@ system.
      S		soundscape-stop
      b		emacspeak-bbc
      e		elfeed
+     f		flyspell-mode
      j		ido-imenu-anywhere
      l		emacspeak-m-player-locate-media
      m		emacspeak-wizards-view-buffers-filtered-by-this-mode

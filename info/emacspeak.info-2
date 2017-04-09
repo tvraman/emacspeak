@@ -6303,6 +6303,7 @@ binds ‘s’ to this command.
      Create a hydra with no body and the heads:
 
      "?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-toggle-option")’,
+     "F":    ‘flyspell-mode’,
      "a":    ‘abbrev-mode’,
      "d":    ‘toggle-debug-on-error’,
      "f":    ‘auto-fill-mode’,
