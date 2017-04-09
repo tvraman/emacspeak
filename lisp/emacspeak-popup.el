@@ -67,12 +67,6 @@
 
 ;;}}}
 ;;{{{ Interactive Commands:
-(defadvice popup-menu-event-loop (around emacspeak pre act comp)
-  "Provide auditory feedback."
-  (emacspeak-auditory-icon 'open-object)
-  ad-do-it
-  (emacspeak-auditory-icon 'close-object))
-
 (defun emacspeak-popup-speak-item (popup)
   "Speak current item."
   (dtk-speak
@@ -80,12 +74,18 @@
     (popup-list popup)
     (popup-cursor popup))))
 
+(defadvice popup-menu-event-loop (around emacspeak pre act comp)
+  "Provide auditory feedback."
+  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-popup-speak-item (ad-get-arg 0))
+  ad-do-it
+  (emacspeak-auditory-icon 'close-object))
 
 (defadvice popup-menu-read-key-sequence (before emacspeak pre act comp)
   "Speak our prompt."
   (when (sit-for 2)
     (dtk-speak (or (ad-get-arg 1)
-                 "Menu:"))))
+                   "Menu:"))))
 
 (cl-loop
  for f in
@@ -104,6 +104,13 @@
   `(defadvice ,f (after emacspeak pre act comp)
      (emacspeak-auditory-icon 'scroll)
      (emacspeak-popup-speak-item (ad-get-arg 0)))))
+(defadvice popup-menu-show-help (after emacspeak pre act comp)
+  "Speak help if available."
+  (let ((doc (popup-item-documentation item)))
+    (emacspeak-auditory-icon 'help)
+    (if doc
+        (dtk-speak doc)
+      (dtk-speak "helpless"))))
 
 ;;}}}
 (provide 'emacspeak-popup)
