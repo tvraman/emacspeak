@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1155 commands and 1066 options.
+This chapter documents a total of 1155 commands and 1075 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -143,6 +143,7 @@ This chapter documents a total of 1155 commands and 1066 options.
 * emacspeak-personality::Emacspeak's personality interface.
 * emacspeak-php-mode::Speech-Enable php-mode.
 * emacspeak-pianobar::Pandora Radio: Speech-enable PIANOBAR.
+* emacspeak-popup::Speech-enable POPUP.
 * emacspeak-proced::Speech-enable PROCED Task Manager.
 * emacspeak-projectile::Speech-enable PROJECTILE.
 * emacspeak-pronounce::Implements Emacspeak pronunciation dictionaries.
@@ -3815,6 +3816,54 @@ This personality uses  voice-animate-extra whose  effect can be changed globally
 
 @defvar {User Option} emacspeak-play-emacspeak-startup-icon
 If set to T, emacspeak plays its icon as it launches.
+
+@end defvar
+
+@defvar {User Option} emacspeak-popup-isearch-match-voice
+Personality used for popup-isearch-match
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-popup-menu-mouse-personality
+Personality used for popup-menu-mouse-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-popup-menu-personality
+Personality used for popup-menu-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-popup-menu-selection-personality
+Personality used for popup-menu-selection-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-popup-menu-summary-personality
+Personality used for popup-menu-summary-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-popup-personality
+Personality used for popup-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-popup-summary-personality
+Personality used for popup-summary-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-popup-tip-personality
+Personality used for popup-tip-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 
 @end defvar
 
@@ -8901,6 +8950,15 @@ This module speech enables flyspell.
 it loads flyspell-correct if available,
 And when loading flyspell-correct sets up that module
 to use  ido-style corrections.
+Another alternative is to use flyspell-correct-popup ---
+Use Customization emacspeak-flyspell-correct-interface to pick between ido and popup.
+
+@subsection emacspeak-flyspell Options
+
+@defvar {User Option} emacspeak-flyspell-correct
+Correction style to use with flyspell.
+
+@end defvar
 
 @node emacspeak-folding
 @section emacspeak-folding
@@ -13919,6 +13977,11 @@ Increase volume
 Number of presets.
 
 @end defvar
+
+@node emacspeak-popup
+@section emacspeak-popup
+
+POPUP ==  popup.el from MELPA
 
 @node emacspeak-proced
 @section emacspeak-proced

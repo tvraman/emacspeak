@@ -2947,7 +2947,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1155 commands and 1066 options.
+This chapter documents a total of 1155 commands and 1075 options.
 
 * Menu:
 
@@ -3089,6 +3089,7 @@ This chapter documents a total of 1155 commands and 1066 options.
 * emacspeak-personality::Emacspeak’s personality interface.
 * emacspeak-php-mode::Speech-Enable php-mode.
 * emacspeak-pianobar::Pandora Radio: Speech-enable PIANOBAR.
+* emacspeak-popup::Speech-enable POPUP.
 * emacspeak-proced::Speech-enable PROCED Task Manager.
 * emacspeak-projectile::Speech-enable PROJECTILE.
 * emacspeak-pronounce::Implements Emacspeak pronunciation dictionaries.
@@ -6133,6 +6134,46 @@ system.
 
  -- Variable: User Option emacspeak-play-emacspeak-startup-icon
      If set to T, emacspeak plays its icon as it launches.
+
+ -- Variable: User Option emacspeak-popup-isearch-match-voice
+     Personality used for popup-isearch-match This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option emacspeak-popup-menu-mouse-personality
+     Personality used for popup-menu-mouse-face This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-popup-menu-personality
+     Personality used for popup-menu-face This personality uses
+     voice-monotone whose effect can be changed globally by customizing
+     voice-monotone-settings.
+
+ -- Variable: User Option emacspeak-popup-menu-selection-personality
+     Personality used for popup-menu-selection-face This personality
+     uses voice-lighten whose effect can be changed globally by
+     customizing voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-popup-menu-summary-personality
+     Personality used for popup-menu-summary-face This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-popup-personality
+     Personality used for popup-face This personality uses voice-bolden
+     whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-popup-summary-personality
+     Personality used for popup-summary-face This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-popup-tip-personality
+     Personality used for popup-tip-face This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
 
  -- Variable: User Option emacspeak-query-replace-voice
      Personality used for query-replace This personality uses
