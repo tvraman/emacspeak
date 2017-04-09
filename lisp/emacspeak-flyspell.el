@@ -46,6 +46,9 @@
 ;;; it loads flyspell-correct if available,
 ;;; And when loading flyspell-correct sets up that module
 ;;; to use  ido-style corrections.
+;;; Another alternative is to use flyspell-correct-popup ---
+;;; Use Customization emacspeak-flyspell-correct-interface to pick between ido and popup.
+
 
 ;;; Code:
 
@@ -104,11 +107,19 @@
 ;;}}}
 ;;{{{ use flyspell-correct if available:
 
+(defcustom emacspeak-flyspell-correct  
+  (cond
+   ((locate-library "flyspell-correct-popup") 'flyspell-correct-popup)
+   ((locate-library "flyspell-correct-ido") 'flyspell-correct-ido)
+   (t nil))
+  "Correction style to use with flyspell."
+  :type 'symbol)
+   
 ;;; flyspell-correct is available on melpa:
 
 (when (locate-library "flyspell-correct")
   (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-previous-word-generic)
-  (require 'flyspell-correct-ido))
+  (require emacspeak-flyspell-correct))
 
 (cl-loop
  for f in
