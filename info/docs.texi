@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1155 commands and 1075 options.
+This chapter documents a total of 1155 commands and 1074 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -73,7 +73,6 @@ This chapter documents a total of 1155 commands and 1075 options.
 * emacspeak-epub::epubs Front-end for emacspeak desktop.
 * emacspeak-erc::speech-enable erc irc client.
 * emacspeak-eshell::Speech-enable EShell - Emacs Shell.
-* emacspeak-espn::ESPN API  Client.
 * emacspeak-ess::Speech-enable ESS: Emacs Speaks Statistics.
 * emacspeak-etable::Speech enable table.el.
 * emacspeak-eterm::Speech enable eterm -- Emacs' terminal emulator  term.el.
@@ -7299,20 +7298,6 @@ This module speech-enables EShell
 @defvar {User Option} emacspeak-eshell-ls-use-personalities
 Indicates if ls in eshell uses different voice
 personalities.
-
-@end defvar
-
-@node emacspeak-espn
-@section emacspeak-espn
-
-ESPN ==  ESPN Sport Network.
-API:   http://developer.espn.com/overview
-Get yourself an API key and set it via custom.
-
-@subsection emacspeak-espn Options
-
-@defvar {User Option} emacspeak-espn-api-key
-Web API  key for this application.
 
 @end defvar
 
