@@ -87,7 +87,8 @@
    ((ems-interactive-p)
     (ems-with-messages-silenced
      ad-do-it
-     (dtk-speak (car  (flyspell-get-word nil)))
+     (dtk-speak   (car (flyspell-get-word nil)))
+     (when (sit-for 1)(dtk-notify-speak  (cl-second flyspell-auto-correct-ring)))
      (when (sit-for 1) (emacspeak-speak-message-again))
      (emacspeak-auditory-icon 'select-object)))
    (t ad-do-it))
@@ -103,6 +104,11 @@
                            (overlay-end o)
                            'personality  nil))
       (setq overlay-list (cdr overlay-list)))))
+
+(defadvice flyspell-highlight-incorrect-region (after emacspeak pre act comp)
+  "Speak word before point, followed by default correction."
+  (emacspeak-speak-word)
+  (emacspeak-auditory-icon 'help))
 
 ;;}}}
 ;;{{{ use flyspell-correct if available:

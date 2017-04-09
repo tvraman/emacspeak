@@ -50,7 +50,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-
+(eval-when-compile (require 'popup "popup" 'no-error))
 ;;}}}
 ;;{{{ Map Faces:
 
@@ -67,6 +67,11 @@
 
 ;;}}}
 ;;{{{ Interactive Commands:
+(defadvice popup-menu-event-loop (around emacspeak pre act comp)
+  "Provide auditory feedback."
+  (emacspeak-auditory-icon 'open-object)
+  ad-do-it
+  (emacspeak-auditory-icon 'close-object))
 
 (defun emacspeak-popup-speak-item (popup)
   "Speak current item."
