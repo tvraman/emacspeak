@@ -69,10 +69,8 @@
 ;;{{{ Interactive Commands:
 (defun emacspeak-popup-speak-item (popup)
   "Speak current item."
-  (declare (special emacspeak-last-message))
   (let ((msg (elt (popup-list popup) (popup-cursor popup))))
-    (setq emacspeak-last-message msg)
-  (dtk-speak msg)))
+  (message msg)))
 
 (defadvice popup-menu-event-loop (around emacspeak pre act comp)
   "Provide auditory feedback."
