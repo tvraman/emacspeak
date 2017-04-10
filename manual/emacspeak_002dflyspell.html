@@ -100,10 +100,20 @@
 
   <p>This module speech enables flyspell. it loads flyspell-correct
   if available, And when loading flyspell-correct sets up that
-  module to use ido-style corrections. Another alternative is to
-  use flyspell-correct-popup — Use Customization
-  emacspeak-flyspell-correct-interface to pick between ido and
-  popup.</p><a name="emacspeak_002dflyspell-Options" id=
+  module to use one of three supported correction styles:</p>
+
+  <ul>
+    <li>ido: IDO-like completion with C-s and C-r moving through
+    choices.</li>
+
+    <li>popup: A popup-menu, with up and down arrorws moving
+    through available corrections. helm: A helm interface for
+    picking amongst available corrections.</li>
+  </ul>
+
+  <p>Use Customization emacspeak-flyspell-correct-interface to pick
+  between ido, popup and helm..</p><a name=
+  "emacspeak_002dflyspell-Options" id=
   "emacspeak_002dflyspell-Options"></a>
 
   <h4 class="subsection">12.81.1 emacspeak-flyspell Options</h4>
