@@ -11,7 +11,7 @@
       helm-ff-file-name-history-use-recentf t)
 (when (executable-find "curl") (setq helm-google-suggest-use-curl-p t))
 
-;;; Use hyper-; as the helm prefix 
+;;; Use hyper-, as the helm prefix 
 (global-set-key (kbd "C-x @h,") 'helm-command-prefix)
 
                                         
