@@ -1526,7 +1526,7 @@ k		emacspeak-webspace-knowledge-search
 l		emacspeak-librivox
 m		vm
 n		emacspeak-npr-play-program
-o		other-frame
+o		helm-mini
 p		emacspeak-wizards-pdf-open
 q		emacspeak-remote-quick-connect-to-server
 r		org-capture
@@ -8936,9 +8936,14 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 This module speech enables flyspell.
 it loads flyspell-correct if available,
 And when loading flyspell-correct sets up that module
-to use  ido-style corrections.
-Another alternative is to use flyspell-correct-popup ---
-Use Customization emacspeak-flyspell-correct-interface to pick between ido and popup.
+to use  one of   three supported correction styles:
+@itemize @bullet 
+@item ido: IDO-like completion with C-s and C-r moving through choices.
+@item popup: A popup-menu, with up and down arrorws moving through available corrections.
+helm: A helm interface for picking amongst available corrections.
+@end itemize 
+
+Use Customization emacspeak-flyspell-correct-interface to pick between ido, popup and helm..
 
 @subsection emacspeak-flyspell Options
 

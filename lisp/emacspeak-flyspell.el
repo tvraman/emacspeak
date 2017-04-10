@@ -45,9 +45,14 @@
 ;;; This module speech enables flyspell.
 ;;; it loads flyspell-correct if available,
 ;;; And when loading flyspell-correct sets up that module
-;;; to use  ido-style corrections.
-;;; Another alternative is to use flyspell-correct-popup ---
-;;; Use Customization emacspeak-flyspell-correct-interface to pick between ido and popup.
+;;; to use  one of   three supported correction styles:
+;;; @itemize @bullet 
+;;; @item ido: IDO-like completion with C-s and C-r moving through choices.
+;;; @item popup: A popup-menu, with up and down arrorws moving through available corrections.
+;;; helm: A helm interface for picking amongst available corrections.
+;;; @end itemize 
+;;;
+;;; Use Customization emacspeak-flyspell-correct-interface to pick between ido, popup and helm..
 
 
 ;;; Code:
@@ -117,6 +122,7 @@
   (cond
    ((locate-library "flyspell-correct-popup") 'flyspell-correct-popup)
    ((locate-library "flyspell-correct-ido") 'flyspell-correct-ido)
+   ((locate-library "flyspell-correct-helm") 'flyspell-correct-helm)
    (t nil))
   "Correction style to use with flyspell."
   :type 'symbol)
