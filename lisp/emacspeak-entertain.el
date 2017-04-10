@@ -65,11 +65,9 @@
 ;;{{{ mpuz
 (voice-setup-add-map
  '(
-   (mpuz-trivial-face voice-monotone)
-   (mpuz-unsolved-face voice-bolden)
-   (mpuz-unsolved-face voice-lighten)
-   (mpuz-solved-face voice-animate)
-   ))
+   (mpuz-trivial voice-monotone)
+   (mpuz-unsolved voice-bolden)
+   (mpuz-solved voice-animate)))
 ;;}}}
 ;;{{{ dunnet 
 
