@@ -69,10 +69,10 @@
 ;;{{{ Interactive Commands:
 (defun emacspeak-popup-speak-item (popup)
   "Speak current item."
-  (dtk-speak
-   (elt
-    (popup-list popup)
-    (popup-cursor popup))))
+  (declare (special emacspeak-last-message))
+  (let ((msg (elt (popup-list popup) (popup-cursor popup))))
+    (setq emacspeak-last-message msg)
+  (dtk-speak msg)))
 
 (defadvice popup-menu-event-loop (around emacspeak pre act comp)
   "Provide auditory feedback."
@@ -113,6 +113,14 @@
       (dtk-speak "helpless"))))
 
 ;;}}}
+;;{{{ Augment popup keymap:
+
+(eval-after-load
+    "popup"
+  `(define-key popup-menu-keymap   emacspeak-prefix 'emacspeak-prefix-command ))
+
+;;}}}
+
 (provide 'emacspeak-popup)
 ;;{{{ end of file
 
