@@ -3161,8 +3161,8 @@ available, And when loading flyspell-correct sets up that module to use
 one of three supported correction styles:
    • ido: IDO-like completion with C-s and C-r moving through choices.
    • popup: A popup-menu, with up and down arrorws moving through
-     available corrections.  helm: A helm interface for picking amongst
      available corrections.
+   • helm: A helm interface for picking amongst available corrections.
 
    Use Customization emacspeak-flyspell-correct-interface to pick
 between ido, popup and helm..
