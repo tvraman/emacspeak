@@ -49,7 +49,7 @@
 ;;; @itemize @bullet 
 ;;; @item ido: IDO-like completion with C-s and C-r moving through choices.
 ;;; @item popup: A popup-menu, with up and down arrorws moving through available corrections.
-;;; helm: A helm interface for picking amongst available corrections.
+;;; @item helm: A helm interface for picking amongst available corrections.
 ;;; @end itemize 
 ;;;
 ;;; Use Customization emacspeak-flyspell-correct-interface to pick between ido, popup and helm..
