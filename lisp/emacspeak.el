@@ -539,6 +539,6 @@ commands and options for details."
 
 ;;}}}
 
-(provide 'emacspeak)
+
 
 ;;; emacspeak.el ends here
