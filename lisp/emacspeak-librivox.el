@@ -1,4 +1,4 @@
-;;; emacspeak-librivox.el --- Speech-enabled  LIBRIVOX API client  -*- lexical-binding: t; -*-
+;;; emacspeak-librivox.el --- LIBRIVOX API client  -*- lexical-binding: t; -*-
 ;;; $Id: emacspeak-librivox.el 4797 2007-07-16 23:31:22Z tv.raman.tv $
 ;;; $Author: tv.raman.tv $
 ;;; Description:  Speech-enable LIBRIVOX --- Free public-domain Audio Books
@@ -91,14 +91,15 @@
 ;;; audiobooks:
 ;;; Params from API Documentation:
 
-;; * id - fetches a single record
-;; * since - takes a UNIX timestamp; returns all projects cataloged since that time
-;; * author - all records by that author last name
-;; * title - all matching titles
-;; * genre - all projects of the matching genre
-;; * extended - =1 will return the full set of data about the project
-;; * limit (default is 50)
-;;   * offset
+;;; * id - fetches a single record
+;;; * since - takes a UNIX timestamp
+;;; returns all projects cataloged since that time
+;;; * author - all records by that author last name
+;;; * title - all matching titles
+;;; * genre - all projects of the matching genre
+;;; * extended - =1 will return the full set of data about the project
+;;; * limit (default is 50)
+;;;   * offset
 (defvar emacspeak-librivox-results-limit 100
   "Number of results to retrieve at a time.")
 
@@ -204,7 +205,9 @@ Optional arg `offset' (default 0) is used for getting more results."
       (with-temp-buffer
         (insert "<title>" title "</title>\n")
         (insert "<h1>" title "</h1>\n")
-        (insert "<p> Press <code>e e </code> on a <em>listen</em> link to play the book.</p>")
+        (insert
+         "<p> Press <code>e e </code> on a <em>listen</em> link to play the
+book.</p>")
         (cl-loop
          for b across books
          and i from (1+ offset)
@@ -212,7 +215,9 @@ Optional arg `offset' (default 0) is used for getting more results."
          (emacspeak-librivox-display-book b i))
         (when (= emacspeak-librivox-results-limit (length books))
           (insert
-           (format "Re-execute this command with an interactive prefix argument and specify offset  %s to get more results."
+           (format
+            "Re-execute this command with an interactive prefix argument and
+specify offset %s to get more results."
                    (+ offset emacspeak-librivox-results-limit))))
         (browse-url-of-buffer)))))
 
@@ -224,7 +229,8 @@ Optional arg `offset' (default 0) is used for getting more results."
     "Arts" "Astronomy, Physics & Mechanics" "Ballads"
     "Bibles" "Biography & Autobiography" "Business & Economics"
     "Chemistry" "Children's Fiction" "Children's Non-fiction"
-    "Christian Fiction" "Christianity - Biographies" "Christianity - Commentary"
+    "Christian Fiction" "Christianity - Biographies"
+    "Christianity - Commentary"
     "Christianity - Other" "Classics (Antiquity)" "Comedy"
     "Contemporary" "Cooking" "Crafts & Hobbies"
     "Crime & Mystery Fiction" "Culture & Heritage" "Detective Fiction"
@@ -244,7 +250,8 @@ Optional arg `offset' (default 0) is used for getting more results."
     "Literary Criticism" "Literary Fiction" "Lyric"
     "Mathematics" "Medical" "Medieval"
     "Memoirs" "Middle Ages/Middle History" "Modern"
-    "Modern (19th C)" "Modern (20th C)" "Multi-version (Weekly and Fortnightly poetry)"
+    "Modern (19th C)" "Modern (20th C)"
+    "Multi-version (Weekly and Fortnightly poetry)"
     "Music" "Myths, Legends & Fairy Tales" "Narratives"
     "Nature" "Nature & Animal Fiction" "Nautical & Marine Fiction"
     "Other religions" "Performing Arts" "Philosophy"
@@ -256,7 +263,8 @@ Optional arg `offset' (default 0) is used for getting more results."
     "Science Fiction" "Self-Help" "Short Stories"
     "Short non-fiction" "Short works" "Single Author Collections"
     "Single author" "Social Science" "Sonnets"
-    "Sports & Recreation" "Sports Fiction" "Suspense, Espionage, Political & Thrillers"
+    "Sports & Recreation" "Sports Fiction"
+    "Suspense, Espionage, Political & Thrillers"
     "Technology & Engineering" "Tragedy" "Travel & Geography"
     "Travel Fiction" "True Crime" "War & Military"
     "War & Military Fiction" "Westerns" "Weymouth New Testament"
@@ -282,9 +290,9 @@ Optional prefix arg `offset' prompts for offset."
 
 ;;;###autoload
 (defun emacspeak-librivox-search-by-author (author &optional offset)
-  "Search by author.
-Both exact and partial matches for `author'.
-Optional interactive prefix arg `offset' prompts for offset --- use this for retrieving next set of results."
+  "Search by author. Both exact and partial matches for
+`author'. Optional interactive prefix arg `offset' prompts for offset
+--- use this for retrieving next set of results."
   (interactive "sAuthor: \nP")
   (when offset
     (setq offset (read-number "Offset: ")))
@@ -295,9 +303,9 @@ Optional interactive prefix arg `offset' prompts for offset --- use this for ret
 
 ;;;###autoload
 (defun emacspeak-librivox-search-by-title (title &optional offset)
-  "Search by title.
-Both exact and partial matches for `title'.
-Optional prefix arg `offset' prompts for offset --- use this for retrieving more results."
+  "Search by title. Both exact and partial matches for `title'. Optional
+prefix arg `offset' prompts for offset --- use this for retrieving
+more results."
   (interactive "sTitle: \nP")
   (emacspeak-librivox-search
    (format "title=%s"
