@@ -58,12 +58,14 @@
 
 ;;; Code:
 
-;;}}} {{{ Requires
+;;}}}
+;;{{{ Requires
 
 (require 'cl) (declaim (optimize (safety 0) (speed 3))) (require
 'emacspeak-preamble) (require 'flyspell "flyspell" 'no-error)
 
-;;}}} {{{ define personalities
+;;}}}
+;;{{{ define personalities
 
 (defgroup emacspeak-flyspell nil "Emacspeak support for on the fly
 spell checking." :group 'emacspeak :group 'flyspell :prefix
@@ -72,7 +74,8 @@ spell checking." :group 'emacspeak :group 'flyspell :prefix
 (voice-setup-add-map '( (flyspell-incorrect voice-bolden)
  (flyspell-duplicate voice-monotone)))
 
-;;}}} {{{ advice
+;;}}}
+;;{{{ advice
 
 (declaim (special flyspell-delayed-commands)) (when (fboundp
 'emacspeak-self-insert-command) (push 'emacspeak-self-insert-command
@@ -96,7 +99,8 @@ flyspell-delayed-commands))
 act comp) "Speak word before point, followed by default correction."
 (emacspeak-speak-word) (emacspeak-auditory-icon 'help))
 
-;;}}} {{{ use flyspell-correct if available:
+;;}}}
+;;{{{ use flyspell-correct if available:
 
 (defcustom emacspeak-flyspell-correct (cond ((locate-library
   "flyspell-correct-popup") 'flyspell-correct-popup) ((locate-library
@@ -116,12 +120,15 @@ act comp) "Speak word before point, followed by default correction."
  (after emacspeak pre act comp) "Speak word." (when
  (ems-interactive-p) (dtk-speak (car (flyspell-get-word nil)) )))))
 
-;;}}} (provide 'emacspeak-flyspell) ;;{{{ emacs local variables
+;;}}}
+(provide 'emacspeak-flyspell)
+;;{{{ emacs local variables
 
-;;; local variables: folded-file: t byte-compile-dynamic: nil end:
+;;; local variables: 
+;;; folded-file: t
+;;; byte-compile-dynamic: nil
+;;; end:
 
 ;;}}}
-
-(provide 'emacspeak-flyspell)
 
 ;;; emacspeak-flyspell.el ends here

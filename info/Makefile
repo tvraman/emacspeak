@@ -10,8 +10,6 @@ MAKEINFO = makeinfo
 CSS=--css-ref="http://www.w3.org/StyleSheets/Core/Modernist"
 TEX=tex
 PDFTEX=pdftex
-infodir =/usr/share/info#normally supplied by caller
-INSTALL = install
 EMACS=emacs
 
 all: info  introducing-emacspeak.info turning-twenty.info emacspeak.pdf
@@ -29,16 +27,6 @@ turning-twenty.info: turning-twenty.texi
 
 docs.texi: ../lisp/*.el
 	$(EMACS) -batch -q -l ../utils/self-document.el -f self-document-all-modules
-
-install: emacspeak.info turning-twenty.info
-	if test  -x /usr/bin/install-info ; then \
-		install-info emacspeak.info ${infodir}/dir ;\
-install-info turning-twenty.info ${infodir}/dir ; \
-	fi
-	$(INSTALL)  -m 644 *.info* $(infodir)
-
-uninstall:
-	rm -f $(infodir)/emacspeak.info* $(infodir)/turning-twenty.info*
 emacspeak.dvi:		emacspeak.texi
 	$(TEX) emacspeak.texi
 	$(TEX) emacspeak.texi
