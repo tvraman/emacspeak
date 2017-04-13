@@ -228,6 +228,7 @@ that implements the speech-enabling extensions."
 (emacspeak-do-package-setup "imenu" 'emacspeak-imenu)
 (emacspeak-do-package-setup "ibuffer" 'emacspeak-ibuffer)
 (emacspeak-do-package-setup "ido" 'emacspeak-ido)
+(emacspeak-do-package-setup "ivy" 'emacspeak-ivy)
 (emacspeak-do-package-setup "info" 'emacspeak-info)
 (emacspeak-do-package-setup "ispell" 'emacspeak-ispell)
 (emacspeak-do-package-setup "jabber" 'emacspeak-jabber)
