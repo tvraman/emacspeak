@@ -73,83 +73,6 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 
-'(
-ivy-alt-done
-ivy-avy
-ivy-backward-delete-char
-ivy-backward-kill-word
-ivy-beginning-of-buffer
-ivy-bibtex
-ivy-bibtex-with-local-bibliography
-ivy-call
-ivy-delete-char
-ivy-dispatching-call
-ivy-dispatching-done
-ivy-dispatching-done-hydra
-ivy-done
-ivy-end-of-buffer
-ivy-forward-char
-ivy-help
-ivy-historian-mode
-ivy-imenu-anywhere
-ivy-immediate-done
-ivy-insert-current
-ivy-kill-line
-ivy-kill-ring-save
-ivy-kill-word
-ivy-minibuffer-grow
-ivy-minibuffer-shrink
-ivy-mode
-ivy-next-action
-ivy-next-history-element
-ivy-next-line
-ivy-next-line-and-call
-ivy-next-line-or-history
-ivy-occur
-ivy-occur-click
-ivy-occur-dispatch
-ivy-occur-grep-mode
-ivy-occur-mode
-ivy-occur-next-line
-ivy-occur-press
-ivy-occur-press-and-switch
-ivy-occur-previous-line
-ivy-occur-read-action
-ivy-occur-revert-buffer
-ivy-occur-toggle-calling
-ivy-pages
-ivy-partial
-ivy-partial-or-done
-ivy-pop-view
-ivy-prev-action
-ivy-previous-history-element
-ivy-previous-line
-ivy-previous-line-and-call
-ivy-previous-line-or-history
-ivy-push-view
-ivy-read-action
-ivy-recentf
-ivy-restrict-to-matches
-ivy-resume
-ivy-reverse-i-search
-ivy-rotate-sort
-ivy-scroll-down-command
-ivy-scroll-up-command
-
-
-ivy-toggle-calling
-ivy-toggle-case-fold
-ivy-toggle-fuzzy
-ivy-toggle-ignore
-ivy-toggle-regexp-quote
-ivy-wgrep-change-to-wgrep-mode
-ivy-xcdoc-search-api
-ivy-xcdoc-search-api-at-point
-ivy-yank-word
-ivy-youtube
-)
-
-
 (cl-loop
  for f  in
  '(ivy-switch-buffer-other-window ivy-switch-buffer)
@@ -163,7 +86,9 @@ ivy-youtube
 
 (cl-loop
  for f in
- '(ivy-next-line ivy-previous-line)
+ '(
+   ivy-beginning-of-buffer  ivy-end-of-buffer
+   ivy-next-line ivy-previous-line)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -175,6 +100,11 @@ ivy-youtube
                 (or (elt ivy--old-cands ivy--index)
                     ivy-text)))
        (emacspeak-auditory-icon 'select-object)))))
+
+(defadvice ivy--exhibit (after emacspeak pre act comp)
+  "Speak updated Ivy list."
+  (sit-for 2)
+  (emacspeak-speak-buffer))
 
 ;;}}}
 (provide 'emacspeak-ivy)
