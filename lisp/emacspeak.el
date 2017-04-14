@@ -234,7 +234,7 @@ that implements the speech-enabling extensions."
 (emacspeak-do-package-setup "jabber" 'emacspeak-jabber)
 (emacspeak-do-package-setup "jde" 'emacspeak-jde)
 (emacspeak-do-package-setup "js2" 'emacspeak-js2)
-(emacspeak-do-package-setup "jade" 'emacspeak-jade)
+(emacspeak-do-package-setup "indium" 'emacspeak-indium)
 (emacspeak-do-package-setup "js2-mode" 'emacspeak-js2)
 (emacspeak-do-package-setup "jss" 'emacspeak-jss)
 (emacspeak-do-package-setup "kite" 'emacspeak-kite)

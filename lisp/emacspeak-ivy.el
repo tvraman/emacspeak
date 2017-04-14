@@ -169,7 +169,7 @@ ivy-youtube
   `(defadvice ,f (after emacspeak pre act comp)
      "Speak selection."
      (when (ems-interactive-p)
-       (dtk-speak (ivy-state-current ivy-last))
+       (dtk-speak ivy--prompt)
        (emacspeak-auditory-icon 'select-object)))))
 
 ;;}}}

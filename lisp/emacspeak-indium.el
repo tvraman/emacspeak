@@ -1,7 +1,7 @@
-;;; emacspeak-jade.el --- Speech-enable JADE, A Javascript IDE -*- lexical-binding: t; -*-
+;;; emacspeak-indium.el --- Speech-enable INDIUM, A Javascript IDE -*- lexical-binding: t; -*-
 ;;; $Author: tv.raman.tv $
-;;; Description:  Speech-enable JADE An Emacs Interface to jade
-;;; Keywords: Emacspeak,  Audio Desktop jade
+;;; Description:  Speech-enable INDIUM An Emacs Interface to indium
+;;; Keywords: Emacspeak,  Audio Desktop indium
 ;;{{{  LCD Archive entry:
 
 ;;; LCD Archive Entry:
@@ -27,7 +27,7 @@
 ;;;
 ;;; GNU Emacs is distributed in the hope that it will be useful,
 ;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNJADE FOR A PARTICULAR PURPOSE.  See the
+;;; MERCHANTABILITY or FITNINDIUM FOR A PARTICULAR PURPOSE.  See the
 ;;; GNU General Public License for more details.
 ;;;
 ;;; You should have received a copy of the GNU General Public License
@@ -40,8 +40,8 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; JADE ==  Javascript IDE 
-;;; This module speech-enables Jade.
+;;; INDIUM ==  Javascript IDE 
+;;; This module speech-enables Indium.
 
 ;;; Code:
 
@@ -56,19 +56,19 @@
 ;;{{{ Map Faces:
 (voice-setup-add-map
  '(
-   (jade-keyword-face voice-animate)
-   (jade-button-face  voice-bolden-medium)
-   (jade-header-face voice-smoothen)
-   (jade-repl-prompt-face  voice-annotate)
-   (jade-repl-stdout-face voice-monotone)
-   (jade-repl-error-face  voice-animate-extra)
-   (jade-link-face voice-bolden)
-   (jade-highlight-face voice-animate)))
+   (indium-keyword-face voice-animate)
+   (indium-button-face  voice-bolden-medium)
+   (indium-header-face voice-smoothen)
+   (indium-repl-prompt-face  voice-annotate)
+   (indium-repl-stdout-face voice-monotone)
+   (indium-repl-error-face  voice-animate-extra)
+   (indium-link-face voice-bolden)
+   (indium-highlight-face voice-animate)))
 
 ;;}}}
-;;{{{ Advice jade-backend.el:
+;;{{{ Advice indium-backend.el:
 
-(defadvice jade-quit (after emacspeak pre act comp)
+(defadvice indium-quit (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
@@ -76,7 +76,7 @@
 
 (cl-loop
  for f in
- '(jade-reload jade-reconnect)
+ '(indium-reload indium-reconnect)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -85,52 +85,52 @@
        (emacspeak-auditory-icon 'task-done)))))
 
 ;;}}}
-;;{{{ Advice jade-chrome.el
+;;{{{ Advice indium-chrome.el
 
-(defadvice jade-connect-to-chrome (after emacspeak pre act comp)
+(defadvice indium-connect-to-chrome (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)))
 
 ;;}}}
-;;{{{ Advice jade-debugger.el
+;;{{{ Advice indium-debugger.el
 
-'(jade-debugger-eval-last-node
-  jade-debugger-evaluate
-  jade-debugger-here
-  jade-debugger-inspect-last-node
-  jade-debugger-locals
-  jade-debugger-locals-maybe-refresh
+'(indium-debugger-eval-last-node
+  indium-debugger-evaluate
+  indium-debugger-here
+  indium-debugger-inspect-last-node
+  indium-debugger-locals
+  indium-debugger-locals-maybe-refresh
   
   
-  jade-debugger-resume
-  jade-debugger-step-into
-  jade-debugger-step-out
-  jade-debugger-step-over)
+  indium-debugger-resume
+  indium-debugger-step-into
+  indium-debugger-step-out
+  indium-debugger-step-over)
 ;;}}}
-;;{{{ Advice jade-inspector.el
+;;{{{ Advice indium-inspector.el
 
 ;;}}}
-;;{{{ Advice jade-interaction.el
+;;{{{ Advice indium-interaction.el
 
 ;;}}}
-;;{{{ Advice jade-nodejs.el
+;;{{{ Advice indium-nodejs.el
 
 ;;}}}
-;;{{{ Advice jade-render.el
+;;{{{ Advice indium-render.el
 
 ;;}}}
-;;{{{ Advice jade-repl.el
+;;{{{ Advice indium-repl.el
 
 ;;}}}
-;;{{{ Advice jade-scratch.el
+;;{{{ Advice indium-scratch.el
 
 ;;}}}
-;;{{{ Advice jade-webkit.el
+;;{{{ Advice indium-webkit.el
 
 ;;}}}
 
-(provide 'emacspeak-jade)
+(provide 'emacspeak-indium)
 ;;{{{ end of file
 
 ;;; local variables:
