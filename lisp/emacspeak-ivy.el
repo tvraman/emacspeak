@@ -86,6 +86,15 @@
        (with-current-buffer (window-buffer (selected-window))
          (emacspeak-speak-mode-line))))))
 
+(defun emacspeak-ivy-speak-selection ()
+  "Speak current ivy selection."
+  (dtk-speak
+   (format
+    "%d: %s"
+    ivy--length
+    (or (elt ivy--old-cands ivy--index)
+        ivy-text))))
+
 ;; (cl-loop
 ;;  for f in
 ;;  '(
@@ -96,15 +105,12 @@
 ;;   `(defadvice ,f (after emacspeak pre act comp)
 ;;      "Speak selection."
 ;;      (when (ems-interactive-p)
-;;        (dtk-speak
-;;         (format "%d: %s"
-;;                 ivy--length
-;;                 (or (elt ivy--old-cands ivy--index)
-;;                     ivy-text)))
+;; (emacspeak-ivy-speak-selection)
 ;;        (emacspeak-auditory-icon 'select-object)))))
 
 (defadvice ivy--exhibit (after emacspeak pre act comp)
   "Speak updated Ivy list."
+  (emacspeak-ivy-speak-selection)
   (sit-for 1.5)
   (emacspeak-speak-buffer))
 
@@ -112,6 +118,7 @@
   "Speak prompt"
   (emacspeak-auditory-icon 'open-object)
   (dtk-speak (ad-get-arg 0)))
+
 ;;}}}
 (provide 'emacspeak-ivy)
 ;;{{{ end of file
