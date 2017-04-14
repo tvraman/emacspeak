@@ -105,9 +105,18 @@
 
 (defadvice ivy--exhibit (after emacspeak pre act comp)
   "Speak updated Ivy list."
-  (sit-for 2)
-  (emacspeak-speak-buffer))
+  (let ((dtk-stop-immediately nil))
+  (dtk-speak
+        (format "%d: %s"
+                ivy--length
+                (or (elt ivy--old-cands ivy--index)
+                    ivy-text)))
+  (emacspeak-speak-buffer)))
 
+(defadvice ivy-read (before emacspeak pre act comp )
+  "Speak prompt"
+  (emacspeak-auditory-icon 'open-object)
+  (dtk-speak (ad-get-arg 0)))
 ;;}}}
 (provide 'emacspeak-ivy)
 ;;{{{ end of file
