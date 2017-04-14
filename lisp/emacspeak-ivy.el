@@ -86,32 +86,27 @@
        (with-current-buffer (window-buffer (selected-window))
          (emacspeak-speak-mode-line))))))
 
-(cl-loop
- for f in
- '(
-   ivy-beginning-of-buffer  ivy-end-of-buffer
-   ivy-next-line ivy-previous-line)
- do
- (eval
-  `(defadvice ,f (after emacspeak pre act comp)
-     "Speak selection."
-     (when (ems-interactive-p)
-       (dtk-speak
-        (format "%d: %s"
-                ivy--length
-                (or (elt ivy--old-cands ivy--index)
-                    ivy-text)))
-       (emacspeak-auditory-icon 'select-object)))))
+;; (cl-loop
+;;  for f in
+;;  '(
+;;    ivy-beginning-of-buffer  ivy-end-of-buffer
+;;    ivy-next-line ivy-previous-line)
+;;  do
+;;  (eval
+;;   `(defadvice ,f (after emacspeak pre act comp)
+;;      "Speak selection."
+;;      (when (ems-interactive-p)
+;;        (dtk-speak
+;;         (format "%d: %s"
+;;                 ivy--length
+;;                 (or (elt ivy--old-cands ivy--index)
+;;                     ivy-text)))
+;;        (emacspeak-auditory-icon 'select-object)))))
 
 (defadvice ivy--exhibit (after emacspeak pre act comp)
   "Speak updated Ivy list."
-  (let ((dtk-stop-immediately nil))
-  (dtk-speak
-        (format "%d: %s"
-                ivy--length
-                (or (elt ivy--old-cands ivy--index)
-                    ivy-text)))
-  (emacspeak-speak-buffer)))
+  (sit-for 1.5)
+  (emacspeak-speak-buffer))
 
 (defadvice ivy-read (before emacspeak pre act comp )
   "Speak prompt"
