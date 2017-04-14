@@ -135,8 +135,8 @@ ivy-reverse-i-search
 ivy-rotate-sort
 ivy-scroll-down-command
 ivy-scroll-up-command
-ivy-switch-buffer
-ivy-switch-buffer-other-window
+
+
 ivy-toggle-calling
 ivy-toggle-case-fold
 ivy-toggle-fuzzy
@@ -148,6 +148,30 @@ ivy-xcdoc-search-api-at-point
 ivy-yank-word
 ivy-youtube
 )
+
+
+(cl-loop
+ for f  in
+ '(ivy-switch-buffer-other-window ivy-switch-buffer)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (with-current-buffer (window-buffer (selected-window))
+         (emacspeak-speak-mode-line)
+         (emacspeak-auditory-icon 'close-object))))))
+
+(cl-loop
+ for f in
+ '(ivy-next-line ivy-previous-line)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Speak selection."
+     (when (ems-interactive-p)
+       (dtk-speak (elt ivy--all-candidates ivy--index))
+       (emacspeak-auditory-icon 'select-object)))))
 
 ;;}}}
 (provide 'emacspeak-ivy)
