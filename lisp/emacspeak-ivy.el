@@ -42,6 +42,8 @@
 ;;; Commentary:
 ;;; IVY ==  One More Smart Completion Technique 
 ;;; Speech-enable ivy-style completion.
+;;; This is still experimental and preliminary.
+;;;
 ;;; Code:
 
 ;;}}}
