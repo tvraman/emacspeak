@@ -91,7 +91,7 @@ switch to a screen-saver soundscape."
     (with-current-buffer buffer (emacspeak-screen-saver-mode))
     (funcall-interactively #'switch-to-buffer buffer)
     (delete-other-windows)
-    (delete-other-windows)))
+    ))
 
 ;;}}}
 ;;{{{ NM Handlers
