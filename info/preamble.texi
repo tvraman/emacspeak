@@ -4,8 +4,8 @@
 
 
 
-This manual documents @b{Emacspeak, The Complete Audio Desktop}.
-This document was last updated on @today{}.
+This manual documents @b{Emacspeak, The Complete Audio Desktop}
+and  was last updated on @today{}.
 
 @ifinfo 
 The manual is divided into the following chapters. 
