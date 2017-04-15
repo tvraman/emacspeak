@@ -90,6 +90,7 @@ switch to a screen-saver soundscape."
   (let ((buffer (get-buffer-create "*Emacspeak Screen Saver*")))
     (with-current-buffer buffer (emacspeak-screen-saver-mode))
     (funcall-interactively #'switch-to-buffer buffer)
+    (delete-other-windows)
     (delete-other-windows)))
 
 ;;}}}
