@@ -2821,16 +2821,7 @@ prefix-key ‘G’.
 
      Restore buffer to pre-filtered canonical state.
 
-12.73.6.36 emacspeak-eww-set-title
-..................................
-
- -- Command: emacspeak-eww-set-title (title)
-
-     Interactively set title — renames buffer, and sets header-line.
-
-     (fn TITLE)
-
-12.73.6.37 emacspeak-eww-speak-this-element
+12.73.6.36 emacspeak-eww-speak-this-element
 ...........................................
 
  -- Command: emacspeak-eww-speak-this-element (element)
@@ -2841,19 +2832,28 @@ prefix-key ‘G’.
 
      (fn ELEMENT)
 
-12.73.6.38 emacspeak-eww-tags-at-point
+12.73.6.37 emacspeak-eww-tags-at-point
 ......................................
 
  -- Command: emacspeak-eww-tags-at-point
 
      Display tags at point.
 
-12.73.6.39 emacspeak-eww-transcode
+12.73.6.38 emacspeak-eww-transcode
 ..................................
 
  -- Command: emacspeak-eww-transcode
 
      Apply appropriate transcoding rules to current DOM.
+
+12.73.6.39 emacspeak-eww-update-title
+.....................................
+
+ -- Command: emacspeak-eww-update-title (title)
+
+     Interactively set title — renames buffer, and sets header-line.
+
+     (fn TITLE)
 
 12.73.7 emacspeak-eww Options
 -----------------------------
@@ -4117,7 +4117,7 @@ File: emacspeak.info,  Node: emacspeak-ivy,  Next: emacspeak-jabber,  Prev: emac
 ====================
 
 IVY == One More Smart Completion Technique Speech-enable ivy-style
-completion.
+completion.  This is still experimental and preliminary.
 
 12.104.1 emacspeak-ivy Options
 ------------------------------

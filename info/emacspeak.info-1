@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents Emacspeak, The Complete Audio Desktop.  This
-document was last updated on April 14, 2017.
+document was last updated on April 15, 2017.
 
    The manual is divided into the following chapters.
 
@@ -54,7 +54,7 @@ File: emacspeak.info,  Node: Copyright,  Next: Announce,  Prev: Top,  Up: Top
 
 This manual documents Emacspeak, a speech extension to Emacs.
 
-   Copyright (C)1994 – 2016 T. V. Raman All Rights Reserved.
+   Copyright (C)1994 – 2017 T. V. Raman All Rights Reserved.
 
    Permission is granted to make and distribute verbatim copies of this
 manual without charge provided the copyright notice and this permission
@@ -4214,7 +4214,7 @@ system.
      c		browse-url-chrome
      d		magit-dispatch-popup
      e		gmaps
-     f		flyspell-mode
+     f		ripgrep-regexp
      g		gnus
      h		emacspeak-org-capture-link
      i		yas-insert-snippet

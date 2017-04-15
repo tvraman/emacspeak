@@ -1519,7 +1519,7 @@ b		eww-list-buffers
 c		browse-url-chrome
 d		magit-dispatch-popup
 e		gmaps
-f		flyspell-mode
+f		ripgrep-regexp
 g		gnus
 h		emacspeak-org-capture-link
 i		yas-insert-snippet
@@ -8541,17 +8541,6 @@ Restore buffer to pre-filtered canonical state.
 @end format
 @end deffn
 
-@subsubsection emacspeak-eww-set-title
-@deffn {Command} emacspeak-eww-set-title  (title)
-@findex emacspeak-eww-set-title
-
-@format
-Interactively set title --- renames buffer, and sets header-line.
-
-(fn TITLE)
-@end format
-@end deffn
-
 @subsubsection emacspeak-eww-speak-this-element
 @deffn {Command} emacspeak-eww-speak-this-element  (element)
 @findex emacspeak-eww-speak-this-element
@@ -8580,6 +8569,17 @@ Display tags at point.
 
 @format
 Apply appropriate transcoding rules to current DOM.
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-update-title
+@deffn {Command} emacspeak-eww-update-title  (title)
+@findex emacspeak-eww-update-title
+
+@format
+Interactively set title --- renames buffer, and sets header-line.
+
+(fn TITLE)
 @end format
 @end deffn
 
@@ -10041,6 +10041,7 @@ many available corrections.
 
 IVY ==  One More Smart Completion Technique 
 Speech-enable ivy-style completion.
+This is still experimental and preliminary.
 
 @subsection emacspeak-ivy Options
 
