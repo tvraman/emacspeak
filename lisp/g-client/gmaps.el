@@ -318,20 +318,22 @@ Parameter `key' is the API  key."
                       (g-json-get 'text (g-json-get 'duration leg))))
       (gmaps-display-leg (aref (g-json-get 'legs route) 0)))
      (t
-      (cl-loop for leg across (g-json-get 'legs route)
-            do
-            (insert (format "Leg:%d: From %s to %s\n"
-                            i
-                            (g-json-get 'start_address leg)
-                            (g-json-get 'end_address)))
-            (gmaps-display-leg leg)
-            (incf i))))
+      (cl-loop
+       for leg across (g-json-get 'legs route)
+       do
+       (insert (format "Leg:%d: From %s to %s\n"
+                       i
+                       (g-json-get 'start_address leg)
+                       (g-json-get 'end_address leg)))
+       (gmaps-display-leg leg)
+       (incf i))))
     (insert
      (format "Warnings: %s\n"
              (g-json-get 'warnings route)))
     (insert
      (format "Copyrights: %s\n\f\n"
              (g-json-get 'copyrights route)))))
+
 (defun gmaps-read-origin-destination ()
   "Read origin and destination addresses using context-based
 guesses. Addresses are returned url-encoded; if available
