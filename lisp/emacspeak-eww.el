@@ -643,7 +643,7 @@ are available are cued by an auditory icon on the header line."
      ("p" emacspeak-eww-previous-element)
      ("s" eww-readable)
      ("t" emacspeak-eww-next-table)
-     ("M-t" emacspeak-eww-set-title)
+     ("M-t" emacspeak-eww-update-title)
      )
    do
    (emacspeak-keymap-update eww-mode-map binding)))
@@ -1841,7 +1841,7 @@ Warning, this is fragile, and depends on a stable id for the
 ;;}}}
 ;;{{{ Set title:
 
-(defun  emacspeak-eww-set-title  (title)
+(defun  emacspeak-eww-update-title  (title)
   "Interactively set title --- renames buffer, and sets header-line."
   (interactive "sTitle:")
   (declare (special header-line-format))
