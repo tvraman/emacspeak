@@ -4,7 +4,7 @@
 
 
 
-This manual documents @b{Emacspeak, The Complete Audio Desktop}
+This manual documents @strong{Emacspeak, The Complete Audio Desktop}
 and  was last updated on @today{}.
 
 @ifinfo 
