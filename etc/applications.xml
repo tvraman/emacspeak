@@ -592,7 +592,7 @@ type="text/xsl"?>
     </application>
     <application name="flycheck">
     On-the-fly syntax checking.</application>
-<application name="jade">
+<application name="indium">
       Javascript  Development Environment with interactive debugging
       using Chrome Debugger API or NodeJS
     </application>
