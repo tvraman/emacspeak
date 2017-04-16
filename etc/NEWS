@@ -113,3 +113,10 @@ Emacspeak now records any *Notifications* produced by
 _dtk-notifyspeak_ and friends in a special ~*Notifications*~ buffer
 that is setup  like Emacs' built-in ~*Messages*~ buffer.
 -- this buffer can be displayed using _C-h T_.
+
+** Flycheck And Interactive Correction 
+
+Flycheck support has been updated by speech-enabling module
+~flycheck-correct~.
+Corrections can be accessed through one of three supported styles ---
+~ido~, ~popup~ and ~helm~.
