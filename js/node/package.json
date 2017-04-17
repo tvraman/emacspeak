@@ -24,6 +24,6 @@
     "dependencies": {
         "net": ">=1.0.2",
         "mathjax-node": ">=0.5.1",
-        "speech-rule-engine": ">=2.0.0-beta"
+        "speech-rule-engine": ">=2.0.0-beta.1"
     }
 }
