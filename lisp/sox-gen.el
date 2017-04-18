@@ -306,7 +306,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
                      nil 'must-match)
     (timer-duration (read-from-minibuffer "Duration: "))))
   (sox--binaural-play duration (sox-binaural-get-effect name))
-  (emacspeak-play-auditory-icon 'time)
+  (when emacspeak-use-auditory-icons(emacspeak-play-auditory-icon 'time))
   (dtk-notify-say
    (format "%s: %s" name (sox--format-seconds duration))))
 
@@ -326,7 +326,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
     (run-with-timer
      dur nil
      #'(lambda (n1 n2  d)
-         (emacspeak-play-auditory-icon 'time)
+         (when emacspeak-use-auditory-icons(emacspeak-play-auditory-icon 'time))
          (dtk-notify-say
           (format "%s  to %s %s" n1 n2 (sox--format-seconds d)))
          (sox--binaural-play  d slide))
@@ -402,7 +402,7 @@ binaural beat to another."
     result))
 
 (defun
- sox--theme-duration-scale (theme duration)
+    sox--theme-duration-scale (theme duration)
   "Given a theme and a desired overall duration, compute duration scale."
   (declare (special sox-binaural-slider-scale))
   (let ((steps (mapcar #'second theme)))
@@ -624,13 +624,13 @@ delay 0.1 0.5 \
 echo .9 .5 40 0.5 60 0.3 5 0.2 \
 channels 2 tempo 1.8   gain -8"
   "Chime used to indicate multiple windows.")
-  
+
 ;;;###autoload
 (defun sox-multiwindow (&optional swap  speed)
   "Produce a short note used to cue multiwindow."
   (declare (special sox-multiwindow-cmd))
   (sox-gen-cmd
-   (concat 
+   (concat
     sox-multiwindow-cmd
     (when swap " swap ")
     (when speed (format " speed %s" speed)))))
@@ -666,10 +666,9 @@ tempo 2 channels 2   "
   "Produce a short do-scroll-down."
   (declare (special sox-do-scroll-down-cmd))
   (sox-gen-cmd
-   (concat 
+   (concat
     sox-do-scroll-down-cmd
     (when speed (format " speed %s" speed)))))
-
 
 ;;}}}
 ;;{{{ tone:
