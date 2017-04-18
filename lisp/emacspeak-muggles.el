@@ -175,7 +175,7 @@ Argument `k-map' is a symbol  that names a keymap."
 Also turn on hydra-is-helpful if it was turned off."
   (setq hydra-is-helpful t)
   (call-interactively #'dtk-stop)
-  (emacspeak-play-auditory-icon 'close-object))
+  (when emacspeak-use-auditory-icons(emacspeak-play-auditory-icon 'close-object)))
 
 ;;}}}
 ;;{{{ Setup Help And Hint 

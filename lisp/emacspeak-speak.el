@@ -3395,7 +3395,7 @@ See documentation for command run-at-time for details on time-spec."
    #'(lambda (m)
        (message m)
        (dtk-notify-speak m)
-       (emacspeak-play-auditory-icon 'alarm)
+       (when emacspeak-use-auditory-icons(emacspeak-play-auditory-icon 'alarm))
        (sox-tones))
    message)
   (message "Set alarm for %s" time)
