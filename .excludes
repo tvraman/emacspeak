@@ -13,8 +13,6 @@
 .indent.pro
 .rss
 .skeleton.el
-32-outloud
-32-speech-server
 TAGS
 android
 announcements
@@ -31,6 +29,7 @@ obsolete
 patches
 scapes
 software-dtk
+dtk-lite
 sounds/chimes 
 sounds/clock
 tests
