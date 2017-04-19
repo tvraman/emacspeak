@@ -231,7 +231,7 @@ already disabled."
              (sox-tones 1.5 1.5)
              (emacspeak-screen-saver))
          (progn
-           (when (eq major-mode 'emacspeak-screen-saver-mode)(bury-buffer))
+           (when (eq major-mode 'emacspeak-screen-saver-mode)(quit-window))
            (sox-tones)
            (message "Unlocking screen")))))))
 
