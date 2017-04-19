@@ -16,7 +16,7 @@ and service-oriented Internet cloud.
 With several prominent tweeters expanding coverage of
 _#emacspeak_, NASDOG: ESPK has now been consistently trading over
 the social net at levels close to that once attained by DogCom
-high-fliers—and as of Nov 2016 is trading at levels close to
+high-fliers—and as of May 2017 is trading at levels close to
 that achieved by once better known stocks in the tech sector.
 
 * What Is It?
@@ -32,12 +32,12 @@ access to the evolving service-oriented social Internet cloud.
 
 * Major Enhancements:
  
- 1. Bash Utils  for power users.    🐚
- 2. Managing Shell Buffers across multiple projects.   📽
- 3. EWW loads  EBook  settings when opening EPub files. 🕮
- 4. DBus integration for handling DBus events. 🚌
- 5. Outloud is Easier To Install On 64-Bit Systems. ʕ
- 6. Audio-formatted Mathematics using NodeJS.  ⟋🕪
+ 1. Audio-formatted Mathematics using NodeJS.  ⟋🕪
+ 2. DBus integration for handling DBus events. 🚌
+ 3. Outloud is Easier To Install On 64-Bit Systems. ʕ
+ 4. Managing Shell Buffers across multiple projects.   📽
+ 5. EWW loads  EBook  settings when opening EPub files. 🕮
+ 6. Bash Utils  for power users.    🐚
  7. Speech-Enabled Elisp-Refs. 🤞
  8. Updated C/C++ Mode Support. ䷢
  9. Updated ProcEd Support. 
@@ -47,12 +47,12 @@ access to the evolving service-oriented social Internet cloud.
  13. Speech-Enabled Cider. 🍎
  14. Speech-Enable Racket IDE. ƛ
  15. Parameterized auditory icons using  SoX-Gen. 🔊
- 16. IHeart Radio. 📻
+ 16. IHeart Radio wizard. 📻
  17. Speech-Enabled Projectile. 🢫
  18. Spoken notifications are cached in a special buffer. ⏰
  19. Flycheck And Interactive Correction. 𐄂
 
-  - And a lot more than wil fit this margin. … 🗞
+     - And a lot more than wil fit this margin. … 🗞
 
 
 * Establishing Liberty, Equality And Freedom:
@@ -75,9 +75,9 @@ as ever—it is being made available at the same zero-cost as
 previous releases.
 
 At the same time, Emacspeak continues to innovate in the area of
-eyes-free social interaction and carries forward the
-well-established Open Source tradition of introducing user
-interface features that eventually show up in luser environments.
+eyes-free Assistance and social interaction and carries forward the
+well-established Open Source tradition of introducing user interface
+features that eventually show up in luser environments.
 
 On this theme, when once challenged by a proponent of a crash-prone
 but well-marketed mousetrap with the assertion "Emacs is a system from
@@ -124,7 +124,7 @@ Git  from GitHub  at
 [[https://github.com/tvraman/emacspeak][Emacspeak GitHub ]].
 
 * History:
-  - Emacspeak 46.0 (HelpfulDog) exemplifies the  coming of Smart Assistants.
+  - Emacspeak 46.0 (HelpfulDog) heralds the  coming of Smart Assistants.
   - Emacspeak 45.0 (IdealDog) is named in recognition of Emacs'
     excellent integration with various programming language
     environments --- thanks to this, Emacspeak is the IDE of choice
