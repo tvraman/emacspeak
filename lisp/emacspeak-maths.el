@@ -311,12 +311,12 @@ left for next run."
   (expand-file-name "../js/node/math-server.js" emacspeak-lisp-directory)
   "NodeJS implementation of math-server.")
 ;;;###autoload
-;;;###autoload
 (defun emacspeak-maths-start ()
   "Start Maths server bridge."
   (interactive)
   (declare (special emacspeak-maths-inferior-program
                     emacspeak-maths emacspeak-maths-server-program))
+  (cl-assert emacspeak-maths-inferior-program nil "No node executable found.")
   (let ((server
          (make-comint
           "Server-Maths" emacspeak-maths-inferior-program nil
