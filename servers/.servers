@@ -1,4 +1,3 @@
-32-outloud
 cloud 
 cloud-dtk
 cloud-espeak
@@ -16,6 +15,5 @@ log-plain
 mac
 outloud
 plain
-ssh-32-outloud
 ssh-dtk-exp
 ssh-outloud
