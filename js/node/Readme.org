@@ -11,8 +11,15 @@ and if it breaks, you get to keep both pieces.
 * Setup Instructions
 
 ** Install ~node~, ~npm~ and ~nvm~
+First some terminology:
 
-1. Install node and npm. You need a newer node than the default node
+  - nvm :: Node Version Manager
+  - npm ::  Node Package Manager
+  - node ::  Node executable 
+
+
+
+1. Install node and npm. You need a newer node than the default node (nodejs)
      installed in Ubuntu, use nvm (Node Version Manager) to manage the node installation. See
      file ~nvm-setup~ in this directory for instructions.
 2. Copy the ~nvm-setup~ file to your home directory as ~.nvm-setup~,
@@ -35,7 +42,6 @@ in ~$EMACSPEAK_DIR/js/node~ to install dependencies.
 ** Test the server at the shell
 
 : node math-server.js
-
 
 Then, from a different shell window, connect to the server.
 : nc localhost 5000
