@@ -72,7 +72,7 @@
 
 (defconst self-document-files
   (append
-   (list "emacspeak-muggles.el")
+   (list "emacspeak-maths.el" "emacspeak-muggles.el")
    (directory-files self-document-lisp-directory nil ".elc$")
    (directory-files (expand-file-name "g-client" self-document-lisp-directory)
                     nil ".elc$"))
