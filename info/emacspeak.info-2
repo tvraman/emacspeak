@@ -12,6 +12,530 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: emacspeak-bbc,  Next: emacspeak-bbdb,  Prev: emacspeak-aumix,  Up: Emacspeak Commands And Options
+
+12.23 emacspeak-bbc
+===================
+
+BBC: http://www.bbc.co.uk This module uses publicly available REST APIs
+to implement a native Emacs client for browsing and listening to BBC
+programs.
+
+   See http://www.bbc.co.uk/programmes/developers The BBC API helps
+locate a PID for a given program stream.  We then construct the BBC
+IPlayer URL for that PID, And either hand that link off to Chrome, Or
+stream it via get_iplayer and mplayer.  get_iplayer:
+https://github.com/get-iplayer/get_iplayer.git get_player vs Chrome:
+Pro/Con: Chrome: Has the UI for seeking in the stream.  get_iplayer: We
+use a named pipe, and cannot seek, but the rest of emacspeak-m-player is
+available.  For downloading a program etc., use Emacs package iplayer.
+
+12.23.1 emacspeak-bbc Commands
+------------------------------
+
+12.23.1.1 emacspeak-bbc
+.......................
+
+ -- Command: emacspeak-bbc (&optional genre)
+     ‘C-' b’
+     ‘C-x @ s b’
+
+     Launch BBC Interaction.
+     See http://www.bbc.co.uk/radio/stations for full list of stations.
+     See http://www.bbc.co.uk/radio/programmes/genres for list of genres.
+     Interactive prefix arg filters  content by genre.
+
+     (fn &optional GENRE)
+
+12.23.1.2 emacspeak-bbc-genre
+.............................
+
+ -- Command: emacspeak-bbc-genre
+
+     Launch BBC Interaction for specified Genre.
+
+12.23.1.3 emacspeak-bbc-get-iplayer-stream-pid
+..............................................
+
+ -- Command: emacspeak-bbc-get-iplayer-stream-pid (pid)
+
+     Stream using get_iplayer.
+
+     (fn PID)
+
+12.23.1.4 emacspeak-bbc-get-iplayer-stream-url
+..............................................
+
+ -- Command: emacspeak-bbc-get-iplayer-stream-url (url)
+
+     Stream using get_iplayer.
+
+     (fn URL)
+
+12.23.2 emacspeak-bbc Options
+-----------------------------
+
+ -- Variable: User Option emacspeak-bbc-button-action
+     Action to use for BBC iPlayer buttons.  get-iplayer: use
+     get_iplayer.  chrome: Hand off URL to Chrome.
+
+ -- Variable: User Option emacspeak-bbc-get-iplayer
+     Name of get_iplayer executable.
+
+
+File: emacspeak.info,  Node: emacspeak-bbdb,  Next: emacspeak-bibtex,  Prev: emacspeak-bbc,  Up: Emacspeak Commands And Options
+
+12.24 emacspeak-bbdb
+====================
+
+Speech-enables BBDB. I have used BBDB to manage email address and
+contact information since 1991.
+
+
+File: emacspeak.info,  Node: emacspeak-bibtex,  Next: emacspeak-bookmark,  Prev: emacspeak-bbdb,  Up: Emacspeak Commands And Options
+
+12.25 emacspeak-bibtex
+======================
+
+Speech extensions for bibtex mode.
+
+
+File: emacspeak.info,  Node: emacspeak-bookmark,  Next: emacspeak-bookshare,  Prev: emacspeak-bibtex,  Up: Emacspeak Commands And Options
+
+12.26 emacspeak-bookmark
+========================
+
+Speech enable bookmarks
+
+
+File: emacspeak.info,  Node: emacspeak-bookshare,  Next: emacspeak-browse-kill-ring,  Prev: emacspeak-bookmark,  Up: Emacspeak Commands And Options
+
+12.27 emacspeak-bookshare
+=========================
+
+BOOKSHARE == http://www.bookshare.org provides book access to
+print-disabled users.  It provides a simple Web API
+http://developer.bookshare.org This module implements an Emacspeak
+Bookshare client.  For now, users will need to get their own API key
+This version needs Emacs with libxml2 support You need Emacs 24.1 or
+higher.
+
+12.27.1 emacspeak-bookshare Commands
+------------------------------------
+
+12.27.1.1 emacspeak-bookshare
+.............................
+
+ -- Command: emacspeak-bookshare
+     ‘C-e C-b’
+     ‘<fn> C-b’
+
+     Bookshare  Interaction.
+
+12.27.1.2 emacspeak-bookshare-action
+....................................
+
+ -- Command: emacspeak-bookshare-action
+
+     Call action specified by  invoking key.
+
+12.27.1.3 emacspeak-bookshare-author-search
+...........................................
+
+ -- Command: emacspeak-bookshare-author-search (query &optional
+          category)
+
+     Perform a Bookshare author search.
+     Interactive prefix arg filters search by category.
+
+     (fn QUERY &optional CATEGORY)
+
+12.27.1.4 emacspeak-bookshare-browse
+....................................
+
+ -- Command: emacspeak-bookshare-browse
+
+     Browse Bookshare.
+
+12.27.1.5 emacspeak-bookshare-browse-latest
+...........................................
+
+ -- Command: emacspeak-bookshare-browse-latest
+
+     Return latest books.
+
+12.27.1.6 emacspeak-bookshare-browse-popular
+............................................
+
+ -- Command: emacspeak-bookshare-browse-popular (&optional category)
+
+     Browse popular books.
+     Optional interactive prefix arg prompts for a category to use as a filter.
+
+     (fn &optional CATEGORY)
+
+12.27.1.7 emacspeak-bookshare-download-brf
+..........................................
+
+ -- Command: emacspeak-bookshare-download-brf (id target)
+
+     Download Daisy format of specified book to target location.
+
+     (fn ID TARGET)
+
+12.27.1.8 emacspeak-bookshare-download-brf-at-point
+...................................................
+
+ -- Command: emacspeak-bookshare-download-brf-at-point
+
+     Download Braille version of book under point.
+     Target location is generated from author and title.
+
+12.27.1.9 emacspeak-bookshare-download-daisy
+............................................
+
+ -- Command: emacspeak-bookshare-download-daisy (id target)
+
+     Download Daisy format of specified book to target location.
+
+     (fn ID TARGET)
+
+12.27.1.10 emacspeak-bookshare-download-daisy-at-point
+......................................................
+
+ -- Command: emacspeak-bookshare-download-daisy-at-point
+
+     Download Daisy version of book under point.
+     Target location is generated from author and title.
+
+12.27.1.11 emacspeak-bookshare-download-internal
+................................................
+
+ -- Command: emacspeak-bookshare-download-internal (url target)
+
+     Download content  to target location.
+
+     (fn URL TARGET)
+
+12.27.1.12 emacspeak-bookshare-eww
+..................................
+
+ -- Command: emacspeak-bookshare-eww (directory)
+
+     Render complete book using EWW if available.
+
+     (fn DIRECTORY)
+
+12.27.1.13 emacspeak-bookshare-expand-at-point
+..............................................
+
+ -- Command: emacspeak-bookshare-expand-at-point
+
+     Expand entry at point by retrieving metadata.
+     Once retrieved, memoize to avoid multiple retrievals.
+
+12.27.1.14 emacspeak-bookshare-extract-and-view
+...............................................
+
+ -- Command: emacspeak-bookshare-extract-and-view (url)
+
+     Extract content referred to by link under point, and render via the browser.
+
+     (fn URL)
+
+12.27.1.15 emacspeak-bookshare-extract-xml
+..........................................
+
+ -- Command: emacspeak-bookshare-extract-xml (url)
+
+     Extract content referred to by link under point, and return an XML buffer.
+
+     (fn URL)
+
+12.27.1.16 emacspeak-bookshare-flush-lines
+..........................................
+
+ -- Command: emacspeak-bookshare-flush-lines (regexp)
+
+     Flush lines matching regexp in Bookshare buffer.
+
+     (fn REGEXP)
+
+12.27.1.17 emacspeak-bookshare-fulltext
+.......................................
+
+ -- Command: emacspeak-bookshare-fulltext (directory)
+
+     Display fulltext contents of  book in specified directory.
+     Useful for fulltext search in a book.
+
+     (fn DIRECTORY)
+
+12.27.1.18 emacspeak-bookshare-fulltext-search
+..............................................
+
+ -- Command: emacspeak-bookshare-fulltext-search (query)
+
+     Perform a Bookshare fulltext search.
+
+     (fn QUERY)
+
+12.27.1.19 emacspeak-bookshare-get-more-results
+...............................................
+
+ -- Command: emacspeak-bookshare-get-more-results
+
+     Get next page of results for last query.
+
+12.27.1.20 emacspeak-bookshare-id-search
+........................................
+
+ -- Command: emacspeak-bookshare-id-search (query)
+
+     Perform a Bookshare id search.
+
+     (fn QUERY)
+
+12.27.1.21 emacspeak-bookshare-isbn-search
+..........................................
+
+ -- Command: emacspeak-bookshare-isbn-search (query)
+
+     Perform a Bookshare isbn search.
+
+     (fn QUERY)
+
+12.27.1.22 emacspeak-bookshare-list-preferences
+...............................................
+
+ -- Command: emacspeak-bookshare-list-preferences
+
+     Return preference list.
+
+12.27.1.23 emacspeak-bookshare-mode
+...................................
+
+ -- Command: emacspeak-bookshare-mode
+
+     A Bookshare front-end for the Emacspeak desktop.
+
+     The Emacspeak Bookshare front-end is launched by command
+     emacspeak-bookshare bound to C-e C-b
+
+     This command switches to a special buffer that has Bookshare
+     commands bounds to single keystrokes– see the key-binding list at
+     the end of this description. Use Emacs online help facility to
+     look up help on these commands.
+
+     emacspeak-bookshare-mode provides the necessary functionality to
+     Search and download Bookshare material,
+     Manage a local library of downloaded Bookshare content,
+     And commands to easily read newer Daisy books from Bookshare.
+
+     Here is a list of all emacspeak Bookshare commands  with their key-bindings:
+     a Author Search
+     A Author/Title Search
+     t Title Search
+     s Full Text Search
+     d Date Search
+     b Browse
+
+     key             binding
+     —             ——-
+
+     RET		emacspeak-bookshare-toc-at-point
+     ESC		Prefix Command
+     SPC		emacspeak-bookshare-expand-at-point
+     +		emacspeak-bookshare-action
+     A		emacspeak-bookshare-action
+     B		emacspeak-bookshare-download-brf-at-point
+     C		emacspeak-bookshare-fulltext
+     D		emacspeak-bookshare-download-daisy-at-point
+     E		emacspeak-bookshare-eww
+     I		emacspeak-bookshare-action
+     P		emacspeak-bookshare-action
+     S		emacspeak-bookshare-action
+     U		emacspeak-bookshare-unpack-at-point
+     V		emacspeak-bookshare-view-at-point
+     [		backward-page
+     ]		forward-page
+     a		emacspeak-bookshare-action
+     b		emacspeak-bookshare-browse
+     c		emacspeak-bookshare-toc-at-point
+     d		emacspeak-bookshare-action
+     e		emacspeak-epub
+     f		emacspeak-bookshare-flush-lines
+     i		emacspeak-bookshare-action
+     j		next-line
+     k		previous-line
+     l .. m		emacspeak-bookshare-action
+     p		emacspeak-bookshare-action
+     q		bury-buffer
+     s .. t		emacspeak-bookshare-action
+     v		emacspeak-bookshare-view
+
+     M-n		emacspeak-bookshare-next-result
+     M-p		emacspeak-bookshare-previous-result
+
+     In addition to any hooks its parent mode ‘special-mode’ might have run,
+     this mode runs the hook ‘emacspeak-bookshare-mode-hook’, as the final or penultimate step
+     during initialization.
+
+12.27.1.24 emacspeak-bookshare-next-result
+..........................................
+
+ -- Command: emacspeak-bookshare-next-result
+
+     Move to next result.
+
+12.27.1.25 emacspeak-bookshare-periodical-list
+..............................................
+
+ -- Command: emacspeak-bookshare-periodical-list
+
+     Return list of periodicals.
+
+12.27.1.26 emacspeak-bookshare-previous-result
+..............................................
+
+ -- Command: emacspeak-bookshare-previous-result
+
+     Move to previous result.
+
+12.27.1.27 emacspeak-bookshare-set-preference
+.............................................
+
+ -- Command: emacspeak-bookshare-set-preference (preference-id value)
+
+     Set preference preference-id to value.
+
+     (fn PREFERENCE-ID VALUE)
+
+12.27.1.28 emacspeak-bookshare-sign-out
+.......................................
+
+ -- Command: emacspeak-bookshare-sign-out
+
+     Sign out, clearing password.
+
+12.27.1.29 emacspeak-bookshare-since-search
+...........................................
+
+ -- Command: emacspeak-bookshare-since-search (query &optional category)
+
+     Perform a Bookshare date  search.
+     Optional interactive prefix arg filters by category.
+
+     (fn QUERY &optional CATEGORY)
+
+12.27.1.30 emacspeak-bookshare-title-search
+...........................................
+
+ -- Command: emacspeak-bookshare-title-search (query &optional category)
+
+     Perform a Bookshare title search.
+     Interactive prefix arg filters search by category.
+
+     (fn QUERY &optional CATEGORY)
+
+12.27.1.31 emacspeak-bookshare-toc
+..................................
+
+ -- Command: emacspeak-bookshare-toc (directory)
+
+     View TOC for book in specified directory.
+
+     (fn DIRECTORY)
+
+12.27.1.32 emacspeak-bookshare-toc-at-point
+...........................................
+
+ -- Command: emacspeak-bookshare-toc-at-point
+
+     View TOC for book at point.
+     Make sure it’s downloaded and unpacked first.
+
+12.27.1.33 emacspeak-bookshare-unpack-at-point
+..............................................
+
+ -- Command: emacspeak-bookshare-unpack-at-point
+
+     Unpack downloaded content if necessary.
+
+12.27.1.34 emacspeak-bookshare-url-executor
+...........................................
+
+ -- Command: emacspeak-bookshare-url-executor (url)
+
+     Custom URL executor for use in Bookshare TOC.
+
+     (fn URL)
+
+12.27.1.35 emacspeak-bookshare-version-handler
+..............................................
+
+ -- Command: emacspeak-bookshare-version-handler (&rest ignore)
+
+     Do nothing and return nil.
+     This function accepts any number of arguments, but ignores them.
+
+     (fn &rest IGNORE)
+
+12.27.1.36 emacspeak-bookshare-view
+...................................
+
+ -- Command: emacspeak-bookshare-view (directory)
+
+     View book in specified directory.
+
+     (fn DIRECTORY)
+
+12.27.1.37 emacspeak-bookshare-view-at-point
+............................................
+
+ -- Command: emacspeak-bookshare-view-at-point
+
+     View book at point.
+     Make sure it’s downloaded and unpacked first.
+
+12.27.1.38 emacspeak-bookshare-view-page-range
+..............................................
+
+ -- Command: emacspeak-bookshare-view-page-range (url)
+
+     Play pages in specified page range from URL.
+
+     (fn URL)
+
+12.27.2 emacspeak-bookshare Options
+-----------------------------------
+
+ -- Variable: User Option emacspeak-bookshare-api-key
+     Web API key for this application.  See
+     http://developer.bookshare.org/docs for details on how to get an
+     API key.
+
+ -- Variable: User Option emacspeak-bookshare-browser-function
+     Function to display Bookshare Book content in a WWW browser.  This
+     is used by the various Bookshare view commands to display content
+     from Daisy books.
+
+ -- Variable: User Option emacspeak-bookshare-directory
+     Customize this to the root of where books are organized.
+
+ -- Variable: User Option emacspeak-bookshare-downloads-directory
+     Customize this to the root of where books are organized.
+
+ -- Variable: User Option emacspeak-bookshare-html-to-text-command
+     Command to convert html to text on stdin.
+
+ -- Variable: User Option emacspeak-bookshare-user-id
+     Bookshare user Id.
+
+ -- Variable: User Option emacspeak-bookshare-xslt
+     Name of bookshare XSL transform.
+
+
 File: emacspeak.info,  Node: emacspeak-browse-kill-ring,  Next: emacspeak-bs,  Prev: emacspeak-bookshare,  Up: Emacspeak Commands And Options
 
 12.28 emacspeak-browse-kill-ring
@@ -5947,6 +6471,15 @@ File: emacspeak.info,  Node: emacspeak-maths,  Next: emacspeak-message,  Prev: e
 12.119 emacspeak-maths
 ======================
 
+12.119.1 Setup
+--------------
+
+Do not try what follows until you have read js/node/README.org and
+successfully set up nvm (Node Version Manager) as described there.
+
+12.119.2 Technical Overview
+---------------------------
+
 Spoken mathematics on the emacspeak audio desktop.  Use a NodeJS based
 speech-rule-engine for Mathematics as the backend for processing
 mathematical markup.  The result of this processing is an annotated
@@ -5955,15 +6488,15 @@ Annotations follow Aural CSS as implemented in Emacspeak, This allows us
 to map these expressions to aural properties supported by specific TTS
 engines.
 
-12.119.1 Basic Usage:
+12.119.3 Basic Usage:
 ---------------------
 
 Start the server/client: M-x emacspeak-maths-start.  Once the server and
 client are started, you can browse any number of math expressions using
-the emacspeak-maths-navigator described below.
-
-   Invoke the Navigator using s-spc — this is the <windows> key on
-Linux.  Now you can use these keys:
+the emacspeak-maths-navigator described below.  Note: In general, once
+everything is configured correctly, using the maths navigator
+automatically starts the server and client.  Invoke the Navigator using
+s-spc — this is the <windows> key on Linux.  Now you can use these keys:
    • Show Output <o> Switch to output buffer and quit Maths Navigator
    • Enter: <SPC> Enter a LaTeX expression.
    • Smart-Enter: <enter> Enter the guessed expression with no
@@ -5980,24 +6513,24 @@ It is also displayed in a special buffer *Spoken Math*.  That buffer
 holds all previously generated output, And Emacs commands forward-page
 and backward-page can be used to move through each chunk of output.
 
-12.119.2 emacspeak-maths Commands
+12.119.4 emacspeak-maths Commands
 ---------------------------------
 
-12.119.2.1 emacspeak-maths-depth
+12.119.4.1 emacspeak-maths-depth
 ................................
 
  -- Command: emacspeak-maths-depth
 
      Move depth in current Math expression.
 
-12.119.2.2 emacspeak-maths-down
+12.119.4.2 emacspeak-maths-down
 ...............................
 
  -- Command: emacspeak-maths-down
 
      Move down in current Math expression.
 
-12.119.2.3 emacspeak-maths-enter
+12.119.4.3 emacspeak-maths-enter
 ................................
 
  -- Command: emacspeak-maths-enter (latex)
@@ -6006,9 +6539,7 @@ and backward-page can be used to move through each chunk of output.
      Tries to guess default based on context.
      Uses guessed default if user enters an empty string.
 
-     (fn LATEX)
-
-12.119.2.4 emacspeak-maths-enter-guess
+12.119.4.4 emacspeak-maths-enter-guess
 ......................................
 
  -- Command: emacspeak-maths-enter-guess
@@ -6016,14 +6547,14 @@ and backward-page can be used to move through each chunk of output.
      Send the guessed  LaTeX expression to Maths server.
      Guess is based on context.
 
-12.119.2.5 emacspeak-maths-left
+12.119.4.5 emacspeak-maths-left
 ...............................
 
  -- Command: emacspeak-maths-left
 
      Move left in current Math expression.
 
-12.119.2.6 emacspeak-maths-navigator/body
+12.119.4.6 emacspeak-maths-navigator/body
 .........................................
 
  -- Command: emacspeak-maths-navigator/body
@@ -6044,35 +6575,35 @@ and backward-page can be used to move through each chunk of output.
 
      The body can be accessed via ‘emacspeak-maths-navigator/body’.
 
-12.119.2.7 emacspeak-maths-restart
+12.119.4.7 emacspeak-maths-restart
 ..................................
 
  -- Command: emacspeak-maths-restart
 
      Restart Node math-server if running. Otherwise starts a new one.
 
-12.119.2.8 emacspeak-maths-right
+12.119.4.8 emacspeak-maths-right
 ................................
 
  -- Command: emacspeak-maths-right
 
      Move right in current Math expression.
 
-12.119.2.9 emacspeak-maths-root
+12.119.4.9 emacspeak-maths-root
 ...............................
 
  -- Command: emacspeak-maths-root
 
      Move root in current Math expression.
 
-12.119.2.10 emacspeak-maths-shutdown
+12.119.4.10 emacspeak-maths-shutdown
 ....................................
 
  -- Command: emacspeak-maths-shutdown
 
      Shutdown client and server processes.
 
-12.119.2.11 emacspeak-maths-speak-alt
+12.119.4.11 emacspeak-maths-speak-alt
 .....................................
 
  -- Command: emacspeak-maths-speak-alt
@@ -6080,7 +6611,7 @@ and backward-page can be used to move through each chunk of output.
      Speak alt text as Maths.
      For use on Wikipedia pages  for example.
 
-12.119.2.12 emacspeak-maths-spoken-mode
+12.119.4.12 emacspeak-maths-spoken-mode
 .......................................
 
  -- Command: emacspeak-maths-spoken-mode
@@ -6107,28 +6638,28 @@ and backward-page can be used to move through each chunk of output.
      this mode runs the hook ‘emacspeak-maths-spoken-mode-hook’, as the final or penultimate step
      during initialization.
 
-12.119.2.13 emacspeak-maths-start
+12.119.4.13 emacspeak-maths-start
 .................................
 
  -- Command: emacspeak-maths-start
 
      Start Maths server bridge.
 
-12.119.2.14 emacspeak-maths-switch-to-output
+12.119.4.14 emacspeak-maths-switch-to-output
 ............................................
 
  -- Command: emacspeak-maths-switch-to-output
 
      Switch to output buffer.
 
-12.119.2.15 emacspeak-maths-up
+12.119.4.15 emacspeak-maths-up
 ..............................
 
  -- Command: emacspeak-maths-up
 
      Move up in current Math expression.
 
-12.119.3 emacspeak-maths Options
+12.119.5 emacspeak-maths Options
 --------------------------------
 
  -- Variable: User Option emacspeak-maths-inferior-program
@@ -6544,6 +7075,7 @@ binds ‘s’ to this command.
 ...........................................
 
  -- Command: emacspeak-muggles-outliner/body
+     ‘C-c .’
 
      Create a hydra with no body and the heads:
 
@@ -8405,182 +8937,4 @@ talking to a remote speech server, after prompting for host and port
      List of hook functions that are run after emacspeak is set to run
      as a remote application.  Use this to add actions you typically
      perform after you enter remote mode.
-
-
-File: emacspeak.info,  Node: emacspeak-replace,  Next: emacspeak-rmail,  Prev: emacspeak-remote,  Up: Emacspeak Commands And Options
-
-12.153 emacspeak-replace
-========================
-
-This module causes emacs’ replacement functions to use voice locking
-
-12.153.1 emacspeak-replace Options
-----------------------------------
-
- -- Variable: User Option emacspeak-replace-personality
-     Personality used in search and replace to indicate word that is
-     being replaced.
-
-
-File: emacspeak.info,  Node: emacspeak-rmail,  Next: emacspeak-rpm,  Prev: emacspeak-replace,  Up: Emacspeak Commands And Options
-
-12.154 emacspeak-rmail
-======================
-
-emacspeak extensions to rmail
-
-12.154.1 emacspeak-rmail Commands
----------------------------------
-
-12.154.1.1 emacspeak-rmail-speak-current-message-labels
-.......................................................
-
- -- Command: emacspeak-rmail-speak-current-message-labels
-
-     Speak labels of current message
-
-12.154.1.2 emacspeak-rmail-summarize-current-message
-....................................................
-
- -- Command: emacspeak-rmail-summarize-current-message
-
-     Summarize current message
-
-
-File: emacspeak.info,  Node: emacspeak-rpm,  Next: emacspeak-rpm-spec,  Prev: emacspeak-rmail,  Up: Emacspeak Commands And Options
-
-12.155 emacspeak-rpm
-====================
-
-This module speech-enables rpm.el rpm.el can be downloaded from
-http://www.uni-karlsruhe.de/~Detlev.Zundel/download/rpm.el and provides
-a nice interface to managing and browsing rpm.
-
-
-File: emacspeak.info,  Node: emacspeak-rpm-spec,  Next: emacspeak-rst,  Prev: emacspeak-rpm,  Up: Emacspeak Commands And Options
-
-12.156 emacspeak-rpm-spec
-=========================
-
-speech-enable rpm-spec-mode –part of Emacs 21 on RH 7.3
-
-12.156.1 emacspeak-rpm-spec Options
------------------------------------
-
- -- Variable: User Option emacspeak-rpm-spec-dir-personality
-     Personality used for rpm-spec-dir-face This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option emacspeak-rpm-spec-doc-personality
-     Personality used for rpm-spec-doc-face This personality uses
-     voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option emacspeak-rpm-spec-ghost-personality
-     Personality used for rpm-spec-ghost-face This personality uses
-     voice-smoothen-medium whose effect can be changed globally by
-     customizing voice-smoothen-medium-settings.
-
- -- Variable: User Option emacspeak-rpm-spec-macro-personality
-     Personality used for rpm-spec-macro-face This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option emacspeak-rpm-spec-package-personality
-     Personality used for rpm-spec-package-face This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option emacspeak-rpm-spec-tag-personality
-     Personality used for rpm-spec-tag-face This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
-
-File: emacspeak.info,  Node: emacspeak-rst,  Next: emacspeak-ruby,  Prev: emacspeak-rpm-spec,  Up: Emacspeak Commands And Options
-
-12.157 emacspeak-rst
-====================
-
-RST == rst-mode for editing rst text files.  This module speech-enables
-rst-mode.
-
-12.157.1 emacspeak-rst Options
-------------------------------
-
- -- Variable: User Option emacspeak-rst-adornment-voice
-     Personality used for rst-adornment This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option emacspeak-rst-block-voice
-     Personality used for rst-block This personality uses voice-annotate
-     whose effect can be changed globally by customizing
-     voice-annotate-settings.
-
- -- Variable: User Option emacspeak-rst-comment-voice
-     Personality used for rst-comment This personality uses
-     voice-monotone whose effect can be changed globally by customizing
-     voice-monotone-settings.
-
- -- Variable: User Option emacspeak-rst-definition-voice
-     Personality used for rst-definition This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option emacspeak-rst-directive-voice
-     Personality used for rst-directive This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
-
- -- Variable: User Option emacspeak-rst-emphasis1-voice
-     Personality used for rst-emphasis1 This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option emacspeak-rst-emphasis2-voice
-     Personality used for rst-emphasis2 This personality uses
-     voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option emacspeak-rst-external-voice
-     Personality used for rst-external This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option emacspeak-rst-level-1-voice
-     Personality used for rst-level-1 This personality uses voice-bolden
-     whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option emacspeak-rst-level-2-voice
-     Personality used for rst-level-2 This personality uses
-     voice-bolden-medium whose effect can be changed globally by
-     customizing voice-bolden-medium-settings.
-
- -- Variable: User Option emacspeak-rst-level-3-voice
-     Personality used for rst-level-3 This personality uses
-     voice-lighten-medium whose effect can be changed globally by
-     customizing voice-lighten-medium-settings.
-
- -- Variable: User Option emacspeak-rst-level-4-voice
-     Personality used for rst-level-4 This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option emacspeak-rst-literal-voice
-     Personality used for rst-literal This personality uses
-     voice-monotone-medium whose effect can be changed globally by
-     customizing voice-monotone-medium-settings.
-
- -- Variable: User Option emacspeak-rst-reference-voice
-     Personality used for rst-reference This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option emacspeak-rst-transition-voice
-     Personality used for rst-transition This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
 
