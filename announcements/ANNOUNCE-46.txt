@@ -40,17 +40,16 @@ access to the evolving service-oriented social Internet cloud.
  6. Bash Utils  for power users.    🐚
  7. Speech-Enabled Elisp-Refs. 🤞
  8. Updated C/C++ Mode Support. ䷢
- 9. Updated ProcEd Support. 
- 10. Updated EShell Support. ︹
- 11. Speach-Enabled Clojure.  𝍏
- 12. Speech-Enabled Geiser For Scheme Interaction. ♨
- 13. Speech-Enabled Cider. 🍎
- 14. Speech-Enable Racket IDE. ƛ
- 15. Parameterized auditory icons using  SoX-Gen. 🔊
- 16. IHeart Radio wizard. 📻
- 17. Speech-Enabled Projectile. 🢫
- 18. Spoken notifications are cached in a special buffer. ⏰
- 19. Flycheck And Interactive Correction. 𐄂
+ 9. Updated EShell Support. ︹
+ 10. Speach-Enabled Clojure.  𝍏
+ 11. Speech-Enabled Geiser For Scheme Interaction. ♨
+ 12. Speech-Enabled Cider. 🍎
+ 13. Speech-Enable Racket IDE. ƛ
+ 14. Parameterized auditory icons using  SoX-Gen. 🔊
+ 15. IHeart Radio wizard. 📻
+ 16. Speech-Enabled Projectile. 🢫
+ 17. Spoken notifications are cached in a special buffer. ⏰
+ 18. Flycheck And Interactive Correction. 𐄂
 
      - And a lot more than wil fit this margin. … 🗞
 
