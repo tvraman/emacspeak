@@ -54,9 +54,6 @@ emacspeak:
 	@echo "Use C-h p in Emacs for a package overview"
 	@echo "Make sure you read the Emacs info pages"
 
-info:
-	cd info; $(MAKE) -k
-
 outloud: 
 	cd servers/linux-outloud && $(MAKE) || echo "Cant build Outloud server!"
 
