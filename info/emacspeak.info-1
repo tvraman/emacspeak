@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 19, 2017.
+last updated on April 20, 2017.
 
    The manual is divided into the following chapters.
 
@@ -2947,7 +2947,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1155 commands and 1087 options.
+This chapter documents a total of 1170 commands and 1088 options.
 
 * Menu:
 
@@ -3069,6 +3069,7 @@ This chapter documents a total of 1155 commands and 1087 options.
 * emacspeak-make-mode::Speech enable make-mode.
 * emacspeak-man::Speech enable Man mode – Use this for UNIX Man pages.
 * emacspeak-markdown::Speech-enable MARKDOWN-mode.el.
+* emacspeak-maths::Audio-Formatted Mathematics.
 * emacspeak-message::Speech enable Message – Used to compose news postings and replies.
 * emacspeak-metapost::speech-enable metapost mode.
 * emacspeak-midge::Speech-enable MIDI editor.
