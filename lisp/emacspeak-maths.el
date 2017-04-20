@@ -40,7 +40,10 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-
+;;; @subsection Setup 
+;;; Do not try what follows until you have read  js/node/README.org
+;;; and successfully set up nvm (Node Version Manager) as described there.
+;;; @subsection Technical Overview 
 ;;; Spoken mathematics on the emacspeak audio desktop. Use a NodeJS
 ;;; based speech-rule-engine for Mathematics as the backend for
 ;;; processing mathematical markup. The result of this processing is
@@ -53,8 +56,10 @@
 ;;; Start  the server/client: M-x emacspeak-maths-start. Once the server
 ;;; and client are started, you can browse any number of math
 ;;; expressions using the emacspeak-maths-navigator described below.
-;;;
-;;; Invoke the Navigator using s-spc --- this is the <windows> key on
+;;; Note: In general, once everything is configured correctly, using
+;;; the maths navigator automatically starts the server and
+;;; client. Invoke the Navigator using s-spc --- this is the <windows>
+;;; key on
 ;;; Linux. Now you can use these keys:
 ;;; @itemize
 ;;; @item  Show Output <o> Switch to output buffer and quit Maths Navigator
