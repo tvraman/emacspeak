@@ -16,7 +16,10 @@ for use with Emacspeak --- see [[https://github.com/tvraman/emacspeak/blob/maste
 
 There is a new command _emacspeak-open-info_ bound to _C-e TAB_
 that opens the Emacspeak online manual for the  version of Emacspeak
-in use.
+in use. Command ~emacspeak-info-wizard~ bound to _C-h TAB_ implements
+an Info Wizard that   jumps directly to an Info Node using completion
+--- this looks at *all* installed info pages on the system.
+
 
 ** Managing Shell Buffers
 
