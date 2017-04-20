@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1155 commands and 1087 options.
+This chapter documents a total of 1170 commands and 1088 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -123,6 +123,7 @@ This chapter documents a total of 1155 commands and 1087 options.
 * emacspeak-make-mode::Speech enable make-mode.
 * emacspeak-man::Speech enable Man mode -- Use this for UNIX Man pages.
 * emacspeak-markdown::Speech-enable MARKDOWN-mode.el.
+* emacspeak-maths::Audio-Formatted Mathematics.
 * emacspeak-message::Speech enable Message -- Used to compose news postings and replies.
 * emacspeak-metapost::speech-enable metapost mode.
 * emacspeak-midge::Speech-enable MIDI editor.
@@ -12161,6 +12162,235 @@ This personality uses  voice-lighten whose  effect can be changed globally by cu
 @defvar {User Option} emacspeak-markdown-url-personality
 Personality used for markdown-url-face
 This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+
+@end defvar
+
+@node emacspeak-maths
+@section emacspeak-maths
+
+Spoken mathematics on the emacspeak audio desktop. Use a NodeJS
+based speech-rule-engine for Mathematics as the backend for
+processing mathematical markup. The result of this processing is
+an annotated S-expression that is rendered via Emacspeak's speech
+facilities. Annotations follow Aural CSS as implemented in
+Emacspeak, This allows us to map these expressions to aural
+properties supported by specific TTS engines. 
+@subsection Basic Usage: 
+
+Start  the server/client: M-x emacspeak-maths-start. Once the server
+and client are started, you can browse any number of math
+expressions using the emacspeak-maths-navigator described below.
+
+Invoke the Navigator using s-spc --- this is the <windows> key on
+Linux. Now you can use these keys:
+@itemize
+@item  Show Output <o> Switch to output buffer and quit Maths Navigator
+@item Enter: <SPC>
+Enter a LaTeX expression.
+@item Smart-Enter: <enter> Enter the guessed expression with no prompting.
+@item Alt-Text <a> Process alt-text
+under point as LaTeX.
+@item Down <down> Move down a level.
+@item
+Up <up> Move up a level.
+@item Left <left> Move left.
+@item Right
+<right> Move right.
+@item Exit <any other key> Exit
+navigator.
+
+@end itemize
+The current expression is spoken after
+each of the above commands. It is also displayed in a special
+buffer *Spoken Math*. That buffer holds all previously generated
+output, And Emacs commands forward-page and backward-page can be
+used to move through each chunk of output.
+
+@subsection emacspeak-maths Commands
+
+@subsubsection emacspeak-maths-depth
+@deffn {Command} emacspeak-maths-depth   
+@findex emacspeak-maths-depth
+
+@format
+Move depth in current Math expression.
+@end format
+@end deffn
+
+@subsubsection emacspeak-maths-down
+@deffn {Command} emacspeak-maths-down   
+@findex emacspeak-maths-down
+
+@format
+Move down in current Math expression.
+@end format
+@end deffn
+
+@subsubsection emacspeak-maths-enter
+@deffn {Command} emacspeak-maths-enter  (latex)
+@findex emacspeak-maths-enter
+
+@format
+Send a LaTeX expression to Maths server.
+Tries to guess default based on context.
+Uses guessed default if user enters an empty string.
+
+(fn LATEX)
+@end format
+@end deffn
+
+@subsubsection emacspeak-maths-enter-guess
+@deffn {Command} emacspeak-maths-enter-guess   
+@findex emacspeak-maths-enter-guess
+
+@format
+Send the guessed  LaTeX expression to Maths server.
+Guess is based on context.
+@end format
+@end deffn
+
+@subsubsection emacspeak-maths-left
+@deffn {Command} emacspeak-maths-left   
+@findex emacspeak-maths-left
+
+@format
+Move left in current Math expression.
+@end format
+@end deffn
+
+@subsubsection emacspeak-maths-navigator/body
+@deffn {Command} emacspeak-maths-navigator/body   
+@table @kbd
+@item s-SPC
+@kindex s-SPC
+@end table
+
+@findex emacspeak-maths-navigator/body
+
+@format
+Create a hydra with no body and the heads:
+
+"o":    ‘emacspeak-maths-switch-to-output’,
+"RET":    ‘emacspeak-maths-enter-guess’,
+"SPC":    ‘emacspeak-maths-enter’,
+"a":    ‘emacspeak-maths-speak-alt’,
+"d":    ‘emacspeak-maths-depth’,
+"r":    ‘emacspeak-maths-root’,
+"<up>":    ‘emacspeak-maths-up’,
+"<down>":    ‘emacspeak-maths-down’,
+"<left>":    ‘emacspeak-maths-left’,
+"<right>":    ‘emacspeak-maths-right’
+
+The body can be accessed via ‘emacspeak-maths-navigator/body’.
+@end format
+@end deffn
+
+@subsubsection emacspeak-maths-restart
+@deffn {Command} emacspeak-maths-restart   
+@findex emacspeak-maths-restart
+
+@format
+Restart Node math-server if running. Otherwise starts a new one.
+@end format
+@end deffn
+
+@subsubsection emacspeak-maths-right
+@deffn {Command} emacspeak-maths-right   
+@findex emacspeak-maths-right
+
+@format
+Move right in current Math expression.
+@end format
+@end deffn
+
+@subsubsection emacspeak-maths-root
+@deffn {Command} emacspeak-maths-root   
+@findex emacspeak-maths-root
+
+@format
+Move root in current Math expression.
+@end format
+@end deffn
+
+@subsubsection emacspeak-maths-shutdown
+@deffn {Command} emacspeak-maths-shutdown   
+@findex emacspeak-maths-shutdown
+
+@format
+Shutdown client and server processes.
+@end format
+@end deffn
+
+@subsubsection emacspeak-maths-speak-alt
+@deffn {Command} emacspeak-maths-speak-alt   
+@findex emacspeak-maths-speak-alt
+
+@format
+Speak alt text as Maths.
+For use on Wikipedia pages  for example.
+@end format
+@end deffn
+
+@subsubsection emacspeak-maths-spoken-mode
+@deffn {Command} emacspeak-maths-spoken-mode   
+@findex emacspeak-maths-spoken-mode
+
+@format
+Special mode for interacting with Spoken Math.
+
+This mode is used by the special buffer that displays spoken math
+returned from the Node server.
+This mode is similar to Emacs’ ‘view-mode’.
+see the key-binding list at the end of this description.
+Emacs online help facility to look up help on these commands.
+
+key             binding
+---             -------
+
+[		backward-page
+]		forward-page
+h		emacspeak-maths-left
+j		emacspeak-maths-down
+k		emacspeak-maths-up
+l		emacspeak-maths-right
+
+In addition to any hooks its parent mode ‘special-mode’ might have run,
+this mode runs the hook ‘emacspeak-maths-spoken-mode-hook’, as the final or penultimate step
+during initialization.
+@end format
+@end deffn
+
+@subsubsection emacspeak-maths-start
+@deffn {Command} emacspeak-maths-start   
+@findex emacspeak-maths-start
+
+@format
+Start Maths server bridge.
+@end format
+@end deffn
+
+@subsubsection emacspeak-maths-switch-to-output
+@deffn {Command} emacspeak-maths-switch-to-output   
+@findex emacspeak-maths-switch-to-output
+
+@format
+Switch to output buffer.
+@end format
+@end deffn
+
+@subsubsection emacspeak-maths-up
+@deffn {Command} emacspeak-maths-up   
+@findex emacspeak-maths-up
+
+@format
+Move up in current Math expression.
+@end format
+@end deffn
+
+@subsection emacspeak-maths Options
+
+@defvar {User Option} emacspeak-maths-inferior-program
+Location of ‘node’ executable.
 
 @end defvar
 
