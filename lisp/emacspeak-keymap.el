@@ -672,7 +672,7 @@ command that the key sequence executes."
     ("c" browse-url-chrome)
     ("d" magit-dispatch-popup)
     ("e" gmaps)
-    ("f" ripgrep-regexp)
+    ("f" rg)
     ("g" gnus)
     ("h" emacspeak-org-capture-link)
     ("i" yas-insert-snippet)
