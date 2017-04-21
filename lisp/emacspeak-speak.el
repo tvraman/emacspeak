@@ -3658,7 +3658,17 @@ This command  is designed for use in a windowing environment like X."
   (funcall-interactively #'info (expand-file-name "emacspeak.info" emacspeak-info-directory) "*Emacspeak Info*"))
 
 ;;}}}
+;;{{{ Describe help map:
+;;;###autoload
+(defun describe-help-keys ()
+  "Show bindings under C-h."
+  (interactive)
+  (describe-bindings "\C-h" )
+  (emacspeak-auditory-icon 'help)
+  (with-current-buffer (window-buffer (selected-window))
+    (emacspeak-speak-mode-line)))
 
+;;}}}
 (provide 'emacspeak-speak)
 ;;{{{ end of file
 
