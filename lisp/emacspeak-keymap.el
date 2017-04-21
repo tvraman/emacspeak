@@ -145,6 +145,7 @@
         ("M-v" find-variable)
         ("V" customize-variable)
         ("C-e"   emacspeak-describe-emacspeak)
+        ("C-j" finder-commentary)
         ("C-l" emacspeak-learn-emacs-mode)
         ("C-m" man)
         ("C-s" customize-saved)
