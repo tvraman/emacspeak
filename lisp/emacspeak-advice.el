@@ -1700,13 +1700,20 @@ Indicate change of selection with an auditory icon
 (defadvice help-window-display-message (around emacspeak pre act comp)
   (ems-with-messages-silenced ad-do-it))
 
+(defadvice describe-key (after emacspeak pre act comp)
+  "Speak the help."
+  (when  (ems-interactive-p)
+    (emacspeak-auditory-icon 'help)
+    (unless ad-return-value 
+      (emacspeak-speak-help))))
+
 (cl-loop
  for f in
  '(
    describe-function describe-variable
                      describe-face describe-font
                      describe-text-properties describe-syntax
-                     describe-package describe-key)
+                     describe-package )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
