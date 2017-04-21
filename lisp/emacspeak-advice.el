@@ -2714,15 +2714,17 @@ Produce auditory icons if possible."
 ;;}}}
 ;;{{{ Splash Screen:
 
-(cl-loop for f in
-         '(about-emacs display-about-screen)
-         do
-         (eval
-          `(defadvice ,f (after emacspeak pre act comp)
-             "Provide auditory feedback."
-             (when (ems-interactive-p)
-               (emacspeak-auditory-icon 'open-object)
-               (emacspeak-speak-buffer)))))
+(cl-loop
+ for f in
+ '(about-emacs display-about-screen)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'open-object)
+       (with-current-buffer (window-buffer (selected-window))
+         (emacspeak-speak-buffer))))))
 
 (defadvice exit-splash-screen (after emacspeak pre act comp)
   "Provide auditory feedback."
