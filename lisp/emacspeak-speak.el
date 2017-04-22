@@ -944,7 +944,7 @@ start hidden blocks of text, e.g.  outline header lines, or header
 lines of blocks created by command `emacspeak-hide-or-expose-block'
 are indicated with auditory icon ellipses."
   (interactive "P")
-  (declare (special voice-animate voice-indent
+  (declare (special voice-animate voice-indent linum-mode
                     dtk-quiet dtk-stop-immediately dtk-punctuation-mode
                     emacspeak-speak-line-invert-filter emacspeak-speak-space-regexp
                     emacspeak-speak-maximum-line-length emacspeak-show-point
@@ -962,6 +962,7 @@ are indicated with auditory icon ellipses."
             (inhibit-modification-hooks t)
             (line nil)
             (orig (point))
+            (linenum (when linum-mode  (line-number-at-pos)))
             (indent nil))
         (forward-line 0)
         (emacspeak-handle-action-at-point)
@@ -1024,16 +1025,20 @@ are indicated with auditory icon ellipses."
                     (put-text-property start end 'speak-line t))
                   t))))
             (when  speakable
-              (cond
-               ((and indent
+              (when
+                  (and indent
                      (eq 'speak emacspeak-audio-indentation-method)
                      (null arg)
                      (> indent 0))
                 (setq indent (format "indent %d" indent))
                 (put-text-property   0 (length indent)
                                      'personality voice-indent   indent)
-                (dtk-speak (concat indent line)))
-               (t (dtk-speak line)))))))))))
+                (setq line (concat indent line)))
+              (when (and linum-mode linenum)
+                (setq linenum (format "%d" linenum))
+                (setq linenum (propertize linenum 'personality   voice-lighten))
+                (setq line (concat linenum line)))
+              (dtk-speak line)))))))))
 
 ;;;###autoload
 (defun emacspeak-speak-visual-line ()
