@@ -2404,12 +2404,16 @@ Once switched, set default directory in that target shell to the directory of th
             (cond
              ((hash-table-empty-p emacspeak-wizards--shells-table) (shell))
              ((gethash key emacspeak-wizards--shells-table)
-              (gethash key emacspeak-wizards--shells-table))
+              (if (buffer-live-p (gethash key emacspeak-wizards--shells-table))
+                  (gethash key emacspeak-wizards--shells-table)
+                (prog1 
+                  (shell)
+                  (emacspeak-wizards--build-shells-table))))
              (t
               (emacspeak-wizards--build-shells-table)
               (or (gethash key emacspeak-wizards--shells-table)
                   (gethash 0 emacspeak-wizards--shells-table))))))
-      (when (and (null rekey)buffer-file-name)       ;  source determines target directory
+      (when (and (null rekey)buffer-file-name) ;  source determines target directory
         (with-current-buffer buffer
           (unless (string=
                    (expand-file-name directory)
