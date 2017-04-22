@@ -36,7 +36,7 @@ Do not use `make-local-variable' to make a hook variable buffer-local."
 (defadvice vm-check-emacs-version(around work-in-20-emacs pre act com) t)
 
 (add-hook 'vm-quit-hook 'vm-expunge-folder)
-(global-set-key "\C-xm" 'vm-mail)
+;(global-set-key "\C-xm" 'vm-mail)
 (add-hook 'vm-mode-hook
           #'(lambda nil
              (and (featurep 'emacspeak)

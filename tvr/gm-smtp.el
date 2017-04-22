@@ -4,7 +4,7 @@
 ;;; 1 line for outgoing smtp 
 ;;; 1 line for incoming imap (for reading mail)
 (require 'smtpmail)
-(setq send-mail-function 'smtpmail-send-it)
+
 (setq
  send-mail-function 'smtpmail-send-it
  user-mail-address "tv.raman.tv@gmail.com"
