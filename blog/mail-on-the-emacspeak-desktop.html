@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2017-04-22 Sat 20:06 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Email On The Emacspeak Audio Desktop</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="raman" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Email On The Emacspeak Audio Desktop</h1>
+<div id="outline-container-orgc57f2b7" class="outline-2">
+<h2 id="orgc57f2b7"><span class="section-number-2">1</span> Overview</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+This question comes up every few months on the emacspeak mailing
+list. In general, see
+<a href="https://tvraman.github.io/emacspeak/applications.html">Emacspeak Tools</a> to quickly discover available speech-enabled
+applications. This article outlines some of the available email setups
+given the wide degree of variance in this space.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org472e202" class="outline-2">
+<h2 id="org472e202"><span class="section-number-2">2</span> Background</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+How one puts together an email environment is a function of the
+following:
+</p>
+
+<ol class="org-ol">
+<li>How email is retrieved.</li>
+<li>How email is stored (if storing locally).</li>
+<li>How email is sent.</li>
+</ol>
+
+<p>
+Here is an overview of what is available as viewed from the world of
+Linux in general and Emacs in particular: 
+</p>
+</div>
+
+
+<div id="outline-container-org6bfd003" class="outline-3">
+<h3 id="org6bfd003"><span class="section-number-3">2.1</span> Email Retrieval</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Email can be retrieved in a number of ways:
+</p>
+
+<ul class="org-ul">
+<li>IMap via Emacs This is implemented well in GNUS, and poorly in
+Emacs/VM. Note that Emacs is single-threaded, and fetching large
+volumes of email via IMap is painful.</li>
+<li>Batch Retrieval: IMap Tools like <span class="underline">fetchmail</span>, <span class="underline">offlineimap</span> and friends that live
+outside of Emacs can be used to batch-retrieve email in the
+background. The retrieved mail gets delivered <i>locally</i> as in the past.</li>
+<li>Mail Filtering: UNIX <span class="underline">procmail</span> enables filtering of locally
+delivered email into separate folders for automatically organizing
+incoming email.</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgc17c2ee" class="outline-3">
+<h3 id="orgc17c2ee"><span class="section-number-3">2.2</span> Sending Email</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Sending email involves:
+</p>
+
+<ol class="org-ol">
+<li>Composing email &#x2014; typically invoked  via key-sequence  <span class="underline">C-x m</span>
+(command: <i>compose-mail</i>). Emacs email packages implement
+specific versions of this command, e.g. <i>vm-mail</i> from package
+<span class="underline">emacs/vm</span>, <i>message-mail</i> from the <span class="underline">message</span> package etc.</li>
+<li>Sending email: This is specific to the email provider being used,
+e.g., <i>GMail</i>. In the past, UNIX machines could talk <i>SMTP</i> to
+the Mail Gateway, but this has mostly disappeared over time. For
+an example of how to configure Emacs to send email via GMail
+using SMTP , see file <a href="https://github.com/tvraman/emacspeak/blob/master/tvr/gm-smtp.el#L1">tvr/gm-smtp.el</a> in the emacspeak repository.</li>
+</ol>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgc45b6b3" class="outline-3">
+<h3 id="orgc45b6b3"><span class="section-number-3">2.3</span> Local Storage Format</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>UNIX Mail:       An email folder is a file of messages. This
+format is used by clients like Emacs/VM, UNIX Mail etc.</li>
+<li>Maildir:  A mail folder  is a directory, with
+individual email messages living in files of their
+own. Sample clients include MH-E (UNIX MH), MU4E.</li>
+<li>RMail     This is Emacs' original email format.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org49386ea" class="outline-2">
+<h2 id="org49386ea"><span class="section-number-2">3</span> Putting It All Together</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+The next sections show my present email setup put together using the
+building blocks described above. 
+</p>
+
+<ol class="org-ol">
+<li>I use Linux on all my machines, and Android on my phone.</li>
+<li>I mostly limit email usage on my phone  to get a quick overview of email that might require immediate attention &#x2014; toward this end, I have a <i>to-mobile</i> GMail label that collects urgent messages.</li>
+<li>Linux is where I handle email in volume.</li>
+<li>I use my <i>Inbox</i> as</li>
+</ol>
+<p>
+my ToDo list &#x2014; which means that I leave little or no email in my
+<i>Inbox</i> unless I'm on vacation and disconnected from email.
+</p>
+</div>
+
+<div id="outline-container-orge0a9247" class="outline-3">
+<h3 id="orge0a9247"><span class="section-number-3">3.1</span> Desktop: Batch Retrieval  And Emacs/VM</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+This is the email setup on my workstation. See next section for the
+email setup while mobile.
+</p>
+
+<ol class="org-ol">
+<li>I batch-retrieve   email using <span class="underline">fetchmail</span>.</li>
+<li>This email gets filtered through <span class="underline">procmail</span> and auto-filed into
+several folders based on a set of procmail rules. Typical rules
+include separating out various email lists into their  respective folders.</li>
+<li>Note that this does not preclude using <span class="underline">IMap</span> via GNUS   to  read
+email while online.</li>
+<li>Email that is not filtered into separate folders  e.g. email that
+is sent directly to me, email regarding projects that need
+immediate attention etc., land up in folder <span class="underline">~/mbox</span>.</li>
+<li>So when I launch <span class="underline">emacs/vm</span> on my desktop, the above is all I
+need to deal with at any given moment.</li>
+<li>I typically read Auto-filed mailing lists  using <span class="underline">emacs/vm</span> about once a day or
+less &#x2014; I use package <span class="underline">mspools</span>  to get a quick overview of the
+state of those mail folders.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgd7ebcf5" class="outline-3">
+<h3 id="orgd7ebcf5"><span class="section-number-3">3.2</span> Mobile AccessOn Laptop: GNUS And IMap</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+See  <a href="https://github.com/tvraman/emacspeak/blob/master/tvr/gnus-prepare.el#L1">gnus-prepare.el</a> for my <span class="underline">gnus</span> configuration for accessing GMail
+via <span class="underline">imap</span>. That configuration is setup to access multiple GMail accounts.
+</p>
+
+<ol class="org-ol">
+<li>I see each GMail label as a separate group in <span class="underline">GNUS</span>.</li>
+<li>I only sync  high-priority labels &#x2014; this works well even
+over slow WIFI connections while on the road. As an example, the
+afore-mentioned <i>to-mobile</i> GMail label is a high-priority group.</li>
+<li>Module <span class="underline">gm-nnir</span> defines a  <span class="underline">GNUS/GMail</span> extension that enables
+one to search GMail using GMail's search operators &#x2014; that is my
+prefered means of quickly finding email messages using
+search. This is very fast since the search happens server-side,
+and  only email headers are retrieved when displaying the search
+hits.</li>
+<li>Note that this solution is not laptop/mobile specific &#x2014; I  use
+this setup for searching GMail   from my desktop as well.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgea285cc" class="outline-3">
+<h3 id="orgea285cc"><span class="section-number-3">3.3</span> Composing And Sending EMail</h3>
+<div class="outline-text-3" id="text-3-3">
+<ol class="org-ol">
+<li>I use <i>compose-mail</i> to compose email.</li>
+<li>I optionally activate <span class="underline">orgtbl-mode</span> and/or  <span class="underline">orgstruct-mode</span> if
+editing structured content within the email body.</li>
+<li>I send email out using the setup in  <a href="https://github.com/tvraman/emacspeak/blob/master/tvr/gm-smtp.el#L1">gm-smtp.el</a>.</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9b97991" class="outline-2">
+<h2 id="org9b97991"><span class="section-number-2">4</span> Conclusion</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li>Email in Linux/Emacs  is  composed of a set of
+independent building blocks &#x2014; this gives maximal flexibility.</li>
+<li>That flexibility allows one to put together different email
+workflows depending on the connectivity environment in use.</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2017-04-22 Sat 00:00</p>
+<p class="author">Author: raman</p>
+<p class="date">Created: 2017-04-22 Sat 20:06</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
