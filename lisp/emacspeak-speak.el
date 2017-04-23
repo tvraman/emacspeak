@@ -930,6 +930,8 @@ with a long string of gibberish."
   "Pattern that matches white space."
   :type 'string
   :group 'emacspeak)
+;;; Forward Declaration:
+(defvar linum-mode nil)
 
 ;;;###autoload                          ;
 (defun emacspeak-speak-line (&optional arg)
@@ -962,7 +964,7 @@ are indicated with auditory icon ellipses."
             (inhibit-modification-hooks t)
             (line nil)
             (orig (point))
-            (linenum (when linum-mode  (line-number-at-pos)))
+            (linenum (when (and (boundp 'linum-mode)linum-mode)  (line-number-at-pos)))
             (indent nil))
         (forward-line 0)
         (emacspeak-handle-action-at-point)
