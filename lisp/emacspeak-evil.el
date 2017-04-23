@@ -41,7 +41,7 @@
 
 ;;; Commentary:
 ;;; EVIL ==  VIM In Emacs
-
+;;; This is work-in-progress and is not complete.
 ;;; Code:
 
 ;;}}}
