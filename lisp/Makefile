@@ -144,6 +144,7 @@ emacspeak-eperiodic.elc \
 emacspeak-erc.elc \
 emacspeak-eshell.elc \
 emacspeak-ess.elc \
+emacspeak-evil.elc \
 emacspeak-eterm.elc \
 emacspeak-eudc.elc \
 emacspeak-facemenu.elc \
@@ -397,6 +398,7 @@ emacspeak-eperiodic.elc: emacspeak-eperiodic.el dtk-speak.elc voice-setup.elc
 emacspeak-erc.elc: emacspeak-erc.el dtk-speak.elc voice-setup.elc
 emacspeak-eshell.elc: emacspeak-eshell.el dtk-speak.elc voice-setup.elc
 emacspeak-ess.elc: emacspeak-ess.el dtk-speak.elc voice-setup.elc
+emacspeak-evil.elc: emacspeak-evil.el dtk-speak.elc voice-setup.elc
 emacspeak-eterm.elc: emacspeak-eterm.el dtk-speak.elc voice-setup.elc
 emacspeak-eudc.elc: emacspeak-eudc.el dtk-speak.elc voice-setup.elc
 dom-addons.elc: dom-addons.el 

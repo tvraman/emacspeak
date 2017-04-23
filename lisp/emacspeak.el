@@ -201,6 +201,7 @@ that implements the speech-enabling extensions."
 (emacspeak-do-package-setup "eshell" 'emacspeak-eshell)
 (emacspeak-do-package-setup "ess" 'emacspeak-ess)
 (emacspeak-do-package-setup "eclim" 'emacspeak-eclim)
+(emacspeak-do-package-setup "evil" 'emacspeak-evil)
 (emacspeak-do-package-setup "eww" 'emacspeak-eww)
 (emacspeak-do-package-setup "elfeed" 'emacspeak-elfeed)
 (emacspeak-do-package-setup "enriched" 'emacspeak-enriched)
