@@ -402,6 +402,36 @@
   )
 
 ;;}}}
+;;{{{ linewise Motion:
+
+(cl-loop
+ for f in
+ '(
+   evil-backward-section-begin evil-backward-section-end
+   evil-backward-sentence-begin evil-beginning-of-line evil-first-non-blank
+   evil-forward-section-begin evil-forward-section-end
+   evil-forward-sentence-begin
+   evil-goto-definition evil-goto-first-line evil-goto-line
+   evil-goto-mark evil-goto-mark-line
+   evil-jump-backward evil-jump-forward evil-jump-to-tag
+   evil-last-non-blank
+   evil-next-close-paren
+   evil-next-line evil-next-line-1-first-non-blank
+   evil-next-line-first-non-blank
+   evil-next-match
+   evil-previous-line evil-previous-line-first-non-blank
+   evil-previous-match
+   evil-previous-open-paren
+   evil-ret
+   evil-window-top)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p) (emacspeak-speak-line)))))
+
+
+;;}}}
 ;;{{{ Update keymaps:
 
 (defun emacspeak-evil-fix-emacspeak-prefix (keymap)
