@@ -1,0 +1,141 @@
+* Overview 
+
+This question comes up every few months on the emacspeak mailing
+list. In general, see
+[[https://tvraman.github.io/emacspeak/applications.html][Emacspeak Tools]] to quickly discover available speech-enabled
+applications. This article outlines some of the available email setups
+given the wide degree of variance in this space.
+
+* Background 
+
+How one puts together an email environment is a function of the
+following:
+
+  1. How email is retrieved.
+  2. How email is stored (if storing locally).
+  3. How email is sent.
+
+Here is an overview of what is available as viewed from the world of
+Linux in general and Emacs in particular: 
+
+
+** Email Retrieval 
+
+Email can be retrieved in a number of ways:
+
+  - IMap via Emacs This is implemented well in GNUS, and poorly in
+    Emacs/VM. Note that Emacs is single-threaded, and fetching large
+    volumes of email via IMap is painful.
+  - Batch Retrieval: IMap Tools like _fetchmail_, _offlineimap_ and friends that live
+    outside of Emacs can be used to batch-retrieve email in the
+    background. The retrieved mail gets delivered /locally/ as in the past.
+  - Mail Filtering: UNIX _procmail_ enables filtering of locally
+    delivered email into separate folders for automatically organizing
+    incoming email.
+  
+
+** Sending Email 
+
+Sending email involves:
+
+  1. Composing email --- typically invoked  via key-sequence  _C-x m_
+     (command: /compose-mail/). Emacs email packages implement
+     specific versions of this command, e.g. /vm-mail/ from package
+     _emacs/vm_, /message-mail/ from the _message_ package etc.
+  2. Sending email: This is specific to the email provider being used,
+     e.g., /GMail/. In the past, UNIX machines could talk /SMTP/ to
+     the Mail Gateway, but this has mostly disappeared over time. For
+     an example of how to configure Emacs to send email via GMail
+     using SMTP , see file [[https://github.com/tvraman/emacspeak/blob/master/tvr/gm-smtp.el#L1][tvr/gm-smtp.el]] in the emacspeak repository.
+
+
+
+** Local Storage Format 
+  
+       
+  - UNIX Mail:       An email folder is a file of messages. This
+   format is used by clients like Emacs/VM, UNIX Mail etc.
+  - Maildir:  A mail folder  is a directory, with
+    individual email messages living in files of their
+    own. Sample clients include MH-E (UNIX MH), MU4E.
+  - RMail     This is Emacs' original email format.
+
+
+* Putting It All Together 
+
+The next sections show my present email setup put together using the
+building blocks described above. 
+
+  1. I use Linux on all my machines, and Android on my phone. 
+  2. I mostly limit email usage on my phone  to get a quick overview of email that might require immediate attention --- toward this end, I have a /to-mobile/ GMail label that collects urgent messages.
+  3. Linux is where I handle email in volume.
+  4. I use my /Inbox/ as
+my ToDo list --- which means that I leave little or no email in my
+/Inbox/ unless I'm on vacation and disconnected from email.
+
+** Desktop: Batch Retrieval  And Emacs/VM 
+
+This is the email setup on my workstation. See next section for the
+email setup while mobile.
+
+  1. I batch-retrieve   email using _fetchmail_.
+  2. This email gets filtered through _procmail_ and auto-filed into
+     several folders based on a set of procmail rules. Typical rules
+     include separating out various email lists into their  respective folders.
+  3. Note that this does not preclude using _IMap_ via GNUS   to  read
+     email while online.
+  4. Email that is not filtered into separate folders  e.g. email that
+     is sent directly to me, email regarding projects that need
+     immediate attention etc., land up in folder _~/mbox_.
+  5. So when I launch _emacs/vm_ on my desktop, the above is all I
+     need to deal with at any given moment.
+  6. I typically read Auto-filed mailing lists  using _emacs/vm_ about once a day or
+     less --- I use package _mspools_  to get a quick overview of the
+     state of those mail folders.
+
+** Mobile AccessOn Laptop: GNUS And IMap 
+
+
+See  [[https://github.com/tvraman/emacspeak/blob/master/tvr/gnus-prepare.el#L1][gnus-prepare.el]] for my _gnus_ configuration for accessing GMail
+via _imap_. That configuration is setup to access multiple GMail accounts.
+
+  1. I see each GMail label as a separate group in _GNUS_.
+  2. I only sync  high-priority labels --- this works well even
+     over slow WIFI connections while on the road. As an example, the
+     afore-mentioned /to-mobile/ GMail label is a high-priority group.
+  3. Module _gm-nnir_ defines a  _GNUS/GMail_ extension that enables
+     one to search GMail using GMail's search operators --- that is my
+     prefered means of quickly finding email messages using
+     search. This is very fast since the search happens server-side,
+     and  only email headers are retrieved when displaying the search
+     hits.
+  4. Note that this solution is not laptop/mobile specific --- I  use
+     this setup for searching GMail   from my desktop as well.
+
+** Composing And Sending EMail 
+
+  1. I use /compose-mail/ to compose email.
+  2. I optionally activate _orgtbl-mode_ and/or  _orgstruct-mode_ if
+     editing structured content within the email body.
+  3. I send email out using the setup in  [[https://github.com/tvraman/emacspeak/blob/master/tvr/gm-smtp.el#L1][gm-smtp.el]].
+
+* Conclusion 
+
+  1. Email in Linux/Emacs  is  composed of a set of
+     independent building blocks --- this gives maximal flexibility.
+  2. That flexibility allows one to put together different email
+     workflows depending on the connectivity environment in use.
+  
+#+OPTIONS: ':nil *:t -:t  t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t broken-links:nil c:nil creator:nil
+#+OPTIONS: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+OPTIONS: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+OPTIONS: timestamp:t title:t toc:nil todo:t |:t
+#+TITLE: Email On The Emacspeak Audio Desktop 
+#+DATE: <2017-04-22 Sat>
+#+AUTHOR: raman
+#+EMAIL: raman@google.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 26.0.50 (Org mode 9.0.5)
