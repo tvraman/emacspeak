@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1170 commands and 1088 options.
+This chapter documents a total of 1170 commands and 1094 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -77,6 +77,7 @@ This chapter documents a total of 1170 commands and 1088 options.
 * emacspeak-etable::Speech enable table.el.
 * emacspeak-eterm::Speech enable eterm -- Emacs' terminal emulator  term.el.
 * emacspeak-eudc::Speech enable  LDAP directory client.
+* emacspeak-evil::Speech-enable EVIL.
 * emacspeak-eww::Speech-enable EWW Browser.
 * emacspeak-facemenu::Map default Emacs faces like bold to appropriate speech personalities.
 * emacspeak-feeds::Feeds Support (Atom, RSS) For Emacspeak.
@@ -7850,6 +7851,49 @@ Send email to the address given by the current record.
 
 @defvar {User Option} emacspeak-eudc-attribute-value-personality
 Personality t use for voiceifying attribute values. 
+
+@end defvar
+
+@node emacspeak-evil
+@section emacspeak-evil
+
+EVIL ==  VIM In Emacs
+
+@subsection emacspeak-evil Options
+
+@defvar {User Option} emacspeak-evil-ex-commands-voice
+Personality used for evil-ex-commands
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-evil-ex-info-voice
+Personality used for evil-ex-info
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-evil-ex-lazy-highlight-voice
+Personality used for evil-ex-lazy-highlight
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-evil-ex-search-voice
+Personality used for evil-ex-search
+This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-evil-ex-substitute-matches-voice
+Personality used for evil-ex-substitute-matches
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-evil-ex-substitute-replacement-voice
+Personality used for evil-ex-substitute-replacement
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
 
 @end defvar
 
