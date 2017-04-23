@@ -7858,6 +7858,7 @@ Personality t use for voiceifying attribute values.
 @section emacspeak-evil
 
 EVIL ==  VIM In Emacs
+This is work-in-progress and is not complete.
 
 @subsection emacspeak-evil Options
 
