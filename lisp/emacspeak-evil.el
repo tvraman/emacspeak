@@ -404,6 +404,30 @@
 ;;}}}
 ;;{{{ Update keymaps:
 
+(defun emacspeak-evil-fix-emacspeak-prefix (keymap)
+  "Move original evil command on C-e to C-e e."
+  (declare (special emacspeak-prefix))
+  (let ((orig (lookup-key keymap emacspeak-prefix)))
+(when orig 
+  (define-key keymap emacspeak-prefix  'emacspeak-prefix-command)
+  (define-key keymap (concat emacspeak-prefix "e") orig)
+  (define-key keymap (concat emacspeak-prefix emacspeak-prefix) orig))))
+(declaim (special 
+  evil-normal-state-map evil-insert-state-map
+  evil-visual-state-map evil-replace-state-map
+  evil-operator-state-map evil-motion-state-map))
+
+(eval-after-load
+    "evil-maps"
+  `(mapc
+  #'emacspeak-evil-fix-emacspeak-prefix
+ (list
+  evil-normal-state-map evil-insert-state-map
+  evil-visual-state-map evil-replace-state-map
+  evil-operator-state-map evil-motion-state-map)))
+ (global-set-key (concat emacspeak-prefix "e") 'end-of-line)
+ 
+
 ;;}}}
 (provide 'emacspeak-evil)
 ;;{{{ end of file
