@@ -237,9 +237,10 @@ already disabled."
          (progn
            (when (eq major-mode 'emacspeak-screen-saver-mode)(quit-window))
            (sox-tones)
-           (message "Unlocking screen")
            (when (window-configuration-p emacspeak-screen-saver-saved-configuration)
-           (set-window-configuration emacspeak-screen-saver-saved-configuration))))))))
+           (set-window-configuration emacspeak-screen-saver-saved-configuration))
+           (dtk-notify-say "Unlocking screen")
+           (emacspeak-speak-mode-line)))))))
 
 (defun emacspeak-dbus-unwatch-screen-lock ()
   "De-Register a handler to watch screen lock/unlock."
