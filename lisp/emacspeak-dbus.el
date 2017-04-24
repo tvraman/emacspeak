@@ -84,14 +84,17 @@
 This is a hidden buffer that is made current so we automatically
 switch to a screen-saver soundscape."
   t)
+(defvar emacspeak-screen-saver-saved-configuration  nil
+  "Record window configuration when screen-saver was launched.")
 
 (defun emacspeak-screen-saver ()
-  "Initialize screen-saver buffer  if needed, and switch to  it."
+
+  (declare (special emacspeak-screen-saver-saved-configuration))
+  (setq emacspeak-screen-saver-saved-configuration (current-window-configuration))"Initialize screen-saver buffer  if needed, and switch to  it."
   (let ((buffer (get-buffer-create "*Emacspeak Screen Saver*")))
     (with-current-buffer buffer (emacspeak-screen-saver-mode))
     (funcall-interactively #'switch-to-buffer buffer)
-    (with-current-buffer (window-buffer (selected-window))
-      (delete-other-windows))))
+    (delete-other-windows)))
 
 ;;}}}
 ;;{{{ NM Handlers
@@ -219,7 +222,8 @@ already disabled."
 
 (defun emacspeak-dbus-watch-screen-lock ()
   "Register a handler to watch screen lock/unlock."
-  (declare (special emacspeak-dbus-screen-lock-handle))
+  (declare (special emacspeak-dbus-screen-lock-handle
+                    emacspeak-screen-saver-saved-configuration))
   (setq emacspeak-dbus-screen-lock-handle
   (dbus-register-signal
    :session
@@ -232,6 +236,8 @@ already disabled."
              (emacspeak-screen-saver))
          (progn
            (when (eq major-mode 'emacspeak-screen-saver-mode)(quit-window))
+           (when (window-configuration-p emacspeak-screen-saver-saved-configuration)
+           (set-window-configuration emacspeak-screen-saver-saved-configuration))
            (sox-tones)
            (message "Unlocking screen")))))))
 
