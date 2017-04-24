@@ -964,7 +964,7 @@ are indicated with auditory icon ellipses."
             (inhibit-modification-hooks t)
             (line nil)
             (orig (point))
-            (linenum (when (and (boundp 'linum-mode)linum-mode)  (line-number-at-pos)))
+            (linenum (when (and (boundp 'linum-mode) linum-mode)  (line-number-at-pos)))
             (indent nil))
         (forward-line 0)
         (emacspeak-handle-action-at-point)
@@ -978,11 +978,10 @@ are indicated with auditory icon ellipses."
         (setq line
               (if emacspeak-show-point
                   (ems-set-personality-temporarily
-                   orig (1+ orig)
-                   voice-animate (buffer-substring  start end))
+                   orig (1+ orig) voice-animate
+                   (buffer-substring  start end))
                 (buffer-substring start end)))
-        (when (and (null arg)
-                   emacspeak-speak-line-column-filter)
+        (when (and (null arg) emacspeak-speak-line-column-filter)
           (setq line
                 (emacspeak-speak-line-apply-column-filter
                  line emacspeak-speak-line-invert-filter)))
