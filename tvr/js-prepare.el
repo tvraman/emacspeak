@@ -6,3 +6,7 @@
   (load-library "tern-autoloads")
   (add-hook 'js-mode-hook #'tern-mode)
   (add-hook 'js2-mode-hook #'tern-mode))
+(when (locate-library "xref-js2")
+  (load-library "xref-js2-autoloads"))
+(when (locate-library "js2-refactor")
+  (load-library "js2-refactor-autoloads"))
