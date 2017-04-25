@@ -12,3 +12,8 @@
  smtpmail-smtp-server "smtp.gmail.com"
  smtpmail-smtp-service 587
  )
+(defun tvr ()
+  "Send email as TVR."
+  (interactive)
+  (let ((user-mail-address "tv.raman.tv@gmail.com"))
+    (compose-mail)))
