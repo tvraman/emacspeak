@@ -1043,7 +1043,8 @@ are indicated with auditory icon ellipses."
 
 ;;;###autoload
 (defun emacspeak-speak-visual-line ()
-  "Speaks current visual line."
+  "Speaks current visual line.
+Cues the start of a physical line with auditory icon `left'."
   (interactive)
   (declare (special dtk-stop-immediately emacspeak-show-point))
   (when dtk-stop-immediately (dtk-stop))
