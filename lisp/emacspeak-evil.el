@@ -455,8 +455,24 @@
   evil-normal-state-map evil-insert-state-map
   evil-visual-state-map evil-replace-state-map
   evil-operator-state-map evil-motion-state-map)))
- (global-set-key (concat emacspeak-prefix "e") 'end-of-line)
- 
+(global-set-key (concat emacspeak-prefix "e") 'end-of-line)
+(global-set-key (concat emacspeak-prefix emacspeak-prefix) 'end-of-line) 
+
+;;}}}
+;;{{{ State Hooks:
+(cl-loop
+ for hook in 
+ '(evil-normal-state-exit-hook evil-insert-state-exit-hook
+                                evil-visual-state-exit-hook evil-replace-state-exit-hook
+                                evil-operator-state-exit-hook evil-motion-state-exit-hook)
+ do
+ (add-hook
+  hook
+  #'(lambda nil
+      (dtk-notify-speak
+       (format "Changing state from %s to %s"
+               evil-previous-state evil-next-state)))))
+
 
 ;;}}}
 (provide 'emacspeak-evil)
