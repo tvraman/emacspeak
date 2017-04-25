@@ -547,7 +547,8 @@ interactive command that the key sequence executes."
     ("l" emacspeak-m-player-locate-media)
     ("m" emacspeak-wizards-view-buffers-filtered-by-this-mode)
     ("p" proced)
-    ("R" emacspeak-webspace-feed-reader))
+    ("R" emacspeak-webspace-feed-reader)
+    ("v" emacspeak-muggles-view/body))
   "*Specifies super key bindings for the audio desktop. You can
 turn the right `windows menu' keys on your Linux PC keyboard into
 a `super' key on Linux by having it emit the sequence `C-x@s'.
@@ -564,7 +565,6 @@ bound to a key.
 The value of this variable is an association list. The car of
 each element specifies a key sequence. The cdr specifies an
 interactive command that the key sequence executes."
-
   :group 'emacspeak
   :type '(repeat
           :tag "Emacspeak Super Keymap"
@@ -690,8 +690,7 @@ command that the key sequence executes."
     ("s" emacspeak-wizards-shell)
     ("t" twit)
     ("u" browse-url)
-    ("v" emacspeak-muggles-view/body)
-    )
+    ("v" emacspeak-evil-toggle-evil))
   "*Specifies hyper key bindings for the audio desktop. Emacs can
 use the `hyper' key as a modifier key. You can turn the `windows'
 keys on your Linux PC keyboard into a `hyper' key on Linux by
