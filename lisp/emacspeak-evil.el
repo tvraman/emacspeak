@@ -460,20 +460,30 @@
 
 ;;}}}
 ;;{{{ State Hooks:
+
+(defun  emacspeak-evil-sate-change-hook  ()
+  "State change feedback."
+  (declare (special evil-previous-state evil-next-state))
+  (when (and evil-previous-state evil-next-state
+             (not (eq evil-previous-state evil-next-state)))
+    (emacspeak-auditory-icon 'select-object)
+    (dtk-notify-speak
+     (format "Changing state from %s to %s"
+             evil-previous-state evil-next-state))))
+
 (cl-loop
+
  for hook in 
  '(evil-normal-state-exit-hook evil-insert-state-exit-hook
-                                evil-visual-state-exit-hook evil-replace-state-exit-hook
-                                evil-operator-state-exit-hook evil-motion-state-exit-hook)
+                               evil-visual-state-exit-hook evil-replace-state-exit-hook
+                               evil-operator-state-exit-hook evil-motion-state-exit-hook)
  do
- (add-hook
-  hook
-  #'(lambda nil
-      (declare (special evil-previous-state evil-next-state))
-      (unless (eq evil-previous-state evil-next-state)
-        (dtk-notify-speak
-         (format "Changing state from %s to %s")
-               evil-previous-state evil-next-state)))))
+ (add-hook hook #'emacspeak-evil-state-change-hook))
+(defadvice evil-exit-emacs-state (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (dtk-notify-speak "Leaving Emacs state.")))
 
 
 ;;}}}
