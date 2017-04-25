@@ -492,6 +492,7 @@
   "Interactively toggle evil-mode."
   (interactive)
   (declare (special evil-mode))
+  (cl-assert (locate-library "evil") nil "I see no evil!")
   (evil-mode (if evil-mode -1 1))
   (emacspeak-auditory-icon (if evil-mode 'on 'off))
   (message "Turned %s evil-mode"
