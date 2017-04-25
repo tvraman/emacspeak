@@ -461,7 +461,7 @@
 ;;}}}
 ;;{{{ State Hooks:
 
-(defun  emacspeak-evil-sate-change-hook  ()
+(defun  emacspeak-evil-state-change-hook  ()
   "State change feedback."
   (declare (special evil-previous-state evil-next-state))
   (when (and evil-previous-state evil-next-state
@@ -472,7 +472,6 @@
              evil-previous-state evil-next-state))))
 
 (cl-loop
-
  for hook in 
  '(evil-normal-state-exit-hook evil-insert-state-exit-hook
                                evil-visual-state-exit-hook evil-replace-state-exit-hook
