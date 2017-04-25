@@ -469,6 +469,7 @@
  (add-hook
   hook
   #'(lambda nil
+      (declare (special evil-previous-state evil-next-state))
       (dtk-notify-speak
        (format "Changing state from %s to %s"
                evil-previous-state evil-next-state)))))
