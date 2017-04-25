@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1170 commands and 1094 options.
+This chapter documents a total of 1171 commands and 1094 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1537,7 +1537,7 @@ r		org-capture
 s		emacspeak-wizards-shell
 t		twit
 u		browse-url
-v		emacspeak-muggles-view/body
+v		emacspeak-evil-toggle-evil
 w		emacspeak-web-prefix
 
 w R		emacspeak-xslt-view-region
@@ -1570,6 +1570,7 @@ r		soundscape-restart
 s		soundscape
 t		soundscape-toggle
 u		soundscape-update-mood
+v		emacspeak-muggles-view/body
 
 .
 
@@ -7860,6 +7861,24 @@ Personality t use for voiceifying attribute values.
 EVIL ==  VIM In Emacs
 This is work-in-progress and is not complete.
 
+@subsection emacspeak-evil Commands
+
+@subsubsection emacspeak-evil-toggle-evil
+@deffn {Command} emacspeak-evil-toggle-evil   
+@table @kbd
+@item C-; v
+@kindex C-; v
+@item C-x @@ h v
+@kindex C-x @@ h v
+@end table
+
+@findex emacspeak-evil-toggle-evil
+
+@format
+Interactively toggle evil-mode.
+@end format
+@end deffn
+
 @subsection emacspeak-evil Options
 
 @defvar {User Option} emacspeak-evil-ex-commands-voice
@@ -12285,8 +12304,6 @@ Move down in current Math expression.
 Send a LaTeX expression to Maths server.
 Tries to guess default based on context.
 Uses guessed default if user enters an empty string.
-
-(fn LATEX)
 @end format
 @end deffn
 
@@ -12973,10 +12990,10 @@ Toggle state of hydra-is-helpful
 @table @kbd
 @item C-c v
 @kindex C-c v
-@item C-; v
-@kindex C-; v
-@item C-x @@ h v
-@kindex C-x @@ h v
+@item C-' v
+@kindex C-' v
+@item C-x @@ s v
+@kindex C-x @@ s v
 @end table
 
 @findex emacspeak-muggles-view/body
@@ -17276,6 +17293,7 @@ Optional interactive prefix arg ‘speak-rev’ speaks only the Git revision num
 
 @format
 Speaks current visual line.
+Cues the start of a physical line with auditory icon ‘left’.
 @end format
 @end deffn
 

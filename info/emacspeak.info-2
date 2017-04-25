@@ -2260,7 +2260,19 @@ File: emacspeak.info,  Node: emacspeak-evil,  Next: emacspeak-eww,  Prev: emacsp
 
 EVIL == VIM In Emacs This is work-in-progress and is not complete.
 
-12.73.1 emacspeak-evil Options
+12.73.1 emacspeak-evil Commands
+-------------------------------
+
+12.73.1.1 emacspeak-evil-toggle-evil
+....................................
+
+ -- Command: emacspeak-evil-toggle-evil
+     ‘C-; v’
+     ‘C-x @ h v’
+
+     Interactively toggle evil-mode.
+
+12.73.2 emacspeak-evil Options
 ------------------------------
 
  -- Variable: User Option emacspeak-evil-ex-commands-voice
@@ -6056,8 +6068,6 @@ and backward-page can be used to move through each chunk of output.
      Tries to guess default based on context.
      Uses guessed default if user enters an empty string.
 
-     (fn LATEX)
-
 12.120.4.4 emacspeak-maths-enter-guess
 ......................................
 
@@ -6653,8 +6663,8 @@ binds ‘s’ to this command.
 
  -- Command: emacspeak-muggles-view/body
      ‘C-c v’
-     ‘C-; v’
-     ‘C-x @ h v’
+     ‘C-' v’
+     ‘C-x @ s v’
 
      Create a hydra with no body and the heads:
 

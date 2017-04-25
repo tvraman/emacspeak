@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 23, 2017.
+last updated on April 25, 2017.
 
    The manual is divided into the following chapters.
 
@@ -2947,7 +2947,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1170 commands and 1094 options.
+This chapter documents a total of 1171 commands and 1094 options.
 
 * Menu:
 
@@ -4232,7 +4232,7 @@ system.
      s		emacspeak-wizards-shell
      t		twit
      u		browse-url
-     v		emacspeak-muggles-view/body
+     v		emacspeak-evil-toggle-evil
      w		emacspeak-web-prefix
 
      w R		emacspeak-xslt-view-region
@@ -4265,6 +4265,7 @@ system.
      s		soundscape
      t		soundscape-toggle
      u		soundscape-update-mood
+     v		emacspeak-muggles-view/body
 
      .
 

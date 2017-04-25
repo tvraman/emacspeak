@@ -1626,6 +1626,7 @@ of emacspeak from becoming dependent on the speech server modules
  -- Command: emacspeak-speak-visual-line
 
      Speaks current visual line.
+     Cues the start of a physical line with auditory icon ‘left’.
 
 12.169.1.99 emacspeak-speak-voice-annotate-paragraphs
 .....................................................
