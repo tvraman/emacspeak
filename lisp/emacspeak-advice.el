@@ -2674,6 +2674,13 @@ Produce auditory icons if possible."
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-mode-line))
 
+(defadvice finder-exit (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (with-current-buffer (window-buffer (selected-window))
+      (emacspeak-speak-mode-line))))
+
 ;;}}}
 ;;{{{ display world time
 
