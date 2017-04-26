@@ -124,9 +124,9 @@ cd .. ;\
 # {{{Install: Not Supported
 
 install:
-	cat  etc/install.org
-	@echo "To run  this Emacspeak, add this  to the top of your .emacs:"
+	@echo "To run  this Emacspeak build, add this  to the top of your .emacs:"
 	@echo "(load-library \"`pwd`/lisp/emacspeak-setup.el\")"
+	cat  etc/install.org	
 
 # }}}
 # {{{ end of file
