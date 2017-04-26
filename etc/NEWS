@@ -7,6 +7,8 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 * Emacspeak 46 -- Emacspeak 46 User Visible Changes
 
+This version requires Emacs 25.1 or later.
+
 ** Bash Utils 
 
 Directory _bash-utils_ contains a collection of useful Bash utilities

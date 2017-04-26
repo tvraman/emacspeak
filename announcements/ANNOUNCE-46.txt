@@ -31,8 +31,10 @@ rich suite of task-oriented tools provides efficient speech-enabled
 access to the evolving service-oriented social Internet cloud.
 
 * Major Enhancements:
+
+This version *requires* emacs-25.1 or later. 
  
- 1. Audio-formatted Mathematics using NodeJS.  ⟋🕪
+1. Audio-formatted Mathematics using NodeJS.  ⟋🕪
  2. DBus integration for handling DBus events. 🚌
  3. Outloud is Easier To Install On 64-Bit Systems. ʕ
  4. Managing Shell Buffers across multiple projects.   📽
