@@ -53,6 +53,7 @@ emacspeak:
 	@echo "See Emacspeak Customizations for customizations -- control e cap C in Emacs"
 	@echo "Use C-h p in Emacs for a package overview"
 	@echo "Make sure you read the Emacs info pages"
+	@echo "Type make install  for help running this build."
 
 outloud: 
 	cd servers/linux-outloud && $(MAKE) || echo "Cant build Outloud server!"
@@ -124,9 +125,9 @@ cd .. ;\
 # {{{Install: Not Supported
 
 install:
-	@echo "To run  this Emacspeak build, add this  to the top of your .emacs:"
+	@echo "To run  this Emacspeak build, add this  line to the top of your .emacs:"
 	@echo "(load-library \"`pwd`/lisp/emacspeak-setup.el\")"
-	cat  etc/install.org	
+	@echo "Package maintainers: see   etc/install.org	 for instructions."
 
 # }}}
 # {{{ end of file
