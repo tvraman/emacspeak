@@ -7,3 +7,4 @@ To install a specific version of Emacspeak:
   3. Optional: make espeak to build espeak support.
   4. Optional: make outloud to build ViaVoice outloud support.
   5.  copy the resulting  emacspeak directory to the install location.
+6. Set up emacs to load file =lisp/emacspeak-setup.el= from that install location.
