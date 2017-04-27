@@ -128,8 +128,6 @@ such as pronunciation dictionaries are stored. ")
    "$")
   "Pattern for matching playlists.")
 
-
-
 ;;}}}
 ;;{{{ Hooks
 
@@ -168,12 +166,11 @@ such as pronunciation dictionaries are stored. ")
 (defun emacspeak-tts-notify-hook ()
   "Starts up a notification stream if current synth supports  multiple invocations.
 TTS engine should use ALSA for this to be usable."
-  (declare (special dtk-program dtk-notify-process
-                    emacspeak-tts-use-notify-stream))
-  (when (process-live-p dtk-notify-process) (delete-process dtk-notify-process))
-  (when (and emacspeak-tts-use-notify-stream (emacspeak-tts-multistream-p dtk-program))
-    (dtk-notify-initialize)))
-
+       (declare (special dtk-program dtk-notify-process
+                         emacspeak-tts-use-notify-stream))
+       (when (process-live-p dtk-notify-process) (delete-process dtk-notify-process))
+       (when (and emacspeak-tts-use-notify-stream (emacspeak-tts-multistream-p dtk-program))
+         (dtk-notify-initialize)))
 
 (add-hook 'dtk-startup-hook 'emacspeak-tts-notify-hook 'at-end)
 
@@ -185,13 +182,7 @@ TTS engine should use ALSA for this to be usable."
   (when emacspeak-use-header-line
     (setq header-line-format emacspeak-header-line-format)))
 
-(defun emacspeak-tvr-startup-hook ()
-  "Emacspeak startup hook that I use."
-  (load-library "emacspeak-webspace")
-  (load-library "emacspeak-dbus"))
-
 (add-hook 'emacspeak-startup-hook 'emacspeak-setup-header-line)
-(add-hook 'emacspeak-startup-hook 'emacspeak-tvr-startup-hook)
 
 (defvar emacspeak-info-already-loaded nil
   "Track info support load.")
