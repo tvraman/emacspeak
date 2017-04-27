@@ -215,7 +215,9 @@
 ;;; Play media URL under point using @code{emacs-m-player}.
 ;;; @item U
 ;;; @command{emacspeak-webutils-curl-play-media-at-point}
-;;; Play media url under point by first downloading the URL using CURL. This is useful for sites that do multiple redirects before returning the actual media stream URL.
+;;; Play media url under point by first downloading the URL using
+;;; CURL. This is useful for sites that do multiple redirects before
+;;; returning the actual media stream URL.
 ;;; @item C-o
 ;;; @command{emacspeak-feeds-opml-display}
 ;;; Display link under point as an @code{OPML} feed .
