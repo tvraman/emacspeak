@@ -50,7 +50,8 @@
 ;;;It implements additional interactive commands for navigating the
 ;;; DOM. It also provides a set of filters for interactively filtering
 ;;; the DOM by various attributes such as id, class and role.
-;;; Finally, this module updates EWW's built-in key-bindings with  Emacspeak conveniences.
+;;; Finally, this module updates EWW's built-in key-bindings with
+;;; Emacspeak conveniences.
 
 ;;; @subsection Structured Navigation
 ;;;
@@ -203,7 +204,8 @@
 
 ;;; These key-bindings are available when point is on a link. They
 ;;; enable context-specific actions for following links, e.g., to play
-;;; media streams, or to open various feed-types such as @code{ATOM}, @code{RSS}, or @code{OPML}.
+;;; media streams, or to open various feed-types such as @code{ATOM},
+;;; @code{RSS}, or @code{OPML}.
 ;;;
 ;;;
 ;;; @table @kbd
@@ -1104,7 +1106,7 @@ for use as a DOM filter."
   (emacspeak-auditory-icon 'open-object)
   (emacspeak-speak-buffer))
 
-(defun ems-eww-read-list (reader)
+(defun emacspeak-eww-read-list (reader)
   "Return list of values  read using reader."
   (let (value-list  value done)
     (cl-loop
@@ -1116,7 +1118,7 @@ for use as a DOM filter."
       (t (setq done t))))
     value-list))
 
-(defun ems-eww-read-id ()
+(defun emacspeak-eww-read-id ()
   "Return id value read from minibuffer."
   (declare (special eww-id-cache))
   (unless eww-id-cache (error "No id to filter."))
@@ -1131,8 +1133,8 @@ Optional interactive arg `multi' prompts for multiple ids."
   (let ((dom (emacspeak-eww-current-dom))
         (filter (if multi #'dom-by-id-list #'dom-by-id))
         (id  (if multi
-                 (ems-eww-read-list 'ems-eww-read-id)
-               (ems-eww-read-id))))
+                 (emacspeak-eww-read-list 'emacspeak-eww-read-id)
+               (emacspeak-eww-read-id))))
     (setq dom (funcall filter dom id))
     (when dom
       (emacspeak-eww-view-helper
@@ -1149,15 +1151,15 @@ Optional interactive arg `multi' prompts for multiple ids."
           (eww-attribute-list-tester
            (if multi
                (cl-loop
-                for i in (ems-eww-read-list 'ems-eww-read-id)
+                for i in (emacspeak-eww-read-list 'emacspeak-eww-read-id)
                 collect (list 'id i))
-             (list (list 'id (ems-eww-read-id))))))))
+             (list (list 'id (emacspeak-eww-read-id))))))))
     (when dom
       (emacspeak-eww-view-helper
        (dom-html-add-base
                                   dom (emacspeak-eww-current-url))))))
 
-(defun ems-eww-read-attribute-and-value ()
+(defun emacspeak-eww-read-attribute-and-value ()
   "Read attr-value pair and return as a list."
   (declare (special eww-id-cache eww-class-cache eww-role-cache
                     eww-property-cache eww-itemprop-cache))
@@ -1195,8 +1197,8 @@ Optional interactive arg `multi' prompts for multiple classes."
           (dom-child-by-tag (emacspeak-eww-current-dom) 'html)
           (eww-attribute-list-tester
            (if multi
-               (ems-eww-read-list 'ems-eww-read-attribute-and-value)
-             (list  (ems-eww-read-attribute-and-value)))))))
+               (emacspeak-eww-read-list 'emacspeak-eww-read-attribute-and-value)
+             (list  (emacspeak-eww-read-attribute-and-value)))))))
     (when dom
       (emacspeak-eww-view-helper 
        (dom-html-add-base dom   (emacspeak-eww-current-url))))))
@@ -1211,13 +1213,13 @@ Optional interactive arg `multi' prompts for multiple classes."
           (dom-child-by-tag (emacspeak-eww-current-dom) 'html)
           (eww-attribute-list-tester
            (if multi
-               (ems-eww-read-list 'ems-eww-read-attribute-and-value)
-             (list  (ems-eww-read-attribute-and-value)))))))
+               (emacspeak-eww-read-list 'emacspeak-eww-read-attribute-and-value)
+             (list  (emacspeak-eww-read-attribute-and-value)))))))
     (when dom
       (dom-html-add-base dom   (emacspeak-eww-current-url))
       (emacspeak-eww-view-helper dom))))
 
-(defun ems-eww-read-class ()
+(defun emacspeak-eww-read-class ()
   "Return class value read from minibuffer."
   (declare (special eww-class-cache))
   (unless eww-class-cache (error "No class to filter."))
@@ -1232,8 +1234,8 @@ Optional interactive arg `multi' prompts for multiple classes."
   (let ((dom  (emacspeak-eww-current-dom))
         (filter (if multi #'dom-by-class-list #'dom-by-class))
         (class  (if multi
-                    (ems-eww-read-list 'ems-eww-read-class)
-                  (ems-eww-read-class))))
+                    (emacspeak-eww-read-list 'emacspeak-eww-read-class)
+                  (emacspeak-eww-read-class))))
     (setq dom (funcall filter dom class))
     (when dom
       (emacspeak-eww-view-helper
@@ -1250,29 +1252,29 @@ Optional interactive arg `multi' prompts for multiple classes."
           (eww-attribute-list-tester
            (if multi
                (cl-loop
-                for c in (ems-eww-read-list 'ems-eww-read-class)
+                for c in (emacspeak-eww-read-list 'emacspeak-eww-read-class)
                 collect (list 'class c))
-             (list (list 'class (ems-eww-read-class))))))))
+             (list (list 'class (emacspeak-eww-read-class))))))))
     (when dom
       (emacspeak-eww-view-helper
        (dom-html-add-base
         dom (emacspeak-eww-current-url))))))
 
-(defun ems-eww-read-role ()
+(defun emacspeak-eww-read-role ()
   "Return role value read from minibuffer."
   (declare (special eww-role-cache))
   (unless eww-role-cache (error "No role to filter."))
   (let ((value (completing-read "Value: " eww-role-cache nil 'must-match)))
     (unless (zerop (length value)) value)))
 
-(defun ems-eww-read-property ()
+(defun emacspeak-eww-read-property ()
   "Return property value read from minibuffer."
   (declare (special eww-property-cache))
   (unless eww-property-cache (error "No property to filter."))
   (let ((value (completing-read "Value: " eww-property-cache nil 'must-match)))
     (unless (zerop (length value)) value)))
 
-(defun ems-eww-read-itemprop ()
+(defun emacspeak-eww-read-itemprop ()
   "Return itemprop value read from minibuffer."
   (declare (special eww-itemprop-cache))
   (unless eww-itemprop-cache (error "No itemprop to filter."))
@@ -1287,8 +1289,8 @@ Optional interactive arg `multi' prompts for multiple classes."
   (let ((dom (emacspeak-eww-current-dom))
         (filter  (if multi #'dom-by-role-list #'dom-by-role))
         (role  (if multi
-                   (ems-eww-read-list 'ems-eww-read-role)
-                 (ems-eww-read-role))))
+                   (emacspeak-eww-read-list 'emacspeak-eww-read-role)
+                 (emacspeak-eww-read-role))))
     (setq dom (funcall filter dom role))
     (when dom
       (emacspeak-eww-view-helper
@@ -1306,9 +1308,9 @@ Optional interactive arg `multi' prompts for multiple classes."
           (eww-attribute-list-tester
            (if multi
                (cl-loop
-                for r in (ems-eww-read-list 'ems-eww-read-role)
+                for r in (emacspeak-eww-read-list 'emacspeak-eww-read-role)
                 collect (list 'role r))
-             (list (list 'role (ems-eww-read-role))))))))
+             (list (list 'role (emacspeak-eww-read-role))))))))
     (when dom
       (emacspeak-eww-view-helper
        (dom-html-add-base
@@ -1323,8 +1325,8 @@ Optional interactive arg `multi' prompts for multiple classes."
   (let ((dom (emacspeak-eww-current-dom))
         (filter  (if multi #'dom-by-property-list #'dom-by-property))
         (property  (if multi
-                       (ems-eww-read-list 'ems-eww-read-property)
-                     (ems-eww-read-property))))
+                       (emacspeak-eww-read-list 'emacspeak-eww-read-property)
+                     (emacspeak-eww-read-property))))
     (setq dom (funcall filter dom property))
     (when dom
       (emacspeak-eww-view-helper
@@ -1342,9 +1344,9 @@ Optional interactive arg `multi' prompts for multiple classes."
           (eww-attribute-list-tester
            (if multi
                (cl-loop
-                for r in (ems-eww-read-list 'ems-eww-read-property)
+                for r in (emacspeak-eww-read-list 'emacspeak-eww-read-property)
                 collect (list 'property r))
-             (list (list 'property (ems-eww-read-property))))))))
+             (list (list 'property (emacspeak-eww-read-property))))))))
     (when
         dom
       (emacspeak-eww-view-helper
@@ -1359,8 +1361,8 @@ Optional interactive arg `multi' prompts for multiple classes."
   (let ((dom (emacspeak-eww-current-dom))
         (filter  (if multi #'dom-by-itemprop-list #'dom-by-itemprop))
         (itemprop  (if multi
-                       (ems-eww-read-list 'ems-eww-read-itemprop)
-                     (ems-eww-read-itemprop))))
+                       (emacspeak-eww-read-list 'emacspeak-eww-read-itemprop)
+                     (emacspeak-eww-read-itemprop))))
     (setq dom (funcall filter dom itemprop))
     (when dom
       (emacspeak-eww-view-helper
@@ -1378,14 +1380,14 @@ Optional interactive arg `multi' prompts for multiple classes."
           (eww-attribute-list-tester
            (if multi
                (cl-loop
-                for r in (ems-eww-read-list 'ems-eww-read-itemprop)
+                for r in (emacspeak-eww-read-list 'emacspeak-eww-read-itemprop)
                 collect (list 'itemprop r))
-             (list (list 'itemprop (ems-eww-read-itemprop))))))))
+             (list (list 'itemprop (emacspeak-eww-read-itemprop))))))))
     (when dom
       (emacspeak-eww-view-helper
        (dom-html-add-base
         dom (emacspeak-eww-current-url))))))
-(defun ems-eww-read-element ()
+(defun emacspeak-eww-read-element ()
   "Return element  value read from minibuffer."
   (declare (special eww-element-cache))
   (let ((value (completing-read "Value: " eww-element-cache nil 'must-match)))
@@ -1399,8 +1401,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
   (let ((dom (emacspeak-eww-current-dom))
         (filter  (if multi #'dom-by-tag-list #'dom-by-tag))
         (tag (if multi
-                 (ems-eww-read-list 'ems-eww-read-element)
-               (ems-eww-read-element))))
+                 (emacspeak-eww-read-list 'emacspeak-eww-read-element)
+               (emacspeak-eww-read-element))))
     (setq dom (funcall filter dom tag))
     (cond
      (dom
@@ -1418,8 +1420,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
           (emacspeak-eww-current-dom)
           (eww-elements-tester
            (if multi
-               (ems-eww-read-list 'ems-eww-read-element)
-             (list  (ems-eww-read-element)))))))
+               (emacspeak-eww-read-list 'emacspeak-eww-read-element)
+             (list  (emacspeak-eww-read-element)))))))
     (when dom
       (emacspeak-eww-view-helper
        (dom-html-add-base
