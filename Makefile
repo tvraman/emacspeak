@@ -126,7 +126,7 @@ cd .. ;\
 
 install:
 	@echo "To run  this Emacspeak build, add this  line to the top of your .emacs:"
-	@echo "(load-library \"`pwd`/lisp/emacspeak-setup.el\")"
+	@echo "(load-file \"`pwd`/lisp/emacspeak-setup.el\")"
 	@echo "Package maintainers: see   etc/install.org	 for instructions."
 
 # }}}
