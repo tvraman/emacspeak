@@ -455,14 +455,15 @@
 
 ;;}}}
 ;;{{{ Char Motion :
-(cl-loop
- for f in
- '(evil-backward-char evil-forward-char) 
- do
- (eval
-  `(defadvice ,f (after emacspeak pre act comp)
-     "Provide auditory feedback."
-     (when (ems-interactive-p) (emacspeak-speak-char t)))))
+(defadvice evil-backward-char (after emacspeak pre act comp)
+  "Speak char."
+  (when (ems-interactive-p)
+    (emacspeak-speak-char t)))
+
+(defadvice evil-forward-char (after emacspeak pre act comp)
+  "Speak char."
+  (when (ems-interactive-p)
+    (emacspeak-speak-char t)))
 
 ;;}}}
 ;;{{{ Update keymaps:
