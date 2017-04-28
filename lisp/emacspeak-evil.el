@@ -455,15 +455,18 @@
 
 ;;}}}
 ;;{{{ Char Motion :
+
+;;; Warning: point appears to be off by one when advice is called:
+
 (defadvice evil-backward-char (after emacspeak pre act comp)
   "Speak char."
   (when (ems-interactive-p)
-    (emacspeak-speak-char t)))
+    (emacspeak-speak-this-char (char-after (1+ (point))))))
 
 (defadvice evil-forward-char (after emacspeak pre act comp)
   "Speak char."
   (when (ems-interactive-p)
-    (emacspeak-speak-char t)))
+    (emacspeak-speak-this-char (preceding-char))))
 
 ;;}}}
 ;;{{{ Update keymaps:
