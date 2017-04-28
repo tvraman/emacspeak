@@ -124,6 +124,7 @@
 ;;{{{ Char Motion :
 
 ;;; Warning: point appears to be off by one when advice is called:
+;;; Which is why we cant just call emacspeak-speak-char 
 
 (defadvice evil-backward-char (after emacspeak pre act comp)
   "Speak char."
