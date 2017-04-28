@@ -402,34 +402,67 @@
   )
 
 ;;}}}
-;;{{{ linewise Motion:
+;;{{{ Structured  Motion:
 
 (cl-loop
  for f in
  '(
-   evil-backward-section-begin evil-backward-section-end
-   evil-backward-sentence-begin evil-beginning-of-line evil-first-non-blank
-   evil-forward-section-begin evil-forward-section-end
-   evil-forward-sentence-begin
-   evil-goto-definition evil-goto-first-line evil-goto-line
-   evil-goto-mark evil-goto-mark-line
-   evil-jump-backward evil-jump-forward evil-jump-to-tag
-   evil-last-non-blank
-   evil-next-close-paren
-   evil-next-line evil-next-line-1-first-non-blank
-   evil-next-line-first-non-blank
-   evil-next-match
-   evil-previous-line evil-previous-line-first-non-blank
-   evil-previous-match
-   evil-previous-open-paren
-   evil-ret
-   evil-window-top)
+   evil-beginning-of-line evil-next-line evil-previous-line 
+   evil-ret evil-window-top)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p) (emacspeak-speak-line)))))
 
+(cl-loop
+ for f in
+ '(
+   evil-goto-mark evil-goto-mark-line
+                  evil-goto-definition evil-goto-first-line evil-goto-line
+                  evil-forward-section-begin evil-forward-section-end
+                  evil-backward-section-begin evil-backward-section-end
+                  evil-backward-section-begin evil-backward-section-end
+   evil-previous-open-paren evil-previous-match evil-next-match
+   evil-next-line-first-non-blank evil-next-line-1-first-non-blank 
+   evil-next-close-paren evil-last-non-blank
+   evil-jump-backward evil-jump-forward evil-jump-to-tag
+   evil-forward-sentence-begin evil-first-non-blank
+   evil-backward-sentence-begin )
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (let ((emacspeak-show-point t))
+         (emacspeak-auditory-icon 'large-movement)
+         (emacspeak-speak-line))))))
+
+;;}}}
+;;{{{ Word Motion 
+
+(cl-loop
+ for f in
+ '(
+   evil-backward-word-begin evil-backward-word-end
+   evil-forward-word-begin evil-forward-word-end)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+         (emacspeak-speak-word)))))
+
+;;}}}
+;;{{{ Char Motion :
+(cl-loop
+ for f in
+ '(evil-backward-char evil-forward-char) 
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p) (emacspeak-speak-char t)))))
 
 ;;}}}
 ;;{{{ Update keymaps:
@@ -473,9 +506,10 @@
 
 (cl-loop
  for hook in 
- '(evil-normal-state-exit-hook evil-insert-state-exit-hook
-                               evil-visual-state-exit-hook evil-replace-state-exit-hook
-                               evil-operator-state-exit-hook evil-motion-state-exit-hook)
+ '(
+   evil-normal-state-exit-hook evil-insert-state-exit-hook
+   evil-visual-state-exit-hook evil-replace-state-exit-hook
+   evil-operator-state-exit-hook evil-motion-state-exit-hook)
  do
  (add-hook hook #'emacspeak-evil-state-change-hook))
 (defadvice evil-exit-emacs-state (after emacspeak pre act comp)
