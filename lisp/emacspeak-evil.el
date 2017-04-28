@@ -109,14 +109,16 @@
 (cl-loop
  for f in
  '(
-   evil-backward-word-begin evil-backward-word-end
-   evil-forward-word-begin evil-forward-word-end)
+       evil-backward-WORD-begin evil-backward-WORD-end
+       evil-forward-WORD-begin evil-forward-WORD-end
+       evil-backward-word-begin evil-backward-word-end
+       evil-forward-word-begin evil-forward-word-end)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-         (emacspeak-speak-word)))))
+       (emacspeak-speak-word)))))
 
 ;;}}}
 ;;{{{ Char Motion :
