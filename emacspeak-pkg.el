@@ -6,4 +6,9 @@
   :url "http://github.com/tvraman/emacspeak"
   :keywords '("Accessibility"  "Audio Desktop" "Eyes-Free Interaction")
   )
+
+
+
+;; Local Variables:
 ;; no-byte-compile: t
+;; End:
