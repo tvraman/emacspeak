@@ -144,13 +144,19 @@
 '(
 evil-delete-backward-char
 evil-delete-backward-char-and-join
-evil-delete-backward-word
+
 evil-delete-buffer
 evil-delete-char
-evil-delete-line
+
 evil-delete-marks
 evil-delete-whole-line
 )
+
+(defadvice evil-delete-line (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (dtk-speak "Deleted to end of line.")
+    (emacspeak-auditory-icon 'delete-object)))
 
 (defadvice evil-delete (before emacspeak pre act comp)
   "Provide auditory feedback."
