@@ -1140,7 +1140,7 @@ emacspeak-toggle-eterm-autospeak bound to
              current-char)              ;you backspaced?
         (emacspeak-speak-this-char current-char)
         (delete-char  1)
-        (dtk-tone 500 50))
+        (dtk-tone 500 100))
        ((and (= new-row emacspeak-eterm-row)
              (= 1 (- new-column emacspeak-eterm-column))) ;you inserted a character:
         (if (eq 32 last-command-event)

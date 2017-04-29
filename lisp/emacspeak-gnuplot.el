@@ -105,7 +105,7 @@
     (cond
      ((= (point) (point-max))
       (message "Sending EOF to comint process"))
-     (t (dtk-tone 500 30 'force)
+     (t (dtk-tone 500 100 'force)
         (emacspeak-speak-char t)))
     ad-do-it)
    (t ad-do-it))

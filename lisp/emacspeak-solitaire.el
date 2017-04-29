@@ -75,9 +75,9 @@
            (emacspeak-solitaire-current-row)
            (emacspeak-solitaire-current-column))))
 
-(defun emacspeak-solitaire-stone  () (dtk-tone 400 50))
+(defun emacspeak-solitaire-stone  () (dtk-tone 400 150))
 
-(defun emacspeak-solitaire-hole () (dtk-tone 800 50))
+(defun emacspeak-solitaire-hole () (dtk-tone 800 100))
 
 (defun emacspeak-solitaire-show-row ()
   "Audio format current row."

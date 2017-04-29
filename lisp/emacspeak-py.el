@@ -77,7 +77,7 @@ Provide contextual feedback when closing blocks"
   (cond
    ((ems-interactive-p)
     (let ((ws (= (char-syntax (preceding-char)) 32)))
-      (dtk-tone 500 30 'force)
+      (dtk-tone 500 100 'force)
       (unless ws (emacspeak-speak-this-char (preceding-char)))
       ad-do-it
       (when ws
@@ -94,7 +94,7 @@ Provide contextual feedback when closing blocks"
   "Speak character you're deleting."
   (cond
    ((ems-interactive-p)
-    (dtk-tone 500 30 'force)
+    (dtk-tone 500 100 'force)
     (emacspeak-speak-this-char (preceding-char))
     ad-do-it)
    (t ad-do-it))

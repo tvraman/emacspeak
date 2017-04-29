@@ -218,7 +218,7 @@ s(defun emacspeak-vm-yank-header ()
                     vm-ml-message-new
                     vm-ml-message-number vm-ml-highest-message-number))
   (when (buffer-modified-p)
-    (dtk-tone 700 70))
+    (dtk-tone 700 100 'force))
   (cond
    (vm-virtual-folder-definition
     (dtk-speak

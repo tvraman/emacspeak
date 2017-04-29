@@ -176,7 +176,7 @@
   "Speak character you're deleting."
   (cond
    ((ems-interactive-p)
-    (dtk-tone 500 30 'force)
+    (dtk-tone 500 100 'force)
     (emacspeak-speak-this-char (preceding-char))
     ad-do-it)
    (t ad-do-it))

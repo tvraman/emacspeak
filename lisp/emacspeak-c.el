@@ -59,7 +59,7 @@
   "Speak character you're deleting."
   (cond
    ((ems-interactive-p)
-    (dtk-tone 500 30 'force)
+    (dtk-tone 500 100 'force)
     (emacspeak-speak-this-char (following-char))
     ad-do-it)
    (t ad-do-it))
@@ -73,7 +73,7 @@
      "Speak character you're deleting."
      (cond
       ((ems-interactive-p)
-       (dtk-tone 500 30 'force)
+       (dtk-tone 500 100 'force)
        (emacspeak-speak-this-char (preceding-char))
        ad-do-it)
       (t ad-do-it))
@@ -94,7 +94,7 @@
   "Speak char before deleting it."
   (when (ems-interactive-p)
     (emacspeak-speak-this-char(preceding-char))
-    (dtk-tone 500 30)))
+    (dtk-tone 500 100 'force)))
 
 ;;}}}
 ;;{{{  Moving across logical chunks
