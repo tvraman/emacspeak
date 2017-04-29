@@ -41,9 +41,9 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; XKCD ==  emacs-xkcd
+;;; XKCD ==  XKCD In Emacs
 ;;; View XKCD comics in Emacs.
-;;; Speech enables package emacs-xkcd
+;;; Speech enables package xkcd
 ;;; Augments it by displaying the alt text and the transcript.
 
 ;;}}}
@@ -53,9 +53,10 @@
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
 (require 'json)
-(require 'emacs-xkcd "emacs-xkcd" 'no-error)
+(require 'xkcd "xkcd" 'no-error)
 ;;}}}
 ;;{{{ Fix error when loading images on the console:
+
 (defadvice xkcd-insert-image (around emacspeak pre act comp)
   "no-Op on console"
   (cond
@@ -63,8 +64,13 @@
    (t ad-do-it)))
 
 ;;}}}
-
-;;; Eventually move this to the emacs-xkcd package if possible.
+;;; Override:
+(defun xkcd-open-explanation-browser ()
+  "Open explanation of current xkcd in default browser"
+  (interactive)
+  (browse-url
+   (concat
+    "http://www.explainxkcd.com/wiki/index.php/" (number-to-string xkcd-cur))))
 
 (defvar xkcd-transcript nil
   "Cache current transcript.")
