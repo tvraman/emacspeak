@@ -216,7 +216,8 @@ s(defun emacspeak-vm-yank-header ()
                     vm-ml-message-read vm-ml-message-unread
                     vm-virtual-folder-definition vm-ml-message-new
                     vm-ml-message-number vm-ml-highest-message-number))
-  (when (buffer-modified-p) (dtk-tone 700 100 'force))
+  (when (buffer-modified-p)
+    (emacspeak-auditory-icon 'modified-object))
   (cond
    (vm-virtual-folder-definition
     (dtk-speak
