@@ -46,7 +46,7 @@ README = README
 
 emacspeak:
 	@test -f  lisp/emacspeak-loaddefs.el || @${MAKE} config
-	@cd lisp && $(MAKE)
+	@cd lisp && ${MAKE}
 	@make   $(README)
 	@chmod 644 $(README)
 	@echo "See the NEWS file for a  summary of new features — Control e cap n in Emacs"
@@ -55,10 +55,10 @@ emacspeak:
 	@make install
 
 outloud: 
-	cd servers/linux-outloud && $(MAKE) || echo "Cant build Outloud server!"
+	cd servers/linux-outloud && ${MAKE} || echo "Cant build Outloud server!"
 
 espeak: 
-	cd servers/linux-espeak && $(MAKE) || echo "Cant build espeak server!"
+	cd servers/linux-espeak && ${MAKE} || echo "Cant build espeak server!"
 
 # }}}
 # {{{  Maintainance targets   dist
@@ -79,8 +79,8 @@ dist:
 # {{{ User level target--  config
 
 config:
-	cd etc &&   $(MAKE) config  
-	cd lisp && $(MAKE) config
+	cd etc &&   ${MAKE} config  
+	cd lisp && ${MAKE} config
 	@echo "Configured emacspeak in directory $(SRC). Now type make emacspeak"
 
 # }}}
@@ -98,7 +98,7 @@ q:
 # {{{  user level target-- clean
 
 clean:
-	cd lisp &&  $(MAKE) clean
+	cd lisp &&  ${MAKE} clean
 
 # }}}
 # {{{ labeling releases
@@ -109,7 +109,7 @@ MSG="Releasing ${LABEL}"
 release: #supply LABEL=NN.NN
 	git tag -a -s ${LABEL} -m "Tagging release with ${LABEL}"
 	git push --tags
-	$(MAKE) dist
+	${MAKE} dist
 	mkdir emacspeak-${LABEL}; \
 cd emacspeak-${LABEL} ;\
 	tar xvf ../emacspeak.tar ; \
