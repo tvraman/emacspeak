@@ -298,32 +298,30 @@ do
 ;;{{{ Advise modify case commands to speak
 
 (defadvice upcase-word (around emacspeak pre act comp)
-"Provide a tone to indicate that we upper cased the current word.
+  "Provide a tone to indicate that we upper cased the current word.
 Speak the word that point lands on after the action
 is done. If `upcase-word' is called with a negative argument,
 then point does not move. In this case, we speak the words
 that were upper cased."
-(cond
-((ems-interactive-p)
-(when dtk-stop-immediately (dtk-stop))
-(let ((dtk-stop-immediately nil))
-(dtk-tone 800 100 'force)
-(cond
- ((and (numberp current-prefix-arg)
-       (minusp current-prefix-arg))
-  ad-do-it
-  (let ((start (point)))
-    (save-excursion
-      (forward-word current-prefix-arg)
-      (emacspeak-speak-region start (point)))))
- (t ad-do-it
-    (save-excursion
-      (skip-syntax-forward " ")
-      (if(eobp)
-          (message "Upper cased final word in buffer")
-        (emacspeak-speak-word)))))))
-(t ad-do-it))
-ad-return-value)
+  (cond
+   ((ems-interactive-p)
+    (dtk-tone-upcase)
+    (cond
+     ((and (numberp current-prefix-arg)
+           (minusp current-prefix-arg))
+      ad-do-it
+      (let ((start (point)))
+        (save-excursion
+          (forward-word current-prefix-arg)
+          (emacspeak-speak-region start (point)))))
+     (t ad-do-it
+        (save-excursion
+          (skip-syntax-forward " ")
+          (if(eobp)
+              (message "Upper cased final word in buffer")
+            (emacspeak-speak-word))))))
+   (t ad-do-it))
+  ad-return-value)
 
 (defadvice downcase-word (around emacspeak pre act comp)
 "Provide a tone to indicate that we down cased the current word.
@@ -333,9 +331,7 @@ argument, then point does not move. In this case, we speak
 the words that were down cased."
 (cond
 ((ems-interactive-p)
-(when dtk-stop-immediately (dtk-stop))
-(let ((dtk-stop-immediately nil))
-(dtk-tone 600 100 'force)
+ (dtk-tone-downcase)
 (cond
  ((and (numberp current-prefix-arg)
        (minusp current-prefix-arg))
@@ -349,37 +345,35 @@ the words that were down cased."
       (skip-syntax-forward " ")
       (if(eobp)
           (message "Lower cased final word in buffer")
-        (emacspeak-speak-word)))))))
+        (emacspeak-speak-word))))))
 (t ad-do-it))
 ad-return-value)
 
 (defadvice capitalize-word (around emacspeak pre act comp)
-"Provide a tone to indicate that we capitalized the current word.
+  "Provide a tone to indicate that we capitalized the current word.
 Speak the word that point lands on after the action
 is done. If `capitalize-word' is called with a negative
 argument, then point does not move. In this case, we speak
 the words that were capitalized."
-(cond
-((ems-interactive-p)
-(when dtk-stop-immediately (dtk-stop))
-(let ((dtk-stop-immediately nil))
-(dtk-tone 700 100 'force)
-(cond
- ((and (numberp current-prefix-arg)
-       (minusp current-prefix-arg))
-  ad-do-it
-  (let ((start (point)))
-    (save-excursion
-      (forward-word current-prefix-arg)
-      (emacspeak-speak-region start (point)))))
- (t ad-do-it
-    (save-excursion
-      (skip-syntax-forward " ")
-      (if(eobp)
-          (message "Capitalized final word in buffer")
-        (emacspeak-speak-word)))))))
-(t ad-do-it))
-ad-return-value)
+  (cond
+   ((ems-interactive-p)
+    (dtk-tone-upcase)
+    (cond
+     ((and (numberp current-prefix-arg)
+           (minusp current-prefix-arg))
+      ad-do-it
+      (let ((start (point)))
+        (save-excursion
+          (forward-word current-prefix-arg)
+          (emacspeak-speak-region start (point)))))
+     (t ad-do-it
+        (save-excursion
+          (skip-syntax-forward " ")
+          (if(eobp)
+              (message "Capitalized final word in buffer")
+            (emacspeak-speak-word))))))
+   (t ad-do-it))
+  ad-return-value)
 
 ;;}}}
 ;;{{{ Advice insert-char:
@@ -1796,20 +1790,20 @@ Auditory highlight indicates position of point."
 (let ((emacspeak-show-point t))
 (emacspeak-speak-line))))
 (cl-loop
-for f in
-'(newline newline-and-indent electric-newline-and-maybe-indent)
-do
-(eval
-`(defadvice ,f (before emacspeak pre act comp)
-"Speak the previous line if line echo is on.
+ for f in
+ '(newline newline-and-indent electric-newline-and-maybe-indent)
+ do
+ (eval
+  `(defadvice ,f (before emacspeak pre act comp)
+     "Speak the previous line if line echo is on.
 See command \\[emacspeak-toggle-line-echo]. Otherwise cue the user to
 the newly created blank line."
-(declare (special emacspeak-line-echo))
-(when (ems-interactive-p)
-(cond
- (emacspeak-line-echo (emacspeak-speak-line))
- (t(when dtk-stop-immediately (dtk-stop))
-   (dtk-tone 225 75 'force)))))))
+     (declare (special emacspeak-line-echo))
+     (when (ems-interactive-p)
+       (cond
+        (emacspeak-line-echo (emacspeak-speak-line))
+        (t(when dtk-stop-immediately (dtk-stop))
+          (dtk-tone 225 75 'force)))))))
 
 (cl-loop
 for f in
@@ -1819,10 +1813,10 @@ do
 `(defadvice ,f (after emacspeak pre act comp)
 "Also speaks the result of evaluation."
 (when (ems-interactive-p)
-(let ((dtk-chunk-separator-syntax " .<>()$\"\'"))
-  (tts-with-punctuations 'all
-                         (dtk-speak
-                          (format "%s" ad-return-value))))))))
+  (let ((dtk-chunk-separator-syntax " .<>()$\"\'"))
+    (tts-with-punctuations 'all
+                           (dtk-speak
+                            (format "%s" ad-return-value))))))))
 
 (defadvice shell (after emacspeak pre act comp)
 "Announce switching to shell mode.
@@ -1839,17 +1833,17 @@ do
 `(defadvice ,f (after emacspeak pre act comp)
 "Speak the line please."
 (when (ems-interactive-p)
-(emacspeak-auditory-icon 'open-object)
-(emacspeak-speak-line)))))
+  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-speak-line)))))
 
 (defadvice call-last-kbd-macro (around emacspeak pre act comp)
 "Provide spoken feedback."
 (cond
 ((ems-interactive-p)
 (ems-with-messages-silenced
-(let ((dtk-quiet t)
-      (emacspeak-use-auditory-icons nil))
-  ad-do-it))
+ (let ((dtk-quiet t)
+       (emacspeak-use-auditory-icons nil))
+   ad-do-it))
 (message "Executed macro. ")
 (emacspeak-auditory-icon 'task-done))
 (t ad-do-it))
@@ -1878,8 +1872,8 @@ ad-return-value)
 (let ((confirmation (yes-or-no-p "Do you want to suspend emacs ")))
 (cond
 (confirmation
-(message "Suspending Emacs ")
-ad-do-it)
+ (message "Suspending Emacs ")
+ ad-do-it)
 (t (message "Not suspending emacs")))))
 
 (defadvice downcase-region (after emacspeak pre act comp)
@@ -1887,14 +1881,14 @@ ad-do-it)
 (when (ems-interactive-p)
 (message "Downcased region containing %s lines"
 (count-lines (region-beginning)
-(region-end)))))
+             (region-end)))))
 
 (defadvice upcase-region (after emacspeak pre act comp)
 "Give spoken confirmation."
 (when (ems-interactive-p)
 (message "Upcased region containing %s lines"
 (count-lines (region-beginning)
-(region-end)))))
+             (region-end)))))
 (cl-loop
 for f in
 '(narrow-to-region narrow-to-page)
@@ -1903,10 +1897,10 @@ do
 `(defadvice ,f (after emacspeak pre act comp)
 "Announce yourself."
 (when (ems-interactive-p)
-(emacspeak-auditory-icon 'mark-object)
-(message "Narrowed editing region to %s lines"
-         (count-lines (region-beginning)
-                      (region-end)))))))
+  (emacspeak-auditory-icon 'mark-object)
+  (message "Narrowed editing region to %s lines"
+           (count-lines (region-beginning)
+                        (region-end)))))))
 
 (defadvice narrow-to-defun (after emacspeak pre act comp)
 "Announce yourself."
@@ -1996,8 +1990,8 @@ do
 (let ((count (ad-get-arg 0)))
 (emacspeak-auditory-icon 'open-object)
 (message "Opened %s blank line%s"
-(if (= count 1) "a" count)
-(if (= count 1) "" "s")))))
+         (if (= count 1) "a" count)
+         (if (= count 1) "" "s")))))
 
 (defadvice abort-recursive-edit (after emacspeak pre act comp)
 "Provide auditory feedback."
@@ -2011,11 +2005,11 @@ do
 `(defadvice ,f (after emacspeak pre act comp)
 "Provide auditory feedback."
 (when (ems-interactive-p)
-(let ((emacspeak-show-point t))
-  (emacspeak-speak-line))
-(if (buffer-modified-p)
-    (emacspeak-auditory-icon 'modified-object)
-  (emacspeak-auditory-icon 'unmodified-object))))))
+  (let ((emacspeak-show-point t))
+    (emacspeak-speak-line))
+  (if (buffer-modified-p)
+      (emacspeak-auditory-icon 'modified-object)
+    (emacspeak-auditory-icon 'unmodified-object))))))
 
 (defadvice view-emacs-news (after emacspeak pre act comp)
 "Provide auditory cue."
@@ -2043,8 +2037,8 @@ do
 (when emacspeak-speak-tooltips
 (let ((msg (ad-get-arg 0)))
 (if msg
-(dtk-speak msg)
-(emacspeak-auditory-icon 'close-object)))))
+    (dtk-speak msg)
+  (emacspeak-auditory-icon 'close-object)))))
 
 (cl-loop
 for f in
@@ -2054,9 +2048,9 @@ do
 `(defadvice ,f (after emacspeak pre act comp)
 "Speak the tooltip."
 (when emacspeak-speak-tooltips
-(let ((help (ad-get-arg 0)))
-  (dtk-speak help)
-  (emacspeak-auditory-icon 'help))))))
+  (let ((help (ad-get-arg 0)))
+    (dtk-speak help)
+    (emacspeak-auditory-icon 'help))))))
 
 ;;}}}
 ;;{{{ Emacs server
@@ -2108,10 +2102,10 @@ Produce an auditory icon if possible."
 (cond
 ((ems-interactive-p)
 (ems-with-messages-silenced
-(dtk-speak "Byte compiling ")
-ad-do-it
-(emacspeak-auditory-icon 'task-done)
-(dtk-speak "Done byte compiling ")))
+ (dtk-speak "Byte compiling ")
+ ad-do-it
+ (emacspeak-auditory-icon 'task-done)
+ (dtk-speak "Done byte compiling ")))
 (t ad-do-it))
 ad-return-value)
 
@@ -2128,8 +2122,8 @@ do
 `(defadvice ,f (before emacspeak pre act comp)
 "Speak line."
 (when (ems-interactive-p)
-(emacspeak-speak-line)
-(emacspeak-auditory-icon 'select-object)))))
+  (emacspeak-speak-line)
+  (emacspeak-auditory-icon 'select-object)))))
 
 ;;}}}
 ;;{{{ yanking and popping
@@ -2143,8 +2137,8 @@ do
 "Say what you yanked.
 Produce an auditory icon if possible."
 (when (ems-interactive-p)
-(emacspeak-auditory-icon 'yank-object)
-(emacspeak-speak-region (mark 'force) (point))))))
+  (emacspeak-auditory-icon 'yank-object)
+  (emacspeak-speak-region (mark 'force) (point))))))
 
 ;;}}}
 ;;{{{ advice non-incremental searchers
@@ -2158,8 +2152,8 @@ do
 `(defadvice ,f (after emacspeak pre act comp)
 "Speak line we land on."
 (when (ems-interactive-p)
-(emacspeak-speak-line)
-(emacspeak-auditory-icon 'search-hit)))))
+  (emacspeak-speak-line)
+  (emacspeak-auditory-icon 'search-hit)))))
 
 ;;}}}
 ;;{{{ customize isearch:
@@ -2200,11 +2194,11 @@ emacspeak-prefix 'emacspeak-prefix-command)
 (t
 (emacspeak-auditory-icon 'search-hit)
 (when (sit-for  0.2)
-(save-excursion
-  (ems-set-personality-temporarily
-   (point) isearch-other-end voice-bolden
-   (dtk-speak
-    (buffer-substring (line-beginning-position) (line-end-position)))))))))
+  (save-excursion
+    (ems-set-personality-temporarily
+     (point) isearch-other-end voice-bolden
+     (dtk-speak
+      (buffer-substring (line-beginning-position) (line-end-position)))))))))
 
 (defadvice isearch-delete-char (after emacspeak pre act comp)
 "Speak the search hit.
@@ -2215,8 +2209,8 @@ Produce auditory icons if possible."
 (ems-set-personality-temporarily
 (point)
 (if isearch-forward
-(- (point) (length isearch-string))
-(+ (point) (length isearch-string)))
+    (- (point) (length isearch-string))
+  (+ (point) (length isearch-string)))
 voice-bolden
 (emacspeak-speak-line))))
 (cl-loop
@@ -2227,8 +2221,8 @@ do
 `(defadvice ,f (after emacspeak pre act comp)
 "Provide auditory feedback."
 (when (ems-interactive-p)
-(emacspeak-speak-string isearch-string voice-bolden)
-(emacspeak-auditory-icon 'yank-object)))))
+  (emacspeak-speak-string isearch-string voice-bolden)
+  (emacspeak-auditory-icon 'yank-object)))))
 (cl-loop
 for f in
 '(isearch-ring-advance isearch-ring-retreat
@@ -2238,8 +2232,8 @@ do
 `(defadvice ,f (after emacspeak pre act comp)
 "Provide auditory feedback."
 (when (ems-interactive-p)
-(emacspeak-speak-string isearch-string voice-bolden)
-(emacspeak-auditory-icon 'item)))))
+  (emacspeak-speak-string isearch-string voice-bolden)
+  (emacspeak-auditory-icon 'item)))))
 
 ;;; Note the advice on the next two toggle commands
 ;;; checks the variable being toggled.
@@ -2288,9 +2282,9 @@ do
 `(defadvice ,f (after emacspeak pre act comp)
 "Produce an auditory icon if possible."
 (when (ems-interactive-p)
-(emacspeak-auditory-icon 'mark-object)
-(let ((emacspeak-show-point t))
-  (emacspeak-speak-line))))))
+  (emacspeak-auditory-icon 'mark-object)
+  (let ((emacspeak-show-point t))
+    (emacspeak-speak-line))))))
 
 (defadvice pop-global-mark (after emacspeak pre act comp)
 "Speak buffer name if notification stream is available."
@@ -2320,7 +2314,7 @@ do
 (emacspeak-auditory-icon 'mark-object)
 (message "Marked paragraph containing %s lines"
 (count-lines (point)
-(mark 'force)))))
+             (mark 'force)))))
 
 (defadvice mark-page (after emacspeak pre act comp)
 "Produce an auditory icon if possible."
@@ -2328,7 +2322,7 @@ do
 (emacspeak-auditory-icon 'mark-object)
 (message "Marked page containing %s lines"
 (count-lines (point)
-(mark 'force)))))
+             (mark 'force)))))
 
 (defadvice mark-word (after emacspeak pre act comp)
 "Produce an auditory icon if possible."
@@ -2342,12 +2336,12 @@ do
 (when (ems-interactive-p)
 (let ((lines (count-lines (point)
                           (mark 'force)))
-(chars (abs (- (point) (mark 'force)))))
+      (chars (abs (- (point) (mark 'force)))))
 (emacspeak-auditory-icon 'mark-object)
 (if (> lines 1)
-(message "Marked S expression spanning %s lines" lines)
-(message "marked S expression containing %s characters"
-         chars)))))
+    (message "Marked S expression spanning %s lines" lines)
+  (message "marked S expression containing %s characters"
+           chars)))))
 
 (defadvice mark-end-of-sentence (after emacspeak pre act comp)
 "Produce an auditory icon if possible."
@@ -2369,17 +2363,17 @@ do
 "Acknowledge the copy."
 (when (ems-interactive-p)
 (let ((start (ad-get-arg 1))
-(end (ad-get-arg 2))
-(register (ad-get-arg 0))
-(lines nil)
-(chars nil))
+      (end (ad-get-arg 2))
+      (register (ad-get-arg 0))
+      (lines nil)
+      (chars nil))
 (setq lines (count-lines start end)
-chars (abs (- start end)))
+      chars (abs (- start end)))
 (if (> lines 1)
-(message "Copied %s lines to register %c"
-         lines register)
-(message "Copied %s characters to register %c"
-         chars register)))))
+    (message "Copied %s lines to register %c"
+             lines register)
+  (message "Copied %s characters to register %c"
+           chars register)))))
 (defadvice view-register (after emacspeak pre act comp)
 "Speak displayed contents."
 (when (ems-interactive-p)
@@ -2416,7 +2410,7 @@ do
 `(defadvice ,f (after emacspeak pre act comp)
 "Provide auditory feedback."
 (when (ems-interactive-p)
-(message "Copied frame  configuration to register %c" (ad-get-arg 0))))))
+  (message "Copied frame  configuration to register %c" (ad-get-arg 0))))))
 
 ;;}}}
 ;;{{{ set up clause boundaries for specific modes:
@@ -2464,8 +2458,8 @@ do
 `(defadvice ,f (after emacspeak pre act comp)
 "Provide spoken feedback."
 (when (ems-interactive-p)
-(emacspeak-speak-line)
-(emacspeak-auditory-icon 'large-movement)))))
+  (emacspeak-speak-line)
+  (emacspeak-auditory-icon 'large-movement)))))
 
 ;;}}}
 ;;{{{ abbrev mode advice
@@ -2476,8 +2470,8 @@ do
 (cond
 ((ems-interactive-p)
 (let ((start (save-excursion (backward-word 1) (point))))
-ad-do-it
-(dtk-speak (buffer-substring start (point)))))
+  ad-do-it
+  (dtk-speak (buffer-substring start (point)))))
 (t ad-do-it))
 ad-return-value)
 
@@ -2514,8 +2508,8 @@ do
 `(defadvice ,f (after emacspeak pre act comp)
 "Provide an auditory icon."
 (when (ems-interactive-p)
-(emacspeak-auditory-icon 'help)
-(message "Displayed apropos in other window.")))))
+  (emacspeak-auditory-icon 'help)
+  (message "Displayed apropos in other window.")))))
 
 (defadvice apropos-follow (after emacspeak pre act comp)
 "Speak the help you displayed."
@@ -2604,7 +2598,7 @@ ad-do-it)))
 "Provide auditory feedback."
 (when(ems-interactive-p)
 (let ((end (point))
-(start (re-search-backward  " " nil t)))
+      (start (re-search-backward  " " nil t)))
 (message (buffer-substring start end))
 (emacspeak-auditory-icon 'select-object))))
 
@@ -2619,12 +2613,12 @@ do
 `(defadvice ,f (around emacspeak pre act comp)
 "Silence messages while elint is running."
 (cond
-((ems-interactive-p)
- (ems-with-messages-silenced
-  ad-do-it
-  (emacspeak-auditory-icon 'task-done)
-  (message "Displayed lint results in other window. ")))
-(t ad-do-it))
+ ((ems-interactive-p)
+  (ems-with-messages-silenced
+   ad-do-it
+   (emacspeak-auditory-icon 'task-done)
+   (message "Displayed lint results in other window. ")))
+ (t ad-do-it))
 ad-return-value)))
 
 ;;}}}
@@ -2639,13 +2633,13 @@ do
 "Adds property personality."
 (let ((start (ad-get-arg 0))
       (end (ad-get-arg 1)))
-(with-silent-modifications
-  (condition-case nil
-      (progn
-        (put-text-property start end  'auditory-icon 'button)
-        (when emacspeak-personality-voiceify-faces
-          (put-text-property start end 'personality voice-bolden)))
-    (error nil)))))))
+  (with-silent-modifications
+    (condition-case nil
+        (progn
+          (put-text-property start end  'auditory-icon 'button)
+          (when emacspeak-personality-voiceify-faces
+            (put-text-property start end 'personality voice-bolden)))
+      (error nil)))))))
 
 (defadvice push-button (after emacspeak pre act comp)
 "Produce auditory icon."
@@ -2664,8 +2658,8 @@ do
 `(defadvice ,f (around emacspeak pre act comp)
 "Silence messages."
 (ems-with-messages-silenced
-ad-do-it
-ad-return-value))))
+ ad-do-it
+ ad-return-value))))
 
 ;;}}}
 ;;{{{ advice Finder:
@@ -2707,11 +2701,11 @@ do
 `(defadvice ,f (around emacspeak pre act comp)
 "Automatically speak results of rendering."
 (cond
-((ems-interactive-p)
- (emacspeak-auditory-icon 'open-object)
- (emacspeak-webutils-autospeak)
- ad-do-it)
-(t ad-do-it))
+ ((ems-interactive-p)
+  (emacspeak-auditory-icon 'open-object)
+  (emacspeak-webutils-autospeak)
+  ad-do-it)
+ (t ad-do-it))
 ad-return-value)))
 
 ;;}}}
@@ -2723,7 +2717,7 @@ ad-return-value)))
 (emacspeak-auditory-icon (if current-input-method 'on 'off))
 (dtk-speak
 (format "Current input method is %s"
-(or current-input-method "none")))))
+        (or current-input-method "none")))))
 
 ;;}}}
 ;;{{{ silence midnight cleanup:
@@ -2741,9 +2735,9 @@ do
 `(defadvice ,f (after emacspeak pre act comp)
 "Provide auditory feedback."
 (when (ems-interactive-p)
-(emacspeak-auditory-icon 'open-object)
-(with-current-buffer (window-buffer (selected-window))
-  (emacspeak-speak-buffer))))))
+  (emacspeak-auditory-icon 'open-object)
+  (with-current-buffer (window-buffer (selected-window))
+    (emacspeak-speak-buffer))))))
 
 (defadvice exit-splash-screen (after emacspeak pre act comp)
 "Provide auditory feedback."
@@ -2761,8 +2755,8 @@ do
 `(defadvice ,f (after emacspeak pre act comp)
 "Provide auditory feedback."
 (when (ems-interactive-p)
-(emacspeak-auditory-icon 'task-done)
-(emacspeak-speak-line)))))
+  (emacspeak-auditory-icon 'task-done)
+  (emacspeak-speak-line)))))
 
 (defadvice copyright-update-directory (after emacspeak pre act comp)
 "Provide auditory feedback."
