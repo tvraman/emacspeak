@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on April 28, 2017.
+last updated on April 29, 2017.
 
    The manual is divided into the following chapters.
 
@@ -2947,7 +2947,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1171 commands and 1094 options.
+This chapter documents a total of 1170 commands and 1087 options.
 
 * Menu:
 
@@ -2964,12 +2964,11 @@ This chapter documents a total of 1171 commands and 1094 options.
 * emacspeak-2048::Speech-enable 2048 Game.
 * emacspeak-actions::Emacspeak actions – callbacks that can be associated with portions of a buffer.
 * emacspeak-add-log::Speech-enable add-log.
-* emacspeak-advice::Advice all core Emacs functionality to speak.
+* emacspeak-advice::Advice Emacs Core.
 * emacspeak-amark::BookMarks For Audio Content.
 * emacspeak-analog::Speech-enable analog – a log viewer.
 * emacspeak-ansi-color::Speech-enable ansi-color terminal.
 * emacspeak-apt-sources::speech-enable APT’s sources.list file editor.
-* emacspeak-apt-utils::speech-enable APT interface.
 * emacspeak-arc::Speech enable archive-mode – a  Emacs interface to zip and friends.
 * emacspeak-auctex::Speech enable AucTeX – a powerful TeX/LaTeX authoring environment.
 * emacspeak-aumix::Configure audio device settings.
@@ -3140,7 +3139,7 @@ This chapter documents a total of 1171 commands and 1094 options.
 * emacspeak-twittering::Speech-enable Twittering-mode.
 * emacspeak-url-template::Create library of URI templates.
 * emacspeak-view::Speech enable View mode – Efficient browsing of read-only content.
-* emacspeak-vm::Speech enable VM – A powerful mail agent.
+* emacspeak-vm::Speech enable VMMail.
 * emacspeak-w3::Speech enable W3 WWW browser – includes ACSS Support.
 * emacspeak-w3m::speech-enables w3m-el.
 * emacspeak-wdired::Speech-enable wdired.
@@ -6736,7 +6735,7 @@ and turns them into appropriate faces.  This is useful in things like
 shell buffers.  This module maps ansi codes to the appropriate voices.
 
 
-File: emacspeak.info,  Node: emacspeak-apt-sources,  Next: emacspeak-apt-utils,  Prev: emacspeak-ansi-color,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-apt-sources,  Next: emacspeak-arc,  Prev: emacspeak-ansi-color,  Up: Emacspeak Commands And Options
 
 12.18 emacspeak-apt-sources
 ===========================
@@ -6746,98 +6745,39 @@ debian-el package and provides a major mode for editing APT’s
 sources.list file.
 
 
-File: emacspeak.info,  Node: emacspeak-apt-utils,  Next: emacspeak-arc,  Prev: emacspeak-apt-sources,  Up: Emacspeak Commands And Options
+File: emacspeak.info,  Node: emacspeak-arc,  Next: emacspeak-auctex,  Prev: emacspeak-apt-sources,  Up: Emacspeak Commands And Options
 
-12.19 emacspeak-apt-utils
-=========================
-
-This module speech-enables apt-utils.el that is included in the
-debian-el package and provides a nice interface to searching and
-browsing Debian packages.
-
-12.19.1 emacspeak-apt-utils Commands
-------------------------------------
-
-12.19.1.1 emacspeak-apt-utils-grab-package-at-point
-...................................................
-
- -- Command: emacspeak-apt-utils-grab-package-at-point
-
-     Copy package under point to kill ring.
-
-12.19.2 emacspeak-apt-utils Options
------------------------------------
-
- -- Variable: User Option emacspeak-apt-utils-broken-personality
-     Personality used for apt-utils-broken-face This personality uses
-     voice-bolden-and-animate whose effect can be changed globally by
-     customizing voice-bolden-and-animate-settings.
-
- -- Variable: User Option emacspeak-apt-utils-description-personality
-     Personality used for apt-utils-description-face This personality
-     uses voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option emacspeak-apt-utils-field-contents-personality
-     Personality used for apt-utils-field-contents-face This personality
-     uses voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
-
- -- Variable: User Option emacspeak-apt-utils-field-keyword-personality
-     Personality used for apt-utils-field-keyword-face This personality
-     uses voice-animate-extra whose effect can be changed globally by
-     customizing voice-animate-extra-settings.
-
- -- Variable: User Option emacspeak-apt-utils-normal-package-personality
-     Personality used for apt-utils-normal-package-face This personality
-     uses voice-bolden whose effect can be changed globally by
-     customizing voice-bolden-settings.
-
- -- Variable: User Option emacspeak-apt-utils-version-personality
-     Personality used for apt-utils-version-face This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option
-          emacspeak-apt-utils-virtual-package-personality
-     Personality used for apt-utils-virtual-package-face This
-     personality uses voice-animate whose effect can be changed globally
-     by customizing voice-animate-settings.
-
-
-File: emacspeak.info,  Node: emacspeak-arc,  Next: emacspeak-auctex,  Prev: emacspeak-apt-utils,  Up: Emacspeak Commands And Options
-
-12.20 emacspeak-arc
+12.19 emacspeak-arc
 ===================
 
 Auditory interface to archive mode This lets Emacs manipulate package
 files such as .zip and .jar files.
 
-12.20.1 emacspeak-arc Commands
+12.19.1 emacspeak-arc Commands
 ------------------------------
 
-12.20.1.1 emacspeak-arc-speak-file-modification-time
+12.19.1.1 emacspeak-arc-speak-file-modification-time
 ....................................................
 
  -- Command: emacspeak-arc-speak-file-modification-time
 
      Speak modification time of the file on current line
 
-12.20.1.2 emacspeak-arc-speak-file-name
+12.19.1.2 emacspeak-arc-speak-file-name
 .......................................
 
  -- Command: emacspeak-arc-speak-file-name
 
      Speak the name of the file on current line
 
-12.20.1.3 emacspeak-arc-speak-file-permissions
+12.19.1.3 emacspeak-arc-speak-file-permissions
 ..............................................
 
  -- Command: emacspeak-arc-speak-file-permissions
 
      Speak permissions of file current entry
 
-12.20.1.4 emacspeak-arc-speak-file-size
+12.19.1.4 emacspeak-arc-speak-file-size
 .......................................
 
  -- Command: emacspeak-arc-speak-file-size
@@ -6847,7 +6787,7 @@ files such as .zip and .jar files.
 
 File: emacspeak.info,  Node: emacspeak-auctex,  Next: emacspeak-aumix,  Prev: emacspeak-arc,  Up: Emacspeak Commands And Options
 
-12.21 emacspeak-auctex
+12.20 emacspeak-auctex
 ======================
 
 Speech-enables the AucTeX package.  AucTeX, now available from ELPA, has
@@ -6856,16 +6796,16 @@ been my authoring environment of choice for writing LaTeX since 1991.
 
 File: emacspeak.info,  Node: emacspeak-aumix,  Next: emacspeak-bbc,  Prev: emacspeak-auctex,  Up: Emacspeak Commands And Options
 
-12.22 emacspeak-aumix
+12.21 emacspeak-aumix
 =====================
 
 Provides an AUI to setting up the auditory display via AUMIX This module
 is presently Linux specific
 
-12.22.1 emacspeak-aumix Commands
+12.21.1 emacspeak-aumix Commands
 --------------------------------
 
-12.22.1.1 emacspeak-aumix
+12.21.1.1 emacspeak-aumix
 .........................
 
  -- Command: emacspeak-aumix
@@ -6876,7 +6816,7 @@ is presently Linux specific
      adjust the settings to your preference.  Hit q to quit when
      you are done.
 
-12.22.1.2 emacspeak-aumix-edit
+12.21.1.2 emacspeak-aumix-edit
 ..............................
 
  -- Command: emacspeak-aumix-edit
@@ -6885,14 +6825,14 @@ is presently Linux specific
      Run command M-x emacspeak-aumix-reset
      after saving the settings to have them take effect.
 
-12.22.1.3 emacspeak-aumix-reset
+12.21.1.3 emacspeak-aumix-reset
 ...............................
 
  -- Command: emacspeak-aumix-reset
 
      Reset to default audio settings.
 
-12.22.1.4 emacspeak-aumix-volume-decrease
+12.21.1.4 emacspeak-aumix-volume-decrease
 .........................................
 
  -- Command: emacspeak-aumix-volume-decrease (&optional gain)
@@ -6901,7 +6841,7 @@ is presently Linux specific
 
      (fn &optional GAIN)
 
-12.22.1.5 emacspeak-aumix-volume-increase
+12.21.1.5 emacspeak-aumix-volume-increase
 .........................................
 
  -- Command: emacspeak-aumix-volume-increase (&optional gain)
@@ -6910,7 +6850,7 @@ is presently Linux specific
 
      (fn &optional GAIN)
 
-12.22.1.6 emacspeak-aumix-wave-decrease
+12.21.1.6 emacspeak-aumix-wave-decrease
 .......................................
 
  -- Command: emacspeak-aumix-wave-decrease (&optional gain)
@@ -6919,7 +6859,7 @@ is presently Linux specific
 
      (fn &optional GAIN)
 
-12.22.1.7 emacspeak-aumix-wave-increase
+12.21.1.7 emacspeak-aumix-wave-increase
 .......................................
 
  -- Command: emacspeak-aumix-wave-increase (&optional gain)
@@ -6928,7 +6868,7 @@ is presently Linux specific
 
      (fn &optional GAIN)
 
-12.22.2 emacspeak-aumix Options
+12.21.2 emacspeak-aumix Options
 -------------------------------
 
  -- Variable: User Option emacspeak-alsactl-program
@@ -6943,7 +6883,7 @@ is presently Linux specific
 
 File: emacspeak.info,  Node: emacspeak-bbc,  Next: emacspeak-bbdb,  Prev: emacspeak-aumix,  Up: Emacspeak Commands And Options
 
-12.23 emacspeak-bbc
+12.22 emacspeak-bbc
 ===================
 
 BBC: http://www.bbc.co.uk This module uses publicly available REST APIs
@@ -6959,10 +6899,10 @@ Pro/Con: Chrome: Has the UI for seeking in the stream.  get_iplayer: We
 use a named pipe, and cannot seek, but the rest of emacspeak-m-player is
 available.  For downloading a program etc., use Emacs package iplayer.
 
-12.23.1 emacspeak-bbc Commands
+12.22.1 emacspeak-bbc Commands
 ------------------------------
 
-12.23.1.1 emacspeak-bbc
+12.22.1.1 emacspeak-bbc
 .......................
 
  -- Command: emacspeak-bbc (&optional genre)
@@ -6976,14 +6916,14 @@ available.  For downloading a program etc., use Emacs package iplayer.
 
      (fn &optional GENRE)
 
-12.23.1.2 emacspeak-bbc-genre
+12.22.1.2 emacspeak-bbc-genre
 .............................
 
  -- Command: emacspeak-bbc-genre
 
      Launch BBC Interaction for specified Genre.
 
-12.23.1.3 emacspeak-bbc-get-iplayer-stream-pid
+12.22.1.3 emacspeak-bbc-get-iplayer-stream-pid
 ..............................................
 
  -- Command: emacspeak-bbc-get-iplayer-stream-pid (pid)
@@ -6992,7 +6932,7 @@ available.  For downloading a program etc., use Emacs package iplayer.
 
      (fn PID)
 
-12.23.1.4 emacspeak-bbc-get-iplayer-stream-url
+12.22.1.4 emacspeak-bbc-get-iplayer-stream-url
 ..............................................
 
  -- Command: emacspeak-bbc-get-iplayer-stream-url (url)
@@ -7001,7 +6941,7 @@ available.  For downloading a program etc., use Emacs package iplayer.
 
      (fn URL)
 
-12.23.2 emacspeak-bbc Options
+12.22.2 emacspeak-bbc Options
 -----------------------------
 
  -- Variable: User Option emacspeak-bbc-button-action
@@ -7014,7 +6954,7 @@ available.  For downloading a program etc., use Emacs package iplayer.
 
 File: emacspeak.info,  Node: emacspeak-bbdb,  Next: emacspeak-bibtex,  Prev: emacspeak-bbc,  Up: Emacspeak Commands And Options
 
-12.24 emacspeak-bbdb
+12.23 emacspeak-bbdb
 ====================
 
 Speech-enables BBDB. I have used BBDB to manage email address and
@@ -7023,7 +6963,7 @@ contact information since 1991.
 
 File: emacspeak.info,  Node: emacspeak-bibtex,  Next: emacspeak-bookmark,  Prev: emacspeak-bbdb,  Up: Emacspeak Commands And Options
 
-12.25 emacspeak-bibtex
+12.24 emacspeak-bibtex
 ======================
 
 Speech extensions for bibtex mode.
@@ -7031,7 +6971,7 @@ Speech extensions for bibtex mode.
 
 File: emacspeak.info,  Node: emacspeak-bookmark,  Next: emacspeak-bookshare,  Prev: emacspeak-bibtex,  Up: Emacspeak Commands And Options
 
-12.26 emacspeak-bookmark
+12.25 emacspeak-bookmark
 ========================
 
 Speech enable bookmarks
@@ -7039,7 +6979,7 @@ Speech enable bookmarks
 
 File: emacspeak.info,  Node: emacspeak-bookshare,  Next: emacspeak-browse-kill-ring,  Prev: emacspeak-bookmark,  Up: Emacspeak Commands And Options
 
-12.27 emacspeak-bookshare
+12.26 emacspeak-bookshare
 =========================
 
 BOOKSHARE == http://www.bookshare.org provides book access to
@@ -7049,10 +6989,10 @@ Bookshare client.  For now, users will need to get their own API key
 This version needs Emacs with libxml2 support You need Emacs 24.1 or
 higher.
 
-12.27.1 emacspeak-bookshare Commands
+12.26.1 emacspeak-bookshare Commands
 ------------------------------------
 
-12.27.1.1 emacspeak-bookshare
+12.26.1.1 emacspeak-bookshare
 .............................
 
  -- Command: emacspeak-bookshare
@@ -7061,14 +7001,14 @@ higher.
 
      Bookshare  Interaction.
 
-12.27.1.2 emacspeak-bookshare-action
+12.26.1.2 emacspeak-bookshare-action
 ....................................
 
  -- Command: emacspeak-bookshare-action
 
      Call action specified by  invoking key.
 
-12.27.1.3 emacspeak-bookshare-author-search
+12.26.1.3 emacspeak-bookshare-author-search
 ...........................................
 
  -- Command: emacspeak-bookshare-author-search (query &optional
@@ -7079,21 +7019,21 @@ higher.
 
      (fn QUERY &optional CATEGORY)
 
-12.27.1.4 emacspeak-bookshare-browse
+12.26.1.4 emacspeak-bookshare-browse
 ....................................
 
  -- Command: emacspeak-bookshare-browse
 
      Browse Bookshare.
 
-12.27.1.5 emacspeak-bookshare-browse-latest
+12.26.1.5 emacspeak-bookshare-browse-latest
 ...........................................
 
  -- Command: emacspeak-bookshare-browse-latest
 
      Return latest books.
 
-12.27.1.6 emacspeak-bookshare-browse-popular
+12.26.1.6 emacspeak-bookshare-browse-popular
 ............................................
 
  -- Command: emacspeak-bookshare-browse-popular (&optional category)
@@ -7103,7 +7043,7 @@ higher.
 
      (fn &optional CATEGORY)
 
-12.27.1.7 emacspeak-bookshare-download-brf
+12.26.1.7 emacspeak-bookshare-download-brf
 ..........................................
 
  -- Command: emacspeak-bookshare-download-brf (id target)
@@ -7112,7 +7052,7 @@ higher.
 
      (fn ID TARGET)
 
-12.27.1.8 emacspeak-bookshare-download-brf-at-point
+12.26.1.8 emacspeak-bookshare-download-brf-at-point
 ...................................................
 
  -- Command: emacspeak-bookshare-download-brf-at-point
@@ -7120,7 +7060,7 @@ higher.
      Download Braille version of book under point.
      Target location is generated from author and title.
 
-12.27.1.9 emacspeak-bookshare-download-daisy
+12.26.1.9 emacspeak-bookshare-download-daisy
 ............................................
 
  -- Command: emacspeak-bookshare-download-daisy (id target)
@@ -7129,7 +7069,7 @@ higher.
 
      (fn ID TARGET)
 
-12.27.1.10 emacspeak-bookshare-download-daisy-at-point
+12.26.1.10 emacspeak-bookshare-download-daisy-at-point
 ......................................................
 
  -- Command: emacspeak-bookshare-download-daisy-at-point
@@ -7137,7 +7077,7 @@ higher.
      Download Daisy version of book under point.
      Target location is generated from author and title.
 
-12.27.1.11 emacspeak-bookshare-download-internal
+12.26.1.11 emacspeak-bookshare-download-internal
 ................................................
 
  -- Command: emacspeak-bookshare-download-internal (url target)
@@ -7146,7 +7086,7 @@ higher.
 
      (fn URL TARGET)
 
-12.27.1.12 emacspeak-bookshare-eww
+12.26.1.12 emacspeak-bookshare-eww
 ..................................
 
  -- Command: emacspeak-bookshare-eww (directory)
@@ -7155,7 +7095,7 @@ higher.
 
      (fn DIRECTORY)
 
-12.27.1.13 emacspeak-bookshare-expand-at-point
+12.26.1.13 emacspeak-bookshare-expand-at-point
 ..............................................
 
  -- Command: emacspeak-bookshare-expand-at-point
@@ -7163,7 +7103,7 @@ higher.
      Expand entry at point by retrieving metadata.
      Once retrieved, memoize to avoid multiple retrievals.
 
-12.27.1.14 emacspeak-bookshare-extract-and-view
+12.26.1.14 emacspeak-bookshare-extract-and-view
 ...............................................
 
  -- Command: emacspeak-bookshare-extract-and-view (url)
@@ -7172,7 +7112,7 @@ higher.
 
      (fn URL)
 
-12.27.1.15 emacspeak-bookshare-extract-xml
+12.26.1.15 emacspeak-bookshare-extract-xml
 ..........................................
 
  -- Command: emacspeak-bookshare-extract-xml (url)
@@ -7181,7 +7121,7 @@ higher.
 
      (fn URL)
 
-12.27.1.16 emacspeak-bookshare-flush-lines
+12.26.1.16 emacspeak-bookshare-flush-lines
 ..........................................
 
  -- Command: emacspeak-bookshare-flush-lines (regexp)
@@ -7190,7 +7130,7 @@ higher.
 
      (fn REGEXP)
 
-12.27.1.17 emacspeak-bookshare-fulltext
+12.26.1.17 emacspeak-bookshare-fulltext
 .......................................
 
  -- Command: emacspeak-bookshare-fulltext (directory)
@@ -7200,7 +7140,7 @@ higher.
 
      (fn DIRECTORY)
 
-12.27.1.18 emacspeak-bookshare-fulltext-search
+12.26.1.18 emacspeak-bookshare-fulltext-search
 ..............................................
 
  -- Command: emacspeak-bookshare-fulltext-search (query)
@@ -7209,14 +7149,14 @@ higher.
 
      (fn QUERY)
 
-12.27.1.19 emacspeak-bookshare-get-more-results
+12.26.1.19 emacspeak-bookshare-get-more-results
 ...............................................
 
  -- Command: emacspeak-bookshare-get-more-results
 
      Get next page of results for last query.
 
-12.27.1.20 emacspeak-bookshare-id-search
+12.26.1.20 emacspeak-bookshare-id-search
 ........................................
 
  -- Command: emacspeak-bookshare-id-search (query)
@@ -7225,7 +7165,7 @@ higher.
 
      (fn QUERY)
 
-12.27.1.21 emacspeak-bookshare-isbn-search
+12.26.1.21 emacspeak-bookshare-isbn-search
 ..........................................
 
  -- Command: emacspeak-bookshare-isbn-search (query)
@@ -7234,14 +7174,14 @@ higher.
 
      (fn QUERY)
 
-12.27.1.22 emacspeak-bookshare-list-preferences
+12.26.1.22 emacspeak-bookshare-list-preferences
 ...............................................
 
  -- Command: emacspeak-bookshare-list-preferences
 
      Return preference list.
 
-12.27.1.23 emacspeak-bookshare-mode
+12.26.1.23 emacspeak-bookshare-mode
 ...................................
 
  -- Command: emacspeak-bookshare-mode
@@ -7310,28 +7250,28 @@ higher.
      this mode runs the hook ‘emacspeak-bookshare-mode-hook’, as the final or penultimate step
      during initialization.
 
-12.27.1.24 emacspeak-bookshare-next-result
+12.26.1.24 emacspeak-bookshare-next-result
 ..........................................
 
  -- Command: emacspeak-bookshare-next-result
 
      Move to next result.
 
-12.27.1.25 emacspeak-bookshare-periodical-list
+12.26.1.25 emacspeak-bookshare-periodical-list
 ..............................................
 
  -- Command: emacspeak-bookshare-periodical-list
 
      Return list of periodicals.
 
-12.27.1.26 emacspeak-bookshare-previous-result
+12.26.1.26 emacspeak-bookshare-previous-result
 ..............................................
 
  -- Command: emacspeak-bookshare-previous-result
 
      Move to previous result.
 
-12.27.1.27 emacspeak-bookshare-set-preference
+12.26.1.27 emacspeak-bookshare-set-preference
 .............................................
 
  -- Command: emacspeak-bookshare-set-preference (preference-id value)
@@ -7340,14 +7280,14 @@ higher.
 
      (fn PREFERENCE-ID VALUE)
 
-12.27.1.28 emacspeak-bookshare-sign-out
+12.26.1.28 emacspeak-bookshare-sign-out
 .......................................
 
  -- Command: emacspeak-bookshare-sign-out
 
      Sign out, clearing password.
 
-12.27.1.29 emacspeak-bookshare-since-search
+12.26.1.29 emacspeak-bookshare-since-search
 ...........................................
 
  -- Command: emacspeak-bookshare-since-search (query &optional category)
@@ -7357,7 +7297,7 @@ higher.
 
      (fn QUERY &optional CATEGORY)
 
-12.27.1.30 emacspeak-bookshare-title-search
+12.26.1.30 emacspeak-bookshare-title-search
 ...........................................
 
  -- Command: emacspeak-bookshare-title-search (query &optional category)
@@ -7367,7 +7307,7 @@ higher.
 
      (fn QUERY &optional CATEGORY)
 
-12.27.1.31 emacspeak-bookshare-toc
+12.26.1.31 emacspeak-bookshare-toc
 ..................................
 
  -- Command: emacspeak-bookshare-toc (directory)
@@ -7376,7 +7316,7 @@ higher.
 
      (fn DIRECTORY)
 
-12.27.1.32 emacspeak-bookshare-toc-at-point
+12.26.1.32 emacspeak-bookshare-toc-at-point
 ...........................................
 
  -- Command: emacspeak-bookshare-toc-at-point
@@ -7384,14 +7324,14 @@ higher.
      View TOC for book at point.
      Make sure it’s downloaded and unpacked first.
 
-12.27.1.33 emacspeak-bookshare-unpack-at-point
+12.26.1.33 emacspeak-bookshare-unpack-at-point
 ..............................................
 
  -- Command: emacspeak-bookshare-unpack-at-point
 
      Unpack downloaded content if necessary.
 
-12.27.1.34 emacspeak-bookshare-url-executor
+12.26.1.34 emacspeak-bookshare-url-executor
 ...........................................
 
  -- Command: emacspeak-bookshare-url-executor (url)
@@ -7400,7 +7340,7 @@ higher.
 
      (fn URL)
 
-12.27.1.35 emacspeak-bookshare-version-handler
+12.26.1.35 emacspeak-bookshare-version-handler
 ..............................................
 
  -- Command: emacspeak-bookshare-version-handler (&rest ignore)
@@ -7410,7 +7350,7 @@ higher.
 
      (fn &rest IGNORE)
 
-12.27.1.36 emacspeak-bookshare-view
+12.26.1.36 emacspeak-bookshare-view
 ...................................
 
  -- Command: emacspeak-bookshare-view (directory)
@@ -7419,7 +7359,7 @@ higher.
 
      (fn DIRECTORY)
 
-12.27.1.37 emacspeak-bookshare-view-at-point
+12.26.1.37 emacspeak-bookshare-view-at-point
 ............................................
 
  -- Command: emacspeak-bookshare-view-at-point
@@ -7427,7 +7367,7 @@ higher.
      View book at point.
      Make sure it’s downloaded and unpacked first.
 
-12.27.1.38 emacspeak-bookshare-view-page-range
+12.26.1.38 emacspeak-bookshare-view-page-range
 ..............................................
 
  -- Command: emacspeak-bookshare-view-page-range (url)
@@ -7436,7 +7376,7 @@ higher.
 
      (fn URL)
 
-12.27.2 emacspeak-bookshare Options
+12.26.2 emacspeak-bookshare Options
 -----------------------------------
 
  -- Variable: User Option emacspeak-bookshare-api-key

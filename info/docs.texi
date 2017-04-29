@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1171 commands and 1094 options.
+This chapter documents a total of 1170 commands and 1087 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -18,12 +18,11 @@ This chapter documents a total of 1171 commands and 1094 options.
 * emacspeak-2048::Speech-enable 2048 Game.
 * emacspeak-actions::Emacspeak actions -- callbacks that can be associated with portions of a buffer.
 * emacspeak-add-log::Speech-enable add-log.
-* emacspeak-advice::Advice all core Emacs functionality to speak.
+* emacspeak-advice::Advice Emacs Core.
 * emacspeak-amark::BookMarks For Audio Content.
 * emacspeak-analog::Speech-enable analog -- a log viewer.
 * emacspeak-ansi-color::Speech-enable ansi-color terminal.
 * emacspeak-apt-sources::speech-enable APT's sources.list file editor.
-* emacspeak-apt-utils::speech-enable APT interface.
 * emacspeak-arc::Speech enable archive-mode -- a  Emacs interface to zip and friends.
 * emacspeak-auctex::Speech enable AucTeX -- a powerful TeX/LaTeX authoring environment.
 * emacspeak-aumix::Configure audio device settings.
@@ -194,7 +193,7 @@ This chapter documents a total of 1171 commands and 1094 options.
 * emacspeak-twittering::Speech-enable Twittering-mode.
 * emacspeak-url-template::Create library of URI templates.
 * emacspeak-view::Speech enable View mode -- Efficient browsing of read-only content.
-* emacspeak-vm::Speech enable VM -- A powerful mail agent.
+* emacspeak-vm::Speech enable VMMail.
 * emacspeak-w3::Speech enable W3 WWW browser -- includes ACSS Support.
 * emacspeak-w3m::speech-enables w3m-el.
 * emacspeak-wdired::Speech-enable wdired.
@@ -4528,69 +4527,6 @@ This module speech-enables apt-sources.el
 that is included in the debian-el package
 and provides a major mode for editing
 APT's sources.list file.
-
-@node emacspeak-apt-utils
-@section emacspeak-apt-utils
-
-This module speech-enables apt-utils.el
-that is included in the debian-el package
-and provides a nice interface to searching and browsing
-Debian packages.
-
-@subsection emacspeak-apt-utils Commands
-
-@subsubsection emacspeak-apt-utils-grab-package-at-point
-@deffn {Command} emacspeak-apt-utils-grab-package-at-point   
-@findex emacspeak-apt-utils-grab-package-at-point
-
-@format
-Copy package under point to kill ring.
-@end format
-@end deffn
-
-@subsection emacspeak-apt-utils Options
-
-@defvar {User Option} emacspeak-apt-utils-broken-personality
-Personality used for apt-utils-broken-face
-This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-description-personality
-Personality used for apt-utils-description-face
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-field-contents-personality
-Personality used for apt-utils-field-contents-face
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-field-keyword-personality
-Personality used for apt-utils-field-keyword-face
-This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-normal-package-personality
-Personality used for apt-utils-normal-package-face
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-version-personality
-Personality used for apt-utils-version-face
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-apt-utils-virtual-package-personality
-Personality used for apt-utils-virtual-package-face
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
 
 @node emacspeak-arc
 @section emacspeak-arc
@@ -23471,9 +23407,9 @@ WOMAN ==  Man pages implemented in Emacs Lisp
 @node emacspeak-xkcd
 @section emacspeak-xkcd
 
-XKCD ==  emacs-xkcd
+XKCD ==  XKCD In Emacs
 View XKCD comics in Emacs.
-Speech enables package emacs-xkcd
+Speech enables package xkcd
 Augments it by displaying the alt text and the transcript.
 
 @subsection emacspeak-xkcd Commands
