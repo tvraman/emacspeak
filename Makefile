@@ -52,7 +52,7 @@ emacspeak:
 	@echo "See the NEWS file for a  summary of new features — Control e cap n in Emacs"
 	@echo "See Emacspeak Customizations for customizations — control e cap C in Emacs"
 	@echo  "Read the Emacspeak Manual — Control e TAB in Emacs"
-	@echo "Type make install  for help running this build."
+	@make install
 
 outloud: 
 	cd servers/linux-outloud && $(MAKE) || echo "Cant build Outloud server!"
