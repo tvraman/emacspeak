@@ -64,13 +64,7 @@
    (t ad-do-it)))
 
 ;;}}}
-;;; Override:
-(defun xkcd-open-explanation-browser ()
-  "Open explanation of current xkcd in default browser"
-  (interactive)
-  (browse-url
-   (concat
-    "http://www.explainxkcd.com/wiki/index.php/" (number-to-string xkcd-cur))))
+
 (defadvice xkcd-kill-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
