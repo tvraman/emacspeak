@@ -48,10 +48,10 @@ emacspeak:
 	test -f  lisp/emacspeak-loaddefs.el || ${MAKE} config
 	cd lisp; $(MAKE)
 	make   $(README)
-	chmod 644 $(README)
+	@chmod 644 $(README)
 	@echo "See the NEWS file for a  summary of new features --control e cap n in Emacs"
 	@echo "See Emacspeak Customizations for customizations -- control e cap C in Emacs"
-	@echo "Make sure you read the Emacs info pages"
+	@echo "Make sure
 	@echo "Type make install  for help running this build."
 
 outloud: 
