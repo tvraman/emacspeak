@@ -1,4 +1,4 @@
-;;; emacspeak-vm.el --- Speech enable VM -- A powerful mail agent  -*- lexical-binding: t; -*-
+;;; emacspeak-vm.el --- Speech enable VMMail    -*- lexical-binding: t; -*-
 ;;;(and the one I use)
 ;;; $Id$
 ;;; $Author: tv.raman.tv $
@@ -214,11 +214,9 @@ s(defun emacspeak-vm-yank-header ()
   (interactive)
   (declare (special vm-ml-message-attributes-alist
                     vm-ml-message-read vm-ml-message-unread
-                    vm-virtual-folder-definition
-                    vm-ml-message-new
+                    vm-virtual-folder-definition vm-ml-message-new
                     vm-ml-message-number vm-ml-highest-message-number))
-  (when (buffer-modified-p)
-    (dtk-tone 700 100 'force))
+  (when (buffer-modified-p) (dtk-tone 700 100 'force))
   (cond
    (vm-virtual-folder-definition
     (dtk-speak
@@ -232,15 +230,15 @@ s(defun emacspeak-vm-yank-header ()
                (if vm-ml-message-unread "unread" "")
                (if vm-ml-message-read "read" "")
                (mapconcat
-                (function (lambda(item)
-                            (let ((var (car item))
-                                  (value (cadr item)))
-                              (cond
-                               ((and (boundp var) (eval var))
-                                (if (symbolp value)
-                                    (eval value)
-                                  value))
-                               (t "")))))
+                #'(lambda(item)
+                    (let ((var (car item))
+                          (value (cadr item)))
+                      (cond
+                       ((and (boundp var) (eval var))
+                        (if (symbolp value)
+                            (eval value)
+                          value))
+                       (t ""))))
                 (cdr vm-ml-message-attributes-alist)   " "))))))
 
 ;;}}}
@@ -603,11 +601,15 @@ If N is negative, move backward instead."
   :type 'boolean
   :group 'emacspeak-vm)
 (defvar emacspeak-vm-demote-html-attachments
-  '(favorite-internal  "text/plain" "text/enriched" "text/html" "application/xml+xhtml")
+  '(
+        favorite-internal  "text/plain" "text/enriched"
+        "text/html" "application/xml+xhtml")
   "Setting that prefers text/plain alternatives over html/xhtml.")
 
 (defvar emacspeak-vm-promote-html-attachments
-  '(favorite-internal   "text/html" "application/xml+xhtml" "text/plain" "text/enriched")
+  '(
+        favorite-internal   "text/html" "application/xml+xhtml"
+        "text/plain" "text/enriched")
   "Setting that prefers  alternatives  html/xhtml over text/plain.")
 
 (defun emacspeak-vm-use-raman-settings ()
@@ -669,13 +671,16 @@ Emacspeak."
                     vm-mime-alternative-select-method))
   (cond
    ((eq vm-mime-alternative-select-method emacspeak-vm-demote-html-attachments)
-    (setq vm-mime-alternative-select-method emacspeak-vm-promote-html-attachments)
+    (setq vm-mime-alternative-select-method
+          emacspeak-vm-promote-html-attachments)
     (message "Prefering HTML Mime alternative."))
    ((eq vm-mime-alternative-select-method emacspeak-vm-promote-html-attachments)
-    (setq vm-mime-alternative-select-method emacspeak-vm-demote-html-attachments)
+    (setq vm-mime-alternative-select-method
+          emacspeak-vm-demote-html-attachments)
     (message "Prefering Text/Plain Mime alternative."))
    (t (message "Resetting state to HTML Mime demotion.")
-      (setq vm-mime-alternative-select-method emacspeak-vm-demote-html-attachments))))
+      (setq vm-mime-alternative-select-method
+            emacspeak-vm-demote-html-attachments))))
 
 (when emacspeak-vm-use-raman-settings
   (emacspeak-vm-use-raman-settings))
