@@ -1584,7 +1584,7 @@ Shell-Dirtrack mode; turning it off does not re-enable it."
        (emacspeak-auditory-icon 'save-object)))))
 (cl-loop
  for f in
- '(kill-region completion-kill-region)
+ '(delete-region kill-region completion-kill-region)
  do
  (eval
   `(defadvice ,f (around emacspeak pre act comp)
