@@ -563,7 +563,7 @@ Returns a string with appropriate personality."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'delete-object)
     (emacspeak-speak-current-kill 0)
-    (dtk-tone 500 100 'force)))
+    (dtk-tone-deletion)))
 
 ;;}}}
 ;;{{{  activating widgets:
