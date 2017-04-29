@@ -331,7 +331,6 @@ Speak the word that point lands on after the action
 is done. If `downcase-word' is called with a negative
 argument, then point does not move. In this case, we speak
 the words that were down cased."
-
   (cond
    ((ems-interactive-p)
     (when dtk-stop-immediately (dtk-stop))
