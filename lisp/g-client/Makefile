@@ -64,7 +64,6 @@ config: g-cus-load.el
 
 force:
 
-g-cus-loads.el: force
 g-loaddefs.el: force
 	@echo ";;;Auto generated" > g-loaddefs.el
 	$(EMACS) $(BATCH) -l ./g-autogen.el -f g-autogen-generate-autoloads
