@@ -78,7 +78,9 @@
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
-     (when (ems-interactive-p) (emacspeak-speak-line)))))
+     (when (ems-interactive-p)
+       (let ((emacspeak-show-point t))
+         (emacspeak-speak-line))))))
 
 (cl-loop
  for f in
@@ -135,6 +137,26 @@
   "Speak char."
   (when (ems-interactive-p)
     (emacspeak-speak-this-char (preceding-char))))
+
+;;}}}
+;;{{{ Deletion:
+
+'(
+evil-delete-backward-char
+evil-delete-backward-char-and-join
+evil-delete-backward-word
+evil-delete-buffer
+evil-delete-char
+evil-delete-line
+evil-delete-marks
+evil-delete-whole-line
+)
+
+(defadvice evil-delete (before emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'delete-object)
+    (emacspeak-speak-region (ad-get-arg 0) (ad-get-arg 1))))
 
 ;;}}}
 ;;{{{ Update keymaps:
