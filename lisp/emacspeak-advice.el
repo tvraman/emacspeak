@@ -307,7 +307,7 @@ that were upper cased."
    ((ems-interactive-p)
     (when dtk-stop-immediately (dtk-stop))
     (let ((dtk-stop-immediately nil))
-      (dtk-tone 800 50 'force)
+      (dtk-tone 800 100 'force)
       (cond
        ((and (numberp current-prefix-arg)
              (minusp current-prefix-arg))
@@ -336,7 +336,7 @@ the words that were down cased."
    ((ems-interactive-p)
     (when dtk-stop-immediately (dtk-stop))
     (let ((dtk-stop-immediately nil))
-      (dtk-tone 600 50 'force)
+      (dtk-tone 600 100 'force)
       (cond
        ((and (numberp current-prefix-arg)
              (minusp current-prefix-arg))
@@ -364,7 +364,7 @@ the words that were capitalized."
    ((ems-interactive-p)
     (when dtk-stop-immediately (dtk-stop))
     (let ((dtk-stop-immediately nil))
-      (dtk-tone 700 50 'force)
+      (dtk-tone 700 100 'force)
       (cond
        ((and (numberp current-prefix-arg)
              (minusp current-prefix-arg))
@@ -406,7 +406,7 @@ the words that were capitalized."
      "Speak character you're deleting."
      (cond
       ((ems-interactive-p)
-       (dtk-tone 500 30 'force)
+       (dtk-tone 500 100 'force)
        (emacspeak-speak-this-char (preceding-char))
        ad-do-it)
       (t ad-do-it))
@@ -421,7 +421,7 @@ the words that were capitalized."
      "Speak character you're deleting."
      (cond
       ((ems-interactive-p)
-       (dtk-tone 500 30 'force)
+       (dtk-tone 500 100 'force)
        (emacspeak-speak-char t)
        ad-do-it)
       (t ad-do-it))
@@ -434,7 +434,7 @@ the words that were capitalized."
       (skip-syntax-forward " ")
       (when dtk-stop-immediately (dtk-stop))
       (let ((dtk-stop-immediately nil))
-        (dtk-tone 500 30)
+        (dtk-tone 500 100 'force)
         (emacspeak-speak-word 1)))))
 
 (defadvice backward-kill-word (before emacspeak pre act comp)
@@ -445,7 +445,7 @@ the words that were capitalized."
           (dtk-stop-immediately nil))
       (save-excursion
         (forward-word -1)
-        (dtk-tone 500 30)
+        (dtk-tone 500 100 'force)
         (emacspeak-speak-region (point) start)))))
 
 ;;; Large deletions also produce auditory icons if possible
@@ -456,7 +456,7 @@ the words that were capitalized."
     (emacspeak-auditory-icon 'delete-object)
     (when dtk-stop-immediately (dtk-stop))
     (let ((dtk-stop-immediately nil))
-      (dtk-tone 500 30)
+      (dtk-tone 500 100 'force)
       (emacspeak-speak-line 1))))
 
 (defadvice kill-sexp (before emacspeak pre act comp)
@@ -465,7 +465,7 @@ the words that were capitalized."
     (emacspeak-auditory-icon 'delete-object)
     (when dtk-stop-immediately (dtk-stop))
     (let ((dtk-stop-immediately nil))
-      (dtk-tone 500 30)
+      (dtk-tone 500 100 'force)
       (emacspeak-speak-sexp 1))))
 
 (defadvice kill-sentence (before emacspeak pre act comp)
@@ -474,7 +474,7 @@ the words that were capitalized."
     (emacspeak-auditory-icon 'delete-object)
     (when dtk-stop-immediately (dtk-stop))
     (let ((dtk-stop-immediately nil))
-      (dtk-tone 500 30)
+      (dtk-tone 500 100 'force)
       (emacspeak-speak-line 1))))
 
 (defadvice delete-blank-lines (before emacspeak pre act comp)
@@ -1038,7 +1038,7 @@ icon."
     (cond
      ((= (point) (point-max))
       (message "Sending EOF to comint process"))
-     (t (dtk-tone 500 30 'force)
+     (t (dtk-tone 500 100 'force)
         (emacspeak-speak-char t)))
     ad-do-it)
    (t ad-do-it))
