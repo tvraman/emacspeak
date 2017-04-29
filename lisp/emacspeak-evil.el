@@ -56,12 +56,12 @@
 
 (voice-setup-add-map
  '(
-   (evil-ex-commands voice-bolden)
-   (evil-ex-info voice-monotone)
-   (evil-ex-lazy-highlight voice-animate)
-   (evil-ex-search voice-bolden-and-animate)
-   (evil-ex-substitute-matches voice-lighten)
-   (evil-ex-substitute-replacement voice-smoothen)))
+ (evil-ex-commands voice-bolden)
+ (evil-ex-info voice-monotone)
+ (evil-ex-lazy-highlight voice-animate)
+ (evil-ex-search voice-bolden-and-animate)
+ (evil-ex-substitute-matches voice-lighten)
+ (evil-ex-substitute-replacement voice-smoothen)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
@@ -72,29 +72,31 @@
 (cl-loop
  for f in
  '(
-   evil-beginning-of-line evil-next-line evil-previous-line 
-   evil-ret evil-window-top)
+       evil-beginning-of-line evil-end-of-line
+                              evil-next-line evil-previous-line
+                              evil-ret evil-window-top)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-         (emacspeak-speak-line)))))
+       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-speak-line)))))
 
 (cl-loop
  for f in
  '(
-   evil-goto-mark evil-goto-mark-line
-                  evil-goto-definition evil-goto-first-line evil-goto-line
-                  evil-forward-section-begin evil-forward-section-end
-                  evil-backward-section-begin evil-backward-section-end
-                  evil-backward-section-begin evil-backward-section-end
-   evil-previous-open-paren evil-previous-match evil-next-match
-   evil-next-line-first-non-blank evil-next-line-1-first-non-blank 
-   evil-next-close-paren evil-last-non-blank
-   evil-jump-backward evil-jump-forward evil-jump-to-tag
-   evil-forward-sentence-begin evil-first-non-blank
-   evil-backward-sentence-begin )
+       evil-goto-mark evil-goto-mark-line
+                      evil-goto-definition evil-goto-first-line evil-goto-line
+                      evil-forward-section-begin evil-forward-section-end
+                      evil-backward-section-begin evil-backward-section-end
+                      evil-backward-section-begin evil-backward-section-end
+                      evil-previous-open-paren evil-previous-match evil-next-match
+                      evil-next-line-first-non-blank evil-next-line-1-first-non-blank
+                      evil-next-close-paren evil-last-non-blank
+                      evil-jump-backward evil-jump-forward evil-jump-to-tag
+                      evil-forward-sentence-begin evil-first-non-blank
+                      evil-backward-sentence-begin )
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -105,15 +107,15 @@
          (emacspeak-speak-line))))))
 
 ;;}}}
-;;{{{ Word Motion 
+;;{{{ Word Motion
 
 (cl-loop
  for f in
  '(
        evil-backward-WORD-begin evil-backward-WORD-end
-       evil-forward-WORD-begin evil-forward-WORD-end
-       evil-backward-word-begin evil-backward-word-end
-       evil-forward-word-begin evil-forward-word-end)
+                                evil-forward-WORD-begin evil-forward-WORD-end
+                                evil-backward-word-begin evil-backward-word-end
+                                evil-forward-word-begin evil-forward-word-end)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
@@ -125,7 +127,7 @@
 ;;{{{ Char Motion :
 
 ;;; Warning: point appears to be off by one when advice is called:
-;;; Which is why we cant just call emacspeak-speak-char 
+;;; Which is why we cant just call emacspeak-speak-char
 
 (defadvice evil-backward-char (after emacspeak pre act comp)
   "Speak char."
@@ -163,25 +165,25 @@ evil-delete-char)
   "Move original evil command on C-e to C-e e."
   (declare (special emacspeak-prefix))
   (let ((orig (lookup-key keymap emacspeak-prefix)))
-(when orig 
-  (define-key keymap emacspeak-prefix  'emacspeak-prefix-command)
-  (define-key keymap (concat emacspeak-prefix "e") orig)
-  (define-key keymap (concat emacspeak-prefix emacspeak-prefix) orig))))
-(declaim (special 
-  evil-normal-state-map evil-insert-state-map
-  evil-visual-state-map evil-replace-state-map
-  evil-operator-state-map evil-motion-state-map))
+    (when orig
+      (define-key keymap emacspeak-prefix  'emacspeak-prefix-command)
+      (define-key keymap (concat emacspeak-prefix "e") orig)
+      (define-key keymap (concat emacspeak-prefix emacspeak-prefix) orig))))
+(declaim (special
+          evil-normal-state-map evil-insert-state-map
+          evil-visual-state-map evil-replace-state-map
+          evil-operator-state-map evil-motion-state-map))
 
 (eval-after-load
     "evil-maps"
   `(mapc
-  #'emacspeak-evil-fix-emacspeak-prefix
- (list
-  evil-normal-state-map evil-insert-state-map
-  evil-visual-state-map evil-replace-state-map
-  evil-operator-state-map evil-motion-state-map)))
+    #'emacspeak-evil-fix-emacspeak-prefix
+    (list
+     evil-normal-state-map evil-insert-state-map
+     evil-visual-state-map evil-replace-state-map
+     evil-operator-state-map evil-motion-state-map)))
 (global-set-key (concat emacspeak-prefix "e") 'end-of-line)
-(global-set-key (concat emacspeak-prefix emacspeak-prefix) 'end-of-line) 
+(global-set-key (concat emacspeak-prefix emacspeak-prefix) 'end-of-line)
 
 ;;}}}
 ;;{{{ State Hooks:
@@ -197,11 +199,11 @@ evil-delete-char)
              evil-previous-state evil-next-state))))
 
 (cl-loop
- for hook in 
+ for hook in
  '(
-   evil-normal-state-exit-hook evil-insert-state-exit-hook
-   evil-visual-state-exit-hook evil-replace-state-exit-hook
-   evil-operator-state-exit-hook evil-motion-state-exit-hook)
+          evil-normal-state-exit-hook evil-insert-state-exit-hook
+                                      evil-visual-state-exit-hook evil-replace-state-exit-hook
+                                      evil-operator-state-exit-hook evil-motion-state-exit-hook)
  do
  (add-hook hook #'emacspeak-evil-state-change-hook))
 (defadvice evil-exit-emacs-state (after emacspeak pre act comp)
@@ -209,7 +211,6 @@ evil-delete-char)
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'open-object)
     (dtk-notify-speak "Leaving Emacs state.")))
-
 
 ;;}}}
 ;;{{{ Additional Commands:
@@ -223,8 +224,8 @@ evil-delete-char)
   (emacspeak-auditory-icon (if evil-mode 'on 'off))
   (message "Turned %s evil-mode"
            (if evil-mode "on" "off")))
-   
-   
+
+
 
 ;;}}}
 (provide 'emacspeak-evil)
