@@ -71,6 +71,11 @@
   (browse-url
    (concat
     "http://www.explainxkcd.com/wiki/index.php/" (number-to-string xkcd-cur))))
+(defadvice xkcd-kill-buffer (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line)))
 
 (defvar xkcd-transcript nil
   "Cache current transcript.")
@@ -83,6 +88,8 @@
    xkcd-transcript 
    (cdr 
     (assoc 'transcript (json-read-from-string (xkcd-get-json "" xkcd-cur))))))
+
+
 (defadvice xkcd-get (after emacspeak first pre act comp)
   "Insert cached transcript in xkcd-transcript."
   (let ((inhibit-read-only t))
