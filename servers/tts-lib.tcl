@@ -209,11 +209,11 @@ proc beep_initialize {} {
         set tts(beep) 1
     }
 }
-# length is in milliseconds with a 5ms fade-in and fade-out.
+# length is in milliseconds with a 10ms fade-in and fade-out.
 proc beep {{freq 523} {length 100}} {
     set l  [expr $length / 1000.0]
-        # equal 5ms fade at start and end:
-        exec play -q -n  synth $l sin $freq  fade  h 0.05 0 channels 2 > /dev/null &
+        # equal 10ms fade at start and end:
+        exec play -q -n  synth $l sin $freq  fade  h 0.01 0  channels 2 > /dev/null &
 }
 
 
