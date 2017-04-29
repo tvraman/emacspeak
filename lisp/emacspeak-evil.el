@@ -79,8 +79,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (let ((emacspeak-show-point t))
-         (emacspeak-speak-line))))))
+         (emacspeak-speak-line)))))
 
 (cl-loop
  for f in
