@@ -1854,6 +1854,13 @@ Warning, this is fragile, and depends on a stable id for the
   (emacspeak-speak-header-line))
 
 ;;}}}
+;;{{{ Advice browse-url-default-browser:
+
+(defadvice browse-url-default-browser (around emacspeak pre act comp)
+  "Use Emacs browser --- rather than an external browser."
+  (browse-url (ad-get-arg 0)))
+
+;;}}}
 (provide 'emacspeak-eww)
 ;;{{{ end of file
 
