@@ -322,6 +322,7 @@ Optional argument FORCE  flushes the command to the speech server."
   "Produce a tone.
 Argument PITCH   is specified in hertz.
 Argument DURATION  is specified in milliseconds.
+Uses a 5ms fade-in and fade-out.
 Optional argument FORCE  flushes the command to the speech server."
   (declare (special dtk-quiet dtk-speaker-process
                     dtk-use-tones dtk-speak-server-initialized))
