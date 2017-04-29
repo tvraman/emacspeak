@@ -143,14 +143,7 @@
 
 '(
 evil-delete-backward-char
-evil-delete-backward-char-and-join
-
-evil-delete-buffer
-evil-delete-char
-
-evil-delete-marks
-evil-delete-whole-line
-)
+evil-delete-char)
 
 (defadvice evil-delete-line (after emacspeak pre act comp)
   "Provide auditory feedback."
