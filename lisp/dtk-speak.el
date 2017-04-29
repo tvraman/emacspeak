@@ -196,7 +196,7 @@ Do not modify this variable directly; use command  `dtk-set-rate'
 
 (defun dtk-tone-deletion ()
   "Tone used to indicate deletion."
-  (dtk-tone 500 100 'force))
+  (dtk-tone 500 75 'force))
 
 (defun dtk-tone-upcase ()
   "Tone used to indicate changing to upcase."
