@@ -1,7 +1,7 @@
 #!/bin/sh
 #Upload a release to github
 #Usage:  $1 tagname $2 filename asset (tar.bz2)
-# run from emacspeak dir after make dist:
+# run from emacspeak dir after make release:
 #Example: emacspeak-ghr 44.0 emacspeak-44.tar.bz2
 # Set token, username and repo in environment
 
@@ -23,7 +23,7 @@ test -f ${AText} &&  github-release upload --tag $1 --name $AText --file $AText
 test -f ${AHtml} &&  github-release upload --tag $1 --name $AHtml --file $AHtml
 
 echo "Released $1"
-#uploaded assets are under release name:
-#https://github.com/tvraman/emacspeak/releases/download/tagname/assetname
+echo "uploaded assets are under release name:"
+echo "https://github.com/tvraman/emacspeak/releases/download/tagname/assetname"
 
 echo "Download URL: https://github.com/tvraman/emacspeak/releases/download/$1/$2"
