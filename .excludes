@@ -16,13 +16,14 @@
 TAGS
 android
 announcements
-blog
+blog-archive
 chrome_tts_server
 contrib
 debian
 dtk-lite
 html
 js/node/node_modules
+js/node/auto
 js/piglets
 lib
 obsolete
