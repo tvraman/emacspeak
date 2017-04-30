@@ -13,13 +13,6 @@ github-release release --tag $1 --name "Release $1 "
 # Next, upload the tar.bz2 dist package 
 github-release upload --tag $1 --name $2 --file $2
 
-
-
-
-
-
-
-
 echo "Released $1"
 #uploaded assets are under release name:
 #https://github.com/tvraman/emacspeak/releases/download/tagname/assetname
