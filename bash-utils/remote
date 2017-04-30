@@ -8,7 +8,8 @@
 
 # Configuration:
 
-SDIR=${EMACSPEAK_DIR}/servers 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"  
+SDIR=$DIR/../servers
 
 # Primary server listens on 2222
 # Notification server listens on 3333 
