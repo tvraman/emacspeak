@@ -391,8 +391,7 @@
 ;;{{{ take over and speak the appointment
 
 ;;; For the present, we just take over and speak the appointment.
-(eval-when (compile)
-  (load-library "appt"))
+
 (declaim (special appt-display-duration))
 (setq appt-display-duration 90)
 
