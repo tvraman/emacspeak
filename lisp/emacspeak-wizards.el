@@ -107,7 +107,7 @@
     (dtk-speak
      (format "Welcome to  Emacspeak %s news. Use %s to
 navigate this document."
-             emacspeak-version
+             (if ask-version "" emacspeak-version)
              (or keys "outline mode features")))))
 
 ;;;###autoload
