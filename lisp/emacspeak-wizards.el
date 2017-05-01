@@ -82,16 +82,18 @@
 ;;{{{  Emacspeak News and Documentation
 
 ;;;###autoload
-(defun emacspeak-view-emacspeak-news (ask-version)
+(defun emacspeak-view-emacspeak-news ()
   "Display info on recent change to Emacspeak."
-  (interactive "P")
+  (interactive)
   (declare (special emacspeak-etc-directory))
-  (let ((version
-         (cond
-          (ask-version (format "-%s" (read-from-minibuffer "Version: ")))
-          (t ""))))
-    (find-file-read-only
-     (expand-file-name (format "NEWS%s" version) emacspeak-etc-directory)))
+  (find-file-read-only
+     (expand-file-name
+      (read-file-name
+       "Emacspeak News:"
+       emacspeak-etc-directory
+       "NEWS" 'must-match "NEWS"
+       #'(lambda (name) (string-match  "^NEWS" name)))
+      emacspeak-etc-directory))
   (emacspeak-auditory-icon 'news)
   (view-mode t)
   (let ((p (where-is-internal
@@ -105,9 +107,8 @@
                     (key-description p)
                     (key-description n))))
     (dtk-speak
-     (format "Welcome to  Emacspeak %s news. Use %s to
+     (format "Welcome to  Emacspeak  news. Use %s to
 navigate this document."
-             (if ask-version "" emacspeak-version)
              (or keys "outline mode features")))))
 
 ;;;###autoload
