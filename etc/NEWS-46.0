@@ -1,0 +1,127 @@
+#    -*- mode: org -*-
+
+Emacspeak News --History Of User-Visible Changes
+
+Author: T. V. Raman <tv.raman.tv@gmail.com>
+
+
+* Emacspeak 46 -- Emacspeak 46 User Visible Changes
+
+This version requires Emacs 25.1 or later.
+
+** Bash Utils 
+
+Directory _bash-utils_ contains a collection of useful Bash utilities
+for use with Emacspeak --- see [[https://github.com/tvraman/emacspeak/blob/master/bash-utils/readme.org#L1][bash-utils/Readme.org]].
+
+** Emacspeak Info Pages
+
+There is a new command _emacspeak-open-info_ bound to _C-e TAB_
+that opens the Emacspeak online manual for the  version of Emacspeak
+in use. Command ~emacspeak-info-wizard~ bound to _C-h TAB_ implements
+an Info Wizard that   jumps directly to an Info Node using completion
+--- this looks at *all* installed info pages on the system.
+
+
+** Managing Shell Buffers
+
+Module _emacspeak-wizards_ provides a set of shell-management commands  
+that make it easy to create shell buffers specific to projects and
+moving among them. See command _emacspeak-wizards-shell-by-key_ and
+customization variable _emacspeak-wizards-project-shells_.
+** EWW And EBooks:
+
+Command  _emacspeak-epub-eww_ now loads Emacspeak's directory-specific
+settings file if found on the epub-file path.
+
+** Installation:
+
+The install rule in the Makefile is deprecated and has been updated to
+display simple installation instructions. 
+To install a specific version of Emacspeak:
+  1. Download and unpack the latest tarball.
+  2. make config && make to build Emacspeak
+  3. Optional: make espeak to build espeak support.
+  4. Optional: make outloud to build ViaVoice outloud support.
+  5.  copy the resulting  emacspeak directory to the install location.
+
+** Updated DBus Integration 
+
+Module ~emacspeak-dbus~ --- Emacspeak's DBus Integration --- has been
+updated  and now includes support for screen-lock, sleep/resume, and  NM.
+
+** Outloud is Easier To Install On 64-Bit Systems 
+
+The ViaVoice Outloud server is now much easier to install on 64-bit
+systems, thanks to
+[[http://emacspeak.blogspot.com/2017/01/fun-with-tts-voxin-and-ladspa.html][Voxin 1.6]]. With this,  the Emacspeak speech-server works with the
+default 64-bit  _tclsh_ executable.
+The installed Emacspeak requires _Voxin 1.6_, make sure to install
+that upgrade first if you  have an  older Voxin installation.
+
+** Audio-formatted Mathematics 
+
+Module ~emacspeak-maths~ uses _MathJax_ with _Speech-Rule-Engine_
+implemented using *NodeJS* to provide audio-formatted mathematics.
+** Speech-Enabled Elisp-Refs
+
+Module _emacspeak-elisp-refs_ speech-enables package _elisp-refs_, a
+powerful tool for semantic searches over elisp source code.
+
+** Updated C/C++ Mode Support 
+
+Module ~emacspeak-c.el~ has been updated to support new functionality
+in ~cc-mode~.
+
+** Updated ProcEd Support
+
+Module ~emacspeak-proced~ has been updated.
+
+** Updated EShell Support
+
+Module ~eshell~ has been updated.
+
+** Speach-Enabled Clojure 
+
+
+Module ~emacspeak-clojure~ speech-enables ~clojure-mode~.
+** Speech-Enabled Geiser For Scheme Interaction 
+
+Package ~geiser~ for Scheme interaction is  speech-enabled
+by module ~emacspeak-geiser.el~.
+
+
+** Speech-Enabled Cider
+
+Cider, The Clojure IDE that
+Rocks now talks ---Module ~emacspeak-cider~ speech-enables ~cider~.
+** Speech-Enable Racket 
+
+Module ~emacspeak-racket~ speech-enables ~racket-mode~.
+** Updated SoX-Gen
+
+Module ~sox-gen~ has been updated with support for Binaural Beats
+along with predefined Binaural effects and effect sequences.
+
+** IHeart Radio
+
+Module _emacspeak-wizards_ now  provides ~emacspeak-wizards-iheart~
+--- this uses ~iheart-url~ to play IHeart Radio stations.
+** Speech-Enabled Projectile 
+
+Module _emacspeak-projectile.el_ speech-enables package _projectile_
+for software project management.
+
+** Notifications 
+
+Emacspeak now records any *Notifications* produced by
+_dtk-notifyspeak_ and friends in a special ~*Notifications*~ buffer
+that is setup  like Emacs' built-in ~*Messages*~ buffer.
+-- this buffer can be displayed using _C-h T_.
+
+** Flycheck And Interactive Correction 
+
+Flycheck support has been updated by speech-enabling module
+~flycheck-correct~.
+Corrections can be accessed through one of three supported styles ---
+~ido~, ~popup~ and ~helm~.
