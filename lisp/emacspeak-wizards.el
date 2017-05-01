@@ -82,13 +82,16 @@
 ;;{{{  Emacspeak News and Documentation
 
 ;;;###autoload
-(defun emacspeak-view-emacspeak-news ()
+(defun emacspeak-view-emacspeak-news (ask-version)
   "Display info on recent change to Emacspeak."
-  (interactive)
-  (declare (special emacspeak-etc-directory
-                    emacspeak-version))
-  (find-file-read-only (expand-file-name "NEWS"
-                                         emacspeak-etc-directory))
+  (interactive "P")
+  (declare (special emacspeak-etc-directory))
+  (let ((version
+         (cond
+          (ask-version (format "-%s" (read-from-minibuffer "Version: ")))
+          (t ""))))
+    (find-file-read-only
+     (expand-file-name (format "NEWS%s" version) emacspeak-etc-directory)))
   (emacspeak-auditory-icon 'news)
   (view-mode t)
   (let ((p (where-is-internal
