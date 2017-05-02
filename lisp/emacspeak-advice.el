@@ -164,15 +164,16 @@ do
 (emacspeak-speak-char t)))))
 
 (cl-loop
-for f in
-'(forward-word right-word)
-do
-(eval
-`(defadvice ,f (after emacspeak pre act comp)
-"Speak the word you just moved to."
-(when (ems-interactive-p)
-(skip-syntax-forward " ")
-(emacspeak-speak-word)))))
+ for f in
+ '(forward-word right-word)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Speak the word you just moved to."
+     (when (ems-interactive-p)
+       (skip-syntax-forward " ")
+       (emacspeak-speak-word)))))
+
 (cl-loop
 for f in
 '(backward-word left-word)
