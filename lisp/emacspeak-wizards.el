@@ -83,33 +83,18 @@
 
 ;;;###autoload
 (defun emacspeak-view-emacspeak-news ()
-  "Display info on recent change to Emacspeak."
+  "Display emacspeak News for a given version."
   (interactive)
   (declare (special emacspeak-etc-directory))
   (find-file-read-only
-     (expand-file-name
-      (read-file-name
-       "Emacspeak News:"
-       emacspeak-etc-directory
-       "NEWS" 'must-match "NEWS"
-       #'(lambda (name) (string-match  "^NEWS" name)))
-      emacspeak-etc-directory))
+   (expand-file-name
+    (completing-read "News: "
+                     (directory-files  emacspeak-etc-directory nil "NEWS*"))
+    emacspeak-etc-directory))
   (emacspeak-auditory-icon 'news)
-  (view-mode t)
-  (let ((p (where-is-internal
-            'outline-previous-visible-heading nil 'ascii))
-        (n (where-is-internal
-            'outline-next-visible-heading nil 'ascii))
-        (keys nil))
-    (when   (and n p)
-      (setq keys
-            (format "%s and %s"
-                    (key-description p)
-                    (key-description n))))
-    (dtk-speak
-     (format "Welcome to  Emacspeak  news. Use %s to
-navigate this document."
-             (or keys "outline mode features")))))
+  (org-mode)
+  (org-next-visible-heading 1)
+  (emacspeak-speak-line))
 
 ;;;###autoload
 (defun emacspeak-view-emacspeak-tips ()
