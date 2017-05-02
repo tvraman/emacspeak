@@ -102,11 +102,14 @@ act comp) "Speak word before point, followed by default correction."
 ;;}}}
 ;;{{{ use flyspell-correct if available:
 
-(defcustom emacspeak-flyspell-correct (cond ((locate-library
-  "flyspell-correct-popup") 'flyspell-correct-popup) ((locate-library
-  "flyspell-correct-ido") 'flyspell-correct-ido) ((locate-library
-  "flyspell-correct-helm") 'flyspell-correct-helm) (t nil))
-  "Correction style to use with flyspell." :type 'symbol)
+(defcustom emacspeak-flyspell-correct
+  (cond
+   ((locate-library "flyspell-correct-popup") 'flyspell-correct-popup)
+   ((locate-library "flyspell-correct-ido") 'flyspell-correct-ido)
+   ((locate-library "flyspell-correct-helm") 'flyspell-correct-helm)
+   (t nil))
+  "Correction style to use with flyspell."
+  :type 'symbol)
    
 ;;; flyspell-correct is available on melpa:
 
