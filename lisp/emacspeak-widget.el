@@ -666,7 +666,7 @@ widget before summarizing."
                     widget-field-keymap widget-text-keymap))
   (cl-loop
    for map in
-   '(widget-keymap  widget-field-keymap widget-text-keymap)
+   '(widget-field-keymap widget-text-keymap)
    do
    (when  (keymapp map)
      (define-key map  emacspeak-prefix 'emacspeak-prefix-command)
