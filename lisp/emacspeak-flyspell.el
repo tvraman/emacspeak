@@ -108,8 +108,7 @@ fly spell checking."
       (setq overlay-list (cdr overlay-list)))))
 
 (defadvice flyspell-highlight-incorrect-region (after emacspeak pre act comp)
-  "Speak word before point, followed by default correction."
-  (emacspeak-speak-word)
+  "Play auditory icon on error."
   (emacspeak-auditory-icon 'help))
 
 ;;}}}
