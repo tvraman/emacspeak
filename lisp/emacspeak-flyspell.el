@@ -126,7 +126,8 @@ fly spell checking."
 ;;; flyspell-correct is available on melpa:
 
 (when (locate-library "flyspell-correct")
-  (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-previous-word-generic))
+  (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-previous-word-generic)
+  (require emacspeak-flyspell-correct))
 
 (cl-loop
  for f in
