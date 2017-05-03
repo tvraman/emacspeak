@@ -1170,9 +1170,9 @@ annotation is inserted into the working buffer when complete."
   (when  (or reset
              (null emacspeak-annotate-working-buffer))
     (setq emacspeak-annotate-working-buffer
-          (get-buffer-create (read-buffer "Annotation working buffer: "
-                                          (cadr
-                                           (emacspeak-annotate-make-buffer-list))))))
+          (get-buffer-create
+           (read-buffer "Annotation working buffer: "
+                        (cadr (emacspeak-annotate-make-buffer-list))))))
   (let ((annotation nil)
         (work-buffer emacspeak-annotate-working-buffer)
         (parent-buffer (current-buffer)))
@@ -2781,7 +2781,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
 ;;{{{ Helper: Enumerate commands whose names  match  a pattern
 ;;;###autoload
 (defun emacspeak-wizards-enumerate-matching-commands (pattern)
-  "Prompt for a string pattern and return list of commands whose names match pattern."
+  "Return list of commands whose names match pattern."
   (interactive "sPattern: ")
   (let ((result nil))
     (mapatoms
@@ -3022,7 +3022,8 @@ Optional interactive prefix arg `category' prompts for a category."
     (when (zerop (read (second hits))) (error "No matches found."))
     (with-current-buffer (get-buffer-create ihr)
       (erase-buffer)
-      (insert (propertize "Press <enter> to play selected station.\n\n" 'face 'bold))
+      (insert (propertize "Press <enter> to play selected station.\n\n"
+                          'face 'bold))
       (cl-loop
        for r in results do
        (insert r)
