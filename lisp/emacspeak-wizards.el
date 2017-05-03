@@ -1616,7 +1616,8 @@ directory to where find is to be launched."
 (defun emacspeak-wizards-cycle-browser  ()
   "Cycles through available browsers."
   (interactive)
-  (declare (special browse-url-browser-function emacspeak-wizards-available-browsers))
+  (declare (special browse-url-browser-function
+                    emacspeak-wizards-available-browsers))
   (let* ((count (length emacspeak-wizards-available-browsers))
          (current
           (position browse-url-browser-function
@@ -2310,8 +2311,9 @@ Direction specifies previous/next."
   "Run Emacs built-in `shell' command when not in a shell buffer, or
 when called with a prefix argument. When called from a shell buffer,
 switches to `next' shell buffer. When called from outside a shell
-buffer, find the most `appropriate shell' and switch to it.
-Once switched, set default directory in that target shell to the directory of the source buffer."
+buffer, find the most `appropriate shell' and switch to it. Once
+switched, set default directory in that target shell to the directory
+of the source buffer."
   (interactive "P")
   (declare (special emacspeak-wizards--project-shell-directory))
   (cond
