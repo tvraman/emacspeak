@@ -127,7 +127,13 @@ pcm.autopan_crossfeed {
           {
           label tap_autopan
           input {
-                controls [0.03 100 2 ] 
+                controls [0.0166 100 2.5 ] 
+                }
+          }
+          {
+          label tap_autopan
+          input {
+                controls [0.066 66 2.5 ] 
                 }
           }
           ]
