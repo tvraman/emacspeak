@@ -122,14 +122,17 @@ slave{
 # }}}
 # {{{tts_autopan:
 
-#Warning: WIP
-# Autopan going before mono2stereo causes TTS to disappear 
+#upmix then ladspa to autopan
+pcm.tts_autopan {
+  type upmix
+  slave.pcm "autopan"
+}
 
 pcm.autopan {
   type plug
   slave.pcm {
     type ladspa
-    slave.pcm "plug:dmix" # Set this line to match your configuration
+    slave.pcm "plug:media" # Set this line to match your configuration
     path "/usr/lib/ladspa/"
     plugins [{
               label tap_autopan
@@ -137,28 +140,6 @@ pcm.autopan {
                 controls [0.05 100 1 ] 
               }
             }]
-  }
-}
-
-pcm.tts_autopan_helper{
-    type rate 
-    slave{
-      pcm "autopan"
-      rate 48000
-    }
-}
-
-pcm.tts_autopan {
-  type plug
-  slave.pcm {
-    type route
-    slave.pcm "tts_autopan_helper"
-    ttable {
-      0.0 =1
-      0.1=1
-      1.0 = 1
-      1.1 = 1
-    }
   }
 }
 
