@@ -27,7 +27,7 @@ ctl.!default {
 }
 
 # }}}
-# {{{bs2b:
+# {{{crossfeed (bs2b):
 
 # See /usr/share/doc/bs2b-ladspa/asound.conf.example for inspiration
 
@@ -87,36 +87,59 @@ pcm.reverb_crossfeed {
 }
 
 # }}}
+# {{{autopan: 
+
+pcm.autopan {
+  type plug
+  slave.pcm {
+    type ladspa
+    slave.pcm "default" # Set this line to match your configuration
+    path "/usr/lib/ladspa/"
+    plugins [{
+              label tap_autopan
+              input {
+                controls [0.03 66 2 ] 
+              }
+            }
+{
+              label tap_autopan
+              input {
+                controls [0.06 33 2] 
+              }
+            }]
+  }
+}
+
+# }}}
 # {{{tts_crossfeed:
 
- pcm.tts_crossfeed{
-   type rate 
-slave{
-  pcm "crossfeed"
-  rate 48000
-}
+pcm.tts_crossfeed{
+   type upmix 
+slave. pcm "crossfeed"
 }
 
 # }}}
 # {{{tts_reverb:
 
 pcm.tts_reverb {
-   type rate 
-slave{
-  pcm "tap_reverb"
-  rate 48000
-}
+   type upmix 
+slave. pcm "tap_reverb"
 }
 
 # }}}
 # {{{tts_reverb_crossfeed:
 
 pcm.tts_reverb_crossfeed {
-   type rate 
-slave{
-  pcm "reverb_crossfeed"
-  rate 48000
+   type upmix 
+slave. pcm "reverb_crossfeed"
 }
+
+# }}}
+# {{{tts_autopan:
+
+pcm.tts_autopan {
+  type upmix
+  slave.pcm "autopan"
 }
 
 # }}}
@@ -182,30 +205,6 @@ pcm.tts_mono_mid_right {
             1.1 = 0.66
         }
     }
-}
-
-# }}}
-# {{{tts_autopan:
-
-
-pcm.tts_autopan {
-  type upmix
-  slave.pcm "autopan"
-}
-
-pcm.autopan {
-  type plug
-  slave.pcm {
-    type ladspa
-    slave.pcm "default" # Set this line to match your configuration
-    path "/usr/lib/ladspa/"
-    plugins [{
-              label tap_autopan
-              input {
-                controls [0.05 100 1 ] 
-              }
-            }]
-  }
 }
 
 # }}}
