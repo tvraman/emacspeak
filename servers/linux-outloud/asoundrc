@@ -67,26 +67,6 @@ pcm.tap_reverb {
 }
 
 # }}}
-# {{{reverb_crossfeed
-
-#tap_reverb -> bs2b
-pcm.reverb_crossfeed {
-    type plug
-    slave.pcm {
-        type ladspa
-        slave.pcm "default"
-        path "/usr/lib/ladspa/"
-        plugins [
-            {label tap_reverb #ambiance thick (hd)
-             input {controls [2400 0 -14 1 1 1 1 4]}
-            }
-            {label bs2b
-             input {controls [ 725 4.5 ]}
-            }]
-    }
-}
-
-# }}}
 # {{{autopan: 
 
 pcm.autopan {
@@ -111,6 +91,50 @@ pcm.autopan {
 }
 
 # }}}
+# {{{reverb_crossfeed
+
+#tap_reverb -> bs2b
+pcm.reverb_crossfeed {
+    type plug
+    slave.pcm {
+        type ladspa
+        slave.pcm "default"
+        path "/usr/lib/ladspa/"
+        plugins [
+            {label tap_reverb #ambiance thick (hd)
+             input {controls [2400 0 -14 1 1 1 1 4]}
+            }
+            {label bs2b
+             input {controls [ 725 4.5 ]}
+            }]
+    }
+}
+
+# }}}
+# {{{autopan_crossfeed
+
+#autopan -> crossfeed
+pcm.autopan_crossfeed {
+    type plug
+    slave.pcm {
+        type ladspa
+        slave.pcm "default"
+        path "/usr/lib/ladspa/"
+        plugins [
+            {label bs2b
+             input {controls [ 725 4.5 ]}
+            }
+          {
+          label tap_autopan
+          input {
+                controls [0.03 100 2 ] 
+                }
+          }
+          ]
+     }
+}
+
+# }}}
 # {{{tts_crossfeed:
 
 pcm.tts_crossfeed{
@@ -132,6 +156,14 @@ slave. pcm "tap_reverb"
 pcm.tts_reverb_crossfeed {
    type upmix 
 slave. pcm "reverb_crossfeed"
+}
+
+# }}}
+# {{{tts_autopan_crossfeed:
+
+pcm.tts_autopan_crossfeed {
+   type upmix 
+slave. pcm "autopan_crossfeed"
 }
 
 # }}}
