@@ -35,7 +35,7 @@ pcm.crossfeed {
     type plug
     slave.pcm {
         type ladspa
-        slave.pcm "plug:media" # Set this line to match your configuration
+        slave.pcm "default" # Set this line to match your configuration
         path "/usr/lib/ladspa/"
         plugins [
             {
@@ -55,12 +55,12 @@ pcm.tap_reverb {
     type plug
     slave.pcm {
         type ladspa
-        slave.pcm "plug:media" # Set this line to match your configuration
+        slave.pcm "default" # Set this line to match your configuration
         path "/usr/lib/ladspa/"
         plugins [{
                     label tap_reverb
                     input {
-                        controls [2400 0 -13 1 1 1 1 4] # Ambiance
+                        controls [1800 0 -17 1 1 1 1 4] # Ambiance
                     }
                 }]
     }
@@ -74,7 +74,7 @@ pcm.reverb_crossfeed {
     type plug
     slave.pcm {
         type ladspa
-        slave.pcm "plug:media"
+        slave.pcm "default"
         path "/usr/lib/ladspa/"
         plugins [
             {label tap_reverb #ambiance thick (hd)
@@ -120,33 +120,9 @@ slave{
 }
 
 # }}}
-# {{{tts_autopan:
-
-#upmix then ladspa to autopan
-pcm.tts_autopan {
-  type upmix
-  slave.pcm "autopan"
-}
-
-pcm.autopan {
-  type plug
-  slave.pcm {
-    type ladspa
-    slave.pcm "plug:media" # Set this line to match your configuration
-    path "/usr/lib/ladspa/"
-    plugins [{
-              label tap_autopan
-              input {
-                controls [0.05 100 1 ] 
-              }
-            }]
-  }
-}
-
-# }}}
 # {{{TTS Mono:
 
-#  The Route plugin routes audio among channels using a TTable .
+#  The Route plugin routes audio among channles using a TTable .
 #TTable is a transfer table.
 # Matrix of Source->Destination values
 # Unspecified entries default to 0.
@@ -205,6 +181,43 @@ pcm.tts_mono_mid_right {
             1.0 =  0.33
             1.1 = 0.66
         }
+    }
+}
+
+# }}}
+# {{{tts_autopan:
+
+
+pcm.tts_autopan {
+  type upmix
+  slave.pcm "autopan"
+}
+
+pcm.autopan {
+  type plug
+  slave.pcm {
+    type ladspa
+    slave.pcm "default" # Set this line to match your configuration
+    path "/usr/lib/ladspa/"
+    plugins [{
+              label tap_autopan
+              input {
+                controls [0.05 100 1 ] 
+              }
+            }]
+  }
+}
+
+# }}}
+# {{{Equal:
+
+ctl.equal {type equal}
+
+pcm.equal{
+    type plug;
+    slave.pcm{
+        type equal
+	      slave.pcm "default"
     }
 }
 
