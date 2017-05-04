@@ -1563,7 +1563,9 @@ ALSA_DEFAULT to specified device before starting the server."
                       tts-device emacspeak-servers-directory
                       emacspeak-tts-use-notify-stream emacspeak-ssh-tts-server))
   (when (and (called-interactively-p 'interactive) device)
-    (setq tts-device (read-from-minibuffer "ALSA_DEFAULT: "))
+    (setq tts-device
+          (completing-read "Device: "
+                           (split-string (shell-command-to-string "aplay -L | grep tts"))))
     (setenv "ALSA_DEFAULT" tts-device))
   (let ((ssh-server (format "ssh-%s" dtk-program)))
     (setq dtk-program program)
