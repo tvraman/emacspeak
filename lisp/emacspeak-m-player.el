@@ -1124,6 +1124,7 @@ arg `reset' starts with all filters set to 0."
     ("g" emacspeak-m-player-seek-absolute)
     ("i" emacspeak-m-player-stream-info)
     ("j" emacspeak-m-player-amark-jump)
+    ("k" emacspeak-m-player-quit)
     ("l" emacspeak-m-player-get-length)
     ("m" emacspeak-m-player-speak-mode-line)
     ("n" emacspeak-m-player-next-track)
@@ -1142,6 +1143,7 @@ arg `reset' starts with all filters set to 0."
 
 (cl-loop for k in emacspeak-m-player-bindings do
       (emacspeak-keymap-update  emacspeak-m-player-mode-map k))
+
 (defun emacspeak-m-player-volume-set (&optional arg)
   "Set Volume in steps from 1 to 9."
   (interactive "P")
