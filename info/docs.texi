@@ -21934,7 +21934,7 @@ Prompts for the new location and preserves modification time
 @findex emacspeak-view-emacspeak-news
 
 @format
-Display info on recent change to Emacspeak.
+Display emacspeak News for a given version.
 @end format
 @end deffn
 
@@ -22138,7 +22138,7 @@ move to end of word
 @findex emacspeak-wizards-enumerate-matching-commands
 
 @format
-Prompt for a string pattern and return list of commands whose names match pattern.
+Return list of commands whose names match pattern.
 
 (fn PATTERN)
 @end format
@@ -22713,8 +22713,9 @@ Switch to *scratch* buffer, creating it if necessary.
 Run Emacs built-in ‘shell’ command when not in a shell buffer, or
 when called with a prefix argument. When called from a shell buffer,
 switches to ‘next’ shell buffer. When called from outside a shell
-buffer, find the most ‘appropriate shell’ and switch to it.
-Once switched, set default directory in that target shell to the directory of the source buffer.
+buffer, find the most ‘appropriate shell’ and switch to it. Once
+switched, set default directory in that target shell to the directory
+of the source buffer.
 
 (fn &optional PREFIX)
 @end format
@@ -22764,13 +22765,14 @@ Once switched, set default directory in that target shell to the directory of th
 @findex emacspeak-wizards-shell-by-key
 
 @format
-Switch to shell buffer by key. This provides a predictable means
-  for switching to a specific shell buffer. When invoked from a
-  non-shell-mode buffer that is visiting a file, invokes ‘cd ’ in
-  the shell to change to the value of ‘default-directory’ --- use
-  a prefix-arg to negate this behavior. When already in a shell
-  buffer, interactive prefix arg ‘rekey’ causes this shell to be
-  re-keyed if appropriate --- see M-x emacspeak-wizards-shell-re-key for an explanation of  how re-keying works.
+Switch to shell buffer by key. This provides a predictable means for
+  switching to a specific shell buffer. When invoked from a
+  non-shell-mode buffer that is visiting a file, invokes ‘cd ’ in the
+  shell to change to the value of ‘default-directory’ --- use a
+  prefix-arg to negate this behavior. When already in a shell buffer,
+  interactive prefix arg ‘rekey’ causes this shell to be re-keyed if
+  appropriate --- see M-x emacspeak-wizards-shell-re-key for an
+  explanation of how re-keying works.
 
 (fn &optional REKEY)
 @end format
