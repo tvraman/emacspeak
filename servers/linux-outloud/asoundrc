@@ -77,15 +77,11 @@ pcm.autopan {
     path "/usr/lib/ladspa/"
     plugins [{
               label tap_autopan
-              input {
-                controls [0.03 66 2 ] 
-              }
+              input {controls [0.016 75 2 ]}
             }
 {
               label tap_autopan
-              input {
-                controls [0.06 33 2] 
-              }
+              input {controls [0.06 33 2]}
             }]
   }
 }
@@ -127,13 +123,13 @@ pcm.autopan_crossfeed {
           {
           label tap_autopan
           input {
-                controls [0.0166 100 2.5 ] 
+                controls [0.066 66 2.5 ] 
                 }
           }
           {
           label tap_autopan
           input {
-                controls [0.066 66 2.5 ] 
+                controls [0.0166 100 2.5 ] 
                 }
           }
           ]
