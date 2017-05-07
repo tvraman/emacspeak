@@ -7,3 +7,7 @@ Author: T. V. Raman <tv.raman.tv@gmail.com>
 
 * Emacspeak 47 -- Emacspeak 47 User Visible Changes
 This version requires Emacs-25.1 or later.
+
+** speech-Enable Extensible VI Layer --- EVIL
+
+Module ~emacspeak-evil~ speech-enables Emacs' Extensible VI Layer.
