@@ -255,6 +255,14 @@ pcm.equal{
 }
 
 # }}}
+# {{{Save2File:
+ pcm.save2file {
+     type file
+     slave.pcm "default"
+     file "save.wav"
+}
+
+# }}}
 # {{{end of file
 
 # local variables:
