@@ -126,18 +126,16 @@
 ;;}}}
 ;;{{{ Char Motion :
 
-;;; Warning: point appears to be off by one when advice is called:
-;;; Which is why we cant just call emacspeak-speak-char
-
-(defadvice evil-backward-char (after emacspeak pre act comp)
+(defadvice evil-backward-char (before emacspeak pre act comp)
   "Speak char."
   (when (ems-interactive-p)
-      (emacspeak-speak-this-char (char-after (1+ (point))))))
+    (emacspeak-speak-this-char (char-after (1- (point))))))
 
-(defadvice evil-forward-char (after emacspeak pre act comp)
+
+(defadvice evil-forward-char (before emacspeak pre act comp)
   "Speak char."
   (when (ems-interactive-p)
-    (emacspeak-speak-this-char (preceding-char))))
+    (emacspeak-speak-this-char (char-after (1+ (point))))))
 
 ;;}}}
 ;;{{{ Deletion:
@@ -220,6 +218,7 @@ evil-delete-char)
   (interactive)
   (declare (special evil-mode))
   (cl-assert (locate-library "evil") nil "I see no evil!")
+  (require 'evil)
   (evil-mode (if evil-mode -1 1))
   (emacspeak-auditory-icon (if evil-mode 'on 'off))
   (message "Turned %s evil-mode"
