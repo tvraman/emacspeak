@@ -1565,7 +1565,8 @@ ALSA_DEFAULT to specified device before starting the server."
   (when (and (called-interactively-p 'interactive) device)
     (setq tts-device
           (completing-read "Device: "
-                           (split-string (shell-command-to-string "aplay -L | grep tts"))))
+                           (split-string (shell-command-to-string "aplay -L | grep tts"))
+                           nil nil nil nil "default"))
     (setenv "ALSA_DEFAULT" tts-device))
   (let ((ssh-server (format "ssh-%s" dtk-program)))
     (setq dtk-program program)
