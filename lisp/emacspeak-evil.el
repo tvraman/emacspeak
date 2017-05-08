@@ -180,6 +180,40 @@
          (emacspeak-auditory-icon 'search-hit))))))
 
 ;;}}}
+;;{{{ Completion:
+
+(cl-loop
+ for f in
+ '(evil-complete-next evil-complete-previous)
+ do
+ (eval
+  `(defadvice ,f (around emacspeak pre act comp)
+     "Speak what was completed."
+     (cond
+      ((ems-interactive-p)
+       (let ((orig (save-excursion (skip-syntax-backward "^ >" ) (point))))
+         (ems-with-messages-silenced
+          ad-do-it
+          (emacspeak-auditory-icon 'complete)
+          (if (< orig (point))
+              (dtk-speak (buffer-substring orig (point)))
+            (dtk-speak (word-at-point))))))
+      (t ad-do-it))
+     ad-return-value)))
+     
+(cl-loop
+ for f in
+ '(evil-complete-next-line evil-complete-previous-line)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Speak completed line."
+     (when (ems-interactive-p)
+       (let ((emacspeak-show-point t))
+         (emacspeak-auditory-icon 'complete)
+         (emacspeak-speak-line))))))
+
+;;}}}
 ;;{{{ Update keymaps:
 
 (defun emacspeak-evil-fix-emacspeak-prefix (keymap)
