@@ -166,6 +166,20 @@
     (emacspeak-speak-region (ad-get-arg 0) (ad-get-arg 1))))
 
 ;;}}}
+;;{{{ Searching:
+(cl-loop
+ for f in
+ '(evil-search-next evil-search-previous)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Speak line with point highlighted."
+     (when (ems-interactive-p)
+       (let ((emacspeak-show-point t))
+         (emacspeak-speak-line)
+         (emacspeak-auditory-icon 'search-hit))))))
+
+;;}}}
 ;;{{{ Update keymaps:
 
 (defun emacspeak-evil-fix-emacspeak-prefix (keymap)
