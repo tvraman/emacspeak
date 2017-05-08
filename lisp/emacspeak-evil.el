@@ -203,6 +203,15 @@
      evil-normal-state-map evil-insert-state-map
      evil-visual-state-map evil-replace-state-map
      evil-operator-state-map evil-motion-state-map)))
+(eval-after-load
+     "evil-vars"
+  `(mapc
+    #'emacspeak-evil-fix-emacspeak-prefix
+    (list
+     evil-normal-state-map evil-insert-state-map
+     evil-visual-state-map evil-replace-state-map
+     evil-operator-state-map evil-motion-state-map)))
+
 (global-set-key (concat emacspeak-prefix "e") 'end-of-line)
 (global-set-key (concat emacspeak-prefix emacspeak-prefix) 'end-of-line)
 
