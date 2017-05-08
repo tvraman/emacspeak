@@ -1,3 +1,10 @@
 [playlist]
-NumberOfEntries=1
-File1=http://stream.us.gslb.liquidcompass.net/WCSPFMMP3?dma=506&ats=1&zipcode=02108&lat=42.358428955078&lon=-71.059768676758
+File1=http://18763.live.streamtheworld.com:80/CSPANRADIO_SC?DIST=TuneIn&tdtok=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImZTeXA4In0.eyJpc3MiOiJ0aXNydiIsInN1YiI6IjIxMDY0IiwiaWF0IjoxNDk0MjgwMTk4LCJ0ZC1yZWciOmZhbHNlfQ.vyyPzGHcSKtpwDykz1matXKtB-5W0-q3czvCaeSibbo&TGT=TuneIn
+File2=http://18763.live.streamtheworld.com:3690/CSPANRADIO_SC?DIST=TuneIn&tdtok=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImZTeXA4In0.eyJpc3MiOiJ0aXNydiIsInN1YiI6IjIxMDY0IiwiaWF0IjoxNDk0MjgwMTk4LCJ0ZC1yZWciOmZhbHNlfQ.vyyPzGHcSKtpwDykz1matXKtB-5W0-q3czvCaeSibbo&TGT=TuneIn
+File3=http://16843.live.streamtheworld.com:80/CSPANRADIO_SC?DIST=TuneIn&tdtok=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImZTeXA4In0.eyJpc3MiOiJ0aXNydiIsInN1YiI6IjIxMDY0IiwiaWF0IjoxNDk0MjgwMTk4LCJ0ZC1yZWciOmZhbHNlfQ.vyyPzGHcSKtpwDykz1matXKtB-5W0-q3czvCaeSibbo&TGT=TuneIn
+File4=http://16843.live.streamtheworld.com:3690/CSPANRADIO_SC?DIST=TuneIn&tdtok=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6ImZTeXA4In0.eyJpc3MiOiJ0aXNydiIsInN1YiI6IjIxMDY0IiwiaWF0IjoxNDk0MjgwMTk4LCJ0ZC1yZWciOmZhbHNlfQ.vyyPzGHcSKtpwDykz1matXKtB-5W0-q3czvCaeSibbo&TGT=TuneIn
+Title1=CSPANRADIO_SC
+Title2=CSPANRADIO_SC-Bak
+Length1=-1
+NumberOfEntries=4
+Version=2
