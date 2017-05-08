@@ -266,8 +266,8 @@
  for hook in
  '(
           evil-normal-state-exit-hook evil-insert-state-exit-hook
-                                      evil-visual-state-exit-hook evil-replace-state-exit-hook
-                                      evil-operator-state-exit-hook evil-motion-state-exit-hook)
+          evil-visual-state-exit-hook evil-replace-state-exit-hook
+          evil-operator-state-exit-hook evil-motion-state-exit-hook)
  do
  (add-hook hook #'emacspeak-evil-state-change-hook))
 (defadvice evil-exit-emacs-state (after emacspeak pre act comp)
