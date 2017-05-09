@@ -214,6 +214,16 @@
          (emacspeak-speak-line))))))
 
 ;;}}}
+;;{{{ Marks:
+(defadvice evil-set-marker (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'mark-object)
+    (let ((emacspeak-show-point t))
+      (dtk-notify-speak (format "Marker %c" (ad-get-arg 0)))
+      (emacspeak-speak-line))))
+
+;;}}}
 ;;{{{ Update keymaps:
 
 (defun emacspeak-evil-fix-emacspeak-prefix (keymap)
