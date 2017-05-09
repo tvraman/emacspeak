@@ -187,8 +187,8 @@
       (goto-char
        (+ (line-beginning-position)
           (emacspeak-proced-field-start (car tabs))))
-      (when (ems-interactive-p)
-        (emacspeak-auditory-icon 'large-movement)
+      (emacspeak-auditory-icon 'large-movement)
+      (when (called-interactively-p 'interactive)
         (emacspeak-proced-speak-this-field))))))
 
 (defun emacspeak-proced-previous-field ()
@@ -208,7 +208,7 @@
       (goto-char
        (+ (line-beginning-position)
           (emacspeak-proced-field-start target)))
-      (when (ems-interactive-p)
+      (when (called-interactively-p 'interactive)
         (emacspeak-auditory-icon 'large-movement)
         (emacspeak-proced-speak-this-field))))))
 
