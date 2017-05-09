@@ -218,7 +218,7 @@ Optional argument `noauth' says no user auth needed."
 (defun emacspeak-bookshare-download-url (id fmt)
   "Return  URL  end point for content download.
 Argument id specifies content. Argument fmt = 0 for Braille, 1
-  for Daisy."
+  for Daisy, 6 for audio."
   (declare (special emacspeak-bookshare-api-base emacspeak-bookshare-user-id))
   (format "%s/%s/%s?api_key=%s"
           emacspeak-bookshare-api-base
@@ -280,13 +280,16 @@ Optional argument 'no-auth says we dont need a user auth."
            (emacspeak-bookshare-user-password)
            emacspeak-bookshare-last-action-uri)))
 
-(defun emacspeak-bookshare-generate-target (author title)
+(defun emacspeak-bookshare-generate-target (author title &optional fmt)
   "Generate a suitable filename target."
   (declare (special emacspeak-bookshare-downloads-directory))
   (expand-file-name
    (replace-regexp-in-string
     "[ _&\'\":()\;]+" "-"
-    (format "%s-%s.zip" author title))
+    (format "%s-%s%s.zip"
+            author title
+            (if  fmt
+                (format "-%s" fmt) "")))
    emacspeak-bookshare-downloads-directory))
 
 (defun emacspeak-bookshare-generate-directory (author title)
@@ -483,6 +486,14 @@ Optional interactive prefix arg prompts for a category to use as a filter."
    (emacspeak-bookshare-download-url id 1)
    target))
 
+
+(defun emacspeak-bookshare-download-audio(id target)
+  "Download audio format of specified book to target location."
+  (interactive)
+  (emacspeak-bookshare-download-internal
+   (emacspeak-bookshare-download-url id 6)
+   target))
+
 (defun emacspeak-bookshare-download-brf(id target)
   "Download Daisy format of specified book to target location."
   (interactive)
@@ -549,7 +560,7 @@ b Browse
  '(
    ("SPC" emacspeak-bookshare-action)
    ("+" emacspeak-bookshare-get-more-results)
-   ("A" emacspeak-bookshare-title/author-search)
+   ("/" emacspeak-bookshare-title/author-search)
    ("I" emacspeak-bookshare-id-search)
    ("P" emacspeak-bookshare-list-preferences)
    ("S" emacspeak-bookshare-set-preference)
@@ -815,6 +826,7 @@ b Browse
           ("b" emacspeak-bookshare-browse)
           ("SPC" emacspeak-bookshare-expand-at-point)
           ("U" emacspeak-bookshare-unpack-at-point)
+          ("A" emacspeak-bookshare-download-audio-at-point)
           ("V" emacspeak-bookshare-view-at-point)
           ("C" emacspeak-bookshare-fulltext)
           ("D" emacspeak-bookshare-download-daisy-at-point)
@@ -932,6 +944,35 @@ Target location is generated from author and title."
        (t
         (let ((new (read-from-minibuffer "Retry with new target:" target)))
           (if (zerop (emacspeak-bookshare-download-daisy id new))
+              (message "Downloaded to %s" new)
+            (error "Error downloading to %s" new)))))))))
+
+
+(defun emacspeak-bookshare-download-audio-at-point ()
+  "Download audio version of book under point.
+Target location is generated from author and title."
+  (interactive)
+  (let* ((inhibit-read-only t)
+         (id (emacspeak-bookshare-get-id))
+         (author (emacspeak-bookshare-get-author))
+         (title (emacspeak-bookshare-get-title))
+         (target (emacspeak-bookshare-generate-target author title "audio")))
+    (emacspeak-auditory-icon 'select-object)
+    (cond
+     ((file-exists-p target)
+      (message "This content is available locally at %s" target))
+     (t
+      (cond
+       ((zerop (emacspeak-bookshare-download-audio id target))
+        (add-text-properties
+         (line-beginning-position) (line-end-position)
+         (list'face 'bold
+                    'auditory-icon 'select-object))
+        (emacspeak-auditory-icon 'task-done)
+        (message "Downloaded content to %s" target))
+       (t
+        (let ((new (read-from-minibuffer "Retry with new target:" target)))
+          (if (zerop (emacspeak-bookshare-download-audio id new))
               (message "Downloaded to %s" new)
             (error "Error downloading to %s" new)))))))))
 
