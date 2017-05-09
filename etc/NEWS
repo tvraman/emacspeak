@@ -11,3 +11,7 @@ This version requires Emacs-25.1 or later.
 ** speech-Enable Extensible VI Layer --- EVIL
 
 Module ~emacspeak-evil~ speech-enables Emacs' Extensible VI Layer.
+
+** Bookshare: Support Additional Download Types
+Module ~emacspeak-bookshare~ has been updated to support new download
+types from Bookshare such as DTB Audio and Epub3.
