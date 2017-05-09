@@ -772,6 +772,16 @@ interactive command that the key sequence executes."
     (switch-to-buffer buffer)))
 
 ;;}}}
+;;{{{ Helper: recover end-of-line
+
+(defun emacspeak-keymap-recover-eol ()
+  "Recover end-of-line."
+  (declare (special emacspeak-prefix))
+  (global-set-key (concat emacspeak-prefix "e") 'end-of-line)
+(global-set-key (concat emacspeak-prefix emacspeak-prefix) 'end-of-line))
+
+
+;;}}}
 (provide 'emacspeak-keymap)
 ;;{{{  emacs local variables
 

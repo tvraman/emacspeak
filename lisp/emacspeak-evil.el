@@ -243,24 +243,25 @@
 
 (eval-after-load
     "evil-maps"
-  `(mapc
-    #'emacspeak-evil-fix-emacspeak-prefix
-    (list
-     evil-normal-state-map evil-insert-state-map
-     evil-visual-state-map evil-replace-state-map
-     evil-operator-state-map evil-motion-state-map)))
+  `(progn
+     (mapc
+      #'emacspeak-evil-fix-emacspeak-prefix
+      (list
+       evil-normal-state-map evil-insert-state-map
+       evil-visual-state-map evil-replace-state-map
+       evil-operator-state-map evil-motion-state-map))
+     (emacspeak-keymap-recover-eol)))
 
 (eval-after-load
-     "evil-maps"
-  `(mapc
-    #'emacspeak-evil-fix-emacspeak-prefix
-    (list
-     evil-normal-state-map evil-insert-state-map
-     evil-visual-state-map evil-replace-state-map
-     evil-operator-state-map evil-motion-state-map)))
-
-(global-set-key (concat emacspeak-prefix "e") 'end-of-line)
-(global-set-key (concat emacspeak-prefix emacspeak-prefix) 'end-of-line)
+    "evil-maps"
+  `(progn
+     (mapc
+      #'emacspeak-evil-fix-emacspeak-prefix
+      (list
+       evil-normal-state-map evil-insert-state-map
+       evil-visual-state-map evil-replace-state-map
+       evil-operator-state-map evil-motion-state-map))
+     (emacspeak-keymap-recover-eol)))
 
 ;;}}}
 ;;{{{ State Hooks:
