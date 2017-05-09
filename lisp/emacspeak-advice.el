@@ -772,17 +772,17 @@ ad-return-value))
 "Cache prompt from read-char and friends here for later introspection.")
 
 (cl-loop
-for f in
-'(read-key read-key-sequence read-char read-char-exclusive)
-do
-(eval
-`(defadvice ,f (before emacspeak pre act comp)
-"Speak the prompt"
-(let ((prompt (ad-get-arg 0)))
-(when prompt
-  (setq emacspeak-last-message prompt)
-  (setq emacspeak-read-char-prompt-cache prompt)
-  (tts-with-punctuations 'all (dtk-speak prompt)))))))
+ for f in
+ '(read-key read-key-sequence read-char read-char-exclusive)
+ do
+ (eval
+  `(defadvice ,f (before emacspeak pre act comp)
+     "Speak the prompt"
+     (let ((prompt (ad-get-arg 0)))
+       (when prompt
+         (setq emacspeak-last-message prompt)
+         (setq emacspeak-read-char-prompt-cache prompt)
+         (tts-with-punctuations 'all (dtk-speak prompt)))))))
 
 (defadvice read-char-choice(before emacspeak pre act comp)
 "Speak the prompt"
