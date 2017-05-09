@@ -307,32 +307,34 @@
     (message "Removed all marks. ")
     (emacspeak-auditory-icon 'deselect-object)))
 
-(cl-loop for f in
-         '(proced proced-update)
-         do
-         (eval
-          `(defadvice ,f (around emacspeak pre act comp)
-             "Update cache of field positions."
-             (let ((emacspeak-speak-messages nil))
-               ad-do-it
-               (emacspeak-proced-update-fields)
-               (emacspeak-proced-update-process-cache)
-               (when (ems-interactive-p)
-                 (emacspeak-auditory-icon 'open-object)
-                 (funcall-interactively #'emacspeak-speak-mode-line))))))
+(cl-loop
+ for f in
+ '(proced proced-update)
+ do
+ (eval
+  `(defadvice ,f (around emacspeak pre act comp)
+     "Update cache of field positions."
+     (let ((emacspeak-speak-messages nil))
+       ad-do-it
+       (emacspeak-proced-update-fields)
+       (emacspeak-proced-update-process-cache)
+       (when (ems-interactive-p)
+         (emacspeak-auditory-icon 'open-object)
+         (funcall-interactively #'emacspeak-speak-mode-line))))))
 
-(cl-loop for f  in
-         '(proced-sort-pcpu proced-sort-start
-                            proced-sort-time proced-sort-interactive
-                            proced-sort-user  proced-sort-pmem
-                            proced-sort-pid)
-         do
-         (eval
-          `(defadvice ,f (after emacspeak pre act comp)
-             "Provide auditory feedbak."
-             (when (ems-interactive-p)
-               (emacspeak-proced-speak-this-field)
-               (emacspeak-auditory-icon 'task-done)))))
+(cl-loop
+ for f  in
+ '(proced-sort-pcpu proced-sort-start
+                    proced-sort-time proced-sort-interactive
+                    proced-sort-user  proced-sort-pmem
+                    proced-sort-pid)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedbak."
+     (when (ems-interactive-p)
+       (emacspeak-proced-speak-this-field)
+       (emacspeak-auditory-icon 'task-done)))))
 
 ;;}}}
 ;;{{{ additional commands:
