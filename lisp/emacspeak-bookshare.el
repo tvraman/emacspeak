@@ -1104,7 +1104,9 @@ Make sure it's downloaded and unpacked first."
        'emacspeak-web-post-process-hook
        #'(lambda ()
            (declare (special emacspeak-we-url-executor))
-           (setq emacspeak-we-url-executor 'emacspeak-bookshare-url-executor)))
+           (setq emacspeak-we-url-executor 'emacspeak-bookshare-url-executor)
+           (emacspeak-speak-mode-line)
+           (emacspeak-auditory-icon 'open-object)))
       (emacspeak-xslt-view-file
        xsl
        (shell-quote-argument
@@ -1244,10 +1246,12 @@ Useful for fulltext search in a book."
     (switch-to-buffer buffer)
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-mode-line)))
+(defvar-local emacspeak-bookshare-this-book nil
+  "Record current book in buffer where it is rendered.")
 
 ;;;###autoload
 (defun emacspeak-bookshare-eww (directory)
-  "Render complete book using EWW if available."
+  "Render complete book using EWW"
   (interactive
    (list
     (or (emacspeak-bookshare-get-directory)
@@ -1258,7 +1262,8 @@ Useful for fulltext search in a book."
                                (when (eq major-mode 'dired-mode)
                                  (dired-get-filename))
                                emacspeak-bookshare-directory)))))
-  (declare (special emacspeak-xslt-program emacspeak-bookshare-directory))
+  (declare (special emacspeak-xslt-program emacspeak-bookshare-directory
+                    emacspeak-bookshare-this-book))
   (unless (fboundp 'eww)
     (error "Your Emacs doesn't have EWW."))
   (let ((xsl (emacspeak-bookshare-xslt directory))
@@ -1275,6 +1280,10 @@ Useful for fulltext search in a book."
       (erase-buffer)
       (setq buffer-undo-list t)
       (shell-command command (current-buffer) nil)
+      (add-hook
+       'emacspeak-web-post-process-hook
+       #'(lambda nil
+           (setq emacspeak-bookshare-this-book directory)))
       (browse-url-of-buffer)
       (kill-buffer buffer))))
 
