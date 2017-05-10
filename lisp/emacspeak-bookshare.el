@@ -218,7 +218,7 @@ Optional argument `noauth' says no user auth needed."
 (defun emacspeak-bookshare-download-url (id fmt)
   "Return  URL  end point for content download.
 Argument id specifies content. Argument fmt = 0 for Braille, 1
-  for Daisy, 6 for audio."
+   for Daisy, 3 for epub-3,6 for audio."
   (declare (special emacspeak-bookshare-api-base emacspeak-bookshare-user-id))
   (format "%s/%s/%s?api_key=%s"
           emacspeak-bookshare-api-base
@@ -492,6 +492,13 @@ Optional interactive prefix arg prompts for a category to use as a filter."
   (interactive)
   (emacspeak-bookshare-download-internal
    (emacspeak-bookshare-download-url id 6)
+   target))
+
+(defun emacspeak-bookshare-download-epub-3(id target)
+  "Download epub-3 format of specified book to target location."
+  (interactive)
+  (emacspeak-bookshare-download-internal
+   (emacspeak-bookshare-download-url id 3)
    target))
 
 (defun emacspeak-bookshare-download-brf(id target)
@@ -827,6 +834,7 @@ b Browse
           ("SPC" emacspeak-bookshare-expand-at-point)
           ("U" emacspeak-bookshare-unpack-at-point)
           ("A" emacspeak-bookshare-download-audio-at-point)
+          ("3" emacspeak-bookshare-download-epub-3-at-point)
           ("V" emacspeak-bookshare-view-at-point)
           ("C" emacspeak-bookshare-fulltext)
           ("D" emacspeak-bookshare-download-daisy-at-point)
@@ -973,6 +981,34 @@ Target location is generated from author and title."
        (t
         (let ((new (read-from-minibuffer "Retry with new target:" target)))
           (if (zerop (emacspeak-bookshare-download-audio id new))
+              (message "Downloaded to %s" new)
+            (error "Error downloading to %s" new)))))))))
+
+(defun emacspeak-bookshare-download-epub-3-at-point ()
+  "Download epub-3 version of book under point.
+Target location is generated from author and title."
+  (interactive)
+  (let* ((inhibit-read-only t)
+         (id (emacspeak-bookshare-get-id))
+         (author (emacspeak-bookshare-get-author))
+         (title (emacspeak-bookshare-get-title))
+         (target (emacspeak-bookshare-generate-target author title "epub-3")))
+    (emacspeak-auditory-icon 'select-object)
+    (cond
+     ((file-exists-p target)
+      (message "This content is available locally at %s" target))
+     (t
+      (cond
+       ((zerop (emacspeak-bookshare-download-epub-3 id target))
+        (add-text-properties
+         (line-beginning-position) (line-end-position)
+         (list'face 'bold
+                    'auditory-icon 'select-object))
+        (emacspeak-auditory-icon 'task-done)
+        (message "Downloaded content to %s" target))
+       (t
+        (let ((new (read-from-minibuffer "Retry with new target:" target)))
+          (if (zerop (emacspeak-bookshare-download-epub-3 id new))
               (message "Downloaded to %s" new)
             (error "Error downloading to %s" new)))))))))
 
