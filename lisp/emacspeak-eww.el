@@ -1858,7 +1858,7 @@ Warning, this is fragile, and depends on a stable id for the
 
 (defadvice browse-url-default-browser (around emacspeak pre act comp)
   "Use Emacs browser --- rather than an external browser."
-  (browse-url (ad-get-arg 0)))
+  (eww-browse-url (ad-get-arg 0)))
 
 ;;}}}
 (provide 'emacspeak-eww)
