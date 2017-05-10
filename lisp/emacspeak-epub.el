@@ -638,18 +638,20 @@ Suitable for text searches."
     (switch-to-buffer buffer)
     (emacspeak-speak-mode-line)
     (emacspeak-auditory-icon 'open-object)))
+(defvar-local emacspeak-epub-this-epub nil
+  "Buffer local variable that tracks epub being displayed.")
 
 ;;;###autoload
 (defun emacspeak-epub-eww (epub-file)
-  "Display entire book  using EWW from EPub in a buffer.
-Suitable for text searches."
+  "Display entire book  using EWW from EPub."
   (interactive
    (list
     (or
      (get-text-property (point) 'epub)
      (read-file-name "EPub: " emacspeak-epub-library-directory))))
   (declare (special emacspeak-epub-files-command
-                    emacspeak-speak-directory-settings))
+                    emacspeak-speak-directory-settings
+                    emacspeak-epub-this-epub))
   (let* ((directory (file-name-directory epub-file))
         (locals (locate-dominating-file directory emacspeak-speak-directory-settings))
         (buffer (get-buffer-create "FullText EPub"))
@@ -677,12 +679,15 @@ Suitable for text searches."
       (add-hook
        'emacspeak-web-post-process-hook
        #'(lambda ()
-           (setq default-directory directory)
+           (setq
+            emacspeak-epub-this-epub epub-file
+            default-directory directory)
            (when (file-exists-p locals )(load locals))
            (emacspeak-auditory-icon 'open-object)
            (emacspeak-speak-mode-line))
        'at-end)
       (browse-url-of-buffer))))
+
 (defvar emacspeak-epub-google-search-template
   "http://books.google.com/books/feeds/volumes?min-viewability=full&epub=epub&q=%s"
   "REST  end-point for performing Google Books Search to find Epubs  having full viewability.")
