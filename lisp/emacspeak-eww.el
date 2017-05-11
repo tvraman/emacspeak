@@ -1886,18 +1886,25 @@ Warning, this is fragile, and depends on a stable id for the
           :name name
           :type 
           (cond
-          ((bound-and-true-p emacspeak-epub-this-epub)'epub)
-          ((bound-and-true-p emacspeak-bookshare-this-book)'daisy))
+           ((bound-and-true-p emacspeak-epub-this-epub)'epub)
+           ((bound-and-true-p emacspeak-bookshare-this-book)'daisy))
           :book (or emacspeak-bookshare-this-book emacspeak-epub-this-epub)
           :point (point))))
     (puthash  name bm emacspeak-eww-bookmarks)
     (emacspeak-auditory-icon 'mark-object)
     (message "Created Emacspeak EWW bookmark.")))
+(defvar emacspeak-eww-bookmarks-loaded-p nil
+  "Record if EWW Marks are loaded.")
 
 (defun emacspeak-eww-open-mark (name)
   "Open specified EWW marked location."
   (interactive
-   (list (completing-read "Mark: " emacspeak-eww-bookmarks)))
+   (list
+    (progn
+      (unless emacspeak-eww-bookmarks-loaded-p (emacspeak-eww-bookmarks-load))
+      (when (hash-table-empty-p emacspeak-eww-bookmarks)
+        (error "No Emacspeak EWW Marks found."))
+    (completing-read "Mark: " emacspeak-eww-bookmarks))))
   (declare (special emacspeak-eww-bookmarks))
   (let ((bm (gethash name emacspeak-eww-bookmarks))
         (handler nil)
@@ -1928,6 +1935,34 @@ Warning, this is fragile, and depends on a stable id for the
      
     
         
+(defvar emacspeak-eww-bookmarks-file
+  (expand-file-name "eww-marks" emacspeak-resource-directory)
+  "File where we save EWW marks.")
+
+(defun emacspeak-eww-bookmarks-save ()
+  "Save Emacspeak EWW marks."
+  (interactive)
+  (declare (special emacspeak-eww-bookmarks-file))
+  (let ((buffer (find-file-noselect emacspeak-eww-bookmarks-file))
+        (print-length nil)
+        (print-level nil))
+    (with-current-buffer buffer
+      (insert  ";;; Auto-generated.\n\n")
+      (insert "(setq emacspeak-eww-bookmarks \n")
+      (pp emacspeak-eww-bookmarks (current-buffer))
+      (insert ") ;;; set hash table\n\n")
+      (save-buffer))
+    (message "Saved Emacspeak EWW  marks.")
+    (emacspeak-auditory-icon 'save-object)))
+
+(defun emacspeak-eww-bookmarks-load ()
+  "Load saved bookmarks."
+  (interactive)
+  (declare (special emacspeak-eww-bookmarks-file
+                    emacspeak-eww-bookmarks-loaded-p))
+  (when (file-exists-p emacspeak-eww-bookmarks-file)
+    (load-file emacspeak-eww-bookmarks-file)
+    (setq emacspeak-eww-bookmarks-loaded-p t)))
 
 ;;}}}
 (provide 'emacspeak-eww)
