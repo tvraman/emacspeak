@@ -1876,6 +1876,7 @@ Warning, this is fragile, and depends on a stable id for the
 
 (defvar emacspeak-eww-marks (make-hash-table :test #'equal)
   "Stores  our EWW-specific marks.")
+
 (defvar emacspeak-eww-marks-modified-p nil
   "Record if eww-marks have been modified in this session.")
 
@@ -1902,7 +1903,7 @@ Warning, this is fragile, and depends on a stable id for the
     (setq emacspeak-eww-marks-modified-p t))
 
 (defun emacspeak-eww-delete-mark (name)
-  "Interactively delete a mark with name title+`name' at current position."
+  "Interactively delete a mark with name `name' at current position."
   (interactive "sMark Name: ")
   (declare (special emacspeak-eww-marks))
   (remhash name emacspeak-eww-marks)
@@ -1911,8 +1912,6 @@ Warning, this is fragile, and depends on a stable id for the
 
 (defvar emacspeak-eww-marks-loaded-p nil
   "Record if EWW Marks are loaded.")
-
-
 
 (defun emacspeak-eww-open-mark (name &optional delete)
   "Open specified EWW marked location.
@@ -1952,11 +1951,8 @@ With optional interactive prefix arg `delete', delete that mark instead."
            (emacspeak-auditory-icon 'large-movement))
        'at-end))
     (funcall handler book)))))
-  
     
 (global-set-key (kbd "C-x r e") 'emacspeak-eww-open-mark)
-     
-    
         
 (defvar emacspeak-eww-marks-file
   (expand-file-name "eww-marks" emacspeak-resource-directory)
@@ -1965,8 +1961,7 @@ With optional interactive prefix arg `delete', delete that mark instead."
 (defun emacspeak-eww-marks-save ()
   "Save Emacspeak EWW marks."
   (interactive)
-  (declare (special emacspeak-eww-marks-file
-                    emacspeak-eww-marks-modified-p))
+  (declare (special emacspeak-eww-marks-file emacspeak-eww-marks-modified-p))
   (when emacspeak-eww-marks-modified-p
     (setq emacspeak-eww-marks-modified-p nil)
   (let ((buffer (find-file-noselect emacspeak-eww-marks-file))
