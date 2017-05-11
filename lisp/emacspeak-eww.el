@@ -1899,7 +1899,7 @@ Warning, this is fragile, and depends on a stable id for the
             :point (point))))
       (puthash  name bm emacspeak-eww-marks)
       (emacspeak-auditory-icon 'mark-object)
-      (message "Created Emacspeak EWW mark."))
+      (message "Created  EWW mark %s." name))
     (setq emacspeak-eww-marks-modified-p t))
 
 (defun emacspeak-eww-delete-mark (name)
