@@ -648,6 +648,7 @@ are available are cued by an auditory icon on the header line."
      ("s" eww-readable)
      ("t" emacspeak-eww-next-table)
      ("M-t" emacspeak-eww-update-title)
+     ("m" emacspeak-eww-add-mark)
      )
    do
    (emacspeak-keymap-update eww-mode-map binding)))
@@ -1923,7 +1924,7 @@ Warning, this is fragile, and depends on a stable id for the
     (funcall handler book)))
   
     
-    (cond
+(global-set-key (kbd "C-x r e") 'emacspeak-eww-open-mark)
      
     
         
