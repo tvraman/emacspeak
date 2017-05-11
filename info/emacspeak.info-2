@@ -154,7 +154,24 @@ higher.
      Download Daisy version of book under point.
      Target location is generated from author and title.
 
-12.26.1.13 emacspeak-bookshare-download-internal
+12.26.1.13 emacspeak-bookshare-download-epub-3
+..............................................
+
+ -- Command: emacspeak-bookshare-download-epub-3 (id target)
+
+     Download epub-3 format of specified book to target location.
+
+     (fn ID TARGET)
+
+12.26.1.14 emacspeak-bookshare-download-epub-3-at-point
+.......................................................
+
+ -- Command: emacspeak-bookshare-download-epub-3-at-point
+
+     Download epub-3 version of book under point.
+     Target location is generated from author and title.
+
+12.26.1.15 emacspeak-bookshare-download-internal
 ................................................
 
  -- Command: emacspeak-bookshare-download-internal (url target)
@@ -163,7 +180,7 @@ higher.
 
      (fn URL TARGET)
 
-12.26.1.14 emacspeak-bookshare-eww
+12.26.1.16 emacspeak-bookshare-eww
 ..................................
 
  -- Command: emacspeak-bookshare-eww (directory)
@@ -172,7 +189,7 @@ higher.
 
      (fn DIRECTORY)
 
-12.26.1.15 emacspeak-bookshare-expand-at-point
+12.26.1.17 emacspeak-bookshare-expand-at-point
 ..............................................
 
  -- Command: emacspeak-bookshare-expand-at-point
@@ -180,7 +197,7 @@ higher.
      Expand entry at point by retrieving metadata.
      Once retrieved, memoize to avoid multiple retrievals.
 
-12.26.1.16 emacspeak-bookshare-extract-and-view
+12.26.1.18 emacspeak-bookshare-extract-and-view
 ...............................................
 
  -- Command: emacspeak-bookshare-extract-and-view (url)
@@ -189,7 +206,7 @@ higher.
 
      (fn URL)
 
-12.26.1.17 emacspeak-bookshare-extract-xml
+12.26.1.19 emacspeak-bookshare-extract-xml
 ..........................................
 
  -- Command: emacspeak-bookshare-extract-xml (url)
@@ -198,7 +215,7 @@ higher.
 
      (fn URL)
 
-12.26.1.18 emacspeak-bookshare-flush-lines
+12.26.1.20 emacspeak-bookshare-flush-lines
 ..........................................
 
  -- Command: emacspeak-bookshare-flush-lines (regexp)
@@ -207,7 +224,7 @@ higher.
 
      (fn REGEXP)
 
-12.26.1.19 emacspeak-bookshare-fulltext
+12.26.1.21 emacspeak-bookshare-fulltext
 .......................................
 
  -- Command: emacspeak-bookshare-fulltext (directory)
@@ -217,7 +234,7 @@ higher.
 
      (fn DIRECTORY)
 
-12.26.1.20 emacspeak-bookshare-fulltext-search
+12.26.1.22 emacspeak-bookshare-fulltext-search
 ..............................................
 
  -- Command: emacspeak-bookshare-fulltext-search (query)
@@ -226,14 +243,14 @@ higher.
 
      (fn QUERY)
 
-12.26.1.21 emacspeak-bookshare-get-more-results
+12.26.1.23 emacspeak-bookshare-get-more-results
 ...............................................
 
  -- Command: emacspeak-bookshare-get-more-results
 
      Get next page of results for last query.
 
-12.26.1.22 emacspeak-bookshare-id-search
+12.26.1.24 emacspeak-bookshare-id-search
 ........................................
 
  -- Command: emacspeak-bookshare-id-search (query)
@@ -242,7 +259,7 @@ higher.
 
      (fn QUERY)
 
-12.26.1.23 emacspeak-bookshare-isbn-search
+12.26.1.25 emacspeak-bookshare-isbn-search
 ..........................................
 
  -- Command: emacspeak-bookshare-isbn-search (query)
@@ -251,14 +268,14 @@ higher.
 
      (fn QUERY)
 
-12.26.1.24 emacspeak-bookshare-list-preferences
+12.26.1.26 emacspeak-bookshare-list-preferences
 ...............................................
 
  -- Command: emacspeak-bookshare-list-preferences
 
      Return preference list.
 
-12.26.1.25 emacspeak-bookshare-mode
+12.26.1.27 emacspeak-bookshare-mode
 ...................................
 
  -- Command: emacspeak-bookshare-mode
@@ -294,6 +311,7 @@ higher.
      SPC		emacspeak-bookshare-expand-at-point
      +		emacspeak-bookshare-action
      /		emacspeak-bookshare-action
+     3		emacspeak-bookshare-download-epub-3-at-point
      A		emacspeak-bookshare-download-audio-at-point
      B		emacspeak-bookshare-download-brf-at-point
      C		emacspeak-bookshare-fulltext
@@ -328,28 +346,28 @@ higher.
      this mode runs the hook ‘emacspeak-bookshare-mode-hook’, as the final or penultimate step
      during initialization.
 
-12.26.1.26 emacspeak-bookshare-next-result
+12.26.1.28 emacspeak-bookshare-next-result
 ..........................................
 
  -- Command: emacspeak-bookshare-next-result
 
      Move to next result.
 
-12.26.1.27 emacspeak-bookshare-periodical-list
+12.26.1.29 emacspeak-bookshare-periodical-list
 ..............................................
 
  -- Command: emacspeak-bookshare-periodical-list
 
      Return list of periodicals.
 
-12.26.1.28 emacspeak-bookshare-previous-result
+12.26.1.30 emacspeak-bookshare-previous-result
 ..............................................
 
  -- Command: emacspeak-bookshare-previous-result
 
      Move to previous result.
 
-12.26.1.29 emacspeak-bookshare-set-preference
+12.26.1.31 emacspeak-bookshare-set-preference
 .............................................
 
  -- Command: emacspeak-bookshare-set-preference (preference-id value)
@@ -358,14 +376,14 @@ higher.
 
      (fn PREFERENCE-ID VALUE)
 
-12.26.1.30 emacspeak-bookshare-sign-out
+12.26.1.32 emacspeak-bookshare-sign-out
 .......................................
 
  -- Command: emacspeak-bookshare-sign-out
 
      Sign out, clearing password.
 
-12.26.1.31 emacspeak-bookshare-since-search
+12.26.1.33 emacspeak-bookshare-since-search
 ...........................................
 
  -- Command: emacspeak-bookshare-since-search (query &optional category)
@@ -375,7 +393,7 @@ higher.
 
      (fn QUERY &optional CATEGORY)
 
-12.26.1.32 emacspeak-bookshare-title-search
+12.26.1.34 emacspeak-bookshare-title-search
 ...........................................
 
  -- Command: emacspeak-bookshare-title-search (query &optional category)
@@ -385,7 +403,7 @@ higher.
 
      (fn QUERY &optional CATEGORY)
 
-12.26.1.33 emacspeak-bookshare-toc
+12.26.1.35 emacspeak-bookshare-toc
 ..................................
 
  -- Command: emacspeak-bookshare-toc (directory)
@@ -394,7 +412,7 @@ higher.
 
      (fn DIRECTORY)
 
-12.26.1.34 emacspeak-bookshare-toc-at-point
+12.26.1.36 emacspeak-bookshare-toc-at-point
 ...........................................
 
  -- Command: emacspeak-bookshare-toc-at-point
@@ -402,14 +420,14 @@ higher.
      View TOC for book at point.
      Make sure it’s downloaded and unpacked first.
 
-12.26.1.35 emacspeak-bookshare-unpack-at-point
+12.26.1.37 emacspeak-bookshare-unpack-at-point
 ..............................................
 
  -- Command: emacspeak-bookshare-unpack-at-point
 
      Unpack downloaded content if necessary.
 
-12.26.1.36 emacspeak-bookshare-url-executor
+12.26.1.38 emacspeak-bookshare-url-executor
 ...........................................
 
  -- Command: emacspeak-bookshare-url-executor (url)
@@ -418,7 +436,7 @@ higher.
 
      (fn URL)
 
-12.26.1.37 emacspeak-bookshare-version-handler
+12.26.1.39 emacspeak-bookshare-version-handler
 ..............................................
 
  -- Command: emacspeak-bookshare-version-handler (&rest ignore)
@@ -428,7 +446,7 @@ higher.
 
      (fn &rest IGNORE)
 
-12.26.1.38 emacspeak-bookshare-view
+12.26.1.40 emacspeak-bookshare-view
 ...................................
 
  -- Command: emacspeak-bookshare-view (directory)
@@ -437,7 +455,7 @@ higher.
 
      (fn DIRECTORY)
 
-12.26.1.39 emacspeak-bookshare-view-at-point
+12.26.1.41 emacspeak-bookshare-view-at-point
 ............................................
 
  -- Command: emacspeak-bookshare-view-at-point
@@ -445,7 +463,7 @@ higher.
      View book at point.
      Make sure it’s downloaded and unpacked first.
 
-12.26.1.40 emacspeak-bookshare-view-page-range
+12.26.1.42 emacspeak-bookshare-view-page-range
 ..............................................
 
  -- Command: emacspeak-bookshare-view-page-range (url)
@@ -3060,7 +3078,40 @@ prefix-key ‘G’.
 12.73.6 emacspeak-eww Commands
 ------------------------------
 
-12.73.6.1 emacspeak-eww-google-knowledge-card
+12.73.6.1 emacspeak-eww-add-mark
+................................
+
+ -- Command: emacspeak-eww-add-mark (name &optional delete)
+
+     Interactively add a bookmark with name title+‘name’ at current position.
+     Optional prefix arg deletes the mark.
+
+     (fn NAME &optional DELETE)
+
+12.73.6.2 emacspeak-eww-bookmarks-load
+......................................
+
+ -- Command: emacspeak-eww-bookmarks-load
+
+     Load saved bookmarks.
+
+12.73.6.3 emacspeak-eww-bookmarks-save
+......................................
+
+ -- Command: emacspeak-eww-bookmarks-save
+
+     Save Emacspeak EWW marks.
+
+12.73.6.4 emacspeak-eww-delete-mark
+...................................
+
+ -- Command: emacspeak-eww-delete-mark (name)
+
+     Interactively delete a bookmark with name title+‘name’ at current position.
+
+     (fn NAME)
+
+12.73.6.5 emacspeak-eww-google-knowledge-card
 .............................................
 
  -- Command: emacspeak-eww-google-knowledge-card
@@ -3069,7 +3120,7 @@ prefix-key ‘G’.
      Warning, this is fragile, and depends on a stable id for the
        knowledge card.
 
-12.73.6.2 emacspeak-eww-links-rel
+12.73.6.6 emacspeak-eww-links-rel
 .................................
 
  -- Command: emacspeak-eww-links-rel
@@ -3077,14 +3128,14 @@ prefix-key ‘G’.
      Display Link tags of type rel.  Web pages for which alternate links
      are available are cued by an auditory icon on the header line.
 
-12.73.6.3 emacspeak-eww-masquerade
+12.73.6.7 emacspeak-eww-masquerade
 ..................................
 
  -- Command: emacspeak-eww-masquerade
 
      Toggle masquerade state.
 
-12.73.6.4 emacspeak-eww-next-element
+12.73.6.8 emacspeak-eww-next-element
 ....................................
 
  -- Command: emacspeak-eww-next-element (el)
@@ -3093,15 +3144,15 @@ prefix-key ‘G’.
 
      (fn EL)
 
-12.73.6.5 emacspeak-eww-next-element-from-history
+12.73.6.9 emacspeak-eww-next-element-from-history
 .................................................
 
  -- Command: emacspeak-eww-next-element-from-history
 
      Uses element navigation history to decide where we jump.
 
-12.73.6.6 emacspeak-eww-next-element-like-this
-..............................................
+12.73.6.10 emacspeak-eww-next-element-like-this
+...............................................
 
  -- Command: emacspeak-eww-next-element-like-this (element)
 
@@ -3110,31 +3161,31 @@ prefix-key ‘G’.
 
      (fn ELEMENT)
 
-12.73.6.7 emacspeak-eww-next-h
-..............................
+12.73.6.11 emacspeak-eww-next-h
+...............................
 
  -- Command: emacspeak-eww-next-h (&optional speak)
 
      Move forward to the next h.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.8 emacspeak-eww-next-h1
-...............................
+12.73.6.12 emacspeak-eww-next-h1
+................................
 
  -- Command: emacspeak-eww-next-h1 (&optional speak)
 
      Move forward to the next h1.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.9 emacspeak-eww-next-h2
-...............................
+12.73.6.13 emacspeak-eww-next-h2
+................................
 
  -- Command: emacspeak-eww-next-h2 (&optional speak)
 
      Move forward to the next h2.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.10 emacspeak-eww-next-h3
+12.73.6.14 emacspeak-eww-next-h3
 ................................
 
  -- Command: emacspeak-eww-next-h3 (&optional speak)
@@ -3142,7 +3193,7 @@ prefix-key ‘G’.
      Move forward to the next h3.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.11 emacspeak-eww-next-h4
+12.73.6.15 emacspeak-eww-next-h4
 ................................
 
  -- Command: emacspeak-eww-next-h4 (&optional speak)
@@ -3150,7 +3201,7 @@ prefix-key ‘G’.
      Move forward to the next h4.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.12 emacspeak-eww-next-h5
+12.73.6.16 emacspeak-eww-next-h5
 ................................
 
  -- Command: emacspeak-eww-next-h5 (&optional speak)
@@ -3158,7 +3209,7 @@ prefix-key ‘G’.
      Move forward to the next h5.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.13 emacspeak-eww-next-h6
+12.73.6.17 emacspeak-eww-next-h6
 ................................
 
  -- Command: emacspeak-eww-next-h6 (&optional speak)
@@ -3166,7 +3217,7 @@ prefix-key ‘G’.
      Move forward to the next h6.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.14 emacspeak-eww-next-li
+12.73.6.18 emacspeak-eww-next-li
 ................................
 
  -- Command: emacspeak-eww-next-li (&optional speak)
@@ -3174,7 +3225,7 @@ prefix-key ‘G’.
      Move forward to the next li.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.15 emacspeak-eww-next-ol
+12.73.6.19 emacspeak-eww-next-ol
 ................................
 
  -- Command: emacspeak-eww-next-ol (&optional speak)
@@ -3182,7 +3233,7 @@ prefix-key ‘G’.
      Move forward to the next ol.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.16 emacspeak-eww-next-p
+12.73.6.20 emacspeak-eww-next-p
 ...............................
 
  -- Command: emacspeak-eww-next-p (&optional speak)
@@ -3190,7 +3241,7 @@ prefix-key ‘G’.
      Move forward to the next p.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.17 emacspeak-eww-next-table
+12.73.6.21 emacspeak-eww-next-table
 ...................................
 
  -- Command: emacspeak-eww-next-table (&optional speak)
@@ -3198,7 +3249,7 @@ prefix-key ‘G’.
      Move forward to the next table.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.18 emacspeak-eww-next-ul
+12.73.6.22 emacspeak-eww-next-ul
 ................................
 
  -- Command: emacspeak-eww-next-ul (&optional speak)
@@ -3206,7 +3257,17 @@ prefix-key ‘G’.
      Move forward to the next ul.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.19 emacspeak-eww-phantom
+12.73.6.23 emacspeak-eww-open-mark
+..................................
+
+ -- Command: emacspeak-eww-open-mark (name)
+     ‘C-x r e’
+
+     Open specified EWW marked location.
+
+     (fn NAME)
+
+12.73.6.24 emacspeak-eww-phantom
 ................................
 
  -- Command: emacspeak-eww-phantom (url)
@@ -3215,7 +3276,7 @@ prefix-key ‘G’.
 
      (fn URL)
 
-12.73.6.20 emacspeak-eww-previous-element
+12.73.6.25 emacspeak-eww-previous-element
 .........................................
 
  -- Command: emacspeak-eww-previous-element (el)
@@ -3224,14 +3285,14 @@ prefix-key ‘G’.
 
      (fn EL)
 
-12.73.6.21 emacspeak-eww-previous-element-from-history
+12.73.6.26 emacspeak-eww-previous-element-from-history
 ......................................................
 
  -- Command: emacspeak-eww-previous-element-from-history
 
      Uses element navigation history to decide where we jump.
 
-12.73.6.22 emacspeak-eww-previous-element-like-this
+12.73.6.27 emacspeak-eww-previous-element-like-this
 ...................................................
 
  -- Command: emacspeak-eww-previous-element-like-this (element)
@@ -3241,7 +3302,7 @@ prefix-key ‘G’.
 
      (fn ELEMENT)
 
-12.73.6.23 emacspeak-eww-previous-h
+12.73.6.28 emacspeak-eww-previous-h
 ...................................
 
  -- Command: emacspeak-eww-previous-h (&optional speak)
@@ -3249,7 +3310,7 @@ prefix-key ‘G’.
      Move backward to the next h.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.24 emacspeak-eww-previous-h1
+12.73.6.29 emacspeak-eww-previous-h1
 ....................................
 
  -- Command: emacspeak-eww-previous-h1 (&optional speak)
@@ -3257,7 +3318,7 @@ prefix-key ‘G’.
      Move backward to the next h1.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.25 emacspeak-eww-previous-h2
+12.73.6.30 emacspeak-eww-previous-h2
 ....................................
 
  -- Command: emacspeak-eww-previous-h2 (&optional speak)
@@ -3265,7 +3326,7 @@ prefix-key ‘G’.
      Move backward to the next h2.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.26 emacspeak-eww-previous-h3
+12.73.6.31 emacspeak-eww-previous-h3
 ....................................
 
  -- Command: emacspeak-eww-previous-h3 (&optional speak)
@@ -3273,7 +3334,7 @@ prefix-key ‘G’.
      Move backward to the next h3.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.27 emacspeak-eww-previous-h4
+12.73.6.32 emacspeak-eww-previous-h4
 ....................................
 
  -- Command: emacspeak-eww-previous-h4 (&optional speak)
@@ -3281,7 +3342,7 @@ prefix-key ‘G’.
      Move backward to the next h4.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.28 emacspeak-eww-previous-h5
+12.73.6.33 emacspeak-eww-previous-h5
 ....................................
 
  -- Command: emacspeak-eww-previous-h5 (&optional speak)
@@ -3289,7 +3350,7 @@ prefix-key ‘G’.
      Move backward to the next h5.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.29 emacspeak-eww-previous-h6
+12.73.6.34 emacspeak-eww-previous-h6
 ....................................
 
  -- Command: emacspeak-eww-previous-h6 (&optional speak)
@@ -3297,7 +3358,7 @@ prefix-key ‘G’.
      Move backward to the next h6.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.30 emacspeak-eww-previous-li
+12.73.6.35 emacspeak-eww-previous-li
 ....................................
 
  -- Command: emacspeak-eww-previous-li (&optional speak)
@@ -3305,7 +3366,7 @@ prefix-key ‘G’.
      Move backward to the next li.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.31 emacspeak-eww-previous-ol
+12.73.6.36 emacspeak-eww-previous-ol
 ....................................
 
  -- Command: emacspeak-eww-previous-ol (&optional speak)
@@ -3313,7 +3374,7 @@ prefix-key ‘G’.
      Move backward to the next ol.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.32 emacspeak-eww-previous-p
+12.73.6.37 emacspeak-eww-previous-p
 ...................................
 
  -- Command: emacspeak-eww-previous-p (&optional speak)
@@ -3321,7 +3382,7 @@ prefix-key ‘G’.
      Move backward to the next p.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.33 emacspeak-eww-previous-table
+12.73.6.38 emacspeak-eww-previous-table
 .......................................
 
  -- Command: emacspeak-eww-previous-table (&optional speak)
@@ -3329,7 +3390,7 @@ prefix-key ‘G’.
      Move backward to the next table.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.34 emacspeak-eww-previous-ul
+12.73.6.39 emacspeak-eww-previous-ul
 ....................................
 
  -- Command: emacspeak-eww-previous-ul (&optional speak)
@@ -3337,14 +3398,14 @@ prefix-key ‘G’.
      Move backward to the next ul.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.35 emacspeak-eww-restore
+12.73.6.40 emacspeak-eww-restore
 ................................
 
  -- Command: emacspeak-eww-restore
 
      Restore buffer to pre-filtered canonical state.
 
-12.73.6.36 emacspeak-eww-speak-this-element
+12.73.6.41 emacspeak-eww-speak-this-element
 ...........................................
 
  -- Command: emacspeak-eww-speak-this-element (element)
@@ -3355,21 +3416,21 @@ prefix-key ‘G’.
 
      (fn ELEMENT)
 
-12.73.6.37 emacspeak-eww-tags-at-point
+12.73.6.42 emacspeak-eww-tags-at-point
 ......................................
 
  -- Command: emacspeak-eww-tags-at-point
 
      Display tags at point.
 
-12.73.6.38 emacspeak-eww-transcode
+12.73.6.43 emacspeak-eww-transcode
 ..................................
 
  -- Command: emacspeak-eww-transcode
 
      Apply appropriate transcoding rules to current DOM.
 
-12.73.6.39 emacspeak-eww-update-title
+12.73.6.44 emacspeak-eww-update-title
 .....................................
 
  -- Command: emacspeak-eww-update-title (title)
@@ -8840,104 +8901,4 @@ explicitly to the keys.
      Speech flushes as you type.
 
      (fn &optional ARG)
-
-
-File: emacspeak.info,  Node: emacspeak-reftex,  Next: emacspeak-related,  Prev: emacspeak-redefine,  Up: Emacspeak Commands And Options
-
-12.150 emacspeak-reftex
-=======================
-
-This module speech-enables refteex – reftex is a minor mode that makes
-navigation of TeX documents possible via a table of contents buffer.
-
-
-File: emacspeak.info,  Node: emacspeak-related,  Next: emacspeak-remote,  Prev: emacspeak-reftex,  Up: Emacspeak Commands And Options
-
-12.151 emacspeak-related
-========================
-
-RELATED == Switch among related buffers (melpa).  Speech-enable
-interactive commands.
-
-
-File: emacspeak.info,  Node: emacspeak-remote,  Next: emacspeak-replace,  Prev: emacspeak-related,  Up: Emacspeak Commands And Options
-
-12.152 emacspeak-remote
-=======================
-
-In a running emacspeak session, nuke the running server and start
-talking to a remote speech server, after prompting for host and port
-
-12.152.1 emacspeak-remote Commands
-----------------------------------
-
-12.152.1.1 emacspeak-remote-connect-to-server
-.............................................
-
- -- Command: emacspeak-remote-connect-to-server (host port)
-     ‘C-e M-r’
-     ‘<fn> M-r’
-
-     Connect to and start using remote speech server running on
-     host host and listening on port port. Host is the hostname of the
-     remote server, typically the desktop machine. Port is the tcp
-     port that that host is listening on for speech requests.
-
-     (fn HOST PORT)
-
-12.152.1.2 emacspeak-remote-edit-current-remote-hostname
-........................................................
-
- -- Command: emacspeak-remote-edit-current-remote-hostname
-
-     Interactively set up where we came from.
-     Value is persisted for use with ssh servers.
-
-12.152.1.3 emacspeak-remote-home
-................................
-
- -- Command: emacspeak-remote-home
-
-     Open ssh session to where we came from.
-     Uses value returned by ‘emacspeak-remote-get-current-remote-hostname’.
-
-12.152.1.4 emacspeak-remote-quick-connect-to-server
-...................................................
-
- -- Command: emacspeak-remote-quick-connect-to-server
-     ‘C-; q’
-     ‘C-x @ h q’
-
-     Connect to remote server.
-     Does not prompt for host or port, but quietly uses the guesses
-     that appear as defaults when prompting. Use this once you are
-     sure the guesses are usually correct.
-
-12.152.1.5 emacspeak-remote-quick-connect-via-ssh
-.................................................
-
- -- Command: emacspeak-remote-quick-connect-via-ssh
-
-     Connect via ssh to remote Emacspeak server.
-     Server is specified via custom option ‘emacspeak-remote-default-ssh-server’.
-
-12.152.1.6 emacspeak-remote-ssh-to-server
-.........................................
-
- -- Command: emacspeak-remote-ssh-to-server (login host port)
-
-     Open ssh session to where we came from.
-
-     (fn LOGIN HOST PORT)
-
-12.152.2 emacspeak-remote Options
----------------------------------
-
- -- Variable: User Option emacspeak-remote-default-ssh-server
-     Default ssh server to use for remote speech server.
-
- -- Variable: User Option emacspeak-remote-hooks
-     List of hook functions that are run after emacspeak is set to run
-     as a remote application.  Use this to add actions you typically
-     perform after you enter remote mode.
 

@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1172 commands and 1098 options.
+This chapter documents a total of 1179 commands and 1098 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -5109,6 +5109,27 @@ Target location is generated from author and title.
 @end format
 @end deffn
 
+@subsubsection emacspeak-bookshare-download-epub-3
+@deffn {Command} emacspeak-bookshare-download-epub-3  (id target)
+@findex emacspeak-bookshare-download-epub-3
+
+@format
+Download epub-3 format of specified book to target location.
+
+(fn ID TARGET)
+@end format
+@end deffn
+
+@subsubsection emacspeak-bookshare-download-epub-3-at-point
+@deffn {Command} emacspeak-bookshare-download-epub-3-at-point   
+@findex emacspeak-bookshare-download-epub-3-at-point
+
+@format
+Download epub-3 version of book under point.
+Target location is generated from author and title.
+@end format
+@end deffn
+
 @subsubsection emacspeak-bookshare-download-internal
 @deffn {Command} emacspeak-bookshare-download-internal  (url target)
 @findex emacspeak-bookshare-download-internal
@@ -5273,6 +5294,7 @@ ESC		Prefix Command
 SPC		emacspeak-bookshare-expand-at-point
 +		emacspeak-bookshare-action
 /		emacspeak-bookshare-action
+3		emacspeak-bookshare-download-epub-3-at-point
 A		emacspeak-bookshare-download-audio-at-point
 B		emacspeak-bookshare-download-brf-at-point
 C		emacspeak-bookshare-fulltext
@@ -8395,6 +8417,47 @@ Follow link under point and filter by class values.
 
 @subsection emacspeak-eww Commands
 
+@subsubsection emacspeak-eww-add-mark
+@deffn {Command} emacspeak-eww-add-mark  (name &optional delete)
+@findex emacspeak-eww-add-mark
+
+@format
+Interactively add a bookmark with name title+‘name’ at current position.
+Optional prefix arg deletes the mark.
+
+(fn NAME &optional DELETE)
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-bookmarks-load
+@deffn {Command} emacspeak-eww-bookmarks-load   
+@findex emacspeak-eww-bookmarks-load
+
+@format
+Load saved bookmarks.
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-bookmarks-save
+@deffn {Command} emacspeak-eww-bookmarks-save   
+@findex emacspeak-eww-bookmarks-save
+
+@format
+Save Emacspeak EWW marks.
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-delete-mark
+@deffn {Command} emacspeak-eww-delete-mark  (name)
+@findex emacspeak-eww-delete-mark
+
+@format
+Interactively delete a bookmark with name title+‘name’ at current position.
+
+(fn NAME)
+@end format
+@end deffn
+
 @subsubsection emacspeak-eww-google-knowledge-card
 @deffn {Command} emacspeak-eww-google-knowledge-card   
 @findex emacspeak-eww-google-knowledge-card
@@ -8574,6 +8637,22 @@ Optional interactive prefix arg speaks the structural unit.
 @format
 Move forward to the next ul.
 Optional interactive prefix arg speaks the structural unit.
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-open-mark
+@deffn {Command} emacspeak-eww-open-mark  (name)
+@table @kbd
+@item C-x r e
+@kindex C-x r e
+@end table
+
+@findex emacspeak-eww-open-mark
+
+@format
+Open specified EWW marked location.
+
+(fn NAME)
 @end format
 @end deffn
 
