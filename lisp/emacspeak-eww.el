@@ -1877,9 +1877,10 @@ Warning, this is fragile, and depends on a stable id for the
   "Stores  our EWW-specific bookmarks.")
 
 (defun emacspeak-eww-add-mark (name)
-  "Interactively add a bookmark with name `name' at current position."
+  "Interactively add a bookmark with name title+`name' at current position."
   (interactive "sBookmark Name: ")
   (declare (special emacspeak-eww-bookmarks))
+  (setq name (concat (emacspeak-eww-current-title)": " name))
   (let ((bm 
          (make-emacspeak-eww-bookmark
           :name name
