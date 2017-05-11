@@ -385,7 +385,7 @@
 
 (require 'cl-lib)
 (cl-declaim (optimize (safety 0) (speed 3)))
-
+(require 'pp)
 (eval-when-compile (require 'eww "eww" 'no-error))
 (require 'dom)
 (require 'dom-addons)
@@ -1865,25 +1865,26 @@ Warning, this is fragile, and depends on a stable id for the
 ;;{{{ eww-marks:
 
 ;;; Bookmarks for use in reading ebooks with EWW:
+;;; They are called eww-marks to distinguish them from web bookmarks 
 
-(cl-defstruct emacspeak-eww-bookmark
+(cl-defstruct emacspeak-eww-mark
   type ; daisy, epub-2, epub-3
   book ; pointer to book --- type-specific
   point ; location in book
-  name ; name of bookmark
+  name ; name of mark
   )
 
-(defvar emacspeak-eww-bookmarks (make-hash-table :test #'equal)
-  "Stores  our EWW-specific bookmarks.")
+(defvar emacspeak-eww-marks (make-hash-table :test #'equal)
+  "Stores  our EWW-specific marks.")
 
 (defun emacspeak-eww-add-mark (name )
-  "Interactively add a bookmark with name title+`name' at current position."
-  (interactive "sBookmark Name: ")
-  (declare (special emacspeak-eww-bookmarks
+  "Interactively add a mark with name title+`name' at current position."
+  (interactive "sMark Name: ")
+  (declare (special emacspeak-eww-marks
                     emacspeak-epub-this-epub emacspeak-bookshare-this-book))
     (setq name (concat (emacspeak-eww-current-title)": " name))
     (let ((bm 
-           (make-emacspeak-eww-bookmark
+           (make-emacspeak-eww-mark
             :name name
             :type 
             (cond
@@ -1892,19 +1893,19 @@ Warning, this is fragile, and depends on a stable id for the
              (t (error "Cant create an emacspeak EWW mark here.")))
             :book (or emacspeak-bookshare-this-book emacspeak-epub-this-epub)
             :point (point))))
-      (puthash  name bm emacspeak-eww-bookmarks)
+      (puthash  name bm emacspeak-eww-marks)
       (emacspeak-auditory-icon 'mark-object)
-      (message "Created Emacspeak EWW bookmark.")))
+      (message "Created Emacspeak EWW mark.")))
 
 (defun emacspeak-eww-delete-mark (name)
-  "Interactively delete a bookmark with name title+`name' at current position."
-  (interactive "sBookmark Name: ")
-  (declare (special emacspeak-eww-bookmarks))
-  (remhash name emacspeak-eww-bookmarks)
+  "Interactively delete a mark with name title+`name' at current position."
+  (interactive "sMark Name: ")
+  (declare (special emacspeak-eww-marks))
+  (remhash name emacspeak-eww-marks)
   (emacspeak-auditory-icon 'delete-object)
   (message "Removed Emacspeak EWW mark %s" name))
 
-(defvar emacspeak-eww-bookmarks-loaded-p nil
+(defvar emacspeak-eww-marks-loaded-p nil
   "Record if EWW Marks are loaded.")
 
 (defun emacspeak-eww-open-mark (name &optional delete)
@@ -1913,30 +1914,30 @@ With optional interactive prefix arg `delete', delete that mark instead."
   (interactive
    (list
     (progn
-      (unless emacspeak-eww-bookmarks-loaded-p (emacspeak-eww-bookmarks-load))
-      (when (hash-table-empty-p emacspeak-eww-bookmarks)
+      (unless emacspeak-eww-marks-loaded-p (emacspeak-eww-marks-load))
+      (when (hash-table-empty-p emacspeak-eww-marks)
         (error "No Emacspeak EWW Marks found."))
-    (completing-read "Mark: " emacspeak-eww-bookmarks))
+    (completing-read "Mark: " emacspeak-eww-marks))
     current-prefix-arg))
-  (declare (special emacspeak-eww-bookmarks))
+  (declare (special emacspeak-eww-marks))
   (cond
    (delete (emacspeak-eww-delete-mark name))
    (t
-    (let ((bm (gethash name emacspeak-eww-bookmarks))
+    (let ((bm (gethash name emacspeak-eww-marks))
         (handler nil)
         (type nil)
         (point nil)
         (book nil))
-    (setq type (emacspeak-eww-bookmark-type bm))
-    (cl-assert  type nil "Bookmark type is not set.")
-    (setq book (emacspeak-eww-bookmark-book bm))
+    (setq type (emacspeak-eww-mark-type bm))
+    (cl-assert  type nil "Mark type is not set.")
+    (setq book (emacspeak-eww-mark-book bm))
     (cl-assert book nil "Book not set.")
     (setq handler 
           (cond
            ((eq type 'daisy) #'emacspeak-bookshare-eww)
            ((eq type 'epub) #'emacspeak-epub-eww)
            (t (error "Unknown book type."))))
-    (setq point (emacspeak-eww-bookmark-point bm))
+    (setq point (emacspeak-eww-mark-point bm))
     (when point 
       (add-hook
        'emacspeak-web-post-process-hook
@@ -1951,34 +1952,34 @@ With optional interactive prefix arg `delete', delete that mark instead."
      
     
         
-(defvar emacspeak-eww-bookmarks-file
+(defvar emacspeak-eww-marks-file
   (expand-file-name "eww-marks" emacspeak-resource-directory)
   "File where we save EWW marks.")
 
-(defun emacspeak-eww-bookmarks-save ()
+(defun emacspeak-eww-marks-save ()
   "Save Emacspeak EWW marks."
   (interactive)
-  (declare (special emacspeak-eww-bookmarks-file))
-  (let ((buffer (find-file-noselect emacspeak-eww-bookmarks-file))
+  (declare (special emacspeak-eww-marks-file))
+  (let ((buffer (find-file-noselect emacspeak-eww-marks-file))
         (print-length nil)
         (print-level nil))
     (with-current-buffer buffer
       (insert  ";;; Auto-generated.\n\n")
-      (insert "(setq emacspeak-eww-bookmarks \n")
-      (pp emacspeak-eww-bookmarks (current-buffer))
+      (insert "(setq emacspeak-eww-marks \n")
+      (pp emacspeak-eww-marks (current-buffer))
       (insert ") ;;; set hash table\n\n")
       (save-buffer))
     (message "Saved Emacspeak EWW  marks.")
     (emacspeak-auditory-icon 'save-object)))
 
-(defun emacspeak-eww-bookmarks-load ()
-  "Load saved bookmarks."
+(defun emacspeak-eww-marks-load ()
+  "Load saved marks."
   (interactive)
-  (declare (special emacspeak-eww-bookmarks-file
-                    emacspeak-eww-bookmarks-loaded-p))
-  (when (file-exists-p emacspeak-eww-bookmarks-file)
-    (load-file emacspeak-eww-bookmarks-file)
-    (setq emacspeak-eww-bookmarks-loaded-p t)))
+  (declare (special emacspeak-eww-marks-file
+                    emacspeak-eww-marks-loaded-p))
+  (when (file-exists-p emacspeak-eww-marks-file)
+    (load-file emacspeak-eww-marks-file)
+    (setq emacspeak-eww-marks-loaded-p t)))
 
 ;;}}}
 (provide 'emacspeak-eww)
