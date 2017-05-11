@@ -1897,12 +1897,12 @@ Warning, this is fragile, and depends on a stable id for the
 (defun emacspeak-eww-open-mark (name)
   "Open specified EWW marked location."
   (interactive
-   (list
-    (completing-read "Mark: " emacspeak-eww-bookmarks)))
+   (list (completing-read "Mark: " emacspeak-eww-bookmarks)))
   (declare (special emacspeak-eww-bookmarks))
   (let ((bm (gethash name emacspeak-eww-bookmarks))
         (handler nil)
         (type nil)
+        (point nil)
         (book nil))
     (setq type (emacspeak-eww-bookmark-type bm))
     (cl-assert  type nil "Bookmark type is not set.")
@@ -1915,13 +1915,12 @@ Warning, this is fragile, and depends on a stable id for the
            (t (error "Unknown book type."))))
     (setq point (emacspeak-eww-bookmark-point bm))
     (when point 
-    (add-hook
-     'emacspeak-web-post-process-hook
-     #'(lambda ()
-         (goto-char point))
-     (emacspeak-auditory-icon 'large-movement)
-     
-     'at-end))
+      (add-hook
+       'emacspeak-web-post-process-hook
+       #'(lambda ()
+           (goto-char point)
+           (emacspeak-auditory-icon 'large-movement))
+       'at-end))
     (funcall handler book)))
   
     
