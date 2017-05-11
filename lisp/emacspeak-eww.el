@@ -1880,24 +1880,25 @@ Warning, this is fragile, and depends on a stable id for the
   "Interactively add a bookmark with name title+`name' at current position.
 Optional prefix arg deletes the mark."
   (interactive "sBookmark Name: ")
-  (declare (special emacspeak-eww-bookmarks))
+  (declare (special emacspeak-eww-bookmarks
+                    emacspeak-epub-this-epub emacspeak-bookshare-this-book))
   (cond
    (delete (emacspeak-eww-delete-mark name))
    (t 
     (setq name (concat (emacspeak-eww-current-title)": " name))
-  (let ((bm 
-         (make-emacspeak-eww-bookmark
-          :name name
-          :type 
-          (cond
-           ((bound-and-true-p emacspeak-epub-this-epub)'epub)
-           ((bound-and-true-p emacspeak-bookshare-this-book)'daisy)
-           (t (error "Cant create an emacspeak EWW mark here.")))
-          :book (or emacspeak-bookshare-this-book emacspeak-epub-this-epub)
-          :point (point))))
-    (puthash  name bm emacspeak-eww-bookmarks)
-    (emacspeak-auditory-icon 'mark-object)
-    (message "Created Emacspeak EWW bookmark.")))))
+    (let ((bm 
+           (make-emacspeak-eww-bookmark
+            :name name
+            :type 
+            (cond
+             ((bound-and-true-p emacspeak-epub-this-epub)'epub)
+             ((bound-and-true-p emacspeak-bookshare-this-book)'daisy)
+             (t (error "Cant create an emacspeak EWW mark here.")))
+            :book (or emacspeak-bookshare-this-book emacspeak-epub-this-epub)
+            :point (point))))
+      (puthash  name bm emacspeak-eww-bookmarks)
+      (emacspeak-auditory-icon 'mark-object)
+      (message "Created Emacspeak EWW bookmark.")))))
 (defun emacspeak-eww-delete-mark (name)
   "Interactively delete a bookmark with name title+`name' at current position."
   (interactive "sBookmark Name: ")
