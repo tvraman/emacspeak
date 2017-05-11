@@ -1876,11 +1876,14 @@ Warning, this is fragile, and depends on a stable id for the
 
 (defvar emacspeak-eww-marks (make-hash-table :test #'equal)
   "Stores  our EWW-specific marks.")
+(defvar emacspeak-eww-marks-modified-p nil
+  "Record if eww-marks have been modified in this session.")
 
 (defun emacspeak-eww-add-mark (name )
   "Interactively add a mark with name title+`name' at current position."
   (interactive "sMark Name: ")
   (declare (special emacspeak-eww-marks
+                    emacspeak-eww-marks-modified-p
                     emacspeak-epub-this-epub emacspeak-bookshare-this-book))
     (setq name (concat (emacspeak-eww-current-title)": " name))
     (let ((bm 
@@ -1895,7 +1898,8 @@ Warning, this is fragile, and depends on a stable id for the
             :point (point))))
       (puthash  name bm emacspeak-eww-marks)
       (emacspeak-auditory-icon 'mark-object)
-      (message "Created Emacspeak EWW mark.")))
+      (message "Created Emacspeak EWW mark."))
+    (setq emacspeak-eww-marks-modified-p t))
 
 (defun emacspeak-eww-delete-mark (name)
   "Interactively delete a mark with name title+`name' at current position."
@@ -1907,6 +1911,8 @@ Warning, this is fragile, and depends on a stable id for the
 
 (defvar emacspeak-eww-marks-loaded-p nil
   "Record if EWW Marks are loaded.")
+
+
 
 (defun emacspeak-eww-open-mark (name &optional delete)
   "Open specified EWW marked location.
@@ -1959,7 +1965,10 @@ With optional interactive prefix arg `delete', delete that mark instead."
 (defun emacspeak-eww-marks-save ()
   "Save Emacspeak EWW marks."
   (interactive)
-  (declare (special emacspeak-eww-marks-file))
+  (declare (special emacspeak-eww-marks-file
+                    emacspeak-eww-marks-modified-p))
+  (when emacspeak-eww-marks-modified-p
+    (setq emacspeak-eww-marks-modified-p nil)
   (let ((buffer (find-file-noselect emacspeak-eww-marks-file))
         (print-length nil)
         (print-level nil))
@@ -1970,13 +1979,19 @@ With optional interactive prefix arg `delete', delete that mark instead."
       (insert ") ;;; set hash table\n\n")
       (save-buffer))
     (message "Saved Emacspeak EWW  marks.")
-    (emacspeak-auditory-icon 'save-object)))
+    (emacspeak-auditory-icon 'save-object))))
+
+(defvar emacspeak-eww-save-marks-timer nil
+  "Idle timer for saving EWW marks.")
 
 (defun emacspeak-eww-marks-load ()
   "Load saved marks."
   (interactive)
   (declare (special emacspeak-eww-marks-file
+                    emacspeak-eww-save-marks-timer
                     emacspeak-eww-marks-loaded-p))
+  (setq emacspeak-eww-save-marks-timer
+        (run-with-idle-timer 1800 t #'emacspeak-eww-marks-save))
   (when (file-exists-p emacspeak-eww-marks-file)
     (load-file emacspeak-eww-marks-file)
     (setq emacspeak-eww-marks-loaded-p t)))
