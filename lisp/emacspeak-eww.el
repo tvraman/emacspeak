@@ -1871,6 +1871,63 @@ Warning, this is fragile, and depends on a stable id for the
   point ; location in book
   name ; name of bookmark
   )
+
+(defvar emacspeak-eww-bookmarks (make-hash-table :test #'equal)
+  "Stores  our EWW-specific bookmarks.")
+
+(defun emacspeak-eww-add-mark (name)
+  "Interactively add a bookmark with name `name' at current position."
+  (interactive "sBookmark Name: ")
+  (declare (special emacspeak-eww-bookmarks))
+  (let ((bm 
+         (make-emacspeak-eww-bookmark
+          :name name
+          :type 
+          (cond
+          ((bound-and-true-p emacspeak-epub-this-epub)'epub)
+          ((bound-and-true-p emacspeak-bookshare-this-book)'daisy))
+          :book (or emacspeak-bookshare-this-book emacspeak-epub-this-epub)
+          :point (point))))
+    (puthash  name bm emacspeak-eww-bookmarks)
+    (emacspeak-auditory-icon 'mark-object)
+    (message "Created Emacspeak EWW bookmark.")))
+
+(defun emacspeak-eww-open-mark (name)
+  "Open specified EWW marked location."
+  (interactive
+   (list
+    (completing-read "Mark: " emacspeak-eww-bookmarks)))
+  (declare (special emacspeak-eww-bookmarks))
+  (let ((bm (gethash name emacspeak-eww-bookmarks))
+        (handler nil)
+        (type nil)
+        (book nil))
+    (setq type (emacspeak-eww-bookmark-type bm))
+    (cl-assert  type nil "Bookmark type is not set.")
+    (setq book (emacspeak-eww-bookmark-book bm))
+    (cl-assert book nil "Book not set.")
+    (setq handler 
+          (cond
+           ((eq type 'daisy) #'emacspeak-bookshare-eww)
+           ((eq type 'epub) #'emacspeak-epub-eww)
+           (t (error "Unknown book type."))))
+    (setq point (emacspeak-eww-bookmark-point bm))
+    (when point 
+    (add-hook
+     'emacspeak-web-post-process-hook
+     #'(lambda ()
+         (goto-char point))
+     (emacspeak-auditory-icon 'large-movement)
+     
+     'at-end))
+    (funcall handler book)))
+  
+    
+    (cond
+     
+    
+        
+
 ;;}}}
 (provide 'emacspeak-eww)
 ;;{{{ end of file
