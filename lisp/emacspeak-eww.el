@@ -1876,15 +1876,11 @@ Warning, this is fragile, and depends on a stable id for the
 (defvar emacspeak-eww-bookmarks (make-hash-table :test #'equal)
   "Stores  our EWW-specific bookmarks.")
 
-(defun emacspeak-eww-add-mark (name &optional delete)
-  "Interactively add a bookmark with name title+`name' at current position.
-Optional prefix arg deletes the mark."
+(defun emacspeak-eww-add-mark (name )
+  "Interactively add a bookmark with name title+`name' at current position."
   (interactive "sBookmark Name: ")
   (declare (special emacspeak-eww-bookmarks
                     emacspeak-epub-this-epub emacspeak-bookshare-this-book))
-  (cond
-   (delete (emacspeak-eww-delete-mark name))
-   (t 
     (setq name (concat (emacspeak-eww-current-title)": " name))
     (let ((bm 
            (make-emacspeak-eww-bookmark
@@ -1898,7 +1894,8 @@ Optional prefix arg deletes the mark."
             :point (point))))
       (puthash  name bm emacspeak-eww-bookmarks)
       (emacspeak-auditory-icon 'mark-object)
-      (message "Created Emacspeak EWW bookmark.")))))
+      (message "Created Emacspeak EWW bookmark.")))
+
 (defun emacspeak-eww-delete-mark (name)
   "Interactively delete a bookmark with name title+`name' at current position."
   (interactive "sBookmark Name: ")
@@ -1910,17 +1907,22 @@ Optional prefix arg deletes the mark."
 (defvar emacspeak-eww-bookmarks-loaded-p nil
   "Record if EWW Marks are loaded.")
 
-(defun emacspeak-eww-open-mark (name)
-  "Open specified EWW marked location."
+(defun emacspeak-eww-open-mark (name &optional delete)
+  "Open specified EWW marked location.
+With optional interactive prefix arg `delete', delete that mark instead."
   (interactive
    (list
     (progn
       (unless emacspeak-eww-bookmarks-loaded-p (emacspeak-eww-bookmarks-load))
       (when (hash-table-empty-p emacspeak-eww-bookmarks)
         (error "No Emacspeak EWW Marks found."))
-    (completing-read "Mark: " emacspeak-eww-bookmarks))))
+    (completing-read "Mark: " emacspeak-eww-bookmarks))
+    current-prefix-arg))
   (declare (special emacspeak-eww-bookmarks))
-  (let ((bm (gethash name emacspeak-eww-bookmarks))
+  (cond
+   (delete (emacspeak-eww-delete-mark name))
+   (t
+    (let ((bm (gethash name emacspeak-eww-bookmarks))
         (handler nil)
         (type nil)
         (point nil)
@@ -1942,7 +1944,7 @@ Optional prefix arg deletes the mark."
            (goto-char point)
            (emacspeak-auditory-icon 'large-movement))
        'at-end))
-    (funcall handler book)))
+    (funcall handler book)))))
   
     
 (global-set-key (kbd "C-x r e") 'emacspeak-eww-open-mark)
