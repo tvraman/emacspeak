@@ -1869,7 +1869,8 @@ Warning, this is fragile, and depends on a stable id for the
   type ; daisy, epub-2, epub-3
   book ; pointer to book --- type-specific
   point ; location in book
-  name ; name of bookmark)
+  name ; name of bookmark
+  )
 ;;}}}
 (provide 'emacspeak-eww)
 ;;{{{ end of file
