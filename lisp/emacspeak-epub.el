@@ -682,7 +682,7 @@ Suitable for text searches."
            (setq
             emacspeak-epub-this-epub epub-file
             default-directory directory)
-           (when (file-exists-p locals )(load locals))
+           (when (and locals (file-exists-p locals))(load locals))
            (emacspeak-auditory-icon 'open-object)
            (emacspeak-speak-mode-line))
        'at-end)
