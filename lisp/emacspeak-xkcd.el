@@ -99,7 +99,13 @@
     (goto-char (point-min))
     (emacspeak-auditory-icon 'open-object)
     (emacspeak-speak-buffer)))
+;;{{{ Advice browse-url-default-browser:
 
+(defadvice browse-url-default-browser (around emacspeak pre act comp)
+  "Use Emacs browser --- rather than an external browser."
+  (eww-browse-url (ad-get-arg 0)))
+
+;;}}}
 (defun emacspeak-xkcd-open-explanation-browser ()
   "Open explanation of current xkcd in default browser"
   (interactive)

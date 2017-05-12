@@ -1868,13 +1868,6 @@ Warning, this is fragile, and depends on a stable id for the
   (emacspeak-speak-header-line))
 
 ;;}}}
-;;{{{ Advice browse-url-default-browser:
-
-(defadvice browse-url-default-browser (around emacspeak pre act comp)
-  "Use Emacs browser --- rather than an external browser."
-  (eww-browse-url (ad-get-arg 0)))
-
-;;}}}
 ;;{{{ eww-marks:
 
 ;;; Bookmarks for use in reading ebooks with EWW:
