@@ -1,4 +1,8 @@
 #$Id$
+# Note: Building the info pages requires package hydra to be installed.
+# Built info pages are checked into GitHub.
+# You should need to rebuild info files
+#*only* if you change the Emacspeak Lisp sources.
 #http://emacspeak.sf.net/info
 SF_HOME= raman,emacspeak@web.sourceforge.net:/home/groups/e/em/emacspeak/htdocs/info
 #https://tvraman.github.io/emacspeak/manual
