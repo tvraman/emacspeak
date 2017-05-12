@@ -53,7 +53,7 @@
 (defvar emacspeak-resource-directory (expand-file-name "~/.emacspeak")
   "Directory where Emacspeak resource files such as pronunciation dictionaries are stored. ")
 
-(setq byte-compile-warnings t)
+
 ;;{{{ Interactive Check Implementation:
 
 ;;; Notes:
