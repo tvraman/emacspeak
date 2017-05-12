@@ -68,6 +68,28 @@
 
 ;;}}}
 ;;{{{ macros
+(defmacro tts-with-voice (voice &rest body)
+  "Set voice temporarily and execute body."
+  `(progn
+(dtk-interp-queue-code (tts-voice-reset-code))
+    (dtk-interp-queue-code
+     (cond
+      ((symbolp ,voice)
+       (tts-get-voice-command
+        (if (boundp  ,voice)
+            (symbol-value ,voice)
+          ,voice)))
+      ((listp ,voice)
+       (mapconcat  #'(lambda (v)
+                       (tts-get-voice-command
+                        (if (boundp  v)
+                            (symbol-value v)
+                          v)))
+                   ,voice
+                   " "))
+      (t       "")))
+    ,@body
+    (dtk-interp-queue-code (tts-voice-reset-code))))  
 
 (defmacro tts-with-punctuations (setting &rest body)
   "Safely set punctuation mode for duration of body form."
