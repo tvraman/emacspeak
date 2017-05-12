@@ -1319,7 +1319,9 @@ Useful for fulltext search in a book."
       (add-hook
        'emacspeak-web-post-process-hook
        #'(lambda nil
-           (setq emacspeak-bookshare-this-book directory)))
+           (setq emacspeak-bookshare-this-book directory)
+           (emacspeak-auditory-icon 'open-object)
+           (emacspeak-speak-mode-line)))
       (browse-url-of-buffer)
       (kill-buffer buffer))))
 
