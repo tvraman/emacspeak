@@ -8479,8 +8479,9 @@ Optional interactive prefix arg speaks the structural unit.
 @findex emacspeak-eww-open-mark
 
 @format
-Open specified EWW marked location.
-With optional interactive prefix arg ‘delete’, delete that mark instead.
+Open specified EWW marked location. If the content is already being
+displayed in this Emacs session, jump to it directly. With optional
+interactive prefix arg ‘delete’, delete that mark instead.
 
 (fn NAME &optional DELETE)
 @end format
