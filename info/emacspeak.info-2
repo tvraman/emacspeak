@@ -2586,10 +2586,24 @@ prefix-key ‘G’.
      ‘emacspeak-we-class-filter-and-follow’ Follow link under point and
      filter by class values.
 
-12.73.6 emacspeak-eww Commands
+12.73.6 EWW And EBooks On The Emacspeak Audio Desktop
+-----------------------------------------------------
+
+Modules emacspeak-epub and emacspeak-bookshare provide EBook front-ends
+to EPub-2 and Daisy EBooks.  Both modules now use EWW to render these
+EBooks.  Module emacspeak-eww provides a simple bookmarking facility —
+called eww-marks (to avoid confusion with EWW’s Web Bookmarks).  When
+reading an EBook, you can use ‘m’ to create an EWW-mark at that
+position.  These marks are automatically saved across Emacs sessions.
+To open a previously created eww-mark, use command
+‘emacspeak-eww-open-mark’ bound to ‘C-x r e’.  This command reads a
+eww-mark name with completion.  Use this command with an interactive
+prefix arg to delete a previously created eww-mark.
+
+12.73.7 emacspeak-eww Commands
 ------------------------------
 
-12.73.6.1 emacspeak-eww-add-mark
+12.73.7.1 emacspeak-eww-add-mark
 ................................
 
  -- Command: emacspeak-eww-add-mark (name)
@@ -2598,7 +2612,7 @@ prefix-key ‘G’.
 
      (fn NAME)
 
-12.73.6.2 emacspeak-eww-delete-mark
+12.73.7.2 emacspeak-eww-delete-mark
 ...................................
 
  -- Command: emacspeak-eww-delete-mark (name)
@@ -2607,7 +2621,7 @@ prefix-key ‘G’.
 
      (fn NAME)
 
-12.73.6.3 emacspeak-eww-google-knowledge-card
+12.73.7.3 emacspeak-eww-google-knowledge-card
 .............................................
 
  -- Command: emacspeak-eww-google-knowledge-card
@@ -2616,7 +2630,7 @@ prefix-key ‘G’.
      Warning, this is fragile, and depends on a stable id for the
        knowledge card.
 
-12.73.6.4 emacspeak-eww-links-rel
+12.73.7.4 emacspeak-eww-links-rel
 .................................
 
  -- Command: emacspeak-eww-links-rel
@@ -2624,28 +2638,28 @@ prefix-key ‘G’.
      Display Link tags of type rel.  Web pages for which alternate links
      are available are cued by an auditory icon on the header line.
 
-12.73.6.5 emacspeak-eww-marks-load
+12.73.7.5 emacspeak-eww-marks-load
 ..................................
 
  -- Command: emacspeak-eww-marks-load
 
      Load saved marks.
 
-12.73.6.6 emacspeak-eww-marks-save
+12.73.7.6 emacspeak-eww-marks-save
 ..................................
 
  -- Command: emacspeak-eww-marks-save
 
      Save Emacspeak EWW marks.
 
-12.73.6.7 emacspeak-eww-masquerade
+12.73.7.7 emacspeak-eww-masquerade
 ..................................
 
  -- Command: emacspeak-eww-masquerade
 
      Toggle masquerade state.
 
-12.73.6.8 emacspeak-eww-next-element
+12.73.7.8 emacspeak-eww-next-element
 ....................................
 
  -- Command: emacspeak-eww-next-element (el)
@@ -2654,14 +2668,14 @@ prefix-key ‘G’.
 
      (fn EL)
 
-12.73.6.9 emacspeak-eww-next-element-from-history
+12.73.7.9 emacspeak-eww-next-element-from-history
 .................................................
 
  -- Command: emacspeak-eww-next-element-from-history
 
      Uses element navigation history to decide where we jump.
 
-12.73.6.10 emacspeak-eww-next-element-like-this
+12.73.7.10 emacspeak-eww-next-element-like-this
 ...............................................
 
  -- Command: emacspeak-eww-next-element-like-this (element)
@@ -2671,7 +2685,7 @@ prefix-key ‘G’.
 
      (fn ELEMENT)
 
-12.73.6.11 emacspeak-eww-next-h
+12.73.7.11 emacspeak-eww-next-h
 ...............................
 
  -- Command: emacspeak-eww-next-h (&optional speak)
@@ -2679,7 +2693,7 @@ prefix-key ‘G’.
      Move forward to the next h.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.12 emacspeak-eww-next-h1
+12.73.7.12 emacspeak-eww-next-h1
 ................................
 
  -- Command: emacspeak-eww-next-h1 (&optional speak)
@@ -2687,7 +2701,7 @@ prefix-key ‘G’.
      Move forward to the next h1.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.13 emacspeak-eww-next-h2
+12.73.7.13 emacspeak-eww-next-h2
 ................................
 
  -- Command: emacspeak-eww-next-h2 (&optional speak)
@@ -2695,7 +2709,7 @@ prefix-key ‘G’.
      Move forward to the next h2.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.14 emacspeak-eww-next-h3
+12.73.7.14 emacspeak-eww-next-h3
 ................................
 
  -- Command: emacspeak-eww-next-h3 (&optional speak)
@@ -2703,7 +2717,7 @@ prefix-key ‘G’.
      Move forward to the next h3.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.15 emacspeak-eww-next-h4
+12.73.7.15 emacspeak-eww-next-h4
 ................................
 
  -- Command: emacspeak-eww-next-h4 (&optional speak)
@@ -2711,7 +2725,7 @@ prefix-key ‘G’.
      Move forward to the next h4.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.16 emacspeak-eww-next-h5
+12.73.7.16 emacspeak-eww-next-h5
 ................................
 
  -- Command: emacspeak-eww-next-h5 (&optional speak)
@@ -2719,7 +2733,7 @@ prefix-key ‘G’.
      Move forward to the next h5.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.17 emacspeak-eww-next-h6
+12.73.7.17 emacspeak-eww-next-h6
 ................................
 
  -- Command: emacspeak-eww-next-h6 (&optional speak)
@@ -2727,7 +2741,7 @@ prefix-key ‘G’.
      Move forward to the next h6.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.18 emacspeak-eww-next-li
+12.73.7.18 emacspeak-eww-next-li
 ................................
 
  -- Command: emacspeak-eww-next-li (&optional speak)
@@ -2735,7 +2749,7 @@ prefix-key ‘G’.
      Move forward to the next li.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.19 emacspeak-eww-next-ol
+12.73.7.19 emacspeak-eww-next-ol
 ................................
 
  -- Command: emacspeak-eww-next-ol (&optional speak)
@@ -2743,7 +2757,7 @@ prefix-key ‘G’.
      Move forward to the next ol.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.20 emacspeak-eww-next-p
+12.73.7.20 emacspeak-eww-next-p
 ...............................
 
  -- Command: emacspeak-eww-next-p (&optional speak)
@@ -2751,7 +2765,7 @@ prefix-key ‘G’.
      Move forward to the next p.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.21 emacspeak-eww-next-table
+12.73.7.21 emacspeak-eww-next-table
 ...................................
 
  -- Command: emacspeak-eww-next-table (&optional speak)
@@ -2759,7 +2773,7 @@ prefix-key ‘G’.
      Move forward to the next table.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.22 emacspeak-eww-next-ul
+12.73.7.22 emacspeak-eww-next-ul
 ................................
 
  -- Command: emacspeak-eww-next-ul (&optional speak)
@@ -2767,7 +2781,7 @@ prefix-key ‘G’.
      Move forward to the next ul.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.23 emacspeak-eww-open-mark
+12.73.7.23 emacspeak-eww-open-mark
 ..................................
 
  -- Command: emacspeak-eww-open-mark (name &optional delete)
@@ -2778,7 +2792,7 @@ prefix-key ‘G’.
 
      (fn NAME &optional DELETE)
 
-12.73.6.24 emacspeak-eww-phantom
+12.73.7.24 emacspeak-eww-phantom
 ................................
 
  -- Command: emacspeak-eww-phantom (url)
@@ -2787,7 +2801,7 @@ prefix-key ‘G’.
 
      (fn URL)
 
-12.73.6.25 emacspeak-eww-previous-element
+12.73.7.25 emacspeak-eww-previous-element
 .........................................
 
  -- Command: emacspeak-eww-previous-element (el)
@@ -2796,14 +2810,14 @@ prefix-key ‘G’.
 
      (fn EL)
 
-12.73.6.26 emacspeak-eww-previous-element-from-history
+12.73.7.26 emacspeak-eww-previous-element-from-history
 ......................................................
 
  -- Command: emacspeak-eww-previous-element-from-history
 
      Uses element navigation history to decide where we jump.
 
-12.73.6.27 emacspeak-eww-previous-element-like-this
+12.73.7.27 emacspeak-eww-previous-element-like-this
 ...................................................
 
  -- Command: emacspeak-eww-previous-element-like-this (element)
@@ -2813,7 +2827,7 @@ prefix-key ‘G’.
 
      (fn ELEMENT)
 
-12.73.6.28 emacspeak-eww-previous-h
+12.73.7.28 emacspeak-eww-previous-h
 ...................................
 
  -- Command: emacspeak-eww-previous-h (&optional speak)
@@ -2821,7 +2835,7 @@ prefix-key ‘G’.
      Move backward to the next h.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.29 emacspeak-eww-previous-h1
+12.73.7.29 emacspeak-eww-previous-h1
 ....................................
 
  -- Command: emacspeak-eww-previous-h1 (&optional speak)
@@ -2829,7 +2843,7 @@ prefix-key ‘G’.
      Move backward to the next h1.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.30 emacspeak-eww-previous-h2
+12.73.7.30 emacspeak-eww-previous-h2
 ....................................
 
  -- Command: emacspeak-eww-previous-h2 (&optional speak)
@@ -2837,7 +2851,7 @@ prefix-key ‘G’.
      Move backward to the next h2.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.31 emacspeak-eww-previous-h3
+12.73.7.31 emacspeak-eww-previous-h3
 ....................................
 
  -- Command: emacspeak-eww-previous-h3 (&optional speak)
@@ -2845,7 +2859,7 @@ prefix-key ‘G’.
      Move backward to the next h3.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.32 emacspeak-eww-previous-h4
+12.73.7.32 emacspeak-eww-previous-h4
 ....................................
 
  -- Command: emacspeak-eww-previous-h4 (&optional speak)
@@ -2853,7 +2867,7 @@ prefix-key ‘G’.
      Move backward to the next h4.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.33 emacspeak-eww-previous-h5
+12.73.7.33 emacspeak-eww-previous-h5
 ....................................
 
  -- Command: emacspeak-eww-previous-h5 (&optional speak)
@@ -2861,7 +2875,7 @@ prefix-key ‘G’.
      Move backward to the next h5.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.34 emacspeak-eww-previous-h6
+12.73.7.34 emacspeak-eww-previous-h6
 ....................................
 
  -- Command: emacspeak-eww-previous-h6 (&optional speak)
@@ -2869,7 +2883,7 @@ prefix-key ‘G’.
      Move backward to the next h6.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.35 emacspeak-eww-previous-li
+12.73.7.35 emacspeak-eww-previous-li
 ....................................
 
  -- Command: emacspeak-eww-previous-li (&optional speak)
@@ -2877,7 +2891,7 @@ prefix-key ‘G’.
      Move backward to the next li.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.36 emacspeak-eww-previous-ol
+12.73.7.36 emacspeak-eww-previous-ol
 ....................................
 
  -- Command: emacspeak-eww-previous-ol (&optional speak)
@@ -2885,7 +2899,7 @@ prefix-key ‘G’.
      Move backward to the next ol.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.37 emacspeak-eww-previous-p
+12.73.7.37 emacspeak-eww-previous-p
 ...................................
 
  -- Command: emacspeak-eww-previous-p (&optional speak)
@@ -2893,7 +2907,7 @@ prefix-key ‘G’.
      Move backward to the next p.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.38 emacspeak-eww-previous-table
+12.73.7.38 emacspeak-eww-previous-table
 .......................................
 
  -- Command: emacspeak-eww-previous-table (&optional speak)
@@ -2901,7 +2915,7 @@ prefix-key ‘G’.
      Move backward to the next table.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.39 emacspeak-eww-previous-ul
+12.73.7.39 emacspeak-eww-previous-ul
 ....................................
 
  -- Command: emacspeak-eww-previous-ul (&optional speak)
@@ -2909,14 +2923,14 @@ prefix-key ‘G’.
      Move backward to the next ul.
      Optional interactive prefix arg speaks the structural unit.
 
-12.73.6.40 emacspeak-eww-restore
+12.73.7.40 emacspeak-eww-restore
 ................................
 
  -- Command: emacspeak-eww-restore
 
      Restore buffer to pre-filtered canonical state.
 
-12.73.6.41 emacspeak-eww-speak-this-element
+12.73.7.41 emacspeak-eww-speak-this-element
 ...........................................
 
  -- Command: emacspeak-eww-speak-this-element (element)
@@ -2927,21 +2941,21 @@ prefix-key ‘G’.
 
      (fn ELEMENT)
 
-12.73.6.42 emacspeak-eww-tags-at-point
+12.73.7.42 emacspeak-eww-tags-at-point
 ......................................
 
  -- Command: emacspeak-eww-tags-at-point
 
      Display tags at point.
 
-12.73.6.43 emacspeak-eww-transcode
+12.73.7.43 emacspeak-eww-transcode
 ..................................
 
  -- Command: emacspeak-eww-transcode
 
      Apply appropriate transcoding rules to current DOM.
 
-12.73.6.44 emacspeak-eww-update-title
+12.73.7.44 emacspeak-eww-update-title
 .....................................
 
  -- Command: emacspeak-eww-update-title (title)
@@ -2950,7 +2964,7 @@ prefix-key ‘G’.
 
      (fn TITLE)
 
-12.73.7 emacspeak-eww Options
+12.73.8 emacspeak-eww Options
 -----------------------------
 
  -- Variable: User Option emacspeak-eww-masquerade-as

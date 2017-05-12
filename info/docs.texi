@@ -8232,6 +8232,18 @@ Extract a nested table using a match-list.
 @command{emacspeak-we-class-filter-and-follow}
 Follow link under point and filter by class values.
 @end table
+@subsection EWW And EBooks On The Emacspeak Audio Desktop 
+Modules emacspeak-epub and emacspeak-bookshare provide EBook
+front-ends to EPub-2 and Daisy EBooks. Both modules now use EWW to
+render these EBooks. Module emacspeak-eww provides a simple
+bookmarking facility --- called eww-marks (to avoid confusion with
+EWW's Web Bookmarks). When reading an EBook, you can use @code{m}
+to create an EWW-mark at that position. These marks are
+automatically saved across Emacs sessions. To open a previously
+created eww-mark, use command @code{emacspeak-eww-open-mark} bound
+to @code{C-x r e}. This command reads a eww-mark name with
+completion. Use this command with an interactive prefix arg to
+delete a previously created eww-mark.
 
 @subsection emacspeak-eww Commands
 
