@@ -1228,8 +1228,7 @@ char is assumed to be one of a--z."
   "Speak this CHAR."
   (when char
     (cond
-     ((emacspeak-is-alpha-p char) (dtk-letter (char-to-string
-                                               char)))
+     ((emacspeak-is-alpha-p char) (dtk-letter (char-to-string char)))
      ((> char 128) (emacspeak-speak-char-name char))
      (t (dtk-dispatch (dtk-char-to-speech char))))))
 ;;;###autoload
