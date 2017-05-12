@@ -1888,21 +1888,55 @@ Warning, this is fragile, and depends on a stable id for the
   (interactive "sMark Name: ")
   (declare (special emacspeak-eww-marks
                     emacspeak-epub-this-epub emacspeak-bookshare-this-book))
-    (setq name (concat (emacspeak-eww-current-title)": " name))
-    (let ((bm 
-           (make-emacspeak-eww-mark
-            :name name
-            :type 
-            (cond
-             ((bound-and-true-p emacspeak-epub-this-epub)'epub)
-             ((bound-and-true-p emacspeak-bookshare-this-book)'daisy)
-             (t (error "Cant create an emacspeak EWW mark here.")))
-            :book (or emacspeak-bookshare-this-book emacspeak-epub-this-epub)
-            :point (point))))
-      (puthash  name bm emacspeak-eww-marks)
-      (emacspeak-eww-marks-save)
-      (emacspeak-auditory-icon 'mark-object)
-      (message "Created  EWW mark %s." name)))
+  (setq name (concat (emacspeak-eww-current-title)": " name))
+  (let ((bm 
+         (make-emacspeak-eww-mark
+          :name name
+          :type 
+          (cond
+           ((bound-and-true-p emacspeak-epub-this-epub) 'epub)
+           ((bound-and-true-p emacspeak-bookshare-this-book)'daisy)
+           (t (error "Cant create an emacspeak EWW mark here.")))
+          :book
+          (or
+           (bound-and-true-p emacspeak-bookshare-this-book)
+           (bound-and-true-p emacspeak-epub-this-epub))
+          :point (point))))
+    (puthash  name bm emacspeak-eww-marks)
+    (emacspeak-eww-marks-save)
+    (emacspeak-auditory-icon 'mark-object)
+    (message "Created  EWW mark %s." name)))
+
+(defun emacspeak-eww-jump-to-mark (bm)
+  "Jump to eww-mark `bm' if  there is a buffer displaying that content."
+  (let ((book  (emacspeak-eww-mark-book bm))
+        (type (emacspeak-eww-mark-type bm))
+        (point (emacspeak-eww-mark-point bm))
+        (buffer nil))
+    (setq buffer 
+          (cond
+           ((eq type 'epub)
+            (require 'emacspeak-epub)
+            (cl-find-if
+             #'(lambda (b)
+                 (string=
+                  book
+                  (with-current-buffer b emacspeak-epub-this-epub)))
+             (buffer-list)))
+           ((eq type 'daisy)
+            (require 'emacspeak-bookshare)
+            (cl-find-if
+             #'(lambda (b)
+                 (string=
+                  book
+                  (with-current-buffer b emacspeak-bookshare-this-book)))
+             (buffer-list)))
+           (t (error "Unknown book type %s" type))))
+    (when buffer
+      (funcall-interactively #'switch-to-buffer buffer)
+      (when point (goto-char point))
+      (emacspeak-auditory-icon 'large-movement)
+      t)))
 
 (defun emacspeak-eww-delete-mark (name)
   "Interactively delete a mark with name `name' at current position."
@@ -1925,36 +1959,36 @@ With optional interactive prefix arg `delete', delete that mark instead."
       (unless emacspeak-eww-marks-loaded-p (emacspeak-eww-marks-load))
       (when (hash-table-empty-p emacspeak-eww-marks)
         (error "No Emacspeak EWW Marks found."))
-    (completing-read "Mark: " emacspeak-eww-marks))
+      (completing-read "Mark: " emacspeak-eww-marks))
     current-prefix-arg))
   (declare (special emacspeak-eww-marks))
   (cond
    (delete (emacspeak-eww-delete-mark name))
    (t
-    (let ((bm (gethash name emacspeak-eww-marks))
-        (handler nil)
-        (type nil)
-        (point nil)
-        (book nil))
-    (setq type (emacspeak-eww-mark-type bm))
-    (cl-assert  type nil "Mark type is not set.")
-    (setq book (emacspeak-eww-mark-book bm))
-    (cl-assert book nil "Book not set.")
-    (setq handler 
-          (cond
-           ((eq type 'daisy) #'emacspeak-bookshare-eww)
-           ((eq type 'epub) #'emacspeak-epub-eww)
-           (t (error "Unknown book type."))))
-    (setq point (emacspeak-eww-mark-point bm))
-    (when point 
-      (add-hook
-       'emacspeak-web-post-process-hook
-       #'(lambda ()
-           (goto-char point)
-           (emacspeak-auditory-icon 'large-movement))
-       'at-end))
-    (funcall handler book)))))
-    
+    (let* ((bm (gethash name emacspeak-eww-marks))
+          (handler nil)
+          (type (emacspeak-eww-mark-type bm))
+          (point (emacspeak-eww-mark-point bm))
+          (book (emacspeak-eww-mark-book bm)))
+      (cl-assert  type nil "Mark type is not set.")
+      (cl-assert book nil "Book not set.")
+      (cond
+       ((emacspeak-eww-jump-to-mark bm) t)
+       (t
+        (setq handler 
+              (cond
+               ((eq type 'daisy) #'emacspeak-bookshare-eww)
+               ((eq type 'epub) #'emacspeak-epub-eww)
+               (t (error "Unknown book type."))))
+        (when point 
+          (add-hook
+           'emacspeak-web-post-process-hook
+           #'(lambda ()
+               (goto-char point)
+               (emacspeak-auditory-icon 'large-movement))
+           'at-end))
+        (funcall handler book)))))))    
+
 (global-set-key (kbd "C-x r e") 'emacspeak-eww-open-mark)
         
 (defvar emacspeak-eww-marks-file
