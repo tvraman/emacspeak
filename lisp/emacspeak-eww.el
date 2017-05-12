@@ -1885,7 +1885,11 @@ Warning, this is fragile, and depends on a stable id for the
 
 (defun emacspeak-eww-add-mark (name )
   "Interactively add a mark with name title+`name' at current position."
-  (interactive "sMark Name: ")
+  (interactive
+   (list
+    (read-from-minibuffer "Mark: "
+                          nil nil nil nil
+                          "current")))
   (declare (special emacspeak-eww-marks
                     emacspeak-epub-this-epub emacspeak-bookshare-this-book))
   (setq name (concat (emacspeak-eww-current-title)": " name))
