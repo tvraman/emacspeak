@@ -795,8 +795,7 @@
   <dl>
     <dt><a name="index-emacspeak_002deww_002dadd_002dmark" id=
     "index-emacspeak_002deww_002dadd_002dmark"></a>Command:
-    <strong>emacspeak-eww-add-mark</strong> <em>(name &amp;optional
-    delete)</em></dt>
+    <strong>emacspeak-eww-add-mark</strong> <em>(name)</em></dt>
 
     <dd>
       <a name="index-emacspeak_002deww_002dadd_002dmark-1" id=
@@ -804,59 +803,16 @@
 
       <div class="format">
         <pre class="format">
-Interactively add a bookmark with name title+‘name’ at current position.
-Optional prefix arg deletes the mark.
+Interactively add a mark with name title+‘name’ at current position.
 
-(fn NAME &amp;optional DELETE)
-</pre>
-      </div>
-    </dd>
-  </dl><a name="emacspeak_002deww_002dbookmarks_002dload" id=
-  "emacspeak_002deww_002dbookmarks_002dload"></a>
-
-  <h4 class="subsubsection">12.73.6.2
-  emacspeak-eww-bookmarks-load</h4>
-
-  <dl>
-    <dt><a name="index-emacspeak_002deww_002dbookmarks_002dload"
-    id="index-emacspeak_002deww_002dbookmarks_002dload"></a>Command:
-    <strong>emacspeak-eww-bookmarks-load</strong></dt>
-
-    <dd>
-      <a name="index-emacspeak_002deww_002dbookmarks_002dload-1"
-      id="index-emacspeak_002deww_002dbookmarks_002dload-1"></a>
-
-      <div class="format">
-        <pre class="format">
-Load saved bookmarks.
-</pre>
-      </div>
-    </dd>
-  </dl><a name="emacspeak_002deww_002dbookmarks_002dsave" id=
-  "emacspeak_002deww_002dbookmarks_002dsave"></a>
-
-  <h4 class="subsubsection">12.73.6.3
-  emacspeak-eww-bookmarks-save</h4>
-
-  <dl>
-    <dt><a name="index-emacspeak_002deww_002dbookmarks_002dsave"
-    id="index-emacspeak_002deww_002dbookmarks_002dsave"></a>Command:
-    <strong>emacspeak-eww-bookmarks-save</strong></dt>
-
-    <dd>
-      <a name="index-emacspeak_002deww_002dbookmarks_002dsave-1"
-      id="index-emacspeak_002deww_002dbookmarks_002dsave-1"></a>
-
-      <div class="format">
-        <pre class="format">
-Save Emacspeak EWW marks.
+(fn NAME)
 </pre>
       </div>
     </dd>
   </dl><a name="emacspeak_002deww_002ddelete_002dmark" id=
   "emacspeak_002deww_002ddelete_002dmark"></a>
 
-  <h4 class="subsubsection">12.73.6.4
+  <h4 class="subsubsection">12.73.6.2
   emacspeak-eww-delete-mark</h4>
 
   <dl>
@@ -870,7 +826,7 @@ Save Emacspeak EWW marks.
 
       <div class="format">
         <pre class="format">
-Interactively delete a bookmark with name title+‘name’ at current position.
+Interactively delete a mark with name ‘name’ at current position.
 
 (fn NAME)
 </pre>
@@ -880,7 +836,7 @@ Interactively delete a bookmark with name title+‘name’ at current position.
   "emacspeak_002deww_002dgoogle_002dknowledge_002dcard" id=
   "emacspeak_002deww_002dgoogle_002dknowledge_002dcard"></a>
 
-  <h4 class="subsubsection">12.73.6.5
+  <h4 class="subsubsection">12.73.6.3
   emacspeak-eww-google-knowledge-card</h4>
 
   <dl>
@@ -907,7 +863,7 @@ Warning, this is fragile, and depends on a stable id for the
   </dl><a name="emacspeak_002deww_002dlinks_002drel" id=
   "emacspeak_002deww_002dlinks_002drel"></a>
 
-  <h4 class="subsubsection">12.73.6.6 emacspeak-eww-links-rel</h4>
+  <h4 class="subsubsection">12.73.6.4 emacspeak-eww-links-rel</h4>
 
   <dl>
     <dt><a name="index-emacspeak_002deww_002dlinks_002drel" id=
@@ -922,6 +878,46 @@ Warning, this is fragile, and depends on a stable id for the
         <pre class="format">
 Display Link tags of type rel.  Web pages for which alternate links
 are available are cued by an auditory icon on the header line.
+</pre>
+      </div>
+    </dd>
+  </dl><a name="emacspeak_002deww_002dmarks_002dload" id=
+  "emacspeak_002deww_002dmarks_002dload"></a>
+
+  <h4 class="subsubsection">12.73.6.5 emacspeak-eww-marks-load</h4>
+
+  <dl>
+    <dt><a name="index-emacspeak_002deww_002dmarks_002dload" id=
+    "index-emacspeak_002deww_002dmarks_002dload"></a>Command:
+    <strong>emacspeak-eww-marks-load</strong></dt>
+
+    <dd>
+      <a name="index-emacspeak_002deww_002dmarks_002dload-1" id=
+      "index-emacspeak_002deww_002dmarks_002dload-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Load saved marks.
+</pre>
+      </div>
+    </dd>
+  </dl><a name="emacspeak_002deww_002dmarks_002dsave" id=
+  "emacspeak_002deww_002dmarks_002dsave"></a>
+
+  <h4 class="subsubsection">12.73.6.6 emacspeak-eww-marks-save</h4>
+
+  <dl>
+    <dt><a name="index-emacspeak_002deww_002dmarks_002dsave" id=
+    "index-emacspeak_002deww_002dmarks_002dsave"></a>Command:
+    <strong>emacspeak-eww-marks-save</strong></dt>
+
+    <dd>
+      <a name="index-emacspeak_002deww_002dmarks_002dsave-1" id=
+      "index-emacspeak_002deww_002dmarks_002dsave-1"></a>
+
+      <div class="format">
+        <pre class="format">
+Save Emacspeak EWW marks.
 </pre>
       </div>
     </dd>
@@ -1301,7 +1297,8 @@ Optional interactive prefix arg speaks the structural unit.
   <dl>
     <dt><a name="index-emacspeak_002deww_002dopen_002dmark" id=
     "index-emacspeak_002deww_002dopen_002dmark"></a>Command:
-    <strong>emacspeak-eww-open-mark</strong> <em>(name)</em></dt>
+    <strong>emacspeak-eww-open-mark</strong> <em>(name
+    &amp;optional delete)</em></dt>
 
     <dd>
       <dl compact="compact">
@@ -1315,8 +1312,9 @@ Optional interactive prefix arg speaks the structural unit.
       <div class="format">
         <pre class="format">
 Open specified EWW marked location.
+With optional interactive prefix arg ‘delete’, delete that mark instead.
 
-(fn NAME)
+(fn NAME &amp;optional DELETE)
 </pre>
       </div>
     </dd>
@@ -1825,8 +1823,8 @@ Interactively set title — renames buffer, and sets header-line.
   <h4 class="subsection">12.73.7 emacspeak-eww Options</h4>
 
   <dl>
-    <dt><a name="index-User-Option-582" id=
-    "index-User-Option-582"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-552" id=
+    "index-User-Option-552"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-eww-masquerade-as</em></dt>
 
     <dd>
@@ -1836,8 +1834,8 @@ Interactively set title — renames buffer, and sets header-line.
   </dl>
 
   <dl>
-    <dt><a name="index-User-Option-583" id=
-    "index-User-Option-583"></a>Variable: <strong>User
+    <dt><a name="index-User-Option-553" id=
+    "index-User-Option-553"></a>Variable: <strong>User
     Option</strong> <em>emacspeak-eww-silence-images</em></dt>
 
     <dd>
