@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1179 commands and 1098 options.
+This chapter documents a total of 1179 commands and 1087 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -3913,87 +3913,75 @@ This personality uses  voice-brighten-medium whose  effect can be changed global
 
 @end defvar
 
-@defvar {User Option} emacspeak-twittering-uri-personality
-Personality used for twittering-uri-face
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+@defvar {User Option} emacspeak-underline-voice
+Personality used for underline
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
 
 @end defvar
 
-@defvar {User Option} emacspeak-twittering-username-personality
-Personality used for twittering-username-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+@defvar {User Option} emacspeak-voice-latex-bold-personality
+Personality used for font-latex-bold-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 
 @end defvar
 
-@defvar {User Option} emacspeak-u-vm-color-author-personality
-Personality used for u-vm-color-author-face
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-citation-1-personality
-Personality used for u-vm-color-citation-1-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-citation-2-personality
-Personality used for u-vm-color-citation-2-face
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-date-personality
-Personality used for u-vm-color-date-face
+@defvar {User Option} emacspeak-voice-latex-doctex-documentation-personality
+Personality used for font-latex-doctex-documentation-face
 This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
 
 @end defvar
 
-@defvar {User Option} emacspeak-u-vm-color-header-personality
-Personality used for u-vm-color-header-face
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+@defvar {User Option} emacspeak-voice-latex-doctex-preprocessor-personality
+Personality used for font-latex-doctex-preprocessor-face
+This personality uses  voice-brighten-medium whose  effect can be changed globally by customizing voice-brighten-medium-settings.
 
 @end defvar
 
-@defvar {User Option} emacspeak-u-vm-color-recipient-personality
-Personality used for u-vm-color-recipient-face
-This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-signature-personality
-Personality used for u-vm-color-signature-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-spamassassin-personality
-Personality used for u-vm-color-spamassassin-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-subject-personality
-Personality used for u-vm-color-subject-face
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-time-personality
-Personality used for u-vm-color-time-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-u-vm-color-user-personality
-Personality used for u-vm-color-user-face
+@defvar {User Option} emacspeak-voice-latex-italic-personality
+Personality used for font-latex-italic-face
 This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 
 @end defvar
 
-@defvar {User Option} emacspeak-underline-voice
-Personality used for underline
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+@defvar {User Option} emacspeak-voice-latex-math-personality
+Personality used for font-latex-math-face
+This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-voice-latex-sedate-personality
+Personality used for font-latex-sedate-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-voice-latex-string-personality
+Personality used for font-latex-string-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-voice-latex-subscript-personality
+Personality used for font-latex-subscript-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-voice-latex-superscript-personality
+Personality used for font-latex-superscript-face
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-voice-latex-verbatim-personality
+Personality used for font-latex-verbatim-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-voice-latex-warning-personality
+Personality used for font-latex-warning-face
+This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
 
 @end defvar
 
@@ -4084,108 +4072,6 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 @defvar {User Option} emacspeak-voice-lock-warning-personality
 Personality used for font-lock-warning-face
 This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-anchor-voice
-Personality used for w3m-anchor
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-arrived-anchor-voice
-Personality used for w3m-arrived-anchor
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-bold-voice
-Personality used for w3m-bold
-This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-current-anchor-voice
-Personality used for w3m-current-anchor
-This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-form-button-pressed-voice
-Personality used for w3m-form-button-pressed
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-form-button-voice
-Personality used for w3m-form-button
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-form-voice
-Personality used for w3m-form
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-header-line-location-content-voice
-Personality used for w3m-header-line-location-content
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-header-line-location-title-voice
-Personality used for w3m-header-line-location-title
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-history-current-url-voice
-Personality used for w3m-history-current-url
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-image-voice
-Personality used for w3m-image
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-insert-voice
-Personality used for w3m-insert
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-italic-voice
-Personality used for w3m-italic
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-strike-through-voice
-Personality used for w3m-strike-through
-This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-tab-selected-voice
-Personality used for w3m-tab-selected
-This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-tab-unselected-voice
-Personality used for w3m-tab-unselected
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-w3m-underline-voice
-Personality used for w3m-underline
-This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
 
 @end defvar
 
@@ -4691,74 +4577,6 @@ Speak the size of the file on current line
 
 Speech-enables the AucTeX package.
 AucTeX, now available from ELPA, has been my authoring environment of choice for writing LaTeX since 1991.
-
-@subsection emacspeak-auctex Options
-
-@defvar {User Option} emacspeak-voice-latex-bold-personality
-Personality used for font-latex-bold-face
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-voice-latex-doctex-documentation-personality
-Personality used for font-latex-doctex-documentation-face
-This personality uses  voice-monotone-medium whose  effect can be changed globally by customizing voice-monotone-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-voice-latex-doctex-preprocessor-personality
-Personality used for font-latex-doctex-preprocessor-face
-This personality uses  voice-brighten-medium whose  effect can be changed globally by customizing voice-brighten-medium-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-voice-latex-italic-personality
-Personality used for font-latex-italic-face
-This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-voice-latex-math-personality
-Personality used for font-latex-math-face
-This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-voice-latex-sedate-personality
-Personality used for font-latex-sedate-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-voice-latex-string-personality
-Personality used for font-latex-string-face
-This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-voice-latex-subscript-personality
-Personality used for font-latex-subscript-face
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-voice-latex-superscript-personality
-Personality used for font-latex-superscript-face
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-voice-latex-verbatim-personality
-Personality used for font-latex-verbatim-face
-This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
-
-@end defvar
-
-@defvar {User Option} emacspeak-voice-latex-warning-personality
-Personality used for font-latex-warning-face
-This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
-
-@end defvar
 
 @node emacspeak-aumix
 @section emacspeak-aumix
@@ -8418,32 +8236,13 @@ Follow link under point and filter by class values.
 @subsection emacspeak-eww Commands
 
 @subsubsection emacspeak-eww-add-mark
-@deffn {Command} emacspeak-eww-add-mark  (name &optional delete)
+@deffn {Command} emacspeak-eww-add-mark  (name)
 @findex emacspeak-eww-add-mark
 
 @format
-Interactively add a bookmark with name title+‘name’ at current position.
-Optional prefix arg deletes the mark.
+Interactively add a mark with name title+‘name’ at current position.
 
-(fn NAME &optional DELETE)
-@end format
-@end deffn
-
-@subsubsection emacspeak-eww-bookmarks-load
-@deffn {Command} emacspeak-eww-bookmarks-load   
-@findex emacspeak-eww-bookmarks-load
-
-@format
-Load saved bookmarks.
-@end format
-@end deffn
-
-@subsubsection emacspeak-eww-bookmarks-save
-@deffn {Command} emacspeak-eww-bookmarks-save   
-@findex emacspeak-eww-bookmarks-save
-
-@format
-Save Emacspeak EWW marks.
+(fn NAME)
 @end format
 @end deffn
 
@@ -8452,7 +8251,7 @@ Save Emacspeak EWW marks.
 @findex emacspeak-eww-delete-mark
 
 @format
-Interactively delete a bookmark with name title+‘name’ at current position.
+Interactively delete a mark with name ‘name’ at current position.
 
 (fn NAME)
 @end format
@@ -8476,6 +8275,24 @@ Warning, this is fragile, and depends on a stable id for the
 @format
 Display Link tags of type rel.  Web pages for which alternate links
 are available are cued by an auditory icon on the header line.
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-marks-load
+@deffn {Command} emacspeak-eww-marks-load   
+@findex emacspeak-eww-marks-load
+
+@format
+Load saved marks.
+@end format
+@end deffn
+
+@subsubsection emacspeak-eww-marks-save
+@deffn {Command} emacspeak-eww-marks-save   
+@findex emacspeak-eww-marks-save
+
+@format
+Save Emacspeak EWW marks.
 @end format
 @end deffn
 
@@ -8641,7 +8458,7 @@ Optional interactive prefix arg speaks the structural unit.
 @end deffn
 
 @subsubsection emacspeak-eww-open-mark
-@deffn {Command} emacspeak-eww-open-mark  (name)
+@deffn {Command} emacspeak-eww-open-mark  (name &optional delete)
 @table @kbd
 @item C-x r e
 @kindex C-x r e
@@ -8651,8 +8468,9 @@ Optional interactive prefix arg speaks the structural unit.
 
 @format
 Open specified EWW marked location.
+With optional interactive prefix arg ‘delete’, delete that mark instead.
 
-(fn NAME)
+(fn NAME &optional DELETE)
 @end format
 @end deffn
 
@@ -12528,8 +12346,6 @@ Move down in current Math expression.
 Send a LaTeX expression to Maths server.
 Tries to guess default based on context.
 Uses guessed default if user enters an empty string.
-
-(fn LATEX)
 @end format
 @end deffn
 
@@ -13145,11 +12961,6 @@ The body can be accessed via ‘emacspeak-muggles-org-table/body’.
 
 @subsubsection emacspeak-muggles-outliner/body
 @deffn {Command} emacspeak-muggles-outliner/body   
-@table @kbd
-@item C-c .
-@kindex C-c .
-@end table
-
 @findex emacspeak-muggles-outliner/body
 
 @format
@@ -19546,6 +19357,20 @@ Speak tweet under point.
 @end format
 @end deffn
 
+@subsection emacspeak-twittering Options
+
+@defvar {User Option} emacspeak-twittering-uri-personality
+Personality used for twittering-uri-face
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-twittering-username-personality
+Personality used for twittering-username-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
 @node emacspeak-url-template
 @section emacspeak-url-template
 
@@ -20000,10 +19825,112 @@ Preview this buffer in w3m.
 
 @subsection emacspeak-w3m Options
 
+@defvar {User Option} emacspeak-w3m-anchor-voice
+Personality used for w3m-anchor
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-arrived-anchor-voice
+Personality used for w3m-arrived-anchor
+This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-bold-voice
+Personality used for w3m-bold
+This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-current-anchor-voice
+Personality used for w3m-current-anchor
+This personality uses  voice-bolden-extra whose  effect can be changed globally by customizing voice-bolden-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-form-button-pressed-voice
+Personality used for w3m-form-button-pressed
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-form-button-voice
+Personality used for w3m-form-button
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-form-voice
+Personality used for w3m-form
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-header-line-location-content-voice
+Personality used for w3m-header-line-location-content
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-header-line-location-title-voice
+Personality used for w3m-header-line-location-title
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-history-current-url-voice
+Personality used for w3m-history-current-url
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-image-voice
+Personality used for w3m-image
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-insert-voice
+Personality used for w3m-insert
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-italic-voice
+Personality used for w3m-italic
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-w3m-speak-titles-on-switch
 Speak the document title when switching between w3m buffers.
 If non-nil, switching between w3m buffers will speak the title
 instead of the modeline.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-strike-through-voice
+Personality used for w3m-strike-through
+This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-tab-selected-voice
+Personality used for w3m-tab-selected
+This personality uses  voice-animate-extra whose  effect can be changed globally by customizing voice-animate-extra-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-tab-unselected-voice
+Personality used for w3m-tab-unselected
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-w3m-underline-voice
+Personality used for w3m-underline
+This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
 
 @end defvar
 
