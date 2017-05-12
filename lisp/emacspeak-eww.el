@@ -1951,8 +1951,9 @@ Warning, this is fragile, and depends on a stable id for the
   "Record if EWW Marks are loaded.")
 
 (defun emacspeak-eww-open-mark (name &optional delete)
-  "Open specified EWW marked location.
-With optional interactive prefix arg `delete', delete that mark instead."
+  "Open specified EWW marked location. If the content is already being
+displayed in this Emacs session, jump to it directly. With optional
+interactive prefix arg `delete', delete that mark instead."
   (interactive
    (list
     (progn
