@@ -144,13 +144,15 @@
 (defadvice evil-delete-char (before emacspeak pre act comp)
   "Speak char we are deleting."
   (when (ems-interactive-p)
-    (emacspeak-speak-char t)
+    (tts-with-voice voice-bolden 
+    (emacspeak-speak-char t))
     (dtk-tone-deletion)))
 
 (defadvice evil-delete-backward-char (before emacspeak pre act comp)
   "Speak char we are deleting."
   (when (ems-interactive-p)
-    (emacspeak-speak-this-char (preceding-char))
+    (tts-using-voice voice-bolden
+    (emacspeak-speak-this-char (preceding-char)))
     (dtk-tone-deletion)))
 
 (defadvice evil-delete-line (after emacspeak pre act comp)
