@@ -965,7 +965,7 @@ are indicated with auditory icon ellipses."
             (line nil)
             (orig (point))
             (linenum (when (and (boundp 'linum-mode) linum-mode)  (line-number-at-pos)))
-            (indent nil))
+            (indent (current-indentation)))
         (forward-line 0)
         (emacspeak-handle-action-at-point)
         (setq start (point))
@@ -986,10 +986,6 @@ are indicated with auditory icon ellipses."
                 (emacspeak-speak-line-apply-column-filter
                  line emacspeak-speak-line-invert-filter)))
         (when (and emacspeak-audio-indentation (null arg))
-          (let ((limit (line-end-position)))
-            (forward-line 0)
-            (skip-syntax-forward " " limit)
-            (setq indent  (current-column)))
           (when (eq emacspeak-audio-indentation-method 'tone)
             (emacspeak-indent indent)))
         (when
