@@ -1874,25 +1874,24 @@ Warning, this is fragile, and depends on a stable id for the
 ;;; They are called eww-marks to distinguish them from web bookmarks 
 
 (cl-defstruct emacspeak-eww-mark
-  type ; daisy, epub-2, epub-3
+  type ; daisy, epub, epub-3
   book ; pointer to book --- type-specific
   point ; location in book
   name ; name of mark
   )
 
 (defvar emacspeak-eww-marks (make-hash-table :test #'equal)
-  "Stores  our EWW-specific marks.")
+  "Stores   EWW-marks.")
 
 (defun emacspeak-eww-add-mark (name )
   "Interactively add a mark with name title+`name' at current position."
   (interactive
    (list
-    (read-from-minibuffer "Mark: "
-                          nil nil nil nil
-                          "current")))
+    (concat
+     (emacspeak-eww-current-title)": "
+     (read-from-minibuffer "Mark: " nil nil nil nil "current"))))
   (declare (special emacspeak-eww-marks
                     emacspeak-epub-this-epub emacspeak-bookshare-this-book))
-  (setq name (concat (emacspeak-eww-current-title)": " name))
   (let ((bm 
          (make-emacspeak-eww-mark
           :name name
@@ -1917,25 +1916,22 @@ Warning, this is fragile, and depends on a stable id for the
         (type (emacspeak-eww-mark-type bm))
         (point (emacspeak-eww-mark-point bm))
         (buffer nil))
-    (setq buffer 
-          (cond
-           ((eq type 'epub)
-            (require 'emacspeak-epub)
-            (cl-find-if
-             #'(lambda (b)
-                 (string=
-                  book
-                  (with-current-buffer b emacspeak-epub-this-epub)))
-             (buffer-list)))
-           ((eq type 'daisy)
-            (require 'emacspeak-bookshare)
-            (cl-find-if
-             #'(lambda (b)
-                 (string=
-                  book
-                  (with-current-buffer b emacspeak-bookshare-this-book)))
-             (buffer-list)))
-           (t (error "Unknown book type %s" type))))
+    (setq
+     buffer 
+     (cond
+      ((eq type 'epub)
+       (require 'emacspeak-epub)
+       (cl-find-if
+        #'(lambda (b)
+            (string= book (with-current-buffer b emacspeak-epub-this-epub)))
+        (buffer-list)))
+      ((eq type 'daisy)
+       (require 'emacspeak-bookshare)
+       (cl-find-if
+        #'(lambda (b)
+            (string= book (with-current-buffer b emacspeak-bookshare-this-book)))
+        (buffer-list)))
+      (t (error "Unknown book type %s" type))))
     (when buffer
       (funcall-interactively #'switch-to-buffer buffer)
       (when point (goto-char point))
