@@ -965,7 +965,7 @@ are indicated with auditory icon ellipses."
             (line nil)
             (orig (point))
             (linenum (when (and (boundp 'linum-mode) linum-mode)  (line-number-at-pos)))
-            (indent (current-indentation)))
+            (indent nil))
         (forward-line 0)
         (emacspeak-handle-action-at-point)
         (setq start (point))
@@ -985,6 +985,7 @@ are indicated with auditory icon ellipses."
           (setq line
                 (emacspeak-speak-line-apply-column-filter
                  line emacspeak-speak-line-invert-filter)))
+        (when emacspeak-audio-indentation (setq indent (current-indentation)))
         (when (and emacspeak-audio-indentation (null arg))
           (when (eq emacspeak-audio-indentation-method 'tone)
             (emacspeak-indent indent)))
@@ -993,7 +994,7 @@ are indicated with auditory icon ellipses."
                 (get-text-property  start 'emacspeak-hidden-block))
           (emacspeak-auditory-icon 'ellipses))
         (cond
-         ;;; C1..C5
+;;; C1..C5
          ((string-equal ""  line)
           (dtk-tone 130.8   150 'force))
          ((string-match  emacspeak-speak-space-regexp  line) ;only white space
@@ -1023,10 +1024,10 @@ are indicated with auditory icon ellipses."
                   t))))
             (when  speakable
               (when
-                  (and indent
-                     (eq 'speak emacspeak-audio-indentation-method)
-                     (null arg)
-                     (> indent 0))
+                  (and indent 
+                       (eq 'speak emacspeak-audio-indentation-method)
+                       (null arg)
+                       (> indent 0))
                 (setq indent (format "indent %d" indent))
                 (put-text-property   0 (length indent)
                                      'personality voice-indent   indent)
