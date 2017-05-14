@@ -135,6 +135,7 @@
  for f in
  '(
    magit-section-forward magit-section-backward
+                         magit-section-forward-sibling magit-section-backward-sibling
                          magit-ignore-file magit-ignore-item
                          magit-stash
                          magit-unstage magit-unstage-all magit-unstage-file
