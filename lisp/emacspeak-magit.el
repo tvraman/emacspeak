@@ -154,15 +154,27 @@
 
 ;;}}}
 ;;{{{ Section Toggle:
+
 (cl-loop
  for f in
  '(
-   magit-section-toggle magit-section-cycle
-                        magit-section-show-level-1  magit-section-show-level-2
+   magit-section-show-level-1  magit-section-show-level-2
 magit-section-show-level-3 magit-section-show-level-4
 magit-section-show-level-1-all magit-section-show-level-2-all
 magit-section-show-level-3-all magit-section-show-level-4-all
-magit-section-cycle-diffs)
+   magit-section-cycle-diffs)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'select-object)))))
+
+(cl-loop
+ for f in
+ '(
+   magit-section-toggle magit-section-cycle)
  do
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
