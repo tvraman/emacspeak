@@ -154,13 +154,17 @@
 
 ;;}}}
 ;;{{{ Section Toggle:
-
-(defadvice magit-section-toggle (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-speak-line)
-    (emacspeak-auditory-icon
-     (if   (magit-section-hidden (ad-get-arg 0)) 'close-object 'open-object))))
+(cl-loop
+ for f in
+ '(magit-section-toggle magit-section-cycle)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon
+        (if   (magit-section-hidden (ad-get-arg 0)) 'close-object 'open-object))))))
 
 ;;}}}
 ;;{{{ Advice generator to advice generated  commands:
