@@ -258,8 +258,9 @@ magit-section-show-level-3-all magit-section-show-level-4-all
   `(defadvice ,f (after emacspeak pre act  comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (emacspeak-auditory-icon 'close-object)
-       (emacspeak-speak-mode-line)))))
+       (with-current-buffer (window-buffer (selected-window))
+         (emacspeak-auditory-icon 'close-object)
+         (emacspeak-speak-mode-line))))))
 
 (defadvice magit-refresh-all (after emacspeak pre act comp)
   "Provide auditory feedback."
