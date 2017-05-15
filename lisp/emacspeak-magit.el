@@ -134,7 +134,7 @@
 (cl-loop
  for f in
  '(
-   magit-section-forward magit-section-backward
+   magit-section-forward magit-section-backward magit-section-up
                          magit-section-forward-sibling magit-section-backward-sibling
                          magit-ignore-file magit-ignore-item
                          magit-stash
@@ -151,6 +151,16 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'large-movement)
        (emacspeak-speak-line)))))
+
+;;}}}
+;;{{{ Section Toggle:
+
+(defadvice magit-section-toggle (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-speak-line)
+    (emacspeak-auditory-icon
+     (if   (magit-section-hidden (ad-get-arg 0)) 'close-object 'open-object))))
 
 ;;}}}
 ;;{{{ Advice generator to advice generated  commands:
