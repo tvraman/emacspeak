@@ -180,6 +180,7 @@
          (emacspeak-org-table-speak-current-element))
         (t
          (emacspeak-speak-line)
+         (dtk-notify-speak  (format "%s" org-cycle-global-status))
          (emacspeak-auditory-icon 'select-object)))))))
 
 (defadvice org-overview (after emacspeak pre act comp)
