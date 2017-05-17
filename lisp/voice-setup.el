@@ -438,7 +438,7 @@ command \\[customize-variable] on <personality>-settings.. "
    (link-visited voice-bolden-medium)
    (success voice-bolden)
    (error voice-animate)
-   (warning voice-bolden-and-animate)
+   (warning voice-monotone)
    (fixed-pitch voice-monotone)
    (font-lock-builtin-face voice-bolden)
    (font-lock-comment-face voice-monotone)
