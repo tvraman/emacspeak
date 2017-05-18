@@ -4077,7 +4077,7 @@ This personality uses  voice-bolden-and-animate whose  effect can be changed glo
 
 @defvar {User Option} emacspeak-warning-voice
 Personality used for warning
-This personality uses  voice-bolden-and-animate whose  effect can be changed globally by customizing voice-bolden-and-animate-settings.
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
 
 @end defvar
 

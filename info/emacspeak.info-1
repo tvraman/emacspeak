@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 12, 2017.
+last updated on May 17, 2017.
 
    The manual is divided into the following chapters.
 
@@ -6351,9 +6351,9 @@ system.
      customizing voice-bolden-and-animate-settings.
 
  -- Variable: User Option emacspeak-warning-voice
-     Personality used for warning This personality uses
-     voice-bolden-and-animate whose effect can be changed globally by
-     customizing voice-bolden-and-animate-settings.
+     Personality used for warning This personality uses voice-smoothen
+     whose effect can be changed globally by customizing
+     voice-smoothen-settings.
 
  -- Variable: User Option emacspeak-widget-button-pressed-voice
      Personality used for widget-button-pressed This personality uses
