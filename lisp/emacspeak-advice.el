@@ -1230,32 +1230,32 @@ ad-return-value)
 (emacspeak-speak-line 1))))
 
 (defadvice comint-dynamic-list-input-ring (around emacspeak pre act comp)
-"List in help buffer the buffer's input history."
-(cond
-((ems-interactive-p)
-(if (or (not (ring-p comint-input-ring))
-        (ring-empty-p comint-input-ring))
-(message "No history")
-(let ((history nil)
-      (history-buffer " *Input History*")
-      (index (1- (ring-length comint-input-ring))))
-  ;; We have to build up a list ourselves from the ring vector.
-  (while (>= index 0)
-    (setq history (cons (ring-ref comint-input-ring index) history)
-          index (1- index)))
-  ;; Change "completion" to "history reference"
-  ;; to make the display accurate.
-  (with-output-to-temp-buffer history-buffer
-    (display-completion-list history)
-    (switch-to-buffer history-buffer)
-    (forward-line 3)
-    (while (search-backward "completion" nil 'move)
-      (replace-match "history reference")))
-  (emacspeak-auditory-icon 'help)
-  (next-completion 1)
-  (dtk-speak (emacspeak-get-current-completion)))))
-(t ad-do-it))
-ad-return-value)
+  "List in help buffer the buffer's input history."
+  (cond
+   ((ems-interactive-p)
+    (if (or (not (ring-p comint-input-ring))
+            (ring-empty-p comint-input-ring))
+        (message "No history")
+      (let ((history nil)
+            (history-buffer " *Input History*")
+            (index (1- (ring-length comint-input-ring))))
+        ;; We have to build up a list ourselves from the ring vector.
+        (while (>= index 0)
+          (setq history (cons (ring-ref comint-input-ring index) history)
+                index (1- index)))
+        ;; Change "completion" to "history reference"
+        ;; to make the display accurate.
+        (with-output-to-temp-buffer history-buffer
+          (display-completion-list history)
+          (switch-to-buffer history-buffer)
+          (forward-line 3)
+          (while (search-backward "completion" nil 'move)
+            (replace-match "history reference")))
+        (emacspeak-auditory-icon 'help)
+        (next-completion 1)
+        (dtk-speak (emacspeak-get-current-completion)))))
+   (t ad-do-it))
+  ad-return-value)
 
 (defadvice comint-kill-output (after emacspeak pre act comp)
 "Provide auditory feedback."
@@ -1640,20 +1640,25 @@ do
 (emacspeak-speak-mode-line)))))
 
 (cl-loop
-for f in
-'(other-frame other-window
-switch-to-prev-buffer switch-to-next-buffer pop-to-buffer
-switch-to-buffer switch-to-buffer-other-window
-switch-to-buffer-other-frame)
-do
-(eval
-`(defadvice ,f (after emacspeak pre act comp)
-"Speak modeline.
+ for f in
+ '(other-frame other-window
+               switch-to-prev-buffer switch-to-next-buffer pop-to-buffer
+               switch-to-buffer switch-to-buffer-other-window
+               switch-to-buffer-other-frame)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Speak modeline.
 Indicate change of selection with an auditory icon
  if possible."
-(when (ems-interactive-p)
-(emacspeak-auditory-icon 'select-object)
-(emacspeak-speak-mode-line)))))
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'select-object)
+       (emacspeak-speak-mode-line)))))
+
+(defadvice display-buffer (after emacspeak pre act comp)
+  "Provide auditory icon."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)))
 
 (defadvice make-frame-command (after emacspeak pre act comp)
 "Indicate that a new frame is being created."
