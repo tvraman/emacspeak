@@ -338,29 +338,29 @@ command \\[customize-variable] on <personality>-settings.. "
 (defvoice  voice-monotone (list nil nil 0 0 nil 'all)
   "Turns current voice into a monotone and speaks all punctuations.")
 
-(defvoice  voice-monotone-light (list nil nil 2 2  nil 'all)
-  "Turns current voice into a light monotone.")
-
 (defvoice  voice-monotone-medium (list nil nil 1  1  nil 'all)
   "Turns current voice into a medium monotone.")
 
-(defvoice voice-animate (list nil 7 7 4)
-  "Animates current voice.")
-
-(defvoice voice-animate-medium (list nil 6 6  5)
-  "Adds medium animation  current voice.")
+(defvoice  voice-monotone-light (list nil nil 2 2  nil 'all)
+  "Turns current voice into a light monotone.")
 
 (defvoice voice-animate-extra (list nil 8 8 6)
   "Adds extra animation  to current voice.")
 
-(defvoice voice-smoothen (list nil nil nil 3 4)
-  "Smoothen current voice.")
+(defvoice voice-animate (list nil 7 7 4)
+  "Animates current voice.")
 
-(defvoice voice-smoothen-extra (list nil nil nil 2 2)
+(defvoice voice-animate-medium (list nil 6 6  3)
+  "Adds medium animation  current voice.")
+
+(defvoice voice-smoothen-extra (list nil nil nil 4 5)
   "Extra smoothen current voice.")
 
-(defvoice voice-smoothen-medium (list nil nil nil 3 3)
+(defvoice voice-smoothen-medium (list nil nil nil 3 4 )
   "Add medium smoothen current voice.")
+
+(defvoice voice-smoothen (list nil nil  2 2 )
+  "Smoothen current voice.")
 
 (defvoice voice-brighten-medium (list nil nil nil 5 6)
   "Brighten  (medium) current voice.")
