@@ -1658,7 +1658,10 @@ Indicate change of selection with an auditory icon
 (defadvice display-buffer (after emacspeak pre act comp)
   "Provide auditory icon."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'open-object)))
+    (let ((buffer (ad-get-arg 0)))
+    (emacspeak-auditory-icon 'open-object)
+    (message"Displayed %s" (if (bufferp buffer) (buffer-name buffer) buffer)))))
+
 
 (defadvice make-frame-command (after emacspeak pre act comp)
 "Indicate that a new frame is being created."
