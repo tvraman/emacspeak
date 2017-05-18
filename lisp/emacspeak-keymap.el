@@ -155,6 +155,7 @@
         ("TAB" emacspeak-info-wizard)
         ("'" describe-text-properties)
         ("," emacspeak-wizards-color-at-point)
+        ("/" describe-face)
         ("\;" describe-font)
         ("p" list-packages)
         )
