@@ -72,72 +72,11 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 
-'(
-  vdiff--translate-line
-  vdiff-merge-conflict
-  
-  
-  
-  vdiff-receive-changes
-  vdiff-receive-changes-and-step
-  
-  vdiff-refine-all-hunks-symbol
-  vdiff-refine-all-hunks-word
-  vdiff-refine-this-hunk
-  vdiff-refine-this-hunk-symbol
-  vdiff-refine-this-hunk-word
-  vdiff-refresh
-  vdiff-remove-refinements-in-hunk
-  vdiff-restore-windows
-  vdiff-send-changes
-  vdiff-send-changes-and-step
-  vdiff-switch-buffer
-  )
-
-(defadvice vdiff-toggle-whitespace (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'button)
-    (message "vdiff: toggled whitespace.")))
-
-
-(defadvice vdiff-toggle-case (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'button)
-    (message "vdiff: toggled case.")))
-
-(defadvice vdiff-scroll-lock-mode (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (message "Turned %s vdiff-scroll-lock"
-             (if vdiff-scroll-lock-mode "on" "off"))
-    (emacspeak-auditory-icon (if vdiff-scroll-lock-mode 'on 'off))))
-
-(defadvice vdiff-save-buffers (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'save-object)))
-
-
-(defadvice vdiff-restore-windows (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'task-done)
-    (emacspeak-speak-mode-line)))
-
-(defadvice vdiff-quit (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-mode-line)))
 
 (defadvice vdiff-refine-all-hunks (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)))
-
-
 (cl-loop
  for f in
  '(vdiff-buffers vdiff-buffers3 vdiff-magit-compare
