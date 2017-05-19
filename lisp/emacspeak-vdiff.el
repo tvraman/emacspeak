@@ -182,8 +182,9 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (emacspeak-speak-line)
-       (emacspeak-auditory-icon 'large-movement)))))
+       (ems-with-messages-silenced
+        (emacspeak-speak-line)
+        (emacspeak-auditory-icon 'large-movement))))))
 
 ;;}}}
 (provide 'emacspeak-vdiff)
