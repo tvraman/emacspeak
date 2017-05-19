@@ -57,7 +57,7 @@
 ;;}}}
 ;;{{{ Map Faces:
 
-(voice-setup-add-map 
+(voice-setup-add-map
  '(
    (vdiff-addition-face voice-annotate)
    (vdiff-change-face voice-bolden)
@@ -74,83 +74,79 @@
 
 '(
   vdiff--translate-line
-vdiff-3way-mode
-vdiff-buffers
-vdiff-buffers3
+  vdiff-3way-mode
+  vdiff-buffers
+  vdiff-buffers3
 
-vdiff-current-file
-vdiff-files
-vdiff-files3
-vdiff-hydra/body
-vdiff-hydra/nil
-vdiff-hydra/vdiff-close-all-folds
-vdiff-hydra/vdiff-close-fold
-vdiff-hydra/vdiff-close-other-folds
-vdiff-hydra/vdiff-next-fold
-vdiff-hydra/vdiff-next-hunk
-vdiff-hydra/vdiff-open-all-folds
-vdiff-hydra/vdiff-open-fold
-vdiff-hydra/vdiff-previous-fold
-vdiff-hydra/vdiff-previous-hunk
-vdiff-hydra/vdiff-quit-and-exit
-vdiff-hydra/vdiff-receive-changes
-vdiff-hydra/vdiff-receive-changes-and-step
-vdiff-hydra/vdiff-refine-all-hunks
-vdiff-hydra/vdiff-refine-this-hunk
-vdiff-hydra/vdiff-refresh
-vdiff-hydra/vdiff-remove-refinements-in-hunk
-vdiff-hydra/vdiff-save-buffers
-vdiff-hydra/vdiff-send-changes
-vdiff-hydra/vdiff-send-changes-and-step
-vdiff-hydra/vdiff-switch-buffer
-vdiff-hydra/vdiff-toggle-hydra/body-and-exit
-vdiff-magit-dwim
-vdiff-magit-popup
-vdiff-magit-resolve
-vdiff-magit-show-unstaged
-vdiff-magit-stage
-vdiff-merge-conflict
-vdiff-mode
-vdiff-next-fold
-vdiff-next-hunk
-vdiff-open-all-folds
-vdiff-open-fold
-vdiff-previous-fold
-vdiff-previous-hunk
-vdiff-quit
-vdiff-receive-changes
-vdiff-receive-changes-and-step
-vdiff-refine-all-hunks
-vdiff-refine-all-hunks-symbol
-vdiff-refine-all-hunks-word
-vdiff-refine-this-hunk
-vdiff-refine-this-hunk-symbol
-vdiff-refine-this-hunk-word
-vdiff-refresh
-vdiff-remove-refinements-in-hunk
-vdiff-restore-windows
-vdiff-save-buffers
-vdiff-scroll-lock-mode
-vdiff-send-changes
-vdiff-send-changes-and-step
-vdiff-switch-buffer
-vdiff-toggle-case
-vdiff-toggle-hydra/body
-vdiff-toggle-hydra/vdiff-hydra/body-and-exit
-vdiff-toggle-hydra/vdiff-toggle-case
-vdiff-toggle-hydra/vdiff-toggle-whitespace
+  vdiff-current-file
+  vdiff-files
+  vdiff-files3
+  vdiff-hydra/body
+  vdiff-hydra/nil
+  vdiff-hydra/vdiff-close-all-folds
+  vdiff-hydra/vdiff-close-fold
+  vdiff-hydra/vdiff-close-other-folds
+  vdiff-hydra/vdiff-next-fold
+  vdiff-hydra/vdiff-next-hunk
+  vdiff-hydra/vdiff-open-all-folds
+  vdiff-hydra/vdiff-open-fold
+  vdiff-hydra/vdiff-previous-fold
+  vdiff-hydra/vdiff-previous-hunk
+  vdiff-hydra/vdiff-quit-and-exit
+  vdiff-hydra/vdiff-receive-changes
+  vdiff-hydra/vdiff-receive-changes-and-step
+  vdiff-hydra/vdiff-refine-all-hunks
+  vdiff-hydra/vdiff-refine-this-hunk
+  vdiff-hydra/vdiff-refresh
+  vdiff-hydra/vdiff-remove-refinements-in-hunk
+  vdiff-hydra/vdiff-save-buffers
+  vdiff-hydra/vdiff-send-changes
+  vdiff-hydra/vdiff-send-changes-and-step
+  vdiff-hydra/vdiff-switch-buffer
+  vdiff-hydra/vdiff-toggle-hydra/body-and-exit
+  vdiff-magit-dwim
+  vdiff-magit-popup
+  vdiff-magit-resolve
+  vdiff-magit-show-unstaged
+  vdiff-magit-stage
+  vdiff-merge-conflict
+  vdiff-mode
+  vdiff-next-fold
+  vdiff-next-hunk
+  vdiff-open-all-folds
+  vdiff-open-fold
+  vdiff-previous-fold
+  vdiff-previous-hunk
+  vdiff-quit
+  vdiff-receive-changes
+  vdiff-receive-changes-and-step
+  vdiff-refine-all-hunks
+  vdiff-refine-all-hunks-symbol
+  vdiff-refine-all-hunks-word
+  vdiff-refine-this-hunk
+  vdiff-refine-this-hunk-symbol
+  vdiff-refine-this-hunk-word
+  vdiff-refresh
+  vdiff-remove-refinements-in-hunk
+  vdiff-restore-windows
+  vdiff-save-buffers
+  vdiff-scroll-lock-mode
+  vdiff-send-changes
+  vdiff-send-changes-and-step
+  vdiff-switch-buffer
+  vdiff-toggle-case
+  vdiff-toggle-hydra/body
+  vdiff-toggle-hydra/vdiff-hydra/body-and-exit
+  vdiff-toggle-hydra/vdiff-toggle-case
+  vdiff-toggle-hydra/vdiff-toggle-whitespace
 
-)
-
-
-)
-
+  )
 
 (defadvice vdiff-toggle-whitespace (after emacspeak pre act comp)
-"Provide auditory feedback."
-(when (ems-interactive-p)
-  (emacspeak-auditory-icon 'button)
-  (message "vdiff: toggled white space.")))
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'button)
+    (message "vdiff: toggled white space.")))
 
 ;;}}}
 ;;{{{ close Folds:
