@@ -580,7 +580,7 @@ take effect."
 
 (defun voice-setup-describe-personality(personality)
   "Describe specified voice --- analogous to \\[describe-face].
-When called interactively, `personality' defaults to personality at point."
+When called interactively, `personality' defaults to first personality at point."
   (interactive
    (list
     (let ((v (dtk-get-style)))
