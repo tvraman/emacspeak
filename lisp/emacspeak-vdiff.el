@@ -167,7 +167,7 @@
  (eval
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
-     (when (ems-interactive-)
+     (when (ems-interactive-p)
        (emacspeak-auditory-icon 'close-object)
        (emacspeak-speak-line)))))
 
