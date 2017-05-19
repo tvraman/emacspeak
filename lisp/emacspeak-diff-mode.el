@@ -68,7 +68,7 @@
    (diff-indicator-removed voice-smoothen)
    (diff-nonexistent voice-lighten-extra)
    (diff-refine-added voice-lighten)
-   (diff-refine-change voice-brighten-medium)
+   (diff-refine-changed voice-brighten-medium)
    (diff-refine-removed voice-smoothen)
    (diff-removed voice-smoothen-extra)))
 
