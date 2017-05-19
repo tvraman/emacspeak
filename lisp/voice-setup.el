@@ -584,13 +584,17 @@ When called interactively, `personality' defaults to personality at point."
   (interactive
    (list
     (let ((v (dtk-get-style)))
-      (when (listp v (setq v (cl-first v ))))
-      (read-from-minibuffer "Personality: "
-                            nil nil nil nil b))))
-  (let ((settings (intern (format "%s-settings" (get voice 'observing))))
-        (n '(family average-pitch pitch-range stress richness punctuations)))
+      (when (listp v) (setq v (cl-first v )))
+      (setq v (symbol-name v))
+      (intern
+       (read-from-minibuffer "Personality: "
+                             nil nil nil nil v)))))
+  (let ((settings (intern (format "%s-settings" (get personality 'observing))))
+        (n '(family average-pitch pitch-range stress richness punctuations))
+        (values nil))
     (cond
      ((bound-and-true-p settings) ;;; display it
+      (setq values (symbol-value settings))
       (with-help-window (help-buffer)
         (with-current-buffer standard-output
           (insert (format "Personality: %s\n\n" personality))
@@ -599,7 +603,10 @@ When called interactively, `personality' defaults to personality at point."
           (cl-loop
            for i from 0 to (1- (length n))do
            (insert (format "%s: %s\n"
-                           (elt n i) (elt settings i)))))))
+                           (elt n i) (elt values i))))))
+      (when (called-interactively-p 'interactive)
+        (emacspeak-auditory-icon 'help)
+        (message "Displayed personality in help window.")))
      (t (error "%s doesn't look like a valid personality." personality)))))
     
         k(
