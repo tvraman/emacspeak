@@ -599,7 +599,7 @@ When called interactively, `personality' defaults to first personality at point.
       (setq values (symbol-value settings))
       (with-help-window (help-buffer)
         (with-current-buffer standard-output
-          (insert (format "Personality: %s\n\n" personality))
+          (insert (format "Personality: %s\tVoice:%s\n\n" personality voice))
           (put-text-property (point-min) (point)
                              'personality personality)
           (cl-loop
