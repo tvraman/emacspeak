@@ -40,7 +40,10 @@
 ;;{{{  introduction
 
 ;;; Commentary:
-;;; VDIFF == 
+;;; VDIFF ==  vimdiff
+;;; Installable from melpa, vdiff enables synchronized movement
+;;; through diff buffers without resorting to an extra control-panel
+;;; as is the case with ediff.
 
 ;;; Code:
 
@@ -54,18 +57,17 @@
 ;;}}}
 ;;{{{ Map Faces:
 
-(let ((print-length 0)
-      (faces (emacspeak-wizards-enumerate-unmapped-faces "^vdiff"))
-      (start (point)))
-  (insert "\n\n(voice-setup-add-map \n'(\n")
-  (cl-loop for f in faces do 
-           (insert (format "(%s)\n" f)))
-  (insert "\n)\n)")
-  (goto-char start)
-  (backward-sexp)
-  (kill-sexp)
-  (goto-char (search-forward "("))
-  (indent-pp-sexp))
+(voice-setup-add-map 
+ '(
+   (vdiff-addition-face voice-annotate)
+   (vdiff-change-face voice-bolden)
+   (vdiff-closed-fold-face voice-smoothen)
+   (vdiff-open-fold-face voice-lighten)
+   (vdiff-refine-added voice-brighten)
+   (vdiff-refine-changed voice-animate)
+   (vdiff-subtraction-face voice-smoothen)
+   (vdiff-subtraction-fringe-face voice-smoothen-extra)
+   (vdiff-target-face voice-monotone)))
 
 ;;}}}
 ;;{{{ Interactive Commands:
