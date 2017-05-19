@@ -74,7 +74,6 @@
 
 '(
   vdiff--translate-line
-  
   vdiff-buffers
   vdiff-buffers3
   vdiff-current-file
@@ -84,11 +83,7 @@
   
   vdiff-merge-conflict
   
-  vdiff-next-fold
-  vdiff-next-hunk
   
-  vdiff-previous-fold
-  vdiff-previous-hunk
   vdiff-quit
   vdiff-receive-changes
   vdiff-receive-changes-and-step
@@ -139,6 +134,20 @@
      (when (ems-interactive-)
        (emacspeak-auditory-icon 'close-object)
        (emacspeak-speak-line)))))
+
+;;}}}
+;;{{{ Navigation:
+
+(cl-loop
+ for f in
+ '(vdiff-next-fold vdiff-next-hunk vdiff-previous-fold vdiff-previous-hunk)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'large-movement)))))
 
 ;;}}}
 (provide 'emacspeak-vdiff)
