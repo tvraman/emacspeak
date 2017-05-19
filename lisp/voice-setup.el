@@ -611,7 +611,7 @@ When called interactively, `personality' defaults to first personality at point.
         (message "Displayed personality in help window.")))
      (t (error "%s doesn't look like a valid personality." personality)))))
     
-        k(
+        
 
 ;;}}}
 (provide 'voice-setup)
