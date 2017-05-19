@@ -73,19 +73,27 @@
 ;;{{{ Interactive Commands:
 
 '(
- vdiff-receive-changes
- vdiff-receive-changes-and-step
- 
- 
- 
- 
- 
- 
- 
- vdiff-send-changes
- vdiff-send-changes-and-step
- vdiff-switch-buffer
 )
+
+(cl-loop
+ for f in
+ '(
+   vdiff-receive-changes vdiff-receive-changes-and-step
+   vdiff-send-changes vdiff-send-changes-and-step)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory feedback."
+     (when (ems-interactive-p)
+       (emacspeak-auditory-icon 'task-done)
+       (emacspeak-speak-line)))))
+
+(defadvice vdiff-switch-buffer (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'select-object)
+    (emacspeak-speak-mode-line)))
+
 (defadvice vdiff-refine-all-hunks (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
