@@ -576,6 +576,35 @@ take effect."
       (normal-mode))))
 
 ;;}}}
+;;{{{ describe-voice at point:
+
+(defun voice-setup-describe-personality(personality)
+  "Describe specified voice --- analogous to \\[describe-face].
+When called interactively, `personality' defaults to personality at point."
+  (interactive
+   (list
+    (let ((v (dtk-get-style)))
+      (when (listp v (setq v (cl-first v ))))
+      (read-from-minibuffer "Personality: "
+                            nil nil nil nil b))))
+  (let ((settings (intern (format "%s-settings" (get voice 'observing))))
+        (n '(family average-pitch pitch-range stress richness punctuations)))
+    (cond
+     ((bound-and-true-p settings) ;;; display it
+      (with-help-window (help-buffer)
+        (with-current-buffer standard-output
+          (insert (format "Personality: %s\n\n" personality))
+          (put-text-property (point-min) (point)
+                             'personality personality)
+          (cl-loop
+           for i from 0 to (1- (length n))do
+           (insert (format "%s: %s\n"
+                           (elt n i) (elt settings i)))))))
+     (t (error "%s doesn't look like a valid personality." personality)))))
+    
+        k(
+
+;;}}}
 (provide 'voice-setup)
 ;;{{{ end of file
 
