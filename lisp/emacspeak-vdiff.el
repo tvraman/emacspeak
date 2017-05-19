@@ -173,6 +173,9 @@
 
 ;;}}}
 ;;{{{ Navigation:
+(defadvice vdiff--scroll-function (around emacspeak pre act comp)
+  "Silence messages."
+  (ems-with-messages-silenced ad-do-it))
 
 (cl-loop
  for f in
@@ -182,9 +185,8 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (ems-with-messages-silenced
-        (emacspeak-speak-line)
-        (emacspeak-auditory-icon 'large-movement))))))
+       (emacspeak-speak-line)
+       (emacspeak-auditory-icon 'large-movement)))))
 
 ;;}}}
 (provide 'emacspeak-vdiff)
