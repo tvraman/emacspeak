@@ -20,3 +20,8 @@ types from Bookshare such as DTB Audio and Epub3.
 
 Module ~emacspeak-eww~ implements ~emacspeak-eww-marks~ --- persistent
 bookmarks for use when reding  Daisy (Bookshare) and Epub2 ebooks.
+
+**  Speech-Enable VDiff --- A Diff tool.
+
+Module ~emacspeak-vdiff~ speech-enables package ~vdiff~ --- a
+diff-tool with some advantages over  ~ediff~.
