@@ -74,13 +74,6 @@
 
 '(
   vdiff--translate-line
-  vdiff-buffers
-  vdiff-buffers3
-  vdiff-current-file
-  vdiff-files
-  vdiff-files3
-  
-  
   vdiff-merge-conflict
   
   
@@ -145,6 +138,19 @@
     (emacspeak-auditory-icon 'task-done)))
 
 
+(cl-loop
+ for f in
+ '(vdiff-buffers vdiff-buffers3 vdiff-magit-compare
+  vdiff-current-file vdiff-files vdiff-files3)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-speak-mode-line)))))
+  
+  
 ;;}}}
 
 
