@@ -589,9 +589,11 @@ When called interactively, `personality' defaults to first personality at point.
       (intern
        (read-from-minibuffer "Personality: "
                              nil nil nil nil v)))))
-  (let ((settings (intern (format "%s-settings" (get personality 'observing))))
+  (let ((voice (get personality 'observing))
+        (settings nil)
         (n '(family average-pitch pitch-range stress richness punctuations))
         (values nil))
+    (when voice (setq settings (intern (format "%s-settings" voice))))
     (cond
      ((bound-and-true-p settings) ;;; display it
       (setq values (symbol-value settings))
