@@ -101,15 +101,21 @@
   vdiff-send-changes
   vdiff-send-changes-and-step
   vdiff-switch-buffer
-  vdiff-toggle-case
-
+  
   )
 
 (defadvice vdiff-toggle-whitespace (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)
-    (message "vdiff: toggled white space.")))
+    (message "vdiff: toggled whitespace.")))
+
+
+(defadvice vdiff-toggle-case (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'button)
+    (message "vdiff: toggled case.")))
 
 ;;}}}
 ;;{{{ open/close Folds:
