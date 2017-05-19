@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1179 commands and 1087 options.
+This chapter documents a total of 1180 commands and 1087 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -3903,7 +3903,7 @@ Hook to run after starting emacspeak.
 
 @defvar {User Option} emacspeak-success-voice
 Personality used for success
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
 
 @end defvar
 
@@ -25171,6 +25171,27 @@ Toggle voice lock mode.
 
 @format
 Interactively toggle voice lock.
+@end format
+@end deffn
+
+@subsubsection voice-setup-describe-personality
+@deffn {Command} voice-setup-describe-personality  (personality)
+@table @kbd
+@item C-h "
+@kindex C-h "
+@item <f1> "
+@kindex <f1> "
+@item <help> "
+@kindex <help> "
+@end table
+
+@findex voice-setup-describe-personality
+
+@format
+Describe specified voice --- analogous to C-h /.
+When called interactively, ‘personality’ defaults to first personality at point.
+
+(fn PERSONALITY)
 @end format
 @end deffn
 
