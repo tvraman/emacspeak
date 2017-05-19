@@ -278,7 +278,7 @@ VOICE-NAME are  changed."
 (list paul 5 5 5 5 'all) which defines a standard male voice
 that speaks `all' punctuations.  Once
 defined, the newly declared personality can be customized by calling
-command \\[customize-variable] on <personality>-settings.. "
+command \\[customize-variable] on <personality>-settings. "
   `(progn
      (defvar  ,personality
        (voice-setup-personality-from-style ,settings)
