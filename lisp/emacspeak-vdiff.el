@@ -72,7 +72,20 @@
 ;;}}}
 ;;{{{ Interactive Commands:
 
-
+'(
+ vdiff-receive-changes
+ vdiff-receive-changes-and-step
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ vdiff-send-changes
+ vdiff-send-changes-and-step
+ vdiff-switch-buffer
+)
 (defadvice vdiff-refine-all-hunks (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
