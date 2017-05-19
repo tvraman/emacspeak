@@ -97,11 +97,10 @@
   vdiff-remove-refinements-in-hunk
   vdiff-restore-windows
   vdiff-save-buffers
-  vdiff-scroll-lock-mode
+  
   vdiff-send-changes
   vdiff-send-changes-and-step
   vdiff-switch-buffer
-  
   )
 
 (defadvice vdiff-toggle-whitespace (after emacspeak pre act comp)
@@ -116,7 +115,12 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)
     (message "vdiff: toggled case.")))
-
+(defadvice vdiff-scroll-lock-mode (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (message "Turned %s vdiff-scroll-lock"
+             (if vdiff-scroll-lock-mode "on" "off"))
+(emacspeak-auditory-icon (if vdiff-scroll-lock-mode 'on 'off))))
 ;;}}}
 ;;{{{ open/close Folds:
 
