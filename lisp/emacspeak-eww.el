@@ -399,6 +399,7 @@
 (require 'cl-lib)
 (cl-declaim (optimize (safety 0) (speed 3)))
 (require 'pp)
+(require 'subr-x)
 (eval-when-compile (require 'eww "eww" 'no-error))
 (require 'dom)
 (require 'dom-addons)
