@@ -96,7 +96,6 @@
   vdiff-refresh
   vdiff-remove-refinements-in-hunk
   vdiff-restore-windows
-  
   vdiff-send-changes
   vdiff-send-changes-and-step
   vdiff-switch-buffer
@@ -125,8 +124,20 @@
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'save-object)))
-;;}}}
-;;{{{ open/close Folds:
+
+
+(defadvice vdiff-restore-windows (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'task-done)
+    (emacspeak-speak-mode-line)));;}}}
+
+
+(defadvice vdiff-quit (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'close-object)
+    (emacspeak-speak-mode-line)));;{{{ open/close Folds:
 
 (cl-loop
  for f in
