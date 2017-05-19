@@ -84,10 +84,10 @@
   vdiff-merge-conflict
   
   
-  vdiff-quit
+  
   vdiff-receive-changes
   vdiff-receive-changes-and-step
-  vdiff-refine-all-hunks
+  
   vdiff-refine-all-hunks-symbol
   vdiff-refine-all-hunks-word
   vdiff-refine-this-hunk
@@ -113,12 +113,13 @@
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'button)
     (message "vdiff: toggled case.")))
+
 (defadvice vdiff-scroll-lock-mode (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (message "Turned %s vdiff-scroll-lock"
              (if vdiff-scroll-lock-mode "on" "off"))
-(emacspeak-auditory-icon (if vdiff-scroll-lock-mode 'on 'off))))
+    (emacspeak-auditory-icon (if vdiff-scroll-lock-mode 'on 'off))))
 
 (defadvice vdiff-save-buffers (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -130,15 +131,24 @@
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'task-done)
-    (emacspeak-speak-mode-line)));;}}}
-
+    (emacspeak-speak-mode-line)))
 
 (defadvice vdiff-quit (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
     (emacspeak-auditory-icon 'close-object)
-    (emacspeak-speak-mode-line)));;{{{ open/close Folds:
+    (emacspeak-speak-mode-line)))
 
+(defadvice vdiff-refine-all-hunks (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'task-done)))
+
+
+;;}}}
+
+
+;;{{{ open/close Folds:
 (cl-loop
  for f in
  '(vdiff-open-all-folds vdiff-open-fold)
@@ -149,6 +159,7 @@
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'open-object)
        (emacspeak-speak-line)))))
+
 (cl-loop
  for f in
  '(vdiff-close-all-folds vdiff-close-fold vdiff-close-other-folds)
