@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1181 commands and 1096 options.
+This chapter documents a total of 1182 commands and 1096 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -19460,8 +19460,24 @@ VDIFF ==  vimdiff
 Installable from melpa, vdiff enables synchronized movement
 through diff buffers without resorting to an extra control-panel
 as is the case with ediff.
+ In addition to speech-enabling interactive commands and setting
+ up face->voice mappings, this module provides commands that speak
+ the current hunk. These are bound in @code{vdiff-mode-prefix-map}.
+@itemize  @bullet
+@item  @code{emacspeak-vdiff-speak-this-hunk} bound to @kbd{SPC}.
+@item @code{emacspeak-vdiff-speak-other-hunk} bound to @kbd{C-SPC}.
+@end itemize
 
 @subsection emacspeak-vdiff Commands
+
+@subsubsection emacspeak-vdiff-speak-other-hunk
+@deffn {Command} emacspeak-vdiff-speak-other-hunk   
+@findex emacspeak-vdiff-speak-other-hunk
+
+@format
+Speak corresponding hunk from other buffer.
+@end format
+@end deffn
 
 @subsubsection emacspeak-vdiff-speak-this-hunk
 @deffn {Command} emacspeak-vdiff-speak-this-hunk   

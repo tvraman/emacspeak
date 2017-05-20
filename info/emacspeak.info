@@ -16,7 +16,7 @@ Indirect:
 emacspeak.info-1: 327
 emacspeak.info-2: 308091
 emacspeak.info-3: 601539
-emacspeak.info-4: 900431
+emacspeak.info-4: 900948
 
 Tag Table:
 (Indirect)
@@ -274,73 +274,73 @@ Node: emacspeak-todo-mode697155
 Node: emacspeak-twittering697487
 Node: emacspeak-url-template698972
 Node: emacspeak-vdiff700685
-Node: emacspeak-view703480
-Node: emacspeak-vm703921
-Node: emacspeak-w3707332
-Node: emacspeak-w3m711873
-Node: emacspeak-wdired716500
-Node: emacspeak-we716748
-Node: emacspeak-websearch733387
-Node: emacspeak-webspace741581
-Node: emacspeak-webutils745066
-Node: emacspeak-widget748752
-Node: emacspeak-windmove750246
-Node: emacspeak-winring750552
-Node: emacspeak-wizards750982
-Node: emacspeak-woman795679
-Node: emacspeak-xkcd795906
-Node: emacspeak-xml-shell796507
-Node: emacspeak-xref799726
-Node: emacspeak-xslt800007
-Node: emacspeak-yasnippet801899
-Node: espeak-voices802459
-Node: g803060
-Node: g-app803381
-Node: g-auth804499
-Node: g-utils804912
-Node: gm-nnir806216
-Node: gmaps807035
-Node: gweb811741
-Node: ladspa812066
-Node: mac-voices814021
-Node: outloud-voices814394
-Node: plain-voices815182
-Node: soundscape815537
-Node: sox820258
-Node: sox-gen823139
-Node: stack-f829577
-Node: tetris829865
-Node: toy-braille830006
-Node: tts830843
-Node: tts-cmds832846
-Node: voice-setup833355
-Node: xbacklight840998
-Node: URL Templates842462
-Node: Emacspeak Keyboard Commands848634
-Node: TTS Servers850696
-Node: Emacspeak At Twenty857743
-Node: Turning Twenty859454
-Node: Using UNIX With Speech Output --- 1994860142
-Node: Key Enabler --- Emacs And Lisp Advice861983
-Node: Key Component --- Text To Speech (TTS)863028
-Node: Emacspeak And Software Development865572
-Node: Programming Defensively868188
-Node: Emacspeak And Authoring Documents869447
-Node: Emacspeak And The Early Days Of The Web871022
-Node: Audio Formatting --- Generalizing Aural CSS874470
-Node: Conversational Gestures For The Audio Desktop877538
-Node: Speech-Enabling Interactive Games880893
-Node: Accessing Media Streams882670
-Node: EBooks --- Ubiquitous Access To Books884777
-Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks887325
-Node: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols889191
-Node: The RESTful Web --- Web Wizards And URL Templates For Faster Access892673
-Node: Mashing It Up --- Leveraging Evolving Web APIs896217
-Node: Conclusion --- Turning Twenty898722
-Node: References900431
-Node: Acknowledgments901361
-Node: Concept Index901519
-Node: Key Index905162
+Node: emacspeak-view703997
+Node: emacspeak-vm704438
+Node: emacspeak-w3707849
+Node: emacspeak-w3m712390
+Node: emacspeak-wdired717017
+Node: emacspeak-we717265
+Node: emacspeak-websearch733904
+Node: emacspeak-webspace742098
+Node: emacspeak-webutils745583
+Node: emacspeak-widget749269
+Node: emacspeak-windmove750763
+Node: emacspeak-winring751069
+Node: emacspeak-wizards751499
+Node: emacspeak-woman796196
+Node: emacspeak-xkcd796423
+Node: emacspeak-xml-shell797024
+Node: emacspeak-xref800243
+Node: emacspeak-xslt800524
+Node: emacspeak-yasnippet802416
+Node: espeak-voices802976
+Node: g803577
+Node: g-app803898
+Node: g-auth805016
+Node: g-utils805429
+Node: gm-nnir806733
+Node: gmaps807552
+Node: gweb812258
+Node: ladspa812583
+Node: mac-voices814538
+Node: outloud-voices814911
+Node: plain-voices815699
+Node: soundscape816054
+Node: sox820775
+Node: sox-gen823656
+Node: stack-f830094
+Node: tetris830382
+Node: toy-braille830523
+Node: tts831360
+Node: tts-cmds833363
+Node: voice-setup833872
+Node: xbacklight841515
+Node: URL Templates842979
+Node: Emacspeak Keyboard Commands849151
+Node: TTS Servers851213
+Node: Emacspeak At Twenty858260
+Node: Turning Twenty859971
+Node: Using UNIX With Speech Output --- 1994860659
+Node: Key Enabler --- Emacs And Lisp Advice862500
+Node: Key Component --- Text To Speech (TTS)863545
+Node: Emacspeak And Software Development866089
+Node: Programming Defensively868705
+Node: Emacspeak And Authoring Documents869964
+Node: Emacspeak And The Early Days Of The Web871539
+Node: Audio Formatting --- Generalizing Aural CSS874987
+Node: Conversational Gestures For The Audio Desktop878055
+Node: Speech-Enabling Interactive Games881410
+Node: Accessing Media Streams883187
+Node: EBooks --- Ubiquitous Access To Books885294
+Node: Leveraging Computational Tools --- From SQL And R To IPython Notebooks887842
+Node: Social Web --- EMail Instant Messaging Blogging And Tweeting Using Open Protocols889708
+Node: The RESTful Web --- Web Wizards And URL Templates For Faster Access893190
+Node: Mashing It Up --- Leveraging Evolving Web APIs896734
+Node: Conclusion --- Turning Twenty899239
+Node: References900948
+Node: Acknowledgments901878
+Node: Concept Index902036
+Node: Key Index905679
 
 End Tag Table
 

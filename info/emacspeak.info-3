@@ -3189,12 +3189,24 @@ File: emacspeak.info,  Node: emacspeak-vdiff,  Next: emacspeak-view,  Prev: emac
 
 VDIFF == vimdiff Installable from melpa, vdiff enables synchronized
 movement through diff buffers without resorting to an extra
-control-panel as is the case with ediff.
+control-panel as is the case with ediff.  In addition to speech-enabling
+interactive commands and setting up face->voice mappings, this module
+provides commands that speak the current hunk.  These are bound in
+‘vdiff-mode-prefix-map’.
+   • ‘emacspeak-vdiff-speak-this-hunk’ bound to ‘SPC’.
+   • ‘emacspeak-vdiff-speak-other-hunk’ bound to ‘C-SPC’.
 
 12.188.1 emacspeak-vdiff Commands
 ---------------------------------
 
-12.188.1.1 emacspeak-vdiff-speak-this-hunk
+12.188.1.1 emacspeak-vdiff-speak-other-hunk
+...........................................
+
+ -- Command: emacspeak-vdiff-speak-other-hunk
+
+     Speak corresponding hunk from other buffer.
+
+12.188.1.2 emacspeak-vdiff-speak-this-hunk
 ..........................................
 
  -- Command: emacspeak-vdiff-speak-this-hunk
