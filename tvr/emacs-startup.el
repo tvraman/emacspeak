@@ -192,6 +192,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "my-functions"
 ;;; Mail:
        "vm-prepare" "gnus-prepare" "bbdb-prepare"
+       "vdiff-prepare"
        "mspools-prepare" "sigbegone"
 ;;; Web:
        "w3-prepare" "elfeed-prepare"
