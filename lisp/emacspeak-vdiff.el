@@ -105,7 +105,7 @@
      "Provide auditory feedback."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)
-       (emacspeak-speak-line)))))
+       (emacspeak-vdiff-speak-this-chunk)))))
 
 (defadvice vdiff-switch-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -170,7 +170,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (emacspeak-speak-line)
+       (emacspeak-vdiff-speak-this-chunk)
        (emacspeak-auditory-icon 'large-movement)))))
 
 ;;}}}
