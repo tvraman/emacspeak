@@ -53,7 +53,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
-
+(eval-when-compile (require 'vdiff "vdiff" 'no-error))
 ;;}}}
 ;;{{{ Map Faces:
 
@@ -68,6 +68,25 @@
    (vdiff-subtraction-face voice-smoothen)
    (vdiff-subtraction-fringe-face voice-smoothen-extra)
    (vdiff-target-face voice-monotone)))
+
+;;}}}
+;;{{{ Emacspeak VDiff Commands:
+
+(defun emacspeak-vdiff-get-overlay-at-point ()
+  "Return vdiff overlay  at point."
+  (let ((ovr (vdiff--overlay-at-pos)))
+    (and (overlayp ovr)
+         (overlay-get ovr 'vdiff-type)
+         (not (eq (overlay-get ovr 'vdiff-type) 'fold))
+         ovr)))
+
+
+(defun  emacspeak-vdiff-speak-this-hunk ()
+  "Speak VDiff hunk under point."
+  (interactive)
+  (let ((o(emacspeak-vdiff-get-overlay-at-point)))
+    (dtk-speak (buffer-substring (overlay-start o) (overlay-end o)))))
+  
 
 ;;}}}
 ;;{{{ Interactive Commands:
@@ -153,6 +172,12 @@
      (when (ems-interactive-p)
        (emacspeak-speak-line)
        (emacspeak-auditory-icon 'large-movement)))))
+
+;;}}}
+;;{{{ Setup:
+(eval-after-load
+    "vdiff"
+  `(define-key vdiff-mode-prefix-map   " " 'emacspeak-vdiff-speak-this-hunk ))
 
 ;;}}}
 (provide 'emacspeak-vdiff)
