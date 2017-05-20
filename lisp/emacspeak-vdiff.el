@@ -44,7 +44,13 @@
 ;;; Installable from melpa, vdiff enables synchronized movement
 ;;; through diff buffers without resorting to an extra control-panel
 ;;; as is the case with ediff.
-
+;;;  In addition to speech-enabling interactive commands and setting
+;;;  up face->voice mappings, this module provides commands that speak
+;;;  the current hunk. These are bound in @code{vdiff-mode-prefix-map}.
+;;; @itemize  @bullet
+;;; @item  @code{emacspeak-vdiff-speak-this-hunk} bound to @kbd{SPC}.
+;;; @item @code{emacspeak-vdiff-speak-other-hunk} bound to @kbd{C-SPC}.
+;;;@end itemize
 ;;; Code:
 
 ;;}}}
@@ -86,8 +92,13 @@
   (interactive)
   (let ((o(emacspeak-vdiff-get-overlay-at-point)))
     (dtk-speak (buffer-substring (overlay-start o) (overlay-end o)))))
-  
 
+(defun emacspeak-vdiff-speak-other-hunk ()
+  "Speak corresponding hunk from other buffer."
+  (interactive)
+  (save-excursion
+    (vdiff-switch-buffer (line-number-at-pos))
+    (emacspeak-vdiff-speak-this-hunk)))
 ;;}}}
 ;;{{{ Interactive Commands:
 
@@ -177,7 +188,9 @@
 ;;{{{ Setup:
 (eval-after-load
     "vdiff"
-  `(define-key vdiff-mode-prefix-map   " " 'emacspeak-vdiff-speak-this-hunk ))
+  `(progn
+     (define-key vdiff-mode-prefix-map   " " 'emacspeak-vdiff-speak-this-hunk )
+     (define-key vdiff-mode-prefix-map   (kbd "C-SPC") 'emacspeak-vdiff-speak-other-hunk)))
 
 ;;}}}
 (provide 'emacspeak-vdiff)
