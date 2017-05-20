@@ -266,7 +266,7 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
  "sleep" ; delta
  (make-sox--binaural
   :beats '((75 0.5) (150 1.0) (225 2.0) (300 4.0))
-  :gain -14))
+  :gain -10))
 
 (sox-define-binaural-effect
  "dream" ; theta
@@ -278,19 +278,19 @@ Param `beat-spec-list' is a list of `(carrier beat) tupples."
  "think" ;alpha
  (make-sox--binaural
   :beats '((75 8.3) (150 9.0) (225 10.0) (300 12.0))
-  :gain -14))
+  :gain -10))
 
 (sox-define-binaural-effect
  "act" ; beta
  (make-sox--binaural
   :beats '((75 13.5) (150 18.0) (225 23.0) (300 40.0))
-  :gain -14))
+  :gain -10))
 
 (sox-define-binaural-effect
  "focus" ; gamma
  (make-sox--binaural
   :beats '((75 40) (150 40) (225 40) (300 40.0))
-  :gain -14))
+  :gain -10))
 ;; }}}
 
 (defun sox--format-seconds (seconds)
