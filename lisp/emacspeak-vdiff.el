@@ -91,7 +91,7 @@
   "Speak VDiff hunk under point."
   (interactive)
   (let ((o(emacspeak-vdiff-get-overlay-at-point)))
-    (dtk-speak (buffer-substring (overlay-start o) (overlay-end o)))))
+    (when o (dtk-speak (buffer-substring (overlay-start o) (overlay-end o))))))
 
 (defun emacspeak-vdiff-speak-other-hunk ()
   "Speak corresponding hunk from other buffer."
