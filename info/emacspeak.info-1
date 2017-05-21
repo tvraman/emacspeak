@@ -3048,6 +3048,7 @@ This chapter documents a total of 1182 commands and 1096 options.
 * emacspeak-helm::Speech-enable HELM.
 * emacspeak-hide::Provides user commands for hiding and exposing blocks of text.
 * emacspeak-hideshow::speech-enable hideshow.
+* emacspeak-hydra::Speech-Enable hydra.
 * emacspeak-ibuffer::speech-enable ibuffer buffer selection.
 * emacspeak-ido::speech-enable ido.
 * emacspeak-imenu::Speech enable Imenu – produce buffer-specific table of contents.

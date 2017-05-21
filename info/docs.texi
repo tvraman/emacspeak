@@ -102,6 +102,7 @@ This chapter documents a total of 1182 commands and 1096 options.
 * emacspeak-helm::Speech-enable HELM.
 * emacspeak-hide::Provides user commands for hiding and exposing blocks of text.
 * emacspeak-hideshow::speech-enable hideshow.
+* emacspeak-hydra::Speech-Enable hydra.
 * emacspeak-ibuffer::speech-enable ibuffer buffer selection.
 * emacspeak-ido::speech-enable ido.
 * emacspeak-imenu::Speech enable Imenu -- produce buffer-specific table of contents.
@@ -9945,6 +9946,22 @@ Personality used to identify header lines of blocks.
 
 speech-enable hideshow.el
 
+@node emacspeak-hydra
+@section emacspeak-hydra
+
+Speech-enable package hydra:
+
+@subsection emacspeak-hydra Commands
+
+@subsubsection emacspeak-hydra-toggle-talkative
+@deffn {Command} emacspeak-hydra-toggle-talkative   
+@findex emacspeak-hydra-toggle-talkative
+
+@format
+Toggle state of hydra-is-helpful
+@end format
+@end deffn
+
 @node emacspeak-ibuffer
 @section emacspeak-ibuffer
 
@@ -12360,6 +12377,8 @@ Move down in current Math expression.
 Send a LaTeX expression to Maths server.
 Tries to guess default based on context.
 Uses guessed default if user enters an empty string.
+
+(fn LATEX)
 @end format
 @end deffn
 
@@ -12694,7 +12713,7 @@ attempt to automatically install package hydra if it is not found.
 Emacspeak automatically speaks Hydra hints when displayed.
 To silence all Hydra hints, set hydra-is-helpful to nil.  To
 temporarily silence speaking of Hydra hints, Muggles can bind
-command @code{emacspeak-muggles-toggle-talkative}.  As an
+command @code{emacspeak-hydra-toggle-talkative}.  As an
 example, Muggle @samp{ViewMode} binds @code{s} to this command.
 
 @subsection emacspeak-muggles Commands
@@ -12711,7 +12730,7 @@ example, Muggle @samp{ViewMode} binds @code{s} to this command.
 @format
 Create a hydra with no body and the heads:
 
-"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-brightness")’,
+"?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-brightness")’,
 "s":    ‘xbacklight-set’,
 "g":    ‘xbacklight-get’,
 "<print>":    ‘xbacklight-black’,
@@ -12751,7 +12770,7 @@ Temporarily use keymap emacspeak-m-player-mode-map
 @format
 Create a hydra with no body and the heads:
 
-"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-hideshow")’,
+"?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-hideshow")’,
 "h":    ‘hs-hide-block’,
 "s":    ‘hs-show-block’,
 "H":    ‘hs-hide-all’,
@@ -12911,8 +12930,8 @@ The body can be accessed via ‘emacspeak-muggles-m-player/body’.
 @format
 Create a hydra with no body and the heads:
 
-"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-navigate")’,
-"s":    ‘emacspeak-muggles-toggle-talkative’,
+"?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-navigate")’,
+"s":    ‘emacspeak-hydra-toggle-talkative’,
 "n":    ‘next-line’,
 "p":    ‘previous-line’,
 "f":    ‘forward-char’,
@@ -12938,7 +12957,7 @@ The body can be accessed via ‘emacspeak-muggles-navigate/body’.
 @format
 Create a hydra with no body and the heads:
 
-"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-org-nav")’,
+"?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-org-nav")’,
 "SPC":    ‘emacspeak-outline-speak-this-heading’,
 "n":    ‘outline-next-visible-heading’,
 "p":    ‘outline-previous-visible-heading’,
@@ -12958,7 +12977,7 @@ The body can be accessed via ‘emacspeak-muggles-org-nav/body’.
 @format
 Create a hydra with no body and the heads:
 
-"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-org-table")’,
+"?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-org-table")’,
 "j":    ‘org-table-next-row’,
 "k":    ‘org-table-previous-row’,
 "h":    ‘org-table-previous-field’,
@@ -12980,7 +12999,7 @@ The body can be accessed via ‘emacspeak-muggles-org-table/body’.
 @format
 Create a hydra with no body and the heads:
 
-"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-outliner")’,
+"?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-outliner")’,
 "q":    ‘outline-hide-sublevels’,
 "t":    ‘outline-hide-body’,
 "o":    ‘outline-hide-other’,
@@ -13015,7 +13034,7 @@ The body can be accessed via ‘emacspeak-muggles-outliner/body’.
 @format
 Create a hydra with no body and the heads:
 
-"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-toggle-option")’,
+"?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-toggle-option")’,
 "F":    ‘flyspell-mode’,
 "a":    ‘abbrev-mode’,
 "d":    ‘toggle-debug-on-error’,
@@ -13029,15 +13048,6 @@ Create a hydra with no body and the heads:
 "q":    ‘nil’
 
 The body can be accessed via ‘emacspeak-muggles-toggle-option/body’.
-@end format
-@end deffn
-
-@subsubsection emacspeak-muggles-toggle-talkative
-@deffn {Command} emacspeak-muggles-toggle-talkative   
-@findex emacspeak-muggles-toggle-talkative
-
-@format
-Toggle state of hydra-is-helpful
 @end format
 @end deffn
 
@@ -13057,7 +13067,7 @@ Toggle state of hydra-is-helpful
 @format
 Create a hydra with no body and the heads:
 
-"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-view")’,
+"?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-view")’,
 "$":    ‘set-selective-display’,
 "%":    ‘View-goto-percent’,
 "’":    ‘register-to-point’,
@@ -13095,7 +13105,7 @@ Create a hydra with no body and the heads:
 "p":    ‘View-search-last-regexp-backward’,
 "q":    ‘nil’,
 "r":    ‘copy-to-register’,
-"s":    ‘emacspeak-muggles-toggle-talkative’,
+"s":    ‘emacspeak-hydra-toggle-talkative’,
 "t":    ‘(recenter 0)’,
 "u":    ‘View-scroll-half-page-backward’,
 "w":    ‘emacspeak-speak-word’,
@@ -13115,7 +13125,7 @@ The body can be accessed via ‘emacspeak-muggles-view/body’.
 @format
 Create a hydra with no body and the heads:
 
-"?":    ‘(emacspeak-muggles-self-help "emacspeak-muggles-yank-pop")’,
+"?":    ‘(emacspeak-hydra-self-help "emacspeak-muggles-yank-pop")’,
 "C-y":    ‘yank’,
 "M-y":    ‘yank-pop’,
 "y":    ‘(funcall-interactively (function yank-pop) 1)’,

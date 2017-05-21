@@ -73,7 +73,7 @@
 ;;; Emacspeak automatically speaks Hydra hints when displayed.
 ;;; To silence all Hydra hints, set hydra-is-helpful to nil.  To
 ;;; temporarily silence speaking of Hydra hints, Muggles can bind
-;;; command @code{emacspeak-muggles-toggle-talkative}.  As an
+;;; command @code{emacspeak-hydra-toggle-talkative}.  As an
 ;;; example, Muggle @samp{ViewMode} binds @code{s} to this command.
 
 ;;; Code:
@@ -84,6 +84,7 @@
 (require 'cl)
 (declaim  (optimize  (safety 0) (speed 3)))
 (require 'emacspeak-preamble)
+(require 'emacspeak-hydra)
 (require 'hideshow)
 (require 'outline)
 (cl-eval-when '(load)
@@ -149,58 +150,17 @@ Argument `k-map' is a symbol  that names a keymap."
    (hydra-face-teal voice-lighten-medium)))
 
 ;;}}}
-;;{{{ Toggle Talkative:
-
-(defun emacspeak-muggles-toggle-talkative ()
-  "Toggle state of hydra-is-helpful"
-  (interactive)
-  (declare (special hydra-is-helpful))
-  (setq hydra-is-helpful (not hydra-is-helpful))
-  (emacspeak-auditory-icon (if hydra-is-helpful 'on 'off)))
-
-;;}}}
-;;{{{ Emacspeak Helpers:
-
-(defun emacspeak-muggles-body-pre (&optional name)
-  "Provide auditory icon"
-  (when name (dtk-speak name))
-  (emacspeak-auditory-icon 'open-object))
-
-(defun emacspeak-muggles-pre ()
-  "Provide auditory icon"
-  (emacspeak-auditory-icon 'progress))
-
-(defun emacspeak-muggles-post ()
-  "Provide auditory icon.
-Also turn on hydra-is-helpful if it was turned off."
-  (setq hydra-is-helpful t)
-  (call-interactively #'dtk-stop)
-  (when emacspeak-use-auditory-icons(emacspeak-play-auditory-icon 'close-object)))
-
-;;}}}
-;;{{{ Setup Help And Hint 
-
-;;; We use plain messages:
-
-(setq hydra-head-format "%s "
-      hydra-lv nil)
-
-(defun emacspeak-muggles-self-help (name)
-  "Speak hint for specified Hydra."
-  (message (eval (symbol-value (intern (format "%s/hint" name))))))
-
-;;}}}
 ;;{{{ Brightness:
 
 (global-set-key
  (kbd "<print>")
  (defhydra emacspeak-muggles-brightness
-   (:body-pre (emacspeak-muggles-body-pre "Brightness")
+   (:body-pre (emacspeak-hydra-body-pre "Brightness")
               :timeout 0.3
-              :pre emacspeak-muggles-pre
-              :post emacspeak-muggles-post)
+              :pre emacspeak-hydra-pre
+              :post emacspeak-hydra-post)
    "Brightness "
-   ("?" (emacspeak-muggles-self-help "emacspeak-muggles-brightness") "Help")
+   ("?" (emacspeak-hydra-self-help "emacspeak-muggles-brightness") "Help")
    ("s" xbacklight-set "set")
    ("g" xbacklight-get "Get")
    ("<print>" xbacklight-black "black")
@@ -218,12 +178,12 @@ Also turn on hydra-is-helpful if it was turned off."
  (defhydra emacspeak-muggles-view
    (:body-pre
     (progn
-      (emacspeak-muggles-toggle-talkative)
-      (emacspeak-muggles-body-pre "View"))
+      (emacspeak-hydra-toggle-talkative)
+      (emacspeak-hydra-body-pre "View"))
     :hint nil
-    :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
+    :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
    "View Mode"
-   ("?" (emacspeak-muggles-self-help "emacspeak-muggles-view"))
+   ("?" (emacspeak-hydra-self-help "emacspeak-muggles-view"))
    ("$" set-selective-display)
    ("%"  View-goto-percent)
    ("'" register-to-point)
@@ -261,7 +221,7 @@ Also turn on hydra-is-helpful if it was turned off."
    ("p" View-search-last-regexp-backward)
    ("q" nil "quit")
    ("r" copy-to-register)
-   ("s" emacspeak-muggles-toggle-talkative)
+   ("s" emacspeak-hydra-toggle-talkative)
    ("t" (recenter 0))
    ("u" View-scroll-half-page-backward)
    ("w"emacspeak-speak-word)
@@ -273,19 +233,19 @@ Also turn on hydra-is-helpful if it was turned off."
 
 ;;}}}
 ;;{{{ Org Mode Structure Navigation:
-
+(declare-function emacspeak-outline-speak-this-heading "emacspeak-outline")
 (define-key org-mode-map
   (kbd "C-c SPC")
   (defhydra emacspeak-muggles-org-nav
     (:body-pre
      (progn
-       (emacspeak-muggles-toggle-talkative)
-       (emacspeak-muggles-body-pre "OrgNavView"))
+       (emacspeak-hydra-toggle-talkative)
+       (emacspeak-hydra-body-pre "OrgNavView"))
      :hint nil
-     :pre emacspeak-muggles-pre :post emacspeak-muggles-post
+     :pre emacspeak-hydra-pre :post emacspeak-hydra-post
      :color red :columns 3)
     "Org Mode Navigate "
-    ("?" (emacspeak-muggles-self-help "emacspeak-muggles-org-nav"))
+    ("?" (emacspeak-hydra-self-help "emacspeak-muggles-org-nav"))
     ("SPC" emacspeak-outline-speak-this-heading  "Speak this section")
     ("n" outline-next-visible-heading "next heading")
     ("p" outline-previous-visible-heading "prev heading")
@@ -300,10 +260,10 @@ Also turn on hydra-is-helpful if it was turned off."
 (define-key
   org-mode-map (kbd "C-c t")
   (defhydra emacspeak-muggles-org-table
-    (:body-pre (emacspeak-muggles-body-pre "Org Table UI")
-               :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
+    (:body-pre (emacspeak-hydra-body-pre "Org Table UI")
+               :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
     "Org Table UI"
-    ("?"(emacspeak-muggles-self-help "emacspeak-muggles-org-table"))
+    ("?"(emacspeak-hydra-self-help "emacspeak-muggles-org-table"))
     ("j" org-table-next-row)
     ("k" org-table-previous-row)
     ("h" org-table-previous-field)
@@ -320,9 +280,9 @@ Also turn on hydra-is-helpful if it was turned off."
 (global-set-key
  (kbd "s-;")
  (defhydra emacspeak-muggles-m-player
-   (:body-pre (emacspeak-muggles-body-pre "Media Player")
+   (:body-pre (emacspeak-hydra-body-pre "Media Player")
               :timeout 0.5
-              :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
+              :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
    (";" emacspeak-m-player)
    ("+" emacspeak-m-player-volume-up)
    ("," emacspeak-m-player-backward-10s)
@@ -386,10 +346,10 @@ Also turn on hydra-is-helpful if it was turned off."
  (kbd "C-c h")
  (defhydra  emacspeak-muggles-hideshow
    (
-    :body-pre (emacspeak-muggles-body-pre  "Hide Show")
-              :pre emacspeak-muggles-pre :post emacspeak-muggles-post :color blue)
+    :body-pre (emacspeak-hydra-body-pre  "Hide Show")
+              :pre emacspeak-hydra-pre :post emacspeak-hydra-post :color blue)
    "Hideshow"
-   ("?" (emacspeak-muggles-self-help "emacspeak-muggles-hideshow"))
+   ("?" (emacspeak-hydra-self-help "emacspeak-muggles-hideshow"))
    ("h" hs-hide-block)
    ("s" hs-show-block)
    ("H" hs-hide-all)
@@ -404,11 +364,11 @@ Also turn on hydra-is-helpful if it was turned off."
 (global-set-key
  (kbd "C-c o")
  (defhydra emacspeak-muggles-toggle-option
-   (:color blue :body-pre (emacspeak-muggles-body-pre "Toggle Option ")
+   (:color blue :body-pre (emacspeak-hydra-body-pre "Toggle Option ")
            :pre (progn
-                  (emacspeak-muggles-pre)
-                  (unless hydra-is-helpful (emacspeak-muggles-toggle-talkative)))
-           :post emacspeak-muggles-post)
+                  (emacspeak-hydra-pre)
+                  (unless hydra-is-helpful (emacspeak-hydra-toggle-talkative)))
+           :post emacspeak-hydra-post)
    "
 _F_ flyspell-mode:       %`flyspell-mode
 _a_ abbrev-mode:       %`abbrev-mode
@@ -422,7 +382,7 @@ _u_ ido-ubiquitous-mode:       %`ido-ubiquitous-mode
 _w_ whitespace-mode:   %`whitespace-mode
 
 "
-   ("?" (emacspeak-muggles-self-help "emacspeak-muggles-toggle-option"))
+   ("?" (emacspeak-hydra-self-help "emacspeak-muggles-toggle-option"))
    ("F" flyspell-mode)
    ("a" abbrev-mode)
    ("d" toggle-debug-on-error)
@@ -444,8 +404,8 @@ _w_ whitespace-mode:   %`whitespace-mode
  (defhydra emacspeak-muggles-outliner
    (:body-pre (progn
                 (outline-minor-mode 1)
-                (emacspeak-muggles-body-pre "Outline Navigation"))
-              :pre emacspeak-muggles-pre :post emacspeak-muggles-post
+                (emacspeak-hydra-body-pre "Outline Navigation"))
+              :pre emacspeak-hydra-pre :post emacspeak-hydra-post
               :color pink :hint nil)
    "
 ^Hide^             ^Show^           ^Move
@@ -458,7 +418,7 @@ _l_: leaves        _s_: subtree     _b_: backward same level
 _d_: subtree
 
 "
-   ("?" (emacspeak-muggles-self-help "emacspeak-muggles-outliner"))
+   ("?" (emacspeak-hydra-self-help "emacspeak-muggles-outliner"))
    ;; Hide
    ("q" outline-hide-sublevels) ; Hide everything but the top-level headings
    ("t" outline-hide-body) ; Hide everything but headings (all body lines)
@@ -491,14 +451,14 @@ _d_: subtree
  (defhydra emacspeak-muggles-navigate
    (:body-pre
     (progn
-      (emacspeak-muggles-body-pre "Move")
-      (emacspeak-muggles-toggle-talkative)
+      (emacspeak-hydra-body-pre "Move")
+      (emacspeak-hydra-toggle-talkative)
       (condition-case nil (next-line) (error nil)))
     :hint nil
-    :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
+    :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
    "move"
-   ("?" (emacspeak-muggles-self-help "emacspeak-muggles-navigate"))
-   ("s" emacspeak-muggles-toggle-talkative "quiet")
+   ("?" (emacspeak-hydra-self-help "emacspeak-muggles-navigate"))
+   ("s" emacspeak-hydra-toggle-talkative "quiet")
    ("n" next-line "next ")
    ("p" previous-line "previous ")
    ("f" forward-char)
@@ -521,8 +481,8 @@ _d_: subtree
 (define-key Info-mode-map (kbd "?")
   (defhydra emacspeak-muggles-info-summary
     (:color blue :hint nil
-            :body-pre (emacspeak-muggles-body-pre "Info Summary")
-            :pre emacspeak-muggles-pre :post emacspeak-muggles-post)
+            :body-pre (emacspeak-hydra-body-pre "Info Summary")
+            :pre emacspeak-hydra-pre :post emacspeak-hydra-post)
     "
 Info-mode:
 
@@ -607,14 +567,14 @@ Info-mode:
 (global-set-key (kbd "M-C-y") 'emacspeak-muggles-ido-yank)
 
 (defhydra emacspeak-muggles-yank-pop
-  (:body-pre (emacspeak-muggles-body-pre "Yank")
+  (:body-pre (emacspeak-hydra-body-pre "Yank")
              :pre
              (progn
-               (when hydra-is-helpful (emacspeak-muggles-toggle-talkative))
-               (emacspeak-muggles-pre))
-             :post emacspeak-muggles-post)
+               (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
+               (emacspeak-hydra-pre))
+             :post emacspeak-hydra-post)
   "Yank"
-  ("?" (emacspeak-muggles-self-help "emacspeak-muggles-yank-pop"))
+  ("?" (emacspeak-hydra-self-help "emacspeak-muggles-yank-pop"))
   ("C-y" yank nil)
   ("M-y" yank-pop nil)
   ("y" (funcall-interactively #'yank-pop 1) "next")
