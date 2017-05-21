@@ -225,7 +225,6 @@ Expected: ((acss) string)."
   (cl-assert (listp contents) t "%s is not a list. " contents)
   (let ((acss (cl-first contents))
         (string (cl-second contents))
-        (pause (emacspeak-maths-pause emacspeak-maths))
         (start nil))
     (with-current-buffer  (emacspeak-maths-output emacspeak-maths)
       (setq start (goto-char (point-max)))
