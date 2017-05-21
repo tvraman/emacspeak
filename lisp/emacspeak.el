@@ -224,7 +224,7 @@ that implements the speech-enabling extensions."
 (emacspeak-do-package-setup "go-mode" 'emacspeak-go-mode)
 (emacspeak-do-package-setup "hangman" 'emacspeak-entertain)
 (emacspeak-do-package-setup "hideshow" 'emacspeak-hideshow)
-(emacspeak-do-package-setup "hydra" 'emacspeak-muggles)
+(emacspeak-do-package-setup "hydra" 'emacspeak-hydra)
 (emacspeak-do-package-setup "imenu" 'emacspeak-imenu)
 (emacspeak-do-package-setup "ibuffer" 'emacspeak-ibuffer)
 (emacspeak-do-package-setup "ido" 'emacspeak-ido)
