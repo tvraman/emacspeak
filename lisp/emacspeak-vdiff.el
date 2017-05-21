@@ -116,7 +116,7 @@
      "Provide auditory feedback."
      (when (ems-interactive-p)
        (emacspeak-auditory-icon 'task-done)
-       (emacspeak-vdiff-speak-this-chunk)))))
+       (emacspeak-vdiff-speak-this-hunk)))))
 
 (defadvice vdiff-switch-buffer (after emacspeak pre act comp)
   "Provide auditory feedback."
@@ -169,9 +169,9 @@
 
 ;;}}}
 ;;{{{ Navigation:
-(defadvice vdiff--scroll-function (around emacspeak pre act comp)
-  "Silence messages."
-  (ems-with-messages-silenced ad-do-it))
+;; (defadvice vdiff--scroll-function (around emacspeak pre act comp)
+;;   "Silence messages."
+;;   (ems-with-messages-silenced ad-do-it))
 
 (cl-loop
  for f in
@@ -181,7 +181,7 @@
   `(defadvice ,f (after emacspeak pre act comp)
      "Provide auditory feedback."
      (when (ems-interactive-p)
-       (emacspeak-vdiff-speak-this-chunk)
+       (emacspeak-vdiff-speak-this-hunk)
        (emacspeak-auditory-icon 'large-movement)))))
 
 ;;}}}
