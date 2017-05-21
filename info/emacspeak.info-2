@@ -8193,9 +8193,8 @@ This speech-enables python-mode available on sourceforge and ELPA
 
  -- Variable: User Option emacspeak-py-builtins-personality
      Personality used for py-builtins-face This personality uses
-     emacspeak-voice-lock-builtin-personality whose effect can be
-     changed globally by customizing
-     emacspeak-voice-lock-builtin-personality-settings.
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
 
  -- Variable: User Option emacspeak-py-class-name-personality
      Personality used for py-class-name-face This personality uses
@@ -8207,27 +8206,45 @@ This speech-enables python-mode available on sourceforge and ELPA
      voice-lighten whose effect can be changed globally by customizing
      voice-lighten-settings.
 
+ -- Variable: User Option emacspeak-py-def-class-personality
+     Personality used for py-def-class-face This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
  -- Variable: User Option emacspeak-py-exception-name-personality
      Personality used for py-exception-name-face This personality uses
-     emacspeak-voice-lock-warning-personality whose effect can be
-     changed globally by customizing
-     emacspeak-voice-lock-warning-personality-settings.
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+ -- Variable: User Option emacspeak-py-import-from-personality
+     Personality used for py-import-from-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
 
  -- Variable: User Option emacspeak-py-number-personality
      Personality used for py-number-face This personality uses
      voice-lighten whose effect can be changed globally by customizing
      voice-lighten-settings.
 
+ -- Variable: User Option emacspeak-py-object-reference-personality
+     Personality used for py-object-reference-face This personality uses
+     voice-monotone-light whose effect can be changed globally by
+     customizing voice-monotone-light-settings.
+
  -- Variable: User Option emacspeak-py-pseudo-keyword-personality
      Personality used for py-pseudo-keyword-face This personality uses
      voice-bolden-medium whose effect can be changed globally by
      customizing voice-bolden-medium-settings.
 
+ -- Variable: User Option emacspeak-py-try-if-personality
+     Personality used for py-try-if-face This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
  -- Variable: User Option emacspeak-py-variable-name-personality
      Personality used for py-variable-name-face This personality uses
-     emacspeak-voice-lock-variable-name-personality whose effect can be
-     changed globally by customizing
-     emacspeak-voice-lock-variable-name-personality-settings.
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
 
 
 File: emacspeak.info,  Node: emacspeak-pydoc,  Next: emacspeak-python,  Prev: emacspeak-py,  Up: Emacspeak Commands And Options
@@ -8577,55 +8594,4 @@ emacspeak extensions to rmail
  -- Command: emacspeak-rmail-summarize-current-message
 
      Summarize current message
-
-
-File: emacspeak.info,  Node: emacspeak-rpm,  Next: emacspeak-rpm-spec,  Prev: emacspeak-rmail,  Up: Emacspeak Commands And Options
-
-12.156 emacspeak-rpm
-====================
-
-This module speech-enables rpm.el rpm.el can be downloaded from
-http://www.uni-karlsruhe.de/~Detlev.Zundel/download/rpm.el and provides
-a nice interface to managing and browsing rpm.
-
-
-File: emacspeak.info,  Node: emacspeak-rpm-spec,  Next: emacspeak-rst,  Prev: emacspeak-rpm,  Up: Emacspeak Commands And Options
-
-12.157 emacspeak-rpm-spec
-=========================
-
-speech-enable rpm-spec-mode –part of Emacs 21 on RH 7.3
-
-12.157.1 emacspeak-rpm-spec Options
------------------------------------
-
- -- Variable: User Option emacspeak-rpm-spec-dir-personality
-     Personality used for rpm-spec-dir-face This personality uses
-     voice-lighten whose effect can be changed globally by customizing
-     voice-lighten-settings.
-
- -- Variable: User Option emacspeak-rpm-spec-doc-personality
-     Personality used for rpm-spec-doc-face This personality uses
-     voice-smoothen-extra whose effect can be changed globally by
-     customizing voice-smoothen-extra-settings.
-
- -- Variable: User Option emacspeak-rpm-spec-ghost-personality
-     Personality used for rpm-spec-ghost-face This personality uses
-     voice-smoothen-medium whose effect can be changed globally by
-     customizing voice-smoothen-medium-settings.
-
- -- Variable: User Option emacspeak-rpm-spec-macro-personality
-     Personality used for rpm-spec-macro-face This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
-
- -- Variable: User Option emacspeak-rpm-spec-package-personality
-     Personality used for rpm-spec-package-face This personality uses
-     voice-animate whose effect can be changed globally by customizing
-     voice-animate-settings.
-
- -- Variable: User Option emacspeak-rpm-spec-tag-personality
-     Personality used for rpm-spec-tag-face This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
 

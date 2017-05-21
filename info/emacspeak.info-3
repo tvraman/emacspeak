@@ -12,6 +12,57 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: emacspeak.info,  Node: emacspeak-rpm,  Next: emacspeak-rpm-spec,  Prev: emacspeak-rmail,  Up: Emacspeak Commands And Options
+
+12.156 emacspeak-rpm
+====================
+
+This module speech-enables rpm.el rpm.el can be downloaded from
+http://www.uni-karlsruhe.de/~Detlev.Zundel/download/rpm.el and provides
+a nice interface to managing and browsing rpm.
+
+
+File: emacspeak.info,  Node: emacspeak-rpm-spec,  Next: emacspeak-rst,  Prev: emacspeak-rpm,  Up: Emacspeak Commands And Options
+
+12.157 emacspeak-rpm-spec
+=========================
+
+speech-enable rpm-spec-mode –part of Emacs 21 on RH 7.3
+
+12.157.1 emacspeak-rpm-spec Options
+-----------------------------------
+
+ -- Variable: User Option emacspeak-rpm-spec-dir-personality
+     Personality used for rpm-spec-dir-face This personality uses
+     voice-lighten whose effect can be changed globally by customizing
+     voice-lighten-settings.
+
+ -- Variable: User Option emacspeak-rpm-spec-doc-personality
+     Personality used for rpm-spec-doc-face This personality uses
+     voice-smoothen-extra whose effect can be changed globally by
+     customizing voice-smoothen-extra-settings.
+
+ -- Variable: User Option emacspeak-rpm-spec-ghost-personality
+     Personality used for rpm-spec-ghost-face This personality uses
+     voice-smoothen-medium whose effect can be changed globally by
+     customizing voice-smoothen-medium-settings.
+
+ -- Variable: User Option emacspeak-rpm-spec-macro-personality
+     Personality used for rpm-spec-macro-face This personality uses
+     voice-bolden whose effect can be changed globally by customizing
+     voice-bolden-settings.
+
+ -- Variable: User Option emacspeak-rpm-spec-package-personality
+     Personality used for rpm-spec-package-face This personality uses
+     voice-animate whose effect can be changed globally by customizing
+     voice-animate-settings.
+
+ -- Variable: User Option emacspeak-rpm-spec-tag-personality
+     Personality used for rpm-spec-tag-face This personality uses
+     voice-smoothen whose effect can be changed globally by customizing
+     voice-smoothen-settings.
+
+
 File: emacspeak.info,  Node: emacspeak-rst,  Next: emacspeak-ruby,  Prev: emacspeak-rpm-spec,  Up: Emacspeak Commands And Options
 
 12.158 emacspeak-rst
@@ -9311,29 +9362,4 @@ mechanism.  The Web platform as originally defined around URLs is
 actually well-suited to this type of separation — though the full
 potential of this design pattern remains to be fully realized given
 today’s tight association of the Web to the Web Browser.
-
-
-File: emacspeak.info,  Node: Conclusion --- Turning Twenty,  Next: References,  Prev: Mashing It Up --- Leveraging Evolving Web APIs,  Up: Emacspeak At Twenty
-
-15.16 Conclusion — Turning Twenty
-=================================
-
-In 1996, I wrote an article entitled User Interface — A Means To An End
-(http://www.drdobbs.com/user-interface-a-means-to-an-end/184410453)
-pointing out that the size and shape of computers were determined by the
-keyboard and display.  This is even more true in today’s world of
-tablets, phablets and large-sized phones — with the only difference that
-the keyboard has been replaced by a touch screen.  The next generation
-in the evolution of *personal* devices is that they will become truly
-personal by being wearables — this once again forces a separation of the
-user interface peripherals from the underlying compute engine.  Imagine
-a variety of wearables that collectively connect to ones cell phone,
-which itself connects to the cloud for all its computational and
-information needs.  Such an environment is rich in possibilities for
-creating a wide variety of user experiences to a single underlying body
-of information; Eyes-Free interfaces as pioneered by systems like
-Emacspeak will come to play an increasingly vital role alongside visual
-interaction when this comes to pass.
-
-   –T.V. Raman, San Jose, CA, September 12, 2014
 

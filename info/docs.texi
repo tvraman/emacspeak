@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1182 commands and 1096 options.
+This chapter documents a total of 1182 commands and 1100 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -14730,7 +14730,7 @@ This personality uses  voice-animate whose  effect can be changed globally by cu
 
 @defvar {User Option} emacspeak-py-builtins-personality
 Personality used for py-builtins-face
-This personality uses  emacspeak-voice-lock-builtin-personality whose  effect can be changed globally by customizing emacspeak-voice-lock-builtin-personality-settings.
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 
 @end defvar
 
@@ -14746,9 +14746,21 @@ This personality uses  voice-lighten whose  effect can be changed globally by cu
 
 @end defvar
 
+@defvar {User Option} emacspeak-py-def-class-personality
+Personality used for py-def-class-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-py-exception-name-personality
 Personality used for py-exception-name-face
-This personality uses  emacspeak-voice-lock-warning-personality whose  effect can be changed globally by customizing emacspeak-voice-lock-warning-personality-settings.
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-py-import-from-personality
+Personality used for py-import-from-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 
 @end defvar
 
@@ -14758,15 +14770,27 @@ This personality uses  voice-lighten whose  effect can be changed globally by cu
 
 @end defvar
 
+@defvar {User Option} emacspeak-py-object-reference-personality
+Personality used for py-object-reference-face
+This personality uses  voice-monotone-light whose  effect can be changed globally by customizing voice-monotone-light-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-py-pseudo-keyword-personality
 Personality used for py-pseudo-keyword-face
 This personality uses  voice-bolden-medium whose  effect can be changed globally by customizing voice-bolden-medium-settings.
 
 @end defvar
 
+@defvar {User Option} emacspeak-py-try-if-personality
+Personality used for py-try-if-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-py-variable-name-personality
 Personality used for py-variable-name-face
-This personality uses  emacspeak-voice-lock-variable-name-personality whose  effect can be changed globally by customizing emacspeak-voice-lock-variable-name-personality-settings.
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
 
 @end defvar
 
