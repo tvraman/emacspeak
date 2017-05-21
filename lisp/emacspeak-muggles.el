@@ -39,7 +39,7 @@
 
 ;;; Commentary:
 
-;;; MUGGLES ==  Keybinding Conveniences For The Emacspeak Desktop.
+;;; MUGGLES ==  Emacspeak spells for power-users.
 
 ;;; This module implements no new functionality --- contrast with
 ;;; emacspeak-wizards.  Instead, it uses package hydra to provide
