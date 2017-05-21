@@ -1645,7 +1645,7 @@ Otherwise, prompts if content at point is enclosed by multiple elements."
      ,(format "Move forward to the next %s.
 Optional interactive prefix arg speaks the structural unit." f)
      (interactive "P")
-     (funcall 'emacspeak-eww-next-element (intern ,(format "%s" f)))
+     (funcall #'emacspeak-eww-next-element (intern ,(format "%s" f)))
      (when speak
        (emacspeak-eww-speak-this-element (intern ,(format "%s" f))))))
  (eval
