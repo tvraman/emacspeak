@@ -45,7 +45,6 @@
 ;;; emacspeak-wizards.  Instead, it uses package hydra to provide
 ;;; convenience key-bindings that access existing Emacspeak
 ;;; functionality.
-;;; This module is automatically loaded if package Hydra is loaded.
 ;;; You need to install package Hydra first:
 ;;; @samp{M-x package-install  hydra}.
 
