@@ -90,8 +90,7 @@ bugs = [
     trill.crickets_distant, trill.crickets_low,
     trill.crickets_many_1, trill.cricket_solo_1,
     trill.cricket_solo_2, trill.cricket_solo_3,
-    trill.crickets_one_swell,
-]
+    trill.crickets_one_swell,]
 
 # helper: Pendulum generator:
 
@@ -115,7 +114,7 @@ def doNature(this):
     nc = this.new_channel_pan(
         stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, 1.2)))
     this.sched_agent(nature, 0, nc)
- # behind
+    # behind
     nature = builtin.FadeInOutAgent(GardenBackground(60.0), 2, 60)
     nc = this.new_channel_pan(
         stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, -1.1)))
