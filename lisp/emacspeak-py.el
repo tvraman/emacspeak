@@ -392,11 +392,16 @@ Provide contextual feedback when closing blocks"
    (py-number-face voice-lighten)
    (py-XXX-tag-face voice-animate)
    (py-pseudo-keyword-face voice-bolden-medium)
-   (py-variable-name-face  emacspeak-voice-lock-variable-name-personality)
+   (py-variable-name-face  voice-bolden)
    (py-decorators-face voice-lighten)
-   (py-builtins-face emacspeak-voice-lock-builtin-personality)
+   (py-builtins-face voice-bolden)
    (py-class-name-face voice-bolden-extra)
-   (py-exception-name-face emacspeak-voice-lock-warning-personality)))
+   (py-exception-name-face voice-smoothen)
+   (py-def-class-face voice-lighten)
+   (py-import-from-face voice-animate)
+   (py-object-reference-face voice-monotone-light)
+   (py-try-if-face voice-lighten)
+   ))
 
 ;;}}}
 ;;{{{ pydoc advice:
