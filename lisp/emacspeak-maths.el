@@ -99,7 +99,8 @@
     (unless (locate-library "hydra") (package-install 'hydra))))
 (require 'hydra "hydra" 'no-error)
 (require 'emacspeak-preamble)
-(require 'emacspeak-muggles)
+(eval-when-compile (require 'hydra "hydra" 'no-error))
+(require 'emacspeak-hydra)
 
 ;;}}}
 ;;{{{ Customizations And Variables:
@@ -561,16 +562,15 @@ For use on Wikipedia pages  for example."
 ;;}}}
 ;;{{{ Muggle: Speak And Browse Math
 (when (featurep 'hydra)
-  (require 'emacspeak-muggles)
   (global-set-key
    (kbd "s-SPC")
    (defhydra emacspeak-maths-navigator
      (:body-pre
       (progn
-        (when hydra-is-helpful (emacspeak-muggles-toggle-talkative))
-        (emacspeak-muggles-body-pre "Spoken Math"))
-      :pre emacspeak-muggles-pre
-      :post emacspeak-muggles-post)
+        (when hydra-is-helpful (emacspeak-hydra-toggle-talkative))
+        (emacspeak-hydra-body-pre "Spoken Math"))
+      :pre emacspeak-hydra-pre
+      :post emacspeak-hydra-post)
      "Spoken Math"
      ("o" emacspeak-maths-switch-to-output :color blue)
      ("RET" emacspeak-maths-enter-guess)
