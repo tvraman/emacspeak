@@ -4033,7 +4033,8 @@ File: emacspeak.info,  Node: emacspeak-hydra,  Next: emacspeak-ibuffer,  Prev: e
 12.98 emacspeak-hydra
 =====================
 
-Speech-enable package hydra:
+Speech-enable package hydra: For uses of hydra see module *Note
+emacspeak-muggles::.
 
 12.98.1 emacspeak-hydra Commands
 --------------------------------
@@ -6409,13 +6410,12 @@ File: emacspeak.info,  Node: emacspeak-muggles,  Next: emacspeak-muse,  Prev: em
 12.126 emacspeak-muggles
 ========================
 
-MUGGLES == Keybinding Conveniences For The Emacspeak Desktop.
+MUGGLES == Emacspeak spells for power-users.
 
    This module implements no new functionality — contrast with
 emacspeak-wizards.  Instead, it uses package hydra to provide
 convenience key-bindings that access existing Emacspeak functionality.
-This module is automatically loaded if package Hydra is loaded.  You
-need to install package Hydra first: ‘M-x package-install hydra’.
+You need to install package Hydra first: ‘M-x package-install hydra’.
 
    Note that on newer versions of Emacs, loading this module will
 attempt to automatically install package hydra if it is not found.

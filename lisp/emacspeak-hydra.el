@@ -39,6 +39,7 @@
 
 ;;; Commentary:
 ;;; Speech-enable package hydra:
+;;; For  uses of hydra see module @xref{emacspeak-muggles}.
 ;;; Code:
 
 ;;}}}

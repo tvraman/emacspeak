@@ -9950,6 +9950,7 @@ speech-enable hideshow.el
 @section emacspeak-hydra
 
 Speech-enable package hydra:
+For  uses of hydra see module @xref{emacspeak-muggles}.
 
 @subsection emacspeak-hydra Commands
 
@@ -12679,13 +12680,12 @@ multiple maildrops
 @node emacspeak-muggles
 @section emacspeak-muggles
 
-MUGGLES ==  Keybinding Conveniences For The Emacspeak Desktop.
+MUGGLES ==  Emacspeak spells for power-users.
 
 This module implements no new functionality --- contrast with
 emacspeak-wizards.  Instead, it uses package hydra to provide
 convenience key-bindings that access existing Emacspeak
 functionality.
-This module is automatically loaded if package Hydra is loaded.
 You need to install package Hydra first:
 @samp{M-x package-install  hydra}.
 
