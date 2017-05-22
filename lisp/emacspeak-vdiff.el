@@ -66,10 +66,10 @@
 (voice-setup-add-map
  '(
    (vdiff-addition-face voice-brighten)
-   (vdiff-change-face voice-bolden)
+   (vdiff-change-face voice-lock-overlay-1)
    (vdiff-closed-fold-face voice-smoothen)
    (vdiff-open-fold-face voice-lighten)
-   (vdiff-refine-added voice-brighten)
+   (vdiff-refine-added voice-lock-overlay-0)
    (vdiff-refine-changed voice-lighten)
    (vdiff-subtraction-face voice-smoothen)
    (vdiff-subtraction-fringe-face voice-smoothen-extra)
