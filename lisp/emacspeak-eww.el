@@ -1536,8 +1536,11 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
       (setq emacspeak-eww-element-navigation-history
             (delq el emacspeak-eww-element-navigation-history))
       (push  el emacspeak-eww-element-navigation-history)
-      (emacspeak-auditory-icon (emacspeak-eww-icon-for-element el))
-      (emacspeak-speak-region next (next-single-property-change next el)))
+      (when (called-interactively-p 'interactive)
+        (emacspeak-auditory-icon (emacspeak-eww-icon-for-element el))
+        (emacspeak-speak-region
+         next
+         (or (next-single-property-change next el) (point-max)))))
      (t (message "No next %s" el)))))
 
 (defun emacspeak-eww-previous-element (el)
@@ -1563,8 +1566,9 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
       (setq emacspeak-eww-element-navigation-history
             (delq el emacspeak-eww-element-navigation-history))
       (push  el emacspeak-eww-element-navigation-history)
-      (emacspeak-auditory-icon (emacspeak-eww-icon-for-element el))
-      (emacspeak-speak-region (point) previous))
+      (when (called-interactively-p 'interactive)
+        (emacspeak-auditory-icon (emacspeak-eww-icon-for-element el))
+      (emacspeak-speak-region (point) previous)))
      (t (message "No previous  %s" el)))))
 
 (defun emacspeak-eww-next-element-from-history ()
