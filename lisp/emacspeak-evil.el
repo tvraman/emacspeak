@@ -90,7 +90,6 @@
                       evil-goto-definition evil-goto-first-line evil-goto-line
                       evil-forward-section-begin evil-forward-section-end
                       evil-backward-section-begin evil-backward-section-end
-                      evil-backward-section-begin evil-backward-section-end
                       evil-previous-open-paren evil-previous-match evil-next-match
                       evil-next-line-first-non-blank evil-next-line-1-first-non-blank
                       evil-next-close-paren evil-last-non-blank
