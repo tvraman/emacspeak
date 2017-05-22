@@ -1537,7 +1537,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
             (delq el emacspeak-eww-element-navigation-history))
       (push  el emacspeak-eww-element-navigation-history)
       (emacspeak-auditory-icon (emacspeak-eww-icon-for-element el))
-      (emacspeak-speak-region next (next-single-property-change next el)))
+      (emacspeak-speak-region
+       next (next-single-property-change next el (point-max))))
      (t (message "No next %s" el)))))
 
 (defun emacspeak-eww-previous-element (el)
