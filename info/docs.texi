@@ -8,7 +8,6 @@ This chapter documents a total of 1182 commands and 1100 options.
 * acss-structure::CSS -- Cascaded Speech Style structure.
 * amixer::Control AMixer from Emacs.
 * cd-tool::Play  CDs from Emacs.
-* congrats::Data Sonification, Graphics To Sound for emacspeak.
 * dectalk-voices::Define various device independent voices in terms of Dectalk codes.
 * dom-addons::dom.el addons.
 * dtk-interp::Language specific (e.g. TCL) interface to speech server.
@@ -383,19 +382,6 @@ cap C   Save clip to disk
 *Name of cdstart command; most likely either "cdstart" or "cdplay".
 
 @end defvar
-
-@node congrats
-@section congrats
-
-CONGRATS ==  Convert Graphics To Sound
-I first implemented this idea in late   1988 for my final year project at IIT Bombay.
-A scaled-down version of this project was submitted to the John Hopkins  National Search  in 1991
-See  @url{http://www.cs.cornell.edu/home/raman/publications/ieee-congrats.ps}
-Congrats was originally implemented on a BBC Micro with 32K of memory.
-This module provides data sonification services for the Emacspeak Audio Desktop
-in the spirit of Congrats --- it uses package siggen --- and specifically, the tones utility from that package for generating the auditory output.
-Note that  the original version of CONGRATS  enabled  multiple types of "scans"
-you could listen to a curve in terms of Cartesian or Polar coordinates.
 
 @node dectalk-voices
 @section dectalk-voices
