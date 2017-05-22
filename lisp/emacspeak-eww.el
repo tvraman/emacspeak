@@ -1536,11 +1536,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
       (setq emacspeak-eww-element-navigation-history
             (delq el emacspeak-eww-element-navigation-history))
       (push  el emacspeak-eww-element-navigation-history)
-      (when (called-interactively-p 'interactive)
-        (emacspeak-auditory-icon (emacspeak-eww-icon-for-element el))
-        (emacspeak-speak-region
-         next
-         (or (next-single-property-change next el) (point-max)))))
+      (emacspeak-auditory-icon (emacspeak-eww-icon-for-element el))
+      (emacspeak-speak-region next (next-single-property-change next el)))
      (t (message "No next %s" el)))))
 
 (defun emacspeak-eww-previous-element (el)
@@ -1566,9 +1563,8 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
       (setq emacspeak-eww-element-navigation-history
             (delq el emacspeak-eww-element-navigation-history))
       (push  el emacspeak-eww-element-navigation-history)
-      (when (called-interactively-p 'interactive)
-        (emacspeak-auditory-icon (emacspeak-eww-icon-for-element el))
-      (emacspeak-speak-region (point) previous)))
+      (emacspeak-auditory-icon (emacspeak-eww-icon-for-element el))
+      (emacspeak-speak-region (point) previous))
      (t (message "No previous  %s" el)))))
 
 (defun emacspeak-eww-next-element-from-history ()
@@ -1649,7 +1645,7 @@ Otherwise, prompts if content at point is enclosed by multiple elements."
      ,(format "Move forward to the next %s.
 Optional interactive prefix arg speaks the structural unit." f)
      (interactive "P")
-     (funcall #'emacspeak-eww-next-element (intern ,(format "%s" f)))
+     (funcall 'emacspeak-eww-next-element (intern ,(format "%s" f)))
      (when speak
        (emacspeak-eww-speak-this-element (intern ,(format "%s" f))))))
  (eval
