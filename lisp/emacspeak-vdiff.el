@@ -200,7 +200,7 @@
   `(progn
      (define-key vdiff-mode-prefix-map   " " 'emacspeak-vdiff-speak-this-hunk )
      (define-key vdiff-mode-prefix-map   (kbd "C-SPC") 'emacspeak-vdiff-speak-other-hunk)
-     (define-key vdiff-mode-prefix-map   (kbd "C-l") 'emacspeak-vdiff-speak-other-line)))
+     (define-key vdiff-mode-prefix-map   (kbd "l") 'emacspeak-vdiff-speak-other-line)))
 
 ;;}}}
 (provide 'emacspeak-vdiff)
