@@ -538,7 +538,7 @@ Parameter `theme' specifies variant."
      (completing-read  "Chakra Theme Variant: "
                        '("sox--chakra-settings-0" "sox--chakra-settings-1")
                        nil 'must-match))
-    (timer-duration (read-from-minibuffer "Duration: "))))
+    (timer-duration (read-from-minibuffer "Chakra Duration: "))))
   (let ((names  (mapcar #'car (symbol-value theme)))
         (start 0))
     (cl-loop
