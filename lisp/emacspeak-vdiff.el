@@ -50,6 +50,7 @@
 ;;; @itemize  @bullet
 ;;; @item  @code{emacspeak-vdiff-speak-this-hunk} bound to @kbd{SPC}.
 ;;; @item @code{emacspeak-vdiff-speak-other-hunk} bound to @kbd{C-SPC}.
+;;; @item @code{emacspeak-vdiff-speak-other-line} bound to @kbd{C-l}.
 ;;;@end itemize
 ;;; Code:
 
@@ -99,6 +100,14 @@
   (save-excursion
     (vdiff-switch-buffer (line-number-at-pos))
     (emacspeak-vdiff-speak-this-hunk)))
+
+(defun emacspeak-vdiff-speak-other-line ()
+  "Speak corresponding line from other buffer."
+  (interactive)
+  (save-excursion
+    (vdiff-switch-buffer (line-number-at-pos))
+    (emacspeak-speak-line)))
+
 ;;}}}
 ;;{{{ Interactive Commands:
 
@@ -190,7 +199,8 @@
     "vdiff"
   `(progn
      (define-key vdiff-mode-prefix-map   " " 'emacspeak-vdiff-speak-this-hunk )
-     (define-key vdiff-mode-prefix-map   (kbd "C-SPC") 'emacspeak-vdiff-speak-other-hunk)))
+     (define-key vdiff-mode-prefix-map   (kbd "C-SPC") 'emacspeak-vdiff-speak-other-hunk)
+     (define-key vdiff-mode-prefix-map   (kbd "C-l") 'emacspeak-vdiff-speak-other-line)))
 
 ;;}}}
 (provide 'emacspeak-vdiff)
