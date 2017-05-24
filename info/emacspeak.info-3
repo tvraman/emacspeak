@@ -3195,6 +3195,7 @@ provides commands that speak the current hunk.  These are bound in
 ‘vdiff-mode-prefix-map’.
    • ‘emacspeak-vdiff-speak-this-hunk’ bound to ‘SPC’.
    • ‘emacspeak-vdiff-speak-other-hunk’ bound to ‘C-SPC’.
+   • ‘emacspeak-vdiff-speak-other-line’ bound to ‘l’.
 
 12.188.1 emacspeak-vdiff Commands
 ---------------------------------
@@ -3206,7 +3207,14 @@ provides commands that speak the current hunk.  These are bound in
 
      Speak corresponding hunk from other buffer.
 
-12.188.1.2 emacspeak-vdiff-speak-this-hunk
+12.188.1.2 emacspeak-vdiff-speak-other-line
+...........................................
+
+ -- Command: emacspeak-vdiff-speak-other-line
+
+     Speak corresponding line from other buffer.
+
+12.188.1.3 emacspeak-vdiff-speak-this-hunk
 ..........................................
 
  -- Command: emacspeak-vdiff-speak-this-hunk
@@ -3223,8 +3231,8 @@ provides commands that speak the current hunk.  These are bound in
 
  -- Variable: User Option emacspeak-vdiff-change-personality
      Personality used for vdiff-change-face This personality uses
-     voice-bolden whose effect can be changed globally by customizing
-     voice-bolden-settings.
+     voice-lock-overlay-1 whose effect can be changed globally by
+     customizing voice-lock-overlay-1-settings.
 
  -- Variable: User Option emacspeak-vdiff-closed-fold-personality
      Personality used for vdiff-closed-fold-face This personality uses
@@ -3238,8 +3246,8 @@ provides commands that speak the current hunk.  These are bound in
 
  -- Variable: User Option emacspeak-vdiff-refine-added-voice
      Personality used for vdiff-refine-added This personality uses
-     voice-brighten whose effect can be changed globally by customizing
-     voice-brighten-settings.
+     voice-lock-overlay-0 whose effect can be changed globally by
+     customizing voice-lock-overlay-0-settings.
 
  -- Variable: User Option emacspeak-vdiff-refine-changed-voice
      Personality used for vdiff-refine-changed This personality uses

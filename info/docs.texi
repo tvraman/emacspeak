@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1182 commands and 1100 options.
+This chapter documents a total of 1183 commands and 1100 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -19486,6 +19486,7 @@ as is the case with ediff.
 @itemize  @bullet
 @item  @code{emacspeak-vdiff-speak-this-hunk} bound to @kbd{SPC}.
 @item @code{emacspeak-vdiff-speak-other-hunk} bound to @kbd{C-SPC}.
+@item @code{emacspeak-vdiff-speak-other-line} bound to @kbd{l}.
 @end itemize
 
 @subsection emacspeak-vdiff Commands
@@ -19496,6 +19497,15 @@ as is the case with ediff.
 
 @format
 Speak corresponding hunk from other buffer.
+@end format
+@end deffn
+
+@subsubsection emacspeak-vdiff-speak-other-line
+@deffn {Command} emacspeak-vdiff-speak-other-line   
+@findex emacspeak-vdiff-speak-other-line
+
+@format
+Speak corresponding line from other buffer.
 @end format
 @end deffn
 
@@ -19518,7 +19528,7 @@ This personality uses  voice-brighten whose  effect can be changed globally by c
 
 @defvar {User Option} emacspeak-vdiff-change-personality
 Personality used for vdiff-change-face
-This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+This personality uses  voice-lock-overlay-1 whose  effect can be changed globally by customizing voice-lock-overlay-1-settings.
 
 @end defvar
 
@@ -19536,7 +19546,7 @@ This personality uses  voice-lighten whose  effect can be changed globally by cu
 
 @defvar {User Option} emacspeak-vdiff-refine-added-voice
 Personality used for vdiff-refine-added
-This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
+This personality uses  voice-lock-overlay-0 whose  effect can be changed globally by customizing voice-lock-overlay-0-settings.
 
 @end defvar
 
