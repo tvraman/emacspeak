@@ -50,7 +50,7 @@
 ;;; @itemize  @bullet
 ;;; @item  @code{emacspeak-vdiff-speak-this-hunk} bound to @kbd{SPC}.
 ;;; @item @code{emacspeak-vdiff-speak-other-hunk} bound to @kbd{C-SPC}.
-;;; @item @code{emacspeak-vdiff-speak-other-line} bound to @kbd{C-l}.
+;;; @item @code{emacspeak-vdiff-speak-other-line} bound to @kbd{l}.
 ;;;@end itemize
 ;;; Code:
 
