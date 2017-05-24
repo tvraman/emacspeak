@@ -256,6 +256,8 @@ pcm.equal{
 
 # }}}
 # {{{Save2File:
+# produces save.wav channels 1, rate 11025 format S16_LE
+# aplay -r 11025 -f s16_le save.wav
  pcm.save2file {
      type file
      slave.pcm "default"
