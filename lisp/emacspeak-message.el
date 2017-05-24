@@ -81,6 +81,16 @@
 
 ;;}}}
 ;;{{{  advice interactive commands
+(cl-loop
+ for f in
+ '(message-send message-send-and-exit)
+ do
+ (eval
+  `(defadvice ,f (after emacspeak pre act comp)
+     "Provide auditory context"
+     (when  (ems-interactive-p)
+       (emacspeak-speak-mode-line)
+       (emacspeak-auditory-icon 'close-object)))))
 
 (defadvice message-goto-to (after emacspeak pre act comp)
   "Provide auditory feedback"
