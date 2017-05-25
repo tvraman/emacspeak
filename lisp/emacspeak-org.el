@@ -634,10 +634,11 @@ and assign  letter `h' to a template that creates the hyperlink on capture."
      :description (emacspeak-eww-current-title))))
 
 (unless (functionp 'org-store-link-functions)
-  ;;; org-mode 8.x and earlier:
+;;; org-mode 8.x and earlier:
   (add-hook
    'org-load-hook
    #'(lambda nil
+       (declare (special org-store-link-functions))
        (push #'org-eww-store-link org-store-link-functions))))
 
 ;;}}}
