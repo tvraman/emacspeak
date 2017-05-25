@@ -1743,7 +1743,8 @@ semantic to do the work."
 (defun emacspeak--sox-multiwindow (corners)
   "Takes `window-edges' and plays a sound cue based on position of current window with respect to
 the overall window layout."
-  (let
+  (with-current-buffer (window-buffer (selected-window))
+    (let
       ((tr 0)
        (mr (/ (frame-height) 2))
        (br (1- (frame-height)))
@@ -1795,7 +1796,7 @@ the overall window layout."
            (= br (cl-fourth corners)))
       (sox-multiwindow 'swap)
       'right-half)
-     (t ""))))
+     (t "")))))
 
 (defun emacspeak-speak-mode-line (&optional buffer-info)
   "Speak the mode-line.
