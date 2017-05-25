@@ -278,107 +278,107 @@
 ;;; @subsection Filtering Content Using XSLT And XPath
 
 ;;;@table @kbd
-;;;@item C-c           
+;;;@item C-c
 ;;;@command{emacspeak-we-junk-by-class-list}
 ;;;Prompts for list of class-names with completion,
 ;;;and filters out matching elements.
-;;;@item C-f           
+;;;@item C-f
 ;;;@command{emacspeak-we-count-matches}
 ;;;Prompts for XPath expression, and returns count of matching elements.
-;;;@item C-p           
+;;;@item C-p
 ;;;@command{emacspeak-we-xpath-junk-and-follow}
 ;;;Follows link under point, and displays that page
 ;;;after filtering by a specified XPath expression.
-;;;@item C-t           
+;;;@item C-t
 ;;;@command{emacspeak-we-count-tables}
 ;;;Display a count of tables in the page.
-;;;@item C-x           
+;;;@item C-x
 ;;;@command{emacspeak-we-count-nested-tables}
 ;;;Counts nested tables.
-;;;@item C             
+;;;@item C
 ;;;@command{emacspeak-we-extract-by-class-list}
 ;;;Prompts for a list of class-names, and displays matching elements.
-;;;@item D             
+;;;@item D
 ;;;@command{emacspeak-we-junk-by-class-list}
 ;;;Filters out elements  having specified class attributes.
-;;;@item I             
+;;;@item I
 ;;;@command{emacspeak-we-extract-by-id-list}
 ;;;Extracts elements by specified list of ID values.
-;;;@item M             
+;;;@item M
 ;;;@command{emacspeak-we-extract-tables-by-match-list}
 ;;;Extracts tables that match specified selection pattern.
-;;;@item P             
+;;;@item P
 ;;;@command{emacspeak-we-follow-and-extract-main}
 ;;;Follows link under point, and extracts readable content,
 ;;;by default, this is all paragraphs and headings.
-;;;@item S             
+;;;@item S
 ;;;@command{emacspeak-we-style-filter}
 ;;;Filters content by style attribute.
-;;;@item T             
+;;;@item T
 ;;;@command{emacspeak-we-extract-tables-by-position-list}
 ;;;Extracts tables by their position on the page.
-;;;@item X             
+;;;@item X
 ;;;@command{emacspeak-we-extract-nested-table-list}
 ;;;Extracts nested tables.
-;;;@item a             
+;;;@item a
 ;;;@command{emacspeak-we-xslt-apply}
 ;;;Prompt for and apply specified XSLT transform to current page.
-;;;@item b             
+;;;@item b
 ;;;@command{emacspeak-we-follow-and-filter-by-id}
 ;;;Follow link under point, and filter by specified id value.
-;;;@item c             
+;;;@item c
 ;;;@command{emacspeak-we-extract-by-class}
 ;;;Extracts elements by class.
-;;;@item d             
+;;;@item d
 ;;;@command{emacspeak-we-junk-by-class}
 ;;;Filters out elements having specified class value.
-;;;@item e             
+;;;@item e
 ;;;@command{emacspeak-we-url-expand-and-execute}
 ;;;Follow link under point, but pass the result to a custom executor.
-;;;@item f             
+;;;@item f
 ;;;@command{emacspeak-we-xslt-filter}
 ;;;Apply a specified XSLT filter (XPath) to current page.
-;;;@item i             
+;;;@item i
 ;;;@command{emacspeak-we-extract-by-id}
 ;;;Extract elements by id value.
-;;;@item j             
+;;;@item j
 ;;;@command{emacspeak-we-xslt-junk}
 ;;;Filter out elements matching specified pattern.
-;;;@item k             
+;;;@item k
 ;;;@command{emacspeak-we-toggle-xsl-keep-result}
 ;;;Debugging tool  --- retains the  HTML source after XSLT.
-;;;@item m             
+;;;@item m
 ;;;@command{emacspeak-we-extract-table-by-match}
 ;;;Extract matching table.
-;;;@item p             
+;;;@item p
 ;;;@command{emacspeak-we-xpath-filter-and-follow}
 ;;;Follow link under point, and filter results by a specified XPath filter.
-;;;@item r             
+;;;@item r
 ;;;@command{emacspeak-we-extract-by-role}
 ;;;Extract elements by specified role value.
-;;;@item s             
+;;;@item s
 ;;;@command{emacspeak-we-xslt-select}
 ;;;Select default XSLT transform that is applied before rendering the page.
-;;;@item t             
+;;;@item t
 ;;;@command{emacspeak-we-extract-table-by-position}
 ;;;Extracts tables by their position on the page.
-;;;@item u             
+;;;@item u
 ;;;@command{emacspeak-we-extract-matching-urls}
 ;;;Display matching links on the page.
-;;;@item v             
+;;;@item v
 ;;;@command{emacspeak-we-class-filter-and-follow-link}
 ;;;Follow link under point, and filter by specified class value.
-;;;@item w             
+;;;@item w
 ;;;@command{emacspeak-we-extract-by-property}
 ;;;Extract element using a combination of DOM attributes.
-;;;@item x             
+;;;@item x
 ;;;@command{emacspeak-we-extract-nested-table}
 ;;;Extract a nested table using a match-list.
-;;;@item y             
+;;;@item y
 ;;;@command{emacspeak-we-class-filter-and-follow}
 ;;;Follow link under point and filter by class values.
 ;;;@end table
-;;; @subsection EWW And EBooks On The Emacspeak Audio Desktop 
+;;; @subsection EWW And EBooks On The Emacspeak Audio Desktop
 ;;; Modules emacspeak-epub and emacspeak-bookshare provide EBook
 ;;; front-ends to EPub-2 and Daisy EBooks. Both modules now use EWW to
 ;;; render these EBooks. Module emacspeak-eww provides a simple
@@ -439,18 +439,18 @@
         (boundp 'eww-data))
    (eval
     `(defun
-       ,(intern (format "emacspeak-eww-current-%s" name)) ()
+         ,(intern (format "emacspeak-eww-current-%s" name)) ()
        , (format "Return eww-current-%s." name)
-         (declare (special eww-data))
-         (plist-get eww-data
-                    ,(intern (format ":%s" name))))))
+       (declare (special eww-data))
+       (plist-get eww-data
+                  ,(intern (format ":%s" name))))))
   (t
    (eval
     `(defun
-       ,(intern (format "emacspeak-eww-current-%s" name))
-       ()
+         ,(intern (format "emacspeak-eww-current-%s" name))
+         ()
        , (format "Return eww-current-%s." name)
-         ,(intern (format "eww-current-%s" name)))))))
+       ,(intern (format "eww-current-%s" name)))))))
 
 (cl-loop
  for name in
@@ -462,16 +462,16 @@
     `(defun
          ,(intern (format "emacspeak-eww-set-%s" name)) (value)
        , (format "Set eww-current-%s." name)
-         (assert (boundp 'eww-data) nil "Not a EWW rendered page.")
-         (plist-put eww-data
-                    ,(intern (format ":%s" name))
-                    value))))
+       (assert (boundp 'eww-data) nil "Not a EWW rendered page.")
+       (plist-put eww-data
+                  ,(intern (format ":%s" name))
+                  value))))
   (t ;;; emacs 24
    (eval
     `(defun
          ,(intern (format "emacspeak-eww-set-%s" name)) (value)
        , (format "Set eww-current-%s." name)
-         (setq ,(intern (format "eww-current-%s" name)) value))))))
+       (setq ,(intern (format "eww-current-%s" name)) value))))))
 
 ;;}}}
 ;;{{{ Inline Helpers:
@@ -1172,7 +1172,7 @@ Optional interactive arg `multi' prompts for multiple ids."
     (when dom
       (emacspeak-eww-view-helper
        (dom-html-add-base
-                                  dom (emacspeak-eww-current-url))))))
+        dom (emacspeak-eww-current-url))))))
 
 (defun emacspeak-eww-read-attribute-and-value ()
   "Read attr-value pair and return as a list."
@@ -1215,7 +1215,7 @@ Optional interactive arg `multi' prompts for multiple classes."
                (emacspeak-eww-read-list 'emacspeak-eww-read-attribute-and-value)
              (list  (emacspeak-eww-read-attribute-and-value)))))))
     (when dom
-      (emacspeak-eww-view-helper 
+      (emacspeak-eww-view-helper
        (dom-html-add-base dom   (emacspeak-eww-current-url))))))
 
 (defun eww-view-dom-not-having-attribute (&optional multi)
@@ -1536,9 +1536,10 @@ Optional interactive prefix arg `multi' prompts for multiple elements."
       (setq emacspeak-eww-element-navigation-history
             (delq el emacspeak-eww-element-navigation-history))
       (push  el emacspeak-eww-element-navigation-history)
-      (emacspeak-auditory-icon (emacspeak-eww-icon-for-element el))
-      (emacspeak-speak-region
-       next (next-single-property-change next el nil  (point-max))))
+      (when (called-interactively-p 'interactive)
+        (emacspeak-auditory-icon (emacspeak-eww-icon-for-element el))
+        (emacspeak-speak-region
+         next (next-single-property-change next el nil  (point-max)))))
      (t (message "No next %s" el)))))
 
 (defun emacspeak-eww-previous-element (el)
@@ -1646,17 +1647,13 @@ Otherwise, prompts if content at point is enclosed by multiple elements."
      ,(format "Move forward to the next %s.
 Optional interactive prefix arg speaks the structural unit." f)
      (interactive "P")
-     (funcall 'emacspeak-eww-next-element (intern ,(format "%s" f)))
-     (when speak
-       (emacspeak-eww-speak-this-element (intern ,(format "%s" f))))))
+     (funcall-interactively #'emacspeak-eww-next-element (intern ,(format "%s" f)))))
  (eval
   `(defun ,(intern (format "emacspeak-eww-previous-%s" f)) (&optional speak)
      ,(format "Move backward to the next %s.
 Optional interactive prefix arg speaks the structural unit." f)
      (interactive "P")
-     (funcall 'emacspeak-eww-previous-element (intern ,(format "%s" f)))
-     (when speak
-       (emacspeak-eww-speak-this-element (intern ,(format "%s" f)))))))
+     (funcall-interactively #'emacspeak-eww-previous-element (intern ,(format "%s" f))))))
 
 ;;}}}
 ;;{{{ Google Search  fixes:
@@ -1873,7 +1870,7 @@ Warning, this is fragile, and depends on a stable id for the
 ;;{{{ eww-marks:
 
 ;;; Bookmarks for use in reading ebooks with EWW:
-;;; They are called eww-marks to distinguish them from web bookmarks 
+;;; They are called eww-marks to distinguish them from web bookmarks
 
 (cl-defstruct emacspeak-eww-mark
   type ; daisy, epub, epub-3
@@ -1894,10 +1891,10 @@ Warning, this is fragile, and depends on a stable id for the
      (read-from-minibuffer "Mark: " nil nil nil nil "current"))))
   (declare (special emacspeak-eww-marks
                     emacspeak-epub-this-epub emacspeak-bookshare-this-book))
-  (let ((bm 
+  (let ((bm
          (make-emacspeak-eww-mark
           :name name
-          :type 
+          :type
           (cond
            ((bound-and-true-p emacspeak-epub-this-epub) 'epub)
            ((bound-and-true-p emacspeak-bookshare-this-book)'daisy)
@@ -1919,7 +1916,7 @@ Warning, this is fragile, and depends on a stable id for the
         (point (emacspeak-eww-mark-point bm))
         (buffer nil))
     (setq
-     buffer 
+     buffer
      (cond
       ((eq type 'epub)
        (require 'emacspeak-epub)
@@ -1969,31 +1966,31 @@ interactive prefix arg `delete', delete that mark instead."
    (delete (emacspeak-eww-delete-mark name))
    (t
     (let* ((bm (gethash name emacspeak-eww-marks))
-          (handler nil)
-          (type (emacspeak-eww-mark-type bm))
-          (point (emacspeak-eww-mark-point bm))
-          (book (emacspeak-eww-mark-book bm)))
+           (handler nil)
+           (type (emacspeak-eww-mark-type bm))
+           (point (emacspeak-eww-mark-point bm))
+           (book (emacspeak-eww-mark-book bm)))
       (cl-assert  type nil "Mark type is not set.")
       (cl-assert book nil "Book not set.")
       (cond
        ((emacspeak-eww-jump-to-mark bm) t)
        (t
-        (setq handler 
+        (setq handler
               (cond
                ((eq type 'daisy) #'emacspeak-bookshare-eww)
                ((eq type 'epub) #'emacspeak-epub-eww)
                (t (error "Unknown book type."))))
-        (when point 
+        (when point
           (add-hook
            'emacspeak-web-post-process-hook
            #'(lambda ()
                (goto-char point)
                (emacspeak-auditory-icon 'large-movement))
            'at-end))
-        (funcall handler book)))))))    
+        (funcall handler book)))))))
 
 (global-set-key (kbd "C-x r e") 'emacspeak-eww-open-mark)
-        
+
 (defvar emacspeak-eww-marks-file
   (expand-file-name "eww-marks" emacspeak-resource-directory)
   "File where we save EWW marks.")
