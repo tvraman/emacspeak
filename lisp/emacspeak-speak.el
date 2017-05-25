@@ -1808,56 +1808,57 @@ Interactive prefix arg speaks buffer info."
                      header-line-format global-mode-string
                      column-number-mode line-number-mode
                      emacspeak-mail-alert mode-line-format))
-  (force-mode-line-update)
-  (when (and visual-line-mode (not global-visual-line-mode))  (sox-chime 2 2))
-  (when   emacspeak-mail-alert (emacspeak-mail-alert-user))
-  (cond
-   ((and header-line-format (not (called-interactively-p 'interactive)))
-    (emacspeak-speak-header-line))
-   (buffer-info (emacspeak-speak-buffer-info))
-   (t                                   ; main branch
-    (let ((global-info (downcase (format-mode-line global-mode-string)))
-          (window-count (length (window-list)))
-          (vc-state (when vc-mode  (vc-state (buffer-file-name))))
-          (frame-info (emacspeak-get-voicefied-frame-info (selected-frame)))
-          (recursion-info (emacspeak-get-voicefied-recursion-info  (recursion-depth)))
-          (dir-info
-           (when (or (eq major-mode 'shell-mode)
-                     (eq major-mode 'comint-mode))
-             (abbreviate-file-name default-directory))))
-      (when (> window-count 1) (emacspeak--sox-multiwindow (window-edges)))
-      (setq
-       window-count
-       (if (> window-count 1)
-           (format " %s " window-count)
-         nil))
-      (cond
-       ((stringp mode-line-format) (dtk-speak mode-line-format))
-       (t                               ;process modeline
-        (unless (zerop (length global-info))
-          (put-text-property
-           0 (length global-info) 'personality voice-bolden-medium global-info))
-        (tts-with-punctuations
-         'all
-         (unless ; avoid pathological case
-             (and buffer-read-only (buffer-modified-p))  
-           (when (and buffer-file-name  (buffer-modified-p))
-             (emacspeak-auditory-icon 'modified-object))
-           (when buffer-read-only (emacspeak-auditory-icon 'unmodified-object)))
-         (dtk-speak
-          (concat
-           dir-info
-           (emacspeak-get-voicefied-buffer-name (buffer-name))
-           (when window-count (propertize window-count 'personality voice-smoothen))
-           (when vc-mode (propertize vc-mode  'personality voice-smoothen))
-           (when vc-state (format "%s" vc-state))
-           (when line-number-mode
-             (format "line %d" (emacspeak-get-current-line-number)))
-           (when column-number-mode
-             (format "Column %d" (current-column)))
-           (emacspeak-get-voicefied-mode-name mode-name)
-           (emacspeak-get-current-percentage-verbously)
-           global-info frame-info recursion-info)))))))))
+  (with-current-buffer (window-buffer (selected-window))
+    (force-mode-line-update)
+    (when (and visual-line-mode (not global-visual-line-mode))  (sox-chime 2 2))
+    (when   emacspeak-mail-alert (emacspeak-mail-alert-user))
+    (cond
+     ((and header-line-format (not (called-interactively-p 'interactive)))
+      (emacspeak-speak-header-line))
+     (buffer-info (emacspeak-speak-buffer-info))
+     (t                                 ; main branch
+      (let ((global-info (downcase (format-mode-line global-mode-string)))
+            (window-count (length (window-list)))
+            (vc-state (when vc-mode  (vc-state (buffer-file-name))))
+            (frame-info (emacspeak-get-voicefied-frame-info (selected-frame)))
+            (recursion-info (emacspeak-get-voicefied-recursion-info  (recursion-depth)))
+            (dir-info
+             (when (or (eq major-mode 'shell-mode)
+                       (eq major-mode 'comint-mode))
+               (abbreviate-file-name default-directory))))
+        (when (> window-count 1) (emacspeak--sox-multiwindow (window-edges)))
+        (setq
+         window-count
+         (if (> window-count 1)
+             (format " %s " window-count)
+           nil))
+        (cond
+         ((stringp mode-line-format) (dtk-speak mode-line-format))
+         (t                             ;process modeline
+          (unless (zerop (length global-info))
+            (put-text-property
+             0 (length global-info) 'personality voice-bolden-medium global-info))
+          (tts-with-punctuations
+           'all
+           (unless                      ; avoid pathological case
+               (and buffer-read-only (buffer-modified-p))  
+             (when (and buffer-file-name  (buffer-modified-p))
+               (emacspeak-auditory-icon 'modified-object))
+             (when buffer-read-only (emacspeak-auditory-icon 'unmodified-object)))
+           (dtk-speak
+            (concat
+             dir-info
+             (emacspeak-get-voicefied-buffer-name (buffer-name))
+             (when window-count (propertize window-count 'personality voice-smoothen))
+             (when vc-mode (propertize vc-mode  'personality voice-smoothen))
+             (when vc-state (format "%s" vc-state))
+             (when line-number-mode
+               (format "line %d" (emacspeak-get-current-line-number)))
+             (when column-number-mode
+               (format "Column %d" (current-column)))
+             (emacspeak-get-voicefied-mode-name mode-name)
+             (emacspeak-get-current-percentage-verbously)
+             global-info frame-info recursion-info))))))))))
 
 (defun emacspeak-speak-current-buffer-name ()
   "Speak name of current buffer."
