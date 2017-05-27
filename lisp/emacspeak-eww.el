@@ -2003,6 +2003,7 @@ interactive prefix arg `delete', delete that mark instead."
         (print-length nil)
         (print-level nil))
     (with-current-buffer buffer
+      (erase-buffer)
       (insert  ";;; Auto-generated.\n\n")
       (insert "(setq emacspeak-eww-marks \n")
       (pp emacspeak-eww-marks (current-buffer))
