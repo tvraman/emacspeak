@@ -21,6 +21,15 @@ boodler.use: agent
 dc.title: Nature Sounds Mocking Birds
 dc.description: Larger flock of CA and FL Mocking Birds
 
+:MoreMockingBirds
+boodler.use: agent
+dc.title: Nature Sounds Mocking Birds
+dc.description: Large flock of CA and FL Mocking Birds
+ 
+:SomeMockingBirds
+boodler.use: agent
+dc.title: Nature Sounds Mocking Birds
+dc.description: Small flock of CA and FL Mocking Birds
 
 :ManyNightingales
 boodler.use: agent
