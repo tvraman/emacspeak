@@ -399,13 +399,13 @@ class ManyMockingBirds (agent.Agent):
                     0.15, 0.75,  # volume
                     1 + 0.025 * j  # pan
                 )
-                self.sched_agent(ag, k * 10, bc)
+                self.sched_agent(ag, k * 20, bc)
                 ag = FlMockingBirds(
                     0,  120,  # Duration
                     0.15, 0.75,  # volume
                     1 + 0.025 * j  # pan
                 )
-                self.sched_agent(ag, k * 10, bc)
+                self.sched_agent(ag, k * 20, bc)
 
 
 class Crickets(agent.Agent):
