@@ -8120,107 +8120,107 @@ which are available via prefix-key @kbd{G}.
 @subsection Filtering Content Using XSLT And XPath
 
 @table @kbd
-@item C-c           
+@item C-c
 @command{emacspeak-we-junk-by-class-list}
 Prompts for list of class-names with completion,
 and filters out matching elements.
-@item C-f           
+@item C-f
 @command{emacspeak-we-count-matches}
 Prompts for XPath expression, and returns count of matching elements.
-@item C-p           
+@item C-p
 @command{emacspeak-we-xpath-junk-and-follow}
 Follows link under point, and displays that page
 after filtering by a specified XPath expression.
-@item C-t           
+@item C-t
 @command{emacspeak-we-count-tables}
 Display a count of tables in the page.
-@item C-x           
+@item C-x
 @command{emacspeak-we-count-nested-tables}
 Counts nested tables.
-@item C             
+@item C
 @command{emacspeak-we-extract-by-class-list}
 Prompts for a list of class-names, and displays matching elements.
-@item D             
+@item D
 @command{emacspeak-we-junk-by-class-list}
 Filters out elements  having specified class attributes.
-@item I             
+@item I
 @command{emacspeak-we-extract-by-id-list}
 Extracts elements by specified list of ID values.
-@item M             
+@item M
 @command{emacspeak-we-extract-tables-by-match-list}
 Extracts tables that match specified selection pattern.
-@item P             
+@item P
 @command{emacspeak-we-follow-and-extract-main}
 Follows link under point, and extracts readable content,
 by default, this is all paragraphs and headings.
-@item S             
+@item S
 @command{emacspeak-we-style-filter}
 Filters content by style attribute.
-@item T             
+@item T
 @command{emacspeak-we-extract-tables-by-position-list}
 Extracts tables by their position on the page.
-@item X             
+@item X
 @command{emacspeak-we-extract-nested-table-list}
 Extracts nested tables.
-@item a             
+@item a
 @command{emacspeak-we-xslt-apply}
 Prompt for and apply specified XSLT transform to current page.
-@item b             
+@item b
 @command{emacspeak-we-follow-and-filter-by-id}
 Follow link under point, and filter by specified id value.
-@item c             
+@item c
 @command{emacspeak-we-extract-by-class}
 Extracts elements by class.
-@item d             
+@item d
 @command{emacspeak-we-junk-by-class}
 Filters out elements having specified class value.
-@item e             
+@item e
 @command{emacspeak-we-url-expand-and-execute}
 Follow link under point, but pass the result to a custom executor.
-@item f             
+@item f
 @command{emacspeak-we-xslt-filter}
 Apply a specified XSLT filter (XPath) to current page.
-@item i             
+@item i
 @command{emacspeak-we-extract-by-id}
 Extract elements by id value.
-@item j             
+@item j
 @command{emacspeak-we-xslt-junk}
 Filter out elements matching specified pattern.
-@item k             
+@item k
 @command{emacspeak-we-toggle-xsl-keep-result}
 Debugging tool  --- retains the  HTML source after XSLT.
-@item m             
+@item m
 @command{emacspeak-we-extract-table-by-match}
 Extract matching table.
-@item p             
+@item p
 @command{emacspeak-we-xpath-filter-and-follow}
 Follow link under point, and filter results by a specified XPath filter.
-@item r             
+@item r
 @command{emacspeak-we-extract-by-role}
 Extract elements by specified role value.
-@item s             
+@item s
 @command{emacspeak-we-xslt-select}
 Select default XSLT transform that is applied before rendering the page.
-@item t             
+@item t
 @command{emacspeak-we-extract-table-by-position}
 Extracts tables by their position on the page.
-@item u             
+@item u
 @command{emacspeak-we-extract-matching-urls}
 Display matching links on the page.
-@item v             
+@item v
 @command{emacspeak-we-class-filter-and-follow-link}
 Follow link under point, and filter by specified class value.
-@item w             
+@item w
 @command{emacspeak-we-extract-by-property}
 Extract element using a combination of DOM attributes.
-@item x             
+@item x
 @command{emacspeak-we-extract-nested-table}
 Extract a nested table using a match-list.
-@item y             
+@item y
 @command{emacspeak-we-class-filter-and-follow}
 Follow link under point and filter by class values.
 @end table
-@subsection EWW And EBooks On The Emacspeak Audio Desktop 
+@subsection EWW And EBooks On The Emacspeak Audio Desktop
 Modules emacspeak-epub and emacspeak-bookshare provide EBook
 front-ends to EPub-2 and Daisy EBooks. Both modules now use EWW to
 render these EBooks. Module emacspeak-eww provides a simple
@@ -12364,8 +12364,6 @@ Move down in current Math expression.
 Send a LaTeX expression to Maths server.
 Tries to guess default based on context.
 Uses guessed default if user enters an empty string.
-
-(fn LATEX)
 @end format
 @end deffn
 
