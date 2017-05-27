@@ -301,6 +301,7 @@ See  \\{soundscape-default-theme} for details."
     ("GardenBackground" nil)
     ("LoopStew" (emacspeak-m-player-mode))
     ("ManyMockingBirds" nil)
+    ("SomeMockingBirds" nil)
     ("ManyNightingales" nil)
     ("MockingBirds" nil)
     ("MockingCuckoos" nil)
