@@ -334,3 +334,326 @@ boodler.use: sound
 :nightingale_021
 boodler.filename: nightingale-021.aiff
 boodler.use: sound
+
+
+# More mocking birds:
+
+:mocker_01
+boodler.filename: 01-n-mocking-bird-002.aiff
+boodler.use: sound
+
+:mocker_02
+boodler.filename: 02-blue-mocking-bird-002.aiff
+boodler.use: sound
+
+:mocker_03
+boodler.filename: 02-blue-mocking-bird-003.aiff
+boodler.use: sound
+
+:mocker_04
+boodler.filename: 02-blue-mocking-bird-004.aiff
+boodler.use: sound
+
+:mocker_05
+boodler.filename: 02-blue-mocking-bird-005.aiff
+boodler.use: sound
+
+:mocker_06
+boodler.filename: 02-blue-mocking-bird-006.aiff
+boodler.use: sound
+
+:mocker_07
+boodler.filename: 02-blue-mocking-bird-007.aiff
+boodler.use: sound
+
+:mocker_08
+boodler.filename: 02-blue-mocking-bird-008.aiff
+boodler.use: sound
+
+:mocker_09
+boodler.filename: 03-n-mocking-bird-002.aiff
+boodler.use: sound
+
+:mocker_10
+boodler.filename: 04-n-mocking-bird-002.aiff
+boodler.use: sound
+
+:mocker_11
+boodler.filename: 05-n-mocking-bird-001.aiff
+boodler.use: sound
+
+:mocker_12
+boodler.filename: 06-n-mocking-bird-002.aiff
+boodler.use: sound
+
+:mocker_13
+boodler.filename: 06-n-mocking-bird-003.aiff
+boodler.use: sound
+
+:mocker_14
+boodler.filename: 07-n-mocking-bird-002.aiff
+boodler.use: sound
+
+:mocker_15
+boodler.filename: 07-n-mocking-bird-003.aiff
+boodler.use: sound
+
+:mocker_16
+boodler.filename: 08-n-mocking-bird-002.aiff
+boodler.use: sound
+
+:mocker_17
+boodler.filename: 08-n-mocking-bird-003.aiff
+boodler.use: sound
+
+:mocker_18
+boodler.filename: 08-n-mocking-bird-004.aiff
+boodler.use: sound
+
+:mocker_19
+boodler.filename: 08-n-mocking-bird-005.aiff
+boodler.use: sound
+
+:mocker_20
+boodler.filename: 08-n-mocking-bird-006.aiff
+boodler.use: sound
+
+:mocker_21
+boodler.filename: 08-n-mocking-bird-007.aiff
+boodler.use: sound
+
+:mocker_22
+boodler.filename: 08-n-mocking-bird-008.aiff
+boodler.use: sound
+
+:mocker_23
+boodler.filename: 08-n-mocking-bird-009.aiff
+boodler.use: sound
+
+:mocker_24
+boodler.filename: 08-n-mocking-bird-010.aiff
+boodler.use: sound
+
+:mocker_25
+boodler.filename: 08-n-mocking-bird-011.aiff
+boodler.use: sound
+
+:mocker_26
+boodler.filename: 08-n-mocking-bird-012.aiff
+boodler.use: sound
+
+:mocker_27
+boodler.filename: 08-n-mocking-bird-013.aiff
+boodler.use: sound
+
+:mocker_28
+boodler.filename: 08-n-mocking-bird-014.aiff
+boodler.use: sound
+
+:mocker_29
+boodler.filename: 08-n-mocking-bird-015.aiff
+boodler.use: sound
+
+:mocker_30
+boodler.filename: 08-n-mocking-bird-016.aiff
+boodler.use: sound
+
+:mocker_31
+boodler.filename: 08-n-mocking-bird-017.aiff
+boodler.use: sound
+
+:mocker_32
+boodler.filename: 08-n-mocking-bird-018.aiff
+boodler.use: sound
+
+:mocker_33
+boodler.filename: 08-n-mocking-bird-019.aiff
+boodler.use: sound
+
+:mocker_34
+boodler.filename: 08-n-mocking-bird-020.aiff
+boodler.use: sound
+
+:mocker_35
+boodler.filename: 08-n-mocking-bird-021.aiff
+boodler.use: sound
+
+:mocker_36
+boodler.filename: 08-n-mocking-bird-022.aiff
+boodler.use: sound
+
+:mocker_37
+boodler.filename: 08-n-mocking-bird-023.aiff
+boodler.use: sound
+
+:mocker_38
+boodler.filename: 08-n-mocking-bird-024.aiff
+boodler.use: sound
+
+:mocker_39
+boodler.filename: 08-n-mocking-bird-025.aiff
+boodler.use: sound
+
+:mocker_40
+boodler.filename: 08-n-mocking-bird-026.aiff
+boodler.use: sound
+
+:mocker_41
+boodler.filename: 09-b-mocking-bird-002.aiff
+boodler.use: sound
+
+:mocker_42
+boodler.filename: 09-b-mocking-bird-003.aiff
+boodler.use: sound
+
+:mocker_43
+boodler.filename: 09-b-mocking-bird-004.aiff
+boodler.use: sound
+
+:mocker_44
+boodler.filename: 09-b-mocking-bird-005.aiff
+boodler.use: sound
+
+:mocker_45
+boodler.filename: 09-b-mocking-bird-006.aiff
+boodler.use: sound
+
+:mocker_46
+boodler.filename: 09-b-mocking-bird-007.aiff
+boodler.use: sound
+
+:mocker_47
+boodler.filename: 10-mocking-bird-002.aiff
+boodler.use: sound
+
+:mocker_48
+boodler.filename: 10-mocking-bird-003.aiff
+boodler.use: sound
+
+:mocker_49
+boodler.filename: 10-mocking-bird-004.aiff
+boodler.use: sound
+
+:mocker_50
+boodler.filename: 10-mocking-bird-005.aiff
+boodler.use: sound
+
+:mocker_51
+boodler.filename: 10-mocking-bird-006.aiff
+boodler.use: sound
+
+:mocker_52
+boodler.filename: 10-mocking-bird-007.aiff
+boodler.use: sound
+
+:mocker_53
+boodler.filename: 10-mocking-bird-008.aiff
+boodler.use: sound
+
+:mocker_54
+boodler.filename: 10-mocking-bird-009.aiff
+boodler.use: sound
+
+:mocker_55
+boodler.filename: 10-mocking-bird-010.aiff
+boodler.use: sound
+
+:mocker_56
+boodler.filename: 10-mocking-bird-011.aiff
+boodler.use: sound
+
+:mocker_57
+boodler.filename: 10-mocking-bird-012.aiff
+boodler.use: sound
+
+:mocker_58
+boodler.filename: 10-mocking-bird-013.aiff
+boodler.use: sound
+
+:mocker_59
+boodler.filename: 10-mocking-bird-014.aiff
+boodler.use: sound
+
+:mocker_60
+boodler.filename: 10-mocking-bird-015.aiff
+boodler.use: sound
+
+:mocker_61
+boodler.filename: 10-mocking-bird-016.aiff
+boodler.use: sound
+
+:mocker_62
+boodler.filename: 10-mocking-bird-017.aiff
+boodler.use: sound
+
+:mocker_63
+boodler.filename: 10-mocking-bird-018.aiff
+boodler.use: sound
+
+:mocker_64
+boodler.filename: 10-mocking-bird-019.aiff
+boodler.use: sound
+
+:mocker_65
+boodler.filename: 10-mocking-bird-020.aiff
+boodler.use: sound
+
+:mocker_66
+boodler.filename: 10-mocking-bird-021.aiff
+boodler.use: sound
+
+:mocker_67
+boodler.filename: 10-mocking-bird-022.aiff
+boodler.use: sound
+
+:mocker_68
+boodler.filename: 10-mocking-bird-023.aiff
+boodler.use: sound
+
+:mocker_69
+boodler.filename: 10-mocking-bird-024.aiff
+boodler.use: sound
+
+:mocker_70
+boodler.filename: 10-mocking-bird-025.aiff
+boodler.use: sound
+
+:mocker_71
+boodler.filename: 10-mocking-bird-026.aiff
+boodler.use: sound
+
+:mocker_72
+boodler.filename: 10-mocking-bird-027.aiff
+boodler.use: sound
+
+:mocker_73
+boodler.filename: 10-mocking-bird-028.aiff
+boodler.use: sound
+
+:mocker_74
+boodler.filename: 10-mocking-bird-029.aiff
+boodler.use: sound
+
+:mocker_75
+boodler.filename: 10-mocking-bird-030.aiff
+boodler.use: sound
+
+:mocker_76
+boodler.filename: 10-mocking-bird-031.aiff
+boodler.use: sound
+
+:mocker_77
+boodler.filename: 10-mocking-bird-032.aiff
+boodler.use: sound
+
+:mocker_78
+boodler.filename: 10-mocking-bird-033.aiff
+boodler.use: sound
+
+:mocker_79
+boodler.filename: 10-mocking-bird-034.aiff
+boodler.use: sound
+
+:mocker_80
+boodler.filename: 10-mocking-bird-035.aiff
+boodler.use: sound
