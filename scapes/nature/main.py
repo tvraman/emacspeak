@@ -18,12 +18,34 @@ trill = bimport('org.boodler.sample.insect')
 
 ca_mocks = [
     birds.mocking_1, birds.mocking_2, birds.mocking_3,
-    birds.mocking_4, birds.mocking_5, birds.mocking_6]
+    birds.mocking_4, birds.mocking_5, birds.mocking_6,
+    birds.mocker_01, birds.mocker_02, birds.mocker_03, birds.mocker_04,
+    birds.mocker_05, birds.mocker_06, birds.mocker_07, birds.mocker_08,
+    birds.mocker_09, birds.mocker_10, birds.mocker_11, birds.mocker_12,
+    birds.mocker_13, birds.mocker_14, birds.mocker_15, birds.mocker_16,
+    birds.mocker_17, birds.mocker_18, birds.mocker_19, birds.mocker_20,
+    birds.mocker_21, birds.mocker_22, birds.mocker_23, birds.mocker_24,
+    birds.mocker_25, birds.mocker_26, birds.mocker_27, birds.mocker_28,
+    birds.mocker_29, birds.mocker_30, birds.mocker_31, birds.mocker_32,
+    birds.mocker_33, birds.mocker_34, birds.mocker_35, birds.mocker_36,
+    birds.mocker_37, birds.mocker_38, birds.mocker_39, birds.mocker_40]
+
 
 fl_mocks = [
     birds.fl_mocking_1, birds.fl_mocking_2, birds.fl_mocking_3,
-    birds.fl_mocking_4, birds.fl_mocking_5, birds.fl_mocking_6,
-    birds.thrasher_01, birds.thrasher_02]
+        birds.fl_mocking_4, birds.fl_mocking_5, birds.fl_mocking_6,
+        birds.thrasher_01, birds.thrasher_02,
+
+        birds.mocker_41, birds.mocker_42, birds.mocker_43, birds.mocker_44,
+        birds.mocker_45, birds.mocker_46, birds.mocker_47, birds.mocker_48,
+        birds.mocker_49, birds.mocker_50, birds.mocker_51, birds.mocker_52,
+        birds.mocker_53, birds.mocker_54, birds.mocker_55, birds.mocker_56,
+        birds.mocker_57, birds.mocker_58, birds.mocker_59, birds.mocker_60,
+        birds.mocker_61, birds.mocker_62, birds.mocker_63, birds.mocker_64,
+        birds.mocker_65, birds.mocker_66, birds.mocker_67, birds.mocker_68,
+        birds.mocker_69, birds.mocker_70, birds.mocker_71, birds.mocker_72,
+        birds.mocker_73, birds.mocker_74, birds.mocker_75, birds.mocker_76,
+    birds.mocker_77, birds.mocker_78, birds.mocker_79, birds.mocker_80, ]
 
 cuckoos = [
     birds.cuckoo_01, birds.cuckoo_02, birds.cuckoo_03, birds.cuckoo_04,
@@ -90,7 +112,7 @@ bugs = [
     trill.crickets_distant, trill.crickets_low,
     trill.crickets_many_1, trill.cricket_solo_1,
     trill.cricket_solo_2, trill.cricket_solo_3,
-    trill.crickets_one_swell,]
+    trill.crickets_one_swell, ]
 
 # helper: Pendulum generator:
 
