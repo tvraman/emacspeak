@@ -408,6 +408,29 @@ class ManyMockingBirds (agent.Agent):
                 self.sched_agent(ag, k * 20, bc)
 
 
+class SomeMockingBirds (agent.Agent):
+
+    def run(self):
+        doNature(self)
+        y = [-1.5, -1.25, -1.125, -1, 0, 1, 1.125,   1.25, 1.5]
+        for i in xrange(len(y)):
+            k = (i + 1) % len(y)
+            bc = self.new_channel_pan(
+                stereo.compose(stereo.scalexy(1.2), stereo.shiftxy(0, y[k])))
+            ag = CaMockingBirds(
+                0, 150,  # Duration
+                0.15, 0.75,  # volume
+                1 + 0.025  # pan
+            )
+            self.sched_agent(ag, k * 20, bc)
+            ag = FlMockingBirds(
+                0, 150,  # Duration
+                0.15, 0.75,  # volume
+                1 + 0.025 * 1  # pan
+            )
+            self.sched_agent(ag, k * 20, bc)
+
+
 class Crickets(agent.Agent):
 
     _args = ArgList(Arg(type=float), Arg(type=float), Arg(type=float),
