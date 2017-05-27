@@ -388,7 +388,7 @@ class ManyMockingBirds (agent.Agent):
 
     def run(self):
         doNature(self)
-        y = [-1.5, -1.25, -1.125, 0, 1.125,   1.25, 1.5]
+        y = [-1.5, -1.25, -1.125, -1, 0, 1, 1.125,   1.25, 1.5]
         for i in xrange(len(y)):
             for j in xrange(3):
                 k = (i + j) % len(y)
