@@ -2,3 +2,9 @@
 (load-library "projectile")
 (projectile-global-mode)
 (global-set-key (kbd "C-c ;") 'projectile-command-map)
+(csetq 
+ projectile-mode-line
+ '(:eval 
+   (if(not (string= "-"  (projectile-project-name)))
+       (format " Projectile[%s]" (projectile-project-name))
+     "")))
