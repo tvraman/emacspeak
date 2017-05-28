@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on May 27, 2017.
+last updated on May 28, 2017.
 
    The manual is divided into the following chapters.
 
@@ -2947,7 +2947,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1183 commands and 1100 options.
+This chapter documents a total of 1183 commands and 1107 options.
 
 * Menu:
 
@@ -3104,6 +3104,7 @@ This chapter documents a total of 1183 commands and 1100 options.
 * emacspeak-related::Speech-enable RELATED buffer switching.
 * emacspeak-remote::Enables running remote Emacspeak sessions.
 * emacspeak-replace::Speech enable interactive search and replace.
+* emacspeak-rg::Speech-enable RG.
 * emacspeak-rmail::Speech enable RMail – Emacs’ default mail agent.
 * emacspeak-rpm::speech-enable RPM.
 * emacspeak-rpm-spec::Speech enable rpm spec editor.
@@ -4192,6 +4193,7 @@ system.
      ;		emacspeak-m-player-using-openal
      B		eww-list-bookmarks
      C		apu-chars
+     F		rg-dwim
      N		emacspeak-npr-listing
      a		emacspeak-wizards-term
      b		eww-list-buffers

@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1183 commands and 1100 options.
+This chapter documents a total of 1183 commands and 1107 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -158,6 +158,7 @@ This chapter documents a total of 1183 commands and 1100 options.
 * emacspeak-related::Speech-enable RELATED buffer switching.
 * emacspeak-remote::Enables running remote Emacspeak sessions.
 * emacspeak-replace::Speech enable interactive search and replace.
+* emacspeak-rg::Speech-enable RG.
 * emacspeak-rmail::Speech enable RMail -- Emacs' default mail agent.
 * emacspeak-rpm::speech-enable RPM.
 * emacspeak-rpm-spec::Speech enable rpm spec editor.
@@ -1503,6 +1504,7 @@ SPC		emacspeak-webspace
 ;		emacspeak-m-player-using-openal
 B		eww-list-bookmarks
 C		apu-chars
+F		rg-dwim
 N		emacspeak-npr-listing
 a		emacspeak-wizards-term
 b		eww-list-buffers
@@ -15128,6 +15130,55 @@ This module causes emacs' replacement functions to use voice locking
 @defvar {User Option} emacspeak-replace-personality
 Personality used in search and replace to indicate word
 that is being replaced.
+
+@end defvar
+
+@node emacspeak-rg
+@section emacspeak-rg
+
+RG ==  Emacs front-end to ripgrep (rg).
+
+@subsection emacspeak-rg Options
+
+@defvar {User Option} emacspeak-rg-context-personality
+Personality used for rg-context-face
+This personality uses  voice-bolden whose  effect can be changed globally by customizing voice-bolden-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-rg-error-personality
+Personality used for rg-error-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-rg-file-tag-personality
+Personality used for rg-file-tag-face
+This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-rg-filename-personality
+Personality used for rg-filename-face
+This personality uses  voice-annotate whose  effect can be changed globally by customizing voice-annotate-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-rg-info-personality
+Personality used for rg-info-face
+This personality uses  voice-monotone whose  effect can be changed globally by customizing voice-monotone-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-rg-match-personality
+Personality used for rg-match-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
+@defvar {User Option} emacspeak-rg-warning-personality
+Personality used for rg-warning-face
+This personality uses  voice-animate whose  effect can be changed globally by customizing voice-animate-settings.
 
 @end defvar
 
