@@ -31,3 +31,8 @@ diff-tool with some advantages over  ~ediff~.
 Module ~emacspeak-shx~ speech-enables package ~shx~ from melpa.
 This provides useful extensions in shell buffers that mirror
 functionality present in eshell.
+
+** Speech-Enable RipGrep Front-End:
+
+Module ~emacspeak-rg~ speech-enables package ~rg~, an Emacs front-end
+to RipGrep.
