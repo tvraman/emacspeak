@@ -25,3 +25,9 @@ bookmarks for use when reding  Daisy (Bookshare) and Epub2 ebooks.
 
 Module ~emacspeak-vdiff~ speech-enables package ~vdiff~ --- a
 diff-tool with some advantages over  ~ediff~.
+
+** Speech-enable Package shx ---Shell Extras For Emacs
+
+Module ~emacspeak-shx~ speech-enables package ~shx~ from melpa.
+This provides useful extensions in shell buffers that mirror
+functionality present in eshell.

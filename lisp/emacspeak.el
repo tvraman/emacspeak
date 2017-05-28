@@ -277,6 +277,7 @@ that implements the speech-enabling extensions."
 (emacspeak-do-package-setup "ruby-mode" 'emacspeak-ruby)
 (emacspeak-do-package-setup "sgml-mode" 'emacspeak-sgml-mode)
 (emacspeak-do-package-setup "sh-script" 'emacspeak-sh-script)
+(emacspeak-do-package-setup "shx" 'emacspeak-shx)
 (emacspeak-do-package-setup "slime" 'emacspeak-slime)
 (emacspeak-do-package-setup "sigbegone" 'emacspeak-sigbegone)
 (emacspeak-do-package-setup "smart-window" 'emacspeak-smart-window)
