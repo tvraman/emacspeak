@@ -440,6 +440,7 @@ command \\[customize-variable] on <personality>-settings. "
    (error voice-animate)
    (warning voice-smoothen)
    (fixed-pitch voice-monotone)
+   (font-lock-reference-face voice-lighten)
    (font-lock-builtin-face voice-bolden)
    (font-lock-comment-face voice-monotone)
    (font-lock-comment-delimiter-face voice-smoothen-medium)
