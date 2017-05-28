@@ -6,5 +6,5 @@
  projectile-mode-line
  '(:eval 
    (if(not (string= "-"  (projectile-project-name)))
-       (format " Projectile[%s]" (projectile-project-name))
+       (format "[%s]" (projectile-project-name))
      "")))
