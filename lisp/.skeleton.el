@@ -82,8 +82,6 @@
   (goto-char (search-forward "("))
   (indent-pp-sexp))
 
-)
-
 ;;}}}
 (provide 'emacspeak-<skeleton>)
 ;;{{{ end of file
