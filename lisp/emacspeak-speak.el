@@ -2097,8 +2097,9 @@ Second interactive prefix sets clock to new timezone."
     (tts-with-punctuations
      'some
      (dtk-notify-speak
+      (downcase
        (format-time-string emacspeak-speak-time-format-string
-                          (current-time) (getenv "TZ")))))))
+                           (current-time) (getenv "TZ"))))))))
 
 ;;;###autoload
 (defun emacspeak-speak-seconds-since-epoch (seconds)
