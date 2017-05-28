@@ -1,5 +1,5 @@
-;;{{{ History: Emacs initialization file for Raman:  -*- lexical-binding: t; -*-
-
+;;; Emacs initialization file for Raman:  -*- lexical-binding: t; -*-
+;;{{{ History:
 ;;; Segre March 22 1991
 ;;; July 15, 2001 finally cutting over to custom.
 ;;; August 12, 2007: Cleaned up for Emacs 22
@@ -22,11 +22,12 @@
 ;;; This is for setting variables customized via custom.
 
 (defmacro csetq (variable value)
+  "Exactly like setq, but handles custom."
   `(funcall (or (get ',variable 'custom-set) 'set-default) ',variable ,value))
 
 (defsubst augment-load-path (path &optional library whence at-end)
-  "add directory to load path.
-Path is resolved relative to `whence' which defaults to emacs-personal-library."
+  "add directory to load path. Path is resolved relative to `whence'
+which defaults to emacs-personal-library."
   (interactive "Denter directory name: ")
   (declare (special emacs-personal-library))
   (unless (and library (locate-library library))
@@ -97,12 +98,13 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     ;;}}}
     ;;{{{ Load and customize emacspeak
 
-    (load-file (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el"))
+    (load-file
+     (expand-file-name "~/emacs/lisp/emacspeak/lisp/emacspeak-setup.el"))
     (when (featurep 'emacspeak)
       (emacspeak-sounds-select-theme "pan-chimes/"))
-    
-(when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
-    (add-to-list 'load-path (expand-file-name "tvr/" emacspeak-directory)))
+
+    (when (file-exists-p (expand-file-name "tvr/" emacspeak-directory))
+      (add-to-list 'load-path (expand-file-name "tvr/" emacspeak-directory)))
 
     ;;}}}
     ;;{{{  set up terminal codes and global keys
@@ -130,26 +132,22 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
      do
      (global-set-key (first key) (second key)))
 ;;; Experimental:
-(global-set-key [S-return] 'other-window)
+    (global-set-key [S-return] 'other-window)
 
 ;;; Smarten up ctl-x-map
     (define-key ctl-x-map "\C-n" 'forward-page)
     (define-key ctl-x-map "\C-p" 'backward-page)
 
-
 ;;; Shell navigation:
-(cl-loop
+    (cl-loop
      for  key in
      '(
        ("C-c -" emacspeak-wizards-previous-shell)
        ("C-c =" emacspeak-wizards-next-shell)
        ("C-c <" emacspeak-wizards-previous-shell)
-       ("C-c >" emacspeak-wizards-next-shell)
-)
+       ("C-c >" emacspeak-wizards-next-shell))
      do
      (global-set-key (kbd (first key)) (second key)))
-
-
 
     ;;}}}
     ;;{{{  Basic Support Libraries
@@ -167,8 +165,7 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
     (eval-after-load "shell"
       '(progn
          (define-key shell-mode-map "\C-cr" 'comint-redirect-send-command)
-         (define-key shell-mode-map "\C-ck" 'comint-clear-buffer)
-         (define-key shell-mode-map "\C-ch" 'emacspeak-wizards-refresh-shell-history)))
+         (define-key shell-mode-map "\C-ck" 'comint-clear-buffer)))
 
     ;;}}}
     ;;{{{ outline mode setup:
@@ -192,14 +189,14 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "my-functions"
 ;;; Mail:
        "vm-prepare" "gnus-prepare" "bbdb-prepare"
-       "vdiff-prepare"
        "mspools-prepare" "sigbegone"
+       "vdiff-prepare"
 ;;; Web:
        "w3-prepare" "elfeed-prepare"
 ;;; Authoring:
        "auctex-prepare" "nxml-prepare" "folding-prepare"
        "calc-prepare"
-        "helm-prepare"   ;helm not activated
+       "helm-prepare"   ;helm not activated
        "js-prepare" "tcl-prepare" "slime-prepare"
        "company-prepare" "python-mode-prepare"
        "projectile-prepare"
@@ -211,7 +208,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
        "emms-prepare" "iplayer-prepare"
        "auto-correct-setup"
        "color-theme-prepare" "elscreen-prepare"
-       "smart-window"
        "local"))
 
     ;;}}}
@@ -255,7 +251,6 @@ Path is resolved relative to `whence' which defaults to emacs-personal-library."
         :file ,(expand-file-name "highbells.au" emacspeak-sounds-directory)))
      (message "Successfully initialized Emacs for %s" user-login-name)))
 (start-up-my-emacs)
-
 
 ;;}}}
 (provide 'emacs-startup)
