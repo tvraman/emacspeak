@@ -115,6 +115,20 @@ Provide an auditory icon if possible."
    (t ad-do-it))
   ad-return-value)
 ;;}}}
+;;{{{ Additional shx commands:
+
+(defun shx-cmd-browse (url)
+  "Browse the supplied URL."
+  (shx-insert "Browsing " 'font-lock-keyword-face url "\n")
+  (browse-url url))
+
+
+(defun shx-cmd-grep (grep-args)
+  "Run grep with `grep-args'."
+  (shx-insert "grep " 'font-lock-keyword-face grep-args "\n")
+  (grep (concat "grep --color -nH -e " grep-args)))
+
+;;}}}
 (provide 'emacspeak-shx)
 ;;{{{ end of file
 
