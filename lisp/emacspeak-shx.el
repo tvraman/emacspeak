@@ -92,6 +92,28 @@ Provide an auditory icon if possible."
              (if shx-global-mode "on" "off"))
     (emacspeak-auditory-icon
      (if shx-global-mode 'on 'off))))
+
+(defadvice shx-magic-insert (around emacspeak pre act comp)
+  "Speak word or completion."
+  (cond
+   ((ems-interactive-p)
+    (ems-with-messages-silenced
+     (let ((orig (point))
+           (count (ad-get-arg 0)))
+       (setq count (or count 1))
+       ad-do-it
+       m
+       (cond
+        ((= (point) (+ count orig))
+         (save-excursion
+           (forward-word -1)
+           (emacspeak-speak-word)))
+        (t
+         (emacspeak-auditory-icon 'complete)
+         (emacspeak-speak-region
+          (comint-line-beginning-position) (point)))))))
+   (t ad-do-it))
+  ad-return-value)
 ;;}}}
 (provide 'emacspeak-shx)
 ;;{{{ end of file
