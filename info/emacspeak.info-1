@@ -3113,6 +3113,7 @@ This chapter documents a total of 1183 commands and 1100 options.
 * emacspeak-setup::Setup Emacspeak environment –loaded to start Emacspeak.
 * emacspeak-sgml-mode::Speech enable SGML mode.
 * emacspeak-sh-script::Speech enable  sh-script mode.
+* emacspeak-shx::Speech-enable SHX.
 * emacspeak-sigbegone::Speech-enable sigbegone.
 * emacspeak-slime::Speech-enable SLIME, A Lisp IDE.
 * emacspeak-smart-window::Speech-enable SMART-WINDOW.
