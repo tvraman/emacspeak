@@ -1864,6 +1864,7 @@ Warning, this is fragile, and depends on a stable id for the
   (declare (special header-line-format))
   (rename-buffer title  'unique)
   (setq header-line-format title)
+  (plist-put eww-data :title title)
   (emacspeak-speak-header-line))
 
 ;;}}}
