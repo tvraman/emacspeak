@@ -35,6 +35,12 @@ class SurfWaves(agent.Agent):
             1)
 
         self.sched_agent(ag, 0, bc)
+        ag = nature.FlMockingBirds(
+            0, 1200,  # Duration
+            0.05, 0.5,  # volume
+            1)
+
+        self.sched_agent(ag, 0, bc)
         for i in range(8):
             y = 1 + i * 0.05
             sc = self.new_channel_pan(
