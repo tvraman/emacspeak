@@ -517,14 +517,8 @@ With optional PREFIX argument, label current frame."
 With optional interactive prefix arg `frame', move to next frame instead."
   (interactive "P")
   (cond
-   (frame
-    (other-frame 1)
-    (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-mode-line))
-   (t
-    (bury-buffer)
-    (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-mode-line))))
+   (frame(funcall-interactively #'other-frame 1))
+   (t (call-interactively #'next-buffer))))
 
 ;;;###autoload
 (defun emacspeak-previous-frame-or-buffer (&optional frame)
@@ -532,22 +526,8 @@ With optional interactive prefix arg `frame', move to next frame instead."
 With optional interactive prefix arg `frame', move to previous frame instead."
   (interactive "P")
   (cond
-   (frame
-    (other-frame -1)
-    (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-mode-line))
-   (t
-    (let ((l
-           (remove-if
-            #'(lambda (b)
-                (string-equal (substring
-                               (buffer-name b)
-                               0 1) " "))
-            (buffer-list))))
-      (switch-to-buffer (nth (1- (length l))
-                             l))
-      (emacspeak-auditory-icon 'select-object)
-      (emacspeak-speak-mode-line)))))
+   (frame (funcall-interactively #'other-frame -1))
+   (t (call-interactively #'previous-buffer))))
 
 ;;}}}
 ;;{{{  readng different displays of same buffer
