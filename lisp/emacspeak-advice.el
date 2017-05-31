@@ -2475,6 +2475,21 @@ Produce auditory icons if possible."
 ;;}}}
 ;;{{{ abbrev mode advice
 
+(defadvice list-abbrevs (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (message "Displayed abbrevs in other window.")))
+
+(defadvice edit-abbrevs (after emacspeak pre act comp)
+  "Provide auditory feedback."
+  (when (ems-interactive-p)
+    (emacspeak-auditory-icon 'open-object)
+    (emacspeak-speak-mode-line)))
+
+
+
+
 (defadvice expand-abbrev (around emacspeak pre act comp)
   "Speak what you expanded."
   (when buffer-read-only (dtk-speak "Buffer is read-only. "))
