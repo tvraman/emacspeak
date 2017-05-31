@@ -197,7 +197,7 @@ which defaults to emacs-personal-library."
        "auctex-prepare" "nxml-prepare" "folding-prepare"
        "calc-prepare"
        "helm-prepare"   ;helm not activated
-       "js-prepare" "tcl-prepare" "slime-prepare"
+       "js-prepare" "tcl-prepare" "slime-prepare" "yasnippet-prepare"
        "company-prepare" "python-mode-prepare"
        "projectile-prepare"
                                         ; jde and ecb will pull in cedet.
