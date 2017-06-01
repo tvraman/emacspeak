@@ -64,9 +64,11 @@ which defaults to emacs-personal-library."
 
 ;;}}}
 ;;{{{ customize custom
-
-(declare (special custom-file))
+(defun tvr-customize ()
+  "Load my customizations from my custom-file."
+  (declare (special custom-file))
 (setq custom-file (expand-file-name "~/.customize-emacs"))
+(when (file-exists-p custom-file) (load-file custom-file)))
 
 ;;}}}
 (defun start-up-my-emacs()
@@ -185,7 +187,8 @@ which defaults to emacs-personal-library."
     (mapc
      #'load-library-if-available
      '(
-       "emacspeak-dbus" "emacspeak-muggles" "emacspeak-maths"
+       "emacspeak-m-player" "emacspeak-dbus"
+       "emacspeak-muggles" "emacspeak-maths"
        "my-functions"
 ;;; Mail:
        "vm-prepare" "gnus-prepare" "bbdb-prepare"
@@ -236,6 +239,7 @@ which defaults to emacs-personal-library."
 (add-hook
  'after-init-hook
  #'(lambda ()
+     (tvr-customize)
      (soundscape-toggle)
      (setq frame-title-format '(multiple-frames "%b" ( "Emacs")))
      (calendar)
@@ -244,7 +248,7 @@ which defaults to emacs-personal-library."
        (emacspeak-dbus-sleep-enable)
        (emacspeak-dbus-watch-screen-lock))
      (custom-reevaluate-setting 'gweb-my-address)
-     (when (file-exists-p custom-file) (load-file custom-file))
+     
      (emacspeak-wizards-project-shells-initialize)
      (play-sound
       `(sound
