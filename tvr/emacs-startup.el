@@ -49,15 +49,15 @@ which defaults to emacs-personal-library."
          (cons ext mode)
          auto-mode-alist)))
 
-(defsubst load-library-if-available (lib)
+(defun load-library-if-available (lib)
   "Safe load library."
   (let ((emacspeak-speak-messages nil))
     (condition-case nil
         (cond
          ((locate-library lib)
           (load-library lib)
-          (message "Loaded %s" lib)
-          t)
+          (when (featurep 'emacspeak)(emacspeak-auditory-icon 'item))
+          (message "Loaded %s" lib))
          (t (message "Could not locate library %s" lib)
             nil))
       (error (message "Error loading %s" lib)))))
