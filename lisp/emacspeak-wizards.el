@@ -2349,7 +2349,7 @@ of the source buffer."
             (hash-table-count emacspeak-wizards--shells-table)
             s emacspeak-wizards--shells-table)))
      shells)))
-
+;;;###autoload
 (defun emacspeak-wizards-shell-by-key (&optional rekey)
   "Switch to shell buffer by key. This provides a predictable means for
   switching to a specific shell buffer. When invoked from a
