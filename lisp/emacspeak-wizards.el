@@ -2804,9 +2804,9 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
                      (and
                       (string-match pattern name)
                       (null (voice-setup-get-voice-for-face s)))
-                   name)))
+                   s)))
            (face-list)))))
-    (sort result #'(lambda (a b) (string-lessp a b)))))
+    (sort result #'(lambda (a b) (string-lessp (symbol-name a) (symbol-name  b))))))
 
 ;;;###autoload
 (defun emacspeak-wizards-enumerate-obsolete-faces ()
