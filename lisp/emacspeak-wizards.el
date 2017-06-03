@@ -2781,13 +2781,14 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
          (let ((name (symbol-name s)))
            (when
                (and
+                (string-match pattern  name)
                 (commandp s)
                 (not (string-match "^emacspeak" name))
                 (not (string-match "^ad-Orig" name))
-                (not (ad-find-some-advice s 'any  "emacspeak"))
-                (string-match pattern  name))
-             (push name result)))))
-    (sort result #'(lambda (a b) (string-lessp a b)))))
+                (not (ad-find-some-advice s 'any  "emacspeak")))
+             (push s result)))))
+    (sort result #'(lambda (a b) (string-lessp (symbol-name a) (symbol-name  b))))))
+
 ;;;###autoload
 (defun emacspeak-wizards-enumerate-unmapped-faces (&optional pattern)
   "Enumerate unmapped faces matching pattern."
