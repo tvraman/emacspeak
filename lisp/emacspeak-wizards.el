@@ -2353,8 +2353,8 @@ of the source buffer."
   "Switch to shell buffer by key. This provides a predictable means for
   switching to a specific shell buffer. When invoked from a
   non-shell-mode buffer that is visiting a file, invokes `cd ' in the
-  shell to change to the value of `default-directory' --- use a
-  prefix-arg to negate this behavior. When already in a shell buffer,
+  shell to change to the value of `default-directory' --- if called with  a
+  prefix-arg. When already in a shell buffer,
   interactive prefix arg `rekey' causes this shell to be re-keyed if
   appropriate --- see \\[emacspeak-wizards-shell-re-key] for an
   explanation of how re-keying works."
@@ -2384,7 +2384,7 @@ of the source buffer."
               (emacspeak-wizards--build-shells-table)
               (or (gethash key emacspeak-wizards--shells-table)
                   (gethash 0 emacspeak-wizards--shells-table))))))
-      (when (and (null rekey)buffer-file-name) ;  source determines target directory
+      (when (and rekey buffer-file-name) ;  source determines target directory
         (with-current-buffer buffer
           (unless (string=
                    (expand-file-name directory)
