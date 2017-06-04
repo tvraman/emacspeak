@@ -1500,19 +1500,8 @@ Count slides starting from point.
     <strong>emacspeak-wizards-cycle-browser</strong></dt>
 
     <dd>
-      <dl compact="compact">
-        <dt><kbd>C-e x 3</kbd></dt>
-
-        <dd><a name="index-C_002de-x-3" id=
-        "index-C_002de-x-3"></a></dd>
-
-        <dt><kbd>&lt;fn&gt; x 3</kbd></dt>
-
-        <dd><a name="index-_003cfn_003e-x-3" id=
-        "index-_003cfn_003e-x-3"></a></dd>
-      </dl><a name=
-      "index-emacspeak_002dwizards_002dcycle_002dbrowser-1" id=
-      "index-emacspeak_002dwizards_002dcycle_002dbrowser-1"></a>
+      <a name="index-emacspeak_002dwizards_002dcycle_002dbrowser-1"
+      id="index-emacspeak_002dwizards_002dcycle_002dbrowser-1"></a>
 
       <div class="format">
         <pre class="format">
@@ -3118,6 +3107,11 @@ of the source buffer.
         <dd><a name="index-C_002de-x-4" id=
         "index-C_002de-x-4"></a></dd>
 
+        <dt><kbd>C-e x 3</kbd></dt>
+
+        <dd><a name="index-C_002de-x-3" id=
+        "index-C_002de-x-3"></a></dd>
+
         <dt><kbd>C-e x 2</kbd></dt>
 
         <dd><a name="index-C_002de-x-2" id=
@@ -3163,6 +3157,11 @@ of the source buffer.
         <dd><a name="index-_003cfn_003e-x-4" id=
         "index-_003cfn_003e-x-4"></a></dd>
 
+        <dt><kbd>&lt;fn&gt; x 3</kbd></dt>
+
+        <dd><a name="index-_003cfn_003e-x-3" id=
+        "index-_003cfn_003e-x-3"></a></dd>
+
         <dt><kbd>&lt;fn&gt; x 2</kbd></dt>
 
         <dd><a name="index-_003cfn_003e-x-2" id=
@@ -3186,8 +3185,8 @@ of the source buffer.
 Switch to shell buffer by key. This provides a predictable means for
   switching to a specific shell buffer. When invoked from a
   non-shell-mode buffer that is visiting a file, invokes ‘cd ’ in the
-  shell to change to the value of ‘default-directory’ — use a
-  prefix-arg to negate this behavior. When already in a shell buffer,
+  shell to change to the value of ‘default-directory’ — if called with  a
+  prefix-arg. When already in a shell buffer,
   interactive prefix arg ‘rekey’ causes this shell to be re-keyed if
   appropriate — see M-x emacspeak-wizards-shell-re-key for an
   explanation of how re-keying works.
