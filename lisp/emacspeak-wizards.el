@@ -2332,13 +2332,13 @@ of the source buffer."
 (defun emacspeak-wizards--build-shells-table ()
   "Populate hash-table with live shell buffers."
   (declare (special emacspeak-wizards--shells-table))
+;;; First, remove dead buffers 
+	(cl-loop 
+   for k being the hash-keys of emacspeak-wizards--shells-table
+   unless (buffer-live-p (gethash k emacspeak-wizards--shells-table))
+   do (remhash k emacspeak-wizards--shells-table))
   (let ((shells (emacspeak-wizards-get-shells))
         (v (hash-table-values emacspeak-wizards--shells-table)))
-;;; First, remove dead buffers 
-    (cl-loop 
-     for k being the hash-keys of emacspeak-wizards--shells-table
-     unless (buffer-live-p (gethash k emacspeak-wizards--shells-table))
-     do (remhash k emacspeak-wizards--shells-table))
 ;;; Add in live shells that are new 
     (mapc
      #'(lambda (s)
@@ -2347,6 +2347,7 @@ of the source buffer."
             (hash-table-count emacspeak-wizards--shells-table)
             s emacspeak-wizards--shells-table)))
      shells)))
+
 ;;;###autoload
 (defun emacspeak-wizards-shell-by-key (&optional rekey)
   "Switch to shell buffer by key. This provides a predictable means for
