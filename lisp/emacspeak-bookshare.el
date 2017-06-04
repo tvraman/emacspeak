@@ -95,11 +95,9 @@ See http://developer.bookshare.org/docs for details on how to get
   :type 'directory
   :group 'emacspeak-bookshare)
 
-(defcustom emacspeak-bookshare-downloads-directory
+(defvar emacspeak-bookshare-downloads-directory
   (expand-file-name "downloads/" emacspeak-bookshare-directory)
-  "Customize this to the root of where books are organized."
-  :type 'directory
-  :group 'emacspeak-bookshare)
+  "Directory where archives are saved on download.")
 ;;;###autoload
 (defcustom emacspeak-bookshare-browser-function
   'browse-url-w3
