@@ -2443,29 +2443,22 @@ of the source buffer."
 buffer keyed by `key'gets the key of buffer `buffer'."
   (declare (special emacspeak-wizards--shells-table
                     emacspeak-wizards--project-shell-directory))
-  (when (eq buffer (gethash key emacspeak-wizards--shells-table))
-    (error "Rekey: Nothing to do"))
-  (let ((directory
-         (with-current-buffer buffer
-           emacspeak-wizards--project-shell-directory))
-        (swap-buffer (gethash key emacspeak-wizards--shells-table))
-        (swap-directory nil)
-        (swap-key  nil))
-    (setq swap-directory
-          (with-current-buffer swap-buffer
-            emacspeak-wizards--project-shell-directory))
-    (cl-loop
-     for k being the hash-keys of emacspeak-wizards--shells-table do
-     (when  (eq buffer  (gethash k emacspeak-wizards--shells-table))
-       (setq swap-key  k)))
-    (puthash key buffer emacspeak-wizards--shells-table)
-    (with-current-buffer buffer
-      (setq emacspeak-wizards--project-shell-directory swap-directory))
-    (when swap-key
-      (puthash swap-key swap-buffer emacspeak-wizards--shells-table)
-      (with-current-buffer swap-buffer
-        (setq emacspeak-wizards--project-shell-directory directory)))
-    (message "%s is now  on %s" (buffer-name buffer) key)))
+  (cond
+	 ((eq buffer (gethash key emacspeak-wizards--shells-table))
+		(message "Rekey: Nothing to do"))
+	 (t
+		(setq key  ;;; works as a circular list
+					(%  key (length (hash-table-keys emacspeak-wizards--shells-table))))
+		(let ((swap-buffer (gethash key emacspeak-wizards--shells-table))
+					(swap-key  nil))
+			(cl-loop
+			 for k being the hash-keys of emacspeak-wizards--shells-table do
+			 (when  (eq buffer  (gethash k emacspeak-wizards--shells-table))
+				 (setq swap-key  k)))
+			(puthash key buffer emacspeak-wizards--shells-table)
+			(when swap-key
+				(puthash swap-key swap-buffer emacspeak-wizards--shells-table))
+			(message "%s is now  on %s" (buffer-name buffer) key)))))
 
 ;;}}}
 ;;{{{ show commentary:
