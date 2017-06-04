@@ -2268,11 +2268,9 @@ Direction specifies previous/next."
             (if  (> direction 0)
                 (second shells)
               (nth (1- (length shells)) shells)))
-      (pop-to-buffer target))
+      (funcall-interactively #'pop-to-buffer target))
      ((= 1 (length shells)) (shell "1-shell"))
-     (t (shell)))
-    (emacspeak-auditory-icon 'select-object)
-    (emacspeak-speak-mode-line)))
+     (t (call-interactively #'shell)))))
 
 ;;;###autoload
 (defun emacspeak-wizards-next-shell ()
