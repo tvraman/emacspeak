@@ -1322,9 +1322,7 @@ C-SPC		emacspeak-speak-current-mark
 <right>		emacspeak-speak-this-buffer-next-display
 <up>		emacspeak-read-previous-line
 
-x 0 .. x 2	emacspeak-wizards-shell-by-key
-x 3		emacspeak-wizards-cycle-browser
-x 4 .. x 9	emacspeak-wizards-shell-by-key
+x 0 .. x 9	emacspeak-wizards-shell-by-key
 x =		emacspeak-wizards-find-longest-line-in-region
 x Q		emacspeak-wizards-yql-lookup
 x b		battery
@@ -4030,6 +4028,12 @@ This personality uses  voice-monotone-medium whose  effect can be changed global
 
 @end defvar
 
+@defvar {User Option} emacspeak-voice-lock-reference-personality
+Personality used for font-lock-reference-face
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
+
+@end defvar
+
 @defvar {User Option} emacspeak-voice-lock-regexp-grouping-backslash
 Personality used for font-lock-regexp-grouping-backslash
 This personality uses  voice-smoothen-extra whose  effect can be changed globally by customizing voice-smoothen-extra-settings.
@@ -5313,11 +5317,6 @@ This is used by the various Bookshare view commands to display
 @end defvar
 
 @defvar {User Option} emacspeak-bookshare-directory
-Customize this to the root of where books are organized.
-
-@end defvar
-
-@defvar {User Option} emacspeak-bookshare-downloads-directory
 Customize this to the root of where books are organized.
 
 @end defvar
@@ -22327,13 +22326,6 @@ Count slides starting from point.
 
 @subsubsection emacspeak-wizards-cycle-browser
 @deffn {Command} emacspeak-wizards-cycle-browser   
-@table @kbd
-@item C-e x 3
-@kindex C-e x 3
-@item <fn> x 3
-@kindex <fn> x 3
-@end table
-
 @findex emacspeak-wizards-cycle-browser
 
 @format
@@ -23028,6 +23020,8 @@ of the source buffer.
 @kindex C-e x 5
 @item C-e x 4
 @kindex C-e x 4
+@item C-e x 3
+@kindex C-e x 3
 @item C-e x 2
 @kindex C-e x 2
 @item C-e x 1
@@ -23046,6 +23040,8 @@ of the source buffer.
 @kindex <fn> x 5
 @item <fn> x 4
 @kindex <fn> x 4
+@item <fn> x 3
+@kindex <fn> x 3
 @item <fn> x 2
 @kindex <fn> x 2
 @item <fn> x 1
@@ -23060,8 +23056,8 @@ of the source buffer.
 Switch to shell buffer by key. This provides a predictable means for
   switching to a specific shell buffer. When invoked from a
   non-shell-mode buffer that is visiting a file, invokes ‘cd ’ in the
-  shell to change to the value of ‘default-directory’ --- use a
-  prefix-arg to negate this behavior. When already in a shell buffer,
+  shell to change to the value of ‘default-directory’ --- if called with  a
+  prefix-arg. When already in a shell buffer,
   interactive prefix arg ‘rekey’ causes this shell to be re-keyed if
   appropriate --- see M-x emacspeak-wizards-shell-re-key for an
   explanation of how re-keying works.

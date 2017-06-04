@@ -5392,8 +5392,6 @@ Contains various wizards for the Emacspeak desktop.
 ...........................................
 
  -- Command: emacspeak-wizards-cycle-browser
-     ‘C-e x 3’
-     ‘<fn> x 3’
 
      Cycles through available browsers.
 
@@ -5931,6 +5929,7 @@ Contains various wizards for the Emacspeak desktop.
      ‘C-e x 6’
      ‘C-e x 5’
      ‘C-e x 4’
+     ‘C-e x 3’
      ‘C-e x 2’
      ‘C-e x 1’
      ‘C-e x 0’
@@ -5940,6 +5939,7 @@ Contains various wizards for the Emacspeak desktop.
      ‘<fn> x 6’
      ‘<fn> x 5’
      ‘<fn> x 4’
+     ‘<fn> x 3’
      ‘<fn> x 2’
      ‘<fn> x 1’
      ‘<fn> x 0’
@@ -5947,8 +5947,8 @@ Contains various wizards for the Emacspeak desktop.
      Switch to shell buffer by key. This provides a predictable means for
        switching to a specific shell buffer. When invoked from a
        non-shell-mode buffer that is visiting a file, invokes ‘cd ’ in the
-       shell to change to the value of ‘default-directory’ — use a
-       prefix-arg to negate this behavior. When already in a shell buffer,
+       shell to change to the value of ‘default-directory’ — if called with  a
+       prefix-arg. When already in a shell buffer,
        interactive prefix arg ‘rekey’ causes this shell to be re-keyed if
        appropriate — see M-x emacspeak-wizards-shell-re-key for an
        explanation of how re-keying works.
