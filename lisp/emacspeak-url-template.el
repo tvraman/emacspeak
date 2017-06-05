@@ -298,6 +298,15 @@ dont-url-encode if true then url arguments are not url-encoded "
  'dont-url-encode)
 
 ;;}}}
+;;{{{ Guardian Feed Directory:
+(emacspeak-url-template-define
+ "Guardian RSS Feeds Directory"
+ "http://rss2.io/lists/guardian.opml"
+ nil nil
+ "Guardian Feeds  Directory"
+ #'emacspeak-feeds-opml-display)
+
+;;}}}
 ;;{{{ bbc
 
 (emacspeak-url-template-define
