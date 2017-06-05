@@ -2249,6 +2249,15 @@ This is for use in conjunction with bash to allow multiple emacs
 ;;}}}
 ;;{{{ Organizing Shells: next, previous, tag
 
+(defun ems--shell-pushd-if-needed(dir target)
+	"Helper: execute pushd in shell `target' if needed."
+	(with-current-buffer target
+    (unless (string= (expand-file-name dir) default-directory)
+      (goto-char (point-max))
+      (insert (format "pushd %s" dir))
+      (comint-send-input)
+      (shell-process-pushd dir))))
+	
 (defun emacspeak-wizards-get-shells ()
   "Return list of shell buffers."
   (remove-if-not
@@ -2313,14 +2322,7 @@ of the source buffer."
            (setq target-len (length sd)))))
       (cond
        (target (funcall-interactively #'pop-to-buffer target)
-               (with-current-buffer target
-                 (unless (string=
-                          (expand-file-name dir)
-                          (expand-file-name default-directory))
-                   (goto-char (point-max))
-                   (insert (format "pushd %s" dir))
-                   (comint-send-input)
-                   (shell-process-pushd dir))))
+               (ems--shell-pushd-if-needed dir target))
        (t (call-interactively #'shell)))))
    (t (call-interactively 'emacspeak-wizards-next-shell))))
 
@@ -2377,16 +2379,8 @@ of the source buffer."
 						 (length (hash-table-keys emacspeak-wizards--shells-table))))
            (buffer (gethash key emacspeak-wizards--shells-table)))
       (when (and prefix buffer-file-name) ;  source determines target directory
-        (with-current-buffer buffer
-          (unless (string=
-                   (expand-file-name directory)
-                   (expand-file-name default-directory))
-            (goto-char (point-max))
-            (insert (format "pushd %s" directory))
-            (comint-send-input)
-            (shell-process-pushd directory))))
+        (ems--shell-pushd-if-needed directory buffer))
       (funcall-interactively #'pop-to-buffer buffer)))))
-
 (defcustom emacspeak-wizards-project-shells nil
   "List of shell-name/initial-directory pairs."
   :type '(repeat
@@ -2406,27 +2400,18 @@ of the source buffer."
   (cl-loop
    for pair in emacspeak-wizards-project-shells do
    (let ((name (cl-first pair))
-         (default-directory (cl-second pair)))
-     (with-current-buffer(shell name)
-       (setq emacspeak-wizards--project-shell-directory default-directory)
-       (goto-char (point-max))
-       (insert (format "pushd %s" default-directory))
-       (comint-send-input)
-       (shell-process-cd default-directory))))
+         (dir (cl-second pair)))
+		 (ems--shell-pushd-if-needed dir (shell name))
+		 (with-current-buffer(shell name)
+       (setq emacspeak-wizards--project-shell-directory dir))))
   (emacspeak-wizards--build-shells-table))
 
 ;;;###autoload
 (defun emacspeak-wizards-shell-directory-reset ()
   "Set current directory to this shell's initial directory if one was defined."
   (interactive)
-  (unless (string=
-           (expand-file-name default-directory)
-           (expand-file-name emacspeak-wizards--project-shell-directory))
-    (goto-char (point-max))
-    (setq default-directory emacspeak-wizards--project-shell-directory)
-    (insert (format "pushd %s" default-directory))
-    (call-interactively #'comint-send-input)
-    (shell-process-cd default-directory))
+(declare (special emacspeak-wizards--project-shell-directory))
+  (ems--shell-pushd-if-needed emacspeak-wizards--project-shell-directory (current-buffer))
   (emacspeak-auditory-icon 'task-done)
   (message  default-directory))
 
