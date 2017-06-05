@@ -2261,9 +2261,8 @@ This is for use in conjunction with bash to allow multiple emacs
 (defun emacspeak-wizards-get-shells ()
   "Return list of shell buffers."
 	(cl-loop
-	 for  buffer in (buffer-list)  
-	 when (with-current-buffer   buffer (eq major-mode 'shell-mode))
-	 collect  buffer))
+	 for  b in (buffer-list)  
+	 when (with-current-buffer   b (eq major-mode 'shell-mode)) collect  b))
 
 
 	(defun emacspeak-wizards-switch-shell (direction)
@@ -2365,8 +2364,7 @@ of the source buffer."
   (declare (special last-input-event emacspeak-wizards--shells-table
                     major-mode default-directory))
 	(unless (emacspeak-wizards-get-shells) (shell))
-  (when (hash-table-empty-p emacspeak-wizards--shells-table)
-		(emacspeak-wizards--build-shells-table))
+	(emacspeak-wizards--build-shells-table)
   (cond
    ((and prefix (eq major-mode 'shell-mode))
     (emacspeak-wizards-shell-re-key
@@ -2382,6 +2380,7 @@ of the source buffer."
       (when (and prefix buffer-file-name) ;  source determines target directory
         (ems--shell-pushd-if-needed directory buffer))
       (funcall-interactively #'pop-to-buffer buffer)))))
+
 (defcustom emacspeak-wizards-project-shells nil
   "List of shell-name/initial-directory pairs."
   :type '(repeat
