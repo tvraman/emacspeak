@@ -2260,12 +2260,11 @@ This is for use in conjunction with bash to allow multiple emacs
 	
 (defun emacspeak-wizards-get-shells ()
   "Return list of shell buffers."
-(delq nil 
-			(cl-loop
+	(cl-loop
 	 for  buffer in (buffer-list)  
-	   collect 
-		   (with-current-buffer   buffer 
-(when (eq major-mode 'shell-mode) buffer)))))
+	 when (with-current-buffer   buffer (eq major-mode 'shell-mode))
+	 collect  buffer))
+				 
 
 	(defun emacspeak-wizards-switch-shell (direction)
   "Switch to next/previous shell buffer.
