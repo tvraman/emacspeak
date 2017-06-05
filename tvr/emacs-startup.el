@@ -165,7 +165,7 @@ which defaults to emacs-personal-library."
 ;;; Mode hooks.
 
     (eval-after-load "shell"
-      '(progn
+      `(progn
          (define-key shell-mode-map "\C-cr" 'comint-redirect-send-command)
          (define-key shell-mode-map "\C-ck" 'comint-clear-buffer)))
 
