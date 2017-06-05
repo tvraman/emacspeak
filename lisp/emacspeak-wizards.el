@@ -2264,7 +2264,7 @@ This is for use in conjunction with bash to allow multiple emacs
 	 for  buffer in (buffer-list)  
 	 when (with-current-buffer   buffer (eq major-mode 'shell-mode))
 	 collect  buffer))
-				 
+
 
 	(defun emacspeak-wizards-switch-shell (direction)
   "Switch to next/previous shell buffer.
