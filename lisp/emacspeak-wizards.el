@@ -2349,42 +2349,34 @@ of the source buffer."
      shells)))
 
 ;;;###autoload
-(defun emacspeak-wizards-shell-by-key (&optional rekey)
+(defun emacspeak-wizards-shell-by-key (&optional prefix)
   "Switch to shell buffer by key. This provides a predictable means for
   switching to a specific shell buffer. When invoked from a
   non-shell-mode buffer that is visiting a file, invokes `cd ' in the
   shell to change to the value of `default-directory' --- if called with  a
   prefix-arg. When already in a shell buffer,
-  interactive prefix arg `rekey' causes this shell to be re-keyed if
+  interactive prefix arg `prefix' causes this shell to be re-keyed if
   appropriate --- see \\[emacspeak-wizards-shell-re-key] for an
   explanation of how re-keying works."
   (interactive "P")
   (declare (special last-input-event emacspeak-wizards--shells-table
                     major-mode default-directory))
+	(unless (emacspeak-wizards-get-shells) (shell))
   (when (hash-table-empty-p emacspeak-wizards--shells-table)
-    (emacspeak-wizards--build-shells-table))
+		(emacspeak-wizards--build-shells-table))
   (cond
-   ((and rekey (eq major-mode 'shell-mode))
+   ((and prefix (eq major-mode 'shell-mode))
     (emacspeak-wizards-shell-re-key
      (read (format "%c" last-input-event))
      (current-buffer)))
    (t
     (let* ((directory default-directory)
-           (key (read (format "%c" last-input-event)))
-           (buffer
-            (cond
-             ((hash-table-empty-p emacspeak-wizards--shells-table) (shell))
-             ((gethash key emacspeak-wizards--shells-table)
-              (if (buffer-live-p (gethash key emacspeak-wizards--shells-table))
-                  (gethash key emacspeak-wizards--shells-table)
-                (prog1 
-                  (shell)
-                  (emacspeak-wizards--build-shells-table))))
-             (t
-              (emacspeak-wizards--build-shells-table)
-              (or (gethash key emacspeak-wizards--shells-table)
-                  (gethash 0 emacspeak-wizards--shells-table))))))
-      (when (and rekey buffer-file-name) ;  source determines target directory
+           (key 
+						(% 
+						 (read (format "%c" last-input-event))
+						 (length (hash-table-keys emacspeak-wizards--shells-table))))
+           (buffer (gethash key emacspeak-wizards--shells-table)))
+      (when (and prefix buffer-file-name) ;  source determines target directory
         (with-current-buffer buffer
           (unless (string=
                    (expand-file-name directory)
