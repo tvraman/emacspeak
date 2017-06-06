@@ -65,7 +65,7 @@ which defaults to emacs-personal-library."
 ;;}}}
 ;;{{{ shell-bind-keys:
 
-(defun shell-bind-keys ()
+(defun tvr-shell-bind-keys ()
   "Set up additional shell mode keys."
   (cl-loop ;;; global keys 
    for i from 0 to 9 do 
@@ -81,7 +81,6 @@ which defaults to emacs-personal-library."
    for b in
    '(
      ("SPC" comint-magic-space)
-     ("C-c h" emacspeak-wizards-refresh-shell-history)
      ("C-c k" comint-clear-buffer)
      ("C-c r" comint-redirect-send-command))
    do
@@ -166,7 +165,7 @@ which defaults to emacs-personal-library."
     (define-key ctl-x-map "\C-p" 'backward-page)
 
 ;;; Shell navigation:
-    (eval-after-load "shell" `(progn (shell-bind-keys)))
+    (eval-after-load "shell" `(progn (tvr-shell-bind-keys)))
 
     ;;}}}
     ;;{{{  Basic Support Libraries
