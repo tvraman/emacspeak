@@ -80,9 +80,11 @@ which defaults to emacs-personal-library."
      ("C-c >" emacspeak-wizards-next-shell))
    do
    (global-set-key (kbd (first key)) (second key)))
+;;; shell mode bindings 
   (cl-loop
    for b in
    '(
+     (" " comint-magic-space)
      ("C-c h" emacspeak-wizards-refresh-shell-history)
      ("C-c k" comint-clear-buffer)
      ("C-c r" comint-redirect-send-command))
