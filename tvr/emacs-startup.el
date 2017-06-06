@@ -84,7 +84,7 @@ which defaults to emacs-personal-library."
   (cl-loop
    for b in
    '(
-     (" " comint-magic-space)
+     ("SPC" comint-magic-space)
      ("C-c h" emacspeak-wizards-refresh-shell-history)
      ("C-c k" comint-clear-buffer)
      ("C-c r" comint-redirect-send-command))
