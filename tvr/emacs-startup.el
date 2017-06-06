@@ -63,6 +63,32 @@ which defaults to emacs-personal-library."
       (error (message "Error loading %s" lib)))))
 
 ;;}}}
+;;{{{ shell-bind-keys:
+
+(defun shell-bind-keys ()
+  "Set up additional shell mode keys."
+  (dotimes (i 10)
+    (global-set-key
+     (kbd (format "C-c %s" i))
+     'emacspeak-wizards-shell-by-key))
+  (cl-loop
+   for  key in
+   '(
+     ("C-c -" emacspeak-wizards-previous-shell)
+     ("C-c =" emacspeak-wizards-next-shell)
+     ("C-c <" emacspeak-wizards-previous-shell)
+     ("C-c >" emacspeak-wizards-next-shell))
+   do
+   (global-set-key (kbd (first key)) (second key)))
+  (cl-loop
+   for b in
+   '(
+     ("C-c h" emacspeak-wizards-refresh-shell-history)
+     ("C-c k" comint-clear-buffer)
+     ("C-c r" comint-redirect-send-command))
+   do
+   (define-key shell-mode-map (kbd (first b)) (second b))))
+;;}}}
 ;;{{{ customize custom
 (defun tvr-customize ()
   "Load my customizations from my custom-file."
@@ -141,15 +167,10 @@ which defaults to emacs-personal-library."
     (define-key ctl-x-map "\C-p" 'backward-page)
 
 ;;; Shell navigation:
-    (cl-loop
-     for  key in
-     '(
-       ("C-c -" emacspeak-wizards-previous-shell)
-       ("C-c =" emacspeak-wizards-next-shell)
-       ("C-c <" emacspeak-wizards-previous-shell)
-       ("C-c >" emacspeak-wizards-next-shell))
-     do
-     (global-set-key (kbd (first key)) (second key)))
+    (eval-after-load "shell"
+      `(progn (shell-bind-keys)))
+
+    
 
     ;;}}}
     ;;{{{  Basic Support Libraries
@@ -164,10 +185,7 @@ which defaults to emacs-personal-library."
 
 ;;; Mode hooks.
 
-    (eval-after-load "shell"
-      `(progn
-         (define-key shell-mode-map "\C-cr" 'comint-redirect-send-command)
-         (define-key shell-mode-map "\C-ck" 'comint-clear-buffer)))
+    
 
     ;;}}}
     ;;{{{ outline mode setup:
