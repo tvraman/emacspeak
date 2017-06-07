@@ -3350,17 +3350,16 @@ Optional interactive prefix arg shows  unprocessed results."
   (interactive "sPattern: ")
   (let ((found nil))
 		(mapatoms (lambda (symbol)
-		
 								(and  (string-match pattern (symbol-name  symbol))
 											(or (get symbol 'saved-value)
 													(get symbol 'saved-variable-comment))
 											(boundp symbol)
 											(push (list symbol 'custom-variable) found))))
-    (if (not found)
-				(user-error "No saved user options matching %s" pattern)
-      (custom-buffer-create (custom-sort-items found t nil)
-														(format "*Customize Saved Matching %s*" pattern))
-			(emacspeak-speak-mode-line))))
+    (when (not found) (user-error "No saved user options matching %s" pattern))
+    (custom-buffer-create
+		 (custom-sort-items found t nil)
+		 (format "*Customize %d Saved options Matching %s*" (length found) pattern))
+			(emacspeak-speak-mode-line)))
 
 ;;}}}
 (provide 'emacspeak-wizards)
