@@ -3338,6 +3338,31 @@ Optional interactive prefix arg shows  unprocessed results."
     (funcall-interactively #'switch-to-buffer buffer)))
 
 ;;}}}
+;;{{{ Customize Saved Settings  By Pattern:
+
+;;; Emacs' built-in customize-saved can be slow if the saved
+;;; customizations are many. This function allows one to clean-up
+;;; saved settings in smaller groups by specifying a pattern to match.
+
+
+(defun emacspeak-wizards-customize-saved (pattern)
+  "Customize  saved options  matching `pattern'."
+  (interactive "sPattern: ")
+  (let ((found nil))
+		(mapatoms (lambda (symbol)
+		
+								(and  (string-match pattern (symbol-name  symbol))
+											(or (get symbol 'saved-value)
+													(get symbol 'saved-variable-comment))
+											(boundp symbol)
+											(push (list symbol 'custom-variable) found))))
+    (if (not found)
+				(user-error "No saved user options matching %s" pattern)
+      (custom-buffer-create (custom-sort-items found t nil)
+														(format "*Customize Saved Matching %s*" pattern))
+			(emacspeak-speak-mode-line))))
+
+;;}}}
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
