@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 4, 2017.
+last updated on June 6, 2017.
 
    The manual is divided into the following chapters.
 
@@ -4011,6 +4011,7 @@ system.
      <right>		emacspeak-speak-this-buffer-next-display
      <up>		emacspeak-read-previous-line
 
+     x .		emacspeak-wizards-shell-directory-reset
      x 0 .. x 9	emacspeak-wizards-shell-by-key
      x =		emacspeak-wizards-find-longest-line-in-region
      x Q		emacspeak-wizards-yql-lookup

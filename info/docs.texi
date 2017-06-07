@@ -1322,6 +1322,7 @@ C-SPC		emacspeak-speak-current-mark
 <right>		emacspeak-speak-this-buffer-next-display
 <up>		emacspeak-read-previous-line
 
+x .		emacspeak-wizards-shell-directory-reset
 x 0 .. x 9	emacspeak-wizards-shell-by-key
 x =		emacspeak-wizards-find-longest-line-in-region
 x Q		emacspeak-wizards-yql-lookup
@@ -22324,6 +22325,17 @@ Count slides starting from point.
 @end format
 @end deffn
 
+@subsubsection emacspeak-wizards-customize-saved
+@deffn {Command} emacspeak-wizards-customize-saved  (pattern)
+@findex emacspeak-wizards-customize-saved
+
+@format
+Customize  saved options  matching ‘pattern’.
+
+(fn PATTERN)
+@end format
+@end deffn
+
 @subsubsection emacspeak-wizards-cycle-browser
 @deffn {Command} emacspeak-wizards-cycle-browser   
 @findex emacspeak-wizards-cycle-browser
@@ -22930,17 +22942,6 @@ Switch to previous shell.
 @end format
 @end deffn
 
-@subsubsection emacspeak-wizards-refresh-shell-history
-@deffn {Command} emacspeak-wizards-refresh-shell-history   
-@findex emacspeak-wizards-refresh-shell-history
-
-@format
-Refresh shell history from disk.
-This is for use in conjunction with bash to allow multiple emacs
-  shell buffers to   share history information.
-@end format
-@end deffn
-
 @subsubsection emacspeak-wizards-rivo
 @deffn {Command} emacspeak-wizards-rivo  (when channel stop-time output directory)
 @findex emacspeak-wizards-rivo
@@ -23006,7 +23007,7 @@ of the source buffer.
 @end deffn
 
 @subsubsection emacspeak-wizards-shell-by-key
-@deffn {Command} emacspeak-wizards-shell-by-key  (&optional rekey)
+@deffn {Command} emacspeak-wizards-shell-by-key  (&optional prefix)
 @table @kbd
 @item C-e x 9
 @kindex C-e x 9
@@ -23058,11 +23059,11 @@ Switch to shell buffer by key. This provides a predictable means for
   non-shell-mode buffer that is visiting a file, invokes ‘cd ’ in the
   shell to change to the value of ‘default-directory’ --- if called with  a
   prefix-arg. When already in a shell buffer,
-  interactive prefix arg ‘rekey’ causes this shell to be re-keyed if
+  interactive prefix arg ‘prefix’ causes this shell to be re-keyed if
   appropriate --- see M-x emacspeak-wizards-shell-re-key for an
   explanation of how re-keying works.
 
-(fn &optional REKEY)
+(fn &optional PREFIX)
 @end format
 @end deffn
 
@@ -23086,6 +23087,13 @@ Prompts for and runs shell command on current file.
 
 @subsubsection emacspeak-wizards-shell-directory-reset
 @deffn {Command} emacspeak-wizards-shell-directory-reset   
+@table @kbd
+@item C-e x .
+@kindex C-e x .
+@item <fn> x .
+@kindex <fn> x .
+@end table
+
 @findex emacspeak-wizards-shell-directory-reset
 
 @format
@@ -25651,7 +25659,7 @@ Step-size used when incrementing and decrementing brightness.
 @node URL Templates 
 @section URL Templates
 
-This section documents a total of 85 URL Templates.
+This section documents a total of 86 URL Templates.
 
 All of these URL templates can be invoked via command
  @kbd{M-x emacspeak-url-template-fetch} normally bound to
@@ -25853,6 +25861,10 @@ Page Analysis From Google Webmaster tools.
 @b{Google topical News}
 
 Display specified news feed.
+
+@b{Guardian RSS Feeds Directory}
+
+Guardian Feeds  Directory
 
 @b{Lightweight  weather from wunderground}
 
