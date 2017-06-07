@@ -2722,7 +2722,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
 ;;;###autoload
 (defun emacspeak-wizards-enumerate-matching-commands (pattern)
   "Return list of commands whose names match pattern."
-  (interactive "sPattern: ")
+  (interactive "sFilter Regex: ")
   (let ((result nil))
     (mapatoms
      #'(lambda (s)
@@ -2734,7 +2734,7 @@ Lang is obtained from property `lang' on string, or  via an interactive prompt."
 ;;;###autoload
 (defun emacspeak-wizards-enumerate-uncovered-commands (pattern)
   "Enumerate unadvised commands matching pattern."
-  (interactive "sPattern:")
+  (interactive "sFilter Regex:")
   (let ((result nil))
     (mapatoms
      #'(lambda (s)
@@ -3347,7 +3347,7 @@ Optional interactive prefix arg shows  unprocessed results."
 
 (defun emacspeak-wizards-customize-saved (pattern)
   "Customize  saved options  matching `pattern'."
-  (interactive "sPattern: ")
+  (interactive "sFilter Regex: ")
   (let ((found nil))
 		(mapatoms (lambda (symbol)
 								(and  (string-match pattern (symbol-name  symbol))
