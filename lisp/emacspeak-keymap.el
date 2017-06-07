@@ -149,7 +149,7 @@
         ("C-j" finder-commentary)
         ("C-l" emacspeak-learn-emacs-mode)
         ("C-m" man)
-        ("C-s" customize-saved)
+        ("C-s" emacspeak-wizards-customize-saved)
         ("C-r" info-display-manual)
         ("SPC" customize-group)
         ("TAB" emacspeak-info-wizard)
