@@ -226,7 +226,7 @@ The default value of 12 is too high for using ido effectively with speech. "
 
 (voice-setup-add-map
  '(
-   (ido-first-match voice-brighten-extra)
+   (ido-first-match voice-brighten)
    (ido-only-match voice-bolden)
    (ido-subdir voice-lighten-extra)
    (ido-indicator voice-brighten)
