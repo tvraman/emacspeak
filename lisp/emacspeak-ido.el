@@ -73,7 +73,7 @@
   "Speak first of the displayed matches."
   (when (and ido-matches
              (sit-for 0.5))
-    (emacspeak-auditory-icon 'progress)
+    (emacspeak-auditory-icon 'item)
     (dtk-speak
      (concat 
       (car ido-matches)
