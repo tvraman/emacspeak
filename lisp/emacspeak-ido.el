@@ -182,18 +182,13 @@ The default value of 12 is too high for using ido effectively with speech. "
 ;;; hence the off-by-one hack
 
 (defadvice ido-next-match (after emacspeak pre act comp)
-  "Speak match at the front of the list."
+  "Provide auditory icon."
   (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
-    (dtk-speak
-     (second ido-matches))))
+    (emacspeak-auditory-icon 'select-object)))
 
 (defadvice ido-prev-match (after emacspeak pre act comp)
-  "Speak match at the front of the list."
-  (when (ems-interactive-p)
-    (emacspeak-auditory-icon 'select-object)
-    (dtk-speak
-     (car (last ido-matches)))))
+  "Provide auditory icon."
+  (when (ems-interactive-p) (emacspeak-auditory-icon 'select-object)))
 
 (defadvice ido-kill-buffer-at-head (after emacspeak pre act comp)
   "Provide auditory icon."
