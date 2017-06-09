@@ -71,12 +71,10 @@
 
 (defadvice ido-exhibit (after emacspeak pre act comp)
   "Speak first of the displayed matches."
-  (when (and ido-matches
-             (sit-for 0.5))
+  (when  ido-matches
     (emacspeak-auditory-icon 'item)
     (dtk-speak
-     (concat 
-      (car ido-matches)
+		 (concat 
       (format " %d choices: " (length ido-matches))
       (minibuffer-contents)
       (if(or (null ido-current-directory)
@@ -231,7 +229,7 @@ The default value of 12 is too high for using ido effectively with speech. "
    (ido-first-match voice-brighten-extra)
    (ido-only-match voice-bolden)
    (ido-subdir voice-lighten-extra)
-   (ido-indicator voice-smoothen)
+   (ido-indicator voice-brighten)
    (ido-incomplete-regexp voice-monotone)
    (flx-highlight-face voice-bolden)))
 
