@@ -80,7 +80,7 @@
              (string-equal ido-current-directory emacspeak-ido-cache-current-directory))
           " "
         (format "In directory: %s"
-                ido-current-directory))))))
+                (abbreviate-file-name ido-current-directory)))))))
 
 ;;}}}
 ;;{{{ speech-enable interactive commands:
