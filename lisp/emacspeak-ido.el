@@ -75,8 +75,8 @@
     (emacspeak-auditory-icon 'item)
     (dtk-speak
 		 (concat 
-      (format " %d choices: " (length ido-matches))
       (minibuffer-contents)
+      (format " %d choices: " (length ido-matches))
       (if(or (null ido-current-directory)
              (string-equal ido-current-directory emacspeak-ido-cache-current-directory))
           " "
