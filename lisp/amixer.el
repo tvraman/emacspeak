@@ -39,7 +39,8 @@
 
 ;;}}}
 ;;{{{ Customizations:
-
+;;; forward decl:
+(defvar emacspeak-speak-messages)
 ;;}}}
 ;;{{{ Definitions
 
