@@ -276,9 +276,10 @@ Interactive prefix arg refreshes cache."
   "Set equalizer. Only affects device `equal'."
   (interactive)
   (declare (special amixer-device))
-  (let ((amixer-device "equal"))
+  (let ((amixer-device "equal")
+				(emacspeak-speak-messages nil))
     (amixer 'refresh)
-    ;;; mark db dirty.
+;;; mark db dirty.
     (setq amixer-db nil)))
 
 (defun amixer-reset-equalizer ()
