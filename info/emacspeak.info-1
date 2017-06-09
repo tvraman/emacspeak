@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 6, 2017.
+last updated on June 8, 2017.
 
    The manual is divided into the following chapters.
 
@@ -5367,8 +5367,8 @@ system.
 
  -- Variable: User Option emacspeak-ido-first-match-voice
      Personality used for ido-first-match This personality uses
-     voice-brighten-extra whose effect can be changed globally by
-     customizing voice-brighten-extra-settings.
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
 
  -- Variable: User Option emacspeak-ido-incomplete-regexp-voice
      Personality used for ido-incomplete-regexp This personality uses
@@ -5377,8 +5377,8 @@ system.
 
  -- Variable: User Option emacspeak-ido-indicator-voice
      Personality used for ido-indicator This personality uses
-     voice-smoothen whose effect can be changed globally by customizing
-     voice-smoothen-settings.
+     voice-brighten whose effect can be changed globally by customizing
+     voice-brighten-settings.
 
  -- Variable: User Option emacspeak-ido-only-match-voice
      Personality used for ido-only-match This personality uses

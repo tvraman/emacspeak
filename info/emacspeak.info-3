@@ -5392,6 +5392,9 @@ Contains various wizards for the Emacspeak desktop.
 .............................................
 
  -- Command: emacspeak-wizards-customize-saved (pattern)
+     ‘C-h C-s’
+     ‘<f1> C-s’
+     ‘<help> C-s’
 
      Customize  saved options  matching ‘pattern’.
 

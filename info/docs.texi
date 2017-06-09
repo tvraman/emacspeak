@@ -2905,7 +2905,7 @@ This personality uses  voice-lighten-medium whose  effect can be changed globall
 
 @defvar {User Option} emacspeak-ido-first-match-voice
 Personality used for ido-first-match
-This personality uses  voice-brighten-extra whose  effect can be changed globally by customizing voice-brighten-extra-settings.
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
 
 @end defvar
 
@@ -2917,7 +2917,7 @@ This personality uses  voice-monotone whose  effect can be changed globally by c
 
 @defvar {User Option} emacspeak-ido-indicator-voice
 Personality used for ido-indicator
-This personality uses  voice-smoothen whose  effect can be changed globally by customizing voice-smoothen-settings.
+This personality uses  voice-brighten whose  effect can be changed globally by customizing voice-brighten-settings.
 
 @end defvar
 
@@ -22327,6 +22327,15 @@ Count slides starting from point.
 
 @subsubsection emacspeak-wizards-customize-saved
 @deffn {Command} emacspeak-wizards-customize-saved  (pattern)
+@table @kbd
+@item C-h C-s
+@kindex C-h C-s
+@item <f1> C-s
+@kindex <f1> C-s
+@item <help> C-s
+@kindex <help> C-s
+@end table
+
 @findex emacspeak-wizards-customize-saved
 
 @format
