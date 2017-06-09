@@ -75,6 +75,7 @@
   "Populate control with its settings information."
   (declare (special amixer-card amixer-device))
   (let ((fields nil)
+				(emacspeak-speak-messages nil)
         (slots nil)
         (current nil))
     (with-temp-buffer
@@ -119,10 +120,11 @@
 (defun amixer-build-db ()
   "Create a database of amixer controls and their settings."
   (declare (special amixer-db amixer-device amixer-program))
-  (unless amixer-program (error "You dont have a standard amixer."))m
+  (unless amixer-program (error "You dont have a standard amixer."))
   (let ((controls nil)
         (fields nil)
-        (slots nil))
+        (slots nil)
+				(emacspeak-speak-messages nil))
     (with-temp-buffer
       (shell-command
        (format
@@ -165,7 +167,8 @@
 (defun amixer-get-enumerated-values(control)
   "Return list of enumerated values."
   (declare (special amixer-device))
-  (let ((values nil))
+  (let ((values nil)
+				(emacspeak-speak-messages nil))
     (with-temp-buffer
       (shell-command
        (format
