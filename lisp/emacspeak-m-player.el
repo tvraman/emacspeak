@@ -354,10 +354,9 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
           (when (or (eq major-mode 'dired-mode) (eq major-mode 'locate-mode))
             (dired-get-filename nil 'no-error)))
         (ido-work-directory-list
-         (remove-if-not
-          #'(lambda (d)
-              (string-match  emacspeak-media-directory-regexp  d))
-          ido-work-directory-list)))
+         (cl-loop
+					for d in ido-work-directory-list
+          when (string-match  emacspeak-media-directory-regexp  d) collect d)))
     (read-file-name
      "Media Resource: "
      (emacspeak-m-player-guess-directory)
