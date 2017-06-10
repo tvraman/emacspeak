@@ -58,7 +58,8 @@
 ;;{{{ required modules
 
 (require 'emacspeak-preamble)
-(require 'ido)
+(eval-when-compile (require 'ido))
+
 ;;}}}
 ;;{{{ speech-enable feedback routines
 
@@ -70,7 +71,7 @@
   (setq emacspeak-ido-cache-current-directory ido-current-directory))
 
 (defadvice ido-exhibit (after emacspeak pre act comp)
-  "Speak first of the displayed matches."
+  "Speak ido minibuffer intelligently."
   (when  ido-matches
     (dtk-speak
 		 (concat 
@@ -116,6 +117,7 @@ The default value of 12 is too high for using ido effectively with speech. "
     (dtk-speak
      (format "Case %s"
              (if ido-enable-regexp 'on 'off)))))
+
 (defadvice ido-toggle-prefix (after emacspeak pre act comp)
   "Provide auditory feedback."
   (when (ems-interactive-p)
@@ -123,6 +125,7 @@ The default value of 12 is too high for using ido effectively with speech. "
     (dtk-speak
      (format "Prefix %s"
              (if ido-enable-prefix 'on 'off)))))
+
 ;;; forward declaration
 (defvar ido-process-ignore-lists) 
 (defadvice ido-toggle-ignore (after emacspeak pre act comp)
@@ -139,25 +142,29 @@ The default value of 12 is too high for using ido effectively with speech. "
   (when (ems-interactive-p)
     (dtk-speak (car ido-matches))))
 
-(cl-loop for f in
-      '(ido-find-file ido-find-file-other-frame ido-find-file-other-window
-                      ido-find-alternate-file ido-find-file-read-only ido-find-file-read-only-other-window ido-find-file-read-only-other-frame)
-      do
-      (eval
-       `(defadvice   ,f(around emacspeak pre act comp)
-          "Provide auditory feedback."
-          (cond
-           ((ems-interactive-p)
-            (let ((emacspeak-minibuffer-enter-auditory-icon nil))
-              (emacspeak-auditory-icon 'open-object)
-              ad-do-it
-              (emacspeak-auditory-icon 'open-object)
-              (emacspeak-speak-mode-line)))
-           (t ad-do-it))
-          ad-return-value)))
+(cl-loop 
+ for f in
+ '(
+	 ido-find-file ido-find-file-other-frame ido-find-file-other-window
+   ido-find-alternate-file ido-find-file-read-only ido-find-file-read-only-other-window ido-find-file-read-only-other-frame)
+ do
+ (eval
+  `(defadvice   ,f(around emacspeak pre act comp)
+     "Provide auditory feedback."
+     (cond
+      ((ems-interactive-p)
+       (let ((emacspeak-minibuffer-enter-auditory-icon nil))
+         (emacspeak-auditory-icon 'open-object)
+         ad-do-it
+         (emacspeak-auditory-icon 'open-object)
+         (emacspeak-speak-mode-line)))
+      (t ad-do-it))
+     ad-return-value)))
 
-(cl-loop for f in
-      '(ido-switch-buffer ido-switch-buffer-other-window
+(cl-loop
+ for f in
+      '(
+				ido-switch-buffer ido-switch-buffer-other-window
                           ido-switch-buffer-other-frame ido-display-buffer)
       do
       (eval
@@ -202,6 +209,7 @@ The default value of 12 is too high for using ido effectively with speech. "
 
 ;;}}}
 ;;{{{ Exit Minibuffer:
+
 (defadvice ido-exit-minibuffer (after emacspeak pre act comp)
   "Provide auditory feedback."
   (emacspeak-auditory-icon 'close-object))
@@ -218,7 +226,7 @@ The default value of 12 is too high for using ido effectively with speech. "
  '(
    (ido-first-match voice-brighten)
    (ido-only-match voice-bolden)
-   (ido-subdir voice-lighten-extra)
+   (ido-subdir voice-lighten)
    (ido-indicator voice-brighten)
    (ido-incomplete-regexp voice-monotone)
    (flx-highlight-face voice-bolden)))
