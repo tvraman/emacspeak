@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 8, 2017.
+last updated on June 9, 2017.
 
    The manual is divided into the following chapters.
 
@@ -5386,9 +5386,9 @@ system.
      voice-bolden-settings.
 
  -- Variable: User Option emacspeak-ido-subdir-voice
-     Personality used for ido-subdir This personality uses
-     voice-lighten-extra whose effect can be changed globally by
-     customizing voice-lighten-extra-settings.
+     Personality used for ido-subdir This personality uses voice-lighten
+     whose effect can be changed globally by customizing
+     voice-lighten-settings.
 
  -- Variable: User Option emacspeak-info-header-node-voice
      Personality used for info-header-node This personality uses

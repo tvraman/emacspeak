@@ -2929,7 +2929,7 @@ This personality uses  voice-bolden whose  effect can be changed globally by cus
 
 @defvar {User Option} emacspeak-ido-subdir-voice
 Personality used for ido-subdir
-This personality uses  voice-lighten-extra whose  effect can be changed globally by customizing voice-lighten-extra-settings.
+This personality uses  voice-lighten whose  effect can be changed globally by customizing voice-lighten-settings.
 
 @end defvar
 
@@ -9979,7 +9979,7 @@ Speech UI Challenge: What  is the most efficient means of
 conveying a dynamically updating set of choices?
 current strategy is to walk the list using c-s and c-r as
 provided by ido
-Set number matches shown to 3 using Custom so you dont hear
+Set number matches shown (ido-max-prospects) to 3 using Custom so you dont hear
 the entire list.
 
 @node emacspeak-imenu
