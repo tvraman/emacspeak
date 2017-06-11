@@ -70,9 +70,16 @@
   "Cache previous value of ido-current-directory."
   (setq emacspeak-ido-cache-current-directory ido-current-directory))
 
-(defadvice ido-exhibit (after emacspeak pre act comp)
+(defgroup emacspeak-ido nil
+	"IDO Completions On The emacspeak Audio Desktop."
+	:group  'emacspeak)
+
+(defcustom emacspeak-ido-typing-delay 0.15
+"How long we wait before speaking completions."
+:type 'float 
+:group 'emacspeak-ido)(defadvice ido-exhibit (after emacspeak pre act comp)
   "Speak ido minibuffer intelligently."
-  (when  (and ido-matches (sit-for 0.2))
+  (when  (and ido-matches (sit-for emacspeak-ido-typing-delay))
     (dtk-speak
 		 (concat 
       (minibuffer-contents)
