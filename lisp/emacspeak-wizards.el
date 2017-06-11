@@ -3362,6 +3362,19 @@ Optional interactive prefix arg shows  unprocessed results."
 			(emacspeak-speak-mode-line)))
 
 ;;}}}
+;;{{{ Quick Weather:
+;;;###autoload
+(defun emacspeak-wizards-quick-weather ()
+	"Bring up weather forecast for current location."
+	(interactive)
+	(let ((url
+				 (format
+					"http://www.wunderground.com/auto/rss_full/%s.xml?units=both"
+					gweb-my-postal-code)))
+		(funcall-interactively#'emacspeak-feeds-rss-display url)))
+
+;;}}}
+
 (provide 'emacspeak-wizards)
 ;;{{{ end of file
 
