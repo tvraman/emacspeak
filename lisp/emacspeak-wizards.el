@@ -3367,11 +3367,12 @@ Optional interactive prefix arg shows  unprocessed results."
 (defun emacspeak-wizards-quick-weather ()
 	"Bring up weather forecast for current location."
 	(interactive)
-	(let ((url
-				 (format
-					"http://www.wunderground.com/auto/rss_full/%s.xml?units=both"
+	(declare (special gweb-my-postal-code))
+	(funcall-interactively
+	 #'emacspeak-feeds-rss-display
+	 (format
+					"http://www.wunderground.com/auto/rss_full/%s.xml"
 					gweb-my-postal-code)))
-		(funcall-interactively#'emacspeak-feeds-rss-display url)))
 
 ;;}}}
 
