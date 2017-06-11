@@ -356,11 +356,15 @@ Searches recursively if `directory-files-recursively' is available (Emacs 25)."
         (ido-work-directory-list
          (cl-loop
 					for d in ido-work-directory-list
-          when (string-match  emacspeak-media-directory-regexp  d) collect d)))
-    (read-file-name
-     "Media Resource: "
-     (emacspeak-m-player-guess-directory)
-     default 'must-match default)))
+          when (string-match  emacspeak-media-directory-regexp  d) collect d))
+				(result nil))
+    (setq result
+					(read-file-name
+					 "Media Resource: "
+					 (emacspeak-m-player-guess-directory)
+					 default 'must-match default))
+		(dtk-stop)
+		result))
 
 (defun emacspeak-m-player-refresh-metadata ()
   "Populate metadata fields from currently playing  stream."
