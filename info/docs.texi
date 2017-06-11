@@ -2,7 +2,7 @@
 
 @chapter Emacspeak Commands And Options 
 
-This chapter documents a total of 1183 commands and 1107 options.
+This chapter documents a total of 1184 commands and 1108 options.
 
 @menu
 * acss-structure::CSS -- Cascaded Speech Style structure.
@@ -1529,13 +1529,13 @@ u		browse-url
 v		emacspeak-evil-toggle-evil
 w		emacspeak-web-prefix
 
+SPC SPC		emacspeak-webspace-headlines-browse
+SPC h		emacspeak-webspace-headlines
+
 w R		emacspeak-xslt-view-region
 w b		browse-url-of-buffer
 w m		emacspeak-wizards-eww-buffer-list
 w r		browse-url-of-region
-
-SPC SPC		emacspeak-webspace-headlines-browse
-SPC h		emacspeak-webspace-headlines
 
 .
 
@@ -9981,6 +9981,13 @@ current strategy is to walk the list using c-s and c-r as
 provided by ido
 Set number matches shown (ido-max-prospects) to 3 using Custom so you dont hear
 the entire list.
+
+@subsection emacspeak-ido Options
+
+@defvar {User Option} emacspeak-ido-typing-delay
+How long we wait before speaking completions.
+
+@end defvar
 
 @node emacspeak-imenu
 @section emacspeak-imenu
@@ -22948,6 +22955,15 @@ Navigate to and speak previous ‘bullet’.
 
 @format
 Switch to previous shell.
+@end format
+@end deffn
+
+@subsubsection emacspeak-wizards-quick-weather
+@deffn {Command} emacspeak-wizards-quick-weather   
+@findex emacspeak-wizards-quick-weather
+
+@format
+Bring up weather forecast for current location.
 @end format
 @end deffn
 

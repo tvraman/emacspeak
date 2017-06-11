@@ -18,7 +18,7 @@ Emacspeak
 *********
 
 This manual documents *Emacspeak, The Complete Audio Desktop* and was
-last updated on June 9, 2017.
+last updated on June 11, 2017.
 
    The manual is divided into the following chapters.
 
@@ -2947,7 +2947,7 @@ File: emacspeak.info,  Node: Emacspeak Commands And Options,  Next: Emacspeak Ke
 12 Emacspeak Commands And Options
 *********************************
 
-This chapter documents a total of 1183 commands and 1107 options.
+This chapter documents a total of 1184 commands and 1108 options.
 
 * Menu:
 
@@ -4218,13 +4218,13 @@ system.
      v		emacspeak-evil-toggle-evil
      w		emacspeak-web-prefix
 
+     SPC SPC		emacspeak-webspace-headlines-browse
+     SPC h		emacspeak-webspace-headlines
+
      w R		emacspeak-xslt-view-region
      w b		browse-url-of-buffer
      w m		emacspeak-wizards-eww-buffer-list
      w r		browse-url-of-region
-
-     SPC SPC		emacspeak-webspace-headlines-browse
-     SPC h		emacspeak-webspace-headlines
 
      .
 

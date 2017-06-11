@@ -4077,6 +4077,12 @@ updating set of choices?  current strategy is to walk the list using c-s
 and c-r as provided by ido Set number matches shown (ido-max-prospects)
 to 3 using Custom so you dont hear the entire list.
 
+12.99.1 emacspeak-ido Options
+-----------------------------
+
+ -- Variable: User Option emacspeak-ido-typing-delay
+     How long we wait before speaking completions.
+
 
 File: emacspeak.info,  Node: emacspeak-imenu,  Next: emacspeak-indium,  Prev: emacspeak-ido,  Up: Emacspeak Commands And Options
 
