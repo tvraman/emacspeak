@@ -938,6 +938,7 @@ Interactive prefix arg toggles automatic cueing of ICY info updates."
                     emacspeak-m-player-active-filters))
   (when (process-live-p  emacspeak-m-player-process)
     (push filter-name emacspeak-m-player-active-filters)
+		(dtk-stop)
     (emacspeak-m-player-dispatch (format "af_add %s" filter-name))))
 
 (defun emacspeak-m-player-left-channel ()
