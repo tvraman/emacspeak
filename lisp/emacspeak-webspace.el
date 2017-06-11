@@ -437,7 +437,7 @@ Optional interactive prefix arg forces a refresh."
      (emacspeak-webspace-kg-id-uri .@id)
      .@id
      (g-json-get 'contentUrl .image))))
-
+;;;###autoload
 (defun emacspeak-webspace-knowledge-search (query &optional limit)
   "Perform a Google Knowledge Graph search.
 Optional interactive prefix arg `limit' prompts for number of results, default is 1."
