@@ -72,7 +72,7 @@
 
 (defadvice ido-exhibit (after emacspeak pre act comp)
   "Speak ido minibuffer intelligently."
-  (when  (and ido-matches (sit-for 0.25))
+  (when  (and ido-matches (sit-for 0.2))
     (dtk-speak
 		 (concat 
       (minibuffer-contents)
