@@ -185,13 +185,6 @@ The default value of 12 is too high for using ido effectively with speech. "
     (emacspeak-auditory-icon 'open-object)))
 
 ;;}}}
-;;{{{ Exit Minibuffer:
-
-(defadvice ido-exit-minibuffer (after emacspeak pre act comp)
-  "Provide auditory feedback."
-  (emacspeak-auditory-icon 'close-object))
-
-;;}}}
 ;;{{{ define personalities 
 
 (defgroup emacspeak-ido nil
