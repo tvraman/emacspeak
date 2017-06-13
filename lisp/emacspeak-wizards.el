@@ -2071,6 +2071,32 @@ for the current voice family."
     (switch-to-buffer  buffer)
     (goto-char (point-min))))
 
+
+;;;###autoload
+(defun emacspeak-wizards-show-defined-voices ()
+  "Display a buffer with sample text in the defined voices."
+  (interactive)
+  (let ((buffer (get-buffer-create "*Voice Sampler*"))
+        (voices
+         (sort
+          (voice-setup-defined-voices)
+          #'(lambda (a b)
+              (string-lessp (symbol-name a) (symbol-name b))))))
+    (save-current-buffer
+      (set-buffer buffer)
+      (erase-buffer)
+      (cl-loop
+       for v in voices do 
+       (insert
+        (format "This is a sample of voice %s. " (symbol-name v)))
+       (put-text-property
+        (line-beginning-position) (line-end-position)
+        'personality v)
+       (end-of-line)
+       (insert "\n")))
+    (funcall-interactively #'switch-to-buffer  buffer)
+    (goto-char (point-min))))
+
 ;;}}}
 ;;{{{ tramp wizard
 (defcustom emacspeak-wizards-tramp-locations nil
