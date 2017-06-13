@@ -462,7 +462,8 @@ The player is placed in a buffer in emacspeak-m-player-mode."
       (emacspeak-m-player-mode)
       (emacspeak-amark-load)
       (setq  emacspeak-m-player-file-list file-list)
-      (message "MPlayer opened  %s" resource))))
+      (message "MPlayer opened  %s" 
+																		 (abbreviate-file-name resource)))))
 
 ;;;###autoload
 (defun emacspeak-m-player-using-openal (resource &optional play-list)
